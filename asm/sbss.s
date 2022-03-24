@@ -278,18 +278,23 @@ lbl_805A8D54:
 lbl_805A8D58:
 	.skip 0x4
 
+# TOneStatic<CTweakGame>
 .global lbl_805A8D5C
 lbl_805A8D5C:
 	.skip 0x4
 .global lbl_805A8D60
 lbl_805A8D60:
 	.skip 0x4
+
+# TOneStatic<CTweakBall>
 .global lbl_805A8D64
 lbl_805A8D64:
 	.skip 0x4
 .global lbl_805A8D68
 lbl_805A8D68:
 	.skip 0x8
+
+# CPlayerGun
 .global lbl_805A8D70
 lbl_805A8D70:
 	.skip 0x4
@@ -311,6 +316,8 @@ lbl_805A8D84:
 .global lbl_805A8D8C
 lbl_805A8D8C:
 	.skip 0xC
+
+# CStateManager
 .global lbl_805A8D98
 lbl_805A8D98:
 	.skip 0x4
@@ -353,12 +360,16 @@ lbl_805A8DC8:
 .global lbl_805A8DCC
 lbl_805A8DCC:
 	.skip 0x4
+
+# TOneStatic<CStateManagerContainer>
 .global lbl_805A8DD0
 lbl_805A8DD0:
 	.skip 0x4
 .global lbl_805A8DD4
 lbl_805A8DD4:
 	.skip 0x4
+
+# CWorld
 .global lbl_805A8DD8
 lbl_805A8DD8:
 	.skip 0x4
@@ -371,9 +382,13 @@ lbl_805A8DE0:
 .global lbl_805A8DE4
 lbl_805A8DE4:
 	.skip 0x4
+
+# CSamusHud
 .global lbl_805A8DE8
 lbl_805A8DE8:
 	.skip 0x8
+
+# CTransitionDatabaseGame
 .global lbl_805A8DF0
 lbl_805A8DF0:
 	.skip 0x4
@@ -386,12 +401,16 @@ lbl_805A8DF8:
 .global lbl_805A8DFC
 lbl_805A8DFC:
 	.skip 0x4
+
+# CScriptTrigger
 .global lbl_805A8E00
 lbl_805A8E00:
 	.skip 0x4
 .global lbl_805A8E04
 lbl_805A8E04:
 	.skip 0xC
+
+# CPatterned
 .global lbl_805A8E10
 lbl_805A8E10:
 	.skip 0x4
@@ -422,12 +441,16 @@ lbl_805A8E38:
 .global lbl_805A8E3C
 lbl_805A8E3C:
 	.skip 0x4
+
+# CScriptDoor
 .global lbl_805A8E40
 lbl_805A8E40:
 	.skip 0x4
 .global lbl_805A8E44
 lbl_805A8E44:
 	.skip 0x4
+
+# CBallCamera
 .global lbl_805A8E48
 lbl_805A8E48:
 	.skip 0x4
@@ -440,15 +463,21 @@ lbl_805A8E50:
 .global lbl_805A8E54
 lbl_805A8E54:
 	.skip 0x4
+
+# CScriptEffect
 .global lbl_805A8E58
 lbl_805A8E58:
 	.skip 0x4
 .global lbl_805A8E5C
 lbl_805A8E5C:
 	.skip 0x4
+
+# CBomb
 .global lbl_805A8E60
 lbl_805A8E60:
 	.skip 0x8
+
+# CCinematicCamera
 .global lbl_805A8E68
 lbl_805A8E68:
 	.skip 0x4
@@ -461,6 +490,8 @@ lbl_805A8E70:
 .global lbl_805A8E74
 lbl_805A8E74:
 	.skip 0x4
+
+# CAi + CAiFuncMap
 .global lbl_805A8E78
 lbl_805A8E78:
 	.skip 0x4
@@ -476,6 +507,8 @@ lbl_805A8E84:
 .global lbl_805A8E88
 lbl_805A8E88:
 	.skip 0x8
+
+# CScriptSound
 .global lbl_805A8E90
 lbl_805A8E90:
 	.skip 0x4
@@ -494,18 +527,26 @@ lbl_805A8EA0:
 .global lbl_805A8EA1
 lbl_805A8EA1:
 	.skip 0x7
+
+# CTweakTargeting
 .global lbl_805A8EA8
 lbl_805A8EA8:
 	.skip 0x4
 .global lbl_805A8EAC
 lbl_805A8EAC:
 	.skip 0x4
+
+# CGameArea or CMApWorld
 .global lbl_805A8EB0
 lbl_805A8EB0:
 	.skip 0x8
+
+# CWaveBeam
 .global lbl_805A8EB8
 lbl_805A8EB8:
 	.skip 0x8
+
+# CBeetleFR
 .global lbl_805A8EC0
 lbl_805A8EC0:
 	.skip 0x8
@@ -515,6 +556,8 @@ lbl_805A8EC8:
 .global lbl_805A8ECC
 lbl_805A8ECC:
 	.skip 0x4
+
+# CPlayerCameraBob
 .global lbl_805A8ED0
 lbl_805A8ED0:
 	.skip 0x4
@@ -524,9 +567,13 @@ lbl_805A8ED4:
 .global lbl_805A8ED8
 lbl_805A8ED8:
 	.skip 0x8
+
+# CCameraFilter
 .global lbl_805A8EE0
 lbl_805A8EE0:
 	.skip 0x8
+
+# CMorphBall
 .global lbl_805A8EE8
 lbl_805A8EE8:
 	.skip 0x4
@@ -545,18 +592,26 @@ lbl_805A8EF8:
 .global lbl_805A8EFC
 lbl_805A8EFC:
 	.skip 0x4
+
+# CConsoleOutputWindow
 .global lbl_805A8F00
 lbl_805A8F00:
 	.skip 0x8
+
+# CScriptWater
 .global lbl_805A8F08
 lbl_805A8F08:
 	.skip 0x8
+
+# CActorLights
 .global lbl_805A8F10
 lbl_805A8F10:
 	.skip 0x4
 .global lbl_805A8F14
 lbl_805A8F14:
 	.skip 0x4
+
+# CWorldShadow
 .global lbl_805A8F18
 lbl_805A8F18:
 	.skip 0x4
@@ -569,6 +624,8 @@ lbl_805A8F20:
 .global lbl_805A8F24
 lbl_805A8F24:
 	.skip 0x4
+
+# CDecalManager
 .global lbl_805A8F28
 lbl_805A8F28:
 	.skip 0x4
@@ -584,12 +641,16 @@ lbl_805A8F34:
 .global lbl_805A8F38
 lbl_805A8F38:
 	.skip 0x8
+
+# CBloodFlower
 .global lbl_805A8F40
 lbl_805A8F40:
 	.skip 0x4
 .global lbl_805A8F44
 lbl_805A8F44:
 	.skip 0x4
+
+# TGameTypes
 .global lbl_805A8F48
 lbl_805A8F48:
 	.skip 0x4
@@ -602,12 +663,16 @@ lbl_805A8F50:
 .global lbl_805A8F54
 lbl_805A8F54:
 	.skip 0x4
+
+# CRipple
 .global lbl_805A8F58
 lbl_805A8F58:
 	.skip 0x4
 .global lbl_805A8F5C
 lbl_805A8F5C:
 	.skip 0x4
+
+# CPathCamera
 .global lbl_805A8F60
 lbl_805A8F60:
 	.skip 0x4
@@ -620,6 +685,8 @@ lbl_805A8F68:
 .global lbl_805A8F6C
 lbl_805A8F6C:
 	.skip 0x4
+
+# CHudBillboardEffect
 .global lbl_805A8F70
 lbl_805A8F70:
 	.skip 0x4
@@ -629,15 +696,21 @@ lbl_805A8F74:
 .global lbl_805A8F78
 lbl_805A8F78:
 	.skip 0x8
+
+# CBSFlyerLocomotion
 .global lbl_805A8F80
 lbl_805A8F80:
 	.skip 0x8
+
+# CTargetableProjectile
 .global lbl_805A8F88
 lbl_805A8F88:
 	.skip 0x4
 .global lbl_805A8F8C
 lbl_805A8F8C:
 	.skip 0x4
+
+# CFireFlea
 .global lbl_805A8F90
 lbl_805A8F90:
 	.skip 0x4
@@ -650,12 +723,18 @@ lbl_805A8F98:
 .global lbl_805A8F9C
 lbl_805A8F9C:
 	.skip 0x4
+
+# CPuddleToadGamma
 .global lbl_805A8FA0
 lbl_805A8FA0:
 	.skip 0x8
+
+# CPowerBomb
 .global lbl_805A8FA8
 lbl_805A8FA8:
 	.skip 0x8
+
+# CParasite
 .global lbl_805A8FB0
 lbl_805A8FB0:
 	.skip 0x4
@@ -692,6 +771,8 @@ lbl_805A8FD4:
 .global lbl_805A8FD8
 lbl_805A8FD8:
 	.skip 0x8
+
+# CDrone
 .global lbl_805A8FE0
 lbl_805A8FE0:
 	.skip 0x1
