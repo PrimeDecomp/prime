@@ -98,7 +98,7 @@ __init_cpp_exceptions_reference:
 	.4byte __sinit_CVector2f_cpp
 	.4byte __sinit_CVector3f_cpp
 	.4byte __sinit_CMemory_cpp
-	.4byte sub_8032a504
+	.4byte __sinit_CElementGen_cpp
 	.4byte __sinit_CAABox_cpp
 	.4byte __sinit_rstl_strings_cpp
 	.4byte __sinit_RstlExtras_cpp

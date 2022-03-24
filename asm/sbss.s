@@ -1,41 +1,43 @@
 .include "macros.inc"
 
 .section .sbss, "wa"  # 0x805A8C20 - 0x805A9D1F
-.global lbl_805A8C20
-lbl_805A8C20:
+
+# main
+.global gpResourceFactory
+gpResourceFactory:
 	.skip 0x4
-.global lbl_805A8C24
-lbl_805A8C24:
+.global gpSimplePool
+gpSimplePool:
 	.skip 0x4
-.global lbl_805A8C28
-lbl_805A8C28:
+.global gpRender
+gpRender:
 	.skip 0x4
-.global lbl_805A8C2C
-lbl_805A8C2C:
+.global gpCharacterFactoryBuilder
+gpCharacterFactoryBuilder:
 	.skip 0x4
-.global lbl_805A8C30
-lbl_805A8C30:
+.global gGuiSystem
+gGuiSystem:
 	.skip 0x4
-.global lbl_805A8C34
-lbl_805A8C34:
+.global gpStringTable
+gpStringTable:
 	.skip 0x4
-.global lbl_805A8C38
-lbl_805A8C38:
+.global gpMain
+gpMain:
 	.skip 0x4
-.global lbl_805A8C3C
-lbl_805A8C3C:
+.global gpController
+gpController:
 	.skip 0x4
-.global lbl_805A8C40
-lbl_805A8C40:
+.global gpGameState
+gpGameState:
 	.skip 0x4
-.global lbl_805A8C44
-lbl_805A8C44:
+.global gpMemoryCard
+gpMemoryCard:
 	.skip 0x4
-.global lbl_805A8C48
-lbl_805A8C48:
+.global gpTweakManager
+gpTweakManager:
 	.skip 0x4
-.global lbl_805A8C4C
-lbl_805A8C4C:
+.global gpDefaultFont
+gpDefaultFont:
 	.skip 0x4
 .global lbl_805A8C50
 lbl_805A8C50:
@@ -46,24 +48,32 @@ lbl_805A8C54:
 .global lbl_805A8C58
 lbl_805A8C58:
 	.skip 0x4
-.global lbl_805A8C5C
-lbl_805A8C5C:
+.global sARAMMemArray
+sARAMMemArray:
 	.skip 0x8
+
+# CGameArchitectureSupport
 .global lbl_805A8C64
 lbl_805A8C64:
 	.skip 0x4
+
+# TOneStatic<CGameArchitectureSupport>
 .global lbl_805A8C68
 lbl_805A8C68:
 	.skip 0x4
 .global lbl_805A8C6C
 lbl_805A8C6C:
 	.skip 0x4
+
+# TOneStatic<CGameGlobalObjects>
 .global lbl_805A8C70
 lbl_805A8C70:
 	.skip 0x4
 .global lbl_805A8C74
 lbl_805A8C74:
 	.skip 0x4
+
+# CPlayer
 .global lbl_805A8C78
 lbl_805A8C78:
 	.skip 0x4
@@ -82,153 +92,192 @@ lbl_805A8C84:
 .global lbl_805A8C88
 lbl_805A8C88:
 	.skip 0x4
+
+# TOneStatic<CPlayerGun>
 .global lbl_805A8C8C
 lbl_805A8C8C:
 	.skip 0x4
 .global lbl_805A8C90
 lbl_805A8C90:
 	.skip 0x4
+
+# TOneStatic<CPlayerCameraBob>
 .global lbl_805A8C94
 lbl_805A8C94:
 	.skip 0x4
 .global lbl_805A8C98
 lbl_805A8C98:
 	.skip 0x4
+
+# TOneStatic<CMorphBall>
 .global lbl_805A8C9C
 lbl_805A8C9C:
 	.skip 0x4
 .global lbl_805A8CA0
 lbl_805A8CA0:
 	.skip 0x4
+
+# TOneStatic<CPlayer>
 .global lbl_805A8CA4
 lbl_805A8CA4:
 	.skip 0x4
 .global lbl_805A8CA8
 lbl_805A8CA8:
 	.skip 0x8
+
+# CFrontEndUI
 .global lbl_805A8CB0
 lbl_805A8CB0:
 	.skip 0x8
+
+# CMFGame
 .global lbl_805A8CB8
 lbl_805A8CB8:
 	.skip 0x8
+
+# TOneStatic<CStateManager>
 .global lbl_805A8CC0
 lbl_805A8CC0:
 	.skip 0x4
 .global lbl_805A8CC4
 lbl_805A8CC4:
 	.skip 0x4
+
+# CAnimData
 .global lbl_805A8CC8
 lbl_805A8CC8:
 	.skip 0x4
 .global lbl_805A8CCC
 lbl_805A8CCC:
 	.skip 0x4
+
+# TOneStatic<CTweakPlayer>
 .global lbl_805A8CD0
 lbl_805A8CD0:
 	.skip 0x4
 .global lbl_805A8CD4
 lbl_805A8CD4:
 	.skip 0x4
-.global lbl_805A8CD8
-lbl_805A8CD8:
+
+# CTweaks
+.global gpTweakPlayer
+gpTweakPlayer:
 	.skip 0x4
-.global lbl_805A8CDC
-lbl_805A8CDC:
+.global gpTweakBall
+gpTweakBall:
 	.skip 0x4
-.global lbl_805A8CE0
-lbl_805A8CE0:
+.global gpTweakGame
+gpTweakGame:
 	.skip 0x4
-.global lbl_805A8CE4
-lbl_805A8CE4:
+.global gpTweakParticle
+gpTweakParticle:
 	.skip 0x4
-.global lbl_805A8CE8
-lbl_805A8CE8:
+.global gpTweakPlayerControlCurrent
+gpTweakPlayerControlCurrent:
 	.skip 0x4
-.global lbl_805A8CEC
-lbl_805A8CEC:
+.global gpTweakPlayerControl1
+gpTweakPlayerControl1:
 	.skip 0x4
-.global lbl_805A8CF0
-lbl_805A8CF0:
+.global gpTweakPlayerControl2
+gpTweakPlayerControl2:
 	.skip 0x4
-.global lbl_805A8CF4
-lbl_805A8CF4:
+.global gpTweakPlayerGun
+gpTweakPlayerGun:
 	.skip 0x4
-.global lbl_805A8CF8
-lbl_805A8CF8:
+.global gpTweakGui
+gpTweakGui:
 	.skip 0x4
-.global lbl_805A8CFC
-lbl_805A8CFC:
+.global gpTweakGuiColors
+gpTweakGuiColors:
 	.skip 0x4
-.global lbl_805A8D00
-lbl_805A8D00:
+.global gpTweakTargeting
+gpTweakTargeting:
 	.skip 0x4
-.global lbl_805A8D04
-lbl_805A8D04:
+.global gpTweakAutoMapper
+gpTweakAutoMapper:
 	.skip 0x4
-.global lbl_805A8D08
-lbl_805A8D08:
+.global gpTweakGunRes
+gpTweakGunRes:
 	.skip 0x4
-.global lbl_805A8D0C
-lbl_805A8D0C:
+.global gpTweakPlayerRes
+gpTweakPlayerRes:
 	.skip 0x4
-.global lbl_805A8D10
-lbl_805A8D10:
+.global gpTweakSlideShow
+gpTweakSlideShow:
 	.skip 0x4
+
+# TOneStatic<CTweakSlideShow>
 .global lbl_805A8D14
 lbl_805A8D14:
 	.skip 0x4
 .global lbl_805A8D18
 lbl_805A8D18:
 	.skip 0x4
+
+# TOneStatic<CTweakPlayerRes>
 .global lbl_805A8D1C
 lbl_805A8D1C:
 	.skip 0x4
 .global lbl_805A8D20
 lbl_805A8D20:
 	.skip 0x4
+
+# TOneStatic<CTweakGunRes>
 .global lbl_805A8D24
 lbl_805A8D24:
 	.skip 0x4
 .global lbl_805A8D28
 lbl_805A8D28:
 	.skip 0x4
+
+# TOneStatic<CTweakAutoMapper>
 .global lbl_805A8D2C
 lbl_805A8D2C:
 	.skip 0x4
 .global lbl_805A8D30
 lbl_805A8D30:
 	.skip 0x4
+
+# TOneStatic<CTweakTargeting>
 .global lbl_805A8D34
 lbl_805A8D34:
 	.skip 0x4
 .global lbl_805A8D38
 lbl_805A8D38:
 	.skip 0x4
+
+# TOneStatic<CTweakGuiColors>
 .global lbl_805A8D3C
 lbl_805A8D3C:
 	.skip 0x4
 .global lbl_805A8D40
 lbl_805A8D40:
 	.skip 0x4
+
+# TOneStatic<CTweakGui>
 .global lbl_805A8D44
 lbl_805A8D44:
 	.skip 0x4
 .global lbl_805A8D48
 lbl_805A8D48:
 	.skip 0x4
+
+# TOneStatic<CTweakPlayerGun>
 .global lbl_805A8D4C
 lbl_805A8D4C:
 	.skip 0x4
 .global lbl_805A8D50
 lbl_805A8D50:
 	.skip 0x4
+
+# TOneStatic<CTweakParticle>
 .global lbl_805A8D54
 lbl_805A8D54:
 	.skip 0x4
 .global lbl_805A8D58
 lbl_805A8D58:
 	.skip 0x4
+
 .global lbl_805A8D5C
 lbl_805A8D5C:
 	.skip 0x4
