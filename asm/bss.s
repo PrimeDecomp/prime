@@ -694,14 +694,14 @@ lbl_80569E98:
 .global lbl_80569F60
 lbl_80569F60:
 	.skip 0x118
-.global lbl_8056A078
-lbl_8056A078:
+.global __THPMCUBuffer
+__THPMCUBuffer:
 	.skip 0x28
 .global lbl_8056A0A0
 lbl_8056A0A0:
 	.skip 0x100
-.global lbl_8056A1A0
-lbl_8056A1A0:
+.global __GBA
+__GBA:
 	.skip 0x400
 .global lbl_8056A5A0
 lbl_8056A5A0:
