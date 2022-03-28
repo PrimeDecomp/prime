@@ -4,7 +4,13 @@ INIT_O_FILES :=\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__mem.o
 
 TEXT_O_FILES :=\
-	$(BUILD_DIR)/asm/text.o
+	$(BUILD_DIR)/asm/text.o\
+	$(BUILD_DIR)/asm/Dolphin/THPDec.o\
+	$(BUILD_DIR)/asm/Dolphin/THPAudio.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA.o\
+	$(BUILD_DIR)/asm/Dolphin/GBARead.o\
+	$(BUILD_DIR)/asm/Dolphin/GBAWrite.o\
+	$(BUILD_DIR)/asm/Dolphin/GBAXfer.o
 
 EXTAB_O_FILES :=\
 	$(BUILD_DIR)/asm/extab.o
