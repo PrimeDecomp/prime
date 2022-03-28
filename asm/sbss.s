@@ -2933,23 +2933,23 @@ lbl_805A9BF0:
 .global lbl_805A9BF4
 lbl_805A9BF4:
 	.skip 0xC
-.global lbl_805A9C00
-lbl_805A9C00:
+.global Ydchuff
+Ydchuff:
 	.skip 0x20
-.global lbl_805A9C20
-lbl_805A9C20:
+.global Udchuff
+Udchuff:
 	.skip 0x20
-.global lbl_805A9C40
-lbl_805A9C40:
+.global Vdchuff
+Vdchuff:
 	.skip 0x20
-.global lbl_805A9C60
-lbl_805A9C60:
+.global Yachuff
+Yachuff:
 	.skip 0x20
-.global lbl_805A9C80
-lbl_805A9C80:
+.global Uachuff
+Uachuff:
 	.skip 0x20
-.global lbl_805A9CA0
-lbl_805A9CA0:
+.global Vachuff
+Vachuff:
 	.skip 0x4
 .global lbl_805A9CA4
 lbl_805A9CA4:
@@ -2975,15 +2975,15 @@ lbl_805A9D04:
 .global lbl_805A9D08
 lbl_805A9D08:
 	.skip 0x4
-.global lbl_805A9D0C
-lbl_805A9D0C:
+.global __THPWorkArea
+__THPWorkArea:
 	.skip 0x4
-.global lbl_805A9D10
-lbl_805A9D10:
+.global __THPInfo
+__THPInfo:
 	.skip 0x4
-.global lbl_805A9D14
-lbl_805A9D14:
+.global __THPInitFlag
+__THPInitFlag:
 	.skip 0x4
-.global lbl_805A9D18
-lbl_805A9D18:
+.global __GBAReset
+__GBAReset:
 	.skip 0x4
