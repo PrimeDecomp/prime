@@ -1,18 +1,7 @@
 .include "macros.inc"
 
 .section .sdata, "wa"  # 0x805A6BC0 - 0x805A8C1C
-.global lbl_805A6BC0
-lbl_805A6BC0:
-	.incbin "baserom.dol", 0x3F4560, 0x4
-.global lbl_805A6BC4
-lbl_805A6BC4:
-	.incbin "baserom.dol", 0x3F4564, 0x4
-.global lbl_805A6BC8
-lbl_805A6BC8:
-	.incbin "baserom.dol", 0x3F4568, 0x4
-.global lbl_805A6BCC
-lbl_805A6BCC:
-	.incbin "baserom.dol", 0x3F456C, 0x4
+
 .global lbl_805A6BD0
 lbl_805A6BD0:
 	.incbin "baserom.dol", 0x3F4570, 0x4
