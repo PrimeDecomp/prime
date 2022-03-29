@@ -3,8 +3,10 @@ INIT_O_FILES :=\
 	$(BUILD_DIR)/asm/os/__ppc_eabi_init.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__mem.o
 
+KYOTO_CWD :=\
+	$(BUILD_DIR)/asm/Kyoto_CWD/main.o
+
 TEXT_O_FILES :=\
-	$(BUILD_DIR)/asm/Kyoto_CWD/main.o\
 	$(BUILD_DIR)/asm/text.o\
 	$(BUILD_DIR)/asm/Dolphin/THPDec.o\
 	$(BUILD_DIR)/asm/Dolphin/THPAudio.o\

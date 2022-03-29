@@ -7931,3 +7931,35 @@ THPInit:
 /* 803C90BC 003C601C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803C90C0 003C6020  7C 08 03 A6 */	mtlr r0
 /* 803C90C4 003C6024  4E 80 00 20 */	blr 
+
+.section .rodata, "a" # 0x803CB3A0 - 0x803D8D60
+__THPJpegNaturalOrder: # local object
+	.4byte 0x00010810
+	.4byte 0x0902030A
+	.4byte 0x11182019
+	.4byte 0x120B0405
+	.4byte 0x0C131A21
+	.4byte 0x28302922
+	.4byte 0x1B140D06
+	.4byte 0x070E151C
+	.4byte 0x232A3138
+	.4byte 0x39322B24
+	.4byte 0x1D160F17
+	.4byte 0x1E252C33
+	.4byte 0x3A3B342D
+	.4byte 0x261F272E
+	.4byte 0x353C3D36
+	.4byte 0x2F373E3F
+	.4byte 0x3F3F3F3F
+	.4byte 0x3F3F3F3F
+	.4byte 0x3F3F3F3F
+	.4byte 0x3F3F3F3F
+__THPAANScaleFactor: # local object
+	.double 1.0
+	.double 1.3870398998260498
+	.double 1.3065630197525024
+	.double 1.1758755445480347
+	.double 1.0
+	.double 0.78569495677948
+	.double 0.5411961078643799
+	.double 0.27589938044548035
