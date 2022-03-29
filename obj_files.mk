@@ -4,6 +4,7 @@ INIT_O_FILES :=\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__mem.o
 
 TEXT_O_FILES :=\
+	$(BUILD_DIR)/asm/Kyoto_CWD/main.o\
 	$(BUILD_DIR)/asm/text.o\
 	$(BUILD_DIR)/asm/Dolphin/THPDec.o\
 	$(BUILD_DIR)/asm/Dolphin/THPAudio.o\
