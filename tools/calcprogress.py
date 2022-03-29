@@ -70,6 +70,12 @@ DATA_SECTION_COUNT = 11
 SECTION_TEXT = 0
 SECTION_DATA = 1
 
+# Progress flavor
+codeFrac = 1499         # total code "item" amount
+dataFrac = 250          # total data "item" amount
+codeItem = "energy"     # code flavor item
+dataItem = "missiles"   # data flavor item
+
 ###############################################
 #                                             #
 #                Entrypoint                   #
@@ -179,10 +185,6 @@ if __name__ == "__main__":
                 decomp_data_size += cur_size
 
     # Calculate percentages
-    codeFrac = 1500 # total code "item" amount
-    dataFrac = 250  # total data "item" amount
-    codeItem = "energy"     # code flavor item
-    dataItem = "missiles"   # data flavor item
     codeCompletionPcnt = (decomp_code_size / dol_code_size) # code completion percent
     dataCompletionPcnt = (decomp_data_size / dol_data_size) # data completion percent
     bytesPerCodeItem = dol_code_size / codeFrac # bytes per code item
