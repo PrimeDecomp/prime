@@ -1766,6 +1766,3 @@ lbl_803D8B48:
 .global lbl_803D8BD0
 lbl_803D8BD0:
 	.incbin "baserom.dol", 0x3D5BD0, 0x100
-.global __THPJpegNaturalOrder
-__THPJpegNaturalOrder:
-	.incbin "baserom.dol", 0x3D5CD0, 0x90
