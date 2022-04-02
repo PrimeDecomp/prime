@@ -2,9 +2,6 @@
 
 .section .text, "ax"
 
-.if 0
-/* THIS DOESN'T WORK???? */
-
 .global __close_console
 __close_console:
 /* 80391274 0038E1D4  38 60 00 00 */	li r3, 0
@@ -65,4 +62,3 @@ lbl_80391320:
 /* 80391334 0038E294  7C 08 03 A6 */	mtlr r0
 /* 80391338 0038E298  38 21 00 20 */	addi r1, r1, 0x20
 /* 8039133C 0038E29C  4E 80 00 20 */	blr 
-.endif

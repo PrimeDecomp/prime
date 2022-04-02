@@ -964,8 +964,8 @@ lbl_805A9D78:
 
 
 .section .text, "ax"
-.global nullsub_1
-nullsub_1:
+.global EnableMetroTRKInterrupts
+EnableMetroTRKInterrupts:
 /* 80003640 000005A0  4E 80 00 20 */	blr
 
 .global InitMetroTRK
@@ -6637,7 +6637,7 @@ main:
 /* 8000851C 0000547C  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 80008520 00005480  7C 7D 1B 78 */	mr r29, r3
 /* 80008524 00005484  38 60 00 01 */	li r3, 1
-/* 80008528 00005488  48 36 C8 A5 */	bl sub_80374dcc
+/* 80008528 00005488  48 36 C8 A5 */	bl DVDSetAutoFatalMessaging
 /* 8000852C 0000548C  48 2C E3 D1 */	bl SetErrorHandlers
 /* 80008530 00005490  3C 60 80 45 */	lis r3, 0x8045
 /* 80008534 00005494  37 E3 75 60 */	addic. r31, r3, 0x7560

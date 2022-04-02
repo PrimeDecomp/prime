@@ -356,7 +356,7 @@ DTKInit:
 /* 803B79E8 003B4948  4B FB 59 C1 */	bl AISetStreamVolRight
 /* 803B79EC 003B494C  3C 60 80 3B */	lis r3, sub_803b782c@ha
 /* 803B79F0 003B4950  38 63 78 2C */	addi r3, r3, sub_803b782c@l
-/* 803B79F4 003B4954  4B FB 56 61 */	bl AIRegisterDMACallback
+/* 803B79F4 003B4954  4B FB 56 61 */	bl AIRegisterStreamCallback
 /* 803B79F8 003B4958  4B FB 56 A1 */	bl sub_8036d098
 /* 803B79FC 003B495C  38 60 00 00 */	li r3, 0
 /* 803B7A00 003B4960  4B FB 56 BD */	bl AISetStreamPlayState
