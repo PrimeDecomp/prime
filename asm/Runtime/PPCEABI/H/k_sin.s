@@ -1,0 +1,49 @@
+.include "macros.inc"
+
+.section .text, "ax" 
+
+.global __kernel_sin
+__kernel_sin:
+/* 80393F14 00390E74  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 80393F18 00390E78  3C 00 3E 40 */	lis r0, 0x3e40
+/* 80393F1C 00390E7C  D8 21 00 08 */	stfd f1, 8(r1)
+/* 80393F20 00390E80  80 81 00 08 */	lwz r4, 8(r1)
+/* 80393F24 00390E84  54 84 00 7E */	clrlwi r4, r4, 1
+/* 80393F28 00390E88  7C 04 00 00 */	cmpw r4, r0
+/* 80393F2C 00390E8C  40 80 00 1C */	bge lbl_80393F48
+/* 80393F30 00390E90  FC 00 08 1E */	fctiwz f0, f1
+/* 80393F34 00390E94  D8 01 00 10 */	stfd f0, 0x10(r1)
+/* 80393F38 00390E98  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 80393F3C 00390E9C  2C 00 00 00 */	cmpwi r0, 0
+/* 80393F40 00390EA0  40 82 00 08 */	bne lbl_80393F48
+/* 80393F44 00390EA4  48 00 00 68 */	b lbl_80393FAC
+lbl_80393F48:
+/* 80393F48 00390EA8  C8 C1 00 08 */	lfd f6, 8(r1)
+/* 80393F4C 00390EAC  2C 03 00 00 */	cmpwi r3, 0
+/* 80393F50 00390EB0  C8 A2 D4 20 */	lfd f5, lbl_805AF140@sda21(r2)
+/* 80393F54 00390EB4  FC E6 01 B2 */	fmul f7, f6, f6
+/* 80393F58 00390EB8  C8 82 D4 18 */	lfd f4, lbl_805AF138@sda21(r2)
+/* 80393F5C 00390EBC  C8 62 D4 10 */	lfd f3, lbl_805AF130@sda21(r2)
+/* 80393F60 00390EC0  C8 22 D4 08 */	lfd f1, lbl_805AF128@sda21(r2)
+/* 80393F64 00390EC4  C8 02 D4 00 */	lfd f0, lbl_805AF120@sda21(r2)
+/* 80393F68 00390EC8  FC 85 21 FA */	fmadd f4, f5, f7, f4
+/* 80393F6C 00390ECC  FC A7 01 B2 */	fmul f5, f7, f6
+/* 80393F70 00390ED0  FC 67 19 3A */	fmadd f3, f7, f4, f3
+/* 80393F74 00390ED4  FC 27 08 FA */	fmadd f1, f7, f3, f1
+/* 80393F78 00390ED8  FC 27 00 7A */	fmadd f1, f7, f1, f0
+/* 80393F7C 00390EDC  40 82 00 14 */	bne lbl_80393F90
+/* 80393F80 00390EE0  C8 02 D4 28 */	lfd f0, lbl_805AF148@sda21(r2)
+/* 80393F84 00390EE4  FC 07 00 7A */	fmadd f0, f7, f1, f0
+/* 80393F88 00390EE8  FC 25 30 3A */	fmadd f1, f5, f0, f6
+/* 80393F8C 00390EEC  48 00 00 20 */	b lbl_80393FAC
+lbl_80393F90:
+/* 80393F90 00390EF0  FC 05 00 72 */	fmul f0, f5, f1
+/* 80393F94 00390EF4  C8 22 D4 30 */	lfd f1, lbl_805AF150@sda21(r2)
+/* 80393F98 00390EF8  C8 62 D4 28 */	lfd f3, lbl_805AF148@sda21(r2)
+/* 80393F9C 00390EFC  FC 01 00 B8 */	fmsub f0, f1, f2, f0
+/* 80393FA0 00390F00  FC 07 10 38 */	fmsub f0, f7, f0, f2
+/* 80393FA4 00390F04  FC 03 01 7C */	fnmsub f0, f3, f5, f0
+/* 80393FA8 00390F08  FC 26 00 28 */	fsub f1, f6, f0
+lbl_80393FAC:
+/* 80393FAC 00390F0C  38 21 00 20 */	addi r1, r1, 0x20
+/* 80393FB0 00390F10  4E 80 00 20 */	blr 
