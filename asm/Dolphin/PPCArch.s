@@ -1,0 +1,120 @@
+.include "macros.inc"
+
+.section .text, "ax"
+
+.global PPCMfmsr
+PPCMfmsr:
+/* 8036F7D4 0036C734  7C 60 00 A6 */	mfmsr r3
+/* 8036F7D8 0036C738  4E 80 00 20 */	blr 
+
+.global PPCMtmsr
+PPCMtmsr:
+/* 8036F7DC 0036C73C  7C 60 01 24 */	mtmsr r3
+/* 8036F7E0 0036C740  4E 80 00 20 */	blr 
+
+.global PPCMfhid0
+PPCMfhid0:
+/* 8036F7E4 0036C744  7C 70 FA A6 */	mfspr r3, 0x3f0
+/* 8036F7E8 0036C748  4E 80 00 20 */	blr 
+
+.global PPCMthid0
+PPCMthid0:
+/* 8036F7EC 0036C74C  7C 70 FB A6 */	mtspr 0x3f0, r3
+/* 8036F7F0 0036C750  4E 80 00 20 */	blr 
+
+.global PPCMfl2cr
+PPCMfl2cr:
+/* 8036F7F4 0036C754  7C 79 FA A6 */	mfspr r3, 0x3f9
+/* 8036F7F8 0036C758  4E 80 00 20 */	blr 
+
+.global PPCMtl2cr
+PPCMtl2cr:
+/* 8036F7FC 0036C75C  7C 79 FB A6 */	mtspr 0x3f9, r3
+/* 8036F800 0036C760  4E 80 00 20 */	blr 
+
+.global PPCMtdec
+PPCMtdec:
+/* 8036F804 0036C764  7C 76 03 A6 */	mtspr 0x16, r3
+/* 8036F808 0036C768  4E 80 00 20 */	blr 
+
+.global PPCSync
+PPCSync:
+/* 8036F80C 0036C76C  44 00 00 02 */	sc 
+/* 8036F810 0036C770  4E 80 00 20 */	blr 
+
+.global PPCHalt
+PPCHalt:
+/* 8036F814 0036C774  7C 00 04 AC */	sync 0
+lbl_8036F818:
+/* 8036F818 0036C778  60 00 00 00 */	nop 
+/* 8036F81C 0036C77C  38 60 00 00 */	li r3, 0
+/* 8036F820 0036C780  60 00 00 00 */	nop 
+/* 8036F824 0036C784  4B FF FF F4 */	b lbl_8036F818
+
+.global PPCMffpscr
+PPCMffpscr:
+/* 8036F828 0036C788  94 21 FF E8 */	stwu r1, -0x18(r1)
+/* 8036F82C 0036C78C  DB E1 00 10 */	stfd f31, 0x10(r1)
+/* 8036F830 0036C790  FF E0 04 8E */	mffs f31
+/* 8036F834 0036C794  DB E1 00 08 */	stfd f31, 8(r1)
+/* 8036F838 0036C798  80 61 00 0C */	lwz r3, 0xc(r1)
+/* 8036F83C 0036C79C  CB E1 00 10 */	lfd f31, 0x10(r1)
+/* 8036F840 0036C7A0  38 21 00 18 */	addi r1, r1, 0x18
+/* 8036F844 0036C7A4  4E 80 00 20 */	blr 
+
+.global PPCMtfpscr
+PPCMtfpscr:
+/* 8036F848 0036C7A8  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8036F84C 0036C7AC  DB E1 00 18 */	stfd f31, 0x18(r1)
+/* 8036F850 0036C7B0  38 80 00 00 */	li r4, 0
+/* 8036F854 0036C7B4  90 81 00 10 */	stw r4, 0x10(r1)
+/* 8036F858 0036C7B8  90 61 00 14 */	stw r3, 0x14(r1)
+/* 8036F85C 0036C7BC  CB E1 00 10 */	lfd f31, 0x10(r1)
+/* 8036F860 0036C7C0  FD FE FD 8E */	mtfsf 0xff, f31
+/* 8036F864 0036C7C4  CB E1 00 18 */	lfd f31, 0x18(r1)
+/* 8036F868 0036C7C8  38 21 00 20 */	addi r1, r1, 0x20
+/* 8036F86C 0036C7CC  4E 80 00 20 */	blr 
+
+.global PPCMfhid2
+PPCMfhid2:
+/* 8036F870 0036C7D0  7C 78 E2 A6 */	mfspr r3, 0x398
+/* 8036F874 0036C7D4  4E 80 00 20 */	blr 
+
+.global PPCMthid2
+PPCMthid2:
+/* 8036F878 0036C7D8  7C 78 E3 A6 */	mtspr 0x398, r3
+/* 8036F87C 0036C7DC  4E 80 00 20 */	blr 
+
+.global PPCMfwpar
+PPCMfwpar:
+/* 8036F880 0036C7E0  7C 00 04 AC */	sync 0
+/* 8036F884 0036C7E4  7C 79 E2 A6 */	mfspr r3, 0x399
+/* 8036F888 0036C7E8  4E 80 00 20 */	blr 
+
+.global PPCMtwpar
+PPCMtwpar:
+/* 8036F88C 0036C7EC  7C 79 E3 A6 */	mtspr 0x399, r3
+/* 8036F890 0036C7F0  4E 80 00 20 */	blr 
+
+.global PPCDisableSpeculation
+PPCDisableSpeculation:
+/* 8036F894 0036C7F4  7C 08 02 A6 */	mflr r0
+/* 8036F898 0036C7F8  90 01 00 04 */	stw r0, 4(r1)
+/* 8036F89C 0036C7FC  94 21 FF F8 */	stwu r1, -8(r1)
+/* 8036F8A0 0036C800  4B FF FF 45 */	bl PPCMfhid0
+/* 8036F8A4 0036C804  60 63 02 00 */	ori r3, r3, 0x200
+/* 8036F8A8 0036C808  4B FF FF 45 */	bl PPCMthid0
+/* 8036F8AC 0036C80C  80 01 00 0C */	lwz r0, 0xc(r1)
+/* 8036F8B0 0036C810  38 21 00 08 */	addi r1, r1, 8
+/* 8036F8B4 0036C814  7C 08 03 A6 */	mtlr r0
+/* 8036F8B8 0036C818  4E 80 00 20 */	blr 
+
+.global PPCSetFpIEEEMode
+PPCSetFpIEEEMode:
+/* 8036F8BC 0036C81C  FF A0 00 8C */	mtfsb0 0x1d
+/* 8036F8C0 0036C820  4E 80 00 20 */	blr 
+
+.global PPCSetFpNonIEEEMode
+PPCSetFpNonIEEEMode:
+/* 8036F8C4 0036C824  FF A0 00 4C */	mtfsb1 0x1d
+/* 8036F8C8 0036C828  4E 80 00 20 */	blr 

@@ -5,8 +5,111 @@ INIT_O_FILES :=\
 
 KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/main.o
+
+AI_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/ai.o
+	
+AR_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/AR/ar.o\
+	$(BUILD_DIR)/asm/Dolphin/AR/arq.o
+	
+BASE_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/PPCArch.o
+	
+DB_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/db.o
+	
+DSP_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/DSP/dsp.o\
+	$(BUILD_DIR)/asm/Dolphin/DSP/dsp_debug.o\
+	$(BUILD_DIR)/asm/Dolphin/DSP/dsp_task.o
+	
+DVD_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvdlow.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvdfs.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvd.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvdqueue.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvderror.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvdidutils.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/dvdfatal.o\
+	$(BUILD_DIR)/asm/Dolphin/DVD/fstload.o
+	
+GX_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXInit.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXFifo.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXAttr.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXMisc.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXGeometry.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXFrameBuf.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXLight.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXTexture.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXBump.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXTev.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXPixel.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXStubs.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXDisplayList.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXTransform.o\
+	$(BUILD_DIR)/asm/Dolphin/GX/GXPerf.o
+	
+MTX_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/mtx/mtx.o\
+	$(BUILD_DIR)/asm/Dolphin/mtx/mtx44vec.o\
+	$(BUILD_DIR)/asm/Dolphin/mtx/mtx44.o\
+	$(BUILD_DIR)/asm/Dolphin/mtx/vec.o\
+	$(BUILD_DIR)/asm/Dolphin/mtx/psmtx.o
+	
+# TODO: Move __ppc_eabi_init_text into the same source files as __ppc_eabi_init
+OS_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/OS/OS.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSAlarm.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSArena.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSAudioSystem.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSCache.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSContext.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSError.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSFatal.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSFont.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSInterrupt.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSLink.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSMemory.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSMutex.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSReboot.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSReset.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSResetSW.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSRtc.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSSync.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSThread.o\
+	$(BUILD_DIR)/asm/Dolphin/OS/OSTime.o\
+	$(BUILD_DIR)/asm/os/__ppc_eabi_init_text.o
+	
+	
+PAD_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/PAD/PadClamp.o\
+	$(BUILD_DIR)/asm/Dolphin/PAD/pad.o
+	
+VI_FILES :=\
+	$(BUILD_DIR)/asm/Dolphin/vi.o
 	
 MSL_PPCEABI_BARE_H :=\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__va_arg.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/global_destructor_chain.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/CPlusLibPPC.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/NMWException.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/ptmf.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/runtime.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__init_cpp_exceptions.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/Gecko_ExceptionPPC.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/abort_exit.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/alloc.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/ansi_files.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/ansi_fp.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/arith.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/buffer_io.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/ctype.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/direct_io.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/file_io.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/FILE_POS.o\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/mbstring.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/mem.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/mem_funcs.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/misc_io.o\
@@ -102,22 +205,22 @@ CARD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/CARD/CARDNet.o
 	
 SI_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/SIBios.o\
-	$(BUILD_DIR)/asm/Dolphin/SISamplingRate.o
+	$(BUILD_DIR)/asm/Dolphin/SI/SIBios.o\
+	$(BUILD_DIR)/asm/Dolphin/SI/SISamplingRate.o
 	
 EXI_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/EXIBios.o\
-	$(BUILD_DIR)/asm/Dolphin/EXIUart.o
+	$(BUILD_DIR)/asm/Dolphin/EXI/EXIBios.o\
+	$(BUILD_DIR)/asm/Dolphin/EXI/EXIUart.o
 
 THP_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/THPDec.o\
-	$(BUILD_DIR)/asm/Dolphin/THPAudio.o
+	$(BUILD_DIR)/asm/Dolphin/THP/THPDec.o\
+	$(BUILD_DIR)/asm/Dolphin/THP/THPAudio.o
 	
 GBA_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/GBA.o\
-	$(BUILD_DIR)/asm/Dolphin/GBARead.o\
-	$(BUILD_DIR)/asm/Dolphin/GBAWrite.o\
-	$(BUILD_DIR)/asm/Dolphin/GBAXfer.o
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBA.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBARead.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAWrite.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o
 	
 TEXT_O_FILES :=\
 	$(BUILD_DIR)/asm/text.o
