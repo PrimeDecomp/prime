@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .data, "wa"
+THPVersionStr:
+	.ascii "<< Dolphin SDK - THP	release build: Aug 27 2002 20:42:01 >>"
+	.skip 5
+	
+.section .sdata, "wa"
+THPVersion:
+	.4byte THPVersionStr
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global THPVideoDecode
@@ -7897,7 +7906,7 @@ THPInit:
 /* 803C9034 003C5F94  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803C9038 003C5F98  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803C903C 003C5F9C  3B E4 9F 60 */	addi r31, r4, lbl_80569F60@l
-/* 803C9040 003C5FA0  80 6D A0 58 */	lwz r3, lbl_805A8C18@sda21(r13)
+/* 803C9040 003C5FA0  80 6D A0 58 */	lwz r3, THPVersion@sda21(r13)
 /* 803C9044 003C5FA4  4B FB 4F F5 */	bl OSRegisterVersion
 /* 803C9048 003C5FA8  3C 80 E0 00 */	lis r4, 0xE0002000@ha
 /* 803C904C 003C5FAC  90 9F 01 00 */	stw r4, 0x100(r31)

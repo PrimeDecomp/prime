@@ -1315,8 +1315,8 @@ lbl_803C1228:
 /* 803C1240 003BE1A0  7C 08 03 A6 */	mtlr r0
 /* 803C1244 003BE1A4  4E 80 00 20 */	blr 
 
-.global sub_803c1248
-sub_803c1248:
+.global EXIInit
+EXIInit:
 /* 803C1248 003BE1A8  7C 08 02 A6 */	mflr r0
 /* 803C124C 003BE1AC  90 01 00 04 */	stw r0, 4(r1)
 /* 803C1250 003BE1B0  94 21 FF E8 */	stwu r1, -0x18(r1)

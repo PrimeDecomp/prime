@@ -2896,19 +2896,4 @@ lbl_803F6EF8:
 	.incbin "baserom.dol", 0x3F3EF8, 0xC0
 .global lbl_803F6FB8
 lbl_803F6FB8:
-	.incbin "baserom.dol", 0x3F3FB8, 0x1A8
-.global lbl_803F7160
-lbl_803F7160:
-	.incbin "baserom.dol", 0x3F4160, 0x10
-.global lbl_803F7170
-lbl_803F7170:
-	.incbin "baserom.dol", 0x3F4170, 0x30
-.global lbl_803F71A0
-lbl_803F71A0:
-	.incbin "baserom.dol", 0x3F41A0, 0x380
-.global lbl_803F7520
-lbl_803F7520:
-	.incbin "baserom.dol", 0x3F4520, 0xC
-.global lbl_803F752C
-lbl_803F752C:
-	.incbin "baserom.dol", 0x3F452C, 0x1A
+	.incbin "baserom.dol", 0x3F3FB8, 0x168
