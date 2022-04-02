@@ -1,5 +1,45 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+lbl_803F7160:
+    .4byte OnReset
+    .4byte 127
+    .4byte 0
+    .4byte 0
+	
+lbl_803F7170:
+	.byte 0x18
+	.byte 0xFC
+	.byte 0xC0
+	.byte 0x80
+	.byte 0x7f
+	.byte 0x40
+	.byte 0x3f
+	.byte 0x01
+	.byte 0x00
+	.ascii "// Coded by Kawasedo"
+	.byte 0x00
+	.byte 0x00
+	.byte 0x02
+	.byte 0x03
+	.byte 0x04
+	.byte 0x05
+	.byte 0x06
+	.byte 0x07
+	.byte 0x08
+	.byte 0xac
+	.byte 0xc4
+	.byte 0xf8
+	.byte 0x08
+	.byte 0x10
+	.byte 0xbf
+	.byte 0x18
+	.byte 0x00
+	.byte 0x00
+	.byte 0x00
+	
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ShortCommandProc
@@ -219,8 +259,7 @@ lbl_803C98C4:
 /* 803C98D0 003C6830  7C 08 03 A6 */	mtlr r0
 /* 803C98D4 003C6834  4E 80 00 20 */	blr 
 
-.global OnReset_0
-OnReset_0:
+OnReset:
 /* 803C98D8 003C6838  38 00 00 01 */	li r0, 1
 /* 803C98DC 003C683C  90 0D B1 58 */	stw r0, __GBAReset@sda21(r13)
 /* 803C98E0 003C6840  38 60 00 01 */	li r3, 1
