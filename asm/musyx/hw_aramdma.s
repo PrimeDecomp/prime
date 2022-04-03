@@ -1,5 +1,30 @@
 .include "macros.inc"
+.section .sbss, "wa"
 
+.global lbl_805A9B50
+lbl_805A9B50:
+	.skip 0x4
+.global lbl_805A9B54
+lbl_805A9B54:
+	.skip 0x4
+.global lbl_805A9B58
+lbl_805A9B58:
+	.skip 0x4
+.global lbl_805A9B5C
+lbl_805A9B5C:
+	.skip 0x4
+.global lbl_805A9B60
+lbl_805A9B60:
+	.skip 0x4
+.global lbl_805A9B64
+lbl_805A9B64:
+	.skip 0x4
+.global lbl_805A9B68
+lbl_805A9B68:
+	.skip 0x4
+.global lbl_805A9B6C
+lbl_805A9B6C:
+	.skip 0x4
 .section .text, "ax" 
 
 .global aramQueueCallback

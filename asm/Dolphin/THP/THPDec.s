@@ -1,5 +1,59 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+.global Ydchuff
+Ydchuff:
+	.skip 0x20
+.global Udchuff
+Udchuff:
+	.skip 0x20
+.global Vdchuff
+Vdchuff:
+	.skip 0x20
+.global Yachuff
+Yachuff:
+	.skip 0x20
+.global Uachuff
+Uachuff:
+	.skip 0x20
+.global Vachuff
+Vachuff:
+	.skip 0x4
+.global lbl_805A9CA4
+lbl_805A9CA4:
+	.skip 0x4
+.global lbl_805A9CA8
+lbl_805A9CA8:
+	.skip 0x4
+.global lbl_805A9CAC
+lbl_805A9CAC:
+	.skip 0x14
+.global lbl_805A9CC0
+lbl_805A9CC0:
+	.skip 0x20
+.global lbl_805A9CE0
+lbl_805A9CE0:
+	.skip 0x20
+.global lbl_805A9D00
+lbl_805A9D00:
+	.skip 0x4
+.global lbl_805A9D04
+lbl_805A9D04:
+	.skip 0x4
+.global lbl_805A9D08
+lbl_805A9D08:
+	.skip 0x4
+.global __THPWorkArea
+__THPWorkArea:
+	.skip 0x4
+.global __THPInfo
+__THPInfo:
+	.skip 0x4
+.global __THPInitFlag
+__THPInitFlag:
+	.skip 0x4
+	
 .section .data, "wa"
 THPVersionStr:
 	.ascii "<< Dolphin SDK - THP	release build: Aug 27 2002 20:42:01 >>"

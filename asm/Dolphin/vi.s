@@ -1,5 +1,50 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+lbl_805A9958:
+	.skip 0x4
+lbl_805A995C:
+	.skip 0x4
+lbl_805A9960:
+	.skip 0x4
+lbl_805A9964:
+	.skip 0x8
+lbl_805A996C:
+	.skip 0x4
+lbl_805A9970:
+	.skip 0x4
+lbl_805A9974:
+	.skip 0x4
+lbl_805A9978:
+	.skip 0x2
+lbl_805A997A:
+	.skip 0x2
+lbl_805A997C:
+	.skip 0x4
+lbl_805A9980:
+	.skip 0x4
+lbl_805A9984:
+	.skip 0x4
+lbl_805A9988:
+	.skip 0x8
+lbl_805A9990:
+	.skip 0x4
+lbl_805A9994:
+	.skip 0x4
+lbl_805A9998:
+	.skip 0x4
+lbl_805A999C:
+	.skip 0x4
+lbl_805A99A0:
+	.skip 0x4
+lbl_805A99A4:
+	.skip 0x4
+lbl_805A99A8:
+	.skip 0x4
+lbl_805A99AC:
+	.skip 0x4
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __VIRetraceHandler

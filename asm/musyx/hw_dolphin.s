@@ -1,5 +1,38 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+.global lbl_805A9B70
+lbl_805A9B70:
+	.skip 0x4
+.global lbl_805A9B74
+lbl_805A9B74:
+	.skip 0x4
+.global lbl_805A9B78
+lbl_805A9B78:
+	.skip 0x4
+.global lbl_805A9B7C
+lbl_805A9B7C:
+	.skip 0x4
+.global lbl_805A9B80
+lbl_805A9B80:
+	.skip 0x4
+.global lbl_805A9B84
+lbl_805A9B84:
+	.skip 0x4
+.global lbl_805A9B88
+lbl_805A9B88:
+	.skip 0x4
+.global lbl_805A9B8C
+lbl_805A9B8C:
+	.skip 0x4
+.global lbl_805A9B90
+lbl_805A9B90:
+	.skip 0x4
+.global lbl_805A9B94
+lbl_805A9B94:
+	.skip 0x4
+	
 .section .text, "ax" 
 
 .global salCallback

@@ -4,7 +4,9 @@ INIT_O_FILES :=\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__mem.o
 
 KYOTO_CWD :=\
-	$(BUILD_DIR)/asm/Kyoto_CWD/main.o
+	$(BUILD_DIR)/asm/Kyoto_CWD/main.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/text_80008894_80009144.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraManager.o
 
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
@@ -91,6 +93,7 @@ VI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/vi.o
 	
 MSL_PPCEABI_BARE_H :=\
+	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/sbss.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__va_arg.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/global_destructor_chain.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/CPlusLibPPC.o\
@@ -153,6 +156,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/s_cosf.o\
 	
 MUSYX_FILES :=\
+	$(BUILD_DIR)/asm/musyx/sbss.o\
 	$(BUILD_DIR)/asm/musyx/seq.o\
 	$(BUILD_DIR)/asm/musyx/synth.o\
 	$(BUILD_DIR)/asm/musyx/seq_api.o\
