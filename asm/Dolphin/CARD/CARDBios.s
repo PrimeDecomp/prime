@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+.global lbl_805A9BC8
+lbl_805A9BC8:
+	.skip 0x8
+	
 .section .text, "ax"
 
 .global __CARDDefaultApiCallback

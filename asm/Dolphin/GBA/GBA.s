@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+.global __GBAReset
+__GBAReset:
+	.skip 0x4
+	
 .section .data, "wa"
 
 lbl_803F7160:

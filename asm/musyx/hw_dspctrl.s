@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+.global lbl_805A9B4C
+lbl_805A9B4C:
+	.skip 0x1
+.global lbl_805A9B4D
+lbl_805A9B4D:
+	.skip 0x1
+.global lbl_805A9B4E
+lbl_805A9B4E:
+	.skip 0x1
+.global lbl_805A9B4F
+lbl_805A9B4F:
+	.skip 0x1
+	
+	
 .section .text, "ax" 
 
 .global salInitDspCtrl
