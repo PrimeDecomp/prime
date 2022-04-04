@@ -149,11 +149,6 @@ lbl_803829F4:
 /* 80382A0C 0037F96C  7C 08 03 A6 */	mtlr r0
 /* 80382A10 0037F970  4E 80 00 20 */	blr 
 
-.include "macros.inc"
-
-.section .text, "ax"
-
-.global OnReset
 OnReset:
 /* 80382A14 0037F974  7C 08 02 A6 */	mflr r0
 /* 80382A18 0037F978  2C 03 00 00 */	cmpwi r3, 0

@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .sdata, "wa"
+
+.global lbl_805A8C10
+lbl_805A8C10:
+	.incbin "baserom.dol", 0x3F65B0, 0x8
+	
 .section .text, "ax"
 
 .global SetExiInterruptMask

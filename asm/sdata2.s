@@ -14030,24 +14030,7 @@ lbl_805AF42C:
 .global lbl_805AF430
 lbl_805AF430:
 	.incbin "baserom.dol", 0x3FBCD0, 0x8
-.global lbl_805AF438
-lbl_805AF438:
-	.incbin "baserom.dol", 0x3FBCD8, 0x8
-.global lbl_805AF440
-lbl_805AF440:
-	.incbin "baserom.dol", 0x3FBCE0, 0x8
-.global lbl_805AF448
-lbl_805AF448:
-	.incbin "baserom.dol", 0x3FBCE8, 0x4
-.global lbl_805AF44C
-lbl_805AF44C:
-	.incbin "baserom.dol", 0x3FBCEC, 0x4
-.global lbl_805AF450
-lbl_805AF450:
-	.incbin "baserom.dol", 0x3FBCF0, 0x4
-.global lbl_805AF454
-lbl_805AF454:
-	.incbin "baserom.dol", 0x3FBCF4, 0x4
-.global lbl_805AF458
-lbl_805AF458:
-	.incbin "baserom.dol", 0x3FBCF8, 0x4
+.global i2fMagic
+i2fMagic:
+	.double 4.503601774854144E15
+

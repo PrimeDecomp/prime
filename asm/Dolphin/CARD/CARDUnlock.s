@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+.global lbl_803F6D00
+lbl_803F6D00:
+	.incbin "baserom.dol", 0x3F3D00, 0x160
+
+.section .sdata, "wa"
+.global lbl_805A8BF8
+lbl_805A8BF8:
+	.4byte 1
+	.skip 4
+
 .section .text, "ax"
 
 bitrev:

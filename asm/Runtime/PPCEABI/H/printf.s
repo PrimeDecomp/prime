@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data, "wa"
+# TODO: Move these where they actually belong
+.global lbl_803F2778
+lbl_803F2778:
+	.incbin "baserom.dol", 0x3EF778, 0x140
+.global lbl_803F28B8
+lbl_803F28B8:
+	.incbin "baserom.dol", 0x3EF8B8, 0x40
+.global lbl_803F28F8
+lbl_803F28F8:
+	.incbin "baserom.dol", 0x3EF8F8, 0x128
+.global lbl_803F2A20
+lbl_803F2A20:
+	.incbin "baserom.dol", 0x3EFA20, 0x100
+.global lbl_803F2B20
+lbl_803F2B20:
+	.incbin "baserom.dol", 0x3EFB20, 0x100
+.global lbl_803F2C20
+lbl_803F2C20:
+	.incbin "baserom.dol", 0x3EFC20, 0x100
+.global lbl_803F2D20
+lbl_803F2D20:
+	.incbin "baserom.dol", 0x3EFD20, 0x38
+.global lbl_803F2D58
+lbl_803F2D58:
+	.incbin "baserom.dol", 0x3EFD58, 0x84
+.global lbl_803F2DDC
+lbl_803F2DDC:
+	.incbin "baserom.dol", 0x3EFDDC, 0x84
+.global lbl_803F2E60
+lbl_803F2E60:
+	.incbin "baserom.dol", 0x3EFE60, 0xE0
+.global lbl_803F2F40
+lbl_803F2F40:
+	.incbin "baserom.dol", 0x3EFF40, 0x48
+	
 .section .text, "ax"
 .if 1
 /* TODO: Move __stdio_atexit to its own file (misc_io), 

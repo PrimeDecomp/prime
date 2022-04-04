@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+.global lbl_803F6FB8
+lbl_803F6FB8:
+	.incbin "baserom.dol", 0x3F3FB8, 0x168
+	
 .section .text, "ax"
 
 .global SISetSamplingRate

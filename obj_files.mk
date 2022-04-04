@@ -1,6 +1,6 @@
 INIT_O_FILES :=\
 	$(BUILD_DIR)/src/os/__start.o\
-	$(BUILD_DIR)/asm/os/__ppc_eabi_init.o\
+	$(BUILD_DIR)/src/os/__ppc_eabi_init.o\
 	$(BUILD_DIR)/asm/Runtime/PPCEABI/H/__mem.o
 
 KYOTO_CWD :=\
@@ -178,6 +178,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/snd_service.o\
 	$(BUILD_DIR)/asm/musyx/hardware.o\
 	$(BUILD_DIR)/asm/musyx/hw_aramdma.o\
+	$(BUILD_DIR)/asm/musyx/iram_image.o\
 	$(BUILD_DIR)/asm/musyx/hw_dolphin.o\
 	$(BUILD_DIR)/asm/musyx/hw_memory.o\
 	$(BUILD_DIR)/asm/musyx/creverb_fx.o\

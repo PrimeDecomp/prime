@@ -98,15 +98,15 @@ lbl_8037D858:
 /* 8037D864 0037A7C4  7C 08 03 A6 */	mtlr r0
 /* 8037D868 0037A7C8  4E 80 00 20 */	blr 
 
-.global sub_8037d86c
-sub_8037d86c:
+.global InquiryCallback
+InquiryCallback:
 /* 8037D86C 0037A7CC  80 04 00 0C */	lwz r0, 0xc(r4)
 /* 8037D870 0037A7D0  2C 00 00 00 */	cmpwi r0, 0
 /* 8037D874 0037A7D4  41 82 00 08 */	beq lbl_8037D87C
 /* 8037D878 0037A7D8  48 00 00 20 */	b lbl_8037D898
 lbl_8037D87C:
-/* 8037D87C 0037A7DC  3C 60 80 54 */	lis r3, lbl_80541200@ha
-/* 8037D880 0037A7E0  38 63 12 00 */	addi r3, r3, lbl_80541200@l
+/* 8037D87C 0037A7DC  3C 60 80 54 */	lis r3, DriveInfo@ha
+/* 8037D880 0037A7E0  38 63 12 00 */	addi r3, r3, DriveInfo@l
 /* 8037D884 0037A7E4  A0 03 00 02 */	lhz r0, 2(r3)
 /* 8037D888 0037A7E8  3C 60 80 00 */	lis r3, 0x800030E6@ha
 /* 8037D88C 0037A7EC  60 00 80 00 */	ori r0, r0, 0x8000
@@ -127,15 +127,15 @@ OSInit:
 /* 8037D8B4 0037A814  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 8037D8B8 0037A818  93 C1 00 10 */	stw r30, 0x10(r1)
 /* 8037D8BC 0037A81C  93 A1 00 0C */	stw r29, 0xc(r1)
-/* 8037D8C0 0037A820  80 0D AC D0 */	lwz r0, lbl_805A9890@sda21(r13)
-/* 8037D8C4 0037A824  3C 60 80 54 */	lis r3, lbl_80541200@ha
-/* 8037D8C8 0037A828  3B C3 12 00 */	addi r30, r3, lbl_80541200@l
+/* 8037D8C0 0037A820  80 0D AC D0 */	lwz r0, AreWeInitialized@sda21(r13)
+/* 8037D8C4 0037A824  3C 60 80 54 */	lis r3, DriveInfo@ha
+/* 8037D8C8 0037A828  3B C3 12 00 */	addi r30, r3, DriveInfo@l
 /* 8037D8CC 0037A82C  2C 00 00 00 */	cmpwi r0, 0
 /* 8037D8D0 0037A830  3C 60 80 3F */	lis r3, lbl_803F0DA0@ha
 /* 8037D8D4 0037A834  3B E3 0D A0 */	addi r31, r3, lbl_803F0DA0@l
 /* 8037D8D8 0037A838  40 82 03 2C */	bne lbl_8037DC04
 /* 8037D8DC 0037A83C  38 00 00 01 */	li r0, 1
-/* 8037D8E0 0037A840  90 0D AC D0 */	stw r0, lbl_805A9890@sda21(r13)
+/* 8037D8E0 0037A840  90 0D AC D0 */	stw r0, AreWeInitialized@sda21(r13)
 /* 8037D8E4 0037A844  48 00 7A E5 */	bl __OSGetSystemTime
 /* 8037D8E8 0037A848  90 8D AC EC */	stw r4, lbl_805A98AC@sda21(r13)
 /* 8037D8EC 0037A84C  90 6D AC E8 */	stw r3, lbl_805A98A8@sda21(r13)
@@ -350,8 +350,8 @@ lbl_8037DBE4:
 /* 8037DBE4 0037AB44  7F C3 F3 78 */	mr r3, r30
 /* 8037DBE8 0037AB48  38 80 00 20 */	li r4, 0x20
 /* 8037DBEC 0037AB4C  48 00 0E 99 */	bl DCInvalidateRange
-/* 8037DBF0 0037AB50  3C 60 80 38 */	lis r3, sub_8037d86c@ha
-/* 8037DBF4 0037AB54  38 A3 D8 6C */	addi r5, r3, sub_8037d86c@l
+/* 8037DBF0 0037AB50  3C 60 80 38 */	lis r3, InquiryCallback@ha
+/* 8037DBF4 0037AB54  38 A3 D8 6C */	addi r5, r3, InquiryCallback@l
 /* 8037DBF8 0037AB58  7F C4 F3 78 */	mr r4, r30
 /* 8037DBFC 0037AB5C  38 7E 00 20 */	addi r3, r30, 0x20
 /* 8037DC00 0037AB60  4B FF 63 F1 */	bl DVDInquiryAsync

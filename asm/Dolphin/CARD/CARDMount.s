@@ -1,5 +1,35 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+.global lbl_803F6E60
+lbl_803F6E60:
+	.4byte 0x00002000
+	.4byte 0x00004000
+	.4byte 0x00008000
+	.4byte 0x00010000
+	.4byte 0x00020000
+	.4byte 0x00040000
+	.4byte 0x00000000
+	.4byte 0x00000000
+    
+.global lbl_803F6E80
+lbl_803F6E80:
+	.4byte 0x00000004
+	.4byte 0x00000008
+	.4byte 0x00000010
+	.4byte 0x00000020
+	.4byte 0x00000040
+	.4byte 0x00000080
+	.4byte 0x00000100
+	.4byte 0x00000200
+
+.section .sdata, "wa"
+.global lbl_805A8C00
+lbl_805A8C00:
+	.2byte 0xFFFF
+	.balign 4
+	
 .section .text, "ax"
 
 .global IsCard

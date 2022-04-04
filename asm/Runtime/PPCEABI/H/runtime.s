@@ -128,8 +128,8 @@ func_80389A58:
 /* 80389A58 003869B8  92 4B FF C8 */	stw r18, -0x38(r11)
 /* 80389A5C 003869BC  92 6B FF CC */	stw r19, -0x34(r11)
 
-.global func_80389A60
-func_80389A60:
+.global _savegpr_20
+_savegpr_20:
 /* 80389A60 003869C0  92 8B FF D0 */	stw r20, -0x30(r11)
 
 .global func_80389A64
@@ -144,16 +144,16 @@ sub_80389a68:
 func_80389A6C:
 /* 80389A6C 003869CC  92 EB FF DC */	stw r23, -0x24(r11)
 
-.global func_80389A70
-func_80389A70:
+.global _savegpr_24
+_savegpr_24:
 /* 80389A70 003869D0  93 0B FF E0 */	stw r24, -0x20(r11)
 
-.global func_80389A74
-func_80389A74:
+.global _savegpr_25
+_savegpr_25:
 /* 80389A74 003869D4  93 2B FF E4 */	stw r25, -0x1c(r11)
 
-.global func_80389A78
-func_80389A78:
+.global _savegpr_26
+_savegpr_26:
 /* 80389A78 003869D8  93 4B FF E8 */	stw r26, -0x18(r11)
 
 .global sub_80389a7c

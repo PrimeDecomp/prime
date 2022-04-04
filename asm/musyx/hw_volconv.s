@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+.global lbl_803F3FC0
+lbl_803F3FC0:
+	.incbin "baserom.dol", 0x3F0FC0, 0x228
+	
 .section .text, "ax" 
 
 .global salCalcVolume

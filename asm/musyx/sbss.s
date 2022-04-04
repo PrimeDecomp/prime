@@ -196,8 +196,8 @@ lbl_805A9AF8:
 .global lbl_805A9AFC
 lbl_805A9AFC:
 	.skip 0x4
-.global lbl_805A9B00
-lbl_805A9B00:
+.global dspCmdList
+dspCmdList:
 	.skip 0x4
 .global lbl_805A9B04
 lbl_805A9B04:

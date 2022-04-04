@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .data, "wa"
+.global lbl_803F23A8
+lbl_803F23A8:
+	.incbin "baserom.dol", 0x3EF3A8, 0x1F4
+.global lbl_803F259C
+lbl_803F259C:
+	.incbin "baserom.dol", 0x3EF59C, 0x1C0
+.global lbl_803F275C
+lbl_803F275C:
+	.incbin "baserom.dol", 0x3EF75C, 0x1C
+	
 .section .sbss, "wa"
 
 lbl_805A9958:

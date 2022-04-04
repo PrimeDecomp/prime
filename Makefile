@@ -117,6 +117,7 @@ ASFLAGS += -W
 endif
 
 $(BUILD_DIR)/src/os/__start.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
 
 #-------------------------------------------------------------------------------
 # Recipes

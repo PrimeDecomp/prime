@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .data, "wa"
+.global lbl_803F2398
+lbl_803F2398:
+	.incbin "baserom.dol", 0x3EF398, 0x10
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateOrigin
@@ -1738,8 +1743,7 @@ lbl_803873B4:
 /* 803873B8 00384318  98 64 00 07 */	stb r3, 7(r4)
 /* 803873BC 0038431C  4E 80 00 20 */	blr 
 
-.global sub_803873c0
-sub_803873c0:
+OnReset:
 /* 803873C0 00384320  7C 08 02 A6 */	mflr r0
 /* 803873C4 00384324  90 01 00 04 */	stw r0, 4(r1)
 /* 803873C8 00384328  94 21 FF D8 */	stwu r1, -0x28(r1)

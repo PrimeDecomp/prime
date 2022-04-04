@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .data, "wa"
+lbl_803F6470:
+	.4byte 0x000006FD
+	.4byte 0x000007CF
+	.4byte 0x0000091D
+	.4byte 0x000001B1
+	.4byte 0x00000095
+	.4byte 0x0000002F
+	.4byte 0x00000049
+	.4byte 0x00000043
+	
 .section .text, "ax" 
 
 .global ReverbHICreate
@@ -24,7 +35,7 @@ ReverbHICreate:
 /* 803B5C04 003B2B64  DB 01 00 40 */	stfd f24, 0x40(r1)
 /* 803B5C08 003B2B68  F3 01 00 48 */	psq_st f24, 72(r1), 0, qr0
 /* 803B5C0C 003B2B6C  39 61 00 40 */	addi r11, r1, 0x40
-/* 803B5C10 003B2B70  4B FD 3E 51 */	bl func_80389A60
+/* 803B5C10 003B2B70  4B FD 3E 51 */	bl _savegpr_20
 /* 803B5C14 003B2B74  FF 00 08 90 */	fmr f24, f1
 /* 803B5C18 003B2B78  C0 E2 D6 D0 */	lfs f7, lbl_805AF3F0@sda21(r2)
 /* 803B5C1C 003B2B7C  FF 80 10 90 */	fmr f28, f2

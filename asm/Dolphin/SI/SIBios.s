@@ -1,6 +1,27 @@
 .include "macros.inc"
 
+.section .data, "wa"
 
+.global lbl_803F6EA0
+lbl_803F6EA0:
+	.asciz "<< Dolphin SDK - SI	release build: Sep  5 2002 05:33:08 (0x2301) >>"
+
+.balign 4
+	
+.global Si
+Si:
+	.incbin "baserom.dol", 0x3F3EE4, 0x14
+	
+.global Type
+Type:
+	.incbin "baserom.dol", 0x3F3EF8, 0xC0
+
+.section .sdata, "wa"
+.global __SIVersion
+__SIVersion:
+	.4byte lbl_803F6EA0
+	.skip 4
+	
 .section .sbss, "wa"
 .global lbl_805A9BD0
 lbl_805A9BD0:
@@ -31,8 +52,8 @@ lbl_805A9BF4:
 
 .global SIBusy
 SIBusy:
-/* 803BE6AC 003BB60C  3C 60 80 3F */	lis r3, lbl_803F6EE4@ha
-/* 803BE6B0 003BB610  80 03 6E E4 */	lwz r0, lbl_803F6EE4@l(r3)
+/* 803BE6AC 003BB60C  3C 60 80 3F */	lis r3, Si@ha
+/* 803BE6B0 003BB610  80 03 6E E4 */	lwz r0, Si@l(r3)
 /* 803BE6B4 003BB614  2C 00 FF FF */	cmpwi r0, -1
 /* 803BE6B8 003BB618  41 82 00 0C */	beq lbl_803BE6C4
 /* 803BE6BC 003BB61C  38 60 00 01 */	li r3, 1
@@ -43,16 +64,16 @@ lbl_803BE6C4:
 
 .global SIIsChanBusy
 SIIsChanBusy:
-/* 803BE6CC 003BB62C  3C 80 80 57 */	lis r4, lbl_80569C98@ha
+/* 803BE6CC 003BB62C  3C 80 80 57 */	lis r4, Packet@ha
 /* 803BE6D0 003BB630  54 65 28 34 */	slwi r5, r3, 5
-/* 803BE6D4 003BB634  38 04 9C 98 */	addi r0, r4, lbl_80569C98@l
+/* 803BE6D4 003BB634  38 04 9C 98 */	addi r0, r4, Packet@l
 /* 803BE6D8 003BB638  7C 80 2A 14 */	add r4, r0, r5
 /* 803BE6DC 003BB63C  80 04 00 00 */	lwz r0, 0(r4)
 /* 803BE6E0 003BB640  38 A0 00 01 */	li r5, 1
 /* 803BE6E4 003BB644  2C 00 FF FF */	cmpwi r0, -1
 /* 803BE6E8 003BB648  40 82 00 18 */	bne lbl_803BE700
-/* 803BE6EC 003BB64C  3C 80 80 3F */	lis r4, lbl_803F6EE4@ha
-/* 803BE6F0 003BB650  80 04 6E E4 */	lwz r0, lbl_803F6EE4@l(r4)
+/* 803BE6EC 003BB64C  3C 80 80 3F */	lis r4, Si@ha
+/* 803BE6F0 003BB650  80 04 6E E4 */	lwz r0, Si@l(r4)
 /* 803BE6F4 003BB654  7C 00 18 00 */	cmpw r0, r3
 /* 803BE6F8 003BB658  41 82 00 08 */	beq lbl_803BE700
 /* 803BE6FC 003BB65C  38 A0 00 00 */	li r5, 0
@@ -273,13 +294,13 @@ SIInterruptHandler:
 /* 803BEA04 003BB964  7C 08 02 A6 */	mflr r0
 /* 803BEA08 003BB968  3C A0 CC 00 */	lis r5, 0xCC006434@ha
 /* 803BEA0C 003BB96C  90 01 00 04 */	stw r0, 4(r1)
-/* 803BEA10 003BB970  3C E0 80 57 */	lis r7, lbl_80569C98@ha
+/* 803BEA10 003BB970  3C E0 80 57 */	lis r7, Packet@ha
 /* 803BEA14 003BB974  3C C0 80 3F */	lis r6, lbl_803F6EA0@ha
 /* 803BEA18 003BB978  94 21 FF B8 */	stwu r1, -0x48(r1)
 /* 803BEA1C 003BB97C  BE A1 00 1C */	stmw r21, 0x1c(r1)
 /* 803BEA20 003BB980  3B C3 00 00 */	addi r30, r3, 0
 /* 803BEA24 003BB984  3B E4 00 00 */	addi r31, r4, 0
-/* 803BEA28 003BB988  3B 87 9C 98 */	addi r28, r7, lbl_80569C98@l
+/* 803BEA28 003BB988  3B 87 9C 98 */	addi r28, r7, Packet@l
 /* 803BEA2C 003BB98C  3B A6 6E A0 */	addi r29, r6, lbl_803F6EA0@l
 /* 803BEA30 003BB990  83 05 64 34 */	lwz r24, 0xCC006434@l(r5)
 /* 803BEA34 003BB994  57 05 00 02 */	rlwinm r5, r24, 0, 0, 1
@@ -498,11 +519,11 @@ lbl_803BED34:
 .global SIEnablePollingInterrupt
 SIEnablePollingInterrupt:
 /* 803BED48 003BBCA8  7C 08 02 A6 */	mflr r0
-/* 803BED4C 003BBCAC  3C 80 80 57 */	lis r4, lbl_80569C98@ha
+/* 803BED4C 003BBCAC  3C 80 80 57 */	lis r4, Packet@ha
 /* 803BED50 003BBCB0  90 01 00 04 */	stw r0, 4(r1)
 /* 803BED54 003BBCB4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803BED58 003BBCB8  93 E1 00 2C */	stw r31, 0x2c(r1)
-/* 803BED5C 003BBCBC  3B E4 9C 98 */	addi r31, r4, lbl_80569C98@l
+/* 803BED5C 003BBCBC  3B E4 9C 98 */	addi r31, r4, Packet@l
 /* 803BED60 003BBCC0  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 803BED64 003BBCC4  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 803BED68 003BBCC8  3B A3 00 00 */	addi r29, r3, 0
@@ -671,17 +692,17 @@ lbl_803BEF88:
 .global SIInit
 SIInit:
 /* 803BEFA0 003BBF00  7C 08 02 A6 */	mflr r0
-/* 803BEFA4 003BBF04  3C 80 80 57 */	lis r4, lbl_80569C98@ha
+/* 803BEFA4 003BBF04  3C 80 80 57 */	lis r4, Packet@ha
 /* 803BEFA8 003BBF08  90 01 00 04 */	stw r0, 4(r1)
 /* 803BEFAC 003BBF0C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803BEFB0 003BBF10  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 803BEFB4 003BBF14  3B E4 9C 98 */	addi r31, r4, lbl_80569C98@l
-/* 803BEFB8 003BBF18  80 6D A0 48 */	lwz r3, lbl_805A8C08@sda21(r13)
+/* 803BEFB4 003BBF14  3B E4 9C 98 */	addi r31, r4, Packet@l
+/* 803BEFB8 003BBF18  80 6D A0 48 */	lwz r3, __SIVersion@sda21(r13)
 /* 803BEFBC 003BBF1C  4B FB F0 7D */	bl OSRegisterVersion
 /* 803BEFC0 003BBF20  38 A0 FF FF */	li r5, -1
 /* 803BEFC4 003BBF24  90 BF 00 60 */	stw r5, 0x60(r31)
-/* 803BEFC8 003BBF28  3C 60 80 3F */	lis r3, lbl_803F6EE4@ha
-/* 803BEFCC 003BBF2C  38 83 6E E4 */	addi r4, r3, lbl_803F6EE4@l
+/* 803BEFC8 003BBF28  3C 60 80 3F */	lis r3, Si@ha
+/* 803BEFCC 003BBF2C  38 83 6E E4 */	addi r4, r3, Si@l
 /* 803BEFD0 003BBF30  90 BF 00 40 */	stw r5, 0x40(r31)
 /* 803BEFD4 003BBF34  38 00 00 00 */	li r0, 0
 /* 803BEFD8 003BBF38  38 60 00 00 */	li r3, 0
@@ -880,9 +901,9 @@ SIGetStatus:
 /* 803BF28C 003BC1EC  7F FF 04 30 */	srw r31, r31, r0
 /* 803BF290 003BC1F0  57 E0 07 39 */	rlwinm. r0, r31, 0, 0x1c, 0x1c
 /* 803BF294 003BC1F4  41 82 00 28 */	beq lbl_803BF2BC
-/* 803BF298 003BC1F8  3C 80 80 3F */	lis r4, lbl_803F6EF8@ha
+/* 803BF298 003BC1F8  3C 80 80 3F */	lis r4, Type@ha
 /* 803BF29C 003BC1FC  57 C5 10 3A */	slwi r5, r30, 2
-/* 803BF2A0 003BC200  38 04 6E F8 */	addi r0, r4, lbl_803F6EF8@l
+/* 803BF2A0 003BC200  38 04 6E F8 */	addi r0, r4, Type@l
 /* 803BF2A4 003BC204  7C 80 2A 14 */	add r4, r0, r5
 /* 803BF2A8 003BC208  80 04 00 00 */	lwz r0, 0(r4)
 /* 803BF2AC 003BC20C  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
@@ -924,8 +945,8 @@ SISetXY:
 /* 803BF314 003BC274  54 7F 80 1E */	slwi r31, r3, 0x10
 /* 803BF318 003BC278  7F FF 03 78 */	or r31, r31, r0
 /* 803BF31C 003BC27C  4B FC 23 45 */	bl OSDisableInterrupts
-/* 803BF320 003BC280  3C 80 80 3F */	lis r4, lbl_803F6EE4@ha
-/* 803BF324 003BC284  38 84 6E E4 */	addi r4, r4, lbl_803F6EE4@l
+/* 803BF320 003BC280  3C 80 80 3F */	lis r4, Si@ha
+/* 803BF324 003BC284  38 84 6E E4 */	addi r4, r4, Si@l
 /* 803BF328 003BC288  80 04 00 04 */	lwz r0, 4(r4)
 /* 803BF32C 003BC28C  38 A4 00 04 */	addi r5, r4, 4
 /* 803BF330 003BC290  3C 80 CC 00 */	lis r4, 0xCC006430@ha
@@ -952,14 +973,14 @@ SIEnablePolling:
 /* 803BF378 003BC2D8  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 803BF37C 003BC2DC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 803BF380 003BC2E0  40 82 00 14 */	bne lbl_803BF394
-/* 803BF384 003BC2E4  3C 60 80 3F */	lis r3, lbl_803F6EE4@ha
-/* 803BF388 003BC2E8  38 63 6E E4 */	addi r3, r3, lbl_803F6EE4@l
+/* 803BF384 003BC2E4  3C 60 80 3F */	lis r3, Si@ha
+/* 803BF388 003BC2E8  38 63 6E E4 */	addi r3, r3, Si@l
 /* 803BF38C 003BC2EC  80 63 00 04 */	lwz r3, 4(r3)
 /* 803BF390 003BC2F0  48 00 00 64 */	b lbl_803BF3F4
 lbl_803BF394:
 /* 803BF394 003BC2F4  4B FC 22 CD */	bl OSDisableInterrupts
-/* 803BF398 003BC2F8  3C 80 80 3F */	lis r4, lbl_803F6EE4@ha
-/* 803BF39C 003BC2FC  38 84 6E E4 */	addi r4, r4, lbl_803F6EE4@l
+/* 803BF398 003BC2F8  3C 80 80 3F */	lis r4, Si@ha
+/* 803BF39C 003BC2FC  38 84 6E E4 */	addi r4, r4, Si@l
 /* 803BF3A0 003BC300  57 FF 46 3E */	srwi r31, r31, 0x18
 /* 803BF3A4 003BC304  80 04 00 04 */	lwz r0, 4(r4)
 /* 803BF3A8 003BC308  38 A4 00 04 */	addi r5, r4, 4
@@ -996,14 +1017,14 @@ SIDisablePolling:
 /* 803BF414 003BC374  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 803BF418 003BC378  7C 7F 1B 79 */	or. r31, r3, r3
 /* 803BF41C 003BC37C  40 82 00 14 */	bne lbl_803BF430
-/* 803BF420 003BC380  3C 60 80 3F */	lis r3, lbl_803F6EE4@ha
-/* 803BF424 003BC384  38 63 6E E4 */	addi r3, r3, lbl_803F6EE4@l
+/* 803BF420 003BC380  3C 60 80 3F */	lis r3, Si@ha
+/* 803BF424 003BC384  38 63 6E E4 */	addi r3, r3, Si@l
 /* 803BF428 003BC388  80 63 00 04 */	lwz r3, 4(r3)
 /* 803BF42C 003BC38C  48 00 00 34 */	b lbl_803BF460
 lbl_803BF430:
 /* 803BF430 003BC390  4B FC 22 31 */	bl OSDisableInterrupts
-/* 803BF434 003BC394  3C 80 80 3F */	lis r4, lbl_803F6EE4@ha
-/* 803BF438 003BC398  38 84 6E E4 */	addi r4, r4, lbl_803F6EE4@l
+/* 803BF434 003BC394  3C 80 80 3F */	lis r4, Si@ha
+/* 803BF438 003BC398  38 84 6E E4 */	addi r4, r4, Si@l
 /* 803BF43C 003BC39C  80 04 00 04 */	lwz r0, 4(r4)
 /* 803BF440 003BC3A0  57 FF 46 36 */	rlwinm r31, r31, 8, 0x18, 0x1b
 /* 803BF444 003BC3A4  38 A4 00 04 */	addi r5, r4, 4
@@ -1023,11 +1044,11 @@ lbl_803BF460:
 .global SIGetResponseRaw
 SIGetResponseRaw:
 /* 803BF474 003BC3D4  7C 08 02 A6 */	mflr r0
-/* 803BF478 003BC3D8  3C 80 80 57 */	lis r4, lbl_80569C98@ha
+/* 803BF478 003BC3D8  3C 80 80 57 */	lis r4, Packet@ha
 /* 803BF47C 003BC3DC  90 01 00 04 */	stw r0, 4(r1)
 /* 803BF480 003BC3E0  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 803BF484 003BC3E4  93 E1 00 24 */	stw r31, 0x24(r1)
-/* 803BF488 003BC3E8  3B E4 9C 98 */	addi r31, r4, lbl_80569C98@l
+/* 803BF488 003BC3E8  3B E4 9C 98 */	addi r31, r4, Packet@l
 /* 803BF48C 003BC3EC  93 C1 00 20 */	stw r30, 0x20(r1)
 /* 803BF490 003BC3F0  3B C3 00 00 */	addi r30, r3, 0
 /* 803BF494 003BC3F4  93 A1 00 1C */	stw r29, 0x1c(r1)
@@ -1039,9 +1060,9 @@ SIGetResponseRaw:
 /* 803BF4AC 003BC40C  7F BD 04 30 */	srw r29, r29, r0
 /* 803BF4B0 003BC410  57 A0 07 39 */	rlwinm. r0, r29, 0, 0x1c, 0x1c
 /* 803BF4B4 003BC414  41 82 00 28 */	beq lbl_803BF4DC
-/* 803BF4B8 003BC418  3C 80 80 3F */	lis r4, lbl_803F6EF8@ha
+/* 803BF4B8 003BC418  3C 80 80 3F */	lis r4, Type@ha
 /* 803BF4BC 003BC41C  57 C5 10 3A */	slwi r5, r30, 2
-/* 803BF4C0 003BC420  38 04 6E F8 */	addi r0, r4, lbl_803F6EF8@l
+/* 803BF4C0 003BC420  38 04 6E F8 */	addi r0, r4, Type@l
 /* 803BF4C4 003BC424  7C 80 2A 14 */	add r4, r0, r5
 /* 803BF4C8 003BC428  80 04 00 00 */	lwz r0, 0(r4)
 /* 803BF4CC 003BC42C  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
@@ -1082,13 +1103,13 @@ lbl_803BF52C:
 .global SIGetResponse
 SIGetResponse:
 /* 803BF548 003BC4A8  7C 08 02 A6 */	mflr r0
-/* 803BF54C 003BC4AC  3C A0 80 57 */	lis r5, lbl_80569C98@ha
+/* 803BF54C 003BC4AC  3C A0 80 57 */	lis r5, Packet@ha
 /* 803BF550 003BC4B0  90 01 00 04 */	stw r0, 4(r1)
 /* 803BF554 003BC4B4  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 803BF558 003BC4B8  BF 61 00 14 */	stmw r27, 0x14(r1)
 /* 803BF55C 003BC4BC  3B A3 00 00 */	addi r29, r3, 0
 /* 803BF560 003BC4C0  3B C4 00 00 */	addi r30, r4, 0
-/* 803BF564 003BC4C4  3B 85 9C 98 */	addi r28, r5, lbl_80569C98@l
+/* 803BF564 003BC4C4  3B 85 9C 98 */	addi r28, r5, Packet@l
 /* 803BF568 003BC4C8  4B FC 20 F9 */	bl OSDisableInterrupts
 /* 803BF56C 003BC4CC  3B E3 00 00 */	addi r31, r3, 0
 /* 803BF570 003BC4D0  38 7D 00 00 */	addi r3, r29, 0
@@ -1133,8 +1154,7 @@ lbl_803BF5EC:
 /* 803BF604 003BC564  7C 08 03 A6 */	mtlr r0
 /* 803BF608 003BC568  4E 80 00 20 */	blr 
 
-.global AlarmHandler_SI
-AlarmHandler_SI:
+AlarmHandler:
 /* 803BF60C 003BC56C  7C 08 02 A6 */	mflr r0
 /* 803BF610 003BC570  3C 80 80 57 */	lis r4, lbl_80569D18@ha
 /* 803BF614 003BC574  90 01 00 04 */	stw r0, 4(r1)
@@ -1148,9 +1168,9 @@ AlarmHandler_SI:
 /* 803BF634 003BC594  7C 00 26 70 */	srawi r0, r0, 4
 /* 803BF638 003BC598  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 803BF63C 003BC59C  7C 00 1A 14 */	add r0, r0, r3
-/* 803BF640 003BC5A0  3C 60 80 57 */	lis r3, lbl_80569C98@ha
+/* 803BF640 003BC5A0  3C 60 80 57 */	lis r3, Packet@ha
 /* 803BF644 003BC5A4  54 04 28 34 */	slwi r4, r0, 5
-/* 803BF648 003BC5A8  38 03 9C 98 */	addi r0, r3, lbl_80569C98@l
+/* 803BF648 003BC5A8  38 03 9C 98 */	addi r0, r3, Packet@l
 /* 803BF64C 003BC5AC  7F E0 22 14 */	add r31, r0, r4
 /* 803BF650 003BC5B0  80 7F 00 00 */	lwz r3, 0(r31)
 /* 803BF654 003BC5B4  2C 03 FF FF */	cmpwi r3, -1
@@ -1179,8 +1199,8 @@ SITransfer:
 /* 803BF6A0 003BC600  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 803BF6A4 003BC604  BE 61 00 2C */	stmw r19, 0x2c(r1)
 /* 803BF6A8 003BC608  3B 03 00 00 */	addi r24, r3, 0
-/* 803BF6AC 003BC60C  3C 60 80 57 */	lis r3, lbl_80569C98@ha
-/* 803BF6B0 003BC610  3A E3 9C 98 */	addi r23, r3, lbl_80569C98@l
+/* 803BF6AC 003BC60C  3C 60 80 57 */	lis r3, Packet@ha
+/* 803BF6B0 003BC610  3A E3 9C 98 */	addi r23, r3, Packet@l
 /* 803BF6B4 003BC614  57 00 28 34 */	slwi r0, r24, 5
 /* 803BF6B8 003BC618  3B 24 00 00 */	addi r25, r4, 0
 /* 803BF6BC 003BC61C  3B 45 00 00 */	addi r26, r5, 0
@@ -1195,8 +1215,8 @@ SITransfer:
 /* 803BF6E0 003BC640  3A A3 00 00 */	addi r21, r3, 0
 /* 803BF6E4 003BC644  2C 00 FF FF */	cmpwi r0, -1
 /* 803BF6E8 003BC648  40 82 00 14 */	bne lbl_803BF6FC
-/* 803BF6EC 003BC64C  3C 60 80 3F */	lis r3, lbl_803F6EE4@ha
-/* 803BF6F0 003BC650  80 03 6E E4 */	lwz r0, lbl_803F6EE4@l(r3)
+/* 803BF6EC 003BC64C  3C 60 80 3F */	lis r3, Si@ha
+/* 803BF6F0 003BC650  80 03 6E E4 */	lwz r0, Si@l(r3)
 /* 803BF6F4 003BC654  7C 00 C0 00 */	cmpw r0, r24
 /* 803BF6F8 003BC658  40 82 00 14 */	bne lbl_803BF70C
 lbl_803BF6FC:
@@ -1232,9 +1252,9 @@ lbl_803BF748:
 /* 803BF764 003BC6C4  1C 18 00 28 */	mulli r0, r24, 0x28
 /* 803BF768 003BC6C8  7F C4 98 10 */	subfc r30, r4, r19
 /* 803BF76C 003BC6CC  7F E3 A1 10 */	subfe r31, r3, r20
-/* 803BF770 003BC6D0  3C 80 80 3C */	lis r4, AlarmHandler_SI@ha
+/* 803BF770 003BC6D0  3C 80 80 3C */	lis r4, AlarmHandler@ha
 /* 803BF774 003BC6D4  7C 77 02 14 */	add r3, r23, r0
-/* 803BF778 003BC6D8  38 E4 F6 0C */	addi r7, r4, AlarmHandler_SI@l
+/* 803BF778 003BC6D8  38 E4 F6 0C */	addi r7, r4, AlarmHandler@l
 /* 803BF77C 003BC6DC  38 DE 00 00 */	addi r6, r30, 0
 /* 803BF780 003BC6E0  38 BF 00 00 */	addi r5, r31, 0
 /* 803BF784 003BC6E4  38 63 00 80 */	addi r3, r3, 0x80
@@ -1280,13 +1300,13 @@ GetTypeCallback:
 /* 803BF80C 003BC76C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803BF810 003BC770  BF 41 00 18 */	stmw r26, 0x18(r1)
 /* 803BF814 003BC774  3B 63 00 00 */	addi r27, r3, 0
-/* 803BF818 003BC778  3C 60 80 3F */	lis r3, lbl_803F6EF8@ha
-/* 803BF81C 003BC77C  38 03 6E F8 */	addi r0, r3, lbl_803F6EF8@l
+/* 803BF818 003BC778  3C 60 80 3F */	lis r3, Type@ha
+/* 803BF81C 003BC77C  38 03 6E F8 */	addi r0, r3, Type@l
 /* 803BF820 003BC780  57 7D 10 3A */	slwi r29, r27, 2
 /* 803BF824 003BC784  7F C0 EA 14 */	add r30, r0, r29
-/* 803BF828 003BC788  3C 60 80 57 */	lis r3, lbl_80569C98@ha
+/* 803BF828 003BC788  3C 60 80 57 */	lis r3, Packet@ha
 /* 803BF82C 003BC78C  3B 44 00 00 */	addi r26, r4, 0
-/* 803BF830 003BC790  3B E3 9C 98 */	addi r31, r3, lbl_80569C98@l
+/* 803BF830 003BC790  3B E3 9C 98 */	addi r31, r3, Packet@l
 /* 803BF834 003BC794  80 1E 00 00 */	lwz r0, 0(r30)
 /* 803BF838 003BC798  54 00 06 6E */	rlwinm r0, r0, 0, 0x19, 0x17
 /* 803BF83C 003BC79C  90 1E 00 00 */	stw r0, 0(r30)
@@ -1462,9 +1482,9 @@ SIGetType:
 /* 803BFAA8 003BCA08  BF 61 00 14 */	stmw r27, 0x14(r1)
 /* 803BFAAC 003BCA0C  7C 7B 1B 78 */	mr r27, r3
 /* 803BFAB0 003BCA10  4B FC 1B B1 */	bl OSDisableInterrupts
-/* 803BFAB4 003BCA14  3C 80 80 3F */	lis r4, lbl_803F6EF8@ha
+/* 803BFAB4 003BCA14  3C 80 80 3F */	lis r4, Type@ha
 /* 803BFAB8 003BCA18  57 65 10 3A */	slwi r5, r27, 2
-/* 803BFABC 003BCA1C  38 04 6E F8 */	addi r0, r4, lbl_803F6EF8@l
+/* 803BFABC 003BCA1C  38 04 6E F8 */	addi r0, r4, Type@l
 /* 803BFAC0 003BCA20  7F C0 2A 14 */	add r30, r0, r5
 /* 803BFAC4 003BCA24  83 9E 00 00 */	lwz r28, 0(r30)
 /* 803BFAC8 003BCA28  7C 7D 1B 78 */	mr r29, r3
@@ -1474,8 +1494,8 @@ SIGetType:
 /* 803BFAD8 003BCA38  38 05 9D B8 */	addi r0, r5, lbl_80569DB8@l
 /* 803BFADC 003BCA3C  7F E0 32 14 */	add r31, r0, r6
 /* 803BFAE0 003BCA40  80 DF 00 04 */	lwz r6, 4(r31)
-/* 803BFAE4 003BCA44  3C A0 80 3F */	lis r5, lbl_803F6EE4@ha
-/* 803BFAE8 003BCA48  38 A5 6E E4 */	addi r5, r5, lbl_803F6EE4@l
+/* 803BFAE4 003BCA44  3C A0 80 3F */	lis r5, Si@ha
+/* 803BFAE8 003BCA48  38 A5 6E E4 */	addi r5, r5, Si@l
 /* 803BFAEC 003BCA4C  80 1F 00 00 */	lwz r0, 0(r31)
 /* 803BFAF0 003BCA50  7C 86 20 10 */	subfc r4, r6, r4
 /* 803BFAF4 003BCA54  7C 00 19 10 */	subfe r0, r0, r3
@@ -1591,9 +1611,9 @@ SIGetTypeAsync:
 /* 803BFC88 003BCBE8  3B C3 00 00 */	addi r30, r3, 0
 /* 803BFC8C 003BCBEC  38 7C 00 00 */	addi r3, r28, 0
 /* 803BFC90 003BCBF0  4B FF FE 0D */	bl SIGetType
-/* 803BFC94 003BCBF4  3C 80 80 3F */	lis r4, lbl_803F6EF8@ha
+/* 803BFC94 003BCBF4  3C 80 80 3F */	lis r4, Type@ha
 /* 803BFC98 003BCBF8  57 85 10 3A */	slwi r5, r28, 2
-/* 803BFC9C 003BCBFC  38 04 6E F8 */	addi r0, r4, lbl_803F6EF8@l
+/* 803BFC9C 003BCBFC  38 04 6E F8 */	addi r0, r4, Type@l
 /* 803BFCA0 003BCC00  7C 80 2A 14 */	add r4, r0, r5
 /* 803BFCA4 003BCC04  80 04 00 00 */	lwz r0, 0(r4)
 /* 803BFCA8 003BCC08  3B A3 00 00 */	addi r29, r3, 0
