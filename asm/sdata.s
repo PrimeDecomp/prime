@@ -5765,31 +5765,5 @@ lbl_805A8BC0:
 .global lbl_805A8BC8
 lbl_805A8BC8:
 	.incbin "baserom.dol", 0x3F6568, 0x8
-.global lbl_805A8BD0
-lbl_805A8BD0:
-	.incbin "baserom.dol", 0x3F6570, 0x8
-.global lbl_805A8BD8
-lbl_805A8BD8:
-	.incbin "baserom.dol", 0x3F6578, 0x8
-.global lbl_805A8BE0
-lbl_805A8BE0:
-	.incbin "baserom.dol", 0x3F6580, 0x8
-.global lbl_805A8BE8
-lbl_805A8BE8:
-	.incbin "baserom.dol", 0x3F6588, 0x8
-.global lbl_805A8BF0
-lbl_805A8BF0:
-	.incbin "baserom.dol", 0x3F6590, 0x8
-.global lbl_805A8BF8
-lbl_805A8BF8:
-	.incbin "baserom.dol", 0x3F6598, 0x8
-.global lbl_805A8C00
-lbl_805A8C00:
-	.incbin "baserom.dol", 0x3F65A0, 0x8
-.global lbl_805A8C08
-lbl_805A8C08:
-	.incbin "baserom.dol", 0x3F65A8, 0x8
-.global lbl_805A8C10
-lbl_805A8C10:
-	.incbin "baserom.dol", 0x3F65B0, 0x8
+
 

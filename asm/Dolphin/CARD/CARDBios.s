@@ -1,5 +1,24 @@
 .include "macros.inc"
 
+.section .data, "wa"
+lbl_803F6C90:
+	.asciz "<< Dolphin SDK - CARD	release build: Sep  5 2002 05:35:20 (0x2301) >>"
+	.balign 4
+
+.global lbl_803F6CD8
+lbl_803F6CD8:
+	.4byte OnReset
+	.4byte 0x0000007f
+
+.skip 32
+
+.section .sdata, "wa"
+
+.global lbl_805A8BF0
+lbl_805A8BF0:
+	.4byte lbl_803F6C90
+	.skip 4
+	
 .section .sbss, "wa"
 
 .global lbl_805A9BC8

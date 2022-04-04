@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .data, "wa"
+.global lbl_803F2FD8
+lbl_803F2FD8:
+	.incbin "baserom.dol", 0x3EFFD8, 0x1C
+.global lbl_803F2FF4
+lbl_803F2FF4:
+	.incbin "baserom.dol", 0x3EFFF4, 0x204
+.global lbl_803F31F8
+lbl_803F31F8:
+	.incbin "baserom.dol", 0x3F01F8, 0x20
+.global lbl_803F3218
+lbl_803F3218:
+	.incbin "baserom.dol", 0x3F0218, 0x10
+.global lbl_803F3228
+lbl_803F3228:
+	.incbin "baserom.dol", 0x3F0228, 0x20
+.global lbl_803F3248
+lbl_803F3248:
+	.incbin "baserom.dol", 0x3F0248, 0x10
+.global lbl_803F3258
+lbl_803F3258:
+	.incbin "baserom.dol", 0x3F0258, 0x1C8
+.global lbl_803F3420
+lbl_803F3420:
+	.incbin "baserom.dol", 0x3F0420, 0x200
+.global lbl_803F3620
+lbl_803F3620:
+	.incbin "baserom.dol", 0x3F0620, 0x200	
+.global lbl_803F3820
+lbl_803F3820:
+	.incbin "baserom.dol", 0x3F0820, 0x184
+.global lbl_803F39A4
+lbl_803F39A4:
+	.incbin "baserom.dol", 0x3F09A4, 0x400	
+.global lbl_803F3DA4
+lbl_803F3DA4:
+	.incbin "baserom.dol", 0x3F0DA4, 0x204
+	
 .section .text, "ax"
 
 .global dataInsertKeymap

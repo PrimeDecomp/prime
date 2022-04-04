@@ -2253,8 +2253,8 @@ lbl_805A9888:
 .global lbl_805A988C
 lbl_805A988C:
 	.skip 0x4
-.global lbl_805A9890
-lbl_805A9890:
+.global AreWeInitialized
+AreWeInitialized:
 	.skip 0x4
 .global lbl_805A9894
 lbl_805A9894:

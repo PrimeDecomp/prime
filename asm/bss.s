@@ -451,8 +451,8 @@ lbl_80540C58:
 .global lbl_80540C88
 lbl_80540C88:
 	.skip 0x578
-.global lbl_80541200
-lbl_80541200:
+.global DriveInfo
+DriveInfo:
 	.skip 0x50
 .global lbl_80541250
 lbl_80541250:
@@ -502,8 +502,8 @@ lbl_8054FD10:
 .global lbl_8054FE10
 lbl_8054FE10:
 	.skip 0x240
-.global lbl_80550050
-lbl_80550050:
+.global synthInfo
+synthInfo:
 	.skip 0x214
 .global lbl_80550264
 lbl_80550264:
@@ -637,11 +637,11 @@ lbl_80567214:
 .global lbl_80567498
 lbl_80567498:
 	.skip 0x408
-.global lbl_805678A0
-lbl_805678A0:
+.global dsp_task
+dsp_task:
 	.skip 0x60
-.global lbl_80567900
-lbl_80567900:
+.global dram_image
+dram_image:
 	.skip 0x2008
 .global lbl_80569908
 lbl_80569908:
@@ -670,8 +670,8 @@ lbl_80569A58:
 .global lbl_80569C78
 lbl_80569C78:
 	.skip 0x20
-.global lbl_80569C98
-lbl_80569C98:
+.global Packet
+Packet:
 	.skip 0x80
 .global lbl_80569D18
 lbl_80569D18:

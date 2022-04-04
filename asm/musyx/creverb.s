@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+lbl_803F6460:
+	.4byte 0x000006FD
+	.4byte 0x000007CF
+	.4byte 0x000001B1
+	.4byte 0x00000095
+	
 .section .text, "ax" 
 
 .global ReverbSTDCreate

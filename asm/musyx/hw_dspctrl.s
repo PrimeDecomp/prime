@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .data, "wa"
+
+.global lbl_803F3FA8
+lbl_803F3FA8:
+	.incbin "baserom.dol", 0x3F0FA8, 0x18
+	
 .section .sbss, "wa"
 
 .global lbl_805A9B4C
@@ -35,7 +41,7 @@ salInitDspCtrl:
 /* 803AAD2C 003A7C8C  38 60 08 00 */	li r3, 0x800
 /* 803AAD30 003A7C90  48 00 A4 05 */	bl salMalloc
 /* 803AAD34 003A7C94  28 03 00 00 */	cmplwi r3, 0
-/* 803AAD38 003A7C98  90 6D AF 40 */	stw r3, lbl_805A9B00@sda21(r13)
+/* 803AAD38 003A7C98  90 6D AF 40 */	stw r3, dspCmdList@sda21(r13)
 /* 803AAD3C 003A7C9C  41 82 03 50 */	beq lbl_803AB08C
 /* 803AAD40 003A7CA0  38 60 02 80 */	li r3, 0x280
 /* 803AAD44 003A7CA4  48 00 A3 F1 */	bl salMalloc
@@ -336,7 +342,7 @@ lbl_803AB178:
 /* 803AB194 003A80F4  48 00 9F C9 */	bl salFree
 /* 803AB198 003A80F8  80 6D AF 4C */	lwz r3, lbl_805A9B0C@sda21(r13)
 /* 803AB19C 003A80FC  48 00 9F C1 */	bl salFree
-/* 803AB1A0 003A8100  80 6D AF 40 */	lwz r3, lbl_805A9B00@sda21(r13)
+/* 803AB1A0 003A8100  80 6D AF 40 */	lwz r3, dspCmdList@sda21(r13)
 /* 803AB1A4 003A8104  48 00 9F B9 */	bl salFree
 /* 803AB1A8 003A8108  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803AB1AC 003A810C  38 60 00 01 */	li r3, 1
@@ -844,7 +850,7 @@ SortVoices:
 /* 803AB874 003A87D4  7C 08 02 A6 */	mflr r0
 /* 803AB878 003A87D8  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803AB87C 003A87DC  39 61 00 20 */	addi r11, r1, 0x20
-/* 803AB880 003A87E0  4B FD E1 F9 */	bl func_80389A78
+/* 803AB880 003A87E0  4B FD E1 F9 */	bl _savegpr_26
 /* 803AB884 003A87E4  7C BB 2B 78 */	mr r27, r5
 /* 803AB888 003A87E8  7C 7A 1B 78 */	mr r26, r3
 /* 803AB88C 003A87EC  7C 04 D8 00 */	cmpw r4, r27
@@ -1002,14 +1008,14 @@ lbl_803ABAB0:
 /* 803ABAC0 003A8A20  38 21 00 20 */	addi r1, r1, 0x20
 /* 803ABAC4 003A8A24  4E 80 00 20 */	blr 
 
-.global sub_803abac8
-sub_803abac8:
+.global salBuildCommandList
+salBuildCommandList:
 /* 803ABAC8 003A8A28  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 803ABACC 003A8A2C  7C 08 02 A6 */	mflr r0
 /* 803ABAD0 003A8A30  90 01 00 84 */	stw r0, 0x84(r1)
 /* 803ABAD4 003A8A34  39 61 00 80 */	addi r11, r1, 0x80
 /* 803ABAD8 003A8A38  4B FD DF 71 */	bl __save_gpr
-/* 803ABADC 003A8A3C  80 AD AF 40 */	lwz r5, lbl_805A9B00@sda21(r13)
+/* 803ABADC 003A8A3C  80 AD AF 40 */	lwz r5, dspCmdList@sda21(r13)
 /* 803ABAE0 003A8A40  38 00 00 00 */	li r0, 0
 /* 803ABAE4 003A8A44  90 0D AF 24 */	stw r0, lbl_805A9AE4@sda21(r13)
 /* 803ABAE8 003A8A48  28 04 00 C8 */	cmplwi r4, 0xc8
