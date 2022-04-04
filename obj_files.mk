@@ -16,7 +16,7 @@ AR_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/AR/arq.o
 	
 BASE_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/PPCArch.o
+	$(BUILD_DIR)/src/Dolphin/PPCArch.o
 	
 DB_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/db.o
