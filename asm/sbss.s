@@ -1575,8 +1575,8 @@ lbl_805A94D4:
 .global lbl_805A94D5
 lbl_805A94D5:
 	.skip 0x3
-.global lbl_805A94D8
-lbl_805A94D8:
+.global "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 	.skip 0x2
 .global lbl_805A94DA
 lbl_805A94DA:

@@ -2504,8 +2504,8 @@ lbl_803EE368:
 .global lbl_803EE388
 lbl_803EE388:
 	.incbin "baserom.dol", 0x3EB388, 0x10
-.global lbl_803EE398
-lbl_803EE398:
+.global __vt__15CMemoryInStream
+__vt__15CMemoryInStream:
 	.incbin "baserom.dol", 0x3EB398, 0x10
 .global lbl_803EE3A8
 lbl_803EE3A8:

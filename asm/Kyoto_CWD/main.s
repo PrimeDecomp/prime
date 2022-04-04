@@ -2203,9 +2203,9 @@ lbl_800046C0:
 /* 800046C0 00001620  80 7C 01 28 */	lwz r3, 0x128(r28)
 /* 800046C4 00001624  38 63 01 34 */	addi r3, r3, 0x134
 /* 800046C8 00001628  4B FF F5 C1 */	bl "__as__Q24rstl24single_ptr<10CGameState>FP10CGameState"
-/* 800046CC 0000162C  3C 80 80 3F */	lis r4, lbl_803EE398@ha
+/* 800046CC 0000162C  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 800046D0 00001630  38 61 00 28 */	addi r3, r1, 0x28
-/* 800046D4 00001634  38 04 E3 98 */	addi r0, r4, lbl_803EE398@l
+/* 800046D4 00001634  38 04 E3 98 */	addi r0, r4, __vt__15CMemoryInStream@l
 /* 800046D8 00001638  38 80 00 00 */	li r4, 0
 /* 800046DC 0000163C  90 01 00 28 */	stw r0, 0x28(r1)
 /* 800046E0 00001640  48 33 A9 CD */	bl __dt__12CInputStreamFv
@@ -2273,9 +2273,9 @@ __dt__15CMemoryInStreamFv:
 /* 800047C0 00001720  93 C1 00 08 */	stw r30, 8(r1)
 /* 800047C4 00001724  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800047C8 00001728  41 82 00 28 */	beq lbl_800047F0
-/* 800047CC 0000172C  3C A0 80 3F */	lis r5, lbl_803EE398@ha
+/* 800047CC 0000172C  3C A0 80 3F */	lis r5, __vt__15CMemoryInStream@ha
 /* 800047D0 00001730  38 80 00 00 */	li r4, 0
-/* 800047D4 00001734  38 05 E3 98 */	addi r0, r5, lbl_803EE398@l
+/* 800047D4 00001734  38 05 E3 98 */	addi r0, r5, __vt__15CMemoryInStream@l
 /* 800047D8 00001738  90 1E 00 00 */	stw r0, 0(r30)
 /* 800047DC 0000173C  48 33 A8 D1 */	bl __dt__12CInputStreamFv
 /* 800047E0 00001740  7F E0 07 35 */	extsh. r0, r31
@@ -2658,8 +2658,8 @@ lbl_80004CD0:
 /* 80004CE0 00001C40  90 03 00 08 */	stw r0, 8(r3)
 /* 80004CE4 00001C44  4E 80 00 20 */	blr
 
-.global sub_80004ce8
-sub_80004ce8:
+.global AsyncIdle__5CMainFUl
+AsyncIdle__5CMainFUl:
 /* 80004CE8 00001C48  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80004CEC 00001C4C  7C 08 02 A6 */	mflr r0
 /* 80004CF0 00001C50  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2749,7 +2749,7 @@ RsMain__5CMainFiPCPCc:
 /* 80004E24 00001D84  41 82 00 14 */	beq lbl_80004E38
 /* 80004E28 00001D88  7F A4 EB 78 */	mr r4, r29
 /* 80004E2C 00001D8C  38 BD 00 6D */	addi r5, r29, 0x6d
-/* 80004E30 00001D90  48 00 2C 8D */	bl __ct__18CGameGlobalObjectsFv
+/* 80004E30 00001D90  48 00 2C 8D */	bl __ct__18CGameGlobalObjectsFP10COsContextP10CMemorySys
 /* 80004E34 00001D94  7C 60 1B 78 */	mr r0, r3
 lbl_80004E38:
 /* 80004E38 00001D98  90 01 00 0C */	stw r0, 0xc(r1)
@@ -2922,7 +2922,7 @@ lbl_8000505C:
 /* 800050A0 00002000  7F A3 EB 78 */	mr r3, r29
 /* 800050A4 00002004  4B FF FA 49 */	bl AddWorldPaks__5CMainFv
 /* 800050A8 00002008  38 00 00 00 */	li r0, 0
-/* 800050AC 0000200C  38 8D A9 18 */	addi r4, r13, lbl_805A94D8@sda21
+/* 800050AC 0000200C  38 8D A9 18 */	addi r4, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 800050B0 00002010  3C 60 80 3D */	lis r3, lbl_803CBE74@ha
 /* 800050B4 00002014  90 81 00 50 */	stw r4, 0x50(r1)
 /* 800050B8 00002018  38 83 BE 74 */	addi r4, r3, lbl_803CBE74@l
@@ -2983,9 +2983,9 @@ lbl_80005180:
 /* 80005188 000020E8  90 1D 01 64 */	stw r0, 0x164(r29)
 /* 8000518C 000020EC  48 00 19 89 */	bl PreloadAudio__24CGameArchitectureSupportFv
 /* 80005190 000020F0  48 38 02 19 */	bl OSGetTime
-/* 80005194 000020F4  3C A0 80 5A */	lis r5, lbl_8059FD30@ha
+/* 80005194 000020F4  3C A0 80 5A */	lis r5, mData__10CStopwatch@ha
 /* 80005198 000020F8  7C 9A 20 10 */	subfc r4, r26, r4
-/* 8000519C 000020FC  38 C5 FD 30 */	addi r6, r5, lbl_8059FD30@l
+/* 8000519C 000020FC  38 C5 FD 30 */	addi r6, r5, mData__10CStopwatch@l
 /* 800051A0 00002100  7C 7B 19 10 */	subfe r3, r27, r3
 /* 800051A4 00002104  80 A6 00 08 */	lwz r5, 8(r6)
 /* 800051A8 00002108  80 C6 00 0C */	lwz r6, 0xc(r6)
@@ -3018,19 +3018,19 @@ lbl_80005180:
 /* 80005214 00002174  38 80 00 01 */	li r4, 1
 /* 80005218 00002178  48 33 9B 21 */	bl ReadBits__12CInputStreamFi
 /* 8000521C 0000217C  7C 03 00 D0 */	neg r0, r3
-/* 80005220 00002180  3C 80 80 3F */	lis r4, lbl_803EE398@ha
+/* 80005220 00002180  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 80005224 00002184  7C 00 1B 78 */	or r0, r0, r3
 /* 80005228 00002188  38 61 00 60 */	addi r3, r1, 0x60
 /* 8000522C 0000218C  54 05 0F FE */	srwi r5, r0, 0x1f
-/* 80005230 00002190  38 04 E3 98 */	addi r0, r4, lbl_803EE398@l
+/* 80005230 00002190  38 04 E3 98 */	addi r0, r4, __vt__15CMemoryInStream@l
 /* 80005234 00002194  98 AD 80 00 */	stb r5, lbl_805A6BC0@sda21(r13)
 /* 80005238 00002198  38 80 00 00 */	li r4, 0
 /* 8000523C 0000219C  90 01 00 60 */	stw r0, 0x60(r1)
 /* 80005240 000021A0  48 33 9E 6D */	bl __dt__12CInputStreamFv
 lbl_80005244:
-/* 80005244 000021A4  3C 60 80 5A */	lis r3, lbl_8059FD30@ha
+/* 80005244 000021A4  3C 60 80 5A */	lis r3, mData__10CStopwatch@ha
 /* 80005248 000021A8  CB E2 80 10 */	lfd f31, lbl_805A9D30@sda21(r2)
-/* 8000524C 000021AC  3B 63 FD 30 */	addi r27, r3, lbl_8059FD30@l
+/* 8000524C 000021AC  3B 63 FD 30 */	addi r27, r3, mData__10CStopwatch@l
 /* 80005250 000021B0  48 00 05 50 */	b lbl_800057A0
 lbl_80005254:
 /* 80005254 000021B4  80 1B 00 00 */	lwz r0, 0(r27)
@@ -3041,8 +3041,8 @@ lbl_80005254:
 /* 80005268 000021C8  7C 83 1A 78 */	xor r3, r4, r3
 /* 8000526C 000021CC  7C 60 03 79 */	or. r0, r3, r0
 /* 80005270 000021D0  40 82 00 10 */	bne lbl_80005280
-/* 80005274 000021D4  3C 60 80 5A */	lis r3, lbl_8059FD30@ha
-/* 80005278 000021D8  38 63 FD 30 */	addi r3, r3, lbl_8059FD30@l
+/* 80005274 000021D4  3C 60 80 5A */	lis r3, mData__10CStopwatch@ha
+/* 80005278 000021D8  38 63 FD 30 */	addi r3, r3, mData__10CStopwatch@l
 /* 8000527C 000021DC  48 2D 14 A1 */	bl Initialize__Q210CStopwatch7CSWDataFv
 lbl_80005280:
 /* 80005280 000021E0  48 38 01 29 */	bl OSGetTime
@@ -3157,7 +3157,7 @@ lbl_80005414:
 /* 80005414 00002374  D0 3E 00 00 */	stfs f1, 0(r30)
 /* 80005418 00002378  38 61 00 18 */	addi r3, r1, 0x18
 /* 8000541C 0000237C  38 9D 00 F0 */	addi r4, r29, 0xf0
-/* 80005420 00002380  48 00 08 25 */	bl sub_80005c44
+/* 80005420 00002380  48 00 08 25 */	bl "GetAverage__21TReservedAverage<f,4>Fv"
 /* 80005424 00002384  C0 01 00 18 */	lfs f0, 0x18(r1)
 /* 80005428 00002388  38 80 00 00 */	li r4, 0
 /* 8000542C 0000238C  83 41 00 08 */	lwz r26, 8(r1)
@@ -3169,8 +3169,8 @@ lbl_80005414:
 /* 80005444 000023A4  7C 63 22 78 */	xor r3, r3, r4
 /* 80005448 000023A8  7C 60 03 79 */	or. r0, r3, r0
 /* 8000544C 000023AC  40 82 00 10 */	bne lbl_8000545C
-/* 80005450 000023B0  3C 60 80 5A */	lis r3, lbl_8059FD30@ha
-/* 80005454 000023B4  38 63 FD 30 */	addi r3, r3, lbl_8059FD30@l
+/* 80005450 000023B0  3C 60 80 5A */	lis r3, mData__10CStopwatch@ha
+/* 80005454 000023B4  38 63 FD 30 */	addi r3, r3, mData__10CStopwatch@l
 /* 80005458 000023B8  48 2D 12 C5 */	bl Initialize__Q210CStopwatch7CSWDataFv
 lbl_8000545C:
 /* 8000545C 000023BC  48 37 FF 4D */	bl OSGetTime
@@ -3197,7 +3197,7 @@ lbl_8000547C:
 /* 800054AC 0000240C  FC 20 F0 90 */	fmr f1, f30
 /* 800054B0 00002410  7F A3 EB 78 */	mr r3, r29
 /* 800054B4 00002414  38 84 00 28 */	addi r4, r4, 0x28
-/* 800054B8 00002418  48 00 0B 85 */	bl DrawDebugMetrics__5CMainFdR10CStopwatch
+/* 800054B8 00002418  48 00 0B 85 */	bl DrawDebugMetrics__5CMainFR10CStopwatchf
 /* 800054BC 0000241C  83 41 00 08 */	lwz r26, 8(r1)
 /* 800054C0 00002420  48 37 FE E9 */	bl OSGetTime
 /* 800054C4 00002424  80 BA 00 2C */	lwz r5, 0x2c(r26)
@@ -3283,7 +3283,7 @@ lbl_800055EC:
 /* 800055EC 0000254C  D0 3F 00 00 */	stfs f1, 0(r31)
 /* 800055F0 00002550  38 61 00 10 */	addi r3, r1, 0x10
 /* 800055F4 00002554  38 9D 01 04 */	addi r4, r29, 0x104
-/* 800055F8 00002558  48 00 06 4D */	bl sub_80005c44
+/* 800055F8 00002558  48 00 06 4D */	bl "GetAverage__21TReservedAverage<f,4>Fv"
 /* 800055FC 0000255C  FC 1E E8 2A */	fadd f0, f30, f29
 /* 80005600 00002560  C8 42 80 10 */	lfd f2, lbl_805A9D30@sda21(r2)
 /* 80005604 00002564  C0 61 00 10 */	lfs f3, 0x10(r1)
@@ -3302,7 +3302,7 @@ lbl_800055EC:
 /* 80005638 00002598  7C 64 1B 78 */	mr r4, r3
 lbl_8000563C:
 /* 8000563C 0000259C  7F A3 EB 78 */	mr r3, r29
-/* 80005640 000025A0  4B FF F6 A9 */	bl sub_80004ce8
+/* 80005640 000025A0  4B FF F6 A9 */	bl AsyncIdle__5CMainFUl
 /* 80005644 000025A4  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80005648 000025A8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8000564C 000025AC  81 8C 00 8C */	lwz r12, 0x8c(r12)
@@ -3741,8 +3741,8 @@ lbl_80005C20:
 /* 80005C3C 00002B9C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80005C40 00002BA0  4E 80 00 20 */	blr
 
-.global sub_80005c44
-sub_80005c44:
+.global "GetAverage__21TReservedAverage<f,4>Fv"
+"GetAverage__21TReservedAverage<f,4>Fv":
 /* 80005C44 00002BA4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005C48 00002BA8  7C 08 02 A6 */	mflr r0
 /* 80005C4C 00002BAC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4023,8 +4023,8 @@ CheckTerminate__5CMainFv:
 /* 80006034 00002F94  38 60 00 00 */	li r3, 0
 /* 80006038 00002F98  4E 80 00 20 */	blr
 
-.global DrawDebugMetrics__5CMainFdR10CStopwatch
-DrawDebugMetrics__5CMainFdR10CStopwatch:
+.global DrawDebugMetrics__5CMainFR10CStopwatchf
+DrawDebugMetrics__5CMainFR10CStopwatchf:
 /* 8000603C 00002F9C  4E 80 00 20 */	blr
 
 .global DoPredrawMetrics__5CMainFv
@@ -5883,8 +5883,8 @@ lbl_80007A90:
 /* 80007AB4 00004A14  38 21 00 10 */	addi r1, r1, 0x10
 /* 80007AB8 00004A18  4E 80 00 20 */	blr
 
-.global __ct__18CGameGlobalObjectsFv
-__ct__18CGameGlobalObjectsFv:
+.global __ct__18CGameGlobalObjectsFP10COsContextP10CMemorySys
+__ct__18CGameGlobalObjectsFP10COsContextP10CMemorySys:
 /* 80007ABC 00004A1C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80007AC0 00004A20  7C 08 02 A6 */	mflr r0
 /* 80007AC4 00004A24  90 01 00 24 */	stw r0, 0x24(r1)
@@ -6561,11 +6561,11 @@ sub_800083e4:
 /* 80008414 00005374  38 80 00 01 */	li r4, 1
 /* 80008418 00005378  48 33 69 21 */	bl ReadBits__12CInputStreamFi
 /* 8000841C 0000537C  7C 03 00 D0 */	neg r0, r3
-/* 80008420 00005380  3C 80 80 3F */	lis r4, lbl_803EE398@ha
+/* 80008420 00005380  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 80008424 00005384  7C 00 1B 78 */	or r0, r0, r3
 /* 80008428 00005388  38 61 00 08 */	addi r3, r1, 8
 /* 8000842C 0000538C  54 05 0F FE */	srwi r5, r0, 0x1f
-/* 80008430 00005390  38 04 E3 98 */	addi r0, r4, lbl_803EE398@l
+/* 80008430 00005390  38 04 E3 98 */	addi r0, r4, __vt__15CMemoryInStream@l
 /* 80008434 00005394  98 AD A0 98 */	stb r5, lbl_805A8C58@sda21(r13)
 /* 80008438 00005398  38 80 00 00 */	li r4, 0
 /* 8000843C 0000539C  90 01 00 08 */	stw r0, 8(r1)

@@ -4,7 +4,7 @@ extern void __OSPSInit();
 extern void __OSCacheInit();
 
 asm void __init_hardware(void) {
-    nofralloc;
+    nofralloc
     mfmsr r0
     ori r0, r0, 0x2000
     mtmsr r0
@@ -17,7 +17,7 @@ asm void __init_hardware(void) {
 }
 
 asm void __flush_cache(register void* address, register unsigned int size) {
-    nofralloc;
+    nofralloc
     lis r5,  0xFFFF
     ori r5, r5, 0xFFF1
     and r5, r5, r3
