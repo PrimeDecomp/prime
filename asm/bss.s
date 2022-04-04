@@ -934,8 +934,8 @@ lbl_8059FD08:
 .global lbl_8059FD18
 lbl_8059FD18:
 	.skip 0x18
-.global lbl_8059FD30
-lbl_8059FD30:
+.global mData__10CStopwatch
+mData__10CStopwatch:
 	.skip 0x18
 .global lbl_8059FD48
 lbl_8059FD48:
