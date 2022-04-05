@@ -2749,7 +2749,7 @@ RsMain__5CMainFiPCPCc:
 /* 80004E24 00001D84  41 82 00 14 */	beq lbl_80004E38
 /* 80004E28 00001D88  7F A4 EB 78 */	mr r4, r29
 /* 80004E2C 00001D8C  38 BD 00 6D */	addi r5, r29, 0x6d
-/* 80004E30 00001D90  48 00 2C 8D */	bl __ct__18CGameGlobalObjectsFP10COsContextP10CMemorySys
+/* 80004E30 00001D90  48 00 2C 8D */	bl __ct__18CGameGlobalObjectsFR10COsContextR10CMemorySys
 /* 80004E34 00001D94  7C 60 1B 78 */	mr r0, r3
 lbl_80004E38:
 /* 80004E38 00001D98  90 01 00 0C */	stw r0, 0xc(r1)
@@ -3157,7 +3157,7 @@ lbl_80005414:
 /* 80005414 00002374  D0 3E 00 00 */	stfs f1, 0(r30)
 /* 80005418 00002378  38 61 00 18 */	addi r3, r1, 0x18
 /* 8000541C 0000237C  38 9D 00 F0 */	addi r4, r29, 0xf0
-/* 80005420 00002380  48 00 08 25 */	bl "GetAverage__21TReservedAverage<f,4>Fv"
+/* 80005420 00002380  48 00 08 25 */	bl "GetAverage__21TReservedAverage<f,4>CFv"
 /* 80005424 00002384  C0 01 00 18 */	lfs f0, 0x18(r1)
 /* 80005428 00002388  38 80 00 00 */	li r4, 0
 /* 8000542C 0000238C  83 41 00 08 */	lwz r26, 8(r1)
@@ -3197,7 +3197,7 @@ lbl_8000547C:
 /* 800054AC 0000240C  FC 20 F0 90 */	fmr f1, f30
 /* 800054B0 00002410  7F A3 EB 78 */	mr r3, r29
 /* 800054B4 00002414  38 84 00 28 */	addi r4, r4, 0x28
-/* 800054B8 00002418  48 00 0B 85 */	bl DrawDebugMetrics__5CMainFR10CStopwatchf
+/* 800054B8 00002418  48 00 0B 85 */	bl DrawDebugMetrics__5CMainFdR10CStopwatch
 /* 800054BC 0000241C  83 41 00 08 */	lwz r26, 8(r1)
 /* 800054C0 00002420  48 37 FE E9 */	bl OSGetTime
 /* 800054C4 00002424  80 BA 00 2C */	lwz r5, 0x2c(r26)
@@ -3283,7 +3283,7 @@ lbl_800055EC:
 /* 800055EC 0000254C  D0 3F 00 00 */	stfs f1, 0(r31)
 /* 800055F0 00002550  38 61 00 10 */	addi r3, r1, 0x10
 /* 800055F4 00002554  38 9D 01 04 */	addi r4, r29, 0x104
-/* 800055F8 00002558  48 00 06 4D */	bl "GetAverage__21TReservedAverage<f,4>Fv"
+/* 800055F8 00002558  48 00 06 4D */	bl "GetAverage__21TReservedAverage<f,4>CFv"
 /* 800055FC 0000255C  FC 1E E8 2A */	fadd f0, f30, f29
 /* 80005600 00002560  C8 42 80 10 */	lfd f2, lbl_805A9D30@sda21(r2)
 /* 80005604 00002564  C0 61 00 10 */	lfs f3, 0x10(r1)
@@ -3411,11 +3411,11 @@ lbl_800057AC:
 /* 800057C4 00002724  48 00 26 A5 */	bl ShutdownSubsystems__5CMainFv
 /* 800057C8 00002728  38 61 00 0C */	addi r3, r1, 0xc
 /* 800057CC 0000272C  38 80 00 00 */	li r4, 0
-/* 800057D0 00002730  48 00 00 45 */	bl sub_80005814
+/* 800057D0 00002730  48 00 00 45 */	bl "__as__Q24rstl32single_ptr<18CGameGlobalObjects>FP18CGameGlobalObjects"
 /* 800057D4 00002734  48 33 F4 F1 */	bl Shutdown__12CARAMManagerFv
 /* 800057D8 00002738  38 61 00 0C */	addi r3, r1, 0xc
 /* 800057DC 0000273C  38 80 FF FF */	li r4, -1
-/* 800057E0 00002740  48 00 04 C5 */	bl sub_80005ca4
+/* 800057E0 00002740  48 00 04 C5 */	bl "__dt__Q24rstl32single_ptr<18CGameGlobalObjects>Fv"
 /* 800057E4 00002744  38 60 00 00 */	li r3, 0
 /* 800057E8 00002748  E3 E1 01 48 */	psq_l f31, 328(r1), 0, qr0
 /* 800057EC 0000274C  CB E1 01 40 */	lfd f31, 0x140(r1)
@@ -3429,8 +3429,8 @@ lbl_800057AC:
 /* 8000580C 0000276C  38 21 01 50 */	addi r1, r1, 0x150
 /* 80005810 00002770  4E 80 00 20 */	blr
 
-.global sub_80005814
-sub_80005814:
+.global "__as__Q24rstl32single_ptr<18CGameGlobalObjects>FP18CGameGlobalObjects"
+"__as__Q24rstl32single_ptr<18CGameGlobalObjects>FP18CGameGlobalObjects":
 /* 80005814 00002774  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005818 00002778  7C 08 02 A6 */	mflr r0
 /* 8000581C 0000277C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3741,8 +3741,8 @@ lbl_80005C20:
 /* 80005C3C 00002B9C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80005C40 00002BA0  4E 80 00 20 */	blr
 
-.global "GetAverage__21TReservedAverage<f,4>Fv"
-"GetAverage__21TReservedAverage<f,4>Fv":
+.global "GetAverage__21TReservedAverage<f,4>CFv"
+"GetAverage__21TReservedAverage<f,4>CFv":
 /* 80005C44 00002BA4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005C48 00002BA8  7C 08 02 A6 */	mflr r0
 /* 80005C4C 00002BAC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3770,8 +3770,8 @@ lbl_80005C90:
 /* 80005C9C 00002BFC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80005CA0 00002C00  4E 80 00 20 */	blr
 
-.global sub_80005ca4
-sub_80005ca4:
+.global "__dt__Q24rstl32single_ptr<18CGameGlobalObjects>Fv"
+"__dt__Q24rstl32single_ptr<18CGameGlobalObjects>Fv":
 /* 80005CA4 00002C04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005CA8 00002C08  7C 08 02 A6 */	mflr r0
 /* 80005CAC 00002C0C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4023,8 +4023,8 @@ CheckTerminate__5CMainFv:
 /* 80006034 00002F94  38 60 00 00 */	li r3, 0
 /* 80006038 00002F98  4E 80 00 20 */	blr
 
-.global DrawDebugMetrics__5CMainFR10CStopwatchf
-DrawDebugMetrics__5CMainFR10CStopwatchf:
+.global DrawDebugMetrics__5CMainFdR10CStopwatch
+DrawDebugMetrics__5CMainFdR10CStopwatch:
 /* 8000603C 00002F9C  4E 80 00 20 */	blr
 
 .global DoPredrawMetrics__5CMainFv
@@ -5883,8 +5883,8 @@ lbl_80007A90:
 /* 80007AB4 00004A14  38 21 00 10 */	addi r1, r1, 0x10
 /* 80007AB8 00004A18  4E 80 00 20 */	blr
 
-.global __ct__18CGameGlobalObjectsFP10COsContextP10CMemorySys
-__ct__18CGameGlobalObjectsFP10COsContextP10CMemorySys:
+.global __ct__18CGameGlobalObjectsFR10COsContextR10CMemorySys
+__ct__18CGameGlobalObjectsFR10COsContextR10CMemorySys:
 /* 80007ABC 00004A1C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80007AC0 00004A20  7C 08 02 A6 */	mflr r0
 /* 80007AC4 00004A24  90 01 00 24 */	stw r0, 0x24(r1)
