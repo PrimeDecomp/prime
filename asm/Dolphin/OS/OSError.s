@@ -1,5 +1,59 @@
 .include "macros.inc"
 
+.section .data
+.balign 8
+
+.global lbl_803F1430
+lbl_803F1430:
+	.asciz " in \"%s\" on line %d.\n"
+.balign 4
+	.asciz "\nAddress:      Back Chain    LR Save\n"
+.balign 4
+	.asciz "0x%08x:   0x%08x    0x%08x\n"
+.balign 4
+	.asciz "Non-recoverable Exception %d"
+.balign 4
+	.asciz "Unhandled Exception %d"
+.balign 4
+	.asciz "\nDSISR = 0x%08x                   DAR  = 0x%08x\n"
+.balign 4
+	.asciz "TB = 0x%016llx\n"
+.balign 4
+	.asciz "\nInstruction at 0x%x (read from SRR0) attempted to access invalid address 0x%x (read from DAR)\n"
+.balign 4
+	.asciz "\nAttempted to fetch instruction from invalid address 0x%x (read from SRR0)\n"
+.balign 4
+	.asciz "\nInstruction at 0x%x (read from SRR0) attempted to access unaligned address 0x%x (read from DAR)\n"
+.balign 4
+	.asciz "\nProgram exception : Possible illegal instruction/operation at or around 0x%x (read from SRR0)\n"
+.balign 4
+	.asciz "AI DMA Address =   0x%04x%04x\n"
+.balign 4
+	.asciz "ARAM DMA Address = 0x%04x%04x\n"
+.balign 4
+	.asciz "DI DMA Address =   0x%08x\n"
+.balign 4
+	.asciz "\nLast interrupt (%d): SRR0 = 0x%08x  TB = 0x%016llx\n"
+.balign 4
+.global lbl_803F170C
+lbl_803F170C:
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_8037FF7C
+    .4byte lbl_8037FF94
+    .4byte lbl_80380024
+    .4byte lbl_8037FFA8 
+    .4byte lbl_8037FFC0
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_80380024
+    .4byte lbl_8037FFD8
+    
 .section .text, "ax"
 
 .global OSReport
@@ -406,30 +460,35 @@ lbl_8037FF1C:
 /* 8037FF6C 0037CECC  54 00 10 3A */	slwi r0, r0, 2
 /* 8037FF70 0037CED0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8037FF74 0037CED4  7C 09 03 A6 */	mtctr r0
-/* 8037FF78 0037CED8  4E 80 04 20 */	bctr 
+/* 8037FF78 0037CED8  4E 80 04 20 */	bctr
+lbl_8037FF7C:
 /* 8037FF7C 0037CEDC  80 99 01 98 */	lwz r4, 0x198(r25)
 /* 8037FF80 0037CEE0  38 BB 00 00 */	addi r5, r27, 0
 /* 8037FF84 0037CEE4  38 7F 00 D8 */	addi r3, r31, 0xd8
 /* 8037FF88 0037CEE8  4C C6 31 82 */	crclr 6
 /* 8037FF8C 0037CEEC  4B FF FA 21 */	bl OSReport
 /* 8037FF90 0037CEF0  48 00 00 94 */	b lbl_80380024
+lbl_8037FF94:
 /* 8037FF94 0037CEF4  80 99 01 98 */	lwz r4, 0x198(r25)
 /* 8037FF98 0037CEF8  38 7F 01 38 */	addi r3, r31, 0x138
 /* 8037FF9C 0037CEFC  4C C6 31 82 */	crclr 6
 /* 8037FFA0 0037CF00  4B FF FA 0D */	bl OSReport
 /* 8037FFA4 0037CF04  48 00 00 80 */	b lbl_80380024
+lbl_8037FFA8:
 /* 8037FFA8 0037CF08  80 99 01 98 */	lwz r4, 0x198(r25)
 /* 8037FFAC 0037CF0C  38 BB 00 00 */	addi r5, r27, 0
 /* 8037FFB0 0037CF10  38 7F 01 84 */	addi r3, r31, 0x184
 /* 8037FFB4 0037CF14  4C C6 31 82 */	crclr 6
 /* 8037FFB8 0037CF18  4B FF F9 F5 */	bl OSReport
 /* 8037FFBC 0037CF1C  48 00 00 68 */	b lbl_80380024
+lbl_8037FFC0:
 /* 8037FFC0 0037CF20  80 99 01 98 */	lwz r4, 0x198(r25)
 /* 8037FFC4 0037CF24  38 BB 00 00 */	addi r5, r27, 0
 /* 8037FFC8 0037CF28  38 7F 01 E8 */	addi r3, r31, 0x1e8
 /* 8037FFCC 0037CF2C  4C C6 31 82 */	crclr 6
 /* 8037FFD0 0037CF30  4B FF F9 DD */	bl OSReport
 /* 8037FFD4 0037CF34  48 00 00 50 */	b lbl_80380024
+lbl_8037FFD8:
 /* 8037FFD8 0037CF38  38 6D 9F 7C */	addi r3, r13, lbl_805A8B3C@sda21
 /* 8037FFDC 0037CF3C  4C C6 31 82 */	crclr 6
 /* 8037FFE0 0037CF40  4B FF F9 CD */	bl OSReport

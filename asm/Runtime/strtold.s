@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D86E8
+lbl_803D86E8:
+	.incbin "baserom.dol", 0x3D56E8, 0x2C
+	
+.global lbl_803D8714
+lbl_803D8714:
+	.incbin "baserom.dol", 0x3D5714, 0xC
+	
 .section .text, "ax"
 
 .global atof

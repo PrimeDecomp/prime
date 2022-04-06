@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .data
+lbl_803F0CB0:
+	.incbin "baserom.dol", 0x3EDCB0, 0x5C
+lbl_803F0D0C:
+	.incbin "baserom.dol", 0x3EDD0C, 0x94
+	
 .section .text, "ax"
 
 .global GXSetGPMetric

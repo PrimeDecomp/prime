@@ -1697,73 +1697,11 @@ lbl_803D8560:
 .global lbl_803D8568
 lbl_803D8568:
 	.incbin "baserom.dol", 0x3D5568, 0x8
-# -- END TEXT -- 
-.global lbl_803D8570
-lbl_803D8570:
-	.incbin "baserom.dol", 0x3D5570, 0x18
-.global lbl_803D8588
-lbl_803D8588:
-	.incbin "baserom.dol", 0x3D5588, 0x10
-.global lbl_803D8598
-lbl_803D8598:
-	.incbin "baserom.dol", 0x3D5598, 0x10
-.global lbl_803D85A8
-lbl_803D85A8:
-	.incbin "baserom.dol", 0x3D55A8, 0x18
-.global lbl_803D85C0
-lbl_803D85C0:
-	.incbin "baserom.dol", 0x3D55C0, 0x18
-.global lbl_803D85D8
-lbl_803D85D8:
-	.incbin "baserom.dol", 0x3D55D8, 0xE8
-.global lbl_803D86C0
-lbl_803D86C0:
-	.incbin "baserom.dol", 0x3D56C0, 0x28
-.global lbl_803D86E8
-lbl_803D86E8:
-	.incbin "baserom.dol", 0x3D56E8, 0x2C
-.global lbl_803D8714
-lbl_803D8714:
-	.incbin "baserom.dol", 0x3D5714, 0xC
-.global lbl_803D8720
-lbl_803D8720:
-	.incbin "baserom.dol", 0x3D5720, 0x30
-.global lbl_803D8750
-lbl_803D8750:
-	.incbin "baserom.dol", 0x3D5750, 0x10
-.global lbl_803D8760
-lbl_803D8760:
-	.incbin "baserom.dol", 0x3D5760, 0x30
-.global lbl_803D8790
-lbl_803D8790:
-	.incbin "baserom.dol", 0x3D5790, 0x108
-.global lbl_803D8898
-lbl_803D8898:
-	.incbin "baserom.dol", 0x3D5898, 0x80
-.global lbl_803D8918
-lbl_803D8918:
-	.incbin "baserom.dol", 0x3D5918, 0x10
-.global lbl_803D8928
-lbl_803D8928:
-	.incbin "baserom.dol", 0x3D5928, 0x40
-.global lbl_803D8968
-lbl_803D8968:
-	.incbin "baserom.dol", 0x3D5968, 0x68
-.global lbl_803D89D0
-lbl_803D89D0:
-	.incbin "baserom.dol", 0x3D59D0, 0x98
-.global lbl_803D8A68
-lbl_803D8A68:
-	.incbin "baserom.dol", 0x3D5A68, 0x40
-.global lbl_803D8AA8
-lbl_803D8AA8:
-	.incbin "baserom.dol", 0x3D5AA8, 0x18
-.global lbl_803D8AC0
-lbl_803D8AC0:
-	.incbin "baserom.dol", 0x3D5AC0, 0x88
-.global lbl_803D8B48
-lbl_803D8B48:
-	.incbin "baserom.dol", 0x3D5B48, 0x88
-.global lbl_803D8BD0
-lbl_803D8BD0:
-	.incbin "baserom.dol", 0x3D5BD0, 0x100
+
+
+
+
+
+
+
+

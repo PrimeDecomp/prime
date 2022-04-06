@@ -2,7 +2,7 @@
 
 .section .data, "wa"
 lbl_803F6C90:
-	.asciz "<< Dolphin SDK - CARD	release build: Sep  5 2002 05:35:20 (0x2301) >>"
+	.asciz "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>"
 	.balign 4
 
 .global lbl_803F6CD8

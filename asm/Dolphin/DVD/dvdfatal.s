@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .rodata
+lbl_803D8570:
+	.incbin "baserom.dol", 0x3D5570, 0x18
+
 .section .text, "ax"
 
 .global ShowMessage

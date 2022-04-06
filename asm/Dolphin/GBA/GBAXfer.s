@@ -61,12 +61,11 @@ lbl_803F71A0:
 	.byte   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 	
 lbl_803F7520:
-	.ascii "GBAKey.c"
-	.skip 4
+	.asciz "GBAKey.c"
+	.balign 4
 
 lbl_803F752C:
-    .ascii "GBA - unexpected dsp call"
-    .skip 1
+    .asciz "GBA - unexpected dsp call"
     
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

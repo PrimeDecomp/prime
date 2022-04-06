@@ -70,7 +70,7 @@ __init_cpp_exceptions_reference:
 	.4byte __sinit_CBurrower_cpp
 	.4byte __sinit_CMetroidPrimeExo_cpp
 	.4byte __sinit_CMetroidPrimeEssence_cpp
-	.4byte sub_802886f0
+	.4byte __sinit_CPlayerDynamics_cpp
 	.4byte __sinit_CSlideShow_cpp
 	.4byte __sinit_CArtifactDoll_cpp
 	.4byte __sinit_CWorldLight_cpp

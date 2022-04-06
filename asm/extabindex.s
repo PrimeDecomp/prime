@@ -9,7 +9,7 @@ lbl_extabindex:
 	.4byte __construct_array
 	.4byte 0x000000F8
 	.4byte __construct_array_extab
-	.4byte __partial_array_destructor
+	.4byte __dt__26__partial_array_destructorFv
 	.4byte 0x000000B8
 	.4byte __partial_array_destructor_extab
 

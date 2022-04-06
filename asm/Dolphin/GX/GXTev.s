@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F0C18
+lbl_803F0C18:
+	.incbin "baserom.dol", 0x3EDC18, 0x50
+.global lbl_803F0C68
+lbl_803F0C68:
+	.incbin "baserom.dol", 0x3EDC68, 0x28
+	
 .section .text, "ax"
 
 .global GXSetTevOp

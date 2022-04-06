@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F09D0
+lbl_803F09D0:
+	.incbin "baserom.dol", 0x3ED9D0, 0x20
+	
 .section .text, "ax"
 
 .global GXInitLightAttn

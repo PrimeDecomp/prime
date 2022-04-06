@@ -101,8 +101,8 @@ __THPInitFlag:
 	
 .section .data, "wa"
 THPVersionStr:
-	.ascii "<< Dolphin SDK - THP	release build: Aug 27 2002 20:42:01 >>"
-	.skip 5
+	.asciz "<< Dolphin SDK - THP\trelease build: Aug 27 2002 20:42:01 >>"
+	.skip 4
 	
 .section .sdata, "wa"
 THPVersion:

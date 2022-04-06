@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D85D8
+lbl_803D85D8:
+	.incbin "baserom.dol", 0x3D55D8, 0xE8
+	
 .section .text, "ax"
 .global __dec2num
 __dec2num:

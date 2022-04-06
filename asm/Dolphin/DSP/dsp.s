@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+lbl_803EF9D0:
+	.asciz "<< Dolphin SDK - DSP\trelease build: Sep  5 2002 05:35:13 (0x2301) >>"
+	.balign 4
+	.asciz "DSPInit(): Build Date: %s %s\n"
+	.balign 4
+	.asciz "Sep  5 2002"
+	.asciz "05:35:13"
+	.balign 4
+	
 .section .text, "ax"
 
 .global DSPCheckMailToDSP

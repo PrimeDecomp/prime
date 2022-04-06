@@ -1,5 +1,37 @@
 .include "macros.inc"
 
+.section .data
+.balign 8
+.global YearDays
+YearDays:
+	.4byte 0x00000000
+	.4byte 0x0000001F
+	.4byte 0x0000003B
+	.4byte 0x0000005A
+	.4byte 0x00000078
+	.4byte 0x00000097
+	.4byte 0x000000B5
+	.4byte 0x000000D4
+	.4byte 0x000000F3
+	.4byte 0x00000111
+	.4byte 0x00000130
+	.4byte 0x0000014E
+	
+.global lbl_803F2320
+lbl_803F2320:
+	.4byte 0x00000000
+	.4byte 0x0000001F
+	.4byte 0x0000003C
+	.4byte 0x0000005B
+	.4byte 0x00000079
+	.4byte 0x00000098
+	.4byte 0x000000B6
+	.4byte 0x000000D5
+	.4byte 0x000000F4
+	.4byte 0x00000112
+	.4byte 0x00000131
+	.4byte 0x0000014F
+	
 .section .text, "ax"
 
 .global OSGetTime
@@ -166,8 +198,8 @@ lbl_803855C8:
 /* 803855D4 00382534  38 C3 23 20 */	addi r6, r3, lbl_803F2320@l
 /* 803855D8 00382538  48 00 00 0C */	b lbl_803855E4
 lbl_803855DC:
-/* 803855DC 0038253C  3C 60 80 3F */	lis r3, lbl_803F22F0@ha
-/* 803855E0 00382540  38 C3 22 F0 */	addi r6, r3, lbl_803F22F0@l
+/* 803855DC 0038253C  3C 60 80 3F */	lis r3, YearDays@ha
+/* 803855E0 00382540  38 C3 22 F0 */	addi r6, r3, YearDays@l
 lbl_803855E4:
 /* 803855E4 00382544  38 E0 00 0C */	li r7, 0xc
 /* 803855E8 00382548  38 60 00 30 */	li r3, 0x30

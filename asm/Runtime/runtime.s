@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D85A8
+lbl_803D85A8:
+	.incbin "baserom.dol", 0x3D55A8, 0x18
+	
 .section .text, "ax"
 
 .global __cvt_fp2unsigned

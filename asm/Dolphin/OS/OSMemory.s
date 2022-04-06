@@ -1,5 +1,12 @@
 .include "macros.inc"
 
+.section .data
+lbl_803F22E0:
+	.4byte OnReset
+	.4byte 0x7f
+	.4byte 0
+	.4byte 0
+	
 .section .text, "ax"
 
 .global sub_80382810

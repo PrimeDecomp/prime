@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D8720
+lbl_803D8720:
+	.incbin "baserom.dol", 0x3D5720, 0x30
+	
 .section .text, "ax" 
 
 .global __ieee754_exp

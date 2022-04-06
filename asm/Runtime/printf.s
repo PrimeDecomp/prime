@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D86C0
+lbl_803D86C0:
+	.incbin "baserom.dol", 0x3D56C0, 0x28
+	
 .section .data, "wa"
 # TODO: Move these where they actually belong
 .global lbl_803F2778

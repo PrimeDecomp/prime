@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D8968
+lbl_803D8968:
+	.incbin "baserom.dol", 0x3D5968, 0x68
+	
 .section .text, "ax" 
 
 .global __kernel_tan

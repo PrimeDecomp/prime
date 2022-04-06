@@ -24,8 +24,7 @@ lbl_803F7170:
 	.byte 0x3f
 	.byte 0x01
 	.byte 0x00
-	.ascii "// Coded by Kawasedo"
-	.byte 0x00
+	.asciz "// Coded by Kawasedo"
 	.byte 0x00
 	.byte 0x02
 	.byte 0x03

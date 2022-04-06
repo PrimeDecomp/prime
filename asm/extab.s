@@ -13,7 +13,7 @@ __construct_array_extab:
 	.4byte 0x00000010
 	.4byte 0
 	.4byte 0x82000008
-	.4byte 0x80389844
+	.4byte __dt__26__partial_array_destructorFv
 .global __partial_array_destructor_extab
 __partial_array_destructor_extab:
 	.4byte 0x18080000

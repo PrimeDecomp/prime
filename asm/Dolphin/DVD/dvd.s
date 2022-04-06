@@ -1,5 +1,26 @@
 .include "macros.inc"
 
+.section .data
+.balign 8
+.global lbl_803EFFC8
+lbl_803EFFC8:
+	.incbin "baserom.dol", 0x3ECFC8, 0xC
+.global lbl_803EFFD4
+lbl_803EFFD4:
+	.incbin "baserom.dol", 0x3ECFD4, 0x30
+.global lbl_803F0004
+lbl_803F0004:
+	.incbin "baserom.dol", 0x3ED004, 0x4
+.global lbl_803F0008
+lbl_803F0008:
+	.incbin "baserom.dol", 0x3ED008, 0x90
+.global lbl_803F0098
+lbl_803F0098:
+	.incbin "baserom.dol", 0x3ED098, 0x34
+.global lbl_803F00CC
+lbl_803F00CC:
+	.incbin "baserom.dol", 0x3ED0CC, 0x34
+
 .section .text, "ax"
 
 .global DVDInit

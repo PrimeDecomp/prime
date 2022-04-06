@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803EF9B8
+lbl_803EF9B8:
+	.asciz "DBExceptionDestination\n"
+	
 .section .text, "ax"
 
 .global DBInit

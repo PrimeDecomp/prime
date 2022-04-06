@@ -108,8 +108,8 @@ lbl_80389824:
 /* 8038983C 0038679C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80389840 003867A0  4E 80 00 20 */	blr 
 
-.global __partial_array_destructor
-__partial_array_destructor:
+.global __dt__26__partial_array_destructorFv
+__dt__26__partial_array_destructorFv:
 /* 80389844 003867A4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80389848 003867A8  7C 08 02 A6 */	mflr r0
 /* 8038984C 003867AC  90 01 00 24 */	stw r0, 0x24(r1)
