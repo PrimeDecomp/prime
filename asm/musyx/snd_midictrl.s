@@ -26,7 +26,16 @@ lbl_803F4250:
     .4byte lbl_803B2C64
     .4byte lbl_803B2C6C
 .skip 4
-	
+
+.section .rodata
+.global lbl_803D8AC0
+lbl_803D8AC0:
+	.incbin "baserom.dol", 0x3D5AC0, 0x88
+.global lbl_803D8B48
+lbl_803D8B48:
+	.incbin "baserom.dol", 0x3D5B48, 0x88
+
+
 .section .text, "ax" 
 
 .global inpSetGlobalMIDIDirtyFlag

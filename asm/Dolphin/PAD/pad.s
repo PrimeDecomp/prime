@@ -1,9 +1,16 @@
 .include "macros.inc"
 
 .section .data, "wa"
+PAD_VERSION_STR:
+	.asciz "<< Dolphin SDK - PAD\trelease build: Sep  5 2002 05:34:02 (0x2301) >>"
+	
+.balign 4
 .global lbl_803F2398
 lbl_803F2398:
-	.incbin "baserom.dol", 0x3EF398, 0x10
+	.4byte OnReset
+	.4byte 0x7f
+	.4byte 0
+	.4byte 0
 	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

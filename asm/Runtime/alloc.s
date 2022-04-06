@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D85C0
+lbl_803D85C0:
+	.incbin "baserom.dol", 0x3D55C0, 0x18
+
+
 .section .text, "ax"
 
 .global calloc

@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F0DA0
+lbl_803F0DA0:
+	.incbin "baserom.dol", 0x3EDDA0, 0x208
+	
 .section .text, "ax"
 
 .global OSGetConsoleType

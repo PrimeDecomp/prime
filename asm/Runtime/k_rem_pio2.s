@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803D8918
+lbl_803D8918:
+	.incbin "baserom.dol", 0x3D5918, 0x10
+.global lbl_803D8928
+lbl_803D8928:
+	.incbin "baserom.dol", 0x3D5928, 0x40
+	
 .section .text, "ax" 
 
 .global __kernel_rem_pio2

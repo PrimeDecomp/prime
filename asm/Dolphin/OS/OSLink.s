@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F2290
+lbl_803F2290:
+	.asciz "OSLink: unknown relocation type %3d\n"
+	.balign 4
+	
+.global lbl_803F22B8
+lbl_803F22B8:
+	.asciz "OSUnlink: unknown relocation type %3d\n"
+	.balign 4
+	
 .section .text, "ax"
 
 .global OSNotifyLink

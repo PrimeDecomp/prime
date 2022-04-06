@@ -1,8 +1,12 @@
 .include "macros.inc"
 
+.section .data
+.balign 8
+lbl_803F0578:
+	.incbin "baserom.dol", 0x3ED578, 0xB4
+	
 .section .text, "ax"
 
-.global cb
 cb:
 /* 80374E6C 00371DCC  7C 08 02 A6 */	mflr r0
 /* 80374E70 00371DD0  2C 03 00 00 */	cmpwi r3, 0

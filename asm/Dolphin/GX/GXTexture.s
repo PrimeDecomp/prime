@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F09F0
+lbl_803F09F0:
+	.incbin "baserom.dol", 0x3ED9F0, 0xF4
+.global lbl_803F0AE4
+lbl_803F0AE4:
+	.incbin "baserom.dol", 0x3EDAE4, 0xF4
+.global lbl_803F0BD8
+lbl_803F0BD8:
+	.incbin "baserom.dol", 0x3EDBD8, 0x40
+	
 .section .text, "ax"
 
 .global GXGetTexBufferSize

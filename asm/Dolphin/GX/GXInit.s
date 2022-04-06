@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F062C
+lbl_803F062C:
+	.incbin "baserom.dol", 0x3ED62C, 0xD0
+.global lbl_803F06FC
+lbl_803F06FC:
+	.incbin "baserom.dol", 0x3ED6FC, 0x1C
+.global lbl_803F0718
+lbl_803F0718:
+	.incbin "baserom.dol", 0x3ED718, 0x68
+.global lbl_803F0780
+lbl_803F0780:
+	.incbin "baserom.dol", 0x3ED780, 0x68
+.global lbl_803F07E8
+lbl_803F07E8:
+	.incbin "baserom.dol", 0x3ED7E8, 0x44
+.global lbl_803F082C
+lbl_803F082C:
+	.incbin "baserom.dol", 0x3ED82C, 0x44
+.global lbl_803F0870
+lbl_803F0870:
+	.incbin "baserom.dol", 0x3ED870, 0x1C
+.global lbl_803F088C
+lbl_803F088C:
+	.incbin "baserom.dol", 0x3ED88C, 0x54
+.global lbl_803F08E0
+lbl_803F08E0:
+	.incbin "baserom.dol", 0x3ED8E0, 0x3C
+.global lbl_803F091C
+lbl_803F091C:
+	.incbin "baserom.dol", 0x3ED91C, 0x3C
+.global lbl_803F0958
+lbl_803F0958:
+	.incbin "baserom.dol", 0x3ED958, 0x3C
+.global lbl_803F0994
+lbl_803F0994:
+	.incbin "baserom.dol", 0x3ED994, 0x3C
+	
 .section .text, "ax"
 
 .global __GXDefaultTexRegionCallback

@@ -1,5 +1,40 @@
 .include "macros.inc"
 
+.section .data
+DSPInitCode:
+    .4byte 0x029F0010
+	.4byte 0x029F0033
+	.4byte 0x029F0034
+	.4byte 0x029F0035
+	.4byte 0x029F0036
+	.4byte 0x029F0037
+	.4byte 0x029F0038
+	.4byte 0x029F0039
+	.4byte 0x12061203
+	.4byte 0x12041205
+	.4byte 0x00808000
+	.4byte 0x0088FFFF
+	.4byte 0x00841000
+	.4byte 0x0064001D
+	.4byte 0x02180000
+	.4byte 0x81001C1E
+	.4byte 0x00441B1E
+	.4byte 0x00840800
+	.4byte 0x00640027
+	.4byte 0x191E0000
+	.4byte 0x00DEFFFC
+	.4byte 0x02A08000
+	.4byte 0x029C0028
+	.4byte 0x16FC0054
+	.4byte 0x16FD4348
+	.4byte 0x002102FF
+	.4byte 0x02FF02FF
+	.4byte 0x02FF02FF
+	.4byte 0x02FF02FF
+	.4byte 0x00000000
+	.4byte 0x00000000
+	.4byte 0x00000000
+	
 .section .text, "ax"
 
 .global __OSInitAudioSystem
@@ -13,8 +48,8 @@ __OSInitAudioSystem:
 /* 8037E7F4 0037B754  38 A0 00 80 */	li r5, 0x80
 /* 8037E7F8 0037B758  38 63 FF 80 */	addi r3, r3, -128
 /* 8037E7FC 0037B75C  4B C8 4C 95 */	bl memcpy
-/* 8037E800 0037B760  3C 60 80 3F */	lis r3, lbl_803F0FA8@ha
-/* 8037E804 0037B764  38 83 0F A8 */	addi r4, r3, lbl_803F0FA8@l
+/* 8037E800 0037B760  3C 60 80 3F */	lis r3, DSPInitCode@ha
+/* 8037E804 0037B764  38 83 0F A8 */	addi r4, r3, DSPInitCode@l
 /* 8037E808 0037B768  3C 60 81 00 */	lis r3, 0x8100
 /* 8037E80C 0037B76C  38 A0 00 80 */	li r5, 0x80
 /* 8037E810 0037B770  4B C8 4C 81 */	bl memcpy

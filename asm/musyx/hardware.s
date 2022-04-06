@@ -14,6 +14,11 @@ lbl_805A8BE0:
 	.2byte 1
 	.2byte 2
 	.balign 4
+
+.section .rodata
+.global lbl_803D8BD0
+lbl_803D8BD0:
+	.incbin "baserom.dol", 0x3D5BD0, 0x100
 	
 .section .text, "ax" 
 

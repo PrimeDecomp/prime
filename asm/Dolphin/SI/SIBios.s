@@ -4,7 +4,7 @@
 
 .global lbl_803F6EA0
 lbl_803F6EA0:
-	.asciz "<< Dolphin SDK - SI	release build: Sep  5 2002 05:33:08 (0x2301) >>"
+	.asciz "<< Dolphin SDK - SI\trelease build: Sep  5 2002 05:33:08 (0x2301) >>"
 
 .balign 4
 	

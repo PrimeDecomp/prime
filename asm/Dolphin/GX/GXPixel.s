@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F0C90
+lbl_803F0C90:
+	.incbin "baserom.dol", 0x3EDC90, 0x20
+	
 .section .text, "ax"
 
 .global GXSetFog

@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .data
+.balign 8
+lbl_803EFB90:
+		.asciz "DVDConvertEntrynumToPath(possibly DVDOpen or DVDChangeDir or DVDOpenDir): specified directory or file (%s) doesn't match standard 8.3 format. This is a temporary restriction and will be removed soon\n"
+.balign 4
+lbl_803EFC58:
+	.asciz "Warning: DVDOpen(): file '%s' was not found under %s.\n"
+.balign 4
+lbl_803EFC90:
+	.incbin "baserom.dol", 0x3ECC90, 0x338
+
 .section .text, "ax"
 
 .global __DVDFSInit

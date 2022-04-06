@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803F0100
+lbl_803F0100:
+	.incbin "baserom.dol", 0x3ED100, 0x478
+
 .section .text, "ax"
 
 .global ErrorCode2Num

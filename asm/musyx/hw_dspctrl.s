@@ -21,7 +21,14 @@ lbl_805A9B4E:
 lbl_805A9B4F:
 	.skip 0x1
 	
-	
+.section .rodata
+.global lbl_803D8A68
+lbl_803D8A68:
+	.incbin "baserom.dol", 0x3D5A68, 0x40
+.global lbl_803D8AA8
+lbl_803D8AA8:
+	.incbin "baserom.dol", 0x3D5AA8, 0x18
+
 .section .text, "ax" 
 
 .global salInitDspCtrl
