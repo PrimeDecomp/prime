@@ -225,7 +225,8 @@ GBA_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBA.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBARead.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAWrite.o\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o
 	
 TEXT_O_FILES :=\
 	$(BUILD_DIR)/asm/text.o
