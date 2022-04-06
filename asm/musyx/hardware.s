@@ -86,7 +86,7 @@ lbl_803B3014:
 lbl_803B3030:
 /* 803B3030 003AFF90  48 00 20 C5 */	bl hwIRQEnterCritical
 /* 803B3034 003AFF94  7F E3 FB 78 */	mr r3, r31
-/* 803B3038 003AFF98  48 00 01 55 */	bl sub_803b318c
+/* 803B3038 003AFF98  48 00 01 55 */	bl hwSetTimeOffset
 /* 803B303C 003AFF9C  38 60 01 00 */	li r3, 0x100
 /* 803B3040 003AFFA0  4B FE 50 C5 */	bl sub_80398104
 /* 803B3044 003AFFA4  38 60 01 00 */	li r3, 0x100
@@ -99,11 +99,11 @@ lbl_803B3054:
 /* 803B305C 003AFFBC  41 80 FF D4 */	blt lbl_803B3030
 /* 803B3060 003AFFC0  48 00 20 95 */	bl hwIRQEnterCritical
 /* 803B3064 003AFFC4  38 60 00 00 */	li r3, 0
-/* 803B3068 003AFFC8  48 00 01 25 */	bl sub_803b318c
-/* 803B306C 003AFFCC  4B FF D2 ED */	bl sub_803b0358
+/* 803B3068 003AFFC8  48 00 01 25 */	bl hwSetTimeOffset
+/* 803B306C 003AFFCC  4B FF D2 ED */	bl s3dHandle
 /* 803B3070 003AFFD0  48 00 20 A5 */	bl hwIRQLeaveCritical
 /* 803B3074 003AFFD4  48 00 20 81 */	bl hwIRQEnterCritical
-/* 803B3078 003AFFD8  4B FE 99 35 */	bl sub_8039c9ac
+/* 803B3078 003AFFD8  4B FE 99 35 */	bl streamHandle
 /* 803B307C 003AFFDC  48 00 20 99 */	bl hwIRQLeaveCritical
 /* 803B3080 003AFFE0  48 00 20 75 */	bl hwIRQEnterCritical
 /* 803B3084 003AFFE4  4B FF 6E F1 */	bl vsSampleUpdates
@@ -147,7 +147,7 @@ sub_803b30a0:
 /* 803B310C 003B006C  28 03 00 00 */	cmplwi r3, 0
 /* 803B3110 003B0070  41 82 00 24 */	beq lbl_803B3134
 /* 803B3114 003B0074  7F E3 FB 78 */	mr r3, r31
-/* 803B3118 003B0078  48 00 1D 8D */	bl sub_803b4ea4
+/* 803B3118 003B0078  48 00 1D 8D */	bl salInitDsp
 /* 803B311C 003B007C  28 03 00 00 */	cmplwi r3, 0
 /* 803B3120 003B0080  41 82 00 14 */	beq lbl_803B3134
 /* 803B3124 003B0084  48 00 1F 61 */	bl hwEnableIrq
@@ -182,13 +182,13 @@ hwExit:
 /* 803B3184 003B00E4  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3188 003B00E8  4E 80 00 20 */	blr 
 
-.global sub_803b318c
-sub_803b318c:
+.global hwSetTimeOffset
+hwSetTimeOffset:
 /* 803B318C 003B00EC  98 6D AF 80 */	stb r3, lbl_805A9B40@sda21(r13)
 /* 803B3190 003B00F0  4E 80 00 20 */	blr 
 
-.global sub_803b3194
-sub_803b3194:
+.global hwGetTimeOffset
+hwGetTimeOffset:
 /* 803B3194 003B00F4  88 6D AF 80 */	lbz r3, lbl_805A9B40@sda21(r13)
 /* 803B3198 003B00F8  4E 80 00 20 */	blr 
 
@@ -203,8 +203,8 @@ hwIsActive:
 /* 803B31B4 003B0114  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 803B31B8 003B0118  4E 80 00 20 */	blr 
 
-.global sub_803b31bc
-sub_803b31bc:
+.global hwSetMesgCallback
+hwSetMesgCallback:
 /* 803B31BC 003B011C  90 6D AF 58 */	stw r3, lbl_805A9B18@sda21(r13)
 /* 803B31C0 003B0120  4E 80 00 20 */	blr 
 

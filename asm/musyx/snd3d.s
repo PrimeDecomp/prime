@@ -1961,8 +1961,8 @@ lbl_803B031C:
 /* 803B0350 003AD2B0  38 21 00 80 */	addi r1, r1, 0x80
 /* 803B0354 003AD2B4  4E 80 00 20 */	blr 
 
-.global sub_803b0358
-sub_803b0358:
+.global s3dHandle
+s3dHandle:
 /* 803B0358 003AD2B8  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 803B035C 003AD2BC  7C 08 02 A6 */	mflr r0
 /* 803B0360 003AD2C0  90 01 00 94 */	stw r0, 0x94(r1)

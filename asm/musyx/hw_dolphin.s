@@ -215,8 +215,8 @@ salAiGetDest:
 /* 803B4E9C 003B1DFC  7C 64 02 14 */	add r3, r4, r0
 /* 803B4EA0 003B1E00  4E 80 00 20 */	blr 
 
-.global sub_803b4ea4
-sub_803b4ea4:
+.global salInitDsp
+salInitDsp:
 /* 803B4EA4 003B1E04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B4EA8 003B1E08  7C 08 02 A6 */	mflr r0
 /* 803B4EAC 003B1E0C  3C E0 80 3F */	lis r7, dspSlave@ha
