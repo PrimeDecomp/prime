@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section extabindex_, "wa"  # 0x800035E0 - 0x80003640
+.section .extabindex, "wa"  # 0x800035E0 - 0x80003640
 lbl_extabindex:
 	# ROM: 0x3C8160
 	.4byte __destroy_arr

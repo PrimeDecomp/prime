@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section extab_, "wa"  # 0x800035A0 - 0x800035E0
+.section .extab, "wa"  # 0x800035A0 - 0x800035E0
 .global __destroy_arr_extab
 __destroy_arr_extab:
 	# ROM: 0x3C8120

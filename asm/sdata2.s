@@ -12998,6 +12998,7 @@ lbl_805AEB18:
 .global lbl_805AEB1C
 lbl_805AEB1C:
 	.incbin "baserom.dol", 0x3FB3BC, 0x4
+#-- END .TEXT --#
 .global lbl_805AEB20
 lbl_805AEB20:
 	.incbin "baserom.dol", 0x3FB3C0, 0x4

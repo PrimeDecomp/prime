@@ -1697,6 +1697,7 @@ lbl_803D8560:
 .global lbl_803D8568
 lbl_803D8568:
 	.incbin "baserom.dol", 0x3D5568, 0x8
+# -- END TEXT -- 
 .global lbl_803D8570
 lbl_803D8570:
 	.incbin "baserom.dol", 0x3D5570, 0x18

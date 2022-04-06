@@ -5594,6 +5594,7 @@ lbl_805A8A5D:
 .global lbl_805A8A60
 lbl_805A8A60:
 	.incbin "baserom.dol", 0x3F6400, 0x8
+# -- END .TEXT -- #
 .global lbl_805A8A68
 lbl_805A8A68:
 	.incbin "baserom.dol", 0x3F6408, 0x8
