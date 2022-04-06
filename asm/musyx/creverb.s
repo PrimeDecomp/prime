@@ -1,7 +1,6 @@
 .include "macros.inc"
 
 .section .data, "wa"
-
 lbl_803F6460:
 	.4byte 0x000006FD
 	.4byte 0x000007CF

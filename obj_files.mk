@@ -178,7 +178,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/snd_service.o\
 	$(BUILD_DIR)/asm/musyx/hardware.o\
 	$(BUILD_DIR)/asm/musyx/hw_aramdma.o\
-	$(BUILD_DIR)/asm/musyx/iram_image.o\
+	$(BUILD_DIR)/src/musyx/dsp_import.o\
 	$(BUILD_DIR)/asm/musyx/hw_dolphin.o\
 	$(BUILD_DIR)/asm/musyx/hw_memory.o\
 	$(BUILD_DIR)/asm/musyx/creverb_fx.o\

@@ -38,8 +38,5 @@ FORCEFILES
     dtors.o
     extab.o
     extabindex.o
-    misc_io.o
-    printf.o
     uart_console_io.o
-    iram_image.o
 }

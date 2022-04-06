@@ -94,8 +94,8 @@ SetHWMix:
 /* 8039C9A4 00399904  38 21 00 20 */	addi r1, r1, 0x20
 /* 8039C9A8 00399908  4E 80 00 20 */	blr 
 
-.global sub_8039c9ac
-sub_8039c9ac:
+.global streamHandle
+streamHandle:
 /* 8039C9AC 0039990C  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 8039C9B0 00399910  7C 08 02 A6 */	mflr r0
 /* 8039C9B4 00399914  90 01 00 74 */	stw r0, 0x74(r1)
