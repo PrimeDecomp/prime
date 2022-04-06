@@ -5,8 +5,8 @@ PHDRS
 {
     init PT_LOAD;
     text PT_LOAD;
-    extab_ PT_LOAD;
-    extabindex_ PT_LOAD;
+    extab PT_LOAD;
+    extabindex PT_LOAD;
     ctors PT_LOAD;
     dtors PT_LOAD;
     rodata PT_LOAD;
@@ -21,8 +21,8 @@ SECTIONS
 {
     .init 0x80003100 : { *(.init) } : init
     .text 0x80003640 : { *(.text) } : text
-    extab_ 0x800035A0 : { *(extab_) } : extab_
-    extabindex_ 0x800035E0 : { *(extabindex_) } : extabindex_
+    .extab 0x800035A0 : { *(.extab) } : extab
+    .extabindex 0x800035E0 : { *(.extabindex) } : extabindex
     .ctors 0x803CB1C0 : { *(.ctors) } : ctors
     .dtors 0x803CB380 : { *(.dtors) } : dtors
     .rodata 0x803CB3A0 : { *(.rodata) } : rodata

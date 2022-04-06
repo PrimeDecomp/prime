@@ -1923,6 +1923,7 @@ lbl_805A96AC:
 .global lbl_805A96B0
 lbl_805A96B0:
 	.skip 0x8
+# -- END .TEXT -- #
 .global lbl_805A96B8
 lbl_805A96B8:
 	.skip 0x4
