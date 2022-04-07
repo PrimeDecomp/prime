@@ -1,5 +1,20 @@
 .include "macros.inc"
 
+.section .sbss
+.balign 4
+.global lbl_805A99B8
+lbl_805A99B8:
+	.skip 0x4
+.global lbl_805A99BC
+lbl_805A99BC:
+	.skip 0x4
+.global lbl_805A99C0
+lbl_805A99C0:
+	.skip 0x4
+.global lbl_805A99C4
+lbl_805A99C4:
+	.skip 0x4
+	
 .section .text, "ax"
 
 .global exit

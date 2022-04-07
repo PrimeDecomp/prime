@@ -1,7 +1,17 @@
 .include "macros.inc"
 
-.section .sbss, "wa"
+.section .bss
+.balign 4
 
+.global lbl_8056A0A0
+lbl_8056A0A0:
+	.skip 0x100
+.global __GBA
+__GBA:
+	.skip 0x400
+
+.section .sbss, "wa"
+.balign 4
 .global __GBAReset
 __GBAReset:
 	.skip 0x4

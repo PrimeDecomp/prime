@@ -1,6 +1,47 @@
 .include "macros.inc"
 
-
+.section .sbss
+.balign 4
+.global sndActive
+sndActive:
+	.skip 0x1
+.global synthJobTableIndex
+synthJobTableIndex:
+	.skip 0x3
+.global synthAuxBMidiSet
+synthAuxBMidiSet:
+	.skip 0x8
+.global synthAuxBMIDI
+synthAuxBMIDI:
+	.skip 0x8
+.global synthAuxAMIDISet
+synthAuxAMIDISet:
+	.skip 0x8
+.global synthAuxAMIDI
+synthAuxAMIDI:
+	.skip 0x8
+.global synthMasterFaderPauseActiveFlags
+synthMasterFaderPauseActiveFlags:
+	.skip 0x4
+.global synthMasterFaderActiveFlags
+synthMasterFaderActiveFlags:
+	.skip 0x4
+.global synthFlags
+synthFlags:
+	.skip 0x4
+.global synthVoice
+synthVoice:
+	.skip 0x4
+.global synthMessageCallback
+synthMessageCallback:
+	.skip 0x4
+.global synthIdleWaitActive
+synthIdleWaitActive:
+	.skip 0x8
+.global synthRealTime
+synthRealTime:
+	.skip 0x8
+	
 .section .text, "ax" 
 
 .global synthSetBpm
@@ -86,7 +127,7 @@ do_voice_portamento:
 /* 80398DA0 00395D00  4B FF 0C B9 */	bl func_80389A58
 /* 80398DA4 00395D04  7C 72 1B 78 */	mr r18, r3
 /* 80398DA8 00395D08  3C 60 80 55 */	lis r3, synthInfo@ha
-/* 80398DAC 00395D0C  83 2D AE 78 */	lwz r25, lbl_805A9A38@sda21(r13)
+/* 80398DAC 00395D0C  83 2D AE 78 */	lwz r25, synthVoice@sda21(r13)
 /* 80398DB0 00395D10  7C 93 23 78 */	mr r19, r4
 /* 80398DB4 00395D14  7C B4 2B 78 */	mr r20, r5
 /* 80398DB8 00395D18  7C D5 33 78 */	mr r21, r6
@@ -195,9 +236,9 @@ lbl_80398EDC:
 /* 80398F48 00395EA8  80 99 01 18 */	lwz r4, 0x118(r25)
 /* 80398F4C 00395EAC  7C 80 03 78 */	or r0, r4, r0
 /* 80398F50 00395EB0  90 19 01 18 */	stw r0, 0x118(r25)
-/* 80398F54 00395EB4  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 80398F54 00395EB4  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 80398F58 00395EB8  7C 60 F2 14 */	add r3, r0, r30
-/* 80398F5C 00395EBC  48 00 E7 E5 */	bl sub_803a7740
+/* 80398F5C 00395EBC  48 00 E7 E5 */	bl vidRemoveVoiceReferences
 /* 80398F60 00395EC0  3C 1B 00 01 */	addis r0, r27, 1
 /* 80398F64 00395EC4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 80398F68 00395EC8  40 82 00 2C */	bne lbl_80398F94
@@ -205,9 +246,9 @@ lbl_80398EDC:
 /* 80398F70 00395ED0  7E A4 AB 78 */	mr r4, r21
 /* 80398F74 00395ED4  90 19 00 EC */	stw r0, 0xec(r25)
 /* 80398F78 00395ED8  90 19 00 F0 */	stw r0, 0xf0(r25)
-/* 80398F7C 00395EDC  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 80398F7C 00395EDC  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 80398F80 00395EE0  7C 60 F2 14 */	add r3, r0, r30
-/* 80398F84 00395EE4  48 00 EB 21 */	bl sub_803a7aa4
+/* 80398F84 00395EE4  48 00 EB 21 */	bl vidMakeNew
 /* 80398F88 00395EE8  83 59 00 F4 */	lwz r26, 0xf4(r25)
 /* 80398F8C 00395EEC  7C 7B 1B 78 */	mr r27, r3
 /* 80398F90 00395EF0  48 00 00 34 */	b lbl_80398FC4
@@ -215,15 +256,15 @@ lbl_80398F94:
 /* 80398F94 00395EF4  57 40 06 3E */	clrlwi r0, r26, 0x18
 /* 80398F98 00395EF8  80 D9 00 F4 */	lwz r6, 0xf4(r25)
 /* 80398F9C 00395EFC  1C 60 04 04 */	mulli r3, r0, 0x404
-/* 80398FA0 00395F00  80 AD AE 78 */	lwz r5, lbl_805A9A38@sda21(r13)
+/* 80398FA0 00395F00  80 AD AE 78 */	lwz r5, synthVoice@sda21(r13)
 /* 80398FA4 00395F04  38 80 00 00 */	li r4, 0
 /* 80398FA8 00395F08  38 03 00 EC */	addi r0, r3, 0xec
 /* 80398FAC 00395F0C  7C C5 01 2E */	stwx r6, r5, r0
 /* 80398FB0 00395F10  93 59 00 F0 */	stw r26, 0xf0(r25)
-/* 80398FB4 00395F14  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 80398FB4 00395F14  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 80398FB8 00395F18  83 59 00 F4 */	lwz r26, 0xf4(r25)
 /* 80398FBC 00395F1C  7C 60 F2 14 */	add r3, r0, r30
-/* 80398FC0 00395F20  48 00 EA E5 */	bl sub_803a7aa4
+/* 80398FC0 00395F20  48 00 EA E5 */	bl vidMakeNew
 lbl_80398FC4:
 /* 80398FC4 00395F24  3B DE 04 04 */	addi r30, r30, 0x404
 /* 80398FC8 00395F28  3B 9C 00 01 */	addi r28, r28, 1
@@ -467,7 +508,7 @@ lbl_80399310:
 /* 80399320 00396280  28 00 00 00 */	cmplwi r0, 0
 /* 80399324 00396284  41 82 00 20 */	beq lbl_80399344
 /* 80399328 00396288  57 80 06 3E */	clrlwi r0, r28, 0x18
-/* 8039932C 0039628C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039932C 0039628C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 80399330 00396290  1C 00 04 04 */	mulli r0, r0, 0x404
 /* 80399334 00396294  7C 63 02 14 */	add r3, r3, r0
 /* 80399338 00396298  48 00 E7 59 */	bl vidMakeRoot
@@ -480,11 +521,11 @@ lbl_8039934C:
 /* 8039934C 003962AC  57 63 06 3E */	clrlwi r3, r27, 0x18
 /* 80399350 003962B0  57 80 06 3E */	clrlwi r0, r28, 0x18
 /* 80399354 003962B4  1C 63 04 04 */	mulli r3, r3, 0x404
-/* 80399358 003962B8  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 80399358 003962B8  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039935C 003962BC  38 63 00 EC */	addi r3, r3, 0xec
 /* 80399360 003962C0  7F 84 19 2E */	stwx r28, r4, r3
 /* 80399364 003962C4  1C 60 04 04 */	mulli r3, r0, 0x404
-/* 80399368 003962C8  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 80399368 003962C8  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039936C 003962CC  38 03 00 F0 */	addi r0, r3, 0xf0
 /* 80399370 003962D0  7F 64 01 2E */	stwx r27, r4, r0
 lbl_80399374:
@@ -494,11 +535,11 @@ lbl_80399374:
 lbl_80399380:
 /* 80399380 003962E0  98 85 01 1C */	stb r4, 0x11c(r5)
 /* 80399384 003962E4  38 06 00 EC */	addi r0, r6, 0xec
-/* 80399388 003962E8  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 80399388 003962E8  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039938C 003962EC  7F 63 00 2E */	lwzx r27, r3, r0
 lbl_80399390:
 /* 80399390 003962F0  57 60 06 3E */	clrlwi r0, r27, 0x18
-/* 80399394 003962F4  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 80399394 003962F4  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 80399398 003962F8  1C C0 04 04 */	mulli r6, r0, 0x404
 /* 8039939C 003962FC  7C A3 32 14 */	add r5, r3, r6
 /* 803993A0 00396300  80 65 00 EC */	lwz r3, 0xec(r5)
@@ -942,12 +983,12 @@ lbl_803999A4:
 /* 803999BC 0039691C  48 00 00 24 */	b lbl_803999E0
 lbl_803999C0:
 /* 803999C0 00396920  54 60 06 3E */	clrlwi r0, r3, 0x18
-/* 803999C4 00396924  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 803999C4 00396924  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 803999C8 00396928  1C A0 04 04 */	mulli r5, r0, 0x404
 /* 803999CC 0039692C  38 05 01 1C */	addi r0, r5, 0x11c
 /* 803999D0 00396930  7C 83 01 AE */	stbx r4, r3, r0
 /* 803999D4 00396934  38 05 00 EC */	addi r0, r5, 0xec
-/* 803999D8 00396938  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 803999D8 00396938  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 803999DC 0039693C  7C 63 00 2E */	lwzx r3, r3, r0
 lbl_803999E0:
 /* 803999E0 00396940  3C 03 00 01 */	addis r0, r3, 1
@@ -984,12 +1025,12 @@ lbl_803999F4:
 /* 80399A54 003969B4  48 00 00 24 */	b lbl_80399A78
 lbl_80399A58:
 /* 80399A58 003969B8  54 60 06 3E */	clrlwi r0, r3, 0x18
-/* 80399A5C 003969BC  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 80399A5C 003969BC  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 80399A60 003969C0  1C A0 04 04 */	mulli r5, r0, 0x404
 /* 80399A64 003969C4  38 05 01 1C */	addi r0, r5, 0x11c
 /* 80399A68 003969C8  7C 83 01 AE */	stbx r4, r3, r0
 /* 80399A6C 003969CC  38 05 00 EC */	addi r0, r5, 0xec
-/* 80399A70 003969D0  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 80399A70 003969D0  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 80399A74 003969D4  7C 63 00 2E */	lwzx r3, r3, r0
 lbl_80399A78:
 /* 80399A78 003969D8  3C 03 00 01 */	addis r0, r3, 1
@@ -1014,9 +1055,9 @@ LowPrecisionHandler:
 /* 80399AAC 00396A0C  7C 08 02 A6 */	mflr r0
 /* 80399AB0 00396A10  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80399AB4 00396A14  39 61 00 30 */	addi r11, r1, 0x30
-/* 80399AB8 00396A18  4B FE FF C5 */	bl sub_80389a7c
+/* 80399AB8 00396A18  4B FE FF C5 */	bl _savegpr_27
 /* 80399ABC 00396A1C  7C 7B 1B 78 */	mr r27, r3
-/* 80399AC0 00396A20  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 80399AC0 00396A20  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 80399AC4 00396A24  1C 1B 04 04 */	mulli r0, r27, 0x404
 /* 80399AC8 00396A28  7F 84 02 14 */	add r28, r4, r0
 /* 80399ACC 00396A2C  48 01 96 D1 */	bl hwIsActive
@@ -1026,9 +1067,9 @@ LowPrecisionHandler:
 /* 80399ADC 00396A3C  28 00 00 00 */	cmplwi r0, 0
 /* 80399AE0 00396A40  41 82 06 D8 */	beq lbl_8039A1B8
 lbl_80399AE4:
-/* 80399AE4 00396A44  80 8D AE 88 */	lwz r4, lbl_805A9A48@sda21(r13)
+/* 80399AE4 00396A44  80 8D AE 88 */	lwz r4, synthRealTime@sda21(r13)
 /* 80399AE8 00396A48  7F 9E E3 78 */	mr r30, r28
-/* 80399AEC 00396A4C  80 AD AE 8C */	lwz r5, lbl_805A9A4C@sda21(r13)
+/* 80399AEC 00396A4C  80 AD AE 8C */	lwz r5, synthRealTime+4@sda21(r13)
 /* 80399AF0 00396A50  3B A0 00 00 */	li r29, 0
 /* 80399AF4 00396A54  80 7C 00 28 */	lwz r3, 0x28(r28)
 /* 80399AF8 00396A58  80 1C 00 24 */	lwz r0, 0x24(r28)
@@ -1533,7 +1574,7 @@ sub_8039a1ec:
 /* 8039A220 00397180  93 A1 00 54 */	stw r29, 0x54(r1)
 /* 8039A224 00397184  93 81 00 50 */	stw r28, 0x50(r1)
 /* 8039A228 00397188  7C 7D 1B 78 */	mr r29, r3
-/* 8039A22C 0039718C  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039A22C 0039718C  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039A230 00397190  1C 1D 04 04 */	mulli r0, r29, 0x404
 /* 8039A234 00397194  7F C4 02 14 */	add r30, r4, r0
 /* 8039A238 00397198  48 01 8F 65 */	bl hwIsActive
@@ -1543,9 +1584,9 @@ sub_8039a1ec:
 /* 8039A248 003971A8  28 00 00 00 */	cmplwi r0, 0
 /* 8039A24C 003971AC  41 82 06 40 */	beq lbl_8039A88C
 lbl_8039A250:
-/* 8039A250 003971B0  80 CD AE 88 */	lwz r6, lbl_805A9A48@sda21(r13)
+/* 8039A250 003971B0  80 CD AE 88 */	lwz r6, synthRealTime@sda21(r13)
 /* 8039A254 003971B4  3C 60 00 01 */	lis r3, 0x00008000@ha
-/* 8039A258 003971B8  80 ED AE 8C */	lwz r7, lbl_805A9A4C@sda21(r13)
+/* 8039A258 003971B8  80 ED AE 8C */	lwz r7, synthRealTime+4@sda21(r13)
 /* 8039A25C 003971BC  38 63 80 00 */	addi r3, r3, 0x00008000@l
 /* 8039A260 003971C0  80 BE 00 30 */	lwz r5, 0x30(r30)
 /* 8039A264 003971C4  38 80 00 00 */	li r4, 0
@@ -1750,7 +1791,7 @@ lbl_8039A548:
 /* 8039A55C 003974BC  EC 01 00 28 */	fsubs f0, f1, f0
 /* 8039A560 003974C0  EF DE 00 32 */	fmuls f30, f30, f0
 lbl_8039A564:
-/* 8039A564 003974C4  80 ED AE 74 */	lwz r7, lbl_805A9A34@sda21(r13)
+/* 8039A564 003974C4  80 ED AE 74 */	lwz r7, synthFlags@sda21(r13)
 /* 8039A568 003974C8  54 E3 07 FF */	clrlwi. r3, r7, 0x1f
 /* 8039A56C 003974CC  40 82 00 EC */	bne lbl_8039A658
 /* 8039A570 003974D0  80 9E 01 14 */	lwz r4, 0x114(r30)
@@ -1792,7 +1833,7 @@ lbl_8039A5EC:
 /* 8039A5F8 00397558  7C 60 1B 78 */	mr r0, r3
 lbl_8039A5FC:
 /* 8039A5FC 0039755C  90 1E 01 60 */	stw r0, 0x160(r30)
-/* 8039A600 00397560  80 0D AE 74 */	lwz r0, lbl_805A9A34@sda21(r13)
+/* 8039A600 00397560  80 0D AE 74 */	lwz r0, synthFlags@sda21(r13)
 /* 8039A604 00397564  54 00 07 BD */	rlwinm. r0, r0, 0, 0x1e, 0x1e
 /* 8039A608 00397568  41 82 00 30 */	beq lbl_8039A638
 /* 8039A60C 0039756C  7F C3 F3 78 */	mr r3, r30
@@ -1992,7 +2033,7 @@ lbl_8039A8A8:
 
 .global synthAddJob
 synthAddJob:
-/* 8039A8E8 00397848  88 0D AE 49 */	lbz r0, lbl_805A9A09@sda21(r13)
+/* 8039A8E8 00397848  88 0D AE 49 */	lbz r0, synthJobTableIndex@sda21(r13)
 /* 8039A8EC 0039784C  54 A6 C2 3E */	srwi r6, r5, 8
 /* 8039A8F0 00397850  3C A0 80 55 */	lis r5, lbl_805508A4@ha
 /* 8039A8F4 00397854  2C 04 00 01 */	cmpwi r4, 1
@@ -2098,12 +2139,12 @@ synthStartSynthJobHandling:
 /* 8039AA48 003979A8  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8039AA4C 003979AC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8039AA50 003979B0  7C 7F 1B 78 */	mr r31, r3
-/* 8039AA54 003979B4  80 0D AE 88 */	lwz r0, lbl_805A9A48@sda21(r13)
-/* 8039AA58 003979B8  80 CD AE 8C */	lwz r6, lbl_805A9A4C@sda21(r13)
+/* 8039AA54 003979B4  80 0D AE 88 */	lwz r0, synthRealTime@sda21(r13)
+/* 8039AA58 003979B8  80 CD AE 8C */	lwz r6, synthRealTime+4@sda21(r13)
 /* 8039AA5C 003979BC  90 C3 00 28 */	stw r6, 0x28(r3)
 /* 8039AA60 003979C0  90 03 00 24 */	stw r0, 0x24(r3)
-/* 8039AA64 003979C4  80 0D AE 88 */	lwz r0, lbl_805A9A48@sda21(r13)
-/* 8039AA68 003979C8  80 CD AE 8C */	lwz r6, lbl_805A9A4C@sda21(r13)
+/* 8039AA64 003979C4  80 0D AE 88 */	lwz r0, synthRealTime@sda21(r13)
+/* 8039AA68 003979C8  80 CD AE 8C */	lwz r6, synthRealTime+4@sda21(r13)
 /* 8039AA6C 003979CC  90 C3 00 30 */	stw r6, 0x30(r3)
 /* 8039AA70 003979D0  90 03 00 2C */	stw r0, 0x2c(r3)
 /* 8039AA74 003979D4  4B FF FE 75 */	bl synthAddJob
@@ -2165,7 +2206,7 @@ synthHandle:
 /* 8039AB30 00397A90  28 00 00 00 */	cmplwi r0, 0
 /* 8039AB34 00397A94  41 82 04 CC */	beq lbl_8039B000
 /* 8039AB38 00397A98  48 00 BF ED */	bl sub_803a6b24
-/* 8039AB3C 00397A9C  88 0D AE 49 */	lbz r0, lbl_805A9A09@sda21(r13)
+/* 8039AB3C 00397A9C  88 0D AE 49 */	lbz r0, synthJobTableIndex@sda21(r13)
 /* 8039AB40 00397AA0  3B DF 0A 94 */	addi r30, r31, 0xa94
 /* 8039AB44 00397AA4  3B 40 00 FF */	li r26, 0xff
 /* 8039AB48 00397AA8  1C 00 00 0C */	mulli r0, r0, 0xc
@@ -2176,7 +2217,7 @@ lbl_8039AB58:
 /* 8039AB58 00397AB8  83 63 00 00 */	lwz r27, 0(r3)
 /* 8039AB5C 00397ABC  9B 43 00 09 */	stb r26, 9(r3)
 /* 8039AB60 00397AC0  88 63 00 08 */	lbz r3, 8(r3)
-/* 8039AB64 00397AC4  80 AD AE 78 */	lwz r5, lbl_805A9A38@sda21(r13)
+/* 8039AB64 00397AC4  80 AD AE 78 */	lwz r5, synthVoice@sda21(r13)
 /* 8039AB68 00397AC8  1C 83 04 04 */	mulli r4, r3, 0x404
 /* 8039AB6C 00397ACC  38 04 01 1C */	addi r0, r4, 0x11c
 /* 8039AB70 00397AD0  7C 05 00 AE */	lbzx r0, r5, r0
@@ -2198,7 +2239,7 @@ lbl_8039ABA0:
 /* 8039ABA4 00397B04  38 00 00 FF */	li r0, 0xff
 /* 8039ABA8 00397B08  98 03 00 09 */	stb r0, 9(r3)
 /* 8039ABAC 00397B0C  8B 43 00 08 */	lbz r26, 8(r3)
-/* 8039ABB0 00397B10  80 AD AE 78 */	lwz r5, lbl_805A9A38@sda21(r13)
+/* 8039ABB0 00397B10  80 AD AE 78 */	lwz r5, synthVoice@sda21(r13)
 /* 8039ABB4 00397B14  1C 9A 04 04 */	mulli r4, r26, 0x404
 /* 8039ABB8 00397B18  38 04 01 1C */	addi r0, r4, 0x11c
 /* 8039ABBC 00397B1C  7C 05 00 AE */	lbzx r0, r5, r0
@@ -2307,7 +2348,7 @@ lbl_8039AD40:
 /* 8039AD40 00397CA0  83 63 00 00 */	lwz r27, 0(r3)
 /* 8039AD44 00397CA4  9B 43 00 09 */	stb r26, 9(r3)
 /* 8039AD48 00397CA8  88 63 00 08 */	lbz r3, 8(r3)
-/* 8039AD4C 00397CAC  80 AD AE 78 */	lwz r5, lbl_805A9A38@sda21(r13)
+/* 8039AD4C 00397CAC  80 AD AE 78 */	lwz r5, synthVoice@sda21(r13)
 /* 8039AD50 00397CB0  1C 83 04 04 */	mulli r4, r3, 0x404
 /* 8039AD54 00397CB4  38 04 01 1C */	addi r0, r4, 0x11c
 /* 8039AD58 00397CB8  7C 05 00 AE */	lbzx r0, r5, r0
@@ -2319,24 +2360,24 @@ lbl_8039AD68:
 lbl_8039AD6C:
 /* 8039AD6C 00397CCC  28 03 00 00 */	cmplwi r3, 0
 /* 8039AD70 00397CD0  40 82 FF D0 */	bne lbl_8039AD40
-/* 8039AD74 00397CD4  88 6D AE 49 */	lbz r3, lbl_805A9A09@sda21(r13)
+/* 8039AD74 00397CD4  88 6D AE 49 */	lbz r3, synthJobTableIndex@sda21(r13)
 /* 8039AD78 00397CD8  38 00 00 00 */	li r0, 0
 /* 8039AD7C 00397CDC  90 1D 00 00 */	stw r0, 0(r29)
 /* 8039AD80 00397CE0  38 03 00 01 */	addi r0, r3, 1
 /* 8039AD84 00397CE4  54 00 06 FE */	clrlwi r0, r0, 0x1b
-/* 8039AD88 00397CE8  98 0D AE 49 */	stb r0, lbl_805A9A09@sda21(r13)
+/* 8039AD88 00397CE8  98 0D AE 49 */	stb r0, synthJobTableIndex@sda21(r13)
 /* 8039AD8C 00397CEC  48 01 84 09 */	bl hwGetTimeOffset
 /* 8039AD90 00397CF0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8039AD94 00397CF4  40 82 02 50 */	bne lbl_8039AFE4
-/* 8039AD98 00397CF8  80 6D AE 70 */	lwz r3, lbl_805A9A30@sda21(r13)
-/* 8039AD9C 00397CFC  80 0D AE 6C */	lwz r0, lbl_805A9A2C@sda21(r13)
+/* 8039AD98 00397CF8  80 6D AE 70 */	lwz r3, synthMasterFaderActiveFlags@sda21(r13)
+/* 8039AD9C 00397CFC  80 0D AE 6C */	lwz r0, synthMasterFaderPauseActiveFlags@sda21(r13)
 /* 8039ADA0 00397D00  7C 60 03 79 */	or. r0, r3, r0
 /* 8039ADA4 00397D04  41 82 01 48 */	beq lbl_8039AEEC
 /* 8039ADA8 00397D08  3A 9F 04 54 */	addi r20, r31, 0x454
 /* 8039ADAC 00397D0C  3A A0 00 00 */	li r21, 0
 /* 8039ADB0 00397D10  3A C0 00 01 */	li r22, 1
 lbl_8039ADB4:
-/* 8039ADB4 00397D14  80 0D AE 70 */	lwz r0, lbl_805A9A30@sda21(r13)
+/* 8039ADB4 00397D14  80 0D AE 70 */	lwz r0, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039ADB8 00397D18  7C 00 B0 39 */	and. r0, r0, r22
 /* 8039ADBC 00397D1C  41 82 00 B4 */	beq lbl_8039AE70
 /* 8039ADC0 00397D20  C0 74 00 04 */	lfs f3, 4(r20)
@@ -2381,15 +2422,15 @@ lbl_8039AE44:
 /* 8039AE4C 00397DAC  38 A0 00 00 */	li r5, 0
 /* 8039AE50 00397DB0  4B FF B2 19 */	bl seqMute
 lbl_8039AE54:
-/* 8039AE54 00397DB4  80 0D AE 70 */	lwz r0, lbl_805A9A30@sda21(r13)
+/* 8039AE54 00397DB4  80 0D AE 70 */	lwz r0, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039AE58 00397DB8  7C 00 B0 79 */	andc. r0, r0, r22
-/* 8039AE5C 00397DBC  90 0D AE 70 */	stw r0, lbl_805A9A30@sda21(r13)
+/* 8039AE5C 00397DBC  90 0D AE 70 */	stw r0, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039AE60 00397DC0  40 82 00 10 */	bne lbl_8039AE70
-/* 8039AE64 00397DC4  80 0D AE 6C */	lwz r0, lbl_805A9A2C@sda21(r13)
+/* 8039AE64 00397DC4  80 0D AE 6C */	lwz r0, synthMasterFaderPauseActiveFlags@sda21(r13)
 /* 8039AE68 00397DC8  28 00 00 00 */	cmplwi r0, 0
 /* 8039AE6C 00397DCC  41 82 00 80 */	beq lbl_8039AEEC
 lbl_8039AE70:
-/* 8039AE70 00397DD0  80 6D AE 6C */	lwz r3, lbl_805A9A2C@sda21(r13)
+/* 8039AE70 00397DD0  80 6D AE 6C */	lwz r3, synthMasterFaderPauseActiveFlags@sda21(r13)
 /* 8039AE74 00397DD4  7C 60 B0 39 */	and. r0, r3, r22
 /* 8039AE78 00397DD8  41 82 00 60 */	beq lbl_8039AED8
 /* 8039AE7C 00397DDC  C0 74 00 18 */	lfs f3, 0x18(r20)
@@ -2410,9 +2451,9 @@ lbl_8039AE70:
 /* 8039AEB8 00397E18  7C 60 B0 79 */	andc. r0, r3, r22
 /* 8039AEBC 00397E1C  C0 14 00 18 */	lfs f0, 0x18(r20)
 /* 8039AEC0 00397E20  D0 14 00 14 */	stfs f0, 0x14(r20)
-/* 8039AEC4 00397E24  90 0D AE 6C */	stw r0, lbl_805A9A2C@sda21(r13)
+/* 8039AEC4 00397E24  90 0D AE 6C */	stw r0, synthMasterFaderPauseActiveFlags@sda21(r13)
 /* 8039AEC8 00397E28  40 82 00 10 */	bne lbl_8039AED8
-/* 8039AECC 00397E2C  80 0D AE 70 */	lwz r0, lbl_805A9A30@sda21(r13)
+/* 8039AECC 00397E2C  80 0D AE 70 */	lwz r0, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039AED0 00397E30  28 00 00 00 */	cmplwi r0, 0
 /* 8039AED4 00397E34  41 82 00 18 */	beq lbl_8039AEEC
 lbl_8039AED8:
@@ -2427,10 +2468,10 @@ lbl_8039AEEC:
 /* 8039AEF4 00397E54  3A FF 0C 54 */	addi r23, r31, 0xc54
 /* 8039AEF8 00397E58  3A DF 0C 74 */	addi r22, r31, 0xc74
 /* 8039AEFC 00397E5C  3A 80 00 00 */	li r20, 0
-/* 8039AF00 00397E60  3B 6D AE 64 */	addi r27, r13, lbl_805A9A24@sda21
-/* 8039AF04 00397E64  3B 8D AE 5C */	addi r28, r13, lbl_805A9A1C@sda21
-/* 8039AF08 00397E68  3B ED AE 54 */	addi r31, r13, lbl_805A9A14@sda21
-/* 8039AF0C 00397E6C  3B 0D AE 4C */	addi r24, r13, lbl_805A9A0C@sda21
+/* 8039AF00 00397E60  3B 6D AE 64 */	addi r27, r13, synthAuxAMIDI@sda21
+/* 8039AF04 00397E64  3B 8D AE 5C */	addi r28, r13, synthAuxAMIDISet@sda21
+/* 8039AF08 00397E68  3B ED AE 54 */	addi r31, r13, synthAuxBMIDI@sda21
+/* 8039AF0C 00397E6C  3B 0D AE 4C */	addi r24, r13, synthAuxBMidiSet@sda21
 lbl_8039AF10:
 /* 8039AF10 00397E70  88 1B 00 00 */	lbz r0, 0(r27)
 /* 8039AF14 00397E74  28 00 00 FF */	cmplwi r0, 0xff
@@ -2491,12 +2532,12 @@ lbl_8039AFB8:
 /* 8039AFE0 00397F40  41 80 FF 30 */	blt lbl_8039AF10
 lbl_8039AFE4:
 /* 8039AFE4 00397F44  48 01 8F 21 */	bl nullsub_59
-/* 8039AFE8 00397F48  80 6D AE 8C */	lwz r3, lbl_805A9A4C@sda21(r13)
-/* 8039AFEC 00397F4C  80 0D AE 88 */	lwz r0, lbl_805A9A48@sda21(r13)
+/* 8039AFE8 00397F48  80 6D AE 8C */	lwz r3, synthRealTime+4@sda21(r13)
+/* 8039AFEC 00397F4C  80 0D AE 88 */	lwz r0, synthRealTime@sda21(r13)
 /* 8039AFF0 00397F50  7C 63 C8 14 */	addc r3, r3, r25
 /* 8039AFF4 00397F54  7C 00 01 94 */	addze r0, r0
-/* 8039AFF8 00397F58  90 6D AE 8C */	stw r3, lbl_805A9A4C@sda21(r13)
-/* 8039AFFC 00397F5C  90 0D AE 88 */	stw r0, lbl_805A9A48@sda21(r13)
+/* 8039AFF8 00397F58  90 6D AE 8C */	stw r3, synthRealTime+4@sda21(r13)
+/* 8039AFFC 00397F5C  90 0D AE 88 */	stw r0, synthRealTime@sda21(r13)
 lbl_8039B000:
 /* 8039B000 00397F60  39 61 00 50 */	addi r11, r1, 0x50
 /* 8039B004 00397F64  4B FE EA A9 */	bl _restgpr_20
@@ -2529,7 +2570,7 @@ synthFXStart:
 /* 8039B050 00397FB0  7C 08 02 A6 */	mflr r0
 /* 8039B054 00397FB4  90 01 00 44 */	stw r0, 0x44(r1)
 /* 8039B058 00397FB8  39 61 00 40 */	addi r11, r1, 0x40
-/* 8039B05C 00397FBC  4B FE EA 21 */	bl sub_80389a7c
+/* 8039B05C 00397FBC  4B FE EA 21 */	bl _savegpr_27
 /* 8039B060 00397FC0  7C 9B 23 78 */	mr r27, r4
 /* 8039B064 00397FC4  7C BC 2B 78 */	mr r28, r5
 /* 8039B068 00397FC8  7C DD 33 78 */	mr r29, r6
@@ -2595,7 +2636,7 @@ synthFXSetCtrl:
 /* 8039B140 003980A0  48 00 00 88 */	b lbl_8039B1C8
 lbl_8039B144:
 /* 8039B144 003980A4  54 64 06 3E */	clrlwi r4, r3, 0x18
-/* 8039B148 003980A8  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 8039B148 003980A8  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 8039B14C 003980AC  1F A4 04 04 */	mulli r29, r4, 0x404
 /* 8039B150 003980B0  7C E0 EA 14 */	add r7, r0, r29
 /* 8039B154 003980B4  80 07 00 F4 */	lwz r0, 0xf4(r7)
@@ -2622,7 +2663,7 @@ lbl_8039B19C:
 /* 8039B1A4 00398104  7F E6 FB 78 */	mr r6, r31
 /* 8039B1A8 00398108  48 01 5F 49 */	bl inpSetMidiCtrl
 lbl_8039B1AC:
-/* 8039B1AC 0039810C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039B1AC 0039810C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039B1B0 00398110  38 1D 00 EC */	addi r0, r29, 0xec
 /* 8039B1B4 00398114  3B 80 00 01 */	li r28, 1
 /* 8039B1B8 00398118  7C 63 00 2E */	lwzx r3, r3, r0
@@ -2661,7 +2702,7 @@ synthFXSetCtrl14:
 /* 8039B224 00398184  48 00 00 88 */	b lbl_8039B2AC
 lbl_8039B228:
 /* 8039B228 00398188  54 64 06 3E */	clrlwi r4, r3, 0x18
-/* 8039B22C 0039818C  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 8039B22C 0039818C  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 8039B230 00398190  1F A4 04 04 */	mulli r29, r4, 0x404
 /* 8039B234 00398194  7C E0 EA 14 */	add r7, r0, r29
 /* 8039B238 00398198  80 07 00 F4 */	lwz r0, 0xf4(r7)
@@ -2688,7 +2729,7 @@ lbl_8039B280:
 /* 8039B288 003981E8  7F E6 FB 78 */	mr r6, r31
 /* 8039B28C 003981EC  48 01 64 6D */	bl inpSetMidiCtrl14
 lbl_8039B290:
-/* 8039B290 003981F0  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039B290 003981F0  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039B294 003981F4  38 1D 00 EC */	addi r0, r29, 0xec
 /* 8039B298 003981F8  3B 80 00 01 */	li r28, 1
 /* 8039B29C 003981FC  7C 63 00 2E */	lwzx r3, r3, r0
@@ -2755,14 +2796,14 @@ synthSendKeyOff:
 /* 8039B36C 003982CC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8039B370 003982D0  93 C1 00 08 */	stw r30, 8(r1)
 /* 8039B374 003982D4  3B C0 00 00 */	li r30, 0
-/* 8039B378 003982D8  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 8039B378 003982D8  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 8039B37C 003982DC  28 00 00 00 */	cmplwi r0, 0
 /* 8039B380 003982E0  41 82 00 4C */	beq lbl_8039B3CC
 /* 8039B384 003982E4  48 00 C8 25 */	bl vidGetInternalId
 /* 8039B388 003982E8  48 00 00 38 */	b lbl_8039B3C0
 lbl_8039B38C:
 /* 8039B38C 003982EC  54 60 06 3E */	clrlwi r0, r3, 0x18
-/* 8039B390 003982F0  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039B390 003982F0  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039B394 003982F4  1F E0 04 04 */	mulli r31, r0, 0x404
 /* 8039B398 003982F8  7C 84 FA 14 */	add r4, r4, r31
 /* 8039B39C 003982FC  80 04 00 F4 */	lwz r0, 0xf4(r4)
@@ -2772,7 +2813,7 @@ lbl_8039B38C:
 /* 8039B3AC 0039830C  48 00 B9 75 */	bl macSetExternalKeyoff
 /* 8039B3B0 00398310  3B C0 00 01 */	li r30, 1
 lbl_8039B3B4:
-/* 8039B3B4 00398314  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039B3B4 00398314  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039B3B8 00398318  38 1F 00 EC */	addi r0, r31, 0xec
 /* 8039B3BC 0039831C  7C 63 00 2E */	lwzx r3, r3, r0
 lbl_8039B3C0:
@@ -2796,7 +2837,7 @@ synthVolume:
 /* 8039B3F4 00398354  DB E1 00 40 */	stfd f31, 0x40(r1)
 /* 8039B3F8 00398358  F3 E1 00 48 */	psq_st f31, 72(r1), 0, qr0
 /* 8039B3FC 0039835C  39 61 00 40 */	addi r11, r1, 0x40
-/* 8039B400 00398360  4B FE E6 7D */	bl sub_80389a7c
+/* 8039B400 00398360  4B FE E6 7D */	bl _savegpr_27
 /* 8039B404 00398364  54 80 04 3F */	clrlwi. r0, r4, 0x10
 /* 8039B408 00398368  7C 7B 1B 78 */	mr r27, r3
 /* 8039B40C 0039836C  7C BD 2B 78 */	mr r29, r5
@@ -2894,10 +2935,10 @@ lbl_8039B54C:
 /* 8039B554 003984B4  4B FF AB 15 */	bl seqMute
 lbl_8039B558:
 /* 8039B558 003984B8  38 00 00 01 */	li r0, 1
-/* 8039B55C 003984BC  80 6D AE 70 */	lwz r3, lbl_805A9A30@sda21(r13)
+/* 8039B55C 003984BC  80 6D AE 70 */	lwz r3, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039B560 003984C0  7C 00 E0 30 */	slw r0, r0, r28
 /* 8039B564 003984C4  7C 60 03 78 */	or r0, r3, r0
-/* 8039B568 003984C8  90 0D AE 70 */	stw r0, lbl_805A9A30@sda21(r13)
+/* 8039B568 003984C8  90 0D AE 70 */	stw r0, synthMasterFaderActiveFlags@sda21(r13)
 lbl_8039B56C:
 /* 8039B56C 003984CC  3B 9C 00 01 */	addi r28, r28, 1
 /* 8039B570 003984D0  3B BD 00 30 */	addi r29, r29, 0x30
@@ -2975,10 +3016,10 @@ lbl_8039B668:
 /* 8039B670 003985D0  4B FF A9 F9 */	bl seqMute
 lbl_8039B674:
 /* 8039B674 003985D4  38 00 00 01 */	li r0, 1
-/* 8039B678 003985D8  80 6D AE 70 */	lwz r3, lbl_805A9A30@sda21(r13)
+/* 8039B678 003985D8  80 6D AE 70 */	lwz r3, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039B67C 003985DC  7C 00 E0 30 */	slw r0, r0, r28
 /* 8039B680 003985E0  7C 60 03 78 */	or r0, r3, r0
-/* 8039B684 003985E4  90 0D AE 70 */	stw r0, lbl_805A9A30@sda21(r13)
+/* 8039B684 003985E4  90 0D AE 70 */	stw r0, synthMasterFaderActiveFlags@sda21(r13)
 lbl_8039B688:
 /* 8039B688 003985E8  3B 9C 00 01 */	addi r28, r28, 1
 /* 8039B68C 003985EC  3B BD 00 30 */	addi r29, r29, 0x30
@@ -3065,10 +3106,10 @@ lbl_8039B79C:
 /* 8039B7A4 00398704  4B FF A8 C5 */	bl seqMute
 lbl_8039B7A8:
 /* 8039B7A8 00398708  38 00 00 01 */	li r0, 1
-/* 8039B7AC 0039870C  80 6D AE 70 */	lwz r3, lbl_805A9A30@sda21(r13)
+/* 8039B7AC 0039870C  80 6D AE 70 */	lwz r3, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039B7B0 00398710  7C 00 E0 30 */	slw r0, r0, r28
 /* 8039B7B4 00398714  7C 60 03 78 */	or r0, r3, r0
-/* 8039B7B8 00398718  90 0D AE 70 */	stw r0, lbl_805A9A30@sda21(r13)
+/* 8039B7B8 00398718  90 0D AE 70 */	stw r0, synthMasterFaderActiveFlags@sda21(r13)
 lbl_8039B7BC:
 /* 8039B7BC 0039871C  3B 9C 00 01 */	addi r28, r28, 1
 /* 8039B7C0 00398720  3B BD 00 30 */	addi r29, r29, 0x30
@@ -3152,10 +3193,10 @@ lbl_8039B8D8:
 /* 8039B8E0 00398840  4B FF A7 89 */	bl seqMute
 lbl_8039B8E4:
 /* 8039B8E4 00398844  38 00 00 01 */	li r0, 1
-/* 8039B8E8 00398848  80 6D AE 70 */	lwz r3, lbl_805A9A30@sda21(r13)
+/* 8039B8E8 00398848  80 6D AE 70 */	lwz r3, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039B8EC 0039884C  7C 00 F8 30 */	slw r0, r0, r31
 /* 8039B8F0 00398850  7C 60 03 78 */	or r0, r3, r0
-/* 8039B8F4 00398854  90 0D AE 70 */	stw r0, lbl_805A9A30@sda21(r13)
+/* 8039B8F4 00398854  90 0D AE 70 */	stw r0, synthMasterFaderActiveFlags@sda21(r13)
 lbl_8039B8F8:
 /* 8039B8F8 00398858  E3 E1 00 48 */	psq_l f31, 72(r1), 0, qr0
 /* 8039B8FC 0039885C  39 61 00 40 */	addi r11, r1, 0x40
@@ -3177,7 +3218,7 @@ synthIsFadeOutActive:
 /* 8039B930 00398890  28 00 00 04 */	cmplwi r0, 4
 /* 8039B934 00398894  41 82 00 30 */	beq lbl_8039B964
 /* 8039B938 00398898  38 00 00 01 */	li r0, 1
-/* 8039B93C 0039889C  80 6D AE 70 */	lwz r3, lbl_805A9A30@sda21(r13)
+/* 8039B93C 0039889C  80 6D AE 70 */	lwz r3, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039B940 003988A0  7C 00 28 30 */	slw r0, r0, r5
 /* 8039B944 003988A4  7C 60 00 39 */	and. r0, r3, r0
 /* 8039B948 003988A8  41 82 00 1C */	beq lbl_8039B964
@@ -3193,7 +3234,7 @@ lbl_8039B964:
 
 .global synthSetMusicVolumeType
 synthSetMusicVolumeType:
-/* 8039B96C 003988CC  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 8039B96C 003988CC  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 8039B970 003988D0  28 00 00 00 */	cmplwi r0, 0
 /* 8039B974 003988D4  4D 82 00 20 */	beqlr 
 /* 8039B978 003988D8  54 60 06 3E */	clrlwi r0, r3, 0x18
@@ -3227,7 +3268,7 @@ lbl_8039B9D0:
 /* 8039B9D8 00398938  48 00 00 60 */	b lbl_8039BA38
 lbl_8039B9DC:
 /* 8039B9DC 0039893C  57 A3 06 3E */	clrlwi r3, r29, 0x18
-/* 8039B9E0 00398940  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 8039B9E0 00398940  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 8039B9E4 00398944  1F E3 04 04 */	mulli r31, r3, 0x404
 /* 8039B9E8 00398948  7C 80 FA 14 */	add r4, r0, r31
 /* 8039B9EC 0039894C  88 04 01 1C */	lbz r0, 0x11c(r4)
@@ -3235,7 +3276,7 @@ lbl_8039B9DC:
 /* 8039B9F4 00398954  40 82 00 50 */	bne lbl_8039BA44
 /* 8039B9F8 00398958  48 01 85 31 */	bl hwGetVirtualSampleID
 /* 8039B9FC 0039895C  48 00 E2 D9 */	bl vsSampleEndNotify
-/* 8039BA00 00398960  80 0D AE 78 */	lwz r0, lbl_805A9A38@sda21(r13)
+/* 8039BA00 00398960  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 8039BA04 00398964  7C 60 FA 14 */	add r3, r0, r31
 /* 8039BA08 00398968  80 03 00 F4 */	lwz r0, 0xf4(r3)
 /* 8039BA0C 0039896C  7C 1D 00 40 */	cmplw r29, r0
@@ -3248,7 +3289,7 @@ lbl_8039BA1C:
 /* 8039BA24 00398984  48 00 00 20 */	b lbl_8039BA44
 lbl_8039BA28:
 /* 8039BA28 00398988  57 A3 06 3E */	clrlwi r3, r29, 0x18
-/* 8039BA2C 0039898C  48 00 E0 61 */	bl sub_803a9a8c
+/* 8039BA2C 0039898C  48 00 E0 61 */	bl vsSampleStartNotify
 /* 8039BA30 00398990  7C 7E 1B 78 */	mr r30, r3
 /* 8039BA34 00398994  48 00 00 10 */	b lbl_8039BA44
 lbl_8039BA38:
@@ -3280,14 +3321,14 @@ synthInit:
 /* 8039BA8C 003989EC  38 00 18 00 */	li r0, 0x1800
 /* 8039BA90 003989F0  38 9F 00 00 */	addi r4, r31, 0
 /* 8039BA94 003989F4  90 7F 02 40 */	stw r3, 0x240(r31)
-/* 8039BA98 003989F8  90 AD AE 8C */	stw r5, lbl_805A9A4C@sda21(r13)
+/* 8039BA98 003989F8  90 AD AE 8C */	stw r5, synthRealTime+4@sda21(r13)
 /* 8039BA9C 003989FC  7D C3 73 78 */	mr r3, r14
-/* 8039BAA0 00398A00  90 AD AE 88 */	stw r5, lbl_805A9A48@sda21(r13)
+/* 8039BAA0 00398A00  90 AD AE 88 */	stw r5, synthRealTime@sda21(r13)
 /* 8039BAA4 00398A04  90 04 02 00 */	stw r0, 0x200(r4)
-/* 8039BAA8 00398A08  90 AD AE 74 */	stw r5, lbl_805A9A34@sda21(r13)
-/* 8039BAAC 00398A0C  90 AD AE 7C */	stw r5, lbl_805A9A3C@sda21(r13)
+/* 8039BAA8 00398A08  90 AD AE 74 */	stw r5, synthFlags@sda21(r13)
+/* 8039BAAC 00398A0C  90 AD AE 7C */	stw r5, synthMessageCallback@sda21(r13)
 /* 8039BAB0 00398A10  48 01 96 85 */	bl salMalloc
-/* 8039BAB4 00398A14  90 6D AE 78 */	stw r3, lbl_805A9A38@sda21(r13)
+/* 8039BAB4 00398A14  90 6D AE 78 */	stw r3, synthVoice@sda21(r13)
 /* 8039BAB8 00398A18  7D C5 73 78 */	mr r5, r14
 /* 8039BABC 00398A1C  38 80 00 00 */	li r4, 0
 /* 8039BAC0 00398A20  4B C6 78 E9 */	bl memset
@@ -3298,7 +3339,7 @@ synthInit:
 /* 8039BAD4 00398A34  28 0F 00 00 */	cmplwi r15, 0
 /* 8039BAD8 00398A38  40 81 01 E8 */	ble lbl_8039BCC0
 lbl_8039BADC:
-/* 8039BADC 00398A3C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BADC 00398A3C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BAE0 00398A40  38 05 00 F4 */	addi r0, r5, 0xf4
 /* 8039BAE4 00398A44  38 80 FF FF */	li r4, -1
 /* 8039BAE8 00398A48  39 25 01 14 */	addi r9, r5, 0x114
@@ -3306,7 +3347,7 @@ lbl_8039BADC:
 /* 8039BAF0 00398A50  38 80 00 00 */	li r4, 0
 /* 8039BAF4 00398A54  39 05 01 10 */	addi r8, r5, 0x110
 /* 8039BAF8 00398A58  38 65 01 0C */	addi r3, r5, 0x10c
-/* 8039BAFC 00398A5C  81 4D AE 78 */	lwz r10, lbl_805A9A38@sda21(r13)
+/* 8039BAFC 00398A5C  81 4D AE 78 */	lwz r10, synthVoice@sda21(r13)
 /* 8039BB00 00398A60  38 E5 01 21 */	addi r7, r5, 0x121
 /* 8039BB04 00398A64  38 00 00 FF */	li r0, 0xff
 /* 8039BB08 00398A68  39 C5 01 54 */	addi r14, r5, 0x154
@@ -3320,7 +3361,7 @@ lbl_8039BADC:
 /* 8039BB28 00398A88  3A 85 01 80 */	addi r20, r5, 0x180
 /* 8039BB2C 00398A8C  3A A5 01 70 */	addi r21, r5, 0x170
 /* 8039BB30 00398A90  3A C5 01 84 */	addi r22, r5, 0x184
-/* 8039BB34 00398A94  81 2D AE 78 */	lwz r9, lbl_805A9A38@sda21(r13)
+/* 8039BB34 00398A94  81 2D AE 78 */	lwz r9, synthVoice@sda21(r13)
 /* 8039BB38 00398A98  3A E5 01 74 */	addi r23, r5, 0x174
 /* 8039BB3C 00398A9C  3B 05 01 A0 */	addi r24, r5, 0x1a0
 /* 8039BB40 00398AA0  3B 25 01 A4 */	addi r25, r5, 0x1a4
@@ -3328,7 +3369,7 @@ lbl_8039BADC:
 /* 8039BB48 00398AA8  3B 45 01 B8 */	addi r26, r5, 0x1b8
 /* 8039BB4C 00398AAC  3B 65 01 B9 */	addi r27, r5, 0x1b9
 /* 8039BB50 00398AB0  3B 85 01 1C */	addi r28, r5, 0x11c
-/* 8039BB54 00398AB4  81 0D AE 78 */	lwz r8, lbl_805A9A38@sda21(r13)
+/* 8039BB54 00398AB4  81 0D AE 78 */	lwz r8, synthVoice@sda21(r13)
 /* 8039BB58 00398AB8  3B A5 01 1E */	addi r29, r5, 0x11e
 /* 8039BB5C 00398ABC  3B C5 01 04 */	addi r30, r5, 0x104
 /* 8039BB60 00398AC0  39 85 01 93 */	addi r12, r5, 0x193
@@ -3336,53 +3377,53 @@ lbl_8039BADC:
 /* 8039BB68 00398AC8  39 65 01 C0 */	addi r11, r5, 0x1c0
 /* 8039BB6C 00398ACC  39 45 01 C4 */	addi r10, r5, 0x1c4
 /* 8039BB70 00398AD0  39 05 01 C6 */	addi r8, r5, 0x1c6
-/* 8039BB74 00398AD4  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BB74 00398AD4  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BB78 00398AD8  39 20 7F FF */	li r9, 0x7fff
 /* 8039BB7C 00398ADC  7C 03 39 AE */	stbx r0, r3, r7
 /* 8039BB80 00398AE0  38 E5 01 CC */	addi r7, r5, 0x1cc
-/* 8039BB84 00398AE4  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BB84 00398AE4  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BB88 00398AE8  7C 83 71 2E */	stwx r4, r3, r14
-/* 8039BB8C 00398AEC  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BB8C 00398AEC  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BB90 00398AF0  7C 83 79 AE */	stbx r4, r3, r15
-/* 8039BB94 00398AF4  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BB94 00398AF4  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BB98 00398AF8  7E 03 89 AE */	stbx r16, r3, r17
-/* 8039BB9C 00398AFC  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BB9C 00398AFC  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBA0 00398B00  7C 83 91 AE */	stbx r4, r3, r18
-/* 8039BBA4 00398B04  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBA4 00398B04  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBA8 00398B08  7E 63 A1 2E */	stwx r19, r3, r20
-/* 8039BBAC 00398B0C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBAC 00398B0C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBB0 00398B10  7E 63 A9 2E */	stwx r19, r3, r21
-/* 8039BBB4 00398B14  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBB4 00398B14  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBB8 00398B18  7C 83 B1 2E */	stwx r4, r3, r22
-/* 8039BBBC 00398B1C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBBC 00398B1C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBC0 00398B20  7C 83 B9 2E */	stwx r4, r3, r23
-/* 8039BBC4 00398B24  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBC4 00398B24  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBC8 00398B28  7C 83 C1 2E */	stwx r4, r3, r24
-/* 8039BBCC 00398B2C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBCC 00398B2C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBD0 00398B30  7C 83 C9 2E */	stwx r4, r3, r25
-/* 8039BBD4 00398B34  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBD4 00398B34  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBD8 00398B38  7C 83 D1 AE */	stbx r4, r3, r26
-/* 8039BBDC 00398B3C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBDC 00398B3C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBE0 00398B40  7C 83 D9 AE */	stbx r4, r3, r27
-/* 8039BBE4 00398B44  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBE4 00398B44  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBE8 00398B48  7C 83 E1 AE */	stbx r4, r3, r28
 /* 8039BBEC 00398B4C  38 60 00 17 */	li r3, 0x17
-/* 8039BBF0 00398B50  81 CD AE 78 */	lwz r14, lbl_805A9A38@sda21(r13)
+/* 8039BBF0 00398B50  81 CD AE 78 */	lwz r14, synthVoice@sda21(r13)
 /* 8039BBF4 00398B54  7C 6E E9 AE */	stbx r3, r14, r29
-/* 8039BBF8 00398B58  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BBF8 00398B58  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BBFC 00398B5C  7C 83 F1 AE */	stbx r4, r3, r30
 /* 8039BC00 00398B60  38 60 00 01 */	li r3, 1
-/* 8039BC04 00398B64  81 CD AE 78 */	lwz r14, lbl_805A9A38@sda21(r13)
+/* 8039BC04 00398B64  81 CD AE 78 */	lwz r14, synthVoice@sda21(r13)
 /* 8039BC08 00398B68  7C 6E 61 AE */	stbx r3, r14, r12
-/* 8039BC0C 00398B6C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BC0C 00398B6C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BC10 00398B70  7C 83 59 2E */	stwx r4, r3, r11
-/* 8039BC14 00398B74  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BC14 00398B74  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BC18 00398B78  7C 83 53 2E */	sthx r4, r3, r10
-/* 8039BC1C 00398B7C  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BC1C 00398B7C  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BC20 00398B80  7D 23 43 2E */	sthx r9, r3, r8
-/* 8039BC24 00398B84  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BC24 00398B84  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BC28 00398B88  7C 83 39 2E */	stwx r4, r3, r7
-/* 8039BC2C 00398B8C  81 0D AE 78 */	lwz r8, lbl_805A9A38@sda21(r13)
+/* 8039BC2C 00398B8C  81 0D AE 78 */	lwz r8, synthVoice@sda21(r13)
 /* 8039BC30 00398B90  38 E5 01 D0 */	addi r7, r5, 0x1d0
 /* 8039BC34 00398B94  38 65 01 D2 */	addi r3, r5, 0x1d2
 /* 8039BC38 00398B98  3A 05 01 3C */	addi r16, r5, 0x13c
@@ -3390,7 +3431,7 @@ lbl_8039BADC:
 /* 8039BC40 00398BA0  3A 20 64 00 */	li r17, 0x6400
 /* 8039BC44 00398BA4  39 E5 01 31 */	addi r15, r5, 0x131
 /* 8039BC48 00398BA8  39 C5 01 1F */	addi r14, r5, 0x11f
-/* 8039BC4C 00398BAC  80 ED AE 78 */	lwz r7, lbl_805A9A38@sda21(r13)
+/* 8039BC4C 00398BAC  80 ED AE 78 */	lwz r7, synthVoice@sda21(r13)
 /* 8039BC50 00398BB0  39 85 00 08 */	addi r12, r5, 8
 /* 8039BC54 00398BB4  39 65 00 09 */	addi r11, r5, 9
 /* 8039BC58 00398BB8  39 45 00 14 */	addi r10, r5, 0x14
@@ -3398,25 +3439,25 @@ lbl_8039BADC:
 /* 8039BC60 00398BC0  39 05 00 15 */	addi r8, r5, 0x15
 /* 8039BC64 00398BC4  38 E5 00 20 */	addi r7, r5, 0x20
 /* 8039BC68 00398BC8  38 65 00 21 */	addi r3, r5, 0x21
-/* 8039BC6C 00398BCC  81 2D AE 78 */	lwz r9, lbl_805A9A38@sda21(r13)
+/* 8039BC6C 00398BCC  81 2D AE 78 */	lwz r9, synthVoice@sda21(r13)
 /* 8039BC70 00398BD0  38 A5 04 04 */	addi r5, r5, 0x404
 /* 8039BC74 00398BD4  7E 29 81 2E */	stwx r17, r9, r16
-/* 8039BC78 00398BD8  81 2D AE 78 */	lwz r9, lbl_805A9A38@sda21(r13)
+/* 8039BC78 00398BD8  81 2D AE 78 */	lwz r9, synthVoice@sda21(r13)
 /* 8039BC7C 00398BDC  7C 89 79 AE */	stbx r4, r9, r15
-/* 8039BC80 00398BE0  81 2D AE 78 */	lwz r9, lbl_805A9A38@sda21(r13)
+/* 8039BC80 00398BE0  81 2D AE 78 */	lwz r9, synthVoice@sda21(r13)
 /* 8039BC84 00398BE4  7C 89 71 AE */	stbx r4, r9, r14
-/* 8039BC88 00398BE8  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039BC88 00398BE8  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039BC8C 00398BEC  7C C4 61 AE */	stbx r6, r4, r12
-/* 8039BC90 00398BF0  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039BC90 00398BF0  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039BC94 00398BF4  7C 04 59 AE */	stbx r0, r4, r11
-/* 8039BC98 00398BF8  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039BC98 00398BF8  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039BC9C 00398BFC  7C C4 51 AE */	stbx r6, r4, r10
-/* 8039BCA0 00398C00  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039BCA0 00398C00  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039BCA4 00398C04  7C 04 41 AE */	stbx r0, r4, r8
-/* 8039BCA8 00398C08  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039BCA8 00398C08  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039BCAC 00398C0C  7C C4 39 AE */	stbx r6, r4, r7
 /* 8039BCB0 00398C10  38 C6 00 01 */	addi r6, r6, 1
-/* 8039BCB4 00398C14  80 8D AE 78 */	lwz r4, lbl_805A9A38@sda21(r13)
+/* 8039BCB4 00398C14  80 8D AE 78 */	lwz r4, synthVoice@sda21(r13)
 /* 8039BCB8 00398C18  7C 04 19 AE */	stbx r0, r4, r3
 /* 8039BCBC 00398C1C  42 00 FE 20 */	bdnz lbl_8039BADC
 lbl_8039BCC0:
@@ -3481,9 +3522,9 @@ lbl_8039BCD4:
 /* 8039BDA4 00398D04  38 9F 04 54 */	addi r4, r31, 0x454
 /* 8039BDA8 00398D08  38 A0 00 00 */	li r5, 0
 /* 8039BDAC 00398D0C  38 00 00 01 */	li r0, 1
-/* 8039BDB0 00398D10  90 AD AE 70 */	stw r5, lbl_805A9A30@sda21(r13)
+/* 8039BDB0 00398D10  90 AD AE 70 */	stw r5, synthMasterFaderActiveFlags@sda21(r13)
 /* 8039BDB4 00398D14  38 60 00 00 */	li r3, 0
-/* 8039BDB8 00398D18  90 AD AE 6C */	stw r5, lbl_805A9A2C@sda21(r13)
+/* 8039BDB8 00398D18  90 AD AE 6C */	stw r5, synthMasterFaderPauseActiveFlags@sda21(r13)
 /* 8039BDBC 00398D1C  98 04 05 FD */	stb r0, 0x5fd(r4)
 /* 8039BDC0 00398D20  98 A4 04 7D */	stb r5, 0x47d(r4)
 /* 8039BDC4 00398D24  98 A4 04 AD */	stb r5, 0x4ad(r4)
@@ -3501,12 +3542,12 @@ lbl_8039BCD4:
 /* 8039BDF4 00398D54  38 DF 0C 34 */	addi r6, r31, 0xc34
 /* 8039BDF8 00398D58  38 9F 0C 74 */	addi r4, r31, 0xc74
 /* 8039BDFC 00398D5C  38 00 00 FF */	li r0, 0xff
-/* 8039BE00 00398D60  38 AD AE 64 */	addi r5, r13, lbl_805A9A24@sda21
-/* 8039BE04 00398D64  38 6D AE 54 */	addi r3, r13, lbl_805A9A14@sda21
+/* 8039BE00 00398D60  38 AD AE 64 */	addi r5, r13, synthAuxAMIDI@sda21
+/* 8039BE04 00398D64  38 6D AE 54 */	addi r3, r13, synthAuxBMIDI@sda21
 /* 8039BE08 00398D68  91 1F 0C 34 */	stw r8, 0xc34(r31)
-/* 8039BE0C 00398D6C  98 0D AE 64 */	stb r0, lbl_805A9A24@sda21(r13)
+/* 8039BE0C 00398D6C  98 0D AE 64 */	stb r0, synthAuxAMIDI@sda21(r13)
 /* 8039BE10 00398D70  91 1F 0C 74 */	stw r8, 0xc74(r31)
-/* 8039BE14 00398D74  98 0D AE 54 */	stb r0, lbl_805A9A14@sda21(r13)
+/* 8039BE14 00398D74  98 0D AE 54 */	stb r0, synthAuxBMIDI@sda21(r13)
 /* 8039BE18 00398D78  99 07 00 01 */	stb r8, 1(r7)
 /* 8039BE1C 00398D7C  99 1F 0C 94 */	stb r8, 0xc94(r31)
 /* 8039BE20 00398D80  91 06 00 04 */	stw r8, 4(r6)
@@ -3612,7 +3653,7 @@ lbl_8039BFA0:
 /* 8039BFA8 00398F08  41 80 FF 80 */	blt lbl_8039BF28
 /* 8039BFAC 00398F0C  38 00 00 00 */	li r0, 0
 /* 8039BFB0 00398F10  3C 60 80 3A */	lis r3, sub_8039b994@ha
-/* 8039BFB4 00398F14  98 0D AE 49 */	stb r0, lbl_805A9A09@sda21(r13)
+/* 8039BFB4 00398F14  98 0D AE 49 */	stb r0, synthJobTableIndex@sda21(r13)
 /* 8039BFB8 00398F18  38 63 B9 94 */	addi r3, r3, sub_8039b994@l
 /* 8039BFBC 00398F1C  48 01 72 01 */	bl hwSetMesgCallback
 /* 8039BFC0 00398F20  39 61 00 50 */	addi r11, r1, 0x50
@@ -3627,7 +3668,7 @@ synthExit:
 /* 8039BFD8 00398F38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039BFDC 00398F3C  7C 08 02 A6 */	mflr r0
 /* 8039BFE0 00398F40  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8039BFE4 00398F44  80 6D AE 78 */	lwz r3, lbl_805A9A38@sda21(r13)
+/* 8039BFE4 00398F44  80 6D AE 78 */	lwz r3, synthVoice@sda21(r13)
 /* 8039BFE8 00398F48  48 01 91 75 */	bl salFree
 /* 8039BFEC 00398F4C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8039BFF0 00398F50  7C 08 03 A6 */	mtlr r0

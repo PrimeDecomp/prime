@@ -2350,33 +2350,3 @@ lbl_805A9924:
 .global lbl_805A9928
 lbl_805A9928:
 	.skip 0x8
-.global lbl_805A9930
-lbl_805A9930:
-	.skip 0x4
-.global lbl_805A9934
-lbl_805A9934:
-	.skip 0x4
-.global lbl_805A9938
-lbl_805A9938:
-	.skip 0x4
-.global lbl_805A993C
-lbl_805A993C:
-	.skip 0x4
-.global lbl_805A9940
-lbl_805A9940:
-	.skip 0x4
-.global lbl_805A9944
-lbl_805A9944:
-	.skip 0x4
-.global lbl_805A9948
-lbl_805A9948:
-	.skip 0x4
-.global lbl_805A994C
-lbl_805A994C:
-	.skip 0x4
-.global lbl_805A9950
-lbl_805A9950:
-	.skip 0x4
-.global lbl_805A9954
-lbl_805A9954:
-	.skip 0x4

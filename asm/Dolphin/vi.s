@@ -12,7 +12,7 @@ lbl_803F275C:
 	.incbin "baserom.dol", 0x3EF75C, 0x1C
 	
 .section .sbss, "wa"
-
+.balign 4
 lbl_805A9958:
 	.skip 0x4
 lbl_805A995C:

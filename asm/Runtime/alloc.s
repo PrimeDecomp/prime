@@ -5,6 +5,11 @@
 lbl_803D85C0:
 	.incbin "baserom.dol", 0x3D55C0, 0x18
 
+.section .sbss
+.balign 4
+.global lbl_805A99C8
+lbl_805A99C8:
+	.skip 0x8
 
 .section .text, "ax"
 
