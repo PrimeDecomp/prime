@@ -161,8 +161,8 @@ _savegpr_25:
 _savegpr_26:
 /* 80389A78 003869D8  93 4B FF E8 */	stw r26, -0x18(r11)
 
-.global sub_80389a7c
-sub_80389a7c:
+.global _savegpr_27
+_savegpr_27:
 /* 80389A7C 003869DC  93 6B FF EC */	stw r27, -0x14(r11)
 /* 80389A80 003869E0  93 8B FF F0 */	stw r28, -0x10(r11)
 /* 80389A84 003869E4  93 AB FF F4 */	stw r29, -0xc(r11)

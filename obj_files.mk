@@ -93,7 +93,6 @@ VI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/vi.o
 	
 MSL_PPCEABI_BARE_H :=\
-	$(BUILD_DIR)/asm/Runtime/sbss.o\
 	$(BUILD_DIR)/asm/Runtime/__va_arg.o\
 	$(BUILD_DIR)/asm/Runtime/global_destructor_chain.o\
 	$(BUILD_DIR)/asm/Runtime/CPlusLibPPC.o\
@@ -156,7 +155,6 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/asm/Runtime/s_cosf.o\
 	
 MUSYX_FILES :=\
-	$(BUILD_DIR)/asm/musyx/sbss.o\
 	$(BUILD_DIR)/asm/musyx/seq.o\
 	$(BUILD_DIR)/asm/musyx/synth.o\
 	$(BUILD_DIR)/asm/musyx/seq_api.o\
@@ -263,3 +261,6 @@ SDATA2_O_FILES :=\
 
 SBSS2_O_FILES :=\
 	$(BUILD_DIR)/asm/sbss2.o
+
+BSS_SINIT_O_FILES :=\
+	$(BUILD_DIR)/asm/bss_sinit.o

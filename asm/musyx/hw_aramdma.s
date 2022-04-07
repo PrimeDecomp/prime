@@ -1,29 +1,29 @@
 .include "macros.inc"
 .section .sbss, "wa"
-
-.global lbl_805A9B50
-lbl_805A9B50:
+.balign 4
+.global aramIdleStreamBuffers
+aramIdleStreamBuffers:
 	.skip 0x4
-.global lbl_805A9B54
-lbl_805A9B54:
+.global aramFreeStreamBuffers
+aramFreeStreamBuffers:
 	.skip 0x4
-.global lbl_805A9B58
-lbl_805A9B58:
+.global aramUsedStreamBuffers
+aramUsedStreamBuffers:
 	.skip 0x4
-.global lbl_805A9B5C
-lbl_805A9B5C:
+.global aramUploadChunkSize
+aramUploadChunkSize:
 	.skip 0x4
-.global lbl_805A9B60
-lbl_805A9B60:
+.global aramUploadCallback
+aramUploadCallback:
 	.skip 0x4
-.global lbl_805A9B64
-lbl_805A9B64:
+.global aramStream
+aramStream:
 	.skip 0x4
-.global lbl_805A9B68
-lbl_805A9B68:
+.global aramWrite
+aramWrite:
 	.skip 0x4
-.global lbl_805A9B6C
-lbl_805A9B6C:
+.global aramTop
+aramTop:
 	.skip 0x4
 .section .text, "ax" 
 
@@ -218,7 +218,7 @@ aramInit:
 /* 803B4208 003B1168  7C 08 02 A6 */	mflr r0
 /* 803B420C 003B116C  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803B4210 003B1170  39 61 00 20 */	addi r11, r1, 0x20
-/* 803B4214 003B1174  4B FD 58 69 */	bl sub_80389a7c
+/* 803B4214 003B1174  4B FD 58 69 */	bl _savegpr_27
 /* 803B4218 003B1178  7C 7B 1B 78 */	mr r27, r3
 /* 803B421C 003B117C  4B FB 99 99 */	bl ARGetBaseAddress
 /* 803B4220 003B1180  7C 7E 1B 78 */	mr r30, r3
@@ -387,18 +387,18 @@ lbl_803B4490:
 /* 803B449C 003B13FC  7F 83 E3 78 */	mr r3, r28
 /* 803B44A0 003B1400  48 00 0C BD */	bl salFree
 /* 803B44A4 003B1404  7C 1E DA 14 */	add r0, r30, r27
-/* 803B44A8 003B1408  90 0D AF AC */	stw r0, lbl_805A9B6C@sda21(r13)
+/* 803B44A8 003B1408  90 0D AF AC */	stw r0, aramTop@sda21(r13)
 /* 803B44AC 003B140C  4B FB 97 11 */	bl ARGetSize
-/* 803B44B0 003B1410  80 0D AF AC */	lwz r0, lbl_805A9B6C@sda21(r13)
+/* 803B44B0 003B1410  80 0D AF AC */	lwz r0, aramTop@sda21(r13)
 /* 803B44B4 003B1414  7C 00 18 40 */	cmplw r0, r3
 /* 803B44B8 003B1418  40 81 00 0C */	ble lbl_803B44C4
 /* 803B44BC 003B141C  4B FB 97 01 */	bl ARGetSize
-/* 803B44C0 003B1420  90 6D AF AC */	stw r3, lbl_805A9B6C@sda21(r13)
+/* 803B44C0 003B1420  90 6D AF AC */	stw r3, aramTop@sda21(r13)
 lbl_803B44C4:
 /* 803B44C4 003B1424  38 7E 05 00 */	addi r3, r30, 0x500
 /* 803B44C8 003B1428  38 00 00 00 */	li r0, 0
-/* 803B44CC 003B142C  90 6D AF A8 */	stw r3, lbl_805A9B68@sda21(r13)
-/* 803B44D0 003B1430  90 0D AF A0 */	stw r0, lbl_805A9B60@sda21(r13)
+/* 803B44CC 003B142C  90 6D AF A8 */	stw r3, aramWrite@sda21(r13)
+/* 803B44D0 003B1430  90 0D AF A0 */	stw r0, aramUploadCallback@sda21(r13)
 /* 803B44D4 003B1434  48 00 04 6D */	bl InitStreamBuffers
 /* 803B44D8 003B1438  39 61 00 20 */	addi r11, r1, 0x20
 /* 803B44DC 003B143C  4B FD 55 ED */	bl _restgpr_27
@@ -439,9 +439,9 @@ aramSetUploadCallback:
 /* 803B4544 003B14A4  40 80 00 08 */	bge lbl_803B454C
 /* 803B4548 003B14A8  7C 60 1B 78 */	mr r0, r3
 lbl_803B454C:
-/* 803B454C 003B14AC  90 0D AF 9C */	stw r0, lbl_805A9B5C@sda21(r13)
+/* 803B454C 003B14AC  90 0D AF 9C */	stw r0, aramUploadChunkSize@sda21(r13)
 lbl_803B4550:
-/* 803B4550 003B14B0  93 CD AF A0 */	stw r30, lbl_805A9B60@sda21(r13)
+/* 803B4550 003B14B0  93 CD AF A0 */	stw r30, aramUploadCallback@sda21(r13)
 /* 803B4554 003B14B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B4558 003B14B8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803B455C 003B14BC  83 C1 00 08 */	lwz r30, 8(r1)
@@ -456,9 +456,9 @@ sub_803b456c:
 /* 803B4574 003B14D4  90 01 00 34 */	stw r0, 0x34(r1)
 /* 803B4578 003B14D8  39 61 00 30 */	addi r11, r1, 0x30
 /* 803B457C 003B14DC  4B FD 54 F1 */	bl func_80389A6C
-/* 803B4580 003B14E0  80 0D AF A0 */	lwz r0, lbl_805A9B60@sda21(r13)
+/* 803B4580 003B14E0  80 0D AF A0 */	lwz r0, aramUploadCallback@sda21(r13)
 /* 803B4584 003B14E4  38 84 00 1F */	addi r4, r4, 0x1f
-/* 803B4588 003B14E8  83 0D AF A8 */	lwz r24, lbl_805A9B68@sda21(r13)
+/* 803B4588 003B14E8  83 0D AF A8 */	lwz r24, aramWrite@sda21(r13)
 /* 803B458C 003B14EC  7C 79 1B 78 */	mr r25, r3
 /* 803B4590 003B14F0  28 00 00 00 */	cmplwi r0, 0
 /* 803B4594 003B14F4  54 97 00 34 */	rlwinm r23, r4, 0, 0, 0x1a
@@ -466,7 +466,7 @@ sub_803b456c:
 /* 803B459C 003B14FC  7E E4 BB 78 */	mr r4, r23
 /* 803B45A0 003B1500  4B FC A5 11 */	bl DCFlushRange
 /* 803B45A4 003B1504  3C 60 80 56 */	lis r3, lbl_80566F90@ha
-/* 803B45A8 003B1508  83 CD AF A8 */	lwz r30, lbl_805A9B68@sda21(r13)
+/* 803B45A8 003B1508  83 CD AF A8 */	lwz r30, aramWrite@sda21(r13)
 /* 803B45AC 003B150C  3B 83 6F 90 */	addi r28, r3, lbl_80566F90@l
 lbl_803B45B0:
 /* 803B45B0 003B1510  4B FC D0 B1 */	bl OSDisableInterrupts
@@ -564,10 +564,10 @@ lbl_803B471C:
 /* 803B471C 003B167C  4B FC CF 6D */	bl OSRestoreInterrupts
 /* 803B4720 003B1680  4B FF FE 90 */	b lbl_803B45B0
 lbl_803B4724:
-/* 803B4724 003B1684  80 0D AF A8 */	lwz r0, lbl_805A9B68@sda21(r13)
+/* 803B4724 003B1684  80 0D AF A8 */	lwz r0, aramWrite@sda21(r13)
 /* 803B4728 003B1688  7F 03 C3 78 */	mr r3, r24
 /* 803B472C 003B168C  7C 00 BA 14 */	add r0, r0, r23
-/* 803B4730 003B1690  90 0D AF A8 */	stw r0, lbl_805A9B68@sda21(r13)
+/* 803B4730 003B1690  90 0D AF A8 */	stw r0, aramWrite@sda21(r13)
 /* 803B4734 003B1694  48 00 01 DC */	b lbl_803B4910
 lbl_803B4738:
 /* 803B4738 003B1698  3C 80 80 56 */	lis r4, lbl_80566F90@ha
@@ -576,13 +576,13 @@ lbl_803B4738:
 /* 803B4744 003B16A4  3B E3 3F 70 */	addi r31, r3, aramQueueCallback@l
 /* 803B4748 003B16A8  48 00 01 BC */	b lbl_803B4904
 lbl_803B474C:
-/* 803B474C 003B16AC  80 0D AF 9C */	lwz r0, lbl_805A9B5C@sda21(r13)
+/* 803B474C 003B16AC  80 0D AF 9C */	lwz r0, aramUploadChunkSize@sda21(r13)
 /* 803B4750 003B16B0  7E FC BB 78 */	mr r28, r23
 /* 803B4754 003B16B4  7C 17 00 40 */	cmplw r23, r0
 /* 803B4758 003B16B8  41 80 00 08 */	blt lbl_803B4760
 /* 803B475C 003B16BC  7C 1C 03 78 */	mr r28, r0
 lbl_803B4760:
-/* 803B4760 003B16C0  81 8D AF A0 */	lwz r12, lbl_805A9B60@sda21(r13)
+/* 803B4760 003B16C0  81 8D AF A0 */	lwz r12, aramUploadCallback@sda21(r13)
 /* 803B4764 003B16C4  7F 23 CB 78 */	mr r3, r25
 /* 803B4768 003B16C8  7F 84 E3 78 */	mr r4, r28
 /* 803B476C 003B16CC  7D 89 03 A6 */	mtctr r12
@@ -590,7 +590,7 @@ lbl_803B4760:
 /* 803B4774 003B16D4  7C 7D 1B 78 */	mr r29, r3
 /* 803B4778 003B16D8  7F 84 E3 78 */	mr r4, r28
 /* 803B477C 003B16DC  4B FC A3 35 */	bl DCFlushRange
-/* 803B4780 003B16E0  83 4D AF A8 */	lwz r26, lbl_805A9B68@sda21(r13)
+/* 803B4780 003B16E0  83 4D AF A8 */	lwz r26, aramWrite@sda21(r13)
 lbl_803B4784:
 /* 803B4784 003B16E4  4B FC CE DD */	bl OSDisableInterrupts
 /* 803B4788 003B16E8  88 1E 02 81 */	lbz r0, 0x281(r30)
@@ -685,11 +685,11 @@ lbl_803B48E8:
 /* 803B48E8 003B1848  4B FC CD A1 */	bl OSRestoreInterrupts
 /* 803B48EC 003B184C  4B FF FE 98 */	b lbl_803B4784
 lbl_803B48F0:
-/* 803B48F0 003B1850  80 0D AF A8 */	lwz r0, lbl_805A9B68@sda21(r13)
+/* 803B48F0 003B1850  80 0D AF A8 */	lwz r0, aramWrite@sda21(r13)
 /* 803B48F4 003B1854  7E FC B8 50 */	subf r23, r28, r23
 /* 803B48F8 003B1858  7F 39 E2 14 */	add r25, r25, r28
 /* 803B48FC 003B185C  7C 00 E2 14 */	add r0, r0, r28
-/* 803B4900 003B1860  90 0D AF A8 */	stw r0, lbl_805A9B68@sda21(r13)
+/* 803B4900 003B1860  90 0D AF A8 */	stw r0, aramWrite@sda21(r13)
 lbl_803B4904:
 /* 803B4904 003B1864  28 17 00 00 */	cmplwi r23, 0
 /* 803B4908 003B1868  40 82 FE 44 */	bne lbl_803B474C
@@ -705,10 +705,10 @@ lbl_803B4910:
 .global sub_803b4928
 sub_803b4928:
 /* 803B4928 003B1888  38 64 00 1F */	addi r3, r4, 0x1f
-/* 803B492C 003B188C  80 0D AF A8 */	lwz r0, lbl_805A9B68@sda21(r13)
+/* 803B492C 003B188C  80 0D AF A8 */	lwz r0, aramWrite@sda21(r13)
 /* 803B4930 003B1890  54 63 00 34 */	rlwinm r3, r3, 0, 0, 0x1a
 /* 803B4934 003B1894  7C 03 00 50 */	subf r0, r3, r0
-/* 803B4938 003B1898  90 0D AF A8 */	stw r0, lbl_805A9B68@sda21(r13)
+/* 803B4938 003B1898  90 0D AF A8 */	stw r0, aramWrite@sda21(r13)
 /* 803B493C 003B189C  4E 80 00 20 */	blr 
 
 .global InitStreamBuffers
@@ -717,11 +717,11 @@ InitStreamBuffers:
 /* 803B4944 003B18A4  38 80 00 00 */	li r4, 0
 /* 803B4948 003B18A8  38 63 74 98 */	addi r3, r3, lbl_80567498@l
 /* 803B494C 003B18AC  38 00 00 07 */	li r0, 7
-/* 803B4950 003B18B0  90 8D AF 98 */	stw r4, lbl_805A9B58@sda21(r13)
+/* 803B4950 003B18B0  90 8D AF 98 */	stw r4, aramUsedStreamBuffers@sda21(r13)
 /* 803B4954 003B18B4  38 E3 00 10 */	addi r7, r3, 0x10
 /* 803B4958 003B18B8  39 00 00 01 */	li r8, 1
-/* 803B495C 003B18BC  90 8D AF 94 */	stw r4, lbl_805A9B54@sda21(r13)
-/* 803B4960 003B18C0  90 6D AF 90 */	stw r3, lbl_805A9B50@sda21(r13)
+/* 803B495C 003B18BC  90 8D AF 94 */	stw r4, aramFreeStreamBuffers@sda21(r13)
+/* 803B4960 003B18C0  90 6D AF 90 */	stw r3, aramIdleStreamBuffers@sda21(r13)
 /* 803B4964 003B18C4  7C 09 03 A6 */	mtctr r0
 lbl_803B4968:
 /* 803B4968 003B18C8  90 E7 FF F0 */	stw r7, -0x10(r7)
@@ -757,19 +757,19 @@ lbl_803B49D0:
 /* 803B49DC 003B193C  42 00 FF F4 */	bdnz lbl_803B49D0
 lbl_803B49E0:
 /* 803B49E0 003B1940  3C 60 80 56 */	lis r3, lbl_80567498@ha
-/* 803B49E4 003B1944  80 0D AF AC */	lwz r0, lbl_805A9B6C@sda21(r13)
+/* 803B49E4 003B1944  80 0D AF AC */	lwz r0, aramTop@sda21(r13)
 /* 803B49E8 003B1948  38 83 74 98 */	addi r4, r3, lbl_80567498@l
 /* 803B49EC 003B194C  55 03 20 36 */	slwi r3, r8, 4
 /* 803B49F0 003B1950  7C 64 1A 14 */	add r3, r4, r3
 /* 803B49F4 003B1954  38 80 00 00 */	li r4, 0
 /* 803B49F8 003B1958  90 83 FF F0 */	stw r4, -0x10(r3)
-/* 803B49FC 003B195C  90 0D AF A4 */	stw r0, lbl_805A9B64@sda21(r13)
+/* 803B49FC 003B195C  90 0D AF A4 */	stw r0, aramStream@sda21(r13)
 /* 803B4A00 003B1960  4E 80 00 20 */	blr 
 
 .global sub_803b4a04
 sub_803b4a04:
 /* 803B4A04 003B1964  38 03 00 1F */	addi r0, r3, 0x1f
-/* 803B4A08 003B1968  80 6D AF 94 */	lwz r3, lbl_805A9B54@sda21(r13)
+/* 803B4A08 003B1968  80 6D AF 94 */	lwz r3, aramFreeStreamBuffers@sda21(r13)
 /* 803B4A0C 003B196C  54 07 00 34 */	rlwinm r7, r0, 0, 0, 0x1a
 /* 803B4A10 003B1970  38 A0 00 00 */	li r5, 0
 /* 803B4A14 003B1974  38 80 00 00 */	li r4, 0
@@ -796,26 +796,26 @@ lbl_803B4A50:
 lbl_803B4A58:
 /* 803B4A58 003B19B8  28 05 00 00 */	cmplwi r5, 0
 /* 803B4A5C 003B19BC  40 82 00 58 */	bne lbl_803B4AB4
-/* 803B4A60 003B19C0  80 8D AF 90 */	lwz r4, lbl_805A9B50@sda21(r13)
+/* 803B4A60 003B19C0  80 8D AF 90 */	lwz r4, aramIdleStreamBuffers@sda21(r13)
 /* 803B4A64 003B19C4  28 04 00 00 */	cmplwi r4, 0
 /* 803B4A68 003B19C8  41 82 00 78 */	beq lbl_803B4AE0
-/* 803B4A6C 003B19CC  80 6D AF A4 */	lwz r3, lbl_805A9B64@sda21(r13)
-/* 803B4A70 003B19D0  80 0D AF A8 */	lwz r0, lbl_805A9B68@sda21(r13)
+/* 803B4A6C 003B19CC  80 6D AF A4 */	lwz r3, aramStream@sda21(r13)
+/* 803B4A70 003B19D0  80 0D AF A8 */	lwz r0, aramWrite@sda21(r13)
 /* 803B4A74 003B19D4  7C 67 18 50 */	subf r3, r7, r3
 /* 803B4A78 003B19D8  7C 03 00 40 */	cmplw r3, r0
 /* 803B4A7C 003B19DC  41 80 00 64 */	blt lbl_803B4AE0
 /* 803B4A80 003B19E0  80 04 00 00 */	lwz r0, 0(r4)
 /* 803B4A84 003B19E4  7C 85 23 78 */	mr r5, r4
-/* 803B4A88 003B19E8  90 0D AF 90 */	stw r0, lbl_805A9B50@sda21(r13)
+/* 803B4A88 003B19E8  90 0D AF 90 */	stw r0, aramIdleStreamBuffers@sda21(r13)
 /* 803B4A8C 003B19EC  90 E4 00 0C */	stw r7, 0xc(r4)
 /* 803B4A90 003B19F0  90 E4 00 08 */	stw r7, 8(r4)
-/* 803B4A94 003B19F4  80 0D AF A4 */	lwz r0, lbl_805A9B64@sda21(r13)
+/* 803B4A94 003B19F4  80 0D AF A4 */	lwz r0, aramStream@sda21(r13)
 /* 803B4A98 003B19F8  7C 07 00 50 */	subf r0, r7, r0
-/* 803B4A9C 003B19FC  90 0D AF A4 */	stw r0, lbl_805A9B64@sda21(r13)
+/* 803B4A9C 003B19FC  90 0D AF A4 */	stw r0, aramStream@sda21(r13)
 /* 803B4AA0 003B1A00  90 04 00 04 */	stw r0, 4(r4)
-/* 803B4AA4 003B1A04  80 0D AF 98 */	lwz r0, lbl_805A9B58@sda21(r13)
+/* 803B4AA4 003B1A04  80 0D AF 98 */	lwz r0, aramUsedStreamBuffers@sda21(r13)
 /* 803B4AA8 003B1A08  90 04 00 00 */	stw r0, 0(r4)
-/* 803B4AAC 003B1A0C  90 8D AF 98 */	stw r4, lbl_805A9B58@sda21(r13)
+/* 803B4AAC 003B1A0C  90 8D AF 98 */	stw r4, aramUsedStreamBuffers@sda21(r13)
 /* 803B4AB0 003B1A10  48 00 00 30 */	b lbl_803B4AE0
 lbl_803B4AB4:
 /* 803B4AB4 003B1A14  28 04 00 00 */	cmplwi r4, 0
@@ -825,12 +825,12 @@ lbl_803B4AB4:
 /* 803B4AC4 003B1A24  48 00 00 0C */	b lbl_803B4AD0
 lbl_803B4AC8:
 /* 803B4AC8 003B1A28  80 05 00 00 */	lwz r0, 0(r5)
-/* 803B4ACC 003B1A2C  90 0D AF 94 */	stw r0, lbl_805A9B54@sda21(r13)
+/* 803B4ACC 003B1A2C  90 0D AF 94 */	stw r0, aramFreeStreamBuffers@sda21(r13)
 lbl_803B4AD0:
 /* 803B4AD0 003B1A30  90 E5 00 08 */	stw r7, 8(r5)
-/* 803B4AD4 003B1A34  80 0D AF 98 */	lwz r0, lbl_805A9B58@sda21(r13)
+/* 803B4AD4 003B1A34  80 0D AF 98 */	lwz r0, aramUsedStreamBuffers@sda21(r13)
 /* 803B4AD8 003B1A38  90 05 00 00 */	stw r0, 0(r5)
-/* 803B4ADC 003B1A3C  90 AD AF 98 */	stw r5, lbl_805A9B58@sda21(r13)
+/* 803B4ADC 003B1A3C  90 AD AF 98 */	stw r5, aramUsedStreamBuffers@sda21(r13)
 lbl_803B4AE0:
 /* 803B4AE0 003B1A40  28 05 00 00 */	cmplwi r5, 0
 /* 803B4AE4 003B1A44  40 82 00 0C */	bne lbl_803B4AF0
@@ -868,7 +868,7 @@ aramFreeStreamBuffer:
 /* 803B4B44 003B1AA4  3C 80 80 56 */	lis r4, lbl_80567498@ha
 /* 803B4B48 003B1AA8  54 63 25 36 */	rlwinm r3, r3, 4, 0x14, 0x1b
 /* 803B4B4C 003B1AAC  38 04 74 98 */	addi r0, r4, lbl_80567498@l
-/* 803B4B50 003B1AB0  80 AD AF 98 */	lwz r5, lbl_805A9B58@sda21(r13)
+/* 803B4B50 003B1AB0  80 AD AF 98 */	lwz r5, aramUsedStreamBuffers@sda21(r13)
 /* 803B4B54 003B1AB4  38 C0 00 00 */	li r6, 0
 /* 803B4B58 003B1AB8  7C 80 1A 14 */	add r4, r0, r3
 /* 803B4B5C 003B1ABC  48 00 00 34 */	b lbl_803B4B90
@@ -882,7 +882,7 @@ lbl_803B4B60:
 /* 803B4B78 003B1AD8  48 00 00 20 */	b lbl_803B4B98
 lbl_803B4B7C:
 /* 803B4B7C 003B1ADC  80 04 00 00 */	lwz r0, 0(r4)
-/* 803B4B80 003B1AE0  90 0D AF 98 */	stw r0, lbl_805A9B58@sda21(r13)
+/* 803B4B80 003B1AE0  90 0D AF 98 */	stw r0, aramUsedStreamBuffers@sda21(r13)
 /* 803B4B84 003B1AE4  48 00 00 14 */	b lbl_803B4B98
 lbl_803B4B88:
 /* 803B4B88 003B1AE8  7C A6 2B 78 */	mr r6, r5
@@ -892,14 +892,14 @@ lbl_803B4B90:
 /* 803B4B94 003B1AF4  40 82 FF CC */	bne lbl_803B4B60
 lbl_803B4B98:
 /* 803B4B98 003B1AF8  80 64 00 04 */	lwz r3, 4(r4)
-/* 803B4B9C 003B1AFC  80 0D AF A4 */	lwz r0, lbl_805A9B64@sda21(r13)
+/* 803B4B9C 003B1AFC  80 0D AF A4 */	lwz r0, aramStream@sda21(r13)
 /* 803B4BA0 003B1B00  7C 03 00 40 */	cmplw r3, r0
 /* 803B4BA4 003B1B04  40 82 00 88 */	bne lbl_803B4C2C
-/* 803B4BA8 003B1B08  80 0D AF 90 */	lwz r0, lbl_805A9B50@sda21(r13)
+/* 803B4BA8 003B1B08  80 0D AF 90 */	lwz r0, aramIdleStreamBuffers@sda21(r13)
 /* 803B4BAC 003B1B0C  38 A0 FF FF */	li r5, -1
-/* 803B4BB0 003B1B10  80 6D AF 98 */	lwz r3, lbl_805A9B58@sda21(r13)
+/* 803B4BB0 003B1B10  80 6D AF 98 */	lwz r3, aramUsedStreamBuffers@sda21(r13)
 /* 803B4BB4 003B1B14  90 04 00 00 */	stw r0, 0(r4)
-/* 803B4BB8 003B1B18  90 8D AF 90 */	stw r4, lbl_805A9B50@sda21(r13)
+/* 803B4BB8 003B1B18  90 8D AF 90 */	stw r4, aramIdleStreamBuffers@sda21(r13)
 /* 803B4BBC 003B1B1C  48 00 00 18 */	b lbl_803B4BD4
 lbl_803B4BC0:
 /* 803B4BC0 003B1B20  80 03 00 04 */	lwz r0, 4(r3)
@@ -911,32 +911,32 @@ lbl_803B4BD0:
 lbl_803B4BD4:
 /* 803B4BD4 003B1B34  28 03 00 00 */	cmplwi r3, 0
 /* 803B4BD8 003B1B38  40 82 FF E8 */	bne lbl_803B4BC0
-/* 803B4BDC 003B1B3C  80 8D AF 94 */	lwz r4, lbl_805A9B54@sda21(r13)
+/* 803B4BDC 003B1B3C  80 8D AF 94 */	lwz r4, aramFreeStreamBuffers@sda21(r13)
 /* 803B4BE0 003B1B40  48 00 00 28 */	b lbl_803B4C08
 lbl_803B4BE4:
 /* 803B4BE4 003B1B44  80 04 00 04 */	lwz r0, 4(r4)
 /* 803B4BE8 003B1B48  80 64 00 00 */	lwz r3, 0(r4)
 /* 803B4BEC 003B1B4C  7C 00 28 40 */	cmplw r0, r5
 /* 803B4BF0 003B1B50  40 80 00 14 */	bge lbl_803B4C04
-/* 803B4BF4 003B1B54  90 6D AF 94 */	stw r3, lbl_805A9B54@sda21(r13)
-/* 803B4BF8 003B1B58  80 0D AF 90 */	lwz r0, lbl_805A9B50@sda21(r13)
+/* 803B4BF4 003B1B54  90 6D AF 94 */	stw r3, aramFreeStreamBuffers@sda21(r13)
+/* 803B4BF8 003B1B58  80 0D AF 90 */	lwz r0, aramIdleStreamBuffers@sda21(r13)
 /* 803B4BFC 003B1B5C  90 04 00 00 */	stw r0, 0(r4)
-/* 803B4C00 003B1B60  90 8D AF 90 */	stw r4, lbl_805A9B50@sda21(r13)
+/* 803B4C00 003B1B60  90 8D AF 90 */	stw r4, aramIdleStreamBuffers@sda21(r13)
 lbl_803B4C04:
 /* 803B4C04 003B1B64  7C 64 1B 78 */	mr r4, r3
 lbl_803B4C08:
 /* 803B4C08 003B1B68  28 04 00 00 */	cmplwi r4, 0
 /* 803B4C0C 003B1B6C  40 82 FF D8 */	bne lbl_803B4BE4
 /* 803B4C10 003B1B70  3C 05 00 01 */	addis r0, r5, 1
-/* 803B4C14 003B1B74  80 6D AF AC */	lwz r3, lbl_805A9B6C@sda21(r13)
+/* 803B4C14 003B1B74  80 6D AF AC */	lwz r3, aramTop@sda21(r13)
 /* 803B4C18 003B1B78  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803B4C1C 003B1B7C  41 82 00 08 */	beq lbl_803B4C24
 /* 803B4C20 003B1B80  7C A3 2B 78 */	mr r3, r5
 lbl_803B4C24:
-/* 803B4C24 003B1B84  90 6D AF A4 */	stw r3, lbl_805A9B64@sda21(r13)
+/* 803B4C24 003B1B84  90 6D AF A4 */	stw r3, aramStream@sda21(r13)
 /* 803B4C28 003B1B88  4E 80 00 20 */	blr 
 lbl_803B4C2C:
-/* 803B4C2C 003B1B8C  80 0D AF 94 */	lwz r0, lbl_805A9B54@sda21(r13)
+/* 803B4C2C 003B1B8C  80 0D AF 94 */	lwz r0, aramFreeStreamBuffers@sda21(r13)
 /* 803B4C30 003B1B90  90 04 00 00 */	stw r0, 0(r4)
-/* 803B4C34 003B1B94  90 8D AF 94 */	stw r4, lbl_805A9B54@sda21(r13)
+/* 803B4C34 003B1B94  90 8D AF 94 */	stw r4, aramFreeStreamBuffers@sda21(r13)
 /* 803B4C38 003B1B98  4E 80 00 20 */	blr 

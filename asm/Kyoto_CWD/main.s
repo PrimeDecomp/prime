@@ -804,6 +804,7 @@ lbl_805A6BCC:
 
 
 .section .sbss, "wa"
+.balign 4
 .global gpResourceFactory
 gpResourceFactory:
 	.skip 0x4

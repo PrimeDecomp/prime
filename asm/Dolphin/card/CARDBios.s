@@ -20,7 +20,7 @@ lbl_805A8BF0:
 	.skip 4
 	
 .section .sbss, "wa"
-
+.balign 4
 .global lbl_805A9BC8
 lbl_805A9BC8:
 	.skip 0x8

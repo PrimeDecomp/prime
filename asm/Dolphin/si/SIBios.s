@@ -23,6 +23,7 @@ __SIVersion:
 	.skip 4
 	
 .section .sbss, "wa"
+.balign 4
 .global lbl_805A9BD0
 lbl_805A9BD0:
 	.skip 0x4

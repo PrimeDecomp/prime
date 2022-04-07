@@ -1,5 +1,44 @@
 .include "macros.inc"
 
+.section .sbss
+.balign 4
+.global runListNum
+runListNum:
+	.skip 0x1
+.global startListNumnum
+startListNumnum:
+	.skip 0x1
+.global startGroupNum
+startGroupNum:
+	.skip 0x1
+.global s3dUseMaxVoices
+s3dUseMaxVoices:
+	.skip 0x1
+.global snd_max_studios
+snd_max_studios:
+	.skip 0x1
+.global snd_base_studio
+snd_base_studio:
+	.skip 0x3
+.global snd_used_studios
+snd_used_studios:
+	.skip 0x4
+.global s3dDoorRoot
+s3dDoorRoot:
+	.skip 0x4
+.global s3dRoomRoot
+s3dRoomRoot:
+	.skip 0x4
+.global s3dListenerRoot
+s3dListenerRoot:
+	.skip 0x4
+.global s3dEmitterRoot
+s3dEmitterRoot:
+	.skip 0x4
+.global s3dCallCnt
+s3dCallCnt:
+	.skip 0x4
+	
 .section .text, "ax" 
 
 .global sub_803ae800
@@ -11,7 +50,7 @@ sub_803ae800:
 /* 803AE810 003AB770  F3 E1 00 38 */	psq_st f31, 56(r1), 0, qr0
 /* 803AE814 003AB774  39 61 00 30 */	addi r11, r1, 0x30
 /* 803AE818 003AB778  4B FD B2 61 */	bl _savegpr_26
-/* 803AE81C 003AB77C  80 8D AF 74 */	lwz r4, lbl_805A9B34@sda21(r13)
+/* 803AE81C 003AB77C  80 8D AF 74 */	lwz r4, s3dListenerRoot@sda21(r13)
 /* 803AE820 003AB780  38 60 00 00 */	li r3, 0
 /* 803AE824 003AB784  48 00 00 0C */	b lbl_803AE830
 lbl_803AE828:
@@ -22,14 +61,14 @@ lbl_803AE830:
 /* 803AE834 003AB794  40 82 FF F4 */	bne lbl_803AE828
 /* 803AE838 003AB798  28 03 00 00 */	cmplwi r3, 0
 /* 803AE83C 003AB79C  41 82 00 98 */	beq lbl_803AE8D4
-/* 803AE840 003AB7A0  80 8D AF 70 */	lwz r4, lbl_805A9B30@sda21(r13)
+/* 803AE840 003AB7A0  80 8D AF 70 */	lwz r4, s3dRoomRoot@sda21(r13)
 /* 803AE844 003AB7A4  48 00 00 88 */	b lbl_803AE8CC
 lbl_803AE848:
 /* 803AE848 003AB7A8  88 04 00 1C */	lbz r0, 0x1c(r4)
 /* 803AE84C 003AB7AC  28 00 00 FF */	cmplwi r0, 0xff
 /* 803AE850 003AB7B0  41 82 00 78 */	beq lbl_803AE8C8
 /* 803AE854 003AB7B4  C0 82 D6 08 */	lfs f4, lbl_805AF328@sda21(r2)
-/* 803AE858 003AB7B8  80 AD AF 74 */	lwz r5, lbl_805A9B34@sda21(r13)
+/* 803AE858 003AB7B8  80 AD AF 74 */	lwz r5, s3dListenerRoot@sda21(r13)
 /* 803AE85C 003AB7BC  48 00 00 44 */	b lbl_803AE8A0
 lbl_803AE860:
 /* 803AE860 003AB7C0  C0 64 00 0C */	lfs f3, 0xc(r4)
@@ -65,7 +104,7 @@ lbl_803AE8CC:
 /* 803AE8CC 003AB82C  28 04 00 00 */	cmplwi r4, 0
 /* 803AE8D0 003AB830  40 82 FF 78 */	bne lbl_803AE848
 lbl_803AE8D4:
-/* 803AE8D4 003AB834  80 6D AF 74 */	lwz r3, lbl_805A9B34@sda21(r13)
+/* 803AE8D4 003AB834  80 6D AF 74 */	lwz r3, s3dListenerRoot@sda21(r13)
 /* 803AE8D8 003AB838  3B A0 00 00 */	li r29, 0
 /* 803AE8DC 003AB83C  48 00 00 0C */	b lbl_803AE8E8
 lbl_803AE8E0:
@@ -76,13 +115,13 @@ lbl_803AE8E8:
 /* 803AE8EC 003AB84C  40 82 FF F4 */	bne lbl_803AE8E0
 /* 803AE8F0 003AB850  28 1D 00 00 */	cmplwi r29, 0
 /* 803AE8F4 003AB854  41 82 03 A0 */	beq lbl_803AEC94
-/* 803AE8F8 003AB858  83 CD AF 70 */	lwz r30, lbl_805A9B30@sda21(r13)
+/* 803AE8F8 003AB858  83 CD AF 70 */	lwz r30, s3dRoomRoot@sda21(r13)
 /* 803AE8FC 003AB85C  48 00 03 90 */	b lbl_803AEC8C
 lbl_803AE900:
 /* 803AE900 003AB860  88 1E 00 1C */	lbz r0, 0x1c(r30)
 /* 803AE904 003AB864  28 00 00 FF */	cmplwi r0, 0xff
 /* 803AE908 003AB868  40 82 02 60 */	bne lbl_803AEB68
-/* 803AE90C 003AB86C  80 6D AF 74 */	lwz r3, lbl_805A9B34@sda21(r13)
+/* 803AE90C 003AB86C  80 6D AF 74 */	lwz r3, s3dListenerRoot@sda21(r13)
 /* 803AE910 003AB870  C3 E2 D6 08 */	lfs f31, lbl_805AF328@sda21(r2)
 /* 803AE914 003AB874  7C 64 1B 78 */	mr r4, r3
 /* 803AE918 003AB878  48 00 00 44 */	b lbl_803AE95C
@@ -127,9 +166,9 @@ lbl_803AE9A0:
 /* 803AE9A0 003AB900  28 03 00 00 */	cmplwi r3, 0
 /* 803AE9A4 003AB904  40 82 FF E4 */	bne lbl_803AE988
 lbl_803AE9A8:
-/* 803AE9A8 003AB908  88 AD AF 64 */	lbz r5, lbl_805A9B24@sda21(r13)
+/* 803AE9A8 003AB908  88 AD AF 64 */	lbz r5, snd_max_studios@sda21(r13)
 /* 803AE9AC 003AB90C  38 00 FF FF */	li r0, -1
-/* 803AE9B0 003AB910  80 8D AF 68 */	lwz r4, lbl_805A9B28@sda21(r13)
+/* 803AE9B0 003AB910  80 8D AF 68 */	lwz r4, snd_used_studios@sda21(r13)
 /* 803AE9B4 003AB914  7C 00 28 30 */	slw r0, r0, r5
 /* 803AE9B8 003AB918  7C 03 00 F8 */	nor r3, r0, r0
 /* 803AE9BC 003AB91C  7C 60 20 38 */	and r0, r3, r4
@@ -148,17 +187,17 @@ lbl_803AE9DC:
 /* 803AE9EC 003AB94C  42 00 FF F0 */	bdnz lbl_803AE9DC
 lbl_803AE9F0:
 /* 803AE9F0 003AB950  38 00 00 01 */	li r0, 1
-/* 803AE9F4 003AB954  80 8D AF 68 */	lwz r4, lbl_805A9B28@sda21(r13)
+/* 803AE9F4 003AB954  80 8D AF 68 */	lwz r4, snd_used_studios@sda21(r13)
 /* 803AE9F8 003AB958  7C 03 30 30 */	slw r3, r0, r6
-/* 803AE9FC 003AB95C  88 0D AF 65 */	lbz r0, lbl_805A9B25@sda21(r13)
+/* 803AE9FC 003AB95C  88 0D AF 65 */	lbz r0, snd_base_studio@sda21(r13)
 /* 803AEA00 003AB960  7C 83 1B 78 */	or r3, r4, r3
-/* 803AEA04 003AB964  90 6D AF 68 */	stw r3, lbl_805A9B28@sda21(r13)
+/* 803AEA04 003AB964  90 6D AF 68 */	stw r3, snd_used_studios@sda21(r13)
 /* 803AEA08 003AB968  7C 06 02 14 */	add r0, r6, r0
 /* 803AEA0C 003AB96C  98 1E 00 1C */	stb r0, 0x1c(r30)
 /* 803AEA10 003AB970  48 00 00 C0 */	b lbl_803AEAD0
 lbl_803AEA14:
 /* 803AEA14 003AB974  C0 22 D6 18 */	lfs f1, lbl_805AF338@sda21(r2)
-/* 803AEA18 003AB978  80 6D AF 70 */	lwz r3, lbl_805A9B30@sda21(r13)
+/* 803AEA18 003AB978  80 6D AF 70 */	lwz r3, s3dRoomRoot@sda21(r13)
 /* 803AEA1C 003AB97C  48 00 00 28 */	b lbl_803AEA44
 lbl_803AEA20:
 /* 803AEA20 003AB980  88 03 00 1C */	lbz r0, 0x1c(r3)
@@ -179,7 +218,7 @@ lbl_803AEA44:
 /* 803AEA54 003AB9B4  FC 01 F8 40 */	fcmpo cr0, f1, f31
 /* 803AEA58 003AB9B8  40 81 02 30 */	ble lbl_803AEC88
 lbl_803AEA5C:
-/* 803AEA5C 003AB9BC  83 4D AF 78 */	lwz r26, lbl_805A9B38@sda21(r13)
+/* 803AEA5C 003AB9BC  83 4D AF 78 */	lwz r26, s3dEmitterRoot@sda21(r13)
 /* 803AEA60 003AB9C0  3B 60 FF FF */	li r27, -1
 /* 803AEA64 003AB9C4  48 00 00 2C */	b lbl_803AEA90
 lbl_803AEA68:
@@ -372,7 +411,7 @@ CalcEmitter:
 /* 803AED08 003ABC68  D0 05 00 00 */	stfs f0, 0(r5)
 /* 803AED0C 003ABC6C  FF 80 F8 90 */	fmr f28, f31
 /* 803AED10 003ABC70  7C DB 33 78 */	mr r27, r6
-/* 803AED14 003ABC74  83 ED AF 74 */	lwz r31, lbl_805A9B34@sda21(r13)
+/* 803AED14 003ABC74  83 ED AF 74 */	lwz r31, s3dListenerRoot@sda21(r13)
 /* 803AED18 003ABC78  7C FC 3B 78 */	mr r28, r7
 /* 803AED1C 003ABC7C  7D 1D 43 78 */	mr r29, r8
 /* 803AED20 003ABC80  3B C0 00 00 */	li r30, 0
@@ -702,8 +741,8 @@ sndUpdateEmitter:
 /* 803AF1D4 003AC134  7C 08 02 A6 */	mflr r0
 /* 803AF1D8 003AC138  90 01 00 34 */	stw r0, 0x34(r1)
 /* 803AF1DC 003AC13C  39 61 00 30 */	addi r11, r1, 0x30
-/* 803AF1E0 003AC140  4B FD A8 9D */	bl sub_80389a7c
-/* 803AF1E4 003AC144  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF1E0 003AC140  4B FD A8 9D */	bl _savegpr_27
+/* 803AF1E4 003AC144  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF1E8 003AC148  7C 7E 1B 78 */	mr r30, r3
 /* 803AF1EC 003AC14C  7C 9B 23 78 */	mr r27, r4
 /* 803AF1F0 003AC150  7C BC 2B 78 */	mr r28, r5
@@ -783,7 +822,7 @@ lbl_803AF2E8:
 
 .global sndCheckEmitter
 sndCheckEmitter:
-/* 803AF300 003AC260  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF300 003AC260  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF304 003AC264  28 00 00 00 */	cmplwi r0, 0
 /* 803AF308 003AC268  41 82 00 10 */	beq lbl_803AF318
 /* 803AF30C 003AC26C  80 03 00 10 */	lwz r0, 0x10(r3)
@@ -1037,17 +1076,17 @@ lbl_803AF688:
 /* 803AF68C 003AC5EC  80 7E 00 3C */	lwz r3, 0x3c(r30)
 /* 803AF690 003AC5F0  48 00 00 58 */	b lbl_803AF6E8
 lbl_803AF694:
-/* 803AF694 003AC5F4  80 0D AF 78 */	lwz r0, lbl_805A9B38@sda21(r13)
+/* 803AF694 003AC5F4  80 0D AF 78 */	lwz r0, s3dEmitterRoot@sda21(r13)
 /* 803AF698 003AC5F8  28 00 00 00 */	cmplwi r0, 0
 /* 803AF69C 003AC5FC  90 1E 00 00 */	stw r0, 0(r30)
 /* 803AF6A0 003AC600  41 82 00 0C */	beq lbl_803AF6AC
-/* 803AF6A4 003AC604  80 6D AF 78 */	lwz r3, lbl_805A9B38@sda21(r13)
+/* 803AF6A4 003AC604  80 6D AF 78 */	lwz r3, s3dEmitterRoot@sda21(r13)
 /* 803AF6A8 003AC608  93 C3 00 04 */	stw r30, 4(r3)
 lbl_803AF6AC:
 /* 803AF6AC 003AC60C  38 60 00 00 */	li r3, 0
 /* 803AF6B0 003AC610  38 00 FF FF */	li r0, -1
 /* 803AF6B4 003AC614  90 7E 00 04 */	stw r3, 4(r30)
-/* 803AF6B8 003AC618  93 CD AF 78 */	stw r30, lbl_805A9B38@sda21(r13)
+/* 803AF6B8 003AC618  93 CD AF 78 */	stw r30, s3dEmitterRoot@sda21(r13)
 /* 803AF6BC 003AC61C  93 BE 00 0C */	stw r29, 0xc(r30)
 /* 803AF6C0 003AC620  90 1E 00 3C */	stw r0, 0x3c(r30)
 /* 803AF6C4 003AC624  B0 7E 00 48 */	sth r3, 0x48(r30)
@@ -1079,7 +1118,7 @@ sndAddEmitterParaEx:
 /* 803AF71C 003AC67C  7C 08 02 A6 */	mflr r0
 /* 803AF720 003AC680  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803AF724 003AC684  81 81 00 28 */	lwz r12, 0x28(r1)
-/* 803AF728 003AC688  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF728 003AC688  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF72C 003AC68C  81 61 00 2C */	lwz r11, 0x2c(r1)
 /* 803AF730 003AC690  28 00 00 00 */	cmplwi r0, 0
 /* 803AF734 003AC694  41 82 00 20 */	beq lbl_803AF754
@@ -1105,7 +1144,7 @@ sndRemoveEmitter:
 /* 803AF770 003AC6D0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803AF774 003AC6D4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803AF778 003AC6D8  7C 7F 1B 78 */	mr r31, r3
-/* 803AF77C 003AC6DC  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF77C 003AC6DC  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF780 003AC6E0  28 00 00 00 */	cmplwi r0, 0
 /* 803AF784 003AC6E4  41 82 00 74 */	beq lbl_803AF7F8
 /* 803AF788 003AC6E8  48 00 59 35 */	bl hwDisableIrq
@@ -1126,7 +1165,7 @@ lbl_803AF7AC:
 /* 803AF7C0 003AC720  48 00 00 0C */	b lbl_803AF7CC
 lbl_803AF7C4:
 /* 803AF7C4 003AC724  80 1F 00 00 */	lwz r0, 0(r31)
-/* 803AF7C8 003AC728  90 0D AF 78 */	stw r0, lbl_805A9B38@sda21(r13)
+/* 803AF7C8 003AC728  90 0D AF 78 */	stw r0, s3dEmitterRoot@sda21(r13)
 lbl_803AF7CC:
 /* 803AF7CC 003AC72C  80 1F 00 10 */	lwz r0, 0x10(r31)
 /* 803AF7D0 003AC730  54 00 04 3E */	clrlwi r0, r0, 0x10
@@ -1158,7 +1197,7 @@ sndEmitterVoiceID:
 /* 803AF820 003AC780  3B E0 FF FF */	li r31, -1
 /* 803AF824 003AC784  93 C1 00 08 */	stw r30, 8(r1)
 /* 803AF828 003AC788  7C 7E 1B 78 */	mr r30, r3
-/* 803AF82C 003AC78C  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF82C 003AC78C  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF830 003AC790  28 00 00 00 */	cmplwi r0, 0
 /* 803AF834 003AC794  41 82 00 1C */	beq lbl_803AF850
 /* 803AF838 003AC798  48 00 58 85 */	bl hwDisableIrq
@@ -1188,7 +1227,7 @@ s3dKillEmitterByFXID:
 /* 803AF884 003AC7E4  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803AF888 003AC7E8  7C 7D 1B 78 */	mr r29, r3
 /* 803AF88C 003AC7EC  93 81 00 10 */	stw r28, 0x10(r1)
-/* 803AF890 003AC7F0  83 8D AF 78 */	lwz r28, lbl_805A9B38@sda21(r13)
+/* 803AF890 003AC7F0  83 8D AF 78 */	lwz r28, s3dEmitterRoot@sda21(r13)
 /* 803AF894 003AC7F4  48 00 00 AC */	b lbl_803AF940
 lbl_803AF898:
 /* 803AF898 003AC7F8  7F A4 EB 78 */	mr r4, r29
@@ -1201,7 +1240,7 @@ lbl_803AF8AC:
 /* 803AF8B0 003AC810  A0 04 00 00 */	lhz r0, 0(r4)
 /* 803AF8B4 003AC814  7C 03 00 40 */	cmplw r3, r0
 /* 803AF8B8 003AC818  40 82 00 7C */	bne lbl_803AF934
-/* 803AF8BC 003AC81C  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF8BC 003AC81C  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF8C0 003AC820  28 00 00 00 */	cmplwi r0, 0
 /* 803AF8C4 003AC824  41 82 00 78 */	beq lbl_803AF93C
 /* 803AF8C8 003AC828  48 00 57 F5 */	bl hwDisableIrq
@@ -1222,7 +1261,7 @@ lbl_803AF8EC:
 /* 803AF900 003AC860  48 00 00 0C */	b lbl_803AF90C
 lbl_803AF904:
 /* 803AF904 003AC864  80 1C 00 00 */	lwz r0, 0(r28)
-/* 803AF908 003AC868  90 0D AF 78 */	stw r0, lbl_805A9B38@sda21(r13)
+/* 803AF908 003AC868  90 0D AF 78 */	stw r0, s3dEmitterRoot@sda21(r13)
 lbl_803AF90C:
 /* 803AF90C 003AC86C  80 1C 00 10 */	lwz r0, 0x10(r28)
 /* 803AF910 003AC870  54 00 04 3E */	clrlwi r0, r0, 0x10
@@ -1259,7 +1298,7 @@ sndUpdateListener:
 /* 803AF970 003AC8D0  90 01 00 64 */	stw r0, 0x64(r1)
 /* 803AF974 003AC8D4  39 61 00 60 */	addi r11, r1, 0x60
 /* 803AF978 003AC8D8  4B FD A0 FD */	bl _savegpr_25
-/* 803AF97C 003AC8DC  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AF97C 003AC8DC  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AF980 003AC8E0  7C 7E 1B 78 */	mr r30, r3
 /* 803AF984 003AC8E4  7C 99 23 78 */	mr r25, r4
 /* 803AF988 003AC8E8  7C BA 2B 78 */	mr r26, r5
@@ -1343,7 +1382,7 @@ sndUpdateListener:
 /* 803AFAC0 003ACA20  41 82 00 84 */	beq lbl_803AFB44
 /* 803AFAC4 003ACA24  28 05 00 00 */	cmplwi r5, 0
 /* 803AFAC8 003ACA28  41 82 00 4C */	beq lbl_803AFB14
-/* 803AFACC 003ACA2C  80 6D AF 74 */	lwz r3, lbl_805A9B34@sda21(r13)
+/* 803AFACC 003ACA2C  80 6D AF 74 */	lwz r3, s3dListenerRoot@sda21(r13)
 /* 803AFAD0 003ACA30  38 80 00 00 */	li r4, 0
 /* 803AFAD4 003ACA34  48 00 00 18 */	b lbl_803AFAEC
 lbl_803AFAD8:
@@ -1404,7 +1443,7 @@ sndAddListener:
 /* 803AFB8C 003ACAEC  F3 A1 00 68 */	psq_st f29, 104(r1), 0, qr0
 /* 803AFB90 003ACAF0  39 61 00 60 */	addi r11, r1, 0x60
 /* 803AFB94 003ACAF4  4B FD 9E DD */	bl _savegpr_24
-/* 803AFB98 003ACAF8  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AFB98 003ACAF8  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AFB9C 003ACAFC  FF A0 08 90 */	fmr f29, f1
 /* 803AFBA0 003ACB00  FF C0 10 90 */	fmr f30, f2
 /* 803AFBA4 003ACB04  7C 7B 1B 78 */	mr r27, r3
@@ -1419,11 +1458,11 @@ sndAddListener:
 /* 803AFBC8 003ACB28  7D 5F 53 78 */	mr r31, r10
 /* 803AFBCC 003ACB2C  41 82 01 8C */	beq lbl_803AFD58
 /* 803AFBD0 003ACB30  48 00 54 ED */	bl hwDisableIrq
-/* 803AFBD4 003ACB34  80 0D AF 74 */	lwz r0, lbl_805A9B34@sda21(r13)
+/* 803AFBD4 003ACB34  80 0D AF 74 */	lwz r0, s3dListenerRoot@sda21(r13)
 /* 803AFBD8 003ACB38  28 00 00 00 */	cmplwi r0, 0
 /* 803AFBDC 003ACB3C  90 1B 00 00 */	stw r0, 0(r27)
 /* 803AFBE0 003ACB40  41 82 00 0C */	beq lbl_803AFBEC
-/* 803AFBE4 003ACB44  80 6D AF 74 */	lwz r3, lbl_805A9B34@sda21(r13)
+/* 803AFBE4 003ACB44  80 6D AF 74 */	lwz r3, s3dListenerRoot@sda21(r13)
 /* 803AFBE8 003ACB48  93 63 00 04 */	stw r27, 4(r3)
 lbl_803AFBEC:
 /* 803AFBEC 003ACB4C  38 00 00 00 */	li r0, 0
@@ -1432,7 +1471,7 @@ lbl_803AFBEC:
 /* 803AFBF8 003ACB58  38 7B 00 38 */	addi r3, r27, 0x38
 /* 803AFBFC 003ACB5C  38 9B 00 2C */	addi r4, r27, 0x2c
 /* 803AFC00 003ACB60  38 BB 00 44 */	addi r5, r27, 0x44
-/* 803AFC04 003ACB64  93 6D AF 74 */	stw r27, lbl_805A9B34@sda21(r13)
+/* 803AFC04 003ACB64  93 6D AF 74 */	stw r27, s3dListenerRoot@sda21(r13)
 /* 803AFC08 003ACB68  80 D8 00 00 */	lwz r6, 0(r24)
 /* 803AFC0C 003ACB6C  80 18 00 04 */	lwz r0, 4(r24)
 /* 803AFC10 003ACB70  90 DB 00 10 */	stw r6, 0x10(r27)
@@ -1541,14 +1580,14 @@ sub_803afd8c:
 /* 803AFD94 003ACCF4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803AFD98 003ACCF8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803AFD9C 003ACCFC  7C 7F 1B 78 */	mr r31, r3
-/* 803AFDA0 003ACD00  88 0D AE 48 */	lbz r0, lbl_805A9A08@sda21(r13)
+/* 803AFDA0 003ACD00  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803AFDA4 003ACD04  28 00 00 00 */	cmplwi r0, 0
 /* 803AFDA8 003ACD08  41 82 00 9C */	beq lbl_803AFE44
 /* 803AFDAC 003ACD0C  48 00 53 11 */	bl hwDisableIrq
 /* 803AFDB0 003ACD10  80 BF 00 08 */	lwz r5, 8(r31)
 /* 803AFDB4 003ACD14  28 05 00 00 */	cmplwi r5, 0
 /* 803AFDB8 003ACD18  41 82 00 4C */	beq lbl_803AFE04
-/* 803AFDBC 003ACD1C  80 6D AF 74 */	lwz r3, lbl_805A9B34@sda21(r13)
+/* 803AFDBC 003ACD1C  80 6D AF 74 */	lwz r3, s3dListenerRoot@sda21(r13)
 /* 803AFDC0 003ACD20  38 80 00 00 */	li r4, 0
 /* 803AFDC4 003ACD24  48 00 00 18 */	b lbl_803AFDDC
 lbl_803AFDC8:
@@ -1584,7 +1623,7 @@ lbl_803AFE18:
 /* 803AFE2C 003ACD8C  48 00 00 0C */	b lbl_803AFE38
 lbl_803AFE30:
 /* 803AFE30 003ACD90  80 1F 00 00 */	lwz r0, 0(r31)
-/* 803AFE34 003ACD94  90 0D AF 74 */	stw r0, lbl_805A9B34@sda21(r13)
+/* 803AFE34 003ACD94  90 0D AF 74 */	stw r0, s3dListenerRoot@sda21(r13)
 lbl_803AFE38:
 /* 803AFE38 003ACD98  48 00 52 4D */	bl hwEnableIrq
 /* 803AFE3C 003ACD9C  38 60 00 01 */	li r3, 1
@@ -1600,7 +1639,7 @@ lbl_803AFE48:
 
 .global sub_803afe5c
 sub_803afe5c:
-/* 803AFE5C 003ACDBC  88 CD AF 62 */	lbz r6, lbl_805A9B22@sda21(r13)
+/* 803AFE5C 003ACDBC  88 CD AF 62 */	lbz r6, startGroupNum@sda21(r13)
 /* 803AFE60 003ACDC0  3C 80 80 56 */	lis r4, lbl_8055F990@ha
 /* 803AFE64 003ACDC4  38 A4 F9 90 */	addi r5, r4, lbl_8055F990@l
 /* 803AFE68 003ACDC8  39 20 00 00 */	li r9, 0
@@ -1624,7 +1663,7 @@ lbl_803AFE94:
 /* 803AFEA8 003ACE08  4E 80 00 20 */	blr 
 lbl_803AFEAC:
 /* 803AFEAC 003ACE0C  3C A0 80 56 */	lis r5, lbl_8055F990@ha
-/* 803AFEB0 003ACE10  88 8D AF 62 */	lbz r4, lbl_805A9B22@sda21(r13)
+/* 803AFEB0 003ACE10  88 8D AF 62 */	lbz r4, startGroupNum@sda21(r13)
 /* 803AFEB4 003ACE14  38 C5 F9 90 */	addi r6, r5, lbl_8055F990@l
 /* 803AFEB8 003ACE18  55 28 20 36 */	slwi r8, r9, 4
 /* 803AFEBC 003ACE1C  7C A6 42 14 */	add r5, r6, r8
@@ -1635,9 +1674,9 @@ lbl_803AFEAC:
 /* 803AFED0 003ACE30  B0 E5 00 0C */	sth r7, 0xc(r5)
 /* 803AFED4 003ACE34  80 83 00 40 */	lwz r4, 0x40(r3)
 /* 803AFED8 003ACE38  7C 86 41 2E */	stwx r4, r6, r8
-/* 803AFEDC 003ACE3C  98 0D AF 62 */	stb r0, lbl_805A9B22@sda21(r13)
+/* 803AFEDC 003ACE3C  98 0D AF 62 */	stb r0, startGroupNum@sda21(r13)
 lbl_803AFEE0:
-/* 803AFEE0 003ACE40  88 AD AF 61 */	lbz r5, lbl_805A9B21@sda21(r13)
+/* 803AFEE0 003ACE40  88 AD AF 61 */	lbz r5, startListNumnum@sda21(r13)
 /* 803AFEE4 003ACE44  28 05 00 40 */	cmplwi r5, 0x40
 /* 803AFEE8 003ACE48  40 82 00 0C */	bne lbl_803AFEF4
 /* 803AFEEC 003ACE4C  38 60 00 00 */	li r3, 0
@@ -1678,12 +1717,12 @@ lbl_803AFF54:
 /* 803AFF64 003ACEC4  90 C4 00 00 */	stw r6, 0(r4)
 /* 803AFF68 003ACEC8  90 87 00 00 */	stw r4, 0(r7)
 lbl_803AFF6C:
-/* 803AFF6C 003ACECC  88 8D AF 61 */	lbz r4, lbl_805A9B21@sda21(r13)
+/* 803AFF6C 003ACECC  88 8D AF 61 */	lbz r4, startListNumnum@sda21(r13)
 /* 803AFF70 003ACED0  3C A0 80 56 */	lis r5, lbl_80560090@ha
 /* 803AFF74 003ACED4  38 A5 00 90 */	addi r5, r5, lbl_80560090@l
 /* 803AFF78 003ACED8  1C C4 00 1C */	mulli r6, r4, 0x1c
 /* 803AFF7C 003ACEDC  38 04 00 01 */	addi r0, r4, 1
-/* 803AFF80 003ACEE0  98 0D AF 61 */	stb r0, lbl_805A9B21@sda21(r13)
+/* 803AFF80 003ACEE0  98 0D AF 61 */	stb r0, startListNumnum@sda21(r13)
 /* 803AFF84 003ACEE4  7C 85 32 14 */	add r4, r5, r6
 /* 803AFF88 003ACEE8  90 64 00 18 */	stw r3, 0x18(r4)
 /* 803AFF8C 003ACEEC  38 60 00 01 */	li r3, 1
@@ -1721,7 +1760,7 @@ lbl_803AFFF8:
 /* 803AFFF8 003ACF58  80 BE 00 00 */	lwz r5, 0(r30)
 /* 803AFFFC 003ACF5C  28 05 00 00 */	cmplwi r5, 0
 /* 803B0000 003ACF60  41 82 00 8C */	beq lbl_803B008C
-/* 803B0004 003ACF64  88 0D AF 63 */	lbz r0, lbl_805A9B23@sda21(r13)
+/* 803B0004 003ACF64  88 0D AF 63 */	lbz r0, s3dUseMaxVoices@sda21(r13)
 /* 803B0008 003ACF68  28 00 00 00 */	cmplwi r0, 0
 /* 803B000C 003ACF6C  41 82 00 28 */	beq lbl_803B0034
 /* 803B0010 003ACF70  80 1B 00 00 */	lwz r0, 0(r27)
@@ -1945,7 +1984,7 @@ lbl_803B030C:
 /* 803B0314 003AD274  3B 7B 00 10 */	addi r27, r27, 0x10
 /* 803B0318 003AD278  3B 5A 00 01 */	addi r26, r26, 1
 lbl_803B031C:
-/* 803B031C 003AD27C  88 0D AF 62 */	lbz r0, lbl_805A9B22@sda21(r13)
+/* 803B031C 003AD27C  88 0D AF 62 */	lbz r0, startGroupNum@sda21(r13)
 /* 803B0320 003AD280  7C 1A 00 00 */	cmpw r26, r0
 /* 803B0324 003AD284  41 80 FC C0 */	blt lbl_803AFFE4
 /* 803B0328 003AD288  E3 E1 00 78 */	psq_l f31, 120(r1), 0, qr0
@@ -1973,21 +2012,21 @@ s3dHandle:
 /* 803B0374 003AD2D4  DB A1 00 60 */	stfd f29, 0x60(r1)
 /* 803B0378 003AD2D8  F3 A1 00 68 */	psq_st f29, 104(r1), 0, qr0
 /* 803B037C 003AD2DC  39 61 00 60 */	addi r11, r1, 0x60
-/* 803B0380 003AD2E0  4B FD 96 FD */	bl sub_80389a7c
-/* 803B0384 003AD2E4  88 6D AF 7C */	lbz r3, lbl_805A9B3C@sda21(r13)
+/* 803B0380 003AD2E0  4B FD 96 FD */	bl _savegpr_27
+/* 803B0384 003AD2E4  88 6D AF 7C */	lbz r3, s3dCallCnt@sda21(r13)
 /* 803B0388 003AD2E8  28 03 00 00 */	cmplwi r3, 0
 /* 803B038C 003AD2EC  41 82 00 10 */	beq lbl_803B039C
 /* 803B0390 003AD2F0  38 03 FF FF */	addi r0, r3, -1
-/* 803B0394 003AD2F4  98 0D AF 7C */	stb r0, lbl_805A9B3C@sda21(r13)
+/* 803B0394 003AD2F4  98 0D AF 7C */	stb r0, s3dCallCnt@sda21(r13)
 /* 803B0398 003AD2F8  48 00 07 BC */	b lbl_803B0B54
 lbl_803B039C:
 /* 803B039C 003AD2FC  38 00 00 00 */	li r0, 0
 /* 803B03A0 003AD300  38 60 00 03 */	li r3, 3
-/* 803B03A4 003AD304  98 6D AF 7C */	stb r3, lbl_805A9B3C@sda21(r13)
-/* 803B03A8 003AD308  83 CD AF 78 */	lwz r30, lbl_805A9B38@sda21(r13)
-/* 803B03AC 003AD30C  98 0D AF 62 */	stb r0, lbl_805A9B22@sda21(r13)
-/* 803B03B0 003AD310  98 0D AF 61 */	stb r0, lbl_805A9B21@sda21(r13)
-/* 803B03B4 003AD314  98 0D AF 60 */	stb r0, lbl_805A9B20@sda21(r13)
+/* 803B03A4 003AD304  98 6D AF 7C */	stb r3, s3dCallCnt@sda21(r13)
+/* 803B03A8 003AD308  83 CD AF 78 */	lwz r30, s3dEmitterRoot@sda21(r13)
+/* 803B03AC 003AD30C  98 0D AF 62 */	stb r0, startGroupNum@sda21(r13)
+/* 803B03B0 003AD310  98 0D AF 61 */	stb r0, startListNumnum@sda21(r13)
+/* 803B03B4 003AD314  98 0D AF 60 */	stb r0, runListNum@sda21(r13)
 /* 803B03B8 003AD318  48 00 05 E0 */	b lbl_803B0998
 lbl_803B03BC:
 /* 803B03BC 003AD31C  80 9E 00 10 */	lwz r4, 0x10(r30)
@@ -2008,7 +2047,7 @@ lbl_803B03E0:
 /* 803B03F4 003AD354  48 00 00 0C */	b lbl_803B0400
 lbl_803B03F8:
 /* 803B03F8 003AD358  80 1E 00 00 */	lwz r0, 0(r30)
-/* 803B03FC 003AD35C  90 0D AF 78 */	stw r0, lbl_805A9B38@sda21(r13)
+/* 803B03FC 003AD35C  90 0D AF 78 */	stw r0, s3dEmitterRoot@sda21(r13)
 lbl_803B0400:
 /* 803B0400 003AD360  80 1E 00 10 */	lwz r0, 0x10(r30)
 /* 803B0404 003AD364  54 00 04 3E */	clrlwi r0, r0, 0x10
@@ -2069,7 +2108,7 @@ lbl_803B04BC:
 /* 803B04D0 003AD430  48 00 00 0C */	b lbl_803B04DC
 lbl_803B04D4:
 /* 803B04D4 003AD434  80 1E 00 00 */	lwz r0, 0(r30)
-/* 803B04D8 003AD438  90 0D AF 78 */	stw r0, lbl_805A9B38@sda21(r13)
+/* 803B04D8 003AD438  90 0D AF 78 */	stw r0, s3dEmitterRoot@sda21(r13)
 lbl_803B04DC:
 /* 803B04DC 003AD43C  80 1E 00 10 */	lwz r0, 0x10(r30)
 /* 803B04E0 003AD440  54 00 04 3E */	clrlwi r0, r0, 0x10
@@ -2150,7 +2189,7 @@ lbl_803B05D8:
 /* 803B05E8 003AD548  80 1E 00 10 */	lwz r0, 0x10(r30)
 /* 803B05EC 003AD54C  54 00 07 FF */	clrlwi. r0, r0, 0x1f
 /* 803B05F0 003AD550  41 82 01 28 */	beq lbl_803B0718
-/* 803B05F4 003AD554  88 AD AF 62 */	lbz r5, lbl_805A9B22@sda21(r13)
+/* 803B05F4 003AD554  88 AD AF 62 */	lbz r5, startGroupNum@sda21(r13)
 /* 803B05F8 003AD558  3C 60 80 56 */	lis r3, lbl_8055F990@ha
 /* 803B05FC 003AD55C  38 83 F9 90 */	addi r4, r3, lbl_8055F990@l
 /* 803B0600 003AD560  C0 21 00 18 */	lfs f1, 0x18(r1)
@@ -2170,7 +2209,7 @@ lbl_803B0630:
 /* 803B0630 003AD590  7C 07 28 00 */	cmpw r7, r5
 /* 803B0634 003AD594  40 82 00 38 */	bne lbl_803B066C
 /* 803B0638 003AD598  3C 80 80 56 */	lis r4, lbl_8055F990@ha
-/* 803B063C 003AD59C  88 6D AF 62 */	lbz r3, lbl_805A9B22@sda21(r13)
+/* 803B063C 003AD59C  88 6D AF 62 */	lbz r3, startGroupNum@sda21(r13)
 /* 803B0640 003AD5A0  54 E5 20 36 */	slwi r5, r7, 4
 /* 803B0644 003AD5A4  38 C0 00 00 */	li r6, 0
 /* 803B0648 003AD5A8  38 84 F9 90 */	addi r4, r4, lbl_8055F990@l
@@ -2181,7 +2220,7 @@ lbl_803B0630:
 /* 803B065C 003AD5BC  B0 C4 00 0C */	sth r6, 0xc(r4)
 /* 803B0660 003AD5C0  80 7E 00 40 */	lwz r3, 0x40(r30)
 /* 803B0664 003AD5C4  90 64 00 00 */	stw r3, 0(r4)
-/* 803B0668 003AD5C8  98 0D AF 62 */	stb r0, lbl_805A9B22@sda21(r13)
+/* 803B0668 003AD5C8  98 0D AF 62 */	stb r0, startGroupNum@sda21(r13)
 lbl_803B066C:
 /* 803B066C 003AD5CC  3C 60 80 56 */	lis r3, lbl_8055F990@ha
 /* 803B0670 003AD5D0  54 E4 20 36 */	slwi r4, r7, 4
@@ -2206,7 +2245,7 @@ lbl_803B06AC:
 lbl_803B06B4:
 /* 803B06B4 003AD614  28 05 00 00 */	cmplwi r5, 0
 /* 803B06B8 003AD618  40 82 00 20 */	bne lbl_803B06D8
-/* 803B06BC 003AD61C  88 8D AF 60 */	lbz r4, lbl_805A9B20@sda21(r13)
+/* 803B06BC 003AD61C  88 8D AF 60 */	lbz r4, runListNum@sda21(r13)
 /* 803B06C0 003AD620  3C 60 80 56 */	lis r3, lbl_8055FD90@ha
 /* 803B06C4 003AD624  38 03 FD 90 */	addi r0, r3, lbl_8055FD90@l
 /* 803B06C8 003AD628  1C 64 00 0C */	mulli r3, r4, 0xc
@@ -2214,19 +2253,19 @@ lbl_803B06B4:
 /* 803B06D0 003AD630  90 07 00 00 */	stw r0, 0(r7)
 /* 803B06D4 003AD634  48 00 00 1C */	b lbl_803B06F0
 lbl_803B06D8:
-/* 803B06D8 003AD638  88 8D AF 60 */	lbz r4, lbl_805A9B20@sda21(r13)
+/* 803B06D8 003AD638  88 8D AF 60 */	lbz r4, runListNum@sda21(r13)
 /* 803B06DC 003AD63C  3C 60 80 56 */	lis r3, lbl_8055FD90@ha
 /* 803B06E0 003AD640  38 03 FD 90 */	addi r0, r3, lbl_8055FD90@l
 /* 803B06E4 003AD644  1C 64 00 0C */	mulli r3, r4, 0xc
 /* 803B06E8 003AD648  7C 00 1A 14 */	add r0, r0, r3
 /* 803B06EC 003AD64C  90 05 00 00 */	stw r0, 0(r5)
 lbl_803B06F0:
-/* 803B06F0 003AD650  88 AD AF 60 */	lbz r5, lbl_805A9B20@sda21(r13)
+/* 803B06F0 003AD650  88 AD AF 60 */	lbz r5, runListNum@sda21(r13)
 /* 803B06F4 003AD654  3C 60 80 56 */	lis r3, lbl_8055FD90@ha
 /* 803B06F8 003AD658  38 63 FD 90 */	addi r3, r3, lbl_8055FD90@l
 /* 803B06FC 003AD65C  1C 85 00 0C */	mulli r4, r5, 0xc
 /* 803B0700 003AD660  38 05 00 01 */	addi r0, r5, 1
-/* 803B0704 003AD664  98 0D AF 60 */	stb r0, lbl_805A9B20@sda21(r13)
+/* 803B0704 003AD664  98 0D AF 60 */	stb r0, runListNum@sda21(r13)
 /* 803B0708 003AD668  7C 63 22 14 */	add r3, r3, r4
 /* 803B070C 003AD66C  90 C3 00 00 */	stw r6, 0(r3)
 /* 803B0710 003AD670  93 C3 00 08 */	stw r30, 8(r3)
@@ -2415,7 +2454,7 @@ lbl_803B0998:
 /* 803B099C 003AD8FC  40 82 FA 20 */	bne lbl_803B03BC
 /* 803B09A0 003AD900  4B FF F6 09 */	bl sub_803affa8
 /* 803B09A4 003AD904  4B FF DE 5D */	bl sub_803ae800
-/* 803B09A8 003AD908  83 ED AF 6C */	lwz r31, lbl_805A9B2C@sda21(r13)
+/* 803B09A8 003AD908  83 ED AF 6C */	lwz r31, s3dDoorRoot@sda21(r13)
 /* 803B09AC 003AD90C  48 00 01 A0 */	b lbl_803B0B4C
 lbl_803B09B0:
 /* 803B09B0 003AD910  80 1F 00 28 */	lwz r0, 0x28(r31)
@@ -2553,15 +2592,15 @@ sub_803b0b84:
 /* 803B0B88 003ADAE8  54 60 FF FE */	rlwinm r0, r3, 0x1f, 0x1f, 0x1f
 /* 803B0B8C 003ADAEC  38 80 00 01 */	li r4, 1
 /* 803B0B90 003ADAF0  38 60 00 03 */	li r3, 3
-/* 803B0B94 003ADAF4  90 AD AF 78 */	stw r5, lbl_805A9B38@sda21(r13)
-/* 803B0B98 003ADAF8  90 AD AF 74 */	stw r5, lbl_805A9B34@sda21(r13)
-/* 803B0B9C 003ADAFC  90 AD AF 70 */	stw r5, lbl_805A9B30@sda21(r13)
-/* 803B0BA0 003ADB00  90 AD AF 6C */	stw r5, lbl_805A9B2C@sda21(r13)
-/* 803B0BA4 003ADB04  90 AD AF 68 */	stw r5, lbl_805A9B28@sda21(r13)
-/* 803B0BA8 003ADB08  98 8D AF 65 */	stb r4, lbl_805A9B25@sda21(r13)
-/* 803B0BAC 003ADB0C  98 6D AF 64 */	stb r3, lbl_805A9B24@sda21(r13)
-/* 803B0BB0 003ADB10  98 AD AF 7C */	stb r5, lbl_805A9B3C@sda21(r13)
-/* 803B0BB4 003ADB14  98 0D AF 63 */	stb r0, lbl_805A9B23@sda21(r13)
+/* 803B0B94 003ADAF4  90 AD AF 78 */	stw r5, s3dEmitterRoot@sda21(r13)
+/* 803B0B98 003ADAF8  90 AD AF 74 */	stw r5, s3dListenerRoot@sda21(r13)
+/* 803B0B9C 003ADAFC  90 AD AF 70 */	stw r5, s3dRoomRoot@sda21(r13)
+/* 803B0BA0 003ADB00  90 AD AF 6C */	stw r5, s3dDoorRoot@sda21(r13)
+/* 803B0BA4 003ADB04  90 AD AF 68 */	stw r5, snd_used_studios@sda21(r13)
+/* 803B0BA8 003ADB08  98 8D AF 65 */	stb r4, snd_base_studio@sda21(r13)
+/* 803B0BAC 003ADB0C  98 6D AF 64 */	stb r3, snd_max_studios@sda21(r13)
+/* 803B0BB0 003ADB10  98 AD AF 7C */	stb r5, s3dCallCnt@sda21(r13)
+/* 803B0BB4 003ADB14  98 0D AF 63 */	stb r0, s3dUseMaxVoices@sda21(r13)
 /* 803B0BB8 003ADB18  4E 80 00 20 */	blr 
 
 .global s3dExit

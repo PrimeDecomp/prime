@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .sbss
+.balign 4
+.global lbl_805A99D8
+lbl_805A99D8:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global __close_console

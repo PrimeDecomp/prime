@@ -1,7 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
-
+.balign 4
 .global oldState
 oldState:
 	.skip 0x4
@@ -298,7 +298,7 @@ salCtrlDsp:
 /* 803B4FBC 003B1F1C  83 ED AF 40 */	lwz r31, dspCmdList@sda21(r13)
 /* 803B4FC0 003B1F20  90 0D AF C8 */	stw r0, salDspIsDone@sda21(r13)
 /* 803B4FC4 003B1F24  4B FB A8 49 */	bl PPCSync
-/* 803B4FC8 003B1F28  A0 0D AF 3C */	lhz r0, lbl_805A9AFC@sda21(r13)
+/* 803B4FC8 003B1F28  A0 0D AF 3C */	lhz r0, dspCmdFirstSize@sda21(r13)
 /* 803B4FCC 003B1F2C  64 03 BA BE */	oris r3, r0, 0xbabe
 /* 803B4FD0 003B1F30  4B FB AA 21 */	bl DSPSendMailToDSP
 lbl_803B4FD4:
