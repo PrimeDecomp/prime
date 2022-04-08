@@ -141,12 +141,12 @@ _savegpr_20:
 func_80389A64:
 /* 80389A64 003869C4  92 AB FF D4 */	stw r21, -0x2c(r11)
 
-.global sub_80389a68
-sub_80389a68:
+.global _savegpr_22
+_savegpr_22:
 /* 80389A68 003869C8  92 CB FF D8 */	stw r22, -0x28(r11)
 
-.global func_80389A6C
-func_80389A6C:
+.global _savegpr_23
+_savegpr_23:
 /* 80389A6C 003869CC  92 EB FF DC */	stw r23, -0x24(r11)
 
 .global _savegpr_24

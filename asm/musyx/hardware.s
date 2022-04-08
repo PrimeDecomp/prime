@@ -225,8 +225,8 @@ lbl_803B308C:
 /* 803B3098 003AFFF8  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B309C 003AFFFC  4E 80 00 20 */	blr
 
-.global sub_803b30a0
-sub_803b30a0:
+.global hwInit
+hwInit:
 /* 803B30A0 003B0000  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803B30A4 003B0004  7C 08 02 A6 */	mflr r0
 /* 803B30A8 003B0008  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1017,8 +1017,8 @@ sub_803b3b10:
 /* 803B3B3C 003B0A9C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3B40 003B0AA0  4E 80 00 20 */	blr
 
-.global sub_803b3b44
-sub_803b3b44:
+.global hwChangeStudio
+hwChangeStudio:
 /* 803B3B44 003B0AA4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3B48 003B0AA8  7C 08 02 A6 */	mflr r0
 /* 803B3B4C 003B0AAC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1127,7 +1127,7 @@ sub_803b3ca4:
 /* 803B3CA4 003B0C04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3CA8 003B0C08  7C 08 02 A6 */	mflr r0
 /* 803B3CAC 003B0C0C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803B3CB0 003B0C10  48 00 0D 55 */	bl sub_803b4a04
+/* 803B3CB0 003B0C10  48 00 0D 55 */	bl  aramAllocateStreamBuffer
 /* 803B3CB4 003B0C14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3CB8 003B0C18  7C 08 03 A6 */	mtlr r0
 /* 803B3CBC 003B0C1C  38 21 00 10 */	addi r1, r1, 0x10
@@ -1245,7 +1245,7 @@ lbl_803B3E1C:
 /* 803B3E1C 003B0D7C  54 84 08 3C */	slwi r4, r4, 1
 lbl_803B3E20:
 /* 803B3E20 003B0D80  80 7F 00 00 */	lwz r3, 0(r31)
-/* 803B3E24 003B0D84  48 00 07 49 */	bl sub_803b456c
+/* 803B3E24 003B0D84  48 00 07 49 */	bl aramStoreData
 /* 803B3E28 003B0D88  90 7F 00 00 */	stw r3, 0(r31)
 /* 803B3E2C 003B0D8C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3E30 003B0D90  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -1298,7 +1298,7 @@ lbl_803B3EC4:
 lbl_803B3EC8:
 /* 803B3EC8 003B0E28  7C 83 23 78 */	mr r3, r4
 /* 803B3ECC 003B0E2C  7C A4 2B 78 */	mr r4, r5
-/* 803B3ED0 003B0E30  48 00 0A 59 */	bl sub_803b4928
+/* 803B3ED0 003B0E30  48 00 0A 59 */	bl aramRemoveData
 /* 803B3ED4 003B0E34  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3ED8 003B0E38  7C 08 03 A6 */	mtlr r0
 /* 803B3EDC 003B0E3C  38 21 00 10 */	addi r1, r1, 0x10

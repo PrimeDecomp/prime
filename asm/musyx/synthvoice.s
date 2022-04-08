@@ -642,7 +642,7 @@ voiceAllocateFind:
 /* 803A7E48 003A4DA8  7C 08 02 A6 */	mflr r0
 /* 803A7E4C 003A4DAC  90 01 00 34 */	stw r0, 0x34(r1)
 /* 803A7E50 003A4DB0  39 61 00 30 */	addi r11, r1, 0x30
-/* 803A7E54 003A4DB4  4B FE 1C 15 */	bl sub_80389a68
+/* 803A7E54 003A4DB4  4B FE 1C 15 */	bl _savegpr_22
 /* 803A7E58 003A4DB8  88 0D AE 80 */	lbz r0, synthIdleWaitActive@sda21(r13)
 /* 803A7E5C 003A4DBC  3C E0 80 56 */	lis r7, vidList@ha
 /* 803A7E60 003A4DC0  39 07 D3 50 */	addi r8, r7, vidList@l

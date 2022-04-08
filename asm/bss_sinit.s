@@ -369,12 +369,13 @@ lbl_805A6620:
 .global lbl_805A6660
 lbl_805A6660:
 	.skip 0x10
-.global lbl_805A6670
-lbl_805A6670:
+.global skIdentity4f
+skIdentity4f:
 	.skip 0x30
-.global lbl_805A66A0
-lbl_805A66A0:
-	.skip 0x54
+.global skZero3f
+skZero3f:
+	.skip 0xC
+.skip 0x48
 .global lbl_805A66F4
 lbl_805A66F4:
 	.skip 0xC
