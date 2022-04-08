@@ -76,12 +76,14 @@ endif
 MWLD_VERSION := 2.6
 
 # Programs
+export WINEDEBUG ?= -all
 ifeq ($(WINDOWS),1)
   WINE :=
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as.exe
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp.exe -P
 else
   WINE ?= wine
+  DEVKITPPC ?= /opt/devkitpro/devkitPPC
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp -P
 endif
