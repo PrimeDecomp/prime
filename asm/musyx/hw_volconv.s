@@ -4,9 +4,148 @@
 
 .global lbl_803F3FC0
 lbl_803F3FC0:
-	.incbin "baserom.dol", 0x3F0FC0, 0x228
-	
-.section .text, "ax" 
+	# ROM: 0x3F0FC0
+	.4byte 0
+	.4byte 0x380000FD
+	.4byte 0x3920015F
+	.4byte 0x39D001AD
+	.4byte 0x3A380175
+	.4byte 0x3A9400FE
+	.4byte 0x3AD801B4
+	.4byte 0x3B12011F
+	.4byte 0x3B40018D
+	.4byte 0x3B7401F0
+	.4byte 0x3B970123
+	.4byte 0x3BB70174
+	.4byte 0x3BDA01BF
+	.4byte 0x3C008104
+	.4byte 0x3C158126
+	.4byte 0x3C2C017B
+	.4byte 0x3C4401B8
+	.4byte 0x3C5E01A8
+	.4byte 0x3C7901DF
+	.4byte 0x3C8B4111
+	.4byte 0x3C9A8120
+	.4byte 0x3CAAC13F
+	.4byte 0x3CBBC177
+	.4byte 0x3CCDC18A
+	.4byte 0x3CE081B5
+	.4byte 0x3CF441F1
+	.4byte 0x3D046108
+	.4byte 0x3D0F2120
+	.4byte 0x3D1A412A
+	.4byte 0x3D25C140
+	.4byte 0x3D31E159
+	.4byte 0x3D3E617F
+	.4byte 0x3D4B4197
+	.4byte 0x3D58A1B7
+	.4byte 0x3D6681C5
+	.4byte 0x3D74E1F4
+	.4byte 0x3D81D0FE
+	.4byte 0x3D897113
+	.4byte 0x3D91511E
+	.4byte 0x3D99712D
+	.4byte 0x3DA1C143
+	.4byte 0x3DAA514F
+	.4byte 0x3DB32160
+	.4byte 0x3DBC417F
+	.4byte 0x3DC5918A
+	.4byte 0x3DCF2171
+	.4byte 0x3DD8F1D4
+	.4byte 0x3DE301A8
+	.4byte 0x3DED51F8
+	.4byte 0x3DF7E1B9
+	.4byte 0x3E01611C
+	.4byte 0x3E06E8F3
+	.4byte 0x3E0C9928
+	.4byte 0x3E126916
+	.4byte 0x3E185943
+	.4byte 0x3E1E7147
+	.4byte 0x3E24A16A
+	.4byte 0x3E2B0143
+	.4byte 0x3E31797D
+	.4byte 0x3E38198F
+	.4byte 0x3E3EE17A
+	.4byte 0x3E45C183
+	.4byte 0x3E4CD185
+	.4byte 0x3E53F9A5
+	.4byte 0x3E5B51BD
+	.4byte 0x3E62C9D1
+	.4byte 0x3E6A69BE
+	.4byte 0x3E7229E9
+	.4byte 0x3E7A11ED
+	.4byte 0x3E811106
+	.4byte 0x3E852913
+	.4byte 0x3E89591D
+	.4byte 0x3E8D9924
+	.4byte 0x3E91ED18
+	.4byte 0x3E965929
+	.4byte 0x3E9AD539
+	.4byte 0x3E9F6534
+	.4byte 0x3EA4093E
+	.4byte 0x3EA8C155
+	.4byte 0x3EAD9168
+	.4byte 0x3EB27158
+	.4byte 0x3EB76966
+	.4byte 0x3EBC7582
+	.4byte 0x3EC19589
+	.4byte 0x3EC6CD8E
+	.4byte 0x3ECC19A0
+	.4byte 0x3ED1799E
+	.4byte 0x3ED6F1BB
+	.4byte 0x3EDC7DC3
+	.4byte 0x3EE221C9
+	.4byte 0x3EE7DDCA
+	.4byte 0x3EEDADDA
+	.4byte 0x3EF395E6
+	.4byte 0x3EF991FF
+	.4byte 0x3EFFA5F4
+	.4byte 0x3F02EB0B
+	.4byte 0x3F060B0B
+	.4byte 0x3F093911
+	.4byte 0x3F0C7315
+	.4byte 0x3F0FB928
+	.4byte 0x3F130B28
+	.4byte 0x3F166927
+	.4byte 0x3F19D335
+	.4byte 0x3F1D4941
+	.4byte 0x3F20CD42
+	.4byte 0x3F245B4B
+	.4byte 0x3F27F951
+	.4byte 0x3F2BA15E
+	.4byte 0x3F2F5760
+	.4byte 0x3F331B69
+	.4byte 0x3F36EB70
+	.4byte 0x3F3AC97E
+	.4byte 0x3F3EB378
+	.4byte 0x3F42AB8A
+	.4byte 0x3F46B192
+	.4byte 0x3F4AC58F
+	.4byte 0x3F4EE59B
+	.4byte 0x3F5315A5
+	.4byte 0x3F5751AD
+	.4byte 0x3F5B9BBB
+	.4byte 0x3F5FF5C7
+	.4byte 0x3F645DC8
+	.4byte 0x3F68D1D9
+	.4byte 0x3F6D57DE
+	.4byte 0x3F71EBEA
+	.4byte 0x3F768BF4
+	.4byte 0x3F7B3DF3
+	.4byte 0x3F800000
+	.4byte 0x3F800000
+	.4byte 0
+	.4byte 0x3F3538EF
+	.4byte 0x3F800000
+	.4byte 0x3F800000
+	.4byte 0x3F133333
+	.4byte 0x3F3538EF
+	.4byte 0x3F800000
+	.4byte 0x3F800000
+	.4byte 0
+
+
+.section .text, "ax"
 
 .global salCalcVolume
 salCalcVolume:
@@ -459,4 +598,4 @@ lbl_803AE788:
 /* 803AE7F0 003AB750  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 803AE7F4 003AB754  7C 08 03 A6 */	mtlr r0
 /* 803AE7F8 003AB758  38 21 01 10 */	addi r1, r1, 0x110
-/* 803AE7FC 003AB75C  4E 80 00 20 */	blr 
+/* 803AE7FC 003AB75C  4E 80 00 20 */	blr

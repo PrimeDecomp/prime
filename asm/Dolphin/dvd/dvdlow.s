@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+lbl_80540A80:
+	.skip 0x68
+lbl_80540AE8:
+	.skip 0x78
+	
 .section .text, "ax"
 
 .global __DVDInitWA

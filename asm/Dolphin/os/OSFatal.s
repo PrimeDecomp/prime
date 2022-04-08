@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_80541298
+lbl_80541298:
+	.skip 0x2E8
+	
 .section .text, "ax"
 
 .global ScreenReport

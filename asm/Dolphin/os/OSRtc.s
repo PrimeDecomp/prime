@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .bss
+lbl_805415A0:
+	.skip 0x58
+	
 .section .text, "ax"
 
 .global WriteSramCallback

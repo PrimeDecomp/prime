@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global DriveInfo
+DriveInfo:
+	.skip 0x50
+	
 .section .data
 .global lbl_803F0DA0
 lbl_803F0DA0:

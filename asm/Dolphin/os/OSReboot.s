@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_80541580
+lbl_80541580:
+	.skip 0x20
+	
 .section .text, "ax"
 
 .global Run

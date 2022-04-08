@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global streamInfo
+streamInfo:
+	.skip 0x1900
+	
 .section .sbss
 .balign 4
 nextPublicID:
@@ -27,9 +32,9 @@ streamInit:
 /* 8039C890 003997F0  38 C3 FF F8 */	addi r6, r3, -8
 /* 8039C894 003997F4  40 81 00 4C */	ble lbl_8039C8E0
 /* 8039C898 003997F8  38 06 00 07 */	addi r0, r6, 7
-/* 8039C89C 003997FC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039C89C 003997FC  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039C8A0 00399800  54 00 E8 FE */	srwi r0, r0, 3
-/* 8039C8A4 00399804  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039C8A4 00399804  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039C8A8 00399808  7C 09 03 A6 */	mtctr r0
 /* 8039C8AC 0039980C  2C 06 00 00 */	cmpwi r6, 0
 /* 8039C8B0 00399810  40 81 00 30 */	ble lbl_8039C8E0
@@ -48,9 +53,9 @@ lbl_8039C8B4:
 lbl_8039C8E0:
 /* 8039C8E0 00399840  88 C4 02 10 */	lbz r6, 0x210(r4)
 /* 8039C8E4 00399844  1C A7 00 64 */	mulli r5, r7, 0x64
-/* 8039C8E8 00399848  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039C8E8 00399848  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039C8EC 0039984C  7C 07 30 50 */	subf r0, r7, r6
-/* 8039C8F0 00399850  38 83 13 F8 */	addi r4, r3, lbl_805513F8@l
+/* 8039C8F0 00399850  38 83 13 F8 */	addi r4, r3, streamInfo@l
 /* 8039C8F4 00399854  38 60 00 00 */	li r3, 0
 /* 8039C8F8 00399858  7C 84 2A 14 */	add r4, r4, r5
 /* 8039C8FC 0039985C  7C 09 03 A6 */	mtctr r0
@@ -118,8 +123,8 @@ streamHandle:
 /* 8039C9D4 00399934  48 00 08 6C */	b lbl_8039D240
 lbl_8039C9D8:
 /* 8039C9D8 00399938  88 8D AE 94 */	lbz r4, streamCallDelay@sda21(r13)
-/* 8039C9DC 0039993C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039C9E0 00399940  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039C9DC 0039993C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039C9E0 00399940  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039C9E4 00399944  3C 60 80 55 */	lis r3, synthInfo@ha
 /* 8039C9E8 00399948  98 8D AE 95 */	stb r4, streamCallCnt@sda21(r13)
 /* 8039C9EC 0039994C  7C 1C 03 78 */	mr r28, r0
@@ -704,9 +709,9 @@ streamKill:
 /* 8039D25C 0039A1BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039D260 0039A1C0  7C 08 02 A6 */	mflr r0
 /* 8039D264 0039A1C4  1C 83 00 64 */	mulli r4, r3, 0x64
-/* 8039D268 0039A1C8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039D268 0039A1C8  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039D26C 0039A1CC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8039D270 0039A1D0  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039D270 0039A1D0  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039D274 0039A1D4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8039D278 0039A1D8  7F E0 22 14 */	add r31, r0, r4
 /* 8039D27C 0039A1DC  88 1F 00 0C */	lbz r0, 0xc(r31)
@@ -740,9 +745,9 @@ lbl_8039D2CC:
 
 .global GetPrivateIndex
 GetPrivateIndex:
-/* 8039D2E0 0039A240  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039D2E0 0039A240  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039D2E4 0039A244  38 00 00 08 */	li r0, 8
-/* 8039D2E8 0039A248  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 8039D2E8 0039A248  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 8039D2EC 0039A24C  38 A0 00 00 */	li r5, 0
 /* 8039D2F0 0039A250  7C 09 03 A6 */	mtctr r0
 lbl_8039D2F4:
@@ -851,9 +856,9 @@ sndStreamARAMUpdate:
 /* 8039D460 0039A3C0  7C DC 33 78 */	mr r28, r6
 /* 8039D464 0039A3C4  7C FD 3B 78 */	mr r29, r7
 /* 8039D468 0039A3C8  48 01 7C 55 */	bl hwDisableIrq
-/* 8039D46C 0039A3CC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039D46C 0039A3CC  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039D470 0039A3D0  38 00 00 08 */	li r0, 8
-/* 8039D474 0039A3D4  38 83 13 F8 */	addi r4, r3, lbl_805513F8@l
+/* 8039D474 0039A3D4  38 83 13 F8 */	addi r4, r3, streamInfo@l
 /* 8039D478 0039A3D8  38 60 00 00 */	li r3, 0
 /* 8039D47C 0039A3DC  7C 09 03 A6 */	mtctr r0
 lbl_8039D480:
@@ -944,8 +949,8 @@ lbl_8039D5A8:
 /* 8039D5AC 0039A50C  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039D5B0 0039A510  41 82 01 58 */	beq lbl_8039D708
 /* 8039D5B4 0039A514  1F E3 00 64 */	mulli r31, r3, 0x64
-/* 8039D5B8 0039A518  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039D5BC 0039A51C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039D5B8 0039A518  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039D5BC 0039A51C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039D5C0 0039A520  7F C0 FA 14 */	add r30, r0, r31
 /* 8039D5C4 0039A524  88 1E 00 0D */	lbz r0, 0xd(r30)
 /* 8039D5C8 0039A528  3B DE 00 0D */	addi r30, r30, 0xd
@@ -989,9 +994,9 @@ lbl_8039D5F8:
 lbl_8039D658:
 /* 8039D658 0039A5B8  28 1B 00 00 */	cmplwi r27, 0
 /* 8039D65C 0039A5BC  41 82 00 2C */	beq lbl_8039D688
-/* 8039D660 0039A5C0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039D660 0039A5C0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039D664 0039A5C4  7F 44 D3 78 */	mr r4, r26
-/* 8039D668 0039A5C8  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039D668 0039A5C8  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039D66C 0039A5CC  7F 65 DB 78 */	mr r5, r27
 /* 8039D670 0039A5D0  7C C0 FA 14 */	add r6, r0, r31
 /* 8039D674 0039A5D4  38 E0 00 00 */	li r7, 0
@@ -1002,9 +1007,9 @@ lbl_8039D658:
 lbl_8039D688:
 /* 8039D688 0039A5E8  28 1D 00 00 */	cmplwi r29, 0
 /* 8039D68C 0039A5EC  41 82 00 2C */	beq lbl_8039D6B8
-/* 8039D690 0039A5F0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039D690 0039A5F0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039D694 0039A5F4  7F 84 E3 78 */	mr r4, r28
-/* 8039D698 0039A5F8  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039D698 0039A5F8  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039D69C 0039A5FC  7F A5 EB 78 */	mr r5, r29
 /* 8039D6A0 0039A600  7C C0 FA 14 */	add r6, r0, r31
 /* 8039D6A4 0039A604  38 E0 00 00 */	li r7, 0
@@ -1016,8 +1021,8 @@ lbl_8039D6B8:
 /* 8039D6B8 0039A618  88 1E 00 00 */	lbz r0, 0(r30)
 /* 8039D6BC 0039A61C  28 00 00 01 */	cmplwi r0, 1
 /* 8039D6C0 0039A620  40 82 00 48 */	bne lbl_8039D708
-/* 8039D6C4 0039A624  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039D6C8 0039A628  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039D6C4 0039A624  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039D6C8 0039A628  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039D6CC 0039A62C  7C 80 FA 14 */	add r4, r0, r31
 /* 8039D6D0 0039A630  80 64 00 14 */	lwz r3, 0x14(r4)
 /* 8039D6D4 0039A634  38 A4 00 0F */	addi r5, r4, 0xf
@@ -1090,9 +1095,9 @@ streamOutputModeChanged:
 /* 8039D7AC 0039A70C  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 8039D7B0 0039A710  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 8039D7B4 0039A714  48 01 79 09 */	bl hwDisableIrq
-/* 8039D7B8 0039A718  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039D7B8 0039A718  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039D7BC 0039A71C  3C 60 80 55 */	lis r3, synthInfo@ha
-/* 8039D7C0 0039A720  3B C4 13 F8 */	addi r30, r4, lbl_805513F8@l
+/* 8039D7C0 0039A720  3B C4 13 F8 */	addi r30, r4, streamInfo@l
 /* 8039D7C4 0039A724  3B A0 00 00 */	li r29, 0
 /* 8039D7C8 0039A728  3B E3 00 50 */	addi r31, r3, synthInfo@l
 /* 8039D7CC 0039A72C  48 00 00 D4 */	b lbl_8039D8A0
@@ -1187,9 +1192,9 @@ sndStreamAllocEx:
 /* 8039D910 0039A870  7D 33 4B 78 */	mr r19, r9
 /* 8039D914 0039A874  7D 54 53 78 */	mr r20, r10
 /* 8039D918 0039A878  48 01 77 A5 */	bl hwDisableIrq
-/* 8039D91C 0039A87C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039D91C 0039A87C  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039D920 0039A880  38 00 00 08 */	li r0, 8
-/* 8039D924 0039A884  38 C3 13 F8 */	addi r6, r3, lbl_805513F8@l
+/* 8039D924 0039A884  38 C3 13 F8 */	addi r6, r3, streamInfo@l
 /* 8039D928 0039A888  38 E0 00 00 */	li r7, 0
 /* 8039D92C 0039A88C  7C C3 33 78 */	mr r3, r6
 /* 8039D930 0039A890  7C 09 03 A6 */	mtctr r0
@@ -1330,18 +1335,18 @@ lbl_8039DB14:
 /* 8039DB14 0039AA74  28 03 00 40 */	cmplwi r3, 0x40
 /* 8039DB18 0039AA78  40 82 FE CC */	bne lbl_8039D9E4
 /* 8039DB1C 0039AA7C  1E 07 00 64 */	mulli r16, r7, 0x64
-/* 8039DB20 0039AA80  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039DB20 0039AA80  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039DB24 0039AA84  90 8D AE 90 */	stw r4, nextPublicID@sda21(r13)
 /* 8039DB28 0039AA88  7E E4 BB 78 */	mr r4, r23
-/* 8039DB2C 0039AA8C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039DB2C 0039AA8C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039DB30 0039AA90  7C A0 82 14 */	add r5, r0, r16
 /* 8039DB34 0039AA94  92 25 00 04 */	stw r17, 4(r5)
 /* 8039DB38 0039AA98  7F A3 EB 78 */	mr r3, r29
 /* 8039DB3C 0039AA9C  92 E5 00 08 */	stw r23, 8(r5)
 /* 8039DB40 0039AAA0  48 00 04 A5 */	bl sndStreamAllocLength
-/* 8039DB44 0039AAA4  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039DB44 0039AAA4  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039DB48 0039AAA8  56 E0 07 FF */	clrlwi. r0, r23, 0x1f
-/* 8039DB4C 0039AAAC  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 8039DB4C 0039AAAC  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 8039DB50 0039AAB0  7C 84 82 14 */	add r4, r4, r16
 /* 8039DB54 0039AAB4  38 00 FF FF */	li r0, -1
 /* 8039DB58 0039AAB8  93 84 00 14 */	stw r28, 0x14(r4)
@@ -1387,9 +1392,9 @@ lbl_8039DB14:
 /* 8039DBF8 0039AB58  B0 A4 00 4A */	sth r5, 0x4a(r4)
 /* 8039DBFC 0039AB5C  B0 04 00 24 */	sth r0, 0x24(r4)
 lbl_8039DC00:
-/* 8039DC00 0039AB60  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039DC00 0039AB60  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039DC04 0039AB64  38 A0 00 01 */	li r5, 1
-/* 8039DC08 0039AB68  38 04 13 F8 */	addi r0, r4, lbl_805513F8@l
+/* 8039DC08 0039AB68  38 04 13 F8 */	addi r0, r4, streamInfo@l
 /* 8039DC0C 0039AB6C  7C 80 82 14 */	add r4, r0, r16
 /* 8039DC10 0039AB70  98 A4 00 0D */	stb r5, 0xd(r4)
 /* 8039DC14 0039AB74  48 00 00 0C */	b lbl_8039DC20
@@ -1397,9 +1402,9 @@ lbl_8039DC18:
 /* 8039DC18 0039AB78  38 00 00 00 */	li r0, 0
 /* 8039DC1C 0039AB7C  98 04 00 0D */	stb r0, 0xd(r4)
 lbl_8039DC20:
-/* 8039DC20 0039AB80  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039DC20 0039AB80  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039DC24 0039AB84  80 AD AE 74 */	lwz r5, synthFlags@sda21(r13)
-/* 8039DC28 0039AB88  38 04 13 F8 */	addi r0, r4, lbl_805513F8@l
+/* 8039DC28 0039AB88  38 04 13 F8 */	addi r0, r4, streamInfo@l
 /* 8039DC2C 0039AB8C  7E 68 9B 78 */	mr r8, r19
 /* 8039DC30 0039AB90  7C 80 82 14 */	add r4, r0, r16
 /* 8039DC34 0039AB94  7E 47 93 78 */	mr r7, r18
@@ -1418,9 +1423,9 @@ lbl_8039DC60:
 /* 8039DC64 0039ABC4  40 82 00 08 */	bne lbl_8039DC6C
 /* 8039DC68 0039ABC8  39 00 00 00 */	li r8, 0
 lbl_8039DC6C:
-/* 8039DC6C 0039ABCC  3C A0 80 55 */	lis r5, lbl_805513F8@ha
+/* 8039DC6C 0039ABCC  3C A0 80 55 */	lis r5, streamInfo@ha
 /* 8039DC70 0039ABD0  38 80 FF FF */	li r4, -1
-/* 8039DC74 0039ABD4  38 C5 13 F8 */	addi r6, r5, lbl_805513F8@l
+/* 8039DC74 0039ABD4  38 C5 13 F8 */	addi r6, r5, streamInfo@l
 /* 8039DC78 0039ABD8  38 00 00 03 */	li r0, 3
 /* 8039DC7C 0039ABDC  7C A6 82 14 */	add r5, r6, r16
 /* 8039DC80 0039ABE0  9B E5 00 59 */	stb r31, 0x59(r5)
@@ -1433,9 +1438,9 @@ lbl_8039DC6C:
 /* 8039DC9C 0039ABFC  7C 86 81 2E */	stwx r4, r6, r16
 /* 8039DCA0 0039AC00  98 05 00 0C */	stb r0, 0xc(r5)
 /* 8039DCA4 0039AC04  48 01 60 01 */	bl sub_803b3ca4
-/* 8039DCA8 0039AC08  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039DCA8 0039AC08  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039DCAC 0039AC0C  54 60 06 3E */	clrlwi r0, r3, 0x18
-/* 8039DCB0 0039AC10  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 8039DCB0 0039AC10  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 8039DCB4 0039AC14  7C 84 82 14 */	add r4, r4, r16
 /* 8039DCB8 0039AC18  28 00 00 FF */	cmplwi r0, 0xff
 /* 8039DCBC 0039AC1C  98 64 00 0E */	stb r3, 0xe(r4)
@@ -1561,9 +1566,9 @@ lbl_8039DDC8:
 /* 8039DE70 0039ADD0  38 60 FF FF */	li r3, -1
 /* 8039DE74 0039ADD4  48 00 01 58 */	b lbl_8039DFCC
 lbl_8039DE78:
-/* 8039DE78 0039ADD8  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 8039DE78 0039ADD8  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039DE7C 0039ADDC  38 00 00 08 */	li r0, 8
-/* 8039DE80 0039ADE0  38 A4 13 F8 */	addi r5, r4, lbl_805513F8@l
+/* 8039DE80 0039ADE0  38 A4 13 F8 */	addi r5, r4, streamInfo@l
 /* 8039DE84 0039ADE4  38 80 00 00 */	li r4, 0
 /* 8039DE88 0039ADE8  7C 09 03 A6 */	mtctr r0
 lbl_8039DE8C:
@@ -1651,8 +1656,8 @@ lbl_8039DFA4:
 /* 8039DFB0 0039AF10  38 80 FF FF */	li r4, -1
 lbl_8039DFB4:
 /* 8039DFB4 0039AF14  1C 04 00 64 */	mulli r0, r4, 0x64
-/* 8039DFB8 0039AF18  3C 80 80 55 */	lis r4, lbl_805513F8@ha
-/* 8039DFBC 0039AF1C  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 8039DFB8 0039AF18  3C 80 80 55 */	lis r4, streamInfo@ha
+/* 8039DFBC 0039AF1C  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 8039DFC0 0039AF20  7C 64 01 2E */	stwx r3, r4, r0
 lbl_8039DFC4:
 /* 8039DFC4 0039AF24  48 01 70 C1 */	bl hwEnableIrq
@@ -1696,9 +1701,9 @@ sndStreamADPCMParameter:
 /* 8039E03C 0039AF9C  7C 7A 1B 78 */	mr r26, r3
 /* 8039E040 0039AFA0  7C 9B 23 78 */	mr r27, r4
 /* 8039E044 0039AFA4  48 01 70 79 */	bl hwDisableIrq
-/* 8039E048 0039AFA8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E048 0039AFA8  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E04C 0039AFAC  38 00 00 08 */	li r0, 8
-/* 8039E050 0039AFB0  3B E3 13 F8 */	addi r31, r3, lbl_805513F8@l
+/* 8039E050 0039AFB0  3B E3 13 F8 */	addi r31, r3, streamInfo@l
 /* 8039E054 0039AFB4  38 C0 00 00 */	li r6, 0
 /* 8039E058 0039AFB8  7F E3 FB 78 */	mr r3, r31
 /* 8039E05C 0039AFBC  7C 09 03 A6 */	mtctr r0
@@ -1789,9 +1794,9 @@ lbl_8039E188:
 /* 8039E188 0039B0E8  3C 06 00 01 */	addis r0, r6, 1
 /* 8039E18C 0039B0EC  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039E190 0039B0F0  41 82 05 78 */	beq lbl_8039E708
-/* 8039E194 0039B0F4  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E194 0039B0F4  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E198 0039B0F8  A8 BB 00 00 */	lha r5, 0(r27)
-/* 8039E19C 0039B0FC  38 83 13 F8 */	addi r4, r3, lbl_805513F8@l
+/* 8039E19C 0039B0FC  38 83 13 F8 */	addi r4, r3, streamInfo@l
 /* 8039E1A0 0039B100  38 00 00 08 */	li r0, 8
 /* 8039E1A4 0039B104  1C C6 00 64 */	mulli r6, r6, 0x64
 /* 8039E1A8 0039B108  3B C4 00 2C */	addi r30, r4, 0x2c
@@ -1928,10 +1933,10 @@ lbl_8039E388:
 /* 8039E38C 0039B2EC  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039E390 0039B2F0  41 82 03 74 */	beq lbl_8039E704
 /* 8039E394 0039B2F4  1C A3 00 64 */	mulli r5, r3, 0x64
-/* 8039E398 0039B2F8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E398 0039B2F8  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E39C 0039B2FC  A8 9B 00 00 */	lha r4, 0(r27)
 /* 8039E3A0 0039B300  38 00 00 08 */	li r0, 8
-/* 8039E3A4 0039B304  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039E3A4 0039B304  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039E3A8 0039B308  7C DE 2A 14 */	add r6, r30, r5
 /* 8039E3AC 0039B30C  B0 86 00 00 */	sth r4, 0(r6)
 /* 8039E3B0 0039B310  7C FD 2A 14 */	add r7, r29, r5
@@ -2062,10 +2067,10 @@ lbl_8039E578:
 /* 8039E57C 0039B4DC  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039E580 0039B4E0  41 82 01 80 */	beq lbl_8039E700
 /* 8039E584 0039B4E4  1C A3 00 64 */	mulli r5, r3, 0x64
-/* 8039E588 0039B4E8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E588 0039B4E8  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E58C 0039B4EC  A8 9B 00 00 */	lha r4, 0(r27)
 /* 8039E590 0039B4F0  38 00 00 08 */	li r0, 8
-/* 8039E594 0039B4F4  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039E594 0039B4F4  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039E598 0039B4F8  7C DE 2A 14 */	add r6, r30, r5
 /* 8039E59C 0039B4FC  B0 86 00 00 */	sth r4, 0(r6)
 /* 8039E5A0 0039B500  7C FD 2A 14 */	add r7, r29, r5
@@ -2111,10 +2116,10 @@ lbl_8039E578:
 /* 8039E640 0039B5A0  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039E644 0039B5A4  41 82 00 B8 */	beq lbl_8039E6FC
 /* 8039E648 0039B5A8  1C A3 00 64 */	mulli r5, r3, 0x64
-/* 8039E64C 0039B5AC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E64C 0039B5AC  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E650 0039B5B0  A8 9B 00 00 */	lha r4, 0(r27)
 /* 8039E654 0039B5B4  38 00 00 08 */	li r0, 8
-/* 8039E658 0039B5B8  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039E658 0039B5B8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039E65C 0039B5BC  7C DE 2A 14 */	add r6, r30, r5
 /* 8039E660 0039B5C0  B0 86 00 00 */	sth r4, 0(r6)
 /* 8039E664 0039B5C4  7C FD 2A 14 */	add r7, r29, r5
@@ -2183,9 +2188,9 @@ sndStreamMixParameter:
 /* 8039E744 0039B6A4  7C DC 33 78 */	mr r28, r6
 /* 8039E748 0039B6A8  7C FD 3B 78 */	mr r29, r7
 /* 8039E74C 0039B6AC  48 01 69 71 */	bl hwDisableIrq
-/* 8039E750 0039B6B0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E750 0039B6B0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E754 0039B6B4  38 00 00 08 */	li r0, 8
-/* 8039E758 0039B6B8  3B C3 13 F8 */	addi r30, r3, lbl_805513F8@l
+/* 8039E758 0039B6B8  3B C3 13 F8 */	addi r30, r3, streamInfo@l
 /* 8039E75C 0039B6BC  38 60 00 00 */	li r3, 0
 /* 8039E760 0039B6C0  7F C4 F3 78 */	mr r4, r30
 /* 8039E764 0039B6C4  7C 09 03 A6 */	mtctr r0
@@ -2277,10 +2282,10 @@ lbl_8039E890:
 /* 8039E894 0039B7F4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039E898 0039B7F8  41 82 03 7C */	beq lbl_8039EC14
 /* 8039E89C 0039B7FC  1F E3 00 64 */	mulli r31, r3, 0x64
-/* 8039E8A0 0039B800  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E8A0 0039B800  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E8A4 0039B804  80 8D AE 74 */	lwz r4, synthFlags@sda21(r13)
 /* 8039E8A8 0039B808  7F 86 E3 78 */	mr r6, r28
-/* 8039E8AC 0039B80C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039E8AC 0039B80C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039E8B0 0039B810  7C 60 FA 14 */	add r3, r0, r31
 /* 8039E8B4 0039B814  9B 63 00 5E */	stb r27, 0x5e(r3)
 /* 8039E8B8 0039B818  54 80 07 FF */	clrlwi. r0, r4, 0x1f
@@ -2295,9 +2300,9 @@ lbl_8039E8D4:
 /* 8039E8D8 0039B838  40 82 00 08 */	bne lbl_8039E8E0
 /* 8039E8DC 0039B83C  38 C0 00 00 */	li r6, 0
 lbl_8039E8E0:
-/* 8039E8E0 0039B840  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039E8E0 0039B840  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039E8E4 0039B844  3C E0 43 30 */	lis r7, 0x4330
-/* 8039E8E8 0039B848  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039E8E8 0039B848  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039E8EC 0039B84C  38 00 00 00 */	li r0, 0
 /* 8039E8F0 0039B850  7D 03 FA 14 */	add r8, r3, r31
 /* 8039E8F4 0039B854  90 E1 00 10 */	stw r7, 0x10(r1)
@@ -2332,8 +2337,8 @@ lbl_8039E8E0:
 /* 8039E968 0039B8C8  EC 00 18 28 */	fsubs f0, f0, f3
 /* 8039E96C 0039B8CC  EC 64 00 32 */	fmuls f3, f4, f0
 /* 8039E970 0039B8D0  48 01 4E 19 */	bl hwSetVolume
-/* 8039E974 0039B8D4  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039E978 0039B8D8  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039E974 0039B8D4  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039E978 0039B8D8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039E97C 0039B8DC  7F E3 F8 2E */	lwzx r31, r3, r31
 /* 8039E980 0039B8E0  3C 1F 00 01 */	addis r0, r31, 1
 /* 8039E984 0039B8E4  28 00 FF FF */	cmplwi r0, 0xffff
@@ -2430,9 +2435,9 @@ lbl_8039EAC4:
 /* 8039EAC8 0039BA28  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039EACC 0039BA2C  41 82 01 44 */	beq lbl_8039EC10
 /* 8039EAD0 0039BA30  1C 83 00 64 */	mulli r4, r3, 0x64
-/* 8039EAD4 0039BA34  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039EAD4 0039BA34  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039EAD8 0039BA38  9B 81 00 08 */	stb r28, 8(r1)
-/* 8039EADC 0039BA3C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039EADC 0039BA3C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039EAE0 0039BA40  7F C0 22 14 */	add r30, r0, r4
 /* 8039EAE4 0039BA44  9B 61 00 09 */	stb r27, 9(r1)
 /* 8039EAE8 0039BA48  38 61 00 09 */	addi r3, r1, 9
@@ -2487,9 +2492,9 @@ lbl_8039EAC4:
 /* 8039EBAC 0039BB0C  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039EBB0 0039BB10  41 82 00 5C */	beq lbl_8039EC0C
 /* 8039EBB4 0039BB14  1C A3 00 64 */	mulli r5, r3, 0x64
-/* 8039EBB8 0039BB18  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039EBB8 0039BB18  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039EBBC 0039BB1C  7F 44 D3 78 */	mr r4, r26
-/* 8039EBC0 0039BB20  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039EBC0 0039BB20  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039EBC4 0039BB24  7F C0 2A 14 */	add r30, r0, r5
 /* 8039EBC8 0039BB28  7F 65 DB 78 */	mr r5, r27
 /* 8039EBCC 0039BB2C  7F C3 F3 78 */	mr r3, r30
@@ -2535,9 +2540,9 @@ sndStreamMixParameterEx:
 /* 8039EC54 0039BBB4  7C FB 3B 78 */	mr r27, r7
 /* 8039EC58 0039BBB8  7D 1C 43 78 */	mr r28, r8
 /* 8039EC5C 0039BBBC  48 01 64 61 */	bl hwDisableIrq
-/* 8039EC60 0039BBC0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039EC60 0039BBC0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039EC64 0039BBC4  38 00 00 08 */	li r0, 8
-/* 8039EC68 0039BBC8  3B C3 13 F8 */	addi r30, r3, lbl_805513F8@l
+/* 8039EC68 0039BBC8  3B C3 13 F8 */	addi r30, r3, streamInfo@l
 /* 8039EC6C 0039BBCC  38 60 00 00 */	li r3, 0
 /* 8039EC70 0039BBD0  7F C4 F3 78 */	mr r4, r30
 /* 8039EC74 0039BBD4  7C 09 03 A6 */	mtctr r0
@@ -2629,10 +2634,10 @@ lbl_8039EDA0:
 /* 8039EDA4 0039BD04  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039EDA8 0039BD08  41 82 03 C8 */	beq lbl_8039F170
 /* 8039EDAC 0039BD0C  1F E3 00 64 */	mulli r31, r3, 0x64
-/* 8039EDB0 0039BD10  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039EDB0 0039BD10  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039EDB4 0039BD14  80 8D AE 74 */	lwz r4, synthFlags@sda21(r13)
 /* 8039EDB8 0039BD18  7F 46 D3 78 */	mr r6, r26
-/* 8039EDBC 0039BD1C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039EDBC 0039BD1C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039EDC0 0039BD20  7C 60 FA 14 */	add r3, r0, r31
 /* 8039EDC4 0039BD24  9B 23 00 5E */	stb r25, 0x5e(r3)
 /* 8039EDC8 0039BD28  54 80 07 FF */	clrlwi. r0, r4, 0x1f
@@ -2647,8 +2652,8 @@ lbl_8039EDE4:
 /* 8039EDE8 0039BD48  40 82 00 08 */	bne lbl_8039EDF0
 /* 8039EDEC 0039BD4C  38 C0 00 00 */	li r6, 0
 lbl_8039EDF0:
-/* 8039EDF0 0039BD50  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039EDF4 0039BD54  38 83 13 F8 */	addi r4, r3, lbl_805513F8@l
+/* 8039EDF0 0039BD50  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039EDF4 0039BD54  38 83 13 F8 */	addi r4, r3, streamInfo@l
 /* 8039EDF8 0039BD58  7C E4 FA 14 */	add r7, r4, r31
 /* 8039EDFC 0039BD5C  9B 07 00 59 */	stb r24, 0x59(r7)
 /* 8039EE00 0039BD60  7C EB 3B 78 */	mr r11, r7
@@ -2698,8 +2703,8 @@ lbl_8039EDF0:
 /* 8039EEB0 0039BE10  EC 64 00 32 */	fmuls f3, f4, f0
 /* 8039EEB4 0039BE14  48 01 48 D5 */	bl hwSetVolume
 lbl_8039EEB8:
-/* 8039EEB8 0039BE18  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039EEBC 0039BE1C  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039EEB8 0039BE18  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039EEBC 0039BE1C  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039EEC0 0039BE20  7F E3 F8 2E */	lwzx r31, r3, r31
 /* 8039EEC4 0039BE24  3C 1F 00 01 */	addis r0, r31, 1
 /* 8039EEC8 0039BE28  28 00 FF FF */	cmplwi r0, 0xffff
@@ -2796,10 +2801,10 @@ lbl_8039F008:
 /* 8039F00C 0039BF6C  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039F010 0039BF70  41 82 01 5C */	beq lbl_8039F16C
 /* 8039F014 0039BF74  1F C3 00 64 */	mulli r30, r3, 0x64
-/* 8039F018 0039BF78  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F018 0039BF78  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F01C 0039BF7C  9B 41 00 08 */	stb r26, 8(r1)
 /* 8039F020 0039BF80  38 81 00 08 */	addi r4, r1, 8
-/* 8039F024 0039BF84  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039F024 0039BF84  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039F028 0039BF88  7F E0 F2 14 */	add r31, r0, r30
 /* 8039F02C 0039BF8C  9B 3F 00 5E */	stb r25, 0x5e(r31)
 /* 8039F030 0039BF90  38 61 00 09 */	addi r3, r1, 9
@@ -2856,9 +2861,9 @@ lbl_8039F0D8:
 /* 8039F0F8 0039C058  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039F0FC 0039C05C  41 82 00 6C */	beq lbl_8039F168
 /* 8039F100 0039C060  1F C3 00 64 */	mulli r30, r3, 0x64
-/* 8039F104 0039C064  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F104 0039C064  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F108 0039C068  7F 04 C3 78 */	mr r4, r24
-/* 8039F10C 0039C06C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039F10C 0039C06C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039F110 0039C070  7F E0 F2 14 */	add r31, r0, r30
 /* 8039F114 0039C074  7F 25 CB 78 */	mr r5, r25
 /* 8039F118 0039C078  7F E3 FB 78 */	mr r3, r31
@@ -2905,9 +2910,9 @@ sndStreamFrq:
 /* 8039F1A0 0039C100  7C 7B 1B 78 */	mr r27, r3
 /* 8039F1A4 0039C104  7C 9C 23 78 */	mr r28, r4
 /* 8039F1A8 0039C108  48 01 5F 15 */	bl hwDisableIrq
-/* 8039F1AC 0039C10C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F1AC 0039C10C  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F1B0 0039C110  38 00 00 08 */	li r0, 8
-/* 8039F1B4 0039C114  3B E3 13 F8 */	addi r31, r3, lbl_805513F8@l
+/* 8039F1B4 0039C114  3B E3 13 F8 */	addi r31, r3, streamInfo@l
 /* 8039F1B8 0039C118  38 80 00 00 */	li r4, 0
 /* 8039F1BC 0039C11C  7F E3 FB 78 */	mr r3, r31
 /* 8039F1C0 0039C120  7C 09 03 A6 */	mtctr r0
@@ -2998,8 +3003,8 @@ lbl_8039F2EC:
 /* 8039F2EC 0039C24C  3C 04 00 01 */	addis r0, r4, 1
 /* 8039F2F0 0039C250  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039F2F4 0039C254  41 82 04 E4 */	beq lbl_8039F7D8
-/* 8039F2F8 0039C258  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F2FC 0039C25C  38 A3 13 F8 */	addi r5, r3, lbl_805513F8@l
+/* 8039F2F8 0039C258  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F2FC 0039C25C  38 A3 13 F8 */	addi r5, r3, streamInfo@l
 /* 8039F300 0039C260  1F 64 00 64 */	mulli r27, r4, 0x64
 /* 8039F304 0039C264  3B C5 00 54 */	addi r30, r5, 0x54
 /* 8039F308 0039C268  3B A5 00 0C */	addi r29, r5, 0xc
@@ -3029,8 +3034,8 @@ lbl_8039F2EC:
 /* 8039F368 0039C2C8  80 81 00 1C */	lwz r4, 0x1c(r1)
 /* 8039F36C 0039C2CC  48 01 42 F1 */	bl hwSetPitch
 lbl_8039F370:
-/* 8039F370 0039C2D0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F374 0039C2D4  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F370 0039C2D0  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F374 0039C2D4  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F378 0039C2D8  7F 63 D8 2E */	lwzx r27, r3, r27
 /* 8039F37C 0039C2DC  3C 1B 00 01 */	addis r0, r27, 1
 /* 8039F380 0039C2E0  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3136,9 +3141,9 @@ lbl_8039F4C4:
 /* 8039F4E8 0039C448  3C 60 80 55 */	lis r3, synthInfo@ha
 /* 8039F4EC 0039C44C  93 81 00 1C */	stw r28, 0x1c(r1)
 /* 8039F4F0 0039C450  80 03 00 50 */	lwz r0, synthInfo@l(r3)
-/* 8039F4F4 0039C454  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F4F4 0039C454  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F4F8 0039C458  90 81 00 18 */	stw r4, 0x18(r1)
-/* 8039F4FC 0039C45C  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F4FC 0039C45C  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F500 0039C460  C8 42 D5 58 */	lfd f2, lbl_805AF278@sda21(r2)
 /* 8039F504 0039C464  7C 63 DA 14 */	add r3, r3, r27
 /* 8039F508 0039C468  C8 01 00 18 */	lfd f0, 0x18(r1)
@@ -3156,8 +3161,8 @@ lbl_8039F4C4:
 /* 8039F538 0039C498  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 8039F53C 0039C49C  48 01 41 21 */	bl hwSetPitch
 lbl_8039F540:
-/* 8039F540 0039C4A0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F544 0039C4A4  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F540 0039C4A0  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F544 0039C4A4  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F548 0039C4A8  7F 63 D8 2E */	lwzx r27, r3, r27
 /* 8039F54C 0039C4AC  3C 1B 00 01 */	addis r0, r27, 1
 /* 8039F550 0039C4B0  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3262,9 +3267,9 @@ lbl_8039F690:
 /* 8039F6B4 0039C614  3C 60 80 55 */	lis r3, synthInfo@ha
 /* 8039F6B8 0039C618  93 81 00 1C */	stw r28, 0x1c(r1)
 /* 8039F6BC 0039C61C  80 03 00 50 */	lwz r0, synthInfo@l(r3)
-/* 8039F6C0 0039C620  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F6C0 0039C620  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F6C4 0039C624  90 81 00 18 */	stw r4, 0x18(r1)
-/* 8039F6C8 0039C628  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F6C8 0039C628  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F6CC 0039C62C  C8 42 D5 58 */	lfd f2, lbl_805AF278@sda21(r2)
 /* 8039F6D0 0039C630  7C 63 DA 14 */	add r3, r3, r27
 /* 8039F6D4 0039C634  C8 01 00 18 */	lfd f0, 0x18(r1)
@@ -3282,8 +3287,8 @@ lbl_8039F690:
 /* 8039F704 0039C664  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 8039F708 0039C668  48 01 3F 55 */	bl hwSetPitch
 lbl_8039F70C:
-/* 8039F70C 0039C66C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F710 0039C670  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F70C 0039C66C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F710 0039C670  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F714 0039C674  7F 63 D8 2E */	lwzx r27, r3, r27
 /* 8039F718 0039C678  3C 1B 00 01 */	addis r0, r27, 1
 /* 8039F71C 0039C67C  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3303,9 +3308,9 @@ lbl_8039F70C:
 /* 8039F754 0039C6B4  3C 60 80 55 */	lis r3, synthInfo@ha
 /* 8039F758 0039C6B8  93 81 00 1C */	stw r28, 0x1c(r1)
 /* 8039F75C 0039C6BC  80 03 00 50 */	lwz r0, synthInfo@l(r3)
-/* 8039F760 0039C6C0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F760 0039C6C0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F764 0039C6C4  90 81 00 18 */	stw r4, 0x18(r1)
-/* 8039F768 0039C6C8  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F768 0039C6C8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F76C 0039C6CC  C8 42 D5 58 */	lfd f2, lbl_805AF278@sda21(r2)
 /* 8039F770 0039C6D0  7C 63 DA 14 */	add r3, r3, r27
 /* 8039F774 0039C6D4  C8 01 00 18 */	lfd f0, 0x18(r1)
@@ -3323,8 +3328,8 @@ lbl_8039F70C:
 /* 8039F7A4 0039C704  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 8039F7A8 0039C708  48 01 3E B5 */	bl hwSetPitch
 lbl_8039F7AC:
-/* 8039F7AC 0039C70C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F7B0 0039C710  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F7AC 0039C70C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F7B0 0039C710  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F7B4 0039C714  7C 63 D8 2E */	lwzx r3, r3, r27
 /* 8039F7B8 0039C718  3C 03 00 01 */	addis r0, r3, 1
 /* 8039F7BC 0039C71C  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3355,9 +3360,9 @@ sndStreamFree:
 /* 8039F804 0039C764  4B FE A2 71 */	bl _savegpr_25
 /* 8039F808 0039C768  7C 79 1B 78 */	mr r25, r3
 /* 8039F80C 0039C76C  48 01 58 B1 */	bl hwDisableIrq
-/* 8039F810 0039C770  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039F810 0039C770  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F814 0039C774  38 00 00 08 */	li r0, 8
-/* 8039F818 0039C778  3B C3 13 F8 */	addi r30, r3, lbl_805513F8@l
+/* 8039F818 0039C778  3B C3 13 F8 */	addi r30, r3, streamInfo@l
 /* 8039F81C 0039C77C  3B 40 00 00 */	li r26, 0
 /* 8039F820 0039C780  7F C3 F3 78 */	mr r3, r30
 /* 8039F824 0039C784  7C 09 03 A6 */	mtctr r0
@@ -3450,14 +3455,14 @@ lbl_8039F950:
 /* 8039F958 0039C8B8  41 82 05 54 */	beq lbl_8039FEAC
 /* 8039F95C 0039C8BC  7F 23 CB 78 */	mr r3, r25
 /* 8039F960 0039C8C0  48 00 0B C1 */	bl sndStreamDeactivate
-/* 8039F964 0039C8C4  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F968 0039C8C8  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F964 0039C8C4  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F968 0039C8C8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F96C 0039C8CC  1F FA 00 64 */	mulli r31, r26, 0x64
 /* 8039F970 0039C8D0  3B A3 00 0E */	addi r29, r3, 0xe
 /* 8039F974 0039C8D4  7C 7D F8 AE */	lbzx r3, r29, r31
 /* 8039F978 0039C8D8  48 01 43 4D */	bl sub_803b3cc4
-/* 8039F97C 0039C8DC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039F980 0039C8E0  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039F97C 0039C8DC  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039F980 0039C8E0  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F984 0039C8E4  7F 43 F8 2E */	lwzx r26, r3, r31
 /* 8039F988 0039C8E8  3C 1A 00 01 */	addis r0, r26, 1
 /* 8039F98C 0039C8EC  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3559,8 +3564,8 @@ lbl_8039FAD0:
 /* 8039FAE4 0039CA44  1F 9B 00 64 */	mulli r28, r27, 0x64
 /* 8039FAE8 0039CA48  7C 7D E0 AE */	lbzx r3, r29, r28
 /* 8039FAEC 0039CA4C  48 01 41 D9 */	bl sub_803b3cc4
-/* 8039FAF0 0039CA50  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039FAF4 0039CA54  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039FAF0 0039CA50  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039FAF4 0039CA54  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FAF8 0039CA58  7F 43 E0 2E */	lwzx r26, r3, r28
 /* 8039FAFC 0039CA5C  3C 1A 00 01 */	addis r0, r26, 1
 /* 8039FB00 0039CA60  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3662,8 +3667,8 @@ lbl_8039FC44:
 /* 8039FC58 0039CBB8  1F 7B 00 64 */	mulli r27, r27, 0x64
 /* 8039FC5C 0039CBBC  7C 7D D8 AE */	lbzx r3, r29, r27
 /* 8039FC60 0039CBC0  48 01 40 65 */	bl sub_803b3cc4
-/* 8039FC64 0039CBC4  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039FC68 0039CBC8  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039FC64 0039CBC4  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039FC68 0039CBC8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FC6C 0039CBCC  7F 43 D8 2E */	lwzx r26, r3, r27
 /* 8039FC70 0039CBD0  3C 1A 00 01 */	addis r0, r26, 1
 /* 8039FC74 0039CBD4  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3764,8 +3769,8 @@ lbl_8039FDB4:
 /* 8039FDC8 0039CD28  1F D9 00 64 */	mulli r30, r25, 0x64
 /* 8039FDCC 0039CD2C  7C 7D F0 AE */	lbzx r3, r29, r30
 /* 8039FDD0 0039CD30  48 01 3E F5 */	bl sub_803b3cc4
-/* 8039FDD4 0039CD34  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039FDD8 0039CD38  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039FDD4 0039CD34  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039FDD8 0039CD38  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FDDC 0039CD3C  7F 23 F0 2E */	lwzx r25, r3, r30
 /* 8039FDE0 0039CD40  3C 19 00 01 */	addis r0, r25, 1
 /* 8039FDE4 0039CD44  28 00 FF FF */	cmplwi r0, 0xffff
@@ -3782,49 +3787,49 @@ lbl_8039FDB4:
 /* 8039FE10 0039CD70  1F 3A 00 64 */	mulli r25, r26, 0x64
 /* 8039FE14 0039CD74  7C 7D C8 AE */	lbzx r3, r29, r25
 /* 8039FE18 0039CD78  48 01 3E AD */	bl sub_803b3cc4
-/* 8039FE1C 0039CD7C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 8039FE20 0039CD80  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 8039FE1C 0039CD7C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 8039FE20 0039CD80  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FE24 0039CD84  7C 63 C8 2E */	lwzx r3, r3, r25
 /* 8039FE28 0039CD88  3C 03 00 01 */	addis r0, r3, 1
 /* 8039FE2C 0039CD8C  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8039FE30 0039CD90  41 82 00 08 */	beq lbl_8039FE38
 /* 8039FE34 0039CD94  4B FF F9 C1 */	bl sndStreamFree
 lbl_8039FE38:
-/* 8039FE38 0039CD98  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039FE38 0039CD98  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FE3C 0039CD9C  38 80 00 00 */	li r4, 0
-/* 8039FE40 0039CDA0  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039FE40 0039CDA0  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039FE44 0039CDA4  7C 60 CA 14 */	add r3, r0, r25
 /* 8039FE48 0039CDA8  98 83 00 0C */	stb r4, 0xc(r3)
 lbl_8039FE4C:
 /* 8039FE4C 0039CDAC  48 01 52 39 */	bl hwEnableIrq
 lbl_8039FE50:
-/* 8039FE50 0039CDB0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039FE50 0039CDB0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FE54 0039CDB4  38 80 00 00 */	li r4, 0
-/* 8039FE58 0039CDB8  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039FE58 0039CDB8  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039FE5C 0039CDBC  7C 60 F2 14 */	add r3, r0, r30
 /* 8039FE60 0039CDC0  98 83 00 0C */	stb r4, 0xc(r3)
 lbl_8039FE64:
 /* 8039FE64 0039CDC4  48 01 52 21 */	bl hwEnableIrq
 lbl_8039FE68:
-/* 8039FE68 0039CDC8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039FE68 0039CDC8  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FE6C 0039CDCC  38 80 00 00 */	li r4, 0
-/* 8039FE70 0039CDD0  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039FE70 0039CDD0  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039FE74 0039CDD4  7C 60 DA 14 */	add r3, r0, r27
 /* 8039FE78 0039CDD8  98 83 00 0C */	stb r4, 0xc(r3)
 lbl_8039FE7C:
 /* 8039FE7C 0039CDDC  48 01 52 09 */	bl hwEnableIrq
 lbl_8039FE80:
-/* 8039FE80 0039CDE0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039FE80 0039CDE0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FE84 0039CDE4  38 80 00 00 */	li r4, 0
-/* 8039FE88 0039CDE8  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039FE88 0039CDE8  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039FE8C 0039CDEC  7C 60 E2 14 */	add r3, r0, r28
 /* 8039FE90 0039CDF0  98 83 00 0C */	stb r4, 0xc(r3)
 lbl_8039FE94:
 /* 8039FE94 0039CDF4  48 01 51 F1 */	bl hwEnableIrq
 lbl_8039FE98:
-/* 8039FE98 0039CDF8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039FE98 0039CDF8  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FE9C 0039CDFC  38 80 00 00 */	li r4, 0
-/* 8039FEA0 0039CE00  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 8039FEA0 0039CE00  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 8039FEA4 0039CE04  7C 60 FA 14 */	add r3, r0, r31
 /* 8039FEA8 0039CE08  98 83 00 0C */	stb r4, 0xc(r3)
 lbl_8039FEAC:
@@ -3848,9 +3853,9 @@ sndStreamActivate:
 /* 8039FEE4 0039CE44  93 81 00 10 */	stw r28, 0x10(r1)
 /* 8039FEE8 0039CE48  3B 80 00 00 */	li r28, 0
 /* 8039FEEC 0039CE4C  48 01 51 D1 */	bl hwDisableIrq
-/* 8039FEF0 0039CE50  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 8039FEF0 0039CE50  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FEF4 0039CE54  38 00 00 08 */	li r0, 8
-/* 8039FEF8 0039CE58  3B C3 13 F8 */	addi r30, r3, lbl_805513F8@l
+/* 8039FEF8 0039CE58  3B C3 13 F8 */	addi r30, r3, streamInfo@l
 /* 8039FEFC 0039CE5C  38 80 00 00 */	li r4, 0
 /* 8039FF00 0039CE60  7F C3 F3 78 */	mr r3, r30
 /* 8039FF04 0039CE64  7C 09 03 A6 */	mtctr r0
@@ -3941,8 +3946,8 @@ lbl_803A0030:
 /* 803A0030 0039CF90  3C 04 00 01 */	addis r0, r4, 1
 /* 803A0034 0039CF94  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803A0038 0039CF98  41 82 04 C0 */	beq lbl_803A04F8
-/* 803A003C 0039CF9C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0040 0039CFA0  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A003C 0039CF9C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0040 0039CFA0  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0044 0039CFA4  1F 84 00 64 */	mulli r28, r4, 0x64
 /* 803A0048 0039CFA8  3B A3 00 0C */	addi r29, r3, 0xc
 /* 803A004C 0039CFAC  7C 1D E0 AE */	lbzx r0, r29, r28
@@ -3951,9 +3956,9 @@ lbl_803A0030:
 /* 803A0058 0039CFB8  7C 63 E2 14 */	add r3, r3, r28
 /* 803A005C 0039CFBC  88 63 00 58 */	lbz r3, 0x58(r3)
 /* 803A0060 0039CFC0  48 00 86 A9 */	bl voiceBlock
-/* 803A0064 0039CFC4  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 803A0064 0039CFC4  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 803A0068 0039CFC8  3C 03 00 01 */	addis r0, r3, 1
-/* 803A006C 0039CFCC  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 803A006C 0039CFCC  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 803A0070 0039CFD0  7C 84 E2 14 */	add r4, r4, r28
 /* 803A0074 0039CFD4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803A0078 0039CFD8  90 64 00 4C */	stw r3, 0x4c(r4)
@@ -3967,8 +3972,8 @@ lbl_803A008C:
 /* 803A0094 0039CFF4  90 64 00 20 */	stw r3, 0x20(r4)
 /* 803A0098 0039CFF8  7C 1D E1 AE */	stbx r0, r29, r28
 lbl_803A009C:
-/* 803A009C 0039CFFC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A00A0 0039D000  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A009C 0039CFFC  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A00A0 0039D000  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A00A4 0039D004  7F 83 E0 2E */	lwzx r28, r3, r28
 /* 803A00A8 0039D008  3C 1C 00 01 */	addis r0, r28, 1
 /* 803A00AC 0039D00C  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4070,14 +4075,14 @@ lbl_803A01F4:
 /* 803A0204 0039D164  7C 1D E0 AE */	lbzx r0, r29, r28
 /* 803A0208 0039D168  28 00 00 03 */	cmplwi r0, 3
 /* 803A020C 0039D16C  40 82 00 50 */	bne lbl_803A025C
-/* 803A0210 0039D170  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0214 0039D174  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A0210 0039D170  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0214 0039D174  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A0218 0039D178  7C 60 E2 14 */	add r3, r0, r28
 /* 803A021C 0039D17C  88 63 00 58 */	lbz r3, 0x58(r3)
 /* 803A0220 0039D180  48 00 84 E9 */	bl voiceBlock
-/* 803A0224 0039D184  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 803A0224 0039D184  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 803A0228 0039D188  3C 03 00 01 */	addis r0, r3, 1
-/* 803A022C 0039D18C  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 803A022C 0039D18C  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 803A0230 0039D190  7C 84 E2 14 */	add r4, r4, r28
 /* 803A0234 0039D194  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803A0238 0039D198  90 64 00 4C */	stw r3, 0x4c(r4)
@@ -4091,8 +4096,8 @@ lbl_803A024C:
 /* 803A0254 0039D1B4  90 64 00 20 */	stw r3, 0x20(r4)
 /* 803A0258 0039D1B8  7C 1D E1 AE */	stbx r0, r29, r28
 lbl_803A025C:
-/* 803A025C 0039D1BC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0260 0039D1C0  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A025C 0039D1BC  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0260 0039D1C0  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0264 0039D1C4  7F 83 E0 2E */	lwzx r28, r3, r28
 /* 803A0268 0039D1C8  3C 1C 00 01 */	addis r0, r28, 1
 /* 803A026C 0039D1CC  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4193,14 +4198,14 @@ lbl_803A03B0:
 /* 803A03C0 0039D320  7C 1D E0 AE */	lbzx r0, r29, r28
 /* 803A03C4 0039D324  28 00 00 03 */	cmplwi r0, 3
 /* 803A03C8 0039D328  40 82 00 50 */	bne lbl_803A0418
-/* 803A03CC 0039D32C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A03D0 0039D330  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A03CC 0039D32C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A03D0 0039D330  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A03D4 0039D334  7C 60 E2 14 */	add r3, r0, r28
 /* 803A03D8 0039D338  88 63 00 58 */	lbz r3, 0x58(r3)
 /* 803A03DC 0039D33C  48 00 83 2D */	bl voiceBlock
-/* 803A03E0 0039D340  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 803A03E0 0039D340  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 803A03E4 0039D344  3C 03 00 01 */	addis r0, r3, 1
-/* 803A03E8 0039D348  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 803A03E8 0039D348  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 803A03EC 0039D34C  7C 84 E2 14 */	add r4, r4, r28
 /* 803A03F0 0039D350  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803A03F4 0039D354  90 64 00 4C */	stw r3, 0x4c(r4)
@@ -4214,8 +4219,8 @@ lbl_803A0408:
 /* 803A0410 0039D370  90 64 00 20 */	stw r3, 0x20(r4)
 /* 803A0414 0039D374  7C 1D E1 AE */	stbx r0, r29, r28
 lbl_803A0418:
-/* 803A0418 0039D378  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A041C 0039D37C  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A0418 0039D378  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A041C 0039D37C  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0420 0039D380  7F 83 E0 2E */	lwzx r28, r3, r28
 /* 803A0424 0039D384  3C 1C 00 01 */	addis r0, r28, 1
 /* 803A0428 0039D388  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4231,14 +4236,14 @@ lbl_803A0418:
 /* 803A0450 0039D3B0  7C 1D E0 AE */	lbzx r0, r29, r28
 /* 803A0454 0039D3B4  28 00 00 03 */	cmplwi r0, 3
 /* 803A0458 0039D3B8  40 82 00 50 */	bne lbl_803A04A8
-/* 803A045C 0039D3BC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0460 0039D3C0  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A045C 0039D3BC  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0460 0039D3C0  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A0464 0039D3C4  7C 60 E2 14 */	add r3, r0, r28
 /* 803A0468 0039D3C8  88 63 00 58 */	lbz r3, 0x58(r3)
 /* 803A046C 0039D3CC  48 00 82 9D */	bl voiceBlock
-/* 803A0470 0039D3D0  3C 80 80 55 */	lis r4, lbl_805513F8@ha
+/* 803A0470 0039D3D0  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 803A0474 0039D3D4  3C 03 00 01 */	addis r0, r3, 1
-/* 803A0478 0039D3D8  38 84 13 F8 */	addi r4, r4, lbl_805513F8@l
+/* 803A0478 0039D3D8  38 84 13 F8 */	addi r4, r4, streamInfo@l
 /* 803A047C 0039D3DC  7C 84 E2 14 */	add r4, r4, r28
 /* 803A0480 0039D3E0  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803A0484 0039D3E4  90 64 00 4C */	stw r3, 0x4c(r4)
@@ -4252,8 +4257,8 @@ lbl_803A0498:
 /* 803A04A0 0039D400  90 64 00 20 */	stw r3, 0x20(r4)
 /* 803A04A4 0039D404  7C 1D E1 AE */	stbx r0, r29, r28
 lbl_803A04A8:
-/* 803A04A8 0039D408  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A04AC 0039D40C  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A04A8 0039D408  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A04AC 0039D40C  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A04B0 0039D410  7C 63 E0 2E */	lwzx r3, r3, r28
 /* 803A04B4 0039D414  3C 03 00 01 */	addis r0, r3, 1
 /* 803A04B8 0039D418  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4303,9 +4308,9 @@ sndStreamDeactivate:
 /* 803A0534 0039D494  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A0538 0039D498  7C 7D 1B 78 */	mr r29, r3
 /* 803A053C 0039D49C  48 01 4B 81 */	bl hwDisableIrq
-/* 803A0540 0039D4A0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
+/* 803A0540 0039D4A0  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 803A0544 0039D4A4  38 00 00 08 */	li r0, 8
-/* 803A0548 0039D4A8  3B E3 13 F8 */	addi r31, r3, lbl_805513F8@l
+/* 803A0548 0039D4A8  3B E3 13 F8 */	addi r31, r3, streamInfo@l
 /* 803A054C 0039D4AC  38 80 00 00 */	li r4, 0
 /* 803A0550 0039D4B0  7F E3 FB 78 */	mr r3, r31
 /* 803A0554 0039D4B4  7C 09 03 A6 */	mtctr r0
@@ -4396,8 +4401,8 @@ lbl_803A0680:
 /* 803A0680 0039D5E0  3C 04 00 01 */	addis r0, r4, 1
 /* 803A0684 0039D5E4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803A0688 0039D5E8  41 82 05 8C */	beq lbl_803A0C14
-/* 803A068C 0039D5EC  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0690 0039D5F0  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A068C 0039D5EC  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0690 0039D5F0  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0694 0039D5F4  1F A4 00 64 */	mulli r29, r4, 0x64
 /* 803A0698 0039D5F8  3B C3 00 0C */	addi r30, r3, 0xc
 /* 803A069C 0039D5FC  7C 1E E8 AE */	lbzx r0, r30, r29
@@ -4406,16 +4411,16 @@ lbl_803A0680:
 /* 803A06A8 0039D608  28 00 00 02 */	cmplwi r0, 2
 /* 803A06AC 0039D60C  40 82 00 20 */	bne lbl_803A06CC
 lbl_803A06B0:
-/* 803A06B0 0039D610  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A06B4 0039D614  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A06B0 0039D610  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A06B4 0039D614  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A06B8 0039D618  7C 60 EA 14 */	add r3, r0, r29
 /* 803A06BC 0039D61C  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 803A06C0 0039D620  48 00 81 45 */	bl voiceUnblock
 /* 803A06C4 0039D624  38 00 00 03 */	li r0, 3
 /* 803A06C8 0039D628  7C 1E E9 AE */	stbx r0, r30, r29
 lbl_803A06CC:
-/* 803A06CC 0039D62C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A06D0 0039D630  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A06CC 0039D62C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A06D0 0039D630  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A06D4 0039D634  7F A3 E8 2E */	lwzx r29, r3, r29
 /* 803A06D8 0039D638  3C 1D 00 01 */	addis r0, r29, 1
 /* 803A06DC 0039D63C  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4519,16 +4524,16 @@ lbl_803A0820:
 /* 803A083C 0039D79C  28 00 00 02 */	cmplwi r0, 2
 /* 803A0840 0039D7A0  40 82 00 20 */	bne lbl_803A0860
 lbl_803A0844:
-/* 803A0844 0039D7A4  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0848 0039D7A8  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A0844 0039D7A4  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0848 0039D7A8  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A084C 0039D7AC  7C 60 EA 14 */	add r3, r0, r29
 /* 803A0850 0039D7B0  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 803A0854 0039D7B4  48 00 7F B1 */	bl voiceUnblock
 /* 803A0858 0039D7B8  38 00 00 03 */	li r0, 3
 /* 803A085C 0039D7BC  7C 1E E9 AE */	stbx r0, r30, r29
 lbl_803A0860:
-/* 803A0860 0039D7C0  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0864 0039D7C4  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A0860 0039D7C0  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0864 0039D7C4  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0868 0039D7C8  7F A3 E8 2E */	lwzx r29, r3, r29
 /* 803A086C 0039D7CC  3C 1D 00 01 */	addis r0, r29, 1
 /* 803A0870 0039D7D0  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4632,16 +4637,16 @@ lbl_803A09B4:
 /* 803A09D0 0039D930  28 00 00 02 */	cmplwi r0, 2
 /* 803A09D4 0039D934  40 82 00 20 */	bne lbl_803A09F4
 lbl_803A09D8:
-/* 803A09D8 0039D938  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A09DC 0039D93C  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A09D8 0039D938  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A09DC 0039D93C  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A09E0 0039D940  7C 60 EA 14 */	add r3, r0, r29
 /* 803A09E4 0039D944  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 803A09E8 0039D948  48 00 7E 1D */	bl voiceUnblock
 /* 803A09EC 0039D94C  38 00 00 03 */	li r0, 3
 /* 803A09F0 0039D950  7C 1E E9 AE */	stbx r0, r30, r29
 lbl_803A09F4:
-/* 803A09F4 0039D954  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A09F8 0039D958  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A09F4 0039D954  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A09F8 0039D958  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A09FC 0039D95C  7F A3 E8 2E */	lwzx r29, r3, r29
 /* 803A0A00 0039D960  3C 1D 00 01 */	addis r0, r29, 1
 /* 803A0A04 0039D964  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4744,16 +4749,16 @@ lbl_803A0B44:
 /* 803A0B60 0039DAC0  28 00 00 02 */	cmplwi r0, 2
 /* 803A0B64 0039DAC4  40 82 00 20 */	bne lbl_803A0B84
 lbl_803A0B68:
-/* 803A0B68 0039DAC8  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0B6C 0039DACC  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A0B68 0039DAC8  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0B6C 0039DACC  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A0B70 0039DAD0  7C 60 EA 14 */	add r3, r0, r29
 /* 803A0B74 0039DAD4  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 803A0B78 0039DAD8  48 00 7C 8D */	bl voiceUnblock
 /* 803A0B7C 0039DADC  38 00 00 03 */	li r0, 3
 /* 803A0B80 0039DAE0  7C 1E E9 AE */	stbx r0, r30, r29
 lbl_803A0B84:
-/* 803A0B84 0039DAE4  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0B88 0039DAE8  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A0B84 0039DAE4  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0B88 0039DAE8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0B8C 0039DAEC  7F A3 E8 2E */	lwzx r29, r3, r29
 /* 803A0B90 0039DAF0  3C 1D 00 01 */	addis r0, r29, 1
 /* 803A0B94 0039DAF4  28 00 FF FF */	cmplwi r0, 0xffff
@@ -4771,16 +4776,16 @@ lbl_803A0B84:
 /* 803A0BC4 0039DB24  28 00 00 02 */	cmplwi r0, 2
 /* 803A0BC8 0039DB28  40 82 00 20 */	bne lbl_803A0BE8
 lbl_803A0BCC:
-/* 803A0BCC 0039DB2C  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0BD0 0039DB30  38 03 13 F8 */	addi r0, r3, lbl_805513F8@l
+/* 803A0BCC 0039DB2C  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0BD0 0039DB30  38 03 13 F8 */	addi r0, r3, streamInfo@l
 /* 803A0BD4 0039DB34  7C 60 EA 14 */	add r3, r0, r29
 /* 803A0BD8 0039DB38  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 803A0BDC 0039DB3C  48 00 7C 29 */	bl voiceUnblock
 /* 803A0BE0 0039DB40  38 00 00 03 */	li r0, 3
 /* 803A0BE4 0039DB44  7C 1E E9 AE */	stbx r0, r30, r29
 lbl_803A0BE8:
-/* 803A0BE8 0039DB48  3C 60 80 55 */	lis r3, lbl_805513F8@ha
-/* 803A0BEC 0039DB4C  38 63 13 F8 */	addi r3, r3, lbl_805513F8@l
+/* 803A0BE8 0039DB48  3C 60 80 55 */	lis r3, streamInfo@ha
+/* 803A0BEC 0039DB4C  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 803A0BF0 0039DB50  7C 63 E8 2E */	lwzx r3, r3, r29
 /* 803A0BF4 0039DB54  3C 03 00 01 */	addis r0, r3, 1
 /* 803A0BF8 0039DB58  28 00 FF FF */	cmplwi r0, 0xffff

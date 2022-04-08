@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .bss
+lbl_80569C78:
+	.skip 0x20
+	
 .section .text, "ax"
 
 .global __CARDCompareFileName

@@ -1,6 +1,6 @@
 #include "src/musyx/dsp_import.h"
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif 
 char dspSlave[0x19E0] =
@@ -215,6 +215,6 @@ char dspSlave[0x19E0] =
 };
 
 short dspSlaveLength = sizeof(dspSlave);
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif 

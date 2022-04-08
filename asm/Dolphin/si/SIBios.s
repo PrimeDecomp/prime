@@ -1,5 +1,26 @@
 .include "macros.inc"
 
+.section .bss
+.global Packet
+Packet:
+	.skip 0x80
+.global lbl_80569D18
+lbl_80569D18:
+	.skip 0xA0
+.global lbl_80569DB8
+lbl_80569DB8:
+	.skip 0x20
+.global lbl_80569DD8
+lbl_80569DD8:
+	.skip 0x20
+.global lbl_80569DF8
+lbl_80569DF8:
+	.skip 0x40
+.global lbl_80569E38
+lbl_80569E38:
+	.skip 0x60
+
+
 .section .data, "wa"
 
 .global lbl_803F6EA0

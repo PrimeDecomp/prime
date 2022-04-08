@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .bss
+.global "tmp_em$388"
+"tmp_em$388":
+	.skip 0x50
+.global startGroup
+startGroup:
+	.skip 0x400
+.global runList
+runList:
+	.skip 0x300
+.global startListNum
+startListNum:
+	.skip 0x700
+	
 .section .sbss
 .balign 4
 .global runListNum
@@ -861,8 +875,8 @@ AddEmitter:
 /* 803AF380 003AC2E0  48 00 5D 3D */	bl hwDisableIrq
 /* 803AF384 003AC2E4  28 17 00 00 */	cmplwi r23, 0
 /* 803AF388 003AC2E8  40 82 00 10 */	bne lbl_803AF398
-/* 803AF38C 003AC2EC  3C 60 80 56 */	lis r3, lbl_8055F940@ha
-/* 803AF390 003AC2F0  3B C3 F9 40 */	addi r30, r3, lbl_8055F940@l
+/* 803AF38C 003AC2EC  3C 60 80 56 */	lis r3, "tmp_em$388"@ha
+/* 803AF390 003AC2F0  3B C3 F9 40 */	addi r30, r3, "tmp_em$388"@l
 /* 803AF394 003AC2F4  48 00 00 08 */	b lbl_803AF39C
 lbl_803AF398:
 /* 803AF398 003AC2F8  7E FE BB 78 */	mr r30, r23
@@ -1640,8 +1654,8 @@ lbl_803AFE48:
 .global sub_803afe5c
 sub_803afe5c:
 /* 803AFE5C 003ACDBC  88 CD AF 62 */	lbz r6, startGroupNum@sda21(r13)
-/* 803AFE60 003ACDC0  3C 80 80 56 */	lis r4, lbl_8055F990@ha
-/* 803AFE64 003ACDC4  38 A4 F9 90 */	addi r5, r4, lbl_8055F990@l
+/* 803AFE60 003ACDC0  3C 80 80 56 */	lis r4, startGroup@ha
+/* 803AFE64 003ACDC4  38 A4 F9 90 */	addi r5, r4, startGroup@l
 /* 803AFE68 003ACDC8  39 20 00 00 */	li r9, 0
 /* 803AFE6C 003ACDCC  7C C9 03 A6 */	mtctr r6
 /* 803AFE70 003ACDD0  2C 06 00 00 */	cmpwi r6, 0
@@ -1662,9 +1676,9 @@ lbl_803AFE94:
 /* 803AFEA4 003ACE04  38 60 00 00 */	li r3, 0
 /* 803AFEA8 003ACE08  4E 80 00 20 */	blr 
 lbl_803AFEAC:
-/* 803AFEAC 003ACE0C  3C A0 80 56 */	lis r5, lbl_8055F990@ha
+/* 803AFEAC 003ACE0C  3C A0 80 56 */	lis r5, startGroup@ha
 /* 803AFEB0 003ACE10  88 8D AF 62 */	lbz r4, startGroupNum@sda21(r13)
-/* 803AFEB4 003ACE14  38 C5 F9 90 */	addi r6, r5, lbl_8055F990@l
+/* 803AFEB4 003ACE14  38 C5 F9 90 */	addi r6, r5, startGroup@l
 /* 803AFEB8 003ACE18  55 28 20 36 */	slwi r8, r9, 4
 /* 803AFEBC 003ACE1C  7C A6 42 14 */	add r5, r6, r8
 /* 803AFEC0 003ACE20  38 E0 00 00 */	li r7, 0
@@ -1682,9 +1696,9 @@ lbl_803AFEE0:
 /* 803AFEEC 003ACE4C  38 60 00 00 */	li r3, 0
 /* 803AFEF0 003ACE50  4E 80 00 20 */	blr 
 lbl_803AFEF4:
-/* 803AFEF4 003ACE54  3C 80 80 56 */	lis r4, lbl_8055F990@ha
+/* 803AFEF4 003ACE54  3C 80 80 56 */	lis r4, startGroup@ha
 /* 803AFEF8 003ACE58  55 20 20 36 */	slwi r0, r9, 4
-/* 803AFEFC 003ACE5C  38 84 F9 90 */	addi r4, r4, lbl_8055F990@l
+/* 803AFEFC 003ACE5C  38 84 F9 90 */	addi r4, r4, startGroup@l
 /* 803AFF00 003ACE60  7C E4 02 14 */	add r7, r4, r0
 /* 803AFF04 003ACE64  80 C7 00 04 */	lwz r6, 4(r7)
 /* 803AFF08 003ACE68  38 E7 00 04 */	addi r7, r7, 4
@@ -1703,23 +1717,23 @@ lbl_803AFF2C:
 /* 803AFF34 003ACE94  40 82 FF E8 */	bne lbl_803AFF1C
 lbl_803AFF38:
 /* 803AFF38 003ACE98  1C A5 00 1C */	mulli r5, r5, 0x1c
-/* 803AFF3C 003ACE9C  3C 80 80 56 */	lis r4, lbl_80560090@ha
-/* 803AFF40 003ACEA0  38 04 00 90 */	addi r0, r4, lbl_80560090@l
+/* 803AFF3C 003ACE9C  3C 80 80 56 */	lis r4, startListNum@ha
+/* 803AFF40 003ACEA0  38 04 00 90 */	addi r0, r4, startListNum@l
 /* 803AFF44 003ACEA4  7C 80 2A 14 */	add r4, r0, r5
 /* 803AFF48 003ACEA8  90 C4 00 00 */	stw r6, 0(r4)
 /* 803AFF4C 003ACEAC  90 88 00 00 */	stw r4, 0(r8)
 /* 803AFF50 003ACEB0  48 00 00 1C */	b lbl_803AFF6C
 lbl_803AFF54:
 /* 803AFF54 003ACEB4  1C A5 00 1C */	mulli r5, r5, 0x1c
-/* 803AFF58 003ACEB8  3C 80 80 56 */	lis r4, lbl_80560090@ha
-/* 803AFF5C 003ACEBC  38 04 00 90 */	addi r0, r4, lbl_80560090@l
+/* 803AFF58 003ACEB8  3C 80 80 56 */	lis r4, startListNum@ha
+/* 803AFF5C 003ACEBC  38 04 00 90 */	addi r0, r4, startListNum@l
 /* 803AFF60 003ACEC0  7C 80 2A 14 */	add r4, r0, r5
 /* 803AFF64 003ACEC4  90 C4 00 00 */	stw r6, 0(r4)
 /* 803AFF68 003ACEC8  90 87 00 00 */	stw r4, 0(r7)
 lbl_803AFF6C:
 /* 803AFF6C 003ACECC  88 8D AF 61 */	lbz r4, startListNumnum@sda21(r13)
-/* 803AFF70 003ACED0  3C A0 80 56 */	lis r5, lbl_80560090@ha
-/* 803AFF74 003ACED4  38 A5 00 90 */	addi r5, r5, lbl_80560090@l
+/* 803AFF70 003ACED0  3C A0 80 56 */	lis r5, startListNum@ha
+/* 803AFF74 003ACED4  38 A5 00 90 */	addi r5, r5, startListNum@l
 /* 803AFF78 003ACED8  1C C4 00 1C */	mulli r6, r4, 0x1c
 /* 803AFF7C 003ACEDC  38 04 00 01 */	addi r0, r4, 1
 /* 803AFF80 003ACEE0  98 0D AF 61 */	stb r0, startListNumnum@sda21(r13)
@@ -1746,9 +1760,9 @@ sub_803affa8:
 /* 803AFFC8 003ACF28  F3 A1 00 58 */	psq_st f29, 88(r1), 0, qr0
 /* 803AFFCC 003ACF2C  39 61 00 50 */	addi r11, r1, 0x50
 /* 803AFFD0 003ACF30  4B FD 9A 99 */	bl sub_80389a68
-/* 803AFFD4 003ACF34  3C 60 80 56 */	lis r3, lbl_8055F990@ha
+/* 803AFFD4 003ACF34  3C 60 80 56 */	lis r3, startGroup@ha
 /* 803AFFD8 003ACF38  3B 40 00 00 */	li r26, 0
-/* 803AFFDC 003ACF3C  3B 63 F9 90 */	addi r27, r3, lbl_8055F990@l
+/* 803AFFDC 003ACF3C  3B 63 F9 90 */	addi r27, r3, startGroup@l
 /* 803AFFE0 003ACF40  48 00 03 3C */	b lbl_803B031C
 lbl_803AFFE4:
 /* 803AFFE4 003ACF44  83 3B 00 04 */	lwz r25, 4(r27)
@@ -2190,8 +2204,8 @@ lbl_803B05D8:
 /* 803B05EC 003AD54C  54 00 07 FF */	clrlwi. r0, r0, 0x1f
 /* 803B05F0 003AD550  41 82 01 28 */	beq lbl_803B0718
 /* 803B05F4 003AD554  88 AD AF 62 */	lbz r5, startGroupNum@sda21(r13)
-/* 803B05F8 003AD558  3C 60 80 56 */	lis r3, lbl_8055F990@ha
-/* 803B05FC 003AD55C  38 83 F9 90 */	addi r4, r3, lbl_8055F990@l
+/* 803B05F8 003AD558  3C 60 80 56 */	lis r3, startGroup@ha
+/* 803B05FC 003AD55C  38 83 F9 90 */	addi r4, r3, startGroup@l
 /* 803B0600 003AD560  C0 21 00 18 */	lfs f1, 0x18(r1)
 /* 803B0604 003AD564  38 E0 00 00 */	li r7, 0
 /* 803B0608 003AD568  7C A9 03 A6 */	mtctr r5
@@ -2208,11 +2222,11 @@ lbl_803B0614:
 lbl_803B0630:
 /* 803B0630 003AD590  7C 07 28 00 */	cmpw r7, r5
 /* 803B0634 003AD594  40 82 00 38 */	bne lbl_803B066C
-/* 803B0638 003AD598  3C 80 80 56 */	lis r4, lbl_8055F990@ha
+/* 803B0638 003AD598  3C 80 80 56 */	lis r4, startGroup@ha
 /* 803B063C 003AD59C  88 6D AF 62 */	lbz r3, startGroupNum@sda21(r13)
 /* 803B0640 003AD5A0  54 E5 20 36 */	slwi r5, r7, 4
 /* 803B0644 003AD5A4  38 C0 00 00 */	li r6, 0
-/* 803B0648 003AD5A8  38 84 F9 90 */	addi r4, r4, lbl_8055F990@l
+/* 803B0648 003AD5A8  38 84 F9 90 */	addi r4, r4, startGroup@l
 /* 803B064C 003AD5AC  38 03 00 01 */	addi r0, r3, 1
 /* 803B0650 003AD5B0  7C 84 2A 14 */	add r4, r4, r5
 /* 803B0654 003AD5B4  90 C4 00 04 */	stw r6, 4(r4)
@@ -2222,9 +2236,9 @@ lbl_803B0630:
 /* 803B0664 003AD5C4  90 64 00 00 */	stw r3, 0(r4)
 /* 803B0668 003AD5C8  98 0D AF 62 */	stb r0, startGroupNum@sda21(r13)
 lbl_803B066C:
-/* 803B066C 003AD5CC  3C 60 80 56 */	lis r3, lbl_8055F990@ha
+/* 803B066C 003AD5CC  3C 60 80 56 */	lis r3, startGroup@ha
 /* 803B0670 003AD5D0  54 E4 20 36 */	slwi r4, r7, 4
-/* 803B0674 003AD5D4  38 03 F9 90 */	addi r0, r3, lbl_8055F990@l
+/* 803B0674 003AD5D4  38 03 F9 90 */	addi r0, r3, startGroup@l
 /* 803B0678 003AD5D8  38 A0 00 00 */	li r5, 0
 /* 803B067C 003AD5DC  7C 80 22 14 */	add r4, r0, r4
 /* 803B0680 003AD5E0  A0 64 00 0C */	lhz r3, 0xc(r4)
@@ -2246,23 +2260,23 @@ lbl_803B06B4:
 /* 803B06B4 003AD614  28 05 00 00 */	cmplwi r5, 0
 /* 803B06B8 003AD618  40 82 00 20 */	bne lbl_803B06D8
 /* 803B06BC 003AD61C  88 8D AF 60 */	lbz r4, runListNum@sda21(r13)
-/* 803B06C0 003AD620  3C 60 80 56 */	lis r3, lbl_8055FD90@ha
-/* 803B06C4 003AD624  38 03 FD 90 */	addi r0, r3, lbl_8055FD90@l
+/* 803B06C0 003AD620  3C 60 80 56 */	lis r3, runList@ha
+/* 803B06C4 003AD624  38 03 FD 90 */	addi r0, r3, runList@l
 /* 803B06C8 003AD628  1C 64 00 0C */	mulli r3, r4, 0xc
 /* 803B06CC 003AD62C  7C 00 1A 14 */	add r0, r0, r3
 /* 803B06D0 003AD630  90 07 00 00 */	stw r0, 0(r7)
 /* 803B06D4 003AD634  48 00 00 1C */	b lbl_803B06F0
 lbl_803B06D8:
 /* 803B06D8 003AD638  88 8D AF 60 */	lbz r4, runListNum@sda21(r13)
-/* 803B06DC 003AD63C  3C 60 80 56 */	lis r3, lbl_8055FD90@ha
-/* 803B06E0 003AD640  38 03 FD 90 */	addi r0, r3, lbl_8055FD90@l
+/* 803B06DC 003AD63C  3C 60 80 56 */	lis r3, runList@ha
+/* 803B06E0 003AD640  38 03 FD 90 */	addi r0, r3, runList@l
 /* 803B06E4 003AD644  1C 64 00 0C */	mulli r3, r4, 0xc
 /* 803B06E8 003AD648  7C 00 1A 14 */	add r0, r0, r3
 /* 803B06EC 003AD64C  90 05 00 00 */	stw r0, 0(r5)
 lbl_803B06F0:
 /* 803B06F0 003AD650  88 AD AF 60 */	lbz r5, runListNum@sda21(r13)
-/* 803B06F4 003AD654  3C 60 80 56 */	lis r3, lbl_8055FD90@ha
-/* 803B06F8 003AD658  38 63 FD 90 */	addi r3, r3, lbl_8055FD90@l
+/* 803B06F4 003AD654  3C 60 80 56 */	lis r3, runList@ha
+/* 803B06F8 003AD658  38 63 FD 90 */	addi r3, r3, runList@l
 /* 803B06FC 003AD65C  1C 85 00 0C */	mulli r4, r5, 0xc
 /* 803B0700 003AD660  38 05 00 01 */	addi r0, r5, 1
 /* 803B0704 003AD664  98 0D AF 60 */	stb r0, runListNum@sda21(r13)

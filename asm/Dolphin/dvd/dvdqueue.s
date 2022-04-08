@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_80540BF8
+lbl_80540BF8:
+	.skip 0x20
+	
 .section .text, "ax"
 
 .global __DVDClearWaitingQueue

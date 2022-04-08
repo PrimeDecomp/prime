@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .bss
+lbl_805415F8:
+	.skip 0x9F8
+	
 .section .text, "ax"
 
 .global DefaultSwitchThreadCallback

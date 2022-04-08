@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .bss
+.global gs
+gs:
+	.skip 0x600
+.global dspStudio
+dspStudio:
+	.skip 0x5E0
+"voices$217":
+	.skip 0x100
+	
 .section .sbss 
 .balign 4
 .global dspARAMZeroBuffer

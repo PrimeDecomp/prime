@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_80569A58
+lbl_80569A58:
+	.skip 0x220
+	
 .section .data, "wa"
 lbl_803F6C90:
 	.asciz "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>"
