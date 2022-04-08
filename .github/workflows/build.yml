@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: devkitpro/devkitppc:latest
+    env:
+      WINEPREFIX: ${{github.workspace}}/.wine
     steps:
     - name: Install devkitPro
       run: |
