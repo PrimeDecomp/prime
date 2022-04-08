@@ -1,12 +1,12 @@
 #ifndef MUSYX_DSP_IMPORT_H
 #define MUSYX_DSP_IMPORT_H
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 char dspSlave[];
 short dspSlaveLength;
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif 
 #endif

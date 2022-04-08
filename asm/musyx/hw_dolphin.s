@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+dsp_task:
+	.skip 0x60
+dram_image:
+	.skip 0x2008
+	
 .section .sbss, "wa"
 .balign 4
 .global oldState

@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global "newsmp$473"
+"newsmp$473":
+	.skip 0x20
+	
 .section .sbss
 "cstep$1643":
 	.skip 0x8
@@ -558,9 +563,9 @@ sub_803a313c:
 /* 803A3150 003A00B0  7C 7E 1B 78 */	mr r30, r3
 /* 803A3154 003A00B4  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A3158 003A00B8  7C 9D 23 78 */	mr r29, r4
-/* 803A315C 003A00BC  3C 80 80 56 */	lis r4, lbl_8055D330@ha
+/* 803A315C 003A00BC  3C 80 80 56 */	lis r4, "newsmp$473"@ha
 /* 803A3160 003A00C0  80 1D 00 00 */	lwz r0, 0(r29)
-/* 803A3164 003A00C4  38 84 D3 30 */	addi r4, r4, lbl_8055D330@l
+/* 803A3164 003A00C4  38 84 D3 30 */	addi r4, r4, "newsmp$473"@l
 /* 803A3168 003A00C8  54 1F C4 3E */	rlwinm r31, r0, 0x18, 0x10, 0x1f
 /* 803A316C 003A00CC  7F E3 FB 78 */	mr r3, r31
 /* 803A3170 003A00D0  4B FF F4 29 */	bl sub_803a2598
@@ -579,20 +584,20 @@ lbl_803A319C:
 /* 803A31A0 003A0100  40 80 00 9C */	bge lbl_803A323C
 /* 803A31A4 003A0104  48 00 00 5C */	b lbl_803A3200
 lbl_803A31A8:
-/* 803A31A8 003A0108  3C 60 80 56 */	lis r3, lbl_8055D330@ha
+/* 803A31A8 003A0108  3C 60 80 56 */	lis r3, "newsmp$473"@ha
 /* 803A31AC 003A010C  80 1D 00 04 */	lwz r0, 4(r29)
-/* 803A31B0 003A0110  38 63 D3 30 */	addi r3, r3, lbl_8055D330@l
+/* 803A31B0 003A0110  38 63 D3 30 */	addi r3, r3, "newsmp$473"@l
 /* 803A31B4 003A0114  90 03 00 0C */	stw r0, 0xc(r3)
 /* 803A31B8 003A0118  48 00 00 94 */	b lbl_803A324C
 lbl_803A31BC:
 /* 803A31BC 003A011C  80 BE 01 54 */	lwz r5, 0x154(r30)
 /* 803A31C0 003A0120  3C 80 02 04 */	lis r4, 0x02040811@ha
-/* 803A31C4 003A0124  3C 60 80 56 */	lis r3, lbl_8055D330@ha
+/* 803A31C4 003A0124  3C 60 80 56 */	lis r3, "newsmp$473"@ha
 /* 803A31C8 003A0128  80 1D 00 04 */	lwz r0, 4(r29)
 /* 803A31CC 003A012C  54 A5 84 3E */	srwi r5, r5, 0x10
 /* 803A31D0 003A0130  38 C4 08 11 */	addi r6, r4, 0x02040811@l
 /* 803A31D4 003A0134  20 85 00 7F */	subfic r4, r5, 0x7f
-/* 803A31D8 003A0138  38 63 D3 30 */	addi r3, r3, lbl_8055D330@l
+/* 803A31D8 003A0138  38 63 D3 30 */	addi r3, r3, "newsmp$473"@l
 /* 803A31DC 003A013C  54 84 06 3E */	clrlwi r4, r4, 0x18
 /* 803A31E0 003A0140  7C 00 21 D6 */	mullw r0, r0, r4
 /* 803A31E4 003A0144  7C 86 00 16 */	mulhwu r4, r6, r0
@@ -606,11 +611,11 @@ lbl_803A3200:
 /* 803A3200 003A0160  80 BE 01 54 */	lwz r5, 0x154(r30)
 /* 803A3204 003A0164  3C 80 02 04 */	lis r4, 0x02040811@ha
 /* 803A3208 003A0168  80 1D 00 04 */	lwz r0, 4(r29)
-/* 803A320C 003A016C  3C 60 80 56 */	lis r3, lbl_8055D330@ha
+/* 803A320C 003A016C  3C 60 80 56 */	lis r3, "newsmp$473"@ha
 /* 803A3210 003A0170  54 A5 86 3E */	rlwinm r5, r5, 0x10, 0x18, 0x1f
 /* 803A3214 003A0174  38 84 08 11 */	addi r4, r4, 0x02040811@l
 /* 803A3218 003A0178  7C 00 29 D6 */	mullw r0, r0, r5
-/* 803A321C 003A017C  38 63 D3 30 */	addi r3, r3, lbl_8055D330@l
+/* 803A321C 003A017C  38 63 D3 30 */	addi r3, r3, "newsmp$473"@l
 /* 803A3220 003A0180  7C 84 00 16 */	mulhwu r4, r4, r0
 /* 803A3224 003A0184  7C 04 00 50 */	subf r0, r4, r0
 /* 803A3228 003A0188  54 00 F8 7E */	srwi r0, r0, 1
@@ -619,13 +624,13 @@ lbl_803A3200:
 /* 803A3234 003A0194  90 03 00 0C */	stw r0, 0xc(r3)
 /* 803A3238 003A0198  48 00 00 14 */	b lbl_803A324C
 lbl_803A323C:
-/* 803A323C 003A019C  3C 60 80 56 */	lis r3, lbl_8055D330@ha
+/* 803A323C 003A019C  3C 60 80 56 */	lis r3, "newsmp$473"@ha
 /* 803A3240 003A01A0  38 00 00 00 */	li r0, 0
-/* 803A3244 003A01A4  38 63 D3 30 */	addi r3, r3, lbl_8055D330@l
+/* 803A3244 003A01A4  38 63 D3 30 */	addi r3, r3, "newsmp$473"@l
 /* 803A3248 003A01A8  90 03 00 0C */	stw r0, 0xc(r3)
 lbl_803A324C:
-/* 803A324C 003A01AC  3C 60 80 56 */	lis r3, lbl_8055D330@ha
-/* 803A3250 003A01B0  38 63 D3 30 */	addi r3, r3, lbl_8055D330@l
+/* 803A324C 003A01AC  3C 60 80 56 */	lis r3, "newsmp$473"@ha
+/* 803A3250 003A01B0  38 63 D3 30 */	addi r3, r3, "newsmp$473"@l
 /* 803A3254 003A01B4  80 03 00 0C */	lwz r0, 0xc(r3)
 /* 803A3258 003A01B8  80 83 00 10 */	lwz r4, 0x10(r3)
 /* 803A325C 003A01BC  7C 00 20 40 */	cmplw r0, r4
@@ -648,7 +653,7 @@ lbl_803A326C:
 /* 803A329C 003A01FC  7D 24 52 78 */	xor r4, r9, r10
 /* 803A32A0 003A0200  7C C6 52 78 */	xor r6, r6, r10
 /* 803A32A4 003A0204  7C 86 33 78 */	or r6, r4, r6
-/* 803A32A8 003A0208  3C A0 80 56 */	lis r5, lbl_8055D330@ha
+/* 803A32A8 003A0208  3C A0 80 56 */	lis r5, "newsmp$473"@ha
 /* 803A32AC 003A020C  7C C6 00 34 */	cntlzw r6, r6
 /* 803A32B0 003A0210  7C 00 52 78 */	xor r0, r0, r10
 /* 803A32B4 003A0214  7C 69 52 78 */	xor r9, r3, r10
@@ -656,15 +661,15 @@ lbl_803A326C:
 /* 803A32BC 003A021C  7C 09 4B 78 */	or r9, r0, r9
 /* 803A32C0 003A0220  89 5E 01 93 */	lbz r10, 0x193(r30)
 /* 803A32C4 003A0224  7D 29 00 34 */	cntlzw r9, r9
-/* 803A32C8 003A0228  38 A5 D3 30 */	addi r5, r5, lbl_8055D330@l
+/* 803A32C8 003A0228  38 A5 D3 30 */	addi r5, r5, "newsmp$473"@l
 /* 803A32CC 003A022C  7F E4 FB 78 */	mr r4, r31
 /* 803A32D0 003A0230  54 C6 D9 7E */	srwi r6, r6, 5
 /* 803A32D4 003A0234  55 03 06 3E */	clrlwi r3, r8, 0x18
 /* 803A32D8 003A0238  55 29 D9 7E */	srwi r9, r9, 5
 /* 803A32DC 003A023C  51 67 C0 0E */	rlwimi r7, r11, 0x18, 0, 7
 /* 803A32E0 003A0240  48 00 FE F9 */	bl hwInitSamplePlayback
-/* 803A32E4 003A0244  3C 60 80 56 */	lis r3, lbl_8055D330@ha
-/* 803A32E8 003A0248  80 03 D3 30 */	lwz r0, lbl_8055D330@l(r3)
+/* 803A32E4 003A0244  3C 60 80 56 */	lis r3, "newsmp$473"@ha
+/* 803A32E8 003A0248  80 03 D3 30 */	lwz r0, "newsmp$473"@l(r3)
 /* 803A32EC 003A024C  90 1E 01 24 */	stw r0, 0x124(r30)
 /* 803A32F0 003A0250  80 7E 01 28 */	lwz r3, 0x128(r30)
 /* 803A32F4 003A0254  3C 03 00 01 */	addis r0, r3, 1
@@ -2735,11 +2740,11 @@ sub_803a4ffc:
 /* 803A5034 003A1F94  54 06 5D 78 */	rlwinm r6, r0, 0xb, 0x15, 0x1c
 /* 803A5038 003A1F98  80 FE 01 14 */	lwz r7, 0x114(r30)
 /* 803A503C 003A1F9C  7D 05 32 14 */	add r8, r5, r6
-/* 803A5040 003A1FA0  3C A0 80 55 */	lis r5, lbl_80550F74@ha
+/* 803A5040 003A1FA0  3C A0 80 55 */	lis r5, inpAuxA@ha
 /* 803A5044 003A1FA4  83 A8 00 00 */	lwz r29, 0(r8)
 /* 803A5048 003A1FA8  1D 43 00 90 */	mulli r10, r3, 0x90
 /* 803A504C 003A1FAC  83 88 00 04 */	lwz r28, 4(r8)
-/* 803A5050 003A1FB0  39 25 0F 74 */	addi r9, r5, lbl_80550F74@l
+/* 803A5050 003A1FB0  39 25 0F 74 */	addi r9, r5, inpAuxA@l
 /* 803A5054 003A1FB4  81 1E 01 18 */	lwz r8, 0x118(r30)
 /* 803A5058 003A1FB8  38 C0 00 00 */	li r6, 0
 /* 803A505C 003A1FBC  7C E3 E8 38 */	and r3, r7, r29
@@ -2839,11 +2844,11 @@ mcmdAuxAFXSelect:
 /* 803A51B0 003A2110  54 06 5D 78 */	rlwinm r6, r0, 0xb, 0x15, 0x1c
 /* 803A51B4 003A2114  80 FE 01 14 */	lwz r7, 0x114(r30)
 /* 803A51B8 003A2118  7D 05 32 14 */	add r8, r5, r6
-/* 803A51BC 003A211C  3C A0 80 55 */	lis r5, lbl_80550AF4@ha
+/* 803A51BC 003A211C  3C A0 80 55 */	lis r5, inpAuxB@ha
 /* 803A51C0 003A2120  83 A8 00 00 */	lwz r29, 0(r8)
 /* 803A51C4 003A2124  1D 43 00 90 */	mulli r10, r3, 0x90
 /* 803A51C8 003A2128  83 88 00 04 */	lwz r28, 4(r8)
-/* 803A51CC 003A212C  39 25 0A F4 */	addi r9, r5, lbl_80550AF4@l
+/* 803A51CC 003A212C  39 25 0A F4 */	addi r9, r5, inpAuxB@l
 /* 803A51D0 003A2130  81 1E 01 18 */	lwz r8, 0x118(r30)
 /* 803A51D4 003A2134  38 C0 00 00 */	li r6, 0
 /* 803A51D8 003A2138  7C E3 E8 38 */	and r3, r7, r29
@@ -3046,9 +3051,9 @@ lbl_803A547C:
 /* 803A5490 003A23F0  80 03 00 AC */	lwz r0, 0xac(r3)
 /* 803A5494 003A23F4  48 00 00 18 */	b lbl_803A54AC
 lbl_803A5498:
-/* 803A5498 003A23F8  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A5498 003A23F8  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A549C 003A23FC  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A54A0 003A2400  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A54A0 003A2400  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A54A4 003A2404  7C 63 02 14 */	add r3, r3, r0
 /* 803A54A8 003A2408  80 03 FF C0 */	lwz r0, -0x40(r3)
 lbl_803A54AC:
@@ -3085,9 +3090,9 @@ lbl_803A5500:
 /* 803A5514 003A2474  80 63 00 AC */	lwz r3, 0xac(r3)
 /* 803A5518 003A2478  48 00 00 18 */	b lbl_803A5530
 lbl_803A551C:
-/* 803A551C 003A247C  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A551C 003A247C  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A5520 003A2480  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5524 003A2484  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A5524 003A2484  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A5528 003A2488  7C 63 02 14 */	add r3, r3, r0
 /* 803A552C 003A248C  80 63 FF C0 */	lwz r3, -0x40(r3)
 lbl_803A5530:
@@ -3117,9 +3122,9 @@ lbl_803A5570:
 /* 803A5584 003A24E4  80 03 00 AC */	lwz r0, 0xac(r3)
 /* 803A5588 003A24E8  48 00 00 18 */	b lbl_803A55A0
 lbl_803A558C:
-/* 803A558C 003A24EC  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A558C 003A24EC  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A5590 003A24F0  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5594 003A24F4  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A5594 003A24F4  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A5598 003A24F8  7C 63 02 14 */	add r3, r3, r0
 /* 803A559C 003A24FC  80 03 FF C0 */	lwz r0, -0x40(r3)
 lbl_803A55A0:
@@ -3207,9 +3212,9 @@ lbl_803A56A0:
 /* 803A56A8 003A2608  41 81 00 08 */	bgt lbl_803A56B0
 /* 803A56AC 003A260C  7F C4 F3 78 */	mr r4, r30
 lbl_803A56B0:
-/* 803A56B0 003A2610  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A56B0 003A2610  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A56B4 003A2614  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A56B8 003A2618  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A56B8 003A2618  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A56BC 003A261C  7C 84 07 34 */	extsh r4, r4
 /* 803A56C0 003A2620  7C 63 02 14 */	add r3, r3, r0
 /* 803A56C4 003A2624  90 83 FF C0 */	stw r4, -0x40(r3)
@@ -3247,9 +3252,9 @@ lbl_803A571C:
 /* 803A5730 003A2690  83 63 00 AC */	lwz r27, 0xac(r3)
 /* 803A5734 003A2694  48 00 00 18 */	b lbl_803A574C
 lbl_803A5738:
-/* 803A5738 003A2698  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A5738 003A2698  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A573C 003A269C  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5740 003A26A0  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A5740 003A26A0  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A5744 003A26A4  7C 63 02 14 */	add r3, r3, r0
 /* 803A5748 003A26A8  83 63 FF C0 */	lwz r27, -0x40(r3)
 lbl_803A574C:
@@ -3271,9 +3276,9 @@ lbl_803A5770:
 /* 803A5784 003A26E4  80 83 00 AC */	lwz r4, 0xac(r3)
 /* 803A5788 003A26E8  48 00 00 18 */	b lbl_803A57A0
 lbl_803A578C:
-/* 803A578C 003A26EC  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A578C 003A26EC  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A5790 003A26F0  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5794 003A26F4  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A5794 003A26F4  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A5798 003A26F8  7C 63 02 14 */	add r3, r3, r0
 /* 803A579C 003A26FC  80 83 FF C0 */	lwz r4, -0x40(r3)
 lbl_803A57A0:
@@ -3336,9 +3341,9 @@ mcmdSendMessage:
 /* 803A5860 003A27C0  83 A5 00 AC */	lwz r29, 0xac(r5)
 /* 803A5864 003A27C4  48 00 00 18 */	b lbl_803A587C
 lbl_803A5868:
-/* 803A5868 003A27C8  3C A0 80 55 */	lis r5, lbl_80550AB4@ha
+/* 803A5868 003A27C8  3C A0 80 55 */	lis r5, synthGlobalVariable@ha
 /* 803A586C 003A27CC  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5870 003A27D0  38 A5 0A B4 */	addi r5, r5, lbl_80550AB4@l
+/* 803A5870 003A27D0  38 A5 0A B4 */	addi r5, r5, synthGlobalVariable@l
 /* 803A5874 003A27D4  7C A5 02 14 */	add r5, r5, r0
 /* 803A5878 003A27D8  83 A5 FF C0 */	lwz r29, -0x40(r5)
 lbl_803A587C:
@@ -3426,9 +3431,9 @@ lbl_803A5998:
 /* 803A59AC 003A290C  80 63 00 AC */	lwz r3, 0xac(r3)
 /* 803A59B0 003A2910  48 00 00 18 */	b lbl_803A59C8
 lbl_803A59B4:
-/* 803A59B4 003A2914  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A59B4 003A2914  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A59B8 003A2918  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A59BC 003A291C  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A59BC 003A291C  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A59C0 003A2920  7C 63 02 14 */	add r3, r3, r0
 /* 803A59C4 003A2924  80 63 FF C0 */	lwz r3, -0x40(r3)
 lbl_803A59C8:
@@ -3491,9 +3496,9 @@ mcmdGetVID:
 /* 803A5A98 003A29F8  90 83 00 AC */	stw r4, 0xac(r3)
 /* 803A5A9C 003A29FC  4E 80 00 20 */	blr 
 lbl_803A5AA0:
-/* 803A5AA0 003A2A00  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A5AA0 003A2A00  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A5AA4 003A2A04  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5AA8 003A2A08  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A5AA8 003A2A08  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A5AAC 003A2A0C  7C 63 02 14 */	add r3, r3, r0
 /* 803A5AB0 003A2A10  90 83 FF C0 */	stw r4, -0x40(r3)
 /* 803A5AB4 003A2A14  4E 80 00 20 */	blr 
@@ -3507,9 +3512,9 @@ lbl_803A5AB8:
 /* 803A5AD0 003A2A30  90 83 00 AC */	stw r4, 0xac(r3)
 /* 803A5AD4 003A2A34  4E 80 00 20 */	blr 
 lbl_803A5AD8:
-/* 803A5AD8 003A2A38  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A5AD8 003A2A38  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A5ADC 003A2A3C  54 00 15 BA */	rlwinm r0, r0, 2, 0x16, 0x1d
-/* 803A5AE0 003A2A40  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A5AE0 003A2A40  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A5AE4 003A2A44  7C 63 02 14 */	add r3, r3, r0
 /* 803A5AE8 003A2A48  90 83 FF C0 */	stw r4, -0x40(r3)
 /* 803A5AEC 003A2A4C  4E 80 00 20 */	blr 
@@ -4298,9 +4303,9 @@ lbl_803A6670:
 /* 803A6688 003A35E8  7C BF 01 2E */	stwx r5, r31, r0
 /* 803A668C 003A35EC  48 00 04 78 */	b lbl_803A6B04
 lbl_803A6690:
-/* 803A6690 003A35F0  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A6690 003A35F0  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A6694 003A35F4  54 04 15 BA */	rlwinm r4, r0, 2, 0x16, 0x1d
-/* 803A6698 003A35F8  38 03 0A B4 */	addi r0, r3, lbl_80550AB4@l
+/* 803A6698 003A35F8  38 03 0A B4 */	addi r0, r3, synthGlobalVariable@l
 /* 803A669C 003A35FC  7C 60 22 14 */	add r3, r0, r4
 /* 803A66A0 003A3600  90 A3 FF C0 */	stw r5, -0x40(r3)
 /* 803A66A4 003A3604  48 00 04 60 */	b lbl_803A6B04
@@ -4348,10 +4353,10 @@ lbl_803A6704:
 /* 803A6740 003A36A0  50 A4 C0 0E */	rlwimi r4, r5, 0x18, 0, 7
 /* 803A6744 003A36A4  48 00 CA 81 */	bl hwSetPriority
 /* 803A6748 003A36A8  48 00 03 BC */	b lbl_803A6B04
-/* 803A674C 003A36AC  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A674C 003A36AC  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A6750 003A36B0  57 44 86 3E */	rlwinm r4, r26, 0x10, 0x18, 0x1f
 /* 803A6754 003A36B4  57 40 D5 BA */	rlwinm r0, r26, 0x1a, 0x16, 0x1d
-/* 803A6758 003A36B8  38 63 0A B4 */	addi r3, r3, lbl_80550AB4@l
+/* 803A6758 003A36B8  38 63 0A B4 */	addi r3, r3, synthGlobalVariable@l
 /* 803A675C 003A36BC  7C 83 01 2E */	stwx r4, r3, r0
 /* 803A6760 003A36C0  48 00 03 A4 */	b lbl_803A6B04
 /* 803A6764 003A36C4  57 40 86 3E */	rlwinm r0, r26, 0x10, 0x18, 0x1f
@@ -4578,9 +4583,9 @@ lbl_803A6AAC:
 /* 803A6AC0 003A3A20  7C BF 01 2E */	stwx r5, r31, r0
 /* 803A6AC4 003A3A24  48 00 00 40 */	b lbl_803A6B04
 lbl_803A6AC8:
-/* 803A6AC8 003A3A28  3C 60 80 55 */	lis r3, lbl_80550AB4@ha
+/* 803A6AC8 003A3A28  3C 60 80 55 */	lis r3, synthGlobalVariable@ha
 /* 803A6ACC 003A3A2C  54 04 15 BA */	rlwinm r4, r0, 2, 0x16, 0x1d
-/* 803A6AD0 003A3A30  38 03 0A B4 */	addi r0, r3, lbl_80550AB4@l
+/* 803A6AD0 003A3A30  38 03 0A B4 */	addi r0, r3, synthGlobalVariable@l
 /* 803A6AD4 003A3A34  7C 60 22 14 */	add r3, r0, r4
 /* 803A6AD8 003A3A38  90 A3 FF C0 */	stw r5, -0x40(r3)
 /* 803A6ADC 003A3A3C  48 00 00 28 */	b lbl_803A6B04

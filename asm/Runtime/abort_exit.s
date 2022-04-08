@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .bss
+lbl_80542198:
+	.skip 0x100
+	
 .section .sbss
 .balign 4
 .global lbl_805A99B8

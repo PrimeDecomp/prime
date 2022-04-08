@@ -1,5 +1,37 @@
 .include "macros.inc"
 
+.section .bss
+.global dataKeymapTab
+dataKeymapTab:
+	.skip 0x800
+.global dataLayerTab
+dataLayerTab:
+	.skip 0xC00
+.global dataCurveTab
+dataCurveTab:
+	.skip 0x4000
+.global dataSmpSDirs
+dataSmpSDirs:
+	.skip 0x600
+.global dataFXGroups
+dataFXGroups:
+	.skip 0x400
+.global dataMacMaintab
+dataMacMaintab:
+	.skip 0x800
+.global dataMacSubTabmem
+dataMacSubTabmem:
+	.skip 0x4000
+.global "key$731"
+"key$731":
+	.skip 0x20
+.global "key$493"
+"key$493":
+	.skip 0xC
+.global "key$487"
+"key$487":
+	.skip 0xC
+	
 .section .sbss
 .balign 4
 "result$494":
@@ -36,44 +68,1069 @@ dataCurveNum:
 	.skip 0x2
 dataSmpSDirNum:
 	.skip 0x6
+
 .section .data, "wa"
 .global lbl_803F2FD8
 lbl_803F2FD8:
-	.incbin "baserom.dol", 0x3EFFD8, 0x1C
+	# ROM: 0x3EFFD8
+	.4byte 0x100010F3
+	.4byte 0x11F51307
+	.4byte 0x1428155B
+	.4byte 0x16A017F9
+	.4byte 0x19661AE8
+	.4byte 0x1C821E34
+	.4byte 0x20000000
+
 .global lbl_803F2FF4
 lbl_803F2FF4:
-	.incbin "baserom.dol", 0x3EFFF4, 0x204
+	# ROM: 0x3EFFF4
+	.4byte 0
+	.4byte 0x0000000A
+	.4byte 0x00000014
+	.4byte 0x0000001E
+	.4byte 0x00000028
+	.4byte 0x00000032
+	.4byte 0x0000003C
+	.4byte 0x00000046
+	.4byte 0x00000050
+	.4byte 0x0000005A
+	.4byte 0x00000064
+	.4byte 0x0000006E
+	.4byte 0x0000006E
+	.4byte 0x00000078
+	.4byte 0x00000082
+	.4byte 0x0000008C
+	.4byte 0x00000096
+	.4byte 0x000000A0
+	.4byte 0x000000AA
+	.4byte 0x000000BE
+	.4byte 0x000000C8
+	.4byte 0x000000DC
+	.4byte 0x000000E6
+	.4byte 0x000000FA
+	.4byte 0x0000010E
+	.4byte 0x00000122
+	.4byte 0x00000136
+	.4byte 0x0000014A
+	.4byte 0x0000015E
+	.4byte 0x0000017C
+	.4byte 0x0000019A
+	.4byte 0x000001B8
+	.4byte 0x000001D6
+	.4byte 0x000001F4
+	.4byte 0x0000021C
+	.4byte 0x00000244
+	.4byte 0x0000026C
+	.4byte 0x00000294
+	.4byte 0x000002C6
+	.4byte 0x000002F8
+	.4byte 0x00000334
+	.4byte 0x00000370
+	.4byte 0x000003AC
+	.4byte 0x000003E8
+	.4byte 0x000003E8
+	.4byte 0x0000044C
+	.4byte 0x000004B0
+	.4byte 0x00000514
+	.4byte 0x00000578
+	.4byte 0x000005DC
+	.4byte 0x00000640
+	.4byte 0x000006A4
+	.4byte 0x00000708
+	.4byte 0x000007D0
+	.4byte 0x00000834
+	.4byte 0x000008FC
+	.4byte 0x00000960
+	.4byte 0x00000A28
+	.4byte 0x00000AF0
+	.4byte 0x00000BB8
+	.4byte 0x00000C80
+	.4byte 0x00000DAC
+	.4byte 0x00000E74
+	.4byte 0x00000FA0
+	.4byte 0x000010CC
+	.4byte 0x000011F8
+	.4byte 0x00001324
+	.4byte 0x000014B4
+	.4byte 0x00001644
+	.4byte 0x000017D4
+	.4byte 0x00001964
+	.4byte 0x00001B58
+	.4byte 0x00001D4C
+	.4byte 0x00001FA4
+	.4byte 0x00002198
+	.4byte 0x00002454
+	.4byte 0x000026AC
+	.4byte 0x00002710
+	.4byte 0x00002AF8
+	.4byte 0x00002EE0
+	.4byte 0x000032C8
+	.4byte 0x000036B0
+	.4byte 0x00003A98
+	.4byte 0x00003E80
+	.4byte 0x00004268
+	.4byte 0x00004650
+	.4byte 0x00004A38
+	.4byte 0x00005208
+	.4byte 0x000055F0
+	.4byte 0x00005DC0
+	.4byte 0x00006590
+	.4byte 0x00006D60
+	.4byte 0x00007530
+	.4byte 0x00007D00
+	.4byte 0x000084D0
+	.4byte 0x00009088
+	.4byte 0x00009858
+	.4byte 0x0000A410
+	.4byte 0x0000AFC8
+	.4byte 0x0000BF68
+	.4byte 0x0000C350
+	.4byte 0x0000D6D8
+	.4byte 0x0000EA60
+	.4byte 0x0000FDE8
+	.4byte 0x00011170
+	.4byte 0x000124F8
+	.4byte 0x00013880
+	.4byte 0x00014C08
+	.4byte 0x00015F90
+	.4byte 0x00017318
+	.4byte 0x000186A0
+	.4byte 0x00019A28
+	.4byte 0x0001ADB0
+	.4byte 0x0001C138
+	.4byte 0x0001D4C0
+	.4byte 0x0001E848
+	.4byte 0x0001FBD0
+	.4byte 0x00020F58
+	.4byte 0x000222E0
+	.4byte 0x00023668
+	.4byte 0x000249F0
+	.4byte 0x00025D78
+	.4byte 0x00027100
+	.4byte 0x00028488
+	.4byte 0x00029810
+	.4byte 0x0002AB98
+	.4byte 0x0002BF20
+	.4byte 0
+	.4byte 0
+
 .global lbl_803F31F8
 lbl_803F31F8:
-	.incbin "baserom.dol", 0x3F01F8, 0x20
+	# ROM: 0x3F01F8
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0
+	.4byte 0x00000008
+	.4byte 0
+
 .global lbl_803F3218
 lbl_803F3218:
-	.incbin "baserom.dol", 0x3F0218, 0x10
+	# ROM: 0x3F0218
+	.4byte 0x80000001
+	.4byte 0x80000002
+	.4byte 0x80000004
+	.4byte 0x80000008
+
 .global lbl_803F3228
 lbl_803F3228:
-	.incbin "baserom.dol", 0x3F0228, 0x20
+	# ROM: 0x3F0228
+	.4byte 0x00000010
+	.4byte 0
+	.4byte 0x00000020
+	.4byte 0
+	.4byte 0x00000040
+	.4byte 0
+	.4byte 0x00000080
+	.4byte 0
+
 .global lbl_803F3248
 lbl_803F3248:
-	.incbin "baserom.dol", 0x3F0248, 0x10
+	# ROM: 0x3F0248
+	.4byte 0x80000010
+	.4byte 0x80000020
+	.4byte 0x80000040
+	.4byte 0x80000080
+
 .global lbl_803F3258
 lbl_803F3258:
-	.incbin "baserom.dol", 0x3F0258, 0x1C8
+	# ROM: 0x3F0258
+	.4byte 0x803A5E98
+	.4byte 0x803A5EB0
+	.4byte 0x803A5EC8
+	.4byte 0x803A5F00
+	.4byte 0x803A5F3C
+	.4byte 0x803A5F50
+	.4byte 0x803A5F60
+	.4byte 0x803A5FA8
+	.4byte 0x803A5FC4
+	.4byte 0x803A5FD4
+	.4byte 0x803A6050
+	.4byte 0x803A60A0
+	.4byte 0x803A60F0
+	.4byte 0x803A6100
+	.4byte 0x803A6110
+	.4byte 0x803A6120
+	.4byte 0x803A6130
+	.4byte 0x803A6140
+	.4byte 0x803A6150
+	.4byte 0x803A6168
+	.4byte 0x803A61A8
+	.4byte 0x803A61B8
+	.4byte 0x803A61C8
+	.4byte 0x803A61D8
+	.4byte 0x803A61E8
+	.4byte 0x803A61FC
+	.4byte 0x803A6250
+	.4byte 0x803A62D0
+	.4byte 0x803A62E0
+	.4byte 0x803A62F0
+	.4byte 0x803A6358
+	.4byte 0x803A63C0
+	.4byte 0x803A63F8
+	.4byte 0x803A6408
+	.4byte 0x803A6464
+	.4byte 0x803A64E8
+	.4byte 0x803A6504
+	.4byte 0x803A6558
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A656C
+	.4byte 0x803A65E4
+	.4byte 0x803A6628
+	.4byte 0x803A6638
+	.4byte 0x803A66A8
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A66B8
+	.4byte 0x803A6724
+	.4byte 0x803A674C
+	.4byte 0x803A6764
+	.4byte 0x803A677C
+	.4byte 0x803A6794
+	.4byte 0x803A67A8
+	.4byte 0x803A67B8
+	.4byte 0x803A67F8
+	.4byte 0x803A6824
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6878
+	.4byte 0x803A6888
+	.4byte 0x803A6898
+	.4byte 0x803A68A8
+	.4byte 0x803A68B8
+	.4byte 0x803A68C8
+	.4byte 0x803A68D8
+	.4byte 0x803A68E8
+	.4byte 0x803A68F8
+	.4byte 0x803A6908
+	.4byte 0x803A6918
+	.4byte 0x803A6928
+	.4byte 0x803A6938
+	.4byte 0x803A6948
+	.4byte 0x803A6958
+	.4byte 0x803A6B04
+	.4byte 0x803A6968
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A69B8
+	.4byte 0x803A69E4
+	.4byte 0x803A69F4
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6A28
+	.4byte 0x803A6A3C
+	.4byte 0x803A6A50
+	.4byte 0x803A6A64
+	.4byte 0x803A6A78
+	.4byte 0x803A6A8C
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6B04
+	.4byte 0x803A6AE0
+	.4byte 0x803A6AF4
+
 .global lbl_803F3420
 lbl_803F3420:
-	.incbin "baserom.dol", 0x3F0420, 0x200
+	# ROM: 0x3F0420
+	.4byte 0x3F800000
+	.4byte 0x3F879C80
+	.4byte 0x3F8FACD8
+	.4byte 0x3F9837F0
+	.4byte 0x3FA14518
+	.4byte 0x3FAADC08
+	.4byte 0x3FB504F8
+	.4byte 0x3FBFC888
+	.4byte 0x3FCB2FF8
+	.4byte 0x3FD74500
+	.4byte 0x3FE411F8
+	.4byte 0x3FF1A1C0
+	.4byte 0x40000004
+	.4byte 0x40079C80
+	.4byte 0x400FACD8
+	.4byte 0x401837F4
+	.4byte 0x4021451C
+	.4byte 0x402ADC0C
+	.4byte 0x403504F8
+	.4byte 0x403FC88C
+	.4byte 0x404B2FFC
+	.4byte 0x40574504
+	.4byte 0x406411F8
+	.4byte 0x4071A1C4
+	.4byte 0x40800004
+	.4byte 0x40879C80
+	.4byte 0x408FACDA
+	.4byte 0x409837F4
+	.4byte 0x40A1451C
+	.4byte 0x40AADC0E
+	.4byte 0x40B504F8
+	.4byte 0x40BFC88C
+	.4byte 0x40CB2FFC
+	.4byte 0x40D74504
+	.4byte 0x40E411F8
+	.4byte 0x40F1A1C6
+	.4byte 0x41000004
+	.4byte 0x41079C81
+	.4byte 0x410FACDB
+	.4byte 0x411837F5
+	.4byte 0x4121451D
+	.4byte 0x412ADC0E
+	.4byte 0x413504F9
+	.4byte 0x413FC88D
+	.4byte 0x414B2FFC
+	.4byte 0x41574504
+	.4byte 0x416411F8
+	.4byte 0x4171A1C7
+	.4byte 0x41800004
+	.4byte 0x41879C81
+	.4byte 0x418FACDB
+	.4byte 0x419837F5
+	.4byte 0x41A1451D
+	.4byte 0x41AADC0E
+	.4byte 0x41B504F9
+	.4byte 0x41BFC88D
+	.4byte 0x41CB2FFC
+	.4byte 0x41D74504
+	.4byte 0x41E411F8
+	.4byte 0x41F1A1C7
+	.4byte 0x42000004
+	.4byte 0x42079C81
+	.4byte 0x420FACDB
+	.4byte 0x421837F5
+	.4byte 0x4221451D
+	.4byte 0x422ADC0E
+	.4byte 0x423504F9
+	.4byte 0x423FC88D
+	.4byte 0x424B2FFC
+	.4byte 0x42574504
+	.4byte 0x426411F8
+	.4byte 0x4271A1C7
+	.4byte 0x42800004
+	.4byte 0x42879C81
+	.4byte 0x428FACDB
+	.4byte 0x429837F5
+	.4byte 0x42A1451D
+	.4byte 0x42AADC0E
+	.4byte 0x42B504F9
+	.4byte 0x42BFC88D
+	.4byte 0x42CB2FFC
+	.4byte 0x42D74504
+	.4byte 0x42E411F8
+	.4byte 0x42F1A1C7
+	.4byte 0x43000004
+	.4byte 0x43079C81
+	.4byte 0x430FACDB
+	.4byte 0x431837F5
+	.4byte 0x4321451D
+	.4byte 0x432ADC0E
+	.4byte 0x433504F9
+	.4byte 0x433FC88D
+	.4byte 0x434B2FFC
+	.4byte 0x43574504
+	.4byte 0x436411F8
+	.4byte 0x4371A1C7
+	.4byte 0x43800004
+	.4byte 0x43879C81
+	.4byte 0x438FACDB
+	.4byte 0x439837F5
+	.4byte 0x43A1451D
+	.4byte 0x43AADC0E
+	.4byte 0x43B504F9
+	.4byte 0x43BFC88D
+	.4byte 0x43CB2FFC
+	.4byte 0x43D74504
+	.4byte 0x43E411F8
+	.4byte 0x43F1A1C7
+	.4byte 0x44000004
+	.4byte 0x44079C81
+	.4byte 0x440FACDB
+	.4byte 0x441837F5
+	.4byte 0x4421451D
+	.4byte 0x442ADC0E
+	.4byte 0x443504F9
+	.4byte 0x443FC88D
+	.4byte 0x444B2FFC
+	.4byte 0x44574504
+	.4byte 0x446411F8
+	.4byte 0x4471A1C7
+	.4byte 0x44800004
+	.4byte 0x44879C81
+	.4byte 0x448FACDB
+	.4byte 0x449837F5
+	.4byte 0x44A1451D
+	.4byte 0x44AADC0E
+	.4byte 0x44B504F9
+	.4byte 0x44BFC88D
+
 .global lbl_803F3620
 lbl_803F3620:
-	.incbin "baserom.dol", 0x3F0620, 0x200	
+	# ROM: 0x3F0620
+	.4byte 0x3F800000
+	.4byte 0x3F71A1C0
+	.4byte 0x3F6411F0
+	.4byte 0x3F574500
+	.4byte 0x3F4B2FF0
+	.4byte 0x3F3FC880
+	.4byte 0x3F3504F0
+	.4byte 0x3F2ADC00
+	.4byte 0x3F214510
+	.4byte 0x3F1837F0
+	.4byte 0x3F0FACD0
+	.4byte 0x3F079C80
+	.4byte 0x3F000000
+	.4byte 0x3EF1A1C0
+	.4byte 0x3EE411E0
+	.4byte 0x3ED74500
+	.4byte 0x3ECB3000
+	.4byte 0x3EBFC880
+	.4byte 0x3EB504E0
+	.4byte 0x3EAADC00
+	.4byte 0x3EA14520
+	.4byte 0x3E9837E0
+	.4byte 0x3E8FACE0
+	.4byte 0x3E879C80
+	.4byte 0x3E800000
+	.4byte 0x3E71A1C0
+	.4byte 0x3E641200
+	.4byte 0x3E574500
+	.4byte 0x3E4B3000
+	.4byte 0x3E3FC880
+	.4byte 0x3E350500
+	.4byte 0x3E2ADC00
+	.4byte 0x3E214500
+	.4byte 0x3E183800
+	.4byte 0x3E0FACC0
+	.4byte 0x3E079C80
+	.4byte 0x3E000000
+	.4byte 0x3DF1A180
+	.4byte 0x3DE41200
+	.4byte 0x3DD74500
+	.4byte 0x3DCB3000
+	.4byte 0x3DBFC880
+	.4byte 0x3DB50500
+	.4byte 0x3DAADC00
+	.4byte 0x3DA14500
+	.4byte 0x3D983800
+	.4byte 0x3D8FAD00
+	.4byte 0x3D879C80
+	.4byte 0x3D800000
+	.4byte 0x3D71A200
+	.4byte 0x3D641200
+	.4byte 0x3D574500
+	.4byte 0x3D4B3000
+	.4byte 0x3D3FC900
+	.4byte 0x3D350500
+	.4byte 0x3D2ADC00
+	.4byte 0x3D214500
+	.4byte 0x3D183800
+	.4byte 0x3D0FAD00
+	.4byte 0x3D079C00
+	.4byte 0x3D000000
+	.4byte 0x3CF1A200
+	.4byte 0x3CE41200
+	.4byte 0x3CD74400
+	.4byte 0x3CCB3000
+	.4byte 0x3CBFC800
+	.4byte 0x3CB50400
+	.4byte 0x3CAADC00
+	.4byte 0x3CA14600
+	.4byte 0x3C983800
+	.4byte 0x3C8FAC00
+	.4byte 0x3C879C00
+	.4byte 0x3C800000
+	.4byte 0x3C71A000
+	.4byte 0x3C641000
+	.4byte 0x3C574400
+	.4byte 0x3C4B3000
+	.4byte 0x3C3FC800
+	.4byte 0x3C350400
+	.4byte 0x3C2ADC00
+	.4byte 0x3C214400
+	.4byte 0x3C183800
+	.4byte 0x3C0FAC00
+	.4byte 0x3C079C00
+	.4byte 0x3C000000
+	.4byte 0x3BF1A000
+	.4byte 0x3BE41000
+	.4byte 0x3BD74800
+	.4byte 0x3BCB3000
+	.4byte 0x3BBFC800
+	.4byte 0x3BB50800
+	.4byte 0x3BAAE000
+	.4byte 0x3BA14800
+	.4byte 0x3B983800
+	.4byte 0x3B8FB000
+	.4byte 0x3B87A000
+	.4byte 0x3B800000
+	.4byte 0x3B71A000
+	.4byte 0x3B641000
+	.4byte 0x3B574000
+	.4byte 0x3B4B3000
+	.4byte 0x3B3FD000
+	.4byte 0x3B350000
+	.4byte 0x3B2AE000
+	.4byte 0x3B214000
+	.4byte 0x3B183000
+	.4byte 0x3B0FB000
+	.4byte 0x3B07A000
+	.4byte 0x3B000000
+	.4byte 0x3AF1A000
+	.4byte 0x3AE42000
+	.4byte 0x3AD74000
+	.4byte 0x3ACB2000
+	.4byte 0x3ABFC000
+	.4byte 0x3AB50000
+	.4byte 0x3AAAE000
+	.4byte 0x3AA14000
+	.4byte 0x3A984000
+	.4byte 0x3A8FA000
+	.4byte 0x3A87A000
+	.4byte 0x3A800000
+	.4byte 0x3A71C000
+	.4byte 0x3A640000
+	.4byte 0x3A574000
+	.4byte 0x3A4B4000
+	.4byte 0x3A3FC000
+	.4byte 0x3A350000
+	.4byte 0x3A2AC000
+
 .global lbl_803F3820
 lbl_803F3820:
-	.incbin "baserom.dol", 0x3F0820, 0x184
+	# ROM: 0x3F0820
+	.4byte 0x7FFF78D6
+	.4byte 0x72136BB1
+	.4byte 0x65AB5FFB
+	.4byte 0x5A9D558B
+	.4byte 0x50C24C3E
+	.4byte 0x47FA43F3
+	.4byte 0x40263C8F
+	.4byte 0x392C35F9
+	.4byte 0x32F4301B
+	.4byte 0x2D6A2ADF
+	.4byte 0x28792636
+	.4byte 0x2412220E
+	.4byte 0x20261E5A
+	.4byte 0x1CA71B0D
+	.4byte 0x1989181C
+	.4byte 0x16C2157C
+	.4byte 0x14491326
+	.4byte 0x12141111
+	.4byte 0x101D0F36
+	.4byte 0x0E5C0D8E
+	.4byte 0x0CCC0C15
+	.4byte 0x0B680AC5
+	.4byte 0x0A2A0999
+	.4byte 0x090F088D
+	.4byte 0x0813079F
+	.4byte 0x073206CB
+	.4byte 0x066A060E
+	.4byte 0x05B70565
+	.4byte 0x051804CF
+	.4byte 0x048A0449
+	.4byte 0x040C03D2
+	.4byte 0x039B0367
+	.4byte 0x03370309
+	.4byte 0x02DD02B4
+	.4byte 0x028D0269
+	.4byte 0x02460226
+	.4byte 0x020701EA
+	.4byte 0x01CE01B4
+	.4byte 0x019C0185
+	.4byte 0x016F015B
+	.4byte 0x01470135
+	.4byte 0x01240113
+	.4byte 0x010400F5
+	.4byte 0x00E700DA
+	.4byte 0x00CE00C3
+	.4byte 0x00B800AD
+	.4byte 0x00A4009B
+	.4byte 0x0092008A
+	.4byte 0x0082007B
+	.4byte 0x0074006D
+	.4byte 0x00670061
+	.4byte 0x005C0057
+	.4byte 0x0052004D
+	.4byte 0x00490045
+	.4byte 0x0041003D
+	.4byte 0x003A0037
+	.4byte 0x00330031
+	.4byte 0x002E002B
+	.4byte 0x00290026
+	.4byte 0x00240022
+	.4byte 0x0020001E
+	.4byte 0x001D001B
+	.4byte 0x001A0018
+	.4byte 0x00170015
+	.4byte 0x00140013
+	.4byte 0x00120011
+	.4byte 0x0010000F
+	.4byte 0x000E000D
+	.4byte 0x000D000C
+	.4byte 0x000B000A
+	.4byte 0x000A0009
+	.4byte 0x00090008
+	.4byte 0x00080007
+	.4byte 0x00070006
+	.4byte 0x00060006
+	.4byte 0x00050005
+	.4byte 0x00050004
+	.4byte 0x00040004
+	.4byte 0x00040003
+	.4byte 0x00030003
+	.4byte 0x00030003
+	.4byte 0x00020002
+	.4byte 0x00020002
+	.4byte 0x00020002
+	.4byte 0x00020001
+	.4byte 0x00010001
+	.4byte 0x00010001
+	.4byte 0x00010001
+	.4byte 0x00010001
+	.4byte 0x00010001
+	.4byte 0x00010000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .global lbl_803F39A4
 lbl_803F39A4:
-	.incbin "baserom.dol", 0x3F09A4, 0x400	
+	# ROM: 0x3F09A4
+	.4byte 0xC1786C65
+	.4byte 0x605C5957
+	.4byte 0x5452504F
+	.4byte 0x4D4C4B49
+	.4byte 0x48474645
+	.4byte 0x44444342
+	.4byte 0x4140403F
+	.4byte 0x3F3E3D3D
+	.4byte 0x3C3C3B3B
+	.4byte 0x3A3A3939
+	.4byte 0x38383737
+	.4byte 0x37363636
+	.4byte 0x35353434
+	.4byte 0x34333333
+	.4byte 0x32323232
+	.4byte 0x31313130
+	.4byte 0x3030302F
+	.4byte 0x2F2F2F2E
+	.4byte 0x2E2E2E2D
+	.4byte 0x2D2D2D2C
+	.4byte 0x2C2C2C2C
+	.4byte 0x2B2B2B2B
+	.4byte 0x2B2A2A2A
+	.4byte 0x2A2A2929
+	.4byte 0x29292929
+	.4byte 0x28282828
+	.4byte 0x28282727
+	.4byte 0x27272727
+	.4byte 0x26262626
+	.4byte 0x26262625
+	.4byte 0x25252525
+	.4byte 0x25252424
+	.4byte 0x24242424
+	.4byte 0x24232323
+	.4byte 0x23232323
+	.4byte 0x23222222
+	.4byte 0x22222222
+	.4byte 0x22212121
+	.4byte 0x21212121
+	.4byte 0x21212020
+	.4byte 0x20202020
+	.4byte 0x2020201F
+	.4byte 0x1F1F1F1F
+	.4byte 0x1F1F1F1F
+	.4byte 0x1F1E1E1E
+	.4byte 0x1E1E1E1E
+	.4byte 0x1E1E1E1E
+	.4byte 0x1D1D1D1D
+	.4byte 0x1D1D1D1D
+	.4byte 0x1D1D1D1C
+	.4byte 0x1C1C1C1C
+	.4byte 0x1C1C1C1C
+	.4byte 0x1C1C1C1B
+	.4byte 0x1B1B1B1B
+	.4byte 0x1B1B1B1B
+	.4byte 0x1B1B1B1A
+	.4byte 0x1A1A1A1A
+	.4byte 0x1A1A1A1A
+	.4byte 0x1A1A1A1A
+	.4byte 0x19191919
+	.4byte 0x19191919
+	.4byte 0x19191919
+	.4byte 0x19191818
+	.4byte 0x18181818
+	.4byte 0x18181818
+	.4byte 0x18181818
+	.4byte 0x18171717
+	.4byte 0x17171717
+	.4byte 0x17171717
+	.4byte 0x17171717
+	.4byte 0x17161616
+	.4byte 0x16161616
+	.4byte 0x16161616
+	.4byte 0x16161616
+	.4byte 0x16151515
+	.4byte 0x15151515
+	.4byte 0x15151515
+	.4byte 0x15151515
+	.4byte 0x15151514
+	.4byte 0x14141414
+	.4byte 0x14141414
+	.4byte 0x14141414
+	.4byte 0x14141414
+	.4byte 0x14141313
+	.4byte 0x13131313
+	.4byte 0x13131313
+	.4byte 0x13131313
+	.4byte 0x13131313
+	.4byte 0x13121212
+	.4byte 0x12121212
+	.4byte 0x12121212
+	.4byte 0x12121212
+	.4byte 0x12121212
+	.4byte 0x12121111
+	.4byte 0x11111111
+	.4byte 0x11111111
+	.4byte 0x11111111
+	.4byte 0x11111111
+	.4byte 0x11111111
+	.4byte 0x10101010
+	.4byte 0x10101010
+	.4byte 0x10101010
+	.4byte 0x10101010
+	.4byte 0x10101010
+	.4byte 0x10101010
+	.4byte 0x0F0F0F0F
+	.4byte 0x0F0F0F0F
+	.4byte 0x0F0F0F0F
+	.4byte 0x0F0F0F0F
+	.4byte 0x0F0F0F0F
+	.4byte 0x0F0F0F0F
+	.4byte 0x0F0E0E0E
+	.4byte 0x0E0E0E0E
+	.4byte 0x0E0E0E0E
+	.4byte 0x0E0E0E0E
+	.4byte 0x0E0E0E0E
+	.4byte 0x0E0E0E0E
+	.4byte 0x0E0E0E0D
+	.4byte 0x0D0D0D0D
+	.4byte 0x0D0D0D0D
+	.4byte 0x0D0D0D0D
+	.4byte 0x0D0D0D0D
+	.4byte 0x0D0D0D0D
+	.4byte 0x0D0D0D0D
+	.4byte 0x0D0D0D0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0C0C0C0C
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0B0B0B0B
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A0A0A0A
+	.4byte 0x0A090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x09090909
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x07070707
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060606
+	.4byte 0x06060505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050505
+	.4byte 0x05050404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04040404
+	.4byte 0x04030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030303
+	.4byte 0x03030302
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020202
+	.4byte 0x02020201
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010100
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .global lbl_803F3DA4
 lbl_803F3DA4:
-	.incbin "baserom.dol", 0x3F0DA4, 0x204
-	
+	# ROM: 0x3F0DA4
+	.4byte 0
+	.4byte 0x388205FF
+	.4byte 0x398205FF
+	.4byte 0x3A1246BF
+	.4byte 0x3A8205FF
+	.4byte 0x3ACB295F
+	.4byte 0x3B1246BF
+	.4byte 0x3B47192F
+	.4byte 0x3B8205FF
+	.4byte 0x3BA48F97
+	.4byte 0x3BCB295F
+	.4byte 0x3BF5D356
+	.4byte 0x3C1246BF
+	.4byte 0x3C2BABEB
+	.4byte 0x3C47192F
+	.4byte 0x3C648E8A
+	.4byte 0x3C8205FF
+	.4byte 0x3C92C8C5
+	.4byte 0x3CA48F97
+	.4byte 0x3CB75A75
+	.4byte 0x3CCB295F
+	.4byte 0x3CDFFC54
+	.4byte 0x3CF5D356
+	.4byte 0x3D065732
+	.4byte 0x3D1246BF
+	.4byte 0x3D1EB852
+	.4byte 0x3D2BABEB
+	.4byte 0x3D39218A
+	.4byte 0x3D47192F
+	.4byte 0x3D5592DA
+	.4byte 0x3D648E8A
+	.4byte 0x3D740C41
+	.4byte 0x3D8205FF
+	.4byte 0x3D8A46E1
+	.4byte 0x3D92C8C5
+	.4byte 0x3D9B8BAC
+	.4byte 0x3DA48F97
+	.4byte 0x3DADD484
+	.4byte 0x3DB75A75
+	.4byte 0x3DC12168
+	.4byte 0x3DCB295F
+	.4byte 0x3DD57258
+	.4byte 0x3DDFFC54
+	.4byte 0x3DEAC754
+	.4byte 0x3DF5D356
+	.4byte 0x3E00902E
+	.4byte 0x3E065732
+	.4byte 0x3E0C3EB8
+	.4byte 0x3E1246BF
+	.4byte 0x3E186F48
+	.4byte 0x3E1EB852
+	.4byte 0x3E2521DE
+	.4byte 0x3E2BABEB
+	.4byte 0x3E32567A
+	.4byte 0x3E39218A
+	.4byte 0x3E400D1B
+	.4byte 0x3E47192F
+	.4byte 0x3E4E45C3
+	.4byte 0x3E5592DA
+	.4byte 0x3E5D0071
+	.4byte 0x3E648E8A
+	.4byte 0x3E6C3D25
+	.4byte 0x3E740C41
+	.4byte 0x3E7BFBDF
+	.4byte 0x3E820621
+	.4byte 0x3E861E71
+	.4byte 0x3E8A4702
+	.4byte 0x3E8E7FD4
+	.4byte 0x3E92C8E7
+	.4byte 0x3E97223A
+	.4byte 0x3E9B8BCE
+	.4byte 0x3EA005A3
+	.4byte 0x3EA48FB8
+	.4byte 0x3EA92A0F
+	.4byte 0x3EADD4A6
+	.4byte 0x3EB28F7E
+	.4byte 0x3EB75A96
+	.4byte 0x3EBC35F0
+	.4byte 0x3EC1218A
+	.4byte 0x3EC61D65
+	.4byte 0x3ECB2980
+	.4byte 0x3ED045DD
+	.4byte 0x3ED5727A
+	.4byte 0x3EDAAF57
+	.4byte 0x3EDFFC76
+	.4byte 0x3EE559D5
+	.4byte 0x3EEAC775
+	.4byte 0x3EF04556
+	.4byte 0x3EF5D378
+	.4byte 0x3EFB71DA
+	.4byte 0x3F00903F
+	.4byte 0x3F036FB1
+	.4byte 0x3F065743
+	.4byte 0x3F0946F6
+	.4byte 0x3F0C3EC9
+	.4byte 0x3F0F3EBC
+	.4byte 0x3F1246D0
+	.4byte 0x3F155704
+	.4byte 0x3F186F58
+	.4byte 0x3F1B8FCD
+	.4byte 0x3F1EB863
+	.4byte 0x3F21E918
+	.4byte 0x3F2521EE
+	.4byte 0x3F2862E5
+	.4byte 0x3F2BABFC
+	.4byte 0x3F2EFD33
+	.4byte 0x3F32568A
+	.4byte 0x3F35B802
+	.4byte 0x3F39219B
+	.4byte 0x3F3C9353
+	.4byte 0x3F400D3D
+	.4byte 0x3F438F36
+	.4byte 0x3F471950
+	.4byte 0x3F4AAB8A
+	.4byte 0x3F4E45E5
+	.4byte 0x3F51E860
+	.4byte 0x3F5592FB
+	.4byte 0x3F5945B7
+	.4byte 0x3F5D0093
+	.4byte 0x3F60C38F
+	.4byte 0x3F648EAC
+	.4byte 0x3F6861E9
+	.4byte 0x3F6C3D47
+	.4byte 0x3F7020C5
+	.4byte 0x3F740C63
+	.4byte 0x3F780022
+	.4byte 0x3F7BFC01
+	.4byte 0x3F800000
+	.4byte 0x3F800000
+
+
 .section .text, "ax"
 
 .global dataInsertKeymap
@@ -86,9 +1143,9 @@ dataInsertKeymap:
 /* 803A0C48 0039DBA8  93 C1 00 08 */	stw r30, 8(r1)
 /* 803A0C4C 0039DBAC  7C 7E 1B 78 */	mr r30, r3
 /* 803A0C50 0039DBB0  48 01 44 6D */	bl hwDisableIrq
-/* 803A0C54 0039DBB4  3C 60 80 55 */	lis r3, lbl_80552CF8@ha
+/* 803A0C54 0039DBB4  3C 60 80 55 */	lis r3, dataKeymapTab@ha
 /* 803A0C58 0039DBB8  A0 CD AE D6 */	lhz r6, dataKeymapNum@sda21(r13)
-/* 803A0C5C 0039DBBC  38 83 2C F8 */	addi r4, r3, lbl_80552CF8@l
+/* 803A0C5C 0039DBBC  38 83 2C F8 */	addi r4, r3, dataKeymapTab@l
 /* 803A0C60 0039DBC0  57 C0 04 3E */	clrlwi r0, r30, 0x10
 /* 803A0C64 0039DBC4  38 E0 00 00 */	li r7, 0
 /* 803A0C68 0039DBC8  48 00 00 0C */	b lbl_803A0C74
@@ -104,9 +1161,9 @@ lbl_803A0C74:
 lbl_803A0C88:
 /* 803A0C88 0039DBE8  7C 07 30 00 */	cmpw r7, r6
 /* 803A0C8C 0039DBEC  40 80 01 34 */	bge lbl_803A0DC0
-/* 803A0C90 0039DBF0  3C 60 80 55 */	lis r3, lbl_80552CF8@ha
+/* 803A0C90 0039DBF0  3C 60 80 55 */	lis r3, dataKeymapTab@ha
 /* 803A0C94 0039DBF4  54 E0 18 38 */	slwi r0, r7, 3
-/* 803A0C98 0039DBF8  38 A3 2C F8 */	addi r5, r3, lbl_80552CF8@l
+/* 803A0C98 0039DBF8  38 A3 2C F8 */	addi r5, r3, dataKeymapTab@l
 /* 803A0C9C 0039DBFC  57 C3 04 3E */	clrlwi r3, r30, 0x10
 /* 803A0CA0 0039DC00  7C 85 02 14 */	add r4, r5, r0
 /* 803A0CA4 0039DC04  A0 04 00 04 */	lhz r0, 4(r4)
@@ -198,9 +1255,9 @@ lbl_803A0DD8:
 /* 803A0DDC 0039DD3C  38 60 00 00 */	li r3, 0
 /* 803A0DE0 0039DD40  48 00 00 2C */	b lbl_803A0E0C
 lbl_803A0DE4:
-/* 803A0DE4 0039DD44  3C 60 80 55 */	lis r3, lbl_80552CF8@ha
+/* 803A0DE4 0039DD44  3C 60 80 55 */	lis r3, dataKeymapTab@ha
 /* 803A0DE8 0039DD48  54 E5 18 38 */	slwi r5, r7, 3
-/* 803A0DEC 0039DD4C  38 83 2C F8 */	addi r4, r3, lbl_80552CF8@l
+/* 803A0DEC 0039DD4C  38 83 2C F8 */	addi r4, r3, dataKeymapTab@l
 /* 803A0DF0 0039DD50  38 00 00 01 */	li r0, 1
 /* 803A0DF4 0039DD54  7C 64 2A 14 */	add r3, r4, r5
 /* 803A0DF8 0039DD58  B3 C3 00 04 */	sth r30, 4(r3)
@@ -214,7 +1271,7 @@ lbl_803A0E0C:
 /* 803A0E14 0039DD74  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803A0E18 0039DD78  7C 08 03 A6 */	mtlr r0
 /* 803A0E1C 0039DD7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A0E20 0039DD80  4E 80 00 20 */	blr 
+/* 803A0E20 0039DD80  4E 80 00 20 */	blr
 
 .global sub_803a0e24
 sub_803a0e24:
@@ -224,9 +1281,9 @@ sub_803a0e24:
 /* 803A0E30 0039DD90  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803A0E34 0039DD94  7C 7F 1B 78 */	mr r31, r3
 /* 803A0E38 0039DD98  48 01 42 85 */	bl hwDisableIrq
-/* 803A0E3C 0039DD9C  3C 60 80 55 */	lis r3, lbl_80552CF8@ha
+/* 803A0E3C 0039DD9C  3C 60 80 55 */	lis r3, dataKeymapTab@ha
 /* 803A0E40 0039DDA0  A0 CD AE D6 */	lhz r6, dataKeymapNum@sda21(r13)
-/* 803A0E44 0039DDA4  38 83 2C F8 */	addi r4, r3, lbl_80552CF8@l
+/* 803A0E44 0039DDA4  38 83 2C F8 */	addi r4, r3, dataKeymapTab@l
 /* 803A0E48 0039DDA8  38 E0 00 00 */	li r7, 0
 /* 803A0E4C 0039DDAC  57 E3 04 3E */	clrlwi r3, r31, 0x10
 /* 803A0E50 0039DDB0  48 00 00 0C */	b lbl_803A0E5C
@@ -242,9 +1299,9 @@ lbl_803A0E5C:
 lbl_803A0E70:
 /* 803A0E70 0039DDD0  7C 07 30 00 */	cmpw r7, r6
 /* 803A0E74 0039DDD4  41 82 01 10 */	beq lbl_803A0F84
-/* 803A0E78 0039DDD8  3C 60 80 55 */	lis r3, lbl_80552CF8@ha
+/* 803A0E78 0039DDD8  3C 60 80 55 */	lis r3, dataKeymapTab@ha
 /* 803A0E7C 0039DDDC  54 E0 18 38 */	slwi r0, r7, 3
-/* 803A0E80 0039DDE0  38 A3 2C F8 */	addi r5, r3, lbl_80552CF8@l
+/* 803A0E80 0039DDE0  38 A3 2C F8 */	addi r5, r3, dataKeymapTab@l
 /* 803A0E84 0039DDE4  7C 85 02 14 */	add r4, r5, r0
 /* 803A0E88 0039DDE8  A0 64 00 06 */	lhz r3, 6(r4)
 /* 803A0E8C 0039DDEC  38 63 FF FF */	addi r3, r3, -1
@@ -321,7 +1378,7 @@ lbl_803A0F8C:
 /* 803A0F90 0039DEF0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803A0F94 0039DEF4  7C 08 03 A6 */	mtlr r0
 /* 803A0F98 0039DEF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A0F9C 0039DEFC  4E 80 00 20 */	blr 
+/* 803A0F9C 0039DEFC  4E 80 00 20 */	blr
 
 .global dataInsertLayer
 dataInsertLayer:
@@ -335,9 +1392,9 @@ dataInsertLayer:
 /* 803A0FBC 0039DF1C  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A0FC0 0039DF20  7C 7D 1B 78 */	mr r29, r3
 /* 803A0FC4 0039DF24  48 01 40 F9 */	bl hwDisableIrq
-/* 803A0FC8 0039DF28  3C 60 80 55 */	lis r3, lbl_805534F8@ha
+/* 803A0FC8 0039DF28  3C 60 80 55 */	lis r3, dataLayerTab@ha
 /* 803A0FCC 0039DF2C  A0 ED AE D4 */	lhz r7, dataLayerNum@sda21(r13)
-/* 803A0FD0 0039DF30  38 83 34 F8 */	addi r4, r3, lbl_805534F8@l
+/* 803A0FD0 0039DF30  38 83 34 F8 */	addi r4, r3, dataLayerTab@l
 /* 803A0FD4 0039DF34  57 A0 04 3E */	clrlwi r0, r29, 0x10
 /* 803A0FD8 0039DF38  39 00 00 00 */	li r8, 0
 /* 803A0FDC 0039DF3C  48 00 00 0C */	b lbl_803A0FE8
@@ -354,9 +1411,9 @@ lbl_803A0FFC:
 /* 803A0FFC 0039DF5C  7C 08 38 00 */	cmpw r8, r7
 /* 803A1000 0039DF60  40 80 01 7C */	bge lbl_803A117C
 /* 803A1004 0039DF64  1C 08 00 0C */	mulli r0, r8, 0xc
-/* 803A1008 0039DF68  3C 60 80 55 */	lis r3, lbl_805534F8@ha
+/* 803A1008 0039DF68  3C 60 80 55 */	lis r3, dataLayerTab@ha
 /* 803A100C 0039DF6C  57 A6 04 3E */	clrlwi r6, r29, 0x10
-/* 803A1010 0039DF70  38 A3 34 F8 */	addi r5, r3, lbl_805534F8@l
+/* 803A1010 0039DF70  38 A3 34 F8 */	addi r5, r3, dataLayerTab@l
 /* 803A1014 0039DF74  7C 85 02 14 */	add r4, r5, r0
 /* 803A1018 0039DF78  A0 04 00 04 */	lhz r0, 4(r4)
 /* 803A101C 0039DF7C  7C 06 00 40 */	cmplw r6, r0
@@ -466,9 +1523,9 @@ lbl_803A1194:
 /* 803A119C 0039E0FC  48 00 00 30 */	b lbl_803A11CC
 lbl_803A11A0:
 /* 803A11A0 0039E100  1C A8 00 0C */	mulli r5, r8, 0xc
-/* 803A11A4 0039E104  3C 60 80 55 */	lis r3, lbl_805534F8@ha
+/* 803A11A4 0039E104  3C 60 80 55 */	lis r3, dataLayerTab@ha
 /* 803A11A8 0039E108  38 00 00 01 */	li r0, 1
-/* 803A11AC 0039E10C  38 83 34 F8 */	addi r4, r3, lbl_805534F8@l
+/* 803A11AC 0039E10C  38 83 34 F8 */	addi r4, r3, dataLayerTab@l
 /* 803A11B0 0039E110  7C 64 2A 14 */	add r3, r4, r5
 /* 803A11B4 0039E114  B3 A3 00 04 */	sth r29, 4(r3)
 /* 803A11B8 0039E118  7F C4 29 2E */	stwx r30, r4, r5
@@ -483,7 +1540,7 @@ lbl_803A11CC:
 /* 803A11D8 0039E138  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803A11DC 0039E13C  7C 08 03 A6 */	mtlr r0
 /* 803A11E0 0039E140  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A11E4 0039E144  4E 80 00 20 */	blr 
+/* 803A11E4 0039E144  4E 80 00 20 */	blr
 
 .global dataRemoveLayer
 dataRemoveLayer:
@@ -493,9 +1550,9 @@ dataRemoveLayer:
 /* 803A11F4 0039E154  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803A11F8 0039E158  7C 7F 1B 78 */	mr r31, r3
 /* 803A11FC 0039E15C  48 01 3E C1 */	bl hwDisableIrq
-/* 803A1200 0039E160  3C 60 80 55 */	lis r3, lbl_805534F8@ha
+/* 803A1200 0039E160  3C 60 80 55 */	lis r3, dataLayerTab@ha
 /* 803A1204 0039E164  A0 CD AE D4 */	lhz r6, dataLayerNum@sda21(r13)
-/* 803A1208 0039E168  38 83 34 F8 */	addi r4, r3, lbl_805534F8@l
+/* 803A1208 0039E168  38 83 34 F8 */	addi r4, r3, dataLayerTab@l
 /* 803A120C 0039E16C  38 E0 00 00 */	li r7, 0
 /* 803A1210 0039E170  57 E3 04 3E */	clrlwi r3, r31, 0x10
 /* 803A1214 0039E174  48 00 00 0C */	b lbl_803A1220
@@ -512,8 +1569,8 @@ lbl_803A1234:
 /* 803A1234 0039E194  7C 07 30 00 */	cmpw r7, r6
 /* 803A1238 0039E198  41 82 01 58 */	beq lbl_803A1390
 /* 803A123C 0039E19C  1C 07 00 0C */	mulli r0, r7, 0xc
-/* 803A1240 0039E1A0  3C 60 80 55 */	lis r3, lbl_805534F8@ha
-/* 803A1244 0039E1A4  38 A3 34 F8 */	addi r5, r3, lbl_805534F8@l
+/* 803A1240 0039E1A0  3C 60 80 55 */	lis r3, dataLayerTab@ha
+/* 803A1244 0039E1A4  38 A3 34 F8 */	addi r5, r3, dataLayerTab@l
 /* 803A1248 0039E1A8  7C 85 02 14 */	add r4, r5, r0
 /* 803A124C 0039E1AC  A0 64 00 08 */	lhz r3, 8(r4)
 /* 803A1250 0039E1B0  38 63 FF FF */	addi r3, r3, -1
@@ -608,7 +1665,7 @@ lbl_803A1398:
 /* 803A139C 0039E2FC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803A13A0 0039E300  7C 08 03 A6 */	mtlr r0
 /* 803A13A4 0039E304  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A13A8 0039E308  4E 80 00 20 */	blr 
+/* 803A13A8 0039E308  4E 80 00 20 */	blr
 
 .global dataInsertCurve
 dataInsertCurve:
@@ -621,9 +1678,9 @@ dataInsertCurve:
 /* 803A13C4 0039E324  7C 7E 1B 78 */	mr r30, r3
 /* 803A13C8 0039E328  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A13CC 0039E32C  48 01 3C F1 */	bl hwDisableIrq
-/* 803A13D0 0039E330  3C 60 80 55 */	lis r3, lbl_805540F8@ha
+/* 803A13D0 0039E330  3C 60 80 55 */	lis r3, dataCurveTab@ha
 /* 803A13D4 0039E334  A0 CD AE D8 */	lhz r6, dataCurveNum@sda21(r13)
-/* 803A13D8 0039E338  38 83 40 F8 */	addi r4, r3, lbl_805540F8@l
+/* 803A13D8 0039E338  38 83 40 F8 */	addi r4, r3, dataCurveTab@l
 /* 803A13DC 0039E33C  57 C0 04 3E */	clrlwi r0, r30, 0x10
 /* 803A13E0 0039E340  38 E0 00 00 */	li r7, 0
 /* 803A13E4 0039E344  48 00 00 0C */	b lbl_803A13F0
@@ -639,9 +1696,9 @@ lbl_803A13F0:
 lbl_803A1404:
 /* 803A1404 0039E364  7C 07 30 00 */	cmpw r7, r6
 /* 803A1408 0039E368  40 80 01 40 */	bge lbl_803A1548
-/* 803A140C 0039E36C  3C 60 80 55 */	lis r3, lbl_805540F8@ha
+/* 803A140C 0039E36C  3C 60 80 55 */	lis r3, dataCurveTab@ha
 /* 803A1410 0039E370  54 FD 18 38 */	slwi r29, r7, 3
-/* 803A1414 0039E374  38 83 40 F8 */	addi r4, r3, lbl_805540F8@l
+/* 803A1414 0039E374  38 83 40 F8 */	addi r4, r3, dataCurveTab@l
 /* 803A1418 0039E378  57 C5 04 3E */	clrlwi r5, r30, 0x10
 /* 803A141C 0039E37C  7C 64 EA 14 */	add r3, r4, r29
 /* 803A1420 0039E380  A0 03 00 04 */	lhz r0, 4(r3)
@@ -716,9 +1773,9 @@ lbl_803A1518:
 /* 803A1520 0039E480  48 00 00 74 */	b lbl_803A1594
 lbl_803A1524:
 /* 803A1524 0039E484  48 01 3B 61 */	bl hwEnableIrq
-/* 803A1528 0039E488  3C 80 80 55 */	lis r4, lbl_805540F8@ha
+/* 803A1528 0039E488  3C 80 80 55 */	lis r4, dataCurveTab@ha
 /* 803A152C 0039E48C  38 60 00 00 */	li r3, 0
-/* 803A1530 0039E490  38 04 40 F8 */	addi r0, r4, lbl_805540F8@l
+/* 803A1530 0039E490  38 04 40 F8 */	addi r0, r4, dataCurveTab@l
 /* 803A1534 0039E494  7C A0 EA 14 */	add r5, r0, r29
 /* 803A1538 0039E498  A0 85 00 06 */	lhz r4, 6(r5)
 /* 803A153C 0039E49C  38 04 00 01 */	addi r0, r4, 1
@@ -736,9 +1793,9 @@ lbl_803A1560:
 /* 803A1564 0039E4C4  38 60 00 00 */	li r3, 0
 /* 803A1568 0039E4C8  48 00 00 2C */	b lbl_803A1594
 lbl_803A156C:
-/* 803A156C 0039E4CC  3C 60 80 55 */	lis r3, lbl_805540F8@ha
+/* 803A156C 0039E4CC  3C 60 80 55 */	lis r3, dataCurveTab@ha
 /* 803A1570 0039E4D0  54 E5 18 38 */	slwi r5, r7, 3
-/* 803A1574 0039E4D4  38 83 40 F8 */	addi r4, r3, lbl_805540F8@l
+/* 803A1574 0039E4D4  38 83 40 F8 */	addi r4, r3, dataCurveTab@l
 /* 803A1578 0039E4D8  38 00 00 01 */	li r0, 1
 /* 803A157C 0039E4DC  7C 64 2A 14 */	add r3, r4, r5
 /* 803A1580 0039E4E0  B3 C3 00 04 */	sth r30, 4(r3)
@@ -753,7 +1810,7 @@ lbl_803A1594:
 /* 803A15A0 0039E500  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803A15A4 0039E504  7C 08 03 A6 */	mtlr r0
 /* 803A15A8 0039E508  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A15AC 0039E50C  4E 80 00 20 */	blr 
+/* 803A15AC 0039E50C  4E 80 00 20 */	blr
 
 .global dataRemoveKeymap
 dataRemoveKeymap:
@@ -763,9 +1820,9 @@ dataRemoveKeymap:
 /* 803A15BC 0039E51C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803A15C0 0039E520  7C 7F 1B 78 */	mr r31, r3
 /* 803A15C4 0039E524  48 01 3A F9 */	bl hwDisableIrq
-/* 803A15C8 0039E528  3C 60 80 55 */	lis r3, lbl_805540F8@ha
+/* 803A15C8 0039E528  3C 60 80 55 */	lis r3, dataCurveTab@ha
 /* 803A15CC 0039E52C  A0 CD AE D8 */	lhz r6, dataCurveNum@sda21(r13)
-/* 803A15D0 0039E530  38 83 40 F8 */	addi r4, r3, lbl_805540F8@l
+/* 803A15D0 0039E530  38 83 40 F8 */	addi r4, r3, dataCurveTab@l
 /* 803A15D4 0039E534  38 E0 00 00 */	li r7, 0
 /* 803A15D8 0039E538  57 E3 04 3E */	clrlwi r3, r31, 0x10
 /* 803A15DC 0039E53C  48 00 00 0C */	b lbl_803A15E8
@@ -781,9 +1838,9 @@ lbl_803A15E8:
 lbl_803A15FC:
 /* 803A15FC 0039E55C  7C 07 30 00 */	cmpw r7, r6
 /* 803A1600 0039E560  41 82 01 10 */	beq lbl_803A1710
-/* 803A1604 0039E564  3C 60 80 55 */	lis r3, lbl_805540F8@ha
+/* 803A1604 0039E564  3C 60 80 55 */	lis r3, dataCurveTab@ha
 /* 803A1608 0039E568  54 E0 18 38 */	slwi r0, r7, 3
-/* 803A160C 0039E56C  38 A3 40 F8 */	addi r5, r3, lbl_805540F8@l
+/* 803A160C 0039E56C  38 A3 40 F8 */	addi r5, r3, dataCurveTab@l
 /* 803A1610 0039E570  7C 85 02 14 */	add r4, r5, r0
 /* 803A1614 0039E574  A0 64 00 06 */	lhz r3, 6(r4)
 /* 803A1618 0039E578  38 63 FF FF */	addi r3, r3, -1
@@ -860,16 +1917,16 @@ lbl_803A1718:
 /* 803A171C 0039E67C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803A1720 0039E680  7C 08 03 A6 */	mtlr r0
 /* 803A1724 0039E684  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A1728 0039E688  4E 80 00 20 */	blr 
+/* 803A1728 0039E688  4E 80 00 20 */	blr
 
 .global dataInsertSDir
 dataInsertSDir:
 /* 803A172C 0039E68C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A1730 0039E690  7C 08 02 A6 */	mflr r0
-/* 803A1734 0039E694  3C A0 80 56 */	lis r5, lbl_805580F8@ha
+/* 803A1734 0039E694  3C A0 80 56 */	lis r5, dataSmpSDirs@ha
 /* 803A1738 0039E698  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803A173C 0039E69C  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 803A1740 0039E6A0  3B E5 80 F8 */	addi r31, r5, lbl_805580F8@l
+/* 803A1740 0039E6A0  3B E5 80 F8 */	addi r31, r5, dataSmpSDirs@l
 /* 803A1744 0039E6A4  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 803A1748 0039E6A8  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A174C 0039E6AC  7C 9D 23 78 */	mr r29, r4
@@ -952,8 +2009,8 @@ lbl_803A1848:
 /* 803A184C 0039E7AC  7C 03 00 40 */	cmplw r3, r0
 /* 803A1850 0039E7B0  41 80 FF 74 */	blt lbl_803A17C4
 /* 803A1854 0039E7B4  A0 8D AE DA */	lhz r4, dataSmpSDirNum@sda21(r13)
-/* 803A1858 0039E7B8  3C 60 80 56 */	lis r3, lbl_805580F8@ha
-/* 803A185C 0039E7BC  38 63 80 F8 */	addi r3, r3, lbl_805580F8@l
+/* 803A1858 0039E7B8  3C 60 80 56 */	lis r3, dataSmpSDirs@ha
+/* 803A185C 0039E7BC  38 63 80 F8 */	addi r3, r3, dataSmpSDirs@l
 /* 803A1860 0039E7C0  1C A4 00 0C */	mulli r5, r4, 0xc
 /* 803A1864 0039E7C4  38 04 00 01 */	addi r0, r4, 1
 /* 803A1868 0039E7C8  B0 0D AE DA */	sth r0, dataSmpSDirNum@sda21(r13)
@@ -977,16 +2034,16 @@ lbl_803A1894:
 /* 803A18A4 0039E804  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803A18A8 0039E808  7C 08 03 A6 */	mtlr r0
 /* 803A18AC 0039E80C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A18B0 0039E810  4E 80 00 20 */	blr 
+/* 803A18B0 0039E810  4E 80 00 20 */	blr
 
 .global sub_803a18b4
 sub_803a18b4:
 /* 803A18B4 0039E814  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A18B8 0039E818  7C 08 02 A6 */	mflr r0
-/* 803A18BC 0039E81C  3C 80 80 56 */	lis r4, lbl_805580F8@ha
+/* 803A18BC 0039E81C  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
 /* 803A18C0 0039E820  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803A18C4 0039E824  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 803A18C8 0039E828  3B E4 80 F8 */	addi r31, r4, lbl_805580F8@l
+/* 803A18C8 0039E828  3B E4 80 F8 */	addi r31, r4, dataSmpSDirs@l
 /* 803A18CC 0039E82C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 803A18D0 0039E830  3B C0 00 00 */	li r30, 0
 /* 803A18D4 0039E834  93 A1 00 14 */	stw r29, 0x14(r1)
@@ -1092,9 +2149,9 @@ lbl_803A1A10:
 /* 803A1A1C 0039E97C  38 FE 00 01 */	addi r7, r30, 1
 /* 803A1A20 0039E980  A0 CD AE DA */	lhz r6, dataSmpSDirNum@sda21(r13)
 /* 803A1A24 0039E984  1C 87 00 0C */	mulli r4, r7, 0xc
-/* 803A1A28 0039E988  3C 60 80 56 */	lis r3, lbl_805580F8@ha
+/* 803A1A28 0039E988  3C 60 80 56 */	lis r3, dataSmpSDirs@ha
 /* 803A1A2C 0039E98C  7C 07 30 00 */	cmpw r7, r6
-/* 803A1A30 0039E990  38 03 80 F8 */	addi r0, r3, lbl_805580F8@l
+/* 803A1A30 0039E990  38 03 80 F8 */	addi r0, r3, dataSmpSDirs@l
 /* 803A1A34 0039E994  7C A0 22 14 */	add r5, r0, r4
 /* 803A1A38 0039E998  7C 67 30 50 */	subf r3, r7, r6
 /* 803A1A3C 0039E99C  40 80 01 04 */	bge lbl_803A1B40
@@ -1183,16 +2240,16 @@ lbl_803A1B60:
 /* 803A1B6C 0039EACC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803A1B70 0039EAD0  7C 08 03 A6 */	mtlr r0
 /* 803A1B74 0039EAD4  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A1B78 0039EAD8  4E 80 00 20 */	blr 
+/* 803A1B78 0039EAD8  4E 80 00 20 */	blr
 
 .global sub_803a1b7c
 sub_803a1b7c:
 /* 803A1B7C 0039EADC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A1B80 0039EAE0  7C 08 02 A6 */	mflr r0
-/* 803A1B84 0039EAE4  3C 80 80 56 */	lis r4, lbl_805580F8@ha
+/* 803A1B84 0039EAE4  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
 /* 803A1B88 0039EAE8  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 803A1B8C 0039EAEC  90 01 00 24 */	stw r0, 0x24(r1)
-/* 803A1B90 0039EAF0  38 84 80 F8 */	addi r4, r4, lbl_805580F8@l
+/* 803A1B90 0039EAF0  38 84 80 F8 */	addi r4, r4, dataSmpSDirs@l
 /* 803A1B94 0039EAF4  38 A0 00 00 */	li r5, 0
 /* 803A1B98 0039EAF8  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803A1B9C 0039EAFC  3B E0 00 00 */	li r31, 0
@@ -1225,10 +2282,10 @@ lbl_803A1BF0:
 /* 803A1BF4 0039EB54  28 00 00 00 */	cmplwi r0, 0
 /* 803A1BF8 0039EB58  40 82 00 38 */	bne lbl_803A1C30
 /* 803A1BFC 0039EB5C  1C 65 00 0C */	mulli r3, r5, 0xc
-/* 803A1C00 0039EB60  3C 80 80 56 */	lis r4, lbl_805580F8@ha
+/* 803A1C00 0039EB60  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
 /* 803A1C04 0039EB64  80 DF 00 04 */	lwz r6, 4(r31)
 /* 803A1C08 0039EB68  38 1F 00 0C */	addi r0, r31, 0xc
-/* 803A1C0C 0039EB6C  38 84 80 F8 */	addi r4, r4, lbl_805580F8@l
+/* 803A1C0C 0039EB6C  38 84 80 F8 */	addi r4, r4, dataSmpSDirs@l
 /* 803A1C10 0039EB70  7C 64 1A 14 */	add r3, r4, r3
 /* 803A1C14 0039EB74  80 A3 00 04 */	lwz r5, 4(r3)
 /* 803A1C18 0039EB78  38 61 00 08 */	addi r3, r1, 8
@@ -1246,15 +2303,15 @@ lbl_803A1C30:
 /* 803A1C44 0039EBA4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803A1C48 0039EBA8  7C 08 03 A6 */	mtlr r0
 /* 803A1C4C 0039EBAC  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A1C50 0039EBB0  4E 80 00 20 */	blr 
+/* 803A1C50 0039EBB0  4E 80 00 20 */	blr
 
 .global sub_803a1c54
 sub_803a1c54:
 /* 803A1C54 0039EBB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A1C58 0039EBB8  7C 08 02 A6 */	mflr r0
-/* 803A1C5C 0039EBBC  3C 80 80 56 */	lis r4, lbl_805580F8@ha
+/* 803A1C5C 0039EBBC  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
 /* 803A1C60 0039EBC0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803A1C64 0039EBC4  38 84 80 F8 */	addi r4, r4, lbl_805580F8@l
+/* 803A1C64 0039EBC4  38 84 80 F8 */	addi r4, r4, dataSmpSDirs@l
 /* 803A1C68 0039EBC8  54 60 04 3E */	clrlwi r0, r3, 0x10
 /* 803A1C6C 0039EBCC  A0 AD AE DA */	lhz r5, dataSmpSDirNum@sda21(r13)
 /* 803A1C70 0039EBD0  7C A9 03 A6 */	mtctr r5
@@ -1294,15 +2351,15 @@ lbl_803A1CDC:
 /* 803A1CDC 0039EC3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A1CE0 0039EC40  7C 08 03 A6 */	mtlr r0
 /* 803A1CE4 0039EC44  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A1CE8 0039EC48  4E 80 00 20 */	blr 
+/* 803A1CE8 0039EC48  4E 80 00 20 */	blr
 
 .global dataInsertFX
 dataInsertFX:
 /* 803A1CEC 0039EC4C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A1CF0 0039EC50  7C 08 02 A6 */	mflr r0
-/* 803A1CF4 0039EC54  3C C0 80 56 */	lis r6, lbl_805586F8@ha
+/* 803A1CF4 0039EC54  3C C0 80 56 */	lis r6, dataFXGroups@ha
 /* 803A1CF8 0039EC58  90 01 00 24 */	stw r0, 0x24(r1)
-/* 803A1CFC 0039EC5C  38 C6 86 F8 */	addi r6, r6, lbl_805586F8@l
+/* 803A1CFC 0039EC5C  38 C6 86 F8 */	addi r6, r6, dataFXGroups@l
 /* 803A1D00 0039EC60  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803A1D04 0039EC64  7C BF 2B 78 */	mr r31, r5
 /* 803A1D08 0039EC68  93 C1 00 18 */	stw r30, 0x18(r1)
@@ -1329,8 +2386,8 @@ lbl_803A1D44:
 /* 803A1D50 0039ECB0  40 80 00 98 */	bge lbl_803A1DE8
 /* 803A1D54 0039ECB4  48 01 33 69 */	bl hwDisableIrq
 /* 803A1D58 0039ECB8  A0 0D AE D0 */	lhz r0, dataFXGroupNum@sda21(r13)
-/* 803A1D5C 0039ECBC  3C 80 80 56 */	lis r4, lbl_805586F8@ha
-/* 803A1D60 0039ECC0  38 84 86 F8 */	addi r4, r4, lbl_805586F8@l
+/* 803A1D5C 0039ECBC  3C 80 80 56 */	lis r4, dataFXGroups@ha
+/* 803A1D60 0039ECC0  38 84 86 F8 */	addi r4, r4, dataFXGroups@l
 /* 803A1D64 0039ECC4  57 E5 04 3F */	clrlwi. r5, r31, 0x10
 /* 803A1D68 0039ECC8  54 00 18 38 */	slwi r0, r0, 3
 /* 803A1D6C 0039ECCC  38 60 00 1F */	li r3, 0x1f
@@ -1377,16 +2434,16 @@ lbl_803A1DEC:
 /* 803A1DF8 0039ED58  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803A1DFC 0039ED5C  7C 08 03 A6 */	mtlr r0
 /* 803A1E00 0039ED60  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A1E04 0039ED64  4E 80 00 20 */	blr 
+/* 803A1E04 0039ED64  4E 80 00 20 */	blr
 
 .global sub_803a1e08
 sub_803a1e08:
 /* 803A1E08 0039ED68  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A1E0C 0039ED6C  7C 08 02 A6 */	mflr r0
-/* 803A1E10 0039ED70  3C 80 80 56 */	lis r4, lbl_805586F8@ha
+/* 803A1E10 0039ED70  3C 80 80 56 */	lis r4, dataFXGroups@ha
 /* 803A1E14 0039ED74  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 803A1E18 0039ED78  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803A1E1C 0039ED7C  38 84 86 F8 */	addi r4, r4, lbl_805586F8@l
+/* 803A1E1C 0039ED7C  38 84 86 F8 */	addi r4, r4, dataFXGroups@l
 /* 803A1E20 0039ED80  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803A1E24 0039ED84  3B E0 00 00 */	li r31, 0
 /* 803A1E28 0039ED88  A0 AD AE D0 */	lhz r5, dataFXGroupNum@sda21(r13)
@@ -1406,10 +2463,10 @@ lbl_803A1E4C:
 /* 803A1E54 0039EDB4  48 01 32 69 */	bl hwDisableIrq
 /* 803A1E58 0039EDB8  A0 AD AE D0 */	lhz r5, dataFXGroupNum@sda21(r13)
 /* 803A1E5C 0039EDBC  38 DF 00 01 */	addi r6, r31, 1
-/* 803A1E60 0039EDC0  3C 60 80 56 */	lis r3, lbl_805586F8@ha
+/* 803A1E60 0039EDC0  3C 60 80 56 */	lis r3, dataFXGroups@ha
 /* 803A1E64 0039EDC4  7C 06 28 00 */	cmpw r6, r5
 /* 803A1E68 0039EDC8  54 C4 18 38 */	slwi r4, r6, 3
-/* 803A1E6C 0039EDCC  38 03 86 F8 */	addi r0, r3, lbl_805586F8@l
+/* 803A1E6C 0039EDCC  38 03 86 F8 */	addi r0, r3, dataFXGroups@l
 /* 803A1E70 0039EDD0  7C 66 28 50 */	subf r3, r6, r5
 /* 803A1E74 0039EDD4  7C A0 22 14 */	add r5, r0, r4
 /* 803A1E78 0039EDD8  40 80 00 BC */	bge lbl_803A1F34
@@ -1476,7 +2533,7 @@ lbl_803A1F50:
 /* 803A1F54 0039EEB4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803A1F58 0039EEB8  7C 08 03 A6 */	mtlr r0
 /* 803A1F5C 0039EEBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A1F60 0039EEC0  4E 80 00 20 */	blr 
+/* 803A1F60 0039EEC0  4E 80 00 20 */	blr
 
 .global sub_803a1f64
 sub_803a1f64:
@@ -1488,9 +2545,9 @@ sub_803a1f64:
 /* 803A1F78 0039EED8  93 C1 00 08 */	stw r30, 8(r1)
 /* 803A1F7C 0039EEDC  7C 7E 1B 78 */	mr r30, r3
 /* 803A1F80 0039EEE0  48 01 31 3D */	bl hwDisableIrq
-/* 803A1F84 0039EEE4  3C 60 80 56 */	lis r3, lbl_80558AF8@ha
+/* 803A1F84 0039EEE4  3C 60 80 56 */	lis r3, dataMacMaintab@ha
 /* 803A1F88 0039EEE8  57 C0 E5 3A */	rlwinm r0, r30, 0x1c, 0x14, 0x1d
-/* 803A1F8C 0039EEEC  38 63 8A F8 */	addi r3, r3, lbl_80558AF8@l
+/* 803A1F8C 0039EEEC  38 63 8A F8 */	addi r3, r3, dataMacMaintab@l
 /* 803A1F90 0039EEF0  57 C6 04 3E */	clrlwi r6, r30, 0x10
 /* 803A1F94 0039EEF4  7C E3 02 2E */	lhzx r7, r3, r0
 /* 803A1F98 0039EEF8  28 07 00 00 */	cmplwi r7, 0
@@ -1503,9 +2560,9 @@ sub_803a1f64:
 /* 803A1FB4 0039EF14  48 00 00 88 */	b lbl_803A203C
 lbl_803A1FB8:
 /* 803A1FB8 0039EF18  7C A3 02 14 */	add r5, r3, r0
-/* 803A1FBC 0039EF1C  3C 80 80 56 */	lis r4, lbl_805592F8@ha
+/* 803A1FBC 0039EF1C  3C 80 80 56 */	lis r4, dataMacSubTabmem@ha
 /* 803A1FC0 0039EF20  A1 05 00 02 */	lhz r8, 2(r5)
-/* 803A1FC4 0039EF24  38 A4 92 F8 */	addi r5, r4, lbl_805592F8@l
+/* 803A1FC4 0039EF24  38 A4 92 F8 */	addi r5, r4, dataMacSubTabmem@l
 /* 803A1FC8 0039EF28  39 20 00 00 */	li r9, 0
 /* 803A1FCC 0039EF2C  48 00 00 08 */	b lbl_803A1FD4
 lbl_803A1FD0:
@@ -1523,8 +2580,8 @@ lbl_803A1FF4:
 /* 803A1FF4 0039EF54  7C 09 38 00 */	cmpw r9, r7
 /* 803A1FF8 0039EF58  40 80 00 40 */	bge lbl_803A2038
 /* 803A1FFC 0039EF5C  7C 88 4A 14 */	add r4, r8, r9
-/* 803A2000 0039EF60  3C A0 80 56 */	lis r5, lbl_805592F8@ha
-/* 803A2004 0039EF64  38 A5 92 F8 */	addi r5, r5, lbl_805592F8@l
+/* 803A2000 0039EF60  3C A0 80 56 */	lis r5, dataMacSubTabmem@ha
+/* 803A2004 0039EF64  38 A5 92 F8 */	addi r5, r5, dataMacSubTabmem@l
 /* 803A2008 0039EF68  57 C7 04 3E */	clrlwi r7, r30, 0x10
 /* 803A200C 0039EF6C  54 86 18 38 */	slwi r6, r4, 3
 /* 803A2010 0039EF70  7C C5 32 14 */	add r6, r5, r6
@@ -1543,9 +2600,9 @@ lbl_803A203C:
 /* 803A203C 0039EF9C  A0 AD AE D2 */	lhz r5, dataMacTotal@sda21(r13)
 /* 803A2040 0039EFA0  28 05 08 00 */	cmplwi r5, 0x800
 /* 803A2044 0039EFA4  40 80 02 04 */	bge lbl_803A2248
-/* 803A2048 0039EFA8  3C C0 80 56 */	lis r6, lbl_80558AF8@ha
+/* 803A2048 0039EFA8  3C C0 80 56 */	lis r6, dataMacMaintab@ha
 /* 803A204C 0039EFAC  38 A0 00 40 */	li r5, 0x40
-/* 803A2050 0039EFB0  38 C6 8A F8 */	addi r6, r6, lbl_80558AF8@l
+/* 803A2050 0039EFB0  38 C6 8A F8 */	addi r6, r6, dataMacMaintab@l
 /* 803A2054 0039EFB4  38 E0 00 00 */	li r7, 0
 /* 803A2058 0039EFB8  7C A9 03 A6 */	mtctr r5
 lbl_803A205C:
@@ -1608,8 +2665,8 @@ lbl_803A2118:
 /* 803A211C 0039F07C  38 E7 00 07 */	addi r7, r7, 7
 /* 803A2120 0039F080  42 00 FF 3C */	bdnz lbl_803A205C
 /* 803A2124 0039F084  A0 CD AE D2 */	lhz r6, dataMacTotal@sda21(r13)
-/* 803A2128 0039F088  3C A0 80 56 */	lis r5, lbl_805592F8@ha
-/* 803A212C 0039F08C  38 A5 92 F8 */	addi r5, r5, lbl_805592F8@l
+/* 803A2128 0039F088  3C A0 80 56 */	lis r5, dataMacSubTabmem@ha
+/* 803A212C 0039F08C  38 A5 92 F8 */	addi r5, r5, dataMacSubTabmem@l
 /* 803A2130 0039F090  38 C6 FF FF */	addi r6, r6, -1
 /* 803A2134 0039F094  7C 06 20 00 */	cmpw r6, r4
 /* 803A2138 0039F098  54 C7 18 38 */	slwi r7, r6, 3
@@ -1667,9 +2724,9 @@ lbl_803A21EC:
 /* 803A21FC 0039F15C  39 08 FF F8 */	addi r8, r8, -8
 /* 803A2200 0039F160  42 00 FF EC */	bdnz lbl_803A21EC
 lbl_803A2204:
-/* 803A2204 0039F164  3C C0 80 56 */	lis r6, lbl_805592F8@ha
+/* 803A2204 0039F164  3C C0 80 56 */	lis r6, dataMacSubTabmem@ha
 /* 803A2208 0039F168  7C A3 02 2E */	lhzx r5, r3, r0
-/* 803A220C 0039F16C  39 06 92 F8 */	addi r8, r6, lbl_805592F8@l
+/* 803A220C 0039F16C  39 06 92 F8 */	addi r8, r6, dataMacSubTabmem@l
 /* 803A2210 0039F170  54 89 18 38 */	slwi r9, r4, 3
 /* 803A2214 0039F174  7C E8 4A 14 */	add r7, r8, r9
 /* 803A2218 0039F178  A0 8D AE D2 */	lhz r4, dataMacTotal@sda21(r13)
@@ -1693,7 +2750,7 @@ lbl_803A2250:
 /* 803A2258 0039F1B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803A225C 0039F1BC  7C 08 03 A6 */	mtlr r0
 /* 803A2260 0039F1C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A2264 0039F1C4  4E 80 00 20 */	blr 
+/* 803A2264 0039F1C4  4E 80 00 20 */	blr
 
 .global dataRemoveMacro
 dataRemoveMacro:
@@ -1703,17 +2760,17 @@ dataRemoveMacro:
 /* 803A2274 0039F1D4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803A2278 0039F1D8  7C 7F 1B 78 */	mr r31, r3
 /* 803A227C 0039F1DC  48 01 2E 41 */	bl hwDisableIrq
-/* 803A2280 0039F1E0  3C 60 80 56 */	lis r3, lbl_80558AF8@ha
+/* 803A2280 0039F1E0  3C 60 80 56 */	lis r3, dataMacMaintab@ha
 /* 803A2284 0039F1E4  57 E0 E5 3A */	rlwinm r0, r31, 0x1c, 0x14, 0x1d
-/* 803A2288 0039F1E8  38 63 8A F8 */	addi r3, r3, lbl_80558AF8@l
+/* 803A2288 0039F1E8  38 63 8A F8 */	addi r3, r3, dataMacMaintab@l
 /* 803A228C 0039F1EC  57 E7 04 3E */	clrlwi r7, r31, 0x10
 /* 803A2290 0039F1F0  7D 03 02 2E */	lhzx r8, r3, r0
 /* 803A2294 0039F1F4  28 08 00 00 */	cmplwi r8, 0
 /* 803A2298 0039F1F8  41 82 02 38 */	beq lbl_803A24D0
 /* 803A229C 0039F1FC  7C 83 02 14 */	add r4, r3, r0
-/* 803A22A0 0039F200  3C A0 80 56 */	lis r5, lbl_805592F8@ha
+/* 803A22A0 0039F200  3C A0 80 56 */	lis r5, dataMacSubTabmem@ha
 /* 803A22A4 0039F204  A0 84 00 02 */	lhz r4, 2(r4)
-/* 803A22A8 0039F208  38 C5 92 F8 */	addi r6, r5, lbl_805592F8@l
+/* 803A22A8 0039F208  38 C5 92 F8 */	addi r6, r5, dataMacSubTabmem@l
 /* 803A22AC 0039F20C  39 20 00 00 */	li r9, 0
 /* 803A22B0 0039F210  48 00 00 08 */	b lbl_803A22B8
 lbl_803A22B4:
@@ -1730,9 +2787,9 @@ lbl_803A22B8:
 lbl_803A22D8:
 /* 803A22D8 0039F238  7C 09 40 00 */	cmpw r9, r8
 /* 803A22DC 0039F23C  40 80 01 F4 */	bge lbl_803A24D0
-/* 803A22E0 0039F240  3C A0 80 56 */	lis r5, lbl_805592F8@ha
+/* 803A22E0 0039F240  3C A0 80 56 */	lis r5, dataMacSubTabmem@ha
 /* 803A22E4 0039F244  7D 24 4A 14 */	add r9, r4, r9
-/* 803A22E8 0039F248  39 05 92 F8 */	addi r8, r5, lbl_805592F8@l
+/* 803A22E8 0039F248  39 05 92 F8 */	addi r8, r5, dataMacSubTabmem@l
 /* 803A22EC 0039F24C  55 25 18 38 */	slwi r5, r9, 3
 /* 803A22F0 0039F250  7C E8 2A 14 */	add r7, r8, r5
 /* 803A22F4 0039F254  A0 A7 00 06 */	lhz r5, 6(r7)
@@ -1797,9 +2854,9 @@ lbl_803A23C4:
 /* 803A23D4 0039F334  39 08 00 08 */	addi r8, r8, 8
 /* 803A23D8 0039F338  42 00 FF EC */	bdnz lbl_803A23C4
 lbl_803A23DC:
-/* 803A23DC 0039F33C  3C C0 80 56 */	lis r6, lbl_80558AF8@ha
+/* 803A23DC 0039F33C  3C C0 80 56 */	lis r6, dataMacMaintab@ha
 /* 803A23E0 0039F340  38 A0 00 40 */	li r5, 0x40
-/* 803A23E4 0039F344  38 C6 8A F8 */	addi r6, r6, lbl_80558AF8@l
+/* 803A23E4 0039F344  38 C6 8A F8 */	addi r6, r6, dataMacMaintab@l
 /* 803A23E8 0039F348  38 E0 00 00 */	li r7, 0
 /* 803A23EC 0039F34C  7C A9 03 A6 */	mtctr r5
 lbl_803A23F0:
@@ -1874,23 +2931,23 @@ lbl_803A24D0:
 /* 803A24DC 0039F43C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803A24E0 0039F440  7C 08 03 A6 */	mtlr r0
 /* 803A24E4 0039F444  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A24E8 0039F448  4E 80 00 20 */	blr 
+/* 803A24E8 0039F448  4E 80 00 20 */	blr
 
 .global sub_803a24ec
 sub_803a24ec:
 /* 803A24EC 0039F44C  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A24F0 0039F450  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A24F4 0039F454  7C 64 00 50 */	subf r3, r4, r0
-/* 803A24F8 0039F458  4E 80 00 20 */	blr 
+/* 803A24F8 0039F458  4E 80 00 20 */	blr
 
 .global dataGetMacro
 dataGetMacro:
 /* 803A24FC 0039F45C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A2500 0039F460  7C 08 02 A6 */	mflr r0
-/* 803A2504 0039F464  3C 80 80 56 */	lis r4, lbl_80558AF8@ha
+/* 803A2504 0039F464  3C 80 80 56 */	lis r4, dataMacMaintab@ha
 /* 803A2508 0039F468  54 66 E5 3A */	rlwinm r6, r3, 0x1c, 0x14, 0x1d
 /* 803A250C 0039F46C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803A2510 0039F470  38 84 8A F8 */	addi r4, r4, lbl_80558AF8@l
+/* 803A2510 0039F470  38 84 8A F8 */	addi r4, r4, dataMacMaintab@l
 /* 803A2514 0039F474  54 60 D5 BE */	rlwinm r0, r3, 0x1a, 0x16, 0x1f
 /* 803A2518 0039F478  7C A4 32 2E */	lhzx r5, r4, r6
 /* 803A251C 0039F47C  90 0D AE C8 */	stw r0, "main$712"@sda21(r13)
@@ -1899,10 +2956,10 @@ dataGetMacro:
 /* 803A2528 0039F488  7C 84 32 14 */	add r4, r4, r6
 /* 803A252C 0039F48C  38 ED AE C0 */	addi r7, r13, "key$713"@sda21
 /* 803A2530 0039F490  A1 04 00 02 */	lhz r8, 2(r4)
-/* 803A2534 0039F494  3C C0 80 56 */	lis r6, lbl_805592F8@ha
+/* 803A2534 0039F494  3C C0 80 56 */	lis r6, dataMacSubTabmem@ha
 /* 803A2538 0039F498  B0 67 00 04 */	sth r3, 4(r7)
 /* 803A253C 0039F49C  3C 80 80 3A */	lis r4, sub_803a24ec@ha
-/* 803A2540 0039F4A0  38 06 92 F8 */	addi r0, r6, lbl_805592F8@l
+/* 803A2540 0039F4A0  38 06 92 F8 */	addi r0, r6, dataMacSubTabmem@l
 /* 803A2544 0039F4A4  55 03 18 38 */	slwi r3, r8, 3
 /* 803A2548 0039F4A8  38 E4 24 EC */	addi r7, r4, sub_803a24ec@l
 /* 803A254C 0039F4AC  91 0D AE CC */	stw r8, "base$711"@sda21(r13)
@@ -1921,14 +2978,14 @@ lbl_803A2578:
 /* 803A2578 0039F4D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A257C 0039F4DC  7C 08 03 A6 */	mtlr r0
 /* 803A2580 0039F4E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A2584 0039F4E4  4E 80 00 20 */	blr 
+/* 803A2584 0039F4E4  4E 80 00 20 */	blr
 
 .global sub_803a2588
 sub_803a2588:
 /* 803A2588 0039F4E8  A0 84 00 00 */	lhz r4, 0(r4)
 /* 803A258C 0039F4EC  A0 03 00 00 */	lhz r0, 0(r3)
 /* 803A2590 0039F4F0  7C 64 00 50 */	subf r3, r4, r0
-/* 803A2594 0039F4F4  4E 80 00 20 */	blr 
+/* 803A2594 0039F4F4  4E 80 00 20 */	blr
 
 .global sub_803a2598
 sub_803a2598:
@@ -1937,13 +2994,13 @@ sub_803a2598:
 /* 803A25A0 0039F500  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803A25A4 0039F504  39 61 00 20 */	addi r11, r1, 0x20
 /* 803A25A8 0039F508  4B FE 74 D5 */	bl _savegpr_27
-/* 803A25AC 0039F50C  3C A0 80 56 */	lis r5, lbl_8055D2F8@ha
-/* 803A25B0 0039F510  3C C0 80 56 */	lis r6, lbl_805580F8@ha
-/* 803A25B4 0039F514  3B 85 D2 F8 */	addi r28, r5, lbl_8055D2F8@l
+/* 803A25AC 0039F50C  3C A0 80 56 */	lis r5, "key$731"@ha
+/* 803A25B0 0039F510  3C C0 80 56 */	lis r6, dataSmpSDirs@ha
+/* 803A25B4 0039F514  3B 85 D2 F8 */	addi r28, r5, "key$731"@l
 /* 803A25B8 0039F518  7C 9E 23 78 */	mr r30, r4
 /* 803A25BC 0039F51C  3C A0 80 3A */	lis r5, sub_803a2588@ha
 /* 803A25C0 0039F520  B0 7C 00 00 */	sth r3, 0(r28)
-/* 803A25C4 0039F524  3B 66 80 F8 */	addi r27, r6, lbl_805580F8@l
+/* 803A25C4 0039F524  3B 66 80 F8 */	addi r27, r6, dataSmpSDirs@l
 /* 803A25C8 0039F528  3B E0 00 00 */	li r31, 0
 /* 803A25CC 0039F52C  3B A5 25 88 */	addi r29, r5, sub_803a2588@l
 /* 803A25D0 0039F530  48 00 00 C8 */	b lbl_803A2698
@@ -1988,8 +3045,8 @@ lbl_803A25D4:
 /* 803A2668 0039F5C8  28 04 00 00 */	cmplwi r4, 0
 /* 803A266C 0039F5CC  41 82 00 1C */	beq lbl_803A2688
 /* 803A2670 0039F5D0  1C 1F 00 0C */	mulli r0, r31, 0xc
-/* 803A2674 0039F5D4  3C 60 80 56 */	lis r3, lbl_805580F8@ha
-/* 803A2678 0039F5D8  38 63 80 F8 */	addi r3, r3, lbl_805580F8@l
+/* 803A2674 0039F5D4  3C 60 80 56 */	lis r3, dataSmpSDirs@ha
+/* 803A2678 0039F5D8  38 63 80 F8 */	addi r3, r3, dataSmpSDirs@l
 /* 803A267C 0039F5DC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 803A2680 0039F5E0  7C 04 02 14 */	add r0, r4, r0
 /* 803A2684 0039F5E4  90 1E 00 08 */	stw r0, 8(r30)
@@ -2010,25 +3067,25 @@ lbl_803A26A8:
 /* 803A26B0 0039F610  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803A26B4 0039F614  7C 08 03 A6 */	mtlr r0
 /* 803A26B8 0039F618  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A26BC 0039F61C  4E 80 00 20 */	blr 
+/* 803A26BC 0039F61C  4E 80 00 20 */	blr
 
 .global sub_803a26c0
 sub_803a26c0:
 /* 803A26C0 0039F620  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A26C4 0039F624  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A26C8 0039F628  7C 64 00 50 */	subf r3, r4, r0
-/* 803A26CC 0039F62C  4E 80 00 20 */	blr 
+/* 803A26CC 0039F62C  4E 80 00 20 */	blr
 
 .global dataGetCurve
 dataGetCurve:
 /* 803A26D0 0039F630  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A26D4 0039F634  7C 08 02 A6 */	mflr r0
-/* 803A26D8 0039F638  3C 80 80 55 */	lis r4, lbl_805540F8@ha
+/* 803A26D8 0039F638  3C 80 80 55 */	lis r4, dataCurveTab@ha
 /* 803A26DC 0039F63C  3C C0 80 3A */	lis r6, sub_803a26c0@ha
 /* 803A26E0 0039F640  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803A26E4 0039F644  38 AD AE AC */	addi r5, r13, "key$759"@sda21
 /* 803A26E8 0039F648  38 E6 26 C0 */	addi r7, r6, sub_803a26c0@l
-/* 803A26EC 0039F64C  38 84 40 F8 */	addi r4, r4, lbl_805540F8@l
+/* 803A26EC 0039F64C  38 84 40 F8 */	addi r4, r4, dataCurveTab@l
 /* 803A26F0 0039F650  B0 65 00 04 */	sth r3, 4(r5)
 /* 803A26F4 0039F654  38 6D AE AC */	addi r3, r13, "key$759"@sda21
 /* 803A26F8 0039F658  A0 AD AE D8 */	lhz r5, dataCurveNum@sda21(r13)
@@ -2045,18 +3102,18 @@ lbl_803A271C:
 /* 803A271C 0039F67C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A2720 0039F680  7C 08 03 A6 */	mtlr r0
 /* 803A2724 0039F684  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A2728 0039F688  4E 80 00 20 */	blr 
+/* 803A2728 0039F688  4E 80 00 20 */	blr
 
 .global sub_803a272c
 sub_803a272c:
 /* 803A272C 0039F68C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A2730 0039F690  7C 08 02 A6 */	mflr r0
-/* 803A2734 0039F694  3C 80 80 55 */	lis r4, lbl_80552CF8@ha
+/* 803A2734 0039F694  3C 80 80 55 */	lis r4, dataKeymapTab@ha
 /* 803A2738 0039F698  3C C0 80 3A */	lis r6, sub_803a26c0@ha
 /* 803A273C 0039F69C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803A2740 0039F6A0  38 AD AE A0 */	addi r5, r13, "key$767"@sda21
 /* 803A2744 0039F6A4  38 E6 26 C0 */	addi r7, r6, sub_803a26c0@l
-/* 803A2748 0039F6A8  38 84 2C F8 */	addi r4, r4, lbl_80552CF8@l
+/* 803A2748 0039F6A8  38 84 2C F8 */	addi r4, r4, dataKeymapTab@l
 /* 803A274C 0039F6AC  B0 65 00 04 */	sth r3, 4(r5)
 /* 803A2750 0039F6B0  38 6D AE A0 */	addi r3, r13, "key$767"@sda21
 /* 803A2754 0039F6B4  A0 AD AE D6 */	lhz r5, dataKeymapNum@sda21(r13)
@@ -2073,25 +3130,25 @@ lbl_803A2778:
 /* 803A2778 0039F6D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A277C 0039F6DC  7C 08 03 A6 */	mtlr r0
 /* 803A2780 0039F6E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A2784 0039F6E4  4E 80 00 20 */	blr 
+/* 803A2784 0039F6E4  4E 80 00 20 */	blr
 
 .global sub_803a2788
 sub_803a2788:
 /* 803A2788 0039F6E8  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A278C 0039F6EC  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A2790 0039F6F0  7C 64 00 50 */	subf r3, r4, r0
-/* 803A2794 0039F6F4  4E 80 00 20 */	blr 
+/* 803A2794 0039F6F4  4E 80 00 20 */	blr
 
 .global dataGetLayer
 dataGetLayer:
 /* 803A2798 0039F6F8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A279C 0039F6FC  7C 08 02 A6 */	mflr r0
-/* 803A27A0 0039F700  3C A0 80 56 */	lis r5, lbl_8055D318@ha
-/* 803A27A4 0039F704  3C C0 80 55 */	lis r6, lbl_805534F8@ha
+/* 803A27A0 0039F700  3C A0 80 56 */	lis r5, "key$493"@ha
+/* 803A27A4 0039F704  3C C0 80 55 */	lis r6, dataLayerTab@ha
 /* 803A27A8 0039F708  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803A27AC 0039F70C  39 05 D3 18 */	addi r8, r5, lbl_8055D318@l
+/* 803A27AC 0039F70C  39 05 D3 18 */	addi r8, r5, "key$493"@l
 /* 803A27B0 0039F710  3C A0 80 3A */	lis r5, sub_803a2788@ha
-/* 803A27B4 0039F714  38 06 34 F8 */	addi r0, r6, lbl_805534F8@l
+/* 803A27B4 0039F714  38 06 34 F8 */	addi r0, r6, dataLayerTab@l
 /* 803A27B8 0039F718  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803A27BC 0039F71C  38 E5 27 88 */	addi r7, r5, sub_803a2788@l
 /* 803A27C0 0039F720  7C 9F 23 78 */	mr r31, r4
@@ -2116,28 +3173,28 @@ lbl_803A2800:
 /* 803A2804 0039F764  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803A2808 0039F768  7C 08 03 A6 */	mtlr r0
 /* 803A280C 0039F76C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A2810 0039F770  4E 80 00 20 */	blr 
+/* 803A2810 0039F770  4E 80 00 20 */	blr
 
 .global sub_803a2814
 sub_803a2814:
 /* 803A2814 0039F774  A0 84 00 00 */	lhz r4, 0(r4)
 /* 803A2818 0039F778  A0 03 00 00 */	lhz r0, 0(r3)
 /* 803A281C 0039F77C  7C 64 00 50 */	subf r3, r4, r0
-/* 803A2820 0039F780  4E 80 00 20 */	blr 
+/* 803A2820 0039F780  4E 80 00 20 */	blr
 
 .global dataGetFX
 dataGetFX:
 /* 803A2824 0039F784  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A2828 0039F788  7C 08 02 A6 */	mflr r0
-/* 803A282C 0039F78C  3C 80 80 56 */	lis r4, lbl_8055D324@ha
-/* 803A2830 0039F790  3C A0 80 56 */	lis r5, lbl_805586F8@ha
+/* 803A282C 0039F78C  3C 80 80 56 */	lis r4, "key$487"@ha
+/* 803A2830 0039F790  3C A0 80 56 */	lis r5, dataFXGroups@ha
 /* 803A2834 0039F794  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803A2838 0039F798  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803A283C 0039F79C  93 C1 00 18 */	stw r30, 0x18(r1)
-/* 803A2840 0039F7A0  3B C4 D3 24 */	addi r30, r4, lbl_8055D324@l
+/* 803A2840 0039F7A0  3B C4 D3 24 */	addi r30, r4, "key$487"@l
 /* 803A2844 0039F7A4  3C 80 80 3A */	lis r4, sub_803a2814@ha
 /* 803A2848 0039F7A8  93 A1 00 14 */	stw r29, 0x14(r1)
-/* 803A284C 0039F7AC  3B A5 86 F8 */	addi r29, r5, lbl_805586F8@l
+/* 803A284C 0039F7AC  3B A5 86 F8 */	addi r29, r5, dataFXGroups@l
 /* 803A2850 0039F7B0  3B E4 28 14 */	addi r31, r4, sub_803a2814@l
 /* 803A2854 0039F7B4  93 81 00 10 */	stw r28, 0x10(r1)
 /* 803A2858 0039F7B8  3B 80 00 00 */	li r28, 0
@@ -2169,7 +3226,7 @@ lbl_803A28A0:
 /* 803A28B0 0039F810  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803A28B4 0039F814  7C 08 03 A6 */	mtlr r0
 /* 803A28B8 0039F818  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A28BC 0039F81C  4E 80 00 20 */	blr 
+/* 803A28BC 0039F81C  4E 80 00 20 */	blr
 
 .global dataInit
 dataInit:
@@ -2186,9 +3243,9 @@ dataInit:
 /* 803A28E8 0039F848  B0 0D AE D0 */	sth r0, dataFXGroupNum@sda21(r13)
 /* 803A28EC 0039F84C  B0 0D AE D2 */	sth r0, dataMacTotal@sda21(r13)
 /* 803A28F0 0039F850  40 80 00 A0 */	bge lbl_803A2990
-/* 803A28F4 0039F854  3C A0 80 56 */	lis r5, lbl_80558AF8@ha
+/* 803A28F4 0039F854  3C A0 80 56 */	lis r5, dataMacMaintab@ha
 /* 803A28F8 0039F858  38 00 00 20 */	li r0, 0x20
-/* 803A28FC 0039F85C  38 A5 8A F8 */	addi r5, r5, lbl_80558AF8@l
+/* 803A28FC 0039F85C  38 A5 8A F8 */	addi r5, r5, dataMacMaintab@l
 /* 803A2900 0039F860  7C 09 03 A6 */	mtctr r0
 lbl_803A2904:
 /* 803A2904 0039F864  38 00 00 00 */	li r0, 0
@@ -2231,7 +3288,7 @@ lbl_803A2990:
 /* 803A2994 0039F8F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A2998 0039F8F8  7C 08 03 A6 */	mtlr r0
 /* 803A299C 0039F8FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A29A0 0039F900  4E 80 00 20 */	blr 
+/* 803A29A0 0039F900  4E 80 00 20 */	blr
 
 .global dataExit
 dataExit:
@@ -2242,4 +3299,4 @@ dataExit:
 /* 803A29B4 0039F914  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A29B8 0039F918  7C 08 03 A6 */	mtlr r0
 /* 803A29BC 0039F91C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A29C0 0039F920  4E 80 00 20 */	blr 
+/* 803A29C0 0039F920  4E 80 00 20 */	blr

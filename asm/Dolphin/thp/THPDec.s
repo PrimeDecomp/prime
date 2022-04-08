@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_80569F60
+lbl_80569F60:
+	.skip 0x118
+.global __THPMCUBuffer
+__THPMCUBuffer:
+	.skip 0x28
+
 .section .rodata, "a" # 0x803CB3A0 - 0x803D8D60
 __THPJpegNaturalOrder: # local object
 	.4byte 0x00010810

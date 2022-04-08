@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .bss
+.global vidList
+vidList:
+	.skip 0xF00
+.global synth_last_fxstarted
+synth_last_fxstarted:
+	.skip 0x40
+.global synth_last_started
+synth_last_started:
+	.skip 0x80
+.global vs
+vs:
+	.skip 0x950
+
 .section .sbss
 .balign 4
 .global vidFree
@@ -1817,9 +1831,9 @@ voiceIsLastStarted:
 /* 803A8EB0 003A5E10  38 60 00 01 */	li r3, 1
 /* 803A8EB4 003A5E14  4E 80 00 20 */	blr 
 lbl_803A8EB8:
-/* 803A8EB8 003A5E18  3C 60 80 56 */	lis r3, lbl_8055E290@ha
+/* 803A8EB8 003A5E18  3C 60 80 56 */	lis r3, synth_last_started@ha
 /* 803A8EBC 003A5E1C  54 04 25 36 */	rlwinm r4, r0, 4, 0x14, 0x1b
-/* 803A8EC0 003A5E20  38 03 E2 90 */	addi r0, r3, lbl_8055E290@l
+/* 803A8EC0 003A5E20  38 03 E2 90 */	addi r0, r3, synth_last_started@l
 /* 803A8EC4 003A5E24  7C 60 22 14 */	add r3, r0, r4
 /* 803A8EC8 003A5E28  7C 03 28 AE */	lbzx r0, r3, r5
 /* 803A8ECC 003A5E2C  7C 06 00 40 */	cmplw r6, r0
@@ -1848,9 +1862,9 @@ voiceSetLastStarted:
 /* 803A8F18 003A5E78  7C C3 31 AE */	stbx r6, r3, r6
 /* 803A8F1C 003A5E7C  4E 80 00 20 */	blr 
 lbl_803A8F20:
-/* 803A8F20 003A5E80  3C 60 80 56 */	lis r3, lbl_8055E290@ha
+/* 803A8F20 003A5E80  3C 60 80 56 */	lis r3, synth_last_started@ha
 /* 803A8F24 003A5E84  54 04 25 36 */	rlwinm r4, r0, 4, 0x14, 0x1b
-/* 803A8F28 003A5E88  38 03 E2 90 */	addi r0, r3, lbl_8055E290@l
+/* 803A8F28 003A5E88  38 03 E2 90 */	addi r0, r3, synth_last_started@l
 /* 803A8F2C 003A5E8C  7C 60 22 14 */	add r3, r0, r4
 /* 803A8F30 003A5E90  7C C3 29 AE */	stbx r6, r3, r5
 /* 803A8F34 003A5E94  4E 80 00 20 */	blr 
@@ -1877,9 +1891,9 @@ voiceResetLastStarted:
 /* 803A8F7C 003A5EDC  7C 03 31 AE */	stbx r0, r3, r6
 /* 803A8F80 003A5EE0  4E 80 00 20 */	blr 
 lbl_803A8F84:
-/* 803A8F84 003A5EE4  3C 60 80 56 */	lis r3, lbl_8055E290@ha
+/* 803A8F84 003A5EE4  3C 60 80 56 */	lis r3, synth_last_started@ha
 /* 803A8F88 003A5EE8  54 04 25 36 */	rlwinm r4, r0, 4, 0x14, 0x1b
-/* 803A8F8C 003A5EEC  38 03 E2 90 */	addi r0, r3, lbl_8055E290@l
+/* 803A8F8C 003A5EEC  38 03 E2 90 */	addi r0, r3, synth_last_started@l
 /* 803A8F90 003A5EF0  7C 60 22 14 */	add r3, r0, r4
 /* 803A8F94 003A5EF4  7C 03 28 AE */	lbzx r0, r3, r5
 /* 803A8F98 003A5EF8  7C 06 00 40 */	cmplw r6, r0
@@ -1890,9 +1904,9 @@ lbl_803A8F84:
 
 .global voiceInitLastStarted
 voiceInitLastStarted:
-/* 803A8FAC 003A5F0C  3C 60 80 56 */	lis r3, lbl_8055E290@ha
+/* 803A8FAC 003A5F0C  3C 60 80 56 */	lis r3, synth_last_started@ha
 /* 803A8FB0 003A5F10  38 00 00 04 */	li r0, 4
-/* 803A8FB4 003A5F14  38 A3 E2 90 */	addi r5, r3, lbl_8055E290@l
+/* 803A8FB4 003A5F14  38 A3 E2 90 */	addi r5, r3, synth_last_started@l
 /* 803A8FB8 003A5F18  38 C0 00 00 */	li r6, 0
 /* 803A8FBC 003A5F1C  7C 09 03 A6 */	mtctr r0
 lbl_803A8FC0:

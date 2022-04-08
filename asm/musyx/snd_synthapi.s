@@ -89,9 +89,9 @@ sndFXStartEx:
 /* 8039C2B4 00399214  93 81 00 10 */	stw r28, 0x10(r1)
 /* 8039C2B8 00399218  7C 7C 1B 78 */	mr r28, r3
 /* 8039C2BC 0039921C  48 01 8E 01 */	bl hwDisableIrq
-/* 8039C2C0 00399220  3C 60 80 55 */	lis r3, lbl_80550AA4@ha
+/* 8039C2C0 00399220  3C 60 80 55 */	lis r3, synthITDDefault@ha
 /* 8039C2C4 00399224  57 E0 0D FC */	rlwinm r0, r31, 1, 0x17, 0x1e
-/* 8039C2C8 00399228  38 83 0A A4 */	addi r4, r3, lbl_80550AA4@l
+/* 8039C2C8 00399228  38 83 0A A4 */	addi r4, r3, synthITDDefault@l
 /* 8039C2CC 0039922C  7F E6 FB 78 */	mr r6, r31
 /* 8039C2D0 00399230  7C A4 02 14 */	add r5, r4, r0
 /* 8039C2D4 00399234  7F 83 E3 78 */	mr r3, r28
@@ -297,22 +297,22 @@ sndSetAuxProcessingCallbacks:
 /* 8039C58C 003994EC  41 82 00 58 */	beq lbl_8039C5E4
 /* 8039C590 003994F0  7E E3 BB 78 */	mr r3, r23
 /* 8039C594 003994F4  4B FF 87 9D */	bl seqGetPrivateId
-/* 8039C598 003994F8  3C A0 80 55 */	lis r5, lbl_80550A44@ha
-/* 8039C59C 003994FC  3C 80 80 55 */	lis r4, lbl_80550A24@ha
+/* 8039C598 003994F8  3C A0 80 55 */	lis r5, synthAuxACallback@ha
+/* 8039C59C 003994FC  3C 80 80 55 */	lis r4, synthAuxAUser@ha
 /* 8039C5A0 00399500  38 CD AE 5C */	addi r6, r13, synthAuxAMIDISet@sda21
 /* 8039C5A4 00399504  57 00 10 3A */	slwi r0, r24, 2
-/* 8039C5A8 00399508  38 A5 0A 44 */	addi r5, r5, lbl_80550A44@l
-/* 8039C5AC 0039950C  38 84 0A 24 */	addi r4, r4, lbl_80550A24@l
+/* 8039C5A8 00399508  38 A5 0A 44 */	addi r5, r5, synthAuxACallback@l
+/* 8039C5AC 0039950C  38 84 0A 24 */	addi r4, r4, synthAuxAUser@l
 /* 8039C5B0 00399510  7C 66 C1 AE */	stbx r3, r6, r24
 /* 8039C5B4 00399514  7F 45 01 2E */	stwx r26, r5, r0
 /* 8039C5B8 00399518  7F 64 01 2E */	stwx r27, r4, r0
 /* 8039C5BC 0039951C  48 00 00 28 */	b lbl_8039C5E4
 lbl_8039C5C0:
-/* 8039C5C0 00399520  3C 60 80 55 */	lis r3, lbl_80550A44@ha
+/* 8039C5C0 00399520  3C 60 80 55 */	lis r3, synthAuxACallback@ha
 /* 8039C5C4 00399524  57 27 06 3E */	clrlwi r7, r25, 0x18
 /* 8039C5C8 00399528  57 25 15 BA */	rlwinm r5, r25, 2, 0x16, 0x1d
 /* 8039C5CC 0039952C  38 C0 00 00 */	li r6, 0
-/* 8039C5D0 00399530  38 83 0A 44 */	addi r4, r3, lbl_80550A44@l
+/* 8039C5D0 00399530  38 83 0A 44 */	addi r4, r3, synthAuxACallback@l
 /* 8039C5D4 00399534  38 00 00 FF */	li r0, 0xff
 /* 8039C5D8 00399538  38 6D AE 64 */	addi r3, r13, synthAuxAMIDI@sda21
 /* 8039C5DC 0039953C  7C C4 29 2E */	stwx r6, r4, r5
@@ -328,22 +328,22 @@ lbl_8039C5E4:
 /* 8039C600 00399560  41 82 00 58 */	beq lbl_8039C658
 /* 8039C604 00399564  7F E3 FB 78 */	mr r3, r31
 /* 8039C608 00399568  4B FF 87 29 */	bl seqGetPrivateId
-/* 8039C60C 0039956C  3C A0 80 55 */	lis r5, lbl_80550A84@ha
-/* 8039C610 00399570  3C 80 80 55 */	lis r4, lbl_80550A64@ha
+/* 8039C60C 0039956C  3C A0 80 55 */	lis r5, synthAuxBCallback@ha
+/* 8039C610 00399570  3C 80 80 55 */	lis r4, synthAuxBUser@ha
 /* 8039C614 00399574  38 CD AE 4C */	addi r6, r13, synthAuxBMidiSet@sda21
 /* 8039C618 00399578  57 00 10 3A */	slwi r0, r24, 2
-/* 8039C61C 0039957C  38 A5 0A 84 */	addi r5, r5, lbl_80550A84@l
-/* 8039C620 00399580  38 84 0A 64 */	addi r4, r4, lbl_80550A64@l
+/* 8039C61C 0039957C  38 A5 0A 84 */	addi r5, r5, synthAuxBCallback@l
+/* 8039C620 00399580  38 84 0A 64 */	addi r4, r4, synthAuxBUser@l
 /* 8039C624 00399584  7C 66 C1 AE */	stbx r3, r6, r24
 /* 8039C628 00399588  7F 85 01 2E */	stwx r28, r5, r0
 /* 8039C62C 0039958C  7F A4 01 2E */	stwx r29, r4, r0
 /* 8039C630 00399590  48 00 00 28 */	b lbl_8039C658
 lbl_8039C634:
-/* 8039C634 00399594  3C 60 80 55 */	lis r3, lbl_80550A84@ha
+/* 8039C634 00399594  3C 60 80 55 */	lis r3, synthAuxBCallback@ha
 /* 8039C638 00399598  57 27 06 3E */	clrlwi r7, r25, 0x18
 /* 8039C63C 0039959C  57 25 15 BA */	rlwinm r5, r25, 2, 0x16, 0x1d
 /* 8039C640 003995A0  38 C0 00 00 */	li r6, 0
-/* 8039C644 003995A4  38 83 0A 84 */	addi r4, r3, lbl_80550A84@l
+/* 8039C644 003995A4  38 83 0A 84 */	addi r4, r3, synthAuxBCallback@l
 /* 8039C648 003995A8  38 00 00 FF */	li r0, 0xff
 /* 8039C64C 003995AC  38 6D AE 54 */	addi r3, r13, synthAuxBMIDI@sda21
 /* 8039C650 003995B0  7C C4 29 2E */	stwx r6, r4, r5
@@ -375,18 +375,18 @@ sub_8039c68c:
 /* 8039C6A8 00399608  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8039C6AC 0039960C  7C 7D 1B 78 */	mr r29, r3
 /* 8039C6B0 00399610  48 01 8A 0D */	bl hwDisableIrq
-/* 8039C6B4 00399614  3C 60 80 55 */	lis r3, lbl_80550AA4@ha
-/* 8039C6B8 00399618  3C 80 80 55 */	lis r4, lbl_80550A44@ha
-/* 8039C6BC 0039961C  38 C3 0A A4 */	addi r6, r3, lbl_80550AA4@l
+/* 8039C6B4 00399614  3C 60 80 55 */	lis r3, synthITDDefault@ha
+/* 8039C6B8 00399618  3C 80 80 55 */	lis r4, synthAuxACallback@ha
+/* 8039C6BC 0039961C  38 C3 0A A4 */	addi r6, r3, synthITDDefault@l
 /* 8039C6C0 00399620  57 AC 0D FC */	rlwinm r12, r29, 1, 0x17, 0x1e
 /* 8039C6C4 00399624  7C 66 62 14 */	add r3, r6, r12
 /* 8039C6C8 00399628  39 20 00 00 */	li r9, 0
 /* 8039C6CC 0039962C  99 23 00 01 */	stb r9, 1(r3)
-/* 8039C6D0 00399630  3C 60 80 55 */	lis r3, lbl_80550A84@ha
+/* 8039C6D0 00399630  3C 60 80 55 */	lis r3, synthAuxBCallback@ha
 /* 8039C6D4 00399634  57 AB 06 3E */	clrlwi r11, r29, 0x18
 /* 8039C6D8 00399638  57 AA 15 BA */	rlwinm r10, r29, 2, 0x16, 0x1d
-/* 8039C6DC 0039963C  38 84 0A 44 */	addi r4, r4, lbl_80550A44@l
-/* 8039C6E0 00399640  38 A3 0A 84 */	addi r5, r3, lbl_80550A84@l
+/* 8039C6DC 0039963C  38 84 0A 44 */	addi r4, r4, synthAuxACallback@l
+/* 8039C6E0 00399640  38 A3 0A 84 */	addi r5, r3, synthAuxBCallback@l
 /* 8039C6E4 00399644  38 00 00 FF */	li r0, 0xff
 /* 8039C6E8 00399648  39 0D AE 64 */	addi r8, r13, synthAuxAMIDI@sda21
 /* 8039C6EC 0039964C  38 ED AE 54 */	addi r7, r13, synthAuxBMIDI@sda21
@@ -451,13 +451,13 @@ lbl_8039C7B8:
 /* 8039C7BC 0039971C  7C 1B 00 40 */	cmplw r27, r0
 /* 8039C7C0 00399720  41 80 FF A4 */	blt lbl_8039C764
 /* 8039C7C4 00399724  48 01 88 F9 */	bl hwDisableIrq
-/* 8039C7C8 00399728  3C 80 80 55 */	lis r4, lbl_80550A44@ha
-/* 8039C7CC 0039972C  3C 60 80 55 */	lis r3, lbl_80550A84@ha
+/* 8039C7C8 00399728  3C 80 80 55 */	lis r4, synthAuxACallback@ha
+/* 8039C7CC 0039972C  3C 60 80 55 */	lis r3, synthAuxBCallback@ha
 /* 8039C7D0 00399730  57 E9 06 3E */	clrlwi r9, r31, 0x18
 /* 8039C7D4 00399734  57 E8 15 BA */	rlwinm r8, r31, 2, 0x16, 0x1d
-/* 8039C7D8 00399738  38 C4 0A 44 */	addi r6, r4, lbl_80550A44@l
+/* 8039C7D8 00399738  38 C4 0A 44 */	addi r6, r4, synthAuxACallback@l
 /* 8039C7DC 0039973C  38 E0 00 00 */	li r7, 0
-/* 8039C7E0 00399740  38 A3 0A 84 */	addi r5, r3, lbl_80550A84@l
+/* 8039C7E0 00399740  38 A3 0A 84 */	addi r5, r3, synthAuxBCallback@l
 /* 8039C7E4 00399744  38 00 00 FF */	li r0, 0xff
 /* 8039C7E8 00399748  38 8D AE 64 */	addi r4, r13, synthAuxAMIDI@sda21
 /* 8039C7EC 0039974C  38 6D AE 54 */	addi r3, r13, synthAuxBMIDI@sda21

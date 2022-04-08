@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .bss
+lbl_80542188:
+	.skip 0x10
+	
 .section .text, "ax"
 
 .global __unregister_fragment
