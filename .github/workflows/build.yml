@@ -7,14 +7,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: devkitpro/devkitppc:latest
     steps:
     - name: Install devkitPro
       run: |
         sudo dpkg --add-architecture i386
-        curl -L https://apt.devkitpro.org/devkitpro-pub.gpg | sudo apt-key add -
-        sudo add-apt-repository "deb https://apt.devkitpro.org stable main"
-        sudo apt-get -y install devkitpro-pacman wine32
-        sudo dkp-pacman -S --noconfirm gamecube-dev
+        sudo apt-get update
+        sudo apt-get -y install wine32
     - uses: actions/checkout@v3
     - name: Download compilers
       run: |
