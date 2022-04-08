@@ -16,11 +16,12 @@ jobs:
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt-get -y install wine32
+        mkdir -p "$WINEPREFIX"
     - uses: actions/checkout@v3
     - name: Download compilers
       run: |
         curl -L https://cdn.discordapp.com/attachments/727918646525165659/917185027656286218/GC_WII_COMPILERS.zip \
           | bsdtar -xvf- -C tools --exclude Wii
-        mv tools/GC tools/mwcc_compiler
+        mv tools/{GC,mwcc_compiler}
     - name: make
       run: make -j
