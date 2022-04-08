@@ -1,5 +1,20 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_805A8B48
+lbl_805A8B48:
+	.incbin "baserom.dol", 0x3F64E8, 0x8
+	
+.section .sbss
+lbl_805A98C0:
+	.skip 0x4
+lbl_805A98C4:
+	.skip 0x4
+lbl_805A98C8:
+	.skip 0x4
+lbl_805A98CC:
+	.skip 0x4
+	
 .section .data
 .balign 8
 .global lbl_803F1750
@@ -716,7 +731,21 @@ lbl_803F18D0:
 	.4byte 0x031A031B
 	.4byte 0x00000000
 	.4byte 0x00000000
-	
+
+.section .sdata2
+.global lbl_805AEC48
+lbl_805AEC48:
+	.incbin "baserom.dol", 0x3FB4E8, 0x8
+.global lbl_805AEC50
+lbl_805AEC50:
+	.incbin "baserom.dol", 0x3FB4F0, 0x8
+.global lbl_805AEC58
+lbl_805AEC58:
+	.incbin "baserom.dol", 0x3FB4F8, 0x4
+.global lbl_805AEC5C
+lbl_805AEC5C:
+	.incbin "baserom.dol", 0x3FB4FC, 0x4
+
 .section .text, "ax"
 
 .global sub_80380c34

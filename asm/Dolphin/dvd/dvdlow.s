@@ -1,10 +1,71 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8A88
+lbl_805A8A88:
+	.incbin "baserom.dol", 0x3F6428, 0x8
+	
 .section .bss
+
 lbl_80540A80:
 	.skip 0x68
 lbl_80540AE8:
 	.skip 0x78
+
+.section .sbss
+
+.global lbl_805A9768
+lbl_805A9768:
+	.skip 0x4
+.global lbl_805A976C
+lbl_805A976C:
+	.skip 0x4
+.global lbl_805A9770
+lbl_805A9770:
+	.skip 0x4
+.global lbl_805A9774
+lbl_805A9774:
+	.skip 0x4
+.global lbl_805A9778
+lbl_805A9778:
+	.skip 0x4
+.global lbl_805A977C
+lbl_805A977C:
+	.skip 0x4
+.global lbl_805A9780
+lbl_805A9780:
+	.skip 0x4
+.global lbl_805A9784
+lbl_805A9784:
+	.skip 0x4
+.global lbl_805A9788
+lbl_805A9788:
+	.skip 0x4
+.global lbl_805A978C
+lbl_805A978C:
+	.skip 0x4
+.global lbl_805A9790
+lbl_805A9790:
+	.skip 0x8
+.global lbl_805A9798
+lbl_805A9798:
+	.skip 0x4
+.global lbl_805A979C
+lbl_805A979C:
+	.skip 0x4
+.global lbl_805A97A0
+lbl_805A97A0:
+	.skip 0x4
+.global lbl_805A97A4
+lbl_805A97A4:
+	.skip 0x4
+.global lbl_805A97A8
+lbl_805A97A8:
+	.skip 0x4
+.global lbl_805A97AC
+lbl_805A97AC:
+	.skip 0x4
 	
 .section .text, "ax"
 

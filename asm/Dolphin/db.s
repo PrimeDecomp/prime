@@ -1,5 +1,12 @@
 .include "macros.inc"
 
+.section .sbss
+lbl_805A9740:
+	.skip 0x4
+lbl_805A9744:
+	.skip 0x4
+
+	
 .section .data
 .global lbl_803EF9B8
 lbl_803EF9B8:

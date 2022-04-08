@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .sbss
+.global lbl_805A9900
+lbl_805A9900:
+	.skip 0x4
+.global lbl_805A9904
+lbl_805A9904:
+	.skip 0x4
+.global lbl_805A9908
+lbl_805A9908:
+	.skip 0x8
+.global lbl_805A9910
+lbl_805A9910:
+	.skip 0x4
+.global lbl_805A9914
+lbl_805A9914:
+	.skip 0x4
+.global lbl_805A9918
+lbl_805A9918:
+	.skip 0x4
+.global lbl_805A991C
+lbl_805A991C:
+	.skip 0x4
+
+
 .section .text, "ax"
 
 .global __OSResetSWInterruptHandler

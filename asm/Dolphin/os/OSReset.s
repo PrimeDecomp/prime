@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .sbss
+lbl_805A98F8:
+	.skip 0x8
+	
 .section .text, "ax"
 
 .global OSRegisterResetFunction

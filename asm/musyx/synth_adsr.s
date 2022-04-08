@@ -1,5 +1,26 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AF2C8
+lbl_805AF2C8:
+	.incbin "baserom.dol", 0x3FBB68, 0x8
+.global lbl_805AF2D0
+lbl_805AF2D0:
+	.incbin "baserom.dol", 0x3FBB70, 0x4
+.global lbl_805AF2D4
+lbl_805AF2D4:
+	.incbin "baserom.dol", 0x3FBB74, 0x4
+.global lbl_805AF2D8
+lbl_805AF2D8:
+	.incbin "baserom.dol", 0x3FBB78, 0x8
+.global lbl_805AF2E0
+lbl_805AF2E0:
+	.incbin "baserom.dol", 0x3FBB80, 0x8
+.global lbl_805AF2E8
+lbl_805AF2E8:
+	.incbin "baserom.dol", 0x3FBB88, 0x8
+
+
 .section .text, "ax" 
 
 .global adsrConvertTimeCents

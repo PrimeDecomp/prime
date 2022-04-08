@@ -29,6 +29,23 @@ seqPausedRoot:
 seqActiveRoot:
 	.skip 0x4
 
+.section .sdata2
+.global lbl_805AF210
+lbl_805AF210:
+	.incbin "baserom.dol", 0x3FBAB0, 0x4
+.global lbl_805AF214
+lbl_805AF214:
+	.incbin "baserom.dol", 0x3FBAB4, 0x4
+.global lbl_805AF218
+lbl_805AF218:
+	.incbin "baserom.dol", 0x3FBAB8, 0x8
+.global lbl_805AF220
+lbl_805AF220:
+	.incbin "baserom.dol", 0x3FBAC0, 0x8
+.global lbl_805AF228
+lbl_805AF228:
+	.incbin "baserom.dol", 0x3FBAC8, 0x8
+	
 .section .data, "wa"
 
 .global lbl_803F2F88

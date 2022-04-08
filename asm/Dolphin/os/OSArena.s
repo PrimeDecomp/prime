@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_805A8B30
+lbl_805A8B30:
+	.incbin "baserom.dol", 0x3F64D0, 0x8
+
+.section .sbss
+.global lbl_805A98B8
+lbl_805A98B8:
+	.skip 0x8
+	
 .section .text, "ax"
 
 .global OSGetArenaHi

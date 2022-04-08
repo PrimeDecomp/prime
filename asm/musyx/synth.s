@@ -1,5 +1,46 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AF230
+lbl_805AF230:
+	.incbin "baserom.dol", 0x3FBAD0, 0x4
+.global lbl_805AF234
+lbl_805AF234:
+	.incbin "baserom.dol", 0x3FBAD4, 0x4
+.global lbl_805AF238
+lbl_805AF238:
+	.incbin "baserom.dol", 0x3FBAD8, 0x4
+.global lbl_805AF23C
+lbl_805AF23C:
+	.incbin "baserom.dol", 0x3FBADC, 0x4
+.global lbl_805AF240
+lbl_805AF240:
+	.incbin "baserom.dol", 0x3FBAE0, 0x4
+.global lbl_805AF244
+lbl_805AF244:
+	.incbin "baserom.dol", 0x3FBAE4, 0x4
+.global lbl_805AF248
+lbl_805AF248:
+	.incbin "baserom.dol", 0x3FBAE8, 0x4
+.global lbl_805AF24C
+lbl_805AF24C:
+	.incbin "baserom.dol", 0x3FBAEC, 0x4
+.global lbl_805AF250
+lbl_805AF250:
+	.incbin "baserom.dol", 0x3FBAF0, 0x8
+.global lbl_805AF258
+lbl_805AF258:
+	.incbin "baserom.dol", 0x3FBAF8, 0x8
+.global lbl_805AF260
+lbl_805AF260:
+	.incbin "baserom.dol", 0x3FBB00, 0x8
+.global lbl_805AF268
+lbl_805AF268:
+	.incbin "baserom.dol", 0x3FBB08, 0x4
+.global lbl_805AF26C
+lbl_805AF26C:
+	.incbin "baserom.dol", 0x3FBB0C, 0x4
+	
 .section .bss
 .global synthTicksPerSecond
 synthTicksPerSecond:

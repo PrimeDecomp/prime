@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_805A8AD0
+lbl_805A8AD0:
+	.incbin "baserom.dol", 0x3F6470, 0x4
+.global lbl_805A8AD4
+lbl_805A8AD4:
+	.incbin "baserom.dol", 0x3F6474, 0x4
+.global lbl_805A8AD8
+lbl_805A8AD8:
+	.incbin "baserom.dol", 0x3F6478, 0x8
+	
 .section .text, "ax"
 
 .global __GXXfVtxSpecs

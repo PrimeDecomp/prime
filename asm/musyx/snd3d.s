@@ -52,7 +52,54 @@ s3dEmitterRoot:
 .global s3dCallCnt
 s3dCallCnt:
 	.skip 0x4
-	
+
+.section .sdata2
+.global lbl_805AF328
+lbl_805AF328:
+	.incbin "baserom.dol", 0x3FBBC8, 0x8
+.global lbl_805AF330
+lbl_805AF330:
+	.incbin "baserom.dol", 0x3FBBD0, 0x8
+.global lbl_805AF338
+lbl_805AF338:
+	.incbin "baserom.dol", 0x3FBBD8, 0x4
+.global lbl_805AF33C
+lbl_805AF33C:
+	.incbin "baserom.dol", 0x3FBBDC, 0x4
+.global lbl_805AF340
+lbl_805AF340:
+	.incbin "baserom.dol", 0x3FBBE0, 0x8
+.global lbl_805AF348
+lbl_805AF348:
+	.incbin "baserom.dol", 0x3FBBE8, 0x4
+.global lbl_805AF34C
+lbl_805AF34C:
+	.incbin "baserom.dol", 0x3FBBEC, 0x4
+.global lbl_805AF350
+lbl_805AF350:
+	.incbin "baserom.dol", 0x3FBBF0, 0x8
+.global lbl_805AF358
+lbl_805AF358:
+	.incbin "baserom.dol", 0x3FBBF8, 0x4
+.global lbl_805AF35C
+lbl_805AF35C:
+	.incbin "baserom.dol", 0x3FBBFC, 0x4
+.global lbl_805AF360
+lbl_805AF360:
+	.incbin "baserom.dol", 0x3FBC00, 0x4
+.global lbl_805AF364
+lbl_805AF364:
+	.incbin "baserom.dol", 0x3FBC04, 0x4
+.global lbl_805AF368
+lbl_805AF368:
+	.incbin "baserom.dol", 0x3FBC08, 0x4
+.global lbl_805AF36C
+lbl_805AF36C:
+	.incbin "baserom.dol", 0x3FBC0C, 0x4
+.global lbl_805AF370
+lbl_805AF370:
+	.incbin "baserom.dol", 0x3FBC10, 0x8
+
 .section .text, "ax" 
 
 .global sub_803ae800

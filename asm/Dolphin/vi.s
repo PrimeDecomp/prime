@@ -16,7 +16,16 @@ lbl_803F259C:
 .global lbl_803F275C
 lbl_803F275C:
 	.incbin "baserom.dol", 0x3EF75C, 0x1C
-	
+
+.section .sdata
+
+.global lbl_805A8B78
+lbl_805A8B78:
+	.incbin "baserom.dol", 0x3F6518, 0x4
+.global lbl_805A8B7C
+lbl_805A8B7C:
+	.incbin "baserom.dol", 0x3F651C, 0xC
+
 .section .sbss, "wa"
 .balign 4
 lbl_805A9958:

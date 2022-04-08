@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AF378
+lbl_805AF378:
+	.incbin "baserom.dol", 0x3FBC18, 0x8
+.global lbl_805AF380
+lbl_805AF380:
+	.incbin "baserom.dol", 0x3FBC20, 0x8
+.global lbl_805AF388
+lbl_805AF388:
+	.incbin "baserom.dol", 0x3FBC28, 0x8
+.global lbl_805AF390
+lbl_805AF390:
+	.incbin "baserom.dol", 0x3FBC30, 0x8
+	
 .section .text, "ax" 
 
 .global salApplyMatrix

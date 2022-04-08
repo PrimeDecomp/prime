@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEC10
+lbl_805AEC10:
+	.incbin "baserom.dol", 0x3FB4B0, 0x4
+.global lbl_805AEC14
+lbl_805AEC14:
+	.incbin "baserom.dol", 0x3FB4B4, 0x4
+	
 .section .text, "ax"
 
 .global C_VECNormalize

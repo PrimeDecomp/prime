@@ -1,5 +1,58 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_805A8AE0
+lbl_805A8AE0:
+	.incbin "baserom.dol", 0x3F6480, 0x8
+.global lbl_805A8AE8
+lbl_805A8AE8:
+	.incbin "baserom.dol", 0x3F6488, 0x8
+.global lbl_805A8AF0
+lbl_805A8AF0:
+	.incbin "baserom.dol", 0x3F6490, 0x8
+.global lbl_805A8AF8
+lbl_805A8AF8:
+	.incbin "baserom.dol", 0x3F6498, 0x8
+.global lbl_805A8B00
+lbl_805A8B00:
+	.incbin "baserom.dol", 0x3F64A0, 0x8
+.global lbl_805A8B08
+lbl_805A8B08:
+	.incbin "baserom.dol", 0x3F64A8, 0x8
+.global lbl_805A8B10
+lbl_805A8B10:
+	.incbin "baserom.dol", 0x3F64B0, 0x8
+.global lbl_805A8B18
+lbl_805A8B18:
+	.incbin "baserom.dol", 0x3F64B8, 0x8
+
+.section .sdata2
+.global lbl_805AEB88
+lbl_805AEB88:
+	.incbin "baserom.dol", 0x3FB428, 0x8
+.global lbl_805AEB90
+lbl_805AEB90:
+	.incbin "baserom.dol", 0x3FB430, 0x8
+.global lbl_805AEB98
+lbl_805AEB98:
+	.incbin "baserom.dol", 0x3FB438, 0x4
+.global lbl_805AEB9C
+lbl_805AEB9C:
+	.incbin "baserom.dol", 0x3FB43C, 0x4
+.global lbl_805AEBA0
+lbl_805AEBA0:
+	.incbin "baserom.dol", 0x3FB440, 0x4
+.global lbl_805AEBA4
+lbl_805AEBA4:
+	.incbin "baserom.dol", 0x3FB444, 0x4
+.global lbl_805AEBA8
+lbl_805AEBA8:
+	.incbin "baserom.dol", 0x3FB448, 0x4
+.global lbl_805AEBAC
+lbl_805AEBAC:
+	.incbin "baserom.dol", 0x3FB44C, 0x4
+
+
 .section .data
 .global lbl_803F09F0
 lbl_803F09F0:

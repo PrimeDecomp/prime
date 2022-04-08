@@ -17,6 +17,28 @@ macActiveMacroRoot:
 DebugMacroSteps:
 	.skip 0x8
 
+.section .sdata2
+.global lbl_805AF288
+lbl_805AF288:
+	.incbin "baserom.dol", 0x3FBB28, 0x4
+.global lbl_805AF28C
+lbl_805AF28C:
+	.incbin "baserom.dol", 0x3FBB2C, 0x4
+.global lbl_805AF290
+lbl_805AF290:
+	.incbin "baserom.dol", 0x3FBB30, 0x8
+.global lbl_805AF298
+lbl_805AF298:
+	.incbin "baserom.dol", 0x3FBB38, 0x8
+.global lbl_805AF2A0
+lbl_805AF2A0:
+	.incbin "baserom.dol", 0x3FBB40, 0x8
+.global lbl_805AF2A8
+lbl_805AF2A8:
+	.incbin "baserom.dol", 0x3FBB48, 0x4
+.global lbl_805AF2AC
+lbl_805AF2AC:
+	.incbin "baserom.dol", 0x3FBB4C, 0x4
 .section .text, "ax" 
 
 .global mcmdWait

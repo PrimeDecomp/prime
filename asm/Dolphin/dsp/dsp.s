@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_805A8A80
+lbl_805A8A80:
+	.incbin "baserom.dol", 0x3F6420, 0x8
+	
+.section .sbss
+.global lbl_805A9748
+lbl_805A9748:
+	.skip 0x8
+.global lbl_805A9750
+lbl_805A9750:
+	.skip 0x4
+.global lbl_805A9754
+lbl_805A9754:
+	.skip 0x4
+.global lbl_805A9758
+lbl_805A9758:
+	.skip 0x4
+.global lbl_805A975C
+lbl_805A975C:
+	.skip 0x4
+.global lbl_805A9760
+lbl_805A9760:
+	.skip 0x4
+.global lbl_805A9764
+lbl_805A9764:
+	.skip 0x4
+	
 .section .data
 lbl_803EF9D0:
 	.asciz "<< Dolphin SDK - DSP\trelease build: Sep  5 2002 05:35:13 (0x2301) >>"

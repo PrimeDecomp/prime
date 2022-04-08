@@ -4,7 +4,52 @@
 .global lbl_80541298
 lbl_80541298:
 	.skip 0x2E8
-	
+
+.section .sdata
+
+.global lbl_805A8B40
+lbl_805A8B40:
+	.incbin "baserom.dol", 0x3F64E0, 0x8
+
+.section .sdata2
+
+.global lbl_805AEC18
+lbl_805AEC18:
+	.incbin "baserom.dol", 0x3FB4B8, 0x4
+.global lbl_805AEC1C
+lbl_805AEC1C:
+	.incbin "baserom.dol", 0x3FB4BC, 0x4
+.global lbl_805AEC20
+lbl_805AEC20:
+	.incbin "baserom.dol", 0x3FB4C0, 0x4
+.global lbl_805AEC24
+lbl_805AEC24:
+	.incbin "baserom.dol", 0x3FB4C4, 0x4
+.global lbl_805AEC28
+lbl_805AEC28:
+	.incbin "baserom.dol", 0x3FB4C8, 0x4
+.global lbl_805AEC2C
+lbl_805AEC2C:
+	.incbin "baserom.dol", 0x3FB4CC, 0x4
+.global lbl_805AEC30
+lbl_805AEC30:
+	.incbin "baserom.dol", 0x3FB4D0, 0x4
+.global lbl_805AEC34
+lbl_805AEC34:
+	.incbin "baserom.dol", 0x3FB4D4, 0x4
+.global lbl_805AEC38
+lbl_805AEC38:
+	.incbin "baserom.dol", 0x3FB4D8, 0x4
+.global lbl_805AEC3C
+lbl_805AEC3C:
+	.incbin "baserom.dol", 0x3FB4DC, 0x4
+.global lbl_805AEC40
+lbl_805AEC40:
+	.incbin "baserom.dol", 0x3FB4E0, 0x4
+.global lbl_805AEC44
+lbl_805AEC44:
+	.incbin "baserom.dol", 0x3FB4E4, 0x4
+
 .section .text, "ax"
 
 .global ScreenReport

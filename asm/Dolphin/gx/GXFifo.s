@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sbss
+lbl_805A9848:
+	.skip 0x4
+lbl_805A984C:
+	.skip 0x4
+lbl_805A9850:
+	.skip 0x4
+lbl_805A9854:
+	.skip 0x4
+lbl_805A9858:
+	.skip 0x4
+lbl_805A985C:
+	.skip 0x4
+lbl_805A9860:
+	.skip 0x4
+lbl_805A9864:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global GXCPInterruptHandler

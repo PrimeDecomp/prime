@@ -4,6 +4,14 @@
 .global lbl_80541580
 lbl_80541580:
 	.skip 0x20
+
+.section .sbss
+lbl_805A98E8:
+	.skip 0x4
+lbl_805A98EC:
+	.skip 0x4
+lbl_805A98F0:
+	.skip 0x8
 	
 .section .text, "ax"
 

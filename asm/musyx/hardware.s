@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AF398
+lbl_805AF398:
+	.incbin "baserom.dol", 0x3FBC38, 0x4
+.global lbl_805AF39C
+lbl_805AF39C:
+	.incbin "baserom.dol", 0x3FBC3C, 0x4
+.global lbl_805AF3A0
+lbl_805AF3A0:
+	.incbin "baserom.dol", 0x3FBC40, 0x8
+.global lbl_805AF3A8
+lbl_805AF3A8:
+	.incbin "baserom.dol", 0x3FBC48, 0x8
+	
 .section .sbss
 .balign 4
 .global salTimeOffset

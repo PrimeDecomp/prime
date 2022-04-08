@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEBB8
+lbl_805AEBB8:
+	.incbin "baserom.dol", 0x3FB458, 0x4
+.global lbl_805AEBBC
+lbl_805AEBBC:
+	.incbin "baserom.dol", 0x3FB45C, 0x4
+.global lbl_805AEBC0
+lbl_805AEBC0:
+	.incbin "baserom.dol", 0x3FB460, 0x8
+.global lbl_805AEBC8
+lbl_805AEBC8:
+	.incbin "baserom.dol", 0x3FB468, 0x8
+.global lbl_805AEBD0
+lbl_805AEBD0:
+	.incbin "baserom.dol", 0x3FB470, 0x8
+.global lbl_805AEBD8
+lbl_805AEBD8:
+	.incbin "baserom.dol", 0x3FB478, 0x8
+.global lbl_805AEBE0
+lbl_805AEBE0:
+	.incbin "baserom.dol", 0x3FB480, 0x8
+	
 .section .data
 .global lbl_803F0C90
 lbl_803F0C90:

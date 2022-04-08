@@ -1,5 +1,44 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_805A8A68
+lbl_805A8A68:
+	.incbin "baserom.dol", 0x3F6408, 0x8
+
+.section .sbss
+lbl_805A96B8:
+	.skip 0x4
+lbl_805A96BC:
+	.skip 0x4
+lbl_805A96C0:
+	.skip 0x4
+lbl_805A96C4:
+	.skip 0x4
+lbl_805A96C8:
+	.skip 0x4
+lbl_805A96CC:
+	.skip 0x4
+lbl_805A96D0:
+	.skip 0x4
+lbl_805A96D4:
+	.skip 0x4
+lbl_805A96D8:
+	.skip 0x4
+lbl_805A96DC:
+	.skip 0x4
+lbl_805A96E0:
+	.skip 0x4
+lbl_805A96E4:
+	.skip 0x4
+lbl_805A96E8:
+	.skip 0x4
+lbl_805A96EC:
+	.skip 0x4
+lbl_805A96F0:
+	.skip 0x4
+lbl_805A96F4:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global AIRegisterDMACallback

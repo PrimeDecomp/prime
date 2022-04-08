@@ -5,6 +5,25 @@ lbl_80540C18:
 	.skip 0x40
 lbl_80540C58:
 	.skip 0x30
+.section .sbss
+lbl_805A9828:
+	.skip 0x4
+lbl_805A982C:
+	.skip 0x4
+lbl_805A9830:
+	.skip 0x8
+	
+.section .sdata
+
+.global lbl_805A8AB8
+lbl_805A8AB8:
+	.incbin "baserom.dol", 0x3F6458, 0x4
+.global lbl_805A8ABC
+lbl_805A8ABC:
+	.incbin "baserom.dol", 0x3F645C, 0x4
+.global lbl_805A8AC0
+lbl_805A8AC0:
+	.incbin "baserom.dol", 0x3F6460, 0x8
 	
 .section .data
 .balign 8

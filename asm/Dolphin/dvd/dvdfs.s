@@ -1,5 +1,30 @@
 .include "macros.inc"
 
+.section .sbss
+.global lbl_805A97B0
+lbl_805A97B0:
+	.skip 0x4
+.global lbl_805A97B4
+lbl_805A97B4:
+	.skip 0x4
+.global lbl_805A97B8
+lbl_805A97B8:
+	.skip 0x4
+.global lbl_805A97BC
+lbl_805A97BC:
+	.skip 0x4
+.global lbl_805A97C0
+lbl_805A97C0:
+	.skip 0x4
+.global lbl_805A97C4
+lbl_805A97C4:
+	.skip 0x4
+
+.section .sdata
+.global lbl_805A8A90
+lbl_805A8A90:
+	.incbin "baserom.dol", 0x3F6430, 0x8
+	
 .section .data
 .balign 8
 lbl_803EFB90:
