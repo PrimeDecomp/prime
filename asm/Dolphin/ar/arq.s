@@ -31,8 +31,8 @@ lbl_805A9730:
 .global lbl_805A9734
 lbl_805A9734:
 	.skip 0x4
-.global lbl_805A9738
-lbl_805A9738:
+.global __ARQChunkSize
+__ARQChunkSize:
 	.skip 0x4
 .global lbl_805A973C
 lbl_805A973C:
@@ -59,7 +59,7 @@ lbl_8036F460:
 /* 8036F464 0036C3C4  28 05 00 00 */	cmplwi r5, 0
 /* 8036F468 0036C3C8  41 82 00 B8 */	beq lbl_8036F520
 /* 8036F46C 0036C3CC  80 C5 00 18 */	lwz r6, 0x18(r5)
-/* 8036F470 0036C3D0  80 0D AB 78 */	lwz r0, lbl_805A9738@sda21(r13)
+/* 8036F470 0036C3D0  80 0D AB 78 */	lwz r0, __ARQChunkSize@sda21(r13)
 /* 8036F474 0036C3D4  7C 06 00 40 */	cmplw r6, r0
 /* 8036F478 0036C3D8  41 81 00 3C */	bgt lbl_8036F4B4
 /* 8036F47C 0036C3DC  80 65 00 08 */	lwz r3, 8(r5)
@@ -94,17 +94,17 @@ lbl_8036F4D4:
 /* 8036F4E0 0036C440  4B FF E4 45 */	bl ARStartDMA
 lbl_8036F4E4:
 /* 8036F4E4 0036C444  80 6D AB 6C */	lwz r3, lbl_805A972C@sda21(r13)
-/* 8036F4E8 0036C448  80 8D AB 78 */	lwz r4, lbl_805A9738@sda21(r13)
+/* 8036F4E8 0036C448  80 8D AB 78 */	lwz r4, __ARQChunkSize@sda21(r13)
 /* 8036F4EC 0036C44C  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 8036F4F0 0036C450  7C 04 00 50 */	subf r0, r4, r0
 /* 8036F4F4 0036C454  90 03 00 18 */	stw r0, 0x18(r3)
 /* 8036F4F8 0036C458  80 8D AB 6C */	lwz r4, lbl_805A972C@sda21(r13)
-/* 8036F4FC 0036C45C  80 0D AB 78 */	lwz r0, lbl_805A9738@sda21(r13)
+/* 8036F4FC 0036C45C  80 0D AB 78 */	lwz r0, __ARQChunkSize@sda21(r13)
 /* 8036F500 0036C460  80 64 00 10 */	lwz r3, 0x10(r4)
 /* 8036F504 0036C464  7C 03 02 14 */	add r0, r3, r0
 /* 8036F508 0036C468  90 04 00 10 */	stw r0, 0x10(r4)
 /* 8036F50C 0036C46C  80 8D AB 6C */	lwz r4, lbl_805A972C@sda21(r13)
-/* 8036F510 0036C470  80 0D AB 78 */	lwz r0, lbl_805A9738@sda21(r13)
+/* 8036F510 0036C470  80 0D AB 78 */	lwz r0, __ARQChunkSize@sda21(r13)
 /* 8036F514 0036C474  80 64 00 14 */	lwz r3, 0x14(r4)
 /* 8036F518 0036C478  7C 03 02 14 */	add r0, r3, r0
 /* 8036F51C 0036C47C  90 04 00 14 */	stw r0, 0x14(r4)
@@ -195,7 +195,7 @@ ARQInit:
 /* 8036F630 0036C590  3C 60 80 37 */	lis r3, __ARQInterruptServiceRoutine@ha
 /* 8036F634 0036C594  93 ED AB 58 */	stw r31, lbl_805A9718@sda21(r13)
 /* 8036F638 0036C598  38 63 F5 34 */	addi r3, r3, __ARQInterruptServiceRoutine@l
-/* 8036F63C 0036C59C  90 0D AB 78 */	stw r0, lbl_805A9738@sda21(r13)
+/* 8036F63C 0036C59C  90 0D AB 78 */	stw r0, __ARQChunkSize@sda21(r13)
 /* 8036F640 0036C5A0  4B FF E2 65 */	bl ARRegisterDMACallback
 /* 8036F644 0036C5A4  38 00 00 01 */	li r0, 1
 /* 8036F648 0036C5A8  93 ED AB 68 */	stw r31, lbl_805A9728@sda21(r13)
@@ -315,5 +315,5 @@ lbl_8036F7A8:
 
 .global ARQGetChunkSize
 ARQGetChunkSize:
-/* 8036F7CC 0036C72C  80 6D AB 78 */	lwz r3, lbl_805A9738@sda21(r13)
+/* 8036F7CC 0036C72C  80 6D AB 78 */	lwz r3, __ARQChunkSize@sda21(r13)
 /* 8036F7D0 0036C730  4E 80 00 20 */	blr 
