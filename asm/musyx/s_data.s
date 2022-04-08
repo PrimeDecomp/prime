@@ -290,8 +290,8 @@ lbl_803AA16C:
 /* 803AA17C 003A70DC  38 21 00 20 */	addi r1, r1, 0x20
 /* 803AA180 003A70E0  4E 80 00 20 */	blr 
 
-.global sub_803aa184
-sub_803aa184:
+.global dataInitStack
+dataInitStack:
 /* 803AA184 003A70E4  38 00 00 00 */	li r0, 0
 /* 803AA188 003A70E8  B0 0D AF 18 */	sth r0, sp@sda21(r13)
 /* 803AA18C 003A70EC  4E 80 00 20 */	blr 

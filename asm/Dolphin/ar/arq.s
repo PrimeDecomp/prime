@@ -313,7 +313,7 @@ lbl_8036F7A8:
 /* 8036F7C4 0036C724  7C 08 03 A6 */	mtlr r0
 /* 8036F7C8 0036C728  4E 80 00 20 */	blr 
 
-.global sub_8036f7cc
-sub_8036f7cc:
+.global ARQGetChunkSize
+ARQGetChunkSize:
 /* 8036F7CC 0036C72C  80 6D AB 78 */	lwz r3, lbl_805A9738@sda21(r13)
 /* 8036F7D0 0036C730  4E 80 00 20 */	blr 

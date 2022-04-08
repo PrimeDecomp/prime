@@ -276,7 +276,7 @@ sndSetAuxProcessingCallbacks:
 /* 8039C538 00399498  7C 08 02 A6 */	mflr r0
 /* 8039C53C 0039949C  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8039C540 003994A0  39 61 00 30 */	addi r11, r1, 0x30
-/* 8039C544 003994A4  4B FE D5 25 */	bl sub_80389a68
+/* 8039C544 003994A4  4B FE D5 25 */	bl _savegpr_22
 /* 8039C548 003994A8  83 E1 00 38 */	lwz r31, 0x38(r1)
 /* 8039C54C 003994AC  7C 79 1B 78 */	mr r25, r3
 /* 8039C550 003994B0  7C 9A 23 78 */	mr r26, r4
@@ -363,8 +363,8 @@ lbl_8039C658:
 /* 8039C684 003995E4  38 21 00 30 */	addi r1, r1, 0x30
 /* 8039C688 003995E8  4E 80 00 20 */	blr 
 
-.global sub_8039c68c
-sub_8039c68c:
+.global synthActivateStudio
+synthActivateStudio:
 /* 8039C68C 003995EC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8039C690 003995F0  7C 08 02 A6 */	mflr r0
 /* 8039C694 003995F4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -475,8 +475,8 @@ lbl_8039C7B8:
 /* 8039C81C 0039977C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8039C820 00399780  4E 80 00 20 */	blr 
 
-.global sub_8039c824
-sub_8039c824:
+.global synthAddStudioInput
+synthAddStudioInput:
 /* 8039C824 00399784  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039C828 00399788  7C 08 02 A6 */	mflr r0
 /* 8039C82C 0039978C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -486,8 +486,8 @@ sub_8039c824:
 /* 8039C83C 0039979C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8039C840 003997A0  4E 80 00 20 */	blr 
 
-.global sub_8039c844
-sub_8039c844:
+.global synthRemoveStudioInput
+synthRemoveStudioInput:
 /* 8039C844 003997A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039C848 003997A8  7C 08 02 A6 */	mflr r0
 /* 8039C84C 003997AC  90 01 00 14 */	stw r0, 0x14(r1)
