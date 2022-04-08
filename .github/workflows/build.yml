@@ -16,7 +16,7 @@ jobs:
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt-get -y install wine32
-        mkdir -p "$WINEPREFIX"
+        sudo chown $(whoami) "$GITHUB_WORKSPACE"
     - uses: actions/checkout@v3
     - name: Download compilers
       run: |
