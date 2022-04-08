@@ -3,15 +3,24 @@
 .section .sdata2
 .global lbl_805AF2B0
 lbl_805AF2B0:
-	.incbin "baserom.dol", 0x3FBB50, 0x8
+	# ROM: 0x3FBB50
+	.4byte 0x3F879C7D
+	.4byte 0
+
 .global lbl_805AF2B8
 lbl_805AF2B8:
-	.incbin "baserom.dol", 0x3FBB58, 0x8
+	# ROM: 0x3FBB58
+	.4byte 0x43300000
+	.4byte 0
+
 .global lbl_805AF2C0
 lbl_805AF2C0:
-	.incbin "baserom.dol", 0x3FBB60, 0x8
-	
-.section .text, "ax" 
+	# ROM: 0x3FBB60
+	.4byte 0x45800000
+	.4byte 0
+
+
+.section .text, "ax"
 
 .global sndPitchUpOne
 sndPitchUpOne:
@@ -29,7 +38,7 @@ sndPitchUpOne:
 /* 803A911C 003A607C  D8 01 00 10 */	stfd f0, 0x10(r1)
 /* 803A9120 003A6080  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 803A9124 003A6084  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A9128 003A6088  4E 80 00 20 */	blr 
+/* 803A9128 003A6088  4E 80 00 20 */	blr
 
 .global sndGetPitch
 sndGetPitch:
@@ -94,4 +103,4 @@ lbl_803A91D4:
 /* 803A9200 003A6160  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803A9204 003A6164  7C 08 03 A6 */	mtlr r0
 /* 803A9208 003A6168  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A920C 003A616C  4E 80 00 20 */	blr 
+/* 803A920C 003A616C  4E 80 00 20 */	blr

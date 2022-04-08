@@ -3,17 +3,27 @@
 .section .sdata2
 .global lbl_805AF398
 lbl_805AF398:
-	.incbin "baserom.dol", 0x3FBC38, 0x4
+	# ROM: 0x3FBC38
+	.4byte 0x3F800000
+
 .global lbl_805AF39C
 lbl_805AF39C:
-	.incbin "baserom.dol", 0x3FBC3C, 0x4
+	# ROM: 0x3FBC3C
+	.4byte 0x46FFFE00
+
 .global lbl_805AF3A0
 lbl_805AF3A0:
-	.incbin "baserom.dol", 0x3FBC40, 0x8
+	# ROM: 0x3FBC40
+	.4byte 0x45800000
+	.4byte 0
+
 .global lbl_805AF3A8
 lbl_805AF3A8:
-	.incbin "baserom.dol", 0x3FBC48, 0x8
-	
+	# ROM: 0x3FBC48
+	.4byte 0x43300000
+	.4byte 0
+
+
 .section .sbss
 .balign 4
 .global salTimeOffset

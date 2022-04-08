@@ -4,7 +4,7 @@
 .global streamInfo
 streamInfo:
 	.skip 0x1900
-	
+
 .section .sbss
 .balign 4
 nextPublicID:
@@ -17,15 +17,24 @@ streamCallCnt:
 .section .sdata2
 .global lbl_805AF270
 lbl_805AF270:
-	.incbin "baserom.dol", 0x3FBB10, 0x8
+	# ROM: 0x3FBB10
+	.4byte 0x3C010204
+	.4byte 0
+
 .global lbl_805AF278
 lbl_805AF278:
-	.incbin "baserom.dol", 0x3FBB18, 0x8
+	# ROM: 0x3FBB18
+	.4byte 0x43300000
+	.4byte 0
+
 .global lbl_805AF280
 lbl_805AF280:
-	.incbin "baserom.dol", 0x3FBB20, 0x8
+	# ROM: 0x3FBB20
+	.4byte 0x45800000
+	.4byte 0
 
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global streamInit
 streamInit:
@@ -79,7 +88,7 @@ lbl_8039C908:
 lbl_8039C914:
 /* 8039C914 00399874  38 00 00 00 */	li r0, 0
 /* 8039C918 00399878  90 0D AE 90 */	stw r0, nextPublicID@sda21(r13)
-/* 8039C91C 0039987C  4E 80 00 20 */	blr 
+/* 8039C91C 0039987C  4E 80 00 20 */	blr
 
 .global SetHWMix
 SetHWMix:
@@ -117,7 +126,7 @@ SetHWMix:
 /* 8039C99C 003998FC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8039C9A0 00399900  7C 08 03 A6 */	mtlr r0
 /* 8039C9A4 00399904  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C9A8 00399908  4E 80 00 20 */	blr 
+/* 8039C9A8 00399908  4E 80 00 20 */	blr
 
 .global streamHandle
 streamHandle:
@@ -299,7 +308,7 @@ lbl_8039CC2C:
 /* 8039CC44 00399BA4  38 A0 00 00 */	li r5, 0
 /* 8039CC48 00399BA8  38 C0 00 00 */	li r6, 0
 /* 8039CC4C 00399BAC  7D 89 03 A6 */	mtctr r12
-/* 8039CC50 00399BB0  4E 80 04 21 */	bctrl 
+/* 8039CC50 00399BB0  4E 80 04 21 */	bctrl
 /* 8039CC54 00399BB4  28 03 00 00 */	cmplwi r3, 0
 /* 8039CC58 00399BB8  41 82 05 94 */	beq lbl_8039D1EC
 /* 8039CC5C 00399BBC  88 1C 00 0C */	lbz r0, 0xc(r28)
@@ -353,7 +362,7 @@ lbl_8039CCE0:
 /* 8039CD10 00399C70  54 1E 00 38 */	rlwinm r30, r0, 0, 0, 0x1c
 /* 8039CD14 00399C74  7C 68 F2 14 */	add r3, r8, r30
 /* 8039CD18 00399C78  7D 89 03 A6 */	mtctr r12
-/* 8039CD1C 00399C7C  4E 80 04 21 */	bctrl 
+/* 8039CD1C 00399C7C  4E 80 04 21 */	bctrl
 /* 8039CD20 00399C80  28 03 00 00 */	cmplwi r3, 0
 /* 8039CD24 00399C84  41 82 04 C8 */	beq lbl_8039D1EC
 /* 8039CD28 00399C88  88 1C 00 0C */	lbz r0, 0xc(r28)
@@ -418,7 +427,7 @@ lbl_8039CDE8:
 /* 8039CE04 00399D64  80 FC 00 50 */	lwz r7, 0x50(r28)
 /* 8039CE08 00399D68  38 C0 00 00 */	li r6, 0
 /* 8039CE0C 00399D6C  7D 89 03 A6 */	mtctr r12
-/* 8039CE10 00399D70  4E 80 04 21 */	bctrl 
+/* 8039CE10 00399D70  4E 80 04 21 */	bctrl
 /* 8039CE14 00399D74  28 03 00 00 */	cmplwi r3, 0
 /* 8039CE18 00399D78  41 82 03 D4 */	beq lbl_8039D1EC
 /* 8039CE1C 00399D7C  88 1C 00 0C */	lbz r0, 0xc(r28)
@@ -473,7 +482,7 @@ lbl_8039CEA0:
 /* 8039CED4 00399E34  54 1E 00 38 */	rlwinm r30, r0, 0, 0, 0x1c
 /* 8039CED8 00399E38  7C 68 F2 14 */	add r3, r8, r30
 /* 8039CEDC 00399E3C  7D 89 03 A6 */	mtctr r12
-/* 8039CEE0 00399E40  4E 80 04 21 */	bctrl 
+/* 8039CEE0 00399E40  4E 80 04 21 */	bctrl
 /* 8039CEE4 00399E44  28 03 00 00 */	cmplwi r3, 0
 /* 8039CEE8 00399E48  41 82 03 04 */	beq lbl_8039D1EC
 /* 8039CEEC 00399E4C  88 1C 00 0C */	lbz r0, 0xc(r28)
@@ -535,7 +544,7 @@ lbl_8039CFA4:
 /* 8039CFBC 00399F1C  7C 65 3A 14 */	add r3, r5, r7
 /* 8039CFC0 00399F20  80 FC 00 50 */	lwz r7, 0x50(r28)
 /* 8039CFC4 00399F24  7D 89 03 A6 */	mtctr r12
-/* 8039CFC8 00399F28  4E 80 04 21 */	bctrl 
+/* 8039CFC8 00399F28  4E 80 04 21 */	bctrl
 /* 8039CFCC 00399F2C  28 03 00 00 */	cmplwi r3, 0
 /* 8039CFD0 00399F30  41 82 02 1C */	beq lbl_8039D1EC
 /* 8039CFD4 00399F34  88 1C 00 0C */	lbz r0, 0xc(r28)
@@ -609,7 +618,7 @@ lbl_8039D0A4:
 /* 8039D0D4 0039A034  54 1B 00 38 */	rlwinm r27, r0, 0, 0, 0x1c
 /* 8039D0D8 0039A038  7C 65 DA 14 */	add r3, r5, r27
 /* 8039D0DC 0039A03C  7D 89 03 A6 */	mtctr r12
-/* 8039D0E0 0039A040  4E 80 04 21 */	bctrl 
+/* 8039D0E0 0039A040  4E 80 04 21 */	bctrl
 /* 8039D0E4 0039A044  28 03 00 00 */	cmplwi r3, 0
 /* 8039D0E8 0039A048  41 82 01 04 */	beq lbl_8039D1EC
 /* 8039D0EC 0039A04C  88 1C 00 0C */	lbz r0, 0xc(r28)
@@ -709,11 +718,11 @@ lbl_8039D240:
 /* 8039D248 0039A1A8  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8039D24C 0039A1AC  7C 08 03 A6 */	mtlr r0
 /* 8039D250 0039A1B0  38 21 00 70 */	addi r1, r1, 0x70
-/* 8039D254 0039A1B4  4E 80 00 20 */	blr 
+/* 8039D254 0039A1B4  4E 80 00 20 */	blr
 
 .global nullsub_60
 nullsub_60:
-/* 8039D258 0039A1B8  4E 80 00 20 */	blr 
+/* 8039D258 0039A1B8  4E 80 00 20 */	blr
 
 .global streamKill
 streamKill:
@@ -746,13 +755,13 @@ lbl_8039D2A4:
 /* 8039D2BC 0039A21C  81 9F 00 10 */	lwz r12, 0x10(r31)
 /* 8039D2C0 0039A220  80 FF 00 50 */	lwz r7, 0x50(r31)
 /* 8039D2C4 0039A224  7D 89 03 A6 */	mtctr r12
-/* 8039D2C8 0039A228  4E 80 04 21 */	bctrl 
+/* 8039D2C8 0039A228  4E 80 04 21 */	bctrl
 lbl_8039D2CC:
 /* 8039D2CC 0039A22C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8039D2D0 0039A230  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8039D2D4 0039A234  7C 08 03 A6 */	mtlr r0
 /* 8039D2D8 0039A238  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039D2DC 0039A23C  4E 80 00 20 */	blr 
+/* 8039D2DC 0039A23C  4E 80 00 20 */	blr
 
 .global GetPrivateIndex
 GetPrivateIndex:
@@ -769,7 +778,7 @@ lbl_8039D2F4:
 /* 8039D304 0039A264  7C 03 00 40 */	cmplw r3, r0
 /* 8039D308 0039A268  40 82 00 0C */	bne lbl_8039D314
 /* 8039D30C 0039A26C  7C A3 2B 78 */	mr r3, r5
-/* 8039D310 0039A270  4E 80 00 20 */	blr 
+/* 8039D310 0039A270  4E 80 00 20 */	blr
 lbl_8039D314:
 /* 8039D314 0039A274  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D318 0039A278  38 A5 00 01 */	addi r5, r5, 1
@@ -780,7 +789,7 @@ lbl_8039D314:
 /* 8039D32C 0039A28C  7C 03 00 40 */	cmplw r3, r0
 /* 8039D330 0039A290  40 82 00 0C */	bne lbl_8039D33C
 /* 8039D334 0039A294  7C A3 2B 78 */	mr r3, r5
-/* 8039D338 0039A298  4E 80 00 20 */	blr 
+/* 8039D338 0039A298  4E 80 00 20 */	blr
 lbl_8039D33C:
 /* 8039D33C 0039A29C  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D340 0039A2A0  38 A5 00 01 */	addi r5, r5, 1
@@ -791,7 +800,7 @@ lbl_8039D33C:
 /* 8039D354 0039A2B4  7C 03 00 40 */	cmplw r3, r0
 /* 8039D358 0039A2B8  40 82 00 0C */	bne lbl_8039D364
 /* 8039D35C 0039A2BC  7C A3 2B 78 */	mr r3, r5
-/* 8039D360 0039A2C0  4E 80 00 20 */	blr 
+/* 8039D360 0039A2C0  4E 80 00 20 */	blr
 lbl_8039D364:
 /* 8039D364 0039A2C4  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D368 0039A2C8  38 A5 00 01 */	addi r5, r5, 1
@@ -802,7 +811,7 @@ lbl_8039D364:
 /* 8039D37C 0039A2DC  7C 03 00 40 */	cmplw r3, r0
 /* 8039D380 0039A2E0  40 82 00 0C */	bne lbl_8039D38C
 /* 8039D384 0039A2E4  7C A3 2B 78 */	mr r3, r5
-/* 8039D388 0039A2E8  4E 80 00 20 */	blr 
+/* 8039D388 0039A2E8  4E 80 00 20 */	blr
 lbl_8039D38C:
 /* 8039D38C 0039A2EC  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D390 0039A2F0  38 A5 00 01 */	addi r5, r5, 1
@@ -813,7 +822,7 @@ lbl_8039D38C:
 /* 8039D3A4 0039A304  7C 03 00 40 */	cmplw r3, r0
 /* 8039D3A8 0039A308  40 82 00 0C */	bne lbl_8039D3B4
 /* 8039D3AC 0039A30C  7C A3 2B 78 */	mr r3, r5
-/* 8039D3B0 0039A310  4E 80 00 20 */	blr 
+/* 8039D3B0 0039A310  4E 80 00 20 */	blr
 lbl_8039D3B4:
 /* 8039D3B4 0039A314  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D3B8 0039A318  38 A5 00 01 */	addi r5, r5, 1
@@ -824,7 +833,7 @@ lbl_8039D3B4:
 /* 8039D3CC 0039A32C  7C 03 00 40 */	cmplw r3, r0
 /* 8039D3D0 0039A330  40 82 00 0C */	bne lbl_8039D3DC
 /* 8039D3D4 0039A334  7C A3 2B 78 */	mr r3, r5
-/* 8039D3D8 0039A338  4E 80 00 20 */	blr 
+/* 8039D3D8 0039A338  4E 80 00 20 */	blr
 lbl_8039D3DC:
 /* 8039D3DC 0039A33C  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D3E0 0039A340  38 A5 00 01 */	addi r5, r5, 1
@@ -835,7 +844,7 @@ lbl_8039D3DC:
 /* 8039D3F4 0039A354  7C 03 00 40 */	cmplw r3, r0
 /* 8039D3F8 0039A358  40 82 00 0C */	bne lbl_8039D404
 /* 8039D3FC 0039A35C  7C A3 2B 78 */	mr r3, r5
-/* 8039D400 0039A360  4E 80 00 20 */	blr 
+/* 8039D400 0039A360  4E 80 00 20 */	blr
 lbl_8039D404:
 /* 8039D404 0039A364  88 04 00 70 */	lbz r0, 0x70(r4)
 /* 8039D408 0039A368  38 A5 00 01 */	addi r5, r5, 1
@@ -846,13 +855,13 @@ lbl_8039D404:
 /* 8039D41C 0039A37C  7C 03 00 40 */	cmplw r3, r0
 /* 8039D420 0039A380  40 82 00 0C */	bne lbl_8039D42C
 /* 8039D424 0039A384  7C A3 2B 78 */	mr r3, r5
-/* 8039D428 0039A388  4E 80 00 20 */	blr 
+/* 8039D428 0039A388  4E 80 00 20 */	blr
 lbl_8039D42C:
 /* 8039D42C 0039A38C  38 84 00 64 */	addi r4, r4, 0x64
 /* 8039D430 0039A390  38 A5 00 01 */	addi r5, r5, 1
 /* 8039D434 0039A394  42 00 FE C0 */	bdnz lbl_8039D2F4
 /* 8039D438 0039A398  38 60 FF FF */	li r3, -1
-/* 8039D43C 0039A39C  4E 80 00 20 */	blr 
+/* 8039D43C 0039A39C  4E 80 00 20 */	blr
 
 .global sndStreamARAMUpdate
 sndStreamARAMUpdate:
@@ -1056,7 +1065,7 @@ lbl_8039D708:
 /* 8039D714 0039A674  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8039D718 0039A678  7C 08 03 A6 */	mtlr r0
 /* 8039D71C 0039A67C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039D720 0039A680  4E 80 00 20 */	blr 
+/* 8039D720 0039A680  4E 80 00 20 */	blr
 
 .global CheckOutputMode
 CheckOutputMode:
@@ -1067,13 +1076,13 @@ CheckOutputMode:
 /* 8039D734 0039A694  38 00 00 00 */	li r0, 0
 /* 8039D738 0039A698  98 A3 00 00 */	stb r5, 0(r3)
 /* 8039D73C 0039A69C  98 04 00 00 */	stb r0, 0(r4)
-/* 8039D740 0039A6A0  4E 80 00 20 */	blr 
+/* 8039D740 0039A6A0  4E 80 00 20 */	blr
 lbl_8039D744:
 /* 8039D744 0039A6A4  54 A0 07 BD */	rlwinm. r0, r5, 0, 0x1e, 0x1e
-/* 8039D748 0039A6A8  4C 82 00 20 */	bnelr 
+/* 8039D748 0039A6A8  4C 82 00 20 */	bnelr
 /* 8039D74C 0039A6AC  38 00 00 00 */	li r0, 0
 /* 8039D750 0039A6B0  98 04 00 00 */	stb r0, 0(r4)
-/* 8039D754 0039A6B4  4E 80 00 20 */	blr 
+/* 8039D754 0039A6B4  4E 80 00 20 */	blr
 
 .global SetupVolumeAndPan
 SetupVolumeAndPan:
@@ -1095,7 +1104,7 @@ lbl_8039D784:
 /* 8039D78C 0039A6EC  98 C3 00 5B */	stb r6, 0x5b(r3)
 /* 8039D790 0039A6F0  98 E3 00 5C */	stb r7, 0x5c(r3)
 /* 8039D794 0039A6F4  99 03 00 5D */	stb r8, 0x5d(r3)
-/* 8039D798 0039A6F8  4E 80 00 20 */	blr 
+/* 8039D798 0039A6F8  4E 80 00 20 */	blr
 
 .global streamOutputModeChanged
 streamOutputModeChanged:
@@ -1179,7 +1188,7 @@ lbl_8039D8A0:
 /* 8039D8BC 0039A81C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8039D8C0 0039A820  7C 08 03 A6 */	mtlr r0
 /* 8039D8C4 0039A824  38 21 00 30 */	addi r1, r1, 0x30
-/* 8039D8C8 0039A828  4E 80 00 20 */	blr 
+/* 8039D8C8 0039A828  4E 80 00 20 */	blr
 
 .global sndStreamAllocEx
 sndStreamAllocEx:
@@ -1483,7 +1492,7 @@ lbl_8039DD04:
 /* 8039DD14 0039AC74  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8039DD18 0039AC78  7C 08 03 A6 */	mtlr r0
 /* 8039DD1C 0039AC7C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8039DD20 0039AC80  4E 80 00 20 */	blr 
+/* 8039DD20 0039AC80  4E 80 00 20 */	blr
 
 .global sndStreamAllocStereo
 sndStreamAllocStereo:
@@ -1679,7 +1688,7 @@ lbl_8039DFCC:
 /* 8039DFD4 0039AF34  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8039DFD8 0039AF38  7C 08 03 A6 */	mtlr r0
 /* 8039DFDC 0039AF3C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8039DFE0 0039AF40  4E 80 00 20 */	blr 
+/* 8039DFE0 0039AF40  4E 80 00 20 */	blr
 
 .global sndStreamAllocLength
 sndStreamAllocLength:
@@ -1695,12 +1704,12 @@ sndStreamAllocLength:
 /* 8039E008 0039AF68  54 03 00 38 */	rlwinm r3, r0, 0, 0, 0x1c
 /* 8039E00C 0039AF6C  38 03 00 1F */	addi r0, r3, 0x1f
 /* 8039E010 0039AF70  54 03 00 34 */	rlwinm r3, r0, 0, 0, 0x1a
-/* 8039E014 0039AF74  4E 80 00 20 */	blr 
+/* 8039E014 0039AF74  4E 80 00 20 */	blr
 lbl_8039E018:
 /* 8039E018 0039AF78  54 63 08 3C */	slwi r3, r3, 1
 /* 8039E01C 0039AF7C  38 03 00 1F */	addi r0, r3, 0x1f
 /* 8039E020 0039AF80  54 03 00 34 */	rlwinm r3, r0, 0, 0, 0x1a
-/* 8039E024 0039AF84  4E 80 00 20 */	blr 
+/* 8039E024 0039AF84  4E 80 00 20 */	blr
 
 .global sndStreamADPCMParameter
 sndStreamADPCMParameter:
@@ -2184,7 +2193,7 @@ lbl_8039E708:
 /* 8039E714 0039B674  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8039E718 0039B678  7C 08 03 A6 */	mtlr r0
 /* 8039E71C 0039B67C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039E720 0039B680  4E 80 00 20 */	blr 
+/* 8039E720 0039B680  4E 80 00 20 */	blr
 
 .global sndStreamMixParameter
 sndStreamMixParameter:
@@ -2535,7 +2544,7 @@ lbl_8039EC14:
 /* 8039EC20 0039BB80  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8039EC24 0039BB84  7C 08 03 A6 */	mtlr r0
 /* 8039EC28 0039BB88  38 21 00 40 */	addi r1, r1, 0x40
-/* 8039EC2C 0039BB8C  4E 80 00 20 */	blr 
+/* 8039EC2C 0039BB8C  4E 80 00 20 */	blr
 
 .global sndStreamMixParameterEx
 sndStreamMixParameterEx:
@@ -2909,7 +2918,7 @@ lbl_8039F170:
 /* 8039F17C 0039C0DC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8039F180 0039C0E0  7C 08 03 A6 */	mtlr r0
 /* 8039F184 0039C0E4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8039F188 0039C0E8  4E 80 00 20 */	blr 
+/* 8039F188 0039C0E8  4E 80 00 20 */	blr
 
 .global sndStreamFrq
 sndStreamFrq:
@@ -3360,7 +3369,7 @@ lbl_8039F7D8:
 /* 8039F7E4 0039C744  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8039F7E8 0039C748  7C 08 03 A6 */	mtlr r0
 /* 8039F7EC 0039C74C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8039F7F0 0039C750  4E 80 00 20 */	blr 
+/* 8039F7F0 0039C750  4E 80 00 20 */	blr
 
 .global sndStreamFree
 sndStreamFree:
@@ -3850,7 +3859,7 @@ lbl_8039FEAC:
 /* 8039FEB8 0039CE18  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8039FEBC 0039CE1C  7C 08 03 A6 */	mtlr r0
 /* 8039FEC0 0039CE20  38 21 00 30 */	addi r1, r1, 0x30
-/* 8039FEC4 0039CE24  4E 80 00 20 */	blr 
+/* 8039FEC4 0039CE24  4E 80 00 20 */	blr
 
 .global sndStreamActivate
 sndStreamActivate:
@@ -4307,7 +4316,7 @@ lbl_803A0500:
 /* 803A0510 0039D470  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803A0514 0039D474  7C 08 03 A6 */	mtlr r0
 /* 803A0518 0039D478  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A051C 0039D47C  4E 80 00 20 */	blr 
+/* 803A051C 0039D47C  4E 80 00 20 */	blr
 
 .global sndStreamDeactivate
 sndStreamDeactivate:
@@ -4818,4 +4827,4 @@ lbl_803A0C14:
 /* 803A0C24 0039DB84  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803A0C28 0039DB88  7C 08 03 A6 */	mtlr r0
 /* 803A0C2C 0039DB8C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A0C30 0039DB90  4E 80 00 20 */	blr 
+/* 803A0C30 0039DB90  4E 80 00 20 */	blr

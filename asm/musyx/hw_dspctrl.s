@@ -9,8 +9,8 @@ dspStudio:
 	.skip 0x5E0
 "voices$217":
 	.skip 0x100
-	
-.section .sbss 
+
+.section .sbss
 .balign 4
 .global dspARAMZeroBuffer
 dspARAMZeroBuffer:
@@ -57,22 +57,53 @@ dspVoice:
 .global salMessageCallback
 salMessageCallback:
 	.skip 0x8
-	
+
 .section .data, "wa"
 
 .global lbl_803F3FA8
 lbl_803F3FA8:
-	.incbin "baserom.dol", 0x3F0FA8, 0x18
-	
+	# ROM: 0x3F0FA8
+	.4byte 0x0BAE0BAE
+	.4byte 0x045B0CE4
+	.4byte 0x0CE4045B
+	.4byte 0x0E740E74
+	.4byte 0x045B0000
+	.4byte 0
+
+
 .section .rodata
 .global lbl_803D8A68
 lbl_803D8A68:
-	.incbin "baserom.dol", 0x3D5A68, 0x40
+	# ROM: 0x3D5A68
+	.4byte 0x05BE0B7C
+	.4byte 0x0B7C113A
+	.4byte 0x08B6116C
+	.4byte 0x116C1A22
+	.4byte 0x09A6134C
+	.4byte 0x134C1CF2
+	.4byte 0x0E971D2E
+	.4byte 0x1D2E2BC5
+	.4byte 0x0B7C0D3A
+	.4byte 0x0B7C0D3A
+	.4byte 0x0B7C0D3A
+	.4byte 0x0B7C0D3A
+	.4byte 0x134C1637
+	.4byte 0x134C1637
+	.4byte 0x134C1637
+	.4byte 0x134C1637
+
 .global lbl_803D8AA8
 lbl_803D8AA8:
-	.incbin "baserom.dol", 0x3D5AA8, 0x18
+	# ROM: 0x3D5AA8
+	.4byte 0x000A000C
+	.4byte 0x0018000E
+	.4byte 0x0010001A
+	.4byte 0x00120014
+	.4byte 0x00160000
+	.4byte 0
 
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global salInitDspCtrl
 salInitDspCtrl:
@@ -321,7 +352,7 @@ lbl_803AB090:
 /* 803AB0A0 003A8000  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803AB0A4 003A8004  7C 08 03 A6 */	mtlr r0
 /* 803AB0A8 003A8008  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AB0AC 003A800C  4E 80 00 20 */	blr 
+/* 803AB0AC 003A800C  4E 80 00 20 */	blr
 
 .global salInitHRTFBuffer
 salInitHRTFBuffer:
@@ -338,7 +369,7 @@ salInitHRTFBuffer:
 /* 803AB0D8 003A8038  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803AB0DC 003A803C  7C 08 03 A6 */	mtlr r0
 /* 803AB0E0 003A8040  38 21 00 10 */	addi r1, r1, 0x10
-/* 803AB0E4 003A8044  4E 80 00 20 */	blr 
+/* 803AB0E4 003A8044  4E 80 00 20 */	blr
 
 .global salExitDspCtrl
 salExitDspCtrl:
@@ -401,7 +432,7 @@ lbl_803AB178:
 /* 803AB1B8 003A8118  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803AB1BC 003A811C  7C 08 03 A6 */	mtlr r0
 /* 803AB1C0 003A8120  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AB1C4 003A8124  4E 80 00 20 */	blr 
+/* 803AB1C4 003A8124  4E 80 00 20 */	blr
 
 .global salActivateStudio
 salActivateStudio:
@@ -488,7 +519,7 @@ salActivateStudio:
 /* 803AB308 003A8268  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803AB30C 003A826C  7C 08 03 A6 */	mtlr r0
 /* 803AB310 003A8270  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AB314 003A8274  4E 80 00 20 */	blr 
+/* 803AB314 003A8274  4E 80 00 20 */	blr
 
 .global sub_803ab318
 sub_803ab318:
@@ -499,7 +530,7 @@ sub_803ab318:
 /* 803AB328 003A8288  38 63 F2 60 */	addi r3, r3, dspStudio@l
 /* 803AB32C 003A828C  7C 63 02 14 */	add r3, r3, r0
 /* 803AB330 003A8290  98 83 00 50 */	stb r4, 0x50(r3)
-/* 803AB334 003A8294  4E 80 00 20 */	blr 
+/* 803AB334 003A8294  4E 80 00 20 */	blr
 
 .global salCheckVolErrorAndResetDelta
 salCheckVolErrorAndResetDelta:
@@ -531,7 +562,7 @@ lbl_803AB388:
 /* 803AB398 003A82F8  A0 85 00 00 */	lhz r4, 0(r5)
 /* 803AB39C 003A82FC  7C 04 02 14 */	add r0, r4, r0
 /* 803AB3A0 003A8300  B0 05 00 00 */	sth r0, 0(r5)
-/* 803AB3A4 003A8304  4E 80 00 20 */	blr 
+/* 803AB3A4 003A8304  4E 80 00 20 */	blr
 lbl_803AB3A8:
 /* 803AB3A8 003A8308  2C 09 FF E0 */	cmpwi r9, -32
 /* 803AB3AC 003A830C  41 81 00 54 */	bgt lbl_803AB400
@@ -555,7 +586,7 @@ lbl_803AB3DC:
 /* 803AB3F0 003A8350  A0 05 00 00 */	lhz r0, 0(r5)
 /* 803AB3F4 003A8354  7C 06 00 50 */	subf r0, r6, r0
 /* 803AB3F8 003A8358  B0 05 00 00 */	sth r0, 0(r5)
-/* 803AB3FC 003A835C  4E 80 00 20 */	blr 
+/* 803AB3FC 003A835C  4E 80 00 20 */	blr
 lbl_803AB400:
 /* 803AB400 003A8360  54 C0 04 3F */	clrlwi. r0, r6, 0x10
 /* 803AB404 003A8364  40 82 00 18 */	bne lbl_803AB41C
@@ -568,7 +599,7 @@ lbl_803AB41C:
 /* 803AB41C 003A837C  38 00 00 00 */	li r0, 0
 /* 803AB420 003A8380  38 60 00 00 */	li r3, 0
 /* 803AB424 003A8384  B0 04 00 00 */	sth r0, 0(r4)
-/* 803AB428 003A8388  4E 80 00 20 */	blr 
+/* 803AB428 003A8388  4E 80 00 20 */	blr
 
 .global sal_setup_dspvol
 sal_setup_dspvol:
@@ -589,13 +620,13 @@ sal_setup_dspvol:
 /* 803AB464 003A83C4  1C 00 00 A0 */	mulli r0, r0, 0xa0
 /* 803AB468 003A83C8  7C 03 02 14 */	add r0, r3, r0
 /* 803AB46C 003A83CC  B0 04 00 00 */	sth r0, 0(r4)
-/* 803AB470 003A83D0  4E 80 00 20 */	blr 
+/* 803AB470 003A83D0  4E 80 00 20 */	blr
 
 .global sal_update_hostplayinfo
 sal_update_hostplayinfo:
 /* 803AB474 003A83D4  80 03 00 8C */	lwz r0, 0x8c(r3)
 /* 803AB478 003A83D8  28 00 00 00 */	cmplwi r0, 0
-/* 803AB47C 003A83DC  4C 82 00 20 */	bnelr 
+/* 803AB47C 003A83DC  4C 82 00 20 */	bnelr
 /* 803AB480 003A83E0  80 83 00 00 */	lwz r4, 0(r3)
 /* 803AB484 003A83E4  A0 04 00 08 */	lhz r0, 8(r4)
 /* 803AB488 003A83E8  28 00 00 02 */	cmplwi r0, 2
@@ -618,13 +649,13 @@ lbl_803AB4A0:
 /* 803AB4C4 003A8424  7C 80 22 14 */	add r4, r0, r4
 /* 803AB4C8 003A8428  38 04 00 01 */	addi r0, r4, 1
 /* 803AB4CC 003A842C  90 03 00 D8 */	stw r0, 0xd8(r3)
-/* 803AB4D0 003A8430  4E 80 00 20 */	blr 
+/* 803AB4D0 003A8430  4E 80 00 20 */	blr
 lbl_803AB4D4:
 /* 803AB4D4 003A8434  80 83 00 D8 */	lwz r4, 0xd8(r3)
 /* 803AB4D8 003A8438  54 A0 84 3E */	srwi r0, r5, 0x10
 /* 803AB4DC 003A843C  7C 04 02 14 */	add r0, r4, r0
 /* 803AB4E0 003A8440  90 03 00 D8 */	stw r0, 0xd8(r3)
-/* 803AB4E4 003A8444  4E 80 00 20 */	blr 
+/* 803AB4E4 003A8444  4E 80 00 20 */	blr
 
 .global DoDepopFade
 DoDepopFade:
@@ -677,7 +708,7 @@ lbl_803AB574:
 /* 803AB584 003A84E4  1C 00 00 A0 */	mulli r0, r0, 0xa0
 /* 803AB588 003A84E8  7C 03 02 14 */	add r0, r3, r0
 /* 803AB58C 003A84EC  90 05 00 00 */	stw r0, 0(r5)
-/* 803AB590 003A84F0  4E 80 00 20 */	blr 
+/* 803AB590 003A84F0  4E 80 00 20 */	blr
 
 .global sub_803ab594
 sub_803ab594:
@@ -825,7 +856,7 @@ lbl_803AB778:
 lbl_803AB77C:
 /* 803AB77C 003A86DC  A0 04 00 0C */	lhz r0, 0xc(r4)
 /* 803AB780 003A86E0  70 00 00 12 */	andi. r0, r0, 0x12
-/* 803AB784 003A86E4  4D 82 00 20 */	beqlr 
+/* 803AB784 003A86E4  4D 82 00 20 */	beqlr
 /* 803AB788 003A86E8  A0 04 00 56 */	lhz r0, 0x56(r4)
 /* 803AB78C 003A86EC  3C A0 00 80 */	lis r5, 0x007FFFFF@ha
 /* 803AB790 003A86F0  80 C3 00 1C */	lwz r6, 0x1c(r3)
@@ -870,7 +901,7 @@ lbl_803AB814:
 /* 803AB814 003A8774  90 C3 00 20 */	stw r6, 0x20(r3)
 /* 803AB818 003A8778  A0 04 00 0C */	lhz r0, 0xc(r4)
 /* 803AB81C 003A877C  54 00 07 7B */	rlwinm. r0, r0, 0, 0x1d, 0x1d
-/* 803AB820 003A8780  4D 82 00 20 */	beqlr 
+/* 803AB820 003A8780  4D 82 00 20 */	beqlr
 /* 803AB824 003A8784  A0 04 00 62 */	lhz r0, 0x62(r4)
 /* 803AB828 003A8788  3C 80 00 80 */	lis r4, 0x007FFFFF@ha
 /* 803AB82C 003A878C  80 A3 00 24 */	lwz r5, 0x24(r3)
@@ -892,7 +923,7 @@ lbl_803AB864:
 /* 803AB864 003A87C4  7C 04 03 78 */	mr r4, r0
 lbl_803AB868:
 /* 803AB868 003A87C8  90 83 00 24 */	stw r4, 0x24(r3)
-/* 803AB86C 003A87CC  4E 80 00 20 */	blr 
+/* 803AB86C 003A87CC  4E 80 00 20 */	blr
 
 .global SortVoices
 SortVoices:
@@ -1056,7 +1087,7 @@ lbl_803ABAB0:
 /* 803ABAB8 003A8A18  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803ABABC 003A8A1C  7C 08 03 A6 */	mtlr r0
 /* 803ABAC0 003A8A20  38 21 00 20 */	addi r1, r1, 0x20
-/* 803ABAC4 003A8A24  4E 80 00 20 */	blr 
+/* 803ABAC4 003A8A24  4E 80 00 20 */	blr
 
 .global salBuildCommandList
 salBuildCommandList:
@@ -3377,7 +3408,7 @@ lbl_803ADC58:
 /* 803ADC70 003AABD0  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 803ADC74 003AABD4  7C 08 03 A6 */	mtlr r0
 /* 803ADC78 003AABD8  38 21 00 80 */	addi r1, r1, 0x80
-/* 803ADC7C 003AABDC  4E 80 00 20 */	blr 
+/* 803ADC7C 003AABDC  4E 80 00 20 */	blr
 
 .global salSynthSendMessage
 salSynthSendMessage:
@@ -3394,12 +3425,12 @@ lbl_803ADCA4:
 /* 803ADCA4 003AAC04  7C 83 23 78 */	mr r3, r4
 /* 803ADCA8 003AAC08  80 85 00 18 */	lwz r4, 0x18(r5)
 /* 803ADCAC 003AAC0C  7D 89 03 A6 */	mtctr r12
-/* 803ADCB0 003AAC10  4E 80 04 21 */	bctrl 
+/* 803ADCB0 003AAC10  4E 80 04 21 */	bctrl
 lbl_803ADCB4:
 /* 803ADCB4 003AAC14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803ADCB8 003AAC18  7C 08 03 A6 */	mtlr r0
 /* 803ADCBC 003AAC1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803ADCC0 003AAC20  4E 80 00 20 */	blr 
+/* 803ADCC0 003AAC20  4E 80 00 20 */	blr
 
 .global salActivateVoice
 salActivateVoice:
@@ -3444,13 +3475,13 @@ lbl_803ADD30:
 /* 803ADD54 003AACB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803ADD58 003AACB8  7C 08 03 A6 */	mtlr r0
 /* 803ADD5C 003AACBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803ADD60 003AACC0  4E 80 00 20 */	blr 
+/* 803ADD60 003AACC0  4E 80 00 20 */	blr
 
 .global salDeactivateVoice
 salDeactivateVoice:
 /* 803ADD64 003AACC4  88 03 00 EC */	lbz r0, 0xec(r3)
 /* 803ADD68 003AACC8  28 00 00 00 */	cmplwi r0, 0
-/* 803ADD6C 003AACCC  4D 82 00 20 */	beqlr 
+/* 803ADD6C 003AACCC  4D 82 00 20 */	beqlr
 /* 803ADD70 003AACD0  80 83 00 10 */	lwz r4, 0x10(r3)
 /* 803ADD74 003AACD4  28 04 00 00 */	cmplwi r4, 0
 /* 803ADD78 003AACD8  41 82 00 10 */	beq lbl_803ADD88
@@ -3474,7 +3505,7 @@ lbl_803ADDA4:
 lbl_803ADDB8:
 /* 803ADDB8 003AAD18  38 00 00 00 */	li r0, 0
 /* 803ADDBC 003AAD1C  98 03 00 EC */	stb r0, 0xec(r3)
-/* 803ADDC0 003AAD20  4E 80 00 20 */	blr 
+/* 803ADDC0 003AAD20  4E 80 00 20 */	blr
 
 .global sub_803addc4
 sub_803addc4:
@@ -3532,7 +3563,7 @@ lbl_803ADE44:
 /* 803ADE80 003AADE0  7C 65 01 2E */	stwx r3, r5, r0
 lbl_803ADE84:
 /* 803ADE84 003AADE4  98 83 00 EF */	stb r4, 0xef(r3)
-/* 803ADE88 003AADE8  4E 80 00 20 */	blr 
+/* 803ADE88 003AADE8  4E 80 00 20 */	blr
 
 .global sub_803ade8c
 sub_803ade8c:
@@ -3575,10 +3606,10 @@ sub_803ade8c:
 /* 803ADF1C 003AAE7C  38 04 00 01 */	addi r0, r4, 1
 /* 803ADF20 003AAE80  98 03 00 52 */	stb r0, 0x52(r3)
 /* 803ADF24 003AAE84  38 60 00 01 */	li r3, 1
-/* 803ADF28 003AAE88  4E 80 00 20 */	blr 
+/* 803ADF28 003AAE88  4E 80 00 20 */	blr
 lbl_803ADF2C:
 /* 803ADF2C 003AAE8C  38 60 00 00 */	li r3, 0
-/* 803ADF30 003AAE90  4E 80 00 20 */	blr 
+/* 803ADF30 003AAE90  4E 80 00 20 */	blr
 
 .global sub_803adf34
 sub_803adf34:
@@ -3612,14 +3643,14 @@ lbl_803ADF84:
 /* 803ADF94 003AAEF4  38 03 FF FF */	addi r0, r3, -1
 /* 803ADF98 003AAEF8  38 60 00 01 */	li r3, 1
 /* 803ADF9C 003AAEFC  98 06 00 52 */	stb r0, 0x52(r6)
-/* 803ADFA0 003AAF00  4E 80 00 20 */	blr 
+/* 803ADFA0 003AAF00  4E 80 00 20 */	blr
 lbl_803ADFA4:
 /* 803ADFA4 003AAF04  38 63 00 0C */	addi r3, r3, 0xc
 /* 803ADFA8 003AAF08  38 A5 00 01 */	addi r5, r5, 1
 /* 803ADFAC 003AAF0C  42 00 FF A0 */	bdnz lbl_803ADF4C
 lbl_803ADFB0:
 /* 803ADFB0 003AAF10  38 60 00 00 */	li r3, 0
-/* 803ADFB4 003AAF14  4E 80 00 20 */	blr 
+/* 803ADFB4 003AAF14  4E 80 00 20 */	blr
 
 .global salHandleAuxProcessing
 salHandleAuxProcessing:
@@ -3662,7 +3693,7 @@ lbl_803ADFE4:
 /* 803AE044 003AAFA4  90 C1 00 0C */	stw r6, 0xc(r1)
 /* 803AE048 003AAFA8  90 01 00 10 */	stw r0, 0x10(r1)
 /* 803AE04C 003AAFAC  7D 89 03 A6 */	mtctr r12
-/* 803AE050 003AAFB0  4E 80 04 21 */	bctrl 
+/* 803AE050 003AAFB0  4E 80 04 21 */	bctrl
 /* 803AE054 003AAFB4  7F A3 EB 78 */	mr r3, r29
 /* 803AE058 003AAFB8  38 80 07 80 */	li r4, 0x780
 /* 803AE05C 003AAFBC  4B FD 0A B5 */	bl DCFlushRangeNoSync
@@ -3694,7 +3725,7 @@ lbl_803AE060:
 /* 803AE0C0 003AB020  90 C1 00 0C */	stw r6, 0xc(r1)
 /* 803AE0C4 003AB024  90 01 00 10 */	stw r0, 0x10(r1)
 /* 803AE0C8 003AB028  7D 89 03 A6 */	mtctr r12
-/* 803AE0CC 003AB02C  4E 80 04 21 */	bctrl 
+/* 803AE0CC 003AB02C  4E 80 04 21 */	bctrl
 /* 803AE0D0 003AB030  7F A3 EB 78 */	mr r3, r29
 /* 803AE0D4 003AB034  38 80 07 80 */	li r4, 0x780
 /* 803AE0D8 003AB038  4B FD 0A 39 */	bl DCFlushRangeNoSync
@@ -3712,4 +3743,4 @@ lbl_803AE0E4:
 /* 803AE100 003AB060  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 803AE104 003AB064  7C 08 03 A6 */	mtlr r0
 /* 803AE108 003AB068  38 21 00 30 */	addi r1, r1, 0x30
-/* 803AE10C 003AB06C  4E 80 00 20 */	blr 
+/* 803AE10C 003AB06C  4E 80 00 20 */	blr
