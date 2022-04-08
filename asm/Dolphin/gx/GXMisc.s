@@ -1,5 +1,20 @@
 .include "macros.inc"
 
+.section .sbss
+.global lbl_805A9868
+lbl_805A9868:
+	.skip 0x4
+.global lbl_805A986C
+lbl_805A986C:
+	.skip 0x4
+.global lbl_805A9870
+lbl_805A9870:
+	.skip 0x4
+.global lbl_805A9874
+lbl_805A9874:
+	.skip 0xC
+
+
 .section .text, "ax"
 
 .global GXSetMisc

@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEB50
+lbl_805AEB50:
+	.incbin "baserom.dol", 0x3FB3F0, 0x8
+	
 .section .text, "ax"
 
 .global GXAdjustForOverscan

@@ -1,5 +1,40 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEB58
+lbl_805AEB58:
+	.incbin "baserom.dol", 0x3FB3F8, 0x4
+.global lbl_805AEB5C
+lbl_805AEB5C:
+	.incbin "baserom.dol", 0x3FB3FC, 0x4
+.global lbl_805AEB60
+lbl_805AEB60:
+	.incbin "baserom.dol", 0x3FB400, 0x4
+.global lbl_805AEB64
+lbl_805AEB64:
+	.incbin "baserom.dol", 0x3FB404, 0x4
+.global lbl_805AEB68
+lbl_805AEB68:
+	.incbin "baserom.dol", 0x3FB408, 0x4
+.global lbl_805AEB6C
+lbl_805AEB6C:
+	.incbin "baserom.dol", 0x3FB40C, 0x4
+.global lbl_805AEB70
+lbl_805AEB70:
+	.incbin "baserom.dol", 0x3FB410, 0x4
+.global lbl_805AEB74
+lbl_805AEB74:
+	.incbin "baserom.dol", 0x3FB414, 0x4
+.global lbl_805AEB78
+lbl_805AEB78:
+	.incbin "baserom.dol", 0x3FB418, 0x4
+.global lbl_805AEB7C
+lbl_805AEB7C:
+	.incbin "baserom.dol", 0x3FB41C, 0x4
+.global lbl_805AEB80
+lbl_805AEB80:
+	.incbin "baserom.dol", 0x3FB420, 0x8
+	
 .section .data
 .global lbl_803F09D0
 lbl_803F09D0:

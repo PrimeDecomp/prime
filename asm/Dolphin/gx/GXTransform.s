@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEBE8
+lbl_805AEBE8:
+	.incbin "baserom.dol", 0x3FB488, 0x4
+.global lbl_805AEBEC
+lbl_805AEBEC:
+	.incbin "baserom.dol", 0x3FB48C, 0x4
+.global lbl_805AEBF0
+lbl_805AEBF0:
+	.incbin "baserom.dol", 0x3FB490, 0x8
+
+
 .section .text, "ax"
 
 .global GXSetProjection

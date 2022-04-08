@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .sbss
+.global lbl_805A98B0
+lbl_805A98B0:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global OSInitAlarm

@@ -3,7 +3,21 @@
 .section .bss
 lbl_805415F8:
 	.skip 0x9F8
-	
+
+.section .sbss
+lbl_805A9920:
+	.skip 0x4
+lbl_805A9924:
+	.skip 0x4
+lbl_805A9928:
+	.skip 0x8
+
+.section .sdata
+
+.global lbl_805A8B50
+lbl_805A8B50:
+	.incbin "baserom.dol", 0x3F64F0, 0x8
+
 .section .text, "ax"
 
 .global DefaultSwitchThreadCallback

@@ -13,7 +13,18 @@ streamCallDelay:
 	.skip 0x1
 streamCallCnt:
 	.skip 0x3
-	
+
+.section .sdata2
+.global lbl_805AF270
+lbl_805AF270:
+	.incbin "baserom.dol", 0x3FBB10, 0x8
+.global lbl_805AF278
+lbl_805AF278:
+	.incbin "baserom.dol", 0x3FBB18, 0x8
+.global lbl_805AF280
+lbl_805AF280:
+	.incbin "baserom.dol", 0x3FBB20, 0x8
+
 .section .text, "ax" 
 
 .global streamInit

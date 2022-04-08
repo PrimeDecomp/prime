@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AF2B0
+lbl_805AF2B0:
+	.incbin "baserom.dol", 0x3FBB50, 0x8
+.global lbl_805AF2B8
+lbl_805AF2B8:
+	.incbin "baserom.dol", 0x3FBB58, 0x8
+.global lbl_805AF2C0
+lbl_805AF2C0:
+	.incbin "baserom.dol", 0x3FBB60, 0x8
+	
 .section .text, "ax" 
 
 .global sndPitchUpOne

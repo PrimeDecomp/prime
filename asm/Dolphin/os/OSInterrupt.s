@@ -1,5 +1,22 @@
 .include "macros.inc"
 
+.section .sbss
+.global lbl_805A98D0
+lbl_805A98D0:
+	.skip 0x4
+.global lbl_805A98D4
+lbl_805A98D4:
+	.skip 0x4
+.global lbl_805A98D8
+lbl_805A98D8:
+	.skip 0x8
+.global lbl_805A98E0
+lbl_805A98E0:
+	.skip 0x4
+.global lbl_805A98E4
+lbl_805A98E4:
+	.skip 0x4
+	
 .section .data
 .balign 8
 .global lbl_803F2260

@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEBB0
+lbl_805AEBB0:
+	.incbin "baserom.dol", 0x3FB450, 0x8
+	
 .section .text, "ax"
 
 .global GXSetTevIndirect

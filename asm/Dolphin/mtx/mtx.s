@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8B20
+lbl_805A8B20:
+	.incbin "baserom.dol", 0x3F64C0, 0x8
+	
+.section .sdata2
+.global lbl_805AEBF8
+lbl_805AEBF8:
+	.incbin "baserom.dol", 0x3FB498, 0x4
+.global lbl_805AEBFC
+lbl_805AEBFC:
+	.incbin "baserom.dol", 0x3FB49C, 0x4
+	
 .section .text, "ax"
 
 .global PSMTXIdentity

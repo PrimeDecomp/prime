@@ -93,6 +93,8 @@ VI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/vi.o
 	
 MSL_PPCEABI_BARE_H :=\
+	$(BUILD_DIR)/asm/Runtime/sdata.o\
+	$(BUILD_DIR)/asm/Runtime/sdata2.o\
 	$(BUILD_DIR)/asm/Runtime/__va_arg.o\
 	$(BUILD_DIR)/asm/Runtime/global_destructor_chain.o\
 	$(BUILD_DIR)/asm/Runtime/CPlusLibPPC.o\

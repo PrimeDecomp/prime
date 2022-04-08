@@ -4,12 +4,56 @@
 .global DriveInfo
 DriveInfo:
 	.skip 0x50
+
+.section .sbss
+.global lbl_805A9880
+lbl_805A9880:
+	.skip 0x4
+.global lbl_805A9884
+lbl_805A9884:
+	.skip 0x4
+.global lbl_805A9888
+lbl_805A9888:
+	.skip 0x4
+.global lbl_805A988C
+lbl_805A988C:
+	.skip 0x4
+.global AreWeInitialized
+AreWeInitialized:
+	.skip 0x4
+.global lbl_805A9894
+lbl_805A9894:
+	.skip 0x4
+.global lbl_805A9898
+lbl_805A9898:
+	.skip 0x4
+.global lbl_805A989C
+lbl_805A989C:
+	.skip 0x4
+.global lbl_805A98A0
+lbl_805A98A0:
+	.skip 0x8
+.global lbl_805A98A8
+lbl_805A98A8:
+	.skip 0x4
+.global lbl_805A98AC
+lbl_805A98AC:
+	.skip 0x4
 	
 .section .data
 .global lbl_803F0DA0
 lbl_803F0DA0:
 	.incbin "baserom.dol", 0x3EDDA0, 0x208
-	
+
+.section .sdata
+
+.global lbl_805A8B28
+lbl_805A8B28:
+	.incbin "baserom.dol", 0x3F64C8, 0x4
+.global lbl_805A8B2C
+lbl_805A8B2C:
+	.incbin "baserom.dol", 0x3F64CC, 0x4
+
 .section .text, "ax"
 
 .global OSGetConsoleType

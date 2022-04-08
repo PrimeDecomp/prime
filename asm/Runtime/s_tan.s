@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AF208
+lbl_805AF208:
+	.incbin "baserom.dol", 0x3FBAA8, 0x8
+	
 .section .text, "ax" 
 
 .global tan

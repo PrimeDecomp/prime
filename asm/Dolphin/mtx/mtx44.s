@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .sdata2
+.global lbl_805AEC00
+lbl_805AEC00:
+	.incbin "baserom.dol", 0x3FB4A0, 0x4
+.global lbl_805AEC04
+lbl_805AEC04:
+	.incbin "baserom.dol", 0x3FB4A4, 0x4
+.global lbl_805AEC08
+lbl_805AEC08:
+	.incbin "baserom.dol", 0x3FB4A8, 0x4
+.global lbl_805AEC0C
+lbl_805AEC0C:
+	.incbin "baserom.dol", 0x3FB4AC, 0x4
+
 .section .text, "ax"
 
 .global C_MTXFrustum

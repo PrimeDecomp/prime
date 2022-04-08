@@ -58,7 +58,14 @@ lbl_803F170C:
     .4byte lbl_80380024
     .4byte lbl_80380024
     .4byte lbl_8037FFD8
-    
+.section .sdata
+.global lbl_805A8B38
+lbl_805A8B38:
+	.incbin "baserom.dol", 0x3F64D8, 0x4
+.global lbl_805A8B3C
+lbl_805A8B3C:
+	.incbin "baserom.dol", 0x3F64DC, 0x4
+	
 .section .text, "ax"
 
 .global OSReport

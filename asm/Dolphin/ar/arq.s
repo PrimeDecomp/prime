@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8A78
+lbl_805A8A78:
+	.incbin "baserom.dol", 0x3F6418, 0x8
+	
+.section .sbss
+.global lbl_805A9718
+lbl_805A9718:
+	.skip 0x4
+.global lbl_805A971C
+lbl_805A971C:
+	.skip 0x4
+.global lbl_805A9720
+lbl_805A9720:
+	.skip 0x4
+.global lbl_805A9724
+lbl_805A9724:
+	.skip 0x4
+.global lbl_805A9728
+lbl_805A9728:
+	.skip 0x4
+.global lbl_805A972C
+lbl_805A972C:
+	.skip 0x4
+.global lbl_805A9730
+lbl_805A9730:
+	.skip 0x4
+.global lbl_805A9734
+lbl_805A9734:
+	.skip 0x4
+.global lbl_805A9738
+lbl_805A9738:
+	.skip 0x4
+.global lbl_805A973C
+lbl_805A973C:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __ARQServiceQueueLo

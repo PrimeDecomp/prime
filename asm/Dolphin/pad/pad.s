@@ -7,6 +7,7 @@ lbl_80542000:
 	.skip 0x40
 	
 .section .sbss
+
 .balign 4
 .global lbl_805A9930
 lbl_805A9930:
@@ -50,7 +51,34 @@ lbl_803F2398:
 	.4byte 0x7f
 	.4byte 0
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A8B58
+lbl_805A8B58:
+	.incbin "baserom.dol", 0x3F64F8, 0x4
+.global lbl_805A8B5C
+lbl_805A8B5C:
+	.incbin "baserom.dol", 0x3F64FC, 0x4
+.global lbl_805A8B60
+lbl_805A8B60:
+	.incbin "baserom.dol", 0x3F6500, 0x4
+.global lbl_805A8B64
+lbl_805A8B64:
+	.incbin "baserom.dol", 0x3F6504, 0x4
+.global lbl_805A8B68
+lbl_805A8B68:
+	.incbin "baserom.dol", 0x3F6508, 0x4
+.global lbl_805A8B6C
+lbl_805A8B6C:
+	.incbin "baserom.dol", 0x3F650C, 0x4
+.global lbl_805A8B70
+lbl_805A8B70:
+	.incbin "baserom.dol", 0x3F6510, 0x4
+.global lbl_805A8B74
+lbl_805A8B74:
+	.incbin "baserom.dol", 0x3F6514, 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateOrigin
