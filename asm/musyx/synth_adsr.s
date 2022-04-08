@@ -3,25 +3,41 @@
 .section .sdata2
 .global lbl_805AF2C8
 lbl_805AF2C8:
-	.incbin "baserom.dol", 0x3FBB68, 0x8
+	# ROM: 0x3FBB68
+	.4byte 0x40000000
+	.4byte 0
+
 .global lbl_805AF2D0
 lbl_805AF2D0:
-	.incbin "baserom.dol", 0x3FBB70, 0x4
+	# ROM: 0x3FBB70
+	.4byte 0x325A740E
+
 .global lbl_805AF2D4
 lbl_805AF2D4:
-	.incbin "baserom.dol", 0x3FBB74, 0x4
+	# ROM: 0x3FBB74
+	.4byte 0x447A0000
+
 .global lbl_805AF2D8
 lbl_805AF2D8:
-	.incbin "baserom.dol", 0x3FBB78, 0x8
+	# ROM: 0x3FBB78
+	.4byte 0x43300000
+	.4byte 0x80000000
+
 .global lbl_805AF2E0
 lbl_805AF2E0:
-	.incbin "baserom.dol", 0x3FBB80, 0x8
+	# ROM: 0x3FBB80
+	.4byte 0x39A9C84A
+	.4byte 0
+
 .global lbl_805AF2E8
 lbl_805AF2E8:
-	.incbin "baserom.dol", 0x3FBB88, 0x8
+	# ROM: 0x3FBB88
+	.4byte 0x43300000
+	.4byte 0
 
 
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global adsrConvertTimeCents
 adsrConvertTimeCents:
@@ -46,7 +62,7 @@ adsrConvertTimeCents:
 /* 803A9258 003A61B8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A925C 003A61BC  7C 08 03 A6 */	mtlr r0
 /* 803A9260 003A61C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A9264 003A61C4  4E 80 00 20 */	blr 
+/* 803A9264 003A61C4  4E 80 00 20 */	blr
 
 .global salChangeADSRState
 salChangeADSRState:
@@ -218,7 +234,7 @@ lbl_803A94C0:
 /* 803A94C8 003A6428  90 83 00 08 */	stw r4, 8(r3)
 lbl_803A94CC:
 /* 803A94CC 003A642C  7C 03 03 78 */	mr r3, r0
-/* 803A94D0 003A6430  4E 80 00 20 */	blr 
+/* 803A94D0 003A6430  4E 80 00 20 */	blr
 
 .global adsrSetup
 adsrSetup:
@@ -231,7 +247,7 @@ adsrSetup:
 /* 803A94EC 003A644C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A94F0 003A6450  7C 08 03 A6 */	mtlr r0
 /* 803A94F4 003A6454  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A94F8 003A6458  4E 80 00 20 */	blr 
+/* 803A94F8 003A6458  4E 80 00 20 */	blr
 
 .global adsrStartRelease
 adsrStartRelease:
@@ -325,7 +341,7 @@ lbl_803A9638:
 /* 803A963C 003A659C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803A9640 003A65A0  7C 08 03 A6 */	mtlr r0
 /* 803A9644 003A65A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A9648 003A65A8  4E 80 00 20 */	blr 
+/* 803A9648 003A65A8  4E 80 00 20 */	blr
 
 .global adsrRelease
 adsrRelease:
@@ -427,7 +443,7 @@ lbl_803A97A0:
 /* 803A97A4 003A6704  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803A97A8 003A6708  7C 08 03 A6 */	mtlr r0
 /* 803A97AC 003A670C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A97B0 003A6710  4E 80 00 20 */	blr 
+/* 803A97B0 003A6710  4E 80 00 20 */	blr
 
 .global adsrHandle
 adsrHandle:
@@ -543,7 +559,7 @@ lbl_803A9938:
 /* 803A993C 003A689C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A9940 003A68A0  7C 08 03 A6 */	mtlr r0
 /* 803A9944 003A68A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A9948 003A68A8  4E 80 00 20 */	blr 
+/* 803A9948 003A68A8  4E 80 00 20 */	blr
 
 .global adsrHandleLowPrecision
 adsrHandleLowPrecision:
@@ -583,4 +599,4 @@ lbl_803A99B0:
 /* 803A99C0 003A6920  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803A99C4 003A6924  7C 08 03 A6 */	mtlr r0
 /* 803A99C8 003A6928  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A99CC 003A692C  4E 80 00 20 */	blr 
+/* 803A99CC 003A692C  4E 80 00 20 */	blr

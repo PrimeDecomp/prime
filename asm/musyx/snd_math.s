@@ -3,18 +3,30 @@
 .section .sdata2
 .global lbl_805AF378
 lbl_805AF378:
-	.incbin "baserom.dol", 0x3FBC18, 0x8
+	# ROM: 0x3FBC18
+	.4byte 0
+	.4byte 0
+
 .global lbl_805AF380
 lbl_805AF380:
-	.incbin "baserom.dol", 0x3FBC20, 0x8
+	# ROM: 0x3FBC20
+	.4byte 0x3FE00000
+	.4byte 0
+
 .global lbl_805AF388
 lbl_805AF388:
-	.incbin "baserom.dol", 0x3FBC28, 0x8
+	# ROM: 0x3FBC28
+	.4byte 0x40080000
+	.4byte 0
+
 .global lbl_805AF390
 lbl_805AF390:
-	.incbin "baserom.dol", 0x3FBC30, 0x8
-	
-.section .text, "ax" 
+	# ROM: 0x3FBC30
+	.4byte 0x3F800000
+	.4byte 0
+
+
+.section .text, "ax"
 
 .global salApplyMatrix
 salApplyMatrix:
@@ -60,7 +72,7 @@ salApplyMatrix:
 /* 803B0DA8 003ADD08  EC 01 00 2A */	fadds f0, f1, f0
 /* 803B0DAC 003ADD0C  EC 04 00 2A */	fadds f0, f4, f0
 /* 803B0DB0 003ADD10  D0 05 00 08 */	stfs f0, 8(r5)
-/* 803B0DB4 003ADD14  4E 80 00 20 */	blr 
+/* 803B0DB4 003ADD14  4E 80 00 20 */	blr
 
 .global salNormalizeVector
 salNormalizeVector:
@@ -109,7 +121,7 @@ lbl_803B0E40:
 /* 803B0E5C 003ADDBC  EC 00 08 24 */	fdivs f0, f0, f1
 /* 803B0E60 003ADDC0  D0 03 00 08 */	stfs f0, 8(r3)
 /* 803B0E64 003ADDC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B0E68 003ADDC8  4E 80 00 20 */	blr 
+/* 803B0E68 003ADDC8  4E 80 00 20 */	blr
 
 .global salCrossProduct
 salCrossProduct:
@@ -137,7 +149,7 @@ salCrossProduct:
 /* 803B0EC0 003ADE20  EC 01 00 32 */	fmuls f0, f1, f0
 /* 803B0EC4 003ADE24  EC 02 00 28 */	fsubs f0, f2, f0
 /* 803B0EC8 003ADE28  D0 03 00 08 */	stfs f0, 8(r3)
-/* 803B0ECC 003ADE2C  4E 80 00 20 */	blr 
+/* 803B0ECC 003ADE2C  4E 80 00 20 */	blr
 
 .global salInvertMatrix
 salInvertMatrix:
@@ -267,4 +279,4 @@ salInvertMatrix:
 /* 803B10BC 003AE01C  EC 24 10 28 */	fsubs f1, f4, f2
 /* 803B10C0 003AE020  EC 01 00 28 */	fsubs f0, f1, f0
 /* 803B10C4 003AE024  D0 03 00 2C */	stfs f0, 0x2c(r3)
-/* 803B10C8 003AE028  4E 80 00 20 */	blr 
+/* 803B10C8 003AE028  4E 80 00 20 */	blr

@@ -3,32 +3,55 @@
 .section .sdata2
 .global lbl_805AF2F0
 lbl_805AF2F0:
-	.incbin "baserom.dol", 0x3FBB90, 0x4
+	# ROM: 0x3FBB90
+	.4byte 0x42FE0000
+
 .global lbl_805AF2F4
 lbl_805AF2F4:
-	.incbin "baserom.dol", 0x3FBB94, 0x4
+	# ROM: 0x3FBB94
+	.4byte 0x3F800000
+
 .global lbl_805AF2F8
 lbl_805AF2F8:
-	.incbin "baserom.dol", 0x3FBB98, 0x8
+	# ROM: 0x3FBB98
+	.4byte 0x3F3538EF
+	.4byte 0
+
 .global lbl_805AF300
 lbl_805AF300:
-	.incbin "baserom.dol", 0x3FBBA0, 0x8
+	# ROM: 0x3FBBA0
+	.4byte 0x43300000
+	.4byte 0
+
 .global lbl_805AF308
 lbl_805AF308:
-	.incbin "baserom.dol", 0x3FBBA8, 0x8
+	# ROM: 0x3FBBA8
+	.4byte 0x34820821
+	.4byte 0
+
 .global lbl_805AF310
 lbl_805AF310:
-	.incbin "baserom.dol", 0x3FBBB0, 0x8
+	# ROM: 0x3FBBB0
+	.4byte 0x3FF00000
+	.4byte 0
+
 .global lbl_805AF318
 lbl_805AF318:
-	.incbin "baserom.dol", 0x3FBBB8, 0x4
+	# ROM: 0x3FBBB8
+	.4byte 0x40000000
+
 .global lbl_805AF31C
 lbl_805AF31C:
-	.incbin "baserom.dol", 0x3FBBBC, 0x4
+	# ROM: 0x3FBBBC
+	.4byte 0x3F441B33
+
 .global lbl_805AF320
 lbl_805AF320:
-	.incbin "baserom.dol", 0x3FBBC0, 0x8
-	
+	# ROM: 0x3FBBC0
+	.4byte 0
+	.4byte 0
+
+
 .section .data, "wa"
 
 .global lbl_803F3FC0

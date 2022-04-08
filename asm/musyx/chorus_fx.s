@@ -521,7 +521,7 @@ rsmpTab12khz:
 	.4byte 0x3DD01000
 	.4byte 0x3F4D5E00
 	.4byte 0x3DC7B000
-	
+
 .section .text, "ax"
 
 .global do_src1
@@ -632,7 +632,7 @@ lbl_803B6E10:
 /* 803B6E38 003B3D98  90 A3 00 10 */	stw r5, 0x10(r3)
 /* 803B6E3C 003B3D9C  BB 41 00 28 */	lmw r26, 0x28(r1)
 /* 803B6E40 003B3DA0  38 21 00 40 */	addi r1, r1, 0x40
-/* 803B6E44 003B3DA4  4E 80 00 20 */	blr 
+/* 803B6E44 003B3DA4  4E 80 00 20 */	blr
 
 .global do_src2
 do_src2:
@@ -764,7 +764,7 @@ lbl_803B6FF4:
 /* 803B7024 003B3F84  90 A3 00 10 */	stw r5, 0x10(r3)
 /* 803B7028 003B3F88  BB 41 00 28 */	lmw r26, 0x28(r1)
 /* 803B702C 003B3F8C  38 21 00 40 */	addi r1, r1, 0x40
-/* 803B7030 003B3F90  4E 80 00 20 */	blr 
+/* 803B7030 003B3F90  4E 80 00 20 */	blr
 
 .global sndAuxCallbackChorus
 sndAuxCallbackChorus:
@@ -955,7 +955,7 @@ lbl_803B72D0:
 /* 803B72E0 003B4240  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803B72E4 003B4244  7C 08 03 A6 */	mtlr r0
 /* 803B72E8 003B4248  38 21 00 20 */	addi r1, r1, 0x20
-/* 803B72EC 003B424C  4E 80 00 20 */	blr 
+/* 803B72EC 003B424C  4E 80 00 20 */	blr
 
 .global sndAuxCallbackPrepareChorus
 sndAuxCallbackPrepareChorus:
@@ -1089,7 +1089,7 @@ lbl_803B74DC:
 /* 803B74E0 003B4440  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803B74E4 003B4444  7C 08 03 A6 */	mtlr r0
 /* 803B74E8 003B4448  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B74EC 003B444C  4E 80 00 20 */	blr 
+/* 803B74EC 003B444C  4E 80 00 20 */	blr
 
 .global sndAuxCallbackShutdownChorus
 sndAuxCallbackShutdownChorus:
@@ -1102,4 +1102,4 @@ sndAuxCallbackShutdownChorus:
 /* 803B7508 003B4468  38 60 00 01 */	li r3, 1
 /* 803B750C 003B446C  7C 08 03 A6 */	mtlr r0
 /* 803B7510 003B4470  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B7514 003B4474  4E 80 00 20 */	blr 
+/* 803B7514 003B4474  4E 80 00 20 */	blr

@@ -10,7 +10,7 @@ seqInstance:
 .global seqMIDIPriority
 seqMIDIPriority:
 	.skip 0x100
-	
+
 .section .sbss
 seq_next_id:
 	.skip 0x4
@@ -32,20 +32,33 @@ seqActiveRoot:
 .section .sdata2
 .global lbl_805AF210
 lbl_805AF210:
-	.incbin "baserom.dol", 0x3FBAB0, 0x4
+	# ROM: 0x3FBAB0
+	.4byte 0x32D1B717
+
 .global lbl_805AF214
 lbl_805AF214:
-	.incbin "baserom.dol", 0x3FBAB4, 0x4
+	# ROM: 0x3FBAB4
+	.4byte 0x3B800000
+
 .global lbl_805AF218
 lbl_805AF218:
-	.incbin "baserom.dol", 0x3FBAB8, 0x8
+	# ROM: 0x3FBAB8
+	.4byte 0x47800000
+	.4byte 0
+
 .global lbl_805AF220
 lbl_805AF220:
-	.incbin "baserom.dol", 0x3FBAC0, 0x8
+	# ROM: 0x3FBAC0
+	.4byte 0x40F00000
+	.4byte 0
+
 .global lbl_805AF228
 lbl_805AF228:
-	.incbin "baserom.dol", 0x3FBAC8, 0x8
-	
+	# ROM: 0x3FBAC8
+	.4byte 0x43300000
+	.4byte 0
+
+
 .section .data, "wa"
 
 .global lbl_803F2F88

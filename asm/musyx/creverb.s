@@ -4,43 +4,72 @@
 
 .global lbl_805AF3B0
 lbl_805AF3B0:
-	.incbin "baserom.dol", 0x3FBC50, 0x4
+	# ROM: 0x3FBC50
+	.4byte 0
+
 .global lbl_805AF3B4
 lbl_805AF3B4:
-	.incbin "baserom.dol", 0x3FBC54, 0x4
+	# ROM: 0x3FBC54
+	.4byte 0x3F800000
+
 .global lbl_805AF3B8
 lbl_805AF3B8:
-	.incbin "baserom.dol", 0x3FBC58, 0x4
+	# ROM: 0x3FBC58
+	.4byte 0x3C23D70A
+
 .global lbl_805AF3BC
 lbl_805AF3BC:
-	.incbin "baserom.dol", 0x3FBC5C, 0x4
+	# ROM: 0x3FBC5C
+	.4byte 0x41200000
+
 .global lbl_805AF3C0
 lbl_805AF3C0:
-	.incbin "baserom.dol", 0x3FBC60, 0x4
+	# ROM: 0x3FBC60
+	.4byte 0x3DCCCCCD
+
 .global lbl_805AF3C4
 lbl_805AF3C4:
-	.incbin "baserom.dol", 0x3FBC64, 0x4
+	# ROM: 0x3FBC64
+	.4byte 0x46FA0000
+
 .global lbl_805AF3C8
 lbl_805AF3C8:
-	.incbin "baserom.dol", 0x3FBC68, 0x8
+	# ROM: 0x3FBC68
+	.4byte 0x40240000
+	.4byte 0
+
 .global lbl_805AF3D0
 lbl_805AF3D0:
-	.incbin "baserom.dol", 0x3FBC70, 0x4
+	# ROM: 0x3FBC70
+	.4byte 0x3D4CCCCD
+
 .global lbl_805AF3D4
 lbl_805AF3D4:
-	.incbin "baserom.dol", 0x3FBC74, 0x4
+	# ROM: 0x3FBC74
+	.4byte 0x3F4CCCCD
+
 .global lbl_805AF3D8
 lbl_805AF3D8:
-	.incbin "baserom.dol", 0x3FBC78, 0x8
+	# ROM: 0x3FBC78
+	.4byte 0x43300000
+	.4byte 0x80000000
+
 .global lbl_805AF3E0
 lbl_805AF3E0:
-	.incbin "baserom.dol", 0x3FBC80, 0x4
+	# ROM: 0x3FBC80
+	.4byte 0x3E99999A
+
 .global lbl_805AF3E4
 lbl_805AF3E4:
-	.incbin "baserom.dol", 0x3FBC84, 0x4
+	# ROM: 0x3FBC84
+	.4byte 0x3F19999A
+
 .global lbl_805AF3E8
 lbl_805AF3E8:
-	.incbin "baserom.dol", 0x3FBC88, 0x8
+	# ROM: 0x3FBC88
+	.4byte 0x43300000
+	.4byte 0x80000000
+
 
 
 .section .data, "wa"
@@ -49,8 +78,8 @@ lbl_803F6460:
 	.4byte 0x000007CF
 	.4byte 0x000001B1
 	.4byte 0x00000095
-	
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global ReverbSTDCreate
 ReverbSTDCreate:
@@ -341,7 +370,7 @@ lbl_803B561C:
 /* 803B565C 003B25BC  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 803B5660 003B25C0  7C 08 03 A6 */	mtlr r0
 /* 803B5664 003B25C4  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 803B5668 003B25C8  4E 80 00 20 */	blr 
+/* 803B5668 003B25C8  4E 80 00 20 */	blr
 
 .global HandleReverb
 HandleReverb:
@@ -601,7 +630,7 @@ lbl_803B599C:
 /* 803B5A10 003B2970  CA 81 00 88 */	lfd f20, 0x88(r1)
 /* 803B5A14 003B2974  BA 21 00 08 */	lmw r17, 8(r1)
 /* 803B5A18 003B2978  38 21 00 90 */	addi r1, r1, 0x90
-/* 803B5A1C 003B297C  4E 80 00 20 */	blr 
+/* 803B5A1C 003B297C  4E 80 00 20 */	blr
 
 .global ReverbSTDCallback
 ReverbSTDCallback:
@@ -613,7 +642,7 @@ ReverbSTDCallback:
 /* 803B5A34 003B2994  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5A38 003B2998  7C 08 03 A6 */	mtlr r0
 /* 803B5A3C 003B299C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5A40 003B29A0  4E 80 00 20 */	blr 
+/* 803B5A40 003B29A0  4E 80 00 20 */	blr
 
 .global ReverbSTDFree
 ReverbSTDFree:
@@ -670,4 +699,4 @@ lbl_803B5AE8:
 /* 803B5AF0 003B2A50  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803B5AF4 003B2A54  7C 08 03 A6 */	mtlr r0
 /* 803B5AF8 003B2A58  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5AFC 003B2A5C  4E 80 00 20 */	blr 
+/* 803B5AFC 003B2A5C  4E 80 00 20 */	blr

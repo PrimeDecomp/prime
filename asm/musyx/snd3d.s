@@ -13,7 +13,7 @@ runList:
 .global startListNum
 startListNum:
 	.skip 0x700
-	
+
 .section .sbss
 .balign 4
 .global runListNum
@@ -56,51 +56,86 @@ s3dCallCnt:
 .section .sdata2
 .global lbl_805AF328
 lbl_805AF328:
-	.incbin "baserom.dol", 0x3FBBC8, 0x8
+	# ROM: 0x3FBBC8
+	.4byte 0
+	.4byte 0
+
 .global lbl_805AF330
 lbl_805AF330:
-	.incbin "baserom.dol", 0x3FBBD0, 0x8
+	# ROM: 0x3FBBD0
+	.4byte 0x43300000
+	.4byte 0
+
 .global lbl_805AF338
 lbl_805AF338:
-	.incbin "baserom.dol", 0x3FBBD8, 0x4
+	# ROM: 0x3FBBD8
+	.4byte 0xBF800000
+
 .global lbl_805AF33C
 lbl_805AF33C:
-	.incbin "baserom.dol", 0x3FBBDC, 0x4
+	# ROM: 0x3FBBDC
+	.4byte 0x34010204
+
 .global lbl_805AF340
 lbl_805AF340:
-	.incbin "baserom.dol", 0x3FBBE0, 0x8
+	# ROM: 0x3FBBE0
+	.4byte 0x3FE00000
+	.4byte 0
+
 .global lbl_805AF348
 lbl_805AF348:
-	.incbin "baserom.dol", 0x3FBBE8, 0x4
+	# ROM: 0x3FBBE8
+	.4byte 0x42FE0000
+
 .global lbl_805AF34C
 lbl_805AF34C:
-	.incbin "baserom.dol", 0x3FBBEC, 0x4
+	# ROM: 0x3FBBEC
+	.4byte 0x3F800000
+
 .global lbl_805AF350
 lbl_805AF350:
-	.incbin "baserom.dol", 0x3FBBF0, 0x8
+	# ROM: 0x3FBBF0
+	.4byte 0x40080000
+	.4byte 0
+
 .global lbl_805AF358
 lbl_805AF358:
-	.incbin "baserom.dol", 0x3FBBF8, 0x4
+	# ROM: 0x3FBBF8
+	.4byte 0x3C888889
+
 .global lbl_805AF35C
 lbl_805AF35C:
-	.incbin "baserom.dol", 0x3FBBFC, 0x4
+	# ROM: 0x3FBBFC
+	.4byte 0x42800000
+
 .global lbl_805AF360
 lbl_805AF360:
-	.incbin "baserom.dol", 0x3FBC00, 0x4
+	# ROM: 0x3FBC00
+	.4byte 0x46000000
+
 .global lbl_805AF364
 lbl_805AF364:
-	.incbin "baserom.dol", 0x3FBC04, 0x4
+	# ROM: 0x3FBC04
+	.4byte 0x3C010204
+
 .global lbl_805AF368
 lbl_805AF368:
-	.incbin "baserom.dol", 0x3FBC08, 0x4
+	# ROM: 0x3FBC08
+	.4byte 0x3DA3D70A
+
 .global lbl_805AF36C
 lbl_805AF36C:
-	.incbin "baserom.dol", 0x3FBC0C, 0x4
+	# ROM: 0x3FBC0C
+	.4byte 0x3E19999A
+
 .global lbl_805AF370
 lbl_805AF370:
-	.incbin "baserom.dol", 0x3FBC10, 0x8
+	# ROM: 0x3FBC10
+	.4byte 0x3E99999A
+	.4byte 0
 
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global sub_803ae800
 sub_803ae800:
@@ -302,7 +337,7 @@ lbl_803AEA90:
 /* 803AEAA0 003ABA00  41 82 00 10 */	beq lbl_803AEAB0
 /* 803AEAA4 003ABA04  88 7F 00 1C */	lbz r3, 0x1c(r31)
 /* 803AEAA8 003ABA08  7D 89 03 A6 */	mtctr r12
-/* 803AEAAC 003ABA0C  4E 80 04 21 */	bctrl 
+/* 803AEAAC 003ABA0C  4E 80 04 21 */	bctrl
 lbl_803AEAB0:
 /* 803AEAB0 003ABA10  88 7F 00 1C */	lbz r3, 0x1c(r31)
 /* 803AEAB4 003ABA14  4B FE DC 81 */	bl sub_8039c734
@@ -351,7 +386,7 @@ lbl_803AEB48:
 /* 803AEB54 003ABAB4  88 7E 00 1C */	lbz r3, 0x1c(r30)
 /* 803AEB58 003ABAB8  80 9E 00 28 */	lwz r4, 0x28(r30)
 /* 803AEB5C 003ABABC  7D 89 03 A6 */	mtctr r12
-/* 803AEB60 003ABAC0  4E 80 04 21 */	bctrl 
+/* 803AEB60 003ABAC0  4E 80 04 21 */	bctrl
 /* 803AEB64 003ABAC4  48 00 01 24 */	b lbl_803AEC88
 lbl_803AEB68:
 /* 803AEB68 003ABAC8  80 1E 00 08 */	lwz r0, 8(r30)
@@ -444,7 +479,7 @@ lbl_803AEC94:
 /* 803AECA4 003ABC04  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 803AECA8 003ABC08  7C 08 03 A6 */	mtlr r0
 /* 803AECAC 003ABC0C  38 21 00 40 */	addi r1, r1, 0x40
-/* 803AECB0 003ABC10  4E 80 00 20 */	blr 
+/* 803AECB0 003ABC10  4E 80 00 20 */	blr
 
 .global CalcEmitter
 CalcEmitter:
@@ -794,7 +829,7 @@ lbl_803AF198:
 /* 803AF1C0 003AC120  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 803AF1C4 003AC124  7C 08 03 A6 */	mtlr r0
 /* 803AF1C8 003AC128  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 803AF1CC 003AC12C  4E 80 00 20 */	blr 
+/* 803AF1CC 003AC12C  4E 80 00 20 */	blr
 
 .global sndUpdateEmitter
 sndUpdateEmitter:
@@ -879,7 +914,7 @@ lbl_803AF2E8:
 /* 803AF2F0 003AC250  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803AF2F4 003AC254  7C 08 03 A6 */	mtlr r0
 /* 803AF2F8 003AC258  38 21 00 30 */	addi r1, r1, 0x30
-/* 803AF2FC 003AC25C  4E 80 00 20 */	blr 
+/* 803AF2FC 003AC25C  4E 80 00 20 */	blr
 
 .global sndCheckEmitter
 sndCheckEmitter:
@@ -888,10 +923,10 @@ sndCheckEmitter:
 /* 803AF308 003AC268  41 82 00 10 */	beq lbl_803AF318
 /* 803AF30C 003AC26C  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 803AF310 003AC270  54 03 87 FE */	rlwinm r3, r0, 0x10, 0x1f, 0x1f
-/* 803AF314 003AC274  4E 80 00 20 */	blr 
+/* 803AF314 003AC274  4E 80 00 20 */	blr
 lbl_803AF318:
 /* 803AF318 003AC278  38 60 00 00 */	li r3, 0
-/* 803AF31C 003AC27C  4E 80 00 20 */	blr 
+/* 803AF31C 003AC27C  4E 80 00 20 */	blr
 
 .global AddEmitter
 AddEmitter:
@@ -1171,7 +1206,7 @@ lbl_803AF6E8:
 /* 803AF708 003AC668  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 803AF70C 003AC66C  7C 08 03 A6 */	mtlr r0
 /* 803AF710 003AC670  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 803AF714 003AC674  4E 80 00 20 */	blr 
+/* 803AF714 003AC674  4E 80 00 20 */	blr
 
 .global sndAddEmitterParaEx
 sndAddEmitterParaEx:
@@ -1196,7 +1231,7 @@ lbl_803AF758:
 /* 803AF758 003AC6B8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803AF75C 003AC6BC  7C 08 03 A6 */	mtlr r0
 /* 803AF760 003AC6C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AF764 003AC6C4  4E 80 00 20 */	blr 
+/* 803AF764 003AC6C4  4E 80 00 20 */	blr
 
 .global sndRemoveEmitter
 sndRemoveEmitter:
@@ -1247,7 +1282,7 @@ lbl_803AF7FC:
 /* 803AF800 003AC760  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803AF804 003AC764  7C 08 03 A6 */	mtlr r0
 /* 803AF808 003AC768  38 21 00 10 */	addi r1, r1, 0x10
-/* 803AF80C 003AC76C  4E 80 00 20 */	blr 
+/* 803AF80C 003AC76C  4E 80 00 20 */	blr
 
 .global sndEmitterVoiceID
 sndEmitterVoiceID:
@@ -1275,7 +1310,7 @@ lbl_803AF850:
 /* 803AF85C 003AC7BC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803AF860 003AC7C0  7C 08 03 A6 */	mtlr r0
 /* 803AF864 003AC7C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803AF868 003AC7C8  4E 80 00 20 */	blr 
+/* 803AF868 003AC7C8  4E 80 00 20 */	blr
 
 .global s3dKillEmitterByFXID
 s3dKillEmitterByFXID:
@@ -1350,7 +1385,7 @@ lbl_803AF940:
 /* 803AF958 003AC8B8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803AF95C 003AC8BC  7C 08 03 A6 */	mtlr r0
 /* 803AF960 003AC8C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AF964 003AC8C4  4E 80 00 20 */	blr 
+/* 803AF964 003AC8C4  4E 80 00 20 */	blr
 
 .global sndUpdateListener
 sndUpdateListener:
@@ -1489,7 +1524,7 @@ lbl_803AFB54:
 /* 803AFB5C 003ACABC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 803AFB60 003ACAC0  7C 08 03 A6 */	mtlr r0
 /* 803AFB64 003ACAC4  38 21 00 60 */	addi r1, r1, 0x60
-/* 803AFB68 003ACAC8  4E 80 00 20 */	blr 
+/* 803AFB68 003ACAC8  4E 80 00 20 */	blr
 
 .global sndAddListener
 sndAddListener:
@@ -1632,7 +1667,7 @@ lbl_803AFD5C:
 /* 803AFD7C 003ACCDC  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 803AFD80 003ACCE0  7C 08 03 A6 */	mtlr r0
 /* 803AFD84 003ACCE4  38 21 00 90 */	addi r1, r1, 0x90
-/* 803AFD88 003ACCE8  4E 80 00 20 */	blr 
+/* 803AFD88 003ACCE8  4E 80 00 20 */	blr
 
 .global sub_803afd8c
 sub_803afd8c:
@@ -1696,7 +1731,7 @@ lbl_803AFE48:
 /* 803AFE4C 003ACDAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803AFE50 003ACDB0  7C 08 03 A6 */	mtlr r0
 /* 803AFE54 003ACDB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803AFE58 003ACDB8  4E 80 00 20 */	blr 
+/* 803AFE58 003ACDB8  4E 80 00 20 */	blr
 
 .global sub_803afe5c
 sub_803afe5c:
@@ -1721,7 +1756,7 @@ lbl_803AFE94:
 /* 803AFE9C 003ACDFC  28 06 00 40 */	cmplwi r6, 0x40
 /* 803AFEA0 003ACE00  40 82 00 0C */	bne lbl_803AFEAC
 /* 803AFEA4 003ACE04  38 60 00 00 */	li r3, 0
-/* 803AFEA8 003ACE08  4E 80 00 20 */	blr 
+/* 803AFEA8 003ACE08  4E 80 00 20 */	blr
 lbl_803AFEAC:
 /* 803AFEAC 003ACE0C  3C A0 80 56 */	lis r5, startGroup@ha
 /* 803AFEB0 003ACE10  88 8D AF 62 */	lbz r4, startGroupNum@sda21(r13)
@@ -1741,7 +1776,7 @@ lbl_803AFEE0:
 /* 803AFEE4 003ACE44  28 05 00 40 */	cmplwi r5, 0x40
 /* 803AFEE8 003ACE48  40 82 00 0C */	bne lbl_803AFEF4
 /* 803AFEEC 003ACE4C  38 60 00 00 */	li r3, 0
-/* 803AFEF0 003ACE50  4E 80 00 20 */	blr 
+/* 803AFEF0 003ACE50  4E 80 00 20 */	blr
 lbl_803AFEF4:
 /* 803AFEF4 003ACE54  3C 80 80 56 */	lis r4, startGroup@ha
 /* 803AFEF8 003ACE58  55 20 20 36 */	slwi r0, r9, 4
@@ -1792,7 +1827,7 @@ lbl_803AFF6C:
 /* 803AFF98 003ACEF8  D0 64 00 0C */	stfs f3, 0xc(r4)
 /* 803AFF9C 003ACEFC  D0 84 00 10 */	stfs f4, 0x10(r4)
 /* 803AFFA0 003ACF00  D0 24 00 04 */	stfs f1, 4(r4)
-/* 803AFFA4 003ACF04  4E 80 00 20 */	blr 
+/* 803AFFA4 003ACF04  4E 80 00 20 */	blr
 
 .global sub_803affa8
 sub_803affa8:
@@ -2059,7 +2094,7 @@ lbl_803B031C:
 /* 803B0348 003AD2A8  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 803B034C 003AD2AC  7C 08 03 A6 */	mtlr r0
 /* 803B0350 003AD2B0  38 21 00 80 */	addi r1, r1, 0x80
-/* 803B0354 003AD2B4  4E 80 00 20 */	blr 
+/* 803B0354 003AD2B4  4E 80 00 20 */	blr
 
 .global s3dHandle
 s3dHandle:
@@ -2645,7 +2680,7 @@ lbl_803B0B54:
 /* 803B0B74 003ADAD4  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 803B0B78 003ADAD8  7C 08 03 A6 */	mtlr r0
 /* 803B0B7C 003ADADC  38 21 00 90 */	addi r1, r1, 0x90
-/* 803B0B80 003ADAE0  4E 80 00 20 */	blr 
+/* 803B0B80 003ADAE0  4E 80 00 20 */	blr
 
 .global sub_803b0b84
 sub_803b0b84:
@@ -2662,8 +2697,8 @@ sub_803b0b84:
 /* 803B0BAC 003ADB0C  98 6D AF 64 */	stb r3, snd_max_studios@sda21(r13)
 /* 803B0BB0 003ADB10  98 AD AF 7C */	stb r5, s3dCallCnt@sda21(r13)
 /* 803B0BB4 003ADB14  98 0D AF 63 */	stb r0, s3dUseMaxVoices@sda21(r13)
-/* 803B0BB8 003ADB18  4E 80 00 20 */	blr 
+/* 803B0BB8 003ADB18  4E 80 00 20 */	blr
 
 .global s3dExit
 s3dExit:
-/* 803B0BBC 003ADB1C  4E 80 00 20 */	blr 
+/* 803B0BBC 003ADB1C  4E 80 00 20 */	blr
