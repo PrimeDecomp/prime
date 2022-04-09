@@ -422,8 +422,8 @@ lbl_803A2EC0:
 /* 803A2ED0 0039FE30  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2ED4 0039FE34  4E 80 00 20 */	blr
 
-.global sub_803a2ed8
-sub_803a2ed8:
+.global mcmdPlayMacro
+mcmdPlayMacro:
 /* 803A2ED8 0039FE38  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803A2EDC 0039FE3C  7C 08 02 A6 */	mflr r0
 /* 803A2EE0 0039FE40  90 01 00 34 */	stw r0, 0x34(r1)
@@ -480,7 +480,7 @@ lbl_803A2F2C:
 /* 803A2FA0 0039FF00  55 08 86 3E */	rlwinm r8, r8, 0x10, 0x18, 0x1f
 /* 803A2FA4 0039FF04  89 5F 01 21 */	lbz r10, 0x121(r31)
 /* 803A2FA8 0039FF08  54 09 86 3E */	rlwinm r9, r0, 0x10, 0x18, 0x1f
-/* 803A2FAC 0039FF0C  48 00 42 15 */	bl sub_803a71c0
+/* 803A2FAC 0039FF0C  48 00 42 15 */	bl macStart
 /* 803A2FB0 0039FF10  3C 03 00 01 */	addis r0, r3, 1
 /* 803A2FB4 0039FF14  38 80 00 00 */	li r4, 0
 /* 803A2FB8 0039FF18  28 00 FF FF */	cmplwi r0, 0xffff
@@ -592,8 +592,8 @@ lbl_803A3110:
 /* 803A3134 003A0094  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A3138 003A0098  4E 80 00 20 */	blr
 
-.global sub_803a313c
-sub_803a313c:
+.global mcmdStartSample
+mcmdStartSample:
 /* 803A313C 003A009C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A3140 003A00A0  7C 08 02 A6 */	mflr r0
 /* 803A3144 003A00A4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -607,7 +607,7 @@ sub_803a313c:
 /* 803A3164 003A00C4  38 84 D3 30 */	addi r4, r4, "newsmp$473"@l
 /* 803A3168 003A00C8  54 1F C4 3E */	rlwinm r31, r0, 0x18, 0x10, 0x1f
 /* 803A316C 003A00CC  7F E3 FB 78 */	mr r3, r31
-/* 803A3170 003A00D0  4B FF F4 29 */	bl sub_803a2598
+/* 803A3170 003A00D0  4B FF F4 29 */	bl dataGetSample
 /* 803A3174 003A00D4  2C 03 00 00 */	cmpwi r3, 0
 /* 803A3178 003A00D8  40 82 01 A4 */	bne lbl_803A331C
 /* 803A317C 003A00DC  80 1D 00 00 */	lwz r0, 0(r29)
@@ -721,7 +721,7 @@ lbl_803A3308:
 /* 803A330C 003A026C  7F C3 F3 78 */	mr r3, r30
 /* 803A3310 003A0270  60 00 00 20 */	ori r0, r0, 0x20
 /* 803A3314 003A0274  90 1E 01 18 */	stw r0, 0x118(r30)
-/* 803A3318 003A0278  4B FF 77 C9 */	bl sub_8039aae0
+/* 803A3318 003A0278  4B FF 77 C9 */	bl synthkeystateupdate
 lbl_803A331C:
 /* 803A331C 003A027C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803A3320 003A0280  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -1363,8 +1363,8 @@ lbl_803A3C3C:
 /* 803A3C4C 003A0BAC  38 21 00 50 */	addi r1, r1, 0x50
 /* 803A3C50 003A0BB0  4E 80 00 20 */	blr
 
-.global sub_803a3c54
-sub_803a3c54:
+.global macSetPanning
+macSetPanning:
 /* 803A3C54 003A0BB4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A3C58 003A0BB8  7C 08 02 A6 */	mflr r0
 /* 803A3C5C 003A0BBC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1824,8 +1824,8 @@ lbl_803A429C:
 /* 803A42C0 003A1220  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A42C4 003A1224  4E 80 00 20 */	blr
 
-.global sub_803a42c8
-sub_803a42c8:
+.global mcmdVolumeSelect
+mcmdVolumeSelect:
 /* 803A42C8 003A1228  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A42CC 003A122C  7C 08 02 A6 */	mflr r0
 /* 803A42D0 003A1230  3C A0 00 08 */	lis r5, 8
@@ -1896,8 +1896,8 @@ lbl_803A438C:
 /* 803A43C4 003A1324  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A43C8 003A1328  4E 80 00 20 */	blr
 
-.global sub_803a43cc
-sub_803a43cc:
+.global mcmdPanningSelect
+mcmdPanningSelect:
 /* 803A43CC 003A132C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A43D0 003A1330  7C 08 02 A6 */	mflr r0
 /* 803A43D4 003A1334  3C A0 00 10 */	lis r5, 0x10
@@ -1968,8 +1968,8 @@ lbl_803A4490:
 /* 803A44C8 003A1428  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A44CC 003A142C  4E 80 00 20 */	blr
 
-.global sub_803a44d0
-sub_803a44d0:
+.global mcmdPitchWheelSelect
+mcmdPitchWheelSelect:
 /* 803A44D0 003A1430  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A44D4 003A1434  7C 08 02 A6 */	mflr r0
 /* 803A44D8 003A1438  3C A0 00 20 */	lis r5, 0x20
@@ -2040,8 +2040,8 @@ lbl_803A4594:
 /* 803A45CC 003A152C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A45D0 003A1530  4E 80 00 20 */	blr
 
-.global sub_803a45d4
-sub_803a45d4:
+.global mcmdModWheelSelect
+mcmdModWheelSelect:
 /* 803A45D4 003A1534  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A45D8 003A1538  7C 08 02 A6 */	mflr r0
 /* 803A45DC 003A153C  3C A0 00 40 */	lis r5, 0x40
@@ -2112,8 +2112,8 @@ lbl_803A4698:
 /* 803A46D0 003A1630  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A46D4 003A1634  4E 80 00 20 */	blr
 
-.global sub_803a46d8
-sub_803a46d8:
+.global mcmdPedalSelect
+mcmdPedalSelect:
 /* 803A46D8 003A1638  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A46DC 003A163C  7C 08 02 A6 */	mflr r0
 /* 803A46E0 003A1640  3C A0 02 00 */	lis r5, 0x200
@@ -2184,8 +2184,8 @@ lbl_803A479C:
 /* 803A47D4 003A1734  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A47D8 003A1738  4E 80 00 20 */	blr
 
-.global sub_803a47dc
-sub_803a47dc:
+.global mcmdPortamentoSelect
+mcmdPortamentoSelect:
 /* 803A47DC 003A173C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A47E0 003A1740  7C 08 02 A6 */	mflr r0
 /* 803A47E4 003A1744  3C A0 01 00 */	lis r5, 0x100
@@ -2256,8 +2256,8 @@ lbl_803A48A0:
 /* 803A48D8 003A1838  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A48DC 003A183C  4E 80 00 20 */	blr
 
-.global sub_803a48e0
-sub_803a48e0:
+.global mcmdReverbSelect
+mcmdReverbSelect:
 /* 803A48E0 003A1840  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A48E4 003A1844  7C 08 02 A6 */	mflr r0
 /* 803A48E8 003A1848  3C A0 00 80 */	lis r5, 0x80
@@ -2328,8 +2328,8 @@ lbl_803A49A4:
 /* 803A49DC 003A193C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A49E0 003A1940  4E 80 00 20 */	blr
 
-.global sub_803a49e4
-sub_803a49e4:
+.global mcmdPreAuxASelect
+mcmdPreAuxASelect:
 /* 803A49E4 003A1944  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A49E8 003A1948  7C 08 02 A6 */	mflr r0
 /* 803A49EC 003A194C  3C A0 20 00 */	lis r5, 0x2000
@@ -2400,8 +2400,8 @@ lbl_803A4AA8:
 /* 803A4AE0 003A1A40  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A4AE4 003A1A44  4E 80 00 20 */	blr
 
-.global sub_803a4ae8
-sub_803a4ae8:
+.global mcmdPreAuxBSelect
+mcmdPreAuxBSelect:
 /* 803A4AE8 003A1A48  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A4AEC 003A1A4C  7C 08 02 A6 */	mflr r0
 /* 803A4AF0 003A1A50  3C A0 40 00 */	lis r5, 0x4000
@@ -2472,8 +2472,8 @@ lbl_803A4BAC:
 /* 803A4BE4 003A1B44  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A4BE8 003A1B48  4E 80 00 20 */	blr
 
-.global mcmdVolumeSelect
-mcmdVolumeSelect:
+.global mcmdPostAuxBSelect
+mcmdPostAuxBSelect:
 /* 803A4BEC 003A1B4C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A4BF0 003A1B50  7C 08 02 A6 */	mflr r0
 /* 803A4BF4 003A1B54  3C A0 80 00 */	lis r5, 0x8000
@@ -2544,8 +2544,8 @@ lbl_803A4CB0:
 /* 803A4CE8 003A1C48  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A4CEC 003A1C4C  4E 80 00 20 */	blr
 
-.global sub_803a4cf0
-sub_803a4cf0:
+.global mcmdSurroundingPanningSelect
+mcmdSurroundingPanningSelect:
 /* 803A4CF0 003A1C50  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A4CF4 003A1C54  7C 08 02 A6 */	mflr r0
 /* 803A4CF8 003A1C58  3C A0 04 00 */	lis r5, 0x400
@@ -2616,8 +2616,8 @@ lbl_803A4DB4:
 /* 803A4DEC 003A1D4C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A4DF0 003A1D50  4E 80 00 20 */	blr
 
-.global sub_803a4df4
-sub_803a4df4:
+.global mcmdDopplerSelect
+mcmdDopplerSelect:
 /* 803A4DF4 003A1D54  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A4DF8 003A1D58  7C 08 02 A6 */	mflr r0
 /* 803A4DFC 003A1D5C  3C A0 08 00 */	lis r5, 0x800
@@ -2688,8 +2688,8 @@ lbl_803A4EB8:
 /* 803A4EF0 003A1E50  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A4EF4 003A1E54  4E 80 00 20 */	blr
 
-.global sub_803a4ef8
-sub_803a4ef8:
+.global mcmdTremoloSelect
+mcmdTremoloSelect:
 /* 803A4EF8 003A1E58  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A4EFC 003A1E5C  7C 08 02 A6 */	mflr r0
 /* 803A4F00 003A1E60  3C A0 10 00 */	lis r5, 0x1000
@@ -2760,8 +2760,8 @@ lbl_803A4FBC:
 /* 803A4FF4 003A1F54  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A4FF8 003A1F58  4E 80 00 20 */	blr
 
-.global sub_803a4ffc
-sub_803a4ffc:
+.global mcmdAuxAFXSelect
+mcmdAuxAFXSelect:
 /* 803A4FFC 003A1F5C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A5000 003A1F60  7C 08 02 A6 */	mflr r0
 /* 803A5004 003A1F64  3C A0 80 3F */	lis r5, lbl_803F31F8@ha
@@ -2864,8 +2864,8 @@ lbl_803A5158:
 /* 803A5170 003A20D0  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A5174 003A20D4  4E 80 00 20 */	blr
 
-.global mcmdAuxAFXSelect
-mcmdAuxAFXSelect:
+.global mcmdAuxBFXSelect
+mcmdAuxBFXSelect:
 /* 803A5178 003A20D8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A517C 003A20DC  7C 08 02 A6 */	mflr r0
 /* 803A5180 003A20E0  3C A0 80 3F */	lis r5, lbl_803F3228@ha
@@ -3621,8 +3621,8 @@ lbl_803A5BB4:
 /* 803A5BC4 003A2B24  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A5BC8 003A2B28  4E 80 00 20 */	blr
 
-.global sub_803a5bcc
-sub_803a5bcc:
+.global macHandleActive
+macHandleActive:
 /* 803A5BCC 003A2B2C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803A5BD0 003A2B30  7C 08 02 A6 */	mflr r0
 /* 803A5BD4 003A2B34  90 01 00 34 */	stw r0, 0x34(r1)
@@ -3682,7 +3682,7 @@ lbl_803A5C48:
 /* 803A5CA8 003A2C08  98 9F 01 04 */	stb r4, 0x104(r31)
 /* 803A5CAC 003A2C0C  B0 9F 01 50 */	sth r4, 0x150(r31)
 /* 803A5CB0 003A2C10  B0 9F 01 6C */	sth r4, 0x16c(r31)
-/* 803A5CB4 003A2C14  48 00 CB 19 */	bl sub_803b27cc
+/* 803A5CB4 003A2C14  48 00 CB 19 */	bl inpInit
 /* 803A5CB8 003A2C18  88 7F 01 21 */	lbz r3, 0x121(r31)
 /* 803A5CBC 003A2C1C  88 9F 01 22 */	lbz r4, 0x122(r31)
 /* 803A5CC0 003A2C20  48 00 C1 69 */	bl inpGetMidiLastNote
@@ -3723,7 +3723,7 @@ lbl_803A5D3C:
 lbl_803A5D40:
 /* 803A5D40 003A2CA0  88 7F 01 21 */	lbz r3, 0x121(r31)
 /* 803A5D44 003A2CA4  88 9F 01 22 */	lbz r4, 0x122(r31)
-/* 803A5D48 003A2CA8  48 00 BE 89 */	bl sub_803b1bd0
+/* 803A5D48 003A2CA8  48 00 BE 89 */	bl inpGetChannelDefaults
 /* 803A5D4C 003A2CAC  88 03 00 00 */	lbz r0, 0(r3)
 /* 803A5D50 003A2CB0  39 40 00 80 */	li r10, 0x80
 /* 803A5D54 003A2CB4  39 20 00 00 */	li r9, 0
@@ -3888,7 +3888,7 @@ lbl_803A5FA0:
 /* 803A5FC0 003A2F20  48 00 0B 44 */	b lbl_803A6B04
 /* 803A5FC4 003A2F24  7F E3 FB 78 */	mr r3, r31
 /* 803A5FC8 003A2F28  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A5FCC 003A2F2C  4B FF CF 0D */	bl sub_803a2ed8
+/* 803A5FCC 003A2F2C  4B FF CF 0D */	bl mcmdPlayMacro
 /* 803A5FD0 003A2F30  48 00 0B 34 */	b lbl_803A6B04
 /* 803A5FD4 003A2F34  88 9F 01 2F */	lbz r4, 0x12f(r31)
 /* 803A5FD8 003A2F38  57 43 C6 3E */	rlwinm r3, r26, 0x18, 0x18, 0x1f
@@ -3928,7 +3928,7 @@ lbl_803A6040:
 /* 803A6054 003A2FB4  28 00 00 FF */	cmplwi r0, 0xff
 /* 803A6058 003A2FB8  41 82 0A AC */	beq lbl_803A6B04
 /* 803A605C 003A2FBC  7F E3 FB 78 */	mr r3, r31
-/* 803A6060 003A2FC0  48 00 C4 0D */	bl sub_803b246c
+/* 803A6060 003A2FC0  48 00 C4 0D */	bl inpGetModulation
 /* 803A6064 003A2FC4  80 8D AE E0 */	lwz r4, "cstep$1643"@sda21(r13)
 /* 803A6068 003A2FC8  54 63 CE 3E */	rlwinm r3, r3, 0x19, 0x18, 0x1f
 /* 803A606C 003A2FCC  54 80 C6 3E */	rlwinm r0, r4, 0x18, 0x18, 0x1f
@@ -3976,7 +3976,7 @@ lbl_803A60E4:
 /* 803A610C 003A306C  48 00 09 F8 */	b lbl_803A6B04
 /* 803A6110 003A3070  7F E3 FB 78 */	mr r3, r31
 /* 803A6114 003A3074  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6118 003A3078  4B FF DB 3D */	bl sub_803a3c54
+/* 803A6118 003A3078  4B FF DB 3D */	bl macSetPanning
 /* 803A611C 003A307C  48 00 09 E8 */	b lbl_803A6B04
 /* 803A6120 003A3080  7F E3 FB 78 */	mr r3, r31
 /* 803A6124 003A3084  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
@@ -3984,7 +3984,7 @@ lbl_803A60E4:
 /* 803A612C 003A308C  48 00 09 D8 */	b lbl_803A6B04
 /* 803A6130 003A3090  7F E3 FB 78 */	mr r3, r31
 /* 803A6134 003A3094  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6138 003A3098  4B FF D0 05 */	bl sub_803a313c
+/* 803A6138 003A3098  4B FF D0 05 */	bl mcmdStartSample
 /* 803A613C 003A309C  48 00 09 C8 */	b lbl_803A6B04
 /* 803A6140 003A30A0  80 1F 00 F4 */	lwz r0, 0xf4(r31)
 /* 803A6144 003A30A4  54 03 06 3E */	clrlwi r3, r0, 0x18
@@ -3994,7 +3994,7 @@ lbl_803A60E4:
 /* 803A6154 003A30B4  7F E3 FB 78 */	mr r3, r31
 /* 803A6158 003A30B8  60 00 00 80 */	ori r0, r0, 0x80
 /* 803A615C 003A30BC  90 1F 01 18 */	stw r0, 0x118(r31)
-/* 803A6160 003A30C0  4B FF 49 81 */	bl sub_8039aae0
+/* 803A6160 003A30C0  4B FF 49 81 */	bl synthkeystateupdate
 /* 803A6164 003A30C4  48 00 09 A0 */	b lbl_803A6B04
 /* 803A6168 003A30C8  48 00 CC 39 */	bl sndRand
 /* 803A616C 003A30CC  80 8D AE E0 */	lwz r4, "cstep$1643"@sda21(r13)
@@ -4473,63 +4473,63 @@ lbl_803A6854:
 /* 803A6874 003A37D4  48 00 02 90 */	b lbl_803A6B04
 /* 803A6878 003A37D8  7F E3 FB 78 */	mr r3, r31
 /* 803A687C 003A37DC  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6880 003A37E0  4B FF DA 49 */	bl sub_803a42c8
+/* 803A6880 003A37E0  4B FF DA 49 */	bl mcmdVolumeSelect
 /* 803A6884 003A37E4  48 00 02 80 */	b lbl_803A6B04
 /* 803A6888 003A37E8  7F E3 FB 78 */	mr r3, r31
 /* 803A688C 003A37EC  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6890 003A37F0  4B FF DB 3D */	bl sub_803a43cc
+/* 803A6890 003A37F0  4B FF DB 3D */	bl mcmdPanningSelect
 /* 803A6894 003A37F4  48 00 02 70 */	b lbl_803A6B04
 /* 803A6898 003A37F8  7F E3 FB 78 */	mr r3, r31
 /* 803A689C 003A37FC  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A68A0 003A3800  4B FF DC 31 */	bl sub_803a44d0
+/* 803A68A0 003A3800  4B FF DC 31 */	bl mcmdPitchWheelSelect
 /* 803A68A4 003A3804  48 00 02 60 */	b lbl_803A6B04
 /* 803A68A8 003A3808  7F E3 FB 78 */	mr r3, r31
 /* 803A68AC 003A380C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A68B0 003A3810  4B FF DD 25 */	bl sub_803a45d4
+/* 803A68B0 003A3810  4B FF DD 25 */	bl mcmdModWheelSelect
 /* 803A68B4 003A3814  48 00 02 50 */	b lbl_803A6B04
 /* 803A68B8 003A3818  7F E3 FB 78 */	mr r3, r31
 /* 803A68BC 003A381C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A68C0 003A3820  4B FF DE 19 */	bl sub_803a46d8
+/* 803A68C0 003A3820  4B FF DE 19 */	bl mcmdPedalSelect
 /* 803A68C4 003A3824  48 00 02 40 */	b lbl_803A6B04
 /* 803A68C8 003A3828  7F E3 FB 78 */	mr r3, r31
 /* 803A68CC 003A382C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A68D0 003A3830  4B FF DF 0D */	bl sub_803a47dc
+/* 803A68D0 003A3830  4B FF DF 0D */	bl mcmdPortamentoSelect
 /* 803A68D4 003A3834  48 00 02 30 */	b lbl_803A6B04
 /* 803A68D8 003A3838  7F E3 FB 78 */	mr r3, r31
 /* 803A68DC 003A383C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A68E0 003A3840  4B FF E0 01 */	bl sub_803a48e0
+/* 803A68E0 003A3840  4B FF E0 01 */	bl mcmdReverbSelect
 /* 803A68E4 003A3844  48 00 02 20 */	b lbl_803A6B04
 /* 803A68E8 003A3848  7F E3 FB 78 */	mr r3, r31
 /* 803A68EC 003A384C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A68F0 003A3850  4B FF E4 01 */	bl sub_803a4cf0
+/* 803A68F0 003A3850  4B FF E4 01 */	bl mcmdSurroundingPanningSelect
 /* 803A68F4 003A3854  48 00 02 10 */	b lbl_803A6B04
 /* 803A68F8 003A3858  7F E3 FB 78 */	mr r3, r31
 /* 803A68FC 003A385C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6900 003A3860  4B FF E4 F5 */	bl sub_803a4df4
+/* 803A6900 003A3860  4B FF E4 F5 */	bl mcmdDopplerSelect
 /* 803A6904 003A3864  48 00 02 00 */	b lbl_803A6B04
 /* 803A6908 003A3868  7F E3 FB 78 */	mr r3, r31
 /* 803A690C 003A386C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6910 003A3870  4B FF E5 E9 */	bl sub_803a4ef8
+/* 803A6910 003A3870  4B FF E5 E9 */	bl mcmdTremoloSelect
 /* 803A6914 003A3874  48 00 01 F0 */	b lbl_803A6B04
 /* 803A6918 003A3878  7F E3 FB 78 */	mr r3, r31
 /* 803A691C 003A387C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6920 003A3880  4B FF E0 C5 */	bl sub_803a49e4
+/* 803A6920 003A3880  4B FF E0 C5 */	bl mcmdPreAuxASelect
 /* 803A6924 003A3884  48 00 01 E0 */	b lbl_803A6B04
 /* 803A6928 003A3888  7F E3 FB 78 */	mr r3, r31
 /* 803A692C 003A388C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6930 003A3890  4B FF E1 B9 */	bl sub_803a4ae8
+/* 803A6930 003A3890  4B FF E1 B9 */	bl mcmdPreAuxBSelect
 /* 803A6934 003A3894  48 00 01 D0 */	b lbl_803A6B04
 /* 803A6938 003A3898  7F E3 FB 78 */	mr r3, r31
 /* 803A693C 003A389C  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6940 003A38A0  4B FF E2 AD */	bl mcmdVolumeSelect
+/* 803A6940 003A38A0  4B FF E2 AD */	bl mcmdPostAuxBSelect
 /* 803A6944 003A38A4  48 00 01 C0 */	b lbl_803A6B04
 /* 803A6948 003A38A8  7F E3 FB 78 */	mr r3, r31
 /* 803A694C 003A38AC  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6950 003A38B0  4B FF E6 AD */	bl sub_803a4ffc
+/* 803A6950 003A38B0  4B FF E6 AD */	bl mcmdAuxAFXSelect
 /* 803A6954 003A38B4  48 00 01 B0 */	b lbl_803A6B04
 /* 803A6958 003A38B8  7F E3 FB 78 */	mr r3, r31
 /* 803A695C 003A38BC  38 8D AE E0 */	addi r4, r13, "cstep$1643"@sda21
-/* 803A6960 003A38C0  4B FF E8 19 */	bl mcmdAuxAFXSelect
+/* 803A6960 003A38C0  4B FF E8 19 */	bl mcmdAuxBFXSelect
 /* 803A6964 003A38C4  48 00 01 A0 */	b lbl_803A6B04
 /* 803A6968 003A38C8  57 40 84 3E */	srwi r0, r26, 0x10
 /* 803A696C 003A38CC  38 61 00 08 */	addi r3, r1, 8
@@ -4570,12 +4570,12 @@ lbl_803A69AC:
 /* 803A69F4 003A3954  80 1F 00 F4 */	lwz r0, 0xf4(r31)
 /* 803A69F8 003A3958  57 44 C6 3E */	rlwinm r4, r26, 0x18, 0x18, 0x1f
 /* 803A69FC 003A395C  54 03 06 3E */	clrlwi r3, r0, 0x18
-/* 803A6A00 003A3960  48 00 CC D5 */	bl sub_803b36d4
+/* 803A6A00 003A3960  48 00 CC D5 */	bl hwSetSRCType
 /* 803A6A04 003A3964  80 0D AE E0 */	lwz r0, "cstep$1643"@sda21(r13)
 /* 803A6A08 003A3968  80 7F 00 F4 */	lwz r3, 0xf4(r31)
 /* 803A6A0C 003A396C  54 04 86 3E */	rlwinm r4, r0, 0x10, 0x18, 0x1f
 /* 803A6A10 003A3970  54 63 06 3E */	clrlwi r3, r3, 0x18
-/* 803A6A14 003A3974  48 00 CC ED */	bl hwSetSRCType
+/* 803A6A14 003A3974  48 00 CC ED */	bl hwSetPolyPhaseFilter
 /* 803A6A18 003A3978  80 1F 01 14 */	lwz r0, 0x114(r31)
 /* 803A6A1C 003A397C  60 00 08 00 */	ori r0, r0, 0x800
 /* 803A6A20 003A3980  90 1F 01 14 */	stw r0, 0x114(r31)
@@ -4648,8 +4648,8 @@ lbl_803A6B0C:
 /* 803A6B1C 003A3A7C  38 21 00 30 */	addi r1, r1, 0x30
 /* 803A6B20 003A3A80  4E 80 00 20 */	blr
 
-.global sub_803a6b24
-sub_803a6b24:
+.global macHandle
+macHandle:
 /* 803A6B24 003A3A84  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A6B28 003A3A88  7C 08 02 A6 */	mflr r0
 /* 803A6B2C 003A3A8C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -4725,7 +4725,7 @@ lbl_803A6BB4:
 /* 803A6C2C 003A3B8C  48 00 03 91 */	bl macMakeActive
 lbl_803A6C30:
 /* 803A6C30 003A3B90  7F E3 FB 78 */	mr r3, r31
-/* 803A6C34 003A3B94  4B FF EF 99 */	bl sub_803a5bcc
+/* 803A6C34 003A3B94  4B FF EF 99 */	bl macHandleActive
 /* 803A6C38 003A3B98  83 FF 00 3C */	lwz r31, 0x3c(r31)
 lbl_803A6C3C:
 /* 803A6C3C 003A3B9C  28 1F 00 00 */	cmplwi r31, 0
@@ -5132,8 +5132,8 @@ lbl_803A71B8:
 /* 803A71B8 003A4118  90 83 00 4C */	stw r4, 0x4c(r3)
 /* 803A71BC 003A411C  4E 80 00 20 */	blr
 
-.global sub_803a71c0
-sub_803a71c0:
+.global macStart
+macStart:
 /* 803A71C0 003A4120  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 803A71C4 003A4124  7C 08 02 A6 */	mflr r0
 /* 803A71C8 003A4128  90 01 00 54 */	stw r0, 0x54(r1)

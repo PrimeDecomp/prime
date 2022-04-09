@@ -2,8 +2,8 @@
 
 .section .text, "ax" 
 
-.global sndAuxCallbackReverbSTD
-sndAuxCallbackReverbSTD:
+.global sndAuxCallbackReverbHI
+sndAuxCallbackReverbHI:
 /* 803B5B00 003B2A60  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B5B04 003B2A64  7C 08 02 A6 */	mflr r0
 /* 803B5B08 003B2A68  7C 87 23 78 */	mr r7, r4

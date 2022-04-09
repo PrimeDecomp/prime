@@ -141,7 +141,7 @@ snd_handle_irq:
 /* 803B2F5C 003AFEBC  88 0D AE 48 */	lbz r0, sndActive@sda21(r13)
 /* 803B2F60 003AFEC0  28 00 00 00 */	cmplwi r0, 0
 /* 803B2F64 003AFEC4  41 82 01 28 */	beq lbl_803B308C
-/* 803B2F68 003AFEC8  4B FE A2 F1 */	bl nullsub_60
+/* 803B2F68 003AFEC8  4B FE A2 F1 */	bl streamCorrectLoops
 /* 803B2F6C 003AFECC  48 00 21 89 */	bl hwIRQEnterCritical
 /* 803B2F70 003AFED0  48 00 1F 05 */	bl salAiGetDest
 /* 803B2F74 003AFED4  48 00 20 21 */	bl salCtrlDsp
@@ -198,7 +198,7 @@ lbl_803B3030:
 /* 803B3034 003AFF94  7F E3 FB 78 */	mr r3, r31
 /* 803B3038 003AFF98  48 00 01 55 */	bl hwSetTimeOffset
 /* 803B303C 003AFF9C  38 60 01 00 */	li r3, 0x100
-/* 803B3040 003AFFA0  4B FE 50 C5 */	bl sub_80398104
+/* 803B3040 003AFFA0  4B FE 50 C5 */	bl seqHandle
 /* 803B3044 003AFFA4  38 60 01 00 */	li r3, 0x100
 /* 803B3048 003AFFA8  4B FE 7A C1 */	bl synthHandle
 /* 803B304C 003AFFAC  48 00 20 C9 */	bl hwIRQLeaveCritical
@@ -426,10 +426,10 @@ lbl_803B3310:
 /* 803B3348 003B02A8  41 82 00 1C */	beq lbl_803B3364
 /* 803B334C 003B02AC  7F C3 F3 78 */	mr r3, r30
 /* 803B3350 003B02B0  38 80 00 00 */	li r4, 0
-/* 803B3354 003B02B4  48 00 03 81 */	bl sub_803b36d4
+/* 803B3354 003B02B4  48 00 03 81 */	bl hwSetSRCType
 /* 803B3358 003B02B8  7F C3 F3 78 */	mr r3, r30
 /* 803B335C 003B02BC  38 80 00 01 */	li r4, 1
-/* 803B3360 003B02C0  48 00 03 A1 */	bl hwSetSRCType
+/* 803B3360 003B02C0  48 00 03 A1 */	bl hwSetPolyPhaseFilter
 lbl_803B3364:
 /* 803B3364 003B02C4  7F C3 F3 78 */	mr r3, r30
 /* 803B3368 003B02C8  7F E4 FB 78 */	mr r4, r31
@@ -692,8 +692,8 @@ lbl_803B369C:
 /* 803B36CC 003B062C  98 05 00 E4 */	stb r0, 0xe4(r5)
 /* 803B36D0 003B0630  4E 80 00 20 */	blr
 
-.global sub_803b36d4
-sub_803b36d4:
+.global hwSetSRCType
+hwSetSRCType:
 /* 803B36D4 003B0634  1C A3 00 F4 */	mulli r5, r3, 0xf4
 /* 803B36D8 003B0638  80 CD AF 54 */	lwz r6, dspVoice@sda21(r13)
 /* 803B36DC 003B063C  54 80 0D FC */	rlwinm r0, r4, 1, 0x17, 0x1e
@@ -706,8 +706,8 @@ sub_803b36d4:
 /* 803B36F8 003B0658  90 03 00 24 */	stw r0, 0x24(r3)
 /* 803B36FC 003B065C  4E 80 00 20 */	blr
 
-.global hwSetSRCType
-hwSetSRCType:
+.global hwSetPolyPhaseFilter
+hwSetPolyPhaseFilter:
 /* 803B3700 003B0660  1C A3 00 F4 */	mulli r5, r3, 0xf4
 /* 803B3704 003B0664  80 CD AF 54 */	lwz r6, dspVoice@sda21(r13)
 /* 803B3708 003B0668  54 80 0D FC */	rlwinm r0, r4, 1, 0x17, 0x1e
@@ -936,8 +936,8 @@ lbl_803B3A30:
 /* 803B3A40 003B09A0  38 21 00 50 */	addi r1, r1, 0x50
 /* 803B3A44 003B09A4  4E 80 00 20 */	blr
 
-.global sub_803b3a48
-sub_803b3a48:
+.global hwOff
+hwOff:
 /* 803B3A48 003B09A8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3A4C 003B09AC  7C 08 02 A6 */	mflr r0
 /* 803B3A50 003B09B0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -963,8 +963,8 @@ hwSetAUXProcessingCallbacks:
 /* 803B3A94 003B09F4  90 E3 00 B8 */	stw r7, 0xb8(r3)
 /* 803B3A98 003B09F8  4E 80 00 20 */	blr
 
-.global sub_803b3a9c
-sub_803b3a9c:
+.global hwActivateStudio
+hwActivateStudio:
 /* 803B3A9C 003B09FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3AA0 003B0A00  7C 08 02 A6 */	mflr r0
 /* 803B3AA4 003B0A04  90 01 00 14 */	stw r0, 0x14(r1)
@@ -974,19 +974,19 @@ sub_803b3a9c:
 /* 803B3AB4 003B0A14  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3AB8 003B0A18  4E 80 00 20 */	blr
 
-.global sub_803b3abc
-sub_803b3abc:
+.global hwDeactivateStudio
+hwDeactivateStudio:
 /* 803B3ABC 003B0A1C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3AC0 003B0A20  7C 08 02 A6 */	mflr r0
 /* 803B3AC4 003B0A24  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803B3AC8 003B0A28  4B FF 78 51 */	bl sub_803ab318
+/* 803B3AC8 003B0A28  4B FF 78 51 */	bl salDeactivateStudio
 /* 803B3ACC 003B0A2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3AD0 003B0A30  7C 08 03 A6 */	mtlr r0
 /* 803B3AD4 003B0A34  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3AD8 003B0A38  4E 80 00 20 */	blr
 
-.global sub_803b3adc
-sub_803b3adc:
+.global hwAddInput
+hwAddInput:
 /* 803B3ADC 003B0A3C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3AE0 003B0A40  7C 08 02 A6 */	mflr r0
 /* 803B3AE4 003B0A44  90 01 00 14 */	stw r0, 0x14(r1)
@@ -995,14 +995,14 @@ sub_803b3adc:
 /* 803B3AF0 003B0A50  3C 60 80 56 */	lis r3, dspStudio@ha
 /* 803B3AF4 003B0A54  38 03 F2 60 */	addi r0, r3, dspStudio@l
 /* 803B3AF8 003B0A58  7C 60 2A 14 */	add r3, r0, r5
-/* 803B3AFC 003B0A5C  4B FF A3 91 */	bl sub_803ade8c
+/* 803B3AFC 003B0A5C  4B FF A3 91 */	bl salAddStudioInput
 /* 803B3B00 003B0A60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3B04 003B0A64  7C 08 03 A6 */	mtlr r0
 /* 803B3B08 003B0A68  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3B0C 003B0A6C  4E 80 00 20 */	blr
 
-.global sub_803b3b10
-sub_803b3b10:
+.global hwRemoveInput
+hwRemoveInput:
 /* 803B3B10 003B0A70  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3B14 003B0A74  7C 08 02 A6 */	mflr r0
 /* 803B3B18 003B0A78  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1011,7 +1011,7 @@ sub_803b3b10:
 /* 803B3B24 003B0A84  3C 60 80 56 */	lis r3, dspStudio@ha
 /* 803B3B28 003B0A88  38 03 F2 60 */	addi r0, r3, dspStudio@l
 /* 803B3B2C 003B0A8C  7C 60 2A 14 */	add r3, r0, r5
-/* 803B3B30 003B0A90  4B FF A4 05 */	bl sub_803adf34
+/* 803B3B30 003B0A90  4B FF A4 05 */	bl salRemoveStudioInput
 /* 803B3B34 003B0A94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3B38 003B0A98  7C 08 03 A6 */	mtlr r0
 /* 803B3B3C 003B0A9C  38 21 00 10 */	addi r1, r1, 0x10
@@ -1025,14 +1025,14 @@ hwChangeStudio:
 /* 803B3B50 003B0AB0  1C 03 00 F4 */	mulli r0, r3, 0xf4
 /* 803B3B54 003B0AB4  80 6D AF 54 */	lwz r3, dspVoice@sda21(r13)
 /* 803B3B58 003B0AB8  7C 63 02 14 */	add r3, r3, r0
-/* 803B3B5C 003B0ABC  4B FF A2 69 */	bl sub_803addc4
+/* 803B3B5C 003B0ABC  4B FF A2 69 */	bl salReconnectVoice
 /* 803B3B60 003B0AC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3B64 003B0AC4  7C 08 03 A6 */	mtlr r0
 /* 803B3B68 003B0AC8  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3B6C 003B0ACC  4E 80 00 20 */	blr
 
-.global sub_803b3b70
-sub_803b3b70:
+.global hwGetPos
+hwGetPos:
 /* 803B3B70 003B0AD0  1C A3 00 F4 */	mulli r5, r3, 0xf4
 /* 803B3B74 003B0AD4  80 CD AF 54 */	lwz r6, dspVoice@sda21(r13)
 /* 803B3B78 003B0AD8  7C 86 2A 14 */	add r4, r6, r5
@@ -1050,9 +1050,6 @@ lbl_803B3B90:
 /* 803B3BA4 003B0B04  40 80 00 5C */	bge lbl_803B3C00
 /* 803B3BA8 003B0B08  2C 00 00 00 */	cmpwi r0, 0
 /* 803B3BAC 003B0B0C  40 80 00 10 */	bge lbl_803B3BBC
-
-.global sub_803b3bb0
-sub_803b3bb0:
 /* 803B3BB0 003B0B10  4E 80 00 20 */	blr
 lbl_803B3BB4:
 /* 803B3BB4 003B0B14  2C 00 00 06 */	cmpwi r0, 6
@@ -1122,8 +1119,8 @@ hwFlushStream:
 /* 803B3C9C 003B0BFC  38 21 00 30 */	addi r1, r1, 0x30
 /* 803B3CA0 003B0C00  4E 80 00 20 */	blr
 
-.global sub_803b3ca4
-sub_803b3ca4:
+.global hwInitStream
+hwInitStream:
 /* 803B3CA4 003B0C04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3CA8 003B0C08  7C 08 02 A6 */	mflr r0
 /* 803B3CAC 003B0C0C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1133,8 +1130,8 @@ sub_803b3ca4:
 /* 803B3CBC 003B0C1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3CC0 003B0C20  4E 80 00 20 */	blr
 
-.global sub_803b3cc4
-sub_803b3cc4:
+.global hwExitStream
+hwExitStream:
 /* 803B3CC4 003B0C24  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3CC8 003B0C28  7C 08 02 A6 */	mflr r0
 /* 803B3CCC 003B0C2C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1144,8 +1141,8 @@ sub_803b3cc4:
 /* 803B3CDC 003B0C3C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3CE0 003B0C40  4E 80 00 20 */	blr
 
-.global sub_803b3ce4
-sub_803b3ce4:
+.global hwGetStreamPlayBuffer
+hwGetStreamPlayBuffer:
 /* 803B3CE4 003B0C44  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3CE8 003B0C48  7C 08 02 A6 */	mflr r0
 /* 803B3CEC 003B0C4C  38 80 00 00 */	li r4, 0
@@ -1186,8 +1183,8 @@ hwFrq2Pitch:
 /* 803B3D60 003B0CC0  38 21 00 20 */	addi r1, r1, 0x20
 /* 803B3D64 003B0CC4  4E 80 00 20 */	blr
 
-.global sub_803b3d68
-sub_803b3d68:
+.global hwInitSampleMem
+hwInitSampleMem:
 /* 803B3D68 003B0CC8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3D6C 003B0CCC  7C 08 02 A6 */	mflr r0
 /* 803B3D70 003B0CD0  7C 83 23 78 */	mr r3, r4
@@ -1198,8 +1195,8 @@ sub_803b3d68:
 /* 803B3D84 003B0CE4  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3D88 003B0CE8  4E 80 00 20 */	blr
 
-.global sub_803b3d8c
-sub_803b3d8c:
+.global hwExitSampleMem
+hwExitSampleMem:
 /* 803B3D8C 003B0CEC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3D90 003B0CF0  7C 08 02 A6 */	mflr r0
 /* 803B3D94 003B0CF4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1209,8 +1206,8 @@ sub_803b3d8c:
 /* 803B3DA4 003B0D04  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3DA8 003B0D08  4E 80 00 20 */	blr
 
-.global sub_803b3dac
-sub_803b3dac:
+.global hwSaveSample
+hwSaveSample:
 /* 803B3DAC 003B0D0C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3DB0 003B0D10  7C 08 02 A6 */	mflr r0
 /* 803B3DB4 003B0D14  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1253,8 +1250,8 @@ lbl_803B3E20:
 /* 803B3E38 003B0D98  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3E3C 003B0D9C  4E 80 00 20 */	blr
 
-.global sub_803b3e40
-sub_803b3e40:
+.global hwSetSaveSampleCallback
+hwSetSaveSampleCallback:
 /* 803B3E40 003B0DA0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3E44 003B0DA4  7C 08 02 A6 */	mflr r0
 /* 803B3E48 003B0DA8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1264,8 +1261,8 @@ sub_803b3e40:
 /* 803B3E58 003B0DB8  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3E5C 003B0DBC  4E 80 00 20 */	blr
 
-.global sub_803b3e60
-sub_803b3e60:
+.global hwRemoveSample
+hwRemoveSample:
 /* 803B3E60 003B0DC0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3E64 003B0DC4  7C 08 02 A6 */	mflr r0
 /* 803B3E68 003B0DC8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1315,8 +1312,8 @@ hwSyncSampleMem:
 /* 803B3EFC 003B0E5C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B3F00 003B0E60  4E 80 00 20 */	blr
 
-.global nullsub_59
-nullsub_59:
+.global hwFrameDone
+hwFrameDone:
 /* 803B3F04 003B0E64  4E 80 00 20 */	blr
 
 .global sndSetHooks
@@ -1327,8 +1324,8 @@ sndSetHooks:
 /* 803B3F14 003B0E74  90 0D AF 88 */	stw r0, salHooks+4@sda21(r13)
 /* 803B3F18 003B0E78  4E 80 00 20 */	blr
 
-.global sub_803b3f1c
-sub_803b3f1c:
+.global hwDisableHRTF
+hwDisableHRTF:
 /* 803B3F1C 003B0E7C  38 00 00 00 */	li r0, 0
 /* 803B3F20 003B0E80  90 0D AF 44 */	stw r0, dspHRTFOn@sda21(r13)
 /* 803B3F24 003B0E84  4E 80 00 20 */	blr

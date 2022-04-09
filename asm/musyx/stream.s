@@ -164,7 +164,7 @@ lbl_8039CA18:
 /* 8039CA1C 0039997C  88 7C 00 0E */	lbz r3, 0xe(r28)
 /* 8039CA20 00399980  64 00 40 00 */	oris r0, r0, 0x4000
 /* 8039CA24 00399984  90 01 00 08 */	stw r0, 8(r1)
-/* 8039CA28 00399988  48 01 72 BD */	bl sub_803b3ce4
+/* 8039CA28 00399988  48 01 72 BD */	bl hwGetStreamPlayBuffer
 /* 8039CA2C 0039998C  88 1C 00 0D */	lbz r0, 0xd(r28)
 /* 8039CA30 00399990  38 A0 00 00 */	li r5, 0
 /* 8039CA34 00399994  80 9C 00 18 */	lwz r4, 0x18(r28)
@@ -275,7 +275,7 @@ lbl_8039CA98:
 /* 8039CBCC 00399B2C  48 00 06 60 */	b lbl_8039D22C
 lbl_8039CBD0:
 /* 8039CBD0 00399B30  80 7C 00 4C */	lwz r3, 0x4c(r28)
-/* 8039CBD4 00399B34  48 01 6F 9D */	bl sub_803b3b70
+/* 8039CBD4 00399B34  48 01 6F 9D */	bl hwGetPos
 /* 8039CBD8 00399B38  88 BC 00 0D */	lbz r5, 0xd(r28)
 /* 8039CBDC 00399B3C  28 05 00 01 */	cmplwi r5, 1
 /* 8039CBE0 00399B40  40 82 00 24 */	bne lbl_8039CC04
@@ -720,8 +720,8 @@ lbl_8039D240:
 /* 8039D250 0039A1B0  38 21 00 70 */	addi r1, r1, 0x70
 /* 8039D254 0039A1B4  4E 80 00 20 */	blr
 
-.global nullsub_60
-nullsub_60:
+.global streamCorrectLoops
+streamCorrectLoops:
 /* 8039D258 0039A1B8  4E 80 00 20 */	blr
 
 .global streamKill
@@ -1196,7 +1196,7 @@ sndStreamAllocEx:
 /* 8039D8D0 0039A830  7C 08 02 A6 */	mflr r0
 /* 8039D8D4 0039A834  90 01 00 54 */	stw r0, 0x54(r1)
 /* 8039D8D8 0039A838  39 61 00 50 */	addi r11, r1, 0x50
-/* 8039D8DC 0039A83C  4B FE C1 75 */	bl sub_80389a50
+/* 8039D8DC 0039A83C  4B FE C1 75 */	bl _savegpr_16
 /* 8039D8E0 0039A840  8A A1 00 5B */	lbz r21, 0x5b(r1)
 /* 8039D8E4 0039A844  7C 7B 1B 78 */	mr r27, r3
 /* 8039D8E8 0039A848  8A C1 00 5F */	lbz r22, 0x5f(r1)
@@ -1457,7 +1457,7 @@ lbl_8039DC6C:
 /* 8039DC98 0039ABF8  93 25 00 50 */	stw r25, 0x50(r5)
 /* 8039DC9C 0039ABFC  7C 86 81 2E */	stwx r4, r6, r16
 /* 8039DCA0 0039AC00  98 05 00 0C */	stb r0, 0xc(r5)
-/* 8039DCA4 0039AC04  48 01 60 01 */	bl sub_803b3ca4
+/* 8039DCA4 0039AC04  48 01 60 01 */	bl hwInitStream
 /* 8039DCA8 0039AC08  3C 80 80 55 */	lis r4, streamInfo@ha
 /* 8039DCAC 0039AC0C  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 8039DCB0 0039AC10  38 84 13 F8 */	addi r4, r4, streamInfo@l
@@ -3480,7 +3480,7 @@ lbl_8039F950:
 /* 8039F96C 0039C8CC  1F FA 00 64 */	mulli r31, r26, 0x64
 /* 8039F970 0039C8D0  3B A3 00 0E */	addi r29, r3, 0xe
 /* 8039F974 0039C8D4  7C 7D F8 AE */	lbzx r3, r29, r31
-/* 8039F978 0039C8D8  48 01 43 4D */	bl sub_803b3cc4
+/* 8039F978 0039C8D8  48 01 43 4D */	bl hwExitStream
 /* 8039F97C 0039C8DC  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039F980 0039C8E0  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039F984 0039C8E4  7F 43 F8 2E */	lwzx r26, r3, r31
@@ -3583,7 +3583,7 @@ lbl_8039FAD0:
 /* 8039FAE0 0039CA40  48 00 0A 41 */	bl sndStreamDeactivate
 /* 8039FAE4 0039CA44  1F 9B 00 64 */	mulli r28, r27, 0x64
 /* 8039FAE8 0039CA48  7C 7D E0 AE */	lbzx r3, r29, r28
-/* 8039FAEC 0039CA4C  48 01 41 D9 */	bl sub_803b3cc4
+/* 8039FAEC 0039CA4C  48 01 41 D9 */	bl hwExitStream
 /* 8039FAF0 0039CA50  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FAF4 0039CA54  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FAF8 0039CA58  7F 43 E0 2E */	lwzx r26, r3, r28
@@ -3686,7 +3686,7 @@ lbl_8039FC44:
 /* 8039FC54 0039CBB4  48 00 08 CD */	bl sndStreamDeactivate
 /* 8039FC58 0039CBB8  1F 7B 00 64 */	mulli r27, r27, 0x64
 /* 8039FC5C 0039CBBC  7C 7D D8 AE */	lbzx r3, r29, r27
-/* 8039FC60 0039CBC0  48 01 40 65 */	bl sub_803b3cc4
+/* 8039FC60 0039CBC0  48 01 40 65 */	bl hwExitStream
 /* 8039FC64 0039CBC4  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FC68 0039CBC8  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FC6C 0039CBCC  7F 43 D8 2E */	lwzx r26, r3, r27
@@ -3788,7 +3788,7 @@ lbl_8039FDB4:
 /* 8039FDC4 0039CD24  48 00 07 5D */	bl sndStreamDeactivate
 /* 8039FDC8 0039CD28  1F D9 00 64 */	mulli r30, r25, 0x64
 /* 8039FDCC 0039CD2C  7C 7D F0 AE */	lbzx r3, r29, r30
-/* 8039FDD0 0039CD30  48 01 3E F5 */	bl sub_803b3cc4
+/* 8039FDD0 0039CD30  48 01 3E F5 */	bl hwExitStream
 /* 8039FDD4 0039CD34  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FDD8 0039CD38  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FDDC 0039CD3C  7F 23 F0 2E */	lwzx r25, r3, r30
@@ -3806,7 +3806,7 @@ lbl_8039FDB4:
 /* 8039FE0C 0039CD6C  48 00 07 15 */	bl sndStreamDeactivate
 /* 8039FE10 0039CD70  1F 3A 00 64 */	mulli r25, r26, 0x64
 /* 8039FE14 0039CD74  7C 7D C8 AE */	lbzx r3, r29, r25
-/* 8039FE18 0039CD78  48 01 3E AD */	bl sub_803b3cc4
+/* 8039FE18 0039CD78  48 01 3E AD */	bl hwExitStream
 /* 8039FE1C 0039CD7C  3C 60 80 55 */	lis r3, streamInfo@ha
 /* 8039FE20 0039CD80  38 63 13 F8 */	addi r3, r3, streamInfo@l
 /* 8039FE24 0039CD84  7C 63 C8 2E */	lwzx r3, r3, r25
