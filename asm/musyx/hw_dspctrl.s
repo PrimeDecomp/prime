@@ -60,15 +60,19 @@ salMessageCallback:
 
 .section .data, "wa"
 
-.global lbl_803F3FA8
-lbl_803F3FA8:
+.global dspSRCCycles
+dspSRCCycles:
 	# ROM: 0x3F0FA8
-	.4byte 0x0BAE0BAE
-	.4byte 0x045B0CE4
-	.4byte 0x0CE4045B
-	.4byte 0x0E740E74
-	.4byte 0x045B0000
-	.4byte 0
+	.2byte 0x0BAE
+	.2byte 0x0BAE
+	.2byte 0x045B
+	.2byte 0x0CE4
+	.2byte 0x0CE4
+	.2byte 0x045B
+	.2byte 0x0E74
+	.2byte 0x0E74
+	.2byte 0x045B
+	.balign 8
 
 
 .section .rodata
@@ -2567,17 +2571,17 @@ lbl_803ACFF4:
 lbl_803AD034:
 /* 803AD034 003A9F94  1C 84 00 06 */	mulli r4, r4, 6
 /* 803AD038 003A9F98  A0 13 00 08 */	lhz r0, 8(r19)
-/* 803AD03C 003A9F9C  3C 60 80 3F */	lis r3, lbl_803F3FA8@ha
+/* 803AD03C 003A9F9C  3C 60 80 3F */	lis r3, dspSRCCycles@ha
 /* 803AD040 003A9FA0  54 00 08 3C */	slwi r0, r0, 1
-/* 803AD044 003A9FA4  38 63 3F A8 */	addi r3, r3, lbl_803F3FA8@l
+/* 803AD044 003A9FA4  38 63 3F A8 */	addi r3, r3, dspSRCCycles@l
 /* 803AD048 003A9FA8  7C 63 22 14 */	add r3, r3, r4
 /* 803AD04C 003A9FAC  7C 03 02 2E */	lhzx r0, r3, r0
 /* 803AD050 003A9FB0  7E F7 02 14 */	add r23, r23, r0
 /* 803AD054 003A9FB4  48 00 00 20 */	b lbl_803AD074
 lbl_803AD058:
 /* 803AD058 003A9FB8  A0 93 00 08 */	lhz r4, 8(r19)
-/* 803AD05C 003A9FBC  3C 60 80 3F */	lis r3, lbl_803F3FA8@ha
-/* 803AD060 003A9FC0  38 03 3F A8 */	addi r0, r3, lbl_803F3FA8@l
+/* 803AD05C 003A9FBC  3C 60 80 3F */	lis r3, dspSRCCycles@ha
+/* 803AD060 003A9FC0  38 03 3F A8 */	addi r0, r3, dspSRCCycles@l
 /* 803AD064 003A9FC4  54 83 08 3C */	slwi r3, r4, 1
 /* 803AD068 003A9FC8  7C 60 1A 14 */	add r3, r0, r3
 /* 803AD06C 003A9FCC  A0 03 00 0C */	lhz r0, 0xc(r3)

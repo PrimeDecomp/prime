@@ -208,9 +208,9 @@ lbl_803A9460:
 /* 803A9464 003A63C4  28 04 00 00 */	cmplwi r4, 0
 /* 803A9468 003A63C8  41 82 00 58 */	beq lbl_803A94C0
 /* 803A946C 003A63CC  38 A0 00 03 */	li r5, 3
-/* 803A9470 003A63D0  3C 80 80 3F */	lis r4, lbl_803F3820@ha
+/* 803A9470 003A63D0  3C 80 80 3F */	lis r4, dspAttenuationTab@ha
 /* 803A9474 003A63D4  98 A3 00 01 */	stb r5, 1(r3)
-/* 803A9478 003A63D8  38 A4 38 20 */	addi r5, r4, lbl_803F3820@l
+/* 803A9478 003A63D8  38 A4 38 20 */	addi r5, r4, dspAttenuationTab@l
 /* 803A947C 003A63DC  38 80 00 00 */	li r4, 0
 /* 803A9480 003A63E0  A0 C3 00 1C */	lhz r6, 0x1c(r3)
 /* 803A9484 003A63E4  54 C6 80 1E */	slwi r6, r6, 0x10
@@ -289,8 +289,8 @@ lbl_803A956C:
 /* 803A957C 003A64DC  28 00 00 01 */	cmplwi r0, 1
 /* 803A9580 003A64E0  40 82 00 24 */	bne lbl_803A95A4
 /* 803A9584 003A64E4  80 1F 00 08 */	lwz r0, 8(r31)
-/* 803A9588 003A64E8  3C 60 80 3F */	lis r3, lbl_803F39A4@ha
-/* 803A958C 003A64EC  38 63 39 A4 */	addi r3, r3, lbl_803F39A4@l
+/* 803A9588 003A64E8  3C 60 80 3F */	lis r3, dspScale2IndexTab@ha
+/* 803A958C 003A64EC  38 63 39 A4 */	addi r3, r3, dspScale2IndexTab@l
 /* 803A9590 003A64F0  7C 00 AE 70 */	srawi r0, r0, 0x15
 /* 803A9594 003A64F4  7C 03 00 AE */	lbzx r0, r3, r0
 /* 803A9598 003A64F8  20 00 00 C1 */	subfic r0, r0, 0xc1
@@ -389,8 +389,8 @@ lbl_803A96D0:
 /* 803A96E0 003A6640  28 00 00 01 */	cmplwi r0, 1
 /* 803A96E4 003A6644  40 82 00 24 */	bne lbl_803A9708
 /* 803A96E8 003A6648  80 1F 00 08 */	lwz r0, 8(r31)
-/* 803A96EC 003A664C  3C 60 80 3F */	lis r3, lbl_803F39A4@ha
-/* 803A96F0 003A6650  38 63 39 A4 */	addi r3, r3, lbl_803F39A4@l
+/* 803A96EC 003A664C  3C 60 80 3F */	lis r3, dspScale2IndexTab@ha
+/* 803A96F0 003A6650  38 63 39 A4 */	addi r3, r3, dspScale2IndexTab@l
 /* 803A96F4 003A6654  7C 00 AE 70 */	srawi r0, r0, 0x15
 /* 803A96F8 003A6658  7C 03 00 AE */	lbzx r0, r3, r0
 /* 803A96FC 003A665C  20 00 00 C1 */	subfic r0, r0, 0xc1
@@ -510,9 +510,9 @@ lbl_803A9860:
 /* 803A9890 003A67F0  48 00 00 48 */	b lbl_803A98D8
 lbl_803A9894:
 /* 803A9894 003A67F4  81 03 00 0C */	lwz r8, 0xc(r3)
-/* 803A9898 003A67F8  3C C0 80 3F */	lis r6, lbl_803F3820@ha
+/* 803A9898 003A67F8  3C C0 80 3F */	lis r6, dspAttenuationTab@ha
 /* 803A989C 003A67FC  80 E3 00 10 */	lwz r7, 0x10(r3)
-/* 803A98A0 003A6800  38 C6 38 20 */	addi r6, r6, lbl_803F3820@l
+/* 803A98A0 003A6800  38 C6 38 20 */	addi r6, r6, dspAttenuationTab@l
 /* 803A98A4 003A6804  7C E8 3A 14 */	add r7, r8, r7
 /* 803A98A8 003A6808  90 E3 00 0C */	stw r7, 0xc(r3)
 /* 803A98AC 003A680C  80 E3 00 0C */	lwz r7, 0xc(r3)

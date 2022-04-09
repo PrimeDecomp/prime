@@ -1,4 +1,4 @@
-#include "src/musyx/dsp_import.h"
+#include "musyx/dsp_import.h"
 
 #ifdef __cplusplus
 extern "C" {

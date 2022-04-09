@@ -54,8 +54,8 @@ lbl_805AF320:
 
 .section .data, "wa"
 
-.global lbl_803F3FC0
-lbl_803F3FC0:
+.global musyx_vol_tab
+musyx_vol_tab:
 	# ROM: 0x3F0FC0
 	.4byte 0
 	.4byte 0x380000FD
@@ -186,10 +186,12 @@ lbl_803F3FC0:
 	.4byte 0x3F7B3DF3
 	.4byte 0x3F800000
 	.4byte 0x3F800000
+pan_tab:
 	.4byte 0
 	.4byte 0x3F3538EF
 	.4byte 0x3F800000
 	.4byte 0x3F800000
+pan_tab_dpl2:
 	.4byte 0x3F133333
 	.4byte 0x3F3538EF
 	.4byte 0x3F800000
@@ -229,18 +231,18 @@ salCalcVolume:
 /* 803AE174 003AB0D4  DA 81 00 50 */	stfd f20, 0x50(r1)
 /* 803AE178 003AB0D8  F2 81 00 58 */	psq_st f20, 88(r1), 0, qr0
 /* 803AE17C 003AB0DC  39 61 00 50 */	addi r11, r1, 0x50
-/* 803AE180 003AB0E0  4B FD B8 E5 */	bl func_80389A64
+/* 803AE180 003AB0E0  4B FD B8 E5 */	bl _savegpr_21
 /* 803AE184 003AB0E4  54 60 06 3F */	clrlwi. r0, r3, 0x18
-/* 803AE188 003AB0E8  3C 60 80 3F */	lis r3, lbl_803F3DA4@ha
-/* 803AE18C 003AB0EC  3B E3 3D A4 */	addi r31, r3, lbl_803F3DA4@l
+/* 803AE188 003AB0E8  3C 60 80 3F */	lis r3, dspDLSVolTab@ha
+/* 803AE18C 003AB0EC  3B E3 3D A4 */	addi r31, r3, dspDLSVolTab@l
 /* 803AE190 003AB0F0  FE C0 08 90 */	fmr f22, f1
-/* 803AE194 003AB0F4  3C 60 80 3F */	lis r3, lbl_803F3FC0@ha
+/* 803AE194 003AB0F4  3C 60 80 3F */	lis r3, musyx_vol_tab@ha
 /* 803AE198 003AB0F8  FF E0 10 90 */	fmr f31, f2
 /* 803AE19C 003AB0FC  FE A0 18 90 */	fmr f21, f3
 /* 803AE1A0 003AB100  7C 99 23 78 */	mr r25, r4
 /* 803AE1A4 003AB104  7C FA 3B 78 */	mr r26, r7
 /* 803AE1A8 003AB108  7D 1B 43 78 */	mr r27, r8
-/* 803AE1AC 003AB10C  3B C3 3F C0 */	addi r30, r3, lbl_803F3FC0@l
+/* 803AE1AC 003AB10C  3B C3 3F C0 */	addi r30, r3, musyx_vol_tab@l
 /* 803AE1B0 003AB110  40 82 00 08 */	bne lbl_803AE1B8
 /* 803AE1B4 003AB114  3B FE 00 00 */	addi r31, r30, 0
 lbl_803AE1B8:
@@ -501,7 +503,7 @@ lbl_803AE58C:
 /* 803AE5A0 003AB500  C0 02 D5 D4 */	lfs f0, lbl_805AF2F4@sda21(r2)
 /* 803AE5A4 003AB504  90 61 00 1C */	stw r3, 0x1c(r1)
 /* 803AE5A8 003AB508  54 64 10 3A */	slwi r4, r3, 2
-/* 803AE5AC 003AB50C  3B 7E 02 04 */	addi r27, r30, 0x204
+/* 803AE5AC 003AB50C  3B 7E 02 04 */	addi r27, r30, pan_tab - musyx_vol_tab
 /* 803AE5B0 003AB510  56 F7 10 3A */	slwi r23, r23, 2
 /* 803AE5B4 003AB514  90 01 00 18 */	stw r0, 0x18(r1)
 /* 803AE5B8 003AB518  7C 7F 22 14 */	add r3, r31, r4
@@ -532,7 +534,7 @@ lbl_803AE58C:
 /* 803AE61C 003AB57C  ED 4B 02 B2 */	fmuls f10, f11, f10
 /* 803AE620 003AB580  57 A0 10 3A */	slwi r0, r29, 2
 /* 803AE624 003AB584  EC D8 01 72 */	fmuls f6, f24, f5
-/* 803AE628 003AB588  38 7E 02 14 */	addi r3, r30, 0x214
+/* 803AE628 003AB588  38 7E 02 14 */	addi r3, r30, pan_tab_dpl2 - musyx_vol_tab
 /* 803AE62C 003AB58C  EC BB 00 F2 */	fmuls f5, f27, f3
 /* 803AE630 003AB590  57 84 10 3A */	slwi r4, r28, 2
 /* 803AE634 003AB594  EC 6A 48 2A */	fadds f3, f10, f9
