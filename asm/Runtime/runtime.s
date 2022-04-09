@@ -137,8 +137,8 @@ func_80389A58:
 _savegpr_20:
 /* 80389A60 003869C0  92 8B FF D0 */	stw r20, -0x30(r11)
 
-.global func_80389A64
-func_80389A64:
+.global _savegpr_21
+_savegpr_21:
 /* 80389A64 003869C4  92 AB FF D4 */	stw r21, -0x2c(r11)
 
 .global _savegpr_22

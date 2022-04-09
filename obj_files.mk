@@ -168,6 +168,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/synth_ac.o\
 	$(BUILD_DIR)/asm/musyx/synth_adsr.o\
 	$(BUILD_DIR)/asm/musyx/synth_vsamples.o\
+	$(BUILD_DIR)/src/musyx/synth_dbtab.o\
 	$(BUILD_DIR)/asm/musyx/s_data.o\
 	$(BUILD_DIR)/asm/musyx/hw_dspctrl.o\
 	$(BUILD_DIR)/asm/musyx/hw_volconv.o\

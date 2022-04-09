@@ -1,5 +1,271 @@
 .include "macros.inc"
 
+.section .data
+
+.global toneup_map
+toneup_map:
+	# ROM: 0x3F0420
+	.4byte 0x3F800000
+	.4byte 0x3F879C80
+	.4byte 0x3F8FACD8
+	.4byte 0x3F9837F0
+	.4byte 0x3FA14518
+	.4byte 0x3FAADC08
+	.4byte 0x3FB504F8
+	.4byte 0x3FBFC888
+	.4byte 0x3FCB2FF8
+	.4byte 0x3FD74500
+	.4byte 0x3FE411F8
+	.4byte 0x3FF1A1C0
+	.4byte 0x40000004
+	.4byte 0x40079C80
+	.4byte 0x400FACD8
+	.4byte 0x401837F4
+	.4byte 0x4021451C
+	.4byte 0x402ADC0C
+	.4byte 0x403504F8
+	.4byte 0x403FC88C
+	.4byte 0x404B2FFC
+	.4byte 0x40574504
+	.4byte 0x406411F8
+	.4byte 0x4071A1C4
+	.4byte 0x40800004
+	.4byte 0x40879C80
+	.4byte 0x408FACDA
+	.4byte 0x409837F4
+	.4byte 0x40A1451C
+	.4byte 0x40AADC0E
+	.4byte 0x40B504F8
+	.4byte 0x40BFC88C
+	.4byte 0x40CB2FFC
+	.4byte 0x40D74504
+	.4byte 0x40E411F8
+	.4byte 0x40F1A1C6
+	.4byte 0x41000004
+	.4byte 0x41079C81
+	.4byte 0x410FACDB
+	.4byte 0x411837F5
+	.4byte 0x4121451D
+	.4byte 0x412ADC0E
+	.4byte 0x413504F9
+	.4byte 0x413FC88D
+	.4byte 0x414B2FFC
+	.4byte 0x41574504
+	.4byte 0x416411F8
+	.4byte 0x4171A1C7
+	.4byte 0x41800004
+	.4byte 0x41879C81
+	.4byte 0x418FACDB
+	.4byte 0x419837F5
+	.4byte 0x41A1451D
+	.4byte 0x41AADC0E
+	.4byte 0x41B504F9
+	.4byte 0x41BFC88D
+	.4byte 0x41CB2FFC
+	.4byte 0x41D74504
+	.4byte 0x41E411F8
+	.4byte 0x41F1A1C7
+	.4byte 0x42000004
+	.4byte 0x42079C81
+	.4byte 0x420FACDB
+	.4byte 0x421837F5
+	.4byte 0x4221451D
+	.4byte 0x422ADC0E
+	.4byte 0x423504F9
+	.4byte 0x423FC88D
+	.4byte 0x424B2FFC
+	.4byte 0x42574504
+	.4byte 0x426411F8
+	.4byte 0x4271A1C7
+	.4byte 0x42800004
+	.4byte 0x42879C81
+	.4byte 0x428FACDB
+	.4byte 0x429837F5
+	.4byte 0x42A1451D
+	.4byte 0x42AADC0E
+	.4byte 0x42B504F9
+	.4byte 0x42BFC88D
+	.4byte 0x42CB2FFC
+	.4byte 0x42D74504
+	.4byte 0x42E411F8
+	.4byte 0x42F1A1C7
+	.4byte 0x43000004
+	.4byte 0x43079C81
+	.4byte 0x430FACDB
+	.4byte 0x431837F5
+	.4byte 0x4321451D
+	.4byte 0x432ADC0E
+	.4byte 0x433504F9
+	.4byte 0x433FC88D
+	.4byte 0x434B2FFC
+	.4byte 0x43574504
+	.4byte 0x436411F8
+	.4byte 0x4371A1C7
+	.4byte 0x43800004
+	.4byte 0x43879C81
+	.4byte 0x438FACDB
+	.4byte 0x439837F5
+	.4byte 0x43A1451D
+	.4byte 0x43AADC0E
+	.4byte 0x43B504F9
+	.4byte 0x43BFC88D
+	.4byte 0x43CB2FFC
+	.4byte 0x43D74504
+	.4byte 0x43E411F8
+	.4byte 0x43F1A1C7
+	.4byte 0x44000004
+	.4byte 0x44079C81
+	.4byte 0x440FACDB
+	.4byte 0x441837F5
+	.4byte 0x4421451D
+	.4byte 0x442ADC0E
+	.4byte 0x443504F9
+	.4byte 0x443FC88D
+	.4byte 0x444B2FFC
+	.4byte 0x44574504
+	.4byte 0x446411F8
+	.4byte 0x4471A1C7
+	.4byte 0x44800004
+	.4byte 0x44879C81
+	.4byte 0x448FACDB
+	.4byte 0x449837F5
+	.4byte 0x44A1451D
+	.4byte 0x44AADC0E
+	.4byte 0x44B504F9
+	.4byte 0x44BFC88D
+
+.global tonedown_tab
+tonedown_tab:
+	# ROM: 0x3F0620
+	.4byte 0x3F800000
+	.4byte 0x3F71A1C0
+	.4byte 0x3F6411F0
+	.4byte 0x3F574500
+	.4byte 0x3F4B2FF0
+	.4byte 0x3F3FC880
+	.4byte 0x3F3504F0
+	.4byte 0x3F2ADC00
+	.4byte 0x3F214510
+	.4byte 0x3F1837F0
+	.4byte 0x3F0FACD0
+	.4byte 0x3F079C80
+	.4byte 0x3F000000
+	.4byte 0x3EF1A1C0
+	.4byte 0x3EE411E0
+	.4byte 0x3ED74500
+	.4byte 0x3ECB3000
+	.4byte 0x3EBFC880
+	.4byte 0x3EB504E0
+	.4byte 0x3EAADC00
+	.4byte 0x3EA14520
+	.4byte 0x3E9837E0
+	.4byte 0x3E8FACE0
+	.4byte 0x3E879C80
+	.4byte 0x3E800000
+	.4byte 0x3E71A1C0
+	.4byte 0x3E641200
+	.4byte 0x3E574500
+	.4byte 0x3E4B3000
+	.4byte 0x3E3FC880
+	.4byte 0x3E350500
+	.4byte 0x3E2ADC00
+	.4byte 0x3E214500
+	.4byte 0x3E183800
+	.4byte 0x3E0FACC0
+	.4byte 0x3E079C80
+	.4byte 0x3E000000
+	.4byte 0x3DF1A180
+	.4byte 0x3DE41200
+	.4byte 0x3DD74500
+	.4byte 0x3DCB3000
+	.4byte 0x3DBFC880
+	.4byte 0x3DB50500
+	.4byte 0x3DAADC00
+	.4byte 0x3DA14500
+	.4byte 0x3D983800
+	.4byte 0x3D8FAD00
+	.4byte 0x3D879C80
+	.4byte 0x3D800000
+	.4byte 0x3D71A200
+	.4byte 0x3D641200
+	.4byte 0x3D574500
+	.4byte 0x3D4B3000
+	.4byte 0x3D3FC900
+	.4byte 0x3D350500
+	.4byte 0x3D2ADC00
+	.4byte 0x3D214500
+	.4byte 0x3D183800
+	.4byte 0x3D0FAD00
+	.4byte 0x3D079C00
+	.4byte 0x3D000000
+	.4byte 0x3CF1A200
+	.4byte 0x3CE41200
+	.4byte 0x3CD74400
+	.4byte 0x3CCB3000
+	.4byte 0x3CBFC800
+	.4byte 0x3CB50400
+	.4byte 0x3CAADC00
+	.4byte 0x3CA14600
+	.4byte 0x3C983800
+	.4byte 0x3C8FAC00
+	.4byte 0x3C879C00
+	.4byte 0x3C800000
+	.4byte 0x3C71A000
+	.4byte 0x3C641000
+	.4byte 0x3C574400
+	.4byte 0x3C4B3000
+	.4byte 0x3C3FC800
+	.4byte 0x3C350400
+	.4byte 0x3C2ADC00
+	.4byte 0x3C214400
+	.4byte 0x3C183800
+	.4byte 0x3C0FAC00
+	.4byte 0x3C079C00
+	.4byte 0x3C000000
+	.4byte 0x3BF1A000
+	.4byte 0x3BE41000
+	.4byte 0x3BD74800
+	.4byte 0x3BCB3000
+	.4byte 0x3BBFC800
+	.4byte 0x3BB50800
+	.4byte 0x3BAAE000
+	.4byte 0x3BA14800
+	.4byte 0x3B983800
+	.4byte 0x3B8FB000
+	.4byte 0x3B87A000
+	.4byte 0x3B800000
+	.4byte 0x3B71A000
+	.4byte 0x3B641000
+	.4byte 0x3B574000
+	.4byte 0x3B4B3000
+	.4byte 0x3B3FD000
+	.4byte 0x3B350000
+	.4byte 0x3B2AE000
+	.4byte 0x3B214000
+	.4byte 0x3B183000
+	.4byte 0x3B0FB000
+	.4byte 0x3B07A000
+	.4byte 0x3B000000
+	.4byte 0x3AF1A000
+	.4byte 0x3AE42000
+	.4byte 0x3AD74000
+	.4byte 0x3ACB2000
+	.4byte 0x3ABFC000
+	.4byte 0x3AB50000
+	.4byte 0x3AAAE000
+	.4byte 0x3AA14000
+	.4byte 0x3A984000
+	.4byte 0x3A8FA000
+	.4byte 0x3A87A000
+	.4byte 0x3A800000
+	.4byte 0x3A71C000
+	.4byte 0x3A640000
+	.4byte 0x3A574000
+	.4byte 0x3A4B4000
+	.4byte 0x3A3FC000
+	.4byte 0x3A350000
+	.4byte 0x3A2AC000
+
 .section .sdata2
 .global lbl_805AF2B0
 lbl_805AF2B0:
@@ -66,16 +332,16 @@ lbl_803A914C:
 /* 803A917C 003A60DC  EC 20 08 28 */	fsubs f1, f0, f1
 /* 803A9180 003A60E0  40 80 00 1C */	bge lbl_803A919C
 /* 803A9184 003A60E4  7C 06 28 50 */	subf r0, r6, r5
-/* 803A9188 003A60E8  3C 60 80 3F */	lis r3, lbl_803F3420@ha
+/* 803A9188 003A60E8  3C 60 80 3F */	lis r3, toneup_map@ha
 /* 803A918C 003A60EC  54 00 10 3A */	slwi r0, r0, 2
-/* 803A9190 003A60F0  38 63 34 20 */	addi r3, r3, lbl_803F3420@l
+/* 803A9190 003A60F0  38 63 34 20 */	addi r3, r3, toneup_map@l
 /* 803A9194 003A60F4  7C 03 04 2E */	lfsx f0, r3, r0
 /* 803A9198 003A60F8  48 00 00 18 */	b lbl_803A91B0
 lbl_803A919C:
 /* 803A919C 003A60FC  7C 05 30 50 */	subf r0, r5, r6
-/* 803A91A0 003A6100  3C 60 80 3F */	lis r3, lbl_803F3620@ha
+/* 803A91A0 003A6100  3C 60 80 3F */	lis r3, tonedown_tab@ha
 /* 803A91A4 003A6104  54 00 10 3A */	slwi r0, r0, 2
-/* 803A91A8 003A6108  38 63 36 20 */	addi r3, r3, lbl_803F3620@l
+/* 803A91A8 003A6108  38 63 36 20 */	addi r3, r3, tonedown_tab@l
 /* 803A91AC 003A610C  7C 03 04 2E */	lfsx f0, r3, r0
 lbl_803A91B0:
 /* 803A91B0 003A6110  EC 01 00 32 */	fmuls f0, f1, f0

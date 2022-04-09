@@ -540,9 +540,9 @@ lbl_803B347C:
 /* 803B34E4 003B0444  40 81 00 08 */	ble lbl_803B34EC
 /* 803B34E8 003B0448  38 80 03 FF */	li r4, 0x3ff
 lbl_803B34EC:
-/* 803B34EC 003B044C  3C 60 80 3F */	lis r3, lbl_803F39A4@ha
+/* 803B34EC 003B044C  3C 60 80 3F */	lis r3, dspScale2IndexTab@ha
 /* 803B34F0 003B0450  80 0D AF 54 */	lwz r0, dspVoice@sda21(r13)
-/* 803B34F4 003B0454  38 63 39 A4 */	addi r3, r3, lbl_803F39A4@l
+/* 803B34F4 003B0454  38 63 39 A4 */	addi r3, r3, dspScale2IndexTab@l
 /* 803B34F8 003B0458  7C 83 20 AE */	lbzx r4, r3, r4
 /* 803B34FC 003B045C  7C 60 FA 14 */	add r3, r0, r31
 /* 803B3500 003B0460  20 04 00 C1 */	subfic r0, r4, 0xc1
