@@ -222,21 +222,21 @@ lbl_8039C480:
 /* 8039C484 003993E4  90 0D AE 74 */	stw r0, synthFlags@sda21(r13)
 /* 8039C488 003993E8  54 00 07 FA */	rlwinm r0, r0, 0, 0x1f, 0x1d
 /* 8039C48C 003993EC  90 0D AE 74 */	stw r0, synthFlags@sda21(r13)
-/* 8039C490 003993F0  48 01 7A 8D */	bl sub_803b3f1c
+/* 8039C490 003993F0  48 01 7A 8D */	bl hwDisableHRTF
 /* 8039C494 003993F4  48 00 00 30 */	b lbl_8039C4C4
 lbl_8039C498:
 /* 8039C498 003993F8  57 E3 00 3C */	rlwinm r3, r31, 0, 0, 0x1e
 /* 8039C49C 003993FC  57 E0 00 3A */	rlwinm r0, r31, 0, 0, 0x1d
 /* 8039C4A0 00399400  90 6D AE 74 */	stw r3, synthFlags@sda21(r13)
 /* 8039C4A4 00399404  90 0D AE 74 */	stw r0, synthFlags@sda21(r13)
-/* 8039C4A8 00399408  48 01 7A 75 */	bl sub_803b3f1c
+/* 8039C4A8 00399408  48 01 7A 75 */	bl hwDisableHRTF
 /* 8039C4AC 0039940C  48 00 00 18 */	b lbl_8039C4C4
 lbl_8039C4B0:
 /* 8039C4B0 00399410  57 E0 00 3C */	rlwinm r0, r31, 0, 0, 0x1e
 /* 8039C4B4 00399414  90 0D AE 74 */	stw r0, synthFlags@sda21(r13)
 /* 8039C4B8 00399418  60 00 00 02 */	ori r0, r0, 2
 /* 8039C4BC 0039941C  90 0D AE 74 */	stw r0, synthFlags@sda21(r13)
-/* 8039C4C0 00399420  48 01 7A 5D */	bl sub_803b3f1c
+/* 8039C4C0 00399420  48 01 7A 5D */	bl hwDisableHRTF
 lbl_8039C4C4:
 /* 8039C4C4 00399424  80 0D AE 74 */	lwz r0, synthFlags@sda21(r13)
 /* 8039C4C8 00399428  7C 1F 00 40 */	cmplw r31, r0
@@ -398,7 +398,7 @@ synthActivateStudio:
 /* 8039C704 00399664  7C 08 59 AE */	stbx r0, r8, r11
 /* 8039C708 00399668  7C 07 59 AE */	stbx r0, r7, r11
 /* 8039C70C 0039966C  7D 26 61 AE */	stbx r9, r6, r12
-/* 8039C710 00399670  48 01 73 8D */	bl sub_803b3a9c
+/* 8039C710 00399670  48 01 73 8D */	bl hwActivateStudio
 /* 8039C714 00399674  48 01 89 71 */	bl hwEnableIrq
 /* 8039C718 00399678  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8039C71C 0039967C  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -408,8 +408,8 @@ synthActivateStudio:
 /* 8039C72C 0039968C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8039C730 00399690  4E 80 00 20 */	blr 
 
-.global sub_8039c734
-sub_8039c734:
+.global synthDeactivateStudio
+synthDeactivateStudio:
 /* 8039C734 00399694  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8039C738 00399698  7C 08 02 A6 */	mflr r0
 /* 8039C73C 0039969C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -442,7 +442,7 @@ lbl_8039C798:
 /* 8039C7A0 00399700  28 03 00 00 */	cmplwi r3, 0
 /* 8039C7A4 00399704  41 82 00 0C */	beq lbl_8039C7B0
 /* 8039C7A8 00399708  7F 63 DB 78 */	mr r3, r27
-/* 8039C7AC 0039970C  48 01 72 9D */	bl sub_803b3a48
+/* 8039C7AC 0039970C  48 01 72 9D */	bl hwOff
 lbl_8039C7B0:
 /* 8039C7B0 00399710  3B 9C 04 04 */	addi r28, r28, 0x404
 /* 8039C7B4 00399714  3B 7B 00 01 */	addi r27, r27, 1
@@ -467,7 +467,7 @@ lbl_8039C7B8:
 /* 8039C7FC 0039975C  7C 03 49 AE */	stbx r0, r3, r9
 /* 8039C800 00399760  48 01 88 85 */	bl hwEnableIrq
 /* 8039C804 00399764  7F E3 FB 78 */	mr r3, r31
-/* 8039C808 00399768  48 01 72 B5 */	bl sub_803b3abc
+/* 8039C808 00399768  48 01 72 B5 */	bl hwDeactivateStudio
 /* 8039C80C 0039976C  39 61 00 20 */	addi r11, r1, 0x20
 /* 8039C810 00399770  4B FE D2 B9 */	bl _restgpr_27
 /* 8039C814 00399774  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -480,7 +480,7 @@ synthAddStudioInput:
 /* 8039C824 00399784  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039C828 00399788  7C 08 02 A6 */	mflr r0
 /* 8039C82C 0039978C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8039C830 00399790  48 01 72 AD */	bl sub_803b3adc
+/* 8039C830 00399790  48 01 72 AD */	bl hwAddInput
 /* 8039C834 00399794  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8039C838 00399798  7C 08 03 A6 */	mtlr r0
 /* 8039C83C 0039979C  38 21 00 10 */	addi r1, r1, 0x10
@@ -491,7 +491,7 @@ synthRemoveStudioInput:
 /* 8039C844 003997A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8039C848 003997A8  7C 08 02 A6 */	mflr r0
 /* 8039C84C 003997AC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8039C850 003997B0  48 01 72 C1 */	bl sub_803b3b10
+/* 8039C850 003997B0  48 01 72 C1 */	bl hwRemoveInput
 /* 8039C854 003997B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8039C858 003997B8  7C 08 03 A6 */	mtlr r0
 /* 8039C85C 003997BC  38 21 00 10 */	addi r1, r1, 0x10

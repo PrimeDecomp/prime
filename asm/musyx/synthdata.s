@@ -1273,8 +1273,8 @@ lbl_803A0E0C:
 /* 803A0E1C 0039DD7C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A0E20 0039DD80  4E 80 00 20 */	blr
 
-.global sub_803a0e24
-sub_803a0e24:
+.global dataRemoveKeymap
+dataRemoveKeymap:
 /* 803A0E24 0039DD84  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A0E28 0039DD88  7C 08 02 A6 */	mflr r0
 /* 803A0E2C 0039DD8C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1812,8 +1812,8 @@ lbl_803A1594:
 /* 803A15A8 0039E508  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A15AC 0039E50C  4E 80 00 20 */	blr
 
-.global dataRemoveKeymap
-dataRemoveKeymap:
+.global dataRemoveCurve
+dataRemoveCurve:
 /* 803A15B0 0039E510  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A15B4 0039E514  7C 08 02 A6 */	mflr r0
 /* 803A15B8 0039E518  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2036,8 +2036,8 @@ lbl_803A1894:
 /* 803A18AC 0039E80C  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A18B0 0039E810  4E 80 00 20 */	blr
 
-.global sub_803a18b4
-sub_803a18b4:
+.global dataRemoveSDir
+dataRemoveSDir:
 /* 803A18B4 0039E814  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A18B8 0039E818  7C 08 02 A6 */	mflr r0
 /* 803A18BC 0039E81C  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
@@ -2242,8 +2242,8 @@ lbl_803A1B60:
 /* 803A1B74 0039EAD4  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A1B78 0039EAD8  4E 80 00 20 */	blr
 
-.global sub_803a1b7c
-sub_803a1b7c:
+.global dataAddSampleReference
+dataAddSampleReference:
 /* 803A1B7C 0039EADC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A1B80 0039EAE0  7C 08 02 A6 */	mflr r0
 /* 803A1B84 0039EAE4  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
@@ -2293,7 +2293,7 @@ lbl_803A1BF0:
 /* 803A1C20 0039EB80  7C A6 2A 14 */	add r5, r6, r5
 /* 803A1C24 0039EB84  90 BF 00 08 */	stw r5, 8(r31)
 /* 803A1C28 0039EB88  90 01 00 08 */	stw r0, 8(r1)
-/* 803A1C2C 0039EB8C  48 01 21 81 */	bl sub_803b3dac
+/* 803A1C2C 0039EB8C  48 01 21 81 */	bl hwSaveSample
 lbl_803A1C30:
 /* 803A1C30 0039EB90  A0 9F 00 02 */	lhz r4, 2(r31)
 /* 803A1C34 0039EB94  38 60 00 01 */	li r3, 1
@@ -2305,8 +2305,8 @@ lbl_803A1C30:
 /* 803A1C4C 0039EBAC  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A1C50 0039EBB0  4E 80 00 20 */	blr
 
-.global sub_803a1c54
-sub_803a1c54:
+.global dataRemoveSampleReference
+dataRemoveSampleReference:
 /* 803A1C54 0039EBB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A1C58 0039EBB8  7C 08 02 A6 */	mflr r0
 /* 803A1C5C 0039EBBC  3C 80 80 56 */	lis r4, dataSmpSDirs@ha
@@ -2333,7 +2333,7 @@ lbl_803A1C84:
 /* 803A1CA8 0039EC08  40 82 00 10 */	bne lbl_803A1CB8
 /* 803A1CAC 0039EC0C  80 85 00 08 */	lwz r4, 8(r5)
 /* 803A1CB0 0039EC10  38 65 00 0C */	addi r3, r5, 0xc
-/* 803A1CB4 0039EC14  48 01 21 AD */	bl sub_803b3e60
+/* 803A1CB4 0039EC14  48 01 21 AD */	bl  hwRemoveSample
 lbl_803A1CB8:
 /* 803A1CB8 0039EC18  38 60 00 01 */	li r3, 1
 /* 803A1CBC 0039EC1C  48 00 00 20 */	b lbl_803A1CDC
@@ -2436,8 +2436,8 @@ lbl_803A1DEC:
 /* 803A1E00 0039ED60  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A1E04 0039ED64  4E 80 00 20 */	blr
 
-.global sub_803a1e08
-sub_803a1e08:
+.global dataRemoveFX
+dataRemoveFX:
 /* 803A1E08 0039ED68  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A1E0C 0039ED6C  7C 08 02 A6 */	mflr r0
 /* 803A1E10 0039ED70  3C 80 80 56 */	lis r4, dataFXGroups@ha
@@ -2535,8 +2535,8 @@ lbl_803A1F50:
 /* 803A1F5C 0039EEBC  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A1F60 0039EEC0  4E 80 00 20 */	blr
 
-.global sub_803a1f64
-sub_803a1f64:
+.global dataInsertMacro
+dataInsertMacro:
 /* 803A1F64 0039EEC4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A1F68 0039EEC8  7C 08 02 A6 */	mflr r0
 /* 803A1F6C 0039EECC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2933,8 +2933,7 @@ lbl_803A24D0:
 /* 803A24E4 0039F444  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A24E8 0039F448  4E 80 00 20 */	blr
 
-.global sub_803a24ec
-sub_803a24ec:
+maccmp:
 /* 803A24EC 0039F44C  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A24F0 0039F450  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A24F4 0039F454  7C 64 00 50 */	subf r3, r4, r0
@@ -2958,10 +2957,10 @@ dataGetMacro:
 /* 803A2530 0039F490  A1 04 00 02 */	lhz r8, 2(r4)
 /* 803A2534 0039F494  3C C0 80 56 */	lis r6, dataMacSubTabmem@ha
 /* 803A2538 0039F498  B0 67 00 04 */	sth r3, 4(r7)
-/* 803A253C 0039F49C  3C 80 80 3A */	lis r4, sub_803a24ec@ha
+/* 803A253C 0039F49C  3C 80 80 3A */	lis r4, maccmp@ha
 /* 803A2540 0039F4A0  38 06 92 F8 */	addi r0, r6, dataMacSubTabmem@l
 /* 803A2544 0039F4A4  55 03 18 38 */	slwi r3, r8, 3
-/* 803A2548 0039F4A8  38 E4 24 EC */	addi r7, r4, sub_803a24ec@l
+/* 803A2548 0039F4A8  38 E4 24 EC */	addi r7, r4, maccmp@l
 /* 803A254C 0039F4AC  91 0D AE CC */	stw r8, "base$711"@sda21(r13)
 /* 803A2550 0039F4B0  7C 80 1A 14 */	add r4, r0, r3
 /* 803A2554 0039F4B4  38 6D AE C0 */	addi r3, r13, "key$713"@sda21
@@ -2980,15 +2979,14 @@ lbl_803A2578:
 /* 803A2580 0039F4E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2584 0039F4E4  4E 80 00 20 */	blr
 
-.global sub_803a2588
-sub_803a2588:
+smpcmp:
 /* 803A2588 0039F4E8  A0 84 00 00 */	lhz r4, 0(r4)
 /* 803A258C 0039F4EC  A0 03 00 00 */	lhz r0, 0(r3)
 /* 803A2590 0039F4F0  7C 64 00 50 */	subf r3, r4, r0
 /* 803A2594 0039F4F4  4E 80 00 20 */	blr
 
-.global sub_803a2598
-sub_803a2598:
+.global dataGetSample
+dataGetSample:
 /* 803A2598 0039F4F8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803A259C 0039F4FC  7C 08 02 A6 */	mflr r0
 /* 803A25A0 0039F500  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2998,11 +2996,11 @@ sub_803a2598:
 /* 803A25B0 0039F510  3C C0 80 56 */	lis r6, dataSmpSDirs@ha
 /* 803A25B4 0039F514  3B 85 D2 F8 */	addi r28, r5, "key$731"@l
 /* 803A25B8 0039F518  7C 9E 23 78 */	mr r30, r4
-/* 803A25BC 0039F51C  3C A0 80 3A */	lis r5, sub_803a2588@ha
+/* 803A25BC 0039F51C  3C A0 80 3A */	lis r5, smpcmp@ha
 /* 803A25C0 0039F520  B0 7C 00 00 */	sth r3, 0(r28)
 /* 803A25C4 0039F524  3B 66 80 F8 */	addi r27, r6, dataSmpSDirs@l
 /* 803A25C8 0039F528  3B E0 00 00 */	li r31, 0
-/* 803A25CC 0039F52C  3B A5 25 88 */	addi r29, r5, sub_803a2588@l
+/* 803A25CC 0039F52C  3B A5 25 88 */	addi r29, r5, smpcmp@l
 /* 803A25D0 0039F530  48 00 00 C8 */	b lbl_803A2698
 lbl_803A25D4:
 /* 803A25D4 0039F534  80 9B 00 00 */	lwz r4, 0(r27)
@@ -3069,8 +3067,7 @@ lbl_803A26A8:
 /* 803A26B8 0039F618  38 21 00 20 */	addi r1, r1, 0x20
 /* 803A26BC 0039F61C  4E 80 00 20 */	blr
 
-.global sub_803a26c0
-sub_803a26c0:
+curvecmp:
 /* 803A26C0 0039F620  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A26C4 0039F624  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A26C8 0039F628  7C 64 00 50 */	subf r3, r4, r0
@@ -3081,10 +3078,10 @@ dataGetCurve:
 /* 803A26D0 0039F630  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A26D4 0039F634  7C 08 02 A6 */	mflr r0
 /* 803A26D8 0039F638  3C 80 80 55 */	lis r4, dataCurveTab@ha
-/* 803A26DC 0039F63C  3C C0 80 3A */	lis r6, sub_803a26c0@ha
+/* 803A26DC 0039F63C  3C C0 80 3A */	lis r6, curvecmp@ha
 /* 803A26E0 0039F640  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803A26E4 0039F644  38 AD AE AC */	addi r5, r13, "key$759"@sda21
-/* 803A26E8 0039F648  38 E6 26 C0 */	addi r7, r6, sub_803a26c0@l
+/* 803A26E8 0039F648  38 E6 26 C0 */	addi r7, r6, curvecmp@l
 /* 803A26EC 0039F64C  38 84 40 F8 */	addi r4, r4, dataCurveTab@l
 /* 803A26F0 0039F650  B0 65 00 04 */	sth r3, 4(r5)
 /* 803A26F4 0039F654  38 6D AE AC */	addi r3, r13, "key$759"@sda21
@@ -3104,15 +3101,15 @@ lbl_803A271C:
 /* 803A2724 0039F684  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2728 0039F688  4E 80 00 20 */	blr
 
-.global sub_803a272c
-sub_803a272c:
+.global dataGetKeymap
+dataGetKeymap:
 /* 803A272C 0039F68C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A2730 0039F690  7C 08 02 A6 */	mflr r0
 /* 803A2734 0039F694  3C 80 80 55 */	lis r4, dataKeymapTab@ha
-/* 803A2738 0039F698  3C C0 80 3A */	lis r6, sub_803a26c0@ha
+/* 803A2738 0039F698  3C C0 80 3A */	lis r6, curvecmp@ha
 /* 803A273C 0039F69C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803A2740 0039F6A0  38 AD AE A0 */	addi r5, r13, "key$767"@sda21
-/* 803A2744 0039F6A4  38 E6 26 C0 */	addi r7, r6, sub_803a26c0@l
+/* 803A2744 0039F6A4  38 E6 26 C0 */	addi r7, r6, curvecmp@l
 /* 803A2748 0039F6A8  38 84 2C F8 */	addi r4, r4, dataKeymapTab@l
 /* 803A274C 0039F6AC  B0 65 00 04 */	sth r3, 4(r5)
 /* 803A2750 0039F6B0  38 6D AE A0 */	addi r3, r13, "key$767"@sda21
@@ -3132,8 +3129,7 @@ lbl_803A2778:
 /* 803A2780 0039F6E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2784 0039F6E4  4E 80 00 20 */	blr
 
-.global sub_803a2788
-sub_803a2788:
+layercmp:
 /* 803A2788 0039F6E8  A0 84 00 04 */	lhz r4, 4(r4)
 /* 803A278C 0039F6EC  A0 03 00 04 */	lhz r0, 4(r3)
 /* 803A2790 0039F6F0  7C 64 00 50 */	subf r3, r4, r0
@@ -3147,10 +3143,10 @@ dataGetLayer:
 /* 803A27A4 0039F704  3C C0 80 55 */	lis r6, dataLayerTab@ha
 /* 803A27A8 0039F708  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803A27AC 0039F70C  39 05 D3 18 */	addi r8, r5, "key$493"@l
-/* 803A27B0 0039F710  3C A0 80 3A */	lis r5, sub_803a2788@ha
+/* 803A27B0 0039F710  3C A0 80 3A */	lis r5, layercmp@ha
 /* 803A27B4 0039F714  38 06 34 F8 */	addi r0, r6, dataLayerTab@l
 /* 803A27B8 0039F718  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 803A27BC 0039F71C  38 E5 27 88 */	addi r7, r5, sub_803a2788@l
+/* 803A27BC 0039F71C  38 E5 27 88 */	addi r7, r5, layercmp@l
 /* 803A27C0 0039F720  7C 9F 23 78 */	mr r31, r4
 /* 803A27C4 0039F724  7C 04 03 78 */	mr r4, r0
 /* 803A27C8 0039F728  B0 68 00 04 */	sth r3, 4(r8)
@@ -3175,8 +3171,7 @@ lbl_803A2800:
 /* 803A280C 0039F76C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803A2810 0039F770  4E 80 00 20 */	blr
 
-.global sub_803a2814
-sub_803a2814:
+fxcmp:
 /* 803A2814 0039F774  A0 84 00 00 */	lhz r4, 0(r4)
 /* 803A2818 0039F778  A0 03 00 00 */	lhz r0, 0(r3)
 /* 803A281C 0039F77C  7C 64 00 50 */	subf r3, r4, r0
@@ -3192,10 +3187,10 @@ dataGetFX:
 /* 803A2838 0039F798  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803A283C 0039F79C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 803A2840 0039F7A0  3B C4 D3 24 */	addi r30, r4, "key$487"@l
-/* 803A2844 0039F7A4  3C 80 80 3A */	lis r4, sub_803a2814@ha
+/* 803A2844 0039F7A4  3C 80 80 3A */	lis r4, fxcmp@ha
 /* 803A2848 0039F7A8  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803A284C 0039F7AC  3B A5 86 F8 */	addi r29, r5, dataFXGroups@l
-/* 803A2850 0039F7B0  3B E4 28 14 */	addi r31, r4, sub_803a2814@l
+/* 803A2850 0039F7B0  3B E4 28 14 */	addi r31, r4, fxcmp@l
 /* 803A2854 0039F7B4  93 81 00 10 */	stw r28, 0x10(r1)
 /* 803A2858 0039F7B8  3B 80 00 00 */	li r28, 0
 /* 803A285C 0039F7BC  B0 7E 00 00 */	sth r3, 0(r30)
@@ -3284,7 +3279,7 @@ lbl_803A2904:
 /* 803A2988 0039F8E8  38 A5 00 40 */	addi r5, r5, 0x40
 /* 803A298C 0039F8EC  42 00 FF 78 */	bdnz lbl_803A2904
 lbl_803A2990:
-/* 803A2990 0039F8F0  48 01 13 D9 */	bl sub_803b3d68
+/* 803A2990 0039F8F0  48 01 13 D9 */	bl hwInitSampleMem
 /* 803A2994 0039F8F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A2998 0039F8F8  7C 08 03 A6 */	mtlr r0
 /* 803A299C 0039F8FC  38 21 00 10 */	addi r1, r1, 0x10
@@ -3295,7 +3290,7 @@ dataExit:
 /* 803A29A4 0039F904  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803A29A8 0039F908  7C 08 02 A6 */	mflr r0
 /* 803A29AC 0039F90C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803A29B0 0039F910  48 01 13 DD */	bl sub_803b3d8c
+/* 803A29B0 0039F910  48 01 13 DD */	bl hwExitSampleMem
 /* 803A29B4 0039F914  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803A29B8 0039F918  7C 08 03 A6 */	mtlr r0
 /* 803A29BC 0039F91C  38 21 00 10 */	addi r1, r1, 0x10

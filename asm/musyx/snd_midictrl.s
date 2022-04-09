@@ -377,7 +377,7 @@ lbl_803B13B4:
 /* 803B13D4 003AE334  93 63 02 14 */	stw r27, 0x214(r3)
 /* 803B13D8 003AE338  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 803B13DC 003AE33C  7C 60 CA 14 */	add r3, r0, r25
-/* 803B13E0 003AE340  4B FE 97 01 */	bl sub_8039aae0
+/* 803B13E0 003AE340  4B FE 97 01 */	bl synthkeystateupdate
 lbl_803B13E4:
 /* 803B13E4 003AE344  3B 39 04 04 */	addi r25, r25, 0x404
 /* 803B13E8 003AE348  3B 9C 00 01 */	addi r28, r28, 1
@@ -587,7 +587,7 @@ lbl_803B169C:
 /* 803B16BC 003AE61C  93 83 02 14 */	stw r28, 0x214(r3)
 /* 803B16C0 003AE620  80 0D AE 78 */	lwz r0, synthVoice@sda21(r13)
 /* 803B16C4 003AE624  7C 60 CA 14 */	add r3, r0, r25
-/* 803B16C8 003AE628  4B FE 94 19 */	bl sub_8039aae0
+/* 803B16C8 003AE628  4B FE 94 19 */	bl synthkeystateupdate
 lbl_803B16CC:
 /* 803B16CC 003AE62C  3B 39 04 04 */	addi r25, r25, 0x404
 /* 803B16D0 003AE630  3B BD 00 01 */	addi r29, r29, 1
@@ -952,8 +952,8 @@ lbl_803B1BC8:
 /* 803B1BC8 003AEB28  38 60 00 00 */	li r3, 0
 /* 803B1BCC 003AEB2C  4E 80 00 20 */	blr
 
-.global sub_803b1bd0
-sub_803b1bd0:
+.global inpGetChannelDefaults
+inpGetChannelDefaults:
 /* 803B1BD0 003AEB30  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 803B1BD4 003AEB34  3C A0 80 56 */	lis r5, inpChannelDefaults@ha
 /* 803B1BD8 003AEB38  28 00 00 FF */	cmplwi r0, 0xff
@@ -1504,8 +1504,8 @@ lbl_803B22D8:
 /* 803B22FC 003AF25C  38 21 00 30 */	addi r1, r1, 0x30
 /* 803B2300 003AF260  4E 80 00 20 */	blr
 
-.global sub_803b2304
-sub_803b2304:
+.global inpGetVolume
+inpGetVolume:
 /* 803B2304 003AF264  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2308 003AF268  7C 08 02 A6 */	mflr r0
 /* 803B230C 003AF26C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1527,8 +1527,8 @@ lbl_803B233C:
 /* 803B2344 003AF2A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2348 003AF2A8  4E 80 00 20 */	blr
 
-.global sub_803b234c
-sub_803b234c:
+.global inpGetPanning
+inpGetPanning:
 /* 803B234C 003AF2AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2350 003AF2B0  7C 08 02 A6 */	mflr r0
 /* 803B2354 003AF2B4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1550,8 +1550,8 @@ lbl_803B2384:
 /* 803B238C 003AF2EC  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2390 003AF2F0  4E 80 00 20 */	blr
 
-.global sub_803b2394
-sub_803b2394:
+.global inpGetSurPanning
+inpGetSurPanning:
 /* 803B2394 003AF2F4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2398 003AF2F8  7C 08 02 A6 */	mflr r0
 /* 803B239C 003AF2FC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1573,8 +1573,8 @@ lbl_803B23CC:
 /* 803B23D4 003AF334  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B23D8 003AF338  4E 80 00 20 */	blr
 
-.global sub_803b23dc
-sub_803b23dc:
+.global inpGetPitchBend
+inpGetPitchBend:
 /* 803B23DC 003AF33C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B23E0 003AF340  7C 08 02 A6 */	mflr r0
 /* 803B23E4 003AF344  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1596,8 +1596,8 @@ lbl_803B2414:
 /* 803B241C 003AF37C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2420 003AF380  4E 80 00 20 */	blr
 
-.global sub_803b2424
-sub_803b2424:
+.global inpGetDoppler
+inpGetDoppler:
 /* 803B2424 003AF384  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2428 003AF388  7C 08 02 A6 */	mflr r0
 /* 803B242C 003AF38C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1619,8 +1619,8 @@ lbl_803B245C:
 /* 803B2464 003AF3C4  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2468 003AF3C8  4E 80 00 20 */	blr
 
-.global sub_803b246c
-sub_803b246c:
+.global inpGetModulation
+inpGetModulation:
 /* 803B246C 003AF3CC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2470 003AF3D0  7C 08 02 A6 */	mflr r0
 /* 803B2474 003AF3D4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1642,8 +1642,8 @@ lbl_803B24A4:
 /* 803B24AC 003AF40C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B24B0 003AF410  4E 80 00 20 */	blr
 
-.global inpGetVolume
-inpGetVolume:
+.global inpGetPedal
+inpGetPedal:
 /* 803B24B4 003AF414  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B24B8 003AF418  7C 08 02 A6 */	mflr r0
 /* 803B24BC 003AF41C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1665,8 +1665,8 @@ lbl_803B24EC:
 /* 803B24F4 003AF454  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B24F8 003AF458  4E 80 00 20 */	blr
 
-.global sub_803b24fc
-sub_803b24fc:
+.global inpGetPreAuxA
+inpGetPreAuxA:
 /* 803B24FC 003AF45C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2500 003AF460  7C 08 02 A6 */	mflr r0
 /* 803B2504 003AF464  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1688,8 +1688,8 @@ lbl_803B2534:
 /* 803B253C 003AF49C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2540 003AF4A0  4E 80 00 20 */	blr
 
-.global sub_803b2544
-sub_803b2544:
+.global inpGetReverb
+inpGetReverb:
 /* 803B2544 003AF4A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2548 003AF4A8  7C 08 02 A6 */	mflr r0
 /* 803B254C 003AF4AC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1711,8 +1711,8 @@ lbl_803B257C:
 /* 803B2584 003AF4E4  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2588 003AF4E8  4E 80 00 20 */	blr
 
-.global sub_803b258c
-sub_803b258c:
+.global inpGetPreAuxB
+inpGetPreAuxB:
 /* 803B258C 003AF4EC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2590 003AF4F0  7C 08 02 A6 */	mflr r0
 /* 803B2594 003AF4F4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1734,8 +1734,8 @@ lbl_803B25C4:
 /* 803B25CC 003AF52C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B25D0 003AF530  4E 80 00 20 */	blr
 
-.global sub_803b25d4
-sub_803b25d4:
+.global inpGetPostAuxB
+inpGetPostAuxB:
 /* 803B25D4 003AF534  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B25D8 003AF538  7C 08 02 A6 */	mflr r0
 /* 803B25DC 003AF53C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1757,8 +1757,8 @@ lbl_803B260C:
 /* 803B2614 003AF574  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2618 003AF578  4E 80 00 20 */	blr
 
-.global sub_803b261c
-sub_803b261c:
+.global inpGetTremolo
+inpGetTremolo:
 /* 803B261C 003AF57C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2620 003AF580  7C 08 02 A6 */	mflr r0
 /* 803B2624 003AF584  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1780,8 +1780,8 @@ lbl_803B2654:
 /* 803B265C 003AF5BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B2660 003AF5C0  4E 80 00 20 */	blr
 
-.global sub_803b2664
-sub_803b2664:
+.global inpGetAuxB
+inpGetAuxB:
 /* 803B2664 003AF5C4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B2668 003AF5C8  7C 08 02 A6 */	mflr r0
 /* 803B266C 003AF5CC  3C E0 80 56 */	lis r7, inpGlobalMIDIDirtyFlags@ha
@@ -1882,8 +1882,8 @@ lbl_803B27BC:
 /* 803B27C4 003AF724  38 21 00 10 */	addi r1, r1, 0x10
 /* 803B27C8 003AF728  4E 80 00 20 */	blr
 
-.global sub_803b27cc
-sub_803b27cc:
+.global inpInit
+inpInit:
 /* 803B27CC 003AF72C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803B27D0 003AF730  28 03 00 00 */	cmplwi r3, 0
 /* 803B27D4 003AF734  93 E1 00 1C */	stw r31, 0x1c(r1)

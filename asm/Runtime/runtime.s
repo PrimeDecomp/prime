@@ -119,12 +119,12 @@ sub_80389a34:
 __save_gpr:
 /* 80389A48 003869A8  91 CB FF B8 */	stw r14, -0x48(r11)
 
-.global func_80389A4C
-func_80389A4C:
+.global _savegpr_15
+_savegpr_15:
 /* 80389A4C 003869AC  91 EB FF BC */	stw r15, -0x44(r11)
 
-.global sub_80389a50
-sub_80389a50:
+.global _savegpr_16
+_savegpr_16:
 /* 80389A50 003869B0  92 0B FF C0 */	stw r16, -0x40(r11)
 /* 80389A54 003869B4  92 2B FF C4 */	stw r17, -0x3c(r11)
 

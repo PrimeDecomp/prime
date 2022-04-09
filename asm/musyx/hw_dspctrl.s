@@ -521,8 +521,8 @@ salActivateStudio:
 /* 803AB310 003A8270  38 21 00 20 */	addi r1, r1, 0x20
 /* 803AB314 003A8274  4E 80 00 20 */	blr
 
-.global sub_803ab318
-sub_803ab318:
+.global salDeactivateStudio
+salDeactivateStudio:
 /* 803AB318 003A8278  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 803AB31C 003A827C  3C 60 80 56 */	lis r3, dspStudio@ha
 /* 803AB320 003A8280  1C 00 00 BC */	mulli r0, r0, 0xbc
@@ -710,8 +710,8 @@ lbl_803AB574:
 /* 803AB58C 003A84EC  90 05 00 00 */	stw r0, 0(r5)
 /* 803AB590 003A84F0  4E 80 00 20 */	blr
 
-.global sub_803ab594
-sub_803ab594:
+.global HandleDepopVoice
+HandleDepopVoice:
 /* 803AB594 003A84F4  38 00 00 00 */	li r0, 0
 /* 803AB598 003A84F8  3C A0 00 80 */	lis r5, 0x007FFFFF@ha
 /* 803AB59C 003A84FC  98 04 00 ED */	stb r0, 0xed(r4)
@@ -1158,7 +1158,7 @@ lbl_803ABB98:
 lbl_803ABBB4:
 /* 803ABBB4 003A8B14  7E 03 83 78 */	mr r3, r16
 /* 803ABBB8 003A8B18  7D C4 73 78 */	mr r4, r14
-/* 803ABBBC 003A8B1C  4B FF F9 D9 */	bl sub_803ab594
+/* 803ABBBC 003A8B1C  4B FF F9 D9 */	bl HandleDepopVoice
 /* 803ABBC0 003A8B20  80 6E 00 E8 */	lwz r3, 0xe8(r14)
 /* 803ABBC4 003A8B24  3C 03 00 01 */	addis r0, r3, 1
 /* 803ABBC8 003A8B28  28 00 FF FF */	cmplwi r0, 0xffff
@@ -1188,7 +1188,7 @@ lbl_803ABC08:
 lbl_803ABC18:
 /* 803ABC18 003A8B78  7E 03 83 78 */	mr r3, r16
 /* 803ABC1C 003A8B7C  7D C4 73 78 */	mr r4, r14
-/* 803ABC20 003A8B80  4B FF F9 75 */	bl sub_803ab594
+/* 803ABC20 003A8B80  4B FF F9 75 */	bl HandleDepopVoice
 /* 803ABC24 003A8B84  81 CE 00 14 */	lwz r14, 0x14(r14)
 lbl_803ABC28:
 /* 803ABC28 003A8B88  28 0E 00 00 */	cmplwi r14, 0
@@ -2613,7 +2613,7 @@ lbl_803AD074:
 /* 803AD0E0 003AA040  40 82 00 10 */	bne lbl_803AD0F0
 /* 803AD0E4 003AA044  7E 03 83 78 */	mr r3, r16
 /* 803AD0E8 003AA048  7F A4 EB 78 */	mr r4, r29
-/* 803AD0EC 003AA04C  4B FF E4 A9 */	bl sub_803ab594
+/* 803AD0EC 003AA04C  4B FF E4 A9 */	bl HandleDepopVoice
 lbl_803AD0F0:
 /* 803AD0F0 003AA050  7F A3 EB 78 */	mr r3, r29
 /* 803AD0F4 003AA054  48 00 0C 71 */	bl salDeactivateVoice
@@ -2632,7 +2632,7 @@ lbl_803AD11C:
 /* 803AD124 003AA084  28 00 00 02 */	cmplwi r0, 2
 /* 803AD128 003AA088  40 82 00 0C */	bne lbl_803AD134
 /* 803AD12C 003AA08C  7E 03 83 78 */	mr r3, r16
-/* 803AD130 003AA090  4B FF E4 65 */	bl sub_803ab594
+/* 803AD130 003AA090  4B FF E4 65 */	bl HandleDepopVoice
 lbl_803AD134:
 /* 803AD134 003AA094  80 6E FF FC */	lwz r3, -4(r14)
 /* 803AD138 003AA098  48 00 0C 2D */	bl salDeactivateVoice
@@ -2666,7 +2666,7 @@ lbl_803AD190:
 /* 803AD19C 003AA0FC  40 82 00 10 */	bne lbl_803AD1AC
 /* 803AD1A0 003AA100  7E 63 9B 78 */	mr r3, r19
 /* 803AD1A4 003AA104  7E 84 A3 78 */	mr r4, r20
-/* 803AD1A8 003AA108  4B FF E3 ED */	bl sub_803ab594
+/* 803AD1A8 003AA108  4B FF E3 ED */	bl HandleDepopVoice
 lbl_803AD1AC:
 /* 803AD1AC 003AA10C  7E 83 A3 78 */	mr r3, r20
 /* 803AD1B0 003AA110  48 00 0B B5 */	bl salDeactivateVoice
@@ -3507,8 +3507,8 @@ lbl_803ADDB8:
 /* 803ADDBC 003AAD1C  98 03 00 EC */	stb r0, 0xec(r3)
 /* 803ADDC0 003AAD20  4E 80 00 20 */	blr
 
-.global sub_803addc4
-sub_803addc4:
+.global salReconnectVoice
+salReconnectVoice:
 /* 803ADDC4 003AAD24  88 03 00 EC */	lbz r0, 0xec(r3)
 /* 803ADDC8 003AAD28  28 00 00 00 */	cmplwi r0, 0
 /* 803ADDCC 003AAD2C  41 82 00 B8 */	beq lbl_803ADE84
@@ -3565,8 +3565,8 @@ lbl_803ADE84:
 /* 803ADE84 003AADE4  98 83 00 EF */	stb r4, 0xef(r3)
 /* 803ADE88 003AADE8  4E 80 00 20 */	blr
 
-.global sub_803ade8c
-sub_803ade8c:
+.global salAddStudioInput
+salAddStudioInput:
 /* 803ADE8C 003AADEC  88 03 00 52 */	lbz r0, 0x52(r3)
 /* 803ADE90 003AADF0  28 00 00 07 */	cmplwi r0, 7
 /* 803ADE94 003AADF4  40 80 00 98 */	bge lbl_803ADF2C
@@ -3611,8 +3611,8 @@ lbl_803ADF2C:
 /* 803ADF2C 003AAE8C  38 60 00 00 */	li r3, 0
 /* 803ADF30 003AAE90  4E 80 00 20 */	blr
 
-.global sub_803adf34
-sub_803adf34:
+.global salRemoveStudioInput
+salRemoveStudioInput:
 /* 803ADF34 003AAE94  88 03 00 52 */	lbz r0, 0x52(r3)
 /* 803ADF38 003AAE98  7C 66 1B 78 */	mr r6, r3
 /* 803ADF3C 003AAE9C  38 A0 00 00 */	li r5, 0

@@ -2,8 +2,8 @@
 
 .section .text, "ax" 
 
-.global sub_803b5188
-sub_803b5188:
+.global sndAuxCallbackReverbSTD
+sndAuxCallbackReverbSTD:
 /* 803B5188 003B20E8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B518C 003B20EC  7C 08 02 A6 */	mflr r0
 /* 803B5190 003B20F0  7C 87 23 78 */	mr r7, r4
