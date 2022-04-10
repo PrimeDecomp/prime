@@ -1,0 +1,10 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 2
+ColumnLimit: 140
+---
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
+AlwaysBreakTemplateDeclarations: Yes
+SpacesInAngles: Always # for C++98-compatible nested template arguments
