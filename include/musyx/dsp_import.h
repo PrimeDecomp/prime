@@ -4,9 +4,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 char dspSlave[];
 short dspSlaveLength;
+
 #ifdef __cplusplus
 }
-#endif 
+#endif
+
 #endif

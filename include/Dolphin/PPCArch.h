@@ -1,9 +1,12 @@
+#ifndef _DOLPHIN_PPCARCH_H
+#define _DOLPHIN_PPCARCH_H
+
 #include "types.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
+
 u32 PPCMfmsr();
 void PPCMtmsr(u32 newMSR);
 u32 PPCOrMsr(u32 value);
@@ -27,4 +30,6 @@ void PPCSetFpNonIEEEMode();
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

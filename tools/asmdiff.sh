@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 OBJDUMP="$DEVKITPPC/bin/powerpc-eabi-objdump -D -bbinary -EB -mpowerpc -M gekko"
 OPTIONS="--start-address=$(($1)) --stop-address=$(($1 + $2))"

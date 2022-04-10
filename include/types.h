@@ -56,6 +56,9 @@ typedef void* unkptr;
 #endif
 #endif
 
+// where should these go?
+void srand(int);
+
 #ifdef __cplusplus
 }
 #endif
