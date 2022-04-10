@@ -730,8 +730,8 @@ lbl_80386438:
 /* 80386454 003833B4  7C 08 03 A6 */	mtlr r0
 /* 80386458 003833B8  4E 80 00 20 */	blr 
 
-.global sub_8038645c
-sub_8038645c:
+.global PADRecalibrate
+PADRecalibrate:
 /* 8038645C 003833BC  7C 08 02 A6 */	mflr r0
 /* 80386460 003833C0  90 01 00 04 */	stw r0, 4(r1)
 /* 80386464 003833C4  94 21 FF E8 */	stwu r1, -0x18(r1)
