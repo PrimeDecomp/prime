@@ -26,7 +26,7 @@
 
 extern "C" {
 // something pad
-void sub_8038645c(u32);
+void PADRecalibrate(u32);
 // something gx
 void sub_8036ccfc();
 // part of CMain but lazy
@@ -279,7 +279,7 @@ int CMain::RsMain(int argc, char** argv) {
       if (needsReset) {
         x12c_flowState = 5; // Default
         CStreamAudioManager::StopAll();
-        sub_8038645c(0xf0000000);
+        PADRecalibrate(0xf0000000);
         CGraphics::SetIsBeginSceneClearFb(true);
         CGraphics::BeginScene();
         CGraphics::EndScene();
