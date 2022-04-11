@@ -82,8 +82,7 @@ void CMain::ResetGameState() {
   gpGameState->SystemOptions() = persistentOptions;
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
-  gpGameState->PlayerState()->SetIsFusionEnabled(
-      gpGameState->SystemOptions().GetHasFusion());
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
 }
 
 // 800044A4
@@ -92,8 +91,7 @@ void CMain::StreamNewGameState(CInputStream& in, int saveIdx) {
   x128_gameGlobalObjects->SetGameState(nullptr);
   x128_gameGlobalObjects->SetGameState(new CGameState(in, saveIdx));
   gpGameState->SystemOptions().SetHasFusion(hasFusion);
-  gpGameState->PlayerState()->SetIsFusionEnabled(
-      gpGameState->SystemOptions().GetHasFusion());
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
   gpGameState->HintOptions().SetHintNextTime();
 }
 
@@ -106,8 +104,7 @@ void CMain::RefreshGameState() {
   CGameOptions gameOptions = gpGameState->GameOptions();
   x128_gameGlobalObjects->SetGameState(nullptr);
   {
-    CMemoryInStream stream(backupBuf.data(), backupBuf.size(),
-                           CMemoryInStream::Owned);
+    CMemoryInStream stream(backupBuf.data(), backupBuf.size(), CMemoryInStream::Owned);
     x128_gameGlobalObjects->SetGameState(new CGameState(stream, saveIdx));
   }
   // gpGameState = x128_gameGlobalObjects->x134_gameState.get();
@@ -115,8 +112,7 @@ void CMain::RefreshGameState() {
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
   gpGameState->CardSerial() = cardSerial;
-  gpGameState->PlayerState()->SetIsFusionEnabled(
-      gpGameState->SystemOptions().GetHasFusion());
+  gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
 }
 
 // 8000487C
@@ -135,10 +131,7 @@ void CMain::AddWorldPaks() {
   rstl::rmemory_allocator allocator;
   rstl::string basePath = gpTweakGame->GetWorldPrefix();
   for (int i = 0; i < 9; ++i) {
-    rstl::string pak =
-        basePath +
-        (i == 0 ? rstl::string_l("")
-                : rstl::string(CBasics::Stringize("%d", i), -1, allocator));
+    rstl::string pak = basePath + (i == 0 ? rstl::string_l("") : rstl::string(CBasics::Stringize("%d", i), -1, allocator));
     if (CDvdFile::FileExists((pak + rstl::string_l(".pak")).data())) {
       gpResourceFactory->GetResLoader().AddPakFileAsync(pak, false, true);
     }
@@ -174,8 +167,7 @@ int CMain::RsMain(int argc, char** argv) {
   CStopwatch timer;
   LCEnable();
 
-  rstl::single_ptr< CGameGlobalObjects > gameGlobalObjects(
-      new CGameGlobalObjects(x0_osContext, x6d_memorySys));
+  rstl::single_ptr< CGameGlobalObjects > gameGlobalObjects(new CGameGlobalObjects(x0_osContext, x6d_memorySys));
   x128_gameGlobalObjects = gameGlobalObjects.get();
 
   for (int i = 0; i < 4; ++i) {
@@ -203,8 +195,7 @@ int CMain::RsMain(int argc, char** argv) {
 
     FillInAssetIDs();
 
-    rstl::single_ptr< CGameArchitectureSupport > archSupport(
-        new CGameArchitectureSupport(x0_osContext));
+    rstl::single_ptr< CGameArchitectureSupport > archSupport(new CGameArchitectureSupport(x0_osContext));
     x164_ = archSupport.get();
     archSupport->PreloadAudio();
 
@@ -222,8 +213,7 @@ int CMain::RsMain(int argc, char** argv) {
     while (!x160_24_finished) {
       archSupport->GetStopwatch2().Reset();
       gpResourceFactory->GetResLoader().AsyncIdlePakLoading();
-      if (gpMemoryCard == nullptr &&
-          gpResourceFactory->GetResLoader().AreAllPaksLoaded()) {
+      if (gpMemoryCard == nullptr && gpResourceFactory->GetResLoader().AreAllPaksLoaded()) {
         MemoryCardInitializePump();
       }
       CARAMManager::CollectGarbage();
@@ -291,8 +281,7 @@ int CMain::RsMain(int argc, char** argv) {
         sub_8036ccfc();
 
         archSupport = nullptr;
-        CGameArchitectureSupport* tmp =
-            new CGameArchitectureSupport(x0_osContext);
+        CGameArchitectureSupport* tmp = new CGameArchitectureSupport(x0_osContext);
         archSupport = tmp;
         x164_ = archSupport.get();
         tmp->PreloadAudio();

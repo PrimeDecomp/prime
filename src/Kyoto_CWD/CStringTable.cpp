@@ -7,8 +7,7 @@
 
 static FourCC mCurrentLanguage = 'ENGL';
 
-CStringTable::CStringTable(CInputStream& in)
-    : x0_stringCount(0), x4_data(NULL) {
+CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) {
   in.ReadLong();
   in.ReadLong();
   size_t langCount = in.Get< size_t >();
