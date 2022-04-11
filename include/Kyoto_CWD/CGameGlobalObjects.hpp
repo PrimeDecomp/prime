@@ -50,7 +50,6 @@ private:
 
 // TODO move to related headers
 extern unkptr gGuiSystem;
-extern unkptr gpStringTable;
 extern unkptr gpController;
 extern unkptr gpDefaultFont;
 

@@ -11,16 +11,21 @@ extern TAreaId kInvalidAreaId;
 extern TEditorId kInvalidEditorId;
 extern TUniqueId kInvalidUniqueId;
 
-class CAssetId {
-public:
-  u32 id;
-};
+typedef u32 CAssetId;
+// class CAssetId {
+// public:
+//   u32 id;
 
-struct SObjectTag {
-  char type[4];
-  u32 id;
-};
+//   bool operator==(const CAssetId& other) { return id == other.id; }
+// };
 
 #define FourCC unsigned long
+
+struct SObjectTag {
+  FourCC type;
+  CAssetId id;
+
+  SObjectTag(const SObjectTag& other) : type(other.type), id(other.id) {}
+};
 
 #endif

@@ -99,7 +99,7 @@ PYTHON  := python3
 FRANK := tools/franklite.py
 
 # Options
-INCLUDES := -i include/
+INCLUDES := -i include/ -i include/Kyoto_CWD/ -i include/rstl/
 ASM_INCLUDES := -I include/
 
 ASFLAGS := -mgekko $(ASM_INCLUDES) --defsym version=$(VERSION)

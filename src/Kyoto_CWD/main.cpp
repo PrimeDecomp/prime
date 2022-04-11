@@ -16,11 +16,13 @@
 #include "Kyoto_CWD/CInGameTweakManager.hpp"
 #include "Kyoto_CWD/CMemoryCardSys.hpp"
 #include "Kyoto_CWD/CMemoryInStream.hpp"
+#include "Kyoto_CWD/CPakFile.hpp"
 #include "Kyoto_CWD/CPlayerState.hpp"
 #include "Kyoto_CWD/CResFactory.hpp"
 #include "Kyoto_CWD/CSfxManager.hpp"
 #include "Kyoto_CWD/CSimplePool.hpp"
 #include "Kyoto_CWD/CStreamAudioManager.hpp"
+#include "Kyoto_CWD/CStringTable.hpp"
 #include "Kyoto_CWD/CSystemOptions.hpp"
 #include "Kyoto_CWD/CTweakGame.hpp"
 
@@ -38,7 +40,7 @@ CSimplePool* gpSimplePool;
 CCubeRenderer* gpRender;
 CCharacterFactoryBuilder* gpCharacterFactoryBuilder;
 unkptr gGuiSystem;
-unkptr gpStringTable;
+CStringTable* gpStringTable;
 CMain* gpMain;
 unkptr gpController;
 CGameState* gpGameState;
@@ -78,7 +80,8 @@ void CMain::ResetGameState() {
   x128_gameGlobalObjects->SetGameState(nullptr);
   x128_gameGlobalObjects->SetGameState(new CGameState());
   gpGameState->SystemOptions() = persistentOptions;
-  gpGameState->SetGameOptions(gameOptions);
+  gpGameState->GameOptions() = gameOptions;
+  gpGameState->GameOptions().EnsureOptions();
   gpGameState->PlayerState()->SetIsFusionEnabled(
       gpGameState->SystemOptions().GetHasFusion());
 }
@@ -109,7 +112,8 @@ void CMain::RefreshGameState() {
   }
   // gpGameState = x128_gameGlobalObjects->x134_gameState.get();
   gpGameState->SystemOptions() = systemOptions;
-  gpGameState->SetGameOptions(gameOptions);
+  gpGameState->GameOptions() = gameOptions;
+  gpGameState->GameOptions().EnsureOptions();
   gpGameState->CardSerial() = cardSerial;
   gpGameState->PlayerState()->SetIsFusionEnabled(
       gpGameState->SystemOptions().GetHasFusion());
@@ -209,7 +213,8 @@ int CMain::RsMain(int argc, char** argv) {
     if (lbl_805A8C54 != nullptr) {
       CMemoryInStream stream(lbl_805A8C54, 0x80);
       stream.ReadBits(1);
-      gpGameState->SetGameOptions(CGameOptions(stream));
+      gpGameState->GameOptions() = CGameOptions(stream);
+      gpGameState->GameOptions().EnsureOptions();
       lbl_805A6BC0 = stream.ReadBits(1);
     }
 
@@ -299,4 +304,28 @@ int CMain::RsMain(int argc, char** argv) {
   gameGlobalObjects = nullptr;
   CARAMManager::Shutdown();
   return 0;
+}
+
+// 8036723C
+void CMain::EnsureWorldPakReady(CAssetId id) {
+  CResLoader& resLoader = gpResourceFactory->GetResLoader();
+  for (int i = 0; i < resLoader.GetPakCount(); ++i) {
+    bool notInNameList = true;
+    CPakFile& pakFile = resLoader.GetPakFile(i);
+    if (pakFile.IsWorldPak()) {
+      rstl::vector< rstl::pair< rstl::string, SObjectTag > > nameList = pakFile.NameList();
+      rstl::vector< rstl::pair< rstl::string, SObjectTag > >::iterator cur = nameList.begin();
+      while (cur != nameList.end()) {
+        if (cur->second.id == id) {
+          notInNameList = false;
+        }
+        ++cur;
+      }
+      if (notInNameList) {
+        pakFile.sub_8036742c();
+      } else {
+        pakFile.EnsureWorldPakReady();
+      }
+    }
+  }
 }
