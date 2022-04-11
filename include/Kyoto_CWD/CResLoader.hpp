@@ -6,8 +6,9 @@
 #include "rstl/list.hpp"
 #include "rstl/string.hpp"
 
-#include "CPakFile.hpp"
 #include "TGameTypes.hpp"
+
+class CPakFile;
 
 struct SResInfo {
   CAssetId x0_id;
@@ -19,9 +20,9 @@ struct SResInfo {
 
 class CResLoader {
 public:
-  s32 GetPakCount();
-  CPakFile& GetPakFile(s32 idx);
-  void AddPakFileAsync(rstl::string&, bool, bool);
+  s32 GetPakCount() const;
+  CPakFile& GetPakFile(int idx) const;
+  void AddPakFileAsync(const rstl::string&, bool, bool);
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
 

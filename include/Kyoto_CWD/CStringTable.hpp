@@ -15,4 +15,6 @@ public:
   CStringTable(CInputStream& in);
 };
 
+extern CStringTable* gpStringTable;
+
 #endif

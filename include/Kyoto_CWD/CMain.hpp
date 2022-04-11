@@ -13,6 +13,7 @@
 #include "CStopwatch.hpp"
 #include "CTweaks.hpp"
 #include "TReservedAverage.hpp"
+#include "TGameTypes.hpp"
 
 class CMain {
 public:
@@ -22,7 +23,6 @@ public:
   void StreamNewGameState(CInputStream& in, int saveIdx);
   void RefreshGameState();
   void AddWorldPaks();
-  void EnsureWorldPaksReady();
   void AsyncIdle(u32 time);
   int RsMain(int argc, char** argv);
   void InitializeSubsystems();
@@ -33,6 +33,9 @@ public:
   void DrawDebugMetrics(double dt, CStopwatch& stopWatch);
   bool CheckTerminate();
   bool CheckReset();
+
+  static void EnsureWorldPaksReady();
+  static void EnsureWorldPakReady(CAssetId id);
 
 private:
   COsContext x0_osContext;

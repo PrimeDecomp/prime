@@ -30,26 +30,18 @@ public:
     if (x4_count == 0 && x8_capacity == 0) {
       xc_items = NULL;
     } else {
-      if (x8_capacity == 0) {
+      size_t sz = x8_capacity * sizeof(T);
+      if (sz == 0) {
         xc_items = NULL;
       } else {
-        Alloc::allocate(xc_items, x8_capacity);
+        x0_allocator.allocate(xc_items, sz);
       }
-      // what's going on here?
-      iterator iter;
-      const_iterator otherIter;
-      otherIter = other.begin();
-      iter = begin();
-      for (size_t i = 0; i < x4_count; ++i) {
-        iter = *otherIter;
-        ++iter;
-        ++otherIter;
-      }
+      rstl::uninitialized_copy_n(data(), other.data(), x4_count);
     }
   }
   ~vector() {
     rstl::destroy(begin(), end());
-    Alloc::deallocate(xc_items);
+    x0_allocator.deallocate(xc_items);
   }
 
   void reserve(size_t size); /* {

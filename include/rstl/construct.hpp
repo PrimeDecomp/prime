@@ -6,7 +6,7 @@
 namespace rstl {
 template < typename T >
 inline void construct(void* dest, const T& src) {
-  *static_cast< T* >(dest) = src;
+  new(dest) T(src);
 }
 
 template < typename T >
@@ -32,14 +32,12 @@ inline void uninitialized_copy(Iter begin, Iter end, T* in) {
   }
 }
 
-template < typename T >
-inline void uninitialized_copy_n(T* dest, size_t count, T* src) {
-  for (size_t i = 0; i < count; ++i) {
+template < typename S, typename D >
+inline void uninitialized_copy_n(D* dest, S* src, size_t count) {
+  for (size_t i = 0; i < count; ++dest, ++i, ++src) {
     construct(dest, *src);
-    destroy(src);
-    ++dest;
-    ++src;
   }
+  // destroy(src, src + count); ??
 }
 } // namespace rstl
 

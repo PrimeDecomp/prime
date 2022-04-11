@@ -25,17 +25,14 @@ public:
   CGameState& operator=(const CGameState&);
 
   rstl::rc_ptr< CPlayerState >& PlayerState();
+  CAssetId CurrentWorldAssetId();
+
   CSystemOptions& SystemOptions() { return xa8_systemOptions; }
   CGameOptions& GameOptions() { return x17c_gameOptions; }
   CHintOptions& HintOptions() { return x1f8_hintOptions; }
   u32& SaveIdx() { return x20c_saveIdx; }
   u64& CardSerial() { return x210_cardSerial; }
   rstl::vector< u8 >& BackupBuf() { return x218_backupBuf; }
-
-  void SetGameOptions(CGameOptions options) {
-    x17c_gameOptions = options;
-    x17c_gameOptions.EnsureOptions();
-  }
 
 private:
   rstl::reserved_vector< bool, 128 > x0_;
