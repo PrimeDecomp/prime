@@ -35,6 +35,55 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameProjectile.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayerGun.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CStateManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CEntity.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmInt32.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmInt32Int32VoidPtr.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmNull.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmReal32.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Decode.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CIOWinManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CIOWin.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CActor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CWorld.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakParticle.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Clamp_int.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmControllerStatus.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CExplosion.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGameCamera.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGameArea.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CSamusHud.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAnimationDatabaseGame.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTransitionDatabaseGame.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayerControl.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayerGun.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreenBase.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreen.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGui.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptActor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptTrigger.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptWaypoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPatterned.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptDoor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CStateMachine.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMapArea.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CBallCamera.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptEffect.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CBomb.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakBall.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayerState.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptTimer.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCinematicCamera.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAutoMapper.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCounter.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMapWorld.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAi.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/PatternedCastTo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/TCastTo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptSound.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPlatform.o\
+	$(BUILD_DIR)/src/Kyoto_CWD/UserNames.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptGenerator.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCameraWaypoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CWeaponMgr.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPickup.o\
 	
