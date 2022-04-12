@@ -2,9 +2,6 @@
 
 .section .rodata, "a"  # 0x803CB3A0 - 0x803D8D60
 
-.global lbl_803CC030
-lbl_803CC030:
-	.incbin "baserom.dol", 0x3C9030, 0x3F0
 .global lbl_803CC420
 lbl_803CC420:
 	.incbin "baserom.dol", 0x3C9420, 0x18

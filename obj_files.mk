@@ -10,7 +10,14 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/main.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/text_80008894_80009144.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraManager.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CControlMapper.o
+	$(BUILD_DIR)/asm/Kyoto_CWD/CControlMapper.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFirstPersonCamera.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CObjectList.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayer.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAxisAngle.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CEulerAngles.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFrontEndUI.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CInputGenerator.o\
 
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
