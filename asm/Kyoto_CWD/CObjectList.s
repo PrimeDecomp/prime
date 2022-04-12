@@ -330,9 +330,6 @@ lbl_800100A0:
 /* 8001011C 0000D07C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80010120 0000D080  7C 08 03 A6 */	mtlr r0
 /* 80010124 0000D084  38 21 00 10 */	addi r1, r1, 0x10
-
-.global sub_80010128
-sub_80010128:
 /* 80010128 0000D088  4E 80 00 20 */	blr 
 
 .global __ct__Q211CObjectList16SObjectListEntryFv
