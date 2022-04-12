@@ -84,6 +84,14 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/src/Kyoto_CWD/UserNames.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptGenerator.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCameraWaypoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGameLight.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakTargeting.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakAutoMapper.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CParticleGenInfoGeneric.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CParticleGenInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CParticleDatabase.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGunRes.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTargetReticles.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CWeaponMgr.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPickup.o\
 	
