@@ -94,6 +94,20 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTargetReticles.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CWeaponMgr.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPickup.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CDamageInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMemoryDrawEnum.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptDock.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCameraHint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraHint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptLoader.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CSamusDoll.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CStateMachineFactory.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPlasmaBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPowerBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CWaveBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CIceBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptMailbox.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptRelay.o\
 	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
