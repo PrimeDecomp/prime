@@ -2,58 +2,6 @@
 
 .section .sdata2, "a"  # 0x805A9D20 - 0x805AF45C
 
-.global lbl_805A9DD0
-lbl_805A9DD0:
-	# ROM: 0x3F6670
-	.4byte 0
-
-.global lbl_805A9DD4
-lbl_805A9DD4:
-	# ROM: 0x3F6674
-	.4byte 0x3F800000
-
-.global lbl_805A9DD8
-lbl_805A9DD8:
-	# ROM: 0x3F6678
-	.4byte 0x3727C5AC
-	.4byte 0
-
-.global lbl_805A9DE0
-lbl_805A9DE0:
-	# ROM: 0x3F6680
-	.4byte 0x3FF00000
-	.4byte 0
-
-.global lbl_805A9DE8
-lbl_805A9DE8:
-	# ROM: 0x3F6688
-	.4byte 0xBF800000
-
-.global lbl_805A9DEC
-lbl_805A9DEC:
-	# ROM: 0x3F668C
-	.4byte 0x38D1B717
-
-.global lbl_805A9DF0
-lbl_805A9DF0:
-	# ROM: 0x3F6690
-	.4byte 0x40C90FDB
-
-.global lbl_805A9DF4
-lbl_805A9DF4:
-	# ROM: 0x3F6694
-	.4byte 0x3F000000
-
-.global lbl_805A9DF8
-lbl_805A9DF8:
-	# ROM: 0x3F6698
-	.4byte 0x3E800000
-
-.global lbl_805A9DFC
-lbl_805A9DFC:
-	# ROM: 0x3F669C
-	.4byte 0x3F7FF972
-
 .global lbl_805A9E00
 lbl_805A9E00:
 	# ROM: 0x3F66A0

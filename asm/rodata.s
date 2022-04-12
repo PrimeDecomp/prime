@@ -2,51 +2,6 @@
 
 .section .rodata, "a"  # 0x803CB3A0 - 0x803D8D60
 
-.global lbl_803CC420
-lbl_803CC420:
-	.incbin "baserom.dol", 0x3C9420, 0x18
-.global lbl_803CC438
-lbl_803CC438:
-	.incbin "baserom.dol", 0x3C9438, 0x30
-.global lbl_803CC468
-lbl_803CC468:
-	.incbin "baserom.dol", 0x3C9468, 0x30
-.global lbl_803CC498
-lbl_803CC498:
-	.incbin "baserom.dol", 0x3C9498, 0x30
-.global lbl_803CC4C8
-lbl_803CC4C8:
-	.incbin "baserom.dol", 0x3C94C8, 0x30
-.global lbl_803CC4F8
-lbl_803CC4F8:
-	.incbin "baserom.dol", 0x3C94F8, 0x48
-.global lbl_803CC540
-lbl_803CC540:
-	.incbin "baserom.dol", 0x3C9540, 0x84
-.global lbl_803CC5C4
-lbl_803CC5C4:
-	.incbin "baserom.dol", 0x3C95C4, 0xC
-.global lbl_803CC5D0
-lbl_803CC5D0:
-	.incbin "baserom.dol", 0x3C95D0, 0xC
-.global lbl_803CC5DC
-lbl_803CC5DC:
-	.incbin "baserom.dol", 0x3C95DC, 0xC
-.global lbl_803CC5E8
-lbl_803CC5E8:
-	.incbin "baserom.dol", 0x3C95E8, 0xC
-.global lbl_803CC5F4
-lbl_803CC5F4:
-	.incbin "baserom.dol", 0x3C95F4, 0x28
-.global lbl_803CC61C
-lbl_803CC61C:
-	.incbin "baserom.dol", 0x3C961C, 0x28
-.global lbl_803CC644
-lbl_803CC644:
-	.incbin "baserom.dol", 0x3C9644, 0x45C
-.global lbl_803CCAA0
-lbl_803CCAA0:
-	.incbin "baserom.dol", 0x3C9AA0, 0x8
 .global lbl_803CCAA8
 lbl_803CCAA8:
 	.incbin "baserom.dol", 0x3C9AA8, 0x10

@@ -1,5 +1,165 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803CC420
+lbl_803CC420:
+	.incbin "baserom.dol", 0x3C9420, 0x18
+
+.section .sdata
+.global lbl_805A6BF8
+lbl_805A6BF8:
+	# ROM: 0x3F4598
+	.4byte 0
+
+.global lbl_805A6BFC
+lbl_805A6BFC:
+	# ROM: 0x3F459C
+	.4byte 0x3F800000
+
+.global lbl_805A6C00
+lbl_805A6C00:
+	# ROM: 0x3F45A0
+	.4byte 0
+
+.global lbl_805A6C04
+lbl_805A6C04:
+	# ROM: 0x3F45A4
+	.4byte 0x3F800000
+
+.global lbl_805A6C08
+lbl_805A6C08:
+	# ROM: 0x3F45A8
+	.4byte 0
+
+.global lbl_805A6C0C
+lbl_805A6C0C:
+	# ROM: 0x3F45AC
+	.4byte 0x3F800000
+
+.global lbl_805A6C10
+lbl_805A6C10:
+	# ROM: 0x3F45B0
+	.4byte 0
+
+.global lbl_805A6C14
+lbl_805A6C14:
+	# ROM: 0x3F45B4
+	.4byte 0x3F800000
+
+.global lbl_805A6C18
+lbl_805A6C18:
+	# ROM: 0x3F45B8
+	.4byte 0
+
+.global lbl_805A6C1C
+lbl_805A6C1C:
+	# ROM: 0x3F45BC
+	.4byte 0x3F800000
+
+.global lbl_805A6C20
+lbl_805A6C20:
+	# ROM: 0x3F45C0
+	.4byte 0
+
+.global lbl_805A6C24
+lbl_805A6C24:
+	# ROM: 0x3F45C4
+	.4byte 0x3F800000
+
+.global lbl_805A6C28
+lbl_805A6C28:
+	# ROM: 0x3F45C8
+	.4byte 0
+
+.global lbl_805A6C2C
+lbl_805A6C2C:
+	# ROM: 0x3F45CC
+	.4byte 0x3F800000
+
+.global lbl_805A6C30
+lbl_805A6C30:
+	# ROM: 0x3F45D0
+	.4byte 0
+
+.global lbl_805A6C34
+lbl_805A6C34:
+	# ROM: 0x3F45D4
+	.4byte 0x3F800000
+
+.global lbl_805A6C38
+lbl_805A6C38:
+	# ROM: 0x3F45D8
+	.4byte 0
+
+.global lbl_805A6C3C
+lbl_805A6C3C:
+	# ROM: 0x3F45DC
+	.4byte 0x3F800000
+
+.global lbl_805A6C40
+lbl_805A6C40:
+	# ROM: 0x3F45E0
+	.4byte 0
+
+.global lbl_805A6C44
+lbl_805A6C44:
+	# ROM: 0x3F45E4
+	.4byte 0x3F800000
+
+.section .sdata2
+
+.global lbl_805A9DD0
+lbl_805A9DD0:
+	# ROM: 0x3F6670
+	.4byte 0
+
+.global lbl_805A9DD4
+lbl_805A9DD4:
+	# ROM: 0x3F6674
+	.4byte 0x3F800000
+
+.global lbl_805A9DD8
+lbl_805A9DD8:
+	# ROM: 0x3F6678
+	.4byte 0x3727C5AC
+	.4byte 0
+
+.global lbl_805A9DE0
+lbl_805A9DE0:
+	# ROM: 0x3F6680
+	.4byte 0x3FF00000
+	.4byte 0
+
+.global lbl_805A9DE8
+lbl_805A9DE8:
+	# ROM: 0x3F6688
+	.4byte 0xBF800000
+
+.global lbl_805A9DEC
+lbl_805A9DEC:
+	# ROM: 0x3F668C
+	.4byte 0x38D1B717
+
+.global lbl_805A9DF0
+lbl_805A9DF0:
+	# ROM: 0x3F6690
+	.4byte 0x40C90FDB
+
+.global lbl_805A9DF4
+lbl_805A9DF4:
+	# ROM: 0x3F6694
+	.4byte 0x3F000000
+
+.global lbl_805A9DF8
+lbl_805A9DF8:
+	# ROM: 0x3F6698
+	.4byte 0x3E800000
+
+.global lbl_805A9DFC
+lbl_805A9DFC:
+	# ROM: 0x3F669C
+	.4byte 0x3F7FF972
+	
 .section .text, "ax"
 
 .global GetGunFollowTransform__18CFirstPersonCameraCFv

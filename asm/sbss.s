@@ -2,63 +2,6 @@
 
 .section .sbss, "wa"  # 0x805A8C20 - 0x805A9D1F
 
-# CPlayer
-.global lbl_805A8C78
-lbl_805A8C78:
-	.skip 0x4
-.global lbl_805A8C7C
-lbl_805A8C7C:
-	.skip 0x4
-.global lbl_805A8C80
-lbl_805A8C80:
-	.skip 0x1
-.global lbl_805A8C81
-lbl_805A8C81:
-	.skip 0x3
-.global lbl_805A8C84
-lbl_805A8C84:
-	.skip 0x4
-.global lbl_805A8C88
-lbl_805A8C88:
-	.skip 0x4
-
-# TOneStatic<CPlayerGun>
-.global lbl_805A8C8C
-lbl_805A8C8C:
-	.skip 0x4
-.global lbl_805A8C90
-lbl_805A8C90:
-	.skip 0x4
-
-# TOneStatic<CPlayerCameraBob>
-.global lbl_805A8C94
-lbl_805A8C94:
-	.skip 0x4
-.global lbl_805A8C98
-lbl_805A8C98:
-	.skip 0x4
-
-# TOneStatic<CMorphBall>
-.global lbl_805A8C9C
-lbl_805A8C9C:
-	.skip 0x4
-.global lbl_805A8CA0
-lbl_805A8CA0:
-	.skip 0x4
-
-# TOneStatic<CPlayer>
-.global lbl_805A8CA4
-lbl_805A8CA4:
-	.skip 0x4
-.global lbl_805A8CA8
-lbl_805A8CA8:
-	.skip 0x8
-
-# CFrontEndUI
-.global lbl_805A8CB0
-lbl_805A8CB0:
-	.skip 0x8
-
 # CMFGame
 .global lbl_805A8CB8
 lbl_805A8CB8:

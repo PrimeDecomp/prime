@@ -2,9 +2,14 @@
 
 .section .bss
 
-.global lbl_803F7560
-lbl_803F7560:
-	.skip 0x60168
+.global sGraphicsFifo
+sGraphicsFifo:
+	.skip 0x60000
+	
+.global sMainSpace
+sMainSpace:
+	.skip 0x168
+	
 .global lbl_804576C8
 lbl_804576C8:
 	.skip 0xD0
@@ -5896,12 +5901,12 @@ __ct__18CGameGlobalObjectsFR10COsContextR10CMemorySys:
 /* 80007AF0 00004A50  38 9F 00 04 */	addi r4, r31, 4
 /* 80007AF4 00004A54  48 33 8C E1 */	bl __ct__11CSimplePoolFR8IFactory
 /* 80007AF8 00004A58  38 7F 00 EC */	addi r3, r31, 0xec
-/* 80007AFC 00004A5C  48 02 CE F1 */	bl __ct__24CCharacterFactoryBuilderFv_0
+/* 80007AFC 00004A5C  48 02 CE F1 */	bl __ct__24CCharacterFactoryBuilderFv
 /* 80007B00 00004A60  38 7F 01 10 */	addi r3, r31, 0x110
 /* 80007B04 00004A64  48 09 B8 29 */	bl __ct__10CAiFuncMapFv
-/* 80007B08 00004A68  3C 60 80 3F */	lis r3, lbl_803F7560@ha
+/* 80007B08 00004A68  3C 60 80 3F */	lis r3, sGraphicsFifo@ha
 /* 80007B0C 00004A6C  7F A4 EB 78 */	mr r4, r29
-/* 80007B10 00004A70  38 E3 75 60 */	addi r7, r3, lbl_803F7560@l
+/* 80007B10 00004A70  38 E3 75 60 */	addi r7, r3, sGraphicsFifo@l
 /* 80007B14 00004A74  7F C5 F3 78 */	mr r5, r30
 /* 80007B18 00004A78  38 7F 01 30 */	addi r3, r31, 0x130
 /* 80007B1C 00004A7C  3C C0 00 06 */	lis r6, 6
@@ -6634,8 +6639,8 @@ main:
 /* 80008524 00005484  38 60 00 01 */	li r3, 1
 /* 80008528 00005488  48 36 C8 A5 */	bl DVDSetAutoFatalMessaging
 /* 8000852C 0000548C  48 2C E3 D1 */	bl SetErrorHandlers
-/* 80008530 00005490  3C 60 80 45 */	lis r3, 0x8045
-/* 80008534 00005494  37 E3 75 60 */	addic. r31, r3, 0x7560
+/* 80008530 00005490  3C 60 80 45 */	lis r3, sMainSpace@ha
+/* 80008534 00005494  37 E3 75 60 */	addic. r31, r3, sMainSpace@l
 /* 80008538 00005498  41 82 00 10 */	beq lbl_80008548
 /* 8000853C 0000549C  7F E3 FB 78 */	mr r3, r31
 /* 80008540 000054A0  4B FF FC C5 */	bl __ct__5CMainFv
