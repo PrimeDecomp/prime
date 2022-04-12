@@ -2,12 +2,6 @@
 
 .section .sdata, "wa"  # 0x805A6BC0 - 0x805A8C1C
 
-.global lbl_805A6BF0
-lbl_805A6BF0:
-	# ROM: 0x3F4590
-	.4byte 0x01000000
-	.4byte 0
-
 .global lbl_805A6BF8
 lbl_805A6BF8:
 	# ROM: 0x3F4598

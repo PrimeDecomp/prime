@@ -1,5 +1,34 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_804578F8
+lbl_804578F8:
+	.skip 0x10
+
+.section .rodata
+.global lbl_803CC030
+lbl_803CC030:
+	.incbin "baserom.dol", 0x3C9030, 0x3F0
+
+.section .sdata
+.global lbl_805A6BF0
+lbl_805A6BF0:
+	# ROM: 0x3F4590
+	.4byte 0x01000000
+	.4byte 0
+
+.section .sdata2
+
+.global lbl_805A9DC8
+lbl_805A9DC8:
+	# ROM: 0x3F6668
+	.4byte 0
+
+.global lbl_805A9DCC
+lbl_805A9DCC:
+	# ROM: 0x3F666C
+	.float 1.0
+	
 .section .text, "ax"
 
 .global SetCommandFiltered__13ControlMapperFQ213ControlMapper9ECommandsb

@@ -2,16 +2,6 @@
 
 .section .sdata2, "a"  # 0x805A9D20 - 0x805AF45C
 
-.global lbl_805A9DC8
-lbl_805A9DC8:
-	# ROM: 0x3F6668
-	.4byte 0
-
-.global lbl_805A9DCC
-lbl_805A9DCC:
-	# ROM: 0x3F666C
-	.4byte 0x3F800000
-
 .global lbl_805A9DD0
 lbl_805A9DD0:
 	# ROM: 0x3F6670
