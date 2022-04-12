@@ -55,18 +55,6 @@ u32 sARAMMemArray[2];
 // sdata
 bool lbl_805A6BC0;
 
-// 80003640
-void EnableMetroTRKInterrupts() {}
-
-// 80003644
-void InitMetroTRK() {}
-
-// 80003648
-int __read_console() { return 0; }
-
-// 80003650
-int __TRK_write_console() { return 0; }
-
 // 80003658
 void CMain::UpdateStreamedAudio() { CStreamAudioManager::Update(1.f / 60.f); }
 
