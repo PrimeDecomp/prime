@@ -4353,9 +4353,9 @@ lbl_800061F8:
 /* 80006514 00003474  38 7F 00 5C */	addi r3, r31, 0x5c
 /* 80006518 00003478  38 84 50 57 */	addi r4, r4, 0x4D415057@l
 /* 8000651C 0000347C  48 33 28 85 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
-/* 80006520 00003480  3C 60 80 08 */	lis r3, FMapWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer_0@ha
+/* 80006520 00003480  3C 60 80 08 */	lis r3, FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
 /* 80006524 00003484  3C 80 4D 41 */	lis r4, 0x4D415041@ha
-/* 80006528 00003488  38 A3 01 90 */	addi r5, r3, FMapWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer_0@l
+/* 80006528 00003488  38 A3 01 90 */	addi r5, r3, FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
 /* 8000652C 0000348C  38 7F 00 5C */	addi r3, r31, 0x5c
 /* 80006530 00003490  38 84 50 41 */	addi r4, r4, 0x4D415041@l
 /* 80006534 00003494  48 33 28 6D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
