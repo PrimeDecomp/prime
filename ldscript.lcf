@@ -39,4 +39,5 @@ FORCEFILES
     extab.o
     extabindex.o
     uart_console_io.o
+    mslsupp.o
 }

@@ -963,25 +963,7 @@ lbl_805A9D78:
 	# ROM: 0x3F6618
 	.4byte 0x41200000
 
-
 .section .text, "ax"
-.global EnableMetroTRKInterrupts
-EnableMetroTRKInterrupts:
-/* 80003640 000005A0  4E 80 00 20 */	blr
-
-.global InitMetroTRK
-InitMetroTRK:
-/* 80003644 000005A4  4E 80 00 20 */	blr
-
-.global sub_80003648
-sub_80003648:
-/* 80003648 000005A8  38 60 00 00 */	li r3, 0
-/* 8000364C 000005AC  4E 80 00 20 */	blr
-
-.global sub_80003650
-sub_80003650:
-/* 80003650 000005B0  38 60 00 00 */	li r3, 0
-/* 80003654 000005B4  4E 80 00 20 */	blr
 
 .global UpdateStreamedAudio__5CMainFv
 UpdateStreamedAudio__5CMainFv:
@@ -3365,7 +3347,7 @@ lbl_8000570C:
 /* 80005718 00002678  90 1D 01 2C */	stw r0, 0x12c(r29)
 /* 8000571C 0000267C  48 36 01 89 */	bl StopAll__19CStreamAudioManagerFv
 /* 80005720 00002680  3C 60 F0 00 */	lis r3, 0xf000
-/* 80005724 00002684  48 38 0D 39 */	bl sub_8038645c
+/* 80005724 00002684  48 38 0D 39 */	bl PADRecalibrate
 /* 80005728 00002688  38 60 00 01 */	li r3, 1
 /* 8000572C 0000268C  48 30 3D 7D */	bl SetIsBeginSceneClearFb__9CGraphicsFb
 /* 80005730 00002690  48 30 67 75 */	bl BeginScene__9CGraphicsFv
