@@ -18,7 +18,26 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CEulerAngles.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CFrontEndUI.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CInputGenerator.o\
-
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMainFlow.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMFGameLoader.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMFGame.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAutoSave.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCredits.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayMovie.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CSplashScreen.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CInstruction.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAnimData.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCharacterFactory.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAssetFactory.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayer.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweaks.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGame.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGameProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayerGun.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CStateManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CWeaponMgr.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPickup.o\
+	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
 	

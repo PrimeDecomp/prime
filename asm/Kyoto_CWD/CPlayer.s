@@ -1,5 +1,280 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_80457908
+lbl_80457908:
+	.skip 0xC0
+.global lbl_804579C8
+lbl_804579C8:
+	.skip 0x20
+.global lbl_804579E8
+lbl_804579E8:
+	.skip 0x10
+.global lbl_804579F8
+lbl_804579F8:
+	.skip 0x18
+.global lbl_80457A10
+lbl_80457A10:
+	.skip 0x838
+.global lbl_80458248
+lbl_80458248:
+	.skip 0x108
+.global lbl_80458350
+lbl_80458350:
+	.skip 0x1E58
+
+.section .rodata
+.global lbl_803CC438
+lbl_803CC438:
+	.incbin "baserom.dol", 0x3C9438, 0x30
+.global lbl_803CC468
+lbl_803CC468:
+	.incbin "baserom.dol", 0x3C9468, 0x30
+.global lbl_803CC498
+lbl_803CC498:
+	.incbin "baserom.dol", 0x3C9498, 0x30
+.global lbl_803CC4C8
+lbl_803CC4C8:
+	.incbin "baserom.dol", 0x3C94C8, 0x30
+.global lbl_803CC4F8
+lbl_803CC4F8:
+	.incbin "baserom.dol", 0x3C94F8, 0x48
+
+.section .sbss
+
+# CPlayer
+.global lbl_805A8C78
+lbl_805A8C78:
+	.skip 0x4
+.global lbl_805A8C7C
+lbl_805A8C7C:
+	.skip 0x4
+.global lbl_805A8C80
+lbl_805A8C80:
+	.skip 0x1
+.global lbl_805A8C81
+lbl_805A8C81:
+	.skip 0x3
+.global lbl_805A8C84
+lbl_805A8C84:
+	.skip 0x4
+.global lbl_805A8C88
+lbl_805A8C88:
+	.skip 0x4
+
+# TOneStatic<CPlayerGun>
+.global lbl_805A8C8C
+lbl_805A8C8C:
+	.skip 0x4
+.global lbl_805A8C90
+lbl_805A8C90:
+	.skip 0x4
+
+# TOneStatic<CPlayerCameraBob>
+.global lbl_805A8C94
+lbl_805A8C94:
+	.skip 0x4
+.global lbl_805A8C98
+lbl_805A8C98:
+	.skip 0x4
+
+# TOneStatic<CMorphBall>
+.global lbl_805A8C9C
+lbl_805A8C9C:
+	.skip 0x4
+.global lbl_805A8CA0
+lbl_805A8CA0:
+	.skip 0x4
+
+# TOneStatic<CPlayer>
+.global lbl_805A8CA4
+lbl_805A8CA4:
+	.skip 0x4
+.global lbl_805A8CA8
+lbl_805A8CA8:
+	.skip 0x8
+
+.section .sdata
+.global lbl_805A6C48
+lbl_805A6C48:
+	# ROM: 0x3F45E8
+	.4byte 0x00000013
+
+.global lbl_805A6C4C
+lbl_805A6C4C:
+	# ROM: 0x3F45EC
+	.4byte 0x00000011
+
+.global lbl_805A6C50
+lbl_805A6C50:
+	# ROM: 0x3F45F0
+	.4byte 0x00000035
+
+.global lbl_805A6C54
+lbl_805A6C54:
+	# ROM: 0x3F45F4
+	.4byte 0x0000000D
+
+.global lbl_805A6C58
+lbl_805A6C58:
+	# ROM: 0x3F45F8
+	.4byte 0x00000032
+
+.global lbl_805A6C5C
+lbl_805A6C5C:
+	# ROM: 0x3F45FC
+	.4byte 0x00000005
+
+.global lbl_805A6C60
+lbl_805A6C60:
+	# ROM: 0x3F4600
+	.4byte 0x00000034
+
+.global lbl_805A6C64
+lbl_805A6C64:
+	# ROM: 0x3F4604
+	.4byte 0x00000009
+
+.global lbl_805A6C68
+lbl_805A6C68:
+	# ROM: 0x3F4608
+	.4byte 0x00000033
+
+.global lbl_805A6C6C
+lbl_805A6C6C:
+	# ROM: 0x3F460C
+	.4byte 0x41A00000
+
+.global lbl_805A6C70
+lbl_805A6C70:
+	# ROM: 0x3F4610
+	.4byte 0x42A00000
+
+.global lbl_805A6C74
+lbl_805A6C74:
+	# ROM: 0x3F4614
+	.4byte 0x42A00000
+
+.global lbl_805A6C78
+lbl_805A6C78:
+	# ROM: 0x3F4618
+	.4byte 0x43870000
+
+.global lbl_805A6C7C
+lbl_805A6C7C:
+	# ROM: 0x3F461C
+	.4byte 0
+
+.global lbl_805A6C80
+lbl_805A6C80:
+	# ROM: 0x3F4620
+	.4byte 0
+
+.global lbl_805A6C84
+lbl_805A6C84:
+	# ROM: 0x3F4624
+	.4byte 0x3F800000
+
+.global lbl_805A6C88
+lbl_805A6C88:
+	# ROM: 0x3F4628
+	.4byte 0x00000013
+
+.global lbl_805A6C8C
+lbl_805A6C8C:
+	# ROM: 0x3F462C
+	.4byte 0x3F800000
+
+.global lbl_805A6C90
+lbl_805A6C90:
+	# ROM: 0x3F4630
+	.4byte 0x00000013
+
+.global lbl_805A6C94
+lbl_805A6C94:
+	# ROM: 0x3F4634
+	.4byte 0x3F800000
+
+.global lbl_805A6C98
+lbl_805A6C98:
+	# ROM: 0x3F4638
+	.4byte 0
+
+.global lbl_805A6C9C
+lbl_805A6C9C:
+	# ROM: 0x3F463C
+	.4byte 0x3F800000
+
+.global lbl_805A6CA0
+lbl_805A6CA0:
+	# ROM: 0x3F4640
+	.4byte 0
+
+.global lbl_805A6CA4
+lbl_805A6CA4:
+	# ROM: 0x3F4644
+	.4byte 0x3F800000
+
+.global lbl_805A6CA8
+lbl_805A6CA8:
+	# ROM: 0x3F4648
+	.4byte 0
+
+.global lbl_805A6CAC
+lbl_805A6CAC:
+	# ROM: 0x3F464C
+	.4byte 0x3F800000
+
+.global lbl_805A6CB0
+lbl_805A6CB0:
+	# ROM: 0x3F4650
+	.4byte 0
+
+.global lbl_805A6CB4
+lbl_805A6CB4:
+	# ROM: 0x3F4654
+	.4byte 0x3F800000
+
+.global lbl_805A6CB8
+lbl_805A6CB8:
+	# ROM: 0x3F4658
+	.4byte 0x00000013
+
+.global lbl_805A6CBC
+lbl_805A6CBC:
+	# ROM: 0x3F465C
+	.4byte 0x3F800000
+
+.global lbl_805A6CC0
+lbl_805A6CC0:
+	# ROM: 0x3F4660
+	.4byte 0x00000007
+
+.global lbl_805A6CC4
+lbl_805A6CC4:
+	# ROM: 0x3F4664
+	.4byte 0x00000020
+
+.global lbl_805A6CC8
+lbl_805A6CC8:
+	# ROM: 0x3F4668
+	.4byte 0x00000013
+
+.global lbl_805A6CCC
+lbl_805A6CCC:
+	# ROM: 0x3F466C
+	.4byte 0
+
+.global lbl_805A6CD0
+lbl_805A6CD0:
+	# ROM: 0x3F4670
+	.4byte 0x3F800000
+
+.global lbl_805A6CD4
+lbl_805A6CD4:
+	# ROM: 0x3F4674
+	.4byte 0
+	
 .section .text, "ax"
 
 .global __dt__7CPlayerFv

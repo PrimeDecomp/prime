@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803CCAA0
+lbl_803CCAA0:
+	.incbin "baserom.dol", 0x3C9AA0, 0x8
+	
 .section .text, "ax"
 
 .global Update__15CInputGeneratorFfR18CArchitectureQueue

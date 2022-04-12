@@ -2,27 +2,6 @@
 
 .section .bss, "wa"  # 0x803F7560 - 0x805A6BBF
 
-.global lbl_80457908
-lbl_80457908:
-	.skip 0xC0
-.global lbl_804579C8
-lbl_804579C8:
-	.skip 0x20
-.global lbl_804579E8
-lbl_804579E8:
-	.skip 0x10
-.global lbl_804579F8
-lbl_804579F8:
-	.skip 0x18
-.global lbl_80457A10
-lbl_80457A10:
-	.skip 0x838
-.global lbl_80458248
-lbl_80458248:
-	.skip 0x108
-.global lbl_80458350
-lbl_80458350:
-	.skip 0x1E58
 .global lbl_8045A1A8
 lbl_8045A1A8:
 	.skip 0xF98

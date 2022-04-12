@@ -1,5 +1,113 @@
 .include "macros.inc"
 
+.section .rodata
+.global lbl_803CC540
+lbl_803CC540:
+	.incbin "baserom.dol", 0x3C9540, 0x84
+.global lbl_803CC5C4
+lbl_803CC5C4:
+	.incbin "baserom.dol", 0x3C95C4, 0xC
+.global lbl_803CC5D0
+lbl_803CC5D0:
+	.incbin "baserom.dol", 0x3C95D0, 0xC
+.global lbl_803CC5DC
+lbl_803CC5DC:
+	.incbin "baserom.dol", 0x3C95DC, 0xC
+.global lbl_803CC5E8
+lbl_803CC5E8:
+	.incbin "baserom.dol", 0x3C95E8, 0xC
+.global lbl_803CC5F4
+lbl_803CC5F4:
+	.incbin "baserom.dol", 0x3C95F4, 0x28
+.global lbl_803CC61C
+lbl_803CC61C:
+	.incbin "baserom.dol", 0x3C961C, 0x28
+.global lbl_803CC644
+lbl_803CC644:
+	.incbin "baserom.dol", 0x3C9644, 0x45C
+
+.section .sbss
+# CFrontEndUI
+.global lbl_805A8CB0
+lbl_805A8CB0:
+	.skip 0x8
+
+.section .sdata
+
+.global lbl_805A6CD8
+lbl_805A6CD8:
+	# ROM: 0x3F4678
+	.4byte 0
+
+.global lbl_805A6CDC
+lbl_805A6CDC:
+	# ROM: 0x3F467C
+	.4byte 0x3F800000
+
+.global lbl_805A6CE0
+lbl_805A6CE0:
+	# ROM: 0x3F4680
+	.4byte 0
+
+.global lbl_805A6CE4
+lbl_805A6CE4:
+	# ROM: 0x3F4684
+	.4byte 0
+
+.global lbl_805A6CE8
+lbl_805A6CE8:
+	# ROM: 0x3F4688
+	.4byte 0x3F800000
+
+.global lbl_805A6CEC
+lbl_805A6CEC:
+	# ROM: 0x3F468C
+	.4byte 0
+
+.global lbl_805A6CF0
+lbl_805A6CF0:
+	# ROM: 0x3F4690
+	.4byte 0x3F800000
+
+.global lbl_805A6CF4
+lbl_805A6CF4:
+	# ROM: 0x3F4694
+	.4byte 0
+
+.global lbl_805A6CF8
+lbl_805A6CF8:
+	# ROM: 0x3F4698
+	.4byte 0x3F800000
+
+.global lbl_805A6CFC
+lbl_805A6CFC:
+	# ROM: 0x3F469C
+	.4byte 0
+
+.global lbl_805A6D00
+lbl_805A6D00:
+	# ROM: 0x3F46A0
+	.4byte 0x3F800000
+
+.global lbl_805A6D04
+lbl_805A6D04:
+	# ROM: 0x3F46A4
+	.4byte 0x0000000C
+
+.global lbl_805A6D08
+lbl_805A6D08:
+	# ROM: 0x3F46A8
+	.4byte 0x0000000B
+
+.global lbl_805A6D0C
+lbl_805A6D0C:
+	# ROM: 0x3F46AC
+	.4byte 0x0000003F
+	.4byte 0x003F003F
+	.4byte 0x003F003F
+	.4byte 0x003F0000
+	.4byte 0
+	
 .section .text, "ax"
 
 .global GetUserInput__21CArchMsgParmUserInputCFv
