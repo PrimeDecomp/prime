@@ -9,7 +9,8 @@ METROTRK_FILES :=\
 KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/main.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/text_80008894_80009144.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraManager.o
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CControlMapper.o
 
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
@@ -267,6 +268,3 @@ SDATA2_O_FILES :=\
 
 SBSS2_O_FILES :=\
 	$(BUILD_DIR)/asm/sbss2.o
-
-BSS_SINIT_O_FILES :=\
-	$(BUILD_DIR)/asm/bss_sinit.o

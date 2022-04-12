@@ -2,42 +2,6 @@
 
 .section .sdata, "wa"  # 0x805A6BC0 - 0x805A8C1C
 
-.global lbl_805A6BD0
-lbl_805A6BD0:
-	# ROM: 0x3F4570
-	.4byte 0x425C0000
-
-.global lbl_805A6BD4
-lbl_805A6BD4:
-	# ROM: 0x3F4574
-	.4byte 0x42700000
-
-.global lbl_805A6BD8
-lbl_805A6BD8:
-	# ROM: 0x3F4578
-	.4byte 0x3E4CCCCD
-
-.global lbl_805A6BDC
-lbl_805A6BDC:
-	# ROM: 0x3F457C
-	.4byte 0x443B8000
-
-.global lbl_805A6BE0
-lbl_805A6BE0:
-	# ROM: 0x3F4580
-	.4byte 0x3FB5C28F
-
-.global lbl_805A6BE4
-lbl_805A6BE4:
-	# ROM: 0x3F4584
-	.4byte 0x42C80000
-
-.global lbl_805A6BE8
-lbl_805A6BE8:
-	# ROM: 0x3F4588
-	.4byte 0x42FE0000
-	.4byte 0
-
 .global lbl_805A6BF0
 lbl_805A6BF0:
 	# ROM: 0x3F4590
