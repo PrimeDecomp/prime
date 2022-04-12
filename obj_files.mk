@@ -3,6 +3,9 @@ INIT_O_FILES :=\
 	$(BUILD_DIR)/src/os/__ppc_eabi_init.o\
 	$(BUILD_DIR)/asm/Runtime/__mem.o
 
+METROTRK_FILES :=\
+	$(BUILD_DIR)/src/MetroTRK/mslsupp.o
+	
 KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/main.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/text_80008894_80009144.o\
