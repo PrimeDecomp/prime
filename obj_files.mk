@@ -13,7 +13,7 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CControlMapper.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CFirstPersonCamera.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CObjectList.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayer.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayer.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CAxisAngle.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CEulerAngles.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CFrontEndUI.o\
@@ -33,7 +33,7 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweaks.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGame.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameProjectile.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayerGun.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerGun.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CStateManager.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CEntity.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmInt32.o\
@@ -70,7 +70,7 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptEffect.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CBomb.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakBall.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayerState.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerState.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CCinematicCamera.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CAutoMapper.o\
@@ -111,6 +111,79 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpawnPoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptRandomRelay.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBeetle.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CHUDMemoParms.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptHUDMemo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMappableObject.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerCameraBob.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraFilterKeyframe.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraBlurKeyframe.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraFilter.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CMorphBall.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDamageableTrigger.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDebris.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraShaker.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptActorKeyframe.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CConsoleOutputWindow.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptWater.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CWeapon.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CDamageVulnerability.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CActorLights.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CPatternedInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CSimpleShadow.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CLightParameters.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CActorParameters.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CInGameGuiManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CWarWasp.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CWorldShadow.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAudioStateWin.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerVisor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CModelData.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CDecalManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpiderBallWaypoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBloodFlower.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/TGameTypes.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPhysicsActor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPhysicsState.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CRipple.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFluidUVMotion.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CRippleManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CGrappleArm.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CSpacePirate.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCoverPoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPathCamera.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFluidPlane.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFluidPlaneManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptGrapplePoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CHUDBillboardEffect.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CFlickerBat.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBodyStateCmdMgr.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBodyStateInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSAttack.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSDie.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSFall.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSGetup.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSKnockBack.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSLieOnGround.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSLocomotion.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSStep.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSTurn.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBodyController.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSLoopAttack.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CTargetableProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSLoopReaction.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CSteeringBehaviors.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSGroundHit.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CChozoGhost.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CFireFlea.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSSlide.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSHurled.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSJump.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSGenerate.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CPuddleSpore.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSTaunt.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CSortedLists.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDebugCameraWaypoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpiderBallAttractionSurface.o\
 	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
