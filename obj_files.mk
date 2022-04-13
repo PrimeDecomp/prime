@@ -184,6 +184,46 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CSortedLists.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDebugCameraWaypoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpiderBallAttractionSurface.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSScripted.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CPuddleToadGamma.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDistanceFog.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSProjectileAttack.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CPowerBomb.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CMetaree.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDockAreaChange.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpecialFunction.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptActorRotate.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CFidget.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CSpankWeed.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CParasite.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CSamusFaceReflection.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPlayerHint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CRipper.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraShakeData.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPickupGenerator.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPointOfInterest.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CDrone.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMapWorldInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Factories/CScannableObjectInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CMetroid.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CScanDisplay.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSteam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptRipple.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CBoneTracking.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CFaceplateDecoration.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSCover.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptBallTrigger.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CPlasmaProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerOrbit.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGameCollision.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CBallFilter.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CAABoxFilter.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGroundMovement.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CNewIntroBoss.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CPhazonBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTargetingPoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSWallHang.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptEMPulse.o\
 	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
