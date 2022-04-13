@@ -59,7 +59,10 @@ O_FILES := $(INIT_O_FILES) $(EXTAB_O_FILES) $(EXTABINDEX_O_FILES) $(METROTRK_FIL
 	   $(OS_FILES) $(PAD_FILES) $(VI_FILES) $(MSL_PPCEABI_BARE_H) $(MUSYX_FILES) \
 	   $(DTK_FILES) $(CARD_FILES) $(SI_FILES) $(EXI_FILES) $(THP_FILES) \
 	   $(GBA_FILES) $(CTORS_O_FILES) $(DTORS_O_FILES)
-	   
+DEPENDS := $(O_FILES:.o=.d)
+# If a specific .o file is passed as a target, also process its deps
+DEPENDS += $(MAKECMDGOALS:.o=.d)
+
 ifeq ($(EPILOGUE_PROCESS),1)
 E_FILES :=	$(EPILOGUE_UNSCHEDULED)
 endif
@@ -67,7 +70,7 @@ endif
 # Tools
 #-------------------------------------------------------------------------------
 
-MWCC_VERSION := 2.6
+MWCC_VERSION := 2.7
 ifeq ($(EPILOGUE_PROCESS),1)
 MWCC_EPI_VERSION := 1.2.5
 MWCC_EPI_EXE := mwcceppc.exe
@@ -83,6 +86,7 @@ ifeq ($(WINDOWS),1)
 else
   WINE ?= wine
   DEVKITPPC ?= /opt/devkitpro/devkitPPC
+  DEPENDS := $(DEPENDS:.d=.d.unix)
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp -P
 endif
@@ -95,10 +99,11 @@ ELF2DOL := tools/elf2dol
 SHA1SUM := sha1sum
 PYTHON  := python3
 
+TRANSFORM_DEP := tools/transform-dep.py
 FRANK := tools/franklite.py
 
 # Options
-INCLUDES := -i include/ -i include/Kyoto_CWD/ -i include/rstl/
+INCLUDES := -i include/
 ASM_INCLUDES := -I include/
 
 ASFLAGS := -mgekko $(ASM_INCLUDES) --defsym version=$(VERSION)
@@ -110,7 +115,8 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp hard -nodefaults -w off
 endif
-CFLAGS   = -Cpp_exceptions off -enum int -inline auto -proc gekko -RTTI off -fp hard -fp_contract on -str pool -rostr -O4,p -use_lmw_stmw on -sdata 8 -sdata2 8 -nodefaults $(INCLUDES)
+CFLAGS_1.2 = -Cpp_exceptions off -enum int -inline auto -proc gekko -RTTI off -fp hard -fp_contract on -str pool -rostr -O4,p -use_lmw_stmw on -sdata 8 -sdata2 8 -nodefaults -MMD $(INCLUDES)
+CFLAGS = $(CFLAGS_1.2) -gccinc
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
@@ -118,7 +124,9 @@ ASFLAGS += -W
 endif
 
 $(BUILD_DIR)/src/os/__start.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/os/__start.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/Dolphin/PPCArch.o: CFLAGS := $(CFLAGS_1.2)
 
 #-------------------------------------------------------------------------------
 # Recipes
@@ -152,15 +160,11 @@ $(DOL): $(ELF) | tools
 	$(QUIET) $(ELF2DOL) $< $@
 	$(QUIET) $(SHA1SUM) -c sha1/$(NAME).$(VERSION).sha1
 ifneq ($(findstring -map,$(LDFLAGS)),)
-	$(QUIET) $(PYTHON) tools/calcprogress.py $@
+	$(QUIET) $(PYTHON) tools/calcprogress.py $(DOL) $(MAP)
 endif
 
 clean:
-	rm -f -d -r build
-	rm -f -d -r epilogue
-	find . -name '*.o' -exec rm {} +
-	find . -name 'ctx.c' -exec rm {} +
-	find ./include -name "*.s" -type f -delete
+	$(RM) $(O_FILES) $(DEPENDS)
 	$(MAKE) -C tools clean
 tools:
 	$(MAKE) -C tools
@@ -178,21 +182,27 @@ $(ELF): $(O_FILES) $(LDSCRIPT)
 	$(QUIET) $(LD) $(LDFLAGS) -o $@ -lcf $(LDSCRIPT) @build/o_files
 endif
 
+%.d.unix: %.d $(TRANSFORM_DEP)
+	@echo Processing $<
+	$(QUIET) $(PYTHON) $(TRANSFORM_DEP) $< $@
+
+-include $(DEPENDS)
+
 $(BUILD_DIR)/%.o: %.s
 	@echo Assembling $<
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.c
 	@echo "Compiling " $<
-	$(QUIET) $(CC) $(CFLAGS) -c -o $@ $<
+	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
 
 $(BUILD_DIR)/%.o: %.cp
 	@echo "Compiling " $<
-	$(QUIET) $(CC) $(CFLAGS) -c -o $@ $<
-	
+	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
+
 $(BUILD_DIR)/%.o: %.cpp
 	@echo "Compiling " $<
-	$(QUIET) $(CC) $(CFLAGS) -c -o $@ $<
+	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
 
 ifeq ($(EPILOGUE_PROCESS),1)
 $(EPILOGUE_DIR)/%.o: %.c $(BUILD_DIR)/%.o
