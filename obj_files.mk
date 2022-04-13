@@ -27,8 +27,8 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CSplashScreen.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CInstruction.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CAnimData.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CCharacterFactory.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CAssetFactory.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Factories/CCharacterFactory.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Factories/CAssetFactory.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayer.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweaks.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGame.o\
@@ -59,31 +59,31 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreenBase.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreen.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGui.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptActor.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptTrigger.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptWaypoint.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CPatterned.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptDoor.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CStateMachine.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptActor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTrigger.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptWaypoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CPatterned.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDoor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CStateMachine.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CMapArea.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CBallCamera.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptEffect.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptEffect.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CBomb.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakBall.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CPlayerState.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptTimer.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CCinematicCamera.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CAutoMapper.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCounter.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCounter.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CMapWorld.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CAi.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/PatternedCastTo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CAi.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/PatternedCastTo.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/TCastTo.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptSound.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPlatform.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSound.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPlatform.o\
 	$(BUILD_DIR)/src/Kyoto_CWD/UserNames.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptGenerator.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCameraWaypoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptGenerator.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraWaypoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameLight.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakTargeting.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakAutoMapper.o\
@@ -93,21 +93,24 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGunRes.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTargetReticles.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CWeaponMgr.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptPickup.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPickup.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CDamageInfo.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CMemoryDrawEnum.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptDock.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptCameraHint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptDock.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraHint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CCameraHint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptLoader.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CSamusDoll.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CStateMachineFactory.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CPlasmaBeam.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CPowerBeam.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CWaveBeam.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CIceBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Factories/CStateMachineFactory.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CPlasmaBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CPowerBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CWaveBeam.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CIceBeam.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptMailbox.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CScriptRelay.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptRelay.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpawnPoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptRandomRelay.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBeetle.o\
 	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
