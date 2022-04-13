@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import argparse
-import subprocess
+import os
+
+wineprefix = os.path.join(os.environ['HOME'], '.wine')
+if 'WINEPREFIX' in os.environ:
+  wineprefix = os.environ['WINEPREFIX']
+winedevices = os.path.join(wineprefix, 'dosdevices')
 
 def import_d_file(in_file) -> str:
     out_text = ''
@@ -19,16 +24,10 @@ def import_d_file(in_file) -> str:
             path = line.lstrip()[:-3]
           else:
             path = line.strip()
-          if path.startswith('Z:'):
-            # direct mapping to unix path
-            path = path[2:].replace('\\', '/')
-          else:
-            # use winepath (very slow!)
-            cmd = subprocess.run(['winepath', '-u', path], capture_output=True, env={'WINEDEBUG': '-all'})
-            if cmd.returncode != 0:
-              print("winepath failed with exit code %d:" % cmd.returncode, cmd.stderr)
-              exit(1)
-            path = cmd.stdout.decode('utf-8').rstrip()
+          # lowercase drive letter
+          path = path[0].lower() + path[1:]
+          # use $WINEPREFIX/dosdevices to resolve path
+          path = os.path.realpath(os.path.join(winedevices, path.replace('\\', '/')))
           out_text += "\t" + path + suffix + "\n"
 
     return out_text
