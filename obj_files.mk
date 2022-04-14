@@ -29,9 +29,9 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CAnimData.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Factories/CCharacterFactory.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Factories/CAssetFactory.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayer.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweaks.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGame.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakPlayer.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweaks.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakGame.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameProjectile.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerGun.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CStateManager.o\
@@ -45,20 +45,20 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CIOWin.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CActor.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CWorld.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakParticle.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakParticle.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Clamp_int.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CArchMsgParmControllerStatus.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CExplosion.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameCamera.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameArea.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CSamusHud.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/HUD/CSamusHud.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CAnimationDatabaseGame.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTransitionDatabaseGame.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayerControl.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakPlayerGun.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakPlayerControl.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakPlayerGun.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreenBase.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreen.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGui.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakGui.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptActor.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTrigger.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptWaypoint.o\
@@ -68,8 +68,8 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CMapArea.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CBallCamera.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptEffect.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CBomb.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakBall.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CBomb.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakBall.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerState.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTimer.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CCinematicCamera.o\
@@ -85,12 +85,12 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptGenerator.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraWaypoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CGameLight.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakTargeting.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakAutoMapper.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakTargeting.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakAutoMapper.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CParticleGenInfoGeneric.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CParticleGenInfo.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CParticleDatabase.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CTweakGunRes.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakGunRes.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CTargetReticles.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CWeaponMgr.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPickup.o\
@@ -111,7 +111,7 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpawnPoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptRandomRelay.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBeetle.o\
-	$(BUILD_DIR)/asm/Kyoto_CWD/CHUDMemoParms.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/HUD/CHUDMemoParms.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptHUDMemo.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/CMappableObject.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerCameraBob.o\
@@ -224,6 +224,107 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTargetingPoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSWallHang.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptEMPulse.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/HUD/CHudDecoInterface.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CFlameThrower.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CBeamProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFluidPlaneCPU.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFluidPlaneDoor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptRoomAcoustics.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CIceSheegoth.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCollisionActorManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CCollisionActor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPlayerActor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakPlayerRes.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBurstFire.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CFlaahgra.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CPlayerEnergyDrain.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CFlameWarp.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CIceImpact.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/GameObjectLists.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CAuxWeapon.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CPlayerGun.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptAreaAttributes.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CWaveBuster.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CStaticInterference.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CMetroidBeta.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/PathFinding/CPathFindSearch.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/PathFinding/CPathFindRegion.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/PathFinding/CPathFindArea.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/GunController/CGunController.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/GunController/CGSFreeLook.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/GunController/CGSComboFire.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/HUD/CHudBallInterface.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Tweaks/CTweakGuiColors.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CFishCloud.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CHealthInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CGameState.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptVisorFlare.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptWorldTeleporter.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptVisorGoo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CJellyZap.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptControllerAction.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/GunController/CGunMotion.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSwitch.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CABSIdle.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CABSFlinch.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CABSAim.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptPlayerStateChange.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CThardus.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CActorParticles.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CWallCrawlerSwarm.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptAiJumpPoint.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMessageScreen.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CFlaahgraTentacle.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/GunController/CGSFidget.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CABSReaction.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CIceProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CFlyingPirate.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptColorModulate.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMapUniverse.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CThardusRockProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CInventoryScreen.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CVisorFlare.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CFlaahgraPlants.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CWorldTransManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptMidi.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptStreamedAudio.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CRagDoll.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CGameOptions.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CRepulsor.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CEnvFxManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CEnergyProjectile.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptGunTurret.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CProjectileInfo.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CInGameTweakManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBabygoth.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CEyeBall.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CIkChain.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraPitchVolume.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/RumbleFxTable.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CElitePirate.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CRumbleManager.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CBouncyGrenade.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CGrenadeLauncher.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Weapons/CShockWave.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CRipperControlledPlatform.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CKnockBackController.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CWorldLayerState.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CMagdolite.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CTeamAiMgr.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CSnakeWeedSwarm.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CBallCameraFailsafeState.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CActorContraption.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptSpindleCamera.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptMemoryRelay.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CPauseScreenFrame.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CQuitGameScreen.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CAtomicAlpha.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CLogBookScreen.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CGBASupport.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Player/CSaveWorld.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptCameraHintTrigger.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/Enemies/CAmbientAI.o\
+	$(BUILD_DIR)/asm/Kyoto_CWD/CMemoryCardDriver.o\
 	$(BUILD_DIR)/asm/text.o\
 	
 AI_FILES :=\

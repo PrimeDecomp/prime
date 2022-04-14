@@ -41,4 +41,5 @@ FORCEFILES
     uart_console_io.o
     mslsupp.o
     CBallFilter.o
+    CABSIdle.o
 }

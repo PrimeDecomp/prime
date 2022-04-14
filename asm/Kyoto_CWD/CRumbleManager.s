@@ -1,0 +1,166 @@
+.include "macros.inc"
+
+.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.global Update__14CRumbleManagerFf
+Update__14CRumbleManagerFf:
+/* 8022E0F4 0022B054  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8022E0F8 0022B058  7C 08 02 A6 */	mflr r0
+/* 8022E0FC 0022B05C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8022E100 0022B060  48 13 BC E1 */	bl Update__16CRumbleGeneratorFf
+/* 8022E104 0022B064  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8022E108 0022B068  7C 08 03 A6 */	mtlr r0
+/* 8022E10C 0022B06C  38 21 00 10 */	addi r1, r1, 0x10
+/* 8022E110 0022B070  4E 80 00 20 */	blr 
+
+.global StopRumble__14CRumbleManagerFs
+StopRumble__14CRumbleManagerFs:
+/* 8022E114 0022B074  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8022E118 0022B078  7C 08 02 A6 */	mflr r0
+/* 8022E11C 0022B07C  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8022E120 0022B080  7C 80 07 34 */	extsh r0, r4
+/* 8022E124 0022B084  2C 00 FF FF */	cmpwi r0, -1
+/* 8022E128 0022B088  41 82 00 10 */	beq lbl_8022E138
+/* 8022E12C 0022B08C  41 82 00 0C */	beq lbl_8022E138
+/* 8022E130 0022B090  38 A0 00 00 */	li r5, 0
+/* 8022E134 0022B094  48 13 B6 5D */	bl Deactivate__12CRumbleVoiceFsb
+lbl_8022E138:
+/* 8022E138 0022B098  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8022E13C 0022B09C  7C 08 03 A6 */	mtlr r0
+/* 8022E140 0022B0A0  38 21 00 10 */	addi r1, r1, 0x10
+/* 8022E144 0022B0A4  4E 80 00 20 */	blr 
+
+.global Rumble__14CRumbleManagerFR13CStateManagerRC9CVector3f11ERumbleFxIdf15ERumblePriority
+Rumble__14CRumbleManagerFR13CStateManagerRC9CVector3f11ERumbleFxIdf15ERumblePriority:
+/* 8022E148 0022B0A8  94 21 FF C0 */	stwu r1, -0x40(r1)
+/* 8022E14C 0022B0AC  7C 08 02 A6 */	mflr r0
+/* 8022E150 0022B0B0  90 01 00 44 */	stw r0, 0x44(r1)
+/* 8022E154 0022B0B4  DB E1 00 30 */	stfd f31, 0x30(r1)
+/* 8022E158 0022B0B8  F3 E1 00 38 */	psq_st f31, 56(r1), 0, qr0
+/* 8022E15C 0022B0BC  93 E1 00 2C */	stw r31, 0x2c(r1)
+/* 8022E160 0022B0C0  93 C1 00 28 */	stw r30, 0x28(r1)
+/* 8022E164 0022B0C4  93 A1 00 24 */	stw r29, 0x24(r1)
+/* 8022E168 0022B0C8  93 81 00 20 */	stw r28, 0x20(r1)
+/* 8022E16C 0022B0CC  FF E0 08 90 */	fmr f31, f1
+/* 8022E170 0022B0D0  C0 22 B6 28 */	lfs f1, lbl_805AD348@sda21(r2)
+/* 8022E174 0022B0D4  C0 02 B6 2C */	lfs f0, lbl_805AD34C@sda21(r2)
+/* 8022E178 0022B0D8  7C 7C 1B 78 */	mr r28, r3
+/* 8022E17C 0022B0DC  7C 9D 23 78 */	mr r29, r4
+/* 8022E180 0022B0E0  7C DE 33 78 */	mr r30, r6
+/* 8022E184 0022B0E4  EC 3F 08 28 */	fsubs f1, f31, f1
+/* 8022E188 0022B0E8  7C FF 3B 78 */	mr r31, r7
+/* 8022E18C 0022B0EC  FC 20 0A 10 */	fabs f1, f1
+/* 8022E190 0022B0F0  FC 01 00 40 */	fcmpo cr0, f1, f0
+/* 8022E194 0022B0F4  41 80 00 84 */	blt lbl_8022E218
+/* 8022E198 0022B0F8  80 7D 08 4C */	lwz r3, 0x84c(r29)
+/* 8022E19C 0022B0FC  EC 1F 07 F2 */	fmuls f0, f31, f31
+/* 8022E1A0 0022B100  C0 65 00 04 */	lfs f3, 4(r5)
+/* 8022E1A4 0022B104  C0 83 00 50 */	lfs f4, 0x50(r3)
+/* 8022E1A8 0022B108  C0 43 00 40 */	lfs f2, 0x40(r3)
+/* 8022E1AC 0022B10C  C0 25 00 00 */	lfs f1, 0(r5)
+/* 8022E1B0 0022B110  EC A4 18 28 */	fsubs f5, f4, f3
+/* 8022E1B4 0022B114  C0 83 00 60 */	lfs f4, 0x60(r3)
+/* 8022E1B8 0022B118  EC 62 08 28 */	fsubs f3, f2, f1
+/* 8022E1BC 0022B11C  C0 45 00 08 */	lfs f2, 8(r5)
+/* 8022E1C0 0022B120  EC 25 01 72 */	fmuls f1, f5, f5
+/* 8022E1C4 0022B124  D0 A1 00 0C */	stfs f5, 0xc(r1)
+/* 8022E1C8 0022B128  EC 84 10 28 */	fsubs f4, f4, f2
+/* 8022E1CC 0022B12C  EC 43 00 F2 */	fmuls f2, f3, f3
+/* 8022E1D0 0022B130  D0 61 00 08 */	stfs f3, 8(r1)
+/* 8022E1D4 0022B134  EC 64 01 32 */	fmuls f3, f4, f4
+/* 8022E1D8 0022B138  EC 22 08 2A */	fadds f1, f2, f1
+/* 8022E1DC 0022B13C  D0 81 00 10 */	stfs f4, 0x10(r1)
+/* 8022E1E0 0022B140  EC 23 08 2A */	fadds f1, f3, f1
+/* 8022E1E4 0022B144  FC 01 00 40 */	fcmpo cr0, f1, f0
+/* 8022E1E8 0022B148  40 80 00 30 */	bge lbl_8022E218
+/* 8022E1EC 0022B14C  38 61 00 08 */	addi r3, r1, 8
+/* 8022E1F0 0022B150  48 0E 66 C9 */	bl Magnitude__9CVector3fCFv
+/* 8022E1F4 0022B154  EC 21 F8 24 */	fdivs f1, f1, f31
+/* 8022E1F8 0022B158  C0 02 B6 30 */	lfs f0, lbl_805AD350@sda21(r2)
+/* 8022E1FC 0022B15C  7F 83 E3 78 */	mr r3, r28
+/* 8022E200 0022B160  7F A4 EB 78 */	mr r4, r29
+/* 8022E204 0022B164  7F C5 F3 78 */	mr r5, r30
+/* 8022E208 0022B168  7F E6 FB 78 */	mr r6, r31
+/* 8022E20C 0022B16C  EC 20 08 28 */	fsubs f1, f0, f1
+/* 8022E210 0022B170  48 00 00 35 */	bl Rumble__14CRumbleManagerFR13CStateManager11ERumbleFxIdf15ERumblePriority
+/* 8022E214 0022B174  48 00 00 08 */	b lbl_8022E21C
+lbl_8022E218:
+/* 8022E218 0022B178  38 60 FF FF */	li r3, -1
+lbl_8022E21C:
+/* 8022E21C 0022B17C  E3 E1 00 38 */	psq_l f31, 56(r1), 0, qr0
+/* 8022E220 0022B180  80 01 00 44 */	lwz r0, 0x44(r1)
+/* 8022E224 0022B184  CB E1 00 30 */	lfd f31, 0x30(r1)
+/* 8022E228 0022B188  83 E1 00 2C */	lwz r31, 0x2c(r1)
+/* 8022E22C 0022B18C  83 C1 00 28 */	lwz r30, 0x28(r1)
+/* 8022E230 0022B190  83 A1 00 24 */	lwz r29, 0x24(r1)
+/* 8022E234 0022B194  83 81 00 20 */	lwz r28, 0x20(r1)
+/* 8022E238 0022B198  7C 08 03 A6 */	mtlr r0
+/* 8022E23C 0022B19C  38 21 00 40 */	addi r1, r1, 0x40
+/* 8022E240 0022B1A0  4E 80 00 20 */	blr 
+
+.global Rumble__14CRumbleManagerFR13CStateManager11ERumbleFxIdf15ERumblePriority
+Rumble__14CRumbleManagerFR13CStateManager11ERumbleFxIdf15ERumblePriority:
+/* 8022E244 0022B1A4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8022E248 0022B1A8  7C 08 02 A6 */	mflr r0
+/* 8022E24C 0022B1AC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8022E250 0022B1B0  80 8D A0 80 */	lwz r4, gpGameState@sda21(r13)
+/* 8022E254 0022B1B4  88 04 01 E4 */	lbz r0, 0x1e4(r4)
+/* 8022E258 0022B1B8  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
+/* 8022E25C 0022B1BC  41 82 00 24 */	beq lbl_8022E280
+/* 8022E260 0022B1C0  1C E5 00 1C */	mulli r7, r5, 0x1c
+/* 8022E264 0022B1C4  3C 80 80 57 */	lis r4, lbl_80572140@ha
+/* 8022E268 0022B1C8  7C C5 33 78 */	mr r5, r6
+/* 8022E26C 0022B1CC  38 04 21 40 */	addi r0, r4, lbl_80572140@l
+/* 8022E270 0022B1D0  7C 80 3A 14 */	add r4, r0, r7
+/* 8022E274 0022B1D4  38 C0 00 00 */	li r6, 0
+/* 8022E278 0022B1D8  48 13 BC D5 */	bl Rumble__16CRumbleGeneratorFRC9SAdsrDataf15ERumblePriority7EIOPort
+/* 8022E27C 0022B1DC  48 00 00 08 */	b lbl_8022E284
+lbl_8022E280:
+/* 8022E280 0022B1E0  38 60 FF FF */	li r3, -1
+lbl_8022E284:
+/* 8022E284 0022B1E4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8022E288 0022B1E8  7C 08 03 A6 */	mtlr r0
+/* 8022E28C 0022B1EC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8022E290 0022B1F0  4E 80 00 20 */	blr 
+
+.global __dt__14CRumbleManagerFv
+__dt__14CRumbleManagerFv:
+/* 8022E294 0022B1F4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8022E298 0022B1F8  7C 08 02 A6 */	mflr r0
+/* 8022E29C 0022B1FC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8022E2A0 0022B200  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8022E2A4 0022B204  7C 9F 23 78 */	mr r31, r4
+/* 8022E2A8 0022B208  93 C1 00 08 */	stw r30, 8(r1)
+/* 8022E2AC 0022B20C  7C 7E 1B 79 */	or. r30, r3, r3
+/* 8022E2B0 0022B210  41 82 00 24 */	beq lbl_8022E2D4
+/* 8022E2B4 0022B214  48 13 BA 99 */	bl HardStopAll__16CRumbleGeneratorFv
+/* 8022E2B8 0022B218  7F C3 F3 78 */	mr r3, r30
+/* 8022E2BC 0022B21C  38 80 FF FF */	li r4, -1
+/* 8022E2C0 0022B220  48 13 BD 35 */	bl __dt__16CRumbleGeneratorFv
+/* 8022E2C4 0022B224  7F E0 07 35 */	extsh. r0, r31
+/* 8022E2C8 0022B228  40 81 00 0C */	ble lbl_8022E2D4
+/* 8022E2CC 0022B22C  7F C3 F3 78 */	mr r3, r30
+/* 8022E2D0 0022B230  48 0E 76 61 */	bl Free__7CMemoryFPCv
+lbl_8022E2D4:
+/* 8022E2D4 0022B234  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8022E2D8 0022B238  7F C3 F3 78 */	mr r3, r30
+/* 8022E2DC 0022B23C  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8022E2E0 0022B240  83 C1 00 08 */	lwz r30, 8(r1)
+/* 8022E2E4 0022B244  7C 08 03 A6 */	mtlr r0
+/* 8022E2E8 0022B248  38 21 00 10 */	addi r1, r1, 0x10
+/* 8022E2EC 0022B24C  4E 80 00 20 */	blr 
+
+.global __ct__14CRumbleManagerFv
+__ct__14CRumbleManagerFv:
+/* 8022E2F0 0022B250  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8022E2F4 0022B254  7C 08 02 A6 */	mflr r0
+/* 8022E2F8 0022B258  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8022E2FC 0022B25C  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8022E300 0022B260  7C 7F 1B 78 */	mr r31, r3
+/* 8022E304 0022B264  48 13 BE 91 */	bl __ct__16CRumbleGeneratorFv
+/* 8022E308 0022B268  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8022E30C 0022B26C  7F E3 FB 78 */	mr r3, r31
+/* 8022E310 0022B270  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8022E314 0022B274  7C 08 03 A6 */	mtlr r0
+/* 8022E318 0022B278  38 21 00 10 */	addi r1, r1, 0x10
+/* 8022E31C 0022B27C  4E 80 00 20 */	blr
