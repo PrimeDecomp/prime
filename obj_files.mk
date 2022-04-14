@@ -224,6 +224,7 @@ KYOTO_CWD :=\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptTargetingPoint.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/BodyState/CBSWallHang.o\
 	$(BUILD_DIR)/asm/Kyoto_CWD/ScriptObjects/CScriptEMPulse.o\
+	$(BUILD_DIR)/asm/text.o\
 	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o
@@ -446,9 +447,6 @@ GBA_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o
 	
-TEXT_O_FILES :=\
-	$(BUILD_DIR)/asm/text.o
-
 EXTAB_O_FILES :=\
 	$(BUILD_DIR)/asm/extab.o
 
