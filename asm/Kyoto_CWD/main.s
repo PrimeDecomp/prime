@@ -5469,7 +5469,7 @@ lbl_800074A8:
 /* 800074C4 00004424  38 61 00 08 */	addi r3, r1, 8
 /* 800074C8 00004428  48 00 11 D5 */	bl sub_8000869c
 /* 800074CC 0000442C  38 7E 00 44 */	addi r3, r30, 0x44
-/* 800074D0 00004430  48 2B 97 25 */	bl nullsub_6
+/* 800074D0 00004430  48 2B 97 25 */	bl InitializeApplicationUI__FR7CGuiSys
 /* 800074D4 00004434  38 1E 00 44 */	addi r0, r30, 0x44
 /* 800074D8 00004438  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800074DC 0000443C  90 0D A0 70 */	stw r0, gGuiSystem@sda21(r13)
