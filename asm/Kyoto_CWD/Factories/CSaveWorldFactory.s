@@ -887,7 +887,7 @@ lbl_8026B930:
 /* 8026B950 002688B0  7C 79 1B 78 */	mr r25, r3
 /* 8026B954 002688B4  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 8026B958 002688B8  7F 24 CB 78 */	mr r4, r25
-/* 8026B95C 002688BC  4B D9 D0 F1 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8026B95C 002688BC  4B D9 D0 F1 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 /* 8026B960 002688C0  3B 40 00 00 */	li r26, 0
 /* 8026B964 002688C4  48 00 00 70 */	b lbl_8026B9D4
 lbl_8026B968:
@@ -907,7 +907,7 @@ lbl_8026B968:
 /* 8026B99C 002688FC  41 82 00 08 */	beq lbl_8026B9A4
 /* 8026B9A0 00268900  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8026B9A4:
-/* 8026B9A4 00268904  4B D9 D0 A9 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8026B9A4 00268904  4B D9 D0 A9 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 lbl_8026B9A8:
 /* 8026B9A8 00268908  80 01 00 B8 */	lwz r0, 0xb8(r1)
 /* 8026B9AC 0026890C  80 61 00 C0 */	lwz r3, 0xc0(r1)
@@ -959,7 +959,7 @@ lbl_8026BA40:
 /* 8026BA50 002689B0  48 00 00 54 */	b lbl_8026BAA4
 lbl_8026BA54:
 /* 8026BA54 002689B4  38 7F 00 44 */	addi r3, r31, 0x44
-/* 8026BA58 002689B8  4B D9 CF F5 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8026BA58 002689B8  4B D9 CF F5 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 /* 8026BA5C 002689BC  80 01 00 B8 */	lwz r0, 0xb8(r1)
 /* 8026BA60 002689C0  80 A1 00 C0 */	lwz r5, 0xc0(r1)
 /* 8026BA64 002689C4  54 00 18 38 */	slwi r0, r0, 3

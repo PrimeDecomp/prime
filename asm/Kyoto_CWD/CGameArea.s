@@ -972,7 +972,7 @@ ReadDependencyList__9CGameArea:
 /* 8005E964 0005B8C4  7C 7D 1B 78 */	mr r29, r3
 /* 8005E968 0005B8C8  7F 43 D3 78 */	mr r3, r26
 /* 8005E96C 0005B8CC  7F A4 EB 78 */	mr r4, r29
-/* 8005E970 0005B8D0  4B FA A0 DD */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8005E970 0005B8D0  4B FA A0 DD */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 /* 8005E974 0005B8D4  3B 80 00 00 */	li r28, 0
 /* 8005E978 0005B8D8  48 00 00 70 */	b lbl_8005E9E8
 lbl_8005E97C:
@@ -992,7 +992,7 @@ lbl_8005E97C:
 /* 8005E9B0 0005B910  41 82 00 08 */	beq lbl_8005E9B8
 /* 8005E9B4 0005B914  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8005E9B8:
-/* 8005E9B8 0005B918  4B FA A0 95 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8005E9B8 0005B918  4B FA A0 95 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 lbl_8005E9BC:
 /* 8005E9BC 0005B91C  80 1A 00 04 */	lwz r0, 4(r26)
 /* 8005E9C0 0005B920  80 7A 00 0C */	lwz r3, 0xc(r26)

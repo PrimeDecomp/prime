@@ -21,10 +21,27 @@ public:
   inline iterator end() { return iterator(x4_items + x0_count); }
   inline const_iterator end() const { return const_iterator(x4_items + x0_count); }
 
-  ~reserved_vector() {
-    for (u32 i = x0_count; i > 0; --i) {
+  reserved_vector(const reserved_vector& other) {
+    x0_count = other.size();
+    rstl::uninitialized_copy_n(data(), other.data(), size());
+  }
+  reserved_vector& operator=(const reserved_vector& other) {
+    if (this != &other) {
+      clear();
+      rstl::uninitialized_copy_2(other.data(), data(), other.data() + other.size());
+      x0_count = other.x0_count;
+    }
+    return *this;
+  }
+  void clear() {
+    for (size_t i = 0; i < x0_count; ++i) {
       rstl::destroy(&x4_items[i]);
     }
+    x0_count = 0;
+  }
+
+  ~reserved_vector() {
+    clear();
   }
 
   void push_back(const T& in) {

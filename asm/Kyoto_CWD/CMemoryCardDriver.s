@@ -56,7 +56,7 @@ LoadGameState__13SGameFileSlotFi:
 /* 8024C330 00249290  80 6D A0 78 */	lwz r3, gpMain@sda21(r13)
 /* 8024C334 00249294  7F E5 FB 78 */	mr r5, r31
 /* 8024C338 00249298  38 81 00 08 */	addi r4, r1, 8
-/* 8024C33C 0024929C  4B DB 81 69 */	bl StreamNewGameState__5CMainFR12CInputStream
+/* 8024C33C 0024929C  4B DB 81 69 */	bl StreamNewGameState__5CMainFR12CInputStreami
 /* 8024C340 002492A0  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 8024C344 002492A4  38 61 00 08 */	addi r3, r1, 8
 /* 8024C348 002492A8  38 04 E3 98 */	addi r0, r4, __vt__15CMemoryInStream@l

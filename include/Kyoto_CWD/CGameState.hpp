@@ -20,9 +20,6 @@ class CGameState {
 public:
   CGameState();
   CGameState(CInputStream& in, int saveIdx);
-  CGameState(const CGameState&);
-  ~CGameState();
-  CGameState& operator=(const CGameState&);
 
   rstl::rc_ptr< CPlayerState >& PlayerState();
   CAssetId CurrentWorldAssetId();

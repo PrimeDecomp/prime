@@ -44,16 +44,8 @@ public:
     x0_allocator.deallocate(xc_items);
   }
 
-  void reserve(size_t size); /* {
-     if (x8_capacity >= size) return;
-     T* newData;
-     Alloc::allocate(newData, size);
-     uninitialized_copy_n(newData, x4_count, xc_items);
-     rstl::destroy(begin(), end());
-     Alloc::deallocate(xc_items);
-     xc_items = newData;
-     x8_capacity = size;
-   }*/
+  void reserve(size_t size);
+
   void push_back(const T& in) {
     if (x4_count >= x8_capacity) {
       reserve(x8_capacity != 0 ? x8_capacity * 2 : 4);
@@ -61,6 +53,28 @@ public:
     iterator out = begin() + x4_count;
     out = in;
     ++x4_count;
+  }
+
+  vector& operator=(const vector& other) {
+    if (this == &other)
+      return *this;
+    clear();
+    if (other.size() == 0) {
+      x0_allocator.deallocate(xc_items);
+      x4_count = 0;
+      x8_capacity = 0;
+      xc_items = nullptr;
+    } else {
+      reserve(other.size());
+      rstl::uninitialized_copy(data(), other.data(), other.data() + other.size());
+      x4_count = other.x4_count;
+    }
+    return *this;
+  }
+
+  void clear() {
+    rstl::destroy(begin(), end());
+    x4_count = 0;
   }
 
   inline T* data() { return xc_items; }
@@ -74,6 +88,24 @@ public:
   inline T& operator[](size_t idx) { return xc_items[idx]; }
   inline const T& operator[](size_t idx) const { return xc_items[idx]; }
 };
+
+template < typename T, typename Alloc >
+void vector< T, Alloc >::reserve(size_t size) {
+  if (size <= x8_capacity)
+    return;
+  size_t sz = size * sizeof(T);
+  T* newData;
+  if (sz == 0) {
+    newData = nullptr;
+  } else {
+    x0_allocator.allocate(newData, sz);
+  }
+  rstl::uninitialized_copy(begin(), end(), newData);
+  rstl::destroy(xc_items, xc_items + x4_count);
+  x0_allocator.deallocate(xc_items);
+  xc_items = newData;
+  x8_capacity = size;
+}
 } // namespace rstl
 
 #endif

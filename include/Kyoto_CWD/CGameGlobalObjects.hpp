@@ -26,12 +26,7 @@ public:
 
   void PostInitialize(COsContext&, CMemorySys&);
 
-  CGameState* GameState() { return x134_gameState.get(); }
-
-  void SetGameState(CGameState* gameState) {
-    x134_gameState = gameState;
-    gpGameState = x134_gameState.get();
-  }
+  rstl::single_ptr< CGameState >& GameState() { return x134_gameState; }
 
 private:
   rstl::single_ptr< CMemoryCardSys > x0_memoryCardSys;
