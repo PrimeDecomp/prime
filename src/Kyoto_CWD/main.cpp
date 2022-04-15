@@ -65,8 +65,10 @@ void CMain::RegisterResourceTweaks() { x70_tweaks.RegisterResourceTweaks(); }
 void CMain::ResetGameState() {
   CSystemOptions persistentOptions = gpGameState->SystemOptions();
   CGameOptions gameOptions = gpGameState->GameOptions();
-  x128_gameGlobalObjects->SetGameState(nullptr);
-  x128_gameGlobalObjects->SetGameState(new CGameState());
+  x128_gameGlobalObjects->GameState() = nullptr;
+  gpGameState = nullptr;
+  x128_gameGlobalObjects->GameState() = new CGameState();
+  gpGameState = x128_gameGlobalObjects->GameState().get();
   gpGameState->SystemOptions() = persistentOptions;
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
@@ -76,8 +78,10 @@ void CMain::ResetGameState() {
 // 800044A4
 void CMain::StreamNewGameState(CInputStream& in, int saveIdx) {
   bool hasFusion = gpGameState->SystemOptions().GetHasFusion();
-  x128_gameGlobalObjects->SetGameState(nullptr);
-  x128_gameGlobalObjects->SetGameState(new CGameState(in, saveIdx));
+  x128_gameGlobalObjects->GameState() = nullptr;
+  gpGameState = nullptr;
+  x128_gameGlobalObjects->GameState() = new CGameState(in, saveIdx);
+  gpGameState = x128_gameGlobalObjects->GameState().get();
   gpGameState->SystemOptions().SetHasFusion(hasFusion);
   gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemOptions().GetHasFusion());
   gpGameState->HintOptions().SetHintNextTime();
@@ -90,12 +94,13 @@ void CMain::RefreshGameState() {
   u64 cardSerial = gpGameState->CardSerial();
   rstl::vector< u8 > backupBuf = gpGameState->BackupBuf();
   CGameOptions gameOptions = gpGameState->GameOptions();
-  x128_gameGlobalObjects->SetGameState(nullptr);
+  x128_gameGlobalObjects->GameState() = nullptr;
+  gpGameState = nullptr;
   {
     CMemoryInStream stream(backupBuf.data(), backupBuf.size(), CMemoryInStream::Owned);
-    x128_gameGlobalObjects->SetGameState(new CGameState(stream, saveIdx));
+    x128_gameGlobalObjects->GameState() = new CGameState(stream, saveIdx);
   }
-  // gpGameState = x128_gameGlobalObjects->x134_gameState.get();
+  gpGameState = x128_gameGlobalObjects->GameState().get();
   gpGameState->SystemOptions() = systemOptions;
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
@@ -150,7 +155,7 @@ void CMain::AsyncIdle(u32 time) {
 }
 
 // 80004DC8
-int CMain::RsMain(int argc, char** argv) {
+int CMain::RsMain(int argc, const char* const* argv) {
   PPCSetFpIEEEMode();
   CStopwatch timer;
   LCEnable();

@@ -24,7 +24,7 @@ public:
   void RefreshGameState();
   void AddWorldPaks();
   void AsyncIdle(u32 time);
-  int RsMain(int argc, char** argv);
+  int RsMain(int argc, const char* const* argv);
   void InitializeSubsystems();
   void FillInAssetIDs();
   void ShutdownSubsystems();

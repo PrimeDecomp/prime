@@ -4,7 +4,7 @@
 #include "types.h"
 
 typedef s32 TAreaId;
-typedef u32 TEditorId;
+typedef s32 TEditorId;
 typedef u16 TUniqueId;
 
 extern TAreaId kInvalidAreaId;

@@ -47,7 +47,7 @@ lbl_8020EA10:
 /* 8020EA1C 0020B97C  38 81 00 34 */	addi r4, r1, 0x34
 /* 8020EA20 0020B980  90 01 00 3C */	stw r0, 0x3c(r1)
 /* 8020EA24 0020B984  90 01 00 40 */	stw r0, 0x40(r1)
-/* 8020EA28 0020B988  4B DF 4E A9 */	bl sub_800038d0
+/* 8020EA28 0020B988  4B DF 4E A9 */	bl "__as__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>FRCQ24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>"
 /* 8020EA2C 0020B98C  80 01 00 38 */	lwz r0, 0x38(r1)
 /* 8020EA30 0020B990  80 61 00 40 */	lwz r3, 0x40(r1)
 /* 8020EA34 0020B994  54 00 18 38 */	slwi r0, r0, 3
@@ -113,7 +113,7 @@ lbl_8020EA70:
 /* 8020EB18 0020BA78  90 C1 00 60 */	stw r6, 0x60(r1)
 /* 8020EB1C 0020BA7C  90 A1 00 64 */	stw r5, 0x64(r1)
 /* 8020EB20 0020BA80  90 01 00 68 */	stw r0, 0x68(r1)
-/* 8020EB24 0020BA84  4B DF 9F 29 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8020EB24 0020BA84  4B DF 9F 29 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 /* 8020EB28 0020BA88  3B C0 00 00 */	li r30, 0
 /* 8020EB2C 0020BA8C  3B E1 00 6C */	addi r31, r1, 0x6c
 lbl_8020EB30:
@@ -129,7 +129,7 @@ lbl_8020EB30:
 /* 8020EB54 0020BAB4  41 82 00 08 */	beq lbl_8020EB5C
 /* 8020EB58 0020BAB8  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8020EB5C:
-/* 8020EB5C 0020BABC  4B DF 9E F1 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8020EB5C 0020BABC  4B DF 9E F1 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 lbl_8020EB60:
 /* 8020EB60 0020BAC0  80 1D 00 70 */	lwz r0, 0x70(r29)
 /* 8020EB64 0020BAC4  80 7D 00 78 */	lwz r3, 0x78(r29)
@@ -154,7 +154,7 @@ lbl_8020EB7C:
 /* 8020EBAC 0020BB0C  41 82 00 08 */	beq lbl_8020EBB4
 /* 8020EBB0 0020BB10  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8020EBB4:
-/* 8020EBB4 0020BB14  4B DF 9E 99 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8020EBB4 0020BB14  4B DF 9E 99 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 lbl_8020EBB8:
 /* 8020EBB8 0020BB18  80 1D 00 70 */	lwz r0, 0x70(r29)
 /* 8020EBBC 0020BB1C  80 7D 00 78 */	lwz r3, 0x78(r29)
@@ -186,7 +186,7 @@ lbl_8020EBF8:
 /* 8020EC1C 0020BB7C  41 82 00 08 */	beq lbl_8020EC24
 /* 8020EC20 0020BB80  54 A4 08 3C */	slwi r4, r5, 1
 lbl_8020EC24:
-/* 8020EC24 0020BB84  4B DF 9E 29 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 8020EC24 0020BB84  4B DF 9E 29 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 lbl_8020EC28:
 /* 8020EC28 0020BB88  80 1D 00 70 */	lwz r0, 0x70(r29)
 /* 8020EC2C 0020BB8C  80 7D 00 78 */	lwz r3, 0x78(r29)

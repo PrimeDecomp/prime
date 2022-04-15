@@ -115,7 +115,7 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp hard -nodefaults -w off
 endif
-CFLAGS_1.2 = -Cpp_exceptions off -enum int -inline auto -proc gekko -RTTI off -fp hard -fp_contract on -str pool -rostr -O4,p -use_lmw_stmw on -sdata 8 -sdata2 8 -nodefaults -MMD $(INCLUDES)
+CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -str reuse,pool,readonly -rostr -O4,p -maxerrors 1 -use_lmw_stmw on -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS = $(CFLAGS_1.2) -gccinc
 
 ifeq ($(VERBOSE),0)

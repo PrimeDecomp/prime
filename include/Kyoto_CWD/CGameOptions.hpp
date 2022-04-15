@@ -8,14 +8,12 @@
 #include "rstl/vector.hpp"
 
 #include "CInputStream.hpp"
+#include "TGameTypes.hpp"
 
 class CGameOptions {
 public:
   CGameOptions();
-  CGameOptions(const CGameOptions&);
   CGameOptions(CInputStream& in);
-  ~CGameOptions();
-  CGameOptions& operator=(const CGameOptions&);
 
   void EnsureOptions();
 
@@ -35,7 +33,7 @@ private:
   bool x68_26_rumble : 1;
   bool x68_27_swapBeamsControls : 1;
   bool x68_28_hintSystem : 1;
-  rstl::vector< rstl::pair< int, int > > x6c_;
+  rstl::vector< rstl::pair< CAssetId, CAssetId > > x6c_controlTxtrMap;
 };
 
 #endif

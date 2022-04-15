@@ -318,7 +318,7 @@ lbl_802491F8:
 /* 80249224 00246184  80 98 00 24 */	lwz r4, 0x24(r24)
 /* 80249228 00246188  80 1E 00 48 */	lwz r0, 0x48(r30)
 /* 8024922C 0024618C  7C 84 02 14 */	add r4, r4, r0
-/* 80249230 00246190  4B DB F8 1D */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 80249230 00246190  4B DB F8 1D */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 /* 80249234 00246194  83 9E 00 50 */	lwz r28, 0x50(r30)
 /* 80249238 00246198  48 00 00 F0 */	b lbl_80249328
 lbl_8024923C:
@@ -367,7 +367,7 @@ lbl_802492AC:
 /* 802492D4 00246234  41 82 00 08 */	beq lbl_802492DC
 /* 802492D8 00246238  54 04 08 3C */	slwi r4, r0, 1
 lbl_802492DC:
-/* 802492DC 0024623C  4B DB F7 71 */	bl "reserve__Q24rstl47vector<10SScanState,Q24rstl17rmemory_allocator>Fi"
+/* 802492DC 0024623C  4B DB F7 71 */	bl "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 lbl_802492E0:
 /* 802492E0 00246240  80 18 00 24 */	lwz r0, 0x24(r24)
 /* 802492E4 00246244  80 78 00 2C */	lwz r3, 0x2c(r24)
