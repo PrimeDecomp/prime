@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804BFF10
+lbl_804BFF10:
+	.skip 0xC
+.global lbl_804BFF1C
+lbl_804BFF1C:
+	.skip 0x14
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global LoadToken__Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfoFP11CSimplePool

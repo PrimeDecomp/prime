@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046D390
+lbl_8046D390:
+	.skip 0x18
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AcceptScriptMsg__20CScriptSpindleCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager

@@ -1,5 +1,44 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8045B180
+lbl_8045B180:
+	.skip 0x5C
+.global lbl_8045B1DC
+lbl_8045B1DC:
+	.skip 0xF4
+.global lbl_8045B2D0
+lbl_8045B2D0:
+	.skip 0xC8
+.global lbl_8045B398
+lbl_8045B398:
+	.skip 0x120
+.global lbl_8045B4B8
+lbl_8045B4B8:
+	.skip 0x228
+.global lbl_8045B6E0
+lbl_8045B6E0:
+	.skip 0x254
+.global lbl_8045B934
+lbl_8045B934:
+	.skip 0x368
+.global lbl_8045BC9C
+lbl_8045BC9C:
+	.skip 0x298
+.global lbl_8045BF34
+lbl_8045BF34:
+	.skip 0x34
+.global lbl_8045BF68
+lbl_8045BF68:
+	.skip 0x68
+.global lbl_8045BFD0
+lbl_8045BFD0:
+	.skip 0x238
+.global lbl_8045C208
+lbl_8045C208:
+	.skip 0x310
+	
 .section .text, "ax"
 
 .global RegisterResourceTweaks__7CTweaksFv

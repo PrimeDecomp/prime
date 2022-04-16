@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C470
+lbl_8046C470:
+	.skip 0xC
+.global lbl_8046C47C
+lbl_8046C47C:
+	.skip 0xC
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetRotationSfxPlaying__10CSamusDollFb

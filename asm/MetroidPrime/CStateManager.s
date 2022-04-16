@@ -1,5 +1,26 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8045C550
+lbl_8045C550:
+	.skip 0x30
+.global lbl_8045C580
+lbl_8045C580:
+	.skip 0x18
+.global lbl_8045C598
+lbl_8045C598:
+	.skip 0xC
+.global lbl_8045C5A4
+lbl_8045C5A4:
+	.skip 0x10
+.global lbl_8045C5B4
+lbl_8045C5B4:
+	.skip 0xF3C8
+.global lbl_8046B97C
+lbl_8046B97C:
+	.skip 0xA3C
+	
 .section .text, "ax"
 
 .global IntegrateVisorFog__13CStateManagerFf

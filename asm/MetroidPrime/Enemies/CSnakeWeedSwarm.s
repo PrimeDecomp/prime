@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046D360
+lbl_8046D360:
+	.skip 0x18
+.global lbl_8046D378
+lbl_8046D378:
+	.skip 0x18
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__15CSnakeWeedSwarmFv

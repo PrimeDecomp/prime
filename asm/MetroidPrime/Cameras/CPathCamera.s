@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C720
+lbl_8046C720:
+	.skip 0x18
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AcceptScriptMsg__11CPathCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager

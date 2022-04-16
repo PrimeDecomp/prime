@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804BFF50
+lbl_804BFF50:
+	.skip 0xC
+.global lbl_804BFF5C
+lbl_804BFF5C:
+	.skip 0x34
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCompressedBlend__13CCubeMaterialCFv

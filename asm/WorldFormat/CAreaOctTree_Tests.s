@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046E0F0
+lbl_8046E0F0:
+	.skip 0x100
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global LineTestExInternal__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterRQ212CAreaOctTree10SRayResultfffRC9CVector3f

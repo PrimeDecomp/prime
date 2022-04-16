@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C8C0
+lbl_8046C8C0:
+	.skip 0x18
+.global lbl_8046C8D8
+lbl_8046C8D8:
+	.skip 0x18
+.global lbl_8046C8F0
+lbl_8046C8F0:
+	.skip 0x18
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateGrappleArmTransform__7CPlayerFRC9CVector3fR13CStateManagerf

@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046E0D8
+lbl_8046E0D8:
+	.skip 0x18
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateMorphBallTransition__7CPlayerFfR13CStateManager

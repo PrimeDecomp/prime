@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_80540A40
+lbl_80540A40:
+	.skip 0xC
+.global lbl_80540A4C
+lbl_80540A4C:
+	.skip 0x34
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_8036ca64

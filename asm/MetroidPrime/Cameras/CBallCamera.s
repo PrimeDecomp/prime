@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C408
+lbl_8046C408:
+	.skip 0x18
+	
 .section .text, "ax"
 
 .global SplineIntersectTest__11CBallCameraCFR13CMaterialListR13CStateManager

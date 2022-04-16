@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046E1F0
+lbl_8046E1F0:
+	.skip 0x10
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __sinit_IWeaponRenderer_cpp

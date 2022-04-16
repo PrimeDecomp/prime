@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804BFFA0
+lbl_804BFFA0:
+	.skip 0xC
+.global lbl_804BFFAC
+lbl_804BFFAC:
+	.skip 0x14
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FreeCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
