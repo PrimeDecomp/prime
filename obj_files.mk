@@ -389,6 +389,7 @@ WEAPONS :=\
 	$(BUILD_DIR)/asm/Weapons/CDecalDataFactory.o\
 	$(BUILD_DIR)/asm/Weapons/CDecal.o\
 	$(BUILD_DIR)/asm/Weapons/CWeaponDescription.o\
+	$(BUILD_DIR)/asm/Weapons/CDecalDescription.o\
 	
 METARENDER :=\
 	$(BUILD_DIR)/asm/MetaRender/CCubeRenderer.o\
@@ -632,7 +633,7 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/Audio/SDSPStream.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/g721.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CStaticAudioPlayer.o\
-	$(BUILD_DIR)/asm/Kyoto/GameTweaks.o\
+	$(BUILD_DIR)/asm/Kyoto/CFrameDelayedKiller.o\
 	
 AI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ai.o

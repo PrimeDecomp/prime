@@ -301,8 +301,8 @@ lbl_8036CDEC:
 /* 8036CE0C 00369D6C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8036CE10 00369D70  4E 80 00 20 */	blr 
 
-.global __sinit_GameTweaks_cpp
-__sinit_GameTweaks_cpp:
+.global __sinit_CFrameDelayedKiller_cpp
+__sinit_CFrameDelayedKiller_cpp:
 /* 8036CE14 00369D74  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8036CE18 00369D78  7C 08 02 A6 */	mflr r0
 /* 8036CE1C 00369D7C  3C 60 80 54 */	lis r3, lbl_80540A4C@ha

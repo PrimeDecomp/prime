@@ -272,11 +272,11 @@ lbl_805A5214:
 .global lbl_805A5368
 lbl_805A5368:
 	.skip 0x60
-.global lbl_805A53C8
-lbl_805A53C8:
+.global kDefaultPosition__6CLight
+kDefaultPosition__6CLight:
 	.skip 0x18
-.global lbl_805A53E0
-lbl_805A53E0:
+.global kDefaultDirection__6CLight
+kDefaultDirection__6CLight:
 	.skip 0xC
 .global lbl_805A53EC
 lbl_805A53EC:
@@ -556,5 +556,5 @@ __init_cpp_exceptions_reference:
 	.4byte __sinit_CDSPStreamManager_cpp
 	.4byte __sinit_CStreamAudioManager_cpp
 	.4byte __sinit_CStaticAudioPlayer_cpp
-	.4byte __sinit_GameTweaks_cpp
+	.4byte __sinit_CFrameDelayedKiller_cpp
 	.4byte 0

@@ -4,6 +4,7 @@
 
 lbl_803D8588:
 	.incbin "baserom.dol", 0x3D5588, 0x10
+	
 .global lbl_803D8598
 lbl_803D8598:
 	.incbin "baserom.dol", 0x3D5598, 0x10

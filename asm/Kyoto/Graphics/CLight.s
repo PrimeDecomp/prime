@@ -318,12 +318,12 @@ BuildSpot__6CLightFRC9CVector3fRC9CVector3fRC6CColorf:
 BuildPoint__6CLightFRC9CVector3fRC6CColor:
 /* 80306434 00303394  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80306438 00303398  7C 08 02 A6 */	mflr r0
-/* 8030643C 0030339C  3C C0 80 5A */	lis r6, lbl_805A53E0@ha
+/* 8030643C 0030339C  3C C0 80 5A */	lis r6, kDefaultDirection__6CLight@ha
 /* 80306440 003033A0  7C A7 2B 78 */	mr r7, r5
 /* 80306444 003033A4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80306448 003033A8  7C 85 23 78 */	mr r5, r4
 /* 8030644C 003033AC  C0 22 C7 94 */	lfs f1, lbl_805AE4B4@sda21(r2)
-/* 80306450 003033B0  38 C6 53 E0 */	addi r6, r6, lbl_805A53E0@l
+/* 80306450 003033B0  38 C6 53 E0 */	addi r6, r6, kDefaultDirection__6CLight@l
 /* 80306454 003033B4  38 80 00 01 */	li r4, 1
 /* 80306458 003033B8  48 00 01 19 */	bl __ct__6CLightF10ELightTypeRC9CVector3fRC9CVector3fRC6CColorf
 /* 8030645C 003033BC  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -335,10 +335,10 @@ BuildPoint__6CLightFRC9CVector3fRC6CColor:
 BuildDirectional__6CLightFRC9CVector3fRC6CColor:
 /* 8030646C 003033CC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80306470 003033D0  7C 08 02 A6 */	mflr r0
-/* 80306474 003033D4  3C C0 80 5A */	lis r6, lbl_805A53C8@ha
+/* 80306474 003033D4  3C C0 80 5A */	lis r6, kDefaultPosition__6CLight@ha
 /* 80306478 003033D8  7C A7 2B 78 */	mr r7, r5
 /* 8030647C 003033DC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80306480 003033E0  38 A6 53 C8 */	addi r5, r6, lbl_805A53C8@l
+/* 80306480 003033E0  38 A6 53 C8 */	addi r5, r6, kDefaultPosition__6CLight@l
 /* 80306484 003033E4  7C 86 23 78 */	mr r6, r4
 /* 80306488 003033E8  C0 22 C7 94 */	lfs f1, lbl_805AE4B4@sda21(r2)
 /* 8030648C 003033EC  38 80 00 02 */	li r4, 2
@@ -352,12 +352,12 @@ BuildDirectional__6CLightFRC9CVector3fRC6CColor:
 BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor:
 /* 803064A4 00303404  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803064A8 00303408  7C 08 02 A6 */	mflr r0
-/* 803064AC 0030340C  3C C0 80 5A */	lis r6, lbl_805A53E0@ha
+/* 803064AC 0030340C  3C C0 80 5A */	lis r6, kDefaultDirection__6CLight@ha
 /* 803064B0 00303410  7C A7 2B 78 */	mr r7, r5
 /* 803064B4 00303414  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803064B8 00303418  7C 85 23 78 */	mr r5, r4
 /* 803064BC 0030341C  C0 22 C7 94 */	lfs f1, lbl_805AE4B4@sda21(r2)
-/* 803064C0 00303420  38 C6 53 E0 */	addi r6, r6, lbl_805A53E0@l
+/* 803064C0 00303420  38 C6 53 E0 */	addi r6, r6, kDefaultDirection__6CLight@l
 /* 803064C4 00303424  38 80 00 03 */	li r4, 3
 /* 803064C8 00303428  48 00 00 A9 */	bl __ct__6CLightF10ELightTypeRC9CVector3fRC9CVector3fRC6CColorf
 /* 803064CC 0030342C  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -448,11 +448,11 @@ __ct__6CLightF10ELightTypeRC9CVector3fRC9CVector3fRC6CColorf:
 .global __sinit_CLight_cpp
 __sinit_CLight_cpp:
 /* 80306604 00303564  C0 22 C7 88 */	lfs f1, lbl_805AE4A8@sda21(r2)
-/* 80306608 00303568  3C 80 80 5A */	lis r4, lbl_805A53C8@ha
-/* 8030660C 0030356C  3C 60 80 5A */	lis r3, lbl_805A53E0@ha
+/* 80306608 00303568  3C 80 80 5A */	lis r4, kDefaultPosition__6CLight@ha
+/* 8030660C 0030356C  3C 60 80 5A */	lis r3, kDefaultDirection__6CLight@ha
 /* 80306610 00303570  C0 02 C7 84 */	lfs f0, lbl_805AE4A4@sda21(r2)
-/* 80306614 00303574  D4 24 53 C8 */	stfsu f1, lbl_805A53C8@l(r4)
-/* 80306618 00303578  D4 23 53 E0 */	stfsu f1, lbl_805A53E0@l(r3)
+/* 80306614 00303574  D4 24 53 C8 */	stfsu f1, kDefaultPosition__6CLight@l(r4)
+/* 80306618 00303578  D4 23 53 E0 */	stfsu f1, kDefaultDirection__6CLight@l(r3)
 /* 8030661C 0030357C  D0 24 00 04 */	stfs f1, 4(r4)
 /* 80306620 00303580  D0 24 00 08 */	stfs f1, 8(r4)
 /* 80306624 00303584  D0 03 00 04 */	stfs f0, 4(r3)
