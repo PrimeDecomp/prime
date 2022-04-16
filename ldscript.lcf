@@ -42,4 +42,22 @@ FORCEFILES
     mslsupp.o
     CBallFilter.o
     CABSIdle.o
+    CMetaAnimPlay.o
+    CMetaTransSnap.o
+    CAnimTreeAnimReaderContainer.o
+    CAnimTreeContinuousPhaseBlend.o
+    CAnimTreeSingleChild.o
+    CTimeScaleFunctions.o
+    IAnimSource.o
+    CDvdRequest.o
+    CColorInstruction.o
+    CColorOverrideInstruction.o
+    CFontInstruction.o
+    CLineExtraSpaceInstruction.o
+    CLineSpacingInstruction.o
+    CPopStateInstruction.o
+    CPushStateInstruction.o
+    CRemoveColorOverrideInstruction.o
+    CWordInstruction.o
+    CBlockInstruction.o
 }
