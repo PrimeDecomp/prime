@@ -60,4 +60,10 @@ FORCEFILES
     CRemoveColorOverrideInstruction.o
     CWordInstruction.o
     CBlockInstruction.o
+    CloseEnough.o
+    CParticleGen.o
+    CWarp.o
+    CFactoryStore.o
+    CFontImageDef.o
+    CImageInstruction.o
 }

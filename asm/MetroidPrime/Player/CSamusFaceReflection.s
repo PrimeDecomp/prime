@@ -411,7 +411,7 @@ Update__20CSamusFaceReflectionFfRC13CStateManagerR9CRandom16:
 /* 8015B3D4 00158334  D0 21 00 A4 */	stfs f1, 0xa4(r1)
 /* 8015B3D8 00158338  D0 01 00 A0 */	stfs f0, 0xa0(r1)
 /* 8015B3DC 0015833C  D0 41 00 A8 */	stfs f2, 0xa8(r1)
-/* 8015B3E0 00158340  48 1B 89 F1 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 8015B3E0 00158340  48 1B 89 F1 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 8015B3E4 00158344  3C 60 80 5A */	lis r3, lbl_805A6724@ha
 /* 8015B3E8 00158348  C0 C2 9E B8 */	lfs f6, lbl_805ABBD8@sda21(r2)
 /* 8015B3EC 0015834C  3B C3 67 24 */	addi r30, r3, lbl_805A6724@l
@@ -457,7 +457,7 @@ Update__20CSamusFaceReflectionFfRC13CStateManagerR9CRandom16:
 /* 8015B48C 001583EC  48 1B 5D D9 */	bl Transform__11CQuaternionCFRC9CVector3f
 /* 8015B490 001583F0  38 61 00 50 */	addi r3, r1, 0x50
 /* 8015B494 001583F4  38 81 00 44 */	addi r4, r1, 0x44
-/* 8015B498 001583F8  48 1B 89 39 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 8015B498 001583F8  48 1B 89 39 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 8015B49C 001583FC  7C 65 1B 78 */	mr r5, r3
 /* 8015B4A0 00158400  38 61 00 68 */	addi r3, r1, 0x68
 /* 8015B4A4 00158404  38 81 00 5C */	addi r4, r1, 0x5c

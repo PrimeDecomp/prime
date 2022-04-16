@@ -4856,7 +4856,7 @@ lbl_801C5348:
 /* 801C53A8 001C2308  48 14 D6 7D */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 801C53AC 001C230C  38 61 00 3C */	addi r3, r1, 0x3c
 /* 801C53B0 001C2310  38 81 00 30 */	addi r4, r1, 0x30
-/* 801C53B4 001C2314  48 14 EA 1D */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 801C53B4 001C2314  48 14 EA 1D */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 801C53B8 001C2318  C0 1C 04 FC */	lfs f0, 0x4fc(r28)
 /* 801C53BC 001C231C  7F 83 E3 78 */	mr r3, r28
 /* 801C53C0 001C2320  80 C1 00 3C */	lwz r6, 0x3c(r1)

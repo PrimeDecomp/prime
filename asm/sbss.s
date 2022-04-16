@@ -1401,8 +1401,8 @@ lbl_805A9434:
 .global lbl_805A9438
 lbl_805A9438:
 	.skip 0x8
-.global lbl_805A9440
-lbl_805A9440:
+.global skZero2f
+skZero2f:
 	.skip 0x8
 .global lbl_805A9448
 lbl_805A9448:

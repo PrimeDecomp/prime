@@ -1390,7 +1390,7 @@ HitShell__12CPuddleSporeCFRC9CVector3f:
 /* 80147E48 00144DA8  EC 01 00 28 */	fsubs f0, f1, f0
 /* 80147E4C 00144DAC  D0 41 00 1C */	stfs f2, 0x1c(r1)
 /* 80147E50 00144DB0  D0 01 00 14 */	stfs f0, 0x14(r1)
-/* 80147E54 00144DB4  48 1C BF 7D */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 80147E54 00144DB4  48 1C BF 7D */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 80147E58 00144DB8  C0 3E 00 4C */	lfs f1, 0x4c(r30)
 /* 80147E5C 00144DBC  C0 01 00 24 */	lfs f0, 0x24(r1)
 /* 80147E60 00144DC0  C0 5E 00 3C */	lfs f2, 0x3c(r30)

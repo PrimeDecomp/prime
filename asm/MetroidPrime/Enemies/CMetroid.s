@@ -8424,7 +8424,7 @@ lbl_80171984:
 /* 801719E4 0016E944  48 1A 10 41 */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 801719E8 0016E948  38 61 00 3C */	addi r3, r1, 0x3c
 /* 801719EC 0016E94C  38 81 00 30 */	addi r4, r1, 0x30
-/* 801719F0 0016E950  48 1A 23 E1 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 801719F0 0016E950  48 1A 23 E1 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 801719F4 0016E954  C0 1C 04 FC */	lfs f0, 0x4fc(r28)
 /* 801719F8 0016E958  7F 83 E3 78 */	mr r3, r28
 /* 801719FC 0016E95C  80 C1 00 3C */	lwz r6, 0x3c(r1)

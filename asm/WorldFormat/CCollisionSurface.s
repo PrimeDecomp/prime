@@ -63,7 +63,7 @@ GetNormal__17CCollisionSurfaceCFv:
 /* 802A2708 0029F668  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 802A270C 0029F66C  D0 41 00 08 */	stfs f2, 8(r1)
 /* 802A2710 0029F670  D0 21 00 0C */	stfs f1, 0xc(r1)
-/* 802A2714 0029F674  48 07 16 BD */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 802A2714 0029F674  48 07 16 BD */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 802A2718 0029F678  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A271C 0029F67C  7C 08 03 A6 */	mtlr r0
 /* 802A2720 0029F680  38 21 00 20 */	addi r1, r1, 0x20

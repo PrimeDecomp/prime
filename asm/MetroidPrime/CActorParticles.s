@@ -1315,7 +1315,7 @@ lbl_801E4A48:
 /* 801E4AD8 001E1A38  4E 80 04 21 */	bctrl 
 /* 801E4ADC 001E1A3C  38 61 00 50 */	addi r3, r1, 0x50
 /* 801E4AE0 001E1A40  7C 9C C2 14 */	add r4, r28, r24
-/* 801E4AE4 001E1A44  48 12 F2 ED */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 801E4AE4 001E1A44  48 12 F2 ED */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 801E4AE8 001E1A48  38 61 00 68 */	addi r3, r1, 0x68
 /* 801E4AEC 001E1A4C  38 81 00 50 */	addi r4, r1, 0x50
 /* 801E4AF0 001E1A50  48 12 EE E9 */	bl MakeRotationsBasedOnY__12CTransform4fFRC13CUnitVector3f
