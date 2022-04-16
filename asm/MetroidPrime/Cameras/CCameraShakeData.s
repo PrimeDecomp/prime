@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.global lbl_8046C7D0
+lbl_8046C7D0:
+	.skip 0x78
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSomething2__16CCameraShakeDataFv

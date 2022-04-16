@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8045C518
+lbl_8045C518:
+	.skip 0x18
+.global lbl_8045C530
+lbl_8045C530:
+	.skip 0x20
+	
 .section .text, "ax"
 
 .global CModelDataNull__10CModelDataFv

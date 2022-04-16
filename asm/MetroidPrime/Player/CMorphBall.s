@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss 
+
+.global lbl_8046C4F8
+lbl_8046C4F8:
+	.skip 0xC
+.global lbl_8046C504
+lbl_8046C504:
+	.skip 0x1C
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DeleteBallShadow__10CMorphBallFv

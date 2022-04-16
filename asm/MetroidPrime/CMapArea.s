@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C3E0
+lbl_8046C3E0:
+	.skip 0x28
+	
 .section .text, "ax"
 
 .global FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

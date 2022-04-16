@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C3B8
+lbl_8046C3B8:
+	.skip 0x10
+	
 .section .text, "ax"
 
 .global GetAreaId__7CEntityCFv

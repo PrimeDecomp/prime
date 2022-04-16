@@ -1,7 +1,12 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .bss
 
+.global lbl_804794E0
+lbl_804794E0:
+	.skip 0x30
+	
+.section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global InitAddMovingCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_bPCcPCc
 InitAddMovingCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_bPCcPCc:

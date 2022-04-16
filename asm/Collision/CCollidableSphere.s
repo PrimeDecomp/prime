@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_80479558
+lbl_80479558:
+	.skip 0x48
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTableIndex__17CCollidableSphereCFv

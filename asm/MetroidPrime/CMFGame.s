@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8045A1A8
+lbl_8045A1A8:
+	.skip 0xF98
+	
 .section .text, "ax"
 .global IsCameraActiveFlow__7CMFGameFv
 IsCameraActiveFlow__7CMFGameFv:

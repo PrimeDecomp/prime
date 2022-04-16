@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.section .bss
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FMidiDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046E200
+lbl_8046E200:
+	.skip 0xC	
+.global lbl_8046E20C
+lbl_8046E20C:
+	.skip 0x1DF8
+.global lbl_80470004
+lbl_80470004:
+	.skip 0x9168
+.global lbl_8047916C
+lbl_8047916C:
+	.skip 0xC
+.global lbl_80479178
+lbl_80479178:
+	.skip 0x320
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DrawString__13CCubeRendererFPCcii

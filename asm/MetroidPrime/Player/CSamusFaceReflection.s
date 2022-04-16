@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C7A0
+lbl_8046C7A0:
+	.skip 0x30
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Draw__20CSamusFaceReflectionCFRC13CStateManager

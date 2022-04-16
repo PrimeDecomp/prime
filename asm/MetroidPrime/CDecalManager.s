@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C558
+lbl_8046C558:
+	.skip 0xC
+.global lbl_8046C564
+lbl_8046C564:
+	.skip 0xC
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AddToRenderer__13CDecalManagerFRC14CFrustumPlanesRC13CStateManager

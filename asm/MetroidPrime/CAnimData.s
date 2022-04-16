@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8045B140
+lbl_8045B140:
+	.skip 0x40
+	
 .section .text, "ax"
 
 .global GetEventResourceIdForAnimResourceId__9CAnimDataCFi

@@ -874,9 +874,6 @@ RODATA_O_FILES :=\
 DATA_O_FILES :=\
 	$(BUILD_DIR)/asm/data.o
 
-BSS_O_FILES :=\
-	$(BUILD_DIR)/asm/bss.o
-
 SDATA_O_FILES :=\
 	$(BUILD_DIR)/asm/sdata.o
 

@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C950
+lbl_8046C950:
+	.skip 0xFC
+.global lbl_8046CA4C
+lbl_8046CA4C:
+	.skip 0xF4
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FixedRandom__10CPatternedFR13CStateManagerf

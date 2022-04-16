@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804797A0
+lbl_804797A0:
+	.skip 0x400
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global rs_debugger_printf__FPCce

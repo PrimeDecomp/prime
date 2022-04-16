@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C570
+lbl_8046C570:
+	.skip 0xA8
+.global lbl_8046C618
+lbl_8046C618:
+	.skip 0x108
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__12CSpacePirateFv

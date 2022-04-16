@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss 
+
+.global lbl_8046C498
+lbl_8046C498:
+	.skip 0x60
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AdjustTransformForType__15CMappableObjectFv

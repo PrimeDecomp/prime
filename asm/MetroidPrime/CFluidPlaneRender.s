@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046DCC0
+lbl_8046DCC0:
+	.skip 0x400
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global RenderPatch__FRCQ220CFluidPlaneCPURender10SPatchInfob

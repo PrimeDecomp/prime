@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046CB40
+lbl_8046CB40:
+	.skip 0x800
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AreaLoaded__13CEnvFxManagerFv

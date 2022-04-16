@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C450
+lbl_8046C450:
+	.skip 0x20
+	
 .section .text, "ax"
 
 .global ResetInterpolationTimer__17COrbitPointMarkerFf

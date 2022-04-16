@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804BFE28
+lbl_804BFE28:
+	.skip 0x20
+.global lbl_804BFE48
+lbl_804BFE48:
+	.skip 0x20
+.global lbl_804BFE68
+lbl_804BFE68:
+	.skip 0x4C
+.global lbl_804BFEB4
+lbl_804BFEB4:
+	.skip 0x4C
+.global lbl_804BFF00
+lbl_804BFF00:
+	.skip 0x10
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetGlobalTranslation__11CElementGenCFv

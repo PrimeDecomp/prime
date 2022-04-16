@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804BFD30
+lbl_804BFD30:
+	.skip 0xC
+.global lbl_804BFD3C
+lbl_804BFD3C:
+	.skip 0xC
+.global lbl_804BFD48
+lbl_804BFD48:
+	.skip 0x10
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FromNUQuaternion__11CQuaternionFRC13CNUQuaternion

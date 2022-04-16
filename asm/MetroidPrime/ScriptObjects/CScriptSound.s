@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C438
+lbl_8046C438:
+	.skip 0x18
+	
 .section .text, "ax"
 
 .global GetOccludedVolumeAmount__12CScriptSoundFRC9CVector3fRC13CStateManager

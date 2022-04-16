@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_8046C488
+lbl_8046C488:
+	.skip 0x10
+	
 .section .text, "ax"
 
 .global SetWorldLighting__11CPlasmaBeamFR13CStateManager7TAreaIdff

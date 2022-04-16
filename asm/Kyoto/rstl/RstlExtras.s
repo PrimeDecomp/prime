@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_804BFF30
+lbl_804BFF30:
+	.skip 0x10
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "TokenizeString__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCci"

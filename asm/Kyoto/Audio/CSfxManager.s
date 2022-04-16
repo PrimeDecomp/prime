@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .bss
+
+.global lbl_80479BA0
+lbl_80479BA0:
+	.skip 0x30
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__Q211CSfxManager11CSfxWrapperFv
