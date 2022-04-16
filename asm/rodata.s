@@ -1409,8 +1409,8 @@ lbl_803D73F0:
 .global lbl_803D7400
 lbl_803D7400:
 	.incbin "baserom.dol", 0x3D4400, 0x8
-.global lbl_803D7408
-lbl_803D7408:
+.global gkCRC32Table
+gkCRC32Table:
 	.incbin "baserom.dol", 0x3D4408, 0x400
 .global lbl_803D7808
 lbl_803D7808:

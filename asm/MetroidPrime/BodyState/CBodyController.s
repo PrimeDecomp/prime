@@ -542,10 +542,10 @@ FaceDirection3D__15CBodyControllerFRC9CVector3ff:
 /* 8013A4DC 0013743C  41 82 01 A0 */	beq lbl_8013A67C
 /* 8013A4E0 00137440  7F A4 EB 78 */	mr r4, r29
 /* 8013A4E4 00137444  38 61 00 B4 */	addi r3, r1, 0xb4
-/* 8013A4E8 00137448  48 1D 98 E9 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 8013A4E8 00137448  48 1D 98 E9 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 8013A4EC 0013744C  7F C4 F3 78 */	mr r4, r30
 /* 8013A4F0 00137450  38 61 00 A8 */	addi r3, r1, 0xa8
-/* 8013A4F4 00137454  48 1D 98 DD */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 8013A4F4 00137454  48 1D 98 DD */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 8013A4F8 00137458  C0 21 00 B8 */	lfs f1, 0xb8(r1)
 /* 8013A4FC 0013745C  C0 01 00 AC */	lfs f0, 0xac(r1)
 /* 8013A500 00137460  C0 41 00 B4 */	lfs f2, 0xb4(r1)

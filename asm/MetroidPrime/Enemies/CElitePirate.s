@@ -6053,7 +6053,7 @@ KnockBack__12CElitePirateFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBac
 /* 8022CAC0 00229A20  48 0E 5F 65 */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 8022CAC4 00229A24  38 61 00 20 */	addi r3, r1, 0x20
 /* 8022CAC8 00229A28  38 81 00 14 */	addi r4, r1, 0x14
-/* 8022CACC 00229A2C  48 0E 73 05 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 8022CACC 00229A2C  48 0E 73 05 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 8022CAD0 00229A30  80 C1 00 20 */	lwz r6, 0x20(r1)
 /* 8022CAD4 00229A34  7F 43 D3 78 */	mr r3, r26
 /* 8022CAD8 00229A38  80 E1 00 24 */	lwz r7, 0x24(r1)

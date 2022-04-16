@@ -1,0 +1,1870 @@
+.include "macros.inc"
+
+.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.global GetPakFile__10CResLoaderCFi
+GetPakFile__10CResLoaderCFi:
+/* 8033ACB0 00337C10  80 03 00 14 */	lwz r0, 0x14(r3)
+/* 8033ACB4 00337C14  7C 04 00 00 */	cmpw r4, r0
+/* 8033ACB8 00337C18  40 80 00 7C */	bge lbl_8033AD34
+/* 8033ACBC 00337C1C  2C 04 00 00 */	cmpwi r4, 0
+/* 8033ACC0 00337C20  80 A3 00 04 */	lwz r5, 4(r3)
+/* 8033ACC4 00337C24  38 C0 00 00 */	li r6, 0
+/* 8033ACC8 00337C28  40 81 00 64 */	ble lbl_8033AD2C
+/* 8033ACCC 00337C2C  2C 04 00 08 */	cmpwi r4, 8
+/* 8033ACD0 00337C30  38 64 FF F8 */	addi r3, r4, -8
+/* 8033ACD4 00337C34  40 81 00 40 */	ble lbl_8033AD14
+/* 8033ACD8 00337C38  38 03 00 07 */	addi r0, r3, 7
+/* 8033ACDC 00337C3C  54 00 E8 FE */	srwi r0, r0, 3
+/* 8033ACE0 00337C40  7C 09 03 A6 */	mtctr r0
+/* 8033ACE4 00337C44  2C 03 00 00 */	cmpwi r3, 0
+/* 8033ACE8 00337C48  40 81 00 2C */	ble lbl_8033AD14
+lbl_8033ACEC:
+/* 8033ACEC 00337C4C  80 65 00 04 */	lwz r3, 4(r5)
+/* 8033ACF0 00337C50  38 C6 00 08 */	addi r6, r6, 8
+/* 8033ACF4 00337C54  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033ACF8 00337C58  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033ACFC 00337C5C  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD00 00337C60  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD04 00337C64  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD08 00337C68  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD0C 00337C6C  80 A3 00 04 */	lwz r5, 4(r3)
+/* 8033AD10 00337C70  42 00 FF DC */	bdnz lbl_8033ACEC
+lbl_8033AD14:
+/* 8033AD14 00337C74  7C 06 20 50 */	subf r0, r6, r4
+/* 8033AD18 00337C78  7C 09 03 A6 */	mtctr r0
+/* 8033AD1C 00337C7C  7C 06 20 00 */	cmpw r6, r4
+/* 8033AD20 00337C80  40 80 00 0C */	bge lbl_8033AD2C
+lbl_8033AD24:
+/* 8033AD24 00337C84  80 A5 00 04 */	lwz r5, 4(r5)
+/* 8033AD28 00337C88  42 00 FF FC */	bdnz lbl_8033AD24
+lbl_8033AD2C:
+/* 8033AD2C 00337C8C  80 65 00 0C */	lwz r3, 0xc(r5)
+/* 8033AD30 00337C90  4E 80 00 20 */	blr 
+lbl_8033AD34:
+/* 8033AD34 00337C94  7C 80 20 51 */	subf. r4, r0, r4
+/* 8033AD38 00337C98  80 A3 00 1C */	lwz r5, 0x1c(r3)
+/* 8033AD3C 00337C9C  38 C0 00 00 */	li r6, 0
+/* 8033AD40 00337CA0  40 81 00 64 */	ble lbl_8033ADA4
+/* 8033AD44 00337CA4  2C 04 00 08 */	cmpwi r4, 8
+/* 8033AD48 00337CA8  38 64 FF F8 */	addi r3, r4, -8
+/* 8033AD4C 00337CAC  40 81 00 40 */	ble lbl_8033AD8C
+/* 8033AD50 00337CB0  38 03 00 07 */	addi r0, r3, 7
+/* 8033AD54 00337CB4  54 00 E8 FE */	srwi r0, r0, 3
+/* 8033AD58 00337CB8  7C 09 03 A6 */	mtctr r0
+/* 8033AD5C 00337CBC  2C 03 00 00 */	cmpwi r3, 0
+/* 8033AD60 00337CC0  40 81 00 2C */	ble lbl_8033AD8C
+lbl_8033AD64:
+/* 8033AD64 00337CC4  80 65 00 04 */	lwz r3, 4(r5)
+/* 8033AD68 00337CC8  38 C6 00 08 */	addi r6, r6, 8
+/* 8033AD6C 00337CCC  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD70 00337CD0  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD74 00337CD4  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD78 00337CD8  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD7C 00337CDC  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD80 00337CE0  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033AD84 00337CE4  80 A3 00 04 */	lwz r5, 4(r3)
+/* 8033AD88 00337CE8  42 00 FF DC */	bdnz lbl_8033AD64
+lbl_8033AD8C:
+/* 8033AD8C 00337CEC  7C 06 20 50 */	subf r0, r6, r4
+/* 8033AD90 00337CF0  7C 09 03 A6 */	mtctr r0
+/* 8033AD94 00337CF4  7C 06 20 00 */	cmpw r6, r4
+/* 8033AD98 00337CF8  40 80 00 0C */	bge lbl_8033ADA4
+lbl_8033AD9C:
+/* 8033AD9C 00337CFC  80 A5 00 04 */	lwz r5, 4(r5)
+/* 8033ADA0 00337D00  42 00 FF FC */	bdnz lbl_8033AD9C
+lbl_8033ADA4:
+/* 8033ADA4 00337D04  80 65 00 0C */	lwz r3, 0xc(r5)
+/* 8033ADA8 00337D08  4E 80 00 20 */	blr 
+
+.global GetPakCount__10CResLoaderCFv
+GetPakCount__10CResLoaderCFv:
+/* 8033ADAC 00337D0C  80 83 00 14 */	lwz r4, 0x14(r3)
+/* 8033ADB0 00337D10  80 03 00 2C */	lwz r0, 0x2c(r3)
+/* 8033ADB4 00337D14  7C 64 02 14 */	add r3, r4, r0
+/* 8033ADB8 00337D18  4E 80 00 20 */	blr 
+
+.global sub_8033adbc
+sub_8033adbc:
+/* 8033ADBC 00337D1C  94 21 FF B0 */	stwu r1, -0x50(r1)
+/* 8033ADC0 00337D20  7C 08 02 A6 */	mflr r0
+/* 8033ADC4 00337D24  38 E0 00 00 */	li r7, 0
+/* 8033ADC8 00337D28  90 01 00 54 */	stw r0, 0x54(r1)
+/* 8033ADCC 00337D2C  38 04 00 18 */	addi r0, r4, 0x18
+/* 8033ADD0 00337D30  BF 61 00 3C */	stmw r27, 0x3c(r1)
+/* 8033ADD4 00337D34  7C 7B 1B 78 */	mr r27, r3
+/* 8033ADD8 00337D38  3B C1 00 20 */	addi r30, r1, 0x20
+/* 8033ADDC 00337D3C  80 C2 D7 A0 */	lwz r6, lbl_805AF4C0@sda21(r2)
+/* 8033ADE0 00337D40  80 A2 D7 A4 */	lwz r5, lbl_805AF4C4@sda21(r2)
+/* 8033ADE4 00337D44  90 C1 00 20 */	stw r6, 0x20(r1)
+/* 8033ADE8 00337D48  80 C4 00 04 */	lwz r6, 4(r4)
+/* 8033ADEC 00337D4C  90 A1 00 24 */	stw r5, 0x24(r1)
+/* 8033ADF0 00337D50  80 A4 00 08 */	lwz r5, 8(r4)
+/* 8033ADF4 00337D54  90 81 00 20 */	stw r4, 0x20(r1)
+/* 8033ADF8 00337D58  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033ADFC 00337D5C  48 00 00 20 */	b lbl_8033AE1C
+lbl_8033AE00:
+/* 8033AE00 00337D60  80 66 00 0C */	lwz r3, 0xc(r6)
+/* 8033AE04 00337D64  88 03 00 28 */	lbz r0, 0x28(r3)
+/* 8033AE08 00337D68  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
+/* 8033AE0C 00337D6C  40 82 00 0C */	bne lbl_8033AE18
+/* 8033AE10 00337D70  80 03 00 58 */	lwz r0, 0x58(r3)
+/* 8033AE14 00337D74  7C E7 02 14 */	add r7, r7, r0
+lbl_8033AE18:
+/* 8033AE18 00337D78  80 C6 00 04 */	lwz r6, 4(r6)
+lbl_8033AE1C:
+/* 8033AE1C 00337D7C  7C 06 28 40 */	cmplw r6, r5
+/* 8033AE20 00337D80  40 82 FF E0 */	bne lbl_8033AE00
+/* 8033AE24 00337D84  80 61 00 24 */	lwz r3, 0x24(r1)
+/* 8033AE28 00337D88  80 C3 00 04 */	lwz r6, 4(r3)
+/* 8033AE2C 00337D8C  80 A3 00 08 */	lwz r5, 8(r3)
+/* 8033AE30 00337D90  48 00 00 20 */	b lbl_8033AE50
+lbl_8033AE34:
+/* 8033AE34 00337D94  80 66 00 0C */	lwz r3, 0xc(r6)
+/* 8033AE38 00337D98  88 03 00 28 */	lbz r0, 0x28(r3)
+/* 8033AE3C 00337D9C  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
+/* 8033AE40 00337DA0  40 82 00 0C */	bne lbl_8033AE4C
+/* 8033AE44 00337DA4  80 03 00 58 */	lwz r0, 0x58(r3)
+/* 8033AE48 00337DA8  7C E7 02 14 */	add r7, r7, r0
+lbl_8033AE4C:
+/* 8033AE4C 00337DAC  80 C6 00 04 */	lwz r6, 4(r6)
+lbl_8033AE50:
+/* 8033AE50 00337DB0  7C 06 28 40 */	cmplw r6, r5
+/* 8033AE54 00337DB4  40 82 FF E0 */	bne lbl_8033AE34
+/* 8033AE58 00337DB8  38 00 00 00 */	li r0, 0
+/* 8033AE5C 00337DBC  7C E4 3B 78 */	mr r4, r7
+/* 8033AE60 00337DC0  90 01 00 2C */	stw r0, 0x2c(r1)
+/* 8033AE64 00337DC4  38 61 00 28 */	addi r3, r1, 0x28
+/* 8033AE68 00337DC8  90 01 00 30 */	stw r0, 0x30(r1)
+/* 8033AE6C 00337DCC  90 01 00 34 */	stw r0, 0x34(r1)
+/* 8033AE70 00337DD0  4B EE 23 55 */	bl "reserve__Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>Fi"
+/* 8033AE74 00337DD4  3B A0 00 00 */	li r29, 0
+lbl_8033AE78:
+/* 8033AE78 00337DD8  83 9E 00 00 */	lwz r28, 0(r30)
+/* 8033AE7C 00337DDC  83 FC 00 04 */	lwz r31, 4(r28)
+/* 8033AE80 00337DE0  48 00 00 68 */	b lbl_8033AEE8
+lbl_8033AE84:
+/* 8033AE84 00337DE4  81 5F 00 0C */	lwz r10, 0xc(r31)
+/* 8033AE88 00337DE8  88 0A 00 28 */	lbz r0, 0x28(r10)
+/* 8033AE8C 00337DEC  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
+/* 8033AE90 00337DF0  40 82 00 54 */	bne lbl_8033AEE4
+/* 8033AE94 00337DF4  80 AA 00 58 */	lwz r5, 0x58(r10)
+/* 8033AE98 00337DF8  38 61 00 28 */	addi r3, r1, 0x28
+/* 8033AE9C 00337DFC  80 01 00 2C */	lwz r0, 0x2c(r1)
+/* 8033AEA0 00337E00  38 81 00 1C */	addi r4, r1, 0x1c
+/* 8033AEA4 00337E04  1D 05 00 18 */	mulli r8, r5, 0x18
+/* 8033AEA8 00337E08  81 2A 00 60 */	lwz r9, 0x60(r10)
+/* 8033AEAC 00337E0C  80 E1 00 34 */	lwz r7, 0x34(r1)
+/* 8033AEB0 00337E10  38 A1 00 14 */	addi r5, r1, 0x14
+/* 8033AEB4 00337E14  38 C1 00 0C */	addi r6, r1, 0xc
+/* 8033AEB8 00337E18  7D 29 42 14 */	add r9, r9, r8
+/* 8033AEBC 00337E1C  91 21 00 0C */	stw r9, 0xc(r1)
+/* 8033AEC0 00337E20  1C 00 00 18 */	mulli r0, r0, 0x18
+/* 8033AEC4 00337E24  81 0A 00 60 */	lwz r8, 0x60(r10)
+/* 8033AEC8 00337E28  7C 07 02 14 */	add r0, r7, r0
+/* 8033AECC 00337E2C  91 21 00 08 */	stw r9, 8(r1)
+/* 8033AED0 00337E30  91 01 00 10 */	stw r8, 0x10(r1)
+/* 8033AED4 00337E34  91 01 00 14 */	stw r8, 0x14(r1)
+/* 8033AED8 00337E38  90 01 00 18 */	stw r0, 0x18(r1)
+/* 8033AEDC 00337E3C  90 01 00 1C */	stw r0, 0x1c(r1)
+/* 8033AEE0 00337E40  48 00 00 F5 */	bl sub_8033afd4
+lbl_8033AEE4:
+/* 8033AEE4 00337E44  83 FF 00 04 */	lwz r31, 4(r31)
+lbl_8033AEE8:
+/* 8033AEE8 00337E48  80 1C 00 08 */	lwz r0, 8(r28)
+/* 8033AEEC 00337E4C  7C 1F 00 40 */	cmplw r31, r0
+/* 8033AEF0 00337E50  40 82 FF 94 */	bne lbl_8033AE84
+/* 8033AEF4 00337E54  3B BD 00 01 */	addi r29, r29, 1
+/* 8033AEF8 00337E58  3B DE 00 04 */	addi r30, r30, 4
+/* 8033AEFC 00337E5C  2C 1D 00 02 */	cmpwi r29, 2
+/* 8033AF00 00337E60  41 80 FF 78 */	blt lbl_8033AE78
+/* 8033AF04 00337E64  80 01 00 2C */	lwz r0, 0x2c(r1)
+/* 8033AF08 00337E68  90 1B 00 04 */	stw r0, 4(r27)
+/* 8033AF0C 00337E6C  80 01 00 30 */	lwz r0, 0x30(r1)
+/* 8033AF10 00337E70  90 1B 00 08 */	stw r0, 8(r27)
+/* 8033AF14 00337E74  80 01 00 2C */	lwz r0, 0x2c(r1)
+/* 8033AF18 00337E78  2C 00 00 00 */	cmpwi r0, 0
+/* 8033AF1C 00337E7C  40 82 00 1C */	bne lbl_8033AF38
+/* 8033AF20 00337E80  80 01 00 30 */	lwz r0, 0x30(r1)
+/* 8033AF24 00337E84  2C 00 00 00 */	cmpwi r0, 0
+/* 8033AF28 00337E88  40 82 00 10 */	bne lbl_8033AF38
+/* 8033AF2C 00337E8C  38 00 00 00 */	li r0, 0
+/* 8033AF30 00337E90  90 1B 00 0C */	stw r0, 0xc(r27)
+/* 8033AF34 00337E94  48 00 00 80 */	b lbl_8033AFB4
+lbl_8033AF38:
+/* 8033AF38 00337E98  80 1B 00 08 */	lwz r0, 8(r27)
+/* 8033AF3C 00337E9C  1C 60 00 18 */	mulli r3, r0, 0x18
+/* 8033AF40 00337EA0  2C 03 00 00 */	cmpwi r3, 0
+/* 8033AF44 00337EA4  40 82 00 10 */	bne lbl_8033AF54
+/* 8033AF48 00337EA8  38 00 00 00 */	li r0, 0
+/* 8033AF4C 00337EAC  90 1B 00 0C */	stw r0, 0xc(r27)
+/* 8033AF50 00337EB0  48 00 00 18 */	b lbl_8033AF68
+lbl_8033AF54:
+/* 8033AF54 00337EB4  3C 80 80 3D */	lis r4, lbl_803D7A38@ha
+/* 8033AF58 00337EB8  38 A0 00 00 */	li r5, 0
+/* 8033AF5C 00337EBC  38 84 7A 38 */	addi r4, r4, lbl_803D7A38@l
+/* 8033AF60 00337EC0  4B FD A8 B9 */	bl __nwa__FUlPCcPCc
+/* 8033AF64 00337EC4  90 7B 00 0C */	stw r3, 0xc(r27)
+lbl_8033AF68:
+/* 8033AF68 00337EC8  83 DB 00 04 */	lwz r30, 4(r27)
+/* 8033AF6C 00337ECC  3B 80 00 00 */	li r28, 0
+/* 8033AF70 00337ED0  83 A1 00 34 */	lwz r29, 0x34(r1)
+/* 8033AF74 00337ED4  83 7B 00 0C */	lwz r27, 0xc(r27)
+/* 8033AF78 00337ED8  48 00 00 34 */	b lbl_8033AFAC
+lbl_8033AF7C:
+/* 8033AF7C 00337EDC  28 1B 00 00 */	cmplwi r27, 0
+/* 8033AF80 00337EE0  41 82 00 20 */	beq lbl_8033AFA0
+/* 8033AF84 00337EE4  7F 63 DB 78 */	mr r3, r27
+/* 8033AF88 00337EE8  7F A4 EB 78 */	mr r4, r29
+/* 8033AF8C 00337EEC  48 00 31 D5 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033AF90 00337EF0  80 1D 00 10 */	lwz r0, 0x10(r29)
+/* 8033AF94 00337EF4  90 1B 00 10 */	stw r0, 0x10(r27)
+/* 8033AF98 00337EF8  80 1D 00 14 */	lwz r0, 0x14(r29)
+/* 8033AF9C 00337EFC  90 1B 00 14 */	stw r0, 0x14(r27)
+lbl_8033AFA0:
+/* 8033AFA0 00337F00  3B 7B 00 18 */	addi r27, r27, 0x18
+/* 8033AFA4 00337F04  3B 9C 00 01 */	addi r28, r28, 1
+/* 8033AFA8 00337F08  3B BD 00 18 */	addi r29, r29, 0x18
+lbl_8033AFAC:
+/* 8033AFAC 00337F0C  7C 1C F0 00 */	cmpw r28, r30
+/* 8033AFB0 00337F10  41 80 FF CC */	blt lbl_8033AF7C
+lbl_8033AFB4:
+/* 8033AFB4 00337F14  38 61 00 28 */	addi r3, r1, 0x28
+/* 8033AFB8 00337F18  38 80 FF FF */	li r4, -1
+/* 8033AFBC 00337F1C  4B CC 9A 31 */	bl sub_800049ec
+/* 8033AFC0 00337F20  BB 61 00 3C */	lmw r27, 0x3c(r1)
+/* 8033AFC4 00337F24  80 01 00 54 */	lwz r0, 0x54(r1)
+/* 8033AFC8 00337F28  7C 08 03 A6 */	mtlr r0
+/* 8033AFCC 00337F2C  38 21 00 50 */	addi r1, r1, 0x50
+/* 8033AFD0 00337F30  4E 80 00 20 */	blr 
+
+.global sub_8033afd4
+sub_8033afd4:
+/* 8033AFD4 00337F34  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033AFD8 00337F38  7C 08 02 A6 */	mflr r0
+/* 8033AFDC 00337F3C  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033AFE0 00337F40  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033AFE4 00337F44  7C 7F 1B 78 */	mr r31, r3
+/* 8033AFE8 00337F48  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033AFEC 00337F4C  80 E5 00 00 */	lwz r7, 0(r5)
+/* 8033AFF0 00337F50  80 04 00 00 */	lwz r0, 0(r4)
+/* 8033AFF4 00337F54  38 81 00 0C */	addi r4, r1, 0xc
+/* 8033AFF8 00337F58  80 A6 00 00 */	lwz r5, 0(r6)
+/* 8033AFFC 00337F5C  90 E1 00 08 */	stw r7, 8(r1)
+/* 8033B000 00337F60  90 A1 00 0C */	stw r5, 0xc(r1)
+/* 8033B004 00337F64  90 E1 00 10 */	stw r7, 0x10(r1)
+/* 8033B008 00337F68  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033B00C 00337F6C  48 00 14 19 */	bl "distance<Q24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66ba"
+/* 8033B010 00337F70  7C 65 1B 78 */	mr r5, r3
+/* 8033B014 00337F74  7F E3 FB 78 */	mr r3, r31
+/* 8033B018 00337F78  38 81 00 14 */	addi r4, r1, 0x14
+/* 8033B01C 00337F7C  38 C1 00 08 */	addi r6, r1, 8
+/* 8033B020 00337F80  48 00 00 19 */	bl sub_8033b038
+/* 8033B024 00337F84  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033B028 00337F88  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033B02C 00337F8C  7C 08 03 A6 */	mtlr r0
+/* 8033B030 00337F90  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033B034 00337F94  4E 80 00 20 */	blr 
+
+.global sub_8033b038
+sub_8033b038:
+/* 8033B038 00337F98  94 21 FF C0 */	stwu r1, -0x40(r1)
+/* 8033B03C 00337F9C  7C 08 02 A6 */	mflr r0
+/* 8033B040 00337FA0  90 01 00 44 */	stw r0, 0x44(r1)
+/* 8033B044 00337FA4  BE 81 00 10 */	stmw r20, 0x10(r1)
+/* 8033B048 00337FA8  7C B8 2B 78 */	mr r24, r5
+/* 8033B04C 00337FAC  7C 77 1B 78 */	mr r23, r3
+/* 8033B050 00337FB0  7C 94 23 78 */	mr r20, r4
+/* 8033B054 00337FB4  80 A3 00 04 */	lwz r5, 4(r3)
+/* 8033B058 00337FB8  80 63 00 08 */	lwz r3, 8(r3)
+/* 8033B05C 00337FBC  7C E5 C2 14 */	add r7, r5, r24
+/* 8033B060 00337FC0  80 97 00 0C */	lwz r4, 0xc(r23)
+/* 8033B064 00337FC4  7C 07 18 00 */	cmpw r7, r3
+/* 8033B068 00337FC8  83 C6 00 00 */	lwz r30, 0(r6)
+/* 8033B06C 00337FCC  7C 9C 23 78 */	mr r28, r4
+/* 8033B070 00337FD0  41 81 00 F8 */	bgt lbl_8033B168
+/* 8033B074 00337FD4  80 14 00 00 */	lwz r0, 0(r20)
+/* 8033B078 00337FD8  3C 60 2A AB */	lis r3, 0x2AAAAAAB@ha
+/* 8033B07C 00337FDC  38 63 AA AB */	addi r3, r3, 0x2AAAAAAB@l
+/* 8033B080 00337FE0  7C 04 00 50 */	subf r0, r4, r0
+/* 8033B084 00337FE4  7C 03 00 96 */	mulhw r0, r3, r0
+/* 8033B088 00337FE8  7C 00 16 70 */	srawi r0, r0, 2
+/* 8033B08C 00337FEC  54 03 0F FE */	srwi r3, r0, 0x1f
+/* 8033B090 00337FF0  7E C0 1A 14 */	add r22, r0, r3
+/* 8033B094 00337FF4  7C 76 28 50 */	subf r3, r22, r5
+/* 8033B098 00337FF8  3B 63 FF FF */	addi r27, r3, -1
+/* 8033B09C 00337FFC  1C 76 00 18 */	mulli r3, r22, 0x18
+/* 8033B0A0 00338000  1C 18 00 18 */	mulli r0, r24, 0x18
+/* 8033B0A4 00338004  7E 84 1A 14 */	add r20, r4, r3
+/* 8033B0A8 00338008  1C 7B 00 18 */	mulli r3, r27, 0x18
+/* 8033B0AC 0033800C  7E A0 1A 14 */	add r21, r0, r3
+/* 8033B0B0 00338010  7E B4 AA 14 */	add r21, r20, r21
+/* 8033B0B4 00338014  7F 54 1A 14 */	add r26, r20, r3
+/* 8033B0B8 00338018  48 00 00 58 */	b lbl_8033B110
+lbl_8033B0BC:
+/* 8033B0BC 0033801C  7C 16 DA 14 */	add r0, r22, r27
+/* 8033B0C0 00338020  28 15 00 00 */	cmplwi r21, 0
+/* 8033B0C4 00338024  1C 00 00 18 */	mulli r0, r0, 0x18
+/* 8033B0C8 00338028  80 77 00 0C */	lwz r3, 0xc(r23)
+/* 8033B0CC 0033802C  7F 23 02 14 */	add r25, r3, r0
+/* 8033B0D0 00338030  41 82 00 20 */	beq lbl_8033B0F0
+/* 8033B0D4 00338034  7E A3 AB 78 */	mr r3, r21
+/* 8033B0D8 00338038  7F 24 CB 78 */	mr r4, r25
+/* 8033B0DC 0033803C  48 00 30 85 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B0E0 00338040  80 19 00 10 */	lwz r0, 0x10(r25)
+/* 8033B0E4 00338044  90 15 00 10 */	stw r0, 0x10(r21)
+/* 8033B0E8 00338048  80 19 00 14 */	lwz r0, 0x14(r25)
+/* 8033B0EC 0033804C  90 15 00 14 */	stw r0, 0x14(r21)
+lbl_8033B0F0:
+/* 8033B0F0 00338050  28 1A 00 00 */	cmplwi r26, 0
+/* 8033B0F4 00338054  41 82 00 10 */	beq lbl_8033B104
+/* 8033B0F8 00338058  41 82 00 0C */	beq lbl_8033B104
+/* 8033B0FC 0033805C  7F 43 D3 78 */	mr r3, r26
+/* 8033B100 00338060  48 00 29 E1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+lbl_8033B104:
+/* 8033B104 00338064  3A B5 FF E8 */	addi r21, r21, -24
+/* 8033B108 00338068  3B 5A FF E8 */	addi r26, r26, -24
+/* 8033B10C 0033806C  3B 7B FF FF */	addi r27, r27, -1
+lbl_8033B110:
+/* 8033B110 00338070  2C 1B 00 00 */	cmpwi r27, 0
+/* 8033B114 00338074  40 80 FF A8 */	bge lbl_8033B0BC
+/* 8033B118 00338078  3A A0 00 00 */	li r21, 0
+/* 8033B11C 0033807C  48 00 00 34 */	b lbl_8033B150
+lbl_8033B120:
+/* 8033B120 00338080  28 14 00 00 */	cmplwi r20, 0
+/* 8033B124 00338084  41 82 00 20 */	beq lbl_8033B144
+/* 8033B128 00338088  7E 83 A3 78 */	mr r3, r20
+/* 8033B12C 0033808C  7F C4 F3 78 */	mr r4, r30
+/* 8033B130 00338090  48 00 30 31 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B134 00338094  80 1E 00 10 */	lwz r0, 0x10(r30)
+/* 8033B138 00338098  90 14 00 10 */	stw r0, 0x10(r20)
+/* 8033B13C 0033809C  80 1E 00 14 */	lwz r0, 0x14(r30)
+/* 8033B140 003380A0  90 14 00 14 */	stw r0, 0x14(r20)
+lbl_8033B144:
+/* 8033B144 003380A4  3B DE 00 18 */	addi r30, r30, 0x18
+/* 8033B148 003380A8  3A 94 00 18 */	addi r20, r20, 0x18
+/* 8033B14C 003380AC  3A B5 00 01 */	addi r21, r21, 1
+lbl_8033B150:
+/* 8033B150 003380B0  7C 15 C0 00 */	cmpw r21, r24
+/* 8033B154 003380B4  41 80 FF CC */	blt lbl_8033B120
+/* 8033B158 003380B8  80 17 00 04 */	lwz r0, 4(r23)
+/* 8033B15C 003380BC  7C 00 C2 14 */	add r0, r0, r24
+/* 8033B160 003380C0  90 17 00 04 */	stw r0, 4(r23)
+/* 8033B164 003380C4  48 00 01 C4 */	b lbl_8033B328
+lbl_8033B168:
+/* 8033B168 003380C8  2C 03 00 00 */	cmpwi r3, 0
+/* 8033B16C 003380CC  38 00 00 04 */	li r0, 4
+/* 8033B170 003380D0  41 82 00 08 */	beq lbl_8033B178
+/* 8033B174 003380D4  54 60 08 3C */	slwi r0, r3, 1
+lbl_8033B178:
+/* 8033B178 003380D8  7C 1B 03 78 */	mr r27, r0
+/* 8033B17C 003380DC  48 00 00 08 */	b lbl_8033B184
+lbl_8033B180:
+/* 8033B180 003380E0  57 7B 08 3C */	slwi r27, r27, 1
+lbl_8033B184:
+/* 8033B184 003380E4  7C 1B 38 00 */	cmpw r27, r7
+/* 8033B188 003380E8  41 80 FF F8 */	blt lbl_8033B180
+/* 8033B18C 003380EC  1C 7B 00 18 */	mulli r3, r27, 0x18
+/* 8033B190 003380F0  2C 03 00 00 */	cmpwi r3, 0
+/* 8033B194 003380F4  40 82 00 0C */	bne lbl_8033B1A0
+/* 8033B198 003380F8  3B E0 00 00 */	li r31, 0
+/* 8033B19C 003380FC  48 00 00 18 */	b lbl_8033B1B4
+lbl_8033B1A0:
+/* 8033B1A0 00338100  3C 80 80 3D */	lis r4, lbl_803D7A38@ha
+/* 8033B1A4 00338104  38 A0 00 00 */	li r5, 0
+/* 8033B1A8 00338108  38 84 7A 38 */	addi r4, r4, lbl_803D7A38@l
+/* 8033B1AC 0033810C  4B FD A6 6D */	bl __nwa__FUlPCcPCc
+/* 8033B1B0 00338110  7C 7F 1B 78 */	mr r31, r3
+lbl_8033B1B4:
+/* 8033B1B4 00338114  80 97 00 0C */	lwz r4, 0xc(r23)
+/* 8033B1B8 00338118  3C 60 2A AB */	lis r3, 0x2AAAAAAB@ha
+/* 8033B1BC 0033811C  80 14 00 00 */	lwz r0, 0(r20)
+/* 8033B1C0 00338120  38 63 AA AB */	addi r3, r3, 0x2AAAAAAB@l
+/* 8033B1C4 00338124  7F FD FB 78 */	mr r29, r31
+/* 8033B1C8 00338128  3B 40 00 00 */	li r26, 0
+/* 8033B1CC 0033812C  7C 04 00 50 */	subf r0, r4, r0
+/* 8033B1D0 00338130  3B 20 00 00 */	li r25, 0
+/* 8033B1D4 00338134  7C 03 00 96 */	mulhw r0, r3, r0
+/* 8033B1D8 00338138  3A 80 00 00 */	li r20, 0
+/* 8033B1DC 0033813C  7C 00 16 70 */	srawi r0, r0, 2
+/* 8033B1E0 00338140  54 03 0F FE */	srwi r3, r0, 0x1f
+/* 8033B1E4 00338144  7E A0 1A 14 */	add r21, r0, r3
+/* 8033B1E8 00338148  48 00 00 40 */	b lbl_8033B228
+lbl_8033B1EC:
+/* 8033B1EC 0033814C  80 17 00 0C */	lwz r0, 0xc(r23)
+/* 8033B1F0 00338150  28 1D 00 00 */	cmplwi r29, 0
+/* 8033B1F4 00338154  7E C0 A2 14 */	add r22, r0, r20
+/* 8033B1F8 00338158  41 82 00 20 */	beq lbl_8033B218
+/* 8033B1FC 0033815C  7F A3 EB 78 */	mr r3, r29
+/* 8033B200 00338160  7E C4 B3 78 */	mr r4, r22
+/* 8033B204 00338164  48 00 2F 5D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B208 00338168  80 16 00 10 */	lwz r0, 0x10(r22)
+/* 8033B20C 0033816C  90 1D 00 10 */	stw r0, 0x10(r29)
+/* 8033B210 00338170  80 16 00 14 */	lwz r0, 0x14(r22)
+/* 8033B214 00338174  90 1D 00 14 */	stw r0, 0x14(r29)
+lbl_8033B218:
+/* 8033B218 00338178  3B BD 00 18 */	addi r29, r29, 0x18
+/* 8033B21C 0033817C  3B 5A 00 01 */	addi r26, r26, 1
+/* 8033B220 00338180  3A 94 00 18 */	addi r20, r20, 0x18
+/* 8033B224 00338184  3B 39 00 01 */	addi r25, r25, 1
+lbl_8033B228:
+/* 8033B228 00338188  7C 19 A8 00 */	cmpw r25, r21
+/* 8033B22C 0033818C  41 80 FF C0 */	blt lbl_8033B1EC
+/* 8033B230 00338190  1C 1A 00 18 */	mulli r0, r26, 0x18
+/* 8033B234 00338194  3A C0 00 00 */	li r22, 0
+/* 8033B238 00338198  7E 9F 02 14 */	add r20, r31, r0
+/* 8033B23C 0033819C  48 00 00 38 */	b lbl_8033B274
+lbl_8033B240:
+/* 8033B240 003381A0  28 14 00 00 */	cmplwi r20, 0
+/* 8033B244 003381A4  41 82 00 20 */	beq lbl_8033B264
+/* 8033B248 003381A8  7E 83 A3 78 */	mr r3, r20
+/* 8033B24C 003381AC  7F C4 F3 78 */	mr r4, r30
+/* 8033B250 003381B0  48 00 2F 11 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B254 003381B4  80 1E 00 10 */	lwz r0, 0x10(r30)
+/* 8033B258 003381B8  90 14 00 10 */	stw r0, 0x10(r20)
+/* 8033B25C 003381BC  80 1E 00 14 */	lwz r0, 0x14(r30)
+/* 8033B260 003381C0  90 14 00 14 */	stw r0, 0x14(r20)
+lbl_8033B264:
+/* 8033B264 003381C4  3B DE 00 18 */	addi r30, r30, 0x18
+/* 8033B268 003381C8  3A 94 00 18 */	addi r20, r20, 0x18
+/* 8033B26C 003381CC  3B 5A 00 01 */	addi r26, r26, 1
+/* 8033B270 003381D0  3A D6 00 01 */	addi r22, r22, 1
+lbl_8033B274:
+/* 8033B274 003381D4  7C 16 C0 00 */	cmpw r22, r24
+/* 8033B278 003381D8  41 80 FF C8 */	blt lbl_8033B240
+/* 8033B27C 003381DC  1C 1A 00 18 */	mulli r0, r26, 0x18
+/* 8033B280 003381E0  7E B9 AB 78 */	mr r25, r21
+/* 8033B284 003381E4  1E 95 00 18 */	mulli r20, r21, 0x18
+/* 8033B288 003381E8  7E BF 02 14 */	add r21, r31, r0
+/* 8033B28C 003381EC  48 00 00 3C */	b lbl_8033B2C8
+lbl_8033B290:
+/* 8033B290 003381F0  80 17 00 0C */	lwz r0, 0xc(r23)
+/* 8033B294 003381F4  28 15 00 00 */	cmplwi r21, 0
+/* 8033B298 003381F8  7E C0 A2 14 */	add r22, r0, r20
+/* 8033B29C 003381FC  41 82 00 20 */	beq lbl_8033B2BC
+/* 8033B2A0 00338200  7E A3 AB 78 */	mr r3, r21
+/* 8033B2A4 00338204  7E C4 B3 78 */	mr r4, r22
+/* 8033B2A8 00338208  48 00 2E B9 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B2AC 0033820C  80 16 00 10 */	lwz r0, 0x10(r22)
+/* 8033B2B0 00338210  90 15 00 10 */	stw r0, 0x10(r21)
+/* 8033B2B4 00338214  80 16 00 14 */	lwz r0, 0x14(r22)
+/* 8033B2B8 00338218  90 15 00 14 */	stw r0, 0x14(r21)
+lbl_8033B2BC:
+/* 8033B2BC 0033821C  3A B5 00 18 */	addi r21, r21, 0x18
+/* 8033B2C0 00338220  3A 94 00 18 */	addi r20, r20, 0x18
+/* 8033B2C4 00338224  3B 39 00 01 */	addi r25, r25, 1
+lbl_8033B2C8:
+/* 8033B2C8 00338228  80 17 00 04 */	lwz r0, 4(r23)
+/* 8033B2CC 0033822C  7C 19 00 00 */	cmpw r25, r0
+/* 8033B2D0 00338230  41 80 FF C0 */	blt lbl_8033B290
+/* 8033B2D4 00338234  1C 00 00 18 */	mulli r0, r0, 0x18
+/* 8033B2D8 00338238  7F 96 E3 78 */	mr r22, r28
+/* 8033B2DC 0033823C  7F 3C 02 14 */	add r25, r28, r0
+/* 8033B2E0 00338240  48 00 00 1C */	b lbl_8033B2FC
+lbl_8033B2E4:
+/* 8033B2E4 00338244  28 16 00 00 */	cmplwi r22, 0
+/* 8033B2E8 00338248  41 82 00 10 */	beq lbl_8033B2F8
+/* 8033B2EC 0033824C  41 82 00 0C */	beq lbl_8033B2F8
+/* 8033B2F0 00338250  7E C3 B3 78 */	mr r3, r22
+/* 8033B2F4 00338254  48 00 27 ED */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+lbl_8033B2F8:
+/* 8033B2F8 00338258  3A D6 00 18 */	addi r22, r22, 0x18
+lbl_8033B2FC:
+/* 8033B2FC 0033825C  7C 16 C8 40 */	cmplw r22, r25
+/* 8033B300 00338260  40 82 FF E4 */	bne lbl_8033B2E4
+/* 8033B304 00338264  80 77 00 0C */	lwz r3, 0xc(r23)
+/* 8033B308 00338268  28 03 00 00 */	cmplwi r3, 0
+/* 8033B30C 0033826C  41 82 00 08 */	beq lbl_8033B314
+/* 8033B310 00338270  4B FD A6 21 */	bl Free__7CMemoryFPCv
+lbl_8033B314:
+/* 8033B314 00338274  93 F7 00 0C */	stw r31, 0xc(r23)
+/* 8033B318 00338278  93 77 00 08 */	stw r27, 8(r23)
+/* 8033B31C 0033827C  80 17 00 04 */	lwz r0, 4(r23)
+/* 8033B320 00338280  7C 00 C2 14 */	add r0, r0, r24
+/* 8033B324 00338284  90 17 00 04 */	stw r0, 4(r23)
+lbl_8033B328:
+/* 8033B328 00338288  BA 81 00 10 */	lmw r20, 0x10(r1)
+/* 8033B32C 0033828C  80 01 00 44 */	lwz r0, 0x44(r1)
+/* 8033B330 00338290  7C 08 03 A6 */	mtlr r0
+/* 8033B334 00338294  38 21 00 40 */	addi r1, r1, 0x40
+/* 8033B338 00338298  4E 80 00 20 */	blr 
+
+.global "GetTagListForFile__10CResLoaderCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"GetTagListForFile__10CResLoaderCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
+/* 8033B33C 0033829C  94 21 FF B0 */	stwu r1, -0x50(r1)
+/* 8033B340 003382A0  7C 08 02 A6 */	mflr r0
+/* 8033B344 003382A4  3C A0 80 3D */	lis r5, lbl_803D7A38@ha
+/* 8033B348 003382A8  90 01 00 54 */	stw r0, 0x54(r1)
+/* 8033B34C 003382AC  38 A5 7A 38 */	addi r5, r5, lbl_803D7A38@l
+/* 8033B350 003382B0  38 A5 00 07 */	addi r5, r5, 7
+/* 8033B354 003382B4  BF 61 00 3C */	stmw r27, 0x3c(r1)
+/* 8033B358 003382B8  7C 7B 1B 78 */	mr r27, r3
+/* 8033B35C 003382BC  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B360 003382C0  4B ED 0D 95 */	bl "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCc"
+/* 8033B364 003382C4  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B368 003382C8  38 81 00 10 */	addi r4, r1, 0x10
+/* 8033B36C 003382CC  48 00 2D F5 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B370 003382D0  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B374 003382D4  48 00 27 6D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B378 003382D8  80 82 D7 98 */	lwz r4, lbl_805AF4B8@sda21(r2)
+/* 8033B37C 003382DC  38 1B 00 18 */	addi r0, r27, 0x18
+/* 8033B380 003382E0  80 62 D7 9C */	lwz r3, lbl_805AF4BC@sda21(r2)
+/* 8033B384 003382E4  3B A1 00 08 */	addi r29, r1, 8
+/* 8033B388 003382E8  90 81 00 08 */	stw r4, 8(r1)
+/* 8033B38C 003382EC  3B 80 00 00 */	li r28, 0
+/* 8033B390 003382F0  90 61 00 0C */	stw r3, 0xc(r1)
+/* 8033B394 003382F4  93 61 00 08 */	stw r27, 8(r1)
+/* 8033B398 003382F8  90 01 00 0C */	stw r0, 0xc(r1)
+lbl_8033B39C:
+/* 8033B39C 003382FC  83 7D 00 00 */	lwz r27, 0(r29)
+/* 8033B3A0 00338300  83 DB 00 04 */	lwz r30, 4(r27)
+/* 8033B3A4 00338304  48 00 00 3C */	b lbl_8033B3E0
+lbl_8033B3A8:
+/* 8033B3A8 00338308  83 FE 00 0C */	lwz r31, 0xc(r30)
+/* 8033B3AC 0033830C  38 81 00 20 */	addi r4, r1, 0x20
+/* 8033B3B0 00338310  38 7F 00 18 */	addi r3, r31, 0x18
+/* 8033B3B4 00338314  48 00 36 39 */	bl "CompareCaseInsensitive__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B3B8 00338318  2C 03 00 00 */	cmpwi r3, 0
+/* 8033B3BC 0033831C  40 82 00 20 */	bne lbl_8033B3DC
+/* 8033B3C0 00338320  7F E3 FB 78 */	mr r3, r31
+/* 8033B3C4 00338324  48 02 C2 65 */	bl GetDepList__8CPakFileCFv
+/* 8033B3C8 00338328  7C 7F 1B 78 */	mr r31, r3
+/* 8033B3CC 0033832C  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B3D0 00338330  48 00 27 11 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B3D4 00338334  7F E3 FB 78 */	mr r3, r31
+/* 8033B3D8 00338338  48 00 00 30 */	b lbl_8033B408
+lbl_8033B3DC:
+/* 8033B3DC 0033833C  83 DE 00 04 */	lwz r30, 4(r30)
+lbl_8033B3E0:
+/* 8033B3E0 00338340  80 1B 00 08 */	lwz r0, 8(r27)
+/* 8033B3E4 00338344  7C 1E 00 40 */	cmplw r30, r0
+/* 8033B3E8 00338348  40 82 FF C0 */	bne lbl_8033B3A8
+/* 8033B3EC 0033834C  3B 9C 00 01 */	addi r28, r28, 1
+/* 8033B3F0 00338350  3B BD 00 04 */	addi r29, r29, 4
+/* 8033B3F4 00338354  2C 1C 00 02 */	cmpwi r28, 2
+/* 8033B3F8 00338358  41 80 FF A4 */	blt lbl_8033B39C
+/* 8033B3FC 0033835C  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B400 00338360  48 00 26 E1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B404 00338364  38 60 00 00 */	li r3, 0
+lbl_8033B408:
+/* 8033B408 00338368  BB 61 00 3C */	lmw r27, 0x3c(r1)
+/* 8033B40C 0033836C  80 01 00 54 */	lwz r0, 0x54(r1)
+/* 8033B410 00338370  7C 08 03 A6 */	mtlr r0
+/* 8033B414 00338374  38 21 00 50 */	addi r1, r1, 0x50
+/* 8033B418 00338378  4E 80 00 20 */	blr 
+
+.global sub_8033b41c
+sub_8033b41c:
+/* 8033B41C 0033837C  94 21 FF B0 */	stwu r1, -0x50(r1)
+/* 8033B420 00338380  7C 08 02 A6 */	mflr r0
+/* 8033B424 00338384  3C A0 80 3D */	lis r5, lbl_803D7A38@ha
+/* 8033B428 00338388  90 01 00 54 */	stw r0, 0x54(r1)
+/* 8033B42C 0033838C  38 A5 7A 38 */	addi r5, r5, lbl_803D7A38@l
+/* 8033B430 00338390  38 A5 00 07 */	addi r5, r5, 7
+/* 8033B434 00338394  BF 61 00 3C */	stmw r27, 0x3c(r1)
+/* 8033B438 00338398  7C 7B 1B 78 */	mr r27, r3
+/* 8033B43C 0033839C  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B440 003383A0  4B ED 0C B5 */	bl "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCc"
+/* 8033B444 003383A4  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B448 003383A8  38 81 00 10 */	addi r4, r1, 0x10
+/* 8033B44C 003383AC  48 00 2D 15 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B450 003383B0  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B454 003383B4  48 00 26 8D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B458 003383B8  7F 63 DB 78 */	mr r3, r27
+/* 8033B45C 003383BC  48 00 0A 01 */	bl sub_8033be5c
+/* 8033B460 003383C0  80 82 D7 90 */	lwz r4, lbl_805AF4B0@sda21(r2)
+/* 8033B464 003383C4  38 1B 00 18 */	addi r0, r27, 0x18
+/* 8033B468 003383C8  80 62 D7 94 */	lwz r3, lbl_805AF4B4@sda21(r2)
+/* 8033B46C 003383CC  3B C1 00 08 */	addi r30, r1, 8
+/* 8033B470 003383D0  90 81 00 08 */	stw r4, 8(r1)
+/* 8033B474 003383D4  3B A0 00 00 */	li r29, 0
+/* 8033B478 003383D8  90 61 00 0C */	stw r3, 0xc(r1)
+/* 8033B47C 003383DC  93 61 00 08 */	stw r27, 8(r1)
+/* 8033B480 003383E0  90 01 00 0C */	stw r0, 0xc(r1)
+lbl_8033B484:
+/* 8033B484 003383E4  83 9E 00 00 */	lwz r28, 0(r30)
+/* 8033B488 003383E8  83 FC 00 04 */	lwz r31, 4(r28)
+/* 8033B48C 003383EC  48 00 00 38 */	b lbl_8033B4C4
+lbl_8033B490:
+/* 8033B490 003383F0  80 7F 00 0C */	lwz r3, 0xc(r31)
+/* 8033B494 003383F4  38 81 00 20 */	addi r4, r1, 0x20
+/* 8033B498 003383F8  38 63 00 18 */	addi r3, r3, 0x18
+/* 8033B49C 003383FC  48 00 35 51 */	bl "CompareCaseInsensitive__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B4A0 00338400  2C 03 00 00 */	cmpwi r3, 0
+/* 8033B4A4 00338404  40 82 00 1C */	bne lbl_8033B4C0
+/* 8033B4A8 00338408  7F 83 E3 78 */	mr r3, r28
+/* 8033B4AC 0033840C  7F E4 FB 78 */	mr r4, r31
+/* 8033B4B0 00338410  48 00 0F E1 */	bl sub_8033c490
+/* 8033B4B4 00338414  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B4B8 00338418  48 00 26 29 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B4BC 0033841C  48 00 00 8C */	b lbl_8033B548
+lbl_8033B4C0:
+/* 8033B4C0 00338420  83 FF 00 04 */	lwz r31, 4(r31)
+lbl_8033B4C4:
+/* 8033B4C4 00338424  80 1C 00 08 */	lwz r0, 8(r28)
+/* 8033B4C8 00338428  7C 1F 00 40 */	cmplw r31, r0
+/* 8033B4CC 0033842C  40 82 FF C4 */	bne lbl_8033B490
+/* 8033B4D0 00338430  3B BD 00 01 */	addi r29, r29, 1
+/* 8033B4D4 00338434  3B DE 00 04 */	addi r30, r30, 4
+/* 8033B4D8 00338438  2C 1D 00 02 */	cmpwi r29, 2
+/* 8033B4DC 0033843C  41 80 FF A8 */	blt lbl_8033B484
+/* 8033B4E0 00338440  83 DB 00 34 */	lwz r30, 0x34(r27)
+/* 8033B4E4 00338444  48 00 00 50 */	b lbl_8033B534
+lbl_8033B4E8:
+/* 8033B4E8 00338448  83 FE 00 0C */	lwz r31, 0xc(r30)
+/* 8033B4EC 0033844C  38 81 00 20 */	addi r4, r1, 0x20
+/* 8033B4F0 00338450  38 7F 00 18 */	addi r3, r31, 0x18
+/* 8033B4F4 00338454  48 00 34 F9 */	bl "CompareCaseInsensitive__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B4F8 00338458  2C 03 00 00 */	cmpwi r3, 0
+/* 8033B4FC 0033845C  40 82 00 34 */	bne lbl_8033B530
+/* 8033B500 00338460  48 00 00 0C */	b lbl_8033B50C
+lbl_8033B504:
+/* 8033B504 00338464  7F 63 DB 78 */	mr r3, r27
+/* 8033B508 00338468  48 00 08 B9 */	bl AsyncIdlePakLoading__10CResLoaderFv
+lbl_8033B50C:
+/* 8033B50C 0033846C  80 1F 00 2C */	lwz r0, 0x2c(r31)
+/* 8033B510 00338470  2C 00 00 03 */	cmpwi r0, 3
+/* 8033B514 00338474  40 82 FF F0 */	bne lbl_8033B504
+/* 8033B518 00338478  7F C4 F3 78 */	mr r4, r30
+/* 8033B51C 0033847C  38 7B 00 30 */	addi r3, r27, 0x30
+/* 8033B520 00338480  48 00 0F 71 */	bl sub_8033c490
+/* 8033B524 00338484  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B528 00338488  48 00 25 B9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B52C 0033848C  48 00 00 1C */	b lbl_8033B548
+lbl_8033B530:
+/* 8033B530 00338490  83 DE 00 04 */	lwz r30, 4(r30)
+lbl_8033B534:
+/* 8033B534 00338494  80 1B 00 38 */	lwz r0, 0x38(r27)
+/* 8033B538 00338498  7C 1E 00 40 */	cmplw r30, r0
+/* 8033B53C 0033849C  40 82 FF AC */	bne lbl_8033B4E8
+/* 8033B540 003384A0  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B544 003384A4  48 00 25 9D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+lbl_8033B548:
+/* 8033B548 003384A8  BB 61 00 3C */	lmw r27, 0x3c(r1)
+/* 8033B54C 003384AC  80 01 00 54 */	lwz r0, 0x54(r1)
+/* 8033B550 003384B0  7C 08 03 A6 */	mtlr r0
+/* 8033B554 003384B4  38 21 00 50 */	addi r1, r1, 0x50
+/* 8033B558 003384B8  4E 80 00 20 */	blr 
+
+.global "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+"AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b":
+/* 8033B55C 003384BC  94 21 FF C0 */	stwu r1, -0x40(r1)
+/* 8033B560 003384C0  7C 08 02 A6 */	mflr r0
+/* 8033B564 003384C4  3C E0 80 3D */	lis r7, lbl_803D7A38@ha
+/* 8033B568 003384C8  90 01 00 44 */	stw r0, 0x44(r1)
+/* 8033B56C 003384CC  38 E7 7A 38 */	addi r7, r7, lbl_803D7A38@l
+/* 8033B570 003384D0  93 E1 00 3C */	stw r31, 0x3c(r1)
+/* 8033B574 003384D4  7C 7F 1B 78 */	mr r31, r3
+/* 8033B578 003384D8  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B57C 003384DC  93 C1 00 38 */	stw r30, 0x38(r1)
+/* 8033B580 003384E0  7C BE 2B 78 */	mr r30, r5
+/* 8033B584 003384E4  38 A7 00 07 */	addi r5, r7, 7
+/* 8033B588 003384E8  93 A1 00 34 */	stw r29, 0x34(r1)
+/* 8033B58C 003384EC  7C DD 33 78 */	mr r29, r6
+/* 8033B590 003384F0  4B ED 0B 65 */	bl "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCc"
+/* 8033B594 003384F4  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B598 003384F8  38 81 00 10 */	addi r4, r1, 0x10
+/* 8033B59C 003384FC  48 00 2B C5 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+/* 8033B5A0 00338500  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B5A4 00338504  48 00 25 3D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B5A8 00338508  80 61 00 20 */	lwz r3, 0x20(r1)
+/* 8033B5AC 0033850C  48 01 43 A1 */	bl FileExists__8CDvdFileFPCc
+/* 8033B5B0 00338510  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033B5B4 00338514  41 82 00 D8 */	beq lbl_8033B68C
+/* 8033B5B8 00338518  3C 80 80 3D */	lis r4, lbl_803D7A38@ha
+/* 8033B5BC 0033851C  38 60 00 88 */	li r3, 0x88
+/* 8033B5C0 00338520  38 84 7A 38 */	addi r4, r4, lbl_803D7A38@l
+/* 8033B5C4 00338524  38 A0 00 00 */	li r5, 0
+/* 8033B5C8 00338528  4B FD A2 A5 */	bl __nw__FUlPCcPCc
+/* 8033B5CC 0033852C  7C 64 1B 79 */	or. r4, r3, r3
+/* 8033B5D0 00338530  41 82 00 18 */	beq lbl_8033B5E8
+/* 8033B5D4 00338534  7F C5 F3 78 */	mr r5, r30
+/* 8033B5D8 00338538  7F A6 EB 78 */	mr r6, r29
+/* 8033B5DC 0033853C  38 81 00 20 */	addi r4, r1, 0x20
+/* 8033B5E0 00338540  48 02 CF B1 */	bl "__ct__8CPakFileFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 8033B5E4 00338544  7C 64 1B 78 */	mr r4, r3
+lbl_8033B5E8:
+/* 8033B5E8 00338548  7C 04 00 D0 */	neg r0, r4
+/* 8033B5EC 0033854C  83 DF 00 38 */	lwz r30, 0x38(r31)
+/* 8033B5F0 00338550  7C 00 23 78 */	or r0, r0, r4
+/* 8033B5F4 00338554  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033B5F8 00338558  54 00 0F FE */	srwi r0, r0, 0x1f
+/* 8033B5FC 0033855C  90 81 00 0C */	stw r4, 0xc(r1)
+/* 8033B600 00338560  83 BE 00 00 */	lwz r29, 0(r30)
+/* 8033B604 00338564  38 83 7A 38 */	addi r4, r3, lbl_803D7A38@l
+/* 8033B608 00338568  98 01 00 08 */	stb r0, 8(r1)
+/* 8033B60C 0033856C  38 60 00 10 */	li r3, 0x10
+/* 8033B610 00338570  38 A0 00 00 */	li r5, 0
+/* 8033B614 00338574  4B FD A2 05 */	bl __nwa__FUlPCcPCc
+/* 8033B618 00338578  28 03 00 00 */	cmplwi r3, 0
+/* 8033B61C 0033857C  41 82 00 0C */	beq lbl_8033B628
+/* 8033B620 00338580  93 A3 00 00 */	stw r29, 0(r3)
+/* 8033B624 00338584  93 C3 00 04 */	stw r30, 4(r3)
+lbl_8033B628:
+/* 8033B628 00338588  34 C3 00 08 */	addic. r6, r3, 8
+/* 8033B62C 0033858C  41 82 00 1C */	beq lbl_8033B648
+/* 8033B630 00338590  88 A1 00 08 */	lbz r5, 8(r1)
+/* 8033B634 00338594  38 00 00 00 */	li r0, 0
+/* 8033B638 00338598  80 81 00 0C */	lwz r4, 0xc(r1)
+/* 8033B63C 0033859C  98 A6 00 00 */	stb r5, 0(r6)
+/* 8033B640 003385A0  90 86 00 04 */	stw r4, 4(r6)
+/* 8033B644 003385A4  98 01 00 08 */	stb r0, 8(r1)
+lbl_8033B648:
+/* 8033B648 003385A8  80 1F 00 34 */	lwz r0, 0x34(r31)
+/* 8033B64C 003385AC  7C 1E 00 40 */	cmplw r30, r0
+/* 8033B650 003385B0  40 82 00 08 */	bne lbl_8033B658
+/* 8033B654 003385B4  90 7F 00 34 */	stw r3, 0x34(r31)
+lbl_8033B658:
+/* 8033B658 003385B8  80 83 00 00 */	lwz r4, 0(r3)
+/* 8033B65C 003385BC  88 01 00 08 */	lbz r0, 8(r1)
+/* 8033B660 003385C0  90 64 00 04 */	stw r3, 4(r4)
+/* 8033B664 003385C4  28 00 00 00 */	cmplwi r0, 0
+/* 8033B668 003385C8  80 83 00 04 */	lwz r4, 4(r3)
+/* 8033B66C 003385CC  90 64 00 00 */	stw r3, 0(r4)
+/* 8033B670 003385D0  80 7F 00 44 */	lwz r3, 0x44(r31)
+/* 8033B674 003385D4  38 03 00 01 */	addi r0, r3, 1
+/* 8033B678 003385D8  90 1F 00 44 */	stw r0, 0x44(r31)
+/* 8033B67C 003385DC  41 82 00 10 */	beq lbl_8033B68C
+/* 8033B680 003385E0  80 61 00 0C */	lwz r3, 0xc(r1)
+/* 8033B684 003385E4  38 80 00 01 */	li r4, 1
+/* 8033B688 003385E8  48 02 CD 75 */	bl __dt__8CPakFileFv
+lbl_8033B68C:
+/* 8033B68C 003385EC  38 61 00 20 */	addi r3, r1, 0x20
+/* 8033B690 003385F0  48 00 24 51 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 8033B694 003385F4  80 01 00 44 */	lwz r0, 0x44(r1)
+/* 8033B698 003385F8  83 E1 00 3C */	lwz r31, 0x3c(r1)
+/* 8033B69C 003385FC  83 C1 00 38 */	lwz r30, 0x38(r1)
+/* 8033B6A0 00338600  83 A1 00 34 */	lwz r29, 0x34(r1)
+/* 8033B6A4 00338604  7C 08 03 A6 */	mtlr r0
+/* 8033B6A8 00338608  38 21 00 40 */	addi r1, r1, 0x40
+/* 8033B6AC 0033860C  4E 80 00 20 */	blr 
+
+.global LoadNewResourcePartSync__10CResLoaderFRC10SObjectTagiiPc
+LoadNewResourcePartSync__10CResLoaderFRC10SObjectTagiiPc:
+/* 8033B6B0 00338610  94 21 FF D0 */	stwu r1, -0x30(r1)
+/* 8033B6B4 00338614  7C 08 02 A6 */	mflr r0
+/* 8033B6B8 00338618  90 01 00 34 */	stw r0, 0x34(r1)
+/* 8033B6BC 0033861C  BF 41 00 18 */	stmw r26, 0x18(r1)
+/* 8033B6C0 00338620  7C 7B 1B 78 */	mr r27, r3
+/* 8033B6C4 00338624  7C BA 2B 78 */	mr r26, r5
+/* 8033B6C8 00338628  7C DE 33 78 */	mr r30, r6
+/* 8033B6CC 0033862C  7C FF 3B 78 */	mr r31, r7
+/* 8033B6D0 00338630  48 00 09 E9 */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033B6D4 00338634  28 1F 00 00 */	cmplwi r31, 0
+/* 8033B6D8 00338638  83 7B 00 50 */	lwz r27, 0x50(r27)
+/* 8033B6DC 0033863C  7C 7C 1B 78 */	mr r28, r3
+/* 8033B6E0 00338640  41 82 00 0C */	beq lbl_8033B6EC
+/* 8033B6E4 00338644  7F FD FB 78 */	mr r29, r31
+/* 8033B6E8 00338648  48 00 00 3C */	b lbl_8033B724
+lbl_8033B6EC:
+/* 8033B6EC 0033864C  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033B6F0 00338650  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8033B6F4 00338654  38 A3 7A 38 */	addi r5, r3, lbl_803D7A38@l
+/* 8033B6F8 00338658  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8033B6FC 0033865C  38 61 00 08 */	addi r3, r1, 8
+/* 8033B700 00338660  38 80 FF FF */	li r4, -1
+/* 8033B704 00338664  4B F9 AC D1 */	bl __ct__10CCallStackFUiPCcPCc
+/* 8033B708 00338668  7C 67 1B 78 */	mr r7, r3
+/* 8033B70C 0033866C  7F C3 F3 78 */	mr r3, r30
+/* 8033B710 00338670  38 80 00 02 */	li r4, 2
+/* 8033B714 00338674  38 A0 00 01 */	li r5, 1
+/* 8033B718 00338678  38 C0 00 00 */	li r6, 0
+/* 8033B71C 0033867C  4B FD A2 79 */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
+/* 8033B720 00338680  7C 7D 1B 78 */	mr r29, r3
+lbl_8033B724:
+/* 8033B724 00338684  7F 63 DB 78 */	mr r3, r27
+/* 8033B728 00338688  48 02 CF 79 */	bl GetOffset__Q28CPakFile8SResInfoCFv
+/* 8033B72C 0033868C  7C 60 1B 78 */	mr r0, r3
+/* 8033B730 00338690  7F 83 E3 78 */	mr r3, r28
+/* 8033B734 00338694  7F A4 EB 78 */	mr r4, r29
+/* 8033B738 00338698  7F C5 F3 78 */	mr r5, r30
+/* 8033B73C 0033869C  7C FA 02 14 */	add r7, r26, r0
+/* 8033B740 003386A0  38 C0 00 00 */	li r6, 0
+/* 8033B744 003386A4  48 01 43 C1 */	bl SyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
+/* 8033B748 003386A8  3C 80 80 3D */	lis r4, lbl_803D7A38@ha
+/* 8033B74C 003386AC  38 60 00 24 */	li r3, 0x24
+/* 8033B750 003386B0  38 84 7A 38 */	addi r4, r4, lbl_803D7A38@l
+/* 8033B754 003386B4  38 A0 00 00 */	li r5, 0
+/* 8033B758 003386B8  4B FD A1 15 */	bl __nw__FUlPCcPCc
+/* 8033B75C 003386BC  7C 60 1B 79 */	or. r0, r3, r3
+/* 8033B760 003386C0  41 82 00 20 */	beq lbl_8033B780
+/* 8033B764 003386C4  7C 1F 00 D0 */	neg r0, r31
+/* 8033B768 003386C8  7F A4 EB 78 */	mr r4, r29
+/* 8033B76C 003386CC  7C 00 FB 78 */	or r0, r0, r31
+/* 8033B770 003386D0  7F C5 F3 78 */	mr r5, r30
+/* 8033B774 003386D4  54 06 0F FE */	srwi r6, r0, 0x1f
+/* 8033B778 003386D8  48 00 3A 95 */	bl __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip
+/* 8033B77C 003386DC  7C 60 1B 78 */	mr r0, r3
+lbl_8033B780:
+/* 8033B780 003386E0  BB 41 00 18 */	lmw r26, 0x18(r1)
+/* 8033B784 003386E4  7C 03 03 78 */	mr r3, r0
+/* 8033B788 003386E8  80 01 00 34 */	lwz r0, 0x34(r1)
+/* 8033B78C 003386EC  7C 08 03 A6 */	mtlr r0
+/* 8033B790 003386F0  38 21 00 30 */	addi r1, r1, 0x30
+/* 8033B794 003386F4  4E 80 00 20 */	blr 
+
+.global LoadMemResourceSync__10CResLoaderFRC10SObjectTagPPcPi
+LoadMemResourceSync__10CResLoaderFRC10SObjectTagPPcPi:
+/* 8033B798 003386F8  94 21 FF D0 */	stwu r1, -0x30(r1)
+/* 8033B79C 003386FC  7C 08 02 A6 */	mflr r0
+/* 8033B7A0 00338700  90 01 00 34 */	stw r0, 0x34(r1)
+/* 8033B7A4 00338704  BF 41 00 18 */	stmw r26, 0x18(r1)
+/* 8033B7A8 00338708  7C 7C 1B 78 */	mr r28, r3
+/* 8033B7AC 0033870C  7C BA 2B 78 */	mr r26, r5
+/* 8033B7B0 00338710  7C DB 33 78 */	mr r27, r6
+/* 8033B7B4 00338714  48 00 09 05 */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033B7B8 00338718  83 DC 00 50 */	lwz r30, 0x50(r28)
+/* 8033B7BC 0033871C  7C 7F 1B 78 */	mr r31, r3
+/* 8033B7C0 00338720  7F C3 F3 78 */	mr r3, r30
+/* 8033B7C4 00338724  48 02 CE BD */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033B7C8 00338728  38 03 00 1F */	addi r0, r3, 0x1f
+/* 8033B7CC 0033872C  3C A0 80 3D */	lis r5, lbl_803D7A38@ha
+/* 8033B7D0 00338730  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8033B7D4 00338734  38 61 00 08 */	addi r3, r1, 8
+/* 8033B7D8 00338738  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8033B7DC 0033873C  38 A5 7A 38 */	addi r5, r5, lbl_803D7A38@l
+/* 8033B7E0 00338740  54 1D 00 34 */	rlwinm r29, r0, 0, 0, 0x1a
+/* 8033B7E4 00338744  38 80 FF FF */	li r4, -1
+/* 8033B7E8 00338748  4B F9 AB ED */	bl __ct__10CCallStackFUiPCcPCc
+/* 8033B7EC 0033874C  7C 67 1B 78 */	mr r7, r3
+/* 8033B7F0 00338750  7F A3 EB 78 */	mr r3, r29
+/* 8033B7F4 00338754  38 80 00 02 */	li r4, 2
+/* 8033B7F8 00338758  38 A0 00 01 */	li r5, 1
+/* 8033B7FC 0033875C  38 C0 00 00 */	li r6, 0
+/* 8033B800 00338760  4B FD A1 95 */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
+/* 8033B804 00338764  7C 60 1B 78 */	mr r0, r3
+/* 8033B808 00338768  7F C3 F3 78 */	mr r3, r30
+/* 8033B80C 0033876C  7C 1C 03 78 */	mr r28, r0
+/* 8033B810 00338770  48 02 CE 91 */	bl GetOffset__Q28CPakFile8SResInfoCFv
+/* 8033B814 00338774  7C 67 1B 78 */	mr r7, r3
+/* 8033B818 00338778  7F E3 FB 78 */	mr r3, r31
+/* 8033B81C 0033877C  7F 84 E3 78 */	mr r4, r28
+/* 8033B820 00338780  7F A5 EB 78 */	mr r5, r29
+/* 8033B824 00338784  38 C0 00 00 */	li r6, 0
+/* 8033B828 00338788  48 01 42 DD */	bl SyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
+/* 8033B82C 0033878C  93 9A 00 00 */	stw r28, 0(r26)
+/* 8033B830 00338790  7F C3 F3 78 */	mr r3, r30
+/* 8033B834 00338794  48 02 CE 4D */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033B838 00338798  90 7B 00 00 */	stw r3, 0(r27)
+/* 8033B83C 0033879C  BB 41 00 18 */	lmw r26, 0x18(r1)
+/* 8033B840 003387A0  80 01 00 34 */	lwz r0, 0x34(r1)
+/* 8033B844 003387A4  7C 08 03 A6 */	mtlr r0
+/* 8033B848 003387A8  38 21 00 30 */	addi r1, r1, 0x30
+/* 8033B84C 003387AC  4E 80 00 20 */	blr 
+
+.global LoadResourceFromMemorySync__10CResLoaderFRC10SObjectTagPCv
+LoadResourceFromMemorySync__10CResLoaderFRC10SObjectTagPCv:
+/* 8033B850 003387B0  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033B854 003387B4  7C 08 02 A6 */	mflr r0
+/* 8033B858 003387B8  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033B85C 003387BC  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033B860 003387C0  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033B864 003387C4  7C 7E 1B 78 */	mr r30, r3
+/* 8033B868 003387C8  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033B86C 003387CC  7C BD 2B 78 */	mr r29, r5
+/* 8033B870 003387D0  48 00 08 49 */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033B874 003387D4  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033B878 003387D8  83 DE 00 50 */	lwz r30, 0x50(r30)
+/* 8033B87C 003387DC  38 83 7A 38 */	addi r4, r3, lbl_803D7A38@l
+/* 8033B880 003387E0  38 A0 00 00 */	li r5, 0
+/* 8033B884 003387E4  38 60 00 24 */	li r3, 0x24
+/* 8033B888 003387E8  4B FD 9F E5 */	bl __nw__FUlPCcPCc
+/* 8033B88C 003387EC  7C 7F 1B 79 */	or. r31, r3, r3
+/* 8033B890 003387F0  41 82 00 20 */	beq lbl_8033B8B0
+/* 8033B894 003387F4  7F C3 F3 78 */	mr r3, r30
+/* 8033B898 003387F8  48 02 CD E9 */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033B89C 003387FC  7C 65 1B 78 */	mr r5, r3
+/* 8033B8A0 00338800  7F E3 FB 78 */	mr r3, r31
+/* 8033B8A4 00338804  7F A4 EB 78 */	mr r4, r29
+/* 8033B8A8 00338808  48 00 39 25 */	bl __ct__15CMemoryInStreamFPCvUl
+/* 8033B8AC 0033880C  7C 7F 1B 78 */	mr r31, r3
+lbl_8033B8B0:
+/* 8033B8B0 00338810  7F C3 F3 78 */	mr r3, r30
+/* 8033B8B4 00338814  48 02 CD B5 */	bl IsCompressed__Q28CPakFile8SResInfoCFv
+/* 8033B8B8 00338818  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033B8BC 0033881C  41 82 00 8C */	beq lbl_8033B948
+/* 8033B8C0 00338820  7F E3 FB 78 */	mr r3, r31
+/* 8033B8C4 00338824  48 00 33 C1 */	bl ReadLong__12CInputStreamFv
+/* 8033B8C8 00338828  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033B8CC 0033882C  3B A0 00 00 */	li r29, 0
+/* 8033B8D0 00338830  38 83 7A 38 */	addi r4, r3, lbl_803D7A38@l
+/* 8033B8D4 00338834  38 A0 00 00 */	li r5, 0
+/* 8033B8D8 00338838  38 60 00 34 */	li r3, 0x34
+/* 8033B8DC 0033883C  4B FD 9F 91 */	bl __nw__FUlPCcPCc
+/* 8033B8E0 00338840  7C 7E 1B 79 */	or. r30, r3, r3
+/* 8033B8E4 00338844  41 82 00 28 */	beq lbl_8033B90C
+/* 8033B8E8 00338848  7C 1F 00 D0 */	neg r0, r31
+/* 8033B8EC 0033884C  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033B8F0 00338850  7C 00 FB 78 */	or r0, r0, r31
+/* 8033B8F4 00338854  38 81 00 08 */	addi r4, r1, 8
+/* 8033B8F8 00338858  54 00 0F FE */	srwi r0, r0, 0x1f
+/* 8033B8FC 0033885C  3B A0 00 01 */	li r29, 1
+/* 8033B900 00338860  98 01 00 08 */	stb r0, 8(r1)
+/* 8033B904 00338864  48 00 3F FD */	bl "__ct__15CZipInputStreamFQ24rstl24auto_ptr<12CInputStream>"
+/* 8033B908 00338868  7C 7E 1B 78 */	mr r30, r3
+lbl_8033B90C:
+/* 8033B90C 0033886C  7F A0 07 75 */	extsb. r0, r29
+/* 8033B910 00338870  41 82 00 30 */	beq lbl_8033B940
+/* 8033B914 00338874  88 01 00 08 */	lbz r0, 8(r1)
+/* 8033B918 00338878  28 00 00 00 */	cmplwi r0, 0
+/* 8033B91C 0033887C  41 82 00 24 */	beq lbl_8033B940
+/* 8033B920 00338880  80 61 00 0C */	lwz r3, 0xc(r1)
+/* 8033B924 00338884  28 03 00 00 */	cmplwi r3, 0
+/* 8033B928 00338888  41 82 00 18 */	beq lbl_8033B940
+/* 8033B92C 0033888C  81 83 00 00 */	lwz r12, 0(r3)
+/* 8033B930 00338890  38 80 00 01 */	li r4, 1
+/* 8033B934 00338894  81 8C 00 08 */	lwz r12, 8(r12)
+/* 8033B938 00338898  7D 89 03 A6 */	mtctr r12
+/* 8033B93C 0033889C  4E 80 04 21 */	bctrl 
+lbl_8033B940:
+/* 8033B940 003388A0  7F C3 F3 78 */	mr r3, r30
+/* 8033B944 003388A4  48 00 00 08 */	b lbl_8033B94C
+lbl_8033B948:
+/* 8033B948 003388A8  7F E3 FB 78 */	mr r3, r31
+lbl_8033B94C:
+/* 8033B94C 003388AC  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033B950 003388B0  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033B954 003388B4  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033B958 003388B8  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033B95C 003388BC  7C 08 03 A6 */	mtlr r0
+/* 8033B960 003388C0  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033B964 003388C4  4E 80 00 20 */	blr 
+
+.global LoadNewResourceSync__10CResLoaderFRC10SObjectTagPc
+LoadNewResourceSync__10CResLoaderFRC10SObjectTagPc:
+/* 8033B968 003388C8  94 21 FF D0 */	stwu r1, -0x30(r1)
+/* 8033B96C 003388CC  7C 08 02 A6 */	mflr r0
+/* 8033B970 003388D0  90 01 00 34 */	stw r0, 0x34(r1)
+/* 8033B974 003388D4  BF 61 00 1C */	stmw r27, 0x1c(r1)
+/* 8033B978 003388D8  7C 7B 1B 78 */	mr r27, r3
+/* 8033B97C 003388DC  7C BE 2B 78 */	mr r30, r5
+/* 8033B980 003388E0  48 00 07 39 */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033B984 003388E4  83 FB 00 50 */	lwz r31, 0x50(r27)
+/* 8033B988 003388E8  7C 7C 1B 78 */	mr r28, r3
+/* 8033B98C 003388EC  7F E3 FB 78 */	mr r3, r31
+/* 8033B990 003388F0  48 02 CC F1 */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033B994 003388F4  28 1E 00 00 */	cmplwi r30, 0
+/* 8033B998 003388F8  38 03 00 1F */	addi r0, r3, 0x1f
+/* 8033B99C 003388FC  54 1B 00 34 */	rlwinm r27, r0, 0, 0, 0x1a
+/* 8033B9A0 00338900  41 82 00 0C */	beq lbl_8033B9AC
+/* 8033B9A4 00338904  7F DD F3 78 */	mr r29, r30
+/* 8033B9A8 00338908  48 00 00 3C */	b lbl_8033B9E4
+lbl_8033B9AC:
+/* 8033B9AC 0033890C  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033B9B0 00338910  3C 80 80 3D */	lis r4, lbl_803D6AA8@ha
+/* 8033B9B4 00338914  38 A3 7A 38 */	addi r5, r3, lbl_803D7A38@l
+/* 8033B9B8 00338918  38 C4 6A A8 */	addi r6, r4, lbl_803D6AA8@l
+/* 8033B9BC 0033891C  38 61 00 10 */	addi r3, r1, 0x10
+/* 8033B9C0 00338920  38 80 FF FF */	li r4, -1
+/* 8033B9C4 00338924  4B F9 AA 11 */	bl __ct__10CCallStackFUiPCcPCc
+/* 8033B9C8 00338928  7C 67 1B 78 */	mr r7, r3
+/* 8033B9CC 0033892C  7F 63 DB 78 */	mr r3, r27
+/* 8033B9D0 00338930  38 80 00 02 */	li r4, 2
+/* 8033B9D4 00338934  38 A0 00 01 */	li r5, 1
+/* 8033B9D8 00338938  38 C0 00 00 */	li r6, 0
+/* 8033B9DC 0033893C  4B FD 9F B9 */	bl Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
+/* 8033B9E0 00338940  7C 7D 1B 78 */	mr r29, r3
+lbl_8033B9E4:
+/* 8033B9E4 00338944  7F E3 FB 78 */	mr r3, r31
+/* 8033B9E8 00338948  48 02 CC B9 */	bl GetOffset__Q28CPakFile8SResInfoCFv
+/* 8033B9EC 0033894C  7C 67 1B 78 */	mr r7, r3
+/* 8033B9F0 00338950  7F 83 E3 78 */	mr r3, r28
+/* 8033B9F4 00338954  7F A4 EB 78 */	mr r4, r29
+/* 8033B9F8 00338958  7F 65 DB 78 */	mr r5, r27
+/* 8033B9FC 0033895C  38 C0 00 00 */	li r6, 0
+/* 8033BA00 00338960  48 01 41 05 */	bl SyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
+/* 8033BA04 00338964  3C 80 80 3D */	lis r4, lbl_803D7A38@ha
+/* 8033BA08 00338968  38 60 00 24 */	li r3, 0x24
+/* 8033BA0C 0033896C  38 84 7A 38 */	addi r4, r4, lbl_803D7A38@l
+/* 8033BA10 00338970  38 A0 00 00 */	li r5, 0
+/* 8033BA14 00338974  4B FD 9E 59 */	bl __nw__FUlPCcPCc
+/* 8033BA18 00338978  7C 7C 1B 79 */	or. r28, r3, r3
+/* 8033BA1C 0033897C  41 82 00 30 */	beq lbl_8033BA4C
+/* 8033BA20 00338980  7C 1E 00 D0 */	neg r0, r30
+/* 8033BA24 00338984  7F E3 FB 78 */	mr r3, r31
+/* 8033BA28 00338988  7C 00 F3 78 */	or r0, r0, r30
+/* 8033BA2C 0033898C  54 1E 0F FE */	srwi r30, r0, 0x1f
+/* 8033BA30 00338990  48 02 CC 51 */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033BA34 00338994  7C 65 1B 78 */	mr r5, r3
+/* 8033BA38 00338998  7F 83 E3 78 */	mr r3, r28
+/* 8033BA3C 0033899C  7F A4 EB 78 */	mr r4, r29
+/* 8033BA40 003389A0  7F C6 F3 78 */	mr r6, r30
+/* 8033BA44 003389A4  48 00 37 C9 */	bl __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip
+/* 8033BA48 003389A8  7C 7C 1B 78 */	mr r28, r3
+lbl_8033BA4C:
+/* 8033BA4C 003389AC  7F E3 FB 78 */	mr r3, r31
+/* 8033BA50 003389B0  48 02 CC 19 */	bl IsCompressed__Q28CPakFile8SResInfoCFv
+/* 8033BA54 003389B4  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BA58 003389B8  41 82 00 8C */	beq lbl_8033BAE4
+/* 8033BA5C 003389BC  7F 83 E3 78 */	mr r3, r28
+/* 8033BA60 003389C0  48 00 32 25 */	bl ReadLong__12CInputStreamFv
+/* 8033BA64 003389C4  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033BA68 003389C8  3B 60 00 00 */	li r27, 0
+/* 8033BA6C 003389CC  38 83 7A 38 */	addi r4, r3, lbl_803D7A38@l
+/* 8033BA70 003389D0  38 A0 00 00 */	li r5, 0
+/* 8033BA74 003389D4  38 60 00 34 */	li r3, 0x34
+/* 8033BA78 003389D8  4B FD 9D F5 */	bl __nw__FUlPCcPCc
+/* 8033BA7C 003389DC  7C 7D 1B 79 */	or. r29, r3, r3
+/* 8033BA80 003389E0  41 82 00 28 */	beq lbl_8033BAA8
+/* 8033BA84 003389E4  7C 1C 00 D0 */	neg r0, r28
+/* 8033BA88 003389E8  93 81 00 0C */	stw r28, 0xc(r1)
+/* 8033BA8C 003389EC  7C 00 E3 78 */	or r0, r0, r28
+/* 8033BA90 003389F0  38 81 00 08 */	addi r4, r1, 8
+/* 8033BA94 003389F4  54 00 0F FE */	srwi r0, r0, 0x1f
+/* 8033BA98 003389F8  3B 60 00 01 */	li r27, 1
+/* 8033BA9C 003389FC  98 01 00 08 */	stb r0, 8(r1)
+/* 8033BAA0 00338A00  48 00 3E 61 */	bl "__ct__15CZipInputStreamFQ24rstl24auto_ptr<12CInputStream>"
+/* 8033BAA4 00338A04  7C 7D 1B 78 */	mr r29, r3
+lbl_8033BAA8:
+/* 8033BAA8 00338A08  7F 60 07 75 */	extsb. r0, r27
+/* 8033BAAC 00338A0C  41 82 00 30 */	beq lbl_8033BADC
+/* 8033BAB0 00338A10  88 01 00 08 */	lbz r0, 8(r1)
+/* 8033BAB4 00338A14  28 00 00 00 */	cmplwi r0, 0
+/* 8033BAB8 00338A18  41 82 00 24 */	beq lbl_8033BADC
+/* 8033BABC 00338A1C  80 61 00 0C */	lwz r3, 0xc(r1)
+/* 8033BAC0 00338A20  28 03 00 00 */	cmplwi r3, 0
+/* 8033BAC4 00338A24  41 82 00 18 */	beq lbl_8033BADC
+/* 8033BAC8 00338A28  81 83 00 00 */	lwz r12, 0(r3)
+/* 8033BACC 00338A2C  38 80 00 01 */	li r4, 1
+/* 8033BAD0 00338A30  81 8C 00 08 */	lwz r12, 8(r12)
+/* 8033BAD4 00338A34  7D 89 03 A6 */	mtctr r12
+/* 8033BAD8 00338A38  4E 80 04 21 */	bctrl 
+lbl_8033BADC:
+/* 8033BADC 00338A3C  7F A3 EB 78 */	mr r3, r29
+/* 8033BAE0 00338A40  48 00 00 08 */	b lbl_8033BAE8
+lbl_8033BAE4:
+/* 8033BAE4 00338A44  7F 83 E3 78 */	mr r3, r28
+lbl_8033BAE8:
+/* 8033BAE8 00338A48  BB 61 00 1C */	lmw r27, 0x1c(r1)
+/* 8033BAEC 00338A4C  80 01 00 34 */	lwz r0, 0x34(r1)
+/* 8033BAF0 00338A50  7C 08 03 A6 */	mtlr r0
+/* 8033BAF4 00338A54  38 21 00 30 */	addi r1, r1, 0x30
+/* 8033BAF8 00338A58  4E 80 00 20 */	blr 
+
+.global LoadResourcePartAsync__10CResLoaderFRC10SObjectTagiiPc
+LoadResourcePartAsync__10CResLoaderFRC10SObjectTagiiPc:
+/* 8033BAFC 00338A5C  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033BB00 00338A60  7C 08 02 A6 */	mflr r0
+/* 8033BB04 00338A64  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033BB08 00338A68  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033BB0C 00338A6C  7C 7F 1B 78 */	mr r31, r3
+/* 8033BB10 00338A70  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033BB14 00338A74  7C FE 3B 78 */	mr r30, r7
+/* 8033BB18 00338A78  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033BB1C 00338A7C  7C DD 33 78 */	mr r29, r6
+/* 8033BB20 00338A80  93 81 00 10 */	stw r28, 0x10(r1)
+/* 8033BB24 00338A84  7C BC 2B 78 */	mr r28, r5
+/* 8033BB28 00338A88  48 00 05 91 */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033BB2C 00338A8C  7C 60 1B 78 */	mr r0, r3
+/* 8033BB30 00338A90  80 7F 00 50 */	lwz r3, 0x50(r31)
+/* 8033BB34 00338A94  7C 1F 03 78 */	mr r31, r0
+/* 8033BB38 00338A98  48 02 CB 69 */	bl GetOffset__Q28CPakFile8SResInfoCFv
+/* 8033BB3C 00338A9C  7C 60 1B 78 */	mr r0, r3
+/* 8033BB40 00338AA0  7F E3 FB 78 */	mr r3, r31
+/* 8033BB44 00338AA4  7F C4 F3 78 */	mr r4, r30
+/* 8033BB48 00338AA8  7F A5 EB 78 */	mr r5, r29
+/* 8033BB4C 00338AAC  7C FC 02 14 */	add r7, r28, r0
+/* 8033BB50 00338AB0  38 C0 00 00 */	li r6, 0
+/* 8033BB54 00338AB4  48 01 3E 6D */	bl AsyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
+/* 8033BB58 00338AB8  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033BB5C 00338ABC  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033BB60 00338AC0  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033BB64 00338AC4  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033BB68 00338AC8  83 81 00 10 */	lwz r28, 0x10(r1)
+/* 8033BB6C 00338ACC  7C 08 03 A6 */	mtlr r0
+/* 8033BB70 00338AD0  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033BB74 00338AD4  4E 80 00 20 */	blr 
+
+.global LoadResourceAsync__10CResLoaderFRC10SObjectTagPc
+LoadResourceAsync__10CResLoaderFRC10SObjectTagPc:
+/* 8033BB78 00338AD8  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033BB7C 00338ADC  7C 08 02 A6 */	mflr r0
+/* 8033BB80 00338AE0  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033BB84 00338AE4  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033BB88 00338AE8  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033BB8C 00338AEC  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033BB90 00338AF0  7C 7D 1B 78 */	mr r29, r3
+/* 8033BB94 00338AF4  93 81 00 10 */	stw r28, 0x10(r1)
+/* 8033BB98 00338AF8  7C BC 2B 78 */	mr r28, r5
+/* 8033BB9C 00338AFC  48 00 05 1D */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033BBA0 00338B00  83 BD 00 50 */	lwz r29, 0x50(r29)
+/* 8033BBA4 00338B04  7C 7E 1B 78 */	mr r30, r3
+/* 8033BBA8 00338B08  7F A3 EB 78 */	mr r3, r29
+/* 8033BBAC 00338B0C  48 02 CA D5 */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033BBB0 00338B10  7C 7F 1B 78 */	mr r31, r3
+/* 8033BBB4 00338B14  7F A3 EB 78 */	mr r3, r29
+/* 8033BBB8 00338B18  48 02 CA E9 */	bl GetOffset__Q28CPakFile8SResInfoCFv
+/* 8033BBBC 00338B1C  38 1F 00 1F */	addi r0, r31, 0x1f
+/* 8033BBC0 00338B20  7C 67 1B 78 */	mr r7, r3
+/* 8033BBC4 00338B24  7F C3 F3 78 */	mr r3, r30
+/* 8033BBC8 00338B28  7F 84 E3 78 */	mr r4, r28
+/* 8033BBCC 00338B2C  54 05 00 34 */	rlwinm r5, r0, 0, 0, 0x1a
+/* 8033BBD0 00338B30  38 C0 00 00 */	li r6, 0
+/* 8033BBD4 00338B34  48 01 3D ED */	bl AsyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
+/* 8033BBD8 00338B38  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033BBDC 00338B3C  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033BBE0 00338B40  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033BBE4 00338B44  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033BBE8 00338B48  83 81 00 10 */	lwz r28, 0x10(r1)
+/* 8033BBEC 00338B4C  7C 08 03 A6 */	mtlr r0
+/* 8033BBF0 00338B50  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033BBF4 00338B54  4E 80 00 20 */	blr 
+
+.global GetResourceCompression__10CResLoaderCFRC10SObjectTag
+GetResourceCompression__10CResLoaderCFRC10SObjectTag:
+/* 8033BBF8 00338B58  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033BBFC 00338B5C  7C 08 02 A6 */	mflr r0
+/* 8033BC00 00338B60  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033BC04 00338B64  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033BC08 00338B68  7C 7F 1B 78 */	mr r31, r3
+/* 8033BC0C 00338B6C  80 84 00 04 */	lwz r4, 4(r4)
+/* 8033BC10 00338B70  48 00 02 69 */	bl FindResource__10CResLoaderCFUi
+/* 8033BC14 00338B74  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BC18 00338B78  41 82 00 20 */	beq lbl_8033BC38
+/* 8033BC1C 00338B7C  80 7F 00 50 */	lwz r3, 0x50(r31)
+/* 8033BC20 00338B80  48 02 CA 49 */	bl IsCompressed__Q28CPakFile8SResInfoCFv
+/* 8033BC24 00338B84  54 63 06 3E */	clrlwi r3, r3, 0x18
+/* 8033BC28 00338B88  7C 03 00 D0 */	neg r0, r3
+/* 8033BC2C 00338B8C  7C 00 1B 78 */	or r0, r0, r3
+/* 8033BC30 00338B90  54 03 0F FE */	srwi r3, r0, 0x1f
+/* 8033BC34 00338B94  48 00 00 08 */	b lbl_8033BC3C
+lbl_8033BC38:
+/* 8033BC38 00338B98  38 60 00 00 */	li r3, 0
+lbl_8033BC3C:
+/* 8033BC3C 00338B9C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033BC40 00338BA0  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8033BC44 00338BA4  7C 08 03 A6 */	mtlr r0
+/* 8033BC48 00338BA8  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033BC4C 00338BAC  4E 80 00 20 */	blr 
+
+.global ResourceSize__10CResLoaderCFRC10SObjectTag
+ResourceSize__10CResLoaderCFRC10SObjectTag:
+/* 8033BC50 00338BB0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033BC54 00338BB4  7C 08 02 A6 */	mflr r0
+/* 8033BC58 00338BB8  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033BC5C 00338BBC  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033BC60 00338BC0  7C 7F 1B 78 */	mr r31, r3
+/* 8033BC64 00338BC4  80 84 00 04 */	lwz r4, 4(r4)
+/* 8033BC68 00338BC8  48 00 02 11 */	bl FindResource__10CResLoaderCFUi
+/* 8033BC6C 00338BCC  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BC70 00338BD0  41 82 00 10 */	beq lbl_8033BC80
+/* 8033BC74 00338BD4  80 7F 00 50 */	lwz r3, 0x50(r31)
+/* 8033BC78 00338BD8  48 02 CA 09 */	bl GetSize__Q28CPakFile8SResInfoCFv
+/* 8033BC7C 00338BDC  48 00 00 08 */	b lbl_8033BC84
+lbl_8033BC80:
+/* 8033BC80 00338BE0  38 60 00 00 */	li r3, 0
+lbl_8033BC84:
+/* 8033BC84 00338BE4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033BC88 00338BE8  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8033BC8C 00338BEC  7C 08 03 A6 */	mtlr r0
+/* 8033BC90 00338BF0  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033BC94 00338BF4  4E 80 00 20 */	blr 
+
+.global ResourceExists__10CResLoaderCFRC10SObjectTag
+ResourceExists__10CResLoaderCFRC10SObjectTag:
+/* 8033BC98 00338BF8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033BC9C 00338BFC  7C 08 02 A6 */	mflr r0
+/* 8033BCA0 00338C00  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033BCA4 00338C04  80 84 00 04 */	lwz r4, 4(r4)
+/* 8033BCA8 00338C08  48 00 01 D1 */	bl FindResource__10CResLoaderCFUi
+/* 8033BCAC 00338C0C  54 63 06 3E */	clrlwi r3, r3, 0x18
+/* 8033BCB0 00338C10  7C 03 00 D0 */	neg r0, r3
+/* 8033BCB4 00338C14  7C 00 1B 78 */	or r0, r0, r3
+/* 8033BCB8 00338C18  54 03 0F FE */	srwi r3, r0, 0x1f
+/* 8033BCBC 00338C1C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033BCC0 00338C20  7C 08 03 A6 */	mtlr r0
+/* 8033BCC4 00338C24  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033BCC8 00338C28  4E 80 00 20 */	blr 
+
+.global GetResourceTypeById__10CResLoaderCFUi
+GetResourceTypeById__10CResLoaderCFUi:
+/* 8033BCCC 00338C2C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033BCD0 00338C30  7C 08 02 A6 */	mflr r0
+/* 8033BCD4 00338C34  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033BCD8 00338C38  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033BCDC 00338C3C  7C 7F 1B 78 */	mr r31, r3
+/* 8033BCE0 00338C40  48 00 01 99 */	bl FindResource__10CResLoaderCFUi
+/* 8033BCE4 00338C44  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BCE8 00338C48  41 82 00 10 */	beq lbl_8033BCF8
+/* 8033BCEC 00338C4C  80 7F 00 50 */	lwz r3, 0x50(r31)
+/* 8033BCF0 00338C50  48 02 C9 CD */	bl GetType__Q28CPakFile8SResInfoCFv
+/* 8033BCF4 00338C54  48 00 00 08 */	b lbl_8033BCFC
+lbl_8033BCF8:
+/* 8033BCF8 00338C58  38 60 00 00 */	li r3, 0
+lbl_8033BCFC:
+/* 8033BCFC 00338C5C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033BD00 00338C60  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8033BD04 00338C64  7C 08 03 A6 */	mtlr r0
+/* 8033BD08 00338C68  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033BD0C 00338C6C  4E 80 00 20 */	blr 
+
+.global GetResourceIdByName__10CResLoaderCFPCc
+GetResourceIdByName__10CResLoaderCFPCc:
+/* 8033BD10 00338C70  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033BD14 00338C74  7C 08 02 A6 */	mflr r0
+/* 8033BD18 00338C78  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033BD1C 00338C7C  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033BD20 00338C80  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033BD24 00338C84  7C 9E 23 78 */	mr r30, r4
+/* 8033BD28 00338C88  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033BD2C 00338C8C  7C 7D 1B 78 */	mr r29, r3
+/* 8033BD30 00338C90  83 E3 00 04 */	lwz r31, 4(r3)
+/* 8033BD34 00338C94  48 00 00 20 */	b lbl_8033BD54
+lbl_8033BD38:
+/* 8033BD38 00338C98  80 7F 00 0C */	lwz r3, 0xc(r31)
+/* 8033BD3C 00338C9C  7F C4 F3 78 */	mr r4, r30
+/* 8033BD40 00338CA0  48 02 B9 05 */	bl GetResIdByName__8CPakFileCFPCc
+/* 8033BD44 00338CA4  28 03 00 00 */	cmplwi r3, 0
+/* 8033BD48 00338CA8  41 82 00 08 */	beq lbl_8033BD50
+/* 8033BD4C 00338CAC  48 00 00 48 */	b lbl_8033BD94
+lbl_8033BD50:
+/* 8033BD50 00338CB0  83 FF 00 04 */	lwz r31, 4(r31)
+lbl_8033BD54:
+/* 8033BD54 00338CB4  80 1D 00 08 */	lwz r0, 8(r29)
+/* 8033BD58 00338CB8  7C 1F 00 40 */	cmplw r31, r0
+/* 8033BD5C 00338CBC  40 82 FF DC */	bne lbl_8033BD38
+/* 8033BD60 00338CC0  83 FD 00 1C */	lwz r31, 0x1c(r29)
+/* 8033BD64 00338CC4  48 00 00 20 */	b lbl_8033BD84
+lbl_8033BD68:
+/* 8033BD68 00338CC8  80 7F 00 0C */	lwz r3, 0xc(r31)
+/* 8033BD6C 00338CCC  7F C4 F3 78 */	mr r4, r30
+/* 8033BD70 00338CD0  48 02 B8 D5 */	bl GetResIdByName__8CPakFileCFPCc
+/* 8033BD74 00338CD4  28 03 00 00 */	cmplwi r3, 0
+/* 8033BD78 00338CD8  41 82 00 08 */	beq lbl_8033BD80
+/* 8033BD7C 00338CDC  48 00 00 18 */	b lbl_8033BD94
+lbl_8033BD80:
+/* 8033BD80 00338CE0  83 FF 00 04 */	lwz r31, 4(r31)
+lbl_8033BD84:
+/* 8033BD84 00338CE4  80 1D 00 20 */	lwz r0, 0x20(r29)
+/* 8033BD88 00338CE8  7C 1F 00 40 */	cmplw r31, r0
+/* 8033BD8C 00338CEC  40 82 FF DC */	bne lbl_8033BD68
+/* 8033BD90 00338CF0  38 60 00 00 */	li r3, 0
+lbl_8033BD94:
+/* 8033BD94 00338CF4  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033BD98 00338CF8  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033BD9C 00338CFC  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033BDA0 00338D00  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033BDA4 00338D04  7C 08 03 A6 */	mtlr r0
+/* 8033BDA8 00338D08  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033BDAC 00338D0C  4E 80 00 20 */	blr 
+
+.global AreAllPaksLoaded__10CResLoaderCFv
+AreAllPaksLoaded__10CResLoaderCFv:
+/* 8033BDB0 00338D10  80 03 00 44 */	lwz r0, 0x44(r3)
+/* 8033BDB4 00338D14  7C 00 00 34 */	cntlzw r0, r0
+/* 8033BDB8 00338D18  54 03 D9 7E */	srwi r3, r0, 5
+/* 8033BDBC 00338D1C  4E 80 00 20 */	blr 
+
+.global AsyncIdlePakLoading__10CResLoaderFv
+AsyncIdlePakLoading__10CResLoaderFv:
+/* 8033BDC0 00338D20  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033BDC4 00338D24  7C 08 02 A6 */	mflr r0
+/* 8033BDC8 00338D28  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033BDCC 00338D2C  BF 61 00 0C */	stmw r27, 0xc(r1)
+/* 8033BDD0 00338D30  7C 7B 1B 78 */	mr r27, r3
+/* 8033BDD4 00338D34  3B 80 00 00 */	li r28, 0
+/* 8033BDD8 00338D38  83 A3 00 34 */	lwz r29, 0x34(r3)
+/* 8033BDDC 00338D3C  48 00 00 60 */	b lbl_8033BE3C
+lbl_8033BDE0:
+/* 8033BDE0 00338D40  83 DD 00 0C */	lwz r30, 0xc(r29)
+/* 8033BDE4 00338D44  88 1E 00 28 */	lbz r0, 0x28(r30)
+/* 8033BDE8 00338D48  54 1F D7 FF */	rlwinm. r31, r0, 0x1a, 0x1f, 0x1f
+/* 8033BDEC 00338D4C  40 82 00 0C */	bne lbl_8033BDF8
+/* 8033BDF0 00338D50  57 80 06 3F */	clrlwi. r0, r28, 0x18
+/* 8033BDF4 00338D54  40 82 00 0C */	bne lbl_8033BE00
+lbl_8033BDF8:
+/* 8033BDF8 00338D58  7F C3 F3 78 */	mr r3, r30
+/* 8033BDFC 00338D5C  48 02 C5 55 */	bl AsyncIdle__8CPakFileFv
+lbl_8033BE00:
+/* 8033BE00 00338D60  80 1E 00 2C */	lwz r0, 0x2c(r30)
+/* 8033BE04 00338D64  2C 00 00 03 */	cmpwi r0, 3
+/* 8033BE08 00338D68  40 82 00 24 */	bne lbl_8033BE2C
+/* 8033BE0C 00338D6C  7F 63 DB 78 */	mr r3, r27
+/* 8033BE10 00338D70  38 9D 00 08 */	addi r4, r29, 8
+/* 8033BE14 00338D74  48 00 03 AD */	bl "MoveToCorrectLoadedList__10CResLoaderFRCQ24rstl19auto_ptr<8CPakFile>"
+/* 8033BE18 00338D78  7F A4 EB 78 */	mr r4, r29
+/* 8033BE1C 00338D7C  38 7B 00 30 */	addi r3, r27, 0x30
+/* 8033BE20 00338D80  48 00 06 71 */	bl sub_8033c490
+/* 8033BE24 00338D84  7C 7D 1B 78 */	mr r29, r3
+/* 8033BE28 00338D88  48 00 00 14 */	b lbl_8033BE3C
+lbl_8033BE2C:
+/* 8033BE2C 00338D8C  28 1F 00 00 */	cmplwi r31, 0
+/* 8033BE30 00338D90  40 82 00 08 */	bne lbl_8033BE38
+/* 8033BE34 00338D94  3B 80 00 01 */	li r28, 1
+lbl_8033BE38:
+/* 8033BE38 00338D98  83 BD 00 04 */	lwz r29, 4(r29)
+lbl_8033BE3C:
+/* 8033BE3C 00338D9C  80 1B 00 38 */	lwz r0, 0x38(r27)
+/* 8033BE40 00338DA0  7C 1D 00 40 */	cmplw r29, r0
+/* 8033BE44 00338DA4  40 82 FF 9C */	bne lbl_8033BDE0
+/* 8033BE48 00338DA8  BB 61 00 0C */	lmw r27, 0xc(r1)
+/* 8033BE4C 00338DAC  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033BE50 00338DB0  7C 08 03 A6 */	mtlr r0
+/* 8033BE54 00338DB4  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033BE58 00338DB8  4E 80 00 20 */	blr 
+
+.global sub_8033be5c
+sub_8033be5c:
+/* 8033BE5C 00338DBC  80 A3 00 20 */	lwz r5, 0x20(r3)
+/* 8033BE60 00338DC0  38 80 FF FF */	li r4, -1
+/* 8033BE64 00338DC4  38 00 00 00 */	li r0, 0
+/* 8033BE68 00338DC8  90 A3 00 48 */	stw r5, 0x48(r3)
+/* 8033BE6C 00338DCC  90 83 00 4C */	stw r4, 0x4c(r3)
+/* 8033BE70 00338DD0  90 03 00 50 */	stw r0, 0x50(r3)
+/* 8033BE74 00338DD4  4E 80 00 20 */	blr 
+
+.global FindResource__10CResLoaderCFUi
+FindResource__10CResLoaderCFUi:
+/* 8033BE78 00338DD8  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033BE7C 00338DDC  7C 08 02 A6 */	mflr r0
+/* 8033BE80 00338DE0  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033BE84 00338DE4  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033BE88 00338DE8  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033BE8C 00338DEC  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033BE90 00338DF0  7C 7D 1B 78 */	mr r29, r3
+/* 8033BE94 00338DF4  80 03 00 4C */	lwz r0, 0x4c(r3)
+/* 8033BE98 00338DF8  7C 00 20 40 */	cmplw r0, r4
+/* 8033BE9C 00338DFC  40 82 00 0C */	bne lbl_8033BEA8
+/* 8033BEA0 00338E00  38 60 00 01 */	li r3, 1
+/* 8033BEA4 00338E04  48 00 00 B8 */	b lbl_8033BF5C
+lbl_8033BEA8:
+/* 8033BEA8 00338E08  83 FD 00 04 */	lwz r31, 4(r29)
+/* 8033BEAC 00338E0C  7C 9E 23 78 */	mr r30, r4
+/* 8033BEB0 00338E10  48 00 00 28 */	b lbl_8033BED8
+lbl_8033BEB4:
+/* 8033BEB4 00338E14  80 9F 00 0C */	lwz r4, 0xc(r31)
+/* 8033BEB8 00338E18  7F A3 EB 78 */	mr r3, r29
+/* 8033BEBC 00338E1C  7F C5 F3 78 */	mr r5, r30
+/* 8033BEC0 00338E20  48 00 02 A5 */	bl CacheFromPak__10CResLoaderCFRC8CPakFileUi
+/* 8033BEC4 00338E24  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BEC8 00338E28  41 82 00 0C */	beq lbl_8033BED4
+/* 8033BECC 00338E2C  38 60 00 01 */	li r3, 1
+/* 8033BED0 00338E30  48 00 00 8C */	b lbl_8033BF5C
+lbl_8033BED4:
+/* 8033BED4 00338E34  83 FF 00 04 */	lwz r31, 4(r31)
+lbl_8033BED8:
+/* 8033BED8 00338E38  80 1D 00 08 */	lwz r0, 8(r29)
+/* 8033BEDC 00338E3C  7C 1F 00 40 */	cmplw r31, r0
+/* 8033BEE0 00338E40  40 82 FF D4 */	bne lbl_8033BEB4
+/* 8033BEE4 00338E44  80 7D 00 48 */	lwz r3, 0x48(r29)
+/* 8033BEE8 00338E48  80 1D 00 20 */	lwz r0, 0x20(r29)
+/* 8033BEEC 00338E4C  7C 03 00 40 */	cmplw r3, r0
+/* 8033BEF0 00338E50  41 82 00 24 */	beq lbl_8033BF14
+/* 8033BEF4 00338E54  80 83 00 0C */	lwz r4, 0xc(r3)
+/* 8033BEF8 00338E58  7F A3 EB 78 */	mr r3, r29
+/* 8033BEFC 00338E5C  7F C5 F3 78 */	mr r5, r30
+/* 8033BF00 00338E60  48 00 02 65 */	bl CacheFromPak__10CResLoaderCFRC8CPakFileUi
+/* 8033BF04 00338E64  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BF08 00338E68  41 82 00 0C */	beq lbl_8033BF14
+/* 8033BF0C 00338E6C  38 60 00 01 */	li r3, 1
+/* 8033BF10 00338E70  48 00 00 4C */	b lbl_8033BF5C
+lbl_8033BF14:
+/* 8033BF14 00338E74  83 FD 00 1C */	lwz r31, 0x1c(r29)
+/* 8033BF18 00338E78  48 00 00 34 */	b lbl_8033BF4C
+lbl_8033BF1C:
+/* 8033BF1C 00338E7C  80 1D 00 48 */	lwz r0, 0x48(r29)
+/* 8033BF20 00338E80  7C 00 F8 40 */	cmplw r0, r31
+/* 8033BF24 00338E84  41 82 00 24 */	beq lbl_8033BF48
+/* 8033BF28 00338E88  80 9F 00 0C */	lwz r4, 0xc(r31)
+/* 8033BF2C 00338E8C  7F A3 EB 78 */	mr r3, r29
+/* 8033BF30 00338E90  7F C5 F3 78 */	mr r5, r30
+/* 8033BF34 00338E94  48 00 02 31 */	bl CacheFromPak__10CResLoaderCFRC8CPakFileUi
+/* 8033BF38 00338E98  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BF3C 00338E9C  41 82 00 0C */	beq lbl_8033BF48
+/* 8033BF40 00338EA0  38 60 00 01 */	li r3, 1
+/* 8033BF44 00338EA4  48 00 00 18 */	b lbl_8033BF5C
+lbl_8033BF48:
+/* 8033BF48 00338EA8  83 FF 00 04 */	lwz r31, 4(r31)
+lbl_8033BF4C:
+/* 8033BF4C 00338EAC  80 1D 00 20 */	lwz r0, 0x20(r29)
+/* 8033BF50 00338EB0  7C 1F 00 40 */	cmplw r31, r0
+/* 8033BF54 00338EB4  40 82 FF C8 */	bne lbl_8033BF1C
+/* 8033BF58 00338EB8  38 60 00 00 */	li r3, 0
+lbl_8033BF5C:
+/* 8033BF5C 00338EBC  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033BF60 00338EC0  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033BF64 00338EC4  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033BF68 00338EC8  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033BF6C 00338ECC  7C 08 03 A6 */	mtlr r0
+/* 8033BF70 00338ED0  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033BF74 00338ED4  4E 80 00 20 */	blr 
+
+.global FindResource__10CResLoaderCFRC10SObjectTag
+FindResource__10CResLoaderCFRC10SObjectTag:
+/* 8033BF78 00338ED8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033BF7C 00338EDC  7C 08 02 A6 */	mflr r0
+/* 8033BF80 00338EE0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033BF84 00338EE4  38 00 00 00 */	li r0, 0
+/* 8033BF88 00338EE8  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033BF8C 00338EEC  7C 7F 1B 78 */	mr r31, r3
+/* 8033BF90 00338EF0  98 03 00 54 */	stb r0, 0x54(r3)
+/* 8033BF94 00338EF4  48 00 01 25 */	bl FindResourceForLoad__10CResLoaderFRC10SObjectTag
+/* 8033BF98 00338EF8  38 00 00 01 */	li r0, 1
+/* 8033BF9C 00338EFC  98 1F 00 54 */	stb r0, 0x54(r31)
+/* 8033BFA0 00338F00  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033BFA4 00338F04  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8033BFA8 00338F08  7C 08 03 A6 */	mtlr r0
+/* 8033BFAC 00338F0C  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033BFB0 00338F10  4E 80 00 20 */	blr 
+
+.global FindResourceForLoad__10CResLoaderFUi
+FindResourceForLoad__10CResLoaderFUi:
+/* 8033BFB4 00338F14  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033BFB8 00338F18  7C 08 02 A6 */	mflr r0
+/* 8033BFBC 00338F1C  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033BFC0 00338F20  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033BFC4 00338F24  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033BFC8 00338F28  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033BFCC 00338F2C  7C 9D 23 78 */	mr r29, r4
+/* 8033BFD0 00338F30  93 81 00 10 */	stw r28, 0x10(r1)
+/* 8033BFD4 00338F34  7C 7C 1B 78 */	mr r28, r3
+/* 8033BFD8 00338F38  83 C3 00 04 */	lwz r30, 4(r3)
+/* 8033BFDC 00338F3C  48 00 00 2C */	b lbl_8033C008
+lbl_8033BFE0:
+/* 8033BFE0 00338F40  83 FE 00 0C */	lwz r31, 0xc(r30)
+/* 8033BFE4 00338F44  7F 83 E3 78 */	mr r3, r28
+/* 8033BFE8 00338F48  7F A5 EB 78 */	mr r5, r29
+/* 8033BFEC 00338F4C  7F E4 FB 78 */	mr r4, r31
+/* 8033BFF0 00338F50  48 00 01 75 */	bl CacheFromPak__10CResLoaderCFRC8CPakFileUi
+/* 8033BFF4 00338F54  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033BFF8 00338F58  41 82 00 0C */	beq lbl_8033C004
+/* 8033BFFC 00338F5C  7F E3 FB 78 */	mr r3, r31
+/* 8033C000 00338F60  48 00 00 98 */	b lbl_8033C098
+lbl_8033C004:
+/* 8033C004 00338F64  83 DE 00 04 */	lwz r30, 4(r30)
+lbl_8033C008:
+/* 8033C008 00338F68  80 1C 00 08 */	lwz r0, 8(r28)
+/* 8033C00C 00338F6C  7C 1E 00 40 */	cmplw r30, r0
+/* 8033C010 00338F70  40 82 FF D0 */	bne lbl_8033BFE0
+/* 8033C014 00338F74  80 7C 00 48 */	lwz r3, 0x48(r28)
+/* 8033C018 00338F78  80 1C 00 20 */	lwz r0, 0x20(r28)
+/* 8033C01C 00338F7C  7C 03 00 40 */	cmplw r3, r0
+/* 8033C020 00338F80  41 82 00 28 */	beq lbl_8033C048
+/* 8033C024 00338F84  83 E3 00 0C */	lwz r31, 0xc(r3)
+/* 8033C028 00338F88  7F 83 E3 78 */	mr r3, r28
+/* 8033C02C 00338F8C  7F A5 EB 78 */	mr r5, r29
+/* 8033C030 00338F90  7F E4 FB 78 */	mr r4, r31
+/* 8033C034 00338F94  48 00 00 A9 */	bl CacheFromPakForLoad__10CResLoaderFR8CPakFileUi
+/* 8033C038 00338F98  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033C03C 00338F9C  41 82 00 0C */	beq lbl_8033C048
+/* 8033C040 00338FA0  7F E3 FB 78 */	mr r3, r31
+/* 8033C044 00338FA4  48 00 00 54 */	b lbl_8033C098
+lbl_8033C048:
+/* 8033C048 00338FA8  83 DC 00 1C */	lwz r30, 0x1c(r28)
+/* 8033C04C 00338FAC  48 00 00 3C */	b lbl_8033C088
+lbl_8033C050:
+/* 8033C050 00338FB0  80 1C 00 48 */	lwz r0, 0x48(r28)
+/* 8033C054 00338FB4  83 FE 00 0C */	lwz r31, 0xc(r30)
+/* 8033C058 00338FB8  7C 00 F0 40 */	cmplw r0, r30
+/* 8033C05C 00338FBC  41 82 00 28 */	beq lbl_8033C084
+/* 8033C060 00338FC0  7F 83 E3 78 */	mr r3, r28
+/* 8033C064 00338FC4  7F E4 FB 78 */	mr r4, r31
+/* 8033C068 00338FC8  7F A5 EB 78 */	mr r5, r29
+/* 8033C06C 00338FCC  48 00 00 71 */	bl CacheFromPakForLoad__10CResLoaderFR8CPakFileUi
+/* 8033C070 00338FD0  54 60 06 3F */	clrlwi. r0, r3, 0x18
+/* 8033C074 00338FD4  41 82 00 10 */	beq lbl_8033C084
+/* 8033C078 00338FD8  93 DC 00 48 */	stw r30, 0x48(r28)
+/* 8033C07C 00338FDC  7F E3 FB 78 */	mr r3, r31
+/* 8033C080 00338FE0  48 00 00 18 */	b lbl_8033C098
+lbl_8033C084:
+/* 8033C084 00338FE4  83 DE 00 04 */	lwz r30, 4(r30)
+lbl_8033C088:
+/* 8033C088 00338FE8  80 1C 00 20 */	lwz r0, 0x20(r28)
+/* 8033C08C 00338FEC  7C 1E 00 40 */	cmplw r30, r0
+/* 8033C090 00338FF0  40 82 FF C0 */	bne lbl_8033C050
+/* 8033C094 00338FF4  38 60 00 00 */	li r3, 0
+lbl_8033C098:
+/* 8033C098 00338FF8  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033C09C 00338FFC  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033C0A0 00339000  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033C0A4 00339004  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033C0A8 00339008  83 81 00 10 */	lwz r28, 0x10(r1)
+/* 8033C0AC 0033900C  7C 08 03 A6 */	mtlr r0
+/* 8033C0B0 00339010  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033C0B4 00339014  4E 80 00 20 */	blr 
+
+.global FindResourceForLoad__10CResLoaderFRC10SObjectTag
+FindResourceForLoad__10CResLoaderFRC10SObjectTag:
+/* 8033C0B8 00339018  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033C0BC 0033901C  7C 08 02 A6 */	mflr r0
+/* 8033C0C0 00339020  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033C0C4 00339024  80 84 00 04 */	lwz r4, 4(r4)
+/* 8033C0C8 00339028  4B FF FE ED */	bl FindResourceForLoad__10CResLoaderFUi
+/* 8033C0CC 0033902C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033C0D0 00339030  7C 08 03 A6 */	mtlr r0
+/* 8033C0D4 00339034  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033C0D8 00339038  4E 80 00 20 */	blr 
+
+.global CacheFromPakForLoad__10CResLoaderFR8CPakFileUi
+CacheFromPakForLoad__10CResLoaderFR8CPakFileUi:
+/* 8033C0DC 0033903C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033C0E0 00339040  7C 08 02 A6 */	mflr r0
+/* 8033C0E4 00339044  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033C0E8 00339048  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033C0EC 0033904C  7C BF 2B 78 */	mr r31, r5
+/* 8033C0F0 00339050  93 C1 00 08 */	stw r30, 8(r1)
+/* 8033C0F4 00339054  7C 7E 1B 78 */	mr r30, r3
+/* 8033C0F8 00339058  88 03 00 54 */	lbz r0, 0x54(r3)
+/* 8033C0FC 0033905C  28 00 00 00 */	cmplwi r0, 0
+/* 8033C100 00339060  41 82 00 20 */	beq lbl_8033C120
+/* 8033C104 00339064  7C 83 23 78 */	mr r3, r4
+/* 8033C108 00339068  7F E4 FB 78 */	mr r4, r31
+/* 8033C10C 0033906C  48 02 B5 E5 */	bl GetResInfoForLoadPreferForward__8CPakFileCFUi
+/* 8033C110 00339070  38 00 00 00 */	li r0, 0
+/* 8033C114 00339074  98 1E 00 54 */	stb r0, 0x54(r30)
+/* 8033C118 00339078  7C 60 1B 78 */	mr r0, r3
+/* 8033C11C 0033907C  48 00 00 14 */	b lbl_8033C130
+lbl_8033C120:
+/* 8033C120 00339080  7C 83 23 78 */	mr r3, r4
+/* 8033C124 00339084  7F E4 FB 78 */	mr r4, r31
+/* 8033C128 00339088  48 02 B7 45 */	bl GetResInfoForLoadDirectionless__8CPakFileCFUi
+/* 8033C12C 0033908C  7C 60 1B 78 */	mr r0, r3
+lbl_8033C130:
+/* 8033C130 00339090  28 00 00 00 */	cmplwi r0, 0
+/* 8033C134 00339094  40 82 00 0C */	bne lbl_8033C140
+/* 8033C138 00339098  38 60 00 00 */	li r3, 0
+/* 8033C13C 0033909C  48 00 00 10 */	b lbl_8033C14C
+lbl_8033C140:
+/* 8033C140 003390A0  93 FE 00 4C */	stw r31, 0x4c(r30)
+/* 8033C144 003390A4  38 60 00 01 */	li r3, 1
+/* 8033C148 003390A8  90 1E 00 50 */	stw r0, 0x50(r30)
+lbl_8033C14C:
+/* 8033C14C 003390AC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033C150 003390B0  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8033C154 003390B4  83 C1 00 08 */	lwz r30, 8(r1)
+/* 8033C158 003390B8  7C 08 03 A6 */	mtlr r0
+/* 8033C15C 003390BC  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033C160 003390C0  4E 80 00 20 */	blr 
+
+.global CacheFromPak__10CResLoaderCFRC8CPakFileUi
+CacheFromPak__10CResLoaderCFRC8CPakFileUi:
+/* 8033C164 003390C4  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8033C168 003390C8  7C 08 02 A6 */	mflr r0
+/* 8033C16C 003390CC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033C170 003390D0  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8033C174 003390D4  7C BF 2B 78 */	mr r31, r5
+/* 8033C178 003390D8  93 C1 00 08 */	stw r30, 8(r1)
+/* 8033C17C 003390DC  7C 7E 1B 78 */	mr r30, r3
+/* 8033C180 003390E0  7C 83 23 78 */	mr r3, r4
+/* 8033C184 003390E4  7F E4 FB 78 */	mr r4, r31
+/* 8033C188 003390E8  48 02 B8 45 */	bl GetResInfo__8CPakFileCFUi
+/* 8033C18C 003390EC  28 03 00 00 */	cmplwi r3, 0
+/* 8033C190 003390F0  40 82 00 0C */	bne lbl_8033C19C
+/* 8033C194 003390F4  38 60 00 00 */	li r3, 0
+/* 8033C198 003390F8  48 00 00 10 */	b lbl_8033C1A8
+lbl_8033C19C:
+/* 8033C19C 003390FC  93 FE 00 4C */	stw r31, 0x4c(r30)
+/* 8033C1A0 00339100  90 7E 00 50 */	stw r3, 0x50(r30)
+/* 8033C1A4 00339104  38 60 00 01 */	li r3, 1
+lbl_8033C1A8:
+/* 8033C1A8 00339108  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8033C1AC 0033910C  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8033C1B0 00339110  83 C1 00 08 */	lwz r30, 8(r1)
+/* 8033C1B4 00339114  7C 08 03 A6 */	mtlr r0
+/* 8033C1B8 00339118  38 21 00 10 */	addi r1, r1, 0x10
+/* 8033C1BC 0033911C  4E 80 00 20 */	blr 
+
+.global "MoveToCorrectLoadedList__10CResLoaderFRCQ24rstl19auto_ptr<8CPakFile>"
+"MoveToCorrectLoadedList__10CResLoaderFRCQ24rstl19auto_ptr<8CPakFile>":
+/* 8033C1C0 00339120  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033C1C4 00339124  7C 08 02 A6 */	mflr r0
+/* 8033C1C8 00339128  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033C1CC 0033912C  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033C1D0 00339130  7C 9F 23 78 */	mr r31, r4
+/* 8033C1D4 00339134  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033C1D8 00339138  7C 7E 1B 78 */	mr r30, r3
+/* 8033C1DC 0033913C  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033C1E0 00339140  93 81 00 10 */	stw r28, 0x10(r1)
+/* 8033C1E4 00339144  80 64 00 04 */	lwz r3, 4(r4)
+/* 8033C1E8 00339148  88 03 00 28 */	lbz r0, 0x28(r3)
+/* 8033C1EC 0033914C  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
+/* 8033C1F0 00339150  41 82 00 80 */	beq lbl_8033C270
+/* 8033C1F4 00339154  83 BE 00 08 */	lwz r29, 8(r30)
+/* 8033C1F8 00339158  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033C1FC 0033915C  38 83 7A 38 */	addi r4, r3, lbl_803D7A38@l
+/* 8033C200 00339160  38 A0 00 00 */	li r5, 0
+/* 8033C204 00339164  83 9D 00 00 */	lwz r28, 0(r29)
+/* 8033C208 00339168  38 60 00 10 */	li r3, 0x10
+/* 8033C20C 0033916C  4B FD 96 0D */	bl __nwa__FUlPCcPCc
+/* 8033C210 00339170  28 03 00 00 */	cmplwi r3, 0
+/* 8033C214 00339174  41 82 00 0C */	beq lbl_8033C220
+/* 8033C218 00339178  93 83 00 00 */	stw r28, 0(r3)
+/* 8033C21C 0033917C  93 A3 00 04 */	stw r29, 4(r3)
+lbl_8033C220:
+/* 8033C220 00339180  34 A3 00 08 */	addic. r5, r3, 8
+/* 8033C224 00339184  41 82 00 1C */	beq lbl_8033C240
+/* 8033C228 00339188  88 9F 00 00 */	lbz r4, 0(r31)
+/* 8033C22C 0033918C  38 00 00 00 */	li r0, 0
+/* 8033C230 00339190  98 85 00 00 */	stb r4, 0(r5)
+/* 8033C234 00339194  80 9F 00 04 */	lwz r4, 4(r31)
+/* 8033C238 00339198  90 85 00 04 */	stw r4, 4(r5)
+/* 8033C23C 0033919C  98 1F 00 00 */	stb r0, 0(r31)
+lbl_8033C240:
+/* 8033C240 003391A0  80 1E 00 04 */	lwz r0, 4(r30)
+/* 8033C244 003391A4  7C 1D 00 40 */	cmplw r29, r0
+/* 8033C248 003391A8  40 82 00 08 */	bne lbl_8033C250
+/* 8033C24C 003391AC  90 7E 00 04 */	stw r3, 4(r30)
+lbl_8033C250:
+/* 8033C250 003391B0  80 83 00 00 */	lwz r4, 0(r3)
+/* 8033C254 003391B4  90 64 00 04 */	stw r3, 4(r4)
+/* 8033C258 003391B8  80 83 00 04 */	lwz r4, 4(r3)
+/* 8033C25C 003391BC  90 64 00 00 */	stw r3, 0(r4)
+/* 8033C260 003391C0  80 7E 00 14 */	lwz r3, 0x14(r30)
+/* 8033C264 003391C4  38 03 00 01 */	addi r0, r3, 1
+/* 8033C268 003391C8  90 1E 00 14 */	stw r0, 0x14(r30)
+/* 8033C26C 003391CC  48 00 00 7C */	b lbl_8033C2E8
+lbl_8033C270:
+/* 8033C270 003391D0  83 BE 00 20 */	lwz r29, 0x20(r30)
+/* 8033C274 003391D4  3C 60 80 3D */	lis r3, lbl_803D7A38@ha
+/* 8033C278 003391D8  38 83 7A 38 */	addi r4, r3, lbl_803D7A38@l
+/* 8033C27C 003391DC  38 A0 00 00 */	li r5, 0
+/* 8033C280 003391E0  83 9D 00 00 */	lwz r28, 0(r29)
+/* 8033C284 003391E4  38 60 00 10 */	li r3, 0x10
+/* 8033C288 003391E8  4B FD 95 91 */	bl __nwa__FUlPCcPCc
+/* 8033C28C 003391EC  28 03 00 00 */	cmplwi r3, 0
+/* 8033C290 003391F0  41 82 00 0C */	beq lbl_8033C29C
+/* 8033C294 003391F4  93 83 00 00 */	stw r28, 0(r3)
+/* 8033C298 003391F8  93 A3 00 04 */	stw r29, 4(r3)
+lbl_8033C29C:
+/* 8033C29C 003391FC  34 A3 00 08 */	addic. r5, r3, 8
+/* 8033C2A0 00339200  41 82 00 1C */	beq lbl_8033C2BC
+/* 8033C2A4 00339204  88 9F 00 00 */	lbz r4, 0(r31)
+/* 8033C2A8 00339208  38 00 00 00 */	li r0, 0
+/* 8033C2AC 0033920C  98 85 00 00 */	stb r4, 0(r5)
+/* 8033C2B0 00339210  80 9F 00 04 */	lwz r4, 4(r31)
+/* 8033C2B4 00339214  90 85 00 04 */	stw r4, 4(r5)
+/* 8033C2B8 00339218  98 1F 00 00 */	stb r0, 0(r31)
+lbl_8033C2BC:
+/* 8033C2BC 0033921C  80 1E 00 1C */	lwz r0, 0x1c(r30)
+/* 8033C2C0 00339220  7C 1D 00 40 */	cmplw r29, r0
+/* 8033C2C4 00339224  40 82 00 08 */	bne lbl_8033C2CC
+/* 8033C2C8 00339228  90 7E 00 1C */	stw r3, 0x1c(r30)
+lbl_8033C2CC:
+/* 8033C2CC 0033922C  80 83 00 00 */	lwz r4, 0(r3)
+/* 8033C2D0 00339230  90 64 00 04 */	stw r3, 4(r4)
+/* 8033C2D4 00339234  80 83 00 04 */	lwz r4, 4(r3)
+/* 8033C2D8 00339238  90 64 00 00 */	stw r3, 0(r4)
+/* 8033C2DC 0033923C  80 7E 00 2C */	lwz r3, 0x2c(r30)
+/* 8033C2E0 00339240  38 03 00 01 */	addi r0, r3, 1
+/* 8033C2E4 00339244  90 1E 00 2C */	stw r0, 0x2c(r30)
+lbl_8033C2E8:
+/* 8033C2E8 00339248  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033C2EC 0033924C  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033C2F0 00339250  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033C2F4 00339254  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033C2F8 00339258  83 81 00 10 */	lwz r28, 0x10(r1)
+/* 8033C2FC 0033925C  7C 08 03 A6 */	mtlr r0
+/* 8033C300 00339260  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033C304 00339264  4E 80 00 20 */	blr 
+
+.global __dt__10CResLoaderFv
+__dt__10CResLoaderFv:
+/* 8033C308 00339268  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033C30C 0033926C  7C 08 02 A6 */	mflr r0
+/* 8033C310 00339270  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033C314 00339274  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033C318 00339278  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033C31C 0033927C  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033C320 00339280  7C 9D 23 78 */	mr r29, r4
+/* 8033C324 00339284  93 81 00 10 */	stw r28, 0x10(r1)
+/* 8033C328 00339288  7C 7C 1B 79 */	or. r28, r3, r3
+/* 8033C32C 0033928C  41 82 00 6C */	beq lbl_8033C398
+/* 8033C330 00339290  83 DC 00 34 */	lwz r30, 0x34(r28)
+/* 8033C334 00339294  48 00 00 24 */	b lbl_8033C358
+lbl_8033C338:
+/* 8033C338 00339298  83 FE 00 0C */	lwz r31, 0xc(r30)
+/* 8033C33C 0033929C  48 00 00 0C */	b lbl_8033C348
+lbl_8033C340:
+/* 8033C340 003392A0  7F E3 FB 78 */	mr r3, r31
+/* 8033C344 003392A4  48 02 C0 0D */	bl AsyncIdle__8CPakFileFv
+lbl_8033C348:
+/* 8033C348 003392A8  80 1F 00 2C */	lwz r0, 0x2c(r31)
+/* 8033C34C 003392AC  2C 00 00 03 */	cmpwi r0, 3
+/* 8033C350 003392B0  40 82 FF F0 */	bne lbl_8033C340
+/* 8033C354 003392B4  83 DE 00 04 */	lwz r30, 4(r30)
+lbl_8033C358:
+/* 8033C358 003392B8  80 1C 00 38 */	lwz r0, 0x38(r28)
+/* 8033C35C 003392BC  7C 1E 00 40 */	cmplw r30, r0
+/* 8033C360 003392C0  40 82 FF D8 */	bne lbl_8033C338
+/* 8033C364 003392C4  38 7C 00 30 */	addi r3, r28, 0x30
+/* 8033C368 003392C8  38 80 FF FF */	li r4, -1
+/* 8033C36C 003392CC  48 00 01 CD */	bl sub_8033c538
+/* 8033C370 003392D0  38 7C 00 18 */	addi r3, r28, 0x18
+/* 8033C374 003392D4  38 80 FF FF */	li r4, -1
+/* 8033C378 003392D8  48 00 01 C1 */	bl sub_8033c538
+/* 8033C37C 003392DC  7F 83 E3 78 */	mr r3, r28
+/* 8033C380 003392E0  38 80 FF FF */	li r4, -1
+/* 8033C384 003392E4  48 00 01 B5 */	bl sub_8033c538
+/* 8033C388 003392E8  7F A0 07 35 */	extsh. r0, r29
+/* 8033C38C 003392EC  40 81 00 0C */	ble lbl_8033C398
+/* 8033C390 003392F0  7F 83 E3 78 */	mr r3, r28
+/* 8033C394 003392F4  4B FD 95 9D */	bl Free__7CMemoryFPCv
+lbl_8033C398:
+/* 8033C398 003392F8  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033C39C 003392FC  7F 83 E3 78 */	mr r3, r28
+/* 8033C3A0 00339300  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033C3A4 00339304  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033C3A8 00339308  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033C3AC 0033930C  83 81 00 10 */	lwz r28, 0x10(r1)
+/* 8033C3B0 00339310  7C 08 03 A6 */	mtlr r0
+/* 8033C3B4 00339314  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033C3B8 00339318  4E 80 00 20 */	blr 
+
+.global __ct__10CResLoaderFv
+__ct__10CResLoaderFv:
+/* 8033C3BC 0033931C  38 83 00 0C */	addi r4, r3, 0xc
+/* 8033C3C0 00339320  38 A0 00 00 */	li r5, 0
+/* 8033C3C4 00339324  90 83 00 04 */	stw r4, 4(r3)
+/* 8033C3C8 00339328  38 C3 00 24 */	addi r6, r3, 0x24
+/* 8033C3CC 0033932C  38 E3 00 3C */	addi r7, r3, 0x3c
+/* 8033C3D0 00339330  38 00 FF FF */	li r0, -1
+/* 8033C3D4 00339334  90 83 00 08 */	stw r4, 8(r3)
+/* 8033C3D8 00339338  90 83 00 0C */	stw r4, 0xc(r3)
+/* 8033C3DC 0033933C  90 83 00 10 */	stw r4, 0x10(r3)
+/* 8033C3E0 00339340  90 A3 00 14 */	stw r5, 0x14(r3)
+/* 8033C3E4 00339344  90 C3 00 1C */	stw r6, 0x1c(r3)
+/* 8033C3E8 00339348  90 C3 00 20 */	stw r6, 0x20(r3)
+/* 8033C3EC 0033934C  90 C3 00 24 */	stw r6, 0x24(r3)
+/* 8033C3F0 00339350  90 C3 00 28 */	stw r6, 0x28(r3)
+/* 8033C3F4 00339354  90 A3 00 2C */	stw r5, 0x2c(r3)
+/* 8033C3F8 00339358  90 E3 00 34 */	stw r7, 0x34(r3)
+/* 8033C3FC 0033935C  90 E3 00 38 */	stw r7, 0x38(r3)
+/* 8033C400 00339360  90 E3 00 3C */	stw r7, 0x3c(r3)
+/* 8033C404 00339364  90 E3 00 40 */	stw r7, 0x40(r3)
+/* 8033C408 00339368  90 A3 00 44 */	stw r5, 0x44(r3)
+/* 8033C40C 0033936C  80 83 00 20 */	lwz r4, 0x20(r3)
+/* 8033C410 00339370  90 83 00 48 */	stw r4, 0x48(r3)
+/* 8033C414 00339374  90 03 00 4C */	stw r0, 0x4c(r3)
+/* 8033C418 00339378  90 A3 00 50 */	stw r5, 0x50(r3)
+/* 8033C41C 0033937C  98 A3 00 54 */	stb r5, 0x54(r3)
+/* 8033C420 00339380  4E 80 00 20 */	blr 
+
+.global "distance<Q24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66ba"
+"distance<Q24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66ba":
+/* 8033C424 00339384  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033C428 00339388  7C 08 02 A6 */	mflr r0
+/* 8033C42C 0033938C  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033C430 00339390  38 A1 00 0C */	addi r5, r1, 0xc
+/* 8033C434 00339394  88 E1 00 08 */	lbz r7, 8(r1)
+/* 8033C438 00339398  80 C4 00 00 */	lwz r6, 0(r4)
+/* 8033C43C 0033939C  38 81 00 10 */	addi r4, r1, 0x10
+/* 8033C440 003393A0  80 03 00 00 */	lwz r0, 0(r3)
+/* 8033C444 003393A4  38 61 00 14 */	addi r3, r1, 0x14
+/* 8033C448 003393A8  90 C1 00 10 */	stw r6, 0x10(r1)
+/* 8033C44C 003393AC  98 E1 00 0C */	stb r7, 0xc(r1)
+/* 8033C450 003393B0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8033C454 003393B4  48 00 00 15 */	bl "__distance<Q24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66"
+/* 8033C458 003393B8  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033C45C 003393BC  7C 08 03 A6 */	mtlr r0
+/* 8033C460 003393C0  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033C464 003393C4  4E 80 00 20 */	blr 
+
+.global "__distance<Q24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66"
+"__distance<Q24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl303const_pointer_iterator<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl138vector<Q24rstl94pair<Q24rstl66":
+/* 8033C468 003393C8  80 A3 00 00 */	lwz r5, 0(r3)
+/* 8033C46C 003393CC  3C 60 2A AB */	lis r3, 0x2AAAAAAB@ha
+/* 8033C470 003393D0  80 04 00 00 */	lwz r0, 0(r4)
+/* 8033C474 003393D4  38 63 AA AB */	addi r3, r3, 0x2AAAAAAB@l
+/* 8033C478 003393D8  7C 05 00 50 */	subf r0, r5, r0
+/* 8033C47C 003393DC  7C 03 00 96 */	mulhw r0, r3, r0
+/* 8033C480 003393E0  7C 00 16 70 */	srawi r0, r0, 2
+/* 8033C484 003393E4  54 03 0F FE */	srwi r3, r0, 0x1f
+/* 8033C488 003393E8  7C 60 1A 14 */	add r3, r0, r3
+/* 8033C48C 003393EC  4E 80 00 20 */	blr 
+
+.global sub_8033c490
+sub_8033c490:
+/* 8033C490 003393F0  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033C494 003393F4  7C 08 02 A6 */	mflr r0
+/* 8033C498 003393F8  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033C49C 003393FC  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033C4A0 00339400  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033C4A4 00339404  7C 9E 23 78 */	mr r30, r4
+/* 8033C4A8 00339408  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033C4AC 0033940C  7C 7D 1B 78 */	mr r29, r3
+/* 8033C4B0 00339410  80 03 00 04 */	lwz r0, 4(r3)
+/* 8033C4B4 00339414  83 E4 00 04 */	lwz r31, 4(r4)
+/* 8033C4B8 00339418  7C 1E 00 40 */	cmplw r30, r0
+/* 8033C4BC 0033941C  40 82 00 08 */	bne lbl_8033C4C4
+/* 8033C4C0 00339420  93 FD 00 04 */	stw r31, 4(r29)
+lbl_8033C4C4:
+/* 8033C4C4 00339424  80 1E 00 04 */	lwz r0, 4(r30)
+/* 8033C4C8 00339428  34 9E 00 08 */	addic. r4, r30, 8
+/* 8033C4CC 0033942C  80 7E 00 00 */	lwz r3, 0(r30)
+/* 8033C4D0 00339430  90 03 00 04 */	stw r0, 4(r3)
+/* 8033C4D4 00339434  80 1E 00 00 */	lwz r0, 0(r30)
+/* 8033C4D8 00339438  80 7E 00 04 */	lwz r3, 4(r30)
+/* 8033C4DC 0033943C  90 03 00 00 */	stw r0, 0(r3)
+/* 8033C4E0 00339440  41 82 00 1C */	beq lbl_8033C4FC
+/* 8033C4E4 00339444  88 04 00 00 */	lbz r0, 0(r4)
+/* 8033C4E8 00339448  28 00 00 00 */	cmplwi r0, 0
+/* 8033C4EC 0033944C  41 82 00 10 */	beq lbl_8033C4FC
+/* 8033C4F0 00339450  80 64 00 04 */	lwz r3, 4(r4)
+/* 8033C4F4 00339454  38 80 00 01 */	li r4, 1
+/* 8033C4F8 00339458  48 02 BF 05 */	bl __dt__8CPakFileFv
+lbl_8033C4FC:
+/* 8033C4FC 0033945C  28 1E 00 00 */	cmplwi r30, 0
+/* 8033C500 00339460  41 82 00 0C */	beq lbl_8033C50C
+/* 8033C504 00339464  7F C3 F3 78 */	mr r3, r30
+/* 8033C508 00339468  4B FD 94 29 */	bl Free__7CMemoryFPCv
+lbl_8033C50C:
+/* 8033C50C 0033946C  80 9D 00 14 */	lwz r4, 0x14(r29)
+/* 8033C510 00339470  7F E3 FB 78 */	mr r3, r31
+/* 8033C514 00339474  38 04 FF FF */	addi r0, r4, -1
+/* 8033C518 00339478  90 1D 00 14 */	stw r0, 0x14(r29)
+/* 8033C51C 0033947C  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033C520 00339480  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033C524 00339484  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033C528 00339488  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033C52C 0033948C  7C 08 03 A6 */	mtlr r0
+/* 8033C530 00339490  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033C534 00339494  4E 80 00 20 */	blr 
+
+.global sub_8033c538
+sub_8033c538:
+/* 8033C538 00339498  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8033C53C 0033949C  7C 08 02 A6 */	mflr r0
+/* 8033C540 003394A0  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8033C544 003394A4  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8033C548 003394A8  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8033C54C 003394AC  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8033C550 003394B0  7C 9D 23 78 */	mr r29, r4
+/* 8033C554 003394B4  93 81 00 10 */	stw r28, 0x10(r1)
+/* 8033C558 003394B8  7C 7C 1B 79 */	or. r28, r3, r3
+/* 8033C55C 003394BC  41 82 00 60 */	beq lbl_8033C5BC
+/* 8033C560 003394C0  83 FC 00 04 */	lwz r31, 4(r28)
+/* 8033C564 003394C4  48 00 00 3C */	b lbl_8033C5A0
+lbl_8033C568:
+/* 8033C568 003394C8  7F FE FB 78 */	mr r30, r31
+/* 8033C56C 003394CC  83 FF 00 04 */	lwz r31, 4(r31)
+/* 8033C570 003394D0  34 7E 00 08 */	addic. r3, r30, 8
+/* 8033C574 003394D4  41 82 00 1C */	beq lbl_8033C590
+/* 8033C578 003394D8  88 03 00 00 */	lbz r0, 0(r3)
+/* 8033C57C 003394DC  28 00 00 00 */	cmplwi r0, 0
+/* 8033C580 003394E0  41 82 00 10 */	beq lbl_8033C590
+/* 8033C584 003394E4  80 63 00 04 */	lwz r3, 4(r3)
+/* 8033C588 003394E8  38 80 00 01 */	li r4, 1
+/* 8033C58C 003394EC  48 02 BE 71 */	bl __dt__8CPakFileFv
+lbl_8033C590:
+/* 8033C590 003394F0  28 1E 00 00 */	cmplwi r30, 0
+/* 8033C594 003394F4  41 82 00 0C */	beq lbl_8033C5A0
+/* 8033C598 003394F8  7F C3 F3 78 */	mr r3, r30
+/* 8033C59C 003394FC  4B FD 93 95 */	bl Free__7CMemoryFPCv
+lbl_8033C5A0:
+/* 8033C5A0 00339500  80 1C 00 08 */	lwz r0, 8(r28)
+/* 8033C5A4 00339504  7C 1F 00 40 */	cmplw r31, r0
+/* 8033C5A8 00339508  40 82 FF C0 */	bne lbl_8033C568
+/* 8033C5AC 0033950C  7F A0 07 35 */	extsh. r0, r29
+/* 8033C5B0 00339510  40 81 00 0C */	ble lbl_8033C5BC
+/* 8033C5B4 00339514  7F 83 E3 78 */	mr r3, r28
+/* 8033C5B8 00339518  4B FD 93 79 */	bl Free__7CMemoryFPCv
+lbl_8033C5BC:
+/* 8033C5BC 0033951C  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8033C5C0 00339520  7F 83 E3 78 */	mr r3, r28
+/* 8033C5C4 00339524  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8033C5C8 00339528  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8033C5CC 0033952C  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8033C5D0 00339530  83 81 00 10 */	lwz r28, 0x10(r1)
+/* 8033C5D4 00339534  7C 08 03 A6 */	mtlr r0
+/* 8033C5D8 00339538  38 21 00 20 */	addi r1, r1, 0x20
+/* 8033C5DC 0033953C  4E 80 00 20 */	blr

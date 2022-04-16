@@ -5281,7 +5281,7 @@ Render__10CMorphBallCFRC13CStateManagerPC12CActorLights_0:
 /* 800F2338 000EF298  48 22 06 ED */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 800F233C 000EF29C  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800F2340 000EF2A0  38 81 00 DC */	addi r4, r1, 0xdc
-/* 800F2344 000EF2A4  48 22 1A 8D */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 800F2344 000EF2A4  48 22 1A 8D */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 800F2348 000EF2A8  7C 64 1B 78 */	mr r4, r3
 /* 800F234C 000EF2AC  38 61 00 F4 */	addi r3, r1, 0xf4
 /* 800F2350 000EF2B0  38 A1 00 38 */	addi r5, r1, 0x38
@@ -9131,7 +9131,7 @@ SwitchToMarble__10CMorphBallFv:
 /* 800F5B84 000F2AE4  48 21 CE A1 */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 800F5B88 000F2AE8  38 61 00 18 */	addi r3, r1, 0x18
 /* 800F5B8C 000F2AEC  38 81 00 0C */	addi r4, r1, 0xc
-/* 800F5B90 000F2AF0  48 21 E2 41 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 800F5B90 000F2AF0  48 21 E2 41 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 800F5B94 000F2AF4  7C 64 1B 78 */	mr r4, r3
 /* 800F5B98 000F2AF8  38 61 00 24 */	addi r3, r1, 0x24
 /* 800F5B9C 000F2AFC  38 A1 00 08 */	addi r5, r1, 8
@@ -11051,7 +11051,7 @@ lbl_800F76DC:
 /* 800F7750 000F46B0  D0 41 00 6C */	stfs f2, 0x6c(r1)
 /* 800F7754 000F46B4  D0 21 00 70 */	stfs f1, 0x70(r1)
 /* 800F7758 000F46B8  D0 01 00 74 */	stfs f0, 0x74(r1)
-/* 800F775C 000F46BC  48 21 C6 75 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 800F775C 000F46BC  48 21 C6 75 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 800F7760 000F46C0  C0 31 00 50 */	lfs f1, 0x50(r17)
 /* 800F7764 000F46C4  3C 60 80 5A */	lis r3, skZero3f@ha
 /* 800F7768 000F46C8  C1 01 00 7C */	lfs f8, 0x7c(r1)

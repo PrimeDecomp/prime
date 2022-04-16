@@ -5618,7 +5618,7 @@ RenderFogVolumeModel__13CCubeRendererFRC6CAABoxPC6CModelRC12CTransform4f12CTrans
 /* 802BAF18 002B7E78  D0 21 00 24 */	stfs f1, 0x24(r1)
 /* 802BAF1C 002B7E7C  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 802BAF20 002B7E80  D0 41 00 28 */	stfs f2, 0x28(r1)
-/* 802BAF24 002B7E84  48 05 8E AD */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 802BAF24 002B7E84  48 05 8E AD */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 802BAF28 002B7E88  C0 21 00 30 */	lfs f1, 0x30(r1)
 /* 802BAF2C 002B7E8C  3C 60 80 5A */	lis r3, lbl_805A6718@ha
 /* 802BAF30 002B7E90  C0 5E 00 1C */	lfs f2, 0x1c(r30)

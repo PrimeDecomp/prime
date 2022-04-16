@@ -315,7 +315,7 @@ ApplyClassicLag__9CSamusHudFRC13CUnitVector3fR11CQuaternionRC13CStateManagerfb:
 /* 80064C80 00061BE0  48 2A C5 E5 */	bl Transform__11CQuaternionCFRC9CVector3f
 /* 80064C84 00061BE4  38 61 00 7C */	addi r3, r1, 0x7c
 /* 80064C88 00061BE8  38 81 00 88 */	addi r4, r1, 0x88
-/* 80064C8C 00061BEC  48 2A F1 45 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 80064C8C 00061BEC  48 2A F1 45 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 80064C90 00061BF0  7C 64 1B 78 */	mr r4, r3
 /* 80064C94 00061BF4  38 61 00 6C */	addi r3, r1, 0x6c
 /* 80064C98 00061BF8  38 A1 00 94 */	addi r5, r1, 0x94
@@ -339,7 +339,7 @@ lbl_80064CAC:
 /* 80064CDC 00061C3C  48 2A C5 89 */	bl Transform__11CQuaternionCFRC9CVector3f
 /* 80064CE0 00061C40  38 61 00 54 */	addi r3, r1, 0x54
 /* 80064CE4 00061C44  38 81 00 60 */	addi r4, r1, 0x60
-/* 80064CE8 00061C48  48 2A F0 E9 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 80064CE8 00061C48  48 2A F0 E9 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 80064CEC 00061C4C  7C 65 1B 78 */	mr r5, r3
 /* 80064CF0 00061C50  38 61 00 38 */	addi r3, r1, 0x38
 /* 80064CF4 00061C54  38 81 00 48 */	addi r4, r1, 0x48
@@ -593,7 +593,7 @@ lbl_8006506C:
 /* 800650A8 00062008  38 61 00 5C */	addi r3, r1, 0x5c
 /* 800650AC 0006200C  38 9E 02 F8 */	addi r4, r30, 0x2f8
 /* 800650B0 00062010  D0 01 00 08 */	stfs f0, 8(r1)
-/* 800650B4 00062014  48 2A ED 1D */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 800650B4 00062014  48 2A ED 1D */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 800650B8 00062018  7C 64 1B 78 */	mr r4, r3
 /* 800650BC 0006201C  38 61 00 68 */	addi r3, r1, 0x68
 /* 800650C0 00062020  38 A1 00 B0 */	addi r5, r1, 0xb0
@@ -5769,7 +5769,7 @@ lbl_800699F0:
 /* 80069A24 00066984  D0 21 00 2C */	stfs f1, 0x2c(r1)
 /* 80069A28 00066988  D0 01 00 28 */	stfs f0, 0x28(r1)
 /* 80069A2C 0006698C  D0 41 00 30 */	stfs f2, 0x30(r1)
-/* 80069A30 00066990  48 2A A3 A1 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 80069A30 00066990  48 2A A3 A1 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 80069A34 00066994  C0 41 00 50 */	lfs f2, 0x50(r1)
 /* 80069A38 00066998  38 61 00 40 */	addi r3, r1, 0x40
 /* 80069A3C 0006699C  C0 21 00 4C */	lfs f1, 0x4c(r1)

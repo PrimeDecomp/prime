@@ -52,7 +52,7 @@ KnockBack__9CJellyZapFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTyp
 /* 801D79C0 001D4920  48 13 B0 65 */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 801D79C4 001D4924  38 61 00 20 */	addi r3, r1, 0x20
 /* 801D79C8 001D4928  38 81 00 14 */	addi r4, r1, 0x14
-/* 801D79CC 001D492C  48 13 C4 05 */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 801D79CC 001D492C  48 13 C4 05 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 801D79D0 001D4930  C0 3E 04 FC */	lfs f1, 0x4fc(r30)
 /* 801D79D4 001D4934  7F C3 F3 78 */	mr r3, r30
 /* 801D79D8 001D4938  80 C1 00 20 */	lwz r6, 0x20(r1)

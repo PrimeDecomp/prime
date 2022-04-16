@@ -1970,7 +1970,7 @@ FaceTarget__9CParasiteF9CVector3f:
 /* 801585B8 00155518  D0 41 00 24 */	stfs f2, 0x24(r1)
 /* 801585BC 0015551C  D0 21 00 28 */	stfs f1, 0x28(r1)
 /* 801585C0 00155520  D0 01 00 2C */	stfs f0, 0x2c(r1)
-/* 801585C4 00155524  48 1B B8 0D */	bl __ct__11CUnitVectorFRC9CVector3f
+/* 801585C4 00155524  48 1B B8 0D */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 801585C8 00155528  7C 65 1B 78 */	mr r5, r3
 /* 801585CC 0015552C  38 61 00 30 */	addi r3, r1, 0x30
 /* 801585D0 00155530  38 81 00 24 */	addi r4, r1, 0x24
