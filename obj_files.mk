@@ -9,6 +9,8 @@ METROTRK_FILES :=\
 METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/main.o\
 	$(BUILD_DIR)/asm/MetroidPrime/text_80008894_80009144.o\
+	$(BUILD_DIR)/asm/MetroidPrime/IRenderer.o\
+	$(BUILD_DIR)/asm/MetroidPrime/CArchitectureMessage.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CControlMapper.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CFirstPersonCamera.o\
