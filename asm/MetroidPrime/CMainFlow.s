@@ -244,18 +244,26 @@ AdvanceGameState__9CMainFlowFR18CArchitectureQueue:
 /* 8002387C 000207DC  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80023880 000207E0  7C 09 03 A6 */	mtctr r0
 /* 80023884 000207E4  4E 80 04 20 */	bctr 
+.global lbl_80023888
+lbl_80023888:
 /* 80023888 000207E8  7C 85 23 78 */	mr r5, r4
 /* 8002388C 000207EC  38 80 00 0F */	li r4, 0xf
 /* 80023890 000207F0  4B FF FC F5 */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 /* 80023894 000207F4  48 00 00 58 */	b lbl_800238EC
+.global lbl_80023898
+lbl_80023898:
 /* 80023898 000207F8  7C 85 23 78 */	mr r5, r4
 /* 8002389C 000207FC  38 80 00 08 */	li r4, 8
 /* 800238A0 00020800  4B FF FC E5 */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 /* 800238A4 00020804  48 00 00 48 */	b lbl_800238EC
+.global lbl_800238A8
+lbl_800238A8:
 /* 800238A8 00020808  7C 85 23 78 */	mr r5, r4
 /* 800238AC 0002080C  38 80 00 0E */	li r4, 0xe
 /* 800238B0 00020810  4B FF FC D5 */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 /* 800238B4 00020814  48 00 00 38 */	b lbl_800238EC
+.global lbl_800238B8
+lbl_800238B8:
 /* 800238B8 00020818  80 CD A0 78 */	lwz r6, gpMain@sda21(r13)
 /* 800238BC 0002081C  80 06 01 2C */	lwz r0, 0x12c(r6)
 /* 800238C0 00020820  2C 00 00 00 */	cmpwi r0, 0
@@ -266,10 +274,12 @@ AdvanceGameState__9CMainFlowFR18CArchitectureQueue:
 /* 800238D4 00020834  38 A0 00 01 */	li r5, 1
 /* 800238D8 00020838  50 A0 0F BC */	rlwimi r0, r5, 1, 0x1e, 0x1e
 /* 800238DC 0002083C  98 06 01 60 */	stb r0, 0x160(r6)
+.global lbl_800238E0
 lbl_800238E0:
 /* 800238E0 00020840  7C 85 23 78 */	mr r5, r4
 /* 800238E4 00020844  38 80 00 07 */	li r4, 7
 /* 800238E8 00020848  4B FF FC 9D */	bl SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
+.global lbl_800238EC
 lbl_800238EC:
 /* 800238EC 0002084C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800238F0 00020850  7C 08 03 A6 */	mtlr r0

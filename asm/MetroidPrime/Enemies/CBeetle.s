@@ -5141,13 +5141,19 @@ AcceptScriptMsg__7CBeetleF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800E78D4 000E4834  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800E78D8 000E4838  7C 09 03 A6 */	mtctr r0
 /* 800E78DC 000E483C  4E 80 04 20 */	bctr 
+.global lbl_800E78E0
+lbl_800E78E0:
 /* 800E78E0 000E4840  7F C4 F3 78 */	mr r4, r30
 /* 800E78E4 000E4844  4B FF BE C9 */	bl SquadAdd__7CBeetleFR13CStateManager
 /* 800E78E8 000E4848  48 00 01 14 */	b lbl_800E79FC
+.global lbl_800E78EC
+lbl_800E78EC:
 /* 800E78EC 000E484C  7F 63 DB 78 */	mr r3, r27
 /* 800E78F0 000E4850  7F C4 F3 78 */	mr r4, r30
 /* 800E78F4 000E4854  4B FF BE 15 */	bl SquadRemove__7CBeetleFR13CStateManager
 /* 800E78F8 000E4858  48 00 01 04 */	b lbl_800E79FC
+.global lbl_800E78FC
+lbl_800E78FC:
 /* 800E78FC 000E485C  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 800E7900 000E4860  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
 /* 800E7904 000E4864  38 60 00 01 */	li r3, 1
@@ -5161,6 +5167,8 @@ AcceptScriptMsg__7CBeetleF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800E7924 000E4884  50 60 26 F6 */	rlwimi r0, r3, 4, 0x1b, 0x1b
 /* 800E7928 000E4888  98 1B 03 28 */	stb r0, 0x328(r27)
 /* 800E792C 000E488C  48 00 00 D0 */	b lbl_800E79FC
+.global lbl_800E7930
+lbl_800E7930:
 /* 800E7930 000E4890  80 9B 04 50 */	lwz r4, 0x450(r27)
 /* 800E7934 000E4894  88 04 03 00 */	lbz r0, 0x300(r4)
 /* 800E7938 000E4898  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
@@ -5183,6 +5191,8 @@ AcceptScriptMsg__7CBeetleF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 lbl_800E797C:
 /* 800E797C 000E48DC  3B E0 00 00 */	li r31, 0
 /* 800E7980 000E48E0  48 00 00 7C */	b lbl_800E79FC
+.global lbl_800E7984
+lbl_800E7984:
 /* 800E7984 000E48E4  A0 7B 05 70 */	lhz r3, 0x570(r27)
 /* 800E7988 000E48E8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
 /* 800E798C 000E48EC  7C 03 00 40 */	cmplw r3, r0
@@ -5214,6 +5224,7 @@ lbl_800E79C4:
 /* 800E79F0 000E4950  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 800E79F4 000E4954  80 03 10 BC */	lwz r0, 0x10bc(r3)
 /* 800E79F8 000E4958  90 1B 05 FC */	stw r0, 0x5fc(r27)
+.global lbl_800E79FC
 lbl_800E79FC:
 /* 800E79FC 000E495C  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 800E7A00 000E4960  41 82 00 20 */	beq lbl_800E7A20

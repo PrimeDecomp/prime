@@ -879,6 +879,8 @@ AcceptScriptMsg__8CEyeBallF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 802252CC 0022222C  7C 04 00 2E */	lwzx r0, r4, r0
 /* 802252D0 00222230  7C 09 03 A6 */	mtctr r0
 /* 802252D4 00222234  4E 80 04 20 */	bctr 
+.global lbl_802252D8
+lbl_802252D8:
 /* 802252D8 00222238  A0 1D 00 00 */	lhz r0, 0(r29)
 /* 802252DC 0022223C  7F C3 F3 78 */	mr r3, r30
 /* 802252E0 00222240  38 81 00 14 */	addi r4, r1, 0x14
@@ -912,6 +914,8 @@ AcceptScriptMsg__8CEyeBallF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 lbl_80225350:
 /* 80225350 002222B0  3B E0 00 01 */	li r31, 1
 /* 80225354 002222B4  48 00 01 24 */	b lbl_80225478
+.global lbl_80225358
+lbl_80225358:
 /* 80225358 002222B8  A0 1D 00 00 */	lhz r0, 0(r29)
 /* 8022535C 002222BC  7F C3 F3 78 */	mr r3, r30
 /* 80225360 002222C0  38 81 00 10 */	addi r4, r1, 0x10
@@ -945,11 +949,15 @@ lbl_80225350:
 lbl_802253D0:
 /* 802253D0 00222330  3B E0 00 01 */	li r31, 1
 /* 802253D4 00222334  48 00 00 A4 */	b lbl_80225478
+.global lbl_802253D8
+lbl_802253D8:
 /* 802253D8 00222338  88 1B 06 0C */	lbz r0, 0x60c(r27)
 /* 802253DC 0022233C  38 60 00 01 */	li r3, 1
 /* 802253E0 00222340  50 60 2E B4 */	rlwimi r0, r3, 5, 0x1a, 0x1a
 /* 802253E4 00222344  98 1B 06 0C */	stb r0, 0x60c(r27)
 /* 802253E8 00222348  48 00 00 90 */	b lbl_80225478
+.global lbl_802253EC
+lbl_802253EC:
 /* 802253EC 0022234C  38 80 00 28 */	li r4, 0x28
 /* 802253F0 00222350  38 A0 00 29 */	li r5, 0x29
 /* 802253F4 00222354  4B E2 EA E1 */	bl RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager
@@ -965,6 +973,8 @@ lbl_802253D0:
 /* 8022541C 0022237C  7F C4 F3 78 */	mr r4, r30
 /* 80225420 00222380  48 00 00 91 */	bl CreateBeam__8CEyeballFR13CStateManager
 /* 80225424 00222384  48 00 00 54 */	b lbl_80225478
+.global lbl_80225428
+lbl_80225428:
 /* 80225428 00222388  A0 7B 05 EC */	lhz r3, 0x5ec(r27)
 /* 8022542C 0022238C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
 /* 80225430 00222390  7C 03 00 40 */	cmplw r3, r0
@@ -986,6 +996,7 @@ lbl_802253D0:
 lbl_80225470:
 /* 80225470 002223D0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
 /* 80225474 002223D4  B0 1B 05 EC */	sth r0, 0x5ec(r27)
+.global lbl_80225478
 lbl_80225478:
 /* 80225478 002223D8  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 8022547C 002223DC  40 82 00 20 */	bne lbl_8022549C

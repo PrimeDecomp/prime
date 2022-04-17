@@ -1305,6 +1305,8 @@ lbl_80082294:
 /* 800822AC 0007F20C  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800822B0 0007F210  7C 09 03 A6 */	mtctr r0
 /* 800822B4 0007F214  4E 80 04 20 */	bctr 
+.global lbl_800822B8
+lbl_800822B8:
 /* 800822B8 0007F218  C0 1F 01 1C */	lfs f0, 0x11c(r31)
 /* 800822BC 0007F21C  7F A3 EB 78 */	mr r3, r29
 /* 800822C0 0007F220  C0 3F 01 20 */	lfs f1, 0x120(r31)
@@ -1408,6 +1410,8 @@ lbl_80082418:
 /* 80082444 0007F3A4  38 81 02 C8 */	addi r4, r1, 0x2c8
 /* 80082448 0007F3A8  48 00 A5 B1 */	bl TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager
 /* 8008244C 0007F3AC  48 00 02 80 */	b lbl_800826CC
+.global lbl_80082450
+lbl_80082450:
 /* 80082450 0007F3B0  7F A3 EB 78 */	mr r3, r29
 /* 80082454 0007F3B4  7F C4 F3 78 */	mr r4, r30
 /* 80082458 0007F3B8  48 00 A6 39 */	bl ResetPosition__11CBallCameraFR13CStateManager
@@ -1416,6 +1420,8 @@ lbl_80082418:
 /* 80082464 0007F3C4  38 9F 00 34 */	addi r4, r31, 0x34
 /* 80082468 0007F3C8  48 00 A5 91 */	bl TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager
 /* 8008246C 0007F3CC  48 00 02 60 */	b lbl_800826CC
+.global lbl_80082470
+lbl_80082470:
 /* 80082470 0007F3D0  80 1F 00 F0 */	lwz r0, 0xf0(r31)
 /* 80082474 0007F3D4  54 00 06 B5 */	rlwinm. r0, r0, 0, 0x1a, 0x1a
 /* 80082478 0007F3D8  41 82 02 54 */	beq lbl_800826CC
@@ -1497,6 +1503,8 @@ lbl_80082558:
 /* 8008259C 0007F4FC  38 81 02 98 */	addi r4, r1, 0x298
 /* 800825A0 0007F500  48 00 A4 59 */	bl TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager
 /* 800825A4 0007F504  48 00 01 28 */	b lbl_800826CC
+.global lbl_800825A8
+lbl_800825A8:
 /* 800825A8 0007F508  7F A3 EB 78 */	mr r3, r29
 /* 800825AC 0007F50C  7F C4 F3 78 */	mr r4, r30
 /* 800825B0 0007F510  48 00 A4 E1 */	bl ResetPosition__11CBallCameraFR13CStateManager
@@ -1520,6 +1528,8 @@ lbl_80082558:
 /* 800825F8 0007F558  38 81 02 68 */	addi r4, r1, 0x268
 /* 800825FC 0007F55C  48 00 A3 FD */	bl TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager
 /* 80082600 0007F560  48 00 00 CC */	b lbl_800826CC
+.global lbl_80082604
+lbl_80082604:
 /* 80082604 0007F564  80 1F 00 F0 */	lwz r0, 0xf0(r31)
 /* 80082608 0007F568  54 00 06 B5 */	rlwinm. r0, r0, 0, 0x1a, 0x1a
 /* 8008260C 0007F56C  41 82 00 C0 */	beq lbl_800826CC
@@ -1570,6 +1580,7 @@ lbl_80082558:
 /* 800826C0 0007F620  7F C5 F3 78 */	mr r5, r30
 /* 800826C4 0007F624  38 81 02 38 */	addi r4, r1, 0x238
 /* 800826C8 0007F628  48 00 A3 31 */	bl TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager
+.global lbl_800826CC
 lbl_800826CC:
 /* 800826CC 0007F62C  80 1F 00 F0 */	lwz r0, 0xf0(r31)
 /* 800826D0 0007F630  54 00 06 B5 */	rlwinm. r0, r0, 0, 0x1a, 0x1a

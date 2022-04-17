@@ -548,6 +548,8 @@ AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8020C58C 002094EC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8020C590 002094F0  7C 09 03 A6 */	mtctr r0
 /* 8020C594 002094F4  4E 80 04 20 */	bctr 
+.global lbl_8020C598
+lbl_8020C598:
 /* 8020C598 002094F8  88 1D 00 30 */	lbz r0, 0x30(r29)
 /* 8020C59C 002094FC  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8020C5A0 00209500  41 82 00 B4 */	beq lbl_8020C654
@@ -555,6 +557,8 @@ AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8020C5A8 00209508  7F E4 FB 78 */	mr r4, r31
 /* 8020C5AC 0020950C  4B FF FE FD */	bl Play__20CScriptStreamedMusicFR13CStateManager
 /* 8020C5B0 00209510  48 00 00 A4 */	b lbl_8020C654
+.global lbl_8020C5B4
+lbl_8020C5B4:
 /* 8020C5B4 00209514  88 1D 00 30 */	lbz r0, 0x30(r29)
 /* 8020C5B8 00209518  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8020C5BC 0020951C  41 82 00 98 */	beq lbl_8020C654
@@ -562,6 +566,8 @@ AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8020C5C4 00209524  7F E4 FB 78 */	mr r4, r31
 /* 8020C5C8 00209528  4B FF FE AD */	bl Stop__20CScriptStreamedMusicFR13CStateManager
 /* 8020C5CC 0020952C  48 00 00 88 */	b lbl_8020C654
+.global lbl_8020C5D0
+lbl_8020C5D0:
 /* 8020C5D0 00209530  88 7D 00 45 */	lbz r3, 0x45(r29)
 /* 8020C5D4 00209534  28 03 00 00 */	cmplwi r3, 0
 /* 8020C5D8 00209538  40 82 00 10 */	bne lbl_8020C5E8
@@ -576,6 +582,8 @@ lbl_8020C5F0:
 /* 8020C5F4 00209554  7F E4 FB 78 */	mr r4, r31
 /* 8020C5F8 00209558  4B FF FE 7D */	bl Stop__20CScriptStreamedMusicFR13CStateManager
 /* 8020C5FC 0020955C  48 00 00 58 */	b lbl_8020C654
+.global lbl_8020C600
+lbl_8020C600:
 /* 8020C600 00209560  88 1D 00 45 */	lbz r0, 0x45(r29)
 /* 8020C604 00209564  28 00 00 00 */	cmplwi r0, 0
 /* 8020C608 00209568  41 82 00 18 */	beq lbl_8020C620
@@ -588,6 +596,8 @@ lbl_8020C620:
 /* 8020C620 00209580  C0 3D 00 48 */	lfs f1, 0x48(r29)
 /* 8020C624 00209584  48 15 8D D5 */	bl sub_803653f8
 /* 8020C628 00209588  48 00 00 2C */	b lbl_8020C654
+.global lbl_8020C62C
+lbl_8020C62C:
 /* 8020C62C 0020958C  88 1D 00 45 */	lbz r0, 0x45(r29)
 /* 8020C630 00209590  28 00 00 00 */	cmplwi r0, 0
 /* 8020C634 00209594  41 82 00 18 */	beq lbl_8020C64C
@@ -599,6 +609,7 @@ lbl_8020C620:
 lbl_8020C64C:
 /* 8020C64C 002095AC  C0 3D 00 4C */	lfs f1, 0x4c(r29)
 /* 8020C650 002095B0  48 15 8D D5 */	bl sub_80365424
+.global lbl_8020C654
 lbl_8020C654:
 /* 8020C654 002095B4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020C658 002095B8  83 E1 00 1C */	lwz r31, 0x1c(r1)

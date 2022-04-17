@@ -1576,9 +1576,13 @@ AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 800B222C 000AF18C  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800B2230 000AF190  7C 09 03 A6 */	mtctr r0
 /* 800B2234 000AF194  4E 80 04 20 */	bctr 
+.global lbl_800B2238
+lbl_800B2238:
 /* 800B2238 000AF198  7F E4 FB 78 */	mr r4, r31
 /* 800B223C 000AF19C  48 00 08 15 */	bl BuildSlaveList__15CScriptPlatformFR13CStateManager
 /* 800B2240 000AF1A0  48 00 03 3C */	b lbl_800B257C
+.global lbl_800B2244
+lbl_800B2244:
 /* 800B2244 000AF1A4  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 800B2248 000AF1A8  7F 85 E3 78 */	mr r5, r28
 /* 800B224C 000AF1AC  38 7C 03 18 */	addi r3, r28, 0x318
@@ -1586,10 +1590,14 @@ AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 800B2254 000AF1B4  B0 01 00 64 */	sth r0, 0x64(r1)
 /* 800B2258 000AF1B8  48 00 15 79 */	bl "AddRider__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>9TUniqueIdPC13CPhysicsActorR13CStateManager"
 /* 800B225C 000AF1BC  48 00 03 20 */	b lbl_800B257C
+.global lbl_800B2260
+lbl_800B2260:
 /* 800B2260 000AF1C0  C0 02 8C AC */	lfs f0, lbl_805AA9CC@sda21(r2)
 /* 800B2264 000AF1C4  D0 1C 02 5C */	stfs f0, 0x25c(r28)
 /* 800B2268 000AF1C8  48 06 91 11 */	bl Stop__13CPhysicsActorFv
 /* 800B226C 000AF1CC  48 00 03 10 */	b lbl_800B257C
+.global lbl_800B2270
+lbl_800B2270:
 /* 800B2270 000AF1D0  A0 1C 02 58 */	lhz r0, 0x258(r28)
 /* 800B2274 000AF1D4  7F 84 E3 78 */	mr r4, r28
 /* 800B2278 000AF1D8  38 61 00 60 */	addi r3, r1, 0x60
@@ -1715,6 +1723,8 @@ lbl_800B2428:
 /* 800B243C 000AF39C  C0 03 00 08 */	lfs f0, 8(r3)
 /* 800B2440 000AF3A0  D0 1C 02 78 */	stfs f0, 0x278(r28)
 /* 800B2444 000AF3A4  48 00 01 38 */	b lbl_800B257C
+.global lbl_800B2448
+lbl_800B2448:
 /* 800B2448 000AF3A8  A0 1C 02 58 */	lhz r0, 0x258(r28)
 /* 800B244C 000AF3AC  7F 84 E3 78 */	mr r4, r28
 /* 800B2450 000AF3B0  38 61 00 3C */	addi r3, r1, 0x3c
@@ -1751,6 +1761,8 @@ lbl_800B249C:
 /* 800B24C8 000AF428  C0 03 00 E8 */	lfs f0, 0xe8(r3)
 /* 800B24CC 000AF42C  D0 1C 02 5C */	stfs f0, 0x25c(r28)
 /* 800B24D0 000AF430  48 00 00 AC */	b lbl_800B257C
+.global lbl_800B24D4
+lbl_800B24D4:
 /* 800B24D4 000AF434  88 1C 03 56 */	lbz r0, 0x356(r28)
 /* 800B24D8 000AF438  38 60 00 00 */	li r3, 0
 /* 800B24DC 000AF43C  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
@@ -1760,6 +1772,8 @@ lbl_800B249C:
 /* 800B24EC 000AF44C  C0 1C 02 90 */	lfs f0, 0x290(r28)
 /* 800B24F0 000AF450  D0 1C 02 98 */	stfs f0, 0x298(r28)
 /* 800B24F4 000AF454  48 00 00 88 */	b lbl_800B257C
+.global lbl_800B24F8
+lbl_800B24F8:
 /* 800B24F8 000AF458  88 1C 00 30 */	lbz r0, 0x30(r28)
 /* 800B24FC 000AF45C  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 800B2500 000AF460  40 82 00 24 */	bne lbl_800B2524
@@ -1781,6 +1795,8 @@ lbl_800B2524:
 /* 800B253C 000AF49C  C0 3C 02 68 */	lfs f1, 0x268(r28)
 /* 800B2540 000AF4A0  48 14 F4 69 */	bl FadeInHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf
 /* 800B2544 000AF4A4  48 00 00 38 */	b lbl_800B257C
+.global lbl_800B2548
+lbl_800B2548:
 /* 800B2548 000AF4A8  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 800B254C 000AF4AC  7F E4 FB 78 */	mr r4, r31
 /* 800B2550 000AF4B0  38 61 00 14 */	addi r3, r1, 0x14
@@ -1790,10 +1806,13 @@ lbl_800B2524:
 /* 800B2560 000AF4C0  C0 3C 02 6C */	lfs f1, 0x26c(r28)
 /* 800B2564 000AF4C4  48 14 F2 15 */	bl FadeOutHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf
 /* 800B2568 000AF4C8  48 00 00 14 */	b lbl_800B257C
+.global lbl_800B256C
+lbl_800B256C:
 /* 800B256C 000AF4CC  C0 22 8C D0 */	lfs f1, lbl_805AA9F0@sda21(r2)
 /* 800B2570 000AF4D0  7F E4 FB 78 */	mr r4, r31
 /* 800B2574 000AF4D4  38 7C 03 18 */	addi r3, r28, 0x318
 /* 800B2578 000AF4D8  48 00 10 2D */	bl "DecayRiders__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>fR13CStateManager"
+.global lbl_800B257C
 lbl_800B257C:
 /* 800B257C 000AF4DC  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 800B2580 000AF4E0  7F 83 E3 78 */	mr r3, r28

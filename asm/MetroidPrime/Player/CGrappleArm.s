@@ -1247,6 +1247,8 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E5D0 0011B530  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8011E5D4 0011B534  7C 09 03 A6 */	mtctr r0
 /* 8011E5D8 0011B538  4E 80 04 20 */	bctr 
+.global lbl_8011E5DC
+lbl_8011E5DC:
 /* 8011E5DC 0011B53C  38 80 00 01 */	li r4, 1
 /* 8011E5E0 0011B540  4B FF F7 D5 */	bl ResetAuxParams__11CGrappleArmFb
 /* 8011E5E4 0011B544  C0 02 97 68 */	lfs f0, lbl_805AB488@sda21(r2)
@@ -1276,6 +1278,8 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E644 0011B5A4  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 8011E648 0011B5A8  98 1D 03 B2 */	stb r0, 0x3b2(r29)
 /* 8011E64C 0011B5AC  48 00 01 94 */	b lbl_8011E7E0
+.global lbl_8011E650
+lbl_8011E650:
 /* 8011E650 0011B5B0  88 7F 02 20 */	lbz r3, 0x220(r31)
 /* 8011E654 0011B5B4  50 E3 36 72 */	rlwimi r3, r7, 6, 0x19, 0x19
 /* 8011E658 0011B5B8  C0 02 97 68 */	lfs f0, lbl_805AB488@sda21(r2)
@@ -1299,6 +1303,8 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E6A0 0011B600  91 01 00 CC */	stw r8, 0xcc(r1)
 /* 8011E6A4 0011B604  4B F0 E6 D9 */	bl SetAnimation__9CAnimDataFRC18CAnimPlaybackParmsb
 /* 8011E6A8 0011B608  48 00 01 38 */	b lbl_8011E7E0
+.global lbl_8011E6AC
+lbl_8011E6AC:
 /* 8011E6AC 0011B60C  C0 02 97 68 */	lfs f0, lbl_805AB488@sda21(r2)
 /* 8011E6B0 0011B610  38 60 00 02 */	li r3, 2
 /* 8011E6B4 0011B614  38 00 FF FF */	li r0, -1
@@ -1317,6 +1323,8 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E6E8 0011B648  91 01 00 A4 */	stw r8, 0xa4(r1)
 /* 8011E6EC 0011B64C  4B F0 E6 91 */	bl SetAnimation__9CAnimDataFRC18CAnimPlaybackParmsb
 /* 8011E6F0 0011B650  48 00 00 F0 */	b lbl_8011E7E0
+.global lbl_8011E6F4
+lbl_8011E6F4:
 /* 8011E6F4 0011B654  C0 02 97 68 */	lfs f0, lbl_805AB488@sda21(r2)
 /* 8011E6F8 0011B658  38 60 00 03 */	li r3, 3
 /* 8011E6FC 0011B65C  38 00 FF FF */	li r0, -1
@@ -1335,6 +1343,8 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E730 0011B690  91 01 00 7C */	stw r8, 0x7c(r1)
 /* 8011E734 0011B694  4B F0 E6 49 */	bl SetAnimation__9CAnimDataFRC18CAnimPlaybackParmsb
 /* 8011E738 0011B698  48 00 00 A8 */	b lbl_8011E7E0
+.global lbl_8011E73C
+lbl_8011E73C:
 /* 8011E73C 0011B69C  C0 02 97 68 */	lfs f0, lbl_805AB488@sda21(r2)
 /* 8011E740 0011B6A0  38 60 00 03 */	li r3, 3
 /* 8011E744 0011B6A4  38 00 FF FF */	li r0, -1
@@ -1353,6 +1363,8 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E778 0011B6D8  91 01 00 54 */	stw r8, 0x54(r1)
 /* 8011E77C 0011B6DC  4B F0 E6 01 */	bl SetAnimation__9CAnimDataFRC18CAnimPlaybackParmsb
 /* 8011E780 0011B6E0  48 00 00 60 */	b lbl_8011E7E0
+.global lbl_8011E784
+lbl_8011E784:
 /* 8011E784 0011B6E4  C0 02 97 68 */	lfs f0, lbl_805AB488@sda21(r2)
 /* 8011E788 0011B6E8  38 60 00 04 */	li r3, 4
 /* 8011E78C 0011B6EC  38 00 FF FF */	li r0, -1
@@ -1373,9 +1385,12 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E7C8 0011B728  7F A3 EB 78 */	mr r3, r29
 /* 8011E7CC 0011B72C  4B FF EC E9 */	bl DisconnectGrappleBeam__11CGrappleArmFv
 /* 8011E7D0 0011B730  48 00 00 10 */	b lbl_8011E7E0
+.global lbl_8011E7D4
+lbl_8011E7D4:
 /* 8011E7D4 0011B734  88 1D 03 B2 */	lbz r0, 0x3b2(r29)
 /* 8011E7D8 0011B738  51 00 1F 38 */	rlwimi r0, r8, 3, 0x1c, 0x1c
 /* 8011E7DC 0011B73C  98 1D 03 B2 */	stb r0, 0x3b2(r29)
+.global lbl_8011E7E0
 lbl_8011E7E0:
 /* 8011E7E0 0011B740  93 DD 03 34 */	stw r30, 0x334(r29)
 lbl_8011E7E4:
@@ -2152,10 +2167,14 @@ lbl_8011F2B4:
 /* 8011F308 0011C268  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8011F30C 0011C26C  7C 09 03 A6 */	mtctr r0
 /* 8011F310 0011C270  4E 80 04 20 */	bctr 
+.global lbl_8011F314
+lbl_8011F314:
 /* 8011F314 0011C274  7F C3 F3 78 */	mr r3, r30
 /* 8011F318 0011C278  38 80 00 01 */	li r4, 1
 /* 8011F31C 0011C27C  4B FF F2 45 */	bl SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState
 /* 8011F320 0011C280  48 00 00 B0 */	b lbl_8011F3D0
+.global lbl_8011F324
+lbl_8011F324:
 /* 8011F324 0011C284  57 80 06 3F */	clrlwi. r0, r28, 0x18
 /* 8011F328 0011C288  41 82 00 A8 */	beq lbl_8011F3D0
 /* 8011F32C 0011C28C  7F C3 F3 78 */	mr r3, r30
@@ -2179,6 +2198,8 @@ lbl_8011F2B4:
 /* 8011F374 0011C2D4  80 7F 08 8C */	lwz r3, 0x88c(r31)
 /* 8011F378 0011C2D8  48 10 ED 9D */	bl StopRumble__14CRumbleManagerFs
 /* 8011F37C 0011C2DC  48 00 00 54 */	b lbl_8011F3D0
+.global lbl_8011F380
+lbl_8011F380:
 /* 8011F380 0011C2E0  C0 22 97 64 */	lfs f1, lbl_805AB484@sda21(r2)
 /* 8011F384 0011C2E4  C0 1E 03 44 */	lfs f0, 0x344(r30)
 /* 8011F388 0011C2E8  FC 01 00 00 */	fcmpu cr0, f1, f0
@@ -2187,6 +2208,8 @@ lbl_8011F2B4:
 /* 8011F394 0011C2F4  38 80 00 06 */	li r4, 6
 /* 8011F398 0011C2F8  4B FF F1 C9 */	bl SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState
 /* 8011F39C 0011C2FC  48 00 00 34 */	b lbl_8011F3D0
+.global lbl_8011F3A0
+lbl_8011F3A0:
 /* 8011F3A0 0011C300  A8 9E 03 B0 */	lha r4, 0x3b0(r30)
 /* 8011F3A4 0011C304  2C 04 FF FF */	cmpwi r4, -1
 /* 8011F3A8 0011C308  41 82 00 0C */	beq lbl_8011F3B4
@@ -2200,6 +2223,7 @@ lbl_8011F3B4:
 /* 8011F3C4 0011C324  38 60 00 00 */	li r3, 0
 /* 8011F3C8 0011C328  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 8011F3CC 0011C32C  98 1E 03 B2 */	stb r0, 0x3b2(r30)
+.global lbl_8011F3D0
 lbl_8011F3D0:
 /* 8011F3D0 0011C330  88 1E 03 B2 */	lbz r0, 0x3b2(r30)
 /* 8011F3D4 0011C334  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f

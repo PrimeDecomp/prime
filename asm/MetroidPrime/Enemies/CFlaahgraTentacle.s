@@ -867,6 +867,8 @@ AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateMa
 /* 801F0C88 001EDBE8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 801F0C8C 001EDBEC  7C 09 03 A6 */	mtctr r0
 /* 801F0C90 001EDBF0  4E 80 04 20 */	bctr 
+.global lbl_801F0C94
+lbl_801F0C94:
 /* 801F0C94 001EDBF4  80 7C 04 50 */	lwz r3, 0x450(r28)
 /* 801F0C98 001EDBF8  7F E4 FB 78 */	mr r4, r31
 /* 801F0C9C 001EDBFC  4B F4 A0 55 */	bl Activate__15CBodyControllerFR13CStateManager
@@ -874,6 +876,8 @@ AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateMa
 /* 801F0CA4 001EDC04  7F E4 FB 78 */	mr r4, r31
 /* 801F0CA8 001EDC08  4B FF F7 51 */	bl SetupCollisionManager__17CFlaahgraTentacleFR13CStateManager
 /* 801F0CAC 001EDC0C  48 00 01 94 */	b lbl_801F0E40
+.global lbl_801F0CB0
+lbl_801F0CB0:
 /* 801F0CB0 001EDC10  80 7C 05 6C */	lwz r3, 0x56c(r28)
 /* 801F0CB4 001EDC14  7F E4 FB 78 */	mr r4, r31
 /* 801F0CB8 001EDC18  4B FB 67 0D */	bl Destroy__22CCollisionActorManagerCFR13CStateManager
@@ -898,6 +902,8 @@ AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateMa
 /* 801F0D04 001EDC64  48 12 3B B5 */	bl Magnitude__9CVector3fCFv
 /* 801F0D08 001EDC68  D0 3B 01 28 */	stfs f1, 0x128(r27)
 /* 801F0D0C 001EDC6C  48 00 01 34 */	b lbl_801F0E40
+.global lbl_801F0D10
+lbl_801F0D10:
 /* 801F0D10 001EDC70  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 801F0D14 001EDC74  7F E3 FB 78 */	mr r3, r31
 /* 801F0D18 001EDC78  38 81 00 28 */	addi r4, r1, 0x28
@@ -960,20 +966,31 @@ AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateMa
 /* 801F0DFC 001EDD5C  C0 1C 04 24 */	lfs f0, 0x424(r28)
 /* 801F0E00 001EDD60  D0 1C 04 20 */	stfs f0, 0x420(r28)
 /* 801F0E04 001EDD64  48 00 00 3C */	b lbl_801F0E40
+.global lbl_801F0E08
+lbl_801F0E08:
 /* 801F0E08 001EDD68  C0 02 AE C0 */	lfs f0, lbl_805ACBE0@sda21(r2)
 /* 801F0E0C 001EDD6C  D0 1C 05 78 */	stfs f0, 0x578(r28)
 /* 801F0E10 001EDD70  48 00 00 30 */	b lbl_801F0E40
+.global lbl_801F0E14
+lbl_801F0E14:
 /* 801F0E14 001EDD74  7F E4 FB 78 */	mr r4, r31
 /* 801F0E18 001EDD78  4B E8 7B E9 */	bl DeathDelete__10CPatternedFR13CStateManager
 /* 801F0E1C 001EDD7C  48 00 00 24 */	b lbl_801F0E40
+.global lbl_801F0E20
+lbl_801F0E20:
 /* 801F0E20 001EDD80  7F E4 FB 78 */	mr r4, r31
 /* 801F0E24 001EDD84  4B FF F3 B9 */	bl ExtractTentacle__17CFlaahgraTentacleFR13CStateManager
 /* 801F0E28 001EDD88  48 00 00 18 */	b lbl_801F0E40
+.global lbl_801F0E2C
+lbl_801F0E2C:
 /* 801F0E2C 001EDD8C  7F E4 FB 78 */	mr r4, r31
 /* 801F0E30 001EDD90  4B FF F3 1D */	bl RetractTentacle__17CFlaahgraTentacleFR13CStateManager
 /* 801F0E34 001EDD94  48 00 00 0C */	b lbl_801F0E40
+.global lbl_801F0E38
+lbl_801F0E38:
 /* 801F0E38 001EDD98  7F E4 FB 78 */	mr r4, r31
 /* 801F0E3C 001EDD9C  4B FF F2 2D */	bl SaveBombSlotInfo__17CFlaahgraTentacleFR13CStateManager
+.global lbl_801F0E40
 lbl_801F0E40:
 /* 801F0E40 001EDDA0  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 801F0E44 001EDDA4  7F 83 E3 78 */	mr r3, r28

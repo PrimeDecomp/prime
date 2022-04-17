@@ -4457,19 +4457,34 @@ ProcessCurrentState__16CScriptGunTurretFfR13CStateManager:
 /* 802199B0 00216910  7C 06 00 2E */	lwzx r0, r6, r0
 /* 802199B4 00216914  7C 09 03 A6 */	mtctr r0
 /* 802199B8 00216918  4E 80 04 20 */	bctr 
+.global lbl_802199BC
+lbl_802199BC:
 /* 802199BC 0021691C  4B FF FF 7D */	bl ProcessDeactivatingState__16CScriptGunTurretFfR13CStateManager
 /* 802199C0 00216920  48 00 00 30 */	b lbl_802199F0
+.global lbl_802199C4
+lbl_802199C4:
 /* 802199C4 00216924  4B FF FD 01 */	bl ProcessInactiveState__16CScriptGunTurretFfR13CStateManager
 /* 802199C8 00216928  48 00 00 28 */	b lbl_802199F0
+.global lbl_802199CC
+lbl_802199CC:
 /* 802199CC 0021692C  4B FF FB F1 */	bl ProcessReadyState__16CScriptGunTurretFfR13CStateManager
 /* 802199D0 00216930  48 00 00 20 */	b lbl_802199F0
+.global lbl_802199D4
+lbl_802199D4:
 /* 802199D4 00216934  4B FF FA 59 */	bl ProcessPanningState__16CScriptGunTurretFfR13CStateManager
 /* 802199D8 00216938  48 00 00 18 */	b lbl_802199F0
+.global lbl_802199DC
+lbl_802199DC:
 /* 802199DC 0021693C  4B FF F5 75 */	bl ProcessTargettingState__16CScriptGunTurretFfR13CStateManager
 /* 802199E0 00216940  48 00 00 10 */	b lbl_802199F0
+.global lbl_802199E4
+lbl_802199E4:
 /* 802199E4 00216944  4B FF F4 51 */	bl ProcessExitTargettingState__16CScriptGunTurretFfR13CStateManager
 /* 802199E8 00216948  48 00 00 08 */	b lbl_802199F0
+.global lbl_802199EC
+lbl_802199EC:
 /* 802199EC 0021694C  4B FF F1 C9 */	bl ProcessFrenzyState__16CScriptGunTurretFfR13CStateManager
+.global lbl_802199F0
 lbl_802199F0:
 /* 802199F0 00216950  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802199F4 00216954  7C 08 03 A6 */	mtlr r0
@@ -5073,6 +5088,8 @@ AcceptScriptMsg__16CScriptGunTurretF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 8021A26C 002171CC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8021A270 002171D0  7C 09 03 A6 */	mtctr r0
 /* 8021A274 002171D4  4E 80 04 20 */	bctr 
+.global lbl_8021A278
+lbl_8021A278:
 /* 8021A278 002171D8  80 7E 04 9C */	lwz r3, 0x49c(r30)
 /* 8021A27C 002171DC  28 03 00 00 */	cmplwi r3, 0
 /* 8021A280 002171E0  41 82 05 08 */	beq lbl_8021A788
@@ -5080,6 +5097,8 @@ AcceptScriptMsg__16CScriptGunTurretF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 8021A288 002171E8  38 A0 00 01 */	li r5, 1
 /* 8021A28C 002171EC  4B F8 D0 6D */	bl SetActive__22CCollisionActorManagerFR13CStateManagerb
 /* 8021A290 002171F0  48 00 04 F8 */	b lbl_8021A788
+.global lbl_8021A294
+lbl_8021A294:
 /* 8021A294 002171F4  80 7E 04 9C */	lwz r3, 0x49c(r30)
 /* 8021A298 002171F8  28 03 00 00 */	cmplwi r3, 0
 /* 8021A29C 002171FC  41 82 04 EC */	beq lbl_8021A788
@@ -5087,6 +5106,8 @@ AcceptScriptMsg__16CScriptGunTurretF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 8021A2A4 00217204  38 A0 00 00 */	li r5, 0
 /* 8021A2A8 00217208  4B F8 D0 51 */	bl SetActive__22CCollisionActorManagerFR13CStateManagerb
 /* 8021A2AC 0021720C  48 00 04 DC */	b lbl_8021A788
+.global lbl_8021A2B0
+lbl_8021A2B0:
 /* 8021A2B0 00217210  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A2B4 00217214  2C 00 00 01 */	cmpwi r0, 1
 /* 8021A2B8 00217218  40 82 01 44 */	bne lbl_8021A3FC
@@ -5226,6 +5247,8 @@ lbl_8021A4B0:
 /* 8021A4B8 00217418  38 80 00 05 */	li r4, 5
 /* 8021A4BC 0021741C  4B FF F6 5D */	bl SetTurretState__16CScriptGunTurretFQ216CScriptGunTurret12ETurretState
 /* 8021A4C0 00217420  48 00 02 C8 */	b lbl_8021A788
+.global lbl_8021A4C4
+lbl_8021A4C4:
 /* 8021A4C4 00217424  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A4C8 00217428  2C 00 00 01 */	cmpwi r0, 1
 /* 8021A4CC 0021742C  40 82 00 28 */	bne lbl_8021A4F4
@@ -5253,6 +5276,8 @@ lbl_8021A510:
 /* 8021A51C 0021747C  7F E4 FB 78 */	mr r4, r31
 /* 8021A520 00217480  4B F8 CE A5 */	bl Destroy__22CCollisionActorManagerCFR13CStateManager
 /* 8021A524 00217484  48 00 02 64 */	b lbl_8021A788
+.global lbl_8021A528
+lbl_8021A528:
 /* 8021A528 00217488  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A52C 0021748C  2C 00 00 00 */	cmpwi r0, 0
 /* 8021A530 00217490  40 82 02 58 */	bne lbl_8021A788
@@ -5264,6 +5289,8 @@ lbl_8021A510:
 /* 8021A548 002174A8  50 60 17 7A */	rlwimi r0, r3, 2, 0x1d, 0x1d
 /* 8021A54C 002174AC  98 1E 05 60 */	stb r0, 0x560(r30)
 /* 8021A550 002174B0  48 00 02 38 */	b lbl_8021A788
+.global lbl_8021A554
+lbl_8021A554:
 /* 8021A554 002174B4  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A558 002174B8  2C 00 00 00 */	cmpwi r0, 0
 /* 8021A55C 002174BC  40 82 02 2C */	bne lbl_8021A788
@@ -5284,6 +5311,8 @@ lbl_8021A594:
 /* 8021A594 002174F4  7F E5 FB 78 */	mr r5, r31
 /* 8021A598 002174F8  4B FF F5 81 */	bl SetTurretState__16CScriptGunTurretFQ216CScriptGunTurret12ETurretState
 /* 8021A59C 002174FC  48 00 01 EC */	b lbl_8021A788
+.global lbl_8021A5A0
+lbl_8021A5A0:
 /* 8021A5A0 00217500  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A5A4 00217504  2C 00 00 01 */	cmpwi r0, 1
 /* 8021A5A8 00217508  40 82 00 14 */	bne lbl_8021A5BC
@@ -5298,6 +5327,8 @@ lbl_8021A5BC:
 /* 8021A5C8 00217528  7F E4 FB 78 */	mr r4, r31
 /* 8021A5CC 0021752C  4B FF CC ED */	bl PlayAdditiveFlinchAnimation__16CScriptGunTurretFR13CStateManager
 /* 8021A5D0 00217530  48 00 01 B8 */	b lbl_8021A788
+.global lbl_8021A5D4
+lbl_8021A5D4:
 /* 8021A5D4 00217534  88 1E 05 60 */	lbz r0, 0x560(r30)
 /* 8021A5D8 00217538  38 60 00 00 */	li r3, 0
 /* 8021A5DC 0021753C  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -5306,6 +5337,8 @@ lbl_8021A5BC:
 /* 8021A5E8 00217548  38 80 00 00 */	li r4, 0
 /* 8021A5EC 0021754C  4B E3 8E 01 */	bl SetMuted__6CActorFb
 /* 8021A5F0 00217550  48 00 01 98 */	b lbl_8021A788
+.global lbl_8021A5F4
+lbl_8021A5F4:
 /* 8021A5F4 00217554  88 1E 05 60 */	lbz r0, 0x560(r30)
 /* 8021A5F8 00217558  38 60 00 01 */	li r3, 1
 /* 8021A5FC 0021755C  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -5314,6 +5347,8 @@ lbl_8021A5BC:
 /* 8021A608 00217568  38 80 00 01 */	li r4, 1
 /* 8021A60C 0021756C  4B E3 8D E1 */	bl SetMuted__6CActorFb
 /* 8021A610 00217570  48 00 01 78 */	b lbl_8021A788
+.global lbl_8021A614
+lbl_8021A614:
 /* 8021A614 00217574  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A618 00217578  2C 00 00 00 */	cmpwi r0, 0
 /* 8021A61C 0021757C  40 82 01 6C */	bne lbl_8021A788
@@ -5364,6 +5399,8 @@ lbl_8021A6B4:
 /* 8021A6C4 00217624  7C 1C 00 40 */	cmplw r28, r0
 /* 8021A6C8 00217628  40 82 FF 60 */	bne lbl_8021A628
 /* 8021A6CC 0021762C  48 00 00 BC */	b lbl_8021A788
+.global lbl_8021A6D0
+lbl_8021A6D0:
 /* 8021A6D0 00217630  80 1E 02 58 */	lwz r0, 0x258(r30)
 /* 8021A6D4 00217634  2C 00 00 01 */	cmpwi r0, 1
 /* 8021A6D8 00217638  40 82 00 B0 */	bne lbl_8021A788
@@ -5410,6 +5447,7 @@ lbl_8021A6B4:
 /* 8021A77C 002176DC  4B F6 0A D9 */	bl SetOrbitRequestForTarget__7CPlayerF9TUniqueId19EPlayerOrbitRequestR13CStateManager
 /* 8021A780 002176E0  C0 02 B3 5C */	lfs f0, lbl_805AD07C@sda21(r2)
 /* 8021A784 002176E4  D0 1E 05 3C */	stfs f0, 0x53c(r30)
+.global lbl_8021A788
 lbl_8021A788:
 /* 8021A788 002176E8  BB 41 01 A8 */	lmw r26, 0x1a8(r1)
 /* 8021A78C 002176EC  80 01 01 C4 */	lwz r0, 0x1c4(r1)

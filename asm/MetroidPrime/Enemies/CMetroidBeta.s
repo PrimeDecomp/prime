@@ -5124,6 +5124,8 @@ AcceptScriptMsg__12CMetroidBetaF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 801C576C 001C26CC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 801C5770 001C26D0  7C 09 03 A6 */	mtctr r0
 /* 801C5774 001C26D4  4E 80 04 20 */	bctr 
+.global lbl_801C5778
+lbl_801C5778:
 /* 801C5778 001C26D8  80 7D 04 50 */	lwz r3, 0x450(r29)
 /* 801C577C 001C26DC  7F E4 FB 78 */	mr r4, r31
 /* 801C5780 001C26E0  4B F7 55 71 */	bl Activate__15CBodyControllerFR13CStateManager
@@ -5157,11 +5159,15 @@ AcceptScriptMsg__12CMetroidBetaF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 801C57F0 001C2750  98 1D 07 61 */	stb r0, 0x761(r29)
 /* 801C57F4 001C2754  48 17 82 ED */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 801C57F8 001C2758  48 00 05 1C */	b lbl_801C5D14
+.global lbl_801C57FC
+lbl_801C57FC:
 /* 801C57FC 001C275C  80 7D 07 64 */	lwz r3, 0x764(r29)
 /* 801C5800 001C2760  7F E4 FB 78 */	mr r4, r31
 /* 801C5804 001C2764  38 A0 00 01 */	li r5, 1
 /* 801C5808 001C2768  4B FE 1A F1 */	bl SetActive__22CCollisionActorManagerFR13CStateManagerb
 /* 801C580C 001C276C  48 00 05 08 */	b lbl_801C5D14
+.global lbl_801C5810
+lbl_801C5810:
 /* 801C5810 001C2770  80 7D 07 64 */	lwz r3, 0x764(r29)
 /* 801C5814 001C2774  7F E4 FB 78 */	mr r4, r31
 /* 801C5818 001C2778  38 A0 00 00 */	li r5, 0
@@ -5170,6 +5176,8 @@ AcceptScriptMsg__12CMetroidBetaF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 801C5824 001C2784  7F E4 FB 78 */	mr r4, r31
 /* 801C5828 001C2788  4B FF BA 45 */	bl sub_801c126c
 /* 801C582C 001C278C  48 00 04 E8 */	b lbl_801C5D14
+.global lbl_801C5830
+lbl_801C5830:
 /* 801C5830 001C2790  80 7D 07 64 */	lwz r3, 0x764(r29)
 /* 801C5834 001C2794  7F E4 FB 78 */	mr r4, r31
 /* 801C5838 001C2798  4B FE 1B 8D */	bl Destroy__22CCollisionActorManagerCFR13CStateManager
@@ -5177,6 +5185,8 @@ AcceptScriptMsg__12CMetroidBetaF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 801C5840 001C27A0  7F E4 FB 78 */	mr r4, r31
 /* 801C5844 001C27A4  4B FF BA 29 */	bl sub_801c126c
 /* 801C5848 001C27A8  48 00 04 CC */	b lbl_801C5D14
+.global lbl_801C584C
+lbl_801C584C:
 /* 801C584C 001C27AC  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 801C5850 001C27B0  7F E3 FB 78 */	mr r3, r31
 /* 801C5854 001C27B4  38 81 00 50 */	addi r4, r1, 0x50
@@ -5336,11 +5346,15 @@ lbl_801C59D8:
 /* 801C5AA8 001C2A08  B0 01 00 40 */	sth r0, 0x40(r1)
 /* 801C5AAC 001C2A0C  4B E8 45 F5 */	bl ApplyDamage__13CStateManagerF9TUniqueId9TUniqueId9TUniqueIdRC11CDamageInfoRC15CMaterialFilterRC9CVector3f
 /* 801C5AB0 001C2A10  48 00 02 64 */	b lbl_801C5D14
+.global lbl_801C5AB4
+lbl_801C5AB4:
 /* 801C5AB4 001C2A14  88 1D 08 40 */	lbz r0, 0x840(r29)
 /* 801C5AB8 001C2A18  38 60 00 01 */	li r3, 1
 /* 801C5ABC 001C2A1C  50 60 2E B4 */	rlwimi r0, r3, 5, 0x1a, 0x1a
 /* 801C5AC0 001C2A20  98 1D 08 40 */	stb r0, 0x840(r29)
 /* 801C5AC4 001C2A24  48 00 02 50 */	b lbl_801C5D14
+.global lbl_801C5AC8
+lbl_801C5AC8:
 /* 801C5AC8 001C2A28  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 801C5ACC 001C2A2C  7F E3 FB 78 */	mr r3, r31
 /* 801C5AD0 001C2A30  38 81 00 30 */	addi r4, r1, 0x30
@@ -5461,6 +5475,8 @@ lbl_801C5C10:
 /* 801C5C98 001C2BF8  50 60 0F BC */	rlwimi r0, r3, 1, 0x1e, 0x1e
 /* 801C5C9C 001C2BFC  98 1D 08 40 */	stb r0, 0x840(r29)
 /* 801C5CA0 001C2C00  48 00 00 74 */	b lbl_801C5D14
+.global lbl_801C5CA4
+lbl_801C5CA4:
 /* 801C5CA4 001C2C04  A0 7D 06 78 */	lhz r3, 0x678(r29)
 /* 801C5CA8 001C2C08  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
 /* 801C5CAC 001C2C0C  7C 03 00 40 */	cmplw r3, r0
@@ -5484,12 +5500,15 @@ lbl_801C5CCC:
 /* 801C5CF0 001C2C50  80 03 10 BC */	lwz r0, 0x10bc(r3)
 /* 801C5CF4 001C2C54  90 1D 06 7C */	stw r0, 0x67c(r29)
 /* 801C5CF8 001C2C58  48 00 00 1C */	b lbl_801C5D14
+.global lbl_801C5CFC
+lbl_801C5CFC:
 /* 801C5CFC 001C2C5C  80 7D 07 64 */	lwz r3, 0x764(r29)
 /* 801C5D00 001C2C60  28 03 00 00 */	cmplwi r3, 0
 /* 801C5D04 001C2C64  41 82 00 10 */	beq lbl_801C5D14
 /* 801C5D08 001C2C68  7F E4 FB 78 */	mr r4, r31
 /* 801C5D0C 001C2C6C  38 A0 00 00 */	li r5, 0
 /* 801C5D10 001C2C70  4B FE 11 B1 */	bl SetMovable__22CCollisionActorManagerFb
+.global lbl_801C5D14
 lbl_801C5D14:
 /* 801C5D14 001C2C74  BB 61 01 5C */	lmw r27, 0x15c(r1)
 /* 801C5D18 001C2C78  80 01 01 74 */	lwz r0, 0x174(r1)
