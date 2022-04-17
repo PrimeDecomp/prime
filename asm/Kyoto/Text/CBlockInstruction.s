@@ -74,9 +74,13 @@ SetupPositionLTR__17CBlockInstructionCFR16CFontRenderState:
 /* 80305EB0 00302E10  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80305EB4 00302E14  7C 09 03 A6 */	mtctr r0
 /* 80305EB8 00302E18  4E 80 04 20 */	bctr 
+.global lbl_80305EBC
+lbl_80305EBC:
 /* 80305EBC 00302E1C  80 03 00 08 */	lwz r0, 8(r3)
 /* 80305EC0 00302E20  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305EC4 00302E24  4E 80 00 20 */	blr 
+.global lbl_80305EC8
+lbl_80305EC8:
 /* 80305EC8 00302E28  80 A3 00 30 */	lwz r5, 0x30(r3)
 /* 80305ECC 00302E2C  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 80305ED0 00302E30  80 C3 00 08 */	lwz r6, 8(r3)
@@ -87,6 +91,8 @@ SetupPositionLTR__17CBlockInstructionCFR16CFontRenderState:
 /* 80305EE4 00302E44  7C 06 02 14 */	add r0, r6, r0
 /* 80305EE8 00302E48  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305EEC 00302E4C  4E 80 00 20 */	blr 
+.global lbl_80305EF0
+lbl_80305EF0:
 /* 80305EF0 00302E50  80 C3 00 34 */	lwz r6, 0x34(r3)
 /* 80305EF4 00302E54  80 A3 00 24 */	lwz r5, 0x24(r3)
 /* 80305EF8 00302E58  80 03 00 10 */	lwz r0, 0x10(r3)
@@ -99,6 +105,8 @@ SetupPositionLTR__17CBlockInstructionCFR16CFontRenderState:
 /* 80305F14 00302E74  7C 06 02 14 */	add r0, r6, r0
 /* 80305F18 00302E78  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305F1C 00302E7C  4E 80 00 20 */	blr 
+.global lbl_80305F20
+lbl_80305F20:
 /* 80305F20 00302E80  80 A3 00 08 */	lwz r5, 8(r3)
 /* 80305F24 00302E84  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 80305F28 00302E88  80 63 00 30 */	lwz r3, 0x30(r3)
@@ -106,6 +114,8 @@ SetupPositionLTR__17CBlockInstructionCFR16CFontRenderState:
 /* 80305F30 00302E90  7C 03 00 50 */	subf r0, r3, r0
 /* 80305F34 00302E94  90 04 00 D8 */	stw r0, 0xd8(r4)
 /* 80305F38 00302E98  4E 80 00 20 */	blr 
+.global lbl_80305F3C
+lbl_80305F3C:
 /* 80305F3C 00302E9C  80 C3 00 34 */	lwz r6, 0x34(r3)
 /* 80305F40 00302EA0  80 03 00 24 */	lwz r0, 0x24(r3)
 /* 80305F44 00302EA4  80 A3 00 08 */	lwz r5, 8(r3)

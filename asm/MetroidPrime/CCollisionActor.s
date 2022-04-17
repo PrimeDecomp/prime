@@ -362,6 +362,8 @@ AcceptScriptMsg__15CCollisionActorF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 801A8D80 001A5CE0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 801A8D84 001A5CE4  7C 09 03 A6 */	mtctr r0
 /* 801A8D88 001A5CE8  4E 80 04 20 */	bctr 
+.global lbl_801A8D8C
+lbl_801A8D8C:
 /* 801A8D8C 001A5CEC  A0 1C 02 5C */	lhz r0, 0x25c(r28)
 /* 801A8D90 001A5CF0  7F E3 FB 78 */	mr r3, r31
 /* 801A8D94 001A5CF4  38 81 00 20 */	addi r4, r1, 0x20
@@ -379,6 +381,7 @@ AcceptScriptMsg__15CCollisionActorF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 801A8DC4 001A5D24  B0 01 00 1C */	sth r0, 0x1c(r1)
 /* 801A8DC8 001A5D28  4B E9 B1 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
 /* 801A8DCC 001A5D2C  48 00 00 2C */	b lbl_801A8DF8
+.global lbl_801A8DD0
 lbl_801A8DD0:
 /* 801A8DD0 001A5D30  A0 FC 00 08 */	lhz r7, 8(r28)
 /* 801A8DD4 001A5D34  7F E3 FB 78 */	mr r3, r31
@@ -390,6 +393,7 @@ lbl_801A8DD0:
 /* 801A8DEC 001A5D4C  B0 E1 00 0C */	sth r7, 0xc(r1)
 /* 801A8DF0 001A5D50  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 801A8DF4 001A5D54  4B E9 B0 61 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+.global lbl_801A8DF8
 lbl_801A8DF8:
 /* 801A8DF8 001A5D58  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 801A8DFC 001A5D5C  7F 83 E3 78 */	mr r3, r28

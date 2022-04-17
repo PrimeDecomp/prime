@@ -486,6 +486,8 @@ AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800C3DD4 000C0D34  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800C3DD8 000C0D38  7C 09 03 A6 */	mtctr r0
 /* 800C3DDC 000C0D3C  4E 80 04 20 */	bctr 
+.global lbl_800C3DE0
+lbl_800C3DE0:
 /* 800C3DE0 000C0D40  80 BD 02 60 */	lwz r5, 0x260(r29)
 /* 800C3DE4 000C0D44  80 9F 08 50 */	lwz r4, 0x850(r31)
 /* 800C3DE8 000C0D48  54 A3 18 38 */	slwi r3, r5, 3
@@ -509,12 +511,18 @@ AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800C3E30 000C0D90  7F C3 F3 78 */	mr r3, r30
 /* 800C3E34 000C0D94  4B F9 B5 2D */	bl SetReferenceCount__Q29IGameArea4DockFi
 /* 800C3E38 000C0D98  48 00 02 84 */	b lbl_800C40BC
+.global lbl_800C3E3C
+lbl_800C3E3C:
 /* 800C3E3C 000C0D9C  7F E4 FB 78 */	mr r4, r31
 /* 800C3E40 000C0DA0  48 00 03 CD */	bl nullsub_41
 /* 800C3E44 000C0DA4  48 00 02 78 */	b lbl_800C40BC
+.global lbl_800C3E48
+lbl_800C3E48:
 /* 800C3E48 000C0DA8  7F E4 FB 78 */	mr r4, r31
 /* 800C3E4C 000C0DAC  48 00 03 C5 */	bl AreaLoaded__11CScriptDockFR13CStateManager
 /* 800C3E50 000C0DB0  48 00 02 6C */	b lbl_800C40BC
+.global lbl_800C3E54
+lbl_800C3E54:
 /* 800C3E54 000C0DB4  7F E4 FB 78 */	mr r4, r31
 /* 800C3E58 000C0DB8  4B FF F9 45 */	bl UpdateAreaActivateFlags__11CScriptDockFR13CStateManager
 /* 800C3E5C 000C0DBC  7F A3 EB 78 */	mr r3, r29
@@ -544,6 +552,8 @@ AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800C3EBC 000C0E1C  90 01 00 58 */	stw r0, 0x58(r1)
 /* 800C3EC0 000C0E20  4B F8 F9 E1 */	bl SetMaterialFilter__6CActorFRC15CMaterialFilter
 /* 800C3EC4 000C0E24  48 00 01 F8 */	b lbl_800C40BC
+.global lbl_800C3EC8
+lbl_800C3EC8:
 /* 800C3EC8 000C0E28  80 9F 08 CC */	lwz r4, 0x8cc(r31)
 /* 800C3ECC 000C0E2C  80 1D 02 60 */	lwz r0, 0x260(r29)
 /* 800C3ED0 000C0E30  7C 04 00 00 */	cmpw r4, r0
@@ -607,6 +617,8 @@ lbl_800C3FA8:
 /* 800C3FA8 000C0F08  2C 1C FF FF */	cmpwi r28, -1
 /* 800C3FAC 000C0F0C  40 82 FF 90 */	bne lbl_800C3F3C
 /* 800C3FB0 000C0F10  48 00 01 0C */	b lbl_800C40BC
+.global lbl_800C3FB4
+lbl_800C3FB4:
 /* 800C3FB4 000C0F14  80 9F 08 CC */	lwz r4, 0x8cc(r31)
 /* 800C3FB8 000C0F18  80 1D 02 60 */	lwz r0, 0x260(r29)
 /* 800C3FBC 000C0F1C  7C 04 00 00 */	cmpw r4, r0
@@ -615,9 +627,13 @@ lbl_800C3FA8:
 /* 800C3FC8 000C0F28  38 A0 00 01 */	li r5, 1
 /* 800C3FCC 000C0F2C  48 00 02 6D */	bl SetLoadConnected__11CScriptDockFR13CStateManagerb
 /* 800C3FD0 000C0F30  48 00 00 EC */	b lbl_800C40BC
+.global lbl_800C3FD4
+lbl_800C3FD4:
 /* 800C3FD4 000C0F34  7F E4 FB 78 */	mr r4, r31
 /* 800C3FD8 000C0F38  38 A0 00 01 */	li r5, 1
 /* 800C3FDC 000C0F3C  48 00 02 5D */	bl SetLoadConnected__11CScriptDockFR13CStateManagerb
+.global lbl_800C3FE0
+lbl_800C3FE0:
 /* 800C3FE0 000C0F40  80 1D 02 60 */	lwz r0, 0x260(r29)
 /* 800C3FE4 000C0F44  80 BF 08 CC */	lwz r5, 0x8cc(r31)
 /* 800C3FE8 000C0F48  90 01 00 34 */	stw r0, 0x34(r1)
@@ -668,6 +684,7 @@ lbl_800C4084:
 /* 800C4094 000C0FF4  54 03 D9 7E */	srwi r3, r0, 5
 /* 800C4098 000C0FF8  48 00 00 45 */	bl PropogateAreaChain__6CWorldFQ29CGameArea15EOcclusionStateP9CGameAreaP6CWorld
 /* 800C409C 000C0FFC  48 00 00 20 */	b lbl_800C40BC
+.global lbl_800C40A0
 lbl_800C40A0:
 /* 800C40A0 000C1000  A0 05 00 00 */	lhz r0, 0(r5)
 /* 800C40A4 000C1004  7F A3 EB 78 */	mr r3, r29

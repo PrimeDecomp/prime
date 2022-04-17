@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D8EA8
+lbl_803D8EA8:
+	# ROM: 0x3D5EA8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__22CCameraShakerComponentFv
+	.4byte 0
+
 .section .sdata2
 .global lbl_805A9D88
 lbl_805A9D88:

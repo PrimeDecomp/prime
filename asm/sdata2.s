@@ -21721,12 +21721,12 @@ lbl_805AE961:
 .global lbl_805AE964
 lbl_805AE964:
 	# ROM: 0x3FB204
-	.4byte 0x8034C9AC
+	.4byte DoMalloc__FUl
 
 .global lbl_805AE968
 lbl_805AE968:
 	# ROM: 0x3FB208
-	.4byte 0x8034C984
+	.4byte DoFree__FPv
 	.4byte 0
 
 .global lbl_805AE970

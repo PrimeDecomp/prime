@@ -1513,9 +1513,13 @@ AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 80230C30 0022DB90  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80230C34 0022DB94  7C 09 03 A6 */	mtctr r0
 /* 80230C38 0022DB98  4E 80 04 20 */	bctr 
+.global lbl_80230C3C
+lbl_80230C3C:
 /* 80230C3C 0022DB9C  7F E3 FB 78 */	mr r3, r31
 /* 80230C40 0022DBA0  4B FF F7 F9 */	bl sub_80230438
 /* 80230C44 0022DBA4  48 00 00 94 */	b lbl_80230CD8
+.global lbl_80230C48
+lbl_80230C48:
 /* 80230C48 0022DBA8  A0 7E 00 00 */	lhz r3, 0(r30)
 /* 80230C4C 0022DBAC  A0 1F 02 CC */	lhz r0, 0x2cc(r31)
 /* 80230C50 0022DBB0  7C 03 00 40 */	cmplw r3, r0
@@ -1528,6 +1532,8 @@ AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 80230C6C 0022DBCC  90 1F 02 58 */	stw r0, 0x258(r31)
 /* 80230C70 0022DBD0  4B FF F7 C9 */	bl sub_80230438
 /* 80230C74 0022DBD4  48 00 00 64 */	b lbl_80230CD8
+.global lbl_80230C78
+lbl_80230C78:
 /* 80230C78 0022DBD8  A0 7E 00 00 */	lhz r3, 0(r30)
 /* 80230C7C 0022DBDC  A0 1F 02 CC */	lhz r0, 0x2cc(r31)
 /* 80230C80 0022DBE0  7C 03 00 40 */	cmplw r3, r0
@@ -1540,6 +1546,8 @@ AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 80230C9C 0022DBFC  90 1F 02 58 */	stw r0, 0x258(r31)
 /* 80230CA0 0022DC00  4B FF F7 99 */	bl sub_80230438
 /* 80230CA4 0022DC04  48 00 00 34 */	b lbl_80230CD8
+.global lbl_80230CA8
+lbl_80230CA8:
 /* 80230CA8 0022DC08  A0 7E 00 00 */	lhz r3, 0(r30)
 /* 80230CAC 0022DC0C  A0 1F 02 CC */	lhz r0, 0x2cc(r31)
 /* 80230CB0 0022DC10  7C 03 00 40 */	cmplw r3, r0
@@ -1550,8 +1558,11 @@ AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 80230CC4 0022DC24  38 00 00 01 */	li r0, 1
 /* 80230CC8 0022DC28  98 1F 03 FC */	stb r0, 0x3fc(r31)
 /* 80230CCC 0022DC2C  48 00 00 0C */	b lbl_80230CD8
+.global lbl_80230CD0
+lbl_80230CD0:
 /* 80230CD0 0022DC30  C0 02 B6 68 */	lfs f0, lbl_805AD388@sda21(r2)
 /* 80230CD4 0022DC34  D0 1F 03 EC */	stfs f0, 0x3ec(r31)
+.global lbl_80230CD8
 lbl_80230CD8:
 /* 80230CD8 0022DC38  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80230CDC 0022DC3C  83 E1 00 1C */	lwz r31, 0x1c(r1)
