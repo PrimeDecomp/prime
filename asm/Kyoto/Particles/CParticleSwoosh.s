@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EDD80
+lbl_803EDD80:
+	# ROM: 0x3EAD80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CParticleSwooshFv
+	.4byte Update__15CParticleSwooshFd
+	.4byte Render__15CParticleSwooshFv
+	.4byte SetOrientation__15CParticleSwooshFRC12CTransform4f
+	.4byte SetTranslation__15CParticleSwooshFRC9CVector3f
+	.4byte SetGlobalOrientation__15CParticleSwooshFRC12CTransform4f
+	.4byte SetGlobalTranslation__15CParticleSwooshFRC9CVector3f
+	.4byte SetGlobalScale__15CParticleSwooshFRC9CVector3f
+	.4byte SetLocalScale__15CParticleSwooshFRC9CVector3f
+	.4byte SetParticleEmission__15CParticleSwooshFb
+	.4byte SetModulationColor__15CParticleSwooshFRC6CColor
+	.4byte SetGeneratorRate__12CParticleGenFf
+	.4byte GetOrientation__15CParticleSwooshCFv
+	.4byte GetTranslation__15CParticleSwooshCFv
+	.4byte GetGlobalOrientation__15CParticleSwooshCFv
+	.4byte GetGlobalTranslation__15CParticleSwooshCFv
+	.4byte GetGlobalScale__15CParticleSwooshCFv
+	.4byte GetParticleEmission__15CParticleSwooshCFv
+	.4byte GetModulationColor__15CParticleSwooshCFv
+	.4byte GetGeneratorRate__12CParticleGenCFv
+	.4byte IsSystemDeletable__15CParticleSwooshCFv
+	.4byte GetBounds__15CParticleSwooshCFv
+	.4byte GetParticleCount__15CParticleSwooshCFv
+	.4byte SystemHasLight__15CParticleSwooshCFv
+	.4byte GetLight__15CParticleSwooshCFv
+	.4byte DestroyParticles__15CParticleSwooshFv
+	.4byte AddModifier__12CParticleGenFP5CWarp
+	.4byte Get4CharId__15CParticleSwooshCF
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTranslation__15CParticleSwooshCFv
@@ -1769,6 +1805,8 @@ lbl_8032C024:
 /* 8032C0FC 0032905C  C0 41 00 70 */	lfs f2, 0x70(r1)
 /* 8032C100 00329060  38 9D 00 38 */	addi r4, r29, 0x38
 /* 8032C104 00329064  EC 00 E8 2A */	fadds f0, f0, f29
+.global lbl_8032C108
+lbl_8032C108:
 /* 8032C108 00329068  C0 21 00 74 */	lfs f1, 0x74(r1)
 /* 8032C10C 0032906C  80 D5 01 78 */	lwz r6, 0x178(r21)
 /* 8032C110 00329070  EC 42 F8 2A */	fadds f2, f2, f31

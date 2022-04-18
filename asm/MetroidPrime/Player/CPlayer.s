@@ -1,5 +1,96 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803D96E8
+lbl_803D96E8:
+	# ROM: 0x3D66E8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CPlayerFv
+	.4byte Accept__7CPlayerFR8IVisitor
+	.4byte PreThink__7CPlayerFfR13CStateManager
+	.4byte Think__7CPlayerFfR13CStateManager
+	.4byte AcceptScriptMsg__7CPlayerF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__7CPlayerFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__7CPlayerCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__7CPlayerCFRC13CStateManager
+	.4byte CanRenderUnsorted__7CPlayerCFRC13CStateManager
+	.4byte CalculateRenderBounds__7CPlayerFv
+	.4byte HealthInfo__7CPlayerFR13CStateManager
+	.4byte GetDamageVulnerability__7CPlayerCFv
+	.4byte GetDamageVulnerability__7CPlayerCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__7CPlayerCFv
+	.4byte Touch__7CPlayerFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__13CPhysicsActorCFRC13CStateManager
+	.4byte GetAimPosition__7CPlayerCFRC13CStateManagerf
+	.4byte GetHomingPosition__7CPlayerCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__7CPlayerFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__7CPlayerCFv
+	.4byte GetPrimitiveTransform__7CPlayerCFv
+	.4byte CollidedWith__7CPlayerFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__7CPlayerCFv
+	.4byte GetStepUpHeight__7CPlayerCFv
+	.4byte GetWeight__7CPlayerCFv
+	.4byte IsTransparent__7CPlayerCFv
+
+.global lbl_803D9770
+lbl_803D9770:
+	# ROM: 0x3D6770
+	.4byte lbl_80012610
+	.4byte lbl_80012634
+	.4byte lbl_8001261C
+	.4byte lbl_80012628
+	.4byte lbl_8001262C
+	.4byte lbl_80012634
+	.4byte lbl_80012610
+
+.global lbl_803D978C
+lbl_803D978C:
+	# ROM: 0x3D678C
+	.4byte lbl_800165CC
+	.4byte lbl_80016D24
+	.4byte lbl_80016D24
+	.4byte lbl_80016960
+	.4byte lbl_800169F0
+	.4byte lbl_800169FC
+	.4byte lbl_80016A08
+	.4byte lbl_80016D24
+	.4byte lbl_80016C4C
+	.4byte lbl_800169B8
+	.4byte lbl_80016D24
+	.4byte lbl_80016CC0
+	.4byte lbl_80016D24
+	.4byte lbl_80016D24
+	.4byte lbl_80016A20
+	.4byte lbl_80016B34
+	.4byte lbl_80016C0C
+	.4byte lbl_80016D24
+	.4byte lbl_80016C58
+	.4byte lbl_80016D24
+	.4byte lbl_80016C30
+	.4byte lbl_80016A14
+
+.global lbl_803D97E4
+lbl_803D97E4:
+	# ROM: 0x3D67E4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte SetMaterial__19CCollisionPrimitiveFRC13CMaterialList
+	.4byte GetMaterial__19CCollisionPrimitiveCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CCollisionPrimitiveFv
+	.4byte 0
+	.4byte 0
+	
 .section .bss
 .global lbl_80457908
 lbl_80457908:
@@ -24,21 +115,52 @@ lbl_80458350:
 	.skip 0x1E58
 
 .section .rodata
-.global lbl_803CC438
-lbl_803CC438:
-	.incbin "baserom.dol", 0x3C9438, 0x30
-.global lbl_803CC468
-lbl_803CC468:
-	.incbin "baserom.dol", 0x3C9468, 0x30
-.global lbl_803CC498
-lbl_803CC498:
-	.incbin "baserom.dol", 0x3C9498, 0x30
-.global lbl_803CC4C8
-lbl_803CC4C8:
-	.incbin "baserom.dol", 0x3C94C8, 0x30
+.global skPlayerLandSfxSoft__7CPlayer
+skPlayerLandSfxSoft__7CPlayer:
+	.2byte 0xFFFF, 0x05E4, 0x05D2, 0x0621
+	.2byte 0x0658, 0xFFFF, 0x05E3, 0x0606
+	.2byte 0x05C0, 0x088E, 0x0694, 0x0638
+	.2byte 0x062B, 0xFFFF, 0x0621, 0x05D2
+	.2byte 0x05D2, 0x05C0, 0xFFFF, 0xFFFF
+	.2byte 0xFFFF, 0xFFFF, 0x05FB, 0x0625
+
+.global skPlayerLandSfxHard__7CPlayer
+skPlayerLandSfxHard__7CPlayer:
+	.2byte 0xFFFF, 0x0651, 0x064B, 0x0647
+    .2byte 0x065A, 0xFFFF, 0x0648, 0x064E
+    .2byte 0x064F, 0x08D7, 0x0696, 0x0650
+    .2byte 0x064C, 0xFFFF, 0x0647, 0x064B
+    .2byte 0x064B, 0x064F, 0xFFFF, 0xFFFF
+    .2byte 0xFFFF, 0xFFFF, 0x0652, 0x064D
+
+.global skLeftStepSounds_7CPlayer
+skLeftStepSounds_7CPlayer:
+	.2byte 0xFFFF, 0x05B9, 0x05D7, 0x0622
+	.2byte 0x0653, 0xFFFF, 0x05D5, 0x0611
+	.2byte 0x05D9, 0x0887, 0x0699, 0x063A
+	.2byte 0x0631, 0xFFFF, 0x0629, 0x05D7
+	.2byte 0x05D7, 0x05D9, 0xFFFF, 0xFFFF
+	.2byte 0xFFFF, 0xFFFF, 0x05F9, 0x0629
+
+.global skRightStepSounds_7CPlayer
+skRightStepSounds_7CPlayer:
+	.2byte 0xFFFF, 0x05BA, 0x05D8, 0x0623
+	.2byte 0x0654, 0xFFFF, 0x05D6, 0x0612
+	.2byte 0x05DB, 0x0888, 0x069A, 0x063B
+	.2byte 0x0632, 0xFFFF, 0x062A, 0x05D8
+	.2byte 0x05D8, 0x05DB, 0xFFFF, 0xFFFF
+	.2byte 0xFFFF, 0xFFFF, 0x05FA, 0x062A
+
+	
 .global lbl_803CC4F8
 lbl_803CC4F8:
-	.incbin "baserom.dol", 0x3C94F8, 0x48
+	.asciz "GUN_LCTR"
+	.asciz "BallTransition_DGRP"
+	.asciz "??(??)"
+	.asciz "FrostExplosion"
+	.asciz "WaterSheets"
+	.asciz "CPlayer"
+	.balign 4
 
 .section .sbss
 
@@ -7528,9 +7650,9 @@ lbl_80016634:
 /* 8001666C 000135CC  FC 00 00 50 */	fneg f0, f0
 /* 80016670 000135D0  FC 00 F0 40 */	fcmpo cr0, f0, f30
 /* 80016674 000135D4  40 80 00 2C */	bge lbl_800166A0
-/* 80016678 000135D8  3C 60 80 3D */	lis r3, lbl_803CC438@ha
+/* 80016678 000135D8  3C 60 80 3D */	lis r3, skPlayerLandSfxSoft__7CPlayer@ha
 /* 8001667C 000135DC  3C C0 00 01 */	lis r6, 0x0000FFFF@ha
-/* 80016680 000135E0  38 A3 C4 38 */	addi r5, r3, lbl_803CC438@l
+/* 80016680 000135E0  38 A3 C4 38 */	addi r5, r3, skPlayerLandSfxSoft__7CPlayer@l
 /* 80016684 000135E4  7F C4 F3 78 */	mr r4, r30
 /* 80016688 000135E8  38 E6 FF FF */	addi r7, r6, 0x0000FFFF@l
 /* 8001668C 000135EC  7F 63 DB 78 */	mr r3, r27
@@ -7539,9 +7661,9 @@ lbl_80016634:
 /* 80016698 000135F8  7C 7A 1B 78 */	mr r26, r3
 /* 8001669C 000135FC  48 00 00 D4 */	b lbl_80016770
 lbl_800166A0:
-/* 800166A0 00013600  3C 60 80 3D */	lis r3, lbl_803CC468@ha
+/* 800166A0 00013600  3C 60 80 3D */	lis r3, skPlayerLandSfxHard__7CPlayer@ha
 /* 800166A4 00013604  3C C0 00 01 */	lis r6, 0x0000FFFF@ha
-/* 800166A8 00013608  38 A3 C4 68 */	addi r5, r3, lbl_803CC468@l
+/* 800166A8 00013608  38 A3 C4 68 */	addi r5, r3, skPlayerLandSfxHard__7CPlayer@l
 /* 800166AC 0001360C  7F C4 F3 78 */	mr r4, r30
 /* 800166B0 00013610  38 E6 FF FF */	addi r7, r6, 0x0000FFFF@l
 /* 800166B4 00013614  7F 63 DB 78 */	mr r3, r27
@@ -9355,9 +9477,9 @@ lbl_8001803C:
 /* 8001803C 00014F9C  80 1D 07 90 */	lwz r0, 0x790(r29)
 /* 80018040 00014FA0  2C 00 00 01 */	cmpwi r0, 1
 /* 80018044 00014FA4  40 82 00 2C */	bne lbl_80018070
-/* 80018048 00014FA8  3C 60 80 3D */	lis r3, lbl_803CC498@ha
+/* 80018048 00014FA8  3C 60 80 3D */	lis r3, skLeftStepSounds_7CPlayer@ha
 /* 8001804C 00014FAC  3C C0 00 01 */	lis r6, 0x0000FFFF@ha
-/* 80018050 00014FB0  38 A3 C4 98 */	addi r5, r3, lbl_803CC498@l
+/* 80018050 00014FB0  38 A3 C4 98 */	addi r5, r3, skLeftStepSounds_7CPlayer@l
 /* 80018054 00014FB4  7F C4 F3 78 */	mr r4, r30
 /* 80018058 00014FB8  38 E6 FF FF */	addi r7, r6, 0x0000FFFF@l
 /* 8001805C 00014FBC  7F A3 EB 78 */	mr r3, r29
@@ -9366,9 +9488,9 @@ lbl_8001803C:
 /* 80018068 00014FC8  7C 60 1B 78 */	mr r0, r3
 /* 8001806C 00014FCC  48 00 00 28 */	b lbl_80018094
 lbl_80018070:
-/* 80018070 00014FD0  3C 60 80 3D */	lis r3, lbl_803CC4C8@ha
+/* 80018070 00014FD0  3C 60 80 3D */	lis r3, skRightStepSounds_7CPlayer@ha
 /* 80018074 00014FD4  3C C0 00 01 */	lis r6, 0x0000FFFF@ha
-/* 80018078 00014FD8  38 A3 C4 C8 */	addi r5, r3, lbl_803CC4C8@l
+/* 80018078 00014FD8  38 A3 C4 C8 */	addi r5, r3, skRightStepSounds_7CPlayer@l
 /* 8001807C 00014FDC  7F C4 F3 78 */	mr r4, r30
 /* 80018080 00014FE0  38 E6 FF FF */	addi r7, r6, 0x0000FFFF@l
 /* 80018084 00014FE4  7F A3 EB 78 */	mr r3, r29

@@ -1,5 +1,25 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE490
+lbl_803EE490:
+	# ROM: 0x3EB490
+	.4byte lbl_803433E4
+	.4byte lbl_803434A8
+	.4byte lbl_80343560
+	.4byte lbl_803435B4
+	.4byte lbl_80343610
+	.4byte lbl_8034366C
+	.4byte lbl_803436D4
+	.4byte lbl_80343700
+	.4byte lbl_80343790
+	.4byte lbl_803437E4
+	.4byte lbl_80343840
+	.4byte lbl_8034389C
+	.4byte lbl_8034392C
+	.4byte lbl_80343934
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global inflate

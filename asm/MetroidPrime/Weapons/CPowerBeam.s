@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF758
+lbl_803DF758:
+	# ROM: 0x3DC758
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CPowerBeamFv
+	.4byte Reset__10CGunWeaponFR13CStateManager
+	.4byte PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb
+	.4byte PreRenderGunFx__10CPowerBeamFRC13CStateManagerRC12CTransform4f
+	.4byte PostRenderGunFx__10CPowerBeamFRC13CStateManagerRC12CTransform4f
+	.4byte UpdateGunFx__10CPowerBeamFbfRC13CStateManagerRC12CTransform4f
+	.4byte Fire__10CPowerBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte EnableFx__10CGunWeaponFb
+	.4byte EnableSecondaryFx__10CPowerBeamFQ210CGunWeapon16ESecondaryFxType
+	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
+	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
+	.4byte Update__10CPowerBeamFfR13CStateManager
+	.4byte Load__10CPowerBeamFR13CStateManagerb
+	.4byte Unload__10CPowerBeamFR13CStateManager
+	.4byte IsLoaded__10CPowerBeamCFv
+	.4byte 0
+
 .section .text, "ax"
 
 .global EnableSecondaryFx__10CPowerBeamFQ210CGunWeapon16ESecondaryFxType

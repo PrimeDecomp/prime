@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E9A00
+lbl_803E9A00:
+	# ROM: 0x3E6A00
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CPauseScreenBlurFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetBlurAmt__16CPauseScreenBlurCFv

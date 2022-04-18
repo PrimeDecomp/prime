@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFBF0
+lbl_803DFBF0:
+	# ROM: 0x3DCBF0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CScriptHUDMemoFv
+	.4byte Accept__14CScriptHUDMemoFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__14CScriptHUDMemoF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__14CScriptHUDMemoFR8IVisitor

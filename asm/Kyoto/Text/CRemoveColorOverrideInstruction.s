@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED6D8
+lbl_803ED6D8:
+	# ROM: 0x3EA6D8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__31CRemoveColorOverrideInstructionFv
+	.4byte Invoke__31CRemoveColorOverrideInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte PageInvoke__31CRemoveColorOverrideInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__12CInstructionCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__31CRemoveColorOverrideInstructionFv

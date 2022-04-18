@@ -1179,6 +1179,8 @@ AddImage__17CTextRenderBufferFRC9CVector2iRC13CFontImageDef:
 /* 8035ABF4 00357B54  2C 00 00 01 */	cmpwi r0, 1
 /* 8035ABF8 00357B58  40 82 01 B8 */	bne lbl_8035ADB0
 /* 8035ABFC 00357B5C  4B FF F7 51 */	bl sub_8035a34c
+.global lbl_8035AC00
+lbl_8035AC00:
 /* 8035AC00 00357B60  7C 7C 1B 78 */	mr r28, r3
 /* 8035AC04 00357B64  7F A3 EB 78 */	mr r3, r29
 /* 8035AC08 00357B68  4B FF F7 7D */	bl GetOutStream__17CTextRenderBufferFv

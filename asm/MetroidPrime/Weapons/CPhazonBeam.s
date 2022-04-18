@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E42E8
+lbl_803E42E8:
+	# ROM: 0x3E12E8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CPhazonBeamFv
+	.4byte Reset__10CGunWeaponFR13CStateManager
+	.4byte PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb
+	.4byte PreRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f
+	.4byte PostRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f
+	.4byte UpdateGunFx__11CPhazonBeamFbfRC13CStateManagerRC12CTransform4f
+	.4byte Fire__11CPhazonBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte EnableFx__10CGunWeaponFb
+	.4byte EnableSecondaryFx__10CGunWeaponFQ210CGunWeapon16ESecondaryFxType
+	.4byte Draw__11CPhazonBeamCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
+	.4byte DrawMuzzleFx__11CPhazonBeamCFRC13CStateManager
+	.4byte Update__11CPhazonBeamFfR13CStateManager
+	.4byte Load__11CPhazonBeamFb
+	.4byte Unload__11CPhazonBeamFR13CStateManager
+	.4byte IsLoaded__11CPhazonBeamCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AcceptScriptMsg__11CPhazonBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager

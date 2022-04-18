@@ -1,5 +1,125 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E4470
+lbl_803E4470:
+	# ROM: 0x3E1470
+	.4byte 0
+	.4byte 0
+	.4byte SetFreeLookState__21CHudFreeLookInterfaceFbbbf
+	.4byte SetIsVisibleDebug__21CHudFreeLookInterfaceFb
+	.4byte SetIsVisibleGame__21CHudFreeLookInterfaceFb
+	.4byte Update__21CHudFreeLookInterfaceFf
+	.4byte __dt__21CHudFreeLookInterfaceFv
+
+.global lbl_803E448C
+lbl_803E448C:
+	# ROM: 0x3E148C
+	.4byte 0
+	.4byte 0
+	.4byte SetFreeLookState__25CHudFreeLookInterfaceXRayFbbbf
+	.4byte SetIsVisibleDebug__25CHudFreeLookInterfaceXRayFb
+	.4byte SetIsVisibleGame__25CHudFreeLookInterfaceXRayFb
+	.4byte Update__25CHudFreeLookInterfaceXRayFf
+	.4byte __dt__25CHudFreeLookInterfaceXRayFv
+
+.global lbl_803E44A8
+lbl_803E44A8:
+	# ROM: 0x3E14A8
+	.4byte 0
+	.4byte 0
+	.4byte SetThreatDistance__19CHudThreatInterfaceFf
+	.4byte Update__19CHudThreatInterfaceFf
+	.4byte SetIsVisibleDebug__19CHudThreatInterfaceFb
+	.4byte SetIsVisibleGame__19CHudThreatInterfaceFb
+	.4byte __dt__19CHudThreatInterfaceFv
+	.4byte 0
+
+.global lbl_803E44C8
+lbl_803E44C8:
+	# ROM: 0x3E14C8
+	.4byte 0
+	.4byte 0
+	.4byte SetIsVisibleDebug__24CHudDecoInterfaceThermalFb
+	.4byte SetIsVisibleGame__24CHudDecoInterfaceThermalFb
+	.4byte SetHudRotation__24CHudDecoInterfaceThermalFRC11CQuaternion
+	.4byte SetHudOffset__24CHudDecoInterfaceThermalFRC9CVector3f
+	.4byte SetReticuleTransform__24CHudDecoInterfaceThermalFRC9CMatrix3f
+	.4byte SetDecoRotation__17IHudDecoInterfaceFf
+	.4byte SetDamageTransform__24CHudDecoInterfaceThermalFRC9CMatrix3fRC9CVector3f
+	.4byte SetFrameColorValue__17IHudDecoInterfaceFf
+	.4byte Update__24CHudDecoInterfaceThermalFfRC13CStateManager
+	.4byte Draw__17IHudDecoInterfaceCFv
+	.4byte ProcessInput__17IHudDecoInterfaceFRC11CFinalInput
+	.4byte UpdateCameraDebugSettings__24CHudDecoInterfaceThermalFfff
+	.4byte UpdateHudAlpha__24CHudDecoInterfaceThermalFv
+	.4byte GetMessageTextAlpha__17IHudDecoInterfaceCFv
+	.4byte __dt__24CHudDecoInterfaceThermalFv
+
+.global lbl_803E450C
+lbl_803E450C:
+	# ROM: 0x3E150C
+	.4byte 0
+	.4byte 0
+	.4byte SetIsVisibleDebug__21CHudDecoInterfaceScanFb
+	.4byte SetIsVisibleGame__21CHudDecoInterfaceScanFb
+	.4byte SetHudRotation__21CHudDecoInterfaceScanFRC11CQuaternion
+	.4byte SetHudOffset__21CHudDecoInterfaceScanFRC9CVector3f
+	.4byte SetReticuleTransform__21CHudDecoInterfaceScanFRC9CMatrix3f
+	.4byte SetDecoRotation__17IHudDecoInterfaceFf
+	.4byte SetDamageTransform__21CHudDecoInterfaceScanFRC9CMatrix3fRC9CVector3f
+	.4byte SetFrameColorValue__21CHudDecoInterfaceScanFf
+	.4byte Update__21CHudDecoInterfaceScanFfRC13CStateManager
+	.4byte Draw__21CHudDecoInterfaceScanCFv
+	.4byte ProcessInput__21CHudDecoInterfaceScanFRC11CFinalInput
+	.4byte UpdateCameraDebugSettings__21CHudDecoInterfaceScanFfff
+	.4byte UpdateHudAlpha__21CHudDecoInterfaceScanFv
+	.4byte GetMessageTextAlpha__21CHudDecoInterfaceScanCFv
+	.4byte __dt__21CHudDecoInterfaceScanFv
+
+.global lbl_803E4550
+lbl_803E4550:
+	# ROM: 0x3E1550
+	.4byte 0
+	.4byte 0
+	.4byte SetIsVisibleDebug__21CHudDecoInterfaceXrayFb
+	.4byte SetIsVisibleGame__21CHudDecoInterfaceXrayFb
+	.4byte SetHudRotation__21CHudDecoInterfaceXrayFRC11CQuaternion
+	.4byte SetHudOffset__21CHudDecoInterfaceXrayFRC9CVector3f
+	.4byte SetReticuleTransform__21CHudDecoInterfaceXrayFRC9CMatrix3f
+	.4byte SetDecoRotation__21CHudDecoInterfaceXrayFf
+	.4byte SetDamageTransform__21CHudDecoInterfaceXrayFRC9CMatrix3fRC9CVector3f
+	.4byte SetFrameColorValue__21CHudDecoInterfaceXrayFf
+	.4byte Update__21CHudDecoInterfaceXrayFfRC13CStateManager
+	.4byte Draw__17IHudDecoInterfaceCFv
+	.4byte ProcessInput__17IHudDecoInterfaceFRC11CFinalInput
+	.4byte UpdateCameraDebugSettings__21CHudDecoInterfaceXrayFfff
+	.4byte UpdateHudAlpha__21CHudDecoInterfaceXrayFv
+	.4byte GetMessageTextAlpha__17IHudDecoInterfaceCFv
+	.4byte __dt__21CHudDecoInterfaceXrayFv
+
+.global lbl_803E4594
+lbl_803E4594:
+	# ROM: 0x3E1594
+	.4byte 0
+	.4byte 0
+	.4byte SetIsVisibleDebug__23CHudDecoInterfaceCombatFb
+	.4byte SetIsVisibleGame__23CHudDecoInterfaceCombatFb
+	.4byte SetHudRotation__23CHudDecoInterfaceCombatFRC11CQuaternion
+	.4byte SetHudOffset__23CHudDecoInterfaceCombatFRC9CVector3f
+	.4byte SetReticuleTransform__17CHudDecoInterfaceFRC9CMatrix3f
+	.4byte SetDecoRotation__17IHudDecoInterfaceFf
+	.4byte SetDamageTransform__23CHudDecoInterfaceCombatFRC9CMatrix3fRC9CVector3f
+	.4byte SetFrameColorValue__23CHudDecoInterfaceCombatFf
+	.4byte Update__23CHudDecoInterfaceCombatFfRC13CStateManager
+	.4byte Draw__17IHudDecoInterfaceCFv
+	.4byte ProcessInput__17IHudDecoInterfaceFRC11CFinalInput
+	.4byte UpdateCameraDebugSettings__23CHudDecoInterfaceCombatFfff
+	.4byte UpdateHudAlpha__23CHudDecoInterfaceCombatFv
+	.4byte GetMessageTextAlpha__17IHudDecoInterfaceCFv
+	.4byte __dt__23CHudDecoInterfaceCombatFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Update__23CHudBossEnergyInterfaceFf

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EDDF8
+lbl_803EDDF8:
+	# ROM: 0x3EADF8
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__46TObjOwnerDerivedFromIObj<18CSwooshDescription>Fv"
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global CreateWPSM__26CParticleSwooshDataFactoryFP18CSwooshDescriptionR12CInputStreamP11CSimplePool

@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAF38
+lbl_803DAF38:
+	# ROM: 0x3D7F38
+	.4byte 0
+	.4byte UpdateSupport1__FiPP9CVector2fR7Support
+	.4byte UpdateSupport2__FiPP9CVector2fR7Support
+	.4byte UpdateSupport3__FiPP9CVector2fR7Support
+
+.global lbl_803DAF48
+lbl_803DAF48:
+	# ROM: 0x3D7F48
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__36TObjOwnerDerivedFromIObj<9CMapWorld>Fv"
+	.4byte 0
+
 .section .text, "ax"
 
 .global MinCircle__FiPC9CVector2f

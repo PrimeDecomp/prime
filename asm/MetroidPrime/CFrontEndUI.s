@@ -1,5 +1,97 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9810
+lbl_803D9810:
+	# ROM: 0x3D6810
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CArchMsgParmUserInputFv
+	.4byte 0
+	
+.global lbl_803D9820
+lbl_803D9820:
+	# ROM: 0x3D6820
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoAdvance__14SFrontEndFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoSelectionChange__14SFrontEndFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoCancel__14SFrontEndFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoFileselectAdvance__19SNewFileSelectFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoSelectionChange__19SNewFileSelectFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoFileselectCancel__19SNewFileSelectFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoPopupAdvance__19SNewFileSelectFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoSelectionChange__19SNewFileSelectFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoPopupCancel__19SNewFileSelectFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoOptionsAdvance__17SFusionBonusFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoSelectionChange__17SFusionBonusFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoOptionsCancel__17SFusionBonusFrameFPC14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoSelectionChange__17SFusionBonusFrameFPC14CGuiTableGroup
+
+.global lbl_803D98BC
+lbl_803D98BC:
+	# ROM: 0x3D68BC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CFrontEndUIFv
+	.4byte OnMessage__11CFrontEndUIFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__11CFrontEndUICFv
+	.4byte PreDraw__6CIOWinCFv
+
+.global lbl_803D98D8
+lbl_803D98D8:
+	# ROM: 0x3D68D8
+	.4byte lbl_80021B58
+	.4byte lbl_80021B70
+	.4byte lbl_80021B8C
+	.4byte lbl_80021BA8
+	.4byte lbl_80021BDC
+	.4byte lbl_80021BF8
+	.4byte lbl_80021C1C
+	.4byte lbl_80021BC0
+	.4byte lbl_80021C40
+	.4byte lbl_80021C40
+
+.global lbl_803D9900
+lbl_803D9900:
+	# ROM: 0x3D6900
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CStateSetterFlowFv
+	.4byte OnMessage__16CStateSetterFlowFv
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__6CIOWinCFv
+	.4byte PreDraw__6CIOWinCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	
 .section .rodata
 .global lbl_803CC540
 lbl_803CC540:
@@ -3638,6 +3730,8 @@ lbl_8001EB40:
 lbl_8001EB58:
 /* 8001EB58 0001BAB8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001EB5C 0001BABC  7C 08 03 A6 */	mtlr r0
+.global lbl_8001EB60
+lbl_8001EB60:
 /* 8001EB60 0001BAC0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8001EB64 0001BAC4  4E 80 00 20 */	blr 
 

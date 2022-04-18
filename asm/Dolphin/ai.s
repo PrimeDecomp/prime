@@ -1,9 +1,17 @@
 .include "macros.inc"
 
+.section .data
+
+.global AIVersion
+AIVersion:
+	.asciz "<< Dolphin SDK - AI\trelease build: Sep  5 2002 05:34:25 (0x2301) >>"
+	.4byte 0
+	
 .section .sdata
 .global lbl_805A8A68
 lbl_805A8A68:
-	.incbin "baserom.dol", 0x3F6408, 0x8
+	.4byte AIVersion
+	.4byte 0
 
 .section .sbss
 lbl_805A96B8:

@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF5C8
+lbl_803EF5C8:
+	# ROM: 0x3EC5C8
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000003
+	.4byte 0x00000007
+	.4byte 0x0000000F
+	.4byte 0x0000001F
+	.4byte 0x0000003F
+	.4byte 0x0000007F
+	.4byte 0x000000FF
+	.4byte 0x000001FF
+	.4byte 0x000003FF
+	.4byte 0x000007FF
+	.4byte 0x00000FFF
+	.4byte 0x00001FFF
+	.4byte 0x00003FFF
+	.4byte 0x00007FFF
+	.4byte 0x0000FFFF
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global inflate_flush

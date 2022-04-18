@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9C88
+lbl_803D9C88:
+	# ROM: 0x3D6C88
+	.4byte 0
+	.4byte 0
+	.4byte __dt__Q224CCharacterFactoryBuilder13CDummyFactoryFv
+	.4byte Build__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTransfer
+	.4byte BuildAsync__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTransferPP4IObj
+	.4byte CancelBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag
+	.4byte CanBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag
+	.4byte GetResourceIdByName__Q224CCharacterFactoryBuilder13CDummyFactoryCFPCc
+
+.global lbl_803D9CA8
+lbl_803D9CA8:
+	# ROM: 0x3D6CA8
+	.4byte 0
+	.4byte 0
+	.4byte sub_80034c54
+	.4byte 0
+
+	
 .section .text, "ax"
 
 .global CanBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag

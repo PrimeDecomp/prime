@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E52F8
+lbl_803E52F8:
+	# ROM: 0x3E22F8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CScriptAreaAttributesFv
+	.4byte Accept__21CScriptAreaAttributesFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__21CScriptAreaAttributesF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CScriptAreaAttributesFv
@@ -117,7 +131,7 @@ __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffi11EPhaz
 /* 801BD5CC 001BA52C  7C 08 02 A6 */	mflr r0
 /* 801BD5D0 001BA530  90 01 00 64 */	stw r0, 0x64(r1)
 /* 801BD5D4 001BA534  39 61 00 60 */	addi r11, r1, 0x60
-/* 801BD5D8 001BA538  48 1C C4 11 */	bl sub_803899e8
+/* 801BD5D8 001BA538  48 1C C4 11 */	bl _savefpr_28
 /* 801BD5DC 001BA53C  BF 21 00 24 */	stmw r25, 0x24(r1)
 /* 801BD5E0 001BA540  3D 40 80 3D */	lis r10, lbl_803D19F0@ha
 /* 801BD5E4 001BA544  FF 80 08 90 */	fmr f28, f1
@@ -160,7 +174,7 @@ __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffi11EPhaz
 /* 801BD678 001BA5D8  D3 F9 00 48 */	stfs f31, 0x48(r25)
 /* 801BD67C 001BA5DC  93 D9 00 4C */	stw r30, 0x4c(r25)
 /* 801BD680 001BA5E0  93 F9 00 50 */	stw r31, 0x50(r25)
-/* 801BD684 001BA5E4  48 1C C3 B1 */	bl sub_80389a34
+/* 801BD684 001BA5E4  48 1C C3 B1 */	bl _restfpr_28
 /* 801BD688 001BA5E8  BB 21 00 24 */	lmw r25, 0x24(r1)
 /* 801BD68C 001BA5EC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801BD690 001BA5F0  7C 08 03 A6 */	mtlr r0

@@ -1,5 +1,67 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC548
+lbl_803EC548:
+	# ROM: 0x3E9548
+	.4byte 0
+	.4byte 0
+	.4byte sub_802b4218
+
+.global lbl_803EC554
+lbl_803EC554:
+	# ROM: 0x3E9554
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CRealElementFv
+	.4byte 0
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EC568
+lbl_803EC568:
+	# ROM: 0x3E9568
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CUVElementFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803EC584
+lbl_803EC584:
+	# ROM: 0x3E9584
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CIntElement
+	.4byte 0
+
+.global lbl_803EC594
+lbl_803EC594:
+	# ROM: 0x3E9594
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CVectorElement
+	.4byte 0
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EC5A8
+lbl_803EC5A8:
+	# ROM: 0x3E95A8
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803EC5B4
+lbl_803EC5B4:
+	# ROM: 0x3E95B4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CColorElement
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global CreateDPSM__17CDecalDataFactoryFP17CDecalDescriptionR12CInputStreamP11CSimplePool

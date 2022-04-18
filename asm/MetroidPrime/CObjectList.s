@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D96D8
+lbl_803D96D8:
+	# ROM: 0x3D66D8
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__11CObjectListFRC7CEntity
+	.4byte 0
+	
 .section .text, "ax"
 
 .global GetObjectByIndex__11CObjectListCFi

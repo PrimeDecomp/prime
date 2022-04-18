@@ -1,5 +1,18 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D99F0
+lbl_803D99F0:
+	# ROM: 0x3D69F0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CAutoSaveFv
+	.4byte OnMessage__9CAutoSaveFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__9CAutoSaveCFv
+	.4byte Draw__9CAutoSaveCFv
+	.4byte PreDraw__6CIOWinCFv
+	
 .section .text, "ax"
 
 .global GetIsContinueDraw__9CAutoSaveCFv

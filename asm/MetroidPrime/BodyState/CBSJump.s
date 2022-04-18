@@ -1,5 +1,25 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E2008
+lbl_803E2008:
+	# ROM: 0x3DF008
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CBSJumpFv
+	.4byte IsInAir__7CBSJumpCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__7CBSJumpCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__7CBSJumpCFv
+	.4byte ApplyAnimationDeltas__7CBSJumpCFv
+	.4byte CanShoot__7CBSJumpCFv
+	.4byte Start__7CBSJumpFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__7CBSJumpFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__7CBSJumpFR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__7CBSJumpFv

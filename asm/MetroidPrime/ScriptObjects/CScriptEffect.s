@@ -1,5 +1,53 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAC38
+lbl_803DAC38:
+	# ROM: 0x3D7C38
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CScriptEffectFv
+	.4byte Accept__13CScriptEffectFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__13CScriptEffectFfR13CStateManager
+	.4byte AcceptScriptMsg__13CScriptEffectF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__13CScriptEffectFb
+	.4byte PreRender__13CScriptEffectFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__13CScriptEffectCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__13CScriptEffectCFRC13CStateManager
+	.4byte CanRenderUnsorted__13CScriptEffectCFRC13CStateManager
+	.4byte CalculateRenderBounds__13CScriptEffectFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__6CActorCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__13CScriptEffectCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+
+.global lbl_803DACA4
+lbl_803DACA4:
+	# ROM: 0x3D7CA4
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__48TObjOwnerDerivedFromIObj<20CElectricDescription>Fv"
+
+.global lbl_803DACB0
+lbl_803DACB0:
+	# ROM: 0x3D7CB0
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__43TObjOwnerDerivedFromIObj<15CGenDescription>Fv"
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__13CScriptEffectFv

@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFE20
+lbl_803DFE20:
+	# ROM: 0x3DCE20
+	.4byte 0
+	.4byte 0
+	.4byte __dt__20CScriptActorKeyframeFv
+	.4byte Accept__20CScriptActorKeyframeFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__20CScriptActorKeyframeFfR13CStateManager
+	.4byte AcceptScriptMsg__20CScriptActorKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
+.global lbl_803DFE40
+lbl_803DFE40:
+	# ROM: 0x3DCE40
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CBCScriptedCmdFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__20CScriptActorKeyframeFv

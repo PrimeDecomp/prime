@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF830
+lbl_803EF830:
+	# ROM: 0x3EC830
+	.4byte 0
+	.4byte 0
+	.4byte sub_8036505c
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FDependencyGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

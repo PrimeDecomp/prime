@@ -1,5 +1,49 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAD40
+lbl_803DAD40:
+	# ROM: 0x3D7D40
+	.4byte lbl_80091C54
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091C54
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091C54
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091C54
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091C54
+	.4byte lbl_80091CC4
+	.4byte lbl_80091C80
+	.4byte lbl_80091CC4
+	.4byte lbl_80091CC4
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte lbl_80091C54
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetMissileComboChargeFactor__12CPlayerStateFv

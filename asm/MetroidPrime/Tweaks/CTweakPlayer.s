@@ -1,5 +1,22 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9CB8
+lbl_803D9CB8:
+	# ROM: 0x3D6CB8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CTweakPlayerFv
+
+# ITweakObject vtable, ODR strikes again
+.global lbl_803D9CC4
+lbl_803D9CC4:
+	# ROM: 0x3D6CC4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	
 .section .text, "ax"
 
 .global __ct__12CTweakPlayerFR12CInputStream

@@ -1,5 +1,42 @@
 .include "macros.inc"
 
+.section .data
+
+
+.global lbl_803E1800
+lbl_803E1800:
+	# ROM: 0x3DE800
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CTargetableProjectileFv
+	.4byte Accept__21CTargetableProjectileFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__17CEnergyProjectileFfR13CStateManager
+	.4byte AcceptScriptMsg__17CEnergyProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__17CEnergyProjectileCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__17CEnergyProjectileCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__15CGameProjectileCFv
+	.4byte Touch__17CEnergyProjectileFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__21CTargetableProjectileCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__15CGameProjectileFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13CStateManager
+	.4byte Think__21CTargetableProjectileFfR13CStateManager
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CTargetableProjectileFv

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF428
+lbl_803DF428:
+	# ROM: 0x3DC428
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CTweakTargetingFv
+	.4byte 0
+
 .section .text, "ax"
 
 .global __ct__15CTweakTargetingFR12CInputStream

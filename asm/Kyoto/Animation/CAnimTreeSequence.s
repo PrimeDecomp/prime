@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECC58
+lbl_803ECC58:
+	# ROM: 0x3E9C58
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CAnimTreeSequenceFv
+	.4byte IsCAnimTreeNode__13CAnimTreeNodeCFv
+	.4byte VAdvanceView__17CAnimTreeSequenceFRC13CCharAnimTime
+	.4byte VGetTimeRemaining__17CAnimTreeSequenceCFv
+	.4byte VGetSteadyStateAnimInfo__17CAnimTreeSequenceCFv
+	.4byte VHasOffset__20CAnimTreeSingleChildCFRC6CSegId
+	.4byte VGetOffset__20CAnimTreeSingleChildCFRC6CSegId
+	.4byte VGetRotation__20CAnimTreeSingleChildCFRC6CSegId
+	.4byte VGetBoolPOIList__17CAnimTreeSequenceCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
+	.4byte VGetInt32POIList__17CAnimTreeSequenceCFRC13CCharAnimTimeP13CInt32POINodeUiUii
+	.4byte VGetParticlePOIList__17CAnimTreeSequenceCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
+	.4byte VGetSoundPOIList__17CAnimTreeSequenceCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
+	.4byte VGetBoolPOIState__20CAnimTreeSingleChildCFPCc
+	.4byte VGetInt32POIState__20CAnimTreeSingleChildCFPCc
+	.4byte VGetParticlePOIState__20CAnimTreeSingleChildCFPCc
+	.4byte VGetSegStatementSet__20CAnimTreeSingleChildCFRC10CSegIdListR16CSegStatementSet
+	.4byte VGetSegStatementSet__20CAnimTreeSingleChildCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
+	.4byte VClone__17CAnimTreeSequenceCFv
+	.4byte VSimplified__11IAnimReaderFv
+	.4byte VSetPhase__20CAnimTreeSingleChildFf
+	.4byte VGetAdvancementResults__20CAnimTreeSingleChildCFRC13CCharAnimTimeRC13CCharAnimTime
+	.4byte Depth__20CAnimTreeSingleChildCFv
+	.4byte VGetContributionOfHighestInfluence__17CAnimTreeSequenceCFv
+	.4byte VGetNumChildren__20CAnimTreeSingleChildCFv
+	.4byte VGetBestUnblendedChild__17CAnimTreeSequenceCFv
+	.4byte "VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
+	.4byte VSupportsReverseView__17CAnimTreeSequenceCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__17CAnimTreeSequenceFv

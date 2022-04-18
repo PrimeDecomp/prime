@@ -1,5 +1,197 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE150
+lbl_803EE150:
+	# ROM: 0x3EB150
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CVECVTC
+	.4byte GetValue__7CVECVTCCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE164
+lbl_803EE164:
+	# ROM: 0x3EB164
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CVESubtract
+	.4byte GetValue__11CVESubtractCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE178
+lbl_803EE178:
+	# ROM: 0x3EB178
+	.4byte 0
+	.4byte 0
+	.4byte __dt__28CVEParticleSystemTranslationFv
+	.4byte GetValue__28CVEParticleSystemTranslationCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE18C
+lbl_803EE18C:
+	# ROM: 0x3EB18C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__33CVEParticleSystemOrientationRightF
+	.4byte GetValue__33CVEParticleSystemOrientationRightCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE1A0
+lbl_803EE1A0:
+	# ROM: 0x3EB1A0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__31CVEParticleSystemOrienatationUpF
+	.4byte GetValue__31CVEParticleSystemOrienatationUpCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE1B4
+lbl_803EE1B4:
+	# ROM: 0x3EB1B4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__33CVEParticleSystemOrientationFrontF
+	.4byte GetValue__33CVEParticleSystemOrientationFrontCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE1C8
+lbl_803EE1C8:
+	# ROM: 0x3EB1C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CVEParticleVelocityF
+	.4byte GetValue__19CVEParticleVelocityCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE1DC
+lbl_803EE1DC:
+	# ROM: 0x3EB1DC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CVEParticleColorF
+	.4byte GetValue__16CVEParticleColorCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE1F0
+lbl_803EE1F0:
+	# ROM: 0x3EB1F0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CVEParticleLocation
+	.4byte GetValue__19CVEParticleLocationCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE204
+lbl_803EE204:
+	# ROM: 0x3EB204
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CVERealToVector
+	.4byte GetValue__15CVERealToVectorCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE218
+lbl_803EE218:
+	# ROM: 0x3EB218
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CVEKeyframeEmitter
+	.4byte GetValue__18CVEKeyframeEmitterCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE22C
+lbl_803EE22C:
+	# ROM: 0x3EB22C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CVEPulse
+	.4byte GetValue__8CVEPulseCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE240
+lbl_803EE240:
+	# ROM: 0x3EB240
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CVEMultiply
+	.4byte GetValue__11CVEMultiplyCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE254
+lbl_803EE254:
+	# ROM: 0x3EB254
+	.4byte 0
+	.4byte 0
+	.4byte __dt__6CVEAdd
+	.4byte GetValue__6CVEAddCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE268
+lbl_803EE268:
+	# ROM: 0x3EB268
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CVECircleCluster
+	.4byte GetValue__16CVECircleClusterCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE27C
+lbl_803EE27C:
+	# ROM: 0x3EB27C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CVETimeChain
+	.4byte GetValue__12CVETimeChainCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE290
+lbl_803EE290:
+	# ROM: 0x3EB290
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CVECircle
+	.4byte GetValue__9CVECircleCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE2A4
+lbl_803EE2A4:
+	# ROM: 0x3EB2A4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CVEAngleCone
+	.4byte GetValue__12CVEAngleConeCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE2B8
+lbl_803EE2B8:
+	# ROM: 0x3EB2B8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CVECone
+	.4byte GetValue__7CVEConeCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+
+.global lbl_803EE2CC
+lbl_803EE2CC:
+	# ROM: 0x3EB2CC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CVEFastConstant
+	.4byte GetValue__15CVEFastConstantCFiR9CVector3f
+	.4byte IsFastConstant__15CVEFastConstantCF
+
+.global lbl_803EE2E0
+lbl_803EE2E0:
+	# ROM: 0x3EB2E0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CVEConstantF
+	.4byte GetValue__11CVEConstantCFiR9CVector3f
+	.4byte IsFastConstant__14CVectorElementCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetValue__7CVECVTCCFiR9CVector3f

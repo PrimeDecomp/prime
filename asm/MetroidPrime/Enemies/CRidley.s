@@ -1,5 +1,422 @@
 .include "macros.inc"
 
+.section .data
+
+
+.global lbl_803E9198
+lbl_803E9198:
+	# ROM: 0x3E6198
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryTaunt__10CPatternedFR13CStateManageri
+
+.global lbl_803E91A4
+lbl_803E91A4:
+	# ROM: 0x3E61A4
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryTaunt__10CPatternedFR13CStateManageri
+
+.global lbl_803E91B0
+lbl_803E91B0:
+	# ROM: 0x3E61B0
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803E91BC
+lbl_803E91BC:
+	# ROM: 0x3E61BC
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803E91C8
+lbl_803E91C8:
+	# ROM: 0x3E61C8
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryDodge__10CPatternedFR13CStateManageri
+
+.global lbl_803E91D4
+lbl_803E91D4:
+	# ROM: 0x3E61D4
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryDodge__10CPatternedFR13CStateManageri
+
+.global lbl_803E91E0
+lbl_803E91E0:
+	# ROM: 0x3E61E0
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007b924
+
+.global lbl_803E91EC
+lbl_803E91EC:
+	# ROM: 0x3E61EC
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007c4ac
+
+.global lbl_803E91F8
+lbl_803E91F8:
+	# ROM: 0x3E61F8
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007c1a8
+
+.global lbl_803E9204
+lbl_803E9204:
+	# ROM: 0x3E6204
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803E9210
+lbl_803E9210:
+	# ROM: 0x3E6210
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007b924
+
+.global lbl_803E921C
+lbl_803E921C:
+	# ROM: 0x3E621C
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803E9228
+lbl_803E9228:
+	# ROM: 0x3E6228
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803E9234
+lbl_803E9234:
+	# ROM: 0x3E6234
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007b924
+
+.global lbl_803E9240
+lbl_803E9240:
+	# ROM: 0x3E6240
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryDodge__10CPatternedFR13CStateManageri
+
+.global lbl_803E924C
+lbl_803E924C:
+	# ROM: 0x3E624C
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803E9258
+lbl_803E9258:
+	# ROM: 0x3E6258
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CRidleyFv
+	.4byte Accept__7CRidleyFR8IVisitor
+	.4byte PreThink__10CPatternedFfR13CStateManager
+	.4byte Think__7CRidleyR13CStateManager
+	.4byte AcceptScriptMsg__7CRidleyF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__7CRidleyFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__7CRidleyCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__7CRidleyCFRC13CStateManager
+	.4byte CanRenderUnsorted__10CPatternedCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__3CAiFR13CStateManager
+	.4byte GetDamageVulnerability__7CRidleyCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__10CPatternedCFv
+	.4byte Touch__7CRidleyFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__10CPatternedCFRC13CStateManager
+	.4byte GetAimPosition__7CRidleyCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__7CRidleyCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__7CRidleyCFRC12CTransform4f
+	.4byte DoUserAnimEvent__7CRidleyFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__10CPatternedFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+	.4byte Death__10CPatternedFR13CStateManagerRC9CVector3f18EScriptObjectState
+	.4byte KnockBack__10CPatternedFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
+	.4byte GetDamageVulnerability__3CAiFv
+	.4byte TakeDamage__10CPatternedFRC9CVector3ff
+	.4byte CanBeShot__3CAiFRC13CStateManageri
+	.4byte IsListening__3CAiCFv
+	.4byte Listen__3CAiFRC9CVector3f16EListenNoiseType
+	.4byte GetOrigin__3CAiCFv
+	.4byte Patrol__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte FollowPattern__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte Dead__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte PathFind__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte Start__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte SelectTarget__3CAiFR13CStateManager9EStateMsgf
+	.4byte TargetPatrol__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte TargetPlayer__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte TargetCover__3CAiFR13CStateManager9EStateMsgf
+	.4byte Halt__3CAiFR13CStateManager9EStateMsgf
+	.4byte Walk__3CAiFR13CStateManager9EStateMsgf
+	.4byte Run__3CAiFR13CStateManager9EStateMsgf
+	.4byte Generate__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Deactivate__3CAiFR13CStateManager9EStateMsgf
+	.4byte Attack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte LoopedAttack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte JumpBack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte DoubleSnap__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Shuffle__3CAiFR13CStateManager9EStateMsgf
+	.4byte TurnAround__3CAiFR13CStateManager9EStateMsgf
+	.4byte Skid__3CAiFR13CStateManager9EStateMsgf
+	.4byte Active__3CAiFR13CStateManager9EStateMsgf
+	.4byte InActive__3CAiFR13CStateManager9EStateMsgf
+	.4byte CoverAttack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Crouch__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte FadeIn__3CAiFR13CStateManager9EStateMsgf
+	.4byte FadeOut__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte GetUp__3CAiFR13CStateManager9EStateMsgf
+	.4byte Taunt__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Suck__3CAiFR13CStateManager9EStateMsgf
+	.4byte Flee__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Lurk__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte ProjectileAttack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Flinch__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Hurled__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte TelegraphAttack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Jump__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Explode__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Dodge__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Retreat__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Cover__3CAiFR13CStateManager9EStateMsgf
+	.4byte Approach__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte WallHang__3CAiFR13CStateManager9EStateMsgf
+	.4byte WallDetach__3CAiFR13CStateManager9EStateMsgf
+	.4byte Enraged__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte SpecialAttack__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Growth__3CAiFR13CStateManager9EStateMsgf
+	.4byte Faint__3CAiFR13CStateManager9EStateMsgf
+	.4byte Land__7CRidleyFR13CStateManager9EStateMsgf
+	.4byte Bounce__3CAiFR13CStateManager9EStateMsgf
+	.4byte PathFindEx__3CAiFR13CStateManager9EStateMsgf
+	.4byte Dizzy__3CAiFR13CStateManager9EStateMsgf
+	.4byte CallForBackup__3CAiFR13CStateManager9EStateMsgf
+	.4byte BulbAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte PodAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte InAttackPosition__3CAiFR13CStateManagerf
+	.4byte Leash__10CPatternedFR13CStateManagerf
+	.4byte OffLine__10CPatternedFR13CStateManagerf
+	.4byte Attacked__7CRidleyFR13CStateManagerf
+	.4byte PathShagged__10CPatternedFR13CStateManagerf
+	.4byte PathOver__10CPatternedFR13CStateManagerf
+	.4byte PathFound__10CPatternedFR13CStateManagerf
+	.4byte TooClose__7CRidleyFR13CStateManagerf
+	.4byte InRange__7CRidleyFR13CStateManagerf
+	.4byte InMaxRange__10CPatternedFR13CStateManagerf
+	.4byte InDetectionRange__10CPatternedFR13CStateManagerf
+	.4byte SpotPlayer__10CPatternedFR13CStateManagerf
+	.4byte PlayerSpot__10CPatternedFR13CStateManagerf
+	.4byte PatternOver__10CPatternedFR13CStateManagerf
+	.4byte PatternShagged__10CPatternedFR13CStateManagerf
+	.4byte HasAttackPattern__10CPatternedFR13CStateManagerf
+	.4byte HasPatrolPath__10CPatternedFR13CStateManagerf
+	.4byte HasRetreatPattern__10CPatternedFR13CStateManagerf
+	.4byte Delay__10CPatternedFR13CStateManagerf
+	.4byte RandomDelay__10CPatternedFR13CStateManagerf
+	.4byte FixedDelay__10CPatternedFR13CStateManagerf
+	.4byte Default__10CPatternedFR13CStateManagerf
+	.4byte AnimOver__10CPatternedFR13CStateManagerf
+	.4byte ShouldAttack__7CRidleyFR13CStateManagerf
+	.4byte ShouldDoubleSnap__7CRidleyFR13CStateManagerf
+	.4byte InPosition__10CPatternedFR13CStateManagerf
+	.4byte ShouldTurn__7CRidleyFR13CStateManagerf
+	.4byte HitSomething__7CRidleyFR13CStateManagerf
+	.4byte ShouldJumpBack__3CAiFR13CStateManagerf
+	.4byte Stuck__10CPatternedFR13CStateManagerf
+	.4byte NoPathNodes__10CPatternedFR13CStateManagerf
+	.4byte Landed__10CPatternedFR13CStateManagerf
+	.4byte HearShot__3CAiFR13CStateManagerf
+	.4byte HearPlayer__3CAiFR13CStateManagerf
+	.4byte CoverCheck__3CAiFR13CStateManagerf
+	.4byte CoverFind__3CAiFR13CStateManagerf
+	.4byte CoverBlown__3CAiFR13CStateManagerf
+	.4byte CoverNearlyBlown__3CAiFR13CStateManagerf
+	.4byte CoveringFire__3CAiFR13CStateManagerf
+	.4byte GotUp__3CAiFR13CStateManagerf
+	.4byte LineOfSight__3CAiFR13CStateManagerf
+	.4byte AggressionCheck__3CAiFR13CStateManagerf
+	.4byte AttackOver__7CRidleyFR13CStateManagerf
+	.4byte ShouldTaunt__7CRidleyFR13CStateManagerf
+	.4byte Inside__3CAiFR13CStateManagerf
+	.4byte ShouldFire__7CRidleyFR13CStateManagerf
+	.4byte ShouldFlinch__3CAiFR13CStateManagerf
+	.4byte PatrolPathOver__10CPatternedFR13CStateManagerf
+	.4byte ShouldDodge__7CRidleyFR13CStateManagerf
+	.4byte ShouldRetreat__7CRidleyFR13CStateManagerf
+	.4byte ShouldCrouch__7CRidleyFR13CStateManagerf
+	.4byte ShouldMove__7CRidleyFR13CStateManagerf
+	.4byte ShotAt__7CRidleyFR13CStateManagerf
+	.4byte HasTargetingPoint__3CAiFR13CStateManagerf
+	.4byte ShouldWallHang__3CAiFR13CStateManagerf
+	.4byte SetAIStage__7CRidleyFR13CStateManagerf
+	.4byte AIStage__7CRidleyFR13CStateManagerf
+	.4byte StartAttack__3CAiFR13CStateManagerf
+	.4byte BreakAttack__3CAiFR13CStateManagerf
+	.4byte ShouldStrafe__7CRidleyFR13CStateManagerf
+	.4byte ShouldSpecialAttack__3CAiFR13CStateManagerf
+	.4byte LostInterest__3CAiFR13CStateManagerf
+	.4byte CodeTrigger__10CPatternedFR13CStateManagerf
+	.4byte BounceFind__3CAiFR13CStateManagerf
+	.4byte Random__10CPatternedFR13CStateManagerf
+	.4byte FixedRandom__10CPatternedFR13CStateManagerf
+	.4byte IsDizzy__7CRidleyFR13CStateManagerf
+	.4byte ShouldCallForBackup__3CAiFR13CStateManagerf
+	.4byte Freeze__10CPatternedFRC9CVector3f13CUnitVector3ff
+	.4byte KnockbackWhenFrozen__10CPatternedCFv
+	.4byte MassiveDeath__10CPatternedFR13CStateManager
+	.4byte MassiveFrozenDeath__10CPatternedFR13CStateManager
+	.4byte Burn__10CPatternedFff
+	.4byte Shock__10CPatternedFff
+	.4byte ThinkAboutMove__10CPatternedFf
+	.4byte GetSearchPath__10CPatternedFv
+	.4byte GetContactDamage__10CPatternedCFv
+	.4byte GetModelAlphau8__10CPatternedCFRC13CStateManager
+	.4byte IsOnGround__10CPatternedCFv
+	.4byte GetGravityConstant__7CRidleyCFv
+	.4byte GetProjectileInfo__10CPatternedFv
+	.4byte PhazeOut__10CPatternedFR13CStateManager
+	.4byte GetDeathExplosionParticle__10CPatternedCFv
+
+.global lbl_803E9524
+lbl_803E9524:
+	# ROM: 0x3E6524
+	.4byte lbl_80258518
+	.4byte lbl_802587CC
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258C2C
+	.4byte lbl_80258C64
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258AE0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_802584F4
+	.4byte lbl_80258B24
+	.4byte lbl_80258270
+	.4byte lbl_80258410
+	.4byte lbl_80258CA0
+	.4byte lbl_80258C04
+	.4byte lbl_80258C18
+	.4byte lbl_80258A9C
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258CA0
+	.4byte lbl_80258428
+
+.global lbl_803E95A4
+lbl_803E95A4:
+	# ROM: 0x3E65A4
+	.4byte lbl_80259CAC
+	.4byte lbl_80258DE4
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80258E6C
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80258DAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259A58
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80258D4C
+	.4byte lbl_80258EA4
+	.4byte lbl_80258EEC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259CAC
+	.4byte lbl_80259194
+	.4byte lbl_802598FC
+
+.global lbl_803E9650
+lbl_803E9650:
+	# ROM: 0x3E6650
+	.4byte 0x803D5100
+	.4byte 0x803D5109
+	.4byte 0x803D5112
+	.4byte 0x803D511B
+	.4byte 0x803D5124
+	.4byte 0x803D512D
+	.4byte 0x803D5136
+	.4byte 0x803D513F
+	.4byte 0x803D5148
+	.4byte 0x803D5151
+	.4byte 0x803D515A
+	.4byte 0x803D5163
+	.4byte 0x803D516C
+	.4byte 0x803D5175
+
+.global lbl_803E9688
+lbl_803E9688:
+	# ROM: 0x3E6688
+	.4byte 0x803D517E
+	.4byte 0x803D518A
+	.4byte 0x803D5196
+	.4byte 0x803D51A2
+	.4byte 0x803D51AE
+	.4byte 0x803D51BA
+	.4byte 0x803D51C6
+	.4byte 0x803D51D2
+	.4byte 0x803D51DE
+	.4byte 0x803D51EA
+	.4byte 0x803D51F6
+	.4byte 0x803D5202
+	.4byte 0x803D520E
+	.4byte 0x803D521A
+
 .section .bss
 
 .global lbl_8046D3A8
@@ -2196,6 +2613,8 @@ lbl_80254404:
 /* 80254404 00251364  38 60 00 00 */	li r3, 0
 /* 80254408 00251368  C0 22 B9 18 */	lfs f1, lbl_805AD638@sda21(r2)
 /* 8025440C 0025136C  90 7E 03 2C */	stw r3, 0x32c(r30)
+.global lbl_80254410
+lbl_80254410:
 /* 80254410 00251370  C0 42 B9 34 */	lfs f2, lbl_805AD654@sda21(r2)
 /* 80254414 00251374  88 1E 04 02 */	lbz r0, 0x402(r30)
 /* 80254418 00251378  50 60 1F 38 */	rlwimi r0, r3, 3, 0x1c, 0x1c

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF4E8
+lbl_803DF4E8:
+	# ROM: 0x3DC4E8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CTweakGunResFv
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetWeaponResourcePair__12CTweakGunResCFi

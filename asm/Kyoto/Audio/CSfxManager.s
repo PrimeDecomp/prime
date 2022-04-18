@@ -1,5 +1,102 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECE10
+lbl_803ECE10:
+	# ROM: 0x3E9E10
+	.4byte 0
+	.4byte 0
+	.4byte __dt__Q211CSfxManager11CSfxWrapperFv
+	.4byte SetActive__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte SetPlaying__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte SetRank__Q211CSfxManager15CBaseSfxWrapperFs
+	.4byte SetInArea__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte IsLooped__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsPlaying__Q211CSfxManager11CSfxWrapperCFv
+	.4byte IsActive__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsInArea__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte UseAcoustics__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetRank__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetPriority__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetArea__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetSfxHandle__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte Play__Q211CSfxManager11CSfxWrapperFv
+	.4byte Stop__Q211CSfxManager11CSfxWrapperFv
+	.4byte Ready__Q211CSfxManager11CSfxWrapperFv
+	.4byte GetAudible__Q211CSfxManager11CSfxWrapperFRC9CVector3f
+	.4byte GetVoice__Q211CSfxManager11CSfxWrapperCFv
+	.4byte GetSFXId__Q211CSfxManager11CSfxWrapperCFv
+	.4byte UpdateEmitterSilent__Q211CSfxManager11CSfxWrapperFv
+	.4byte UpdateEmitter__Q211CSfxManager11CSfxWrapperFv
+	.4byte SetReverb__Q211CSfxManager11CSfxWrapperFc
+
+.global lbl_803ECE74
+lbl_803ECE74:
+	# ROM: 0x3E9E74
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__71TObjOwnerDerivedFromIObj<Q24rstl36vector<s,Q24rstl17rmemory_allocator>>Fv"
+
+.global lbl_803ECE80
+lbl_803ECE80:
+	# ROM: 0x3E9E80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte SetActive__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte SetPlaying__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte SetRank__Q211CSfxManager15CBaseSfxWrapperFs
+	.4byte SetInArea__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte IsLooped__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsPlaying__Q211CSfxManager18CSfxEmitterWrapperCFv
+	.4byte IsActive__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsInArea__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte UseAcoustics__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetRank__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetPriority__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetArea__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetSfxHandle__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte Play__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte Stop__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte Ready__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte GetAudible__Q211CSfxManager18CSfxEmitterWrapperFRC9CVector3f
+	.4byte GetVoice__Q211CSfxManager18CSfxEmitterWrapperCFv
+	.4byte GetSfxId__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte UpdateEmitterSilent__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte UpdateEmitter__Q211CSfxManager18CSfxEmitterWrapperFv
+	.4byte SetReverb__Q211CSfxManager18CSfxEmitterWrapperFc
+
+.global lbl_803ECEE4
+lbl_803ECEE4:
+	# ROM: 0x3E9EE4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte SetActive__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte SetPlaying__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte SetRank__Q211CSfxManager15CBaseSfxWrapperFs
+	.4byte SetInArea__Q211CSfxManager15CBaseSfxWrapperFb
+	.4byte IsLooped__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsPlaying__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsActive__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte IsInArea__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte UseAcoustics__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetRank__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetPriority__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetArea__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte GetSfxHandle__Q211CSfxManager15CBaseSfxWrapperCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	
+
 .section .bss
 
 .global lbl_80479BA0

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF728
+lbl_803EF728:
+	# ROM: 0x3EC728
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__20TToken<10CSkinRules>Fv"
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ProcessingNormals__10CSkinRulesFiPPUs

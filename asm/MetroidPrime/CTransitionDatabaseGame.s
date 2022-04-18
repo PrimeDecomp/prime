@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA340
+lbl_803DA340:
+	# ROM: 0x3D7340
+	.4byte 0
+	.4byte 0
+	.4byte GetMetaTrans__23CTransitionDatabaseGameCFUiUi
+	.4byte 0
+	
 .section .text, "ax"
 
 .global GetMetaTrans__23CTransitionDatabaseGameCFUiUi

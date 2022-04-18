@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF6D8
+lbl_803EF6D8:
+	# ROM: 0x3EC6D8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CGameAllocatorFv
+	.4byte Initialize__14CGameAllocatorFR10COsContext
+	.4byte Shutdown__14CGameAllocatorFv
+	.4byte Alloc__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
+	.4byte Free__14CGameAllocatorFPCv
+	.4byte ReleaseAll__14CGameAllocatorFv
+	.4byte AllocSecondary__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
+	.4byte FreeSecondary__14CGameAllocatorFPCv
+	.4byte ReleaseAllSecondary__14CGameAllocatorFv
+	.4byte SetOutOfMemoryCallback__14CGameAllocatorFPFPCvUi_CbPCv
+	.4byte EnumAllocations__14CGameAllocatorCFPFRCQ210IAllocator10SAllocInfoPCv_CbPCvb
+	.4byte GetAllocInfo__14CGameAllocatorCFPCv
+	.4byte OffsetFakeStatics__14CGameAllocatorFi
+	.4byte GetMetrics__14CGameAllocatorCFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global OffsetFakeStatics__14CGameAllocatorFi

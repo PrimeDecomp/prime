@@ -1,7 +1,16 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .data
 
+.global lbl_803EF738
+lbl_803EF738:
+	# ROM: 0x3EC738
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__15TToken<6CModel>Fv"
+	.4byte 0
+
+.section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateLastFrame__6CModelFv
 UpdateLastFrame__6CModelFv:

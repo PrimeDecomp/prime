@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC508
+lbl_803EC508:
+	# ROM: 0x3E9508
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__46TObjOwnerDerivedFromIObj<18CWeaponDescription>Fv"
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global CreateWPSM__28CProjectileWeaponDataFactoryFP18CWeaponDescriptionR12CInputStreamP11CSimplePool

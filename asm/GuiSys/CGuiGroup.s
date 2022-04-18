@@ -1,5 +1,78 @@
 .include "macros.inc"
 
+#TODO: Split this up properly (need to split CGuiCamera and CGuiCompoundWidget)
+
+.section .data
+
+.global lbl_803EC738
+lbl_803EC738:
+	# ROM: 0x3E9738
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CGuiCameraFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiCameraCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__10CGuiCameraCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__10CGuiWidgetFv
+	.4byte OnActivate__10CGuiWidgetFv
+	.4byte 0
+
+
+.global lbl_803EC778
+lbl_803EC778:
+	# ROM: 0x3E9778
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CGuiCompoundWidgetFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__18CGuiCompoundWidgetCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__18CGuiCompoundWidgetFv
+	.4byte OnActivate__18CGuiCompoundWidgetFb
+	.4byte GetWorkerWidget__18CGuiCompoundWidgetFi
+
+.global lbl_803EC7B8
+lbl_803EC7B8:
+	# ROM: 0x3E97B8
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__36TObjOwnerDerivedFromIObj<9CGuiFrame>Fv"
+	.4byte 0
+
+.global lbl_803EC7C8
+lbl_803EC7C8:
+	# ROM: 0x3E97C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CGuiGroupFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__9CGuiGroupCFv
+	.4byte AddWorkerWidget__9CGuiGroupFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__18CGuiCompoundWidgetFv
+	.4byte OnActivate__9CGuiGroupFv
+	.4byte GetWorkerWidget__18CGuiCompoundWidgetFi
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CGuiGroupFv
@@ -359,7 +432,7 @@ __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffff:
 /* 802C16C0 002BE620  7C 08 02 A6 */	mflr r0
 /* 802C16C4 002BE624  90 01 00 44 */	stw r0, 0x44(r1)
 /* 802C16C8 002BE628  39 61 00 40 */	addi r11, r1, 0x40
-/* 802C16CC 002BE62C  48 0C 83 15 */	bl func_803899E0
+/* 802C16CC 002BE62C  48 0C 83 15 */	bl _savefpr_26
 /* 802C16D0 002BE630  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C16D4 002BE634  FF 40 08 90 */	fmr f26, f1
 /* 802C16D8 002BE638  7C 7F 1B 78 */	mr r31, r3
@@ -382,7 +455,7 @@ __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffff:
 /* 802C171C 002BE67C  D3 DF 00 CC */	stfs f30, 0xcc(r31)
 /* 802C1720 002BE680  D3 FF 00 D0 */	stfs f31, 0xd0(r31)
 /* 802C1724 002BE684  39 61 00 40 */	addi r11, r1, 0x40
-/* 802C1728 002BE688  48 0C 83 05 */	bl func_80389A2C
+/* 802C1728 002BE688  48 0C 83 05 */	bl _restfpr_26
 /* 802C172C 002BE68C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802C1730 002BE690  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C1734 002BE694  7C 08 03 A6 */	mtlr r0
@@ -446,7 +519,7 @@ Create__10CGuiCameraFP9CGuiFrameR12CInputStreamb:
 /* 802C1804 002BE764  7C 08 02 A6 */	mflr r0
 /* 802C1808 002BE768  90 01 00 84 */	stw r0, 0x84(r1)
 /* 802C180C 002BE76C  39 61 00 80 */	addi r11, r1, 0x80
-/* 802C1810 002BE770  48 0C 81 D1 */	bl func_803899E0
+/* 802C1810 002BE770  48 0C 81 D1 */	bl _savefpr_26
 /* 802C1814 002BE774  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 802C1818 002BE778  93 C1 00 48 */	stw r30, 0x48(r1)
 /* 802C181C 002BE77C  93 A1 00 44 */	stw r29, 0x44(r1)
@@ -562,7 +635,7 @@ lbl_802C19A8:
 /* 802C19C4 002BE924  48 00 90 C5 */	bl ParseBaseInfo__10CGuiWidgetFP9CGuiFrameR12CInputStreamRCQ210CGuiWidget15CGuiWidgetParms
 /* 802C19C8 002BE928  7F A3 EB 78 */	mr r3, r29
 /* 802C19CC 002BE92C  39 61 00 80 */	addi r11, r1, 0x80
-/* 802C19D0 002BE930  48 0C 80 5D */	bl func_80389A2C
+/* 802C19D0 002BE930  48 0C 80 5D */	bl _restfpr_26
 /* 802C19D4 002BE934  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802C19D8 002BE938  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 802C19DC 002BE93C  83 C1 00 48 */	lwz r30, 0x48(r1)

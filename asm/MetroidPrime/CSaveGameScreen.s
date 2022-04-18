@@ -1,5 +1,70 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E8DA0
+lbl_803E8DA0:
+	# ROM: 0x3E5DA0
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoAdvance__15CSaveGameScreenFP14CGuiTableGroup
+
+.global lbl_803E8DAC
+lbl_803E8DAC:
+	# ROM: 0x3E5DAC
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte DoSelectionChange__15CSaveGameScreenFP14CGuiTableGroup
+
+.global lbl_803E8DB8
+lbl_803E8DB8:
+	# ROM: 0x3E5DB8
+	.4byte lbl_8024F5B4
+	.4byte lbl_8024F5B4
+	.4byte lbl_8024F5B4
+	.4byte lbl_8024F258
+	.4byte lbl_8024F2A0
+	.4byte lbl_8024F2A0
+	.4byte lbl_8024F258
+	.4byte lbl_8024F258
+	.4byte lbl_8024F308
+	.4byte lbl_8024F308
+	.4byte lbl_8024F258
+	.4byte lbl_8024F394
+	.4byte lbl_8024F3EC
+	.4byte lbl_8024F4B4
+	.4byte lbl_8024F4EC
+	.4byte lbl_8024F538
+	.4byte lbl_8024F56C
+
+.global lbl_803E8DFC
+lbl_803E8DFC:
+	# ROM: 0x3E5DFC
+	.4byte lbl_80250548
+	.4byte lbl_802503E4
+	.4byte lbl_802503EC
+	.4byte lbl_802503F4
+	.4byte lbl_80250404
+	.4byte lbl_80250418
+	.4byte lbl_8025042C
+	.4byte lbl_8025043C
+	.4byte lbl_80250460
+	.4byte lbl_8025044C
+	.4byte lbl_80250488
+	.4byte lbl_80250498
+	.4byte lbl_802504AC
+	.4byte lbl_802504E0
+	.4byte lbl_802504F4
+	.4byte lbl_8025051C
+	.4byte lbl_80250530
+
+.global lbl_803E8E40
+lbl_803E8E40:
+	# ROM: 0x3E5E40
+	.4byte 0x803D4B50
+	.4byte 0x803D4B5B
+	.4byte 0x803D4B66
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetInGame__15CSaveGameScreenb

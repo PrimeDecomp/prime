@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFC10
+lbl_803DFC10:
+	# ROM: 0x3DCC10
+	.4byte lbl_800E8F24
+	.4byte lbl_800E8F4C
+	.4byte lbl_800E8F74
+	.4byte lbl_800E8FA0
+	.4byte lbl_800E8FCC
+	.4byte lbl_800E8FF8
+	.4byte lbl_800E903C
+	.4byte lbl_800E9024
+	.4byte lbl_800E903C
+	.4byte lbl_800E903C
+	.4byte lbl_800E9030
+
+.global lbl_803DFC3C
+lbl_803DFC3C:
+	# ROM: 0x3DCC3C
+	.4byte lbl_800E92E8
+	.4byte lbl_800E92CC
+	.4byte lbl_800E92D4
+	.4byte lbl_800E92DC
+	.4byte lbl_800E92E4
+	.4byte lbl_800E92E8
+	.4byte lbl_800E92E8
+	.4byte lbl_800E92D4
+	.4byte lbl_800E92D4
+	.4byte lbl_800E92DC
+	.4byte lbl_800E92DC
+	.4byte lbl_800E92E4
+	.4byte lbl_800E92E4
+	.4byte lbl_800E92D4
+	.4byte lbl_800E92DC
+	.4byte lbl_800E92E4
+	.4byte 0
+
 .section .bss 
 
 .global lbl_8046C498

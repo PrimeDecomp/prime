@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9E80
+lbl_803D9E80:
+	# ROM: 0x3D6E80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CArchMsgParmReal32Fv
+	.4byte 0
+	
 .section .text, "ax"
 
 .global __dt__18CArchMsgParmReal32Fv

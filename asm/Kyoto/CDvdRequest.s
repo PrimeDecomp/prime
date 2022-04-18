@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED578
+lbl_803ED578:
+	# ROM: 0x3EA578
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CARAMDvdRequestFv
+	.4byte WaitUntilComplete__15CARAMDvdRequestFv
+	.4byte IsComplete__15CARAMDvdRequestFv
+	.4byte PostCancelRequest__15CARAMDvdRequestFv
+	.4byte GetMediaType__15CARAMDvdRequestCFv
+
+.global lbl_803ED594
+lbl_803ED594:
+	# ROM: 0x3EA594
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CRealDvdRequestFv
+	.4byte WaitUntilComplete__15CRealDvdRequestFv
+	.4byte IsComplete__15CRealDvdRequestFv
+	.4byte PostCancelRequest__15CRealDvdRequestFv
+	.4byte GetMediaType__15CRealDvdRequestCFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__15CARAMDvdRequestFv

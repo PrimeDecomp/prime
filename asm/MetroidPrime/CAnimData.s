@@ -1,5 +1,45 @@
 .include "macros.inc"
 
+.section .data
+# These belong in Kyoto/Animation/C*POINode
+# Thanks to ODR they wound up here
+
+.global lbl_803D9B68
+lbl_803D9B68:
+	# ROM: 0x3D6B68
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CBoolPOINodeFv
+
+.global lbl_803D9B74
+lbl_803D9B74:
+	# ROM: 0x3D6B74
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CParticlePOINodeFv
+
+.global lbl_803D9B80
+lbl_803D9B80:
+	# ROM: 0x3D6B80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CSoundPOINodeFv
+
+.global lbl_803D9B8C
+lbl_803D9B8C:
+	# ROM: 0x3D6B8C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CPOINodeFv
+
+.global lbl_803D9B98
+lbl_803D9B98:
+	# ROM: 0x3D6B98
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CInt32POINodeFv
+	.4byte 0
+	
 .section .bss
 
 .global lbl_8045B140
@@ -8464,6 +8504,8 @@ sub_80030bd4:
 /* 80030C18 0002DB78  80 1F 00 2C */	lwz r0, 0x2c(r31)
 /* 80030C1C 0002DB7C  90 1E 00 2C */	stw r0, 0x2c(r30)
 /* 80030C20 0002DB80  80 1F 00 28 */	lwz r0, 0x28(r31)
+.global lbl_80030C24
+lbl_80030C24:
 /* 80030C24 0002DB84  2C 00 00 00 */	cmpwi r0, 0
 /* 80030C28 0002DB88  40 82 00 1C */	bne lbl_80030C44
 /* 80030C2C 0002DB8C  80 1F 00 2C */	lwz r0, 0x2c(r31)

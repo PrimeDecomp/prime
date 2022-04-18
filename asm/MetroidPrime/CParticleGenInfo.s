@@ -1,5 +1,31 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF498
+lbl_803DF498:
+	# ROM: 0x3DC498
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CParticleGenInfoFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__16CParticleGenInfoFv

@@ -1,5 +1,37 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E1FB0
+lbl_803E1FB0:
+	# ROM: 0x3DEFB0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CBSHurledFv
+	.4byte IsInAir__9CBSHurledCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__9CBSHurledCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__9CBSHurledCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__10CBodyStateCFv
+	.4byte Start__9CBSHurledFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__9CBSHurledFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__9CBSHurledFR15CBodyController
+
+.global lbl_803E1FE8
+lbl_803E1FE8:
+	# ROM: 0x3DEFE8
+	.4byte lbl_80144D04
+	.4byte lbl_80144E10
+	.4byte lbl_801450DC
+	.4byte lbl_80144F00
+	.4byte lbl_8014500C
+	.4byte lbl_801450DC
+	.4byte lbl_80145064
+	.4byte lbl_80145064
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CBSHurledFv

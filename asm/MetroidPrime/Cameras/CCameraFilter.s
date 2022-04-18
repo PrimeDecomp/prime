@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFCC0
+lbl_803DFCC0:
+	# ROM: 0x3DCCC0
+	.4byte lbl_800EC0C0
+	.4byte lbl_800EC0C0
+	.4byte lbl_800EC0C0
+	.4byte lbl_800EC0E4
+	.4byte lbl_800EC108
+	.4byte lbl_800EC0A0
+	.4byte lbl_800EC0B0
+	.4byte lbl_800EC118
+	.4byte lbl_800EC12C
+
+.global lbl_803DFCE4
+lbl_803DFCE4:
+	# ROM: 0x3DCCE4
+	.4byte lbl_800EC19C
+	.4byte lbl_800EC1A0
+	.4byte lbl_800EC1B8
+	.4byte lbl_800EC1D0
+	.4byte lbl_800EC200
+	.4byte lbl_800EC1E8
+	.4byte lbl_800EC218
+	.4byte lbl_800EC21C
+	.4byte lbl_800EC234
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FreePersistentFbTexture__15CCameraBlurPassFv

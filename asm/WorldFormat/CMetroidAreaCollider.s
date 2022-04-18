@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC428
+lbl_803EC428:
+	# ROM: 0x3E9428
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0
+
 .section .text, "ax"
 
 .global __ct__Q220CMetroidAreaCollider22CMovingAABoxComponentsFRC6CAABoxRC9CVector3f

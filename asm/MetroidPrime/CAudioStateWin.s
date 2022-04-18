@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E02A8
+lbl_803E02A8:
+	# ROM: 0x3DD2A8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CAudioStateWinFv
+	.4byte OnMessage__14CAudioStateWinFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__6CIOWinCFv
+	.4byte PreDraw__6CIOWinCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__14CAudioStateWinFv

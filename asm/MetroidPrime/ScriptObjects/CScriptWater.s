@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFE70
+lbl_803DFE70:
+	# ROM: 0x3DCE70
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CScriptWaterFv
+	.4byte Accept__12CScriptWaterFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__12CScriptWaterFfR13CStateManager
+	.4byte AcceptScriptMsg__12CScriptWaterF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__12CScriptWaterFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__12CScriptWaterCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__12CScriptWaterCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__12CScriptWaterFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__14CScriptTriggerCFv
+	.4byte Touch__12CScriptWaterFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__12CScriptWaterCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetRenderBounds__12CScriptWaterCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte InhabitantAdded__14CScriptTriggerFR6CActorR13CStateManager
+	.4byte InhabitantIdle__14CScriptTriggerFR6CActorR13CStateManager
+	.4byte InhabitantExited__14CScriptTriggerFR6CActorR13CStateManager
+	.4byte InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C520

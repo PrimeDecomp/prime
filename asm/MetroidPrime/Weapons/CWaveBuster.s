@@ -1,5 +1,39 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E5318
+lbl_803E5318:
+	# ROM: 0x3E2318
+	.4byte 0
+	.4byte 0
+	.4byte sub_801bd69c
+	.4byte sub_801c0144
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte sub_801bef28
+	.4byte sub_801bebcc
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte sub_801bee04
+	.4byte sub_801bedb8
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte sub_801bd810
+	.4byte sub_801c0124
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__15CGameProjectileFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
+
 .section .bss
 .global lbl_8046C908
 lbl_8046C908:

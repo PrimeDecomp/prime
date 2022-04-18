@@ -1,5 +1,84 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC5D8
+lbl_803EC5D8:
+	# ROM: 0x3E95D8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CCubeRendererFv
+	.4byte "AddStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>PC12CAreaOctTreei"
+	.4byte EnablePVS__13CCubeRendererFPC10CPVSVisSeti
+	.4byte DisablePVS__13CCubeRendererFv
+	.4byte "RemoveStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>"
+	.4byte "DrawUnsortedGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi"
+	.4byte "DrawSortedGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi"
+	.4byte "DrawStaticGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi"
+	.4byte DrawAreaGeometry__13CCubeRendererFiii
+	.4byte PostRenderFogs__13CCubeRendererFv
+	.4byte SetModelMatrix__13CCubeRendererFRC12CTransform4f
+	.4byte AddParticleGen__13CCubeRendererFRC12CParticleGen
+	.4byte sub_802bdb04
+	.4byte AddPlaneObject__13CCubeRendererFPCvRC6CAABoxRC6CPlanei
+	.4byte AddDrawable__13CCubeRendererFPCvRC9CVector3fRC6CAABoxiQ29IRenderer16EDrawableSorting
+	.4byte SetDrawableCallback__13CCubeRendererFPFPCvPCvi_vPCv
+	.4byte SetWorldViewpoint__13CCubeRendererFRC12CTransform4f
+	.4byte SetPerspective__13CCubeRendererFfffff
+	.4byte SetPerspective__13CCubeRendererFffff
+	.4byte SetViewportOrtho__13CCubeRendererFbff
+	.4byte SetClippingPlanes__13CCubeRendererFRC14CFrustumPlanes
+	.4byte SetViewport__13CCubeRendererFiiii
+	.4byte SetDepthReadWrite__13CCubeRendererFbb
+	.4byte SetBlendMode_AdditiveAlpha__13CCubeRendererFv
+	.4byte SetBlendMode_AlphaBlended__13CCubeRendererFv
+	.4byte SetBlendMode_NoColorWrite__13CCubeRendererFv
+	.4byte SetBlendMode_ColorMultiply__13CCubeRendererFv
+	.4byte SetBlendMode_InvertDst__13CCubeRendererFv
+	.4byte SetBlendMode_InvertSrc__13CCubeRendererFv
+	.4byte SetBlendMode_Replace__13CCubeRendererFv
+	.4byte SetBlendMode_AdditiveDestColor__13CCubeRendererFv
+	.4byte SetDebugOption__13CCubeRendererFQ29IRenderer12EDebugOptioni
+	.4byte BeginScene__13CCubeRendererFv
+	.4byte EndScene__13CCubeRendererFv
+	.4byte BeginPrimitive__13CCubeRendererFQ29IRenderer14EPrimitiveTypei
+	.4byte BeginLines__13CCubeRendererFi
+	.4byte BeginLineStrip__13CCubeRendererFi
+	.4byte BeginTriangles__13CCubeRendererFi
+	.4byte BeginTriangleStrip__13CCubeRendererFi
+	.4byte BeginTriangleFan__13CCubeRendererFi
+	.4byte PrimVertex__13CCubeRendererFRC9CVector3f
+	.4byte PrimNormal__13CCubeRendererFRC9CVector3f
+	.4byte PrimColor__13CCubeRendererFffff
+	.4byte PrimColor__13CCubeRendererFRC6CColor
+	.4byte EndPrimitive__13CCubeRendererFv
+	.4byte SetAmbientColor__13CCubeRendererFRC6CColor
+	.4byte DrawString__13CCubeRendererFPCcii
+	.4byte GetFPS__13CCubeRendererFv
+	.4byte CacheReflection__13CCubeRendererFPFPvRC9CVector3f_vPvb
+	.4byte DrawSpaceWarp__13CCubeRendererFRC9CVector3ff
+	.4byte DrawThermalModel__13CCubeRendererFRC6CModelRC6CColorRC6CColorPCfPCfRC11CModelFlags
+	.4byte DrawModelDisintegrate__13CCubeRendererFRC6CModelRC8CTextureRC6CColorPCfPCf
+	.4byte DrawModelFlat__13CCubeRendererFRC6CModelRC11CModelFlagsbPCfPCf
+	.4byte SetWireframeFlags__13CCubeRendererFi
+	.4byte SetWorldFog__13CCubeRendererF11ERglFogModeffRC6CColor
+	.4byte "RenderFogVolume__13CCubeRendererFRC6CColorRC6CAABoxPC21TLockedToken<6CModel>PC13CSkinnedModel"
+	.4byte SetThermal__13CCubeRendererFbfRC6CColor
+	.4byte SetThermalColdScale__13CCubeRendererFf
+	.4byte DoThermalBlendCold__13CCubeRendererFv
+	.4byte DoThermalBlendHot__13CCubeRendererFv
+	.4byte GetStaticWorldDataSize__13CCubeRendererFv
+	.4byte SetGXRegister1Color__13CCubeRendererFRC6CColor
+	.4byte SetWorldLightFadeLevel__13CCubeRendererFf
+	.4byte sub_802b7c28
+	.4byte "PrepareDynamicLights__13CCubeRendererFRCQ24rstl14vector<CLight>"
+	.4byte 0
+	.4byte 0
+	.4byte "@4@__dt__13CCubeRendererFv"
+	.4byte "@4@AddParticleGen__13CCubeRendererFRC12CParticleGen"
+	.4byte 0
+	
+
 .section .bss
 
 .global lbl_8046E200

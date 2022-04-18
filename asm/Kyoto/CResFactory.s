@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE368
+lbl_803EE368:
+	# ROM: 0x3EB368
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CResFactoryFv
+	.4byte Build__11CResFactoryFRC10SObjectTagRC15CVParamTransfer
+	.4byte BuildAsync__11CResFactoryFRC10SObjectTagRC15CVParamTransferPP4IObj
+	.4byte CancelBuild__11CResFactoryFRC10SObjectTag
+	.4byte CanBuild__11CResFactoryFRC10SObjectTag
+	.4byte GetResourceIdByName__11CResFactoryCFPCc
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_803394a8

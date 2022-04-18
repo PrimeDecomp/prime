@@ -1,5 +1,82 @@
 .include "macros.inc"
 
+.section .data
+
+
+.global lbl_803DAA78
+lbl_803DAA78:
+	# ROM: 0x3D7A78
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CScriptDoorFv
+	.4byte Accept__11CScriptDoorFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__11CScriptDoorFfR13CStateManager
+	.4byte AcceptScriptMsg__11CScriptDoorF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__11CScriptDoorCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__11CScriptDoorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__11CScriptDoorCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__11CScriptDoorCFRC13CStateManager
+	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+
+.global lbl_803DAAFC
+lbl_803DAAFC:
+	# ROM: 0x3D7AFC
+	.4byte lbl_8007E598
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E7E8
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E988
+	.4byte lbl_8007E93C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E6AC
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E99C
+	.4byte lbl_8007E8B8
+
 .section .text, "ax"
 
 .global __dt__11CScriptDoorFv

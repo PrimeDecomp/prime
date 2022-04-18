@@ -1,5 +1,35 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E8150
+lbl_803E8150:
+	# ROM: 0x3E5150
+	.4byte lbl_802338FC
+	.4byte lbl_80233858
+	.4byte lbl_80233870
+	.4byte lbl_80233888
+	.4byte lbl_802338FC
+	.4byte lbl_802338FC
+	.4byte lbl_802338A0
+	.4byte lbl_802338B8
+	.4byte lbl_802338D0
+	.4byte lbl_802338E8
+
+.global lbl_803E8178
+lbl_803E8178:
+	# ROM: 0x3E5178
+	.4byte lbl_80233A28
+	.4byte lbl_80233A3C
+	.4byte lbl_80233A50
+	.4byte lbl_80233A58
+	.4byte lbl_80233A60
+	.4byte lbl_80233A68
+	.4byte lbl_80233A70
+	.4byte lbl_80233A7C
+	.4byte lbl_80233A78
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DoKnockBackAnimation__20CKnockBackControllerFRC9CVector3fR13CStateManagerR10CPatternedf

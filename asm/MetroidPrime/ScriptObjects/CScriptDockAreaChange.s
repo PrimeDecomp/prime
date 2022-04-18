@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E2B48
+lbl_803E2B48:
+	# ROM: 0x3DFB48
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CScriptDockAreaChangeFv
+	.4byte Accept__21CScriptDockAreaChangeFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__21CScriptDockAreaChangeF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CScriptDockAreaChangeFv

@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECA10
+lbl_803ECA10:
+	# ROM: 0x3E9A10
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CGuiWidgetFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__10CGuiWidgetCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__10CGuiWidgetFv
+	.4byte OnActivate__10CGuiWidgetFv
+	.4byte 0
+	
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global OnActivate__10CGuiWidgetFv

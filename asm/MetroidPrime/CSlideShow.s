@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EBFB8
+lbl_803EBFB8:
+	# ROM: 0x3E8FB8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CSlideShowFv
+	.4byte OnMessage__10CSlideShowFv
+	.4byte GetIsContinueDraw__10CSlideShowFv
+	.4byte Draw__10CSlideShowFv
+	.4byte PreDraw__6CIOWinCFv
+
+.global lbl_803EBFD4
+lbl_803EBFD4:
+	# ROM: 0x3E8FD4
+	.4byte lbl_8029C030
+	.4byte lbl_8029BFF0
+	.4byte lbl_8029C010
+	.4byte lbl_8029C030
+	.4byte lbl_8029C000
+	.4byte lbl_8029BFF8
+	.4byte lbl_8029C008
+	.4byte lbl_8029C030
+	.4byte lbl_8029C020
+	.4byte lbl_8029C028
+	.4byte lbl_8029C018
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetIsContinueDraw__10CSlideShowFv

@@ -1,5 +1,523 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EAA90
+lbl_803EAA90:
+	# ROM: 0x3E7A90
+	.4byte 0x803D56DB
+	.4byte 0x3FC00000
+	.4byte 0x803D56E7
+	.4byte 0x40133333
+	.4byte 0
+	.4byte 0x3F6B851F
+
+.global lbl_803EAAA8
+lbl_803EAAA8:
+	# ROM: 0x3E7AA8
+	.4byte 0x803D56F5
+	.4byte 0x803D5700
+	.4byte 0x3F19999A
+	.4byte 0x3F19999A
+	.4byte 0x3F19999A
+	.4byte 0x803D5700
+	.4byte 0x803D5708
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x803D5708
+	.4byte 0x803D5710
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x803D5710
+	.4byte 0x803D571C
+	.4byte 0x3ECCCCCD
+	.4byte 0x3F99999A
+	.4byte 0x3ECCCCCD
+	.4byte 0x803D5727
+	.4byte 0x803D5731
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D5731
+	.4byte 0x803D573B
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D573B
+	.4byte 0x803D5745
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3F333333
+	.4byte 0x803D5752
+	.4byte 0x803D575E
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D575E
+	.4byte 0x803D576A
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D5777
+	.4byte 0x803D5782
+	.4byte 0x3F19999A
+	.4byte 0x3F19999A
+	.4byte 0x3F19999A
+	.4byte 0x803D5782
+	.4byte 0x803D578A
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x803D578A
+	.4byte 0x803D5792
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x3E99999A
+	.4byte 0x803D5792
+	.4byte 0x803D579E
+	.4byte 0x3ECCCCCD
+	.4byte 0x3F99999A
+	.4byte 0x3ECCCCCD
+	.4byte 0x803D57A9
+	.4byte 0x803D57B3
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D57B3
+	.4byte 0x803D57BD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D57BD
+	.4byte 0x803D57C7
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3F333333
+	.4byte 0x803D57D4
+	.4byte 0x803D57E0
+	.4byte 0x3ECCCCCD
+	.4byte 0x3ECCCCCD
+	.4byte 0x3ECCCCCD
+	.4byte 0x803D57E0
+	.4byte 0x803D57EC
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x3E4CCCCD
+	.4byte 0x803D57F9
+	.4byte 0x803D5804
+	.4byte 0x3F4CCCCD
+	.4byte 0x3F4CCCCD
+	.4byte 0x3F4CCCCD
+	.4byte 0x803D5804
+	.4byte 0x803D580C
+	.4byte 0x3F333333
+	.4byte 0x3F333333
+	.4byte 0x3F333333
+	.4byte 0x803D580C
+	.4byte 0x803D5814
+	.4byte 0x3F19999A
+	.4byte 0x3DCCCCCD
+	.4byte 0x3F19999A
+	.4byte 0x803D581F
+	.4byte 0x803D5829
+	.4byte 0x3F4CCCCD
+	.4byte 0x3DCCCCCD
+	.4byte 0x3F19999A
+	.4byte 0
+	.4byte 0
+	.4byte 0x40000000
+	.4byte 0x3E4CCCCD
+	.4byte 0x3F000000
+
+.global lbl_803EAC74
+lbl_803EAC74:
+	# ROM: 0x3E7C74
+	.4byte 0x803D5731
+	.4byte 0x803D57B3
+	.4byte 0x803D5727
+	.4byte 0x803D57A9
+	.4byte 0
+	.4byte 0
+	.4byte 0x803D5700
+	.4byte 0x803D5782
+	.4byte 0
+	.4byte 0
+	.4byte 0x803D5833
+	.4byte 0x803D581F
+	.4byte 0
+	.4byte 0
+	.4byte 0x803D56F5
+	.4byte 0x803D5777
+	.4byte 0x803D575E
+	.4byte 0x803D57E0
+	.4byte 0x803D576A
+	.4byte 0x803D57EC
+
+.global lbl_803EACC4
+lbl_803EACC4:
+	# ROM: 0x3E7CC4
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryTaunt__10CPatternedFR13CStateManageri
+
+.global lbl_803EACD0
+lbl_803EACD0:
+	# ROM: 0x3E7CD0
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EACDC
+lbl_803EACDC:
+	# ROM: 0x3E7CDC
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EACE8
+lbl_803EACE8:
+	# ROM: 0x3E7CE8
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EACF4
+lbl_803EACF4:
+	# ROM: 0x3E7CF4
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EAD00
+lbl_803EAD00:
+	# ROM: 0x3E7D00
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EAD0C
+lbl_803EAD0C:
+	# ROM: 0x3E7D0C
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007c418
+
+.global lbl_803EAD18
+lbl_803EAD18:
+	# ROM: 0x3E7D18
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007bd04
+
+.global lbl_803EAD24
+lbl_803EAD24:
+	# ROM: 0x3E7D24
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8027381c
+
+.global lbl_803EAD30
+lbl_803EAD30:
+	# ROM: 0x3E7D30
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EAD3C
+lbl_803EAD3C:
+	# ROM: 0x3E7D3C
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte sub_8007c418
+
+.global lbl_803EAD48
+lbl_803EAD48:
+	# ROM: 0x3E7D48
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte TryMeleeAttack__10CPatternedFR13CStateManageri
+
+.global lbl_803EAD54
+lbl_803EAD54:
+	# ROM: 0x3E7D54
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CMetroidPrimeExo
+	.4byte Accept__16CMetroidPrimeExoFR8IVisitor
+	.4byte PreThink__16CMetroidPrimeExoFfR13CStateManager
+	.4byte Think__16CMetroidPrimeExoFfR13CStateManager
+	.4byte AcceptScriptMsg__16CMetroidPrimeExoF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__16CMetroidPrimeExoFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__16CMetroidPrimeExoCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__16CMetroidPrimeExoCFRC13CStateManager
+	.4byte CanRenderUnsorted__16CMetroidPrimeExoCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__3CAiFR13CStateManager
+	.4byte GetDamageVulnerability__3CAiCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__10CPatternedCFv
+	.4byte Touch__16CMetroidPrimeExoFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__10CPatternedCFRC13CStateManager
+	.4byte GetAimPosition__10CPatternedCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__16CMetroidPrimeExoFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__10CPatternedFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+	.4byte Death__10CPatternedFR13CStateManagerRC9CVector3f18EScriptObjectState
+	.4byte KnockBack__10CPatternedFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
+	.4byte GetDamageVulnerability__3CAiFv
+	.4byte TakeDamage__10CPatternedFRC9CVector3ff
+	.4byte CanBeShot__3CAiFRC13CStateManageri
+	.4byte IsListening__3CAiCFv
+	.4byte Listen__3CAiFRC9CVector3f16EListenNoiseType
+	.4byte GetOrigin__3CAiCFv
+	.4byte Patrol__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte FollowPattern__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte Dead__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte PathFind__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte Start__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte SelectTarget__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte TargetPatrol__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte TargetPlayer__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte TargetCover__3CAiFR13CStateManager9EStateMsgf
+	.4byte Halt__3CAiFR13CStateManager9EStateMsgf
+	.4byte Walk__3CAiFR13CStateManager9EStateMsgf
+	.4byte Run__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Generate__3CAiFR13CStateManager9EStateMsgf
+	.4byte Deactivate__3CAiFR13CStateManager9EStateMsgf
+	.4byte Attack__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte LoopedAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte JumpBack__3CAiFR13CStateManager9EStateMsgf
+	.4byte DoubleSnap__3CAiFR13CStateManager9EStateMsgf
+	.4byte Shuffle__3CAiFR13CStateManager9EStateMsgf
+	.4byte TurnAround__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Skid__3CAiFR13CStateManager9EStateMsgf
+	.4byte Active__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte InActive__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte CoverAttack__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Crouch__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte FadeIn__3CAiFR13CStateManager9EStateMsgf
+	.4byte FadeOut__3CAiFR13CStateManager9EStateMsgf
+	.4byte GetUp__3CAiFR13CStateManager9EStateMsgf
+	.4byte Taunt__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Suck__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Flee__3CAiFR13CStateManager9EStateMsgf
+	.4byte Lurk__3CAiFR13CStateManager9EStateMsgf
+	.4byte ProjectileAttack__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Flinch__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Hurled__3CAiFR13CStateManager9EStateMsgf
+	.4byte TelegraphAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte Jump__3CAiFR13CStateManager9EStateMsgf
+	.4byte Explode__3CAiFR13CStateManager9EStateMsgf
+	.4byte Dodge__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Retreat__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Cover__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Approach__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte WallHang__3CAiFR13CStateManager9EStateMsgf
+	.4byte WallDetach__3CAiFR13CStateManager9EStateMsgf
+	.4byte Enraged__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte SpecialAttack__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Growth__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Faint__3CAiFR13CStateManager9EStateMsgf
+	.4byte Land__16CMetroidPrimeExoFR13CStateManager9EStateMsgf
+	.4byte Bounce__3CAiFR13CStateManager9EStateMsgf
+	.4byte PathFindEx__3CAiFR13CStateManager9EStateMsgf
+	.4byte Dizzy__3CAiFR13CStateManager9EStateMsgf
+	.4byte CallForBackup__3CAiFR13CStateManager9EStateMsgf
+	.4byte BulbAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte PodAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte InAttackPosition__3CAiFR13CStateManagerf
+	.4byte Leash__10CPatternedFR13CStateManagerf
+	.4byte OffLine__10CPatternedFR13CStateManagerf
+	.4byte Attacked__10CPatternedFR13CStateManagerf
+	.4byte PathShagged__10CPatternedFR13CStateManagerf
+	.4byte PathOver__10CPatternedFR13CStateManagerf
+	.4byte PathFound__10CPatternedFR13CStateManagerf
+	.4byte TooClose__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte InRange__10CPatternedFR13CStateManagerf
+	.4byte InMaxRange__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte InDetectionRange__10CPatternedFR13CStateManagerf
+	.4byte SpotPlayer__10CPatternedFR13CStateManagerf
+	.4byte PlayerSpot__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte PatternOver__10CPatternedFR13CStateManagerf
+	.4byte PatternShagged__10CPatternedFR13CStateManagerf
+	.4byte HasAttackPattern__10CPatternedFR13CStateManagerf
+	.4byte HasPatrolPath__10CPatternedFR13CStateManagerf
+	.4byte HasRetreatPattern__10CPatternedFR13CStateManagerf
+	.4byte Delay__10CPatternedFR13CStateManagerf
+	.4byte RandomDelay__10CPatternedFR13CStateManagerf
+	.4byte FixedDelay__10CPatternedFR13CStateManagerf
+	.4byte Default__10CPatternedFR13CStateManagerf
+	.4byte AnimOver__10CPatternedFR13CStateManagerf
+	.4byte sub_80273550
+	.4byte ShouldDoubleSnap__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte InPosition__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte ShouldTurn__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte HitSomething__3CAiFR13CStateManagerf
+	.4byte sub_802734e4
+	.4byte Stuck__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte NoPathNodes__10CPatternedFR13CStateManagerf
+	.4byte Landed__10CPatternedFR13CStateManagerf
+	.4byte HearShot__3CAiFR13CStateManagerf
+	.4byte HearPlayer__3CAiFR13CStateManagerf
+	.4byte CoverCheck__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte sub_8027353c
+	.4byte CoverBlown__3CAiFR13CStateManagerf
+	.4byte CoverNearlyBlown__3CAiFR13CStateManagerf
+	.4byte sub_80273798
+	.4byte GotUp__3CAiFR13CStateManagerf
+	.4byte LineOfSight__3CAiFR13CStateManagerf
+	.4byte AggressionCheck__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte AttackOver__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte ShouldTaunt__3CAiFR13CStateManagerf
+	.4byte Inside__3CAiFR13CStateManagerf
+	.4byte sub_80273564
+	.4byte ShouldFlinch__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte PatrolPathOver__10CPatternedFR13CStateManagerf
+	.4byte ShouldDodge__3CAiFR13CStateManagerf
+	.4byte ShouldRetreat__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte sub_80273528
+	.4byte sub_802737ac
+	.4byte ShotAt__3CAiFR13CStateManagerf
+	.4byte HasTargetingPoint__3CAiFR13CStateManagerf
+	.4byte ShouldWallHang__3CAiFR13CStateManagerf
+	.4byte SetAIStage__3CAiFR13CStateManagerf
+	.4byte AIStage__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte StartAttack__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte BreakAttack__3CAiFR13CStateManagerf
+	.4byte ShouldStrafe__3CAiFR13CStateManagerf
+	.4byte sub_8027358c
+	.4byte LostInterest__3CAiFR13CStateManagerf
+	.4byte CodeTrigger__16CMetroidPrimeExoFR13CStateManagerf
+	.4byte BounceFind__3CAiFR13CStateManagerf
+	.4byte Random__10CPatternedFR13CStateManagerf
+	.4byte FixedRandom__10CPatternedFR13CStateManagerf
+	.4byte IsDizzy__3CAiFR13CStateManagerf
+	.4byte ShouldCallForBackup__3CAiFR13CStateManagerf
+	.4byte Freeze__10CPatternedFRC9CVector3f13CUnitVector3ff
+	.4byte KnockbackWhenFrozen__10CPatternedCFv
+	.4byte MassiveDeath__10CPatternedFR13CStateManager
+	.4byte MassiveFrozenDeath__10CPatternedFR13CStateManager
+	.4byte Burn__10CPatternedFff
+	.4byte Shock__10CPatternedFff
+	.4byte ThinkAboutMove__10CPatternedFf
+	.4byte GetSearchPath__10CPatternedFv
+	.4byte GetContactDamage__10CPatternedCFv
+	.4byte GetModelAlphau8__10CPatternedCFRC13CStateManager
+	.4byte IsOnGround__10CPatternedCFv
+	.4byte GetGravityConstant__10CPatternedCFv
+	.4byte ProjectileInfo__16CMetroidPrimeExoFv
+	.4byte PhazeOut__10CPatternedFR13CStateManager
+	.4byte GetDeathExplosionParticle__10CPatternedCFv
+
+.global lbl_803EB020
+lbl_803EB020:
+	# ROM: 0x3E8020
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027ACE0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027ACF4
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AE54
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AE68
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AD08
+	.4byte lbl_8027AE14
+	.4byte lbl_8027ADA8
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AEA0
+	.4byte lbl_8027AE80
+	.4byte lbl_8027AE9C
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803EB0FC
+lbl_803EB0FC:
+	# ROM: 0x3E80FC
+	.4byte 0
+	.4byte 0
+	.4byte sub_8027c4ec
+	.4byte sub_8027c0d0
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__13CPhysicsActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__6CActorCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__13CPhysicsActorCFRC13CStateManager
+	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+	
 .section .bss
 
 .global lbl_8046E0C0

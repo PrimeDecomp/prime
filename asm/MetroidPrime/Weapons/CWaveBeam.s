@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF7A0
+lbl_803DF7A0:
+	# ROM: 0x3DC7A0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CWaveBeamFv
+	.4byte Reset__10CGunWeaponFR13CStateManager
+	.4byte PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb
+	.4byte PreRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
+	.4byte PostRenderGunFx__9CWaveBeamFRC13CStateManagerRC12CTransform4f
+	.4byte UpdateGunFx__9CWaveBeamFbfRC13CStateManagerRC12CTransform4f
+	.4byte Fire__9CWaveBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte EnableFx__10CGunWeaponFb
+	.4byte EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType
+	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
+	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
+	.4byte Update__9CWaveBeamFfR13CStateManager
+	.4byte Load__9CWaveBeamFb
+	.4byte Unload__9CWaveBeamFR13CStateManager
+	.4byte IsLoaded__9CWaveBeamCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E4CF8
+lbl_803E4CF8:
+	# ROM: 0x3E1CF8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CTweakPlayerResFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCinematicBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId

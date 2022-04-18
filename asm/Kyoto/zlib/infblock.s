@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE440
+lbl_803EE440:
+	# ROM: 0x3EB440
+	.4byte lbl_80341414
+	.4byte lbl_803415E0
+	.4byte lbl_80341700
+	.4byte lbl_803418B0
+	.4byte lbl_80341A1C
+	.4byte lbl_80341BBC
+	.4byte lbl_80341F80
+	.4byte lbl_8034203C
+	.4byte lbl_803420A8
+	.4byte lbl_803420E4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global inflate_blocks_free

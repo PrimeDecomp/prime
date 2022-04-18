@@ -1,5 +1,39 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E8578
+lbl_803E8578:
+	# ROM: 0x3E5578
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CSnakeWeedSwarmFv
+	.4byte Accept__15CSnakeWeedSwarmFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__15CSnakeWeedSwarmFfR13CStateManager
+	.4byte AcceptScriptMsg__15CSnakeWeedSwarmF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__15CSnakeWeedSwarmFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__15CSnakeWeedSwarmCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__6CActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__15CSnakeWeedSwarmCFv
+	.4byte Touch__15CSnakeWeedSwarmFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046D360

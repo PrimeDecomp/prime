@@ -1,5 +1,45 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E1750
+lbl_803E1750:
+	# ROM: 0x3DE750
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CBSFlyerTurnFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__10CBodyStateCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__7CBSTurnCFv
+	.4byte Start__12CBSFlyerTurnFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__12CBSFlyerTurnFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__7CBSTurnFR15CBodyController
+	.4byte GetBodyStateTransition__7CBSTurnFfR15CBodyController
+
+.global lbl_803E178C
+lbl_803E178C:
+	# ROM: 0x3DE78C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CBSTurnFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__10CBodyStateCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__7CBSTurnCFv
+	.4byte Start__7CBSTurnFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__7CBSTurnFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__7CBSTurnFR15CBodyController
+	.4byte GetBodyStateTransition__7CBSTurnFfR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__12CBSFlyerTurnFv

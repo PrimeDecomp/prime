@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E5728
+lbl_803E5728:
+	# ROM: 0x3E2728
+	.4byte lbl_801CC7D4
+	.4byte lbl_801CC7D4
+	.4byte lbl_801CC69C
+	.4byte lbl_801CC6F0
+	.4byte lbl_801CC7D4
+	.4byte lbl_801CC710
+	.4byte lbl_801CC730
+	.4byte lbl_801CC798
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ReturnToBasePosition__14CGunControllerFR13CStateManager

@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE118
+lbl_803EE118:
+	# ROM: 0x3EB118
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CUVEAnimTextureFv
+	.4byte GetValueUV__15CUVEAnimTextureCFiR13SUVElementSet
+	.4byte GetValueTexture__15CUVEAnimTextureCFi
+	.4byte HasConstantTexture__15CUVEAnimTextureFv
+	.4byte HasConstantUV__15CUVEAnimTextureFv
+
+.global lbl_803EE134
+lbl_803EE134:
+	# ROM: 0x3EB134
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CUVEConstantFv
+	.4byte GetValueUV__12CUVEConstantCFiR13SUVElementSet
+	.4byte GetValueTexture__12CUVEConstantCFi
+	.4byte HasConstantTexture__12CUVEConstantFv
+	.4byte HasConstantUV__12CUVEConstantFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global HasConstantTexture__15CUVEAnimTextureFv

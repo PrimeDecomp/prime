@@ -1,5 +1,25 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9A0C
+lbl_803D9A0C:
+	# ROM: 0x3D6A0C
+	.4byte 0
+	.4byte 0
+	.4byte sub_80027c20
+
+.global lbl_803D9A18
+lbl_803D9A18:
+	# ROM: 0x3D6A18
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CCreditsFv
+	.4byte OnMessage__8CCreditsFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__8CCreditsCFv
+	.4byte Draw__8CCreditsCFv
+	.4byte PreDraw__6CIOWinCFv
+
 .section .text, "ax"
 
 .global sub_8002548c

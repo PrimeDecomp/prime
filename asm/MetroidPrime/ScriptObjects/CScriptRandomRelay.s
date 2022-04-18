@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF870
+lbl_803DF870:
+	# ROM: 0x3DC870
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CScriptRandomRelayFv
+	.4byte Accept__18CScriptRandomRelayFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__18CScriptRandomRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__18CScriptRandomRelayFR8IVisitor

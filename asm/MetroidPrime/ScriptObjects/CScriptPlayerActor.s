@@ -1,5 +1,85 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E4BE0
+lbl_803E4BE0:
+	# ROM: 0x3E1BE0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CScriptPlayerActorFv
+	.4byte Accept__12CScriptActorFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__18CScriptPlayerActorFfR13CStateManager
+	.4byte AcceptScriptMsg__18CScriptPlayerActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__18CScriptPlayerActorFb
+	.4byte PreRender__18CScriptPlayerActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__18CScriptPlayerActorCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__18CScriptPlayerActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte GetHealthInfo__12CScriptActorCFRC13CStateManager
+	.4byte GetDamageVulnerability__12CScriptActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__12CScriptActorCFv
+	.4byte Touch__12CScriptActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__13CPhysicsActorCFRC13CStateManager
+	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__12CScriptActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+
+.global lbl_803E4C64
+lbl_803E4C64:
+	# ROM: 0x3E1C64
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABC00
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABC9C
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABC60
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABCDC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFAC
+	.4byte lbl_801ABFA0
+	.4byte lbl_801ABB78
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__18CScriptPlayerActorFv

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA440
+lbl_803DA440:
+	# ROM: 0x3D7440
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CTweakGuiFv
+	.4byte 0
+	
 .section .text, "ax"
 
 .global FaceReflectionOrthoHeightDebugValueToActualValue__9CTweakGuiFf

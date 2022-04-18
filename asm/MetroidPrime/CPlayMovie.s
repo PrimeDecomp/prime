@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803D9A34
+lbl_803D9A34:
+	# ROM: 0x3D6A34
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CPlayMovieFv
+	.4byte OnMessage__10CPlayMovieFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__10CPlayMovieCFv
+	.4byte Draw__10CPlayMovieCFv
+	.4byte PreDraw__6CIOWinCFv
 
 .section .text, "ax"
 

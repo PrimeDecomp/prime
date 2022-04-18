@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECA90
+lbl_803ECA90:
+	# ROM: 0x3E9A90
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CAuiImagePaneFv
+	.4byte Update__13CAuiImagePaneFf
+	.4byte Draw__13CAuiImagePaneCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__13CAuiImagePaneCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__13CAuiImagePaneCFv
+	.4byte OnVisible__10CGuiWidgetFv
+	.4byte OnActivate__10CGuiWidgetFv
+	.4byte WriteData__13CAuiImagePaneCFR13COutputStreamb
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__13CAuiImagePaneFv

@@ -235,7 +235,7 @@ do_voice_portamento:
 /* 80398D94 00395CF4  7C 08 02 A6 */	mflr r0
 /* 80398D98 00395CF8  90 01 00 44 */	stw r0, 0x44(r1)
 /* 80398D9C 00395CFC  39 61 00 40 */	addi r11, r1, 0x40
-/* 80398DA0 00395D00  4B FF 0C B9 */	bl func_80389A58
+/* 80398DA0 00395D00  4B FF 0C B9 */	bl _savegpr_18
 /* 80398DA4 00395D04  7C 72 1B 78 */	mr r18, r3
 /* 80398DA8 00395D08  3C 60 80 55 */	lis r3, synthInfo@ha
 /* 80398DAC 00395D0C  83 2D AE 78 */	lwz r25, synthVoice@sda21(r13)

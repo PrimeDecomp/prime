@@ -1,5 +1,57 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E5258
+lbl_803E5258:
+	# ROM: 0x3E2258
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__14CGameLightListFRC7CEntity
+
+.global lbl_803E5264
+lbl_803E5264:
+	# ROM: 0x3E2264
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__20CPlatformAndDoorListFRC7CEntity
+
+.global lbl_803E5270
+lbl_803E5270:
+	# ROM: 0x3E2270
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__15CAiWaypointListFRC7CEntity
+
+.global lbl_803E527C
+lbl_803E527C:
+	# ROM: 0x3E227C
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__16CListeningAiListFRC7CEntity
+
+.global lbl_803E5288
+lbl_803E5288:
+	# ROM: 0x3E2288
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__15CGameCameraListFRC7CEntity
+
+.global lbl_803E5294
+lbl_803E5294:
+	# ROM: 0x3E2294
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__17CPhysicsActorListFRC7CEntity
+
+.global lbl_803E52A0
+lbl_803E52A0:
+	# ROM: 0x3E22A0
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__10CActorListFRC7CEntity
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsQualified__14CGameLightListFRC7CEntity

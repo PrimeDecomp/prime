@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE3C8
+lbl_803EE3C8:
+	# ROM: 0x3EB3C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CZipInputStreamFv
+	.4byte Read__15CZipInputStreamFPvUl
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Read__15CZipInputStreamFPvUl

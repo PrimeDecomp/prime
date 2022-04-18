@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA320
+lbl_803DA320:
+	# ROM: 0x3D7320
+	.4byte 0
+	.4byte 0
+	.4byte GetMetaAnim__22CAnimationDatabaseGameCFUi
+	.4byte GetNumMetaAnims__22CAnimationDatabaseGameCFv
+	.4byte GetMetaAnimName__22CAnimationDatabaseGameCFUi
+	.4byte "GetAllUniquePrimitives__22CAnimationDatabaseGameCFRQ24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>"
+	.4byte "GetUniquePrimitivesFromMetaAnim__22CAnimationDatabaseGameCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+	.4byte 0
+
 .section .text, "ax"
 
 .global "GetUniquePrimitivesFromMetaAnim__22CAnimationDatabaseGameCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"

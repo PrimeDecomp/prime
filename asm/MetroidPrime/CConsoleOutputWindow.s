@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFE50
+lbl_803DFE50:
+	# ROM: 0x3DCE50
+	.4byte 0
+	.4byte 0
+	.4byte __dt__20CConsoleOutputWindowFv
+	.4byte OnMessage__20CConsoleOutputWindowFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__20CConsoleOutputWindowCFv
+	.4byte PreDraw__6CIOWinCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Draw__20CConsoleOutputWindowCFv

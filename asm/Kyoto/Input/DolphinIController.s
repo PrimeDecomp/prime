@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF680
+lbl_803EF680:
+	# ROM: 0x3EC680
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11IControllerFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Create__11IControllerFRC10COsContext

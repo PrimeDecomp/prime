@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC9B8
+lbl_803EC9B8:
+	# ROM: 0x3E99B8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CGuiTextPaneFv
+	.4byte Update__12CGuiTextPaneFf
+	.4byte Draw__12CGuiTextPaneCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__12CGuiTextPaneCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__12CGuiTextPaneCFv
+	.4byte OnVisible__10CGuiWidgetFv
+	.4byte OnActivate__10CGuiWidgetFv
+	.4byte ScaleDimensions__12CGuiTextPaneFRC9CVector3f
+	.4byte SetDimensions__12CGuiTextPaneFRC9CVector2fb
+	.4byte GetDimensions__8CGuiPaneCFv
+	.4byte InitializeBuffers__8CGuiPaneFv
+	.4byte WriteData__8CGuiPaneCFR13COutputStreamb
+	.4byte sub_802c7638
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetWidgetTypeID__12CGuiTextPaneCFv

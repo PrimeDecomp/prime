@@ -1,5 +1,55 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E8B78
+lbl_803E8B78:
+	# ROM: 0x3E5B78
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CLogBookScreenFv
+	.4byte InputDisabled__14CLogBookScreenCFv
+	.4byte TransitioningAway__14CLogBookScreenFv
+	.4byte Update__14CLogBookScreenFfR9CRandom16R18CArchitectureQueue
+	.4byte Touch__14CLogBookScreenFv
+	.4byte ProcessInput__14CLogBookScreenFRC11CFinalInput
+	.4byte Draw__14CLogBookScreenCFfff
+	.4byte GetCameraYBias__16CPauseScreenBaseCFv
+	.4byte VReady__14CLogBookScreenCFv
+	.4byte VActivate__14CLogBookScreenFv
+	.4byte RightTableSelectionChanged__14CLogBookScreenFii
+	.4byte ChangedMode__14CLogBookScreenQ216CPauseScreenBase5EMode
+	.4byte UpdateRightTable__14CLogBookScreenFv
+	.4byte ShouldLeftTableAdvance__14CLogBookScreenFv
+	.4byte ShouldRightTableAdvance__14CLogBookScreenFv
+	.4byte GetRightTableCount__14CLogBookScreenCFv
+	.4byte IsRightLogDynamic__16CPauseScreenBaseCFv
+	.4byte UpdateRightLogColors__16CPauseScreenBaseFbRC6CColor
+	.4byte UpdateRightLogHighlight__16CPauseScreenBaseFbiRC6CColorRC6CColor
+
+.global lbl_803E8BCC
+lbl_803E8BCC:
+	# ROM: 0x3E5BCC
+	.4byte 0x004E006F
+	.4byte 0x00200054
+	.4byte 0x00690074
+	.4byte 0x006C0065
+	.4byte 0x00210000
+	.4byte 0x003F003F
+	.4byte 0x003F003F
+	.4byte 0x003F003F
+	.4byte 0x0000002E
+	.4byte 0x002E002E
+	.4byte 0x002E002E
+	.4byte 0x002E002E
+	.4byte 0x002E0000
+	.4byte 0x0000000A
+	.4byte 0x000A0000
+	.4byte 0x000A000A
+	.4byte 0x000A000A
+	.4byte 0x000A000A
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsScanComplete__14CLogBookScreenF13EScanCategoryUiRC12CPlayerState

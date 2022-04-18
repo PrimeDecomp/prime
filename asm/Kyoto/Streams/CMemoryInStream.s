@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global __vt__15CMemoryInStream
+__vt__15CMemoryInStream:
+	# ROM: 0x3EB398
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CMemoryInStreamFv
+	.4byte Read__15CMemoryInStreamFPvUl
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Read__15CMemoryInStreamFPvUl

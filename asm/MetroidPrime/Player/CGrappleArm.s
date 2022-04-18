@@ -1,5 +1,35 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E06B0
+lbl_803E06B0:
+	# ROM: 0x3DD6B0
+	.4byte lbl_8011E5DC
+	.4byte lbl_8011E650
+	.4byte lbl_8011E6AC
+	.4byte lbl_8011E7E0
+	.4byte lbl_8011E6F4
+	.4byte lbl_8011E7E0
+	.4byte lbl_8011E73C
+	.4byte lbl_8011E7E0
+	.4byte lbl_8011E784
+	.4byte lbl_8011E7E0
+	.4byte lbl_8011E7D4
+
+.global lbl_803E06DC
+lbl_803E06DC:
+	# ROM: 0x3DD6DC
+	.4byte lbl_8011F314
+	.4byte lbl_8011F3D0
+	.4byte lbl_8011F324
+	.4byte lbl_8011F3D0
+	.4byte lbl_8011F380
+	.4byte lbl_8011F3D0
+	.4byte lbl_8011F3D0
+	.4byte lbl_8011F314
+	.4byte lbl_8011F3A0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DisconnectGrappleBeam__11CGrappleArmFv

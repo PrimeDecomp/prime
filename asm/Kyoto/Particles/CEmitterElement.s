@@ -1,5 +1,40 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF748
+lbl_803EF748:
+	# ROM: 0x3EC748
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CVEAngleSphereFv
+	.4byte GetValue__14CVEAngleSphereCFiR9CVector3fR9CVector3f
+
+.global lbl_803EF758
+lbl_803EF758:
+	# ROM: 0x3EC758
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CEmitterElement
+	.4byte 0
+
+.global lbl_803EF768
+lbl_803EF768:
+	# ROM: 0x3EC768
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CVESphereFv
+	.4byte GetValue__9CVESphereCFiR9CVector3fR9CVector3f
+
+.global lbl_803EF778
+lbl_803EF778:
+	# ROM: 0x3EC778
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CEESimpleEmitterFv
+	.4byte GetValue__16CEESimpleEmitterCFiR9CVector3fR9CVector3f
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetValue__14CVEAngleSphereCFiR9CVector3fR9CVector3f

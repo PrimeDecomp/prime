@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED4B8
+lbl_803ED4B8:
+	# ROM: 0x3EA4B8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CStackSegStatementSetFv
+
+.global lbl_803ED4C4
+lbl_803ED4C4:
+	# ROM: 0x3EA4C4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CStackSegStatementSetFv

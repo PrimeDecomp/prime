@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC518
+lbl_803EC518:
+	# ROM: 0x3E9518
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__50TObjOwnerDerivedFromIObj<22CCollisionResponseData>Fv"
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FCollisionResponseDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

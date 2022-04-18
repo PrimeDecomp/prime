@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF850
+lbl_803DF850:
+	# ROM: 0x3DC850
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CScriptSpawnPointFv
+	.4byte Accept__17CScriptSpawnPointFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__17CScriptSpawnPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__17CScriptSpawnPointFR8IVisitor

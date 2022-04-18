@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED420
+lbl_803ED420:
+	# ROM: 0x3EA420
+	.4byte 0
+	.4byte 0
+	.4byte sub_802f8294
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "GetSegIdFromString__15CCharLayoutInfoCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"

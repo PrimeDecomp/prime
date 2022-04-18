@@ -1,5 +1,214 @@
 .include "macros.inc"
 
+.section .data
+
+
+.global lbl_803DFF90
+lbl_803DFF90:
+	# ROM: 0x3DCF90
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CWarWaspFv
+	.4byte Accept__8CWarWaspFR8IVisitor
+	.4byte PreThink__10CPatternedFfR13CStateManager
+	.4byte Think__8CWarWaspFfR13CStateManager
+	.4byte AcceptScriptMsg__8CWarWaspF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__10CPatternedFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__10CPatternedCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__10CPatternedCFRC13CStateManager
+	.4byte CanRenderUnsorted__10CPatternedCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__3CAiFR13CStateManager
+	.4byte GetDamageVulnerability__3CAiCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__8CWarWaspCFv
+	.4byte Touch__10CPatternedFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__10CPatternedCFRC13CStateManager
+	.4byte GetAimPosition__10CPatternedCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__8CWarWaspFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__8CWarWaspCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__10CPatternedFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+	.4byte Death__8CWarWaspFRC9CVector3fR13CStateManager
+	.4byte KnockBack__10CPatternedFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
+	.4byte GetDamageVulnerability__3CAiFv
+	.4byte TakeDamage__10CPatternedFRC9CVector3ff
+	.4byte CanBeShot__3CAiFRC13CStateManageri
+	.4byte IsListening__8CWarWaspCFv
+	.4byte Listen__8CWarWaspFRC9CVector3f16EListenNoiseType
+	.4byte GetOrigin__8CWarWaspCFv
+	.4byte Patrol__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte FollowPattern__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte Dead__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte PathFind__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Start__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte SelectTarget__3CAiFR13CStateManager9EStateMsgf
+	.4byte TargetPatrol__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte TargetPlayer__10CPatternedFR13CStateManager9EStateMsgf
+	.4byte TargetCover__3CAiFR13CStateManager9EStateMsgf
+	.4byte Halt__3CAiFR13CStateManager9EStateMsgf
+	.4byte Walk__3CAiFR13CStateManager9EStateMsgf
+	.4byte Run__3CAiFR13CStateManager9EStateMsgf
+	.4byte Generate__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Deactivate__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Attack__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte LoopedAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte JumpBack__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte DoubleSnap__3CAiFR13CStateManager9EStateMsgf
+	.4byte Shuffle__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte TurnAround__3CAiFR13CStateManager9EStateMsgf
+	.4byte Skid__3CAiFR13CStateManager9EStateMsgf
+	.4byte Active__3CAiFR13CStateManager9EStateMsgf
+	.4byte InActive__3CAiFR13CStateManager9EStateMsgf
+	.4byte CoverAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte Crouch__3CAiFR13CStateManager9EStateMsgf
+	.4byte FadeIn__3CAiFR13CStateManager9EStateMsgf
+	.4byte FadeOut__3CAiFR13CStateManager9EStateMsgf
+	.4byte GetUp__3CAiFR13CStateManager9EStateMsgf
+	.4byte Taunt__3CAiFR13CStateManager9EStateMsgf
+	.4byte Suck__3CAiFR13CStateManager9EStateMsgf
+	.4byte Flee__3CAiFR13CStateManager9EStateMsgf
+	.4byte Lurk__3CAiFR13CStateManager9EStateMsgf
+	.4byte ProjectileAttack__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Flinch__3CAiFR13CStateManager9EStateMsgf
+	.4byte Hurled__3CAiFR13CStateManager9EStateMsgf
+	.4byte TelegraphAttack__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Jump__3CAiFR13CStateManager9EStateMsgf
+	.4byte Explode__3CAiFR13CStateManager9EStateMsgf
+	.4byte Dodge__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Retreat__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Cover__3CAiFR13CStateManager9EStateMsgf
+	.4byte Approach__3CAiFR13CStateManager9EStateMsgf
+	.4byte WallHang__3CAiFR13CStateManager9EStateMsgf
+	.4byte WallDetach__3CAiFR13CStateManager9EStateMsgf
+	.4byte Enraged__3CAiFR13CStateManager9EStateMsgf
+	.4byte SpecialAttack__8CWarWaspFR13CStateManager9EStateMsgf
+	.4byte Growth__3CAiFR13CStateManager9EStateMsgf
+	.4byte Faint__3CAiFR13CStateManager9EStateMsgf
+	.4byte Land__3CAiFR13CStateManager9EStateMsgf
+	.4byte Bounce__3CAiFR13CStateManager9EStateMsgf
+	.4byte PathFindEx__3CAiFR13CStateManager9EStateMsgf
+	.4byte Dizzy__3CAiFR13CStateManager9EStateMsgf
+	.4byte CallForBackup__3CAiFR13CStateManager9EStateMsgf
+	.4byte BulbAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte PodAttack__3CAiFR13CStateManager9EStateMsgf
+	.4byte InAttackPosition__8CWarWaspFR13CStateManagerf
+	.4byte Leash__8CWarWaspFR13CStateManagerf
+	.4byte OffLine__10CPatternedFR13CStateManagerf
+	.4byte Attacked__10CPatternedFR13CStateManagerf
+	.4byte PathShagged__8CWarWaspFR13CStateManagerf
+	.4byte PathOver__10CPatternedFR13CStateManagerf
+	.4byte PathFound__10CPatternedFR13CStateManagerf
+	.4byte TooClose__10CPatternedFR13CStateManagerf
+	.4byte InRange__10CPatternedFR13CStateManagerf
+	.4byte InMaxRange__10CPatternedFR13CStateManagerf
+	.4byte InDetectionRange__10CPatternedFR13CStateManagerf
+	.4byte SpotPlayer__10CPatternedFR13CStateManagerf
+	.4byte PlayerSpot__10CPatternedFR13CStateManagerf
+	.4byte PatternOver__10CPatternedFR13CStateManagerf
+	.4byte PatternShagged__10CPatternedFR13CStateManagerf
+	.4byte HasAttackPattern__10CPatternedFR13CStateManagerf
+	.4byte HasPatrolPath__10CPatternedFR13CStateManagerf
+	.4byte HasRetreatPattern__10CPatternedFR13CStateManagerf
+	.4byte Delay__10CPatternedFR13CStateManagerf
+	.4byte RandomDelay__10CPatternedFR13CStateManagerf
+	.4byte FixedDelay__10CPatternedFR13CStateManagerf
+	.4byte Default__10CPatternedFR13CStateManagerf
+	.4byte AnimOver__8CWarWaspFR13CStateManagerf
+	.4byte ShouldAttack__8CWarWaspFR13CStateManagerf
+	.4byte ShouldDoubleSnap__3CAiFR13CStateManagerf
+	.4byte InPosition__8CWarWaspFR13CStateManagerf
+	.4byte ShouldTurn__8CWarWaspFR13CStateManagerf
+	.4byte HitSomething__3CAiFR13CStateManagerf
+	.4byte ShouldJumpBack__3CAiFR13CStateManagerf
+	.4byte Stuck__10CPatternedFR13CStateManagerf
+	.4byte NoPathNodes__10CPatternedFR13CStateManagerf
+	.4byte Landed__10CPatternedFR13CStateManagerf
+	.4byte HearShot__8CWarWaspFR13CStateManagerf
+	.4byte HearPlayer__3CAiFR13CStateManagerf
+	.4byte CoverCheck__3CAiFR13CStateManagerf
+	.4byte CoverFind__3CAiFR13CStateManagerf
+	.4byte CoverBlown__3CAiFR13CStateManagerf
+	.4byte CoverNearlyBlown__3CAiFR13CStateManagerf
+	.4byte CoveringFire__3CAiFR13CStateManagerf
+	.4byte GotUp__3CAiFR13CStateManagerf
+	.4byte LineOfSight__3CAiFR13CStateManagerf
+	.4byte AggressionCheck__3CAiFR13CStateManagerf
+	.4byte AttackOver__3CAiFR13CStateManagerf
+	.4byte ShouldTaunt__3CAiFR13CStateManagerf
+	.4byte Inside__3CAiFR13CStateManagerf
+	.4byte ShouldFire__8CWarWaspFR13CStateManagerf
+	.4byte ShouldFlinch__3CAiFR13CStateManagerf
+	.4byte PatrolPathOver__10CPatternedFR13CStateManagerf
+	.4byte ShouldDodge__8CWarWaspFR13CStateManagerf
+	.4byte ShouldRetreat__3CAiFR13CStateManagerf
+	.4byte ShouldCrouch__3CAiFR13CStateManagerf
+	.4byte ShouldMove__3CAiFR13CStateManagerf
+	.4byte ShotAt__3CAiFR13CStateManagerf
+	.4byte HasTargetingPoint__3CAiFR13CStateManagerf
+	.4byte ShouldWallHang__3CAiFR13CStateManagerf
+	.4byte SetAIStage__3CAiFR13CStateManagerf
+	.4byte AIStage__3CAiFR13CStateManagerf
+	.4byte StartAttack__3CAiFR13CStateManagerf
+	.4byte BreakAttack__3CAiFR13CStateManagerf
+	.4byte ShouldStrafe__3CAiFR13CStateManagerf
+	.4byte ShouldSpecialAttack__8CWarWaspFR13CStateManagerf
+	.4byte LostInterest__3CAiFR13CStateManagerf
+	.4byte CodeTrigger__10CPatternedFR13CStateManagerf
+	.4byte BounceFind__3CAiFR13CStateManagerf
+	.4byte Random__10CPatternedFR13CStateManagerf
+	.4byte FixedRandom__10CPatternedFR13CStateManagerf
+	.4byte IsDizzy__3CAiFR13CStateManagerf
+	.4byte ShouldCallForBackup__3CAiFR13CStateManagerf
+	.4byte Freeze__10CPatternedFRC9CVector3f13CUnitVector3ff
+	.4byte KnockbackWhenFrozen__10CPatternedCFv
+	.4byte MassiveDeath__10CPatternedFR13CStateManager
+	.4byte MassiveFrozenDeath__10CPatternedFR13CStateManager
+	.4byte Burn__10CPatternedFff
+	.4byte Shock__10CPatternedFff
+	.4byte ThinkAboutMove__10CPatternedFf
+	.4byte GetSearchPath__8CWarWaspFv
+	.4byte GetContactDamage__10CPatternedCFv
+	.4byte GetModelAlphau8__10CPatternedCFRC13CStateManager
+	.4byte IsOnGround__10CPatternedCFv
+	.4byte GetGravityConstant__10CPatternedCFv
+	.4byte ProjectileInfo__8CWarWaspFv
+	.4byte PhazeOut__10CPatternedFR13CStateManager
+	.4byte GetDeathExplosionParticle__10CPatternedCFv
+
+.global lbl_803E025C
+lbl_803E025C:
+	# ROM: 0x3DD25C
+	.4byte lbl_801103C4
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_801106D4
+	.4byte lbl_801106EC
+	.4byte lbl_80110700
+	.4byte lbl_80110710
+	.4byte lbl_801106A4
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte lbl_80110710
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__8CWarWaspFv
@@ -5722,6 +5931,8 @@ lbl_8011008C:
 /* 801100A0 0010D000  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801100A4 0010D004  41 82 00 A4 */	beq lbl_80110148
 /* 801100A8 0010D008  80 AD 8A 14 */	lwz r5, lbl_805A75D4@sda21(r13)
+.global lbl_801100AC
+lbl_801100AC:
 /* 801100AC 0010D00C  38 60 00 00 */	li r3, 0
 /* 801100B0 0010D010  38 80 00 01 */	li r4, 1
 /* 801100B4 0010D014  48 27 9E 41 */	bl __shl2i

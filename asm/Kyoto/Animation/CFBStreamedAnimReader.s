@@ -1,5 +1,50 @@
 .include "macros.inc"
 
+.section .data
+
+
+.global lbl_803ED430
+lbl_803ED430:
+	# ROM: 0x3EA430
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CFBStreamedAnimReaderFv
+	.4byte IsCAnimTreeNode__11IAnimReaderCFv
+	.4byte VAdvanceView__21CFBStreamedAnimReaderFRC13CCharAnimTime
+	.4byte VGetTimeRemaining__21CFBStreamedAnimReaderCFv
+	.4byte VGetSteadyStateAnimInfo__21CFBStreamedAnimReaderCFv
+	.4byte VHasOffset__21CFBStreamedAnimReaderCFRC6CSegId
+	.4byte VGetOffset__21CFBStreamedAnimReaderCFRC6CSegId
+	.4byte VGetRotation__21CFBStreamedAnimReaderCFRC6CSegId
+	.4byte VGetBoolPOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
+	.4byte VGetInt32POIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP13CInt32POINodeUiUii
+	.4byte VGetParticlePOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
+	.4byte VGetSoundPOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
+	.4byte VGetBoolPOIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetInt32POIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetParticlePOIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetSegStatementSet__21CFBStreamedAnimReaderCFRC10CSegIdListR16CSegStatementSet
+	.4byte VGetSegStatementSet__21CFBStreamedAnimReaderCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
+	.4byte VClone__21CFBStreamedAnimReaderCFv
+	.4byte VSimplified__11IAnimReaderFv
+	.4byte VSetPhase__21CFBStreamedAnimReaderFf
+	.4byte VGetAdvancementResults__21CFBStreamedAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
+	.4byte VSupportsReverseView__21CFBStreamedAnimReaderCFv
+	.4byte VReverseView__21CFBStreamedAnimReaderFRC13CCharAnimTime
+
+.global lbl_803ED494
+lbl_803ED494:
+	# ROM: 0x3EA494
+	.4byte 0
+	.4byte 0
+	.4byte "HasPOIData__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
+	.4byte "GetBoolPOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
+	.4byte "GetInt32POIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
+	.4byte "GetParticlePOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
+	.4byte "GetSoundPOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
+	.4byte "GetAnimationDuration__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
+	.4byte "__dt__41TAnimSourceInfo<22CFBStreamedCompression>Fv"
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global VGetAdvancementResults__21CFBStreamedAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime

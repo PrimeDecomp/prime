@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE3D8
+lbl_803EE3D8:
+	# ROM: 0x3EB3D8
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__31TObjOwnerParam<P12IObjectStore>Fv"
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "__dt__31TObjOwnerParam<P12IObjectStore>Fv"

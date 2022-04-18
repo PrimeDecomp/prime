@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF700
+lbl_803DF700:
+	# ROM: 0x3DC700
+	.4byte 0
+	.4byte 0
+	.4byte sub_800de904
+	.4byte 0
+
 .section .text, "ax"
 
 .global FAiFiniteStateMachineFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

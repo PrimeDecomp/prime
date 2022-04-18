@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED678
+lbl_803ED678:
+	# ROM: 0x3EA678
+	.4byte 0
+	.4byte 0
+	.4byte __dt__23CLineSpacingInstructionFv
+	.4byte Invoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte PageInvoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__12CInstructionCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__23CLineSpacingInstructionFv

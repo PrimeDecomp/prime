@@ -1,5 +1,38 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE3E4
+lbl_803EE3E4:
+	# ROM: 0x3EB3E4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803EE410
+lbl_803EE410:
+	# ROM: 0x3EB410
+	.4byte 0
+	.4byte 0
+	.4byte GetObj__11CSimplePoolFRC10SObjectTagRC15CVParamTransfer
+	.4byte GetObj__11CSimplePoolFRC10SObjectTag
+	.4byte GetObj__11CSimplePoolFPCc
+	.4byte GetObj__11CSimplePoolFPCcRC15CVParamTransfer
+	.4byte HasObject__11CSimplePoolCFRC10SObjectTag
+	.4byte ObjectIsLive__11CSimplePoolCFRC10SObjectTag
+	.4byte GetFactory__11CSimplePoolCFv
+	.4byte Flush__11CSimplePoolFv
+	.4byte ObjectUnreferenced__11CSimplePoolFRC10SObjectTag
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetFactory__11CSimplePoolCFv

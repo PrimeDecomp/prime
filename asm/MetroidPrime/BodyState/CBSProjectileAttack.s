@@ -1,5 +1,25 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E27D0
+lbl_803E27D0:
+	# ROM: 0x3DF7D0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CBSProjectileAttackFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__10CBodyStateCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__19CBSProjectileAttackCFv
+	.4byte Start__19CBSProjectileAttackFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__19CBSProjectileAttackFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__19CBSProjectileAttackFR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__19CBSProjectileAttackFv

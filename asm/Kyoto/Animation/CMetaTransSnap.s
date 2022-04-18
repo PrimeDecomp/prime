@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECDC0
+lbl_803ECDC0:
+	# ROM: 0x3E9DC0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CMetaTransSnapFv
+	.4byte "VGetTransitionTree__14CMetaTransSnapCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext"
+	.4byte GetType__14CMetaTransSnapCFv
+	.4byte WriteTransData__14CMetaTransSnapCFR13COutputStream
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__14CMetaTransSnapFv

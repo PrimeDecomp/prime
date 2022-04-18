@@ -1,5 +1,46 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E7ED0
+lbl_803E7ED0:
+	# ROM: 0x3E4ED0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CBouncyGrenadeFv
+	.4byte Accept__14CBouncyGrenadeFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte sub_8022ee5c
+	.4byte AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte sub_8022e898
+	.4byte sub_8022e960
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte sub_8022edc0
+	.4byte sub_8022ee3c
+	.4byte GetOrbitPosition__13CPhysicsActorCFRC13CStateManager
+	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte sub_8022ea58
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__14CBouncyGrenadeFv

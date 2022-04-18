@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED9C0
+lbl_803ED9C0:
+	# ROM: 0x3EA9C0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10IAllocatorFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__10IAllocatorFv

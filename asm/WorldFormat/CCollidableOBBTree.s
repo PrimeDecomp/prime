@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC438
+lbl_803EC438:
+	# ROM: 0x3E9438
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0
+
+.global lbl_803EC448
+lbl_803EC448:
+	# ROM: 0x3E9448
+	.4byte 0
+	.4byte 0
+	.4byte GetTableIndex__18CCollidableOBBTreeCFv
+	.4byte SetMaterial__19CCollisionPrimitiveFRC13CMaterialList
+	.4byte GetMaterial__19CCollisionPrimitiveCFv
+	.4byte CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f
+	.4byte CalculateLocalAABox__18CCollidableOBBTreeCFv
+	.4byte GetPrimType__18CCollidableOBBTreeCFv
+	.4byte __dtl__18CCollidableOBBTreeFv
+	.4byte CastRayInternal__18CCollidableOBBTreeCFRC25CInternalRayCastStructure
+	
 .section .text, "ax"
 
 .global __dtl__18CCollidableOBBTreeFv

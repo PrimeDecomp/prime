@@ -1,5 +1,69 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECAF8
+lbl_803ECAF8:
+	# ROM: 0x3E9AF8
+	.4byte 0
+	.4byte 0
+	.4byte GetTableIndex__17CCollidableSphereCFv
+	.4byte SetMaterial__19CCollisionPrimitiveFRC13CMaterialList
+	.4byte GetMaterial__19CCollisionPrimitiveCFv
+	.4byte CalculateAABox__17CCollidableSphereCFRC12CTransform4f
+	.4byte CalculateLocalAABox__17CCollidableSphereCFv
+	.4byte GetPrimType__17CCollidableSphereCFv
+	.4byte __dt__17CCollidableSphere
+	.4byte CastRayInternal__17CCollidableSphereCFRC25CInternalRayCastStructure
+
+.global lbl_803ECB20
+lbl_803ECB20:
+	# ROM: 0x3E9B20
+	.4byte lbl_802D5044
+	.4byte lbl_802D4FA0
+	.4byte lbl_802D4FBC
+	.4byte lbl_802D5044
+	.4byte lbl_802D4FD8
+	.4byte lbl_802D4EC0
+	.4byte lbl_802D4EDC
+	.4byte lbl_802D5044
+	.4byte lbl_802D4FF4
+	.4byte lbl_802D4EF8
+	.4byte lbl_802D4F14
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5010
+	.4byte lbl_802D4E50
+	.4byte lbl_802D4E6C
+	.4byte lbl_802D5044
+	.4byte lbl_802D4E88
+	.4byte lbl_802D4DE0
+	.4byte lbl_802D4DCC
+	.4byte lbl_802D5044
+	.4byte lbl_802D4EA4
+	.4byte lbl_802D4DB8
+	.4byte lbl_802D4DA0
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D5044
+	.4byte lbl_802D502C
+	.4byte lbl_802D4F30
+	.4byte lbl_802D4F4C
+	.4byte lbl_802D5044
+	.4byte lbl_802D4F68
+	.4byte lbl_802D4E3C
+	.4byte lbl_802D4E24
+	.4byte lbl_802D5044
+	.4byte lbl_802D4F84
+	.4byte lbl_802D4E0C
+	.4byte lbl_802D4DF0
+	.4byte 0
+
 .section .bss
 
 .global lbl_80479558

@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF6F4
+lbl_803DF6F4:
+	# ROM: 0x3DC6F4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CCameraHintFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__11CCameraHintFv

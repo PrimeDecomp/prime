@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF7B8
+lbl_803EF7B8:
+	# ROM: 0x3EC7B8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CParticleElectricFv
+	.4byte Update__17CParticleElectricFd
+	.4byte Render__17CParticleElectricFv
+	.4byte SetOrientation__17CParticleElectricFRC12CTransform4f
+	.4byte SetTranslation__17CParticleElectricFRC9CVector3f
+	.4byte SetGlobalOrientation__17CParticleElectricFRC12CTransform4f
+	.4byte SetGlobalTranslation__17CParticleElectricFRC9CVector3f
+	.4byte SetGlobalScale__17CParticleElectricFRC9CVector3f
+	.4byte SetLocalScale__17CParticleElectricFRC9CVector3f
+	.4byte SetParticleEmission__17CParticleElectricFb
+	.4byte SetModulationColor__17CParticleElectricFRC6CColor
+	.4byte SetGeneratorRate__12CParticleGenFf
+	.4byte GetOrientation__17CParticleElectricCFv
+	.4byte GetTranslation__17CParticleElectricCFv
+	.4byte GetGlobalOrientation__17CParticleElectricCFv
+	.4byte GetGlobalTranslation__17CParticleElectricCFv
+	.4byte GetGlobalScale__17CParticleElectricFv
+	.4byte GetParticleEmission__17CParticleElectricFv
+	.4byte GetModulationColor__17CParticleElectricFv
+	.4byte GetGeneratorRate__12CParticleGenCFv
+	.4byte IsSystemDeletable__17CParticleElectricFv
+	.4byte GetBounds__17CParticleElectricFv
+	.4byte GetParticleCount__17CParticleElectricFv
+	.4byte SystemHasLight__17CParticleElectricFv
+	.4byte GetLight__17CParticleElectricFv
+	.4byte DestroyParticles__17CParticleElectricFv
+	.4byte AddModifier__12CParticleGenFP5CWarp
+	.4byte Get4CharId__17CParticleElectricFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTranslation__17CParticleElectricCFv

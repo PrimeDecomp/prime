@@ -1,5 +1,31 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC4C8
+lbl_803EC4C8:
+	# ROM: 0x3E94C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CProjectileWeaponFv
+	.4byte Update__17CProjectileWeaponFf
+	.4byte AddToRenderer__17CProjectileWeaponCFv
+	.4byte Render__17CProjectileWeaponCFv
+	.4byte GetTranslation__17CProjectileWeaponCFv
+	.4byte GetTransform__17CProjectileWeaponCFv
+
+.global lbl_803EC4E8
+lbl_803EC4E8:
+	# ROM: 0x3E94E8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17IWeaponProjectileFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetBounds__17CProjectileWeaponCFv

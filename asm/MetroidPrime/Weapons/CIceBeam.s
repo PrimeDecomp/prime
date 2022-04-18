@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF7E8
+lbl_803DF7E8:
+	# ROM: 0x3DC7E8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CIceBeamFv
+	.4byte Reset__10CGunWeaponFR13CStateManager
+	.4byte PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb
+	.4byte PreRenderGunFx__8CIceBeamFRC13CStateManagerRC12CTransform4f
+	.4byte PostRenderGunFx__8CIceBeamFRC13CStateManagerRC12CTransform4f
+	.4byte UpdateGunFx__8CIceBeamFbfRC13CStateManagerRC12CTransform4f
+	.4byte Fire__8CIceBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte EnableFx__8CIceBeamFb
+	.4byte EnableSecondaryFx__8CIceBeamFQ210CGunWeapon16ESecondaryFxType
+	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
+	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
+	.4byte Update__8CIceBeamFfR13CStateManager
+	.4byte Load__8CIceBeamFb
+	.4byte Unload__8CIceBeamFR13CStateManager
+	.4byte IsLoaded__8CIceBeamCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global EnableFx__8CIceBeamFb

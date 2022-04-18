@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFE00
+lbl_803DFE00:
+	# ROM: 0x3DCE00
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CScriptCameraShakerFv
+	.4byte Accept__19CScriptCameraShakerFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__19CScriptCameraShakerF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__19CScriptCameraShakerFv

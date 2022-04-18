@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECAD0
+lbl_803ECAD0:
+	# ROM: 0x3E9AD0
+	.4byte 0
+	.4byte 0
+	.4byte GetTableIndex__16CCollidableAABoxCFv
+	.4byte SetMaterial__19CCollisionPrimitiveFRC13CMaterialList
+	.4byte GetMaterial__19CCollisionPrimitiveCFv
+	.4byte CalculateAABox__16CCollidableAABoxCFRC12CTransform4f
+	.4byte CalculateLocalAABox__16CCollidableAABoxCFv
+	.4byte GetPrimType__16CCollidableAABoxCFv
+	.4byte __dt__16CCollidableAABoxFv
+	.4byte CastRayInternal__16CCollidableAABoxCFRC25CInternalRayCastStructure
+
 .section .bss
 
 .global lbl_80479498
