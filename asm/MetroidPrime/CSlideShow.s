@@ -28,6 +28,15 @@ lbl_803EBFD4:
 	.4byte lbl_8029C028
 	.4byte lbl_8029C018
 
+.section .sbss2, "", @nobits
+# CSlideShow
+.global lbl_805AF478
+lbl_805AF478:
+	.skip 0x4
+.global lbl_805AF47C
+lbl_805AF47C:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetIsContinueDraw__10CSlideShowFv

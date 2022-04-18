@@ -1,5 +1,26 @@
 .include "macros.inc"
 
+.section .sbss2, "", @nobits
+# CResLoader
+.global lbl_805AF4B0
+lbl_805AF4B0:
+	.skip 0x4
+.global lbl_805AF4B4
+lbl_805AF4B4:
+	.skip 0x4
+.global lbl_805AF4B8
+lbl_805AF4B8:
+	.skip 0x4
+.global lbl_805AF4BC
+lbl_805AF4BC:
+	.skip 0x4
+.global lbl_805AF4C0
+lbl_805AF4C0:
+	.skip 0x4
+.global lbl_805AF4C4
+lbl_805AF4C4:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetPakFile__10CResLoaderCFi

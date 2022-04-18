@@ -2,7 +2,6 @@
 
 .section .data
 
-
 .global lbl_803E6308
 lbl_803E6308:
 	# ROM: 0x3E3308
@@ -47,6 +46,15 @@ lbl_803E6374:
 	.4byte lbl_801EC3B8
 	.4byte 0
 
+.section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
+# CWallCrawlerSwarm
+.global lbl_805AF468
+lbl_805AF468:
+	.skip 0x4
+.global lbl_805AF46C
+lbl_805AF46C:
+	.skip 0x4
+	
 .section .bss
 
 .global lbl_8046C938

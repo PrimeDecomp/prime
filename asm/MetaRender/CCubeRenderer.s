@@ -78,6 +78,18 @@ lbl_803EC5D8:
 	.4byte "@4@AddParticleGen__13CCubeRendererFRC12CParticleGen"
 	.4byte 0
 	
+.section .sbss2, "", @nobits
+
+# CCubeRenderer
+.global lbl_805AF490
+lbl_805AF490:
+	.skip 0x4
+.global lbl_805AF494
+lbl_805AF494:
+	.skip 0x4
+.global lbl_805AF498
+lbl_805AF498:
+	.skip 0x8
 
 .section .bss
 
