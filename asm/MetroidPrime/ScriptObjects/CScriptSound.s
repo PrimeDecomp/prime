@@ -1,5 +1,77 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF128
+lbl_803DF128:
+	# ROM: 0x3DC128
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CScriptSoundFv
+	.4byte Accept__12CScriptSoundFR8IVisitor
+	.4byte PreThink__12CScriptSoundFfR13CStateManager
+	.4byte Think__12CScriptSoundFfR13CStateManager
+	.4byte AcceptScriptMsg__12CScriptSoundF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__12CScriptSoundCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__6CActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__6CActorCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+
+.global lbl_803DF194
+lbl_803DF194:
+	# ROM: 0x3DC194
+	.4byte lbl_800B0528
+	.4byte lbl_800B04F4
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B04E4
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B04C8
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B04AC
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0528
+	.4byte lbl_800B0474
+	.4byte lbl_800B0510
+
 .section .bss
 
 .global lbl_8046C438

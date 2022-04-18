@@ -1,5 +1,37 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED718
+lbl_803ED718:
+	# ROM: 0x3EA718
+	.string16 "font="
+	.string16 "image="
+	.string16 "fg-color="
+	.string16 "main-color="
+	.string16 "geometry-color="
+	.string16 "outline-color="
+	.string16 "color"
+	.string16 "no"
+	.string16 "line-spacing="
+	.string16 "line-extra-space="
+	.string16 "just="
+	.string16 "left"
+	.string16 "center"
+	.string16 "right"
+	.string16 "full"
+	.string16 "nleft"
+	.string16 "ncenter"
+	.string16 "nright"
+	.string16 "vjust="
+	.string16 "top"
+	.string16 "bottom"
+	.string16 "ntop"
+	.string16 "nbottom"
+	.string16 "push"
+	.string16 "pop"
+	.balign 8
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ParseColor__11CTextParserFPCwi

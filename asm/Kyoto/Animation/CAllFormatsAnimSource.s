@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED568
+lbl_803ED568:
+	# ROM: 0x3EA568
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__49TObjOwnerDerivedFromIObj<21CAllFormatsAnimSource>Fv"
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CAllFormatsAnimSourceFv

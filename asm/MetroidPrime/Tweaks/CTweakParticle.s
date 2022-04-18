@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA088
+lbl_803DA088:
+	# ROM: 0x3D7088
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CTweakParticleFv
+	.4byte 0
+	
 .section .text, "ax"
 
 .global __ct__14CTweakParticleFR12CInputStream

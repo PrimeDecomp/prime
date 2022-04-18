@@ -1,5 +1,25 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E1718
+lbl_803E1718:
+	# ROM: 0x3DE718
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CBSStepFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__7CBSStepCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__7CBSStepCFv
+	.4byte Start__7CBSStepFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__7CBSStepFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__7CBSStepFR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__7CBSStepFv

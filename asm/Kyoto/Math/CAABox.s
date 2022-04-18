@@ -1,5 +1,35 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE318
+lbl_803EE318:
+	# ROM: 0x3EB318
+	.4byte lbl_803373E0
+	.4byte lbl_8033741C
+	.4byte lbl_80337458
+	.4byte lbl_80337490
+	.4byte lbl_803374A0
+	.4byte lbl_803374DC
+	.4byte lbl_803374EC
+	.4byte lbl_803374FC
+
+.global lbl_803EE338
+lbl_803EE338:
+	# ROM: 0x3EB338
+	.4byte lbl_80337EF4
+	.4byte lbl_80337FDC
+	.4byte lbl_803380C4
+	.4byte lbl_803381AC
+	.4byte lbl_80338294
+	.4byte lbl_80338308
+	.4byte lbl_8033837C
+	.4byte lbl_803383F0
+	.4byte lbl_80337F68
+	.4byte lbl_80338050
+	.4byte lbl_80338138
+	.4byte lbl_80338220
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ClosestPointAlongVector__6CAABoxCFRC9CVector3f

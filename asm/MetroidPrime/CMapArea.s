@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAB80
+lbl_803DAB80:
+	# ROM: 0x3D7B80
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__35TObjOwnerDerivedFromIObj<8CMapArea>Fv"
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C3E0

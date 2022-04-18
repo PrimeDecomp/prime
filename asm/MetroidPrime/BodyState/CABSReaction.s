@@ -1,5 +1,18 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803E6758
+lbl_803E6758:
+	# ROM: 0x3E3758
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CABSReactionFv
+	.4byte ApplyHeadTracking__18CAdditiveBodyStateCFv
+	.4byte CanShoot__18CAdditiveBodyStateCFv
+	.4byte Start__12CABSReactionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__12CABSReactionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__12CABSReactionFR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__12CABSReactionFv

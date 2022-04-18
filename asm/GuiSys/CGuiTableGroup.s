@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC970
+lbl_803EC970:
+	# ROM: 0x3E9970
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CGuiTableGroupCFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__14CGuiTableGroupCFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__14CGuiTableGroupCFv
+	.4byte AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__18CGuiCompoundWidgetFv
+	.4byte OnActivate__14CGuiTableGroupFb
+	.4byte GetWorkerWidget__18CGuiCompoundWidgetFi
+	.4byte sub_802c7124
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget

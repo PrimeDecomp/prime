@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE2F8
+lbl_803EE2F8:
+	# ROM: 0x3EB2F8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__5CWarpFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__5CWarpFv

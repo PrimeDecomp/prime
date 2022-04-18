@@ -1,5 +1,31 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC8E0
+lbl_803EC8E0:
+	# ROM: 0x3E98E0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CGuiPaneFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__8CGuiPaneCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__8CGuiPaneCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__10CGuiWidgetFv
+	.4byte OnActivate__10CGuiWidgetFv
+	.4byte ScaleDimensions__8CGuiPaneFRC9CVector3f
+	.4byte SetDimensions__8CGuiPaneFRC9CVector2fb
+	.4byte GetDimensions__8CGuiPaneCFv
+	.4byte InitializeBuffers__8CGuiPaneFv
+	.4byte WriteData__8CGuiPaneCFR13COutputStreamb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetWidgetTypeID__8CGuiPaneCFv
@@ -388,7 +414,7 @@ Create__8CGuiPaneFP9CGuiFrameR12CInputStreamb:
 /* 802C5A50 002C29B0  7C 08 02 A6 */	mflr r0
 /* 802C5A54 002C29B4  90 01 00 84 */	stw r0, 0x84(r1)
 /* 802C5A58 002C29B8  39 61 00 80 */	addi r11, r1, 0x80
-/* 802C5A5C 002C29BC  48 0C 3F 89 */	bl func_803899E4
+/* 802C5A5C 002C29BC  48 0C 3F 89 */	bl _savefpr_27
 /* 802C5A60 002C29C0  93 E1 00 54 */	stw r31, 0x54(r1)
 /* 802C5A64 002C29C4  93 C1 00 50 */	stw r30, 0x50(r1)
 /* 802C5A68 002C29C8  93 A1 00 4C */	stw r29, 0x4c(r1)
@@ -459,7 +485,7 @@ lbl_802C5B58:
 /* 802C5B68 002C2AC8  48 00 4F 21 */	bl ParseBaseInfo__10CGuiWidgetFP9CGuiFrameR12CInputStreamRCQ210CGuiWidget15CGuiWidgetParms
 /* 802C5B6C 002C2ACC  7F A3 EB 78 */	mr r3, r29
 /* 802C5B70 002C2AD0  39 61 00 80 */	addi r11, r1, 0x80
-/* 802C5B74 002C2AD4  48 0C 3E BD */	bl func_80389A30
+/* 802C5B74 002C2AD4  48 0C 3E BD */	bl _restfpr_27
 /* 802C5B78 002C2AD8  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802C5B7C 002C2ADC  83 E1 00 54 */	lwz r31, 0x54(r1)
 /* 802C5B80 002C2AE0  83 C1 00 50 */	lwz r30, 0x50(r1)

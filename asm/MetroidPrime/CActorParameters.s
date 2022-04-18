@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFF80
+lbl_803DFF80:
+	# ROM: 0x3DCF80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CActorParametersFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters

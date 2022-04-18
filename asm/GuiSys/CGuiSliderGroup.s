@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC930
+lbl_803EC930:
+	# ROM: 0x3E9930
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CGuiSliderGroupFv
+	.4byte Update__15CGuiSliderGroupFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__15CGuiSliderGroupFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__15CGuiSliderGroupCFv
+	.4byte AddWorkerWidget__15CGuiSliderGroupFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__18CGuiCompoundWidgetFv
+	.4byte OnActivate__18CGuiCompoundWidgetFb
+	.4byte GetWorkerWidget__15CGuiSliderGroupFi
+	
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__15CGuiSliderGroupFv
@@ -492,7 +515,7 @@ __ct__15CGuiSliderGroupFv:
 /* 802C61E4 002C3144  7C 08 02 A6 */	mflr r0
 /* 802C61E8 002C3148  90 01 00 34 */	stw r0, 0x34(r1)
 /* 802C61EC 002C314C  39 61 00 30 */	addi r11, r1, 0x30
-/* 802C61F0 002C3150  48 0C 37 F9 */	bl sub_803899e8
+/* 802C61F0 002C3150  48 0C 37 F9 */	bl _savefpr_28
 /* 802C61F4 002C3154  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C61F8 002C3158  FF 80 08 90 */	fmr f28, f1
 /* 802C61FC 002C315C  7C 7F 1B 78 */	mr r31, r3
@@ -533,7 +556,7 @@ lbl_802C6254:
 /* 802C6280 002C31E0  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 802C6284 002C31E4  98 1F 00 F4 */	stb r0, 0xf4(r31)
 /* 802C6288 002C31E8  39 61 00 30 */	addi r11, r1, 0x30
-/* 802C628C 002C31EC  48 0C 37 A9 */	bl sub_80389a34
+/* 802C628C 002C31EC  48 0C 37 A9 */	bl _restfpr_28
 /* 802C6290 002C31F0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C6294 002C31F4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C6298 002C31F8  7C 08 03 A6 */	mtlr r0

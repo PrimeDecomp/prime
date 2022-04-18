@@ -1,5 +1,46 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803DA188
+lbl_803DA188:
+	# ROM: 0x3D7188
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CCameraSplineFv
+
+.global lbl_803DA194
+lbl_803DA194:
+	# ROM: 0x3D7194
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CGameCameraFv
+	.4byte Accept__11CGameCameraFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__11CGameCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__11CGameCameraFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__6CActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__6CActorCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global UpdatePerspective__11CGameCameraFf

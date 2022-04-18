@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9E90
+lbl_803D9E90:
+	# ROM: 0x3D6E90
+	.4byte 0
+	.4byte 0
+	.4byte __dt__6CIOWinFv
+	.4byte 0
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__6CIOWinCFv
+	.4byte PreDraw__6CIOWinCFv
+	.4byte 0
+	
 .section .text, "ax"
 
 .global PreDraw__6CIOWinCFv

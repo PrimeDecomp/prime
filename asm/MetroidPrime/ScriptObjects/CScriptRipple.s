@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E3E28
+lbl_803E3E28:
+	# ROM: 0x3E0E28
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CScriptRippleFv
+	.4byte Accept__13CScriptRippleFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__13CScriptRippleFfR13CStateManager
+	.4byte AcceptScriptMsg__13CScriptRippleF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__13CScriptRippleFR8IVisitor

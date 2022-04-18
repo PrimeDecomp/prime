@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC4A8
+lbl_803EC4A8:
+	# ROM: 0x3E94A8
+	.4byte lbl_802AEC04
+	.4byte lbl_802AEA04
+	.4byte lbl_802AEA28
+	.4byte lbl_802AEA70
+	.4byte lbl_802AEA4C
+	.4byte lbl_802AEA70
+	.4byte lbl_802AEA70
+	.4byte lbl_802AEB70
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global TestBit__13CCubeRendererFPCUii

@@ -1,5 +1,31 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED5D0
+lbl_803ED5D0:
+	# ROM: 0x3EA5D0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__25CColorOverrideInstructionFv
+	.4byte Invoke__25CColorOverrideInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte PageInvoke__25CColorOverrideInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__12CInstructionCFv
+	.4byte 0
+
+.global lbl_803ED5F0
+lbl_803ED5F0:
+	# ROM: 0x3EA5F0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CFontInstructionFv
+	.4byte Invoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte PageInvoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__16CFontInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__16CFontInstructionCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__25CColorOverrideInstructionFv

@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EB638
+lbl_803EB638:
+	# ROM: 0x3E8638
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CMetroidPrimeRelayFv
+	.4byte Accept__18CMetroidPrimeRelay
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__18CMetroidPrimeRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__18CMetroidPrimeRelayFv

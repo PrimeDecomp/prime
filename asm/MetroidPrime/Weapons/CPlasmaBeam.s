@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF710
+lbl_803DF710:
+	# ROM: 0x3DC710
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CPlasmaBeamFv
+	.4byte Reset__10CGunWeaponFR13CStateManager
+	.4byte PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb
+	.4byte PreRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
+	.4byte PostRenderGunFx__11CPlasmaBeamFRC13CStateManagerRC12CTransform4f
+	.4byte UpdateGunFx__11CPlasmaBeamFbfRC13CStateManagerRC12CTransform4f
+	.4byte Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte EnableFx__10CGunWeaponFb
+	.4byte EnableSecondaryFx__11CPlasmaBeamFQ210CGunWeapon16ESecondaryFxType
+	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
+	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
+	.4byte Update__11CPlasmaBeamFfR13CStateManager
+	.4byte Load__11CPlasmaBeamFb
+	.4byte Unload__11CPlasmaBeamFR13CStateManager
+	.4byte IsLoaded__11CPlasmaBeamCFv
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C488

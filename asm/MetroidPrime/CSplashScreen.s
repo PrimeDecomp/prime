@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9A50
+lbl_803D9A50:
+	# ROM: 0x3D6A50
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CSplashScreenFv
+	.4byte OnMessage__13CSplashScreenFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__13CSplashScreenCFv
+	.4byte PreDraw__6CIOWinCFv
+	
+.global lbl_803D9A6C
+lbl_803D9A6C:
+	# ROM: 0x3D6A6C
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte PageInvoke__12CInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__12CInstructionCFv
+
+.global lbl_803D9A88
+lbl_803D9A88:
+	# ROM: 0x3D6A88
+	.string16 "Display in Progressive Scan mode?\n"
+	.string16 "Yes     "
+	.string16 "No"
+	.string16 "Display has been set to\n"
+	.string16 "Progressive Scan mode."
+	.string16 "Interlace mode."
+	.balign 4
+	
+	
 .section .text, "ax"
 
 .global __dt__13CSplashScreenFv

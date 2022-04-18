@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E3618
+lbl_803E3618:
+	# ROM: 0x3E0618
+	.4byte 0
+	.4byte 0
+	.4byte __dt__22CScriptPickupGeneratorFv
+	.4byte Accept__22CScriptPickupGeneratorFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__22CScriptPickupGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__22CScriptPickupGeneratorFR8IVisitor

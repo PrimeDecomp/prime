@@ -4120,6 +4120,8 @@ AddPaksAndFactories__18CGameGlobalObjectsFv:
 /* 80006178 000030D8  38 84 BE 74 */	addi r4, r4, lbl_803CBE74@l
 /* 8000617C 000030DC  38 84 00 C3 */	addi r4, r4, 0xc3
 /* 80006180 000030E0  4B FF EB 39 */	bl string_l__4rstlFPCc
+.global lbl_80006184
+lbl_80006184:
 /* 80006184 000030E4  38 7F 00 04 */	addi r3, r31, 4
 /* 80006188 000030E8  38 81 00 58 */	addi r4, r1, 0x58
 /* 8000618C 000030EC  38 A0 00 00 */	li r5, 0
@@ -6260,6 +6262,8 @@ lbl_80007FEC:
 lbl_80007FF8:
 /* 80007FF8 00004F58  38 7E 04 00 */	addi r3, r30, 0x400
 /* 80007FFC 00004F5C  7C 83 20 50 */	subf r4, r3, r4
+.global lbl_80008000
+lbl_80008000:
 /* 80008000 00004F60  48 37 6A B1 */	bl DCFlushRange
 /* 80008004 00004F64  3C 60 80 3D */	lis r3, lbl_803CBE74@ha
 /* 80008008 00004F68  80 9F 03 04 */	lwz r4, 0x304(r31)

@@ -1,5 +1,24 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC528
+lbl_803EC528:
+	# ROM: 0x3E9528
+	.4byte 0
+	.4byte 0
+	.4byte __dt__22CDefaultWeaponRendererFv
+	.4byte AddParticleGen__22CDefaultWeaponRendererFRC12CParticleGen
+
+.global lbl_803EC538
+lbl_803EC538:
+	# ROM: 0x3E9538
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+
 .section .bss
 
 .global lbl_8046E1F0

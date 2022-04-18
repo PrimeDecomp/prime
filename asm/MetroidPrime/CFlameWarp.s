@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E51C8
+lbl_803E51C8:
+	# ROM: 0x3E21C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CFlameWarpFv
+	.4byte UpdateWarp__10CFlameWarpFv
+	.4byte ModifyParticles__10CFlameWarpFiiPiP9CVector3fP9CVector3fP9CVector3fP6CColorPfPf
+	.4byte Activate__10CFlameWarpFb
+	.4byte IsActivated__10CFlameWarpFv
+	.4byte Get4CharID__10CFlameWarpFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Get4CharID__10CFlameWarpFv

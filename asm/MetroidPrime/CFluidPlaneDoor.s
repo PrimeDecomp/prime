@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E46E8
+lbl_803E46E8:
+	# ROM: 0x3E16E8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CFluidPlaneDoorFv
+	.4byte nullsub_145
+	.4byte nullsub_144
+	.4byte nullsub_143
+	.4byte nullsub_209
+	.4byte Render__15CFluidPlaneDoorCFRC13CStateManagerRC6CAABoxRC14CFrustumPlanesRC14CRippleManagerRC9CVector3f
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global nullsub_143

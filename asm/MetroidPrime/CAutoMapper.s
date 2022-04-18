@@ -1,5 +1,55 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAE70
+lbl_803DAE70:
+	# ROM: 0x3D7E70
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CAutoMapperFv
+
+.global lbl_803DAE7C
+lbl_803DAE7C:
+	# ROM: 0x3D7E7C
+	.4byte lbl_8009A128
+	.4byte lbl_8009A0CC
+	.4byte lbl_8009A0D8
+	.4byte lbl_8009A128
+	.4byte lbl_8009A0E4
+	.4byte lbl_8009A0F0
+	.4byte lbl_8009A0FC
+	.4byte lbl_8009A128
+	.4byte lbl_8009A108
+	.4byte lbl_8009A114
+	.4byte lbl_8009A120
+
+.global lbl_803DAEA8
+lbl_803DAEA8:
+	# ROM: 0x3D7EA8
+	.4byte lbl_8009A844
+	.4byte lbl_8009A7E8
+	.4byte lbl_8009A7F4
+	.4byte lbl_8009A844
+	.4byte lbl_8009A800
+	.4byte lbl_8009A80C
+	.4byte lbl_8009A818
+	.4byte lbl_8009A844
+	.4byte lbl_8009A824
+	.4byte lbl_8009A830
+	.4byte lbl_8009A83C
+
+.global lbl_803DAED4
+lbl_803DAED4:
+	# ROM: 0x3D7ED4
+	.4byte lbl_8009B94C
+	.4byte lbl_8009BA90
+	.4byte lbl_8009BBA4
+	.4byte lbl_8009BBF4
+	.4byte lbl_8009BC40
+	.4byte lbl_8009BE8C
+	.4byte lbl_8009BD9C
+
 .section .text, "ax"
 
 .global SetupMiniMapWorld__11CAutoMapperFv

@@ -21,7 +21,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CFrontEndUI.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInputGenerator.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMainFlow.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CMFGameLoader.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMFGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAutoSave.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CCredits.o\
@@ -51,6 +50,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Clamp_int.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmControllerStatus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CExplosion.o\
+	$(BUILD_DIR)/asm/MetroidPrime/CEffect.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CGameCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameArea.o\
 	$(BUILD_DIR)/asm/MetroidPrime/HUD/CSamusHud.o\
@@ -319,7 +319,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpindleCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptMemoryRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreenFrame.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CQuitGameScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAtomicAlpha.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CLogBookScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CGBASupport.o\

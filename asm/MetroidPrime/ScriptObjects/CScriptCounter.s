@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAEF0
+lbl_803DAEF0:
+	# ROM: 0x3D7EF0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CScriptCounterFv
+	.4byte Accept__14CScriptCounterFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__14CScriptCounterF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
+.global lbl_803DAF10
+lbl_803DAF10:
+	# ROM: 0x3D7F10
+	.4byte lbl_8009E4E8
+	.4byte lbl_8009E5AC
+	.4byte lbl_8009E53C
+	.4byte lbl_8009E5AC
+	.4byte lbl_8009E5AC
+	.4byte lbl_8009E598
+	.4byte lbl_8009E5AC
+	.4byte lbl_8009E4AC
+	.4byte lbl_8009E470
+	.4byte 0
+
 .section .text, "ax"
 
 .global Accept__14CScriptCounterFR8IVisitor

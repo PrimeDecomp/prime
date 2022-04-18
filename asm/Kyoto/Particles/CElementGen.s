@@ -1,5 +1,341 @@
 .include "macros.inc"
 
+#TODO: Resplit, this has CIntElement, CModVectorElement and CParticleDataFactory in it, that can't be right
+
+.section .data
+
+.global lbl_803EDA80
+lbl_803EDA80:
+	# ROM: 0x3EAA80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CElementGenFv
+	.4byte Update__11CElementGenFd
+	.4byte Render__11CElementGenFv
+	.4byte SetOrientation__11CElementGenFRC12CTransform4f
+	.4byte SetTranslation__11CElementGenFRC9CVector3f
+	.4byte SetGlobalOrientation__11CElementGenFRC12CTransform4f
+	.4byte SetGlobalTranslation__11CElementGenFRC9CVector3f
+	.4byte SetGlobalScale__11CElementGenFRC9CVector3f
+	.4byte SetLocalScale__11CElementGenFRC9CVector3f
+	.4byte SetParticleEmission__11CElementGenFb
+	.4byte SetModulationColor__11CElementGenFRC6CColor
+	.4byte SetGeneratorRate__11CElementGenFf
+	.4byte GetOrientation__11CElementGenCFv
+	.4byte GetTranslation__11CElementGenCFv
+	.4byte GetGlobalOrientation__11CElementGenCFv
+	.4byte GetGlobalTranslation__11CElementGenCFv
+	.4byte GetGlobalScale__11CElementGenCFv
+	.4byte GetParticleEmission__11CElementGenCFv
+	.4byte GetModulationColor__11CElementGenCFv
+	.4byte GetGeneratorRate__11CElementGenCFv
+	.4byte IsSystemDeletable__11CElementGenCFv
+	.4byte GetBounds__11CElementGenCFv
+	.4byte GetParticleCount__11CElementGenCFv
+	.4byte SystemHasLight__11CElementGenCFv
+	.4byte GetLight__11CElementGenCFv
+	.4byte DestroyParticles__11CElementGenFv
+	.4byte AddModifier__12CParticleGenFP5CWarp
+	.4byte Get4CharId__11CElementGenCF
+
+.global lbl_803EDAF8
+lbl_803EDAF8:
+	# ROM: 0x3EAAF8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CIEGEMT
+	.4byte GetValue__7CIEGEMTCFiRi
+
+.global lbl_803EDB08
+lbl_803EDB08:
+	# ROM: 0x3EAB08
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CIEGAPC
+	.4byte GetValue__7CIEGAPCCFiRi
+
+.global lbl_803EDB18
+lbl_803EDB18:
+	# ROM: 0x3EAB18
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CIEGTCP
+	.4byte GetValue__7CIEGTCPCFiRi
+
+.global lbl_803EDB28
+lbl_803EDB28:
+	# ROM: 0x3EAB28
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CIERealToInt
+	.4byte GetValue__12CIERealToIntCFiRi
+
+.global lbl_803EDB38
+lbl_803EDB38:
+	# ROM: 0x3EAB38
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CIESubtract
+	.4byte GetValue__11CIESubtractCFiRi
+
+.global lbl_803EDB48
+lbl_803EDB48:
+	# ROM: 0x3EAB48
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CIEKeyframeEmitter
+	.4byte GetValue__18CIEKeyframeEmitterCFiRi
+
+.global lbl_803EDB58
+lbl_803EDB58:
+	# ROM: 0x3EAB58
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CIELifetimePercent
+	.4byte GetValue__18CIELifetimePercentCFiRi
+
+.global lbl_803EDB68
+lbl_803EDB68:
+	# ROM: 0x3EAB68
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CIEPulse
+	.4byte GetValue__8CIEPulseCFiRi
+
+.global lbl_803EDB78
+lbl_803EDB78:
+	# ROM: 0x3EAB78
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CIEClamp
+	.4byte GetValue__8CIEClampCFiRi
+
+.global lbl_803EDB88
+lbl_803EDB88:
+	# ROM: 0x3EAB88
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CIETimeChain
+	.4byte GetValue__12CIETimeChainCFiRi
+
+.global lbl_803EDB98
+lbl_803EDB98:
+	# ROM: 0x3EAB98
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CIEInitialRandom
+	.4byte GetValue__16CIEInitialRandomCFiRi
+
+.global lbl_803EDBA8
+lbl_803EDBA8:
+	# ROM: 0x3EABA8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CIETimeScale
+	.4byte GetValue__12CIETimescaleCFiRi
+
+.global lbl_803EDBB8
+lbl_803EDBB8:
+	# ROM: 0x3EABB8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CIEImpulse
+	.4byte GetValue__10CIEImpulseCFiRi
+
+.global lbl_803EDBC8
+lbl_803EDBC8:
+	# ROM: 0x3EABC8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CIESampleAndHold
+	.4byte GetValue__16CIESampleAndHoldCFiRi
+
+.global lbl_803EDBD8
+lbl_803EDBD8:
+	# ROM: 0x3EABD8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CIERandom
+	.4byte GetValue__9CIERandomCFiRi
+
+.global lbl_803EDBE8
+lbl_803EDBE8:
+	# ROM: 0x3EABE8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CIEModulo
+	.4byte GetValue__9CIEModuloCFiRi
+
+.global lbl_803EDBF8
+lbl_803EDBF8:
+	# ROM: 0x3EABF8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CIEMultiply
+	.4byte GetValue__11CIEMultiplyCFiRi
+
+.global lbl_803EDC08
+lbl_803EDC08:
+	# ROM: 0x3EAC08
+	.4byte 0
+	.4byte 0
+	.4byte __dt__6CIEAdd
+	.4byte GetValue__6CIEAddCFiRi
+
+.global lbl_803EDC18
+lbl_803EDC18:
+	# ROM: 0x3EAC18
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CIEDeath
+	.4byte GetValue__8CIEDeathCFiRi
+
+.global lbl_803EDC28
+lbl_803EDC28:
+	# ROM: 0x3EAC28
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CIEConstant
+	.4byte sub_80322868
+
+.global lbl_803EDC38
+lbl_803EDC38:
+	# ROM: 0x3EAC38
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CMVESetPositionFv
+	.4byte GetValue__15CMVESetPositionCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDC48
+lbl_803EDC48:
+	# ROM: 0x3EAC48
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CMVEBounceFv
+	.4byte GetValue__10CMVEBounceCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDC58
+lbl_803EDC58:
+	# ROM: 0x3EAC58
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CMVESwirlFv
+	.4byte GetValue__9CMVESwirlCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDC68
+lbl_803EDC68:
+	# ROM: 0x3EAC68
+	.4byte 0
+	.4byte 0
+	.4byte __dt__24CMVEExponentialImplosionFv
+	.4byte GetValue__24CMVEExponentialImplosionCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDC78
+lbl_803EDC78:
+	# ROM: 0x3EAC78
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CMVELinearImplosionFv
+	.4byte GetValue__19CMVELinearImplosionCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDC88
+lbl_803EDC88:
+	# ROM: 0x3EAC88
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CMVEImplosionFv
+	.4byte GetValue__13CMVEImplosionCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDC98
+lbl_803EDC98:
+	# ROM: 0x3EAC98
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CMVEPulseFv
+	.4byte GetValue__9CMVEPulseCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDCA8
+lbl_803EDCA8:
+	# ROM: 0x3EACA8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CMVETimeChainFv
+	.4byte GetValue__13CMVETimeChainCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDCB8
+lbl_803EDCB8:
+	# ROM: 0x3EACB8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CMVEExplodeFv
+	.4byte GetValue__11CMVEExplodeCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDCC8
+lbl_803EDCC8:
+	# ROM: 0x3EACC8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CMVEWindFv
+	.4byte GetValue__8CMVEWindCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDCD8
+lbl_803EDCD8:
+	# ROM: 0x3EACD8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CMVEGravityFv
+	.4byte GetValue__11CMVEGravityCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDCE8
+lbl_803EDCE8:
+	# ROM: 0x3EACE8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CMVEFastConstantFv
+	.4byte GetValue__16CMVEFastConstantCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDCF8
+lbl_803EDCF8:
+	# ROM: 0x3EACF8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CMVEConstantFv
+	.4byte GetValue__12CMVEConstantCFiR9CVector3fR9CVector3f
+
+.global lbl_803EDD08
+lbl_803EDD08:
+	# ROM: 0x3EAD08
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte SetGeneratorRate__12CParticleGenFf
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte GetGeneratorRate__12CParticleGenCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte AddModifier__12CParticleGenFP5CWarp
+	.4byte 0
+
 .section .bss
 
 .global lbl_804BFE28

@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E7048
+lbl_803E7048:
+	# ROM: 0x3E4048
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CScriptMidiFv
+	.4byte Accept__11CScriptMidiFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__11CScriptMidiF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global StopInternal__11CScriptMidiFf

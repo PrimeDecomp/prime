@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E7068
+lbl_803E7068:
+	# ROM: 0x3E4068
+	.4byte 0
+	.4byte 0
+	.4byte __dt__20CScriptStreamedMusicFv
+	.4byte Accept__20CScriptStreamedMusicFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
+.global lbl_803E7088
+lbl_803E7088:
+	# ROM: 0x3E4088
+	.4byte lbl_8020C5D0
+	.4byte lbl_8020C62C
+	.4byte lbl_8020C654
+	.4byte lbl_8020C600
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C5B4
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C654
+	.4byte lbl_8020C598
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__20CScriptStreamedMusicFv

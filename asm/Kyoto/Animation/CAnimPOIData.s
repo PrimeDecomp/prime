@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECF48
+lbl_803ECF48:
+	# ROM: 0x3E9F48
+	.4byte 0
+	.4byte 0
+	.4byte sub_802ebbf8
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AnimPOIDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

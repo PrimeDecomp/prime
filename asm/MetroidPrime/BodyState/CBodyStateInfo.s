@@ -1,5 +1,214 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E10D8
+lbl_803E10D8:
+	# ROM: 0x3DE0D8
+	.4byte lbl_80132474
+	.4byte lbl_801324A0
+	.4byte lbl_801324CC
+	.4byte lbl_801324FC
+	.4byte lbl_80132528
+	.4byte lbl_80132554
+	.4byte lbl_80132584
+	.4byte lbl_801325B0
+	.4byte lbl_80132634
+	.4byte lbl_80132608
+	.4byte lbl_80132660
+	.4byte lbl_8013268C
+	.4byte lbl_801326B8
+	.4byte lbl_801326E4
+	.4byte lbl_80132710
+	.4byte lbl_8013273C
+	.4byte lbl_80132768
+	.4byte lbl_80132794
+	.4byte lbl_801325DC
+
+.global lbl_803E1124
+lbl_803E1124:
+	# ROM: 0x3DE124
+	.4byte lbl_80132808
+	.4byte lbl_80132834
+	.4byte lbl_80132860
+	.4byte lbl_80132890
+	.4byte lbl_801328BC
+	.4byte lbl_801328E8
+	.4byte lbl_80132918
+	.4byte lbl_80132944
+	.4byte lbl_801329C8
+	.4byte lbl_8013299C
+	.4byte lbl_801329F4
+	.4byte lbl_80132A20
+	.4byte lbl_80132A4C
+	.4byte lbl_80132A78
+	.4byte lbl_80132AA4
+	.4byte lbl_80132AD0
+	.4byte lbl_80132AFC
+	.4byte lbl_80132B28
+	.4byte lbl_80132970
+
+.global lbl_803E1170
+lbl_803E1170:
+	# ROM: 0x3DE170
+	.4byte lbl_80132B9C
+	.4byte lbl_80132BC8
+	.4byte lbl_80132BF4
+	.4byte lbl_80132C24
+	.4byte lbl_80132C50
+	.4byte lbl_80132C7C
+	.4byte lbl_80132CAC
+	.4byte lbl_80132CD8
+	.4byte lbl_80132D5C
+	.4byte lbl_80132D30
+	.4byte lbl_80132D88
+	.4byte lbl_80132DB4
+	.4byte lbl_80132DE0
+	.4byte lbl_80132E0C
+	.4byte lbl_80132E38
+	.4byte lbl_80132E64
+	.4byte lbl_80132E90
+	.4byte lbl_80132EBC
+	.4byte lbl_80132D04
+
+.global lbl_803E11BC
+lbl_803E11BC:
+	# ROM: 0x3DE1BC
+	.4byte lbl_80132F30
+	.4byte lbl_80132F5C
+	.4byte lbl_80132F88
+	.4byte lbl_80132FB8
+	.4byte lbl_80132FE4
+	.4byte lbl_80133010
+	.4byte lbl_80133044
+	.4byte lbl_80133070
+	.4byte lbl_801330F4
+	.4byte lbl_801330C8
+	.4byte lbl_80133120
+	.4byte lbl_8013314C
+	.4byte lbl_80133178
+	.4byte lbl_801331A4
+	.4byte lbl_801331D0
+	.4byte lbl_801331FC
+	.4byte lbl_80133228
+	.4byte lbl_80133254
+	.4byte lbl_8013309C
+
+.global lbl_803E1208
+lbl_803E1208:
+	# ROM: 0x3DE208
+	.4byte lbl_801332C8
+	.4byte lbl_801332F4
+	.4byte lbl_80133320
+	.4byte lbl_80133350
+	.4byte lbl_8013337C
+	.4byte lbl_801333A8
+	.4byte lbl_801333DC
+	.4byte lbl_80133408
+	.4byte lbl_8013348C
+	.4byte lbl_80133460
+	.4byte lbl_801334B8
+	.4byte lbl_801334E4
+	.4byte lbl_80133510
+	.4byte lbl_8013353C
+	.4byte lbl_80133568
+	.4byte lbl_80133594
+	.4byte lbl_801335C0
+	.4byte lbl_801335EC
+	.4byte lbl_80133434
+
+.global lbl_803E1254
+lbl_803E1254:
+	# ROM: 0x3DE254
+	.4byte lbl_80133660
+	.4byte lbl_8013368C
+	.4byte lbl_801336B8
+	.4byte lbl_801336E8
+	.4byte lbl_80133714
+	.4byte lbl_80133740
+	.4byte lbl_80133770
+	.4byte lbl_8013379C
+	.4byte lbl_80133820
+	.4byte lbl_801337F4
+	.4byte lbl_8013384C
+	.4byte lbl_80133878
+	.4byte lbl_801338A4
+	.4byte lbl_801338D0
+	.4byte lbl_801338FC
+	.4byte lbl_80133928
+	.4byte lbl_80133954
+	.4byte lbl_80133980
+	.4byte lbl_801337C8
+	.4byte lbl_801339AC
+
+.global lbl_803E12A4
+lbl_803E12A4:
+	# ROM: 0x3DE2A4
+	.4byte lbl_80133A20
+	.4byte lbl_80133A4C
+	.4byte lbl_80133A78
+	.4byte lbl_80133AA8
+	.4byte lbl_80133AD4
+	.4byte lbl_80133B00
+	.4byte lbl_80133B30
+	.4byte lbl_80133B5C
+	.4byte lbl_80133BE0
+	.4byte lbl_80133BB4
+	.4byte lbl_80133C0C
+	.4byte lbl_80133C38
+	.4byte lbl_80133C64
+	.4byte lbl_80133C90
+	.4byte lbl_80133CBC
+	.4byte lbl_80133CE8
+	.4byte lbl_80133D14
+	.4byte lbl_80133D40
+	.4byte lbl_80133B88
+	.4byte lbl_80133D6C
+	.4byte lbl_80133D98
+
+.global lbl_803E12F8
+lbl_803E12F8:
+	# ROM: 0x3DE2F8
+	.4byte lbl_801344E4
+	.4byte lbl_8013443C
+	.4byte lbl_80134454
+	.4byte lbl_8013446C
+	.4byte lbl_80134484
+	.4byte lbl_801344CC
+	.4byte lbl_8013449C
+	.4byte lbl_801344B4
+
+	
+.global lbl_803E1318
+lbl_803E1318:
+	# ROM: 0x3DE318
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__10CBodyStateCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__10CBodyStateCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803E1350
+lbl_803E1350:
+	# ROM: 0x3DE350
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CAdditiveBodyStateFv
+	.4byte ApplyHeadTracking__18CAdditiveBodyStateCFv
+	.4byte CanShoot__18CAdditiveBodyStateCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetupRestrictedFlyerBodyStates__14CBodyStateInfoFiR6CActor

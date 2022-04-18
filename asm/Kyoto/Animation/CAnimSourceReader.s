@@ -1,5 +1,62 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECF58
+lbl_803ECF58:
+	# ROM: 0x3E9F58
+	.4byte 0
+	.4byte 0
+	.4byte sub_802edf68
+	.4byte IsCAnimTreeNode__11IAnimReaderCFv
+	.4byte VAdvanceView__17CAnimSourceReaderFRC13CCharAnimTime
+	.4byte VGetTimeRemaining__17CAnimSourceReaderCFv
+	.4byte VGetSteadyStateAnimInfo__17CAnimSourceReaderCFv
+	.4byte VHasOffset__17CAnimSourceReaderCFRC6CSegId
+	.4byte VGetOffset__17CAnimSourceReaderCFRC6CSegId
+	.4byte VGetRotation__17CAnimSourceReaderCFRC6CSegId
+	.4byte VGetBoolPOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
+	.4byte VGetInt32POIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP13CInt32POINodeUiUii
+	.4byte VGetParticlePOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
+	.4byte VGetSoundPOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
+	.4byte VGetBoolPOIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetInt32POIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetParticlePOIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSet
+	.4byte VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
+	.4byte sub_802eeb90
+	.4byte VSimplified__11IAnimReaderFv
+	.4byte VSetPhase__17CAnimSourceReaderFf
+	.4byte VGetAdvancementResults__17CAnimSourceReaderCFRC13CCharAnimTimeRC13CCharAnimTime
+	.4byte VGetOffset__17CAnimSourceReaderCFRC6CSegIdRC13CCharAnimTime
+	.4byte VSupportsReverseView__17CAnimSourceReaderCFv
+	.4byte VReverseView__17CAnimSourceReaderFRC13CCharAnimTime
+
+.global lbl_803ECFC0
+lbl_803ECFC0:
+	# ROM: 0x3E9FC0
+	.4byte 0
+	.4byte 0
+	.4byte HasPOIData__15CAnimSourceInfoCFv
+	.4byte GetBoolPOIStream__15CAnimSourceInfoCFv
+	.4byte GetInt32POIStream__15CAnimSourceInfoCFv
+	.4byte GetParticlePOIStream__15CAnimSourceInfoCFv
+	.4byte GetSoundPOIStream__15CAnimSourceInfoCFv
+	.4byte GetAnimationDuration__15CAnimSourceInfoCFv
+	.4byte __dt__15CAnimSourceInfoFv
+
+.global lbl_803ECFE4
+lbl_803ECFE4:
+	# ROM: 0x3E9FE4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte sub_802ee0a0
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global VGetAdvancementResults__17CAnimSourceReaderCFRC13CCharAnimTimeRC13CCharAnimTime

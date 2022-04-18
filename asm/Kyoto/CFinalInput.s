@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF660
+lbl_803EF660:
+	# ROM: 0x3EC660
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ScaleAnalogueSticks__11CFinalInputCFff

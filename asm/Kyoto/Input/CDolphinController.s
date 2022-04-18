@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF6A0
+lbl_803EF6A0:
+	# ROM: 0x3EC6A0
+	.4byte 0x01000200
+	.4byte 0x04000800
+	.4byte 0x10000010
+	.4byte 0x00080002
+	.4byte 0x00040001
+	.4byte 0x00400020
+
+.global lbl_803EF6B8
+lbl_803EF6B8:
+	# ROM: 0x3EC6B8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CDolphinControllerFv
+	.4byte Poll__18CDolphinControllerFv
+	.4byte GetDeviceCount__18CDolphinControllerCFv
+	.4byte GetGamepadData__18CDolphinControllerFi
+	.4byte GetControllerType__18CDolphinControllerFi
+	.4byte SetMotorState__18CDolphinControllerF7EIOPort11EMotorState
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetAnalogStickMaxValue__18CDolphinControllerCF8EJoyAxis
@@ -38,8 +62,8 @@ SetMotorState__18CDolphinControllerF7EIOPort11EMotorState:
 /* 8034F0C0 0034C020  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034F0C4 0034C024  4E 80 00 20 */	blr 
 
-.global sub_8034f0c8
-sub_8034f0c8:
+.global GetControllerType__18CDolphinControllerFi
+GetControllerType__18CDolphinControllerFi:
 /* 8034F0C8 0034C028  54 80 10 3A */	slwi r0, r4, 2
 /* 8034F0CC 0034C02C  7C 63 02 14 */	add r3, r3, r0
 /* 8034F0D0 0034C030  80 63 01 A4 */	lwz r3, 0x1a4(r3)

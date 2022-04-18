@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC408
+lbl_803EC408:
+	# ROM: 0x3E9408
+	.4byte lbl_802A2EE0
+	.4byte lbl_802A2EF0
+	.4byte lbl_802A2F30
+	.4byte lbl_802A2F70
+	.4byte lbl_802A2FB0
+	.4byte lbl_802A2FF0
+	.4byte lbl_802A3030
+	.4byte lbl_802A3070
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTriangleEdgeIndices__12CAreaOctTreeCFUs

@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803D9CD0
+lbl_803D9CD0:
+	# ROM: 0x3D6CD0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CTweakGameFv
+	.4byte 0
+	
 .section .text, "ax"
 
 .global __ct__10CTweakGameFR12CInputStream

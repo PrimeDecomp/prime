@@ -1,5 +1,39 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED1D0
+lbl_803ED1D0:
+	# ROM: 0x3EA1D0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CAnimTreeNodeFv
+	.4byte IsCAnimTreeNode__13CAnimTreeNodeCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte VSimplified__11IAnimReaderFv
+	.4byte 0
+	.4byte VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsCAnimTreeNode__13CAnimTreeNodeCFv

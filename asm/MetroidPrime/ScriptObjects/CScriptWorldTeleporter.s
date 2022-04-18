@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E58A0
+lbl_803E58A0:
+	# ROM: 0x3E28A0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__22CScriptWorldTeleporterFv
+	.4byte Accept__22CScriptWorldTeleporterFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__22CScriptWorldTeleporterF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global StartTransition__22CScriptWorldTeleporterFv

@@ -1,5 +1,38 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED968
+lbl_803ED968:
+	# ROM: 0x3EA968
+	.4byte lbl_8030E9C8
+	.4byte lbl_8030E9D4
+	.4byte lbl_8030E9E0
+	.4byte lbl_8030E9EC
+	.4byte lbl_8030E9A4
+	.4byte lbl_8030E9B0
+	.4byte lbl_8030E9BC
+	.4byte lbl_8030E9F8
+	.4byte lbl_8030EA04
+	.4byte lbl_8030EA10
+	.4byte lbl_8030EA1C
+
+.global lbl_803ED994
+lbl_803ED994:
+	# ROM: 0x3EA994
+	.4byte lbl_8030EB24
+	.4byte lbl_8030EB2C
+	.4byte lbl_8030EB2C
+	.4byte lbl_8030EB34
+	.4byte lbl_8030EB24
+	.4byte lbl_8030EB2C
+	.4byte lbl_8030EB34
+	.4byte lbl_8030EB34
+	.4byte lbl_8030EB34
+	.4byte lbl_8030EB3C
+	.4byte lbl_8030EB24
+
+
 .section .bss
 
 .global lbl_804BFD10

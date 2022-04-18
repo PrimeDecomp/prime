@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E6BD0
+lbl_803E6BD0:
+	# ROM: 0x3E3BD0
+	.4byte 0
+	.4byte 0
+	.4byte "__dt__40TObjOwnerDerivedFromIObj<12CMapUniverse>Fv"
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FMapUniverseFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

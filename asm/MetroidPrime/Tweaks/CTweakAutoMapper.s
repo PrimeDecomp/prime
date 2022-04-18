@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF438
+lbl_803DF438:
+	# ROM: 0x3DC438
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CTweakAutoMapperFv
+	.4byte 0
+
 .section .text, "ax"
 
 .global __ct__16CTweakAutoMapperFR12CInputStream

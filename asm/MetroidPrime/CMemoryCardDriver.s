@@ -1,5 +1,41 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E8D38
+lbl_803E8D38:
+	# ROM: 0x3E5D38
+	.4byte lbl_8024E5F4
+	.4byte lbl_8024E600
+	.4byte lbl_8024E600
+	.4byte lbl_8024E600
+	.4byte lbl_8024E600
+	.4byte lbl_8024E600
+	.4byte lbl_8024E600
+	.4byte lbl_8024E600
+	.4byte lbl_8024E5E4
+	.4byte lbl_8024E600
+	.4byte lbl_8024E5DC
+	.4byte lbl_8024E5CC
+	.4byte lbl_8024E600
+
+.global lbl_803E8D6C
+lbl_803E8D6C:
+	# ROM: 0x3E5D6C
+	.4byte lbl_8024E7BC
+	.4byte lbl_8024E700
+	.4byte lbl_8024E710
+	.4byte lbl_8024E720
+	.4byte lbl_8024E730
+	.4byte lbl_8024E740
+	.4byte lbl_8024E750
+	.4byte lbl_8024E760
+	.4byte lbl_8024E770
+	.4byte lbl_8024E780
+	.4byte lbl_8024E790
+	.4byte lbl_8024E7A0
+	.4byte lbl_8024E7B0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCardFreeBytes__17CMemoryCardDriverFv

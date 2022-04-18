@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC6F8
+lbl_803EC6F8:
+	# ROM: 0x3E96F8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CAuiMeterFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__9CAuiMeterCFv
+	.4byte AddWorkerWidget__9CAuiMeterFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__9CAuiMeterFv
+	.4byte OnActivate__9CGuiGroupFv
+	.4byte GetWorkerWidget__9CAuiMeterFi
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CAuiMeterFv

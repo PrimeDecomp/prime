@@ -1,5 +1,30 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED4D0
+lbl_803ED4D0:
+	# ROM: 0x3EA4D0
+	.4byte 0
+	.4byte 0
+	.4byte GetType__25CLinearAnimationTimeScaleCFv
+	.4byte VTimeScaleIntegral__25CLinearAnimationTimeScaleCFRCfRCf
+	.4byte VFindUpperLimit__25CLinearAnimationTimeScaleCFRCfRCf
+	.4byte VClone__25CLinearAnimationTimeScaleCFv
+	.4byte VGetFunctionMirrored__25CLinearAnimationTimeScaleCFRCf
+
+.global lbl_803ED4EC
+lbl_803ED4EC:
+	# ROM: 0x3EA4EC
+	.4byte 0
+	.4byte 0
+	.4byte GetType__27CConstantAnimationTimeScaleCFv
+	.4byte VTimeScaleIntegral__27CConstantAnimationTimeScaleCFRCfRCf
+	.4byte VFindUpperLimit__27CConstantAnimationTimeScaleCFRCfRCf
+	.4byte VClone__27CConstantAnimationTimeScaleCFv
+	.4byte VGetFunctionMirrored__27CConstantAnimationTimeScaleCFRCf
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetType__25CLinearAnimationTimeScaleCFv

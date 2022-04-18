@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC000
+lbl_803EC000:
+	# ROM: 0x3E9000
+	.4byte 0
+	.4byte 0
+	.4byte sub_8029c7cc
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __ct__15CTweakSlideShowFR12CInputStream

@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E10B0
+lbl_803E10B0:
+	# ROM: 0x3DE0B0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CBCLoopAttackCmdFv
+
+.global lbl_803E10BC
+lbl_803E10BC:
+	# ROM: 0x3DE0BC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__20CBCAdditiveFlinchCmdFv
+
+.global lbl_803E10C8
+lbl_803E10C8:
+	# ROM: 0x3DE0C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__22CBCAdditiveReactionCmdFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd

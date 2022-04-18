@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E5C80
+lbl_803E5C80:
+	# ROM: 0x3E2C80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CABSFlinchFv
+	.4byte ApplyHeadTracking__18CAdditiveBodyStateCFv
+	.4byte CanShoot__18CAdditiveBodyStateCFv
+	.4byte Start__10CABSFlinchFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__10CABSFlinchFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__10CABSFlinchFR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__10CABSFlinchFv

@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .rodata
+
+.global lbl_803D8598
+lbl_803D8598:
+	.skip 16
+
 .section .text, "ax"
 
 .global __ptmf_test

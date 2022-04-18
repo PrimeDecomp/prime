@@ -1,5 +1,359 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EDE08
+lbl_803EDE08:
+	# ROM: 0x3EAE08
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CREIntTimesReal
+	.4byte GetValue__15CREIntTimesRealCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE1C
+lbl_803EDE1C:
+	# ROM: 0x3EAE1C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__20CREGetComponentAlpha
+	.4byte GetValue__20CREGetComponentAlphaCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE30
+lbl_803EDE30:
+	# ROM: 0x3EAE30
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CREGetComponentBlue
+	.4byte GetValue__19CREGetComponentBlueCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE44
+lbl_803EDE44:
+	# ROM: 0x3EAE44
+	.4byte 0
+	.4byte 0
+	.4byte __dt__20CREGetComponentGreen
+	.4byte GetValue__20CREGetComponentGreenCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE58
+lbl_803EDE58:
+	# ROM: 0x3EAE58
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CREGetComponentRed
+	.4byte GetValue__18CREGetComponentRedCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE6C
+lbl_803EDE6C:
+	# ROM: 0x3EAE6C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CRESubtract
+	.4byte GetValue__11CRESubtractCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE80
+lbl_803EDE80:
+	# ROM: 0x3EAE80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CRECEXT
+	.4byte GetValue__7CRECEXTCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDE94
+lbl_803EDE94:
+	# ROM: 0x3EAE94
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CREConstantRange
+	.4byte GetValue__16CREConstantRangeCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDEA8
+lbl_803EDEA8:
+	# ROM: 0x3EAEA8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CRECompareEqual
+	.4byte GetValue__15CRECompareEqualCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDEBC
+lbl_803EDEBC:
+	# ROM: 0x3EAEBC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CRECompareLessThan
+	.4byte GetValue__18CRECompareLessThanCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDED0
+lbl_803EDED0:
+	# ROM: 0x3EAED0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CREIWST
+	.4byte GetValue__7CREIWSTGCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDEE4
+lbl_803EDEE4:
+	# ROM: 0x3EAEE4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CREVectorMagnitude
+	.4byte GetValue__18CREVectorMagnitudeCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDEF8
+lbl_803EDEF8:
+	# ROM: 0x3EAEF8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CREVectorZToReal
+	.4byte GetValue__16CREVectorZToRealCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF0C
+lbl_803EDF0C:
+	# ROM: 0x3EAF0C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CREVectorYToReal
+	.4byte GetValue__16CREVectorYToRealCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF20
+lbl_803EDF20:
+	# ROM: 0x3EAF20
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CREVectorXToReal
+	.4byte GetValue__16CREVectorXToRealCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF34
+lbl_803EDF34:
+	# ROM: 0x3EAF34
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CREPRLW
+	.4byte GetValue__7CREPRLWGCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF48
+lbl_803EDF48:
+	# ROM: 0x3EAF48
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CREPSLL
+	.4byte GetValue__7CREPSLLGCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF5C
+lbl_803EDF5C:
+	# ROM: 0x3EAF5C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter8
+	.4byte GetValue__27CREParticleAccessParameter8CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF70
+lbl_803EDF70:
+	# ROM: 0x3EAF70
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter7
+	.4byte GetValue__27CREParticleAccessParameter7CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF84
+lbl_803EDF84:
+	# ROM: 0x3EAF84
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter6
+	.4byte GetValue__27CREParticleAccessParameter6CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDF98
+lbl_803EDF98:
+	# ROM: 0x3EAF98
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter5
+	.4byte GetValue__27CREParticleAccessParameter5CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDFAC
+lbl_803EDFAC:
+	# ROM: 0x3EAFAC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter4
+	.4byte GetValue__27CREParticleAccessParameter4CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDFC0
+lbl_803EDFC0:
+	# ROM: 0x3EAFC0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter3
+	.4byte GetValue__27CREParticleAccessParameter3CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDFD4
+lbl_803EDFD4:
+	# ROM: 0x3EAFD4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter2
+	.4byte GetValue__27CREParticleAccessParameter2CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDFE8
+lbl_803EDFE8:
+	# ROM: 0x3EAFE8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CREParticleAccessParameter1
+	.4byte GetValue__27CREParticleAccessParameter1CFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EDFFC
+lbl_803EDFFC:
+	# ROM: 0x3EAFFC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CREKeyframeEmitter
+	.4byte GetValue__18CREKeyframeEmitterCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE010
+lbl_803EE010:
+	# ROM: 0x3EB010
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CRELifetimeTween
+	.4byte GetValue__16CRELifetimeTweenCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE024
+lbl_803EE024:
+	# ROM: 0x3EB024
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CRELifetimePercent
+	.4byte GetValue__18CRELifetimePercentCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE038
+lbl_803EE038:
+	# ROM: 0x3EB038
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CREPulse
+	.4byte GetValue__8CREPulseCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE04C
+lbl_803EE04C:
+	# ROM: 0x3EB04C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CREClamp
+	.4byte GetValue__8CREClampCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE060
+lbl_803EE060:
+	# ROM: 0x3EB060
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CRETimeChain
+	.4byte GetValue__12CRETimeChainCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE074
+lbl_803EE074:
+	# ROM: 0x3EB074
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CREInitialRandom
+	.4byte GetValue__16CREInitialRandomCFiRf
+	.4byte IsConstant__16CREInitialRandomCF
+
+.global lbl_803EE088
+lbl_803EE088:
+	# ROM: 0x3EB088
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CRERandomFv
+	.4byte GetValue__9CRERandomCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE09C
+lbl_803EE09C:
+	# ROM: 0x3EB09C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CREDotProduct
+	.4byte GetValue__13CREDotProductCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE0B0
+lbl_803EE0B0:
+	# ROM: 0x3EB0B0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CREMultiplyFv
+	.4byte GetValue__11CREMultiplyCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE0C4
+lbl_803EE0C4:
+	# ROM: 0x3EB0C4
+	.4byte 0
+	.4byte 0
+	.4byte __dt__6CREAddFv
+	.4byte GetValue__6CREAddCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE0D8
+lbl_803EE0D8:
+	# ROM: 0x3EB0D8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CRETimeScaleFv
+	.4byte GetValue__12CRETimeScaleCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE0EC
+lbl_803EE0EC:
+	# ROM: 0x3EB0EC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CRESineWaveFv
+	.4byte GetValue__11CRESineWaveCFiRf
+	.4byte IsConstant__12CRealElementCFv
+
+.global lbl_803EE100
+lbl_803EE100:
+	# ROM: 0x3EB100
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CREConstantFv
+	.4byte GetValue__11CREConstantCFiRf
+	.4byte IsConstant__11CREConstantCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetValue__15CREIntTimesRealCFiRf

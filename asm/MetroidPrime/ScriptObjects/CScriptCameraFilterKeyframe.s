@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DFC80
+lbl_803DFC80:
+	# ROM: 0x3DCC80
+	.4byte 0
+	.4byte 0
+	.4byte __dt__27CScriptCameraFilterKeyframeFv
+	.4byte Accept__27CScriptCameraFilterKeyframeFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__27CScriptCameraFilterKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__27CScriptCameraFilterKeyframeFR8IVisitor
@@ -128,7 +142,7 @@ lbl_800EA670:
 /* 800EA690 000E75F0  7C 08 02 A6 */	mflr r0
 /* 800EA694 000E75F4  90 01 00 64 */	stw r0, 0x64(r1)
 /* 800EA698 000E75F8  39 61 00 60 */	addi r11, r1, 0x60
-/* 800EA69C 000E75FC  48 29 F3 45 */	bl func_803899E0
+/* 800EA69C 000E75FC  48 29 F3 45 */	bl _savefpr_26
 /* 800EA6A0 000E7600  BF 41 00 18 */	stmw r26, 0x18(r1)
 /* 800EA6A4 000E7604  A0 04 00 00 */	lhz r0, 0(r4)
 /* 800EA6A8 000E7608  7C AB 2B 78 */	mr r11, r5
@@ -169,7 +183,7 @@ lbl_800EA670:
 /* 800EA734 000E7694  D3 FA 00 4C */	stfs f31, 0x4c(r26)
 /* 800EA738 000E7698  93 FA 00 50 */	stw r31, 0x50(r26)
 /* 800EA73C 000E769C  39 61 00 60 */	addi r11, r1, 0x60
-/* 800EA740 000E76A0  48 29 F2 ED */	bl func_80389A2C
+/* 800EA740 000E76A0  48 29 F2 ED */	bl _restfpr_26
 /* 800EA744 000E76A4  BB 41 00 18 */	lmw r26, 0x18(r1)
 /* 800EA748 000E76A8  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800EA74C 000E76AC  7C 08 03 A6 */	mtlr r0

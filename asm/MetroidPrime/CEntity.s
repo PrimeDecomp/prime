@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9E30
+lbl_803D9E30:
+	# ROM: 0x3D6E30
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CEntityFv
+	.4byte 0
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .bss
 
 .global lbl_8046C3B8

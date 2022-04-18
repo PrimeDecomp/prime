@@ -1,5 +1,25 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E3E48
+lbl_803E3E48:
+	# ROM: 0x3E0E48
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CBSCoverFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__8CBSCoverCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__8CBSCoverCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__8CBSCoverCFv
+	.4byte Start__8CBSCoverFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__8CBSCoverFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__8CBSCoverFR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__8CBSCoverFv
@@ -252,6 +272,8 @@ lbl_80175FEC:
 /* 80176024 00172F84  48 16 D0 59 */	bl NoParameter__12CPASAnimParmFv
 /* 80176028 00172F88  38 61 00 78 */	addi r3, r1, 0x78
 /* 8017602C 00172F8C  48 16 D0 51 */	bl NoParameter__12CPASAnimParmFv
+.global lbl_80176030
+lbl_80176030:
 /* 80176030 00172F90  7F 64 DB 78 */	mr r4, r27
 /* 80176034 00172F94  38 61 00 80 */	addi r3, r1, 0x80
 /* 80176038 00172F98  48 16 CF 4D */	bl FromEnum__12CPASAnimParmFi

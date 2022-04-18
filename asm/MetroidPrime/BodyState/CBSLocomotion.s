@@ -1,5 +1,193 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E14C0
+lbl_803E14C0:
+	# ROM: 0x3DE4C0
+	.4byte 0x00000005
+	.4byte 0x00000004
+	.4byte 0x00000001
+	.4byte 0x00000003
+	.4byte 0x00000006
+	.4byte 0x00000007
+
+.global lbl_803E14D8
+lbl_803E14D8:
+	# ROM: 0x3DE4D8
+	.4byte 0x00000005
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000006
+	.4byte 0x00000007
+
+.global lbl_803E14F0
+lbl_803E14F0:
+	# ROM: 0x3DE4F0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__28CBSRestrictedFlyerLocomotionFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__23CBSRestrictedLocomotionCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__13CBSLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__13CBSLocomotionCFv
+	.4byte GetLocomotionSpeed__23CBSRestrictedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
+	.4byte ApplyLocomotionPhysics__28CBSRestrictedFlyerLocomotionFfR15CBodyController
+	.4byte UpdateLocomotionAnimation__23CBSRestrictedLocomotionFffR15CBodyControllerb
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+
+.global lbl_803E153C
+lbl_803E153C:
+	# ROM: 0x3DE53C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21CBSNewFlyerLocomotion
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__18CBSBiPedLocomotionCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__18CBSBiPedLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__13CBSLocomotionCFv
+	.4byte GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
+	.4byte ApplyLocomotionPhysics__21CBSNewFlyerLocomotionFfR15CBodyController
+	.4byte UpdateLocomotionAnimation__21CBSNewFlyerLocomotionFffR15CBodyControllerb
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+	.4byte IsStrafing__18CBSBiPedLocomotionCFR15CBodyController
+
+.global lbl_803E158C
+lbl_803E158C:
+	# ROM: 0x3DE58C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__23CBSWallWalkerLocomotion
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__18CBSBiPedLocomotionCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__18CBSBiPedLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__13CBSLocomotionCFv
+	.4byte GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
+	.4byte ApplyLocomotionPhysics__23CBSWallWalkerLocomotionFfR15CBodyController
+	.4byte UpdateLocomotionAnimation__18CBSBiPedLocomotionFffR15CBodyControllerb
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+	.4byte IsStrafing__18CBSBiPedLocomotionCFR15CBodyController
+
+.global lbl_803E15DC
+lbl_803E15DC:
+	# ROM: 0x3DE5DC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CBSFlyerLocomotion
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__18CBSBiPedLocomotionCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__18CBSBiPedLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__18CBSFlyerLocomotionCFv
+	.4byte GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
+	.4byte ApplyLocomotionPhysics__18CBSFlyerLocomotionFfR15CBodyController
+	.4byte UpdateLocomotionAnimation__18CBSBiPedLocomotionFffR15CBodyControllerb
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+	.4byte IsStrafing__18CBSBiPedLocomotionCFR15CBodyController
+	.4byte IsBackPedal__18CBSFlyerLocomotionCFR15CBodyController
+
+.global lbl_803E1630
+lbl_803E1630:
+	# ROM: 0x3DE630
+	.4byte 0
+	.4byte 0
+	.4byte __dt__23CBSRestrictedLocomotionFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__23CBSRestrictedLocomotionCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__13CBSLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__13CBSLocomotionCFv
+	.4byte GetLocomotionSpeed__23CBSRestrictedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
+	.4byte ApplyLocomotionPhysics__13CBSLocomotionFfR15CBodyController
+	.4byte UpdateLocomotionAnimation__23CBSRestrictedLocomotionFffR15CBodyControllerb
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+
+.global lbl_803E167C
+lbl_803E167C:
+	# ROM: 0x3DE67C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CBSBiPedLocomotionFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__18CBSBiPedLocomotionCFv
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__18CBSBiPedLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__13CBSLocomotionCFv
+	.4byte GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
+	.4byte ApplyLocomotionPhysics__13CBSLocomotionFfR15CBodyController
+	.4byte UpdateLocomotionAnimation__18CBSBiPedLocomotionFffR15CBodyControllerb
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+	.4byte IsStrafing__18CBSBiPedLocomotionCFR15CBodyController
+
+.global lbl_803E16CC
+lbl_803E16CC:
+	# ROM: 0x3DE6CC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CBSLocomotionFv
+	.4byte IsInAir__10CBodyStateCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte 0
+	.4byte ApplyGravity__10CBodyStateCFv
+	.4byte ApplyHeadTracking__10CBodyStateCFv
+	.4byte ApplyAnimationDeltas__10CBodyStateCFv
+	.4byte CanShoot__13CBSLocomotionCFv
+	.4byte Start__13CBSLocomotionFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager
+	.4byte Shutdown__13CBSLocomotionFR15CBodyController
+	.4byte IsPitchable__13CBSLocomotionCFv
+	.4byte 0
+	.4byte ApplyLocomotionPhysics__13CBSLocomotionFfR15CBodyController
+	.4byte 0
+	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__28CBSRestrictedFlyerLocomotionFv

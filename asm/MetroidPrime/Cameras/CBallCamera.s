@@ -1,5 +1,61 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAB90
+lbl_803DAB90:
+	# ROM: 0x3D7B90
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CBallCameraFv
+	.4byte Accept__11CBallCameraFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__11CBallCameraFfR13CStateManager
+	.4byte AcceptScriptMsg__11CBallCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__11CGameCameraFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__11CBallCameraCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__6CActorCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte ProcessInput__11CBallCameraFRC11CFinalInputR13CStateManager
+	.4byte Reset__11CBallCameraFRC12CTransform4fR13CStateManager
+
+.global lbl_803DAC04
+lbl_803DAC04:
+	# ROM: 0x3D7C04
+	.4byte lbl_80082470
+	.4byte lbl_80082604
+	.4byte lbl_800822B8
+	.4byte lbl_80082604
+	.4byte lbl_800825A8
+	.4byte lbl_80082450
+	.4byte lbl_800826CC
+	.4byte lbl_800826CC
+	.4byte lbl_800826CC
+
+.global lbl_803DAC28
+lbl_803DAC28:
+	# ROM: 0x3D7C28
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CCameraColliderFv
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C408

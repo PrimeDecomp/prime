@@ -1,5 +1,22 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E8C18
+lbl_803E8C18:
+	# ROM: 0x3E5C18
+	.4byte lbl_80248960
+	.4byte lbl_80248B54
+	.4byte lbl_802489EC
+	.4byte lbl_802489FC
+	.4byte lbl_80248A80
+	.4byte lbl_80248AB0
+	.4byte lbl_80248AF8
+	.4byte lbl_80248B54
+	.4byte lbl_80248B54
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global PollResponse__11CGBASupportFv

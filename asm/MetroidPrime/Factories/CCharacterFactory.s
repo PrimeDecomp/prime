@@ -1,5 +1,115 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9BA8
+lbl_803D9BA8:
+	# ROM: 0x3D6BA8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__Q217CCharacterFactory13CDummyFactoryFv
+	.4byte Build__Q217CCharacterFactory13CDummyFactoryFRC10SObjectTagRC15CVParamTransfer
+	.4byte BuildAsync__Q217CCharacterFactory13CDummyFactoryFRC10SObjectTagRC15CVParamTransferPP4IObj
+	.4byte CancelBuild__Q217CCharacterFactory13CDummyFactoryFRC10SObjectTag
+	.4byte CanBuild__Q217CCharacterFactory13CDummyFactoryFRC10SObjectTag
+	.4byte GetResourceIdByName__Q217CCharacterFactory13CDummyFactoryCFPCc
+
+.global lbl_803D9BC8
+lbl_803D9BC8:
+	# ROM: 0x3D6BC8
+	.4byte 0
+	.4byte 0
+	.4byte sub_80033edc
+
+.global lbl_803D9BD4
+lbl_803D9BD4:
+	# ROM: 0x3D6BD4
+	.4byte 0
+	.4byte 0
+	.4byte sub_80033d50
+
+.global lbl_803D9BE0
+lbl_803D9BE0:
+	# ROM: 0x3D6BE0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D9BFC
+lbl_803D9BFC:
+	# ROM: 0x3D6BFC
+	.4byte 0
+	.4byte 0
+	.4byte sub_800333b0
+
+.global lbl_803D9C08
+lbl_803D9C08:
+	# ROM: 0x3D6C08
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D9C14
+lbl_803D9C14:
+	# ROM: 0x3D6C14
+	.4byte 0
+	.4byte 0
+	.4byte sub_80033068
+
+.global lbl_803D9C20
+lbl_803D9C20:
+	# ROM: 0x3D6C20
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CCharacterFactoryFv
+
+.global lbl_803D9C2C
+lbl_803D9C2C:
+	# ROM: 0x3D6C2C
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D9C38
+lbl_803D9C38:
+	# ROM: 0x3D6C38
+	.4byte 0
+	.4byte 0
+	.4byte sub_80034228
+
+.global lbl_803D9C44
+lbl_803D9C44:
+	# ROM: 0x3D6C44
+	.4byte 0
+	.4byte 0
+	.4byte sub_800326a0
+
+.global lbl_803D9C50
+lbl_803D9C50:
+	# ROM: 0x3D6C50
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D9C70
+lbl_803D9C70:
+	# ROM: 0x3D6C70
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	
 .section .text, "ax"
 
 .global "__dt__Q24rstl35reserved_vector<13CSoundPOINode,20>Fv"

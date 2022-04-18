@@ -1,5 +1,71 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EDA00
+lbl_803EDA00:
+	# ROM: 0x3EAA00
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CCEParticleColor
+	.4byte GetValue__16CCEParticleColor
+
+.global lbl_803EDA10
+lbl_803EDA10:
+	# ROM: 0x3EAA10
+	.4byte 0
+	.4byte 0
+	.4byte __dt__18CCEKeyframeEmitterFv
+	.4byte GetValue__18CCEKeyframeEmitterCFiR6CColor
+
+.global lbl_803EDA20
+lbl_803EDA20:
+	# ROM: 0x3EAA20
+	.4byte 0
+	.4byte 0
+	.4byte __dt__8CCEPulseFv
+	.4byte GetValue__8CCEPulseCFiR6CColor
+
+.global lbl_803EDA30
+lbl_803EDA30:
+	# ROM: 0x3EAA30
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CCETimeChainFv
+	.4byte GetValue__12CCETimeChainCFiR6CColor
+
+.global lbl_803EDA40
+lbl_803EDA40:
+	# ROM: 0x3EAA40
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CCEFadeEndFv
+	.4byte GetValue__10CCEFadeEndCFiR6CColor
+
+.global lbl_803EDA50
+lbl_803EDA50:
+	# ROM: 0x3EAA50
+	.4byte 0
+	.4byte 0
+	.4byte __dt__7CCEFadeFv
+	.4byte GetValue__7CCEFadeCFiR6CColor
+
+.global lbl_803EDA60
+lbl_803EDA60:
+	# ROM: 0x3EAA60
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CCEFastConstantFv
+	.4byte GetValue__15CCEFastConstantCFiR6CColor
+
+.global lbl_803EDA70
+lbl_803EDA70:
+	# ROM: 0x3EAA70
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CCEConstantFv
+	.4byte GetValue__11CCEConstantCFiR6CColor
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__16CCEParticleColor

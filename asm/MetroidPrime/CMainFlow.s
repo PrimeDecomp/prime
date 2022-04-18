@@ -1,5 +1,46 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803D9928
+lbl_803D9928:
+	# ROM: 0x3D6928
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CMainFlowFv
+	.4byte OnMessage__9CMainFlowFRC20CArchitectureMessageR18CArchitectureQueue
+	.4byte GetIsContinueDraw__9CMainFlowCFv
+	.4byte Draw__9CMainFlowCFv
+	.4byte PreDraw__6CIOWinCFv
+
+.global lbl_803D9944
+lbl_803D9944:
+	# ROM: 0x3D6944
+	.4byte lbl_800238E0
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_80023898
+	.4byte lbl_800238A8
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_800238EC
+	.4byte lbl_80023888
+	.4byte lbl_800238B8
+	
+.section .rodata
+
+.global lbl_803CCAA8
+lbl_803CCAA8:
+	.asciz "??(??)"
+	.asciz "MainFlow"
+	.balign 4
+	
 .section .text, "ax"
 
 .global __dt__9CMainFlowFv

@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC848
+lbl_803EC848:
+	# ROM: 0x3E9848
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CGuiLightFv
+	.4byte Update__10CGuiWidgetFf
+	.4byte Draw__10CGuiWidgetCFRC19CGuiWidgetDrawParms
+	.4byte Initialize__10CGuiWidgetFv
+	.4byte ProcessUserInput__10CGuiWidgetFRC11CFinalInput
+	.4byte Touch__10CGuiWidgetCFv
+	.4byte GetIsVisible__10CGuiWidgetCFv
+	.4byte sub_80020464
+	.4byte GetWidgetTypeID__9CGuiLightCFv
+	.4byte AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
+	.4byte GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
+	.4byte OnVisible__10CGuiWidgetFv
+	.4byte OnActivate__10CGuiWidgetFv
+	.4byte SetIsVisible__9CGuiLightFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetWidgetTypeID__9CGuiLightCFv
@@ -385,7 +407,7 @@ Create__9CGuiLightFP9CGuiFrameR12CInputStreamb:
 /* 802C3CC8 002C0C28  7C 08 02 A6 */	mflr r0
 /* 802C3CCC 002C0C2C  90 01 02 74 */	stw r0, 0x274(r1)
 /* 802C3CD0 002C0C30  39 61 02 70 */	addi r11, r1, 0x270
-/* 802C3CD4 002C0C34  48 0C 5D 0D */	bl func_803899E0
+/* 802C3CD4 002C0C34  48 0C 5D 0D */	bl _savefpr_26
 /* 802C3CD8 002C0C38  BF 61 02 2C */	stmw r27, 0x22c(r1)
 /* 802C3CDC 002C0C3C  7C 7E 1B 78 */	mr r30, r3
 /* 802C3CE0 002C0C40  7C 9F 23 78 */	mr r31, r4
@@ -551,7 +573,7 @@ lbl_802C3F24:
 /* 802C3F40 002C0EA0  4B FF E5 FD */	bl AddLight__9CGuiFrameFP9CGuiLight
 /* 802C3F44 002C0EA4  7F 63 DB 78 */	mr r3, r27
 /* 802C3F48 002C0EA8  39 61 02 70 */	addi r11, r1, 0x270
-/* 802C3F4C 002C0EAC  48 0C 5A E1 */	bl func_80389A2C
+/* 802C3F4C 002C0EAC  48 0C 5A E1 */	bl _restfpr_26
 /* 802C3F50 002C0EB0  BB 61 02 2C */	lmw r27, 0x22c(r1)
 /* 802C3F54 002C0EB4  80 01 02 74 */	lwz r0, 0x274(r1)
 /* 802C3F58 002C0EB8  7C 08 03 A6 */	mtlr r0

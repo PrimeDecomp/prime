@@ -1,5 +1,40 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E43A0
+lbl_803E43A0:
+	# ROM: 0x3E13A0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CBSWallHangFv
+	.4byte IsInAir__11CBSWallHangCFRC15CBodyController
+	.4byte IsDead__10CBodyStateCFv
+	.4byte IsDying__10CBodyStateCFv
+	.4byte IsMoving__11CBSWallHangCFv
+	.4byte ApplyGravity__11CBSWallHangCFv
+	.4byte ApplyHeadTracking__11CBSWallHangCFv
+	.4byte ApplyAnimationDeltas__11CBSWallHangCFv
+	.4byte CanShoot__11CBSWallHangCFv
+	.4byte Start__11CBSWallHangFR15CBodyControllerR13CStateManager
+	.4byte UpdateBody__11CBSWallHangFfR15CBodyControllerR13CStateManager
+	.4byte nullsub_134
+
+.global lbl_803E43D8
+lbl_803E43D8:
+	# ROM: 0x3E13D8
+	.4byte lbl_8018DAD4
+	.4byte lbl_8018DE0C
+	.4byte lbl_8018DF28
+	.4byte lbl_8018DF60
+	.4byte lbl_8018E084
+	.4byte lbl_8018E2CC
+	.4byte lbl_8018E3D4
+	.4byte lbl_8018E718
+	.4byte lbl_8018E834
+	.4byte lbl_8018E854
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__11CBSWallHangFv

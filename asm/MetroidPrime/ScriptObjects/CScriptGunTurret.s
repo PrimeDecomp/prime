@@ -1,5 +1,119 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E71D0
+lbl_803E71D0:
+	# ROM: 0x3E41D0
+	.4byte 0x803D293C
+	.4byte 0x803D2A44
+	.4byte 0x803D2B4C
+	.4byte 0x803D2CAC
+	.4byte 0x803D2DB4
+	.4byte 0x803D2EBC
+	.4byte 0
+
+.global lbl_803E71EC
+lbl_803E71EC:
+	# ROM: 0x3E41EC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CScriptGunTurretFv
+	.4byte Accept__16CScriptGunTurretFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__16CScriptGunTurretFfR13CStateManager
+	.4byte AcceptScriptMsg__16CScriptGunTurretF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__16CScriptGunTurretCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__16CScriptGunTurretCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__16CScriptGunTurretFR13CStateManager
+	.4byte GetDamageVulnerability__16CScriptGunTurretCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__16CScriptGunTurretCFv
+	.4byte Touch__16CScriptGunTurretFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__16CScriptGunTurretCFRC13CStateManager
+	.4byte GetAimPosition__16CScriptGunTurretCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+
+.global lbl_803E7270
+lbl_803E7270:
+	# ROM: 0x3E4270
+	.4byte lbl_802199F0
+	.4byte lbl_802199F0
+	.4byte lbl_802199F0
+	.4byte lbl_802199BC
+	.4byte lbl_802199BC
+	.4byte lbl_802199C4
+	.4byte lbl_802199CC
+	.4byte lbl_802199D4
+	.4byte lbl_802199D4
+	.4byte lbl_802199DC
+	.4byte lbl_802199DC
+	.4byte lbl_802199E4
+	.4byte lbl_802199EC
+
+.global lbl_803E72A4
+lbl_803E72A4:
+	# ROM: 0x3E42A4
+	.4byte lbl_8021A788
+	.4byte lbl_8021A278
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A294
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A5D4
+	.4byte lbl_8021A5F4
+	.4byte lbl_8021A528
+	.4byte lbl_8021A554
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A5A0
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A2B0
+	.4byte lbl_8021A4C4
+	.4byte lbl_8021A614
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A788
+	.4byte lbl_8021A6D0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global HealthInfo__16CScriptGunTurretFR13CStateManager

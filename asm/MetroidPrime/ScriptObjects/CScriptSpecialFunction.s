@@ -1,5 +1,123 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E2B68
+lbl_803E2B68:
+	# ROM: 0x3DFB68
+	.4byte 0
+	.4byte 0
+	.4byte __dt__22CScriptSpecialFunctionFv
+	.4byte Accept__22CScriptSpecialFunctionFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__22CScriptSpecialFunctionFfR13CStateManager
+	.4byte AcceptScriptMsg__22CScriptSpecialFunctionF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__22CScriptSpecialFunctionFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__22CScriptSpecialFunctionCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__22CScriptSpecialFunctionCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__22CScriptSpecialFunctionCFv
+	.4byte Touch__6CActorFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+
+.global lbl_803E2BD4
+lbl_803E2BD4:
+	# ROM: 0x3DFBD4
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_80151A8C
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_80152434
+	.4byte lbl_80151BA8
+	.4byte lbl_80151C48
+	.4byte lbl_80151CCC
+	.4byte lbl_801528A0
+	.4byte lbl_80151AFC
+	.4byte lbl_80151A64
+	.4byte lbl_801520EC
+	.4byte lbl_8015214C
+	.4byte lbl_80151A44
+	.4byte lbl_801521C4
+	.4byte lbl_8015223C
+	.4byte lbl_801528A0
+	.4byte lbl_801524A0
+	.4byte lbl_801528A0
+	.4byte lbl_80152530
+	.4byte lbl_801524E4
+	.4byte lbl_801528A0
+	.4byte lbl_80151BE8
+	.4byte lbl_80152574
+	.4byte lbl_80152798
+	.4byte lbl_801527D4
+	.4byte lbl_80152814
+	.4byte lbl_80152848
+	.4byte lbl_80151C18
+	.4byte lbl_80152860
+	.4byte lbl_8015246C
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_801528A0
+	.4byte lbl_80152034
+	.4byte lbl_80152324
+	.4byte lbl_8015234C
+
+.global lbl_803E2CA0
+lbl_803E2CA0:
+	# ROM: 0x3DFCA0
+	.4byte lbl_80152BA8
+	.4byte lbl_80152AA0
+	.4byte lbl_80152AA8
+	.4byte lbl_80152AC0
+	.4byte lbl_80152AD0
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152B30
+	.4byte lbl_80152B38
+	.4byte lbl_80152AD8
+	.4byte lbl_80152AB4
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152B40
+	.4byte lbl_80152B48
+	.4byte lbl_80152AC8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152BA8
+	.4byte lbl_80152B50
+	.4byte lbl_80152BA8
+	.4byte lbl_80152B60
+	.4byte lbl_80152B58
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__22CScriptSpecialFunctionFv

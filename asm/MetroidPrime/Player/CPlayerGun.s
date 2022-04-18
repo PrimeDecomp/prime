@@ -1,5 +1,78 @@
 .include "macros.inc"
 
+.section .data
+.global lbl_803D9D50
+lbl_803D9D50:
+	# ROM: 0x3D6D50
+	.4byte 0xC1F00000
+	.4byte 0
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+
+.global lbl_803D9D74
+lbl_803D9D74:
+	# ROM: 0x3D6D74
+	.4byte lbl_8003C974
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C550
+	.4byte lbl_8003C624
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C630
+	.4byte lbl_8003C710
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C840
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C9CC
+	.4byte lbl_8003C730
+	.4byte lbl_8003C770
+	.4byte lbl_8003C820
+
+.global lbl_803D9DD8
+lbl_803D9DD8:
+	# ROM: 0x3D6DD8
+	.4byte lbl_8003F72C
+	.4byte lbl_8003F488
+	.4byte lbl_8003F4C0
+	.4byte lbl_8003F5F8
+	.4byte lbl_8003F72C
+	.4byte lbl_8003F618
+	.4byte lbl_8003F648
+	.4byte lbl_8003F65C
+	.4byte lbl_8003F72C
+	.4byte lbl_8003F6B4
+	.4byte lbl_8003F714
+
+.global lbl_803D9E04
+lbl_803D9E04:
+	# ROM: 0x3D6E04
+	.4byte lbl_80040E10
+	.4byte lbl_80040C54
+	.4byte lbl_80040C7C
+	.4byte lbl_80040CE8
+	.4byte lbl_80040CC8
+	.4byte lbl_80040CF8
+	.4byte lbl_80040D0C
+	.4byte lbl_80040E10
+	.4byte lbl_80040D64
+	.4byte lbl_80040DBC
+	.4byte 0
+	
 .section .bss
 
 .global lbl_8045C518

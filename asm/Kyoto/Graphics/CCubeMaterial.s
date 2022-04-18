@@ -1,5 +1,35 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF610
+lbl_803EF610:
+	# ROM: 0x3EC610
+	.4byte 0x3F800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x3F800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x3F800000
+	.4byte 0
+
+.global lbl_803EF640
+lbl_803EF640:
+	# ROM: 0x3EC640
+	.4byte lbl_80347A5C
+	.4byte lbl_80347AD4
+	.4byte lbl_80347B2C
+	.4byte lbl_80347B6C
+	.4byte lbl_80347C44
+	.4byte lbl_80347C44
+	.4byte lbl_80347D0C
+	.4byte lbl_80347E5C
+
 .section .bss
 
 .global lbl_804BFF50

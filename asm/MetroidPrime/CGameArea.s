@@ -1,5 +1,59 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA208
+lbl_803DA208:
+	# ROM: 0x3D7208
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CDummyGameAreaFv
+	.4byte IGetTM__14CDummyGameAreaCFv
+	.4byte IGetStringTableAssetId__14CDummyGameAreaCFv
+	.4byte IGetNumAttachedAreas__14CDummyGameAreaCFv
+	.4byte IGetAttachedAreaId__14CDummyGameAreaCFi
+	.4byte IIsActive__14CDummyGameAreaCFv
+	.4byte IGetAreaAssetID__14CDummyGameAreaCFv
+	.4byte IGetAreaId__14CDummyGameAreaCFv
+	.4byte IGetScriptingMemoryAlways__14CDummyGameAreaCFv
+
+.global lbl_803DA234
+lbl_803DA234:
+	# ROM: 0x3D7234
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CGameAreaFv
+	.4byte IGetTM__9CGameAreaCFv
+	.4byte IGetStringTableAssetId__9CGameAreaCFv
+	.4byte IGetNumAttachedAreas__9CGameAreaCFv
+	.4byte IGetAttachedAreaId__9CGameAreaCFi
+	.4byte IIsActive__9CGameAreaCFv
+	.4byte IGetAreaAssetID__9CGameAreaCFv
+	.4byte IGetAreaId__9CGameAreaCFv
+	.4byte IGetScriptingMemoryAlways__9CGameAreaCFv
+
+.global lbl_803DA260
+lbl_803DA260:
+	# ROM: 0x3D7260
+	.4byte 0
+	.4byte 0
+	.4byte IsQualified__Q29CGameArea15CAreaObjectListFRC7CEntity
+
+.global lbl_803DA26C
+lbl_803DA26C:
+	# ROM: 0x3D726C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9IGameAreaFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	
 .section .text, "ax"
 
 .global "reserve__Q24rstl45vector<9CVector3f,Q24rstl17rmemory_allocator>Fi"

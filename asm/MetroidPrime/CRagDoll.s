@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E70D0
+lbl_803E70D0:
+	# ROM: 0x3E40D0
+	.4byte 0
+	.4byte 0
+	.4byte Prime__8CRagDollFR13CStateManagerRC12CTransform4fR10CModelData
+	.4byte Update__8CRagDollFR13CStateManagerff
+	.4byte PreRender__8CRagDollFRC9CVector3fR10CModelData
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global PreRender__8CRagDollFRC9CVector3fR10CModelData

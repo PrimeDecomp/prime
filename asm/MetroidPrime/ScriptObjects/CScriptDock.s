@@ -1,5 +1,81 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF580
+lbl_803DF580:
+	# ROM: 0x3DC580
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CScriptDockFv
+	.4byte Accept__11CScriptDockFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__11CScriptDockFfR13CStateManager
+	.4byte AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__13CPhysicsActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__6CActorFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__11CScriptDockCFv
+	.4byte Touch__11CScriptDockFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__13CPhysicsActorCFRC13CStateManager
+	.4byte GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
+	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
+	.4byte CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
+	.4byte GetStepDownHeight__13CPhysicsActorCFv
+	.4byte GetStepUpHeight__13CPhysicsActorCFv
+	.4byte GetWeight__13CPhysicsActorCFv
+
+.global lbl_803DF604
+lbl_803DF604:
+	# ROM: 0x3DC604
+	.4byte lbl_800C3FE0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C3FD4
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C3FB4
+	.4byte lbl_800C3EC8
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C40A0
+	.4byte lbl_800C3DE0
+	.4byte lbl_800C3E3C
+	.4byte lbl_800C3E48
+	.4byte lbl_800C3E54
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCurrentConnectedAreaId__11CScriptDockCFRC13CStateManager

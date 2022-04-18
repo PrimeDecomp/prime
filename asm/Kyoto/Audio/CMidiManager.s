@@ -1,6 +1,14 @@
 .include "macros.inc"
 
-.section .bss
+.section .data
+
+.global lbl_803EF788
+lbl_803EF788:
+	# ROM: 0x3EC788
+	.4byte 0
+	.4byte 0
+	.4byte sub_80358ca4
+	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

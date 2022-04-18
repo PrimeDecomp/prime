@@ -1,5 +1,29 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E52B0
+lbl_803E52B0:
+	# ROM: 0x3E22B0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CGunWeaponFv
+	.4byte Reset__10CGunWeaponFR13CStateManager
+	.4byte PlayAnim__10CGunWeaponFQ212NWeaponTypes12EGunAnimTypeb
+	.4byte PreRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
+	.4byte PostRenderGunFx__10CGunWeaponFRC13CStateManagerRC12CTransform4f
+	.4byte UpdateGunFx__10CGunWeaponFbfRC13CStateManagerRC12CTransform4f
+	.4byte Fire__10CGunWeaponFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
+	.4byte EnableFx__10CGunWeaponFb
+	.4byte EnableSecondaryFx__10CGunWeaponFQ210CGunWeapon16ESecondaryFxType
+	.4byte Draw__10CGunWeaponCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
+	.4byte DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
+	.4byte Update__10CGunWeaponFfR13CStateManager
+	.4byte Load__10CGunWeaponFR13CStateManagerb
+	.4byte Unload__10CGunWeaponFR13CStateManager
+	.4byte IsLoaded__10CGunWeaponCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DrawClipCube__FRC6CAABox

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC5C8
+lbl_803EC5C8:
+	# ROM: 0x3E95C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CModVectorElement
+	.4byte 0
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__18CWeaponDescriptionFv

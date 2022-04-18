@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA350
+lbl_803DA350:
+	# ROM: 0x3D7350
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19CTweakPlayerControlFv
+	.4byte 0
+	
 .section .text, "ax"
 
 .global GetMapping__19CTweakPlayerControlCFQ213ControlMapper9ECommands

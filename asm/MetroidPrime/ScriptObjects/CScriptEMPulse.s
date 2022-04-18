@@ -1,5 +1,39 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E4400
+lbl_803E4400:
+	# ROM: 0x3E1400
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CScriptEMPulseFv
+	.4byte Accept__14CScriptEMPulseFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__14CScriptEMPulseFfR13CStateManager
+	.4byte AcceptScriptMsg__14CScriptEMPulseF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__14CScriptEMPulseCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__6CActorCFRC13CStateManager
+	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
+	.4byte CalculateRenderBounds__14CScriptEMPulseFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__14CScriptEMPulseCFv
+	.4byte Touch__14CScriptEMPulseFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__14CScriptEMPulseFv
@@ -431,7 +465,7 @@ lbl_8018F18C:
 /* 8018F1B0 0018C110  7C 08 02 A6 */	mflr r0
 /* 8018F1B4 0018C114  90 01 01 B4 */	stw r0, 0x1b4(r1)
 /* 8018F1B8 0018C118  39 61 01 B0 */	addi r11, r1, 0x1b0
-/* 8018F1BC 0018C11C  48 1F A8 21 */	bl sub_803899dc
+/* 8018F1BC 0018C11C  48 1F A8 21 */	bl _savefpr_25
 /* 8018F1C0 0018C120  BF 21 01 5C */	stmw r25, 0x15c(r1)
 /* 8018F1C4 0018C124  FF 20 08 90 */	fmr f25, f1
 /* 8018F1C8 0018C128  7C 7F 1B 78 */	mr r31, r3
@@ -531,7 +565,7 @@ lbl_8018F18C:
 /* 8018F340 0018C2A0  7F E3 FB 78 */	mr r3, r31
 /* 8018F344 0018C2A4  90 1F 01 14 */	stw r0, 0x114(r31)
 /* 8018F348 0018C2A8  39 61 01 B0 */	addi r11, r1, 0x1b0
-/* 8018F34C 0018C2AC  48 1F A6 DD */	bl sub_80389a28
+/* 8018F34C 0018C2AC  48 1F A6 DD */	bl _restfpr_25
 /* 8018F350 0018C2B0  BB 21 01 5C */	lmw r25, 0x15c(r1)
 /* 8018F354 0018C2B4  80 01 01 B4 */	lwz r0, 0x1b4(r1)
 /* 8018F358 0018C2B8  7C 08 03 A6 */	mtlr r0

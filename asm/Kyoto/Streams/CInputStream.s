@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE388
+lbl_803EE388:
+	# ROM: 0x3EB388
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CInputStreamFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ReadFloat__12CInputStreamFv

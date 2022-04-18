@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF328
+lbl_803DF328:
+	# ROM: 0x3DC328
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CScriptGenerator
+	.4byte Accept__16CScriptGeneratorFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CEntityFfR13CStateManager
+	.4byte AcceptScriptMsg__16CScriptGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"
 
 .global Accept__16CScriptGeneratorFR8IVisitor

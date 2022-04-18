@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECDF0
+lbl_803ECDF0:
+	# ROM: 0x3E9DF0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte GetAnimationTree__9IMetaAnimCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AdvanceAnim__9IMetaAnimFR11IAnimReaderRC13CCharAnimTime

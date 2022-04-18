@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF718
+lbl_803EF718:
+	# ROM: 0x3EC718
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CSkinnedModelFv
+	.4byte 0
+
 .section .bss
 
 .global lbl_804BFFC0

@@ -1,5 +1,36 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED008
+lbl_803ED008:
+	# ROM: 0x3EA008
+	.4byte 0
+	.4byte 0
+	.4byte sub_802edff0
+	.4byte IsCAnimTreeNode__11IAnimReaderCFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte VGetBoolPOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
+	.4byte VGetInt32POIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP13CInt32POINodeUiUii
+	.4byte VGetParticlePOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
+	.4byte VGetSoundPOIList__21CAnimSourceReaderBaseCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
+	.4byte VGetBoolPOIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetInt32POIState__21CAnimSourceReaderBaseCFPCc
+	.4byte VGetParticlePOIState__21CAnimSourceReaderBaseCFPCc
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte VSimplified__11IAnimReaderFv
+	.4byte 0
+	.4byte VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global PostConstruct__21CAnimSourceReaderBaseFRC13CCharAnimTime

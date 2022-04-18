@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ECD30
+lbl_803ECD30:
+	# ROM: 0x3E9D30
+	.4byte 0
+	.4byte 0
+	.4byte __dt__13CMetaAnimPlayFv
+	.4byte GetAnimationTree__9IMetaAnimCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
+	.4byte "GetUniquePrimitives__13CMetaAnimPlayCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>"
+	.4byte GetType__13CMetaAnimPlayCFv
+	.4byte WriteAnimData__13CMetaAnimPlayCFR13COutputStream
+	.4byte VGetAnimationTree__13CMetaAnimPlayCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__13CMetaAnimPlayFv

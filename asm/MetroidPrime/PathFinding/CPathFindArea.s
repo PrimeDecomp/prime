@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E5718
+lbl_803E5718:
+	# ROM: 0x3E2718
+	.4byte 0
+	.4byte 0
+	.4byte sub_801ca284
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "FPathFindAreaFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"

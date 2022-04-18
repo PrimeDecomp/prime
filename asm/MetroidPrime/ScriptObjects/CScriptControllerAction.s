@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E5C20
+lbl_803E5C20:
+	# ROM: 0x3E2C20
+	.4byte 0
+	.4byte 0
+	.4byte __dt__23CScriptControllerActionFv
+	.4byte Accept__23CScriptControllerActionFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__23CScriptControllerActionFfR13CStateManager
+	.4byte AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__23CScriptControllerActionFv

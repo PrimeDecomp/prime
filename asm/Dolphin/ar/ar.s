@@ -1,9 +1,16 @@
 .include "macros.inc"
 
+.section .data 
+.global ARVersionString
+ARVersionString:
+	.asciz "<< Dolphin SDK - AR\trelease build: Sep  5 2002 05:34:27 (0x2301) >>"
+	.4byte 0
+	
 .section .sdata
 .global lbl_805A8A70
 lbl_805A8A70:
-	.incbin "baserom.dol", 0x3F6410, 0x8
+	.4byte ARVersionString
+	.4byte 0
 	
 .section .sbss
 .global lbl_805A96F8

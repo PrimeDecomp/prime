@@ -1,5 +1,51 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF840
+lbl_803EF840:
+	# ROM: 0x3EC840
+	.4byte 0x00010002
+	.4byte 0x00040008
+	.4byte 0x00100020
+	.4byte 0x00400080
+	.4byte 0x01000200
+	.4byte 0x04000800
+	.4byte 0x10002000
+	.4byte 0x40000000
+	.4byte 0xF8000004
+	.4byte 0x008700D5
+	.4byte 0x01110143
+	.4byte 0x017501A9
+	.4byte 0x01A90175
+	.4byte 0x01430111
+	.4byte 0x00D50087
+	.4byte 0x0004F800
+	.4byte 0xFFF40012
+	.4byte 0x00290040
+	.4byte 0x007000C6
+	.4byte 0x01630462
+	.4byte 0x04620163
+	.4byte 0x00C60070
+	.4byte 0x00400029
+	.4byte 0x0012FFF4
+	.4byte 0
+	.4byte 0x00000200
+	.4byte 0x02000200
+	.4byte 0x06000E00
+	.4byte 0x0E000600
+	.4byte 0x02000200
+	.4byte 0x02000000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global g721_decoder__FiP10g72x_state

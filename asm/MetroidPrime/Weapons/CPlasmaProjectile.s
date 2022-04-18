@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E3F00
+lbl_803E3F00:
+	# ROM: 0x3E0F00
+	.4byte 0
+	.4byte 0
+	.4byte __dt__17CPlasmaProjectileFv
+	.4byte Accept__17CPlasmaProjectileFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__7CWeaponFfR13CStateManager
+	.4byte AcceptScriptMsg__17CPlasmaProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__6CActorFb
+	.4byte PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
+	.4byte AddToRenderer__17CPlasmaProjectileCFRC14CFrustumPlanesRC13CStateManager
+	.4byte Render__17CPlasmaProjectileCFRC13CStateManager
+	.4byte CanRenderUnsorted__17CPlasmaProjectileCFRC13CStateManager
+	.4byte CalculateRenderBounds__15CBeamProjectileFv
+	.4byte HealthInfo__6CActorFR13CStateManager
+	.4byte GetDamageVulnerability__6CActorCFv
+	.4byte GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
+	.4byte GetTouchBounds__15CBeamProjectileCFv
+	.4byte Touch__17CPlasmaProjectileFR6CActorR13CStateManager
+	.4byte GetOrbitPosition__6CActorCFRC13CStateManager
+	.4byte GetAimPosition__6CActorCFRC13CStateManagerf
+	.4byte GetHomingPosition__6CActorCFRC13CStateManagerf
+	.4byte GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
+	.4byte GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei
+	.4byte FluidFXThink__15CGameProjectileFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
+	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
+	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
+	.4byte UpdateFx__17CPlasmaProjectileFRC12CTransform4ffR13CStateManager
+	.4byte ResetBeam__17CPlasmaProjectileFR13CStateManagerb
+	.4byte Fire__17CPlasmaProjectileFRC12CTransform4fR13CStateManagerb
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__17CPlasmaProjectileFv

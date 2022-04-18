@@ -19,8 +19,10 @@ R_PPC_NONE        = 0
 R_PPC_ADDR32      = 1
 R_PPC_ADDR24      = 2
 R_PPC_ADDR16_LO   = 4
+R_PPC_ADDR16_HI   = 5
 R_PPC_ADDR16_HA   = 6
 R_PPC_REL24       = 10
+R_PPC_REL14       = 11
 R_DOLPHIN_SECTION = 202
 R_DOLPHIN_END     = 203
 
@@ -29,8 +31,10 @@ relocationTypeNames = {
     R_PPC_ADDR32:      'R_PPC_ADDR32',
     R_PPC_ADDR24:      'R_PPC_ADDR24',
     R_PPC_ADDR16_LO:   'R_PPC_ADDR16_LO',
+    R_PPC_ADDR16_HI:   'R_PPC_ADDR16_HI',  
     R_PPC_ADDR16_HA:   'R_PPC_ADDR16_HA',
     R_PPC_REL24:       'R_PPC_REL24',
+    R_PPC_REL14:       'R_PPC_REL14',
     R_DOLPHIN_SECTION: 'R_DOLPHIN_SECTION',
     R_DOLPHIN_END:     'R_DOLPHIN_END'
 }
@@ -262,10 +266,10 @@ def disassemble_insn_that_capstone_cant_handle(o, reloc):
     elif idx == 63 and idx2 == 32:
         asm = disasm_fcmp(raw)
     # Paired singles
-    #elif idx == 4:
-    #    asm = disasm_ps(raw)
-    #elif idx in {56, 57, 60, 61}:
-    #    asm = disasm_ps_mem(raw, idx)
+    elif idx == 4:
+        asm = disasm_ps(raw)
+    elif idx in {56, 57, 60, 61}:
+        asm = disasm_ps_mem(raw, idx)
     if asm:
         return asm
     return '.4byte 0x%08X  ;# (error: unknown instruction) %s' % (read_u32(o), relocComment)
@@ -285,11 +289,13 @@ def disassemble_insn(o, reloc):
         relocType = -1
 
     # handle relocs label
-    if insn.id in {PPC_INS_BL, PPC_INS_BC} and relocType == R_PPC_REL24:
+    if insn.id in {PPC_INS_BL, PPC_INS_BC} and relocType in {R_PPC_REL24, R_PPC_REL14}:
         return '%s %s' % (insn.mnemonic, get_label(reloc['addr']))
     if insn.id == PPC_INS_LIS and relocType == R_PPC_ADDR16_HA:
         return '%s %s, %s@ha' % (insn.mnemonic, insn.reg_name(insn.operands[0].reg), get_label(reloc['addr']))
-    if insn.id == PPC_INS_ADDI and relocType == R_PPC_ADDR16_LO:
+    if insn.id == PPC_INS_LIS and relocType == R_PPC_ADDR16_HI:
+        return '%s %s, %s@h' % (insn.mnemonic, insn.reg_name(insn.operands[0].reg), get_label(reloc['addr']))
+    if insn.id in {PPC_INS_ADDI, PPC_INS_ORI} and relocType == R_PPC_ADDR16_LO:
         return '%s %s, %s, %s@l' % (insn.mnemonic, insn.reg_name(insn.operands[0].reg), insn.reg_name(insn.operands[1].reg), get_label(reloc['addr']))
     if insn.id in {
         PPC_INS_LWZ,  PPC_INS_LHZ,  PPC_INS_LHA,  PPC_INS_LBZ,

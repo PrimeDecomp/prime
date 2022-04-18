@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EC010
+lbl_803EC010:
+	# ROM: 0x3E9010
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CPreFrontEndFv
+	.4byte OnIOWinMessage__12CPreFrontEndFRC20CArchitectureMessage
+	.4byte GetIsContinueDraw__6CIOWinCFv
+	.4byte Draw__12CPreFrontEndCFv
+	.4byte PreDraw__6CIOWinCFv
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__12CPreFrontEndFv

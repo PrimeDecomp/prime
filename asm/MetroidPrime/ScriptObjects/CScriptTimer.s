@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DADD8
+lbl_803DADD8:
+	# ROM: 0x3D7DD8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__12CScriptTimerFv
+	.4byte Accept__12CScriptTimerFR8IVisitor
+	.4byte PreThink__7CEntityFfR13CStateManager
+	.4byte Think__12CScriptTimerFfR13CStateManager
+	.4byte AcceptScriptMsg__12CScriptTimerF20EScriptObjectMessage9TUniqueIdR13CStateManager
+	.4byte SetActive__7CEntityFb
+	
 .section .text, "ax"
 
 .global Accept__12CScriptTimerFR8IVisitor

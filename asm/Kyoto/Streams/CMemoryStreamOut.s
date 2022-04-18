@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EE3A8
+lbl_803EE3A8:
+	# ROM: 0x3EB3A8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CMemoryStreamOutFv
+	.4byte Write__16CMemoryStreamOutFPCvUl
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Write__16CMemoryStreamOutFPCvUl

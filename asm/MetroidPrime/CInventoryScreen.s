@@ -1,5 +1,97 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E6EB0
+lbl_803E6EB0:
+	# ROM: 0x3E3EB0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CInventoryScreenFv
+	.4byte InputDisabled__16CInventoryScreenCFv
+	.4byte TransitioningAway__16CInventoryScreenFv
+	.4byte Update__16CInventoryScreenFfR9CRandom16R18CArchitectureQueue
+	.4byte Touch__16CInventoryScreenFv
+	.4byte ProcessInput__16CInventoryScreenFRC11CFinalInput
+	.4byte Draw__16CInventoryScreenCFfff
+	.4byte GetCameraYBias__16CInventoryScreenCFv
+	.4byte VReady__16CInventoryScreenCFv
+	.4byte VActivate__16CInventoryScreenFv
+	.4byte nullsub_125
+	.4byte ChangedMode__16CInventoryScreenQ216CPauseScreenBase5EMode
+	.4byte UpdateRightTable__16CInventoryScreenFv
+	.4byte ShouldLeftTableAdvance__16CInventoryScreenFv
+	.4byte ShouldRightTableAdvance__16CInventoryScreenFv
+	.4byte GetRightTableCount__16CInventoryScreenCFv
+	.4byte IsRightLogDynamic__16CInventoryScreenCFv
+	.4byte UpdateRightLogColors__16CInventoryScreenFbRC6CColor
+	.4byte UpdateRightLogHighlight__16CInventoryScreenFbiRC6CColorRC6CColor
+
+.global lbl_803E6F04
+lbl_803E6F04:
+	# ROM: 0x3E3F04
+	.4byte lbl_80205D7C
+	.4byte lbl_80205D8C
+	.4byte lbl_80205DA0
+	.4byte lbl_80205DB4
+	.4byte lbl_80205DC8
+	.4byte lbl_80205DDC
+	.4byte lbl_80205DEC
+	.4byte lbl_80205DFC
+	.4byte lbl_80205E0C
+	.4byte lbl_80205E1C
+	.4byte lbl_80205E2C
+	.4byte lbl_80205E3C
+	.4byte lbl_80205E50
+	.4byte lbl_80205E64
+	.4byte lbl_80205E78
+	.4byte lbl_80205E88
+	.4byte lbl_80205E98
+	.4byte lbl_80205EAC
+	.4byte lbl_80205EC0
+	.4byte lbl_80205ED4
+	.4byte lbl_80205EE4
+	.4byte lbl_80205EF4
+	.4byte lbl_80205F04
+	.4byte lbl_80205F14
+
+.global lbl_803E6F64
+lbl_803E6F64:
+	# ROM: 0x3E3F64
+	.4byte lbl_80205FD0
+	.4byte lbl_80205FD8
+	.4byte lbl_80205FE8
+	.4byte lbl_80205FF8
+	.4byte lbl_80206008
+	.4byte lbl_80206018
+	.4byte lbl_80206028
+	.4byte lbl_80206038
+	.4byte lbl_80206048
+	.4byte lbl_80206058
+	.4byte lbl_80206068
+	.4byte lbl_80206070
+	.4byte lbl_80206080
+	.4byte lbl_80206090
+	.4byte lbl_802060A0
+	.4byte lbl_802060B0
+	.4byte lbl_802060B8
+	.4byte lbl_802060C8
+	.4byte lbl_802060D8
+	.4byte lbl_802060E8
+	.4byte lbl_802060F8
+	.4byte lbl_80206108
+	.4byte lbl_80206118
+	.4byte lbl_80206128
+
+.global lbl_803E6FC4
+lbl_803E6FC4:
+	# ROM: 0x3E3FC4
+	.4byte 0x003F003F
+	.4byte 0x003F003F
+	.4byte 0x003F003F
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsRightLogDynamic__16CInventoryScreenCFv

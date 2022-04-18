@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DAD30
+lbl_803DAD30:
+	# ROM: 0x3D7D30
+	.4byte 0
+	.4byte 0
+	.4byte __dt__10CTweakBallFv
+	.4byte 0
+
 .section .text, "ax"
 
 .global __ct__10CTweakBallFR12CInputStream

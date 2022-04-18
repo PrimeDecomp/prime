@@ -1,5 +1,57 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA298
+lbl_803DA298:
+	# ROM: 0x3D7298
+	.4byte 0
+	.4byte 0
+	.4byte __dt__9CSamusHudFv
+	
+.global lbl_803DA2A4
+lbl_803DA2A4:
+	# ROM: 0x3D72A4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte SetReticuleTransform__17CHudDecoInterfaceFRC9CMatrix3f
+	.4byte SetDecoRotation__17IHudDecoInterfaceFf
+	.4byte 0
+	.4byte SetFrameColorValue__17IHudDecoInterfaceFf
+	.4byte 0
+	.4byte Draw__17IHudDecoInterfaceCFv
+	.4byte ProcessInput__17IHudDecoInterfaceFRC11CFinalInput
+	.4byte 0
+	.4byte 0
+	.4byte GetMessageTextAlpha__17IHudDecoInterfaceCFv
+	.4byte __dt__17IHudDecoInterfaceFv
+
+.global lbl_803DA2E8
+lbl_803DA2E8:
+	# ROM: 0x3D72E8
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__21IHudFreeLookInterfaceFv
+
+.global lbl_803DA304
+lbl_803DA304:
+	# ROM: 0x3D7304
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__19IHudThreatInterfaceFv
+
 .section .bss
 
 .global lbl_8046C3C8

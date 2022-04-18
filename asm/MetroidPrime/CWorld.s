@@ -1,5 +1,73 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803D9FC0
+lbl_803D9FC0:
+	# ROM: 0x3D6FC0
+	.4byte 0
+	.4byte 0
+	.4byte __dt__11CDummyWorldFv
+	.4byte IGetWorldAssetId__11CDummyWorldCFv
+	.4byte IGetStringTableAssetId__11CDummyWorldCFv
+	.4byte IGetSaveWorldAssetId__11CDummyWorldCFv
+	.4byte IGetMapWorld__11CDummyWorldCFv
+	.4byte IMapWorld__11CDummyWorldFv
+	.4byte IGetAreaAlways__11CDummyWorldCF7TAreaId
+	.4byte IGetCurrentAreaId__11CDummyWorldCFv
+	.4byte IGetAreaId__11CDummyWorldCF7TAreaId
+	.4byte ICheckWorldComplete__11CDummyWorldFv
+	.4byte IGetDefaultAudioTrack__11CDummyWorldCFv
+	.4byte IGetAreaCount__11CDummyWorldFv
+
+.global lbl_803D9FF8
+lbl_803D9FF8:
+	# ROM: 0x3D6FF8
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803DA014
+lbl_803DA014:
+	# ROM: 0x3D7014
+	.4byte 0
+	.4byte 0
+	.4byte __dt__6CWorldFv
+	.4byte IGetWorldAssetId__6CWorldCFv
+	.4byte IGetStringTableAssetId__6CWorldCFv
+	.4byte IGetSaveWorldAssetId__6CWorldCFv
+	.4byte IGetMapWorld__6CWorldCFv
+	.4byte IMapWorld__6CWorldFv
+	.4byte IGetAreaAlways__6CWorldCF7TAreaId
+	.4byte IGetCurrentAreaId__6CWorldCFv
+	.4byte IGetAreaId__6CWorldCF7TAreaId
+	.4byte ICheckWorldComplete__6CWorldFv
+	.4byte IGetDefaultAudioTrack__6CWorldCFv
+	.4byte IGetGameAreas__6CWorldCFv
+
+.global lbl_803DA04C
+lbl_803DA04C:
+	# ROM: 0x3D704C
+	.4byte 0
+	.4byte 0
+	.4byte __dt__6IWorldFv
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global CyclePauseState__6CWorldFv

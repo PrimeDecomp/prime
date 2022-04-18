@@ -1,5 +1,59 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA390
+lbl_803DA390:
+	# ROM: 0x3D7390
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte OnLeftTableAdvance__16CPauseScreenBaseFP14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte OnTableSelectionChange__16CPauseScreenBaseFP14CGuiTableGroupi
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte OnRightTableAdvance__16CPauseScreenBaseFP14CGuiTableGroup
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte OnTableSelectionChange__16CPauseScreenBaseFP14CGuiTableGroupi
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte OnRightTableCancel__16CPauseScreenBaseFP14CGuiTableGroup
+
+.global lbl_803DA3CC
+lbl_803DA3CC:
+	# ROM: 0x3D73CC
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CPauseScreenBaseFv
+	.4byte InputDisabled__16CPauseScreenBaseCFv
+	.4byte TransitioningAway__16CPauseScreenBaseFv
+	.4byte Update__16CPauseScreenBaseFfR9CRandom16R18CArchitectureQueue
+	.4byte Touch__16CPauseScreenBaseFv
+	.4byte ProcessInput__16CPauseScreenBaseFRC11CFinalInput
+	.4byte Draw__16CPauseScreenBaseCFfff
+	.4byte GetCameraYBias__16CPauseScreenBaseCFv
+	.4byte 0
+	.4byte 0
+	.4byte nullsub_63
+	.4byte ChangedMode__16CPauseScreenBaseQ216CPauseScreenBase5EMode
+	.4byte UpdateRightTable__16CPauseScreenBaseFv
+	.4byte ShouldLeftTableAdvance__16CPauseScreenBaseFv
+	.4byte ShouldRightTableAdvance__16CPauseScreenBaseFv
+	.4byte 0
+	.4byte IsRightLogDynamic__16CPauseScreenBaseCFv
+	.4byte UpdateRightLogColors__16CPauseScreenBaseFbRC6CColor
+	.4byte UpdateRightLogHighlight__16CPauseScreenBaseFbiRC6CColorRC6CColor
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetCameraYBias__16CPauseScreenBaseCFv

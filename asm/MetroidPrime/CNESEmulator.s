@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EBC50
+lbl_803EBC50:
+	# ROM: 0x3E8C50
+	.4byte 0x190A1C1C
+	.4byte 0xFF20181B
+	.4byte 0x0DFF1915
+	.4byte 0x0E0A1C0E
+
+.global lbl_803EBC60
+lbl_803EBC60:
+	# ROM: 0x3E8C60
+	.4byte 0x190A1C1C
+	.4byte 0xFF20181B
+	.4byte 0x0D000000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetPassword__12CNESEmulatorFv

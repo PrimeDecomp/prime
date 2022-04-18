@@ -21,6 +21,8 @@ GetAreaLayerCount__16CWorldLayerStateFi:
 /* 80233FB8 00230F18  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 80233FBC 00230F1C  54 00 20 36 */	slwi r0, r0, 4
 /* 80233FC0 00230F20  7C 63 00 2E */	lwzx r3, r3, r0
+.global lbl_80233FC4
+lbl_80233FC4:
 /* 80233FC4 00230F24  4E 80 00 20 */	blr 
 
 .global "InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>"

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803EF670
+lbl_803EF670:
+	# ROM: 0x3EC670
+	.4byte 0
+	.4byte 0
+	.4byte sub_8034a1b0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

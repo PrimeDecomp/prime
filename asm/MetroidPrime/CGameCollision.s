@@ -1,5 +1,62 @@
 .include "macros.inc"
 
+.section .data
+
+
+.global lbl_803E3F80
+lbl_803E3F80:
+	# ROM: 0x3E0F80
+	.4byte lbl_80180554
+	.4byte lbl_80180564
+	.4byte lbl_80180574
+	.4byte lbl_80180584
+	.4byte lbl_80180594
+	.4byte lbl_801805A4
+	.4byte lbl_801805B4
+	.4byte lbl_801805C4
+	.4byte lbl_801805D4
+	.4byte lbl_801805E4
+	.4byte lbl_801805F4
+	.4byte lbl_80180604
+	.4byte lbl_80180614
+	.4byte lbl_80180624
+	.4byte lbl_80180634
+	.4byte lbl_80180644
+	.4byte lbl_80180654
+	.4byte lbl_80180664
+	.4byte lbl_80180674
+	.4byte lbl_80180684
+	.4byte lbl_80180694
+	.4byte lbl_801806A4
+	.4byte lbl_801806B4
+	.4byte lbl_801806C4
+	.4byte lbl_801806D4
+	.4byte lbl_801806E4
+
+.global lbl_803E3FE8
+lbl_803E3FE8:
+	# ROM: 0x3E0FE8
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803E3FF8
+lbl_803E3FF8:
+	# ROM: 0x3E0FF8
+	.4byte 0
+	.4byte 0
+	.4byte Filter__11CBallFilterCFRC18CCollisionInfoListR18CCollisionInfoList
+	.4byte 0
+
+.global lbl_803E4008
+lbl_803E4008:
+	# ROM: 0x3E1008
+	.4byte 0
+	.4byte 0
+	.4byte Filter__12CAABoxFilterCFRC18CCollisionInfoListR18CCollisionInfoList
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_8017fb84
@@ -300,6 +357,8 @@ lbl_8017FED8:
 /* 8017FFF4 0017CF54  90 C1 01 24 */	stw r6, 0x124(r1)
 /* 8017FFF8 0017CF58  90 A1 01 28 */	stw r5, 0x128(r1)
 /* 8017FFFC 0017CF5C  90 01 01 2C */	stw r0, 0x12c(r1)
+.global lbl_80180000
+lbl_80180000:
 /* 80180000 0017CF60  48 12 38 E5 */	bl SetCacheBounds__19CAreaCollisionCacheFRC6CAABox
 /* 80180004 0017CF64  7F 03 C3 78 */	mr r3, r24
 /* 80180008 0017CF68  38 81 01 A8 */	addi r4, r1, 0x1a8

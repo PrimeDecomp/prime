@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DA360
+lbl_803DA360:
+	# ROM: 0x3D7360
+	.4byte lbl_8006FC44
+	.4byte lbl_8006FC4C
+	.4byte lbl_8006FC54
+	.4byte lbl_8006FC5C
+	.4byte lbl_8006FC74
+	.4byte lbl_8006FC74
+	.4byte lbl_8006FC64
+	.4byte lbl_8006FC74
+	.4byte lbl_8006FC6C
+
+.global lbl_803DA384
+lbl_803DA384:
+	# ROM: 0x3D7384
+	.4byte 0
+	.4byte 0
+	.4byte __dt__15CTweakPlayerGunFv
+	
 .section .text, "ax"
 
 .global GetRichochetDamage__15CTweakPlayerGunCF11EWeaponType

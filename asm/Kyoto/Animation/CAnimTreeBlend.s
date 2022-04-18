@@ -1,5 +1,43 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED0D8
+lbl_803ED0D8:
+	# ROM: 0x3EA0D8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CAnimTreeBlendFv
+	.4byte IsCAnimTreeNode__13CAnimTreeNodeCFv
+	.4byte VAdvanceView__14CAnimTreeBlendFRC13CCharAnimTime
+	.4byte VGetTimeRemaining__14CAnimTreeBlendCFv
+	.4byte VGetSteadyStateAnimInfo__14CAnimTreeBlendCFv
+	.4byte VHasOffset__18CAnimTreeTweenBaseCFRC6CSegId
+	.4byte VGetOffset__18CAnimTreeTweenBaseCFRC6CSegId
+	.4byte VGetRotation__18CAnimTreeTweenBaseCFRC6CSegId
+	.4byte VGetBoolPOIList__20CAnimTreeDoubleChildCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
+	.4byte VGetInt32POIList__20CAnimTreeDoubleChildCFRC13CCharAnimTimeP13CInt32POINodeUiUii
+	.4byte VGetParticlePOIList__20CAnimTreeDoubleChildCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
+	.4byte VGetSoundPOIList__20CAnimTreeDoubleChildCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
+	.4byte VGetBoolPOIState__20CAnimTreeDoubleChildCFPCc
+	.4byte VGetInt32POIState__20CAnimTreeDoubleChildCFPCc
+	.4byte VGetParticlePOIState__20CAnimTreeDoubleChildCFPCc
+	.4byte VGetSegStatementSet__18CAnimTreeTweenBaseCFRC10CSegIdListR16CSegStatementSet
+	.4byte VGetSegStatementSet__18CAnimTreeTweenBaseCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
+	.4byte VClone__14CAnimTreeBlendCFv
+	.4byte VSimplified__18CAnimTreeTweenBaseFv
+	.4byte VSetPhase__20CAnimTreeDoubleChildFf
+	.4byte VGetAdvancementResults__20CAnimTreeDoubleChildCFRC13CCharAnimTimeRC13CCharAnimTime
+	.4byte Depth__20CAnimTreeDoubleChildCFv
+	.4byte VGetContributionOfHighestInfluence__20CAnimTreeDoubleChildCFv
+	.4byte VGetNumChildren__20CAnimTreeDoubleChildCFv
+	.4byte VGetBestUnblendedChild__20CAnimTreeDoubleChildCFv
+	.4byte "VGetWeightedReaders__18CAnimTreeTweenBaseFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
+	.4byte VGetRightChildWeight__18CAnimTreeTweenBaseCFv
+	.4byte SetBlendingWeight__14CAnimTreeBlendFf
+	.4byte VReverseSimplified__18CAnimTreeTweenBaseFv
+	.4byte VGetBlendingWeight__14CAnimTreeBlendCFv
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__14CAnimTreeBlendFv

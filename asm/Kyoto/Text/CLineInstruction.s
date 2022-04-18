@@ -1,5 +1,34 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803ED630
+lbl_803ED630:
+	# ROM: 0x3EA630
+	.4byte 0
+	.4byte 0
+	.4byte __dt__16CLineInstructionFv
+	.4byte Invoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte PageInvoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer
+	.4byte "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
+	.4byte GetAssetCount__12CInstructionCFv
+
+.global lbl_803ED64C
+lbl_803ED64C:
+	# ROM: 0x3EA64C
+	.4byte lbl_802FFA04
+	.4byte lbl_802FFA14
+	.4byte lbl_802FFAC8
+	.4byte lbl_802FFA04
+	.4byte lbl_802FFA04
+	.4byte lbl_802FFA4C
+	.4byte lbl_802FFAE8
+	.4byte lbl_802FFA04
+	.4byte lbl_802FFA14
+	.4byte lbl_802FFAC8
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__16CLineInstructionFv

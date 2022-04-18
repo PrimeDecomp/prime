@@ -1,5 +1,31 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803DF448
+lbl_803DF448:
+	# ROM: 0x3DC448
+	.4byte 0
+	.4byte 0
+	.4byte __dt__23CParticleGenInfoGenericFv
+	.4byte AddToRenderer__23CParticleGenInfoGenericFv
+	.4byte Render__23CParticleGenInfoGenericFv
+	.4byte Update__23CParticleGenInfoGenericFfR13CStateManager
+	.4byte SetOrientation__23CParticleGenInfoGenericFRC12CTransform4fR13CStateManager
+	.4byte SetTranslation__23CParticleGenInfoGenericFRC9CVector3fR13CStateManager
+	.4byte SetGlobalOrientation__23CParticleGenInfoGenericFRC12CTransform4fR13CStateManager
+	.4byte SetGlobalTranslation__23CParticleGenInfoGenericFRC9CVector3fR13CStateManager
+	.4byte SetGlobalScale__23CParticleGenInfoGenericFRC9CVector3f
+	.4byte SetParticleEmission__23CParticleGenInfoGenericFbR13CStateManager
+	.4byte IsSystemDeletable__23CParticleGenInfoGenericCFv
+	.4byte GetBounds__23CParticleGenInfoGenericCFv
+	.4byte HasActiveParticles__23CParticleGenInfoGenericCFv
+	.4byte DestroyParticles__23CParticleGenInfoGenericFv
+	.4byte HasLight__23CParticleGenInfoGenericCFv
+	.4byte GetLightId__23CParticleGenInfoGenericCFv
+	.4byte DeleteLight__23CParticleGenInfoGenericFR13CStateManager
+	.4byte SetModulationColor__23CParticleGenInfoGenericFRC6CColor
+
 .section .text, "ax"
 
 .global IsSystemDeletable__23CParticleGenInfoGenericCFv

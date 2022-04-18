@@ -1,5 +1,19 @@
 .include "macros.inc"
 
+.section .data
+
+.global lbl_803E46C8
+lbl_803E46C8:
+	# ROM: 0x3E16C8
+	.4byte 0
+	.4byte 0
+	.4byte __dt__14CFluidPlaneCPUFv
+	.4byte AddRipple__11CFluidPlaneFf9TUniqueIdRC9CVector3fR13CStateManager
+	.4byte AddRipple__11CFluidPlaneFf9TUniqueIdRC9CVector3fRC9CVector3fRC12CScriptWaterR13CStateManagerRC9CVector3f
+	.4byte AddRipple__11CFluidPlaneFRC7CRippleRC12CScriptWaterR13CStateManager
+	.4byte nullsub_209
+	.4byte "Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global RenderCleanup__14CFluidPlaneCPUCFv
