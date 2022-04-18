@@ -10,6 +10,15 @@ lbl_803EC428:
 	.4byte 0x00000002
 	.4byte 0
 
+.section .sbss2, "", @nobits
+# CMovingAABoxComponent
+.global lbl_805AF488
+lbl_805AF488:
+	.skip 0x4
+.global lbl_805AF48C
+lbl_805AF48C:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __ct__Q220CMetroidAreaCollider22CMovingAABoxComponentsFRC6CAABoxRC9CVector3f

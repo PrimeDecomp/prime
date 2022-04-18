@@ -1,5 +1,11 @@
 .include "macros.inc"
 
+.section .sbss2, "", @nobits
+# CProjectedShadow
+.global lbl_805AF480
+lbl_805AF480:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_8029d6c8

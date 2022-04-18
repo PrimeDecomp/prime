@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.section .sbss2, "", @nobits
+# CMorphBallShadow
+.global lbl_805AF470
+lbl_805AF470:
+	.skip 0x4
+.global lbl_805AF474
+lbl_805AF474:
+	.skip 0x4
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AreasValid__16CMorphBallShadowCFRC13CStateManager

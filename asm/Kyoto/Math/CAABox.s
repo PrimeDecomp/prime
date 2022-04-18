@@ -30,6 +30,15 @@ lbl_803EE338:
 	.4byte lbl_80338138
 	.4byte lbl_80338220
 
+.section .sbss2, "", @nobits
+# CAABox
+.global lbl_805AF4A8
+lbl_805AF4A8:
+	.skip 0x4
+.global lbl_805AF4AC
+lbl_805AF4AC:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ClosestPointAlongVector__6CAABoxCFRC9CVector3f

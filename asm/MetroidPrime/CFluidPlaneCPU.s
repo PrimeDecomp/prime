@@ -14,6 +14,12 @@ lbl_803E46C8:
 	.4byte nullsub_209
 	.4byte "Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 
+.section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
+# CFluidPlaneCPU
+.global lbl_805AF460
+lbl_805AF460:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global RenderCleanup__14CFluidPlaneCPUCFv

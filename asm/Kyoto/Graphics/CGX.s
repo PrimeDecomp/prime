@@ -5,7 +5,13 @@
 .global lbl_80479BD0
 lbl_80479BD0:
 	.skip 0xF0
-	
+
+.section .sbss2, "", @nobits
+# CGX
+.global lbl_805AF4A0
+lbl_805AF4A0:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_80307bbc
