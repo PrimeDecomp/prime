@@ -872,9 +872,6 @@ DTORS_O_FILES :=\
 RODATA_O_FILES :=\
 	$(BUILD_DIR)/asm/rodata.o
 
-DATA_O_FILES :=\
-	$(BUILD_DIR)/asm/data.o
-
 SDATA_O_FILES :=\
 	$(BUILD_DIR)/asm/sdata.o
 
@@ -884,5 +881,3 @@ SBSS_O_FILES :=\
 SDATA2_O_FILES :=\
 	$(BUILD_DIR)/asm/sdata2.o
 
-SBSS2_O_FILES :=\
-	$(BUILD_DIR)/asm/sbss2.o
