@@ -10,6 +10,28 @@ lbl_803DFF80:
 	.4byte __dt__16CActorParametersFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7580
+lbl_805A7580:
+	# ROM: 0x3F4F20
+	.4byte 0
+
+.global lbl_805A7584
+lbl_805A7584:
+	# ROM: 0x3F4F24
+	.4byte 0
+
+.global lbl_805A7588
+lbl_805A7588:
+	# ROM: 0x3F4F28
+	.4byte 0
+
+.global lbl_805A758C
+lbl_805A758C:
+	# ROM: 0x3F4F2C
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters

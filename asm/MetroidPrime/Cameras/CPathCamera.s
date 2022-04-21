@@ -36,6 +36,34 @@ lbl_803E0C68:
 	.4byte Reset__11CPathCameraFRC12CTransform4fR13CStateManager
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A76B0
+lbl_805A76B0:
+	# ROM: 0x3F5050
+	.4byte 0x00000013
+
+.global lbl_805A76B4
+lbl_805A76B4:
+	# ROM: 0x3F5054
+	.4byte 0x00000012
+
+.global lbl_805A76B8
+lbl_805A76B8:
+	# ROM: 0x3F5058
+	.4byte 0
+
+.global lbl_805A76BC
+lbl_805A76BC:
+	# ROM: 0x3F505C
+	.4byte 0
+
+.global lbl_805A76C0
+lbl_805A76C0:
+	# ROM: 0x3F5060
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C720

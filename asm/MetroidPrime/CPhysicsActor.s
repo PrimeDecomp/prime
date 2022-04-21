@@ -40,6 +40,19 @@ lbl_803E0628:
 	.4byte GetWeight__13CPhysicsActorCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7630
+lbl_805A7630:
+	# ROM: 0x3F4FD0
+	.4byte 0
+
+.global lbl_805A7634
+lbl_805A7634:
+	# ROM: 0x3F4FD4
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetMaximumCollisionVelocity__13CPhysicsActorCFv

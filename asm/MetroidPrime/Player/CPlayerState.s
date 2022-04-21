@@ -44,6 +44,24 @@ lbl_803DAD40:
 	.4byte lbl_80091C54
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7150
+lbl_805A7150:
+	# ROM: 0x3F4AF0
+	.4byte 0
+
+.global lbl_805A7154
+lbl_805A7154:
+	# ROM: 0x3F4AF4
+	.4byte 0x3E4CCCC5
+
+.global lbl_805A7158
+lbl_805A7158:
+	# ROM: 0x3F4AF8
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetMissileComboChargeFactor__12CPlayerStateFv

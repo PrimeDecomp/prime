@@ -41,6 +41,38 @@ lbl_803DA194:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A6E80
+lbl_805A6E80:
+	# ROM: 0x3F4820
+	.4byte 0
+
+.global lbl_805A6E84
+lbl_805A6E84:
+	# ROM: 0x3F4824
+	.4byte 0
+
+.global lbl_805A6E88
+lbl_805A6E88:
+	# ROM: 0x3F4828
+	.4byte 0
+
+.global lbl_805A6E8C
+lbl_805A6E8C:
+	# ROM: 0x3F482C
+	.4byte 0x3F800000
+
+.global lbl_805A6E90
+lbl_805A6E90:
+	# ROM: 0x3F4830
+	.4byte 0
+
+.global lbl_805A6E94
+lbl_805A6E94:
+	# ROM: 0x3F4834
+	.4byte 0x3F800000
+
 .section .text, "ax"
 
 .global UpdatePerspective__11CGameCameraFf

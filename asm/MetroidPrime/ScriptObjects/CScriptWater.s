@@ -38,6 +38,28 @@ lbl_803DFE70:
 	.4byte InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7548
+lbl_805A7548:
+	# ROM: 0x3F4EE8
+	.4byte 0x01000000
+
+.global lbl_805A754C
+lbl_805A754C:
+	# ROM: 0x3F4EEC
+	.4byte 0x00000013
+
+.global lbl_805A7550
+lbl_805A7550:
+	# ROM: 0x3F4EF0
+	.4byte 0x42F00000
+
+.global lbl_805A7554
+lbl_805A7554:
+	# ROM: 0x3F4EF4
+	.4byte 0x00000007
+
 .section .bss
 
 .global lbl_8046C520

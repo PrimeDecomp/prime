@@ -2,7 +2,6 @@
 
 .section .data
 
-
 .global lbl_803DFF90
 lbl_803DFF90:
 	# ROM: 0x3DCF90
@@ -207,6 +206,55 @@ lbl_803E025C:
 	.4byte lbl_80110710
 	.4byte lbl_80110710
 	.4byte lbl_80110710
+	.4byte 0
+
+.section .sdata
+
+
+.global lbl_805A75C8
+lbl_805A75C8:
+	# ROM: 0x3F4F68
+	.4byte 0x00000013
+
+.global lbl_805A75CC
+lbl_805A75CC:
+	# ROM: 0x3F4F6C
+	.4byte 0x00000013
+
+.global lbl_805A75D0
+lbl_805A75D0:
+	# ROM: 0x3F4F70
+	.4byte 0x00000013
+
+.global lbl_805A75D4
+lbl_805A75D4:
+	# ROM: 0x3F4F74
+	.4byte 0x00000020
+
+.global lbl_805A75D8
+lbl_805A75D8:
+	# ROM: 0x3F4F78
+	.4byte 0x00000023
+
+.global lbl_805A75DC
+lbl_805A75DC:
+	# ROM: 0x3F4F7C
+	.4byte 0x3F800000
+
+.global lbl_805A75E0
+lbl_805A75E0:
+	# ROM: 0x3F4F80
+	.4byte 0x00000021
+
+.global lbl_805A75E4
+lbl_805A75E4:
+	# ROM: 0x3F4F84
+	.4byte 0x00000013
+
+.global lbl_805A75E8
+lbl_805A75E8:
+	# ROM: 0x3F4F88
+	.4byte 0x00000020
 	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0

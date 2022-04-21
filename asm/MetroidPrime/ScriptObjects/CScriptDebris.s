@@ -40,6 +40,134 @@ lbl_803DFD78:
 	.4byte GetWeight__13CPhysicsActorCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A74D8
+lbl_805A74D8:
+	# ROM: 0x3F4E78
+	.4byte 0
+
+.global lbl_805A74DC
+lbl_805A74DC:
+	# ROM: 0x3F4E7C
+	.4byte 0x00000013
+
+.global lbl_805A74E0
+lbl_805A74E0:
+	# ROM: 0x3F4E80
+	.4byte 0x0000002C
+
+.global lbl_805A74E4
+lbl_805A74E4:
+	# ROM: 0x3F4E84
+	.4byte 0x40000000
+
+.global lbl_805A74E8
+lbl_805A74E8:
+	# ROM: 0x3F4E88
+	.4byte 0x00000013
+
+.global lbl_805A74EC
+lbl_805A74EC:
+	# ROM: 0x3F4E8C
+	.4byte 0x0000002C
+
+.global lbl_805A74F0
+lbl_805A74F0:
+	# ROM: 0x3F4E90
+	.4byte 0x00000021
+
+.global lbl_805A74F4
+lbl_805A74F4:
+	# ROM: 0x3F4E94
+	.4byte 0x00000020
+
+.global lbl_805A74F8
+lbl_805A74F8:
+	# ROM: 0x3F4E98
+	.4byte 0x00000023
+
+.global lbl_805A74FC
+lbl_805A74FC:
+	# ROM: 0x3F4E9C
+	.4byte 0x00000013
+
+.global lbl_805A7500
+lbl_805A7500:
+	# ROM: 0x3F4EA0
+	.4byte 0x0000002C
+
+.global lbl_805A7504
+lbl_805A7504:
+	# ROM: 0x3F4EA4
+	.4byte 0x40000000
+
+.global lbl_805A7508
+lbl_805A7508:
+	# ROM: 0x3F4EA8
+	.4byte 0x00000013
+
+.global lbl_805A750C
+lbl_805A750C:
+	# ROM: 0x3F4EAC
+	.4byte 0x0000002C
+
+.global lbl_805A7510
+lbl_805A7510:
+	# ROM: 0x3F4EB0
+	.4byte 0x00000021
+
+.global lbl_805A7514
+lbl_805A7514:
+	# ROM: 0x3F4EB4
+	.4byte 0x00000020
+
+.global lbl_805A7518
+lbl_805A7518:
+	# ROM: 0x3F4EB8
+	.4byte 0x0000002C
+
+.global lbl_805A751C
+lbl_805A751C:
+	# ROM: 0x3F4EBC
+	.4byte 0x00000021
+
+.global lbl_805A7520
+lbl_805A7520:
+	# ROM: 0x3F4EC0
+	.4byte 0x00000020
+
+.global lbl_805A7524
+lbl_805A7524:
+	# ROM: 0x3F4EC4
+	.4byte 0x00000023
+
+.global lbl_805A7528
+lbl_805A7528:
+	# ROM: 0x3F4EC8
+	.4byte 0x00000013
+
+.global lbl_805A752C
+lbl_805A752C:
+	# ROM: 0x3F4ECC
+	.4byte 0x0000002C
+
+.global lbl_805A7530
+lbl_805A7530:
+	# ROM: 0x3F4ED0
+	.4byte 0x00000021
+
+.global lbl_805A7534
+lbl_805A7534:
+	# ROM: 0x3F4ED4
+	.4byte 0x00000020
+
+.global lbl_805A7538
+lbl_805A7538:
+	# ROM: 0x3F4ED8
+	.4byte 0x00000023
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global CollidedWith__13CScriptDebrisFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager

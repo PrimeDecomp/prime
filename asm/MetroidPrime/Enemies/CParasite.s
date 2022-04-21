@@ -194,6 +194,34 @@ lbl_803E3004:
 	.4byte UpdateWalkerAnimation__9CParasiteFR13CStateManagerf
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7850
+lbl_805A7850:
+	# ROM: 0x3F51F0
+	.4byte 0x00000013
+
+.global lbl_805A7854
+lbl_805A7854:
+	# ROM: 0x3F51F4
+	.4byte 0x00000013
+
+.global lbl_805A7858
+lbl_805A7858:
+	# ROM: 0x3F51F8
+	.4byte 0x00000020
+
+.global lbl_805A785C
+lbl_805A785C:
+	# ROM: 0x3F51FC
+	.4byte 0x00000021
+
+.global lbl_805A7860
+lbl_805A7860:
+	# ROM: 0x3F5200
+	.4byte 0x00000021
+	.4byte 0
+
 .section .bss
 .global lbl_8046C770
 lbl_8046C770:

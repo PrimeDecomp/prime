@@ -76,6 +76,48 @@ lbl_803DF2AC:
 	.4byte lbl_800B256C
 	.4byte lbl_800B2238
 
+.section .sdata
+
+.global lbl_805A71F0
+lbl_805A71F0:
+	# ROM: 0x3F4B90
+	.4byte 0x00000013
+
+.global lbl_805A71F4
+lbl_805A71F4:
+	# ROM: 0x3F4B94
+	.4byte 0x0000002B
+
+.global lbl_805A71F8
+lbl_805A71F8:
+	# ROM: 0x3F4B98
+	.4byte 0x00000031
+
+.global lbl_805A71FC
+lbl_805A71FC:
+	# ROM: 0x3F4B9C
+	.4byte 0x0000002A
+
+.global lbl_805A7200
+lbl_805A7200:
+	# ROM: 0x3F4BA0
+	.4byte 0x00000013
+
+.global lbl_805A7204
+lbl_805A7204:
+	# ROM: 0x3F4BA4
+	.4byte 0x00000026
+
+.global lbl_805A7208
+lbl_805A7208:
+	# ROM: 0x3F4BA8
+	.4byte 0x00000014
+
+.global lbl_805A720C
+lbl_805A720C:
+	# ROM: 0x3F4BAC
+	.4byte 0x00000031
+
 .section .text, "ax"
 
 .global Render__15CScriptPlatformCFRC13CStateManager

@@ -1,5 +1,117 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A72C8
+lbl_805A72C8:
+	# ROM: 0x3F4C68
+	.4byte 0x3F800000
+
+.global lbl_805A72CC
+lbl_805A72CC:
+	# ROM: 0x3F4C6C
+	.4byte 0
+
+.global lbl_805A72D0
+lbl_805A72D0:
+	# ROM: 0x3F4C70
+	.4byte 0x3F800000
+
+.global lbl_805A72D4
+lbl_805A72D4:
+	# ROM: 0x3F4C74
+	.4byte 0
+
+.global lbl_805A72D8
+lbl_805A72D8:
+	# ROM: 0x3F4C78
+	.4byte 0x3F800000
+
+.global lbl_805A72DC
+lbl_805A72DC:
+	# ROM: 0x3F4C7C
+	.4byte 0
+
+.global lbl_805A72E0
+lbl_805A72E0:
+	# ROM: 0x3F4C80
+	.4byte 0x3F800000
+
+.global lbl_805A72E4
+lbl_805A72E4:
+	# ROM: 0x3F4C84
+	.4byte 0
+
+.global lbl_805A72E8
+lbl_805A72E8:
+	# ROM: 0x3F4C88
+	.4byte 0x3F800000
+
+.global lbl_805A72EC
+lbl_805A72EC:
+	# ROM: 0x3F4C8C
+	.4byte 0
+
+.global lbl_805A72F0
+lbl_805A72F0:
+	# ROM: 0x3F4C90
+	.4byte 0x3F800000
+
+.global lbl_805A72F4
+lbl_805A72F4:
+	# ROM: 0x3F4C94
+	.4byte 0
+
+.global lbl_805A72F8
+lbl_805A72F8:
+	# ROM: 0x3F4C98
+	.4byte 0x3F800000
+
+.global lbl_805A72FC
+lbl_805A72FC:
+	# ROM: 0x3F4C9C
+	.4byte 0
+
+.global lbl_805A7300
+lbl_805A7300:
+	# ROM: 0x3F4CA0
+	.4byte 0
+
+.global lbl_805A7304
+lbl_805A7304:
+	# ROM: 0x3F4CA4
+	.4byte 0x3F800000
+
+.global lbl_805A7308
+lbl_805A7308:
+	# ROM: 0x3F4CA8
+	.4byte 0
+
+.global lbl_805A730C
+lbl_805A730C:
+	# ROM: 0x3F4CAC
+	.4byte 0x3F800000
+
+.global lbl_805A7310
+lbl_805A7310:
+	# ROM: 0x3F4CB0
+	.4byte 0x3F800000
+
+.global lbl_805A7314
+lbl_805A7314:
+	# ROM: 0x3F4CB4
+	.4byte 0
+
+.global lbl_805A7318
+lbl_805A7318:
+	# ROM: 0x3F4CB8
+	.4byte 0x3E4CCCCD
+
+.global lbl_805A731C
+lbl_805A731C:
+	# ROM: 0x3F4CBC
+	.4byte 0x3F800000
+
 .section .bss
 
 .global lbl_8046C470
@@ -8,7 +120,7 @@ lbl_8046C470:
 .global lbl_8046C47C
 lbl_8046C47C:
 	.skip 0xC
-	
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetRotationSfxPlaying__10CSamusDollFb

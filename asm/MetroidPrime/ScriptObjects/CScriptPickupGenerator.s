@@ -14,6 +14,14 @@ lbl_803E3618:
 	.4byte AcceptScriptMsg__22CScriptPickupGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata
+
+.global lbl_805A78A0
+lbl_805A78A0:
+	# ROM: 0x3F5240
+	.4byte 0x00000001
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__22CScriptPickupGeneratorFR8IVisitor

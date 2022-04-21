@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A76D8
+lbl_805A76D8:
+	# ROM: 0x3F5078
+	.4byte 0
+
+.global lbl_805A76DC
+lbl_805A76DC:
+	# ROM: 0x3F507C
+	.4byte 0x000000FF
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetupRippleMap__18CFluidPlaneManagerFv

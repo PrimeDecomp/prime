@@ -34,6 +34,34 @@ lbl_803E5318:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 
+.section .sdata
+
+.global lbl_805A7CC0
+lbl_805A7CC0:
+	# ROM: 0x3F5660
+	.4byte 0x00000013
+
+.global lbl_805A7CC4
+lbl_805A7CC4:
+	# ROM: 0x3F5664
+	.4byte 0x00000012
+
+.global lbl_805A7CC8
+lbl_805A7CC8:
+	# ROM: 0x3F5668
+	.4byte 0x00000020
+
+.global lbl_805A7CCC
+lbl_805A7CCC:
+	# ROM: 0x3F566C
+	.4byte 0x00000012
+
+.global lbl_805A7CD0
+lbl_805A7CD0:
+	# ROM: 0x3F5670
+	.4byte 0x00000020
+	.4byte 0
+
 .section .bss
 .global lbl_8046C908
 lbl_8046C908:

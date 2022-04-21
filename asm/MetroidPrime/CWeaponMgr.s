@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7278
+lbl_805A7278:
+	# ROM: 0x3F4C18
+	.4byte 0
+
+.global lbl_805A727C
+lbl_805A727C:
+	# ROM: 0x3F4C1C
+	.byte 0x01
+
+.global lbl_805A727D
+lbl_805A727D:
+	# ROM: 0x3F4C1D
+	.byte 0x00
+
+.global lbl_805A727E
+lbl_805A727E:
+	# ROM: 0x3F4C1E
+	.2byte 0x00000100
+
 .section .text, "ax"
 
 .global GetNumActive__10CWeaponMgrCF9TUniqueId11EWeaponType

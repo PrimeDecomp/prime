@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7830
+lbl_805A7830:
+	# ROM: 0x3F51D0
+	.4byte 0x41A00000
+
+.global lbl_805A7834
+lbl_805A7834:
+	# ROM: 0x3F51D4
+	.4byte 0x41A00000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Update__7CFidgetFibbfR13CStateManager

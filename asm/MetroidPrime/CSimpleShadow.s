@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7578
+lbl_805A7578:
+	# ROM: 0x3F4F18
+	.4byte 0x0000001A
+
+.global lbl_805A757C
+lbl_805A757C:
+	# ROM: 0x3F4F1C
+	.4byte 0x00000031
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Valid__13CSimpleShadowCFv

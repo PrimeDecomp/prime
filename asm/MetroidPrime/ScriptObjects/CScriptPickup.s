@@ -40,6 +40,18 @@ lbl_803DF4F8:
 	.4byte GetWeight__13CPhysicsActorCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7280
+lbl_805A7280:
+	# ROM: 0x3F4C20
+	.4byte 0x41F00000
+
+.global lbl_805A7284
+lbl_805A7284:
+	# ROM: 0x3F4C24
+	.4byte 0x40000000
+
 .section .text, "ax"
 
 .global SetSpawned__13CScriptPickupFv

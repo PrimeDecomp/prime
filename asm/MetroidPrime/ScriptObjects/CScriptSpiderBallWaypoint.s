@@ -34,6 +34,14 @@ lbl_803E02C8:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7620
+lbl_805A7620:
+	# ROM: 0x3F4FC0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTouchBounds__25CScriptSpiderBallWaypointCFv

@@ -188,6 +188,54 @@ lbl_803E16CC:
 	.4byte 0
 	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
 
+.section .sdata
+
+.global lbl_805A7718
+lbl_805A7718:
+	# ROM: 0x3F50B8
+	.4byte 0x3F800000
+
+.global lbl_805A771C
+lbl_805A771C:
+	# ROM: 0x3F50BC
+	.4byte 0x3F800000
+
+.global lbl_805A7720
+lbl_805A7720:
+	# ROM: 0x3F50C0
+	.4byte 0x3F800000
+
+.global lbl_805A7724
+lbl_805A7724:
+	# ROM: 0x3F50C4
+	.4byte 0
+
+.global lbl_805A7728
+lbl_805A7728:
+	# ROM: 0x3F50C8
+	.4byte 0
+
+.global lbl_805A772C
+lbl_805A772C:
+	# ROM: 0x3F50CC
+	.4byte 0
+
+.global lbl_805A7730
+lbl_805A7730:
+	# ROM: 0x3F50D0
+	.4byte 0x3F800000
+
+.global lbl_805A7734
+lbl_805A7734:
+	# ROM: 0x3F50D4
+	.4byte 0xFFFFFFFF
+
+.global lbl_805A7738
+lbl_805A7738:
+	# ROM: 0x3F50D8
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__28CBSRestrictedFlyerLocomotionFv

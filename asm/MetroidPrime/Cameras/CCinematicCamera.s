@@ -36,6 +36,19 @@ lbl_803DADF8:
 	.4byte Reset__16CCinematicCameraFRC12CTransform4fR13CStateManager
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7160
+lbl_805A7160:
+	# ROM: 0x3F4B00
+	.4byte 0x00000002
+
+.global lbl_805A7164
+lbl_805A7164:
+	# ROM: 0x3F4B04
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global GetMoveOutofIntoAlpha__16CCinematicCameraCFv

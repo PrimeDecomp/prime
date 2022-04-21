@@ -34,6 +34,15 @@ lbl_803DA118:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A6E78
+lbl_805A6E78:
+	# ROM: 0x3F4818
+	.4byte 0
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global __dt__12CParticleGenFv

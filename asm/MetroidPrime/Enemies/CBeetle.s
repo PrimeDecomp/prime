@@ -226,6 +226,54 @@ lbl_803DFB5C:
 	.4byte lbl_800E7984
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7338
+lbl_805A7338:
+	# ROM: 0x3F4CD8
+	.4byte 0x00000013
+
+.global lbl_805A733C
+lbl_805A733C:
+	# ROM: 0x3F4CDC
+	.4byte 0x00000013
+
+.global lbl_805A7340
+lbl_805A7340:
+	# ROM: 0x3F4CE0
+	.4byte 0
+
+.global lbl_805A7344
+lbl_805A7344:
+	# ROM: 0x3F4CE4
+	.4byte 0x00000021
+
+.global lbl_805A7348
+lbl_805A7348:
+	# ROM: 0x3F4CE8
+	.4byte 0x00000013
+
+.global lbl_805A734C
+lbl_805A734C:
+	# ROM: 0x3F4CEC
+	.4byte 0x00000021
+
+.global lbl_805A7350
+lbl_805A7350:
+	# ROM: 0x3F4CF0
+	.4byte 0x00000013
+
+.global lbl_805A7354
+lbl_805A7354:
+	# ROM: 0x3F4CF4
+	.4byte 0x0000001D
+
+.global lbl_805A7358
+lbl_805A7358:
+	# ROM: 0x3F4CF8
+	.4byte 0x0000001E
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__7CBeetleFv

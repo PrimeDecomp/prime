@@ -1,5 +1,73 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7590
+lbl_805A7590:
+	# ROM: 0x3F4F30
+	.4byte 0x40000000
+
+.global lbl_805A7594
+lbl_805A7594:
+	# ROM: 0x3F4F34
+	.4byte 0
+
+.global lbl_805A7598
+lbl_805A7598:
+	# ROM: 0x3F4F38
+	.4byte 0x3F800000
+
+.global lbl_805A759C
+lbl_805A759C:
+	# ROM: 0x3F4F3C
+	.4byte 0
+
+.global lbl_805A75A0
+lbl_805A75A0:
+	# ROM: 0x3F4F40
+	.4byte 0x3F800000
+
+.global lbl_805A75A4
+lbl_805A75A4:
+	# ROM: 0x3F4F44
+	.4byte 0
+
+.global lbl_805A75A8
+lbl_805A75A8:
+	# ROM: 0x3F4F48
+	.4byte 0x3F800000
+
+.global lbl_805A75AC
+lbl_805A75AC:
+	# ROM: 0x3F4F4C
+	.4byte 0
+
+.global lbl_805A75B0
+lbl_805A75B0:
+	# ROM: 0x3F4F50
+	.4byte 0x3F800000
+
+.global lbl_805A75B4
+lbl_805A75B4:
+	# ROM: 0x3F4F54
+	.4byte 0
+
+.global lbl_805A75B8
+lbl_805A75B8:
+	# ROM: 0x3F4F58
+	.4byte 0x3F800000
+
+.global lbl_805A75BC
+lbl_805A75BC:
+	# ROM: 0x3F4F5C
+	.4byte 0
+
+.global lbl_805A75C0
+lbl_805A75C0:
+	# ROM: 0x3F4F60
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global TryReloadAreaTextures__17CInGameGuiManagerFv

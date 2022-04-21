@@ -34,6 +34,55 @@ lbl_803E51E8:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7C98
+lbl_805A7C98:
+	# ROM: 0x3F5638
+	.4byte 0x00000013
+
+.global lbl_805A7C9C
+lbl_805A7C9C:
+	# ROM: 0x3F563C
+	.4byte 0
+
+.global lbl_805A7CA0
+lbl_805A7CA0:
+	# ROM: 0x3F5640
+	.4byte 0x00000012
+
+.global lbl_805A7CA4
+lbl_805A7CA4:
+	# ROM: 0x3F5644
+	.4byte 0x00000021
+
+.global lbl_805A7CA8
+lbl_805A7CA8:
+	# ROM: 0x3F5648
+	.4byte 0x00000020
+
+.global lbl_805A7CAC
+lbl_805A7CAC:
+	# ROM: 0x3F564C
+	.4byte 0x00000023
+
+.global lbl_805A7CB0
+lbl_805A7CB0:
+	# ROM: 0x3F5650
+	.4byte 0x00000012
+
+.global lbl_805A7CB4
+lbl_805A7CB4:
+	# ROM: 0x3F5654
+	.4byte 0x00000035
+
+.global lbl_805A7CB8
+lbl_805A7CB8:
+	# ROM: 0x3F5658
+	.4byte 0x00000012
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SubdivideAndGenerateParticles__10CIceImpactFR13CStateManagerRC9CVector3fRC9CVector3fRC9CVector3fRC7CSphereRC7CSphere

@@ -14,6 +14,14 @@ lbl_803DFBF0:
 	.4byte AcceptScriptMsg__14CScriptHUDMemoF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata
+
+.global lbl_805A7360
+lbl_805A7360:
+	# ROM: 0x3F4D00
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__14CScriptHUDMemoFR8IVisitor

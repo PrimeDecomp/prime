@@ -10,6 +10,14 @@ lbl_803DAB80:
 	.4byte "__dt__35TObjOwnerDerivedFromIObj<8CMapArea>Fv"
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7010
+lbl_805A7010:
+	# ROM: 0x3F49B0
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C3E0

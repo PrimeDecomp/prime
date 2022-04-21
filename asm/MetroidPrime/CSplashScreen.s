@@ -35,7 +35,18 @@ lbl_803D9A88:
 	.string16 "Interlace mode."
 	.balign 4
 	
-	
+.section .sdata
+
+.global lbl_805A6D90
+lbl_805A6D90:
+	# ROM: 0x3F4730
+	.4byte 0x0000270F
+
+.global lbl_805A6D94
+lbl_805A6D94:
+	# ROM: 0x3F4734
+	.4byte 0x0000270F
+
 .section .text, "ax"
 
 .global __dt__13CSplashScreenFv

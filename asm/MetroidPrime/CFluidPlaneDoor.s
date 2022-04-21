@@ -14,6 +14,14 @@ lbl_803E46E8:
 	.4byte nullsub_209
 	.4byte Render__15CFluidPlaneDoorCFRC13CStateManagerRC6CAABoxRC14CFrustumPlanesRC14CRippleManagerRC9CVector3f
 
+.section .sdata
+
+.global lbl_805A7BB0
+lbl_805A7BB0:
+	# ROM: 0x3F5550
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global nullsub_143

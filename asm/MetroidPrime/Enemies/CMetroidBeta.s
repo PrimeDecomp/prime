@@ -238,6 +238,133 @@ lbl_803E5654:
 	.4byte lbl_801C5D14
 	.4byte lbl_801C5CFC
 
+.section .sdata
+
+.global lbl_805A7CE8
+lbl_805A7CE8:
+	# ROM: 0x3F5688
+	.4byte 0x00000013
+
+.global lbl_805A7CEC
+lbl_805A7CEC:
+	# ROM: 0x3F568C
+	.4byte 0x0000001D
+
+.global lbl_805A7CF0
+lbl_805A7CF0:
+	# ROM: 0x3F5690
+	.4byte 0x0000001E
+
+.global lbl_805A7CF4
+lbl_805A7CF4:
+	# ROM: 0x3F5694
+	.4byte 0x00000021
+
+.global lbl_805A7CF8
+lbl_805A7CF8:
+	# ROM: 0x3F5698
+	.4byte 0
+
+.global lbl_805A7CFC
+lbl_805A7CFC:
+	# ROM: 0x3F569C
+	.4byte 0x3F800000
+
+.global lbl_805A7D00
+lbl_805A7D00:
+	# ROM: 0x3F56A0
+	.4byte 0
+
+.global lbl_805A7D04
+lbl_805A7D04:
+	# ROM: 0x3F56A4
+	.4byte 0x3F800000
+
+.global lbl_805A7D08
+lbl_805A7D08:
+	# ROM: 0x3F56A8
+	.4byte 0x00000013
+
+.global lbl_805A7D0C
+lbl_805A7D0C:
+	# ROM: 0x3F56AC
+	.4byte 0x0000001E
+
+.global lbl_805A7D10
+lbl_805A7D10:
+	# ROM: 0x3F56B0
+	.4byte 0x0000001F
+
+.global lbl_805A7D14
+lbl_805A7D14:
+	# ROM: 0x3F56B4
+	.4byte 0x0000001D
+
+.global lbl_805A7D18
+lbl_805A7D18:
+	# ROM: 0x3F56B8
+	.4byte 0x0000002F
+
+.global lbl_805A7D1C
+lbl_805A7D1C:
+	# ROM: 0x3F56BC
+	.4byte 0x00000020
+
+.global lbl_805A7D20
+lbl_805A7D20:
+	# ROM: 0x3F56C0
+	.4byte 0x00000021
+
+.global lbl_805A7D24
+lbl_805A7D24:
+	# ROM: 0x3F56C4
+	.4byte 0x00000035
+
+.global lbl_805A7D28
+lbl_805A7D28:
+	# ROM: 0x3F56C8
+	.4byte 0x00000015
+
+.global lbl_805A7D2C
+lbl_805A7D2C:
+	# ROM: 0x3F56CC
+	.4byte 0
+
+.global lbl_805A7D30
+lbl_805A7D30:
+	# ROM: 0x3F56D0
+	.4byte 0x3F800000
+
+.global lbl_805A7D34
+lbl_805A7D34:
+	# ROM: 0x3F56D4
+	.4byte 0
+
+.global lbl_805A7D38
+lbl_805A7D38:
+	# ROM: 0x3F56D8
+	.4byte 0x3F800000
+
+.global lbl_805A7D3C
+lbl_805A7D3C:
+	# ROM: 0x3F56DC
+	.byte 0x00
+
+.global lbl_805A7D3D
+lbl_805A7D3D:
+	# ROM: 0x3F56DD
+	.byte 0x7F, 0x00, 0x00
+
+.global lbl_805A7D40
+lbl_805A7D40:
+	# ROM: 0x3F56E0
+	.4byte 0
+
+.global lbl_805A7D44
+lbl_805A7D44:
+	# ROM: 0x3F56E4
+	.4byte 0x00003FFF
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsListening__12CMetroidBetaCFv

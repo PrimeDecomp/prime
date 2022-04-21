@@ -24,6 +24,15 @@ lbl_803DF710:
 	.4byte IsLoaded__11CPlasmaBeamCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7320
+lbl_805A7320:
+	# ROM: 0x3F4CC0
+	.4byte 0
+	.4byte 0
+
+
 .section .bss
 
 .global lbl_8046C488

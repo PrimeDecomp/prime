@@ -1,5 +1,17 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7948
+lbl_805A7948:
+	# ROM: 0x3F52E8
+	.4byte 0
+
+.global lbl_805A794C
+lbl_805A794C:
+	# ROM: 0x3F52EC
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsAnythingSet__13CMapWorldInfoFv

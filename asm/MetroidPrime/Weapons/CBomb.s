@@ -34,6 +34,68 @@ lbl_803DACC0:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7120
+lbl_805A7120:
+	# ROM: 0x3F4AC0
+	.4byte 0x3E4CCCCD
+
+.global lbl_805A7124
+lbl_805A7124:
+	# ROM: 0x3F4AC4
+	.4byte 0x00000013
+
+.global lbl_805A7128
+lbl_805A7128:
+	# ROM: 0x3F4AC8
+	.4byte 0x00000022
+
+.global lbl_805A712C
+lbl_805A712C:
+	# ROM: 0x3F4ACC
+	.4byte 0x00000032
+
+.global lbl_805A7130
+lbl_805A7130:
+	# ROM: 0x3F4AD0
+	.4byte 0x00000023
+
+.global lbl_805A7134
+lbl_805A7134:
+	# ROM: 0x3F4AD4
+	.4byte 0x00000024
+
+.global lbl_805A7138
+lbl_805A7138:
+	# ROM: 0x3F4AD8
+	.4byte 0x00000023
+
+.global lbl_805A713C
+lbl_805A713C:
+	# ROM: 0x3F4ADC
+	.4byte 0x00000024
+
+.global lbl_805A7140
+lbl_805A7140:
+	# ROM: 0x3F4AE0
+	.4byte 0x00000013
+
+.global lbl_805A7144
+lbl_805A7144:
+	# ROM: 0x3F4AE4
+	.4byte 0x00000021
+
+.global lbl_805A7148
+lbl_805A7148:
+	# ROM: 0x3F4AE8
+	.4byte 0x00000020
+
+.global lbl_805A714C
+lbl_805A714C:
+	# ROM: 0x3F4AEC
+	.4byte 0x00000012
+
 .section .bss
 
 .global lbl_8046C420

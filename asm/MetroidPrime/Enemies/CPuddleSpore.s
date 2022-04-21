@@ -213,6 +213,15 @@ lbl_803E20C4:
 	.4byte PhazeOut__10CPatternedFR13CStateManager
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 
+.section .sdata
+
+.global lbl_805A77A0
+lbl_805A77A0:
+	# ROM: 0x3F5140
+	.4byte 0x00000010
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__12CPuddleSporeFv

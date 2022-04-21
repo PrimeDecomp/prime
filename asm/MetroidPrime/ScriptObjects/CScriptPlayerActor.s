@@ -80,6 +80,19 @@ lbl_803E4C64:
 	.4byte lbl_801ABB78
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7C38
+lbl_805A7C38:
+	# ROM: 0x3F55D8
+	.4byte 0x3E800000
+
+.global lbl_805A7C3C
+lbl_805A7C3C:
+	# ROM: 0x3F55DC
+	.4byte 0x40000000
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__18CScriptPlayerActorFv

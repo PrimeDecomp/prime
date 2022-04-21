@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7560
+lbl_805A7560:
+	# ROM: 0x3F4F00
+	.4byte 0x01000000
+
+.global lbl_805A7564
+lbl_805A7564:
+	# ROM: 0x3F4F04
+	.4byte 0x00000013
+
+.global lbl_805A7568
+lbl_805A7568:
+	# ROM: 0x3F4F08
+	.4byte 0x00000023
+
+.global lbl_805A756C
+lbl_805A756C:
+	# ROM: 0x3F4F0C
+	.4byte 0x00000012
+
+.global lbl_805A7570
+lbl_805A7570:
+	# ROM: 0x3F4F10
+	.4byte 0x0000001A
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global BuildConstantAmbientLighting__12CActorLightsFv

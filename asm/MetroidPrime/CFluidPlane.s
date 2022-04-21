@@ -14,6 +14,25 @@ lbl_803E0CE0:
 	.4byte nullsub_209
 	.4byte "Render__11CFluidPlaneCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 
+.section .sdata
+
+.global lbl_805A76C8
+lbl_805A76C8:
+	# ROM: 0x3F5068
+	.4byte 0x3F800000
+
+.global lbl_805A76CC
+lbl_805A76CC:
+	# ROM: 0x3F506C
+	.4byte 0
+
+.global lbl_805A76D0
+lbl_805A76D0:
+	# ROM: 0x3F5070
+	.4byte 0x3F800000
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global nullsub_209

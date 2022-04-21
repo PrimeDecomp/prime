@@ -209,6 +209,48 @@ lbl_803E1350:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A76F8
+lbl_805A76F8:
+	# ROM: 0x3F5098
+	.4byte 0x00000015
+
+.global lbl_805A76FC
+lbl_805A76FC:
+	# ROM: 0x3F509C
+	.4byte 0x00000016
+
+.global lbl_805A7700
+lbl_805A7700:
+	# ROM: 0x3F50A0
+	.4byte 0x00000017
+
+.global lbl_805A7704
+lbl_805A7704:
+	# ROM: 0x3F50A4
+	.4byte 0x00000018
+
+.global lbl_805A7708
+lbl_805A7708:
+	# ROM: 0x3F50A8
+	.4byte 0x00000005
+
+.global lbl_805A770C
+lbl_805A770C:
+	# ROM: 0x3F50AC
+	.byte 0x01
+
+.global lbl_805A770D
+lbl_805A770D:
+	# ROM: 0x3F50AD
+	.byte 0x00
+
+.global lbl_805A770E
+lbl_805A770E:
+	# ROM: 0x3F50AE
+	.2byte 0x00000100
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetupRestrictedFlyerBodyStates__14CBodyStateInfoFiR6CActor

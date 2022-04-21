@@ -77,7 +77,29 @@ lbl_803D9F1C:
 	.4byte lbl_8005381C
 	.4byte lbl_80053778
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A6E68
+lbl_805A6E68:
+	# ROM: 0x3F4808
+	.4byte 0x00000013
+
+.global lbl_805A6E6C
+lbl_805A6E6C:
+	# ROM: 0x3F480C
+	.4byte 0xFFFF0000
+
+.global lbl_805A6E70
+lbl_805A6E70:
+	# ROM: 0x3F4810
+	.4byte 0
+
+.global lbl_805A6E74
+lbl_805A6E74:
+	# ROM: 0x3F4814
+	.4byte 0x437F0000
+
 .section .text, "ax"
 
 .global UpdateSfxEmitters__6CActorFv

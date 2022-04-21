@@ -28,6 +28,24 @@ lbl_803DFCE4:
 	.4byte lbl_800EC21C
 	.4byte lbl_800EC234
 
+.section .sdata
+
+.global lbl_805A73D8
+lbl_805A73D8:
+	# ROM: 0x3F4D78
+	.4byte 0
+
+.global lbl_805A73DC
+lbl_805A73DC:
+	# ROM: 0x3F4D7C
+	.4byte 0
+
+.global lbl_805A73E0
+lbl_805A73E0:
+	# ROM: 0x3F4D80
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FreePersistentFbTexture__15CCameraBlurPassFv

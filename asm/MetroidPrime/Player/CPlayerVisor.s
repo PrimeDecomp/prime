@@ -1,5 +1,67 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A75F0
+lbl_805A75F0:
+	# ROM: 0x3F4F90
+	.4byte 0
+
+.global lbl_805A75F4
+lbl_805A75F4:
+	# ROM: 0x3F4F94
+	.4byte 0x3F800000
+
+.global lbl_805A75F8
+lbl_805A75F8:
+	# ROM: 0x3F4F98
+	.4byte 0
+
+.global lbl_805A75FC
+lbl_805A75FC:
+	# ROM: 0x3F4F9C
+	.4byte 0
+
+.global lbl_805A7600
+lbl_805A7600:
+	# ROM: 0x3F4FA0
+	.4byte 0
+
+.global lbl_805A7604
+lbl_805A7604:
+	# ROM: 0x3F4FA4
+	.4byte 0x3F800000
+
+.global lbl_805A7608
+lbl_805A7608:
+	# ROM: 0x3F4FA8
+	.4byte 0x3F800000
+
+.global lbl_805A760C
+lbl_805A760C:
+	# ROM: 0x3F4FAC
+	.4byte 0
+
+.global lbl_805A7610
+lbl_805A7610:
+	# ROM: 0x3F4FB0
+	.4byte 0
+
+.global lbl_805A7614
+lbl_805A7614:
+	# ROM: 0x3F4FB4
+	.4byte 0x3F800000
+
+.global lbl_805A7618
+lbl_805A7618:
+	# ROM: 0x3F4FB8
+	.4byte 0
+
+.global lbl_805A761C
+lbl_805A761C:
+	# ROM: 0x3F4FBC
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FindEmptyInactiveScanTarget__12CPlayerVisorCFv
