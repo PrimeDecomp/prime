@@ -23,7 +23,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CMainFlow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMFGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAutoSave.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CCredits.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPlayMovie.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSplashScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInstruction.o\
@@ -58,7 +57,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CTransitionDatabaseGame.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayerControl.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakPlayerGun.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreenBase.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPauseScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGui.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptActor.o\

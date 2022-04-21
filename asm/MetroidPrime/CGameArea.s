@@ -53,7 +53,40 @@ lbl_803DA26C:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A6E98
+lbl_805A6E98:
+	# ROM: 0x3F4838
+	.4byte 0x40A00000
+
+.global lbl_805A6E9C
+lbl_805A6E9C:
+	# ROM: 0x3F483C
+	.4byte 0
+
+.global lbl_805A6EA0
+lbl_805A6EA0:
+	# ROM: 0x3F4840
+	.4byte 0
+
+.global lbl_805A6EA4
+lbl_805A6EA4:
+	# ROM: 0x3F4844
+	.4byte 0
+
+.global lbl_805A6EA8
+lbl_805A6EA8:
+	# ROM: 0x3F4848
+	.4byte 0
+	.4byte 0
+
+.global lbl_805A6EB0
+lbl_805A6EB0:
+	# ROM: 0x3F4850
+	.4byte 0
+
 .section .text, "ax"
 
 .global "reserve__Q24rstl45vector<9CVector3f,Q24rstl17rmemory_allocator>Fi"

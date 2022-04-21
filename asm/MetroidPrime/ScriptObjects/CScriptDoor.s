@@ -77,6 +77,44 @@ lbl_803DAAFC:
 	.4byte lbl_8007E99C
 	.4byte lbl_8007E8B8
 
+.section .sdata
+
+.global lbl_805A6FF0
+lbl_805A6FF0:
+	# ROM: 0x3F4990
+	.4byte 0x00000013
+
+.global lbl_805A6FF4
+lbl_805A6FF4:
+	# ROM: 0x3F4994
+	.4byte 0x0000002B
+
+.global lbl_805A6FF8
+lbl_805A6FF8:
+	# ROM: 0x3F4998
+	.4byte 0x00000029
+
+.global lbl_805A6FFC
+lbl_805A6FFC:
+	# ROM: 0x3F499C
+	.4byte 0x0000002B
+
+.global lbl_805A7000
+lbl_805A7000:
+	# ROM: 0x3F49A0
+	.4byte 0x0000002A
+
+.global lbl_805A7004
+lbl_805A7004:
+	# ROM: 0x3F49A4
+	.4byte 0x00000013
+
+.global lbl_805A7008
+lbl_805A7008:
+	# ROM: 0x3F49A8
+	.4byte 0x00000029
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__11CScriptDoorFv

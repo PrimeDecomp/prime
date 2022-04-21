@@ -1,5 +1,61 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7A68
+lbl_805A7A68:
+	# ROM: 0x3F5408
+	.4byte 0x3F7AE148
+
+.global lbl_805A7A6C
+lbl_805A7A6C:
+	# ROM: 0x3F540C
+	.4byte 0x00000013
+
+.global lbl_805A7A70
+lbl_805A7A70:
+	# ROM: 0x3F5410
+	.4byte 0x3BA3D70A
+
+.global lbl_805A7A74
+lbl_805A7A74:
+	# ROM: 0x3F5414
+	.4byte 0x3CA3D70A
+
+.global lbl_805A7A78
+lbl_805A7A78:
+	# ROM: 0x3F5418
+	.4byte 0x3F000000
+
+.global lbl_805A7A7C
+lbl_805A7A7C:
+	# ROM: 0x3F541C
+	.4byte 0
+
+.global lbl_805A7A80
+lbl_805A7A80:
+	# ROM: 0x3F5420
+	.4byte 0
+	.4byte 0
+
+.global lbl_805A7A88
+lbl_805A7A88:
+	# ROM: 0x3F5428
+	.4byte 0
+	.4byte 0
+
+.global lbl_805A7A90
+lbl_805A7A90:
+	# ROM: 0x3F5430
+	.4byte 0
+	.4byte 0
+
+.global lbl_805A7A98
+lbl_805A7A98:
+	# ROM: 0x3F5438
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "MoveObjectAnalytical__15CGroundMovementFR13CStateManagerR13CPhysicsActorfRCQ24rstl32reserved_vector<9TUniqueId,1024>R19CAreaCollisionCacheRfRCQ215CGroundMovement16SMovementOptions"

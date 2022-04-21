@@ -72,6 +72,24 @@ lbl_803DF194:
 	.4byte lbl_800B0474
 	.4byte lbl_800B0510
 
+.section .sdata
+
+.global lbl_805A71E0
+lbl_805A71E0:
+	# ROM: 0x3F4B80
+	.4byte 0
+
+.global lbl_805A71E4
+lbl_805A71E4:
+	# ROM: 0x3F4B84
+	.4byte 0x00000013
+
+.global lbl_805A71E8
+lbl_805A71E8:
+	# ROM: 0x3F4B88
+	.4byte 0x00000012
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C438

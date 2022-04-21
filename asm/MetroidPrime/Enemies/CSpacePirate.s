@@ -405,6 +405,119 @@ lbl_803E0BE0:
 	.4byte PreRender__14CPirateRagDollFRC9CVector3fR10CModelData
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7650
+lbl_805A7650:
+	# ROM: 0x3F4FF0
+	.4byte 0x00000013
+
+.global lbl_805A7654
+lbl_805A7654:
+	# ROM: 0x3F4FF4
+	.byte 0xFF
+
+.global lbl_805A7655
+lbl_805A7655:
+	# ROM: 0x3F4FF5
+	.byte 0xFF, 0x00, 0x00
+
+.global lbl_805A7658
+lbl_805A7658:
+	# ROM: 0x3F4FF8
+	.4byte 0x42FE0000
+
+.global lbl_805A765C
+lbl_805A765C:
+	# ROM: 0x3F4FFC
+	.4byte 0x0000001C
+
+.global lbl_805A7660
+lbl_805A7660:
+	# ROM: 0x3F5000
+	.4byte 0
+
+.global lbl_805A7664
+lbl_805A7664:
+	# ROM: 0x3F5004
+	.4byte 0x3F800000
+
+.global lbl_805A7668
+lbl_805A7668:
+	# ROM: 0x3F5008
+	.4byte 0x00000023
+
+.global lbl_805A766C
+lbl_805A766C:
+	# ROM: 0x3F500C
+	.4byte 0x00000013
+
+.global lbl_805A7670
+lbl_805A7670:
+	# ROM: 0x3F5010
+	.4byte 0x00000020
+
+.global lbl_805A7674
+lbl_805A7674:
+	# ROM: 0x3F5014
+	.4byte 0x00000012
+
+.global lbl_805A7678
+lbl_805A7678:
+	# ROM: 0x3F5018
+	.4byte 0x00000030
+
+.global lbl_805A767C
+lbl_805A767C:
+	# ROM: 0x3F501C
+	.4byte 0
+
+.global lbl_805A7680
+lbl_805A7680:
+	# ROM: 0x3F5020
+	.4byte 0x3F800000
+
+.global lbl_805A7684
+lbl_805A7684:
+	# ROM: 0x3F5024
+	.4byte 0x00000013
+
+.global lbl_805A7688
+lbl_805A7688:
+	# ROM: 0x3F5028
+	.4byte 0x00000020
+
+.global lbl_805A768C
+lbl_805A768C:
+	# ROM: 0x3F502C
+	.4byte 0x00000012
+
+.global lbl_805A7690
+lbl_805A7690:
+	# ROM: 0x3F5030
+	.4byte 0
+
+.global lbl_805A7694
+lbl_805A7694:
+	# ROM: 0x3F5034
+	.4byte 0
+
+.global lbl_805A7698
+lbl_805A7698:
+	# ROM: 0x3F5038
+	.4byte 0
+
+.global lbl_805A769C
+lbl_805A769C:
+	# ROM: 0x3F503C
+	.4byte 0
+
+.global lbl_805A76A0
+lbl_805A76A0:
+	# ROM: 0x3F5040
+	.4byte 0
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046C570

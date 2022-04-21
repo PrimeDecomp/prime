@@ -1,5 +1,53 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A79E0
+lbl_805A79E0:
+	# ROM: 0x3F5380
+	.4byte 0
+
+.global lbl_805A79E4
+lbl_805A79E4:
+	# ROM: 0x3F5384
+	.4byte 0
+
+.global lbl_805A79E8
+lbl_805A79E8:
+	# ROM: 0x3F5388
+	.4byte 0x3F800000
+
+.global lbl_805A79EC
+lbl_805A79EC:
+	# ROM: 0x3F538C
+	.4byte 0
+
+.global lbl_805A79F0
+lbl_805A79F0:
+	# ROM: 0x3F5390
+	.4byte 0
+
+.global lbl_805A79F4
+lbl_805A79F4:
+	# ROM: 0x3F5394
+	.4byte 0x3F800000
+
+.global lbl_805A79F8
+lbl_805A79F8:
+	# ROM: 0x3F5398
+	.4byte 0
+
+.global lbl_805A79FC
+lbl_805A79FC:
+	# ROM: 0x3F539C
+	.4byte 0x3F800000
+
+.global lbl_805A7A00
+lbl_805A7A00:
+	# ROM: 0x3F53A0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetDownloadFraction__12CScanDisplayFif

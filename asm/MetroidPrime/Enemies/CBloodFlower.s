@@ -2,7 +2,6 @@
 
 .section .data
 
-
 .global lbl_803E0338
 lbl_803E0338:
 	# ROM: 0x3DD338
@@ -207,6 +206,13 @@ lbl_803E061C:
 	.4byte 0
 	.4byte __dt__17CBCAdditiveAimCmd
 
+.section .sdata
+
+.global lbl_805A7628
+lbl_805A7628:
+	# ROM: 0x3F4FC8
+	.4byte 0x00000013
+	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

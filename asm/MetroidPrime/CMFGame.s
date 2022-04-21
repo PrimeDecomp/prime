@@ -49,6 +49,24 @@ lbl_803D99D4:
 	.4byte Draw__7CMFGameCFv
 	.4byte PreDraw__6CIOWinCFv
 
+.section .sdata
+
+.global lbl_805A6D48
+lbl_805A6D48:
+	# ROM: 0x3F46E8
+	.4byte 0x3F800000
+
+.global lbl_805A6D4C
+lbl_805A6D4C:
+	# ROM: 0x3F46EC
+	.4byte 0x0000000A
+
+.global lbl_805A6D50
+lbl_805A6D50:
+	# ROM: 0x3F46F0
+	.4byte 0x000003E8
+	.4byte 0
+
 .section .rodata
 .global lbl_803CCAB8
 lbl_803CCAB8:

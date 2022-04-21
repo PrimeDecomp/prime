@@ -33,6 +33,15 @@ lbl_803DF688:
 	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 
+.section .sdata
+
+.global lbl_805A7298
+lbl_805A7298:
+	# ROM: 0x3F4C38
+	.4byte 0
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__17CScriptCameraHintFR8IVisitor

@@ -1,5 +1,68 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7220
+lbl_805A7220:
+	# ROM: 0x3F4BC0
+	.byte 0x01
+
+.global lbl_805A7221
+lbl_805A7221:
+	# ROM: 0x3F4BC1
+	.byte 0x00
+
+.global lbl_805A7222
+lbl_805A7222:
+	# ROM: 0x3F4BC2
+	.byte 0x01
+
+.global lbl_805A7223
+lbl_805A7223:
+	# ROM: 0x3F4BC3
+	.byte 0x01
+
+.global lbl_805A7224
+lbl_805A7224:
+	# ROM: 0x3F4BC4
+	.byte 0x00
+
+.global lbl_805A7225
+lbl_805A7225:
+	# ROM: 0x3F4BC5
+	.byte 0x01
+
+.global lbl_805A7226
+lbl_805A7226:
+	# ROM: 0x3F4BC6
+	.byte 0x01
+
+.global lbl_805A7227
+lbl_805A7227:
+	# ROM: 0x3F4BC7
+	.byte 0x00
+
+.global lbl_805A7228
+lbl_805A7228:
+	# ROM: 0x3F4BC8
+	.byte 0x01
+
+.global lbl_805A7229
+lbl_805A7229:
+	# ROM: 0x3F4BC9
+	.byte 0x01
+
+.global lbl_805A722A
+lbl_805A722A:
+	# ROM: 0x3F4BCA
+	.byte 0x00
+
+.global lbl_805A722B
+lbl_805A722B:
+	# ROM: 0x3F4BCB
+	.byte 0x01
+	.4byte 0
+
 .section .text, "ax"
 
 .global "SetModulationColorAllActiveEffectsForParticleDB__17CParticleDatabaseFRC6CColorRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>"

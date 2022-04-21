@@ -186,6 +186,28 @@ lbl_803E3348:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7878
+lbl_805A7878:
+	# ROM: 0x3F5218
+	.4byte 0x00000013
+
+.global lbl_805A787C
+lbl_805A787C:
+	# ROM: 0x3F521C
+	.4byte 0x00000026
+
+.global lbl_805A7880
+lbl_805A7880:
+	# ROM: 0x3F5220
+	.4byte 0x00000014
+
+.global lbl_805A7884
+lbl_805A7884:
+	# ROM: 0x3F5224
+	.4byte 0x00000031
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global RemovePlatform__7CRipperFR13CStateManager

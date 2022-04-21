@@ -56,6 +56,318 @@ lbl_803DAC28:
 	.4byte __dt__15CCameraColliderFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7018
+lbl_805A7018:
+	# ROM: 0x3F49B8
+	.4byte 0
+
+.global lbl_805A701C
+lbl_805A701C:
+	# ROM: 0x3F49BC
+	.4byte 0x3F800000
+
+.global lbl_805A7020
+lbl_805A7020:
+	# ROM: 0x3F49C0
+	.4byte 0x00000013
+
+.global lbl_805A7024
+lbl_805A7024:
+	# ROM: 0x3F49C4
+	.4byte 0x00000012
+
+.global lbl_805A7028
+lbl_805A7028:
+	# ROM: 0x3F49C8
+	.4byte 0x00000020
+
+.global lbl_805A702C
+lbl_805A702C:
+	# ROM: 0x3F49CC
+	.4byte 0x00000021
+
+.global lbl_805A7030
+lbl_805A7030:
+	# ROM: 0x3F49D0
+	.4byte 0x00000015
+
+.global lbl_805A7034
+lbl_805A7034:
+	# ROM: 0x3F49D4
+	.4byte 0
+
+.global lbl_805A7038
+lbl_805A7038:
+	# ROM: 0x3F49D8
+	.4byte 0
+
+.global lbl_805A703C
+lbl_805A703C:
+	# ROM: 0x3F49DC
+	.4byte 0
+
+.global lbl_805A7040
+lbl_805A7040:
+	# ROM: 0x3F49E0
+	.4byte 0x3F800000
+
+.global lbl_805A7044
+lbl_805A7044:
+	# ROM: 0x3F49E4
+	.4byte 0x00000013
+
+.global lbl_805A7048
+lbl_805A7048:
+	# ROM: 0x3F49E8
+	.4byte 0x00000013
+
+.global lbl_805A704C
+lbl_805A704C:
+	# ROM: 0x3F49EC
+	.4byte 0x00000012
+
+.global lbl_805A7050
+lbl_805A7050:
+	# ROM: 0x3F49F0
+	.4byte 0x00000020
+
+.global lbl_805A7054
+lbl_805A7054:
+	# ROM: 0x3F49F4
+	.4byte 0x00000021
+
+.global lbl_805A7058
+lbl_805A7058:
+	# ROM: 0x3F49F8
+	.4byte 0x00000015
+
+.global lbl_805A705C
+lbl_805A705C:
+	# ROM: 0x3F49FC
+	.4byte 0x00000013
+
+.global lbl_805A7060
+lbl_805A7060:
+	# ROM: 0x3F4A00
+	.4byte 0x00000013
+
+.global lbl_805A7064
+lbl_805A7064:
+	# ROM: 0x3F4A04
+	.4byte 0x00000012
+
+.global lbl_805A7068
+lbl_805A7068:
+	# ROM: 0x3F4A08
+	.4byte 0x00000020
+
+.global lbl_805A706C
+lbl_805A706C:
+	# ROM: 0x3F4A0C
+	.4byte 0x00000021
+
+.global lbl_805A7070
+lbl_805A7070:
+	# ROM: 0x3F4A10
+	.4byte 0x00000015
+
+.global lbl_805A7074
+lbl_805A7074:
+	# ROM: 0x3F4A14
+	.4byte 0
+
+.global lbl_805A7078
+lbl_805A7078:
+	# ROM: 0x3F4A18
+	.4byte 0x3F800000
+
+.global lbl_805A707C
+lbl_805A707C:
+	# ROM: 0x3F4A1C
+	.4byte 0
+
+.global lbl_805A7080
+lbl_805A7080:
+	# ROM: 0x3F4A20
+	.4byte 0x3F800000
+
+.global lbl_805A7084
+lbl_805A7084:
+	# ROM: 0x3F4A24
+	.4byte 0
+
+.global lbl_805A7088
+lbl_805A7088:
+	# ROM: 0x3F4A28
+	.4byte 0
+
+.global lbl_805A708C
+lbl_805A708C:
+	# ROM: 0x3F4A2C
+	.4byte 0x3F800000
+
+.global lbl_805A7090
+lbl_805A7090:
+	# ROM: 0x3F4A30
+	.4byte 0
+
+.global lbl_805A7094
+lbl_805A7094:
+	# ROM: 0x3F4A34
+	.4byte 0x3F800000
+
+.global lbl_805A7098
+lbl_805A7098:
+	# ROM: 0x3F4A38
+	.4byte 0x0000001F
+
+.global lbl_805A709C
+lbl_805A709C:
+	# ROM: 0x3F4A3C
+	.4byte 0x0000001D
+
+.global lbl_805A70A0
+lbl_805A70A0:
+	# ROM: 0x3F4A40
+	.4byte 0
+
+.global lbl_805A70A4
+lbl_805A70A4:
+	# ROM: 0x3F4A44
+	.4byte 0x3F800000
+
+.global lbl_805A70A8
+lbl_805A70A8:
+	# ROM: 0x3F4A48
+	.4byte 0
+
+.global lbl_805A70AC
+lbl_805A70AC:
+	# ROM: 0x3F4A4C
+	.4byte 0x3F800000
+
+.global lbl_805A70B0
+lbl_805A70B0:
+	# ROM: 0x3F4A50
+	.4byte 0
+
+.global lbl_805A70B4
+lbl_805A70B4:
+	# ROM: 0x3F4A54
+	.4byte 0x3F800000
+
+.global lbl_805A70B8
+lbl_805A70B8:
+	# ROM: 0x3F4A58
+	.4byte 0
+
+.global lbl_805A70BC
+lbl_805A70BC:
+	# ROM: 0x3F4A5C
+	.4byte 0
+
+.global lbl_805A70C0
+lbl_805A70C0:
+	# ROM: 0x3F4A60
+	.4byte 0x3F800000
+
+.global lbl_805A70C4
+lbl_805A70C4:
+	# ROM: 0x3F4A64
+	.4byte 0x00000013
+
+.global lbl_805A70C8
+lbl_805A70C8:
+	# ROM: 0x3F4A68
+	.4byte 0x00000020
+
+.global lbl_805A70CC
+lbl_805A70CC:
+	# ROM: 0x3F4A6C
+	.4byte 0x00000015
+
+.global lbl_805A70D0
+lbl_805A70D0:
+	# ROM: 0x3F4A70
+	.4byte 0x00000012
+
+.global lbl_805A70D4
+lbl_805A70D4:
+	# ROM: 0x3F4A74
+	.4byte 0x0000001B
+
+.global lbl_805A70D8
+lbl_805A70D8:
+	# ROM: 0x3F4A78
+	.4byte 0x0000001A
+
+.global lbl_805A70DC
+lbl_805A70DC:
+	# ROM: 0x3F4A7C
+	.4byte 0x00000015
+
+.global lbl_805A70E0
+lbl_805A70E0:
+	# ROM: 0x3F4A80
+	.4byte 0x00000013
+
+.global lbl_805A70E4
+lbl_805A70E4:
+	# ROM: 0x3F4A84
+	.4byte 0x00000012
+
+.global lbl_805A70E8
+lbl_805A70E8:
+	# ROM: 0x3F4A88
+	.4byte 0x00000020
+
+.global lbl_805A70EC
+lbl_805A70EC:
+	# ROM: 0x3F4A8C
+	.4byte 0x00000021
+
+.global lbl_805A70F0
+lbl_805A70F0:
+	# ROM: 0x3F4A90
+	.4byte 0x00000015
+
+.global lbl_805A70F4
+lbl_805A70F4:
+	# ROM: 0x3F4A94
+	.4byte 0x00000013
+
+.global lbl_805A70F8
+lbl_805A70F8:
+	# ROM: 0x3F4A98
+	.4byte 0x0000001F
+
+.global lbl_805A70FC
+lbl_805A70FC:
+	# ROM: 0x3F4A9C
+	.4byte 0x0000001E
+
+.global lbl_805A7100
+lbl_805A7100:
+	# ROM: 0x3F4AA0
+	.4byte 0x00000012
+
+.global lbl_805A7104
+lbl_805A7104:
+	# ROM: 0x3F4AA4
+	.4byte 0x00000020
+
+.global lbl_805A7108
+lbl_805A7108:
+	# ROM: 0x3F4AA8
+	.4byte 0x00000021
+
+.global lbl_805A710C
+lbl_805A710C:
+	# ROM: 0x3F4AAC
+	.4byte 0x00000015
+
 .section .bss
 
 .global lbl_8046C408

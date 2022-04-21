@@ -1,5 +1,18 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7328
+lbl_805A7328:
+	# ROM: 0x3F4CC8
+	.byte 0x00
+
+.global lbl_805A7329
+lbl_805A7329:
+	# ROM: 0x3F4CC9
+	.balign 4
+	.4byte 0
+
 .section .text, "ax"
 
 .global HasObject__14CScriptMailboxCF9TEditorId

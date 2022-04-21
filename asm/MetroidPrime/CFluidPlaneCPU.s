@@ -14,6 +14,34 @@ lbl_803E46C8:
 	.4byte nullsub_209
 	.4byte "Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 
+.section .sdata
+
+.global lbl_805A7B98
+lbl_805A7B98:
+	# ROM: 0x3F5538
+	.4byte 0x00000800
+
+.global lbl_805A7B9C
+lbl_805A7B9C:
+	# ROM: 0x3F553C
+	.4byte 0
+
+.global lbl_805A7BA0
+lbl_805A7BA0:
+	# ROM: 0x3F5540
+	.4byte 0
+
+.global lbl_805A7BA4
+lbl_805A7BA4:
+	# ROM: 0x3F5544
+	.4byte 0
+
+.global lbl_805A7BA8
+lbl_805A7BA8:
+	# ROM: 0x3F5548
+	.4byte 0x00000007
+	.4byte 0
+
 .section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
 # CFluidPlaneCPU
 .global lbl_805AF460

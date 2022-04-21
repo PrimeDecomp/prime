@@ -186,6 +186,18 @@ lbl_803E0DE0:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A76F0
+lbl_805A76F0:
+	# ROM: 0x3F5090
+	.4byte 0x00000013
+
+.global lbl_805A76F4
+lbl_805A76F4:
+	# ROM: 0x3F5094
+	.4byte 0x0000001A
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Attack__11CFlickerBatFR13CStateManager9EStateMsgf

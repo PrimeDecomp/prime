@@ -266,6 +266,74 @@ lbl_803E4A54:
 	.4byte lbl_801A570C
 	.4byte lbl_801A56F4
 
+.section .sdata
+
+.global lbl_805A7BB8
+lbl_805A7BB8:
+	# ROM: 0x3F5558
+	.4byte 0x00000013
+
+.global lbl_805A7BBC
+lbl_805A7BBC:
+	# ROM: 0x3F555C
+	.4byte 0
+
+.global lbl_805A7BC0
+lbl_805A7BC0:
+	# ROM: 0x3F5560
+	.4byte 0
+
+.global lbl_805A7BC4
+lbl_805A7BC4:
+	# ROM: 0x3F5564
+	.4byte 0x00000023
+
+.global lbl_805A7BC8
+lbl_805A7BC8:
+	# ROM: 0x3F5568
+	.4byte 0x00000021
+
+.global lbl_805A7BCC
+lbl_805A7BCC:
+	# ROM: 0x3F556C
+	.4byte 0x00000015
+
+.global lbl_805A7BD0
+lbl_805A7BD0:
+	# ROM: 0x3F5570
+	.4byte 0x00000013
+
+.global lbl_805A7BD4
+lbl_805A7BD4:
+	# ROM: 0x3F5574
+	.4byte 0x0000002F
+
+.global lbl_805A7BD8
+lbl_805A7BD8:
+	# ROM: 0x3F5578
+	.4byte 0x0000001C
+
+.global lbl_805A7BDC
+lbl_805A7BDC:
+	# ROM: 0x3F557C
+	.4byte 0x00000020
+
+.global lbl_805A7BE0
+lbl_805A7BE0:
+	# ROM: 0x3F5580
+	.4byte 0x00000035
+
+.global lbl_805A7BE4
+lbl_805A7BE4:
+	# ROM: 0x3F5584
+	.4byte 0x00000015
+
+.global lbl_805A7BE8
+lbl_805A7BE8:
+	# ROM: 0x3F5588
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__12CIceSheegothFv

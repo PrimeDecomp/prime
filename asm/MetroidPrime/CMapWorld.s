@@ -18,6 +18,24 @@ lbl_803DAF48:
 	.4byte "__dt__36TObjOwnerDerivedFromIObj<9CMapWorld>Fv"
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A71C0
+lbl_805A71C0:
+	# ROM: 0x3F4B60
+	.4byte 0
+
+.global lbl_805A71C4
+lbl_805A71C4:
+	# ROM: 0x3F4B64
+	.4byte 0
+
+.global lbl_805A71C8
+lbl_805A71C8:
+	# ROM: 0x3F4B68
+	.4byte 0x3F000000
+	.4byte 0
+
 .section .text, "ax"
 
 .global MinCircle__FiPC9CVector2f

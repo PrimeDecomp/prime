@@ -50,6 +50,118 @@ lbl_803DAED4:
 	.4byte lbl_8009BE8C
 	.4byte lbl_8009BD9C
 
+.section .sdata
+
+.global lbl_805A7168
+lbl_805A7168:
+	# ROM: 0x3F4B08
+	.4byte 0
+
+.global lbl_805A716C
+lbl_805A716C:
+	# ROM: 0x3F4B0C
+	.4byte 0x3F800000
+
+.global lbl_805A7170
+lbl_805A7170:
+	# ROM: 0x3F4B10
+	.4byte 0
+
+.global lbl_805A7174
+lbl_805A7174:
+	# ROM: 0x3F4B14
+	.4byte 0x3F800000
+
+.global lbl_805A7178
+lbl_805A7178:
+	# ROM: 0x3F4B18
+	.4byte 0
+
+.global lbl_805A717C
+lbl_805A717C:
+	# ROM: 0x3F4B1C
+	.4byte 0x3F800000
+
+.global lbl_805A7180
+lbl_805A7180:
+	# ROM: 0x3F4B20
+	.4byte 0
+
+.global lbl_805A7184
+lbl_805A7184:
+	# ROM: 0x3F4B24
+	.4byte 0x3F800000
+
+.global lbl_805A7188
+lbl_805A7188:
+	# ROM: 0x3F4B28
+	.4byte 0
+
+.global lbl_805A718C
+lbl_805A718C:
+	# ROM: 0x3F4B2C
+	.4byte 0x3F800000
+
+.global lbl_805A7190
+lbl_805A7190:
+	# ROM: 0x3F4B30
+	.4byte 0
+
+.global lbl_805A7194
+lbl_805A7194:
+	# ROM: 0x3F4B34
+	.4byte 0x3F800000
+
+.global lbl_805A7198
+lbl_805A7198:
+	# ROM: 0x3F4B38
+	.4byte 0
+
+.global lbl_805A719C
+lbl_805A719C:
+	# ROM: 0x3F4B3C
+	.4byte 0
+
+.global lbl_805A71A0
+lbl_805A71A0:
+	# ROM: 0x3F4B40
+	.4byte 0x3F800000
+
+.global lbl_805A71A4
+lbl_805A71A4:
+	# ROM: 0x3F4B44
+	.4byte 0x3F800000
+
+.global lbl_805A71A8
+lbl_805A71A8:
+	# ROM: 0x3F4B48
+	.4byte 0
+
+.global lbl_805A71AC
+lbl_805A71AC:
+	# ROM: 0x3F4B4C
+	.4byte 0x3F800000
+
+.global lbl_805A71B0
+lbl_805A71B0:
+	# ROM: 0x3F4B50
+	.4byte 0
+
+.global lbl_805A71B4
+lbl_805A71B4:
+	# ROM: 0x3F4B54
+	.4byte 0x3F800000
+
+.global lbl_805A71B8
+lbl_805A71B8:
+	# ROM: 0x3F4B58
+	.4byte 0
+
+.global lbl_805A71BC
+lbl_805A71BC:
+	# ROM: 0x3F4B5C
+	.4byte 0
+	
 .section .text, "ax"
 
 .global SetupMiniMapWorld__11CAutoMapperFv

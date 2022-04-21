@@ -39,7 +39,45 @@ lbl_803D9B98:
 	.4byte 0
 	.4byte __dt__13CInt32POINodeFv
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A6D98
+lbl_805A6D98:
+	# ROM: 0x3F4738
+	.4byte 0x00000002
+
+.global lbl_805A6D9C
+lbl_805A6D9C:
+	# ROM: 0x3F473C
+	.4byte 0
+
+.global lbl_805A6DA0
+lbl_805A6DA0:
+	# ROM: 0x3F4740
+	.4byte 0x00000001
+
+.global lbl_805A6DA4
+lbl_805A6DA4:
+	# ROM: 0x3F4744
+	.4byte 0
+
+.global lbl_805A6DA8
+lbl_805A6DA8:
+	# ROM: 0x3F4748
+	.4byte 0x00000004
+
+.global lbl_805A6DAC
+lbl_805A6DAC:
+	# ROM: 0x3F474C
+	.4byte 0x3F800000
+
+.global lbl_805A6DB0
+lbl_805A6DB0:
+	# ROM: 0x3F4750
+	.4byte 0
+	.4byte 0
+
 .section .bss
 
 .global lbl_8045B140

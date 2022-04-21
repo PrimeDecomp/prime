@@ -198,6 +198,44 @@ lbl_803E1F54:
 	.4byte SetActive__7CEntityFb
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7780
+lbl_805A7780:
+	# ROM: 0x3F5120
+	.4byte 0x00000021
+
+.global lbl_805A7784
+lbl_805A7784:
+	# ROM: 0x3F5124
+	.4byte 0x00000023
+
+.global lbl_805A7788
+lbl_805A7788:
+	# ROM: 0x3F5128
+	.4byte 0x00000013
+
+.global lbl_805A778C
+lbl_805A778C:
+	# ROM: 0x3F512C
+	.4byte 0x00000013
+
+.global lbl_805A7790
+lbl_805A7790:
+	# ROM: 0x3F5130
+	.4byte 0x00000013
+
+.global lbl_805A7794
+lbl_805A7794:
+	# ROM: 0x3F5134
+	.4byte 0x00000013
+
+.global lbl_805A7798
+lbl_805A7798:
+	# ROM: 0x3F5138
+	.4byte 0x00000013
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CFireFleaFv

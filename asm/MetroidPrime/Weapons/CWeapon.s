@@ -46,6 +46,15 @@ lbl_803DFF5C:
 	.4byte lbl_80101F8C
 	.4byte lbl_80101F84
 
+.section .sdata
+
+.global lbl_805A7558
+lbl_805A7558:
+	# ROM: 0x3F4EF8
+	.4byte 0
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei

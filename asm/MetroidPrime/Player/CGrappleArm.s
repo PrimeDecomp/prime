@@ -30,6 +30,34 @@ lbl_803E06DC:
 	.4byte lbl_8011F314
 	.4byte lbl_8011F3A0
 
+.section .sdata
+
+.global lbl_805A7638
+lbl_805A7638:
+	# ROM: 0x3F4FD8
+	.4byte 0x3F600000
+
+.global lbl_805A763C
+lbl_805A763C:
+	# ROM: 0x3F4FDC
+	.4byte 0x3E800000
+
+.global lbl_805A7640
+lbl_805A7640:
+	# ROM: 0x3F4FE0
+	.4byte 0x3E000000
+
+.global lbl_805A7644
+lbl_805A7644:
+	# ROM: 0x3F4FE4
+	.4byte 0x40A00000
+
+.global lbl_805A7648
+lbl_805A7648:
+	# ROM: 0x3F4FE8
+	.4byte 0xFFFF0000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DisconnectGrappleBeam__11CGrappleArmFv

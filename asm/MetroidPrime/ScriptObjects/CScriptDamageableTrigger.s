@@ -34,6 +34,54 @@ lbl_803DFD08:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A74B0
+lbl_805A74B0:
+	# ROM: 0x3F4E50
+	.4byte 0x00000029
+
+.global lbl_805A74B4
+lbl_805A74B4:
+	# ROM: 0x3F4E54
+	.4byte 0x00000022
+
+.global lbl_805A74B8
+lbl_805A74B8:
+	# ROM: 0x3F4E58
+	.4byte 0x0000002B
+
+.global lbl_805A74BC
+lbl_805A74BC:
+	# ROM: 0x3F4E5C
+	.4byte 0x00000032
+
+.global lbl_805A74C0
+lbl_805A74C0:
+	# ROM: 0x3F4E60
+	.4byte 0x00000038
+
+.global lbl_805A74C4
+lbl_805A74C4:
+	# ROM: 0x3F4E64
+	.4byte 0x00000022
+
+.global lbl_805A74C8
+lbl_805A74C8:
+	# ROM: 0x3F4E68
+	.4byte 0x0000002B
+
+.global lbl_805A74CC
+lbl_805A74CC:
+	# ROM: 0x3F4E6C
+	.4byte 0x00000032
+
+.global lbl_805A74D0
+lbl_805A74D0:
+	# ROM: 0x3F4E70
+	.4byte 0x00000038
+	.4byte 0
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__24CScriptDamageableTriggerFR8IVisitor

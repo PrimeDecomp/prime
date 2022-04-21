@@ -76,6 +76,29 @@ lbl_803DF604:
 	.4byte lbl_800C3E54
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7288
+lbl_805A7288:
+	# ROM: 0x3F4C28
+	.4byte 0x00000022
+
+.global lbl_805A728C
+lbl_805A728C:
+	# ROM: 0x3F4C2C
+	.4byte 0x0000002B
+
+.global lbl_805A7290
+lbl_805A7290:
+	# ROM: 0x3F4C30
+	.4byte 0x00000030
+
+.global lbl_805A7294
+lbl_805A7294:
+	# ROM: 0x3F4C34
+	.4byte 0x00000030
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCurrentConnectedAreaId__11CScriptDockCFRC13CStateManager

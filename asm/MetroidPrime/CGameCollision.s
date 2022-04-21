@@ -57,6 +57,54 @@ lbl_803E4008:
 	.4byte Filter__12CAABoxFilterCFRC18CCollisionInfoListR18CCollisionInfoList
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7A40
+lbl_805A7A40:
+	# ROM: 0x3F53E0
+	.4byte 0x00000013
+
+.global lbl_805A7A44
+lbl_805A7A44:
+	# ROM: 0x3F53E4
+	.4byte 0x00000013
+
+.global lbl_805A7A48
+lbl_805A7A48:
+	# ROM: 0x3F53E8
+	.4byte 0x3F000000
+
+.global lbl_805A7A4C
+lbl_805A7A4C:
+	# ROM: 0x3F53EC
+	.4byte 0x3F000000
+
+.global lbl_805A7A50
+lbl_805A7A50:
+	# ROM: 0x3F53F0
+	.4byte 0x3F000000
+
+.global lbl_805A7A54
+lbl_805A7A54:
+	# ROM: 0x3F53F4
+	.4byte 0x00000013
+
+.global lbl_805A7A58
+lbl_805A7A58:
+	# ROM: 0x3F53F8
+	.4byte 0x0000001F
+
+.global lbl_805A7A5C
+lbl_805A7A5C:
+	# ROM: 0x3F53FC
+	.4byte 0x00000013
+
+.global lbl_805A7A60
+lbl_805A7A60:
+	# ROM: 0x3F5400
+	.4byte 0x0000001F
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_8017fb84

@@ -60,6 +60,94 @@ lbl_803E4B9C:
 	.4byte lbl_801A8D8C
 	.4byte lbl_801A8D8C
 
+.section .sdata
+
+.global lbl_805A7BF0
+lbl_805A7BF0:
+	# ROM: 0x3F5590
+	.4byte 0x00000013
+
+.global lbl_805A7BF4
+lbl_805A7BF4:
+	# ROM: 0x3F5594
+	.4byte 0x0000002F
+
+.global lbl_805A7BF8
+lbl_805A7BF8:
+	# ROM: 0x3F5598
+	.4byte 0x0000001B
+
+.global lbl_805A7BFC
+lbl_805A7BFC:
+	# ROM: 0x3F559C
+	.4byte 0x00000015
+
+.global lbl_805A7C00
+lbl_805A7C00:
+	# ROM: 0x3F55A0
+	.4byte 0x00000013
+
+.global lbl_805A7C04
+lbl_805A7C04:
+	# ROM: 0x3F55A4
+	.4byte 0x0000002F
+
+.global lbl_805A7C08
+lbl_805A7C08:
+	# ROM: 0x3F55A8
+	.4byte 0x00000026
+
+.global lbl_805A7C0C
+lbl_805A7C0C:
+	# ROM: 0x3F55AC
+	.4byte 0x00000013
+
+.global lbl_805A7C10
+lbl_805A7C10:
+	# ROM: 0x3F55B0
+	.4byte 0x00000026
+
+.global lbl_805A7C14
+lbl_805A7C14:
+	# ROM: 0x3F55B4
+	.4byte 0x00000013
+
+.global lbl_805A7C18
+lbl_805A7C18:
+	# ROM: 0x3F55B8
+	.4byte 0x0000002F
+
+.global lbl_805A7C1C
+lbl_805A7C1C:
+	# ROM: 0x3F55BC
+	.4byte 0x00000026
+
+.global lbl_805A7C20
+lbl_805A7C20:
+	# ROM: 0x3F55C0
+	.4byte 0x00000013
+
+.global lbl_805A7C24
+lbl_805A7C24:
+	# ROM: 0x3F55C4
+	.4byte 0x00000026
+
+.global lbl_805A7C28
+lbl_805A7C28:
+	# ROM: 0x3F55C8
+	.4byte 0x00000013
+
+.global lbl_805A7C2C
+lbl_805A7C2C:
+	# ROM: 0x3F55CC
+	.4byte 0x0000002F
+
+.global lbl_805A7C30
+lbl_805A7C30:
+	# ROM: 0x3F55D0
+	.4byte 0x00000026
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__15CCollisionActorFv

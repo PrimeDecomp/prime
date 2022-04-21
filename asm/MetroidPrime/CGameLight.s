@@ -34,6 +34,15 @@ lbl_803DF3B8:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7218
+lbl_805A7218:
+	# ROM: 0x3F4BB8
+	.4byte 0
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global __dt__10CGameLightFv

@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7748
+lbl_805A7748:
+	# ROM: 0x3F50E8
+	.4byte 0xBF800000
+
+.global lbl_805A774C
+lbl_805A774C:
+	# ROM: 0x3F50EC
+	.4byte 0x3F800000
+
+.global lbl_805A7750
+lbl_805A7750:
+	# ROM: 0x3F50F0
+	.4byte 0x41000000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ProjectOrbitalPosition__18CSteeringBehaviorsFRC9CVector3fRC9CVector3fRC9CVector3ff

@@ -1,5 +1,127 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7378
+lbl_805A7378:
+	# ROM: 0x3F4D18
+	.4byte 0x3D916873
+
+.global lbl_805A737C
+lbl_805A737C:
+	# ROM: 0x3F4D1C
+	.4byte 0x3E116873
+
+.global lbl_805A7380
+lbl_805A7380:
+	# ROM: 0x3F4D20
+	.4byte 0x3EF0A3D7
+
+.global lbl_805A7384
+lbl_805A7384:
+	# ROM: 0x3F4D24
+	.4byte 0x3F451EB8
+
+.global lbl_805A7388
+lbl_805A7388:
+	# ROM: 0x3F4D28
+	.4byte 0x3F4CCCCD
+
+.global lbl_805A738C
+lbl_805A738C:
+	# ROM: 0x3F4D2C
+	.4byte 0x3E99999A
+
+.global lbl_805A7390
+lbl_805A7390:
+	# ROM: 0x3F4D30
+	.4byte 0x3DCCCCCD
+
+.global lbl_805A7394
+lbl_805A7394:
+	# ROM: 0x3F4D34
+	.4byte 0x43160000
+
+.global lbl_805A7398
+lbl_805A7398:
+	# ROM: 0x3F4D38
+	.4byte 0xC1F00000
+
+.global lbl_805A739C
+lbl_805A739C:
+	# ROM: 0x3F4D3C
+	.4byte 0xC20C0000
+
+.global lbl_805A73A0
+lbl_805A73A0:
+	# ROM: 0x3F4D40
+	.4byte 0x42200000
+
+.global lbl_805A73A4
+lbl_805A73A4:
+	# ROM: 0x3F4D44
+	.4byte 0x42A00000
+
+.global lbl_805A73A8
+lbl_805A73A8:
+	# ROM: 0x3F4D48
+	.4byte 0x3CF5C28F
+
+.global lbl_805A73AC
+lbl_805A73AC:
+	# ROM: 0x3F4D4C
+	.4byte 0x3DCCCCCD
+
+.global lbl_805A73B0
+lbl_805A73B0:
+	# ROM: 0x3F4D50
+	.4byte 0x3E99999A
+
+.global lbl_805A73B4
+lbl_805A73B4:
+	# ROM: 0x3F4D54
+	.4byte 0x3E99999A
+
+.global lbl_805A73B8
+lbl_805A73B8:
+	# ROM: 0x3F4D58
+	.4byte 0x3E99999A
+
+.global lbl_805A73BC
+lbl_805A73BC:
+	# ROM: 0x3F4D5C
+	.4byte 0x40000000
+
+.global lbl_805A73C0
+lbl_805A73C0:
+	# ROM: 0x3F4D60
+	.4byte 0x40000000
+
+.global lbl_805A73C4
+lbl_805A73C4:
+	# ROM: 0x3F4D64
+	.4byte 0
+
+.global lbl_805A73C8
+lbl_805A73C8:
+	# ROM: 0x3F4D68
+	.4byte 0
+
+.global lbl_805A73CC
+lbl_805A73CC:
+	# ROM: 0x3F4D6C
+	.4byte 0x3F800000
+
+.global lbl_805A73D0
+lbl_805A73D0:
+	# ROM: 0x3F4D70
+	.4byte 0
+
+.global lbl_805A73D4
+lbl_805A73D4:
+	# ROM: 0x3F4D74
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetViewWanderTransform__16CPlayerCameraBobCFv

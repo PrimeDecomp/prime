@@ -48,6 +48,24 @@ lbl_803DACB0:
 	.4byte "__dt__43TObjOwnerDerivedFromIObj<15CGenDescription>Fv"
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7110
+lbl_805A7110:
+	# ROM: 0x3F4AB0
+	.4byte 0
+
+.global lbl_805A7114
+lbl_805A7114:
+	# ROM: 0x3F4AB4
+	.4byte 0
+
+.global lbl_805A7118
+lbl_805A7118:
+	# ROM: 0x3F4AB8
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__13CScriptEffectFv

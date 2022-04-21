@@ -118,6 +118,58 @@ lbl_803E2CA0:
 	.4byte lbl_80152B60
 	.4byte lbl_80152B58
 
+.section .sdata
+
+.global lbl_805A7808
+lbl_805A7808:
+	# ROM: 0x3F51A8
+	.4byte 0x00000013
+
+.global lbl_805A780C
+lbl_805A780C:
+	# ROM: 0x3F51AC
+	.4byte 0x00000013
+
+.global lbl_805A7810
+lbl_805A7810:
+	# ROM: 0x3F51B0
+	.4byte 0
+
+.global lbl_805A7814
+lbl_805A7814:
+	# ROM: 0x3F51B4
+	.4byte 0x3F800000
+
+.global lbl_805A7818
+lbl_805A7818:
+	# ROM: 0x3F51B8
+	.4byte 0
+
+.global lbl_805A781C
+lbl_805A781C:
+	# ROM: 0x3F51BC
+	.4byte 0
+
+.global lbl_805A7820
+lbl_805A7820:
+	# ROM: 0x3F51C0
+	.4byte 0x3F800000
+
+.global lbl_805A7824
+lbl_805A7824:
+	# ROM: 0x3F51C4
+	.4byte 0
+
+.global lbl_805A7828
+lbl_805A7828:
+	# ROM: 0x3F51C8
+	.4byte 0x00000023
+
+.global lbl_805A782C
+lbl_805A782C:
+	# ROM: 0x3F51CC
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__22CScriptSpecialFunctionFv

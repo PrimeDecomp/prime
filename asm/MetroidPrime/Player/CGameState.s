@@ -1,5 +1,68 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7D58
+lbl_805A7D58:
+	# ROM: 0x3F56F8
+	.byte 0x00
+
+.global lbl_805A7D59
+lbl_805A7D59:
+	# ROM: 0x3F56F9
+	.byte 0x00
+
+.global lbl_805A7D5A
+lbl_805A7D5A:
+	# ROM: 0x3F56FA
+	.byte 0x00
+
+.global lbl_805A7D5B
+lbl_805A7D5B:
+	# ROM: 0x3F56FB
+	.byte 0x00
+
+.global lbl_805A7D5C
+lbl_805A7D5C:
+	# ROM: 0x3F56FC
+	.4byte 0
+
+.global lbl_805A7D60
+lbl_805A7D60:
+	# ROM: 0x3F5700
+	.4byte 0x00000003
+
+.global lbl_805A7D64
+lbl_805A7D64:
+	# ROM: 0x3F5704
+	.4byte 0x00000003
+
+.global lbl_805A7D68
+lbl_805A7D68:
+	# ROM: 0x3F5708
+	.4byte 0x00000001
+
+.global lbl_805A7D6C
+lbl_805A7D6C:
+	# ROM: 0x3F570C
+	.byte 0x00
+
+.global lbl_805A7D6D
+lbl_805A7D6D:
+	# ROM: 0x3F570D
+	.byte 0x00
+
+.global lbl_805A7D6E
+lbl_805A7D6E:
+	# ROM: 0x3F570E
+	.2byte 0x00000000
+
+.global lbl_805A7D70
+lbl_805A7D70:
+	# ROM: 0x3F5710
+	.4byte 0
+	.4byte 0
+	
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetDeferPowerupInit__10CGameStateFb

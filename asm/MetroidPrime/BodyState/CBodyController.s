@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7740
+lbl_805A7740:
+	# ROM: 0x3F50E0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateFrozenInfo__15CBodyControllerFfR13CStateManager

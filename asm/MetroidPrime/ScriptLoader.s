@@ -1,5 +1,53 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A72A0
+lbl_805A72A0:
+	# ROM: 0x3F4C40
+	.4byte 0
+
+.global lbl_805A72A4
+lbl_805A72A4:
+	# ROM: 0x3F4C44
+	.4byte 0
+
+.global lbl_805A72A8
+lbl_805A72A8:
+	# ROM: 0x3F4C48
+	.4byte 0
+
+.global lbl_805A72AC
+lbl_805A72AC:
+	# ROM: 0x3F4C4C
+	.4byte 0
+
+.global lbl_805A72B0
+lbl_805A72B0:
+	# ROM: 0x3F4C50
+	.4byte 0
+
+.global lbl_805A72B4
+lbl_805A72B4:
+	# ROM: 0x3F4C54
+	.4byte 0x0000002B
+
+.global lbl_805A72B8
+lbl_805A72B8:
+	# ROM: 0x3F4C58
+	.4byte 0x00000013
+
+.global lbl_805A72BC
+lbl_805A72BC:
+	# ROM: 0x3F4C5C
+	.4byte 0x0000002B
+
+.global lbl_805A72C0
+lbl_805A72C0:
+	# ROM: 0x3F4C60
+	.4byte 0x00000032
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global LoadEnergyBall__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo

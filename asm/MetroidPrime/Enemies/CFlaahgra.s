@@ -326,6 +326,108 @@ lbl_803E5154:
 	.4byte ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CStateManager
 	.4byte Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
 
+.section .sdata
+
+.global lbl_805A7C40
+lbl_805A7C40:
+	# ROM: 0x3F55E0
+	.4byte 0x00000004
+
+.global lbl_805A7C44
+lbl_805A7C44:
+	# ROM: 0x3F55E4
+	.4byte 0x3F800000
+
+.global lbl_805A7C48
+lbl_805A7C48:
+	# ROM: 0x3F55E8
+	.4byte 0x00000013
+
+.global lbl_805A7C4C
+lbl_805A7C4C:
+	# ROM: 0x3F55EC
+	.4byte 0x0000001F
+
+.global lbl_805A7C50
+lbl_805A7C50:
+	# ROM: 0x3F55F0
+	.4byte 0x00000013
+
+.global lbl_805A7C54
+lbl_805A7C54:
+	# ROM: 0x3F55F4
+	.4byte 0x0000002F
+
+.global lbl_805A7C58
+lbl_805A7C58:
+	# ROM: 0x3F55F8
+	.4byte 0x0000001C
+
+.global lbl_805A7C5C
+lbl_805A7C5C:
+	# ROM: 0x3F55FC
+	.4byte 0x00000020
+
+.global lbl_805A7C60
+lbl_805A7C60:
+	# ROM: 0x3F5600
+	.4byte 0x00000035
+
+.global lbl_805A7C64
+lbl_805A7C64:
+	# ROM: 0x3F5604
+	.4byte 0x00000015
+
+.global lbl_805A7C68
+lbl_805A7C68:
+	# ROM: 0x3F5608
+	.4byte 0x00000035
+
+.global lbl_805A7C6C
+lbl_805A7C6C:
+	# ROM: 0x3F560C
+	.4byte 0x00000015
+
+.global lbl_805A7C70
+lbl_805A7C70:
+	# ROM: 0x3F5610
+	.4byte 0x00000035
+
+.global lbl_805A7C74
+lbl_805A7C74:
+	# ROM: 0x3F5614
+	.4byte 0x00000015
+
+.global lbl_805A7C78
+lbl_805A7C78:
+	# ROM: 0x3F5618
+	.4byte 0x00000020
+
+.global lbl_805A7C7C
+lbl_805A7C7C:
+	# ROM: 0x3F561C
+	.4byte 0x00000022
+
+.global lbl_805A7C80
+lbl_805A7C80:
+	# ROM: 0x3F5620
+	.4byte 0x0000002F
+
+.global lbl_805A7C84
+lbl_805A7C84:
+	# ROM: 0x3F5624
+	.4byte 0x00000026
+
+.global lbl_805A7C88
+lbl_805A7C88:
+	# ROM: 0x3F5628
+	.4byte 0x0000002B
+
+.global lbl_805A7C8C
+lbl_805A7C8C:
+	# ROM: 0x3F562C
+	.4byte 0x00000021
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__17CFlaahgraRendererFv

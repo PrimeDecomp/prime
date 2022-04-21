@@ -14,6 +14,18 @@ lbl_803DFE50:
 	.4byte PreDraw__6CIOWinCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7540
+lbl_805A7540:
+	# ROM: 0x3F4EE0
+	.4byte 0
+
+.global lbl_805A7544
+lbl_805A7544:
+	# ROM: 0x3F4EE4
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Draw__20CConsoleOutputWindowCFv

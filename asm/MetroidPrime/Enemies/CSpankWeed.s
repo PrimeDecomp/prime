@@ -186,6 +186,34 @@ lbl_803E2D28:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7838
+lbl_805A7838:
+	# ROM: 0x3F51D8
+	.4byte 0x00000013
+
+.global lbl_805A783C
+lbl_805A783C:
+	# ROM: 0x3F51DC
+	.4byte 0x00000021
+
+.global lbl_805A7840
+lbl_805A7840:
+	# ROM: 0x3F51E0
+	.4byte 0x00000020
+
+.global lbl_805A7844
+lbl_805A7844:
+	# ROM: 0x3F51E4
+	.4byte 0x00000015
+
+.global lbl_805A7848
+lbl_805A7848:
+	# ROM: 0x3F51E8
+	.4byte 0x0000002B
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__10CSpankWeedFv

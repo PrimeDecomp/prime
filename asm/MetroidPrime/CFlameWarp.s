@@ -14,6 +14,18 @@ lbl_803E51C8:
 	.4byte IsActivated__10CFlameWarpFv
 	.4byte Get4CharID__10CFlameWarpFv
 
+.section .sdata
+
+.global lbl_805A7C90
+lbl_805A7C90:
+	# ROM: 0x3F5630
+	.4byte 0x00000013
+
+.global lbl_805A7C94
+lbl_805A7C94:
+	# ROM: 0x3F5634
+	.4byte 0x00000012
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Get4CharID__10CFlameWarpFv

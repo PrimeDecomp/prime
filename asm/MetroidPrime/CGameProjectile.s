@@ -33,7 +33,59 @@ lbl_803D9CE0:
 	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
-	
+
+.section .sdata
+
+.global lbl_805A6DB8
+lbl_805A6DB8:
+	# ROM: 0x3F4758
+	.4byte 0x00000013
+
+.global lbl_805A6DBC
+lbl_805A6DBC:
+	# ROM: 0x3F475C
+	.4byte 0x00000032
+
+.global lbl_805A6DC0
+lbl_805A6DC0:
+	# ROM: 0x3F4760
+	.4byte 0x00000023
+
+.global lbl_805A6DC4
+lbl_805A6DC4:
+	# ROM: 0x3F4764
+	.4byte 0x00000012
+
+.global lbl_805A6DC8
+lbl_805A6DC8:
+	# ROM: 0x3F4768
+	.4byte 0x00000023
+
+.global lbl_805A6DCC
+lbl_805A6DCC:
+	# ROM: 0x3F476C
+	.4byte 0x00000013
+
+.global lbl_805A6DD0
+lbl_805A6DD0:
+	# ROM: 0x3F4770
+	.4byte 0x00000012
+
+.global lbl_805A6DD4
+lbl_805A6DD4:
+	# ROM: 0x3F4774
+	.4byte 0x00000013
+
+.global lbl_805A6DD8
+lbl_805A6DD8:
+	# ROM: 0x3F4778
+	.4byte 0x00000012
+
+.global lbl_805A6DDC
+lbl_805A6DDC:
+	# ROM: 0x3F477C
+	.4byte 0x00000012
+
 .section .text, "ax"
 
 .global __dt__15CGameProjectileFv

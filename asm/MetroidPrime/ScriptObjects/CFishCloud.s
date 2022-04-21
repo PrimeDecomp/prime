@@ -64,6 +64,28 @@ lbl_803E57C4:
 	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 
+.section .sdata
+
+.global lbl_805A7D48
+lbl_805A7D48:
+	# ROM: 0x3F56E8
+	.4byte 0
+
+.global lbl_805A7D4C
+lbl_805A7D4C:
+	# ROM: 0x3F56EC
+	.4byte 0
+
+.global lbl_805A7D50
+lbl_805A7D50:
+	# ROM: 0x3F56F0
+	.4byte 0
+
+.global lbl_805A7D54
+lbl_805A7D54:
+	# ROM: 0x3F56F4
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__10CFishCloudFv

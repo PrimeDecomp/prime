@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7CD8
+lbl_805A7CD8:
+	# ROM: 0x3F5678
+	.4byte 0
+
+.global lbl_805A7CDC
+lbl_805A7CDC:
+	# ROM: 0x3F567C
+	.4byte 0x3F800000
+
+.global lbl_805A7CE0
+lbl_805A7CE0:
+	# ROM: 0x3F5680
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Update__19CStaticInterferenceFR13CStateManagerf

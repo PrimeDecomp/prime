@@ -20,6 +20,18 @@ lbl_803E1370:
 	.4byte UpdateBody__9CBSAttackFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__9CBSAttackFR15CBodyController
 
+.section .sdata
+
+.global lbl_805A7710
+lbl_805A7710:
+	# ROM: 0x3F50B0
+	.4byte 0x00000004
+
+.global lbl_805A7714
+lbl_805A7714:
+	# ROM: 0x3F50B4
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CBSAttackFv

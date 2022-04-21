@@ -1036,6 +1036,25 @@ lbl_803DBCCC:
 	.4byte ShouldCallForBackup__3CAiFR13CStateManagerf
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A71D0
+lbl_805A71D0:
+	# ROM: 0x3F4B70
+	.4byte 0x00000030
+
+.global lbl_805A71D4
+lbl_805A71D4:
+	# ROM: 0x3F4B74
+	.4byte 0x00000015
+
+.global lbl_805A71D8
+lbl_805A71D8:
+	# ROM: 0x3F4B78
+	.4byte 0x00000030
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global ShouldCallForBackup__3CAiFR13CStateManagerf

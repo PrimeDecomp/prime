@@ -14,6 +14,19 @@ lbl_803DF870:
 	.4byte AcceptScriptMsg__18CScriptRandomRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata
+
+.global lbl_805A7330
+lbl_805A7330:
+	# ROM: 0x3F4CD0
+	.4byte 0
+
+.global lbl_805A7334
+lbl_805A7334:
+	# ROM: 0x3F4CD4
+	.4byte 0x00000064
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__18CScriptRandomRelayFR8IVisitor
