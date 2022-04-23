@@ -38,6 +38,18 @@ lbl_803ED320:
 	.4byte VReverseSimplified__19CAnimTreeTransitionFv
 	.4byte VGetBlendingWeight__19CAnimTreeTransitionCFv
 
+.section .sdata
+
+.global lbl_805A87C8
+lbl_805A87C8:
+	# ROM: 0x3F6168
+	.4byte 0x00000002
+
+.global lbl_805A87CC
+lbl_805A87CC:
+	# ROM: 0x3F616C
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global VGetBestUnblendedChild__19CAnimTreeTransitionCFv

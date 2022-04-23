@@ -354,6 +354,14 @@ lbl_803EE100:
 	.4byte IsConstant__11CREConstantCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A88E0
+lbl_805A88E0:
+	# ROM: 0x3F6280
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetValue__15CREIntTimesRealCFiRf

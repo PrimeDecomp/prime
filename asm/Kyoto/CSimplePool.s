@@ -33,6 +33,24 @@ lbl_803EE410:
 	.4byte ObjectUnreferenced__11CSimplePoolFRC10SObjectTag
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8910
+lbl_805A8910:
+	# ROM: 0x3F62B0
+	.byte 0x01
+
+.global lbl_805A8911
+lbl_805A8911:
+	# ROM: 0x3F62B1
+	.byte 0x00
+
+.global lbl_805A8912
+lbl_805A8912:
+	# ROM: 0x3F62B2
+	.byte 0x01, 0x00
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetFactory__11CSimplePoolCFv

@@ -34,6 +34,14 @@ lbl_803E58C0:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7D80
+lbl_805A7D80:
+	# ROM: 0x3F5720
+	.4byte 0x42B40000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__15CScriptVisorGooFR8IVisitor

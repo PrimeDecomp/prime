@@ -184,7 +184,16 @@ lbl_803E8E4C:
 	.4byte GetProjectileInfo__10CPatternedFv
 	.4byte PhazeOut__10CPatternedFR13CStateManager
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
-	
+
+.section .sdata
+
+.global lbl_805A82E0
+lbl_805A82E0:
+	# ROM: 0x3F5C80
+	.4byte 0
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetDamageVulnerability__11CAtomicBetaFv

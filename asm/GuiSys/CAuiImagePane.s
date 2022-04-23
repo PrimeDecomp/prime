@@ -22,6 +22,13 @@ lbl_803ECA90:
 	.4byte OnActivate__10CGuiWidgetFv
 	.4byte WriteData__13CAuiImagePaneCFR13COutputStreamb
 
+.section .sdata
+
+.global lbl_805A86E0
+lbl_805A86E0:
+	# ROM: 0x3F6080
+	.4byte 0x3F800000
+	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

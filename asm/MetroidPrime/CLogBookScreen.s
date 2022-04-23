@@ -50,6 +50,28 @@ lbl_803E8BCC:
 	.4byte 0x000A000A
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A82A8
+lbl_805A82A8:
+	# ROM: 0x3F5C48
+	.4byte 0x3F800000
+
+.global lbl_805A82AC
+lbl_805A82AC:
+	# ROM: 0x3F5C4C
+	.4byte 0
+
+.global lbl_805A82B0
+lbl_805A82B0:
+	# ROM: 0x3F5C50
+	.4byte 0
+
+.global lbl_805A82B4
+lbl_805A82B4:
+	# ROM: 0x3F5C54
+	.4byte 0x00000005
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global IsScanComplete__14CLogBookScreenF13EScanCategoryUiRC12CPlayerState

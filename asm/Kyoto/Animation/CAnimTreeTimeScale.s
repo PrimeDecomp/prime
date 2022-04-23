@@ -34,6 +34,28 @@ lbl_803ED2B0:
 	.4byte VGetBestUnblendedChild__18CAnimTreeTimeScaleCFv
 	.4byte "VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 
+.section .sdata
+
+.global lbl_805A87B8
+lbl_805A87B8:
+	# ROM: 0x3F6158
+	.4byte 0x00000002
+
+.global lbl_805A87BC
+lbl_805A87BC:
+	# ROM: 0x3F615C
+	.4byte 0
+
+.global lbl_805A87C0
+lbl_805A87C0:
+	# ROM: 0x3F6160
+	.4byte 0x00000004
+
+.global lbl_805A87C4
+lbl_805A87C4:
+	# ROM: 0x3F6164
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "CreatePrimitiveName__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fRC13CCharAnimTimef"

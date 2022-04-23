@@ -38,6 +38,14 @@ lbl_803E9118:
 	.4byte sub_80251dd4
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A82E8
+lbl_805A82E8:
+	# ROM: 0x3F5C88
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__23CElectricBeamProjectileFv

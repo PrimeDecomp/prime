@@ -12,6 +12,54 @@ lbl_803E70D0:
 	.4byte PreRender__8CRagDollFRC9CVector3fR10CModelData
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7FB8
+lbl_805A7FB8:
+	# ROM: 0x3F5958
+	.4byte 0x00000013
+
+.global lbl_805A7FBC
+lbl_805A7FBC:
+	# ROM: 0x3F595C
+	.4byte 0x00000013
+
+.global lbl_805A7FC0
+lbl_805A7FC0:
+	# ROM: 0x3F5960
+	.4byte 0x00000030
+
+.global lbl_805A7FC4
+lbl_805A7FC4:
+	# ROM: 0x3F5964
+	.4byte 0x00000021
+
+.global lbl_805A7FC8
+lbl_805A7FC8:
+	# ROM: 0x3F5968
+	.4byte 0x00000020
+
+.global lbl_805A7FCC
+lbl_805A7FCC:
+	# ROM: 0x3F596C
+	.4byte 0x00000030
+
+.global lbl_805A7FD0
+lbl_805A7FD0:
+	# ROM: 0x3F5970
+	.4byte 0x0000002A
+
+.global lbl_805A7FD4
+lbl_805A7FD4:
+	# ROM: 0x3F5974
+	.4byte 0x00000021
+
+.global lbl_805A7FD8
+lbl_805A7FD8:
+	# ROM: 0x3F5978
+	.4byte 0x00000020
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global PreRender__8CRagDollFRC9CVector3fR10CModelData

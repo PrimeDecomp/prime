@@ -10,6 +10,88 @@ lbl_803EF660:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8958
+lbl_805A8958:
+	# ROM: 0x3F62F8
+	.4byte 0xBF800000
+
+.global lbl_805A895C
+lbl_805A895C:
+	# ROM: 0x3F62FC
+	.4byte 0x3F800000
+
+.global lbl_805A8960
+lbl_805A8960:
+	# ROM: 0x3F6300
+	.4byte 0xBF800000
+
+.global lbl_805A8964
+lbl_805A8964:
+	# ROM: 0x3F6304
+	.4byte 0x3F800000
+
+.global lbl_805A8968
+lbl_805A8968:
+	# ROM: 0x3F6308
+	.4byte 0xBF800000
+
+.global lbl_805A896C
+lbl_805A896C:
+	# ROM: 0x3F630C
+	.4byte 0x3F800000
+
+.global lbl_805A8970
+lbl_805A8970:
+	# ROM: 0x3F6310
+	.4byte 0xBF800000
+
+.global lbl_805A8974
+lbl_805A8974:
+	# ROM: 0x3F6314
+	.4byte 0x3F800000
+
+.global lbl_805A8978
+lbl_805A8978:
+	# ROM: 0x3F6318
+	.4byte 0xBF800000
+
+.global lbl_805A897C
+lbl_805A897C:
+	# ROM: 0x3F631C
+	.4byte 0x3F800000
+
+.global lbl_805A8980
+lbl_805A8980:
+	# ROM: 0x3F6320
+	.4byte 0xBF800000
+
+.global lbl_805A8984
+lbl_805A8984:
+	# ROM: 0x3F6324
+	.4byte 0x3F800000
+
+.global lbl_805A8988
+lbl_805A8988:
+	# ROM: 0x3F6328
+	.4byte 0xBF800000
+
+.global lbl_805A898C
+lbl_805A898C:
+	# ROM: 0x3F632C
+	.4byte 0x3F800000
+
+.global lbl_805A8990
+lbl_805A8990:
+	# ROM: 0x3F6330
+	.4byte 0xBF800000
+
+.global lbl_805A8994
+lbl_805A8994:
+	# ROM: 0x3F6334
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ScaleAnalogueSticks__11CFinalInputCFff

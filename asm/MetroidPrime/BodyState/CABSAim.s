@@ -14,6 +14,29 @@ lbl_803E5CA0:
 	.4byte UpdateBody__7CABSAimFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__7CABSAimFR15CBodyController
 
+.section .sdata
+
+
+.global lbl_805A7D98
+lbl_805A7D98:
+	# ROM: 0x3F5738
+	.4byte 0xC0400000
+
+.global lbl_805A7D9C
+lbl_805A7D9C:
+	# ROM: 0x3F573C
+	.4byte 0xC1200000
+
+.global lbl_805A7DA0
+lbl_805A7DA0:
+	# ROM: 0x3F5740
+	.4byte 0xC0400000
+
+.global lbl_805A7DA4
+lbl_805A7DA4:
+	# ROM: 0x3F5744
+	.4byte 0xC1200000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__7CABSAimFv

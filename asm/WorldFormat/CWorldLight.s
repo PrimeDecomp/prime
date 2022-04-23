@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8610
+lbl_805A8610:
+	# ROM: 0x3F5FB0
+	.4byte 0x3F800000
+
+.global lbl_805A8614
+lbl_805A8614:
+	# ROM: 0x3F5FB4
+	.4byte 0x3F800000
+
+.global lbl_805A8618
+lbl_805A8618:
+	# ROM: 0x3F5FB8
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetAsCGraphicsLight__11CWorldLightCFv

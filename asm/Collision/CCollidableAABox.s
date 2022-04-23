@@ -16,6 +16,14 @@ lbl_803ECAD0:
 	.4byte __dt__16CCollidableAABoxFv
 	.4byte CastRayInternal__16CCollidableAABoxCFRC25CInternalRayCastStructure
 
+.section .sdata
+
+.global sTableIndex__16CCollidableAABox
+sTableIndex__16CCollidableAABox:
+	# ROM: 0x3F6088
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 .section .bss
 
 .global lbl_80479498
@@ -26,7 +34,7 @@ lbl_80479498:
 
 .global GetTableIndex__16CCollidableAABoxCFv
 GetTableIndex__16CCollidableAABoxCFv:
-/* 802CD4C8 002CA428  80 6D 9B 28 */	lwz r3, lbl_805A86E8@sda21(r13)
+/* 802CD4C8 002CA428  80 6D 9B 28 */	lwz r3, sTableIndex__16CCollidableAABox@sda21(r13)
 /* 802CD4CC 002CA42C  4E 80 00 20 */	blr 
 
 .global GetPrimType__16CCollidableAABoxCFv
@@ -801,7 +809,7 @@ GetType__16CCollidableAABoxFv:
 
 .global SetStaticTableIndex__16CCollidableAABoxFUi
 SetStaticTableIndex__16CCollidableAABoxFUi:
-/* 802CE030 002CAF90  90 6D 9B 28 */	stw r3, lbl_805A86E8@sda21(r13)
+/* 802CE030 002CAF90  90 6D 9B 28 */	stw r3, sTableIndex__16CCollidableAABox@sda21(r13)
 /* 802CE034 002CAF94  4E 80 00 20 */	blr 
 
 .global __sinit_CCollidableAABox_cpp

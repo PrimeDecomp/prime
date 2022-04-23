@@ -9,6 +9,14 @@ lbl_804BFD58:
 lbl_804BFD64:
 	.skip 0xC4
 	
+.section .sdata
+
+.global lbl_805A8868
+lbl_805A8868:
+	# ROM: 0x3F6208
+	.4byte lbl_804BFD64
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __nwa__FUlPCcPCc

@@ -21,13 +21,21 @@ lbl_803EC448:
 	.4byte CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f
 	.4byte CalculateLocalAABox__18CCollidableOBBTreeCFv
 	.4byte GetPrimType__18CCollidableOBBTreeCFv
-	.4byte __dtl__18CCollidableOBBTreeFv
+	.4byte __dt__18CCollidableOBBTreeFv
 	.4byte CastRayInternal__18CCollidableOBBTreeCFRC25CInternalRayCastStructure
-	
+
+.section .sdata
+
+.global lbl_805A8630
+lbl_805A8630:
+	# ROM: 0x3F5FD0
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 .section .text, "ax"
 
-.global __dtl__18CCollidableOBBTreeFv
-__dtl__18CCollidableOBBTreeFv:
+.global __dt__18CCollidableOBBTreeFv
+__dt__18CCollidableOBBTreeFv:
 /* 802A98EC 002A684C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802A98F0 002A6850  7C 08 02 A6 */	mflr r0
 /* 802A98F4 002A6854  90 01 00 14 */	stw r0, 0x14(r1)

@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8740
+lbl_805A8740:
+	# ROM: 0x3F60E0
+	.4byte 0
+
+.global lbl_805A8744
+lbl_805A8744:
+	# ROM: 0x3F60E4
+	.4byte 0xFFFFFFFF
+
+.global lbl_805A8748
+lbl_805A8748:
+	# ROM: 0x3F60E8
+	.4byte 0
+
+.global lbl_805A874C
+lbl_805A874C:
+	# ROM: 0x3F60EC
+	.4byte 0xFFFFFFFF
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AddAnimState__12CPASDatabaseFRC13CPASAnimState

@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7DE8
+lbl_805A7DE8:
+	# ROM: 0x3F5788
+	.4byte 0
+
+.global lbl_805A7DEC
+lbl_805A7DEC:
+	# ROM: 0x3F578C
+	.4byte 0x00000010
+
+.global lbl_805A7DF0
+lbl_805A7DF0:
+	# ROM: 0x3F5790
+	.4byte 0x00000001
+
+.global lbl_805A7DF4
+lbl_805A7DF4:
+	# ROM: 0x3F5794
+	.4byte 0x00000004
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetAshyTexture__20CActorModelParticlesFR5CActor

@@ -1,5 +1,32 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8A48
+lbl_805A8A48:
+	# ROM: 0x3F63E8
+	.4byte 0x00002000
+
+.global lbl_805A8A4C
+lbl_805A8A4C:
+	# ROM: 0x3F63EC
+	.byte 0x00
+
+.global lbl_805A8A4D
+lbl_805A8A4D:
+	# ROM: 0x3F63ED
+	.balign 4
+
+.global lbl_805A8A50
+lbl_805A8A50:
+	# ROM: 0x3F63F0
+	.4byte 0x00000040
+
+.global lbl_805A8A54
+lbl_805A8A54:
+	# ROM: 0x3F63F4
+	.4byte 0x00000040
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global EnsureWorldPakReady__8CPakFileFv

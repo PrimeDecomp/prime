@@ -71,6 +71,85 @@ lbl_803E7FDC:
 	.4byte lbl_80230CD0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A81A8
+lbl_805A81A8:
+	# ROM: 0x3F5B48
+	.4byte 0x00000021
+
+.global lbl_805A81AC
+lbl_805A81AC:
+	# ROM: 0x3F5B4C
+	.4byte 0x00000013
+
+.global lbl_805A81B0
+lbl_805A81B0:
+	# ROM: 0x3F5B50
+	.4byte 0x3C23D70A
+
+.global lbl_805A81B4
+lbl_805A81B4:
+	# ROM: 0x3F5B54
+	.4byte 0xBF490FDB
+
+.global lbl_805A81B8
+lbl_805A81B8:
+	# ROM: 0x3F5B58
+	.4byte 0xC0400000
+
+.global lbl_805A81BC
+lbl_805A81BC:
+	# ROM: 0x3F5B5C
+	.4byte 0xC1200000
+
+.global lbl_805A81C0
+lbl_805A81C0:
+	# ROM: 0x3F5B60
+	.4byte 0xBF490FDB
+
+.global lbl_805A81C4
+lbl_805A81C4:
+	# ROM: 0x3F5B64
+	.4byte 0xC0400000
+
+.global lbl_805A81C8
+lbl_805A81C8:
+	# ROM: 0x3F5B68
+	.4byte 0xC1200000
+
+.global lbl_805A81CC
+lbl_805A81CC:
+	# ROM: 0x3F5B6C
+	.4byte 0xBF000000
+
+.global lbl_805A81D0
+lbl_805A81D0:
+	# ROM: 0x3F5B70
+	.4byte 0xBF000000
+
+.global lbl_805A81D4
+lbl_805A81D4:
+	# ROM: 0x3F5B74
+	.4byte 0
+
+.global lbl_805A81D8
+lbl_805A81D8:
+	# ROM: 0x3F5B78
+	.4byte 0
+
+.global lbl_805A81DC
+lbl_805A81DC:
+	# ROM: 0x3F5B7C
+	.4byte 0
+
+.global lbl_805A81E0
+lbl_805A81E0:
+	# ROM: 0x3F5B80
+	.4byte 0x3F800000
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global HealthInfo__16CGrenadeLauncherFR13CStateManager

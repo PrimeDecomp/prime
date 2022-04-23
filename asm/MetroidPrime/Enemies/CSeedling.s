@@ -200,6 +200,14 @@ lbl_803E9E10:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A83F8
+lbl_805A83F8:
+	# ROM: 0x3F5D98
+	.4byte 0x00000013
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__9CSeedlingFv

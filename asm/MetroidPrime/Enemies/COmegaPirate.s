@@ -310,6 +310,103 @@ lbl_803EB868:
 	.4byte sub_8028fa64
 	.4byte sub_8028c304
 
+.section .sdata
+
+.global lbl_805A8538
+lbl_805A8538:
+	# ROM: 0x3F5ED8
+	.4byte 0x00000013
+
+.global lbl_805A853C
+lbl_805A853C:
+	# ROM: 0x3F5EDC
+	.4byte 0
+
+.global lbl_805A8540
+lbl_805A8540:
+	# ROM: 0x3F5EE0
+	.4byte 0x00000021
+
+.global lbl_805A8544
+lbl_805A8544:
+	# ROM: 0x3F5EE4
+	.4byte 0x0000002F
+
+.global lbl_805A8548
+lbl_805A8548:
+	# ROM: 0x3F5EE8
+	.4byte 0x00000031
+
+.global lbl_805A854C
+lbl_805A854C:
+	# ROM: 0x3F5EEC
+	.4byte 0x00000020
+
+.global lbl_805A8550
+lbl_805A8550:
+	# ROM: 0x3F5EF0
+	.4byte 0x00000021
+
+.global lbl_805A8554
+lbl_805A8554:
+	# ROM: 0x3F5EF4
+	.4byte 0x0000002F
+
+.global lbl_805A8558
+lbl_805A8558:
+	# ROM: 0x3F5EF8
+	.4byte 0x00000013
+
+.global lbl_805A855C
+lbl_805A855C:
+	# ROM: 0x3F5EFC
+	.4byte 0x00000013
+
+.global lbl_805A8560
+lbl_805A8560:
+	# ROM: 0x3F5F00
+	.4byte 0x3F800000
+
+.global lbl_805A8564
+lbl_805A8564:
+	# ROM: 0x3F5F04
+	.4byte 0x3F800000
+
+.global lbl_805A8568
+lbl_805A8568:
+	# ROM: 0x3F5F08
+	.4byte 0x3F800000
+
+.global lbl_805A856C
+lbl_805A856C:
+	# ROM: 0x3F5F0C
+	.4byte 0x3F800000
+
+.global lbl_805A8570
+lbl_805A8570:
+	# ROM: 0x3F5F10
+	.4byte 0x3F800000
+
+.global lbl_805A8574
+lbl_805A8574:
+	# ROM: 0x3F5F14
+	.4byte 0x3F800000
+
+.global lbl_805A8578
+lbl_805A8578:
+	# ROM: 0x3F5F18
+	.byte 0x00
+
+.global lbl_805A8579
+lbl_805A8579:
+	# ROM: 0x3F5F19
+	.balign 4
+
+.global lbl_805A857C
+lbl_805A857C:
+	# ROM: 0x3F5F1C
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__Q212COmegaPirate6CFlashFv

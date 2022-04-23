@@ -10,6 +10,18 @@ lbl_803E9A00:
 	.4byte __dt__16CPauseScreenBlurFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8398
+lbl_805A8398:
+	# ROM: 0x3F5D38
+	.4byte 0
+
+.global lbl_805A839C
+lbl_805A839C:
+	# ROM: 0x3F5D3C
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetBlurAmt__16CPauseScreenBlurCFv

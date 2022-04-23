@@ -26,6 +26,14 @@ lbl_803EC4E8:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8648
+lbl_805A8648:
+	# ROM: 0x3F5FE8
+	.4byte 0x00000063
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetBounds__17CProjectileWeaponCFv
@@ -760,7 +768,7 @@ AddToRenderer__17CProjectileWeaponCFv:
 /* 802AF724 002AC684  80 83 00 FC */	lwz r4, 0xfc(r3)
 /* 802AF728 002AC688  28 04 00 00 */	cmplwi r4, 0
 /* 802AF72C 002AC68C  41 82 00 18 */	beq lbl_802AF744
-/* 802AF730 002AC690  80 6D 9A 90 */	lwz r3, lbl_805A8650@sda21(r13)
+/* 802AF730 002AC690  80 6D 9A 90 */	lwz r3, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802AF734 002AC694  81 83 00 00 */	lwz r12, 0(r3)
 /* 802AF738 002AC698  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802AF73C 002AC69C  7D 89 03 A6 */	mtctr r12
@@ -769,7 +777,7 @@ lbl_802AF744:
 /* 802AF744 002AC6A4  80 9F 01 00 */	lwz r4, 0x100(r31)
 /* 802AF748 002AC6A8  28 04 00 00 */	cmplwi r4, 0
 /* 802AF74C 002AC6AC  41 82 00 18 */	beq lbl_802AF764
-/* 802AF750 002AC6B0  80 6D 9A 90 */	lwz r3, lbl_805A8650@sda21(r13)
+/* 802AF750 002AC6B0  80 6D 9A 90 */	lwz r3, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802AF754 002AC6B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 802AF758 002AC6B8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802AF75C 002AC6BC  7D 89 03 A6 */	mtctr r12
@@ -778,7 +786,7 @@ lbl_802AF764:
 /* 802AF764 002AC6C4  80 9F 01 18 */	lwz r4, 0x118(r31)
 /* 802AF768 002AC6C8  28 04 00 00 */	cmplwi r4, 0
 /* 802AF76C 002AC6CC  41 82 00 18 */	beq lbl_802AF784
-/* 802AF770 002AC6D0  80 6D 9A 90 */	lwz r3, lbl_805A8650@sda21(r13)
+/* 802AF770 002AC6D0  80 6D 9A 90 */	lwz r3, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802AF774 002AC6D4  81 83 00 00 */	lwz r12, 0(r3)
 /* 802AF778 002AC6D8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802AF77C 002AC6DC  7D 89 03 A6 */	mtctr r12
@@ -787,7 +795,7 @@ lbl_802AF784:
 /* 802AF784 002AC6E4  80 9F 01 1C */	lwz r4, 0x11c(r31)
 /* 802AF788 002AC6E8  28 04 00 00 */	cmplwi r4, 0
 /* 802AF78C 002AC6EC  41 82 00 18 */	beq lbl_802AF7A4
-/* 802AF790 002AC6F0  80 6D 9A 90 */	lwz r3, lbl_805A8650@sda21(r13)
+/* 802AF790 002AC6F0  80 6D 9A 90 */	lwz r3, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802AF794 002AC6F4  81 83 00 00 */	lwz r12, 0(r3)
 /* 802AF798 002AC6F8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802AF79C 002AC6FC  7D 89 03 A6 */	mtctr r12
@@ -796,7 +804,7 @@ lbl_802AF7A4:
 /* 802AF7A4 002AC704  80 9F 01 20 */	lwz r4, 0x120(r31)
 /* 802AF7A8 002AC708  28 04 00 00 */	cmplwi r4, 0
 /* 802AF7AC 002AC70C  41 82 00 18 */	beq lbl_802AF7C4
-/* 802AF7B0 002AC710  80 6D 9A 90 */	lwz r3, lbl_805A8650@sda21(r13)
+/* 802AF7B0 002AC710  80 6D 9A 90 */	lwz r3, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802AF7B4 002AC714  81 83 00 00 */	lwz r12, 0(r3)
 /* 802AF7B8 002AC718  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802AF7BC 002AC71C  7D 89 03 A6 */	mtctr r12
@@ -805,7 +813,7 @@ lbl_802AF7C4:
 /* 802AF7C4 002AC724  80 9F 01 04 */	lwz r4, 0x104(r31)
 /* 802AF7C8 002AC728  28 04 00 00 */	cmplwi r4, 0
 /* 802AF7CC 002AC72C  41 82 00 18 */	beq lbl_802AF7E4
-/* 802AF7D0 002AC730  80 6D 9A 90 */	lwz r3, lbl_805A8650@sda21(r13)
+/* 802AF7D0 002AC730  80 6D 9A 90 */	lwz r3, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802AF7D4 002AC734  81 83 00 00 */	lwz r12, 0(r3)
 /* 802AF7D8 002AC738  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802AF7DC 002AC73C  7D 89 03 A6 */	mtctr r12

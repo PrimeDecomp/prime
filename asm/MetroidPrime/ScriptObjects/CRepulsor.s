@@ -34,6 +34,15 @@ lbl_803E70E8:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8070
+lbl_805A8070:
+	# ROM: 0x3F5A10
+	.4byte 0
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CRepulsorFv

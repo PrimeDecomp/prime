@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A89E0
+lbl_805A89E0:
+	# ROM: 0x3F6380
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AccumulateTextBounds__17CTextRenderBufferFv

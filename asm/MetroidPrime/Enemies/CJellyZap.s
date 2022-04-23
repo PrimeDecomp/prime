@@ -2,7 +2,6 @@
 
 .section .data
 
-
 .global lbl_803E5930
 lbl_803E5930:
 	# ROM: 0x3E2930
@@ -206,6 +205,24 @@ lbl_803E5954:
 	.4byte GetProjectileInfo__10CPatternedFv
 	.4byte PhazeOut__10CPatternedFR13CStateManager
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
+
+.section .sdata
+
+.global lbl_805A7D88
+lbl_805A7D88:
+	# ROM: 0x3F5728
+	.4byte 0
+
+.global lbl_805A7D8C
+lbl_805A7D8C:
+	# ROM: 0x3F572C
+	.4byte 0x3F800000
+
+.global lbl_805A7D90
+lbl_805A7D90:
+	# ROM: 0x3F5730
+	.4byte 0x00000020
+	.4byte 0
 
 .section .bss
 

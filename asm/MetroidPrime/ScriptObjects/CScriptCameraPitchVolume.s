@@ -34,6 +34,15 @@ lbl_803E7A70:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8120
+lbl_805A8120:
+	# ROM: 0x3F5AC0
+	.4byte 0x00000022
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__24CScriptCameraPitchVolumeFv

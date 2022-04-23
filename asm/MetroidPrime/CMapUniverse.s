@@ -10,6 +10,14 @@ lbl_803E6BD0:
 	.4byte "__dt__40TObjOwnerDerivedFromIObj<12CMapUniverse>Fv"
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7F08
+lbl_805A7F08:
+	# ROM: 0x3F58A8
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FMapUniverseFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

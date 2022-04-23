@@ -36,6 +36,48 @@ lbl_803E8670:
 	.4byte Reset__20CScriptSpindleCameraFRC12CTransform4fR13CStateManager
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8270
+lbl_805A8270:
+	# ROM: 0x3F5C10
+	.4byte 0x00000013
+
+.global lbl_805A8274
+lbl_805A8274:
+	# ROM: 0x3F5C14
+	.4byte 0x00000012
+
+.global lbl_805A8278
+lbl_805A8278:
+	# ROM: 0x3F5C18
+	.4byte 0x00000020
+
+.global lbl_805A827C
+lbl_805A827C:
+	# ROM: 0x3F5C1C
+	.4byte 0x00000021
+
+.global lbl_805A8280
+lbl_805A8280:
+	# ROM: 0x3F5C20
+	.4byte 0x00000015
+
+.global lbl_805A8284
+lbl_805A8284:
+	# ROM: 0x3F5C24
+	.4byte 0
+
+.global lbl_805A8288
+lbl_805A8288:
+	# ROM: 0x3F5C28
+	.4byte 0
+
+.global lbl_805A828C
+lbl_805A828C:
+	# ROM: 0x3F5C2C
+	.4byte 0x3F800000
+
 .section .bss
 
 .global lbl_8046D390

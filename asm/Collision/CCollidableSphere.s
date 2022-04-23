@@ -64,6 +64,15 @@ lbl_803ECB20:
 	.4byte lbl_802D4DF0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A86F8
+lbl_805A86F8:
+	# ROM: 0x3F6098
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
+
 .section .bss
 
 .global lbl_80479558

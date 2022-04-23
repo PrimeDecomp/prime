@@ -336,6 +336,42 @@ lbl_803EDD08:
 	.4byte AddModifier__12CParticleGenFP5CWarp
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A88B0
+lbl_805A88B0:
+	# ROM: 0x3F6250
+	.4byte 0x3F911111
+	.4byte 0x11111111
+
+.global lbl_805A88B8
+lbl_805A88B8:
+	# ROM: 0x3F6258
+	.4byte 0x00630000
+	.4byte 0
+
+.global lbl_805A88C0
+lbl_805A88C0:
+	# ROM: 0x3F6260
+	.4byte 0
+	.4byte 0
+
+.global lbl_805A88C8
+lbl_805A88C8:
+	# ROM: 0x3F6268
+	.4byte 0
+
+.global lbl_805A88CC
+lbl_805A88CC:
+	# ROM: 0x3F626C
+	.4byte 0x00000001
+
+.global lbl_805A88D0
+lbl_805A88D0:
+	# ROM: 0x3F6270
+	.4byte 0
+	.4byte 0
+
 .section .bss
 
 .global lbl_804BFE28

@@ -186,6 +186,69 @@ lbl_803E6BE0:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7F10
+lbl_805A7F10:
+	# ROM: 0x3F58B0
+	.4byte 0x00000013
+
+.global lbl_805A7F14
+lbl_805A7F14:
+	# ROM: 0x3F58B4
+	.4byte 0x00000020
+
+.global lbl_805A7F18
+lbl_805A7F18:
+	# ROM: 0x3F58B8
+	.4byte 0x00000021
+
+.global lbl_805A7F1C
+lbl_805A7F1C:
+	# ROM: 0x3F58BC
+	.4byte 0x00000014
+
+.global lbl_805A7F20
+lbl_805A7F20:
+	# ROM: 0x3F58C0
+	.4byte 0
+
+.global lbl_805A7F24
+lbl_805A7F24:
+	# ROM: 0x3F58C4
+	.4byte 0
+
+.global lbl_805A7F28
+lbl_805A7F28:
+	# ROM: 0x3F58C8
+	.4byte 0
+
+.global lbl_805A7F2C
+lbl_805A7F2C:
+	# ROM: 0x3F58CC
+	.4byte 0
+
+.global lbl_805A7F30
+lbl_805A7F30:
+	# ROM: 0x3F58D0
+	.4byte 0x00000013
+
+.global lbl_805A7F34
+lbl_805A7F34:
+	# ROM: 0x3F58D4
+	.4byte 0x00000013
+
+.global lbl_805A7F38
+lbl_805A7F38:
+	# ROM: 0x3F58D8
+	.4byte 0x0000001E
+
+.global lbl_805A7F3C
+lbl_805A7F3C:
+	# ROM: 0x3F58DC
+	.4byte 0x00000013
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__22CThardusRockProjectileFv

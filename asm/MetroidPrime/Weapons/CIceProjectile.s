@@ -34,6 +34,49 @@ lbl_803E6778:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7E5C
+lbl_805A7E5C:
+	# ROM: 0x3F57FC
+	.4byte 0x00000023
+
+.global lbl_805A7E60
+lbl_805A7E60:
+	# ROM: 0x3F5800
+	.4byte 0x00000015
+
+.global lbl_805A7E64
+lbl_805A7E64:
+	# ROM: 0x3F5804
+	.4byte 0x00000023
+
+.global lbl_805A7E68
+lbl_805A7E68:
+	# ROM: 0x3F5808
+	.4byte 0x00000021
+
+.global lbl_805A7E6C
+lbl_805A7E6C:
+	# ROM: 0x3F580C
+	.4byte 0x0000001F
+
+.global lbl_805A7E70
+lbl_805A7E70:
+	# ROM: 0x3F5810
+	.4byte 0x00000031
+
+.global lbl_805A7E74
+lbl_805A7E74:
+	# ROM: 0x3F5814
+	.4byte 0x0000001F
+
+.global lbl_805A7E78
+lbl_805A7E78:
+	# ROM: 0x3F5818
+	.4byte 0x0000001E
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ExplosionFinished__Q220CIceAttackProjectile12CTrailObjectCFv

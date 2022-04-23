@@ -222,6 +222,43 @@ lbl_803E66D4:
 	.4byte lbl_801F0CB0
 	.4byte lbl_801F0E38
 
+.section .sdata
+
+.global lbl_805A7E40
+lbl_805A7E40:
+	# ROM: 0x3F57E0
+	.4byte 0x00000013
+
+.global lbl_805A7E44
+lbl_805A7E44:
+	# ROM: 0x3F57E4
+	.4byte 0x00000020
+
+.global lbl_805A7E48
+lbl_805A7E48:
+	# ROM: 0x3F57E8
+	.4byte 0x00000021
+
+.global lbl_805A7E4C
+lbl_805A7E4C:
+	# ROM: 0x3F57EC
+	.4byte 0x0000002F
+
+.global lbl_805A7E50
+lbl_805A7E50:
+	# ROM: 0x3F57F0
+	.4byte 0x00000026
+
+.global lbl_805A7E54
+lbl_805A7E54:
+	# ROM: 0x3F57F4
+	.4byte 0x00000014
+
+.global lbl_805A7E58
+lbl_805A7E58:
+	# ROM: 0x3F57F8
+	.4byte 0x00000013
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SaveBombSlotInfo__17CFlaahgraTentacleFR13CStateManager

@@ -37,6 +37,63 @@ lbl_803ED948:
 	.4byte lbl_8030AD80
 
 
+.section .sdata
+
+.global lbl_805A882C
+lbl_805A882C:
+	# ROM: 0x3F61CC
+	.4byte 0x01000000
+
+.global lbl_805A8830
+lbl_805A8830:
+	# ROM: 0x3F61D0
+	.4byte 0x00000003
+
+.global lbl_805A8834
+lbl_805A8834:
+	# ROM: 0x3F61D4
+	.4byte 0x000000B8
+
+.global lbl_805A8838
+lbl_805A8838:
+	# ROM: 0x3F61D8
+	.4byte 0x3F800000
+
+.global lbl_805A883C
+lbl_805A883C:
+	# ROM: 0x3F61DC
+	.4byte 0x00FFFFFF
+
+.global lbl_805A8840
+lbl_805A8840:
+	# ROM: 0x3F61E0
+	.byte 0x01
+
+.global lbl_805A8841
+lbl_805A8841:
+	# ROM: 0x3F61E1
+	.byte 0x01
+
+.global lbl_805A8842
+lbl_805A8842:
+	# ROM: 0x3F61E2
+	.2byte 0x00000100
+
+.global lbl_805A8844
+lbl_805A8844:
+	# ROM: 0x3F61E4
+	.4byte 0x3F800000
+
+.global lbl_805A8848
+lbl_805A8848:
+	# ROM: 0x3F61E8
+	.4byte 0
+
+.global lbl_805A884C
+lbl_805A884C:
+	# ROM: 0x3F61EC
+	.4byte 0x40000000
+
 .section .bss
 
 .global lbl_80479CC0

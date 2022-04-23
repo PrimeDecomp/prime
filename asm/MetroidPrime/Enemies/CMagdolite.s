@@ -292,6 +292,58 @@ lbl_803E850C:
 	.4byte lbl_80236D40
 	.4byte lbl_80236D28
 
+.section .sdata
+
+.global lbl_805A8208
+lbl_805A8208:
+	# ROM: 0x3F5BA8
+	.4byte 0x00000013
+
+.global lbl_805A820C
+lbl_805A820C:
+	# ROM: 0x3F5BAC
+	.4byte 0x803D4310
+
+.global lbl_805A8210
+lbl_805A8210:
+	# ROM: 0x3F5BB0
+	.4byte 0x803D431E
+
+.global lbl_805A8214
+lbl_805A8214:
+	# ROM: 0x3F5BB4
+	.4byte 0x803D431E
+
+.global lbl_805A8218
+lbl_805A8218:
+	# ROM: 0x3F5BB8
+	.4byte 0x803D4323
+
+.global lbl_805A821C
+lbl_805A821C:
+	# ROM: 0x3F5BBC
+	.4byte 0x803D432C
+
+.global lbl_805A8220
+lbl_805A8220:
+	# ROM: 0x3F5BC0
+	.4byte 0x00000013
+
+.global lbl_805A8224
+lbl_805A8224:
+	# ROM: 0x3F5BC4
+	.4byte 0x00000021
+
+.global lbl_805A8228
+lbl_805A8228:
+	# ROM: 0x3F5BC8
+	.4byte 0x00000020
+
+.global lbl_805A822C
+lbl_805A822C:
+	# ROM: 0x3F5BCC
+	.4byte 0x00000012
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__10CMagdoliteFv

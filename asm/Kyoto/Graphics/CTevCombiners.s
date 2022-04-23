@@ -1,5 +1,22 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8820
+lbl_805A8820:
+	# ROM: 0x3F61C0
+	.4byte 0
+
+.global lbl_805A8824
+lbl_805A8824:
+	# ROM: 0x3F61C4
+	.4byte 0xFFFFFFFF
+
+.global lbl_805A8828
+lbl_805A8828:
+	# ROM: 0x3F61C8
+	.4byte 0x805A564C
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ResetStates__13CTevCombinersFv

@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8750
+lbl_805A8750:
+	# ROM: 0x3F60F0
+	.4byte 0x00000002
+
+.global lbl_805A8754
+lbl_805A8754:
+	# ROM: 0x3F60F4
+	.4byte 0
+
+.global lbl_805A8758
+lbl_805A8758:
+	# ROM: 0x3F60F8
+	.4byte 0x00000004
+
+.global lbl_805A875C
+lbl_805A875C:
+	# ROM: 0x3F60FC
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ComputeSequenceFundamentals__15CSequenceHelperCFv

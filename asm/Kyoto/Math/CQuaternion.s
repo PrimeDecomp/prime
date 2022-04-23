@@ -11,7 +11,39 @@ lbl_804BFD3C:
 .global lbl_804BFD48
 lbl_804BFD48:
 	.skip 0x10
-	
+
+.section .sdata
+
+.global lbl_805A8850
+lbl_805A8850:
+	# ROM: 0x3F61F0
+	.4byte 0xBF800000
+
+.global lbl_805A8854
+lbl_805A8854:
+	# ROM: 0x3F61F4
+	.4byte 0x3F800000
+
+.global lbl_805A8858
+lbl_805A8858:
+	# ROM: 0x3F61F8
+	.4byte 0xBF800000
+
+.global lbl_805A885C
+lbl_805A885C:
+	# ROM: 0x3F61FC
+	.4byte 0x3F800000
+
+.global lbl_805A8860
+lbl_805A8860:
+	# ROM: 0x3F6200
+	.4byte 0x3F800000
+
+.global lbl_805A8864
+lbl_805A8864:
+	# ROM: 0x3F6204
+	.4byte 0xBF800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FromNUQuaternion__11CQuaternionFRC13CNUQuaternion

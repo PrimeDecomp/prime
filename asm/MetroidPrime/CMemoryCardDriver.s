@@ -36,6 +36,29 @@ lbl_803E8D6C:
 	.4byte lbl_8024E7A0
 	.4byte lbl_8024E7B0
 
+.section .sdata
+
+.global lbl_805A82D0
+lbl_805A82D0:
+	# ROM: 0x3F5C70
+	.byte 0x00
+
+.global lbl_805A82D1
+lbl_805A82D1:
+	# ROM: 0x3F5C71
+	.byte 0x00
+
+.global lbl_805A82D2
+lbl_805A82D2:
+	# ROM: 0x3F5C72
+	.byte 0x00
+
+.global lbl_805A82D3
+lbl_805A82D3:
+	# ROM: 0x3F5C73
+	.balign 4
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetCardFreeBytes__17CMemoryCardDriverFv

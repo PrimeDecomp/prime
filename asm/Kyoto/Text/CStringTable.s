@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A89D8
+lbl_805A89D8:
+	# ROM: 0x3F6378
+	.asciz "ENGL"
+	.balign 4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FStringTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

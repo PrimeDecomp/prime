@@ -14,6 +14,24 @@ lbl_803ECD30:
 	.4byte WriteAnimData__13CMetaAnimPlayCFR13COutputStream
 	.4byte VGetAnimationTree__13CMetaAnimPlayCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 
+.section .sdata
+
+.global lbl_805A8720
+lbl_805A8720:
+	# ROM: 0x3F60C0
+	.byte 0x01
+
+.global lbl_805A8721
+lbl_805A8721:
+	# ROM: 0x3F60C1
+	.byte 0x00
+
+.global lbl_805A8722
+lbl_805A8722:
+	# ROM: 0x3F60C2
+	.byte 0x01, 0x00
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__13CMetaAnimPlayFv

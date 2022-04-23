@@ -22,6 +22,24 @@ lbl_803EC6F8:
 	.4byte OnActivate__9CGuiGroupFv
 	.4byte GetWorkerWidget__9CAuiMeterFi
 
+.section .sdata
+
+.global lbl_805A86B0
+lbl_805A86B0:
+	# ROM: 0x3F6050
+	.4byte 0
+
+.global lbl_805A86B4
+lbl_805A86B4:
+	# ROM: 0x3F6054
+	.4byte 0
+
+.global lbl_805A86B8
+lbl_805A86B8:
+	# ROM: 0x3F6058
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CAuiMeterFv

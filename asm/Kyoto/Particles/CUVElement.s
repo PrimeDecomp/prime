@@ -24,6 +24,24 @@ lbl_803EE134:
 	.4byte HasConstantTexture__12CUVEConstantFv
 	.4byte HasConstantUV__12CUVEConstantFv
 
+.section .sdata
+
+.global lbl_805A88E8
+lbl_805A88E8:
+	# ROM: 0x3F6288
+	.4byte 0x00000001
+
+.global lbl_805A88EC
+lbl_805A88EC:
+	# ROM: 0x3F628C
+	.4byte 0x00000001
+
+.global lbl_805A88F0
+lbl_805A88F0:
+	# ROM: 0x3F6290
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global HasConstantTexture__15CUVEAnimTextureFv

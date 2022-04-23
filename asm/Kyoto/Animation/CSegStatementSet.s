@@ -16,6 +16,14 @@ lbl_803ED4C4:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A87F8
+lbl_805A87F8:
+	# ROM: 0x3F6198
+	.4byte 0x0000001F
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CStackSegStatementSetFv

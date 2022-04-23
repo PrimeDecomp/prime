@@ -36,6 +36,29 @@ lbl_803EF7B8:
 	.4byte AddModifier__12CParticleGenFP5CWarp
 	.4byte Get4CharId__17CParticleElectricFv
 
+.section .sdata
+
+.global lbl_805A8A10
+lbl_805A8A10:
+	# ROM: 0x3F63B0
+	.2byte 0x00000063
+
+.global lbl_805A8A12
+lbl_805A8A12:
+	# ROM: 0x3F63B2
+	.2byte 0x00000000
+
+.global lbl_805A8A14
+lbl_805A8A14:
+	# ROM: 0x3F63B4
+	.4byte 0
+
+.global lbl_805A8A18
+lbl_805A8A18:
+	# ROM: 0x3F63B8
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTranslation__17CParticleElectricCFv

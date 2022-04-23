@@ -57,6 +57,19 @@ lbl_803ECFE4:
 	.4byte 0
 	.4byte 0
 	.4byte sub_802ee0a0
+	
+.section .sdata
+
+.global lbl_805A8788
+lbl_805A8788:
+	# ROM: 0x3F6128
+	.4byte 0x00000002
+
+.global lbl_805A878C
+lbl_805A878C:
+	# ROM: 0x3F612C
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global VGetAdvancementResults__17CAnimSourceReaderCFRC13CCharAnimTimeRC13CCharAnimTime

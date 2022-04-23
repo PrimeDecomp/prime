@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8620
+lbl_805A8620:
+	# ROM: 0x3F5FC0
+	.4byte 0x40180000
+
+.global lbl_805A8624
+lbl_805A8624:
+	# ROM: 0x3F5FC4
+	.4byte 0x42180000
+
+.global lbl_805A8628
+lbl_805A8628:
+	# ROM: 0x3F5FC8
+	.4byte 0x41180000
+
+.global lbl_805A862C
+lbl_805A862C:
+	# ROM: 0x3F5FCC
+	.4byte 0
+
 .section .text, "ax"
 
 .global Alloc__Q28COBBTree16CSimpleAllocatorFUl

@@ -14,6 +14,18 @@ lbl_803ECDF0:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8760
+lbl_805A8760:
+	# ROM: 0x3F6100
+	.4byte 0x00000002
+
+.global lbl_805A8764
+lbl_805A8764:
+	# ROM: 0x3F6104
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AdvanceAnim__9IMetaAnimFR11IAnimReaderRC13CCharAnimTime

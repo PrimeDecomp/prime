@@ -46,6 +46,64 @@ lbl_803E6374:
 	.4byte lbl_801EC3B8
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7DF8
+lbl_805A7DF8:
+	# ROM: 0x3F5798
+	.4byte 0x00000013
+
+.global lbl_805A7DFC
+lbl_805A7DFC:
+	# ROM: 0x3F579C
+	.4byte 0x00000027
+
+.global lbl_805A7E00
+lbl_805A7E00:
+	# ROM: 0x3F57A0
+	.4byte 0x00000022
+
+.global lbl_805A7E04
+lbl_805A7E04:
+	# ROM: 0x3F57A4
+	.4byte 0x00000032
+
+.global lbl_805A7E08
+lbl_805A7E08:
+	# ROM: 0x3F57A8
+	.4byte 0x00000033
+
+.global lbl_805A7E0C
+lbl_805A7E0C:
+	# ROM: 0x3F57AC
+	.4byte 0x00000013
+
+.global lbl_805A7E10
+lbl_805A7E10:
+	# ROM: 0x3F57B0
+	.4byte 0x3F800000
+
+.global lbl_805A7E14
+lbl_805A7E14:
+	# ROM: 0x3F57B4
+	.4byte 0x00000020
+
+.global lbl_805A7E18
+lbl_805A7E18:
+	# ROM: 0x3F57B8
+	.4byte 0x00000013
+
+.global lbl_805A7E1C
+lbl_805A7E1C:
+	# ROM: 0x3F57BC
+	.4byte 0
+
+.global lbl_805A7E20
+lbl_805A7E20:
+	# ROM: 0x3F57C0
+	.4byte 0x0000007F
+	.4byte 0
+
 .section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
 # CWallCrawlerSwarm
 .global lbl_805AF468

@@ -1,5 +1,103 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A84E8
+lbl_805A84E8:
+	# ROM: 0x3F5E88
+	.4byte 0
+
+.global lbl_805A84EC
+lbl_805A84EC:
+	# ROM: 0x3F5E8C
+	.4byte 0x3F800000
+
+.global lbl_805A84F0
+lbl_805A84F0:
+	# ROM: 0x3F5E90
+	.4byte 0x00000013
+
+.global lbl_805A84F4
+lbl_805A84F4:
+	# ROM: 0x3F5E94
+	.4byte 0x00000012
+
+.global lbl_805A84F8
+lbl_805A84F8:
+	# ROM: 0x3F5E98
+	.4byte 0x00000020
+
+.global lbl_805A84FC
+lbl_805A84FC:
+	# ROM: 0x3F5E9C
+	.4byte 0x00000021
+
+.global lbl_805A8500
+lbl_805A8500:
+	# ROM: 0x3F5EA0
+	.4byte 0x00000015
+
+.global lbl_805A8504
+lbl_805A8504:
+	# ROM: 0x3F5EA4
+	.4byte 0
+
+.global lbl_805A8508
+lbl_805A8508:
+	# ROM: 0x3F5EA8
+	.4byte 0
+
+.global lbl_805A850C
+lbl_805A850C:
+	# ROM: 0x3F5EAC
+	.4byte 0
+
+.global lbl_805A8510
+lbl_805A8510:
+	# ROM: 0x3F5EB0
+	.4byte 0
+
+.global lbl_805A8514
+lbl_805A8514:
+	# ROM: 0x3F5EB4
+	.4byte 0
+
+.global lbl_805A8518
+lbl_805A8518:
+	# ROM: 0x3F5EB8
+	.4byte 0x3F800000
+
+.global lbl_805A851C
+lbl_805A851C:
+	# ROM: 0x3F5EBC
+	.4byte 0xBF800000
+
+.global lbl_805A8520
+lbl_805A8520:
+	# ROM: 0x3F5EC0
+	.4byte 0x3F800000
+
+.global lbl_805A8524
+lbl_805A8524:
+	# ROM: 0x3F5EC4
+	.4byte 0
+
+.global lbl_805A8528
+lbl_805A8528:
+	# ROM: 0x3F5EC8
+	.4byte 0
+
+.global lbl_805A852C
+lbl_805A852C:
+	# ROM: 0x3F5ECC
+	.4byte 0x3F800000
+
+.global lbl_805A8530
+lbl_805A8530:
+	# ROM: 0x3F5ED0
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046E0D8

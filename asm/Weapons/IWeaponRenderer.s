@@ -19,6 +19,14 @@ lbl_803EC538:
 	.4byte 0
 
 
+.section .sdata
+
+.global sWeaponRenderer__15IWeaponRenderer
+sWeaponRenderer__15IWeaponRenderer:
+	# ROM: 0x3F5FF0
+	.4byte lbl_805A91A0
+	.4byte 0
+
 .section .bss
 
 .global lbl_8046E1F0

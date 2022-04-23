@@ -1,5 +1,47 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8100
+lbl_805A8100:
+	# ROM: 0x3F5AA0
+	.4byte 0xBF800000
+
+.global lbl_805A8104
+lbl_805A8104:
+	# ROM: 0x3F5AA4
+	.4byte 0x3F800000
+
+.global lbl_805A8108
+lbl_805A8108:
+	# ROM: 0x3F5AA8
+	.4byte 0xBF800000
+
+.global lbl_805A810C
+lbl_805A810C:
+	# ROM: 0x3F5AAC
+	.4byte 0x3F800000
+
+.global lbl_805A8110
+lbl_805A8110:
+	# ROM: 0x3F5AB0
+	.4byte 0x3F800000
+
+.global lbl_805A8114
+lbl_805A8114:
+	# ROM: 0x3F5AB4
+	.4byte 0x3F800000
+
+.global lbl_805A8118
+lbl_805A8118:
+	# ROM: 0x3F5AB8
+	.4byte 0x3F800000
+
+.global lbl_805A811C
+lbl_805A811C:
+	# ROM: 0x3F5ABC
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Update__8CIkChainFf
