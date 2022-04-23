@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8780
+lbl_805A8780:
+	# ROM: 0x3F6120
+	.byte 0x01
+
+.global lbl_805A8781
+lbl_805A8781:
+	# ROM: 0x3F6121
+	.byte 0x00
+
+.global lbl_805A8782
+lbl_805A8782:
+	# ROM: 0x3F6122
+	.byte 0x01, 0x00
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSegStatementSet__11CAnimSourceCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime

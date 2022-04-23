@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8810
+lbl_805A8810:
+	# ROM: 0x3F61B0
+	.4byte 0x3D70F0F1
+
+.global lbl_805A8814
+lbl_805A8814:
+	# ROM: 0x3F61B4
+	.4byte 0x3E4CCCCD
+
+.global lbl_805A8818
+lbl_805A8818:
+	# ROM: 0x3F61B8
+	.4byte 0x3D70F0F1
+
+.global lbl_805A881C
+lbl_805A881C:
+	# ROM: 0x3F61BC
+	.4byte 0x3E4CCCCD
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetNormalIndependentLightingAtPoint__6CLightCFRC9CVector3f

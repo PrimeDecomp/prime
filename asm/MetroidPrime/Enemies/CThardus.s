@@ -412,6 +412,88 @@ lbl_803E6074:
 	.4byte ShouldCallForBackup__3CAiFR13CStateManagerf
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7DA8
+lbl_805A7DA8:
+	# ROM: 0x3F5748
+	.4byte 0
+
+.global lbl_805A7DAC
+lbl_805A7DAC:
+	# ROM: 0x3F574C
+	.4byte 0x00000020
+
+.global lbl_805A7DB0
+lbl_805A7DB0:
+	# ROM: 0x3F5750
+	.4byte 0x00000021
+
+.global lbl_805A7DB4
+lbl_805A7DB4:
+	# ROM: 0x3F5754
+	.4byte 0x0000002F
+
+.global lbl_805A7DB8
+lbl_805A7DB8:
+	# ROM: 0x3F5758
+	.4byte 0
+
+.global lbl_805A7DBC
+lbl_805A7DBC:
+	# ROM: 0x3F575C
+	.4byte 0
+
+.global lbl_805A7DC0
+lbl_805A7DC0:
+	# ROM: 0x3F5760
+	.4byte 0
+
+.global lbl_805A7DC4
+lbl_805A7DC4:
+	# ROM: 0x3F5764
+	.4byte 0
+
+.global lbl_805A7DC8
+lbl_805A7DC8:
+	# ROM: 0x3F5768
+	.4byte 0
+
+.global lbl_805A7DCC
+lbl_805A7DCC:
+	# ROM: 0x3F576C
+	.4byte 0x00000013
+
+.global lbl_805A7DD0
+lbl_805A7DD0:
+	# ROM: 0x3F5770
+	.4byte 0x00000013
+
+.global lbl_805A7DD4
+lbl_805A7DD4:
+	# ROM: 0x3F5774
+	.4byte 0x0000001E
+
+.global lbl_805A7DD8
+lbl_805A7DD8:
+	# ROM: 0x3F5778
+	.4byte 0x0000001F
+
+.global lbl_805A7DDC
+lbl_805A7DDC:
+	# ROM: 0x3F577C
+	.4byte 0x0000001D
+
+.global lbl_805A7DE0
+lbl_805A7DE0:
+	# ROM: 0x3F5780
+	.4byte 0
+
+.global lbl_805A7DE4
+lbl_805A7DE4:
+	# ROM: 0x3F5784
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__8CThardusFv

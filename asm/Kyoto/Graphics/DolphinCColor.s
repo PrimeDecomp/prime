@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8A20
+lbl_805A8A20:
+	# ROM: 0x3F63C0
+	.4byte 0x000000FF
+
+.global lbl_805A8A24
+lbl_805A8A24:
+	# ROM: 0x3F63C4
+	.4byte 0x000000FF
+
+.global lbl_805A8A28
+lbl_805A8A28:
+	# ROM: 0x3F63C8
+	.4byte 0x000000FF
+
+.global lbl_805A8A2C
+lbl_805A8A2C:
+	# ROM: 0x3F63CC
+	.4byte 0x000000FF
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ToRGB5A3__6CColorCFv

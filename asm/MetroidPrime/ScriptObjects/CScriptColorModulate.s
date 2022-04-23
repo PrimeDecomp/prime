@@ -13,6 +13,19 @@ lbl_803E6BB0:
 	.4byte AcceptScriptMsg__20CScriptColorModulateF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata
+
+.global lbl_805A7F00
+lbl_805A7F00:
+	# ROM: 0x3F58A0
+	.4byte 0x3F800000
+
+.global lbl_805A7F04
+lbl_805A7F04:
+	# ROM: 0x3F58A4
+	.4byte 0x3F800000
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__20CScriptColorModulateFv

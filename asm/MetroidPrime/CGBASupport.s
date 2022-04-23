@@ -16,6 +16,17 @@ lbl_803E8C18:
 	.4byte lbl_80248B54
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A82B8
+lbl_805A82B8:
+	# ROM: 0x3F5C58
+	.4byte 0
+
+.global lbl_805A82BC
+lbl_805A82BC:
+	# ROM: 0x3F5C5C
+	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

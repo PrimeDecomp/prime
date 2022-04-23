@@ -12,6 +12,28 @@ lbl_803ECDA8:
 	.4byte GetType__20CMetaTransPhaseTransCFv
 	.4byte WriteTransData__20CMetaTransPhaseTransCFR13COutputStream
 
+.section .sdata
+
+.global lbl_805A8728
+lbl_805A8728:
+	# ROM: 0x3F60C8
+	.4byte 0x00000002
+
+.global lbl_805A872C
+lbl_805A872C:
+	# ROM: 0x3F60CC
+	.4byte 0
+
+.global lbl_805A8730
+lbl_805A8730:
+	# ROM: 0x3F60D0
+	.4byte 0
+
+.global lbl_805A8734
+lbl_805A8734:
+	# ROM: 0x3F60D4
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__20CMetaTransPhaseTransFv

@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A86F0
+lbl_805A86F0:
+	# ROM: 0x3F6090
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetType__27CCollidableCollisionSurfaceFv

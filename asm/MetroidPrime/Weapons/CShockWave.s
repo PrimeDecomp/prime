@@ -34,6 +34,24 @@ lbl_803E8050:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A81E8
+lbl_805A81E8:
+	# ROM: 0x3F5B88
+	.4byte 0x00000013
+
+.global lbl_805A81EC
+lbl_805A81EC:
+	# ROM: 0x3F5B8C
+	.4byte 0x00000023
+
+.global lbl_805A81F0
+lbl_805A81F0:
+	# ROM: 0x3F5B90
+	.4byte 0
+	.4byte 0
+
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

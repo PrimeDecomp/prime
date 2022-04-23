@@ -30,6 +30,19 @@ lbl_803E8178:
 	.4byte lbl_80233A78
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A81F8
+lbl_805A81F8:
+	# ROM: 0x3F5B98
+	.4byte 0
+
+.global lbl_805A81FC
+lbl_805A81FC:
+	# ROM: 0x3F5B9C
+	.4byte 0
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DoKnockBackAnimation__20CKnockBackControllerFRC9CVector3fR13CStateManagerR10CPatternedf

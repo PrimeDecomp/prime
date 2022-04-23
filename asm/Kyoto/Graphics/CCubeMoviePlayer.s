@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A89E8
+lbl_805A89E8:
+	# ROM: 0x3F6388
+	.byte 0x01
+
+.global lbl_805A89E9
+lbl_805A89E9:
+	# ROM: 0x3F6389
+	.byte 0x7F, 0x00, 0x00
+
+.global lbl_805A89EC
+lbl_805A89EC:
+	# ROM: 0x3F638C
+	.4byte 0x0000007F
+
+.global lbl_805A89F0
+lbl_805A89F0:
+	# ROM: 0x3F6390
+	.4byte 0x7F000000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetSfxVolume__12CMoviePlayerFUc

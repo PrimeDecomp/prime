@@ -1,5 +1,47 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8938
+lbl_805A8938:
+	# ROM: 0x3F62D8
+	.4byte 0
+
+.global lbl_805A893C
+lbl_805A893C:
+	# ROM: 0x3F62DC
+	.4byte 0x00000002
+
+.global lbl_805A8940
+lbl_805A8940:
+	# ROM: 0x3F62E0
+	.4byte 0
+
+.global lbl_805A8944
+lbl_805A8944:
+	# ROM: 0x3F62E4
+	.4byte 0x00000004
+
+.global lbl_805A8948
+lbl_805A8948:
+	# ROM: 0x3F62E8
+	.4byte 0
+
+.global lbl_805A894C
+lbl_805A894C:
+	# ROM: 0x3F62EC
+	.4byte 0x00000001
+
+.global lbl_805A8950
+lbl_805A8950:
+	# ROM: 0x3F62F0
+	.4byte 0xFFFFFFFF
+
+.global lbl_805A8954
+lbl_805A8954:
+	# ROM: 0x3F62F4
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global PutTo__13CCharAnimTimeCFR13COutputStream

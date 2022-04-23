@@ -1,5 +1,27 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A85D0
+lbl_805A85D0:
+	# ROM: 0x3F5F70
+	.4byte 0x3F800000
+
+.global lbl_805A85D4
+lbl_805A85D4:
+	# ROM: 0x3F5F74
+	.4byte 0x3F800000
+
+.global lbl_805A85D8
+lbl_805A85D8:
+	# ROM: 0x3F5F78
+	.4byte 0
+
+.global lbl_805A85DC
+lbl_805A85DC:
+	# ROM: 0x3F5F7C
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetArtifactHeadScanIndex__13CArtifactDollFUi

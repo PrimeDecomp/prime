@@ -114,6 +114,79 @@ lbl_803E72A4:
 	.4byte lbl_8021A6D0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A80A0
+lbl_805A80A0:
+	# ROM: 0x3F5A40
+	.4byte 0x00000021
+
+.global lbl_805A80A4
+lbl_805A80A4:
+	# ROM: 0x3F5A44
+	.4byte 0x00000013
+
+.global lbl_805A80A8
+lbl_805A80A8:
+	# ROM: 0x3F5A48
+	.4byte 0x00000021
+
+.global lbl_805A80AC
+lbl_805A80AC:
+	# ROM: 0x3F5A4C
+	.4byte 0x00000029
+
+.global lbl_805A80B0
+lbl_805A80B0:
+	# ROM: 0x3F5A50
+	.4byte 0x00000028
+
+.global lbl_805A80B4
+lbl_805A80B4:
+	# ROM: 0x3F5A54
+	.4byte 0
+
+.global lbl_805A80B8
+lbl_805A80B8:
+	# ROM: 0x3F5A58
+	.4byte 0x3F800000
+
+.global lbl_805A80BC
+lbl_805A80BC:
+	# ROM: 0x3F5A5C
+	.4byte 0x00000013
+
+.global lbl_805A80C0
+lbl_805A80C0:
+	# ROM: 0x3F5A60
+	.4byte 0x00000020
+
+.global lbl_805A80C4
+lbl_805A80C4:
+	# ROM: 0x3F5A64
+	.4byte 0x0000002F
+
+.global lbl_805A80C8
+lbl_805A80C8:
+	# ROM: 0x3F5A68
+	.4byte 0x00000020
+
+.global lbl_805A80CC
+lbl_805A80CC:
+	# ROM: 0x3F5A6C
+	.4byte 0x00000021
+
+.global lbl_805A80D0
+lbl_805A80D0:
+	# ROM: 0x3F5A70
+	.4byte 0x00000026
+
+.global lbl_805A80D4
+lbl_805A80D4:
+	# ROM: 0x3F5A74
+	.4byte 0x00000014
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global HealthInfo__16CScriptGunTurretFR13CStateManager

@@ -1098,6 +1098,18 @@ lbl_803EF4C8:
 	.4byte 0xC0050000
 	.4byte 0x00006001
 
+.section .sdata
+
+.global lbl_805A8918
+lbl_805A8918:
+	# ROM: 0x3F62B8
+	.4byte 0x00000009
+
+.global lbl_805A891C
+lbl_805A891C:
+	# ROM: 0x3F62BC
+	.4byte 0x00000005
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global inflate_trees_fixed

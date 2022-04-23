@@ -1,5 +1,42 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8900
+lbl_805A8900:
+	# ROM: 0x3F62A0
+	.byte 0x01
+
+.global lbl_805A8901
+lbl_805A8901:
+	# ROM: 0x3F62A1
+	.byte 0x00
+
+.global lbl_805A8902
+lbl_805A8902:
+	# ROM: 0x3F62A2
+	.byte 0x01
+
+.global lbl_805A8903
+lbl_805A8903:
+	# ROM: 0x3F62A3
+	.byte 0x01
+
+.global lbl_805A8904
+lbl_805A8904:
+	# ROM: 0x3F62A4
+	.byte 0x00
+
+.global lbl_805A8905
+lbl_805A8905:
+	# ROM: 0x3F62A5
+	.byte 0x01, 0x00, 0x00
+
+.global lbl_805A8908
+lbl_805A8908:
+	# ROM: 0x3F62A8
+	.4byte 0x00000002
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FourCCToTypeIdx__11CFactoryMgrFUi

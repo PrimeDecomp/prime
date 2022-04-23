@@ -30,6 +30,28 @@ lbl_803EF640:
 	.4byte lbl_80347D0C
 	.4byte lbl_80347E5C
 
+.section .sdata
+
+.global lbl_805A8928
+lbl_805A8928:
+	# ROM: 0x3F62C8
+	.4byte 0xFFFFFFFF
+
+.global lbl_805A892C
+lbl_805A892C:
+	# ROM: 0x3F62CC
+	.4byte 0x3F800000
+
+.global lbl_805A8930
+lbl_805A8930:
+	# ROM: 0x3F62D0
+	.4byte 0x3F800000
+
+.global lbl_805A8934
+lbl_805A8934:
+	# ROM: 0x3F62D4
+	.4byte 0xFFFFFFFF
+
 .section .bss
 
 .global lbl_804BFF50

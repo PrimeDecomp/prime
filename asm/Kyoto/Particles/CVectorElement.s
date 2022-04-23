@@ -192,6 +192,14 @@ lbl_803EE2E0:
 	.4byte IsFastConstant__14CVectorElementCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A88F8
+lbl_805A88F8:
+	# ROM: 0x3F6298
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetValue__7CVECVTCCFiR9CVector3f

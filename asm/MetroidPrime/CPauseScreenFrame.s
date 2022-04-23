@@ -129,7 +129,29 @@ lbl_803E8864:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A8290
+lbl_805A8290:
+	# ROM: 0x3F5C30
+	.4byte 0x3F800000
+
+.global lbl_805A8294
+lbl_805A8294:
+	# ROM: 0x3F5C34
+	.4byte 0
+
+.global lbl_805A8298
+lbl_805A8298:
+	# ROM: 0x3F5C38
+	.4byte 0x3F800000
+
+.global lbl_805A829C
+lbl_805A829C:
+	# ROM: 0x3F5C3C
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DoSliderChange__21SOptionsFrontEndFrameFP15CGuiSliderGroup

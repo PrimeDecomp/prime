@@ -45,6 +45,34 @@ lbl_803ED494:
 	.4byte "GetAnimationDuration__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 	.4byte "__dt__41TAnimSourceInfo<22CFBStreamedCompression>Fv"
 
+.section .sdata
+
+.global lbl_805A87D8
+lbl_805A87D8:
+	# ROM: 0x3F6178
+	.4byte 0x00000002
+
+.global lbl_805A87DC
+lbl_805A87DC:
+	# ROM: 0x3F617C
+	.4byte 0
+
+.global lbl_805A87E0
+lbl_805A87E0:
+	# ROM: 0x3F6180
+	.4byte 0
+
+.global lbl_805A87E4
+lbl_805A87E4:
+	# ROM: 0x3F6184
+	.4byte 0
+
+.global lbl_805A87E8
+lbl_805A87E8:
+	# ROM: 0x3F6188
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global VGetAdvancementResults__21CFBStreamedAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime

@@ -36,6 +36,18 @@ lbl_803EDD80:
 	.4byte AddModifier__12CParticleGenFP5CWarp
 	.4byte Get4CharId__15CParticleSwooshCF
 
+.section .sdata
+
+.global lbl_805A88D8
+lbl_805A88D8:
+	# ROM: 0x3F6278
+	.4byte 0x3C888889
+
+.global lbl_805A88DC
+lbl_805A88DC:
+	# ROM: 0x3F627C
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTranslation__15CParticleSwooshCFv

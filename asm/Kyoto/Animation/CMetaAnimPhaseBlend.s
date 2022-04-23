@@ -26,6 +26,28 @@ lbl_803ECD10:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8710
+lbl_805A8710:
+	# ROM: 0x3F60B0
+	.4byte 0x00000002
+
+.global lbl_805A8714
+lbl_805A8714:
+	# ROM: 0x3F60B4
+	.4byte 0
+
+.global lbl_805A8718
+lbl_805A8718:
+	# ROM: 0x3F60B8
+	.4byte 0x00000004
+
+.global lbl_805A871C
+lbl_805A871C:
+	# ROM: 0x3F60BC
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__19CMetaAnimPhaseBlendFv

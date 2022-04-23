@@ -34,6 +34,44 @@ lbl_803E6FD8:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A7F68
+lbl_805A7F68:
+	# ROM: 0x3F5908
+	.4byte 0x00000023
+
+.global lbl_805A7F6C
+lbl_805A7F6C:
+	# ROM: 0x3F590C
+	.4byte 0x00000013
+
+.global lbl_805A7F70
+lbl_805A7F70:
+	# ROM: 0x3F5910
+	.4byte 0x00000020
+
+.global lbl_805A7F74
+lbl_805A7F74:
+	# ROM: 0x3F5914
+	.4byte 0x00000022
+
+.global lbl_805A7F78
+lbl_805A7F78:
+	# ROM: 0x3F5918
+	.4byte 0x0000002F
+
+.global lbl_805A7F7C
+lbl_805A7F7C:
+	# ROM: 0x3F591C
+	.4byte 0x00000026
+
+.global lbl_805A7F80
+lbl_805A7F80:
+	# ROM: 0x3F5920
+	.4byte 0x00000021
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AcceptScriptMsg__15CFlaahgraPlantsF20EScriptObjectMessage9TUniqueIdR13CStateManager

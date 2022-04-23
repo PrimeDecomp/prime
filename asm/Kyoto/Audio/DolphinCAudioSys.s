@@ -1,5 +1,72 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8998
+lbl_805A8998:
+	# ROM: 0x3F6338
+	.2byte 0x00000100
+
+.global lbl_805A899A
+lbl_805A899A:
+	# ROM: 0x3F633A
+	.2byte 0x0000007F
+
+.global lbl_805A899C
+lbl_805A899C:
+	# ROM: 0x3F633C
+	.2byte 0x0000007F
+
+.global lbl_805A899E
+lbl_805A899E:
+	# ROM: 0x3F633E
+	.byte 0x01
+
+.global lbl_805A899F
+lbl_805A899F:
+	# ROM: 0x3F633F
+	.byte 0x01
+
+.global lbl_805A89A0
+lbl_805A89A0:
+	# ROM: 0x3F6340
+	.byte 0x00
+
+.global lbl_805A89A1
+lbl_805A89A1:
+	# ROM: 0x3F6341
+	.byte 0x01
+
+.global lbl_805A89A2
+lbl_805A89A2:
+	# ROM: 0x3F6342
+	.byte 0x01
+
+.global lbl_805A89A3
+lbl_805A89A3:
+	# ROM: 0x3F6343
+	.byte 0x00
+
+.global lbl_805A89A4
+lbl_805A89A4:
+	# ROM: 0x3F6344
+	.byte 0x01
+
+.global lbl_805A89A5
+lbl_805A89A5:
+	# ROM: 0x3F6345
+	.byte 0x01
+
+.global lbl_805A89A6
+lbl_805A89A6:
+	# ROM: 0x3F6346
+	.byte 0x00
+
+.global lbl_805A89A7
+lbl_805A89A7:
+	# ROM: 0x3F6347
+	.byte 0x01
+
 .section .bss
 
 .global lbl_804BFF90

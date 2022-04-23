@@ -36,6 +36,28 @@ lbl_803ED158:
 	.4byte 0
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A87A8
+lbl_805A87A8:
+	# ROM: 0x3F6148
+	.4byte 0x00000002
+
+.global lbl_805A87AC
+lbl_805A87AC:
+	# ROM: 0x3F614C
+	.4byte 0
+
+.global lbl_805A87B0
+lbl_805A87B0:
+	# ROM: 0x3F6150
+	.4byte 0x00000004
+
+.global lbl_805A87B4
+lbl_805A87B4:
+	# ROM: 0x3F6154
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "VGetWeightedReaders__20CAnimTreeDoubleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"

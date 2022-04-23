@@ -220,6 +220,14 @@ lbl_803EBF3C:
 	.4byte lbl_802958E0
 	.4byte lbl_802957F8
 
+.section .sdata
+
+.global lbl_805A8588
+lbl_805A8588:
+	# ROM: 0x3F5F28
+	.4byte 0x00000021
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__20CPhazonHealingNoduleFv

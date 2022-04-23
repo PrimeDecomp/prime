@@ -23,7 +23,15 @@ lbl_803EC498:
 	.4byte 0
 	.4byte "__dt__51TObjOwnerDerivedFromIObj<23CCollidableOBBTreeGroup>Fv"
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A8638
+lbl_805A8638:
+	# ROM: 0x3F5FD8
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetTableIndex__23CCollidableOBBTreeGroupCFv

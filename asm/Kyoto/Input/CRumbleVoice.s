@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A8A60
+lbl_805A8A60:
+	# ROM: 0x3F6400
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global CreateRumbleHandle__12CRumbleVoiceFs

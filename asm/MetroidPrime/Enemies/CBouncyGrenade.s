@@ -40,6 +40,63 @@ lbl_803E7ED0:
 	.4byte GetWeight__13CPhysicsActorCFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8178
+lbl_805A8178:
+	# ROM: 0x3F5B18
+	.4byte 0x00000013
+
+.global lbl_805A817C
+lbl_805A817C:
+	# ROM: 0x3F5B1C
+	.4byte 0x00000013
+
+.global lbl_805A8180
+lbl_805A8180:
+	# ROM: 0x3F5B20
+	.4byte 0x00000023
+
+.global lbl_805A8184
+lbl_805A8184:
+	# ROM: 0x3F5B24
+	.4byte 0x00000021
+
+.global lbl_805A8188
+lbl_805A8188:
+	# ROM: 0x3F5B28
+	.4byte 0x00000013
+
+.global lbl_805A818C
+lbl_805A818C:
+	# ROM: 0x3F5B2C
+	.4byte 0x0000001D
+
+.global lbl_805A8190
+lbl_805A8190:
+	# ROM: 0x3F5B30
+	.4byte 0x0000001E
+
+.global lbl_805A8194
+lbl_805A8194:
+	# ROM: 0x3F5B34
+	.4byte 0x0000001F
+
+.global lbl_805A8198
+lbl_805A8198:
+	# ROM: 0x3F5B38
+	.4byte 0x00000021
+
+.global lbl_805A819C
+lbl_805A819C:
+	# ROM: 0x3F5B3C
+	.4byte 0x00000021
+
+.global lbl_805A81A0
+lbl_805A81A0:
+	# ROM: 0x3F5B40
+	.4byte 0x00000020
+	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

@@ -22,6 +22,18 @@ lbl_803ECA50:
 	.4byte OnActivate__10CGuiWidgetFv
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A86D8
+lbl_805A86D8:
+	# ROM: 0x3F6078
+	.4byte 0
+
+.global lbl_805A86DC
+lbl_805A86DC:
+	# ROM: 0x3F607C
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetWidgetTypeID__16CAuiEnergyBarT01CFv

@@ -1,5 +1,28 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7E30
+lbl_805A7E30:
+	# ROM: 0x3F57D0
+	.4byte 0
+
+.global lbl_805A7E34
+lbl_805A7E34:
+	# ROM: 0x3F57D4
+	.4byte 0
+
+.global lbl_805A7E38
+lbl_805A7E38:
+	# ROM: 0x3F57D8
+	.4byte 0
+
+.global lbl_805A7E3C
+lbl_805A7E3C:
+	# ROM: 0x3F57DC
+	.4byte 0x3F800000
+
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Draw__14CMessageScreenCFv

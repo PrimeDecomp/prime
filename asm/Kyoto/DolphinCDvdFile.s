@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A89B0
+lbl_805A89B0:
+	# ROM: 0x3F6350
+	.4byte 0x00010000
+
+.global lbl_805A89B4
+lbl_805A89B4:
+	# ROM: 0x3F6354
+	.4byte 0x00010000
+
+.global lbl_805A89B8
+lbl_805A89B8:
+	# ROM: 0x3F6358
+	.4byte 0x00010000
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global UpdateFilePos__8CDvdFileFi

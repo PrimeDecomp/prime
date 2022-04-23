@@ -10,6 +10,33 @@ lbl_803ED420:
 	.4byte sub_802f8294
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A87D0
+lbl_805A87D0:
+	# ROM: 0x3F6170
+	.byte 0xFF
+
+.global lbl_805A87D1
+lbl_805A87D1:
+	# ROM: 0x3F6171
+	.byte 0xFF
+
+.global lbl_805A87D2
+lbl_805A87D2:
+	# ROM: 0x3F6172
+	.byte 0x01
+
+.global lbl_805A87D3
+lbl_805A87D3:
+	# ROM: 0x3F6173
+	.byte 0x00
+
+.global lbl_805A87D4
+lbl_805A87D4:
+	# ROM: 0x3F6174
+	.4byte 0x01000000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global "GetSegIdFromString__15CCharLayoutInfoCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"

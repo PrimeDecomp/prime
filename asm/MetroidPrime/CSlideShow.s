@@ -37,6 +37,84 @@ lbl_805AF478:
 lbl_805AF47C:
 	.skip 0x4
 
+.section .sdata
+
+.global lbl_805A8590
+lbl_805A8590:
+	# ROM: 0x3F5F30
+	.4byte 0
+
+.global lbl_805A8594
+lbl_805A8594:
+	# ROM: 0x3F5F34
+	.4byte 0
+
+.global lbl_805A8598
+lbl_805A8598:
+	# ROM: 0x3F5F38
+	.4byte 0x3F800000
+
+.global lbl_805A859C
+lbl_805A859C:
+	# ROM: 0x3F5F3C
+	.4byte 0
+
+.global lbl_805A85A0
+lbl_805A85A0:
+	# ROM: 0x3F5F40
+	.4byte 0
+
+.global lbl_805A85A4
+lbl_805A85A4:
+	# ROM: 0x3F5F44
+	.4byte 0
+
+.global lbl_805A85A8
+lbl_805A85A8:
+	# ROM: 0x3F5F48
+	.4byte 0x00000001
+
+.global lbl_805A85AC
+lbl_805A85AC:
+	# ROM: 0x3F5F4C
+	.4byte 0
+
+.global lbl_805A85B0
+lbl_805A85B0:
+	# ROM: 0x3F5F50
+	.4byte 0
+
+.global lbl_805A85B4
+lbl_805A85B4:
+	# ROM: 0x3F5F54
+	.4byte 0
+
+.global lbl_805A85B8
+lbl_805A85B8:
+	# ROM: 0x3F5F58
+	.4byte 0x3F800000
+
+.global lbl_805A85BC
+lbl_805A85BC:
+	# ROM: 0x3F5F5C
+	.4byte 0
+
+.global lbl_805A85C0
+lbl_805A85C0:
+	# ROM: 0x3F5F60
+	.4byte 0x3F800000
+
+.global lbl_805A85C4
+lbl_805A85C4:
+	# ROM: 0x3F5F64
+	.4byte 0
+
+.global lbl_805A85C8
+lbl_805A85C8:
+	# ROM: 0x3F5F68
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetIsContinueDraw__10CSlideShowFv

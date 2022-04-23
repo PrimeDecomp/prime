@@ -1,5 +1,63 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7F88
+lbl_805A7F88:
+	# ROM: 0x3F5928
+	.4byte 0
+
+.global lbl_805A7F8C
+lbl_805A7F8C:
+	# ROM: 0x3F592C
+	.4byte 0x42C80000
+
+.global lbl_805A7F90
+lbl_805A7F90:
+	# ROM: 0x3F5930
+	.4byte 0
+
+.global lbl_805A7F94
+lbl_805A7F94:
+	# ROM: 0x3F5934
+	.4byte 0x3F800000
+
+.global lbl_805A7F98
+lbl_805A7F98:
+	# ROM: 0x3F5938
+	.4byte 0
+
+.global lbl_805A7F9C
+lbl_805A7F9C:
+	# ROM: 0x3F593C
+	.4byte 0x3F800000
+
+.global lbl_805A7FA0
+lbl_805A7FA0:
+	# ROM: 0x3F5940
+	.4byte 0
+
+.global lbl_805A7FA4
+lbl_805A7FA4:
+	# ROM: 0x3F5944
+	.4byte 0x3F800000
+
+.global lbl_805A7FA8
+lbl_805A7FA8:
+	# ROM: 0x3F5948
+	.4byte 0x3F800000
+
+.global lbl_805A7FAC
+lbl_805A7FAC:
+	# ROM: 0x3F594C
+	.4byte 0x3F800000
+
+.global lbl_805A7FB0
+lbl_805A7FB0:
+	# ROM: 0x3F5950
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global WaitForModelsAndTextures__18CWorldTransManagerFv

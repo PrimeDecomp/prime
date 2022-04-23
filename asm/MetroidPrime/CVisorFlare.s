@@ -1,5 +1,37 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A7F50
+lbl_805A7F50:
+	# ROM: 0x3F58F0
+	.4byte 0x38D1B717
+
+.global lbl_805A7F54
+lbl_805A7F54:
+	# ROM: 0x3F58F4
+	.4byte 0x0000002A
+
+.global lbl_805A7F58
+lbl_805A7F58:
+	# ROM: 0x3F58F8
+	.4byte 0x00000013
+
+.global lbl_805A7F5C
+lbl_805A7F5C:
+	# ROM: 0x3F58FC
+	.4byte 0x0000001A
+
+.global lbl_805A7F60
+lbl_805A7F60:
+	# ROM: 0x3F5900
+	.4byte 0
+
+.global lbl_805A7F64
+lbl_805A7F64:
+	# ROM: 0x3F5904
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_802075fc

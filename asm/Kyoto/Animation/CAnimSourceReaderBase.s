@@ -30,6 +30,37 @@ lbl_803ED008:
 	.4byte VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8790
+lbl_805A8790:
+	# ROM: 0x3F6130
+	.4byte 0
+
+.global lbl_805A8794
+lbl_805A8794:
+	# ROM: 0x3F6134
+	.4byte 0
+
+.global lbl_805A8798
+lbl_805A8798:
+	# ROM: 0x3F6138
+	.4byte 0
+
+.global lbl_805A879C
+lbl_805A879C:
+	# ROM: 0x3F613C
+	.4byte 0
+
+.global lbl_805A87A0
+lbl_805A87A0:
+	# ROM: 0x3F6140
+	.4byte 0
+
+.global lbl_805A87A4
+lbl_805A87A4:
+	# ROM: 0x3F6144
+	.4byte 0
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

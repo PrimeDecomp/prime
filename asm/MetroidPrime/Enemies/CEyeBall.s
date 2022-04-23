@@ -218,6 +218,14 @@ lbl_803E7A18:
 	.4byte lbl_802252D8
 	.4byte lbl_80225358
 
+.section .sdata
+
+.global lbl_805A80F8
+lbl_805A80F8:
+	# ROM: 0x3F5A98
+	.4byte 0x803D3248
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__8CEyeBallFv

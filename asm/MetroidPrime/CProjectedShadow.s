@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A85E0
+lbl_805A85E0:
+	# ROM: 0x3F5F80
+	.4byte 0x3F800000
+	.4byte 0
+
 .section .sbss2, "", @nobits
 # CProjectedShadow
 .global lbl_805AF480

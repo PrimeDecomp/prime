@@ -1,5 +1,33 @@
 .include "macros.inc"
 
+.section .sdata
+
+.global lbl_805A89F8
+lbl_805A89F8:
+	# ROM: 0x3F6398
+	.4byte 0x3F800000
+
+.global lbl_805A89FC
+lbl_805A89FC:
+	# ROM: 0x3F639C
+	.4byte 0
+
+.global lbl_805A8A00
+lbl_805A8A00:
+	# ROM: 0x3F63A0
+	.4byte 0x3F800000
+
+.global lbl_805A8A04
+lbl_805A8A04:
+	# ROM: 0x3F63A4
+	.4byte 0
+
+.global lbl_805A8A08
+lbl_805A8A08:
+	# ROM: 0x3F63A8
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AddToSegStatementSet__21CAdditiveAnimPlaybackCFRC10CSegIdListRC15CCharLayoutInfoR16CSegStatementSet

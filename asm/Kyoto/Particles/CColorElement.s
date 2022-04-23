@@ -66,6 +66,88 @@ lbl_803EDA70:
 	.4byte __dt__11CCEConstantFv
 	.4byte GetValue__11CCEConstantCFiR6CColor
 
+.section .sdata
+
+.global lbl_805A8870
+lbl_805A8870:
+	# ROM: 0x3F6210
+	.4byte 0
+
+.global lbl_805A8874
+lbl_805A8874:
+	# ROM: 0x3F6214
+	.4byte 0x3F800000
+
+.global lbl_805A8878
+lbl_805A8878:
+	# ROM: 0x3F6218
+	.4byte 0
+
+.global lbl_805A887C
+lbl_805A887C:
+	# ROM: 0x3F621C
+	.4byte 0x3F800000
+
+.global lbl_805A8880
+lbl_805A8880:
+	# ROM: 0x3F6220
+	.4byte 0
+
+.global lbl_805A8884
+lbl_805A8884:
+	# ROM: 0x3F6224
+	.4byte 0x3F800000
+
+.global lbl_805A8888
+lbl_805A8888:
+	# ROM: 0x3F6228
+	.4byte 0
+
+.global lbl_805A888C
+lbl_805A888C:
+	# ROM: 0x3F622C
+	.4byte 0x3F800000
+
+.global lbl_805A8890
+lbl_805A8890:
+	# ROM: 0x3F6230
+	.4byte 0
+
+.global lbl_805A8894
+lbl_805A8894:
+	# ROM: 0x3F6234
+	.4byte 0x3F800000
+
+.global lbl_805A8898
+lbl_805A8898:
+	# ROM: 0x3F6238
+	.4byte 0
+
+.global lbl_805A889C
+lbl_805A889C:
+	# ROM: 0x3F623C
+	.4byte 0x3F800000
+
+.global lbl_805A88A0
+lbl_805A88A0:
+	# ROM: 0x3F6240
+	.4byte 0
+
+.global lbl_805A88A4
+lbl_805A88A4:
+	# ROM: 0x3F6244
+	.4byte 0x3F800000
+
+.global lbl_805A88A8
+lbl_805A88A8:
+	# ROM: 0x3F6248
+	.4byte 0
+
+.global lbl_805A88AC
+lbl_805A88AC:
+	# ROM: 0x3F624C
+	.4byte 0x3F800000
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__16CCEParticleColor

@@ -14,6 +14,23 @@ lbl_803EE368:
 	.4byte CanBuild__11CResFactoryFRC10SObjectTag
 	.4byte GetResourceIdByName__11CResFactoryCFPCc
 
+.section .sdata
+
+.global lbl_805A890C
+lbl_805A890C:
+	# ROM: 0x3F62AC
+	.byte 0x01
+
+.global lbl_805A890D
+lbl_805A890D:
+	# ROM: 0x3F62AD
+	.byte 0x00
+
+.global lbl_805A890E
+lbl_805A890E:
+	# ROM: 0x3F62AE
+	.2byte 0x00000100
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_803394a8

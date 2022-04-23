@@ -77,7 +77,119 @@ lbl_803EC5D8:
 	.4byte "@4@__dt__13CCubeRendererFv"
 	.4byte "@4@AddParticleGen__13CCubeRendererFRC12CParticleGen"
 	.4byte 0
-	
+
+.section .sdata
+
+.global lbl_805A8658
+lbl_805A8658:
+	# ROM: 0x3F5FF8
+	.4byte 0x47C34F80
+
+.global lbl_805A865C
+lbl_805A865C:
+	# ROM: 0x3F5FFC
+	.4byte 0xC7C34F80
+
+.global lbl_805A8660
+lbl_805A8660:
+	# ROM: 0x3F6000
+	.4byte 0x3F800000
+
+.global lbl_805A8664
+lbl_805A8664:
+	# ROM: 0x3F6004
+	.4byte 0x00000031
+
+.global lbl_805A8668
+lbl_805A8668:
+	# ROM: 0x3F6008
+	.4byte 0x00000001
+
+.global lbl_805A866C
+lbl_805A866C:
+	# ROM: 0x3F600C
+	.4byte 0
+
+.global lbl_805A8670
+lbl_805A8670:
+	# ROM: 0x3F6010
+	.4byte 0
+
+.global lbl_805A8674
+lbl_805A8674:
+	# ROM: 0x3F6014
+	.4byte 0x437F0000
+
+.global lbl_805A8678
+lbl_805A8678:
+	# ROM: 0x3F6018
+	.4byte 0
+
+.global lbl_805A867C
+lbl_805A867C:
+	# ROM: 0x3F601C
+	.4byte 0x437F0000
+
+.global lbl_805A8680
+lbl_805A8680:
+	# ROM: 0x3F6020
+	.4byte 0
+
+.global lbl_805A8684
+lbl_805A8684:
+	# ROM: 0x3F6024
+	.4byte 0x3F800000
+
+.global lbl_805A8688
+lbl_805A8688:
+	# ROM: 0x3F6028
+	.4byte 0
+
+.global lbl_805A868C
+lbl_805A868C:
+	# ROM: 0x3F602C
+	.4byte 0x3F800000
+
+.global lbl_805A8690
+lbl_805A8690:
+	# ROM: 0x3F6030
+	.4byte 0
+
+.global lbl_805A8694
+lbl_805A8694:
+	# ROM: 0x3F6034
+	.4byte 0x3F000000
+
+.global lbl_805A8698
+lbl_805A8698:
+	# ROM: 0x3F6038
+	.4byte 0
+
+.global lbl_805A869C
+lbl_805A869C:
+	# ROM: 0x3F603C
+	.4byte 0
+
+.global lbl_805A86A0
+lbl_805A86A0:
+	# ROM: 0x3F6040
+	.4byte 0
+
+.global lbl_805A86A4
+lbl_805A86A4:
+	# ROM: 0x3F6044
+	.4byte 0x3F800000
+
+.global lbl_805A86A8
+lbl_805A86A8:
+	# ROM: 0x3F6048
+	.4byte 0
+
+.global lbl_805A86AC
+lbl_805A86AC:
+	# ROM: 0x3F604C
+	.4byte 0
+
 .section .sbss2, "", @nobits
 
 # CCubeRenderer
@@ -7909,7 +8021,7 @@ lbl_802BCE54:
 /* 802BCE5C 002B9DBC  41 82 00 08 */	beq lbl_802BCE64
 /* 802BCE60 002B9DC0  38 04 00 04 */	addi r0, r4, 4
 lbl_802BCE64:
-/* 802BCE64 002B9DC4  90 0D 9A 90 */	stw r0, lbl_805A8650@sda21(r13)
+/* 802BCE64 002B9DC4  90 0D 9A 90 */	stw r0, sWeaponRenderer__15IWeaponRenderer@sda21(r13)
 /* 802BCE68 002B9DC8  7C 83 23 78 */	mr r3, r4
 /* 802BCE6C 002B9DCC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802BCE70 002B9DD0  83 E1 00 1C */	lwz r31, 0x1c(r1)

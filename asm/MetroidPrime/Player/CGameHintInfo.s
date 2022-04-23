@@ -10,6 +10,14 @@ lbl_803EA0E0:
 	.4byte sub_8026726c
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A8400
+lbl_805A8400:
+	# ROM: 0x3F5DA0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FHintFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

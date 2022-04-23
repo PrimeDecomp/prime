@@ -14,6 +14,14 @@ lbl_803EC4A8:
 	.4byte lbl_802AEA70
 	.4byte lbl_802AEB70
 
+.section .sdata
+
+.global lbl_805A8640
+lbl_805A8640:
+	# ROM: 0x3F5FE0
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global TestBit__13CCubeRendererFPCUii

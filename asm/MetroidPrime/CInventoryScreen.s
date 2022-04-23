@@ -86,11 +86,27 @@ lbl_803E6F64:
 .global lbl_803E6FC4
 lbl_803E6FC4:
 	# ROM: 0x3E3FC4
-	.4byte 0x003F003F
-	.4byte 0x003F003F
-	.4byte 0x003F003F
+	.string16 "??????"
+	.4byte 0
+
+.section .sdata
+
+.global lbl_805A7F40
+lbl_805A7F40:
+	# ROM: 0x3F58E0
+	.4byte 0
+
+.global lbl_805A7F44
+lbl_805A7F44:
+	# ROM: 0x3F58E4
+	.4byte 0x3F800000
+
+.global lbl_805A7F48
+lbl_805A7F48:
+	# ROM: 0x3F58E8
 	.4byte 0
 	.4byte 0
+
 
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 

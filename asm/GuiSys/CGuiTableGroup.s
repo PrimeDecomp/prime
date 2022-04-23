@@ -24,6 +24,18 @@ lbl_803EC970:
 	.4byte sub_802c7124
 	.4byte 0
 
+.section .sdata
+
+.global lbl_805A86C0
+lbl_805A86C0:
+	# ROM: 0x3F6060
+	.4byte 0xFFFFFFFF
+
+.global lbl_805A86C4
+lbl_805A86C4:
+	# ROM: 0x3F6064
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget

@@ -65,6 +65,14 @@ lbl_803E8E40:
 	.4byte 0x803D4B5B
 	.4byte 0x803D4B66
 
+.section .sdata
+
+.global lbl_805A82D8
+lbl_805A82D8:
+	# ROM: 0x3F5C78
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global SetInGame__15CSaveGameScreenb

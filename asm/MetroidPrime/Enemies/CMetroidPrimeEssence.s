@@ -316,6 +316,94 @@ lbl_803EB58C:
 	.4byte lbl_8027FE20
 	.4byte lbl_80280078
 
+.section .sdata
+
+.global lbl_805A84A0
+lbl_805A84A0:
+	# ROM: 0x3F5E40
+	.4byte 0x00000013
+
+.global lbl_805A84A4
+lbl_805A84A4:
+	# ROM: 0x3F5E44
+	.4byte 0
+	.4byte 0x3FC00000
+
+.global lbl_805A84AC
+lbl_805A84AC:
+	# ROM: 0x3F5E4C
+	.4byte 0x00000013
+
+.global lbl_805A84B0
+lbl_805A84B0:
+	# ROM: 0x3F5E50
+	.4byte 0x0000002F
+
+.global lbl_805A84B4
+lbl_805A84B4:
+	# ROM: 0x3F5E54
+	.4byte 0x00000020
+
+.global lbl_805A84B8
+lbl_805A84B8:
+	# ROM: 0x3F5E58
+	.4byte 0x00000021
+
+.global lbl_805A84BC
+lbl_805A84BC:
+	# ROM: 0x3F5E5C
+	.4byte 0x00000020
+
+.global lbl_805A84C0
+lbl_805A84C0:
+	# ROM: 0x3F5E60
+	.4byte 0x00000021
+
+.global lbl_805A84C4
+lbl_805A84C4:
+	# ROM: 0x3F5E64
+	.4byte 0x00000030
+
+.global lbl_805A84C8
+lbl_805A84C8:
+	# ROM: 0x3F5E68
+	.4byte 0x00000013
+
+.global lbl_805A84CC
+lbl_805A84CC:
+	# ROM: 0x3F5E6C
+	.4byte 0x00000020
+
+.global lbl_805A84D0
+lbl_805A84D0:
+	# ROM: 0x3F5E70
+	.4byte 0x00000021
+
+.global lbl_805A84D4
+lbl_805A84D4:
+	# ROM: 0x3F5E74
+	.4byte 0x00000030
+
+.global lbl_805A84D8
+lbl_805A84D8:
+	# ROM: 0x3F5E78
+	.4byte 0x00000012
+
+.global lbl_805A84DC
+lbl_805A84DC:
+	# ROM: 0x3F5E7C
+	.4byte 0x00000013
+
+.global lbl_805A84E0
+lbl_805A84E0:
+	# ROM: 0x3F5E80
+	.4byte 0x00000030
+
+.global lbl_805A84E4
+lbl_805A84E4:
+	# ROM: 0x3F5E84
+	.4byte 0x00000012
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__20CMetroidPrimeEssenceFv

@@ -199,6 +199,50 @@ lbl_803EC370:
 	.4byte SetActive__7CEntityFb
 	
 
+.section .sdata
+
+.global lbl_805A85E8
+lbl_805A85E8:
+	# ROM: 0x3F5F88
+	.4byte 0x3F800000
+	.4byte 0
+
+.global lbl_805A85F0
+lbl_805A85F0:
+	# ROM: 0x3F5F90
+	.4byte 0x00000013
+
+.global lbl_805A85F4
+lbl_805A85F4:
+	# ROM: 0x3F5F94
+	.4byte 0x00000020
+
+.global lbl_805A85F8
+lbl_805A85F8:
+	# ROM: 0x3F5F98
+	.4byte 0x3F800000
+
+.global lbl_805A85FC
+lbl_805A85FC:
+	# ROM: 0x3F5F9C
+	.4byte 0
+
+.global lbl_805A8600
+lbl_805A8600:
+	# ROM: 0x3F5FA0
+	.4byte 0x3F800000
+
+.global lbl_805A8604
+lbl_805A8604:
+	# ROM: 0x3F5FA4
+	.4byte 0
+
+.global lbl_805A8608
+lbl_805A8608:
+	# ROM: 0x3F5FA8
+	.4byte 0x00000013
+	.4byte 0
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global sub_8029f318
