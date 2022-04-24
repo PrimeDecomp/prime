@@ -46,6 +46,13 @@ lbl_805A73E0:
 	.4byte 0x3F800000
 	.4byte 0
 
+.section .sbss
+
+# CCameraFilter
+.global lbl_805A8EE0
+lbl_805A8EE0:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global FreePersistentFbTexture__15CCameraBlurPassFv

@@ -1054,6 +1054,24 @@ lbl_805A71D8:
 	.4byte 0x00000030
 	.4byte 0
 
+.section .sbss
+
+# CAi + CAiFuncMap
+.global lbl_805A8E78
+lbl_805A8E78:
+	.skip 0x4
+.global lbl_805A8E7C
+lbl_805A8E7C:
+	.skip 0x4
+.global lbl_805A8E80
+lbl_805A8E80:
+	.skip 0x4
+.global lbl_805A8E84
+lbl_805A8E84:
+	.skip 0x4
+.global lbl_805A8E88
+lbl_805A8E88:
+	.skip 0x8
 
 .section .text, "ax"
 

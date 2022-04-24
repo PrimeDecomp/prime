@@ -23,7 +23,7 @@ NAME := mp1
 VERSION ?= 0
 
 # Overkill epilogue fixup strategy. Set to 1 if necessary.
-EPILOGUE_PROCESS := 0
+EPILOGUE_PROCESS := 1
 
 BUILD_DIR := build/$(NAME).$(VERSION)
 ifeq ($(EPILOGUE_PROCESS),1)
@@ -127,6 +127,8 @@ $(BUILD_DIR)/src/os/__start.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/os/__start.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: CFLAGS := $(CFLAGS_1.2)
 
 #-------------------------------------------------------------------------------
 # Recipes

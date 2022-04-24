@@ -9,7 +9,23 @@ lbl_803DA340:
 	.4byte 0
 	.4byte GetMetaTrans__23CTransitionDatabaseGameCFUiUi
 	.4byte 0
-	
+
+.section .sbss
+
+# CTransitionDatabaseGame
+.global lbl_805A8DF0
+lbl_805A8DF0:
+	.skip 0x4
+.global lbl_805A8DF4
+lbl_805A8DF4:
+	.skip 0x4
+.global lbl_805A8DF8
+lbl_805A8DF8:
+	.skip 0x4
+.global lbl_805A8DFC
+lbl_805A8DFC:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global GetMetaTrans__23CTransitionDatabaseGameCFUiUi

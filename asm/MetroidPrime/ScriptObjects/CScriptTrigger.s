@@ -50,6 +50,16 @@ lbl_805A6F94:
 	# ROM: 0x3F4934
 	.4byte 0x00000022
 
+.section .sbss
+
+# CScriptTrigger
+.global lbl_805A8E00
+lbl_805A8E00:
+	.skip 0x4
+.global lbl_805A8E04
+lbl_805A8E04:
+	.skip 0xC
+
 .section .text, "ax"
 
 .global InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager

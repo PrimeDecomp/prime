@@ -476,6 +476,39 @@ lbl_805A6FEC:
 	# ROM: 0x3F498C
 	.4byte 0x00000021
 
+.section .sbss
+# CPatterned
+.global lbl_805A8E10
+lbl_805A8E10:
+	.skip 0x4
+.global lbl_805A8E14
+lbl_805A8E14:
+	.skip 0x4
+.global lbl_805A8E18
+lbl_805A8E18:
+	.skip 0x8
+.global lbl_805A8E20
+lbl_805A8E20:
+	.skip 0x4
+.global lbl_805A8E24
+lbl_805A8E24:
+	.skip 0x4
+.global lbl_805A8E28
+lbl_805A8E28:
+	.skip 0x4
+.global lbl_805A8E2C
+lbl_805A8E2C:
+	.skip 0x4
+.global lbl_805A8E30
+lbl_805A8E30:
+	.skip 0x8
+.global lbl_805A8E38
+lbl_805A8E38:
+	.skip 0x4
+.global lbl_805A8E3C
+lbl_805A8E3C:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __dt__10CPatternedFv

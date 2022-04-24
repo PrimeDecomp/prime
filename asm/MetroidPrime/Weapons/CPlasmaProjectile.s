@@ -38,6 +38,12 @@ lbl_803E3F00:
 	.4byte Fire__17CPlasmaProjectileFRC12CTransform4fR13CStateManagerb
 	.4byte 0
 
+.section .sbss
+
+.global lbl_805A8FF8
+lbl_805A8FF8:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__17CPlasmaProjectileFv

@@ -1,5 +1,15 @@
 .include "macros.inc"
 
+.section .sbss
+
+# CRipple
+.global lbl_805A8F58
+lbl_805A8F58:
+	.skip 0x4
+.global lbl_805A8F5C
+lbl_805A8F5C:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __ct__7CRippleF9TUniqueIdRC9CVector3ff

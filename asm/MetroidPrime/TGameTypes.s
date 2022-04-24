@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .sbss
+
+# TGameTypes
+.global kInvalidEditorId
+kInvalidEditorId:
+	.skip 0x4
+.global kInvalidUniqueId
+kInvalidUniqueId:
+	.skip 0x4
+.global kInvalidAreaId
+kInvalidAreaId:
+	.skip 0x4
+.global lbl_805A8F54
+lbl_805A8F54:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __ct__9TEditorIdFR12CInputStream

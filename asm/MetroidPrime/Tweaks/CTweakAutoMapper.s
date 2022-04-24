@@ -10,6 +10,13 @@ lbl_803DF438:
 	.4byte __dt__16CTweakAutoMapperFv
 	.4byte 0
 
+.section .sbss
+
+# CGameArea or CMApWorld
+.global lbl_805A8EB0
+lbl_805A8EB0:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global __ct__16CTweakAutoMapperFR12CInputStream

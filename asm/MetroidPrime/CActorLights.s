@@ -28,6 +28,16 @@ lbl_805A7570:
 	.4byte 0x0000001A
 	.4byte 0
 
+.section .sbss
+
+# CActorLights
+.global lbl_805A8F10
+lbl_805A8F10:
+	.skip 0x4
+.global lbl_805A8F14
+lbl_805A8F14:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global BuildConstantAmbientLighting__12CActorLightsFv

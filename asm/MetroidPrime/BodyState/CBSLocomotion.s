@@ -236,6 +236,13 @@ lbl_805A7738:
 	.4byte 0x3F800000
 	.4byte 0
 
+.section .sbss
+
+# CBSFlyerLocomotion
+.global lbl_805A8F80
+lbl_805A8F80:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__28CBSRestrictedFlyerLocomotionFv

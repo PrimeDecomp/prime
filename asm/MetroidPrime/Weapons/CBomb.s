@@ -101,7 +101,14 @@ lbl_805A714C:
 .global lbl_8046C420
 lbl_8046C420:
 	.skip 0x18
-	
+
+.section .sbss
+
+# CBomb
+.global lbl_805A8E60
+lbl_805A8E60:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global sub_8008faf0

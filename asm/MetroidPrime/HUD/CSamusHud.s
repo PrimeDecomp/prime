@@ -260,7 +260,14 @@ lbl_805A6F50:
 .global lbl_8046C3C8
 lbl_8046C3C8:
 	.skip 0x18
-	
+
+.section .sbss
+
+# CSamusHud
+.global lbl_805A8DE8
+lbl_805A8DE8:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global "SetMessage__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"

@@ -47,7 +47,20 @@ lbl_805A76E8:
 .global lbl_8046C738
 lbl_8046C738:
 	.skip 0x10
-	
+
+.section .sbss
+
+# CHudBillboardEffect
+.global lbl_805A8F70
+lbl_805A8F70:
+	.skip 0x4
+.global lbl_805A8F74
+lbl_805A8F74:
+	.skip 0x4
+.global lbl_805A8F78
+lbl_805A8F78:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Accept__19CHUDBillboardEffectFR8IVisitor

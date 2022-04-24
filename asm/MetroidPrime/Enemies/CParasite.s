@@ -194,6 +194,46 @@ lbl_803E3004:
 	.4byte UpdateWalkerAnimation__9CParasiteFR13CStateManagerf
 	.4byte 0
 
+.section .sbss
+
+# CParasite
+.global lbl_805A8FB0
+lbl_805A8FB0:
+	.skip 0x4
+.global lbl_805A8FB4
+lbl_805A8FB4:
+	.skip 0x4
+.global lbl_805A8FB8
+lbl_805A8FB8:
+	.skip 0x4
+.global lbl_805A8FBC
+lbl_805A8FBC:
+	.skip 0x4
+.global lbl_805A8FC0
+lbl_805A8FC0:
+	.skip 0x4
+.global lbl_805A8FC4
+lbl_805A8FC4:
+	.skip 0x4
+.global lbl_805A8FC8
+lbl_805A8FC8:
+	.skip 0x1
+.global lbl_805A8FC9
+lbl_805A8FC9:
+	.skip 0x1
+.global lbl_805A8FCA
+lbl_805A8FCA:
+	.skip 0x6
+.global lbl_805A8FD0
+lbl_805A8FD0:
+	.skip 0x4
+.global lbl_805A8FD4
+lbl_805A8FD4:
+	.skip 0x4
+.global lbl_805A8FD8
+lbl_805A8FD8:
+	.skip 0x8
+
 .section .sdata
 
 .global lbl_805A7850

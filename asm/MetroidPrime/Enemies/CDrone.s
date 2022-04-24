@@ -493,6 +493,23 @@ lbl_8046C890:
 lbl_8046C8A8:
 	.skip 0x18
 	
+.section .sbss
+# CDrone
+.global lbl_805A8FE0
+lbl_805A8FE0:
+	.skip 0x1
+.global lbl_805A8FE1
+lbl_805A8FE1:
+	.skip 0x1
+.global lbl_805A8FE2
+lbl_805A8FE2:
+	.skip 0x1
+.global lbl_805A8FE3
+lbl_805A8FE3:
+	.skip 0x1
+.global lbl_805A8FE4
+lbl_805A8FE4:
+	.skip 0x4
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__6CDroneFv

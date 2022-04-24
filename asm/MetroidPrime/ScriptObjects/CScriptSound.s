@@ -95,7 +95,29 @@ lbl_805A71E8:
 .global lbl_8046C438
 lbl_8046C438:
 	.skip 0x18
-	
+
+.section .sbss
+
+# CScriptSound
+.global lbl_805A8E90
+lbl_805A8E90:
+	.skip 0x4
+.global lbl_805A8E94
+lbl_805A8E94:
+	.skip 0x4
+.global lbl_805A8E98
+lbl_805A8E98:
+	.skip 0x4
+.global lbl_805A8E9C
+lbl_805A8E9C:
+	.skip 0x4
+.global lbl_805A8EA0
+lbl_805A8EA0:
+	.skip 0x1
+.global lbl_805A8EA1
+lbl_805A8EA1:
+	.skip 0x7
+
 .section .text, "ax"
 
 .global GetOccludedVolumeAmount__12CScriptSoundFRC9CVector3fRC13CStateManager

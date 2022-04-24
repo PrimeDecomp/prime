@@ -369,6 +369,21 @@ lbl_805A79D8:
 	.4byte 0x3F800000
 	.4byte 0
 
+.section .sbss
+
+.global lbl_805A8FE8
+lbl_805A8FE8:
+	.skip 0x4
+.global lbl_805A8FEC
+lbl_805A8FEC:
+	.skip 0x4
+.global lbl_805A8FF0
+lbl_805A8FF0:
+	.skip 0x4
+.global lbl_805A8FF4
+lbl_805A8FF4:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__8CMetroidFv

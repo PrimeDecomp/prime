@@ -9,6 +9,25 @@ lbl_8046C558:
 lbl_8046C564:
 	.skip 0xC
 	
+.section .sbss
+
+# CDecalManager
+.global lbl_805A8F28
+lbl_805A8F28:
+	.skip 0x4
+.global lbl_805A8F2C
+lbl_805A8F2C:
+	.skip 0x4
+.global lbl_805A8F30
+lbl_805A8F30:
+	.skip 0x4
+.global lbl_805A8F34
+lbl_805A8F34:
+	.skip 0x4
+.global lbl_805A8F38
+lbl_805A8F38:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AddToRenderer__13CDecalManagerFRC14CFrustumPlanesRC13CStateManager
