@@ -193,7 +193,7 @@ lbl_8012F904:
 /* 8012F950 0012C8B0  4B F0 AE 55 */	bl CModelDataNull__10CModelDataFv
 /* 8012F954 0012C8B4  38 61 00 50 */	addi r3, r1, 0x50
 /* 8012F958 0012C8B8  4B EE B4 E1 */	bl None__16CActorParametersFv
-/* 8012F95C 0012C8BC  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8012F95C 0012C8BC  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8012F960 0012C8C0  38 00 00 00 */	li r0, 0
 /* 8012F964 0012C8C4  80 AD 8B 20 */	lwz r5, lbl_805A76E0@sda21(r13)
 /* 8012F968 0012C8C8  38 60 00 00 */	li r3, 0

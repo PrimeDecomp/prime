@@ -104,7 +104,7 @@ Accept__26CScriptDebugCameraWaypointFR8IVisitor:
 /* 8014ACA8 00147C08  4B EE FA FD */	bl CModelDataNull__10CModelDataFv
 /* 8014ACAC 00147C0C  38 61 00 20 */	addi r3, r1, 0x20
 /* 8014ACB0 00147C10  4B ED 01 89 */	bl None__16CActorParametersFv
-/* 8014ACB4 00147C14  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8014ACB4 00147C14  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8014ACB8 00147C18  38 00 00 00 */	li r0, 0
 /* 8014ACBC 00147C1C  80 AD 8B E8 */	lwz r5, lbl_805A77A8@sda21(r13)
 /* 8014ACC0 00147C20  38 60 00 00 */	li r3, 0

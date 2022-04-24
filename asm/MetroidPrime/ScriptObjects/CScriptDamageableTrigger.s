@@ -172,7 +172,7 @@ Render__24CScriptDamageableTriggerCFRC13CStateManager:
 /* 800FA754 000F76B4  C0 61 00 70 */	lfs f3, 0x70(r1)
 /* 800FA758 000F76B8  C0 41 00 74 */	lfs f2, 0x74(r1)
 /* 800FA75C 000F76BC  C0 21 00 78 */	lfs f1, 0x78(r1)
-/* 800FA760 000F76C0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800FA760 000F76C0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800FA764 000F76C4  D0 C1 00 7C */	stfs f6, 0x7c(r1)
 /* 800FA768 000F76C8  D0 A1 00 80 */	stfs f5, 0x80(r1)
 /* 800FA76C 000F76CC  D0 81 00 84 */	stfs f4, 0x84(r1)
@@ -997,7 +997,7 @@ lbl_800FB240:
 /* 800FB2BC 000F821C  38 61 01 FC */	addi r3, r1, 0x1fc
 /* 800FB2C0 000F8220  38 81 02 64 */	addi r4, r1, 0x264
 /* 800FB2C4 000F8224  48 00 B4 ED */	bl MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters
-/* 800FB2C8 000F8228  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800FB2C8 000F8228  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800FB2CC 000F822C  2C 1E 00 01 */	cmpwi r30, 1
 /* 800FB2D0 000F8230  3A 21 00 10 */	addi r17, r1, 0x10
 /* 800FB2D4 000F8234  B0 01 00 10 */	sth r0, 0x10(r1)

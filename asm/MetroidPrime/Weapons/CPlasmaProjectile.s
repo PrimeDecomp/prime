@@ -429,7 +429,7 @@ DeletePlasmaLights__17CPlasmaProjectileFR13CStateManager:
 /* 80177080 00173FE0  48 00 00 28 */	b lbl_801770A8
 lbl_80177084:
 /* 80177084 00173FE4  A0 7F 00 00 */	lhz r3, 0(r31)
-/* 80177088 00173FE8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80177088 00173FE8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8017708C 00173FEC  7C 03 00 40 */	cmplw r3, r0
 /* 80177090 00173FF0  41 82 00 14 */	beq lbl_801770A4
 /* 80177094 00173FF4  B0 61 00 08 */	sth r3, 8(r1)
@@ -594,7 +594,7 @@ SetLightsActive__17CPlasmaProjectileFbR13CStateManager:
 /* 801772D0 00174230  48 00 00 54 */	b lbl_80177324
 lbl_801772D4:
 /* 801772D4 00174234  A0 7F 00 00 */	lhz r3, 0(r31)
-/* 801772D8 00174238  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801772D8 00174238  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801772DC 0017423C  7C 03 00 40 */	cmplw r3, r0
 /* 801772E0 00174240  41 82 00 40 */	beq lbl_80177320
 /* 801772E4 00174244  B0 61 00 08 */	sth r3, 8(r1)

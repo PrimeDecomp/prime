@@ -81,7 +81,7 @@ Exited__24CScriptCameraPitchVolumeFR13CStateManager:
 /* 80226540 002234A0  50 A0 36 72 */	rlwimi r0, r5, 6, 0x19, 0x19
 /* 80226544 002234A4  98 03 01 3C */	stb r0, 0x13c(r3)
 /* 80226548 002234A8  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 8022654C 002234AC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8022654C 002234AC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80226550 002234B0  80 63 00 7C */	lwz r3, 0x7c(r3)
 /* 80226554 002234B4  B0 01 00 08 */	sth r0, 8(r1)
 /* 80226558 002234B8  B0 03 01 C4 */	sth r0, 0x1c4(r3)
@@ -293,7 +293,7 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 /* 8022682C 0022378C  4B E1 3F 79 */	bl CModelDataNull__10CModelDataFv
 /* 80226830 00223790  38 61 00 2C */	addi r3, r1, 0x2c
 /* 80226834 00223794  4B DF 46 05 */	bl None__16CActorParametersFv
-/* 80226838 00223798  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 80226838 00223798  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8022683C 0022379C  38 00 00 00 */	li r0, 0
 /* 80226840 002237A0  80 AD 95 60 */	lwz r5, lbl_805A8120@sda21(r13)
 /* 80226844 002237A4  38 60 00 00 */	li r3, 0

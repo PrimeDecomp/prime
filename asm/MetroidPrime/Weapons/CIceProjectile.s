@@ -464,7 +464,7 @@ DeleteCollisionObject__Q220CIceAttackProjectile12CTrailObjectFR13CStateManager:
 /* 801F1FF8 001EEF58  90 01 00 24 */	stw r0, 0x24(r1)
 /* 801F1FFC 001EEF5C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 801F2000 001EEF60  7C 7F 1B 78 */	mr r31, r3
-/* 801F2004 001EEF64  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801F2004 001EEF64  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801F2008 001EEF68  A0 63 00 10 */	lhz r3, 0x10(r3)
 /* 801F200C 001EEF6C  7C 03 00 40 */	cmplw r3, r0
 /* 801F2010 001EEF70  41 82 00 20 */	beq lbl_801F2030
@@ -473,7 +473,7 @@ DeleteCollisionObject__Q220CIceAttackProjectile12CTrailObjectFR13CStateManager:
 /* 801F201C 001EEF7C  38 81 00 08 */	addi r4, r1, 8
 /* 801F2020 001EEF80  B0 01 00 08 */	sth r0, 8(r1)
 /* 801F2024 001EEF84  4B E5 A2 49 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 801F2028 001EEF88  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801F2028 001EEF88  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801F202C 001EEF8C  B0 1F 00 10 */	sth r0, 0x10(r31)
 lbl_801F2030:
 /* 801F2030 001EEF90  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -702,7 +702,7 @@ lbl_801F2348:
 /* 801F2360 001EF2C0  48 00 00 44 */	b lbl_801F23A4
 lbl_801F2364:
 /* 801F2364 001EF2C4  A0 7E 00 00 */	lhz r3, 0(r30)
-/* 801F2368 001EF2C8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801F2368 001EF2C8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801F236C 001EF2CC  7C 03 00 40 */	cmplw r3, r0
 /* 801F2370 001EF2D0  40 82 00 34 */	bne lbl_801F23A4
 /* 801F2374 001EF2D4  3B C0 00 00 */	li r30, 0
@@ -898,7 +898,7 @@ lbl_801F25A0:
 /* 801F264C 001EF5AC  88 1B 01 92 */	lbz r0, 0x192(r27)
 /* 801F2650 001EF5B0  28 00 00 00 */	cmplwi r0, 0
 /* 801F2654 001EF5B4  41 82 01 88 */	beq lbl_801F27DC
-/* 801F2658 001EF5B8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801F2658 001EF5B8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801F265C 001EF5BC  38 60 00 00 */	li r3, 0
 /* 801F2660 001EF5C0  80 AD 92 AC */	lwz r5, lbl_805A7E6C@sda21(r13)
 /* 801F2664 001EF5C4  38 80 00 01 */	li r4, 1
@@ -2294,7 +2294,7 @@ lbl_801F39D4:
 /* 801F3A64 001F09C4  38 61 00 84 */	addi r3, r1, 0x84
 /* 801F3A68 001F09C8  38 8B 00 07 */	addi r4, r11, 7
 /* 801F3A6C 001F09CC  4B E1 12 4D */	bl string_l__4rstlFPCc
-/* 801F3A70 001F09D0  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 801F3A70 001F09D0  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 801F3A74 001F09D4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
 /* 801F3A78 001F09D8  80 11 00 00 */	lwz r0, 0(r17)
 /* 801F3A7C 001F09DC  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
@@ -2308,7 +2308,7 @@ lbl_801F39D4:
 /* 801F3A9C 001F09FC  4B E4 6D 09 */	bl CModelDataNull__10CModelDataFv
 /* 801F3AA0 001F0A00  38 61 01 00 */	addi r3, r1, 0x100
 /* 801F3AA4 001F0A04  4B E2 73 95 */	bl None__16CActorParametersFv
-/* 801F3AA8 001F0A08  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801F3AA8 001F0A08  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801F3AAC 001F0A0C  38 00 00 00 */	li r0, 0
 /* 801F3AB0 001F0A10  80 AD 92 9C */	lwz r5, lbl_805A7E5C@sda21(r13)
 /* 801F3AB4 001F0A14  38 60 00 00 */	li r3, 0

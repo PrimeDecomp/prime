@@ -382,7 +382,7 @@ Update__20CSamusFaceReflectionFfRC13CStateManagerR9CRandom16:
 /* 8015B318 00158278  50 60 26 F6 */	rlwimi r0, r3, 4, 0x1b, 0x1b
 /* 8015B31C 0015827C  98 1E 02 98 */	stb r0, 0x298(r30)
 /* 8015B320 00158280  80 7C 08 4C */	lwz r3, 0x84c(r28)
-/* 8015B324 00158284  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8015B324 00158284  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8015B328 00158288  80 63 00 04 */	lwz r3, 4(r3)
 /* 8015B32C 0015828C  7C 03 00 00 */	cmpw r3, r0
 /* 8015B330 00158290  90 61 00 18 */	stw r3, 0x18(r1)

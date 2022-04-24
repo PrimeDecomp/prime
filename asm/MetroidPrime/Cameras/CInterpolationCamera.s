@@ -1073,9 +1073,9 @@ __ct__20CInterpolationCameraF9TUniqueIdRC12CTransform4f:
 /* 80265EB4 00262E14  38 61 00 30 */	addi r3, r1, 0x30
 /* 80265EB8 00262E18  7C 04 03 78 */	mr r4, r0
 /* 80265EBC 00262E1C  4B D9 ED FD */	bl string_l__4rstlFPCc
-/* 80265EC0 00262E20  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 80265EC0 00262E20  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 80265EC4 00262E24  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 80265EC8 00262E28  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 80265EC8 00262E28  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 80265ECC 00262E2C  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
 /* 80265ED0 00262E30  90 81 00 28 */	stw r4, 0x28(r1)
 /* 80265ED4 00262E34  38 61 00 40 */	addi r3, r1, 0x40
@@ -1083,7 +1083,7 @@ __ct__20CInterpolationCameraF9TUniqueIdRC12CTransform4f:
 /* 80265EDC 00262E3C  38 C1 00 28 */	addi r6, r1, 0x28
 /* 80265EE0 00262E40  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 80265EE4 00262E44  4B DE B5 A1 */	bl "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"
-/* 80265EE8 00262E48  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 80265EE8 00262E48  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 80265EEC 00262E4C  A0 1D 00 00 */	lhz r0, 0(r29)
 /* 80265EF0 00262E50  B0 61 00 10 */	sth r3, 0x10(r1)
 /* 80265EF4 00262E54  B0 01 00 14 */	sth r0, 0x14(r1)
@@ -1136,7 +1136,7 @@ lbl_80265F8C:
 /* 80265FA4 00262F04  90 1F 00 00 */	stw r0, 0(r31)
 /* 80265FA8 00262F08  38 83 66 70 */	addi r4, r3, skIdentity4f@l
 /* 80265FAC 00262F0C  38 7F 01 94 */	addi r3, r31, 0x194
-/* 80265FB0 00262F10  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80265FB0 00262F10  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80265FB4 00262F14  B0 1F 01 88 */	sth r0, 0x188(r31)
 /* 80265FB8 00262F18  D0 1F 01 8C */	stfs f0, 0x18c(r31)
 /* 80265FBC 00262F1C  D0 1F 01 90 */	stfs f0, 0x190(r31)

@@ -454,7 +454,7 @@ lbl_8005B378:
 /* 8005B38C 000582EC  4B FB 01 91 */	bl SetInsideFluid__14CCameraManagerFb9TUniqueId
 /* 8005B390 000582F0  48 00 00 30 */	b lbl_8005B3C0
 lbl_8005B394:
-/* 8005B394 000582F4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8005B394 000582F4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8005B398 000582F8  38 A1 00 0C */	addi r5, r1, 0xc
 /* 8005B39C 000582FC  38 80 00 00 */	li r4, 0
 /* 8005B3A0 00058300  B0 01 00 0C */	sth r0, 0xc(r1)
@@ -3276,7 +3276,7 @@ lbl_8005DAA0:
 /* 8005DB24 0005AA84  4B FD CC 81 */	bl CModelDataNull__10CModelDataFv
 /* 8005DB28 0005AA88  38 61 00 20 */	addi r3, r1, 0x20
 /* 8005DB2C 0005AA8C  4B FB D3 0D */	bl None__16CActorParametersFv
-/* 8005DB30 0005AA90  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8005DB30 0005AA90  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8005DB34 0005AA94  38 00 00 00 */	li r0, 0
 /* 8005DB38 0005AA98  80 AD 82 C0 */	lwz r5, lbl_805A6E80@sda21(r13)
 /* 8005DB3C 0005AA9C  38 60 00 00 */	li r3, 0

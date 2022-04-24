@@ -328,7 +328,7 @@ lbl_8003A9A4:
 /* 8003AA24 00037984  48 30 64 85 */	bl __ct__6CTokenFRC6CToken
 /* 8003AA28 00037988  A0 C1 00 14 */	lhz r6, 0x14(r1)
 /* 8003AA2C 0003798C  38 61 00 70 */	addi r3, r1, 0x70
-/* 8003AA30 00037990  80 AD A3 90 */	lwz r5, lbl_805A8F50@sda21(r13)
+/* 8003AA30 00037990  80 AD A3 90 */	lwz r5, kInvalidAreaId@sda21(r13)
 /* 8003AA34 00037994  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8003AA38 00037998  A0 1E 05 38 */	lhz r0, 0x538(r30)
 /* 8003AA3C 0003799C  3B 60 00 01 */	li r27, 1
@@ -1071,7 +1071,7 @@ SetGunLightActive__10CPlayerGunFbR13CStateManager:
 /* 8003B484 000383E4  7C 9E 23 78 */	mr r30, r4
 /* 8003B488 000383E8  93 A1 00 C4 */	stw r29, 0xc4(r1)
 /* 8003B48C 000383EC  7C 7D 1B 78 */	mr r29, r3
-/* 8003B490 000383F0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003B490 000383F0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003B494 000383F4  A0 63 05 3C */	lhz r3, 0x53c(r3)
 /* 8003B498 000383F8  7C 03 00 40 */	cmplw r3, r0
 /* 8003B49C 000383FC  41 82 00 B8 */	beq lbl_8003B554
@@ -1184,7 +1184,7 @@ UpdateGunLight__10CPlayerGunFRC12CTransform4fR13CStateManager:
 /* 8003B62C 0003858C  93 A1 00 D4 */	stw r29, 0xd4(r1)
 /* 8003B630 00038590  93 81 00 D0 */	stw r28, 0xd0(r1)
 /* 8003B634 00038594  7C 9C 23 78 */	mr r28, r4
-/* 8003B638 00038598  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003B638 00038598  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003B63C 0003859C  A0 63 05 3C */	lhz r3, 0x53c(r3)
 /* 8003B640 000385A0  7C 03 00 40 */	cmplw r3, r0
 /* 8003B644 000385A4  41 82 01 20 */	beq lbl_8003B764
@@ -1276,7 +1276,7 @@ DeleteGunLight__10CPlayerGunFR13CStateManager:
 /* 8003B78C 000386EC  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8003B790 000386F0  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8003B794 000386F4  7C 7F 1B 78 */	mr r31, r3
-/* 8003B798 000386F8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003B798 000386F8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003B79C 000386FC  A0 63 05 3C */	lhz r3, 0x53c(r3)
 /* 8003B7A0 00038700  7C 03 00 40 */	cmplw r3, r0
 /* 8003B7A4 00038704  41 82 00 20 */	beq lbl_8003B7C4
@@ -1285,7 +1285,7 @@ DeleteGunLight__10CPlayerGunFR13CStateManager:
 /* 8003B7B0 00038710  38 81 00 08 */	addi r4, r1, 8
 /* 8003B7B4 00038714  B0 01 00 08 */	sth r0, 8(r1)
 /* 8003B7B8 00038718  48 01 0A B5 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 8003B7BC 0003871C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003B7BC 0003871C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003B7C0 00038720  B0 1F 05 3C */	sth r0, 0x53c(r31)
 lbl_8003B7C4:
 /* 8003B7C4 00038724  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -1302,7 +1302,7 @@ CreateGunLight__10CPlayerGunFR13CStateManager:
 /* 8003B7E4 00038744  BF 61 00 8C */	stmw r27, 0x8c(r1)
 /* 8003B7E8 00038748  7C 7E 1B 78 */	mr r30, r3
 /* 8003B7EC 0003874C  7C 9F 23 78 */	mr r31, r4
-/* 8003B7F0 00038750  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003B7F0 00038750  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003B7F4 00038754  A0 63 05 3C */	lhz r3, 0x53c(r3)
 /* 8003B7F8 00038758  7C 03 00 40 */	cmplw r3, r0
 /* 8003B7FC 0003875C  40 82 00 DC */	bne lbl_8003B8D8
@@ -1328,7 +1328,7 @@ CreateGunLight__10CPlayerGunFR13CStateManager:
 /* 8003B84C 000387AC  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 8003B850 000387B0  38 84 00 10 */	addi r4, r4, 0x10
 /* 8003B854 000387B4  4B FC 94 65 */	bl string_l__4rstlFPCc
-/* 8003B858 000387B8  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8003B858 000387B8  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8003B85C 000387BC  3B 60 00 01 */	li r27, 1
 /* 8003B860 000387C0  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 8003B864 000387C4  A0 1E 05 3C */	lhz r0, 0x53c(r30)
@@ -1467,7 +1467,7 @@ UpdateAuxWeapons__10CPlayerGunFfRC12CTransform4fR13CStateManager:
 /* 8003BA54 000389B4  38 61 00 10 */	addi r3, r1, 0x10
 /* 8003BA58 000389B8  48 17 DE 61 */	bl HasTarget__10CAuxWeaponCFRC13CStateManager
 /* 8003BA5C 000389BC  A0 61 00 10 */	lhz r3, 0x10(r1)
-/* 8003BA60 000389C0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003BA60 000389C0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003BA64 000389C4  7C 03 00 40 */	cmplw r3, r0
 /* 8003BA68 000389C8  40 82 00 4C */	bne lbl_8003BAB4
 /* 8003BA6C 000389CC  7F C4 F3 78 */	mr r4, r30
@@ -1475,7 +1475,7 @@ UpdateAuxWeapons__10CPlayerGunFfRC12CTransform4fR13CStateManager:
 /* 8003BA74 000389D4  38 61 00 0C */	addi r3, r1, 0xc
 /* 8003BA78 000389D8  48 00 27 85 */	bl GetTargetId__10CPlayerGunFR13CStateManager
 /* 8003BA7C 000389DC  A0 61 00 0C */	lhz r3, 0xc(r1)
-/* 8003BA80 000389E0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003BA80 000389E0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003BA84 000389E4  B0 61 00 14 */	sth r3, 0x14(r1)
 /* 8003BA88 000389E8  7C 03 00 40 */	cmplw r3, r0
 /* 8003BA8C 000389EC  40 82 00 10 */	bne lbl_8003BA9C
@@ -2502,7 +2502,7 @@ lbl_8003C894:
 /* 8003C8D0 00039830  3B 40 00 01 */	li r26, 1
 /* 8003C8D4 00039834  D0 1D 03 94 */	stfs f0, 0x394(r29)
 /* 8003C8D8 00039838  A0 9B 02 6C */	lhz r4, 0x26c(r27)
-/* 8003C8DC 0003983C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003C8DC 0003983C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003C8E0 00039840  54 83 04 3E */	clrlwi r3, r4, 0x10
 /* 8003C8E4 00039844  B0 81 00 30 */	sth r4, 0x30(r1)
 /* 8003C8E8 00039848  7C 03 00 40 */	cmplw r3, r0
@@ -3823,7 +3823,7 @@ lbl_8003DB80:
 /* 8003DBB4 0003AB14  50 03 1F 38 */	rlwimi r3, r0, 3, 0x1c, 0x1c
 /* 8003DBB8 0003AB18  98 79 08 35 */	stb r3, 0x835(r25)
 /* 8003DBBC 0003AB1C  A0 79 05 3A */	lhz r3, 0x53a(r25)
-/* 8003DBC0 0003AB20  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003DBC0 0003AB20  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003DBC4 0003AB24  7C 03 00 40 */	cmplw r3, r0
 /* 8003DBC8 0003AB28  41 82 00 70 */	beq lbl_8003DC38
 /* 8003DBCC 0003AB2C  A0 19 05 38 */	lhz r0, 0x538(r25)
@@ -3852,7 +3852,7 @@ lbl_8003DB80:
 /* 8003DC28 0003AB88  98 19 08 35 */	stb r0, 0x835(r25)
 /* 8003DC2C 0003AB8C  48 00 00 0C */	b lbl_8003DC38
 lbl_8003DC30:
-/* 8003DC30 0003AB90  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003DC30 0003AB90  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003DC34 0003AB94  B0 19 05 3A */	sth r0, 0x53a(r25)
 lbl_8003DC38:
 /* 8003DC38 0003AB98  57 C0 07 FF */	clrlwi. r0, r30, 0x1f
@@ -4275,7 +4275,7 @@ GetTargetId__10CPlayerGunFR13CStateManager:
 /* 8003E21C 0003B17C  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 8003E220 0003B180  B0 61 00 0C */	sth r3, 0xc(r1)
 /* 8003E224 0003B184  41 82 00 28 */	beq lbl_8003E24C
-/* 8003E228 0003B188  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003E228 0003B188  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003E22C 0003B18C  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 8003E230 0003B190  7C 03 00 40 */	cmplw r3, r0
 /* 8003E234 0003B194  40 82 00 18 */	bne lbl_8003E24C
@@ -4286,7 +4286,7 @@ GetTargetId__10CPlayerGunFR13CStateManager:
 /* 8003E248 0003B1A8  B0 01 00 0C */	sth r0, 0xc(r1)
 lbl_8003E24C:
 /* 8003E24C 0003B1AC  A0 61 00 0C */	lhz r3, 0xc(r1)
-/* 8003E250 0003B1B0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003E250 0003B1B0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003E254 0003B1B4  7C 03 00 40 */	cmplw r3, r0
 /* 8003E258 0003B1B8  41 82 00 70 */	beq lbl_8003E2C8
 /* 8003E25C 0003B1BC  A0 01 00 0C */	lhz r0, 0xc(r1)
@@ -4315,7 +4315,7 @@ lbl_8003E2B4:
 /* 8003E2B4 0003B214  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 8003E2B8 0003B218  28 00 00 01 */	cmplwi r0, 1
 /* 8003E2BC 0003B21C  41 82 00 0C */	beq lbl_8003E2C8
-/* 8003E2C0 0003B220  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8003E2C0 0003B220  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8003E2C4 0003B224  B0 01 00 0C */	sth r0, 0xc(r1)
 lbl_8003E2C8:
 /* 8003E2C8 0003B228  A0 01 00 0C */	lhz r0, 0xc(r1)
@@ -6377,7 +6377,7 @@ lbl_8003FFF4:
 /* 80040014 0003CF74  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 80040018 0003CF78  B0 61 00 14 */	sth r3, 0x14(r1)
 /* 8004001C 0003CF7C  41 82 00 2C */	beq lbl_80040048
-/* 80040020 0003CF80  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80040020 0003CF80  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80040024 0003CF84  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 80040028 0003CF88  7C 03 00 40 */	cmplw r3, r0
 /* 8004002C 0003CF8C  40 82 00 1C */	bne lbl_80040048
@@ -6635,7 +6635,7 @@ lbl_8004037C:
 /* 800403DC 0003D33C  38 61 00 08 */	addi r3, r1, 8
 /* 800403E0 0003D340  48 00 00 08 */	b lbl_800403E8
 lbl_800403E4:
-/* 800403E4 0003D344  38 6D A3 8C */	addi r3, r13, lbl_805A8F4C@sda21
+/* 800403E4 0003D344  38 6D A3 8C */	addi r3, r13, kInvalidUniqueId@sda21
 lbl_800403E8:
 /* 800403E8 0003D348  A0 03 00 00 */	lhz r0, 0(r3)
 /* 800403EC 0003D34C  FC 20 E0 90 */	fmr f1, f28
@@ -7110,7 +7110,7 @@ lbl_80040A50:
 /* 80040A74 0003D9D4  28 17 00 00 */	cmplwi r23, 0
 /* 80040A78 0003D9D8  41 82 00 28 */	beq lbl_80040AA0
 lbl_80040A7C:
-/* 80040A7C 0003D9DC  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 80040A7C 0003D9DC  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 80040A80 0003D9E0  FC 20 E0 90 */	fmr f1, f28
 /* 80040A84 0003D9E4  7F A5 EB 78 */	mr r5, r29
 /* 80040A88 0003D9E8  38 61 01 00 */	addi r3, r1, 0x100
@@ -7585,7 +7585,7 @@ lbl_800410AC:
 /* 8004114C 0003E0AC  38 81 03 C0 */	addi r4, r1, 0x3c0
 /* 80041150 0003E0B0  38 A1 00 E8 */	addi r5, r1, 0xe8
 /* 80041154 0003E0B4  48 00 B5 CD */	bl "BuildNearList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CAABoxRC15CMaterialFilterPC6CActor"
-/* 80041158 0003E0B8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80041158 0003E0B8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8004115C 0003E0BC  38 61 00 44 */	addi r3, r1, 0x44
 /* 80041160 0003E0C0  38 81 00 38 */	addi r4, r1, 0x38
 /* 80041164 0003E0C4  B0 01 00 0C */	sth r0, 0xc(r1)
@@ -7961,7 +7961,7 @@ lbl_800416A0:
 /* 800416D8 0003E638  38 61 00 08 */	addi r3, r1, 8
 /* 800416DC 0003E63C  4B FF CB 21 */	bl GetTargetId__10CPlayerGunFR13CStateManager
 /* 800416E0 0003E640  A0 61 00 08 */	lhz r3, 8(r1)
-/* 800416E4 0003E644  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800416E4 0003E644  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800416E8 0003E648  7C 03 00 40 */	cmplw r3, r0
 /* 800416EC 0003E64C  41 82 00 50 */	beq lbl_8004173C
 /* 800416F0 0003E650  88 7C 08 32 */	lbz r3, 0x832(r28)
@@ -9174,7 +9174,7 @@ lbl_8004280C:
 /* 80042860 0003F7C0  C0 21 00 30 */	lfs f1, 0x30(r1)
 /* 80042864 0003F7C4  C0 01 00 34 */	lfs f0, 0x34(r1)
 /* 80042868 0003F7C8  D0 A1 00 38 */	stfs f5, 0x38(r1)
-/* 8004286C 0003F7CC  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8004286C 0003F7CC  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 80042870 0003F7D0  D0 81 00 3C */	stfs f4, 0x3c(r1)
 /* 80042874 0003F7D4  D0 61 00 40 */	stfs f3, 0x40(r1)
 /* 80042878 0003F7D8  D0 41 00 44 */	stfs f2, 0x44(r1)
@@ -10001,9 +10001,9 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 800433BC 0004031C  38 00 00 00 */	li r0, 0
 /* 800433C0 00040320  38 61 00 38 */	addi r3, r1, 0x38
 /* 800433C4 00040324  B0 9F 05 38 */	sth r4, 0x538(r31)
-/* 800433C8 00040328  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 800433C8 00040328  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 800433CC 0004032C  B0 9F 05 3A */	sth r4, 0x53a(r31)
-/* 800433D0 00040330  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 800433D0 00040330  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 800433D4 00040334  B0 9F 05 3C */	sth r4, 0x53c(r31)
 /* 800433D8 00040338  90 1F 05 44 */	stw r0, 0x544(r31)
 /* 800433DC 0004033C  90 1F 05 48 */	stw r0, 0x548(r31)

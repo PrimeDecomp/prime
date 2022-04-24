@@ -997,7 +997,7 @@ PreThink__12CScriptSoundFfR13CStateManager:
 /* 800B0A24 000AD984  4B F8 9D 81 */	bl CModelDataNull__10CModelDataFv
 /* 800B0A28 000AD988  38 61 00 20 */	addi r3, r1, 0x20
 /* 800B0A2C 000AD98C  4B F6 A4 0D */	bl None__16CActorParametersFv
-/* 800B0A30 000AD990  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 800B0A30 000AD990  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 800B0A34 000AD994  38 00 00 00 */	li r0, 0
 /* 800B0A38 000AD998  80 AD 86 20 */	lwz r5, lbl_805A71E0@sda21(r13)
 /* 800B0A3C 000AD99C  38 60 00 00 */	li r3, 0

@@ -107,7 +107,7 @@ lbl_80208454:
 /* 8020847C 002053DC  7D 89 03 A6 */	mtctr r12
 /* 80208480 002053E0  4E 80 04 21 */	bctrl 
 /* 80208484 002053E4  A0 7D 01 6C */	lhz r3, 0x16c(r29)
-/* 80208488 002053E8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80208488 002053E8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8020848C 002053EC  7C 03 00 40 */	cmplw r3, r0
 /* 80208490 002053F0  40 82 01 E8 */	bne lbl_80208678
 /* 80208494 002053F4  7F C4 F3 78 */	mr r4, r30
@@ -225,7 +225,7 @@ lbl_8020853C:
 /* 80208650 002055B0  48 00 00 28 */	b lbl_80208678
 lbl_80208654:
 /* 80208654 002055B4  A0 7D 01 6C */	lhz r3, 0x16c(r29)
-/* 80208658 002055B8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80208658 002055B8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8020865C 002055BC  7C 03 00 40 */	cmplw r3, r0
 /* 80208660 002055C0  41 82 00 18 */	beq lbl_80208678
 /* 80208664 002055C4  A0 1D 01 6C */	lhz r0, 0x16c(r29)
@@ -563,7 +563,7 @@ lbl_80208AB8:
 /* 80208B18 00205A78  38 C1 00 10 */	addi r6, r1, 0x10
 /* 80208B1C 00205A7C  38 A0 FF FF */	li r5, -1
 /* 80208B20 00205A80  48 13 56 75 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FPCciRCQ24rstl17rmemory_allocator"
-/* 80208B24 00205A84  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 80208B24 00205A84  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 80208B28 00205A88  3C 60 80 57 */	lis r3, lbl_8056D410@ha
 /* 80208B2C 00205A8C  80 17 00 00 */	lwz r0, 0(r23)
 /* 80208B30 00205A90  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
@@ -575,7 +575,7 @@ lbl_80208AB8:
 /* 80208B48 00205AA8  4B E4 89 3D */	bl "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"
 /* 80208B4C 00205AAC  38 61 00 C4 */	addi r3, r1, 0xc4
 /* 80208B50 00205AB0  4B E3 1C 55 */	bl CModelDataNull__10CModelDataFv
-/* 80208B54 00205AB4  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 80208B54 00205AB4  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 80208B58 00205AB8  38 00 00 00 */	li r0, 0
 /* 80208B5C 00205ABC  80 AD 93 A8 */	lwz r5, lbl_805A7F68@sda21(r13)
 /* 80208B60 00205AC0  38 60 00 00 */	li r3, 0
@@ -685,7 +685,7 @@ lbl_80208C98:
 /* 80208CEC 00205C4C  98 18 01 28 */	stb r0, 0x128(r24)
 /* 80208CF0 00205C50  D0 18 01 2C */	stfs f0, 0x12c(r24)
 /* 80208CF4 00205C54  48 0C D2 A1 */	bl __ct__6COBBoxFRC12CTransform4fRC9CVector3f
-/* 80208CF8 00205C58  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80208CF8 00205C58  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80208CFC 00205C5C  7F A4 EB 78 */	mr r4, r29
 /* 80208D00 00205C60  38 61 00 94 */	addi r3, r1, 0x94
 /* 80208D04 00205C64  B0 18 01 6C */	sth r0, 0x16c(r24)

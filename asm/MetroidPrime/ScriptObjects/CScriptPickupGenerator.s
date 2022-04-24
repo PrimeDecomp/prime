@@ -348,7 +348,7 @@ GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId:
 /* 8015E300 0015B260  54 83 04 3E */	clrlwi r3, r4, 0x10
 /* 8015E304 0015B264  B0 81 00 20 */	sth r4, 0x20(r1)
 /* 8015E308 0015B268  98 1F 0F 94 */	stb r0, 0xf94(r31)
-/* 8015E30C 0015B26C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8015E30C 0015B26C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8015E310 0015B270  7C 03 00 40 */	cmplw r3, r0
 /* 8015E314 0015B274  41 82 01 34 */	beq lbl_8015E448
 /* 8015E318 0015B278  B0 81 00 10 */	sth r4, 0x10(r1)
@@ -476,7 +476,7 @@ lbl_8015E4B8:
 /* 8015E4E0 0015B440  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8015E4E4 0015B444  4B EE 9A 39 */	bl GetIdForScript__13CStateManagerCF9TEditorId
 /* 8015E4E8 0015B448  A0 61 00 0C */	lhz r3, 0xc(r1)
-/* 8015E4EC 0015B44C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8015E4EC 0015B44C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8015E4F0 0015B450  B0 61 00 10 */	sth r3, 0x10(r1)
 /* 8015E4F4 0015B454  7C 03 00 40 */	cmplw r3, r0
 /* 8015E4F8 0015B458  41 82 01 FC */	beq lbl_8015E6F4
@@ -680,7 +680,7 @@ lbl_8015E798:
 /* 8015E7C0 0015B720  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8015E7C4 0015B724  4B EE 97 59 */	bl GetIdForScript__13CStateManagerCF9TEditorId
 /* 8015E7C8 0015B728  A0 61 00 0C */	lhz r3, 0xc(r1)
-/* 8015E7CC 0015B72C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8015E7CC 0015B72C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8015E7D0 0015B730  B0 61 00 10 */	sth r3, 0x10(r1)
 /* 8015E7D4 0015B734  7C 03 00 40 */	cmplw r3, r0
 /* 8015E7D8 0015B738  41 82 00 78 */	beq lbl_8015E850

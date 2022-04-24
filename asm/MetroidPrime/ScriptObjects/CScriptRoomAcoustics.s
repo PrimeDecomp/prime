@@ -50,7 +50,7 @@ DisableAuxCallbacks__20CScriptRoomAcousticsFv:
 /* 8019DD68 0019ACC8  7C 08 02 A6 */	mflr r0
 /* 8019DD6C 0019ACCC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8019DD70 0019ACD0  48 14 A6 C9 */	bl DisableAuxProcessing__11CSfxManagerFv
-/* 8019DD74 0019ACD4  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8019DD74 0019ACD4  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8019DD78 0019ACD8  90 0D A4 88 */	stw r0, lbl_805A9048@sda21(r13)
 /* 8019DD7C 0019ACDC  48 1A CA 81 */	bl GetDefaultVolumeScale__9CAudioSysFv
 /* 8019DD80 0019ACE0  48 1A CA 8D */	bl SetVolumeScale__9CAudioSysFs
@@ -209,7 +209,7 @@ lbl_8019DF98:
 /* 8019DFA0 0019AF00  7C 03 00 00 */	cmpw r3, r0
 /* 8019DFA4 0019AF04  40 82 00 18 */	bne lbl_8019DFBC
 /* 8019DFA8 0019AF08  48 14 A4 91 */	bl DisableAuxProcessing__11CSfxManagerFv
-/* 8019DFAC 0019AF0C  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8019DFAC 0019AF0C  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8019DFB0 0019AF10  90 0D A4 88 */	stw r0, lbl_805A9048@sda21(r13)
 /* 8019DFB4 0019AF14  48 1A C8 49 */	bl GetDefaultVolumeScale__9CAudioSysFv
 /* 8019DFB8 0019AF18  48 1A C8 55 */	bl SetVolumeScale__9CAudioSysFs
@@ -381,6 +381,6 @@ Accept__20CScriptRoomAcousticsFR8IVisitor:
 
 .global __sinit_CScriptRoomAcoustics_cpp
 __sinit_CScriptRoomAcoustics_cpp:
-/* 8019E234 0019B194  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8019E234 0019B194  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8019E238 0019B198  90 0D A4 88 */	stw r0, lbl_805A9048@sda21(r13)
 /* 8019E23C 0019B19C  4E 80 00 20 */	blr

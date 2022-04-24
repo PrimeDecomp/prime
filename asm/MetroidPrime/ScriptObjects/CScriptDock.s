@@ -135,7 +135,7 @@ GetCurrentConnectedAreaId__11CScriptDockCFRC13CStateManager:
 /* 800C3774 000C06D4  4B F9 BB B1 */	bl GetConnectedAreaId__Q29IGameArea4DockCFi
 /* 800C3778 000C06D8  48 00 00 0C */	b lbl_800C3784
 lbl_800C377C:
-/* 800C377C 000C06DC  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800C377C 000C06DC  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800C3780 000C06E0  90 1E 00 00 */	stw r0, 0(r30)
 lbl_800C3784:
 /* 800C3784 000C06E4  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -184,7 +184,7 @@ lbl_800C3804:
 /* 800C3820 000C0780  38 61 00 14 */	addi r3, r1, 0x14
 /* 800C3824 000C0784  4B F9 BB 01 */	bl GetConnectedAreaId__Q29IGameArea4DockCFi
 /* 800C3828 000C0788  80 C1 00 14 */	lwz r6, 0x14(r1)
-/* 800C382C 000C078C  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800C382C 000C078C  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800C3830 000C0790  90 C1 00 1C */	stw r6, 0x1c(r1)
 /* 800C3834 000C0794  7C 06 00 00 */	cmpw r6, r0
 /* 800C3838 000C0798  41 82 00 28 */	beq lbl_800C3860
@@ -401,7 +401,7 @@ lbl_800C3AF0:
 /* 800C3B2C 000C0A8C  38 61 00 24 */	addi r3, r1, 0x24
 /* 800C3B30 000C0A90  4B F9 B7 F5 */	bl GetConnectedAreaId__Q29IGameArea4DockCFi
 /* 800C3B34 000C0A94  80 C1 00 24 */	lwz r6, 0x24(r1)
-/* 800C3B38 000C0A98  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800C3B38 000C0A98  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800C3B3C 000C0A9C  90 C1 00 30 */	stw r6, 0x30(r1)
 /* 800C3B40 000C0AA0  7C 06 00 00 */	cmpw r6, r0
 /* 800C3B44 000C0AA4  41 82 00 74 */	beq lbl_800C3BB8
@@ -490,7 +490,7 @@ lbl_800C3C00:
 /* 800C3C7C 000C0BDC  38 61 00 14 */	addi r3, r1, 0x14
 /* 800C3C80 000C0BE0  4B F9 B6 A5 */	bl GetConnectedAreaId__Q29IGameArea4DockCFi
 /* 800C3C84 000C0BE4  80 A1 00 14 */	lwz r5, 0x14(r1)
-/* 800C3C88 000C0BE8  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800C3C88 000C0BE8  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800C3C8C 000C0BEC  90 A1 00 2C */	stw r5, 0x2c(r1)
 /* 800C3C90 000C0BF0  7C 05 00 00 */	cmpw r5, r0
 /* 800C3C94 000C0BF4  41 82 00 E4 */	beq lbl_800C3D78

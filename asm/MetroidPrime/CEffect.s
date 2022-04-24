@@ -105,7 +105,7 @@ nullsub_84:
 /* 8005AD7C 00057CDC  4B FD FA 29 */	bl CModelDataNull__10CModelDataFv
 /* 8005AD80 00057CE0  38 61 00 20 */	addi r3, r1, 0x20
 /* 8005AD84 00057CE4  4B FC 00 B5 */	bl None__16CActorParametersFv
-/* 8005AD88 00057CE8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8005AD88 00057CE8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8005AD8C 00057CEC  38 00 00 00 */	li r0, 0
 /* 8005AD90 00057CF0  80 AD 82 B8 */	lwz r5, lbl_805A6E78@sda21(r13)
 /* 8005AD94 00057CF4  38 60 00 00 */	li r3, 0

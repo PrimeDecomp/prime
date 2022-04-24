@@ -153,7 +153,7 @@ DeleteWaveBusterBeam__10CAuxWeaponFR13CStateManager:
 /* 801B8A9C 001B59FC  7C 7E 1B 78 */	mr r30, r3
 /* 801B8AA0 001B5A00  4B FF FF 4D */	bl FreeComboVoiceId__10CAuxWeaponFv
 /* 801B8AA4 001B5A04  A0 7E 00 70 */	lhz r3, 0x70(r30)
-/* 801B8AA8 001B5A08  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801B8AA8 001B5A08  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B8AAC 001B5A0C  7C 03 00 40 */	cmplw r3, r0
 /* 801B8AB0 001B5A10  41 82 00 4C */	beq lbl_801B8AFC
 /* 801B8AB4 001B5A14  A0 1E 00 70 */	lhz r0, 0x70(r30)
@@ -161,7 +161,7 @@ DeleteWaveBusterBeam__10CAuxWeaponFR13CStateManager:
 /* 801B8ABC 001B5A1C  38 81 00 08 */	addi r4, r1, 8
 /* 801B8AC0 001B5A20  B0 01 00 08 */	sth r0, 8(r1)
 /* 801B8AC4 001B5A24  4B E9 37 A9 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 801B8AC8 001B5A28  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 801B8AC8 001B5A28  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 801B8ACC 001B5A2C  38 00 FF FF */	li r0, -1
 /* 801B8AD0 001B5A30  B0 7E 00 70 */	sth r3, 0x70(r30)
 /* 801B8AD4 001B5A34  90 1E 00 74 */	stw r0, 0x74(r30)
@@ -193,7 +193,7 @@ DeleteFlameThrower__10CAuxWeaponFR13CStateManager:
 /* 801B8B2C 001B5A8C  7C 7E 1B 78 */	mr r30, r3
 /* 801B8B30 001B5A90  4B FF FE BD */	bl FreeComboVoiceId__10CAuxWeaponFv
 /* 801B8B34 001B5A94  A0 7E 00 6E */	lhz r3, 0x6e(r30)
-/* 801B8B38 001B5A98  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801B8B38 001B5A98  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B8B3C 001B5A9C  7C 03 00 40 */	cmplw r3, r0
 /* 801B8B40 001B5AA0  41 82 00 4C */	beq lbl_801B8B8C
 /* 801B8B44 001B5AA4  A0 1E 00 6E */	lhz r0, 0x6e(r30)
@@ -201,7 +201,7 @@ DeleteFlameThrower__10CAuxWeaponFR13CStateManager:
 /* 801B8B4C 001B5AAC  38 81 00 08 */	addi r4, r1, 8
 /* 801B8B50 001B5AB0  B0 01 00 08 */	sth r0, 8(r1)
 /* 801B8B54 001B5AB4  4B E9 37 19 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 801B8B58 001B5AB8  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 801B8B58 001B5AB8  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 801B8B5C 001B5ABC  38 00 FF FF */	li r0, -1
 /* 801B8B60 001B5AC0  B0 7E 00 6E */	sth r3, 0x6e(r30)
 /* 801B8B64 001B5AC4  90 1E 00 74 */	stw r0, 0x74(r30)
@@ -236,7 +236,7 @@ CreateWaveBusterBeam__10CAuxWeaponFUi9TUniqueIdRC12CTransform4fR13CStateManager:
 /* 801B8BC8 001B5B28  7F E4 FB 78 */	mr r4, r31
 /* 801B8BCC 001B5B2C  4B FF FE B9 */	bl DeleteWaveBusterBeam__10CAuxWeaponFR13CStateManager
 /* 801B8BD0 001B5B30  A0 7C 00 70 */	lhz r3, 0x70(r28)
-/* 801B8BD4 001B5B34  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801B8BD4 001B5B34  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B8BD8 001B5B38  7C 03 00 40 */	cmplw r3, r0
 /* 801B8BDC 001B5B3C  40 82 01 8C */	bne lbl_801B8D68
 /* 801B8BE0 001B5B40  7F E4 FB 78 */	mr r4, r31
@@ -257,7 +257,7 @@ CreateWaveBusterBeam__10CAuxWeaponFUi9TUniqueIdRC12CTransform4fR13CStateManager:
 /* 801B8C1C 001B5B7C  80 8D A1 34 */	lwz r4, gpTweakPlayerGun@sda21(r13)
 /* 801B8C20 001B5B80  38 61 00 38 */	addi r3, r1, 0x38
 /* 801B8C24 001B5B84  B0 01 00 20 */	sth r0, 0x20(r1)
-/* 801B8C28 001B5B88  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 801B8C28 001B5B88  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 801B8C2C 001B5B8C  38 84 02 2C */	addi r4, r4, 0x22c
 /* 801B8C30 001B5B90  A0 DC 00 6C */	lhz r6, 0x6c(r28)
 /* 801B8C34 001B5B94  B0 C1 00 1C */	sth r6, 0x1c(r1)
@@ -362,7 +362,7 @@ CreateFlameThrower__10CAuxWeaponFRC12CTransform4fR13CStateManagerf:
 /* 801B8DA0 001B5D00  7F 84 E3 78 */	mr r4, r28
 /* 801B8DA4 001B5D04  4B FF FD 71 */	bl DeleteFlameThrower__10CAuxWeaponFR13CStateManager
 /* 801B8DA8 001B5D08  A0 7A 00 6E */	lhz r3, 0x6e(r26)
-/* 801B8DAC 001B5D0C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801B8DAC 001B5D0C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B8DB0 001B5D10  7C 03 00 40 */	cmplw r3, r0
 /* 801B8DB4 001B5D14  40 82 02 A4 */	bne lbl_801B9058
 /* 801B8DB8 001B5D18  3C 60 80 3D */	lis r3, lbl_803D1678@ha
@@ -426,7 +426,7 @@ CreateFlameThrower__10CAuxWeaponFRC12CTransform4fR13CStateManagerf:
 /* 801B8EA0 001B5E00  41 82 00 94 */	beq lbl_801B8F34
 /* 801B8EA4 001B5E04  A0 BA 00 6C */	lhz r5, 0x6c(r26)
 /* 801B8EA8 001B5E08  3C 60 80 3D */	lis r3, lbl_803D1678@ha
-/* 801B8EAC 001B5E0C  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 801B8EAC 001B5E0C  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 801B8EB0 001B5E10  38 83 16 78 */	addi r4, r3, lbl_803D1678@l
 /* 801B8EB4 001B5E14  B0 A1 00 1C */	sth r5, 0x1c(r1)
 /* 801B8EB8 001B5E18  38 61 00 34 */	addi r3, r1, 0x34
@@ -601,7 +601,7 @@ lbl_801B90F8:
 /* 801B9128 001B6088  7F C4 F3 78 */	mr r4, r30
 /* 801B912C 001B608C  98 01 00 78 */	stb r0, 0x78(r1)
 /* 801B9130 001B6090  39 C1 00 6C */	addi r14, r1, 0x6c
-/* 801B9134 001B6094  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 801B9134 001B6094  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 801B9138 001B6098  39 E1 00 60 */	addi r15, r1, 0x60
 /* 801B913C 001B609C  D0 01 00 60 */	stfs f0, 0x60(r1)
 /* 801B9140 001B60A0  3A 81 00 3C */	addi r20, r1, 0x3c
@@ -1028,7 +1028,7 @@ lbl_801B96E8:
 /* 801B9730 001B6690  54 1E D7 FE */	rlwinm r30, r0, 0x1a, 0x1f, 0x1f
 lbl_801B9734:
 /* 801B9734 001B6694  A0 78 00 6E */	lhz r3, 0x6e(r24)
-/* 801B9738 001B6698  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801B9738 001B6698  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B973C 001B669C  7C 03 00 40 */	cmplw r3, r0
 /* 801B9740 001B66A0  41 82 00 10 */	beq lbl_801B9750
 /* 801B9744 001B66A4  7E E3 BB 78 */	mr r3, r23
@@ -1159,7 +1159,7 @@ lbl_801B98DC:
 /* 801B98FC 001B685C  B0 1F 00 00 */	sth r0, 0(r31)
 /* 801B9900 001B6860  48 00 00 0C */	b lbl_801B990C
 lbl_801B9904:
-/* 801B9904 001B6864  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801B9904 001B6864  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B9908 001B6868  B0 1F 00 00 */	sth r0, 0(r31)
 lbl_801B990C:
 /* 801B990C 001B686C  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -1370,9 +1370,9 @@ __ct__10CAuxWeaponF9TUniqueId:
 /* 801B9BF4 001B6B54  D0 1E 00 68 */	stfs f0, 0x68(r30)
 /* 801B9BF8 001B6B58  A0 9F 00 00 */	lhz r4, 0(r31)
 /* 801B9BFC 001B6B5C  B0 9E 00 6C */	sth r4, 0x6c(r30)
-/* 801B9C00 001B6B60  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801B9C00 001B6B60  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801B9C04 001B6B64  B0 9E 00 6E */	sth r4, 0x6e(r30)
-/* 801B9C08 001B6B68  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801B9C08 001B6B68  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801B9C0C 001B6B6C  B0 9E 00 70 */	sth r4, 0x70(r30)
 /* 801B9C10 001B6B70  90 1E 00 74 */	stw r0, 0x74(r30)
 /* 801B9C14 001B6B74  90 BE 00 78 */	stw r5, 0x78(r30)

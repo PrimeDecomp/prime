@@ -1279,7 +1279,7 @@ PreRender__12CScriptWaterFR13CStateManagerRC14CFrustumPlanes:
 /* 800FFDA0 000FCD00  54 60 FF FF */	rlwinm. r0, r3, 0x1f, 0x1f, 0x1f
 /* 800FFDA4 000FCD04  40 82 01 88 */	bne lbl_800FFF2C
 /* 800FFDA8 000FCD08  80 BD 00 04 */	lwz r5, 4(r29)
-/* 800FFDAC 000FCD0C  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800FFDAC 000FCD0C  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800FFDB0 000FCD10  7C 05 00 00 */	cmpw r5, r0
 /* 800FFDB4 000FCD14  41 82 00 A8 */	beq lbl_800FFE5C
 /* 800FFDB8 000FCD18  83 7D 00 90 */	lwz r27, 0x90(r29)

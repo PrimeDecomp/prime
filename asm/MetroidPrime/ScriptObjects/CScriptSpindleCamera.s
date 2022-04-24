@@ -1577,7 +1577,7 @@ __ct__20CScriptSpindleCameraF9TUniqueIdRCQ24rstl12basic_stringRC11CEntityInfoRC1
 /* 8024118C 0023E0EC  DB 21 00 70 */	stfd f25, 0x70(r1)
 /* 80241190 0023E0F0  F3 21 00 78 */	psq_st f25, 120(r1), 0, qr0
 /* 80241194 0023E0F4  BD C1 00 28 */	stmw r14, 0x28(r1)
-/* 80241198 0023E0F8  A1 6D A3 8C */	lhz r11, lbl_805A8F4C@sda21(r13)
+/* 80241198 0023E0F8  A1 6D A3 8C */	lhz r11, kInvalidUniqueId@sda21(r13)
 /* 8024119C 0023E0FC  FF 20 08 90 */	fmr f25, f1
 /* 802411A0 0023E100  A0 04 00 00 */	lhz r0, 0(r4)
 /* 802411A4 0023E104  FF 40 10 90 */	fmr f26, f2

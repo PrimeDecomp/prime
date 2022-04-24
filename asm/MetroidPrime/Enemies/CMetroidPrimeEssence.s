@@ -1153,7 +1153,7 @@ sub_8027d52c:
 /* 8027D5E0 0027A540  41 82 00 A4 */	beq lbl_8027D684
 /* 8027D5E4 0027A544  A0 FB 00 08 */	lhz r7, 8(r27)
 /* 8027D5E8 0027A548  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8027D5EC 0027A54C  80 0D A3 88 */	lwz r0, lbl_805A8F48@sda21(r13)
+/* 8027D5EC 0027A54C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 8027D5F0 0027A550  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
 /* 8027D5F4 0027A554  B0 E1 00 14 */	sth r7, 0x14(r1)
 /* 8027D5F8 0027A558  38 61 00 44 */	addi r3, r1, 0x44
@@ -2617,7 +2617,7 @@ sub_8027e870:
 /* 8027EA38 0027B998  93 61 00 D0 */	stw r27, 0xd0(r1)
 /* 8027EA3C 0027B99C  90 01 00 D8 */	stw r0, 0xd8(r1)
 /* 8027EA40 0027B9A0  4B DC DC E1 */	bl "BuildNearList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CAABoxRC15CMaterialFilterPC6CActor"
-/* 8027EA44 0027B9A4  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8027EA44 0027B9A4  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8027EA48 0027B9A8  38 00 00 00 */	li r0, 0
 /* 8027EA4C 0027B9AC  80 AD 99 1C */	lwz r5, lbl_805A84DC@sda21(r13)
 /* 8027EA50 0027B9B0  38 60 00 00 */	li r3, 0
@@ -3929,7 +3929,7 @@ lbl_8027FCFC:
 /* 8027FCFC 0027CC5C  80 7D 06 58 */	lwz r3, 0x658(r29)
 /* 8027FD00 0027CC60  7F E4 FB 78 */	mr r4, r31
 /* 8027FD04 0027CC64  4B F2 76 C1 */	bl Destroy__22CCollisionActorManagerCFR13CStateManager
-/* 8027FD08 0027CC68  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8027FD08 0027CC68  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8027FD0C 0027CC6C  7F E3 FB 78 */	mr r3, r31
 /* 8027FD10 0027CC70  C0 22 BD 10 */	lfs f1, lbl_805ADA30@sda21(r2)
 /* 8027FD14 0027CC74  38 81 00 48 */	addi r4, r1, 0x48
@@ -4378,9 +4378,9 @@ __ct__20CMetroidPrimeEssence:
 /* 80280398 0027D2F8  90 BA 06 F8 */	stw r5, 0x6f8(r26)
 /* 8028039C 0027D2FC  90 FA 06 FC */	stw r7, 0x6fc(r26)
 /* 802803A0 0027D300  90 1A 07 00 */	stw r0, 0x700(r26)
-/* 802803A4 0027D304  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 802803A4 0027D304  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 802803A8 0027D308  B0 1A 07 04 */	sth r0, 0x704(r26)
-/* 802803AC 0027D30C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 802803AC 0027D30C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 802803B0 0027D310  B0 1A 07 06 */	sth r0, 0x706(r26)
 /* 802803B4 0027D314  90 FA 07 08 */	stw r7, 0x708(r26)
 /* 802803B8 0027D318  48 06 85 F9 */	bl TranslateSFXID__11CSfxManagerFUs

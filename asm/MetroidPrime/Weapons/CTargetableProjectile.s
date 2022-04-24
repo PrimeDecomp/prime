@@ -316,7 +316,7 @@ Think__21CTargetableProjectileFfR13CStateManager:
 /* 8013BC70 00138BD0  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8013BC74 00138BD4  40 82 02 30 */	bne lbl_8013BEA4
 /* 8013BC78 00138BD8  A0 7C 02 C4 */	lhz r3, 0x2c4(r28)
-/* 8013BC7C 00138BDC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8013BC7C 00138BDC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8013BC80 00138BE0  54 64 04 3E */	clrlwi r4, r3, 0x10
 /* 8013BC84 00138BE4  B0 61 00 60 */	sth r3, 0x60(r1)
 /* 8013BC88 00138BE8  7C 04 00 40 */	cmplw r4, r0
@@ -454,7 +454,7 @@ lbl_8013BE50:
 /* 8013BE8C 00138DEC  B0 01 00 34 */	sth r0, 0x34(r1)
 /* 8013BE90 00138DF0  80 7D 08 4C */	lwz r3, 0x84c(r29)
 /* 8013BE94 00138DF4  48 03 F7 59 */	bl SetOrbitTargetId__7CPlayerF9TUniqueIdR13CStateManager
-/* 8013BE98 00138DF8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8013BE98 00138DF8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8013BE9C 00138DFC  B0 01 00 30 */	sth r0, 0x30(r1)
 /* 8013BEA0 00138E00  B0 1C 02 C4 */	sth r0, 0x2c4(r28)
 lbl_8013BEA4:

@@ -354,7 +354,7 @@ lbl_80102278:
 /* 801022E0 000FF240  38 C1 00 28 */	addi r6, r1, 0x28
 /* 801022E4 000FF244  80 05 00 00 */	lwz r0, 0(r5)
 /* 801022E8 000FF248  38 AB D4 10 */	addi r5, r11, lbl_8056D410@l
-/* 801022EC 000FF24C  81 8D A3 88 */	lwz r12, lbl_805A8F48@sda21(r13)
+/* 801022EC 000FF24C  81 8D A3 88 */	lwz r12, kInvalidEditorId@sda21(r13)
 /* 801022F0 000FF250  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 801022F4 000FF254  91 81 00 28 */	stw r12, 0x28(r1)
 /* 801022F8 000FF258  4B F4 F1 8D */	bl "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"
@@ -364,7 +364,7 @@ lbl_80102278:
 /* 80102308 000FF268  38 81 00 B0 */	addi r4, r1, 0xb0
 /* 8010230C 000FF26C  38 A0 00 01 */	li r5, 1
 /* 80102310 000FF270  48 00 44 FD */	bl sub_8010680c
-/* 80102314 000FF274  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 80102314 000FF274  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 80102318 000FF278  38 81 00 48 */	addi r4, r1, 0x48
 /* 8010231C 000FF27C  A0 F4 00 00 */	lhz r7, 0(r20)
 /* 80102320 000FF280  38 01 00 10 */	addi r0, r1, 0x10

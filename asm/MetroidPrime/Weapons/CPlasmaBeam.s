@@ -65,7 +65,7 @@ SetWorldLighting__11CPlasmaBeamFR13CStateManager7TAreaIdff:
 /* 800DEBE8 000DBB48  80 1D 00 00 */	lwz r0, 0(r29)
 /* 800DEBEC 000DBB4C  7C 03 00 00 */	cmpw r3, r0
 /* 800DEBF0 000DBB50  41 82 00 44 */	beq lbl_800DEC34
-/* 800DEBF4 000DBB54  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800DEBF4 000DBB54  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800DEBF8 000DBB58  7C 03 00 00 */	cmpw r3, r0
 /* 800DEBFC 000DBB5C  41 82 00 38 */	beq lbl_800DEC34
 /* 800DEC00 000DBB60  80 1E 02 3C */	lwz r0, 0x23c(r30)
@@ -93,7 +93,7 @@ lbl_800DEC34:
 /* 800DEC54 000DBBB4  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
 /* 800DEC58 000DBBB8  98 1E 02 2C */	stb r0, 0x22c(r30)
 /* 800DEC5C 000DBBBC  80 7E 02 3C */	lwz r3, 0x23c(r30)
-/* 800DEC60 000DBBC0  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800DEC60 000DBBC0  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800DEC64 000DBBC4  7C 03 00 00 */	cmpw r3, r0
 /* 800DEC68 000DBBC8  41 82 00 38 */	beq lbl_800DECA0
 /* 800DEC6C 000DBBCC  80 1E 02 3C */	lwz r0, 0x23c(r30)
@@ -790,7 +790,7 @@ __ct__11CPlasmaBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800DF5E0 000DC540  D0 1F 02 30 */	stfs f0, 0x230(r31)
 /* 800DF5E4 000DC544  D0 1F 02 34 */	stfs f0, 0x234(r31)
 /* 800DF5E8 000DC548  D0 1F 02 38 */	stfs f0, 0x238(r31)
-/* 800DF5EC 000DC54C  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800DF5EC 000DC54C  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800DF5F0 000DC550  90 1F 02 3C */	stw r0, 0x23c(r31)
 /* 800DF5F4 000DC554  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800DF5F8 000DC558  83 C1 00 18 */	lwz r30, 0x18(r1)

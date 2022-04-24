@@ -860,7 +860,7 @@ __ct__7CPuffer:
 /* 8025CBC0 00259B20  D0 17 05 C4 */	stfs f0, 0x5c4(r23)
 /* 8025CBC4 00259B24  C0 05 00 08 */	lfs f0, 8(r5)
 /* 8025CBC8 00259B28  D0 17 05 C8 */	stfs f0, 0x5c8(r23)
-/* 8025CBCC 00259B2C  A0 AD A3 8C */	lhz r5, lbl_805A8F4C@sda21(r13)
+/* 8025CBCC 00259B2C  A0 AD A3 8C */	lhz r5, kInvalidUniqueId@sda21(r13)
 /* 8025CBD0 00259B30  B0 B7 05 CC */	sth r5, 0x5cc(r23)
 /* 8025CBD4 00259B34  90 17 05 D0 */	stw r0, 0x5d0(r23)
 /* 8025CBD8 00259B38  90 17 05 D4 */	stw r0, 0x5d4(r23)

@@ -158,7 +158,7 @@ lbl_802805D8:
 /* 80280648 0027D5A8  4B E9 65 0D */	bl __ct__10CModelDataFRC8CAnimRes
 /* 8028064C 0027D5AC  80 1D 00 04 */	lwz r0, 4(r29)
 /* 80280650 0027D5B0  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 80280654 0027D5B4  80 CD A3 88 */	lwz r6, lbl_805A8F48@sda21(r13)
+/* 80280654 0027D5B4  80 CD A3 88 */	lwz r6, kInvalidEditorId@sda21(r13)
 /* 80280658 0027D5B8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
 /* 8028065C 0027D5BC  90 01 00 7C */	stw r0, 0x7c(r1)
 /* 80280660 0027D5C0  38 61 00 9C */	addi r3, r1, 0x9c
@@ -268,7 +268,7 @@ lbl_802807E8:
 /* 802807E8 0027D748  7F C3 F3 78 */	mr r3, r30
 /* 802807EC 0027D74C  7F E4 FB 78 */	mr r4, r31
 /* 802807F0 0027D750  4B DC C3 25 */	bl AddObject__13CStateManagerFR7CEntity
-/* 802807F4 0027D754  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 802807F4 0027D754  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 802807F8 0027D758  7F C3 F3 78 */	mr r3, r30
 /* 802807FC 0027D75C  7F E4 FB 78 */	mr r4, r31
 /* 80280800 0027D760  38 A1 00 60 */	addi r5, r1, 0x60
@@ -417,7 +417,7 @@ Accept__18CMetroidPrimeRelay:
 /* 802809F4 0027D954  38 03 B6 38 */	addi r0, r3, lbl_803EB638@l
 /* 802809F8 0027D958  38 74 00 38 */	addi r3, r20, 0x38
 /* 802809FC 0027D95C  90 14 00 00 */	stw r0, 0(r20)
-/* 80280A00 0027D960  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80280A00 0027D960  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80280A04 0027D964  B0 14 00 34 */	sth r0, 0x34(r20)
 /* 80280A08 0027D968  48 09 21 6D */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80280A0C 0027D96C  C0 15 00 00 */	lfs f0, 0(r21)

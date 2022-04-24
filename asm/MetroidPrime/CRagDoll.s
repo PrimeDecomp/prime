@@ -1267,7 +1267,7 @@ lbl_8020D97C:
 /* 8020D994 0020A8F4  7F C3 F3 78 */	mr r3, r30
 /* 8020D998 0020A8F8  38 81 09 5C */	addi r4, r1, 0x95c
 /* 8020D99C 0020A8FC  4B F7 6D 29 */	bl BuildAreaCollisionCache__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCache
-/* 8020D9A0 0020A900  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8020D9A0 0020A900  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8020D9A4 0020A904  3B 60 00 00 */	li r27, 0
 /* 8020D9A8 0020A908  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 8020D9AC 0020A90C  88 1D 00 68 */	lbz r0, 0x68(r29)

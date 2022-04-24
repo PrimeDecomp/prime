@@ -523,14 +523,14 @@ lbl_805A8F44:
 	.skip 0x4
 
 # TGameTypes
-.global lbl_805A8F48
-lbl_805A8F48:
+.global kInvalidEditorId
+kInvalidEditorId:
 	.skip 0x4
-.global lbl_805A8F4C
-lbl_805A8F4C:
+.global kInvalidUniqueId
+kInvalidUniqueId:
 	.skip 0x4
-.global lbl_805A8F50
-lbl_805A8F50:
+.global kInvalidAreaId
+kInvalidAreaId:
 	.skip 0x4
 .global lbl_805A8F54
 lbl_805A8F54:

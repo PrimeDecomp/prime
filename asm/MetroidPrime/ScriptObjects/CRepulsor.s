@@ -122,7 +122,7 @@ Accept__9CRepulsorFR8IVisitor:
 /* 8020FD40 0020CCA0  4B E2 AA 65 */	bl CModelDataNull__10CModelDataFv
 /* 8020FD44 0020CCA4  38 61 00 50 */	addi r3, r1, 0x50
 /* 8020FD48 0020CCA8  4B E0 B0 F1 */	bl None__16CActorParametersFv
-/* 8020FD4C 0020CCAC  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8020FD4C 0020CCAC  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8020FD50 0020CCB0  38 00 00 00 */	li r0, 0
 /* 8020FD54 0020CCB4  80 AD 94 B0 */	lwz r5, lbl_805A8070@sda21(r13)
 /* 8020FD58 0020CCB8  38 60 00 00 */	li r3, 0

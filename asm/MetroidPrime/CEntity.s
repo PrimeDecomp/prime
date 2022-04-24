@@ -27,7 +27,7 @@ GetAreaId__7CEntityCFv:
 /* 80051084 0004DFE4  88 04 00 30 */	lbz r0, 0x30(r4)
 /* 80051088 0004DFE8  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
 /* 8005108C 0004DFEC  41 82 00 0C */	beq lbl_80051098
-/* 80051090 0004DFF0  38 8D A3 90 */	addi r4, r13, lbl_805A8F50@sda21
+/* 80051090 0004DFF0  38 8D A3 90 */	addi r4, r13, kInvalidAreaId@sda21
 /* 80051094 0004DFF4  48 00 00 08 */	b lbl_8005109C
 lbl_80051098:
 /* 80051098 0004DFF8  38 84 00 04 */	addi r4, r4, 4
@@ -310,7 +310,7 @@ lbl_80051420:
 /* 80051444 0004E3A4  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a
 /* 80051448 0004E3A8  98 1E 00 30 */	stb r0, 0x30(r30)
 /* 8005144C 0004E3AC  80 BE 00 04 */	lwz r5, 4(r30)
-/* 80051450 0004E3B0  80 8D A3 90 */	lwz r4, lbl_805A8F50@sda21(r13)
+/* 80051450 0004E3B0  80 8D A3 90 */	lwz r4, kInvalidAreaId@sda21(r13)
 /* 80051454 0004E3B4  88 1E 00 30 */	lbz r0, 0x30(r30)
 /* 80051458 0004E3B8  7C 85 20 50 */	subf r4, r5, r4
 /* 8005145C 0004E3BC  7C 84 00 34 */	cntlzw r4, r4

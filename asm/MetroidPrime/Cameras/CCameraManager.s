@@ -287,7 +287,7 @@ HasCameraHint__14CCameraManagerCFR13CStateManager:
 /* 80009384 000062E4  2C 00 00 00 */	cmpwi r0, 0
 /* 80009388 000062E8  41 82 00 34 */	beq lbl_800093BC
 /* 8000938C 000062EC  A0 63 00 A6 */	lhz r3, 0xa6(r3)
-/* 80009390 000062F0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80009390 000062F0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80009394 000062F4  7C 03 00 40 */	cmplw r3, r0
 /* 80009398 000062F8  41 82 00 24 */	beq lbl_800093BC
 /* 8000939C 000062FC  B0 61 00 08 */	sth r3, 8(r1)
@@ -740,14 +740,14 @@ lbl_800099A0:
 /* 800099A4 00006904  A0 1E 00 A6 */	lhz r0, 0xa6(r30)
 /* 800099A8 00006908  7C 03 00 40 */	cmplw r3, r0
 /* 800099AC 0000690C  40 82 00 48 */	bne lbl_800099F4
-/* 800099B0 00006910  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800099B0 00006910  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800099B4 00006914  7F C3 F3 78 */	mr r3, r30
 /* 800099B8 00006918  7F E5 FB 78 */	mr r5, r31
 /* 800099BC 0000691C  38 81 00 38 */	addi r4, r1, 0x38
 /* 800099C0 00006920  B0 01 00 38 */	sth r0, 0x38(r1)
 /* 800099C4 00006924  3B 40 00 01 */	li r26, 1
 /* 800099C8 00006928  4B FF F9 01 */	bl SetPathCamera__14CCameraManagerF9TUniqueIdR13CStateManager
-/* 800099CC 0000692C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800099CC 0000692C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800099D0 00006930  7F C3 F3 78 */	mr r3, r30
 /* 800099D4 00006934  7F E5 FB 78 */	mr r5, r31
 /* 800099D8 00006938  38 81 00 34 */	addi r4, r1, 0x34
@@ -1397,7 +1397,7 @@ RestoreHintlessCamera__14CCameraManagerFR13CStateManager:
 /* 8000A2E4 00007244  38 61 00 70 */	addi r3, r1, 0x70
 /* 8000A2E8 00007248  38 84 00 34 */	addi r4, r4, 0x34
 /* 8000A2EC 0000724C  48 30 88 89 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 8000A2F0 00007250  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 8000A2F0 00007250  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 8000A2F4 00007254  28 1F 00 00 */	cmplwi r31, 0
 /* 8000A2F8 00007258  38 00 03 E8 */	li r0, 0x3e8
 /* 8000A2FC 0000725C  B0 7D 00 A6 */	sth r3, 0xa6(r29)
@@ -1583,13 +1583,13 @@ lbl_8000A588:
 /* 8000A5A0 00007500  4B FF EC 71 */	bl SetSpindleCamera__14CCameraManagerF9TUniqueIdR13CStateManager
 /* 8000A5A4 00007504  48 00 00 34 */	b lbl_8000A5D8
 lbl_8000A5A8:
-/* 8000A5A8 00007508  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000A5A8 00007508  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000A5AC 0000750C  7F 83 E3 78 */	mr r3, r28
 /* 8000A5B0 00007510  7F C5 F3 78 */	mr r5, r30
 /* 8000A5B4 00007514  38 81 00 14 */	addi r4, r1, 0x14
 /* 8000A5B8 00007518  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 8000A5BC 0000751C  4B FF ED 0D */	bl SetPathCamera__14CCameraManagerF9TUniqueIdR13CStateManager
-/* 8000A5C0 00007520  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000A5C0 00007520  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000A5C4 00007524  7F 83 E3 78 */	mr r3, r28
 /* 8000A5C8 00007528  7F C5 F3 78 */	mr r5, r30
 /* 8000A5CC 0000752C  38 81 00 10 */	addi r4, r1, 0x10
@@ -3180,7 +3180,7 @@ GetLastCineCameraId__14CCameraManagerCFv:
 /* 8000BBA8 00008B08  80 A4 00 08 */	lwz r5, 8(r4)
 /* 8000BBAC 00008B0C  2C 05 00 00 */	cmpwi r5, 0
 /* 8000BBB0 00008B10  40 82 00 10 */	bne lbl_8000BBC0
-/* 8000BBB4 00008B14  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000BBB4 00008B14  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000BBB8 00008B18  B0 03 00 00 */	sth r0, 0(r3)
 /* 8000BBBC 00008B1C  4E 80 00 20 */	blr 
 lbl_8000BBC0:
@@ -3595,7 +3595,7 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C15C 000090BC  38 83 66 A0 */	addi r4, r3, skZero3f@l
 /* 8000C160 000090C0  C0 22 80 94 */	lfs f1, lbl_805A9DB4@sda21(r2)
 /* 8000C164 000090C4  39 40 FF FF */	li r10, -1
-/* 8000C168 000090C8  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 8000C168 000090C8  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 8000C16C 000090CC  38 00 03 E8 */	li r0, 0x3e8
 /* 8000C170 000090D0  C0 A2 80 80 */	lfs f5, lbl_805A9DA0@sda21(r2)
 /* 8000C174 000090D4  FC 40 08 90 */	fmr f2, f1
@@ -3626,11 +3626,11 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C1D8 00009138  89 5F 00 A0 */	lbz r10, 0xa0(r31)
 /* 8000C1DC 0000913C  51 6A 2E B4 */	rlwimi r10, r11, 5, 0x1a, 0x1a
 /* 8000C1E0 00009140  99 5F 00 A0 */	stb r10, 0xa0(r31)
-/* 8000C1E4 00009144  A1 4D A3 8C */	lhz r10, lbl_805A8F4C@sda21(r13)
+/* 8000C1E4 00009144  A1 4D A3 8C */	lhz r10, kInvalidUniqueId@sda21(r13)
 /* 8000C1E8 00009148  B1 5F 00 A2 */	sth r10, 0xa2(r31)
-/* 8000C1EC 0000914C  A1 4D A3 8C */	lhz r10, lbl_805A8F4C@sda21(r13)
+/* 8000C1EC 0000914C  A1 4D A3 8C */	lhz r10, kInvalidUniqueId@sda21(r13)
 /* 8000C1F0 00009150  B1 5F 00 A4 */	sth r10, 0xa4(r31)
-/* 8000C1F4 00009154  A1 4D A3 8C */	lhz r10, lbl_805A8F4C@sda21(r13)
+/* 8000C1F4 00009154  A1 4D A3 8C */	lhz r10, kInvalidUniqueId@sda21(r13)
 /* 8000C1F8 00009158  B1 5F 00 A6 */	sth r10, 0xa6(r31)
 /* 8000C1FC 0000915C  90 1F 00 A8 */	stw r0, 0xa8(r31)
 /* 8000C200 00009160  91 7F 00 AC */	stw r11, 0xac(r31)

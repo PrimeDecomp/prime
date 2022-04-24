@@ -3143,7 +3143,7 @@ __ct__12CPlayerVisorFRC13CStateManager:
 /* 80114A10 00111970  90 1E 00 08 */	stw r0, 8(r30)
 /* 80114A14 00111974  38 80 FF FF */	li r4, -1
 /* 80114A18 00111978  48 22 C4 29 */	bl __dt__6CTokenFv
-/* 80114A1C 0011197C  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 80114A1C 0011197C  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 80114A20 00111980  38 A0 00 40 */	li r5, 0x40
 /* 80114A24 00111984  38 C0 00 00 */	li r6, 0
 /* 80114A28 00111988  38 00 00 08 */	li r0, 8

@@ -496,7 +496,7 @@ __ct__5CFire:
 /* 8025D268 0025A1C8  38 C1 00 10 */	addi r6, r1, 0x10
 /* 8025D26C 0025A1CC  38 A0 FF FF */	li r5, -1
 /* 8025D270 0025A1D0  48 0E 0F 25 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FPCciRCQ24rstl17rmemory_allocator"
-/* 8025D274 0025A1D4  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 8025D274 0025A1D4  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 8025D278 0025A1D8  3C 60 80 57 */	lis r3, lbl_8056D410@ha
 /* 8025D27C 0025A1DC  80 11 00 00 */	lwz r0, 0(r17)
 /* 8025D280 0025A1E0  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
@@ -510,7 +510,7 @@ __ct__5CFire:
 /* 8025D2A0 0025A200  4B DD D5 05 */	bl CModelDataNull__10CModelDataFv
 /* 8025D2A4 0025A204  38 61 00 7C */	addi r3, r1, 0x7c
 /* 8025D2A8 0025A208  4B DB DB 91 */	bl None__16CActorParametersFv
-/* 8025D2AC 0025A20C  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8025D2AC 0025A20C  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8025D2B0 0025A210  38 00 00 00 */	li r0, 0
 /* 8025D2B4 0025A214  80 AD 97 D4 */	lwz r5, lbl_805A8394@sda21(r13)
 /* 8025D2B8 0025A218  38 60 00 00 */	li r3, 0

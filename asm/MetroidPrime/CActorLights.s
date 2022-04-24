@@ -60,7 +60,7 @@ BuildConstantAmbientLighting__12CActorLightsFRC6CColor:
 /* 801030DC 0010003C  7C 83 23 78 */	mr r3, r4
 /* 801030E0 00100040  38 9F 02 88 */	addi r4, r31, 0x288
 /* 801030E4 00100044  48 26 02 55 */	bl Get__6CColorCFRfRfRf
-/* 801030E8 00100048  80 6D A3 90 */	lwz r3, lbl_805A8F50@sda21(r13)
+/* 801030E8 00100048  80 6D A3 90 */	lwz r3, kInvalidAreaId@sda21(r13)
 /* 801030EC 0010004C  38 80 00 01 */	li r4, 1
 /* 801030F0 00100050  38 00 FF FF */	li r0, -1
 /* 801030F4 00100054  90 7F 02 94 */	stw r3, 0x294(r31)
@@ -2397,7 +2397,7 @@ __ct__12CActorLightsFUi9CVector3fiif:
 /* 80105200 00102160  D0 03 02 8C */	stfs f0, 0x28c(r3)
 /* 80105204 00102164  C0 0B 00 08 */	lfs f0, 8(r11)
 /* 80105208 00102168  D0 03 02 90 */	stfs f0, 0x290(r3)
-/* 8010520C 0010216C  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8010520C 0010216C  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 80105210 00102170  90 03 02 94 */	stw r0, 0x294(r3)
 /* 80105214 00102174  88 03 02 98 */	lbz r0, 0x298(r3)
 /* 80105218 00102178  51 80 3E 30 */	rlwimi r0, r12, 7, 0x18, 0x18

@@ -1007,7 +1007,7 @@ __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdbff:
 /* 801A9488 001A63E8  7C 04 03 78 */	mr r4, r0
 /* 801A948C 001A63EC  38 61 00 40 */	addi r3, r1, 0x40
 /* 801A9490 001A63F0  4B E5 B8 29 */	bl string_l__4rstlFPCc
-/* 801A9494 001A63F4  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 801A9494 001A63F4  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 801A9498 001A63F8  3C 60 80 57 */	lis r3, lbl_8056D410@ha
 /* 801A949C 001A63FC  80 1A 00 00 */	lwz r0, 0(r26)
 /* 801A94A0 001A6400  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
@@ -1231,7 +1231,7 @@ lbl_801A9708:
 /* 801A97F8 001A6758  90 DB 02 F4 */	stw r6, 0x2f4(r27)
 /* 801A97FC 001A675C  80 84 00 64 */	lwz r4, 0x64(r4)
 /* 801A9800 001A6760  90 9B 02 F8 */	stw r4, 0x2f8(r27)
-/* 801A9804 001A6764  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801A9804 001A6764  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801A9808 001A6768  B0 9B 02 FC */	sth r4, 0x2fc(r27)
 /* 801A980C 001A676C  90 1B 03 00 */	stw r0, 0x300(r27)
 /* 801A9810 001A6770  C0 05 00 00 */	lfs f0, 0(r5)
@@ -1304,7 +1304,7 @@ __ct__15CCollisionActorF9TUniqueId9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9910 001A6870  7C 04 03 78 */	mr r4, r0
 /* 801A9914 001A6874  38 61 00 58 */	addi r3, r1, 0x58
 /* 801A9918 001A6878  4B E5 B3 A1 */	bl string_l__4rstlFPCc
-/* 801A991C 001A687C  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 801A991C 001A687C  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 801A9920 001A6880  3C 60 80 57 */	lis r3, lbl_8056D410@ha
 /* 801A9924 001A6884  80 19 00 00 */	lwz r0, 0(r25)
 /* 801A9928 001A6888  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
@@ -1553,7 +1553,7 @@ lbl_801A9BEC:
 /* 801A9CE4 001A6C44  90 DA 02 F4 */	stw r6, 0x2f4(r26)
 /* 801A9CE8 001A6C48  80 84 00 64 */	lwz r4, 0x64(r4)
 /* 801A9CEC 001A6C4C  90 9A 02 F8 */	stw r4, 0x2f8(r26)
-/* 801A9CF0 001A6C50  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801A9CF0 001A6C50  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801A9CF4 001A6C54  B0 9A 02 FC */	sth r4, 0x2fc(r26)
 /* 801A9CF8 001A6C58  90 1A 03 00 */	stw r0, 0x300(r26)
 /* 801A9CFC 001A6C5C  C0 05 00 00 */	lfs f0, 0(r5)
@@ -1621,7 +1621,7 @@ __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9DE8 001A6D48  7C 04 03 78 */	mr r4, r0
 /* 801A9DEC 001A6D4C  38 61 00 34 */	addi r3, r1, 0x34
 /* 801A9DF0 001A6D50  4B E5 AE C9 */	bl string_l__4rstlFPCc
-/* 801A9DF4 001A6D54  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 801A9DF4 001A6D54  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 801A9DF8 001A6D58  3C 60 80 57 */	lis r3, lbl_8056D410@ha
 /* 801A9DFC 001A6D5C  80 18 00 00 */	lwz r0, 0(r24)
 /* 801A9E00 001A6D60  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
@@ -1822,7 +1822,7 @@ lbl_801A9FFC:
 /* 801AA0F8 001A7058  90 DF 02 F4 */	stw r6, 0x2f4(r31)
 /* 801AA0FC 001A705C  80 84 00 64 */	lwz r4, 0x64(r4)
 /* 801AA100 001A7060  90 9F 02 F8 */	stw r4, 0x2f8(r31)
-/* 801AA104 001A7064  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801AA104 001A7064  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801AA108 001A7068  B0 9F 02 FC */	sth r4, 0x2fc(r31)
 /* 801AA10C 001A706C  90 1F 03 00 */	stw r0, 0x300(r31)
 /* 801AA110 001A7070  C0 05 00 00 */	lfs f0, 0(r5)
