@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .sbss
+
+# CWorldShadow
+.global lbl_805A8F18
+lbl_805A8F18:
+	.skip 0x4
+.global lbl_805A8F1C
+lbl_805A8F1C:
+	.skip 0x4
+.global lbl_805A8F20
+lbl_805A8F20:
+	.skip 0x4
+.global lbl_805A8F24
+lbl_805A8F24:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global ResetBlur__12CWorldShadowFv

@@ -83,7 +83,17 @@ lbl_805A6DB0:
 .global lbl_8045B140
 lbl_8045B140:
 	.skip 0x40
-	
+
+.section .sbss
+
+# CAnimData
+.global lbl_805A8CC8
+lbl_805A8CC8:
+	.skip 0x4
+.global lbl_805A8CCC
+lbl_805A8CCC:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global GetEventResourceIdForAnimResourceId__9CAnimDataCFi

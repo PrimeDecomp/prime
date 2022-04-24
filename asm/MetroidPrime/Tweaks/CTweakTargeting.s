@@ -10,6 +10,16 @@ lbl_803DF428:
 	.4byte __dt__15CTweakTargetingFv
 	.4byte 0
 
+.section .sbss
+
+# CTweakTargeting
+.global lbl_805A8EA8
+lbl_805A8EA8:
+	.skip 0x4
+.global lbl_805A8EAC
+lbl_805A8EAC:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __ct__15CTweakTargetingFR12CInputStream

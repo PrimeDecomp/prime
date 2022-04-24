@@ -48,6 +48,21 @@ lbl_805A7164:
 	# ROM: 0x3F4B04
 	.4byte 0
 
+.section .sbss
+
+# CCinematicCamera
+.global lbl_805A8E68
+lbl_805A8E68:
+	.skip 0x4
+.global lbl_805A8E6C
+lbl_805A8E6C:
+	.skip 0x4
+.global lbl_805A8E70
+lbl_805A8E70:
+	.skip 0x4
+.global lbl_805A8E74
+lbl_805A8E74:
+	.skip 0x4
 
 .section .text, "ax"
 

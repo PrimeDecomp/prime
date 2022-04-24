@@ -68,6 +68,22 @@ lbl_803DA04C:
 	.4byte 0
 	.4byte 0
 
+.section .sbss
+
+# CWorld
+.global lbl_805A8DD8
+lbl_805A8DD8:
+	.skip 0x4
+.global lbl_805A8DDC
+lbl_805A8DDC:
+	.skip 0x4
+.global lbl_805A8DE0
+lbl_805A8DE0:
+	.skip 0x4
+.global lbl_805A8DE4
+lbl_805A8DE4:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global CyclePauseState__6CWorldFv

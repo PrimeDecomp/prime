@@ -214,6 +214,16 @@ lbl_805A7628:
 	.4byte 0x00000013
 	.4byte 0
 
+.section .sbss
+
+# CBloodFlower
+.global lbl_805A8F40
+lbl_805A8F40:
+	.skip 0x4
+.global lbl_805A8F44
+lbl_805A8F44:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__12CBloodFlowerFv

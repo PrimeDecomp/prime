@@ -38,7 +38,144 @@ lbl_8045BFD0:
 .global lbl_8045C208
 lbl_8045C208:
 	.skip 0x310
-	
+
+.section .sbss
+
+# CTweaks
+.global gpTweakPlayer
+gpTweakPlayer:
+	.skip 0x4
+.global gpTweakBall
+gpTweakBall:
+	.skip 0x4
+.global gpTweakGame
+gpTweakGame:
+	.skip 0x4
+.global gpTweakParticle
+gpTweakParticle:
+	.skip 0x4
+.global gpTweakPlayerControlCurrent
+gpTweakPlayerControlCurrent:
+	.skip 0x4
+.global gpTweakPlayerControl1
+gpTweakPlayerControl1:
+	.skip 0x4
+.global gpTweakPlayerControl2
+gpTweakPlayerControl2:
+	.skip 0x4
+.global gpTweakPlayerGun
+gpTweakPlayerGun:
+	.skip 0x4
+.global gpTweakGui
+gpTweakGui:
+	.skip 0x4
+.global gpTweakGuiColors
+gpTweakGuiColors:
+	.skip 0x4
+.global gpTweakTargeting
+gpTweakTargeting:
+	.skip 0x4
+.global gpTweakAutoMapper
+gpTweakAutoMapper:
+	.skip 0x4
+.global gpTweakGunRes
+gpTweakGunRes:
+	.skip 0x4
+.global gpTweakPlayerRes
+gpTweakPlayerRes:
+	.skip 0x4
+.global gpTweakSlideShow
+gpTweakSlideShow:
+	.skip 0x4
+
+# TOneStatic<CTweakSlideShow>
+.global lbl_805A8D14
+lbl_805A8D14:
+	.skip 0x4
+.global lbl_805A8D18
+lbl_805A8D18:
+	.skip 0x4
+
+# TOneStatic<CTweakPlayerRes>
+.global lbl_805A8D1C
+lbl_805A8D1C:
+	.skip 0x4
+.global lbl_805A8D20
+lbl_805A8D20:
+	.skip 0x4
+
+# TOneStatic<CTweakGunRes>
+.global lbl_805A8D24
+lbl_805A8D24:
+	.skip 0x4
+.global lbl_805A8D28
+lbl_805A8D28:
+	.skip 0x4
+
+# TOneStatic<CTweakAutoMapper>
+.global lbl_805A8D2C
+lbl_805A8D2C:
+	.skip 0x4
+.global lbl_805A8D30
+lbl_805A8D30:
+	.skip 0x4
+
+# TOneStatic<CTweakTargeting>
+.global lbl_805A8D34
+lbl_805A8D34:
+	.skip 0x4
+.global lbl_805A8D38
+lbl_805A8D38:
+	.skip 0x4
+
+# TOneStatic<CTweakGuiColors>
+.global lbl_805A8D3C
+lbl_805A8D3C:
+	.skip 0x4
+.global lbl_805A8D40
+lbl_805A8D40:
+	.skip 0x4
+
+# TOneStatic<CTweakGui>
+.global lbl_805A8D44
+lbl_805A8D44:
+	.skip 0x4
+.global lbl_805A8D48
+lbl_805A8D48:
+	.skip 0x4
+
+# TOneStatic<CTweakPlayerGun>
+.global lbl_805A8D4C
+lbl_805A8D4C:
+	.skip 0x4
+.global lbl_805A8D50
+lbl_805A8D50:
+	.skip 0x4
+
+# TOneStatic<CTweakParticle>
+.global lbl_805A8D54
+lbl_805A8D54:
+	.skip 0x4
+.global lbl_805A8D58
+lbl_805A8D58:
+	.skip 0x4
+
+# TOneStatic<CTweakGame>
+.global lbl_805A8D5C
+lbl_805A8D5C:
+	.skip 0x4
+.global lbl_805A8D60
+lbl_805A8D60:
+	.skip 0x4
+
+# TOneStatic<CTweakBall>
+.global lbl_805A8D64
+lbl_805A8D64:
+	.skip 0x4
+.global lbl_805A8D68
+lbl_805A8D68:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global RegisterResourceTweaks__7CTweaksFv

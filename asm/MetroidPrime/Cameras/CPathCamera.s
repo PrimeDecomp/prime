@@ -69,7 +69,23 @@ lbl_805A76C0:
 .global lbl_8046C720
 lbl_8046C720:
 	.skip 0x18
-	
+
+.section .sbss
+
+# CPathCamera
+.global lbl_805A8F60
+lbl_805A8F60:
+	.skip 0x4
+.global lbl_805A8F64
+lbl_805A8F64:
+	.skip 0x4
+.global lbl_805A8F68
+lbl_805A8F68:
+	.skip 0x4
+.global lbl_805A8F6C
+lbl_805A8F6C:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AcceptScriptMsg__11CPathCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager

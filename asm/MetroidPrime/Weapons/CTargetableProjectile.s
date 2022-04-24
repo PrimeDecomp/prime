@@ -37,6 +37,16 @@ lbl_803E1800:
 	.4byte Think__21CTargetableProjectileFfR13CStateManager
 	.4byte 0
 
+.section .sbss
+
+# CTargetableProjectile
+.global lbl_805A8F88
+lbl_805A8F88:
+	.skip 0x4
+.global lbl_805A8F8C
+lbl_805A8F8C:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__21CTargetableProjectileFv

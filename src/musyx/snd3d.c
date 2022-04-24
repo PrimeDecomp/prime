@@ -29,5 +29,5 @@ void s3dInit(s32 flags) {
 void s3dExit() {}
 
 #ifdef __cplusplus
-extern "C" {
+}
 #endif

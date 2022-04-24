@@ -72,6 +72,13 @@ lbl_805A77F0:
 	.4byte 0x0000002D
 	.4byte 0
 
+.section .sbss
+
+# CPowerBomb
+.global lbl_805A8FA8
+lbl_805A8FA8:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global AcceptScriptMsg__10CPowerBombF20EScriptObjectMessage9TUniqueIdR13CStateManager

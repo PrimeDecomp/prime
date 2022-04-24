@@ -66,6 +66,16 @@ lbl_805A7118:
 	.4byte 0x3F800000
 	.4byte 0
 
+.section .sbss
+
+# CScriptEffect
+.global lbl_805A8E58
+lbl_805A8E58:
+	.skip 0x4
+.global lbl_805A8E5C
+lbl_805A8E5C:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __dt__13CScriptEffectFv

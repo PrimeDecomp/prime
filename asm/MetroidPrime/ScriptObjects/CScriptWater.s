@@ -65,7 +65,14 @@ lbl_805A7554:
 .global lbl_8046C520
 lbl_8046C520:
 	.skip 0x18
-	
+
+.section .sbss
+
+# CScriptWater
+.global lbl_805A8F08
+lbl_805A8F08:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetPatchRenderFlags__12CScriptWaterCFii

@@ -122,6 +122,19 @@ lbl_805A73D4:
 	# ROM: 0x3F4D74
 	.4byte 0x3F800000
 
+.section .sbss
+
+# CPlayerCameraBob
+.global lbl_805A8ED0
+lbl_805A8ED0:
+	.skip 0x4
+.global lbl_805A8ED4
+lbl_805A8ED4:
+	.skip 0x4
+.global lbl_805A8ED8
+lbl_805A8ED8:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetViewWanderTransform__16CPlayerCameraBobCFv

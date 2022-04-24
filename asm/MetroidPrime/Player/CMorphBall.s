@@ -257,6 +257,28 @@ lbl_8046C4F8:
 lbl_8046C504:
 	.skip 0x1C
 
+.section .sbss
+
+# CMorphBall
+.global lbl_805A8EE8
+lbl_805A8EE8:
+	.skip 0x4
+.global lbl_805A8EEC
+lbl_805A8EEC:
+	.skip 0x4
+.global lbl_805A8EF0
+lbl_805A8EF0:
+	.skip 0x4
+.global lbl_805A8EF4
+lbl_805A8EF4:
+	.skip 0x4
+.global lbl_805A8EF8
+lbl_805A8EF8:
+	.skip 0x4
+.global lbl_805A8EFC
+lbl_805A8EFC:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global DeleteBallShadow__10CMorphBallFv

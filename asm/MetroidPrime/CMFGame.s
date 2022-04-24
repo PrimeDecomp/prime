@@ -80,7 +80,22 @@ lbl_803CCAD4:
 	.asciz "STRG_IntroLevelLoad"
 	.asciz "CMFGame"
 	.4byte 0
-	
+
+.section .sbss
+
+# CMFGame
+.global lbl_805A8CB8
+lbl_805A8CB8:
+	.skip 0x8
+
+# TOneStatic<CStateManager>
+.global lbl_805A8CC0
+lbl_805A8CC0:
+	.skip 0x4
+.global lbl_805A8CC4
+lbl_805A8CC4:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global Draw__13CMFGameLoaderCFv

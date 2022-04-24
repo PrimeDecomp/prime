@@ -24,6 +24,13 @@ lbl_803DF7A0:
 	.4byte IsLoaded__9CWaveBeamCFv
 	.4byte 0
 
+.section .sbss
+
+# CWaveBeam
+.global lbl_805A8EB8
+lbl_805A8EB8:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType

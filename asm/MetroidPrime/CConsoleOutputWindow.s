@@ -26,6 +26,13 @@ lbl_805A7544:
 	# ROM: 0x3F4EE4
 	.4byte 0
 
+.section .sbss
+
+# CConsoleOutputWindow
+.global lbl_805A8F00
+lbl_805A8F00:
+	.skip 0x8
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global Draw__20CConsoleOutputWindowCFv

@@ -128,6 +128,60 @@ lbl_805A6E64:
 	# ROM: 0x3F4804
 	.4byte 0
 
+.section .sbss
+
+# CStateManager
+.global lbl_805A8D98
+lbl_805A8D98:
+	.skip 0x4
+.global lbl_805A8D9C
+lbl_805A8D9C:
+	.skip 0x4
+.global lbl_805A8DA0
+lbl_805A8DA0:
+	.skip 0x1
+.global lbl_805A8DA1
+lbl_805A8DA1:
+	.skip 0x7
+.global lbl_805A8DA8
+lbl_805A8DA8:
+	.skip 0x4
+.global lbl_805A8DAC
+lbl_805A8DAC:
+	.skip 0x4
+.global lbl_805A8DB0
+lbl_805A8DB0:
+	.skip 0x8
+.global lbl_805A8DB8
+lbl_805A8DB8:
+	.skip 0x4
+.global lbl_805A8DBC
+lbl_805A8DBC:
+	.skip 0x4
+.global lbl_805A8DC0
+lbl_805A8DC0:
+	.skip 0x4
+.global lbl_805A8DC4
+lbl_805A8DC4:
+	.skip 0x1
+.global lbl_805A8DC5
+lbl_805A8DC5:
+	.skip 0x3
+.global lbl_805A8DC8
+lbl_805A8DC8:
+	.skip 0x4
+.global lbl_805A8DCC
+lbl_805A8DCC:
+	.skip 0x4
+
+# TOneStatic<CStateManagerContainer>
+.global lbl_805A8DD0
+lbl_805A8DD0:
+	.skip 0x4
+.global lbl_805A8DD4
+lbl_805A8DD4:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global IntegrateVisorFog__13CStateManagerFf

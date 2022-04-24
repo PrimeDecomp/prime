@@ -236,6 +236,22 @@ lbl_805A7798:
 	.4byte 0x00000013
 	.4byte 0
 
+.section .sbss
+
+# CFireFlea
+.global lbl_805A8F90
+lbl_805A8F90:
+	.skip 0x4
+.global lbl_805A8F94
+lbl_805A8F94:
+	.skip 0x4
+.global lbl_805A8F98
+lbl_805A8F98:
+	.skip 0x4
+.global lbl_805A8F9C
+lbl_805A8F9C:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global __dt__9CFireFleaFv

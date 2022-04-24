@@ -115,6 +115,16 @@ lbl_805A7008:
 	.4byte 0x00000029
 	.4byte 0
 
+.section .sbss
+
+# CScriptDoor
+.global lbl_805A8E40
+lbl_805A8E40:
+	.skip 0x4
+.global lbl_805A8E44
+lbl_805A8E44:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __dt__11CScriptDoorFv

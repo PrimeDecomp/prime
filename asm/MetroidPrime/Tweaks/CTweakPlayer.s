@@ -16,7 +16,17 @@ lbl_803D9CC4:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	
+
+.section .sbss
+
+# TOneStatic<CTweakPlayer>
+.global lbl_805A8CD0
+lbl_805A8CD0:
+	.skip 0x4
+.global lbl_805A8CD4
+lbl_805A8CD4:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global __ct__12CTweakPlayerFR12CInputStream

@@ -274,6 +274,19 @@ lbl_805A7358:
 	.4byte 0x0000001E
 	.4byte 0
 
+.section .sbss
+
+# CBeetleFR
+.global lbl_805A8EC0
+lbl_805A8EC0:
+	.skip 0x8
+.global lbl_805A8EC8
+lbl_805A8EC8:
+	.skip 0x4
+.global lbl_805A8ECC
+lbl_805A8ECC:
+	.skip 0x4
+
 .section .text, "ax"  # 0x80003640 - 0x803CB1C0
 
 .global GetSearchPath__7CBeetleFv

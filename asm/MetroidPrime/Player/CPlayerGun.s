@@ -147,7 +147,32 @@ lbl_8045C518:
 .global lbl_8045C530
 lbl_8045C530:
 	.skip 0x20
-	
+
+.section .sbss
+
+# CPlayerGun
+.global lbl_805A8D70
+lbl_805A8D70:
+	.skip 0x4
+.global lbl_805A8D74
+lbl_805A8D74:
+	.skip 0x4
+.global lbl_805A8D78
+lbl_805A8D78:
+	.skip 0x4
+.global lbl_805A8D7C
+lbl_805A8D7C:
+	.skip 0x4
+.global lbl_805A8D80
+lbl_805A8D80:
+	.skip 0x4
+.global lbl_805A8D84
+lbl_805A8D84:
+	.skip 0x8
+.global lbl_805A8D8C
+lbl_805A8D8C:
+	.skip 0xC
+
 .section .text, "ax"
 
 .global CModelDataNull__10CModelDataFv

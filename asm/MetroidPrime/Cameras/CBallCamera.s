@@ -373,7 +373,23 @@ lbl_805A710C:
 .global lbl_8046C408
 lbl_8046C408:
 	.skip 0x18
-	
+
+.section .sbss
+
+# CBallCamera
+.global lbl_805A8E48
+lbl_805A8E48:
+	.skip 0x4
+.global lbl_805A8E4C
+lbl_805A8E4C:
+	.skip 0x4
+.global lbl_805A8E50
+lbl_805A8E50:
+	.skip 0x4
+.global lbl_805A8E54
+lbl_805A8E54:
+	.skip 0x4
+
 .section .text, "ax"
 
 .global SplineIntersectTest__11CBallCameraCFR13CMaterialListR13CStateManager
