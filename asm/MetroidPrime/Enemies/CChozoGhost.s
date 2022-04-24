@@ -1767,7 +1767,7 @@ lbl_8014071C:
 /* 80140730 0013D690  38 E0 00 06 */	li r7, 6
 /* 80140734 0013D694  48 0B 48 65 */	bl GetWaypointForState__10CPatternedFR13CStateManager18EScriptObjectState
 /* 80140738 0013D698  A0 61 00 14 */	lhz r3, 0x14(r1)
-/* 8014073C 0013D69C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8014073C 0013D69C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80140740 0013D6A0  B0 61 00 18 */	sth r3, 0x18(r1)
 /* 80140744 0013D6A4  7C 03 00 40 */	cmplw r3, r0
 /* 80140748 0013D6A8  41 82 00 24 */	beq lbl_8014076C
@@ -2439,7 +2439,7 @@ lbl_801410A8:
 /* 801410CC 0013E02C  88 1A 00 30 */	lbz r0, 0x30(r26)
 /* 801410D0 0013E030  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 801410D4 0013E034  41 82 02 68 */	beq lbl_8014133C
-/* 801410D8 0013E038  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801410D8 0013E038  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801410DC 0013E03C  7F 43 D3 78 */	mr r3, r26
 /* 801410E0 0013E040  38 81 00 08 */	addi r4, r1, 8
 /* 801410E4 0013E044  B0 01 00 08 */	sth r0, 8(r1)
@@ -2726,7 +2726,7 @@ lbl_8014151C:
 /* 80141524 0013E484  4B F3 B6 39 */	bl SetDestPos__10CPatternedFRC9CVector3f
 /* 80141528 0013E488  48 00 00 24 */	b lbl_8014154C
 lbl_8014152C:
-/* 8014152C 0013E48C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8014152C 0013E48C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80141530 0013E490  B0 1B 02 DC */	sth r0, 0x2dc(r27)
 /* 80141534 0013E494  C0 5B 00 60 */	lfs f2, 0x60(r27)
 /* 80141538 0013E498  C0 3B 00 50 */	lfs f1, 0x50(r27)
@@ -2790,7 +2790,7 @@ sub_801415ec:
 /* 801415F8 0013E558  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 801415FC 0013E55C  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 80141600 0013E560  7C 7E 1B 78 */	mr r30, r3
-/* 80141604 0013E564  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80141604 0013E564  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80141608 0013E568  A0 63 06 C4 */	lhz r3, 0x6c4(r3)
 /* 8014160C 0013E56C  7C 03 00 40 */	cmplw r3, r0
 /* 80141610 0013E570  41 82 00 70 */	beq lbl_80141680
@@ -2819,7 +2819,7 @@ sub_801415ec:
 /* 8014166C 0013E5CC  B0 01 00 08 */	sth r0, 8(r1)
 /* 80141670 0013E5D0  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 80141674 0013E5D4  48 0F 7E 81 */	bl RemoveTeamAiRole__10CTeamAiMgrF9TUniqueId
-/* 80141678 0013E5D8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80141678 0013E5D8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8014167C 0013E5DC  B0 1E 06 C4 */	sth r0, 0x6c4(r30)
 lbl_80141680:
 /* 80141680 0013E5E0  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -2838,7 +2838,7 @@ sub_80141698:
 /* 801416A8 0013E608  7C 9F 23 78 */	mr r31, r4
 /* 801416AC 0013E60C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 801416B0 0013E610  7C 7E 1B 78 */	mr r30, r3
-/* 801416B4 0013E614  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801416B4 0013E614  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801416B8 0013E618  A0 63 06 C4 */	lhz r3, 0x6c4(r3)
 /* 801416BC 0013E61C  7C 03 00 40 */	cmplw r3, r0
 /* 801416C0 0013E620  40 82 00 1C */	bne lbl_801416DC
@@ -2850,7 +2850,7 @@ sub_80141698:
 /* 801416D8 0013E638  B0 1E 06 C4 */	sth r0, 0x6c4(r30)
 lbl_801416DC:
 /* 801416DC 0013E63C  A0 7E 06 C4 */	lhz r3, 0x6c4(r30)
-/* 801416E0 0013E640  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801416E0 0013E640  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801416E4 0013E644  7C 03 00 40 */	cmplw r3, r0
 /* 801416E8 0013E648  41 82 00 44 */	beq lbl_8014172C
 /* 801416EC 0013E64C  A0 1E 06 C4 */	lhz r0, 0x6c4(r30)
@@ -3580,7 +3580,7 @@ Accept__11CChozoGhostFR8IVisitor:
 /* 80142134 0013F094  D0 18 06 68 */	stfs f0, 0x668(r24)
 /* 80142138 0013F098  D0 18 06 6C */	stfs f0, 0x66c(r24)
 /* 8014213C 0013F09C  D0 18 06 70 */	stfs f0, 0x670(r24)
-/* 80142140 0013F0A0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80142140 0013F0A0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80142144 0013F0A4  B0 18 06 74 */	sth r0, 0x674(r24)
 /* 80142148 0013F0A8  D0 18 06 78 */	stfs f0, 0x678(r24)
 /* 8014214C 0013F0AC  90 98 06 7C */	stw r4, 0x67c(r24)
@@ -3609,7 +3609,7 @@ lbl_80142160:
 /* 801421A4 0013F104  48 03 38 15 */	bl "__ct__13CBoneTrackingFRC9CAnimDataRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffb"
 /* 801421A8 0013F108  38 61 01 24 */	addi r3, r1, 0x124
 /* 801421AC 0013F10C  48 1F B9 35 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 801421B0 0013F110  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801421B0 0013F110  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801421B4 0013F114  3C 60 80 5A */	lis r3, skZero3f@ha
 /* 801421B8 0013F118  C0 02 9B 5C */	lfs f0, lbl_805AB87C@sda21(r2)
 /* 801421BC 0013F11C  38 83 66 A0 */	addi r4, r3, skZero3f@l

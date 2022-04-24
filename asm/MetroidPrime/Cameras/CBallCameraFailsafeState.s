@@ -758,7 +758,7 @@ CheckTransitionLineOfSight__11CBallCameraFRC9CVector3fRC9CVector3fRffR13CStateMa
 lbl_8023F058:
 /* 8023F058 0023BFB8  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 8023F05C 0023BFBC  41 82 01 98 */	beq lbl_8023F1F4
-/* 8023F060 0023BFC0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8023F060 0023BFC0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8023F064 0023BFC4  38 61 01 00 */	addi r3, r1, 0x100
 /* 8023F068 0023BFC8  38 80 00 00 */	li r4, 0
 /* 8023F06C 0023BFCC  B0 01 00 10 */	sth r0, 0x10(r1)

@@ -343,7 +343,7 @@ GetSearchPath__9CFireFleaFv:
 InPosition__9CFireFleaFR13CStateManagerf:
 /* 80142A78 0013F9D8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80142A7C 0013F9DC  A0 83 02 DC */	lhz r4, 0x2dc(r3)
-/* 80142A80 0013F9E0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80142A80 0013F9E0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80142A84 0013F9E4  7C 04 00 40 */	cmplw r4, r0
 /* 80142A88 0013F9E8  41 82 00 5C */	beq lbl_80142AE4
 /* 80142A8C 0013F9EC  C0 43 0D 84 */	lfs f2, 0xd84(r3)
@@ -1689,7 +1689,7 @@ lbl_80143D98:
 /* 80143DE8 00140D48  38 81 00 20 */	addi r4, r1, 0x20
 /* 80143DEC 00140D4C  80 05 00 00 */	lwz r0, 0(r5)
 /* 80143DF0 00140D50  38 A7 D4 10 */	addi r5, r7, lbl_8056D410@l
-/* 80143DF4 00140D54  81 0D A3 88 */	lwz r8, lbl_805A8F48@sda21(r13)
+/* 80143DF4 00140D54  81 0D A3 88 */	lwz r8, kInvalidEditorId@sda21(r13)
 /* 80143DF8 00140D58  90 01 00 20 */	stw r0, 0x20(r1)
 /* 80143DFC 00140D5C  91 01 00 1C */	stw r8, 0x1c(r1)
 /* 80143E00 00140D60  4B F0 D6 85 */	bl "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"

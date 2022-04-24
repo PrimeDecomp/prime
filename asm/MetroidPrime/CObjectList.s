@@ -60,7 +60,7 @@ lbl_8000FD3C:
 .global GetValidObjectById__11CObjectListCF9TUniqueId
 GetValidObjectById__11CObjectListCF9TUniqueId:
 /* 8000FD4C 0000CCAC  A0 A4 00 00 */	lhz r5, 0(r4)
-/* 8000FD50 0000CCB0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000FD50 0000CCB0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000FD54 0000CCB4  7C 05 00 40 */	cmplw r5, r0
 /* 8000FD58 0000CCB8  40 82 00 0C */	bne lbl_8000FD64
 /* 8000FD5C 0000CCBC  38 60 00 00 */	li r3, 0
@@ -85,7 +85,7 @@ lbl_8000FD8C:
 .global GetValidObjectById__11CObjectListF9TUniqueId
 GetValidObjectById__11CObjectListF9TUniqueId:
 /* 8000FD9C 0000CCFC  A0 A4 00 00 */	lhz r5, 0(r4)
-/* 8000FDA0 0000CD00  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000FDA0 0000CD00  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000FDA4 0000CD04  7C 05 00 40 */	cmplw r5, r0
 /* 8000FDA8 0000CD08  40 82 00 0C */	bne lbl_8000FDB4
 /* 8000FDAC 0000CD0C  38 60 00 00 */	li r3, 0
@@ -110,7 +110,7 @@ lbl_8000FDDC:
 .global GetObjectById__11CObjectListCF9TUniqueId
 GetObjectById__11CObjectListCF9TUniqueId:
 /* 8000FDEC 0000CD4C  A0 A4 00 00 */	lhz r5, 0(r4)
-/* 8000FDF0 0000CD50  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000FDF0 0000CD50  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000FDF4 0000CD54  7C 05 00 40 */	cmplw r5, r0
 /* 8000FDF8 0000CD58  40 82 00 0C */	bne lbl_8000FE04
 /* 8000FDFC 0000CD5C  38 60 00 00 */	li r3, 0
@@ -138,7 +138,7 @@ lbl_8000FE38:
 .global GetObjectById__11CObjectListF9TUniqueId
 GetObjectById__11CObjectListF9TUniqueId:
 /* 8000FE48 0000CDA8  A0 A4 00 00 */	lhz r5, 0(r4)
-/* 8000FE4C 0000CDAC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000FE4C 0000CDAC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000FE50 0000CDB0  7C 05 00 40 */	cmplw r5, r0
 /* 8000FE54 0000CDB4  40 82 00 0C */	bne lbl_8000FE60
 /* 8000FE58 0000CDB8  38 60 00 00 */	li r3, 0

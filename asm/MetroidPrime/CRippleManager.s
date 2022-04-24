@@ -156,7 +156,7 @@ Init__14CRippleManagerFi:
 /* 8011D138 0011A098  93 C1 00 58 */	stw r30, 0x58(r1)
 /* 8011D13C 0011A09C  7C 7E 1B 78 */	mr r30, r3
 /* 8011D140 0011A0A0  38 61 00 0C */	addi r3, r1, 0xc
-/* 8011D144 0011A0A4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8011D144 0011A0A4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8011D148 0011A0A8  B0 01 00 08 */	sth r0, 8(r1)
 /* 8011D14C 0011A0AC  4B FF F7 D1 */	bl __ct__7CRippleF9TUniqueIdRC9CVector3ff
 /* 8011D150 0011A0B0  7C 65 1B 78 */	mr r5, r3

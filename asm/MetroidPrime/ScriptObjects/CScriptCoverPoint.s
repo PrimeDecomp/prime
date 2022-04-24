@@ -142,7 +142,7 @@ GetInUse__17CScriptCoverPointCF9TUniqueId:
 /* 8012D42C 0012A38C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8012D430 0012A390  41 81 00 28 */	bgt lbl_8012D458
 /* 8012D434 0012A394  A0 C3 00 FA */	lhz r6, 0xfa(r3)
-/* 8012D438 0012A398  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 8012D438 0012A398  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 8012D43C 0012A39C  7C 06 18 40 */	cmplw r6, r3
 /* 8012D440 0012A3A0  41 82 00 1C */	beq lbl_8012D45C
 /* 8012D444 0012A3A4  A0 04 00 00 */	lhz r0, 0(r4)
@@ -392,7 +392,7 @@ Accept__17CScriptCoverPointFR8IVisitor:
 /* 8012D76C 0012A6CC  4B F0 D0 39 */	bl CModelDataNull__10CModelDataFv
 /* 8012D770 0012A6D0  38 61 00 50 */	addi r3, r1, 0x50
 /* 8012D774 0012A6D4  4B EE D6 C5 */	bl None__16CActorParametersFv
-/* 8012D778 0012A6D8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8012D778 0012A6D8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8012D77C 0012A6DC  38 00 00 00 */	li r0, 0
 /* 8012D780 0012A6E0  80 AD 8A E8 */	lwz r5, lbl_805A76A8@sda21(r13)
 /* 8012D784 0012A6E4  38 60 00 00 */	li r3, 0
@@ -453,9 +453,9 @@ Accept__17CScriptCoverPointFR8IVisitor:
 /* 8012D860 0012A7C0  88 1E 00 F8 */	lbz r0, 0xf8(r30)
 /* 8012D864 0012A7C4  50 C0 36 72 */	rlwimi r0, r6, 6, 0x19, 0x19
 /* 8012D868 0012A7C8  98 1E 00 F8 */	stb r0, 0xf8(r30)
-/* 8012D86C 0012A7CC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012D86C 0012A7CC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012D870 0012A7D0  B0 1E 00 FA */	sth r0, 0xfa(r30)
-/* 8012D874 0012A7D4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012D874 0012A7D4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012D878 0012A7D8  B0 1E 00 FC */	sth r0, 0xfc(r30)
 /* 8012D87C 0012A7DC  C0 5F 00 2C */	lfs f2, 0x2c(r31)
 /* 8012D880 0012A7E0  C0 3F 00 1C */	lfs f1, 0x1c(r31)

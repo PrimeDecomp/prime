@@ -402,7 +402,7 @@ lbl_80106010:
 /* 80106094 00102FF4  90 01 00 48 */	stw r0, 0x48(r1)
 /* 80106098 00102FF8  C0 3E 00 40 */	lfs f1, 0x40(r30)
 /* 8010609C 00102FFC  4B F4 66 3D */	bl "BuildNearList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC9CVector3fRC9CVector3ffRC15CMaterialFilterPC6CActor"
-/* 801060A0 00103000  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801060A0 00103000  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801060A4 00103004  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
 /* 801060A8 00103008  39 03 FD 18 */	addi r8, r3, lbl_8059FD18@l
 /* 801060AC 0010300C  7F E4 FB 78 */	mr r4, r31

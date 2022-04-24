@@ -618,7 +618,7 @@ TargetPatrol__9CBurrowerFR13CStateManager9EStateMsgf:
 /* 80270088 0026CFE8  48 00 00 AC */	b lbl_80270134
 lbl_8027008C:
 /* 8027008C 0026CFEC  A0 7E 06 A8 */	lhz r3, 0x6a8(r30)
-/* 80270090 0026CFF0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80270090 0026CFF0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80270094 0026CFF4  7C 03 00 40 */	cmplw r3, r0
 /* 80270098 0026CFF8  41 82 00 0C */	beq lbl_802700A4
 /* 8027009C 0026CFFC  38 7E 06 A8 */	addi r3, r30, 0x6a8
@@ -1422,7 +1422,7 @@ __ct__9CBurrower:
 /* 80270BDC 0026DB3C  D0 1F 06 9C */	stfs f0, 0x69c(r31)
 /* 80270BE0 0026DB40  D0 1F 06 A0 */	stfs f0, 0x6a0(r31)
 /* 80270BE4 0026DB44  D0 1F 06 A4 */	stfs f0, 0x6a4(r31)
-/* 80270BE8 0026DB48  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80270BE8 0026DB48  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80270BEC 0026DB4C  B0 1F 06 A8 */	sth r0, 0x6a8(r31)
 /* 80270BF0 0026DB50  48 07 7D C1 */	bl TranslateSFXID__11CSfxManagerFUs
 /* 80270BF4 0026DB54  B0 7F 06 AA */	sth r3, 0x6aa(r31)

@@ -4403,7 +4403,7 @@ UpdateHudDynamicLights__9CSamusHudFfRC13CStateManager:
 /* 800682EC 0006524C  50 60 26 F6 */	rlwimi r0, r3, 4, 0x1b, 0x1b
 /* 800682F0 00065250  98 1C 02 98 */	stb r0, 0x298(r28)
 /* 800682F4 00065254  80 7F 08 4C */	lwz r3, 0x84c(r31)
-/* 800682F8 00065258  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800682F8 00065258  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800682FC 0006525C  80 A3 00 04 */	lwz r5, 4(r3)
 /* 80068300 00065260  7C 05 00 00 */	cmpw r5, r0
 /* 80068304 00065264  90 A1 00 8C */	stw r5, 0x8c(r1)
@@ -6077,7 +6077,7 @@ lbl_80069AC0:
 /* 80069AD8 00066A38  7F C5 F3 78 */	mr r5, r30
 /* 80069ADC 00066A3C  A0 E4 03 10 */	lhz r7, 0x310(r4)
 /* 80069AE0 00066A40  7F E4 FB 78 */	mr r4, r31
-/* 80069AE4 00066A44  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80069AE4 00066A44  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80069AE8 00066A48  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80069AEC 00066A4C  7C C7 00 50 */	subf r6, r7, r0
 /* 80069AF0 00066A50  7C 00 38 50 */	subf r0, r0, r7
@@ -8638,7 +8638,7 @@ lbl_8006BEB8:
 /* 8006BEBC 00068E1C  80 1F 02 BC */	lwz r0, 0x2bc(r31)
 /* 8006BEC0 00068E20  20 83 00 01 */	subfic r4, r3, 1
 /* 8006BEC4 00068E24  A0 A7 03 10 */	lhz r5, 0x310(r7)
-/* 8006BEC8 00068E28  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 8006BEC8 00068E28  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 8006BECC 00068E2C  7C 86 00 34 */	cntlzw r6, r4
 /* 8006BED0 00068E30  2C 00 00 03 */	cmpwi r0, 3
 /* 8006BED4 00068E34  7C 85 18 50 */	subf r4, r5, r3

@@ -32,7 +32,7 @@ AcceptScriptMsg__18CScriptDistanceFogF20EScriptObjectMessage9TUniqueIdR13CStateM
 /* 8014D028 00149F88  B0 01 00 08 */	sth r0, 8(r1)
 /* 8014D02C 00149F8C  4B F0 41 31 */	bl AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 8014D030 00149F90  80 DE 00 04 */	lwz r6, 4(r30)
-/* 8014D034 00149F94  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8014D034 00149F94  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8014D038 00149F98  7C 06 00 00 */	cmpw r6, r0
 /* 8014D03C 00149F9C  41 82 01 68 */	beq lbl_8014D1A4
 /* 8014D040 00149FA0  88 1E 00 30 */	lbz r0, 0x30(r30)

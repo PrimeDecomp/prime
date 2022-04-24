@@ -36,7 +36,7 @@ AcceptScriptMsg__11CPhazonBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 8018C23C 0018919C  48 00 00 40 */	b lbl_8018C27C
 lbl_8018C240:
 /* 8018C240 001891A0  80 66 08 4C */	lwz r3, 0x84c(r6)
-/* 8018C244 001891A4  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8018C244 001891A4  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8018C248 001891A8  80 A3 00 04 */	lwz r5, 4(r3)
 /* 8018C24C 001891AC  7C 05 00 00 */	cmpw r5, r0
 /* 8018C250 001891B0  90 A1 00 0C */	stw r5, 0xc(r1)
@@ -304,7 +304,7 @@ Update__11CPhazonBeamFfR13CStateManager:
 /* 8018C5EC 0018954C  EC 00 F8 2A */	fadds f0, f0, f31
 /* 8018C5F0 00189550  D0 1E 02 78 */	stfs f0, 0x278(r30)
 /* 8018C5F4 00189554  80 7F 08 4C */	lwz r3, 0x84c(r31)
-/* 8018C5F8 00189558  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8018C5F8 00189558  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8018C5FC 0018955C  80 A3 00 04 */	lwz r5, 4(r3)
 /* 8018C600 00189560  7C 05 00 00 */	cmpw r5, r0
 /* 8018C604 00189564  90 A1 00 0C */	stw r5, 0xc(r1)

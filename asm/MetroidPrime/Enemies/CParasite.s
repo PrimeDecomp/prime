@@ -2375,7 +2375,7 @@ lbl_80158810:
 /* 80158838 00155798  D0 1F 01 58 */	stfs f0, 0x158(r31)
 /* 8015883C 0015579C  48 00 06 C5 */	bl GetClosestWaypointForState__9CParasiteCF18EScriptObjectStateR13CStateManager
 /* 80158840 001557A0  A0 61 00 08 */	lhz r3, 8(r1)
-/* 80158844 001557A4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80158844 001557A4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80158848 001557A8  7C 03 00 40 */	cmplw r3, r0
 /* 8015884C 001557AC  41 82 00 08 */	beq lbl_80158854
 /* 80158850 001557B0  B0 7F 02 DC */	sth r3, 0x2dc(r31)
@@ -2872,7 +2872,7 @@ GetClosestWaypointForState__9CParasiteCF18EScriptObjectStateR13CStateManager:
 /* 80158F14 00155E74  BF 41 00 28 */	stmw r26, 0x28(r1)
 /* 80158F18 00155E78  7C 9B 23 78 */	mr r27, r4
 /* 80158F1C 00155E7C  C3 E2 9E 80 */	lfs f31, lbl_805ABBA0@sda21(r2)
-/* 80158F20 00155E80  A3 ED A3 8C */	lhz r31, lbl_805A8F4C@sda21(r13)
+/* 80158F20 00155E80  A3 ED A3 8C */	lhz r31, kInvalidUniqueId@sda21(r13)
 /* 80158F24 00155E84  7C 7A 1B 78 */	mr r26, r3
 /* 80158F28 00155E88  83 C4 00 2C */	lwz r30, 0x2c(r4)
 /* 80158F2C 00155E8C  7C BC 2B 78 */	mr r28, r5
@@ -2992,7 +2992,7 @@ lbl_801590AC:
 /* 801590D4 00156034  90 01 00 20 */	stw r0, 0x20(r1)
 /* 801590D8 00156038  4B EE EE 45 */	bl GetIdForScript__13CStateManagerCF9TEditorId
 /* 801590DC 0015603C  A0 61 00 14 */	lhz r3, 0x14(r1)
-/* 801590E0 00156040  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801590E0 00156040  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801590E4 00156044  B0 61 00 1C */	sth r3, 0x1c(r1)
 /* 801590E8 00156048  7C 03 00 40 */	cmplw r3, r0
 /* 801590EC 0015604C  41 82 00 74 */	beq lbl_80159160

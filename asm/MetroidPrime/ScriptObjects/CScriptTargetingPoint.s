@@ -168,7 +168,7 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D3DC 0018A33C  4B EA D3 C9 */	bl CModelDataNull__10CModelDataFv
 /* 8018D3E0 0018A340  38 61 00 20 */	addi r3, r1, 0x20
 /* 8018D3E4 0018A344  4B E8 DA 55 */	bl None__16CActorParametersFv
-/* 8018D3E8 0018A348  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8018D3E8 0018A348  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8018D3EC 0018A34C  38 00 00 00 */	li r0, 0
 /* 8018D3F0 0018A350  80 AD 8E E8 */	lwz r5, lbl_805A7AA8@sda21(r13)
 /* 8018D3F4 0018A354  38 60 00 00 */	li r3, 0
@@ -213,7 +213,7 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D490 0018A3F0  88 1F 00 E8 */	lbz r0, 0xe8(r31)
 /* 8018D494 0018A3F4  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8018D498 0018A3F8  98 1F 00 E8 */	stb r0, 0xe8(r31)
-/* 8018D49C 0018A3FC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8018D49C 0018A3FC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8018D4A0 0018A400  B0 1F 00 EA */	sth r0, 0xea(r31)
 /* 8018D4A4 0018A404  D0 1F 00 EC */	stfs f0, 0xec(r31)
 /* 8018D4A8 0018A408  BB 41 00 D8 */	lmw r26, 0xd8(r1)

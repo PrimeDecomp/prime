@@ -4048,7 +4048,7 @@ lbl_800611AC:
 /* 800611BC 0005E11C  90 1D 00 F4 */	stw r0, 0xf4(r29)
 /* 800611C0 0005E120  48 00 01 31 */	bl PostConstructArea__9CGameAreaFv
 /* 800611C4 0005E124  80 7D 00 04 */	lwz r3, 4(r29)
-/* 800611C8 0005E128  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 800611C8 0005E128  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 800611CC 0005E12C  7C 03 00 00 */	cmpw r3, r0
 /* 800611D0 0005E130  41 82 00 18 */	beq lbl_800611E8
 /* 800611D4 0005E134  80 1D 00 04 */	lwz r0, 4(r29)
@@ -4083,7 +4083,7 @@ lbl_80061218:
 /* 80061240 0005E1A0  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80061244 0005E1A4  4B FE 6C D9 */	bl GetIdForScript__13CStateManagerCF9TEditorId
 /* 80061248 0005E1A8  A0 C1 00 0C */	lhz r6, 0xc(r1)
-/* 8006124C 0005E1AC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8006124C 0005E1AC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80061250 0005E1B0  B0 C1 00 10 */	sth r6, 0x10(r1)
 /* 80061254 0005E1B4  7C 06 00 40 */	cmplw r6, r0
 /* 80061258 0005E1B8  41 82 00 38 */	beq lbl_80061290
@@ -6793,7 +6793,7 @@ __ct__Q29CGameArea16CPostConstructedFv:
 /* 80063854 000607B4  90 E3 00 98 */	stw r7, 0x98(r3)
 /* 80063858 000607B8  90 E3 00 9C */	stw r7, 0x9c(r3)
 /* 8006385C 000607BC  90 E3 00 A0 */	stw r7, 0xa0(r3)
-/* 80063860 000607C0  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 80063860 000607C0  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 80063864 000607C4  B0 81 00 08 */	sth r4, 8(r1)
 /* 80063868 000607C8  54 84 04 3E */	clrlwi r4, r4, 0x10
 /* 8006386C 000607CC  90 C3 00 A4 */	stw r6, 0xa4(r3)

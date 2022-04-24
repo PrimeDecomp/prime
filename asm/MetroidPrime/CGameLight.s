@@ -250,7 +250,7 @@ SetLight__10CGameLightFRC6CLight:
 /* 800B586C 000B27CC  38 C1 00 28 */	addi r6, r1, 0x28
 /* 800B5870 000B27D0  80 05 00 00 */	lwz r0, 0(r5)
 /* 800B5874 000B27D4  38 AB D4 10 */	addi r5, r11, lbl_8056D410@l
-/* 800B5878 000B27D8  81 8D A3 88 */	lwz r12, lbl_805A8F48@sda21(r13)
+/* 800B5878 000B27D8  81 8D A3 88 */	lwz r12, kInvalidEditorId@sda21(r13)
 /* 800B587C 000B27DC  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 800B5880 000B27E0  91 81 00 28 */	stw r12, 0x28(r1)
 /* 800B5884 000B27E4  4B F9 BC 01 */	bl "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"
@@ -258,7 +258,7 @@ SetLight__10CGameLightFRC6CLight:
 /* 800B588C 000B27EC  4B F8 4F 19 */	bl CModelDataNull__10CModelDataFv
 /* 800B5890 000B27F0  38 61 00 50 */	addi r3, r1, 0x50
 /* 800B5894 000B27F4  4B F6 55 A5 */	bl None__16CActorParametersFv
-/* 800B5898 000B27F8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 800B5898 000B27F8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 800B589C 000B27FC  38 00 00 00 */	li r0, 0
 /* 800B58A0 000B2800  80 AD 86 58 */	lwz r5, lbl_805A7218@sda21(r13)
 /* 800B58A4 000B2804  38 60 00 00 */	li r3, 0

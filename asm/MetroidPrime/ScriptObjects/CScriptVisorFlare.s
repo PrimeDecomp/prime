@@ -266,7 +266,7 @@ lbl_801D6710:
 /* 801D6784 001D36E4  4B E6 40 21 */	bl CModelDataNull__10CModelDataFv
 /* 801D6788 001D36E8  38 61 00 50 */	addi r3, r1, 0x50
 /* 801D678C 001D36EC  4B E4 46 AD */	bl None__16CActorParametersFv
-/* 801D6790 001D36F0  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 801D6790 001D36F0  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 801D6794 001D36F4  38 00 00 00 */	li r0, 0
 /* 801D6798 001D36F8  80 AD 91 B8 */	lwz r5, lbl_805A7D78@sda21(r13)
 /* 801D679C 001D36FC  38 60 00 00 */	li r3, 0

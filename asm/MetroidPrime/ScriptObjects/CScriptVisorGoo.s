@@ -542,7 +542,7 @@ lbl_801D7614:
 /* 801D7698 001D45F8  4B E6 31 0D */	bl CModelDataNull__10CModelDataFv
 /* 801D769C 001D45FC  38 61 00 68 */	addi r3, r1, 0x68
 /* 801D76A0 001D4600  4B E4 37 99 */	bl None__16CActorParametersFv
-/* 801D76A4 001D4604  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801D76A4 001D4604  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801D76A8 001D4608  38 80 00 00 */	li r4, 0
 /* 801D76AC 001D460C  A1 95 00 00 */	lhz r12, 0(r21)
 /* 801D76B0 001D4610  39 61 00 68 */	addi r11, r1, 0x68

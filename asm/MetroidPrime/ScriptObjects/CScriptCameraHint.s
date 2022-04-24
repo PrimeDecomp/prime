@@ -270,7 +270,7 @@ InitializeInArea__17CScriptCameraHintFR13CStateManager:
 /* 800C49B8 000C1918  7C 9B 23 78 */	mr r27, r4
 /* 800C49BC 000C191C  83 E4 08 10 */	lwz r31, 0x810(r4)
 /* 800C49C0 000C1920  A3 A3 00 08 */	lhz r29, 8(r3)
-/* 800C49C4 000C1924  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800C49C4 000C1924  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800C49C8 000C1928  B0 03 01 64 */	sth r0, 0x164(r3)
 /* 800C49CC 000C192C  AB 9F 20 08 */	lha r28, 0x2008(r31)
 /* 800C49D0 000C1930  48 00 01 AC */	b lbl_800C4B7C
@@ -607,7 +607,7 @@ GetFirstHelper__17CScriptCameraHintCFv:
 /* 800C4E28 000C1D88  B0 03 00 00 */	sth r0, 0(r3)
 /* 800C4E2C 000C1D8C  4E 80 00 20 */	blr 
 lbl_800C4E30:
-/* 800C4E30 000C1D90  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800C4E30 000C1D90  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800C4E34 000C1D94  B0 03 00 00 */	sth r0, 0(r3)
 /* 800C4E38 000C1D98  4E 80 00 20 */	blr 
 
@@ -735,7 +735,7 @@ lbl_800C4EF4:
 /* 800C4FF0 000C1F50  4B F7 57 B5 */	bl CModelDataNull__10CModelDataFv
 /* 800C4FF4 000C1F54  38 61 00 30 */	addi r3, r1, 0x30
 /* 800C4FF8 000C1F58  4B F5 5E 41 */	bl None__16CActorParametersFv
-/* 800C4FFC 000C1F5C  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 800C4FFC 000C1F5C  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 800C5000 000C1F60  38 00 00 00 */	li r0, 0
 /* 800C5004 000C1F64  80 AD 86 D8 */	lwz r5, lbl_805A7298@sda21(r13)
 /* 800C5008 000C1F68  38 60 00 00 */	li r3, 0
@@ -799,7 +799,7 @@ lbl_800C4EF4:
 /* 800C50F0 000C2050  7F 04 C3 78 */	mr r4, r24
 /* 800C50F4 000C2054  90 B4 01 50 */	stw r5, 0x150(r20)
 /* 800C50F8 000C2058  38 74 01 68 */	addi r3, r20, 0x168
-/* 800C50FC 000C205C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 800C50FC 000C205C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800C5100 000C2060  B0 14 01 64 */	sth r0, 0x164(r20)
 /* 800C5104 000C2064  98 B4 01 66 */	stb r5, 0x166(r20)
 /* 800C5108 000C2068  48 24 DA 6D */	bl __ct__12CTransform4fFRC12CTransform4f

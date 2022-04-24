@@ -1202,7 +1202,7 @@ lbl_802253EC:
 .global lbl_80225428
 lbl_80225428:
 /* 80225428 00222388  A0 7B 05 EC */	lhz r3, 0x5ec(r27)
-/* 8022542C 0022238C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8022542C 0022238C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80225430 00222390  7C 03 00 40 */	cmplw r3, r0
 /* 80225434 00222394  41 82 00 3C */	beq lbl_80225470
 /* 80225438 00222398  A0 1B 05 EC */	lhz r0, 0x5ec(r27)
@@ -1220,7 +1220,7 @@ lbl_80225428:
 /* 80225468 002223C8  38 00 00 00 */	li r0, 0
 /* 8022546C 002223CC  90 1B 06 08 */	stw r0, 0x608(r27)
 lbl_80225470:
-/* 80225470 002223D0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80225470 002223D0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80225474 002223D4  B0 1B 05 EC */	sth r0, 0x5ec(r27)
 .global lbl_80225478
 lbl_80225478:
@@ -1251,7 +1251,7 @@ CreateBeam__8CEyeballFR13CStateManager:
 /* 802254C8 00222428  93 A1 00 C4 */	stw r29, 0xc4(r1)
 /* 802254CC 0022242C  7C 7D 1B 78 */	mr r29, r3
 /* 802254D0 00222430  93 81 00 C0 */	stw r28, 0xc0(r1)
-/* 802254D4 00222434  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 802254D4 00222434  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 802254D8 00222438  A0 63 05 EC */	lhz r3, 0x5ec(r3)
 /* 802254DC 0022243C  7C 03 00 40 */	cmplw r3, r0
 /* 802254E0 00222440  40 82 01 C0 */	bne lbl_802256A0
@@ -1482,7 +1482,7 @@ Accept__8CEyeBallFR8IVisitor:
 /* 80225840 002227A0  92 F3 05 E0 */	stw r23, 0x5e0(r19)
 /* 80225844 002227A4  93 13 05 E4 */	stw r24, 0x5e4(r19)
 /* 80225848 002227A8  93 33 05 E8 */	stw r25, 0x5e8(r19)
-/* 8022584C 002227AC  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8022584C 002227AC  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 80225850 002227B0  B0 93 05 EC */	sth r4, 0x5ec(r19)
 /* 80225854 002227B4  90 13 05 F0 */	stw r0, 0x5f0(r19)
 /* 80225858 002227B8  48 0C 31 59 */	bl TranslateSFXID__11CSfxManagerFUs

@@ -138,7 +138,7 @@ GetTotalInterference__19CStaticInterferenceCFv:
 /* 801C0930 001BD890  80 A3 00 0C */	lwz r5, 0xc(r3)
 /* 801C0934 001BD894  FC 40 08 90 */	fmr f2, f1
 /* 801C0938 001BD898  1C 00 00 0C */	mulli r0, r0, 0xc
-/* 801C093C 001BD89C  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 801C093C 001BD89C  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 801C0940 001BD8A0  7C 85 02 14 */	add r4, r5, r0
 /* 801C0944 001BD8A4  48 00 00 2C */	b lbl_801C0970
 lbl_801C0948:

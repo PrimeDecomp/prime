@@ -191,7 +191,7 @@ lbl_8014AF00:
 /* 8014AF4C 00147EAC  4B EE F8 59 */	bl CModelDataNull__10CModelDataFv
 /* 8014AF50 00147EB0  38 61 00 98 */	addi r3, r1, 0x98
 /* 8014AF54 00147EB4  4B EC FE E5 */	bl None__16CActorParametersFv
-/* 8014AF58 00147EB8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8014AF58 00147EB8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8014AF5C 00147EBC  38 00 00 00 */	li r0, 0
 /* 8014AF60 00147EC0  80 AD 8B F0 */	lwz r5, lbl_805A77B0@sda21(r13)
 /* 8014AF64 00147EC4  38 60 00 00 */	li r3, 0

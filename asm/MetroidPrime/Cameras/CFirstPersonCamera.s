@@ -722,7 +722,7 @@ lbl_8000E854:
 /* 8000E864 0000B7C4  28 00 00 00 */	cmplwi r0, 0
 /* 8000E868 0000B7C8  40 82 01 5C */	bne lbl_8000E9C4
 /* 8000E86C 0000B7CC  A0 7F 01 C4 */	lhz r3, 0x1c4(r31)
-/* 8000E870 0000B7D0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000E870 0000B7D0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000E874 0000B7D4  7C 03 00 40 */	cmplw r3, r0
 /* 8000E878 0000B7D8  40 82 01 4C */	bne lbl_8000E9C4
 /* 8000E87C 0000B7DC  C0 5E 02 94 */	lfs f2, 0x294(r30)
@@ -1775,7 +1775,7 @@ UpdateElevation__18CFirstPersonCameraFR13CStateManager:
 /* 8000F834 0000C794  28 1E 00 00 */	cmplwi r30, 0
 /* 8000F838 0000C798  41 82 02 1C */	beq lbl_8000FA54
 /* 8000F83C 0000C79C  A0 7D 01 C4 */	lhz r3, 0x1c4(r29)
-/* 8000F840 0000C7A0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000F840 0000C7A0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000F844 0000C7A4  7C 03 00 40 */	cmplw r3, r0
 /* 8000F848 0000C7A8  41 82 02 0C */	beq lbl_8000FA54
 /* 8000F84C 0000C7AC  A0 1D 01 C4 */	lhz r0, 0x1c4(r29)
@@ -1994,9 +1994,9 @@ __ct__18CFirstPersonCameraFRC9TUniqueIdRC12CTransform4f9TUniqueIdfffff:
 /* 8000FB54 0000CAB4  7C 04 03 78 */	mr r4, r0
 /* 8000FB58 0000CAB8  38 61 00 30 */	addi r3, r1, 0x30
 /* 8000FB5C 0000CABC  4B FF 51 5D */	bl string_l__4rstlFPCc
-/* 8000FB60 0000CAC0  80 8D A3 88 */	lwz r4, lbl_805A8F48@sda21(r13)
+/* 8000FB60 0000CAC0  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
 /* 8000FB64 0000CAC4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8000FB68 0000CAC8  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 8000FB68 0000CAC8  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 8000FB6C 0000CACC  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
 /* 8000FB70 0000CAD0  90 81 00 28 */	stw r4, 0x28(r1)
 /* 8000FB74 0000CAD4  38 61 00 40 */	addi r3, r1, 0x40
@@ -2058,7 +2058,7 @@ lbl_8000FC14:
 /* 8000FC48 0000CBA8  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 8000FC4C 0000CBAC  7F C3 F3 78 */	mr r3, r30
 /* 8000FC50 0000CBB0  D0 3E 01 C0 */	stfs f1, 0x1c0(r30)
-/* 8000FC54 0000CBB4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8000FC54 0000CBB4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000FC58 0000CBB8  B0 1E 01 C4 */	sth r0, 0x1c4(r30)
 /* 8000FC5C 0000CBBC  88 1E 01 C6 */	lbz r0, 0x1c6(r30)
 /* 8000FC60 0000CBC0  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18

@@ -147,7 +147,7 @@ Update__10CGunMotionFfR13CStateManager:
 /* 801D9158 001D60B8  7C 7E 1B 78 */	mr r30, r3
 /* 801D915C 001D60BC  7F C4 F3 78 */	mr r4, r30
 /* 801D9160 001D60C0  38 61 00 0C */	addi r3, r1, 0xc
-/* 801D9164 001D60C4  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 801D9164 001D60C4  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 801D9168 001D60C8  90 01 00 08 */	stw r0, 8(r1)
 /* 801D916C 001D60CC  4B F3 C9 C9 */	bl AdvanceAnimation__10CModelDataFfR13CStateManager7TAreaIdb
 /* 801D9170 001D60D0  FC 20 F8 90 */	fmr f1, f31

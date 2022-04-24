@@ -289,7 +289,7 @@ DeleteBeam__13CNewIntroBossFR13CStateManager:
 /* 80189EB0 00186E10  7C 9F 23 78 */	mr r31, r4
 /* 80189EB4 00186E14  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80189EB8 00186E18  7C 7E 1B 78 */	mr r30, r3
-/* 80189EBC 00186E1C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80189EBC 00186E1C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80189EC0 00186E20  A0 63 05 D4 */	lhz r3, 0x5d4(r3)
 /* 80189EC4 00186E24  7C 03 00 40 */	cmplw r3, r0
 /* 80189EC8 00186E28  41 82 00 20 */	beq lbl_80189EE8
@@ -298,11 +298,11 @@ DeleteBeam__13CNewIntroBossFR13CStateManager:
 /* 80189ED4 00186E34  38 81 00 10 */	addi r4, r1, 0x10
 /* 80189ED8 00186E38  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80189EDC 00186E3C  4B EC 23 91 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 80189EE0 00186E40  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80189EE0 00186E40  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80189EE4 00186E44  B0 1E 05 D4 */	sth r0, 0x5d4(r30)
 lbl_80189EE8:
 /* 80189EE8 00186E48  A0 7E 05 D6 */	lhz r3, 0x5d6(r30)
-/* 80189EEC 00186E4C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80189EEC 00186E4C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80189EF0 00186E50  7C 03 00 40 */	cmplw r3, r0
 /* 80189EF4 00186E54  41 82 00 20 */	beq lbl_80189F14
 /* 80189EF8 00186E58  A0 1E 05 D6 */	lhz r0, 0x5d6(r30)
@@ -310,11 +310,11 @@ lbl_80189EE8:
 /* 80189F00 00186E60  38 81 00 0C */	addi r4, r1, 0xc
 /* 80189F04 00186E64  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 80189F08 00186E68  4B EC 23 65 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 80189F0C 00186E6C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80189F0C 00186E6C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80189F10 00186E70  B0 1E 05 D6 */	sth r0, 0x5d6(r30)
 lbl_80189F14:
 /* 80189F14 00186E74  A0 7E 05 D8 */	lhz r3, 0x5d8(r30)
-/* 80189F18 00186E78  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80189F18 00186E78  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80189F1C 00186E7C  7C 03 00 40 */	cmplw r3, r0
 /* 80189F20 00186E80  41 82 00 20 */	beq lbl_80189F40
 /* 80189F24 00186E84  A0 1E 05 D8 */	lhz r0, 0x5d8(r30)
@@ -322,7 +322,7 @@ lbl_80189F14:
 /* 80189F2C 00186E8C  38 81 00 08 */	addi r4, r1, 8
 /* 80189F30 00186E90  B0 01 00 08 */	sth r0, 8(r1)
 /* 80189F34 00186E94  4B EC 23 39 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 80189F38 00186E98  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80189F38 00186E98  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80189F3C 00186E9C  B0 1E 05 D8 */	sth r0, 0x5d8(r30)
 lbl_80189F40:
 /* 80189F40 00186EA0  7F C3 F3 78 */	mr r3, r30
@@ -489,7 +489,7 @@ lbl_8018A148:
 /* 8018A178 001870D8  7F C4 F3 78 */	mr r4, r30
 /* 8018A17C 001870DC  4B FB 0B 75 */	bl Activate__15CBodyControllerFR13CStateManager
 /* 8018A180 001870E0  A0 7F 05 D4 */	lhz r3, 0x5d4(r31)
-/* 8018A184 001870E4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8018A184 001870E4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8018A188 001870E8  7C 03 00 40 */	cmplw r3, r0
 /* 8018A18C 001870EC  40 82 05 4C */	bne lbl_8018A6D8
 /* 8018A190 001870F0  C0 22 A3 90 */	lfs f1, lbl_805AC0B0@sda21(r2)
@@ -2524,7 +2524,7 @@ ProjectileInfo__13CNewIntroBossFv:
 /* 8018BF6C 00188ECC  7F 65 DB 78 */	mr r5, r27
 /* 8018BF70 00188ED0  38 78 05 AC */	addi r3, r24, 0x5ac
 /* 8018BF74 00188ED4  48 09 01 35 */	bl __ct__15CProjectileInfoFUiRC11CDamageInfo
-/* 8018BF78 00188ED8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8018BF78 00188ED8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8018BF7C 00188EDC  3C 60 80 5A */	lis r3, skZero3f@ha
 /* 8018BF80 00188EE0  38 CD A9 18 */	addi r6, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8018BF84 00188EE4  38 00 00 00 */	li r0, 0
@@ -2532,12 +2532,12 @@ ProjectileInfo__13CNewIntroBossFv:
 /* 8018BF8C 00188EEC  38 A3 66 A0 */	addi r5, r3, skZero3f@l
 /* 8018BF90 00188EF0  C0 62 A3 C0 */	lfs f3, lbl_805AC0E0@sda21(r2)
 /* 8018BF94 00188EF4  7F 24 CB 78 */	mr r4, r25
-/* 8018BF98 00188EF8  A0 ED A3 8C */	lhz r7, lbl_805A8F4C@sda21(r13)
+/* 8018BF98 00188EF8  A0 ED A3 8C */	lhz r7, kInvalidUniqueId@sda21(r13)
 /* 8018BF9C 00188EFC  38 78 06 44 */	addi r3, r24, 0x644
 /* 8018BFA0 00188F00  C0 22 A3 C8 */	lfs f1, lbl_805AC0E8@sda21(r2)
 /* 8018BFA4 00188F04  B0 F8 05 D6 */	sth r7, 0x5d6(r24)
 /* 8018BFA8 00188F08  C0 02 A3 AC */	lfs f0, lbl_805AC0CC@sda21(r2)
-/* 8018BFAC 00188F0C  A0 ED A3 8C */	lhz r7, lbl_805A8F4C@sda21(r13)
+/* 8018BFAC 00188F0C  A0 ED A3 8C */	lhz r7, kInvalidUniqueId@sda21(r13)
 /* 8018BFB0 00188F10  B0 F8 05 D8 */	sth r7, 0x5d8(r24)
 /* 8018BFB4 00188F14  90 D8 05 DC */	stw r6, 0x5dc(r24)
 /* 8018BFB8 00188F18  90 18 05 E0 */	stw r0, 0x5e0(r24)
@@ -2547,9 +2547,9 @@ ProjectileInfo__13CNewIntroBossFv:
 /* 8018BFC8 00188F28  93 B8 05 F4 */	stw r29, 0x5f4(r24)
 /* 8018BFCC 00188F2C  93 D8 05 F8 */	stw r30, 0x5f8(r24)
 /* 8018BFD0 00188F30  93 F8 05 FC */	stw r31, 0x5fc(r24)
-/* 8018BFD4 00188F34  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8018BFD4 00188F34  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8018BFD8 00188F38  B0 18 06 00 */	sth r0, 0x600(r24)
-/* 8018BFDC 00188F3C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8018BFDC 00188F3C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8018BFE0 00188F40  B0 18 06 02 */	sth r0, 0x602(r24)
 /* 8018BFE4 00188F44  C0 45 00 00 */	lfs f2, 0(r5)
 /* 8018BFE8 00188F48  D0 58 06 04 */	stfs f2, 0x604(r24)
@@ -2584,7 +2584,7 @@ ProjectileInfo__13CNewIntroBossFv:
 /* 8018C05C 00188FBC  38 00 00 00 */	li r0, 0
 /* 8018C060 00188FC0  B0 78 06 74 */	sth r3, 0x674(r24)
 /* 8018C064 00188FC4  38 78 05 AC */	addi r3, r24, 0x5ac
-/* 8018C068 00188FC8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8018C068 00188FC8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8018C06C 00188FCC  B0 98 06 76 */	sth r4, 0x676(r24)
 /* 8018C070 00188FD0  98 18 06 78 */	stb r0, 0x678(r24)
 /* 8018C074 00188FD4  48 1B 4D 11 */	bl Lock__6CTokenFv

@@ -1565,7 +1565,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A85A0 001A5500  D0 1F 00 24 */	stfs f0, 0x24(r31)
 /* 801A85A4 001A5504  D0 1F 00 28 */	stfs f0, 0x28(r31)
 /* 801A85A8 001A5508  48 19 5B B9 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801A85AC 001A550C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A85AC 001A550C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A85B0 001A5510  B0 1F 00 3C */	sth r0, 0x3c(r31)
 /* 801A85B4 001A5514  D3 FF 00 40 */	stfs f31, 0x40(r31)
 /* 801A85B8 001A5518  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
@@ -1615,7 +1615,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A865C 001A55BC  D0 1F 00 24 */	stfs f0, 0x24(r31)
 /* 801A8660 001A55C0  D0 1F 00 28 */	stfs f0, 0x28(r31)
 /* 801A8664 001A55C4  48 19 5A FD */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801A8668 001A55C8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A8668 001A55C8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A866C 001A55CC  B0 1F 00 3C */	sth r0, 0x3c(r31)
 /* 801A8670 001A55D0  D3 FF 00 40 */	stfs f31, 0x40(r31)
 /* 801A8674 001A55D4  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
@@ -1667,7 +1667,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A8720 001A5680  D0 1F 00 24 */	stfs f0, 0x24(r31)
 /* 801A8724 001A5684  D0 1F 00 28 */	stfs f0, 0x28(r31)
 /* 801A8728 001A5688  48 19 5A 39 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801A872C 001A568C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A872C 001A568C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A8730 001A5690  B0 1F 00 3C */	sth r0, 0x3c(r31)
 /* 801A8734 001A5694  D3 FF 00 40 */	stfs f31, 0x40(r31)
 /* 801A8738 001A5698  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
@@ -1716,7 +1716,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A87D8 001A5738  D0 3F 00 24 */	stfs f1, 0x24(r31)
 /* 801A87DC 001A573C  D0 5F 00 28 */	stfs f2, 0x28(r31)
 /* 801A87E0 001A5740  48 19 59 81 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801A87E4 001A5744  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A87E4 001A5744  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A87E8 001A5748  B0 1F 00 3C */	sth r0, 0x3c(r31)
 /* 801A87EC 001A574C  D3 FF 00 40 */	stfs f31, 0x40(r31)
 /* 801A87F0 001A5750  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
@@ -1767,7 +1767,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A8898 001A57F8  D0 3F 00 24 */	stfs f1, 0x24(r31)
 /* 801A889C 001A57FC  D0 1F 00 28 */	stfs f0, 0x28(r31)
 /* 801A88A0 001A5800  48 19 58 C1 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 801A88A4 001A5804  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A88A4 001A5804  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A88A8 001A5808  B0 1F 00 3C */	sth r0, 0x3c(r31)
 /* 801A88AC 001A580C  D3 FF 00 40 */	stfs f31, 0x40(r31)
 /* 801A88B0 001A5810  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0

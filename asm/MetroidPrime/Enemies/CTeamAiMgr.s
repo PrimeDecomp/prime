@@ -110,7 +110,7 @@ lbl_80237C84:
 
 .global UpdateTeamCaptain__10CTeamAiMgrFv
 UpdateTeamCaptain__10CTeamAiMgrFv:
-/* 80237CA0 00234C00  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80237CA0 00234C00  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80237CA4 00234C04  3C C0 80 00 */	lis r6, 0x8000
 /* 80237CA8 00234C08  B0 03 00 8C */	sth r0, 0x8c(r3)
 /* 80237CAC 00234C0C  80 A3 00 64 */	lwz r5, 0x64(r3)
@@ -2820,7 +2820,7 @@ lbl_8023A284:
 /* 8023A290 002371F0  7C 03 02 14 */	add r0, r3, r0
 /* 8023A294 002371F4  7C 1F 00 40 */	cmplw r31, r0
 /* 8023A298 002371F8  40 82 FF 80 */	bne lbl_8023A218
-/* 8023A29C 002371FC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8023A29C 002371FC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8023A2A0 00237200  B0 1C 00 00 */	sth r0, 0(r28)
 lbl_8023A2A4:
 /* 8023A2A4 00237204  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -2882,7 +2882,7 @@ lbl_8023A2A4:
 /* 8023A378 002372D8  90 1F 00 80 */	stw r0, 0x80(r31)
 /* 8023A37C 002372DC  90 1F 00 84 */	stw r0, 0x84(r31)
 /* 8023A380 002372E0  D0 1F 00 88 */	stfs f0, 0x88(r31)
-/* 8023A384 002372E4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8023A384 002372E4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8023A388 002372E8  B0 1F 00 8C */	sth r0, 0x8c(r31)
 /* 8023A38C 002372EC  C0 1E 00 1C */	lfs f0, 0x1c(r30)
 /* 8023A390 002372F0  D0 1F 00 90 */	stfs f0, 0x90(r31)

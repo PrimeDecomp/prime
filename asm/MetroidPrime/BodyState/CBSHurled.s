@@ -455,7 +455,7 @@ PlayLandAnimation__9CBSHurledFR15CBodyControllerR13CStateManager:
 /* 80144A00 00141960  80 83 00 04 */	lwz r4, 4(r3)
 /* 80144A04 00141964  28 04 00 00 */	cmplwi r4, 0
 /* 80144A08 00141968  41 82 00 1C */	beq lbl_80144A24
-/* 80144A0C 0014196C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80144A0C 0014196C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80144A10 00141970  7F A3 EB 78 */	mr r3, r29
 /* 80144A14 00141974  38 A1 00 10 */	addi r5, r1, 0x10
 /* 80144A18 00141978  38 C0 00 17 */	li r6, 0x17
@@ -1098,11 +1098,11 @@ lbl_801451EC:
 /* 80145330 00142290  7F 83 E3 78 */	mr r3, r28
 /* 80145334 00142294  7F C4 F3 78 */	mr r4, r30
 /* 80145338 00142298  38 A1 00 14 */	addi r5, r1, 0x14
-/* 8014533C 0014229C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8014533C 0014229C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80145340 001422A0  38 C0 00 1A */	li r6, 0x1a
 /* 80145344 001422A4  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80145348 001422A8  4B EF EB 89 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
-/* 8014534C 001422AC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8014534C 001422AC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80145350 001422B0  7F 83 E3 78 */	mr r3, r28
 /* 80145354 001422B4  7F C4 F3 78 */	mr r4, r30
 /* 80145358 001422B8  38 A1 00 10 */	addi r5, r1, 0x10

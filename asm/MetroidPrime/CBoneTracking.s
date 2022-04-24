@@ -37,7 +37,7 @@ lbl_801751F0:
 
 .global UnsetTarget__13CBoneTrackingFv
 UnsetTarget__13CBoneTrackingFv:
-/* 8017520C 0017216C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8017520C 0017216C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80175210 00172170  B0 03 00 34 */	sth r0, 0x34(r3)
 /* 80175214 00172174  4E 80 00 20 */	blr 
 
@@ -600,7 +600,7 @@ Update__13CBoneTrackingFf:
 /* 80175A3C 0017299C  D3 DF 00 1C */	stfs f30, 0x1c(r31)
 /* 80175A40 001729A0  D3 FF 00 20 */	stfs f31, 0x20(r31)
 /* 80175A44 001729A4  99 1F 00 30 */	stb r8, 0x30(r31)
-/* 80175A48 001729A8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80175A48 001729A8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80175A4C 001729AC  B0 1F 00 34 */	sth r0, 0x34(r31)
 /* 80175A50 001729B0  88 1F 00 36 */	lbz r0, 0x36(r31)
 /* 80175A54 001729B4  51 00 3E 30 */	rlwimi r0, r8, 7, 0x18, 0x18

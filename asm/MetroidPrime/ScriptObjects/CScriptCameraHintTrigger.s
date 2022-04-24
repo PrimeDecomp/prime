@@ -99,7 +99,7 @@ AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13C
 /* 8024B454 002483B4  88 1E 01 30 */	lbz r0, 0x130(r30)
 /* 8024B458 002483B8  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8024B45C 002483BC  41 82 00 20 */	beq lbl_8024B47C
-/* 8024B460 002483C0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8024B460 002483C0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8024B464 002483C4  7F E3 FB 78 */	mr r3, r31
 /* 8024B468 002483C8  7F C4 F3 78 */	mr r4, r30
 /* 8024B46C 002483CC  38 A1 00 0C */	addi r5, r1, 0xc
@@ -123,7 +123,7 @@ lbl_8024B47C:
 /* 8024B4B0 00248410  88 1E 01 30 */	lbz r0, 0x130(r30)
 /* 8024B4B4 00248414  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 8024B4B8 00248418  41 82 00 20 */	beq lbl_8024B4D8
-/* 8024B4BC 0024841C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8024B4BC 0024841C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8024B4C0 00248420  7F E3 FB 78 */	mr r3, r31
 /* 8024B4C4 00248424  7F C4 F3 78 */	mr r4, r30
 /* 8024B4C8 00248428  38 A1 00 08 */	addi r5, r1, 8
@@ -298,7 +298,7 @@ Accept__24CScriptCameraHintTriggerFR8IVisitor:
 /* 8024B720 00248680  4B DE F0 85 */	bl CModelDataNull__10CModelDataFv
 /* 8024B724 00248684  38 61 00 20 */	addi r3, r1, 0x20
 /* 8024B728 00248688  4B DC F7 11 */	bl None__16CActorParametersFv
-/* 8024B72C 0024868C  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8024B72C 0024868C  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8024B730 00248690  38 00 00 00 */	li r0, 0
 /* 8024B734 00248694  80 AD 97 08 */	lwz r5, lbl_805A82C8@sda21(r13)
 /* 8024B738 00248698  38 60 00 00 */	li r3, 0

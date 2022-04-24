@@ -1089,7 +1089,7 @@ ThinkObjectFollowObject__22CScriptSpecialFunctionFfR13CStateManager:
 /* 8014FEA8 0014CE08  7C 9E 23 78 */	mr r30, r4
 /* 8014FEAC 0014CE0C  93 A1 00 54 */	stw r29, 0x54(r1)
 /* 8014FEB0 0014CE10  7C 7D 1B 78 */	mr r29, r3
-/* 8014FEB4 0014CE14  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8014FEB4 0014CE14  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8014FEB8 0014CE18  83 E3 00 2C */	lwz r31, 0x2c(r3)
 /* 8014FEBC 0014CE1C  B0 01 00 1C */	sth r0, 0x1c(r1)
 /* 8014FEC0 0014CE20  B0 01 00 18 */	sth r0, 0x18(r1)
@@ -1212,7 +1212,7 @@ ThinkObjectFollowLocator__22CScriptSpecialFunctionFfR13CStateManager:
 /* 8015006C 0014CFCC  7C 9E 23 78 */	mr r30, r4
 /* 80150070 0014CFD0  93 A1 00 E4 */	stw r29, 0xe4(r1)
 /* 80150074 0014CFD4  7C 7D 1B 78 */	mr r29, r3
-/* 80150078 0014CFD8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80150078 0014CFD8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8015007C 0014CFDC  83 E3 00 2C */	lwz r31, 0x2c(r3)
 /* 80150080 0014CFE0  B0 01 00 1C */	sth r0, 0x1c(r1)
 /* 80150084 0014CFE4  B0 01 00 18 */	sth r0, 0x18(r1)
@@ -1293,7 +1293,7 @@ lbl_80150184:
 /* 80150194 0014D0F4  7C 1F 00 40 */	cmplw r31, r0
 /* 80150198 0014D0F8  40 82 FE F4 */	bne lbl_8015008C
 /* 8015019C 0014D0FC  A0 01 00 1C */	lhz r0, 0x1c(r1)
-/* 801501A0 0014D100  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 801501A0 0014D100  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 801501A4 0014D104  7C 00 18 40 */	cmplw r0, r3
 /* 801501A8 0014D108  41 82 00 C8 */	beq lbl_80150270
 /* 801501AC 0014D10C  A0 01 00 18 */	lhz r0, 0x18(r1)
@@ -2901,7 +2901,7 @@ SkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
 /* 8015183C 0014E79C  38 80 00 09 */	li r4, 9
 /* 80151840 0014E7A0  7F E5 FB 78 */	mr r5, r31
 /* 80151844 0014E7A4  4B EF F8 7D */	bl SendScriptMsgs__7CEntityF18EScriptObjectStateR13CStateManager20EScriptObjectMessage
-/* 80151848 0014E7A8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80151848 0014E7A8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8015184C 0014E7AC  B0 01 00 08 */	sth r0, 8(r1)
 /* 80151850 0014E7B0  B0 1F 0F 38 */	sth r0, 0xf38(r31)
 /* 80151854 0014E7B4  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -3539,7 +3539,7 @@ lbl_801520EC:
 lbl_80152124:
 /* 80152124 0014F084  2C 1C 00 05 */	cmpwi r28, 5
 /* 80152128 0014F088  40 82 07 78 */	bne lbl_801528A0
-/* 8015212C 0014F08C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8015212C 0014F08C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80152130 0014F090  7F C3 F3 78 */	mr r3, r30
 /* 80152134 0014F094  C0 22 9D 9C */	lfs f1, lbl_805ABABC@sda21(r2)
 /* 80152138 0014F098  38 81 00 18 */	addi r4, r1, 0x18
@@ -3601,7 +3601,7 @@ lbl_801521C4:
 lbl_801521F4:
 /* 801521F4 0014F154  2C 1C 00 05 */	cmpwi r28, 5
 /* 801521F8 0014F158  40 82 06 A8 */	bne lbl_801528A0
-/* 801521FC 0014F15C  A0 ED A3 8C */	lhz r7, lbl_805A8F4C@sda21(r13)
+/* 801521FC 0014F15C  A0 ED A3 8C */	lhz r7, kInvalidUniqueId@sda21(r13)
 /* 80152200 0014F160  38 81 00 AC */	addi r4, r1, 0xac
 /* 80152204 0014F164  38 A0 00 01 */	li r5, 1
 /* 80152208 0014F168  B0 FE 0F 38 */	sth r7, 0xf38(r30)
@@ -4368,7 +4368,7 @@ lbl_80152BA8:
 /* 80152C48 0014FBA8  4B EE 7B 5D */	bl CModelDataNull__10CModelDataFv
 /* 80152C4C 0014FBAC  38 61 00 50 */	addi r3, r1, 0x50
 /* 80152C50 0014FBB0  4B EC 81 E9 */	bl None__16CActorParametersFv
-/* 80152C54 0014FBB4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80152C54 0014FBB4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80152C58 0014FBB8  38 80 00 00 */	li r4, 0
 /* 80152C5C 0014FBBC  A1 9B 00 00 */	lhz r12, 0(r27)
 /* 80152C60 0014FBC0  39 61 00 50 */	addi r11, r1, 0x50

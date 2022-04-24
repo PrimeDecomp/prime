@@ -248,7 +248,7 @@ lbl_8015ED18:
 /* 8015ED7C 0015BCDC  38 61 00 20 */	addi r3, r1, 0x20
 /* 8015ED80 0015BCE0  38 81 00 88 */	addi r4, r1, 0x88
 /* 8015ED84 0015BCE4  4B FA 7A E9 */	bl Scannable__16CActorParametersCFRC20CScannableParameters
-/* 8015ED88 0015BCE8  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8015ED88 0015BCE8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8015ED8C 0015BCEC  38 00 00 00 */	li r0, 0
 /* 8015ED90 0015BCF0  80 AD 8C E8 */	lwz r5, lbl_805A78A8@sda21(r13)
 /* 8015ED94 0015BCF4  38 60 00 00 */	li r3, 0

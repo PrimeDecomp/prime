@@ -158,7 +158,7 @@ lbl_80117DE0:
 /* 80117DEC 00114D4C  38 C0 00 01 */	li r6, 1
 /* 80117DF0 00114D50  48 00 07 65 */	bl PreviousWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 80117DF4 00114D54  A0 61 00 44 */	lhz r3, 0x44(r1)
-/* 80117DF8 00114D58  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80117DF8 00114D58  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80117DFC 00114D5C  7C 03 00 40 */	cmplw r3, r0
 /* 80117E00 00114D60  40 82 FF B4 */	bne lbl_80117DB4
 /* 80117E04 00114D64  3C 60 80 5A */	lis r3, skZero3f@ha
@@ -184,7 +184,7 @@ lbl_80117E44:
 /* 80117E50 00114DB0  38 C0 00 00 */	li r6, 0
 /* 80117E54 00114DB4  48 00 07 B9 */	bl NextWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 80117E58 00114DB8  A0 61 00 40 */	lhz r3, 0x40(r1)
-/* 80117E5C 00114DBC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80117E5C 00114DBC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80117E60 00114DC0  7C 03 00 40 */	cmplw r3, r0
 /* 80117E64 00114DC4  41 82 04 90 */	beq lbl_801182F4
 /* 80117E68 00114DC8  56 E0 06 3F */	clrlwi. r0, r23, 0x18
@@ -222,7 +222,7 @@ lbl_80117E44:
 /* 80117EE8 00114E48  D0 21 00 F0 */	stfs f1, 0xf0(r1)
 /* 80117EEC 00114E4C  48 00 06 69 */	bl PreviousWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 80117EF0 00114E50  A0 61 00 34 */	lhz r3, 0x34(r1)
-/* 80117EF4 00114E54  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80117EF4 00114E54  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80117EF8 00114E58  7C 03 00 40 */	cmplw r3, r0
 /* 80117EFC 00114E5C  40 82 00 1C */	bne lbl_80117F18
 /* 80117F00 00114E60  C0 41 00 EC */	lfs f2, 0xec(r1)
@@ -384,7 +384,7 @@ lbl_80118158:
 /* 80118164 001150C4  38 C0 00 00 */	li r6, 0
 /* 80118168 001150C8  48 00 04 A5 */	bl NextWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 8011816C 001150CC  A0 61 00 30 */	lhz r3, 0x30(r1)
-/* 80118170 001150D0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80118170 001150D0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80118174 001150D4  7C 03 00 40 */	cmplw r3, r0
 /* 80118178 001150D8  41 82 01 10 */	beq lbl_80118288
 /* 8011817C 001150DC  EC 5F E0 28 */	fsubs f2, f31, f28
@@ -490,7 +490,7 @@ lbl_801182F4:
 /* 80118300 00115260  38 C0 00 01 */	li r6, 1
 /* 80118304 00115264  48 00 03 09 */	bl NextWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 80118308 00115268  A0 61 00 1C */	lhz r3, 0x1c(r1)
-/* 8011830C 0011526C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8011830C 0011526C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80118310 00115270  7C 03 00 40 */	cmplw r3, r0
 /* 80118314 00115274  41 82 00 38 */	beq lbl_8011834C
 /* 80118318 00115278  7F E4 FB 78 */	mr r4, r31
@@ -536,7 +536,7 @@ lbl_80118350:
 /* 801183B0 00115310  D2 FB 00 08 */	stfs f23, 8(r27)
 /* 801183B4 00115314  48 00 01 A1 */	bl PreviousWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 801183B8 00115318  A0 61 00 10 */	lhz r3, 0x10(r1)
-/* 801183BC 0011531C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801183BC 0011531C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801183C0 00115320  7C 03 00 40 */	cmplw r3, r0
 /* 801183C4 00115324  41 82 00 6C */	beq lbl_80118430
 /* 801183C8 00115328  7F E4 FB 78 */	mr r4, r31
@@ -694,7 +694,7 @@ lbl_801185E4:
 /* 801185E4 00115544  80 1A 00 F0 */	lwz r0, 0xf0(r26)
 /* 801185E8 00115548  7C 1D 00 00 */	cmpw r29, r0
 /* 801185EC 0011554C  41 80 FF 94 */	blt lbl_80118580
-/* 801185F0 00115550  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801185F0 00115550  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801185F4 00115554  B0 1F 00 00 */	sth r0, 0(r31)
 lbl_801185F8:
 /* 801185F8 00115558  BB 41 00 18 */	lmw r26, 0x18(r1)
@@ -757,7 +757,7 @@ lbl_801186B4:
 /* 801186C0 00115620  7C 03 02 14 */	add r0, r3, r0
 /* 801186C4 00115624  7C 1E 00 40 */	cmplw r30, r0
 /* 801186C8 00115628  40 82 FF 6C */	bne lbl_80118634
-/* 801186CC 0011562C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801186CC 0011562C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801186D0 00115630  B0 1F 00 00 */	sth r0, 0(r31)
 lbl_801186D4:
 /* 801186D4 00115634  BB 61 00 1C */	lmw r27, 0x1c(r1)
@@ -852,7 +852,7 @@ lbl_801187E4:
 /* 8011880C 0011576C  90 01 00 28 */	stw r0, 0x28(r1)
 /* 80118810 00115770  4B F2 F7 0D */	bl GetIdForScript__13CStateManagerCF9TEditorId
 /* 80118814 00115774  A0 61 00 20 */	lhz r3, 0x20(r1)
-/* 80118818 00115778  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80118818 00115778  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8011881C 0011577C  B0 61 00 24 */	sth r3, 0x24(r1)
 /* 80118820 00115780  7C 03 00 40 */	cmplw r3, r0
 /* 80118824 00115784  41 82 00 2C */	beq lbl_80118850
@@ -909,7 +909,7 @@ lbl_801188D0:
 /* 801188DC 0011583C  38 C0 00 01 */	li r6, 1
 /* 801188E0 00115840  4B FF FD 2D */	bl NextWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 /* 801188E4 00115844  A0 61 00 08 */	lhz r3, 8(r1)
-/* 801188E8 00115848  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801188E8 00115848  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801188EC 0011584C  7C 03 00 40 */	cmplw r3, r0
 /* 801188F0 00115850  40 82 FF B4 */	bne lbl_801188A4
 /* 801188F4 00115854  C0 5E 00 60 */	lfs f2, 0x60(r30)
@@ -1071,7 +1071,7 @@ lbl_80118ABC:
 /* 80118B08 00115A68  4B F2 1C 9D */	bl CModelDataNull__10CModelDataFv
 /* 80118B0C 00115A6C  38 61 00 20 */	addi r3, r1, 0x20
 /* 80118B10 00115A70  4B F0 23 29 */	bl None__16CActorParametersFv
-/* 80118B14 00115A74  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 80118B14 00115A74  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 80118B18 00115A78  38 00 00 00 */	li r0, 0
 /* 80118B1C 00115A7C  80 AD 8A 60 */	lwz r5, lbl_805A7620@sda21(r13)
 /* 80118B20 00115A80  38 60 00 00 */	li r3, 0

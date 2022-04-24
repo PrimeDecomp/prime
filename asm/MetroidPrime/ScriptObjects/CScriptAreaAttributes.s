@@ -77,7 +77,7 @@ AcceptScriptMsg__21CScriptAreaAttributesF20EScriptObjectMessage9TUniqueIdR13CSta
 /* 801BD50C 001BA46C  B0 01 00 08 */	sth r0, 8(r1)
 /* 801BD510 001BA470  4B E9 3C 4D */	bl AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 801BD514 001BA474  80 BD 00 04 */	lwz r5, 4(r29)
-/* 801BD518 001BA478  80 0D A3 90 */	lwz r0, lbl_805A8F50@sda21(r13)
+/* 801BD518 001BA478  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
 /* 801BD51C 001BA47C  7C 05 00 00 */	cmpw r5, r0
 /* 801BD520 001BA480  41 82 00 8C */	beq lbl_801BD5AC
 /* 801BD524 001BA484  2C 1E 00 23 */	cmpwi r30, 0x23

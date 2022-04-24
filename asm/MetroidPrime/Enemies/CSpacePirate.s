@@ -1170,7 +1170,7 @@ lbl_80120D38:
 /* 80120DD4 0011DD34  48 00 00 9C */	b lbl_80120E70
 lbl_80120DD8:
 /* 80120DD8 0011DD38  A0 BE 00 C4 */	lhz r5, 0xc4(r30)
-/* 80120DDC 0011DD3C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80120DDC 0011DD3C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80120DE0 0011DD40  C3 C2 97 C0 */	lfs f30, lbl_805AB4E0@sda21(r2)
 /* 80120DE4 0011DD44  7C 05 00 40 */	cmplw r5, r0
 /* 80120DE8 0011DD48  41 82 00 48 */	beq lbl_80120E30
@@ -1558,7 +1558,7 @@ lbl_8012133C:
 /* 80121390 0011E2F0  40 82 02 00 */	bne lbl_80121590
 lbl_80121394:
 /* 80121394 0011E2F4  A0 7D 08 C8 */	lhz r3, 0x8c8(r29)
-/* 80121398 0011E2F8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80121398 0011E2F8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012139C 0011E2FC  7C 03 00 40 */	cmplw r3, r0
 /* 801213A0 0011E300  41 82 00 34 */	beq lbl_801213D4
 /* 801213A4 0011E304  A0 FD 00 08 */	lhz r7, 8(r29)
@@ -3445,7 +3445,7 @@ lbl_80122E58:
 /* 80122EA0 0011FE00  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80122EA4 0011FE04  40 82 02 00 */	bne lbl_801230A4
 /* 80122EA8 0011FE08  A0 BE 01 0E */	lhz r5, 0x10e(r30)
-/* 80122EAC 0011FE0C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80122EAC 0011FE0C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80122EB0 0011FE10  7C 05 00 40 */	cmplw r5, r0
 /* 80122EB4 0011FE14  41 82 01 F0 */	beq lbl_801230A4
 /* 80122EB8 0011FE18  80 7E 00 04 */	lwz r3, 4(r30)
@@ -4606,7 +4606,7 @@ lbl_80123ED4:
 /* 80123F04 00120E64  4B F5 8C 59 */	bl SetDestPos__10CPatternedFRC9CVector3f
 /* 80123F08 00120E68  48 00 00 30 */	b lbl_80123F38
 lbl_80123F0C:
-/* 80123F0C 00120E6C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80123F0C 00120E6C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80123F10 00120E70  7F E3 FB 78 */	mr r3, r31
 /* 80123F14 00120E74  38 81 00 2C */	addi r4, r1, 0x2c
 /* 80123F18 00120E78  B0 1F 02 DC */	sth r0, 0x2dc(r31)
@@ -5194,7 +5194,7 @@ lbl_8012467C:
 /* 80124798 001216F8  D0 41 00 C0 */	stfs f2, 0xc0(r1)
 /* 8012479C 001216FC  D0 21 00 C4 */	stfs f1, 0xc4(r1)
 /* 801247A0 00121700  4B F5 83 BD */	bl SetDestPos__10CPatternedFRC9CVector3f
-/* 801247A4 00121704  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801247A4 00121704  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801247A8 00121708  38 60 00 01 */	li r3, 1
 /* 801247AC 0012170C  B0 1D 02 DC */	sth r0, 0x2dc(r29)
 /* 801247B0 00121710  90 7D 03 0C */	stw r3, 0x30c(r29)
@@ -5291,7 +5291,7 @@ lbl_801247C4:
 /* 80124918 00121878  D0 41 00 54 */	stfs f2, 0x54(r1)
 /* 8012491C 0012187C  D0 21 00 58 */	stfs f1, 0x58(r1)
 /* 80124920 00121880  4B F5 82 3D */	bl SetDestPos__10CPatternedFRC9CVector3f
-/* 80124924 00121884  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80124924 00121884  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80124928 00121888  38 60 00 00 */	li r3, 0
 /* 8012492C 0012188C  B0 1D 02 DC */	sth r0, 0x2dc(r29)
 /* 80124930 00121890  90 7D 03 0C */	stw r3, 0x30c(r29)
@@ -5370,7 +5370,7 @@ lbl_80124A20:
 /* 80124A24 00121984  40 80 08 94 */	bge lbl_801252B8
 /* 80124A28 00121988  48 00 08 60 */	b lbl_80125288
 lbl_80124A2C:
-/* 80124A2C 0012198C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80124A2C 0012198C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80124A30 00121990  38 A1 00 28 */	addi r5, r1, 0x28
 /* 80124A34 00121994  B0 1A 08 40 */	sth r0, 0x840(r26)
 /* 80124A38 00121998  A0 1A 06 40 */	lhz r0, 0x640(r26)
@@ -5505,7 +5505,7 @@ lbl_80124BE0:
 /* 80124C28 00121B88  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80124C2C 00121B8C  40 82 02 24 */	bne lbl_80124E50
 /* 80124C30 00121B90  A0 7E 01 0E */	lhz r3, 0x10e(r30)
-/* 80124C34 00121B94  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80124C34 00121B94  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80124C38 00121B98  7C 03 00 40 */	cmplw r3, r0
 /* 80124C3C 00121B9C  40 82 02 14 */	bne lbl_80124E50
 /* 80124C40 00121BA0  80 7E 00 04 */	lwz r3, 4(r30)
@@ -5779,7 +5779,7 @@ lbl_80125024:
 lbl_80125048:
 /* 80125048 00121FA8  48 0D 16 85 */	bl PathFind__10CPatternedFR13CStateManager9EStateMsgf
 /* 8012504C 00121FAC  A0 7A 08 40 */	lhz r3, 0x840(r26)
-/* 80125050 00121FB0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80125050 00121FB0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80125054 00121FB4  7C 03 00 40 */	cmplw r3, r0
 /* 80125058 00121FB8  41 82 01 0C */	beq lbl_80125164
 /* 8012505C 00121FBC  A0 1A 08 40 */	lhz r0, 0x840(r26)
@@ -5929,7 +5929,7 @@ lbl_80125288:
 /* 8012528C 001221EC  38 80 00 00 */	li r4, 0
 /* 80125290 001221F0  38 00 00 01 */	li r0, 1
 /* 80125294 001221F4  90 9A 03 2C */	stw r4, 0x32c(r26)
-/* 80125298 001221F8  A0 6D A3 8C */	lhz r3, lbl_805A8F4C@sda21(r13)
+/* 80125298 001221F8  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
 /* 8012529C 001221FC  B0 7A 08 40 */	sth r3, 0x840(r26)
 /* 801252A0 00122200  90 1A 03 0C */	stw r0, 0x30c(r26)
 /* 801252A4 00122204  88 1A 06 39 */	lbz r0, 0x639(r26)
@@ -8017,7 +8017,7 @@ lbl_80127048:
 /* 80127078 00123FD8  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 8012707C 00123FDC  48 04 E1 9D */	bl SetTarget__13CBoneTrackingF9TUniqueId
 /* 80127080 00123FE0  A0 7E 07 C0 */	lhz r3, 0x7c0(r30)
-/* 80127084 00123FE4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80127084 00123FE4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80127088 00123FE8  7C 03 00 40 */	cmplw r3, r0
 /* 8012708C 00123FEC  40 82 00 10 */	bne lbl_8012709C
 /* 80127090 00123FF0  80 7F 08 4C */	lwz r3, 0x84c(r31)
@@ -8310,7 +8310,7 @@ HearShot__12CSpacePirateFR13CStateManagerf:
 .global PatternOver__12CSpacePirateFR13CStateManagerf
 PatternOver__12CSpacePirateFR13CStateManagerf:
 /* 8012748C 001243EC  A0 63 02 DC */	lhz r3, 0x2dc(r3)
-/* 80127490 001243F0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80127490 001243F0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80127494 001243F4  7C 03 00 50 */	subf r0, r3, r0
 /* 80127498 001243F8  7C 00 00 34 */	cntlzw r0, r0
 /* 8012749C 001243FC  54 03 D9 7E */	srwi r3, r0, 5
@@ -8888,7 +8888,7 @@ Death__12CSpacePirateFRC9CVector3fR13CStateManager:
 /* 80127CAC 00124C0C  41 82 00 AC */	beq lbl_80127D58
 /* 80127CB0 00124C10  4B F5 36 F5 */	bl Death__10CPatternedFR13CStateManagerRC9CVector3f18EScriptObjectState
 /* 80127CB4 00124C14  A0 7F 07 B4 */	lhz r3, 0x7b4(r31)
-/* 80127CB8 00124C18  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80127CB8 00124C18  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80127CBC 00124C1C  7C 03 00 40 */	cmplw r3, r0
 /* 80127CC0 00124C20  41 82 00 98 */	beq lbl_80127D58
 /* 80127CC4 00124C24  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
@@ -10663,7 +10663,7 @@ SquadRemove__12CSpacePirateFR13CStateManager:
 /* 80129694 001265F4  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 80129698 001265F8  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 8012969C 001265FC  7C 7E 1B 78 */	mr r30, r3
-/* 801296A0 00126600  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801296A0 00126600  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801296A4 00126604  A0 63 08 C8 */	lhz r3, 0x8c8(r3)
 /* 801296A8 00126608  7C 03 00 40 */	cmplw r3, r0
 /* 801296AC 0012660C  41 82 00 70 */	beq lbl_8012971C
@@ -10692,7 +10692,7 @@ SquadRemove__12CSpacePirateFR13CStateManager:
 /* 80129708 00126668  B0 01 00 08 */	sth r0, 8(r1)
 /* 8012970C 0012666C  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 80129710 00126670  48 10 FD E5 */	bl RemoveTeamAiRole__10CTeamAiMgrF9TUniqueId
-/* 80129714 00126674  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80129714 00126674  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80129718 00126678  B0 1E 08 C8 */	sth r0, 0x8c8(r30)
 lbl_8012971C:
 /* 8012971C 0012667C  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -10711,7 +10711,7 @@ SquadAdd__12CSpacePirateFR13CStateManager:
 /* 80129744 001266A4  7C 9F 23 78 */	mr r31, r4
 /* 80129748 001266A8  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8012974C 001266AC  7C 7E 1B 78 */	mr r30, r3
-/* 80129750 001266B0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80129750 001266B0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80129754 001266B4  A0 63 08 C8 */	lhz r3, 0x8c8(r3)
 /* 80129758 001266B8  7C 03 00 40 */	cmplw r3, r0
 /* 8012975C 001266BC  40 82 00 1C */	bne lbl_80129778
@@ -10723,7 +10723,7 @@ SquadAdd__12CSpacePirateFR13CStateManager:
 /* 80129774 001266D4  B0 1E 08 C8 */	sth r0, 0x8c8(r30)
 lbl_80129778:
 /* 80129778 001266D8  A0 7E 08 C8 */	lhz r3, 0x8c8(r30)
-/* 8012977C 001266DC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012977C 001266DC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80129780 001266E0  7C 03 00 40 */	cmplw r3, r0
 /* 80129784 001266E4  41 82 00 54 */	beq lbl_801297D8
 /* 80129788 001266E8  A0 1E 08 C8 */	lhz r0, 0x8c8(r30)
@@ -10767,14 +10767,14 @@ GetOrigin__12CSpacePirateCFv:
 
 .global DetachActorFromPirate__12CSpacePirateFv
 DetachActorFromPirate__12CSpacePirateFv:
-/* 8012980C 0012676C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012980C 0012676C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80129810 00126770  B0 03 07 B4 */	sth r0, 0x7b4(r3)
 /* 80129814 00126774  4E 80 00 20 */	blr 
 
 .global AttachActorToPirate__12CSpacePirateF9TUniqueId
 AttachActorToPirate__12CSpacePirateF9TUniqueId:
 /* 80129818 00126778  A0 A3 07 B4 */	lhz r5, 0x7b4(r3)
-/* 8012981C 0012677C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012981C 0012677C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80129820 00126780  7C 05 00 40 */	cmplw r5, r0
 /* 80129824 00126784  40 82 00 14 */	bne lbl_80129838
 /* 80129828 00126788  A0 04 00 00 */	lhz r0, 0(r4)
@@ -11786,9 +11786,9 @@ Accept__12CSpacePirateFR8IVisitor:
 /* 8012A678 001275D8  50 07 3E 30 */	rlwimi r7, r0, 7, 0x18, 0x18
 /* 8012A67C 001275DC  98 FD 06 3A */	stb r7, 0x63a(r29)
 /* 8012A680 001275E0  90 1D 06 3C */	stw r0, 0x63c(r29)
-/* 8012A684 001275E4  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012A684 001275E4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012A688 001275E8  B0 1D 06 40 */	sth r0, 0x640(r29)
-/* 8012A68C 001275EC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012A68C 001275EC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012A690 001275F0  B0 1D 06 42 */	sth r0, 0x642(r29)
 /* 8012A694 001275F4  D0 3D 06 44 */	stfs f1, 0x644(r29)
 /* 8012A698 001275F8  C0 06 00 00 */	lfs f0, 0(r6)
@@ -11846,14 +11846,14 @@ Accept__12CSpacePirateFR8IVisitor:
 /* 8012A768 001276C8  D0 3D 07 A8 */	stfs f1, 0x7a8(r29)
 /* 8012A76C 001276CC  D0 1D 07 AC */	stfs f0, 0x7ac(r29)
 /* 8012A770 001276D0  90 BD 07 B0 */	stw r5, 0x7b0(r29)
-/* 8012A774 001276D4  A0 AD A3 8C */	lhz r5, lbl_805A8F4C@sda21(r13)
+/* 8012A774 001276D4  A0 AD A3 8C */	lhz r5, kInvalidUniqueId@sda21(r13)
 /* 8012A778 001276D8  B0 BD 07 B4 */	sth r5, 0x7b4(r29)
 /* 8012A77C 001276DC  98 1D 07 B6 */	stb r0, 0x7b6(r29)
 /* 8012A780 001276E0  98 1D 07 B7 */	stb r0, 0x7b7(r29)
 /* 8012A784 001276E4  98 1D 07 B8 */	stb r0, 0x7b8(r29)
 /* 8012A788 001276E8  98 1D 07 B9 */	stb r0, 0x7b9(r29)
 /* 8012A78C 001276EC  D0 5D 07 BC */	stfs f2, 0x7bc(r29)
-/* 8012A790 001276F0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012A790 001276F0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012A794 001276F4  B0 1D 07 C0 */	sth r0, 0x7c0(r29)
 /* 8012A798 001276F8  80 BD 06 14 */	lwz r5, 0x614(r29)
 /* 8012A79C 001276FC  48 08 2D 69 */	bl __ct__10CBurstFireFPPC6SBursti
@@ -11875,7 +11875,7 @@ Accept__12CSpacePirateFR8IVisitor:
 /* 8012A7DC 0012773C  90 BD 08 34 */	stw r5, 0x834(r29)
 /* 8012A7E0 00127740  D0 3D 08 38 */	stfs f1, 0x838(r29)
 /* 8012A7E4 00127744  90 BD 08 3C */	stw r5, 0x83c(r29)
-/* 8012A7E8 00127748  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 8012A7E8 00127748  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8012A7EC 0012774C  B0 9D 08 40 */	sth r4, 0x840(r29)
 /* 8012A7F0 00127750  90 BD 08 44 */	stw r5, 0x844(r29)
 /* 8012A7F4 00127754  D0 7D 08 48 */	stfs f3, 0x848(r29)
@@ -11899,7 +11899,7 @@ Accept__12CSpacePirateFR8IVisitor:
 /* 8012A83C 0012779C  D0 1D 08 C0 */	stfs f0, 0x8c0(r29)
 /* 8012A840 001277A0  C0 1D 06 10 */	lfs f0, 0x610(r29)
 /* 8012A844 001277A4  D0 1D 08 C4 */	stfs f0, 0x8c4(r29)
-/* 8012A848 001277A8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012A848 001277A8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012A84C 001277AC  B0 1D 08 C8 */	sth r0, 0x8c8(r29)
 /* 8012A850 001277B0  48 21 F7 5D */	bl White__6CColorFv
 /* 8012A854 001277B4  80 03 00 00 */	lwz r0, 0(r3)
@@ -12809,7 +12809,7 @@ lbl_8012B2F4:
 /* 8012B5D0 00128530  80 01 01 F8 */	lwz r0, 0x1f8(r1)
 /* 8012B5D4 00128534  90 04 00 10 */	stw r0, 0x10(r4)
 /* 8012B5D8 00128538  80 7A 00 6C */	lwz r3, 0x6c(r26)
-/* 8012B5DC 0012853C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012B5DC 0012853C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012B5E0 00128540  A0 63 07 B4 */	lhz r3, 0x7b4(r3)
 /* 8012B5E4 00128544  83 BF 00 D4 */	lwz r29, 0xd4(r31)
 /* 8012B5E8 00128548  7C 03 00 40 */	cmplw r3, r0
@@ -13141,7 +13141,7 @@ Update__14CPirateRagDollFR13CStateManagerf:
 /* 8012BAD0 00128A30  41 82 06 88 */	beq lbl_8012C158
 lbl_8012BAD4:
 /* 8012BAD4 00128A34  80 7E 00 6C */	lwz r3, 0x6c(r30)
-/* 8012BAD8 00128A38  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8012BAD8 00128A38  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8012BADC 00128A3C  A0 63 07 B4 */	lhz r3, 0x7b4(r3)
 /* 8012BAE0 00128A40  7C 03 00 40 */	cmplw r3, r0
 /* 8012BAE4 00128A44  41 82 01 70 */	beq lbl_8012BC54

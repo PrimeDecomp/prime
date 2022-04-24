@@ -1588,7 +1588,7 @@ CreateFlameThrower__12CIceSheegothFR13CStateManager:
 /* 8019F474 0019C3D4  BF 21 00 74 */	stmw r25, 0x74(r1)
 /* 8019F478 0019C3D8  7C 7E 1B 78 */	mr r30, r3
 /* 8019F47C 0019C3DC  7C 9F 23 78 */	mr r31, r4
-/* 8019F480 0019C3E0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8019F480 0019C3E0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8019F484 0019C3E4  A0 63 0A 80 */	lhz r3, 0xa80(r3)
 /* 8019F488 0019C3E8  7C 03 00 40 */	cmplw r3, r0
 /* 8019F48C 0019C3EC  40 82 01 2C */	bne lbl_8019F5B8
@@ -8066,7 +8066,7 @@ lbl_801A5160:
 /* 801A5164 001A20C4  7F C4 F3 78 */	mr r4, r30
 /* 801A5168 001A20C8  48 00 22 5D */	bl Destroy__22CCollisionActorManagerCFR13CStateManager
 /* 801A516C 001A20CC  A0 7F 0A 80 */	lhz r3, 0xa80(r31)
-/* 801A5170 001A20D0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A5170 001A20D0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A5174 001A20D4  7C 03 00 40 */	cmplw r3, r0
 /* 801A5178 001A20D8  41 82 00 20 */	beq lbl_801A5198
 /* 801A517C 001A20DC  A0 1F 0A 80 */	lhz r0, 0xa80(r31)
@@ -8074,7 +8074,7 @@ lbl_801A5160:
 /* 801A5184 001A20E4  38 81 00 3C */	addi r4, r1, 0x3c
 /* 801A5188 001A20E8  B0 01 00 3C */	sth r0, 0x3c(r1)
 /* 801A518C 001A20EC  4B EA 70 E1 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 801A5190 001A20F0  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A5190 001A20F0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A5194 001A20F4  B0 1F 0A 80 */	sth r0, 0xa80(r31)
 lbl_801A5198:
 /* 801A5198 001A20F8  80 1F 0A F0 */	lwz r0, 0xaf0(r31)
@@ -9162,7 +9162,7 @@ lbl_801A5E20:
 /* 801A6128 001A3088  D0 1C 00 24 */	stfs f0, 0x24(r28)
 /* 801A612C 001A308C  80 9F 01 50 */	lwz r4, 0x150(r31)
 /* 801A6130 001A3090  48 07 5F 79 */	bl __ct__15CProjectileInfoFUiRC11CDamageInfo
-/* 801A6134 001A3094  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A6134 001A3094  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A6138 001A3098  3B 80 00 00 */	li r28, 0
 /* 801A613C 001A309C  3B C0 00 00 */	li r30, 0
 /* 801A6140 001A30A0  B0 1D 0A 80 */	sth r0, 0xa80(r29)
@@ -9455,9 +9455,9 @@ lbl_801A6520:
 /* 801A658C 001A34EC  90 9D 0A EC */	stw r4, 0xaec(r29)
 /* 801A6590 001A34F0  90 9D 0A F0 */	stw r4, 0xaf0(r29)
 /* 801A6594 001A34F4  98 1D 0A F4 */	stb r0, 0xaf4(r29)
-/* 801A6598 001A34F8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A6598 001A34F8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A659C 001A34FC  B0 1D 0A F6 */	sth r0, 0xaf6(r29)
-/* 801A65A0 001A3500  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 801A65A0 001A3500  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801A65A4 001A3504  B0 1D 0A F8 */	sth r0, 0xaf8(r29)
 /* 801A65A8 001A3508  90 9D 0A FC */	stw r4, 0xafc(r29)
 /* 801A65AC 001A350C  90 9D 0B 04 */	stw r4, 0xb04(r29)

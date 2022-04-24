@@ -1112,7 +1112,7 @@ UpdateVisorSplash__13CEnvFxManagerFR13CStateManagerfRC12CTransform4f:
 /* 80210D2C 0020DC8C  7C 9F 23 78 */	mr r31, r4
 /* 80210D30 0020DC90  A0 63 0B 68 */	lhz r3, 0xb68(r3)
 /* 80210D34 0020DC94  7C BC 2B 78 */	mr r28, r5
-/* 80210D38 0020DC98  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80210D38 0020DC98  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80210D3C 0020DC9C  80 84 08 50 */	lwz r4, 0x850(r4)
 /* 80210D40 0020DCA0  7C 03 00 40 */	cmplw r3, r0
 /* 80210D44 0020DCA4  83 A4 00 C4 */	lwz r29, 0xc4(r4)
@@ -2889,7 +2889,7 @@ lbl_802126AC:
 
 .global sub_802126c4
 sub_802126c4:
-/* 802126C4 0020F624  A0 8D A3 8C */	lhz r4, lbl_805A8F4C@sda21(r13)
+/* 802126C4 0020F624  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 802126C8 0020F628  38 00 00 00 */	li r0, 0
 /* 802126CC 0020F62C  B0 83 0B 68 */	sth r4, 0xb68(r3)
 /* 802126D0 0020F630  98 03 0B 6A */	stb r0, 0xb6a(r3)
@@ -3813,7 +3813,7 @@ lbl_80213428:
 /* 80213434 00210394  38 61 00 4C */	addi r3, r1, 0x4c
 /* 80213438 00210398  38 80 FF FF */	li r4, -1
 /* 8021343C 0021039C  48 12 DA 05 */	bl __dt__6CTokenFv
-/* 80213440 002103A0  A0 AD A3 8C */	lhz r5, lbl_805A8F4C@sda21(r13)
+/* 80213440 002103A0  A0 AD A3 8C */	lhz r5, kInvalidUniqueId@sda21(r13)
 /* 80213444 002103A4  3C 60 80 3D */	lis r3, lbl_803D2818@ha
 /* 80213448 002103A8  38 83 28 18 */	addi r4, r3, lbl_803D2818@l
 /* 8021344C 002103AC  38 00 00 00 */	li r0, 0

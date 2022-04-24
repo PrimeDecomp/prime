@@ -865,7 +865,7 @@ sub_80289340:
 /* 802893A0 00286300  38 81 00 08 */	addi r4, r1, 8
 /* 802893A4 00286304  B0 01 00 08 */	sth r0, 8(r1)
 /* 802893A8 00286308  4B DC 2E C5 */	bl FreeScriptObject__13CStateManagerF9TUniqueId
-/* 802893AC 0028630C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 802893AC 0028630C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 802893B0 00286310  B0 1E 00 F4 */	sth r0, 0xf4(r30)
 /* 802893B4 00286314  A0 1E 00 F4 */	lhz r0, 0xf4(r30)
 /* 802893B8 00286318  B0 1E 01 0C */	sth r0, 0x10c(r30)
@@ -1077,7 +1077,7 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 802896B0 00286610  4B DB 10 F5 */	bl CModelDataNull__10CModelDataFv
 /* 802896B4 00286614  38 61 00 20 */	addi r3, r1, 0x20
 /* 802896B8 00286618  4B D9 17 81 */	bl None__16CActorParametersFv
-/* 802896BC 0028661C  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 802896BC 0028661C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 802896C0 00286620  38 80 00 00 */	li r4, 0
 /* 802896C4 00286624  A1 94 00 00 */	lhz r12, 0(r20)
 /* 802896C8 00286628  39 61 00 20 */	addi r11, r1, 0x20
@@ -1113,10 +1113,10 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 80289740 002866A0  93 3F 00 E8 */	stw r25, 0xe8(r31)
 /* 80289744 002866A4  93 5F 00 EC */	stw r26, 0xec(r31)
 /* 80289748 002866A8  93 7F 00 F0 */	stw r27, 0xf0(r31)
-/* 8028974C 002866AC  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 8028974C 002866AC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80289750 002866B0  B0 1F 00 F4 */	sth r0, 0xf4(r31)
 /* 80289754 002866B4  D0 1F 00 F8 */	stfs f0, 0xf8(r31)
-/* 80289758 002866B8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80289758 002866B8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8028975C 002866BC  B0 1F 00 FC */	sth r0, 0xfc(r31)
 /* 80289760 002866C0  C0 1C 00 00 */	lfs f0, 0(r28)
 /* 80289764 002866C4  D0 1F 01 00 */	stfs f0, 0x100(r31)
@@ -1124,7 +1124,7 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 8028976C 002866CC  D0 1F 01 04 */	stfs f0, 0x104(r31)
 /* 80289770 002866D0  C0 1C 00 08 */	lfs f0, 8(r28)
 /* 80289774 002866D4  D0 1F 01 08 */	stfs f0, 0x108(r31)
-/* 80289778 002866D8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80289778 002866D8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8028977C 002866DC  B0 1F 01 0C */	sth r0, 0x10c(r31)
 /* 80289780 002866E0  C0 1D 00 00 */	lfs f0, 0(r29)
 /* 80289784 002866E4  D0 1F 01 10 */	stfs f0, 0x110(r31)
@@ -1132,7 +1132,7 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 8028978C 002866EC  D0 1F 01 14 */	stfs f0, 0x114(r31)
 /* 80289790 002866F0  C0 1D 00 08 */	lfs f0, 8(r29)
 /* 80289794 002866F4  D0 1F 01 18 */	stfs f0, 0x118(r31)
-/* 80289798 002866F8  A0 0D A3 8C */	lhz r0, lbl_805A8F4C@sda21(r13)
+/* 80289798 002866F8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8028979C 002866FC  B0 1F 01 1C */	sth r0, 0x11c(r31)
 /* 802897A0 00286700  C0 1E 00 00 */	lfs f0, 0(r30)
 /* 802897A4 00286704  D0 1F 01 20 */	stfs f0, 0x120(r31)
