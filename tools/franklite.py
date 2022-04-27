@@ -12,7 +12,7 @@ import argparse
 BLR_BYTE_SEQ = b"\x4E\x80\x00\x20"
 MTLR_BYTE_SEQ = b"\x7C\x08\x03\xA6"
 
-# Example invocation: ./frank.py vanilla.o profile.o output.o
+# Example invocation: ./frank.py vanilla.o target.o
 parser = argparse.ArgumentParser()
 parser.add_argument("vanilla", help="Path to the vanilla object", type=argparse.FileType('rb'))
 parser.add_argument("target", help="Path to the target object (to write)")
