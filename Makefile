@@ -22,13 +22,7 @@ endif
 NAME := mp1
 VERSION ?= 0
 
-# Overkill epilogue fixup strategy. Set to 1 if necessary.
-EPILOGUE_PROCESS := 1
-
 BUILD_DIR := build/$(NAME).$(VERSION)
-ifeq ($(EPILOGUE_PROCESS),1)
-EPILOGUE_DIR := epilogue/$(NAME).$(VERSION)
-endif
 
 # Inputs
 S_FILES := $(wildcard asm/*.s)
@@ -48,9 +42,6 @@ ifeq ($(MAPGENFLAG),1)
 endif
 
 include obj_files.mk
-ifeq ($(EPILOGUE_PROCESS),1)
-include e_files.mk
-endif
 
 O_FILES := $(INIT_O_FILES) $(EXTAB_O_FILES) $(EXTABINDEX_O_FILES) $(METROTRK_FILES) \
 	   $(METROIDPRIME) $(WORLDFORMAT) $(WEAPONS) $(METARENDER) $(GUISYS) $(COLLISION) \
@@ -63,40 +54,30 @@ DEPENDS := $(O_FILES:.o=.d)
 # If a specific .o file is passed as a target, also process its deps
 DEPENDS += $(MAKECMDGOALS:.o=.d)
 
-ifeq ($(EPILOGUE_PROCESS),1)
-E_FILES :=	$(EPILOGUE_UNSCHEDULED)
-endif
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
 
 MWCC_VERSION := 2.7
-ifeq ($(EPILOGUE_PROCESS),1)
-MWCC_EPI_VERSION := 1.2.5
-MWCC_EPI_EXE := mwcceppc.exe
-endif
 MWLD_VERSION := 2.6
 
 # Programs
 export WINEDEBUG ?= -all
 ifeq ($(WINDOWS),1)
-  WINE :=
+  WINE    :=
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as.exe
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp.exe -P
 else
-  WINE ?= wine
+  WINE      ?= wine
   DEVKITPPC ?= /opt/devkitpro/devkitPPC
-  DEPENDS := $(DEPENDS:.d=.d.unix)
-  AS      := $(DEVKITPPC)/bin/powerpc-eabi-as
-  CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp -P
+  DEPENDS   := $(DEPENDS:.d=.d.unix)
+  AS        := $(DEVKITPPC)/bin/powerpc-eabi-as
+  CPP       := $(DEVKITPPC)/bin/powerpc-eabi-cpp -P
 endif
-CC      = $(WINE) tools/mwcc_compiler/$(MWCC_VERSION)/mwcceppc.exe
-ifeq ($(EPILOGUE_PROCESS),1)
-CC_EPI  = $(WINE) tools/mwcc_compiler/$(MWCC_EPI_VERSION)/$(MWCC_EPI_EXE)
-endif
+CC      =  $(WINE) tools/mwcc_compiler/$(MWCC_VERSION)/mwcceppc.exe
 LD      := $(WINE) tools/mwcc_compiler/$(MWLD_VERSION)/mwldeppc.exe
 ELF2DOL := tools/elf2dol
-SHA1SUM := sha1sum
+SHA1SUM := shasum -a 1
 PYTHON  := python3
 
 TRANSFORM_DEP := tools/transform-dep.py
@@ -141,17 +122,9 @@ default: all
 all: $(DOL)
 
 ALL_DIRS := $(sort $(dir $(O_FILES)))
-ifeq ($(EPILOGUE_PROCESS),1)
-EPI_DIRS := $(sort $(dir $(E_FILES)))
-endif
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
-
-# ifeq ($(EPILOGUE_PROCESS),1)
-# Make sure profile directory exists before compiling anything
-# DUMMY != mkdir -p $(EPI_DIRS)
-# endif
 
 .PHONY: tools
 
@@ -172,17 +145,10 @@ tools:
 	$(MAKE) -C tools
 
 # ELF creation makefile instructions
-ifeq ($(EPILOGUE_PROCESS),1)
-	@echo Linking ELF $@
-$(ELF): $(O_FILES) $(E_FILES) $(LDSCRIPT)
-	$(QUIET) @echo $(O_FILES) > build/o_files
-	$(QUIET) $(LD) $(LDFLAGS) -o $@ -lcf $(LDSCRIPT) @build/o_files
-else
 $(ELF): $(O_FILES) $(LDSCRIPT)
 	@echo Linking ELF $@
 	$(QUIET) @echo $(O_FILES) > build/o_files
 	$(QUIET) $(LD) $(LDFLAGS) -o $@ -lcf $(LDSCRIPT) @build/o_files
-endif
 
 %.d.unix: %.d $(TRANSFORM_DEP)
 	@echo Processing $<
@@ -193,6 +159,10 @@ endif
 $(BUILD_DIR)/%.o: %.s
 	@echo Assembling $<
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
+
+$(BUILD_DIR)/%.ep.o: $(BUILD_DIR)/%.o
+	@echo Frank is fixing $<
+	$(QUIET) $(PYTHON) $(FRANK) $< $@
 
 $(BUILD_DIR)/%.o: %.c
 	@echo "Compiling " $<
@@ -205,22 +175,6 @@ $(BUILD_DIR)/%.o: %.cp
 $(BUILD_DIR)/%.o: %.cpp
 	@echo "Compiling " $<
 	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
-
-ifeq ($(EPILOGUE_PROCESS),1)
-$(EPILOGUE_DIR)/%.o: %.c $(BUILD_DIR)/%.o
-	@echo Frank is fixing $<
-	$(QUIET) $(PYTHON) $(FRANK) $(word 2,$^) $(word 2,$^)
-
-$(EPILOGUE_DIR)/%.o: %.cp $(BUILD_DIR)/%.o
-	@echo Frank is fixing $<
-	$(QUIET) $(PYTHON) $(FRANK) $(word 2,$^) $(word 2,$^)
-
-$(EPILOGUE_DIR)/%.o: %.cpp $(BUILD_DIR)/%.o
-	@echo Frank is fixing $<
-	$(QUIET) $(PYTHON) $(FRANK) $(word 2,$^) $(word 2,$^)
-endif
-# If we need Frank, add the following after the @echo
-# $(QUIET) $(CC_EPI) $(CFLAGS) -c -o $@ $<
 
 ### Debug Print ###
 
