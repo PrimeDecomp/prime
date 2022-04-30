@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 static const char* __DSPVersion = "<< Dolphin SDK - DSP\trelease build: Sep  5 2002 05:35:13 (0x2301) >>";
-extern s32 __DSP_init_flag = 0;
+static s32 __DSP_init_flag = 0;
 extern DSPTaskInfo* __DSP_tmp_task;
 extern DSPTaskInfo* __DSP_last_task;
 extern DSPTaskInfo* __DSP_first_task;
