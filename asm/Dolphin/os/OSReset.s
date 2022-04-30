@@ -1,14 +1,14 @@
 .include "macros.inc"
 
 .section .sbss
-lbl_805A98F8:
+ResetFunctionQueue:
 	.skip 0x8
 	
 .section .text, "ax"
 
 .global OSRegisterResetFunction
 OSRegisterResetFunction:
-/* 8038302C 0037FF8C  80 AD AD 38 */	lwz r5, lbl_805A98F8@sda21(r13)
+/* 8038302C 0037FF8C  80 AD AD 38 */	lwz r5, ResetFunctionQueue@sda21(r13)
 /* 80383030 0037FF90  48 00 00 08 */	b lbl_80383038
 lbl_80383034:
 /* 80383034 0037FF94  80 A5 00 08 */	lwz r5, 8(r5)
@@ -22,11 +22,11 @@ lbl_80383038:
 lbl_80383050:
 /* 80383050 0037FFB0  28 05 00 00 */	cmplwi r5, 0
 /* 80383054 0037FFB4  40 82 00 34 */	bne lbl_80383088
-/* 80383058 0037FFB8  38 AD AD 38 */	addi r5, r13, lbl_805A98F8@sda21
+/* 80383058 0037FFB8  38 AD AD 38 */	addi r5, r13, ResetFunctionQueue@sda21
 /* 8038305C 0037FFBC  84 85 00 04 */	lwzu r4, 4(r5)
 /* 80383060 0037FFC0  28 04 00 00 */	cmplwi r4, 0
 /* 80383064 0037FFC4  40 82 00 0C */	bne lbl_80383070
-/* 80383068 0037FFC8  90 6D AD 38 */	stw r3, lbl_805A98F8@sda21(r13)
+/* 80383068 0037FFC8  90 6D AD 38 */	stw r3, ResetFunctionQueue@sda21(r13)
 /* 8038306C 0037FFCC  48 00 00 08 */	b lbl_80383074
 lbl_80383070:
 /* 80383070 0037FFD0  90 64 00 08 */	stw r3, 8(r4)
@@ -43,7 +43,7 @@ lbl_80383088:
 /* 80383094 0037FFF4  28 04 00 00 */	cmplwi r4, 0
 /* 80383098 0037FFF8  90 83 00 0C */	stw r4, 0xc(r3)
 /* 8038309C 0037FFFC  40 82 00 0C */	bne lbl_803830A8
-/* 803830A0 00380000  90 6D AD 38 */	stw r3, lbl_805A98F8@sda21(r13)
+/* 803830A0 00380000  90 6D AD 38 */	stw r3, ResetFunctionQueue@sda21(r13)
 /* 803830A4 00380004  4E 80 00 20 */	blr 
 lbl_803830A8:
 /* 803830A8 00380008  90 64 00 08 */	stw r3, 8(r4)
@@ -59,7 +59,7 @@ __OSCallResetFunctions:
 /* 803830C4 00380024  3B C0 00 00 */	li r30, 0
 /* 803830C8 00380028  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803830CC 0038002C  3B A3 00 00 */	addi r29, r3, 0
-/* 803830D0 00380030  83 ED AD 38 */	lwz r31, lbl_805A98F8@sda21(r13)
+/* 803830D0 00380030  83 ED AD 38 */	lwz r31, ResetFunctionQueue@sda21(r13)
 /* 803830D4 00380034  48 00 00 24 */	b lbl_803830F8
 lbl_803830D8:
 /* 803830D8 00380038  81 9F 00 00 */	lwz r12, 0(r31)
@@ -91,7 +91,6 @@ lbl_80383120:
 /* 80383134 00380094  7C 08 03 A6 */	mtlr r0
 /* 80383138 00380098  4E 80 00 20 */	blr 
 
-.global Reset
 Reset:
 /* 8038313C 0038009C  48 00 00 20 */	b lbl_8038315C
 lbl_80383140:
@@ -173,7 +172,7 @@ lbl_8038322C:
 lbl_80383230:
 /* 80383230 00380190  48 00 00 04 */	b lbl_80383234
 lbl_80383234:
-/* 80383234 00380194  83 6D AD 38 */	lwz r27, lbl_805A98F8@sda21(r13)
+/* 80383234 00380194  83 6D AD 38 */	lwz r27, ResetFunctionQueue@sda21(r13)
 /* 80383238 00380198  3B 80 00 00 */	li r28, 0
 /* 8038323C 0038019C  48 00 00 04 */	b lbl_80383240
 lbl_80383240:
@@ -224,7 +223,7 @@ lbl_803832CC:
 /* 803832D4 00380234  41 82 FF F8 */	beq lbl_803832CC
 lbl_803832D8:
 /* 803832D8 00380238  4B FF E3 89 */	bl OSDisableInterrupts
-/* 803832DC 0038023C  83 8D AD 38 */	lwz r28, lbl_805A98F8@sda21(r13)
+/* 803832DC 0038023C  83 8D AD 38 */	lwz r28, ResetFunctionQueue@sda21(r13)
 /* 803832E0 00380240  3B 60 00 00 */	li r27, 0
 /* 803832E4 00380244  48 00 00 04 */	b lbl_803832E8
 lbl_803832E8:
@@ -285,7 +284,7 @@ lbl_80383390:
 /* 80383398 003802F8  48 00 12 89 */	bl OSEnableScheduler
 /* 8038339C 003802FC  7F A3 EB 78 */	mr r3, r29
 /* 803833A0 00380300  7F C4 F3 78 */	mr r4, r30
-/* 803833A4 00380304  4B FF FA A1 */	bl sub_80382e44
+/* 803833A4 00380304  4B FF FA A1 */	bl __OSReboot
 lbl_803833A8:
 /* 803833A8 00380308  3C 60 80 00 */	lis r3, 0x800000DC@ha
 /* 803833AC 0038030C  80 63 00 DC */	lwz r3, 0x800000DC@l(r3)

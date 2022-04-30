@@ -110,6 +110,8 @@ $(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/Dolphin/dsp/dsp.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/Dolphin/dsp/dsp.o: CFLAGS := $(CFLAGS_1.2)
 
 #-------------------------------------------------------------------------------
 # Recipes
