@@ -55,7 +55,7 @@ lbl_802D6868:
 /* 802D68D0 002D3830  38 C3 0D 1E */	addi r6, r3, 0xD1DD0D1E@l
 /* 802D68D4 002D3834  38 60 00 FF */	li r3, 0xff
 /* 802D68D8 002D3838  38 A0 00 00 */	li r5, 0
-/* 802D68DC 002D383C  48 00 00 7D */	bl sub_802d6958
+/* 802D68DC 002D383C  48 00 00 7D */	bl ErrorHandler
 /* 802D68E0 002D3840  80 01 03 54 */	lwz r0, 0x354(r1)
 /* 802D68E4 002D3844  83 E1 03 4C */	lwz r31, 0x34c(r1)
 /* 802D68E8 002D3848  83 C1 03 48 */	lwz r30, 0x348(r1)
@@ -68,30 +68,30 @@ lbl_802D6868:
 SetErrorHandlers:
 /* 802D68FC 002D385C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802D6900 002D3860  7C 08 02 A6 */	mflr r0
-/* 802D6904 002D3864  3C 80 80 2D */	lis r4, sub_802d6958@ha
+/* 802D6904 002D3864  3C 80 80 2D */	lis r4, ErrorHandler@ha
 /* 802D6908 002D3868  38 60 00 02 */	li r3, 2
 /* 802D690C 002D386C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802D6910 002D3870  38 84 69 58 */	addi r4, r4, sub_802d6958@l
+/* 802D6910 002D3870  38 84 69 58 */	addi r4, r4, ErrorHandler@l
 /* 802D6914 002D3874  48 0A 92 45 */	bl OSSetErrorHandler
-/* 802D6918 002D3878  3C 80 80 2D */	lis r4, sub_802d6958@ha
+/* 802D6918 002D3878  3C 80 80 2D */	lis r4, ErrorHandler@ha
 /* 802D691C 002D387C  38 60 00 03 */	li r3, 3
-/* 802D6920 002D3880  38 84 69 58 */	addi r4, r4, sub_802d6958@l
+/* 802D6920 002D3880  38 84 69 58 */	addi r4, r4, ErrorHandler@l
 /* 802D6924 002D3884  48 0A 92 35 */	bl OSSetErrorHandler
-/* 802D6928 002D3888  3C 80 80 2D */	lis r4, sub_802d6958@ha
+/* 802D6928 002D3888  3C 80 80 2D */	lis r4, ErrorHandler@ha
 /* 802D692C 002D388C  38 60 00 05 */	li r3, 5
-/* 802D6930 002D3890  38 84 69 58 */	addi r4, r4, sub_802d6958@l
+/* 802D6930 002D3890  38 84 69 58 */	addi r4, r4, ErrorHandler@l
 /* 802D6934 002D3894  48 0A 92 25 */	bl OSSetErrorHandler
-/* 802D6938 002D3898  3C 80 80 2D */	lis r4, sub_802d6958@ha
+/* 802D6938 002D3898  3C 80 80 2D */	lis r4, ErrorHandler@ha
 /* 802D693C 002D389C  38 60 00 0F */	li r3, 0xf
-/* 802D6940 002D38A0  38 84 69 58 */	addi r4, r4, sub_802d6958@l
+/* 802D6940 002D38A0  38 84 69 58 */	addi r4, r4, ErrorHandler@l
 /* 802D6944 002D38A4  48 0A 92 15 */	bl OSSetErrorHandler
 /* 802D6948 002D38A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D694C 002D38AC  7C 08 03 A6 */	mtlr r0
 /* 802D6950 002D38B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 802D6954 002D38B4  4E 80 00 20 */	blr 
 
-.global sub_802d6958
-sub_802d6958:
+.global ErrorHandler
+ErrorHandler:
 /* 802D6958 002D38B8  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 802D695C 002D38BC  7C 08 02 A6 */	mflr r0
 /* 802D6960 002D38C0  90 01 00 74 */	stw r0, 0x74(r1)
@@ -118,7 +118,7 @@ lbl_802D699C:
 /* 802D69B0 002D3910  3A E0 00 00 */	li r23, 0
 /* 802D69B4 002D3914  38 60 00 00 */	li r3, 0
 /* 802D69B8 002D3918  38 80 00 00 */	li r4, 0
-/* 802D69BC 002D391C  48 0B 02 21 */	bl sub_80386bdc
+/* 802D69BC 002D391C  48 0B 02 21 */	bl PADControlMotor
 /* 802D69C0 002D3920  38 60 00 01 */	li r3, 1
 /* 802D69C4 002D3924  48 0B 28 E9 */	bl VISetBlack
 /* 802D69C8 002D3928  48 0B 27 49 */	bl VIFlush

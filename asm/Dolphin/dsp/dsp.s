@@ -1,35 +1,18 @@
 .include "macros.inc"
 
 .section .sdata
-.global lbl_805A8A80
-lbl_805A8A80:
-	.incbin "baserom.dol", 0x3F6420, 0x8
+.global __DSPVersion
+__DSPVersion:
+	.4byte __DSPVersionString
+	.balign 8
 	
 .section .sbss
-.global lbl_805A9748
-lbl_805A9748:
+.global __DSP_init_flag
+__DSP_init_flag:
 	.skip 0x8
-.global lbl_805A9750
-lbl_805A9750:
-	.skip 0x4
-.global lbl_805A9754
-lbl_805A9754:
-	.skip 0x4
-.global lbl_805A9758
-lbl_805A9758:
-	.skip 0x4
-.global lbl_805A975C
-lbl_805A975C:
-	.skip 0x4
-.global lbl_805A9760
-lbl_805A9760:
-	.skip 0x4
-.global lbl_805A9764
-lbl_805A9764:
-	.skip 0x4
 	
 .section .data
-lbl_803EF9D0:
+__DSPVersionString:
 	.asciz "<< Dolphin SDK - DSP\trelease build: Sep  5 2002 05:35:13 (0x2301) >>"
 	.balign 4
 	.asciz "DSPInit(): Build Date: %s %s\n"
@@ -74,9 +57,9 @@ DSPSendMailToDSP:
 .global DSPInit
 DSPInit:
 /* 8036FA04 0036C964  7C 08 02 A6 */	mflr r0
-/* 8036FA08 0036C968  3C 60 80 3F */	lis r3, lbl_803EF9D0@ha
+/* 8036FA08 0036C968  3C 60 80 3F */	lis r3, __DSPVersionString@ha
 /* 8036FA0C 0036C96C  90 01 00 04 */	stw r0, 4(r1)
-/* 8036FA10 0036C970  38 A3 F9 D0 */	addi r5, r3, lbl_803EF9D0@l
+/* 8036FA10 0036C970  38 A3 F9 D0 */	addi r5, r3, __DSPVersionString@l
 /* 8036FA14 0036C974  4C C6 31 82 */	crclr 6
 /* 8036FA18 0036C978  38 65 00 48 */	addi r3, r5, 0x48
 /* 8036FA1C 0036C97C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -84,10 +67,10 @@ DSPInit:
 /* 8036FA24 0036C984  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8036FA28 0036C988  38 A5 00 74 */	addi r5, r5, 0x74
 /* 8036FA2C 0036C98C  48 00 01 A5 */	bl __DSP_debug_printf
-/* 8036FA30 0036C990  80 0D AB 88 */	lwz r0, lbl_805A9748@sda21(r13)
+/* 8036FA30 0036C990  80 0D AB 88 */	lwz r0, __DSP_init_flag@sda21(r13)
 /* 8036FA34 0036C994  2C 00 00 01 */	cmpwi r0, 1
 /* 8036FA38 0036C998  41 82 00 7C */	beq lbl_8036FAB4
-/* 8036FA3C 0036C99C  80 6D 9E C0 */	lwz r3, lbl_805A8A80@sda21(r13)
+/* 8036FA3C 0036C99C  80 6D 9E C0 */	lwz r3, __DSPVersion@sda21(r13)
 /* 8036FA40 0036C9A0  48 00 E5 F9 */	bl OSRegisterVersion
 /* 8036FA44 0036C9A4  48 01 1C 1D */	bl OSDisableInterrupts
 /* 8036FA48 0036C9A8  3C 80 80 37 */	lis r4, __DSPHandler@ha
@@ -111,11 +94,11 @@ DSPInit:
 /* 8036FA90 0036C9F0  38 7F 00 00 */	addi r3, r31, 0
 /* 8036FA94 0036C9F4  7C E5 28 38 */	and r5, r7, r5
 /* 8036FA98 0036C9F8  B0 A6 00 0A */	sth r5, 0xa(r6)
-/* 8036FA9C 0036C9FC  90 8D AB 98 */	stw r4, lbl_805A9758@sda21(r13)
-/* 8036FAA0 0036CA00  90 8D AB A4 */	stw r4, lbl_805A9764@sda21(r13)
-/* 8036FAA4 0036CA04  90 8D AB 9C */	stw r4, lbl_805A975C@sda21(r13)
-/* 8036FAA8 0036CA08  90 8D AB A0 */	stw r4, lbl_805A9760@sda21(r13)
-/* 8036FAAC 0036CA0C  90 0D AB 88 */	stw r0, lbl_805A9748@sda21(r13)
+/* 8036FA9C 0036C9FC  90 8D AB 98 */	stw r4, __DSP_tmp_task@sda21(r13)
+/* 8036FAA0 0036CA00  90 8D AB A4 */	stw r4, __DSP_curr_task@sda21(r13)
+/* 8036FAA4 0036CA04  90 8D AB 9C */	stw r4, __DSP_last_task@sda21(r13)
+/* 8036FAA8 0036CA08  90 8D AB A0 */	stw r4, __DSP_first_task@sda21(r13)
+/* 8036FAAC 0036CA0C  90 0D AB 88 */	stw r0, __DSP_init_flag@sda21(r13)
 /* 8036FAB0 0036CA10  48 01 1B D9 */	bl OSRestoreInterrupts
 lbl_8036FAB4:
 /* 8036FAB4 0036CA14  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -138,7 +121,7 @@ DSPReset:
 /* 8036FAEC 0036CA4C  60 00 08 01 */	ori r0, r0, 0x801
 /* 8036FAF0 0036CA50  B0 04 00 0A */	sth r0, 0xa(r4)
 /* 8036FAF4 0036CA54  38 00 00 00 */	li r0, 0
-/* 8036FAF8 0036CA58  90 0D AB 88 */	stw r0, lbl_805A9748@sda21(r13)
+/* 8036FAF8 0036CA58  90 0D AB 88 */	stw r0, __DSP_init_flag@sda21(r13)
 /* 8036FAFC 0036CA5C  48 01 1B 8D */	bl OSRestoreInterrupts
 /* 8036FB00 0036CA60  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8036FB04 0036CA64  38 21 00 08 */	addi r1, r1, 8
@@ -189,7 +172,7 @@ DSPAddTask:
 /* 8036FB94 0036CAF4  38 7F 00 00 */	addi r3, r31, 0
 /* 8036FB98 0036CAF8  90 1E 00 08 */	stw r0, 8(r30)
 /* 8036FB9C 0036CAFC  48 01 1A ED */	bl OSRestoreInterrupts
-/* 8036FBA0 0036CB00  80 0D AB A0 */	lwz r0, lbl_805A9760@sda21(r13)
+/* 8036FBA0 0036CB00  80 0D AB A0 */	lwz r0, __DSP_first_task@sda21(r13)
 /* 8036FBA4 0036CB04  7C 1E 00 40 */	cmplw r30, r0
 /* 8036FBA8 0036CB08  40 82 00 0C */	bne lbl_8036FBB4
 /* 8036FBAC 0036CB0C  7F C3 F3 78 */	mr r3, r30

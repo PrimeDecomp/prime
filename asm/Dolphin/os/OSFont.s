@@ -17,8 +17,8 @@ lbl_805A98CC:
 	
 .section .data
 .balign 8
-.global lbl_803F1750
-lbl_803F1750:
+.global HankakuToCode
+HankakuToCode:
 	.4byte 0x020C020D
 	.4byte 0x020E020F
 	.4byte 0x02100211
@@ -116,8 +116,8 @@ lbl_803F1750:
 	.4byte 0x02A602A7
 	.4byte 0x02A802A9
 	
-.global lbl_803F18D0
-lbl_803F18D0:
+.global Zenkaku2Code
+Zenkaku2Code:
 
 	.4byte 0x00000001
 	.4byte 0x00020003
@@ -748,8 +748,8 @@ lbl_805AEC5C:
 
 .section .text, "ax"
 
-.global sub_80380c34
-sub_80380c34:
+.global GetFontCode
+GetFontCode:
 /* 80380C34 0037DB94  7C 08 02 A6 */	mflr r0
 /* 80380C38 0037DB98  90 01 00 04 */	stw r0, 4(r1)
 /* 80380C3C 0037DB9C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -764,8 +764,8 @@ sub_80380c34:
 /* 80380C60 0037DBC0  41 80 00 24 */	blt lbl_80380C84
 /* 80380C64 0037DBC4  28 00 00 DF */	cmplwi r0, 0xdf
 /* 80380C68 0037DBC8  41 81 00 1C */	bgt lbl_80380C84
-/* 80380C6C 0037DBCC  3C 60 80 3F */	lis r3, lbl_803F1750@ha
-/* 80380C70 0037DBD0  38 63 17 50 */	addi r3, r3, lbl_803F1750@l
+/* 80380C6C 0037DBCC  3C 60 80 3F */	lis r3, HankakuToCode@ha
+/* 80380C70 0037DBD0  38 63 17 50 */	addi r3, r3, HankakuToCode@l
 /* 80380C74 0037DBD4  54 00 08 3C */	slwi r0, r0, 1
 /* 80380C78 0037DBD8  7C 63 02 14 */	add r3, r3, r0
 /* 80380C7C 0037DBDC  A0 63 FF C0 */	lhz r3, -0x40(r3)
@@ -844,9 +844,9 @@ lbl_80380D70:
 /* 80380D7C 0037DCDC  38 63 FF FF */	addi r3, r3, -1
 lbl_80380D80:
 /* 80380D80 0037DCE0  7C 05 1A 14 */	add r0, r5, r3
-/* 80380D84 0037DCE4  3C 60 80 3F */	lis r3, lbl_803F18D0@ha
+/* 80380D84 0037DCE4  3C 60 80 3F */	lis r3, Zenkaku2Code@ha
 /* 80380D88 0037DCE8  54 04 08 3C */	slwi r4, r0, 1
-/* 80380D8C 0037DCEC  38 03 18 D0 */	addi r0, r3, lbl_803F18D0@l
+/* 80380D8C 0037DCEC  38 03 18 D0 */	addi r0, r3, Zenkaku2Code@l
 /* 80380D90 0037DCF0  7C 60 22 14 */	add r3, r0, r4
 /* 80380D94 0037DCF4  A0 63 00 00 */	lhz r3, 0(r3)
 /* 80380D98 0037DCF8  48 00 00 24 */	b lbl_80380DBC
@@ -1139,7 +1139,7 @@ lbl_8038114C:
 /* 80381160 0037E0C0  80 02 CF 3C */	lwz r0, lbl_805AEC5C@sda21(r2)
 /* 80381164 0037E0C4  90 81 00 1C */	stw r4, 0x1c(r1)
 /* 80381168 0037E0C8  90 01 00 20 */	stw r0, 0x20(r1)
-/* 8038116C 0037E0CC  4B FF FA C9 */	bl sub_80380c34
+/* 8038116C 0037E0CC  4B FF FA C9 */	bl GetFontCode
 /* 80381170 0037E0D0  80 AD AD 0C */	lwz r5, lbl_805A98CC@sda21(r13)
 /* 80381174 0037E0D4  81 8D AD 00 */	lwz r12, lbl_805A98C0@sda21(r13)
 /* 80381178 0037E0D8  7D 43 2B D6 */	divw r10, r3, r5
@@ -1350,7 +1350,7 @@ lbl_80381450:
 lbl_80381470:
 /* 80381470 0037E3D0  80 8D AD 00 */	lwz r4, lbl_805A98C0@sda21(r13)
 /* 80381474 0037E3D4  3B 24 00 2C */	addi r25, r4, 0x2c
-/* 80381478 0037E3D8  4B FF F7 BD */	bl sub_80380c34
+/* 80381478 0037E3D8  4B FF F7 BD */	bl GetFontCode
 /* 8038147C 0037E3DC  80 CD AD 0C */	lwz r6, lbl_805A98CC@sda21(r13)
 /* 80381480 0037E3E0  57 00 10 3A */	slwi r0, r24, 2
 /* 80381484 0037E3E4  81 8D AD 00 */	lwz r12, lbl_805A98C0@sda21(r13)

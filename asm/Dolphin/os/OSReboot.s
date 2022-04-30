@@ -1,46 +1,44 @@
 .include "macros.inc"
 
 .section .bss
-.global lbl_80541580
-lbl_80541580:
+.global Header
+Header:
 	.skip 0x20
 
 .section .sbss
-lbl_805A98E8:
+SaveStart:
 	.skip 0x4
-lbl_805A98EC:
+SaveEnd:
 	.skip 0x4
-lbl_805A98F0:
+Prepared:
 	.skip 0x8
 	
 .section .text, "ax"
 
-.global Run
 Run:
 /* 80382E28 0037FD88  7C 00 04 AC */	sync 0
 /* 80382E2C 0037FD8C  4C 00 01 2C */	isync 
 /* 80382E30 0037FD90  7C 68 03 A6 */	mtlr r3
 /* 80382E34 0037FD94  4E 80 00 20 */	blr 
 
-.global sub_80382e38
-sub_80382e38:
+Callback:
 /* 80382E38 0037FD98  38 00 00 01 */	li r0, 1
-/* 80382E3C 0037FD9C  90 0D AD 30 */	stw r0, lbl_805A98F0@sda21(r13)
+/* 80382E3C 0037FD9C  90 0D AD 30 */	stw r0, Prepared@sda21(r13)
 /* 80382E40 0037FDA0  4E 80 00 20 */	blr 
 
-.global sub_80382e44
-sub_80382e44:
+.global __OSReboot
+__OSReboot:
 /* 80382E44 0037FDA4  7C 08 02 A6 */	mflr r0
 /* 80382E48 0037FDA8  90 01 00 04 */	stw r0, 4(r1)
 /* 80382E4C 0037FDAC  94 21 FC C0 */	stwu r1, -0x340(r1)
 /* 80382E50 0037FDB0  93 E1 03 3C */	stw r31, 0x33c(r1)
 /* 80382E54 0037FDB4  93 C1 03 38 */	stw r30, 0x338(r1)
-/* 80382E58 0037FDB8  3C 60 80 54 */	lis r3, lbl_80541580@ha
-/* 80382E5C 0037FDBC  3B C3 15 80 */	addi r30, r3, lbl_80541580@l
+/* 80382E58 0037FDB8  3C 60 80 54 */	lis r3, Header@ha
+/* 80382E5C 0037FDBC  3B C3 15 80 */	addi r30, r3, Header@l
 /* 80382E60 0037FDC0  4B FF E8 01 */	bl OSDisableInterrupts
-/* 80382E64 0037FDC4  80 AD AD 28 */	lwz r5, lbl_805A98E8@sda21(r13)
+/* 80382E64 0037FDC4  80 AD AD 28 */	lwz r5, SaveStart@sda21(r13)
 /* 80382E68 0037FDC8  3C 80 81 30 */	lis r4, 0x812FDFF0@ha
-/* 80382E6C 0037FDCC  80 0D AD 2C */	lwz r0, lbl_805A98EC@sda21(r13)
+/* 80382E6C 0037FDCC  80 0D AD 2C */	lwz r0, SaveEnd@sda21(r13)
 /* 80382E70 0037FDD0  38 60 00 00 */	li r3, 0
 /* 80382E74 0037FDD4  3F E0 81 80 */	lis r31, 0x817FFFFC@ha
 /* 80382E78 0037FDD8  38 E0 00 01 */	li r7, 1
@@ -57,8 +55,8 @@ sub_80382e44:
 /* 80382EA4 0037FE04  4B FE ED 01 */	bl DVDInit
 /* 80382EA8 0037FE08  38 60 00 01 */	li r3, 1
 /* 80382EAC 0037FE0C  4B FF 13 51 */	bl DVDSetAutoInvalidation
-/* 80382EB0 0037FE10  3C 60 80 38 */	lis r3, sub_80382e38@ha
-/* 80382EB4 0037FE14  38 63 2E 38 */	addi r3, r3, sub_80382e38@l
+/* 80382EB0 0037FE10  3C 60 80 38 */	lis r3, Callback@ha
+/* 80382EB4 0037FE14  38 63 2E 38 */	addi r3, r3, Callback@l
 /* 80382EB8 0037FE18  4B FF 18 E5 */	bl __DVDPrepareResetAsync
 /* 80382EBC 0037FE1C  4B FF 17 FD */	bl DVDCheckDisk
 /* 80382EC0 0037FE20  2C 03 00 00 */	cmpwi r3, 0
@@ -75,7 +73,7 @@ lbl_80382ED0:
 lbl_80382EE8:
 /* 80382EE8 0037FE48  48 00 00 04 */	b lbl_80382EEC
 lbl_80382EEC:
-/* 80382EEC 0037FE4C  80 0D AD 30 */	lwz r0, lbl_805A98F0@sda21(r13)
+/* 80382EEC 0037FE4C  80 0D AD 30 */	lwz r0, Prepared@sda21(r13)
 /* 80382EF0 0037FE50  2C 00 00 00 */	cmpwi r0, 0
 /* 80382EF4 0037FE54  41 82 FF F8 */	beq lbl_80382EEC
 /* 80382EF8 0037FE58  7F C4 F3 78 */	mr r4, r30
@@ -115,7 +113,7 @@ lbl_80382F54:
 lbl_80382F6C:
 /* 80382F6C 0037FECC  48 00 00 04 */	b lbl_80382F70
 lbl_80382F70:
-/* 80382F70 0037FED0  80 0D AD 30 */	lwz r0, lbl_805A98F0@sda21(r13)
+/* 80382F70 0037FED0  80 0D AD 30 */	lwz r0, Prepared@sda21(r13)
 /* 80382F74 0037FED4  2C 00 00 00 */	cmpwi r0, 0
 /* 80382F78 0037FED8  41 82 FF F8 */	beq lbl_80382F70
 /* 80382F7C 0037FEDC  7F C5 F3 78 */	mr r5, r30
@@ -160,16 +158,16 @@ lbl_80382FD8:
 /* 80383004 0037FF64  7C 08 03 A6 */	mtlr r0
 /* 80383008 0037FF68  4E 80 00 20 */	blr 
 
-.global sub_8038300c
-sub_8038300c:
-/* 8038300C 0037FF6C  90 6D AD 28 */	stw r3, lbl_805A98E8@sda21(r13)
-/* 80383010 0037FF70  90 8D AD 2C */	stw r4, lbl_805A98EC@sda21(r13)
+.global OSSetSaveRegion
+OSSetSaveRegion:
+/* 8038300C 0037FF6C  90 6D AD 28 */	stw r3, SaveStart@sda21(r13)
+/* 80383010 0037FF70  90 8D AD 2C */	stw r4, SaveEnd@sda21(r13)
 /* 80383014 0037FF74  4E 80 00 20 */	blr 
 
-.global sub_80383018
-sub_80383018:
-/* 80383018 0037FF78  80 0D AC DC */	lwz r0, lbl_805A989C@sda21(r13)
+.global OSGetSaveRegion
+OSGetSaveRegion:
+/* 80383018 0037FF78  80 0D AC DC */	lwz r0, __OSSavedRegionStart@sda21(r13)
 /* 8038301C 0037FF7C  90 03 00 00 */	stw r0, 0(r3)
-/* 80383020 0037FF80  80 0D AC D8 */	lwz r0, lbl_805A9898@sda21(r13)
+/* 80383020 0037FF80  80 0D AC D8 */	lwz r0, __OSSavedRegionEnd@sda21(r13)
 /* 80383024 0037FF84  90 04 00 00 */	stw r0, 0(r4)
 /* 80383028 0037FF88  4E 80 00 20 */	blr 
