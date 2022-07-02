@@ -34,5 +34,6 @@ errors.txt
 output.asm
 Debug/
 .vs/
+__pycache__/
 
 ctx.c
