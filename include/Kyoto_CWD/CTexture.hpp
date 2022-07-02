@@ -1,5 +1,5 @@
-#ifndef _CTOKEN_HPP
-#define _CTOKEN_HPP
+#ifndef _CTEXTURE_HPP
+#define _CTEXTURE_HPP
 
 #include "gx_enum.h"
 #include "types.h"
