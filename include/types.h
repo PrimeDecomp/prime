@@ -61,6 +61,7 @@ typedef void* unkptr;
 
 // where should these go?
 void srand(int);
+int rand();
 
 #ifdef __cplusplus
 }
