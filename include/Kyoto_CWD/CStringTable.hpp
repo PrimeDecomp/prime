@@ -13,6 +13,7 @@ class CStringTable {
 
 public:
   CStringTable(CInputStream& in);
+  const wchar_t* GetString(int idx) const;
 };
 
 extern CStringTable* gpStringTable;

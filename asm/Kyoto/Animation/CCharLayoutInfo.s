@@ -532,12 +532,12 @@ sub_802f8294:
 lbl_802F82D4:
 /* 802F82D4 002F5234  28 1E 00 00 */	cmplwi r30, 0
 /* 802F82D8 002F5238  41 82 00 20 */	beq lbl_802F82F8
-/* 802F82DC 002F523C  3C 60 80 3E */	lis r3, lbl_803D8D78@ha
-/* 802F82E0 002F5240  38 03 8D 78 */	addi r0, r3, lbl_803D8D78@l
+/* 802F82DC 002F523C  3C 60 80 3E */	lis r3, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 802F82E0 002F5240  38 03 8D 78 */	addi r0, r3, __vt__31TObjOwnerDerivedFromIObjUntyped@l
 /* 802F82E4 002F5244  90 1E 00 00 */	stw r0, 0(r30)
 /* 802F82E8 002F5248  41 82 00 10 */	beq lbl_802F82F8
-/* 802F82EC 002F524C  3C 60 80 3E */	lis r3, lbl_803D8D6C@ha
-/* 802F82F0 002F5250  38 03 8D 6C */	addi r0, r3, lbl_803D8D6C@l
+/* 802F82EC 002F524C  3C 60 80 3E */	lis r3, __vt__4IObj@ha
+/* 802F82F0 002F5250  38 03 8D 6C */	addi r0, r3, __vt__4IObj@l
 /* 802F82F4 002F5254  90 1E 00 00 */	stw r0, 0(r30)
 lbl_802F82F8:
 /* 802F82F8 002F5258  7F E0 07 35 */	extsh. r0, r31
@@ -632,12 +632,12 @@ sub_802f83f4:
 /* 802F8424 002F5384  48 01 D4 49 */	bl __nw__FUlPCcPCc
 /* 802F8428 002F5388  28 03 00 00 */	cmplwi r3, 0
 /* 802F842C 002F538C  41 82 00 38 */	beq lbl_802F8464
-/* 802F8430 002F5390  3C 80 80 3E */	lis r4, lbl_803D8D6C@ha
-/* 802F8434 002F5394  3C A0 80 3E */	lis r5, lbl_803D8D78@ha
-/* 802F8438 002F5398  38 04 8D 6C */	addi r0, r4, lbl_803D8D6C@l
+/* 802F8430 002F5390  3C 80 80 3E */	lis r4, __vt__4IObj@ha
+/* 802F8434 002F5394  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 802F8438 002F5398  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 802F843C 002F539C  3C 80 80 3F */	lis r4, lbl_803ED420@ha
 /* 802F8440 002F53A0  90 03 00 00 */	stw r0, 0(r3)
-/* 802F8444 002F53A4  38 C5 8D 78 */	addi r6, r5, lbl_803D8D78@l
+/* 802F8444 002F53A4  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
 /* 802F8448 002F53A8  38 A0 00 00 */	li r5, 0
 /* 802F844C 002F53AC  38 04 D4 20 */	addi r0, r4, lbl_803ED420@l
 /* 802F8450 002F53B0  90 C3 00 00 */	stw r6, 0(r3)

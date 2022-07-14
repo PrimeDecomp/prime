@@ -13,6 +13,7 @@ public:
   single_ptr(T* ptr) : x0_ptr(ptr) {}
   ~single_ptr() { delete x0_ptr; }
   T* get() { return x0_ptr; }
+  const T* get() const { return x0_ptr; }
   T* operator->() { return x0_ptr; }
   void operator=(T* ptr) {
     delete x0_ptr;

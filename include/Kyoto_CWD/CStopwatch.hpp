@@ -10,7 +10,7 @@ public:
   class CSWData {
   public:
     bool Initialize();
-    void Wait(float);
+    void Wait(float) const;
 
     s64 GetTimerFreq() const { return x0_timerFreq; }
     s64 GetTimerFreqO1M() const { return x8_timerFreqO1M; }

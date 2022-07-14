@@ -46,6 +46,9 @@ typedef void* unkptr;
 #ifndef nullptr
 #define nullptr 0
 #endif
+#ifndef override
+#define override
+#endif
 
 #ifndef BOOL
 #ifdef __cplusplus

@@ -44,10 +44,10 @@ template <>
 inline u32 cinput_stream_helper(TType< u32 > type, CInputStream& in) {
   return in.ReadLong();
 }
-// template <>
-// inline unsigned long cinput_stream_helper(TType< unsigned long > type, CInputStream& in) {
-//   return in.ReadLong();
-// }
+template <>
+inline unsigned long cinput_stream_helper(TType< unsigned long > type, CInputStream& in) {
+  return in.ReadLong();
+}
 
 // rstl
 #include "rstl/pair.hpp"
