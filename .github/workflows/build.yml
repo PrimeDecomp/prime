@@ -11,7 +11,7 @@ jobs:
     env:
       WINEPREFIX: ${{github.workspace}}/.wine
     steps:
-    - name: Install devkitPro
+    - name: Install dependencies
       run: |
         sudo dpkg --add-architecture i386
         sudo apt-get update
@@ -24,4 +24,4 @@ jobs:
           | bsdtar -xvf- -C tools --exclude Wii
         mv tools/GC tools/mwcc_compiler
     - name: make
-      run: make -j
+      run: make -j$(nproc)

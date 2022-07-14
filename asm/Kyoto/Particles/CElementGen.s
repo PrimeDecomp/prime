@@ -21464,12 +21464,12 @@ lbl_8032A0D0:
 /* 8032A148 003270A8  4B FE B7 25 */	bl __nw__FUlPCcPCc
 /* 8032A14C 003270AC  28 03 00 00 */	cmplwi r3, 0
 /* 8032A150 003270B0  41 82 00 38 */	beq lbl_8032A188
-/* 8032A154 003270B4  3C 80 80 3E */	lis r4, lbl_803D8D6C@ha
-/* 8032A158 003270B8  3C A0 80 3E */	lis r5, lbl_803D8D78@ha
-/* 8032A15C 003270BC  38 04 8D 6C */	addi r0, r4, lbl_803D8D6C@l
+/* 8032A154 003270B4  3C 80 80 3E */	lis r4, __vt__4IObj@ha
+/* 8032A158 003270B8  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 8032A15C 003270BC  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 8032A160 003270C0  3C 80 80 3E */	lis r4, lbl_803DACB0@ha
 /* 8032A164 003270C4  90 03 00 00 */	stw r0, 0(r3)
-/* 8032A168 003270C8  38 C5 8D 78 */	addi r6, r5, lbl_803D8D78@l
+/* 8032A168 003270C8  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
 /* 8032A16C 003270CC  38 A0 00 00 */	li r5, 0
 /* 8032A170 003270D0  38 04 AC B0 */	addi r0, r4, lbl_803DACB0@l
 /* 8032A174 003270D4  90 C3 00 00 */	stw r6, 0(r3)

@@ -3,9 +3,23 @@
 #include "rstl/pair.hpp"
 #include "rstl/vector.hpp"
 
+#include "Kyoto_CWD/CFactoryMgr.hpp"
 #include "Kyoto_CWD/TGameTypes.hpp"
 
 static FourCC mCurrentLanguage = 'ENGL';
+
+CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer& xfer) { return new CStringTable(in); }
+
+template <>
+CFactoryFnReturn::CFactoryFnReturn(CStringTable* ptr) : obj(TToken< CStringTable >::GetIObjObjectFor(ptr).release()) {}
+
+const wchar_t* CStringTable::GetString(s32 idx) const {
+  if (idx < 0 || idx > x0_stringCount) {
+    return L"Invalid";
+  }
+  s32 offset = *(reinterpret_cast< const s32* >(x4_data.get()) + idx);
+  return reinterpret_cast< const wchar_t* >(x4_data.get() + offset);
+}
 
 CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) {
   in.ReadLong();

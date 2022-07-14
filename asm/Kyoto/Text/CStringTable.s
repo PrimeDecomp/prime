@@ -31,7 +31,7 @@ FStringTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 80356540 003534A0  7C 64 1B 78 */	mr r4, r3
 lbl_80356544:
 /* 80356544 003534A4  7F C3 F3 78 */	mr r3, r30
-/* 80356548 003534A8  48 00 00 1D */	bl sub_80356564
+/* 80356548 003534A8  48 00 00 1D */	bl "__ct<12CStringTable>__16CFactoryFnReturnFP12CStringTable"
 /* 8035654C 003534AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80356550 003534B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80356554 003534B4  83 C1 00 08 */	lwz r30, 8(r1)
@@ -39,8 +39,8 @@ lbl_80356544:
 /* 8035655C 003534BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80356560 003534C0  4E 80 00 20 */	blr
 
-.global sub_80356564
-sub_80356564:
+.global "__ct<12CStringTable>__16CFactoryFnReturnFP12CStringTable"
+"__ct<12CStringTable>__16CFactoryFnReturnFP12CStringTable":
 /* 80356564 003534C4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80356568 003534C8  7C 08 02 A6 */	mflr r0
 /* 8035656C 003534CC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -54,7 +54,7 @@ sub_80356564:
 /* 8035658C 003534EC  90 81 00 14 */	stw r4, 0x14(r1)
 /* 80356590 003534F0  38 81 00 10 */	addi r4, r1, 0x10
 /* 80356594 003534F4  98 01 00 10 */	stb r0, 0x10(r1)
-/* 80356598 003534F8  48 00 00 9D */	bl sub_80356634
+/* 80356598 003534F8  48 00 00 9D */	bl "GetIObjObjectFor__22TToken<12CStringTable>FRCQ24rstl24auto_ptr<12CStringTable>"
 /* 8035659C 003534FC  80 61 00 0C */	lwz r3, 0xc(r1)
 /* 803565A0 00353500  38 00 00 00 */	li r0, 0
 /* 803565A4 00353504  98 01 00 08 */	stb r0, 8(r1)
@@ -97,22 +97,22 @@ lbl_80356618:
 /* 8035662C 0035358C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80356630 00353590  4E 80 00 20 */	blr
 
-.global sub_80356634
-sub_80356634:
+.global "GetIObjObjectFor__22TToken<12CStringTable>FRCQ24rstl24auto_ptr<12CStringTable>"
+"GetIObjObjectFor__22TToken<12CStringTable>FRCQ24rstl24auto_ptr<12CStringTable>":
 /* 80356634 00353594  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80356638 00353598  7C 08 02 A6 */	mflr r0
 /* 8035663C 0035359C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80356640 003535A0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80356644 003535A4  7C 7F 1B 78 */	mr r31, r3
-/* 80356648 003535A8  48 00 00 19 */	bl sub_80356660
+/* 80356648 003535A8  48 00 00 19 */	bl "GetNewDerivedObject__40TObjOwnerDerivedFromIObj<12CStringTable>FRCQ24rstl24auto_ptr<12CStringTable>"
 /* 8035664C 003535AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80356650 003535B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80356654 003535B4  7C 08 03 A6 */	mtlr r0
 /* 80356658 003535B8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8035665C 003535BC  4E 80 00 20 */	blr
 
-.global sub_80356660
-sub_80356660:
+.global "GetNewDerivedObject__40TObjOwnerDerivedFromIObj<12CStringTable>FRCQ24rstl24auto_ptr<12CStringTable>"
+"GetNewDerivedObject__40TObjOwnerDerivedFromIObj<12CStringTable>FRCQ24rstl24auto_ptr<12CStringTable>":
 /* 80356660 003535C0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80356664 003535C4  7C 08 02 A6 */	mflr r0
 /* 80356668 003535C8  3C A0 80 3E */	lis r5, lbl_803D8320@ha
@@ -128,14 +128,14 @@ sub_80356660:
 /* 80356690 003535F0  4B FB F1 DD */	bl __nw__FUlPCcPCc
 /* 80356694 003535F4  28 03 00 00 */	cmplwi r3, 0
 /* 80356698 003535F8  41 82 00 38 */	beq lbl_803566D0
-/* 8035669C 003535FC  3C 80 80 3E */	lis r4, lbl_803D8D6C@ha
-/* 803566A0 00353600  3C A0 80 3E */	lis r5, lbl_803D8D78@ha
-/* 803566A4 00353604  38 04 8D 6C */	addi r0, r4, lbl_803D8D6C@l
-/* 803566A8 00353608  3C 80 80 3E */	lis r4, lbl_803D9A0C@ha
+/* 8035669C 003535FC  3C 80 80 3E */	lis r4, __vt__4IObj@ha
+/* 803566A0 00353600  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 803566A4 00353604  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
+/* 803566A8 00353608  3C 80 80 3E */	lis r4, "__vt__40TObjOwnerDerivedFromIObj<12CStringTable>"@ha
 /* 803566AC 0035360C  90 03 00 00 */	stw r0, 0(r3)
-/* 803566B0 00353610  38 C5 8D 78 */	addi r6, r5, lbl_803D8D78@l
+/* 803566B0 00353610  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
 /* 803566B4 00353614  38 A0 00 00 */	li r5, 0
-/* 803566B8 00353618  38 04 9A 0C */	addi r0, r4, lbl_803D9A0C@l
+/* 803566B8 00353618  38 04 9A 0C */	addi r0, r4, "__vt__40TObjOwnerDerivedFromIObj<12CStringTable>"@l
 /* 803566BC 0035361C  90 C3 00 00 */	stw r6, 0(r3)
 /* 803566C0 00353620  98 BF 00 00 */	stb r5, 0(r31)
 /* 803566C4 00353624  80 9F 00 04 */	lwz r4, 4(r31)

@@ -4893,12 +4893,12 @@ sub_8015abb8:
 /* 8015ABE8 00157B48  48 1B AC 85 */	bl __nw__FUlPCcPCc
 /* 8015ABEC 00157B4C  28 03 00 00 */	cmplwi r3, 0
 /* 8015ABF0 00157B50  41 82 00 2C */	beq lbl_8015AC1C
-/* 8015ABF4 00157B54  3C 80 80 3E */	lis r4, lbl_803D8D6C@ha
-/* 8015ABF8 00157B58  3C A0 80 3E */	lis r5, lbl_803D8D78@ha
-/* 8015ABFC 00157B5C  38 04 8D 6C */	addi r0, r4, lbl_803D8D6C@l
+/* 8015ABF4 00157B54  3C 80 80 3E */	lis r4, __vt__4IObj@ha
+/* 8015ABF8 00157B58  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 8015ABFC 00157B5C  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 8015AC00 00157B60  3C 80 80 3E */	lis r4, lbl_803D9BC8@ha
 /* 8015AC04 00157B64  90 03 00 00 */	stw r0, 0(r3)
-/* 8015AC08 00157B68  38 A5 8D 78 */	addi r5, r5, lbl_803D8D78@l
+/* 8015AC08 00157B68  38 A5 8D 78 */	addi r5, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
 /* 8015AC0C 00157B6C  38 04 9B C8 */	addi r0, r4, lbl_803D9BC8@l
 /* 8015AC10 00157B70  90 A3 00 00 */	stw r5, 0(r3)
 /* 8015AC14 00157B74  93 E3 00 04 */	stw r31, 4(r3)
