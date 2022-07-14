@@ -31,7 +31,7 @@ lbl_80369270:
 /* 8036928C 003661EC  7C 00 23 78 */	or r0, r0, r4
 /* 80369290 003661F0  54 00 04 3E */	clrlwi r0, r0, 0x10
 /* 80369294 003661F4  7C 03 07 34 */	extsh r3, r0
-/* 80369298 003661F8  4E 80 00 20 */	blr 
+/* 80369298 003661F8  4E 80 00 20 */	blr
 
 .global OwnsSustained__12CRumbleVoiceCFs
 OwnsSustained__12CRumbleVoiceCFs:
@@ -46,10 +46,10 @@ OwnsSustained__12CRumbleVoiceCFs:
 /* 803692BC 0036621C  7C 04 00 50 */	subf r0, r4, r0
 /* 803692C0 00366220  7C 00 00 34 */	cntlzw r0, r0
 /* 803692C4 00366224  54 03 D9 7E */	srwi r3, r0, 5
-/* 803692C8 00366228  4E 80 00 20 */	blr 
+/* 803692C8 00366228  4E 80 00 20 */	blr
 lbl_803692CC:
 /* 803692CC 0036622C  38 60 00 00 */	li r3, 0
-/* 803692D0 00366230  4E 80 00 20 */	blr 
+/* 803692D0 00366230  4E 80 00 20 */	blr
 
 .global GetIntensity__12CRumbleVoiceCFv
 GetIntensity__12CRumbleVoiceCFv:
@@ -72,9 +72,9 @@ lbl_803692FC:
 lbl_8036930C:
 /* 8036930C 0036626C  C0 22 CD D8 */	lfs f1, lbl_805AEAF8@sda21(r2)
 /* 80369310 00366270  FC 02 08 40 */	fcmpo cr0, f2, f1
-/* 80369314 00366274  4D 81 00 20 */	bgtlr 
+/* 80369314 00366274  4D 81 00 20 */	bgtlr
 /* 80369318 00366278  FC 20 10 90 */	fmr f1, f2
-/* 8036931C 0036627C  4E 80 00 20 */	blr 
+/* 8036931C 0036627C  4E 80 00 20 */	blr
 
 .global GetFreeChannel__12CRumbleVoiceCFv
 GetFreeChannel__12CRumbleVoiceCFv:
@@ -88,7 +88,7 @@ lbl_8036932C:
 /* 80369338 00366298  7C C0 00 39 */	and. r0, r6, r0
 /* 8036933C 0036629C  40 82 00 0C */	bne lbl_80369348
 /* 80369340 003662A0  7C 83 23 78 */	mr r3, r4
-/* 80369344 003662A4  4E 80 00 20 */	blr 
+/* 80369344 003662A4  4E 80 00 20 */	blr
 lbl_80369348:
 /* 80369348 003662A8  38 E7 00 01 */	addi r7, r7, 1
 lbl_8036934C:
@@ -96,7 +96,7 @@ lbl_8036934C:
 /* 80369350 003662B0  28 00 00 04 */	cmplwi r0, 4
 /* 80369354 003662B4  41 80 FF D8 */	blt lbl_8036932C
 /* 80369358 003662B8  38 60 00 00 */	li r3, 0
-/* 8036935C 003662BC  4E 80 00 20 */	blr 
+/* 8036935C 003662BC  4E 80 00 20 */	blr
 
 .global Update__12CRumbleVoiceFf
 Update__12CRumbleVoiceFf:
@@ -179,7 +179,7 @@ lbl_80369464:
 /* 8036947C 003663DC  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80369480 003663E0  7C 08 03 A6 */	mtlr r0
 /* 80369484 003663E4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80369488 003663E8  4E 80 00 20 */	blr 
+/* 80369488 003663E8  4E 80 00 20 */	blr
 
 .global UpdateChannel__12CRumbleVoiceFR10SAdsrDeltaRC9SAdsrDataf
 UpdateChannel__12CRumbleVoiceFR10SAdsrDeltaRC9SAdsrDataf:
@@ -286,7 +286,7 @@ lbl_803695E8:
 /* 803695F4 00366554  38 00 00 00 */	li r0, 0
 /* 803695F8 00366558  38 60 00 01 */	li r3, 1
 /* 803695FC 0036655C  90 04 00 20 */	stw r0, 0x20(r4)
-/* 80369600 00366560  4E 80 00 20 */	blr 
+/* 80369600 00366560  4E 80 00 20 */	blr
 lbl_80369604:
 /* 80369604 00366564  88 05 00 18 */	lbz r0, 0x18(r5)
 /* 80369608 00366568  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -323,7 +323,7 @@ lbl_80369668:
 /* 80369674 003665D4  38 00 00 00 */	li r0, 0
 /* 80369678 003665D8  38 60 00 01 */	li r3, 1
 /* 8036967C 003665DC  90 04 00 20 */	stw r0, 0x20(r4)
-/* 80369680 003665E0  4E 80 00 20 */	blr 
+/* 80369680 003665E0  4E 80 00 20 */	blr
 lbl_80369684:
 /* 80369684 003665E4  88 05 00 18 */	lbz r0, 0x18(r5)
 /* 80369688 003665E8  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
@@ -343,7 +343,7 @@ lbl_803696AC:
 /* 803696BC 0036661C  90 04 00 20 */	stw r0, 0x20(r4)
 lbl_803696C0:
 /* 803696C0 00366620  38 60 00 00 */	li r3, 0
-/* 803696C4 00366624  4E 80 00 20 */	blr 
+/* 803696C4 00366624  4E 80 00 20 */	blr
 
 .global HardReset__12CRumbleVoiceFv
 HardReset__12CRumbleVoiceFv:
@@ -398,7 +398,7 @@ lbl_80369768:
 /* 80369780 003666E0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80369784 003666E4  7C 08 03 A6 */	mtlr r0
 /* 80369788 003666E8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8036978C 003666EC  4E 80 00 20 */	blr 
+/* 8036978C 003666EC  4E 80 00 20 */	blr
 
 .global Deactivate__12CRumbleVoiceFsb
 Deactivate__12CRumbleVoiceFsb:
@@ -434,7 +434,7 @@ lbl_803697F4:
 /* 803697FC 0036675C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80369800 00366760  7C 08 03 A6 */	mtlr r0
 /* 80369804 00366764  38 21 00 10 */	addi r1, r1, 0x10
-/* 80369808 00366768  4E 80 00 20 */	blr 
+/* 80369808 00366768  4E 80 00 20 */	blr
 
 .global Activate__12CRumbleVoiceFRC9SAdsrDatasf15ERumblePriority
 Activate__12CRumbleVoiceFRC9SAdsrDatasf15ERumblePriority:
@@ -530,7 +530,7 @@ lbl_8036995C:
 /* 80369968 003668C8  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8036996C 003668CC  7C 08 03 A6 */	mtlr r0
 /* 80369970 003668D0  38 21 00 60 */	addi r1, r1, 0x60
-/* 80369974 003668D4  4E 80 00 20 */	blr 
+/* 80369974 003668D4  4E 80 00 20 */	blr
 
 .global __ct__12CRumbleVoiceFv
 __ct__12CRumbleVoiceFv:
@@ -699,4 +699,4 @@ lbl_80369BB4:
 /* 80369BC8 00366B28  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80369BCC 00366B2C  7C 08 03 A6 */	mtlr r0
 /* 80369BD0 00366B30  38 21 00 50 */	addi r1, r1, 0x50
-/* 80369BD4 00366B34  4E 80 00 20 */	blr 
+/* 80369BD4 00366B34  4E 80 00 20 */	blr

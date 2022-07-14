@@ -13,7 +13,7 @@ Filter__12CAABoxFilterCFRC18CCollisionInfoListR18CCollisionInfoList:
 /* 80185868 001827C8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018586C 001827CC  7C 08 03 A6 */	mtlr r0
 /* 80185870 001827D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80185874 001827D4  4E 80 00 20 */	blr 
+/* 80185874 001827D4  4E 80 00 20 */	blr
 
 .global FilterBoxFloorCollisions__12CAABoxFilterFRC18CCollisionInfoListR18CCollisionInfoList
 FilterBoxFloorCollisions__12CAABoxFilterFRC18CCollisionInfoListR18CCollisionInfoList:
@@ -129,4 +129,4 @@ lbl_801859E0:
 /* 80185A00 00182960  83 81 0C 10 */	lwz r28, 0xc10(r1)
 /* 80185A04 00182964  7C 08 03 A6 */	mtlr r0
 /* 80185A08 00182968  38 21 0C 30 */	addi r1, r1, 0xc30
-/* 80185A0C 0018296C  4E 80 00 20 */	blr 
+/* 80185A0C 0018296C  4E 80 00 20 */	blr

@@ -51,7 +51,7 @@ lbl_8033F80C:
 /* 8033F830 0033C790  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8033F834 0033C794  7C 08 03 A6 */	mtlr r0
 /* 8033F838 0033C798  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033F83C 0033C79C  4E 80 00 20 */	blr 
+/* 8033F83C 0033C79C  4E 80 00 20 */	blr
 
 .global __dt__15CZipInputStreamFv
 __dt__15CZipInputStreamFv:
@@ -85,7 +85,7 @@ lbl_8033F884:
 /* 8033F8A8 0033C808  38 80 00 01 */	li r4, 1
 /* 8033F8AC 0033C80C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8033F8B0 0033C810  7D 89 03 A6 */	mtctr r12
-/* 8033F8B4 0033C814  4E 80 04 21 */	bctrl 
+/* 8033F8B4 0033C814  4E 80 04 21 */	bctrl
 lbl_8033F8B8:
 /* 8033F8B8 0033C818  34 1E 00 24 */	addic. r0, r30, 0x24
 /* 8033F8BC 0033C81C  41 82 00 0C */	beq lbl_8033F8C8
@@ -106,7 +106,7 @@ lbl_8033F8E4:
 /* 8033F8F0 0033C850  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8033F8F4 0033C854  7C 08 03 A6 */	mtlr r0
 /* 8033F8F8 0033C858  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F8FC 0033C85C  4E 80 00 20 */	blr 
+/* 8033F8FC 0033C85C  4E 80 00 20 */	blr
 
 .global "__ct__15CZipInputStreamFQ24rstl24auto_ptr<12CInputStream>"
 "__ct__15CZipInputStreamFQ24rstl24auto_ptr<12CInputStream>":

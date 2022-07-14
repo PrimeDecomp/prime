@@ -277,11 +277,11 @@ lbl_80294DDC:
 /* 80294DE8 00291D48  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80294DEC 00291D4C  7C 08 03 A6 */	mtlr r0
 /* 80294DF0 00291D50  38 21 00 10 */	addi r1, r1, 0x10
-/* 80294DF4 00291D54  4E 80 00 20 */	blr 
+/* 80294DF4 00291D54  4E 80 00 20 */	blr
 
 .global KnockBack__20CPhazonHealingNoduleFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 KnockBack__20CPhazonHealingNoduleFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef:
-/* 80294DF8 00291D58  4E 80 00 20 */	blr 
+/* 80294DF8 00291D58  4E 80 00 20 */	blr
 
 .global sub_80294dfc
 sub_80294dfc:
@@ -294,11 +294,11 @@ sub_80294dfc:
 /* 80294E14 00291D74  81 83 00 00 */	lwz r12, 0(r3)
 /* 80294E18 00291D78  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 80294E1C 00291D7C  7D 89 03 A6 */	mtctr r12
-/* 80294E20 00291D80  4E 80 04 21 */	bctrl 
+/* 80294E20 00291D80  4E 80 04 21 */	bctrl
 /* 80294E24 00291D84  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80294E28 00291D88  7C 08 03 A6 */	mtlr r0
 /* 80294E2C 00291D8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80294E30 00291D90  4E 80 00 20 */	blr 
+/* 80294E30 00291D90  4E 80 00 20 */	blr
 
 .global sub_80294e34
 sub_80294e34:
@@ -311,11 +311,11 @@ sub_80294e34:
 /* 80294E4C 00291DAC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80294E50 00291DB0  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 80294E54 00291DB4  7D 89 03 A6 */	mtctr r12
-/* 80294E58 00291DB8  4E 80 04 21 */	bctrl 
+/* 80294E58 00291DB8  4E 80 04 21 */	bctrl
 /* 80294E5C 00291DBC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80294E60 00291DC0  7C 08 03 A6 */	mtlr r0
 /* 80294E64 00291DC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80294E68 00291DC8  4E 80 00 20 */	blr 
+/* 80294E68 00291DC8  4E 80 00 20 */	blr
 
 .global sub_80294e6c
 sub_80294e6c:
@@ -328,11 +328,11 @@ sub_80294e6c:
 /* 80294E84 00291DE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80294E88 00291DE8  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 80294E8C 00291DEC  7D 89 03 A6 */	mtctr r12
-/* 80294E90 00291DF0  4E 80 04 21 */	bctrl 
+/* 80294E90 00291DF0  4E 80 04 21 */	bctrl
 /* 80294E94 00291DF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80294E98 00291DF8  7C 08 03 A6 */	mtlr r0
 /* 80294E9C 00291DFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80294EA0 00291E00  4E 80 00 20 */	blr 
+/* 80294EA0 00291E00  4E 80 00 20 */	blr
 
 .global Death__20CPhazonHealingNoduleFRC9CVector3fR13CStateManager
 Death__20CPhazonHealingNoduleFRC9CVector3fR13CStateManager:
@@ -357,7 +357,7 @@ Death__20CPhazonHealingNoduleFRC9CVector3fR13CStateManager:
 /* 80294EEC 00291E4C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80294EF0 00291E50  7C 08 03 A6 */	mtlr r0
 /* 80294EF4 00291E54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80294EF8 00291E58  4E 80 00 20 */	blr 
+/* 80294EF8 00291E58  4E 80 00 20 */	blr
 
 .global sub_80294efc
 sub_80294efc:
@@ -453,7 +453,7 @@ lbl_80295028:
 /* 80295048 00291FA8  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 8029504C 00291FAC  7C 08 03 A6 */	mtlr r0
 /* 80295050 00291FB0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80295054 00291FB4  4E 80 00 20 */	blr 
+/* 80295054 00291FB4  4E 80 00 20 */	blr
 
 .global sub_80295058
 sub_80295058:
@@ -461,7 +461,7 @@ sub_80295058:
 /* 8029505C 00291FBC  20 00 00 03 */	subfic r0, r0, 3
 /* 80295060 00291FC0  7C 00 00 34 */	cntlzw r0, r0
 /* 80295064 00291FC4  54 03 D9 7E */	srwi r3, r0, 5
-/* 80295068 00291FC8  4E 80 00 20 */	blr 
+/* 80295068 00291FC8  4E 80 00 20 */	blr
 
 .global Faint__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf
 Faint__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf:
@@ -544,7 +544,7 @@ lbl_8029517C:
 /* 80295180 002920E0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80295184 002920E4  7C 08 03 A6 */	mtlr r0
 /* 80295188 002920E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8029518C 002920EC  4E 80 00 20 */	blr 
+/* 8029518C 002920EC  4E 80 00 20 */	blr
 
 .global Growth__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf
 Growth__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf:
@@ -627,7 +627,7 @@ lbl_802952A0:
 /* 802952A4 00292204  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802952A8 00292208  7C 08 03 A6 */	mtlr r0
 /* 802952AC 0029220C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802952B0 00292210  4E 80 00 20 */	blr 
+/* 802952B0 00292210  4E 80 00 20 */	blr
 
 .global Render__20CPhazonHealingNoduleCFRC13CStateManager
 Render__20CPhazonHealingNoduleCFRC13CStateManager:
@@ -645,7 +645,7 @@ Render__20CPhazonHealingNoduleCFRC13CStateManager:
 /* 802952E0 00292240  81 83 00 00 */	lwz r12, 0(r3)
 /* 802952E4 00292244  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802952E8 00292248  7D 89 03 A6 */	mtctr r12
-/* 802952EC 0029224C  4E 80 04 21 */	bctrl 
+/* 802952EC 0029224C  4E 80 04 21 */	bctrl
 lbl_802952F0:
 /* 802952F0 00292250  7F C3 F3 78 */	mr r3, r30
 /* 802952F4 00292254  7F E4 FB 78 */	mr r4, r31
@@ -655,14 +655,14 @@ lbl_802952F0:
 /* 80295304 00292264  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80295308 00292268  7C 08 03 A6 */	mtlr r0
 /* 8029530C 0029226C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80295310 00292270  4E 80 00 20 */	blr 
+/* 80295310 00292270  4E 80 00 20 */	blr
 
 .global sub_80295314
 sub_80295314:
 /* 80295314 00292274  80 03 05 68 */	lwz r0, 0x568(r3)
 /* 80295318 00292278  7C 00 00 34 */	cntlzw r0, r0
 /* 8029531C 0029227C  54 03 D9 7E */	srwi r3, r0, 5
-/* 80295320 00292280  4E 80 00 20 */	blr 
+/* 80295320 00292280  4E 80 00 20 */	blr
 
 .global sub_80295324
 sub_80295324:
@@ -670,7 +670,7 @@ sub_80295324:
 /* 80295328 00292288  20 00 00 01 */	subfic r0, r0, 1
 /* 8029532C 0029228C  7C 00 00 34 */	cntlzw r0, r0
 /* 80295330 00292290  54 03 D9 7E */	srwi r3, r0, 5
-/* 80295334 00292294  4E 80 00 20 */	blr 
+/* 80295334 00292294  4E 80 00 20 */	blr
 
 .global Lurk__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf
 Lurk__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf:
@@ -689,7 +689,7 @@ lbl_80295360:
 /* 80295360 002922C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80295364 002922C4  7C 08 03 A6 */	mtlr r0
 /* 80295368 002922C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029536C 002922CC  4E 80 00 20 */	blr 
+/* 8029536C 002922CC  4E 80 00 20 */	blr
 
 .global Patrol__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf
 Patrol__20CPhazonHealingNoduleFR13CStateManager9EStateMsgf:
@@ -722,7 +722,7 @@ lbl_802953C8:
 /* 802953D0 00292330  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802953D4 00292334  7C 08 03 A6 */	mtlr r0
 /* 802953D8 00292338  38 21 00 10 */	addi r1, r1, 0x10
-/* 802953DC 0029233C  4E 80 00 20 */	blr 
+/* 802953DC 0029233C  4E 80 00 20 */	blr
 
 .global Think__20CPhazonHealingNoduleFfR13CStateManager
 Think__20CPhazonHealingNoduleFfR13CStateManager:
@@ -745,7 +745,7 @@ Think__20CPhazonHealingNoduleFfR13CStateManager:
 /* 80295420 00292380  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80295424 00292384  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80295428 00292388  7D 89 03 A6 */	mtctr r12
-/* 8029542C 0029238C  4E 80 04 21 */	bctrl 
+/* 8029542C 0029238C  4E 80 04 21 */	bctrl
 /* 80295430 00292390  C0 23 00 00 */	lfs f1, 0(r3)
 /* 80295434 00292394  C0 02 BF 90 */	lfs f0, lbl_805ADCB0@sda21(r2)
 /* 80295438 00292398  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -792,7 +792,7 @@ lbl_802954B0:
 /* 802954D8 00292438  81 83 00 00 */	lwz r12, 0(r3)
 /* 802954DC 0029243C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802954E0 00292440  7D 89 03 A6 */	mtctr r12
-/* 802954E4 00292444  4E 80 04 21 */	bctrl 
+/* 802954E4 00292444  4E 80 04 21 */	bctrl
 lbl_802954E8:
 /* 802954E8 00292448  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
 /* 802954EC 0029244C  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -801,7 +801,7 @@ lbl_802954E8:
 /* 802954F8 00292458  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802954FC 0029245C  7C 08 03 A6 */	mtlr r0
 /* 80295500 00292460  38 21 00 30 */	addi r1, r1, 0x30
-/* 80295504 00292464  4E 80 00 20 */	blr 
+/* 80295504 00292464  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__20CPhazonHealingNoduleFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__20CPhazonHealingNoduleFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -878,7 +878,7 @@ lbl_80295600:
 /* 8029560C 0029256C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80295610 00292570  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80295614 00292574  7D 89 03 A6 */	mtctr r12
-/* 80295618 00292578  4E 80 04 21 */	bctrl 
+/* 80295618 00292578  4E 80 04 21 */	bctrl
 /* 8029561C 0029257C  48 00 00 38 */	b lbl_80295654
 lbl_80295620:
 /* 80295620 00292580  38 00 00 00 */	li r0, 0
@@ -902,7 +902,7 @@ lbl_80295654:
 /* 80295660 002925C0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80295664 002925C4  7C 08 03 A6 */	mtlr r0
 /* 80295668 002925C8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8029566C 002925CC  4E 80 00 20 */	blr 
+/* 8029566C 002925CC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__20CPhazonHealingNoduleF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CPhazonHealingNoduleF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -920,7 +920,7 @@ AcceptScriptMsg__20CPhazonHealingNoduleF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8029569C 002925FC  38 E7 BF 3C */	addi r7, r7, lbl_803EBF3C@l
 /* 802956A0 00292600  7C 07 00 2E */	lwzx r0, r7, r0
 /* 802956A4 00292604  7C 09 03 A6 */	mtctr r0
-/* 802956A8 00292608  4E 80 04 20 */	bctr 
+/* 802956A8 00292608  4E 80 04 20 */	bctr
 .global lbl_802956AC
 lbl_802956AC:
 /* 802956AC 0029260C  80 7E 04 50 */	lwz r3, 0x450(r30)
@@ -934,7 +934,7 @@ lbl_802956C4:
 /* 802956C8 00292628  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802956CC 0029262C  81 8C 00 8C */	lwz r12, 0x8c(r12)
 /* 802956D0 00292630  7D 89 03 A6 */	mtctr r12
-/* 802956D4 00292634  4E 80 04 21 */	bctrl 
+/* 802956D4 00292634  4E 80 04 21 */	bctrl
 /* 802956D8 00292638  3C A0 80 57 */	lis r5, lbl_80570004@ha
 /* 802956DC 0029263C  84 C5 D7 18 */	lwzu r6, -0x28e8(r5)
 /* 802956E0 00292640  38 80 00 00 */	li r4, 0
@@ -1070,7 +1070,7 @@ lbl_802958B8:
 /* 802958BC 0029281C  7F E4 FB 78 */	mr r4, r31
 /* 802958C0 00292820  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 802958C4 00292824  7D 89 03 A6 */	mtctr r12
-/* 802958C8 00292828  4E 80 04 21 */	bctrl 
+/* 802958C8 00292828  4E 80 04 21 */	bctrl
 /* 802958CC 0029282C  C0 1E 05 80 */	lfs f0, 0x580(r30)
 /* 802958D0 00292830  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802958D4 00292834  C0 1E 05 84 */	lfs f0, 0x584(r30)
@@ -1089,7 +1089,7 @@ lbl_802958F8:
 /* 802958FC 0029285C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80295900 00292860  7C 08 03 A6 */	mtlr r0
 /* 80295904 00292864  38 21 00 30 */	addi r1, r1, 0x30
-/* 80295908 00292868  4E 80 00 20 */	blr 
+/* 80295908 00292868  4E 80 00 20 */	blr
 
 .global "__ct__20CPhazonHealingNoduleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo"
 "__ct__20CPhazonHealingNoduleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo":
@@ -1142,7 +1142,7 @@ lbl_802958F8:
 /* 802959C4 00292924  81 84 00 00 */	lwz r12, 0(r4)
 /* 802959C8 00292928  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802959CC 0029292C  7D 89 03 A6 */	mtctr r12
-/* 802959D0 00292930  4E 80 04 21 */	bctrl 
+/* 802959D0 00292930  4E 80 04 21 */	bctrl
 /* 802959D4 00292934  3B 9E 05 70 */	addi r28, r30, 0x570
 /* 802959D8 00292938  38 81 00 24 */	addi r4, r1, 0x24
 /* 802959DC 0029293C  7F 83 E3 78 */	mr r3, r28
@@ -1206,7 +1206,7 @@ lbl_80295A30:
 /* 80295AC0 00292A20  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80295AC4 00292A24  7C 08 03 A6 */	mtlr r0
 /* 80295AC8 00292A28  38 21 00 60 */	addi r1, r1, 0x60
-/* 80295ACC 00292A2C  4E 80 00 20 */	blr 
+/* 80295ACC 00292A2C  4E 80 00 20 */	blr
 
 .global sub_80295ad0
 sub_80295ad0:
@@ -1228,7 +1228,7 @@ sub_80295ad0:
 /* 80295B0C 00292A6C  38 80 00 01 */	li r4, 1
 /* 80295B10 00292A70  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80295B14 00292A74  7D 89 03 A6 */	mtctr r12
-/* 80295B18 00292A78  4E 80 04 21 */	bctrl 
+/* 80295B18 00292A78  4E 80 04 21 */	bctrl
 lbl_80295B1C:
 /* 80295B1C 00292A7C  80 7F 00 00 */	lwz r3, 0(r31)
 /* 80295B20 00292A80  28 03 00 00 */	cmplwi r3, 0
@@ -1239,4 +1239,4 @@ lbl_80295B2C:
 /* 80295B30 00292A90  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80295B34 00292A94  7C 08 03 A6 */	mtlr r0
 /* 80295B38 00292A98  38 21 00 10 */	addi r1, r1, 0x10
-/* 80295B3C 00292A9C  4E 80 00 20 */	blr 
+/* 80295B3C 00292A9C  4E 80 00 20 */	blr

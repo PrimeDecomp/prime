@@ -65,7 +65,7 @@ lbl_80153ABC:
 /* 80153AC8 00150A28  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80153ACC 00150A2C  7C 08 03 A6 */	mtlr r0
 /* 80153AD0 00150A30  38 21 00 20 */	addi r1, r1, 0x20
-/* 80153AD4 00150A34  4E 80 00 20 */	blr 
+/* 80153AD4 00150A34  4E 80 00 20 */	blr
 
 .global Accept__18CScriptActorRotateFR8IVisitor
 Accept__18CScriptActorRotateFR8IVisitor:
@@ -78,11 +78,11 @@ Accept__18CScriptActorRotateFR8IVisitor:
 /* 80153AF0 00150A50  7C 04 03 78 */	mr r4, r0
 /* 80153AF4 00150A54  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80153AF8 00150A58  7D 89 03 A6 */	mtctr r12
-/* 80153AFC 00150A5C  4E 80 04 21 */	bctrl 
+/* 80153AFC 00150A5C  4E 80 04 21 */	bctrl
 /* 80153B00 00150A60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80153B04 00150A64  7C 08 03 A6 */	mtlr r0
 /* 80153B08 00150A68  38 21 00 10 */	addi r1, r1, 0x10
-/* 80153B0C 00150A6C  4E 80 00 20 */	blr 
+/* 80153B0C 00150A6C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CScriptActorRotateF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CScriptActorRotateF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -143,7 +143,7 @@ lbl_80153BCC:
 /* 80153BD0 00150B30  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80153BD4 00150B34  7C 08 03 A6 */	mtlr r0
 /* 80153BD8 00150B38  38 21 00 30 */	addi r1, r1, 0x30
-/* 80153BDC 00150B3C  4E 80 00 20 */	blr 
+/* 80153BDC 00150B3C  4E 80 00 20 */	blr
 
 .global UpdateActors__18CScriptActorRotateFbR13CStateManager
 UpdateActors__18CScriptActorRotateFbR13CStateManager:
@@ -323,7 +323,7 @@ lbl_80153E50:
 /* 80153E54 00150DB4  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 80153E58 00150DB8  7C 08 03 A6 */	mtlr r0
 /* 80153E5C 00150DBC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80153E60 00150DC0  4E 80 00 20 */	blr 
+/* 80153E60 00150DC0  4E 80 00 20 */	blr
 
 .global Think__18CScriptActorRotateFfR13CStateManager
 Think__18CScriptActorRotateFfR13CStateManager:
@@ -493,7 +493,7 @@ lbl_801540BC:
 /* 801540D4 00151034  83 81 01 B0 */	lwz r28, 0x1b0(r1)
 /* 801540D8 00151038  7C 08 03 A6 */	mtlr r0
 /* 801540DC 0015103C  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 801540E0 00151040  4E 80 00 20 */	blr 
+/* 801540E0 00151040  4E 80 00 20 */	blr
 
 .global RebuildSpiderBallWaypoints__18CScriptActorRotateFR13CStateManager
 RebuildSpiderBallWaypoints__18CScriptActorRotateFR13CStateManager:
@@ -589,7 +589,7 @@ lbl_80154214:
 /* 80154220 00151180  80 01 08 34 */	lwz r0, 0x834(r1)
 /* 80154224 00151184  7C 08 03 A6 */	mtlr r0
 /* 80154228 00151188  38 21 08 30 */	addi r1, r1, 0x830
-/* 8015422C 0015118C  4E 80 00 20 */	blr 
+/* 8015422C 0015118C  4E 80 00 20 */	blr
 
 .global sub_80154230
 sub_80154230:
@@ -622,7 +622,7 @@ sub_80154230:
 /* 80154298 001511F8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8015429C 001511FC  7C 08 03 A6 */	mtlr r0
 /* 801542A0 00151200  38 21 00 20 */	addi r1, r1, 0x20
-/* 801542A4 00151204  4E 80 00 20 */	blr 
+/* 801542A4 00151204  4E 80 00 20 */	blr
 
 .global sub_801542a8
 sub_801542a8:
@@ -758,7 +758,7 @@ lbl_80154480:
 /* 8015449C 001513FC  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801544A0 00151400  7C 08 03 A6 */	mtlr r0
 /* 801544A4 00151404  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801544A8 00151408  4E 80 00 20 */	blr 
+/* 801544A8 00151408  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptActorRotateF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3ffbbb"
 "__ct__18CScriptActorRotateF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3ffbbb":
@@ -822,7 +822,7 @@ lbl_80154480:
 /* 80154590 001514F0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80154594 001514F4  7C 08 03 A6 */	mtlr r0
 /* 80154598 001514F8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8015459C 001514FC  4E 80 00 20 */	blr 
+/* 8015459C 001514FC  4E 80 00 20 */	blr
 
 .global "distance<Q34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iterator>__4rstlFQ34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iteratorQ34rstl195red_black_tree<13TGameScriptId,Q24rstl32"
 "distance<Q34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iterator>__4rstlFQ34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iteratorQ34rstl195red_black_tree<13TGameScriptId,Q24rstl32":
@@ -846,7 +846,7 @@ lbl_80154480:
 /* 801545E4 00151544  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801545E8 00151548  7C 08 03 A6 */	mtlr r0
 /* 801545EC 0015154C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801545F0 00151550  4E 80 00 20 */	blr 
+/* 801545F0 00151550  4E 80 00 20 */	blr
 
 .global "__distance<Q34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iterator>__4rstlFQ34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iteratorQ34rstl195red_black_tree<13TGameScriptId,Q24rstl"
 "__distance<Q34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iterator>__4rstlFQ34rstl195red_black_tree<13TGameScriptId,Q24rstl32pair<13TGameScriptId,9TUniqueId>,1,Q24rstl52select1st<Q24rstl32pair<13TGameScriptId,9TUniqueId>>,Q24rstl21less<13TGameScriptId>,Q24rstl17rmemory_allocator>14const_iteratorQ34rstl195red_black_tree<13TGameScriptId,Q24rstl":
@@ -887,7 +887,7 @@ lbl_80154654:
 /* 8015466C 001515CC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80154670 001515D0  7C 08 03 A6 */	mtlr r0
 /* 80154674 001515D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80154678 001515D8  4E 80 00 20 */	blr 
+/* 80154678 001515D8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl75vector<Q24rstl31pair<9TUniqueId,12CTransform4f>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl75vector<Q24rstl31pair<9TUniqueId,12CTransform4f>,Q24rstl17rmemory_allocator>Fi":

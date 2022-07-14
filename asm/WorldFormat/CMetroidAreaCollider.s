@@ -240,7 +240,7 @@ lbl_802A3364:
 /* 802A3374 002A02D4  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802A3378 002A02D8  7C 08 03 A6 */	mtlr r0
 /* 802A337C 002A02DC  38 21 01 10 */	addi r1, r1, 0x110
-/* 802A3380 002A02E0  4E 80 00 20 */	blr 
+/* 802A3380 002A02E0  4E 80 00 20 */	blr
 
 .global sub_802a3384
 sub_802a3384:
@@ -261,7 +261,7 @@ sub_802a3384:
 /* 802A33BC 002A031C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A33C0 002A0320  7C 08 03 A6 */	mtlr r0
 /* 802A33C4 002A0324  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A33C8 002A0328  4E 80 00 20 */	blr 
+/* 802A33C8 002A0328  4E 80 00 20 */	blr
 
 .global sub_802a33cc
 sub_802a33cc:
@@ -275,7 +275,7 @@ lbl_802A33E4:
 /* 802A33E4 002A0344  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A33E8 002A0348  7C 08 03 A6 */	mtlr r0
 /* 802A33EC 002A034C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A33F0 002A0350  4E 80 00 20 */	blr 
+/* 802A33F0 002A0350  4E 80 00 20 */	blr
 
 .global sub_802a33f4
 sub_802a33f4:
@@ -323,7 +323,7 @@ sub_802a33f4:
 /* 802A3498 002A03F8  D8 03 00 80 */	stfd f0, 0x80(r3)
 /* 802A349C 002A03FC  C8 04 00 88 */	lfd f0, 0x88(r4)
 /* 802A34A0 002A0400  D8 03 00 88 */	stfd f0, 0x88(r3)
-/* 802A34A4 002A0404  4E 80 00 20 */	blr 
+/* 802A34A4 002A0404  4E 80 00 20 */	blr
 
 .global __ct__Q220CMetroidAreaCollider8SBoxEdgeFRC6CAABoxiRC9CVector3f
 __ct__Q220CMetroidAreaCollider8SBoxEdgeFRC6CAABoxiRC9CVector3f:
@@ -396,7 +396,7 @@ __ct__Q220CMetroidAreaCollider8SBoxEdgeFRC6CAABoxiRC9CVector3f:
 /* 802A35B0 002A0510  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 802A35B4 002A0514  7C 08 03 A6 */	mtlr r0
 /* 802A35B8 002A0518  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802A35BC 002A051C  4E 80 00 20 */	blr 
+/* 802A35BC 002A051C  4E 80 00 20 */	blr
 
 .global FlagVertexIndicesForFace__FUiPb
 FlagVertexIndicesForFace__FUiPb:
@@ -408,11 +408,11 @@ FlagVertexIndicesForFace__FUiPb:
 /* 802A35D4 002A0534  40 80 00 50 */	bge lbl_802A3624
 /* 802A35D8 002A0538  2C 03 00 00 */	cmpwi r3, 0
 /* 802A35DC 002A053C  40 80 00 18 */	bge lbl_802A35F4
-/* 802A35E0 002A0540  4E 80 00 20 */	blr 
+/* 802A35E0 002A0540  4E 80 00 20 */	blr
 lbl_802A35E4:
 /* 802A35E4 002A0544  2C 03 00 05 */	cmpwi r3, 5
 /* 802A35E8 002A0548  41 82 00 84 */	beq lbl_802A366C
-/* 802A35EC 002A054C  4C 80 00 20 */	bgelr 
+/* 802A35EC 002A054C  4C 80 00 20 */	bgelr
 /* 802A35F0 002A0550  48 00 00 64 */	b lbl_802A3654
 lbl_802A35F4:
 /* 802A35F4 002A0554  38 00 00 01 */	li r0, 1
@@ -420,42 +420,42 @@ lbl_802A35F4:
 /* 802A35FC 002A055C  98 04 00 03 */	stb r0, 3(r4)
 /* 802A3600 002A0560  98 04 00 05 */	stb r0, 5(r4)
 /* 802A3604 002A0564  98 04 00 07 */	stb r0, 7(r4)
-/* 802A3608 002A0568  4E 80 00 20 */	blr 
+/* 802A3608 002A0568  4E 80 00 20 */	blr
 lbl_802A360C:
 /* 802A360C 002A056C  38 00 00 01 */	li r0, 1
 /* 802A3610 002A0570  98 04 00 00 */	stb r0, 0(r4)
 /* 802A3614 002A0574  98 04 00 02 */	stb r0, 2(r4)
 /* 802A3618 002A0578  98 04 00 04 */	stb r0, 4(r4)
 /* 802A361C 002A057C  98 04 00 06 */	stb r0, 6(r4)
-/* 802A3620 002A0580  4E 80 00 20 */	blr 
+/* 802A3620 002A0580  4E 80 00 20 */	blr
 lbl_802A3624:
 /* 802A3624 002A0584  38 00 00 01 */	li r0, 1
 /* 802A3628 002A0588  98 04 00 02 */	stb r0, 2(r4)
 /* 802A362C 002A058C  98 04 00 03 */	stb r0, 3(r4)
 /* 802A3630 002A0590  98 04 00 06 */	stb r0, 6(r4)
 /* 802A3634 002A0594  98 04 00 07 */	stb r0, 7(r4)
-/* 802A3638 002A0598  4E 80 00 20 */	blr 
+/* 802A3638 002A0598  4E 80 00 20 */	blr
 lbl_802A363C:
 /* 802A363C 002A059C  38 00 00 01 */	li r0, 1
 /* 802A3640 002A05A0  98 04 00 00 */	stb r0, 0(r4)
 /* 802A3644 002A05A4  98 04 00 01 */	stb r0, 1(r4)
 /* 802A3648 002A05A8  98 04 00 04 */	stb r0, 4(r4)
 /* 802A364C 002A05AC  98 04 00 05 */	stb r0, 5(r4)
-/* 802A3650 002A05B0  4E 80 00 20 */	blr 
+/* 802A3650 002A05B0  4E 80 00 20 */	blr
 lbl_802A3654:
 /* 802A3654 002A05B4  38 00 00 01 */	li r0, 1
 /* 802A3658 002A05B8  98 04 00 04 */	stb r0, 4(r4)
 /* 802A365C 002A05BC  98 04 00 05 */	stb r0, 5(r4)
 /* 802A3660 002A05C0  98 04 00 06 */	stb r0, 6(r4)
 /* 802A3664 002A05C4  98 04 00 07 */	stb r0, 7(r4)
-/* 802A3668 002A05C8  4E 80 00 20 */	blr 
+/* 802A3668 002A05C8  4E 80 00 20 */	blr
 lbl_802A366C:
 /* 802A366C 002A05CC  38 00 00 01 */	li r0, 1
 /* 802A3670 002A05D0  98 04 00 00 */	stb r0, 0(r4)
 /* 802A3674 002A05D4  98 04 00 01 */	stb r0, 1(r4)
 /* 802A3678 002A05D8  98 04 00 02 */	stb r0, 2(r4)
 /* 802A367C 002A05DC  98 04 00 03 */	stb r0, 3(r4)
-/* 802A3680 002A05E0  4E 80 00 20 */	blr 
+/* 802A3680 002A05E0  4E 80 00 20 */	blr
 
 .global FlagEdgeIndicesForFace__FUiPb
 FlagEdgeIndicesForFace__FUiPb:
@@ -467,11 +467,11 @@ FlagEdgeIndicesForFace__FUiPb:
 /* 802A3698 002A05F8  40 80 00 50 */	bge lbl_802A36E8
 /* 802A369C 002A05FC  2C 03 00 00 */	cmpwi r3, 0
 /* 802A36A0 002A0600  40 80 00 18 */	bge lbl_802A36B8
-/* 802A36A4 002A0604  4E 80 00 20 */	blr 
+/* 802A36A4 002A0604  4E 80 00 20 */	blr
 lbl_802A36A8:
 /* 802A36A8 002A0608  2C 03 00 05 */	cmpwi r3, 5
 /* 802A36AC 002A060C  41 82 00 84 */	beq lbl_802A3730
-/* 802A36B0 002A0610  4C 80 00 20 */	bgelr 
+/* 802A36B0 002A0610  4C 80 00 20 */	bgelr
 /* 802A36B4 002A0614  48 00 00 64 */	b lbl_802A3718
 lbl_802A36B8:
 /* 802A36B8 002A0618  38 00 00 01 */	li r0, 1
@@ -479,42 +479,42 @@ lbl_802A36B8:
 /* 802A36C0 002A0620  98 04 00 0B */	stb r0, 0xb(r4)
 /* 802A36C4 002A0624  98 04 00 02 */	stb r0, 2(r4)
 /* 802A36C8 002A0628  98 04 00 04 */	stb r0, 4(r4)
-/* 802A36CC 002A062C  4E 80 00 20 */	blr 
+/* 802A36CC 002A062C  4E 80 00 20 */	blr
 lbl_802A36D0:
 /* 802A36D0 002A0630  38 00 00 01 */	li r0, 1
 /* 802A36D4 002A0634  98 04 00 08 */	stb r0, 8(r4)
 /* 802A36D8 002A0638  98 04 00 09 */	stb r0, 9(r4)
 /* 802A36DC 002A063C  98 04 00 00 */	stb r0, 0(r4)
 /* 802A36E0 002A0640  98 04 00 06 */	stb r0, 6(r4)
-/* 802A36E4 002A0644  4E 80 00 20 */	blr 
+/* 802A36E4 002A0644  4E 80 00 20 */	blr
 lbl_802A36E8:
 /* 802A36E8 002A0648  38 00 00 01 */	li r0, 1
 /* 802A36EC 002A064C  98 04 00 04 */	stb r0, 4(r4)
 /* 802A36F0 002A0650  98 04 00 05 */	stb r0, 5(r4)
 /* 802A36F4 002A0654  98 04 00 06 */	stb r0, 6(r4)
 /* 802A36F8 002A0658  98 04 00 07 */	stb r0, 7(r4)
-/* 802A36FC 002A065C  4E 80 00 20 */	blr 
+/* 802A36FC 002A065C  4E 80 00 20 */	blr
 lbl_802A3700:
 /* 802A3700 002A0660  38 00 00 01 */	li r0, 1
 /* 802A3704 002A0664  98 04 00 00 */	stb r0, 0(r4)
 /* 802A3708 002A0668  98 04 00 01 */	stb r0, 1(r4)
 /* 802A370C 002A066C  98 04 00 02 */	stb r0, 2(r4)
 /* 802A3710 002A0670  98 04 00 03 */	stb r0, 3(r4)
-/* 802A3714 002A0674  4E 80 00 20 */	blr 
+/* 802A3714 002A0674  4E 80 00 20 */	blr
 lbl_802A3718:
 /* 802A3718 002A0678  38 00 00 01 */	li r0, 1
 /* 802A371C 002A067C  98 04 00 07 */	stb r0, 7(r4)
 /* 802A3720 002A0680  98 04 00 08 */	stb r0, 8(r4)
 /* 802A3724 002A0684  98 04 00 03 */	stb r0, 3(r4)
 /* 802A3728 002A0688  98 04 00 0B */	stb r0, 0xb(r4)
-/* 802A372C 002A068C  4E 80 00 20 */	blr 
+/* 802A372C 002A068C  4E 80 00 20 */	blr
 lbl_802A3730:
 /* 802A3730 002A0690  38 00 00 01 */	li r0, 1
 /* 802A3734 002A0694  98 04 00 01 */	stb r0, 1(r4)
 /* 802A3738 002A0698  98 04 00 05 */	stb r0, 5(r4)
 /* 802A373C 002A069C  98 04 00 09 */	stb r0, 9(r4)
 /* 802A3740 002A06A0  98 04 00 0A */	stb r0, 0xa(r4)
-/* 802A3744 002A06A4  4E 80 00 20 */	blr 
+/* 802A3744 002A06A4  4E 80 00 20 */	blr
 
 .global BuildOctreeLeafCache__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeRC6CAABoxRQ220CMetroidAreaCollider16COctreeLeafCache
 BuildOctreeLeafCache__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeRC6CAABoxRQ220CMetroidAreaCollider16COctreeLeafCache:
@@ -580,7 +580,7 @@ lbl_802A3814:
 /* 802A3828 002A0788  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802A382C 002A078C  7C 08 03 A6 */	mtlr r0
 /* 802A3830 002A0790  38 21 00 70 */	addi r1, r1, 0x70
-/* 802A3834 002A0794  4E 80 00 20 */	blr 
+/* 802A3834 002A0794  4E 80 00 20 */	blr
 
 .global ClearCache__19CAreaCollisionCacheFv
 ClearCache__19CAreaCollisionCacheFv:
@@ -633,7 +633,7 @@ lbl_802A38B4:
 /* 802A38D4 002A0834  88 03 1B 40 */	lbz r0, 0x1b40(r3)
 /* 802A38D8 002A0838  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 802A38DC 002A083C  98 03 1B 40 */	stb r0, 0x1b40(r3)
-/* 802A38E0 002A0840  4E 80 00 20 */	blr 
+/* 802A38E0 002A0840  4E 80 00 20 */	blr
 
 .global SetCacheBounds__19CAreaCollisionCacheFRC6CAABox
 SetCacheBounds__19CAreaCollisionCacheFRC6CAABox:
@@ -649,7 +649,7 @@ SetCacheBounds__19CAreaCollisionCacheFRC6CAABox:
 /* 802A3908 002A0868  90 03 00 10 */	stw r0, 0x10(r3)
 /* 802A390C 002A086C  80 04 00 14 */	lwz r0, 0x14(r4)
 /* 802A3910 002A0870  90 03 00 14 */	stw r0, 0x14(r3)
-/* 802A3914 002A0874  4E 80 00 20 */	blr 
+/* 802A3914 002A0874  4E 80 00 20 */	blr
 
 .global AddOctreeLeafCache__19CAreaCollisionCacheFRCQ220CMetroidAreaCollider16COctreeLeafCache
 AddOctreeLeafCache__19CAreaCollisionCacheFRCQ220CMetroidAreaCollider16COctreeLeafCache:
@@ -685,7 +685,7 @@ lbl_802A3980:
 /* 802A3980 002A08E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A3984 002A08E4  7C 08 03 A6 */	mtlr r0
 /* 802A3988 002A08E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A398C 002A08EC  4E 80 00 20 */	blr 
+/* 802A398C 002A08EC  4E 80 00 20 */	blr
 
 .global sub_802a3990
 sub_802a3990:
@@ -706,7 +706,7 @@ sub_802a3990:
 /* 802A39C8 002A0928  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A39CC 002A092C  7C 08 03 A6 */	mtlr r0
 /* 802A39D0 002A0930  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A39D4 002A0934  4E 80 00 20 */	blr 
+/* 802A39D4 002A0934  4E 80 00 20 */	blr
 
 .global sub_802a39d8
 sub_802a39d8:
@@ -720,7 +720,7 @@ lbl_802A39F0:
 /* 802A39F0 002A0950  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A39F4 002A0954  7C 08 03 A6 */	mtlr r0
 /* 802A39F8 002A0958  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A39FC 002A095C  4E 80 00 20 */	blr 
+/* 802A39FC 002A095C  4E 80 00 20 */	blr
 
 .global sub_802a3a00
 sub_802a3a00:
@@ -762,7 +762,7 @@ lbl_802A3A78:
 lbl_802A3A84:
 /* 802A3A84 002A09E4  88 04 09 08 */	lbz r0, 0x908(r4)
 /* 802A3A88 002A09E8  98 03 09 08 */	stb r0, 0x908(r3)
-/* 802A3A8C 002A09EC  4E 80 00 20 */	blr 
+/* 802A3A8C 002A09EC  4E 80 00 20 */	blr
 
 .global __ct__19CAreaCollisionCacheFRC6CAABox
 __ct__19CAreaCollisionCacheFRC6CAABox:
@@ -786,7 +786,7 @@ __ct__19CAreaCollisionCacheFRC6CAABox:
 /* 802A3AD4 002A0A34  88 03 1B 40 */	lbz r0, 0x1b40(r3)
 /* 802A3AD8 002A0A38  50 A0 36 72 */	rlwimi r0, r5, 6, 0x19, 0x19
 /* 802A3ADC 002A0A3C  98 03 1B 40 */	stb r0, 0x1b40(r3)
-/* 802A3AE0 002A0A40  4E 80 00 20 */	blr 
+/* 802A3AE0 002A0A40  4E 80 00 20 */	blr
 
 .global AddLeaf__Q220CMetroidAreaCollider16COctreeLeafCacheFRCQ212CAreaOctTree4Node
 AddLeaf__Q220CMetroidAreaCollider16COctreeLeafCacheFRCQ212CAreaOctTree4Node:
@@ -797,7 +797,7 @@ AddLeaf__Q220CMetroidAreaCollider16COctreeLeafCacheFRCQ212CAreaOctTree4Node:
 /* 802A3AF4 002A0A54  38 80 00 01 */	li r4, 1
 /* 802A3AF8 002A0A58  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 802A3AFC 002A0A5C  98 03 09 08 */	stb r0, 0x908(r3)
-/* 802A3B00 002A0A60  4E 80 00 20 */	blr 
+/* 802A3B00 002A0A60  4E 80 00 20 */	blr
 lbl_802A3B04:
 /* 802A3B04 002A0A64  1C 00 00 24 */	mulli r0, r0, 0x24
 /* 802A3B08 002A0A68  7C A3 02 14 */	add r5, r3, r0
@@ -825,7 +825,7 @@ lbl_802A3B5C:
 /* 802A3B5C 002A0ABC  80 83 00 04 */	lwz r4, 4(r3)
 /* 802A3B60 002A0AC0  38 04 00 01 */	addi r0, r4, 1
 /* 802A3B64 002A0AC4  90 03 00 04 */	stw r0, 4(r3)
-/* 802A3B68 002A0AC8  4E 80 00 20 */	blr 
+/* 802A3B68 002A0AC8  4E 80 00 20 */	blr
 
 .global __ct__Q220CMetroidAreaCollider16COctreeLeafCacheFRC12CAreaOctTree
 __ct__Q220CMetroidAreaCollider16COctreeLeafCacheFRC12CAreaOctTree:
@@ -835,7 +835,7 @@ __ct__Q220CMetroidAreaCollider16COctreeLeafCacheFRC12CAreaOctTree:
 /* 802A3B78 002A0AD8  88 03 09 08 */	lbz r0, 0x908(r3)
 /* 802A3B7C 002A0ADC  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
 /* 802A3B80 002A0AE0  98 03 09 08 */	stb r0, 0x908(r3)
-/* 802A3B84 002A0AE4  4E 80 00 20 */	blr 
+/* 802A3B84 002A0AE4  4E 80 00 20 */	blr
 
 .global "MovingAABoxCollisionCheck_Edge__20CMetroidAreaColliderFRC9CVector3fRC9CVector3fRCQ24rstl53reserved_vector<Q220CMetroidAreaCollider8SBoxEdge,12>9CVector3fRdR9CVector3fR9CVector3f"
 "MovingAABoxCollisionCheck_Edge__20CMetroidAreaColliderFRC9CVector3fRC9CVector3fRCQ24rstl53reserved_vector<Q220CMetroidAreaCollider8SBoxEdge,12>9CVector3fRdR9CVector3fR9CVector3f":
@@ -1131,7 +1131,7 @@ lbl_802A3FC8:
 /* 802A3FE4 002A0F44  80 01 02 44 */	lwz r0, 0x244(r1)
 /* 802A3FE8 002A0F48  7C 08 03 A6 */	mtlr r0
 /* 802A3FEC 002A0F4C  38 21 02 40 */	addi r1, r1, 0x240
-/* 802A3FF0 002A0F50  4E 80 00 20 */	blr 
+/* 802A3FF0 002A0F50  4E 80 00 20 */	blr
 
 .global "MovingAABoxCollisionCheck_BoxVertexTri__20CMetroidAreaColliderFRC17CCollisionSurfaceRC6CAABoxRCQ24rstl21reserved_vector<Ui,8>9CVector3fRdR9CVector3fR9CVector3f"
 "MovingAABoxCollisionCheck_BoxVertexTri__20CMetroidAreaColliderFRC17CCollisionSurfaceRC6CAABoxRCQ24rstl21reserved_vector<Ui,8>9CVector3fRdR9CVector3fR9CVector3f":
@@ -1207,7 +1207,7 @@ lbl_802A40E8:
 /* 802A40FC 002A105C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802A4100 002A1060  7C 08 03 A6 */	mtlr r0
 /* 802A4104 002A1064  38 21 00 60 */	addi r1, r1, 0x60
-/* 802A4108 002A1068  4E 80 00 20 */	blr 
+/* 802A4108 002A1068  4E 80 00 20 */	blr
 
 .global MovingAABoxCollisionCheck_TriVertexBox__20CMetroidAreaColliderFRC9CVector3fRC6CAABox9CVector3fRdR9CVector3fR9CVector3f
 MovingAABoxCollisionCheck_TriVertexBox__20CMetroidAreaColliderFRC9CVector3fRC6CAABox9CVector3fRdR9CVector3fR9CVector3f:
@@ -1279,7 +1279,7 @@ lbl_802A4204:
 /* 802A420C 002A116C  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802A4210 002A1170  7C 08 03 A6 */	mtlr r0
 /* 802A4214 002A1174  38 21 00 80 */	addi r1, r1, 0x80
-/* 802A4218 002A1178  4E 80 00 20 */	blr 
+/* 802A4218 002A1178  4E 80 00 20 */	blr
 
 .global MovingAABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC15CMaterialFilterRC13CMaterialList9CVector3ffR14CCollisionInfoRd
 MovingAABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC15CMaterialFilterRC13CMaterialList9CVector3ffR14CCollisionInfoRd:
@@ -1943,7 +1943,7 @@ lbl_802A4BE4:
 /* 802A4C0C 002A1B6C  80 01 09 D4 */	lwz r0, 0x9d4(r1)
 /* 802A4C10 002A1B70  7C 08 03 A6 */	mtlr r0
 /* 802A4C14 002A1B74  38 21 09 D0 */	addi r1, r1, 0x9d0
-/* 802A4C18 002A1B78  4E 80 00 20 */	blr 
+/* 802A4C18 002A1B78  4E 80 00 20 */	blr
 
 .global MovingSphereCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC7CSphereRC15CMaterialFilterRC13CMaterialList9CVector3ffR14CCollisionInfoRd
 MovingSphereCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC7CSphereRC15CMaterialFilterRC13CMaterialList9CVector3ffR14CCollisionInfoRd:
@@ -3021,7 +3021,7 @@ lbl_802A5BF8:
 /* 802A5C84 002A2BE4  80 01 04 B4 */	lwz r0, 0x4b4(r1)
 /* 802A5C88 002A2BE8  7C 08 03 A6 */	mtlr r0
 /* 802A5C8C 002A2BEC  38 21 04 B0 */	addi r1, r1, 0x4b0
-/* 802A5C90 002A2BF0  4E 80 00 20 */	blr 
+/* 802A5C90 002A2BF0  4E 80 00 20 */	blr
 
 .global SphereCollisionCheckBoolean__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC7CSphereRC15CMaterialFilter
 SphereCollisionCheckBoolean__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC7CSphereRC15CMaterialFilter:
@@ -3054,7 +3054,7 @@ SphereCollisionCheckBoolean__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC7
 /* 802A5CFC 002A2C5C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802A5D00 002A2C60  7C 08 03 A6 */	mtlr r0
 /* 802A5D04 002A2C64  38 21 00 40 */	addi r1, r1, 0x40
-/* 802A5D08 002A2C68  4E 80 00 20 */	blr 
+/* 802A5D08 002A2C68  4E 80 00 20 */	blr
 
 .global SphereCollisionCheckBoolean_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC7CSphereRC15CMaterialFilter
 SphereCollisionCheckBoolean_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC7CSphereRC15CMaterialFilter:
@@ -3130,7 +3130,7 @@ lbl_802A5E00:
 /* 802A5E04 002A2D64  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802A5E08 002A2D68  7C 08 03 A6 */	mtlr r0
 /* 802A5E0C 002A2D6C  38 21 00 70 */	addi r1, r1, 0x70
-/* 802A5E10 002A2D70  4E 80 00 20 */	blr 
+/* 802A5E10 002A2D70  4E 80 00 20 */	blr
 
 .global SphereCollisionCheckBoolean_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeRC23CBooleanSphereAreaCache
 SphereCollisionCheckBoolean_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeRC23CBooleanSphereAreaCache:
@@ -3240,7 +3240,7 @@ lbl_802A5F90:
 /* 802A5F94 002A2EF4  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 802A5F98 002A2EF8  7C 08 03 A6 */	mtlr r0
 /* 802A5F9C 002A2EFC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802A5FA0 002A2F00  4E 80 00 20 */	blr 
+/* 802A5FA0 002A2F00  4E 80 00 20 */	blr
 
 .global SphereCollisionCheck__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList
 SphereCollisionCheck__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList:
@@ -3279,7 +3279,7 @@ SphereCollisionCheck__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC7CSphere
 /* 802A6024 002A2F84  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 802A6028 002A2F88  7C 08 03 A6 */	mtlr r0
 /* 802A602C 002A2F8C  38 21 00 50 */	addi r1, r1, 0x50
-/* 802A6030 002A2F90  4E 80 00 20 */	blr 
+/* 802A6030 002A2F90  4E 80 00 20 */	blr
 
 .global SphereCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList
 SphereCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList:
@@ -3391,7 +3391,7 @@ lbl_802A61A8:
 /* 802A61BC 002A311C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 802A61C0 002A3120  7C 08 03 A6 */	mtlr r0
 /* 802A61C4 002A3124  38 21 01 00 */	addi r1, r1, 0x100
-/* 802A61C8 002A3128  4E 80 00 20 */	blr 
+/* 802A61C8 002A3128  4E 80 00 20 */	blr
 
 .global SphereCollisionCheck_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeR16CSphereAreaCache
 SphereCollisionCheck_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeR16CSphereAreaCache:
@@ -3534,7 +3534,7 @@ lbl_802A63B8:
 /* 802A63D0 002A3330  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 802A63D4 002A3334  7C 08 03 A6 */	mtlr r0
 /* 802A63D8 002A3338  38 21 01 30 */	addi r1, r1, 0x130
-/* 802A63DC 002A333C  4E 80 00 20 */	blr 
+/* 802A63DC 002A333C  4E 80 00 20 */	blr
 
 .global AABoxCollisionCheckBoolean__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC15CMaterialFilter
 AABoxCollisionCheckBoolean__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC15CMaterialFilter:
@@ -3569,7 +3569,7 @@ AABoxCollisionCheckBoolean__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC15
 /* 802A6450 002A33B0  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 802A6454 002A33B4  7C 08 03 A6 */	mtlr r0
 /* 802A6458 002A33B8  38 21 00 60 */	addi r1, r1, 0x60
-/* 802A645C 002A33BC  4E 80 00 20 */	blr 
+/* 802A645C 002A33BC  4E 80 00 20 */	blr
 
 .global __ct__22CBooleanAABoxAreaCacheFRC6CAABoxRC15CMaterialFilter
 __ct__22CBooleanAABoxAreaCacheFRC6CAABoxRC15CMaterialFilter:
@@ -3612,7 +3612,7 @@ __ct__22CBooleanAABoxAreaCacheFRC6CAABoxRC15CMaterialFilter:
 /* 802A64F0 002A3450  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A64F4 002A3454  7C 08 03 A6 */	mtlr r0
 /* 802A64F8 002A3458  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A64FC 002A345C  4E 80 00 20 */	blr 
+/* 802A64FC 002A345C  4E 80 00 20 */	blr
 
 .global AABoxCollisionCheckBoolean_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC15CMaterialFilter
 AABoxCollisionCheckBoolean_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC15CMaterialFilter:
@@ -3712,7 +3712,7 @@ lbl_802A6654:
 /* 802A6658 002A35B8  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802A665C 002A35BC  7C 08 03 A6 */	mtlr r0
 /* 802A6660 002A35C0  38 21 00 90 */	addi r1, r1, 0x90
-/* 802A6664 002A35C4  4E 80 00 20 */	blr 
+/* 802A6664 002A35C4  4E 80 00 20 */	blr
 
 .global AABoxCollisionCheckBoolean_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeRC22CBooleanAABoxAreaCache
 AABoxCollisionCheckBoolean_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeRC22CBooleanAABoxAreaCache:
@@ -3823,7 +3823,7 @@ lbl_802A67E8:
 /* 802A67EC 002A374C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 802A67F0 002A3750  7C 08 03 A6 */	mtlr r0
 /* 802A67F4 002A3754  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802A67F8 002A3758  4E 80 00 20 */	blr 
+/* 802A67F8 002A3758  4E 80 00 20 */	blr
 
 .global AABoxCollisionCheck__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC15CMaterialFilterRC13CMaterialListR18CCollisionInfoList
 AABoxCollisionCheck__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC15CMaterialFilterRC13CMaterialListR18CCollisionInfoList:
@@ -3927,7 +3927,7 @@ AABoxCollisionCheck__20CMetroidAreaColliderFRC12CAreaOctTreeRC6CAABoxRC15CMateri
 /* 802A6980 002A38E0  83 E1 00 BC */	lwz r31, 0xbc(r1)
 /* 802A6984 002A38E4  7C 08 03 A6 */	mtlr r0
 /* 802A6988 002A38E8  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 802A698C 002A38EC  4E 80 00 20 */	blr 
+/* 802A698C 002A38EC  4E 80 00 20 */	blr
 
 .global __ct__15CAABoxAreaCacheFRC6CAABoxPC6CPlaneRC15CMaterialFilterRC13CMaterialListR18CCollisionInfoList
 __ct__15CAABoxAreaCacheFRC6CAABoxPC6CPlaneRC15CMaterialFilterRC13CMaterialListR18CCollisionInfoList:
@@ -3973,7 +3973,7 @@ __ct__15CAABoxAreaCacheFRC6CAABoxPC6CPlaneRC15CMaterialFilterRC13CMaterialListR1
 /* 802A6A2C 002A398C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A6A30 002A3990  7C 08 03 A6 */	mtlr r0
 /* 802A6A34 002A3994  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A6A38 002A3998  4E 80 00 20 */	blr 
+/* 802A6A38 002A3998  4E 80 00 20 */	blr
 
 .global AABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC15CMaterialFilterRC13CMaterialListR18CCollisionInfoList
 AABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16COctreeLeafCacheRC6CAABoxRC15CMaterialFilterRC13CMaterialListR18CCollisionInfoList:
@@ -4197,7 +4197,7 @@ lbl_802A6D60:
 /* 802A6D84 002A3CE4  80 01 01 D4 */	lwz r0, 0x1d4(r1)
 /* 802A6D88 002A3CE8  7C 08 03 A6 */	mtlr r0
 /* 802A6D8C 002A3CEC  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 802A6D90 002A3CF0  4E 80 00 20 */	blr 
+/* 802A6D90 002A3CF0  4E 80 00 20 */	blr
 
 .global AABoxCollisionCheck_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeR15CAABoxAreaCache
 AABoxCollisionCheck_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeR15CAABoxAreaCache:
@@ -4383,7 +4383,7 @@ lbl_802A702C:
 /* 802A7030 002A3F90  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 802A7034 002A3F94  7C 08 03 A6 */	mtlr r0
 /* 802A7038 002A3F98  38 21 01 80 */	addi r1, r1, 0x180
-/* 802A703C 002A3F9C  4E 80 00 20 */	blr 
+/* 802A703C 002A3F9C  4E 80 00 20 */	blr
 
 .global ResetInternalCounters__20CMetroidAreaColliderFv
 ResetInternalCounters__20CMetroidAreaColliderFv:
@@ -4425,7 +4425,7 @@ lbl_802A70BC:
 /* 802A70C8 002A4028  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A70CC 002A402C  7C 08 03 A6 */	mtlr r0
 /* 802A70D0 002A4030  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A70D4 002A4034  4E 80 00 20 */	blr 
+/* 802A70D4 002A4034  4E 80 00 20 */	blr
 
 .global ConvexPolyCollision__20CMetroidAreaColliderFPC6CPlanePC9CVector3fR6CAABox
 ConvexPolyCollision__20CMetroidAreaColliderFPC6CPlanePC9CVector3fR6CAABox:

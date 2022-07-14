@@ -81,7 +81,7 @@ lbl_8033F49C:
 /* 8033F4A8 0033C408  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8033F4AC 0033C40C  7C 08 03 A6 */	mtlr r0
 /* 8033F4B0 0033C410  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033F4B4 0033C414  4E 80 00 20 */	blr 
+/* 8033F4B4 0033C414  4E 80 00 20 */	blr
 
 .global FlushShiftRegister__13COutputStreamFv
 FlushShiftRegister__13COutputStreamFv:
@@ -112,7 +112,7 @@ lbl_8033F510:
 /* 8033F514 0033C474  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8033F518 0033C478  7C 08 03 A6 */	mtlr r0
 /* 8033F51C 0033C47C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F520 0033C480  4E 80 00 20 */	blr 
+/* 8033F520 0033C480  4E 80 00 20 */	blr
 
 .global DoFlush__13COutputStreamFv
 DoFlush__13COutputStreamFv:
@@ -128,7 +128,7 @@ DoFlush__13COutputStreamFv:
 /* 8033F548 0033C4A8  80 9F 00 0C */	lwz r4, 0xc(r31)
 /* 8033F54C 0033C4AC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8033F550 0033C4B0  7D 89 03 A6 */	mtctr r12
-/* 8033F554 0033C4B4  4E 80 04 21 */	bctrl 
+/* 8033F554 0033C4B4  4E 80 04 21 */	bctrl
 /* 8033F558 0033C4B8  38 00 00 00 */	li r0, 0
 /* 8033F55C 0033C4BC  90 1F 00 04 */	stw r0, 4(r31)
 lbl_8033F560:
@@ -136,7 +136,7 @@ lbl_8033F560:
 /* 8033F564 0033C4C4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8033F568 0033C4C8  7C 08 03 A6 */	mtlr r0
 /* 8033F56C 0033C4CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F570 0033C4D0  4E 80 00 20 */	blr 
+/* 8033F570 0033C4D0  4E 80 00 20 */	blr
 
 .global Flush__13COutputStreamFv
 Flush__13COutputStreamFv:
@@ -152,7 +152,7 @@ Flush__13COutputStreamFv:
 /* 8033F598 0033C4F8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8033F59C 0033C4FC  7C 08 03 A6 */	mtlr r0
 /* 8033F5A0 0033C500  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F5A4 0033C504  4E 80 00 20 */	blr 
+/* 8033F5A4 0033C504  4E 80 00 20 */	blr
 
 .global DoPut__13COutputStreamFPCvUl
 DoPut__13COutputStreamFPCvUl:
@@ -219,7 +219,7 @@ lbl_8033F670:
 /* 8033F680 0033C5E0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8033F684 0033C5E4  7C 08 03 A6 */	mtlr r0
 /* 8033F688 0033C5E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033F68C 0033C5EC  4E 80 00 20 */	blr 
+/* 8033F68C 0033C5EC  4E 80 00 20 */	blr
 
 .global __dt__13COutputStreamFv
 __dt__13COutputStreamFv:
@@ -251,7 +251,7 @@ lbl_8033F6E0:
 /* 8033F6EC 0033C64C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8033F6F0 0033C650  7C 08 03 A6 */	mtlr r0
 /* 8033F6F4 0033C654  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F6F8 0033C658  4E 80 00 20 */	blr 
+/* 8033F6F8 0033C658  4E 80 00 20 */	blr
 
 .global __ct__13COutputStreamFi
 __ct__13COutputStreamFi:

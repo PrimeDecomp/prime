@@ -3,9 +3,14 @@
 .section .rodata
 .global lbl_803D8750
 lbl_803D8750:
-	.incbin "baserom.dol", 0x3D5750, 0x10
-	
-.section .text, "ax" 
+	# ROM: 0x3D5750
+	.4byte 0
+	.4byte 0
+	.4byte 0x80000000
+	.4byte 0
+
+
+.section .text, "ax"
 
 .global __ieee754_fmod
 __ieee754_fmod:
@@ -257,4 +262,4 @@ lbl_80392118:
 /* 80392118 0038F078  C8 21 00 08 */	lfd f1, 8(r1)
 lbl_8039211C:
 /* 8039211C 0038F07C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80392120 0038F080  4E 80 00 20 */	blr 
+/* 80392120 0038F080  4E 80 00 20 */	blr

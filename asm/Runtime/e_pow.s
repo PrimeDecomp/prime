@@ -3,9 +3,22 @@
 .section .rodata
 .global lbl_803D8760
 lbl_803D8760:
-	.incbin "baserom.dol", 0x3D5760, 0x30
+	# ROM: 0x3D5760
+	.4byte 0x3FF00000
+	.4byte 0
+	.4byte 0x3FF80000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x3FE2B803
+	.4byte 0x40000000
+	.4byte 0
+	.4byte 0
+	.4byte 0x3E4CFDEB
+	.4byte 0x43CFD006
 
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global __ieee754_pow
 __ieee754_pow:
@@ -604,4 +617,4 @@ lbl_80392C04:
 /* 80392C1C 0038FB7C  CB A1 00 60 */	lfd f29, 0x60(r1)
 /* 80392C20 0038FB80  7C 08 03 A6 */	mtlr r0
 /* 80392C24 0038FB84  38 21 00 90 */	addi r1, r1, 0x90
-/* 80392C28 0038FB88  4E 80 00 20 */	blr 
+/* 80392C28 0038FB88  4E 80 00 20 */	blr

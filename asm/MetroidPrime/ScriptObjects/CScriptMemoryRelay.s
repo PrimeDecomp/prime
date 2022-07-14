@@ -27,11 +27,11 @@ Accept__18CScriptMemoryRelayFR8IVisitor:
 /* 80241908 0023E868  7C 04 03 78 */	mr r4, r0
 /* 8024190C 0023E86C  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80241910 0023E870  7D 89 03 A6 */	mtctr r12
-/* 80241914 0023E874  4E 80 04 21 */	bctrl 
+/* 80241914 0023E874  4E 80 04 21 */	bctrl
 /* 80241918 0023E878  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024191C 0023E87C  7C 08 03 A6 */	mtlr r0
 /* 80241920 0023E880  38 21 00 10 */	addi r1, r1, 0x10
-/* 80241924 0023E884  4E 80 00 20 */	blr 
+/* 80241924 0023E884  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CScriptMemoryRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CScriptMemoryRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -90,7 +90,7 @@ lbl_802419E0:
 /* 802419E8 0023E948  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802419EC 0023E94C  7C 08 03 A6 */	mtlr r0
 /* 802419F0 0023E950  38 21 00 30 */	addi r1, r1, 0x30
-/* 802419F4 0023E954  4E 80 00 20 */	blr 
+/* 802419F4 0023E954  4E 80 00 20 */	blr
 
 .global __dt__18CScriptMemoryRelayFv
 __dt__18CScriptMemoryRelayFv:
@@ -118,7 +118,7 @@ lbl_80241A3C:
 /* 80241A48 0023E9A8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80241A4C 0023E9AC  7C 08 03 A6 */	mtlr r0
 /* 80241A50 0023E9B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80241A54 0023E9B4  4E 80 00 20 */	blr 
+/* 80241A54 0023E9B4  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptMemoryRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbb"
 "__ct__18CScriptMemoryRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbb":

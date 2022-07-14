@@ -69,7 +69,7 @@ lbl_8014AC28:
 /* 8014AC34 00147B94  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014AC38 00147B98  7C 08 03 A6 */	mtlr r0
 /* 8014AC3C 00147B9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014AC40 00147BA0  4E 80 00 20 */	blr 
+/* 8014AC40 00147BA0  4E 80 00 20 */	blr
 
 .global Accept__26CScriptDebugCameraWaypointFR8IVisitor
 Accept__26CScriptDebugCameraWaypointFR8IVisitor:
@@ -82,11 +82,11 @@ Accept__26CScriptDebugCameraWaypointFR8IVisitor:
 /* 8014AC5C 00147BBC  7C 04 03 78 */	mr r4, r0
 /* 8014AC60 00147BC0  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 8014AC64 00147BC4  7D 89 03 A6 */	mtctr r12
-/* 8014AC68 00147BC8  4E 80 04 21 */	bctrl 
+/* 8014AC68 00147BC8  4E 80 04 21 */	bctrl
 /* 8014AC6C 00147BCC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014AC70 00147BD0  7C 08 03 A6 */	mtlr r0
 /* 8014AC74 00147BD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014AC78 00147BD8  4E 80 00 20 */	blr 
+/* 8014AC78 00147BD8  4E 80 00 20 */	blr
 
 .global "__ct__26CScriptDebugCameraWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUi"
 "__ct__26CScriptDebugCameraWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUi":

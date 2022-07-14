@@ -76,7 +76,7 @@ lbl_8012D360:
 /* 8012D36C 0012A2CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8012D370 0012A2D0  7C 08 03 A6 */	mtlr r0
 /* 8012D374 0012A2D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012D378 0012A2D8  4E 80 00 20 */	blr 
+/* 8012D378 0012A2D8  4E 80 00 20 */	blr
 
 .global GetTouchBounds__17CScriptCoverPointCFv
 GetTouchBounds__17CScriptCoverPointCFv:
@@ -84,9 +84,9 @@ GetTouchBounds__17CScriptCoverPointCFv:
 /* 8012D380 0012A2E0  98 03 00 18 */	stb r0, 0x18(r3)
 /* 8012D384 0012A2E4  88 04 01 18 */	lbz r0, 0x118(r4)
 /* 8012D388 0012A2E8  28 00 00 00 */	cmplwi r0, 0
-/* 8012D38C 0012A2EC  4D 82 00 20 */	beqlr 
+/* 8012D38C 0012A2EC  4D 82 00 20 */	beqlr
 /* 8012D390 0012A2F0  28 03 00 00 */	cmplwi r3, 0
-/* 8012D394 0012A2F4  4D 82 00 20 */	beqlr 
+/* 8012D394 0012A2F4  4D 82 00 20 */	beqlr
 /* 8012D398 0012A2F8  C0 04 01 00 */	lfs f0, 0x100(r4)
 /* 8012D39C 0012A2FC  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8012D3A0 0012A300  C0 04 01 04 */	lfs f0, 0x104(r4)
@@ -99,25 +99,25 @@ GetTouchBounds__17CScriptCoverPointCFv:
 /* 8012D3BC 0012A31C  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 8012D3C0 0012A320  C0 04 01 14 */	lfs f0, 0x114(r4)
 /* 8012D3C4 0012A324  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8012D3C8 0012A328  4E 80 00 20 */	blr 
+/* 8012D3C8 0012A328  4E 80 00 20 */	blr
 
 .global Render__17CScriptCoverPointCFRC13CStateManager
 Render__17CScriptCoverPointCFRC13CStateManager:
-/* 8012D3CC 0012A32C  4E 80 00 20 */	blr 
+/* 8012D3CC 0012A32C  4E 80 00 20 */	blr
 
 .global AddToRenderer__17CScriptCoverPointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__17CScriptCoverPointCFRC14CFrustumPlanesRC13CStateManager:
-/* 8012D3D0 0012A330  4E 80 00 20 */	blr 
+/* 8012D3D0 0012A330  4E 80 00 20 */	blr
 
 .global Think__17CScriptCoverPointFfR13CStateManager
 Think__17CScriptCoverPointFfR13CStateManager:
 /* 8012D3D4 0012A334  C0 43 01 1C */	lfs f2, 0x11c(r3)
 /* 8012D3D8 0012A338  C0 02 98 98 */	lfs f0, lbl_805AB5B8@sda21(r2)
 /* 8012D3DC 0012A33C  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 8012D3E0 0012A340  4C 81 00 20 */	blelr 
+/* 8012D3E0 0012A340  4C 81 00 20 */	blelr
 /* 8012D3E4 0012A344  EC 02 08 28 */	fsubs f0, f2, f1
 /* 8012D3E8 0012A348  D0 03 01 1C */	stfs f0, 0x11c(r3)
-/* 8012D3EC 0012A34C  4E 80 00 20 */	blr 
+/* 8012D3EC 0012A34C  4E 80 00 20 */	blr
 
 .global SetInUse__17CScriptCoverPointFb
 SetInUse__17CScriptCoverPointFb:
@@ -126,10 +126,10 @@ SetInUse__17CScriptCoverPointFb:
 /* 8012D3F8 0012A358  98 03 00 F8 */	stb r0, 0xf8(r3)
 /* 8012D3FC 0012A35C  88 03 00 F8 */	lbz r0, 0xf8(r3)
 /* 8012D400 0012A360  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
-/* 8012D404 0012A364  4C 82 00 20 */	bnelr 
+/* 8012D404 0012A364  4C 82 00 20 */	bnelr
 /* 8012D408 0012A368  C0 03 00 F4 */	lfs f0, 0xf4(r3)
 /* 8012D40C 0012A36C  D0 03 01 1C */	stfs f0, 0x11c(r3)
-/* 8012D410 0012A370  4E 80 00 20 */	blr 
+/* 8012D410 0012A370  4E 80 00 20 */	blr
 
 .global GetInUse__17CScriptCoverPointCF9TUniqueId
 GetInUse__17CScriptCoverPointCF9TUniqueId:
@@ -154,7 +154,7 @@ lbl_8012D458:
 /* 8012D458 0012A3B8  38 A0 00 01 */	li r5, 1
 lbl_8012D45C:
 /* 8012D45C 0012A3BC  7C A3 2B 78 */	mr r3, r5
-/* 8012D460 0012A3C0  4E 80 00 20 */	blr 
+/* 8012D460 0012A3C0  4E 80 00 20 */	blr
 
 .global Blown__17CScriptCoverPointCFRC9CVector3f
 Blown__17CScriptCoverPointCFRC9CVector3f:
@@ -254,47 +254,47 @@ lbl_8012D5B8:
 /* 8012D5D0 0012A530  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8012D5D4 0012A534  7C 08 03 A6 */	mtlr r0
 /* 8012D5D8 0012A538  38 21 00 60 */	addi r1, r1, 0x60
-/* 8012D5DC 0012A53C  4E 80 00 20 */	blr 
+/* 8012D5DC 0012A53C  4E 80 00 20 */	blr
 
 .global GetSinSqVerticalAngle__17CScriptCoverPointCFv
 GetSinSqVerticalAngle__17CScriptCoverPointCFv:
 /* 8012D5E0 0012A540  C0 03 00 F0 */	lfs f0, 0xf0(r3)
 /* 8012D5E4 0012A544  EC 20 00 32 */	fmuls f1, f0, f0
-/* 8012D5E8 0012A548  4E 80 00 20 */	blr 
+/* 8012D5E8 0012A548  4E 80 00 20 */	blr
 
 .global GetCosHorizontalAngle__17CScriptCoverPointCFv
 GetCosHorizontalAngle__17CScriptCoverPointCFv:
 /* 8012D5EC 0012A54C  C0 23 00 EC */	lfs f1, 0xec(r3)
-/* 8012D5F0 0012A550  4E 80 00 20 */	blr 
+/* 8012D5F0 0012A550  4E 80 00 20 */	blr
 
 .global ShouldLandHere__17CScriptCoverPointCFv
 ShouldLandHere__17CScriptCoverPointCFv:
 /* 8012D5F4 0012A554  80 03 00 E8 */	lwz r0, 0xe8(r3)
 /* 8012D5F8 0012A558  54 03 DF FE */	rlwinm r3, r0, 0x1b, 0x1f, 0x1f
-/* 8012D5FC 0012A55C  4E 80 00 20 */	blr 
+/* 8012D5FC 0012A55C  4E 80 00 20 */	blr
 
 .global ShouldWallHang__17CScriptCoverPointCFv
 ShouldWallHang__17CScriptCoverPointCFv:
 /* 8012D600 0012A560  80 03 00 E8 */	lwz r0, 0xe8(r3)
 /* 8012D604 0012A564  54 03 E7 FE */	rlwinm r3, r0, 0x1c, 0x1f, 0x1f
-/* 8012D608 0012A568  4E 80 00 20 */	blr 
+/* 8012D608 0012A568  4E 80 00 20 */	blr
 
 .global ShouldStay__17CScriptCoverPointCFv
 ShouldStay__17CScriptCoverPointCFv:
 /* 8012D60C 0012A56C  80 03 00 E8 */	lwz r0, 0xe8(r3)
 /* 8012D610 0012A570  54 03 EF FE */	rlwinm r3, r0, 0x1d, 0x1f, 0x1f
-/* 8012D614 0012A574  4E 80 00 20 */	blr 
+/* 8012D614 0012A574  4E 80 00 20 */	blr
 
 .global ShouldCrouch__17CScriptCoverPointCFv
 ShouldCrouch__17CScriptCoverPointCFv:
 /* 8012D618 0012A578  88 03 00 F8 */	lbz r0, 0xf8(r3)
 /* 8012D61C 0012A57C  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 8012D620 0012A580  4E 80 00 20 */	blr 
+/* 8012D620 0012A580  4E 80 00 20 */	blr
 
 .global GetAttackDirection__17CScriptCoverPointCFv
 GetAttackDirection__17CScriptCoverPointCFv:
 /* 8012D624 0012A584  80 63 00 E8 */	lwz r3, 0xe8(r3)
-/* 8012D628 0012A588  4E 80 00 20 */	blr 
+/* 8012D628 0012A588  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CScriptCoverPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CScriptCoverPointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -346,7 +346,7 @@ lbl_8012D6C0:
 /* 8012D6CC 0012A62C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8012D6D0 0012A630  7C 08 03 A6 */	mtlr r0
 /* 8012D6D4 0012A634  38 21 00 30 */	addi r1, r1, 0x30
-/* 8012D6D8 0012A638  4E 80 00 20 */	blr 
+/* 8012D6D8 0012A638  4E 80 00 20 */	blr
 
 .global Accept__17CScriptCoverPointFR8IVisitor
 Accept__17CScriptCoverPointFR8IVisitor:
@@ -359,11 +359,11 @@ Accept__17CScriptCoverPointFR8IVisitor:
 /* 8012D6F4 0012A654  7C 04 03 78 */	mr r4, r0
 /* 8012D6F8 0012A658  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 8012D6FC 0012A65C  7D 89 03 A6 */	mtctr r12
-/* 8012D700 0012A660  4E 80 04 21 */	bctrl 
+/* 8012D700 0012A660  4E 80 04 21 */	bctrl
 /* 8012D704 0012A664  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012D708 0012A668  7C 08 03 A6 */	mtlr r0
 /* 8012D70C 0012A66C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012D710 0012A670  4E 80 00 20 */	blr 
+/* 8012D710 0012A670  4E 80 00 20 */	blr
 
 .global "__ct__17CScriptCoverPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUibfff"
 "__ct__17CScriptCoverPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUibfff":

@@ -5,8 +5,8 @@
 .global sp
 sp:
 	.skip 0x8
-	
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global vsUpdateBuffer
 vsUpdateBuffer:
@@ -45,7 +45,7 @@ lbl_803A9DB4:
 /* 803A9DF8 003A6D58  90 1F 00 20 */	stw r0, 0x20(r31)
 /* 803A9DFC 003A6D5C  81 85 09 4C */	lwz r12, 0x94c(r5)
 /* 803A9E00 003A6D60  7D 89 03 A6 */	mtctr r12
-/* 803A9E04 003A6D64  4E 80 04 21 */	bctrl 
+/* 803A9E04 003A6D64  4E 80 04 21 */	bctrl
 /* 803A9E08 003A6D68  28 03 00 00 */	cmplwi r3, 0
 /* 803A9E0C 003A6D6C  41 82 01 50 */	beq lbl_803A9F5C
 /* 803A9E10 003A6D70  3C 80 80 56 */	lis r4, vs@ha
@@ -87,7 +87,7 @@ lbl_803A9E50:
 /* 803A9E98 003A6DF8  90 1F 00 20 */	stw r0, 0x20(r31)
 /* 803A9E9C 003A6DFC  81 9E 09 4C */	lwz r12, 0x94c(r30)
 /* 803A9EA0 003A6E00  7D 89 03 A6 */	mtctr r12
-/* 803A9EA4 003A6E04  4E 80 04 21 */	bctrl 
+/* 803A9EA4 003A6E04  4E 80 04 21 */	bctrl
 /* 803A9EA8 003A6E08  28 03 00 00 */	cmplwi r3, 0
 /* 803A9EAC 003A6E0C  41 82 00 B0 */	beq lbl_803A9F5C
 /* 803A9EB0 003A6E10  80 1F 00 04 */	lwz r0, 4(r31)
@@ -125,7 +125,7 @@ lbl_803A9EE0:
 /* 803A9F28 003A6E88  38 9F 00 10 */	addi r4, r31, 0x10
 /* 803A9F2C 003A6E8C  81 9E 09 4C */	lwz r12, 0x94c(r30)
 /* 803A9F30 003A6E90  7D 89 03 A6 */	mtctr r12
-/* 803A9F34 003A6E94  4E 80 04 21 */	bctrl 
+/* 803A9F34 003A6E94  4E 80 04 21 */	bctrl
 /* 803A9F38 003A6E98  28 03 00 00 */	cmplwi r3, 0
 /* 803A9F3C 003A6E9C  41 82 00 20 */	beq lbl_803A9F5C
 /* 803A9F40 003A6EA0  80 1F 00 04 */	lwz r0, 4(r31)
@@ -141,7 +141,7 @@ lbl_803A9F5C:
 /* 803A9F64 003A6EC4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803A9F68 003A6EC8  7C 08 03 A6 */	mtlr r0
 /* 803A9F6C 003A6ECC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A9F70 003A6ED0  4E 80 00 20 */	blr 
+/* 803A9F70 003A6ED0  4E 80 00 20 */	blr
 
 .global vsSampleUpdates
 vsSampleUpdates:
@@ -288,13 +288,13 @@ lbl_803AA16C:
 /* 803AA174 003A70D4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803AA178 003A70D8  7C 08 03 A6 */	mtlr r0
 /* 803AA17C 003A70DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AA180 003A70E0  4E 80 00 20 */	blr 
+/* 803AA180 003A70E0  4E 80 00 20 */	blr
 
 .global dataInitStack
 dataInitStack:
 /* 803AA184 003A70E4  38 00 00 00 */	li r0, 0
 /* 803AA188 003A70E8  B0 0D AF 18 */	sth r0, sp@sda21(r13)
-/* 803AA18C 003A70EC  4E 80 00 20 */	blr 
+/* 803AA18C 003A70EC  4E 80 00 20 */	blr
 
 .global ScanIDList
 ScanIDList:
@@ -492,7 +492,7 @@ lbl_803AA3FC:
 /* 803AA3FC 003A735C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803AA400 003A7360  7C 08 03 A6 */	mtlr r0
 /* 803AA404 003A7364  38 21 00 10 */	addi r1, r1, 0x10
-/* 803AA408 003A7368  4E 80 00 20 */	blr 
+/* 803AA408 003A7368  4E 80 00 20 */	blr
 
 .global sndSetSampleDataUploadCallback
 sndSetSampleDataUploadCallback:
@@ -503,7 +503,7 @@ sndSetSampleDataUploadCallback:
 /* 803AA41C 003A737C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803AA420 003A7380  7C 08 03 A6 */	mtlr r0
 /* 803AA424 003A7384  38 21 00 10 */	addi r1, r1, 0x10
-/* 803AA428 003A7388  4E 80 00 20 */	blr 
+/* 803AA428 003A7388  4E 80 00 20 */	blr
 
 .global sndPushGroup
 sndPushGroup:
@@ -741,7 +741,7 @@ lbl_803AA740:
 /* 803AA748 003A76A8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803AA74C 003A76AC  7C 08 03 A6 */	mtlr r0
 /* 803AA750 003A76B0  38 21 00 30 */	addi r1, r1, 0x30
-/* 803AA754 003A76B4  4E 80 00 20 */	blr 
+/* 803AA754 003A76B4  4E 80 00 20 */	blr
 
 .global sndPopGroup
 sndPopGroup:
@@ -983,7 +983,7 @@ lbl_803AAA78:
 /* 803AAA84 003A79E4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803AAA88 003A79E8  7C 08 03 A6 */	mtlr r0
 /* 803AAA8C 003A79EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 803AAA90 003A79F0  4E 80 00 20 */	blr 
+/* 803AAA90 003A79F0  4E 80 00 20 */	blr
 
 .global sndSeqPlaySong
 sndSeqPlaySong:
@@ -1079,7 +1079,7 @@ lbl_803AABC8:
 /* 803AABD0 003A7B30  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803AABD4 003A7B34  7C 08 03 A6 */	mtlr r0
 /* 803AABD8 003A7B38  38 21 00 30 */	addi r1, r1, 0x30
-/* 803AABDC 003A7B3C  4E 80 00 20 */	blr 
+/* 803AABDC 003A7B3C  4E 80 00 20 */	blr
 
 .global sndSeqPlayEx
 sndSeqPlayEx:
@@ -1161,4 +1161,4 @@ lbl_803AACE0:
 /* 803AACEC 003A7C4C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803AACF0 003A7C50  7C 08 03 A6 */	mtlr r0
 /* 803AACF4 003A7C54  38 21 00 30 */	addi r1, r1, 0x30
-/* 803AACF8 003A7C58  4E 80 00 20 */	blr 
+/* 803AACF8 003A7C58  4E 80 00 20 */	blr

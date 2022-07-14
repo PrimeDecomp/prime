@@ -15,7 +15,7 @@ __vt__15CMemoryInStream:
 .global Read__15CMemoryInStreamFPvUl
 Read__15CMemoryInStreamFPvUl:
 /* 8033F1C4 0033C124  38 60 00 00 */	li r3, 0
-/* 8033F1C8 0033C128  4E 80 00 20 */	blr 
+/* 8033F1C8 0033C128  4E 80 00 20 */	blr
 
 .global __ct__15CMemoryInStreamFPCvUl
 __ct__15CMemoryInStreamFPCvUl:
@@ -34,7 +34,7 @@ __ct__15CMemoryInStreamFPCvUl:
 /* 8033F1FC 0033C15C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033F200 0033C160  7C 08 03 A6 */	mtlr r0
 /* 8033F204 0033C164  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F208 0033C168  4E 80 00 20 */	blr 
+/* 8033F208 0033C168  4E 80 00 20 */	blr
 
 .global __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip
 __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip:
@@ -54,4 +54,4 @@ __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip:
 /* 8033F240 0033C1A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033F244 0033C1A4  7C 08 03 A6 */	mtlr r0
 /* 8033F248 0033C1A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F24C 0033C1AC  4E 80 00 20 */	blr 
+/* 8033F24C 0033C1AC  4E 80 00 20 */	blr

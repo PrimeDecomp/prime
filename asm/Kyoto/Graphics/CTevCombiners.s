@@ -51,7 +51,7 @@ ResetStates__13CTevCombinersFv:
 /* 80308EE4 00305E44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308EE8 00305E48  7C 08 03 A6 */	mtlr r0
 /* 80308EEC 00305E4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308EF0 00305E50  4E 80 00 20 */	blr 
+/* 80308EF0 00305E50  4E 80 00 20 */	blr
 
 .global Execute__Q213CTevCombiners8CTevPassCFi
 Execute__Q213CTevCombiners8CTevPassCFi:
@@ -99,7 +99,7 @@ Execute__Q213CTevCombiners8CTevPassCFi:
 /* 80308F98 00305EF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80308F9C 00305EFC  7C 08 03 A6 */	mtlr r0
 /* 80308FA0 00305F00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308FA4 00305F04  4E 80 00 20 */	blr 
+/* 80308FA4 00305F04  4E 80 00 20 */	blr
 
 .global SetPassCombiners__13CTevCombinersFiRCQ213CTevCombiners8CTevPass
 SetPassCombiners__13CTevCombinersFiRCQ213CTevCombiners8CTevPass:
@@ -114,7 +114,7 @@ SetPassCombiners__13CTevCombinersFiRCQ213CTevCombiners8CTevPass:
 /* 80308FC8 00305F28  38 60 00 01 */	li r3, 1
 /* 80308FCC 00305F2C  7C 08 03 A6 */	mtlr r0
 /* 80308FD0 00305F30  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308FD4 00305F34  4E 80 00 20 */	blr 
+/* 80308FD4 00305F34  4E 80 00 20 */	blr
 
 .global SetupPass__13CTevCombinersFiRCQ213CTevCombiners8CTevPass
 SetupPass__13CTevCombinersFiRCQ213CTevCombiners8CTevPass:
@@ -142,7 +142,7 @@ lbl_80309020:
 /* 80309024 00305F84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80309028 00305F88  7C 08 03 A6 */	mtlr r0
 /* 8030902C 00305F8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309030 00305F90  4E 80 00 20 */	blr 
+/* 80309030 00305F90  4E 80 00 20 */	blr
 
 .global DeletePass__13CTevCombinersFi
 DeletePass__13CTevCombinersFi:
@@ -162,7 +162,7 @@ DeletePass__13CTevCombinersFi:
 /* 80309068 00305FC8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030906C 00305FCC  7C 08 03 A6 */	mtlr r0
 /* 80309070 00305FD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309074 00305FD4  4E 80 00 20 */	blr 
+/* 80309074 00305FD4  4E 80 00 20 */	blr
 
 .global Init__13CTevCombinersFv
 Init__13CTevCombinersFv:
@@ -193,7 +193,7 @@ lbl_803090A8:
 /* 803090D4 00306034  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803090D8 00306038  7C 08 03 A6 */	mtlr r0
 /* 803090DC 0030603C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803090E0 00306040  4E 80 00 20 */	blr 
+/* 803090E0 00306040  4E 80 00 20 */	blr
 
 .global RecomputePasses__13CTevCombinersFv
 RecomputePasses__13CTevCombinersFv:
@@ -212,17 +212,17 @@ RecomputePasses__13CTevCombinersFv:
 /* 80309114 00306074  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80309118 00306078  7C 08 03 A6 */	mtlr r0
 /* 8030911C 0030607C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309120 00306080  4E 80 00 20 */	blr 
+/* 80309120 00306080  4E 80 00 20 */	blr
 
 .global __ct__Q213CTevCombiners8ColorVarFQ213CTevCombiners9EColorSrc
 __ct__Q213CTevCombiners8ColorVarFQ213CTevCombiners9EColorSrc:
 /* 80309124 00306084  90 83 00 00 */	stw r4, 0(r3)
-/* 80309128 00306088  4E 80 00 20 */	blr 
+/* 80309128 00306088  4E 80 00 20 */	blr
 
 .global __ct__Q213CTevCombiners8AlphaVarFQ213CTevCombiners9EAlphaSrc
 __ct__Q213CTevCombiners8AlphaVarFQ213CTevCombiners9EAlphaSrc:
 /* 8030912C 0030608C  90 83 00 00 */	stw r4, 0(r3)
-/* 80309130 00306090  4E 80 00 20 */	blr 
+/* 80309130 00306090  4E 80 00 20 */	blr
 
 .global __sinit_CTevCombiners_cpp
 __sinit_CTevCombiners_cpp:

@@ -24,13 +24,13 @@ lbl_80344FE0:
 /* 8034500C 00341F6C  4C 41 13 82 */	cror 2, 1, 2
 /* 80345010 00341F70  40 82 00 0C */	bne lbl_8034501C
 /* 80345014 00341F74  38 60 00 00 */	li r3, 0
-/* 80345018 00341F78  4E 80 00 20 */	blr 
+/* 80345018 00341F78  4E 80 00 20 */	blr
 lbl_8034501C:
 /* 8034501C 00341F7C  38 63 00 10 */	addi r3, r3, 0x10
 /* 80345020 00341F80  42 00 FF C0 */	bdnz lbl_80344FE0
 lbl_80345024:
 /* 80345024 00341F84  38 60 00 01 */	li r3, 1
-/* 80345028 00341F88  4E 80 00 20 */	blr 
+/* 80345028 00341F88  4E 80 00 20 */	blr
 
 .global SphereInFrustumPlanes__14CFrustumPlanesCFRC7CSphere
 SphereInFrustumPlanes__14CFrustumPlanesCFRC7CSphere:
@@ -57,13 +57,13 @@ lbl_80345054:
 /* 80345078 00341FD8  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8034507C 00341FDC  40 81 00 0C */	ble lbl_80345088
 /* 80345080 00341FE0  38 60 00 00 */	li r3, 0
-/* 80345084 00341FE4  4E 80 00 20 */	blr 
+/* 80345084 00341FE4  4E 80 00 20 */	blr
 lbl_80345088:
 /* 80345088 00341FE8  38 63 00 10 */	addi r3, r3, 0x10
 /* 8034508C 00341FEC  42 00 FF C8 */	bdnz lbl_80345054
 lbl_80345090:
 /* 80345090 00341FF0  38 60 00 01 */	li r3, 1
-/* 80345094 00341FF4  4E 80 00 20 */	blr 
+/* 80345094 00341FF4  4E 80 00 20 */	blr
 
 .global sub_80345098
 sub_80345098:
@@ -131,7 +131,7 @@ lbl_80345174:
 /* 80345178 003420D8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8034517C 003420DC  7C 08 03 A6 */	mtlr r0
 /* 80345180 003420E0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80345184 003420E4  4E 80 00 20 */	blr 
+/* 80345184 003420E4  4E 80 00 20 */	blr
 
 .global "BoxInFrustumPlanes__14CFrustumPlanesCFRCQ24rstl24optional_object<6CAABox>"
 "BoxInFrustumPlanes__14CFrustumPlanesCFRCQ24rstl24optional_object<6CAABox>":
@@ -155,7 +155,7 @@ lbl_803451C0:
 /* 803451C0 00342120  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803451C4 00342124  7C 08 03 A6 */	mtlr r0
 /* 803451C8 00342128  38 21 00 10 */	addi r1, r1, 0x10
-/* 803451CC 0034212C  4E 80 00 20 */	blr 
+/* 803451CC 0034212C  4E 80 00 20 */	blr
 
 .global BoxInFrustumPlanes__14CFrustumPlanesCFRC6CAABox
 BoxInFrustumPlanes__14CFrustumPlanesCFRC6CAABox:
@@ -195,7 +195,7 @@ lbl_80345234:
 /* 80345244 003421A4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80345248 003421A8  7C 08 03 A6 */	mtlr r0
 /* 8034524C 003421AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80345250 003421B0  4E 80 00 20 */	blr 
+/* 80345250 003421B0  4E 80 00 20 */	blr
 
 .global __ct__14CFrustumPlanesFRC12CTransform4ffffbf
 __ct__14CFrustumPlanesFRC12CTransform4ffffbf:
@@ -484,7 +484,7 @@ lbl_80345660:
 /* 803456A0 00342600  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 803456A4 00342604  7C 08 03 A6 */	mtlr r0
 /* 803456A8 00342608  38 21 01 80 */	addi r1, r1, 0x180
-/* 803456AC 0034260C  4E 80 00 20 */	blr 
+/* 803456AC 0034260C  4E 80 00 20 */	blr
 
 .global sub_803456b0
 sub_803456b0:

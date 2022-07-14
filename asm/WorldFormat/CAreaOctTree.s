@@ -22,7 +22,7 @@ GetTriangleEdgeIndices__12CAreaOctTreeCFUs:
 /* 802A2974 0029F8D4  80 63 00 44 */	lwz r3, 0x44(r3)
 /* 802A2978 0029F8D8  1C 00 00 06 */	mulli r0, r0, 6
 /* 802A297C 0029F8DC  7C 63 02 14 */	add r3, r3, r0
-/* 802A2980 0029F8E0  4E 80 00 20 */	blr 
+/* 802A2980 0029F8E0  4E 80 00 20 */	blr
 
 .global GetTriangleVertexIndices__12CAreaOctTreeCFUsPUs
 GetTriangleVertexIndices__12CAreaOctTreeCFUsPUs:
@@ -67,13 +67,13 @@ lbl_802A29E8:
 /* 802A2A10 0029F970  B0 05 00 00 */	sth r0, 0(r5)
 /* 802A2A14 0029F974  A0 08 00 00 */	lhz r0, 0(r8)
 /* 802A2A18 0029F978  B0 05 00 02 */	sth r0, 2(r5)
-/* 802A2A1C 0029F97C  4E 80 00 20 */	blr 
+/* 802A2A1C 0029F97C  4E 80 00 20 */	blr
 lbl_802A2A20:
 /* 802A2A20 0029F980  A0 08 00 00 */	lhz r0, 0(r8)
 /* 802A2A24 0029F984  B0 05 00 00 */	sth r0, 0(r5)
 /* 802A2A28 0029F988  A0 08 00 02 */	lhz r0, 2(r8)
 /* 802A2A2C 0029F98C  B0 05 00 02 */	sth r0, 2(r5)
-/* 802A2A30 0029F990  4E 80 00 20 */	blr 
+/* 802A2A30 0029F990  4E 80 00 20 */	blr
 
 .global GetMasterListTriangle__12CAreaOctTreeCFUs
 GetMasterListTriangle__12CAreaOctTreeCFUs:
@@ -142,7 +142,7 @@ lbl_802A2B18:
 /* 802A2B18 0029FA78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A2B1C 0029FA7C  7C 08 03 A6 */	mtlr r0
 /* 802A2B20 0029FA80  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A2B24 0029FA84  4E 80 00 20 */	blr 
+/* 802A2B24 0029FA84  4E 80 00 20 */	blr
 
 .global MakeFromMemory__12CAreaOctTreeFPvUiPP12CAreaOctTreePb
 MakeFromMemory__12CAreaOctTreeFPvUiPP12CAreaOctTreePb:
@@ -240,7 +240,7 @@ lbl_802A2C68:
 /* 802A2C90 0029FBF0  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 802A2C94 0029FBF4  7C 08 03 A6 */	mtlr r0
 /* 802A2C98 0029FBF8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802A2C9C 0029FBFC  4E 80 00 20 */	blr 
+/* 802A2C9C 0029FBFC  4E 80 00 20 */	blr
 
 .global __ct__12CAreaOctTreeFRC6CAABoxQ312CAreaOctTree4Node9ETreeTypePUcPvUiPUiPUcPUcPUcUiP14CCollisionEdgeUiPUsUiP9CVector3f
 __ct__12CAreaOctTreeFRC6CAABoxQ312CAreaOctTree4Node9ETreeTypePUcPvUiPUiPUcPUcPUcUiP14CCollisionEdgeUiPUsUiP9CVector3f:
@@ -282,7 +282,7 @@ __ct__12CAreaOctTreeFRC6CAABoxQ312CAreaOctTree4Node9ETreeTypePUcPvUiPUiPUcPUcPUc
 /* 802A2D2C 0029FC8C  90 03 00 4C */	stw r0, 0x4c(r3)
 /* 802A2D30 0029FC90  BB 61 00 0C */	lmw r27, 0xc(r1)
 /* 802A2D34 0029FC94  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A2D38 0029FC98  4E 80 00 20 */	blr 
+/* 802A2D38 0029FC98  4E 80 00 20 */	blr
 
 .global GetTriangleArray__Q212CAreaOctTree4NodeCFv
 GetTriangleArray__Q212CAreaOctTree4NodeCFv:
@@ -291,11 +291,11 @@ GetTriangleArray__Q212CAreaOctTree4NodeCFv:
 /* 802A2D44 0029FCA4  41 82 00 10 */	beq lbl_802A2D54
 /* 802A2D48 0029FCA8  38 02 C1 40 */	addi r0, r2, lbl_805ADE60@sda21
 /* 802A2D4C 0029FCAC  90 03 00 00 */	stw r0, 0(r3)
-/* 802A2D50 0029FCB0  4E 80 00 20 */	blr 
+/* 802A2D50 0029FCB0  4E 80 00 20 */	blr
 lbl_802A2D54:
 /* 802A2D54 0029FCB4  80 04 00 18 */	lwz r0, 0x18(r4)
 /* 802A2D58 0029FCB8  90 03 00 00 */	stw r0, 0(r3)
-/* 802A2D5C 0029FCBC  4E 80 00 20 */	blr 
+/* 802A2D5C 0029FCBC  4E 80 00 20 */	blr
 
 .global GetChild__Q212CAreaOctTree4NodeCFi
 GetChild__Q212CAreaOctTree4NodeCFi:
@@ -384,7 +384,7 @@ lbl_802A2E90:
 /* 802A2EA0 0029FE00  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802A2EA4 0029FE04  7C 08 03 A6 */	mtlr r0
 /* 802A2EA8 0029FE08  38 21 00 40 */	addi r1, r1, 0x40
-/* 802A2EAC 0029FE0C  4E 80 00 20 */	blr 
+/* 802A2EAC 0029FE0C  4E 80 00 20 */	blr
 
 .global BoxFromIndex__FiRC9CVector3fRC9CVector3fRC9CVector3f
 BoxFromIndex__FiRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -399,7 +399,7 @@ BoxFromIndex__FiRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 802A2ED0 0029FE30  38 85 C4 08 */	addi r4, r5, lbl_803EC408@l
 /* 802A2ED4 0029FE34  7C 04 00 2E */	lwzx r0, r4, r0
 /* 802A2ED8 0029FE38  7C 09 03 A6 */	mtctr r0
-/* 802A2EDC 0029FE3C  4E 80 04 20 */	bctr 
+/* 802A2EDC 0029FE3C  4E 80 04 20 */	bctr
 .global lbl_802A2EE0
 lbl_802A2EE0:
 /* 802A2EE0 0029FE40  7D 04 43 78 */	mr r4, r8

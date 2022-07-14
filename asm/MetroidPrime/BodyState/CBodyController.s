@@ -130,7 +130,7 @@ lbl_80139EDC:
 /* 80139EFC 00136E5C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80139F00 00136E60  7C 08 03 A6 */	mtlr r0
 /* 80139F04 00136E64  38 21 00 60 */	addi r1, r1, 0x60
-/* 80139F08 00136E68  4E 80 00 20 */	blr 
+/* 80139F08 00136E68  4E 80 00 20 */	blr
 
 .global StopElectrocution__15CBodyControllerFv
 StopElectrocution__15CBodyControllerFv:
@@ -158,7 +158,7 @@ lbl_80139F5C:
 /* 80139F5C 00136EBC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80139F60 00136EC0  7C 08 03 A6 */	mtlr r0
 /* 80139F64 00136EC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80139F68 00136EC8  4E 80 00 20 */	blr 
+/* 80139F68 00136EC8  4E 80 00 20 */	blr
 
 .global SetElectrocuting__15CBodyControllerFf
 SetElectrocuting__15CBodyControllerFf:
@@ -231,17 +231,17 @@ lbl_8013A058:
 /* 8013A068 00136FC8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8013A06C 00136FCC  7C 08 03 A6 */	mtlr r0
 /* 8013A070 00136FD0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8013A074 00136FD4  4E 80 00 20 */	blr 
+/* 8013A074 00136FD4  4E 80 00 20 */	blr
 
 .global DouseFlames__15CBodyControllerFv
 DouseFlames__15CBodyControllerFv:
 /* 8013A078 00136FD8  C0 23 03 20 */	lfs f1, 0x320(r3)
 /* 8013A07C 00136FDC  C0 02 9A 78 */	lfs f0, lbl_805AB798@sda21(r2)
 /* 8013A080 00136FE0  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 8013A084 00136FE4  4C 81 00 20 */	blelr 
+/* 8013A084 00136FE4  4C 81 00 20 */	blelr
 /* 8013A088 00136FE8  D0 03 03 20 */	stfs f0, 0x320(r3)
 /* 8013A08C 00136FEC  D0 03 03 28 */	stfs f0, 0x328(r3)
-/* 8013A090 00136FF0  4E 80 00 20 */	blr 
+/* 8013A090 00136FF0  4E 80 00 20 */	blr
 
 .global SetOnFire__15CBodyControllerFf
 SetOnFire__15CBodyControllerFf:
@@ -259,7 +259,7 @@ lbl_8013A0BC:
 /* 8013A0BC 0013701C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013A0C0 00137020  7C 08 03 A6 */	mtlr r0
 /* 8013A0C4 00137024  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013A0C8 00137028  4E 80 00 20 */	blr 
+/* 8013A0C8 00137028  4E 80 00 20 */	blr
 
 .global GetPercentageFrozen__15CBodyControllerCFv
 GetPercentageFrozen__15CBodyControllerCFv:
@@ -276,7 +276,7 @@ GetPercentageFrozen__15CBodyControllerCFv:
 /* 8013A0F4 00137054  40 82 00 0C */	bne lbl_8013A100
 lbl_8013A0F8:
 /* 8013A0F8 00137058  C0 22 9A 78 */	lfs f1, lbl_805AB798@sda21(r2)
-/* 8013A0FC 0013705C  4E 80 00 20 */	blr 
+/* 8013A0FC 0013705C  4E 80 00 20 */	blr
 lbl_8013A100:
 /* 8013A100 00137060  FC 03 10 40 */	fcmpo cr0, f3, f2
 /* 8013A104 00137064  C0 22 9A 70 */	lfs f1, lbl_805AB790@sda21(r2)
@@ -285,21 +285,21 @@ lbl_8013A100:
 /* 8013A110 00137070  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 8013A114 00137074  40 81 00 0C */	ble lbl_8013A120
 /* 8013A118 00137078  EC 23 10 24 */	fdivs f1, f3, f2
-/* 8013A11C 0013707C  4E 80 00 20 */	blr 
+/* 8013A11C 0013707C  4E 80 00 20 */	blr
 lbl_8013A120:
 /* 8013A120 00137080  EC 06 20 28 */	fsubs f0, f6, f4
 /* 8013A124 00137084  FC 03 00 40 */	fcmpo cr0, f3, f0
 /* 8013A128 00137088  4C 41 13 82 */	cror 2, 1, 2
-/* 8013A12C 0013708C  4C 82 00 20 */	bnelr 
+/* 8013A12C 0013708C  4C 82 00 20 */	bnelr
 /* 8013A130 00137090  C0 02 9A 78 */	lfs f0, lbl_805AB798@sda21(r2)
 /* 8013A134 00137094  FC 04 00 40 */	fcmpo cr0, f4, f0
-/* 8013A138 00137098  4C 81 00 20 */	blelr 
+/* 8013A138 00137098  4C 81 00 20 */	blelr
 /* 8013A13C 0013709C  EC 05 10 2A */	fadds f0, f5, f2
 /* 8013A140 001370A0  C0 22 9A 70 */	lfs f1, lbl_805AB790@sda21(r2)
 /* 8013A144 001370A4  EC 03 00 28 */	fsubs f0, f3, f0
 /* 8013A148 001370A8  EC 00 20 24 */	fdivs f0, f0, f4
 /* 8013A14C 001370AC  EC 21 00 28 */	fsubs f1, f1, f0
-/* 8013A150 001370B0  4E 80 00 20 */	blr 
+/* 8013A150 001370B0  4E 80 00 20 */	blr
 
 .global UnFreeze__15CBodyControllerFv
 UnFreeze__15CBodyControllerFv:
@@ -350,21 +350,21 @@ UnFreeze__15CBodyControllerFv:
 /* 8013A204 00137164  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8013A208 00137168  7C 08 03 A6 */	mtlr r0
 /* 8013A20C 0013716C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013A210 00137170  4E 80 00 20 */	blr 
+/* 8013A210 00137170  4E 80 00 20 */	blr
 
 .global FrozenBreakout__15CBodyControllerFv
 FrozenBreakout__15CBodyControllerFv:
 /* 8013A214 00137174  88 03 03 00 */	lbz r0, 0x300(r3)
 /* 8013A218 00137178  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
-/* 8013A21C 0013717C  4D 82 00 20 */	beqlr 
+/* 8013A21C 0013717C  4D 82 00 20 */	beqlr
 /* 8013A220 00137180  C0 43 03 04 */	lfs f2, 0x304(r3)
 /* 8013A224 00137184  C0 23 03 08 */	lfs f1, 0x308(r3)
 /* 8013A228 00137188  C0 03 03 10 */	lfs f0, 0x310(r3)
 /* 8013A22C 0013718C  EC 22 08 2A */	fadds f1, f2, f1
 /* 8013A230 00137190  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8013A234 00137194  4C 80 00 20 */	bgelr 
+/* 8013A234 00137194  4C 80 00 20 */	bgelr
 /* 8013A238 00137198  D0 23 03 10 */	stfs f1, 0x310(r3)
-/* 8013A23C 0013719C  4E 80 00 20 */	blr 
+/* 8013A23C 0013719C  4E 80 00 20 */	blr
 
 .global Freeze__15CBodyControllerFfff
 Freeze__15CBodyControllerFfff:
@@ -414,7 +414,7 @@ Freeze__15CBodyControllerFfff:
 /* 8013A2EC 0013724C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8013A2F0 00137250  7C 08 03 A6 */	mtlr r0
 /* 8013A2F4 00137254  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013A2F8 00137258  4E 80 00 20 */	blr 
+/* 8013A2F8 00137258  4E 80 00 20 */	blr
 
 .global LoopBestAnimation__15CBodyControllerFRC16CPASAnimParmDataR9CRandom16
 LoopBestAnimation__15CBodyControllerFRC16CPASAnimParmDataR9CRandom16:
@@ -460,7 +460,7 @@ LoopBestAnimation__15CBodyControllerFRC16CPASAnimParmDataR9CRandom16:
 /* 8013A398 001372F8  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8013A39C 001372FC  7C 08 03 A6 */	mtlr r0
 /* 8013A3A0 00137300  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013A3A4 00137304  4E 80 00 20 */	blr 
+/* 8013A3A4 00137304  4E 80 00 20 */	blr
 
 .global PlayBestAnimation__15CBodyControllerFRC16CPASAnimParmDataR9CRandom16
 PlayBestAnimation__15CBodyControllerFRC16CPASAnimParmDataR9CRandom16:
@@ -506,7 +506,7 @@ PlayBestAnimation__15CBodyControllerFRC16CPASAnimParmDataR9CRandom16:
 /* 8013A444 001373A4  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8013A448 001373A8  7C 08 03 A6 */	mtlr r0
 /* 8013A44C 001373AC  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013A450 001373B0  4E 80 00 20 */	blr 
+/* 8013A450 001373B0  4E 80 00 20 */	blr
 
 .global GetPASDatabase__15CBodyControllerCFv
 GetPASDatabase__15CBodyControllerCFv:
@@ -514,7 +514,7 @@ GetPASDatabase__15CBodyControllerCFv:
 /* 8013A458 001373B8  80 63 00 64 */	lwz r3, 0x64(r3)
 /* 8013A45C 001373BC  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 8013A460 001373C0  38 63 00 3C */	addi r3, r3, 0x3c
-/* 8013A464 001373C4  4E 80 00 20 */	blr 
+/* 8013A464 001373C4  4E 80 00 20 */	blr
 
 .global FaceDirection3D__15CBodyControllerFRC9CVector3ff
 FaceDirection3D__15CBodyControllerFRC9CVector3ff:
@@ -662,7 +662,7 @@ lbl_8013A67C:
 /* 8013A694 001375F4  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 8013A698 001375F8  7C 08 03 A6 */	mtlr r0
 /* 8013A69C 001375FC  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8013A6A0 00137600  4E 80 00 20 */	blr 
+/* 8013A6A0 00137600  4E 80 00 20 */	blr
 
 .global FaceDirection__15CBodyControllerFRC9CVector3ff
 FaceDirection__15CBodyControllerFRC9CVector3ff:
@@ -755,7 +755,7 @@ lbl_8013A7E8:
 /* 8013A7F8 00137758  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 8013A7FC 0013775C  7C 08 03 A6 */	mtlr r0
 /* 8013A800 00137760  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8013A804 00137764  4E 80 00 20 */	blr 
+/* 8013A804 00137764  4E 80 00 20 */	blr
 
 .global SetDeltaRotation__15CBodyControllerFRC11CQuaternion
 SetDeltaRotation__15CBodyControllerFRC11CQuaternion:
@@ -780,7 +780,7 @@ SetDeltaRotation__15CBodyControllerFRC11CQuaternion:
 /* 8013A850 001377B0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8013A854 001377B4  7C 08 03 A6 */	mtlr r0
 /* 8013A858 001377B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013A85C 001377BC  4E 80 00 20 */	blr 
+/* 8013A85C 001377BC  4E 80 00 20 */	blr
 
 .global MultiplyPlaybackRate__15CBodyControllerFf
 MultiplyPlaybackRate__15CBodyControllerFf:
@@ -794,7 +794,7 @@ MultiplyPlaybackRate__15CBodyControllerFf:
 /* 8013A87C 001377DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013A880 001377E0  7C 08 03 A6 */	mtlr r0
 /* 8013A884 001377E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013A888 001377E8  4E 80 00 20 */	blr 
+/* 8013A888 001377E8  4E 80 00 20 */	blr
 
 .global SetPlaybackRate__15CBodyControllerFf
 SetPlaybackRate__15CBodyControllerFf:
@@ -808,7 +808,7 @@ SetPlaybackRate__15CBodyControllerFf:
 /* 8013A8A8 00137808  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013A8AC 0013780C  7C 08 03 A6 */	mtlr r0
 /* 8013A8B0 00137810  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013A8B4 00137814  4E 80 00 20 */	blr 
+/* 8013A8B4 00137814  4E 80 00 20 */	blr
 
 .global GetAnimTimeRemaining__15CBodyControllerCFv
 GetAnimTimeRemaining__15CBodyControllerCFv:
@@ -836,7 +836,7 @@ GetAnimTimeRemaining__15CBodyControllerCFv:
 /* 8013A90C 0013786C  83 E1 00 24 */	lwz r31, 0x24(r1)
 /* 8013A910 00137870  7C 08 03 A6 */	mtlr r0
 /* 8013A914 00137874  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013A918 00137878  4E 80 00 20 */	blr 
+/* 8013A918 00137878  4E 80 00 20 */	blr
 
 .global SetCurrentAnimation__15CBodyControllerFRC18CAnimPlaybackParmsbb
 SetCurrentAnimation__15CBodyControllerFRC18CAnimPlaybackParmsbb:
@@ -866,7 +866,7 @@ SetCurrentAnimation__15CBodyControllerFRC18CAnimPlaybackParmsbb:
 /* 8013A978 001378D8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013A97C 001378DC  7C 08 03 A6 */	mtlr r0
 /* 8013A980 001378E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013A984 001378E4  4E 80 00 20 */	blr 
+/* 8013A984 001378E4  4E 80 00 20 */	blr
 
 .global EnableAnimation__15CBodyControllerFb
 EnableAnimation__15CBodyControllerFb:
@@ -876,7 +876,7 @@ EnableAnimation__15CBodyControllerFb:
 /* 8013A994 001378F4  88 03 02 20 */	lbz r0, 0x220(r3)
 /* 8013A998 001378F8  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8013A99C 001378FC  98 03 02 20 */	stb r0, 0x220(r3)
-/* 8013A9A0 00137900  4E 80 00 20 */	blr 
+/* 8013A9A0 00137900  4E 80 00 20 */	blr
 
 .global SetTurnSpeed__15CBodyControllerFf
 SetTurnSpeed__15CBodyControllerFf:
@@ -894,12 +894,12 @@ lbl_8013A9C8:
 /* 8013A9C8 00137928  C0 04 00 00 */	lfs f0, 0(r4)
 /* 8013A9CC 0013792C  D0 03 02 FC */	stfs f0, 0x2fc(r3)
 /* 8013A9D0 00137930  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013A9D4 00137934  4E 80 00 20 */	blr 
+/* 8013A9D4 00137934  4E 80 00 20 */	blr
 
 .global SetLocomotionType__15CBodyControllerFQ23pas15ELocomotionType
 SetLocomotionType__15CBodyControllerFQ23pas15ELocomotionType:
 /* 8013A9D8 00137938  90 83 02 EC */	stw r4, 0x2ec(r3)
-/* 8013A9DC 0013793C  4E 80 00 20 */	blr 
+/* 8013A9DC 0013793C  4E 80 00 20 */	blr
 
 .global UpdateBody__15CBodyControllerFfR13CStateManager
 UpdateBody__15CBodyControllerFfR13CStateManager:
@@ -959,7 +959,7 @@ lbl_8013AA70:
 /* 8013AAA4 00137A04  7F C5 F3 78 */	mr r5, r30
 /* 8013AAA8 00137A08  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8013AAAC 00137A0C  7D 89 03 A6 */	mtctr r12
-/* 8013AAB0 00137A10  4E 80 04 21 */	bctrl 
+/* 8013AAB0 00137A10  4E 80 04 21 */	bctrl
 /* 8013AAB4 00137A14  7C 7F 1B 78 */	mr r31, r3
 /* 8013AAB8 00137A18  2C 1F FF FF */	cmpwi r31, -1
 /* 8013AABC 00137A1C  41 82 00 4C */	beq lbl_8013AB08
@@ -969,7 +969,7 @@ lbl_8013AA70:
 /* 8013AACC 00137A2C  7F A4 EB 78 */	mr r4, r29
 /* 8013AAD0 00137A30  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8013AAD4 00137A34  7D 89 03 A6 */	mtctr r12
-/* 8013AAD8 00137A38  4E 80 04 21 */	bctrl 
+/* 8013AAD8 00137A38  4E 80 04 21 */	bctrl
 /* 8013AADC 00137A3C  7F E4 FB 78 */	mr r4, r31
 /* 8013AAE0 00137A40  38 7D 02 A4 */	addi r3, r29, 0x2a4
 /* 8013AAE4 00137A44  4B FF 95 F9 */	bl SetState__14CBodyStateInfoFQ23pas15EAnimationState
@@ -980,7 +980,7 @@ lbl_8013AA70:
 /* 8013AAF8 00137A58  7F C5 F3 78 */	mr r5, r30
 /* 8013AAFC 00137A5C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8013AB00 00137A60  7D 89 03 A6 */	mtctr r12
-/* 8013AB04 00137A64  4E 80 04 21 */	bctrl 
+/* 8013AB04 00137A64  4E 80 04 21 */	bctrl
 lbl_8013AB08:
 /* 8013AB08 00137A68  38 7D 02 A4 */	addi r3, r29, 0x2a4
 /* 8013AB0C 00137A6C  4B FF 94 31 */	bl GetCurrentAdditiveState__14CBodyStateInfoFv
@@ -990,7 +990,7 @@ lbl_8013AB08:
 /* 8013AB1C 00137A7C  7F C5 F3 78 */	mr r5, r30
 /* 8013AB20 00137A80  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8013AB24 00137A84  7D 89 03 A6 */	mtctr r12
-/* 8013AB28 00137A88  4E 80 04 21 */	bctrl 
+/* 8013AB28 00137A88  4E 80 04 21 */	bctrl
 /* 8013AB2C 00137A8C  7C 7F 1B 78 */	mr r31, r3
 /* 8013AB30 00137A90  2C 1F FF FF */	cmpwi r31, -1
 /* 8013AB34 00137A94  41 82 00 4C */	beq lbl_8013AB80
@@ -1000,7 +1000,7 @@ lbl_8013AB08:
 /* 8013AB44 00137AA4  7F A4 EB 78 */	mr r4, r29
 /* 8013AB48 00137AA8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8013AB4C 00137AAC  7D 89 03 A6 */	mtctr r12
-/* 8013AB50 00137AB0  4E 80 04 21 */	bctrl 
+/* 8013AB50 00137AB0  4E 80 04 21 */	bctrl
 /* 8013AB54 00137AB4  7F E4 FB 78 */	mr r4, r31
 /* 8013AB58 00137AB8  38 7D 02 A4 */	addi r3, r29, 0x2a4
 /* 8013AB5C 00137ABC  4B FF 94 35 */	bl SetAdditiveState__14CBodyStateInfoFQ23pas15EAnimationState
@@ -1011,7 +1011,7 @@ lbl_8013AB08:
 /* 8013AB70 00137AD0  7F C5 F3 78 */	mr r5, r30
 /* 8013AB74 00137AD4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8013AB78 00137AD8  7D 89 03 A6 */	mtctr r12
-/* 8013AB7C 00137ADC  4E 80 04 21 */	bctrl 
+/* 8013AB7C 00137ADC  4E 80 04 21 */	bctrl
 lbl_8013AB80:
 /* 8013AB80 00137AE0  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
 /* 8013AB84 00137AE4  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -1021,17 +1021,17 @@ lbl_8013AB80:
 /* 8013AB94 00137AF4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013AB98 00137AF8  7C 08 03 A6 */	mtlr r0
 /* 8013AB9C 00137AFC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013ABA0 00137B00  4E 80 00 20 */	blr 
+/* 8013ABA0 00137B00  4E 80 00 20 */	blr
 
 .global SetFallState__15CBodyControllerFQ23pas10EFallState
 SetFallState__15CBodyControllerFQ23pas10EFallState:
 /* 8013ABA4 00137B04  90 83 02 F0 */	stw r4, 0x2f0(r3)
-/* 8013ABA8 00137B08  4E 80 00 20 */	blr 
+/* 8013ABA8 00137B08  4E 80 00 20 */	blr
 
 .global GetFallState__15CBodyControllerCFv
 GetFallState__15CBodyControllerCFv:
 /* 8013ABAC 00137B0C  80 63 02 F0 */	lwz r3, 0x2f0(r3)
-/* 8013ABB0 00137B10  4E 80 00 20 */	blr 
+/* 8013ABB0 00137B10  4E 80 00 20 */	blr
 
 .global HasBodyState__15CBodyControllerCFQ23pas15EAnimationState
 HasBodyState__15CBodyControllerCFQ23pas15EAnimationState:
@@ -1046,7 +1046,7 @@ HasBodyState__15CBodyControllerCFQ23pas15EAnimationState:
 /* 8013ABD4 00137B34  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013ABD8 00137B38  7C 08 03 A6 */	mtlr r0
 /* 8013ABDC 00137B3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013ABE0 00137B40  4E 80 00 20 */	blr 
+/* 8013ABE0 00137B40  4E 80 00 20 */	blr
 
 .global Update__15CBodyControllerFfR13CStateManager
 Update__15CBodyControllerFfR13CStateManager:
@@ -1118,7 +1118,7 @@ lbl_8013ACD0:
 /* 8013ACE0 00137C40  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8013ACE4 00137C44  7C 08 03 A6 */	mtlr r0
 /* 8013ACE8 00137C48  38 21 00 40 */	addi r1, r1, 0x40
-/* 8013ACEC 00137C4C  4E 80 00 20 */	blr 
+/* 8013ACEC 00137C4C  4E 80 00 20 */	blr
 
 .global Activate__15CBodyControllerFR13CStateManager
 Activate__15CBodyControllerFR13CStateManager:
@@ -1145,7 +1145,7 @@ Activate__15CBodyControllerFR13CStateManager:
 /* 8013AD40 00137CA0  7F E5 FB 78 */	mr r5, r31
 /* 8013AD44 00137CA4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8013AD48 00137CA8  7D 89 03 A6 */	mtctr r12
-/* 8013AD4C 00137CAC  4E 80 04 21 */	bctrl 
+/* 8013AD4C 00137CAC  4E 80 04 21 */	bctrl
 /* 8013AD50 00137CB0  38 7E 02 A4 */	addi r3, r30, 0x2a4
 /* 8013AD54 00137CB4  4B FF 91 E9 */	bl GetCurrentAdditiveState__14CBodyStateInfoFv
 /* 8013AD58 00137CB8  81 83 00 00 */	lwz r12, 0(r3)
@@ -1153,13 +1153,13 @@ Activate__15CBodyControllerFR13CStateManager:
 /* 8013AD60 00137CC0  7F E5 FB 78 */	mr r5, r31
 /* 8013AD64 00137CC4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8013AD68 00137CC8  7D 89 03 A6 */	mtctr r12
-/* 8013AD6C 00137CCC  4E 80 04 21 */	bctrl 
+/* 8013AD6C 00137CCC  4E 80 04 21 */	bctrl
 /* 8013AD70 00137CD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013AD74 00137CD4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013AD78 00137CD8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013AD7C 00137CDC  7C 08 03 A6 */	mtlr r0
 /* 8013AD80 00137CE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013AD84 00137CE4  4E 80 00 20 */	blr 
+/* 8013AD84 00137CE4  4E 80 00 20 */	blr
 
 .global __ct__15CBodyControllerFR6CActorf9EBodyType
 __ct__15CBodyControllerFR6CActorf9EBodyType:
@@ -1243,4 +1243,4 @@ __ct__15CBodyControllerFR6CActorf9EBodyType:
 /* 8013AEBC 00137E1C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013AEC0 00137E20  7C 08 03 A6 */	mtlr r0
 /* 8013AEC4 00137E24  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013AEC8 00137E28  4E 80 00 20 */	blr 
+/* 8013AEC8 00137E28  4E 80 00 20 */	blr

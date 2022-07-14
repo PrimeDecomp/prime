@@ -120,13 +120,13 @@ lbl_805A95B8:
 .global lbl_805A95BC
 lbl_805A95BC:
 	.skip 0x4
-	
+
 .section .text, "ax"
 
 .global sub_8034a7a4
 sub_8034a7a4:
 /* 8034A7A4 00347704  88 6D 9D DE */	lbz r3, lbl_805A899E@sda21(r13)
-/* 8034A7A8 00347708  4E 80 00 20 */	blr 
+/* 8034A7A8 00347708  4E 80 00 20 */	blr
 
 .global sub_8034a7ac
 sub_8034a7ac:
@@ -151,27 +151,27 @@ lbl_8034A7EC:
 /* 8034A7EC 0034774C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A7F0 00347750  7C 08 03 A6 */	mtlr r0
 /* 8034A7F4 00347754  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A7F8 00347758  4E 80 00 20 */	blr 
+/* 8034A7F8 00347758  4E 80 00 20 */	blr
 
 .global GetDefaultVolumeScale__9CAudioSysFv
 GetDefaultVolumeScale__9CAudioSysFv:
 /* 8034A7FC 0034775C  A8 6D 9D DC */	lha r3, lbl_805A899C@sda21(r13)
-/* 8034A800 00347760  4E 80 00 20 */	blr 
+/* 8034A800 00347760  4E 80 00 20 */	blr
 
 .global SetDefaultVolumeScale__9CAudioSysFs
 SetDefaultVolumeScale__9CAudioSysFs:
 /* 8034A804 00347764  B0 6D 9D DC */	sth r3, lbl_805A899C@sda21(r13)
-/* 8034A808 00347768  4E 80 00 20 */	blr 
+/* 8034A808 00347768  4E 80 00 20 */	blr
 
 .global SetVolumeScale__9CAudioSysFs
 SetVolumeScale__9CAudioSysFs:
 /* 8034A80C 0034776C  B0 6D 9D DA */	sth r3, lbl_805A899A@sda21(r13)
-/* 8034A810 00347770  4E 80 00 20 */	blr 
+/* 8034A810 00347770  4E 80 00 20 */	blr
 
 .global sub_8034a814
 sub_8034a814:
 /* 8034A814 00347774  88 6D A9 D2 */	lbz r3, lbl_805A9592@sda21(r13)
-/* 8034A818 00347778  4E 80 00 20 */	blr 
+/* 8034A818 00347778  4E 80 00 20 */	blr
 
 .global SetSurroundMode__9CAudioSysFQ29CAudioSys14ESurroundModes
 SetSurroundMode__9CAudioSysFQ29CAudioSys14ESurroundModes:
@@ -209,7 +209,7 @@ lbl_8034A87C:
 /* 8034A884 003477E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034A888 003477E8  7C 08 03 A6 */	mtlr r0
 /* 8034A88C 003477EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A890 003477F0  4E 80 00 20 */	blr 
+/* 8034A890 003477F0  4E 80 00 20 */	blr
 
 .global SetStereoMode__9CAudioSysFb
 SetStereoMode__9CAudioSysFb:
@@ -232,7 +232,7 @@ lbl_8034A8CC:
 /* 8034A8CC 0034782C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A8D0 00347830  7C 08 03 A6 */	mtlr r0
 /* 8034A8D4 00347834  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A8D8 00347838  4E 80 00 20 */	blr 
+/* 8034A8D8 00347838  4E 80 00 20 */	blr
 
 .global SeqVolume__9CAudioSysFUcUsUlUc
 SeqVolume__9CAudioSysFUcUsUlUc:
@@ -246,7 +246,7 @@ SeqVolume__9CAudioSysFUcUsUlUc:
 /* 8034A8F8 00347858  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A8FC 0034785C  7C 08 03 A6 */	mtlr r0
 /* 8034A900 00347860  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A904 00347864  4E 80 00 20 */	blr 
+/* 8034A904 00347864  4E 80 00 20 */	blr
 
 .global SeqStop__9CAudioSysFUl
 SeqStop__9CAudioSysFUl:
@@ -257,7 +257,7 @@ SeqStop__9CAudioSysFUl:
 /* 8034A918 00347878  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A91C 0034787C  7C 08 03 A6 */	mtlr r0
 /* 8034A920 00347880  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A924 00347884  4E 80 00 20 */	blr 
+/* 8034A924 00347884  4E 80 00 20 */	blr
 
 .global SeqPlayEx__9CAudioSysFUsUsPvP12SND_PLAYPARAUc
 SeqPlayEx__9CAudioSysFUsUsPvP12SND_PLAYPARAUc:
@@ -271,7 +271,7 @@ SeqPlayEx__9CAudioSysFUsUsPvP12SND_PLAYPARAUc:
 /* 8034A944 003478A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A948 003478A8  7C 08 03 A6 */	mtlr r0
 /* 8034A94C 003478AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A950 003478B0  4E 80 00 20 */	blr 
+/* 8034A950 003478B0  4E 80 00 20 */	blr
 
 .global S3dFindLowerPriorityHandle__9CAudioSysFUi
 S3dFindLowerPriorityHandle__9CAudioSysFUi:
@@ -313,7 +313,7 @@ lbl_8034A9C8:
 /* 8034A9D0 00347930  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034A9D4 00347934  7C 08 03 A6 */	mtlr r0
 /* 8034A9D8 00347938  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A9DC 0034793C  4E 80 00 20 */	blr 
+/* 8034A9DC 0034793C  4E 80 00 20 */	blr
 
 .global S3dFindUnusedHandle__9CAudioSysFv
 S3dFindUnusedHandle__9CAudioSysFv:
@@ -331,9 +331,9 @@ lbl_8034A9F0:
 /* 8034AA08 00347968  41 80 FF E8 */	blt lbl_8034A9F0
 lbl_8034AA0C:
 /* 8034AA0C 0034796C  7C 03 28 00 */	cmpw r3, r5
-/* 8034AA10 00347970  4D 80 00 20 */	bltlr 
+/* 8034AA10 00347970  4D 80 00 20 */	bltlr
 /* 8034AA14 00347974  38 60 FF FF */	li r3, -1
-/* 8034AA18 00347978  4E 80 00 20 */	blr 
+/* 8034AA18 00347978  4E 80 00 20 */	blr
 
 .global S3dEmitterVoiceID__9CAudioSysFUi
 S3dEmitterVoiceID__9CAudioSysFUi:
@@ -361,7 +361,7 @@ lbl_8034AA64:
 /* 8034AA64 003479C4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034AA68 003479C8  7C 08 03 A6 */	mtlr r0
 /* 8034AA6C 003479CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034AA70 003479D0  4E 80 00 20 */	blr 
+/* 8034AA70 003479D0  4E 80 00 20 */	blr
 
 .global S3dCheckEmitter__9CAudioSysFUi
 S3dCheckEmitter__9CAudioSysFUi:
@@ -389,7 +389,7 @@ lbl_8034AABC:
 /* 8034AABC 00347A1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034AAC0 00347A20  7C 08 03 A6 */	mtlr r0
 /* 8034AAC4 00347A24  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034AAC8 00347A28  4E 80 00 20 */	blr 
+/* 8034AAC8 00347A28  4E 80 00 20 */	blr
 
 .global S3dFlushUnusedEmitters__9CAudioSysFv
 S3dFlushUnusedEmitters__9CAudioSysFv:
@@ -431,7 +431,7 @@ lbl_8034AB28:
 /* 8034AB4C 00347AAC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034AB50 00347AB0  7C 08 03 A6 */	mtlr r0
 /* 8034AB54 00347AB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034AB58 00347AB8  4E 80 00 20 */	blr 
+/* 8034AB58 00347AB8  4E 80 00 20 */	blr
 
 .global S3dFlushAllEmitters__9CAudioSysFv
 S3dFlushAllEmitters__9CAudioSysFv:
@@ -468,7 +468,7 @@ lbl_8034AB9C:
 /* 8034ABC8 00347B28  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034ABCC 00347B2C  7C 08 03 A6 */	mtlr r0
 /* 8034ABD0 00347B30  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034ABD4 00347B34  4E 80 00 20 */	blr 
+/* 8034ABD4 00347B34  4E 80 00 20 */	blr
 
 .global S3dRemoveEmitter__9CAudioSysFUi
 S3dRemoveEmitter__9CAudioSysFUi:
@@ -500,7 +500,7 @@ lbl_8034AC30:
 /* 8034AC30 00347B90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034AC34 00347B94  7C 08 03 A6 */	mtlr r0
 /* 8034AC38 00347B98  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034AC3C 00347B9C  4E 80 00 20 */	blr 
+/* 8034AC3C 00347B9C  4E 80 00 20 */	blr
 
 .global S3dUpdateEmitter__9CAudioSysFUiRC9CVector3fRC9CVector3fUc
 S3dUpdateEmitter__9CAudioSysFUiRC9CVector3fRC9CVector3fUc:
@@ -538,7 +538,7 @@ lbl_8034ACB4:
 /* 8034ACB4 00347C14  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034ACB8 00347C18  7C 08 03 A6 */	mtlr r0
 /* 8034ACBC 00347C1C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034ACC0 00347C20  4E 80 00 20 */	blr 
+/* 8034ACC0 00347C20  4E 80 00 20 */	blr
 
 .global S3dAddEmitterParaEx__9CAudioSysFRCQ29CAudioSys18C3DEmitterParmDataUsP18SND_PARAMETER_INFO
 S3dAddEmitterParaEx__9CAudioSysFRCQ29CAudioSys18C3DEmitterParmDataUsP18SND_PARAMETER_INFO:
@@ -639,7 +639,7 @@ lbl_8034AE24:
 /* 8034AE28 00347D88  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8034AE2C 00347D8C  7C 08 03 A6 */	mtlr r0
 /* 8034AE30 00347D90  38 21 00 40 */	addi r1, r1, 0x40
-/* 8034AE34 00347D94  4E 80 00 20 */	blr 
+/* 8034AE34 00347D94  4E 80 00 20 */	blr
 
 .global S3dRemoveListener__9CAudioSysFv
 S3dRemoveListener__9CAudioSysFv:
@@ -660,7 +660,7 @@ lbl_8034AE68:
 /* 8034AE68 00347DC8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034AE6C 00347DCC  7C 08 03 A6 */	mtlr r0
 /* 8034AE70 00347DD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034AE74 00347DD4  4E 80 00 20 */	blr 
+/* 8034AE74 00347DD4  4E 80 00 20 */	blr
 
 .global S3dUpdateListener__9CAudioSysFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fUc
 S3dUpdateListener__9CAudioSysFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fUc:
@@ -710,7 +710,7 @@ lbl_8034AF1C:
 /* 8034AF1C 00347E7C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8034AF20 00347E80  7C 08 03 A6 */	mtlr r0
 /* 8034AF24 00347E84  38 21 00 40 */	addi r1, r1, 0x40
-/* 8034AF28 00347E88  4E 80 00 20 */	blr 
+/* 8034AF28 00347E88  4E 80 00 20 */	blr
 
 .global S3dAddListener__9CAudioSysFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ffffUiUc
 S3dAddListener__9CAudioSysFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ffffUiUc:
@@ -790,7 +790,7 @@ lbl_8034AF90:
 /* 8034B04C 00347FAC  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8034B050 00347FB0  7C 08 03 A6 */	mtlr r0
 /* 8034B054 00347FB4  38 21 00 90 */	addi r1, r1, 0x90
-/* 8034B058 00347FB8  4E 80 00 20 */	blr 
+/* 8034B058 00347FB8  4E 80 00 20 */	blr
 
 .global "FindTrack__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "FindTrack__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -850,7 +850,7 @@ lbl_8034B118:
 /* 8034B11C 0034807C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8034B120 00348080  7C 08 03 A6 */	mtlr r0
 /* 8034B124 00348084  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034B128 00348088  4E 80 00 20 */	blr 
+/* 8034B128 00348088  4E 80 00 20 */	blr
 
 .global sub_8034b12c
 sub_8034b12c:
@@ -872,7 +872,7 @@ sub_8034b12c:
 /* 8034B168 003480C8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034B16C 003480CC  7C 08 03 A6 */	mtlr r0
 /* 8034B170 003480D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B174 003480D4  4E 80 00 20 */	blr 
+/* 8034B174 003480D4  4E 80 00 20 */	blr
 
 .global sub_8034b178
 sub_8034b178:
@@ -929,7 +929,7 @@ lbl_8034B214:
 /* 8034B224 00348184  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8034B228 00348188  7C 08 03 A6 */	mtlr r0
 /* 8034B22C 0034818C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034B230 00348190  4E 80 00 20 */	blr 
+/* 8034B230 00348190  4E 80 00 20 */	blr
 
 .global TrkNextTrack__9CAudioSysFv
 TrkNextTrack__9CAudioSysFv:
@@ -940,7 +940,7 @@ TrkNextTrack__9CAudioSysFv:
 /* 8034B244 003481A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B248 003481A8  7C 08 03 A6 */	mtlr r0
 /* 8034B24C 003481AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B250 003481B0  4E 80 00 20 */	blr 
+/* 8034B250 003481B0  4E 80 00 20 */	blr
 
 .global TrkSetVolume__9CAudioSysFUcUc
 TrkSetVolume__9CAudioSysFUcUc:
@@ -953,7 +953,7 @@ TrkSetVolume__9CAudioSysFUcUc:
 /* 8034B26C 003481CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B270 003481D0  7C 08 03 A6 */	mtlr r0
 /* 8034B274 003481D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B278 003481D8  4E 80 00 20 */	blr 
+/* 8034B278 003481D8  4E 80 00 20 */	blr
 
 .global TrkGetState__9CAudioSysFv
 TrkGetState__9CAudioSysFv:
@@ -964,7 +964,7 @@ TrkGetState__9CAudioSysFv:
 /* 8034B28C 003481EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B290 003481F0  7C 08 03 A6 */	mtlr r0
 /* 8034B294 003481F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B298 003481F8  4E 80 00 20 */	blr 
+/* 8034B298 003481F8  4E 80 00 20 */	blr
 
 .global TrkSetState__9CAudioSysF13ETRKPlayState
 TrkSetState__9CAudioSysF13ETRKPlayState:
@@ -975,7 +975,7 @@ TrkSetState__9CAudioSysF13ETRKPlayState:
 /* 8034B2AC 0034820C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B2B0 00348210  7C 08 03 A6 */	mtlr r0
 /* 8034B2B4 00348214  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B2B8 00348218  4E 80 00 20 */	blr 
+/* 8034B2B8 00348218  4E 80 00 20 */	blr
 
 .global TrkSetRepeatMode__9CAudioSysF14ETRKRepeatMode
 TrkSetRepeatMode__9CAudioSysF14ETRKRepeatMode:
@@ -986,7 +986,7 @@ TrkSetRepeatMode__9CAudioSysF14ETRKRepeatMode:
 /* 8034B2CC 0034822C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B2D0 00348230  7C 08 03 A6 */	mtlr r0
 /* 8034B2D4 00348234  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B2D8 00348238  4E 80 00 20 */	blr 
+/* 8034B2D8 00348238  4E 80 00 20 */	blr
 
 .global TrkSetSampleRate__9CAudioSysF14ETRKSampleRate
 TrkSetSampleRate__9CAudioSysF14ETRKSampleRate:
@@ -997,7 +997,7 @@ TrkSetSampleRate__9CAudioSysF14ETRKSampleRate:
 /* 8034B2EC 0034824C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B2F0 00348250  7C 08 03 A6 */	mtlr r0
 /* 8034B2F4 00348254  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B2F8 00348258  4E 80 00 20 */	blr 
+/* 8034B2F8 00348258  4E 80 00 20 */	blr
 
 .global TrkFlushTracks__9CAudioSysFv
 TrkFlushTracks__9CAudioSysFv:
@@ -1028,7 +1028,7 @@ lbl_8034B350:
 /* 8034B354 003482B4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034B358 003482B8  7C 08 03 A6 */	mtlr r0
 /* 8034B35C 003482BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B360 003482C0  4E 80 00 20 */	blr 
+/* 8034B360 003482C0  4E 80 00 20 */	blr
 
 .global "TrkQueueTrack__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PFUl_vUi"
 "TrkQueueTrack__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PFUl_vUi":
@@ -1149,7 +1149,7 @@ lbl_8034B500:
 /* 8034B510 00348470  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8034B514 00348474  7C 08 03 A6 */	mtlr r0
 /* 8034B518 00348478  38 21 00 50 */	addi r1, r1, 0x50
-/* 8034B51C 0034847C  4E 80 00 20 */	blr 
+/* 8034B51C 0034847C  4E 80 00 20 */	blr
 
 .global SfxCtrl__9CAudioSysFUlUcUc
 SfxCtrl__9CAudioSysFUlUcUc:
@@ -1160,7 +1160,7 @@ SfxCtrl__9CAudioSysFUlUcUc:
 /* 8034B530 00348490  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B534 00348494  7C 08 03 A6 */	mtlr r0
 /* 8034B538 00348498  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B53C 0034849C  4E 80 00 20 */	blr 
+/* 8034B53C 0034849C  4E 80 00 20 */	blr
 
 .global SfxPitchBend__9CAudioSysFUlUs
 SfxPitchBend__9CAudioSysFUlUs:
@@ -1174,7 +1174,7 @@ SfxPitchBend__9CAudioSysFUlUs:
 /* 8034B55C 003484BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B560 003484C0  7C 08 03 A6 */	mtlr r0
 /* 8034B564 003484C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B568 003484C8  4E 80 00 20 */	blr 
+/* 8034B568 003484C8  4E 80 00 20 */	blr
 
 .global SfxVolume__9CAudioSysFUlUc
 SfxVolume__9CAudioSysFUlUc:
@@ -1188,7 +1188,7 @@ SfxVolume__9CAudioSysFUlUc:
 /* 8034B588 003484E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B58C 003484EC  7C 08 03 A6 */	mtlr r0
 /* 8034B590 003484F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B594 003484F4  4E 80 00 20 */	blr 
+/* 8034B594 003484F4  4E 80 00 20 */	blr
 
 .global SfxSpan__9CAudioSysFUlUc
 SfxSpan__9CAudioSysFUlUc:
@@ -1202,7 +1202,7 @@ SfxSpan__9CAudioSysFUlUc:
 /* 8034B5B4 00348514  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B5B8 00348518  7C 08 03 A6 */	mtlr r0
 /* 8034B5BC 0034851C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B5C0 00348520  4E 80 00 20 */	blr 
+/* 8034B5C0 00348520  4E 80 00 20 */	blr
 
 .global SfxCheck__9CAudioSysFUl
 SfxCheck__9CAudioSysFUl:
@@ -1213,7 +1213,7 @@ SfxCheck__9CAudioSysFUl:
 /* 8034B5D4 00348534  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B5D8 00348538  7C 08 03 A6 */	mtlr r0
 /* 8034B5DC 0034853C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B5E0 00348540  4E 80 00 20 */	blr 
+/* 8034B5E0 00348540  4E 80 00 20 */	blr
 
 .global SfxStop__9CAudioSysFUl
 SfxStop__9CAudioSysFUl:
@@ -1224,7 +1224,7 @@ SfxStop__9CAudioSysFUl:
 /* 8034B5F4 00348554  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B5F8 00348558  7C 08 03 A6 */	mtlr r0
 /* 8034B5FC 0034855C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B600 00348560  4E 80 00 20 */	blr 
+/* 8034B600 00348560  4E 80 00 20 */	blr
 
 .global SfxStart__9CAudioSysFUsUcUcUc
 SfxStart__9CAudioSysFUsUcUcUc:
@@ -1254,7 +1254,7 @@ lbl_8034B62C:
 /* 8034B65C 003485BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B660 003485C0  7C 08 03 A6 */	mtlr r0
 /* 8034B664 003485C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B668 003485C8  4E 80 00 20 */	blr 
+/* 8034B668 003485C8  4E 80 00 20 */	blr
 
 .global "FindGroupSet__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "FindGroupSet__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1314,7 +1314,7 @@ lbl_8034B728:
 /* 8034B72C 0034868C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8034B730 00348690  7C 08 03 A6 */	mtlr r0
 /* 8034B734 00348694  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034B738 00348698  4E 80 00 20 */	blr 
+/* 8034B738 00348698  4E 80 00 20 */	blr
 
 .global sub_8034b73c
 sub_8034b73c:
@@ -1336,7 +1336,7 @@ sub_8034b73c:
 /* 8034B778 003486D8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034B77C 003486DC  7C 08 03 A6 */	mtlr r0
 /* 8034B780 003486E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B784 003486E4  4E 80 00 20 */	blr 
+/* 8034B784 003486E4  4E 80 00 20 */	blr
 
 .global sub_8034b788
 sub_8034b788:
@@ -1393,7 +1393,7 @@ lbl_8034B824:
 /* 8034B834 00348794  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8034B838 00348798  7C 08 03 A6 */	mtlr r0
 /* 8034B83C 0034879C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034B840 003487A0  4E 80 00 20 */	blr 
+/* 8034B840 003487A0  4E 80 00 20 */	blr
 
 .global SysGetGroupSetName__9CAudioSysFUi
 SysGetGroupSetName__9CAudioSysFUi:
@@ -1449,7 +1449,7 @@ lbl_8034B8E0:
 /* 8034B8E4 00348844  38 63 67 CC */	addi r3, r3, lbl_805A67CC@l
 lbl_8034B8E8:
 /* 8034B8E8 00348848  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034B8EC 0034884C  4E 80 00 20 */	blr 
+/* 8034B8EC 0034884C  4E 80 00 20 */	blr
 
 .global SysPopGroupFromARAM__9CAudioSysFv
 SysPopGroupFromARAM__9CAudioSysFv:
@@ -1460,7 +1460,7 @@ SysPopGroupFromARAM__9CAudioSysFv:
 /* 8034B900 00348860  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034B904 00348864  7C 08 03 A6 */	mtlr r0
 /* 8034B908 00348868  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034B90C 0034886C  4E 80 00 20 */	blr 
+/* 8034B90C 0034886C  4E 80 00 20 */	blr
 
 .global "SysPushGroupIntoARAM__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Uc"
 "SysPushGroupIntoARAM__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Uc":
@@ -1519,7 +1519,7 @@ lbl_8034B9D4:
 /* 8034B9D8 00348938  80 01 10 54 */	lwz r0, 0x1054(r1)
 /* 8034B9DC 0034893C  7C 08 03 A6 */	mtlr r0
 /* 8034B9E0 00348940  38 21 10 50 */	addi r1, r1, 0x1050
-/* 8034B9E4 00348944  4E 80 00 20 */	blr 
+/* 8034B9E4 00348944  4E 80 00 20 */	blr
 
 .global sub_8034b9e8
 sub_8034b9e8:
@@ -1556,7 +1556,7 @@ lbl_8034BA24:
 /* 8034BA58 003489B8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8034BA5C 003489BC  7C 08 03 A6 */	mtlr r0
 /* 8034BA60 003489C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034BA64 003489C4  4E 80 00 20 */	blr 
+/* 8034BA64 003489C4  4E 80 00 20 */	blr
 
 .global "SysUnloadGroupSet__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "SysUnloadGroupSet__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1671,7 +1671,7 @@ lbl_8034BBE8:
 /* 8034BBF4 00348B54  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8034BBF8 00348B58  7C 08 03 A6 */	mtlr r0
 /* 8034BBFC 00348B5C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8034BC00 00348B60  4E 80 00 20 */	blr 
+/* 8034BC00 00348B60  4E 80 00 20 */	blr
 
 .global sub_8034bc04
 sub_8034bc04:
@@ -1742,7 +1742,7 @@ lbl_8034BCE4:
 /* 8034BCF4 00348C54  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8034BCF8 00348C58  7C 08 03 A6 */	mtlr r0
 /* 8034BCFC 00348C5C  38 21 00 80 */	addi r1, r1, 0x80
-/* 8034BD00 00348C60  4E 80 00 20 */	blr 
+/* 8034BD00 00348C60  4E 80 00 20 */	blr
 
 .global sub_8034bd04
 sub_8034bd04:
@@ -1798,7 +1798,7 @@ lbl_8034BD90:
 /* 8034BDBC 00348D1C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034BDC0 00348D20  7C 08 03 A6 */	mtlr r0
 /* 8034BDC4 00348D24  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034BDC8 00348D28  4E 80 00 20 */	blr 
+/* 8034BDC8 00348D28  4E 80 00 20 */	blr
 
 .global sub_8034bdcc
 sub_8034bdcc:
@@ -1831,7 +1831,7 @@ sub_8034bdcc:
 /* 8034BE34 00348D94  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8034BE38 00348D98  7C 08 03 A6 */	mtlr r0
 /* 8034BE3C 00348D9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034BE40 00348DA0  4E 80 00 20 */	blr 
+/* 8034BE40 00348DA0  4E 80 00 20 */	blr
 
 .global sub_8034be44
 sub_8034be44:
@@ -1853,7 +1853,7 @@ sub_8034be44:
 /* 8034BE80 00348DE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034BE84 00348DE4  7C 08 03 A6 */	mtlr r0
 /* 8034BE88 00348DE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034BE8C 00348DEC  4E 80 00 20 */	blr 
+/* 8034BE8C 00348DEC  4E 80 00 20 */	blr
 
 .global sub_8034be90
 sub_8034be90:
@@ -1892,7 +1892,7 @@ lbl_8034BEE8:
 /* 8034BF04 00348E64  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8034BF08 00348E68  7C 08 03 A6 */	mtlr r0
 /* 8034BF0C 00348E6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034BF10 00348E70  4E 80 00 20 */	blr 
+/* 8034BF10 00348E70  4E 80 00 20 */	blr
 
 .global sub_8034bf14
 sub_8034bf14:
@@ -1914,7 +1914,7 @@ sub_8034bf14:
 /* 8034BF50 00348EB0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034BF54 00348EB4  7C 08 03 A6 */	mtlr r0
 /* 8034BF58 00348EB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034BF5C 00348EBC  4E 80 00 20 */	blr 
+/* 8034BF5C 00348EBC  4E 80 00 20 */	blr
 
 .global sub_8034bf60
 sub_8034bf60:
@@ -1953,7 +1953,7 @@ lbl_8034BFB8:
 /* 8034BFD4 00348F34  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8034BFD8 00348F38  7C 08 03 A6 */	mtlr r0
 /* 8034BFDC 00348F3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034BFE0 00348F40  4E 80 00 20 */	blr 
+/* 8034BFE0 00348F40  4E 80 00 20 */	blr
 
 .global "SysUnloadSampleData__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "SysUnloadSampleData__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1987,7 +1987,7 @@ lbl_8034C048:
 /* 8034C048 00348FA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034C04C 00348FAC  7C 08 03 A6 */	mtlr r0
 /* 8034C050 00348FB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034C054 00348FB4  4E 80 00 20 */	blr 
+/* 8034C054 00348FB4  4E 80 00 20 */	blr
 
 .global "SysIsGroupSetLoaded__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "SysIsGroupSetLoaded__9CAudioSysFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -2010,7 +2010,7 @@ lbl_8034C048:
 /* 8034C098 00348FF8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8034C09C 00348FFC  7C 08 03 A6 */	mtlr r0
 /* 8034C0A0 00349000  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034C0A4 00349004  4E 80 00 20 */	blr 
+/* 8034C0A4 00349004  4E 80 00 20 */	blr
 
 .global "SysLoadGroupSet__9CAudioSysF30TLockedToken<14CAudioGroupSet>Q24rstl6stringUi"
 "SysLoadGroupSet__9CAudioSysF30TLockedToken<14CAudioGroupSet>Q24rstl6stringUi":
@@ -2151,7 +2151,7 @@ lbl_8034C290:
 /* 8034C2A0 00349200  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 8034C2A4 00349204  7C 08 03 A6 */	mtlr r0
 /* 8034C2A8 00349208  38 21 00 70 */	addi r1, r1, 0x70
-/* 8034C2AC 0034920C  4E 80 00 20 */	blr 
+/* 8034C2AC 0034920C  4E 80 00 20 */	blr
 
 .global SysLoadGroupSet__9CAudioSysFP11CSimplePoolUi
 SysLoadGroupSet__9CAudioSysFP11CSimplePoolUi:
@@ -2190,7 +2190,7 @@ SysLoadGroupSet__9CAudioSysFP11CSimplePoolUi:
 /* 8034C330 00349290  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8034C334 00349294  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8034C338 00349298  7D 89 03 A6 */	mtctr r12
-/* 8034C33C 0034929C  4E 80 04 21 */	bctrl 
+/* 8034C33C 0034929C  4E 80 04 21 */	bctrl
 /* 8034C340 003492A0  3B A1 00 3C */	addi r29, r1, 0x3c
 /* 8034C344 003492A4  38 81 00 14 */	addi r4, r1, 0x14
 /* 8034C348 003492A8  7F A3 EB 78 */	mr r3, r29
@@ -2304,7 +2304,7 @@ lbl_8034C4D0:
 /* 8034C4DC 0034943C  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 8034C4E0 00349440  7C 08 03 A6 */	mtlr r0
 /* 8034C4E4 00349444  38 21 00 80 */	addi r1, r1, 0x80
-/* 8034C4E8 00349448  4E 80 00 20 */	blr 
+/* 8034C4E8 00349448  4E 80 00 20 */	blr
 
 .global SysSetSfxVolume__9CAudioSysFUcUsUcUc
 SysSetSfxVolume__9CAudioSysFUcUsUcUc:
@@ -2319,7 +2319,7 @@ SysSetSfxVolume__9CAudioSysFUcUsUcUc:
 /* 8034C50C 0034946C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034C510 00349470  7C 08 03 A6 */	mtlr r0
 /* 8034C514 00349474  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034C518 00349478  4E 80 00 20 */	blr 
+/* 8034C518 00349478  4E 80 00 20 */	blr
 
 .global SysSetVolume__9CAudioSysFUcUsUc
 SysSetVolume__9CAudioSysFUcUsUc:
@@ -2333,7 +2333,7 @@ SysSetVolume__9CAudioSysFUcUsUc:
 /* 8034C538 00349498  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034C53C 0034949C  7C 08 03 A6 */	mtlr r0
 /* 8034C540 003494A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034C544 003494A4  4E 80 00 20 */	blr 
+/* 8034C544 003494A4  4E 80 00 20 */	blr
 
 .global __dt__9CAudioSysFv
 __dt__9CAudioSysFv:
@@ -2456,7 +2456,7 @@ lbl_8034C6D0:
 /* 8034C6E0 00349640  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8034C6E4 00349644  7C 08 03 A6 */	mtlr r0
 /* 8034C6E8 00349648  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034C6EC 0034964C  4E 80 00 20 */	blr 
+/* 8034C6EC 0034964C  4E 80 00 20 */	blr
 
 .global __ct__9CAudioSysFUcUcUcUcUi
 __ct__9CAudioSysFUcUcUcUcUi:
@@ -2638,7 +2638,7 @@ lbl_8034C968:
 /* 8034C974 003498D4  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8034C978 003498D8  7C 08 03 A6 */	mtlr r0
 /* 8034C97C 003498DC  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8034C980 003498E0  4E 80 00 20 */	blr 
+/* 8034C980 003498E0  4E 80 00 20 */	blr
 
 .global DoFree__FPv
 DoFree__FPv:
@@ -2652,7 +2652,7 @@ lbl_8034C99C:
 /* 8034C99C 003498FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034C9A0 00349900  7C 08 03 A6 */	mtlr r0
 /* 8034C9A4 00349904  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034C9A8 00349908  4E 80 00 20 */	blr 
+/* 8034C9A8 00349908  4E 80 00 20 */	blr
 
 .global DoMalloc__FUl
 DoMalloc__FUl:
@@ -2666,7 +2666,7 @@ DoMalloc__FUl:
 /* 8034C9C8 00349928  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034C9CC 0034992C  7C 08 03 A6 */	mtlr r0
 /* 8034C9D0 00349930  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034C9D4 00349934  4E 80 00 20 */	blr 
+/* 8034C9D4 00349934  4E 80 00 20 */	blr
 
 .global sub_8034c9d8
 sub_8034c9d8:
@@ -2693,7 +2693,7 @@ lbl_8034CA20:
 /* 8034CA24 00349984  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034CA28 00349988  7C 08 03 A6 */	mtlr r0
 /* 8034CA2C 0034998C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034CA30 00349990  4E 80 00 20 */	blr 
+/* 8034CA30 00349990  4E 80 00 20 */	blr
 
 .global sub_8034ca34
 sub_8034ca34:
@@ -2740,7 +2740,7 @@ lbl_8034CAB8:
 /* 8034CAC0 00349A20  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034CAC4 00349A24  7C 08 03 A6 */	mtlr r0
 /* 8034CAC8 00349A28  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034CACC 00349A2C  4E 80 00 20 */	blr 
+/* 8034CACC 00349A2C  4E 80 00 20 */	blr
 
 .global sub_8034cad0
 sub_8034cad0:
@@ -2780,7 +2780,7 @@ lbl_8034CB3C:
 /* 8034CB44 00349AA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034CB48 00349AA8  7C 08 03 A6 */	mtlr r0
 /* 8034CB4C 00349AAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034CB50 00349AB0  4E 80 00 20 */	blr 
+/* 8034CB50 00349AB0  4E 80 00 20 */	blr
 
 .global sub_8034cb54
 sub_8034cb54:
@@ -2827,7 +2827,7 @@ lbl_8034CBD8:
 /* 8034CBE0 00349B40  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034CBE4 00349B44  7C 08 03 A6 */	mtlr r0
 /* 8034CBE8 00349B48  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034CBEC 00349B4C  4E 80 00 20 */	blr 
+/* 8034CBEC 00349B4C  4E 80 00 20 */	blr
 
 .global sub_8034cbf0
 sub_8034cbf0:
@@ -2851,7 +2851,7 @@ sub_8034cbf0:
 /* 8034CC34 00349B94  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034CC38 00349B98  7C 08 03 A6 */	mtlr r0
 /* 8034CC3C 00349B9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034CC40 00349BA0  4E 80 00 20 */	blr 
+/* 8034CC40 00349BA0  4E 80 00 20 */	blr
 
 .global sub_8034cc44
 sub_8034cc44:
@@ -2892,7 +2892,7 @@ lbl_8034CCA4:
 /* 8034CCBC 00349C1C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034CCC0 00349C20  7C 08 03 A6 */	mtlr r0
 /* 8034CCC4 00349C24  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034CCC8 00349C28  4E 80 00 20 */	blr 
+/* 8034CCC8 00349C28  4E 80 00 20 */	blr
 
 .global "insert_into__Q24rstl488red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl117pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl26ncrc_ptr<14CAudioGroupSet>>,0,Q24rstl138select1st<Q24rstl117pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl26ncrc_ptr<14CAudioGroupSet>>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator"
 "insert_into__Q24rstl488red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl117pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl26ncrc_ptr<14CAudioGroupSet>>,0,Q24rstl138select1st<Q24rstl117pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl26ncrc_ptr<14CAudioGroupSet>>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator":
@@ -3066,7 +3066,7 @@ lbl_8034CF38:
 /* 8034CF3C 00349E9C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034CF40 00349EA0  7C 08 03 A6 */	mtlr r0
 /* 8034CF44 00349EA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034CF48 00349EA8  4E 80 00 20 */	blr 
+/* 8034CF48 00349EA8  4E 80 00 20 */	blr
 
 .global "insert_into__Q24rstl273red_black_tree<Ui,Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,0,Q24rstl104select1st<Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>>,Q24rstl8less<Ui>,Q24rstl17rmemory_allocator>FPQ34rstl273red_black_tree<Ui,Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,0,Q24rstl104select1st<Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24"
 "insert_into__Q24rstl273red_black_tree<Ui,Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,0,Q24rstl104select1st<Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>>,Q24rstl8less<Ui>,Q24rstl17rmemory_allocator>FPQ34rstl273red_black_tree<Ui,Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,0,Q24rstl104select1st<Q24rstl84pair<Ui,Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24":
@@ -3222,7 +3222,7 @@ lbl_8034D170:
 /* 8034D174 0034A0D4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034D178 0034A0D8  7C 08 03 A6 */	mtlr r0
 /* 8034D17C 0034A0DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034D180 0034A0E0  4E 80 00 20 */	blr 
+/* 8034D180 0034A0E0  4E 80 00 20 */	blr
 
 .global sub_8034d184
 sub_8034d184:
@@ -3396,7 +3396,7 @@ lbl_8034D3F0:
 /* 8034D3F4 0034A354  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034D3F8 0034A358  7C 08 03 A6 */	mtlr r0
 /* 8034D3FC 0034A35C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034D400 0034A360  4E 80 00 20 */	blr 
+/* 8034D400 0034A360  4E 80 00 20 */	blr
 
 .global sub_8034d404
 sub_8034d404:
@@ -3433,7 +3433,7 @@ lbl_8034D468:
 /* 8034D470 0034A3D0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034D474 0034A3D4  7C 08 03 A6 */	mtlr r0
 /* 8034D478 0034A3D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034D47C 0034A3DC  4E 80 00 20 */	blr 
+/* 8034D47C 0034A3DC  4E 80 00 20 */	blr
 
 .global __sinit_DolphinCAudioSys_cpp
 __sinit_DolphinCAudioSys_cpp:

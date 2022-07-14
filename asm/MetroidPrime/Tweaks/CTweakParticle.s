@@ -9,7 +9,7 @@ lbl_803DA088:
 	.4byte 0
 	.4byte __dt__14CTweakParticleFv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __ct__14CTweakParticleFR12CInputStream
@@ -44,7 +44,7 @@ __ct__14CTweakParticleFR12CInputStream:
 /* 80059F8C 00056EEC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80059F90 00056EF0  7C 08 03 A6 */	mtlr r0
 /* 80059F94 00056EF4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80059F98 00056EF8  4E 80 00 20 */	blr 
+/* 80059F98 00056EF8  4E 80 00 20 */	blr
 
 .global __dt__14CTweakParticleFv
 __dt__14CTweakParticleFv:
@@ -91,7 +91,7 @@ lbl_8005A01C:
 /* 8005A028 00056F88  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8005A02C 00056F8C  7C 08 03 A6 */	mtlr r0
 /* 8005A030 00056F90  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005A034 00056F94  4E 80 00 20 */	blr 
+/* 8005A034 00056F94  4E 80 00 20 */	blr
 
 .global "__dl__28TOneStatic<14CTweakParticle>FPv"
 "__dl__28TOneStatic<14CTweakParticle>FPv":
@@ -105,4 +105,4 @@ lbl_8005A01C:
 /* 8005A054 00056FB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005A058 00056FB8  7C 08 03 A6 */	mtlr r0
 /* 8005A05C 00056FBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005A060 00056FC0  4E 80 00 20 */	blr 
+/* 8005A060 00056FC0  4E 80 00 20 */	blr

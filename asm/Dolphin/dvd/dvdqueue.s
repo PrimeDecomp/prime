@@ -4,7 +4,7 @@
 .global lbl_80540BF8
 lbl_80540BF8:
 	.skip 0x20
-	
+
 .section .text, "ax"
 
 .global __DVDClearWaitingQueue
@@ -22,7 +22,7 @@ __DVDClearWaitingQueue:
 /* 803748E0 00371840  90 84 00 04 */	stw r4, 4(r4)
 /* 803748E4 00371844  90 63 00 00 */	stw r3, 0(r3)
 /* 803748E8 00371848  90 63 00 04 */	stw r3, 4(r3)
-/* 803748EC 0037184C  4E 80 00 20 */	blr 
+/* 803748EC 0037184C  4E 80 00 20 */	blr
 
 .global __DVDPushWaitingQueue
 __DVDPushWaitingQueue:
@@ -51,7 +51,7 @@ __DVDPushWaitingQueue:
 /* 80374948 003718A8  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8037494C 003718AC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80374950 003718B0  7C 08 03 A6 */	mtlr r0
-/* 80374954 003718B4  4E 80 00 20 */	blr 
+/* 80374954 003718B4  4E 80 00 20 */	blr
 
 .global __DVDPopWaitingQueue
 __DVDPopWaitingQueue:
@@ -97,7 +97,7 @@ lbl_803749E4:
 /* 803749E8 00371948  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803749EC 0037194C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803749F0 00371950  7C 08 03 A6 */	mtlr r0
-/* 803749F4 00371954  4E 80 00 20 */	blr 
+/* 803749F4 00371954  4E 80 00 20 */	blr
 
 .global __DVDCheckWaitingQueue
 __DVDCheckWaitingQueue:
@@ -125,7 +125,7 @@ lbl_80374A40:
 /* 80374A40 003719A0  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80374A44 003719A4  38 21 00 08 */	addi r1, r1, 8
 /* 80374A48 003719A8  7C 08 03 A6 */	mtlr r0
-/* 80374A4C 003719AC  4E 80 00 20 */	blr 
+/* 80374A4C 003719AC  4E 80 00 20 */	blr
 
 .global __DVDDequeueWaitingQueue
 __DVDDequeueWaitingQueue:
@@ -155,4 +155,4 @@ lbl_80374A9C:
 /* 80374AA0 00371A00  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80374AA4 00371A04  38 21 00 18 */	addi r1, r1, 0x18
 /* 80374AA8 00371A08  7C 08 03 A6 */	mtlr r0
-/* 80374AAC 00371A0C  4E 80 00 20 */	blr 
+/* 80374AAC 00371A0C  4E 80 00 20 */	blr

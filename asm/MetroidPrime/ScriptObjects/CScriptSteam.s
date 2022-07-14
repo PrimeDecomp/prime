@@ -51,11 +51,11 @@ Accept__12CScriptSteamFR8IVisitor:
 /* 80174B28 00171A88  7C 04 03 78 */	mr r4, r0
 /* 80174B2C 00171A8C  81 8C 00 CC */	lwz r12, 0xcc(r12)
 /* 80174B30 00171A90  7D 89 03 A6 */	mtctr r12
-/* 80174B34 00171A94  4E 80 04 21 */	bctrl 
+/* 80174B34 00171A94  4E 80 04 21 */	bctrl
 /* 80174B38 00171A98  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80174B3C 00171A9C  7C 08 03 A6 */	mtlr r0
 /* 80174B40 00171AA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80174B44 00171AA4  4E 80 00 20 */	blr 
+/* 80174B44 00171AA4  4E 80 00 20 */	blr
 
 .global Think__12CScriptSteamFfR13CStateManager
 Think__12CScriptSteamFfR13CStateManager:
@@ -146,7 +146,7 @@ lbl_80174C78:
 /* 80174C88 00171BE8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80174C8C 00171BEC  7C 08 03 A6 */	mtlr r0
 /* 80174C90 00171BF0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80174C94 00171BF4  4E 80 00 20 */	blr 
+/* 80174C94 00171BF4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CScriptSteamF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CScriptSteamF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -189,7 +189,7 @@ lbl_80174CF4:
 /* 80174D20 00171C80  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80174D24 00171C84  7C 08 03 A6 */	mtlr r0
 /* 80174D28 00171C88  38 21 00 20 */	addi r1, r1, 0x20
-/* 80174D2C 00171C8C  4E 80 00 20 */	blr 
+/* 80174D2C 00171C8C  4E 80 00 20 */	blr
 
 .global __dt__12CScriptSteamFv
 __dt__12CScriptSteamFv:
@@ -217,7 +217,7 @@ lbl_80174D74:
 /* 80174D80 00171CE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80174D84 00171CE4  7C 08 03 A6 */	mtlr r0
 /* 80174D88 00171CE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80174D8C 00171CEC  4E 80 00 20 */	blr 
+/* 80174D8C 00171CEC  4E 80 00 20 */	blr
 
 .global "__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffff"
 "__ct__12CScriptSteamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibUiffff":

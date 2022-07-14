@@ -269,7 +269,7 @@ lbl_8046C770:
 .global lbl_8046C788
 lbl_8046C788:
 	.skip 0x18
-	
+
 .section .text, "ax"
 
 .global __dt__9CParasiteFv
@@ -341,7 +341,7 @@ lbl_80156A54:
 /* 80156A64 001539C4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80156A68 001539C8  7C 08 03 A6 */	mtlr r0
 /* 80156A6C 001539CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80156A70 001539D0  4E 80 00 20 */	blr 
+/* 80156A70 001539D0  4E 80 00 20 */	blr
 
 .global __dt__11CWallWalkerFv
 __dt__11CWallWalkerFv:
@@ -381,13 +381,13 @@ lbl_80156AE4:
 /* 80156AF0 00153A50  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80156AF4 00153A54  7C 08 03 A6 */	mtlr r0
 /* 80156AF8 00153A58  38 21 00 10 */	addi r1, r1, 0x10
-/* 80156AFC 00153A5C  4E 80 00 20 */	blr 
+/* 80156AFC 00153A5C  4E 80 00 20 */	blr
 
 .global IsOnGround__9CParasiteCFv
 IsOnGround__9CParasiteCFv:
 /* 80156B00 00153A60  88 03 07 42 */	lbz r0, 0x742(r3)
 /* 80156B04 00153A64  54 03 EF FE */	rlwinm r3, r0, 0x1d, 0x1f, 0x1f
-/* 80156B08 00153A68  4E 80 00 20 */	blr 
+/* 80156B08 00153A68  4E 80 00 20 */	blr
 
 .global MassiveFrozenDeath__9CParasiteFR13CStateManager
 MassiveFrozenDeath__9CParasiteFR13CStateManager:
@@ -398,7 +398,7 @@ MassiveFrozenDeath__9CParasiteFR13CStateManager:
 /* 80156B1C 00153A7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80156B20 00153A80  7C 08 03 A6 */	mtlr r0
 /* 80156B24 00153A84  38 21 00 10 */	addi r1, r1, 0x10
-/* 80156B28 00153A88  4E 80 00 20 */	blr 
+/* 80156B28 00153A88  4E 80 00 20 */	blr
 
 .global MassiveDeath__9CParasiteFR13CStateManager
 MassiveDeath__9CParasiteFR13CStateManager:
@@ -409,7 +409,7 @@ MassiveDeath__9CParasiteFR13CStateManager:
 /* 80156B3C 00153A9C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80156B40 00153AA0  7C 08 03 A6 */	mtlr r0
 /* 80156B44 00153AA4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80156B48 00153AA8  4E 80 00 20 */	blr 
+/* 80156B48 00153AA8  4E 80 00 20 */	blr
 
 .global UpdateCollisionActors__9CParasiteFR13CStateManager
 UpdateCollisionActors__9CParasiteFR13CStateManager:
@@ -452,7 +452,7 @@ lbl_80156B98:
 /* 80156BD8 00153B38  7F C4 F3 78 */	mr r4, r30
 /* 80156BDC 00153B3C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80156BE0 00153B40  7D 89 03 A6 */	mtctr r12
-/* 80156BE4 00153B44  4E 80 04 21 */	bctrl 
+/* 80156BE4 00153B44  4E 80 04 21 */	bctrl
 /* 80156BE8 00153B48  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80156BEC 00153B4C  EF FF 00 2A */	fadds f31, f31, f0
 lbl_80156BF0:
@@ -494,7 +494,7 @@ lbl_80156C60:
 /* 80156C74 00153BD4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80156C78 00153BD8  7C 08 03 A6 */	mtlr r0
 /* 80156C7C 00153BDC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80156C80 00153BE0  4E 80 00 20 */	blr 
+/* 80156C80 00153BE0  4E 80 00 20 */	blr
 
 .global SetupIceZoomerVulnerability__9CParasiteFR13CStateManagerRC20CDamageVulnerabilityRC11CHealthInfo
 SetupIceZoomerVulnerability__9CParasiteFR13CStateManagerRC20CDamageVulnerabilityRC11CHealthInfo:
@@ -532,7 +532,7 @@ lbl_80156CAC:
 /* 80156CFC 00153C5C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80156D00 00153C60  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80156D04 00153C64  7D 89 03 A6 */	mtctr r12
-/* 80156D08 00153C68  4E 80 04 21 */	bctrl 
+/* 80156D08 00153C68  4E 80 04 21 */	bctrl
 /* 80156D0C 00153C6C  C0 1D 00 00 */	lfs f0, 0(r29)
 /* 80156D10 00153C70  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80156D14 00153C74  C0 1D 00 04 */	lfs f0, 4(r29)
@@ -548,7 +548,7 @@ lbl_80156D20:
 /* 80156D34 00153C94  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80156D38 00153C98  7C 08 03 A6 */	mtlr r0
 /* 80156D3C 00153C9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80156D40 00153CA0  4E 80 00 20 */	blr 
+/* 80156D40 00153CA0  4E 80 00 20 */	blr
 
 .global DestroyActorManager__9CParasiteFR13CStateManager
 DestroyActorManager__9CParasiteFR13CStateManager:
@@ -560,7 +560,7 @@ DestroyActorManager__9CParasiteFR13CStateManager:
 /* 80156D58 00153CB8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80156D5C 00153CBC  7C 08 03 A6 */	mtlr r0
 /* 80156D60 00153CC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80156D64 00153CC4  4E 80 00 20 */	blr 
+/* 80156D64 00153CC4  4E 80 00 20 */	blr
 
 .global SetupIceZoomerCollision__9CParasiteFR13CStateManager
 SetupIceZoomerCollision__9CParasiteFR13CStateManager:
@@ -690,7 +690,7 @@ lbl_80156F28:
 /* 80156F48 00153EA8  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 80156F4C 00153EAC  7C 08 03 A6 */	mtlr r0
 /* 80156F50 00153EB0  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80156F54 00153EB4  4E 80 00 20 */	blr 
+/* 80156F54 00153EB4  4E 80 00 20 */	blr
 
 .global GetContactDamage__9CParasiteCFv
 GetContactDamage__9CParasiteCFv:
@@ -732,7 +732,7 @@ lbl_80156FD0:
 /* 80156FD4 00153F34  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80156FD8 00153F38  7C 08 03 A6 */	mtlr r0
 /* 80156FDC 00153F3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80156FE0 00153F40  4E 80 00 20 */	blr 
+/* 80156FE0 00153F40  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__9CParasiteCFv
 GetDamageVulnerability__9CParasiteCFv:
@@ -769,7 +769,7 @@ lbl_80157048:
 /* 80157048 00153FA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015704C 00153FAC  7C 08 03 A6 */	mtlr r0
 /* 80157050 00153FB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80157054 00153FB4  4E 80 00 20 */	blr 
+/* 80157054 00153FB4  4E 80 00 20 */	blr
 
 .global Render__9CParasiteCFRC13CStateManager
 Render__9CParasiteCFRC13CStateManager:
@@ -780,7 +780,7 @@ Render__9CParasiteCFRC13CStateManager:
 /* 80157068 00153FC8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015706C 00153FCC  7C 08 03 A6 */	mtlr r0
 /* 80157070 00153FD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80157074 00153FD4  4E 80 00 20 */	blr 
+/* 80157074 00153FD4  4E 80 00 20 */	blr
 
 .global DoFlockingBehavior__9CParasiteFR13CStateManager
 DoFlockingBehavior__9CParasiteFR13CStateManager:
@@ -1381,11 +1381,11 @@ lbl_8015793C:
 /* 80157954 001548B4  80 01 12 84 */	lwz r0, 0x1284(r1)
 /* 80157958 001548B8  7C 08 03 A6 */	mtlr r0
 /* 8015795C 001548BC  38 21 12 80 */	addi r1, r1, 0x1280
-/* 80157960 001548C0  4E 80 00 20 */	blr 
+/* 80157960 001548C0  4E 80 00 20 */	blr
 
 .global UpdatePFDestination__9CParasiteFR13CStateManager
 UpdatePFDestination__9CParasiteFR13CStateManager:
-/* 80157964 001548C4  4E 80 00 20 */	blr 
+/* 80157964 001548C4  4E 80 00 20 */	blr
 
 .global Touch__9CParasiteFR6CActorR13CStateManager
 Touch__9CParasiteFR6CActorR13CStateManager:
@@ -1396,7 +1396,7 @@ Touch__9CParasiteFR6CActorR13CStateManager:
 /* 80157978 001548D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015797C 001548DC  7C 08 03 A6 */	mtlr r0
 /* 80157980 001548E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80157984 001548E4  4E 80 00 20 */	blr 
+/* 80157984 001548E4  4E 80 00 20 */	blr
 
 .global GetUp__9CParasiteFR13CStateManager9EStateMsgf
 GetUp__9CParasiteFR13CStateManager9EStateMsgf:
@@ -1434,7 +1434,7 @@ lbl_801579FC:
 /* 80157A00 00154960  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80157A04 00154964  7C 08 03 A6 */	mtlr r0
 /* 80157A08 00154968  38 21 00 20 */	addi r1, r1, 0x20
-/* 80157A0C 0015496C  4E 80 00 20 */	blr 
+/* 80157A0C 0015496C  4E 80 00 20 */	blr
 
 .global Crouch__9CParasiteFR13CStateManager9EStateMsgf
 Crouch__9CParasiteFR13CStateManager9EStateMsgf:
@@ -1472,7 +1472,7 @@ lbl_80157A84:
 /* 80157A88 001549E8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80157A8C 001549EC  7C 08 03 A6 */	mtlr r0
 /* 80157A90 001549F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80157A94 001549F4  4E 80 00 20 */	blr 
+/* 80157A94 001549F4  4E 80 00 20 */	blr
 
 .global Halt__9CParasiteFR13CStateManager9EStateMsgf
 Halt__9CParasiteFR13CStateManager9EStateMsgf:
@@ -1569,7 +1569,7 @@ lbl_80157BE4:
 /* 80157BE8 00154B48  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80157BEC 00154B4C  7C 08 03 A6 */	mtlr r0
 /* 80157BF0 00154B50  38 21 00 40 */	addi r1, r1, 0x40
-/* 80157BF4 00154B54  4E 80 00 20 */	blr 
+/* 80157BF4 00154B54  4E 80 00 20 */	blr
 
 .global TelegraphAttack__9CParasiteFR13CStateManager9EStateMsgf
 TelegraphAttack__9CParasiteFR13CStateManager9EStateMsgf:
@@ -1664,7 +1664,7 @@ lbl_80157D3C:
 /* 80157D40 00154CA0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80157D44 00154CA4  7C 08 03 A6 */	mtlr r0
 /* 80157D48 00154CA8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80157D4C 00154CAC  4E 80 00 20 */	blr 
+/* 80157D4C 00154CAC  4E 80 00 20 */	blr
 
 .global Death__9CParasiteFRC9CVector3fR13CStateManager
 Death__9CParasiteFRC9CVector3fR13CStateManager:
@@ -1687,12 +1687,12 @@ Death__9CParasiteFRC9CVector3fR13CStateManager:
 /* 80157D90 00154CF0  C0 22 9E 50 */	lfs f1, lbl_805ABB70@sda21(r2)
 /* 80157D94 00154CF4  81 8C 01 30 */	lwz r12, 0x130(r12)
 /* 80157D98 00154CF8  7D 89 03 A6 */	mtctr r12
-/* 80157D9C 00154CFC  4E 80 04 21 */	bctrl 
+/* 80157D9C 00154CFC  4E 80 04 21 */	bctrl
 /* 80157DA0 00154D00  7F 83 E3 78 */	mr r3, r28
 /* 80157DA4 00154D04  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80157DA8 00154D08  81 8C 00 80 */	lwz r12, 0x80(r12)
 /* 80157DAC 00154D0C  7D 89 03 A6 */	mtctr r12
-/* 80157DB0 00154D10  4E 80 04 21 */	bctrl 
+/* 80157DB0 00154D10  4E 80 04 21 */	bctrl
 /* 80157DB4 00154D14  C0 02 9E 50 */	lfs f0, lbl_805ABB70@sda21(r2)
 /* 80157DB8 00154D18  FC 20 08 50 */	fneg f1, f1
 /* 80157DBC 00154D1C  7F 83 E3 78 */	mr r3, r28
@@ -1710,7 +1710,7 @@ Death__9CParasiteFRC9CVector3fR13CStateManager:
 /* 80157DEC 00154D4C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80157DF0 00154D50  7C 08 03 A6 */	mtlr r0
 /* 80157DF4 00154D54  38 21 00 20 */	addi r1, r1, 0x20
-/* 80157DF8 00154D58  4E 80 00 20 */	blr 
+/* 80157DF8 00154D58  4E 80 00 20 */	blr
 
 .global TargetPlayer__9CParasiteFR13CStateManager9EStateMsgf
 TargetPlayer__9CParasiteFR13CStateManager9EStateMsgf:
@@ -1779,7 +1779,7 @@ lbl_80157EE4:
 /* 80157EE8 00154E48  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80157EEC 00154E4C  7C 08 03 A6 */	mtlr r0
 /* 80157EF0 00154E50  38 21 00 40 */	addi r1, r1, 0x40
-/* 80157EF4 00154E54  4E 80 00 20 */	blr 
+/* 80157EF4 00154E54  4E 80 00 20 */	blr
 
 .global Retreat__9CParasiteFR13CStateManager9EStateMsgf
 Retreat__9CParasiteFR13CStateManager9EStateMsgf:
@@ -1950,7 +1950,7 @@ lbl_80158164:
 /* 8015816C 001550CC  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 80158170 001550D0  7C 08 03 A6 */	mtlr r0
 /* 80158174 001550D4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80158178 001550D8  4E 80 00 20 */	blr 
+/* 80158178 001550D8  4E 80 00 20 */	blr
 
 .global Attack__9CParasiteFR13CStateManager9EStateMsgf
 Attack__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2205,7 +2205,7 @@ lbl_80158504:
 /* 80158538 00155498  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8015853C 0015549C  7C 08 03 A6 */	mtlr r0
 /* 80158540 001554A0  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80158544 001554A4  4E 80 00 20 */	blr 
+/* 80158544 001554A4  4E 80 00 20 */	blr
 
 .global FaceTarget__9CParasiteF9CVector3f
 FaceTarget__9CParasiteF9CVector3f:
@@ -2281,7 +2281,7 @@ FaceTarget__9CParasiteF9CVector3f:
 /* 8015865C 001555BC  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80158660 001555C0  7C 08 03 A6 */	mtlr r0
 /* 80158664 001555C4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80158668 001555C8  4E 80 00 20 */	blr 
+/* 80158668 001555C8  4E 80 00 20 */	blr
 
 .global Patrol__9CParasiteFR13CStateManager9EStateMsgf
 Patrol__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2387,7 +2387,7 @@ lbl_801587D0:
 /* 801587D8 00155738  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801587DC 0015573C  7C 08 03 A6 */	mtlr r0
 /* 801587E0 00155740  38 21 00 10 */	addi r1, r1, 0x10
-/* 801587E4 00155744  4E 80 00 20 */	blr 
+/* 801587E4 00155744  4E 80 00 20 */	blr
 
 .global TargetPatrol__9CParasiteFR13CStateManager9EStateMsgf
 TargetPatrol__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2424,7 +2424,7 @@ lbl_80158854:
 /* 80158858 001557B8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8015885C 001557BC  7C 08 03 A6 */	mtlr r0
 /* 80158860 001557C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80158864 001557C4  4E 80 00 20 */	blr 
+/* 80158864 001557C4  4E 80 00 20 */	blr
 
 .global Jump__9CParasiteFR13CStateManager9EStateMsgf
 Jump__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2451,7 +2451,7 @@ lbl_801588A0:
 /* 801588B0 00155810  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801588B4 00155814  81 8C 00 80 */	lwz r12, 0x80(r12)
 /* 801588B8 00155818  7D 89 03 A6 */	mtctr r12
-/* 801588BC 0015581C  4E 80 04 21 */	bctrl 
+/* 801588BC 0015581C  4E 80 04 21 */	bctrl
 /* 801588C0 00155820  C0 02 9E 50 */	lfs f0, lbl_805ABB70@sda21(r2)
 /* 801588C4 00155824  FC 20 08 50 */	fneg f1, f1
 /* 801588C8 00155828  38 80 00 00 */	li r4, 0
@@ -2476,7 +2476,7 @@ lbl_80158910:
 /* 80158910 00155870  81 83 00 00 */	lwz r12, 0(r3)
 /* 80158914 00155874  81 8C 00 80 */	lwz r12, 0x80(r12)
 /* 80158918 00155878  7D 89 03 A6 */	mtctr r12
-/* 8015891C 0015587C  4E 80 04 21 */	bctrl 
+/* 8015891C 0015587C  4E 80 04 21 */	bctrl
 /* 80158920 00155880  C0 02 9E 50 */	lfs f0, lbl_805ABB70@sda21(r2)
 /* 80158924 00155884  FC 20 08 50 */	fneg f1, f1
 /* 80158928 00155888  D0 1F 01 50 */	stfs f0, 0x150(r31)
@@ -2511,7 +2511,7 @@ lbl_80158990:
 /* 80158994 001558F4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80158998 001558F8  7C 08 03 A6 */	mtlr r0
 /* 8015899C 001558FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801589A0 00155900  4E 80 00 20 */	blr 
+/* 801589A0 00155900  4E 80 00 20 */	blr
 
 .global PathFind__9CParasiteFR13CStateManager9EStateMsgf
 PathFind__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2583,11 +2583,11 @@ lbl_80158A88:
 /* 80158A90 001559F0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80158A94 001559F4  7C 08 03 A6 */	mtlr r0
 /* 80158A98 001559F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80158A9C 001559FC  4E 80 00 20 */	blr 
+/* 80158A9C 001559FC  4E 80 00 20 */	blr
 
 .global Run__9CParasiteFR13CStateManager9EStateMsgf
 Run__9CParasiteFR13CStateManager9EStateMsgf:
-/* 80158AA0 00155A00  4E 80 00 20 */	blr 
+/* 80158AA0 00155A00  4E 80 00 20 */	blr
 
 .global Deactivate__9CParasiteFR13CStateManager9EStateMsgf
 Deactivate__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2690,7 +2690,7 @@ lbl_80158C08:
 /* 80158C10 00155B70  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80158C14 00155B74  7C 08 03 A6 */	mtlr r0
 /* 80158C18 00155B78  38 21 00 40 */	addi r1, r1, 0x40
-/* 80158C1C 00155B7C  4E 80 00 20 */	blr 
+/* 80158C1C 00155B7C  4E 80 00 20 */	blr
 
 .global Generate__9CParasiteFR13CStateManager9EStateMsgf
 Generate__9CParasiteFR13CStateManager9EStateMsgf:
@@ -2788,7 +2788,7 @@ lbl_80158D70:
 /* 80158D74 00155CD4  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 80158D78 00155CD8  7C 08 03 A6 */	mtlr r0
 /* 80158D7C 00155CDC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80158D80 00155CE0  4E 80 00 20 */	blr 
+/* 80158D80 00155CE0  4E 80 00 20 */	blr
 
 .global ShouldAttack__9CParasiteFR13CStateManagerf
 ShouldAttack__9CParasiteFR13CStateManagerf:
@@ -2821,7 +2821,7 @@ lbl_80158DD8:
 /* 80158DE8 00155D48  3B E0 00 00 */	li r31, 0
 /* 80158DEC 00155D4C  81 8C 01 9C */	lwz r12, 0x19c(r12)
 /* 80158DF0 00155D50  7D 89 03 A6 */	mtctr r12
-/* 80158DF4 00155D54  4E 80 04 21 */	bctrl 
+/* 80158DF4 00155D54  4E 80 04 21 */	bctrl
 /* 80158DF8 00155D58  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80158DFC 00155D5C  40 82 00 58 */	bne lbl_80158E54
 /* 80158E00 00155D60  7F 83 E3 78 */	mr r3, r28
@@ -2830,7 +2830,7 @@ lbl_80158DD8:
 /* 80158E0C 00155D6C  7F A4 EB 78 */	mr r4, r29
 /* 80158E10 00155D70  81 8C 01 A4 */	lwz r12, 0x1a4(r12)
 /* 80158E14 00155D74  7D 89 03 A6 */	mtctr r12
-/* 80158E18 00155D78  4E 80 04 21 */	bctrl 
+/* 80158E18 00155D78  4E 80 04 21 */	bctrl
 /* 80158E1C 00155D7C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80158E20 00155D80  41 82 00 34 */	beq lbl_80158E54
 /* 80158E24 00155D84  57 C0 06 3F */	clrlwi. r0, r30, 0x18
@@ -2841,7 +2841,7 @@ lbl_80158DD8:
 /* 80158E38 00155D98  C0 22 9E 50 */	lfs f1, lbl_805ABB70@sda21(r2)
 /* 80158E3C 00155D9C  81 8C 01 A8 */	lwz r12, 0x1a8(r12)
 /* 80158E40 00155DA0  7D 89 03 A6 */	mtctr r12
-/* 80158E44 00155DA4  4E 80 04 21 */	bctrl 
+/* 80158E44 00155DA4  4E 80 04 21 */	bctrl
 /* 80158E48 00155DA8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80158E4C 00155DAC  41 82 00 08 */	beq lbl_80158E54
 lbl_80158E50:
@@ -2857,7 +2857,7 @@ lbl_80158E54:
 /* 80158E70 00155DD0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80158E74 00155DD4  7C 08 03 A6 */	mtlr r0
 /* 80158E78 00155DD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80158E7C 00155DDC  4E 80 00 20 */	blr 
+/* 80158E7C 00155DDC  4E 80 00 20 */	blr
 
 .global HitSomething__9CParasiteFR13CStateManagerf
 HitSomething__9CParasiteFR13CStateManagerf:
@@ -2886,13 +2886,13 @@ lbl_80158EC8:
 /* 80158ED0 00155E30  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80158ED4 00155E34  7C 08 03 A6 */	mtlr r0
 /* 80158ED8 00155E38  38 21 00 10 */	addi r1, r1, 0x10
-/* 80158EDC 00155E3C  4E 80 00 20 */	blr 
+/* 80158EDC 00155E3C  4E 80 00 20 */	blr
 
 .global Landed__9CParasiteFR13CStateManagerf
 Landed__9CParasiteFR13CStateManagerf:
 /* 80158EE0 00155E40  88 03 07 42 */	lbz r0, 0x742(r3)
 /* 80158EE4 00155E44  54 03 E7 FE */	rlwinm r3, r0, 0x1c, 0x1f, 0x1f
-/* 80158EE8 00155E48  4E 80 00 20 */	blr 
+/* 80158EE8 00155E48  4E 80 00 20 */	blr
 
 .global AnimOver__9CParasiteFR13CStateManagerf
 AnimOver__9CParasiteFR13CStateManagerf:
@@ -2900,7 +2900,7 @@ AnimOver__9CParasiteFR13CStateManagerf:
 /* 80158EF0 00155E50  20 00 00 02 */	subfic r0, r0, 2
 /* 80158EF4 00155E54  7C 00 00 34 */	cntlzw r0, r0
 /* 80158EF8 00155E58  54 03 D9 7E */	srwi r3, r0, 5
-/* 80158EFC 00155E5C  4E 80 00 20 */	blr 
+/* 80158EFC 00155E5C  4E 80 00 20 */	blr
 
 .global GetClosestWaypointForState__9CParasiteCF18EScriptObjectStateR13CStateManager
 GetClosestWaypointForState__9CParasiteCF18EScriptObjectStateR13CStateManager:
@@ -2962,7 +2962,7 @@ lbl_80158FA8:
 /* 80158FD0 00155F30  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80158FD4 00155F34  7C 08 03 A6 */	mtlr r0
 /* 80158FD8 00155F38  38 21 00 50 */	addi r1, r1, 0x50
-/* 80158FDC 00155F3C  4E 80 00 20 */	blr 
+/* 80158FDC 00155F3C  4E 80 00 20 */	blr
 
 .global RecursiveFindClosestWayPoint__9CParasiteCFR13CStateManager9TUniqueIdRf
 RecursiveFindClosestWayPoint__9CParasiteCFR13CStateManager9TUniqueIdRf:
@@ -2994,7 +2994,7 @@ lbl_80159038:
 /* 80159040 00155FA0  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80159044 00155FA4  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80159048 00155FA8  7D 89 03 A6 */	mtctr r12
-/* 8015904C 00155FAC  4E 80 04 21 */	bctrl 
+/* 8015904C 00155FAC  4E 80 04 21 */	bctrl
 /* 80159050 00155FB0  C0 DF 00 50 */	lfs f6, 0x50(r31)
 /* 80159054 00155FB4  C0 1A 00 50 */	lfs f0, 0x50(r26)
 /* 80159058 00155FB8  C0 3F 00 40 */	lfs f1, 0x40(r31)
@@ -3078,14 +3078,14 @@ lbl_80159164:
 /* 80159184 001560E4  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80159188 001560E8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8015918C 001560EC  7D 89 03 A6 */	mtctr r12
-/* 80159190 001560F0  4E 80 04 21 */	bctrl 
+/* 80159190 001560F0  4E 80 04 21 */	bctrl
 /* 80159194 001560F4  B3 D9 00 00 */	sth r30, 0(r25)
 lbl_80159198:
 /* 80159198 001560F8  BB 21 00 54 */	lmw r25, 0x54(r1)
 /* 8015919C 001560FC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801591A0 00156100  7C 08 03 A6 */	mtlr r0
 /* 801591A4 00156104  38 21 00 70 */	addi r1, r1, 0x70
-/* 801591A8 00156108  4E 80 00 20 */	blr 
+/* 801591A8 00156108  4E 80 00 20 */	blr
 
 .global CollidedWith__9CParasiteFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
 CollidedWith__9CParasiteFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager:
@@ -3178,7 +3178,7 @@ lbl_801592E0:
 /* 801592F0 00156250  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801592F4 00156254  7C 08 03 A6 */	mtlr r0
 /* 801592F8 00156258  38 21 00 30 */	addi r1, r1, 0x30
-/* 801592FC 0015625C  4E 80 00 20 */	blr 
+/* 801592FC 0015625C  4E 80 00 20 */	blr
 
 .global CloseToWall__9CParasiteFR13CStateManager
 CloseToWall__9CParasiteFR13CStateManager:
@@ -3272,7 +3272,7 @@ lbl_80159364:
 /* 80159458 001563B8  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8015945C 001563BC  7C 08 03 A6 */	mtlr r0
 /* 80159460 001563C0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80159464 001563C4  4E 80 00 20 */	blr 
+/* 80159464 001563C4  4E 80 00 20 */	blr
 
 .global ShotAt__9CParasiteFR13CStateManagerf
 ShotAt__9CParasiteFR13CStateManagerf:
@@ -3284,17 +3284,17 @@ ShotAt__9CParasiteFR13CStateManagerf:
 /* 8015947C 001563DC  7C 03 00 D0 */	neg r0, r3
 /* 80159480 001563E0  7C 00 1B 78 */	or r0, r0, r3
 /* 80159484 001563E4  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80159488 001563E8  4E 80 00 20 */	blr 
+/* 80159488 001563E8  4E 80 00 20 */	blr
 lbl_8015948C:
 /* 8015948C 001563EC  88 03 07 43 */	lbz r0, 0x743(r3)
 /* 80159490 001563F0  54 03 DF FE */	rlwinm r3, r0, 0x1b, 0x1f, 0x1f
-/* 80159494 001563F4  4E 80 00 20 */	blr 
+/* 80159494 001563F4  4E 80 00 20 */	blr
 
 .global AttackOver__9CParasiteFR13CStateManagerf
 AttackOver__9CParasiteFR13CStateManagerf:
 /* 80159498 001563F8  88 03 07 42 */	lbz r0, 0x742(r3)
 /* 8015949C 001563FC  54 03 FF FE */	rlwinm r3, r0, 0x1f, 0x1f, 0x1f
-/* 801594A0 00156400  4E 80 00 20 */	blr 
+/* 801594A0 00156400  4E 80 00 20 */	blr
 
 .global Stuck__9CParasiteFR13CStateManagerf
 Stuck__9CParasiteFR13CStateManagerf:
@@ -3303,7 +3303,7 @@ Stuck__9CParasiteFR13CStateManagerf:
 /* 801594AC 0015640C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801594B0 00156410  7C 00 00 26 */	mfcr r0
 /* 801594B4 00156414  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801594B8 00156418  4E 80 00 20 */	blr 
+/* 801594B8 00156418  4E 80 00 20 */	blr
 
 .global ThinkAboutMove__9CParasiteFf
 ThinkAboutMove__9CParasiteFf:
@@ -3325,7 +3325,7 @@ lbl_801594F4:
 /* 801594F4 00156454  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801594F8 00156458  7C 08 03 A6 */	mtlr r0
 /* 801594FC 0015645C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80159500 00156460  4E 80 00 20 */	blr 
+/* 80159500 00156460  4E 80 00 20 */	blr
 
 .global GetAimPosition__9CParasiteCFRC13CStateManagerf
 GetAimPosition__9CParasiteCFRC13CStateManagerf:
@@ -3335,7 +3335,7 @@ GetAimPosition__9CParasiteCFRC13CStateManagerf:
 /* 80159510 00156470  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80159514 00156474  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80159518 00156478  D0 43 00 08 */	stfs f2, 8(r3)
-/* 8015951C 0015647C  4E 80 00 20 */	blr 
+/* 8015951C 0015647C  4E 80 00 20 */	blr
 
 .global UpdateJumpVelocity__9CParasiteFv
 UpdateJumpVelocity__9CParasiteFv:
@@ -3358,7 +3358,7 @@ UpdateJumpVelocity__9CParasiteFv:
 /* 80159560 001564C0  7C 7E 1B 78 */	mr r30, r3
 /* 80159564 001564C4  81 8C 00 80 */	lwz r12, 0x80(r12)
 /* 80159568 001564C8  7D 89 03 A6 */	mtctr r12
-/* 8015956C 001564CC  4E 80 04 21 */	bctrl 
+/* 8015956C 001564CC  4E 80 04 21 */	bctrl
 /* 80159570 001564D0  C0 02 9E 50 */	lfs f0, lbl_805ABB70@sda21(r2)
 /* 80159574 001564D4  FC 20 08 50 */	fneg f1, f1
 /* 80159578 001564D8  3C 60 80 5A */	lis r3, skZero3f@ha
@@ -3507,7 +3507,7 @@ lbl_80159760:
 /* 8015979C 001566FC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801597A0 00156700  7C 08 03 A6 */	mtlr r0
 /* 801597A4 00156704  38 21 00 90 */	addi r1, r1, 0x90
-/* 801597A8 00156708  4E 80 00 20 */	blr 
+/* 801597A8 00156708  4E 80 00 20 */	blr
 
 .global UpdateWalkerAnimation__9CParasiteFR13CStateManagerf
 UpdateWalkerAnimation__9CParasiteFR13CStateManagerf:
@@ -3522,7 +3522,7 @@ UpdateWalkerAnimation__9CParasiteFR13CStateManagerf:
 /* 801597CC 0015672C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801597D0 00156730  7C 08 03 A6 */	mtlr r0
 /* 801597D4 00156734  38 21 00 10 */	addi r1, r1, 0x10
-/* 801597D8 00156738  4E 80 00 20 */	blr 
+/* 801597D8 00156738  4E 80 00 20 */	blr
 
 .global Think__9CParasiteFfR13CStateManager
 Think__9CParasiteFfR13CStateManager:
@@ -3752,7 +3752,7 @@ lbl_80159ACC:
 /* 80159B20 00156A80  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80159B24 00156A84  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80159B28 00156A88  7D 89 03 A6 */	mtctr r12
-/* 80159B2C 00156A8C  4E 80 04 21 */	bctrl 
+/* 80159B2C 00156A8C  4E 80 04 21 */	bctrl
 /* 80159B30 00156A90  88 01 00 EC */	lbz r0, 0xec(r1)
 /* 80159B34 00156A94  28 00 00 00 */	cmplwi r0, 0
 /* 80159B38 00156A98  98 01 01 08 */	stb r0, 0x108(r1)
@@ -3823,7 +3823,7 @@ lbl_80159BC8:
 /* 80159C34 00156B94  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80159C38 00156B98  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 80159C3C 00156B9C  7D 89 03 A6 */	mtctr r12
-/* 80159C40 00156BA0  4E 80 04 21 */	bctrl 
+/* 80159C40 00156BA0  4E 80 04 21 */	bctrl
 /* 80159C44 00156BA4  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 80159C48 00156BA8  7F C3 F3 78 */	mr r3, r30
 /* 80159C4C 00156BAC  39 24 66 A0 */	addi r9, r4, skZero3f@l
@@ -3909,7 +3909,7 @@ lbl_80159D60:
 /* 80159D7C 00156CDC  83 A1 01 64 */	lwz r29, 0x164(r1)
 /* 80159D80 00156CE0  7C 08 03 A6 */	mtlr r0
 /* 80159D84 00156CE4  38 21 01 90 */	addi r1, r1, 0x190
-/* 80159D88 00156CE8  4E 80 00 20 */	blr 
+/* 80159D88 00156CE8  4E 80 00 20 */	blr
 
 .global PreThink__9CParasiteFfR13CStateManager
 PreThink__9CParasiteFfR13CStateManager:
@@ -3927,7 +3927,7 @@ PreThink__9CParasiteFfR13CStateManager:
 /* 80159DB8 00156D18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80159DBC 00156D1C  7C 08 03 A6 */	mtlr r0
 /* 80159DC0 00156D20  38 21 00 10 */	addi r1, r1, 0x10
-/* 80159DC4 00156D24  4E 80 00 20 */	blr 
+/* 80159DC4 00156D24  4E 80 00 20 */	blr
 
 .global AddDoorRepulsors__9CParasiteFR13CStateManager
 AddDoorRepulsors__9CParasiteFR13CStateManager:
@@ -4001,7 +4001,7 @@ lbl_80159E84:
 /* 80159EC0 00156E20  38 61 00 3C */	addi r3, r1, 0x3c
 /* 80159EC4 00156E24  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80159EC8 00156E28  7D 89 03 A6 */	mtctr r12
-/* 80159ECC 00156E2C  4E 80 04 21 */	bctrl 
+/* 80159ECC 00156E2C  4E 80 04 21 */	bctrl
 /* 80159ED0 00156E30  88 01 00 54 */	lbz r0, 0x54(r1)
 /* 80159ED4 00156E34  28 00 00 00 */	cmplwi r0, 0
 /* 80159ED8 00156E38  98 01 00 70 */	stb r0, 0x70(r1)
@@ -4108,7 +4108,7 @@ lbl_8015A01C:
 /* 8015A04C 00156FAC  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 8015A050 00156FB0  7C 08 03 A6 */	mtlr r0
 /* 8015A054 00156FB4  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8015A058 00156FB8  4E 80 00 20 */	blr 
+/* 8015A058 00156FB8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__9CParasiteF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__9CParasiteF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -4216,7 +4216,7 @@ lbl_8015A138:
 /* 8015A1D8 00157138  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8015A1DC 0015713C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8015A1E0 00157140  7D 89 03 A6 */	mtctr r12
-/* 8015A1E4 00157144  4E 80 04 21 */	bctrl 
+/* 8015A1E4 00157144  4E 80 04 21 */	bctrl
 /* 8015A1E8 00157148  C0 23 00 04 */	lfs f1, 4(r3)
 /* 8015A1EC 0015714C  7F C3 F3 78 */	mr r3, r30
 /* 8015A1F0 00157150  C0 1E 07 14 */	lfs f0, 0x714(r30)
@@ -4303,19 +4303,19 @@ lbl_8015A294:
 /* 8015A324 00157284  D0 C1 00 40 */	stfs f6, 0x40(r1)
 /* 8015A328 00157288  D0 A1 00 44 */	stfs f5, 0x44(r1)
 /* 8015A32C 0015728C  7D 89 03 A6 */	mtctr r12
-/* 8015A330 00157290  4E 80 04 21 */	bctrl 
+/* 8015A330 00157290  4E 80 04 21 */	bctrl
 /* 8015A334 00157294  7F C4 F3 78 */	mr r4, r30
 /* 8015A338 00157298  38 61 00 7C */	addi r3, r1, 0x7c
 /* 8015A33C 0015729C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8015A340 001572A0  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 8015A344 001572A4  7D 89 03 A6 */	mtctr r12
-/* 8015A348 001572A8  4E 80 04 21 */	bctrl 
+/* 8015A348 001572A8  4E 80 04 21 */	bctrl
 /* 8015A34C 001572AC  7F C4 F3 78 */	mr r4, r30
 /* 8015A350 001572B0  38 61 00 60 */	addi r3, r1, 0x60
 /* 8015A354 001572B4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8015A358 001572B8  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 8015A35C 001572BC  7D 89 03 A6 */	mtctr r12
-/* 8015A360 001572C0  4E 80 04 21 */	bctrl 
+/* 8015A360 001572C0  4E 80 04 21 */	bctrl
 /* 8015A364 001572C4  C0 61 00 70 */	lfs f3, 0x70(r1)
 /* 8015A368 001572C8  C0 41 00 64 */	lfs f2, 0x64(r1)
 /* 8015A36C 001572CC  C0 21 00 90 */	lfs f1, 0x90(r1)
@@ -4371,7 +4371,7 @@ lbl_8015A410:
 /* 8015A41C 0015737C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8015A420 00157380  7C 08 03 A6 */	mtlr r0
 /* 8015A424 00157384  38 21 01 00 */	addi r1, r1, 0x100
-/* 8015A428 00157388  4E 80 00 20 */	blr 
+/* 8015A428 00157388  4E 80 00 20 */	blr
 
 .global Accept__9CParasiteFR8IVisitor
 Accept__9CParasiteFR8IVisitor:
@@ -4384,11 +4384,11 @@ Accept__9CParasiteFR8IVisitor:
 /* 8015A444 001573A4  7C 04 03 78 */	mr r4, r0
 /* 8015A448 001573A8  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8015A44C 001573AC  7D 89 03 A6 */	mtctr r12
-/* 8015A450 001573B0  4E 80 04 21 */	bctrl 
+/* 8015A450 001573B0  4E 80 04 21 */	bctrl
 /* 8015A454 001573B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015A458 001573B8  7C 08 03 A6 */	mtlr r0
 /* 8015A45C 001573BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015A460 001573C0  4E 80 00 20 */	blr 
+/* 8015A460 001573C0  4E 80 00 20 */	blr
 
 .global "__ct__9CParasiteF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfo9EBodyTypefffffffffffffffffbUiRC10Something1RC10Something2UsUsUsUiUifRC16CActorParameters"
 "__ct__9CParasiteF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfo9EBodyTypefffffffffffffffffbUiRC10Something1RC10Something2UsUsUsUiUifRC16CActorParameters":
@@ -4714,7 +4714,7 @@ lbl_8015A8E4:
 /* 8015A950 001578B0  81 84 00 00 */	lwz r12, 0(r4)
 /* 8015A954 001578B4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8015A958 001578B8  7D 89 03 A6 */	mtctr r12
-/* 8015A95C 001578BC  4E 80 04 21 */	bctrl 
+/* 8015A95C 001578BC  4E 80 04 21 */	bctrl
 /* 8015A960 001578C0  3A E1 00 54 */	addi r23, r1, 0x54
 /* 8015A964 001578C4  38 81 00 34 */	addi r4, r1, 0x34
 /* 8015A968 001578C8  7E E3 BB 78 */	mr r3, r23
@@ -4735,7 +4735,7 @@ lbl_8015A8E4:
 /* 8015A9A4 00157904  81 84 00 00 */	lwz r12, 0(r4)
 /* 8015A9A8 00157908  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8015A9AC 0015790C  7D 89 03 A6 */	mtctr r12
-/* 8015A9B0 00157910  4E 80 04 21 */	bctrl 
+/* 8015A9B0 00157910  4E 80 04 21 */	bctrl
 /* 8015A9B4 00157914  3B 01 00 60 */	addi r24, r1, 0x60
 /* 8015A9B8 00157918  38 81 00 44 */	addi r4, r1, 0x44
 /* 8015A9BC 0015791C  7F 03 C3 78 */	mr r3, r24
@@ -4776,7 +4776,7 @@ lbl_8015AA04:
 /* 8015AA44 001579A4  38 80 00 01 */	li r4, 1
 /* 8015AA48 001579A8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8015AA4C 001579AC  7D 89 03 A6 */	mtctr r12
-/* 8015AA50 001579B0  4E 80 04 21 */	bctrl 
+/* 8015AA50 001579B0  4E 80 04 21 */	bctrl
 lbl_8015AA54:
 /* 8015AA54 001579B4  93 BB 00 08 */	stw r29, 8(r27)
 /* 8015AA58 001579B8  7F 63 DB 78 */	mr r3, r27
@@ -4874,7 +4874,7 @@ lbl_8015AB28:
 /* 8015ABA8 00157B08  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 8015ABAC 00157B0C  7C 08 03 A6 */	mtlr r0
 /* 8015ABB0 00157B10  38 21 01 90 */	addi r1, r1, 0x190
-/* 8015ABB4 00157B14  4E 80 00 20 */	blr 
+/* 8015ABB4 00157B14  4E 80 00 20 */	blr
 
 .global sub_8015abb8
 sub_8015abb8:
@@ -4914,7 +4914,7 @@ lbl_8015AC1C:
 /* 8015AC38 00157B98  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015AC3C 00157B9C  7C 08 03 A6 */	mtlr r0
 /* 8015AC40 00157BA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015AC44 00157BA4  4E 80 00 20 */	blr 
+/* 8015AC44 00157BA4  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl57vector<Q29CParasite9CRepulsor,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl57vector<Q29CParasite9CRepulsor,Q24rstl17rmemory_allocator>Fi":
@@ -4992,7 +4992,7 @@ lbl_8015AD34:
 /* 8015AD40 00157CA0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8015AD44 00157CA4  7C 08 03 A6 */	mtlr r0
 /* 8015AD48 00157CA8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8015AD4C 00157CAC  4E 80 00 20 */	blr 
+/* 8015AD4C 00157CAC  4E 80 00 20 */	blr
 
 .global __sinit_CParasite_cpp
 __sinit_CParasite_cpp:

@@ -48,12 +48,12 @@ lbl_80136240:
 /* 80136248 001331A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013624C 001331AC  7C 08 03 A6 */	mtlr r0
 /* 80136250 001331B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80136254 001331B4  4E 80 00 20 */	blr 
+/* 80136254 001331B4  4E 80 00 20 */	blr
 
 .global IsMoving__12CBSKnockBackCFv
 IsMoving__12CBSKnockBackCFv:
 /* 80136258 001331B8  38 60 00 01 */	li r3, 1
-/* 8013625C 001331BC  4E 80 00 20 */	blr 
+/* 8013625C 001331BC  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__12CBSKnockBackFfR15CBodyController
 GetBodyStateTransition__12CBSKnockBackFfR15CBodyController:
@@ -116,11 +116,11 @@ lbl_8013631C:
 /* 80136328 00133288  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013632C 0013328C  7C 08 03 A6 */	mtlr r0
 /* 80136330 00133290  38 21 00 20 */	addi r1, r1, 0x20
-/* 80136334 00133294  4E 80 00 20 */	blr 
+/* 80136334 00133294  4E 80 00 20 */	blr
 
 .global Shutdown__12CBSKnockBackFR15CBodyController
 Shutdown__12CBSKnockBackFR15CBodyController:
-/* 80136338 00133298  4E 80 00 20 */	blr 
+/* 80136338 00133298  4E 80 00 20 */	blr
 
 .global UpdateBody__12CBSKnockBackFfR15CBodyControllerR13CStateManager
 UpdateBody__12CBSKnockBackFfR15CBodyControllerR13CStateManager:
@@ -168,7 +168,7 @@ lbl_801363C4:
 /* 801363DC 0013333C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801363E0 00133340  7C 08 03 A6 */	mtlr r0
 /* 801363E4 00133344  38 21 00 40 */	addi r1, r1, 0x40
-/* 801363E8 00133348  4E 80 00 20 */	blr 
+/* 801363E8 00133348  4E 80 00 20 */	blr
 
 .global Start__12CBSKnockBackFR15CBodyControllerR13CStateManager
 Start__12CBSKnockBackFR15CBodyControllerR13CStateManager:
@@ -424,7 +424,7 @@ lbl_80136784:
 /* 80136790 001336F0  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 80136794 001336F4  7C 08 03 A6 */	mtlr r0
 /* 80136798 001336F8  38 21 01 50 */	addi r1, r1, 0x150
-/* 8013679C 001336FC  4E 80 00 20 */	blr 
+/* 8013679C 001336FC  4E 80 00 20 */	blr
 
 .global __ct__12CBSKnockBackFv
 __ct__12CBSKnockBackFv:

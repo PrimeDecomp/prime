@@ -281,7 +281,7 @@ lbl_80118C80:
 /* 80118C98 00115BF8  38 80 00 01 */	li r4, 1
 /* 80118C9C 00115BFC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80118CA0 00115C00  7D 89 03 A6 */	mtctr r12
-/* 80118CA4 00115C04  4E 80 04 21 */	bctrl 
+/* 80118CA4 00115C04  4E 80 04 21 */	bctrl
 lbl_80118CA8:
 /* 80118CA8 00115C08  34 1E 05 68 */	addic. r0, r30, 0x568
 /* 80118CAC 00115C0C  41 82 00 18 */	beq lbl_80118CC4
@@ -305,7 +305,7 @@ lbl_80118CE0:
 /* 80118CEC 00115C4C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80118CF0 00115C50  7C 08 03 A6 */	mtlr r0
 /* 80118CF4 00115C54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80118CF8 00115C58  4E 80 00 20 */	blr 
+/* 80118CF8 00115C58  4E 80 00 20 */	blr
 
 .global sub_80118cfc
 sub_80118cfc:
@@ -340,7 +340,7 @@ lbl_80118D64:
 /* 80118D68 00115CC8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80118D6C 00115CCC  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 80118D70 00115CD0  7D 89 03 A6 */	mtctr r12
-/* 80118D74 00115CD4  4E 80 04 21 */	bctrl 
+/* 80118D74 00115CD4  4E 80 04 21 */	bctrl
 /* 80118D78 00115CD8  7C 7D 1B 78 */	mr r29, r3
 /* 80118D7C 00115CDC  80 03 00 08 */	lwz r0, 8(r3)
 /* 80118D80 00115CE0  28 00 00 00 */	cmplwi r0, 0
@@ -382,7 +382,7 @@ lbl_80118DC4:
 /* 80118E04 00115D64  81 84 00 00 */	lwz r12, 0(r4)
 /* 80118E08 00115D68  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80118E0C 00115D6C  7D 89 03 A6 */	mtctr r12
-/* 80118E10 00115D70  4E 80 04 21 */	bctrl 
+/* 80118E10 00115D70  4E 80 04 21 */	bctrl
 /* 80118E14 00115D74  C0 7B 00 2C */	lfs f3, 0x2c(r27)
 /* 80118E18 00115D78  C0 01 00 4C */	lfs f0, 0x4c(r1)
 /* 80118E1C 00115D7C  C0 5B 00 1C */	lfs f2, 0x1c(r27)
@@ -447,13 +447,13 @@ lbl_80118E68:
 /* 80118EFC 00115E5C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80118F00 00115E60  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 80118F04 00115E64  7D 89 03 A6 */	mtctr r12
-/* 80118F08 00115E68  4E 80 04 21 */	bctrl 
+/* 80118F08 00115E68  4E 80 04 21 */	bctrl
 /* 80118F0C 00115E6C  7C 7D 1B 78 */	mr r29, r3
 /* 80118F10 00115E70  7F C3 F3 78 */	mr r3, r30
 /* 80118F14 00115E74  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80118F18 00115E78  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 80118F1C 00115E7C  7D 89 03 A6 */	mtctr r12
-/* 80118F20 00115E80  4E 80 04 21 */	bctrl 
+/* 80118F20 00115E80  4E 80 04 21 */	bctrl
 /* 80118F24 00115E84  7C 65 1B 78 */	mr r5, r3
 /* 80118F28 00115E88  7F C3 F3 78 */	mr r3, r30
 /* 80118F2C 00115E8C  7F E4 FB 78 */	mr r4, r31
@@ -503,11 +503,11 @@ lbl_80118FAC:
 /* 80118FD8 00115F38  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 80118FDC 00115F3C  7C 08 03 A6 */	mtlr r0
 /* 80118FE0 00115F40  38 21 01 20 */	addi r1, r1, 0x120
-/* 80118FE4 00115F44  4E 80 00 20 */	blr 
+/* 80118FE4 00115F44  4E 80 00 20 */	blr
 
 .global Touch__12CBloodFlowerFR6CActorR13CStateManager
 Touch__12CBloodFlowerFR6CActorR13CStateManager:
-/* 80118FE8 00115F48  4E 80 00 20 */	blr 
+/* 80118FE8 00115F48  4E 80 00 20 */	blr
 
 .global sub_80118fec
 sub_80118fec:
@@ -537,7 +537,7 @@ sub_80118fec:
 /* 80119048 00115FA8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8011904C 00115FAC  7C 08 03 A6 */	mtlr r0
 /* 80119050 00115FB0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80119054 00115FB4  4E 80 00 20 */	blr 
+/* 80119054 00115FB4  4E 80 00 20 */	blr
 
 .global sub_80119058
 sub_80119058:
@@ -567,7 +567,7 @@ sub_80119058:
 /* 801190B4 00116014  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801190B8 00116018  7C 08 03 A6 */	mtlr r0
 /* 801190BC 0011601C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801190C0 00116020  4E 80 00 20 */	blr 
+/* 801190C0 00116020  4E 80 00 20 */	blr
 
 .global sub_801190c4
 sub_801190c4:
@@ -620,7 +620,7 @@ lbl_80119154:
 /* 80119168 001160C8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011916C 001160CC  7C 08 03 A6 */	mtlr r0
 /* 80119170 001160D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80119174 001160D4  4E 80 00 20 */	blr 
+/* 80119174 001160D4  4E 80 00 20 */	blr
 
 .global sub_80119178
 sub_80119178:
@@ -732,7 +732,7 @@ lbl_801192FC:
 /* 80119300 00116260  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80119304 00116264  7C 08 03 A6 */	mtlr r0
 /* 80119308 00116268  38 21 00 80 */	addi r1, r1, 0x80
-/* 8011930C 0011626C  4E 80 00 20 */	blr 
+/* 8011930C 0011626C  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__12CBloodFlowerCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__12CBloodFlowerCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
@@ -744,7 +744,7 @@ GetCollisionResponseType__12CBloodFlowerCFRC9CVector3fRC9CVector3fRC11CWeaponMod
 /* 80119324 00116284  81 83 00 00 */	lwz r12, 0(r3)
 /* 80119328 00116288  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 8011932C 0011628C  7D 89 03 A6 */	mtctr r12
-/* 80119330 00116290  4E 80 04 21 */	bctrl 
+/* 80119330 00116290  4E 80 04 21 */	bctrl
 /* 80119334 00116294  7F E4 FB 78 */	mr r4, r31
 /* 80119338 00116298  38 A0 00 00 */	li r5, 0
 /* 8011933C 0011629C  4B FE 93 CD */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
@@ -757,7 +757,7 @@ lbl_80119350:
 /* 80119354 001162B4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80119358 001162B8  7C 08 03 A6 */	mtlr r0
 /* 8011935C 001162BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80119360 001162C0  4E 80 00 20 */	blr 
+/* 80119360 001162C0  4E 80 00 20 */	blr
 
 .global sub_80119364
 sub_80119364:
@@ -776,7 +776,7 @@ sub_80119364:
 /* 80119394 001162F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80119398 001162F8  7C 08 03 A6 */	mtlr r0
 /* 8011939C 001162FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801193A0 00116300  4E 80 00 20 */	blr 
+/* 801193A0 00116300  4E 80 00 20 */	blr
 
 .global Render__12CBloodFlowerCFRC13CStateManager
 Render__12CBloodFlowerCFRC13CStateManager:
@@ -790,12 +790,12 @@ Render__12CBloodFlowerCFRC13CStateManager:
 /* 801193C0 00116320  81 83 00 00 */	lwz r12, 0(r3)
 /* 801193C4 00116324  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801193C8 00116328  7D 89 03 A6 */	mtctr r12
-/* 801193CC 0011632C  4E 80 04 21 */	bctrl 
+/* 801193CC 0011632C  4E 80 04 21 */	bctrl
 /* 801193D0 00116330  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801193D4 00116334  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801193D8 00116338  7C 08 03 A6 */	mtlr r0
 /* 801193DC 0011633C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801193E0 00116340  4E 80 00 20 */	blr 
+/* 801193E0 00116340  4E 80 00 20 */	blr
 
 .global Think__12CBloodFlowerFfR13CStateManager
 Think__12CBloodFlowerFfR13CStateManager:
@@ -816,7 +816,7 @@ Think__12CBloodFlowerFfR13CStateManager:
 /* 8011941C 0011637C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80119420 00116380  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80119424 00116384  7D 89 03 A6 */	mtctr r12
-/* 80119428 00116388  4E 80 04 21 */	bctrl 
+/* 80119428 00116388  4E 80 04 21 */	bctrl
 /* 8011942C 0011638C  C0 3F 05 BC */	lfs f1, 0x5bc(r31)
 /* 80119430 00116390  C0 02 96 7C */	lfs f0, lbl_805AB39C@sda21(r2)
 /* 80119434 00116394  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -834,7 +834,7 @@ lbl_80119450:
 /* 8011945C 001163BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80119460 001163C0  7C 08 03 A6 */	mtlr r0
 /* 80119464 001163C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80119468 001163C8  4E 80 00 20 */	blr 
+/* 80119468 001163C8  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__12CBloodFlowerFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__12CBloodFlowerFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -914,7 +914,7 @@ lbl_80119568:
 /* 80119574 001164D4  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80119578 001164D8  7C 08 03 A6 */	mtlr r0
 /* 8011957C 001164DC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80119580 001164E0  4E 80 00 20 */	blr 
+/* 80119580 001164E0  4E 80 00 20 */	blr
 
 .global ShouldAttack__12CBloodFlowerFR13CStateManagerf
 ShouldAttack__12CBloodFlowerFR13CStateManagerf:
@@ -933,7 +933,7 @@ ShouldAttack__12CBloodFlowerFR13CStateManagerf:
 /* 801195B4 00116514  C0 22 96 7C */	lfs f1, lbl_805AB39C@sda21(r2)
 /* 801195B8 00116518  81 8C 01 9C */	lwz r12, 0x19c(r12)
 /* 801195BC 0011651C  7D 89 03 A6 */	mtctr r12
-/* 801195C0 00116520  4E 80 04 21 */	bctrl 
+/* 801195C0 00116520  4E 80 04 21 */	bctrl
 /* 801195C4 00116524  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801195C8 00116528  41 82 00 0C */	beq lbl_801195D4
 /* 801195CC 0011652C  38 60 00 00 */	li r3, 0
@@ -976,7 +976,7 @@ lbl_8011963C:
 /* 80119654 001165B4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80119658 001165B8  7C 08 03 A6 */	mtlr r0
 /* 8011965C 001165BC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80119660 001165C0  4E 80 00 20 */	blr 
+/* 80119660 001165C0  4E 80 00 20 */	blr
 
 .global ShouldTurn__12CBloodFlowerFR13CStateManagerf
 ShouldTurn__12CBloodFlowerFR13CStateManagerf:
@@ -991,7 +991,7 @@ ShouldTurn__12CBloodFlowerFR13CStateManagerf:
 /* 80119684 001165E4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80119688 001165E8  81 8C 01 9C */	lwz r12, 0x19c(r12)
 /* 8011968C 001165EC  7D 89 03 A6 */	mtctr r12
-/* 80119690 001165F0  4E 80 04 21 */	bctrl 
+/* 80119690 001165F0  4E 80 04 21 */	bctrl
 /* 80119694 001165F4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80119698 001165F8  41 82 00 0C */	beq lbl_801196A4
 /* 8011969C 001165FC  38 60 00 00 */	li r3, 0
@@ -1043,7 +1043,7 @@ lbl_80119744:
 /* 8011974C 001166AC  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80119750 001166B0  7C 08 03 A6 */	mtlr r0
 /* 80119754 001166B4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80119758 001166B8  4E 80 00 20 */	blr 
+/* 80119758 001166B8  4E 80 00 20 */	blr
 
 .global Leash__12CBloodFlowerFR13CStateManager9EStateMsgf
 Leash__12CBloodFlowerFR13CStateManager9EStateMsgf:
@@ -1052,7 +1052,7 @@ Leash__12CBloodFlowerFR13CStateManager9EStateMsgf:
 /* 80119764 001166C4  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80119768 001166C8  7C 00 00 26 */	mfcr r0
 /* 8011976C 001166CC  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 80119770 001166D0  4E 80 00 20 */	blr 
+/* 80119770 001166D0  4E 80 00 20 */	blr
 
 .global PodAttack__12CBloodFlowerFR13CStateManager9EStateMsgf
 PodAttack__12CBloodFlowerFR13CStateManager9EStateMsgf:
@@ -1126,7 +1126,7 @@ lbl_801197C4:
 /* 80119878 001167D8  90 A1 00 6C */	stw r5, 0x6c(r1)
 /* 8011987C 001167DC  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80119880 001167E0  7D 89 03 A6 */	mtctr r12
-/* 80119884 001167E4  4E 80 04 21 */	bctrl 
+/* 80119884 001167E4  4E 80 04 21 */	bctrl
 /* 80119888 001167E8  7F C3 F3 78 */	mr r3, r30
 /* 8011988C 001167EC  7F E4 FB 78 */	mr r4, r31
 /* 80119890 001167F0  38 A0 00 01 */	li r5, 1
@@ -1137,7 +1137,7 @@ lbl_8011989C:
 /* 801198A0 00116800  C0 22 96 7C */	lfs f1, lbl_805AB39C@sda21(r2)
 /* 801198A4 00116804  81 8C 01 9C */	lwz r12, 0x19c(r12)
 /* 801198A8 00116808  7D 89 03 A6 */	mtctr r12
-/* 801198AC 0011680C  4E 80 04 21 */	bctrl 
+/* 801198AC 0011680C  4E 80 04 21 */	bctrl
 /* 801198B0 00116810  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801198B4 00116814  41 82 01 54 */	beq lbl_80119A08
 /* 801198B8 00116818  80 AD 8A 68 */	lwz r5, lbl_805A7628@sda21(r13)
@@ -1181,7 +1181,7 @@ lbl_80119944:
 /* 8011994C 001168AC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80119950 001168B0  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80119954 001168B4  7D 89 03 A6 */	mtctr r12
-/* 80119958 001168B8  4E 80 04 21 */	bctrl 
+/* 80119958 001168B8  4E 80 04 21 */	bctrl
 /* 8011995C 001168BC  7F C3 F3 78 */	mr r3, r30
 /* 80119960 001168C0  7F E4 FB 78 */	mr r4, r31
 /* 80119964 001168C4  38 A0 00 00 */	li r5, 0
@@ -1234,7 +1234,7 @@ lbl_80119A08:
 /* 80119A1C 0011697C  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 80119A20 00116980  7C 08 03 A6 */	mtlr r0
 /* 80119A24 00116984  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80119A28 00116988  4E 80 00 20 */	blr 
+/* 80119A28 00116988  4E 80 00 20 */	blr
 
 .global sub_80119a2c
 sub_80119a2c:
@@ -1309,7 +1309,7 @@ lbl_80119AFC:
 /* 80119B24 00116A84  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80119B28 00116A88  7C 08 03 A6 */	mtlr r0
 /* 80119B2C 00116A8C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80119B30 00116A90  4E 80 00 20 */	blr 
+/* 80119B30 00116A90  4E 80 00 20 */	blr
 
 .global BulbAttack__12CBloodFlowerFR13CStateManager9EStateMsgf
 BulbAttack__12CBloodFlowerFR13CStateManager9EStateMsgf:
@@ -1374,7 +1374,7 @@ lbl_80119C0C:
 /* 80119C14 00116B74  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80119C18 00116B78  7C 08 03 A6 */	mtlr r0
 /* 80119C1C 00116B7C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80119C20 00116B80  4E 80 00 20 */	blr 
+/* 80119C20 00116B80  4E 80 00 20 */	blr
 
 .global Active__12CBloodFlowerFR13CStateManager9EStateMsgf
 Active__12CBloodFlowerFR13CStateManager9EStateMsgf:
@@ -1505,7 +1505,7 @@ lbl_80119DE8:
 /* 80119DFC 00116D5C  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80119E00 00116D60  7C 08 03 A6 */	mtlr r0
 /* 80119E04 00116D64  38 21 00 70 */	addi r1, r1, 0x70
-/* 80119E08 00116D68  4E 80 00 20 */	blr 
+/* 80119E08 00116D68  4E 80 00 20 */	blr
 
 .global __dt__17CBCAdditiveAimCmd
 __dt__17CBCAdditiveAimCmd:
@@ -1533,7 +1533,7 @@ lbl_80119E50:
 /* 80119E58 00116DB8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80119E5C 00116DBC  7C 08 03 A6 */	mtlr r0
 /* 80119E60 00116DC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80119E64 00116DC4  4E 80 00 20 */	blr 
+/* 80119E64 00116DC4  4E 80 00 20 */	blr
 
 .global InActive__12CBloodFlowerFR13CStateManager9EStateMsgf
 InActive__12CBloodFlowerFR13CStateManager9EStateMsgf:
@@ -1569,12 +1569,12 @@ lbl_80119EC8:
 /* 80119ECC 00116E2C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80119ED0 00116E30  7C 08 03 A6 */	mtlr r0
 /* 80119ED4 00116E34  38 21 00 10 */	addi r1, r1, 0x10
-/* 80119ED8 00116E38  4E 80 00 20 */	blr 
+/* 80119ED8 00116E38  4E 80 00 20 */	blr
 
 .global ProjectileInfo__12CBloodFlowerFv
 ProjectileInfo__12CBloodFlowerFv:
 /* 80119EDC 00116E3C  38 63 05 90 */	addi r3, r3, 0x590
-/* 80119EE0 00116E40  4E 80 00 20 */	blr 
+/* 80119EE0 00116E40  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CBloodFlowerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CBloodFlowerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1610,7 +1610,7 @@ lbl_80119F3C:
 /* 80119F50 00116EB0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80119F54 00116EB4  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80119F58 00116EB8  7D 89 03 A6 */	mtctr r12
-/* 80119F5C 00116EBC  4E 80 04 21 */	bctrl 
+/* 80119F5C 00116EBC  4E 80 04 21 */	bctrl
 /* 80119F60 00116EC0  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80119F64 00116EC4  D0 1D 05 B8 */	stfs f0, 0x5b8(r29)
 /* 80119F68 00116EC8  48 00 00 30 */	b lbl_80119F98
@@ -1634,7 +1634,7 @@ lbl_80119F98:
 /* 80119FA4 00116F04  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80119FA8 00116F08  7C 08 03 A6 */	mtlr r0
 /* 80119FAC 00116F0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80119FB0 00116F10  4E 80 00 20 */	blr 
+/* 80119FB0 00116F10  4E 80 00 20 */	blr
 
 .global Accept__12CBloodFlowerFR8IVisitor
 Accept__12CBloodFlowerFR8IVisitor:
@@ -1647,11 +1647,11 @@ Accept__12CBloodFlowerFR8IVisitor:
 /* 80119FCC 00116F2C  7C 04 03 78 */	mr r4, r0
 /* 80119FD0 00116F30  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80119FD4 00116F34  7D 89 03 A6 */	mtctr r12
-/* 80119FD8 00116F38  4E 80 04 21 */	bctrl 
+/* 80119FD8 00116F38  4E 80 04 21 */	bctrl
 /* 80119FDC 00116F3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80119FE0 00116F40  7C 08 03 A6 */	mtlr r0
 /* 80119FE4 00116F44  38 21 00 10 */	addi r1, r1, 0x10
-/* 80119FE8 00116F48  4E 80 00 20 */	blr 
+/* 80119FE8 00116F48  4E 80 00 20 */	blr
 
 .global "__ct__12CBloodFlowerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoUiUiRC16CActorParametersUiRC11CDamageInfoRC11CDamageInfoUiUiUi"
 "__ct__12CBloodFlowerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoUiUiRC16CActorParametersUiRC11CDamageInfoRC11CDamageInfoUiUiUi":
@@ -1710,7 +1710,7 @@ Accept__12CBloodFlowerFR8IVisitor:
 /* 8011A0BC 0011701C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011A0C0 00117020  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011A0C4 00117024  7D 89 03 A6 */	mtctr r12
-/* 8011A0C8 00117028  4E 80 04 21 */	bctrl 
+/* 8011A0C8 00117028  4E 80 04 21 */	bctrl
 /* 8011A0CC 0011702C  3A 3D 05 68 */	addi r17, r29, 0x568
 /* 8011A0D0 00117030  38 81 00 4C */	addi r4, r1, 0x4c
 /* 8011A0D4 00117034  7E 23 8B 78 */	mr r3, r17
@@ -1759,7 +1759,7 @@ lbl_8011A15C:
 /* 8011A178 001170D8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011A17C 001170DC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011A180 001170E0  7D 89 03 A6 */	mtctr r12
-/* 8011A184 001170E4  4E 80 04 21 */	bctrl 
+/* 8011A184 001170E4  4E 80 04 21 */	bctrl
 /* 8011A188 001170E8  3A 3D 05 78 */	addi r17, r29, 0x578
 /* 8011A18C 001170EC  38 81 00 34 */	addi r4, r1, 0x34
 /* 8011A190 001170F0  7E 23 8B 78 */	mr r3, r17
@@ -1843,7 +1843,7 @@ lbl_8011A15C:
 /* 8011A2C8 00117228  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011A2CC 0011722C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011A2D0 00117230  7D 89 03 A6 */	mtctr r12
-/* 8011A2D4 00117234  4E 80 04 21 */	bctrl 
+/* 8011A2D4 00117234  4E 80 04 21 */	bctrl
 /* 8011A2D8 00117238  82 3D 05 74 */	lwz r17, 0x574(r29)
 /* 8011A2DC 0011723C  7F C4 F3 78 */	mr r4, r30
 /* 8011A2E0 00117240  38 61 00 90 */	addi r3, r1, 0x90
@@ -1853,7 +1853,7 @@ lbl_8011A15C:
 /* 8011A2F0 00117250  81 91 00 00 */	lwz r12, 0(r17)
 /* 8011A2F4 00117254  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8011A2F8 00117258  7D 89 03 A6 */	mtctr r12
-/* 8011A2FC 0011725C  4E 80 04 21 */	bctrl 
+/* 8011A2FC 0011725C  4E 80 04 21 */	bctrl
 /* 8011A300 00117260  C0 5E 00 2C */	lfs f2, 0x2c(r30)
 /* 8011A304 00117264  38 81 00 74 */	addi r4, r1, 0x74
 /* 8011A308 00117268  C0 3E 00 1C */	lfs f1, 0x1c(r30)
@@ -1865,7 +1865,7 @@ lbl_8011A15C:
 /* 8011A320 00117280  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011A324 00117284  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8011A328 00117288  7D 89 03 A6 */	mtctr r12
-/* 8011A32C 0011728C  4E 80 04 21 */	bctrl 
+/* 8011A32C 0011728C  4E 80 04 21 */	bctrl
 /* 8011A330 00117290  C0 5F 00 00 */	lfs f2, 0(r31)
 /* 8011A334 00117294  38 81 00 68 */	addi r4, r1, 0x68
 /* 8011A338 00117298  C0 3F 00 04 */	lfs f1, 4(r31)
@@ -1877,7 +1877,7 @@ lbl_8011A15C:
 /* 8011A350 001172B0  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011A354 001172B4  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8011A358 001172B8  7D 89 03 A6 */	mtctr r12
-/* 8011A35C 001172BC  4E 80 04 21 */	bctrl 
+/* 8011A35C 001172BC  4E 80 04 21 */	bctrl
 /* 8011A360 001172C0  38 7D 05 78 */	addi r3, r29, 0x578
 /* 8011A364 001172C4  48 22 6A 21 */	bl Lock__6CTokenFv
 /* 8011A368 001172C8  38 7D 05 90 */	addi r3, r29, 0x590
@@ -1898,7 +1898,7 @@ lbl_8011A15C:
 /* 8011A3A4 00117304  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011A3A8 00117308  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011A3AC 0011730C  7D 89 03 A6 */	mtctr r12
-/* 8011A3B0 00117310  4E 80 04 21 */	bctrl 
+/* 8011A3B0 00117310  4E 80 04 21 */	bctrl
 /* 8011A3B4 00117314  3A 21 00 5C */	addi r17, r1, 0x5c
 /* 8011A3B8 00117318  38 81 00 24 */	addi r4, r1, 0x24
 /* 8011A3BC 0011731C  7E 23 8B 78 */	mr r3, r17

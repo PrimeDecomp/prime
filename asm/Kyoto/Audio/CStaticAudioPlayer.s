@@ -26,7 +26,7 @@ lbl_8036BC44:
 /* 8036BC4C 00368BAC  38 85 81 10 */	addi r4, r5, lbl_803D8110@l
 /* 8036BC50 00368BB0  7C 04 02 2E */	lhzx r0, r4, r0
 /* 8036BC54 00368BB4  B0 03 00 C0 */	sth r0, 0xc0(r3)
-/* 8036BC58 00368BB8  4E 80 00 20 */	blr 
+/* 8036BC58 00368BB8  4E 80 00 20 */	blr
 
 .global DecodeMonoAndMix__18CStaticAudioPlayerCFv
 DecodeMonoAndMix__18CStaticAudioPlayerCFv:
@@ -142,7 +142,7 @@ lbl_8036BDD4:
 /* 8036BDE0 00368D40  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8036BDE4 00368D44  7C 08 03 A6 */	mtlr r0
 /* 8036BDE8 00368D48  38 21 00 50 */	addi r1, r1, 0x50
-/* 8036BDEC 00368D4C  4E 80 00 20 */	blr 
+/* 8036BDEC 00368D4C  4E 80 00 20 */	blr
 
 .global Decode__18CStaticAudioPlayerFv
 Decode__18CStaticAudioPlayerFv:
@@ -221,7 +221,7 @@ lbl_8036BEF8:
 /* 8036BF04 00368E64  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8036BF08 00368E68  7C 08 03 A6 */	mtlr r0
 /* 8036BF0C 00368E6C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8036BF10 00368E70  4E 80 00 20 */	blr 
+/* 8036BF10 00368E70  4E 80 00 20 */	blr
 
 .global DoMix__18CStaticAudioPlayer
 DoMix__18CStaticAudioPlayer:
@@ -274,7 +274,7 @@ lbl_8036BF88:
 /* 8036BFC0 00368F20  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8036BFC4 00368F24  7C 08 03 A6 */	mtlr r0
 /* 8036BFC8 00368F28  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036BFCC 00368F2C  4E 80 00 20 */	blr 
+/* 8036BFCC 00368F2C  4E 80 00 20 */	blr
 
 .global MixCallback__18CStaticAudioPlayerFv
 MixCallback__18CStaticAudioPlayerFv:
@@ -286,7 +286,7 @@ MixCallback__18CStaticAudioPlayerFv:
 /* 8036BFE4 00368F44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036BFE8 00368F48  7C 08 03 A6 */	mtlr r0
 /* 8036BFEC 00368F4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036BFF0 00368F50  4E 80 00 20 */	blr 
+/* 8036BFF0 00368F50  4E 80 00 20 */	blr
 
 .global StopMixOut__18CStaticAudioPlayerFv
 StopMixOut__18CStaticAudioPlayerFv:
@@ -305,7 +305,7 @@ lbl_8036C020:
 /* 8036C020 00368F80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036C024 00368F84  7C 08 03 A6 */	mtlr r0
 /* 8036C028 00368F88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036C02C 00368F8C  4E 80 00 20 */	blr 
+/* 8036C02C 00368F8C  4E 80 00 20 */	blr
 
 .global StartMixOut__18CStaticAudioPlayerFv
 StartMixOut__18CStaticAudioPlayerFv:
@@ -341,7 +341,7 @@ lbl_8036C07C:
 /* 8036C0A0 00369000  38 80 00 01 */	li r4, 1
 /* 8036C0A4 00369004  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8036C0A8 00369008  7D 89 03 A6 */	mtctr r12
-/* 8036C0AC 0036900C  4E 80 04 21 */	bctrl 
+/* 8036C0AC 0036900C  4E 80 04 21 */	bctrl
 lbl_8036C0B0:
 /* 8036C0B0 00369010  3B DE 00 08 */	addi r30, r30, 8
 lbl_8036C0B4:
@@ -365,7 +365,7 @@ lbl_8036C0E8:
 /* 8036C0F4 00369054  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8036C0F8 00369058  7C 08 03 A6 */	mtlr r0
 /* 8036C0FC 0036905C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036C100 00369060  4E 80 00 20 */	blr 
+/* 8036C100 00369060  4E 80 00 20 */	blr
 
 .global IsReady__18CStaticAudioPlayer
 IsReady__18CStaticAudioPlayer:
@@ -383,7 +383,7 @@ IsReady__18CStaticAudioPlayer:
 /* 8036C130 00369090  81 83 00 00 */	lwz r12, 0(r3)
 /* 8036C134 00369094  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8036C138 00369098  7D 89 03 A6 */	mtctr r12
-/* 8036C13C 0036909C  4E 80 04 21 */	bctrl 
+/* 8036C13C 0036909C  4E 80 04 21 */	bctrl
 /* 8036C140 003690A0  48 00 00 08 */	b lbl_8036C148
 lbl_8036C144:
 /* 8036C144 003690A4  38 60 00 01 */	li r3, 1
@@ -391,7 +391,7 @@ lbl_8036C148:
 /* 8036C148 003690A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036C14C 003690AC  7C 08 03 A6 */	mtlr r0
 /* 8036C150 003690B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036C154 003690B4  4E 80 00 20 */	blr 
+/* 8036C154 003690B4  4E 80 00 20 */	blr
 
 .global __dt__18CStaticAudioPlayer
 __dt__18CStaticAudioPlayer:
@@ -442,7 +442,7 @@ lbl_8036C1EC:
 /* 8036C1F8 00369158  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036C1FC 0036915C  7C 08 03 A6 */	mtlr r0
 /* 8036C200 00369160  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036C204 00369164  4E 80 00 20 */	blr 
+/* 8036C204 00369164  4E 80 00 20 */	blr
 
 .global sub_8036c208
 sub_8036c208:
@@ -478,7 +478,7 @@ lbl_8036C254:
 /* 8036C278 003691D8  38 80 00 01 */	li r4, 1
 /* 8036C27C 003691DC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8036C280 003691E0  7D 89 03 A6 */	mtctr r12
-/* 8036C284 003691E4  4E 80 04 21 */	bctrl 
+/* 8036C284 003691E4  4E 80 04 21 */	bctrl
 lbl_8036C288:
 /* 8036C288 003691E8  3B DE 00 08 */	addi r30, r30, 8
 lbl_8036C28C:
@@ -502,7 +502,7 @@ lbl_8036C2B4:
 /* 8036C2C8 00369228  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8036C2CC 0036922C  7C 08 03 A6 */	mtlr r0
 /* 8036C2D0 00369230  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036C2D4 00369234  4E 80 00 20 */	blr 
+/* 8036C2D4 00369234  4E 80 00 20 */	blr
 
 .global __ct__18CStaticAudioPlayerFRCQ24rstl12basic_stringii
 __ct__18CStaticAudioPlayerFRCQ24rstl12basic_stringii:
@@ -691,7 +691,7 @@ lbl_8036C568:
 /* 8036C590 003694F0  38 80 00 01 */	li r4, 1
 /* 8036C594 003694F4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8036C598 003694F8  7D 89 03 A6 */	mtctr r12
-/* 8036C59C 003694FC  4E 80 04 21 */	bctrl 
+/* 8036C59C 003694FC  4E 80 04 21 */	bctrl
 lbl_8036C5A0:
 /* 8036C5A0 00369500  88 01 00 28 */	lbz r0, 0x28(r1)
 /* 8036C5A4 00369504  28 00 00 00 */	cmplwi r0, 0
@@ -711,7 +711,7 @@ lbl_8036C5B8:
 /* 8036C5D4 00369534  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8036C5D8 00369538  7C 08 03 A6 */	mtlr r0
 /* 8036C5DC 0036953C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8036C5E0 00369540  4E 80 00 20 */	blr 
+/* 8036C5E0 00369540  4E 80 00 20 */	blr
 
 .global sub_8036c5e4
 sub_8036c5e4:
@@ -778,7 +778,7 @@ lbl_8036C698:
 /* 8036C6BC 0036961C  38 80 00 01 */	li r4, 1
 /* 8036C6C0 00369620  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8036C6C4 00369624  7D 89 03 A6 */	mtctr r12
-/* 8036C6C8 00369628  4E 80 04 21 */	bctrl 
+/* 8036C6C8 00369628  4E 80 04 21 */	bctrl
 lbl_8036C6CC:
 /* 8036C6CC 0036962C  3B 7B 00 08 */	addi r27, r27, 8
 lbl_8036C6D0:
@@ -796,7 +796,7 @@ lbl_8036C6F0:
 /* 8036C6F4 00369654  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8036C6F8 00369658  7C 08 03 A6 */	mtlr r0
 /* 8036C6FC 0036965C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036C700 00369660  4E 80 00 20 */	blr 
+/* 8036C700 00369660  4E 80 00 20 */	blr
 
 .global sub_8036c704
 sub_8036c704:
@@ -859,7 +859,7 @@ lbl_8036C7BC:
 /* 8036C7CC 0036972C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8036C7D0 00369730  7C 08 03 A6 */	mtlr r0
 /* 8036C7D4 00369734  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036C7D8 00369738  4E 80 00 20 */	blr 
+/* 8036C7D8 00369738  4E 80 00 20 */	blr
 
 .global RunDMACallback__18CStaticAudioPlayerFv
 RunDMACallback__18CStaticAudioPlayerFv:
@@ -907,7 +907,7 @@ lbl_8036C85C:
 /* 8036C86C 003697CC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8036C870 003697D0  7C 08 03 A6 */	mtlr r0
 /* 8036C874 003697D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036C878 003697D8  4E 80 00 20 */	blr 
+/* 8036C878 003697D8  4E 80 00 20 */	blr
 
 .global sub_8036c87c
 sub_8036c87c:
@@ -919,7 +919,7 @@ sub_8036c87c:
 /* 8036C890 003697F0  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8036C894 003697F4  81 8D AA EC */	lwz r12, lbl_805A96AC@sda21(r13)
 /* 8036C898 003697F8  7D 89 03 A6 */	mtctr r12
-/* 8036C89C 003697FC  4E 80 04 21 */	bctrl 
+/* 8036C89C 003697FC  4E 80 04 21 */	bctrl
 /* 8036C8A0 00369800  3C 60 80 54 */	lis r3, lbl_80540A2C@ha
 /* 8036C8A4 00369804  3B A0 00 00 */	li r29, 0
 /* 8036C8A8 00369808  3B E3 0A 2C */	addi r31, r3, lbl_80540A2C@l
@@ -928,7 +928,7 @@ sub_8036c87c:
 lbl_8036C8B4:
 /* 8036C8B4 00369814  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8036C8B8 00369818  7D 89 03 A6 */	mtctr r12
-/* 8036C8BC 0036981C  4E 80 04 21 */	bctrl 
+/* 8036C8BC 0036981C  4E 80 04 21 */	bctrl
 /* 8036C8C0 00369820  3B DE 00 04 */	addi r30, r30, 4
 /* 8036C8C4 00369824  3B BD 00 01 */	addi r29, r29, 1
 lbl_8036C8C8:
@@ -941,7 +941,7 @@ lbl_8036C8C8:
 /* 8036C8E0 00369840  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8036C8E4 00369844  7C 08 03 A6 */	mtlr r0
 /* 8036C8E8 00369848  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036C8EC 0036984C  4E 80 00 20 */	blr 
+/* 8036C8EC 0036984C  4E 80 00 20 */	blr
 
 .global sub_8036c8f0
 sub_8036c8f0:
@@ -987,7 +987,7 @@ lbl_8036C978:
 /* 8036C984 003698E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036C988 003698E8  7C 08 03 A6 */	mtlr r0
 /* 8036C98C 003698EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036C990 003698F0  4E 80 00 20 */	blr 
+/* 8036C990 003698F0  4E 80 00 20 */	blr
 
 .global __sinit_CStaticAudioPlayer_cpp
 __sinit_CStaticAudioPlayer_cpp:
@@ -1050,4 +1050,4 @@ lbl_8036CA4C:
 /* 8036CA54 003699B4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036CA58 003699B8  7C 08 03 A6 */	mtlr r0
 /* 8036CA5C 003699BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CA60 003699C0  4E 80 00 20 */	blr 
+/* 8036CA60 003699C0  4E 80 00 20 */	blr

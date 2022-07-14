@@ -42,7 +42,7 @@ lbl_805A9600:
 .global lbl_805A9601
 lbl_805A9601:
 	.skip 0x7
-	
+
 .section .text, "ax"
 
 .global sub_80352668
@@ -87,19 +87,19 @@ lbl_803526EC:
 /* 803526F8 0034F658  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803526FC 0034F65C  7C 08 03 A6 */	mtlr r0
 /* 80352700 0034F660  38 21 00 20 */	addi r1, r1, 0x20
-/* 80352704 0034F664  4E 80 00 20 */	blr 
+/* 80352704 0034F664  4E 80 00 20 */	blr
 
 .global ClearPointGeneratorFunc__13CSkinnedModelFv
 ClearPointGeneratorFunc__13CSkinnedModelFv:
 /* 80352708 0034F668  38 00 00 00 */	li r0, 0
 /* 8035270C 0034F66C  90 0D AA 30 */	stw r0, lbl_805A95F0@sda21(r13)
-/* 80352710 0034F670  4E 80 00 20 */	blr 
+/* 80352710 0034F670  4E 80 00 20 */	blr
 
 .global SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v
 SetPointGeneratorFunc__13CSkinnedModelFUiPFUiPC9CVector3fPC9CVector3fi_v:
 /* 80352714 0034F674  90 8D AA 30 */	stw r4, lbl_805A95F0@sda21(r13)
 /* 80352718 0034F678  90 6D AA 34 */	stw r3, lbl_805A95F4@sda21(r13)
-/* 8035271C 0034F67C  4E 80 00 20 */	blr 
+/* 8035271C 0034F67C  4E 80 00 20 */	blr
 
 .global sub_80352720
 sub_80352720:
@@ -110,7 +110,7 @@ sub_80352720:
 /* 80352730 0034F690  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80352734 0034F694  7C 08 03 A6 */	mtlr r0
 /* 80352738 0034F698  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035273C 0034F69C  4E 80 00 20 */	blr 
+/* 8035273C 0034F69C  4E 80 00 20 */	blr
 
 .global sub_80352740
 sub_80352740:
@@ -121,7 +121,7 @@ sub_80352740:
 /* 80352750 0034F6B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80352754 0034F6B4  7C 08 03 A6 */	mtlr r0
 /* 80352758 0034F6B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035275C 0034F6BC  4E 80 00 20 */	blr 
+/* 8035275C 0034F6BC  4E 80 00 20 */	blr
 
 .global sub_80352760
 sub_80352760:
@@ -198,7 +198,7 @@ lbl_80352858:
 /* 8035285C 0034F7BC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80352860 0034F7C0  7C 08 03 A6 */	mtlr r0
 /* 80352864 0034F7C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80352868 0034F7C8  4E 80 00 20 */	blr 
+/* 80352868 0034F7C8  4E 80 00 20 */	blr
 
 .global AllocateStorage__13CSkinnedModelFv
 AllocateStorage__13CSkinnedModelFv:
@@ -306,7 +306,7 @@ lbl_803529D0:
 /* 803529DC 0034F93C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 803529E0 0034F940  7C 08 03 A6 */	mtlr r0
 /* 803529E4 0034F944  38 21 00 30 */	addi r1, r1, 0x30
-/* 803529E8 0034F948  4E 80 00 20 */	blr 
+/* 803529E8 0034F948  4E 80 00 20 */	blr
 
 .global EnsureAllocation__13CSkinnedModelFi
 EnsureAllocation__13CSkinnedModelFi:
@@ -414,7 +414,7 @@ lbl_80352B34:
 /* 80352B60 0034FAC0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80352B64 0034FAC4  7C 08 03 A6 */	mtlr r0
 /* 80352B68 0034FAC8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80352B6C 0034FACC  4E 80 00 20 */	blr 
+/* 80352B6C 0034FACC  4E 80 00 20 */	blr
 
 .global TickAllocations__13CSkinnedModelFv
 TickAllocations__13CSkinnedModelFv:
@@ -464,7 +464,7 @@ lbl_80352BFC:
 /* 80352C08 0034FB68  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80352C0C 0034FB6C  7C 08 03 A6 */	mtlr r0
 /* 80352C10 0034FB70  38 21 00 20 */	addi r1, r1, 0x20
-/* 80352C14 0034FB74  4E 80 00 20 */	blr 
+/* 80352C14 0034FB74  4E 80 00 20 */	blr
 
 .global CalculateDefault__13CSkinnedModelFv
 CalculateDefault__13CSkinnedModelFv:
@@ -529,7 +529,7 @@ lbl_80352CE4:
 /* 80352CE8 0034FC48  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80352CEC 0034FC4C  7C 08 03 A6 */	mtlr r0
 /* 80352CF0 0034FC50  38 21 00 20 */	addi r1, r1, 0x20
-/* 80352CF4 0034FC54  4E 80 00 20 */	blr 
+/* 80352CF4 0034FC54  4E 80 00 20 */	blr
 
 .global "Calculate__13CSkinnedModelFRC17CPoseAsTransformsRCQ24rstl37optional_object<18CVertexMorphEffect>PCfPf"
 "Calculate__13CSkinnedModelFRC17CPoseAsTransformsRCQ24rstl37optional_object<18CVertexMorphEffect>PCfPf":
@@ -656,7 +656,7 @@ lbl_80352E9C:
 /* 80352EB8 0034FE18  1C 06 00 0C */	mulli r0, r6, 0xc
 /* 80352EBC 0034FE1C  7C BD 02 14 */	add r5, r29, r0
 /* 80352EC0 0034FE20  7D 89 03 A6 */	mtctr r12
-/* 80352EC4 0034FE24  4E 80 04 21 */	bctrl 
+/* 80352EC4 0034FE24  4E 80 04 21 */	bctrl
 /* 80352EC8 0034FE28  7F A3 EB 78 */	mr r3, r29
 /* 80352ECC 0034FE2C  7F C4 F3 78 */	mr r4, r30
 /* 80352ED0 0034FE30  48 02 BB B5 */	bl DCInvalidateRange
@@ -665,7 +665,7 @@ lbl_80352ED4:
 /* 80352ED8 0034FE38  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80352EDC 0034FE3C  7C 08 03 A6 */	mtlr r0
 /* 80352EE0 0034FE40  38 21 00 30 */	addi r1, r1, 0x30
-/* 80352EE4 0034FE44  4E 80 00 20 */	blr 
+/* 80352EE4 0034FE44  4E 80 00 20 */	blr
 
 .global sub_80352ee8
 sub_80352ee8:
@@ -682,7 +682,7 @@ sub_80352ee8:
 /* 80352F10 0034FE70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80352F14 0034FE74  7C 08 03 A6 */	mtlr r0
 /* 80352F18 0034FE78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80352F1C 0034FE7C  4E 80 00 20 */	blr 
+/* 80352F1C 0034FE7C  4E 80 00 20 */	blr
 
 .global DoDrawCallback__13CSkinnedModelF14FCustomDrawCPv
 DoDrawCallback__13CSkinnedModelF14FCustomDrawCPv:
@@ -720,7 +720,7 @@ DoDrawCallback__13CSkinnedModelF14FCustomDrawCPv:
 /* 80352F9C 0034FEFC  7F C4 F3 78 */	mr r4, r30
 /* 80352FA0 0034FF00  7F A5 EB 78 */	mr r5, r29
 /* 80352FA4 0034FF04  7D 89 03 A6 */	mtctr r12
-/* 80352FA8 0034FF08  4E 80 04 21 */	bctrl 
+/* 80352FA8 0034FF08  4E 80 04 21 */	bctrl
 /* 80352FAC 0034FF0C  38 61 00 38 */	addi r3, r1, 0x38
 /* 80352FB0 0034FF10  4B FB 96 31 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
 /* 80352FB4 0034FF14  48 00 00 90 */	b lbl_80353044
@@ -737,13 +737,13 @@ lbl_80352FB8:
 /* 80352FDC 0034FF3C  7F C4 F3 78 */	mr r4, r30
 /* 80352FE0 0034FF40  7F A5 EB 78 */	mr r5, r29
 /* 80352FE4 0034FF44  7D 89 03 A6 */	mtctr r12
-/* 80352FE8 0034FF48  4E 80 04 21 */	bctrl 
+/* 80352FE8 0034FF48  4E 80 04 21 */	bctrl
 /* 80352FEC 0034FF4C  48 00 00 58 */	b lbl_80353044
 lbl_80352FF0:
 /* 80352FF0 0034FF50  7F 8C E3 78 */	mr r12, r28
 /* 80352FF4 0034FF54  80 9F 00 34 */	lwz r4, 0x34(r31)
 /* 80352FF8 0034FF58  7D 89 03 A6 */	mtctr r12
-/* 80352FFC 0034FF5C  4E 80 04 21 */	bctrl 
+/* 80352FFC 0034FF5C  4E 80 04 21 */	bctrl
 /* 80353000 0034FF60  80 9F 00 18 */	lwz r4, 0x18(r31)
 /* 80353004 0034FF64  80 7F 00 2C */	lwz r3, 0x2c(r31)
 /* 80353008 0034FF68  80 04 00 10 */	lwz r0, 0x10(r4)
@@ -769,7 +769,7 @@ lbl_80353044:
 /* 80353054 0034FFB4  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 80353058 0034FFB8  7C 08 03 A6 */	mtlr r0
 /* 8035305C 0034FFBC  38 21 00 80 */	addi r1, r1, 0x80
-/* 80353060 0034FFC0  4E 80 00 20 */	blr 
+/* 80353060 0034FFC0  4E 80 00 20 */	blr
 
 .global sub_80353064
 sub_80353064:
@@ -822,7 +822,7 @@ lbl_80353108:
 /* 80353110 00350070  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80353114 00350074  7C 08 03 A6 */	mtlr r0
 /* 80353118 00350078  38 21 00 70 */	addi r1, r1, 0x70
-/* 8035311C 0035007C  4E 80 00 20 */	blr 
+/* 8035311C 0035007C  4E 80 00 20 */	blr
 
 .global sub_80353120
 sub_80353120:
@@ -919,7 +919,7 @@ lbl_80353264:
 /* 8035326C 003501CC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80353270 003501D0  7C 08 03 A6 */	mtlr r0
 /* 80353274 003501D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353278 003501D8  4E 80 00 20 */	blr 
+/* 80353278 003501D8  4E 80 00 20 */	blr
 
 .global __dt__13CSkinnedModelFv
 __dt__13CSkinnedModelFv:
@@ -986,7 +986,7 @@ lbl_80353348:
 /* 80353354 003502B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80353358 003502B8  7C 08 03 A6 */	mtlr r0
 /* 8035335C 003502BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353360 003502C0  4E 80 00 20 */	blr 
+/* 80353360 003502C0  4E 80 00 20 */	blr
 
 .global __ct__13CSkinnedModelFRC13CSkinnedModel
 __ct__13CSkinnedModelFRC13CSkinnedModel:
@@ -1042,7 +1042,7 @@ __ct__13CSkinnedModelFRC13CSkinnedModel:
 /* 80353428 00350388  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8035342C 0035038C  7C 08 03 A6 */	mtlr r0
 /* 80353430 00350390  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353434 00350394  4E 80 00 20 */	blr 
+/* 80353434 00350394  4E 80 00 20 */	blr
 
 .global "__ct__13CSkinnedModelFRC21TLockedToken<6CModel>RC26TLockedToken<10CSkinRules>RC31TLockedToken<15CCharLayoutInfo>Q213CSkinnedModel14EDataOwnership"
 "__ct__13CSkinnedModelFRC21TLockedToken<6CModel>RC26TLockedToken<10CSkinRules>RC31TLockedToken<15CCharLayoutInfo>Q213CSkinnedModel14EDataOwnership":
@@ -1098,7 +1098,7 @@ __ct__13CSkinnedModelFRC13CSkinnedModel:
 /* 803534FC 0035045C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80353500 00350460  7C 08 03 A6 */	mtlr r0
 /* 80353504 00350464  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353508 00350468  4E 80 00 20 */	blr 
+/* 80353508 00350468  4E 80 00 20 */	blr
 
 .global sub_8035350c
 sub_8035350c:
@@ -1145,7 +1145,7 @@ lbl_80353594:
 /* 8035359C 003504FC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803535A0 00350500  7C 08 03 A6 */	mtlr r0
 /* 803535A4 00350504  38 21 00 10 */	addi r1, r1, 0x10
-/* 803535A8 00350508  4E 80 00 20 */	blr 
+/* 803535A8 00350508  4E 80 00 20 */	blr
 
 .global sub_803535ac
 sub_803535ac:
@@ -1241,7 +1241,7 @@ lbl_803536E0:
 /* 803536F0 00350650  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803536F4 00350654  7C 08 03 A6 */	mtlr r0
 /* 803536F8 00350658  38 21 00 30 */	addi r1, r1, 0x30
-/* 803536FC 0035065C  4E 80 00 20 */	blr 
+/* 803536FC 0035065C  4E 80 00 20 */	blr
 
 .global sub_80353700
 sub_80353700:
@@ -1277,7 +1277,7 @@ lbl_80353754:
 /* 8035376C 003506CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80353770 003506D0  7C 08 03 A6 */	mtlr r0
 /* 80353774 003506D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353778 003506D8  4E 80 00 20 */	blr 
+/* 80353778 003506D8  4E 80 00 20 */	blr
 
 .global __sinit_DolphinCSkinnedModel_cpp
 __sinit_DolphinCSkinnedModel_cpp:
@@ -1348,7 +1348,7 @@ lbl_80353854:
 /* 80353864 003507C4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80353868 003507C8  7C 08 03 A6 */	mtlr r0
 /* 8035386C 003507CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353870 003507D0  4E 80 00 20 */	blr 
+/* 80353870 003507D0  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl34optional_object<15CCircularBuffer>Fv"
 "__dt__Q24rstl34optional_object<15CCircularBuffer>Fv":

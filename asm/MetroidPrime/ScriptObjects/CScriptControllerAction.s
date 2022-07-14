@@ -42,11 +42,11 @@ lbl_801D8D38:
 /* 801D8D44 001D5CA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D8D48 001D5CA8  7C 08 03 A6 */	mtlr r0
 /* 801D8D4C 001D5CAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8D50 001D5CB0  4E 80 00 20 */	blr 
+/* 801D8D50 001D5CB0  4E 80 00 20 */	blr
 
 .global nullsub_51
 nullsub_51:
-/* 801D8D54 001D5CB4  4E 80 00 20 */	blr 
+/* 801D8D54 001D5CB4  4E 80 00 20 */	blr
 
 .global Think__23CScriptControllerActionFfR13CStateManager
 Think__23CScriptControllerActionFfR13CStateManager:
@@ -126,7 +126,7 @@ lbl_801D8E3C:
 /* 801D8E64 001D5DC4  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801D8E68 001D5DC8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801D8E6C 001D5DCC  7D 89 03 A6 */	mtctr r12
-/* 801D8E70 001D5DD0  4E 80 04 21 */	bctrl 
+/* 801D8E70 001D5DD0  4E 80 04 21 */	bctrl
 /* 801D8E74 001D5DD4  7F A3 EB 78 */	mr r3, r29
 /* 801D8E78 001D5DD8  7F C5 F3 78 */	mr r5, r30
 /* 801D8E7C 001D5DDC  38 80 00 05 */	li r4, 5
@@ -139,7 +139,7 @@ lbl_801D8E88:
 /* 801D8E94 001D5DF4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801D8E98 001D5DF8  7C 08 03 A6 */	mtlr r0
 /* 801D8E9C 001D5DFC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D8EA0 001D5E00  4E 80 00 20 */	blr 
+/* 801D8EA0 001D5E00  4E 80 00 20 */	blr
 
 .global Accept__23CScriptControllerActionFR8IVisitor
 Accept__23CScriptControllerActionFR8IVisitor:
@@ -152,11 +152,11 @@ Accept__23CScriptControllerActionFR8IVisitor:
 /* 801D8EBC 001D5E1C  7C 04 03 78 */	mr r4, r0
 /* 801D8EC0 001D5E20  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 801D8EC4 001D5E24  7D 89 03 A6 */	mtctr r12
-/* 801D8EC8 001D5E28  4E 80 04 21 */	bctrl 
+/* 801D8EC8 001D5E28  4E 80 04 21 */	bctrl
 /* 801D8ECC 001D5E2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D8ED0 001D5E30  7C 08 03 A6 */	mtlr r0
 /* 801D8ED4 001D5E34  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8ED8 001D5E38  4E 80 00 20 */	blr 
+/* 801D8ED8 001D5E38  4E 80 00 20 */	blr
 
 .global "__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ223CScriptControllerAction9ECommandsb"
 "__ct__23CScriptControllerActionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobQ223CScriptControllerAction9ECommandsb":

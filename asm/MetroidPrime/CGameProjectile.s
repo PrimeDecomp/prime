@@ -136,7 +136,7 @@ lbl_80037494:
 /* 800374A0 00034400  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800374A4 00034404  7C 08 03 A6 */	mtlr r0
 /* 800374A8 00034408  38 21 00 10 */	addi r1, r1, 0x10
-/* 800374AC 0003440C  4E 80 00 20 */	blr 
+/* 800374AC 0003440C  4E 80 00 20 */	blr
 
 .global sub_800374b0
 sub_800374b0:
@@ -185,7 +185,7 @@ lbl_80037538:
 /* 80037544 000344A4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80037548 000344A8  7C 08 03 A6 */	mtlr r0
 /* 8003754C 000344AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80037550 000344B0  4E 80 00 20 */	blr 
+/* 80037550 000344B0  4E 80 00 20 */	blr
 
 .global ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager:
@@ -392,7 +392,7 @@ lbl_8003782C:
 
 .global sub_80037854
 sub_80037854:
-/* 80037854 000347B4  4E 80 00 20 */	blr 
+/* 80037854 000347B4  4E 80 00 20 */	blr
 
 .global GetBeamAttribType__15CGameProjectileF11EWeaponType
 GetBeamAttribType__15CGameProjectileF11EWeaponType:
@@ -409,19 +409,19 @@ lbl_80037874:
 /* 8003787C 000347DC  48 00 00 24 */	b lbl_800378A0
 lbl_80037880:
 /* 80037880 000347E0  38 60 00 08 */	li r3, 8
-/* 80037884 000347E4  4E 80 00 20 */	blr 
+/* 80037884 000347E4  4E 80 00 20 */	blr
 lbl_80037888:
 /* 80037888 000347E8  38 60 00 10 */	li r3, 0x10
-/* 8003788C 000347EC  4E 80 00 20 */	blr 
+/* 8003788C 000347EC  4E 80 00 20 */	blr
 lbl_80037890:
 /* 80037890 000347F0  38 60 00 20 */	li r3, 0x20
-/* 80037894 000347F4  4E 80 00 20 */	blr 
+/* 80037894 000347F4  4E 80 00 20 */	blr
 lbl_80037898:
 /* 80037898 000347F8  38 60 00 40 */	li r3, 0x40
-/* 8003789C 000347FC  4E 80 00 20 */	blr 
+/* 8003789C 000347FC  4E 80 00 20 */	blr
 lbl_800378A0:
 /* 800378A0 00034800  38 60 00 00 */	li r3, 0
-/* 800378A4 00034804  4E 80 00 20 */	blr 
+/* 800378A4 00034804  4E 80 00 20 */	blr
 
 .global DeleteProjectileLight__15CGameProjectileFR13CStateManager
 DeleteProjectileLight__15CGameProjectileFR13CStateManager:
@@ -446,7 +446,7 @@ lbl_800378E8:
 /* 800378EC 0003484C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800378F0 00034850  7C 08 03 A6 */	mtlr r0
 /* 800378F4 00034854  38 21 00 20 */	addi r1, r1, 0x20
-/* 800378F8 00034858  4E 80 00 20 */	blr 
+/* 800378F8 00034858  4E 80 00 20 */	blr
 
 .global "CreateProjectileLight__15CGameProjectileFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC6CLightR13CStateManager"
 "CreateProjectileLight__15CGameProjectileFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC6CLightR13CStateManager":
@@ -507,7 +507,7 @@ lbl_800379C0:
 /* 800379D0 00034930  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800379D4 00034934  7C 08 03 A6 */	mtlr r0
 /* 800379D8 00034938  38 21 00 50 */	addi r1, r1, 0x50
-/* 800379DC 0003493C  4E 80 00 20 */	blr 
+/* 800379DC 0003493C  4E 80 00 20 */	blr
 
 .global Chase__15CGameProjectileFfR13CStateManager
 Chase__15CGameProjectileFfR13CStateManager:
@@ -579,7 +579,7 @@ lbl_80037ACC:
 /* 80037ADC 00034A3C  C0 22 84 14 */	lfs f1, lbl_805AA134@sda21(r2)
 /* 80037AE0 00034A40  81 8C 00 50 */	lwz r12, 0x50(r12)
 /* 80037AE4 00034A44  7D 89 03 A6 */	mtctr r12
-/* 80037AE8 00034A48  4E 80 04 21 */	bctrl 
+/* 80037AE8 00034A48  4E 80 04 21 */	bctrl
 /* 80037AEC 00034A4C  C3 A1 00 50 */	lfs f29, 0x50(r1)
 /* 80037AF0 00034A50  7F E4 FB 78 */	mr r4, r31
 /* 80037AF4 00034A54  C3 C1 00 54 */	lfs f30, 0x54(r1)
@@ -623,7 +623,7 @@ lbl_80037B78:
 /* 80037B80 00034AE0  81 9D 01 70 */	lwz r12, 0x170(r29)
 /* 80037B84 00034AE4  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80037B88 00034AE8  7D 89 03 A6 */	mtctr r12
-/* 80037B8C 00034AEC  4E 80 04 21 */	bctrl 
+/* 80037B8C 00034AEC  4E 80 04 21 */	bctrl
 /* 80037B90 00034AF0  C0 41 00 44 */	lfs f2, 0x44(r1)
 /* 80037B94 00034AF4  C0 01 00 48 */	lfs f0, 0x48(r1)
 /* 80037B98 00034AF8  C0 21 00 4C */	lfs f1, 0x4c(r1)
@@ -659,7 +659,7 @@ lbl_80037BE4:
 /* 80037C0C 00034B6C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80037C10 00034B70  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80037C14 00034B74  7D 89 03 A6 */	mtctr r12
-/* 80037C18 00034B78  4E 80 04 21 */	bctrl 
+/* 80037C18 00034B78  4E 80 04 21 */	bctrl
 /* 80037C1C 00034B7C  88 01 00 9C */	lbz r0, 0x9c(r1)
 /* 80037C20 00034B80  28 00 00 00 */	cmplwi r0, 0
 /* 80037C24 00034B84  98 01 00 B8 */	stb r0, 0xb8(r1)
@@ -809,7 +809,7 @@ lbl_80037E1C:
 /* 80037E48 00034DA8  83 A1 01 B4 */	lwz r29, 0x1b4(r1)
 /* 80037E4C 00034DAC  7C 08 03 A6 */	mtlr r0
 /* 80037E50 00034DB0  38 21 02 00 */	addi r1, r1, 0x200
-/* 80037E54 00034DB4  4E 80 00 20 */	blr 
+/* 80037E54 00034DB4  4E 80 00 20 */	blr
 
 .global UpdateHoming__15CGameProjectileFfR13CStateManager
 UpdateHoming__15CGameProjectileFfR13CStateManager:
@@ -856,7 +856,7 @@ lbl_80037EE4:
 /* 80037EEC 00034E4C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80037EF0 00034E50  7C 08 03 A6 */	mtlr r0
 /* 80037EF4 00034E54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80037EF8 00034E58  4E 80 00 20 */	blr 
+/* 80037EF8 00034E58  4E 80 00 20 */	blr
 
 .global UpdateProjectileMovement__15CGameProjectileFfR13CStateManager
 UpdateProjectileMovement__15CGameProjectileFfR13CStateManager:
@@ -887,7 +887,7 @@ lbl_80037F3C:
 /* 80037F58 00034EB8  81 9E 01 70 */	lwz r12, 0x170(r30)
 /* 80037F5C 00034EBC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80037F60 00034EC0  7D 89 03 A6 */	mtctr r12
-/* 80037F64 00034EC4  4E 80 04 21 */	bctrl 
+/* 80037F64 00034EC4  4E 80 04 21 */	bctrl
 /* 80037F68 00034EC8  38 61 00 14 */	addi r3, r1, 0x14
 /* 80037F6C 00034ECC  38 9E 01 70 */	addi r4, r30, 0x170
 /* 80037F70 00034ED0  48 27 86 69 */	bl GetTransform__17CProjectileWeaponFv
@@ -909,7 +909,7 @@ lbl_80037F3C:
 /* 80037FB0 00034F10  81 9E 01 70 */	lwz r12, 0x170(r30)
 /* 80037FB4 00034F14  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80037FB8 00034F18  7D 89 03 A6 */	mtctr r12
-/* 80037FBC 00034F1C  4E 80 04 21 */	bctrl 
+/* 80037FBC 00034F1C  4E 80 04 21 */	bctrl
 /* 80037FC0 00034F20  7F C3 F3 78 */	mr r3, r30
 /* 80037FC4 00034F24  38 81 00 08 */	addi r4, r1, 8
 /* 80037FC8 00034F28  48 01 AE C5 */	bl SetTranslation__6CActorFRC9CVector3f
@@ -924,7 +924,7 @@ lbl_80037F3C:
 /* 80037FEC 00034F4C  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80037FF0 00034F50  7C 08 03 A6 */	mtlr r0
 /* 80037FF4 00034F54  38 21 00 60 */	addi r1, r1, 0x60
-/* 80037FF8 00034F58  4E 80 00 20 */	blr 
+/* 80037FF8 00034F58  4E 80 00 20 */	blr
 
 .global DoCollisionCheck__15CGameProjectileFR9TUniqueIdR13CStateManager
 DoCollisionCheck__15CGameProjectileFR9TUniqueIdR13CStateManager:
@@ -1090,7 +1090,7 @@ lbl_800381FC:
 /* 80038264 000351C4  80 01 08 E4 */	lwz r0, 0x8e4(r1)
 /* 80038268 000351C8  7C 08 03 A6 */	mtlr r0
 /* 8003826C 000351CC  38 21 08 E0 */	addi r1, r1, 0x8e0
-/* 80038270 000351D0  4E 80 00 20 */	blr 
+/* 80038270 000351D0  4E 80 00 20 */	blr
 
 .global ApplyDamageToActors__15CGameProjectileFR13CStateManager
 ApplyDamageToActors__15CGameProjectileFR13CStateManager:
@@ -1242,7 +1242,7 @@ lbl_80038480:
 /* 800384A4 00035404  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800384A8 00035408  7C 08 03 A6 */	mtlr r0
 /* 800384AC 0003540C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800384B0 00035410  4E 80 00 20 */	blr 
+/* 800384B0 00035410  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl59vector<22CProjectileTouchResult,Q24rstl17rmemory_allocator>Fv"
 "clear__Q24rstl59vector<22CProjectileTouchResult,Q24rstl17rmemory_allocator>Fv":
@@ -1271,7 +1271,7 @@ lbl_800384F8:
 /* 80038500 00035460  38 00 00 00 */	li r0, 0
 /* 80038504 00035464  90 03 00 04 */	stw r0, 4(r3)
 /* 80038508 00035468  38 21 00 20 */	addi r1, r1, 0x20
-/* 8003850C 0003546C  4E 80 00 20 */	blr 
+/* 8003850C 0003546C  4E 80 00 20 */	blr
 
 .global FluidFXThink__15CGameProjectileFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 FluidFXThink__15CGameProjectileFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
@@ -1303,7 +1303,7 @@ lbl_8003856C:
 /* 80038570 000354D0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80038574 000354D4  7C 08 03 A6 */	mtlr r0
 /* 80038578 000354D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8003857C 000354DC  4E 80 00 20 */	blr 
+/* 8003857C 000354DC  4E 80 00 20 */	blr
 
 .global GetWeaponDescription__17CProjectileWeaponCFv
 GetWeaponDescription__17CProjectileWeaponCFv:
@@ -1325,7 +1325,7 @@ GetWeaponDescription__17CProjectileWeaponCFv:
 /* 800385BC 0003551C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800385C0 00035520  7C 08 03 A6 */	mtlr r0
 /* 800385C4 00035524  38 21 00 10 */	addi r1, r1, 0x10
-/* 800385C8 00035528  4E 80 00 20 */	blr 
+/* 800385C8 00035528  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__15CGameProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CGameProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1381,7 +1381,7 @@ lbl_80038678:
 /* 80038678 000355D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8003867C 000355DC  7C 08 03 A6 */	mtlr r0
 /* 80038680 000355E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80038684 000355E4  4E 80 00 20 */	blr 
+/* 80038684 000355E4  4E 80 00 20 */	blr
 
 .global Accept__15CGameProjectileFR8IVisitor
 Accept__15CGameProjectileFR8IVisitor:
@@ -1394,11 +1394,11 @@ Accept__15CGameProjectileFR8IVisitor:
 /* 800386A0 00035600  7C 04 03 78 */	mr r4, r0
 /* 800386A4 00035604  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 800386A8 00035608  7D 89 03 A6 */	mtctr r12
-/* 800386AC 0003560C  4E 80 04 21 */	bctrl 
+/* 800386AC 0003560C  4E 80 04 21 */	bctrl
 /* 800386B0 00035610  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800386B4 00035614  7C 08 03 A6 */	mtlr r0
 /* 800386B8 00035618  38 21 00 10 */	addi r1, r1, 0x10
-/* 800386BC 0003561C  4E 80 00 20 */	blr 
+/* 800386BC 0003561C  4E 80 00 20 */	blr
 
 .global "RayCollisionCheckWithWorld__15CGameProjectileFR9TUniqueIdRC9CVector3fRC9CVector3ffRQ24rstl32reserved_vector<9TUniqueId,1024>R13CStateManager"
 "RayCollisionCheckWithWorld__15CGameProjectileFR9TUniqueIdRC9CVector3fRC9CVector3ffRQ24rstl32reserved_vector<9TUniqueId,1024>R13CStateManager":
@@ -1631,7 +1631,7 @@ lbl_80038A0C:
 /* 80038A30 00035990  7F 25 CB 78 */	mr r5, r25
 /* 80038A34 00035994  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 80038A38 00035998  7D 89 03 A6 */	mtctr r12
-/* 80038A3C 0003599C  4E 80 04 21 */	bctrl 
+/* 80038A3C 0003599C  4E 80 04 21 */	bctrl
 /* 80038A40 000359A0  C0 A1 02 54 */	lfs f5, 0x254(r1)
 /* 80038A44 000359A4  80 C1 02 58 */	lwz r6, 0x258(r1)
 /* 80038A48 000359A8  80 A1 02 5C */	lwz r5, 0x25c(r1)
@@ -1664,7 +1664,7 @@ lbl_80038AA8:
 /* 80038AB0 00035A10  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80038AB4 00035A14  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80038AB8 00035A18  7D 89 03 A6 */	mtctr r12
-/* 80038ABC 00035A1C  4E 80 04 21 */	bctrl 
+/* 80038ABC 00035A1C  4E 80 04 21 */	bctrl
 /* 80038AC0 00035A20  88 01 00 C8 */	lbz r0, 0xc8(r1)
 /* 80038AC4 00035A24  28 00 00 00 */	cmplwi r0, 0
 /* 80038AC8 00035A28  98 01 01 00 */	stb r0, 0x100(r1)
@@ -1852,7 +1852,7 @@ lbl_80038CB0:
 /* 80038D78 00035CD8  38 A1 02 E8 */	addi r5, r1, 0x2e8
 /* 80038D7C 00035CDC  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80038D80 00035CE0  7D 89 03 A6 */	mtctr r12
-/* 80038D84 00035CE4  4E 80 04 21 */	bctrl 
+/* 80038D84 00035CE4  4E 80 04 21 */	bctrl
 /* 80038D88 00035CE8  88 C1 01 58 */	lbz r6, 0x158(r1)
 /* 80038D8C 00035CEC  C0 E1 01 38 */	lfs f7, 0x138(r1)
 /* 80038D90 00035CF0  C0 C1 01 3C */	lfs f6, 0x13c(r1)
@@ -2048,7 +2048,7 @@ lbl_80039050:
 /* 80039064 00035FC4  80 01 03 B4 */	lwz r0, 0x3b4(r1)
 /* 80039068 00035FC8  7C 08 03 A6 */	mtlr r0
 /* 8003906C 00035FCC  38 21 03 B0 */	addi r1, r1, 0x3b0
-/* 80039070 00035FD0  4E 80 00 20 */	blr 
+/* 80039070 00035FD0  4E 80 00 20 */	blr
 
 .global CanCollideWith__15CGameProjectileFR6CActorR13CStateManager
 CanCollideWith__15CGameProjectileFR6CActorR13CStateManager:
@@ -2067,7 +2067,7 @@ CanCollideWith__15CGameProjectileFR6CActorR13CStateManager:
 /* 800390A4 00036004  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800390A8 00036008  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 800390AC 0003600C  7D 89 03 A6 */	mtctr r12
-/* 800390B0 00036010  4E 80 04 21 */	bctrl 
+/* 800390B0 00036010  4E 80 04 21 */	bctrl
 /* 800390B4 00036014  38 9D 01 2C */	addi r4, r29, 0x12c
 /* 800390B8 00036018  38 A0 00 00 */	li r5, 0
 /* 800390BC 0003601C  48 0C 94 01 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
@@ -2159,7 +2159,7 @@ lbl_800391EC:
 /* 800391FC 0003615C  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 80039200 00036160  7C 08 03 A6 */	mtlr r0
 /* 80039204 00036164  38 21 00 70 */	addi r1, r1, 0x70
-/* 80039208 00036168  4E 80 00 20 */	blr 
+/* 80039208 00036168  4E 80 00 20 */	blr
 
 .global CanCollideWithComplexCollision__15CGameProjectileFR6CActorR13CStateManager
 CanCollideWithComplexCollision__15CGameProjectileFR6CActorR13CStateManager:
@@ -2250,14 +2250,14 @@ lbl_8003933C:
 /* 80039348 000362A8  81 9A 00 00 */	lwz r12, 0(r26)
 /* 8003934C 000362AC  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80039350 000362B0  7D 89 03 A6 */	mtctr r12
-/* 80039354 000362B4  4E 80 04 21 */	bctrl 
+/* 80039354 000362B4  4E 80 04 21 */	bctrl
 /* 80039358 000362B8  81 9A 00 00 */	lwz r12, 0(r26)
 /* 8003935C 000362BC  7C 7F 1B 78 */	mr r31, r3
 /* 80039360 000362C0  7F 44 D3 78 */	mr r4, r26
 /* 80039364 000362C4  38 61 02 38 */	addi r3, r1, 0x238
 /* 80039368 000362C8  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8003936C 000362CC  7D 89 03 A6 */	mtctr r12
-/* 80039370 000362D0  4E 80 04 21 */	bctrl 
+/* 80039370 000362D0  4E 80 04 21 */	bctrl
 /* 80039374 000362D4  38 61 02 9C */	addi r3, r1, 0x29c
 /* 80039378 000362D8  38 81 02 38 */	addi r4, r1, 0x238
 /* 8003937C 000362DC  48 2D 97 F9 */	bl __ct__12CTransform4fFRC12CTransform4f
@@ -2322,7 +2322,7 @@ lbl_8003933C:
 /* 80039468 000363C8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8003946C 000363CC  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80039470 000363D0  7D 89 03 A6 */	mtctr r12
-/* 80039474 000363D4  4E 80 04 21 */	bctrl 
+/* 80039474 000363D4  4E 80 04 21 */	bctrl
 /* 80039478 000363D8  88 81 02 28 */	lbz r4, 0x228(r1)
 /* 8003947C 000363DC  C0 01 02 08 */	lfs f0, 0x208(r1)
 /* 80039480 000363E0  28 04 00 00 */	cmplwi r4, 0
@@ -2340,7 +2340,7 @@ lbl_8003933C:
 /* 800394B0 00036410  81 9F 00 00 */	lwz r12, 0(r31)
 /* 800394B4 00036414  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800394B8 00036418  7D 89 03 A6 */	mtctr r12
-/* 800394BC 0003641C  4E 80 04 21 */	bctrl 
+/* 800394BC 0003641C  4E 80 04 21 */	bctrl
 /* 800394C0 00036420  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 800394C4 00036424  28 00 48 52 */	cmplwi r0, 0x4852
 /* 800394C8 00036428  41 82 01 D4 */	beq lbl_8003969C
@@ -2398,7 +2398,7 @@ lbl_8003933C:
 /* 80039598 000364F8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8003959C 000364FC  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800395A0 00036500  7D 89 03 A6 */	mtctr r12
-/* 800395A4 00036504  4E 80 04 21 */	bctrl 
+/* 800395A4 00036504  4E 80 04 21 */	bctrl
 /* 800395A8 00036508  88 81 01 F8 */	lbz r4, 0x1f8(r1)
 /* 800395AC 0003650C  C0 01 01 D8 */	lfs f0, 0x1d8(r1)
 /* 800395B0 00036510  28 04 00 00 */	cmplwi r4, 0
@@ -2730,7 +2730,7 @@ lbl_80039A70:
 /* 80039A8C 000369EC  80 01 04 04 */	lwz r0, 0x404(r1)
 /* 80039A90 000369F0  7C 08 03 A6 */	mtlr r0
 /* 80039A94 000369F4  38 21 04 00 */	addi r1, r1, 0x400
-/* 80039A98 000369F8  4E 80 00 20 */	blr 
+/* 80039A98 000369F8  4E 80 00 20 */	blr
 
 .global CanCollideWithGameObject__15CGameProjectileFR6CActorR13CStateManager
 CanCollideWithGameObject__15CGameProjectileFR6CActorR13CStateManager:
@@ -2766,7 +2766,7 @@ CanCollideWithGameObject__15CGameProjectileFR6CActorR13CStateManager:
 /* 80039B10 00036A70  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80039B14 00036A74  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80039B18 00036A78  7D 89 03 A6 */	mtctr r12
-/* 80039B1C 00036A7C  4E 80 04 21 */	bctrl 
+/* 80039B1C 00036A7C  4E 80 04 21 */	bctrl
 /* 80039B20 00036A80  28 03 00 00 */	cmplwi r3, 0
 /* 80039B24 00036A84  40 82 00 84 */	bne lbl_80039BA8
 /* 80039B28 00036A88  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -2943,7 +2943,7 @@ lbl_80039D94:
 /* 80039DB4 00036D14  80 BD 00 E8 */	lwz r5, 0xe8(r29)
 /* 80039DB8 00036D18  81 8C 00 94 */	lwz r12, 0x94(r12)
 /* 80039DBC 00036D1C  7D 89 03 A6 */	mtctr r12
-/* 80039DC0 00036D20  4E 80 04 21 */	bctrl 
+/* 80039DC0 00036D20  4E 80 04 21 */	bctrl
 /* 80039DC4 00036D24  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80039DC8 00036D28  40 82 01 B4 */	bne lbl_80039F7C
 /* 80039DCC 00036D2C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -3101,12 +3101,12 @@ lbl_80039FF8:
 /* 8003A008 00036F68  83 81 01 D0 */	lwz r28, 0x1d0(r1)
 /* 8003A00C 00036F6C  7C 08 03 A6 */	mtlr r0
 /* 8003A010 00036F70  38 21 01 E0 */	addi r1, r1, 0x1e0
-/* 8003A014 00036F74  4E 80 00 20 */	blr 
+/* 8003A014 00036F74  4E 80 00 20 */	blr
 
 .global CanBeShot__3CAiFRC13CStateManageri
 CanBeShot__3CAiFRC13CStateManageri:
 /* 8003A018 00036F78  38 60 00 01 */	li r3, 1
-/* 8003A01C 00036F7C  4E 80 00 20 */	blr 
+/* 8003A01C 00036F7C  4E 80 00 20 */	blr
 
 .global CanCollideWithTrigger__15CGameProjectileFR6CActorR13CStateManager
 CanCollideWithTrigger__15CGameProjectileFR6CActorR13CStateManager:
@@ -3271,7 +3271,7 @@ lbl_8003A25C:
 /* 8003A260 000371C0  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8003A264 000371C4  7C 08 03 A6 */	mtlr r0
 /* 8003A268 000371C8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8003A26C 000371CC  4E 80 00 20 */	blr 
+/* 8003A26C 000371CC  4E 80 00 20 */	blr
 
 .global GetTouchBounds__15CGameProjectileCFv
 GetTouchBounds__15CGameProjectileCFv:
@@ -3310,7 +3310,7 @@ lbl_8003A2E4:
 /* 8003A2E8 00037248  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8003A2EC 0003724C  7C 08 03 A6 */	mtlr r0
 /* 8003A2F0 00037250  38 21 00 30 */	addi r1, r1, 0x30
-/* 8003A2F4 00037254  4E 80 00 20 */	blr 
+/* 8003A2F4 00037254  4E 80 00 20 */	blr
 
 .global GetProjectileBounds__15CGameProjectileCFv
 GetProjectileBounds__15CGameProjectileCFv:
@@ -3403,7 +3403,7 @@ lbl_8003A404:
 /* 8003A420 00037380  D0 A3 00 10 */	stfs f5, 0x10(r3)
 /* 8003A424 00037384  D0 C3 00 14 */	stfs f6, 0x14(r3)
 /* 8003A428 00037388  38 21 00 40 */	addi r1, r1, 0x40
-/* 8003A42C 0003738C  4E 80 00 20 */	blr 
+/* 8003A42C 0003738C  4E 80 00 20 */	blr
 
 .global Render__15CGameProjectileCFRC13CStateManager
 Render__15CGameProjectileCFRC13CStateManager:
@@ -3418,7 +3418,7 @@ Render__15CGameProjectileCFRC13CStateManager:
 /* 8003A450 000373B0  81 9E 01 70 */	lwz r12, 0x170(r30)
 /* 8003A454 000373B4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8003A458 000373B8  7D 89 03 A6 */	mtctr r12
-/* 8003A45C 000373BC  4E 80 04 21 */	bctrl 
+/* 8003A45C 000373BC  4E 80 04 21 */	bctrl
 /* 8003A460 000373C0  7F C3 F3 78 */	mr r3, r30
 /* 8003A464 000373C4  7F E4 FB 78 */	mr r4, r31
 /* 8003A468 000373C8  48 0C 7A A1 */	bl Render__7CWeaponCFRC13CStateManager
@@ -3427,7 +3427,7 @@ Render__15CGameProjectileCFRC13CStateManager:
 /* 8003A474 000373D4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8003A478 000373D8  7C 08 03 A6 */	mtlr r0
 /* 8003A47C 000373DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8003A480 000373E0  4E 80 00 20 */	blr 
+/* 8003A480 000373E0  4E 80 00 20 */	blr
 
 .global "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
 "__ct__15CGameProjectileFbRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb":
@@ -3633,4 +3633,4 @@ lbl_8003A6E0:
 /* 8003A794 000376F4  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 8003A798 000376F8  7C 08 03 A6 */	mtlr r0
 /* 8003A79C 000376FC  38 21 01 30 */	addi r1, r1, 0x130
-/* 8003A7A0 00037700  4E 80 00 20 */	blr 
+/* 8003A7A0 00037700  4E 80 00 20 */	blr

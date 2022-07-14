@@ -118,7 +118,7 @@ lbl_805A9158:
 .global lbl_805A915C
 lbl_805A915C:
 	.skip 0x4
-	
+
 .section .text, "ax"
 
 .global UpdateMorphBallTransition__7CPlayerFfR13CStateManager
@@ -724,19 +724,19 @@ lbl_8028262C:
 /* 80282634 0027F594  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80282638 0027F598  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8028263C 0027F59C  7D 89 03 A6 */	mtctr r12
-/* 80282640 0027F5A0  4E 80 04 21 */	bctrl 
+/* 80282640 0027F5A0  4E 80 04 21 */	bctrl
 /* 80282644 0027F5A4  7F 83 E3 78 */	mr r3, r28
 /* 80282648 0027F5A8  81 9C 00 00 */	lwz r12, 0(r28)
 /* 8028264C 0027F5AC  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80282650 0027F5B0  7D 89 03 A6 */	mtctr r12
-/* 80282654 0027F5B4  4E 80 04 21 */	bctrl 
+/* 80282654 0027F5B4  4E 80 04 21 */	bctrl
 /* 80282658 0027F5B8  7C 64 1B 78 */	mr r4, r3
 /* 8028265C 0027F5BC  38 61 00 A8 */	addi r3, r1, 0xa8
 /* 80282660 0027F5C0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80282664 0027F5C4  38 A1 01 48 */	addi r5, r1, 0x148
 /* 80282668 0027F5C8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8028266C 0027F5CC  7D 89 03 A6 */	mtctr r12
-/* 80282670 0027F5D0  4E 80 04 21 */	bctrl 
+/* 80282670 0027F5D0  4E 80 04 21 */	bctrl
 /* 80282674 0027F5D4  C0 A1 00 A8 */	lfs f5, 0xa8(r1)
 /* 80282678 0027F5D8  38 61 00 74 */	addi r3, r1, 0x74
 /* 8028267C 0027F5DC  C0 81 00 AC */	lfs f4, 0xac(r1)
@@ -946,7 +946,7 @@ lbl_8028295C:
 /* 80282978 0027F8D8  80 01 02 74 */	lwz r0, 0x274(r1)
 /* 8028297C 0027F8DC  7C 08 03 A6 */	mtlr r0
 /* 80282980 0027F8E0  38 21 02 70 */	addi r1, r1, 0x270
-/* 80282984 0027F8E4  4E 80 00 20 */	blr 
+/* 80282984 0027F8E4  4E 80 00 20 */	blr
 
 .global sub_80282988
 sub_80282988:
@@ -968,7 +968,7 @@ sub_80282988:
 /* 802829C4 0027F924  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802829C8 0027F928  7C 08 03 A6 */	mtlr r0
 /* 802829CC 0027F92C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802829D0 0027F930  4E 80 00 20 */	blr 
+/* 802829D0 0027F930  4E 80 00 20 */	blr
 
 .global "erase__Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>FQ24rstl152pointer_iterator<Q24rstl22auto_ptr<10CModelData>,Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q24rstl22auto_ptr<10CModelData>,Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "erase__Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>FQ24rstl152pointer_iterator<Q24rstl22auto_ptr<10CModelData>,Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q24rstl22auto_ptr<10CModelData>,Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -1045,7 +1045,7 @@ lbl_80282AA8:
 /* 80282AD0 0027FA30  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80282AD4 0027FA34  7C 08 03 A6 */	mtlr r0
 /* 80282AD8 0027FA38  38 21 00 30 */	addi r1, r1, 0x30
-/* 80282ADC 0027FA3C  4E 80 00 20 */	blr 
+/* 80282ADC 0027FA3C  4E 80 00 20 */	blr
 
 .global Clone__11IAnimReaderCFv
 Clone__11IAnimReaderCFv:
@@ -1057,12 +1057,12 @@ Clone__11IAnimReaderCFv:
 /* 80282AF4 0027FA54  81 84 00 00 */	lwz r12, 0(r4)
 /* 80282AF8 0027FA58  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80282AFC 0027FA5C  7D 89 03 A6 */	mtctr r12
-/* 80282B00 0027FA60  4E 80 04 21 */	bctrl 
+/* 80282B00 0027FA60  4E 80 04 21 */	bctrl
 /* 80282B04 0027FA64  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80282B08 0027FA68  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80282B0C 0027FA6C  7C 08 03 A6 */	mtlr r0
 /* 80282B10 0027FA70  38 21 00 10 */	addi r1, r1, 0x10
-/* 80282B14 0027FA74  4E 80 00 20 */	blr 
+/* 80282B14 0027FA74  4E 80 00 20 */	blr
 
 .global UpdateTransitionFilter__7CPlayerFfR13CStateManager
 UpdateTransitionFilter__7CPlayerFfR13CStateManager:
@@ -1164,7 +1164,7 @@ lbl_80282C78:
 /* 80282C78 0027FBD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80282C7C 0027FBDC  7C 08 03 A6 */	mtlr r0
 /* 80282C80 0027FBE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80282C84 0027FBE4  4E 80 00 20 */	blr 
+/* 80282C84 0027FBE4  4E 80 00 20 */	blr
 
 .global InitializeBallTransition__7CPlayerFv
 InitializeBallTransition__7CPlayerFv:
@@ -1206,7 +1206,7 @@ lbl_80282D0C:
 /* 80282D0C 0027FC6C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80282D10 0027FC70  7C 08 03 A6 */	mtlr r0
 /* 80282D14 0027FC74  38 21 00 30 */	addi r1, r1, 0x30
-/* 80282D18 0027FC78  4E 80 00 20 */	blr 
+/* 80282D18 0027FC78  4E 80 00 20 */	blr
 
 .global LeaveMorphBallState__7CPlayerFR13CStateManager
 LeaveMorphBallState__7CPlayerFR13CStateManager:
@@ -1314,7 +1314,7 @@ lbl_80282D88:
 /* 80282EA4 0027FE04  81 83 00 00 */	lwz r12, 0(r3)
 /* 80282EA8 0027FE08  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80282EAC 0027FE0C  7D 89 03 A6 */	mtctr r12
-/* 80282EB0 0027FE10  4E 80 04 21 */	bctrl 
+/* 80282EB0 0027FE10  4E 80 04 21 */	bctrl
 /* 80282EB4 0027FE14  7F C3 F3 78 */	mr r3, r30
 /* 80282EB8 0027FE18  7F E5 FB 78 */	mr r5, r31
 /* 80282EBC 0027FE1C  38 9E 00 34 */	addi r4, r30, 0x34
@@ -1329,7 +1329,7 @@ lbl_80282D88:
 /* 80282EE0 0027FE40  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80282EE4 0027FE44  7C 08 03 A6 */	mtlr r0
 /* 80282EE8 0027FE48  38 21 00 30 */	addi r1, r1, 0x30
-/* 80282EEC 0027FE4C  4E 80 00 20 */	blr 
+/* 80282EEC 0027FE4C  4E 80 00 20 */	blr
 
 .global EnterMorphBallState__7CPlayerFR13CStateManager
 EnterMorphBallState__7CPlayerFR13CStateManager:
@@ -1414,7 +1414,7 @@ lbl_80282F80:
 /* 8028301C 0027FF7C  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80283020 0027FF80  7C 08 03 A6 */	mtlr r0
 /* 80283024 0027FF84  38 21 00 50 */	addi r1, r1, 0x50
-/* 80283028 0027FF88  4E 80 00 20 */	blr 
+/* 80283028 0027FF88  4E 80 00 20 */	blr
 
 .global ActivateMorphBallCamera__7CPlayerFR13CStateManager
 ActivateMorphBallCamera__7CPlayerFR13CStateManager:
@@ -1435,7 +1435,7 @@ ActivateMorphBallCamera__7CPlayerFR13CStateManager:
 /* 80283064 0027FFC4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80283068 0027FFC8  7C 08 03 A6 */	mtlr r0
 /* 8028306C 0027FFCC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80283070 0027FFD0  4E 80 00 20 */	blr 
+/* 80283070 0027FFD0  4E 80 00 20 */	blr
 
 .global TransitionFromMorphBallState__7CPlayerFR13CStateManager
 TransitionFromMorphBallState__7CPlayerFR13CStateManager:
@@ -1683,7 +1683,7 @@ lbl_802833A0:
 /* 8028341C 0028037C  C3 7D 00 50 */	lfs f27, 0x50(r29)
 /* 80283420 00280380  C3 9D 00 40 */	lfs f28, 0x40(r29)
 /* 80283424 00280384  7D 89 03 A6 */	mtctr r12
-/* 80283428 00280388  4E 80 04 21 */	bctrl 
+/* 80283428 00280388  4E 80 04 21 */	bctrl
 /* 8028342C 0028038C  C0 01 00 C4 */	lfs f0, 0xc4(r1)
 /* 80283430 00280390  38 61 01 10 */	addi r3, r1, 0x110
 /* 80283434 00280394  C0 61 00 BC */	lfs f3, 0xbc(r1)
@@ -2019,7 +2019,7 @@ lbl_80283900:
 /* 8028393C 0028089C  83 A1 02 44 */	lwz r29, 0x244(r1)
 /* 80283940 002808A0  7C 08 03 A6 */	mtlr r0
 /* 80283944 002808A4  38 21 02 B0 */	addi r1, r1, 0x2b0
-/* 80283948 002808A8  4E 80 00 20 */	blr 
+/* 80283948 002808A8  4E 80 00 20 */	blr
 
 .global TransitionToMorphBallState__7CPlayerFfR13CStateManager
 TransitionToMorphBallState__7CPlayerFfR13CStateManager:
@@ -2218,7 +2218,7 @@ lbl_80283BF8:
 /* 80283C34 00280B94  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 80283C38 00280B98  7C 08 03 A6 */	mtlr r0
 /* 80283C3C 00280B9C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80283C40 00280BA0  4E 80 00 20 */	blr 
+/* 80283C40 00280BA0  4E 80 00 20 */	blr
 
 .global GetNextBallTransitionAnim__7CPlayerFfRbR13CStateManager
 GetNextBallTransitionAnim__7CPlayerFfRbR13CStateManager:
@@ -2303,7 +2303,7 @@ lbl_80283D50:
 /* 80283D74 00280CD4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80283D78 00280CD8  7C 08 03 A6 */	mtlr r0
 /* 80283D7C 00280CDC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80283D80 00280CE0  4E 80 00 20 */	blr 
+/* 80283D80 00280CE0  4E 80 00 20 */	blr
 
 .global ChoseTransitionToAnimation__7CPlayerCFR13CStateManager
 ChoseTransitionToAnimation__7CPlayerCFR13CStateManager:
@@ -2419,7 +2419,7 @@ lbl_80283F04:
 /* 80283F18 00280E78  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80283F1C 00280E7C  7C 08 03 A6 */	mtlr r0
 /* 80283F20 00280E80  38 21 00 60 */	addi r1, r1, 0x60
-/* 80283F24 00280E84  4E 80 00 20 */	blr 
+/* 80283F24 00280E84  4E 80 00 20 */	blr
 
 .global SetIntoBallReadyAnimation__7CPlayerFR13CStateManager
 SetIntoBallReadyAnimation__7CPlayerFR13CStateManager:
@@ -2480,7 +2480,7 @@ SetIntoBallReadyAnimation__7CPlayerFR13CStateManager:
 /* 80284000 00280F60  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80284004 00280F64  7C 08 03 A6 */	mtlr r0
 /* 80284008 00280F68  38 21 00 60 */	addi r1, r1, 0x60
-/* 8028400C 00280F6C  4E 80 00 20 */	blr 
+/* 8028400C 00280F6C  4E 80 00 20 */	blr
 
 .global UpdateCameraBob__7CPlayerFfR13CStateManager
 UpdateCameraBob__7CPlayerFfR13CStateManager:
@@ -2713,12 +2713,12 @@ lbl_802842CC:
 /* 8028435C 002812BC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80284360 002812C0  7C 08 03 A6 */	mtlr r0
 /* 80284364 002812C4  38 21 00 90 */	addi r1, r1, 0x90
-/* 80284368 002812C8  4E 80 00 20 */	blr 
+/* 80284368 002812C8  4E 80 00 20 */	blr
 
 .global SetEyeZBias__7CPlayerFf
 SetEyeZBias__7CPlayerFf:
 /* 8028436C 002812CC  D0 23 09 C8 */	stfs f1, 0x9c8(r3)
-/* 80284370 002812D0  4E 80 00 20 */	blr 
+/* 80284370 002812D0  4E 80 00 20 */	blr
 
 .global AddToPlayerHintRemoveList__7CPlayerF9TUniqueIdR13CStateManager
 AddToPlayerHintRemoveList__7CPlayerF9TUniqueIdR13CStateManager:
@@ -2773,7 +2773,7 @@ lbl_80284418:
 /* 80284420 00281380  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80284424 00281384  7C 08 03 A6 */	mtlr r0
 /* 80284428 00281388  38 21 00 20 */	addi r1, r1, 0x20
-/* 8028442C 0028138C  4E 80 00 20 */	blr 
+/* 8028442C 0028138C  4E 80 00 20 */	blr
 
 .global DeactivatePlayerHint__7CPlayerF9TUniqueIdR13CStateManager
 DeactivatePlayerHint__7CPlayerF9TUniqueIdR13CStateManager:
@@ -2834,7 +2834,7 @@ lbl_802844E8:
 /* 802844F4 00281454  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802844F8 00281458  7C 08 03 A6 */	mtlr r0
 /* 802844FC 0028145C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80284500 00281460  4E 80 00 20 */	blr 
+/* 80284500 00281460  4E 80 00 20 */	blr
 
 .global AddToPlayerHintAddList__7CPlayerF9TUniqueIdR13CStateManager
 AddToPlayerHintAddList__7CPlayerF9TUniqueIdR13CStateManager:
@@ -2892,7 +2892,7 @@ lbl_802845B4:
 /* 802845BC 0028151C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802845C0 00281520  7C 08 03 A6 */	mtlr r0
 /* 802845C4 00281524  38 21 00 20 */	addi r1, r1, 0x20
-/* 802845C8 00281528  4E 80 00 20 */	blr 
+/* 802845C8 00281528  4E 80 00 20 */	blr
 
 .global UpdatePlayerHints__7CPlayerFRC13CStateManager
 UpdatePlayerHints__7CPlayerFRC13CStateManager:
@@ -3250,7 +3250,7 @@ lbl_80284A94:
 /* 80284A98 002819F8  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80284A9C 002819FC  7C 08 03 A6 */	mtlr r0
 /* 80284AA0 00281A00  38 21 00 70 */	addi r1, r1, 0x70
-/* 80284AA4 00281A04  4E 80 00 20 */	blr 
+/* 80284AA4 00281A04  4E 80 00 20 */	blr
 
 .global SetAreaPlayerHint__7CPlayerFRC17CScriptPlayerHintRC13CStateManager
 SetAreaPlayerHint__7CPlayerFRC17CScriptPlayerHintRC13CStateManager:
@@ -3389,7 +3389,7 @@ lbl_80284C88:
 /* 80284C94 00281BF4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80284C98 00281BF8  7C 08 03 A6 */	mtlr r0
 /* 80284C9C 00281BFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80284CA0 00281C00  4E 80 00 20 */	blr 
+/* 80284CA0 00281C00  4E 80 00 20 */	blr
 
 .global ResetPlayerHintState__7CPlayerFv
 ResetPlayerHintState__7CPlayerFv:
@@ -3433,7 +3433,7 @@ ResetPlayerHintState__7CPlayerFv:
 /* 80284D38 00281C98  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80284D3C 00281C9C  7C 08 03 A6 */	mtlr r0
 /* 80284D40 00281CA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80284D44 00281CA4  4E 80 00 20 */	blr 
+/* 80284D44 00281CA4  4E 80 00 20 */	blr
 
 .global GetBallPosition__7CPlayerCFv
 GetBallPosition__7CPlayerCFv:
@@ -3449,7 +3449,7 @@ GetBallPosition__7CPlayerCFv:
 /* 80284D6C 00281CCC  EC 02 08 2A */	fadds f0, f2, f1
 /* 80284D70 00281CD0  D0 63 00 04 */	stfs f3, 4(r3)
 /* 80284D74 00281CD4  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80284D78 00281CD8  4E 80 00 20 */	blr 
+/* 80284D78 00281CD8  4E 80 00 20 */	blr
 
 .global GetEyePosition__7CPlayerCFv
 GetEyePosition__7CPlayerCFv:
@@ -3477,7 +3477,7 @@ GetEyePosition__7CPlayerCFv:
 /* 80284DD0 00281D30  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80284DD4 00281D34  7C 08 03 A6 */	mtlr r0
 /* 80284DD8 00281D38  38 21 00 10 */	addi r1, r1, 0x10
-/* 80284DDC 00281D3C  4E 80 00 20 */	blr 
+/* 80284DDC 00281D3C  4E 80 00 20 */	blr
 
 .global GetEyeHeight__7CPlayerCFv
 GetEyeHeight__7CPlayerCFv:
@@ -3494,7 +3494,7 @@ GetEyeHeight__7CPlayerCFv:
 /* 80284E08 00281D68  D0 41 00 08 */	stfs f2, 8(r1)
 /* 80284E0C 00281D6C  D0 61 00 10 */	stfs f3, 0x10(r1)
 /* 80284E10 00281D70  38 21 00 20 */	addi r1, r1, 0x20
-/* 80284E14 00281D74  4E 80 00 20 */	blr 
+/* 80284E14 00281D74  4E 80 00 20 */	blr
 
 .global GetUnbiasedEyeHeight__7CPlayerCFv
 GetUnbiasedEyeHeight__7CPlayerCFv:
@@ -3509,7 +3509,7 @@ GetUnbiasedEyeHeight__7CPlayerCFv:
 /* 80284E38 00281D98  D0 41 00 08 */	stfs f2, 8(r1)
 /* 80284E3C 00281D9C  D0 61 00 10 */	stfs f3, 0x10(r1)
 /* 80284E40 00281DA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80284E44 00281DA4  4E 80 00 20 */	blr 
+/* 80284E44 00281DA4  4E 80 00 20 */	blr
 
 .global GetStepUpHeight__7CPlayerCFv
 GetStepUpHeight__7CPlayerCFv:
@@ -3530,7 +3530,7 @@ lbl_80284E74:
 /* 80284E74 00281DD4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80284E78 00281DD8  7C 08 03 A6 */	mtlr r0
 /* 80284E7C 00281DDC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80284E80 00281DE0  4E 80 00 20 */	blr 
+/* 80284E80 00281DE0  4E 80 00 20 */	blr
 
 .global GetStepDownHeight__7CPlayerCFv
 GetStepDownHeight__7CPlayerCFv:
@@ -3553,7 +3553,7 @@ lbl_80284EB8:
 /* 80284EB8 00281E18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80284EBC 00281E1C  7C 08 03 A6 */	mtlr r0
 /* 80284EC0 00281E20  38 21 00 10 */	addi r1, r1, 0x10
-/* 80284EC4 00281E24  4E 80 00 20 */	blr 
+/* 80284EC4 00281E24  4E 80 00 20 */	blr
 
 .global UpdateSubmerged__7CPlayerFRC13CStateManager
 UpdateSubmerged__7CPlayerFRC13CStateManager:
@@ -3639,7 +3639,7 @@ lbl_80284FDC:
 /* 80284FFC 00281F5C  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 80285000 00281F60  7C 08 03 A6 */	mtlr r0
 /* 80285004 00281F64  38 21 00 90 */	addi r1, r1, 0x90
-/* 80285008 00281F68  4E 80 00 20 */	blr 
+/* 80285008 00281F68  4E 80 00 20 */	blr
 
 .global CheckSubmerged__7CPlayerCFv
 CheckSubmerged__7CPlayerCFv:
@@ -3681,7 +3681,7 @@ lbl_80285080:
 /* 8028508C 00281FEC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80285090 00281FF0  7C 08 03 A6 */	mtlr r0
 /* 80285094 00281FF4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80285098 00281FF8  4E 80 00 20 */	blr 
+/* 80285098 00281FF8  4E 80 00 20 */	blr
 
 .global Teleport__7CPlayerFRC12CTransform4fR13CStateManagerb
 Teleport__7CPlayerFRC12CTransform4fR13CStateManagerb:
@@ -3876,7 +3876,7 @@ lbl_80285294:
 /* 80285374 002822D4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80285378 002822D8  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8028537C 002822DC  7D 89 03 A6 */	mtctr r12
-/* 80285380 002822E0  4E 80 04 21 */	bctrl 
+/* 80285380 002822E0  4E 80 04 21 */	bctrl
 /* 80285384 002822E4  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 80285388 002822E8  41 82 00 24 */	beq lbl_802853AC
 /* 8028538C 002822EC  80 7E 08 70 */	lwz r3, 0x870(r30)
@@ -3886,7 +3886,7 @@ lbl_80285294:
 /* 8028539C 002822FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 802853A0 00282300  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 802853A4 00282304  7D 89 03 A6 */	mtctr r12
-/* 802853A8 00282308  4E 80 04 21 */	bctrl 
+/* 802853A8 00282308  4E 80 04 21 */	bctrl
 lbl_802853AC:
 /* 802853AC 0028230C  7F A3 EB 78 */	mr r3, r29
 /* 802853B0 00282310  7F C5 F3 78 */	mr r5, r30
@@ -3903,7 +3903,7 @@ lbl_802853AC:
 /* 802853DC 0028233C  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 802853E0 00282340  7C 08 03 A6 */	mtlr r0
 /* 802853E4 00282344  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 802853E8 00282348  4E 80 00 20 */	blr 
+/* 802853E8 00282348  4E 80 00 20 */	blr
 
 .global BombJump__7CPlayerFRC9CVector3fR13CStateManager
 BombJump__7CPlayerFRC9CVector3fR13CStateManager:
@@ -4112,7 +4112,7 @@ lbl_802856C4:
 /* 802856D8 00282638  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 802856DC 0028263C  7C 08 03 A6 */	mtlr r0
 /* 802856E0 00282640  38 21 00 50 */	addi r1, r1, 0x50
-/* 802856E4 00282644  4E 80 00 20 */	blr 
+/* 802856E4 00282644  4E 80 00 20 */	blr
 
 .global CreateTransformFromMovementDirection__7CPlayerCFv
 CreateTransformFromMovementDirection__7CPlayerCFv:
@@ -4168,7 +4168,7 @@ lbl_8028574C:
 /* 802857A4 00282704  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802857A8 00282708  7C 08 03 A6 */	mtlr r0
 /* 802857AC 0028270C  38 21 00 40 */	addi r1, r1, 0x40
-/* 802857B0 00282710  4E 80 00 20 */	blr 
+/* 802857B0 00282710  4E 80 00 20 */	blr
 
 .global GetCollisionPrimitive__7CPlayerCFv
 GetCollisionPrimitive__7CPlayerCFv:
@@ -4201,13 +4201,13 @@ lbl_80285804:
 /* 80285804 00282764  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80285808 00282768  7C 08 03 A6 */	mtlr r0
 /* 8028580C 0028276C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80285810 00282770  4E 80 00 20 */	blr 
+/* 80285810 00282770  4E 80 00 20 */	blr
 
 .global sub_80285814
 sub_80285814:
 /* 80285814 00282774  80 63 07 68 */	lwz r3, 0x768(r3)
 /* 80285818 00282778  38 63 00 38 */	addi r3, r3, 0x38
-/* 8028581C 0028277C  4E 80 00 20 */	blr 
+/* 8028581C 0028277C  4E 80 00 20 */	blr
 
 .global GetPrimitiveTransform__7CPlayerCFv
 GetPrimitiveTransform__7CPlayerCFv:
@@ -4221,7 +4221,7 @@ GetPrimitiveTransform__7CPlayerCFv:
 /* 8028583C 0028279C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80285840 002827A0  7C 08 03 A6 */	mtlr r0
 /* 80285844 002827A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80285848 002827A8  4E 80 00 20 */	blr 
+/* 80285848 002827A8  4E 80 00 20 */	blr
 
 .global CollidedWith__7CPlayerFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
 CollidedWith__7CPlayerFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager:
@@ -4237,7 +4237,7 @@ lbl_8028586C:
 /* 8028586C 002827CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80285870 002827D0  7C 08 03 A6 */	mtlr r0
 /* 80285874 002827D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80285878 002827D8  4E 80 00 20 */	blr 
+/* 80285878 002827D8  4E 80 00 20 */	blr
 
 .global GetActualBallMaxVelocity__7CPlayerCFf
 GetActualBallMaxVelocity__7CPlayerCFf:
@@ -4281,7 +4281,7 @@ lbl_802858E0:
 /* 802858F8 00282858  EC 00 20 28 */	fsubs f0, f0, f4
 /* 802858FC 0028285C  EC 00 18 28 */	fsubs f0, f0, f3
 /* 80285900 00282860  FC 20 00 50 */	fneg f1, f0
-/* 80285904 00282864  4E 80 00 20 */	blr 
+/* 80285904 00282864  4E 80 00 20 */	blr
 
 .global GetActualFirstPersonMaxVelocity__7CPlayerCFv
 GetActualFirstPersonMaxVelocity__7CPlayerCFv:
@@ -4346,7 +4346,7 @@ lbl_802859A8:
 /* 802859C0 00282920  EC 00 20 28 */	fsubs f0, f0, f4
 /* 802859C4 00282924  EC 00 18 28 */	fsubs f0, f0, f3
 /* 802859C8 00282928  FC 20 00 50 */	fneg f1, f0
-/* 802859CC 0028292C  4E 80 00 20 */	blr 
+/* 802859CC 0028292C  4E 80 00 20 */	blr
 
 .global GetBallMaxVelocity__7CPlayerCFv
 GetBallMaxVelocity__7CPlayerCFv:
@@ -4362,7 +4362,7 @@ lbl_802859E8:
 /* 802859EC 0028294C  54 00 10 3A */	slwi r0, r0, 2
 /* 802859F0 00282950  7C 63 02 14 */	add r3, r3, r0
 /* 802859F4 00282954  C0 23 00 44 */	lfs f1, 0x44(r3)
-/* 802859F8 00282958  4E 80 00 20 */	blr 
+/* 802859F8 00282958  4E 80 00 20 */	blr
 
 .global CalculateLeaveMorphBallDirection__7CPlayerFRC11CFinalInput
 CalculateLeaveMorphBallDirection__7CPlayerFRC11CFinalInput:
@@ -4437,7 +4437,7 @@ lbl_80285AE0:
 /* 80285B00 00282A60  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80285B04 00282A64  7C 08 03 A6 */	mtlr r0
 /* 80285B08 00282A68  38 21 00 40 */	addi r1, r1, 0x40
-/* 80285B0C 00282A6C  4E 80 00 20 */	blr 
+/* 80285B0C 00282A6C  4E 80 00 20 */	blr
 
 .global CalculatePlayerControlDirection__7CPlayerFR13CStateManager
 CalculatePlayerControlDirection__7CPlayerFR13CStateManager:
@@ -4677,7 +4677,7 @@ lbl_80285E7C:
 /* 80285E88 00282DE8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80285E8C 00282DEC  7C 08 03 A6 */	mtlr r0
 /* 80285E90 00282DF0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80285E94 00282DF4  4E 80 00 20 */	blr 
+/* 80285E94 00282DF4  4E 80 00 20 */	blr
 
 .global UpdatePlayerControlDirection__7CPlayerFfR13CStateManager
 UpdatePlayerControlDirection__7CPlayerFfR13CStateManager:
@@ -4782,7 +4782,7 @@ lbl_80285FD8:
 /* 80286014 00282F74  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80286018 00282F78  7C 08 03 A6 */	mtlr r0
 /* 8028601C 00282F7C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80286020 00282F80  4E 80 00 20 */	blr 
+/* 80286020 00282F80  4E 80 00 20 */	blr
 
 .global CalculatePlayerMovementDirection__7CPlayerFf
 CalculatePlayerMovementDirection__7CPlayerFf:
@@ -5043,7 +5043,7 @@ lbl_802863D0:
 /* 802863DC 0028333C  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802863E0 00283340  7C 08 03 A6 */	mtlr r0
 /* 802863E4 00283344  38 21 00 50 */	addi r1, r1, 0x50
-/* 802863E8 00283348  4E 80 00 20 */	blr 
+/* 802863E8 00283348  4E 80 00 20 */	blr
 
 .global SetMoveState__7CPlayerFQ27NPlayer20EPlayerMovementStateR13CStateManager
 SetMoveState__7CPlayerFQ27NPlayer20EPlayerMovementStateR13CStateManager:
@@ -5252,7 +5252,7 @@ lbl_802866D4:
 /* 802866DC 0028363C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802866E0 00283640  7C 08 03 A6 */	mtlr r0
 /* 802866E4 00283644  38 21 00 20 */	addi r1, r1, 0x20
-/* 802866E8 00283648  4E 80 00 20 */	blr 
+/* 802866E8 00283648  4E 80 00 20 */	blr
 
 .global JumpInput__7CPlayerFRC11CFinalInputR13CStateManager
 JumpInput__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -5504,7 +5504,7 @@ lbl_80286A30:
 /* 80286A6C 002839CC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80286A70 002839D0  7C 08 03 A6 */	mtlr r0
 /* 80286A74 002839D4  38 21 00 90 */	addi r1, r1, 0x90
-/* 80286A78 002839D8  4E 80 00 20 */	blr 
+/* 80286A78 002839D8  4E 80 00 20 */	blr
 
 .global TurnInput__7CPlayerCFRC11CFinalInput
 TurnInput__7CPlayerCFRC11CFinalInput:
@@ -5635,7 +5635,7 @@ lbl_80286C20:
 /* 80286C40 00283BA0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80286C44 00283BA4  7C 08 03 A6 */	mtlr r0
 /* 80286C48 00283BA8  38 21 00 50 */	addi r1, r1, 0x50
-/* 80286C4C 00283BAC  4E 80 00 20 */	blr 
+/* 80286C4C 00283BAC  4E 80 00 20 */	blr
 
 .global StrafeInput__7CPlayerCFRC11CFinalInput
 StrafeInput__7CPlayerCFRC11CFinalInput:
@@ -5674,7 +5674,7 @@ lbl_80286CB4:
 /* 80286CC4 00283C24  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80286CC8 00283C28  7C 08 03 A6 */	mtlr r0
 /* 80286CCC 00283C2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80286CD0 00283C30  4E 80 00 20 */	blr 
+/* 80286CD0 00283C30  4E 80 00 20 */	blr
 
 .global ForwardInput__7CPlayerCFRC11CFinalInputf
 ForwardInput__7CPlayerCFRC11CFinalInputf:
@@ -5857,7 +5857,7 @@ lbl_80286F44:
 /* 80286F64 00283EC4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80286F68 00283EC8  7C 08 03 A6 */	mtlr r0
 /* 80286F6C 00283ECC  38 21 00 70 */	addi r1, r1, 0x70
-/* 80286F70 00283ED0  4E 80 00 20 */	blr 
+/* 80286F70 00283ED0  4E 80 00 20 */	blr
 
 .global ComputeMovement__7CPlayerFRC11CFinalInputR13CStateManagerf
 ComputeMovement__7CPlayerFRC11CFinalInputR13CStateManagerf:
@@ -6516,7 +6516,7 @@ lbl_8028781C:
 /* 80287864 002847C4  83 81 00 F0 */	lwz r28, 0xf0(r1)
 /* 80287868 002847C8  7C 08 03 A6 */	mtlr r0
 /* 8028786C 002847CC  38 21 01 60 */	addi r1, r1, 0x160
-/* 80287870 002847D0  4E 80 00 20 */	blr 
+/* 80287870 002847D0  4E 80 00 20 */	blr
 
 .global ComputeDash__7CPlayerFRC11CFinalInputfR13CStateManager
 ComputeDash__7CPlayerFRC11CFinalInputfR13CStateManager:
@@ -6956,7 +6956,7 @@ lbl_80287E84:
 /* 80287ECC 00284E2C  83 81 00 B0 */	lwz r28, 0xb0(r1)
 /* 80287ED0 00284E30  7C 08 03 A6 */	mtlr r0
 /* 80287ED4 00284E34  38 21 01 30 */	addi r1, r1, 0x130
-/* 80287ED8 00284E38  4E 80 00 20 */	blr 
+/* 80287ED8 00284E38  4E 80 00 20 */	blr
 
 .global FinishSidewaysDash__7CPlayerFv
 FinishSidewaysDash__7CPlayerFv:
@@ -6971,7 +6971,7 @@ lbl_80287EF0:
 /* 80287EF8 00284E58  98 03 03 7C */	stb r0, 0x37c(r3)
 /* 80287EFC 00284E5C  D0 03 03 80 */	stfs f0, 0x380(r3)
 /* 80287F00 00284E60  D0 03 03 84 */	stfs f0, 0x384(r3)
-/* 80287F04 00284E64  4E 80 00 20 */	blr 
+/* 80287F04 00284E64  4E 80 00 20 */	blr
 
 .global SidewaysDashAllowed__7CPlayerCFffRC11CFinalInputR13CStateManager
 SidewaysDashAllowed__7CPlayerCFffRC11CFinalInputR13CStateManager:
@@ -7090,7 +7090,7 @@ lbl_802880A0:
 /* 802880B4 00285014  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802880B8 00285018  7C 08 03 A6 */	mtlr r0
 /* 802880BC 0028501C  38 21 00 50 */	addi r1, r1, 0x50
-/* 802880C0 00285020  4E 80 00 20 */	blr 
+/* 802880C0 00285020  4E 80 00 20 */	blr
 
 .global UpdateStepCameraZBias__7CPlayerFf
 UpdateStepCameraZBias__7CPlayerFf:
@@ -7145,14 +7145,14 @@ UpdateStepCameraZBias__7CPlayerFf:
 /* 80288184 002850E4  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80288188 002850E8  81 8C 00 7C */	lwz r12, 0x7c(r12)
 /* 8028818C 002850EC  7D 89 03 A6 */	mtctr r12
-/* 80288190 002850F0  4E 80 04 21 */	bctrl 
+/* 80288190 002850F0  4E 80 04 21 */	bctrl
 /* 80288194 002850F4  FC 1D 08 40 */	fcmpo cr0, f29, f1
 /* 80288198 002850F8  40 81 00 20 */	ble lbl_802881B8
 /* 8028819C 002850FC  7F E3 FB 78 */	mr r3, r31
 /* 802881A0 00285100  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802881A4 00285104  81 8C 00 7C */	lwz r12, 0x7c(r12)
 /* 802881A8 00285108  7D 89 03 A6 */	mtctr r12
-/* 802881AC 0028510C  4E 80 04 21 */	bctrl 
+/* 802881AC 0028510C  4E 80 04 21 */	bctrl
 /* 802881B0 00285110  EC 1D 08 28 */	fsubs f0, f29, f1
 /* 802881B4 00285114  EF 9C 00 2A */	fadds f28, f28, f0
 lbl_802881B8:
@@ -7169,7 +7169,7 @@ lbl_802881C4:
 /* 802881DC 0028513C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802881E0 00285140  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 802881E4 00285144  7D 89 03 A6 */	mtctr r12
-/* 802881E8 00285148  4E 80 04 21 */	bctrl 
+/* 802881E8 00285148  4E 80 04 21 */	bctrl
 /* 802881EC 0028514C  FC 00 08 50 */	fneg f0, f1
 /* 802881F0 00285150  FC 1D 00 40 */	fcmpo cr0, f29, f0
 /* 802881F4 00285154  40 80 00 24 */	bge lbl_80288218
@@ -7177,7 +7177,7 @@ lbl_802881C4:
 /* 802881FC 0028515C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80288200 00285160  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 80288204 00285164  7D 89 03 A6 */	mtctr r12
-/* 80288208 00285168  4E 80 04 21 */	bctrl 
+/* 80288208 00285168  4E 80 04 21 */	bctrl
 /* 8028820C 0028516C  FC 00 E8 50 */	fneg f0, f29
 /* 80288210 00285170  EC 00 08 28 */	fsubs f0, f0, f1
 /* 80288214 00285174  EF 9C 00 2A */	fadds f28, f28, f0
@@ -7211,7 +7211,7 @@ lbl_8028823C:
 /* 80288274 002851D4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80288278 002851D8  7C 08 03 A6 */	mtlr r0
 /* 8028827C 002851DC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80288280 002851E0  4E 80 00 20 */	blr 
+/* 80288280 002851E0  4E 80 00 20 */	blr
 
 .global UpdateBombJumpStuff__7CPlayerFv
 UpdateBombJumpStuff__7CPlayerFv:
@@ -7255,7 +7255,7 @@ lbl_8028830C:
 /* 80288310 00285270  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80288314 00285274  7C 08 03 A6 */	mtlr r0
 /* 80288318 00285278  38 21 00 20 */	addi r1, r1, 0x20
-/* 8028831C 0028527C  4E 80 00 20 */	blr 
+/* 8028831C 0028527C  4E 80 00 20 */	blr
 
 .global GetWeight__7CPlayerCFv
 GetWeight__7CPlayerCFv:
@@ -7273,7 +7273,7 @@ GetWeight__7CPlayerCFv:
 /* 8028834C 002852AC  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 80288350 002852B0  7C 08 03 A6 */	mtlr r0
 /* 80288354 002852B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80288358 002852B8  4E 80 00 20 */	blr 
+/* 80288358 002852B8  4E 80 00 20 */	blr
 
 .global GetGravity__7CPlayerCFv
 GetGravity__7CPlayerCFv:
@@ -7317,7 +7317,7 @@ lbl_802883DC:
 /* 802883E4 00285344  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802883E8 00285348  7C 08 03 A6 */	mtlr r0
 /* 802883EC 0028534C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802883F0 00285350  4E 80 00 20 */	blr 
+/* 802883F0 00285350  4E 80 00 20 */	blr
 
 .global GetAcceleration__7CPlayerCFv
 GetAcceleration__7CPlayerCFv:
@@ -7329,12 +7329,12 @@ GetAcceleration__7CPlayerCFv:
 /* 80288408 00285368  54 00 10 3A */	slwi r0, r0, 2
 /* 8028840C 0028536C  7C 63 02 14 */	add r3, r3, r0
 /* 80288410 00285370  C0 23 02 B8 */	lfs f1, 0x2b8(r3)
-/* 80288414 00285374  4E 80 00 20 */	blr 
+/* 80288414 00285374  4E 80 00 20 */	blr
 lbl_80288418:
 /* 80288418 00285378  54 00 10 3A */	slwi r0, r0, 2
 /* 8028841C 0028537C  7C 63 02 14 */	add r3, r3, r0
 /* 80288420 00285380  C0 23 02 B8 */	lfs f1, 0x2b8(r3)
-/* 80288424 00285384  4E 80 00 20 */	blr 
+/* 80288424 00285384  4E 80 00 20 */	blr
 
 .global GetAverageSpeed__7CPlayerCFv
 GetAverageSpeed__7CPlayerCFv:
@@ -7365,7 +7365,7 @@ lbl_8028847C:
 /* 80288480 002853E0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80288484 002853E4  7C 08 03 A6 */	mtlr r0
 /* 80288488 002853E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8028848C 002853EC  4E 80 00 20 */	blr 
+/* 8028848C 002853EC  4E 80 00 20 */	blr
 
 .global sub_80288490
 sub_80288490:
@@ -7394,7 +7394,7 @@ lbl_802884DC:
 /* 802884E0 00285440  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802884E4 00285444  7C 08 03 A6 */	mtlr r0
 /* 802884E8 00285448  38 21 00 10 */	addi r1, r1, 0x10
-/* 802884EC 0028544C  4E 80 00 20 */	blr 
+/* 802884EC 0028544C  4E 80 00 20 */	blr
 
 .global GetDampedClampedVelocityWR__7CPlayerCFv
 GetDampedClampedVelocityWR__7CPlayerCFv:
@@ -7542,7 +7542,7 @@ lbl_802886C0:
 /* 802886E0 00285640  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802886E4 00285644  7C 08 03 A6 */	mtlr r0
 /* 802886E8 00285648  38 21 00 50 */	addi r1, r1, 0x50
-/* 802886EC 0028564C  4E 80 00 20 */	blr 
+/* 802886EC 0028564C  4E 80 00 20 */	blr
 
 .global __sinit_CPlayerDynamics_cpp
 __sinit_CPlayerDynamics_cpp:

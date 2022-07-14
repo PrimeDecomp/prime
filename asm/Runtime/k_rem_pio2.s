@@ -3,12 +3,34 @@
 .section .rodata
 .global lbl_803D8918
 lbl_803D8918:
-	.incbin "baserom.dol", 0x3D5918, 0x10
+	# ROM: 0x3D5918
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000006
+
 .global lbl_803D8928
 lbl_803D8928:
-	.incbin "baserom.dol", 0x3D5928, 0x40
-	
-.section .text, "ax" 
+	# ROM: 0x3D5928
+	.4byte 0x3FF921FB
+	.4byte 0x40000000
+	.asciz ">tD-"
+	.balign 4
+	.4byte 0x3CF84698
+	.4byte 0x80000000
+	.4byte 0x3B78CC51
+	.4byte 0x60000000
+	.4byte 0x39F01B83
+	.4byte 0x80000000
+	.asciz "8z% @"
+	.balign 4
+	.4byte 0x36E38222
+	.4byte 0x80000000
+	.4byte 0x3569F31D
+	.4byte 0
+
+
+.section .text, "ax"
 
 .global __kernel_rem_pio2
 __kernel_rem_pio2:
@@ -1017,4 +1039,4 @@ lbl_80393EF4:
 /* 80393F04 00390E64  80 01 02 D4 */	lwz r0, 0x2d4(r1)
 /* 80393F08 00390E68  7C 08 03 A6 */	mtlr r0
 /* 80393F0C 00390E6C  38 21 02 D0 */	addi r1, r1, 0x2d0
-/* 80393F10 00390E70  4E 80 00 20 */	blr 
+/* 80393F10 00390E70  4E 80 00 20 */	blr

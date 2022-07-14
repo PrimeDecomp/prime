@@ -329,7 +329,7 @@ lbl_802F9038:
 /* 802F90D4 002F6034  D0 C1 00 C4 */	stfs f6, 0xc4(r1)
 /* 802F90D8 002F6038  D0 A1 00 C8 */	stfs f5, 0xc8(r1)
 /* 802F90DC 002F603C  7D 89 03 A6 */	mtctr r12
-/* 802F90E0 002F6040  4E 80 04 21 */	bctrl 
+/* 802F90E0 002F6040  4E 80 04 21 */	bctrl
 /* 802F90E4 002F6044  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F90E8 002F6048  41 82 00 88 */	beq lbl_802F9170
 /* 802F90EC 002F604C  C0 41 00 B8 */	lfs f2, 0xb8(r1)
@@ -400,7 +400,7 @@ lbl_802F91D0:
 /* 802F91E8 002F6148  83 81 01 10 */	lwz r28, 0x110(r1)
 /* 802F91EC 002F614C  7C 08 03 A6 */	mtlr r0
 /* 802F91F0 002F6150  38 21 01 30 */	addi r1, r1, 0x130
-/* 802F91F4 002F6154  4E 80 00 20 */	blr 
+/* 802F91F4 002F6154  4E 80 00 20 */	blr
 
 .global sub_802f91f8
 sub_802f91f8:
@@ -546,7 +546,7 @@ lbl_802F93C0:
 /* 802F93F4 002F6354  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802F93F8 002F6358  7C 08 03 A6 */	mtlr r0
 /* 802F93FC 002F635C  38 21 00 90 */	addi r1, r1, 0x90
-/* 802F9400 002F6360  4E 80 00 20 */	blr 
+/* 802F9400 002F6360  4E 80 00 20 */	blr
 
 .global sub_802f9404
 sub_802f9404:
@@ -679,7 +679,7 @@ lbl_802F95C8:
 /* 802F95C8 002F6528  C0 04 00 00 */	lfs f0, 0(r4)
 /* 802F95CC 002F652C  D0 03 00 14 */	stfs f0, 0x14(r3)
 /* 802F95D0 002F6530  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F95D4 002F6534  4E 80 00 20 */	blr 
+/* 802F95D4 002F6534  4E 80 00 20 */	blr
 
 .global sub_802f95d8
 sub_802f95d8:
@@ -729,7 +729,7 @@ lbl_802F9644:
 /* 802F967C 002F65DC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802F9680 002F65E0  7C 08 03 A6 */	mtlr r0
 /* 802F9684 002F65E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F9688 002F65E8  4E 80 00 20 */	blr 
+/* 802F9688 002F65E8  4E 80 00 20 */	blr
 
 .global sub_802f968c
 sub_802f968c:
@@ -745,7 +745,7 @@ sub_802f968c:
 /* 802F96B0 002F6610  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F96B4 002F6614  7C 08 03 A6 */	mtlr r0
 /* 802F96B8 002F6618  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F96BC 002F661C  4E 80 00 20 */	blr 
+/* 802F96BC 002F661C  4E 80 00 20 */	blr
 
 .global VGetSegStatementSet__21CFBStreamedAnimReaderCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
 VGetSegStatementSet__21CFBStreamedAnimReaderCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime:
@@ -824,7 +824,7 @@ lbl_802F9798:
 /* 802F97B0 002F6710  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802F97B4 002F6714  7C 08 03 A6 */	mtlr r0
 /* 802F97B8 002F6718  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F97BC 002F671C  4E 80 00 20 */	blr 
+/* 802F97BC 002F671C  4E 80 00 20 */	blr
 
 .global VGetSegStatementSet__21CFBStreamedAnimReaderCFRC10CSegIdListR16CSegStatementSet
 VGetSegStatementSet__21CFBStreamedAnimReaderCFRC10CSegIdListR16CSegStatementSet:
@@ -903,7 +903,7 @@ lbl_802F9898:
 /* 802F98B0 002F6810  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802F98B4 002F6814  7C 08 03 A6 */	mtlr r0
 /* 802F98B8 002F6818  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F98BC 002F681C  4E 80 00 20 */	blr 
+/* 802F98BC 002F681C  4E 80 00 20 */	blr
 
 .global VSetPhase__21CFBStreamedAnimReaderFf
 VSetPhase__21CFBStreamedAnimReaderFf:
@@ -943,7 +943,7 @@ lbl_802F993C:
 /* 802F9940 002F68A0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802F9944 002F68A4  7C 08 03 A6 */	mtlr r0
 /* 802F9948 002F68A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F994C 002F68AC  4E 80 00 20 */	blr 
+/* 802F994C 002F68AC  4E 80 00 20 */	blr
 
 .global VAdvanceView__21CFBStreamedAnimReaderFRC13CCharAnimTime
 VAdvanceView__21CFBStreamedAnimReaderFRC13CCharAnimTime:
@@ -1203,7 +1203,7 @@ lbl_802F9C48:
 /* 802F9CE4 002F6C44  D0 C1 00 B4 */	stfs f6, 0xb4(r1)
 /* 802F9CE8 002F6C48  D0 A1 00 B8 */	stfs f5, 0xb8(r1)
 /* 802F9CEC 002F6C4C  7D 89 03 A6 */	mtctr r12
-/* 802F9CF0 002F6C50  4E 80 04 21 */	bctrl 
+/* 802F9CF0 002F6C50  4E 80 04 21 */	bctrl
 /* 802F9CF4 002F6C54  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F9CF8 002F6C58  41 82 00 88 */	beq lbl_802F9D80
 /* 802F9CFC 002F6C5C  C0 41 00 A8 */	lfs f2, 0xa8(r1)
@@ -1271,7 +1271,7 @@ lbl_802F9DD4:
 /* 802F9DEC 002F6D4C  83 81 01 00 */	lwz r28, 0x100(r1)
 /* 802F9DF0 002F6D50  7C 08 03 A6 */	mtlr r0
 /* 802F9DF4 002F6D54  38 21 01 20 */	addi r1, r1, 0x120
-/* 802F9DF8 002F6D58  4E 80 00 20 */	blr 
+/* 802F9DF8 002F6D58  4E 80 00 20 */	blr
 
 .global VReverseView__21CFBStreamedAnimReaderFRC13CCharAnimTime
 VReverseView__21CFBStreamedAnimReaderFRC13CCharAnimTime:
@@ -1298,12 +1298,12 @@ VReverseView__21CFBStreamedAnimReaderFRC13CCharAnimTime:
 /* 802F9E4C 002F6DAC  D0 C3 00 1C */	stfs f6, 0x1c(r3)
 /* 802F9E50 002F6DB0  D0 E3 00 20 */	stfs f7, 0x20(r3)
 /* 802F9E54 002F6DB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F9E58 002F6DB8  4E 80 00 20 */	blr 
+/* 802F9E58 002F6DB8  4E 80 00 20 */	blr
 
 .global VSupportsReverseView__21CFBStreamedAnimReaderCFv
 VSupportsReverseView__21CFBStreamedAnimReaderCFv:
 /* 802F9E5C 002F6DBC  38 60 00 00 */	li r3, 0
-/* 802F9E60 002F6DC0  4E 80 00 20 */	blr 
+/* 802F9E60 002F6DC0  4E 80 00 20 */	blr
 
 .global VGetRotation__21CFBStreamedAnimReaderCFRC6CSegId
 VGetRotation__21CFBStreamedAnimReaderCFRC6CSegId:
@@ -1375,7 +1375,7 @@ lbl_802F9F40:
 /* 802F9F50 002F6EB0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802F9F54 002F6EB4  7C 08 03 A6 */	mtlr r0
 /* 802F9F58 002F6EB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F9F5C 002F6EBC  4E 80 00 20 */	blr 
+/* 802F9F5C 002F6EBC  4E 80 00 20 */	blr
 
 .global VGetOffset__21CFBStreamedAnimReaderCFRC6CSegId
 VGetOffset__21CFBStreamedAnimReaderCFRC6CSegId:
@@ -1455,7 +1455,7 @@ lbl_802FA060:
 /* 802FA06C 002F6FCC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802FA070 002F6FD0  7C 08 03 A6 */	mtlr r0
 /* 802FA074 002F6FD4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FA078 002F6FD8  4E 80 00 20 */	blr 
+/* 802FA078 002F6FD8  4E 80 00 20 */	blr
 
 .global VHasOffset__21CFBStreamedAnimReaderCFRC6CSegId
 VHasOffset__21CFBStreamedAnimReaderCFRC6CSegId:
@@ -1467,7 +1467,7 @@ VHasOffset__21CFBStreamedAnimReaderCFRC6CSegId:
 /* 802FA090 002F6FF0  28 00 FF FF */	cmplwi r0, 0xffff
 /* 802FA094 002F6FF4  40 82 00 0C */	bne lbl_802FA0A0
 /* 802FA098 002F6FF8  38 60 00 00 */	li r3, 0
-/* 802FA09C 002F6FFC  4E 80 00 20 */	blr 
+/* 802FA09C 002F6FFC  4E 80 00 20 */	blr
 lbl_802FA0A0:
 /* 802FA0A0 002F7000  88 03 00 8C */	lbz r0, 0x8c(r3)
 /* 802FA0A4 002F7004  28 00 00 00 */	cmplwi r0, 0
@@ -1479,7 +1479,7 @@ lbl_802FA0B4:
 lbl_802FA0B8:
 /* 802FA0B8 002F7018  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FA0BC 002F701C  7C 63 20 AE */	lbzx r3, r3, r4
-/* 802FA0C0 002F7020  4E 80 00 20 */	blr 
+/* 802FA0C0 002F7020  4E 80 00 20 */	blr
 
 .global VGetSteadyStateAnimInfo__21CFBStreamedAnimReaderCFv
 VGetSteadyStateAnimInfo__21CFBStreamedAnimReaderCFv:
@@ -1495,7 +1495,7 @@ VGetSteadyStateAnimInfo__21CFBStreamedAnimReaderCFv:
 /* 802FA0E8 002F7048  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 802FA0EC 002F704C  88 04 00 78 */	lbz r0, 0x78(r4)
 /* 802FA0F0 002F7050  98 03 00 14 */	stb r0, 0x14(r3)
-/* 802FA0F4 002F7054  4E 80 00 20 */	blr 
+/* 802FA0F4 002F7054  4E 80 00 20 */	blr
 
 .global VGetTimeRemaining__21CFBStreamedAnimReaderCFv
 VGetTimeRemaining__21CFBStreamedAnimReaderCFv:
@@ -1518,7 +1518,7 @@ VGetTimeRemaining__21CFBStreamedAnimReaderCFv:
 /* 802FA138 002F7098  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FA13C 002F709C  7C 08 03 A6 */	mtlr r0
 /* 802FA140 002F70A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FA144 002F70A4  4E 80 00 20 */	blr 
+/* 802FA144 002F70A4  4E 80 00 20 */	blr
 
 .global VClone__21CFBStreamedAnimReaderCFv
 VClone__21CFBStreamedAnimReaderCFv:
@@ -1556,7 +1556,7 @@ lbl_802FA1A4:
 /* 802FA1C0 002F7120  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FA1C4 002F7124  7C 08 03 A6 */	mtlr r0
 /* 802FA1C8 002F7128  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FA1CC 002F712C  4E 80 00 20 */	blr 
+/* 802FA1CC 002F712C  4E 80 00 20 */	blr
 
 .global __dt__21CFBStreamedAnimReaderFv
 __dt__21CFBStreamedAnimReaderFv:
@@ -1616,7 +1616,7 @@ lbl_802FA28C:
 /* 802FA298 002F71F8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FA29C 002F71FC  7C 08 03 A6 */	mtlr r0
 /* 802FA2A0 002F7200  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FA2A4 002F7204  4E 80 00 20 */	blr 
+/* 802FA2A4 002F7204  4E 80 00 20 */	blr
 
 .global "__ct__21CFBStreamedAnimReaderFRC43TSubAnimTypeToken<22CFBStreamedCompression>13CCharAnimTime"
 "__ct__21CFBStreamedAnimReaderFRC43TSubAnimTypeToken<22CFBStreamedCompression>13CCharAnimTime":
@@ -1689,7 +1689,7 @@ lbl_802FA328:
 /* 802FA3AC 002F730C  38 80 00 01 */	li r4, 1
 /* 802FA3B0 002F7310  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802FA3B4 002F7314  7D 89 03 A6 */	mtctr r12
-/* 802FA3B8 002F7318  4E 80 04 21 */	bctrl 
+/* 802FA3B8 002F7318  4E 80 04 21 */	bctrl
 lbl_802FA3BC:
 /* 802FA3BC 002F731C  3C 60 80 3F */	lis r3, lbl_803ED430@ha
 /* 802FA3C0 002F7320  3A DC 00 54 */	addi r22, r28, 0x54
@@ -1939,7 +1939,7 @@ lbl_802FA730:
 /* 802FA750 002F76B0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802FA754 002F76B4  7C 08 03 A6 */	mtlr r0
 /* 802FA758 002F76B8  38 21 00 60 */	addi r1, r1, 0x60
-/* 802FA75C 002F76BC  4E 80 00 20 */	blr 
+/* 802FA75C 002F76BC  4E 80 00 20 */	blr
 
 .global "IncrementInto__27CFBStreamedAnimReaderTotalsFR47CBitLevelLoader<28CMemoryInputToBitLevelLoader>RC22CFBStreamedCompressionR27CFBStreamedAnimReaderTotals"
 "IncrementInto__27CFBStreamedAnimReaderTotalsFR47CBitLevelLoader<28CMemoryInputToBitLevelLoader>RC22CFBStreamedCompressionR27CFBStreamedAnimReaderTotals":
@@ -2424,12 +2424,12 @@ lbl_802FAE24:
 /* 802FAE2C 002F7D8C  90 06 00 1C */	stw r0, 0x1c(r6)
 /* 802FAE30 002F7D90  BB 61 00 4C */	lmw r27, 0x4c(r1)
 /* 802FAE34 002F7D94  38 21 00 60 */	addi r1, r1, 0x60
-/* 802FAE38 002F7D98  4E 80 00 20 */	blr 
+/* 802FAE38 002F7D98  4E 80 00 20 */	blr
 
 .global sub_802fae3c
 sub_802fae3c:
 /* 802FAE3C 002F7D9C  C0 23 00 78 */	lfs f1, 0x78(r3)
-/* 802FAE40 002F7DA0  4E 80 00 20 */	blr 
+/* 802FAE40 002F7DA0  4E 80 00 20 */	blr
 
 .global sub_802fae44
 sub_802fae44:
@@ -2459,7 +2459,7 @@ lbl_802FAE8C:
 /* 802FAE90 002F7DF0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FAE94 002F7DF4  7C 08 03 A6 */	mtlr r0
 /* 802FAE98 002F7DF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FAE9C 002F7DFC  4E 80 00 20 */	blr 
+/* 802FAE9C 002F7DFC  4E 80 00 20 */	blr
 
 .global sub_802faea0
 sub_802faea0:
@@ -2629,7 +2629,7 @@ lbl_802FB0D4:
 /* 802FB0D8 002F8038  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802FB0DC 002F803C  7C 08 03 A6 */	mtlr r0
 /* 802FB0E0 002F8040  38 21 00 50 */	addi r1, r1, 0x50
-/* 802FB0E4 002F8044  4E 80 00 20 */	blr 
+/* 802FB0E4 002F8044  4E 80 00 20 */	blr
 
 .global sub_802fb0e8
 sub_802fb0e8:
@@ -2637,7 +2637,7 @@ sub_802fb0e8:
 /* 802FB0EC 002F804C  38 64 00 04 */	addi r3, r4, 4
 /* 802FB0F0 002F8050  7C 09 03 A6 */	mtctr r0
 /* 802FB0F4 002F8054  2C 00 00 00 */	cmpwi r0, 0
-/* 802FB0F8 002F8058  4C 81 00 20 */	blelr 
+/* 802FB0F8 002F8058  4C 81 00 20 */	blelr
 lbl_802FB0FC:
 /* 802FB0FC 002F805C  A0 03 00 04 */	lhz r0, 4(r3)
 /* 802FB100 002F8060  28 00 00 00 */	cmplwi r0, 0
@@ -2656,7 +2656,7 @@ lbl_802FB128:
 /* 802FB128 002F8088  38 63 00 0B */	addi r3, r3, 0xb
 lbl_802FB12C:
 /* 802FB12C 002F808C  42 00 FF D0 */	bdnz lbl_802FB0FC
-/* 802FB130 002F8090  4E 80 00 20 */	blr 
+/* 802FB130 002F8090  4E 80 00 20 */	blr
 
 .global "__ct__23CFBStreamedPairOfTotalsFRC43TSubAnimTypeToken<22CFBStreamedCompression>"
 "__ct__23CFBStreamedPairOfTotalsFRC43TSubAnimTypeToken<22CFBStreamedCompression>":
@@ -2746,7 +2746,7 @@ lbl_802FB21C:
 /* 802FB278 002F81D8  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802FB27C 002F81DC  7C 08 03 A6 */	mtlr r0
 /* 802FB280 002F81E0  38 21 00 50 */	addi r1, r1, 0x50
-/* 802FB284 002F81E4  4E 80 00 20 */	blr 
+/* 802FB284 002F81E4  4E 80 00 20 */	blr
 
 .global CalculateDown__27CFBStreamedAnimReaderTotalsFv
 CalculateDown__27CFBStreamedAnimReaderTotalsFv:
@@ -2867,7 +2867,7 @@ lbl_802FB408:
 /* 802FB43C 002F839C  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802FB440 002F83A0  7C 08 03 A6 */	mtlr r0
 /* 802FB444 002F83A4  38 21 00 60 */	addi r1, r1, 0x60
-/* 802FB448 002F83A8  4E 80 00 20 */	blr 
+/* 802FB448 002F83A8  4E 80 00 20 */	blr
 
 .global sub_802fb44c
 sub_802fb44c:
@@ -2894,7 +2894,7 @@ lbl_802FB478:
 /* 802FB498 002F83F8  81 23 00 04 */	lwz r9, 4(r3)
 /* 802FB49C 002F83FC  7C 09 03 A6 */	mtctr r0
 /* 802FB4A0 002F8400  2C 00 00 00 */	cmpwi r0, 0
-/* 802FB4A4 002F8404  4D 82 00 20 */	beqlr 
+/* 802FB4A4 002F8404  4D 82 00 20 */	beqlr
 lbl_802FB4A8:
 /* 802FB4A8 002F8408  80 07 00 00 */	lwz r0, 0(r7)
 /* 802FB4AC 002F840C  39 40 00 00 */	li r10, 0
@@ -3004,7 +3004,7 @@ lbl_802FB5FC:
 /* 802FB5FC 002F855C  39 08 00 02 */	addi r8, r8, 2
 /* 802FB600 002F8560  38 84 00 01 */	addi r4, r4, 1
 /* 802FB604 002F8564  42 00 FE A4 */	bdnz lbl_802FB4A8
-/* 802FB608 002F8568  4E 80 00 20 */	blr 
+/* 802FB608 002F8568  4E 80 00 20 */	blr
 
 .global sub_802fb60c
 sub_802fb60c:
@@ -3032,7 +3032,7 @@ lbl_802FB64C:
 /* 802FB658 002F85B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FB65C 002F85BC  7C 08 03 A6 */	mtlr r0
 /* 802FB660 002F85C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FB664 002F85C4  4E 80 00 20 */	blr 
+/* 802FB664 002F85C4  4E 80 00 20 */	blr
 
 .global sub_802fb668
 sub_802fb668:
@@ -3090,7 +3090,7 @@ sub_802fb668:
 /* 802FB734 002F8694  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FB738 002F8698  7C 08 03 A6 */	mtlr r0
 /* 802FB73C 002F869C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FB740 002F86A0  4E 80 00 20 */	blr 
+/* 802FB740 002F86A0  4E 80 00 20 */	blr
 
 .global __ct__27CFBStreamedAnimReaderTotalsFRC22CFBStreamedCompression
 __ct__27CFBStreamedAnimReaderTotalsFRC22CFBStreamedCompression:
@@ -3140,7 +3140,7 @@ lbl_802FB7B8:
 /* 802FB7EC 002F874C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FB7F0 002F8750  7C 08 03 A6 */	mtlr r0
 /* 802FB7F4 002F8754  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FB7F8 002F8758  4E 80 00 20 */	blr 
+/* 802FB7F8 002F8758  4E 80 00 20 */	blr
 
 .global "__dt__41TAnimSourceInfo<22CFBStreamedCompression>Fv"
 "__dt__41TAnimSourceInfo<22CFBStreamedCompression>Fv":
@@ -3182,7 +3182,7 @@ lbl_802FB870:
 /* 802FB87C 002F87DC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FB880 002F87E0  7C 08 03 A6 */	mtlr r0
 /* 802FB884 002F87E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FB888 002F87E8  4E 80 00 20 */	blr 
+/* 802FB888 002F87E8  4E 80 00 20 */	blr
 
 .global "HasPOIData__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 "HasPOIData__41TAnimSourceInfo<22CFBStreamedCompression>CFv":
@@ -3191,7 +3191,7 @@ lbl_802FB870:
 /* 802FB894 002F87F4  7C 03 00 D0 */	neg r0, r3
 /* 802FB898 002F87F8  7C 00 1B 78 */	or r0, r0, r3
 /* 802FB89C 002F87FC  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 802FB8A0 002F8800  4E 80 00 20 */	blr 
+/* 802FB8A0 002F8800  4E 80 00 20 */	blr
 
 .global "GetAnimationDuration__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 "GetAnimationDuration__41TAnimSourceInfo<22CFBStreamedCompression>CFv":
@@ -3206,7 +3206,7 @@ lbl_802FB870:
 /* 802FB8C4 002F8824  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FB8C8 002F8828  7C 08 03 A6 */	mtlr r0
 /* 802FB8CC 002F882C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FB8D0 002F8830  4E 80 00 20 */	blr 
+/* 802FB8D0 002F8830  4E 80 00 20 */	blr
 
 .global "GetSoundPOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 "GetSoundPOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv":
@@ -3214,7 +3214,7 @@ lbl_802FB870:
 /* 802FB8D8 002F8838  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FB8DC 002F883C  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FB8E0 002F8840  38 63 00 34 */	addi r3, r3, 0x34
-/* 802FB8E4 002F8844  4E 80 00 20 */	blr 
+/* 802FB8E4 002F8844  4E 80 00 20 */	blr
 
 .global "GetParticlePOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 "GetParticlePOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv":
@@ -3222,7 +3222,7 @@ lbl_802FB870:
 /* 802FB8EC 002F884C  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FB8F0 002F8850  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FB8F4 002F8854  38 63 00 24 */	addi r3, r3, 0x24
-/* 802FB8F8 002F8858  4E 80 00 20 */	blr 
+/* 802FB8F8 002F8858  4E 80 00 20 */	blr
 
 .global "GetInt32POIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 "GetInt32POIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv":
@@ -3230,7 +3230,7 @@ lbl_802FB870:
 /* 802FB900 002F8860  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FB904 002F8864  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FB908 002F8868  38 63 00 14 */	addi r3, r3, 0x14
-/* 802FB90C 002F886C  4E 80 00 20 */	blr 
+/* 802FB90C 002F886C  4E 80 00 20 */	blr
 
 .global "GetBoolPOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv"
 "GetBoolPOIStream__41TAnimSourceInfo<22CFBStreamedCompression>CFv":

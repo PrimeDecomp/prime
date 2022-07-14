@@ -60,11 +60,11 @@ lbl_805A7558:
 .global GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 80101F00 000FEE60  38 60 00 0C */	li r3, 0xc
-/* 80101F04 000FEE64  4E 80 00 20 */	blr 
+/* 80101F04 000FEE64  4E 80 00 20 */	blr
 
 .global Render__7CWeaponCFRC13CStateManager
 Render__7CWeaponCFRC13CStateManager:
-/* 80101F08 000FEE68  4E 80 00 20 */	blr 
+/* 80101F08 000FEE68  4E 80 00 20 */	blr
 
 .global FluidFXThink__7CWeaponFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 FluidFXThink__7CWeaponFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
@@ -88,7 +88,7 @@ FluidFXThink__7CWeaponFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
 /* 80101F50 000FEEB0  38 63 FF 5C */	addi r3, r3, lbl_803DFF5C@l
 /* 80101F54 000FEEB4  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80101F58 000FEEB8  7C 09 03 A6 */	mtctr r0
-/* 80101F5C 000FEEBC  4E 80 04 20 */	bctr 
+/* 80101F5C 000FEEBC  4E 80 04 20 */	bctr
 .global lbl_80101F60
 lbl_80101F60:
 /* 80101F60 000FEEC0  C3 E2 93 EC */	lfs f31, lbl_805AB10C@sda21(r2)
@@ -186,7 +186,7 @@ lbl_8010205C:
 /* 80102080 000FEFE0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80102084 000FEFE4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80102088 000FEFE8  7D 89 03 A6 */	mtctr r12
-/* 8010208C 000FEFEC  4E 80 04 21 */	bctrl 
+/* 8010208C 000FEFEC  4E 80 04 21 */	bctrl
 /* 80102090 000FEFF0  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 80102094 000FEFF4  FC 20 F8 90 */	fmr f1, f31
 /* 80102098 000FEFF8  7F E5 FB 78 */	mr r5, r31
@@ -205,7 +205,7 @@ lbl_801020BC:
 /* 801020C8 000FF028  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801020CC 000FF02C  7C 08 03 A6 */	mtlr r0
 /* 801020D0 000FF030  38 21 00 70 */	addi r1, r1, 0x70
-/* 801020D4 000FF034  4E 80 00 20 */	blr 
+/* 801020D4 000FF034  4E 80 00 20 */	blr
 
 .global Think__7CWeaponFfR13CStateManager
 Think__7CWeaponFfR13CStateManager:
@@ -290,17 +290,17 @@ lbl_801021E8:
 /* 80102208 000FF168  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8010220C 000FF16C  7C 08 03 A6 */	mtlr r0
 /* 80102210 000FF170  38 21 00 40 */	addi r1, r1, 0x40
-/* 80102214 000FF174  4E 80 00 20 */	blr 
+/* 80102214 000FF174  4E 80 00 20 */	blr
 
 .global sub_80102218
 sub_80102218:
 /* 80102218 000FF178  C0 02 93 E8 */	lfs f0, lbl_805AB108@sda21(r2)
 /* 8010221C 000FF17C  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 80102220 000FF180  4C 81 00 20 */	blelr 
+/* 80102220 000FF180  4C 81 00 20 */	blelr
 /* 80102224 000FF184  C0 02 93 FC */	lfs f0, lbl_805AB11C@sda21(r2)
 /* 80102228 000FF188  EC 00 08 24 */	fdivs f0, f0, f1
 /* 8010222C 000FF18C  D0 03 01 4C */	stfs f0, 0x14c(r3)
-/* 80102230 000FF190  4E 80 00 20 */	blr 
+/* 80102230 000FF190  4E 80 00 20 */	blr
 
 .global __dt__7CWeaponFv
 __dt__7CWeaponFv:
@@ -328,7 +328,7 @@ lbl_80102278:
 /* 80102284 000FF1E4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80102288 000FF1E8  7C 08 03 A6 */	mtlr r0
 /* 8010228C 000FF1EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80102290 000FF1F0  4E 80 00 20 */	blr 
+/* 80102290 000FF1F0  4E 80 00 20 */	blr
 
 .global "__ct__7CWeaponF9TUniqueIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfoiRC10CModelData"
 "__ct__7CWeaponF9TUniqueIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfoiRC10CModelData":

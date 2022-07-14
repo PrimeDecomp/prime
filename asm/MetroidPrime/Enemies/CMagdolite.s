@@ -435,7 +435,7 @@ lbl_8023478C:
 /* 80234798 002316F8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8023479C 002316FC  7C 08 03 A6 */	mtlr r0
 /* 802347A0 00231700  38 21 00 10 */	addi r1, r1, 0x10
-/* 802347A4 00231704  4E 80 00 20 */	blr 
+/* 802347A4 00231704  4E 80 00 20 */	blr
 
 .global sub_802347a8
 sub_802347a8:
@@ -466,7 +466,7 @@ sub_802347a8:
 /* 80234808 00231768  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8023480C 0023176C  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 80234810 00231770  7D 89 03 A6 */	mtctr r12
-/* 80234814 00231774  4E 80 04 21 */	bctrl 
+/* 80234814 00231774  4E 80 04 21 */	bctrl
 /* 80234818 00231778  80 81 00 48 */	lwz r4, 0x48(r1)
 /* 8023481C 0023177C  38 BE 06 A0 */	addi r5, r30, 0x6a0
 /* 80234820 00231780  88 61 00 4C */	lbz r3, 0x4c(r1)
@@ -564,7 +564,7 @@ lbl_80234970:
 /* 8023497C 002318DC  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 80234980 002318E0  7C 08 03 A6 */	mtlr r0
 /* 80234984 002318E4  38 21 00 90 */	addi r1, r1, 0x90
-/* 80234988 002318E8  4E 80 00 20 */	blr 
+/* 80234988 002318E8  4E 80 00 20 */	blr
 
 .global FluidFXThink__10CMagdoliteFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 FluidFXThink__10CMagdoliteFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
@@ -617,7 +617,7 @@ FluidFXThink__10CMagdoliteFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 /* 80234A44 002319A4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80234A48 002319A8  B0 01 00 08 */	sth r0, 8(r1)
 /* 80234A4C 002319AC  7D 89 03 A6 */	mtctr r12
-/* 80234A50 002319B0  4E 80 04 21 */	bctrl 
+/* 80234A50 002319B0  4E 80 04 21 */	bctrl
 lbl_80234A54:
 /* 80234A54 002319B4  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80234A58 002319B8  83 E1 00 5C */	lwz r31, 0x5c(r1)
@@ -625,7 +625,7 @@ lbl_80234A54:
 /* 80234A60 002319C0  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80234A64 002319C4  7C 08 03 A6 */	mtlr r0
 /* 80234A68 002319C8  38 21 00 60 */	addi r1, r1, 0x60
-/* 80234A6C 002319CC  4E 80 00 20 */	blr 
+/* 80234A6C 002319CC  4E 80 00 20 */	blr
 
 .global sub_80234a70
 sub_80234a70:
@@ -676,7 +676,7 @@ lbl_80234B04:
 /* 80234B10 00231A70  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80234B14 00231A74  7C 08 03 A6 */	mtlr r0
 /* 80234B18 00231A78  38 21 00 20 */	addi r1, r1, 0x20
-/* 80234B1C 00231A7C  4E 80 00 20 */	blr 
+/* 80234B1C 00231A7C  4E 80 00 20 */	blr
 
 .global sub_80234b20
 sub_80234b20:
@@ -761,7 +761,7 @@ lbl_80234C3C:
 /* 80234C4C 00231BAC  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80234C50 00231BB0  7C 08 03 A6 */	mtlr r0
 /* 80234C54 00231BB4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80234C58 00231BB8  4E 80 00 20 */	blr 
+/* 80234C58 00231BB8  4E 80 00 20 */	blr
 
 .global SelectTarget__10CMagdoliteFR13CStateManager9EStateMsgf
 SelectTarget__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -828,7 +828,7 @@ lbl_80234D38:
 /* 80234D40 00231CA0  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80234D44 00231CA4  7C 08 03 A6 */	mtlr r0
 /* 80234D48 00231CA8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80234D4C 00231CAC  4E 80 00 20 */	blr 
+/* 80234D4C 00231CAC  4E 80 00 20 */	blr
 
 .global HasAttackPattern__10CMagdoliteFR13CStateManagerf
 HasAttackPattern__10CMagdoliteFR13CStateManagerf:
@@ -850,7 +850,7 @@ HasAttackPattern__10CMagdoliteFR13CStateManagerf:
 /* 80234D8C 00231CEC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80234D90 00231CF0  7C 08 03 A6 */	mtlr r0
 /* 80234D94 00231CF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80234D98 00231CF8  4E 80 00 20 */	blr 
+/* 80234D98 00231CF8  4E 80 00 20 */	blr
 
 .global sub_80234d9c
 sub_80234d9c:
@@ -1023,7 +1023,7 @@ lbl_80234FDC:
 /* 8023500C 00231F6C  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80235010 00231F70  7C 08 03 A6 */	mtlr r0
 /* 80235014 00231F74  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80235018 00231F78  4E 80 00 20 */	blr 
+/* 80235018 00231F78  4E 80 00 20 */	blr
 
 .global InAttackPosition__10CMagdoliteFR13CStateManagerf
 InAttackPosition__10CMagdoliteFR13CStateManagerf:
@@ -1062,7 +1062,7 @@ InAttackPosition__10CMagdoliteFR13CStateManagerf:
 /* 8023509C 00231FFC  81 84 00 00 */	lwz r12, 0(r4)
 /* 802350A0 00232000  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 802350A4 00232004  7D 89 03 A6 */	mtctr r12
-/* 802350A8 00232008  4E 80 04 21 */	bctrl 
+/* 802350A8 00232008  4E 80 04 21 */	bctrl
 /* 802350AC 0023200C  C0 61 00 10 */	lfs f3, 0x10(r1)
 /* 802350B0 00232010  C0 41 00 08 */	lfs f2, 8(r1)
 /* 802350B4 00232014  C0 21 00 0C */	lfs f1, 0xc(r1)
@@ -1127,7 +1127,7 @@ lbl_8023516C:
 /* 80235194 002320F4  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80235198 002320F8  7C 08 03 A6 */	mtlr r0
 /* 8023519C 002320FC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802351A0 00232100  4E 80 00 20 */	blr 
+/* 802351A0 00232100  4E 80 00 20 */	blr
 
 .global LineOfSight__10CMagdoliteFR13CStateManagerf
 LineOfSight__10CMagdoliteFR13CStateManagerf:
@@ -1248,7 +1248,7 @@ lbl_80235348:
 /* 80235364 002322C4  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 80235368 002322C8  7C 08 03 A6 */	mtlr r0
 /* 8023536C 002322CC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80235370 002322D0  4E 80 00 20 */	blr 
+/* 80235370 002322D0  4E 80 00 20 */	blr
 
 .global Leash__10CMagdoliteFR13CStateManagerf
 Leash__10CMagdoliteFR13CStateManagerf:
@@ -1280,17 +1280,17 @@ Leash__10CMagdoliteFR13CStateManagerf:
 /* 802353D8 00232338  7C 00 00 26 */	mfcr r0
 /* 802353DC 0023233C  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 802353E0 00232340  38 21 00 20 */	addi r1, r1, 0x20
-/* 802353E4 00232344  4E 80 00 20 */	blr 
+/* 802353E4 00232344  4E 80 00 20 */	blr
 
 .global ShouldRetreat__10CMagdoliteFR13CStateManagerf
 ShouldRetreat__10CMagdoliteFR13CStateManagerf:
 /* 802353E8 00232348  88 03 07 54 */	lbz r0, 0x754(r3)
 /* 802353EC 0023234C  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 802353F0 00232350  4E 80 00 20 */	blr 
+/* 802353F0 00232350  4E 80 00 20 */	blr
 
 .global Touch__10CMagdoliteFR6CActorR13CStateManager
 Touch__10CMagdoliteFR6CActorR13CStateManager:
-/* 802353F4 00232354  4E 80 00 20 */	blr 
+/* 802353F4 00232354  4E 80 00 20 */	blr
 
 .global Death__10CMagdoliteFRC9CVector3fR13CStateManager
 Death__10CMagdoliteFRC9CVector3fR13CStateManager:
@@ -1389,7 +1389,7 @@ lbl_8023554C:
 /* 8023555C 002324BC  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 80235560 002324C0  7C 08 03 A6 */	mtlr r0
 /* 80235564 002324C4  38 21 00 90 */	addi r1, r1, 0x90
-/* 80235568 002324C8  4E 80 00 20 */	blr 
+/* 80235568 002324C8  4E 80 00 20 */	blr
 
 .global Deactivate__10CMagdoliteFR13CStateManager9EStateMsgf
 Deactivate__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -1447,7 +1447,7 @@ lbl_80235620:
 /* 80235624 00232584  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80235628 00232588  7C 08 03 A6 */	mtlr r0
 /* 8023562C 0023258C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80235630 00232590  4E 80 00 20 */	blr 
+/* 80235630 00232590  4E 80 00 20 */	blr
 
 .global GetUp__10CMagdoliteFR13CStateManager9EStateMsgf
 GetUp__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -1530,7 +1530,7 @@ lbl_80235744:
 /* 80235748 002326A8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8023574C 002326AC  7C 08 03 A6 */	mtlr r0
 /* 80235750 002326B0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80235754 002326B4  4E 80 00 20 */	blr 
+/* 80235754 002326B4  4E 80 00 20 */	blr
 
 .global Generate__10CMagdoliteFR13CStateManager9EStateMsgf
 Generate__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -1585,7 +1585,7 @@ lbl_80235800:
 /* 80235804 00232764  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80235808 00232768  7C 08 03 A6 */	mtlr r0
 /* 8023580C 0023276C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80235810 00232770  4E 80 00 20 */	blr 
+/* 80235810 00232770  4E 80 00 20 */	blr
 
 .global Retreat__10CMagdoliteFR13CStateManager9EStateMsgf
 Retreat__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -1665,7 +1665,7 @@ lbl_8023591C:
 /* 80235920 00232880  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 80235924 00232884  7C 08 03 A6 */	mtlr r0
 /* 80235928 00232888  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023592C 0023288C  4E 80 00 20 */	blr 
+/* 8023592C 0023288C  4E 80 00 20 */	blr
 
 .global Flinch__10CMagdoliteFR13CStateManager9EStateMsgf
 Flinch__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -1715,7 +1715,7 @@ lbl_802359C8:
 /* 802359C8 00232928  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802359CC 0023292C  7C 08 03 A6 */	mtlr r0
 /* 802359D0 00232930  38 21 00 20 */	addi r1, r1, 0x20
-/* 802359D4 00232934  4E 80 00 20 */	blr 
+/* 802359D4 00232934  4E 80 00 20 */	blr
 
 .global ProjectileAttack__10CMagdoliteFR13CStateManager9EStateMsgf
 ProjectileAttack__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -1760,7 +1760,7 @@ lbl_80235A60:
 /* 80235A64 002329C4  C0 22 B7 20 */	lfs f1, lbl_805AD440@sda21(r2)
 /* 80235A68 002329C8  81 8C 01 9C */	lwz r12, 0x19c(r12)
 /* 80235A6C 002329CC  7D 89 03 A6 */	mtctr r12
-/* 80235A70 002329D0  4E 80 04 21 */	bctrl 
+/* 80235A70 002329D0  4E 80 04 21 */	bctrl
 /* 80235A74 002329D4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80235A78 002329D8  41 82 00 40 */	beq lbl_80235AB8
 /* 80235A7C 002329DC  3C 80 80 3F */	lis r4, lbl_803E81E0@ha
@@ -1826,7 +1826,7 @@ lbl_80235B54:
 /* 80235B5C 00232ABC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80235B60 00232AC0  7C 08 03 A6 */	mtlr r0
 /* 80235B64 00232AC4  38 21 00 40 */	addi r1, r1, 0x40
-/* 80235B68 00232AC8  4E 80 00 20 */	blr 
+/* 80235B68 00232AC8  4E 80 00 20 */	blr
 
 .global Attack__10CMagdoliteFR13CStateManager9EStateMsgf
 Attack__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -2081,7 +2081,7 @@ lbl_80235F0C:
 /* 80235F1C 00232E7C  83 C1 00 D8 */	lwz r30, 0xd8(r1)
 /* 80235F20 00232E80  7C 08 03 A6 */	mtlr r0
 /* 80235F24 00232E84  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80235F28 00232E88  4E 80 00 20 */	blr 
+/* 80235F28 00232E88  4E 80 00 20 */	blr
 
 .global Taunt__10CMagdoliteFR13CStateManager9EStateMsgf
 Taunt__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -2130,7 +2130,7 @@ lbl_80235FC0:
 /* 80235FC0 00232F20  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80235FC4 00232F24  7C 08 03 A6 */	mtlr r0
 /* 80235FC8 00232F28  38 21 00 20 */	addi r1, r1, 0x20
-/* 80235FCC 00232F2C  4E 80 00 20 */	blr 
+/* 80235FCC 00232F2C  4E 80 00 20 */	blr
 
 .global Active__10CMagdoliteFR13CStateManager9EStateMsgf
 Active__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -2254,7 +2254,7 @@ lbl_80236180:
 /* 80236190 002330F0  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80236194 002330F4  7C 08 03 A6 */	mtlr r0
 /* 80236198 002330F8  38 21 00 80 */	addi r1, r1, 0x80
-/* 8023619C 002330FC  4E 80 00 20 */	blr 
+/* 8023619C 002330FC  4E 80 00 20 */	blr
 
 .global Lurk__10CMagdoliteFR13CStateManager9EStateMsgf
 Lurk__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -2301,7 +2301,7 @@ lbl_80236228:
 /* 80236230 00233190  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80236234 00233194  7C 08 03 A6 */	mtlr r0
 /* 80236238 00233198  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023623C 0023319C  4E 80 00 20 */	blr 
+/* 8023623C 0023319C  4E 80 00 20 */	blr
 
 .global InActive__10CMagdoliteFR13CStateManager9EStateMsgf
 InActive__10CMagdoliteFR13CStateManager9EStateMsgf:
@@ -2358,7 +2358,7 @@ lbl_802362F0:
 /* 802362F8 00233258  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802362FC 0023325C  7C 08 03 A6 */	mtlr r0
 /* 80236300 00233260  38 21 00 10 */	addi r1, r1, 0x10
-/* 80236304 00233264  4E 80 00 20 */	blr 
+/* 80236304 00233264  4E 80 00 20 */	blr
 
 .global sub_80236308
 sub_80236308:
@@ -2458,7 +2458,7 @@ lbl_802363F0:
 /* 80236478 002333D8  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8023647C 002333DC  7C 08 03 A6 */	mtlr r0
 /* 80236480 002333E0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80236484 002333E4  4E 80 00 20 */	blr 
+/* 80236484 002333E4  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__10CMagdoliteFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__10CMagdoliteFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -2520,7 +2520,7 @@ lbl_80236544:
 /* 8023654C 002334AC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80236550 002334B0  7C 08 03 A6 */	mtlr r0
 /* 80236554 002334B4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80236558 002334B8  4E 80 00 20 */	blr 
+/* 80236558 002334B8  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__10CMagdoliteCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__10CMagdoliteCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
@@ -2530,11 +2530,11 @@ GetDamageVulnerability__10CMagdoliteCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 80236568 002334C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8023656C 002334CC  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80236570 002334D0  7D 89 03 A6 */	mtctr r12
-/* 80236574 002334D4  4E 80 04 21 */	bctrl 
+/* 80236574 002334D4  4E 80 04 21 */	bctrl
 /* 80236578 002334D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023657C 002334DC  7C 08 03 A6 */	mtlr r0
 /* 80236580 002334E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80236584 002334E4  4E 80 00 20 */	blr 
+/* 80236584 002334E4  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__10CMagdoliteCFv
 GetDamageVulnerability__10CMagdoliteCFv:
@@ -2553,7 +2553,7 @@ lbl_802365B0:
 /* 802365B0 00233510  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802365B4 00233514  7C 08 03 A6 */	mtlr r0
 /* 802365B8 00233518  38 21 00 10 */	addi r1, r1, 0x10
-/* 802365BC 0023351C  4E 80 00 20 */	blr 
+/* 802365BC 0023351C  4E 80 00 20 */	blr
 
 .global sub_802365c0
 sub_802365c0:
@@ -2869,7 +2869,7 @@ lbl_80236A38:
 /* 80236A58 002339B8  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 80236A5C 002339BC  7C 08 03 A6 */	mtlr r0
 /* 80236A60 002339C0  38 21 02 10 */	addi r1, r1, 0x210
-/* 80236A64 002339C4  4E 80 00 20 */	blr 
+/* 80236A64 002339C4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__10CMagdoliteF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CMagdoliteF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -2890,7 +2890,7 @@ AcceptScriptMsg__10CMagdoliteF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 80236AA0 00233A00  38 84 85 0C */	addi r4, r4, lbl_803E850C@l
 /* 80236AA4 00233A04  7C 04 00 2E */	lwzx r0, r4, r0
 /* 80236AA8 00233A08  7C 09 03 A6 */	mtctr r0
-/* 80236AAC 00233A0C  4E 80 04 20 */	bctr 
+/* 80236AAC 00233A0C  4E 80 04 20 */	bctr
 .global lbl_80236AB0
 lbl_80236AB0:
 /* 80236AB0 00233A10  A0 1E 00 00 */	lhz r0, 0(r30)
@@ -2937,7 +2937,7 @@ lbl_80236B48:
 /* 80236B50 00233AB0  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80236B54 00233AB4  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80236B58 00233AB8  7D 89 03 A6 */	mtctr r12
-/* 80236B5C 00233ABC  4E 80 04 21 */	bctrl 
+/* 80236B5C 00233ABC  4E 80 04 21 */	bctrl
 /* 80236B60 00233AC0  C0 5C 07 0C */	lfs f2, 0x70c(r28)
 /* 80236B64 00233AC4  C0 23 00 00 */	lfs f1, 0(r3)
 /* 80236B68 00233AC8  C0 1C 05 74 */	lfs f0, 0x574(r28)
@@ -2949,7 +2949,7 @@ lbl_80236B48:
 /* 80236B80 00233AE0  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80236B84 00233AE4  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80236B88 00233AE8  7D 89 03 A6 */	mtctr r12
-/* 80236B8C 00233AEC  4E 80 04 21 */	bctrl 
+/* 80236B8C 00233AEC  4E 80 04 21 */	bctrl
 /* 80236B90 00233AF0  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80236B94 00233AF4  38 60 00 01 */	li r3, 1
 /* 80236B98 00233AF8  D0 1C 07 0C */	stfs f0, 0x70c(r28)
@@ -3031,7 +3031,7 @@ lbl_80236BDC:
 /* 80236CB8 00233C18  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80236CBC 00233C1C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80236CC0 00233C20  7D 89 03 A6 */	mtctr r12
-/* 80236CC4 00233C24  4E 80 04 21 */	bctrl 
+/* 80236CC4 00233C24  4E 80 04 21 */	bctrl
 /* 80236CC8 00233C28  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80236CCC 00233C2C  D0 1C 07 0C */	stfs f0, 0x70c(r28)
 /* 80236CD0 00233C30  48 00 00 70 */	b lbl_80236D40
@@ -3084,7 +3084,7 @@ lbl_80236D64:
 /* 80236D68 00233CC8  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80236D6C 00233CCC  7C 08 03 A6 */	mtlr r0
 /* 80236D70 00233CD0  38 21 00 70 */	addi r1, r1, 0x70
-/* 80236D74 00233CD4  4E 80 00 20 */	blr 
+/* 80236D74 00233CD4  4E 80 00 20 */	blr
 
 .global Render__10CMagdoliteCFRC13CStateManager
 Render__10CMagdoliteCFRC13CStateManager:
@@ -3095,7 +3095,7 @@ Render__10CMagdoliteCFRC13CStateManager:
 /* 80236D88 00233CE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80236D8C 00233CEC  7C 08 03 A6 */	mtlr r0
 /* 80236D90 00233CF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80236D94 00233CF4  4E 80 00 20 */	blr 
+/* 80236D94 00233CF4  4E 80 00 20 */	blr
 
 .global KnockBack__10CMagdoliteFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 KnockBack__10CMagdoliteFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef:
@@ -3106,7 +3106,7 @@ KnockBack__10CMagdoliteFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackT
 /* 80236DA8 00233D08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80236DAC 00233D0C  7C 08 03 A6 */	mtlr r0
 /* 80236DB0 00233D10  38 21 00 10 */	addi r1, r1, 0x10
-/* 80236DB4 00233D14  4E 80 00 20 */	blr 
+/* 80236DB4 00233D14  4E 80 00 20 */	blr
 
 .global Think__10CMagdoliteFfR13CStateManager
 Think__10CMagdoliteFfR13CStateManager:
@@ -3191,7 +3191,7 @@ lbl_80236ECC:
 /* 80236EE8 00233E48  C3 C4 00 50 */	lfs f30, 0x50(r4)
 /* 80236EEC 00233E4C  C3 E4 00 40 */	lfs f31, 0x40(r4)
 /* 80236EF0 00233E50  7D 89 03 A6 */	mtctr r12
-/* 80236EF4 00233E54  4E 80 04 21 */	bctrl 
+/* 80236EF4 00233E54  4E 80 04 21 */	bctrl
 /* 80236EF8 00233E58  C3 81 00 B4 */	lfs f28, 0xb4(r1)
 /* 80236EFC 00233E5C  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 80236F00 00233E60  C3 61 00 B8 */	lfs f27, 0xb8(r1)
@@ -3501,7 +3501,7 @@ lbl_80237354:
 /* 80237398 002342F8  83 A1 02 44 */	lwz r29, 0x244(r1)
 /* 8023739C 002342FC  7C 08 03 A6 */	mtlr r0
 /* 802373A0 00234300  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 802373A4 00234304  4E 80 00 20 */	blr 
+/* 802373A4 00234304  4E 80 00 20 */	blr
 
 .global Accept__10CMagdoliteFR8IVisitor
 Accept__10CMagdoliteFR8IVisitor:
@@ -3514,11 +3514,11 @@ Accept__10CMagdoliteFR8IVisitor:
 /* 802373C0 00234320  7C 04 03 78 */	mr r4, r0
 /* 802373C4 00234324  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 802373C8 00234328  7D 89 03 A6 */	mtctr r12
-/* 802373CC 0023432C  4E 80 04 21 */	bctrl 
+/* 802373CC 0023432C  4E 80 04 21 */	bctrl
 /* 802373D0 00234330  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802373D4 00234334  7C 08 03 A6 */	mtlr r0
 /* 802373D8 00234338  38 21 00 10 */	addi r1, r1, 0x10
-/* 802373DC 0023433C  4E 80 00 20 */	blr 
+/* 802373DC 0023433C  4E 80 00 20 */	blr
 
 .global "__ct__10CMagdoliteF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo"
 "__ct__10CMagdoliteF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfo":
@@ -3743,7 +3743,7 @@ Accept__10CMagdoliteFR8IVisitor:
 /* 80237748 002346A8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8023774C 002346AC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80237750 002346B0  7D 89 03 A6 */	mtctr r12
-/* 80237754 002346B4  4E 80 04 21 */	bctrl 
+/* 80237754 002346B4  4E 80 04 21 */	bctrl
 /* 80237758 002346B8  3A 81 00 60 */	addi r20, r1, 0x60
 /* 8023775C 002346BC  38 81 00 34 */	addi r4, r1, 0x34
 /* 80237760 002346C0  7E 83 A3 78 */	mr r3, r20
@@ -3764,7 +3764,7 @@ Accept__10CMagdoliteFR8IVisitor:
 /* 8023779C 002346FC  81 84 00 00 */	lwz r12, 0(r4)
 /* 802377A0 00234700  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802377A4 00234704  7D 89 03 A6 */	mtctr r12
-/* 802377A8 00234708  4E 80 04 21 */	bctrl 
+/* 802377A8 00234708  4E 80 04 21 */	bctrl
 /* 802377AC 0023470C  3A C1 00 6C */	addi r22, r1, 0x6c
 /* 802377B0 00234710  38 81 00 44 */	addi r4, r1, 0x44
 /* 802377B4 00234714  7E C3 B3 78 */	mr r3, r22
@@ -3805,7 +3805,7 @@ lbl_802377FC:
 /* 8023783C 0023479C  38 80 00 01 */	li r4, 1
 /* 80237840 002347A0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80237844 002347A4  7D 89 03 A6 */	mtctr r12
-/* 80237848 002347A8  4E 80 04 21 */	bctrl 
+/* 80237848 002347A8  4E 80 04 21 */	bctrl
 lbl_8023784C:
 /* 8023784C 002347AC  93 E1 00 5C */	stw r31, 0x5c(r1)
 /* 80237850 002347B0  7F 83 E3 78 */	mr r3, r28
@@ -3873,7 +3873,7 @@ lbl_802378D4:
 /* 80237938 00234898  81 84 00 00 */	lwz r12, 0(r4)
 /* 8023793C 0023489C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80237940 002348A0  7D 89 03 A6 */	mtctr r12
-/* 80237944 002348A4  4E 80 04 21 */	bctrl 
+/* 80237944 002348A4  4E 80 04 21 */	bctrl
 /* 80237948 002348A8  38 77 06 CC */	addi r3, r23, 0x6cc
 /* 8023794C 002348AC  38 81 00 2C */	addi r4, r1, 0x2c
 /* 80237950 002348B0  48 10 95 59 */	bl __ct__6CTokenFRC6CToken
@@ -4001,7 +4001,7 @@ lbl_802378D4:
 /* 80237B38 00234A98  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 80237B3C 00234A9C  7C 08 03 A6 */	mtlr r0
 /* 80237B40 00234AA0  38 21 01 50 */	addi r1, r1, 0x150
-/* 80237B44 00234AA4  4E 80 00 20 */	blr 
+/* 80237B44 00234AA4  4E 80 00 20 */	blr
 
 .global __sinit_CMagdolite_cpp
 __sinit_CMagdolite_cpp:

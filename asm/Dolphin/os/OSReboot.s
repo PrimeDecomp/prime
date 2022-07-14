@@ -12,19 +12,19 @@ SaveEnd:
 	.skip 0x4
 Prepared:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 Run:
 /* 80382E28 0037FD88  7C 00 04 AC */	sync 0
-/* 80382E2C 0037FD8C  4C 00 01 2C */	isync 
+/* 80382E2C 0037FD8C  4C 00 01 2C */	isync
 /* 80382E30 0037FD90  7C 68 03 A6 */	mtlr r3
-/* 80382E34 0037FD94  4E 80 00 20 */	blr 
+/* 80382E34 0037FD94  4E 80 00 20 */	blr
 
 Callback:
 /* 80382E38 0037FD98  38 00 00 01 */	li r0, 1
 /* 80382E3C 0037FD9C  90 0D AD 30 */	stw r0, Prepared@sda21(r13)
-/* 80382E40 0037FDA0  4E 80 00 20 */	blr 
+/* 80382E40 0037FDA0  4E 80 00 20 */	blr
 
 .global __OSReboot
 __OSReboot:
@@ -156,13 +156,13 @@ lbl_80382FD8:
 /* 80382FFC 0037FF5C  83 C1 03 38 */	lwz r30, 0x338(r1)
 /* 80383000 0037FF60  38 21 03 40 */	addi r1, r1, 0x340
 /* 80383004 0037FF64  7C 08 03 A6 */	mtlr r0
-/* 80383008 0037FF68  4E 80 00 20 */	blr 
+/* 80383008 0037FF68  4E 80 00 20 */	blr
 
 .global OSSetSaveRegion
 OSSetSaveRegion:
 /* 8038300C 0037FF6C  90 6D AD 28 */	stw r3, SaveStart@sda21(r13)
 /* 80383010 0037FF70  90 8D AD 2C */	stw r4, SaveEnd@sda21(r13)
-/* 80383014 0037FF74  4E 80 00 20 */	blr 
+/* 80383014 0037FF74  4E 80 00 20 */	blr
 
 .global OSGetSaveRegion
 OSGetSaveRegion:
@@ -170,4 +170,4 @@ OSGetSaveRegion:
 /* 8038301C 0037FF7C  90 03 00 00 */	stw r0, 0(r3)
 /* 80383020 0037FF80  80 0D AC D8 */	lwz r0, __OSSavedRegionEnd@sda21(r13)
 /* 80383024 0037FF84  90 04 00 00 */	stw r0, 0(r4)
-/* 80383028 0037FF88  4E 80 00 20 */	blr 
+/* 80383028 0037FF88  4E 80 00 20 */	blr

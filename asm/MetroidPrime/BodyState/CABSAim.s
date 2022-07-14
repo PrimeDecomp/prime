@@ -65,7 +65,7 @@ lbl_801D9D5C:
 /* 801D9D64 001D6CC4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D9D68 001D6CC8  7C 08 03 A6 */	mtlr r0
 /* 801D9D6C 001D6CCC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D9D70 001D6CD0  4E 80 00 20 */	blr 
+/* 801D9D70 001D6CD0  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__7CABSAimFfR15CBodyController
 GetBodyStateTransition__7CABSAimFfR15CBodyController:
@@ -111,7 +111,7 @@ lbl_801D9DF4:
 /* 801D9DFC 001D6D5C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D9E00 001D6D60  7C 08 03 A6 */	mtlr r0
 /* 801D9E04 001D6D64  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D9E08 001D6D68  4E 80 00 20 */	blr 
+/* 801D9E08 001D6D68  4E 80 00 20 */	blr
 
 .global Shutdown__7CABSAimFR15CBodyController
 Shutdown__7CABSAimFR15CBodyController:
@@ -163,7 +163,7 @@ lbl_801D9EA0:
 /* 801D9EA8 001D6E08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D9EAC 001D6E0C  7C 08 03 A6 */	mtlr r0
 /* 801D9EB0 001D6E10  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D9EB4 001D6E14  4E 80 00 20 */	blr 
+/* 801D9EB4 001D6E14  4E 80 00 20 */	blr
 
 .global UpdateBody__7CABSAimFfR15CBodyControllerR13CStateManager
 UpdateBody__7CABSAimFfR15CBodyControllerR13CStateManager:
@@ -400,7 +400,7 @@ lbl_801DA1F4:
 /* 801DA21C 001D717C  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801DA220 001D7180  7C 08 03 A6 */	mtlr r0
 /* 801DA224 001D7184  38 21 00 70 */	addi r1, r1, 0x70
-/* 801DA228 001D7188  4E 80 00 20 */	blr 
+/* 801DA228 001D7188  4E 80 00 20 */	blr
 
 .global Start__7CABSAimFR15CBodyControllerR13CStateManager
 Start__7CABSAimFR15CBodyControllerR13CStateManager:
@@ -553,7 +553,7 @@ lbl_801DA44C:
 /* 801DA458 001D73B8  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 801DA45C 001D73BC  7C 08 03 A6 */	mtlr r0
 /* 801DA460 001D73C0  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801DA464 001D73C4  4E 80 00 20 */	blr 
+/* 801DA464 001D73C4  4E 80 00 20 */	blr
 
 .global __ct__7CABSAimFv
 __ct__7CABSAimFv:

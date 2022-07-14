@@ -44,7 +44,7 @@ lbl_801B8918:
 /* 801B892C 001B588C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B8930 001B5890  7C 08 03 A6 */	mtlr r0
 /* 801B8934 001B5894  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8938 001B5898  4E 80 00 20 */	blr 
+/* 801B8938 001B5898  4E 80 00 20 */	blr
 
 .global Load__10CAuxWeaponFiR13CStateManager
 Load__10CAuxWeaponFiR13CStateManager:
@@ -94,7 +94,7 @@ lbl_801B899C:
 /* 801B89DC 001B593C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801B89E0 001B5940  7C 08 03 A6 */	mtlr r0
 /* 801B89E4 001B5944  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B89E8 001B5948  4E 80 00 20 */	blr 
+/* 801B89E8 001B5948  4E 80 00 20 */	blr
 
 .global FreeComboVoiceId__10CAuxWeaponFv
 FreeComboVoiceId__10CAuxWeaponFv:
@@ -113,7 +113,7 @@ FreeComboVoiceId__10CAuxWeaponFv:
 /* 801B8A1C 001B597C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801B8A20 001B5980  7C 08 03 A6 */	mtlr r0
 /* 801B8A24 001B5984  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B8A28 001B5988  4E 80 00 20 */	blr 
+/* 801B8A28 001B5988  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__10CAuxWeaponF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CAuxWeaponF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -140,7 +140,7 @@ lbl_801B8A6C:
 /* 801B8A74 001B59D4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B8A78 001B59D8  7C 08 03 A6 */	mtlr r0
 /* 801B8A7C 001B59DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8A80 001B59E0  4E 80 00 20 */	blr 
+/* 801B8A80 001B59E0  4E 80 00 20 */	blr
 
 .global DeleteWaveBusterBeam__10CAuxWeaponFR13CStateManager
 DeleteWaveBusterBeam__10CAuxWeaponFR13CStateManager:
@@ -180,7 +180,7 @@ lbl_801B8AFC:
 /* 801B8B04 001B5A64  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B8B08 001B5A68  7C 08 03 A6 */	mtlr r0
 /* 801B8B0C 001B5A6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B8B10 001B5A70  4E 80 00 20 */	blr 
+/* 801B8B10 001B5A70  4E 80 00 20 */	blr
 
 .global DeleteFlameThrower__10CAuxWeaponFR13CStateManager
 DeleteFlameThrower__10CAuxWeaponFR13CStateManager:
@@ -220,7 +220,7 @@ lbl_801B8B8C:
 /* 801B8B94 001B5AF4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B8B98 001B5AF8  7C 08 03 A6 */	mtlr r0
 /* 801B8B9C 001B5AFC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B8BA0 001B5B00  4E 80 00 20 */	blr 
+/* 801B8BA0 001B5B00  4E 80 00 20 */	blr
 
 .global CreateWaveBusterBeam__10CAuxWeaponFUi9TUniqueIdRC12CTransform4fR13CStateManager
 CreateWaveBusterBeam__10CAuxWeaponFUi9TUniqueIdRC12CTransform4fR13CStateManager:
@@ -311,7 +311,7 @@ lbl_801B8CDC:
 /* 801B8CEC 001B5C4C  38 80 00 01 */	li r4, 1
 /* 801B8CF0 001B5C50  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801B8CF4 001B5C54  7D 89 03 A6 */	mtctr r12
-/* 801B8CF8 001B5C58  4E 80 04 21 */	bctrl 
+/* 801B8CF8 001B5C58  4E 80 04 21 */	bctrl
 lbl_801B8CFC:
 /* 801B8CFC 001B5C5C  7F 40 07 75 */	extsb. r0, r26
 /* 801B8D00 001B5C60  93 BC 00 24 */	stw r29, 0x24(r28)
@@ -346,7 +346,7 @@ lbl_801B8D68:
 /* 801B8D6C 001B5CCC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801B8D70 001B5CD0  7C 08 03 A6 */	mtlr r0
 /* 801B8D74 001B5CD4  38 21 00 70 */	addi r1, r1, 0x70
-/* 801B8D78 001B5CD8  4E 80 00 20 */	blr 
+/* 801B8D78 001B5CD8  4E 80 00 20 */	blr
 
 .global CreateFlameThrower__10CAuxWeaponFRC12CTransform4fR13CStateManagerf
 CreateFlameThrower__10CAuxWeaponFRC12CTransform4fR13CStateManagerf:
@@ -475,7 +475,7 @@ lbl_801B8F44:
 /* 801B8F5C 001B5EBC  7F 84 E3 78 */	mr r4, r28
 /* 801B8F60 001B5EC0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801B8F64 001B5EC4  7D 89 03 A6 */	mtctr r12
-/* 801B8F68 001B5EC8  4E 80 04 21 */	bctrl 
+/* 801B8F68 001B5EC8  4E 80 04 21 */	bctrl
 /* 801B8F6C 001B5ECC  7E E3 BB 78 */	mr r3, r23
 /* 801B8F70 001B5ED0  7F 64 DB 78 */	mr r4, r27
 /* 801B8F74 001B5ED4  7F 85 E3 78 */	mr r5, r28
@@ -508,7 +508,7 @@ lbl_801B8FCC:
 /* 801B8FDC 001B5F3C  38 80 00 01 */	li r4, 1
 /* 801B8FE0 001B5F40  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801B8FE4 001B5F44  7D 89 03 A6 */	mtctr r12
-/* 801B8FE8 001B5F48  4E 80 04 21 */	bctrl 
+/* 801B8FE8 001B5F48  4E 80 04 21 */	bctrl
 lbl_801B8FEC:
 /* 801B8FEC 001B5F4C  7F 00 07 75 */	extsb. r0, r24
 /* 801B8FF0 001B5F50  92 FA 00 24 */	stw r23, 0x24(r26)
@@ -544,7 +544,7 @@ lbl_801B9058:
 /* 801B9060 001B5FC0  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801B9064 001B5FC4  7C 08 03 A6 */	mtlr r0
 /* 801B9068 001B5FC8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801B906C 001B5FCC  4E 80 00 20 */	blr 
+/* 801B906C 001B5FCC  4E 80 00 20 */	blr
 
 .global LaunchMissile__10CAuxWeaponFbbiUiRC12CTransform4f9TUniqueIdR13CStateManager
 LaunchMissile__10CAuxWeaponFbbiUiRC12CTransform4f9TUniqueIdR13CStateManager:
@@ -684,7 +684,7 @@ lbl_801B923C:
 /* 801B925C 001B61BC  7F C4 F3 78 */	mr r4, r30
 /* 801B9260 001B61C0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801B9264 001B61C4  7D 89 03 A6 */	mtctr r12
-/* 801B9268 001B61C8  4E 80 04 21 */	bctrl 
+/* 801B9268 001B61C8  4E 80 04 21 */	bctrl
 lbl_801B926C:
 /* 801B926C 001B61CC  57 60 06 3F */	clrlwi. r0, r27, 0x18
 /* 801B9270 001B61D0  41 82 00 AC */	beq lbl_801B931C
@@ -755,7 +755,7 @@ lbl_801B9334:
 /* 801B9360 001B62C0  80 01 01 D4 */	lwz r0, 0x1d4(r1)
 /* 801B9364 001B62C4  7C 08 03 A6 */	mtlr r0
 /* 801B9368 001B62C8  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 801B936C 001B62CC  4E 80 00 20 */	blr 
+/* 801B936C 001B62CC  4E 80 00 20 */	blr
 
 .global InitComboData__10CAuxWeaponFv
 InitComboData__10CAuxWeaponFv:
@@ -775,7 +775,7 @@ lbl_801B9394:
 /* 801B93A0 001B6300  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B93A4 001B6304  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801B93A8 001B6308  7D 89 03 A6 */	mtctr r12
-/* 801B93AC 001B630C  4E 80 04 21 */	bctrl 
+/* 801B93AC 001B630C  4E 80 04 21 */	bctrl
 /* 801B93B0 001B6310  38 61 00 10 */	addi r3, r1, 0x10
 /* 801B93B4 001B6314  38 81 00 08 */	addi r4, r1, 8
 /* 801B93B8 001B6318  48 18 7A F1 */	bl __ct__6CTokenFRC6CToken
@@ -808,7 +808,7 @@ lbl_801B93E8:
 /* 801B9420 001B6380  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801B9424 001B6384  7C 08 03 A6 */	mtlr r0
 /* 801B9428 001B6388  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B942C 001B638C  4E 80 00 20 */	blr 
+/* 801B942C 001B638C  4E 80 00 20 */	blr
 
 .global IsComboFxActive__10CAuxWeaponCFRC13CStateManager
 IsComboFxActive__10CAuxWeaponCFRC13CStateManager:
@@ -850,7 +850,7 @@ lbl_801B94AC:
 /* 801B94AC 001B640C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B94B0 001B6410  7C 08 03 A6 */	mtlr r0
 /* 801B94B4 001B6414  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B94B8 001B6418  4E 80 00 20 */	blr 
+/* 801B94B8 001B6418  4E 80 00 20 */	blr
 
 .global StopComboFx__10CAuxWeaponFR13CStateManagerb
 StopComboFx__10CAuxWeaponFR13CStateManagerb:
@@ -930,7 +930,7 @@ lbl_801B95C0:
 /* 801B95CC 001B652C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801B95D0 001B6530  7C 08 03 A6 */	mtlr r0
 /* 801B95D4 001B6534  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B95D8 001B6538  4E 80 00 20 */	blr 
+/* 801B95D8 001B6538  4E 80 00 20 */	blr
 
 .global UpdateComboFx__10CAuxWeaponFfRC9CVector3fRC9CVector3fRC12CTransform4fR13CStateManager
 UpdateComboFx__10CAuxWeaponFfRC9CVector3fRC9CVector3fRC12CTransform4fR13CStateManager:
@@ -1083,25 +1083,25 @@ lbl_801B97F0:
 /* 801B97F8 001B6758  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B97FC 001B675C  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 801B9800 001B6760  7D 89 03 A6 */	mtctr r12
-/* 801B9804 001B6764  4E 80 04 21 */	bctrl 
+/* 801B9804 001B6764  4E 80 04 21 */	bctrl
 /* 801B9808 001B6768  80 78 00 24 */	lwz r3, 0x24(r24)
 /* 801B980C 001B676C  7F 24 CB 78 */	mr r4, r25
 /* 801B9810 001B6770  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B9814 001B6774  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 801B9818 001B6778  7D 89 03 A6 */	mtctr r12
-/* 801B981C 001B677C  4E 80 04 21 */	bctrl 
+/* 801B981C 001B677C  4E 80 04 21 */	bctrl
 /* 801B9820 001B6780  80 78 00 24 */	lwz r3, 0x24(r24)
 /* 801B9824 001B6784  57 A4 06 3E */	clrlwi r4, r29, 0x18
 /* 801B9828 001B6788  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B982C 001B678C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801B9830 001B6790  7D 89 03 A6 */	mtctr r12
-/* 801B9834 001B6794  4E 80 04 21 */	bctrl 
+/* 801B9834 001B6794  4E 80 04 21 */	bctrl
 /* 801B9838 001B6798  80 78 00 24 */	lwz r3, 0x24(r24)
 /* 801B983C 001B679C  FC 20 F8 90 */	fmr f1, f31
 /* 801B9840 001B67A0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B9844 001B67A4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801B9848 001B67A8  7D 89 03 A6 */	mtctr r12
-/* 801B984C 001B67AC  4E 80 04 21 */	bctrl 
+/* 801B984C 001B67AC  4E 80 04 21 */	bctrl
 lbl_801B9850:
 /* 801B9850 001B67B0  57 C3 06 3E */	clrlwi r3, r30, 0x18
 lbl_801B9854:
@@ -1111,7 +1111,7 @@ lbl_801B9854:
 /* 801B9860 001B67C0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801B9864 001B67C4  7C 08 03 A6 */	mtlr r0
 /* 801B9868 001B67C8  38 21 00 50 */	addi r1, r1, 0x50
-/* 801B986C 001B67CC  4E 80 00 20 */	blr 
+/* 801B986C 001B67CC  4E 80 00 20 */	blr
 
 .global RenderMuzzleFx__10CAuxWeaponCFv
 RenderMuzzleFx__10CAuxWeaponCFv:
@@ -1129,12 +1129,12 @@ lbl_801B9894:
 /* 801B9898 001B67F8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B989C 001B67FC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801B98A0 001B6800  7D 89 03 A6 */	mtctr r12
-/* 801B98A4 001B6804  4E 80 04 21 */	bctrl 
+/* 801B98A4 001B6804  4E 80 04 21 */	bctrl
 lbl_801B98A8:
 /* 801B98A8 001B6808  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B98AC 001B680C  7C 08 03 A6 */	mtlr r0
 /* 801B98B0 001B6810  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B98B4 001B6814  4E 80 00 20 */	blr 
+/* 801B98B4 001B6814  4E 80 00 20 */	blr
 
 .global HasTarget__10CAuxWeaponCFRC13CStateManager
 HasTarget__10CAuxWeaponCFRC13CStateManager:
@@ -1166,7 +1166,7 @@ lbl_801B990C:
 /* 801B9910 001B6870  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801B9914 001B6874  7C 08 03 A6 */	mtlr r0
 /* 801B9918 001B6878  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B991C 001B687C  4E 80 00 20 */	blr 
+/* 801B991C 001B687C  4E 80 00 20 */	blr
 
 .global SetNewTarget__10CAuxWeaponF9TUniqueIdR13CStateManager
 SetNewTarget__10CAuxWeaponF9TUniqueIdR13CStateManager:
@@ -1200,7 +1200,7 @@ lbl_801B997C:
 /* 801B9984 001B68E4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B9988 001B68E8  7C 08 03 A6 */	mtlr r0
 /* 801B998C 001B68EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B9990 001B68F0  4E 80 00 20 */	blr 
+/* 801B9990 001B68F0  4E 80 00 20 */	blr
 
 .global Fire__10CAuxWeaponFfbiQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager11EWeaponType9TUniqueId
 Fire__10CAuxWeaponFfbiQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager11EWeaponType9TUniqueId:
@@ -1290,7 +1290,7 @@ lbl_801B9AB8:
 /* 801B9AC0 001B6A20  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801B9AC4 001B6A24  7C 08 03 A6 */	mtlr r0
 /* 801B9AC8 001B6A28  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B9ACC 001B6A2C  4E 80 00 20 */	blr 
+/* 801B9ACC 001B6A2C  4E 80 00 20 */	blr
 
 .global __ct__10CAuxWeaponF9TUniqueId
 __ct__10CAuxWeaponF9TUniqueId:
@@ -1310,7 +1310,7 @@ __ct__10CAuxWeaponF9TUniqueId:
 /* 801B9B04 001B6A64  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B9B08 001B6A68  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801B9B0C 001B6A6C  7D 89 03 A6 */	mtctr r12
-/* 801B9B10 001B6A70  4E 80 04 21 */	bctrl 
+/* 801B9B10 001B6A70  4E 80 04 21 */	bctrl
 /* 801B9B14 001B6A74  7F C3 F3 78 */	mr r3, r30
 /* 801B9B18 001B6A78  38 81 00 18 */	addi r4, r1, 0x18
 /* 801B9B1C 001B6A7C  48 18 73 8D */	bl __ct__6CTokenFRC6CToken
@@ -1329,7 +1329,7 @@ __ct__10CAuxWeaponF9TUniqueId:
 /* 801B9B50 001B6AB0  38 A5 00 BE */	addi r5, r5, 0xbe
 /* 801B9B54 001B6AB4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801B9B58 001B6AB8  7D 89 03 A6 */	mtctr r12
-/* 801B9B5C 001B6ABC  4E 80 04 21 */	bctrl 
+/* 801B9B5C 001B6ABC  4E 80 04 21 */	bctrl
 /* 801B9B60 001B6AC0  3B BE 00 0C */	addi r29, r30, 0xc
 /* 801B9B64 001B6AC4  38 81 00 10 */	addi r4, r1, 0x10
 /* 801B9B68 001B6AC8  7F A3 EB 78 */	mr r3, r29
@@ -1349,7 +1349,7 @@ __ct__10CAuxWeaponF9TUniqueId:
 /* 801B9BA0 001B6B00  38 A5 00 CA */	addi r5, r5, 0xca
 /* 801B9BA4 001B6B04  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801B9BA8 001B6B08  7D 89 03 A6 */	mtctr r12
-/* 801B9BAC 001B6B0C  4E 80 04 21 */	bctrl 
+/* 801B9BAC 001B6B0C  4E 80 04 21 */	bctrl
 /* 801B9BB0 001B6B10  3B BE 00 18 */	addi r29, r30, 0x18
 /* 801B9BB4 001B6B14  38 81 00 08 */	addi r4, r1, 8
 /* 801B9BB8 001B6B18  7F A3 EB 78 */	mr r3, r29

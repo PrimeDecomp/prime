@@ -40,7 +40,7 @@ lbl_805A95C0:
 .global lbl_805A95C1
 lbl_805A95C1:
 	.skip 0x7
-	
+
 .section .text, "ax"
 
 .global FreeCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
@@ -73,7 +73,7 @@ lbl_8034D534:
 /* 8034D538 0034A498  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8034D53C 0034A49C  7C 08 03 A6 */	mtlr r0
 /* 8034D540 0034A4A0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034D544 0034A4A4  4E 80 00 20 */	blr 
+/* 8034D544 0034A4A4  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl36vector<c,Q24rstl17aligned_allocator>Fv"
 "__dt__Q24rstl36vector<c,Q24rstl17aligned_allocator>Fv":
@@ -145,7 +145,7 @@ lbl_8034D620:
 /* 8034D628 0034A588  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8034D62C 0034A58C  7C 08 03 A6 */	mtlr r0
 /* 8034D630 0034A590  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034D634 0034A594  4E 80 00 20 */	blr 
+/* 8034D634 0034A594  4E 80 00 20 */	blr
 
 .global sub_8034d638
 sub_8034d638:
@@ -183,7 +183,7 @@ lbl_8034D69C:
 /* 8034D6A8 0034A608  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8034D6AC 0034A60C  7C 08 03 A6 */	mtlr r0
 /* 8034D6B0 0034A610  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034D6B4 0034A614  4E 80 00 20 */	blr 
+/* 8034D6B4 0034A614  4E 80 00 20 */	blr
 
 .global AllocCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 AllocCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
@@ -208,7 +208,7 @@ AllocCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034D700 0034A660  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034D704 0034A664  7C 08 03 A6 */	mtlr r0
 /* 8034D708 0034A668  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034D70C 0034A66C  4E 80 00 20 */	blr 
+/* 8034D70C 0034A66C  4E 80 00 20 */	blr
 
 .global "resize__Q24rstl36vector<c,Q24rstl17aligned_allocator>FiRCc"
 "resize__Q24rstl36vector<c,Q24rstl17aligned_allocator>FiRCc":
@@ -265,7 +265,7 @@ lbl_8034D7B4:
 /* 8034D7C0 0034A720  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8034D7C4 0034A724  7C 08 03 A6 */	mtlr r0
 /* 8034D7C8 0034A728  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034D7CC 0034A72C  4E 80 00 20 */	blr 
+/* 8034D7CC 0034A72C  4E 80 00 20 */	blr
 
 .global WorkAreaVector__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 WorkAreaVector__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
@@ -278,15 +278,15 @@ WorkAreaVector__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 lbl_8034D7E8:
 /* 8034D7E8 0034A748  3C 60 80 5A */	lis r3, lbl_805A67DC@ha
 /* 8034D7EC 0034A74C  38 63 67 DC */	addi r3, r3, lbl_805A67DC@l
-/* 8034D7F0 0034A750  4E 80 00 20 */	blr 
+/* 8034D7F0 0034A750  4E 80 00 20 */	blr
 lbl_8034D7F4:
 /* 8034D7F4 0034A754  3C 60 80 5A */	lis r3, lbl_805A67FC@ha
 /* 8034D7F8 0034A758  38 63 67 FC */	addi r3, r3, lbl_805A67FC@l
-/* 8034D7FC 0034A75C  4E 80 00 20 */	blr 
+/* 8034D7FC 0034A75C  4E 80 00 20 */	blr
 lbl_8034D800:
 /* 8034D800 0034A760  3C 60 80 5A */	lis r3, lbl_805A67DC@ha
 /* 8034D804 0034A764  38 63 67 DC */	addi r3, r3, lbl_805A67DC@l
-/* 8034D808 0034A768  4E 80 00 20 */	blr 
+/* 8034D808 0034A768  4E 80 00 20 */	blr
 
 .global SetStatus__14CMemoryCardSysFiiPC8CARDStat
 SetStatus__14CMemoryCardSysFiiPC8CARDStat:
@@ -298,7 +298,7 @@ SetStatus__14CMemoryCardSysFiiPC8CARDStat:
 /* 8034D820 0034A780  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034D824 0034A784  7C 08 03 A6 */	mtlr r0
 /* 8034D828 0034A788  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034D82C 0034A78C  4E 80 00 20 */	blr 
+/* 8034D82C 0034A78C  4E 80 00 20 */	blr
 
 .global GetStatus__14CMemoryCardSysFiiP8CARDStat
 GetStatus__14CMemoryCardSysFiiP8CARDStat:
@@ -325,7 +325,7 @@ lbl_8034D85C:
 /* 8034D87C 0034A7DC  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8034D880 0034A7E0  7C 08 03 A6 */	mtlr r0
 /* 8034D884 0034A7E4  38 21 00 80 */	addi r1, r1, 0x80
-/* 8034D888 0034A7E8  4E 80 00 20 */	blr 
+/* 8034D888 0034A7E8  4E 80 00 20 */	blr
 
 .global GetSerialNo__14CMemoryCardSysFiRx
 GetSerialNo__14CMemoryCardSysFiRx:
@@ -336,7 +336,7 @@ GetSerialNo__14CMemoryCardSysFiRx:
 /* 8034D89C 0034A7FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034D8A0 0034A800  7C 08 03 A6 */	mtlr r0
 /* 8034D8A4 0034A804  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034D8A8 0034A808  4E 80 00 20 */	blr 
+/* 8034D8A8 0034A808  4E 80 00 20 */	blr
 
 .global TryFileRead__19SMemoryCardFileInfoFv
 TryFileRead__19SMemoryCardFileInfoFv:
@@ -358,7 +358,7 @@ lbl_8034D8DC:
 /* 8034D8E0 0034A840  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034D8E4 0034A844  7C 08 03 A6 */	mtlr r0
 /* 8034D8E8 0034A848  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034D8EC 0034A84C  4E 80 00 20 */	blr 
+/* 8034D8EC 0034A84C  4E 80 00 20 */	blr
 
 .global StartRead__19SMemoryCardFileInfoFv
 StartRead__19SMemoryCardFileInfoFv:
@@ -428,7 +428,7 @@ lbl_8034D9D0:
 /* 8034D9D8 0034A938  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 8034D9DC 0034A93C  7C 08 03 A6 */	mtlr r0
 /* 8034D9E0 0034A940  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8034D9E4 0034A944  4E 80 00 20 */	blr 
+/* 8034D9E4 0034A944  4E 80 00 20 */	blr
 
 .global sub_8034d9e8
 sub_8034d9e8:
@@ -497,7 +497,7 @@ lbl_8034DAAC:
 /* 8034DAC4 0034AA24  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8034DAC8 0034AA28  7C 08 03 A6 */	mtlr r0
 /* 8034DACC 0034AA2C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034DAD0 0034AA30  4E 80 00 20 */	blr 
+/* 8034DAD0 0034AA30  4E 80 00 20 */	blr
 
 .global GetStatus__13CCardFileInfoFP8CARDStat
 GetStatus__13CCardFileInfoFP8CARDStat:
@@ -589,7 +589,7 @@ lbl_8034DBF4:
 /* 8034DC04 0034AB64  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8034DC08 0034AB68  7C 08 03 A6 */	mtlr r0
 /* 8034DC0C 0034AB6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034DC10 0034AB70  4E 80 00 20 */	blr 
+/* 8034DC10 0034AB70  4E 80 00 20 */	blr
 
 .global PumpCardTransfer__13CCardFileInfoFv
 PumpCardTransfer__13CCardFileInfoFv:
@@ -681,7 +681,7 @@ lbl_8034DD3C:
 /* 8034DD44 0034ACA4  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 8034DD48 0034ACA8  7C 08 03 A6 */	mtlr r0
 /* 8034DD4C 0034ACAC  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8034DD50 0034ACB0  4E 80 00 20 */	blr 
+/* 8034DD50 0034ACB0  4E 80 00 20 */	blr
 
 .global sub_8034dd54
 sub_8034dd54:
@@ -753,7 +753,7 @@ lbl_8034DE2C:
 /* 8034DE34 0034AD94  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8034DE38 0034AD98  7C 08 03 A6 */	mtlr r0
 /* 8034DE3C 0034AD9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034DE40 0034ADA0  4E 80 00 20 */	blr 
+/* 8034DE40 0034ADA0  4E 80 00 20 */	blr
 
 .global Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl
 Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl:
@@ -784,7 +784,7 @@ Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl:
 /* 8034DEA4 0034AE04  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034DEA8 0034AE08  7C 08 03 A6 */	mtlr r0
 /* 8034DEAC 0034AE0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034DEB0 0034AE10  4E 80 00 20 */	blr 
+/* 8034DEB0 0034AE10  4E 80 00 20 */	blr
 
 .global CheckCard__14CMemoryCardSysFv
 CheckCard__14CMemoryCardSysFv:
@@ -796,7 +796,7 @@ CheckCard__14CMemoryCardSysFv:
 /* 8034DEC8 0034AE28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034DECC 0034AE2C  7C 08 03 A6 */	mtlr r0
 /* 8034DED0 0034AE30  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034DED4 0034AE34  4E 80 00 20 */	blr 
+/* 8034DED4 0034AE34  4E 80 00 20 */	blr
 
 .global Rename__14CMemoryCardSysFiPCcPCc
 Rename__14CMemoryCardSysFiPCcPCc:
@@ -810,7 +810,7 @@ Rename__14CMemoryCardSysFiPCcPCc:
 /* 8034DEF4 0034AE54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034DEF8 0034AE58  7C 08 03 A6 */	mtlr r0
 /* 8034DEFC 0034AE5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034DF00 0034AE60  4E 80 00 20 */	blr 
+/* 8034DF00 0034AE60  4E 80 00 20 */	blr
 
 .global Close__13CCardFileInfoFv
 Close__13CCardFileInfoFv:
@@ -830,7 +830,7 @@ Close__13CCardFileInfoFv:
 /* 8034DF38 0034AE98  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034DF3C 0034AE9C  7C 08 03 A6 */	mtlr r0
 /* 8034DF40 0034AEA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034DF44 0034AEA4  4E 80 00 20 */	blr 
+/* 8034DF44 0034AEA4  4E 80 00 20 */	blr
 
 .global Close__19SMemoryCardFileInfo
 Close__19SMemoryCardFileInfo:
@@ -850,7 +850,7 @@ Close__19SMemoryCardFileInfo:
 /* 8034DF7C 0034AEDC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034DF80 0034AEE0  7C 08 03 A6 */	mtlr r0
 /* 8034DF84 0034AEE4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034DF88 0034AEE8  4E 80 00 20 */	blr 
+/* 8034DF88 0034AEE8  4E 80 00 20 */	blr
 
 .global FastDeleteFile__14CMemoryCardSysFii
 FastDeleteFile__14CMemoryCardSysFii:
@@ -862,7 +862,7 @@ FastDeleteFile__14CMemoryCardSysFii:
 /* 8034DFA0 0034AF00  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034DFA4 0034AF04  7C 08 03 A6 */	mtlr r0
 /* 8034DFA8 0034AF08  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034DFAC 0034AF0C  4E 80 00 20 */	blr 
+/* 8034DFAC 0034AF0C  4E 80 00 20 */	blr
 
 .global DeleteFile__14CMemoryCardSysFiPCc
 DeleteFile__14CMemoryCardSysFiPCc:
@@ -875,7 +875,7 @@ DeleteFile__14CMemoryCardSysFiPCc:
 /* 8034DFC8 0034AF28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034DFCC 0034AF2C  7C 08 03 A6 */	mtlr r0
 /* 8034DFD0 0034AF30  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034DFD4 0034AF34  4E 80 00 20 */	blr 
+/* 8034DFD4 0034AF34  4E 80 00 20 */	blr
 
 .global "CreateFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UiRQ214CMemoryCardSys13CCardFileInfo"
 "CreateFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UiRQ214CMemoryCardSys13CCardFileInfo":
@@ -900,7 +900,7 @@ DeleteFile__14CMemoryCardSysFiPCc:
 /* 8034E020 0034AF80  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034E024 0034AF84  7C 08 03 A6 */	mtlr r0
 /* 8034E028 0034AF88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E02C 0034AF8C  4E 80 00 20 */	blr 
+/* 8034E02C 0034AF8C  4E 80 00 20 */	blr
 
 .global "OpenFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RQ214CMemoryCardSys13CCardFileInfo"
 "OpenFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RQ214CMemoryCardSys13CCardFileInfo":
@@ -917,7 +917,7 @@ DeleteFile__14CMemoryCardSysFiPCc:
 /* 8034E058 0034AFB8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034E05C 0034AFBC  7C 08 03 A6 */	mtlr r0
 /* 8034E060 0034AFC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E064 0034AFC4  4E 80 00 20 */	blr 
+/* 8034E064 0034AFC4  4E 80 00 20 */	blr
 
 .global LockIconToken__13CCardFileInfoFiiR11CSimplePool
 LockIconToken__13CCardFileInfoFiiR11CSimplePool:
@@ -962,7 +962,7 @@ lbl_8034E0F0:
 /* 8034E0F8 0034B058  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8034E0FC 0034B05C  7C 08 03 A6 */	mtlr r0
 /* 8034E100 0034B060  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034E104 0034B064  4E 80 00 20 */	blr 
+/* 8034E104 0034B064  4E 80 00 20 */	blr
 
 .global LockBannerToken__13CCardFileInfoFiR11CSimplePool
 LockBannerToken__13CCardFileInfoFiR11CSimplePool:
@@ -984,7 +984,7 @@ LockBannerToken__13CCardFileInfoFiR11CSimplePool:
 /* 8034E144 0034B0A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 8034E148 0034B0A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8034E14C 0034B0AC  7D 89 03 A6 */	mtctr r12
-/* 8034E150 0034B0B0  4E 80 04 21 */	bctrl 
+/* 8034E150 0034B0B0  4E 80 04 21 */	bctrl
 /* 8034E154 0034B0B4  3B E1 00 18 */	addi r31, r1, 0x18
 /* 8034E158 0034B0B8  38 81 00 08 */	addi r4, r1, 8
 /* 8034E15C 0034B0BC  7F E3 FB 78 */	mr r3, r31
@@ -1028,7 +1028,7 @@ lbl_8034E1C8:
 /* 8034E1E8 0034B148  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8034E1EC 0034B14C  7C 08 03 A6 */	mtlr r0
 /* 8034E1F0 0034B150  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034E1F4 0034B154  4E 80 00 20 */	blr 
+/* 8034E1F4 0034B154  4E 80 00 20 */	blr
 
 .global __ct__13CCardFileInfoFRCQ24rstl6string
 __ct__13CCardFileInfoFRCQ24rstl6string:
@@ -1068,7 +1068,7 @@ __ct__13CCardFileInfoFRCQ24rstl6string:
 /* 8034E27C 0034B1DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E280 0034B1E0  7C 08 03 A6 */	mtlr r0
 /* 8034E284 0034B1E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E288 0034B1E8  4E 80 00 20 */	blr 
+/* 8034E288 0034B1E8  4E 80 00 20 */	blr
 
 .global __ct__19SMemoryCardFileInfoFiRCQ24rstl6string
 __ct__19SMemoryCardFileInfoFiRCQ24rstl6string:
@@ -1098,7 +1098,7 @@ __ct__19SMemoryCardFileInfoFiRCQ24rstl6string:
 /* 8034E2E8 0034B248  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E2EC 0034B24C  7C 08 03 A6 */	mtlr r0
 /* 8034E2F0 0034B250  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E2F4 0034B254  4E 80 00 20 */	blr 
+/* 8034E2F4 0034B254  4E 80 00 20 */	blr
 
 .global GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi
 GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi:
@@ -1121,7 +1121,7 @@ GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi:
 /* 8034E338 0034B298  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034E33C 0034B29C  7C 08 03 A6 */	mtlr r0
 /* 8034E340 0034B2A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034E344 0034B2A4  4E 80 00 20 */	blr 
+/* 8034E344 0034B2A4  4E 80 00 20 */	blr
 
 .global FormatCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 FormatCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
@@ -1133,7 +1133,7 @@ FormatCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034E35C 0034B2BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E360 0034B2C0  7C 08 03 A6 */	mtlr r0
 /* 8034E364 0034B2C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E368 0034B2C8  4E 80 00 20 */	blr 
+/* 8034E368 0034B2C8  4E 80 00 20 */	blr
 
 .global UnmountCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 UnmountCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
@@ -1152,7 +1152,7 @@ UnmountCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034E39C 0034B2FC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034E3A0 0034B300  7C 08 03 A6 */	mtlr r0
 /* 8034E3A4 0034B304  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E3A8 0034B308  4E 80 00 20 */	blr 
+/* 8034E3A8 0034B308  4E 80 00 20 */	blr
 
 .global MountCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 MountCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
@@ -1171,7 +1171,7 @@ MountCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034E3DC 0034B33C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034E3E0 0034B340  7C 08 03 A6 */	mtlr r0
 /* 8034E3E4 0034B344  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E3E8 0034B348  4E 80 00 20 */	blr 
+/* 8034E3E8 0034B348  4E 80 00 20 */	blr
 
 .global GetResultCode__14CMemoryCardSysFi
 GetResultCode__14CMemoryCardSysFi:
@@ -1182,7 +1182,7 @@ GetResultCode__14CMemoryCardSysFi:
 /* 8034E3FC 0034B35C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E400 0034B360  7C 08 03 A6 */	mtlr r0
 /* 8034E404 0034B364  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E408 0034B368  4E 80 00 20 */	blr 
+/* 8034E408 0034B368  4E 80 00 20 */	blr
 
 .global IsMemoryCardInserted__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 IsMemoryCardInserted__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
@@ -1205,7 +1205,7 @@ IsMemoryCardInserted__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034E44C 0034B3AC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034E450 0034B3B0  7C 08 03 A6 */	mtlr r0
 /* 8034E454 0034B3B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034E458 0034B3B8  4E 80 00 20 */	blr 
+/* 8034E458 0034B3B8  4E 80 00 20 */	blr
 
 .global sub_8034e45c
 sub_8034e45c:
@@ -1234,7 +1234,7 @@ lbl_8034E4A4:
 /* 8034E4B0 0034B410  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034E4B4 0034B414  7C 08 03 A6 */	mtlr r0
 /* 8034E4B8 0034B418  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E4BC 0034B41C  4E 80 00 20 */	blr 
+/* 8034E4BC 0034B41C  4E 80 00 20 */	blr
 
 .global Initialize__14CMemoryCardSysFv
 Initialize__14CMemoryCardSysFv:
@@ -1257,7 +1257,7 @@ lbl_8034E4EC:
 /* 8034E4FC 0034B45C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E500 0034B460  7C 08 03 A6 */	mtlr r0
 /* 8034E504 0034B464  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E508 0034B468  4E 80 00 20 */	blr 
+/* 8034E508 0034B468  4E 80 00 20 */	blr
 
 .global SetComment__13CCardFileInfoFv
 SetComment__13CCardFileInfoFv:
@@ -1269,17 +1269,17 @@ SetComment__13CCardFileInfoFv:
 /* 8034E520 0034B480  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E524 0034B484  7C 08 03 A6 */	mtlr r0
 /* 8034E528 0034B488  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E52C 0034B48C  4E 80 00 20 */	blr 
+/* 8034E52C 0034B48C  4E 80 00 20 */	blr
 
 .global SetCommentAddr__8CARDStatFi
 SetCommentAddr__8CARDStatFi:
 /* 8034E530 0034B490  90 83 00 38 */	stw r4, 0x38(r3)
-/* 8034E534 0034B494  4E 80 00 20 */	blr 
+/* 8034E534 0034B494  4E 80 00 20 */	blr
 
 .global SetIconAddr__8CARDStatFi
 SetIconAddr__8CARDStatFi:
 /* 8034E538 0034B498  90 83 00 30 */	stw r4, 0x30(r3)
-/* 8034E53C 0034B49C  4E 80 00 20 */	blr 
+/* 8034E53C 0034B49C  4E 80 00 20 */	blr
 
 .global SetIconSpeed__8CARDStatFii
 SetIconSpeed__8CARDStatFii:
@@ -1291,7 +1291,7 @@ SetIconSpeed__8CARDStatFii:
 /* 8034E554 0034B4B4  7C C4 28 78 */	andc r4, r6, r5
 /* 8034E558 0034B4B8  7C 80 03 78 */	or r0, r4, r0
 /* 8034E55C 0034B4BC  B0 03 00 36 */	sth r0, 0x36(r3)
-/* 8034E560 0034B4C0  4E 80 00 20 */	blr 
+/* 8034E560 0034B4C0  4E 80 00 20 */	blr
 
 .global SetIconFormat__8CARDStatFii
 SetIconFormat__8CARDStatFii:
@@ -1303,7 +1303,7 @@ SetIconFormat__8CARDStatFii:
 /* 8034E578 0034B4D8  7C C4 28 78 */	andc r4, r6, r5
 /* 8034E57C 0034B4DC  7C 80 03 78 */	or r0, r4, r0
 /* 8034E580 0034B4E0  B0 03 00 34 */	sth r0, 0x34(r3)
-/* 8034E584 0034B4E4  4E 80 00 20 */	blr 
+/* 8034E584 0034B4E4  4E 80 00 20 */	blr
 
 .global SetBannerFormat__8CARDStatFi
 SetBannerFormat__8CARDStatFi:
@@ -1311,12 +1311,12 @@ SetBannerFormat__8CARDStatFi:
 /* 8034E58C 0034B4EC  54 00 00 3A */	rlwinm r0, r0, 0, 0, 0x1d
 /* 8034E590 0034B4F0  7C 00 23 78 */	or r0, r0, r4
 /* 8034E594 0034B4F4  98 03 00 2E */	stb r0, 0x2e(r3)
-/* 8034E598 0034B4F8  4E 80 00 20 */	blr 
+/* 8034E598 0034B4F8  4E 80 00 20 */	blr
 
 .global GetCommentAddr__8CARDStatFv
 GetCommentAddr__8CARDStatFv:
 /* 8034E59C 0034B4FC  80 63 00 38 */	lwz r3, 0x38(r3)
-/* 8034E5A0 0034B500  4E 80 00 20 */	blr 
+/* 8034E5A0 0034B500  4E 80 00 20 */	blr
 
 .global GetIconFormat__8CARDStatFi
 GetIconFormat__8CARDStatFi:
@@ -1324,23 +1324,23 @@ GetIconFormat__8CARDStatFi:
 /* 8034E5A8 0034B508  54 80 08 3C */	slwi r0, r4, 1
 /* 8034E5AC 0034B50C  7C 60 06 30 */	sraw r0, r3, r0
 /* 8034E5B0 0034B510  54 03 07 BE */	clrlwi r3, r0, 0x1e
-/* 8034E5B4 0034B514  4E 80 00 20 */	blr 
+/* 8034E5B4 0034B514  4E 80 00 20 */	blr
 
 .global GetBannerFormat__8CARDStatFv
 GetBannerFormat__8CARDStatFv:
 /* 8034E5B8 0034B518  88 03 00 2E */	lbz r0, 0x2e(r3)
 /* 8034E5BC 0034B51C  54 03 07 BE */	clrlwi r3, r0, 0x1e
-/* 8034E5C0 0034B520  4E 80 00 20 */	blr 
+/* 8034E5C0 0034B520  4E 80 00 20 */	blr
 
 .global GetTime__8CARDStatFv
 GetTime__8CARDStatFv:
 /* 8034E5C4 0034B524  80 63 00 24 */	lwz r3, 0x24(r3)
-/* 8034E5C8 0034B528  4E 80 00 20 */	blr 
+/* 8034E5C8 0034B528  4E 80 00 20 */	blr
 
 .global GetFileLength__8CARDStatFv
 GetFileLength__8CARDStatFv:
 /* 8034E5CC 0034B52C  80 63 00 20 */	lwz r3, 0x20(r3)
-/* 8034E5D0 0034B530  4E 80 00 20 */	blr 
+/* 8034E5D0 0034B530  4E 80 00 20 */	blr
 
 .global CalculateBannerDataSize__13CCardFileInfoFv
 CalculateBannerDataSize__13CCardFileInfoFv:
@@ -1383,7 +1383,7 @@ lbl_8034E644:
 /* 8034E64C 0034B5AC  38 A5 02 00 */	addi r5, r5, 0x200
 lbl_8034E650:
 /* 8034E650 0034B5B0  7C A3 2B 78 */	mr r3, r5
-/* 8034E654 0034B5B4  4E 80 00 20 */	blr 
+/* 8034E654 0034B5B4  4E 80 00 20 */	blr
 
 .global CalculateTotalDataSize__13CCardFileInfoFv
 CalculateTotalDataSize__13CCardFileInfoFv:
@@ -1400,7 +1400,7 @@ CalculateTotalDataSize__13CCardFileInfoFv:
 /* 8034E680 0034B5E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034E684 0034B5E4  7C 08 03 A6 */	mtlr r0
 /* 8034E688 0034B5E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034E68C 0034B5EC  4E 80 00 20 */	blr 
+/* 8034E68C 0034B5EC  4E 80 00 20 */	blr
 
 .global BuildCardBuffer__13CCardFileInfoFv
 BuildCardBuffer__13CCardFileInfoFv:
@@ -1497,7 +1497,7 @@ lbl_8034E7DC:
 /* 8034E7EC 0034B74C  83 81 01 00 */	lwz r28, 0x100(r1)
 /* 8034E7F0 0034B750  7C 08 03 A6 */	mtlr r0
 /* 8034E7F4 0034B754  38 21 01 10 */	addi r1, r1, 0x110
-/* 8034E7F8 0034B758  4E 80 00 20 */	blr 
+/* 8034E7F8 0034B758  4E 80 00 20 */	blr
 
 .global WriteIconData__13CCardFileInfoFv
 WriteIconData__13CCardFileInfoFv:
@@ -1553,7 +1553,7 @@ lbl_8034E8A8:
 /* 8034E8AC 0034B80C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8034E8B0 0034B810  7C 08 03 A6 */	mtlr r0
 /* 8034E8B4 0034B814  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034E8B8 0034B818  4E 80 00 20 */	blr 
+/* 8034E8B8 0034B818  4E 80 00 20 */	blr
 
 .global WriteBannerData__13CCardFileInfoFv
 WriteBannerData__13CCardFileInfoFv:
@@ -1598,7 +1598,7 @@ lbl_8034E948:
 /* 8034E94C 0034B8AC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034E950 0034B8B0  7C 08 03 A6 */	mtlr r0
 /* 8034E954 0034B8B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034E958 0034B8B8  4E 80 00 20 */	blr 
+/* 8034E958 0034B8B8  4E 80 00 20 */	blr
 
 .global GetSaveDataOffset__19SMemoryCardFileInfoFRPv
 GetSaveDataOffset__19SMemoryCardFileInfoFRPv:
@@ -1688,27 +1688,27 @@ lbl_8034EA78:
 /* 8034EA84 0034B9E4  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8034EA88 0034B9E8  7C 08 03 A6 */	mtlr r0
 /* 8034EA8C 0034B9EC  38 21 00 90 */	addi r1, r1, 0x90
-/* 8034EA90 0034B9F0  4E 80 00 20 */	blr 
+/* 8034EA90 0034B9F0  4E 80 00 20 */	blr
 
 .global GetFileNo__13CCardFileInfoFv
 GetFileNo__13CCardFileInfoFv:
 /* 8034EA94 0034B9F4  80 63 00 08 */	lwz r3, 8(r3)
-/* 8034EA98 0034B9F8  4E 80 00 20 */	blr 
+/* 8034EA98 0034B9F8  4E 80 00 20 */	blr
 
 .global GetCardPort__13CCardFileInfoFv
 GetCardPort__13CCardFileInfoFv:
 /* 8034EA9C 0034B9FC  80 63 00 04 */	lwz r3, 4(r3)
-/* 8034EAA0 0034BA00  4E 80 00 20 */	blr 
+/* 8034EAA0 0034BA00  4E 80 00 20 */	blr
 
 .global GetFileNo__19SMemoryCardFileInfoFv
 GetFileNo__19SMemoryCardFileInfoFv:
 /* 8034EAA4 0034BA04  80 63 00 04 */	lwz r3, 4(r3)
-/* 8034EAA8 0034BA08  4E 80 00 20 */	blr 
+/* 8034EAA8 0034BA08  4E 80 00 20 */	blr
 
 .global GetFileCardPort__19SMemoryCardFileInfoFv
 GetFileCardPort__19SMemoryCardFileInfoFv:
 /* 8034EAAC 0034BA0C  80 63 00 00 */	lwz r3, 0(r3)
-/* 8034EAB0 0034BA10  4E 80 00 20 */	blr 
+/* 8034EAB0 0034BA10  4E 80 00 20 */	blr
 
 .global sub_8034eab4
 sub_8034eab4:
@@ -1730,7 +1730,7 @@ sub_8034eab4:
 /* 8034EAF0 0034BA50  81 86 00 00 */	lwz r12, 0(r6)
 /* 8034EAF4 0034BA54  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8034EAF8 0034BA58  7D 89 03 A6 */	mtctr r12
-/* 8034EAFC 0034BA5C  4E 80 04 21 */	bctrl 
+/* 8034EAFC 0034BA5C  4E 80 04 21 */	bctrl
 /* 8034EB00 0034BA60  3B FE 00 08 */	addi r31, r30, 8
 /* 8034EB04 0034BA64  38 81 00 08 */	addi r4, r1, 8
 /* 8034EB08 0034BA68  7F E3 FB 78 */	mr r3, r31
@@ -1748,7 +1748,7 @@ sub_8034eab4:
 /* 8034EB38 0034BA98  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8034EB3C 0034BA9C  7C 08 03 A6 */	mtlr r0
 /* 8034EB40 0034BAA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034EB44 0034BAA4  4E 80 00 20 */	blr 
+/* 8034EB44 0034BAA4  4E 80 00 20 */	blr
 
 .global FileRead__19SMemoryCardFileInfoFv
 FileRead__19SMemoryCardFileInfoFv:
@@ -1885,7 +1885,7 @@ lbl_8034ED1C:
 /* 8034ED20 0034BC80  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8034ED24 0034BC84  7C 08 03 A6 */	mtlr r0
 /* 8034ED28 0034BC88  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8034ED2C 0034BC8C  4E 80 00 20 */	blr 
+/* 8034ED2C 0034BC8C  4E 80 00 20 */	blr
 
 .global sub_8034ed30
 sub_8034ed30:
@@ -1962,7 +1962,7 @@ lbl_8034EE1C:
 /* 8034EE28 0034BD88  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8034EE2C 0034BD8C  7C 08 03 A6 */	mtlr r0
 /* 8034EE30 0034BD90  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034EE34 0034BD94  4E 80 00 20 */	blr 
+/* 8034EE34 0034BD94  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl36vector<c,Q24rstl17aligned_allocator>Fi"
 "reserve__Q24rstl36vector<c,Q24rstl17aligned_allocator>Fi":
@@ -2039,7 +2039,7 @@ lbl_8034EF24:
 /* 8034EF30 0034BE90  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8034EF34 0034BE94  7C 08 03 A6 */	mtlr r0
 /* 8034EF38 0034BE98  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034EF3C 0034BE9C  4E 80 00 20 */	blr 
+/* 8034EF3C 0034BE9C  4E 80 00 20 */	blr
 
 .global __sinit_DolphinCMemoryCardSys_cpp
 __sinit_DolphinCMemoryCardSys_cpp:

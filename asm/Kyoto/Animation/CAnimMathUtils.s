@@ -60,7 +60,7 @@ lbl_802EB758:
 /* 802EB788 002E86E8  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802EB78C 002E86EC  7C 08 03 A6 */	mtlr r0
 /* 802EB790 002E86F0  38 21 00 50 */	addi r1, r1, 0x50
-/* 802EB794 002E86F4  4E 80 00 20 */	blr 
+/* 802EB794 002E86F4  4E 80 00 20 */	blr
 
 .global Slerp__14CAnimMathUtilsFRC11CQuaternionRC11CQuaternionf
 Slerp__14CAnimMathUtilsFRC11CQuaternionRC11CQuaternionf:
@@ -220,7 +220,7 @@ lbl_802EB9BC:
 /* 802EB9E8 002E8948  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802EB9EC 002E894C  7C 08 03 A6 */	mtlr r0
 /* 802EB9F0 002E8950  38 21 00 60 */	addi r1, r1, 0x60
-/* 802EB9F4 002E8954  4E 80 00 20 */	blr 
+/* 802EB9F4 002E8954  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl48vector<11CQuaternion,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl48vector<11CQuaternion,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":

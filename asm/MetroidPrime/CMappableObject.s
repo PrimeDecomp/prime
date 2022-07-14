@@ -60,12 +60,12 @@ lbl_805A7374:
 	# ROM: 0x3F4D14
 	.4byte 0x3F800000
 
-.section .bss 
+.section .bss
 
 .global lbl_8046C498
 lbl_8046C498:
 	.skip 0x60
-	
+
 .section .text, "ax"
 
 .global AdjustTransformForType__15CMappableObjectFv
@@ -261,7 +261,7 @@ lbl_800E8A2C:
 /* 800E8A34 000E5994  83 C1 02 C8 */	lwz r30, 0x2c8(r1)
 /* 800E8A38 000E5998  7C 08 03 A6 */	mtlr r0
 /* 800E8A3C 000E599C  38 21 02 D0 */	addi r1, r1, 0x2d0
-/* 800E8A40 000E59A0  4E 80 00 20 */	blr 
+/* 800E8A40 000E59A0  4E 80 00 20 */	blr
 
 .global GetIsVisibleToAutoMapper__15CMappableObjectFbRC13CMapWorldInfo
 GetIsVisibleToAutoMapper__15CMappableObjectFbRC13CMapWorldInfo:
@@ -338,7 +338,7 @@ lbl_800E8B28:
 /* 800E8B34 000E5A94  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800E8B38 000E5A98  7C 08 03 A6 */	mtlr r0
 /* 800E8B3C 000E5A9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800E8B40 000E5AA0  4E 80 00 20 */	blr 
+/* 800E8B40 000E5AA0  4E 80 00 20 */	blr
 
 .global BuildSurfaceCenterPoint__15CMappableObjectCFi
 BuildSurfaceCenterPoint__15CMappableObjectCFi:
@@ -433,7 +433,7 @@ lbl_800E8C7C:
 /* 800E8C80 000E5BE0  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 800E8C84 000E5BE4  7C 08 03 A6 */	mtlr r0
 /* 800E8C88 000E5BE8  38 21 00 50 */	addi r1, r1, 0x50
-/* 800E8C8C 000E5BEC  4E 80 00 20 */	blr 
+/* 800E8C8C 000E5BEC  4E 80 00 20 */	blr
 
 .global DrawDoorSurface__15CMappableObjectCFiRC13CMapWorldInfofib
 DrawDoorSurface__15CMappableObjectCFiRC13CMapWorldInfofib:
@@ -508,7 +508,7 @@ lbl_800E8D08:
 /* 800E8D9C 000E5CFC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800E8DA0 000E5D00  7C 08 03 A6 */	mtlr r0
 /* 800E8DA4 000E5D04  38 21 00 20 */	addi r1, r1, 0x20
-/* 800E8DA8 000E5D08  4E 80 00 20 */	blr 
+/* 800E8DA8 000E5D08  4E 80 00 20 */	blr
 
 .global Draw__15CMappableObjectCFiRC13CMapWorldInfofb
 Draw__15CMappableObjectCFiRC13CMapWorldInfofb:
@@ -609,7 +609,7 @@ lbl_800E8EF8:
 /* 800E8F14 000E5E74  38 63 FC 10 */	addi r3, r3, lbl_803DFC10@l
 /* 800E8F18 000E5E78  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800E8F1C 000E5E7C  7C 09 03 A6 */	mtctr r0
-/* 800E8F20 000E5E80  4E 80 04 20 */	bctr 
+/* 800E8F20 000E5E80  4E 80 04 20 */	bctr
 .global lbl_800E8F24
 lbl_800E8F24:
 /* 800E8F24 000E5E84  38 80 00 FF */	li r4, 0xff
@@ -711,7 +711,7 @@ lbl_800E9044:
 /* 800E9060 000E5FC0  81 84 00 00 */	lwz r12, 0(r4)
 /* 800E9064 000E5FC4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800E9068 000E5FC8  7D 89 03 A6 */	mtctr r12
-/* 800E906C 000E5FCC  4E 80 04 21 */	bctrl 
+/* 800E906C 000E5FCC  4E 80 04 21 */	bctrl
 /* 800E9070 000E5FD0  3B 61 00 48 */	addi r27, r1, 0x48
 /* 800E9074 000E5FD4  38 81 00 28 */	addi r4, r1, 0x28
 /* 800E9078 000E5FD8  7F 63 DB 78 */	mr r3, r27
@@ -782,7 +782,7 @@ lbl_800E9164:
 /* 800E9178 000E60D8  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 800E917C 000E60DC  7C 08 03 A6 */	mtlr r0
 /* 800E9180 000E60E0  38 21 00 90 */	addi r1, r1, 0x90
-/* 800E9184 000E60E4  4E 80 00 20 */	blr 
+/* 800E9184 000E60E4  4E 80 00 20 */	blr
 
 .global PostConstruct__15CMappableObjectFPCv
 PostConstruct__15CMappableObjectFPCv:
@@ -817,7 +817,7 @@ PostConstruct__15CMappableObjectFPCv:
 /* 800E91F8 000E6158  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 800E91FC 000E615C  7C 08 03 A6 */	mtlr r0
 /* 800E9200 000E6160  38 21 00 40 */	addi r1, r1, 0x40
-/* 800E9204 000E6164  4E 80 00 20 */	blr 
+/* 800E9204 000E6164  4E 80 00 20 */	blr
 
 .global GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfo
 GetDoorColors__15CMappableObjectCFiRC13CMapWorldInfo:
@@ -870,7 +870,7 @@ lbl_800E92A4:
 /* 800E92BC 000E621C  38 63 FC 3C */	addi r3, r3, lbl_803DFC3C@l
 /* 800E92C0 000E6220  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800E92C4 000E6224  7C 09 03 A6 */	mtctr r0
-/* 800E92C8 000E6228  4E 80 04 20 */	bctr 
+/* 800E92C8 000E6228  4E 80 04 20 */	bctr
 .global lbl_800E92CC
 lbl_800E92CC:
 /* 800E92CC 000E622C  38 80 00 01 */	li r4, 1
@@ -994,7 +994,7 @@ lbl_800E9424:
 /* 800E9458 000E63B8  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 800E945C 000E63BC  7C 08 03 A6 */	mtlr r0
 /* 800E9460 000E63C0  38 21 00 60 */	addi r1, r1, 0x60
-/* 800E9464 000E63C4  4E 80 00 20 */	blr 
+/* 800E9464 000E63C4  4E 80 00 20 */	blr
 
 .global ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper
 ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper:
@@ -1033,7 +1033,7 @@ ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper:
 /* 800E94E8 000E6448  D0 84 00 54 */	stfs f4, 0x54(r4)
 /* 800E94EC 000E644C  D0 A4 00 58 */	stfs f5, 0x58(r4)
 /* 800E94F0 000E6450  D0 04 00 5C */	stfs f0, 0x5c(r4)
-/* 800E94F4 000E6454  4E 80 00 20 */	blr 
+/* 800E94F4 000E6454  4E 80 00 20 */	blr
 
 .global __sinit_CMappableObject_cpp
 __sinit_CMappableObject_cpp:

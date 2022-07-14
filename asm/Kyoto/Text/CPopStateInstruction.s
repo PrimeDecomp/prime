@@ -42,7 +42,7 @@ lbl_802FFD84:
 /* 802FFD8C 002FCCEC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FFD90 002FCCF0  7C 08 03 A6 */	mtlr r0
 /* 802FFD94 002FCCF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FFD98 002FCCF8  4E 80 00 20 */	blr 
+/* 802FFD98 002FCCF8  4E 80 00 20 */	blr
 
 .global PageInvoke__20CPopStateInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 PageInvoke__20CPopStateInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
@@ -52,11 +52,11 @@ PageInvoke__20CPopStateInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
 /* 802FFDA8 002FCD08  81 83 00 00 */	lwz r12, 0(r3)
 /* 802FFDAC 002FCD0C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802FFDB0 002FCD10  7D 89 03 A6 */	mtctr r12
-/* 802FFDB4 002FCD14  4E 80 04 21 */	bctrl 
+/* 802FFDB4 002FCD14  4E 80 04 21 */	bctrl
 /* 802FFDB8 002FCD18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FFDBC 002FCD1C  7C 08 03 A6 */	mtlr r0
 /* 802FFDC0 002FCD20  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FFDC4 002FCD24  4E 80 00 20 */	blr 
+/* 802FFDC4 002FCD24  4E 80 00 20 */	blr
 
 .global Invoke__20CPopStateInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__20CPopStateInstructionCFR16CFontRenderStateP17CTextRenderBuffer:

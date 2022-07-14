@@ -41,7 +41,7 @@ lbl_801F1584:
 /* 801F158C 001EE4EC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801F1590 001EE4F0  7C 08 03 A6 */	mtlr r0
 /* 801F1594 001EE4F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F1598 001EE4F8  4E 80 00 20 */	blr 
+/* 801F1598 001EE4F8  4E 80 00 20 */	blr
 
 .global StopAnimation__12CABSReactionFR15CBodyController
 StopAnimation__12CABSReactionFR15CBodyController:
@@ -65,7 +65,7 @@ lbl_801F15D8:
 /* 801F15DC 001EE53C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801F15E0 001EE540  7C 08 03 A6 */	mtlr r0
 /* 801F15E4 001EE544  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F15E8 001EE548  4E 80 00 20 */	blr 
+/* 801F15E8 001EE548  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__12CABSReactionFfR15CBodyController
 GetBodyStateTransition__12CABSReactionFfR15CBodyController:
@@ -88,7 +88,7 @@ lbl_801F1624:
 /* 801F1624 001EE584  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F1628 001EE588  7C 08 03 A6 */	mtlr r0
 /* 801F162C 001EE58C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F1630 001EE590  4E 80 00 20 */	blr 
+/* 801F1630 001EE590  4E 80 00 20 */	blr
 
 .global HasIceBreakoutState__15CBodyControllerFv
 HasIceBreakoutState__15CBodyControllerFv:
@@ -172,7 +172,7 @@ lbl_801F1750:
 /* 801F1754 001EE6B4  83 E1 00 AC */	lwz r31, 0xac(r1)
 /* 801F1758 001EE6B8  7C 08 03 A6 */	mtlr r0
 /* 801F175C 001EE6BC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801F1760 001EE6C0  4E 80 00 20 */	blr 
+/* 801F1760 001EE6C0  4E 80 00 20 */	blr
 
 .global Shutdown__12CABSReactionFR15CBodyController
 Shutdown__12CABSReactionFR15CBodyController:
@@ -183,7 +183,7 @@ Shutdown__12CABSReactionFR15CBodyController:
 /* 801F1774 001EE6D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F1778 001EE6D8  7C 08 03 A6 */	mtlr r0
 /* 801F177C 001EE6DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F1780 001EE6E0  4E 80 00 20 */	blr 
+/* 801F1780 001EE6E0  4E 80 00 20 */	blr
 
 .global UpdateBody__12CABSReactionFfR15CBodyControllerR13CStateManager
 UpdateBody__12CABSReactionFfR15CBodyControllerR13CStateManager:
@@ -239,7 +239,7 @@ lbl_801F1814:
 /* 801F1840 001EE7A0  81 84 00 00 */	lwz r12, 0(r4)
 /* 801F1844 001EE7A4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801F1848 001EE7A8  7D 89 03 A6 */	mtctr r12
-/* 801F184C 001EE7AC  4E 80 04 21 */	bctrl 
+/* 801F184C 001EE7AC  4E 80 04 21 */	bctrl
 /* 801F1850 001EE7B0  C0 41 00 08 */	lfs f2, 8(r1)
 /* 801F1854 001EE7B4  C0 22 AE D0 */	lfs f1, lbl_805ACBF0@sda21(r2)
 /* 801F1858 001EE7B8  C0 02 AE D4 */	lfs f0, lbl_805ACBF4@sda21(r2)
@@ -264,7 +264,7 @@ lbl_801F1888:
 /* 801F1898 001EE7F8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801F189C 001EE7FC  7C 08 03 A6 */	mtlr r0
 /* 801F18A0 001EE800  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F18A4 001EE804  4E 80 00 20 */	blr 
+/* 801F18A4 001EE804  4E 80 00 20 */	blr
 
 .global Start__12CABSReactionFR15CBodyControllerR13CStateManager
 Start__12CABSReactionFR15CBodyControllerR13CStateManager:
@@ -371,7 +371,7 @@ lbl_801F1A14:
 /* 801F1A20 001EE980  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 801F1A24 001EE984  7C 08 03 A6 */	mtlr r0
 /* 801F1A28 001EE988  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801F1A2C 001EE98C  4E 80 00 20 */	blr 
+/* 801F1A2C 001EE98C  4E 80 00 20 */	blr
 
 .global __ct__12CABSReactionFv
 __ct__12CABSReactionFv:

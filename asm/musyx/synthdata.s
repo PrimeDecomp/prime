@@ -31,7 +31,7 @@ dataMacSubTabmem:
 .global "key$487"
 "key$487":
 	.skip 0xC
-	
+
 .section .sbss
 .balign 4
 "result$494":

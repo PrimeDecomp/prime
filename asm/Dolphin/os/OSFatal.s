@@ -9,46 +9,73 @@ lbl_80541298:
 
 .global lbl_805A8B40
 lbl_805A8B40:
-	.incbin "baserom.dol", 0x3F64E0, 0x8
+	# ROM: 0x3F64E0
+	.4byte 0x25730A00
+	.4byte 0
+
 
 .section .sdata2
 
 .global lbl_805AEC18
 lbl_805AEC18:
-	.incbin "baserom.dol", 0x3FB4B8, 0x4
+	# ROM: 0x3FB4B8
+	.4byte 0x3F000000
+
 .global lbl_805AEC1C
 lbl_805AEC1C:
-	.incbin "baserom.dol", 0x3FB4BC, 0x4
+	# ROM: 0x3FB4BC
+	.4byte 0x41800000
+
 .global lbl_805AEC20
 lbl_805AEC20:
-	.incbin "baserom.dol", 0x3FB4C0, 0x4
+	# ROM: 0x3FB4C0
+	.4byte 0x3DC8B439
+
 .global lbl_805AEC24
 lbl_805AEC24:
-	.incbin "baserom.dol", 0x3FB4C4, 0x4
+	# ROM: 0x3FB4C4
+	.4byte 0x3E839581
+
 .global lbl_805AEC28
 lbl_805AEC28:
-	.incbin "baserom.dol", 0x3FB4C8, 0x4
+	# ROM: 0x3FB4C8
+	.4byte 0x3F010625
+
 .global lbl_805AEC2C
 lbl_805AEC2C:
-	.incbin "baserom.dol", 0x3FB4CC, 0x4
+	# ROM: 0x3FB4CC
+	.4byte 0x43000000
+
 .global lbl_805AEC30
 lbl_805AEC30:
-	.incbin "baserom.dol", 0x3FB4D0, 0x4
+	# ROM: 0x3FB4D0
+	.4byte 0x3EE0C49C
+
 .global lbl_805AEC34
 lbl_805AEC34:
-	.incbin "baserom.dol", 0x3FB4D4, 0x4
+	# ROM: 0x3FB4D4
+	.4byte 0xBE178D50
+
 .global lbl_805AEC38
 lbl_805AEC38:
-	.incbin "baserom.dol", 0x3FB4D8, 0x4
+	# ROM: 0x3FB4D8
+	.4byte 0x3E94FDF4
+
 .global lbl_805AEC3C
 lbl_805AEC3C:
-	.incbin "baserom.dol", 0x3FB4DC, 0x4
+	# ROM: 0x3FB4DC
+	.4byte 0x3EBC6A7F
+
 .global lbl_805AEC40
 lbl_805AEC40:
-	.incbin "baserom.dol", 0x3FB4E0, 0x4
+	# ROM: 0x3FB4E0
+	.4byte 0x3D916873
+
 .global lbl_805AEC44
 lbl_805AEC44:
-	.incbin "baserom.dol", 0x3FB4E4, 0x4
+	# ROM: 0x3FB4E4
+	.4byte 0x436B0000
+
 
 .section .text, "ax"
 
@@ -313,7 +340,7 @@ lbl_80380420:
 /* 80380424 0037D384  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 80380428 0037D388  38 21 01 A0 */	addi r1, r1, 0x1a0
 /* 8038042C 0037D38C  7C 08 03 A6 */	mtlr r0
-/* 80380430 0037D390  4E 80 00 20 */	blr 
+/* 80380430 0037D390  4E 80 00 20 */	blr
 
 .global ConfigureVideo
 ConfigureVideo:
@@ -385,7 +412,7 @@ lbl_80380504:
 /* 80380520 0037D480  80 01 00 4C */	lwz r0, 0x4c(r1)
 /* 80380524 0037D484  38 21 00 48 */	addi r1, r1, 0x48
 /* 80380528 0037D488  7C 08 03 A6 */	mtlr r0
-/* 8038052C 0037D48C  4E 80 00 20 */	blr 
+/* 8038052C 0037D48C  4E 80 00 20 */	blr
 
 .global OSFatal
 OSFatal:
@@ -453,7 +480,7 @@ lbl_803805B0:
 /* 8038061C 0037D57C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80380620 0037D580  38 21 00 30 */	addi r1, r1, 0x30
 /* 80380624 0037D584  7C 08 03 A6 */	mtlr r0
-/* 80380628 0037D588  4E 80 00 20 */	blr 
+/* 80380628 0037D588  4E 80 00 20 */	blr
 
 .global Halt
 Halt:
@@ -868,4 +895,4 @@ lbl_80380BEC:
 /* 80380C24 0037DB84  83 81 00 78 */	lwz r28, 0x78(r1)
 /* 80380C28 0037DB88  38 21 00 88 */	addi r1, r1, 0x88
 /* 80380C2C 0037DB8C  7C 08 03 A6 */	mtlr r0
-/* 80380C30 0037DB90  4E 80 00 20 */	blr 
+/* 80380C30 0037DB90  4E 80 00 20 */	blr

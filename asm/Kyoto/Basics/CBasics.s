@@ -5,7 +5,7 @@
 .global lbl_804795A0
 lbl_804795A0:
 	.skip 0x200
-	
+
 .section .text, "ax"
 
 .global Stringize__7CBasicsFPCce
@@ -55,4 +55,4 @@ lbl_802D61EC:
 /* 802D6254 002D31B4  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 802D6258 002D31B8  7C 08 03 A6 */	mtlr r0
 /* 802D625C 002D31BC  38 21 00 90 */	addi r1, r1, 0x90
-/* 802D6260 002D31C0  4E 80 00 20 */	blr 
+/* 802D6260 002D31C0  4E 80 00 20 */	blr

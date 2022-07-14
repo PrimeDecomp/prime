@@ -134,7 +134,7 @@ lbl_8005AEFC:
 /* 8005AF08 00057E68  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8005AF0C 00057E6C  7C 08 03 A6 */	mtlr r0
 /* 8005AF10 00057E70  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005AF14 00057E74  4E 80 00 20 */	blr 
+/* 8005AF14 00057E74  4E 80 00 20 */	blr
 
 .global SetFovInterpolation__11CGameCameraFffff
 SetFovInterpolation__11CGameCameraFffff:
@@ -150,7 +150,7 @@ SetFovInterpolation__11CGameCameraFffff:
 /* 8005AF3C 00057E9C  D0 43 01 84 */	stfs f2, 0x184(r3)
 /* 8005AF40 00057EA0  D0 03 01 78 */	stfs f0, 0x178(r3)
 /* 8005AF44 00057EA4  D0 03 01 74 */	stfs f0, 0x174(r3)
-/* 8005AF48 00057EA8  4E 80 00 20 */	blr 
+/* 8005AF48 00057EA8  4E 80 00 20 */	blr
 lbl_8005AF4C:
 /* 8005AF4C 00057EAC  FC 04 00 40 */	fcmpo cr0, f4, f0
 /* 8005AF50 00057EB0  40 80 00 0C */	bge lbl_8005AF5C
@@ -168,7 +168,7 @@ lbl_8005AF60:
 /* 8005AF78 00057ED8  88 03 01 70 */	lbz r0, 0x170(r3)
 /* 8005AF7C 00057EDC  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8005AF80 00057EE0  98 03 01 70 */	stb r0, 0x170(r3)
-/* 8005AF84 00057EE4  4E 80 00 20 */	blr 
+/* 8005AF84 00057EE4  4E 80 00 20 */	blr
 
 .global SkipFovInterpolation__11CGameCameraFv
 SkipFovInterpolation__11CGameCameraFv:
@@ -186,7 +186,7 @@ lbl_8005AFB0:
 /* 8005AFB0 00057F10  C0 02 86 B8 */	lfs f0, lbl_805AA3D8@sda21(r2)
 /* 8005AFB4 00057F14  D0 03 01 78 */	stfs f0, 0x178(r3)
 /* 8005AFB8 00057F18  D0 03 01 74 */	stfs f0, 0x174(r3)
-/* 8005AFBC 00057F1C  4E 80 00 20 */	blr 
+/* 8005AFBC 00057F1C  4E 80 00 20 */	blr
 
 .global ValidateCameraTransform__11CGameCameraFRC12CTransform4fRC12CTransform4f
 ValidateCameraTransform__11CGameCameraFRC12CTransform4fRC12CTransform4f:
@@ -393,7 +393,7 @@ lbl_8005B294:
 /* 8005B2C4 00058224  83 A1 01 74 */	lwz r29, 0x174(r1)
 /* 8005B2C8 00058228  7C 08 03 A6 */	mtlr r0
 /* 8005B2CC 0005822C  38 21 01 80 */	addi r1, r1, 0x180
-/* 8005B2D0 00058230  4E 80 00 20 */	blr 
+/* 8005B2D0 00058230  4E 80 00 20 */	blr
 
 .global Accept__11CGameCameraFR8IVisitor
 Accept__11CGameCameraFR8IVisitor:
@@ -406,11 +406,11 @@ Accept__11CGameCameraFR8IVisitor:
 /* 8005B2EC 0005824C  7C 04 03 78 */	mr r4, r0
 /* 8005B2F0 00058250  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8005B2F4 00058254  7D 89 03 A6 */	mtctr r12
-/* 8005B2F8 00058258  4E 80 04 21 */	bctrl 
+/* 8005B2F8 00058258  4E 80 04 21 */	bctrl
 /* 8005B2FC 0005825C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005B300 00058260  7C 08 03 A6 */	mtlr r0
 /* 8005B304 00058264  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005B308 00058268  4E 80 00 20 */	blr 
+/* 8005B308 00058268  4E 80 00 20 */	blr
 
 .global SetActive__11CGameCameraFb
 SetActive__11CGameCameraFb:
@@ -428,7 +428,7 @@ SetActive__11CGameCameraFb:
 /* 8005B338 00058298  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005B33C 0005829C  7C 08 03 A6 */	mtlr r0
 /* 8005B340 000582A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005B344 000582A4  4E 80 00 20 */	blr 
+/* 8005B344 000582A4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CGameCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CGameCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -470,7 +470,7 @@ lbl_8005B3C0:
 /* 8005B3C0 00058320  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8005B3C4 00058324  7C 08 03 A6 */	mtlr r0
 /* 8005B3C8 00058328  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005B3CC 0005832C  4E 80 00 20 */	blr 
+/* 8005B3CC 0005832C  4E 80 00 20 */	blr
 
 .global FindClosestLengthOnSpline__13CCameraSplineCFf9CVector3f
 FindClosestLengthOnSpline__13CCameraSplineCFf9CVector3f:
@@ -924,7 +924,7 @@ lbl_8005B9E0:
 /* 8005BA70 000589D0  80 01 01 F4 */	lwz r0, 0x1f4(r1)
 /* 8005BA74 000589D4  7C 08 03 A6 */	mtlr r0
 /* 8005BA78 000589D8  38 21 01 F0 */	addi r1, r1, 0x1f0
-/* 8005BA7C 000589DC  4E 80 00 20 */	blr 
+/* 8005BA7C 000589DC  4E 80 00 20 */	blr
 
 .global GetInterpolatedSplinePointByLength__13CCameraSplineCFf
 GetInterpolatedSplinePointByLength__13CCameraSplineCFf:
@@ -1306,7 +1306,7 @@ lbl_8005BFAC:
 /* 8005BFC0 00058F20  83 A1 01 A4 */	lwz r29, 0x1a4(r1)
 /* 8005BFC4 00058F24  7C 08 03 A6 */	mtlr r0
 /* 8005BFC8 00058F28  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 8005BFCC 00058F2C  4E 80 00 20 */	blr 
+/* 8005BFCC 00058F2C  4E 80 00 20 */	blr
 
 .global GetInterpolatedSplinePointByTime__13CCameraSplineCFff
 GetInterpolatedSplinePointByTime__13CCameraSplineCFff:
@@ -1479,7 +1479,7 @@ lbl_8005C20C:
 /* 8005C218 00059178  83 E1 00 8C */	lwz r31, 0x8c(r1)
 /* 8005C21C 0005917C  7C 08 03 A6 */	mtlr r0
 /* 8005C220 00059180  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8005C224 00059184  4E 80 00 20 */	blr 
+/* 8005C224 00059184  4E 80 00 20 */	blr
 
 .global ValidateLength__13CCameraSplineCFf
 ValidateLength__13CCameraSplineCFf:
@@ -1525,7 +1525,7 @@ lbl_8005C2A8:
 /* 8005C2AC 0005920C  C0 21 00 08 */	lfs f1, 8(r1)
 /* 8005C2B0 00059210  7C 08 03 A6 */	mtlr r0
 /* 8005C2B4 00059214  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005C2B8 00059218  4E 80 00 20 */	blr 
+/* 8005C2B8 00059218  4E 80 00 20 */	blr
 
 .global CalculateSplineLength__13CCameraSplineFv
 CalculateSplineLength__13CCameraSplineFv:
@@ -1749,7 +1749,7 @@ lbl_8005C578:
 /* 8005C5E4 00059544  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8005C5E8 00059548  7C 08 03 A6 */	mtlr r0
 /* 8005C5EC 0005954C  38 21 01 20 */	addi r1, r1, 0x120
-/* 8005C5F0 00059550  4E 80 00 20 */	blr 
+/* 8005C5F0 00059550  4E 80 00 20 */	blr
 
 .global ClampLength__13CCameraSplineCFRC9CVector3fbRC15CMaterialFilterRC13CStateManager
 ClampLength__13CCameraSplineCFRC9CVector3fbRC15CMaterialFilterRC13CStateManager:
@@ -1893,7 +1893,7 @@ lbl_8005C7D0:
 /* 8005C7F8 00059758  83 81 00 B0 */	lwz r28, 0xb0(r1)
 /* 8005C7FC 0005975C  7C 08 03 A6 */	mtlr r0
 /* 8005C800 00059760  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8005C804 00059764  4E 80 00 20 */	blr 
+/* 8005C804 00059764  4E 80 00 20 */	blr
 
 .global "GetSurroundingPoints__13CCameraSplineFiRQ24rstl27reserved_vector<9CVector3f>RQ24rstl27reserved_vector<9CVector3f>"
 "GetSurroundingPoints__13CCameraSplineFiRQ24rstl27reserved_vector<9CVector3f>RQ24rstl27reserved_vector<9CVector3f>":
@@ -1906,7 +1906,7 @@ lbl_8005C7D0:
 /* 8005C820 00059780  41 80 00 0C */	blt lbl_8005C82C
 lbl_8005C824:
 /* 8005C824 00059784  38 60 00 00 */	li r3, 0
-/* 8005C828 00059788  4E 80 00 20 */	blr 
+/* 8005C828 00059788  4E 80 00 20 */	blr
 lbl_8005C82C:
 /* 8005C82C 0005978C  2C 04 00 00 */	cmpwi r4, 0
 /* 8005C830 00059790  40 81 00 90 */	ble lbl_8005C8C0
@@ -2327,7 +2327,7 @@ lbl_8005CE34:
 /* 8005CE3C 00059D9C  90 06 00 00 */	stw r0, 0(r6)
 lbl_8005CE40:
 /* 8005CE40 00059DA0  38 60 00 01 */	li r3, 1
-/* 8005CE44 00059DA4  4E 80 00 20 */	blr 
+/* 8005CE44 00059DA4  4E 80 00 20 */	blr
 
 .global Reset__13CCameraSplineFi
 Reset__13CCameraSplineFi:
@@ -2403,7 +2403,7 @@ lbl_8005CF38:
 /* 8005CF40 00059EA0  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8005CF44 00059EA4  7C 08 03 A6 */	mtlr r0
 /* 8005CF48 00059EA8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8005CF4C 00059EAC  4E 80 00 20 */	blr 
+/* 8005CF4C 00059EAC  4E 80 00 20 */	blr
 
 .global AddKnot__13CCameraSplineFRC9CVector3fRC9CVector3f
 AddKnot__13CCameraSplineFRC9CVector3fRC9CVector3f:
@@ -2476,13 +2476,13 @@ lbl_8005D028:
 /* 8005D040 00059FA0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8005D044 00059FA4  7C 08 03 A6 */	mtlr r0
 /* 8005D048 00059FA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005D04C 00059FAC  4E 80 00 20 */	blr 
+/* 8005D04C 00059FAC  4E 80 00 20 */	blr
 
 .global SetKnotPosition__13CCameraSplineFiRC9CVector3f
 SetKnotPosition__13CCameraSplineFiRC9CVector3f:
 /* 8005D050 00059FB0  80 03 00 08 */	lwz r0, 8(r3)
 /* 8005D054 00059FB4  7C 04 00 00 */	cmpw r4, r0
-/* 8005D058 00059FB8  4C 80 00 20 */	bgelr 
+/* 8005D058 00059FB8  4C 80 00 20 */	bgelr
 /* 8005D05C 00059FBC  1C 04 00 0C */	mulli r0, r4, 0xc
 /* 8005D060 00059FC0  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 8005D064 00059FC4  C0 05 00 00 */	lfs f0, 0(r5)
@@ -2492,7 +2492,7 @@ SetKnotPosition__13CCameraSplineFiRC9CVector3f:
 /* 8005D074 00059FD4  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8005D078 00059FD8  C0 05 00 08 */	lfs f0, 8(r5)
 /* 8005D07C 00059FDC  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8005D080 00059FE0  4E 80 00 20 */	blr 
+/* 8005D080 00059FE0  4E 80 00 20 */	blr
 
 .global GetKnotPosition__11CBallCameraCFi
 GetKnotPosition__11CBallCameraCFi:
@@ -2508,7 +2508,7 @@ GetKnotPosition__11CBallCameraCFi:
 /* 8005D0A8 0005A008  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8005D0AC 0005A00C  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8005D0B0 0005A010  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8005D0B4 0005A014  4E 80 00 20 */	blr 
+/* 8005D0B4 0005A014  4E 80 00 20 */	blr
 lbl_8005D0B8:
 /* 8005D0B8 0005A018  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 8005D0BC 0005A01C  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
@@ -2517,7 +2517,7 @@ lbl_8005D0B8:
 /* 8005D0C8 0005A028  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8005D0CC 0005A02C  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8005D0D0 0005A030  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8005D0D4 0005A034  4E 80 00 20 */	blr 
+/* 8005D0D4 0005A034  4E 80 00 20 */	blr
 
 .global GetKnotT__13CCameraSplineCFi
 GetKnotT__13CCameraSplineCFi:
@@ -2527,10 +2527,10 @@ GetKnotT__13CCameraSplineCFi:
 /* 8005D0E4 0005A044  80 63 00 30 */	lwz r3, 0x30(r3)
 /* 8005D0E8 0005A048  54 80 10 3A */	slwi r0, r4, 2
 /* 8005D0EC 0005A04C  7C 23 04 2E */	lfsx f1, r3, r0
-/* 8005D0F0 0005A050  4E 80 00 20 */	blr 
+/* 8005D0F0 0005A050  4E 80 00 20 */	blr
 lbl_8005D0F4:
 /* 8005D0F4 0005A054  C0 22 86 B8 */	lfs f1, lbl_805AA3D8@sda21(r2)
-/* 8005D0F8 0005A058  4E 80 00 20 */	blr 
+/* 8005D0F8 0005A058  4E 80 00 20 */	blr
 
 .global "CalculateKnots__13CCameraSplineFRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>R13CStateManager"
 "CalculateKnots__13CCameraSplineFRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>R13CStateManager":
@@ -2794,7 +2794,7 @@ lbl_8005D49C:
 /* 8005D4A0 0005A400  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8005D4A4 0005A404  7C 08 03 A6 */	mtlr r0
 /* 8005D4A8 0005A408  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8005D4AC 0005A40C  4E 80 00 20 */	blr 
+/* 8005D4AC 0005A40C  4E 80 00 20 */	blr
 
 .global sub_8005d4b0
 sub_8005d4b0:
@@ -2868,7 +2868,7 @@ lbl_8005D58C:
 /* 8005D594 0005A4F4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8005D598 0005A4F8  7C 08 03 A6 */	mtlr r0
 /* 8005D59C 0005A4FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005D5A0 0005A500  4E 80 00 20 */	blr 
+/* 8005D5A0 0005A500  4E 80 00 20 */	blr
 
 .global "Initialise__13CCameraSplineFRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>R13CStateManager"
 "Initialise__13CCameraSplineFRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>R13CStateManager":
@@ -2888,7 +2888,7 @@ lbl_8005D58C:
 /* 8005D5D8 0005A538  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8005D5DC 0005A53C  7C 08 03 A6 */	mtlr r0
 /* 8005D5E0 0005A540  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005D5E4 0005A544  4E 80 00 20 */	blr 
+/* 8005D5E4 0005A544  4E 80 00 20 */	blr
 
 .global __dt__13CCameraSplineFv
 __dt__13CCameraSplineFv:
@@ -2998,7 +2998,7 @@ lbl_8005D744:
 /* 8005D750 0005A6B0  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 8005D754 0005A6B4  7C 08 03 A6 */	mtlr r0
 /* 8005D758 0005A6B8  38 21 00 50 */	addi r1, r1, 0x50
-/* 8005D75C 0005A6BC  4E 80 00 20 */	blr 
+/* 8005D75C 0005A6BC  4E 80 00 20 */	blr
 
 .global __ct__13CCameraSplineFb
 __ct__13CCameraSplineFb:
@@ -3021,7 +3021,7 @@ __ct__13CCameraSplineFb:
 /* 8005D7A0 0005A700  90 03 00 40 */	stw r0, 0x40(r3)
 /* 8005D7A4 0005A704  D0 03 00 44 */	stfs f0, 0x44(r3)
 /* 8005D7A8 0005A708  98 83 00 48 */	stb r4, 0x48(r3)
-/* 8005D7AC 0005A70C  4E 80 00 20 */	blr 
+/* 8005D7AC 0005A70C  4E 80 00 20 */	blr
 
 .global Reset__13CCameraSpringFv
 Reset__13CCameraSpringFv:
@@ -3041,7 +3041,7 @@ Reset__13CCameraSpringFv:
 /* 8005D7E4 0005A744  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005D7E8 0005A748  7C 08 03 A6 */	mtlr r0
 /* 8005D7EC 0005A74C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005D7F0 0005A750  4E 80 00 20 */	blr 
+/* 8005D7F0 0005A750  4E 80 00 20 */	blr
 
 .global ApplyDistanceSpringNoMax__13CCameraSpringFfff
 ApplyDistanceSpringNoMax__13CCameraSpringFfff:
@@ -3062,7 +3062,7 @@ ApplyDistanceSpringNoMax__13CCameraSpringFfff:
 /* 8005D82C 0005A78C  FC 40 08 90 */	fmr f2, f1
 lbl_8005D830:
 /* 8005D830 0005A790  FC 20 10 90 */	fmr f1, f2
-/* 8005D834 0005A794  4E 80 00 20 */	blr 
+/* 8005D834 0005A794  4E 80 00 20 */	blr
 
 .global ApplyDistanceSpring__13CCameraSpringFfff
 ApplyDistanceSpring__13CCameraSpringFfff:
@@ -3089,7 +3089,7 @@ lbl_8005D874:
 /* 8005D884 0005A7E4  EC C1 10 2A */	fadds f6, f1, f2
 lbl_8005D888:
 /* 8005D888 0005A7E8  FC 20 30 90 */	fmr f1, f6
-/* 8005D88C 0005A7EC  4E 80 00 20 */	blr 
+/* 8005D88C 0005A7EC  4E 80 00 20 */	blr
 
 .global ConvertToScreenSpace__11CGameCameraCFRC9CVector3f
 ConvertToScreenSpace__11CGameCameraCFRC9CVector3f:
@@ -3154,7 +3154,7 @@ lbl_8005D960:
 /* 8005D968 0005A8C8  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8005D96C 0005A8CC  7C 08 03 A6 */	mtlr r0
 /* 8005D970 0005A8D0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8005D974 0005A8D4  4E 80 00 20 */	blr 
+/* 8005D974 0005A8D4  4E 80 00 20 */	blr
 
 .global GetPerspectiveMatrix__11CGameCameraCFv
 GetPerspectiveMatrix__11CGameCameraCFv:
@@ -3215,7 +3215,7 @@ lbl_8005DA44:
 /* 8005DA4C 0005A9AC  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 8005DA50 0005A9B0  7C 08 03 A6 */	mtlr r0
 /* 8005DA54 0005A9B4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8005DA58 0005A9B8  4E 80 00 20 */	blr 
+/* 8005DA58 0005A9B8  4E 80 00 20 */	blr
 
 .global __dt__11CGameCameraFv
 __dt__11CGameCameraFv:
@@ -3243,7 +3243,7 @@ lbl_8005DAA0:
 /* 8005DAAC 0005AA0C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8005DAB0 0005AA10  7C 08 03 A6 */	mtlr r0
 /* 8005DAB4 0005AA14  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005DAB8 0005AA18  4E 80 00 20 */	blr 
+/* 8005DAB8 0005AA18  4E 80 00 20 */	blr
 
 .global "__ct__11CGameCameraF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fffff9TUniqueIdbi"
 "__ct__11CGameCameraF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fffff9TUniqueIdbi":
@@ -3389,4 +3389,4 @@ lbl_8005DAA0:
 /* 8005DCE8 0005AC48  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 8005DCEC 0005AC4C  7C 08 03 A6 */	mtlr r0
 /* 8005DCF0 0005AC50  38 21 01 40 */	addi r1, r1, 0x140
-/* 8005DCF4 0005AC54  4E 80 00 20 */	blr 
+/* 8005DCF4 0005AC54  4E 80 00 20 */	blr

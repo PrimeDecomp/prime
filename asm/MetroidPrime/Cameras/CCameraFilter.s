@@ -59,7 +59,7 @@ lbl_805A8EE0:
 FreePersistentFbTexture__15CCameraBlurPassFv:
 /* 800EA948 000E78A8  38 00 00 00 */	li r0, 0
 /* 800EA94C 000E78AC  98 03 00 2D */	stb r0, 0x2d(r3)
-/* 800EA950 000E78B0  4E 80 00 20 */	blr 
+/* 800EA950 000E78B0  4E 80 00 20 */	blr
 
 .global AllocatePersistentFbTexture__15CCameraBlurPassFv
 AllocatePersistentFbTexture__15CCameraBlurPassFv:
@@ -80,7 +80,7 @@ AllocatePersistentFbTexture__15CCameraBlurPassFv:
 /* 800EA98C 000E78EC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800EA990 000E78F0  7C 08 03 A6 */	mtlr r0
 /* 800EA994 000E78F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EA998 000E78F8  4E 80 00 20 */	blr 
+/* 800EA998 000E78F8  4E 80 00 20 */	blr
 
 .global GetFbCopy__15CCameraBlurPassCF9_GXTexFmtPUc
 GetFbCopy__15CCameraBlurPassCF9_GXTexFmtPUc:
@@ -146,7 +146,7 @@ lbl_800EAA54:
 /* 800EAA78 000E79D8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800EAA7C 000E79DC  7C 08 03 A6 */	mtlr r0
 /* 800EAA80 000E79E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800EAA84 000E79E4  4E 80 00 20 */	blr 
+/* 800EAA84 000E79E4  4E 80 00 20 */	blr
 
 .global Draw__15CCameraBlurPassCFv
 Draw__15CCameraBlurPassCFv:
@@ -316,7 +316,7 @@ lbl_800EAC40:
 /* 800EACF0 000E7C50  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EACF4 000E7C54  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EACF8 000E7C58  7D 89 03 A6 */	mtctr r12
-/* 800EACFC 000E7C5C  4E 80 04 21 */	bctrl 
+/* 800EACFC 000E7C5C  4E 80 04 21 */	bctrl
 /* 800EAD00 000E7C60  3C 60 80 5A */	lis r3, skIdentity4f@ha
 /* 800EAD04 000E7C64  38 63 66 70 */	addi r3, r3, skIdentity4f@l
 /* 800EAD08 000E7C68  48 22 1A 45 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
@@ -326,7 +326,7 @@ lbl_800EAC40:
 /* 800EAD18 000E7C78  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EAD1C 000E7C7C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800EAD20 000E7C80  7D 89 03 A6 */	mtctr r12
-/* 800EAD24 000E7C84  4E 80 04 21 */	bctrl 
+/* 800EAD24 000E7C84  4E 80 04 21 */	bctrl
 /* 800EAD28 000E7C88  80 18 00 10 */	lwz r0, 0x10(r24)
 /* 800EAD2C 000E7C8C  2C 00 00 03 */	cmpwi r0, 3
 /* 800EAD30 000E7C90  40 82 06 00 */	bne lbl_800EB330
@@ -334,7 +334,7 @@ lbl_800EAC40:
 /* 800EAD38 000E7C98  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EAD3C 000E7C9C  81 8C 00 7C */	lwz r12, 0x7c(r12)
 /* 800EAD40 000E7CA0  7D 89 03 A6 */	mtctr r12
-/* 800EAD44 000E7CA4  4E 80 04 21 */	bctrl 
+/* 800EAD44 000E7CA4  4E 80 04 21 */	bctrl
 /* 800EAD48 000E7CA8  81 1F 00 78 */	lwz r8, 0x78(r31)
 /* 800EAD4C 000E7CAC  38 61 00 6C */	addi r3, r1, 0x6c
 /* 800EAD50 000E7CB0  80 FF 00 7C */	lwz r7, 0x7c(r31)
@@ -724,7 +724,7 @@ lbl_800EB330:
 /* 800EB334 000E8294  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EB338 000E8298  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 800EB33C 000E829C  7D 89 03 A6 */	mtctr r12
-/* 800EB340 000E82A0  4E 80 04 21 */	bctrl 
+/* 800EB340 000E82A0  4E 80 04 21 */	bctrl
 /* 800EB344 000E82A4  81 1F 00 B0 */	lwz r8, 0xb0(r31)
 /* 800EB348 000E82A8  38 61 00 34 */	addi r3, r1, 0x34
 /* 800EB34C 000E82AC  80 FF 00 B4 */	lwz r7, 0xb4(r31)
@@ -1083,14 +1083,14 @@ lbl_800EB8A0:
 /* 800EB8A4 000E8804  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EB8A8 000E8808  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 800EB8AC 000E880C  7D 89 03 A6 */	mtctr r12
-/* 800EB8B0 000E8810  4E 80 04 21 */	bctrl 
+/* 800EB8B0 000E8810  4E 80 04 21 */	bctrl
 /* 800EB8B4 000E8814  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800EB8B8 000E8818  38 80 00 01 */	li r4, 1
 /* 800EB8BC 000E881C  38 A0 00 01 */	li r5, 1
 /* 800EB8C0 000E8820  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EB8C4 000E8824  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EB8C8 000E8828  7D 89 03 A6 */	mtctr r12
-/* 800EB8CC 000E882C  4E 80 04 21 */	bctrl 
+/* 800EB8CC 000E882C  4E 80 04 21 */	bctrl
 lbl_800EB8D0:
 /* 800EB8D0 000E8830  E3 E1 01 F8 */	psq_l f31, 504(r1), 0, qr0
 /* 800EB8D4 000E8834  CB E1 01 F0 */	lfd f31, 0x1f0(r1)
@@ -1132,7 +1132,7 @@ lbl_800EB8D0:
 /* 800EB964 000E88C4  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 800EB968 000E88C8  7C 08 03 A6 */	mtlr r0
 /* 800EB96C 000E88CC  38 21 02 00 */	addi r1, r1, 0x200
-/* 800EB970 000E88D0  4E 80 00 20 */	blr 
+/* 800EB970 000E88D0  4E 80 00 20 */	blr
 
 .global DisableBlur__15CCameraBlurPassFf
 DisableBlur__15CCameraBlurPassFf:
@@ -1147,7 +1147,7 @@ DisableBlur__15CCameraBlurPassFf:
 /* 800EB994 000E88F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800EB998 000E88F8  7C 08 03 A6 */	mtlr r0
 /* 800EB99C 000E88FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EB9A0 000E8900  4E 80 00 20 */	blr 
+/* 800EB9A0 000E8900  4E 80 00 20 */	blr
 
 .global SetBlur__15CCameraBlurPassFQ215CCameraBlurPass9EBlurTypeffb
 SetBlur__15CCameraBlurPassFQ215CCameraBlurPass9EBlurTypeffb:
@@ -1247,7 +1247,7 @@ lbl_800EBABC:
 /* 800EBAFC 000E8A5C  81 84 00 00 */	lwz r12, 0(r4)
 /* 800EBB00 000E8A60  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800EBB04 000E8A64  7D 89 03 A6 */	mtctr r12
-/* 800EBB08 000E8A68  4E 80 04 21 */	bctrl 
+/* 800EBB08 000E8A68  4E 80 04 21 */	bctrl
 /* 800EBB0C 000E8A6C  38 61 00 18 */	addi r3, r1, 0x18
 /* 800EBB10 000E8A70  38 81 00 20 */	addi r4, r1, 0x20
 /* 800EBB14 000E8A74  48 25 53 95 */	bl __ct__6CTokenFRC6CToken
@@ -1393,7 +1393,7 @@ lbl_800EBCC4:
 /* 800EBD0C 000E8C6C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800EBD10 000E8C70  7C A5 00 2E */	lwzx r5, r5, r0
 /* 800EBD14 000E8C74  7D 89 03 A6 */	mtctr r12
-/* 800EBD18 000E8C78  4E 80 04 21 */	bctrl 
+/* 800EBD18 000E8C78  4E 80 04 21 */	bctrl
 /* 800EBD1C 000E8C7C  38 61 00 08 */	addi r3, r1, 8
 /* 800EBD20 000E8C80  38 81 00 10 */	addi r4, r1, 0x10
 /* 800EBD24 000E8C84  48 25 51 85 */	bl __ct__6CTokenFRC6CToken
@@ -1446,7 +1446,7 @@ lbl_800EBDB8:
 /* 800EBDC8 000E8D28  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 800EBDCC 000E8D2C  7C 08 03 A6 */	mtlr r0
 /* 800EBDD0 000E8D30  38 21 00 70 */	addi r1, r1, 0x70
-/* 800EBDD4 000E8D34  4E 80 00 20 */	blr 
+/* 800EBDD4 000E8D34  4E 80 00 20 */	blr
 
 .global Update__15CCameraBlurPassFf
 Update__15CCameraBlurPassFf:
@@ -1568,7 +1568,7 @@ lbl_800EBF3C:
 /* 800EBF80 000E8EE0  81 84 00 00 */	lwz r12, 0(r4)
 /* 800EBF84 000E8EE4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800EBF88 000E8EE8  7D 89 03 A6 */	mtctr r12
-/* 800EBF8C 000E8EEC  4E 80 04 21 */	bctrl 
+/* 800EBF8C 000E8EEC  4E 80 04 21 */	bctrl
 /* 800EBF90 000E8EF0  38 61 00 0C */	addi r3, r1, 0xc
 /* 800EBF94 000E8EF4  38 81 00 14 */	addi r4, r1, 0x14
 /* 800EBF98 000E8EF8  48 25 4F 11 */	bl __ct__6CTokenFRC6CToken
@@ -1616,7 +1616,7 @@ lbl_800EC024:
 /* 800EC02C 000E8F8C  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 800EC030 000E8F90  7C 08 03 A6 */	mtlr r0
 /* 800EC034 000E8F94  38 21 00 40 */	addi r1, r1, 0x40
-/* 800EC038 000E8F98  4E 80 00 20 */	blr 
+/* 800EC038 000E8F98  4E 80 00 20 */	blr
 
 .global __ct__15CCameraBlurPassFv
 __ct__15CCameraBlurPassFv:
@@ -1633,7 +1633,7 @@ __ct__15CCameraBlurPassFv:
 /* 800EC064 000E8FC4  98 03 00 2C */	stb r0, 0x2c(r3)
 /* 800EC068 000E8FC8  98 03 00 2D */	stb r0, 0x2d(r3)
 /* 800EC06C 000E8FCC  90 03 00 30 */	stw r0, 0x30(r3)
-/* 800EC070 000E8FD0  4E 80 00 20 */	blr 
+/* 800EC070 000E8FD0  4E 80 00 20 */	blr
 
 .global DrawFilterShape__17CCameraFilterPassFQ217CCameraFilterPass12EFilterShapeRC6CColorPC8CTexturef
 DrawFilterShape__17CCameraFilterPassFQ217CCameraFilterPass12EFilterShapeRC6CColorPC8CTexturef:
@@ -1647,7 +1647,7 @@ DrawFilterShape__17CCameraFilterPassFQ217CCameraFilterPass12EFilterShapeRC6CColo
 /* 800EC090 000E8FF0  38 66 FC C0 */	addi r3, r6, lbl_803DFCC0@l
 /* 800EC094 000E8FF4  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800EC098 000E8FF8  7C 09 03 A6 */	mtctr r0
-/* 800EC09C 000E8FFC  4E 80 04 20 */	bctr 
+/* 800EC09C 000E8FFC  4E 80 04 20 */	bctr
 .global lbl_800EC0A0
 lbl_800EC0A0:
 /* 800EC0A0 000E9000  7C 83 23 78 */	mr r3, r4
@@ -1706,7 +1706,7 @@ lbl_800EC138:
 /* 800EC138 000E9098  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800EC13C 000E909C  7C 08 03 A6 */	mtlr r0
 /* 800EC140 000E90A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EC144 000E90A4  4E 80 00 20 */	blr 
+/* 800EC144 000E90A4  4E 80 00 20 */	blr
 
 .global DrawFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFilterPass12EFilterShapeRC6CColorPC8CTexturef
 DrawFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFilterPass12EFilterShapeRC6CColorPC8CTexturef:
@@ -1730,7 +1730,7 @@ DrawFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFil
 /* 800EC18C 000E90EC  38 64 FC E4 */	addi r3, r4, lbl_803DFCE4@l
 /* 800EC190 000E90F0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800EC194 000E90F4  7C 09 03 A6 */	mtctr r0
-/* 800EC198 000E90F8  4E 80 04 20 */	bctr 
+/* 800EC198 000E90F8  4E 80 04 20 */	bctr
 .global lbl_800EC19C
 lbl_800EC19C:
 /* 800EC19C 000E90FC  48 00 00 D4 */	b lbl_800EC270
@@ -1740,7 +1740,7 @@ lbl_800EC1A0:
 /* 800EC1A4 000E9104  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC1A8 000E9108  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800EC1AC 000E910C  7D 89 03 A6 */	mtctr r12
-/* 800EC1B0 000E9110  4E 80 04 21 */	bctrl 
+/* 800EC1B0 000E9110  4E 80 04 21 */	bctrl
 /* 800EC1B4 000E9114  48 00 00 94 */	b lbl_800EC248
 .global lbl_800EC1B8
 lbl_800EC1B8:
@@ -1748,7 +1748,7 @@ lbl_800EC1B8:
 /* 800EC1BC 000E911C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC1C0 000E9120  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 800EC1C4 000E9124  7D 89 03 A6 */	mtctr r12
-/* 800EC1C8 000E9128  4E 80 04 21 */	bctrl 
+/* 800EC1C8 000E9128  4E 80 04 21 */	bctrl
 /* 800EC1CC 000E912C  48 00 00 7C */	b lbl_800EC248
 .global lbl_800EC1D0
 lbl_800EC1D0:
@@ -1756,7 +1756,7 @@ lbl_800EC1D0:
 /* 800EC1D4 000E9134  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC1D8 000E9138  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800EC1DC 000E913C  7D 89 03 A6 */	mtctr r12
-/* 800EC1E0 000E9140  4E 80 04 21 */	bctrl 
+/* 800EC1E0 000E9140  4E 80 04 21 */	bctrl
 /* 800EC1E4 000E9144  48 00 00 64 */	b lbl_800EC248
 .global lbl_800EC1E8
 lbl_800EC1E8:
@@ -1764,7 +1764,7 @@ lbl_800EC1E8:
 /* 800EC1EC 000E914C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC1F0 000E9150  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 800EC1F4 000E9154  7D 89 03 A6 */	mtctr r12
-/* 800EC1F8 000E9158  4E 80 04 21 */	bctrl 
+/* 800EC1F8 000E9158  4E 80 04 21 */	bctrl
 /* 800EC1FC 000E915C  48 00 00 4C */	b lbl_800EC248
 .global lbl_800EC200
 lbl_800EC200:
@@ -1783,7 +1783,7 @@ lbl_800EC21C:
 /* 800EC220 000E9180  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC224 000E9184  81 8C 00 80 */	lwz r12, 0x80(r12)
 /* 800EC228 000E9188  7D 89 03 A6 */	mtctr r12
-/* 800EC22C 000E918C  4E 80 04 21 */	bctrl 
+/* 800EC22C 000E918C  4E 80 04 21 */	bctrl
 /* 800EC230 000E9190  48 00 00 18 */	b lbl_800EC248
 .global lbl_800EC234
 lbl_800EC234:
@@ -1791,7 +1791,7 @@ lbl_800EC234:
 /* 800EC238 000E9198  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC23C 000E919C  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 800EC240 000E91A0  7D 89 03 A6 */	mtctr r12
-/* 800EC244 000E91A4  4E 80 04 21 */	bctrl 
+/* 800EC244 000E91A4  4E 80 04 21 */	bctrl
 lbl_800EC248:
 /* 800EC248 000E91A8  FC 20 F8 90 */	fmr f1, f31
 /* 800EC24C 000E91AC  7F A3 EB 78 */	mr r3, r29
@@ -1802,7 +1802,7 @@ lbl_800EC248:
 /* 800EC260 000E91C0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC264 000E91C4  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 800EC268 000E91C8  7D 89 03 A6 */	mtctr r12
-/* 800EC26C 000E91CC  4E 80 04 21 */	bctrl 
+/* 800EC26C 000E91CC  4E 80 04 21 */	bctrl
 lbl_800EC270:
 /* 800EC270 000E91D0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800EC274 000E91D4  CB E1 00 18 */	lfd f31, 0x18(r1)
@@ -1811,7 +1811,7 @@ lbl_800EC270:
 /* 800EC280 000E91E0  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 800EC284 000E91E4  7C 08 03 A6 */	mtlr r0
 /* 800EC288 000E91E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 800EC28C 000E91EC  4E 80 00 20 */	blr 
+/* 800EC28C 000E91EC  4E 80 00 20 */	blr
 
 .global Draw__17CCameraFilterPassCFv
 Draw__17CCameraFilterPassCFv:
@@ -1840,7 +1840,7 @@ lbl_800EC2CC:
 /* 800EC2E0 000E9240  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800EC2E4 000E9244  7C 08 03 A6 */	mtlr r0
 /* 800EC2E8 000E9248  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EC2EC 000E924C  4E 80 00 20 */	blr 
+/* 800EC2EC 000E924C  4E 80 00 20 */	blr
 
 .global DrawRandomStatic__17CCameraFilterPassFRC6CColorfb
 DrawRandomStatic__17CCameraFilterPassFRC6CColorfb:
@@ -1868,7 +1868,7 @@ DrawRandomStatic__17CCameraFilterPassFRC6CColorfb:
 /* 800EC344 000E92A4  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 800EC348 000E92A8  C0 42 90 DC */	lfs f2, lbl_805AADFC@sda21(r2)
 /* 800EC34C 000E92AC  7D 89 03 A6 */	mtctr r12
-/* 800EC350 000E92B0  4E 80 04 21 */	bctrl 
+/* 800EC350 000E92B0  4E 80 04 21 */	bctrl
 /* 800EC354 000E92B4  C0 61 00 3C */	lfs f3, 0x3c(r1)
 /* 800EC358 000E92B8  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 800EC35C 000E92BC  C0 41 00 40 */	lfs f2, 0x40(r1)
@@ -1896,7 +1896,7 @@ DrawRandomStatic__17CCameraFilterPassFRC6CColorfb:
 /* 800EC3B4 000E9314  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC3B8 000E9318  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EC3BC 000E931C  7D 89 03 A6 */	mtctr r12
-/* 800EC3C0 000E9320  4E 80 04 21 */	bctrl 
+/* 800EC3C0 000E9320  4E 80 04 21 */	bctrl
 /* 800EC3C4 000E9324  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
 /* 800EC3C8 000E9328  38 60 00 00 */	li r3, 0
 /* 800EC3CC 000E932C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
@@ -1935,7 +1935,7 @@ lbl_800EC440:
 /* 800EC44C 000E93AC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC450 000E93B0  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EC454 000E93B4  7D 89 03 A6 */	mtctr r12
-/* 800EC458 000E93B8  4E 80 04 21 */	bctrl 
+/* 800EC458 000E93B8  4E 80 04 21 */	bctrl
 /* 800EC45C 000E93BC  3C 80 80 5A */	lis r4, lbl_805A6038@ha
 /* 800EC460 000E93C0  38 60 00 00 */	li r3, 0
 /* 800EC464 000E93C4  38 84 60 38 */	addi r4, r4, lbl_805A6038@l
@@ -2050,7 +2050,7 @@ lbl_800EC5E8:
 /* 800EC610 000E9570  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 800EC614 000E9574  7C 08 03 A6 */	mtlr r0
 /* 800EC618 000E9578  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800EC61C 000E957C  4E 80 00 20 */	blr 
+/* 800EC61C 000E957C  4E 80 00 20 */	blr
 
 .global DrawWideScreen__17CCameraFilterPassFRC6CColorPC8CTexturef
 DrawWideScreen__17CCameraFilterPassFRC6CColorPC8CTexturef:
@@ -2076,7 +2076,7 @@ DrawWideScreen__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800EC66C 000E95CC  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 800EC670 000E95D0  C0 42 91 34 */	lfs f2, lbl_805AAE54@sda21(r2)
 /* 800EC674 000E95D4  7D 89 03 A6 */	mtctr r12
-/* 800EC678 000E95D8  4E 80 04 21 */	bctrl 
+/* 800EC678 000E95D8  4E 80 04 21 */	bctrl
 /* 800EC67C 000E95DC  C0 E1 00 68 */	lfs f7, 0x68(r1)
 /* 800EC680 000E95E0  38 80 00 00 */	li r4, 0
 /* 800EC684 000E95E4  C0 A1 00 70 */	lfs f5, 0x70(r1)
@@ -2099,14 +2099,14 @@ DrawWideScreen__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800EC6C8 000E9628  D0 A1 00 80 */	stfs f5, 0x80(r1)
 /* 800EC6CC 000E962C  D0 81 00 84 */	stfs f4, 0x84(r1)
 /* 800EC6D0 000E9630  7D 89 03 A6 */	mtctr r12
-/* 800EC6D4 000E9634  4E 80 04 21 */	bctrl 
+/* 800EC6D4 000E9634  4E 80 04 21 */	bctrl
 /* 800EC6D8 000E9638  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800EC6DC 000E963C  3C 80 80 5A */	lis r4, skIdentity4f@ha
 /* 800EC6E0 000E9640  38 84 66 70 */	addi r4, r4, skIdentity4f@l
 /* 800EC6E4 000E9644  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC6E8 000E9648  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800EC6EC 000E964C  7D 89 03 A6 */	mtctr r12
-/* 800EC6F0 000E9650  4E 80 04 21 */	bctrl 
+/* 800EC6F0 000E9650  4E 80 04 21 */	bctrl
 /* 800EC6F4 000E9654  28 1E 00 00 */	cmplwi r30, 0
 /* 800EC6F8 000E9658  41 82 00 14 */	beq lbl_800EC70C
 /* 800EC6FC 000E965C  7F C3 F3 78 */	mr r3, r30
@@ -2284,7 +2284,7 @@ lbl_800EC70C:
 /* 800EC9A8 000E9908  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 800EC9AC 000E990C  7C 08 03 A6 */	mtlr r0
 /* 800EC9B0 000E9910  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 800EC9B4 000E9914  4E 80 00 20 */	blr 
+/* 800EC9B4 000E9914  4E 80 00 20 */	blr
 
 .global GetT__17CCameraFilterPassCFb
 GetT__17CCameraFilterPassCFb:
@@ -2301,10 +2301,10 @@ lbl_800EC9D0:
 /* 800EC9DC 000E993C  EC 21 00 28 */	fsubs f1, f1, f0
 lbl_800EC9E0:
 /* 800EC9E0 000E9940  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 800EC9E4 000E9944  4D 82 00 20 */	beqlr 
+/* 800EC9E4 000E9944  4D 82 00 20 */	beqlr
 /* 800EC9E8 000E9948  C0 02 90 DC */	lfs f0, lbl_805AADFC@sda21(r2)
 /* 800EC9EC 000E994C  EC 20 08 28 */	fsubs f1, f0, f1
-/* 800EC9F0 000E9950  4E 80 00 20 */	blr 
+/* 800EC9F0 000E9950  4E 80 00 20 */	blr
 
 .global DrawScanLines__17CCameraFilterPassFRC6CColorb
 DrawScanLines__17CCameraFilterPassFRC6CColorb:
@@ -2340,7 +2340,7 @@ DrawScanLines__17CCameraFilterPassFRC6CColorb:
 /* 800ECA68 000E99C8  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 800ECA6C 000E99CC  C0 42 91 34 */	lfs f2, lbl_805AAE54@sda21(r2)
 /* 800ECA70 000E99D0  7D 89 03 A6 */	mtctr r12
-/* 800ECA74 000E99D4  4E 80 04 21 */	bctrl 
+/* 800ECA74 000E99D4  4E 80 04 21 */	bctrl
 /* 800ECA78 000E99D8  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ECA7C 000E99DC  38 80 00 00 */	li r4, 0
 /* 800ECA80 000E99E0  C0 61 00 20 */	lfs f3, 0x20(r1)
@@ -2355,14 +2355,14 @@ DrawScanLines__17CCameraFilterPassFRC6CColorb:
 /* 800ECAA4 000E9A04  D0 21 00 38 */	stfs f1, 0x38(r1)
 /* 800ECAA8 000E9A08  D0 01 00 3C */	stfs f0, 0x3c(r1)
 /* 800ECAAC 000E9A0C  7D 89 03 A6 */	mtctr r12
-/* 800ECAB0 000E9A10  4E 80 04 21 */	bctrl 
+/* 800ECAB0 000E9A10  4E 80 04 21 */	bctrl
 /* 800ECAB4 000E9A14  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ECAB8 000E9A18  3C 80 80 5A */	lis r4, skIdentity4f@ha
 /* 800ECABC 000E9A1C  38 84 66 70 */	addi r4, r4, skIdentity4f@l
 /* 800ECAC0 000E9A20  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECAC4 000E9A24  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800ECAC8 000E9A28  7D 89 03 A6 */	mtctr r12
-/* 800ECACC 000E9A2C  4E 80 04 21 */	bctrl 
+/* 800ECACC 000E9A2C  4E 80 04 21 */	bctrl
 /* 800ECAD0 000E9A30  57 A0 06 3F */	clrlwi. r0, r29, 0x18
 /* 800ECAD4 000E9A34  41 82 00 0C */	beq lbl_800ECAE0
 /* 800ECAD8 000E9A38  C3 E2 90 EC */	lfs f31, lbl_805AAE0C@sda21(r2)
@@ -2386,13 +2386,13 @@ lbl_800ECAE4:
 /* 800ECB18 000E9A78  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECB1C 000E9A7C  81 8C 00 94 */	lwz r12, 0x94(r12)
 /* 800ECB20 000E9A80  7D 89 03 A6 */	mtctr r12
-/* 800ECB24 000E9A84  4E 80 04 21 */	bctrl 
+/* 800ECB24 000E9A84  4E 80 04 21 */	bctrl
 /* 800ECB28 000E9A88  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ECB2C 000E9A8C  7F E4 FB 78 */	mr r4, r31
 /* 800ECB30 000E9A90  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECB34 000E9A94  81 8C 00 B4 */	lwz r12, 0xb4(r12)
 /* 800ECB38 000E9A98  7D 89 03 A6 */	mtctr r12
-/* 800ECB3C 000E9A9C  4E 80 04 21 */	bctrl 
+/* 800ECB3C 000E9A9C  4E 80 04 21 */	bctrl
 /* 800ECB40 000E9AA0  C3 21 00 30 */	lfs f25, 0x30(r1)
 /* 800ECB44 000E9AA4  3B A0 00 00 */	li r29, 0
 /* 800ECB48 000E9AA8  C3 42 90 EC */	lfs f26, lbl_805AAE0C@sda21(r2)
@@ -2419,7 +2419,7 @@ lbl_800ECB64:
 /* 800ECB98 000E9AF8  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECB9C 000E9AFC  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800ECBA0 000E9B00  7D 89 03 A6 */	mtctr r12
-/* 800ECBA4 000E9B04  4E 80 04 21 */	bctrl 
+/* 800ECBA4 000E9B04  4E 80 04 21 */	bctrl
 /* 800ECBA8 000E9B08  EC 18 E8 2A */	fadds f0, f24, f29
 /* 800ECBAC 000E9B0C  D3 C1 00 08 */	stfs f30, 8(r1)
 /* 800ECBB0 000E9B10  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2430,7 +2430,7 @@ lbl_800ECB64:
 /* 800ECBC4 000E9B24  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECBC8 000E9B28  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800ECBCC 000E9B2C  7D 89 03 A6 */	mtctr r12
-/* 800ECBD0 000E9B30  4E 80 04 21 */	bctrl 
+/* 800ECBD0 000E9B30  4E 80 04 21 */	bctrl
 /* 800ECBD4 000E9B34  3B BD 00 01 */	addi r29, r29, 1
 lbl_800ECBD8:
 /* 800ECBD8 000E9B38  7C 1D F0 00 */	cmpw r29, r30
@@ -2439,7 +2439,7 @@ lbl_800ECBD8:
 /* 800ECBE4 000E9B44  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECBE8 000E9B48  81 8C 00 B8 */	lwz r12, 0xb8(r12)
 /* 800ECBEC 000E9B4C  7D 89 03 A6 */	mtctr r12
-/* 800ECBF0 000E9B50  4E 80 04 21 */	bctrl 
+/* 800ECBF0 000E9B50  4E 80 04 21 */	bctrl
 /* 800ECBF4 000E9B54  C0 22 90 DC */	lfs f1, lbl_805AADFC@sda21(r2)
 /* 800ECBF8 000E9B58  38 60 00 05 */	li r3, 5
 /* 800ECBFC 000E9B5C  48 21 E7 DD */	bl SetLineWidth__9CGraphicsFf13ERglTexOffset
@@ -2465,7 +2465,7 @@ lbl_800ECBD8:
 /* 800ECC4C 000E9BAC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 800ECC50 000E9BB0  7C 08 03 A6 */	mtlr r0
 /* 800ECC54 000E9BB4  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800ECC58 000E9BB8  4E 80 00 20 */	blr 
+/* 800ECC58 000E9BB8  4E 80 00 20 */	blr
 
 .global DrawFullScreenTexturedQuadQuarters__17CCameraFilterPassFRC6CColorPC8CTexturef
 DrawFullScreenTexturedQuadQuarters__17CCameraFilterPassFRC6CColorPC8CTexturef:
@@ -2493,7 +2493,7 @@ DrawFullScreenTexturedQuadQuarters__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECCB0 000E9C10  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 800ECCB4 000E9C14  C0 42 91 34 */	lfs f2, lbl_805AAE54@sda21(r2)
 /* 800ECCB8 000E9C18  7D 89 03 A6 */	mtctr r12
-/* 800ECCBC 000E9C1C  4E 80 04 21 */	bctrl 
+/* 800ECCBC 000E9C1C  4E 80 04 21 */	bctrl
 /* 800ECCC0 000E9C20  C0 61 00 38 */	lfs f3, 0x38(r1)
 /* 800ECCC4 000E9C24  3C 60 80 5A */	lis r3, lbl_805A5EBC@ha
 /* 800ECCC8 000E9C28  C0 41 00 3C */	lfs f2, 0x3c(r1)
@@ -2515,7 +2515,7 @@ DrawFullScreenTexturedQuadQuarters__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECD08 000E9C68  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECD0C 000E9C6C  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800ECD10 000E9C70  7D 89 03 A6 */	mtctr r12
-/* 800ECD14 000E9C74  4E 80 04 21 */	bctrl 
+/* 800ECD14 000E9C74  4E 80 04 21 */	bctrl
 /* 800ECD18 000E9C78  28 1F 00 00 */	cmplwi r31, 0
 /* 800ECD1C 000E9C7C  41 82 00 14 */	beq lbl_800ECD30
 /* 800ECD20 000E9C80  7F E3 FB 78 */	mr r3, r31
@@ -2552,7 +2552,7 @@ lbl_800ECD78:
 /* 800ECD84 000E9CE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECD88 000E9CE8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800ECD8C 000E9CEC  7D 89 03 A6 */	mtctr r12
-/* 800ECD90 000E9CF0  4E 80 04 21 */	bctrl 
+/* 800ECD90 000E9CF0  4E 80 04 21 */	bctrl
 /* 800ECD94 000E9CF4  38 60 00 98 */	li r3, 0x98
 /* 800ECD98 000E9CF8  48 21 E8 D1 */	bl StreamBegin__9CGraphicsF13ERglPrimitive
 /* 800ECD9C 000E9CFC  7F C3 F3 78 */	mr r3, r30
@@ -2608,7 +2608,7 @@ lbl_800ECD78:
 /* 800ECE64 000E9DC4  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 800ECE68 000E9DC8  7C 08 03 A6 */	mtlr r0
 /* 800ECE6C 000E9DCC  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 800ECE70 000E9DD0  4E 80 00 20 */	blr 
+/* 800ECE70 000E9DD0  4E 80 00 20 */	blr
 
 .global DrawFullScreenTexturedQuad__17CCameraFilterPassFRC6CColorPC8CTexturef
 DrawFullScreenTexturedQuad__17CCameraFilterPassFRC6CColorPC8CTexturef:
@@ -2635,7 +2635,7 @@ DrawFullScreenTexturedQuad__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECEC4 000E9E24  C0 42 91 34 */	lfs f2, lbl_805AAE54@sda21(r2)
 /* 800ECEC8 000E9E28  EF C0 18 2A */	fadds f30, f0, f3
 /* 800ECECC 000E9E2C  7D 89 03 A6 */	mtctr r12
-/* 800ECED0 000E9E30  4E 80 04 21 */	bctrl 
+/* 800ECED0 000E9E30  4E 80 04 21 */	bctrl
 /* 800ECED4 000E9E34  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ECED8 000E9E38  38 80 00 00 */	li r4, 0
 /* 800ECEDC 000E9E3C  C0 61 00 38 */	lfs f3, 0x38(r1)
@@ -2650,7 +2650,7 @@ DrawFullScreenTexturedQuad__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECF00 000E9E60  D0 21 00 50 */	stfs f1, 0x50(r1)
 /* 800ECF04 000E9E64  D0 01 00 54 */	stfs f0, 0x54(r1)
 /* 800ECF08 000E9E68  7D 89 03 A6 */	mtctr r12
-/* 800ECF0C 000E9E6C  4E 80 04 21 */	bctrl 
+/* 800ECF0C 000E9E6C  4E 80 04 21 */	bctrl
 /* 800ECF10 000E9E70  28 1F 00 00 */	cmplwi r31, 0
 /* 800ECF14 000E9E74  41 82 00 14 */	beq lbl_800ECF28
 /* 800ECF18 000E9E78  7F E3 FB 78 */	mr r3, r31
@@ -2735,7 +2735,7 @@ lbl_800ECF28:
 /* 800ED050 000E9FB0  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 800ED054 000E9FB4  7C 08 03 A6 */	mtlr r0
 /* 800ED058 000E9FB8  38 21 00 80 */	addi r1, r1, 0x80
-/* 800ED05C 000E9FBC  4E 80 00 20 */	blr 
+/* 800ED05C 000E9FBC  4E 80 00 20 */	blr
 
 .global DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor
 DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
@@ -2752,7 +2752,7 @@ DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
 /* 800ED088 000E9FE8  81 84 00 00 */	lwz r12, 0(r4)
 /* 800ED08C 000E9FEC  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 800ED090 000E9FF0  7D 89 03 A6 */	mtctr r12
-/* 800ED094 000E9FF4  4E 80 04 21 */	bctrl 
+/* 800ED094 000E9FF4  4E 80 04 21 */	bctrl
 /* 800ED098 000E9FF8  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ED09C 000E9FFC  38 80 00 00 */	li r4, 0
 /* 800ED0A0 000EA000  C0 61 00 38 */	lfs f3, 0x38(r1)
@@ -2767,19 +2767,19 @@ DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
 /* 800ED0C4 000EA024  D0 21 00 50 */	stfs f1, 0x50(r1)
 /* 800ED0C8 000EA028  D0 01 00 54 */	stfs f0, 0x54(r1)
 /* 800ED0CC 000EA02C  7D 89 03 A6 */	mtctr r12
-/* 800ED0D0 000EA030  4E 80 04 21 */	bctrl 
+/* 800ED0D0 000EA030  4E 80 04 21 */	bctrl
 /* 800ED0D4 000EA034  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ED0D8 000EA038  38 80 00 04 */	li r4, 4
 /* 800ED0DC 000EA03C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED0E0 000EA040  81 8C 00 A0 */	lwz r12, 0xa0(r12)
 /* 800ED0E4 000EA044  7D 89 03 A6 */	mtctr r12
-/* 800ED0E8 000EA048  4E 80 04 21 */	bctrl 
+/* 800ED0E8 000EA048  4E 80 04 21 */	bctrl
 /* 800ED0EC 000EA04C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ED0F0 000EA050  7F E4 FB 78 */	mr r4, r31
 /* 800ED0F4 000EA054  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED0F8 000EA058  81 8C 00 B4 */	lwz r12, 0xb4(r12)
 /* 800ED0FC 000EA05C  7D 89 03 A6 */	mtctr r12
-/* 800ED100 000EA060  4E 80 04 21 */	bctrl 
+/* 800ED100 000EA060  4E 80 04 21 */	bctrl
 /* 800ED104 000EA064  C0 42 90 DC */	lfs f2, lbl_805AADFC@sda21(r2)
 /* 800ED108 000EA068  38 81 00 2C */	addi r4, r1, 0x2c
 /* 800ED10C 000EA06C  C0 01 00 54 */	lfs f0, 0x54(r1)
@@ -2794,7 +2794,7 @@ DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
 /* 800ED130 000EA090  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED134 000EA094  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800ED138 000EA098  7D 89 03 A6 */	mtctr r12
-/* 800ED13C 000EA09C  4E 80 04 21 */	bctrl 
+/* 800ED13C 000EA09C  4E 80 04 21 */	bctrl
 /* 800ED140 000EA0A0  C0 21 00 48 */	lfs f1, 0x48(r1)
 /* 800ED144 000EA0A4  38 81 00 20 */	addi r4, r1, 0x20
 /* 800ED148 000EA0A8  C0 62 90 DC */	lfs f3, lbl_805AADFC@sda21(r2)
@@ -2809,7 +2809,7 @@ DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
 /* 800ED16C 000EA0CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED170 000EA0D0  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800ED174 000EA0D4  7D 89 03 A6 */	mtctr r12
-/* 800ED178 000EA0D8  4E 80 04 21 */	bctrl 
+/* 800ED178 000EA0D8  4E 80 04 21 */	bctrl
 /* 800ED17C 000EA0DC  C0 42 90 DC */	lfs f2, lbl_805AADFC@sda21(r2)
 /* 800ED180 000EA0E0  38 81 00 14 */	addi r4, r1, 0x14
 /* 800ED184 000EA0E4  C0 01 00 54 */	lfs f0, 0x54(r1)
@@ -2824,7 +2824,7 @@ DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
 /* 800ED1A8 000EA108  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED1AC 000EA10C  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800ED1B0 000EA110  7D 89 03 A6 */	mtctr r12
-/* 800ED1B4 000EA114  4E 80 04 21 */	bctrl 
+/* 800ED1B4 000EA114  4E 80 04 21 */	bctrl
 /* 800ED1B8 000EA118  C0 62 90 DC */	lfs f3, lbl_805AADFC@sda21(r2)
 /* 800ED1BC 000EA11C  38 81 00 08 */	addi r4, r1, 8
 /* 800ED1C0 000EA120  C0 21 00 50 */	lfs f1, 0x50(r1)
@@ -2839,17 +2839,17 @@ DrawFullScreenColoredQuad__17CCameraFilterPassFRC6CColor:
 /* 800ED1E4 000EA144  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED1E8 000EA148  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800ED1EC 000EA14C  7D 89 03 A6 */	mtctr r12
-/* 800ED1F0 000EA150  4E 80 04 21 */	bctrl 
+/* 800ED1F0 000EA150  4E 80 04 21 */	bctrl
 /* 800ED1F4 000EA154  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800ED1F8 000EA158  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ED1FC 000EA15C  81 8C 00 B8 */	lwz r12, 0xb8(r12)
 /* 800ED200 000EA160  7D 89 03 A6 */	mtctr r12
-/* 800ED204 000EA164  4E 80 04 21 */	bctrl 
+/* 800ED204 000EA164  4E 80 04 21 */	bctrl
 /* 800ED208 000EA168  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800ED20C 000EA16C  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 800ED210 000EA170  7C 08 03 A6 */	mtlr r0
 /* 800ED214 000EA174  38 21 00 60 */	addi r1, r1, 0x60
-/* 800ED218 000EA178  4E 80 00 20 */	blr 
+/* 800ED218 000EA178  4E 80 00 20 */	blr
 
 .global Update__17CCameraFilterPassFf
 Update__17CCameraFilterPassFf:
@@ -2943,7 +2943,7 @@ lbl_800ED350:
 /* 800ED358 000EA2B8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800ED35C 000EA2BC  7C 08 03 A6 */	mtlr r0
 /* 800ED360 000EA2C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800ED364 000EA2C4  4E 80 00 20 */	blr 
+/* 800ED364 000EA2C4  4E 80 00 20 */	blr
 
 .global DisableFilter__17CCameraFilterPassFf
 DisableFilter__17CCameraFilterPassFf:
@@ -2960,7 +2960,7 @@ DisableFilter__17CCameraFilterPassFf:
 /* 800ED390 000EA2F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800ED394 000EA2F4  7C 08 03 A6 */	mtlr r0
 /* 800ED398 000EA2F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800ED39C 000EA2FC  4E 80 00 20 */	blr 
+/* 800ED39C 000EA2FC  4E 80 00 20 */	blr
 
 .global SetFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFilterPass12EFilterShapefRC6CColorUi
 SetFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFilterPass12EFilterShapefRC6CColorUi:
@@ -3012,7 +3012,7 @@ SetFilter__17CCameraFilterPassFQ217CCameraFilterPass11EFilterTypeQ217CCameraFilt
 /* 800ED454 000EA3B4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800ED458 000EA3B8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800ED45C 000EA3BC  7D 89 03 A6 */	mtctr r12
-/* 800ED460 000EA3C0  4E 80 04 21 */	bctrl 
+/* 800ED460 000EA3C0  4E 80 04 21 */	bctrl
 /* 800ED464 000EA3C4  7F 83 E3 78 */	mr r3, r28
 /* 800ED468 000EA3C8  38 81 00 30 */	addi r4, r1, 0x30
 /* 800ED46C 000EA3CC  3B C0 00 01 */	li r30, 1
@@ -3102,7 +3102,7 @@ lbl_800ED538:
 /* 800ED5A0 000EA500  81 84 00 00 */	lwz r12, 0(r4)
 /* 800ED5A4 000EA504  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800ED5A8 000EA508  7D 89 03 A6 */	mtctr r12
-/* 800ED5AC 000EA50C  4E 80 04 21 */	bctrl 
+/* 800ED5AC 000EA50C  4E 80 04 21 */	bctrl
 /* 800ED5B0 000EA510  7F 63 DB 78 */	mr r3, r27
 /* 800ED5B4 000EA514  38 81 00 18 */	addi r4, r1, 0x18
 /* 800ED5B8 000EA518  3B 80 00 01 */	li r28, 1
@@ -3235,7 +3235,7 @@ lbl_800ED770:
 /* 800ED77C 000EA6DC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800ED780 000EA6E0  7C 08 03 A6 */	mtlr r0
 /* 800ED784 000EA6E4  38 21 00 70 */	addi r1, r1, 0x70
-/* 800ED788 000EA6E8  4E 80 00 20 */	blr 
+/* 800ED788 000EA6E8  4E 80 00 20 */	blr
 
 .global __ct__17CCameraFilterPassFv
 __ct__17CCameraFilterPassFv:
@@ -3253,7 +3253,7 @@ __ct__17CCameraFilterPassFv:
 /* 800ED7B8 000EA718  90 03 00 20 */	stw r0, 0x20(r3)
 /* 800ED7BC 000EA71C  98 83 00 24 */	stb r4, 0x24(r3)
 /* 800ED7C0 000EA720  90 83 00 28 */	stw r4, 0x28(r3)
-/* 800ED7C4 000EA724  4E 80 00 20 */	blr 
+/* 800ED7C4 000EA724  4E 80 00 20 */	blr
 
 .global __sinit_CCameraFilter_cpp
 __sinit_CCameraFilter_cpp:

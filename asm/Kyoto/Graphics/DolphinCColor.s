@@ -36,13 +36,13 @@ ToRGB5A3__6CColorCFv:
 /* 80363088 0035FFE8  28 04 00 FF */	cmplwi r4, 0xff
 /* 8036308C 0035FFEC  50 E0 3C 6A */	rlwimi r0, r7, 7, 0x11, 0x15
 /* 80363090 0035FFF0  54 03 04 3E */	clrlwi r3, r0, 0x10
-/* 80363094 0035FFF4  4D 82 00 20 */	beqlr 
+/* 80363094 0035FFF4  4D 82 00 20 */	beqlr
 /* 80363098 0035FFF8  54 A0 E7 3E */	rlwinm r0, r5, 0x1c, 0x1c, 0x1f
 /* 8036309C 0035FFFC  50 80 3C 66 */	rlwimi r0, r4, 7, 0x11, 0x13
 /* 803630A0 00360000  50 C0 06 36 */	rlwimi r0, r6, 0, 0x18, 0x1b
 /* 803630A4 00360004  50 E0 25 2E */	rlwimi r0, r7, 4, 0x14, 0x17
 /* 803630A8 00360008  54 03 04 3E */	clrlwi r3, r0, 0x10
-/* 803630AC 0036000C  4E 80 00 20 */	blr 
+/* 803630AC 0036000C  4E 80 00 20 */	blr
 
 .global Add__6CColorFRC6CColorRC6CColor
 Add__6CColorFRC6CColorRC6CColor:
@@ -99,7 +99,7 @@ lbl_8036315C:
 /* 80363168 003600C8  99 03 00 02 */	stb r8, 2(r3)
 /* 8036316C 003600CC  99 23 00 03 */	stb r9, 3(r3)
 /* 80363170 003600D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80363174 003600D4  4E 80 00 20 */	blr 
+/* 80363174 003600D4  4E 80 00 20 */	blr
 
 .global Modulate__6CColorFRC6CColorRC6CColor
 Modulate__6CColorFRC6CColorRC6CColor:
@@ -141,7 +141,7 @@ Modulate__6CColorFRC6CColorRC6CColor:
 /* 80363204 00360164  98 A3 00 01 */	stb r5, 1(r3)
 /* 80363208 00360168  98 E3 00 02 */	stb r7, 2(r3)
 /* 8036320C 0036016C  99 03 00 03 */	stb r8, 3(r3)
-/* 80363210 00360170  4E 80 00 20 */	blr 
+/* 80363210 00360170  4E 80 00 20 */	blr
 
 .global Lerp__6CColorFUiUif
 Lerp__6CColorFUiUif:
@@ -182,7 +182,7 @@ Lerp__6CColorFUiUif:
 /* 8036329C 003601FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803632A0 00360200  7C 08 03 A6 */	mtlr r0
 /* 803632A4 00360204  38 21 00 10 */	addi r1, r1, 0x10
-/* 803632A8 00360208  4E 80 00 20 */	blr 
+/* 803632A8 00360208  4E 80 00 20 */	blr
 
 .global Lerp__6CColorFRC6CColorRC6CColorf
 Lerp__6CColorFRC6CColorRC6CColorf:
@@ -220,7 +220,7 @@ Lerp__6CColorFRC6CColorRC6CColorf:
 /* 80363328 00360288  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036332C 0036028C  7C 08 03 A6 */	mtlr r0
 /* 80363330 00360290  38 21 00 10 */	addi r1, r1, 0x10
-/* 80363334 00360294  4E 80 00 20 */	blr 
+/* 80363334 00360294  4E 80 00 20 */	blr
 
 .global Get__6CColorCFRfRfRf
 Get__6CColorCFRfRfRf:
@@ -234,7 +234,7 @@ Get__6CColorCFRfRfRf:
 /* 80363354 003602B4  E0 03 A0 02 */	psq_l f0, 2(r3), 1, qr2
 /* 80363358 003602B8  EC 01 00 32 */	fmuls f0, f1, f0
 /* 8036335C 003602BC  D0 06 00 00 */	stfs f0, 0(r6)
-/* 80363360 003602C0  4E 80 00 20 */	blr 
+/* 80363360 003602C0  4E 80 00 20 */	blr
 
 .global Get__6CColorCFRfRfRfRf
 Get__6CColorCFRfRfRfRf:
@@ -251,7 +251,7 @@ Get__6CColorCFRfRfRfRf:
 /* 8036338C 003602EC  E0 03 A0 03 */	psq_l f0, 3(r3), 1, qr2
 /* 80363390 003602F0  EC 01 00 32 */	fmuls f0, f1, f0
 /* 80363394 003602F4  D0 07 00 00 */	stfs f0, 0(r7)
-/* 80363398 003602F8  4E 80 00 20 */	blr 
+/* 80363398 003602F8  4E 80 00 20 */	blr
 
 .global Set__6CColorFffff
 Set__6CColorFffff:
@@ -274,7 +274,7 @@ Set__6CColorFffff:
 /* 803633DC 0036033C  88 01 00 08 */	lbz r0, 8(r1)
 /* 803633E0 00360340  98 03 00 03 */	stb r0, 3(r3)
 /* 803633E4 00360344  38 21 00 10 */	addi r1, r1, 0x10
-/* 803633E8 00360348  4E 80 00 20 */	blr 
+/* 803633E8 00360348  4E 80 00 20 */	blr
 
 .global __ct__6CColorFffff
 __ct__6CColorFffff:
@@ -301,7 +301,7 @@ __ct__6CColorFffff:
 /* 8036343C 0036039C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80363440 003603A0  98 03 00 03 */	stb r0, 3(r3)
 /* 80363444 003603A4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80363448 003603A8  4E 80 00 20 */	blr 
+/* 80363448 003603A8  4E 80 00 20 */	blr
 
 .global __ct__6CColorFR12CInputStream
 __ct__6CColorFR12CInputStream:

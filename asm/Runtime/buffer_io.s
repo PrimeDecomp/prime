@@ -22,7 +22,7 @@ __flush_buffer:
 /* 8038CE68 00389DC8  80 9F 00 1C */	lwz r4, 0x1c(r31)
 /* 8038CE6C 00389DCC  80 DF 00 48 */	lwz r6, 0x48(r31)
 /* 8038CE70 00389DD0  7D 89 03 A6 */	mtctr r12
-/* 8038CE74 00389DD4  4E 80 04 21 */	bctrl 
+/* 8038CE74 00389DD4  4E 80 04 21 */	bctrl
 /* 8038CE78 00389DD8  28 1E 00 00 */	cmplwi r30, 0
 /* 8038CE7C 00389DDC  41 82 00 0C */	beq lbl_8038CE88
 /* 8038CE80 00389DE0  80 1F 00 28 */	lwz r0, 0x28(r31)
@@ -56,7 +56,7 @@ lbl_8038CED8:
 /* 8038CEE0 00389E40  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8038CEE4 00389E44  7C 08 03 A6 */	mtlr r0
 /* 8038CEE8 00389E48  38 21 00 10 */	addi r1, r1, 0x10
-/* 8038CEEC 00389E4C  4E 80 00 20 */	blr 
+/* 8038CEEC 00389E4C  4E 80 00 20 */	blr
 
 .global __prep_buffer
 __prep_buffer:
@@ -72,4 +72,4 @@ __prep_buffer:
 /* 8038CF14 00389E74  90 03 00 28 */	stw r0, 0x28(r3)
 /* 8038CF18 00389E78  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 8038CF1C 00389E7C  90 03 00 34 */	stw r0, 0x34(r3)
-/* 8038CF20 00389E80  4E 80 00 20 */	blr 
+/* 8038CF20 00389E80  4E 80 00 20 */	blr

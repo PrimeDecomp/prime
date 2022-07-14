@@ -91,7 +91,7 @@ lbl_8024C2D0:
 /* 8024C2D4 00249234  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024C2D8 00249238  7C 08 03 A6 */	mtlr r0
 /* 8024C2DC 0024923C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024C2E0 00249240  4E 80 00 20 */	blr 
+/* 8024C2E0 00249240  4E 80 00 20 */	blr
 
 .global GetGameFileStateInfo__17CMemoryCardDriverFi
 GetGameFileStateInfo__17CMemoryCardDriverFi:
@@ -101,10 +101,10 @@ GetGameFileStateInfo__17CMemoryCardDriverFi:
 /* 8024C2F0 00249250  28 03 00 00 */	cmplwi r3, 0
 /* 8024C2F4 00249254  40 82 00 0C */	bne lbl_8024C300
 /* 8024C2F8 00249258  38 60 00 00 */	li r3, 0
-/* 8024C2FC 0024925C  4E 80 00 20 */	blr 
+/* 8024C2FC 0024925C  4E 80 00 20 */	blr
 lbl_8024C300:
 /* 8024C300 00249260  38 63 03 B0 */	addi r3, r3, 0x3b0
-/* 8024C304 00249264  4E 80 00 20 */	blr 
+/* 8024C304 00249264  4E 80 00 20 */	blr
 
 .global LoadGameState__13SGameFileSlotFi
 LoadGameState__13SGameFileSlotFi:
@@ -132,7 +132,7 @@ LoadGameState__13SGameFileSlotFi:
 /* 8024C35C 002492BC  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8024C360 002492C0  7C 08 03 A6 */	mtlr r0
 /* 8024C364 002492C4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8024C368 002492C8  4E 80 00 20 */	blr 
+/* 8024C368 002492C8  4E 80 00 20 */	blr
 
 .global InitializeFromGameState__13SGameFileSlotFv
 InitializeFromGameState__13SGameFileSlotFv:
@@ -176,7 +176,7 @@ InitializeFromGameState__13SGameFileSlotFv:
 /* 8024C400 00249360  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 8024C404 00249364  7C 08 03 A6 */	mtlr r0
 /* 8024C408 00249368  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8024C40C 0024936C  4E 80 00 20 */	blr 
+/* 8024C40C 0024936C  4E 80 00 20 */	blr
 
 .global DoPut__13SGameFileSlotFv
 DoPut__13SGameFileSlotFv:
@@ -198,7 +198,7 @@ DoPut__13SGameFileSlotFv:
 /* 8024C44C 002493AC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024C450 002493B0  7C 08 03 A6 */	mtlr r0
 /* 8024C454 002493B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024C458 002493B8  4E 80 00 20 */	blr 
+/* 8024C458 002493B8  4E 80 00 20 */	blr
 
 .global LoadFile
 LoadFile:
@@ -295,7 +295,7 @@ lbl_8024C528:
 /* 8024C598 002494F8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8024C59C 002494FC  7C 08 03 A6 */	mtlr r0
 /* 8024C5A0 00249500  38 21 00 40 */	addi r1, r1, 0x40
-/* 8024C5A4 00249504  4E 80 00 20 */	blr 
+/* 8024C5A4 00249504  4E 80 00 20 */	blr
 
 .global __ct__13SGameFileSlotFv
 __ct__13SGameFileSlotFv:
@@ -371,7 +371,7 @@ lbl_8024C674:
 /* 8024C690 002495F0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024C694 002495F4  7C 08 03 A6 */	mtlr r0
 /* 8024C698 002495F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024C69C 002495FC  4E 80 00 20 */	blr 
+/* 8024C69C 002495FC  4E 80 00 20 */	blr
 
 .global DoPut__11SSaveHeaderFv
 DoPut__11SSaveHeaderFv:
@@ -426,7 +426,7 @@ lbl_8024C710:
 /* 8024C758 002496B8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8024C75C 002496BC  7C 08 03 A6 */	mtlr r0
 /* 8024C760 002496C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024C764 002496C4  4E 80 00 20 */	blr 
+/* 8024C764 002496C4  4E 80 00 20 */	blr
 
 .global LoadSaveHeader
 LoadSaveHeader:
@@ -457,12 +457,12 @@ lbl_8024C798:
 /* 8024C7C4 00249724  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8024C7C8 00249728  7C 08 03 A6 */	mtlr r0
 /* 8024C7CC 0024972C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024C7D0 00249730  4E 80 00 20 */	blr 
+/* 8024C7D0 00249730  4E 80 00 20 */	blr
 
 .global __ct__11SSaveHeaderFi
 __ct__11SSaveHeaderFi:
 /* 8024C7D4 00249734  90 83 00 00 */	stw r4, 0(r3)
-/* 8024C7D8 00249738  4E 80 00 20 */	blr 
+/* 8024C7D8 00249738  4E 80 00 20 */	blr
 
 .global ExportPersistentOptions__17CMemoryCardDriverFv
 ExportPersistentOptions__17CMemoryCardDriverFv:
@@ -506,7 +506,7 @@ ExportPersistentOptions__17CMemoryCardDriverFv:
 /* 8024C870 002497D0  83 E1 01 9C */	lwz r31, 0x19c(r1)
 /* 8024C874 002497D4  7C 08 03 A6 */	mtlr r0
 /* 8024C878 002497D8  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 8024C87C 002497DC  4E 80 00 20 */	blr 
+/* 8024C87C 002497DC  4E 80 00 20 */	blr
 
 .global ImportPersistentOptions__17CMemoryCardDriverFv
 ImportPersistentOptions__17CMemoryCardDriverFv:
@@ -536,7 +536,7 @@ ImportPersistentOptions__17CMemoryCardDriverFv:
 /* 8024C8DC 0024983C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8024C8E0 00249840  7C 08 03 A6 */	mtlr r0
 /* 8024C8E4 00249844  38 21 01 00 */	addi r1, r1, 0x100
-/* 8024C8E8 00249848  4E 80 00 20 */	blr 
+/* 8024C8E8 00249848  4E 80 00 20 */	blr
 
 .global BuildExistingFileSlot__17CMemoryCardDriverFi
 BuildExistingFileSlot__17CMemoryCardDriverFi:
@@ -670,7 +670,7 @@ lbl_8024CA74:
 /* 8024CAAC 00249A0C  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 8024CAB0 00249A10  7C 08 03 A6 */	mtlr r0
 /* 8024CAB4 00249A14  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8024CAB8 00249A18  4E 80 00 20 */	blr 
+/* 8024CAB8 00249A18  4E 80 00 20 */	blr
 
 .global BuildNewFileSlot__17CMemoryCardDriverFi
 BuildNewFileSlot__17CMemoryCardDriverFi:
@@ -823,7 +823,7 @@ lbl_8024CC50:
 /* 8024CCCC 00249C2C  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8024CCD0 00249C30  7C 08 03 A6 */	mtlr r0
 /* 8024CCD4 00249C34  38 21 00 50 */	addi r1, r1, 0x50
-/* 8024CCD8 00249C38  4E 80 00 20 */	blr 
+/* 8024CCD8 00249C38  4E 80 00 20 */	blr
 
 .global EraseFileSlot__17CMemoryCardDriverFi
 EraseFileSlot__17CMemoryCardDriverFi:
@@ -920,7 +920,7 @@ lbl_8024CE0C:
 /* 8024CE10 00249D70  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8024CE14 00249D74  7C 08 03 A6 */	mtlr r0
 /* 8024CE18 00249D78  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024CE1C 00249D7C  4E 80 00 20 */	blr 
+/* 8024CE1C 00249D7C  4E 80 00 20 */	blr
 
 .global ReadFinished__17CMemoryCardDriverFv
 ReadFinished__17CMemoryCardDriverFv:
@@ -1182,7 +1182,7 @@ lbl_8024D190:
 /* 8024D1A0 0024A100  83 81 00 B0 */	lwz r28, 0xb0(r1)
 /* 8024D1A4 0024A104  7C 08 03 A6 */	mtlr r0
 /* 8024D1A8 0024A108  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8024D1AC 0024A10C  4E 80 00 20 */	blr 
+/* 8024D1AC 0024A10C  4E 80 00 20 */	blr
 
 .global InitializeFileInfo__17CMemoryCardDriverFv
 InitializeFileInfo__17CMemoryCardDriverFv:
@@ -1328,7 +1328,7 @@ lbl_8024D3A4:
 /* 8024D3D0 0024A330  83 A1 01 34 */	lwz r29, 0x134(r1)
 /* 8024D3D4 0024A334  7C 08 03 A6 */	mtlr r0
 /* 8024D3D8 0024A338  38 21 01 40 */	addi r1, r1, 0x140
-/* 8024D3DC 0024A33C  4E 80 00 20 */	blr 
+/* 8024D3DC 0024A33C  4E 80 00 20 */	blr
 
 .global StartCardFormat__17CMemoryCardDriverFv
 StartCardFormat__17CMemoryCardDriverFv:
@@ -1352,7 +1352,7 @@ lbl_8024D41C:
 /* 8024D420 0024A380  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024D424 0024A384  7C 08 03 A6 */	mtlr r0
 /* 8024D428 0024A388  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024D42C 0024A38C  4E 80 00 20 */	blr 
+/* 8024D42C 0024A38C  4E 80 00 20 */	blr
 
 .global StartFileDeleteAltTransactional__17CMemoryCardDriverFv
 StartFileDeleteAltTransactional__17CMemoryCardDriverFv:
@@ -1391,7 +1391,7 @@ lbl_8024D4A4:
 /* 8024D4AC 0024A40C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8024D4B0 0024A410  7C 08 03 A6 */	mtlr r0
 /* 8024D4B4 0024A414  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024D4B8 0024A418  4E 80 00 20 */	blr 
+/* 8024D4B8 0024A418  4E 80 00 20 */	blr
 
 .global StartFileWriteTransactional__17CMemoryCardDriverFv
 StartFileWriteTransactional__17CMemoryCardDriverFv:
@@ -1415,7 +1415,7 @@ lbl_8024D4F8:
 /* 8024D4FC 0024A45C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024D500 0024A460  7C 08 03 A6 */	mtlr r0
 /* 8024D504 0024A464  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024D508 0024A468  4E 80 00 20 */	blr 
+/* 8024D508 0024A468  4E 80 00 20 */	blr
 
 .global StartFileCreateTransactional__17CMemoryCardDriverFv
 StartFileCreateTransactional__17CMemoryCardDriverFv:
@@ -1493,7 +1493,7 @@ lbl_8024D608:
 /* 8024D614 0024A574  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8024D618 0024A578  7C 08 03 A6 */	mtlr r0
 /* 8024D61C 0024A57C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024D620 0024A580  4E 80 00 20 */	blr 
+/* 8024D620 0024A580  4E 80 00 20 */	blr
 
 .global sub_8024d624
 sub_8024d624:
@@ -1514,7 +1514,7 @@ sub_8024d624:
 /* 8024D65C 0024A5BC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024D660 0024A5C0  7C 08 03 A6 */	mtlr r0
 /* 8024D664 0024A5C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024D668 0024A5C8  4E 80 00 20 */	blr 
+/* 8024D668 0024A5C8  4E 80 00 20 */	blr
 
 .global __dt__13CCardFileInfoFv
 __dt__13CCardFileInfoFv:
@@ -1629,7 +1629,7 @@ lbl_8024D7CC:
 /* 8024D7E0 0024A740  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8024D7E4 0024A744  7C 08 03 A6 */	mtlr r0
 /* 8024D7E8 0024A748  38 21 00 40 */	addi r1, r1, 0x40
-/* 8024D7EC 0024A74C  4E 80 00 20 */	blr 
+/* 8024D7EC 0024A74C  4E 80 00 20 */	blr
 
 .global StartFileWrite__17CMemoryCardDriverFv
 StartFileWrite__17CMemoryCardDriverFv:
@@ -1653,7 +1653,7 @@ lbl_8024D82C:
 /* 8024D830 0024A790  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024D834 0024A794  7C 08 03 A6 */	mtlr r0
 /* 8024D838 0024A798  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024D83C 0024A79C  4E 80 00 20 */	blr 
+/* 8024D83C 0024A79C  4E 80 00 20 */	blr
 
 .global StartFileCreate__17CMemoryCardDriverFv
 StartFileCreate__17CMemoryCardDriverFv:
@@ -1727,7 +1727,7 @@ lbl_8024D92C:
 /* 8024D938 0024A898  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8024D93C 0024A89C  7C 08 03 A6 */	mtlr r0
 /* 8024D940 0024A8A0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024D944 0024A8A4  4E 80 00 20 */	blr 
+/* 8024D944 0024A8A4  4E 80 00 20 */	blr
 
 .global StartFileRead__17CMemoryCardDriverFv
 StartFileRead__17CMemoryCardDriverFv:
@@ -1768,7 +1768,7 @@ lbl_8024D9C0:
 /* 8024D9C8 0024A928  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024D9CC 0024A92C  7C 08 03 A6 */	mtlr r0
 /* 8024D9D0 0024A930  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024D9D4 0024A934  4E 80 00 20 */	blr 
+/* 8024D9D4 0024A934  4E 80 00 20 */	blr
 
 .global StartFileDeleteAlt__17CMemoryCardDriverFv
 StartFileDeleteAlt__17CMemoryCardDriverFv:
@@ -1800,7 +1800,7 @@ lbl_8024DA34:
 /* 8024DA38 0024A998  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024DA3C 0024A99C  7C 08 03 A6 */	mtlr r0
 /* 8024DA40 0024A9A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DA44 0024A9A4  4E 80 00 20 */	blr 
+/* 8024DA44 0024A9A4  4E 80 00 20 */	blr
 
 .global StartFileDeleteBad__17CMemoryCardDriverFv
 StartFileDeleteBad__17CMemoryCardDriverFv:
@@ -1841,7 +1841,7 @@ lbl_8024DAC0:
 /* 8024DAC4 0024AA24  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024DAC8 0024AA28  7C 08 03 A6 */	mtlr r0
 /* 8024DACC 0024AA2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DAD0 0024AA30  4E 80 00 20 */	blr 
+/* 8024DAD0 0024AA30  4E 80 00 20 */	blr
 
 .global IndexFiles__17CMemoryCardDriverFv
 IndexFiles__17CMemoryCardDriverFv:
@@ -2006,7 +2006,7 @@ lbl_8024DCF8:
 /* 8024DD08 0024AC68  83 81 00 E0 */	lwz r28, 0xe0(r1)
 /* 8024DD0C 0024AC6C  7C 08 03 A6 */	mtlr r0
 /* 8024DD10 0024AC70  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8024DD14 0024AC74  4E 80 00 20 */	blr 
+/* 8024DD14 0024AC74  4E 80 00 20 */	blr
 
 .global NoCardFound__17CMemoryCardDriverFv
 NoCardFound__17CMemoryCardDriverFv:
@@ -2017,7 +2017,7 @@ NoCardFound__17CMemoryCardDriverFv:
 /* 8024DD28 0024AC88  88 03 01 60 */	lbz r0, 0x160(r3)
 /* 8024DD2C 0024AC8C  50 80 07 FE */	rlwimi r0, r4, 0, 0x1f, 0x1f
 /* 8024DD30 0024AC90  98 03 01 60 */	stb r0, 0x160(r3)
-/* 8024DD34 0024AC94  4E 80 00 20 */	blr 
+/* 8024DD34 0024AC94  4E 80 00 20 */	blr
 
 .global CheckCardCapacity__17CMemoryCardDriverFv
 CheckCardCapacity__17CMemoryCardDriverFv:
@@ -2026,17 +2026,17 @@ CheckCardCapacity__17CMemoryCardDriverFv:
 /* 8024DD40 0024ACA0  41 80 00 10 */	blt lbl_8024DD50
 /* 8024DD44 0024ACA4  80 03 00 1C */	lwz r0, 0x1c(r3)
 /* 8024DD48 0024ACA8  28 00 00 01 */	cmplwi r0, 1
-/* 8024DD4C 0024ACAC  4C 80 00 20 */	bgelr 
+/* 8024DD4C 0024ACAC  4C 80 00 20 */	bgelr
 lbl_8024DD50:
 /* 8024DD50 0024ACB0  38 00 00 06 */	li r0, 6
 /* 8024DD54 0024ACB4  90 03 00 14 */	stw r0, 0x14(r3)
-/* 8024DD58 0024ACB8  4E 80 00 20 */	blr 
+/* 8024DD58 0024ACB8  4E 80 00 20 */	blr
 
 .global ClearError__17CMemoryCardDriverFv
 ClearError__17CMemoryCardDriverFv:
 /* 8024DD5C 0024ACBC  38 00 00 00 */	li r0, 0
 /* 8024DD60 0024ACC0  90 03 00 14 */	stw r0, 0x14(r3)
-/* 8024DD64 0024ACC4  4E 80 00 20 */	blr 
+/* 8024DD64 0024ACC4  4E 80 00 20 */	blr
 
 .global StartCardCheck__17CMemoryCardDriverFv
 StartCardCheck__17CMemoryCardDriverFv:
@@ -2060,7 +2060,7 @@ lbl_8024DDA4:
 /* 8024DDA8 0024AD08  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024DDAC 0024AD0C  7C 08 03 A6 */	mtlr r0
 /* 8024DDB0 0024AD10  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DDB4 0024AD14  4E 80 00 20 */	blr 
+/* 8024DDB4 0024AD14  4E 80 00 20 */	blr
 
 .global StartMountCard__17CMemoryCardDriverFv
 StartMountCard__17CMemoryCardDriverFv:
@@ -2084,7 +2084,7 @@ lbl_8024DDF4:
 /* 8024DDF8 0024AD58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024DDFC 0024AD5C  7C 08 03 A6 */	mtlr r0
 /* 8024DE00 0024AD60  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DE04 0024AD64  4E 80 00 20 */	blr 
+/* 8024DE04 0024AD64  4E 80 00 20 */	blr
 
 .global UpdateCardProbe__17CMemoryCardDriverFv
 UpdateCardProbe__17CMemoryCardDriverFv:
@@ -2135,7 +2135,7 @@ lbl_8024DEA4:
 /* 8024DEA8 0024AE08  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8024DEAC 0024AE0C  7C 08 03 A6 */	mtlr r0
 /* 8024DEB0 0024AE10  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024DEB4 0024AE14  4E 80 00 20 */	blr 
+/* 8024DEB4 0024AE14  4E 80 00 20 */	blr
 
 .global StartCardProbe__17CMemoryCardDriverFv
 StartCardProbe__17CMemoryCardDriverFv:
@@ -2150,7 +2150,7 @@ StartCardProbe__17CMemoryCardDriverFv:
 /* 8024DED8 0024AE38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024DEDC 0024AE3C  7C 08 03 A6 */	mtlr r0
 /* 8024DEE0 0024AE40  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DEE4 0024AE44  4E 80 00 20 */	blr 
+/* 8024DEE4 0024AE44  4E 80 00 20 */	blr
 
 .global UpdateCardFormat__17CMemoryCardDriverFv
 UpdateCardFormat__17CMemoryCardDriverFv:
@@ -2177,7 +2177,7 @@ lbl_8024DF2C:
 /* 8024DF2C 0024AE8C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024DF30 0024AE90  7C 08 03 A6 */	mtlr r0
 /* 8024DF34 0024AE94  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DF38 0024AE98  4E 80 00 20 */	blr 
+/* 8024DF38 0024AE98  4E 80 00 20 */	blr
 
 .global UpdateFileAltDeleteTransactional__17CMemoryCardDriverFv
 UpdateFileAltDeleteTransactional__17CMemoryCardDriverFv:
@@ -2204,7 +2204,7 @@ lbl_8024DF80:
 /* 8024DF84 0024AEE4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024DF88 0024AEE8  7C 08 03 A6 */	mtlr r0
 /* 8024DF8C 0024AEEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DF90 0024AEF0  4E 80 00 20 */	blr 
+/* 8024DF90 0024AEF0  4E 80 00 20 */	blr
 
 .global WriteBackupBuf__17CMemoryCardDriverFv
 WriteBackupBuf__17CMemoryCardDriverFv:
@@ -2224,7 +2224,7 @@ WriteBackupBuf__17CMemoryCardDriverFv:
 /* 8024DFC8 0024AF28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024DFCC 0024AF2C  7C 08 03 A6 */	mtlr r0
 /* 8024DFD0 0024AF30  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024DFD4 0024AF34  4E 80 00 20 */	blr 
+/* 8024DFD4 0024AF34  4E 80 00 20 */	blr
 
 .global StartFileRenameBtoA__17CMemoryCardDriverFv
 StartFileRenameBtoA__17CMemoryCardDriverFv:
@@ -2280,7 +2280,7 @@ lbl_8024E08C:
 /* 8024E094 0024AFF4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8024E098 0024AFF8  7C 08 03 A6 */	mtlr r0
 /* 8024E09C 0024AFFC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024E0A0 0024B000  4E 80 00 20 */	blr 
+/* 8024E0A0 0024B000  4E 80 00 20 */	blr
 
 .global UpdateFileRenameBtoA__17CMemoryCardDriverFv
 UpdateFileRenameBtoA__17CMemoryCardDriverFv:
@@ -2300,7 +2300,7 @@ lbl_8024E0D0:
 /* 8024E0D0 0024B030  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E0D4 0024B034  7C 08 03 A6 */	mtlr r0
 /* 8024E0D8 0024B038  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E0DC 0024B03C  4E 80 00 20 */	blr 
+/* 8024E0DC 0024B03C  4E 80 00 20 */	blr
 
 .global UpdateFileWriteTransactional__17CMemoryCardDriverFv
 UpdateFileWriteTransactional__17CMemoryCardDriverFv:
@@ -2350,7 +2350,7 @@ lbl_8024E174:
 /* 8024E178 0024B0D8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024E17C 0024B0DC  7C 08 03 A6 */	mtlr r0
 /* 8024E180 0024B0E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E184 0024B0E4  4E 80 00 20 */	blr 
+/* 8024E184 0024B0E4  4E 80 00 20 */	blr
 
 .global UpdateFileCreateTransactional__17CMemoryCardDriverFv
 UpdateFileCreateTransactional__17CMemoryCardDriverFv:
@@ -2370,7 +2370,7 @@ lbl_8024E1B4:
 /* 8024E1B4 0024B114  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E1B8 0024B118  7C 08 03 A6 */	mtlr r0
 /* 8024E1BC 0024B11C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E1C0 0024B120  4E 80 00 20 */	blr 
+/* 8024E1C0 0024B120  4E 80 00 20 */	blr
 
 .global UpdateFileWrite__17CMemoryCardDriverFv
 UpdateFileWrite__17CMemoryCardDriverFv:
@@ -2416,7 +2416,7 @@ lbl_8024E24C:
 /* 8024E250 0024B1B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024E254 0024B1B4  7C 08 03 A6 */	mtlr r0
 /* 8024E258 0024B1B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E25C 0024B1BC  4E 80 00 20 */	blr 
+/* 8024E25C 0024B1BC  4E 80 00 20 */	blr
 
 .global UpdateFileCreate__17CMemoryCardDriverFv
 UpdateFileCreate__17CMemoryCardDriverFv:
@@ -2436,7 +2436,7 @@ lbl_8024E28C:
 /* 8024E28C 0024B1EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E290 0024B1F0  7C 08 03 A6 */	mtlr r0
 /* 8024E294 0024B1F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E298 0024B1F8  4E 80 00 20 */	blr 
+/* 8024E298 0024B1F8  4E 80 00 20 */	blr
 
 .global UpdateFileDeleteBad__17CMemoryCardDriverFv
 UpdateFileDeleteBad__17CMemoryCardDriverFv:
@@ -2480,7 +2480,7 @@ lbl_8024E320:
 /* 8024E324 0024B284  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024E328 0024B288  7C 08 03 A6 */	mtlr r0
 /* 8024E32C 0024B28C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E330 0024B290  4E 80 00 20 */	blr 
+/* 8024E330 0024B290  4E 80 00 20 */	blr
 
 .global UpdateFileDeleteAlt__17CMemoryCardDriverFv
 UpdateFileDeleteAlt__17CMemoryCardDriverFv:
@@ -2507,7 +2507,7 @@ lbl_8024E378:
 /* 8024E37C 0024B2DC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024E380 0024B2E0  7C 08 03 A6 */	mtlr r0
 /* 8024E384 0024B2E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E388 0024B2E8  4E 80 00 20 */	blr 
+/* 8024E388 0024B2E8  4E 80 00 20 */	blr
 
 .global UpdateFileRead__17CMemoryCardDriverFv
 UpdateFileRead__17CMemoryCardDriverFv:
@@ -2591,7 +2591,7 @@ lbl_8024E498:
 /* 8024E4A8 0024B408  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8024E4AC 0024B40C  7C 08 03 A6 */	mtlr r0
 /* 8024E4B0 0024B410  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024E4B4 0024B414  4E 80 00 20 */	blr 
+/* 8024E4B4 0024B414  4E 80 00 20 */	blr
 
 .global UpdateCardCheck__17CMemoryCardDriverFv
 UpdateCardCheck__17CMemoryCardDriverFv:
@@ -2631,7 +2631,7 @@ lbl_8024E52C:
 /* 8024E530 0024B490  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024E534 0024B494  7C 08 03 A6 */	mtlr r0
 /* 8024E538 0024B498  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E53C 0024B49C  4E 80 00 20 */	blr 
+/* 8024E53C 0024B49C  4E 80 00 20 */	blr
 
 .global UpdateMountCard__17CMemoryCardDriverFi
 UpdateMountCard__17CMemoryCardDriverFi:
@@ -2660,7 +2660,7 @@ lbl_8024E58C:
 /* 8024E58C 0024B4EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E590 0024B4F0  7C 08 03 A6 */	mtlr r0
 /* 8024E594 0024B4F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E598 0024B4F8  4E 80 00 20 */	blr 
+/* 8024E598 0024B4F8  4E 80 00 20 */	blr
 
 .global HandleCardError__17CMemoryCardDriverFi
 HandleCardError__17CMemoryCardDriverFi:
@@ -2675,7 +2675,7 @@ HandleCardError__17CMemoryCardDriverFi:
 /* 8024E5BC 0024B51C  38 84 8D 38 */	addi r4, r4, lbl_803E8D38@l
 /* 8024E5C0 0024B520  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8024E5C4 0024B524  7C 09 03 A6 */	mtctr r0
-/* 8024E5C8 0024B528  4E 80 04 20 */	bctr 
+/* 8024E5C8 0024B528  4E 80 04 20 */	bctr
 .global lbl_8024E5CC
 lbl_8024E5CC:
 /* 8024E5CC 0024B52C  90 A3 00 10 */	stw r5, 0x10(r3)
@@ -2702,7 +2702,7 @@ lbl_8024E600:
 /* 8024E600 0024B560  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E604 0024B564  7C 08 03 A6 */	mtlr r0
 /* 8024E608 0024B568  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E60C 0024B56C  4E 80 00 20 */	blr 
+/* 8024E60C 0024B56C  4E 80 00 20 */	blr
 
 .global Update__17CMemoryCardDriverFv
 Update__17CMemoryCardDriverFv:
@@ -2768,7 +2768,7 @@ lbl_8024E6B0:
 /* 8024E6F0 0024B650  38 63 8D 6C */	addi r3, r3, lbl_803E8D6C@l
 /* 8024E6F4 0024B654  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8024E6F8 0024B658  7C 09 03 A6 */	mtctr r0
-/* 8024E6FC 0024B65C  4E 80 04 20 */	bctr 
+/* 8024E6FC 0024B65C  4E 80 04 20 */	bctr
 .global lbl_8024E700
 lbl_8024E700:
 /* 8024E700 0024B660  7F A3 EB 78 */	mr r3, r29
@@ -2853,7 +2853,7 @@ lbl_8024E7CC:
 /* 8024E7D8 0024B738  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8024E7DC 0024B73C  7C 08 03 A6 */	mtlr r0
 /* 8024E7E0 0024B740  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024E7E4 0024B744  4E 80 00 20 */	blr 
+/* 8024E7E4 0024B744  4E 80 00 20 */	blr
 
 .global __dt__17CMemoryCardDriverFv
 __dt__17CMemoryCardDriverFv:
@@ -2975,7 +2975,7 @@ lbl_8024E964:
 /* 8024E978 0024B8D8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8024E97C 0024B8DC  7C 08 03 A6 */	mtlr r0
 /* 8024E980 0024B8E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024E984 0024B8E4  4E 80 00 20 */	blr 
+/* 8024E984 0024B8E4  4E 80 00 20 */	blr
 
 .global sub_8024e988
 sub_8024e988:
@@ -2999,7 +2999,7 @@ lbl_8024E9BC:
 /* 8024E9C8 0024B928  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024E9CC 0024B92C  7C 08 03 A6 */	mtlr r0
 /* 8024E9D0 0024B930  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024E9D4 0024B934  4E 80 00 20 */	blr 
+/* 8024E9D4 0024B934  4E 80 00 20 */	blr
 
 .global sub_8024e9d8
 sub_8024e9d8:
@@ -3030,7 +3030,7 @@ lbl_8024EA10:
 /* 8024EA30 0024B990  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8024EA34 0024B994  7C 08 03 A6 */	mtlr r0
 /* 8024EA38 0024B998  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024EA3C 0024B99C  4E 80 00 20 */	blr 
+/* 8024EA3C 0024B99C  4E 80 00 20 */	blr
 
 .global sub_8024ea40
 sub_8024ea40:
@@ -3042,7 +3042,7 @@ sub_8024ea40:
 /* 8024EA54 0024B9B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024EA58 0024B9B8  7C 08 03 A6 */	mtlr r0
 /* 8024EA5C 0024B9BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EA60 0024B9C0  4E 80 00 20 */	blr 
+/* 8024EA60 0024B9C0  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv"
 "__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv":
@@ -3068,7 +3068,7 @@ lbl_8024EAA0:
 /* 8024EAAC 0024BA0C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024EAB0 0024BA10  7C 08 03 A6 */	mtlr r0
 /* 8024EAB4 0024BA14  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EAB8 0024BA18  4E 80 00 20 */	blr 
+/* 8024EAB8 0024BA18  4E 80 00 20 */	blr
 
 .global __dt__19SMemoryCardFileInfoFv
 __dt__19SMemoryCardFileInfoFv:
@@ -3134,7 +3134,7 @@ lbl_8024EB7C:
 /* 8024EB88 0024BAE8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8024EB8C 0024BAEC  7C 08 03 A6 */	mtlr r0
 /* 8024EB90 0024BAF0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024EB94 0024BAF4  4E 80 00 20 */	blr 
+/* 8024EB94 0024BAF4  4E 80 00 20 */	blr
 
 .global sub_8024eb98
 sub_8024eb98:
@@ -3160,7 +3160,7 @@ lbl_8024EBD4:
 /* 8024EBE0 0024BB40  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024EBE4 0024BB44  7C 08 03 A6 */	mtlr r0
 /* 8024EBE8 0024BB48  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EBEC 0024BB4C  4E 80 00 20 */	blr 
+/* 8024EBEC 0024BB4C  4E 80 00 20 */	blr
 
 .global ClearFileInfo__17CMemoryCardDriverFv
 ClearFileInfo__17CMemoryCardDriverFv:
@@ -3173,7 +3173,7 @@ ClearFileInfo__17CMemoryCardDriverFv:
 /* 8024EC08 0024BB68  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024EC0C 0024BB6C  7C 08 03 A6 */	mtlr r0
 /* 8024EC10 0024BB70  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EC14 0024BB74  4E 80 00 20 */	blr 
+/* 8024EC14 0024BB74  4E 80 00 20 */	blr
 
 .global __ct__17CMemoryCardDriverFv
 __ct__17CMemoryCardDriverFv:
@@ -3345,7 +3345,7 @@ lbl_8024EDB0:
 /* 8024EE6C 0024BDCC  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 8024EE70 0024BDD0  7C 08 03 A6 */	mtlr r0
 /* 8024EE74 0024BDD4  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8024EE78 0024BDD8  4E 80 00 20 */	blr 
+/* 8024EE78 0024BDD8  4E 80 00 20 */	blr
 
 .global sub_8024ee7c
 sub_8024ee7c:
@@ -3366,7 +3366,7 @@ sub_8024ee7c:
 /* 8024EEB4 0024BE14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024EEB8 0024BE18  7C 08 03 A6 */	mtlr r0
 /* 8024EEBC 0024BE1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EEC0 0024BE20  4E 80 00 20 */	blr 
+/* 8024EEC0 0024BE20  4E 80 00 20 */	blr
 
 .global sub_8024eec4
 sub_8024eec4:
@@ -3380,7 +3380,7 @@ lbl_8024EEDC:
 /* 8024EEDC 0024BE3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024EEE0 0024BE40  7C 08 03 A6 */	mtlr r0
 /* 8024EEE4 0024BE44  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EEE8 0024BE48  4E 80 00 20 */	blr 
+/* 8024EEE8 0024BE48  4E 80 00 20 */	blr
 
 .global sub_8024eeec
 sub_8024eeec:
@@ -3399,7 +3399,7 @@ sub_8024eeec:
 /* 8024EF1C 0024BE7C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024EF20 0024BE80  7C 08 03 A6 */	mtlr r0
 /* 8024EF24 0024BE84  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024EF28 0024BE88  4E 80 00 20 */	blr 
+/* 8024EF28 0024BE88  4E 80 00 20 */	blr
 
 .global sub_8024ef2c
 sub_8024ef2c:
@@ -3527,7 +3527,7 @@ lbl_8024F0D0:
 /* 8024F0E0 0024C040  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8024F0E4 0024C044  7C 08 03 A6 */	mtlr r0
 /* 8024F0E8 0024C048  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024F0EC 0024C04C  4E 80 00 20 */	blr 
+/* 8024F0EC 0024C04C  4E 80 00 20 */	blr
 
 .global IsCardWriting__17CMemoryCardDriverF6EState
 IsCardWriting__17CMemoryCardDriverF6EState:
@@ -3556,7 +3556,7 @@ lbl_8024F130:
 /* 8024F140 0024C0A0  38 A0 00 00 */	li r5, 0
 lbl_8024F144:
 /* 8024F144 0024C0A4  7C A3 2B 78 */	mr r3, r5
-/* 8024F148 0024C0A8  4E 80 00 20 */	blr 
+/* 8024F148 0024C0A8  4E 80 00 20 */	blr
 
 .global IsCardBusy__17CMemoryCardDriverF6EState
 IsCardBusy__17CMemoryCardDriverF6EState:

@@ -53,7 +53,7 @@ Blend__18CAdvancementDeltasFRC18CAdvancementDeltasRC18CAdvancementDeltasf:
 /* 802EB5B4 002E8514  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802EB5B8 002E8518  7C 08 03 A6 */	mtlr r0
 /* 802EB5BC 002E851C  38 21 00 40 */	addi r1, r1, 0x40
-/* 802EB5C0 002E8520  4E 80 00 20 */	blr 
+/* 802EB5C0 002E8520  4E 80 00 20 */	blr
 
 .global Interpolate__18CAdvancementDeltasFRC18CAdvancementDeltasRC18CAdvancementDeltasff
 Interpolate__18CAdvancementDeltasFRC18CAdvancementDeltasRC18CAdvancementDeltasff:

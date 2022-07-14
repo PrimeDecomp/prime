@@ -35,11 +35,11 @@ Accept__14CScriptHUDMemoFR8IVisitor:
 /* 800E8344 000E52A4  7C 04 03 78 */	mr r4, r0
 /* 800E8348 000E52A8  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800E834C 000E52AC  7D 89 03 A6 */	mtctr r12
-/* 800E8350 000E52B0  4E 80 04 21 */	bctrl 
+/* 800E8350 000E52B0  4E 80 04 21 */	bctrl
 /* 800E8354 000E52B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E8358 000E52B8  7C 08 03 A6 */	mtlr r0
 /* 800E835C 000E52BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E8360 000E52C0  4E 80 00 20 */	blr 
+/* 800E8360 000E52C0  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__14CScriptHUDMemoF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__14CScriptHUDMemoF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -137,7 +137,7 @@ lbl_800E8490:
 /* 800E84BC 000E541C  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800E84C0 000E5420  7C 08 03 A6 */	mtlr r0
 /* 800E84C4 000E5424  38 21 00 60 */	addi r1, r1, 0x60
-/* 800E84C8 000E5428  4E 80 00 20 */	blr 
+/* 800E84C8 000E5428  4E 80 00 20 */	blr
 
 .global __dt__14CScriptHUDMemoFv
 __dt__14CScriptHUDMemoFv:
@@ -181,7 +181,7 @@ lbl_800E8548:
 /* 800E8554 000E54B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E8558 000E54B8  7C 08 03 A6 */	mtlr r0
 /* 800E855C 000E54BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E8560 000E54C0  4E 80 00 20 */	blr 
+/* 800E8560 000E54C0  4E 80 00 20 */	blr
 
 .global "__ct__14CScriptHUDMemoF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC13CHUDMemoParmsQ214CScriptHUDMemo12EDisplayTypeUib"
 "__ct__14CScriptHUDMemoF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC13CHUDMemoParmsQ214CScriptHUDMemo12EDisplayTypeUib":
@@ -237,7 +237,7 @@ lbl_800E8608:
 /* 800E8624 000E5584  81 84 00 00 */	lwz r12, 0(r4)
 /* 800E8628 000E5588  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800E862C 000E558C  7D 89 03 A6 */	mtctr r12
-/* 800E8630 000E5590  4E 80 04 21 */	bctrl 
+/* 800E8630 000E5590  4E 80 04 21 */	bctrl
 /* 800E8634 000E5594  3B 01 00 2C */	addi r24, r1, 0x2c
 /* 800E8638 000E5598  38 81 00 0C */	addi r4, r1, 0xc
 /* 800E863C 000E559C  7F 03 C3 78 */	mr r3, r24
@@ -325,4 +325,4 @@ lbl_800E8758:
 /* 800E8760 000E56C0  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800E8764 000E56C4  7C 08 03 A6 */	mtlr r0
 /* 800E8768 000E56C8  38 21 00 70 */	addi r1, r1, 0x70
-/* 800E876C 000E56CC  4E 80 00 20 */	blr 
+/* 800E876C 000E56CC  4E 80 00 20 */	blr

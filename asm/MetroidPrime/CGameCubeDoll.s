@@ -40,7 +40,7 @@ Draw__13CGameCubeDollFf:
 /* 8029E6C8 0029B628  EC 60 18 28 */	fsubs f3, f0, f3
 /* 8029E6CC 0029B62C  C0 A2 C0 B8 */	lfs f5, lbl_805ADDD8@sda21(r2)
 /* 8029E6D0 0029B630  7D 89 03 A6 */	mtctr r12
-/* 8029E6D4 0029B634  4E 80 04 21 */	bctrl 
+/* 8029E6D4 0029B634  4E 80 04 21 */	bctrl
 /* 8029E6D8 0029B638  C0 22 C0 BC */	lfs f1, lbl_805ADDDC@sda21(r2)
 /* 8029E6DC 0029B63C  38 61 00 AC */	addi r3, r1, 0xac
 /* 8029E6E0 0029B640  C0 42 C0 C0 */	lfs f2, lbl_805ADDE0@sda21(r2)
@@ -102,7 +102,7 @@ lbl_8029E7B0:
 /* 8029E7BC 0029B71C  83 E1 00 FC */	lwz r31, 0xfc(r1)
 /* 8029E7C0 0029B720  7C 08 03 A6 */	mtlr r0
 /* 8029E7C4 0029B724  38 21 01 10 */	addi r1, r1, 0x110
-/* 8029E7C8 0029B728  4E 80 00 20 */	blr 
+/* 8029E7C8 0029B728  4E 80 00 20 */	blr
 
 .global Update__13CGameCubeDollFf
 Update__13CGameCubeDollFf:
@@ -140,7 +140,7 @@ lbl_8029E830:
 /* 8029E83C 0029B79C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8029E840 0029B7A0  7C 08 03 A6 */	mtlr r0
 /* 8029E844 0029B7A4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8029E848 0029B7A8  4E 80 00 20 */	blr 
+/* 8029E848 0029B7A8  4E 80 00 20 */	blr
 
 .global Touch__13CGameCubeDollFv
 Touch__13CGameCubeDollFv:
@@ -168,7 +168,7 @@ lbl_8029E898:
 /* 8029E89C 0029B7FC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8029E8A0 0029B800  7C 08 03 A6 */	mtlr r0
 /* 8029E8A4 0029B804  38 21 00 20 */	addi r1, r1, 0x20
-/* 8029E8A8 0029B808  4E 80 00 20 */	blr 
+/* 8029E8A8 0029B808  4E 80 00 20 */	blr
 
 .global UpdateActorLights__13CGameCubeDollFv
 UpdateActorLights__13CGameCubeDollFv:
@@ -289,7 +289,7 @@ UpdateActorLights__13CGameCubeDollFv:
 /* 8029EA74 0029B9D4  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 8029EA78 0029B9D8  7C 08 03 A6 */	mtlr r0
 /* 8029EA7C 0029B9DC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8029EA80 0029B9E0  4E 80 00 20 */	blr 
+/* 8029EA80 0029B9E0  4E 80 00 20 */	blr
 
 .global __dt__13CGameCubeDollFv
 __dt__13CGameCubeDollFv:
@@ -342,7 +342,7 @@ lbl_8029EB1C:
 /* 8029EB28 0029BA88  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8029EB2C 0029BA8C  7C 08 03 A6 */	mtlr r0
 /* 8029EB30 0029BA90  38 21 00 20 */	addi r1, r1, 0x20
-/* 8029EB34 0029BA94  4E 80 00 20 */	blr 
+/* 8029EB34 0029BA94  4E 80 00 20 */	blr
 
 .global IsLoaded__13CGameCubeDollCFv
 IsLoaded__13CGameCubeDollCFv:
@@ -351,7 +351,7 @@ IsLoaded__13CGameCubeDollCFv:
 /* 8029EB40 0029BAA0  7C 03 00 D0 */	neg r0, r3
 /* 8029EB44 0029BAA4  7C 00 1B 78 */	or r0, r0, r3
 /* 8029EB48 0029BAA8  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8029EB4C 0029BAAC  4E 80 00 20 */	blr 
+/* 8029EB4C 0029BAAC  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__13CGameCubeDollFv
 CheckLoadComplete__13CGameCubeDollFv:
@@ -383,7 +383,7 @@ lbl_8029EBA4:
 /* 8029EBA8 0029BB08  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8029EBAC 0029BB0C  7C 08 03 A6 */	mtlr r0
 /* 8029EBB0 0029BB10  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029EBB4 0029BB14  4E 80 00 20 */	blr 
+/* 8029EBB4 0029BB14  4E 80 00 20 */	blr
 
 .global __ct__13CGameCubeDollFv
 __ct__13CGameCubeDollFv:
@@ -399,7 +399,7 @@ __ct__13CGameCubeDollFv:
 /* 8029EBDC 0029BB3C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8029EBE0 0029BB40  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8029EBE4 0029BB44  7D 89 03 A6 */	mtctr r12
-/* 8029EBE8 0029BB48  4E 80 04 21 */	bctrl 
+/* 8029EBE8 0029BB48  4E 80 04 21 */	bctrl
 /* 8029EBEC 0029BB4C  7F E3 FB 78 */	mr r3, r31
 /* 8029EBF0 0029BB50  38 81 00 10 */	addi r4, r1, 0x10
 /* 8029EBF4 0029BB54  48 0A 22 B5 */	bl __ct__6CTokenFRC6CToken

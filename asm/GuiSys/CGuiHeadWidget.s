@@ -40,7 +40,7 @@ __ct__14CGuiHeadWidgetFRCQ210CGuiWidget15CGuiWidgetParms:
 /* 802C35E4 002C0544  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C35E8 002C0548  7C 08 03 A6 */	mtlr r0
 /* 802C35EC 002C054C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C35F0 002C0550  4E 80 00 20 */	blr 
+/* 802C35F0 002C0550  4E 80 00 20 */	blr
 
 .global Create__14CGuiHeadWidgetFP9CGuiFrameR12CInputStreamb
 Create__14CGuiHeadWidgetFP9CGuiFrameR12CInputStreamb:
@@ -100,7 +100,7 @@ lbl_802C369C:
 /* 802C36C4 002C0624  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802C36C8 002C0628  7C 08 03 A6 */	mtlr r0
 /* 802C36CC 002C062C  38 21 00 50 */	addi r1, r1, 0x50
-/* 802C36D0 002C0630  4E 80 00 20 */	blr 
+/* 802C36D0 002C0630  4E 80 00 20 */	blr
 
 .global __dt__14CGuiHeadWidgetFv
 __dt__14CGuiHeadWidgetFv:
@@ -128,10 +128,10 @@ lbl_802C3718:
 /* 802C3724 002C0684  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C3728 002C0688  7C 08 03 A6 */	mtlr r0
 /* 802C372C 002C068C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C3730 002C0690  4E 80 00 20 */	blr 
+/* 802C3730 002C0690  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__14CGuiHeadWidgetCFv
 GetWidgetTypeID__14CGuiHeadWidgetCFv:
 /* 802C3734 002C0694  3C 60 48 57 */	lis r3, 0x48574947@ha
 /* 802C3738 002C0698  38 63 49 47 */	addi r3, r3, 0x48574947@l
-/* 802C373C 002C069C  4E 80 00 20 */	blr 
+/* 802C373C 002C069C  4E 80 00 20 */	blr

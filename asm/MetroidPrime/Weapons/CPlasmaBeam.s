@@ -38,7 +38,7 @@ lbl_805A7320:
 .global lbl_8046C488
 lbl_8046C488:
 	.skip 0x10
-	
+
 .section .text, "ax"
 
 .global SetWorldLighting__11CPlasmaBeamFR13CStateManager7TAreaIdff
@@ -120,7 +120,7 @@ lbl_800DECA0:
 /* 800DECBC 000DBC1C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800DECC0 000DBC20  7C 08 03 A6 */	mtlr r0
 /* 800DECC4 000DBC24  38 21 00 40 */	addi r1, r1, 0x40
-/* 800DECC8 000DBC28  4E 80 00 20 */	blr 
+/* 800DECC8 000DBC28  4E 80 00 20 */	blr
 
 .global EnableSecondaryFx__11CPlasmaBeamFQ210CGunWeapon16ESecondaryFxType
 EnableSecondaryFx__11CPlasmaBeamFQ210CGunWeapon16ESecondaryFxType:
@@ -152,7 +152,7 @@ lbl_800DED08:
 /* 800DED2C 000DBC8C  38 80 00 00 */	li r4, 0
 /* 800DED30 000DBC90  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800DED34 000DBC94  7D 89 03 A6 */	mtctr r12
-/* 800DED38 000DBC98  4E 80 04 21 */	bctrl 
+/* 800DED38 000DBC98  4E 80 04 21 */	bctrl
 /* 800DED3C 000DBC9C  48 00 00 A0 */	b lbl_800DEDDC
 /* 800DED40 000DBCA0  48 00 00 A0 */	b lbl_800DEDE0
 lbl_800DED44:
@@ -182,7 +182,7 @@ lbl_800DED8C:
 /* 800DED9C 000DBCFC  38 80 00 01 */	li r4, 1
 /* 800DEDA0 000DBD00  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800DEDA4 000DBD04  7D 89 03 A6 */	mtctr r12
-/* 800DEDA8 000DBD08  4E 80 04 21 */	bctrl 
+/* 800DEDA8 000DBD08  4E 80 04 21 */	bctrl
 lbl_800DEDAC:
 /* 800DEDAC 000DBD0C  7F 80 07 75 */	extsb. r0, r28
 /* 800DEDB0 000DBD10  93 FD 02 28 */	stw r31, 0x228(r29)
@@ -196,7 +196,7 @@ lbl_800DEDC4:
 /* 800DEDCC 000DBD2C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800DEDD0 000DBD30  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800DEDD4 000DBD34  7D 89 03 A6 */	mtctr r12
-/* 800DEDD8 000DBD38  4E 80 04 21 */	bctrl 
+/* 800DEDD8 000DBD38  4E 80 04 21 */	bctrl
 lbl_800DEDDC:
 /* 800DEDDC 000DBD3C  93 DD 01 CC */	stw r30, 0x1cc(r29)
 lbl_800DEDE0:
@@ -207,7 +207,7 @@ lbl_800DEDE0:
 /* 800DEDF0 000DBD50  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800DEDF4 000DBD54  7C 08 03 A6 */	mtlr r0
 /* 800DEDF8 000DBD58  38 21 00 20 */	addi r1, r1, 0x20
-/* 800DEDFC 000DBD5C  4E 80 00 20 */	blr 
+/* 800DEDFC 000DBD5C  4E 80 00 20 */	blr
 
 .global IsLoaded__11CPlasmaBeamCFv
 IsLoaded__11CPlasmaBeamCFv:
@@ -232,7 +232,7 @@ lbl_800DEE38:
 /* 800DEE44 000DBDA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DEE48 000DBDA8  7C 08 03 A6 */	mtlr r0
 /* 800DEE4C 000DBDAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEE50 000DBDB0  4E 80 00 20 */	blr 
+/* 800DEE50 000DBDB0  4E 80 00 20 */	blr
 
 .global Unload__11CPlasmaBeamFR13CStateManager
 Unload__11CPlasmaBeamFR13CStateManager:
@@ -258,7 +258,7 @@ Unload__11CPlasmaBeamFR13CStateManager:
 /* 800DEEA0 000DBE00  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DEEA4 000DBE04  7C 08 03 A6 */	mtlr r0
 /* 800DEEA8 000DBE08  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEEAC 000DBE0C  4E 80 00 20 */	blr 
+/* 800DEEAC 000DBE0C  4E 80 00 20 */	blr
 
 .global Load__11CPlasmaBeamFb
 Load__11CPlasmaBeamFb:
@@ -274,7 +274,7 @@ Load__11CPlasmaBeamFb:
 /* 800DEED4 000DBE34  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800DEED8 000DBE38  7C 08 03 A6 */	mtlr r0
 /* 800DEEDC 000DBE3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEEE0 000DBE40  4E 80 00 20 */	blr 
+/* 800DEEE0 000DBE40  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CPlasmaBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CPlasmaBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -292,7 +292,7 @@ lbl_800DEF08:
 /* 800DEF08 000DBE68  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800DEF0C 000DBE6C  7C 08 03 A6 */	mtlr r0
 /* 800DEF10 000DBE70  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEF14 000DBE74  4E 80 00 20 */	blr 
+/* 800DEF14 000DBE74  4E 80 00 20 */	blr
 
 .global DeleteBeam__11CPlasmaBeamFR13CStateManager
 DeleteBeam__11CPlasmaBeamFR13CStateManager:
@@ -314,19 +314,19 @@ lbl_800DEF50:
 /* 800DEF50 000DBEB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800DEF54 000DBEB4  7C 08 03 A6 */	mtlr r0
 /* 800DEF58 000DBEB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEF5C 000DBEBC  4E 80 00 20 */	blr 
+/* 800DEF5C 000DBEBC  4E 80 00 20 */	blr
 
 .global CreateBeam__11CPlasmaBeamFR13CStateManager
 CreateBeam__11CPlasmaBeamFR13CStateManager:
-/* 800DEF60 000DBEC0  4E 80 00 20 */	blr 
+/* 800DEF60 000DBEC0  4E 80 00 20 */	blr
 
 .global StopBeam__11CPlasmaBeamFR13CStateManagerb
 StopBeam__11CPlasmaBeamFR13CStateManagerb:
-/* 800DEF64 000DBEC4  4E 80 00 20 */	blr 
+/* 800DEF64 000DBEC4  4E 80 00 20 */	blr
 
 .global UpdateBeam__11CPlasmaBeamFfRC12CTransform4fRC9CVector3fR13CStateManager
 UpdateBeam__11CPlasmaBeamFfRC12CTransform4fRC9CVector3fR13CStateManager:
-/* 800DEF68 000DBEC8  4E 80 00 20 */	blr 
+/* 800DEF68 000DBEC8  4E 80 00 20 */	blr
 
 .global Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
 Fire__11CPlasmaBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
@@ -423,7 +423,7 @@ lbl_800DF0AC:
 /* 800DF0C8 000DC028  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800DF0CC 000DC02C  7C 08 03 A6 */	mtlr r0
 /* 800DF0D0 000DC030  38 21 00 70 */	addi r1, r1, 0x70
-/* 800DF0D4 000DC034  4E 80 00 20 */	blr 
+/* 800DF0D4 000DC034  4E 80 00 20 */	blr
 
 .global Update__11CPlasmaBeamFfR13CStateManager
 Update__11CPlasmaBeamFfR13CStateManager:
@@ -500,7 +500,7 @@ lbl_800DF1D4:
 /* 800DF1D8 000DC138  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800DF1DC 000DC13C  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 800DF1E0 000DC140  7D 89 03 A6 */	mtctr r12
-/* 800DF1E4 000DC144  4E 80 04 21 */	bctrl 
+/* 800DF1E4 000DC144  4E 80 04 21 */	bctrl
 /* 800DF1E8 000DC148  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800DF1EC 000DC14C  40 82 00 90 */	bne lbl_800DF27C
 /* 800DF1F0 000DC150  7F C3 F3 78 */	mr r3, r30
@@ -549,7 +549,7 @@ lbl_800DF27C:
 /* 800DF28C 000DC1EC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800DF290 000DC1F0  7C 08 03 A6 */	mtlr r0
 /* 800DF294 000DC1F4  38 21 00 30 */	addi r1, r1, 0x30
-/* 800DF298 000DC1F8  4E 80 00 20 */	blr 
+/* 800DF298 000DC1F8  4E 80 00 20 */	blr
 
 .global UpdateGunFx__11CPlasmaBeamFbfRC13CStateManagerRC12CTransform4f
 UpdateGunFx__11CPlasmaBeamFbfRC13CStateManagerRC12CTransform4f:
@@ -573,7 +573,7 @@ UpdateGunFx__11CPlasmaBeamFbfRC13CStateManagerRC12CTransform4f:
 /* 800DF2E0 000DC240  81 83 00 00 */	lwz r12, 0(r3)
 /* 800DF2E4 000DC244  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 800DF2E8 000DC248  7D 89 03 A6 */	mtctr r12
-/* 800DF2EC 000DC24C  4E 80 04 21 */	bctrl 
+/* 800DF2EC 000DC24C  4E 80 04 21 */	bctrl
 /* 800DF2F0 000DC250  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800DF2F4 000DC254  41 82 00 0C */	beq lbl_800DF300
 /* 800DF2F8 000DC258  38 00 00 00 */	li r0, 0
@@ -590,7 +590,7 @@ lbl_800DF300:
 /* 800DF320 000DC280  81 83 00 00 */	lwz r12, 0(r3)
 /* 800DF324 000DC284  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800DF328 000DC288  7D 89 03 A6 */	mtctr r12
-/* 800DF32C 000DC28C  4E 80 04 21 */	bctrl 
+/* 800DF32C 000DC28C  4E 80 04 21 */	bctrl
 /* 800DF330 000DC290  83 FB 02 28 */	lwz r31, 0x228(r27)
 /* 800DF334 000DC294  7F C4 F3 78 */	mr r4, r30
 /* 800DF338 000DC298  38 61 00 14 */	addi r3, r1, 0x14
@@ -600,13 +600,13 @@ lbl_800DF300:
 /* 800DF348 000DC2A8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 800DF34C 000DC2AC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 800DF350 000DC2B0  7D 89 03 A6 */	mtctr r12
-/* 800DF354 000DC2B4  4E 80 04 21 */	bctrl 
+/* 800DF354 000DC2B4  4E 80 04 21 */	bctrl
 /* 800DF358 000DC2B8  80 7B 02 28 */	lwz r3, 0x228(r27)
 /* 800DF35C 000DC2BC  FC 20 F8 90 */	fmr f1, f31
 /* 800DF360 000DC2C0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800DF364 000DC2C4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800DF368 000DC2C8  7D 89 03 A6 */	mtctr r12
-/* 800DF36C 000DC2CC  4E 80 04 21 */	bctrl 
+/* 800DF36C 000DC2CC  4E 80 04 21 */	bctrl
 lbl_800DF370:
 /* 800DF370 000DC2D0  FC 20 F8 90 */	fmr f1, f31
 /* 800DF374 000DC2D4  7F 63 DB 78 */	mr r3, r27
@@ -620,7 +620,7 @@ lbl_800DF370:
 /* 800DF394 000DC2F4  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800DF398 000DC2F8  7C 08 03 A6 */	mtlr r0
 /* 800DF39C 000DC2FC  38 21 00 70 */	addi r1, r1, 0x70
-/* 800DF3A0 000DC300  4E 80 00 20 */	blr 
+/* 800DF3A0 000DC300  4E 80 00 20 */	blr
 
 .global PostRenderGunFx__11CPlasmaBeamFRC13CStateManagerRC12CTransform4f
 PostRenderGunFx__11CPlasmaBeamFRC13CStateManagerRC12CTransform4f:
@@ -642,7 +642,7 @@ PostRenderGunFx__11CPlasmaBeamFRC13CStateManagerRC12CTransform4f:
 /* 800DF3E0 000DC340  81 83 00 00 */	lwz r12, 0(r3)
 /* 800DF3E4 000DC344  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800DF3E8 000DC348  7D 89 03 A6 */	mtctr r12
-/* 800DF3EC 000DC34C  4E 80 04 21 */	bctrl 
+/* 800DF3EC 000DC34C  4E 80 04 21 */	bctrl
 lbl_800DF3F0:
 /* 800DF3F0 000DC350  7F A3 EB 78 */	mr r3, r29
 /* 800DF3F4 000DC354  7F C4 F3 78 */	mr r4, r30
@@ -654,7 +654,7 @@ lbl_800DF3F0:
 /* 800DF40C 000DC36C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800DF410 000DC370  7C 08 03 A6 */	mtlr r0
 /* 800DF414 000DC374  38 21 00 20 */	addi r1, r1, 0x20
-/* 800DF418 000DC378  4E 80 00 20 */	blr 
+/* 800DF418 000DC378  4E 80 00 20 */	blr
 
 .global IsFiring__11CPlasmaBeamCFRC13CStateManager
 IsFiring__11CPlasmaBeamCFRC13CStateManager:
@@ -663,7 +663,7 @@ IsFiring__11CPlasmaBeamCFRC13CStateManager:
 /* 800DF424 000DC384  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800DF428 000DC388  7C 00 00 26 */	mfcr r0
 /* 800DF42C 000DC38C  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 800DF430 000DC390  4E 80 00 20 */	blr 
+/* 800DF430 000DC390  4E 80 00 20 */	blr
 
 .global ReInitVariables__11CPlasmaBeamFv
 ReInitVariables__11CPlasmaBeamFv:
@@ -679,7 +679,7 @@ ReInitVariables__11CPlasmaBeamFv:
 /* 800DF458 000DC3B8  38 80 00 01 */	li r4, 1
 /* 800DF45C 000DC3BC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800DF460 000DC3C0  7D 89 03 A6 */	mtctr r12
-/* 800DF464 000DC3C4  4E 80 04 21 */	bctrl 
+/* 800DF464 000DC3C4  4E 80 04 21 */	bctrl
 lbl_800DF468:
 /* 800DF468 000DC3C8  38 60 00 00 */	li r3, 0
 /* 800DF46C 000DC3CC  90 7F 02 28 */	stw r3, 0x228(r31)
@@ -694,7 +694,7 @@ lbl_800DF468:
 
 .global sub_800df490
 sub_800df490:
-/* 800DF490 000DC3F0  4E 80 00 20 */	blr 
+/* 800DF490 000DC3F0  4E 80 00 20 */	blr
 
 .global __dt__11CPlasmaBeamFv
 __dt__11CPlasmaBeamFv:
@@ -718,7 +718,7 @@ __dt__11CPlasmaBeamFv:
 /* 800DF4D8 000DC438  38 80 00 01 */	li r4, 1
 /* 800DF4DC 000DC43C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800DF4E0 000DC440  7D 89 03 A6 */	mtctr r12
-/* 800DF4E4 000DC444  4E 80 04 21 */	bctrl 
+/* 800DF4E4 000DC444  4E 80 04 21 */	bctrl
 lbl_800DF4E8:
 /* 800DF4E8 000DC448  34 1E 02 1C */	addic. r0, r30, 0x21c
 /* 800DF4EC 000DC44C  41 82 00 18 */	beq lbl_800DF504
@@ -742,7 +742,7 @@ lbl_800DF520:
 /* 800DF52C 000DC48C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DF530 000DC490  7C 08 03 A6 */	mtlr r0
 /* 800DF534 000DC494  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DF538 000DC498  4E 80 00 20 */	blr 
+/* 800DF538 000DC498  4E 80 00 20 */	blr
 
 .global __ct__11CPlasmaBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f
 __ct__11CPlasmaBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
@@ -767,7 +767,7 @@ __ct__11CPlasmaBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800DF584 000DC4E4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800DF588 000DC4E8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800DF58C 000DC4EC  7D 89 03 A6 */	mtctr r12
-/* 800DF590 000DC4F0  4E 80 04 21 */	bctrl 
+/* 800DF590 000DC4F0  4E 80 04 21 */	bctrl
 /* 800DF594 000DC4F4  3B DF 02 1C */	addi r30, r31, 0x21c
 /* 800DF598 000DC4F8  38 81 00 0C */	addi r4, r1, 0xc
 /* 800DF59C 000DC4FC  7F C3 F3 78 */	mr r3, r30
@@ -797,7 +797,7 @@ __ct__11CPlasmaBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800DF5FC 000DC55C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800DF600 000DC560  7C 08 03 A6 */	mtlr r0
 /* 800DF604 000DC564  38 21 00 20 */	addi r1, r1, 0x20
-/* 800DF608 000DC568  4E 80 00 20 */	blr 
+/* 800DF608 000DC568  4E 80 00 20 */	blr
 
 .global __sinit_CPlasmaBeam_cpp
 __sinit_CPlasmaBeam_cpp:
@@ -838,4 +838,4 @@ lbl_800DF688:
 /* 800DF688 000DC5E8  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800DF68C 000DC5EC  7C 08 03 A6 */	mtlr r0
 /* 800DF690 000DC5F0  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800DF694 000DC5F4  4E 80 00 20 */	blr 
+/* 800DF694 000DC5F4  4E 80 00 20 */	blr

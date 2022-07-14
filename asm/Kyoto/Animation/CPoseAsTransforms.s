@@ -43,7 +43,7 @@ Clear__17CPoseAsTransformsFv:
 /* 80368EB4 00365E14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80368EB8 00365E18  7C 08 03 A6 */	mtlr r0
 /* 80368EBC 00365E1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80368EC0 00365E20  4E 80 00 20 */	blr 
+/* 80368EC0 00365E20  4E 80 00 20 */	blr
 
 .global ContainsDataFor__17CPoseAsTransformsCFRC6CSegId
 ContainsDataFor__17CPoseAsTransformsCFRC6CSegId:
@@ -67,7 +67,7 @@ lbl_80368F04:
 /* 80368F04 00365E64  38 80 00 01 */	li r4, 1
 lbl_80368F08:
 /* 80368F08 00365E68  7C 83 23 78 */	mr r3, r4
-/* 80368F0C 00365E6C  4E 80 00 20 */	blr 
+/* 80368F0C 00365E6C  4E 80 00 20 */	blr
 
 .global AccumulateScaledTransform__17CPoseAsTransformsCFRC6CSegIdR9CMatrix3ff
 AccumulateScaledTransform__17CPoseAsTransformsCFRC6CSegIdR9CMatrix3ff:
@@ -88,7 +88,7 @@ AccumulateScaledTransform__17CPoseAsTransformsCFRC6CSegIdR9CMatrix3ff:
 /* 80368F48 00365EA8  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80368F4C 00365EAC  7C 08 03 A6 */	mtlr r0
 /* 80368F50 00365EB0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368F54 00365EB4  4E 80 00 20 */	blr 
+/* 80368F54 00365EB4  4E 80 00 20 */	blr
 
 .global GetOffset__17CPoseAsTransformsCFRC6CSegId
 GetOffset__17CPoseAsTransformsCFRC6CSegId:
@@ -100,7 +100,7 @@ GetOffset__17CPoseAsTransformsCFRC6CSegId:
 /* 80368F6C 00365ECC  1C 60 00 30 */	mulli r3, r0, 0x30
 /* 80368F70 00365ED0  38 63 00 24 */	addi r3, r3, 0x24
 /* 80368F74 00365ED4  7C 64 1A 14 */	add r3, r4, r3
-/* 80368F78 00365ED8  4E 80 00 20 */	blr 
+/* 80368F78 00365ED8  4E 80 00 20 */	blr
 
 .global GetTransformMinusOffset__17CPoseAsTransformsCFRC6CSegId
 GetTransformMinusOffset__17CPoseAsTransformsCFRC6CSegId:
@@ -111,7 +111,7 @@ GetTransformMinusOffset__17CPoseAsTransformsCFRC6CSegId:
 /* 80368F8C 00365EEC  88 03 00 09 */	lbz r0, 9(r3)
 /* 80368F90 00365EF0  1C 00 00 30 */	mulli r0, r0, 0x30
 /* 80368F94 00365EF4  7C 64 02 14 */	add r3, r4, r0
-/* 80368F98 00365EF8  4E 80 00 20 */	blr 
+/* 80368F98 00365EF8  4E 80 00 20 */	blr
 
 .global GetRotation__17CPoseAsTransformsCFRC6CSegId
 GetRotation__17CPoseAsTransformsCFRC6CSegId:
@@ -122,7 +122,7 @@ GetRotation__17CPoseAsTransformsCFRC6CSegId:
 /* 80368FAC 00365F0C  88 03 00 09 */	lbz r0, 9(r3)
 /* 80368FB0 00365F10  1C 00 00 30 */	mulli r0, r0, 0x30
 /* 80368FB4 00365F14  7C 64 02 14 */	add r3, r4, r0
-/* 80368FB8 00365F18  4E 80 00 20 */	blr 
+/* 80368FB8 00365F18  4E 80 00 20 */	blr
 
 .global Insert__17CPoseAsTransformsFRC6CSegIdRC9CMatrix3fRC9CVector3f
 Insert__17CPoseAsTransformsFRC6CSegIdRC9CMatrix3fRC9CVector3f:
@@ -154,7 +154,7 @@ Insert__17CPoseAsTransformsFRC6CSegIdRC9CMatrix3fRC9CVector3f:
 /* 80369020 00365F80  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80369024 00365F84  7C 08 03 A6 */	mtlr r0
 /* 80369028 00365F88  38 21 00 50 */	addi r1, r1, 0x50
-/* 8036902C 00365F8C  4E 80 00 20 */	blr 
+/* 8036902C 00365F8C  4E 80 00 20 */	blr
 
 .global __ct__17CPoseAsTransformsFUc
 __ct__17CPoseAsTransformsFUc:
@@ -244,7 +244,7 @@ lbl_80369114:
 /* 80369150 003660B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80369154 003660B4  7C 08 03 A6 */	mtlr r0
 /* 80369158 003660B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036915C 003660BC  4E 80 00 20 */	blr 
+/* 8036915C 003660BC  4E 80 00 20 */	blr
 
 .global "Insert__58TSegIdMapVariableSize<Q217CPoseAsTransforms12CElementType>FRC6CSegIdRCQ217CPoseAsTransforms12CElementType"
 "Insert__58TSegIdMapVariableSize<Q217CPoseAsTransforms12CElementType>FRC6CSegIdRCQ217CPoseAsTransforms12CElementType":
@@ -291,7 +291,7 @@ lbl_803691C4:
 /* 803691FC 0036615C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80369200 00366160  7C 08 03 A6 */	mtlr r0
 /* 80369204 00366164  38 21 00 20 */	addi r1, r1, 0x20
-/* 80369208 00366168  4E 80 00 20 */	blr 
+/* 80369208 00366168  4E 80 00 20 */	blr
 
 .global "Clear__58TSegIdMapVariableSize<Q217CPoseAsTransforms12CElementType>Fv"
 "Clear__58TSegIdMapVariableSize<Q217CPoseAsTransforms12CElementType>Fv":

@@ -13,7 +13,7 @@ lbl_803E5C60:
 	.4byte Start__8CABSIdleFR15CBodyControllerR13CStateManager
 	.4byte UpdateBody__8CABSIdleFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__8CABSIdleFR15CBodyController
-	
+
 .section .text, "ax"
 
 .global __dt__8CABSIdleFv
@@ -42,15 +42,15 @@ lbl_801D9978:
 /* 801D9980 001D68E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D9984 001D68E4  7C 08 03 A6 */	mtlr r0
 /* 801D9988 001D68E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D998C 001D68EC  4E 80 00 20 */	blr 
+/* 801D998C 001D68EC  4E 80 00 20 */	blr
 
 .global Start__8CABSIdleFR15CBodyControllerR13CStateManager
 Start__8CABSIdleFR15CBodyControllerR13CStateManager:
-/* 801D9990 001D68F0  4E 80 00 20 */	blr 
+/* 801D9990 001D68F0  4E 80 00 20 */	blr
 
 .global Shutdown__8CABSIdleFR15CBodyController
 Shutdown__8CABSIdleFR15CBodyController:
-/* 801D9994 001D68F4  4E 80 00 20 */	blr 
+/* 801D9994 001D68F4  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__8CABSIdleFfR15CBodyController
 GetBodyStateTransition__8CABSIdleFfR15CBodyController:
@@ -87,7 +87,7 @@ lbl_801D9A00:
 /* 801D9A04 001D6964  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D9A08 001D6968  7C 08 03 A6 */	mtlr r0
 /* 801D9A0C 001D696C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D9A10 001D6970  4E 80 00 20 */	blr 
+/* 801D9A10 001D6970  4E 80 00 20 */	blr
 
 .global UpdateBody__8CABSIdleFfR15CBodyControllerR13CStateManager
 UpdateBody__8CABSIdleFfR15CBodyControllerR13CStateManager:

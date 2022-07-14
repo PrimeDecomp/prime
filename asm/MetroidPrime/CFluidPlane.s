@@ -37,7 +37,7 @@ lbl_805A76D0:
 
 .global nullsub_209
 nullsub_209:
-/* 8012E90C 0012B86C  4E 80 00 20 */	blr 
+/* 8012E90C 0012B86C  4E 80 00 20 */	blr
 
 .global AddRipple__11CFluidPlaneFRC7CRippleRC12CScriptWaterR13CStateManager
 AddRipple__11CFluidPlaneFRC7CRippleRC12CScriptWaterR13CStateManager:
@@ -62,7 +62,7 @@ lbl_8012E94C:
 /* 8012E954 0012B8B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8012E958 0012B8B8  7C 08 03 A6 */	mtlr r0
 /* 8012E95C 0012B8BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012E960 0012B8C0  4E 80 00 20 */	blr 
+/* 8012E960 0012B8C0  4E 80 00 20 */	blr
 
 .global AddRipple__11CFluidPlaneFf9TUniqueIdRC9CVector3fRC9CVector3fRC12CScriptWaterR13CStateManagerRC9CVector3f
 AddRipple__11CFluidPlaneFf9TUniqueIdRC9CVector3fRC9CVector3fRC12CScriptWaterR13CStateManagerRC9CVector3f:
@@ -115,7 +115,7 @@ lbl_8012EA0C:
 /* 8012EA18 0012B978  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8012EA1C 0012B97C  7C 08 03 A6 */	mtlr r0
 /* 8012EA20 0012B980  38 21 00 80 */	addi r1, r1, 0x80
-/* 8012EA24 0012B984  4E 80 00 20 */	blr 
+/* 8012EA24 0012B984  4E 80 00 20 */	blr
 
 .global AddRipple__11CFluidPlaneFf9TUniqueIdRC9CVector3fR13CStateManager
 AddRipple__11CFluidPlaneFf9TUniqueIdRC9CVector3fR13CStateManager:
@@ -159,7 +159,7 @@ lbl_8012EAA4:
 /* 8012EAB8 0012BA18  83 81 00 58 */	lwz r28, 0x58(r1)
 /* 8012EABC 0012BA1C  7C 08 03 A6 */	mtlr r0
 /* 8012EAC0 0012BA20  38 21 00 70 */	addi r1, r1, 0x70
-/* 8012EAC4 0012BA24  4E 80 00 20 */	blr 
+/* 8012EAC4 0012BA24  4E 80 00 20 */	blr
 
 .global ProjectRippleVelocity__11CFluidPlaneCFff
 ProjectRippleVelocity__11CFluidPlaneCFff:
@@ -181,11 +181,11 @@ lbl_8012EAF4:
 /* 8012EAFC 0012BA5C  4C 41 13 82 */	cror 2, 1, 2
 /* 8012EB00 0012BA60  40 82 00 0C */	bne lbl_8012EB0C
 /* 8012EB04 0012BA64  C0 22 98 D4 */	lfs f1, lbl_805AB5F4@sda21(r2)
-/* 8012EB08 0012BA68  4E 80 00 20 */	blr 
+/* 8012EB08 0012BA68  4E 80 00 20 */	blr
 lbl_8012EB0C:
 /* 8012EB0C 0012BA6C  C0 02 98 D8 */	lfs f0, lbl_805AB5F8@sda21(r2)
 /* 8012EB10 0012BA70  EC 20 00 F2 */	fmuls f1, f0, f3
-/* 8012EB14 0012BA74  4E 80 00 20 */	blr 
+/* 8012EB14 0012BA74  4E 80 00 20 */	blr
 
 .global CalculateRippleIntensity__11CFluidPlaneCFf
 CalculateRippleIntensity__11CFluidPlaneCFf:
@@ -247,7 +247,7 @@ lbl_8012EBCC:
 /* 8012EBCC 0012BB2C  C0 23 00 00 */	lfs f1, 0(r3)
 /* 8012EBD0 0012BB30  D0 21 00 08 */	stfs f1, 8(r1)
 /* 8012EBD4 0012BB34  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012EBD8 0012BB38  4E 80 00 20 */	blr 
+/* 8012EBD8 0012BB38  4E 80 00 20 */	blr
 
 .global __dt__11CFluidPlaneFv
 __dt__11CFluidPlaneFv:
@@ -348,7 +348,7 @@ lbl_8012ED18:
 /* 8012ED24 0012BC84  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8012ED28 0012BC88  7C 08 03 A6 */	mtlr r0
 /* 8012ED2C 0012BC8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012ED30 0012BC90  4E 80 00 20 */	blr 
+/* 8012ED30 0012BC90  4E 80 00 20 */	blr
 
 .global __ct__11CFluidPlaneFUiUiUifQ211CFluidPlane10EFluidTypefRC14CFluidUVMotion
 __ct__11CFluidPlaneFUiUiUifQ211CFluidPlane10EFluidTypefRC14CFluidUVMotion:
@@ -421,7 +421,7 @@ lbl_8012EDE4:
 /* 8012EE30 0012BD90  81 84 00 00 */	lwz r12, 0(r4)
 /* 8012EE34 0012BD94  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012EE38 0012BD98  7D 89 03 A6 */	mtctr r12
-/* 8012EE3C 0012BD9C  4E 80 04 21 */	bctrl 
+/* 8012EE3C 0012BD9C  4E 80 04 21 */	bctrl
 /* 8012EE40 0012BDA0  3B C1 00 50 */	addi r30, r1, 0x50
 /* 8012EE44 0012BDA4  38 81 00 28 */	addi r4, r1, 0x28
 /* 8012EE48 0012BDA8  7F C3 F3 78 */	mr r3, r30
@@ -479,7 +479,7 @@ lbl_8012EECC:
 /* 8012EF08 0012BE68  81 84 00 00 */	lwz r12, 0(r4)
 /* 8012EF0C 0012BE6C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012EF10 0012BE70  7D 89 03 A6 */	mtctr r12
-/* 8012EF14 0012BE74  4E 80 04 21 */	bctrl 
+/* 8012EF14 0012BE74  4E 80 04 21 */	bctrl
 /* 8012EF18 0012BE78  3B C1 00 44 */	addi r30, r1, 0x44
 /* 8012EF1C 0012BE7C  38 81 00 18 */	addi r4, r1, 0x18
 /* 8012EF20 0012BE80  7F C3 F3 78 */	mr r3, r30
@@ -537,7 +537,7 @@ lbl_8012EFA4:
 /* 8012EFE0 0012BF40  81 84 00 00 */	lwz r12, 0(r4)
 /* 8012EFE4 0012BF44  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012EFE8 0012BF48  7D 89 03 A6 */	mtctr r12
-/* 8012EFEC 0012BF4C  4E 80 04 21 */	bctrl 
+/* 8012EFEC 0012BF4C  4E 80 04 21 */	bctrl
 /* 8012EFF0 0012BF50  3B C1 00 38 */	addi r30, r1, 0x38
 /* 8012EFF4 0012BF54  38 81 00 08 */	addi r4, r1, 8
 /* 8012EFF8 0012BF58  7F C3 F3 78 */	mr r3, r30
@@ -583,7 +583,7 @@ lbl_8012F07C:
 /* 8012F088 0012BFE8  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 8012F08C 0012BFEC  7C 08 03 A6 */	mtlr r0
 /* 8012F090 0012BFF0  38 21 00 70 */	addi r1, r1, 0x70
-/* 8012F094 0012BFF4  4E 80 00 20 */	blr 
+/* 8012F094 0012BFF4  4E 80 00 20 */	blr
 
 .global sub_8012f098
 sub_8012f098:

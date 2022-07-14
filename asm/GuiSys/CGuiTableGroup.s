@@ -41,13 +41,13 @@ lbl_805A86C4:
 .global AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget
 AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget:
 /* 802C65E8 002C3548  38 60 00 01 */	li r3, 1
-/* 802C65EC 002C354C  4E 80 00 20 */	blr 
+/* 802C65EC 002C354C  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__14CGuiTableGroupCFv
 GetWidgetTypeID__14CGuiTableGroupCFv:
 /* 802C65F0 002C3550  3C 60 54 42 */	lis r3, 0x54424750@ha
 /* 802C65F4 002C3554  38 63 47 50 */	addi r3, r3, 0x54424750@l
-/* 802C65F8 002C3558  4E 80 00 20 */	blr 
+/* 802C65F8 002C3558  4E 80 00 20 */	blr
 
 .global SetColors__14CGuiTableGroupCFRC6CColorRC6CColor
 SetColors__14CGuiTableGroupCFRC6CColorRC6CColor:
@@ -66,7 +66,7 @@ lbl_802C6620:
 /* 802C6628 002C3588  81 9B 00 00 */	lwz r12, 0(r27)
 /* 802C662C 002C358C  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C6630 002C3590  7D 89 03 A6 */	mtctr r12
-/* 802C6634 002C3594  4E 80 04 21 */	bctrl 
+/* 802C6634 002C3594  4E 80 04 21 */	bctrl
 /* 802C6638 002C3598  28 03 00 00 */	cmplwi r3, 0
 /* 802C663C 002C359C  41 82 00 24 */	beq lbl_802C6660
 /* 802C6640 002C35A0  7C 1E F8 00 */	cmpw r30, r31
@@ -84,7 +84,7 @@ lbl_802C6660:
 /* 802C6664 002C35C4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C6668 002C35C8  7C 08 03 A6 */	mtlr r0
 /* 802C666C 002C35CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C6670 002C35D0  4E 80 00 20 */	blr 
+/* 802C6670 002C35D0  4E 80 00 20 */	blr
 
 .global DecrementSelectedRow__14CGuiTableGroupFv
 DecrementSelectedRow__14CGuiTableGroupFv:
@@ -111,10 +111,10 @@ lbl_802C66A8:
 /* 802C66BC 002C361C  38 80 00 02 */	li r4, 2
 lbl_802C66C0:
 /* 802C66C0 002C3620  7C 83 23 78 */	mr r3, r4
-/* 802C66C4 002C3624  4E 80 00 20 */	blr 
+/* 802C66C4 002C3624  4E 80 00 20 */	blr
 lbl_802C66C8:
 /* 802C66C8 002C3628  38 60 00 00 */	li r3, 0
-/* 802C66CC 002C362C  4E 80 00 20 */	blr 
+/* 802C66CC 002C362C  4E 80 00 20 */	blr
 
 .global IncrementSelectedRow__14CGuiTableGroupFv
 IncrementSelectedRow__14CGuiTableGroupFv:
@@ -142,10 +142,10 @@ lbl_802C6708:
 /* 802C671C 002C367C  38 80 00 02 */	li r4, 2
 lbl_802C6720:
 /* 802C6720 002C3680  7C 83 23 78 */	mr r3, r4
-/* 802C6724 002C3684  4E 80 00 20 */	blr 
+/* 802C6724 002C3684  4E 80 00 20 */	blr
 lbl_802C6728:
 /* 802C6728 002C3688  38 60 00 00 */	li r3, 0
-/* 802C672C 002C368C  4E 80 00 20 */	blr 
+/* 802C672C 002C368C  4E 80 00 20 */	blr
 
 .global DeactivateWorker__14CGuiTableGroupFP10CGuiWidget
 DeactivateWorker__14CGuiTableGroupFP10CGuiWidget:
@@ -158,7 +158,7 @@ DeactivateWorker__14CGuiTableGroupFP10CGuiWidget:
 /* 802C6748 002C36A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C674C 002C36AC  7C 08 03 A6 */	mtlr r0
 /* 802C6750 002C36B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C6754 002C36B4  4E 80 00 20 */	blr 
+/* 802C6754 002C36B4  4E 80 00 20 */	blr
 
 .global ActivateWorker__14CGuiTableGroupFP10CGuiWidget
 ActivateWorker__14CGuiTableGroupFP10CGuiWidget:
@@ -171,7 +171,7 @@ ActivateWorker__14CGuiTableGroupFP10CGuiWidget:
 /* 802C6770 002C36D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C6774 002C36D4  7C 08 03 A6 */	mtlr r0
 /* 802C6778 002C36D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C677C 002C36DC  4E 80 00 20 */	blr 
+/* 802C677C 002C36DC  4E 80 00 20 */	blr
 
 .global OnActivate__14CGuiTableGroupFb
 OnActivate__14CGuiTableGroupFb:
@@ -187,13 +187,13 @@ OnActivate__14CGuiTableGroupFb:
 /* 802C67A4 002C3704  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C67A8 002C3708  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C67AC 002C370C  7D 89 03 A6 */	mtctr r12
-/* 802C67B0 002C3710  4E 80 04 21 */	bctrl 
+/* 802C67B0 002C3710  4E 80 04 21 */	bctrl
 /* 802C67B4 002C3714  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C67B8 002C3718  7C 7F 1B 78 */	mr r31, r3
 /* 802C67BC 002C371C  7F C3 F3 78 */	mr r3, r30
 /* 802C67C0 002C3720  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 802C67C4 002C3724  7D 89 03 A6 */	mtctr r12
-/* 802C67C8 002C3728  4E 80 04 21 */	bctrl 
+/* 802C67C8 002C3728  4E 80 04 21 */	bctrl
 /* 802C67CC 002C372C  7C 64 1B 78 */	mr r4, r3
 /* 802C67D0 002C3730  7F E3 FB 78 */	mr r3, r31
 /* 802C67D4 002C3734  48 00 3E 11 */	bl SetIsActive__10CGuiWidgetFb
@@ -202,7 +202,7 @@ OnActivate__14CGuiTableGroupFb:
 /* 802C67E0 002C3740  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C67E4 002C3744  7C 08 03 A6 */	mtlr r0
 /* 802C67E8 002C3748  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C67EC 002C374C  4E 80 00 20 */	blr 
+/* 802C67EC 002C374C  4E 80 00 20 */	blr
 
 .global "SetMenuSelectionChangeCallback__14CGuiTableGroupFRC35TFunctor3<CP14CGuiTableGroup,Ci,Ci>"
 "SetMenuSelectionChangeCallback__14CGuiTableGroupFRC35TFunctor3<CP14CGuiTableGroup,Ci,Ci>":
@@ -218,7 +218,7 @@ OnActivate__14CGuiTableGroupFb:
 /* 802C6814 002C3774  80 04 00 14 */	lwz r0, 0x14(r4)
 /* 802C6818 002C3778  90 A3 01 14 */	stw r5, 0x114(r3)
 /* 802C681C 002C377C  90 03 01 18 */	stw r0, 0x118(r3)
-/* 802C6820 002C3780  4E 80 00 20 */	blr 
+/* 802C6820 002C3780  4E 80 00 20 */	blr
 
 .global "SetMenuCancelCallback__14CGuiTableGroupFRC29TFunctor1<CP14CGuiTableGroup>"
 "SetMenuCancelCallback__14CGuiTableGroupFRC29TFunctor1<CP14CGuiTableGroup>":
@@ -234,7 +234,7 @@ OnActivate__14CGuiTableGroupFb:
 /* 802C6848 002C37A8  80 04 00 14 */	lwz r0, 0x14(r4)
 /* 802C684C 002C37AC  90 A3 00 FC */	stw r5, 0xfc(r3)
 /* 802C6850 002C37B0  90 03 01 00 */	stw r0, 0x100(r3)
-/* 802C6854 002C37B4  4E 80 00 20 */	blr 
+/* 802C6854 002C37B4  4E 80 00 20 */	blr
 
 .global "SetMenuAdvanceCallback__14CGuiTableGroupFRC29TFunctor1<CP14CGuiTableGroup>"
 "SetMenuAdvanceCallback__14CGuiTableGroupFRC29TFunctor1<CP14CGuiTableGroup>":
@@ -250,7 +250,7 @@ OnActivate__14CGuiTableGroupFb:
 /* 802C687C 002C37DC  80 04 00 14 */	lwz r0, 0x14(r4)
 /* 802C6880 002C37E0  90 A3 00 E4 */	stw r5, 0xe4(r3)
 /* 802C6884 002C37E4  90 03 00 E8 */	stw r0, 0xe8(r3)
-/* 802C6888 002C37E8  4E 80 00 20 */	blr 
+/* 802C6888 002C37E8  4E 80 00 20 */	blr
 
 .global DoCancel__14CGuiTableGroupFv
 DoCancel__14CGuiTableGroupFv:
@@ -328,13 +328,13 @@ lbl_802C6970:
 /* 802C6980 002C38E0  38 83 00 F4 */	addi r4, r3, 0xf4
 /* 802C6984 002C38E4  80 63 00 F0 */	lwz r3, 0xf0(r3)
 /* 802C6988 002C38E8  7D 89 03 A6 */	mtctr r12
-/* 802C698C 002C38EC  4E 80 04 21 */	bctrl 
+/* 802C698C 002C38EC  4E 80 04 21 */	bctrl
 lbl_802C6990:
 /* 802C6990 002C38F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C6994 002C38F4  38 60 00 01 */	li r3, 1
 /* 802C6998 002C38F8  7C 08 03 A6 */	mtlr r0
 /* 802C699C 002C38FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C69A0 002C3900  4E 80 00 20 */	blr 
+/* 802C69A0 002C3900  4E 80 00 20 */	blr
 
 .global DoAdvance__14CGuiTableGroupFv
 DoAdvance__14CGuiTableGroupFv:
@@ -412,13 +412,13 @@ lbl_802C6A88:
 /* 802C6A98 002C39F8  38 83 00 DC */	addi r4, r3, 0xdc
 /* 802C6A9C 002C39FC  80 63 00 D8 */	lwz r3, 0xd8(r3)
 /* 802C6AA0 002C3A00  7D 89 03 A6 */	mtctr r12
-/* 802C6AA4 002C3A04  4E 80 04 21 */	bctrl 
+/* 802C6AA4 002C3A04  4E 80 04 21 */	bctrl
 lbl_802C6AA8:
 /* 802C6AA8 002C3A08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C6AAC 002C3A0C  38 60 00 01 */	li r3, 1
 /* 802C6AB0 002C3A10  7C 08 03 A6 */	mtlr r0
 /* 802C6AB4 002C3A14  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C6AB8 002C3A18  4E 80 00 20 */	blr 
+/* 802C6AB8 002C3A18  4E 80 00 20 */	blr
 
 .global SelectWorker__14CGuiTableGroupFi
 SelectWorker__14CGuiTableGroupFi:
@@ -463,7 +463,7 @@ lbl_802C6B38:
 /* 802C6B40 002C3AA0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802C6B44 002C3AA4  7C 08 03 A6 */	mtlr r0
 /* 802C6B48 002C3AA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C6B4C 002C3AAC  4E 80 00 20 */	blr 
+/* 802C6B4C 002C3AAC  4E 80 00 20 */	blr
 
 .global PreDecrement__14CGuiTableGroupFv
 PreDecrement__14CGuiTableGroupFv:
@@ -543,7 +543,7 @@ lbl_802C6C44:
 /* 802C6C4C 002C3BAC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802C6C50 002C3BB0  7C 08 03 A6 */	mtlr r0
 /* 802C6C54 002C3BB4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C6C58 002C3BB8  4E 80 00 20 */	blr 
+/* 802C6C58 002C3BB8  4E 80 00 20 */	blr
 
 .global DoDecrement__14CGuiTableGroupFv
 DoDecrement__14CGuiTableGroupFv:
@@ -629,7 +629,7 @@ lbl_802C6D5C:
 /* 802C6D70 002C3CD0  38 9E 01 0C */	addi r4, r30, 0x10c
 /* 802C6D74 002C3CD4  80 7E 01 08 */	lwz r3, 0x108(r30)
 /* 802C6D78 002C3CD8  7D 89 03 A6 */	mtctr r12
-/* 802C6D7C 002C3CDC  4E 80 04 21 */	bctrl 
+/* 802C6D7C 002C3CDC  4E 80 04 21 */	bctrl
 lbl_802C6D80:
 /* 802C6D80 002C3CE0  38 60 00 01 */	li r3, 1
 /* 802C6D84 002C3CE4  48 00 00 08 */	b lbl_802C6D8C
@@ -641,7 +641,7 @@ lbl_802C6D8C:
 /* 802C6D94 002C3CF4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C6D98 002C3CF8  7C 08 03 A6 */	mtlr r0
 /* 802C6D9C 002C3CFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C6DA0 002C3D00  4E 80 00 20 */	blr 
+/* 802C6DA0 002C3D00  4E 80 00 20 */	blr
 
 .global PreIncrement__14CGuiTableGroupFv
 PreIncrement__14CGuiTableGroupFv:
@@ -722,7 +722,7 @@ lbl_802C6E98:
 /* 802C6EA0 002C3E00  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802C6EA4 002C3E04  7C 08 03 A6 */	mtlr r0
 /* 802C6EA8 002C3E08  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C6EAC 002C3E0C  4E 80 00 20 */	blr 
+/* 802C6EAC 002C3E0C  4E 80 00 20 */	blr
 
 .global IsWorkerSelectable__14CGuiTableGroupFi
 IsWorkerSelectable__14CGuiTableGroupFi:
@@ -732,7 +732,7 @@ IsWorkerSelectable__14CGuiTableGroupFi:
 /* 802C6EBC 002C3E1C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C6EC0 002C3E20  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C6EC4 002C3E24  7D 89 03 A6 */	mtctr r12
-/* 802C6EC8 002C3E28  4E 80 04 21 */	bctrl 
+/* 802C6EC8 002C3E28  4E 80 04 21 */	bctrl
 /* 802C6ECC 002C3E2C  28 03 00 00 */	cmplwi r3, 0
 /* 802C6ED0 002C3E30  41 82 00 10 */	beq lbl_802C6EE0
 /* 802C6ED4 002C3E34  88 03 00 B6 */	lbz r0, 0xb6(r3)
@@ -744,7 +744,7 @@ lbl_802C6EE4:
 /* 802C6EE4 002C3E44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C6EE8 002C3E48  7C 08 03 A6 */	mtlr r0
 /* 802C6EEC 002C3E4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C6EF0 002C3E50  4E 80 00 20 */	blr 
+/* 802C6EF0 002C3E50  4E 80 00 20 */	blr
 
 .global DoIncrement__14CGuiTableGroupFv
 DoIncrement__14CGuiTableGroupFv:
@@ -830,7 +830,7 @@ lbl_802C6FF4:
 /* 802C7008 002C3F68  38 9E 01 0C */	addi r4, r30, 0x10c
 /* 802C700C 002C3F6C  80 7E 01 08 */	lwz r3, 0x108(r30)
 /* 802C7010 002C3F70  7D 89 03 A6 */	mtctr r12
-/* 802C7014 002C3F74  4E 80 04 21 */	bctrl 
+/* 802C7014 002C3F74  4E 80 04 21 */	bctrl
 lbl_802C7018:
 /* 802C7018 002C3F78  38 60 00 01 */	li r3, 1
 /* 802C701C 002C3F7C  48 00 00 08 */	b lbl_802C7024
@@ -842,7 +842,7 @@ lbl_802C7024:
 /* 802C702C 002C3F8C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C7030 002C3F90  7C 08 03 A6 */	mtlr r0
 /* 802C7034 002C3F94  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C7038 002C3F98  4E 80 00 20 */	blr 
+/* 802C7038 002C3F98  4E 80 00 20 */	blr
 
 .global DoSelectPrevRow__14CGuiTableGroupFv
 DoSelectPrevRow__14CGuiTableGroupFv:
@@ -857,7 +857,7 @@ DoSelectPrevRow__14CGuiTableGroupFv:
 /* 802C705C 002C3FBC  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802C7060 002C3FC0  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C7064 002C3FC4  7D 89 03 A6 */	mtctr r12
-/* 802C7068 002C3FC8  4E 80 04 21 */	bctrl 
+/* 802C7068 002C3FC8  4E 80 04 21 */	bctrl
 /* 802C706C 002C3FCC  7C 64 1B 78 */	mr r4, r3
 /* 802C7070 002C3FD0  7F E3 FB 78 */	mr r3, r31
 /* 802C7074 002C3FD4  4B FF F6 BD */	bl DeactivateWorker__14CGuiTableGroupFP10CGuiWidget
@@ -866,7 +866,7 @@ DoSelectPrevRow__14CGuiTableGroupFv:
 /* 802C7080 002C3FE0  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802C7084 002C3FE4  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C7088 002C3FE8  7D 89 03 A6 */	mtctr r12
-/* 802C708C 002C3FEC  4E 80 04 21 */	bctrl 
+/* 802C708C 002C3FEC  4E 80 04 21 */	bctrl
 /* 802C7090 002C3FF0  7C 64 1B 78 */	mr r4, r3
 /* 802C7094 002C3FF4  7F E3 FB 78 */	mr r3, r31
 /* 802C7098 002C3FF8  4B FF F6 C1 */	bl ActivateWorker__14CGuiTableGroupFP10CGuiWidget
@@ -874,7 +874,7 @@ DoSelectPrevRow__14CGuiTableGroupFv:
 /* 802C70A0 002C4000  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C70A4 002C4004  7C 08 03 A6 */	mtlr r0
 /* 802C70A8 002C4008  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C70AC 002C400C  4E 80 00 20 */	blr 
+/* 802C70AC 002C400C  4E 80 00 20 */	blr
 
 .global DoSelectNextRow__14CGuiTableGroupFv
 DoSelectNextRow__14CGuiTableGroupFv:
@@ -889,7 +889,7 @@ DoSelectNextRow__14CGuiTableGroupFv:
 /* 802C70D0 002C4030  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802C70D4 002C4034  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C70D8 002C4038  7D 89 03 A6 */	mtctr r12
-/* 802C70DC 002C403C  4E 80 04 21 */	bctrl 
+/* 802C70DC 002C403C  4E 80 04 21 */	bctrl
 /* 802C70E0 002C4040  7C 64 1B 78 */	mr r4, r3
 /* 802C70E4 002C4044  7F E3 FB 78 */	mr r3, r31
 /* 802C70E8 002C4048  4B FF F6 49 */	bl DeactivateWorker__14CGuiTableGroupFP10CGuiWidget
@@ -898,7 +898,7 @@ DoSelectNextRow__14CGuiTableGroupFv:
 /* 802C70F4 002C4054  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802C70F8 002C4058  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C70FC 002C405C  7D 89 03 A6 */	mtctr r12
-/* 802C7100 002C4060  4E 80 04 21 */	bctrl 
+/* 802C7100 002C4060  4E 80 04 21 */	bctrl
 /* 802C7104 002C4064  7C 64 1B 78 */	mr r4, r3
 /* 802C7108 002C4068  7F E3 FB 78 */	mr r3, r31
 /* 802C710C 002C406C  4B FF F6 4D */	bl ActivateWorker__14CGuiTableGroupFP10CGuiWidget
@@ -906,7 +906,7 @@ DoSelectNextRow__14CGuiTableGroupFv:
 /* 802C7114 002C4074  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C7118 002C4078  7C 08 03 A6 */	mtlr r0
 /* 802C711C 002C407C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C7120 002C4080  4E 80 00 20 */	blr 
+/* 802C7120 002C4080  4E 80 00 20 */	blr
 
 .global sub_802c7124
 sub_802c7124:
@@ -923,7 +923,7 @@ sub_802c7124:
 /* 802C714C 002C40AC  80 83 00 C8 */	lwz r4, 0xc8(r3)
 /* 802C7150 002C40B0  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C7154 002C40B4  7D 89 03 A6 */	mtctr r12
-/* 802C7158 002C40B8  4E 80 04 21 */	bctrl 
+/* 802C7158 002C40B8  4E 80 04 21 */	bctrl
 /* 802C715C 002C40BC  7C 64 1B 78 */	mr r4, r3
 /* 802C7160 002C40C0  7F E3 FB 78 */	mr r3, r31
 /* 802C7164 002C40C4  4B FF F5 CD */	bl DeactivateWorker__14CGuiTableGroupFP10CGuiWidget
@@ -932,7 +932,7 @@ sub_802c7124:
 /* 802C7170 002C40D0  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802C7174 002C40D4  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C7178 002C40D8  7D 89 03 A6 */	mtctr r12
-/* 802C717C 002C40DC  4E 80 04 21 */	bctrl 
+/* 802C717C 002C40DC  4E 80 04 21 */	bctrl
 /* 802C7180 002C40E0  7C 64 1B 78 */	mr r4, r3
 /* 802C7184 002C40E4  7F E3 FB 78 */	mr r3, r31
 /* 802C7188 002C40E8  4B FF F5 D1 */	bl ActivateWorker__14CGuiTableGroupFP10CGuiWidget
@@ -940,7 +940,7 @@ sub_802c7124:
 /* 802C7190 002C40F0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C7194 002C40F4  7C 08 03 A6 */	mtlr r0
 /* 802C7198 002C40F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C719C 002C40FC  4E 80 00 20 */	blr 
+/* 802C719C 002C40FC  4E 80 00 20 */	blr
 
 .global __dt__14CGuiTableGroupCFv
 __dt__14CGuiTableGroupCFv:
@@ -968,7 +968,7 @@ lbl_802C71E4:
 /* 802C71F0 002C4150  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C71F4 002C4154  7C 08 03 A6 */	mtlr r0
 /* 802C71F8 002C4158  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C71FC 002C415C  4E 80 00 20 */	blr 
+/* 802C71FC 002C415C  4E 80 00 20 */	blr
 
 .global __ct__14CGuiTableGroupFRCQ210CGuiWidget15CGuiWidgetParmsiiQ214CGuiTableGroup16ETableGroupModesiibbffbfR14CGuiVirtualBox
 __ct__14CGuiTableGroupFRCQ210CGuiWidget15CGuiWidgetParmsiiQ214CGuiTableGroup16ETableGroupModesiibbffbfR14CGuiVirtualBox:
@@ -1027,7 +1027,7 @@ __ct__14CGuiTableGroupFRCQ210CGuiWidget15CGuiWidgetParmsiiQ214CGuiTableGroup16ET
 /* 802C72D0 002C4230  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802C72D4 002C4234  7C 08 03 A6 */	mtlr r0
 /* 802C72D8 002C4238  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C72DC 002C423C  4E 80 00 20 */	blr 
+/* 802C72DC 002C423C  4E 80 00 20 */	blr
 
 .global Create__14CGuiTableGroupFP9CGuiFrameR12CInputStreamb
 Create__14CGuiTableGroupFP9CGuiFrameR12CInputStreamb:
@@ -1123,7 +1123,7 @@ lbl_802C7424:
 /* 802C7440 002C43A0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802C7444 002C43A4  7C 08 03 A6 */	mtlr r0
 /* 802C7448 002C43A8  38 21 00 50 */	addi r1, r1, 0x50
-/* 802C744C 002C43AC  4E 80 00 20 */	blr 
+/* 802C744C 002C43AC  4E 80 00 20 */	blr
 
 .global ProcessUserInput__14CGuiTableGroupCFRC11CFinalInput
 ProcessUserInput__14CGuiTableGroupCFRC11CFinalInput:

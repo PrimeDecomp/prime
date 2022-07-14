@@ -48,21 +48,21 @@ lbl_80135690:
 /* 80135698 001325F8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013569C 001325FC  7C 08 03 A6 */	mtlr r0
 /* 801356A0 00132600  38 21 00 10 */	addi r1, r1, 0x10
-/* 801356A4 00132604  4E 80 00 20 */	blr 
+/* 801356A4 00132604  4E 80 00 20 */	blr
 
 .global IsDead__6CBSDieCFv
 IsDead__6CBSDieCFv:
 /* 801356A8 00132608  88 63 00 08 */	lbz r3, 8(r3)
-/* 801356AC 0013260C  4E 80 00 20 */	blr 
+/* 801356AC 0013260C  4E 80 00 20 */	blr
 
 .global IsDying__6CBSDieCFv
 IsDying__6CBSDieCFv:
 /* 801356B0 00132610  38 60 00 01 */	li r3, 1
-/* 801356B4 00132614  4E 80 00 20 */	blr 
+/* 801356B4 00132614  4E 80 00 20 */	blr
 
 .global Shutdown__6CBSDieFR15CBodyController
 Shutdown__6CBSDieFR15CBodyController:
-/* 801356B8 00132618  4E 80 00 20 */	blr 
+/* 801356B8 00132618  4E 80 00 20 */	blr
 
 .global UpdateBody__6CBSDieFfR15CBodyControllerR13CStateManager
 UpdateBody__6CBSDieFfR15CBodyControllerR13CStateManager:
@@ -90,7 +90,7 @@ lbl_80135704:
 /* 8013570C 0013266C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80135710 00132670  7C 08 03 A6 */	mtlr r0
 /* 80135714 00132674  38 21 00 10 */	addi r1, r1, 0x10
-/* 80135718 00132678  4E 80 00 20 */	blr 
+/* 80135718 00132678  4E 80 00 20 */	blr
 
 .global Start__6CBSDieFR15CBodyControllerR13CStateManager
 Start__6CBSDieFR15CBodyControllerR13CStateManager:
@@ -226,7 +226,7 @@ lbl_801358F0:
 /* 801358FC 0013285C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 80135900 00132860  7C 08 03 A6 */	mtlr r0
 /* 80135904 00132864  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80135908 00132868  4E 80 00 20 */	blr 
+/* 80135908 00132868  4E 80 00 20 */	blr
 
 .global __ct__6CBSDieFv
 __ct__6CBSDieFv:

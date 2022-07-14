@@ -70,7 +70,7 @@ lbl_8024B3E0:
 /* 8024B3EC 0024834C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024B3F0 00248350  7C 08 03 A6 */	mtlr r0
 /* 8024B3F4 00248354  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024B3F8 00248358  4E 80 00 20 */	blr 
+/* 8024B3F8 00248358  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -150,7 +150,7 @@ lbl_8024B508:
 /* 8024B510 00248470  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8024B514 00248474  7C 08 03 A6 */	mtlr r0
 /* 8024B518 00248478  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024B51C 0024847C  4E 80 00 20 */	blr 
+/* 8024B51C 0024847C  4E 80 00 20 */	blr
 
 .global Touch__24CScriptCameraHintTriggerFR6CActorR13CStateManager
 Touch__24CScriptCameraHintTriggerFR6CActorR13CStateManager:
@@ -171,7 +171,7 @@ Touch__24CScriptCameraHintTriggerFR6CActorR13CStateManager:
 /* 8024B558 002484B8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8024B55C 002484BC  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 8024B560 002484C0  7D 89 03 A6 */	mtctr r12
-/* 8024B564 002484C4  4E 80 04 21 */	bctrl 
+/* 8024B564 002484C4  4E 80 04 21 */	bctrl
 /* 8024B568 002484C8  88 01 00 28 */	lbz r0, 0x28(r1)
 /* 8024B56C 002484CC  28 00 00 00 */	cmplwi r0, 0
 /* 8024B570 002484D0  98 01 00 44 */	stb r0, 0x44(r1)
@@ -225,7 +225,7 @@ lbl_8024B61C:
 /* 8024B624 00248584  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 8024B628 00248588  7C 08 03 A6 */	mtlr r0
 /* 8024B62C 0024858C  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8024B630 00248590  4E 80 00 20 */	blr 
+/* 8024B630 00248590  4E 80 00 20 */	blr
 
 .global GetTouchBounds__24CScriptCameraHintTriggerCFv
 GetTouchBounds__24CScriptCameraHintTriggerCFv:
@@ -260,7 +260,7 @@ lbl_8024B69C:
 /* 8024B6A0 00248600  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8024B6A4 00248604  7C 08 03 A6 */	mtlr r0
 /* 8024B6A8 00248608  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024B6AC 0024860C  4E 80 00 20 */	blr 
+/* 8024B6AC 0024860C  4E 80 00 20 */	blr
 
 .global Accept__24CScriptCameraHintTriggerFR8IVisitor
 Accept__24CScriptCameraHintTriggerFR8IVisitor:
@@ -273,11 +273,11 @@ Accept__24CScriptCameraHintTriggerFR8IVisitor:
 /* 8024B6C8 00248628  7C 04 03 78 */	mr r4, r0
 /* 8024B6CC 0024862C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8024B6D0 00248630  7D 89 03 A6 */	mtctr r12
-/* 8024B6D4 00248634  4E 80 04 21 */	bctrl 
+/* 8024B6D4 00248634  4E 80 04 21 */	bctrl
 /* 8024B6D8 00248638  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024B6DC 0024863C  7C 08 03 A6 */	mtlr r0
 /* 8024B6E0 00248640  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024B6E4 00248644  4E 80 00 20 */	blr 
+/* 8024B6E4 00248644  4E 80 00 20 */	blr
 
 .global "__ct__24CScriptCameraHintTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb"
 "__ct__24CScriptCameraHintTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fbb":

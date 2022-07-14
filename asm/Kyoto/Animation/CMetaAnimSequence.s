@@ -76,12 +76,12 @@ lbl_802E1720:
 /* 802E1734 002DE694  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802E1738 002DE698  7C 08 03 A6 */	mtlr r0
 /* 802E173C 002DE69C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E1740 002DE6A0  4E 80 00 20 */	blr 
+/* 802E1740 002DE6A0  4E 80 00 20 */	blr
 
 .global sub_802e1744
 sub_802e1744:
 /* 802E1744 002DE6A4  38 60 00 04 */	li r3, 4
-/* 802E1748 002DE6A8  4E 80 00 20 */	blr 
+/* 802E1748 002DE6A8  4E 80 00 20 */	blr
 
 .global CreateSequence__17CMetaAnimSequenceFR12CInputStream
 CreateSequence__17CMetaAnimSequenceFR12CInputStream:
@@ -228,7 +228,7 @@ lbl_802E1930:
 /* 802E1940 002DE8A0  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802E1944 002DE8A4  7C 08 03 A6 */	mtlr r0
 /* 802E1948 002DE8A8  38 21 00 40 */	addi r1, r1, 0x40
-/* 802E194C 002DE8AC  4E 80 00 20 */	blr 
+/* 802E194C 002DE8AC  4E 80 00 20 */	blr
 
 .global WriteAnimData__17CMetaAnimSequenceCFR13COutputStream
 WriteAnimData__17CMetaAnimSequenceCFR13COutputStream:
@@ -266,7 +266,7 @@ lbl_802E19B0:
 /* 802E19C4 002DE924  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802E19C8 002DE928  7C 08 03 A6 */	mtlr r0
 /* 802E19CC 002DE92C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E19D0 002DE930  4E 80 00 20 */	blr 
+/* 802E19D0 002DE930  4E 80 00 20 */	blr
 
 .global "GetUniquePrimitives__17CMetaAnimSequenceCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>"
 "GetUniquePrimitives__17CMetaAnimSequenceCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>":
@@ -289,7 +289,7 @@ lbl_802E1A04:
 /* 802E1A10 002DE970  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E1A14 002DE974  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802E1A18 002DE978  7D 89 03 A6 */	mtctr r12
-/* 802E1A1C 002DE97C  4E 80 04 21 */	bctrl 
+/* 802E1A1C 002DE97C  4E 80 04 21 */	bctrl
 /* 802E1A20 002DE980  3B DE 00 04 */	addi r30, r30, 4
 lbl_802E1A24:
 /* 802E1A24 002DE984  7C 1E F8 40 */	cmplw r30, r31
@@ -300,7 +300,7 @@ lbl_802E1A24:
 /* 802E1A38 002DE998  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802E1A3C 002DE99C  7C 08 03 A6 */	mtlr r0
 /* 802E1A40 002DE9A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E1A44 002DE9A4  4E 80 00 20 */	blr 
+/* 802E1A44 002DE9A4  4E 80 00 20 */	blr
 
 .global VGetAnimationTree__17CMetaAnimSequenceCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 VGetAnimationTree__17CMetaAnimSequenceCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders:
@@ -325,7 +325,7 @@ VGetAnimationTree__17CMetaAnimSequenceCFRC15CAnimSysContextRC24CMetaAnimTreeBuil
 /* 802E1A90 002DE9F0  38 C1 00 44 */	addi r6, r1, 0x44
 /* 802E1A94 002DE9F4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E1A98 002DE9F8  7D 89 03 A6 */	mtctr r12
-/* 802E1A9C 002DE9FC  4E 80 04 21 */	bctrl 
+/* 802E1A9C 002DE9FC  4E 80 04 21 */	bctrl
 /* 802E1AA0 002DEA00  38 00 00 00 */	li r0, 0
 /* 802E1AA4 002DEA04  98 01 00 C8 */	stb r0, 0xc8(r1)
 /* 802E1AA8 002DEA08  98 01 00 84 */	stb r0, 0x84(r1)
@@ -359,7 +359,7 @@ lbl_802E1AE8:
 /* 802E1B10 002DEA70  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E1B14 002DEA74  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E1B18 002DEA78  7D 89 03 A6 */	mtctr r12
-/* 802E1B1C 002DEA7C  4E 80 04 21 */	bctrl 
+/* 802E1B1C 002DEA7C  4E 80 04 21 */	bctrl
 /* 802E1B20 002DEA80  80 A1 00 18 */	lwz r5, 0x18(r1)
 /* 802E1B24 002DEA84  38 61 00 18 */	addi r3, r1, 0x18
 /* 802E1B28 002DEA88  90 A1 00 1C */	stw r5, 0x1c(r1)
@@ -465,7 +465,7 @@ lbl_802E1C88:
 /* 802E1C8C 002DEBEC  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 802E1C90 002DEBF0  7C 08 03 A6 */	mtlr r0
 /* 802E1C94 002DEBF4  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 802E1C98 002DEBF8  4E 80 00 20 */	blr 
+/* 802E1C98 002DEBF8  4E 80 00 20 */	blr
 
 .global __ct__17CMetaAnimSequenceFR12CInputStream
 __ct__17CMetaAnimSequenceFR12CInputStream:

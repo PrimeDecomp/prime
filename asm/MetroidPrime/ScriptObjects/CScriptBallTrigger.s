@@ -81,7 +81,7 @@ lbl_8017653C:
 /* 80176568 001734C8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8017656C 001734CC  7C 08 03 A6 */	mtlr r0
 /* 80176570 001734D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80176574 001734D4  4E 80 00 20 */	blr 
+/* 80176574 001734D4  4E 80 00 20 */	blr
 
 .global Accept__18CScriptBallTriggerFR8IVisitor
 Accept__18CScriptBallTriggerFR8IVisitor:
@@ -94,11 +94,11 @@ Accept__18CScriptBallTriggerFR8IVisitor:
 /* 80176590 001734F0  7C 04 03 78 */	mr r4, r0
 /* 80176594 001734F4  81 8C 00 CC */	lwz r12, 0xcc(r12)
 /* 80176598 001734F8  7D 89 03 A6 */	mtctr r12
-/* 8017659C 001734FC  4E 80 04 21 */	bctrl 
+/* 8017659C 001734FC  4E 80 04 21 */	bctrl
 /* 801765A0 00173500  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801765A4 00173504  7C 08 03 A6 */	mtlr r0
 /* 801765A8 00173508  38 21 00 10 */	addi r1, r1, 0x10
-/* 801765AC 0017350C  4E 80 00 20 */	blr 
+/* 801765AC 0017350C  4E 80 00 20 */	blr
 
 .global Think__18CScriptBallTriggerFfR13CStateManager
 Think__18CScriptBallTriggerFfR13CStateManager:
@@ -270,7 +270,7 @@ lbl_801767F0:
 /* 80176828 00173788  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8017682C 0017378C  7C 08 03 A6 */	mtlr r0
 /* 80176830 00173790  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80176834 00173794  4E 80 00 20 */	blr 
+/* 80176834 00173794  4E 80 00 20 */	blr
 
 .global InhabitantExited__18CScriptBallTriggerFR6CActorR13CStateManager
 InhabitantExited__18CScriptBallTriggerFR6CActorR13CStateManager:
@@ -296,7 +296,7 @@ lbl_8017687C:
 /* 80176880 001737E0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80176884 001737E4  7C 08 03 A6 */	mtlr r0
 /* 80176888 001737E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8017688C 001737EC  4E 80 00 20 */	blr 
+/* 8017688C 001737EC  4E 80 00 20 */	blr
 
 .global InhabitantAdded__18CScriptBallTriggerFR6CActorR13CStateManager
 InhabitantAdded__18CScriptBallTriggerFR6CActorR13CStateManager:
@@ -315,7 +315,7 @@ lbl_801768BC:
 /* 801768BC 0017381C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801768C0 00173820  7C 08 03 A6 */	mtlr r0
 /* 801768C4 00173824  38 21 00 10 */	addi r1, r1, 0x10
-/* 801768C8 00173828  4E 80 00 20 */	blr 
+/* 801768C8 00173828  4E 80 00 20 */	blr
 
 .global __dt__18CScriptBallTriggerFv
 __dt__18CScriptBallTriggerFv:
@@ -343,7 +343,7 @@ lbl_80176910:
 /* 8017691C 0017387C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80176920 00173880  7C 08 03 A6 */	mtlr r0
 /* 80176924 00173884  38 21 00 10 */	addi r1, r1, 0x10
-/* 80176928 00173888  4E 80 00 20 */	blr 
+/* 80176928 00173888  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptBallTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fbfff9CVector3f"
 "__ct__18CScriptBallTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fbfff9CVector3f":
@@ -454,7 +454,7 @@ lbl_80176AA8:
 /* 80176AC8 00173A28  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80176ACC 00173A2C  7C 08 03 A6 */	mtlr r0
 /* 80176AD0 00173A30  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80176AD4 00173A34  4E 80 00 20 */	blr 
+/* 80176AD4 00173A34  4E 80 00 20 */	blr
 
 .global calculate_ball_aabox__Fv
 calculate_ball_aabox__Fv:
@@ -478,4 +478,4 @@ calculate_ball_aabox__Fv:
 /* 80176B1C 00173A7C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80176B20 00173A80  7C 08 03 A6 */	mtlr r0
 /* 80176B24 00173A84  38 21 00 20 */	addi r1, r1, 0x20
-/* 80176B28 00173A88  4E 80 00 20 */	blr 
+/* 80176B28 00173A88  4E 80 00 20 */	blr

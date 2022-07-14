@@ -69,7 +69,7 @@ lbl_8029ED34:
 /* 8029ED40 0029BCA0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8029ED44 0029BCA4  7C 08 03 A6 */	mtlr r0
 /* 8029ED48 0029BCA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029ED4C 0029BCAC  4E 80 00 20 */	blr 
+/* 8029ED4C 0029BCAC  4E 80 00 20 */	blr
 
 .global Think__22CScriptShadowProjectorFfR13CStateManager
 Think__22CScriptShadowProjectorFfR13CStateManager:
@@ -115,7 +115,7 @@ lbl_8029EDE0:
 /* 8029EDE8 0029BD48  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8029EDEC 0029BD4C  7C 08 03 A6 */	mtlr r0
 /* 8029EDF0 0029BD50  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029EDF4 0029BD54  4E 80 00 20 */	blr 
+/* 8029EDF4 0029BD54  4E 80 00 20 */	blr
 
 .global Accept__22CScriptShadowProjectorFR8IVisitor
 Accept__22CScriptShadowProjectorFR8IVisitor:
@@ -128,11 +128,11 @@ Accept__22CScriptShadowProjectorFR8IVisitor:
 /* 8029EE10 0029BD70  7C 04 03 78 */	mr r4, r0
 /* 8029EE14 0029BD74  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8029EE18 0029BD78  7D 89 03 A6 */	mtctr r12
-/* 8029EE1C 0029BD7C  4E 80 04 21 */	bctrl 
+/* 8029EE1C 0029BD7C  4E 80 04 21 */	bctrl
 /* 8029EE20 0029BD80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8029EE24 0029BD84  7C 08 03 A6 */	mtlr r0
 /* 8029EE28 0029BD88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029EE2C 0029BD8C  4E 80 00 20 */	blr 
+/* 8029EE2C 0029BD8C  4E 80 00 20 */	blr
 
 .global PreRender__22CScriptShadowProjectorFR13CStateManagerRC14CFrustumPlanes
 PreRender__22CScriptShadowProjectorFR13CStateManagerRC14CFrustumPlanes:
@@ -219,11 +219,11 @@ lbl_8029EF48:
 /* 8029EF54 0029BEB4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8029EF58 0029BEB8  7C 08 03 A6 */	mtlr r0
 /* 8029EF5C 0029BEBC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8029EF60 0029BEC0  4E 80 00 20 */	blr 
+/* 8029EF60 0029BEC0  4E 80 00 20 */	blr
 
 .global AddToRenderer__22CScriptShadowProjectorCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__22CScriptShadowProjectorCFRC14CFrustumPlanesRC13CStateManager:
-/* 8029EF64 0029BEC4  4E 80 00 20 */	blr 
+/* 8029EF64 0029BEC4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__22CScriptShadowProjectorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__22CScriptShadowProjectorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -373,7 +373,7 @@ lbl_8029F164:
 /* 8029F170 0029C0D0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8029F174 0029C0D4  7C 08 03 A6 */	mtlr r0
 /* 8029F178 0029C0D8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8029F17C 0029C0DC  4E 80 00 20 */	blr 
+/* 8029F17C 0029C0DC  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptShadowProjectorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC9CVector3fbffffi"
 "__ct__22CScriptShadowProjectorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC9CVector3fbffffi":
@@ -480,4 +480,4 @@ lbl_8029F2B0:
 /* 8029F308 0029C268  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 8029F30C 0029C26C  7C 08 03 A6 */	mtlr r0
 /* 8029F310 0029C270  38 21 01 40 */	addi r1, r1, 0x140
-/* 8029F314 0029C274  4E 80 00 20 */	blr 
+/* 8029F314 0029C274  4E 80 00 20 */	blr

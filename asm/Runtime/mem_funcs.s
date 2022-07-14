@@ -45,14 +45,14 @@ lbl_8038DA2C:
 lbl_8038DA78:
 /* 8038DA78 0038A9D8  38 00 00 03 */	li r0, 3
 /* 8038DA7C 0038A9DC  7C A5 00 39 */	and. r5, r5, r0
-/* 8038DA80 0038A9E0  4D 82 00 20 */	beqlr 
+/* 8038DA80 0038A9E0  4D 82 00 20 */	beqlr
 /* 8038DA84 0038A9E4  7D 4A 3A 14 */	add r10, r10, r7
 lbl_8038DA88:
 /* 8038DA88 0038A9E8  8C 0A FF FF */	lbzu r0, -1(r10)
 /* 8038DA8C 0038A9EC  34 A5 FF FF */	addic. r5, r5, -1
 /* 8038DA90 0038A9F0  9C 0B FF FF */	stbu r0, -1(r11)
 /* 8038DA94 0038A9F4  40 82 FF F4 */	bne lbl_8038DA88
-/* 8038DA98 0038A9F8  4E 80 00 20 */	blr 
+/* 8038DA98 0038A9F8  4E 80 00 20 */	blr
 
 .global __copy_longs_unaligned
 __copy_longs_unaligned:
@@ -101,7 +101,7 @@ lbl_8038DB30:
 /* 8038DB34 0038AA94  38 88 00 03 */	addi r4, r8, 3
 /* 8038DB38 0038AA98  7C A5 00 39 */	and. r5, r5, r0
 /* 8038DB3C 0038AA9C  38 66 00 03 */	addi r3, r6, 3
-/* 8038DB40 0038AAA0  4D 82 00 20 */	beqlr 
+/* 8038DB40 0038AAA0  4D 82 00 20 */	beqlr
 /* 8038DB44 0038AAA4  20 09 00 04 */	subfic r0, r9, 4
 /* 8038DB48 0038AAA8  7C 80 20 50 */	subf r4, r0, r4
 lbl_8038DB4C:
@@ -109,7 +109,7 @@ lbl_8038DB4C:
 /* 8038DB50 0038AAB0  34 A5 FF FF */	addic. r5, r5, -1
 /* 8038DB54 0038AAB4  9C 03 00 01 */	stbu r0, 1(r3)
 /* 8038DB58 0038AAB8  40 82 FF F4 */	bne lbl_8038DB4C
-/* 8038DB5C 0038AABC  4E 80 00 20 */	blr 
+/* 8038DB5C 0038AABC  4E 80 00 20 */	blr
 
 .global __copy_longs_rev_aligned
 __copy_longs_rev_aligned:
@@ -156,13 +156,13 @@ lbl_8038DBDC:
 lbl_8038DBEC:
 /* 8038DBEC 0038AB4C  38 00 00 03 */	li r0, 3
 /* 8038DBF0 0038AB50  7C A5 00 39 */	and. r5, r5, r0
-/* 8038DBF4 0038AB54  4D 82 00 20 */	beqlr 
+/* 8038DBF4 0038AB54  4D 82 00 20 */	beqlr
 lbl_8038DBF8:
 /* 8038DBF8 0038AB58  8C 04 FF FF */	lbzu r0, -1(r4)
 /* 8038DBFC 0038AB5C  34 A5 FF FF */	addic. r5, r5, -1
 /* 8038DC00 0038AB60  9C 06 FF FF */	stbu r0, -1(r6)
 /* 8038DC04 0038AB64  40 82 FF F4 */	bne lbl_8038DBF8
-/* 8038DC08 0038AB68  4E 80 00 20 */	blr 
+/* 8038DC08 0038AB68  4E 80 00 20 */	blr
 
 .global __copy_longs_aligned
 __copy_longs_aligned:
@@ -214,10 +214,10 @@ lbl_8038DCA4:
 /* 8038DCA8 0038AC08  38 86 00 03 */	addi r4, r6, 3
 /* 8038DCAC 0038AC0C  7C A5 00 39 */	and. r5, r5, r0
 /* 8038DCB0 0038AC10  38 63 00 03 */	addi r3, r3, 3
-/* 8038DCB4 0038AC14  4D 82 00 20 */	beqlr 
+/* 8038DCB4 0038AC14  4D 82 00 20 */	beqlr
 lbl_8038DCB8:
 /* 8038DCB8 0038AC18  8C 04 00 01 */	lbzu r0, 1(r4)
 /* 8038DCBC 0038AC1C  34 A5 FF FF */	addic. r5, r5, -1
 /* 8038DCC0 0038AC20  9C 03 00 01 */	stbu r0, 1(r3)
 /* 8038DCC4 0038AC24  40 82 FF F4 */	bne lbl_8038DCB8
-/* 8038DCC8 0038AC28  4E 80 00 20 */	blr 
+/* 8038DCC8 0038AC28  4E 80 00 20 */	blr

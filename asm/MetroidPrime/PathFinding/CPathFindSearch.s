@@ -116,7 +116,7 @@ lbl_801C6CB4:
 /* 801C6CB8 001C3C18  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 801C6CBC 001C3C1C  7C 08 03 A6 */	mtlr r0
 /* 801C6CC0 001C3C20  38 21 00 50 */	addi r1, r1, 0x50
-/* 801C6CC4 001C3C24  4E 80 00 20 */	blr 
+/* 801C6CC4 001C3C24  4E 80 00 20 */	blr
 
 .global PathExists__15CPathFindSearchCFRC9CVector3fRC9CVector3f
 PathExists__15CPathFindSearchCFRC9CVector3fRC9CVector3f:
@@ -427,7 +427,7 @@ lbl_801C70E8:
 /* 801C70EC 001C404C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801C70F0 001C4050  7C 08 03 A6 */	mtlr r0
 /* 801C70F4 001C4054  38 21 00 90 */	addi r1, r1, 0x90
-/* 801C70F8 001C4058  4E 80 00 20 */	blr 
+/* 801C70F8 001C4058  4E 80 00 20 */	blr
 
 .global FindClosestReachablePoint__15CPathFindSearchCFRC9CVector3fR9CVector3f
 FindClosestReachablePoint__15CPathFindSearchCFRC9CVector3fR9CVector3f:
@@ -618,7 +618,7 @@ lbl_801C739C:
 /* 801C73A4 001C4304  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 801C73A8 001C4308  7C 08 03 A6 */	mtlr r0
 /* 801C73AC 001C430C  38 21 00 90 */	addi r1, r1, 0x90
-/* 801C73B0 001C4310  4E 80 00 20 */	blr 
+/* 801C73B0 001C4310  4E 80 00 20 */	blr
 
 .global "Search__15CPathFindSearchFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3f"
 "Search__15CPathFindSearchFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3f":
@@ -1233,7 +1233,7 @@ lbl_801C7C50:
 /* 801C7C5C 001C4BBC  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801C7C60 001C4BC0  7C 08 03 A6 */	mtlr r0
 /* 801C7C64 001C4BC4  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801C7C68 001C4BC8  4E 80 00 20 */	blr 
+/* 801C7C68 001C4BC8  4E 80 00 20 */	blr
 
 .global Search__15CPathFindSearchFRC9CVector3fRC9CVector3f
 Search__15CPathFindSearchFRC9CVector3fRC9CVector3f:
@@ -2484,7 +2484,7 @@ lbl_801C8D60:
 /* 801C8D84 001C5CE4  80 01 02 64 */	lwz r0, 0x264(r1)
 /* 801C8D88 001C5CE8  7C 08 03 A6 */	mtlr r0
 /* 801C8D8C 001C5CEC  38 21 02 60 */	addi r1, r1, 0x260
-/* 801C8D90 001C5CF0  4E 80 00 20 */	blr 
+/* 801C8D90 001C5CF0  4E 80 00 20 */	blr
 
 .global __ct__15CPathFindSearchFP7CPFAreaUiff
 __ct__15CPathFindSearchFP7CPFAreaUiff:
@@ -2500,7 +2500,7 @@ __ct__15CPathFindSearchFP7CPFAreaUiff:
 /* 801C8DB8 001C5D18  D0 03 00 D8 */	stfs f0, 0xd8(r3)
 /* 801C8DBC 001C5D1C  90 A3 00 DC */	stw r5, 0xdc(r3)
 /* 801C8DC0 001C5D20  90 03 00 E0 */	stw r0, 0xe0(r3)
-/* 801C8DC4 001C5D24  4E 80 00 20 */	blr 
+/* 801C8DC4 001C5D24  4E 80 00 20 */	blr
 
 .global __ct__11CPFOpenListFv
 __ct__11CPFOpenListFv:
@@ -2559,4 +2559,4 @@ __ct__11CPFOpenListFv:
 /* 801C8E98 001C5DF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C8E9C 001C5DFC  7C 08 03 A6 */	mtlr r0
 /* 801C8EA0 001C5E00  38 21 00 10 */	addi r1, r1, 0x10
-/* 801C8EA4 001C5E04  4E 80 00 20 */	blr 
+/* 801C8EA4 001C5E04  4E 80 00 20 */	blr

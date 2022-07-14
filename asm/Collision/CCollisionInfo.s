@@ -30,7 +30,7 @@ Swap__14CCollisionInfoFv:
 /* 802CE114 002CB074  90 03 00 38 */	stw r0, 0x38(r3)
 /* 802CE118 002CB078  90 C3 00 44 */	stw r6, 0x44(r3)
 /* 802CE11C 002CB07C  90 A3 00 40 */	stw r5, 0x40(r3)
-/* 802CE120 002CB080  4E 80 00 20 */	blr 
+/* 802CE120 002CB080  4E 80 00 20 */	blr
 
 .global GetExtreme__14CCollisionInfoCFv
 GetExtreme__14CCollisionInfoCFv:
@@ -58,7 +58,7 @@ GetExtreme__14CCollisionInfoCFv:
 /* 802CE178 002CB0D8  EC 02 08 2A */	fadds f0, f2, f1
 /* 802CE17C 002CB0DC  D0 63 00 04 */	stfs f3, 4(r3)
 /* 802CE180 002CB0E0  D0 03 00 08 */	stfs f0, 8(r3)
-/* 802CE184 002CB0E4  4E 80 00 20 */	blr 
+/* 802CE184 002CB0E4  4E 80 00 20 */	blr
 
 .global __ct__14CCollisionInfoFQ214CCollisionInfo8EInvalid
 __ct__14CCollisionInfoFQ214CCollisionInfo8EInvalid:
@@ -88,7 +88,7 @@ __ct__14CCollisionInfoFQ214CCollisionInfo8EInvalid:
 /* 802CE1E4 002CB144  D0 03 00 54 */	stfs f0, 0x54(r3)
 /* 802CE1E8 002CB148  D0 03 00 58 */	stfs f0, 0x58(r3)
 /* 802CE1EC 002CB14C  D0 03 00 5C */	stfs f0, 0x5c(r3)
-/* 802CE1F0 002CB150  4E 80 00 20 */	blr 
+/* 802CE1F0 002CB150  4E 80 00 20 */	blr
 
 .global GetSwapped__14CCollisionInfoCFv
 GetSwapped__14CCollisionInfoCFv:
@@ -140,7 +140,7 @@ GetSwapped__14CCollisionInfoCFv:
 /* 802CE2A8 002CB208  D0 03 00 58 */	stfs f0, 0x58(r3)
 /* 802CE2AC 002CB20C  C0 04 00 50 */	lfs f0, 0x50(r4)
 /* 802CE2B0 002CB210  D0 03 00 5C */	stfs f0, 0x5c(r3)
-/* 802CE2B4 002CB214  4E 80 00 20 */	blr 
+/* 802CE2B4 002CB214  4E 80 00 20 */	blr
 
 .global __ct__14CCollisionInfoFRC6CAABoxRC13CMaterialListRC13CMaterialListRC9CVector3fRC9CVector3f
 __ct__14CCollisionInfoFRC6CAABoxRC13CMaterialListRC13CMaterialListRC9CVector3fRC9CVector3f:
@@ -192,7 +192,7 @@ __ct__14CCollisionInfoFRC6CAABoxRC13CMaterialListRC13CMaterialListRC9CVector3fRC
 /* 802CE36C 002CB2CC  D0 03 00 58 */	stfs f0, 0x58(r3)
 /* 802CE370 002CB2D0  C0 08 00 08 */	lfs f0, 8(r8)
 /* 802CE374 002CB2D4  D0 03 00 5C */	stfs f0, 0x5c(r3)
-/* 802CE378 002CB2D8  4E 80 00 20 */	blr 
+/* 802CE378 002CB2D8  4E 80 00 20 */	blr
 
 .global __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3fRC9CVector3f
 __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3fRC9CVector3f:
@@ -246,7 +246,7 @@ __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3
 /* 802CE438 002CB398  D0 03 00 58 */	stfs f0, 0x58(r3)
 /* 802CE43C 002CB39C  C0 08 00 08 */	lfs f0, 8(r8)
 /* 802CE440 002CB3A0  D0 03 00 5C */	stfs f0, 0x5c(r3)
-/* 802CE444 002CB3A4  4E 80 00 20 */	blr 
+/* 802CE444 002CB3A4  4E 80 00 20 */	blr
 
 .global __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3f
 __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3f:

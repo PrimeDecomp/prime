@@ -29,19 +29,19 @@ sTableIndex__16CCollidableAABox:
 .global lbl_80479498
 lbl_80479498:
 	.skip 0x48
-	
+
 .section .text, "ax"
 
 .global GetTableIndex__16CCollidableAABoxCFv
 GetTableIndex__16CCollidableAABoxCFv:
 /* 802CD4C8 002CA428  80 6D 9B 28 */	lwz r3, sTableIndex__16CCollidableAABox@sda21(r13)
-/* 802CD4CC 002CA42C  4E 80 00 20 */	blr 
+/* 802CD4CC 002CA42C  4E 80 00 20 */	blr
 
 .global GetPrimType__16CCollidableAABoxCFv
 GetPrimType__16CCollidableAABoxCFv:
 /* 802CD4D0 002CA430  3C 60 41 41 */	lis r3, 0x41414258@ha
 /* 802CD4D4 002CA434  38 63 42 58 */	addi r3, r3, 0x41414258@l
-/* 802CD4D8 002CA438  4E 80 00 20 */	blr 
+/* 802CD4D8 002CA438  4E 80 00 20 */	blr
 
 .global Transform__16CCollidableAABoxCFRC12CTransform4f
 Transform__16CCollidableAABoxCFRC12CTransform4f:
@@ -75,7 +75,7 @@ Transform__16CCollidableAABoxCFRC12CTransform4f:
 /* 802CD548 002CA4A8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CD54C 002CA4AC  7C 08 03 A6 */	mtlr r0
 /* 802CD550 002CA4B0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CD554 002CA4B4  4E 80 00 20 */	blr 
+/* 802CD554 002CA4B4  4E 80 00 20 */	blr
 
 .global CalculateAABox__16CCollidableAABoxCFRC12CTransform4f
 CalculateAABox__16CCollidableAABoxCFRC12CTransform4f:
@@ -89,7 +89,7 @@ CalculateAABox__16CCollidableAABoxCFRC12CTransform4f:
 /* 802CD574 002CA4D4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802CD578 002CA4D8  7C 08 03 A6 */	mtlr r0
 /* 802CD57C 002CA4DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CD580 002CA4E0  4E 80 00 20 */	blr 
+/* 802CD580 002CA4E0  4E 80 00 20 */	blr
 
 .global CalculateLocalAABox__16CCollidableAABoxCFv
 CalculateLocalAABox__16CCollidableAABoxCFv:
@@ -105,7 +105,7 @@ CalculateLocalAABox__16CCollidableAABoxCFv:
 /* 802CD5A8 002CA508  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 802CD5AC 002CA50C  C0 04 00 24 */	lfs f0, 0x24(r4)
 /* 802CD5B0 002CA510  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 802CD5B4 002CA514  4E 80 00 20 */	blr 
+/* 802CD5B4 002CA514  4E 80 00 20 */	blr
 
 .global CastRayInternal__16CCollidableAABoxCFRC25CInternalRayCastStructure
 CastRayInternal__16CCollidableAABoxCFRC25CInternalRayCastStructure:
@@ -132,7 +132,7 @@ CastRayInternal__16CCollidableAABoxCFRC25CInternalRayCastStructure:
 /* 802CD608 002CA568  83 C5 00 6C */	lwz r30, 0x6c(r5)
 /* 802CD60C 002CA56C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CD610 002CA570  7D 89 03 A6 */	mtctr r12
-/* 802CD614 002CA574  4E 80 04 21 */	bctrl 
+/* 802CD614 002CA574  4E 80 04 21 */	bctrl
 /* 802CD618 002CA578  7C 64 1B 78 */	mr r4, r3
 /* 802CD61C 002CA57C  7F C3 F3 78 */	mr r3, r30
 /* 802CD620 002CA580  48 00 7D 2D */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -274,7 +274,7 @@ lbl_802CD820:
 /* 802CD824 002CA784  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802CD828 002CA788  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CD82C 002CA78C  7D 89 03 A6 */	mtctr r12
-/* 802CD830 002CA790  4E 80 04 21 */	bctrl 
+/* 802CD830 002CA790  4E 80 04 21 */	bctrl
 /* 802CD834 002CA794  C0 C1 00 14 */	lfs f6, 0x14(r1)
 /* 802CD838 002CA798  38 00 00 01 */	li r0, 1
 /* 802CD83C 002CA79C  C0 41 00 58 */	lfs f2, 0x58(r1)
@@ -343,7 +343,7 @@ lbl_802CD904:
 /* 802CD934 002CA894  83 81 01 30 */	lwz r28, 0x130(r1)
 /* 802CD938 002CA898  7C 08 03 A6 */	mtlr r0
 /* 802CD93C 002CA89C  38 21 01 80 */	addi r1, r1, 0x180
-/* 802CD940 002CA8A0  4E 80 00 20 */	blr 
+/* 802CD940 002CA8A0  4E 80 00 20 */	blr
 
 .global CollideMovingSphere__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo
 CollideMovingSphere__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo:
@@ -363,7 +363,7 @@ CollideMovingSphere__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVecto
 /* 802CD978 002CA8D8  7F A4 EB 78 */	mr r4, r29
 /* 802CD97C 002CA8DC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802CD980 002CA8E0  7D 89 03 A6 */	mtctr r12
-/* 802CD984 002CA8E4  4E 80 04 21 */	bctrl 
+/* 802CD984 002CA8E4  4E 80 04 21 */	bctrl
 /* 802CD988 002CA8E8  C0 A1 00 60 */	lfs f5, 0x60(r1)
 /* 802CD98C 002CA8EC  7F C4 F3 78 */	mr r4, r30
 /* 802CD990 002CA8F0  C0 81 00 64 */	lfs f4, 0x64(r1)
@@ -453,13 +453,13 @@ CollideMovingSphere__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVecto
 /* 802CDAE0 002CAA40  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CDAE4 002CAA44  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CDAE8 002CAA48  7D 89 03 A6 */	mtctr r12
-/* 802CDAEC 002CAA4C  4E 80 04 21 */	bctrl 
+/* 802CDAEC 002CAA4C  4E 80 04 21 */	bctrl
 /* 802CDAF0 002CAA50  7C 7E 1B 78 */	mr r30, r3
 /* 802CDAF4 002CAA54  7F A3 EB 78 */	mr r3, r29
 /* 802CDAF8 002CAA58  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CDAFC 002CAA5C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CDB00 002CAA60  7D 89 03 A6 */	mtctr r12
-/* 802CDB04 002CAA64  4E 80 04 21 */	bctrl 
+/* 802CDB04 002CAA64  4E 80 04 21 */	bctrl
 /* 802CDB08 002CAA68  7C 65 1B 78 */	mr r5, r3
 /* 802CDB0C 002CAA6C  7F C6 F3 78 */	mr r6, r30
 /* 802CDB10 002CAA70  38 61 00 90 */	addi r3, r1, 0x90
@@ -519,7 +519,7 @@ lbl_802CDBDC:
 /* 802CDBE0 002CAB40  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802CDBE4 002CAB44  7C 08 03 A6 */	mtlr r0
 /* 802CDBE8 002CAB48  38 21 01 10 */	addi r1, r1, 0x110
-/* 802CDBEC 002CAB4C  4E 80 00 20 */	blr 
+/* 802CDBEC 002CAB4C  4E 80 00 20 */	blr
 
 .global CollideMovingAABox__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo
 CollideMovingAABox__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo:
@@ -606,13 +606,13 @@ CollideMovingAABox__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVector
 /* 802CDD30 002CAC90  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CDD34 002CAC94  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CDD38 002CAC98  7D 89 03 A6 */	mtctr r12
-/* 802CDD3C 002CAC9C  4E 80 04 21 */	bctrl 
+/* 802CDD3C 002CAC9C  4E 80 04 21 */	bctrl
 /* 802CDD40 002CACA0  7C 7E 1B 78 */	mr r30, r3
 /* 802CDD44 002CACA4  7F A3 EB 78 */	mr r3, r29
 /* 802CDD48 002CACA8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CDD4C 002CACAC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CDD50 002CACB0  7D 89 03 A6 */	mtctr r12
-/* 802CDD54 002CACB4  4E 80 04 21 */	bctrl 
+/* 802CDD54 002CACB4  4E 80 04 21 */	bctrl
 /* 802CDD58 002CACB8  7C 65 1B 78 */	mr r5, r3
 /* 802CDD5C 002CACBC  7F C6 F3 78 */	mr r6, r30
 /* 802CDD60 002CACC0  38 61 00 98 */	addi r3, r1, 0x98
@@ -673,7 +673,7 @@ lbl_802CDE30:
 /* 802CDE34 002CAD94  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802CDE38 002CAD98  7C 08 03 A6 */	mtlr r0
 /* 802CDE3C 002CAD9C  38 21 01 10 */	addi r1, r1, 0x110
-/* 802CDE40 002CADA0  4E 80 00 20 */	blr 
+/* 802CDE40 002CADA0  4E 80 00 20 */	blr
 
 .global AABox_AABox__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList
 AABox_AABox__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList:
@@ -724,13 +724,13 @@ AABox_AABox__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList:
 /* 802CDEF4 002CAE54  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802CDEF8 002CAE58  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CDEFC 002CAE5C  7D 89 03 A6 */	mtctr r12
-/* 802CDF00 002CAE60  4E 80 04 21 */	bctrl 
+/* 802CDF00 002CAE60  4E 80 04 21 */	bctrl
 /* 802CDF04 002CAE64  7C 7F 1B 78 */	mr r31, r3
 /* 802CDF08 002CAE68  7F C3 F3 78 */	mr r3, r30
 /* 802CDF0C 002CAE6C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CDF10 002CAE70  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CDF14 002CAE74  7D 89 03 A6 */	mtctr r12
-/* 802CDF18 002CAE78  4E 80 04 21 */	bctrl 
+/* 802CDF18 002CAE78  4E 80 04 21 */	bctrl
 /* 802CDF1C 002CAE7C  7C 64 1B 78 */	mr r4, r3
 /* 802CDF20 002CAE80  7F E6 FB 78 */	mr r6, r31
 /* 802CDF24 002CAE84  7F A7 EB 78 */	mr r7, r29
@@ -744,7 +744,7 @@ AABox_AABox__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList:
 /* 802CDF44 002CAEA4  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 802CDF48 002CAEA8  7C 08 03 A6 */	mtlr r0
 /* 802CDF4C 002CAEAC  38 21 00 80 */	addi r1, r1, 0x80
-/* 802CDF50 002CAEB0  4E 80 00 20 */	blr 
+/* 802CDF50 002CAEB0  4E 80 00 20 */	blr
 
 .global AABox_AABox_Bool__7CollideFRC27CInternalCollisionStructure
 AABox_AABox_Bool__7CollideFRC27CInternalCollisionStructure:
@@ -795,7 +795,7 @@ AABox_AABox_Bool__7CollideFRC27CInternalCollisionStructure:
 /* 802CE004 002CAF64  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 802CE008 002CAF68  7C 08 03 A6 */	mtlr r0
 /* 802CE00C 002CAF6C  38 21 00 70 */	addi r1, r1, 0x70
-/* 802CE010 002CAF70  4E 80 00 20 */	blr 
+/* 802CE010 002CAF70  4E 80 00 20 */	blr
 
 .global GetType__16CCollidableAABoxFv
 GetType__16CCollidableAABoxFv:
@@ -805,12 +805,12 @@ GetType__16CCollidableAABoxFv:
 /* 802CE020 002CAF80  90 03 00 00 */	stw r0, 0(r3)
 /* 802CE024 002CAF84  38 04 69 E8 */	addi r0, r4, lbl_803D69E8@l
 /* 802CE028 002CAF88  90 03 00 04 */	stw r0, 4(r3)
-/* 802CE02C 002CAF8C  4E 80 00 20 */	blr 
+/* 802CE02C 002CAF8C  4E 80 00 20 */	blr
 
 .global SetStaticTableIndex__16CCollidableAABoxFUi
 SetStaticTableIndex__16CCollidableAABoxFUi:
 /* 802CE030 002CAF90  90 6D 9B 28 */	stw r3, sTableIndex__16CCollidableAABox@sda21(r13)
-/* 802CE034 002CAF94  4E 80 00 20 */	blr 
+/* 802CE034 002CAF94  4E 80 00 20 */	blr
 
 .global __sinit_CCollidableAABox_cpp
 __sinit_CCollidableAABox_cpp:
@@ -836,4 +836,4 @@ __sinit_CCollidableAABox_cpp:
 /* 802CE084 002CAFE4  D0 23 00 3C */	stfs f1, 0x3c(r3)
 /* 802CE088 002CAFE8  D0 23 00 40 */	stfs f1, 0x40(r3)
 /* 802CE08C 002CAFEC  D0 03 00 44 */	stfs f0, 0x44(r3)
-/* 802CE090 002CAFF0  4E 80 00 20 */	blr 
+/* 802CE090 002CAFF0  4E 80 00 20 */	blr

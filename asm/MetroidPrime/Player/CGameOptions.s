@@ -208,7 +208,7 @@ lbl_8020E9D0:
 /* 8020E9D4 0020B934  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020E9D8 0020B938  7C 08 03 A6 */	mtlr r0
 /* 8020E9DC 0020B93C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020E9E0 0020B940  4E 80 00 20 */	blr 
+/* 8020E9E0 0020B940  4E 80 00 20 */	blr
 
 .global ResetControllerAssets__12CGameOptionsFv
 ResetControllerAssets__12CGameOptionsFv:
@@ -407,7 +407,7 @@ lbl_8020ECA0:
 /* 8020ECA4 0020BC04  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 8020ECA8 0020BC08  7C 08 03 A6 */	mtlr r0
 /* 8020ECAC 0020BC0C  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8020ECB0 0020BC10  4E 80 00 20 */	blr 
+/* 8020ECB0 0020BC10  4E 80 00 20 */	blr
 
 .global ToggleControls__12CGameOptionsFb
 ToggleControls__12CGameOptionsFb:
@@ -429,40 +429,40 @@ lbl_8020ECE8:
 /* 8020ECE8 0020BC48  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020ECEC 0020BC4C  7C 08 03 A6 */	mtlr r0
 /* 8020ECF0 0020BC50  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020ECF4 0020BC54  4E 80 00 20 */	blr 
+/* 8020ECF4 0020BC54  4E 80 00 20 */	blr
 
 .global SetIsRumbleEnabled__12CGameOptionsFb
 SetIsRumbleEnabled__12CGameOptionsFb:
 /* 8020ECF8 0020BC58  88 03 00 68 */	lbz r0, 0x68(r3)
 /* 8020ECFC 0020BC5C  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a
 /* 8020ED00 0020BC60  98 03 00 68 */	stb r0, 0x68(r3)
-/* 8020ED04 0020BC64  4E 80 00 20 */	blr 
+/* 8020ED04 0020BC64  4E 80 00 20 */	blr
 
 .global SetInvertYAxis__12CGameOptionsFb
 SetInvertYAxis__12CGameOptionsFb:
 /* 8020ED08 0020BC68  88 03 00 68 */	lbz r0, 0x68(r3)
 /* 8020ED0C 0020BC6C  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 8020ED10 0020BC70  98 03 00 68 */	stb r0, 0x68(r3)
-/* 8020ED14 0020BC74  4E 80 00 20 */	blr 
+/* 8020ED14 0020BC74  4E 80 00 20 */	blr
 
 .global SetIsHintSystemEnabled__12CGameOptionsFb
 SetIsHintSystemEnabled__12CGameOptionsFb:
 /* 8020ED18 0020BC78  88 03 00 68 */	lbz r0, 0x68(r3)
 /* 8020ED1C 0020BC7C  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 8020ED20 0020BC80  98 03 00 68 */	stb r0, 0x68(r3)
-/* 8020ED24 0020BC84  4E 80 00 20 */	blr 
+/* 8020ED24 0020BC84  4E 80 00 20 */	blr
 
 .global SetHUDLag__12CGameOptionsFb
 SetHUDLag__12CGameOptionsFb:
 /* 8020ED28 0020BC88  88 03 00 68 */	lbz r0, 0x68(r3)
 /* 8020ED2C 0020BC8C  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8020ED30 0020BC90  98 03 00 68 */	stb r0, 0x68(r3)
-/* 8020ED34 0020BC94  4E 80 00 20 */	blr 
+/* 8020ED34 0020BC94  4E 80 00 20 */	blr
 
 .global SetHelmetAlpha__12CGameOptionsFi
 SetHelmetAlpha__12CGameOptionsFi:
 /* 8020ED38 0020BC98  90 83 00 64 */	stw r4, 0x64(r3)
-/* 8020ED3C 0020BC9C  4E 80 00 20 */	blr 
+/* 8020ED3C 0020BC9C  4E 80 00 20 */	blr
 
 .global GetHelmetAlpha__12CGameOptionsCFv
 GetHelmetAlpha__12CGameOptionsCFv:
@@ -478,7 +478,7 @@ GetHelmetAlpha__12CGameOptionsCFv:
 /* 8020ED64 0020BCC4  EC 00 08 28 */	fsubs f0, f0, f1
 /* 8020ED68 0020BCC8  EC 22 00 32 */	fmuls f1, f2, f0
 /* 8020ED6C 0020BCCC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020ED70 0020BCD0  4E 80 00 20 */	blr 
+/* 8020ED70 0020BCD0  4E 80 00 20 */	blr
 
 .global GetHudAlpha__12CGameOptionsCFv
 GetHudAlpha__12CGameOptionsCFv:
@@ -494,7 +494,7 @@ GetHudAlpha__12CGameOptionsCFv:
 /* 8020ED98 0020BCF8  EC 00 08 28 */	fsubs f0, f0, f1
 /* 8020ED9C 0020BCFC  EC 22 00 32 */	fmuls f1, f2, f0
 /* 8020EDA0 0020BD00  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020EDA4 0020BD04  4E 80 00 20 */	blr 
+/* 8020EDA4 0020BD04  4E 80 00 20 */	blr
 
 .global SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi
 SetSurroundMode__12CGameOptionsFQ29CAudioSys14ESurroundModesi:
@@ -522,7 +522,7 @@ lbl_8020EDF0:
 /* 8020EDF8 0020BD58  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020EDFC 0020BD5C  7C 08 03 A6 */	mtlr r0
 /* 8020EE00 0020BD60  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020EE04 0020BD64  4E 80 00 20 */	blr 
+/* 8020EE04 0020BD64  4E 80 00 20 */	blr
 
 .global SetMusicVolume__12CGameOptionsFib
 SetMusicVolume__12CGameOptionsFib:
@@ -550,7 +550,7 @@ lbl_8020EE50:
 /* 8020EE58 0020BDB8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020EE5C 0020BDBC  7C 08 03 A6 */	mtlr r0
 /* 8020EE60 0020BDC0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020EE64 0020BDC4  4E 80 00 20 */	blr 
+/* 8020EE64 0020BDC4  4E 80 00 20 */	blr
 
 .global SetSfxVolume__12CGameOptionsFib
 SetSfxVolume__12CGameOptionsFib:
@@ -587,7 +587,7 @@ lbl_8020EED4:
 /* 8020EEDC 0020BE3C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020EEE0 0020BE40  7C 08 03 A6 */	mtlr r0
 /* 8020EEE4 0020BE44  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020EEE8 0020BE48  4E 80 00 20 */	blr 
+/* 8020EEE8 0020BE48  4E 80 00 20 */	blr
 
 .global SetScreenStretch__12CGameOptionsFib
 SetScreenStretch__12CGameOptionsFib:
@@ -621,7 +621,7 @@ lbl_8020EF4C:
 /* 8020EF54 0020BEB4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020EF58 0020BEB8  7C 08 03 A6 */	mtlr r0
 /* 8020EF5C 0020BEBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020EF60 0020BEC0  4E 80 00 20 */	blr 
+/* 8020EF60 0020BEC0  4E 80 00 20 */	blr
 
 .global SetScreenPositionY__12CGameOptionsFib
 SetScreenPositionY__12CGameOptionsFib:
@@ -655,7 +655,7 @@ lbl_8020EFC4:
 /* 8020EFCC 0020BF2C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020EFD0 0020BF30  7C 08 03 A6 */	mtlr r0
 /* 8020EFD4 0020BF34  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020EFD8 0020BF38  4E 80 00 20 */	blr 
+/* 8020EFD8 0020BF38  4E 80 00 20 */	blr
 
 .global SetScreenPositionX__12CGameOptionsFib
 SetScreenPositionX__12CGameOptionsFib:
@@ -689,7 +689,7 @@ lbl_8020F03C:
 /* 8020F044 0020BFA4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020F048 0020BFA8  7C 08 03 A6 */	mtlr r0
 /* 8020F04C 0020BFAC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020F050 0020BFB0  4E 80 00 20 */	blr 
+/* 8020F050 0020BFB0  4E 80 00 20 */	blr
 
 .global TuneScreenBrightness__12CGameOptionsFv
 TuneScreenBrightness__12CGameOptionsFv:
@@ -709,7 +709,7 @@ TuneScreenBrightness__12CGameOptionsFv:
 /* 8020F088 0020BFE8  EC 22 00 72 */	fmuls f1, f2, f1
 /* 8020F08C 0020BFEC  EC 24 00 7A */	fmadds f1, f4, f1, f0
 /* 8020F090 0020BFF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020F094 0020BFF4  4E 80 00 20 */	blr 
+/* 8020F094 0020BFF4  4E 80 00 20 */	blr
 
 .global SetScreenBrightness__12CGameOptionsFib
 SetScreenBrightness__12CGameOptionsFib:
@@ -738,7 +738,7 @@ lbl_8020F0E4:
 /* 8020F0EC 0020C04C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020F0F0 0020C050  7C 08 03 A6 */	mtlr r0
 /* 8020F0F4 0020C054  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020F0F8 0020C058  4E 80 00 20 */	blr 
+/* 8020F0F8 0020C058  4E 80 00 20 */	blr
 
 .global EnsureOptions__12CGameOptionsFv
 EnsureOptions__12CGameOptionsFv:
@@ -801,7 +801,7 @@ EnsureOptions__12CGameOptionsFv:
 /* 8020F1DC 0020C13C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020F1E0 0020C140  7C 08 03 A6 */	mtlr r0
 /* 8020F1E4 0020C144  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020F1E8 0020C148  4E 80 00 20 */	blr 
+/* 8020F1E8 0020C148  4E 80 00 20 */	blr
 
 .global ResetToDefaults__12CGameOptionsFv
 ResetToDefaults__12CGameOptionsFv:
@@ -846,7 +846,7 @@ ResetToDefaults__12CGameOptionsFv:
 /* 8020F284 0020C1E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020F288 0020C1E8  7C 08 03 A6 */	mtlr r0
 /* 8020F28C 0020C1EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020F290 0020C1F0  4E 80 00 20 */	blr 
+/* 8020F290 0020C1F0  4E 80 00 20 */	blr
 
 .global PutTo__12CGameOptionsFR16CMemoryStreamOut
 PutTo__12CGameOptionsFR16CMemoryStreamOut:
@@ -983,7 +983,7 @@ lbl_8020F2D4:
 /* 8020F494 0020C3F4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8020F498 0020C3F8  7C 08 03 A6 */	mtlr r0
 /* 8020F49C 0020C3FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020F4A0 0020C400  4E 80 00 20 */	blr 
+/* 8020F4A0 0020C400  4E 80 00 20 */	blr
 
 .global __ct__12CGameOptionsFR12CInputStream
 __ct__12CGameOptionsFR12CInputStream:
@@ -1200,7 +1200,7 @@ lbl_8020F608:
 /* 8020F7C0 0020C720  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8020F7C4 0020C724  7C 08 03 A6 */	mtlr r0
 /* 8020F7C8 0020C728  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020F7CC 0020C72C  4E 80 00 20 */	blr 
+/* 8020F7CC 0020C72C  4E 80 00 20 */	blr
 
 .global __ct__12CGameOptionsFv
 __ct__12CGameOptionsFv:
@@ -1298,7 +1298,7 @@ lbl_8020F87C:
 /* 8020F918 0020C878  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020F91C 0020C87C  7C 08 03 A6 */	mtlr r0
 /* 8020F920 0020C880  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020F924 0020C884  4E 80 00 20 */	blr 
+/* 8020F924 0020C884  4E 80 00 20 */	blr
 
 .global InitSoundMode__12CGameOptionsFi
 InitSoundMode__12CGameOptionsFi:
@@ -1326,7 +1326,7 @@ lbl_8020F96C:
 /* 8020F970 0020C8D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020F974 0020C8D4  7C 08 03 A6 */	mtlr r0
 /* 8020F978 0020C8D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020F97C 0020C8DC  4E 80 00 20 */	blr 
+/* 8020F97C 0020C8DC  4E 80 00 20 */	blr
 
 .global CalculateBits__Fi
 CalculateBits__Fi:
@@ -1463,7 +1463,7 @@ lbl_8020FB44:
 /* 8020FB54 0020CAB4  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8020FB58 0020CAB8  7C 08 03 A6 */	mtlr r0
 /* 8020FB5C 0020CABC  38 21 00 50 */	addi r1, r1, 0x50
-/* 8020FB60 0020CAC0  4E 80 00 20 */	blr 
+/* 8020FB60 0020CAC0  4E 80 00 20 */	blr
 
 .global sub_8020fb64
 sub_8020fb64:
@@ -1481,7 +1481,7 @@ lbl_8020FB8C:
 /* 8020FB8C 0020CAEC  80 E5 00 00 */	lwz r7, 0(r5)
 /* 8020FB90 0020CAF0  80 04 00 00 */	lwz r0, 0(r4)
 /* 8020FB94 0020CAF4  7C 07 00 40 */	cmplw r7, r0
-/* 8020FB98 0020CAF8  4C 80 00 20 */	bgelr 
+/* 8020FB98 0020CAF8  4C 80 00 20 */	bgelr
 /* 8020FB9C 0020CAFC  80 C5 00 04 */	lwz r6, 4(r5)
 /* 8020FBA0 0020CB00  90 05 00 00 */	stw r0, 0(r5)
 /* 8020FBA4 0020CB04  80 04 00 04 */	lwz r0, 4(r4)
@@ -1494,11 +1494,11 @@ lbl_8020FB8C:
 /* 8020FBC0 0020CB20  90 04 00 04 */	stw r0, 4(r4)
 /* 8020FBC4 0020CB24  90 E3 00 00 */	stw r7, 0(r3)
 /* 8020FBC8 0020CB28  90 C3 00 04 */	stw r6, 4(r3)
-/* 8020FBCC 0020CB2C  4E 80 00 20 */	blr 
+/* 8020FBCC 0020CB2C  4E 80 00 20 */	blr
 lbl_8020FBD0:
 /* 8020FBD0 0020CB30  90 E4 00 00 */	stw r7, 0(r4)
 /* 8020FBD4 0020CB34  90 C4 00 04 */	stw r6, 4(r4)
-/* 8020FBD8 0020CB38  4E 80 00 20 */	blr 
+/* 8020FBD8 0020CB38  4E 80 00 20 */	blr
 
 .global sub_8020fbdc
 sub_8020fbdc:

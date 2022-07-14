@@ -323,7 +323,7 @@ lbl_801F0130:
 /* 801F013C 001ED09C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801F0140 001ED0A0  7C 08 03 A6 */	mtlr r0
 /* 801F0144 001ED0A4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F0148 001ED0A8  4E 80 00 20 */	blr 
+/* 801F0148 001ED0A8  4E 80 00 20 */	blr
 
 .global RetractTentacle__17CFlaahgraTentacleFR13CStateManager
 RetractTentacle__17CFlaahgraTentacleFR13CStateManager:
@@ -363,7 +363,7 @@ lbl_801F01C4:
 /* 801F01CC 001ED12C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F01D0 001ED130  7C 08 03 A6 */	mtlr r0
 /* 801F01D4 001ED134  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F01D8 001ED138  4E 80 00 20 */	blr 
+/* 801F01D8 001ED138  4E 80 00 20 */	blr
 
 .global ExtractTentacle__17CFlaahgraTentacleFR13CStateManager
 ExtractTentacle__17CFlaahgraTentacleFR13CStateManager:
@@ -378,7 +378,7 @@ ExtractTentacle__17CFlaahgraTentacleFR13CStateManager:
 /* 801F01FC 001ED15C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F0200 001ED160  81 8C 02 30 */	lwz r12, 0x230(r12)
 /* 801F0204 001ED164  7D 89 03 A6 */	mtctr r12
-/* 801F0208 001ED168  4E 80 04 21 */	bctrl 
+/* 801F0208 001ED168  4E 80 04 21 */	bctrl
 /* 801F020C 001ED16C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801F0210 001ED170  41 82 00 64 */	beq lbl_801F0274
 /* 801F0214 001ED174  88 1E 05 8E */	lbz r0, 0x58e(r30)
@@ -411,7 +411,7 @@ lbl_801F0274:
 /* 801F027C 001ED1DC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F0280 001ED1E0  7C 08 03 A6 */	mtlr r0
 /* 801F0284 001ED1E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F0288 001ED1E8  4E 80 00 20 */	blr 
+/* 801F0288 001ED1E8  4E 80 00 20 */	blr
 
 .global "AddSphereCollisionList__17CFlaahgraTentacleFPCQ217CFlaahgraTentacle16SSphereJointInfoiRQ24rstl63vector<26CJointCollisionDescription,Q24rstl17rmemory_allocator>"
 "AddSphereCollisionList__17CFlaahgraTentacleFPCQ217CFlaahgraTentacle16SSphereJointInfoiRQ24rstl63vector<26CJointCollisionDescription,Q24rstl17rmemory_allocator>":
@@ -509,7 +509,7 @@ lbl_801F03DC:
 /* 801F03E8 001ED348  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801F03EC 001ED34C  7C 08 03 A6 */	mtlr r0
 /* 801F03F0 001ED350  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801F03F4 001ED354  4E 80 00 20 */	blr 
+/* 801F03F4 001ED354  4E 80 00 20 */	blr
 
 .global SetupCollisionManager__17CFlaahgraTentacleFR13CStateManager
 SetupCollisionManager__17CFlaahgraTentacleFR13CStateManager:
@@ -622,7 +622,7 @@ lbl_801F04B0:
 /* 801F0598 001ED4F8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801F059C 001ED4FC  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801F05A0 001ED500  7D 89 03 A6 */	mtctr r12
-/* 801F05A4 001ED504  4E 80 04 21 */	bctrl 
+/* 801F05A4 001ED504  4E 80 04 21 */	bctrl
 /* 801F05A8 001ED508  7C 64 1B 78 */	mr r4, r3
 /* 801F05AC 001ED50C  7F 23 CB 78 */	mr r3, r25
 /* 801F05B0 001ED510  4B FB 85 E9 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
@@ -667,7 +667,7 @@ lbl_801F05FC:
 /* 801F0644 001ED5A4  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 801F0648 001ED5A8  7C 08 03 A6 */	mtlr r0
 /* 801F064C 001ED5AC  38 21 00 80 */	addi r1, r1, 0x80
-/* 801F0650 001ED5B0  4E 80 00 20 */	blr 
+/* 801F0650 001ED5B0  4E 80 00 20 */	blr
 
 .global Dead__17CFlaahgraTentacleFR13CStateManager9EStateMsgf
 Dead__17CFlaahgraTentacleFR13CStateManager9EStateMsgf:
@@ -680,7 +680,7 @@ Dead__17CFlaahgraTentacleFR13CStateManager9EStateMsgf:
 /* 801F066C 001ED5CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F0670 001ED5D0  7C 08 03 A6 */	mtlr r0
 /* 801F0674 001ED5D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F0678 001ED5D8  4E 80 00 20 */	blr 
+/* 801F0678 001ED5D8  4E 80 00 20 */	blr
 
 .global Attack__17CFlaahgraTentacleFR13CStateManager9EStateMsgf
 Attack__17CFlaahgraTentacleFR13CStateManager9EStateMsgf:
@@ -798,7 +798,7 @@ lbl_801F0808:
 /* 801F080C 001ED76C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801F0810 001ED770  7C 08 03 A6 */	mtlr r0
 /* 801F0814 001ED774  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F0818 001ED778  4E 80 00 20 */	blr 
+/* 801F0818 001ED778  4E 80 00 20 */	blr
 
 .global Retreat__17CFlaahgraTentacleFR13CStateManager9EStateMsgf
 Retreat__17CFlaahgraTentacleFR13CStateManager9EStateMsgf:
@@ -852,7 +852,7 @@ lbl_801F08BC:
 
 .global sub_801f08cc
 sub_801f08cc:
-/* 801F08CC 001ED82C  4E 80 00 20 */	blr 
+/* 801F08CC 001ED82C  4E 80 00 20 */	blr
 
 .global InActive__17CFlaahgraTentacleFR13CStateManager9EStateMsgf
 InActive__17CFlaahgraTentacleFR13CStateManager9EStateMsgf:
@@ -881,7 +881,7 @@ lbl_801F091C:
 /* 801F0920 001ED880  C0 22 AE B4 */	lfs f1, lbl_805ACBD4@sda21(r2)
 /* 801F0924 001ED884  81 8C 02 30 */	lwz r12, 0x230(r12)
 /* 801F0928 001ED888  7D 89 03 A6 */	mtctr r12
-/* 801F092C 001ED88C  4E 80 04 21 */	bctrl 
+/* 801F092C 001ED88C  4E 80 04 21 */	bctrl
 /* 801F0930 001ED890  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801F0934 001ED894  40 82 00 70 */	bne lbl_801F09A4
 /* 801F0938 001ED898  A0 1E 05 8C */	lhz r0, 0x58c(r30)
@@ -920,7 +920,7 @@ lbl_801F09A4:
 /* 801F09B4 001ED914  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F09B8 001ED918  7C 08 03 A6 */	mtlr r0
 /* 801F09BC 001ED91C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F09C0 001ED920  4E 80 00 20 */	blr 
+/* 801F09C0 001ED920  4E 80 00 20 */	blr
 
 .global AnimOver__17CFlaahgraTentacleFR13CStateManagerf
 AnimOver__17CFlaahgraTentacleFR13CStateManagerf:
@@ -928,7 +928,7 @@ AnimOver__17CFlaahgraTentacleFR13CStateManagerf:
 /* 801F09C8 001ED928  20 00 00 03 */	subfic r0, r0, 3
 /* 801F09CC 001ED92C  7C 00 00 34 */	cntlzw r0, r0
 /* 801F09D0 001ED930  54 03 D9 7E */	srwi r3, r0, 5
-/* 801F09D4 001ED934  4E 80 00 20 */	blr 
+/* 801F09D4 001ED934  4E 80 00 20 */	blr
 
 .global ShouldAttack__17CFlaahgraTentacleFR13CStateManagerf
 ShouldAttack__17CFlaahgraTentacleFR13CStateManagerf:
@@ -1001,7 +1001,7 @@ lbl_801F0ACC:
 /* 801F0AD4 001EDA34  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801F0AD8 001EDA38  7C 08 03 A6 */	mtlr r0
 /* 801F0ADC 001EDA3C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F0AE0 001EDA40  4E 80 00 20 */	blr 
+/* 801F0AE0 001EDA40  4E 80 00 20 */	blr
 
 .global Inside__17CFlaahgraTentacleFR13CStateManagerf
 Inside__17CFlaahgraTentacleFR13CStateManagerf:
@@ -1009,7 +1009,7 @@ Inside__17CFlaahgraTentacleFR13CStateManagerf:
 /* 801F0AE8 001EDA48  80 03 02 EC */	lwz r0, 0x2ec(r3)
 /* 801F0AEC 001EDA4C  7C 00 00 34 */	cntlzw r0, r0
 /* 801F0AF0 001EDA50  54 03 D9 7E */	srwi r3, r0, 5
-/* 801F0AF4 001EDA54  4E 80 00 20 */	blr 
+/* 801F0AF4 001EDA54  4E 80 00 20 */	blr
 
 .global Death__17CFlaahgraTentacleFRC9CVector3fR13CStateManager
 Death__17CFlaahgraTentacleFRC9CVector3fR13CStateManager:
@@ -1056,7 +1056,7 @@ lbl_801F0B88:
 /* 801F0B90 001EDAF0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F0B94 001EDAF4  7C 08 03 A6 */	mtlr r0
 /* 801F0B98 001EDAF8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F0B9C 001EDAFC  4E 80 00 20 */	blr 
+/* 801F0B9C 001EDAFC  4E 80 00 20 */	blr
 
 .global GetAimPosition__17CFlaahgraTentacleCFRC13CStateManagerf
 GetAimPosition__17CFlaahgraTentacleCFRC13CStateManagerf:
@@ -1105,7 +1105,7 @@ lbl_801F0C2C:
 /* 801F0C40 001EDBA0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801F0C44 001EDBA4  7C 08 03 A6 */	mtlr r0
 /* 801F0C48 001EDBA8  38 21 00 40 */	addi r1, r1, 0x40
-/* 801F0C4C 001EDBAC  4E 80 00 20 */	blr 
+/* 801F0C4C 001EDBAC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1125,7 +1125,7 @@ AcceptScriptMsg__17CFlaahgraTentacleF20EScriptObjectMessage9TUniqueIdR13CStateMa
 /* 801F0C84 001EDBE4  38 84 66 D4 */	addi r4, r4, lbl_803E66D4@l
 /* 801F0C88 001EDBE8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 801F0C8C 001EDBEC  7C 09 03 A6 */	mtctr r0
-/* 801F0C90 001EDBF0  4E 80 04 20 */	bctr 
+/* 801F0C90 001EDBF0  4E 80 04 20 */	bctr
 .global lbl_801F0C94
 lbl_801F0C94:
 /* 801F0C94 001EDBF4  80 7C 04 50 */	lwz r3, 0x450(r28)
@@ -1212,7 +1212,7 @@ lbl_801F0D10:
 /* 801F0DC8 001EDD28  B0 01 00 1C */	sth r0, 0x1c(r1)
 /* 801F0DCC 001EDD2C  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 801F0DD0 001EDD30  7D 89 03 A6 */	mtctr r12
-/* 801F0DD4 001EDD34  4E 80 04 21 */	bctrl 
+/* 801F0DD4 001EDD34  4E 80 04 21 */	bctrl
 /* 801F0DD8 001EDD38  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 801F0DDC 001EDD3C  7F E3 FB 78 */	mr r3, r31
 /* 801F0DE0 001EDD40  39 24 66 A0 */	addi r9, r4, skZero3f@l
@@ -1262,7 +1262,7 @@ lbl_801F0E40:
 /* 801F0E60 001EDDC0  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801F0E64 001EDDC4  7C 08 03 A6 */	mtlr r0
 /* 801F0E68 001EDDC8  38 21 00 90 */	addi r1, r1, 0x90
-/* 801F0E6C 001EDDCC  4E 80 00 20 */	blr 
+/* 801F0E6C 001EDDCC  4E 80 00 20 */	blr
 
 .global Accept__17CFlaahgraTentacleFR8IVisitor
 Accept__17CFlaahgraTentacleFR8IVisitor:
@@ -1275,11 +1275,11 @@ Accept__17CFlaahgraTentacleFR8IVisitor:
 /* 801F0E88 001EDDE8  7C 04 03 78 */	mr r4, r0
 /* 801F0E8C 001EDDEC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801F0E90 001EDDF0  7D 89 03 A6 */	mtctr r12
-/* 801F0E94 001EDDF4  4E 80 04 21 */	bctrl 
+/* 801F0E94 001EDDF4  4E 80 04 21 */	bctrl
 /* 801F0E98 001EDDF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F0E9C 001EDDFC  7C 08 03 A6 */	mtlr r0
 /* 801F0EA0 001EDE00  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F0EA4 001EDE04  4E 80 00 20 */	blr 
+/* 801F0EA4 001EDE04  4E 80 00 20 */	blr
 
 .global Think__17CFlaahgraTentacleFfR13CStateManager
 Think__17CFlaahgraTentacleFfR13CStateManager:
@@ -1323,7 +1323,7 @@ lbl_801F0F24:
 /* 801F0F34 001EDE94  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F0F38 001EDE98  7C 08 03 A6 */	mtlr r0
 /* 801F0F3C 001EDE9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F0F40 001EDEA0  4E 80 00 20 */	blr 
+/* 801F0F40 001EDEA0  4E 80 00 20 */	blr
 
 .global __dt__17CFlaahgraTentacleFv
 __dt__17CFlaahgraTentacleFv:
@@ -1358,7 +1358,7 @@ lbl_801F0FA0:
 /* 801F0FAC 001EDF0C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F0FB0 001EDF10  7C 08 03 A6 */	mtlr r0
 /* 801F0FB4 001EDF14  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F0FB8 001EDF18  4E 80 00 20 */	blr 
+/* 801F0FB8 001EDF18  4E 80 00 20 */	blr
 
 .global "__ct__17CFlaahgraTentacleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParameters"
 "__ct__17CFlaahgraTentacleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParameters":

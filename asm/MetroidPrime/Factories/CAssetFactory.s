@@ -22,18 +22,18 @@ lbl_803D9CA8:
 	.4byte sub_80034c54
 	.4byte 0
 
-	
+
 .section .text, "ax"
 
 .global CanBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag
 CanBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag:
 /* 8003484C 000317AC  38 60 00 01 */	li r3, 1
-/* 80034850 000317B0  4E 80 00 20 */	blr 
+/* 80034850 000317B0  4E 80 00 20 */	blr
 
 .global GetResourceIdByName__Q224CCharacterFactoryBuilder13CDummyFactoryCFPCc
 GetResourceIdByName__Q224CCharacterFactoryBuilder13CDummyFactoryCFPCc:
 /* 80034854 000317B4  38 60 00 00 */	li r3, 0
-/* 80034858 000317B8  4E 80 00 20 */	blr 
+/* 80034858 000317B8  4E 80 00 20 */	blr
 
 .global __dt__Q224CCharacterFactoryBuilder13CDummyFactoryFv
 __dt__Q224CCharacterFactoryBuilder13CDummyFactoryFv:
@@ -61,7 +61,7 @@ lbl_800348A0:
 /* 800348A8 00031808  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800348AC 0003180C  7C 08 03 A6 */	mtlr r0
 /* 800348B0 00031810  38 21 00 10 */	addi r1, r1, 0x10
-/* 800348B4 00031814  4E 80 00 20 */	blr 
+/* 800348B4 00031814  4E 80 00 20 */	blr
 
 .global GetFactory__24CCharacterFactoryBuilderFRC8CAnimRes
 GetFactory__24CCharacterFactoryBuilderFRC8CAnimRes:
@@ -88,7 +88,7 @@ GetFactory__24CCharacterFactoryBuilderFRC8CAnimRes:
 /* 80034908 00031868  81 9E 00 04 */	lwz r12, 4(r30)
 /* 8003490C 0003186C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80034910 00031870  7D 89 03 A6 */	mtctr r12
-/* 80034914 00031874  4E 80 04 21 */	bctrl 
+/* 80034914 00031874  4E 80 04 21 */	bctrl
 /* 80034918 00031878  7F A3 EB 78 */	mr r3, r29
 /* 8003491C 0003187C  38 81 00 0C */	addi r4, r1, 0xc
 /* 80034920 00031880  48 30 C5 89 */	bl __ct__6CTokenFRC6CToken
@@ -103,7 +103,7 @@ GetFactory__24CCharacterFactoryBuilderFRC8CAnimRes:
 /* 80034944 000318A4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80034948 000318A8  7C 08 03 A6 */	mtlr r0
 /* 8003494C 000318AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80034950 000318B0  4E 80 00 20 */	blr 
+/* 80034950 000318B0  4E 80 00 20 */	blr
 
 .global Null__15CVParamTransferFv
 Null__15CVParamTransferFv:
@@ -113,7 +113,7 @@ Null__15CVParamTransferFv:
 /* 80034960 000318C0  80 64 00 04 */	lwz r3, 4(r4)
 /* 80034964 000318C4  38 03 00 01 */	addi r0, r3, 1
 /* 80034968 000318C8  90 04 00 04 */	stw r0, 4(r4)
-/* 8003496C 000318CC  4E 80 00 20 */	blr 
+/* 8003496C 000318CC  4E 80 00 20 */	blr
 
 .global __dt__24CCharacterFactoryBuilderFv
 __dt__24CCharacterFactoryBuilderFv:
@@ -149,7 +149,7 @@ lbl_800349D0:
 /* 800349DC 0003193C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800349E0 00031940  7C 08 03 A6 */	mtlr r0
 /* 800349E4 00031944  38 21 00 10 */	addi r1, r1, 0x10
-/* 800349E8 00031948  4E 80 00 20 */	blr 
+/* 800349E8 00031948  4E 80 00 20 */	blr
 
 .global __ct__24CCharacterFactoryBuilderFv
 __ct__24CCharacterFactoryBuilderFv:
@@ -173,11 +173,11 @@ __ct__24CCharacterFactoryBuilderFv:
 /* 80034A30 00031990  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80034A34 00031994  7C 08 03 A6 */	mtlr r0
 /* 80034A38 00031998  38 21 00 10 */	addi r1, r1, 0x10
-/* 80034A3C 0003199C  4E 80 00 20 */	blr 
+/* 80034A3C 0003199C  4E 80 00 20 */	blr
 
 .global CancelBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag
 CancelBuild__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTag:
-/* 80034A40 000319A0  4E 80 00 20 */	blr 
+/* 80034A40 000319A0  4E 80 00 20 */	blr
 
 .global BuildAsync__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTransferPP4IObj
 BuildAsync__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTransferPP4IObj:
@@ -195,7 +195,7 @@ BuildAsync__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVPara
 /* 80034A70 000319D0  38 61 00 08 */	addi r3, r1, 8
 /* 80034A74 000319D4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80034A78 000319D8  7D 89 03 A6 */	mtctr r12
-/* 80034A7C 000319DC  4E 80 04 21 */	bctrl 
+/* 80034A7C 000319DC  4E 80 04 21 */	bctrl
 /* 80034A80 000319E0  38 00 00 00 */	li r0, 0
 /* 80034A84 000319E4  80 61 00 0C */	lwz r3, 0xc(r1)
 /* 80034A88 000319E8  98 01 00 08 */	stb r0, 8(r1)
@@ -210,13 +210,13 @@ BuildAsync__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVPara
 /* 80034AAC 00031A0C  38 80 00 01 */	li r4, 1
 /* 80034AB0 00031A10  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80034AB4 00031A14  7D 89 03 A6 */	mtctr r12
-/* 80034AB8 00031A18  4E 80 04 21 */	bctrl 
+/* 80034AB8 00031A18  4E 80 04 21 */	bctrl
 lbl_80034ABC:
 /* 80034ABC 00031A1C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80034AC0 00031A20  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80034AC4 00031A24  7C 08 03 A6 */	mtlr r0
 /* 80034AC8 00031A28  38 21 00 20 */	addi r1, r1, 0x20
-/* 80034ACC 00031A2C  4E 80 00 20 */	blr 
+/* 80034ACC 00031A2C  4E 80 00 20 */	blr
 
 .global Build__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTransfer
 Build__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTransfer:
@@ -238,7 +238,7 @@ Build__Q224CCharacterFactoryBuilder13CDummyFactoryFRC10SObjectTagRC15CVParamTran
 /* 80034B0C 00031A6C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80034B10 00031A70  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80034B14 00031A74  7D 89 03 A6 */	mtctr r12
-/* 80034B18 00031A78  4E 80 04 21 */	bctrl 
+/* 80034B18 00031A78  4E 80 04 21 */	bctrl
 /* 80034B1C 00031A7C  38 61 00 30 */	addi r3, r1, 0x30
 /* 80034B20 00031A80  38 81 00 20 */	addi r4, r1, 0x20
 /* 80034B24 00031A84  48 30 C3 85 */	bl __ct__6CTokenFRC6CToken
@@ -283,7 +283,7 @@ lbl_80034B70:
 /* 80034BBC 00031B1C  38 80 00 01 */	li r4, 1
 /* 80034BC0 00031B20  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80034BC4 00031B24  7D 89 03 A6 */	mtctr r12
-/* 80034BC8 00031B28  4E 80 04 21 */	bctrl 
+/* 80034BC8 00031B28  4E 80 04 21 */	bctrl
 lbl_80034BCC:
 /* 80034BCC 00031B2C  88 01 00 08 */	lbz r0, 8(r1)
 /* 80034BD0 00031B30  28 00 00 00 */	cmplwi r0, 0
@@ -295,7 +295,7 @@ lbl_80034BCC:
 /* 80034BE8 00031B48  38 80 00 01 */	li r4, 1
 /* 80034BEC 00031B4C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80034BF0 00031B50  7D 89 03 A6 */	mtctr r12
-/* 80034BF4 00031B54  4E 80 04 21 */	bctrl 
+/* 80034BF4 00031B54  4E 80 04 21 */	bctrl
 lbl_80034BF8:
 /* 80034BF8 00031B58  88 81 00 18 */	lbz r4, 0x18(r1)
 /* 80034BFC 00031B5C  38 00 00 00 */	li r0, 0
@@ -309,7 +309,7 @@ lbl_80034BF8:
 /* 80034C1C 00031B7C  38 80 00 01 */	li r4, 1
 /* 80034C20 00031B80  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80034C24 00031B84  7D 89 03 A6 */	mtctr r12
-/* 80034C28 00031B88  4E 80 04 21 */	bctrl 
+/* 80034C28 00031B88  4E 80 04 21 */	bctrl
 lbl_80034C2C:
 /* 80034C2C 00031B8C  38 61 00 30 */	addi r3, r1, 0x30
 /* 80034C30 00031B90  38 80 00 00 */	li r4, 0
@@ -320,7 +320,7 @@ lbl_80034C2C:
 /* 80034C44 00031BA4  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80034C48 00031BA8  7C 08 03 A6 */	mtlr r0
 /* 80034C4C 00031BAC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80034C50 00031BB0  4E 80 00 20 */	blr 
+/* 80034C50 00031BB0  4E 80 00 20 */	blr
 
 .global sub_80034c54
 sub_80034c54:
@@ -343,7 +343,7 @@ sub_80034c54:
 /* 80034C94 00031BF4  38 80 00 01 */	li r4, 1
 /* 80034C98 00031BF8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80034C9C 00031BFC  7D 89 03 A6 */	mtctr r12
-/* 80034CA0 00031C00  4E 80 04 21 */	bctrl 
+/* 80034CA0 00031C00  4E 80 04 21 */	bctrl
 lbl_80034CA4:
 /* 80034CA4 00031C04  28 1E 00 00 */	cmplwi r30, 0
 /* 80034CA8 00031C08  41 82 00 20 */	beq lbl_80034CC8
@@ -366,7 +366,7 @@ lbl_80034CD8:
 /* 80034CE4 00031C44  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80034CE8 00031C48  7C 08 03 A6 */	mtlr r0
 /* 80034CEC 00031C4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80034CF0 00031C50  4E 80 00 20 */	blr 
+/* 80034CF0 00031C50  4E 80 00 20 */	blr
 
 .global sub_80034cf4
 sub_80034cf4:
@@ -380,7 +380,7 @@ sub_80034cf4:
 /* 80034D10 00031C70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80034D14 00031C74  7C 08 03 A6 */	mtlr r0
 /* 80034D18 00031C78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80034D1C 00031C7C  4E 80 00 20 */	blr 
+/* 80034D1C 00031C7C  4E 80 00 20 */	blr
 
 .global sub_80034d20
 sub_80034d20:
@@ -423,7 +423,7 @@ lbl_80034D90:
 /* 80034DAC 00031D0C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80034DB0 00031D10  7C 08 03 A6 */	mtlr r0
 /* 80034DB4 00031D14  38 21 00 10 */	addi r1, r1, 0x10
-/* 80034DB8 00031D18  4E 80 00 20 */	blr 
+/* 80034DB8 00031D18  4E 80 00 20 */	blr
 
 .global sub_80034dbc
 sub_80034dbc:
@@ -445,4 +445,4 @@ lbl_80034DEC:
 /* 80034DF4 00031D54  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80034DF8 00031D58  7C 08 03 A6 */	mtlr r0
 /* 80034DFC 00031D5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80034E00 00031D60  4E 80 00 20 */	blr 
+/* 80034E00 00031D60  4E 80 00 20 */	blr

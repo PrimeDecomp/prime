@@ -6,12 +6,12 @@ lbl_805A9740:
 lbl_805A9744:
 	.skip 0x4
 
-	
+
 .section .data
 .global lbl_803EF9B8
 lbl_803EF9B8:
 	.asciz "DBExceptionDestination\n"
-	
+
 .section .text, "ax"
 
 .global DBInit
@@ -25,7 +25,7 @@ DBInit:
 /* 8036F8E4 0036C844  90 04 00 48 */	stw r0, 0x48(r4)
 /* 8036F8E8 0036C848  38 00 00 01 */	li r0, 1
 /* 8036F8EC 0036C84C  90 0D AB 84 */	stw r0, lbl_805A9744@sda21(r13)
-/* 8036F8F0 0036C850  4E 80 00 20 */	blr 
+/* 8036F8F0 0036C850  4E 80 00 20 */	blr
 
 .global __DBExceptionDestinationAux
 __DBExceptionDestinationAux:
@@ -46,7 +46,7 @@ __DBExceptionDestinationAux:
 /* 8036F92C 0036C88C  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 8036F930 0036C890  38 21 00 18 */	addi r1, r1, 0x18
 /* 8036F934 0036C894  7C 08 03 A6 */	mtlr r0
-/* 8036F938 0036C898  4E 80 00 20 */	blr 
+/* 8036F938 0036C898  4E 80 00 20 */	blr
 
 .global __DBExceptionDestination
 __DBExceptionDestination:
@@ -63,7 +63,7 @@ __DBIsExceptionMarked:
 /* 8036F958 0036C8B8  80 84 00 04 */	lwz r4, 4(r4)
 /* 8036F95C 0036C8BC  7C 60 00 30 */	slw r0, r3, r0
 /* 8036F960 0036C8C0  7C 83 00 38 */	and r3, r4, r0
-/* 8036F964 0036C8C4  4E 80 00 20 */	blr 
+/* 8036F964 0036C8C4  4E 80 00 20 */	blr
 
 .global DBPrintf
 DBPrintf:
@@ -87,4 +87,4 @@ lbl_8036F990:
 /* 8036F9A8 0036C908  91 21 00 20 */	stw r9, 0x20(r1)
 /* 8036F9AC 0036C90C  91 41 00 24 */	stw r10, 0x24(r1)
 /* 8036F9B0 0036C910  38 21 00 70 */	addi r1, r1, 0x70
-/* 8036F9B4 0036C914  4E 80 00 20 */	blr 
+/* 8036F9B4 0036C914  4E 80 00 20 */	blr

@@ -221,7 +221,7 @@ lbl_80130320:
 /* 80130330 0012D290  81 84 00 00 */	lwz r12, 0(r4)
 /* 80130334 0012D294  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80130338 0012D298  7D 89 03 A6 */	mtctr r12
-/* 8013033C 0012D29C  4E 80 04 21 */	bctrl 
+/* 8013033C 0012D29C  4E 80 04 21 */	bctrl
 /* 80130340 0012D2A0  C0 21 00 18 */	lfs f1, 0x18(r1)
 /* 80130344 0012D2A4  38 61 00 08 */	addi r3, r1, 8
 /* 80130348 0012D2A8  C0 1F 00 50 */	lfs f0, 0x50(r31)
@@ -261,7 +261,7 @@ lbl_801303C8:
 /* 801303CC 0012D32C  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 801303D0 0012D330  7C 08 03 A6 */	mtlr r0
 /* 801303D4 0012D334  38 21 00 50 */	addi r1, r1, 0x50
-/* 801303D8 0012D338  4E 80 00 20 */	blr 
+/* 801303D8 0012D338  4E 80 00 20 */	blr
 
 .global InPosition__11CFlickerBatFR13CStateManagerf
 InPosition__11CFlickerBatFR13CStateManagerf:
@@ -277,7 +277,7 @@ InPosition__11CFlickerBatFR13CStateManagerf:
 /* 80130400 0012D360  81 84 00 00 */	lwz r12, 0(r4)
 /* 80130404 0012D364  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80130408 0012D368  7D 89 03 A6 */	mtctr r12
-/* 8013040C 0012D36C  4E 80 04 21 */	bctrl 
+/* 8013040C 0012D36C  4E 80 04 21 */	bctrl
 /* 80130410 0012D370  C0 21 00 18 */	lfs f1, 0x18(r1)
 /* 80130414 0012D374  C0 1F 00 50 */	lfs f0, 0x50(r31)
 /* 80130418 0012D378  C0 DF 00 48 */	lfs f6, 0x48(r31)
@@ -304,7 +304,7 @@ InPosition__11CFlickerBatFR13CStateManagerf:
 /* 8013046C 0012D3CC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80130470 0012D3D0  7C 08 03 A6 */	mtlr r0
 /* 80130474 0012D3D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80130478 0012D3D8  4E 80 00 20 */	blr 
+/* 80130478 0012D3D8  4E 80 00 20 */	blr
 
 .global Render__11CFlickerBatCFRC13CStateManager
 Render__11CFlickerBatCFRC13CStateManager:
@@ -394,7 +394,7 @@ lbl_801305A4:
 /* 801305AC 0012D50C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801305B0 0012D510  7C 08 03 A6 */	mtlr r0
 /* 801305B4 0012D514  38 21 00 30 */	addi r1, r1, 0x30
-/* 801305B8 0012D518  4E 80 00 20 */	blr 
+/* 801305B8 0012D518  4E 80 00 20 */	blr
 
 .global Patrol__11CFlickerBatFR13CStateManager9EStateMsgf
 Patrol__11CFlickerBatFR13CStateManager9EStateMsgf:
@@ -430,7 +430,7 @@ Patrol__11CFlickerBatFR13CStateManager9EStateMsgf:
 /* 80130630 0012D590  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80130634 0012D594  7C 08 03 A6 */	mtlr r0
 /* 80130638 0012D598  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013063C 0012D59C  4E 80 00 20 */	blr 
+/* 8013063C 0012D59C  4E 80 00 20 */	blr
 
 .global Shuffle__11CFlickerBatFR13CStateManager9EStateMsgf
 Shuffle__11CFlickerBatFR13CStateManager9EStateMsgf:
@@ -493,7 +493,7 @@ lbl_801306FC:
 /* 80130714 0012D674  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80130718 0012D678  7C 08 03 A6 */	mtlr r0
 /* 8013071C 0012D67C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80130720 0012D680  4E 80 00 20 */	blr 
+/* 80130720 0012D680  4E 80 00 20 */	blr
 
 .global Taunt__11CFlickerBatFR13CStateManager9EStateMsgf
 Taunt__11CFlickerBatFR13CStateManager9EStateMsgf:
@@ -517,7 +517,7 @@ lbl_8013075C:
 /* 80130760 0012D6C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80130764 0012D6C4  7C 08 03 A6 */	mtlr r0
 /* 80130768 0012D6C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013076C 0012D6CC  4E 80 00 20 */	blr 
+/* 8013076C 0012D6CC  4E 80 00 20 */	blr
 
 .global HearShot__11CFlickerBatFR13CStateManagerf
 HearShot__11CFlickerBatFR13CStateManagerf:
@@ -528,17 +528,17 @@ HearShot__11CFlickerBatFR13CStateManagerf:
 /* 80130780 0012D6E0  50 04 36 72 */	rlwimi r4, r0, 6, 0x19, 0x19
 /* 80130784 0012D6E4  98 83 05 80 */	stb r4, 0x580(r3)
 /* 80130788 0012D6E8  38 60 00 01 */	li r3, 1
-/* 8013078C 0012D6EC  4E 80 00 20 */	blr 
+/* 8013078C 0012D6EC  4E 80 00 20 */	blr
 lbl_80130790:
 /* 80130790 0012D6F0  38 60 00 00 */	li r3, 0
-/* 80130794 0012D6F4  4E 80 00 20 */	blr 
+/* 80130794 0012D6F4  4E 80 00 20 */	blr
 
 .global SetHeardShot__11CFlickerBatFb
 SetHeardShot__11CFlickerBatFb:
 /* 80130798 0012D6F8  88 03 05 80 */	lbz r0, 0x580(r3)
 /* 8013079C 0012D6FC  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 801307A0 0012D700  98 03 05 80 */	stb r0, 0x580(r3)
-/* 801307A4 0012D704  4E 80 00 20 */	blr 
+/* 801307A4 0012D704  4E 80 00 20 */	blr
 
 .global NotifyNeighbors__11CFlickerBatFR13CStateManager
 NotifyNeighbors__11CFlickerBatFR13CStateManager:
@@ -616,7 +616,7 @@ lbl_80130884:
 /* 801308B4 0012D814  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801308B8 0012D818  7C 08 03 A6 */	mtlr r0
 /* 801308BC 0012D81C  38 21 00 60 */	addi r1, r1, 0x60
-/* 801308C0 0012D820  4E 80 00 20 */	blr 
+/* 801308C0 0012D820  4E 80 00 20 */	blr
 
 .global CanBeShot__11CFlickerBatFRC13CStateManageri
 CanBeShot__11CFlickerBatFRC13CStateManageri:
@@ -658,7 +658,7 @@ lbl_80130930:
 /* 80130944 0012D8A4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80130948 0012D8A8  7C 08 03 A6 */	mtlr r0
 /* 8013094C 0012D8AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80130950 0012D8B0  4E 80 00 20 */	blr 
+/* 80130950 0012D8B0  4E 80 00 20 */	blr
 
 .global Touch__11CFlickerBatFR6CActorR13CStateManager
 Touch__11CFlickerBatFR6CActorR13CStateManager:
@@ -707,7 +707,7 @@ Touch__11CFlickerBatFR6CActorR13CStateManager:
 /* 801309FC 0012D95C  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80130A00 0012D960  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 80130A04 0012D964  7D 89 03 A6 */	mtctr r12
-/* 80130A08 0012D968  4E 80 04 21 */	bctrl 
+/* 80130A08 0012D968  4E 80 04 21 */	bctrl
 /* 80130A0C 0012D96C  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 80130A10 0012D970  7F C3 F3 78 */	mr r3, r30
 /* 80130A14 0012D974  39 24 66 A0 */	addi r9, r4, skZero3f@l
@@ -731,7 +731,7 @@ lbl_80130A38:
 /* 80130A58 0012D9B8  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 80130A5C 0012D9BC  7C 08 03 A6 */	mtlr r0
 /* 80130A60 0012D9C0  38 21 00 70 */	addi r1, r1, 0x70
-/* 80130A64 0012D9C4  4E 80 00 20 */	blr 
+/* 80130A64 0012D9C4  4E 80 00 20 */	blr
 
 .global Think__11CFlickerBatFfR13CStateManager
 Think__11CFlickerBatFfR13CStateManager:
@@ -925,7 +925,7 @@ lbl_80130CF4:
 /* 80130D18 0012DC78  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80130D1C 0012DC7C  7C 08 03 A6 */	mtlr r0
 /* 80130D20 0012DC80  38 21 00 50 */	addi r1, r1, 0x50
-/* 80130D24 0012DC84  4E 80 00 20 */	blr 
+/* 80130D24 0012DC84  4E 80 00 20 */	blr
 
 .global Death__11CFlickerBatFRC9CVector3fR13CStateManager
 Death__11CFlickerBatFRC9CVector3fR13CStateManager:
@@ -958,7 +958,7 @@ Death__11CFlickerBatFRC9CVector3fR13CStateManager:
 /* 80130D90 0012DCF0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80130D94 0012DCF4  7C 08 03 A6 */	mtlr r0
 /* 80130D98 0012DCF8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80130D9C 0012DCFC  4E 80 00 20 */	blr 
+/* 80130D9C 0012DCFC  4E 80 00 20 */	blr
 
 .global sub_80130da0
 sub_80130da0:
@@ -1048,7 +1048,7 @@ lbl_80130ED4:
 /* 80130EE4 0012DE44  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80130EE8 0012DE48  7C 08 03 A6 */	mtlr r0
 /* 80130EEC 0012DE4C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80130EF0 0012DE50  4E 80 00 20 */	blr 
+/* 80130EF0 0012DE50  4E 80 00 20 */	blr
 
 .global FlickerBatStateChanged__11CFlickerBatFQ211CFlickerBat16EFlickerBatStateR13CStateManager
 FlickerBatStateChanged__11CFlickerBatFQ211CFlickerBat16EFlickerBatStateR13CStateManager:
@@ -1132,12 +1132,12 @@ lbl_80130FFC:
 /* 80131004 0012DF64  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80131008 0012DF68  7C 08 03 A6 */	mtlr r0
 /* 8013100C 0012DF6C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80131010 0012DF70  4E 80 00 20 */	blr 
+/* 80131010 0012DF70  4E 80 00 20 */	blr
 
 .global GetFlickerBatState__11CFlickerBatCFv
 GetFlickerBatState__11CFlickerBatCFv:
 /* 80131014 0012DF74  80 63 05 74 */	lwz r3, 0x574(r3)
-/* 80131018 0012DF78  4E 80 00 20 */	blr 
+/* 80131018 0012DF78  4E 80 00 20 */	blr
 
 .global SetFlickerBatState__11CFlickerBatFQ211CFlickerBat16EFlickerBatStateR13CStateManager
 SetFlickerBatState__11CFlickerBatFQ211CFlickerBat16EFlickerBatStateR13CStateManager:
@@ -1159,7 +1159,7 @@ lbl_8013104C:
 /* 80131054 0012DFB4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80131058 0012DFB8  7C 08 03 A6 */	mtlr r0
 /* 8013105C 0012DFBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80131060 0012DFC0  4E 80 00 20 */	blr 
+/* 80131060 0012DFC0  4E 80 00 20 */	blr
 
 .global sub_80131064
 sub_80131064:
@@ -1199,7 +1199,7 @@ lbl_801310C0:
 /* 801310DC 0012E03C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801310E0 0012E040  7C 08 03 A6 */	mtlr r0
 /* 801310E4 0012E044  38 21 00 10 */	addi r1, r1, 0x10
-/* 801310E8 0012E048  4E 80 00 20 */	blr 
+/* 801310E8 0012E048  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__11CFlickerBatFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__11CFlickerBatFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -1235,7 +1235,7 @@ lbl_8013114C:
 /* 80131154 0012E0B4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80131158 0012E0B8  7C 08 03 A6 */	mtlr r0
 /* 8013115C 0012E0BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80131160 0012E0C0  4E 80 00 20 */	blr 
+/* 80131160 0012E0C0  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CFlickerBatF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CFlickerBatF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1308,7 +1308,7 @@ lbl_80131250:
 /* 80131254 0012E1B4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80131258 0012E1B8  7C 08 03 A6 */	mtlr r0
 /* 8013125C 0012E1BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80131260 0012E1C0  4E 80 00 20 */	blr 
+/* 80131260 0012E1C0  4E 80 00 20 */	blr
 
 .global Accept__11CFlickerBatFR8IVisitor
 Accept__11CFlickerBatFR8IVisitor:
@@ -1321,11 +1321,11 @@ Accept__11CFlickerBatFR8IVisitor:
 /* 8013127C 0012E1DC  7C 04 03 78 */	mr r4, r0
 /* 80131280 0012E1E0  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80131284 0012E1E4  7D 89 03 A6 */	mtctr r12
-/* 80131288 0012E1E8  4E 80 04 21 */	bctrl 
+/* 80131288 0012E1E8  4E 80 04 21 */	bctrl
 /* 8013128C 0012E1EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80131290 0012E1F0  7C 08 03 A6 */	mtlr r0
 /* 80131294 0012E1F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80131298 0012E1F8  4E 80 00 20 */	blr 
+/* 80131298 0012E1F8  4E 80 00 20 */	blr
 
 .global __dt__11CFlickerBatFv
 __dt__11CFlickerBatFv:
@@ -1353,7 +1353,7 @@ lbl_801312E0:
 /* 801312EC 0012E24C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801312F0 0012E250  7C 08 03 A6 */	mtlr r0
 /* 801312F4 0012E254  38 21 00 10 */	addi r1, r1, 0x10
-/* 801312F8 0012E258  4E 80 00 20 */	blr 
+/* 801312F8 0012E258  4E 80 00 20 */	blr
 
 .global "__ct__11CFlickerBatF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EColliderTypebRC16CActorParameters"
 "__ct__11CFlickerBatF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EColliderTypebRC16CActorParameters":

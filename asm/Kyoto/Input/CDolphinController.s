@@ -39,13 +39,13 @@ lbl_8034F074:
 /* 8034F07C 0034BFDC  48 00 00 0C */	b lbl_8034F088
 lbl_8034F080:
 /* 8034F080 0034BFE0  C0 22 CC 70 */	lfs f1, lbl_805AE990@sda21(r2)
-/* 8034F084 0034BFE4  4E 80 00 20 */	blr 
+/* 8034F084 0034BFE4  4E 80 00 20 */	blr
 lbl_8034F088:
 /* 8034F088 0034BFE8  C0 22 CC 74 */	lfs f1, lbl_805AE994@sda21(r2)
-/* 8034F08C 0034BFEC  4E 80 00 20 */	blr 
+/* 8034F08C 0034BFEC  4E 80 00 20 */	blr
 lbl_8034F090:
 /* 8034F090 0034BFF0  C0 22 CC 78 */	lfs f1, lbl_805AE998@sda21(r2)
-/* 8034F094 0034BFF4  4E 80 00 20 */	blr 
+/* 8034F094 0034BFF4  4E 80 00 20 */	blr
 
 .global SetMotorState__18CDolphinControllerF7EIOPort11EMotorState
 SetMotorState__18CDolphinControllerF7EIOPort11EMotorState:
@@ -60,14 +60,14 @@ SetMotorState__18CDolphinControllerF7EIOPort11EMotorState:
 /* 8034F0B8 0034C018  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034F0BC 0034C01C  7C 08 03 A6 */	mtlr r0
 /* 8034F0C0 0034C020  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F0C4 0034C024  4E 80 00 20 */	blr 
+/* 8034F0C4 0034C024  4E 80 00 20 */	blr
 
 .global GetControllerType__18CDolphinControllerFi
 GetControllerType__18CDolphinControllerFi:
 /* 8034F0C8 0034C028  54 80 10 3A */	slwi r0, r4, 2
 /* 8034F0CC 0034C02C  7C 63 02 14 */	add r3, r3, r0
 /* 8034F0D0 0034C030  80 63 01 A4 */	lwz r3, 0x1a4(r3)
-/* 8034F0D4 0034C034  4E 80 00 20 */	blr 
+/* 8034F0D4 0034C034  4E 80 00 20 */	blr
 
 .global GetGamepadData__18CDolphinControllerFi
 GetGamepadData__18CDolphinControllerFi:
@@ -75,12 +75,12 @@ GetGamepadData__18CDolphinControllerFi:
 /* 8034F0DC 0034C03C  7C 60 1B 78 */	mr r0, r3
 /* 8034F0E0 0034C040  38 64 00 34 */	addi r3, r4, 0x34
 /* 8034F0E4 0034C044  7C 60 1A 14 */	add r3, r0, r3
-/* 8034F0E8 0034C048  4E 80 00 20 */	blr 
+/* 8034F0E8 0034C048  4E 80 00 20 */	blr
 
 .global GetDeviceCount__18CDolphinControllerCFv
 GetDeviceCount__18CDolphinControllerCFv:
 /* 8034F0EC 0034C04C  38 60 00 04 */	li r3, 4
-/* 8034F0F0 0034C050  4E 80 00 20 */	blr 
+/* 8034F0F0 0034C050  4E 80 00 20 */	blr
 
 .global ProcessAnalogButton__18CDolphinControllerFfR15CControllerAxis
 ProcessAnalogButton__18CDolphinControllerFfR15CControllerAxis:
@@ -100,7 +100,7 @@ lbl_8034F10C:
 lbl_8034F124:
 /* 8034F124 0034C084  D0 04 00 00 */	stfs f0, 0(r4)
 /* 8034F128 0034C088  D0 64 00 04 */	stfs f3, 4(r4)
-/* 8034F12C 0034C08C  4E 80 00 20 */	blr 
+/* 8034F12C 0034C08C  4E 80 00 20 */	blr
 
 .global ProcessDigitalButton__18CDolphinControllerFiR17CControllerButtonUs
 ProcessDigitalButton__18CDolphinControllerFiR17CControllerButtonUs:
@@ -129,7 +129,7 @@ ProcessDigitalButton__18CDolphinControllerFiR17CControllerButtonUs:
 /* 8034F188 0034C0E8  54 00 DE 3E */	rlwinm r0, r0, 0x1b, 0x18, 0x1f
 /* 8034F18C 0034C0EC  98 05 00 02 */	stb r0, 2(r5)
 /* 8034F190 0034C0F0  98 65 00 00 */	stb r3, 0(r5)
-/* 8034F194 0034C0F4  4E 80 00 20 */	blr 
+/* 8034F194 0034C0F4  4E 80 00 20 */	blr
 
 .global ProcessButtons__18CDolphinControllerFi
 ProcessButtons__18CDolphinControllerFi:
@@ -185,7 +185,7 @@ lbl_8034F1CC:
 /* 8034F258 0034C1B8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8034F25C 0034C1BC  7C 08 03 A6 */	mtlr r0
 /* 8034F260 0034C1C0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8034F264 0034C1C4  4E 80 00 20 */	blr 
+/* 8034F264 0034C1C4  4E 80 00 20 */	blr
 
 .global ProcessAxis__18CDolphinControllerFi8EJoyAxis
 ProcessAxis__18CDolphinControllerFi8EJoyAxis:
@@ -305,7 +305,7 @@ lbl_8034F3F0:
 /* 8034F404 0034C364  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034F408 0034C368  7C 08 03 A6 */	mtlr r0
 /* 8034F40C 0034C36C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034F410 0034C370  4E 80 00 20 */	blr 
+/* 8034F410 0034C370  4E 80 00 20 */	blr
 
 .global ProcessInputData__18CDolphinControllerFv
 ProcessInputData__18CDolphinControllerFv:
@@ -352,7 +352,7 @@ lbl_8034F490:
 /* 8034F4AC 0034C40C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034F4B0 0034C410  7C 08 03 A6 */	mtlr r0
 /* 8034F4B4 0034C414  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034F4B8 0034C418  4E 80 00 20 */	blr 
+/* 8034F4B8 0034C418  4E 80 00 20 */	blr
 
 .global ReadDevices__18CDolphinControllerFv
 ReadDevices__18CDolphinControllerFv:
@@ -466,7 +466,7 @@ lbl_8034F638:
 /* 8034F63C 0034C59C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8034F640 0034C5A0  7C 08 03 A6 */	mtlr r0
 /* 8034F644 0034C5A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8034F648 0034C5A8  4E 80 00 20 */	blr 
+/* 8034F648 0034C5A8  4E 80 00 20 */	blr
 
 .global Poll__18CDolphinControllerFv
 Poll__18CDolphinControllerFv:
@@ -482,7 +482,7 @@ Poll__18CDolphinControllerFv:
 /* 8034F670 0034C5D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034F674 0034C5D4  7C 08 03 A6 */	mtlr r0
 /* 8034F678 0034C5D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F67C 0034C5DC  4E 80 00 20 */	blr 
+/* 8034F67C 0034C5DC  4E 80 00 20 */	blr
 
 .global Initialize__18CDolphinControllerFv
 Initialize__18CDolphinControllerFv:
@@ -521,13 +521,13 @@ Initialize__18CDolphinControllerFv:
 /* 8034F700 0034C660  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8034F704 0034C664  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8034F708 0034C668  7D 89 03 A6 */	mtctr r12
-/* 8034F70C 0034C66C  4E 80 04 21 */	bctrl 
+/* 8034F70C 0034C66C  4E 80 04 21 */	bctrl
 /* 8034F710 0034C670  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034F714 0034C674  38 60 00 01 */	li r3, 1
 /* 8034F718 0034C678  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034F71C 0034C67C  7C 08 03 A6 */	mtlr r0
 /* 8034F720 0034C680  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F724 0034C684  4E 80 00 20 */	blr 
+/* 8034F724 0034C684  4E 80 00 20 */	blr
 
 .global __dt__18CDolphinControllerFv
 __dt__18CDolphinControllerFv:
@@ -555,7 +555,7 @@ lbl_8034F76C:
 /* 8034F778 0034C6D8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034F77C 0034C6DC  7C 08 03 A6 */	mtlr r0
 /* 8034F780 0034C6E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F784 0034C6E4  4E 80 00 20 */	blr 
+/* 8034F784 0034C6E4  4E 80 00 20 */	blr
 
 .global __ct__18CDolphinControllerFv
 __ct__18CDolphinControllerFv:
@@ -636,7 +636,7 @@ __ct__22CControllerGamepadDataFv:
 /* 8034F89C 0034C7FC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034F8A0 0034C800  7C 08 03 A6 */	mtlr r0
 /* 8034F8A4 0034C804  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F8A8 0034C808  4E 80 00 20 */	blr 
+/* 8034F8A8 0034C808  4E 80 00 20 */	blr
 
 .global __ct__17CControllerButtonFv
 __ct__17CControllerButtonFv:
@@ -644,7 +644,7 @@ __ct__17CControllerButtonFv:
 /* 8034F8B0 0034C810  98 03 00 00 */	stb r0, 0(r3)
 /* 8034F8B4 0034C814  98 03 00 01 */	stb r0, 1(r3)
 /* 8034F8B8 0034C818  98 03 00 02 */	stb r0, 2(r3)
-/* 8034F8BC 0034C81C  4E 80 00 20 */	blr 
+/* 8034F8BC 0034C81C  4E 80 00 20 */	blr
 
 .global __ct__15CControllerAxisFv
 __ct__15CControllerAxisFv:

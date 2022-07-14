@@ -357,7 +357,7 @@ lbl_800B0008:
 /* 800B00E0 000AD040  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 800B00E4 000AD044  7C 08 03 A6 */	mtlr r0
 /* 800B00E8 000AD048  38 21 02 10 */	addi r1, r1, 0x210
-/* 800B00EC 000AD04C  4E 80 00 20 */	blr 
+/* 800B00EC 000AD04C  4E 80 00 20 */	blr
 
 .global Accept__12CScriptSoundFR8IVisitor
 Accept__12CScriptSoundFR8IVisitor:
@@ -370,15 +370,15 @@ Accept__12CScriptSoundFR8IVisitor:
 /* 800B0108 000AD068  7C 04 03 78 */	mr r4, r0
 /* 800B010C 000AD06C  81 8C 00 AC */	lwz r12, 0xac(r12)
 /* 800B0110 000AD070  7D 89 03 A6 */	mtctr r12
-/* 800B0114 000AD074  4E 80 04 21 */	bctrl 
+/* 800B0114 000AD074  4E 80 04 21 */	bctrl
 /* 800B0118 000AD078  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B011C 000AD07C  7C 08 03 A6 */	mtlr r0
 /* 800B0120 000AD080  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B0124 000AD084  4E 80 00 20 */	blr 
+/* 800B0124 000AD084  4E 80 00 20 */	blr
 
 .global AddToRenderer__12CScriptSoundCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__12CScriptSoundCFRC14CFrustumPlanesRC13CStateManager:
-/* 800B0128 000AD088  4E 80 00 20 */	blr 
+/* 800B0128 000AD088  4E 80 00 20 */	blr
 
 .global StopSound__12CScriptSoundFv
 StopSound__12CScriptSoundFv:
@@ -418,7 +418,7 @@ lbl_800B01A4:
 /* 800B01A8 000AD108  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800B01AC 000AD10C  7C 08 03 A6 */	mtlr r0
 /* 800B01B0 000AD110  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B01B4 000AD114  4E 80 00 20 */	blr 
+/* 800B01B4 000AD114  4E 80 00 20 */	blr
 
 .global PlaySound__12CScriptSoundFR13CStateManager
 PlaySound__12CScriptSoundFR13CStateManager:
@@ -584,7 +584,7 @@ lbl_800B03FC:
 /* 800B0410 000AD370  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 800B0414 000AD374  7C 08 03 A6 */	mtlr r0
 /* 800B0418 000AD378  38 21 00 80 */	addi r1, r1, 0x80
-/* 800B041C 000AD37C  4E 80 00 20 */	blr 
+/* 800B041C 000AD37C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CScriptSoundF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CScriptSoundF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -608,7 +608,7 @@ AcceptScriptMsg__12CScriptSoundF20EScriptObjectMessage9TUniqueIdR13CStateManager
 /* 800B0464 000AD3C4  38 63 F1 94 */	addi r3, r3, lbl_803DF194@l
 /* 800B0468 000AD3C8  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800B046C 000AD3CC  7C 09 03 A6 */	mtctr r0
-/* 800B0470 000AD3D0  4E 80 04 20 */	bctr 
+/* 800B0470 000AD3D0  4E 80 04 20 */	bctr
 .global lbl_800B0474
 lbl_800B0474:
 /* 800B0474 000AD3D4  88 1E 00 30 */	lbz r0, 0x30(r30)
@@ -675,7 +675,7 @@ lbl_800B0528:
 /* 800B0534 000AD494  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B0538 000AD498  7C 08 03 A6 */	mtlr r0
 /* 800B053C 000AD49C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B0540 000AD4A0  4E 80 00 20 */	blr 
+/* 800B0540 000AD4A0  4E 80 00 20 */	blr
 
 .global Think__12CScriptSoundFfR13CStateManager
 Think__12CScriptSoundFfR13CStateManager:
@@ -932,7 +932,7 @@ lbl_800B08D8:
 /* 800B08F0 000AD850  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 800B08F4 000AD854  7C 08 03 A6 */	mtlr r0
 /* 800B08F8 000AD858  38 21 00 80 */	addi r1, r1, 0x80
-/* 800B08FC 000AD85C  4E 80 00 20 */	blr 
+/* 800B08FC 000AD85C  4E 80 00 20 */	blr
 
 .global __dt__12CScriptSoundFv
 __dt__12CScriptSoundFv:
@@ -960,7 +960,7 @@ lbl_800B0944:
 /* 800B0950 000AD8B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B0954 000AD8B4  7C 08 03 A6 */	mtlr r0
 /* 800B0958 000AD8B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B095C 000AD8BC  4E 80 00 20 */	blr 
+/* 800B095C 000AD8BC  4E 80 00 20 */	blr
 
 .global PreThink__12CScriptSoundFfR13CStateManager
 PreThink__12CScriptSoundFfR13CStateManager:
@@ -980,7 +980,7 @@ PreThink__12CScriptSoundFfR13CStateManager:
 /* 800B0994 000AD8F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B0998 000AD8F8  7C 08 03 A6 */	mtlr r0
 /* 800B099C 000AD8FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B09A0 000AD900  4E 80 00 20 */	blr 
+/* 800B09A0 000AD900  4E 80 00 20 */	blr
 
 .global "__ct__12CScriptSoundF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUsbfffiiiibbbbbb"
 "__ct__12CScriptSoundF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUsbfffiiiibbbbbb":
@@ -1141,4 +1141,4 @@ lbl_800B0BE4:
 /* 800B0C04 000ADB64  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 800B0C08 000ADB68  7C 08 03 A6 */	mtlr r0
 /* 800B0C0C 000ADB6C  38 21 01 50 */	addi r1, r1, 0x150
-/* 800B0C10 000ADB70  4E 80 00 20 */	blr 
+/* 800B0C10 000ADB70  4E 80 00 20 */	blr

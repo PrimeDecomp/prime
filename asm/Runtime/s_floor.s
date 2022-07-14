@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global floor
 floor:
@@ -97,4 +97,4 @@ lbl_803945F8:
 /* 80394600 00391560  C8 21 00 08 */	lfd f1, 8(r1)
 lbl_80394604:
 /* 80394604 00391564  38 21 00 10 */	addi r1, r1, 0x10
-/* 80394608 00391568  4E 80 00 20 */	blr 
+/* 80394608 00391568  4E 80 00 20 */	blr

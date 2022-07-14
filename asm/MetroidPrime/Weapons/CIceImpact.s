@@ -461,13 +461,13 @@ lbl_801B6064:
 /* 801B6150 001B30B0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B6154 001B30B4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801B6158 001B30B8  7D 89 03 A6 */	mtctr r12
-/* 801B615C 001B30BC  4E 80 04 21 */	bctrl 
+/* 801B615C 001B30BC  4E 80 04 21 */	bctrl
 /* 801B6160 001B30C0  80 76 00 E8 */	lwz r3, 0xe8(r22)
 /* 801B6164 001B30C4  38 81 00 98 */	addi r4, r1, 0x98
 /* 801B6168 001B30C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B616C 001B30CC  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801B6170 001B30D0  7D 89 03 A6 */	mtctr r12
-/* 801B6174 001B30D4  4E 80 04 21 */	bctrl 
+/* 801B6174 001B30D4  4E 80 04 21 */	bctrl
 /* 801B6178 001B30D8  80 76 00 E8 */	lwz r3, 0xe8(r22)
 /* 801B617C 001B30DC  38 80 00 01 */	li r4, 1
 /* 801B6180 001B30E0  48 16 67 41 */	bl ForceParticleCreation__11CElementGenFi
@@ -476,7 +476,7 @@ lbl_801B6064:
 /* 801B618C 001B30EC  82 A3 00 90 */	lwz r21, 0x90(r3)
 /* 801B6190 001B30F0  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 801B6194 001B30F4  7D 89 03 A6 */	mtctr r12
-/* 801B6198 001B30F8  4E 80 04 21 */	bctrl 
+/* 801B6198 001B30F8  4E 80 04 21 */	bctrl
 /* 801B619C 001B30FC  7C 03 A8 00 */	cmpw r3, r21
 /* 801B61A0 001B3100  40 82 00 0C */	bne lbl_801B61AC
 /* 801B61A4 001B3104  38 60 00 01 */	li r3, 1
@@ -505,7 +505,7 @@ lbl_801B61BC:
 /* 801B61F0 001B3150  80 01 01 B4 */	lwz r0, 0x1b4(r1)
 /* 801B61F4 001B3154  7C 08 03 A6 */	mtlr r0
 /* 801B61F8 001B3158  38 21 01 B0 */	addi r1, r1, 0x1b0
-/* 801B61FC 001B315C  4E 80 00 20 */	blr 
+/* 801B61FC 001B315C  4E 80 00 20 */	blr
 
 .global GenerateParticlesAgainstOBBTree__10CIceImpactFR13CStateManagerRC8COBBTreeRC12CTransform4fRC7CSphereRC7CSphere
 GenerateParticlesAgainstOBBTree__10CIceImpactFR13CStateManagerRC8COBBTreeRC12CTransform4fRC7CSphereRC7CSphere:
@@ -594,7 +594,7 @@ lbl_801B6330:
 /* 801B6338 001B3298  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801B633C 001B329C  7C 08 03 A6 */	mtlr r0
 /* 801B6340 001B32A0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801B6344 001B32A4  4E 80 00 20 */	blr 
+/* 801B6344 001B32A4  4E 80 00 20 */	blr
 
 .global GenerateParticlesAgainstAABox__10CIceImpactFR13CStateManagerRC6CAABoxRC7CSphereRC7CSphere
 GenerateParticlesAgainstAABox__10CIceImpactFR13CStateManagerRC6CAABoxRC7CSphereRC7CSphere:
@@ -664,7 +664,7 @@ lbl_801B6434:
 /* 801B643C 001B339C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801B6440 001B33A0  7C 08 03 A6 */	mtlr r0
 /* 801B6444 001B33A4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801B6448 001B33A8  4E 80 00 20 */	blr 
+/* 801B6448 001B33A8  4E 80 00 20 */	blr
 
 .global GenerateParticlesAgainstActors__10CIceImpactFR13CStateManagerRC6CAABoxRC7CSphereRC7CSphere
 GenerateParticlesAgainstActors__10CIceImpactFR13CStateManagerRC6CAABoxRC7CSphereRC7CSphere:
@@ -745,11 +745,11 @@ lbl_801B6538:
 /* 801B6570 001B34D0  81 98 00 00 */	lwz r12, 0(r24)
 /* 801B6574 001B34D4  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 801B6578 001B34D8  7D 89 03 A6 */	mtctr r12
-/* 801B657C 001B34DC  4E 80 04 21 */	bctrl 
+/* 801B657C 001B34DC  4E 80 04 21 */	bctrl
 /* 801B6580 001B34E0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B6584 001B34E4  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801B6588 001B34E8  7D 89 03 A6 */	mtctr r12
-/* 801B658C 001B34EC  4E 80 04 21 */	bctrl 
+/* 801B658C 001B34EC  4E 80 04 21 */	bctrl
 /* 801B6590 001B34F0  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 801B6594 001B34F4  28 00 54 47 */	cmplwi r0, 0x5447
 /* 801B6598 001B34F8  40 82 00 7C */	bne lbl_801B6614
@@ -757,7 +757,7 @@ lbl_801B6538:
 /* 801B65A0 001B3500  81 98 00 00 */	lwz r12, 0(r24)
 /* 801B65A4 001B3504  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 801B65A8 001B3508  7D 89 03 A6 */	mtctr r12
-/* 801B65AC 001B350C  4E 80 04 21 */	bctrl 
+/* 801B65AC 001B350C  4E 80 04 21 */	bctrl
 /* 801B65B0 001B3510  3A E0 00 00 */	li r23, 0
 /* 801B65B4 001B3514  7C 79 1B 78 */	mr r25, r3
 /* 801B65B8 001B3518  48 00 00 48 */	b lbl_801B6600
@@ -767,7 +767,7 @@ lbl_801B65BC:
 /* 801B65C4 001B3524  81 98 00 00 */	lwz r12, 0(r24)
 /* 801B65C8 001B3528  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 801B65CC 001B352C  7D 89 03 A6 */	mtctr r12
-/* 801B65D0 001B3530  4E 80 04 21 */	bctrl 
+/* 801B65D0 001B3530  4E 80 04 21 */	bctrl
 /* 801B65D4 001B3534  7F 23 CB 78 */	mr r3, r25
 /* 801B65D8 001B3538  7E E4 BB 78 */	mr r4, r23
 /* 801B65DC 001B353C  48 0F 73 71 */	bl GetOBBTreeAABox__23CCollidableOBBTreeGroupCFi
@@ -810,7 +810,7 @@ lbl_801B665C:
 /* 801B6664 001B35C4  81 99 00 00 */	lwz r12, 0(r25)
 /* 801B6668 001B35C8  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801B666C 001B35CC  7D 89 03 A6 */	mtctr r12
-/* 801B6670 001B35D0  4E 80 04 21 */	bctrl 
+/* 801B6670 001B35D0  4E 80 04 21 */	bctrl
 /* 801B6674 001B35D4  88 01 00 34 */	lbz r0, 0x34(r1)
 /* 801B6678 001B35D8  28 00 00 00 */	cmplwi r0, 0
 /* 801B667C 001B35DC  98 01 00 68 */	stb r0, 0x68(r1)
@@ -881,7 +881,7 @@ lbl_801B6750:
 /* 801B6760 001B36C0  80 01 08 D4 */	lwz r0, 0x8d4(r1)
 /* 801B6764 001B36C4  7C 08 03 A6 */	mtlr r0
 /* 801B6768 001B36C8  38 21 08 D0 */	addi r1, r1, 0x8d0
-/* 801B676C 001B36CC  4E 80 00 20 */	blr 
+/* 801B676C 001B36CC  4E 80 00 20 */	blr
 
 .global GenerateParticlesAgainstWorld__10CIceImpactFR13CStateManagerRCQ220CMetroidAreaCollider16COctreeLeafCacheRC7CSphereRC7CSphere
 GenerateParticlesAgainstWorld__10CIceImpactFR13CStateManagerRCQ220CMetroidAreaCollider16COctreeLeafCacheRC7CSphereRC7CSphere:
@@ -1009,7 +1009,7 @@ lbl_801B6928:
 /* 801B693C 001B389C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801B6940 001B38A0  7C 08 03 A6 */	mtlr r0
 /* 801B6944 001B38A4  38 21 01 00 */	addi r1, r1, 0x100
-/* 801B6948 001B38A8  4E 80 00 20 */	blr 
+/* 801B6948 001B38A8  4E 80 00 20 */	blr
 
 .global GenerateNewSphere__10CIceImpactFv
 GenerateNewSphere__10CIceImpactFv:
@@ -1187,7 +1187,7 @@ lbl_801B6BB0:
 /* 801B6BB4 001B3B14  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801B6BB8 001B3B18  7C 08 03 A6 */	mtlr r0
 /* 801B6BBC 001B3B1C  38 21 00 70 */	addi r1, r1, 0x70
-/* 801B6BC0 001B3B20  4E 80 00 20 */	blr 
+/* 801B6BC0 001B3B20  4E 80 00 20 */	blr
 
 .global pointInSphere__FRC7CSphereRC9CVector3f
 pointInSphere__FRC7CSphereRC9CVector3f:
@@ -1216,7 +1216,7 @@ pointInSphere__FRC7CSphereRC9CVector3f:
 /* 801B6C1C 001B3B7C  7C 00 00 26 */	mfcr r0
 /* 801B6C20 001B3B80  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
 /* 801B6C24 001B3B84  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B6C28 001B3B88  4E 80 00 20 */	blr 
+/* 801B6C28 001B3B88  4E 80 00 20 */	blr
 
 .global Touch__10CIceImpactFR6CActorR13CStateManager
 Touch__10CIceImpactFR6CActorR13CStateManager:
@@ -1238,7 +1238,7 @@ Touch__10CIceImpactFR6CActorR13CStateManager:
 /* 801B6C68 001B3BC8  38 61 00 98 */	addi r3, r1, 0x98
 /* 801B6C6C 001B3BCC  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801B6C70 001B3BD0  7D 89 03 A6 */	mtctr r12
-/* 801B6C74 001B3BD4  4E 80 04 21 */	bctrl 
+/* 801B6C74 001B3BD4  4E 80 04 21 */	bctrl
 /* 801B6C78 001B3BD8  88 01 00 B0 */	lbz r0, 0xb0(r1)
 /* 801B6C7C 001B3BDC  28 00 00 00 */	cmplwi r0, 0
 /* 801B6C80 001B3BE0  98 01 01 00 */	stb r0, 0x100(r1)
@@ -1338,7 +1338,7 @@ lbl_801B6CC0:
 /* 801B6DF4 001B3D54  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801B6DF8 001B3D58  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801B6DFC 001B3D5C  7D 89 03 A6 */	mtctr r12
-/* 801B6E00 001B3D60  4E 80 04 21 */	bctrl 
+/* 801B6E00 001B3D60  4E 80 04 21 */	bctrl
 /* 801B6E04 001B3D64  38 81 00 38 */	addi r4, r1, 0x38
 /* 801B6E08 001B3D68  38 A0 00 00 */	li r5, 0
 /* 801B6E0C 001B3D6C  4B F4 B7 79 */	bl WeaponHits__20CDamageVulnerabilityCFRC11CWeaponModei
@@ -1460,14 +1460,14 @@ lbl_801B6FBC:
 /* 801B6FCC 001B3F2C  83 81 01 10 */	lwz r28, 0x110(r1)
 /* 801B6FD0 001B3F30  7C 08 03 A6 */	mtlr r0
 /* 801B6FD4 001B3F34  38 21 01 20 */	addi r1, r1, 0x120
-/* 801B6FD8 001B3F38  4E 80 00 20 */	blr 
+/* 801B6FD8 001B3F38  4E 80 00 20 */	blr
 
 .global GetTouchBounds__10CIceImpactCFv
 GetTouchBounds__10CIceImpactCFv:
 /* 801B6FDC 001B3F3C  38 00 00 01 */	li r0, 1
 /* 801B6FE0 001B3F40  28 03 00 00 */	cmplwi r3, 0
 /* 801B6FE4 001B3F44  98 03 00 18 */	stb r0, 0x18(r3)
-/* 801B6FE8 001B3F48  4D 82 00 20 */	beqlr 
+/* 801B6FE8 001B3F48  4D 82 00 20 */	beqlr
 /* 801B6FEC 001B3F4C  C0 04 01 18 */	lfs f0, 0x118(r4)
 /* 801B6FF0 001B3F50  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801B6FF4 001B3F54  C0 04 01 1C */	lfs f0, 0x11c(r4)
@@ -1480,7 +1480,7 @@ GetTouchBounds__10CIceImpactCFv:
 /* 801B7010 001B3F70  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 801B7014 001B3F74  C0 04 01 2C */	lfs f0, 0x12c(r4)
 /* 801B7018 001B3F78  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 801B701C 001B3F7C  4E 80 00 20 */	blr 
+/* 801B701C 001B3F7C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__10CIceImpactF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CIceImpactF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1503,7 +1503,7 @@ lbl_801B7058:
 /* 801B705C 001B3FBC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B7060 001B3FC0  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 801B7064 001B3FC4  7D 89 03 A6 */	mtctr r12
-/* 801B7068 001B3FC8  4E 80 04 21 */	bctrl 
+/* 801B7068 001B3FC8  4E 80 04 21 */	bctrl
 /* 801B706C 001B3FCC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B7070 001B3FD0  41 82 01 44 */	beq lbl_801B71B4
 /* 801B7074 001B3FD4  7F E4 FB 78 */	mr r4, r31
@@ -1548,7 +1548,7 @@ lbl_801B7058:
 /* 801B7110 001B4070  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B7114 001B4074  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 801B7118 001B4078  7D 89 03 A6 */	mtctr r12
-/* 801B711C 001B407C  4E 80 04 21 */	bctrl 
+/* 801B711C 001B407C  4E 80 04 21 */	bctrl
 /* 801B7120 001B4080  93 01 00 08 */	stw r24, 8(r1)
 /* 801B7124 001B4084  38 00 00 01 */	li r0, 1
 /* 801B7128 001B4088  C0 22 A9 84 */	lfs f1, lbl_805AC6A4@sda21(r2)
@@ -1615,7 +1615,7 @@ lbl_801B7204:
 /* 801B7208 001B4168  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 801B720C 001B416C  7C 08 03 A6 */	mtlr r0
 /* 801B7210 001B4170  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801B7214 001B4174  4E 80 00 20 */	blr 
+/* 801B7214 001B4174  4E 80 00 20 */	blr
 
 .global Accept__10CIceImpactFR8IVisitor
 Accept__10CIceImpactFR8IVisitor:
@@ -1628,11 +1628,11 @@ Accept__10CIceImpactFR8IVisitor:
 /* 801B7230 001B4190  7C 04 03 78 */	mr r4, r0
 /* 801B7234 001B4194  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801B7238 001B4198  7D 89 03 A6 */	mtctr r12
-/* 801B723C 001B419C  4E 80 04 21 */	bctrl 
+/* 801B723C 001B419C  4E 80 04 21 */	bctrl
 /* 801B7240 001B41A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B7244 001B41A4  7C 08 03 A6 */	mtlr r0
 /* 801B7248 001B41A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B724C 001B41AC  4E 80 00 20 */	blr 
+/* 801B724C 001B41AC  4E 80 00 20 */	blr
 
 .global Think__10CIceImpactFfR13CStateManager
 Think__10CIceImpactFfR13CStateManager:
@@ -1657,7 +1657,7 @@ Think__10CIceImpactFfR13CStateManager:
 /* 801B7298 001B41F8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B729C 001B41FC  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 801B72A0 001B4200  7D 89 03 A6 */	mtctr r12
-/* 801B72A4 001B4204  4E 80 04 21 */	bctrl 
+/* 801B72A4 001B4204  4E 80 04 21 */	bctrl
 /* 801B72A8 001B4208  2C 03 01 90 */	cmpwi r3, 0x190
 /* 801B72AC 001B420C  40 80 02 AC */	bge lbl_801B7558
 /* 801B72B0 001B4210  3B DA 05 44 */	addi r30, r26, 0x544
@@ -1854,13 +1854,13 @@ lbl_801B7558:
 /* 801B7564 001B44C4  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B7568 001B44C8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801B756C 001B44CC  7D 89 03 A6 */	mtctr r12
-/* 801B7570 001B44D0  4E 80 04 21 */	bctrl 
+/* 801B7570 001B44D0  4E 80 04 21 */	bctrl
 /* 801B7574 001B44D4  80 7A 00 E8 */	lwz r3, 0xe8(r26)
 /* 801B7578 001B44D8  FC 20 F8 90 */	fmr f1, f31
 /* 801B757C 001B44DC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B7580 001B44E0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801B7584 001B44E4  7D 89 03 A6 */	mtctr r12
-/* 801B7588 001B44E8  4E 80 04 21 */	bctrl 
+/* 801B7588 001B44E8  4E 80 04 21 */	bctrl
 /* 801B758C 001B44EC  A0 7A 00 EC */	lhz r3, 0xec(r26)
 /* 801B7590 001B44F0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801B7594 001B44F4  7C 03 00 40 */	cmplw r3, r0
@@ -1884,7 +1884,7 @@ lbl_801B7558:
 /* 801B75DC 001B453C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B75E0 001B4540  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 801B75E4 001B4544  7D 89 03 A6 */	mtctr r12
-/* 801B75E8 001B4548  4E 80 04 21 */	bctrl 
+/* 801B75E8 001B4548  4E 80 04 21 */	bctrl
 /* 801B75EC 001B454C  7F 83 E3 78 */	mr r3, r28
 /* 801B75F0 001B4550  38 81 00 B4 */	addi r4, r1, 0xb4
 /* 801B75F4 001B4554  4B EF E1 51 */	bl SetLight__10CGameLightFRC6CLight
@@ -1906,7 +1906,7 @@ lbl_801B7628:
 /* 801B762C 001B458C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B7630 001B4590  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 801B7634 001B4594  7D 89 03 A6 */	mtctr r12
-/* 801B7638 001B4598  4E 80 04 21 */	bctrl 
+/* 801B7638 001B4598  4E 80 04 21 */	bctrl
 /* 801B763C 001B459C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B7640 001B45A0  41 82 00 1C */	beq lbl_801B765C
 /* 801B7644 001B45A4  A0 1A 00 08 */	lhz r0, 8(r26)
@@ -1923,7 +1923,7 @@ lbl_801B765C:
 /* 801B766C 001B45CC  80 01 1C 84 */	lwz r0, 0x1c84(r1)
 /* 801B7670 001B45D0  7C 08 03 A6 */	mtlr r0
 /* 801B7674 001B45D4  38 21 1C 80 */	addi r1, r1, 0x1c80
-/* 801B7678 001B45D8  4E 80 00 20 */	blr 
+/* 801B7678 001B45D8  4E 80 00 20 */	blr
 
 .global Render__10CIceImpactCFRC13CStateManager
 Render__10CIceImpactCFRC13CStateManager:
@@ -1940,7 +1940,7 @@ Render__10CIceImpactCFRC13CStateManager:
 /* 801B76A4 001B4604  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B76A8 001B4608  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801B76AC 001B460C  7D 89 03 A6 */	mtctr r12
-/* 801B76B0 001B4610  4E 80 04 21 */	bctrl 
+/* 801B76B0 001B4610  4E 80 04 21 */	bctrl
 /* 801B76B4 001B4614  38 00 00 00 */	li r0, 0
 /* 801B76B8 001B4618  38 60 00 00 */	li r3, 0
 /* 801B76BC 001B461C  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
@@ -1949,7 +1949,7 @@ Render__10CIceImpactCFRC13CStateManager:
 /* 801B76C8 001B4628  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801B76CC 001B462C  7C 08 03 A6 */	mtlr r0
 /* 801B76D0 001B4630  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B76D4 001B4634  4E 80 00 20 */	blr 
+/* 801B76D4 001B4634  4E 80 00 20 */	blr
 
 .global AddToRenderer__10CIceImpactCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__10CIceImpactCFRC14CFrustumPlanesRC13CStateManager:
@@ -1972,12 +1972,12 @@ lbl_801B770C:
 /* 801B7714 001B4674  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B7718 001B4678  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801B771C 001B467C  7D 89 03 A6 */	mtctr r12
-/* 801B7720 001B4680  4E 80 04 21 */	bctrl 
+/* 801B7720 001B4680  4E 80 04 21 */	bctrl
 lbl_801B7724:
 /* 801B7724 001B4684  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B7728 001B4688  7C 08 03 A6 */	mtlr r0
 /* 801B772C 001B468C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B7730 001B4690  4E 80 00 20 */	blr 
+/* 801B7730 001B4690  4E 80 00 20 */	blr
 
 .global PreRender__10CIceImpactFR13CStateManagerRC14CFrustumPlanes
 PreRender__10CIceImpactFR13CStateManagerRC14CFrustumPlanes:
@@ -2011,7 +2011,7 @@ lbl_801B7780:
 /* 801B7798 001B46F8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801B779C 001B46FC  7C 08 03 A6 */	mtlr r0
 /* 801B77A0 001B4700  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B77A4 001B4704  4E 80 00 20 */	blr 
+/* 801B77A4 001B4704  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__10CIceImpactFv
 CalculateRenderBounds__10CIceImpactFv:
@@ -2025,7 +2025,7 @@ CalculateRenderBounds__10CIceImpactFv:
 /* 801B77C4 001B4724  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B77C8 001B4728  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 801B77CC 001B472C  7D 89 03 A6 */	mtctr r12
-/* 801B77D0 001B4730  4E 80 04 21 */	bctrl 
+/* 801B77D0 001B4730  4E 80 04 21 */	bctrl
 /* 801B77D4 001B4734  88 01 00 44 */	lbz r0, 0x44(r1)
 /* 801B77D8 001B4738  28 00 00 00 */	cmplwi r0, 0
 /* 801B77DC 001B473C  98 01 00 60 */	stb r0, 0x60(r1)
@@ -2100,7 +2100,7 @@ lbl_801B78D8:
 /* 801B78E4 001B4844  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801B78E8 001B4848  7C 08 03 A6 */	mtlr r0
 /* 801B78EC 001B484C  38 21 00 70 */	addi r1, r1, 0x70
-/* 801B78F0 001B4850  4E 80 00 20 */	blr 
+/* 801B78F0 001B4850  4E 80 00 20 */	blr
 
 .global __dt__10CIceImpactFv
 __dt__10CIceImpactFv:
@@ -2182,7 +2182,7 @@ lbl_801B79E0:
 /* 801B79F8 001B4958  38 80 00 01 */	li r4, 1
 /* 801B79FC 001B495C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801B7A00 001B4960  7D 89 03 A6 */	mtctr r12
-/* 801B7A04 001B4964  4E 80 04 21 */	bctrl 
+/* 801B7A04 001B4964  4E 80 04 21 */	bctrl
 lbl_801B7A08:
 /* 801B7A08 001B4968  28 1E 00 00 */	cmplwi r30, 0
 /* 801B7A0C 001B496C  41 82 00 1C */	beq lbl_801B7A28
@@ -2204,7 +2204,7 @@ lbl_801B7A38:
 /* 801B7A44 001B49A4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B7A48 001B49A8  7C 08 03 A6 */	mtlr r0
 /* 801B7A4C 001B49AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B7A50 001B49B0  4E 80 00 20 */	blr 
+/* 801B7A50 001B49B0  4E 80 00 20 */	blr
 
 .global "__ct__10CIceImpactFRC31TLockedToken<15CGenDescription>9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor"
 "__ct__10CIceImpactFRC31TLockedToken<15CGenDescription>9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fUiRC9CVector3fRC6CColor":
@@ -2453,7 +2453,7 @@ lbl_801B7DA0:
 /* 801B7DFC 001B4D5C  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 801B7E00 001B4D60  7C 08 03 A6 */	mtlr r0
 /* 801B7E04 001B4D64  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801B7E08 001B4D68  4E 80 00 20 */	blr 
+/* 801B7E08 001B4D68  4E 80 00 20 */	blr
 
 .global GetWorldPositionForCell__11CMarkerGridCFUiUiUi
 GetWorldPositionForCell__11CMarkerGridCFUiUiUi:
@@ -2495,7 +2495,7 @@ GetWorldPositionForCell__11CMarkerGridCFUiUiUi:
 /* 801B7E98 001B4DF8  EC 00 08 2A */	fadds f0, f0, f1
 /* 801B7E9C 001B4DFC  D0 03 00 08 */	stfs f0, 8(r3)
 /* 801B7EA0 001B4E00  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B7EA4 001B4E04  4E 80 00 20 */	blr 
+/* 801B7EA4 001B4E04  4E 80 00 20 */	blr
 
 .global MarkCells__11CMarkerGridFRC7CSphereUi
 MarkCells__11CMarkerGridFRC7CSphereUi:
@@ -2575,7 +2575,7 @@ lbl_801B7FAC:
 /* 801B7FB0 001B4F10  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801B7FB4 001B4F14  7C 08 03 A6 */	mtlr r0
 /* 801B7FB8 001B4F18  38 21 00 50 */	addi r1, r1, 0x50
-/* 801B7FBC 001B4F1C  4E 80 00 20 */	blr 
+/* 801B7FBC 001B4F1C  4E 80 00 20 */	blr
 
 .global AABoxTouchesData__11CMarkerGridCFRC6CAABoxUi
 AABoxTouchesData__11CMarkerGridCFRC6CAABoxUi:
@@ -2759,7 +2759,7 @@ lbl_801B8228:
 /* 801B822C 001B518C  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 801B8230 001B5190  7C 08 03 A6 */	mtlr r0
 /* 801B8234 001B5194  38 21 00 80 */	addi r1, r1, 0x80
-/* 801B8238 001B5198  4E 80 00 20 */	blr 
+/* 801B8238 001B5198  4E 80 00 20 */	blr
 
 .global SetValue__11CMarkerGridFUiUiUiUi
 SetValue__11CMarkerGridFUiUiUiUi:
@@ -2777,7 +2777,7 @@ SetValue__11CMarkerGridFUiUiUiUi:
 /* 801B8268 001B51C8  7C 60 00 78 */	andc r0, r3, r0
 /* 801B826C 001B51CC  7C 80 03 78 */	or r0, r4, r0
 /* 801B8270 001B51D0  98 05 00 28 */	stb r0, 0x28(r5)
-/* 801B8274 001B51D4  4E 80 00 20 */	blr 
+/* 801B8274 001B51D4  4E 80 00 20 */	blr
 
 .global GetCoords__11CMarkerGridCFRC9CVector3fRUiRUiRUi
 GetCoords__11CMarkerGridCFRC9CVector3fRUiRUiRUi:
@@ -2828,7 +2828,7 @@ lbl_801B831C:
 /* 801B8320 001B5280  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801B8324 001B5284  7C 08 03 A6 */	mtlr r0
 /* 801B8328 001B5288  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B832C 001B528C  4E 80 00 20 */	blr 
+/* 801B832C 001B528C  4E 80 00 20 */	blr
 
 .global GetValue__11CMarkerGridCFUiUiUi
 GetValue__11CMarkerGridCFUiUiUi:
@@ -2844,7 +2844,7 @@ GetValue__11CMarkerGridCFUiUiUi:
 /* 801B8354 001B52B4  88 04 00 28 */	lbz r0, 0x28(r4)
 /* 801B8358 001B52B8  7C 60 00 38 */	and r0, r3, r0
 /* 801B835C 001B52BC  7C 03 44 30 */	srw r3, r0, r8
-/* 801B8360 001B52C0  4E 80 00 20 */	blr 
+/* 801B8360 001B52C0  4E 80 00 20 */	blr
 
 .global __ct__11CMarkerGridFRC6CAABox
 __ct__11CMarkerGridFRC6CAABox:

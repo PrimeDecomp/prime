@@ -30,7 +30,7 @@ sub_802fc358:
 /* 802FC358 002F92B8  80 63 00 08 */	lwz r3, 8(r3)
 /* 802FC35C 002F92BC  80 03 00 0C */	lwz r0, 0xc(r3)
 /* 802FC360 002F92C0  54 03 06 3E */	clrlwi r3, r0, 0x18
-/* 802FC364 002F92C4  4E 80 00 20 */	blr 
+/* 802FC364 002F92C4  4E 80 00 20 */	blr
 
 .global BuildTransform__21CHierarchyPoseBuilderCFRC6CSegIdR12CTransform4f
 BuildTransform__21CHierarchyPoseBuilderCFRC6CSegIdR12CTransform4f:
@@ -223,7 +223,7 @@ lbl_802FC5E4:
 /* 802FC618 002F9578  80 01 01 F4 */	lwz r0, 0x1f4(r1)
 /* 802FC61C 002F957C  7C 08 03 A6 */	mtlr r0
 /* 802FC620 002F9580  38 21 01 F0 */	addi r1, r1, 0x1f0
-/* 802FC624 002F9584  4E 80 00 20 */	blr 
+/* 802FC624 002F9584  4E 80 00 20 */	blr
 
 .global RecursivelyBuildNoScale__21CHierarchyPoseBuilderCFRC6CSegIdRCQ221CHierarchyPoseBuilder9CTreeNodeR17CPoseAsTransformsRC11CQuaternionRC9CMatrix3fRC9CVector3f
 RecursivelyBuildNoScale__21CHierarchyPoseBuilderCFRC6CSegIdRCQ221CHierarchyPoseBuilder9CTreeNodeR17CPoseAsTransformsRC11CQuaternionRC9CMatrix3fRC9CVector3f:
@@ -303,7 +303,7 @@ lbl_802FC738:
 /* 802FC744 002F96A4  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 802FC748 002F96A8  7C 08 03 A6 */	mtlr r0
 /* 802FC74C 002F96AC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802FC750 002F96B0  4E 80 00 20 */	blr 
+/* 802FC750 002F96B0  4E 80 00 20 */	blr
 
 .global RecursivelyBuild__21CHierarchyPoseBuilderCFRC6CSegIdRCQ221CHierarchyPoseBuilder9CTreeNodeR17CPoseAsTransformsRC11CQuaternionRC9CMatrix3fRC9CVector3f
 RecursivelyBuild__21CHierarchyPoseBuilderCFRC6CSegIdRCQ221CHierarchyPoseBuilder9CTreeNodeR17CPoseAsTransformsRC11CQuaternionRC9CMatrix3fRC9CVector3f:
@@ -423,7 +423,7 @@ lbl_802FC8F4:
 /* 802FC900 002F9860  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 802FC904 002F9864  7C 08 03 A6 */	mtlr r0
 /* 802FC908 002F9868  38 21 01 60 */	addi r1, r1, 0x160
-/* 802FC90C 002F986C  4E 80 00 20 */	blr 
+/* 802FC90C 002F986C  4E 80 00 20 */	blr
 
 .global BuildNoScale__21CHierarchyPoseBuilderFR17CPoseAsTransforms
 BuildNoScale__21CHierarchyPoseBuilderFR17CPoseAsTransforms:
@@ -460,7 +460,7 @@ BuildNoScale__21CHierarchyPoseBuilderFR17CPoseAsTransforms:
 /* 802FC988 002F98E8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FC98C 002F98EC  7C 08 03 A6 */	mtlr r0
 /* 802FC990 002F98F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FC994 002F98F4  4E 80 00 20 */	blr 
+/* 802FC994 002F98F4  4E 80 00 20 */	blr
 
 .global sub_802fc998
 sub_802fc998:
@@ -592,7 +592,7 @@ lbl_802FCB68:
 /* 802FCB78 002F9AD8  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 802FCB7C 002F9ADC  7C 08 03 A6 */	mtlr r0
 /* 802FCB80 002F9AE0  38 21 00 80 */	addi r1, r1, 0x80
-/* 802FCB84 002F9AE4  4E 80 00 20 */	blr 
+/* 802FCB84 002F9AE4  4E 80 00 20 */	blr
 
 .global __ct__21CHierarchyPoseBuilderFRC18CLayoutDescription
 __ct__21CHierarchyPoseBuilderFRC18CLayoutDescription:
@@ -721,7 +721,7 @@ lbl_802FCD18:
 /* 802FCD34 002F9C94  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802FCD38 002F9C98  7C 08 03 A6 */	mtlr r0
 /* 802FCD3C 002F9C9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802FCD40 002F9CA0  4E 80 00 20 */	blr 
+/* 802FCD40 002F9CA0  4E 80 00 20 */	blr
 
 .global sub_802fcd44
 sub_802fcd44:
@@ -778,7 +778,7 @@ lbl_802FCDF8:
 /* 802FCE08 002F9D68  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802FCE0C 002F9D6C  7C 08 03 A6 */	mtlr r0
 /* 802FCE10 002F9D70  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FCE14 002F9D74  4E 80 00 20 */	blr 
+/* 802FCE14 002F9D74  4E 80 00 20 */	blr
 
 .global sub_802fce18
 sub_802fce18:
@@ -818,4 +818,4 @@ lbl_802FCE7C:
 /* 802FCE98 002F9DF8  88 83 00 00 */	lbz r4, 0(r3)
 /* 802FCE9C 002F9DFC  38 04 00 01 */	addi r0, r4, 1
 /* 802FCEA0 002F9E00  98 03 00 00 */	stb r0, 0(r3)
-/* 802FCEA4 002F9E04  4E 80 00 20 */	blr 
+/* 802FCEA4 002F9E04  4E 80 00 20 */	blr

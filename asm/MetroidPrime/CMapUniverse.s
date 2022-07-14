@@ -73,7 +73,7 @@ lbl_80201D70:
 /* 80201DCC 001FED2C  38 80 00 01 */	li r4, 1
 /* 80201DD0 001FED30  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80201DD4 001FED34  7D 89 03 A6 */	mtctr r12
-/* 80201DD8 001FED38  4E 80 04 21 */	bctrl 
+/* 80201DD8 001FED38  4E 80 04 21 */	bctrl
 lbl_80201DDC:
 /* 80201DDC 001FED3C  88 01 00 08 */	lbz r0, 8(r1)
 /* 80201DE0 001FED40  28 00 00 00 */	cmplwi r0, 0
@@ -88,7 +88,7 @@ lbl_80201DF4:
 /* 80201E00 001FED60  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80201E04 001FED64  7C 08 03 A6 */	mtlr r0
 /* 80201E08 001FED68  38 21 00 30 */	addi r1, r1, 0x30
-/* 80201E0C 001FED6C  4E 80 00 20 */	blr 
+/* 80201E0C 001FED6C  4E 80 00 20 */	blr
 
 .global "__dt__40TObjOwnerDerivedFromIObj<12CMapUniverse>Fv"
 "__dt__40TObjOwnerDerivedFromIObj<12CMapUniverse>Fv":
@@ -130,7 +130,7 @@ lbl_80201E84:
 /* 80201E90 001FEDF0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80201E94 001FEDF4  7C 08 03 A6 */	mtlr r0
 /* 80201E98 001FEDF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80201E9C 001FEDFC  4E 80 00 20 */	blr 
+/* 80201E9C 001FEDFC  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__22TToken<12CMapUniverse>FRCQ24rstl24auto_ptr<12CMapUniverse>"
 "GetIObjObjectFor__22TToken<12CMapUniverse>FRCQ24rstl24auto_ptr<12CMapUniverse>":
@@ -144,7 +144,7 @@ lbl_80201E84:
 /* 80201EBC 001FEE1C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80201EC0 001FEE20  7C 08 03 A6 */	mtlr r0
 /* 80201EC4 001FEE24  38 21 00 10 */	addi r1, r1, 0x10
-/* 80201EC8 001FEE28  4E 80 00 20 */	blr 
+/* 80201EC8 001FEE28  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__40TObjOwnerDerivedFromIObj<12CMapUniverse>FRCQ24rstl24auto_ptr<12CMapUniverse>"
 "GetNewDerivedObject__40TObjOwnerDerivedFromIObj<12CMapUniverse>FRCQ24rstl24auto_ptr<12CMapUniverse>":
@@ -187,7 +187,7 @@ lbl_80201F3C:
 /* 80201F58 001FEEB8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80201F5C 001FEEBC  7C 08 03 A6 */	mtlr r0
 /* 80201F60 001FEEC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80201F64 001FEEC4  4E 80 00 20 */	blr 
+/* 80201F64 001FEEC4  4E 80 00 20 */	blr
 
 .global GetMapWorldDataByWorldId__12CMapUniverseFUi
 GetMapWorldDataByWorldId__12CMapUniverseFUi:
@@ -203,13 +203,13 @@ lbl_80201F7C:
 /* 80201F88 001FEEE8  7C 04 00 40 */	cmplw r4, r0
 /* 80201F8C 001FEEEC  40 82 00 0C */	bne lbl_80201F98
 /* 80201F90 001FEEF0  7C A3 2B 78 */	mr r3, r5
-/* 80201F94 001FEEF4  4E 80 00 20 */	blr 
+/* 80201F94 001FEEF4  4E 80 00 20 */	blr
 lbl_80201F98:
 /* 80201F98 001FEEF8  38 C6 00 70 */	addi r6, r6, 0x70
 /* 80201F9C 001FEEFC  42 00 FF E0 */	bdnz lbl_80201F7C
 lbl_80201FA0:
 /* 80201FA0 001FEF00  80 63 00 1C */	lwz r3, 0x1c(r3)
-/* 80201FA4 001FEF04  4E 80 00 20 */	blr 
+/* 80201FA4 001FEF04  4E 80 00 20 */	blr
 
 .global __ct__Q212CMapUniverse13CMapWorldDataFR12CInputStream
 __ct__Q212CMapUniverse13CMapWorldDataFR12CInputStream:
@@ -389,7 +389,7 @@ lbl_802021D0:
 /* 80202234 001FF194  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80202238 001FF198  7C 08 03 A6 */	mtlr r0
 /* 8020223C 001FF19C  38 21 00 90 */	addi r1, r1, 0x90
-/* 80202240 001FF1A0  4E 80 00 20 */	blr 
+/* 80202240 001FF1A0  4E 80 00 20 */	blr
 
 .global __ct__Q212CMapUniverse12CMapAreaDataFR12CInputStream
 __ct__Q212CMapUniverse12CMapAreaDataFR12CInputStream:
@@ -404,7 +404,7 @@ __ct__Q212CMapUniverse12CMapAreaDataFR12CInputStream:
 /* 80202264 001FF1C4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80202268 001FF1C8  7C 08 03 A6 */	mtlr r0
 /* 8020226C 001FF1CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80202270 001FF1D0  4E 80 00 20 */	blr 
+/* 80202270 001FF1D0  4E 80 00 20 */	blr
 
 .global Draw__12CMapUniverseCFRCQ212CMapUniverse21CMapUniverseDrawParmsRC9CVector3fff
 Draw__12CMapUniverseCFRCQ212CMapUniverse21CMapUniverseDrawParmsRC9CVector3fff:
@@ -850,7 +850,7 @@ lbl_802028C4:
 /* 802028E4 001FF844  81 83 00 00 */	lwz r12, 0(r3)
 /* 802028E8 001FF848  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 802028EC 001FF84C  7D 89 03 A6 */	mtctr r12
-/* 802028F0 001FF850  4E 80 04 21 */	bctrl 
+/* 802028F0 001FF850  4E 80 04 21 */	bctrl
 lbl_802028F4:
 /* 802028F4 001FF854  56 80 06 3F */	clrlwi. r0, r20, 0x18
 /* 802028F8 001FF858  41 82 00 0C */	beq lbl_80202904
@@ -906,7 +906,7 @@ lbl_80202978:
 /* 802029A4 001FF904  80 01 02 64 */	lwz r0, 0x264(r1)
 /* 802029A8 001FF908  7C 08 03 A6 */	mtlr r0
 /* 802029AC 001FF90C  38 21 02 60 */	addi r1, r1, 0x260
-/* 802029B0 001FF910  4E 80 00 20 */	blr 
+/* 802029B0 001FF910  4E 80 00 20 */	blr
 
 .global sub_802029b4
 sub_802029b4:
@@ -940,7 +940,7 @@ lbl_80202A0C:
 /* 80202A18 001FF978  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80202A1C 001FF97C  7C 08 03 A6 */	mtlr r0
 /* 80202A20 001FF980  38 21 00 10 */	addi r1, r1, 0x10
-/* 80202A24 001FF984  4E 80 00 20 */	blr 
+/* 80202A24 001FF984  4E 80 00 20 */	blr
 
 .global sub_80202a28
 sub_80202a28:
@@ -980,7 +980,7 @@ lbl_80202A98:
 /* 80202AA4 001FFA04  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80202AA8 001FFA08  7C 08 03 A6 */	mtlr r0
 /* 80202AAC 001FFA0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80202AB0 001FFA10  4E 80 00 20 */	blr 
+/* 80202AB0 001FFA10  4E 80 00 20 */	blr
 
 .global sub_80202ab4
 sub_80202ab4:
@@ -1005,7 +1005,7 @@ lbl_80202AE0:
 /* 80202AF4 001FFA54  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80202AF8 001FFA58  7C 08 03 A6 */	mtlr r0
 /* 80202AFC 001FFA5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80202B00 001FFA60  4E 80 00 20 */	blr 
+/* 80202B00 001FFA60  4E 80 00 20 */	blr
 
 .global sub_80202b04
 sub_80202b04:
@@ -1017,7 +1017,7 @@ sub_80202b04:
 /* 80202B18 001FFA78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80202B1C 001FFA7C  7C 08 03 A6 */	mtlr r0
 /* 80202B20 001FFA80  38 21 00 10 */	addi r1, r1, 0x10
-/* 80202B24 001FFA84  4E 80 00 20 */	blr 
+/* 80202B24 001FFA84  4E 80 00 20 */	blr
 
 .global sub_80202b28
 sub_80202b28:
@@ -1066,7 +1066,7 @@ lbl_80202BB0:
 /* 80202BBC 001FFB1C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80202BC0 001FFB20  7C 08 03 A6 */	mtlr r0
 /* 80202BC4 001FFB24  38 21 00 20 */	addi r1, r1, 0x20
-/* 80202BC8 001FFB28  4E 80 00 20 */	blr 
+/* 80202BC8 001FFB28  4E 80 00 20 */	blr
 
 .global __ct__12CMapUniverseFR12CInputStream
 __ct__12CMapUniverseFR12CInputStream:
@@ -1094,7 +1094,7 @@ __ct__12CMapUniverseFR12CInputStream:
 /* 80202C20 001FFB80  81 84 00 00 */	lwz r12, 0(r4)
 /* 80202C24 001FFB84  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80202C28 001FFB88  7D 89 03 A6 */	mtctr r12
-/* 80202C2C 001FFB8C  4E 80 04 21 */	bctrl 
+/* 80202C2C 001FFB8C  4E 80 04 21 */	bctrl
 /* 80202C30 001FFB90  3B FC 00 04 */	addi r31, r28, 4
 /* 80202C34 001FFB94  38 81 00 08 */	addi r4, r1, 8
 /* 80202C38 001FFB98  7F E3 FB 78 */	mr r3, r31
@@ -1151,7 +1151,7 @@ lbl_80202CD4:
 /* 80202CFC 001FFC5C  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 80202D00 001FFC60  7C 08 03 A6 */	mtlr r0
 /* 80202D04 001FFC64  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80202D08 001FFC68  4E 80 00 20 */	blr 
+/* 80202D08 001FFC68  4E 80 00 20 */	blr
 
 .global sub_80202d0c
 sub_80202d0c:
@@ -1187,7 +1187,7 @@ lbl_80202D4C:
 /* 80202D78 001FFCD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80202D7C 001FFCDC  7C 08 03 A6 */	mtlr r0
 /* 80202D80 001FFCE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80202D84 001FFCE4  4E 80 00 20 */	blr 
+/* 80202D84 001FFCE4  4E 80 00 20 */	blr
 
 .global sub_80202d88
 sub_80202d88:
@@ -1201,7 +1201,7 @@ lbl_80202DA0:
 /* 80202DA0 001FFD00  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80202DA4 001FFD04  7C 08 03 A6 */	mtlr r0
 /* 80202DA8 001FFD08  38 21 00 10 */	addi r1, r1, 0x10
-/* 80202DAC 001FFD0C  4E 80 00 20 */	blr 
+/* 80202DAC 001FFD0C  4E 80 00 20 */	blr
 
 .global sub_80202db0
 sub_80202db0:
@@ -1283,7 +1283,7 @@ lbl_80202E80:
 /* 80202EC0 001FFE20  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80202EC4 001FFE24  7C 08 03 A6 */	mtlr r0
 /* 80202EC8 001FFE28  38 21 00 20 */	addi r1, r1, 0x20
-/* 80202ECC 001FFE2C  4E 80 00 20 */	blr 
+/* 80202ECC 001FFE2C  4E 80 00 20 */	blr
 
 .global sub_80202ed0
 sub_80202ed0:
@@ -1295,7 +1295,7 @@ sub_80202ed0:
 /* 80202EE4 001FFE44  90 E3 00 14 */	stw r7, 0x14(r3)
 /* 80202EE8 001FFE48  91 03 00 18 */	stw r8, 0x18(r3)
 /* 80202EEC 001FFE4C  91 23 00 1C */	stw r9, 0x1c(r3)
-/* 80202EF0 001FFE50  4E 80 00 20 */	blr 
+/* 80202EF0 001FFE50  4E 80 00 20 */	blr
 
 .global __ct__Q212CMapUniverse18CMapObjectSortInfoFfiii6CColor6CColor
 __ct__Q212CMapUniverse18CMapObjectSortInfoFfiii6CColor6CColor:
@@ -1307,7 +1307,7 @@ __ct__Q212CMapUniverse18CMapObjectSortInfoFfiii6CColor6CColor:
 /* 80202F08 001FFE68  90 03 00 10 */	stw r0, 0x10(r3)
 /* 80202F0C 001FFE6C  80 08 00 00 */	lwz r0, 0(r8)
 /* 80202F10 001FFE70  90 03 00 14 */	stw r0, 0x14(r3)
-/* 80202F14 001FFE74  4E 80 00 20 */	blr 
+/* 80202F14 001FFE74  4E 80 00 20 */	blr
 
 .global sub_80202f18
 sub_80202f18:
@@ -1435,7 +1435,7 @@ lbl_802030C8:
 /* 802030E0 00200040  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 802030E4 00200044  7C 08 03 A6 */	mtlr r0
 /* 802030E8 00200048  38 21 00 60 */	addi r1, r1, 0x60
-/* 802030EC 0020004C  4E 80 00 20 */	blr 
+/* 802030EC 0020004C  4E 80 00 20 */	blr
 
 .global sub_802030f0
 sub_802030f0:
@@ -1466,7 +1466,7 @@ sub_802030f0:
 /* 80203150 002000B0  90 E3 00 0C */	stw r7, 0xc(r3)
 /* 80203154 002000B4  91 03 00 10 */	stw r8, 0x10(r3)
 /* 80203158 002000B8  91 23 00 14 */	stw r9, 0x14(r3)
-/* 8020315C 002000BC  4E 80 00 20 */	blr 
+/* 8020315C 002000BC  4E 80 00 20 */	blr
 
 .global sub_80203160
 sub_80203160:
@@ -1535,7 +1535,7 @@ lbl_80203230:
 /* 80203234 00200194  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80203238 00200198  7C 08 03 A6 */	mtlr r0
 /* 8020323C 0020019C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80203240 002001A0  4E 80 00 20 */	blr 
+/* 80203240 002001A0  4E 80 00 20 */	blr
 
 .global sub_80203244
 sub_80203244:
@@ -1594,7 +1594,7 @@ lbl_802032F8:
 /* 80203304 00200264  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80203308 00200268  7C 08 03 A6 */	mtlr r0
 /* 8020330C 0020026C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80203310 00200270  4E 80 00 20 */	blr 
+/* 80203310 00200270  4E 80 00 20 */	blr
 
 .global sub_80203314
 sub_80203314:
@@ -1618,7 +1618,7 @@ lbl_80203340:
 /* 80203350 002002B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80203354 002002B4  7C 08 03 A6 */	mtlr r0
 /* 80203358 002002B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020335C 002002BC  4E 80 00 20 */	blr 
+/* 8020335C 002002BC  4E 80 00 20 */	blr
 
 .global sub_80203360
 sub_80203360:
@@ -1649,7 +1649,7 @@ lbl_8020339C:
 /* 802033B8 00200318  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802033BC 0020031C  7C 08 03 A6 */	mtlr r0
 /* 802033C0 00200320  38 21 00 20 */	addi r1, r1, 0x20
-/* 802033C4 00200324  4E 80 00 20 */	blr 
+/* 802033C4 00200324  4E 80 00 20 */	blr
 
 .global sub_802033c8
 sub_802033c8:
@@ -1731,7 +1731,7 @@ lbl_802034C4:
 /* 802034D0 00200430  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802034D4 00200434  7C 08 03 A6 */	mtlr r0
 /* 802034D8 00200438  38 21 00 30 */	addi r1, r1, 0x30
-/* 802034DC 0020043C  4E 80 00 20 */	blr 
+/* 802034DC 0020043C  4E 80 00 20 */	blr
 
 .global sub_802034e0
 sub_802034e0:
@@ -1805,7 +1805,7 @@ lbl_802035D4:
 /* 802035E0 00200540  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802035E4 00200544  7C 08 03 A6 */	mtlr r0
 /* 802035E8 00200548  38 21 00 20 */	addi r1, r1, 0x20
-/* 802035EC 0020054C  4E 80 00 20 */	blr 
+/* 802035EC 0020054C  4E 80 00 20 */	blr
 
 .global sub_802035f0
 sub_802035f0:
@@ -1833,7 +1833,7 @@ sub_802035f0:
 /* 80203644 002005A4  90 E4 00 0C */	stw r7, 0xc(r4)
 /* 80203648 002005A8  91 04 00 10 */	stw r8, 0x10(r4)
 /* 8020364C 002005AC  91 24 00 14 */	stw r9, 0x14(r4)
-/* 80203650 002005B0  4E 80 00 20 */	blr 
+/* 80203650 002005B0  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl162pointer_iterator<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl71vector<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,29CMapObjectSortInfoGreaterThan>__4rstlFQ24rstl162pointer_iterator<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl71vector<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl162pointer_iterator<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl71vector<Q212CMapUniverse18CMapObject"
 "__insertion_sort<Q24rstl162pointer_iterator<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl71vector<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,29CMapObjectSortInfoGreaterThan>__4rstlFQ24rstl162pointer_iterator<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl71vector<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl162pointer_iterator<Q212CMapUniverse18CMapObjectSortInfo,Q24rstl71vector<Q212CMapUniverse18CMapObject":

@@ -12,13 +12,13 @@ lbl_803D99F0:
 	.4byte GetIsContinueDraw__9CAutoSaveCFv
 	.4byte Draw__9CAutoSaveCFv
 	.4byte PreDraw__6CIOWinCFv
-	
+
 .section .text, "ax"
 
 .global GetIsContinueDraw__9CAutoSaveCFv
 GetIsContinueDraw__9CAutoSaveCFv:
 /* 8002515C 000220BC  38 60 00 00 */	li r3, 0
-/* 80025160 000220C0  4E 80 00 20 */	blr 
+/* 80025160 000220C0  4E 80 00 20 */	blr
 
 .global Draw__9CAutoSaveCFv
 Draw__9CAutoSaveCFv:
@@ -30,7 +30,7 @@ Draw__9CAutoSaveCFv:
 /* 80025178 000220D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8002517C 000220DC  7C 08 03 A6 */	mtlr r0
 /* 80025180 000220E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80025184 000220E4  4E 80 00 20 */	blr 
+/* 80025184 000220E4  4E 80 00 20 */	blr
 
 .global OnMessage__9CAutoSaveFRC20CArchitectureMessageR18CArchitectureQueue
 OnMessage__9CAutoSaveFRC20CArchitectureMessageR18CArchitectureQueue:
@@ -160,7 +160,7 @@ lbl_8002535C:
 /* 80025360 000222C0  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 80025364 000222C4  7C 08 03 A6 */	mtlr r0
 /* 80025368 000222C8  38 21 00 80 */	addi r1, r1, 0x80
-/* 8002536C 000222CC  4E 80 00 20 */	blr 
+/* 8002536C 000222CC  4E 80 00 20 */	blr
 
 .global __dt__9CAutoSaveFv
 __dt__9CAutoSaveFv:
@@ -195,7 +195,7 @@ lbl_800253CC:
 /* 800253D8 00022338  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800253DC 0002233C  7C 08 03 A6 */	mtlr r0
 /* 800253E0 00022340  38 21 00 10 */	addi r1, r1, 0x10
-/* 800253E4 00022344  4E 80 00 20 */	blr 
+/* 800253E4 00022344  4E 80 00 20 */	blr
 
 .global __ct__9CAutoSaveFv
 __ct__9CAutoSaveFv:
@@ -240,4 +240,4 @@ lbl_80025468:
 /* 8002547C 000223DC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80025480 000223E0  7C 08 03 A6 */	mtlr r0
 /* 80025484 000223E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80025488 000223E8  4E 80 00 20 */	blr 
+/* 80025488 000223E8  4E 80 00 20 */	blr

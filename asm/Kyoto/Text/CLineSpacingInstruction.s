@@ -42,7 +42,7 @@ lbl_802FFCF0:
 /* 802FFCF8 002FCC58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FFCFC 002FCC5C  7C 08 03 A6 */	mtlr r0
 /* 802FFD00 002FCC60  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FFD04 002FCC64  4E 80 00 20 */	blr 
+/* 802FFD04 002FCC64  4E 80 00 20 */	blr
 
 .global PageInvoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 PageInvoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
@@ -52,11 +52,11 @@ PageInvoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
 /* 802FFD14 002FCC74  81 83 00 00 */	lwz r12, 0(r3)
 /* 802FFD18 002FCC78  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802FFD1C 002FCC7C  7D 89 03 A6 */	mtctr r12
-/* 802FFD20 002FCC80  4E 80 04 21 */	bctrl 
+/* 802FFD20 002FCC80  4E 80 04 21 */	bctrl
 /* 802FFD24 002FCC84  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FFD28 002FCC88  7C 08 03 A6 */	mtlr r0
 /* 802FFD2C 002FCC8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FFD30 002FCC90  4E 80 00 20 */	blr 
+/* 802FFD30 002FCC90  4E 80 00 20 */	blr
 
 .global Invoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__23CLineSpacingInstructionCFR16CFontRenderStateP17CTextRenderBuffer:

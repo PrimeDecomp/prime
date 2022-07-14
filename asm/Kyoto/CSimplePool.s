@@ -62,7 +62,7 @@ lbl_805A9508:
 .global GetFactory__11CSimplePoolCFv
 GetFactory__11CSimplePoolCFv:
 /* 8033FFE0 0033CF40  80 63 00 18 */	lwz r3, 0x18(r3)
-/* 8033FFE4 0033CF44  4E 80 00 20 */	blr 
+/* 8033FFE4 0033CF44  4E 80 00 20 */	blr
 
 .global GetReferencedTags__11CSimplePoolFv
 GetReferencedTags__11CSimplePoolFv:
@@ -195,7 +195,7 @@ lbl_80340194:
 /* 803401A0 0033D100  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 803401A4 0033D104  7C 08 03 A6 */	mtlr r0
 /* 803401A8 0033D108  38 21 00 40 */	addi r1, r1, 0x40
-/* 803401AC 0033D10C  4E 80 00 20 */	blr 
+/* 803401AC 0033D10C  4E 80 00 20 */	blr
 
 .global DebugDumpPool__11CSimplePoolCFv
 DebugDumpPool__11CSimplePoolCFv:
@@ -230,11 +230,11 @@ lbl_80340200:
 /* 80340210 0033D170  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80340214 0033D174  7C 08 03 A6 */	mtlr r0
 /* 80340218 0033D178  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034021C 0033D17C  4E 80 00 20 */	blr 
+/* 8034021C 0033D17C  4E 80 00 20 */	blr
 
 .global Flush__11CSimplePoolFv
 Flush__11CSimplePoolFv:
-/* 80340220 0033D180  4E 80 00 20 */	blr 
+/* 80340220 0033D180  4E 80 00 20 */	blr
 
 .global ObjectIsLive__11CSimplePoolCFRC10SObjectTag
 ObjectIsLive__11CSimplePoolCFRC10SObjectTag:
@@ -279,14 +279,14 @@ lbl_803402A0:
 /* 803402A0 0033D200  54 00 06 3F */	clrlwi. r0, r0, 0x18
 /* 803402A4 0033D204  41 82 00 0C */	beq lbl_803402B0
 /* 803402A8 0033D208  38 60 00 00 */	li r3, 0
-/* 803402AC 0033D20C  4E 80 00 20 */	blr 
+/* 803402AC 0033D20C  4E 80 00 20 */	blr
 lbl_803402B0:
 /* 803402B0 0033D210  80 67 00 18 */	lwz r3, 0x18(r7)
 /* 803402B4 0033D214  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 803402B8 0033D218  7C 03 00 D0 */	neg r0, r3
 /* 803402BC 0033D21C  7C 00 1B 78 */	or r0, r0, r3
 /* 803402C0 0033D220  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 803402C4 0033D224  4E 80 00 20 */	blr 
+/* 803402C4 0033D224  4E 80 00 20 */	blr
 
 .global HasObject__11CSimplePoolCFRC10SObjectTag
 HasObject__11CSimplePoolCFRC10SObjectTag:
@@ -344,7 +344,7 @@ lbl_8034035C:
 /* 80340374 0033D2D4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80340378 0033D2D8  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8034037C 0033D2DC  7D 89 03 A6 */	mtctr r12
-/* 80340380 0033D2E0  4E 80 04 21 */	bctrl 
+/* 80340380 0033D2E0  4E 80 04 21 */	bctrl
 /* 80340384 0033D2E4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80340388 0033D2E8  41 82 00 08 */	beq lbl_80340390
 /* 8034038C 0033D2EC  3B E0 00 01 */	li r31, 1
@@ -359,7 +359,7 @@ lbl_8034039C:
 /* 803403A8 0033D308  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803403AC 0033D30C  7C 08 03 A6 */	mtlr r0
 /* 803403B0 0033D310  38 21 00 10 */	addi r1, r1, 0x10
-/* 803403B4 0033D314  4E 80 00 20 */	blr 
+/* 803403B4 0033D314  4E 80 00 20 */	blr
 
 .global GetObj__11CSimplePoolFPCcRC15CVParamTransfer
 GetObj__11CSimplePoolFPCcRC15CVParamTransfer:
@@ -377,7 +377,7 @@ GetObj__11CSimplePoolFPCcRC15CVParamTransfer:
 /* 803403E4 0033D344  81 83 00 00 */	lwz r12, 0(r3)
 /* 803403E8 0033D348  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 803403EC 0033D34C  7D 89 03 A6 */	mtctr r12
-/* 803403F0 0033D350  4E 80 04 21 */	bctrl 
+/* 803403F0 0033D350  4E 80 04 21 */	bctrl
 /* 803403F4 0033D354  7C 60 1B 78 */	mr r0, r3
 /* 803403F8 0033D358  7F A3 EB 78 */	mr r3, r29
 /* 803403FC 0033D35C  7C 05 03 78 */	mr r5, r0
@@ -390,7 +390,7 @@ GetObj__11CSimplePoolFPCcRC15CVParamTransfer:
 /* 80340418 0033D378  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034041C 0033D37C  7C 08 03 A6 */	mtlr r0
 /* 80340420 0033D380  38 21 00 20 */	addi r1, r1, 0x20
-/* 80340424 0033D384  4E 80 00 20 */	blr 
+/* 80340424 0033D384  4E 80 00 20 */	blr
 
 .global GetObj__11CSimplePoolFPCc
 GetObj__11CSimplePoolFPCc:
@@ -405,7 +405,7 @@ GetObj__11CSimplePoolFPCc:
 /* 80340448 0033D3A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034044C 0033D3AC  7C 08 03 A6 */	mtlr r0
 /* 80340450 0033D3B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340454 0033D3B4  4E 80 00 20 */	blr 
+/* 80340454 0033D3B4  4E 80 00 20 */	blr
 
 .global GetObj__11CSimplePoolFRC10SObjectTag
 GetObj__11CSimplePoolFRC10SObjectTag:
@@ -420,7 +420,7 @@ GetObj__11CSimplePoolFRC10SObjectTag:
 /* 80340478 0033D3D8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034047C 0033D3DC  7C 08 03 A6 */	mtlr r0
 /* 80340480 0033D3E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340484 0033D3E4  4E 80 00 20 */	blr 
+/* 80340484 0033D3E4  4E 80 00 20 */	blr
 
 .global GetObj__11CSimplePoolFRC10SObjectTagRC15CVParamTransfer
 GetObj__11CSimplePoolFRC10SObjectTagRC15CVParamTransfer:
@@ -518,7 +518,7 @@ lbl_803405A8:
 /* 803405CC 0033D52C  38 80 00 01 */	li r4, 1
 /* 803405D0 0033D530  81 8C 00 08 */	lwz r12, 8(r12)
 /* 803405D4 0033D534  7D 89 03 A6 */	mtctr r12
-/* 803405D8 0033D538  4E 80 04 21 */	bctrl 
+/* 803405D8 0033D538  4E 80 04 21 */	bctrl
 lbl_803405DC:
 /* 803405DC 0033D53C  7F 40 07 75 */	extsb. r0, r26
 /* 803405E0 0033D540  41 82 00 0C */	beq lbl_803405EC
@@ -543,7 +543,7 @@ lbl_80340620:
 /* 80340624 0033D584  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80340628 0033D588  7C 08 03 A6 */	mtlr r0
 /* 8034062C 0033D58C  38 21 00 60 */	addi r1, r1, 0x60
-/* 80340630 0033D590  4E 80 00 20 */	blr 
+/* 80340630 0033D590  4E 80 00 20 */	blr
 
 .global ObjectUnreferenced__11CSimplePoolFRC10SObjectTag
 ObjectUnreferenced__11CSimplePoolFRC10SObjectTag:
@@ -606,7 +606,7 @@ lbl_803406E4:
 /* 803406F8 0033D658  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803406FC 0033D65C  7C 08 03 A6 */	mtlr r0
 /* 80340700 0033D660  38 21 00 20 */	addi r1, r1, 0x20
-/* 80340704 0033D664  4E 80 00 20 */	blr 
+/* 80340704 0033D664  4E 80 00 20 */	blr
 
 .global __dt__11CSimplePool
 __dt__11CSimplePool:
@@ -624,7 +624,7 @@ __dt__11CSimplePool:
 /* 80340734 0033D694  81 83 00 00 */	lwz r12, 0(r3)
 /* 80340738 0033D698  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8034073C 0033D69C  7D 89 03 A6 */	mtctr r12
-/* 80340740 0033D6A0  4E 80 04 21 */	bctrl 
+/* 80340740 0033D6A0  4E 80 04 21 */	bctrl
 /* 80340744 0033D6A4  80 1E 00 08 */	lwz r0, 8(r30)
 /* 80340748 0033D6A8  2C 00 00 00 */	cmpwi r0, 0
 /* 8034074C 0033D6AC  40 81 00 0C */	ble lbl_80340758
@@ -665,7 +665,7 @@ lbl_803407B8:
 /* 803407C4 0033D724  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803407C8 0033D728  7C 08 03 A6 */	mtlr r0
 /* 803407CC 0033D72C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803407D0 0033D730  4E 80 00 20 */	blr 
+/* 803407D0 0033D730  4E 80 00 20 */	blr
 
 .global __ct__11CSimplePoolFR8IFactory
 __ct__11CSimplePoolFR8IFactory:
@@ -753,7 +753,7 @@ lbl_803408F8:
 /* 8034090C 0033D86C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80340910 0033D870  7C 08 03 A6 */	mtlr r0
 /* 80340914 0033D874  38 21 00 20 */	addi r1, r1, 0x20
-/* 80340918 0033D878  4E 80 00 20 */	blr 
+/* 80340918 0033D878  4E 80 00 20 */	blr
 
 .global sub_8034091c
 sub_8034091c:
@@ -785,7 +785,7 @@ lbl_8034096C:
 /* 80340974 0033D8D4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80340978 0033D8D8  7C 08 03 A6 */	mtlr r0
 /* 8034097C 0033D8DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340980 0033D8E0  4E 80 00 20 */	blr 
+/* 80340980 0033D8E0  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>Fi":
@@ -858,7 +858,7 @@ lbl_80340A5C:
 /* 80340A68 0033D9C8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80340A6C 0033D9CC  7C 08 03 A6 */	mtlr r0
 /* 80340A70 0033D9D0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80340A74 0033D9D4  4E 80 00 20 */	blr 
+/* 80340A74 0033D9D4  4E 80 00 20 */	blr
 
 .global sub_80340a78
 sub_80340a78:
@@ -1019,4 +1019,4 @@ lbl_80340CB0:
 /* 80340CB4 0033DC14  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80340CB8 0033DC18  7C 08 03 A6 */	mtlr r0
 /* 80340CBC 0033DC1C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80340CC0 0033DC20  4E 80 00 20 */	blr 
+/* 80340CC0 0033DC20  4E 80 00 20 */	blr

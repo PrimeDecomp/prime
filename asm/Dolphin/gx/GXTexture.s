@@ -3,67 +3,250 @@
 .section .sdata
 .global lbl_805A8AE0
 lbl_805A8AE0:
-	.incbin "baserom.dol", 0x3F6480, 0x8
+	# ROM: 0x3F6480
+	.4byte 0x80818283
+	.4byte 0xA0A1A2A3
+
 .global lbl_805A8AE8
 lbl_805A8AE8:
-	.incbin "baserom.dol", 0x3F6488, 0x8
+	# ROM: 0x3F6488
+	.4byte 0x84858687
+	.4byte 0xA4A5A6A7
+
 .global lbl_805A8AF0
 lbl_805A8AF0:
-	.incbin "baserom.dol", 0x3F6490, 0x8
+	# ROM: 0x3F6490
+	.4byte 0x88898A8B
+	.4byte 0xA8A9AAAB
+
 .global lbl_805A8AF8
 lbl_805A8AF8:
-	.incbin "baserom.dol", 0x3F6498, 0x8
+	# ROM: 0x3F6498
+	.4byte 0x8C8D8E8F
+	.4byte 0xACADAEAF
+
 .global lbl_805A8B00
 lbl_805A8B00:
-	.incbin "baserom.dol", 0x3F64A0, 0x8
+	# ROM: 0x3F64A0
+	.4byte 0x90919293
+	.4byte 0xB0B1B2B3
+
 .global lbl_805A8B08
 lbl_805A8B08:
-	.incbin "baserom.dol", 0x3F64A8, 0x8
+	# ROM: 0x3F64A8
+	.4byte 0x94959697
+	.4byte 0xB4B5B6B7
+
 .global lbl_805A8B10
 lbl_805A8B10:
-	.incbin "baserom.dol", 0x3F64B0, 0x8
+	# ROM: 0x3F64B0
+	.4byte 0x98999A9B
+	.4byte 0xB8B9BABB
+
 .global lbl_805A8B18
 lbl_805A8B18:
-	.incbin "baserom.dol", 0x3F64B8, 0x8
+	# ROM: 0x3F64B8
+	.4byte 0x00040105
+	.4byte 0x02060000
+
 
 .section .sdata2
 .global lbl_805AEB88
 lbl_805AEB88:
-	.incbin "baserom.dol", 0x3FB428, 0x8
+	# ROM: 0x3FB428
+	.4byte 0x41800000
+	.4byte 0
+
 .global lbl_805AEB90
 lbl_805AEB90:
-	.incbin "baserom.dol", 0x3FB430, 0x8
+	# ROM: 0x3FB430
+	.4byte 0x43300000
+	.4byte 0
+
 .global lbl_805AEB98
 lbl_805AEB98:
-	.incbin "baserom.dol", 0x3FB438, 0x4
+	# ROM: 0x3FB438
+	.4byte 0xC0800000
+
 .global lbl_805AEB9C
 lbl_805AEB9C:
-	.incbin "baserom.dol", 0x3FB43C, 0x4
+	# ROM: 0x3FB43C
+	.4byte 0x40800000
+
 .global lbl_805AEBA0
 lbl_805AEBA0:
-	.incbin "baserom.dol", 0x3FB440, 0x4
+	# ROM: 0x3FB440
+	.4byte 0x407F5C29
+
 .global lbl_805AEBA4
 lbl_805AEBA4:
-	.incbin "baserom.dol", 0x3FB444, 0x4
+	# ROM: 0x3FB444
+	.4byte 0x42000000
+
 .global lbl_805AEBA8
 lbl_805AEBA8:
-	.incbin "baserom.dol", 0x3FB448, 0x4
+	# ROM: 0x3FB448
+	.4byte 0
+
 .global lbl_805AEBAC
 lbl_805AEBAC:
-	.incbin "baserom.dol", 0x3FB44C, 0x4
+	# ROM: 0x3FB44C
+	.4byte 0x41200000
+
 
 
 .section .data
 .global lbl_803F09F0
 lbl_803F09F0:
-	.incbin "baserom.dol", 0x3ED9F0, 0xF4
+	# ROM: 0x3ED9F0
+	.4byte 0x80379C68
+	.4byte 0x80379C74
+	.4byte 0x80379C74
+	.4byte 0x80379C80
+	.4byte 0x80379C80
+	.4byte 0x80379C80
+	.4byte 0x80379C80
+	.4byte 0x80379C8C
+	.4byte 0x80379C68
+	.4byte 0x80379C74
+	.4byte 0x80379C80
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C68
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C74
+	.4byte 0x80379C8C
+	.4byte 0x80379C80
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C80
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C68
+	.4byte 0x80379C8C
+	.4byte 0x80379C74
+	.4byte 0x80379C80
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C74
+	.4byte 0x80379C74
+	.4byte 0x80379C74
+	.4byte 0x80379C74
+	.4byte 0x80379C80
+	.4byte 0x80379C80
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C68
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C8C
+	.4byte 0x80379C74
+	.4byte 0x80379C74
+	.4byte 0x80379C8C
+	.4byte 0x80379C80
+
 .global lbl_803F0AE4
 lbl_803F0AE4:
-	.incbin "baserom.dol", 0x3EDAE4, 0xF4
+	# ROM: 0x3EDAE4
+	.4byte 0x80379DBC
+	.4byte 0x80379DC8
+	.4byte 0x80379DC8
+	.4byte 0x80379DD4
+	.4byte 0x80379DD4
+	.4byte 0x80379DD4
+	.4byte 0x80379DD4
+	.4byte 0x80379DE0
+	.4byte 0x80379DBC
+	.4byte 0x80379DC8
+	.4byte 0x80379DD4
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DBC
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DC8
+	.4byte 0x80379DE0
+	.4byte 0x80379DD4
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DD4
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DBC
+	.4byte 0x80379DE0
+	.4byte 0x80379DC8
+	.4byte 0x80379DD4
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DC8
+	.4byte 0x80379DC8
+	.4byte 0x80379DC8
+	.4byte 0x80379DC8
+	.4byte 0x80379DD4
+	.4byte 0x80379DD4
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DBC
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DE0
+	.4byte 0x80379DC8
+	.4byte 0x80379DC8
+	.4byte 0x80379DE0
+	.4byte 0x80379DD4
+
 .global lbl_803F0BD8
 lbl_803F0BD8:
-	.incbin "baserom.dol", 0x3EDBD8, 0x40
-	
+	# ROM: 0x3EDBD8
+	.4byte 0x8037A00C
+	.4byte 0x8037A020
+	.4byte 0x8037A020
+	.4byte 0x8037A034
+	.4byte 0x8037A034
+	.4byte 0x8037A034
+	.4byte 0x8037A048
+	.4byte 0x8037A070
+	.4byte 0x8037A00C
+	.4byte 0x8037A020
+	.4byte 0x8037A034
+	.4byte 0x8037A070
+	.4byte 0x8037A070
+	.4byte 0x8037A070
+	.4byte 0x8037A05C
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global GXGetTexBufferSize
@@ -77,7 +260,7 @@ GXGetTexBufferSize:
 /* 80379C58 00376BB8  54 A0 10 3A */	slwi r0, r5, 2
 /* 80379C5C 00376BBC  7C 08 00 2E */	lwzx r0, r8, r0
 /* 80379C60 00376BC0  7C 09 03 A6 */	mtctr r0
-/* 80379C64 00376BC4  4E 80 04 20 */	bctr 
+/* 80379C64 00376BC4  4E 80 04 20 */	bctr
 /* 80379C68 00376BC8  38 00 00 03 */	li r0, 3
 /* 80379C6C 00376BCC  39 00 00 03 */	li r8, 3
 /* 80379C70 00376BD0  48 00 00 24 */	b lbl_80379C94
@@ -167,7 +350,7 @@ lbl_80379D8C:
 /* 80379D8C 00376CEC  7F E3 FB 78 */	mr r3, r31
 /* 80379D90 00376CF0  83 E1 00 24 */	lwz r31, 0x24(r1)
 /* 80379D94 00376CF4  38 21 00 28 */	addi r1, r1, 0x28
-/* 80379D98 00376CF8  4E 80 00 20 */	blr 
+/* 80379D98 00376CF8  4E 80 00 20 */	blr
 
 .global __GetImageTileCount
 __GetImageTileCount:
@@ -178,7 +361,7 @@ __GetImageTileCount:
 /* 80379DAC 00376D0C  54 60 10 3A */	slwi r0, r3, 2
 /* 80379DB0 00376D10  7C 09 00 2E */	lwzx r0, r9, r0
 /* 80379DB4 00376D14  7C 09 03 A6 */	mtctr r0
-/* 80379DB8 00376D18  4E 80 04 20 */	bctr 
+/* 80379DB8 00376D18  4E 80 04 20 */	bctr
 /* 80379DBC 00376D1C  39 60 00 03 */	li r11, 3
 /* 80379DC0 00376D20  39 80 00 03 */	li r12, 3
 /* 80379DC4 00376D24  48 00 00 24 */	b lbl_80379DE8
@@ -227,7 +410,7 @@ lbl_80379E58:
 /* 80379E58 00376DB8  38 00 00 01 */	li r0, 1
 lbl_80379E5C:
 /* 80379E5C 00376DBC  90 08 00 00 */	stw r0, 0(r8)
-/* 80379E60 00376DC0  4E 80 00 20 */	blr 
+/* 80379E60 00376DC0  4E 80 00 20 */	blr
 
 .global GXInitTexObj
 GXInitTexObj:
@@ -342,7 +525,7 @@ lbl_80379F8C:
 /* 80379FFC 00376F5C  54 E0 10 3A */	slwi r0, r7, 2
 /* 8037A000 00376F60  7C 05 00 2E */	lwzx r0, r5, r0
 /* 8037A004 00376F64  7C 09 03 A6 */	mtctr r0
-/* 8037A008 00376F68  4E 80 04 20 */	bctr 
+/* 8037A008 00376F68  4E 80 04 20 */	bctr
 /* 8037A00C 00376F6C  38 00 00 01 */	li r0, 1
 /* 8037A010 00376F70  98 1F 00 1E */	stb r0, 0x1e(r31)
 /* 8037A014 00376F74  38 00 00 03 */	li r0, 3
@@ -395,7 +578,7 @@ lbl_8037A080:
 /* 8037A0C8 00377028  BB 01 00 40 */	lmw r24, 0x40(r1)
 /* 8037A0CC 0037702C  38 21 00 60 */	addi r1, r1, 0x60
 /* 8037A0D0 00377030  7C 08 03 A6 */	mtlr r0
-/* 8037A0D4 00377034  4E 80 00 20 */	blr 
+/* 8037A0D4 00377034  4E 80 00 20 */	blr
 
 .global GXInitTexObjCI
 GXInitTexObjCI:
@@ -416,7 +599,7 @@ GXInitTexObjCI:
 /* 8037A110 00377070  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8037A114 00377074  38 21 00 30 */	addi r1, r1, 0x30
 /* 8037A118 00377078  7C 08 03 A6 */	mtlr r0
-/* 8037A11C 0037707C  4E 80 00 20 */	blr 
+/* 8037A11C 0037707C  4E 80 00 20 */	blr
 
 .global GXInitTexObjLOD
 GXInitTexObjLOD:
@@ -530,7 +713,7 @@ lbl_8037A278:
 /* 8037A2A4 00377204  50 04 44 2E */	rlwimi r4, r0, 8, 0x10, 0x17
 /* 8037A2A8 00377208  90 83 00 04 */	stw r4, 4(r3)
 /* 8037A2AC 0037720C  38 21 00 38 */	addi r1, r1, 0x38
-/* 8037A2B0 00377210  4E 80 00 20 */	blr 
+/* 8037A2B0 00377210  4E 80 00 20 */	blr
 
 .global GXInitTexObjData
 GXInitTexObjData:
@@ -539,7 +722,7 @@ GXInitTexObjData:
 /* 8037A2BC 0037721C  54 A4 00 14 */	rlwinm r4, r5, 0, 0, 0xa
 /* 8037A2C0 00377220  7C 80 03 78 */	or r0, r4, r0
 /* 8037A2C4 00377224  90 03 00 0C */	stw r0, 0xc(r3)
-/* 8037A2C8 00377228  4E 80 00 20 */	blr 
+/* 8037A2C8 00377228  4E 80 00 20 */	blr
 
 .global GXInitTexObjWrapMode
 GXInitTexObjWrapMode:
@@ -552,12 +735,12 @@ GXInitTexObjWrapMode:
 /* 8037A2E4 00377244  54 84 07 B6 */	rlwinm r4, r4, 0, 0x1e, 0x1b
 /* 8037A2E8 00377248  7C 80 03 78 */	or r0, r4, r0
 /* 8037A2EC 0037724C  90 03 00 00 */	stw r0, 0(r3)
-/* 8037A2F0 00377250  4E 80 00 20 */	blr 
+/* 8037A2F0 00377250  4E 80 00 20 */	blr
 
 .global GXGetTexObjFmt
 GXGetTexObjFmt:
 /* 8037A2F4 00377254  80 63 00 14 */	lwz r3, 0x14(r3)
-/* 8037A2F8 00377258  4E 80 00 20 */	blr 
+/* 8037A2F8 00377258  4E 80 00 20 */	blr
 
 .global GXLoadTexObjPreLoaded
 GXLoadTexObjPreLoaded:
@@ -633,7 +816,7 @@ GXLoadTexObjPreLoaded:
 /* 8037A410 00377370  80 7C 00 18 */	lwz r3, 0x18(r28)
 /* 8037A414 00377374  81 84 04 14 */	lwz r12, 0x414(r4)
 /* 8037A418 00377378  7D 88 03 A6 */	mtlr r12
-/* 8037A41C 0037737C  4E 80 00 21 */	blrl 
+/* 8037A41C 0037737C  4E 80 00 21 */	blrl
 /* 8037A420 00377380  38 8D 9F 50 */	addi r4, r13, lbl_805A8B10@sda21
 /* 8037A424 00377384  80 A3 00 04 */	lwz r5, 4(r3)
 /* 8037A428 00377388  7C 04 E8 AE */	lbzx r0, r4, r29
@@ -663,7 +846,7 @@ lbl_8037A444:
 /* 8037A484 003773E4  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 8037A488 003773E8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8037A48C 003773EC  7C 08 03 A6 */	mtlr r0
-/* 8037A490 003773F0  4E 80 00 20 */	blr 
+/* 8037A490 003773F0  4E 80 00 20 */	blr
 
 .global GXLoadTexObj
 GXLoadTexObj:
@@ -677,7 +860,7 @@ GXLoadTexObj:
 /* 8037A4B0 00377410  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
 /* 8037A4B4 00377414  81 85 04 10 */	lwz r12, 0x410(r5)
 /* 8037A4B8 00377418  7D 88 03 A6 */	mtlr r12
-/* 8037A4BC 0037741C  4E 80 00 21 */	blrl 
+/* 8037A4BC 0037741C  4E 80 00 21 */	blrl
 /* 8037A4C0 00377420  38 83 00 00 */	addi r4, r3, 0
 /* 8037A4C4 00377424  38 7E 00 00 */	addi r3, r30, 0
 /* 8037A4C8 00377428  38 BF 00 00 */	addi r5, r31, 0
@@ -687,7 +870,7 @@ GXLoadTexObj:
 /* 8037A4D8 00377438  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8037A4DC 0037743C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8037A4E0 00377440  7C 08 03 A6 */	mtlr r0
-/* 8037A4E4 00377444  4E 80 00 20 */	blr 
+/* 8037A4E4 00377444  4E 80 00 20 */	blr
 
 .global GXInitTlutObj
 GXInitTlutObj:
@@ -708,7 +891,7 @@ GXInitTlutObj:
 /* 8037A520 00377480  64 00 64 00 */	oris r0, r0, 0x6400
 /* 8037A524 00377484  90 03 00 04 */	stw r0, 4(r3)
 /* 8037A528 00377488  B0 C3 00 08 */	sth r6, 8(r3)
-/* 8037A52C 0037748C  4E 80 00 20 */	blr 
+/* 8037A52C 0037748C  4E 80 00 20 */	blr
 
 .global GXLoadTlut
 GXLoadTlut:
@@ -722,7 +905,7 @@ GXLoadTlut:
 /* 8037A54C 003774AC  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
 /* 8037A550 003774B0  81 85 04 14 */	lwz r12, 0x414(r5)
 /* 8037A554 003774B4  7D 88 03 A6 */	mtlr r12
-/* 8037A558 003774B8  4E 80 00 21 */	blrl 
+/* 8037A558 003774B8  4E 80 00 21 */	blrl
 /* 8037A55C 003774BC  7C 7F 1B 78 */	mr r31, r3
 /* 8037A560 003774C0  48 00 0E 95 */	bl __GXFlushTextureState
 /* 8037A564 003774C4  38 80 00 61 */	li r4, 0x61
@@ -750,7 +933,7 @@ GXLoadTlut:
 /* 8037A5BC 0037751C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8037A5C0 00377520  38 21 00 20 */	addi r1, r1, 0x20
 /* 8037A5C4 00377524  7C 08 03 A6 */	mtlr r0
-/* 8037A5C8 00377528  4E 80 00 20 */	blr 
+/* 8037A5C8 00377528  4E 80 00 20 */	blr
 
 .global GXInitTexCacheRegion
 GXInitTexCacheRegion:
@@ -836,7 +1019,7 @@ lbl_8037A698:
 /* 8037A6DC 0037763C  90 A3 00 04 */	stw r5, 4(r3)
 /* 8037A6E0 00377640  98 83 00 0C */	stb r4, 0xc(r3)
 /* 8037A6E4 00377644  98 03 00 0D */	stb r0, 0xd(r3)
-/* 8037A6E8 00377648  4E 80 00 20 */	blr 
+/* 8037A6E8 00377648  4E 80 00 20 */	blr
 
 .global GXInitTlutRegion
 GXInitTlutRegion:
@@ -857,7 +1040,7 @@ GXInitTlutRegion:
 /* 8037A724 00377684  54 00 02 3E */	clrlwi r0, r0, 8
 /* 8037A728 00377688  64 00 65 00 */	oris r0, r0, 0x6500
 /* 8037A72C 0037768C  90 03 00 00 */	stw r0, 0(r3)
-/* 8037A730 00377690  4E 80 00 20 */	blr 
+/* 8037A730 00377690  4E 80 00 20 */	blr
 
 .global GXInvalidateTexRegion
 GXInvalidateTexRegion:
@@ -935,7 +1118,7 @@ lbl_8037A820:
 /* 8037A830 00377790  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8037A834 00377794  38 21 00 20 */	addi r1, r1, 0x20
 /* 8037A838 00377798  7C 08 03 A6 */	mtlr r0
-/* 8037A83C 0037779C  4E 80 00 20 */	blr 
+/* 8037A83C 0037779C  4E 80 00 20 */	blr
 
 .global GXInvalidateTexAll
 GXInvalidateTexAll:
@@ -956,7 +1139,7 @@ GXInvalidateTexAll:
 /* 8037A878 003777D8  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8037A87C 003777DC  38 21 00 08 */	addi r1, r1, 8
 /* 8037A880 003777E0  7C 08 03 A6 */	mtlr r0
-/* 8037A884 003777E4  4E 80 00 20 */	blr 
+/* 8037A884 003777E4  4E 80 00 20 */	blr
 
 .global GXSetTexRegionCallback
 GXSetTexRegionCallback:
@@ -964,7 +1147,7 @@ GXSetTexRegionCallback:
 /* 8037A88C 003777EC  84 04 04 10 */	lwzu r0, 0x410(r4)
 /* 8037A890 003777F0  90 64 00 00 */	stw r3, 0(r4)
 /* 8037A894 003777F4  7C 03 03 78 */	mr r3, r0
-/* 8037A898 003777F8  4E 80 00 20 */	blr 
+/* 8037A898 003777F8  4E 80 00 20 */	blr
 
 .global GXSetTlutRegionCallback
 GXSetTlutRegionCallback:
@@ -972,7 +1155,7 @@ GXSetTlutRegionCallback:
 /* 8037A8A0 00377800  84 04 04 14 */	lwzu r0, 0x414(r4)
 /* 8037A8A4 00377804  90 64 00 00 */	stw r3, 0(r4)
 /* 8037A8A8 00377808  7C 03 03 78 */	mr r3, r0
-/* 8037A8AC 0037780C  4E 80 00 20 */	blr 
+/* 8037A8AC 0037780C  4E 80 00 20 */	blr
 
 .global GXSetTexCoordCylWrap
 GXSetTexCoordCylWrap:
@@ -985,7 +1168,7 @@ GXSetTexCoordCylWrap:
 /* 8037A8C8 00377828  7C 80 18 30 */	slw r0, r4, r3
 /* 8037A8CC 0037782C  7C E0 03 78 */	or r0, r7, r0
 /* 8037A8D0 00377830  90 08 04 DC */	stw r0, 0x4dc(r8)
-/* 8037A8D4 00377834  4D 82 00 20 */	beqlr 
+/* 8037A8D4 00377834  4D 82 00 20 */	beqlr
 /* 8037A8D8 00377838  54 67 10 3A */	slwi r7, r3, 2
 /* 8037A8DC 0037783C  7C 88 3A 14 */	add r4, r8, r7
 /* 8037A8E0 00377840  80 64 00 B8 */	lwz r3, 0xb8(r4)
@@ -1010,7 +1193,7 @@ GXSetTexCoordCylWrap:
 /* 8037A92C 0037788C  80 64 00 D8 */	lwz r3, 0xd8(r4)
 /* 8037A930 00377890  90 65 80 00 */	stw r3, 0xCC008000@l(r5)
 /* 8037A934 00377894  B0 08 00 02 */	sth r0, 2(r8)
-/* 8037A938 00377898  4E 80 00 20 */	blr 
+/* 8037A938 00377898  4E 80 00 20 */	blr
 
 .global GXSetTexCoordBias
 GXSetTexCoordBias:
@@ -1032,7 +1215,7 @@ GXSetTexCoordBias:
 /* 8037A978 003778D8  90 6A 00 D8 */	stw r3, 0xd8(r10)
 /* 8037A97C 003778DC  80 67 04 DC */	lwz r3, 0x4dc(r7)
 /* 8037A980 003778E0  7C 60 00 39 */	and. r0, r3, r0
-/* 8037A984 003778E4  4D 82 00 20 */	beqlr 
+/* 8037A984 003778E4  4D 82 00 20 */	beqlr
 /* 8037A988 003778E8  38 C0 00 61 */	li r6, 0x61
 /* 8037A98C 003778EC  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037A990 003778F0  98 C5 80 00 */	stb r6, 0xCC008000@l(r5)
@@ -1044,7 +1227,7 @@ GXSetTexCoordBias:
 /* 8037A9A8 00377908  80 64 00 D8 */	lwz r3, 0xd8(r4)
 /* 8037A9AC 0037790C  90 65 80 00 */	stw r3, 0xCC008000@l(r5)
 /* 8037A9B0 00377910  B0 07 00 02 */	sth r0, 2(r7)
-/* 8037A9B4 00377914  4E 80 00 20 */	blr 
+/* 8037A9B4 00377914  4E 80 00 20 */	blr
 
 .global __SetSURegs
 __SetSURegs:
@@ -1093,7 +1276,7 @@ __SetSURegs:
 /* 8037AA60 003779C0  80 64 00 D8 */	lwz r3, 0xd8(r4)
 /* 8037AA64 003779C4  90 66 80 00 */	stw r3, 0xCC008000@l(r6)
 /* 8037AA68 003779C8  B0 05 00 02 */	sth r0, 2(r5)
-/* 8037AA6C 003779CC  4E 80 00 20 */	blr 
+/* 8037AA6C 003779CC  4E 80 00 20 */	blr
 
 .global __GXSetSUTexRegs
 __GXSetSUTexRegs:
@@ -1206,7 +1389,7 @@ lbl_8037ABD8:
 /* 8037ABDC 00377B3C  80 01 00 2C */	lwz r0, 0x2c(r1)
 /* 8037ABE0 00377B40  38 21 00 28 */	addi r1, r1, 0x28
 /* 8037ABE4 00377B44  7C 08 03 A6 */	mtlr r0
-/* 8037ABE8 00377B48  4E 80 00 20 */	blr 
+/* 8037ABE8 00377B48  4E 80 00 20 */	blr
 
 .global __GXSetTmemConfig
 __GXSetTmemConfig:
@@ -1356,4 +1539,4 @@ lbl_8037AE1C:
 /* 8037AE1C 00377D7C  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 8037AE20 00377D80  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8037AE24 00377D84  38 21 00 18 */	addi r1, r1, 0x18
-/* 8037AE28 00377D88  4E 80 00 20 */	blr 
+/* 8037AE28 00377D88  4E 80 00 20 */	blr

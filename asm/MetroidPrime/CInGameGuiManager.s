@@ -109,7 +109,7 @@ lbl_80106B8C:
 /* 80106BA8 00103B08  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80106BAC 00103B0C  7C 08 03 A6 */	mtlr r0
 /* 80106BB0 00103B10  38 21 00 20 */	addi r1, r1, 0x20
-/* 80106BB4 00103B14  4E 80 00 20 */	blr 
+/* 80106BB4 00103B14  4E 80 00 20 */	blr
 
 .global DestroyAreaTextures__17CInGameGuiManagerFRC13CStateManager
 DestroyAreaTextures__17CInGameGuiManagerFRC13CStateManager:
@@ -192,7 +192,7 @@ lbl_80106C94:
 /* 80106CD8 00103C38  81 84 00 00 */	lwz r12, 0(r4)
 /* 80106CDC 00103C3C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80106CE0 00103C40  7D 89 03 A6 */	mtctr r12
-/* 80106CE4 00103C44  4E 80 04 21 */	bctrl 
+/* 80106CE4 00103C44  4E 80 04 21 */	bctrl
 /* 80106CE8 00103C48  38 61 00 70 */	addi r3, r1, 0x70
 /* 80106CEC 00103C4C  38 81 00 58 */	addi r4, r1, 0x58
 /* 80106CF0 00103C50  48 23 A1 B9 */	bl __ct__6CTokenFRC6CToken
@@ -306,7 +306,7 @@ lbl_80106E40:
 /* 80106E74 00103DD4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80106E78 00103DD8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80106E7C 00103DDC  7D 89 03 A6 */	mtctr r12
-/* 80106E80 00103DE0  4E 80 04 21 */	bctrl 
+/* 80106E80 00103DE0  4E 80 04 21 */	bctrl
 /* 80106E84 00103DE4  38 61 00 68 */	addi r3, r1, 0x68
 /* 80106E88 00103DE8  38 81 00 48 */	addi r4, r1, 0x48
 /* 80106E8C 00103DEC  48 23 A0 1D */	bl __ct__6CTokenFRC6CToken
@@ -522,7 +522,7 @@ lbl_80107154:
 /* 80107188 001040E8  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 8010718C 001040EC  7C 08 03 A6 */	mtlr r0
 /* 80107190 001040F0  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80107194 001040F4  4E 80 00 20 */	blr 
+/* 80107194 001040F4  4E 80 00 20 */	blr
 
 .global sub_80107198
 sub_80107198:
@@ -562,12 +562,12 @@ lbl_801071F4:
 /* 80107208 00104168  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8010720C 0010416C  7C 08 03 A6 */	mtlr r0
 /* 80107210 00104170  38 21 00 10 */	addi r1, r1, 0x10
-/* 80107214 00104174  4E 80 00 20 */	blr 
+/* 80107214 00104174  4E 80 00 20 */	blr
 
 .global sub_80107218
 sub_80107218:
 /* 80107218 00104178  7C 04 28 40 */	cmplw r4, r5
-/* 8010721C 0010417C  4D 82 00 20 */	beqlr 
+/* 8010721C 0010417C  4D 82 00 20 */	beqlr
 /* 80107220 00104180  80 03 00 04 */	lwz r0, 4(r3)
 /* 80107224 00104184  7C 04 00 40 */	cmplw r4, r0
 /* 80107228 00104188  40 82 00 0C */	bne lbl_80107234
@@ -599,11 +599,11 @@ lbl_80107274:
 /* 80107280 001041E0  91 04 00 00 */	stw r8, 0(r4)
 /* 80107284 001041E4  90 A3 00 00 */	stw r5, 0(r3)
 /* 80107288 001041E8  90 65 00 04 */	stw r3, 4(r5)
-/* 8010728C 001041EC  4E 80 00 20 */	blr 
+/* 8010728C 001041EC  4E 80 00 20 */	blr
 lbl_80107290:
 /* 80107290 001041F0  90 85 00 04 */	stw r4, 4(r5)
 /* 80107294 001041F4  90 A4 00 00 */	stw r5, 0(r4)
-/* 80107298 001041F8  4E 80 00 20 */	blr 
+/* 80107298 001041F8  4E 80 00 20 */	blr
 
 .global sub_8010729c
 sub_8010729c:
@@ -657,7 +657,7 @@ lbl_80107330:
 /* 80107344 001042A4  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80107348 001042A8  7C 08 03 A6 */	mtlr r0
 /* 8010734C 001042AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80107350 001042B0  4E 80 00 20 */	blr 
+/* 80107350 001042B0  4E 80 00 20 */	blr
 
 .global sub_80107354
 sub_80107354:
@@ -711,7 +711,7 @@ lbl_801073F0:
 /* 801073FC 0010435C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80107400 00104360  7C 08 03 A6 */	mtlr r0
 /* 80107404 00104364  38 21 00 20 */	addi r1, r1, 0x20
-/* 80107408 00104368  4E 80 00 20 */	blr 
+/* 80107408 00104368  4E 80 00 20 */	blr
 
 .global EnsureStates__17CInGameGuiManagerFR13CStateManager
 EnsureStates__17CInGameGuiManagerFR13CStateManager:
@@ -743,7 +743,7 @@ lbl_80107464:
 /* 8010746C 001043CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80107470 001043D0  7C 08 03 A6 */	mtlr r0
 /* 80107474 001043D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80107478 001043D8  4E 80 00 20 */	blr 
+/* 80107478 001043D8  4E 80 00 20 */	blr
 
 .global DoStateTransition__17CInGameGuiManagerFR13CStateManager
 DoStateTransition__17CInGameGuiManagerFR13CStateManager:
@@ -874,7 +874,7 @@ lbl_80107614:
 /* 80107630 00104590  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80107634 00104594  7C 08 03 A6 */	mtlr r0
 /* 80107638 00104598  38 21 00 20 */	addi r1, r1, 0x20
-/* 8010763C 0010459C  4E 80 00 20 */	blr 
+/* 8010763C 0010459C  4E 80 00 20 */	blr
 
 .global BeginStateTransition__17CInGameGuiManagerF15EInGameGuiStateRC13CStateManager
 BeginStateTransition__17CInGameGuiManagerF15EInGameGuiStateRC13CStateManager:
@@ -995,14 +995,14 @@ lbl_801077D8:
 /* 801077DC 0010473C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801077E0 00104740  7C 08 03 A6 */	mtlr r0
 /* 801077E4 00104744  38 21 00 20 */	addi r1, r1, 0x20
-/* 801077E8 00104748  4E 80 00 20 */	blr 
+/* 801077E8 00104748  4E 80 00 20 */	blr
 
 .global GetIsGameDraw__17CInGameGuiManagerCFv
 GetIsGameDraw__17CInGameGuiManagerCFv:
 /* 801077EC 0010474C  80 63 00 3C */	lwz r3, 0x3c(r3)
 /* 801077F0 00104750  88 03 00 50 */	lbz r0, 0x50(r3)
 /* 801077F4 00104754  54 03 D7 FE */	rlwinm r3, r0, 0x1a, 0x1f, 0x1f
-/* 801077F8 00104758  4E 80 00 20 */	blr 
+/* 801077F8 00104758  4E 80 00 20 */	blr
 
 .global ShowPauseGameHudMessage__17CInGameGuiManagerFRC13CStateManagerUi
 ShowPauseGameHudMessage__17CInGameGuiManagerFRC13CStateManagerUi:
@@ -1016,7 +1016,7 @@ ShowPauseGameHudMessage__17CInGameGuiManagerFRC13CStateManagerUi:
 /* 80107818 00104778  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8010781C 0010477C  7C 08 03 A6 */	mtlr r0
 /* 80107820 00104780  38 21 00 10 */	addi r1, r1, 0x10
-/* 80107824 00104784  4E 80 00 20 */	blr 
+/* 80107824 00104784  4E 80 00 20 */	blr
 
 .global PauseGame__17CInGameGuiManagerFRC13CStateManager15EInGameGuiState
 PauseGame__17CInGameGuiManagerFRC13CStateManager15EInGameGuiState:
@@ -1035,7 +1035,7 @@ PauseGame__17CInGameGuiManagerFRC13CStateManager15EInGameGuiState:
 /* 80107858 001047B8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8010785C 001047BC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80107860 001047C0  7D 89 03 A6 */	mtctr r12
-/* 80107864 001047C4  4E 80 04 21 */	bctrl 
+/* 80107864 001047C4  4E 80 04 21 */	bctrl
 /* 80107868 001047C8  38 60 00 02 */	li r3, 2
 /* 8010786C 001047CC  48 1E 20 49 */	bl SetChannel__11CSfxManagerFQ211CSfxManager12ESfxChannels
 /* 80107870 001047D0  7F A3 EB 78 */	mr r3, r29
@@ -1048,7 +1048,7 @@ PauseGame__17CInGameGuiManagerFRC13CStateManager15EInGameGuiState:
 /* 8010788C 001047EC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80107890 001047F0  7C 08 03 A6 */	mtlr r0
 /* 80107894 001047F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80107898 001047F8  4E 80 00 20 */	blr 
+/* 80107898 001047F8  4E 80 00 20 */	blr
 
 .global ProcessControllerInput__17CInGameGuiManagerFRC13CStateManagerRC11CFinalInputR18CArchitectureQueue
 ProcessControllerInput__17CInGameGuiManagerFRC13CStateManagerRC11CFinalInputR18CArchitectureQueue:
@@ -1174,7 +1174,7 @@ lbl_80107A3C:
 /* 80107A48 001049A8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80107A4C 001049AC  7C 08 03 A6 */	mtlr r0
 /* 80107A50 001049B0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80107A54 001049B4  4E 80 00 20 */	blr 
+/* 80107A54 001049B4  4E 80 00 20 */	blr
 
 .global RefreshHudOptions__17CInGameGuiManagerFv
 RefreshHudOptions__17CInGameGuiManagerFv:
@@ -1186,7 +1186,7 @@ RefreshHudOptions__17CInGameGuiManagerFv:
 /* 80107A6C 001049CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80107A70 001049D0  7C 08 03 A6 */	mtlr r0
 /* 80107A74 001049D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80107A78 001049D8  4E 80 00 20 */	blr 
+/* 80107A78 001049D8  4E 80 00 20 */	blr
 
 .global OnNewPauseScreenState__17CInGameGuiManagerFR18CArchitectureQueue
 OnNewPauseScreenState__17CInGameGuiManagerFR18CArchitectureQueue:
@@ -1263,7 +1263,7 @@ lbl_80107B6C:
 /* 80107B74 00104AD4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80107B78 00104AD8  7C 08 03 A6 */	mtlr r0
 /* 80107B7C 00104ADC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80107B80 00104AE0  4E 80 00 20 */	blr 
+/* 80107B80 00104AE0  4E 80 00 20 */	blr
 
 .global UpdateAutoMapper__17CInGameGuiManagerFR13CStateManagerf
 UpdateAutoMapper__17CInGameGuiManagerFR13CStateManagerf:
@@ -1579,7 +1579,7 @@ lbl_80108010:
 /* 80108038 00104F98  83 C1 03 F8 */	lwz r30, 0x3f8(r1)
 /* 8010803C 00104F9C  7C 08 03 A6 */	mtlr r0
 /* 80108040 00104FA0  38 21 04 40 */	addi r1, r1, 0x440
-/* 80108044 00104FA4  4E 80 00 20 */	blr 
+/* 80108044 00104FA4  4E 80 00 20 */	blr
 
 .global Update__17CInGameGuiManagerFRC13CStateManagerfR18CArchitectureQueueb
 Update__17CInGameGuiManagerFRC13CStateManagerfR18CArchitectureQueueb:
@@ -1655,7 +1655,7 @@ lbl_801080BC:
 /* 80108150 001050B0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80108154 001050B4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80108158 001050B8  7D 89 03 A6 */	mtctr r12
-/* 8010815C 001050BC  4E 80 04 21 */	bctrl 
+/* 8010815C 001050BC  4E 80 04 21 */	bctrl
 /* 80108160 001050C0  7F 63 DB 78 */	mr r3, r27
 /* 80108164 001050C4  38 81 00 38 */	addi r4, r1, 0x38
 /* 80108168 001050C8  3B 20 00 01 */	li r25, 1
@@ -2048,7 +2048,7 @@ lbl_801086B4:
 /* 801086E0 00105640  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801086E4 00105644  7C 08 03 A6 */	mtlr r0
 /* 801086E8 00105648  38 21 00 90 */	addi r1, r1, 0x90
-/* 801086EC 0010564C  4E 80 00 20 */	blr 
+/* 801086EC 0010564C  4E 80 00 20 */	blr
 
 .global PreDraw__17CInGameGuiManagerFR13CStateManagerb
 PreDraw__17CInGameGuiManagerFR13CStateManagerb:
@@ -2078,7 +2078,7 @@ lbl_80108738:
 /* 80108744 001056A4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80108748 001056A8  7C 08 03 A6 */	mtlr r0
 /* 8010874C 001056AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80108750 001056B0  4E 80 00 20 */	blr 
+/* 80108750 001056B0  4E 80 00 20 */	blr
 
 .global Draw__17CInGameGuiManagerCFRC13CStateManager
 Draw__17CInGameGuiManagerCFRC13CStateManager:
@@ -2127,12 +2127,12 @@ lbl_801087CC:
 /* 801087F8 00105758  81 83 00 00 */	lwz r12, 0(r3)
 /* 801087FC 0010575C  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80108800 00105760  7D 89 03 A6 */	mtctr r12
-/* 80108804 00105764  4E 80 04 21 */	bctrl 
+/* 80108804 00105764  4E 80 04 21 */	bctrl
 /* 80108808 00105768  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 8010880C 0010576C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80108810 00105770  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80108814 00105774  7D 89 03 A6 */	mtctr r12
-/* 80108818 00105778  4E 80 04 21 */	bctrl 
+/* 80108818 00105778  4E 80 04 21 */	bctrl
 /* 8010881C 0010577C  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
 /* 80108820 00105780  38 60 00 00 */	li r3, 0
 /* 80108824 00105784  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
@@ -2438,7 +2438,7 @@ lbl_80108C30:
 /* 80108C68 00105BC8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80108C6C 00105BCC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80108C70 00105BD0  7D 89 03 A6 */	mtctr r12
-/* 80108C74 00105BD4  4E 80 04 21 */	bctrl 
+/* 80108C74 00105BD4  4E 80 04 21 */	bctrl
 /* 80108C78 00105BD8  C0 22 94 94 */	lfs f1, lbl_805AB1B4@sda21(r2)
 /* 80108C7C 00105BDC  C0 42 94 AC */	lfs f2, lbl_805AB1CC@sda21(r2)
 /* 80108C80 00105BE0  48 20 17 61 */	bl SetDepthRange__9CGraphicsFff
@@ -2459,7 +2459,7 @@ lbl_80108C30:
 /* 80108CBC 00105C1C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80108CC0 00105C20  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80108CC4 00105C24  7D 89 03 A6 */	mtctr r12
-/* 80108CC8 00105C28  4E 80 04 21 */	bctrl 
+/* 80108CC8 00105C28  4E 80 04 21 */	bctrl
 /* 80108CCC 00105C2C  38 60 00 01 */	li r3, 1
 /* 80108CD0 00105C30  38 80 00 06 */	li r4, 6
 /* 80108CD4 00105C34  38 A0 00 00 */	li r5, 0
@@ -2735,7 +2735,7 @@ lbl_80108DE8:
 /* 801090E4 00106044  81 83 00 00 */	lwz r12, 0(r3)
 /* 801090E8 00106048  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 801090EC 0010604C  7D 89 03 A6 */	mtctr r12
-/* 801090F0 00106050  4E 80 04 21 */	bctrl 
+/* 801090F0 00106050  4E 80 04 21 */	bctrl
 /* 801090F4 00106054  80 7F 00 58 */	lwz r3, 0x58(r31)
 /* 801090F8 00106058  38 80 00 00 */	li r4, 0
 /* 801090FC 0010605C  38 A0 00 01 */	li r5, 1
@@ -2808,7 +2808,7 @@ lbl_801091C0:
 /* 80109204 00106164  80 01 01 D4 */	lwz r0, 0x1d4(r1)
 /* 80109208 00106168  7C 08 03 A6 */	mtlr r0
 /* 8010920C 0010616C  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 80109210 00106170  4E 80 00 20 */	blr 
+/* 80109210 00106170  4E 80 00 20 */	blr
 
 .global StartFadeIn__17CInGameGuiManagerFv
 StartFadeIn__17CInGameGuiManagerFv:
@@ -2832,7 +2832,7 @@ StartFadeIn__17CInGameGuiManagerFv:
 /* 80109258 001061B8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8010925C 001061BC  7C 08 03 A6 */	mtlr r0
 /* 80109260 001061C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80109264 001061C4  4E 80 00 20 */	blr 
+/* 80109264 001061C4  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__17CInGameGuiManagerFRC13CStateManager
 CheckLoadComplete__17CInGameGuiManagerFRC13CStateManager:
@@ -2876,7 +2876,7 @@ lbl_801092E4:
 /* 801092F0 00106250  81 84 00 00 */	lwz r12, 0(r4)
 /* 801092F4 00106254  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801092F8 00106258  7D 89 03 A6 */	mtctr r12
-/* 801092FC 0010625C  4E 80 04 21 */	bctrl 
+/* 801092FC 0010625C  4E 80 04 21 */	bctrl
 /* 80109300 00106260  38 61 00 20 */	addi r3, r1, 0x20
 /* 80109304 00106264  38 81 00 18 */	addi r4, r1, 0x18
 /* 80109308 00106268  48 23 7B A1 */	bl __ct__6CTokenFRC6CToken
@@ -2982,7 +2982,7 @@ lbl_8010945C:
 /* 8010946C 001063CC  38 80 00 01 */	li r4, 1
 /* 80109470 001063D0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80109474 001063D4  7D 89 03 A6 */	mtctr r12
-/* 80109478 001063D8  4E 80 04 21 */	bctrl 
+/* 80109478 001063D8  4E 80 04 21 */	bctrl
 lbl_8010947C:
 /* 8010947C 001063DC  3C 60 80 3D */	lis r3, lbl_803CEEC4@ha
 /* 80109480 001063E0  93 BF 00 34 */	stw r29, 0x34(r31)
@@ -3004,7 +3004,7 @@ lbl_801094AC:
 /* 801094BC 0010641C  38 80 00 01 */	li r4, 1
 /* 801094C0 00106420  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801094C4 00106424  7D 89 03 A6 */	mtctr r12
-/* 801094C8 00106428  4E 80 04 21 */	bctrl 
+/* 801094C8 00106428  4E 80 04 21 */	bctrl
 lbl_801094CC:
 /* 801094CC 0010642C  3C 60 80 3D */	lis r3, lbl_803CEEC4@ha
 /* 801094D0 00106430  93 BF 00 38 */	stw r29, 0x38(r31)
@@ -3025,7 +3025,7 @@ lbl_801094F8:
 /* 80109508 00106468  38 80 00 01 */	li r4, 1
 /* 8010950C 0010646C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80109510 00106470  7D 89 03 A6 */	mtctr r12
-/* 80109514 00106474  4E 80 04 21 */	bctrl 
+/* 80109514 00106474  4E 80 04 21 */	bctrl
 lbl_80109518:
 /* 80109518 00106478  3C 60 80 3D */	lis r3, lbl_803CEEC4@ha
 /* 8010951C 0010647C  93 BF 00 3C */	stw r29, 0x3c(r31)
@@ -3243,7 +3243,7 @@ lbl_80109824:
 /* 80109834 00106794  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 80109838 00106798  7C 08 03 A6 */	mtlr r0
 /* 8010983C 0010679C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80109840 001067A0  4E 80 00 20 */	blr 
+/* 80109840 001067A0  4E 80 00 20 */	blr
 
 .global CheckDGRPLoadComplete__17CInGameGuiManagerFv
 CheckDGRPLoadComplete__17CInGameGuiManagerFv:
@@ -3259,7 +3259,7 @@ lbl_8010985C:
 /* 80109864 001067C4  28 00 00 00 */	cmplwi r0, 0
 /* 80109868 001067C8  40 82 00 0C */	bne lbl_80109874
 /* 8010986C 001067CC  38 60 00 00 */	li r3, 0
-/* 80109870 001067D0  4E 80 00 20 */	blr 
+/* 80109870 001067D0  4E 80 00 20 */	blr
 lbl_80109874:
 /* 80109874 001067D4  38 C6 00 08 */	addi r6, r6, 8
 lbl_80109878:
@@ -3276,14 +3276,14 @@ lbl_80109894:
 /* 8010989C 001067FC  28 00 00 00 */	cmplwi r0, 0
 /* 801098A0 00106800  40 82 00 0C */	bne lbl_801098AC
 /* 801098A4 00106804  38 60 00 00 */	li r3, 0
-/* 801098A8 00106808  4E 80 00 20 */	blr 
+/* 801098A8 00106808  4E 80 00 20 */	blr
 lbl_801098AC:
 /* 801098AC 0010680C  38 A5 00 08 */	addi r5, r5, 8
 lbl_801098B0:
 /* 801098B0 00106810  7C 05 20 40 */	cmplw r5, r4
 /* 801098B4 00106814  40 82 FF E0 */	bne lbl_80109894
 /* 801098B8 00106818  38 60 00 01 */	li r3, 1
-/* 801098BC 0010681C  4E 80 00 20 */	blr 
+/* 801098BC 0010681C  4E 80 00 20 */	blr
 
 .global sub_801098c0
 sub_801098c0:
@@ -3441,7 +3441,7 @@ lbl_80109AC8:
 /* 80109AD4 00106A34  81 84 00 00 */	lwz r12, 0(r4)
 /* 80109AD8 00106A38  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80109ADC 00106A3C  7D 89 03 A6 */	mtctr r12
-/* 80109AE0 00106A40  4E 80 04 21 */	bctrl 
+/* 80109AE0 00106A40  4E 80 04 21 */	bctrl
 /* 80109AE4 00106A44  80 1C 00 EC */	lwz r0, 0xec(r28)
 /* 80109AE8 00106A48  80 BC 00 F0 */	lwz r5, 0xf0(r28)
 /* 80109AEC 00106A4C  7C 00 28 00 */	cmpw r0, r5
@@ -3483,7 +3483,7 @@ lbl_80109B44:
 /* 80109B6C 00106ACC  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 80109B70 00106AD0  7C 08 03 A6 */	mtlr r0
 /* 80109B74 00106AD4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80109B78 00106AD8  4E 80 00 20 */	blr 
+/* 80109B78 00106AD8  4E 80 00 20 */	blr
 
 .global sub_80109b7c
 sub_80109b7c:
@@ -3562,7 +3562,7 @@ lbl_80109C6C:
 /* 80109C70 00106BD0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80109C74 00106BD4  7C 08 03 A6 */	mtlr r0
 /* 80109C78 00106BD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80109C7C 00106BDC  4E 80 00 20 */	blr 
+/* 80109C7C 00106BDC  4E 80 00 20 */	blr
 
 .global __dt__17CInGameGuiManagerFv
 __dt__17CInGameGuiManagerFv:
@@ -3772,7 +3772,7 @@ lbl_80109F2C:
 /* 80109F44 00106EA4  38 80 00 01 */	li r4, 1
 /* 80109F48 00106EA8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80109F4C 00106EAC  7D 89 03 A6 */	mtctr r12
-/* 80109F50 00106EB0  4E 80 04 21 */	bctrl 
+/* 80109F50 00106EB0  4E 80 04 21 */	bctrl
 lbl_80109F54:
 /* 80109F54 00106EB4  34 1E 00 38 */	addic. r0, r30, 0x38
 /* 80109F58 00106EB8  41 82 00 24 */	beq lbl_80109F7C
@@ -3783,7 +3783,7 @@ lbl_80109F54:
 /* 80109F6C 00106ECC  38 80 00 01 */	li r4, 1
 /* 80109F70 00106ED0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80109F74 00106ED4  7D 89 03 A6 */	mtctr r12
-/* 80109F78 00106ED8  4E 80 04 21 */	bctrl 
+/* 80109F78 00106ED8  4E 80 04 21 */	bctrl
 lbl_80109F7C:
 /* 80109F7C 00106EDC  34 1E 00 34 */	addic. r0, r30, 0x34
 /* 80109F80 00106EE0  41 82 00 24 */	beq lbl_80109FA4
@@ -3794,7 +3794,7 @@ lbl_80109F7C:
 /* 80109F94 00106EF4  38 80 00 01 */	li r4, 1
 /* 80109F98 00106EF8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80109F9C 00106EFC  7D 89 03 A6 */	mtctr r12
-/* 80109FA0 00106F00  4E 80 04 21 */	bctrl 
+/* 80109FA0 00106F00  4E 80 04 21 */	bctrl
 lbl_80109FA4:
 /* 80109FA4 00106F04  34 1E 00 30 */	addic. r0, r30, 0x30
 /* 80109FA8 00106F08  41 82 00 10 */	beq lbl_80109FB8
@@ -3860,7 +3860,7 @@ lbl_8010A064:
 /* 8010A078 00106FD8  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 8010A07C 00106FDC  7C 08 03 A6 */	mtlr r0
 /* 8010A080 00106FE0  38 21 00 60 */	addi r1, r1, 0x60
-/* 8010A084 00106FE4  4E 80 00 20 */	blr 
+/* 8010A084 00106FE4  4E 80 00 20 */	blr
 
 .global __ct__17CInGameGuiManagerFRC13CStateManagerR18CArchitectureQueue
 __ct__17CInGameGuiManagerFRC13CStateManagerR18CArchitectureQueue:
@@ -3878,7 +3878,7 @@ __ct__17CInGameGuiManagerFRC13CStateManagerR18CArchitectureQueue:
 /* 8010A0B4 00107014  81 84 00 00 */	lwz r12, 0(r4)
 /* 8010A0B8 00107018  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8010A0BC 0010701C  7D 89 03 A6 */	mtctr r12
-/* 8010A0C0 00107020  4E 80 04 21 */	bctrl 
+/* 8010A0C0 00107020  4E 80 04 21 */	bctrl
 /* 8010A0C4 00107024  7F C3 F3 78 */	mr r3, r30
 /* 8010A0C8 00107028  38 81 00 18 */	addi r4, r1, 0x18
 /* 8010A0CC 0010702C  48 23 6D DD */	bl __ct__6CTokenFRC6CToken
@@ -3913,7 +3913,7 @@ __ct__17CInGameGuiManagerFRC13CStateManagerR18CArchitectureQueue:
 /* 8010A140 001070A0  81 84 00 00 */	lwz r12, 0(r4)
 /* 8010A144 001070A4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8010A148 001070A8  7D 89 03 A6 */	mtctr r12
-/* 8010A14C 001070AC  4E 80 04 21 */	bctrl 
+/* 8010A14C 001070AC  4E 80 04 21 */	bctrl
 /* 8010A150 001070B0  3B 3E 00 50 */	addi r25, r30, 0x50
 /* 8010A154 001070B4  38 81 00 10 */	addi r4, r1, 0x10
 /* 8010A158 001070B8  7F 23 CB 78 */	mr r3, r25
@@ -4088,7 +4088,7 @@ lbl_8010A3D4:
 /* 8010A3E0 00107340  81 84 00 00 */	lwz r12, 0(r4)
 /* 8010A3E4 00107344  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8010A3E8 00107348  7D 89 03 A6 */	mtctr r12
-/* 8010A3EC 0010734C  4E 80 04 21 */	bctrl 
+/* 8010A3EC 0010734C  4E 80 04 21 */	bctrl
 /* 8010A3F0 00107350  38 61 00 20 */	addi r3, r1, 0x20
 /* 8010A3F4 00107354  38 81 00 08 */	addi r4, r1, 8
 /* 8010A3F8 00107358  48 23 6A B1 */	bl __ct__6CTokenFRC6CToken
@@ -4132,7 +4132,7 @@ lbl_8010A454:
 /* 8010A484 001073E4  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8010A488 001073E8  7C 08 03 A6 */	mtlr r0
 /* 8010A48C 001073EC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8010A490 001073F0  4E 80 00 20 */	blr 
+/* 8010A490 001073F0  4E 80 00 20 */	blr
 
 .global LockPauseScreenDependencies__17CInGameGuiManagerFv
 LockPauseScreenDependencies__17CInGameGuiManagerFv:
@@ -4154,7 +4154,7 @@ lbl_8010A4C0:
 /* 8010A4CC 0010742C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8010A4D0 00107430  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8010A4D4 00107434  7D 89 03 A6 */	mtctr r12
-/* 8010A4D8 00107438  4E 80 04 21 */	bctrl 
+/* 8010A4D8 00107438  4E 80 04 21 */	bctrl
 /* 8010A4DC 0010743C  38 61 00 10 */	addi r3, r1, 0x10
 /* 8010A4E0 00107440  38 81 00 08 */	addi r4, r1, 8
 /* 8010A4E4 00107444  48 23 69 C5 */	bl __ct__6CTokenFRC6CToken
@@ -4221,7 +4221,7 @@ lbl_8010A5A4:
 /* 8010A5BC 0010751C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8010A5C0 00107520  7C 08 03 A6 */	mtlr r0
 /* 8010A5C4 00107524  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8010A5C8 00107528  4E 80 00 20 */	blr 
+/* 8010A5C8 00107528  4E 80 00 20 */	blr
 
 .global "sort<Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,24CTextureScoreGreaterThan>__4rstlFQ24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>24CTextureScoreGreaterThan"
 "sort<Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,24CTextureScoreGreaterThan>__4rstlFQ24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>24CTextureScoreGreaterThan":
@@ -4377,7 +4377,7 @@ lbl_8010A7F8:
 /* 8010A7FC 0010775C  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8010A800 00107760  7C 08 03 A6 */	mtlr r0
 /* 8010A804 00107764  38 21 00 80 */	addi r1, r1, 0x80
-/* 8010A808 00107768  4E 80 00 20 */	blr 
+/* 8010A808 00107768  4E 80 00 20 */	blr
 
 .global sub_8010a80c
 sub_8010a80c:
@@ -4452,7 +4452,7 @@ lbl_8010A8F0:
 /* 8010A8F4 00107854  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8010A8F8 00107858  7C 08 03 A6 */	mtlr r0
 /* 8010A8FC 0010785C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8010A900 00107860  4E 80 00 20 */	blr 
+/* 8010A900 00107860  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>Fi":
@@ -4533,7 +4533,7 @@ lbl_8010AA00:
 /* 8010AA04 00107964  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8010AA08 00107968  7C 08 03 A6 */	mtlr r0
 /* 8010AA0C 0010796C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8010AA10 00107970  4E 80 00 20 */	blr 
+/* 8010AA10 00107970  4E 80 00 20 */	blr
 
 .global sub_8010aa14
 sub_8010aa14:
@@ -4580,7 +4580,7 @@ lbl_8010AA8C:
 /* 8010AAA8 00107A08  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8010AAAC 00107A0C  7C 08 03 A6 */	mtlr r0
 /* 8010AAB0 00107A10  38 21 00 20 */	addi r1, r1, 0x20
-/* 8010AAB4 00107A14  4E 80 00 20 */	blr 
+/* 8010AAB4 00107A14  4E 80 00 20 */	blr
 
 .global sub_8010aab8
 sub_8010aab8:
@@ -4628,7 +4628,7 @@ lbl_8010AB38:
 /* 8010AB4C 00107AAC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8010AB50 00107AB0  7C 08 03 A6 */	mtlr r0
 /* 8010AB54 00107AB4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8010AB58 00107AB8  4E 80 00 20 */	blr 
+/* 8010AB58 00107AB8  4E 80 00 20 */	blr
 
 .global "__sort3<20SDumpableTextureInfo,24CTextureScoreGreaterThan>__4rstlFR20SDumpableTextureInfoR20SDumpableTextureInfoR20SDumpableTextureInfo24CTextureScoreGreaterThan"
 "__sort3<20SDumpableTextureInfo,24CTextureScoreGreaterThan>__4rstlFR20SDumpableTextureInfoR20SDumpableTextureInfoR20SDumpableTextureInfo24CTextureScoreGreaterThan":
@@ -4732,7 +4732,7 @@ lbl_8010ACC0:
 /* 8010ACD0 00107C30  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8010ACD4 00107C34  7C 08 03 A6 */	mtlr r0
 /* 8010ACD8 00107C38  38 21 00 40 */	addi r1, r1, 0x40
-/* 8010ACDC 00107C3C  4E 80 00 20 */	blr 
+/* 8010ACDC 00107C3C  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,24CTextureScoreGreaterThan>__4rstlFQ24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>24CTextureScoreGreaterTha"
 "__insertion_sort<Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,24CTextureScoreGreaterThan>__4rstlFQ24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl134pointer_iterator<20SDumpableTextureInfo,Q24rstl57vector<20SDumpableTextureInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>24CTextureScoreGreaterTha":

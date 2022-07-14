@@ -153,7 +153,7 @@ lbl_8006E2F4:
 /* 8006E2F8 0006B258  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 8006E2FC 0006B25C  7C 08 03 A6 */	mtlr r0
 /* 8006E300 0006B260  38 21 00 70 */	addi r1, r1, 0x70
-/* 8006E304 0006B264  4E 80 00 20 */	blr 
+/* 8006E304 0006B264  4E 80 00 20 */	blr
 
 .global "__ct__23CTransitionDatabaseGameFRCQ24rstl48vector<11CTransition,Q24rstl17rmemory_allocator>RCQ24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>RCQ24rstl20rc_ptr<10IMetaTrans>"
 "__ct__23CTransitionDatabaseGameFRCQ24rstl48vector<11CTransition,Q24rstl17rmemory_allocator>RCQ24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>RCQ24rstl20rc_ptr<10IMetaTrans>":
@@ -354,7 +354,7 @@ lbl_8006E58C:
 /* 8006E5E0 0006B540  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8006E5E4 0006B544  7C 08 03 A6 */	mtlr r0
 /* 8006E5E8 0006B548  38 21 00 80 */	addi r1, r1, 0x80
-/* 8006E5EC 0006B54C  4E 80 00 20 */	blr 
+/* 8006E5EC 0006B54C  4E 80 00 20 */	blr
 
 .global sub_8006e5f0
 sub_8006e5f0:
@@ -518,7 +518,7 @@ lbl_8006E830:
 /* 8006E834 0006B794  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8006E838 0006B798  7C 08 03 A6 */	mtlr r0
 /* 8006E83C 0006B79C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8006E840 0006B7A0  4E 80 00 20 */	blr 
+/* 8006E840 0006B7A0  4E 80 00 20 */	blr
 
 .global sub_8006e844
 sub_8006e844:
@@ -590,7 +590,7 @@ lbl_8006E92C:
 /* 8006E93C 0006B89C  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8006E940 0006B8A0  7C 08 03 A6 */	mtlr r0
 /* 8006E944 0006B8A4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006E948 0006B8A8  4E 80 00 20 */	blr 
+/* 8006E948 0006B8A8  4E 80 00 20 */	blr
 
 .global sub_8006e94c
 sub_8006e94c:
@@ -717,7 +717,7 @@ lbl_8006EB08:
 /* 8006EB0C 0006BA6C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8006EB10 0006BA70  7C 08 03 A6 */	mtlr r0
 /* 8006EB14 0006BA74  38 21 00 60 */	addi r1, r1, 0x60
-/* 8006EB18 0006BA78  4E 80 00 20 */	blr 
+/* 8006EB18 0006BA78  4E 80 00 20 */	blr
 
 .global sub_8006eb1c
 sub_8006eb1c:
@@ -783,7 +783,7 @@ lbl_8006EBEC:
 /* 8006EBFC 0006BB5C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8006EC00 0006BB60  7C 08 03 A6 */	mtlr r0
 /* 8006EC04 0006BB64  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006EC08 0006BB68  4E 80 00 20 */	blr 
+/* 8006EC08 0006BB68  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl11pair<Ui,Ui>,Q24rstl142pair_sorter_finder<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q237@unnamed@CTransitionDatabaseGame_cpp@13uint_comparer>>__4rstlFQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20r"
 "lower_bound<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl11pair<Ui,Ui>,Q24rstl142pair_sorter_finder<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q237@unnamed@CTransitionDatabaseGame_cpp@13uint_comparer>>__4rstlFQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20r":
@@ -852,7 +852,7 @@ lbl_8006ECDC:
 /* 8006ECF0 0006BC50  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006ECF4 0006BC54  7C 08 03 A6 */	mtlr r0
 /* 8006ECF8 0006BC58  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006ECFC 0006BC5C  4E 80 00 20 */	blr 
+/* 8006ECFC 0006BC5C  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Ui,Q24rstl124pair_sorter_finder<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q237@unnamed@CTransitionDatabaseGame_cpp@13uint_comparer>>__4rstlFQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rst"
 "lower_bound<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Ui,Q24rstl124pair_sorter_finder<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q237@unnamed@CTransitionDatabaseGame_cpp@13uint_comparer>>__4rstlFQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rst":
@@ -906,7 +906,7 @@ lbl_8006ED9C:
 /* 8006EDB0 0006BD10  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006EDB4 0006BD14  7C 08 03 A6 */	mtlr r0
 /* 8006EDB8 0006BD18  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006EDBC 0006BD1C  4E 80 00 20 */	blr 
+/* 8006EDBC 0006BD1C  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>Fi":
@@ -989,7 +989,7 @@ lbl_8006EEC4:
 /* 8006EEC8 0006BE28  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006EECC 0006BE2C  7C 08 03 A6 */	mtlr r0
 /* 8006EED0 0006BE30  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006EED4 0006BE34  4E 80 00 20 */	blr 
+/* 8006EED4 0006BE34  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>Fi":
@@ -1069,7 +1069,7 @@ lbl_8006EFD0:
 /* 8006EFD4 0006BF34  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006EFD8 0006BF38  7C 08 03 A6 */	mtlr r0
 /* 8006EFDC 0006BF3C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006EFE0 0006BF40  4E 80 00 20 */	blr 
+/* 8006EFE0 0006BF40  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -1083,7 +1083,7 @@ lbl_8006EFD0:
 /* 8006F000 0006BF60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8006F004 0006BF64  7C 08 03 A6 */	mtlr r0
 /* 8006F008 0006BF68  38 21 00 10 */	addi r1, r1, 0x10
-/* 8006F00C 0006BF6C  4E 80 00 20 */	blr 
+/* 8006F00C 0006BF6C  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -1097,7 +1097,7 @@ lbl_8006EFD0:
 /* 8006F02C 0006BF8C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8006F030 0006BF90  7C 08 03 A6 */	mtlr r0
 /* 8006F034 0006BF94  38 21 00 10 */	addi r1, r1, 0x10
-/* 8006F038 0006BF98  4E 80 00 20 */	blr 
+/* 8006F038 0006BF98  4E 80 00 20 */	blr
 
 .global sub_8006f03c
 sub_8006f03c:
@@ -1105,7 +1105,7 @@ sub_8006f03c:
 /* 8006F040 0006BFA0  54 80 18 38 */	slwi r0, r4, 3
 /* 8006F044 0006BFA4  7C 05 02 14 */	add r0, r5, r0
 /* 8006F048 0006BFA8  90 03 00 00 */	stw r0, 0(r3)
-/* 8006F04C 0006BFAC  4E 80 00 20 */	blr 
+/* 8006F04C 0006BFAC  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26rand"
 "__advance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26rand":
@@ -1113,7 +1113,7 @@ sub_8006f03c:
 /* 8006F054 0006BFB4  80 83 00 00 */	lwz r4, 0(r3)
 /* 8006F058 0006BFB8  7C 04 02 14 */	add r0, r4, r0
 /* 8006F05C 0006BFBC  90 03 00 00 */	stw r0, 0(r3)
-/* 8006F060 0006BFC0  4E 80 00 20 */	blr 
+/* 8006F060 0006BFC0  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl227const_po"
 "distance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl227const_po":
@@ -1133,7 +1133,7 @@ sub_8006f03c:
 /* 8006F098 0006BFF8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8006F09C 0006BFFC  7C 08 03 A6 */	mtlr r0
 /* 8006F0A0 0006C000  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006F0A4 0006C004  4E 80 00 20 */	blr 
+/* 8006F0A4 0006C004  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82ve"
 "distance<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82ve":
@@ -1153,7 +1153,7 @@ sub_8006f03c:
 /* 8006F0DC 0006C03C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8006F0E0 0006C040  7C 08 03 A6 */	mtlr r0
 /* 8006F0E4 0006C044  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006F0E8 0006C048  4E 80 00 20 */	blr 
+/* 8006F0E8 0006C048  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl227const_"
 "__distance<Q24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl227const_pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl227const_":
@@ -1166,7 +1166,7 @@ sub_8006f03c:
 /* 8006F104 0006C064  7C 00 0E 70 */	srawi r0, r0, 1
 /* 8006F108 0006C068  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 8006F10C 0006C06C  7C 60 1A 14 */	add r3, r0, r3
-/* 8006F110 0006C070  4E 80 00 20 */	blr 
+/* 8006F110 0006C070  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82"
 "__distance<Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82vector<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl190const_pointer_iterator<Q24rstl38pair<Ui,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl82":
@@ -1175,7 +1175,7 @@ sub_8006f03c:
 /* 8006F11C 0006C07C  7C 03 00 50 */	subf r0, r3, r0
 /* 8006F120 0006C080  7C 00 1E 70 */	srawi r0, r0, 3
 /* 8006F124 0006C084  7C 60 01 94 */	addze r3, r0
-/* 8006F128 0006C088  4E 80 00 20 */	blr 
+/* 8006F128 0006C088  4E 80 00 20 */	blr
 
 .global sub_8006f12c
 sub_8006f12c:
@@ -1281,7 +1281,7 @@ lbl_8006F290:
 /* 8006F2A0 0006C200  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8006F2A4 0006C204  7C 08 03 A6 */	mtlr r0
 /* 8006F2A8 0006C208  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006F2AC 0006C20C  4E 80 00 20 */	blr 
+/* 8006F2AC 0006C20C  4E 80 00 20 */	blr
 
 .global sub_8006f2b0
 sub_8006f2b0:
@@ -1342,7 +1342,7 @@ lbl_8006F370:
 /* 8006F37C 0006C2DC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8006F380 0006C2E0  7C 08 03 A6 */	mtlr r0
 /* 8006F384 0006C2E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006F388 0006C2E8  4E 80 00 20 */	blr 
+/* 8006F388 0006C2E8  4E 80 00 20 */	blr
 
 .global sub_8006f38c
 sub_8006f38c:
@@ -1507,7 +1507,7 @@ lbl_8006F5C4:
 /* 8006F5D4 0006C534  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8006F5D8 0006C538  7C 08 03 A6 */	mtlr r0
 /* 8006F5DC 0006C53C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006F5E0 0006C540  4E 80 00 20 */	blr 
+/* 8006F5E0 0006C540  4E 80 00 20 */	blr
 
 .global sub_8006f5e4
 sub_8006f5e4:
@@ -1574,7 +1574,7 @@ lbl_8006F6BC:
 /* 8006F6C8 0006C628  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8006F6CC 0006C62C  7C 08 03 A6 */	mtlr r0
 /* 8006F6D0 0006C630  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006F6D4 0006C634  4E 80 00 20 */	blr 
+/* 8006F6D4 0006C634  4E 80 00 20 */	blr
 
 .global sub_8006f6d8
 sub_8006f6d8:
@@ -1655,7 +1655,7 @@ lbl_8006F7D0:
 /* 8006F7E0 0006C740  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006F7E4 0006C744  7C 08 03 A6 */	mtlr r0
 /* 8006F7E8 0006C748  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006F7EC 0006C74C  4E 80 00 20 */	blr 
+/* 8006F7EC 0006C74C  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl221pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl142pair_sorter_finder<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q237@unnamed@CTransitionDatabaseGame_cpp@13uint_comparer>>__4rstlFQ24rstl221pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl"
 "__insertion_sort<Q24rstl221pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl100vector<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl142pair_sorter_finder<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q237@unnamed@CTransitionDatabaseGame_cpp@13uint_comparer>>__4rstlFQ24rstl221pointer_iterator<Q24rstl56pair<Q24rstl11pair<Ui,Ui>,Q24rstl20rc_ptr<10IMetaTrans>>,Q24rstl":
@@ -1757,4 +1757,4 @@ lbl_8006F934:
 /* 8006F944 0006C8A4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006F948 0006C8A8  7C 08 03 A6 */	mtlr r0
 /* 8006F94C 0006C8AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006F950 0006C8B0  4E 80 00 20 */	blr 
+/* 8006F950 0006C8B0  4E 80 00 20 */	blr

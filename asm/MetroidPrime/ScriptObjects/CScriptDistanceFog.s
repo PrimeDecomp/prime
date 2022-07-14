@@ -137,7 +137,7 @@ lbl_8014D1A4:
 /* 8014D1B0 0014A110  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8014D1B4 0014A114  7C 08 03 A6 */	mtlr r0
 /* 8014D1B8 0014A118  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014D1BC 0014A11C  4E 80 00 20 */	blr 
+/* 8014D1BC 0014A11C  4E 80 00 20 */	blr
 
 .global Accept__18CScriptDistanceFogFR8IVisitor
 Accept__18CScriptDistanceFogFR8IVisitor:
@@ -150,11 +150,11 @@ Accept__18CScriptDistanceFogFR8IVisitor:
 /* 8014D1D8 0014A138  7C 04 03 78 */	mr r4, r0
 /* 8014D1DC 0014A13C  81 8C 00 7C */	lwz r12, 0x7c(r12)
 /* 8014D1E0 0014A140  7D 89 03 A6 */	mtctr r12
-/* 8014D1E4 0014A144  4E 80 04 21 */	bctrl 
+/* 8014D1E4 0014A144  4E 80 04 21 */	bctrl
 /* 8014D1E8 0014A148  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014D1EC 0014A14C  7C 08 03 A6 */	mtlr r0
 /* 8014D1F0 0014A150  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014D1F4 0014A154  4E 80 00 20 */	blr 
+/* 8014D1F4 0014A154  4E 80 00 20 */	blr
 
 .global __dt__18CScriptDistanceFogFv
 __dt__18CScriptDistanceFogFv:
@@ -182,7 +182,7 @@ lbl_8014D23C:
 /* 8014D248 0014A1A8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014D24C 0014A1AC  7C 08 03 A6 */	mtlr r0
 /* 8014D250 0014A1B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014D254 0014A1B4  4E 80 00 20 */	blr 
+/* 8014D254 0014A1B4  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff"
 "__ct__18CScriptDistanceFogF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC11ERglFogModeRC6CColorRC9CVector2ff9CVector2fbbffff":

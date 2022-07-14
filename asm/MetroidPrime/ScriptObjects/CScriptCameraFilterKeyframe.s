@@ -27,11 +27,11 @@ Accept__27CScriptCameraFilterKeyframeFR8IVisitor:
 /* 800EA4FC 000E745C  7C 04 03 78 */	mr r4, r0
 /* 800EA500 000E7460  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800EA504 000E7464  7D 89 03 A6 */	mtctr r12
-/* 800EA508 000E7468  4E 80 04 21 */	bctrl 
+/* 800EA508 000E7468  4E 80 04 21 */	bctrl
 /* 800EA50C 000E746C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800EA510 000E7470  7C 08 03 A6 */	mtlr r0
 /* 800EA514 000E7474  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EA518 000E7478  4E 80 00 20 */	blr 
+/* 800EA518 000E7478  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__27CScriptCameraFilterKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__27CScriptCameraFilterKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -106,7 +106,7 @@ lbl_800EA5F0:
 /* 800EA61C 000E757C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800EA620 000E7580  7C 08 03 A6 */	mtlr r0
 /* 800EA624 000E7584  38 21 00 20 */	addi r1, r1, 0x20
-/* 800EA628 000E7588  4E 80 00 20 */	blr 
+/* 800EA628 000E7588  4E 80 00 20 */	blr
 
 .global __dt__27CScriptCameraFilterKeyframeFv
 __dt__27CScriptCameraFilterKeyframeFv:
@@ -134,7 +134,7 @@ lbl_800EA670:
 /* 800EA67C 000E75DC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800EA680 000E75E0  7C 08 03 A6 */	mtlr r0
 /* 800EA684 000E75E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EA688 000E75E8  4E 80 00 20 */	blr 
+/* 800EA688 000E75E8  4E 80 00 20 */	blr
 
 .global "__ct__27CScriptCameraFilterKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoUiUiUiUiffffffUib"
 "__ct__27CScriptCameraFilterKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoUiUiUiUiffffffUib":

@@ -93,7 +93,7 @@ lbl_802E7014:
 /* 802E703C 002E3F9C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E7040 002E3FA0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802E7044 002E3FA4  7D 89 03 A6 */	mtctr r12
-/* 802E7048 002E3FA8  4E 80 04 21 */	bctrl 
+/* 802E7048 002E3FA8  4E 80 04 21 */	bctrl
 /* 802E704C 002E3FAC  7C 7A 1B 78 */	mr r26, r3
 /* 802E7050 002E3FB0  38 61 00 08 */	addi r3, r1, 8
 /* 802E7054 002E3FB4  38 80 00 00 */	li r4, 0
@@ -119,7 +119,7 @@ lbl_802E7098:
 /* 802E709C 002E3FFC  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802E70A0 002E4000  7C 08 03 A6 */	mtlr r0
 /* 802E70A4 002E4004  38 21 01 10 */	addi r1, r1, 0x110
-/* 802E70A8 002E4008  4E 80 00 20 */	blr 
+/* 802E70A8 002E4008  4E 80 00 20 */	blr
 
 .global "GetTransitionTree__10IMetaTransCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext"
 "GetTransitionTree__10IMetaTransCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext":
@@ -131,12 +131,12 @@ lbl_802E7098:
 /* 802E70C0 002E4020  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E70C4 002E4024  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E70C8 002E4028  7D 89 03 A6 */	mtctr r12
-/* 802E70CC 002E402C  4E 80 04 21 */	bctrl 
+/* 802E70CC 002E402C  4E 80 04 21 */	bctrl
 /* 802E70D0 002E4030  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E70D4 002E4034  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E70D8 002E4038  7C 08 03 A6 */	mtlr r0
 /* 802E70DC 002E403C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E70E0 002E4040  4E 80 00 20 */	blr 
+/* 802E70E0 002E4040  4E 80 00 20 */	blr
 
 .global "NonConstCopy__29TToken<19CTransitionDatabase>CFv"
 "NonConstCopy__29TToken<19CTransitionDatabase>CFv":

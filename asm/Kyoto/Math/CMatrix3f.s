@@ -14,7 +14,7 @@ __as__9CMatrix3fFRC9CMatrix3f:
 /* 80310014 0030CF74  C0 24 00 20 */	lfs f1, 0x20(r4)
 /* 80310018 0030CF78  D8 03 00 18 */	stfd f0, 0x18(r3)
 /* 8031001C 0030CF7C  D0 23 00 20 */	stfs f1, 0x20(r3)
-/* 80310020 0030CF80  4E 80 00 20 */	blr 
+/* 80310020 0030CF80  4E 80 00 20 */	blr
 
 .global __ct__9CMatrix3fFRC9CMatrix3f
 __ct__9CMatrix3fFRC9CMatrix3f:
@@ -28,7 +28,7 @@ __ct__9CMatrix3fFRC9CMatrix3f:
 /* 80310040 0030CFA0  C0 24 00 20 */	lfs f1, 0x20(r4)
 /* 80310044 0030CFA4  D8 03 00 18 */	stfd f0, 0x18(r3)
 /* 80310048 0030CFA8  D0 23 00 20 */	stfs f1, 0x20(r3)
-/* 8031004C 0030CFAC  4E 80 00 20 */	blr 
+/* 8031004C 0030CFAC  4E 80 00 20 */	blr
 
 .global AddScaledMatrix__9CMatrix3fFRC9CMatrix3ff
 AddScaledMatrix__9CMatrix3fFRC9CMatrix3ff:
@@ -68,7 +68,7 @@ AddScaledMatrix__9CMatrix3fFRC9CMatrix3ff:
 /* 803100D4 0030D034  C0 03 00 20 */	lfs f0, 0x20(r3)
 /* 803100D8 0030D038  EC 02 00 7A */	fmadds f0, f2, f1, f0
 /* 803100DC 0030D03C  D0 03 00 20 */	stfs f0, 0x20(r3)
-/* 803100E0 0030D040  4E 80 00 20 */	blr 
+/* 803100E0 0030D040  4E 80 00 20 */	blr
 
 .global Determinant__9CMatrix3fCFv
 Determinant__9CMatrix3fCFv:
@@ -90,7 +90,7 @@ Determinant__9CMatrix3fCFv:
 /* 80310120 0030D080  EC 29 22 38 */	fmsubs f1, f9, f8, f4
 /* 80310124 0030D084  EC 03 00 BA */	fmadds f0, f3, f2, f0
 /* 80310128 0030D088  EC 25 00 7A */	fmadds f1, f5, f1, f0
-/* 8031012C 0030D08C  4E 80 00 20 */	blr 
+/* 8031012C 0030D08C  4E 80 00 20 */	blr
 
 .global __ml__9CMatrix3fCFRC9CMatrix3f
 __ml__9CMatrix3fCFRC9CMatrix3f:
@@ -182,7 +182,7 @@ __ml__9CMatrix3fCFRC9CMatrix3f:
 /* 80310284 0030D1E4  E3 01 00 18 */	psq_l f24, 24(r1), 0, qr0
 /* 80310288 0030D1E8  CB 01 00 10 */	lfd f24, 0x10(r1)
 /* 8031028C 0030D1EC  38 21 00 90 */	addi r1, r1, 0x90
-/* 80310290 0030D1F0  4E 80 00 20 */	blr 
+/* 80310290 0030D1F0  4E 80 00 20 */	blr
 
 .global __ml__9CMatrix3fCFRC9CVector3f
 __ml__9CMatrix3fCFRC9CVector3f:
@@ -210,7 +210,7 @@ __ml__9CMatrix3fCFRC9CVector3f:
 /* 803102E8 0030D248  EC 08 09 3A */	fmadds f0, f8, f4, f1
 /* 803102EC 0030D24C  D0 43 00 04 */	stfs f2, 4(r3)
 /* 803102F0 0030D250  D0 03 00 08 */	stfs f0, 8(r3)
-/* 803102F4 0030D254  4E 80 00 20 */	blr 
+/* 803102F4 0030D254  4E 80 00 20 */	blr
 
 .global Orthonormalized__9CMatrix3fCFv
 Orthonormalized__9CMatrix3fCFv:
@@ -281,7 +281,7 @@ Orthonormalized__9CMatrix3fCFv:
 /* 803103F8 0030D358  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 803103FC 0030D35C  7C 08 03 A6 */	mtlr r0
 /* 80310400 0030D360  38 21 00 40 */	addi r1, r1, 0x40
-/* 80310404 0030D364  4E 80 00 20 */	blr 
+/* 80310404 0030D364  4E 80 00 20 */	blr
 
 .global RotateZ__9CMatrix3fFRC9CRelAngle
 RotateZ__9CMatrix3fFRC9CRelAngle:
@@ -319,7 +319,7 @@ RotateZ__9CMatrix3fFRC9CRelAngle:
 /* 80310484 0030D3E4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80310488 0030D3E8  7C 08 03 A6 */	mtlr r0
 /* 8031048C 0030D3EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80310490 0030D3F0  4E 80 00 20 */	blr 
+/* 80310490 0030D3F0  4E 80 00 20 */	blr
 
 .global RotateY__9CMatrix3fFRC9CRelAngle
 RotateY__9CMatrix3fFRC9CRelAngle:
@@ -357,7 +357,7 @@ RotateY__9CMatrix3fFRC9CRelAngle:
 /* 80310510 0030D470  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80310514 0030D474  7C 08 03 A6 */	mtlr r0
 /* 80310518 0030D478  38 21 00 20 */	addi r1, r1, 0x20
-/* 8031051C 0030D47C  4E 80 00 20 */	blr 
+/* 8031051C 0030D47C  4E 80 00 20 */	blr
 
 .global __ct__9CMatrix3fFR12CInputStream
 __ct__9CMatrix3fFR12CInputStream:
@@ -401,7 +401,7 @@ __ct__9CMatrix3fFR12CInputStream:
 /* 803105B4 0030D514  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803105B8 0030D518  7C 08 03 A6 */	mtlr r0
 /* 803105BC 0030D51C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803105C0 0030D520  4E 80 00 20 */	blr 
+/* 803105C0 0030D520  4E 80 00 20 */	blr
 
 .global __ct__9CMatrix3fFRC9CMatrix3ffRC9CMatrix3ff
 __ct__9CMatrix3fFRC9CMatrix3ffRC9CMatrix3ff:
@@ -450,7 +450,7 @@ __ct__9CMatrix3fFRC9CMatrix3ffRC9CMatrix3ff:
 /* 8031066C 0030D5CC  EC 00 00 B2 */	fmuls f0, f0, f2
 /* 80310670 0030D5D0  EC 03 00 7A */	fmadds f0, f3, f1, f0
 /* 80310674 0030D5D4  D0 03 00 20 */	stfs f0, 0x20(r3)
-/* 80310678 0030D5D8  4E 80 00 20 */	blr 
+/* 80310678 0030D5D8  4E 80 00 20 */	blr
 
 .global __ct__9CMatrix3fFRC9CVector3fRC9CVector3fRC9CVector3f
 __ct__9CMatrix3fFRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -472,7 +472,7 @@ __ct__9CMatrix3fFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 803106B8 0030D618  D0 03 00 1C */	stfs f0, 0x1c(r3)
 /* 803106BC 0030D61C  C0 06 00 08 */	lfs f0, 8(r6)
 /* 803106C0 0030D620  D0 03 00 20 */	stfs f0, 0x20(r3)
-/* 803106C4 0030D624  4E 80 00 20 */	blr 
+/* 803106C4 0030D624  4E 80 00 20 */	blr
 
 .global __sinit_CMatrix3f_cpp
 __sinit_CMatrix3f_cpp:

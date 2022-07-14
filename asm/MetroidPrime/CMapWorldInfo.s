@@ -82,7 +82,7 @@ lbl_80167CF8:
 /* 80167CF8 00164C58  88 63 00 38 */	lbz r3, 0x38(r3)
 lbl_80167CFC:
 /* 80167CFC 00164C5C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80167D00 00164C60  4E 80 00 20 */	blr 
+/* 80167D00 00164C60  4E 80 00 20 */	blr
 
 .global IsAreaVisible__13CMapWorldInfoCF7TAreaId
 IsAreaVisible__13CMapWorldInfoCF7TAreaId:
@@ -117,7 +117,7 @@ lbl_80167D60:
 /* 80167D70 00164CD0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80167D74 00164CD4  7C 08 03 A6 */	mtlr r0
 /* 80167D78 00164CD8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80167D7C 00164CDC  4E 80 00 20 */	blr 
+/* 80167D7C 00164CDC  4E 80 00 20 */	blr
 
 .global IsAreaVisited__13CMapWorldInfoCF7TAreaId
 IsAreaVisited__13CMapWorldInfoCF7TAreaId:
@@ -192,7 +192,7 @@ lbl_80167E2C:
 /* 80167E8C 00164DEC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80167E90 00164DF0  7C 08 03 A6 */	mtlr r0
 /* 80167E94 00164DF4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80167E98 00164DF8  4E 80 00 20 */	blr 
+/* 80167E98 00164DF8  4E 80 00 20 */	blr
 
 .global sub_80167e9c
 sub_80167e9c:
@@ -394,7 +394,7 @@ lbl_80168178:
 /* 80168188 001650E8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8016818C 001650EC  7C 08 03 A6 */	mtlr r0
 /* 80168190 001650F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80168194 001650F4  4E 80 00 20 */	blr 
+/* 80168194 001650F4  4E 80 00 20 */	blr
 
 .global sub_80168198
 sub_80168198:
@@ -505,7 +505,7 @@ lbl_801682F8:
 /* 80168314 00165274  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80168318 00165278  7C 08 03 A6 */	mtlr r0
 /* 8016831C 0016527C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80168320 00165280  4E 80 00 20 */	blr 
+/* 80168320 00165280  4E 80 00 20 */	blr
 
 .global IsMapped__13CMapWorldInfoCF7TAreaId
 IsMapped__13CMapWorldInfoCF7TAreaId:
@@ -580,7 +580,7 @@ lbl_801683D0:
 /* 80168430 00165390  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80168434 00165394  7C 08 03 A6 */	mtlr r0
 /* 80168438 00165398  38 21 00 50 */	addi r1, r1, 0x50
-/* 8016843C 0016539C  4E 80 00 20 */	blr 
+/* 8016843C 0016539C  4E 80 00 20 */	blr
 
 .global IsWorldVisible__13CMapWorldInfoCF7TAreaId
 IsWorldVisible__13CMapWorldInfoCF7TAreaId:
@@ -601,7 +601,7 @@ lbl_80168470:
 /* 80168470 001653D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80168474 001653D4  7C 08 03 A6 */	mtlr r0
 /* 80168478 001653D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8016847C 001653DC  4E 80 00 20 */	blr 
+/* 8016847C 001653DC  4E 80 00 20 */	blr
 
 .global SetIsMapped__13CMapWorldInfoCF7TAreaId
 SetIsMapped__13CMapWorldInfoCF7TAreaId:
@@ -685,7 +685,7 @@ lbl_8016859C:
 /* 801685A8 00165508  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801685AC 0016550C  7C 08 03 A6 */	mtlr r0
 /* 801685B0 00165510  38 21 00 50 */	addi r1, r1, 0x50
-/* 801685B4 00165514  4E 80 00 20 */	blr 
+/* 801685B4 00165514  4E 80 00 20 */	blr
 
 .global SetAreaVisited__13CMapWorldInfoF7TAreaIdb
 SetAreaVisited__13CMapWorldInfoF7TAreaIdb:
@@ -769,7 +769,7 @@ lbl_801686D4:
 /* 801686E0 00165640  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801686E4 00165644  7C 08 03 A6 */	mtlr r0
 /* 801686E8 00165648  38 21 00 50 */	addi r1, r1, 0x50
-/* 801686EC 0016564C  4E 80 00 20 */	blr 
+/* 801686EC 0016564C  4E 80 00 20 */	blr
 
 .global IsDoorVisited__13CMapWorldInfoCF9TEditorId
 IsDoorVisited__13CMapWorldInfoCF9TEditorId:
@@ -823,7 +823,7 @@ lbl_80168798:
 /* 801687A0 00165700  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801687A4 00165704  7C 08 03 A6 */	mtlr r0
 /* 801687A8 00165708  38 21 00 30 */	addi r1, r1, 0x30
-/* 801687AC 0016570C  4E 80 00 20 */	blr 
+/* 801687AC 0016570C  4E 80 00 20 */	blr
 
 .global SetDoorVisited__13CMapWorldInfoF9TEditorIdb
 SetDoorVisited__13CMapWorldInfoF9TEditorIdb:
@@ -893,7 +893,7 @@ lbl_80168894:
 /* 801688A0 00165800  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801688A4 00165804  7C 08 03 A6 */	mtlr r0
 /* 801688A8 00165808  38 21 00 50 */	addi r1, r1, 0x50
-/* 801688AC 0016580C  4E 80 00 20 */	blr 
+/* 801688AC 0016580C  4E 80 00 20 */	blr
 
 .global sub_801688b0
 sub_801688b0:
@@ -931,7 +931,7 @@ sub_801688b0:
 /* 8016892C 0016588C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80168930 00165890  7C 08 03 A6 */	mtlr r0
 /* 80168934 00165894  38 21 00 30 */	addi r1, r1, 0x30
-/* 80168938 00165898  4E 80 00 20 */	blr 
+/* 80168938 00165898  4E 80 00 20 */	blr
 
 .global sub_8016893c
 sub_8016893c:
@@ -1111,7 +1111,7 @@ lbl_80168B88:
 /* 80168B8C 00165AEC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80168B90 00165AF0  7C 08 03 A6 */	mtlr r0
 /* 80168B94 00165AF4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80168B98 00165AF8  4E 80 00 20 */	blr 
+/* 80168B98 00165AF8  4E 80 00 20 */	blr
 
 .global PutTo__13CMapWorldInfoCFR13COutputStreamRC10CSaveWorldi
 PutTo__13CMapWorldInfoCFR13COutputStreamRC10CSaveWorldi:
@@ -1313,7 +1313,7 @@ lbl_80168E64:
 /* 80168E68 00165DC8  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80168E6C 00165DCC  7C 08 03 A6 */	mtlr r0
 /* 80168E70 00165DD0  38 21 00 90 */	addi r1, r1, 0x90
-/* 80168E74 00165DD4  4E 80 00 20 */	blr 
+/* 80168E74 00165DD4  4E 80 00 20 */	blr
 
 .global sub_80168e78
 sub_80168e78:
@@ -1367,7 +1367,7 @@ sub_80168e78:
 /* 80168F34 00165E94  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80168F38 00165E98  7C 08 03 A6 */	mtlr r0
 /* 80168F3C 00165E9C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80168F40 00165EA0  4E 80 00 20 */	blr 
+/* 80168F40 00165EA0  4E 80 00 20 */	blr
 
 .global __ct__13CMapWorldInfoFR16CBitStreamReaderRC10CSaveWorldUi
 __ct__13CMapWorldInfoFR16CBitStreamReaderRC10CSaveWorldUi:
@@ -1665,7 +1665,7 @@ lbl_8016936C:
 /* 80169374 001662D4  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80169378 001662D8  7C 08 03 A6 */	mtlr r0
 /* 8016937C 001662DC  38 21 00 80 */	addi r1, r1, 0x80
-/* 80169380 001662E0  4E 80 00 20 */	blr 
+/* 80169380 001662E0  4E 80 00 20 */	blr
 
 .global __ct__13CMapWorldInfoFv
 __ct__13CMapWorldInfoFv:
@@ -1682,7 +1682,7 @@ __ct__13CMapWorldInfoFv:
 /* 801693AC 0016630C  90 03 00 30 */	stw r0, 0x30(r3)
 /* 801693B0 00166310  90 03 00 34 */	stw r0, 0x34(r3)
 /* 801693B4 00166314  98 03 00 38 */	stb r0, 0x38(r3)
-/* 801693B8 00166318  4E 80 00 20 */	blr 
+/* 801693B8 00166318  4E 80 00 20 */	blr
 
 .global sub_801693bc
 sub_801693bc:
@@ -1810,7 +1810,7 @@ lbl_80169574:
 /* 80169584 001664E4  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80169588 001664E8  7C 08 03 A6 */	mtlr r0
 /* 8016958C 001664EC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80169590 001664F0  4E 80 00 20 */	blr 
+/* 80169590 001664F0  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl144pointer_iterator<Q24rstl18pair<9TEditorId,b>,Q24rstl62vector<Q24rstl18pair<9TEditorId,b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TEditorId,Q24rstl73pair_sorter_finder<Q24rstl18pair<9TEditorId,b>,Q24rstl16less<9TEditorId>>>__4rstlFQ24rstl144pointer_iterator<Q24rstl18pair<9TEditorId,b>,Q24rstl62vector<Q24rstl18pair<9TEditorId,b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144pointer_iterator<Q24rstl18pair<9TEditorId,b>,Q24rstl62vector<Q24rstl18pair<9T"
 "lower_bound<Q24rstl144pointer_iterator<Q24rstl18pair<9TEditorId,b>,Q24rstl62vector<Q24rstl18pair<9TEditorId,b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TEditorId,Q24rstl73pair_sorter_finder<Q24rstl18pair<9TEditorId,b>,Q24rstl16less<9TEditorId>>>__4rstlFQ24rstl144pointer_iterator<Q24rstl18pair<9TEditorId,b>,Q24rstl62vector<Q24rstl18pair<9TEditorId,b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144pointer_iterator<Q24rstl18pair<9TEditorId,b>,Q24rstl62vector<Q24rstl18pair<9T":
@@ -1866,7 +1866,7 @@ lbl_80169638:
 /* 8016964C 001665AC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80169650 001665B0  7C 08 03 A6 */	mtlr r0
 /* 80169654 001665B4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80169658 001665B8  4E 80 00 20 */	blr 
+/* 80169658 001665B8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl62vector<Q24rstl18pair<9TEditorId,b>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl62vector<Q24rstl18pair<9TEditorId,b>,Q24rstl17rmemory_allocator>Fi":
@@ -1939,7 +1939,7 @@ lbl_80169734:
 /* 80169740 001666A0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80169744 001666A4  7C 08 03 A6 */	mtlr r0
 /* 80169748 001666A8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8016974C 001666AC  4E 80 00 20 */	blr 
+/* 8016974C 001666AC  4E 80 00 20 */	blr
 
 .global sub_80169750
 sub_80169750:
@@ -1953,7 +1953,7 @@ sub_80169750:
 /* 8016976C 001666CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80169770 001666D0  7C 08 03 A6 */	mtlr r0
 /* 80169774 001666D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80169778 001666D8  4E 80 00 20 */	blr 
+/* 80169778 001666D8  4E 80 00 20 */	blr
 
 .global sub_8016977c
 sub_8016977c:
@@ -1961,7 +1961,7 @@ sub_8016977c:
 /* 80169780 001666E0  54 80 18 38 */	slwi r0, r4, 3
 /* 80169784 001666E4  7C 05 02 14 */	add r0, r5, r0
 /* 80169788 001666E8  90 03 00 00 */	stw r0, 0(r3)
-/* 8016978C 001666EC  4E 80 00 20 */	blr 
+/* 8016978C 001666EC  4E 80 00 20 */	blr
 
 .global sub_80169790
 sub_80169790:
@@ -1981,7 +1981,7 @@ sub_80169790:
 /* 801697C4 00166724  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801697C8 00166728  7C 08 03 A6 */	mtlr r0
 /* 801697CC 0016672C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801697D0 00166730  4E 80 00 20 */	blr 
+/* 801697D0 00166730  4E 80 00 20 */	blr
 
 .global sub_801697d4
 sub_801697d4:
@@ -1990,7 +1990,7 @@ sub_801697d4:
 /* 801697DC 0016673C  7C 03 00 50 */	subf r0, r3, r0
 /* 801697E0 00166740  7C 00 1E 70 */	srawi r0, r0, 3
 /* 801697E4 00166744  7C 60 01 94 */	addze r3, r0
-/* 801697E8 00166748  4E 80 00 20 */	blr 
+/* 801697E8 00166748  4E 80 00 20 */	blr
 
 .global sub_801697ec
 sub_801697ec:
@@ -2037,7 +2037,7 @@ lbl_80169880:
 /* 80169884 001667E4  98 C4 00 04 */	stb r6, 4(r4)
 lbl_80169888:
 /* 80169888 001667E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8016988C 001667EC  4E 80 00 20 */	blr 
+/* 8016988C 001667EC  4E 80 00 20 */	blr
 
 .global sub_80169890
 sub_80169890:

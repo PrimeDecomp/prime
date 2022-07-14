@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global frexp
 frexp:
@@ -42,4 +42,4 @@ lbl_8039466C:
 /* 8039468C 003915EC  C8 21 00 08 */	lfd f1, 8(r1)
 lbl_80394690:
 /* 80394690 003915F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80394694 003915F4  4E 80 00 20 */	blr 
+/* 80394694 003915F4  4E 80 00 20 */	blr

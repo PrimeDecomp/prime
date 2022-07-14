@@ -58,7 +58,7 @@ ClosestPointAlongVector__6CAABoxCFRC9CVector3f:
 /* 8033720C 0033416C  FC 00 10 6E */	fsel f0, f0, f1, f2
 /* 80337210 00334170  D0 63 00 04 */	stfs f3, 4(r3)
 /* 80337214 00334174  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80337218 00334178  4E 80 00 20 */	blr 
+/* 80337218 00334178  4E 80 00 20 */	blr
 
 .global FurthestPointAlongVector__6CAABoxCFRC9CVector3f
 FurthestPointAlongVector__6CAABoxCFRC9CVector3f:
@@ -77,7 +77,7 @@ FurthestPointAlongVector__6CAABoxCFRC9CVector3f:
 /* 8033724C 003341AC  FC 00 10 6E */	fsel f0, f0, f1, f2
 /* 80337250 003341B0  D0 63 00 04 */	stfs f3, 4(r3)
 /* 80337254 003341B4  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80337258 003341B8  4E 80 00 20 */	blr 
+/* 80337258 003341B8  4E 80 00 20 */	blr
 
 .global DistanceBetween__6CAABoxFRC6CAABoxRC6CAABox
 DistanceBetween__6CAABoxFRC6CAABoxRC6CAABox:
@@ -189,7 +189,7 @@ lbl_803373C0:
 /* 803373D0 00334330  38 63 E3 18 */	addi r3, r3, lbl_803EE318@l
 /* 803373D4 00334334  7C 03 00 2E */	lwzx r0, r3, r0
 /* 803373D8 00334338  7C 09 03 A6 */	mtctr r0
-/* 803373DC 0033433C  4E 80 04 20 */	bctr 
+/* 803373DC 0033433C  4E 80 04 20 */	bctr
 .global lbl_803373E0
 lbl_803373E0:
 /* 803373E0 00334340  FC 80 F0 18 */	frsp f4, f30
@@ -292,7 +292,7 @@ lbl_80337508:
 /* 80337524 00334484  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 80337528 00334488  7C 08 03 A6 */	mtlr r0
 /* 8033752C 0033448C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80337530 00334490  4E 80 00 20 */	blr 
+/* 80337530 00334490  4E 80 00 20 */	blr
 
 .global PointInside__6CAABoxCFRC9CVector3f
 PointInside__6CAABoxCFRC9CVector3f:
@@ -327,7 +327,7 @@ PointInside__6CAABoxCFRC9CVector3f:
 /* 803375A4 00334504  38 00 00 01 */	li r0, 1
 lbl_803375A8:
 /* 803375A8 00334508  7C 03 03 78 */	mr r3, r0
-/* 803375AC 0033450C  4E 80 00 20 */	blr 
+/* 803375AC 0033450C  4E 80 00 20 */	blr
 
 .global GetPoint__6CAABoxCFi
 GetPoint__6CAABoxCFi:
@@ -353,7 +353,7 @@ GetPoint__6CAABoxCFi:
 /* 803375FC 0033455C  D0 43 00 04 */	stfs f2, 4(r3)
 /* 80337600 00334560  D0 23 00 08 */	stfs f1, 8(r3)
 /* 80337604 00334564  38 21 00 10 */	addi r1, r1, 0x10
-/* 80337608 00334568  4E 80 00 20 */	blr 
+/* 80337608 00334568  4E 80 00 20 */	blr
 
 .global GetCenterPoint__6CAABoxCFv
 GetCenterPoint__6CAABoxCFv:
@@ -373,7 +373,7 @@ GetCenterPoint__6CAABoxCFv:
 /* 80337640 003345A0  EC 04 00 72 */	fmuls f0, f4, f1
 /* 80337644 003345A4  D0 43 00 04 */	stfs f2, 4(r3)
 /* 80337648 003345A8  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8033764C 003345AC  4E 80 00 20 */	blr 
+/* 8033764C 003345AC  4E 80 00 20 */	blr
 
 .global GetVolume__6CAABoxCFv
 GetVolume__6CAABoxCFv:
@@ -388,7 +388,7 @@ GetVolume__6CAABoxCFv:
 /* 80337670 003345D0  EC 23 08 28 */	fsubs f1, f3, f1
 /* 80337674 003345D4  EC 02 00 32 */	fmuls f0, f2, f0
 /* 80337678 003345D8  EC 21 00 32 */	fmuls f1, f1, f0
-/* 8033767C 003345DC  4E 80 00 20 */	blr 
+/* 8033767C 003345DC  4E 80 00 20 */	blr
 
 .global Invalid__6CAABoxCFv
 Invalid__6CAABoxCFv:
@@ -435,7 +435,7 @@ lbl_80337710:
 /* 80337714 00334674  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80337718 00334678  7C 08 03 A6 */	mtlr r0
 /* 8033771C 0033467C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80337720 00334680  4E 80 00 20 */	blr 
+/* 80337720 00334680  4E 80 00 20 */	blr
 
 .global GetBooleanIntersection__6CAABoxCFRC6CAABox
 GetBooleanIntersection__6CAABoxCFRC6CAABox:
@@ -527,7 +527,7 @@ lbl_80337840:
 /* 80337864 003347C4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80337868 003347C8  7C 08 03 A6 */	mtlr r0
 /* 8033786C 003347CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80337870 003347D0  4E 80 00 20 */	blr 
+/* 80337870 003347D0  4E 80 00 20 */	blr
 
 .global ClampToBox__6CAABoxCFRC9CVector3f
 ClampToBox__6CAABoxCFRC9CVector3f:
@@ -573,7 +573,7 @@ lbl_803378EC:
 /* 803378EC 0033484C  D0 63 00 00 */	stfs f3, 0(r3)
 /* 803378F0 00334850  D0 43 00 04 */	stfs f2, 4(r3)
 /* 803378F4 00334854  D0 23 00 08 */	stfs f1, 8(r3)
-/* 803378F8 00334858  4E 80 00 20 */	blr 
+/* 803378F8 00334858  4E 80 00 20 */	blr
 
 .global GetTransformedAABox__6CAABoxCFRC12CTransform4f
 GetTransformedAABox__6CAABoxCFRC12CTransform4f:
@@ -656,7 +656,7 @@ lbl_80337A14:
 /* 80337A14 00334974  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80337A18 00334978  7C 08 03 A6 */	mtlr r0
 /* 80337A1C 0033497C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80337A20 00334980  4E 80 00 20 */	blr 
+/* 80337A20 00334980  4E 80 00 20 */	blr
 
 .global InsidePlane__6CAABoxCFRC6CPlane
 InsidePlane__6CAABoxCFRC6CPlane:
@@ -682,7 +682,7 @@ InsidePlane__6CAABoxCFRC6CPlane:
 /* 80337A70 003349D0  54 00 1F FE */	rlwinm r0, r0, 3, 0x1f, 0x1f
 /* 80337A74 003349D4  7C 00 00 34 */	cntlzw r0, r0
 /* 80337A78 003349D8  54 03 D9 7E */	srwi r3, r0, 5
-/* 80337A7C 003349DC  4E 80 00 20 */	blr 
+/* 80337A7C 003349DC  4E 80 00 20 */	blr
 
 .global Inside__6CAABoxCFRC6CAABox
 Inside__6CAABoxCFRC6CAABox:
@@ -717,10 +717,10 @@ Inside__6CAABoxCFRC6CAABox:
 /* 80337AF0 00334A50  4C 40 13 82 */	cror 2, 0, 2
 /* 80337AF4 00334A54  40 82 00 0C */	bne lbl_80337B00
 /* 80337AF8 00334A58  38 60 00 01 */	li r3, 1
-/* 80337AFC 00334A5C  4E 80 00 20 */	blr 
+/* 80337AFC 00334A5C  4E 80 00 20 */	blr
 lbl_80337B00:
 /* 80337B00 00334A60  38 60 00 00 */	li r3, 0
-/* 80337B04 00334A64  4E 80 00 20 */	blr 
+/* 80337B04 00334A64  4E 80 00 20 */	blr
 
 .global AccumulateBounds__6CAABoxFRC9CVector3f
 AccumulateBounds__6CAABoxFRC9CVector3f:
@@ -757,9 +757,9 @@ lbl_80337B6C:
 /* 80337B6C 00334ACC  C0 24 00 08 */	lfs f1, 8(r4)
 /* 80337B70 00334AD0  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 80337B74 00334AD4  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 80337B78 00334AD8  4C 81 00 20 */	blelr 
+/* 80337B78 00334AD8  4C 81 00 20 */	blelr
 /* 80337B7C 00334ADC  D0 23 00 14 */	stfs f1, 0x14(r3)
-/* 80337B80 00334AE0  4E 80 00 20 */	blr 
+/* 80337B80 00334AE0  4E 80 00 20 */	blr
 
 .global DoBoundsOverlap__6CAABoxCFRC6CAABox
 DoBoundsOverlap__6CAABoxCFRC6CAABox:
@@ -789,10 +789,10 @@ DoBoundsOverlap__6CAABoxCFRC6CAABox:
 /* 80337BE0 00334B40  40 81 00 0C */	ble lbl_80337BEC
 lbl_80337BE4:
 /* 80337BE4 00334B44  38 60 00 00 */	li r3, 0
-/* 80337BE8 00334B48  4E 80 00 20 */	blr 
+/* 80337BE8 00334B48  4E 80 00 20 */	blr
 lbl_80337BEC:
 /* 80337BEC 00334B4C  38 60 00 01 */	li r3, 1
-/* 80337BF0 00334B50  4E 80 00 20 */	blr 
+/* 80337BF0 00334B50  4E 80 00 20 */	blr
 
 .global GetTri__6CAABoxCFQ26CAABox10EBoxFaceIdi
 GetTri__6CAABoxCFQ26CAABox10EBoxFaceIdi:
@@ -974,7 +974,7 @@ lbl_80337DD4:
 /* 80337E90 00334DF0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80337E94 00334DF4  7C 08 03 A6 */	mtlr r0
 /* 80337E98 00334DF8  38 21 00 60 */	addi r1, r1, 0x60
-/* 80337E9C 00334DFC  4E 80 00 20 */	blr 
+/* 80337E9C 00334DFC  4E 80 00 20 */	blr
 
 .global GetEdge__6CAABoxCFQ26CAABox10EBoxEdgeId
 GetEdge__6CAABoxCFQ26CAABox10EBoxEdgeId:
@@ -998,7 +998,7 @@ GetEdge__6CAABoxCFQ26CAABox10EBoxEdgeId:
 /* 80337EE4 00334E44  38 63 E3 38 */	addi r3, r3, lbl_803EE338@l
 /* 80337EE8 00334E48  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80337EEC 00334E4C  7C 09 03 A6 */	mtctr r0
-/* 80337EF0 00334E50  4E 80 04 20 */	bctr 
+/* 80337EF0 00334E50  4E 80 04 20 */	bctr
 .global lbl_80337EF4
 lbl_80337EF4:
 /* 80337EF4 00334E54  C3 A4 00 04 */	lfs f29, 4(r4)
@@ -1413,7 +1413,7 @@ lbl_803384D4:
 /* 803384F8 00335458  83 E1 01 EC */	lwz r31, 0x1ec(r1)
 /* 803384FC 0033545C  7C 08 03 A6 */	mtlr r0
 /* 80338500 00335460  38 21 02 30 */	addi r1, r1, 0x230
-/* 80338504 00335464  4E 80 00 20 */	blr 
+/* 80338504 00335464  4E 80 00 20 */	blr
 
 .global __ct__6CAABoxFRC9CVector3fRC9CVector3f
 __ct__6CAABoxFRC9CVector3fRC9CVector3f:
@@ -1429,7 +1429,7 @@ __ct__6CAABoxFRC9CVector3fRC9CVector3f:
 /* 8033852C 0033548C  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 80338530 00335490  C0 05 00 08 */	lfs f0, 8(r5)
 /* 80338534 00335494  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 80338538 00335498  4E 80 00 20 */	blr 
+/* 80338538 00335498  4E 80 00 20 */	blr
 
 .global __ct__6CAABoxFR12CInputStream
 __ct__6CAABoxFR12CInputStream:
@@ -1450,7 +1450,7 @@ __ct__6CAABoxFR12CInputStream:
 /* 80338574 003354D4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80338578 003354D8  7C 08 03 A6 */	mtlr r0
 /* 8033857C 003354DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80338580 003354E0  4E 80 00 20 */	blr 
+/* 80338580 003354E0  4E 80 00 20 */	blr
 
 .global __sinit_CAABox_cpp
 __sinit_CAABox_cpp:
@@ -1471,4 +1471,4 @@ __sinit_CAABox_cpp:
 /* 803385BC 0033551C  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 803385C0 00335520  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 803385C4 00335524  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 803385C8 00335528  4E 80 00 20 */	blr 
+/* 803385C8 00335528  4E 80 00 20 */	blr

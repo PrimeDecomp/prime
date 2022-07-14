@@ -56,19 +56,19 @@ Accept__21CScriptCameraWaypointFR8IVisitor:
 /* 800B51E0 000B2140  7C 04 03 78 */	mr r4, r0
 /* 800B51E4 000B2144  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800B51E8 000B2148  7D 89 03 A6 */	mtctr r12
-/* 800B51EC 000B214C  4E 80 04 21 */	bctrl 
+/* 800B51EC 000B214C  4E 80 04 21 */	bctrl
 /* 800B51F0 000B2150  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B51F4 000B2154  7C 08 03 A6 */	mtlr r0
 /* 800B51F8 000B2158  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B51FC 000B215C  4E 80 00 20 */	blr 
+/* 800B51FC 000B215C  4E 80 00 20 */	blr
 
 .global Render__21CScriptCameraWaypointCFRC13CStateManager
 Render__21CScriptCameraWaypointCFRC13CStateManager:
-/* 800B5200 000B2160  4E 80 00 20 */	blr 
+/* 800B5200 000B2160  4E 80 00 20 */	blr
 
 .global AddToRenderer__21CScriptCameraWaypointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__21CScriptCameraWaypointCFRC14CFrustumPlanesRC13CStateManager:
-/* 800B5204 000B2164  4E 80 00 20 */	blr 
+/* 800B5204 000B2164  4E 80 00 20 */	blr
 
 .global GetRandomNextWaypointId__21CScriptCameraWaypointCFRC13CStateManager
 GetRandomNextWaypointId__21CScriptCameraWaypointCFRC13CStateManager:
@@ -193,7 +193,7 @@ lbl_800B53AC:
 /* 800B53B0 000B2310  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800B53B4 000B2314  7C 08 03 A6 */	mtlr r0
 /* 800B53B8 000B2318  38 21 00 60 */	addi r1, r1, 0x60
-/* 800B53BC 000B231C  4E 80 00 20 */	blr 
+/* 800B53BC 000B231C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__21CScriptCameraWaypointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__21CScriptCameraWaypointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -229,7 +229,7 @@ lbl_800B5420:
 /* 800B542C 000B238C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B5430 000B2390  7C 08 03 A6 */	mtlr r0
 /* 800B5434 000B2394  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B5438 000B2398  4E 80 00 20 */	blr 
+/* 800B5438 000B2398  4E 80 00 20 */	blr
 
 .global __dt__21CScriptCameraWaypointFv
 __dt__21CScriptCameraWaypointFv:
@@ -257,7 +257,7 @@ lbl_800B5480:
 /* 800B548C 000B23EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B5490 000B23F0  7C 08 03 A6 */	mtlr r0
 /* 800B5494 000B23F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B5498 000B23F8  4E 80 00 20 */	blr 
+/* 800B5498 000B23F8  4E 80 00 20 */	blr
 
 .global "__ct__21CScriptCameraWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfUi"
 "__ct__21CScriptCameraWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfUi":
@@ -325,4 +325,4 @@ lbl_800B5480:
 /* 800B5590 000B24F0  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 800B5594 000B24F4  7C 08 03 A6 */	mtlr r0
 /* 800B5598 000B24F8  38 21 01 00 */	addi r1, r1, 0x100
-/* 800B559C 000B24FC  4E 80 00 20 */	blr 
+/* 800B559C 000B24FC  4E 80 00 20 */	blr

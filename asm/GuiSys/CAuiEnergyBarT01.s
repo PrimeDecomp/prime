@@ -40,17 +40,17 @@ lbl_805A86DC:
 GetWidgetTypeID__16CAuiEnergyBarT01CFv:
 /* 802CB1D0 002C8130  3C 60 45 4E */	lis r3, 0x454E5247@ha
 /* 802CB1D4 002C8134  38 63 52 47 */	addi r3, r3, 0x454E5247@l
-/* 802CB1D8 002C8138  4E 80 00 20 */	blr 
+/* 802CB1D8 002C8138  4E 80 00 20 */	blr
 
 .global GetActualFraction__16CAuiEnergyBarT01CFv
 GetActualFraction__16CAuiEnergyBarT01CFv:
 /* 802CB1DC 002C813C  C0 22 C4 20 */	lfs f1, lbl_805AE140@sda21(r2)
 /* 802CB1E0 002C8140  C0 43 00 E0 */	lfs f2, 0xe0(r3)
 /* 802CB1E4 002C8144  FC 01 10 00 */	fcmpu cr0, f1, f2
-/* 802CB1E8 002C8148  4D 82 00 20 */	beqlr 
+/* 802CB1E8 002C8148  4D 82 00 20 */	beqlr
 /* 802CB1EC 002C814C  C0 03 00 F4 */	lfs f0, 0xf4(r3)
 /* 802CB1F0 002C8150  EC 20 10 24 */	fdivs f1, f0, f2
-/* 802CB1F4 002C8154  4E 80 00 20 */	blr 
+/* 802CB1F4 002C8154  4E 80 00 20 */	blr
 
 .global Draw__16CAuiEnergyBarT01CFRC19CGuiWidgetDrawParms
 Draw__16CAuiEnergyBarT01CFRC19CGuiWidgetDrawParms:
@@ -239,7 +239,7 @@ lbl_802CB450:
 /* 802CB498 002C83F8  FC 20 D8 90 */	fmr f1, f27
 /* 802CB49C 002C83FC  38 61 00 60 */	addi r3, r1, 0x60
 /* 802CB4A0 002C8400  7D 89 03 A6 */	mtctr r12
-/* 802CB4A4 002C8404  4E 80 04 21 */	bctrl 
+/* 802CB4A4 002C8404  4E 80 04 21 */	bctrl
 /* 802CB4A8 002C8408  C0 A1 00 60 */	lfs f5, 0x60(r1)
 /* 802CB4AC 002C840C  C0 81 00 64 */	lfs f4, 0x64(r1)
 /* 802CB4B0 002C8410  C0 61 00 68 */	lfs f3, 0x68(r1)
@@ -273,7 +273,7 @@ lbl_802CB4DC:
 /* 802CB51C 002C847C  FC 20 E0 90 */	fmr f1, f28
 /* 802CB520 002C8480  38 61 00 48 */	addi r3, r1, 0x48
 /* 802CB524 002C8484  7D 89 03 A6 */	mtctr r12
-/* 802CB528 002C8488  4E 80 04 21 */	bctrl 
+/* 802CB528 002C8488  4E 80 04 21 */	bctrl
 /* 802CB52C 002C848C  80 E1 00 48 */	lwz r7, 0x48(r1)
 /* 802CB530 002C8490  FC 20 E0 90 */	fmr f1, f28
 /* 802CB534 002C8494  80 C1 00 4C */	lwz r6, 0x4c(r1)
@@ -302,7 +302,7 @@ lbl_802CB588:
 /* 802CB58C 002C84EC  FC 20 D8 90 */	fmr f1, f27
 /* 802CB590 002C84F0  38 61 00 30 */	addi r3, r1, 0x30
 /* 802CB594 002C84F4  7D 89 03 A6 */	mtctr r12
-/* 802CB598 002C84F8  4E 80 04 21 */	bctrl 
+/* 802CB598 002C84F8  4E 80 04 21 */	bctrl
 /* 802CB59C 002C84FC  80 E1 00 30 */	lwz r7, 0x30(r1)
 /* 802CB5A0 002C8500  80 C1 00 34 */	lwz r6, 0x34(r1)
 /* 802CB5A4 002C8504  80 A1 00 38 */	lwz r5, 0x38(r1)
@@ -342,7 +342,7 @@ lbl_802CB5F4:
 /* 802CB620 002C8580  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802CB624 002C8584  7C 08 03 A6 */	mtlr r0
 /* 802CB628 002C8588  38 21 01 10 */	addi r1, r1, 0x110
-/* 802CB62C 002C858C  4E 80 00 20 */	blr 
+/* 802CB62C 002C858C  4E 80 00 20 */	blr
 
 .global DownloadBarCoordFunc__16CAuiEnergyBarT01Ff
 DownloadBarCoordFunc__16CAuiEnergyBarT01Ff:
@@ -358,7 +358,7 @@ DownloadBarCoordFunc__16CAuiEnergyBarT01Ff:
 /* 802CB654 002C85B4  D0 63 00 0C */	stfs f3, 0xc(r3)
 /* 802CB658 002C85B8  D0 43 00 10 */	stfs f2, 0x10(r3)
 /* 802CB65C 002C85BC  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 802CB660 002C85C0  4E 80 00 20 */	blr 
+/* 802CB660 002C85C0  4E 80 00 20 */	blr
 
 .global Update__16CAuiEnergyBarT01Ff
 Update__16CAuiEnergyBarT01Ff:
@@ -534,7 +534,7 @@ lbl_802CB89C:
 /* 802CB8B8 002C8818  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802CB8BC 002C881C  7C 08 03 A6 */	mtlr r0
 /* 802CB8C0 002C8820  38 21 00 40 */	addi r1, r1, 0x40
-/* 802CB8C4 002C8824  4E 80 00 20 */	blr 
+/* 802CB8C4 002C8824  4E 80 00 20 */	blr
 
 .global SetCurrEnergy__16CAuiEnergyBarT01Ffb
 SetCurrEnergy__16CAuiEnergyBarT01Ffb:
@@ -580,7 +580,7 @@ lbl_802CB950:
 /* 802CB958 002C88B8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802CB95C 002C88BC  7C 08 03 A6 */	mtlr r0
 /* 802CB960 002C88C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CB964 002C88C4  4E 80 00 20 */	blr 
+/* 802CB964 002C88C4  4E 80 00 20 */	blr
 
 .global SetMaxEnergy__16CAuiEnergyBarT01Ff
 SetMaxEnergy__16CAuiEnergyBarT01Ff:
@@ -618,7 +618,7 @@ lbl_802CB9CC:
 lbl_802CB9D0:
 /* 802CB9D0 002C8930  C0 04 00 00 */	lfs f0, 0(r4)
 /* 802CB9D4 002C8934  D0 03 00 FC */	stfs f0, 0xfc(r3)
-/* 802CB9D8 002C8938  4E 80 00 20 */	blr 
+/* 802CB9D8 002C8938  4E 80 00 20 */	blr
 
 .global __dt__16CAuiEnergyBarT01Fv
 __dt__16CAuiEnergyBarT01Fv:
@@ -662,7 +662,7 @@ lbl_802CBA58:
 /* 802CBA64 002C89C4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CBA68 002C89C8  7C 08 03 A6 */	mtlr r0
 /* 802CBA6C 002C89CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CBA70 002C89D0  4E 80 00 20 */	blr 
+/* 802CBA70 002C89D0  4E 80 00 20 */	blr
 
 .global __ct__16CAuiEnergyBarT01FRCQ210CGuiWidget15CGuiWidgetParmsUi
 __ct__16CAuiEnergyBarT01FRCQ210CGuiWidget15CGuiWidgetParmsUi:
@@ -722,7 +722,7 @@ __ct__16CAuiEnergyBarT01FRCQ210CGuiWidget15CGuiWidgetParmsUi:
 /* 802CBB48 002C8AA8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CBB4C 002C8AAC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802CBB50 002C8AB0  7D 89 03 A6 */	mtctr r12
-/* 802CBB54 002C8AB4  4E 80 04 21 */	bctrl 
+/* 802CBB54 002C8AB4  4E 80 04 21 */	bctrl
 /* 802CBB58 002C8AB8  38 61 00 18 */	addi r3, r1, 0x18
 /* 802CBB5C 002C8ABC  38 81 00 08 */	addi r4, r1, 8
 /* 802CBB60 002C8AC0  48 07 53 49 */	bl __ct__6CTokenFRC6CToken
@@ -766,7 +766,7 @@ lbl_802CBBD8:
 /* 802CBBE8 002C8B48  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 802CBBEC 002C8B4C  7C 08 03 A6 */	mtlr r0
 /* 802CBBF0 002C8B50  38 21 00 40 */	addi r1, r1, 0x40
-/* 802CBBF4 002C8B54  4E 80 00 20 */	blr 
+/* 802CBBF4 002C8B54  4E 80 00 20 */	blr
 
 .global Create__16CAuiEnergyBarT01FP9CGuiFrameR12CInputStreamb
 Create__16CAuiEnergyBarT01FP9CGuiFrameR12CInputStreamb:

@@ -35,11 +35,11 @@ Accept__22CScriptPickupGeneratorFR8IVisitor:
 /* 8015DEA0 0015AE00  7C 04 03 78 */	mr r4, r0
 /* 8015DEA4 0015AE04  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8015DEA8 0015AE08  7D 89 03 A6 */	mtctr r12
-/* 8015DEAC 0015AE0C  4E 80 04 21 */	bctrl 
+/* 8015DEAC 0015AE0C  4E 80 04 21 */	bctrl
 /* 8015DEB0 0015AE10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015DEB4 0015AE14  7C 08 03 A6 */	mtlr r0
 /* 8015DEB8 0015AE18  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015DEBC 0015AE1C  4E 80 00 20 */	blr 
+/* 8015DEBC 0015AE1C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__22CScriptPickupGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__22CScriptPickupGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -281,7 +281,7 @@ lbl_8015E1F0:
 /* 8015E210 0015B170  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 8015E214 0015B174  7C 08 03 A6 */	mtlr r0
 /* 8015E218 0015B178  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8015E21C 0015B17C  4E 80 00 20 */	blr 
+/* 8015E21C 0015B17C  4E 80 00 20 */	blr
 
 .global ResetDelayTimer__22CScriptPickupGeneratorFv
 ResetDelayTimer__22CScriptPickupGeneratorFv:
@@ -294,11 +294,11 @@ ResetDelayTimer__22CScriptPickupGeneratorFv:
 /* 8015E238 0015B198  EC 00 10 24 */	fdivs f0, f0, f2
 /* 8015E23C 0015B19C  EC 01 00 2A */	fadds f0, f1, f0
 /* 8015E240 0015B1A0  D0 03 00 44 */	stfs f0, 0x44(r3)
-/* 8015E244 0015B1A4  4E 80 00 20 */	blr 
+/* 8015E244 0015B1A4  4E 80 00 20 */	blr
 lbl_8015E248:
 /* 8015E248 0015B1A8  C0 02 9F 48 */	lfs f0, lbl_805ABC68@sda21(r2)
 /* 8015E24C 0015B1AC  D0 03 00 44 */	stfs f0, 0x44(r3)
-/* 8015E250 0015B1B0  4E 80 00 20 */	blr 
+/* 8015E250 0015B1B0  4E 80 00 20 */	blr
 
 .global GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId
 GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId:
@@ -435,7 +435,7 @@ lbl_8015E448:
 /* 8015E44C 0015B3AC  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8015E450 0015B3B0  7C 08 03 A6 */	mtlr r0
 /* 8015E454 0015B3B4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8015E458 0015B3B8  4E 80 00 20 */	blr 
+/* 8015E458 0015B3B8  4E 80 00 20 */	blr
 
 .global "GetPickupTemplates__22CScriptPickupGeneratorFR13CStateManagerRQ24rstl35vector<Q24rstl18pair<f,9TEditorId>>"
 "GetPickupTemplates__22CScriptPickupGeneratorFR13CStateManagerRQ24rstl35vector<Q24rstl18pair<f,9TEditorId>>":
@@ -641,7 +641,7 @@ lbl_8015E6F8:
 /* 8015E738 0015B698  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8015E73C 0015B69C  7C 08 03 A6 */	mtlr r0
 /* 8015E740 0015B6A0  38 21 00 80 */	addi r1, r1, 0x80
-/* 8015E744 0015B6A4  4E 80 00 20 */	blr 
+/* 8015E744 0015B6A4  4E 80 00 20 */	blr
 
 .global "GetGeneratorIds__22CScriptPickupGeneratorFR13CStateManager9TUniqueIdRQ24rstl18vector<9TUniqueId>"
 "GetGeneratorIds__22CScriptPickupGeneratorFR13CStateManager9TUniqueIdRQ24rstl18vector<9TUniqueId>":
@@ -755,7 +755,7 @@ lbl_8015E8C4:
 /* 8015E8C8 0015B828  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8015E8CC 0015B82C  7C 08 03 A6 */	mtlr r0
 /* 8015E8D0 0015B830  38 21 00 40 */	addi r1, r1, 0x40
-/* 8015E8D4 0015B834  4E 80 00 20 */	blr 
+/* 8015E8D4 0015B834  4E 80 00 20 */	blr
 
 .global __dt__22CScriptPickupGeneratorFv
 __dt__22CScriptPickupGeneratorFv:
@@ -783,7 +783,7 @@ lbl_8015E91C:
 /* 8015E928 0015B888  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8015E92C 0015B88C  7C 08 03 A6 */	mtlr r0
 /* 8015E930 0015B890  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015E934 0015B894  4E 80 00 20 */	blr 
+/* 8015E934 0015B894  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptPickupGeneratorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3ffb"
 "__ct__22CScriptPickupGeneratorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3ffb":
@@ -827,7 +827,7 @@ lbl_8015E91C:
 /* 8015E9CC 0015B92C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8015E9D0 0015B930  7C 08 03 A6 */	mtlr r0
 /* 8015E9D4 0015B934  38 21 00 30 */	addi r1, r1, 0x30
-/* 8015E9D8 0015B938  4E 80 00 20 */	blr 
+/* 8015E9D8 0015B938  4E 80 00 20 */	blr
 
 .global sub_8015e9dc
 sub_8015e9dc:

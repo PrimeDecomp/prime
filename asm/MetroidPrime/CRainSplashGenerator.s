@@ -37,7 +37,7 @@ lbl_80269CB4:
 /* 80269CF0 00266C50  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80269CF4 00266C54  7C 08 03 A6 */	mtlr r0
 /* 80269CF8 00266C58  38 21 00 20 */	addi r1, r1, 0x20
-/* 80269CFC 00266C5C  4E 80 00 20 */	blr 
+/* 80269CFC 00266C5C  4E 80 00 20 */	blr
 
 .global IsActive__Q220CRainSplashGenerator11SRainSplashCFfR13CStateManager
 IsActive__Q220CRainSplashGenerator11SRainSplashCFfR13CStateManager:
@@ -58,7 +58,7 @@ lbl_80269D30:
 /* 80269D30 00266C90  7C 05 18 40 */	cmplw r5, r3
 /* 80269D34 00266C94  40 82 FF E8 */	bne lbl_80269D1C
 /* 80269D38 00266C98  54 83 06 3E */	clrlwi r3, r4, 0x18
-/* 80269D3C 00266C9C  4E 80 00 20 */	blr 
+/* 80269D3C 00266C9C  4E 80 00 20 */	blr
 
 .global Draw__Q220CRainSplashGenerator11SRainSplashCFffRC9CVector3f
 Draw__Q220CRainSplashGenerator11SRainSplashCFffRC9CVector3f:
@@ -98,7 +98,7 @@ lbl_80269D90:
 /* 80269DBC 00266D1C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80269DC0 00266D20  7C 08 03 A6 */	mtlr r0
 /* 80269DC4 00266D24  38 21 00 30 */	addi r1, r1, 0x30
-/* 80269DC8 00266D28  4E 80 00 20 */	blr 
+/* 80269DC8 00266D28  4E 80 00 20 */	blr
 
 .global Update__Q220CRainSplashGenerator11SRainSplashFfR13CStateManager
 Update__Q220CRainSplashGenerator11SRainSplashFfR13CStateManager:
@@ -134,7 +134,7 @@ lbl_80269E10:
 /* 80269E38 00266D98  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 80269E3C 00266D9C  7C 08 03 A6 */	mtlr r0
 /* 80269E40 00266DA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80269E44 00266DA4  4E 80 00 20 */	blr 
+/* 80269E44 00266DA4  4E 80 00 20 */	blr
 
 .global __ct__Q220CRainSplashGenerator11SRainSplash
 __ct__Q220CRainSplashGenerator11SRainSplash:
@@ -212,7 +212,7 @@ lbl_80269F38:
 /* 80269F54 00266EB4  D0 23 00 6C */	stfs f1, 0x6c(r3)
 /* 80269F58 00266EB8  D0 03 00 70 */	stfs f0, 0x70(r3)
 /* 80269F5C 00266EBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80269F60 00266EC0  4E 80 00 20 */	blr 
+/* 80269F60 00266EC0  4E 80 00 20 */	blr
 
 .global Draw__Q220CRainSplashGenerator11SSplashLineCFffRC9CVector3f
 Draw__Q220CRainSplashGenerator11SSplashLineCFffRC9CVector3f:
@@ -310,7 +310,7 @@ lbl_8026A094:
 /* 8026A0C0 00267020  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8026A0C4 00267024  7C 08 03 A6 */	mtlr r0
 /* 8026A0C8 00267028  38 21 00 80 */	addi r1, r1, 0x80
-/* 8026A0CC 0026702C  4E 80 00 20 */	blr 
+/* 8026A0CC 0026702C  4E 80 00 20 */	blr
 
 .global Update__Q220CRainSplashGenerator11SSplashLineFfR13CStateManager
 Update__Q220CRainSplashGenerator11SSplashLineFfR13CStateManager:
@@ -387,7 +387,7 @@ lbl_8026A1D4:
 /* 8026A1DC 0026713C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8026A1E0 00267140  7C 08 03 A6 */	mtlr r0
 /* 8026A1E4 00267144  38 21 00 20 */	addi r1, r1, 0x20
-/* 8026A1E8 00267148  4E 80 00 20 */	blr 
+/* 8026A1E8 00267148  4E 80 00 20 */	blr
 
 .global SetActive__Q220CRainSplashGenerator11SSplashLine
 SetActive__Q220CRainSplashGenerator11SSplashLine:
@@ -395,7 +395,7 @@ SetActive__Q220CRainSplashGenerator11SSplashLine:
 /* 8026A1F0 00267150  38 80 00 01 */	li r4, 1
 /* 8026A1F4 00267154  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8026A1F8 00267158  98 03 00 16 */	stb r0, 0x16(r3)
-/* 8026A1FC 0026715C  4E 80 00 20 */	blr 
+/* 8026A1FC 0026715C  4E 80 00 20 */	blr
 
 .global DoDraw__20CRainSplashGeneratorCFRC12CTransform4f
 DoDraw__20CRainSplashGeneratorCFRC12CTransform4f:
@@ -519,7 +519,7 @@ lbl_8026A3A4:
 /* 8026A3B0 00267310  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8026A3B4 00267314  7C 08 03 A6 */	mtlr r0
 /* 8026A3B8 00267318  38 21 00 20 */	addi r1, r1, 0x20
-/* 8026A3BC 0026731C  4E 80 00 20 */	blr 
+/* 8026A3BC 0026731C  4E 80 00 20 */	blr
 
 .global Draw__20CRainSplashGeneratorCFRC12CTransform4f
 Draw__20CRainSplashGeneratorCFRC12CTransform4f:
@@ -534,7 +534,7 @@ lbl_8026A3DC:
 /* 8026A3DC 0026733C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8026A3E0 00267340  7C 08 03 A6 */	mtlr r0
 /* 8026A3E4 00267344  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026A3E8 00267348  4E 80 00 20 */	blr 
+/* 8026A3E8 00267348  4E 80 00 20 */	blr
 
 .global Update__20CRainSplashGeneratorFfR13CStateManager
 Update__20CRainSplashGeneratorFfR13CStateManager:
@@ -575,7 +575,7 @@ lbl_8026A468:
 /* 8026A46C 002673CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8026A470 002673D0  7C 08 03 A6 */	mtlr r0
 /* 8026A474 002673D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026A478 002673D8  4E 80 00 20 */	blr 
+/* 8026A478 002673D8  4E 80 00 20 */	blr
 
 .global UpdateRainSplashes__20CRainSplashGeneratorFR13CStateManagerff
 UpdateRainSplashes__20CRainSplashGeneratorFR13CStateManagerff:
@@ -625,7 +625,7 @@ lbl_8026A510:
 /* 8026A520 00267480  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8026A524 00267484  7C 08 03 A6 */	mtlr r0
 /* 8026A528 00267488  38 21 00 20 */	addi r1, r1, 0x20
-/* 8026A52C 0026748C  4E 80 00 20 */	blr 
+/* 8026A52C 0026748C  4E 80 00 20 */	blr
 
 .global UpdateRainSplashRange__20CRainSplashGeneratorFR13CStateManageriif
 UpdateRainSplashRange__20CRainSplashGeneratorFR13CStateManageriif:
@@ -675,7 +675,7 @@ lbl_8026A5C0:
 /* 8026A5D0 00267530  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8026A5D4 00267534  7C 08 03 A6 */	mtlr r0
 /* 8026A5D8 00267538  38 21 00 30 */	addi r1, r1, 0x30
-/* 8026A5DC 0026753C  4E 80 00 20 */	blr 
+/* 8026A5DC 0026753C  4E 80 00 20 */	blr
 
 .global GeneratePoints__20CRainSplashGeneratorFPC9CVector3fPC9CVector3fi
 GeneratePoints__20CRainSplashGeneratorFPC9CVector3fPC9CVector3fi:
@@ -741,7 +741,7 @@ lbl_8026A6B8:
 /* 8026A6BC 0026761C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8026A6C0 00267620  7C 08 03 A6 */	mtlr r0
 /* 8026A6C4 00267624  38 21 00 30 */	addi r1, r1, 0x30
-/* 8026A6C8 00267628  4E 80 00 20 */	blr 
+/* 8026A6C8 00267628  4E 80 00 20 */	blr
 
 .global AddPoint__20CRainSplashGeneratorFRC9CVector3f
 AddPoint__20CRainSplashGeneratorFRC9CVector3f:
@@ -772,7 +772,7 @@ lbl_8026A6F8:
 /* 8026A728 00267688  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8026A72C 0026768C  7C 08 03 A6 */	mtlr r0
 /* 8026A730 00267690  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026A734 00267694  4E 80 00 20 */	blr 
+/* 8026A734 00267694  4E 80 00 20 */	blr
 
 .global __ct__20CRainSplashGeneratorFRC9CVector3fiiff
 __ct__20CRainSplashGeneratorFRC9CVector3fiiff:
@@ -892,7 +892,7 @@ lbl_8026A8AC:
 /* 8026A8D8 00267838  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 8026A8DC 0026783C  7C 08 03 A6 */	mtlr r0
 /* 8026A8E0 00267840  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8026A8E4 00267844  4E 80 00 20 */	blr 
+/* 8026A8E4 00267844  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl45vector<Q220CRainSplashGenerator11SRainSplash>FRCQ220CRainSplashGenerator11SRainSplash"
 "push_back__Q24rstl45vector<Q220CRainSplashGenerator11SRainSplash>FRCQ220CRainSplashGenerator11SRainSplash":
@@ -928,7 +928,7 @@ lbl_8026A928:
 /* 8026A954 002678B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8026A958 002678B8  7C 08 03 A6 */	mtlr r0
 /* 8026A95C 002678BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026A960 002678C0  4E 80 00 20 */	blr 
+/* 8026A960 002678C0  4E 80 00 20 */	blr
 
 .global __ct__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash
 __ct__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash:
@@ -942,7 +942,7 @@ lbl_8026A97C:
 /* 8026A97C 002678DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8026A980 002678E0  7C 08 03 A6 */	mtlr r0
 /* 8026A984 002678E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026A988 002678E8  4E 80 00 20 */	blr 
+/* 8026A988 002678E8  4E 80 00 20 */	blr
 
 .global __as__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash
 __as__Q220CRainSplashGenerator11SRainSplashFRCQ220CRainSplashGenerator11SRainSplash:
@@ -986,7 +986,7 @@ lbl_8026AA00:
 /* 8026AA14 00267974  D0 03 00 6C */	stfs f0, 0x6c(r3)
 /* 8026AA18 00267978  C0 04 00 70 */	lfs f0, 0x70(r4)
 /* 8026AA1C 0026797C  D0 03 00 70 */	stfs f0, 0x70(r3)
-/* 8026AA20 00267980  4E 80 00 20 */	blr 
+/* 8026AA20 00267980  4E 80 00 20 */	blr
 
 .global GetNextBestPt__20CRainSplashGeneratorFiPC9CVector3fPC9CVector3fiR9CRandom16f
 GetNextBestPt__20CRainSplashGeneratorFiPC9CVector3fPC9CVector3fiR9CRandom16f:
@@ -1095,7 +1095,7 @@ lbl_8026AB74:
 /* 8026ABA8 00267B08  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8026ABAC 00267B0C  7C 08 03 A6 */	mtlr r0
 /* 8026ABB0 00267B10  38 21 00 80 */	addi r1, r1, 0x80
-/* 8026ABB4 00267B14  4E 80 00 20 */	blr 
+/* 8026ABB4 00267B14  4E 80 00 20 */	blr
 
 .global sub_8026abb8
 sub_8026abb8:
@@ -1189,7 +1189,7 @@ lbl_8026ACDC:
 /* 8026ACE8 00267C48  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8026ACEC 00267C4C  7C 08 03 A6 */	mtlr r0
 /* 8026ACF0 00267C50  38 21 00 30 */	addi r1, r1, 0x30
-/* 8026ACF4 00267C54  4E 80 00 20 */	blr 
+/* 8026ACF4 00267C54  4E 80 00 20 */	blr
 
 .global sub_8026acf8
 sub_8026acf8:
@@ -1220,4 +1220,4 @@ lbl_8026AD34:
 /* 8026AD50 00267CB0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8026AD54 00267CB4  7C 08 03 A6 */	mtlr r0
 /* 8026AD58 00267CB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8026AD5C 00267CBC  4E 80 00 20 */	blr 
+/* 8026AD5C 00267CBC  4E 80 00 20 */	blr

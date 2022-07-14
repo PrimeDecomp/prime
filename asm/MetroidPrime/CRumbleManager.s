@@ -11,7 +11,7 @@ Update__14CRumbleManagerFf:
 /* 8022E104 0022B064  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8022E108 0022B068  7C 08 03 A6 */	mtlr r0
 /* 8022E10C 0022B06C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8022E110 0022B070  4E 80 00 20 */	blr 
+/* 8022E110 0022B070  4E 80 00 20 */	blr
 
 .global StopRumble__14CRumbleManagerFs
 StopRumble__14CRumbleManagerFs:
@@ -28,7 +28,7 @@ lbl_8022E138:
 /* 8022E138 0022B098  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8022E13C 0022B09C  7C 08 03 A6 */	mtlr r0
 /* 8022E140 0022B0A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8022E144 0022B0A4  4E 80 00 20 */	blr 
+/* 8022E144 0022B0A4  4E 80 00 20 */	blr
 
 .global Rumble__14CRumbleManagerFR13CStateManagerRC9CVector3f11ERumbleFxIdf15ERumblePriority
 Rumble__14CRumbleManagerFR13CStateManagerRC9CVector3f11ERumbleFxIdf15ERumblePriority:
@@ -96,7 +96,7 @@ lbl_8022E21C:
 /* 8022E234 0022B194  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8022E238 0022B198  7C 08 03 A6 */	mtlr r0
 /* 8022E23C 0022B19C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8022E240 0022B1A0  4E 80 00 20 */	blr 
+/* 8022E240 0022B1A0  4E 80 00 20 */	blr
 
 .global Rumble__14CRumbleManagerFR13CStateManager11ERumbleFxIdf15ERumblePriority
 Rumble__14CRumbleManagerFR13CStateManager11ERumbleFxIdf15ERumblePriority:
@@ -121,7 +121,7 @@ lbl_8022E284:
 /* 8022E284 0022B1E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8022E288 0022B1E8  7C 08 03 A6 */	mtlr r0
 /* 8022E28C 0022B1EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8022E290 0022B1F0  4E 80 00 20 */	blr 
+/* 8022E290 0022B1F0  4E 80 00 20 */	blr
 
 .global __dt__14CRumbleManagerFv
 __dt__14CRumbleManagerFv:
@@ -148,7 +148,7 @@ lbl_8022E2D4:
 /* 8022E2E0 0022B240  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8022E2E4 0022B244  7C 08 03 A6 */	mtlr r0
 /* 8022E2E8 0022B248  38 21 00 10 */	addi r1, r1, 0x10
-/* 8022E2EC 0022B24C  4E 80 00 20 */	blr 
+/* 8022E2EC 0022B24C  4E 80 00 20 */	blr
 
 .global __ct__14CRumbleManagerFv
 __ct__14CRumbleManagerFv:

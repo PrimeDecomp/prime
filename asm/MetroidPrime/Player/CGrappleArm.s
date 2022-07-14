@@ -72,7 +72,7 @@ DisconnectGrappleBeam__11CGrappleArmFv:
 /* 8011D4D0 0011A430  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011D4D4 0011A434  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011D4D8 0011A438  7D 89 03 A6 */	mtctr r12
-/* 8011D4DC 0011A43C  4E 80 04 21 */	bctrl 
+/* 8011D4DC 0011A43C  4E 80 04 21 */	bctrl
 /* 8011D4E0 0011A440  88 1F 03 B2 */	lbz r0, 0x3b2(r31)
 /* 8011D4E4 0011A444  38 60 00 00 */	li r3, 0
 /* 8011D4E8 0011A448  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -83,7 +83,7 @@ DisconnectGrappleBeam__11CGrappleArmFv:
 /* 8011D4FC 0011A45C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011D500 0011A460  7C 08 03 A6 */	mtlr r0
 /* 8011D504 0011A464  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011D508 0011A468  4E 80 00 20 */	blr 
+/* 8011D508 0011A468  4E 80 00 20 */	blr
 
 .global PointGenerator__11CGrappleArmFPvPC9CVector3fPC9CVector3fi
 PointGenerator__11CGrappleArmFPvPC9CVector3fPC9CVector3fi:
@@ -97,7 +97,7 @@ lbl_8011D524:
 /* 8011D524 0011A484  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011D528 0011A488  7C 08 03 A6 */	mtlr r0
 /* 8011D52C 0011A48C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011D530 0011A490  4E 80 00 20 */	blr 
+/* 8011D530 0011A490  4E 80 00 20 */	blr
 
 .global RenderXRayModel__11CGrappleArmFRC13CStateManagerRC12CTransform4fRC11CModelFlags
 RenderXRayModel__11CGrappleArmFRC13CStateManagerRC12CTransform4fRC11CModelFlags:
@@ -134,7 +134,7 @@ RenderXRayModel__11CGrappleArmFRC13CStateManagerRC12CTransform4fRC11CModelFlags:
 /* 8011D5AC 0011A50C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011D5B0 0011A510  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8011D5B4 0011A514  7D 89 03 A6 */	mtctr r12
-/* 8011D5B8 0011A518  4E 80 04 21 */	bctrl 
+/* 8011D5B8 0011A518  4E 80 04 21 */	bctrl
 /* 8011D5BC 0011A51C  48 1E F3 C1 */	bl DisableAllLights__9CGraphicsFv
 /* 8011D5C0 0011A520  48 22 C9 ED */	bl White__6CColorFv
 /* 8011D5C4 0011A524  7C 64 1B 78 */	mr r4, r3
@@ -142,7 +142,7 @@ RenderXRayModel__11CGrappleArmFRC13CStateManagerRC12CTransform4fRC11CModelFlags:
 /* 8011D5CC 0011A52C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011D5D0 0011A530  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 8011D5D4 0011A534  7D 89 03 A6 */	mtctr r12
-/* 8011D5D8 0011A538  4E 80 04 21 */	bctrl 
+/* 8011D5D8 0011A538  4E 80 04 21 */	bctrl
 /* 8011D5DC 0011A53C  38 00 00 00 */	li r0, 0
 /* 8011D5E0 0011A540  80 9E 00 60 */	lwz r4, 0x60(r30)
 /* 8011D5E4 0011A544  98 01 00 EC */	stb r0, 0xec(r1)
@@ -161,14 +161,14 @@ RenderXRayModel__11CGrappleArmFRC13CStateManagerRC12CTransform4fRC11CModelFlags:
 /* 8011D618 0011A578  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011D61C 0011A57C  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 8011D620 0011A580  7D 89 03 A6 */	mtctr r12
-/* 8011D624 0011A584  4E 80 04 21 */	bctrl 
+/* 8011D624 0011A584  4E 80 04 21 */	bctrl
 /* 8011D628 0011A588  48 1E F3 55 */	bl DisableAllLights__9CGraphicsFv
 /* 8011D62C 0011A58C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8011D630 0011A590  83 E1 00 FC */	lwz r31, 0xfc(r1)
 /* 8011D634 0011A594  83 C1 00 F8 */	lwz r30, 0xf8(r1)
 /* 8011D638 0011A598  7C 08 03 A6 */	mtlr r0
 /* 8011D63C 0011A59C  38 21 01 00 */	addi r1, r1, 0x100
-/* 8011D640 0011A5A0  4E 80 00 20 */	blr 
+/* 8011D640 0011A5A0  4E 80 00 20 */	blr
 
 .global BuildSuitDependencyList__11CGrappleArmFv
 BuildSuitDependencyList__11CGrappleArmFv:
@@ -192,7 +192,7 @@ lbl_8011D678:
 /* 8011D684 0011A5E4  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011D688 0011A5E8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011D68C 0011A5EC  7D 89 03 A6 */	mtctr r12
-/* 8011D690 0011A5F0  4E 80 04 21 */	bctrl 
+/* 8011D690 0011A5F0  4E 80 04 21 */	bctrl
 /* 8011D694 0011A5F4  7F 23 CB 78 */	mr r3, r25
 /* 8011D698 0011A5F8  38 81 00 18 */	addi r4, r1, 0x18
 /* 8011D69C 0011A5FC  48 22 38 0D */	bl __ct__6CTokenFRC6CToken
@@ -294,7 +294,7 @@ lbl_8011D7C0:
 /* 8011D7F4 0011A754  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8011D7F8 0011A758  7C 08 03 A6 */	mtlr r0
 /* 8011D7FC 0011A75C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8011D800 0011A760  4E 80 00 20 */	blr 
+/* 8011D800 0011A760  4E 80 00 20 */	blr
 
 .global "FillTokenVector__11CGrappleArmFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "FillTokenVector__11CGrappleArmFRCQ24rstl47vector<10SObjectTag,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
@@ -318,7 +318,7 @@ lbl_8011D838:
 /* 8011D844 0011A7A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011D848 0011A7A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011D84C 0011A7AC  7D 89 03 A6 */	mtctr r12
-/* 8011D850 0011A7B0  4E 80 04 21 */	bctrl 
+/* 8011D850 0011A7B0  4E 80 04 21 */	bctrl
 /* 8011D854 0011A7B4  38 61 00 10 */	addi r3, r1, 0x10
 /* 8011D858 0011A7B8  38 81 00 08 */	addi r4, r1, 8
 /* 8011D85C 0011A7BC  48 22 36 4D */	bl __ct__6CTokenFRC6CToken
@@ -365,7 +365,7 @@ lbl_8011D8CC:
 /* 8011D8F0 0011A850  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8011D8F4 0011A854  7C 08 03 A6 */	mtlr r0
 /* 8011D8F8 0011A858  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011D8FC 0011A85C  4E 80 00 20 */	blr 
+/* 8011D8FC 0011A85C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CGrappleArmF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CGrappleArmF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -382,7 +382,7 @@ lbl_8011D920:
 /* 8011D920 0011A880  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011D924 0011A884  7C 08 03 A6 */	mtlr r0
 /* 8011D928 0011A888  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011D92C 0011A88C  4E 80 00 20 */	blr 
+/* 8011D92C 0011A88C  4E 80 00 20 */	blr
 
 .global BuildXRayModel__11CGrappleArmFv
 BuildXRayModel__11CGrappleArmFv:
@@ -430,7 +430,7 @@ lbl_8011D95C:
 /* 8011D9CC 0011A92C  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8011D9D0 0011A930  7C 08 03 A6 */	mtlr r0
 /* 8011D9D4 0011A934  38 21 00 80 */	addi r1, r1, 0x80
-/* 8011D9D8 0011A938  4E 80 00 20 */	blr 
+/* 8011D9D8 0011A938  4E 80 00 20 */	blr
 
 .global LoadSuitPoll__11CGrappleArmFv
 LoadSuitPoll__11CGrappleArmFv:
@@ -497,7 +497,7 @@ lbl_8011DAC0:
 /* 8011DAC4 0011AA24  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8011DAC8 0011AA28  7C 08 03 A6 */	mtlr r0
 /* 8011DACC 0011AA2C  38 21 00 80 */	addi r1, r1, 0x80
-/* 8011DAD0 0011AA30  4E 80 00 20 */	blr 
+/* 8011DAD0 0011AA30  4E 80 00 20 */	blr
 
 .global "__as__Q24rstl28single_ptr<14CGunController>FRC14CGunController"
 "__as__Q24rstl28single_ptr<14CGunController>FRC14CGunController":
@@ -518,7 +518,7 @@ lbl_8011DAC0:
 /* 8011DB0C 0011AA6C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8011DB10 0011AA70  7C 08 03 A6 */	mtlr r0
 /* 8011DB14 0011AA74  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DB18 0011AA78  4E 80 00 20 */	blr 
+/* 8011DB18 0011AA78  4E 80 00 20 */	blr
 
 .global __dt__14CGunControllerFv
 __dt__14CGunControllerFv:
@@ -571,7 +571,7 @@ lbl_8011DBB0:
 /* 8011DBC4 0011AB24  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8011DBC8 0011AB28  7C 08 03 A6 */	mtlr r0
 /* 8011DBCC 0011AB2C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011DBD0 0011AB30  4E 80 00 20 */	blr 
+/* 8011DBD0 0011AB30  4E 80 00 20 */	blr
 
 .global AsyncLoadSuit__11CGrappleArmFR13CStateManager
 AsyncLoadSuit__11CGrappleArmFR13CStateManager:
@@ -676,7 +676,7 @@ lbl_8011DD2C:
 /* 8011DD3C 0011AC9C  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 8011DD40 0011ACA0  7C 08 03 A6 */	mtlr r0
 /* 8011DD44 0011ACA4  38 21 00 90 */	addi r1, r1, 0x90
-/* 8011DD48 0011ACA8  4E 80 00 20 */	blr 
+/* 8011DD48 0011ACA8  4E 80 00 20 */	blr
 
 .global sub_8011dd4c
 sub_8011dd4c:
@@ -710,7 +710,7 @@ lbl_8011DDA0:
 /* 8011DDA4 0011AD04  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011DDA8 0011AD08  7C 08 03 A6 */	mtlr r0
 /* 8011DDAC 0011AD0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DDB0 0011AD10  4E 80 00 20 */	blr 
+/* 8011DDB0 0011AD10  4E 80 00 20 */	blr
 
 .global ResetAuxParams__11CGrappleArmFb
 ResetAuxParams__11CGrappleArmFb:
@@ -745,7 +745,7 @@ lbl_8011DE18:
 /* 8011DE20 0011AD80  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8011DE24 0011AD84  7C 08 03 A6 */	mtlr r0
 /* 8011DE28 0011AD88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DE2C 0011AD8C  4E 80 00 20 */	blr 
+/* 8011DE2C 0011AD8C  4E 80 00 20 */	blr
 
 .global EnterStruck__11CGrappleArmFR13CStateManagerf
 EnterStruck__11CGrappleArmFR13CStateManagerf:
@@ -800,7 +800,7 @@ lbl_8011DED0:
 /* 8011DEE4 0011AE44  83 81 00 08 */	lwz r28, 8(r1)
 /* 8011DEE8 0011AE48  7C 08 03 A6 */	mtlr r0
 /* 8011DEEC 0011AE4C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011DEF0 0011AE50  4E 80 00 20 */	blr 
+/* 8011DEF0 0011AE50  4E 80 00 20 */	blr
 
 .global EnterIdle__11CGrappleArmFR13CStateManager
 EnterIdle__11CGrappleArmFR13CStateManager:
@@ -816,7 +816,7 @@ lbl_8011DF14:
 /* 8011DF14 0011AE74  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011DF18 0011AE78  7C 08 03 A6 */	mtlr r0
 /* 8011DF1C 0011AE7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DF20 0011AE80  4E 80 00 20 */	blr 
+/* 8011DF20 0011AE80  4E 80 00 20 */	blr
 
 .global ReturnToDefault__11CGrappleArmFR13CStateManagerf
 ReturnToDefault__11CGrappleArmFR13CStateManagerf:
@@ -832,7 +832,7 @@ lbl_8011DF44:
 /* 8011DF44 0011AEA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011DF48 0011AEA8  7C 08 03 A6 */	mtlr r0
 /* 8011DF4C 0011AEAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DF50 0011AEB0  4E 80 00 20 */	blr 
+/* 8011DF50 0011AEB0  4E 80 00 20 */	blr
 
 .global EnterComboFire__11CGrappleArmFiR13CStateManager
 EnterComboFire__11CGrappleArmFiR13CStateManager:
@@ -859,7 +859,7 @@ lbl_8011DFA0:
 /* 8011DFA0 0011AF00  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011DFA4 0011AF04  7C 08 03 A6 */	mtlr r0
 /* 8011DFA8 0011AF08  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DFAC 0011AF0C  4E 80 00 20 */	blr 
+/* 8011DFAC 0011AF0C  4E 80 00 20 */	blr
 
 .global EnterFidget__11CGrappleArmFR13CStateManageriii
 EnterFidget__11CGrappleArmFR13CStateManageriii:
@@ -883,7 +883,7 @@ lbl_8011DFF0:
 /* 8011DFF0 0011AF50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011DFF4 0011AF54  7C 08 03 A6 */	mtlr r0
 /* 8011DFF8 0011AF58  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011DFFC 0011AF5C  4E 80 00 20 */	blr 
+/* 8011DFFC 0011AF5C  4E 80 00 20 */	blr
 
 .global EnterFreeLook__11CGrappleArmFiiR13CStateManager
 EnterFreeLook__11CGrappleArmFiiR13CStateManager:
@@ -912,7 +912,7 @@ lbl_8011E054:
 /* 8011E054 0011AFB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011E058 0011AFB8  7C 08 03 A6 */	mtlr r0
 /* 8011E05C 0011AFBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011E060 0011AFC0  4E 80 00 20 */	blr 
+/* 8011E060 0011AFC0  4E 80 00 20 */	blr
 
 .global LoadAnimations__11CGrappleArmFv
 LoadAnimations__11CGrappleArmFv:
@@ -945,7 +945,7 @@ lbl_8011E0BC:
 /* 8011E0C8 0011B028  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 8011E0CC 0011B02C  7C 08 03 A6 */	mtlr r0
 /* 8011E0D0 0011B030  38 21 00 60 */	addi r1, r1, 0x60
-/* 8011E0D4 0011B034  4E 80 00 20 */	blr 
+/* 8011E0D4 0011B034  4E 80 00 20 */	blr
 
 .global GrappleBeamDisconnected__11CGrappleArmFv
 GrappleBeamDisconnected__11CGrappleArmFv:
@@ -968,7 +968,7 @@ lbl_8011E110:
 /* 8011E114 0011B074  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8011E118 0011B078  7C 08 03 A6 */	mtlr r0
 /* 8011E11C 0011B07C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011E120 0011B080  4E 80 00 20 */	blr 
+/* 8011E120 0011B080  4E 80 00 20 */	blr
 
 .global GrappleBeamConnected__11CGrappleArmFv
 GrappleBeamConnected__11CGrappleArmFv:
@@ -993,7 +993,7 @@ lbl_8011E164:
 /* 8011E168 0011B0C8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8011E16C 0011B0CC  7C 08 03 A6 */	mtlr r0
 /* 8011E170 0011B0D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011E174 0011B0D4  4E 80 00 20 */	blr 
+/* 8011E174 0011B0D4  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__11CGrappleArmFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__11CGrappleArmFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -1050,7 +1050,7 @@ lbl_8011E224:
 /* 8011E234 0011B194  38 80 00 01 */	li r4, 1
 /* 8011E238 0011B198  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011E23C 0011B19C  7D 89 03 A6 */	mtctr r12
-/* 8011E240 0011B1A0  4E 80 04 21 */	bctrl 
+/* 8011E240 0011B1A0  4E 80 04 21 */	bctrl
 lbl_8011E244:
 /* 8011E244 0011B1A4  7F 80 07 75 */	extsb. r0, r28
 /* 8011E248 0011B1A8  93 BE 03 98 */	stw r29, 0x398(r30)
@@ -1086,7 +1086,7 @@ lbl_8011E2A8:
 /* 8011E2B8 0011B218  38 80 00 01 */	li r4, 1
 /* 8011E2BC 0011B21C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011E2C0 0011B220  7D 89 03 A6 */	mtctr r12
-/* 8011E2C4 0011B224  4E 80 04 21 */	bctrl 
+/* 8011E2C4 0011B224  4E 80 04 21 */	bctrl
 lbl_8011E2C8:
 /* 8011E2C8 0011B228  7F 80 07 75 */	extsb. r0, r28
 /* 8011E2CC 0011B22C  93 BE 03 9C */	stw r29, 0x39c(r30)
@@ -1108,13 +1108,13 @@ lbl_8011E2E0:
 /* 8011E308 0011B268  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011E30C 0011B26C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011E310 0011B270  7D 89 03 A6 */	mtctr r12
-/* 8011E314 0011B274  4E 80 04 21 */	bctrl 
+/* 8011E314 0011B274  4E 80 04 21 */	bctrl
 /* 8011E318 0011B278  80 7E 03 94 */	lwz r3, 0x394(r30)
 /* 8011E31C 0011B27C  38 80 00 01 */	li r4, 1
 /* 8011E320 0011B280  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011E324 0011B284  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011E328 0011B288  7D 89 03 A6 */	mtctr r12
-/* 8011E32C 0011B28C  4E 80 04 21 */	bctrl 
+/* 8011E32C 0011B28C  4E 80 04 21 */	bctrl
 /* 8011E330 0011B290  38 61 00 08 */	addi r3, r1, 8
 /* 8011E334 0011B294  38 80 05 F6 */	li r4, 0x5f6
 /* 8011E338 0011B298  38 A0 00 00 */	li r5, 0
@@ -1135,7 +1135,7 @@ lbl_8011E360:
 /* 8011E370 0011B2D0  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8011E374 0011B2D4  7C 08 03 A6 */	mtlr r0
 /* 8011E378 0011B2D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011E37C 0011B2DC  4E 80 00 20 */	blr 
+/* 8011E37C 0011B2DC  4E 80 00 20 */	blr
 
 .global DoUserAnimEvents__11CGrappleArmFR13CStateManager
 DoUserAnimEvents__11CGrappleArmFR13CStateManager:
@@ -1270,7 +1270,7 @@ lbl_8011E54C:
 /* 8011E550 0011B4B0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8011E554 0011B4B4  7C 08 03 A6 */	mtlr r0
 /* 8011E558 0011B4B8  38 21 00 50 */	addi r1, r1, 0x50
-/* 8011E55C 0011B4BC  4E 80 00 20 */	blr 
+/* 8011E55C 0011B4BC  4E 80 00 20 */	blr
 
 .global SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState
 SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
@@ -1304,7 +1304,7 @@ SetAnimState__11CGrappleArmFQ211CGrappleArm9EArmState:
 /* 8011E5CC 0011B52C  38 84 06 B0 */	addi r4, r4, lbl_803E06B0@l
 /* 8011E5D0 0011B530  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8011E5D4 0011B534  7C 09 03 A6 */	mtctr r0
-/* 8011E5D8 0011B538  4E 80 04 20 */	bctr 
+/* 8011E5D8 0011B538  4E 80 04 20 */	bctr
 .global lbl_8011E5DC
 lbl_8011E5DC:
 /* 8011E5DC 0011B53C  38 80 00 01 */	li r4, 1
@@ -1458,7 +1458,7 @@ lbl_8011E7E4:
 /* 8011E7F0 0011B750  83 A1 01 04 */	lwz r29, 0x104(r1)
 /* 8011E7F4 0011B754  7C 08 03 A6 */	mtlr r0
 /* 8011E7F8 0011B758  38 21 01 10 */	addi r1, r1, 0x110
-/* 8011E7FC 0011B75C  4E 80 00 20 */	blr 
+/* 8011E7FC 0011B75C  4E 80 00 20 */	blr
 
 .global Activate__11CGrappleArmFb
 Activate__11CGrappleArmFb:
@@ -1474,7 +1474,7 @@ lbl_8011E81C:
 /* 8011E820 0011B780  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011E824 0011B784  7C 08 03 A6 */	mtlr r0
 /* 8011E828 0011B788  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011E82C 0011B78C  4E 80 00 20 */	blr 
+/* 8011E82C 0011B78C  4E 80 00 20 */	blr
 
 .global UpdateGrappleBeamFX__11CGrappleArmFRC9CVector3fRC9CVector3fR13CStateManager
 UpdateGrappleBeamFX__11CGrappleArmFRC9CVector3fRC9CVector3fR13CStateManager:
@@ -1510,13 +1510,13 @@ UpdateGrappleBeamFX__11CGrappleArmFRC9CVector3fRC9CVector3fR13CStateManager:
 /* 8011E8A4 0011B804  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011E8A8 0011B808  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8011E8AC 0011B80C  7D 89 03 A6 */	mtctr r12
-/* 8011E8B0 0011B810  4E 80 04 21 */	bctrl 
+/* 8011E8B0 0011B810  4E 80 04 21 */	bctrl
 /* 8011E8B4 0011B814  80 7B 03 90 */	lwz r3, 0x390(r27)
 /* 8011E8B8 0011B818  38 80 00 01 */	li r4, 1
 /* 8011E8BC 0011B81C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011E8C0 0011B820  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011E8C4 0011B824  7D 89 03 A6 */	mtctr r12
-/* 8011E8C8 0011B828  4E 80 04 21 */	bctrl 
+/* 8011E8C8 0011B828  4E 80 04 21 */	bctrl
 /* 8011E8CC 0011B82C  C0 39 00 04 */	lfs f1, 4(r25)
 /* 8011E8D0 0011B830  38 61 00 44 */	addi r3, r1, 0x44
 /* 8011E8D4 0011B834  C0 1C 00 04 */	lfs f0, 4(r28)
@@ -1617,7 +1617,7 @@ lbl_8011EA18:
 /* 8011EA44 0011B9A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011EA48 0011B9A8  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8011EA4C 0011B9AC  7D 89 03 A6 */	mtctr r12
-/* 8011EA50 0011B9B0  4E 80 04 21 */	bctrl 
+/* 8011EA50 0011B9B0  4E 80 04 21 */	bctrl
 /* 8011EA54 0011B9B4  80 7B 03 90 */	lwz r3, 0x390(r27)
 /* 8011EA58 0011B9B8  38 80 00 01 */	li r4, 1
 /* 8011EA5C 0011B9BC  48 1F DE 65 */	bl ForceParticleCreation__11CElementGenFi
@@ -1636,7 +1636,7 @@ lbl_8011EA7C:
 /* 8011EA8C 0011B9EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011EA90 0011B9F0  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011EA94 0011B9F4  7D 89 03 A6 */	mtctr r12
-/* 8011EA98 0011B9F8  4E 80 04 21 */	bctrl 
+/* 8011EA98 0011B9F8  4E 80 04 21 */	bctrl
 /* 8011EA9C 0011B9FC  83 3B 03 A0 */	lwz r25, 0x3a0(r27)
 /* 8011EAA0 0011BA00  3B A0 00 00 */	li r29, 0
 /* 8011EAA4 0011BA04  C3 3C 00 00 */	lfs f25, 0(r28)
@@ -1730,7 +1730,7 @@ lbl_8011EB94:
 /* 8011EBF4 0011BB54  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 8011EBF8 0011BB58  7C 08 03 A6 */	mtlr r0
 /* 8011EBFC 0011BB5C  38 21 01 50 */	addi r1, r1, 0x150
-/* 8011EC00 0011BB60  4E 80 00 20 */	blr 
+/* 8011EC00 0011BB60  4E 80 00 20 */	blr
 
 .global UpdateGrappleBeam__11CGrappleArmFfRC12CTransform4fR13CStateManager
 UpdateGrappleBeam__11CGrappleArmFfRC12CTransform4fR13CStateManager:
@@ -1895,13 +1895,13 @@ lbl_8011EE1C:
 /* 8011EE54 0011BDB4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011EE58 0011BDB8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011EE5C 0011BDBC  7D 89 03 A6 */	mtctr r12
-/* 8011EE60 0011BDC0  4E 80 04 21 */	bctrl 
+/* 8011EE60 0011BDC0  4E 80 04 21 */	bctrl
 /* 8011EE64 0011BDC4  80 7C 03 90 */	lwz r3, 0x390(r28)
 /* 8011EE68 0011BDC8  FC 20 F8 90 */	fmr f1, f31
 /* 8011EE6C 0011BDCC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011EE70 0011BDD0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011EE74 0011BDD4  7D 89 03 A6 */	mtctr r12
-/* 8011EE78 0011BDD8  4E 80 04 21 */	bctrl 
+/* 8011EE78 0011BDD8  4E 80 04 21 */	bctrl
 lbl_8011EE7C:
 /* 8011EE7C 0011BDDC  57 E3 06 3E */	clrlwi r3, r31, 0x18
 /* 8011EE80 0011BDE0  E3 E1 00 A8 */	psq_l f31, 168(r1), 0, qr0
@@ -1913,7 +1913,7 @@ lbl_8011EE7C:
 /* 8011EE98 0011BDF8  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 8011EE9C 0011BDFC  7C 08 03 A6 */	mtlr r0
 /* 8011EEA0 0011BE00  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8011EEA4 0011BE04  4E 80 00 20 */	blr 
+/* 8011EEA4 0011BE04  4E 80 00 20 */	blr
 
 .global Update__11CGrappleArmFffR13CStateManager
 Update__11CGrappleArmFffR13CStateManager:
@@ -2082,7 +2082,7 @@ lbl_8011F0E8:
 /* 8011F100 0011C060  83 C1 01 38 */	lwz r30, 0x138(r1)
 /* 8011F104 0011C064  7C 08 03 A6 */	mtlr r0
 /* 8011F108 0011C068  38 21 01 60 */	addi r1, r1, 0x160
-/* 8011F10C 0011C06C  4E 80 00 20 */	blr 
+/* 8011F10C 0011C06C  4E 80 00 20 */	blr
 
 .global UpdateArmMovement__11CGrappleArmFfR13CStateManager
 UpdateArmMovement__11CGrappleArmFfR13CStateManager:
@@ -2114,7 +2114,7 @@ lbl_8011F160:
 /* 8011F16C 0011C0CC  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8011F170 0011C0D0  7C 08 03 A6 */	mtlr r0
 /* 8011F174 0011C0D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011F178 0011C0D8  4E 80 00 20 */	blr 
+/* 8011F178 0011C0D8  4E 80 00 20 */	blr
 
 .global UpdateSwingAction__11CGrappleArmFffR13CStateManager
 UpdateSwingAction__11CGrappleArmFffR13CStateManager:
@@ -2224,7 +2224,7 @@ lbl_8011F2B4:
 /* 8011F304 0011C264  38 63 06 DC */	addi r3, r3, lbl_803E06DC@l
 /* 8011F308 0011C268  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8011F30C 0011C26C  7C 09 03 A6 */	mtctr r0
-/* 8011F310 0011C270  4E 80 04 20 */	bctr 
+/* 8011F310 0011C270  4E 80 04 20 */	bctr
 .global lbl_8011F314
 lbl_8011F314:
 /* 8011F314 0011C274  7F C3 F3 78 */	mr r3, r30
@@ -2247,7 +2247,7 @@ lbl_8011F324:
 /* 8011F350 0011C2B0  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F354 0011C2B4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8011F358 0011C2B8  7D 89 03 A6 */	mtctr r12
-/* 8011F35C 0011C2BC  4E 80 04 21 */	bctrl 
+/* 8011F35C 0011C2BC  4E 80 04 21 */	bctrl
 /* 8011F360 0011C2C0  7F C3 F3 78 */	mr r3, r30
 /* 8011F364 0011C2C4  4B FF ED C1 */	bl GrappleBeamConnected__11CGrappleArmFv
 /* 8011F368 0011C2C8  A8 9E 03 B0 */	lha r4, 0x3b0(r30)
@@ -2297,13 +2297,13 @@ lbl_8011F3D0:
 /* 8011F3FC 0011C35C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F400 0011C360  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8011F404 0011C364  7D 89 03 A6 */	mtctr r12
-/* 8011F408 0011C368  4E 80 04 21 */	bctrl 
+/* 8011F408 0011C368  4E 80 04 21 */	bctrl
 /* 8011F40C 0011C36C  80 7E 03 9C */	lwz r3, 0x39c(r30)
 /* 8011F410 0011C370  FC 20 F8 90 */	fmr f1, f31
 /* 8011F414 0011C374  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F418 0011C378  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011F41C 0011C37C  7D 89 03 A6 */	mtctr r12
-/* 8011F420 0011C380  4E 80 04 21 */	bctrl 
+/* 8011F420 0011C380  4E 80 04 21 */	bctrl
 /* 8011F424 0011C384  88 1E 03 B2 */	lbz r0, 0x3b2(r30)
 /* 8011F428 0011C388  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 8011F42C 0011C38C  41 82 00 5C */	beq lbl_8011F488
@@ -2311,7 +2311,7 @@ lbl_8011F3D0:
 /* 8011F434 0011C394  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F438 0011C398  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 8011F43C 0011C39C  7D 89 03 A6 */	mtctr r12
-/* 8011F440 0011C3A0  4E 80 04 21 */	bctrl 
+/* 8011F440 0011C3A0  4E 80 04 21 */	bctrl
 /* 8011F444 0011C3A4  54 63 06 3E */	clrlwi r3, r3, 0x18
 /* 8011F448 0011C3A8  88 1E 03 B2 */	lbz r0, 0x3b2(r30)
 /* 8011F44C 0011C3AC  7C 63 00 34 */	cntlzw r3, r3
@@ -2322,13 +2322,13 @@ lbl_8011F3D0:
 /* 8011F460 0011C3C0  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F464 0011C3C4  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8011F468 0011C3C8  7D 89 03 A6 */	mtctr r12
-/* 8011F46C 0011C3CC  4E 80 04 21 */	bctrl 
+/* 8011F46C 0011C3CC  4E 80 04 21 */	bctrl
 /* 8011F470 0011C3D0  80 7E 03 98 */	lwz r3, 0x398(r30)
 /* 8011F474 0011C3D4  FC 20 F8 90 */	fmr f1, f31
 /* 8011F478 0011C3D8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F47C 0011C3DC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011F480 0011C3E0  7D 89 03 A6 */	mtctr r12
-/* 8011F484 0011C3E4  4E 80 04 21 */	bctrl 
+/* 8011F484 0011C3E4  4E 80 04 21 */	bctrl
 lbl_8011F488:
 /* 8011F488 0011C3E8  E3 E1 00 C8 */	psq_l f31, 200(r1), 0, qr0
 /* 8011F48C 0011C3EC  CB E1 00 C0 */	lfd f31, 0xc0(r1)
@@ -2341,7 +2341,7 @@ lbl_8011F488:
 /* 8011F4A8 0011C408  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 8011F4AC 0011C40C  7C 08 03 A6 */	mtlr r0
 /* 8011F4B0 0011C410  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8011F4B4 0011C414  4E 80 00 20 */	blr 
+/* 8011F4B4 0011C414  4E 80 00 20 */	blr
 
 .global RenderGrappleBeam__11CGrappleArmCFRC13CStateManagerRC9CVector3f
 RenderGrappleBeam__11CGrappleArmCFRC13CStateManagerRC9CVector3f:
@@ -2379,23 +2379,23 @@ lbl_8011F4E8:
 /* 8011F530 0011C490  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F534 0011C494  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011F538 0011C498  7D 89 03 A6 */	mtctr r12
-/* 8011F53C 0011C49C  4E 80 04 21 */	bctrl 
+/* 8011F53C 0011C49C  4E 80 04 21 */	bctrl
 lbl_8011F540:
 /* 8011F540 0011C4A0  80 7F 03 94 */	lwz r3, 0x394(r31)
 /* 8011F544 0011C4A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F548 0011C4A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011F54C 0011C4AC  7D 89 03 A6 */	mtctr r12
-/* 8011F550 0011C4B0  4E 80 04 21 */	bctrl 
+/* 8011F550 0011C4B0  4E 80 04 21 */	bctrl
 /* 8011F554 0011C4B4  80 7F 03 A0 */	lwz r3, 0x3a0(r31)
 /* 8011F558 0011C4B8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F55C 0011C4BC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011F560 0011C4C0  7D 89 03 A6 */	mtctr r12
-/* 8011F564 0011C4C4  4E 80 04 21 */	bctrl 
+/* 8011F564 0011C4C4  4E 80 04 21 */	bctrl
 /* 8011F568 0011C4C8  80 7F 03 90 */	lwz r3, 0x390(r31)
 /* 8011F56C 0011C4CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F570 0011C4D0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011F574 0011C4D4  7D 89 03 A6 */	mtctr r12
-/* 8011F578 0011C4D8  4E 80 04 21 */	bctrl 
+/* 8011F578 0011C4D8  4E 80 04 21 */	bctrl
 /* 8011F57C 0011C4DC  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
 /* 8011F580 0011C4E0  38 61 00 C8 */	addi r3, r1, 0xc8
 /* 8011F584 0011C4E4  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
@@ -2415,12 +2415,12 @@ lbl_8011F540:
 /* 8011F5BC 0011C51C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F5C0 0011C520  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8011F5C4 0011C524  7D 89 03 A6 */	mtctr r12
-/* 8011F5C8 0011C528  4E 80 04 21 */	bctrl 
+/* 8011F5C8 0011C528  4E 80 04 21 */	bctrl
 /* 8011F5CC 0011C52C  80 7F 03 9C */	lwz r3, 0x39c(r31)
 /* 8011F5D0 0011C530  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011F5D4 0011C534  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011F5D8 0011C538  7D 89 03 A6 */	mtctr r12
-/* 8011F5DC 0011C53C  4E 80 04 21 */	bctrl 
+/* 8011F5DC 0011C53C  4E 80 04 21 */	bctrl
 /* 8011F5E0 0011C540  38 61 00 C8 */	addi r3, r1, 0xc8
 /* 8011F5E4 0011C544  48 1E D1 69 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 lbl_8011F5E8:
@@ -2428,7 +2428,7 @@ lbl_8011F5E8:
 /* 8011F5EC 0011C54C  83 E1 01 2C */	lwz r31, 0x12c(r1)
 /* 8011F5F0 0011C550  7C 08 03 A6 */	mtlr r0
 /* 8011F5F4 0011C554  38 21 01 30 */	addi r1, r1, 0x130
-/* 8011F5F8 0011C558  4E 80 00 20 */	blr 
+/* 8011F5F8 0011C558  4E 80 00 20 */	blr
 
 .global Render__11CGrappleArmCFRC13CStateManagerRC9CVector3fRC11CModelFlagsPC12CActorLights
 Render__11CGrappleArmCFRC13CStateManagerRC9CVector3fRC11CModelFlagsPC12CActorLights:
@@ -2581,7 +2581,7 @@ lbl_8011F81C:
 /* 8011F820 0011C780  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 8011F824 0011C784  7C 08 03 A6 */	mtlr r0
 /* 8011F828 0011C788  38 21 01 80 */	addi r1, r1, 0x180
-/* 8011F82C 0011C78C  4E 80 00 20 */	blr 
+/* 8011F82C 0011C78C  4E 80 00 20 */	blr
 
 .global PreRender__11CGrappleArmFR13CStateManagerRC14CFrustumPlanesRC9CVector3f
 PreRender__11CGrappleArmFR13CStateManagerRC14CFrustumPlanesRC9CVector3f:
@@ -2612,7 +2612,7 @@ lbl_8011F884:
 /* 8011F888 0011C7E8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011F88C 0011C7EC  7C 08 03 A6 */	mtlr r0
 /* 8011F890 0011C7F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011F894 0011C7F4  4E 80 00 20 */	blr 
+/* 8011F894 0011C7F4  4E 80 00 20 */	blr
 
 .global TouchModel__11CGrappleArmCFRC13CStateManager
 TouchModel__11CGrappleArmCFRC13CStateManager:
@@ -2669,7 +2669,7 @@ lbl_8011F94C:
 /* 8011F954 0011C8B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8011F958 0011C8B8  7C 08 03 A6 */	mtlr r0
 /* 8011F95C 0011C8BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011F960 0011C8C0  4E 80 00 20 */	blr 
+/* 8011F960 0011C8C0  4E 80 00 20 */	blr
 
 .global __dt__11CGrappleArmFv
 __dt__11CGrappleArmFv:
@@ -2695,7 +2695,7 @@ __dt__11CGrappleArmFv:
 /* 8011F9B0 0011C910  38 80 00 01 */	li r4, 1
 /* 8011F9B4 0011C914  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011F9B8 0011C918  7D 89 03 A6 */	mtctr r12
-/* 8011F9BC 0011C91C  4E 80 04 21 */	bctrl 
+/* 8011F9BC 0011C91C  4E 80 04 21 */	bctrl
 lbl_8011F9C0:
 /* 8011F9C0 0011C920  34 1E 03 9C */	addic. r0, r30, 0x39c
 /* 8011F9C4 0011C924  41 82 00 24 */	beq lbl_8011F9E8
@@ -2706,7 +2706,7 @@ lbl_8011F9C0:
 /* 8011F9D8 0011C938  38 80 00 01 */	li r4, 1
 /* 8011F9DC 0011C93C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011F9E0 0011C940  7D 89 03 A6 */	mtctr r12
-/* 8011F9E4 0011C944  4E 80 04 21 */	bctrl 
+/* 8011F9E4 0011C944  4E 80 04 21 */	bctrl
 lbl_8011F9E8:
 /* 8011F9E8 0011C948  34 1E 03 98 */	addic. r0, r30, 0x398
 /* 8011F9EC 0011C94C  41 82 00 24 */	beq lbl_8011FA10
@@ -2717,7 +2717,7 @@ lbl_8011F9E8:
 /* 8011FA00 0011C960  38 80 00 01 */	li r4, 1
 /* 8011FA04 0011C964  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011FA08 0011C968  7D 89 03 A6 */	mtctr r12
-/* 8011FA0C 0011C96C  4E 80 04 21 */	bctrl 
+/* 8011FA0C 0011C96C  4E 80 04 21 */	bctrl
 lbl_8011FA10:
 /* 8011FA10 0011C970  34 1E 03 94 */	addic. r0, r30, 0x394
 /* 8011FA14 0011C974  41 82 00 24 */	beq lbl_8011FA38
@@ -2728,7 +2728,7 @@ lbl_8011FA10:
 /* 8011FA28 0011C988  38 80 00 01 */	li r4, 1
 /* 8011FA2C 0011C98C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011FA30 0011C990  7D 89 03 A6 */	mtctr r12
-/* 8011FA34 0011C994  4E 80 04 21 */	bctrl 
+/* 8011FA34 0011C994  4E 80 04 21 */	bctrl
 lbl_8011FA38:
 /* 8011FA38 0011C998  34 1E 03 90 */	addic. r0, r30, 0x390
 /* 8011FA3C 0011C99C  41 82 00 24 */	beq lbl_8011FA60
@@ -2739,7 +2739,7 @@ lbl_8011FA38:
 /* 8011FA50 0011C9B0  38 80 00 01 */	li r4, 1
 /* 8011FA54 0011C9B4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8011FA58 0011C9B8  7D 89 03 A6 */	mtctr r12
-/* 8011FA5C 0011C9BC  4E 80 04 21 */	bctrl 
+/* 8011FA5C 0011C9BC  4E 80 04 21 */	bctrl
 lbl_8011FA60:
 /* 8011FA60 0011C9C0  34 1E 03 84 */	addic. r0, r30, 0x384
 /* 8011FA64 0011C9C4  41 82 00 18 */	beq lbl_8011FA7C
@@ -2863,7 +2863,7 @@ lbl_8011FBF0:
 /* 8011FC04 0011CB64  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8011FC08 0011CB68  7C 08 03 A6 */	mtlr r0
 /* 8011FC0C 0011CB6C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011FC10 0011CB70  4E 80 00 20 */	blr 
+/* 8011FC10 0011CB70  4E 80 00 20 */	blr
 
 .global sub_8011fc14
 sub_8011fc14:
@@ -2887,7 +2887,7 @@ lbl_8011FC48:
 /* 8011FC54 0011CBB4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8011FC58 0011CBB8  7C 08 03 A6 */	mtlr r0
 /* 8011FC5C 0011CBBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011FC60 0011CBC0  4E 80 00 20 */	blr 
+/* 8011FC60 0011CBC0  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl70reserved_vector<Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>,4>Fv"
 "clear__Q24rstl70reserved_vector<Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>,4>Fv":
@@ -2936,7 +2936,7 @@ lbl_8011FCE0:
 /* 8011FCF8 0011CC58  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8011FCFC 0011CC5C  7C 08 03 A6 */	mtlr r0
 /* 8011FD00 0011CC60  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011FD04 0011CC64  4E 80 00 20 */	blr 
+/* 8011FD04 0011CC64  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl28single_ptr<14CGunController>Fv"
 "__dt__Q24rstl28single_ptr<14CGunController>Fv":
@@ -2962,7 +2962,7 @@ lbl_8011FD44:
 /* 8011FD50 0011CCB0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8011FD54 0011CCB4  7C 08 03 A6 */	mtlr r0
 /* 8011FD58 0011CCB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011FD5C 0011CCBC  4E 80 00 20 */	blr 
+/* 8011FD5C 0011CCBC  4E 80 00 20 */	blr
 
 .global __ct__11CGrappleArmFRC9CVector3f
 __ct__11CGrappleArmFRC9CVector3f:
@@ -3049,7 +3049,7 @@ __ct__11CGrappleArmFRC9CVector3f:
 /* 8011FEA0 0011CE00  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011FEA4 0011CE04  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011FEA8 0011CE08  7D 89 03 A6 */	mtctr r12
-/* 8011FEAC 0011CE0C  4E 80 04 21 */	bctrl 
+/* 8011FEAC 0011CE0C  4E 80 04 21 */	bctrl
 /* 8011FEB0 0011CE10  38 7F 01 84 */	addi r3, r31, 0x184
 /* 8011FEB4 0011CE14  38 81 00 80 */	addi r4, r1, 0x80
 /* 8011FEB8 0011CE18  48 22 0F F1 */	bl __ct__6CTokenFRC6CToken
@@ -3122,7 +3122,7 @@ __ct__11CGrappleArmFRC9CVector3f:
 /* 8011FFC4 0011CF24  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011FFC8 0011CF28  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8011FFCC 0011CF2C  7D 89 03 A6 */	mtctr r12
-/* 8011FFD0 0011CF30  4E 80 04 21 */	bctrl 
+/* 8011FFD0 0011CF30  4E 80 04 21 */	bctrl
 /* 8011FFD4 0011CF34  3B 9F 03 54 */	addi r28, r31, 0x354
 /* 8011FFD8 0011CF38  38 81 00 70 */	addi r4, r1, 0x70
 /* 8011FFDC 0011CF3C  7F 83 E3 78 */	mr r3, r28
@@ -3146,7 +3146,7 @@ __ct__11CGrappleArmFRC9CVector3f:
 /* 80120024 0011CF84  81 84 00 00 */	lwz r12, 0(r4)
 /* 80120028 0011CF88  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012002C 0011CF8C  7D 89 03 A6 */	mtctr r12
-/* 80120030 0011CF90  4E 80 04 21 */	bctrl 
+/* 80120030 0011CF90  4E 80 04 21 */	bctrl
 /* 80120034 0011CF94  3B 9F 03 60 */	addi r28, r31, 0x360
 /* 80120038 0011CF98  38 81 00 60 */	addi r4, r1, 0x60
 /* 8012003C 0011CF9C  7F 83 E3 78 */	mr r3, r28
@@ -3170,7 +3170,7 @@ __ct__11CGrappleArmFRC9CVector3f:
 /* 80120084 0011CFE4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80120088 0011CFE8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012008C 0011CFEC  7D 89 03 A6 */	mtctr r12
-/* 80120090 0011CFF0  4E 80 04 21 */	bctrl 
+/* 80120090 0011CFF0  4E 80 04 21 */	bctrl
 /* 80120094 0011CFF4  3B 9F 03 6C */	addi r28, r31, 0x36c
 /* 80120098 0011CFF8  38 81 00 50 */	addi r4, r1, 0x50
 /* 8012009C 0011CFFC  7F 83 E3 78 */	mr r3, r28
@@ -3194,7 +3194,7 @@ __ct__11CGrappleArmFRC9CVector3f:
 /* 801200E4 0011D044  81 84 00 00 */	lwz r12, 0(r4)
 /* 801200E8 0011D048  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801200EC 0011D04C  7D 89 03 A6 */	mtctr r12
-/* 801200F0 0011D050  4E 80 04 21 */	bctrl 
+/* 801200F0 0011D050  4E 80 04 21 */	bctrl
 /* 801200F4 0011D054  3B 9F 03 78 */	addi r28, r31, 0x378
 /* 801200F8 0011D058  38 81 00 40 */	addi r4, r1, 0x40
 /* 801200FC 0011D05C  7F 83 E3 78 */	mr r3, r28
@@ -3218,7 +3218,7 @@ __ct__11CGrappleArmFRC9CVector3f:
 /* 80120144 0011D0A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80120148 0011D0A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012014C 0011D0AC  7D 89 03 A6 */	mtctr r12
-/* 80120150 0011D0B0  4E 80 04 21 */	bctrl 
+/* 80120150 0011D0B0  4E 80 04 21 */	bctrl
 /* 80120154 0011D0B4  3B 9F 03 84 */	addi r28, r31, 0x384
 /* 80120158 0011D0B8  38 81 00 30 */	addi r4, r1, 0x30
 /* 8012015C 0011D0BC  7F 83 E3 78 */	mr r3, r28
@@ -3432,13 +3432,13 @@ lbl_801203AC:
 /* 80120470 0011D3D0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80120474 0011D3D4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80120478 0011D3D8  7D 89 03 A6 */	mtctr r12
-/* 8012047C 0011D3DC  4E 80 04 21 */	bctrl 
+/* 8012047C 0011D3DC  4E 80 04 21 */	bctrl
 /* 80120480 0011D3E0  80 7F 03 90 */	lwz r3, 0x390(r31)
 /* 80120484 0011D3E4  38 80 00 00 */	li r4, 0
 /* 80120488 0011D3E8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012048C 0011D3EC  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80120490 0011D3F0  7D 89 03 A6 */	mtctr r12
-/* 80120494 0011D3F4  4E 80 04 21 */	bctrl 
+/* 80120494 0011D3F4  4E 80 04 21 */	bctrl
 /* 80120498 0011D3F8  83 BF 03 A0 */	lwz r29, 0x3a0(r31)
 /* 8012049C 0011D3FC  3B 80 00 00 */	li r28, 0
 /* 801204A0 0011D400  3B C0 00 01 */	li r30, 1
@@ -3453,7 +3453,7 @@ lbl_801204A8:
 /* 801204C0 0011D420  81 83 00 00 */	lwz r12, 0(r3)
 /* 801204C4 0011D424  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801204C8 0011D428  7D 89 03 A6 */	mtctr r12
-/* 801204CC 0011D42C  4E 80 04 21 */	bctrl 
+/* 801204CC 0011D42C  4E 80 04 21 */	bctrl
 /* 801204D0 0011D430  3B 9C 00 01 */	addi r28, r28, 1
 lbl_801204D4:
 /* 801204D4 0011D434  80 7D 01 60 */	lwz r3, 0x160(r29)

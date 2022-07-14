@@ -55,19 +55,19 @@ Accept__15CScriptWaypointFR8IVisitor:
 /* 80077084 00073FE4  7C 04 03 78 */	mr r4, r0
 /* 80077088 00073FE8  81 8C 00 D8 */	lwz r12, 0xd8(r12)
 /* 8007708C 00073FEC  7D 89 03 A6 */	mtctr r12
-/* 80077090 00073FF0  4E 80 04 21 */	bctrl 
+/* 80077090 00073FF0  4E 80 04 21 */	bctrl
 /* 80077094 00073FF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80077098 00073FF8  7C 08 03 A6 */	mtlr r0
 /* 8007709C 00073FFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800770A0 00074000  4E 80 00 20 */	blr 
+/* 800770A0 00074000  4E 80 00 20 */	blr
 
 .global Render__15CScriptWaypointCFRC13CStateManager
 Render__15CScriptWaypointCFRC13CStateManager:
-/* 800770A4 00074004  4E 80 00 20 */	blr 
+/* 800770A4 00074004  4E 80 00 20 */	blr
 
 .global AddToRenderer__15CScriptWaypointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__15CScriptWaypointCFRC14CFrustumPlanesRC13CStateManager:
-/* 800770A8 00074008  4E 80 00 20 */	blr 
+/* 800770A8 00074008  4E 80 00 20 */	blr
 
 .global FollowWaypoint__15CScriptWaypointCFR13CStateManager
 FollowWaypoint__15CScriptWaypointCFR13CStateManager:
@@ -108,7 +108,7 @@ lbl_80077120:
 /* 80077124 00074084  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80077128 00074088  7C 08 03 A6 */	mtlr r0
 /* 8007712C 0007408C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80077130 00074090  4E 80 00 20 */	blr 
+/* 80077130 00074090  4E 80 00 20 */	blr
 
 .global NextWaypoint__15CScriptWaypointCFR13CStateManager
 NextWaypoint__15CScriptWaypointCFR13CStateManager:
@@ -254,7 +254,7 @@ lbl_80077324:
 /* 80077328 00074288  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8007732C 0007428C  7C 08 03 A6 */	mtlr r0
 /* 80077330 00074290  38 21 00 60 */	addi r1, r1, 0x60
-/* 80077334 00074294  4E 80 00 20 */	blr 
+/* 80077334 00074294  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__15CScriptWaypointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CScriptWaypointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -290,7 +290,7 @@ lbl_80077398:
 /* 800773A4 00074304  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800773A8 00074308  7C 08 03 A6 */	mtlr r0
 /* 800773AC 0007430C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800773B0 00074310  4E 80 00 20 */	blr 
+/* 800773B0 00074310  4E 80 00 20 */	blr
 
 .global __dt__15CScriptWaypointFv
 __dt__15CScriptWaypointFv:
@@ -318,7 +318,7 @@ lbl_800773F8:
 /* 80077404 00074364  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80077408 00074368  7C 08 03 A6 */	mtlr r0
 /* 8007740C 0007436C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80077410 00074370  4E 80 00 20 */	blr 
+/* 80077410 00074370  4E 80 00 20 */	blr
 
 .global "__ct__15CScriptWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbffiiiiiiUi"
 "__ct__15CScriptWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbffiiiiiiUi":
@@ -408,4 +408,4 @@ lbl_800773F8:
 /* 80077560 000744C0  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 80077564 000744C4  7C 08 03 A6 */	mtlr r0
 /* 80077568 000744C8  38 21 01 20 */	addi r1, r1, 0x120
-/* 8007756C 000744CC  4E 80 00 20 */	blr 
+/* 8007756C 000744CC  4E 80 00 20 */	blr

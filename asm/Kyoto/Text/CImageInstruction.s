@@ -49,12 +49,12 @@ lbl_80359774:
 /* 80359780 003566E0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80359784 003566E4  7C 08 03 A6 */	mtlr r0
 /* 80359788 003566E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035978C 003566EC  4E 80 00 20 */	blr 
+/* 8035978C 003566EC  4E 80 00 20 */	blr
 
 .global GetAssetCount__17CImageInstructionCFv
 GetAssetCount__17CImageInstructionCFv:
 /* 80359790 003566F0  80 63 00 0C */	lwz r3, 0xc(r3)
-/* 80359794 003566F4  4E 80 00 20 */	blr 
+/* 80359794 003566F4  4E 80 00 20 */	blr
 
 .global "GetAssets__17CImageInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "GetAssets__17CImageInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
@@ -103,7 +103,7 @@ lbl_8035981C:
 /* 8035982C 0035678C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80359830 00356790  7C 08 03 A6 */	mtlr r0
 /* 80359834 00356794  38 21 00 20 */	addi r1, r1, 0x20
-/* 80359838 00356798  4E 80 00 20 */	blr 
+/* 80359838 00356798  4E 80 00 20 */	blr
 
 .global Invoke__17CImageInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__17CImageInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
@@ -220,7 +220,7 @@ lbl_803599E0:
 /* 803599E4 00356944  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 803599E8 00356948  7C 08 03 A6 */	mtlr r0
 /* 803599EC 0035694C  38 21 00 50 */	addi r1, r1, 0x50
-/* 803599F0 00356950  4E 80 00 20 */	blr 
+/* 803599F0 00356950  4E 80 00 20 */	blr
 
 .global CalculateHeight__13CFontImageDefFv
 CalculateHeight__13CFontImageDefFv:
@@ -285,4 +285,4 @@ CalculateHeight__13CFontImageDefFv:
 /* 80359ADC 00356A3C  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80359AE0 00356A40  7C 08 03 A6 */	mtlr r0
 /* 80359AE4 00356A44  38 21 00 50 */	addi r1, r1, 0x50
-/* 80359AE8 00356A48  4E 80 00 20 */	blr 
+/* 80359AE8 00356A48  4E 80 00 20 */	blr

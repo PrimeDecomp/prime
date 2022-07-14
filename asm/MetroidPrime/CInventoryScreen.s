@@ -113,7 +113,7 @@ lbl_805A7F48:
 .global IsRightLogDynamic__16CInventoryScreenCFv
 IsRightLogDynamic__16CInventoryScreenCFv:
 /* 80205D34 00202C94  38 60 00 01 */	li r3, 1
-/* 80205D38 00202C98  4E 80 00 20 */	blr 
+/* 80205D38 00202C98  4E 80 00 20 */	blr
 
 .global IsRightInventoryItemEquipped__16CInventoryScreenCFi
 IsRightInventoryItemEquipped__16CInventoryScreenCFi:
@@ -132,7 +132,7 @@ IsRightInventoryItemEquipped__16CInventoryScreenCFi:
 /* 80205D6C 00202CCC  38 63 6F 04 */	addi r3, r3, lbl_803E6F04@l
 /* 80205D70 00202CD0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80205D74 00202CD4  7C 09 03 A6 */	mtctr r0
-/* 80205D78 00202CD8  4E 80 04 20 */	bctr 
+/* 80205D78 00202CD8  4E 80 04 20 */	bctr
 .global lbl_80205D7C
 lbl_80205D7C:
 /* 80205D7C 00202CDC  80 1E 00 08 */	lwz r0, 8(r30)
@@ -317,7 +317,7 @@ lbl_80205F78:
 /* 80205F80 00202EE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80205F84 00202EE4  7C 08 03 A6 */	mtlr r0
 /* 80205F88 00202EE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80205F8C 00202EEC  4E 80 00 20 */	blr 
+/* 80205F8C 00202EEC  4E 80 00 20 */	blr
 
 .global HasRightInventoryItem__16CInventoryScreenCFi
 HasRightInventoryItem__16CInventoryScreenCFi:
@@ -336,7 +336,7 @@ HasRightInventoryItem__16CInventoryScreenCFi:
 /* 80205FC0 00202F20  38 63 6F 64 */	addi r3, r3, lbl_803E6F64@l
 /* 80205FC4 00202F24  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80205FC8 00202F28  7C 09 03 A6 */	mtctr r0
-/* 80205FCC 00202F2C  4E 80 04 20 */	bctr 
+/* 80205FCC 00202F2C  4E 80 04 20 */	bctr
 .global lbl_80205FD0
 lbl_80205FD0:
 /* 80205FD0 00202F30  38 60 00 01 */	li r3, 1
@@ -505,7 +505,7 @@ lbl_8020618C:
 /* 80206194 002030F4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80206198 002030F8  7C 08 03 A6 */	mtlr r0
 /* 8020619C 002030FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802061A0 00203100  4E 80 00 20 */	blr 
+/* 802061A0 00203100  4E 80 00 20 */	blr
 
 .global HasLeftInventoryItem__16CInventoryScreenCFi
 HasLeftInventoryItem__16CInventoryScreenCFi:
@@ -598,7 +598,7 @@ lbl_802062CC:
 /* 802062D4 00203234  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802062D8 00203238  7C 08 03 A6 */	mtlr r0
 /* 802062DC 0020323C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802062E0 00203240  4E 80 00 20 */	blr 
+/* 802062E0 00203240  4E 80 00 20 */	blr
 
 .global UpdateSamusDollPulses__16CInventoryScreenFv
 UpdateSamusDollPulses__16CInventoryScreenFv:
@@ -668,11 +668,11 @@ lbl_80206390:
 /* 802063D0 00203330  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802063D4 00203334  7C 08 03 A6 */	mtlr r0
 /* 802063D8 00203338  38 21 00 20 */	addi r1, r1, 0x20
-/* 802063DC 0020333C  4E 80 00 20 */	blr 
+/* 802063DC 0020333C  4E 80 00 20 */	blr
 
 .global nullsub_125
 nullsub_125:
-/* 802063E0 00203340  4E 80 00 20 */	blr 
+/* 802063E0 00203340  4E 80 00 20 */	blr
 
 .global InputDisabled__16CInventoryScreenCFv
 InputDisabled__16CInventoryScreenCFv:
@@ -684,19 +684,19 @@ InputDisabled__16CInventoryScreenCFv:
 /* 802063F8 00203358  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 802063FC 0020335C  40 81 00 0C */	ble lbl_80206408
 /* 80206400 00203360  38 60 00 01 */	li r3, 1
-/* 80206404 00203364  4E 80 00 20 */	blr 
+/* 80206404 00203364  4E 80 00 20 */	blr
 lbl_80206408:
 /* 80206408 00203368  80 03 01 A8 */	lwz r0, 0x1a8(r3)
 /* 8020640C 0020336C  20 00 00 01 */	subfic r0, r0, 1
 /* 80206410 00203370  7C 00 00 34 */	cntlzw r0, r0
 /* 80206414 00203374  54 03 D9 7E */	srwi r3, r0, 5
-/* 80206418 00203378  4E 80 00 20 */	blr 
+/* 80206418 00203378  4E 80 00 20 */	blr
 
 .global TransitioningAway__16CInventoryScreenFv
 TransitioningAway__16CInventoryScreenFv:
 /* 8020641C 0020337C  38 00 00 01 */	li r0, 1
 /* 80206420 00203380  90 03 01 A8 */	stw r0, 0x1a8(r3)
-/* 80206424 00203384  4E 80 00 20 */	blr 
+/* 80206424 00203384  4E 80 00 20 */	blr
 
 .global UpdateRightLogHighlight__16CInventoryScreenFbiRC6CColorRC6CColor
 UpdateRightLogHighlight__16CInventoryScreenFbiRC6CColorRC6CColor:
@@ -792,7 +792,7 @@ lbl_80206560:
 /* 80206578 002034D8  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8020657C 002034DC  7C 08 03 A6 */	mtlr r0
 /* 80206580 002034E0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80206584 002034E4  4E 80 00 20 */	blr 
+/* 80206584 002034E4  4E 80 00 20 */	blr
 
 .global UpdateRightLogColors__16CInventoryScreenFbRC6CColor
 UpdateRightLogColors__16CInventoryScreenFbRC6CColor:
@@ -874,7 +874,7 @@ lbl_8020667C:
 /* 802066A0 00203600  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802066A4 00203604  7C 08 03 A6 */	mtlr r0
 /* 802066A8 00203608  38 21 00 50 */	addi r1, r1, 0x50
-/* 802066AC 0020360C  4E 80 00 20 */	blr 
+/* 802066AC 0020360C  4E 80 00 20 */	blr
 
 .global UpdateRightTable__16CInventoryScreenFv
 UpdateRightTable__16CInventoryScreenFv:
@@ -928,7 +928,7 @@ lbl_802066FC:
 /* 80206768 002036C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8020676C 002036CC  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80206770 002036D0  7D 89 03 A6 */	mtctr r12
-/* 80206774 002036D4  4E 80 04 21 */	bctrl 
+/* 80206774 002036D4  4E 80 04 21 */	bctrl
 /* 80206778 002036D8  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 8020677C 002036DC  38 80 00 01 */	li r4, 1
 /* 80206780 002036E0  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
@@ -952,7 +952,7 @@ lbl_80206798:
 /* 802067C4 00203724  81 83 00 00 */	lwz r12, 0(r3)
 /* 802067C8 00203728  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802067CC 0020372C  7D 89 03 A6 */	mtctr r12
-/* 802067D0 00203730  4E 80 04 21 */	bctrl 
+/* 802067D0 00203730  4E 80 04 21 */	bctrl
 /* 802067D4 00203734  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 802067D8 00203738  38 80 00 00 */	li r4, 0
 /* 802067DC 0020373C  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
@@ -990,7 +990,7 @@ lbl_80206848:
 /* 80206850 002037B0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80206854 002037B4  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80206858 002037B8  7D 89 03 A6 */	mtctr r12
-/* 8020685C 002037BC  4E 80 04 21 */	bctrl 
+/* 8020685C 002037BC  4E 80 04 21 */	bctrl
 /* 80206860 002037C0  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 80206864 002037C4  38 80 00 00 */	li r4, 0
 /* 80206868 002037C8  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
@@ -1001,7 +1001,7 @@ lbl_80206848:
 /* 8020687C 002037DC  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80206880 002037E0  38 84 FF FF */	addi r4, r4, -1
 /* 80206884 002037E4  7D 89 03 A6 */	mtctr r12
-/* 80206888 002037E8  4E 80 04 21 */	bctrl 
+/* 80206888 002037E8  4E 80 04 21 */	bctrl
 /* 8020688C 002037EC  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 80206890 002037F0  38 80 00 00 */	li r4, 0
 /* 80206894 002037F4  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
@@ -1020,14 +1020,14 @@ lbl_80206848:
 /* 802068C8 00203828  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802068CC 0020382C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 802068D0 00203830  7D 89 03 A6 */	mtctr r12
-/* 802068D4 00203834  4E 80 04 21 */	bctrl 
+/* 802068D4 00203834  4E 80 04 21 */	bctrl
 /* 802068D8 00203838  E3 E1 00 78 */	psq_l f31, 120(r1), 0, qr0
 /* 802068DC 0020383C  CB E1 00 70 */	lfd f31, 0x70(r1)
 /* 802068E0 00203840  BB 01 00 50 */	lmw r24, 0x50(r1)
 /* 802068E4 00203844  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802068E8 00203848  7C 08 03 A6 */	mtlr r0
 /* 802068EC 0020384C  38 21 00 80 */	addi r1, r1, 0x80
-/* 802068F0 00203850  4E 80 00 20 */	blr 
+/* 802068F0 00203850  4E 80 00 20 */	blr
 
 .global Update__16CInventoryScreenFfR9CRandom16R18CArchitectureQueue
 Update__16CInventoryScreenFfR9CRandom16R18CArchitectureQueue:
@@ -1160,7 +1160,7 @@ lbl_80206AA8:
 /* 80206AC8 00203A28  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80206ACC 00203A2C  7C 08 03 A6 */	mtlr r0
 /* 80206AD0 00203A30  38 21 00 60 */	addi r1, r1, 0x60
-/* 80206AD4 00203A34  4E 80 00 20 */	blr 
+/* 80206AD4 00203A34  4E 80 00 20 */	blr
 
 .global Touch__16CInventoryScreenFv
 Touch__16CInventoryScreenFv:
@@ -1176,7 +1176,7 @@ Touch__16CInventoryScreenFv:
 /* 80206AFC 00203A5C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80206B00 00203A60  7C 08 03 A6 */	mtlr r0
 /* 80206B04 00203A64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80206B08 00203A68  4E 80 00 20 */	blr 
+/* 80206B08 00203A68  4E 80 00 20 */	blr
 
 .global Draw__16CInventoryScreenCFfff
 Draw__16CInventoryScreenCFfff:
@@ -1206,7 +1206,7 @@ Draw__16CInventoryScreenCFfff:
 /* 80206B68 00203AC8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80206B6C 00203ACC  7C 08 03 A6 */	mtlr r0
 /* 80206B70 00203AD0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80206B74 00203AD4  4E 80 00 20 */	blr 
+/* 80206B74 00203AD4  4E 80 00 20 */	blr
 
 .global GetRightTableCount__16CInventoryScreenCFv
 GetRightTableCount__16CInventoryScreenCFv:
@@ -1216,7 +1216,7 @@ GetRightTableCount__16CInventoryScreenCFv:
 /* 80206B84 00203AE4  80 04 00 C4 */	lwz r0, 0xc4(r4)
 /* 80206B88 00203AE8  54 00 18 38 */	slwi r0, r0, 3
 /* 80206B8C 00203AEC  7C 63 00 2E */	lwzx r3, r3, r0
-/* 80206B90 00203AF0  4E 80 00 20 */	blr 
+/* 80206B90 00203AF0  4E 80 00 20 */	blr
 
 .global ShouldRightTableAdvance__16CInventoryScreenFv
 ShouldRightTableAdvance__16CInventoryScreenFv:
@@ -1228,7 +1228,7 @@ ShouldRightTableAdvance__16CInventoryScreenFv:
 /* 80206BA8 00203B08  FC 01 00 00 */	fcmpu cr0, f1, f0
 /* 80206BAC 00203B0C  7C 00 00 26 */	mfcr r0
 /* 80206BB0 00203B10  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
-/* 80206BB4 00203B14  4E 80 00 20 */	blr 
+/* 80206BB4 00203B14  4E 80 00 20 */	blr
 
 .global ShouldLeftTableAdvance__16CInventoryScreenFv
 ShouldLeftTableAdvance__16CInventoryScreenFv:
@@ -1240,7 +1240,7 @@ ShouldLeftTableAdvance__16CInventoryScreenFv:
 /* 80206BCC 00203B2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80206BD0 00203B30  7C 08 03 A6 */	mtlr r0
 /* 80206BD4 00203B34  38 21 00 10 */	addi r1, r1, 0x10
-/* 80206BD8 00203B38  4E 80 00 20 */	blr 
+/* 80206BD8 00203B38  4E 80 00 20 */	blr
 
 .global VActivate__16CInventoryScreenFv
 VActivate__16CInventoryScreenFv:
@@ -1291,7 +1291,7 @@ lbl_80206C58:
 /* 80206C84 00203BE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80206C88 00203BE8  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80206C8C 00203BEC  7D 89 03 A6 */	mtctr r12
-/* 80206C90 00203BF0  4E 80 04 21 */	bctrl 
+/* 80206C90 00203BF0  4E 80 04 21 */	bctrl
 /* 80206C94 00203BF4  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 80206C98 00203BF8  38 80 00 00 */	li r4, 0
 /* 80206C9C 00203BFC  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
@@ -1329,7 +1329,7 @@ lbl_80206D0C:
 /* 80206D14 00203C74  81 83 00 00 */	lwz r12, 0(r3)
 /* 80206D18 00203C78  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80206D1C 00203C7C  7D 89 03 A6 */	mtctr r12
-/* 80206D20 00203C80  4E 80 04 21 */	bctrl 
+/* 80206D20 00203C80  4E 80 04 21 */	bctrl
 /* 80206D24 00203C84  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 80206D28 00203C88  53 E0 26 F6 */	rlwimi r0, r31, 4, 0x1b, 0x1b
 /* 80206D2C 00203C8C  3B BD 00 01 */	addi r29, r29, 1
@@ -1344,12 +1344,12 @@ lbl_80206D34:
 /* 80206D4C 00203CAC  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 80206D50 00203CB0  7C 08 03 A6 */	mtlr r0
 /* 80206D54 00203CB4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80206D58 00203CB8  4E 80 00 20 */	blr 
+/* 80206D58 00203CB8  4E 80 00 20 */	blr
 
 .global VReady__16CInventoryScreenCFv
 VReady__16CInventoryScreenCFv:
 /* 80206D5C 00203CBC  38 60 00 01 */	li r3, 1
-/* 80206D60 00203CC0  4E 80 00 20 */	blr 
+/* 80206D60 00203CC0  4E 80 00 20 */	blr
 
 .global UpdateTextBody__16CInventoryScreenFv
 UpdateTextBody__16CInventoryScreenFv:
@@ -1458,7 +1458,7 @@ lbl_80206EB4:
 /* 80206EE8 00203E48  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80206EEC 00203E4C  7C 08 03 A6 */	mtlr r0
 /* 80206EF0 00203E50  38 21 00 30 */	addi r1, r1, 0x30
-/* 80206EF4 00203E54  4E 80 00 20 */	blr 
+/* 80206EF4 00203E54  4E 80 00 20 */	blr
 
 .global ChangedMode__16CInventoryScreenQ216CPauseScreenBase5EMode
 ChangedMode__16CInventoryScreenQ216CPauseScreenBase5EMode:
@@ -1475,7 +1475,7 @@ lbl_80206F1C:
 /* 80206F1C 00203E7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80206F20 00203E80  7C 08 03 A6 */	mtlr r0
 /* 80206F24 00203E84  38 21 00 10 */	addi r1, r1, 0x10
-/* 80206F28 00203E88  4E 80 00 20 */	blr 
+/* 80206F28 00203E88  4E 80 00 20 */	blr
 
 .global ProcessInput__16CInventoryScreenFRC11CFinalInput
 ProcessInput__16CInventoryScreenFRC11CFinalInput:
@@ -1822,7 +1822,7 @@ lbl_802073C4:
 /* 80207418 00204378  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 8020741C 0020437C  7C 08 03 A6 */	mtlr r0
 /* 80207420 00204380  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80207424 00204384  4E 80 00 20 */	blr 
+/* 80207424 00204384  4E 80 00 20 */	blr
 
 .global GetCameraYBias__16CInventoryScreenCFv
 GetCameraYBias__16CInventoryScreenCFv:
@@ -1830,7 +1830,7 @@ GetCameraYBias__16CInventoryScreenCFv:
 /* 8020742C 0020438C  C0 03 00 C4 */	lfs f0, 0xc4(r3)
 /* 80207430 00204390  FC 00 02 10 */	fabs f0, f0
 /* 80207434 00204394  FC 20 00 18 */	frsp f1, f0
-/* 80207438 00204398  4E 80 00 20 */	blr 
+/* 80207438 00204398  4E 80 00 20 */	blr
 
 .global __dt__16CInventoryScreenFv
 __dt__16CInventoryScreenFv:
@@ -1892,7 +1892,7 @@ lbl_80207504:
 /* 8020750C 0020446C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80207510 00204470  7C 08 03 A6 */	mtlr r0
 /* 80207514 00204474  38 21 00 30 */	addi r1, r1, 0x30
-/* 80207518 00204478  4E 80 00 20 */	blr 
+/* 80207518 00204478  4E 80 00 20 */	blr
 
 .global __ct__16CInventoryScreenFRC13CStateManagerRC9CGuiFrameRC12CStringTableRC16CDependencyGroupRC16CDependencyGroup
 __ct__16CInventoryScreenFRC13CStateManagerRC9CGuiFrameRC12CStringTableRC16CDependencyGroupRC16CDependencyGroup:

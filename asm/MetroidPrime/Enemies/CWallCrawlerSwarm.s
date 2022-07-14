@@ -142,13 +142,13 @@ lbl_805AF468:
 .global lbl_805AF46C
 lbl_805AF46C:
 	.skip 0x4
-	
+
 .section .bss
 
 .global lbl_8046C938
 lbl_8046C938:
 	.skip 0x18
-	
+
 .section .text, "ax"
 
 .global UpdateEffects__17CWallCrawlerSwarmFR13CStateManagerR9CAnimData
@@ -289,7 +289,7 @@ lbl_801E7734:
 /* 801E7750 001E46B0  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 801E7754 001E46B4  7C 08 03 A6 */	mtlr r0
 /* 801E7758 001E46B8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801E775C 001E46BC  4E 80 00 20 */	blr 
+/* 801E775C 001E46BC  4E 80 00 20 */	blr
 
 .global FindClosestCell__17CWallCrawlerSwarmCFRC9CVector3f
 FindClosestCell__17CWallCrawlerSwarmCFRC9CVector3f:
@@ -407,7 +407,7 @@ lbl_801E78A4:
 /* 801E790C 001E486C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801E7910 001E4870  7C 08 03 A6 */	mtlr r0
 /* 801E7914 001E4874  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801E7918 001E4878  4E 80 00 20 */	blr 
+/* 801E7918 001E4878  4E 80 00 20 */	blr
 
 .global FreezeCollision__17CWallCrawlerSwarmFRC11CMarkerGridf
 FreezeCollision__17CWallCrawlerSwarmFRC11CMarkerGridf:
@@ -499,7 +499,7 @@ lbl_801E7A30:
 /* 801E7A64 001E49C4  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 801E7A68 001E49C8  7C 08 03 A6 */	mtlr r0
 /* 801E7A6C 001E49CC  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801E7A70 001E49D0  4E 80 00 20 */	blr 
+/* 801E7A70 001E49D0  4E 80 00 20 */	blr
 
 .global RenderParticles__17CWallCrawlerSwarmCFv
 RenderParticles__17CWallCrawlerSwarmCFv:
@@ -519,7 +519,7 @@ lbl_801E7A9C:
 /* 801E7AA4 001E4A04  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E7AA8 001E4A08  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801E7AAC 001E4A0C  7D 89 03 A6 */	mtctr r12
-/* 801E7AB0 001E4A10  4E 80 04 21 */	bctrl 
+/* 801E7AB0 001E4A10  4E 80 04 21 */	bctrl
 /* 801E7AB4 001E4A14  3B FF 00 08 */	addi r31, r31, 8
 /* 801E7AB8 001E4A18  3B DE 00 01 */	addi r30, r30, 1
 lbl_801E7ABC:
@@ -532,7 +532,7 @@ lbl_801E7ABC:
 /* 801E7AD4 001E4A34  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801E7AD8 001E4A38  7C 08 03 A6 */	mtlr r0
 /* 801E7ADC 001E4A3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801E7AE0 001E4A40  4E 80 00 20 */	blr 
+/* 801E7AE0 001E4A40  4E 80 00 20 */	blr
 
 .global UpdateParticles__17CWallCrawlerSwarmFf
 UpdateParticles__17CWallCrawlerSwarmFf:
@@ -554,7 +554,7 @@ lbl_801E7B14:
 /* 801E7B1C 001E4A7C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E7B20 001E4A80  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801E7B24 001E4A84  7D 89 03 A6 */	mtctr r12
-/* 801E7B28 001E4A88  4E 80 04 21 */	bctrl 
+/* 801E7B28 001E4A88  4E 80 04 21 */	bctrl
 /* 801E7B2C 001E4A8C  3B FF 00 08 */	addi r31, r31, 8
 /* 801E7B30 001E4A90  3B DE 00 01 */	addi r30, r30, 1
 lbl_801E7B34:
@@ -568,7 +568,7 @@ lbl_801E7B34:
 /* 801E7B50 001E4AB0  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 801E7B54 001E4AB4  7C 08 03 A6 */	mtlr r0
 /* 801E7B58 001E4AB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801E7B5C 001E4ABC  4E 80 00 20 */	blr 
+/* 801E7B5C 001E4ABC  4E 80 00 20 */	blr
 
 .global AddParticle__17CWallCrawlerSwarmFRC12CTransform4f
 AddParticle__17CWallCrawlerSwarmFRC12CTransform4f:
@@ -589,7 +589,7 @@ lbl_801E7B8C:
 /* 801E7B94 001E4AF4  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E7B98 001E4AF8  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801E7B9C 001E4AFC  7D 89 03 A6 */	mtctr r12
-/* 801E7BA0 001E4B00  4E 80 04 21 */	bctrl 
+/* 801E7BA0 001E4B00  4E 80 04 21 */	bctrl
 /* 801E7BA4 001E4B04  C0 5C 00 2C */	lfs f2, 0x2c(r28)
 /* 801E7BA8 001E4B08  38 81 00 08 */	addi r4, r1, 8
 /* 801E7BAC 001E4B0C  C0 3C 00 1C */	lfs f1, 0x1c(r28)
@@ -601,7 +601,7 @@ lbl_801E7B8C:
 /* 801E7BC4 001E4B24  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E7BC8 001E4B28  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801E7BCC 001E4B2C  7D 89 03 A6 */	mtctr r12
-/* 801E7BD0 001E4B30  4E 80 04 21 */	bctrl 
+/* 801E7BD0 001E4B30  4E 80 04 21 */	bctrl
 /* 801E7BD4 001E4B34  80 7F 00 04 */	lwz r3, 4(r31)
 /* 801E7BD8 001E4B38  80 9E 00 00 */	lwz r4, 0(r30)
 /* 801E7BDC 001E4B3C  48 13 4C E5 */	bl ForceParticleCreation__11CElementGenFi
@@ -610,7 +610,7 @@ lbl_801E7B8C:
 /* 801E7BE8 001E4B48  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E7BEC 001E4B4C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801E7BF0 001E4B50  7D 89 03 A6 */	mtctr r12
-/* 801E7BF4 001E4B54  4E 80 04 21 */	bctrl 
+/* 801E7BF4 001E4B54  4E 80 04 21 */	bctrl
 /* 801E7BF8 001E4B58  3B FF 00 08 */	addi r31, r31, 8
 /* 801E7BFC 001E4B5C  3B DE 00 04 */	addi r30, r30, 4
 /* 801E7C00 001E4B60  3B BD 00 01 */	addi r29, r29, 1
@@ -622,7 +622,7 @@ lbl_801E7C04:
 /* 801E7C14 001E4B74  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801E7C18 001E4B78  7C 08 03 A6 */	mtlr r0
 /* 801E7C1C 001E4B7C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801E7C20 001E4B80  4E 80 00 20 */	blr 
+/* 801E7C20 001E4B80  4E 80 00 20 */	blr
 
 .global KillBoid__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidR13CStateManagerff
 KillBoid__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidR13CStateManagerff:
@@ -687,7 +687,7 @@ lbl_801E7CE0:
 /* 801E7D04 001E4C64  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801E7D08 001E4C68  7C 08 03 A6 */	mtlr r0
 /* 801E7D0C 001E4C6C  38 21 00 50 */	addi r1, r1, 0x50
-/* 801E7D10 001E4C70  4E 80 00 20 */	blr 
+/* 801E7D10 001E4C70  4E 80 00 20 */	blr
 
 .global sub_801e7d14
 sub_801e7d14:
@@ -700,7 +700,7 @@ sub_801e7d14:
 /* 801E7D2C 001E4C8C  D0 03 00 04 */	stfs f0, 4(r3)
 /* 801E7D30 001E4C90  C0 04 01 2C */	lfs f0, 0x12c(r4)
 /* 801E7D34 001E4C94  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801E7D38 001E4C98  4E 80 00 20 */	blr 
+/* 801E7D38 001E4C98  4E 80 00 20 */	blr
 lbl_801E7D3C:
 /* 801E7D3C 001E4C9C  1C 00 00 84 */	mulli r0, r0, 0x84
 /* 801E7D40 001E4CA0  80 A4 01 14 */	lwz r5, 0x114(r4)
@@ -717,7 +717,7 @@ lbl_801E7D3C:
 /* 801E7D6C 001E4CCC  D0 03 00 04 */	stfs f0, 4(r3)
 /* 801E7D70 001E4CD0  C0 04 01 2C */	lfs f0, 0x12c(r4)
 /* 801E7D74 001E4CD4  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801E7D78 001E4CD8  4E 80 00 20 */	blr 
+/* 801E7D78 001E4CD8  4E 80 00 20 */	blr
 
 .global sub_801e7d7c
 sub_801e7d7c:
@@ -730,7 +730,7 @@ sub_801e7d7c:
 /* 801E7D94 001E4CF4  D0 03 00 04 */	stfs f0, 4(r3)
 /* 801E7D98 001E4CF8  C0 04 01 2C */	lfs f0, 0x12c(r4)
 /* 801E7D9C 001E4CFC  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801E7DA0 001E4D00  4E 80 00 20 */	blr 
+/* 801E7DA0 001E4D00  4E 80 00 20 */	blr
 lbl_801E7DA4:
 /* 801E7DA4 001E4D04  1C A0 00 84 */	mulli r5, r0, 0x84
 /* 801E7DA8 001E4D08  80 04 01 14 */	lwz r0, 0x114(r4)
@@ -751,7 +751,7 @@ lbl_801E7DA4:
 /* 801E7DE4 001E4D44  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801E7DE8 001E4D48  D0 43 00 04 */	stfs f2, 4(r3)
 /* 801E7DEC 001E4D4C  D0 23 00 08 */	stfs f1, 8(r3)
-/* 801E7DF0 001E4D50  4E 80 00 20 */	blr 
+/* 801E7DF0 001E4D50  4E 80 00 20 */	blr
 
 .global sub_801e7df4
 sub_801e7df4:
@@ -932,7 +932,7 @@ lbl_801E805C:
 /* 801E8094 001E4FF4  83 81 00 E0 */	lwz r28, 0xe0(r1)
 /* 801E8098 001E4FF8  7C 08 03 A6 */	mtlr r0
 /* 801E809C 001E4FFC  38 21 01 40 */	addi r1, r1, 0x140
-/* 801E80A0 001E5000  4E 80 00 20 */	blr 
+/* 801E80A0 001E5000  4E 80 00 20 */	blr
 
 .global sub_801e80a4
 sub_801e80a4:
@@ -981,7 +981,7 @@ sub_801e80a4:
 /* 801E814C 001E50AC  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801E8150 001E50B0  7C 08 03 A6 */	mtlr r0
 /* 801E8154 001E50B4  38 21 00 50 */	addi r1, r1, 0x50
-/* 801E8158 001E50B8  4E 80 00 20 */	blr 
+/* 801E8158 001E50B8  4E 80 00 20 */	blr
 
 .global sub_801e815c
 sub_801e815c:
@@ -1040,7 +1040,7 @@ lbl_801E820C:
 /* 801E821C 001E517C  7C 06 00 40 */	cmplw r6, r0
 /* 801E8220 001E5180  40 82 FF 50 */	bne lbl_801E8170
 /* 801E8224 001E5184  38 21 00 20 */	addi r1, r1, 0x20
-/* 801E8228 001E5188  4E 80 00 20 */	blr 
+/* 801E8228 001E5188  4E 80 00 20 */	blr
 
 .global Touch__17CWallCrawlerSwarmFR6CActorR13CStateManager
 Touch__17CWallCrawlerSwarmFR6CActorR13CStateManager:
@@ -1074,7 +1074,7 @@ Touch__17CWallCrawlerSwarmFR6CActorR13CStateManager:
 /* 801E8298 001E51F8  81 9A 00 00 */	lwz r12, 0(r26)
 /* 801E829C 001E51FC  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801E82A0 001E5200  7D 89 03 A6 */	mtctr r12
-/* 801E82A4 001E5204  4E 80 04 21 */	bctrl 
+/* 801E82A4 001E5204  4E 80 04 21 */	bctrl
 /* 801E82A8 001E5208  88 01 01 88 */	lbz r0, 0x188(r1)
 /* 801E82AC 001E520C  28 00 00 00 */	cmplwi r0, 0
 /* 801E82B0 001E5210  98 01 02 1C */	stb r0, 0x21c(r1)
@@ -1195,7 +1195,7 @@ lbl_801E8458:
 /* 801E8460 001E53C0  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801E8464 001E53C4  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801E8468 001E53C8  7D 89 03 A6 */	mtctr r12
-/* 801E846C 001E53CC  4E 80 04 21 */	bctrl 
+/* 801E846C 001E53CC  4E 80 04 21 */	bctrl
 /* 801E8470 001E53D0  C0 A1 01 54 */	lfs f5, 0x154(r1)
 /* 801E8474 001E53D4  38 00 00 00 */	li r0, 0
 /* 801E8478 001E53D8  C0 81 01 58 */	lfs f4, 0x158(r1)
@@ -1458,7 +1458,7 @@ lbl_801E884C:
 /* 801E8860 001E57C0  80 01 02 64 */	lwz r0, 0x264(r1)
 /* 801E8864 001E57C4  7C 08 03 A6 */	mtlr r0
 /* 801E8868 001E57C8  38 21 02 60 */	addi r1, r1, 0x260
-/* 801E886C 001E57CC  4E 80 00 20 */	blr 
+/* 801E886C 001E57CC  4E 80 00 20 */	blr
 
 .global ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager
 ApplyRadiusDamage__17CWallCrawlerSwarmF9CVector3ffR13CStateManager:
@@ -1531,7 +1531,7 @@ lbl_801E8948:
 /* 801E896C 001E58CC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801E8970 001E58D0  7C 08 03 A6 */	mtlr r0
 /* 801E8974 001E58D4  38 21 00 40 */	addi r1, r1, 0x40
-/* 801E8978 001E58D8  4E 80 00 20 */	blr 
+/* 801E8978 001E58D8  4E 80 00 20 */	blr
 
 .global GetWaypointForState__17CWallCrawlerSwarmF18EScriptObjectStateR13CStateManager
 GetWaypointForState__17CWallCrawlerSwarmF18EScriptObjectStateR13CStateManager:
@@ -1572,7 +1572,7 @@ lbl_801E89F0:
 /* 801E89F4 001E5954  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801E89F8 001E5958  7C 08 03 A6 */	mtlr r0
 /* 801E89FC 001E595C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801E8A00 001E5960  4E 80 00 20 */	blr 
+/* 801E8A00 001E5960  4E 80 00 20 */	blr
 
 .global MoveToWayPoint__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidR13CStateManagerR9CVector3f
 MoveToWayPoint__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidR13CStateManagerR9CVector3f:
@@ -1697,7 +1697,7 @@ lbl_801E8BC0:
 /* 801E8BCC 001E5B2C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801E8BD0 001E5B30  7C 08 03 A6 */	mtlr r0
 /* 801E8BD4 001E5B34  38 21 00 90 */	addi r1, r1, 0x90
-/* 801E8BD8 001E5B38  4E 80 00 20 */	blr 
+/* 801E8BD8 001E5B38  4E 80 00 20 */	blr
 
 .global "ApplyAlignment__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRCQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>R9CVector3f"
 "ApplyAlignment__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRCQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>R9CVector3f":
@@ -1793,7 +1793,7 @@ lbl_801E8D2C:
 /* 801E8D34 001E5C94  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801E8D38 001E5C98  7C 08 03 A6 */	mtlr r0
 /* 801E8D3C 001E5C9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801E8D40 001E5CA0  4E 80 00 20 */	blr 
+/* 801E8D40 001E5CA0  4E 80 00 20 */	blr
 
 .global ApplyAttraction__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3fffR9CVector3f
 ApplyAttraction__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3fffR9CVector3f:
@@ -1872,7 +1872,7 @@ lbl_801E8E44:
 /* 801E8E58 001E5DB8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801E8E5C 001E5DBC  7C 08 03 A6 */	mtlr r0
 /* 801E8E60 001E5DC0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801E8E64 001E5DC4  4E 80 00 20 */	blr 
+/* 801E8E64 001E5DC4  4E 80 00 20 */	blr
 
 .global ApplyCohesion__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3fffR9CVector3f
 ApplyCohesion__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3fffR9CVector3f:
@@ -1949,7 +1949,7 @@ lbl_801E8F60:
 /* 801E8F74 001E5ED4  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801E8F78 001E5ED8  7C 08 03 A6 */	mtlr r0
 /* 801E8F7C 001E5EDC  38 21 00 50 */	addi r1, r1, 0x50
-/* 801E8F80 001E5EE0  4E 80 00 20 */	blr 
+/* 801E8F80 001E5EE0  4E 80 00 20 */	blr
 
 .global "ApplyCohesion__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRCQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>R9CVector3f"
 "ApplyCohesion__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRCQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>R9CVector3f":
@@ -2013,7 +2013,7 @@ lbl_801E905C:
 /* 801E905C 001E5FBC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801E9060 001E5FC0  7C 08 03 A6 */	mtlr r0
 /* 801E9064 001E5FC4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801E9068 001E5FC8  4E 80 00 20 */	blr 
+/* 801E9068 001E5FC8  4E 80 00 20 */	blr
 
 .global ApplySeparation__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3fffR9CVector3f
 ApplySeparation__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3fffR9CVector3f:
@@ -2088,7 +2088,7 @@ lbl_801E9164:
 /* 801E9178 001E60D8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801E917C 001E60DC  7C 08 03 A6 */	mtlr r0
 /* 801E9180 001E60E0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801E9184 001E60E4  4E 80 00 20 */	blr 
+/* 801E9184 001E60E4  4E 80 00 20 */	blr
 
 .global "ApplySeparation__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRCQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>R9CVector3f"
 "ApplySeparation__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRCQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>R9CVector3f":
@@ -2144,7 +2144,7 @@ lbl_801E923C:
 /* 801E923C 001E619C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801E9240 001E61A0  7C 08 03 A6 */	mtlr r0
 /* 801E9244 001E61A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801E9248 001E61A8  4E 80 00 20 */	blr 
+/* 801E9248 001E61A8  4E 80 00 20 */	blr
 
 .global "BuildBoidNearList__17CWallCrawlerSwarmFRCQ217CWallCrawlerSwarm5CBoidfRQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>"
 "BuildBoidNearList__17CWallCrawlerSwarmFRCQ217CWallCrawlerSwarm5CBoidfRQ24rstl48reserved_vector<PQ217CWallCrawlerSwarm5CBoid,50>":
@@ -2219,7 +2219,7 @@ lbl_801E9338:
 /* 801E9348 001E62A8  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801E934C 001E62AC  7C 08 03 A6 */	mtlr r0
 /* 801E9350 001E62B0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801E9354 001E62B4  4E 80 00 20 */	blr 
+/* 801E9354 001E62B4  4E 80 00 20 */	blr
 
 .global Render__17CWallCrawlerSwarmCFRC13CStateManager
 Render__17CWallCrawlerSwarmCFRC13CStateManager:
@@ -2247,7 +2247,7 @@ Render__17CWallCrawlerSwarmCFRC13CStateManager:
 /* 801E93AC 001E630C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E93B0 001E6310  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 801E93B4 001E6314  7D 89 03 A6 */	mtctr r12
-/* 801E93B8 001E6318  4E 80 04 21 */	bctrl 
+/* 801E93B8 001E6318  4E 80 04 21 */	bctrl
 lbl_801E93BC:
 /* 801E93BC 001E631C  C0 22 AD B4 */	lfs f1, lbl_805ACAD4@sda21(r2)
 /* 801E93C0 001E6320  38 80 00 00 */	li r4, 0
@@ -2522,7 +2522,7 @@ lbl_801E978C:
 /* 801E97A4 001E6704  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 801E97A8 001E6708  7C 08 03 A6 */	mtlr r0
 /* 801E97AC 001E670C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801E97B0 001E6710  4E 80 00 20 */	blr 
+/* 801E97B0 001E6710  4E 80 00 20 */	blr
 
 .global AddToRenderer__17CWallCrawlerSwarmCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__17CWallCrawlerSwarmCFRC14CFrustumPlanesRC13CStateManager:
@@ -2545,7 +2545,7 @@ AddToRenderer__17CWallCrawlerSwarmCFRC14CFrustumPlanesRC13CStateManager:
 /* 801E97F4 001E6754  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801E97F8 001E6758  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801E97FC 001E675C  7D 89 03 A6 */	mtctr r12
-/* 801E9800 001E6760  4E 80 04 21 */	bctrl 
+/* 801E9800 001E6760  4E 80 04 21 */	bctrl
 /* 801E9804 001E6764  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801E9808 001E6768  41 82 00 20 */	beq lbl_801E9828
 /* 801E980C 001E676C  7F C3 F3 78 */	mr r3, r30
@@ -2553,7 +2553,7 @@ AddToRenderer__17CWallCrawlerSwarmCFRC14CFrustumPlanesRC13CStateManager:
 /* 801E9814 001E6774  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801E9818 001E6778  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 801E981C 001E677C  7D 89 03 A6 */	mtctr r12
-/* 801E9820 001E6780  4E 80 04 21 */	bctrl 
+/* 801E9820 001E6780  4E 80 04 21 */	bctrl
 /* 801E9824 001E6784  48 00 00 10 */	b lbl_801E9834
 lbl_801E9828:
 /* 801E9828 001E6788  7F C3 F3 78 */	mr r3, r30
@@ -2565,7 +2565,7 @@ lbl_801E9834:
 /* 801E983C 001E679C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801E9840 001E67A0  7C 08 03 A6 */	mtlr r0
 /* 801E9844 001E67A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801E9848 001E67A8  4E 80 00 20 */	blr 
+/* 801E9848 001E67A8  4E 80 00 20 */	blr
 
 .global RenderBoid__17CWallCrawlerSwarmCFPQ217CWallCrawlerSwarm5CBoidPb
 RenderBoid__17CWallCrawlerSwarmCFPQ217CWallCrawlerSwarm5CBoidPb:
@@ -2637,13 +2637,13 @@ lbl_801E9934:
 /* 801E993C 001E689C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E9940 001E68A0  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 801E9944 001E68A4  7D 89 03 A6 */	mtctr r12
-/* 801E9948 001E68A8  4E 80 04 21 */	bctrl 
+/* 801E9948 001E68A8  4E 80 04 21 */	bctrl
 /* 801E994C 001E68AC  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 801E9950 001E68B0  7E E4 BB 78 */	mr r4, r23
 /* 801E9954 001E68B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E9958 001E68B8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801E995C 001E68BC  7D 89 03 A6 */	mtctr r12
-/* 801E9960 001E68C0  4E 80 04 21 */	bctrl 
+/* 801E9960 001E68C0  4E 80 04 21 */	bctrl
 /* 801E9964 001E68C4  C3 F7 00 48 */	lfs f31, 0x48(r23)
 /* 801E9968 001E68C8  57 A0 18 38 */	slwi r0, r29, 3
 /* 801E996C 001E68CC  C0 02 AD A0 */	lfs f0, lbl_805ACAC0@sda21(r2)
@@ -2680,7 +2680,7 @@ lbl_801E9934:
 /* 801E99E8 001E6948  81 83 00 00 */	lwz r12, 0(r3)
 /* 801E99EC 001E694C  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 801E99F0 001E6950  7D 89 03 A6 */	mtctr r12
-/* 801E99F4 001E6954  4E 80 04 21 */	bctrl 
+/* 801E99F4 001E6954  4E 80 04 21 */	bctrl
 /* 801E99F8 001E6958  C0 22 AD B4 */	lfs f1, lbl_805ACAD4@sda21(r2)
 /* 801E99FC 001E695C  38 00 00 00 */	li r0, 0
 /* 801E9A00 001E6960  82 DF 00 EC */	lwz r22, 0xec(r31)
@@ -2769,12 +2769,12 @@ lbl_801E9B30:
 /* 801E9B40 001E6AA0  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 801E9B44 001E6AA4  7C 08 03 A6 */	mtlr r0
 /* 801E9B48 001E6AA8  38 21 01 10 */	addi r1, r1, 0x110
-/* 801E9B4C 001E6AAC  4E 80 00 20 */	blr 
+/* 801E9B4C 001E6AAC  4E 80 00 20 */	blr
 
 .global CanRenderUnsorted__17CWallCrawlerSwarmCFRC13CStateManager
 CanRenderUnsorted__17CWallCrawlerSwarmCFRC13CStateManager:
 /* 801E9B50 001E6AB0  38 60 00 01 */	li r3, 1
-/* 801E9B54 001E6AB4  4E 80 00 20 */	blr 
+/* 801E9B54 001E6AB4  4E 80 00 20 */	blr
 
 .global SoftwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox
 SoftwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
@@ -2935,7 +2935,7 @@ lbl_801E9D54:
 /* 801E9DB0 001E6D10  83 81 03 30 */	lwz r28, 0x330(r1)
 /* 801E9DB4 001E6D14  7C 08 03 A6 */	mtlr r0
 /* 801E9DB8 001E6D18  38 21 03 90 */	addi r1, r1, 0x390
-/* 801E9DBC 001E6D1C  4E 80 00 20 */	blr 
+/* 801E9DBC 001E6D1C  4E 80 00 20 */	blr
 
 .global HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox
 HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
@@ -3003,7 +3003,7 @@ HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9EB4 001E6E14  83 A1 03 04 */	lwz r29, 0x304(r1)
 /* 801E9EB8 001E6E18  7C 08 03 A6 */	mtlr r0
 /* 801E9EBC 001E6E1C  38 21 03 10 */	addi r1, r1, 0x310
-/* 801E9EC0 001E6E20  4E 80 00 20 */	blr 
+/* 801E9EC0 001E6E20  4E 80 00 20 */	blr
 
 .global PreRender__17CWallCrawlerSwarmFR13CStateManagerRC14CFrustumPlanes
 PreRender__17CWallCrawlerSwarmFR13CStateManagerRC14CFrustumPlanes:
@@ -3074,7 +3074,7 @@ lbl_801E9F80:
 /* 801E9FB0 001E6F10  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801E9FB4 001E6F14  7C 08 03 A6 */	mtlr r0
 /* 801E9FB8 001E6F18  38 21 00 40 */	addi r1, r1, 0x40
-/* 801E9FBC 001E6F1C  4E 80 00 20 */	blr 
+/* 801E9FBC 001E6F1C  4E 80 00 20 */	blr
 
 .global BoxForPosition__17CWallCrawlerSwarmCFiiif
 BoxForPosition__17CWallCrawlerSwarmCFiiif:
@@ -3187,7 +3187,7 @@ BoxForPosition__17CWallCrawlerSwarmCFiiif:
 /* 801EA168 001E70C8  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 801EA16C 001E70CC  7C 08 03 A6 */	mtlr r0
 /* 801EA170 001E70D0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801EA174 001E70D4  4E 80 00 20 */	blr 
+/* 801EA174 001E70D4  4E 80 00 20 */	blr
 
 .global GetListAt__17CWallCrawlerSwarmFRC9CVector3f
 GetListAt__17CWallCrawlerSwarmFRC9CVector3f:
@@ -3258,7 +3258,7 @@ lbl_801EA264:
 /* 801EA26C 001E71CC  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801EA270 001E71D0  7C 08 03 A6 */	mtlr r0
 /* 801EA274 001E71D4  38 21 00 60 */	addi r1, r1, 0x60
-/* 801EA278 001E71D8  4E 80 00 20 */	blr 
+/* 801EA278 001E71D8  4E 80 00 20 */	blr
 
 .global UpdatePartition__17CWallCrawlerSwarmFv
 UpdatePartition__17CWallCrawlerSwarmFv:
@@ -3442,7 +3442,7 @@ lbl_801EA4E4:
 /* 801EA504 001E7464  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 801EA508 001E7468  7C 08 03 A6 */	mtlr r0
 /* 801EA50C 001E746C  38 21 00 70 */	addi r1, r1, 0x70
-/* 801EA510 001E7470  4E 80 00 20 */	blr 
+/* 801EA510 001E7470  4E 80 00 20 */	blr
 
 .global LaunchBoid__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3f
 LaunchBoid__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidRC9CVector3f:
@@ -3653,7 +3653,7 @@ lbl_801EA790:
 /* 801EA82C 001E778C  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 801EA830 001E7790  7C 08 03 A6 */	mtlr r0
 /* 801EA834 001E7794  38 21 01 40 */	addi r1, r1, 0x140
-/* 801EA838 001E7798  4E 80 00 20 */	blr 
+/* 801EA838 001E7798  4E 80 00 20 */	blr
 
 .global sub_801ea83c
 sub_801ea83c:
@@ -3757,7 +3757,7 @@ sub_801ea83c:
 /* 801EA9C0 001E7920  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 801EA9C4 001E7924  7C 08 03 A6 */	mtlr r0
 /* 801EA9C8 001E7928  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801EA9CC 001E792C  4E 80 00 20 */	blr 
+/* 801EA9CC 001E792C  4E 80 00 20 */	blr
 
 .global Think__17CWallCrawlerSwarmFfR13CStateManager
 Think__17CWallCrawlerSwarmFfR13CStateManager:
@@ -4803,7 +4803,7 @@ lbl_801EB8BC:
 /* 801EB8E4 001E8844  80 01 39 24 */	lwz r0, 0x3924(r1)
 /* 801EB8E8 001E8848  7C 08 03 A6 */	mtlr r0
 /* 801EB8EC 001E884C  38 21 39 20 */	addi r1, r1, 0x3920
-/* 801EB8F0 001E8850  4E 80 00 20 */	blr 
+/* 801EB8F0 001E8850  4E 80 00 20 */	blr
 
 .global AddDoorRepulsors__17CWallCrawlerSwarmFR13CStateManager
 AddDoorRepulsors__17CWallCrawlerSwarmFR13CStateManager:
@@ -4877,7 +4877,7 @@ lbl_801EB9B0:
 /* 801EB9EC 001E894C  38 61 00 3C */	addi r3, r1, 0x3c
 /* 801EB9F0 001E8950  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801EB9F4 001E8954  7D 89 03 A6 */	mtctr r12
-/* 801EB9F8 001E8958  4E 80 04 21 */	bctrl 
+/* 801EB9F8 001E8958  4E 80 04 21 */	bctrl
 /* 801EB9FC 001E895C  88 01 00 54 */	lbz r0, 0x54(r1)
 /* 801EBA00 001E8960  28 00 00 00 */	cmplwi r0, 0
 /* 801EBA04 001E8964  98 01 00 70 */	stb r0, 0x70(r1)
@@ -4984,7 +4984,7 @@ lbl_801EBB48:
 /* 801EBB78 001E8AD8  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 801EBB7C 001E8ADC  7C 08 03 A6 */	mtlr r0
 /* 801EBB80 001E8AE0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801EBB84 001E8AE4  4E 80 00 20 */	blr 
+/* 801EBB84 001E8AE4  4E 80 00 20 */	blr
 
 .global UpdateBoid__17CWallCrawlerSwarmFR19CAreaCollisionCacheR13CStateManagerfRQ217CWallCrawlerSwarm5CBoid
 UpdateBoid__17CWallCrawlerSwarmFR19CAreaCollisionCacheR13CStateManagerfRQ217CWallCrawlerSwarm5CBoid:
@@ -5469,7 +5469,7 @@ lbl_801EC2C0:
 /* 801EC2CC 001E922C  38 63 63 74 */	addi r3, r3, lbl_803E6374@l
 /* 801EC2D0 001E9230  7C 03 E0 2E */	lwzx r0, r3, r28
 /* 801EC2D4 001E9234  7C 09 03 A6 */	mtctr r0
-/* 801EC2D8 001E9238  4E 80 04 20 */	bctr 
+/* 801EC2D8 001E9238  4E 80 04 20 */	bctr
 .global lbl_801EC2DC
 lbl_801EC2DC:
 /* 801EC2DC 001E923C  83 FB 04 EC */	lwz r31, 0x4ec(r27)
@@ -5681,7 +5681,7 @@ lbl_801EC554:
 /* 801EC5C0 001E9520  80 01 05 24 */	lwz r0, 0x524(r1)
 /* 801EC5C4 001E9524  7C 08 03 A6 */	mtlr r0
 /* 801EC5C8 001E9528  38 21 05 20 */	addi r1, r1, 0x520
-/* 801EC5CC 001E952C  4E 80 00 20 */	blr 
+/* 801EC5CC 001E952C  4E 80 00 20 */	blr
 
 .global FindBestSurface__17CWallCrawlerSwarmFRC19CAreaCollisionCache9CVector3ffR17CCollisionSurface
 FindBestSurface__17CWallCrawlerSwarmFRC19CAreaCollisionCache9CVector3ffR17CCollisionSurface:
@@ -5836,7 +5836,7 @@ lbl_801EC7D4:
 /* 801EC7F8 001E9758  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 801EC7FC 001E975C  7C 08 03 A6 */	mtlr r0
 /* 801EC800 001E9760  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801EC804 001E9764  4E 80 00 20 */	blr 
+/* 801EC804 001E9764  4E 80 00 20 */	blr
 
 .global FindBestCollisionInBox__17CWallCrawlerSwarmFR13CStateManagerRC9CVector3f
 FindBestCollisionInBox__17CWallCrawlerSwarmFR13CStateManagerRC9CVector3f:
@@ -6143,7 +6143,7 @@ lbl_801ECBF0:
 /* 801ECC6C 001E9BCC  80 01 1C D4 */	lwz r0, 0x1cd4(r1)
 /* 801ECC70 001E9BD0  7C 08 03 A6 */	mtlr r0
 /* 801ECC74 001E9BD4  38 21 1C D0 */	addi r1, r1, 0x1cd0
-/* 801ECC78 001E9BD8  4E 80 00 20 */	blr 
+/* 801ECC78 001E9BD8  4E 80 00 20 */	blr
 
 .global PointOnSurface__17CWallCrawlerSwarmFRC17CCollisionSurfaceRC9CVector3fRC6CPlane
 PointOnSurface__17CWallCrawlerSwarmFRC17CCollisionSurfaceRC9CVector3fRC6CPlane:
@@ -6220,7 +6220,7 @@ lbl_801ECD74:
 /* 801ECD84 001E9CE4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801ECD88 001E9CE8  7C 08 03 A6 */	mtlr r0
 /* 801ECD8C 001E9CEC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801ECD90 001E9CF0  4E 80 00 20 */	blr 
+/* 801ECD90 001E9CF0  4E 80 00 20 */	blr
 
 .global ProjectVectorToPlane__17CWallCrawlerSwarmFRC9CVector3fRC9CVector3f
 ProjectVectorToPlane__17CWallCrawlerSwarmFRC9CVector3fRC9CVector3f:
@@ -6242,7 +6242,7 @@ ProjectVectorToPlane__17CWallCrawlerSwarmFRC9CVector3fRC9CVector3f:
 /* 801ECDD0 001E9D30  D0 43 00 00 */	stfs f2, 0(r3)
 /* 801ECDD4 001E9D34  D0 23 00 04 */	stfs f1, 4(r3)
 /* 801ECDD8 001E9D38  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801ECDDC 001E9D3C  4E 80 00 20 */	blr 
+/* 801ECDDC 001E9D3C  4E 80 00 20 */	blr
 
 .global ProjectPointToPlane__17CWallCrawlerSwarmFRC9CVector3fRC9CVector3fRC9CVector3f
 ProjectPointToPlane__17CWallCrawlerSwarmFRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -6275,14 +6275,14 @@ ProjectPointToPlane__17CWallCrawlerSwarmFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 801ECE48 001E9DA8  D0 23 00 04 */	stfs f1, 4(r3)
 /* 801ECE4C 001E9DAC  D0 03 00 08 */	stfs f0, 8(r3)
 /* 801ECE50 001E9DB0  38 21 00 20 */	addi r1, r1, 0x20
-/* 801ECE54 001E9DB4  4E 80 00 20 */	blr 
+/* 801ECE54 001E9DB4  4E 80 00 20 */	blr
 
 .global GetTouchBounds__17CWallCrawlerSwarmCFv
 GetTouchBounds__17CWallCrawlerSwarmCFv:
 /* 801ECE58 001E9DB8  38 00 00 01 */	li r0, 1
 /* 801ECE5C 001E9DBC  28 03 00 00 */	cmplwi r3, 0
 /* 801ECE60 001E9DC0  98 03 00 18 */	stb r0, 0x18(r3)
-/* 801ECE64 001E9DC4  4D 82 00 20 */	beqlr 
+/* 801ECE64 001E9DC4  4D 82 00 20 */	beqlr
 /* 801ECE68 001E9DC8  C0 04 00 E8 */	lfs f0, 0xe8(r4)
 /* 801ECE6C 001E9DCC  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801ECE70 001E9DD0  C0 04 00 EC */	lfs f0, 0xec(r4)
@@ -6295,7 +6295,7 @@ GetTouchBounds__17CWallCrawlerSwarmCFv:
 /* 801ECE8C 001E9DEC  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 801ECE90 001E9DF0  C0 04 00 FC */	lfs f0, 0xfc(r4)
 /* 801ECE94 001E9DF4  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 801ECE98 001E9DF8  4E 80 00 20 */	blr 
+/* 801ECE98 001E9DF8  4E 80 00 20 */	blr
 
 .global GetBoundingBox__17CWallCrawlerSwarmCFv
 GetBoundingBox__17CWallCrawlerSwarmCFv:
@@ -6335,7 +6335,7 @@ GetBoundingBox__17CWallCrawlerSwarmCFv:
 /* 801ECF20 001E9E80  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801ECF24 001E9E84  7C 08 03 A6 */	mtlr r0
 /* 801ECF28 001E9E88  38 21 00 40 */	addi r1, r1, 0x40
-/* 801ECF2C 001E9E8C  4E 80 00 20 */	blr 
+/* 801ECF2C 001E9E8C  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__17CWallCrawlerSwarmFv
 CalculateRenderBounds__17CWallCrawlerSwarmFv:
@@ -6375,7 +6375,7 @@ CalculateRenderBounds__17CWallCrawlerSwarmFv:
 /* 801ECFB4 001E9F14  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801ECFB8 001E9F18  7C 08 03 A6 */	mtlr r0
 /* 801ECFBC 001E9F1C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801ECFC0 001E9F20  4E 80 00 20 */	blr 
+/* 801ECFC0 001E9F20  4E 80 00 20 */	blr
 
 .global CreateBoid__17CWallCrawlerSwarmFR13CStateManageri
 CreateBoid__17CWallCrawlerSwarmFR13CStateManageri:
@@ -6598,7 +6598,7 @@ lbl_801ED2EC:
 /* 801ED318 001EA278  83 A1 01 B4 */	lwz r29, 0x1b4(r1)
 /* 801ED31C 001EA27C  7C 08 03 A6 */	mtlr r0
 /* 801ED320 001EA280  38 21 02 00 */	addi r1, r1, 0x200
-/* 801ED324 001EA284  4E 80 00 20 */	blr 
+/* 801ED324 001EA284  4E 80 00 20 */	blr
 
 .global AllocateSkinnedModels__17CWallCrawlerSwarmFR13CStateManagerQ210CModelData11EWhichModel
 AllocateSkinnedModels__17CWallCrawlerSwarmFR13CStateManagerQ210CModelData11EWhichModel:
@@ -6789,7 +6789,7 @@ lbl_801ED5AC:
 /* 801ED5D0 001EA530  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 801ED5D4 001EA534  7C 08 03 A6 */	mtlr r0
 /* 801ED5D8 001EA538  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801ED5DC 001EA53C  4E 80 00 20 */	blr 
+/* 801ED5DC 001EA53C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CWallCrawlerSwarmF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CWallCrawlerSwarmF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -6856,7 +6856,7 @@ lbl_801ED6AC:
 /* 801ED6BC 001EA61C  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 801ED6C0 001EA620  7C 08 03 A6 */	mtlr r0
 /* 801ED6C4 001EA624  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801ED6C8 001EA628  4E 80 00 20 */	blr 
+/* 801ED6C8 001EA628  4E 80 00 20 */	blr
 
 .global sub_801ed6cc
 sub_801ed6cc:
@@ -6892,7 +6892,7 @@ lbl_801ED70C:
 /* 801ED738 001EA698  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ED73C 001EA69C  7C 08 03 A6 */	mtlr r0
 /* 801ED740 001EA6A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801ED744 001EA6A4  4E 80 00 20 */	blr 
+/* 801ED744 001EA6A4  4E 80 00 20 */	blr
 
 .global sub_801ed748
 sub_801ed748:
@@ -6906,7 +6906,7 @@ lbl_801ED760:
 /* 801ED760 001EA6C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ED764 001EA6C4  7C 08 03 A6 */	mtlr r0
 /* 801ED768 001EA6C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801ED76C 001EA6CC  4E 80 00 20 */	blr 
+/* 801ED76C 001EA6CC  4E 80 00 20 */	blr
 
 .global sub_801ed770
 sub_801ed770:
@@ -6966,7 +6966,7 @@ sub_801ed770:
 /* 801ED844 001EA7A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ED848 001EA7A8  7C 08 03 A6 */	mtlr r0
 /* 801ED84C 001EA7AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801ED850 001EA7B0  4E 80 00 20 */	blr 
+/* 801ED850 001EA7B0  4E 80 00 20 */	blr
 
 .global Accept__17CWallCrawlerSwarmFR8IVisitor
 Accept__17CWallCrawlerSwarmFR8IVisitor:
@@ -6979,11 +6979,11 @@ Accept__17CWallCrawlerSwarmFR8IVisitor:
 /* 801ED86C 001EA7CC  7C 04 03 78 */	mr r4, r0
 /* 801ED870 001EA7D0  81 8C 00 E4 */	lwz r12, 0xe4(r12)
 /* 801ED874 001EA7D4  7D 89 03 A6 */	mtctr r12
-/* 801ED878 001EA7D8  4E 80 04 21 */	bctrl 
+/* 801ED878 001EA7D8  4E 80 04 21 */	bctrl
 /* 801ED87C 001EA7DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ED880 001EA7E0  7C 08 03 A6 */	mtlr r0
 /* 801ED884 001EA7E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801ED888 001EA7E8  4E 80 00 20 */	blr 
+/* 801ED888 001EA7E8  4E 80 00 20 */	blr
 
 .global __dt__17CWallCrawlerSwarmFv
 __dt__17CWallCrawlerSwarmFv:
@@ -7018,7 +7018,7 @@ lbl_801ED8D4:
 /* 801ED8F8 001EA858  38 80 00 01 */	li r4, 1
 /* 801ED8FC 001EA85C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801ED900 001EA860  7D 89 03 A6 */	mtctr r12
-/* 801ED904 001EA864  4E 80 04 21 */	bctrl 
+/* 801ED904 001EA864  4E 80 04 21 */	bctrl
 lbl_801ED908:
 /* 801ED908 001EA868  3B 9C 00 08 */	addi r28, r28, 8
 /* 801ED90C 001EA86C  3B BD 00 01 */	addi r29, r29, 1
@@ -7209,7 +7209,7 @@ lbl_801EDB60:
 /* 801EDB74 001EAAD4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801EDB78 001EAAD8  7C 08 03 A6 */	mtlr r0
 /* 801EDB7C 001EAADC  38 21 00 40 */	addi r1, r1, 0x40
-/* 801EDB80 001EAAE0  4E 80 00 20 */	blr 
+/* 801EDB80 001EAAE0  4E 80 00 20 */	blr
 
 .global "__ct__17CWallCrawlerSwarmF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fRC8CAnimResRC8CAnimResUiUiUiUiRC11CDamageInfoffffiiffffffffi16CActorParameters"
 "__ct__17CWallCrawlerSwarmF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fRC8CAnimResRC8CAnimResUiUiUiUiRC11CDamageInfoffffiiffffffffi16CActorParameters":
@@ -8075,7 +8075,7 @@ lbl_801EE820:
 /* 801EE848 001EB7A8  81 84 00 00 */	lwz r12, 0(r4)
 /* 801EE84C 001EB7AC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801EE850 001EB7B0  7D 89 03 A6 */	mtctr r12
-/* 801EE854 001EB7B4  4E 80 04 21 */	bctrl 
+/* 801EE854 001EB7B4  4E 80 04 21 */	bctrl
 /* 801EE858 001EB7B8  39 C1 00 CC */	addi r14, r1, 0xcc
 /* 801EE85C 001EB7BC  38 81 00 90 */	addi r4, r1, 0x90
 /* 801EE860 001EB7C0  7D C3 73 78 */	mr r3, r14
@@ -8121,7 +8121,7 @@ lbl_801EE8D0:
 /* 801EE8F8 001EB858  81 84 00 00 */	lwz r12, 0(r4)
 /* 801EE8FC 001EB85C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801EE900 001EB860  7D 89 03 A6 */	mtctr r12
-/* 801EE904 001EB864  4E 80 04 21 */	bctrl 
+/* 801EE904 001EB864  4E 80 04 21 */	bctrl
 /* 801EE908 001EB868  39 C1 00 C0 */	addi r14, r1, 0xc0
 /* 801EE90C 001EB86C  38 81 00 80 */	addi r4, r1, 0x80
 /* 801EE910 001EB870  7D C3 73 78 */	mr r3, r14
@@ -8167,7 +8167,7 @@ lbl_801EE980:
 /* 801EE9A8 001EB908  81 84 00 00 */	lwz r12, 0(r4)
 /* 801EE9AC 001EB90C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801EE9B0 001EB910  7D 89 03 A6 */	mtctr r12
-/* 801EE9B4 001EB914  4E 80 04 21 */	bctrl 
+/* 801EE9B4 001EB914  4E 80 04 21 */	bctrl
 /* 801EE9B8 001EB918  39 C1 00 B4 */	addi r14, r1, 0xb4
 /* 801EE9BC 001EB91C  38 81 00 70 */	addi r4, r1, 0x70
 /* 801EE9C0 001EB920  7D C3 73 78 */	mr r3, r14
@@ -8213,7 +8213,7 @@ lbl_801EEA30:
 /* 801EEA58 001EB9B8  81 84 00 00 */	lwz r12, 0(r4)
 /* 801EEA5C 001EB9BC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801EEA60 001EB9C0  7D 89 03 A6 */	mtctr r12
-/* 801EEA64 001EB9C4  4E 80 04 21 */	bctrl 
+/* 801EEA64 001EB9C4  4E 80 04 21 */	bctrl
 /* 801EEA68 001EB9C8  39 C1 00 A8 */	addi r14, r1, 0xa8
 /* 801EEA6C 001EB9CC  38 81 00 60 */	addi r4, r1, 0x60
 /* 801EEA70 001EB9D0  7D C3 73 78 */	mr r3, r14
@@ -8301,7 +8301,7 @@ lbl_801EEB7C:
 /* 801EEBA4 001EBB04  38 80 00 01 */	li r4, 1
 /* 801EEBA8 001EBB08  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801EEBAC 001EBB0C  7D 89 03 A6 */	mtctr r12
-/* 801EEBB0 001EBB10  4E 80 04 21 */	bctrl 
+/* 801EEBB0 001EBB10  4E 80 04 21 */	bctrl
 lbl_801EEBB4:
 /* 801EEBB4 001EBB14  7E 80 07 75 */	extsb. r0, r20
 /* 801EEBB8 001EBB18  41 82 00 10 */	beq lbl_801EEBC8
@@ -8315,7 +8315,7 @@ lbl_801EEBC8:
 /* 801EEBD4 001EBB34  81 83 00 00 */	lwz r12, 0(r3)
 /* 801EEBD8 001EBB38  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801EEBDC 001EBB3C  7D 89 03 A6 */	mtctr r12
-/* 801EEBE0 001EBB40  4E 80 04 21 */	bctrl 
+/* 801EEBE0 001EBB40  4E 80 04 21 */	bctrl
 /* 801EEBE4 001EBB44  3A 10 00 0C */	addi r16, r16, 0xc
 /* 801EEBE8 001EBB48  3A 31 00 08 */	addi r17, r17, 8
 /* 801EEBEC 001EBB4C  3A 73 00 01 */	addi r19, r19, 1
@@ -8360,7 +8360,7 @@ lbl_801EEBF0:
 /* 801EEC84 001EBBE4  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 801EEC88 001EBBE8  7C 08 03 A6 */	mtlr r0
 /* 801EEC8C 001EBBEC  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 801EEC90 001EBBF0  4E 80 00 20 */	blr 
+/* 801EEC90 001EBBF0  4E 80 00 20 */	blr
 
 .global __ct__Q217CWallCrawlerSwarm5CBoidFRC12CTransform4fUi
 __ct__Q217CWallCrawlerSwarm5CBoidFRC12CTransform4fUi:
@@ -8433,7 +8433,7 @@ __ct__Q217CWallCrawlerSwarm5CBoidFRC12CTransform4fUi:
 /* 801EED9C 001EBCFC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801EEDA0 001EBD00  7C 08 03 A6 */	mtlr r0
 /* 801EEDA4 001EBD04  38 21 00 40 */	addi r1, r1, 0x40
-/* 801EEDA8 001EBD08  4E 80 00 20 */	blr 
+/* 801EEDA8 001EBD08  4E 80 00 20 */	blr
 
 .global LookAt__F9CVector3f9CVector3ff
 LookAt__F9CVector3f9CVector3ff:
@@ -8566,7 +8566,7 @@ lbl_801EEF84:
 /* 801EEF8C 001EBEEC  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 801EEF90 001EBEF0  7C 08 03 A6 */	mtlr r0
 /* 801EEF94 001EBEF4  38 21 00 70 */	addi r1, r1, 0x70
-/* 801EEF98 001EBEF8  4E 80 00 20 */	blr 
+/* 801EEF98 001EBEF8  4E 80 00 20 */	blr
 
 .global sub_801eef9c
 sub_801eef9c:
@@ -8631,7 +8631,7 @@ lbl_801EF060:
 /* 801EF06C 001EBFCC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801EF070 001EBFD0  7C 08 03 A6 */	mtlr r0
 /* 801EF074 001EBFD4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801EF078 001EBFD8  4E 80 00 20 */	blr 
+/* 801EF078 001EBFD8  4E 80 00 20 */	blr
 
 .global sub_801ef07c
 sub_801ef07c:
@@ -8662,7 +8662,7 @@ lbl_801EF0B8:
 /* 801EF0D4 001EC034  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801EF0D8 001EC038  7C 08 03 A6 */	mtlr r0
 /* 801EF0DC 001EC03C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801EF0E0 001EC040  4E 80 00 20 */	blr 
+/* 801EF0E0 001EC040  4E 80 00 20 */	blr
 
 .global sub_801ef0e4
 sub_801ef0e4:

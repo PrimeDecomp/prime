@@ -96,26 +96,26 @@ lbl_802C0C9C:
 /* 802C0CA8 002BDC08  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802C0CAC 002BDC0C  7C 08 03 A6 */	mtlr r0
 /* 802C0CB0 002BDC10  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C0CB4 002BDC14  4E 80 00 20 */	blr 
+/* 802C0CB4 002BDC14  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__9CAuiMeterCFv
 GetWidgetTypeID__9CAuiMeterCFv:
 /* 802C0CB8 002BDC18  3C 60 4D 45 */	lis r3, 0x4D455452@ha
 /* 802C0CBC 002BDC1C  38 63 54 52 */	addi r3, r3, 0x4D455452@l
-/* 802C0CC0 002BDC20  4E 80 00 20 */	blr 
+/* 802C0CC0 002BDC20  4E 80 00 20 */	blr
 
 .global Initialize__10CGuiWidgetFv
 Initialize__10CGuiWidgetFv:
-/* 802C0CC4 002BDC24  4E 80 00 20 */	blr 
+/* 802C0CC4 002BDC24  4E 80 00 20 */	blr
 
 .global Touch__10CGuiWidgetCFv
 Touch__10CGuiWidgetCFv:
-/* 802C0CC8 002BDC28  4E 80 00 20 */	blr 
+/* 802C0CC8 002BDC28  4E 80 00 20 */	blr
 
 .global GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv
 GetIsFinishedLoadingWidgetSpecific__10CGuiWidgetCFv:
 /* 802C0CCC 002BDC2C  38 60 00 01 */	li r3, 1
-/* 802C0CD0 002BDC30  4E 80 00 20 */	blr 
+/* 802C0CD0 002BDC30  4E 80 00 20 */	blr
 
 .global UpdateMeterWorkers__9CAuiMeterFv
 UpdateMeterWorkers__9CAuiMeterFv:
@@ -209,14 +209,14 @@ lbl_802C0E04:
 /* 802C0E1C 002BDD7C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 802C0E20 002BDD80  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C0E24 002BDD84  7D 89 03 A6 */	mtctr r12
-/* 802C0E28 002BDD88  4E 80 04 21 */	bctrl 
+/* 802C0E28 002BDD88  4E 80 04 21 */	bctrl
 /* 802C0E2C 002BDD8C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 802C0E30 002BDD90  7C 7B 1B 78 */	mr r27, r3
 /* 802C0E34 002BDD94  7F 43 D3 78 */	mr r3, r26
 /* 802C0E38 002BDD98  38 80 00 01 */	li r4, 1
 /* 802C0E3C 002BDD9C  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C0E40 002BDDA0  7D 89 03 A6 */	mtctr r12
-/* 802C0E44 002BDDA4  4E 80 04 21 */	bctrl 
+/* 802C0E44 002BDDA4  4E 80 04 21 */	bctrl
 /* 802C0E48 002BDDA8  7C 18 E0 00 */	cmpw r24, r28
 /* 802C0E4C 002BDDAC  7C 7A 1B 78 */	mr r26, r3
 /* 802C0E50 002BDDB0  40 80 00 30 */	bge lbl_802C0E80
@@ -269,7 +269,7 @@ lbl_802C0EE4:
 /* 802C0EF0 002BDE50  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802C0EF4 002BDE54  7C 08 03 A6 */	mtlr r0
 /* 802C0EF8 002BDE58  38 21 00 80 */	addi r1, r1, 0x80
-/* 802C0EFC 002BDE5C  4E 80 00 20 */	blr 
+/* 802C0EFC 002BDE5C  4E 80 00 20 */	blr
 
 .global OnVisible__9CAuiMeterFv
 OnVisible__9CAuiMeterFv:
@@ -281,7 +281,7 @@ OnVisible__9CAuiMeterFv:
 /* 802C0F14 002BDE74  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C0F18 002BDE78  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802C0F1C 002BDE7C  7D 89 03 A6 */	mtctr r12
-/* 802C0F20 002BDE80  4E 80 04 21 */	bctrl 
+/* 802C0F20 002BDE80  4E 80 04 21 */	bctrl
 /* 802C0F24 002BDE84  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C0F28 002BDE88  41 82 00 0C */	beq lbl_802C0F34
 /* 802C0F2C 002BDE8C  7F E3 FB 78 */	mr r3, r31
@@ -291,7 +291,7 @@ lbl_802C0F34:
 /* 802C0F38 002BDE98  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C0F3C 002BDE9C  7C 08 03 A6 */	mtlr r0
 /* 802C0F40 002BDEA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C0F44 002BDEA4  4E 80 00 20 */	blr 
+/* 802C0F44 002BDEA4  4E 80 00 20 */	blr
 
 .global SetRemainder__9CAuiMeteri
 SetRemainder__9CAuiMeteri:
@@ -313,7 +313,7 @@ SetRemainder__9CAuiMeteri:
 /* 802C0F84 002BDEE4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C0F88 002BDEE8  7C 08 03 A6 */	mtlr r0
 /* 802C0F8C 002BDEEC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C0F90 002BDEF0  4E 80 00 20 */	blr 
+/* 802C0F90 002BDEF0  4E 80 00 20 */	blr
 
 .global SetCapacity__9CAuiMeterFi
 SetCapacity__9CAuiMeterFi:
@@ -346,7 +346,7 @@ lbl_802C0FE0:
 /* 802C0FF4 002BDF54  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C0FF8 002BDF58  7C 08 03 A6 */	mtlr r0
 /* 802C0FFC 002BDF5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C1000 002BDF60  4E 80 00 20 */	blr 
+/* 802C1000 002BDF60  4E 80 00 20 */	blr
 
 .global SetMaxCapacity__9CAuiMeterFi
 SetMaxCapacity__9CAuiMeterFi:
@@ -388,14 +388,14 @@ lbl_802C1070:
 /* 802C107C 002BDFDC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C1080 002BDFE0  7C 08 03 A6 */	mtlr r0
 /* 802C1084 002BDFE4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1088 002BDFE8  4E 80 00 20 */	blr 
+/* 802C1088 002BDFE8  4E 80 00 20 */	blr
 
 .global GetWorkerWidget__9CAuiMeterFi
 GetWorkerWidget__9CAuiMeterFi:
 /* 802C108C 002BDFEC  80 63 00 E0 */	lwz r3, 0xe0(r3)
 /* 802C1090 002BDFF0  54 80 10 3A */	slwi r0, r4, 2
 /* 802C1094 002BDFF4  7C 63 00 2E */	lwzx r3, r3, r0
-/* 802C1098 002BDFF8  4E 80 00 20 */	blr 
+/* 802C1098 002BDFF8  4E 80 00 20 */	blr
 
 .global AddWorkerWidget__9CAuiMeterFP10CGuiWidget
 AddWorkerWidget__9CAuiMeterFP10CGuiWidget:
@@ -449,7 +449,7 @@ lbl_802C112C:
 /* 802C1140 002BE0A0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C1144 002BE0A4  7C 08 03 A6 */	mtlr r0
 /* 802C1148 002BE0A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C114C 002BE0AC  4E 80 00 20 */	blr 
+/* 802C114C 002BE0AC  4E 80 00 20 */	blr
 
 .global __ct__9CAuiMeterFRCQ210CGuiWidget15CGuiWidgetParmsbii
 __ct__9CAuiMeterFRCQ210CGuiWidget15CGuiWidgetParmsbii:

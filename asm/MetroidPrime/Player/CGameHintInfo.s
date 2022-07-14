@@ -55,7 +55,7 @@ lbl_802671A4:
 /* 802671B8 00264118  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802671BC 0026411C  7C 08 03 A6 */	mtlr r0
 /* 802671C0 00264120  38 21 00 20 */	addi r1, r1, 0x20
-/* 802671C4 00264124  4E 80 00 20 */	blr 
+/* 802671C4 00264124  4E 80 00 20 */	blr
 
 .global sub_802671c8
 sub_802671c8:
@@ -90,7 +90,7 @@ sub_802671c8:
 /* 80267238 00264198  38 80 00 01 */	li r4, 1
 /* 8026723C 0026419C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80267240 002641A0  7D 89 03 A6 */	mtctr r12
-/* 80267244 002641A4  4E 80 04 21 */	bctrl 
+/* 80267244 002641A4  4E 80 04 21 */	bctrl
 lbl_80267248:
 /* 80267248 002641A8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8026724C 002641AC  38 80 FF FF */	li r4, -1
@@ -100,7 +100,7 @@ lbl_80267248:
 /* 8026725C 002641BC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80267260 002641C0  7C 08 03 A6 */	mtlr r0
 /* 80267264 002641C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80267268 002641C8  4E 80 00 20 */	blr 
+/* 80267268 002641C8  4E 80 00 20 */	blr
 
 .global sub_8026726c
 sub_8026726c:
@@ -142,7 +142,7 @@ lbl_802672E0:
 /* 802672EC 0026424C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802672F0 00264250  7C 08 03 A6 */	mtlr r0
 /* 802672F4 00264254  38 21 00 10 */	addi r1, r1, 0x10
-/* 802672F8 00264258  4E 80 00 20 */	blr 
+/* 802672F8 00264258  4E 80 00 20 */	blr
 
 .global sub_802672fc
 sub_802672fc:
@@ -167,7 +167,7 @@ lbl_80267334:
 /* 80267340 002642A0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80267344 002642A4  7C 08 03 A6 */	mtlr r0
 /* 80267348 002642A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026734C 002642AC  4E 80 00 20 */	blr 
+/* 8026734C 002642AC  4E 80 00 20 */	blr
 
 .global sub_80267350
 sub_80267350:
@@ -207,7 +207,7 @@ lbl_802673C0:
 /* 802673CC 0026432C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802673D0 00264330  7C 08 03 A6 */	mtlr r0
 /* 802673D4 00264334  38 21 00 20 */	addi r1, r1, 0x20
-/* 802673D8 00264338  4E 80 00 20 */	blr 
+/* 802673D8 00264338  4E 80 00 20 */	blr
 
 .global sub_802673dc
 sub_802673dc:
@@ -232,7 +232,7 @@ lbl_80267408:
 /* 8026741C 0026437C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80267420 00264380  7C 08 03 A6 */	mtlr r0
 /* 80267424 00264384  38 21 00 10 */	addi r1, r1, 0x10
-/* 80267428 00264388  4E 80 00 20 */	blr 
+/* 80267428 00264388  4E 80 00 20 */	blr
 
 .global sub_8026742c
 sub_8026742c:
@@ -244,7 +244,7 @@ sub_8026742c:
 /* 80267440 002643A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80267444 002643A4  7C 08 03 A6 */	mtlr r0
 /* 80267448 002643A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026744C 002643AC  4E 80 00 20 */	blr 
+/* 8026744C 002643AC  4E 80 00 20 */	blr
 
 .global __dt__Q213CGameHintInfo9CGameHintFv
 __dt__Q213CGameHintInfo9CGameHintFv:
@@ -293,7 +293,7 @@ lbl_802674D8:
 /* 802674E4 00264444  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802674E8 00264448  7C 08 03 A6 */	mtlr r0
 /* 802674EC 0026444C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802674F0 00264450  4E 80 00 20 */	blr 
+/* 802674F0 00264450  4E 80 00 20 */	blr
 
 .global sub_802674f4
 sub_802674f4:
@@ -307,7 +307,7 @@ sub_802674f4:
 /* 80267510 00264470  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80267514 00264474  7C 08 03 A6 */	mtlr r0
 /* 80267518 00264478  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026751C 0026447C  4E 80 00 20 */	blr 
+/* 8026751C 0026447C  4E 80 00 20 */	blr
 
 .global sub_80267520
 sub_80267520:
@@ -350,7 +350,7 @@ lbl_80267590:
 /* 802675AC 0026450C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802675B0 00264510  7C 08 03 A6 */	mtlr r0
 /* 802675B4 00264514  38 21 00 10 */	addi r1, r1, 0x10
-/* 802675B8 00264518  4E 80 00 20 */	blr 
+/* 802675B8 00264518  4E 80 00 20 */	blr
 
 .global sub_802675bc
 sub_802675bc:
@@ -380,13 +380,13 @@ lbl_80267604:
 /* 80267610 00264570  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80267614 00264574  7C 08 03 A6 */	mtlr r0
 /* 80267618 00264578  38 21 00 10 */	addi r1, r1, 0x10
-/* 8026761C 0026457C  4E 80 00 20 */	blr 
+/* 8026761C 0026457C  4E 80 00 20 */	blr
 
 .global DismissDisplayedHint__12CHintOptionsFv
 DismissDisplayedHint__12CHintOptionsFv:
 /* 80267620 00264580  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 80267624 00264584  2C 00 FF FF */	cmpwi r0, -1
-/* 80267628 00264588  4D 82 00 20 */	beqlr 
+/* 80267628 00264588  4D 82 00 20 */	beqlr
 /* 8026762C 0026458C  80 8D A0 84 */	lwz r4, gpMemoryCard@sda21(r13)
 /* 80267630 00264590  1C A0 00 0C */	mulli r5, r0, 0xc
 /* 80267634 00264594  80 C3 00 0C */	lwz r6, 0xc(r3)
@@ -398,12 +398,12 @@ DismissDisplayedHint__12CHintOptionsFv:
 /* 8026764C 002645AC  7C 63 02 14 */	add r3, r3, r0
 /* 80267650 002645B0  C0 03 00 1C */	lfs f0, 0x1c(r3)
 /* 80267654 002645B4  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 80267658 002645B8  4C 80 00 20 */	bgelr 
+/* 80267658 002645B8  4C 80 00 20 */	bgelr
 /* 8026765C 002645BC  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 80267660 002645C0  38 00 00 01 */	li r0, 1
 /* 80267664 002645C4  D0 04 00 04 */	stfs f0, 4(r4)
 /* 80267668 002645C8  98 04 00 08 */	stb r0, 8(r4)
-/* 8026766C 002645CC  4E 80 00 20 */	blr 
+/* 8026766C 002645CC  4E 80 00 20 */	blr
 
 .global FindHintIndex__13CGameHintInfoFPCc
 FindHintIndex__13CGameHintInfoFPCc:
@@ -445,7 +445,7 @@ lbl_802676DC:
 /* 802676EC 0026464C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802676F0 00264650  7C 08 03 A6 */	mtlr r0
 /* 802676F4 00264654  38 21 00 20 */	addi r1, r1, 0x20
-/* 802676F8 00264658  4E 80 00 20 */	blr 
+/* 802676F8 00264658  4E 80 00 20 */	blr
 
 .global GetNextHintIdx__12CHintOptionsFv
 GetNextHintIdx__12CHintOptionsFv:
@@ -454,10 +454,10 @@ GetNextHintIdx__12CHintOptionsFv:
 /* 80267704 00264664  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f
 /* 80267708 00264668  41 82 00 0C */	beq lbl_80267714
 /* 8026770C 0026466C  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80267710 00264670  4E 80 00 20 */	blr 
+/* 80267710 00264670  4E 80 00 20 */	blr
 lbl_80267714:
 /* 80267714 00264674  38 60 FF FF */	li r3, -1
-/* 80267718 00264678  4E 80 00 20 */	blr 
+/* 80267718 00264678  4E 80 00 20 */	blr
 
 .global GetCurrentDisplayedHint__12CHintOptionsCFv
 GetCurrentDisplayedHint__12CHintOptionsCFv:
@@ -469,7 +469,7 @@ GetCurrentDisplayedHint__12CHintOptionsCFv:
 /* 80267730 00264690  2C 00 FF FF */	cmpwi r0, -1
 /* 80267734 00264694  40 82 00 0C */	bne lbl_80267740
 /* 80267738 00264698  38 60 00 00 */	li r3, 0
-/* 8026773C 0026469C  4E 80 00 20 */	blr 
+/* 8026773C 0026469C  4E 80 00 20 */	blr
 lbl_80267740:
 /* 80267740 002646A0  80 AD A0 84 */	lwz r5, gpMemoryCard@sda21(r13)
 /* 80267744 002646A4  1C 80 00 30 */	mulli r4, r0, 0x30
@@ -485,24 +485,24 @@ lbl_80267740:
 /* 8026776C 002646CC  4C 41 13 82 */	cror 2, 1, 2
 /* 80267770 002646D0  40 82 00 0C */	bne lbl_8026777C
 /* 80267774 002646D4  38 60 00 00 */	li r3, 0
-/* 80267778 002646D8  4E 80 00 20 */	blr 
+/* 80267778 002646D8  4E 80 00 20 */	blr
 lbl_8026777C:
 /* 8026777C 002646DC  C0 02 BA DC */	lfs f0, lbl_805AD7FC@sda21(r2)
 /* 80267780 002646E0  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80267784 002646E4  4C 41 13 82 */	cror 2, 1, 2
-/* 80267788 002646E8  4C 82 00 20 */	bnelr 
+/* 80267788 002646E8  4C 82 00 20 */	bnelr
 /* 8026778C 002646EC  88 03 00 08 */	lbz r0, 8(r3)
 /* 80267790 002646F0  28 00 00 00 */	cmplwi r0, 0
-/* 80267794 002646F4  4D 82 00 20 */	beqlr 
+/* 80267794 002646F4  4D 82 00 20 */	beqlr
 /* 80267798 002646F8  38 60 00 00 */	li r3, 0
-/* 8026779C 002646FC  4E 80 00 20 */	blr 
+/* 8026779C 002646FC  4E 80 00 20 */	blr
 
 .global sub_802677a0
 sub_802677a0:
-/* 802677A0 00264700  4E 80 00 20 */	blr 
+/* 802677A0 00264700  4E 80 00 20 */	blr
 lbl_802677A4:
 /* 802677A4 00264704  38 60 00 00 */	li r3, 0
-/* 802677A8 00264708  4E 80 00 20 */	blr 
+/* 802677A8 00264708  4E 80 00 20 */	blr
 
 .global ActivateContinueDelayHintTimer__12CHintOptionsFPCc
 ActivateContinueDelayHintTimer__12CHintOptionsFPCc:
@@ -538,7 +538,7 @@ lbl_80267814:
 /* 80267818 00264778  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8026781C 0026477C  7C 08 03 A6 */	mtlr r0
 /* 80267820 00264780  38 21 00 10 */	addi r1, r1, 0x10
-/* 80267824 00264784  4E 80 00 20 */	blr 
+/* 80267824 00264784  4E 80 00 20 */	blr
 
 .global DelayHint__12CHintOptionsFPCc
 DelayHint__12CHintOptionsFPCc:
@@ -579,7 +579,7 @@ lbl_8026789C:
 /* 802678A0 00264800  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802678A4 00264804  7C 08 03 A6 */	mtlr r0
 /* 802678A8 00264808  38 21 00 10 */	addi r1, r1, 0x10
-/* 802678AC 0026480C  4E 80 00 20 */	blr 
+/* 802678AC 0026480C  4E 80 00 20 */	blr
 
 .global ActivateImmediateHintTimer__12CHintOptionsFPCc
 ActivateImmediateHintTimer__12CHintOptionsFPCc:
@@ -612,7 +612,7 @@ lbl_80267910:
 /* 80267914 00264874  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80267918 00264878  7C 08 03 A6 */	mtlr r0
 /* 8026791C 0026487C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80267920 00264880  4E 80 00 20 */	blr 
+/* 80267920 00264880  4E 80 00 20 */	blr
 
 .global Update__12CHintOptionsfRC13CStateManager
 Update__12CHintOptionsfRC13CStateManager:
@@ -721,7 +721,7 @@ lbl_80267A94:
 /* 80267A98 002649F8  42 00 FF BC */	bdnz lbl_80267A54
 lbl_80267A9C:
 /* 80267A9C 002649FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80267AA0 00264A00  4E 80 00 20 */	blr 
+/* 80267AA0 00264A00  4E 80 00 20 */	blr
 
 .global InitializeMemoryState__12CHintOptionsFv
 InitializeMemoryState__12CHintOptionsFv:
@@ -745,7 +745,7 @@ InitializeMemoryState__12CHintOptionsFv:
 /* 80267AE8 00264A48  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80267AEC 00264A4C  7C 08 03 A6 */	mtlr r0
 /* 80267AF0 00264A50  38 21 00 20 */	addi r1, r1, 0x20
-/* 80267AF4 00264A54  4E 80 00 20 */	blr 
+/* 80267AF4 00264A54  4E 80 00 20 */	blr
 
 .global sub_80267af8
 sub_80267af8:
@@ -819,7 +819,7 @@ lbl_80267BD0:
 /* 80267BE8 00264B48  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80267BEC 00264B4C  7C 08 03 A6 */	mtlr r0
 /* 80267BF0 00264B50  38 21 00 30 */	addi r1, r1, 0x30
-/* 80267BF4 00264B54  4E 80 00 20 */	blr 
+/* 80267BF4 00264B54  4E 80 00 20 */	blr
 
 .global PutTo__16CGameHintManagerFR16CMemoryStreamOut
 PutTo__16CGameHintManagerFR16CMemoryStreamOut:
@@ -858,13 +858,13 @@ lbl_80267C4C:
 /* 80267C70 00264BD0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80267C74 00264BD4  7C 08 03 A6 */	mtlr r0
 /* 80267C78 00264BD8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80267C7C 00264BDC  4E 80 00 20 */	blr 
+/* 80267C7C 00264BDC  4E 80 00 20 */	blr
 
 .global SetHintNextTime__12CHintOptionsFv
 SetHintNextTime__12CHintOptionsFv:
 /* 80267C80 00264BE0  80 E3 00 10 */	lwz r7, 0x10(r3)
 /* 80267C84 00264BE4  2C 07 FF FF */	cmpwi r7, -1
-/* 80267C88 00264BE8  4D 82 00 20 */	beqlr 
+/* 80267C88 00264BE8  4D 82 00 20 */	beqlr
 /* 80267C8C 00264BEC  80 AD A0 84 */	lwz r5, gpMemoryCard@sda21(r13)
 /* 80267C90 00264BF0  1C 87 00 30 */	mulli r4, r7, 0x30
 /* 80267C94 00264BF4  C0 22 BA E8 */	lfs f1, lbl_805AD808@sda21(r2)
@@ -877,7 +877,7 @@ SetHintNextTime__12CHintOptionsFv:
 /* 80267CB0 00264C10  7C 66 22 14 */	add r3, r6, r4
 /* 80267CB4 00264C14  EC 01 00 2A */	fadds f0, f1, f0
 /* 80267CB8 00264C18  D0 03 00 04 */	stfs f0, 4(r3)
-/* 80267CBC 00264C1C  4E 80 00 20 */	blr 
+/* 80267CBC 00264C1C  4E 80 00 20 */	blr
 
 .global __ct__12CHintOptionsFR12CInputStream
 __ct__12CHintOptionsFR12CInputStream:
@@ -981,7 +981,7 @@ lbl_80267E00:
 /* 80267E20 00264D80  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80267E24 00264D84  7C 08 03 A6 */	mtlr r0
 /* 80267E28 00264D88  38 21 00 30 */	addi r1, r1, 0x30
-/* 80267E2C 00264D8C  4E 80 00 20 */	blr 
+/* 80267E2C 00264D8C  4E 80 00 20 */	blr
 
 .global __ct__12CHintOptionsFv
 __ct__12CHintOptionsFv:
@@ -991,7 +991,7 @@ __ct__12CHintOptionsFv:
 /* 80267E3C 00264D9C  90 83 00 08 */	stw r4, 8(r3)
 /* 80267E40 00264DA0  90 83 00 0C */	stw r4, 0xc(r3)
 /* 80267E44 00264DA4  90 03 00 10 */	stw r0, 0x10(r3)
-/* 80267E48 00264DA8  4E 80 00 20 */	blr 
+/* 80267E48 00264DA8  4E 80 00 20 */	blr
 
 .global CanContinue__Q212CHintOptions10SHintStateFv
 CanContinue__Q212CHintOptions10SHintStateFv:
@@ -1002,7 +1002,7 @@ CanContinue__Q212CHintOptions10SHintStateFv:
 /* 80267E5C 00264DBC  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80267E60 00264DC0  7C 00 00 26 */	mfcr r0
 /* 80267E64 00264DC4  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80267E68 00264DC8  4E 80 00 20 */	blr 
+/* 80267E68 00264DC8  4E 80 00 20 */	blr
 
 .global sub_80267e6c
 sub_80267e6c:
@@ -1010,7 +1010,7 @@ sub_80267e6c:
 /* 80267E70 00264DD0  38 00 00 00 */	li r0, 0
 /* 80267E74 00264DD4  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80267E78 00264DD8  98 03 00 08 */	stb r0, 8(r3)
-/* 80267E7C 00264DDC  4E 80 00 20 */	blr 
+/* 80267E7C 00264DDC  4E 80 00 20 */	blr
 
 .global sub_80267e80
 sub_80267e80:
@@ -1019,7 +1019,7 @@ sub_80267e80:
 /* 80267E88 00264DE8  90 03 00 00 */	stw r0, 0(r3)
 /* 80267E8C 00264DEC  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80267E90 00264DF0  98 03 00 08 */	stb r0, 8(r3)
-/* 80267E94 00264DF4  4E 80 00 20 */	blr 
+/* 80267E94 00264DF4  4E 80 00 20 */	blr
 
 .global __ct__13CGameHintInfoFR12CInputStreamUi
 __ct__13CGameHintInfoFR12CInputStreamUi:
@@ -1068,7 +1068,7 @@ lbl_80267F18:
 /* 80267F38 00264E98  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 80267F3C 00264E9C  7C 08 03 A6 */	mtlr r0
 /* 80267F40 00264EA0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80267F44 00264EA4  4E 80 00 20 */	blr 
+/* 80267F44 00264EA4  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl62vector<Q213CGameHintInfo9CGameHint,Q24rstl17rmemory_allocator>FRCQ213CGameHintInfo9CGameHint"
 "push_back__Q24rstl62vector<Q213CGameHintInfo9CGameHint,Q24rstl17rmemory_allocator>FRCQ213CGameHintInfo9CGameHint":
@@ -1104,7 +1104,7 @@ lbl_80267F88:
 /* 80267FB4 00264F14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80267FB8 00264F18  7C 08 03 A6 */	mtlr r0
 /* 80267FBC 00264F1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80267FC0 00264F20  4E 80 00 20 */	blr 
+/* 80267FC0 00264F20  4E 80 00 20 */	blr
 
 .global "construct<Q213CGameHintInfo9CGameHint>__4rstlFRCQ213CGameHintInfo9CGameHint"
 "construct<Q213CGameHintInfo9CGameHint>__4rstlFRCQ213CGameHintInfo9CGameHint":
@@ -1118,7 +1118,7 @@ lbl_80267FDC:
 /* 80267FDC 00264F3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80267FE0 00264F40  7C 08 03 A6 */	mtlr r0
 /* 80267FE4 00264F44  38 21 00 10 */	addi r1, r1, 0x10
-/* 80267FE8 00264F48  4E 80 00 20 */	blr 
+/* 80267FE8 00264F48  4E 80 00 20 */	blr
 
 .global __ct__Q213CGameHintInfo9CGameHintFRCQ213CGameHintInfo9CGameHint
 __ct__Q213CGameHintInfo9CGameHintFRCQ213CGameHintInfo9CGameHint:
@@ -1193,7 +1193,7 @@ lbl_802680D8:
 /* 802680E4 00265044  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802680E8 00265048  7C 08 03 A6 */	mtlr r0
 /* 802680EC 0026504C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802680F0 00265050  4E 80 00 20 */	blr 
+/* 802680F0 00265050  4E 80 00 20 */	blr
 
 .global __ct__Q213CGameHintInfo9CGameHintFR12CInputStreamUi
 __ct__Q213CGameHintInfo9CGameHintFR12CInputStreamUi:
@@ -1293,7 +1293,7 @@ lbl_80268230:
 /* 8026824C 002651AC  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80268250 002651B0  7C 08 03 A6 */	mtlr r0
 /* 80268254 002651B4  38 21 00 40 */	addi r1, r1, 0x40
-/* 80268258 002651B8  4E 80 00 20 */	blr 
+/* 80268258 002651B8  4E 80 00 20 */	blr
 
 .global __ct__Q213CGameHintInfo13SHintLocationFR12CInputStream
 __ct__Q213CGameHintInfo13SHintLocationFR12CInputStream:
@@ -1322,7 +1322,7 @@ __ct__Q213CGameHintInfo13SHintLocationFR12CInputStream:
 /* 802682B4 00265214  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802682B8 00265218  7C 08 03 A6 */	mtlr r0
 /* 802682BC 0026521C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802682C0 00265220  4E 80 00 20 */	blr 
+/* 802682C0 00265220  4E 80 00 20 */	blr
 
 .global GetBitCount__16CGameHintManagerFi
 GetBitCount__16CGameHintManagerFi:
@@ -1335,7 +1335,7 @@ lbl_802682D4:
 /* 802682D4 00265234  28 03 00 00 */	cmplwi r3, 0
 /* 802682D8 00265238  40 82 FF F4 */	bne lbl_802682CC
 /* 802682DC 0026523C  7C 83 23 78 */	mr r3, r4
-/* 802682E0 00265240  4E 80 00 20 */	blr 
+/* 802682E0 00265240  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl67vector<Q213CGameHintInfo13SHintLocation,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl67vector<Q213CGameHintInfo13SHintLocation,Q24rstl17rmemory_allocator>Fi":
@@ -1412,7 +1412,7 @@ lbl_802683CC:
 /* 802683D8 00265338  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802683DC 0026533C  7C 08 03 A6 */	mtlr r0
 /* 802683E0 00265340  38 21 00 30 */	addi r1, r1, 0x30
-/* 802683E4 00265344  4E 80 00 20 */	blr 
+/* 802683E4 00265344  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl62vector<Q213CGameHintInfo9CGameHint,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl62vector<Q213CGameHintInfo9CGameHint,Q24rstl17rmemory_allocator>Fi":
@@ -1471,7 +1471,7 @@ lbl_8026849C:
 /* 802684A8 00265408  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802684AC 0026540C  7C 08 03 A6 */	mtlr r0
 /* 802684B0 00265410  38 21 00 30 */	addi r1, r1, 0x30
-/* 802684B4 00265414  4E 80 00 20 */	blr 
+/* 802684B4 00265414  4E 80 00 20 */	blr
 
 .global sub_802684b8
 sub_802684b8:
@@ -1495,7 +1495,7 @@ lbl_802684E4:
 /* 802684F4 00265454  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802684F8 00265458  7C 08 03 A6 */	mtlr r0
 /* 802684FC 0026545C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80268500 00265460  4E 80 00 20 */	blr 
+/* 80268500 00265460  4E 80 00 20 */	blr
 
 .global sub_80268504
 sub_80268504:
@@ -1526,4 +1526,4 @@ lbl_80268540:
 /* 8026855C 002654BC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80268560 002654C0  7C 08 03 A6 */	mtlr r0
 /* 80268564 002654C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80268568 002654C8  4E 80 00 20 */	blr 
+/* 80268568 002654C8  4E 80 00 20 */	blr

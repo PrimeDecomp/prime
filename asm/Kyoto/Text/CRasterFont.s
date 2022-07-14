@@ -29,7 +29,7 @@ lbl_802FFF14:
 /* 802FFF20 002FCE80  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FFF24 002FCE84  7C 08 03 A6 */	mtlr r0
 /* 802FFF28 002FCE88  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FFF2C 002FCE8C  4E 80 00 20 */	blr 
+/* 802FFF2C 002FCE8C  4E 80 00 20 */	blr
 
 .global IsFinishedLoading__11CRasterFontFv
 IsFinishedLoading__11CRasterFontFv:
@@ -44,17 +44,17 @@ IsFinishedLoading__11CRasterFontFv:
 /* 802FFF50 002FCEB0  38 80 00 01 */	li r4, 1
 lbl_802FFF54:
 /* 802FFF54 002FCEB4  7C 83 23 78 */	mr r3, r4
-/* 802FFF58 002FCEB8  4E 80 00 20 */	blr 
+/* 802FFF58 002FCEB8  4E 80 00 20 */	blr
 
 .global GetLineMargin__11CRasterFontFv
 GetLineMargin__11CRasterFontFv:
 /* 802FFF5C 002FCEBC  80 63 00 90 */	lwz r3, 0x90(r3)
-/* 802FFF60 002FCEC0  4E 80 00 20 */	blr 
+/* 802FFF60 002FCEC0  4E 80 00 20 */	blr
 
 .global GetBaseLine__11CRasterFontCFv
 GetBaseLine__11CRasterFontCFv:
 /* 802FFF64 002FCEC4  80 63 00 8C */	lwz r3, 0x8c(r3)
-/* 802FFF68 002FCEC8  4E 80 00 20 */	blr 
+/* 802FFF68 002FCEC8  4E 80 00 20 */	blr
 
 .global SetupRenderState__11CRasterFontFv
 SetupRenderState__11CRasterFontFv:
@@ -126,7 +126,7 @@ SetupRenderState__11CRasterFontFv:
 /* 80300070 002FCFD0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80300074 002FCFD4  7C 08 03 A6 */	mtlr r0
 /* 80300078 002FCFD8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030007C 002FCFDC  4E 80 00 20 */	blr 
+/* 8030007C 002FCFDC  4E 80 00 20 */	blr
 
 .global FRasterFontFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FRasterFontFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -168,7 +168,7 @@ lbl_803000EC:
 /* 80300108 002FD068  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8030010C 002FD06C  7C 08 03 A6 */	mtlr r0
 /* 80300110 002FD070  38 21 00 20 */	addi r1, r1, 0x20
-/* 80300114 002FD074  4E 80 00 20 */	blr 
+/* 80300114 002FD074  4E 80 00 20 */	blr
 
 .global sub_80300118
 sub_80300118:
@@ -203,7 +203,7 @@ sub_80300118:
 /* 80300188 002FD0E8  38 80 00 01 */	li r4, 1
 /* 8030018C 002FD0EC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80300190 002FD0F0  7D 89 03 A6 */	mtctr r12
-/* 80300194 002FD0F4  4E 80 04 21 */	bctrl 
+/* 80300194 002FD0F4  4E 80 04 21 */	bctrl
 lbl_80300198:
 /* 80300198 002FD0F8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8030019C 002FD0FC  38 80 FF FF */	li r4, -1
@@ -213,7 +213,7 @@ lbl_80300198:
 /* 803001AC 002FD10C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803001B0 002FD110  7C 08 03 A6 */	mtlr r0
 /* 803001B4 002FD114  38 21 00 20 */	addi r1, r1, 0x20
-/* 803001B8 002FD118  4E 80 00 20 */	blr 
+/* 803001B8 002FD118  4E 80 00 20 */	blr
 
 .global sub_803001bc
 sub_803001bc:
@@ -227,7 +227,7 @@ sub_803001bc:
 /* 803001D8 002FD138  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803001DC 002FD13C  7C 08 03 A6 */	mtlr r0
 /* 803001E0 002FD140  38 21 00 10 */	addi r1, r1, 0x10
-/* 803001E4 002FD144  4E 80 00 20 */	blr 
+/* 803001E4 002FD144  4E 80 00 20 */	blr
 
 .global sub_803001e8
 sub_803001e8:
@@ -270,7 +270,7 @@ lbl_80300258:
 /* 80300274 002FD1D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80300278 002FD1D8  7C 08 03 A6 */	mtlr r0
 /* 8030027C 002FD1DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80300280 002FD1E0  4E 80 00 20 */	blr 
+/* 80300280 002FD1E0  4E 80 00 20 */	blr
 
 .global sub_80300284
 sub_80300284:
@@ -300,7 +300,7 @@ lbl_803002CC:
 /* 803002D8 002FD238  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803002DC 002FD23C  7C 08 03 A6 */	mtlr r0
 /* 803002E0 002FD240  38 21 00 10 */	addi r1, r1, 0x10
-/* 803002E4 002FD244  4E 80 00 20 */	blr 
+/* 803002E4 002FD244  4E 80 00 20 */	blr
 
 .global InternalGetGlyph__11CRasterFontCFw
 InternalGetGlyph__11CRasterFontCFw:
@@ -361,7 +361,7 @@ lbl_803003AC:
 /* 803003B0 002FD310  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 803003B4 002FD314  7C 08 03 A6 */	mtlr r0
 /* 803003B8 002FD318  38 21 00 40 */	addi r1, r1, 0x40
-/* 803003BC 002FD31C  4E 80 00 20 */	blr 
+/* 803003BC 002FD31C  4E 80 00 20 */	blr
 
 .global SinglePassDrawString__11CRasterFontCFRC18CDrawStringOptionsiiRiRiP17CTextRenderBufferPCwi
 SinglePassDrawString__11CRasterFontCFRC18CDrawStringOptionsiiRiRiP17CTextRenderBufferPCwi:
@@ -452,7 +452,7 @@ lbl_803004EC:
 /* 803004F0 002FD450  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 803004F4 002FD454  7C 08 03 A6 */	mtlr r0
 /* 803004F8 002FD458  38 21 00 40 */	addi r1, r1, 0x40
-/* 803004FC 002FD45C  4E 80 00 20 */	blr 
+/* 803004FC 002FD45C  4E 80 00 20 */	blr
 
 .global "KernLookup__11CRasterFontFRCQ24rstl45vector<9CKernPair,Q24rstl17rmemory_allocator>ii"
 "KernLookup__11CRasterFontFRCQ24rstl45vector<9CKernPair,Q24rstl17rmemory_allocator>ii":
@@ -468,7 +468,7 @@ lbl_8030051C:
 /* 80300520 002FD480  7C 05 00 00 */	cmpw r5, r0
 /* 80300524 002FD484  40 82 00 0C */	bne lbl_80300530
 /* 80300528 002FD488  80 64 00 04 */	lwz r3, 4(r4)
-/* 8030052C 002FD48C  4E 80 00 20 */	blr 
+/* 8030052C 002FD48C  4E 80 00 20 */	blr
 lbl_80300530:
 /* 80300530 002FD490  38 84 00 08 */	addi r4, r4, 8
 lbl_80300534:
@@ -480,17 +480,17 @@ lbl_80300534:
 /* 80300548 002FD4A8  41 82 FF D4 */	beq lbl_8030051C
 lbl_8030054C:
 /* 8030054C 002FD4AC  38 60 00 00 */	li r3, 0
-/* 80300550 002FD4B0  4E 80 00 20 */	blr 
+/* 80300550 002FD4B0  4E 80 00 20 */	blr
 
 .global DrawSpace__11CRasterFontCFRC18CDrawStringOptionsiiRiRii
 DrawSpace__11CRasterFontCFRC18CDrawStringOptionsiiRiRii:
 /* 80300554 002FD4B4  80 04 00 00 */	lwz r0, 0(r4)
 /* 80300558 002FD4B8  2C 00 00 00 */	cmpwi r0, 0
-/* 8030055C 002FD4BC  4C 82 00 20 */	bnelr 
+/* 8030055C 002FD4BC  4C 82 00 20 */	bnelr
 /* 80300560 002FD4C0  7C 05 4A 14 */	add r0, r5, r9
 /* 80300564 002FD4C4  90 07 00 00 */	stw r0, 0(r7)
 /* 80300568 002FD4C8  90 C8 00 00 */	stw r6, 0(r8)
-/* 8030056C 002FD4CC  4E 80 00 20 */	blr 
+/* 8030056C 002FD4CC  4E 80 00 20 */	blr
 
 .global DrawString__11CRasterFontCFRC18CDrawStringOptionsiiRiRiP17CTextRenderBufferPCwi
 DrawString__11CRasterFontCFRC18CDrawStringOptionsiiRiRiP17CTextRenderBufferPCwi:
@@ -569,7 +569,7 @@ lbl_80300684:
 /* 80300688 002FD5E8  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8030068C 002FD5EC  7C 08 03 A6 */	mtlr r0
 /* 80300690 002FD5F0  38 21 00 70 */	addi r1, r1, 0x70
-/* 80300694 002FD5F4  4E 80 00 20 */	blr 
+/* 80300694 002FD5F4  4E 80 00 20 */	blr
 
 .global GetGlyph__11CRasterFontCFw
 GetGlyph__11CRasterFontCFw:
@@ -580,7 +580,7 @@ GetGlyph__11CRasterFontCFw:
 /* 803006A8 002FD608  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803006AC 002FD60C  7C 08 03 A6 */	mtlr r0
 /* 803006B0 002FD610  38 21 00 10 */	addi r1, r1, 0x10
-/* 803006B4 002FD614  4E 80 00 20 */	blr 
+/* 803006B4 002FD614  4E 80 00 20 */	blr
 
 .global GetCarriageAdvance__11CRasterFontFv
 GetCarriageAdvance__11CRasterFontFv:
@@ -600,17 +600,17 @@ GetCarriageAdvance__11CRasterFontFv:
 /* 803006EC 002FD64C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803006F0 002FD650  7C 08 03 A6 */	mtlr r0
 /* 803006F4 002FD654  38 21 00 10 */	addi r1, r1, 0x10
-/* 803006F8 002FD658  4E 80 00 20 */	blr 
+/* 803006F8 002FD658  4E 80 00 20 */	blr
 
 .global GetMonoHeight__11CRasterFontCFv
 GetMonoHeight__11CRasterFontCFv:
 /* 803006FC 002FD65C  80 63 00 08 */	lwz r3, 8(r3)
-/* 80300700 002FD660  4E 80 00 20 */	blr 
+/* 80300700 002FD660  4E 80 00 20 */	blr
 
 .global GetMonoWidth__11CRasterFontCFv
 GetMonoWidth__11CRasterFontCFv:
 /* 80300704 002FD664  80 63 00 04 */	lwz r3, 4(r3)
-/* 80300708 002FD668  4E 80 00 20 */	blr 
+/* 80300708 002FD668  4E 80 00 20 */	blr
 
 .global GetSize__11CRasterFontCFRC18CDrawStringOptionsRiRiPCwi
 GetSize__11CRasterFontCFRC18CDrawStringOptionsRiRiPCwi:
@@ -687,12 +687,12 @@ lbl_80300808:
 /* 8030080C 002FD76C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80300810 002FD770  7C 08 03 A6 */	mtlr r0
 /* 80300814 002FD774  38 21 00 30 */	addi r1, r1, 0x30
-/* 80300818 002FD778  4E 80 00 20 */	blr 
+/* 80300818 002FD778  4E 80 00 20 */	blr
 
 .global GetMode__11CRasterFontCFv
 GetMode__11CRasterFontCFv:
 /* 8030081C 002FD77C  80 63 00 2C */	lwz r3, 0x2c(r3)
-/* 80300820 002FD780  4E 80 00 20 */	blr 
+/* 80300820 002FD780  4E 80 00 20 */	blr
 
 .global __ct__11CRasterFontFR12CInputStreamR12IObjectStore
 __ct__11CRasterFontFR12CInputStreamR12IObjectStore:
@@ -783,7 +783,7 @@ lbl_803008FC:
 /* 80300968 002FD8C8  81 98 00 00 */	lwz r12, 0(r24)
 /* 8030096C 002FD8CC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80300970 002FD8D0  7D 89 03 A6 */	mtctr r12
-/* 80300974 002FD8D4  4E 80 04 21 */	bctrl 
+/* 80300974 002FD8D4  4E 80 04 21 */	bctrl
 /* 80300978 002FD8D8  38 61 00 28 */	addi r3, r1, 0x28
 /* 8030097C 002FD8DC  38 81 00 30 */	addi r4, r1, 0x30
 /* 80300980 002FD8E0  48 04 05 29 */	bl __ct__6CTokenFRC6CToken
@@ -1091,7 +1091,7 @@ lbl_80300DD4:
 /* 80300DE4 002FDD44  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 80300DE8 002FDD48  7C 08 03 A6 */	mtlr r0
 /* 80300DEC 002FDD4C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80300DF0 002FDD50  4E 80 00 20 */	blr 
+/* 80300DF0 002FDD50  4E 80 00 20 */	blr
 
 .global "sort<Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFQ24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17"
 "sort<Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFQ24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17":
@@ -1263,7 +1263,7 @@ lbl_80301068:
 /* 8030106C 002FDFCC  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80301070 002FDFD0  7C 08 03 A6 */	mtlr r0
 /* 80301074 002FDFD4  38 21 00 90 */	addi r1, r1, 0x90
-/* 80301078 002FDFD8  4E 80 00 20 */	blr 
+/* 80301078 002FDFD8  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,w,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17r"
 "lower_bound<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,w,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17r":
@@ -1317,7 +1317,7 @@ lbl_80301118:
 /* 8030112C 002FE08C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80301130 002FE090  7C 08 03 A6 */	mtlr r0
 /* 80301134 002FE094  38 21 00 30 */	addi r1, r1, 0x30
-/* 80301138 002FE098  4E 80 00 20 */	blr 
+/* 80301138 002FE098  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>Fi":
@@ -1411,7 +1411,7 @@ lbl_80301268:
 /* 80301274 002FE1D4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80301278 002FE1D8  7C 08 03 A6 */	mtlr r0
 /* 8030127C 002FE1DC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80301280 002FE1E0  4E 80 00 20 */	blr 
+/* 80301280 002FE1E0  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl45vector<9CKernPair,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl45vector<9CKernPair,Q24rstl17rmemory_allocator>Fi":
@@ -1486,7 +1486,7 @@ lbl_80301364:
 /* 80301370 002FE2D0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80301374 002FE2D4  7C 08 03 A6 */	mtlr r0
 /* 80301378 002FE2D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030137C 002FE2DC  4E 80 00 20 */	blr 
+/* 8030137C 002FE2DC  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -1500,7 +1500,7 @@ lbl_80301364:
 /* 8030139C 002FE2FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803013A0 002FE300  7C 08 03 A6 */	mtlr r0
 /* 803013A4 002FE304  38 21 00 10 */	addi r1, r1, 0x10
-/* 803013A8 002FE308  4E 80 00 20 */	blr 
+/* 803013A8 002FE308  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -1508,7 +1508,7 @@ lbl_80301364:
 /* 803013B0 002FE310  80 83 00 00 */	lwz r4, 0(r3)
 /* 803013B4 002FE314  7C 04 02 14 */	add r0, r4, r0
 /* 803013B8 002FE318  90 03 00 00 */	stw r0, 0(r3)
-/* 803013BC 002FE31C  4E 80 00 20 */	blr 
+/* 803013BC 002FE31C  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "distance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -1528,7 +1528,7 @@ lbl_80301364:
 /* 803013F4 002FE354  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803013F8 002FE358  7C 08 03 A6 */	mtlr r0
 /* 803013FC 002FE35C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80301400 002FE360  4E 80 00 20 */	blr 
+/* 80301400 002FE360  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_itera"
 "__distance<Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl144const_pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_itera":
@@ -1541,7 +1541,7 @@ lbl_80301364:
 /* 8030141C 002FE37C  7C 00 1E 70 */	srawi r0, r0, 3
 /* 80301420 002FE380  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 80301424 002FE384  7C 60 1A 14 */	add r3, r0, r3
-/* 80301428 002FE388  4E 80 00 20 */	blr 
+/* 80301428 002FE388  4E 80 00 20 */	blr
 
 .global "__sort3<Q24rstl15pair<w,6CGlyph>,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFRQ24rstl15pair<w,6CGlyph>RQ24rstl15pair<w,6CGlyph>RQ24rstl15pair<w,6CGlyph>Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>"
 "__sort3<Q24rstl15pair<w,6CGlyph>,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFRQ24rstl15pair<w,6CGlyph>RQ24rstl15pair<w,6CGlyph>RQ24rstl15pair<w,6CGlyph>Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>":
@@ -1719,7 +1719,7 @@ lbl_803016C4:
 /* 803016CC 002FE62C  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 803016D0 002FE630  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 803016D4 002FE634  38 21 00 60 */	addi r1, r1, 0x60
-/* 803016D8 002FE638  4E 80 00 20 */	blr 
+/* 803016D8 002FE638  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFQ24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocato"
 "__insertion_sort<Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl60pair_sorter_finder<Q24rstl15pair<w,6CGlyph>,Q24rstl7less<w>>>__4rstlFQ24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl138pointer_iterator<Q24rstl15pair<w,6CGlyph>,Q24rstl59vector<Q24rstl15pair<w,6CGlyph>,Q24rstl17rmemory_allocato":

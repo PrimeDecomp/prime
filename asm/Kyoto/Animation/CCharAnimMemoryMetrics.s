@@ -13,14 +13,14 @@ SubtractFromTotalSize__22CCharAnimMemoryMetricsFUiQ222CCharAnimMemoryMetrics14EA
 /* 802F7BA8 002F4B08  80 0D A7 58 */	lwz r0, lbl_805A9318@sda21(r13)
 /* 802F7BAC 002F4B0C  7C 03 00 50 */	subf r0, r3, r0
 /* 802F7BB0 002F4B10  90 0D A7 58 */	stw r0, lbl_805A9318@sda21(r13)
-/* 802F7BB4 002F4B14  4E 80 00 20 */	blr 
+/* 802F7BB4 002F4B14  4E 80 00 20 */	blr
 
 .global AddToTotalSize__22CCharAnimMemoryMetricsFUiQ222CCharAnimMemoryMetrics14EAnimSubSystem
 AddToTotalSize__22CCharAnimMemoryMetricsFUiQ222CCharAnimMemoryMetrics14EAnimSubSystem:
 /* 802F7BB8 002F4B18  80 0D A7 58 */	lwz r0, lbl_805A9318@sda21(r13)
 /* 802F7BBC 002F4B1C  7C 00 1A 14 */	add r0, r0, r3
 /* 802F7BC0 002F4B20  90 0D A7 58 */	stw r0, lbl_805A9318@sda21(r13)
-/* 802F7BC4 002F4B24  4E 80 00 20 */	blr 
+/* 802F7BC4 002F4B24  4E 80 00 20 */	blr
 
 .global sub_802f7bc8
 sub_802f7bc8:

@@ -39,7 +39,7 @@ lbl_80358BA8:
 /* 80358BB8 00355B18  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80358BBC 00355B1C  7C 08 03 A6 */	mtlr r0
 /* 80358BC0 00355B20  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358BC4 00355B24  4E 80 00 20 */	blr 
+/* 80358BC4 00355B24  4E 80 00 20 */	blr
 
 .global "__ct<Q212CMidiManager9CMidiData>__16CFactoryFnReturnFPQ212CMidiManager9CMidiData"
 "__ct<Q212CMidiManager9CMidiData>__16CFactoryFnReturnFPQ212CMidiManager9CMidiData":
@@ -75,7 +75,7 @@ lbl_80358BA8:
 /* 80358C3C 00355B9C  38 80 00 01 */	li r4, 1
 /* 80358C40 00355BA0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80358C44 00355BA4  7D 89 03 A6 */	mtctr r12
-/* 80358C48 00355BA8  4E 80 04 21 */	bctrl 
+/* 80358C48 00355BA8  4E 80 04 21 */	bctrl
 lbl_80358C4C:
 /* 80358C4C 00355BAC  88 01 00 10 */	lbz r0, 0x10(r1)
 /* 80358C50 00355BB0  28 00 00 00 */	cmplwi r0, 0
@@ -100,7 +100,7 @@ lbl_80358C88:
 /* 80358C94 00355BF4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80358C98 00355BF8  7C 08 03 A6 */	mtlr r0
 /* 80358C9C 00355BFC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80358CA0 00355C00  4E 80 00 20 */	blr 
+/* 80358CA0 00355C00  4E 80 00 20 */	blr
 
 .global sub_80358ca4
 sub_80358ca4:
@@ -153,7 +153,7 @@ lbl_80358D3C:
 /* 80358D4C 00355CAC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80358D50 00355CB0  7C 08 03 A6 */	mtlr r0
 /* 80358D54 00355CB4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80358D58 00355CB8  4E 80 00 20 */	blr 
+/* 80358D58 00355CB8  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__34TToken<Q212CMidiManager9CMidiData>FRCQ24rstl36auto_ptr<Q212CMidiManager9CMidiData>"
 "GetIObjObjectFor__34TToken<Q212CMidiManager9CMidiData>FRCQ24rstl36auto_ptr<Q212CMidiManager9CMidiData>":
@@ -167,7 +167,7 @@ lbl_80358D3C:
 /* 80358D78 00355CD8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80358D7C 00355CDC  7C 08 03 A6 */	mtlr r0
 /* 80358D80 00355CE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358D84 00355CE4  4E 80 00 20 */	blr 
+/* 80358D84 00355CE4  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__52TObjOwnerDerivedFromIObj<Q212CMidiManager9CMidiData>FRCQ24rstl36auto_ptr<Q212CMidiManager9CMidiData>"
 "GetNewDerivedObject__52TObjOwnerDerivedFromIObj<Q212CMidiManager9CMidiData>FRCQ24rstl36auto_ptr<Q212CMidiManager9CMidiData>":
@@ -210,7 +210,7 @@ lbl_80358DF8:
 /* 80358E14 00355D74  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80358E18 00355D78  7C 08 03 A6 */	mtlr r0
 /* 80358E1C 00355D7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358E20 00355D80  4E 80 00 20 */	blr 
+/* 80358E20 00355D80  4E 80 00 20 */	blr
 
 .global __ct__Q212CMidiManager9CMidiDataFR12CInputStream
 __ct__Q212CMidiManager9CMidiDataFR12CInputStream:
@@ -286,7 +286,7 @@ lbl_80358F0C:
 /* 80358F2C 00355E8C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80358F30 00355E90  7C 08 03 A6 */	mtlr r0
 /* 80358F34 00355E94  38 21 00 20 */	addi r1, r1, 0x20
-/* 80358F38 00355E98  4E 80 00 20 */	blr 
+/* 80358F38 00355E98  4E 80 00 20 */	blr
 
 .global LocateHandle__12CMidiManagerFv
 LocateHandle__12CMidiManagerFv:
@@ -352,7 +352,7 @@ lbl_8035900C:
 /* 80359010 00355F70  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80359014 00355F74  7C 08 03 A6 */	mtlr r0
 /* 80359018 00355F78  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035901C 00355F7C  4E 80 00 20 */	blr 
+/* 8035901C 00355F7C  4E 80 00 20 */	blr
 
 .global StopAll__12CMidiManagerFv
 StopAll__12CMidiManagerFv:
@@ -389,7 +389,7 @@ lbl_80359074:
 /* 8035908C 00355FEC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80359090 00355FF0  7C 08 03 A6 */	mtlr r0
 /* 80359094 00355FF4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80359098 00355FF8  4E 80 00 20 */	blr 
+/* 80359098 00355FF8  4E 80 00 20 */	blr
 
 .global Stop__12CMidiManagerFRC10CSfxHandleUs
 Stop__12CMidiManagerFRC10CSfxHandleUs:
@@ -443,7 +443,7 @@ lbl_80359140:
 /* 8035914C 003560AC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80359150 003560B0  7C 08 03 A6 */	mtlr r0
 /* 80359154 003560B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80359158 003560B8  4E 80 00 20 */	blr 
+/* 80359158 003560B8  4E 80 00 20 */	blr
 
 .global Play__12CMidiManagerFRCQ212CMidiManager9CMidiDataUsbs
 Play__12CMidiManagerFRCQ212CMidiManager9CMidiDataUsbs:
@@ -565,48 +565,48 @@ lbl_803592FC:
 /* 80359300 00356260  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80359304 00356264  7C 08 03 A6 */	mtlr r0
 /* 80359308 00356268  38 21 00 40 */	addi r1, r1, 0x40
-/* 8035930C 0035626C  4E 80 00 20 */	blr 
+/* 8035930C 0035626C  4E 80 00 20 */	blr
 
 .global SetSongId__Q212CMidiManager12CMidiWrapperFs
 SetSongId__Q212CMidiManager12CMidiWrapperFs:
 /* 80359310 00356270  B0 83 00 08 */	sth r4, 8(r3)
-/* 80359314 00356274  4E 80 00 20 */	blr 
+/* 80359314 00356274  4E 80 00 20 */	blr
 
 .global SetMidiHandle__Q212CMidiManager12CMidiWrapperFRC10CSfxHandle
 SetMidiHandle__Q212CMidiManager12CMidiWrapperFRC10CSfxHandle:
 /* 80359318 00356278  80 04 00 00 */	lwz r0, 0(r4)
 /* 8035931C 0035627C  90 03 00 04 */	stw r0, 4(r3)
-/* 80359320 00356280  4E 80 00 20 */	blr 
+/* 80359320 00356280  4E 80 00 20 */	blr
 
 .global SetAudioSysHandle__Q212CMidiManager12CMidiWrapperFUl
 SetAudioSysHandle__Q212CMidiManager12CMidiWrapperFUl:
 /* 80359324 00356284  90 83 00 00 */	stw r4, 0(r3)
-/* 80359328 00356288  4E 80 00 20 */	blr 
+/* 80359328 00356288  4E 80 00 20 */	blr
 
 .global SetAvailable__Q212CMidiManager12CMidiWrapperFb
 SetAvailable__Q212CMidiManager12CMidiWrapperFb:
 /* 8035932C 0035628C  98 83 00 0A */	stb r4, 0xa(r3)
-/* 80359330 00356290  4E 80 00 20 */	blr 
+/* 80359330 00356290  4E 80 00 20 */	blr
 
 .global GetSongId__Q212CMidiManager12CMidiWrapperCFv
 GetSongId__Q212CMidiManager12CMidiWrapperCFv:
 /* 80359334 00356294  A8 63 00 08 */	lha r3, 8(r3)
-/* 80359338 00356298  4E 80 00 20 */	blr 
+/* 80359338 00356298  4E 80 00 20 */	blr
 
 .global IsAvailable__Q212CMidiManager12CMidiWrapperCFv
 IsAvailable__Q212CMidiManager12CMidiWrapperCFv:
 /* 8035933C 0035629C  88 63 00 0A */	lbz r3, 0xa(r3)
-/* 80359340 003562A0  4E 80 00 20 */	blr 
+/* 80359340 003562A0  4E 80 00 20 */	blr
 
 .global GetAudioSysHandle__Q212CMidiManager12CMidiWrapperCFv
 GetAudioSysHandle__Q212CMidiManager12CMidiWrapperCFv:
 /* 80359344 003562A4  80 63 00 00 */	lwz r3, 0(r3)
-/* 80359348 003562A8  4E 80 00 20 */	blr 
+/* 80359348 003562A8  4E 80 00 20 */	blr
 
 .global GetManagerHandle__Q212CMidiManager12CMidiWrapperCFv
 GetManagerHandle__Q212CMidiManager12CMidiWrapperCFv:
 /* 8035934C 003562AC  38 63 00 04 */	addi r3, r3, 4
-/* 80359350 003562B0  4E 80 00 20 */	blr 
+/* 80359350 003562B0  4E 80 00 20 */	blr
 
 .global __ct__Q212CMidiManager12CMidiWrapperFv
 __ct__Q212CMidiManager12CMidiWrapperFv:
@@ -615,7 +615,7 @@ __ct__Q212CMidiManager12CMidiWrapperFv:
 /* 8035935C 003562BC  90 83 00 00 */	stw r4, 0(r3)
 /* 80359360 003562C0  90 83 00 04 */	stw r4, 4(r3)
 /* 80359364 003562C4  98 03 00 0A */	stb r0, 0xa(r3)
-/* 80359368 003562C8  4E 80 00 20 */	blr 
+/* 80359368 003562C8  4E 80 00 20 */	blr
 
 .global __sinit_CMidiManager_cpp
 __sinit_CMidiManager_cpp:
@@ -633,7 +633,7 @@ __sinit_CMidiManager_cpp:
 /* 80359398 003562F8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035939C 003562FC  7C 08 03 A6 */	mtlr r0
 /* 803593A0 00356300  38 21 00 10 */	addi r1, r1, 0x10
-/* 803593A4 00356304  4E 80 00 20 */	blr 
+/* 803593A4 00356304  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl49reserved_vector<Q212CMidiManager12CMidiWrapper,3>Fv"
 "__dt__Q24rstl49reserved_vector<Q212CMidiManager12CMidiWrapper,3>Fv":

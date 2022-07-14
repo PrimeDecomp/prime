@@ -60,17 +60,17 @@ SetSpawned__13CScriptPickupFv:
 /* 800C25F4 000BF554  38 80 00 01 */	li r4, 1
 /* 800C25F8 000BF558  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 800C25FC 000BF55C  98 03 02 8C */	stb r0, 0x28c(r3)
-/* 800C2600 000BF560  4E 80 00 20 */	blr 
+/* 800C2600 000BF560  4E 80 00 20 */	blr
 
 .global GetPossibility__13CScriptPickupCFv
 GetPossibility__13CScriptPickupCFv:
 /* 800C2604 000BF564  C0 23 02 64 */	lfs f1, 0x264(r3)
-/* 800C2608 000BF568  4E 80 00 20 */	blr 
+/* 800C2608 000BF568  4E 80 00 20 */	blr
 
 .global GetItem__13CScriptPickupCFv
 GetItem__13CScriptPickupCFv:
 /* 800C260C 000BF56C  80 63 02 58 */	lwz r3, 0x258(r3)
-/* 800C2610 000BF570  4E 80 00 20 */	blr 
+/* 800C2610 000BF570  4E 80 00 20 */	blr
 
 .global Accept__13CScriptPickupFR8IVisitor
 Accept__13CScriptPickupFR8IVisitor:
@@ -83,11 +83,11 @@ Accept__13CScriptPickupFR8IVisitor:
 /* 800C262C 000BF58C  7C 04 03 78 */	mr r4, r0
 /* 800C2630 000BF590  81 8C 00 98 */	lwz r12, 0x98(r12)
 /* 800C2634 000BF594  7D 89 03 A6 */	mtctr r12
-/* 800C2638 000BF598  4E 80 04 21 */	bctrl 
+/* 800C2638 000BF598  4E 80 04 21 */	bctrl
 /* 800C263C 000BF59C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C2640 000BF5A0  7C 08 03 A6 */	mtlr r0
 /* 800C2644 000BF5A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C2648 000BF5A8  4E 80 00 20 */	blr 
+/* 800C2648 000BF5A8  4E 80 00 20 */	blr
 
 .global Render__13CScriptPickupCFRC13CStateManager
 Render__13CScriptPickupCFRC13CStateManager:
@@ -98,7 +98,7 @@ Render__13CScriptPickupCFRC13CStateManager:
 /* 800C265C 000BF5BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C2660 000BF5C0  7C 08 03 A6 */	mtlr r0
 /* 800C2664 000BF5C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C2668 000BF5C8  4E 80 00 20 */	blr 
+/* 800C2668 000BF5C8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__13CScriptPickupF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__13CScriptPickupF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -112,7 +112,7 @@ AcceptScriptMsg__13CScriptPickupF20EScriptObjectMessage9TUniqueIdR13CStateManage
 /* 800C2688 000BF5E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C268C 000BF5EC  7C 08 03 A6 */	mtlr r0
 /* 800C2690 000BF5F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C2694 000BF5F4  4E 80 00 20 */	blr 
+/* 800C2694 000BF5F4  4E 80 00 20 */	blr
 
 .global GetTouchBounds__13CScriptPickupCFv
 GetTouchBounds__13CScriptPickupCFv:
@@ -144,7 +144,7 @@ lbl_800C26F4:
 /* 800C26F8 000BF658  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 800C26FC 000BF65C  7C 08 03 A6 */	mtlr r0
 /* 800C2700 000BF660  38 21 00 30 */	addi r1, r1, 0x30
-/* 800C2704 000BF664  4E 80 00 20 */	blr 
+/* 800C2704 000BF664  4E 80 00 20 */	blr
 
 .global Touch__13CScriptPickupFR6CActorR13CStateManager
 Touch__13CScriptPickupFR6CActorR13CStateManager:
@@ -335,7 +335,7 @@ lbl_800C29C8:
 /* 800C29C8 000BF928  81 83 00 00 */	lwz r12, 0(r3)
 /* 800C29CC 000BF92C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800C29D0 000BF930  7D 89 03 A6 */	mtctr r12
-/* 800C29D4 000BF934  4E 80 04 21 */	bctrl 
+/* 800C29D4 000BF934  4E 80 04 21 */	bctrl
 /* 800C29D8 000BF938  80 9E 0F 80 */	lwz r4, 0xf80(r30)
 /* 800C29DC 000BF93C  80 A3 00 04 */	lwz r5, 4(r3)
 /* 800C29E0 000BF940  7F C3 F3 78 */	mr r3, r30
@@ -379,7 +379,7 @@ lbl_800C2A6C:
 /* 800C2A70 000BF9D0  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 800C2A74 000BF9D4  7C 08 03 A6 */	mtlr r0
 /* 800C2A78 000BF9D8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800C2A7C 000BF9DC  4E 80 00 20 */	blr 
+/* 800C2A7C 000BF9DC  4E 80 00 20 */	blr
 
 .global Think__13CScriptPickupFfR13CStateManager
 Think__13CScriptPickupFfR13CStateManager:
@@ -779,7 +779,7 @@ lbl_800C3028:
 /* 800C304C 000BFFAC  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 800C3050 000BFFB0  7C 08 03 A6 */	mtlr r0
 /* 800C3054 000BFFB4  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800C3058 000BFFB8  4E 80 00 20 */	blr 
+/* 800C3058 000BFFB8  4E 80 00 20 */	blr
 
 .global __dt__13CScriptPickup
 __dt__13CScriptPickup:
@@ -823,7 +823,7 @@ lbl_800C30D8:
 /* 800C30E4 000C0044  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800C30E8 000C0048  7C 08 03 A6 */	mtlr r0
 /* 800C30EC 000C004C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C30F0 000C0050  4E 80 00 20 */	blr 
+/* 800C30F0 000C0050  4E 80 00 20 */	blr
 
 .global "__ct__13CScriptPickupF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxiiiiffffb"
 "__ct__13CScriptPickupF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxiiiiffffb":
@@ -939,7 +939,7 @@ lbl_800C30D8:
 /* 800C32A8 000C0208  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C32AC 000C020C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800C32B0 000C0210  7D 89 03 A6 */	mtctr r12
-/* 800C32B4 000C0214  4E 80 04 21 */	bctrl 
+/* 800C32B4 000C0214  4E 80 04 21 */	bctrl
 /* 800C32B8 000C0218  38 61 00 40 */	addi r3, r1, 0x40
 /* 800C32BC 000C021C  38 81 00 24 */	addi r4, r1, 0x24
 /* 800C32C0 000C0220  48 27 DB E9 */	bl __ct__6CTokenFRC6CToken
@@ -1046,4 +1046,4 @@ lbl_800C3410:
 /* 800C3438 000C0398  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 800C343C 000C039C  7C 08 03 A6 */	mtlr r0
 /* 800C3440 000C03A0  38 21 01 20 */	addi r1, r1, 0x120
-/* 800C3444 000C03A4  4E 80 00 20 */	blr 
+/* 800C3444 000C03A4  4E 80 00 20 */	blr

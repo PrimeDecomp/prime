@@ -28,7 +28,7 @@ lbl_803EC848:
 GetWidgetTypeID__9CGuiLightCFv:
 /* 802C3740 002C06A0  3C 60 4C 49 */	lis r3, 0x4C495445@ha
 /* 802C3744 002C06A4  38 63 54 45 */	addi r3, r3, 0x4C495445@l
-/* 802C3748 002C06A8  4E 80 00 20 */	blr 
+/* 802C3748 002C06A8  4E 80 00 20 */	blr
 
 .global BuildLight__9CGuiLightCFv
 BuildLight__9CGuiLightCFv:
@@ -295,7 +295,7 @@ lbl_802C3B00:
 /* 802C3B44 002C0AA4  83 C1 02 18 */	lwz r30, 0x218(r1)
 /* 802C3B48 002C0AA8  7C 08 03 A6 */	mtlr r0
 /* 802C3B4C 002C0AAC  38 21 02 20 */	addi r1, r1, 0x220
-/* 802C3B50 002C0AB0  4E 80 00 20 */	blr 
+/* 802C3B50 002C0AB0  4E 80 00 20 */	blr
 
 .global SetIsVisible__9CGuiLightFb
 SetIsVisible__9CGuiLightFb:
@@ -325,7 +325,7 @@ lbl_802C3B94:
 /* 802C3BA8 002C0B08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C3BAC 002C0B0C  7C 08 03 A6 */	mtlr r0
 /* 802C3BB0 002C0B10  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C3BB4 002C0B14  4E 80 00 20 */	blr 
+/* 802C3BB4 002C0B14  4E 80 00 20 */	blr
 
 .global __dt__9CGuiLightFv
 __dt__9CGuiLightFv:
@@ -357,7 +357,7 @@ lbl_802C3C0C:
 /* 802C3C18 002C0B78  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C3C1C 002C0B7C  7C 08 03 A6 */	mtlr r0
 /* 802C3C20 002C0B80  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C3C24 002C0B84  4E 80 00 20 */	blr 
+/* 802C3C24 002C0B84  4E 80 00 20 */	blr
 
 .global __ct__9CGuiLightFRCQ210CGuiWidget15CGuiWidgetParmsRC6CLight
 __ct__9CGuiLightFRCQ210CGuiWidget15CGuiWidgetParmsRC6CLight:
@@ -399,7 +399,7 @@ __ct__9CGuiLightFRCQ210CGuiWidget15CGuiWidgetParmsRC6CLight:
 /* 802C3CB4 002C0C14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C3CB8 002C0C18  7C 08 03 A6 */	mtlr r0
 /* 802C3CBC 002C0C1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C3CC0 002C0C20  4E 80 00 20 */	blr 
+/* 802C3CC0 002C0C20  4E 80 00 20 */	blr
 
 .global Create__9CGuiLightFP9CGuiFrameR12CInputStreamb
 Create__9CGuiLightFP9CGuiFrameR12CInputStreamb:

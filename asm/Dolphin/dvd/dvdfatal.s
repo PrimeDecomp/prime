@@ -3,11 +3,15 @@
 .section .sdata
 .global lbl_805A8AB0
 lbl_805A8AB0:
-	.incbin "baserom.dol", 0x3F6450, 0x4
+	# ROM: 0x3F6450
+	.4byte 0x803F0148
+
 .global lbl_805A8AB4
 lbl_805A8AB4:
-	.incbin "baserom.dol", 0x3F6454, 0x4
-	
+	# ROM: 0x3F6454
+	.4byte 0x803F01B8
+
+
 .section .sbss
 .global lbl_805A9820
 lbl_805A9820:
@@ -16,14 +20,25 @@ lbl_805A9820:
 .section .sdata2
 .global lbl_805AEB20
 lbl_805AEB20:
-	.incbin "baserom.dol", 0x3FB3C0, 0x4
+	# ROM: 0x3FB3C0
+	.4byte 0
+
 .global lbl_805AEB24
 lbl_805AEB24:
-	.incbin "baserom.dol", 0x3FB3C4, 0x4
+	# ROM: 0x3FB3C4
+	.4byte 0xFFFFFF00
+
 
 .section .rodata
 lbl_803D8570:
-	.incbin "baserom.dol", 0x3D5570, 0x18
+	# ROM: 0x3D5570
+	.4byte 0x803F0238
+	.4byte 0x803F02B8
+	.4byte 0x803F0354
+	.4byte 0x803F03E4
+	.4byte 0x803F046C
+	.4byte 0x803F04EC
+
 
 .section .text, "ax"
 
@@ -66,7 +81,7 @@ lbl_80374DA0:
 /* 80374DBC 00371D1C  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 80374DC0 00371D20  38 21 00 18 */	addi r1, r1, 0x18
 /* 80374DC4 00371D24  7C 08 03 A6 */	mtlr r0
-/* 80374DC8 00371D28  4E 80 00 20 */	blr 
+/* 80374DC8 00371D28  4E 80 00 20 */	blr
 
 .global DVDSetAutoFatalMessaging
 DVDSetAutoFatalMessaging:
@@ -101,7 +116,7 @@ lbl_80374E18:
 /* 80374E2C 00371D8C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 80374E30 00371D90  38 21 00 18 */	addi r1, r1, 0x18
 /* 80374E34 00371D94  7C 08 03 A6 */	mtlr r0
-/* 80374E38 00371D98  4E 80 00 20 */	blr 
+/* 80374E38 00371D98  4E 80 00 20 */	blr
 
 .global __DVDPrintFatalMessage
 __DVDPrintFatalMessage:
@@ -112,9 +127,9 @@ __DVDPrintFatalMessage:
 /* 80374E4C 00371DAC  28 0C 00 00 */	cmplwi r12, 0
 /* 80374E50 00371DB0  41 82 00 0C */	beq lbl_80374E5C
 /* 80374E54 00371DB4  7D 88 03 A6 */	mtlr r12
-/* 80374E58 00371DB8  4E 80 00 21 */	blrl 
+/* 80374E58 00371DB8  4E 80 00 21 */	blrl
 lbl_80374E5C:
 /* 80374E5C 00371DBC  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80374E60 00371DC0  38 21 00 08 */	addi r1, r1, 8
 /* 80374E64 00371DC4  7C 08 03 A6 */	mtlr r0
-/* 80374E68 00371DC8  4E 80 00 20 */	blr 
+/* 80374E68 00371DC8  4E 80 00 20 */	blr

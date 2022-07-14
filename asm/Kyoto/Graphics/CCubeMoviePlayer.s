@@ -60,27 +60,27 @@ lbl_8035B5FC:
 /* 8035B5FC 0035855C  88 03 00 00 */	lbz r0, 0(r3)
 /* 8035B600 00358560  98 0D 9E 29 */	stb r0, lbl_805A89E9@sda21(r13)
 /* 8035B604 00358564  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035B608 00358568  4E 80 00 20 */	blr 
+/* 8035B608 00358568  4E 80 00 20 */	blr
 
 .global sub_8035b60c
 sub_8035b60c:
 /* 8035B60C 0035856C  88 6D 9E 28 */	lbz r3, lbl_805A89E8@sda21(r13)
-/* 8035B610 00358570  4E 80 00 20 */	blr 
+/* 8035B610 00358570  4E 80 00 20 */	blr
 
 .global sub_8035b614
 sub_8035b614:
 /* 8035B614 00358574  98 6D 9E 28 */	stb r3, lbl_805A89E8@sda21(r13)
-/* 8035B618 00358578  4E 80 00 20 */	blr 
+/* 8035B618 00358578  4E 80 00 20 */	blr
 
 .global sub_8035b61c
 sub_8035b61c:
 /* 8035B61C 0035857C  80 63 00 70 */	lwz r3, 0x70(r3)
-/* 8035B620 00358580  4E 80 00 20 */	blr 
+/* 8035B620 00358580  4E 80 00 20 */	blr
 
 .global sub_8035b624
 sub_8035b624:
 /* 8035B624 00358584  80 63 00 6C */	lwz r3, 0x6c(r3)
-/* 8035B628 00358588  4E 80 00 20 */	blr 
+/* 8035B628 00358588  4E 80 00 20 */	blr
 
 .global VerifyCallbackStatus__12CMoviePlayerFv
 VerifyCallbackStatus__12CMoviePlayerFv:
@@ -102,7 +102,7 @@ lbl_8035B660:
 /* 8035B660 003585C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035B664 003585C4  7C 08 03 A6 */	mtlr r0
 /* 8035B668 003585C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035B66C 003585CC  4E 80 00 20 */	blr 
+/* 8035B66C 003585CC  4E 80 00 20 */	blr
 
 .global MixAudio__12CMoviePlayerFPsPCsUl
 MixAudio__12CMoviePlayerFPsPCsUl:
@@ -258,7 +258,7 @@ lbl_8035B870:
 /* 8035B874 003587D4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8035B878 003587D8  7C 08 03 A6 */	mtlr r0
 /* 8035B87C 003587DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035B880 003587E0  4E 80 00 20 */	blr 
+/* 8035B880 003587E0  4E 80 00 20 */	blr
 
 .global StaticMyAudioCallback__12CMoviePlayerFv
 StaticMyAudioCallback__12CMoviePlayerFv:
@@ -311,7 +311,7 @@ lbl_8035B92C:
 /* 8035B934 00358894  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8035B938 00358898  7C 08 03 A6 */	mtlr r0
 /* 8035B93C 0035889C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035B940 003588A0  4E 80 00 20 */	blr 
+/* 8035B940 003588A0  4E 80 00 20 */	blr
 
 .global Rewind__12CMoviePlayerFv
 Rewind__12CMoviePlayerFv:
@@ -326,7 +326,7 @@ Rewind__12CMoviePlayerFv:
 /* 8035B964 003588C4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035B968 003588C8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8035B96C 003588CC  7D 89 03 A6 */	mtctr r12
-/* 8035B970 003588D0  4E 80 04 21 */	bctrl 
+/* 8035B970 003588D0  4E 80 04 21 */	bctrl
 /* 8035B974 003588D4  80 7F 00 98 */	lwz r3, 0x98(r31)
 /* 8035B978 003588D8  28 03 00 00 */	cmplwi r3, 0
 /* 8035B97C 003588DC  41 82 00 18 */	beq lbl_8035B994
@@ -334,7 +334,7 @@ Rewind__12CMoviePlayerFv:
 /* 8035B984 003588E4  38 80 00 01 */	li r4, 1
 /* 8035B988 003588E8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035B98C 003588EC  7D 89 03 A6 */	mtctr r12
-/* 8035B990 003588F0  4E 80 04 21 */	bctrl 
+/* 8035B990 003588F0  4E 80 04 21 */	bctrl
 lbl_8035B994:
 /* 8035B994 003588F4  38 00 00 00 */	li r0, 0
 /* 8035B998 003588F8  90 1F 00 98 */	stw r0, 0x98(r31)
@@ -391,7 +391,7 @@ lbl_8035B9F8:
 /* 8035BA54 003589B4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8035BA58 003589B8  7C 08 03 A6 */	mtlr r0
 /* 8035BA5C 003589BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035BA60 003589C0  4E 80 00 20 */	blr 
+/* 8035BA60 003589C0  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fv"
 "clear__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fv":
@@ -418,7 +418,7 @@ lbl_8035B9F8:
 /* 8035BAB4 00358A14  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8035BAB8 00358A18  7C 08 03 A6 */	mtlr r0
 /* 8035BABC 00358A1C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035BAC0 00358A20  4E 80 00 20 */	blr 
+/* 8035BAC0 00358A20  4E 80 00 20 */	blr
 
 .global "destroy<Q24rstl154pointer_iterator<Q212CMoviePlayer14CTHPTextureSet,Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl154pointer_iterator<Q212CMoviePlayer14CTHPTextureSet,Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl154pointer_iterator<Q212CMoviePlayer14CTHPTextureSet,Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "destroy<Q24rstl154pointer_iterator<Q212CMoviePlayer14CTHPTextureSet,Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl154pointer_iterator<Q212CMoviePlayer14CTHPTextureSet,Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl154pointer_iterator<Q212CMoviePlayer14CTHPTextureSet,Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -475,7 +475,7 @@ lbl_8035BB60:
 /* 8035BB74 00358AD4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8035BB78 00358AD8  7C 08 03 A6 */	mtlr r0
 /* 8035BB7C 00358ADC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035BB80 00358AE0  4E 80 00 20 */	blr 
+/* 8035BB80 00358AE0  4E 80 00 20 */	blr
 
 .global GetIsMovieFinishedPlaying__12CMoviePlayerCFv
 GetIsMovieFinishedPlaying__12CMoviePlayerCFv:
@@ -490,7 +490,7 @@ GetIsMovieFinishedPlaying__12CMoviePlayerCFv:
 /* 8035BBA4 00358B04  38 A0 00 01 */	li r5, 1
 lbl_8035BBA8:
 /* 8035BBA8 00358B08  7C A3 2B 78 */	mr r3, r5
-/* 8035BBAC 00358B0C  4E 80 00 20 */	blr 
+/* 8035BBAC 00358B0C  4E 80 00 20 */	blr
 
 .global GetIsFullyCached__12CMoviePlayerCFv
 GetIsFullyCached__12CMoviePlayerCFv:
@@ -500,24 +500,24 @@ GetIsFullyCached__12CMoviePlayerCFv:
 /* 8035BBBC 00358B1C  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 8035BBC0 00358B20  7C 00 28 10 */	subfc r0, r0, r5
 /* 8035BBC4 00358B24  7C 64 19 14 */	adde r3, r4, r3
-/* 8035BBC8 00358B28  4E 80 00 20 */	blr 
+/* 8035BBC8 00358B28  4E 80 00 20 */	blr
 
 .global GetPlayedSeconds__12CMoviePlayerCFv
 GetPlayedSeconds__12CMoviePlayerCFv:
 /* 8035BBCC 00358B2C  C0 23 00 E8 */	lfs f1, 0xe8(r3)
 /* 8035BBD0 00358B30  C0 03 00 DC */	lfs f0, 0xdc(r3)
 /* 8035BBD4 00358B34  EC 21 00 2A */	fadds f1, f1, f0
-/* 8035BBD8 00358B38  4E 80 00 20 */	blr 
+/* 8035BBD8 00358B38  4E 80 00 20 */	blr
 
 .global GetTotalSeconds__12CMoviePlayerCFv
 GetTotalSeconds__12CMoviePlayerCFv:
 /* 8035BBDC 00358B3C  C0 23 00 E4 */	lfs f1, 0xe4(r3)
-/* 8035BBE0 00358B40  4E 80 00 20 */	blr 
+/* 8035BBE0 00358B40  4E 80 00 20 */	blr
 
 .global SetPlayMode__12CMoviePlayerFQ212CMoviePlayer9EPlayMode
 SetPlayMode__12CMoviePlayerFQ212CMoviePlayer9EPlayMode:
 /* 8035BBE4 00358B44  90 83 00 E0 */	stw r4, 0xe0(r3)
-/* 8035BBE8 00358B48  4E 80 00 20 */	blr 
+/* 8035BBE8 00358B48  4E 80 00 20 */	blr
 
 .global DrawFrame__12CMoviePlayerFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f
 DrawFrame__12CMoviePlayerFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -615,7 +615,7 @@ lbl_8035BD4C:
 /* 8035BD50 00358CB0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8035BD54 00358CB4  7C 08 03 A6 */	mtlr r0
 /* 8035BD58 00358CB8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035BD5C 00358CBC  4E 80 00 20 */	blr 
+/* 8035BD5C 00358CBC  4E 80 00 20 */	blr
 
 .global Update__12CMoviePlayerFf
 Update__12CMoviePlayerFf:
@@ -642,7 +642,7 @@ Update__12CMoviePlayerFf:
 /* 8035BDB0 00358D10  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035BDB4 00358D14  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8035BDB8 00358D18  7D 89 03 A6 */	mtctr r12
-/* 8035BDBC 00358D1C  4E 80 04 21 */	bctrl 
+/* 8035BDBC 00358D1C  4E 80 04 21 */	bctrl
 /* 8035BDC0 00358D20  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8035BDC4 00358D24  41 82 00 F0 */	beq lbl_8035BEB4
 /* 8035BDC8 00358D28  7F E3 FB 78 */	mr r3, r31
@@ -676,7 +676,7 @@ lbl_8035BE30:
 /* 8035BE30 00358D90  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035BE34 00358D94  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8035BE38 00358D98  7D 89 03 A6 */	mtctr r12
-/* 8035BE3C 00358D9C  4E 80 04 21 */	bctrl 
+/* 8035BE3C 00358D9C  4E 80 04 21 */	bctrl
 /* 8035BE40 00358DA0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8035BE44 00358DA4  41 82 00 70 */	beq lbl_8035BEB4
 /* 8035BE48 00358DA8  80 1F 00 D8 */	lwz r0, 0xd8(r31)
@@ -865,7 +865,7 @@ lbl_8035C0C8:
 /* 8035C0E8 00359048  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8035C0EC 0035904C  7C 08 03 A6 */	mtlr r0
 /* 8035C0F0 00359050  38 21 00 50 */	addi r1, r1, 0x50
-/* 8035C0F4 00359054  4E 80 00 20 */	blr 
+/* 8035C0F4 00359054  4E 80 00 20 */	blr
 
 .global DecodeFromRead__12CMoviePlayerFPCv
 DecodeFromRead__12CMoviePlayerFPCv:
@@ -945,7 +945,7 @@ lbl_8035C200:
 /* 8035C204 00359164  80 01 10 54 */	lwz r0, 0x1054(r1)
 /* 8035C208 00359168  7C 08 03 A6 */	mtlr r0
 /* 8035C20C 0035916C  38 21 10 50 */	addi r1, r1, 0x1050
-/* 8035C210 00359170  4E 80 00 20 */	blr 
+/* 8035C210 00359170  4E 80 00 20 */	blr
 
 .global ReadCompleted__12CMoviePlayerFv
 ReadCompleted__12CMoviePlayerFv:
@@ -961,7 +961,7 @@ ReadCompleted__12CMoviePlayerFv:
 /* 8035C238 00359198  38 80 00 01 */	li r4, 1
 /* 8035C23C 0035919C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035C240 003591A0  7D 89 03 A6 */	mtctr r12
-/* 8035C244 003591A4  4E 80 04 21 */	bctrl 
+/* 8035C244 003591A4  4E 80 04 21 */	bctrl
 lbl_8035C248:
 /* 8035C248 003591A8  38 00 00 00 */	li r0, 0
 /* 8035C24C 003591AC  90 1F 00 98 */	stw r0, 0x98(r31)
@@ -1049,7 +1049,7 @@ lbl_8035C374:
 /* 8035C378 003592D8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8035C37C 003592DC  7C 08 03 A6 */	mtlr r0
 /* 8035C380 003592E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035C384 003592E4  4E 80 00 20 */	blr 
+/* 8035C384 003592E4  4E 80 00 20 */	blr
 
 .global PostDVDReadRequestIfNeeded__12CMoviePlayerFv
 PostDVDReadRequestIfNeeded__12CMoviePlayerFv:
@@ -1119,7 +1119,7 @@ lbl_8035C448:
 /* 8035C478 003593D8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035C47C 003593DC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035C480 003593E0  7D 89 03 A6 */	mtctr r12
-/* 8035C484 003593E4  4E 80 04 21 */	bctrl 
+/* 8035C484 003593E4  4E 80 04 21 */	bctrl
 lbl_8035C488:
 /* 8035C488 003593E8  93 DF 00 98 */	stw r30, 0x98(r31)
 lbl_8035C48C:
@@ -1128,7 +1128,7 @@ lbl_8035C48C:
 /* 8035C494 003593F4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8035C498 003593F8  7C 08 03 A6 */	mtlr r0
 /* 8035C49C 003593FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035C4A0 00359400  4E 80 00 20 */	blr 
+/* 8035C4A0 00359400  4E 80 00 20 */	blr
 
 .global InitializeTextures__12CMoviePlayerFv
 InitializeTextures__12CMoviePlayerFv:
@@ -1337,7 +1337,7 @@ lbl_8035C780:
 /* 8035C7A8 00359708  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8035C7AC 0035970C  7C 08 03 A6 */	mtlr r0
 /* 8035C7B0 00359710  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8035C7B4 00359714  4E 80 00 20 */	blr 
+/* 8035C7B4 00359714  4E 80 00 20 */	blr
 
 .global __dt__12CMoviePlayerFv
 __dt__12CMoviePlayerFv:
@@ -1379,7 +1379,7 @@ lbl_8035C824:
 /* 8035C83C 0035979C  38 80 00 01 */	li r4, 1
 /* 8035C840 003597A0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035C844 003597A4  7D 89 03 A6 */	mtctr r12
-/* 8035C848 003597A8  4E 80 04 21 */	bctrl 
+/* 8035C848 003597A8  4E 80 04 21 */	bctrl
 lbl_8035C84C:
 /* 8035C84C 003597AC  34 1E 00 04 */	addic. r0, r30, 4
 /* 8035C850 003597B0  41 82 00 24 */	beq lbl_8035C874
@@ -1390,7 +1390,7 @@ lbl_8035C84C:
 /* 8035C864 003597C4  38 80 00 01 */	li r4, 1
 /* 8035C868 003597C8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035C86C 003597CC  7D 89 03 A6 */	mtctr r12
-/* 8035C870 003597D0  4E 80 04 21 */	bctrl 
+/* 8035C870 003597D0  4E 80 04 21 */	bctrl
 lbl_8035C874:
 /* 8035C874 003597D4  28 1E 00 00 */	cmplwi r30, 0
 /* 8035C878 003597D8  41 82 00 24 */	beq lbl_8035C89C
@@ -1401,7 +1401,7 @@ lbl_8035C874:
 /* 8035C88C 003597EC  38 80 00 01 */	li r4, 1
 /* 8035C890 003597F0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035C894 003597F4  7D 89 03 A6 */	mtctr r12
-/* 8035C898 003597F8  4E 80 04 21 */	bctrl 
+/* 8035C898 003597F8  4E 80 04 21 */	bctrl
 lbl_8035C89C:
 /* 8035C89C 003597FC  7F C3 F3 78 */	mr r3, r30
 /* 8035C8A0 00359800  4B FB 90 91 */	bl Free__7CMemoryFPCv
@@ -1418,7 +1418,7 @@ lbl_8035C8A4:
 /* 8035C8C8 00359828  38 80 00 01 */	li r4, 1
 /* 8035C8CC 0035982C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035C8D0 00359830  7D 89 03 A6 */	mtctr r12
-/* 8035C8D4 00359834  4E 80 04 21 */	bctrl 
+/* 8035C8D4 00359834  4E 80 04 21 */	bctrl
 lbl_8035C8D8:
 /* 8035C8D8 00359838  34 1F 00 90 */	addic. r0, r31, 0x90
 /* 8035C8DC 0035983C  41 82 00 18 */	beq lbl_8035C8F4
@@ -1446,7 +1446,7 @@ lbl_8035C91C:
 /* 8035C92C 0035988C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8035C930 00359890  7C 08 03 A6 */	mtlr r0
 /* 8035C934 00359894  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035C938 00359898  4E 80 00 20 */	blr 
+/* 8035C938 00359898  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fv"
 "__dt__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fv":
@@ -1486,7 +1486,7 @@ lbl_8035C9AC:
 /* 8035C9B8 00359918  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8035C9BC 0035991C  7C 08 03 A6 */	mtlr r0
 /* 8035C9C0 00359920  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035C9C4 00359924  4E 80 00 20 */	blr 
+/* 8035C9C4 00359924  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl56vector<Q24rstl12auto_ptr<Uc>,Q24rstl17rmemory_allocator>Fv"
 "__dt__Q24rstl56vector<Q24rstl12auto_ptr<Uc>,Q24rstl17rmemory_allocator>Fv":
@@ -1540,7 +1540,7 @@ lbl_8035CA5C:
 /* 8035CA70 003599D0  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8035CA74 003599D4  7C 08 03 A6 */	mtlr r0
 /* 8035CA78 003599D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035CA7C 003599DC  4E 80 00 20 */	blr 
+/* 8035CA7C 003599DC  4E 80 00 20 */	blr
 
 .global PumpIndexLoad__12CMoviePlayerFv
 PumpIndexLoad__12CMoviePlayerFv:
@@ -1572,7 +1572,7 @@ lbl_8035CAD4:
 /* 8035CAD8 00359A38  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035CADC 00359A3C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8035CAE0 00359A40  7D 89 03 A6 */	mtctr r12
-/* 8035CAE4 00359A44  4E 80 04 21 */	bctrl 
+/* 8035CAE4 00359A44  4E 80 04 21 */	bctrl
 /* 8035CAE8 00359A48  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8035CAEC 00359A4C  41 82 00 6C */	beq lbl_8035CB58
 /* 8035CAF0 00359A50  7F E4 FB 78 */	mr r4, r31
@@ -1594,7 +1594,7 @@ lbl_8035CAD4:
 /* 8035CB30 00359A90  38 80 00 01 */	li r4, 1
 /* 8035CB34 00359A94  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CB38 00359A98  7D 89 03 A6 */	mtctr r12
-/* 8035CB3C 00359A9C  4E 80 04 21 */	bctrl 
+/* 8035CB3C 00359A9C  4E 80 04 21 */	bctrl
 lbl_8035CB40:
 /* 8035CB40 00359AA0  93 9D 00 00 */	stw r28, 0(r29)
 /* 8035CB44 00359AA4  80 9E 00 AC */	lwz r4, 0xac(r30)
@@ -1611,7 +1611,7 @@ lbl_8035CB60:
 /* 8035CB68 00359AC8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035CB6C 00359ACC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8035CB70 00359AD0  7D 89 03 A6 */	mtctr r12
-/* 8035CB74 00359AD4  4E 80 04 21 */	bctrl 
+/* 8035CB74 00359AD4  4E 80 04 21 */	bctrl
 /* 8035CB78 00359AD8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8035CB7C 00359ADC  41 82 01 3C */	beq lbl_8035CCB8
 /* 8035CB80 00359AE0  7F E4 FB 78 */	mr r4, r31
@@ -1626,7 +1626,7 @@ lbl_8035CB60:
 /* 8035CBA4 00359B04  38 80 00 01 */	li r4, 1
 /* 8035CBA8 00359B08  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CBAC 00359B0C  7D 89 03 A6 */	mtctr r12
-/* 8035CBB0 00359B10  4E 80 04 21 */	bctrl 
+/* 8035CBB0 00359B10  4E 80 04 21 */	bctrl
 lbl_8035CBB4:
 /* 8035CBB4 00359B14  38 00 00 00 */	li r0, 0
 /* 8035CBB8 00359B18  3B 7F 00 20 */	addi r27, r31, 0x20
@@ -1660,7 +1660,7 @@ lbl_8035CBF0:
 /* 8035CC20 00359B80  38 80 00 01 */	li r4, 1
 /* 8035CC24 00359B84  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CC28 00359B88  7D 89 03 A6 */	mtctr r12
-/* 8035CC2C 00359B8C  4E 80 04 21 */	bctrl 
+/* 8035CC2C 00359B8C  4E 80 04 21 */	bctrl
 lbl_8035CC30:
 /* 8035CC30 00359B90  93 BC 00 04 */	stw r29, 4(r28)
 /* 8035CC34 00359B94  3B 5A 00 08 */	addi r26, r26, 8
@@ -1681,7 +1681,7 @@ lbl_8035CC3C:
 /* 8035CC6C 00359BCC  38 80 00 01 */	li r4, 1
 /* 8035CC70 00359BD0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CC74 00359BD4  7D 89 03 A6 */	mtctr r12
-/* 8035CC78 00359BD8  4E 80 04 21 */	bctrl 
+/* 8035CC78 00359BD8  4E 80 04 21 */	bctrl
 lbl_8035CC7C:
 /* 8035CC7C 00359BDC  93 BC 00 08 */	stw r29, 8(r28)
 /* 8035CC80 00359BE0  38 60 00 01 */	li r3, 1
@@ -1718,7 +1718,7 @@ lbl_8035CCC0:
 /* 8035CCEC 00359C4C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035CCF0 00359C50  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8035CCF4 00359C54  7D 89 03 A6 */	mtctr r12
-/* 8035CCF8 00359C58  4E 80 04 21 */	bctrl 
+/* 8035CCF8 00359C58  4E 80 04 21 */	bctrl
 /* 8035CCFC 00359C5C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8035CD00 00359C60  40 82 00 08 */	bne lbl_8035CD08
 /* 8035CD04 00359C64  3B 20 00 00 */	li r25, 0
@@ -1730,7 +1730,7 @@ lbl_8035CD08:
 /* 8035CD18 00359C78  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035CD1C 00359C7C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8035CD20 00359C80  7D 89 03 A6 */	mtctr r12
-/* 8035CD24 00359C84  4E 80 04 21 */	bctrl 
+/* 8035CD24 00359C84  4E 80 04 21 */	bctrl
 /* 8035CD28 00359C88  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8035CD2C 00359C8C  40 82 00 08 */	bne lbl_8035CD34
 /* 8035CD30 00359C90  3B 20 00 00 */	li r25, 0
@@ -1771,7 +1771,7 @@ lbl_8035CD90:
 /* 8035CDA8 00359D08  38 80 00 01 */	li r4, 1
 /* 8035CDAC 00359D0C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CDB0 00359D10  7D 89 03 A6 */	mtctr r12
-/* 8035CDB4 00359D14  4E 80 04 21 */	bctrl 
+/* 8035CDB4 00359D14  4E 80 04 21 */	bctrl
 lbl_8035CDB8:
 /* 8035CDB8 00359D18  34 1C 00 04 */	addic. r0, r28, 4
 /* 8035CDBC 00359D1C  41 82 00 24 */	beq lbl_8035CDE0
@@ -1782,7 +1782,7 @@ lbl_8035CDB8:
 /* 8035CDD0 00359D30  38 80 00 01 */	li r4, 1
 /* 8035CDD4 00359D34  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CDD8 00359D38  7D 89 03 A6 */	mtctr r12
-/* 8035CDDC 00359D3C  4E 80 04 21 */	bctrl 
+/* 8035CDDC 00359D3C  4E 80 04 21 */	bctrl
 lbl_8035CDE0:
 /* 8035CDE0 00359D40  28 1C 00 00 */	cmplwi r28, 0
 /* 8035CDE4 00359D44  41 82 00 24 */	beq lbl_8035CE08
@@ -1793,7 +1793,7 @@ lbl_8035CDE0:
 /* 8035CDF8 00359D58  38 80 00 01 */	li r4, 1
 /* 8035CDFC 00359D5C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035CE00 00359D60  7D 89 03 A6 */	mtctr r12
-/* 8035CE04 00359D64  4E 80 04 21 */	bctrl 
+/* 8035CE04 00359D64  4E 80 04 21 */	bctrl
 lbl_8035CE08:
 /* 8035CE08 00359D68  7F 83 E3 78 */	mr r3, r28
 /* 8035CE0C 00359D6C  4B FB 8B 25 */	bl Free__7CMemoryFPCv
@@ -1871,7 +1871,7 @@ lbl_8035CF08:
 /* 8035CF0C 00359E6C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8035CF10 00359E70  7C 08 03 A6 */	mtlr r0
 /* 8035CF14 00359E74  38 21 00 40 */	addi r1, r1, 0x40
-/* 8035CF18 00359E78  4E 80 00 20 */	blr 
+/* 8035CF18 00359E78  4E 80 00 20 */	blr
 
 .global __ct__12CMoviePlayerFPCcfb
 __ct__12CMoviePlayerFPCcfb:
@@ -1994,7 +1994,7 @@ lbl_8035D0A4:
 /* 8035D0E0 0035A040  38 80 00 01 */	li r4, 1
 /* 8035D0E4 0035A044  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035D0E8 0035A048  7D 89 03 A6 */	mtctr r12
-/* 8035D0EC 0035A04C  4E 80 04 21 */	bctrl 
+/* 8035D0EC 0035A04C  4E 80 04 21 */	bctrl
 lbl_8035D0F0:
 /* 8035D0F0 0035A050  93 DC 00 00 */	stw r30, 0(r28)
 /* 8035D0F4 0035A054  7F A3 EB 78 */	mr r3, r29
@@ -2007,7 +2007,7 @@ lbl_8035D0F0:
 /* 8035D110 0035A070  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8035D114 0035A074  7C 08 03 A6 */	mtlr r0
 /* 8035D118 0035A078  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035D11C 0035A07C  4E 80 00 20 */	blr 
+/* 8035D11C 0035A07C  4E 80 00 20 */	blr
 
 .global MyTHPYuv2RgbTextureSetup__FPvPvPvUsUs
 MyTHPYuv2RgbTextureSetup__FPvPvPvUsUs:
@@ -2103,7 +2103,7 @@ MyTHPYuv2RgbTextureSetup__FPvPvPvUsUs:
 /* 8035D284 0035A1E4  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 8035D288 0035A1E8  7C 08 03 A6 */	mtlr r0
 /* 8035D28C 0035A1EC  38 21 00 80 */	addi r1, r1, 0x80
-/* 8035D290 0035A1F0  4E 80 00 20 */	blr 
+/* 8035D290 0035A1F0  4E 80 00 20 */	blr
 
 .global MyTHPGXYuv2RgbSetup__Fb
 MyTHPGXYuv2RgbSetup__Fb:
@@ -2437,7 +2437,7 @@ lbl_8035D4C4:
 /* 8035D7A0 0035A700  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8035D7A4 0035A704  7C 08 03 A6 */	mtlr r0
 /* 8035D7A8 0035A708  38 21 00 90 */	addi r1, r1, 0x90
-/* 8035D7AC 0035A70C  4E 80 00 20 */	blr 
+/* 8035D7AC 0035A70C  4E 80 00 20 */	blr
 
 .global MyTHPGXRestore__Fv
 MyTHPGXRestore__Fv:
@@ -2473,7 +2473,7 @@ MyTHPGXRestore__Fv:
 /* 8035D824 0035A784  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035D828 0035A788  7C 08 03 A6 */	mtlr r0
 /* 8035D82C 0035A78C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035D830 0035A790  4E 80 00 20 */	blr 
+/* 8035D830 0035A790  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl67vector<Q212CMoviePlayer14CTHPTextureSet,Q24rstl17rmemory_allocator>Fi":
@@ -2567,7 +2567,7 @@ lbl_8035D964:
 /* 8035D968 0035A8C8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8035D96C 0035A8CC  7C 08 03 A6 */	mtlr r0
 /* 8035D970 0035A8D0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035D974 0035A8D4  4E 80 00 20 */	blr 
+/* 8035D974 0035A8D4  4E 80 00 20 */	blr
 
 .global "construct<Q212CMoviePlayer14CTHPTextureSet>__4rstlFPvRCQ212CMoviePlayer14CTHPTextureSet"
 "construct<Q212CMoviePlayer14CTHPTextureSet>__4rstlFPvRCQ212CMoviePlayer14CTHPTextureSet":
@@ -2609,7 +2609,7 @@ lbl_8035D9F4:
 /* 8035D9F8 0035A958  7C 06 00 40 */	cmplw r6, r0
 /* 8035D9FC 0035A95C  40 82 FF 84 */	bne lbl_8035D980
 /* 8035DA00 0035A960  7C A3 2B 78 */	mr r3, r5
-/* 8035DA04 0035A964  4E 80 00 20 */	blr 
+/* 8035DA04 0035A964  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl56vector<Q24rstl12auto_ptr<Uc>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl56vector<Q24rstl12auto_ptr<Uc>,Q24rstl17rmemory_allocator>Fi":
@@ -2688,4 +2688,4 @@ lbl_8035DAFC:
 /* 8035DB00 0035AA60  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8035DB04 0035AA64  7C 08 03 A6 */	mtlr r0
 /* 8035DB08 0035AA68  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035DB0C 0035AA6C  4E 80 00 20 */	blr 
+/* 8035DB0C 0035AA6C  4E 80 00 20 */	blr

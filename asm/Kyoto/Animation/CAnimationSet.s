@@ -47,7 +47,7 @@ lbl_802D6F70:
 /* 802D6F70 002D3ED0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D6F74 002D3ED4  7C 08 03 A6 */	mtlr r0
 /* 802D6F78 002D3ED8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6F7C 002D3EDC  4E 80 00 20 */	blr 
+/* 802D6F7C 002D3EDC  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl52vector<Q24rstl9pair<i,i>,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl52vector<Q24rstl9pair<i,i>,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -108,7 +108,7 @@ lbl_802D7034:
 /* 802D7044 002D3FA4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802D7048 002D3FA8  7C 08 03 A6 */	mtlr r0
 /* 802D704C 002D3FAC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D7050 002D3FB0  4E 80 00 20 */	blr 
+/* 802D7050 002D3FB0  4E 80 00 20 */	blr
 
 .global StreamHalfTransitions__13CAnimationSetFUsR12CInputStream
 StreamHalfTransitions__13CAnimationSetFUsR12CInputStream:
@@ -131,7 +131,7 @@ lbl_802D708C:
 /* 802D708C 002D3FEC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D7090 002D3FF0  7C 08 03 A6 */	mtlr r0
 /* 802D7094 002D3FF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D7098 002D3FF8  4E 80 00 20 */	blr 
+/* 802D7098 002D3FF8  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -205,7 +205,7 @@ lbl_802D7180:
 /* 802D7190 002D40F0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802D7194 002D40F4  7C 08 03 A6 */	mtlr r0
 /* 802D7198 002D40F8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D719C 002D40FC  4E 80 00 20 */	blr 
+/* 802D719C 002D40FC  4E 80 00 20 */	blr
 
 .global "Get<15CHalfTransition>__12CInputStreamFRC24TType<15CHalfTransition>"
 "Get<15CHalfTransition>__12CInputStreamFRC24TType<15CHalfTransition>":
@@ -223,7 +223,7 @@ lbl_802D7180:
 /* 802D71CC 002D412C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802D71D0 002D4130  7C 08 03 A6 */	mtlr r0
 /* 802D71D4 002D4134  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D71D8 002D4138  4E 80 00 20 */	blr 
+/* 802D71D8 002D4138  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<15CHalfTransition>__FRC24TType<15CHalfTransition>R12CInputStream"
 "cinput_stream_helper<15CHalfTransition>__FRC24TType<15CHalfTransition>R12CInputStream":
@@ -235,7 +235,7 @@ lbl_802D7180:
 /* 802D71F0 002D4150  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D71F4 002D4154  7C 08 03 A6 */	mtlr r0
 /* 802D71F8 002D4158  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D71FC 002D415C  4E 80 00 20 */	blr 
+/* 802D71FC 002D415C  4E 80 00 20 */	blr
 
 .global StreamDefaultAdditiveAnimInfo__13CAnimationSetFUsR12CInputStream
 StreamDefaultAdditiveAnimInfo__13CAnimationSetFUsR12CInputStream:
@@ -266,7 +266,7 @@ lbl_802D7250:
 /* 802D7258 002D41B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802D725C 002D41BC  7C 08 03 A6 */	mtlr r0
 /* 802D7260 002D41C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D7264 002D41C4  4E 80 00 20 */	blr 
+/* 802D7264 002D41C4  4E 80 00 20 */	blr
 
 .global StreamAdditiveAnimInfoList__13CAnimationSetFUsR12CInputStream
 StreamAdditiveAnimInfoList__13CAnimationSetFUsR12CInputStream:
@@ -289,7 +289,7 @@ lbl_802D72A0:
 /* 802D72A0 002D4200  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D72A4 002D4204  7C 08 03 A6 */	mtlr r0
 /* 802D72A8 002D4208  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D72AC 002D420C  4E 80 00 20 */	blr 
+/* 802D72AC 002D420C  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl77vector<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl77vector<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -355,7 +355,7 @@ lbl_802D7378:
 /* 802D7388 002D42E8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802D738C 002D42EC  7C 08 03 A6 */	mtlr r0
 /* 802D7390 002D42F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D7394 002D42F4  4E 80 00 20 */	blr 
+/* 802D7394 002D42F4  4E 80 00 20 */	blr
 
 .global "Get<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>>__12CInputStreamFRC49TType<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>>"
 "Get<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>>__12CInputStreamFRC49TType<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>>":
@@ -384,7 +384,7 @@ lbl_802D7378:
 /* 802D73F0 002D4350  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802D73F4 002D4354  7C 08 03 A6 */	mtlr r0
 /* 802D73F8 002D4358  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D73FC 002D435C  4E 80 00 20 */	blr 
+/* 802D73FC 002D435C  4E 80 00 20 */	blr
 
 .global __ct__13CAnimationSetFR12CInputStream
 __ct__13CAnimationSetFR12CInputStream:
@@ -626,7 +626,7 @@ lbl_802D7740:
 /* 802D774C 002D46AC  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 802D7750 002D46B0  7C 08 03 A6 */	mtlr r0
 /* 802D7754 002D46B4  38 21 00 80 */	addi r1, r1, 0x80
-/* 802D7758 002D46B8  4E 80 00 20 */	blr 
+/* 802D7758 002D46B8  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>Fv"
 "__dt__Q24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>Fv":
@@ -679,7 +679,7 @@ lbl_802D77EC:
 /* 802D7800 002D4760  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802D7804 002D4764  7C 08 03 A6 */	mtlr r0
 /* 802D7808 002D4768  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D780C 002D476C  4E 80 00 20 */	blr 
+/* 802D780C 002D476C  4E 80 00 20 */	blr
 
 .global sub_802d7810
 sub_802d7810:
@@ -732,7 +732,7 @@ lbl_802D78A0:
 /* 802D78B4 002D4814  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802D78B8 002D4818  7C 08 03 A6 */	mtlr r0
 /* 802D78BC 002D481C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D78C0 002D4820  4E 80 00 20 */	blr 
+/* 802D78C0 002D4820  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl48vector<11CTransition,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl48vector<11CTransition,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -810,7 +810,7 @@ lbl_802D79B8:
 /* 802D79C8 002D4928  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802D79CC 002D492C  7C 08 03 A6 */	mtlr r0
 /* 802D79D0 002D4930  38 21 00 40 */	addi r1, r1, 0x40
-/* 802D79D4 002D4934  4E 80 00 20 */	blr 
+/* 802D79D4 002D4934  4E 80 00 20 */	blr
 
 .global "Get<11CTransition>__12CInputStreamFRC20TType<11CTransition>"
 "Get<11CTransition>__12CInputStreamFRC20TType<11CTransition>":
@@ -828,7 +828,7 @@ lbl_802D79B8:
 /* 802D7A04 002D4964  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802D7A08 002D4968  7C 08 03 A6 */	mtlr r0
 /* 802D7A0C 002D496C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D7A10 002D4970  4E 80 00 20 */	blr 
+/* 802D7A10 002D4970  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<11CTransition>__FRC20TType<11CTransition>R12CInputStream"
 "cinput_stream_helper<11CTransition>__FRC20TType<11CTransition>R12CInputStream":
@@ -840,7 +840,7 @@ lbl_802D79B8:
 /* 802D7A28 002D4988  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D7A2C 002D498C  7C 08 03 A6 */	mtlr r0
 /* 802D7A30 002D4990  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D7A34 002D4994  4E 80 00 20 */	blr 
+/* 802D7A34 002D4994  4E 80 00 20 */	blr
 
 .global sub_802d7a38
 sub_802d7a38:
@@ -898,7 +898,7 @@ lbl_802D7AD8:
 /* 802D7AEC 002D4A4C  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802D7AF0 002D4A50  7C 08 03 A6 */	mtlr r0
 /* 802D7AF4 002D4A54  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D7AF8 002D4A58  4E 80 00 20 */	blr 
+/* 802D7AF8 002D4A58  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -975,7 +975,7 @@ lbl_802D7BEC:
 /* 802D7BFC 002D4B5C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802D7C00 002D4B60  7C 08 03 A6 */	mtlr r0
 /* 802D7C04 002D4B64  38 21 00 40 */	addi r1, r1, 0x40
-/* 802D7C08 002D4B68  4E 80 00 20 */	blr 
+/* 802D7C08 002D4B68  4E 80 00 20 */	blr
 
 .global "Get<10CAnimation>__12CInputStreamFRC19TType<10CAnimation>"
 "Get<10CAnimation>__12CInputStreamFRC19TType<10CAnimation>":
@@ -993,7 +993,7 @@ lbl_802D7BEC:
 /* 802D7C38 002D4B98  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802D7C3C 002D4B9C  7C 08 03 A6 */	mtlr r0
 /* 802D7C40 002D4BA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D7C44 002D4BA4  4E 80 00 20 */	blr 
+/* 802D7C44 002D4BA4  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<10CAnimation>__FRC19TType<10CAnimation>R12CInputStream"
 "cinput_stream_helper<10CAnimation>__FRC19TType<10CAnimation>R12CInputStream":
@@ -1005,7 +1005,7 @@ lbl_802D7BEC:
 /* 802D7C5C 002D4BBC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D7C60 002D4BC0  7C 08 03 A6 */	mtlr r0
 /* 802D7C64 002D4BC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D7C68 002D4BC8  4E 80 00 20 */	blr 
+/* 802D7C68 002D4BC8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>Fi":
@@ -1092,7 +1092,7 @@ lbl_802D7D7C:
 /* 802D7D80 002D4CE0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802D7D84 002D4CE4  7C 08 03 A6 */	mtlr r0
 /* 802D7D88 002D4CE8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D7D8C 002D4CEC  4E 80 00 20 */	blr 
+/* 802D7D8C 002D4CEC  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl48vector<11CTransition,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl48vector<11CTransition,Q24rstl17rmemory_allocator>Fi":
@@ -1176,7 +1176,7 @@ lbl_802D7E98:
 /* 802D7E9C 002D4DFC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802D7EA0 002D4E00  7C 08 03 A6 */	mtlr r0
 /* 802D7EA4 002D4E04  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D7EA8 002D4E08  4E 80 00 20 */	blr 
+/* 802D7EA8 002D4E08  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl52vector<15CHalfTransition,Q24rstl17rmemory_allocator>Fi":
@@ -1256,7 +1256,7 @@ lbl_802D7FA4:
 /* 802D7FA8 002D4F08  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802D7FAC 002D4F0C  7C 08 03 A6 */	mtlr r0
 /* 802D7FB0 002D4F10  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D7FB4 002D4F14  4E 80 00 20 */	blr 
+/* 802D7FB4 002D4F14  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl77vector<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl77vector<Q24rstl33pair<Ui,22CAdditiveAnimationInfo>,Q24rstl17rmemory_allocator>Fi":
@@ -1332,5 +1332,5 @@ lbl_802D809C:
 /* 802D80A8 002D5008  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802D80AC 002D500C  7C 08 03 A6 */	mtlr r0
 /* 802D80B0 002D5010  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D80B4 002D5014  4E 80 00 20 */	blr 
+/* 802D80B4 002D5014  4E 80 00 20 */	blr
 

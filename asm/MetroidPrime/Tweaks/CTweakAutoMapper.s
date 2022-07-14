@@ -289,7 +289,7 @@ lbl_800B6D60:
 /* 800B6DD4 000B3D34  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B6DD8 000B3D38  7C 08 03 A6 */	mtlr r0
 /* 800B6DDC 000B3D3C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800B6DE0 000B3D40  4E 80 00 20 */	blr 
+/* 800B6DE0 000B3D40  4E 80 00 20 */	blr
 
 .global __dt__16CTweakAutoMapperFv
 __dt__16CTweakAutoMapperFv:
@@ -346,7 +346,7 @@ lbl_800B6E88:
 /* 800B6E90 000B3DF0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800B6E94 000B3DF4  7C 08 03 A6 */	mtlr r0
 /* 800B6E98 000B3DF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B6E9C 000B3DFC  4E 80 00 20 */	blr 
+/* 800B6E9C 000B3DFC  4E 80 00 20 */	blr
 
 .global "__dl__30TOneStatic<16CTweakAutoMapper>FPv"
 "__dl__30TOneStatic<16CTweakAutoMapper>FPv":
@@ -360,4 +360,4 @@ lbl_800B6E88:
 /* 800B6EBC 000B3E1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B6EC0 000B3E20  7C 08 03 A6 */	mtlr r0
 /* 800B6EC4 000B3E24  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B6EC8 000B3E28  4E 80 00 20 */	blr 
+/* 800B6EC8 000B3E28  4E 80 00 20 */	blr

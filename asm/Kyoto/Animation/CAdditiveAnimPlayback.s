@@ -49,7 +49,7 @@ AddToSegStatementSet__21CAdditiveAnimPlaybackCFRC10CSegIdListRC15CCharLayoutInfo
 /* 8035DB48 0035AAA8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8035DB4C 0035AAAC  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 8035DB50 0035AAB0  7D 89 03 A6 */	mtctr r12
-/* 8035DB54 0035AAB4  4E 80 04 21 */	bctrl 
+/* 8035DB54 0035AAB4  4E 80 04 21 */	bctrl
 /* 8035DB58 0035AAB8  83 DA 00 04 */	lwz r30, 4(r26)
 /* 8035DB5C 0035AABC  3B A0 00 00 */	li r29, 0
 /* 8035DB60 0035AAC0  3B E0 00 01 */	li r31, 1
@@ -91,7 +91,7 @@ lbl_8035DBB8:
 /* 8035DBE8 0035AB48  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8035DBEC 0035AB4C  7C 08 03 A6 */	mtlr r0
 /* 8035DBF0 0035AB50  38 21 00 40 */	addi r1, r1, 0x40
-/* 8035DBF4 0035AB54  4E 80 00 20 */	blr 
+/* 8035DBF4 0035AB54  4E 80 00 20 */	blr
 
 .global Update__21CAdditiveAnimPlaybackFf
 Update__21CAdditiveAnimPlaybackFf:
@@ -173,7 +173,7 @@ lbl_8035DCE0:
 /* 8035DD04 0035AC64  90 03 00 1C */	stw r0, 0x1c(r3)
 lbl_8035DD08:
 /* 8035DD08 0035AC68  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035DD0C 0035AC6C  4E 80 00 20 */	blr 
+/* 8035DD0C 0035AC6C  4E 80 00 20 */	blr
 
 .global FadeOut__21CAdditiveAnimPlaybackFv
 FadeOut__21CAdditiveAnimPlaybackFv:
@@ -202,12 +202,12 @@ lbl_8035DD50:
 /* 8035DD5C 0035ACBC  40 81 00 10 */	ble lbl_8035DD6C
 /* 8035DD60 0035ACC0  38 00 00 02 */	li r0, 2
 /* 8035DD64 0035ACC4  90 03 00 1C */	stw r0, 0x1c(r3)
-/* 8035DD68 0035ACC8  4E 80 00 20 */	blr 
+/* 8035DD68 0035ACC8  4E 80 00 20 */	blr
 lbl_8035DD6C:
 /* 8035DD6C 0035ACCC  38 00 00 04 */	li r0, 4
 /* 8035DD70 0035ACD0  90 03 00 1C */	stw r0, 0x1c(r3)
 /* 8035DD74 0035ACD4  D0 03 00 10 */	stfs f0, 0x10(r3)
-/* 8035DD78 0035ACD8  4E 80 00 20 */	blr 
+/* 8035DD78 0035ACD8  4E 80 00 20 */	blr
 
 .global SetWeight__21CAdditiveAnimPlaybackFf
 SetWeight__21CAdditiveAnimPlaybackFf:
@@ -271,7 +271,7 @@ lbl_8035DE34:
 /* 8035DE38 0035AD98  D0 03 00 10 */	stfs f0, 0x10(r3)
 lbl_8035DE3C:
 /* 8035DE3C 0035AD9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035DE40 0035ADA0  4E 80 00 20 */	blr 
+/* 8035DE40 0035ADA0  4E 80 00 20 */	blr
 
 .global "__ct__21CAdditiveAnimPlaybackFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fbRC22CAdditiveAnimationInfob"
 "__ct__21CAdditiveAnimPlaybackFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fbRC22CAdditiveAnimationInfob":
@@ -321,4 +321,4 @@ lbl_8035DEA8:
 lbl_8035DEE0:
 /* 8035DEE0 0035AE40  98 83 00 20 */	stb r4, 0x20(r3)
 /* 8035DEE4 0035AE44  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035DEE8 0035AE48  4E 80 00 20 */	blr 
+/* 8035DEE8 0035AE48  4E 80 00 20 */	blr

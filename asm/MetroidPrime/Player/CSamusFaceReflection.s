@@ -17,7 +17,7 @@ lbl_805A786C:
 .global lbl_8046C7A0
 lbl_8046C7A0:
 	.skip 0x30
-	
+
 .section .text, "ax"
 
 .global Draw__20CSamusFaceReflectionCFRC13CStateManager
@@ -288,7 +288,7 @@ lbl_8015B154:
 /* 8015B1C8 00158128  83 A1 01 54 */	lwz r29, 0x154(r1)
 /* 8015B1CC 0015812C  7C 08 03 A6 */	mtlr r0
 /* 8015B1D0 00158130  38 21 02 30 */	addi r1, r1, 0x230
-/* 8015B1D4 00158134  4E 80 00 20 */	blr 
+/* 8015B1D4 00158134  4E 80 00 20 */	blr
 
 .global PreDraw__20CSamusFaceReflectionFRC13CStateManager
 PreDraw__20CSamusFaceReflectionFRC13CStateManager:
@@ -336,7 +336,7 @@ lbl_8015B264:
 /* 8015B26C 001581CC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8015B270 001581D0  7C 08 03 A6 */	mtlr r0
 /* 8015B274 001581D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8015B278 001581D8  4E 80 00 20 */	blr 
+/* 8015B278 001581D8  4E 80 00 20 */	blr
 
 .global Update__20CSamusFaceReflectionFfRC13CStateManagerR9CRandom16
 Update__20CSamusFaceReflectionFfRC13CStateManagerR9CRandom16:
@@ -587,7 +587,7 @@ lbl_8015B610:
 /* 8015B640 001585A0  83 81 01 C0 */	lwz r28, 0x1c0(r1)
 /* 8015B644 001585A4  7C 08 03 A6 */	mtlr r0
 /* 8015B648 001585A8  38 21 02 10 */	addi r1, r1, 0x210
-/* 8015B64C 001585AC  4E 80 00 20 */	blr 
+/* 8015B64C 001585AC  4E 80 00 20 */	blr
 
 .global __ct__20CSamusFaceReflectionFRC13CStateManager
 __ct__20CSamusFaceReflectionFRC13CStateManager:
@@ -601,7 +601,7 @@ __ct__20CSamusFaceReflectionFRC13CStateManager:
 /* 8015B66C 001585CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8015B670 001585D0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8015B674 001585D4  7D 89 03 A6 */	mtctr r12
-/* 8015B678 001585D8  4E 80 04 21 */	bctrl 
+/* 8015B678 001585D8  4E 80 04 21 */	bctrl
 /* 8015B67C 001585DC  80 83 00 04 */	lwz r4, 4(r3)
 /* 8015B680 001585E0  38 A0 00 01 */	li r5, 1
 /* 8015B684 001585E4  C0 02 9E AC */	lfs f0, lbl_805ABBCC@sda21(r2)
@@ -694,7 +694,7 @@ lbl_8015B738:
 /* 8015B7DC 0015873C  83 E1 00 AC */	lwz r31, 0xac(r1)
 /* 8015B7E0 00158740  7C 08 03 A6 */	mtlr r0
 /* 8015B7E4 00158744  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8015B7E8 00158748  4E 80 00 20 */	blr 
+/* 8015B7E8 00158748  4E 80 00 20 */	blr
 
 .global __sinit_CSamusFaceReflection_cpp
 __sinit_CSamusFaceReflection_cpp:

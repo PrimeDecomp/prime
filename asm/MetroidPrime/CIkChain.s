@@ -77,7 +77,7 @@ lbl_8022594C:
 /* 80225950 002228B0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80225954 002228B4  7C 08 03 A6 */	mtlr r0
 /* 80225958 002228B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8022595C 002228BC  4E 80 00 20 */	blr 
+/* 8022595C 002228BC  4E 80 00 20 */	blr
 
 .global Deactivate__8CIkChainFv
 Deactivate__8CIkChainFv:
@@ -85,7 +85,7 @@ Deactivate__8CIkChainFv:
 /* 80225964 002228C4  38 80 00 00 */	li r4, 0
 /* 80225968 002228C8  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8022596C 002228CC  98 03 00 44 */	stb r0, 0x44(r3)
-/* 80225970 002228D0  4E 80 00 20 */	blr 
+/* 80225970 002228D0  4E 80 00 20 */	blr
 
 .global PreRender__8CIkChainFR9CAnimDataRC12CTransform4fRC9CVector3f
 PreRender__8CIkChainFR9CAnimDataRC12CTransform4fRC9CVector3f:
@@ -388,7 +388,7 @@ lbl_80225DFC:
 /* 80225E0C 00222D6C  83 81 01 F0 */	lwz r28, 0x1f0(r1)
 /* 80225E10 00222D70  7C 08 03 A6 */	mtlr r0
 /* 80225E14 00222D74  38 21 02 00 */	addi r1, r1, 0x200
-/* 80225E18 00222D78  4E 80 00 20 */	blr 
+/* 80225E18 00222D78  4E 80 00 20 */	blr
 
 .global Activate__8CIkChainFRC9CAnimData6CSegIdRC12CTransform4f
 Activate__8CIkChainFRC9CAnimData6CSegIdRC12CTransform4f:
@@ -532,7 +532,7 @@ lbl_80226014:
 /* 80226020 00222F80  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80226024 00222F84  7C 08 03 A6 */	mtlr r0
 /* 80226028 00222F88  38 21 00 40 */	addi r1, r1, 0x40
-/* 8022602C 00222F8C  4E 80 00 20 */	blr 
+/* 8022602C 00222F8C  4E 80 00 20 */	blr
 
 .global Solve__8CIkChainFR11CQuaternionR11CQuaternionRC9CVector3f
 Solve__8CIkChainFR11CQuaternionR11CQuaternionRC9CVector3f:
@@ -834,4 +834,4 @@ lbl_80226408:
 /* 802264C4 00223424  83 81 01 10 */	lwz r28, 0x110(r1)
 /* 802264C8 00223428  7C 08 03 A6 */	mtlr r0
 /* 802264CC 0022342C  38 21 01 80 */	addi r1, r1, 0x180
-/* 802264D0 00223430  4E 80 00 20 */	blr 
+/* 802264D0 00223430  4E 80 00 20 */	blr

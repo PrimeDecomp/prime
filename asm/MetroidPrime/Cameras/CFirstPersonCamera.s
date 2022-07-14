@@ -34,7 +34,7 @@ lbl_803D9660:
 	.4byte ProcessInput__18CFirstPersonCameraFRC11CFinalInputR13CStateManager
 	.4byte Reset__18CFirstPersonCameraFRC12CTransform4fR13CStateManager
 	.4byte 0
-	
+
 .section .rodata
 .global lbl_803CC420
 lbl_803CC420:
@@ -195,13 +195,13 @@ lbl_805A9DF8:
 lbl_805A9DFC:
 	# ROM: 0x3F669C
 	.4byte 0x3F7FF972
-	
+
 .section .text, "ax"
 
 .global GetGunFollowTransform__18CFirstPersonCameraCFv
 GetGunFollowTransform__18CFirstPersonCameraCFv:
 /* 8000E0E4 0000B044  38 63 01 90 */	addi r3, r3, 0x190
-/* 8000E0E8 0000B048  4E 80 00 20 */	blr 
+/* 8000E0E8 0000B048  4E 80 00 20 */	blr
 
 .global Accept__18CFirstPersonCameraFR8IVisitor
 Accept__18CFirstPersonCameraFR8IVisitor:
@@ -214,11 +214,11 @@ Accept__18CFirstPersonCameraFR8IVisitor:
 /* 8000E104 0000B064  7C 04 03 78 */	mr r4, r0
 /* 8000E108 0000B068  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8000E10C 0000B06C  7D 89 03 A6 */	mtctr r12
-/* 8000E110 0000B070  4E 80 04 21 */	bctrl 
+/* 8000E110 0000B070  4E 80 04 21 */	bctrl
 /* 8000E114 0000B074  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8000E118 0000B078  7C 08 03 A6 */	mtlr r0
 /* 8000E11C 0000B07C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000E120 0000B080  4E 80 00 20 */	blr 
+/* 8000E120 0000B080  4E 80 00 20 */	blr
 
 .global Think__18CFirstPersonCameraFfR13CStateManager
 Think__18CFirstPersonCameraFfR13CStateManager:
@@ -352,7 +352,7 @@ lbl_8000E2F4:
 /* 8000E308 0000B268  83 A1 00 C4 */	lwz r29, 0xc4(r1)
 /* 8000E30C 0000B26C  7C 08 03 A6 */	mtlr r0
 /* 8000E310 0000B270  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8000E314 0000B274  4E 80 00 20 */	blr 
+/* 8000E314 0000B274  4E 80 00 20 */	blr
 
 .global SkipCinematic__18CFirstPersonCameraFv
 SkipCinematic__18CFirstPersonCameraFv:
@@ -365,7 +365,7 @@ SkipCinematic__18CFirstPersonCameraFv:
 /* 8000E330 0000B290  C0 24 00 08 */	lfs f1, 8(r4)
 /* 8000E334 0000B294  D0 23 01 D0 */	stfs f1, 0x1d0(r3)
 /* 8000E338 0000B298  D0 03 01 D4 */	stfs f0, 0x1d4(r3)
-/* 8000E33C 0000B29C  4E 80 00 20 */	blr 
+/* 8000E33C 0000B29C  4E 80 00 20 */	blr
 
 .global Reset__18CFirstPersonCameraFRC12CTransform4fR13CStateManager
 Reset__18CFirstPersonCameraFRC12CTransform4fR13CStateManager:
@@ -402,15 +402,15 @@ Reset__18CFirstPersonCameraFRC12CTransform4fR13CStateManager:
 /* 8000E3B8 0000B318  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8000E3BC 0000B31C  7C 08 03 A6 */	mtlr r0
 /* 8000E3C0 0000B320  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000E3C4 0000B324  4E 80 00 20 */	blr 
+/* 8000E3C4 0000B324  4E 80 00 20 */	blr
 
 .global Render__18CFirstPersonCameraCFRC13CStateManager
 Render__18CFirstPersonCameraCFRC13CStateManager:
-/* 8000E3C8 0000B328  4E 80 00 20 */	blr 
+/* 8000E3C8 0000B328  4E 80 00 20 */	blr
 
 .global PreThink__18CFirstPersonCameraFfR13CStateManager
 PreThink__18CFirstPersonCameraFfR13CStateManager:
-/* 8000E3CC 0000B32C  4E 80 00 20 */	blr 
+/* 8000E3CC 0000B32C  4E 80 00 20 */	blr
 
 .global UpdateTransform__18CFirstPersonCameraFR13CStateManagerf
 UpdateTransform__18CFirstPersonCameraFR13CStateManagerf:
@@ -1744,7 +1744,7 @@ lbl_8000F784:
 /* 8000F7C4 0000C724  83 81 08 B0 */	lwz r28, 0x8b0(r1)
 /* 8000F7C8 0000C728  7C 08 03 A6 */	mtlr r0
 /* 8000F7CC 0000C72C  38 21 09 20 */	addi r1, r1, 0x920
-/* 8000F7D0 0000C730  4E 80 00 20 */	blr 
+/* 8000F7D0 0000C730  4E 80 00 20 */	blr
 
 .global UpdateElevation__18CFirstPersonCameraFR13CStateManager
 UpdateElevation__18CFirstPersonCameraFR13CStateManager:
@@ -1927,11 +1927,11 @@ lbl_8000FA54:
 /* 8000FA70 0000C9D0  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8000FA74 0000C9D4  7C 08 03 A6 */	mtlr r0
 /* 8000FA78 0000C9D8  38 21 00 80 */	addi r1, r1, 0x80
-/* 8000FA7C 0000C9DC  4E 80 00 20 */	blr 
+/* 8000FA7C 0000C9DC  4E 80 00 20 */	blr
 
 .global ProcessInput__18CFirstPersonCameraFRC11CFinalInputR13CStateManager
 ProcessInput__18CFirstPersonCameraFRC11CFinalInputR13CStateManager:
-/* 8000FA80 0000C9E0  4E 80 00 20 */	blr 
+/* 8000FA80 0000C9E0  4E 80 00 20 */	blr
 
 .global __dt__18CFirstPersonCameraFv
 __dt__18CFirstPersonCameraFv:
@@ -1959,7 +1959,7 @@ lbl_8000FAC8:
 /* 8000FAD4 0000CA34  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8000FAD8 0000CA38  7C 08 03 A6 */	mtlr r0
 /* 8000FADC 0000CA3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000FAE0 0000CA40  4E 80 00 20 */	blr 
+/* 8000FAE0 0000CA40  4E 80 00 20 */	blr
 
 .global __ct__18CFirstPersonCameraFRC9TUniqueIdRC12CTransform4f9TUniqueIdfffff
 __ct__18CFirstPersonCameraFRC9TUniqueIdRC12CTransform4f9TUniqueIdfffff:
@@ -2087,4 +2087,4 @@ lbl_8000FC14:
 /* 8000FCBC 0000CC1C  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 8000FCC0 0000CC20  7C 08 03 A6 */	mtlr r0
 /* 8000FCC4 0000CC24  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8000FCC8 0000CC28  4E 80 00 20 */	blr 
+/* 8000FCC8 0000CC28  4E 80 00 20 */	blr

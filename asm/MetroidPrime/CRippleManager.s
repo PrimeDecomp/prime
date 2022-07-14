@@ -88,7 +88,7 @@ lbl_8011D070:
 /* 8011D074 00119FD4  D0 03 00 00 */	stfs f0, 0(r3)
 lbl_8011D078:
 /* 8011D078 00119FD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011D07C 00119FDC  4E 80 00 20 */	blr 
+/* 8011D07C 00119FDC  4E 80 00 20 */	blr
 
 .global GetLastRippleDeltaTime__14CRippleManagerCF9TUniqueId
 GetLastRippleDeltaTime__14CRippleManagerCF9TUniqueId:
@@ -113,7 +113,7 @@ lbl_8011D0B0:
 /* 8011D0BC 0011A01C  7C 05 02 14 */	add r0, r5, r0
 /* 8011D0C0 0011A020  7C 06 00 40 */	cmplw r6, r0
 /* 8011D0C4 0011A024  40 82 FF C8 */	bne lbl_8011D08C
-/* 8011D0C8 0011A028  4E 80 00 20 */	blr 
+/* 8011D0C8 0011A028  4E 80 00 20 */	blr
 
 .global Update__14CRippleManagerFf
 Update__14CRippleManagerFf:
@@ -140,7 +140,7 @@ lbl_8011D0F8:
 
 .global sub_8011d110
 sub_8011d110:
-/* 8011D110 0011A070  4E 80 00 20 */	blr 
+/* 8011D110 0011A070  4E 80 00 20 */	blr
 
 .global Init__14CRippleManagerFi
 Init__14CRippleManagerFi:
@@ -181,7 +181,7 @@ lbl_8011D174:
 /* 8011D194 0011A0F4  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8011D198 0011A0F8  7C 08 03 A6 */	mtlr r0
 /* 8011D19C 0011A0FC  38 21 00 60 */	addi r1, r1, 0x60
-/* 8011D1A0 0011A100  4E 80 00 20 */	blr 
+/* 8011D1A0 0011A100  4E 80 00 20 */	blr
 
 .global sub_8011d1a4
 sub_8011d1a4:
@@ -271,7 +271,7 @@ lbl_8011D2C8:
 /* 8011D2D4 0011A234  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8011D2D8 0011A238  7C 08 03 A6 */	mtlr r0
 /* 8011D2DC 0011A23C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011D2E0 0011A240  4E 80 00 20 */	blr 
+/* 8011D2E0 0011A240  4E 80 00 20 */	blr
 
 .global __ct__14CRippleManagerFif
 __ct__14CRippleManagerFif:
@@ -293,7 +293,7 @@ __ct__14CRippleManagerFif:
 /* 8011D320 0011A280  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011D324 0011A284  7C 08 03 A6 */	mtlr r0
 /* 8011D328 0011A288  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011D32C 0011A28C  4E 80 00 20 */	blr 
+/* 8011D32C 0011A28C  4E 80 00 20 */	blr
 
 .global sub_8011d330
 sub_8011d330:
@@ -356,7 +356,7 @@ lbl_8011D3EC:
 /* 8011D3F8 0011A358  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8011D3FC 0011A35C  7C 08 03 A6 */	mtlr r0
 /* 8011D400 0011A360  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011D404 0011A364  4E 80 00 20 */	blr 
+/* 8011D404 0011A364  4E 80 00 20 */	blr
 
 .global sub_8011d408
 sub_8011d408:
@@ -405,4 +405,4 @@ lbl_8011D4A0:
 /* 8011D4A4 0011A404  7C 03 00 40 */	cmplw r3, r0
 /* 8011D4A8 0011A408  40 82 FF 68 */	bne lbl_8011D410
 /* 8011D4AC 0011A40C  7C A3 2B 78 */	mr r3, r5
-/* 8011D4B0 0011A410  4E 80 00 20 */	blr 
+/* 8011D4B0 0011A410  4E 80 00 20 */	blr

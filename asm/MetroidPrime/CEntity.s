@@ -19,7 +19,7 @@ lbl_803D9E30:
 .global lbl_8046C3B8
 lbl_8046C3B8:
 	.skip 0x10
-	
+
 .section .text, "ax"
 
 .global GetAreaId__7CEntityCFv
@@ -34,22 +34,22 @@ lbl_80051098:
 lbl_8005109C:
 /* 8005109C 0004DFFC  80 04 00 00 */	lwz r0, 0(r4)
 /* 800510A0 0004E000  90 03 00 00 */	stw r0, 0(r3)
-/* 800510A4 0004E004  4E 80 00 20 */	blr 
+/* 800510A4 0004E004  4E 80 00 20 */	blr
 
 .global SetActive__7CEntityFb
 SetActive__7CEntityFb:
 /* 800510A8 0004E008  88 03 00 30 */	lbz r0, 0x30(r3)
 /* 800510AC 0004E00C  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 800510B0 0004E010  98 03 00 30 */	stb r0, 0x30(r3)
-/* 800510B4 0004E014  4E 80 00 20 */	blr 
+/* 800510B4 0004E014  4E 80 00 20 */	blr
 
 .global Think__7CEntityFfR13CStateManager
 Think__7CEntityFfR13CStateManager:
-/* 800510B8 0004E018  4E 80 00 20 */	blr 
+/* 800510B8 0004E018  4E 80 00 20 */	blr
 
 .global PreThink__7CEntityFfR13CStateManager
 PreThink__7CEntityFfR13CStateManager:
-/* 800510BC 0004E01C  4E 80 00 20 */	blr 
+/* 800510BC 0004E01C  4E 80 00 20 */	blr
 
 .global SendScriptMsgs__7CEntityF18EScriptObjectStateR13CStateManager20EScriptObjectMessage
 SendScriptMsgs__7CEntityF18EScriptObjectStateR13CStateManager20EScriptObjectMessage:
@@ -94,7 +94,7 @@ lbl_80051130:
 /* 8005114C 0004E0AC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80051150 0004E0B0  7C 08 03 A6 */	mtlr r0
 /* 80051154 0004E0B4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80051158 0004E0B8  4E 80 00 20 */	blr 
+/* 80051158 0004E0B8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__7CEntityF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -123,7 +123,7 @@ lbl_8005119C:
 /* 800511AC 0004E10C  38 80 00 01 */	li r4, 1
 /* 800511B0 0004E110  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800511B4 0004E114  7D 89 03 A6 */	mtctr r12
-/* 800511B8 0004E118  4E 80 04 21 */	bctrl 
+/* 800511B8 0004E118  4E 80 04 21 */	bctrl
 /* 800511BC 0004E11C  7F C3 F3 78 */	mr r3, r30
 /* 800511C0 0004E120  7F E5 FB 78 */	mr r5, r31
 /* 800511C4 0004E124  38 80 00 00 */	li r4, 0
@@ -138,7 +138,7 @@ lbl_800511D4:
 /* 800511E4 0004E144  38 80 00 00 */	li r4, 0
 /* 800511E8 0004E148  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800511EC 0004E14C  7D 89 03 A6 */	mtctr r12
-/* 800511F0 0004E150  4E 80 04 21 */	bctrl 
+/* 800511F0 0004E150  4E 80 04 21 */	bctrl
 /* 800511F4 0004E154  7F C3 F3 78 */	mr r3, r30
 /* 800511F8 0004E158  7F E5 FB 78 */	mr r5, r31
 /* 800511FC 0004E15C  38 80 00 05 */	li r4, 5
@@ -156,7 +156,7 @@ lbl_8005120C:
 /* 80051228 0004E188  81 83 00 00 */	lwz r12, 0(r3)
 /* 8005122C 0004E18C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80051230 0004E190  7D 89 03 A6 */	mtctr r12
-/* 80051234 0004E194  4E 80 04 21 */	bctrl 
+/* 80051234 0004E194  4E 80 04 21 */	bctrl
 /* 80051238 0004E198  48 00 00 24 */	b lbl_8005125C
 lbl_8005123C:
 /* 8005123C 0004E19C  A0 05 00 00 */	lhz r0, 0(r5)
@@ -166,14 +166,14 @@ lbl_8005123C:
 /* 8005124C 0004E1AC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80051250 0004E1B0  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80051254 0004E1B4  7D 89 03 A6 */	mtctr r12
-/* 80051258 0004E1B8  4E 80 04 21 */	bctrl 
+/* 80051258 0004E1B8  4E 80 04 21 */	bctrl
 lbl_8005125C:
 /* 8005125C 0004E1BC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051260 0004E1C0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80051264 0004E1C4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80051268 0004E1C8  7C 08 03 A6 */	mtlr r0
 /* 8005126C 0004E1CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051270 0004E1D0  4E 80 00 20 */	blr 
+/* 80051270 0004E1D0  4E 80 00 20 */	blr
 
 .global __dt__7CEntityFv
 __dt__7CEntityFv:
@@ -225,7 +225,7 @@ lbl_80051308:
 /* 80051314 0004E274  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80051318 0004E278  7C 08 03 A6 */	mtlr r0
 /* 8005131C 0004E27C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051320 0004E280  4E 80 00 20 */	blr 
+/* 80051320 0004E280  4E 80 00 20 */	blr
 
 .global "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -322,7 +322,7 @@ lbl_80051420:
 /* 80051474 0004E3D4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80051478 0004E3D8  7C 08 03 A6 */	mtlr r0
 /* 8005147C 0004E3DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051480 0004E3E0  4E 80 00 20 */	blr 
+/* 80051480 0004E3E0  4E 80 00 20 */	blr
 
 .global "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"
 "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId":
@@ -394,7 +394,7 @@ lbl_80051558:
 /* 80051570 0004E4D0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051574 0004E4D4  7C 08 03 A6 */	mtlr r0
 /* 80051578 0004E4D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005157C 0004E4DC  4E 80 00 20 */	blr 
+/* 8005157C 0004E4DC  4E 80 00 20 */	blr
 
 .global __sinit_CEntity_cpp
 __sinit_CEntity_cpp:
@@ -415,4 +415,4 @@ __sinit_CEntity_cpp:
 /* 800515B8 0004E518  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800515BC 0004E51C  7C 08 03 A6 */	mtlr r0
 /* 800515C0 0004E520  38 21 00 10 */	addi r1, r1, 0x10
-/* 800515C4 0004E524  4E 80 00 20 */	blr 
+/* 800515C4 0004E524  4E 80 00 20 */	blr

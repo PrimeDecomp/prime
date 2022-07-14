@@ -352,7 +352,7 @@ lbl_8021C610:
 /* 8021C614 00219574  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8021C618 00219578  7C 08 03 A6 */	mtlr r0
 /* 8021C61C 0021957C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8021C620 00219580  4E 80 00 20 */	blr 
+/* 8021C620 00219580  4E 80 00 20 */	blr
 
 .global sub_8021c624
 sub_8021c624:
@@ -566,7 +566,7 @@ lbl_8021C910:
 /* 8021C914 00219874  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8021C918 00219878  7C 08 03 A6 */	mtlr r0
 /* 8021C91C 0021987C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8021C920 00219880  4E 80 00 20 */	blr 
+/* 8021C920 00219880  4E 80 00 20 */	blr
 
 .global sub_8021c924
 sub_8021c924:
@@ -751,7 +751,7 @@ sub_8021cb38:
 /* 8021CB7C 00219ADC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8021CB80 00219AE0  7C 08 03 A6 */	mtlr r0
 /* 8021CB84 00219AE4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8021CB88 00219AE8  4E 80 00 20 */	blr 
+/* 8021CB88 00219AE8  4E 80 00 20 */	blr
 
 .global "GetIdentifierForMidiEvent__19CInGameTweakManagerFUiUiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetIdentifierForMidiEvent__19CInGameTweakManagerFUiUiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -778,7 +778,7 @@ sub_8021cb38:
 /* 8021CBDC 00219B3C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8021CBE0 00219B40  7C 08 03 A6 */	mtlr r0
 /* 8021CBE4 00219B44  38 21 00 20 */	addi r1, r1, 0x20
-/* 8021CBE8 00219B48  4E 80 00 20 */	blr 
+/* 8021CBE8 00219B48  4E 80 00 20 */	blr
 
 .global sub_8021cbec
 sub_8021cbec:
@@ -801,7 +801,7 @@ sub_8021cbec:
 /* 8021CC2C 00219B8C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8021CC30 00219B90  7C 08 03 A6 */	mtlr r0
 /* 8021CC34 00219B94  38 21 00 20 */	addi r1, r1, 0x20
-/* 8021CC38 00219B98  4E 80 00 20 */	blr 
+/* 8021CC38 00219B98  4E 80 00 20 */	blr
 
 .global sub_8021cc3c
 sub_8021cc3c:
@@ -818,7 +818,7 @@ lbl_8021CC54:
 /* 8021CC5C 00219BBC  40 82 FF F4 */	bne lbl_8021CC50
 /* 8021CC60 00219BC0  7C 04 28 50 */	subf r0, r4, r5
 /* 8021CC64 00219BC4  90 03 00 08 */	stw r0, 8(r3)
-/* 8021CC68 00219BC8  4E 80 00 20 */	blr 
+/* 8021CC68 00219BC8  4E 80 00 20 */	blr
 
 .global sub_8021cc6c
 sub_8021cc6c:
@@ -833,12 +833,12 @@ sub_8021cc6c:
 /* 8021CC8C 00219BEC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8021CC90 00219BF0  7C 08 03 A6 */	mtlr r0
 /* 8021CC94 00219BF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8021CC98 00219BF8  4E 80 00 20 */	blr 
+/* 8021CC98 00219BF8  4E 80 00 20 */	blr
 
 .global "ReadFromMemoryCard__19CInGameTweakManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "ReadFromMemoryCard__19CInGameTweakManagerFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8021CC9C 00219BFC  38 60 00 00 */	li r3, 0
-/* 8021CCA0 00219C00  4E 80 00 20 */	blr 
+/* 8021CCA0 00219C00  4E 80 00 20 */	blr
 
 .global "GetTweakValue__19CInGameTweakManagerCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetTweakValue__19CInGameTweakManagerCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -894,7 +894,7 @@ lbl_8021CD48:
 /* 8021CD58 00219CB8  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8021CD5C 00219CBC  7C 08 03 A6 */	mtlr r0
 /* 8021CD60 00219CC0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8021CD64 00219CC4  4E 80 00 20 */	blr 
+/* 8021CD64 00219CC4  4E 80 00 20 */	blr
 
 .global sub_8021cd68
 sub_8021cd68:
@@ -907,7 +907,7 @@ sub_8021cd68:
 /* 8021CD80 00219CE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8021CD84 00219CE4  7C 08 03 A6 */	mtlr r0
 /* 8021CD88 00219CE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8021CD8C 00219CEC  4E 80 00 20 */	blr 
+/* 8021CD8C 00219CEC  4E 80 00 20 */	blr
 
 .global sub_8021cd90
 sub_8021cd90:
@@ -1089,7 +1089,7 @@ lbl_8021CFE0:
 lbl_8021CFE4:
 /* 8021CFE4 00219F44  7D 03 43 78 */	mr r3, r8
 /* 8021CFE8 00219F48  38 21 00 50 */	addi r1, r1, 0x50
-/* 8021CFEC 00219F4C  4E 80 00 20 */	blr 
+/* 8021CFEC 00219F4C  4E 80 00 20 */	blr
 
 .global "HasTweakValue__19CInGameTweakManagerCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "HasTweakValue__19CInGameTweakManagerCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1145,7 +1145,7 @@ lbl_8021D094:
 /* 8021D0A4 0021A004  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8021D0A8 0021A008  7C 08 03 A6 */	mtlr r0
 /* 8021D0AC 0021A00C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8021D0B0 0021A010  4E 80 00 20 */	blr 
+/* 8021D0B0 0021A010  4E 80 00 20 */	blr
 
 .global __ct__19CInGameTweakManagerFv
 __ct__19CInGameTweakManagerFv:
@@ -1153,7 +1153,7 @@ __ct__19CInGameTweakManagerFv:
 /* 8021D0B8 0021A018  90 03 00 04 */	stw r0, 4(r3)
 /* 8021D0BC 0021A01C  90 03 00 08 */	stw r0, 8(r3)
 /* 8021D0C0 0021A020  90 03 00 0C */	stw r0, 0xc(r3)
-/* 8021D0C4 0021A024  4E 80 00 20 */	blr 
+/* 8021D0C4 0021A024  4E 80 00 20 */	blr
 
 .global "substr__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFii"
 "substr__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>CFii":
@@ -1223,7 +1223,7 @@ lbl_8021D194:
 /* 8021D1B4 0021A114  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8021D1B8 0021A118  7C 08 03 A6 */	mtlr r0
 /* 8021D1BC 0021A11C  38 21 00 60 */	addi r1, r1, 0x60
-/* 8021D1C0 0021A120  4E 80 00 20 */	blr 
+/* 8021D1C0 0021A120  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl138vector<Q24rstl94pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,10SObjectTag>,Q24rstl17rmemory_allocator>Fi":
@@ -1303,7 +1303,7 @@ lbl_8021D2BC:
 /* 8021D2C0 0021A220  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8021D2C4 0021A224  7C 08 03 A6 */	mtlr r0
 /* 8021D2C8 0021A228  38 21 00 30 */	addi r1, r1, 0x30
-/* 8021D2CC 0021A22C  4E 80 00 20 */	blr 
+/* 8021D2CC 0021A22C  4E 80 00 20 */	blr
 
 .global sub_8021d2d0
 sub_8021d2d0:

@@ -34,7 +34,7 @@ Initialize__Q210CStopwatch7CSWDataFv:
 /* 802D6788 002D36E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D678C 002D36EC  7C 08 03 A6 */	mtlr r0
 /* 802D6790 002D36F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6794 002D36F4  4E 80 00 20 */	blr 
+/* 802D6794 002D36F4  4E 80 00 20 */	blr
 
 .global Wait__Q210CStopwatch7CSWDataCFf
 Wait__Q210CStopwatch7CSWDataCFf:

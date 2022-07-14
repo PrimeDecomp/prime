@@ -30,4 +30,4 @@ __ct__17CDecalDescriptionFv:
 /* 802B5D40 002B2CA0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B5D44 002B2CA4  7C 08 03 A6 */	mtlr r0
 /* 802B5D48 002B2CA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B5D4C 002B2CAC  4E 80 00 20 */	blr 
+/* 802B5D4C 002B2CAC  4E 80 00 20 */	blr

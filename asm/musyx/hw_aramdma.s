@@ -34,7 +34,7 @@ aramWrite:
 .global aramTop
 aramTop:
 	.skip 0x4
-.section .text, "ax" 
+.section .text, "ax"
 
 .global aramQueueCallback
 aramQueueCallback:
@@ -64,7 +64,7 @@ lbl_803B3FB4:
 /* 803B3FC4 003B0F24  41 82 00 10 */	beq lbl_803B3FD4
 /* 803B3FC8 003B0F28  80 7E 00 24 */	lwz r3, 0x24(r30)
 /* 803B3FCC 003B0F2C  7D 89 03 A6 */	mtctr r12
-/* 803B3FD0 003B0F30  4E 80 04 21 */	bctrl 
+/* 803B3FD0 003B0F30  4E 80 04 21 */	bctrl
 lbl_803B3FD4:
 /* 803B3FD4 003B0F34  3B BD 00 01 */	addi r29, r29, 1
 /* 803B3FD8 003B0F38  3B DE 00 28 */	addi r30, r30, 0x28
@@ -80,7 +80,7 @@ lbl_803B3FD4:
 /* 803B4000 003B0F60  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803B4004 003B0F64  7C 08 03 A6 */	mtlr r0
 /* 803B4008 003B0F68  38 21 00 20 */	addi r1, r1, 0x20
-/* 803B400C 003B0F6C  4E 80 00 20 */	blr 
+/* 803B400C 003B0F6C  4E 80 00 20 */	blr
 
 .global aramUploadData
 aramUploadData:
@@ -206,7 +206,7 @@ lbl_803B41D4:
 /* 803B41DC 003B113C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803B41E0 003B1140  7C 08 03 A6 */	mtlr r0
 /* 803B41E4 003B1144  38 21 00 30 */	addi r1, r1, 0x30
-/* 803B41E8 003B1148  4E 80 00 20 */	blr 
+/* 803B41E8 003B1148  4E 80 00 20 */	blr
 
 .global aramSyncTransferQueue
 aramSyncTransferQueue:
@@ -411,11 +411,11 @@ lbl_803B44C4:
 /* 803B44E0 003B1440  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803B44E4 003B1444  7C 08 03 A6 */	mtlr r0
 /* 803B44E8 003B1448  38 21 00 20 */	addi r1, r1, 0x20
-/* 803B44EC 003B144C  4E 80 00 20 */	blr 
+/* 803B44EC 003B144C  4E 80 00 20 */	blr
 
 .global aramExit
 aramExit:
-/* 803B44F0 003B1450  4E 80 00 20 */	blr 
+/* 803B44F0 003B1450  4E 80 00 20 */	blr
 
 .global aramGetZeroBuffer
 aramGetZeroBuffer:
@@ -426,7 +426,7 @@ aramGetZeroBuffer:
 /* 803B4504 003B1464  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B4508 003B1468  7C 08 03 A6 */	mtlr r0
 /* 803B450C 003B146C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4510 003B1470  4E 80 00 20 */	blr 
+/* 803B4510 003B1470  4E 80 00 20 */	blr
 
 .global aramSetUploadCallback
 aramSetUploadCallback:
@@ -453,7 +453,7 @@ lbl_803B4550:
 /* 803B455C 003B14BC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803B4560 003B14C0  7C 08 03 A6 */	mtlr r0
 /* 803B4564 003B14C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4568 003B14C8  4E 80 00 20 */	blr 
+/* 803B4568 003B14C8  4E 80 00 20 */	blr
 
 .global aramStoreData
 aramStoreData:
@@ -592,7 +592,7 @@ lbl_803B4760:
 /* 803B4764 003B16C4  7F 23 CB 78 */	mr r3, r25
 /* 803B4768 003B16C8  7F 84 E3 78 */	mr r4, r28
 /* 803B476C 003B16CC  7D 89 03 A6 */	mtctr r12
-/* 803B4770 003B16D0  4E 80 04 21 */	bctrl 
+/* 803B4770 003B16D0  4E 80 04 21 */	bctrl
 /* 803B4774 003B16D4  7C 7D 1B 78 */	mr r29, r3
 /* 803B4778 003B16D8  7F 84 E3 78 */	mr r4, r28
 /* 803B477C 003B16DC  4B FC A3 35 */	bl DCFlushRange
@@ -706,7 +706,7 @@ lbl_803B4910:
 /* 803B4918 003B1878  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803B491C 003B187C  7C 08 03 A6 */	mtlr r0
 /* 803B4920 003B1880  38 21 00 30 */	addi r1, r1, 0x30
-/* 803B4924 003B1884  4E 80 00 20 */	blr 
+/* 803B4924 003B1884  4E 80 00 20 */	blr
 
 .global aramRemoveData
 aramRemoveData:
@@ -715,7 +715,7 @@ aramRemoveData:
 /* 803B4930 003B1890  54 63 00 34 */	rlwinm r3, r3, 0, 0, 0x1a
 /* 803B4934 003B1894  7C 03 00 50 */	subf r0, r3, r0
 /* 803B4938 003B1898  90 0D AF A8 */	stw r0, aramWrite@sda21(r13)
-/* 803B493C 003B189C  4E 80 00 20 */	blr 
+/* 803B493C 003B189C  4E 80 00 20 */	blr
 
 .global InitStreamBuffers
 InitStreamBuffers:
@@ -770,7 +770,7 @@ lbl_803B49E0:
 /* 803B49F4 003B1954  38 80 00 00 */	li r4, 0
 /* 803B49F8 003B1958  90 83 FF F0 */	stw r4, -0x10(r3)
 /* 803B49FC 003B195C  90 0D AF A4 */	stw r0, aramStream@sda21(r13)
-/* 803B4A00 003B1960  4E 80 00 20 */	blr 
+/* 803B4A00 003B1960  4E 80 00 20 */	blr
 
 .global  aramAllocateStreamBuffer
  aramAllocateStreamBuffer:
@@ -841,7 +841,7 @@ lbl_803B4AE0:
 /* 803B4AE0 003B1A40  28 05 00 00 */	cmplwi r5, 0
 /* 803B4AE4 003B1A44  40 82 00 0C */	bne lbl_803B4AF0
 /* 803B4AE8 003B1A48  38 60 00 FF */	li r3, 0xff
-/* 803B4AEC 003B1A4C  4E 80 00 20 */	blr 
+/* 803B4AEC 003B1A4C  4E 80 00 20 */	blr
 lbl_803B4AF0:
 /* 803B4AF0 003B1A50  3C 60 80 56 */	lis r3, aramStreamBuffers@ha
 /* 803B4AF4 003B1A54  38 03 74 98 */	addi r0, r3, aramStreamBuffers@l
@@ -849,7 +849,7 @@ lbl_803B4AF0:
 /* 803B4AFC 003B1A5C  7C 00 26 70 */	srawi r0, r0, 4
 /* 803B4B00 003B1A60  7C 00 01 94 */	addze r0, r0
 /* 803B4B04 003B1A64  54 03 06 3E */	clrlwi r3, r0, 0x18
-/* 803B4B08 003B1A68  4E 80 00 20 */	blr 
+/* 803B4B08 003B1A68  4E 80 00 20 */	blr
 
 .global aramGetStreamBufferAddress
 aramGetStreamBufferAddress:
@@ -867,7 +867,7 @@ lbl_803B4B2C:
 /* 803B4B34 003B1A94  38 64 74 98 */	addi r3, r4, aramStreamBuffers@l
 /* 803B4B38 003B1A98  7C 63 02 14 */	add r3, r3, r0
 /* 803B4B3C 003B1A9C  80 63 00 04 */	lwz r3, 4(r3)
-/* 803B4B40 003B1AA0  4E 80 00 20 */	blr 
+/* 803B4B40 003B1AA0  4E 80 00 20 */	blr
 
 .global aramFreeStreamBuffer
 aramFreeStreamBuffer:
@@ -940,9 +940,9 @@ lbl_803B4C08:
 /* 803B4C20 003B1B80  7C A3 2B 78 */	mr r3, r5
 lbl_803B4C24:
 /* 803B4C24 003B1B84  90 6D AF A4 */	stw r3, aramStream@sda21(r13)
-/* 803B4C28 003B1B88  4E 80 00 20 */	blr 
+/* 803B4C28 003B1B88  4E 80 00 20 */	blr
 lbl_803B4C2C:
 /* 803B4C2C 003B1B8C  80 0D AF 94 */	lwz r0, aramFreeStreamBuffers@sda21(r13)
 /* 803B4C30 003B1B90  90 04 00 00 */	stw r0, 0(r4)
 /* 803B4C34 003B1B94  90 8D AF 94 */	stw r4, aramFreeStreamBuffers@sda21(r13)
-/* 803B4C38 003B1B98  4E 80 00 20 */	blr 
+/* 803B4C38 003B1B98  4E 80 00 20 */	blr

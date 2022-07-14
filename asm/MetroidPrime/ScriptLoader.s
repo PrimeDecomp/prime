@@ -293,7 +293,7 @@ lbl_800C55E0:
 /* 800C560C 000C256C  80 01 04 04 */	lwz r0, 0x404(r1)
 /* 800C5610 000C2570  7C 08 03 A6 */	mtlr r0
 /* 800C5614 000C2574  38 21 04 00 */	addi r1, r1, 0x400
-/* 800C5618 000C2578  4E 80 00 20 */	blr 
+/* 800C5618 000C2578  4E 80 00 20 */	blr
 
 .global __ct__16CActorParametersFRC16CActorParameters
 __ct__16CActorParametersFRC16CActorParameters:
@@ -352,7 +352,7 @@ __ct__16CActorParametersFRC16CActorParameters:
 /* 800C56EC 000C264C  D0 03 00 60 */	stfs f0, 0x60(r3)
 /* 800C56F0 000C2650  C0 04 00 64 */	lfs f0, 0x64(r4)
 /* 800C56F4 000C2654  D0 03 00 64 */	stfs f0, 0x64(r3)
-/* 800C56F8 000C2658  4E 80 00 20 */	blr 
+/* 800C56F8 000C2658  4E 80 00 20 */	blr
 
 .global LoadShadowProjector__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadShadowProjector__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -445,7 +445,7 @@ lbl_800C583C:
 /* 800C5848 000C27A8  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800C584C 000C27AC  7C 08 03 A6 */	mtlr r0
 /* 800C5850 000C27B0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800C5854 000C27B4  4E 80 00 20 */	blr 
+/* 800C5854 000C27B4  4E 80 00 20 */	blr
 
 .global LoadPhazonHealingNodule__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPhazonHealingNodule__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -579,7 +579,7 @@ lbl_800C5A38:
 /* 800C5A3C 000C299C  80 01 03 14 */	lwz r0, 0x314(r1)
 /* 800C5A40 000C29A0  7C 08 03 A6 */	mtlr r0
 /* 800C5A44 000C29A4  38 21 03 10 */	addi r1, r1, 0x310
-/* 800C5A48 000C29A8  4E 80 00 20 */	blr 
+/* 800C5A48 000C29A8  4E 80 00 20 */	blr
 
 .global LoadPhazonPool__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPhazonPool__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -735,7 +735,7 @@ lbl_800C5C70:
 /* 800C5C94 000C2BF4  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 800C5C98 000C2BF8  7C 08 03 A6 */	mtlr r0
 /* 800C5C9C 000C2BFC  38 21 01 80 */	addi r1, r1, 0x180
-/* 800C5CA0 000C2C00  4E 80 00 20 */	blr 
+/* 800C5CA0 000C2C00  4E 80 00 20 */	blr
 
 .global LoadOmegaPirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadOmegaPirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -884,7 +884,7 @@ lbl_800C5EB8:
 /* 800C5EBC 000C2E1C  80 01 04 34 */	lwz r0, 0x434(r1)
 /* 800C5EC0 000C2E20  7C 08 03 A6 */	mtlr r0
 /* 800C5EC4 000C2E24  38 21 04 30 */	addi r1, r1, 0x430
-/* 800C5EC8 000C2E28  4E 80 00 20 */	blr 
+/* 800C5EC8 000C2E28  4E 80 00 20 */	blr
 
 .global LoadMazeNode__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMazeNode__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -963,7 +963,7 @@ lbl_800C5FDC:
 /* 800C5FE0 000C2F40  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800C5FE4 000C2F44  7C 08 03 A6 */	mtlr r0
 /* 800C5FE8 000C2F48  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800C5FEC 000C2F4C  4E 80 00 20 */	blr 
+/* 800C5FEC 000C2F4C  4E 80 00 20 */	blr
 
 .global LoadMetroidPrimeEssence__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMetroidPrimeEssence__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -1127,7 +1127,7 @@ lbl_800C6248:
 /* 800C624C 000C31AC  80 01 03 74 */	lwz r0, 0x374(r1)
 /* 800C6250 000C31B0  7C 08 03 A6 */	mtlr r0
 /* 800C6254 000C31B4  38 21 03 70 */	addi r1, r1, 0x370
-/* 800C6258 000C31B8  4E 80 00 20 */	blr 
+/* 800C6258 000C31B8  4E 80 00 20 */	blr
 
 .global LoadWorldLightFader__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadWorldLightFader__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -1225,7 +1225,7 @@ lbl_800C639C:
 /* 800C63BC 000C331C  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 800C63C0 000C3320  7C 08 03 A6 */	mtlr r0
 /* 800C63C4 000C3324  38 21 00 70 */	addi r1, r1, 0x70
-/* 800C63C8 000C3328  4E 80 00 20 */	blr 
+/* 800C63C8 000C3328  4E 80 00 20 */	blr
 
 .global LoadScriptBeam__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadScriptBeam__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -1292,7 +1292,7 @@ lbl_800C6444:
 /* 800C64B4 000C3414  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C64B8 000C3418  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800C64BC 000C341C  7D 89 03 A6 */	mtctr r12
-/* 800C64C0 000C3420  4E 80 04 21 */	bctrl 
+/* 800C64C0 000C3420  4E 80 04 21 */	bctrl
 /* 800C64C4 000C3424  38 61 00 18 */	addi r3, r1, 0x18
 /* 800C64C8 000C3428  38 81 00 20 */	addi r4, r1, 0x20
 /* 800C64CC 000C342C  3B 40 00 01 */	li r26, 1
@@ -1331,7 +1331,7 @@ lbl_800C653C:
 /* 800C6540 000C34A0  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 800C6544 000C34A4  7C 08 03 A6 */	mtlr r0
 /* 800C6548 000C34A8  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800C654C 000C34AC  4E 80 00 20 */	blr 
+/* 800C654C 000C34AC  4E 80 00 20 */	blr
 
 .global __ct__9CBeamInfoFR12CInputStream
 __ct__9CBeamInfoFR12CInputStream:
@@ -1402,7 +1402,7 @@ __ct__9CBeamInfoFR12CInputStream:
 /* 800C6650 000C35B0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800C6654 000C35B4  7C 08 03 A6 */	mtlr r0
 /* 800C6658 000C35B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C665C 000C35BC  4E 80 00 20 */	blr 
+/* 800C665C 000C35BC  4E 80 00 20 */	blr
 
 .global LoadMetroidPrimeRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMetroidPrimeRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -1927,7 +1927,7 @@ lbl_800C6D60:
 /* 800C6D7C 000C3CDC  80 01 0E F4 */	lwz r0, 0xef4(r1)
 /* 800C6D80 000C3CE0  7C 08 03 A6 */	mtlr r0
 /* 800C6D84 000C3CE4  38 21 0E F0 */	addi r1, r1, 0xef0
-/* 800C6D88 000C3CE8  4E 80 00 20 */	blr 
+/* 800C6D88 000C3CE8  4E 80 00 20 */	blr
 
 .global sub_800c6d8c
 sub_800c6d8c:
@@ -2139,7 +2139,7 @@ lbl_800C7038:
 /* 800C7044 000C3FA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800C7048 000C3FA8  7C 08 03 A6 */	mtlr r0
 /* 800C704C 000C3FAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C7050 000C3FB0  4E 80 00 20 */	blr 
+/* 800C7050 000C3FB0  4E 80 00 20 */	blr
 
 .global LoadBurrower__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadBurrower__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -2301,7 +2301,7 @@ lbl_800C72A4:
 /* 800C72A8 000C4208  80 01 03 64 */	lwz r0, 0x364(r1)
 /* 800C72AC 000C420C  7C 08 03 A6 */	mtlr r0
 /* 800C72B0 000C4210  38 21 03 60 */	addi r1, r1, 0x360
-/* 800C72B4 000C4214  4E 80 00 20 */	blr 
+/* 800C72B4 000C4214  4E 80 00 20 */	blr
 
 .global LoadThermalHeatFader__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadThermalHeatFader__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -2399,7 +2399,7 @@ lbl_800C73F8:
 /* 800C7418 000C4378  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 800C741C 000C437C  7C 08 03 A6 */	mtlr r0
 /* 800C7420 000C4380  38 21 00 70 */	addi r1, r1, 0x70
-/* 800C7424 000C4384  4E 80 00 20 */	blr 
+/* 800C7424 000C4384  4E 80 00 20 */	blr
 
 .global LoadSeedling__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSeedling__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -2600,7 +2600,7 @@ lbl_800C76E8:
 /* 800C7718 000C4678  83 81 03 60 */	lwz r28, 0x360(r1)
 /* 800C771C 000C467C  7C 08 03 A6 */	mtlr r0
 /* 800C7720 000C4680  38 21 03 B0 */	addi r1, r1, 0x3b0
-/* 800C7724 000C4684  4E 80 00 20 */	blr 
+/* 800C7724 000C4684  4E 80 00 20 */	blr
 
 .global LoadTryclops__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadTryclops__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -2753,7 +2753,7 @@ lbl_800C7928:
 /* 800C7958 000C48B8  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 800C795C 000C48BC  7C 08 03 A6 */	mtlr r0
 /* 800C7960 000C48C0  38 21 03 30 */	addi r1, r1, 0x330
-/* 800C7964 000C48C4  4E 80 00 20 */	blr 
+/* 800C7964 000C48C4  4E 80 00 20 */	blr
 
 .global LoadPuffer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPuffer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -2918,7 +2918,7 @@ lbl_800C7BB4:
 /* 800C7BC8 000C4B28  80 01 03 84 */	lwz r0, 0x384(r1)
 /* 800C7BCC 000C4B2C  7C 08 03 A6 */	mtlr r0
 /* 800C7BD0 000C4B30  38 21 03 80 */	addi r1, r1, 0x380
-/* 800C7BD4 000C4B34  4E 80 00 20 */	blr 
+/* 800C7BD4 000C4B34  4E 80 00 20 */	blr
 
 .global LoadRidley__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRidley__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -3040,7 +3040,7 @@ lbl_800C7D88:
 /* 800C7D8C 000C4CEC  80 01 03 04 */	lwz r0, 0x304(r1)
 /* 800C7D90 000C4CF0  7C 08 03 A6 */	mtlr r0
 /* 800C7D94 000C4CF4  38 21 03 00 */	addi r1, r1, 0x300
-/* 800C7D98 000C4CF8  4E 80 00 20 */	blr 
+/* 800C7D98 000C4CF8  4E 80 00 20 */	blr
 
 .global LoadIceZoomer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadIceZoomer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -3275,7 +3275,7 @@ lbl_800C80D8:
 /* 800C8114 000C5074  80 01 04 54 */	lwz r0, 0x454(r1)
 /* 800C8118 000C5078  7C 08 03 A6 */	mtlr r0
 /* 800C811C 000C507C  38 21 04 50 */	addi r1, r1, 0x450
-/* 800C8120 000C5080  4E 80 00 20 */	blr 
+/* 800C8120 000C5080  4E 80 00 20 */	blr
 
 .global LoadAtomicBeta__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadAtomicBeta__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -3480,7 +3480,7 @@ lbl_800C83E8:
 /* 800C8424 000C5384  80 01 04 14 */	lwz r0, 0x414(r1)
 /* 800C8428 000C5388  7C 08 03 A6 */	mtlr r0
 /* 800C842C 000C538C  38 21 04 10 */	addi r1, r1, 0x410
-/* 800C8430 000C5390  4E 80 00 20 */	blr 
+/* 800C8430 000C5390  4E 80 00 20 */	blr
 
 .global LoadAmbientAI__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadAmbientAI__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -3741,7 +3741,7 @@ lbl_800C87E4:
 /* 800C8800 000C5760  80 01 03 24 */	lwz r0, 0x324(r1)
 /* 800C8804 000C5764  7C 08 03 A6 */	mtlr r0
 /* 800C8808 000C5768  38 21 03 20 */	addi r1, r1, 0x320
-/* 800C880C 000C576C  4E 80 00 20 */	blr 
+/* 800C880C 000C576C  4E 80 00 20 */	blr
 
 .global LoadRumbleEffect__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRumbleEffect__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -3881,7 +3881,7 @@ lbl_800C8A08:
 /* 800C8A14 000C5974  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 800C8A18 000C5978  7C 08 03 A6 */	mtlr r0
 /* 800C8A1C 000C597C  38 21 01 00 */	addi r1, r1, 0x100
-/* 800C8A20 000C5980  4E 80 00 20 */	blr 
+/* 800C8A20 000C5980  4E 80 00 20 */	blr
 
 .global LoadAtomicAlpha__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadAtomicAlpha__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -4040,7 +4040,7 @@ lbl_800C8C50:
 /* 800C8C6C 000C5BCC  80 01 03 64 */	lwz r0, 0x364(r1)
 /* 800C8C70 000C5BD0  7C 08 03 A6 */	mtlr r0
 /* 800C8C74 000C5BD4  38 21 03 60 */	addi r1, r1, 0x360
-/* 800C8C78 000C5BD8  4E 80 00 20 */	blr 
+/* 800C8C78 000C5BD8  4E 80 00 20 */	blr
 
 .global LoadGeemer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadGeemer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -4276,7 +4276,7 @@ lbl_800C8FBC:
 /* 800C8FF8 000C5F58  80 01 03 F4 */	lwz r0, 0x3f4(r1)
 /* 800C8FFC 000C5F5C  7C 08 03 A6 */	mtlr r0
 /* 800C9000 000C5F60  38 21 03 F0 */	addi r1, r1, 0x3f0
-/* 800C9004 000C5F64  4E 80 00 20 */	blr 
+/* 800C9004 000C5F64  4E 80 00 20 */	blr
 
 .global LoadOcculus__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadOcculus__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -4488,7 +4488,7 @@ lbl_800C92E8:
 /* 800C9324 000C6284  80 01 04 44 */	lwz r0, 0x444(r1)
 /* 800C9328 000C6288  7C 08 03 A6 */	mtlr r0
 /* 800C932C 000C628C  38 21 04 40 */	addi r1, r1, 0x440
-/* 800C9330 000C6290  4E 80 00 20 */	blr 
+/* 800C9330 000C6290  4E 80 00 20 */	blr
 
 .global LoadActorContraption__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadActorContraption__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -4756,7 +4756,7 @@ lbl_800C9708:
 /* 800C971C 000C667C  80 01 03 54 */	lwz r0, 0x354(r1)
 /* 800C9720 000C6680  7C 08 03 A6 */	mtlr r0
 /* 800C9724 000C6684  38 21 03 50 */	addi r1, r1, 0x350
-/* 800C9728 000C6688  4E 80 00 20 */	blr 
+/* 800C9728 000C6688  4E 80 00 20 */	blr
 
 .global LoadSnakeWeedSwarm__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSnakeWeedSwarm__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5040,7 +5040,7 @@ lbl_800C9ACC:
 /* 800C9B50 000C6AB0  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 800C9B54 000C6AB4  7C 08 03 A6 */	mtlr r0
 /* 800C9B58 000C6AB8  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 800C9B5C 000C6ABC  4E 80 00 20 */	blr 
+/* 800C9B5C 000C6ABC  4E 80 00 20 */	blr
 
 .global LoadTeamAiMgr__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadTeamAiMgr__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5101,7 +5101,7 @@ lbl_800C9C1C:
 /* 800C9C2C 000C6B8C  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800C9C30 000C6B90  7C 08 03 A6 */	mtlr r0
 /* 800C9C34 000C6B94  38 21 00 60 */	addi r1, r1, 0x60
-/* 800C9C38 000C6B98  4E 80 00 20 */	blr 
+/* 800C9C38 000C6B98  4E 80 00 20 */	blr
 
 .global LoadMagdolite__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMagdolite__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5324,7 +5324,7 @@ lbl_800C9F38:
 /* 800C9F84 000C6EE4  80 01 04 D4 */	lwz r0, 0x4d4(r1)
 /* 800C9F88 000C6EE8  7C 08 03 A6 */	mtlr r0
 /* 800C9F8C 000C6EEC  38 21 04 D0 */	addi r1, r1, 0x4d0
-/* 800C9F90 000C6EF0  4E 80 00 20 */	blr 
+/* 800C9F90 000C6EF0  4E 80 00 20 */	blr
 
 .global sub_800c9f94
 sub_800c9f94:
@@ -5362,7 +5362,7 @@ sub_800c9f94:
 /* 800CA010 000C6F70  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800CA014 000C6F74  7C 08 03 A6 */	mtlr r0
 /* 800CA018 000C6F78  38 21 00 10 */	addi r1, r1, 0x10
-/* 800CA01C 000C6F7C  4E 80 00 20 */	blr 
+/* 800CA01C 000C6F7C  4E 80 00 20 */	blr
 
 .global LoadEnvFxDensityController__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadEnvFxDensityController__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5486,7 +5486,7 @@ lbl_800CA1D8:
 /* 800CA1E4 000C7144  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800CA1E8 000C7148  7C 08 03 A6 */	mtlr r0
 /* 800CA1EC 000C714C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800CA1F0 000C7150  4E 80 00 20 */	blr 
+/* 800CA1F0 000C7150  4E 80 00 20 */	blr
 
 .global LoadElitePirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadElitePirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5628,7 +5628,7 @@ lbl_800CA3E0:
 /* 800CA3F0 000C7350  83 81 04 00 */	lwz r28, 0x400(r1)
 /* 800CA3F4 000C7354  7C 08 03 A6 */	mtlr r0
 /* 800CA3F8 000C7358  38 21 04 10 */	addi r1, r1, 0x410
-/* 800CA3FC 000C735C  4E 80 00 20 */	blr 
+/* 800CA3FC 000C735C  4E 80 00 20 */	blr
 
 .global LoadScriptCameraPitchVolume__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadScriptCameraPitchVolume__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5717,7 +5717,7 @@ lbl_800CA514:
 /* 800CA53C 000C749C  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 800CA540 000C74A0  7C 08 03 A6 */	mtlr r0
 /* 800CA544 000C74A4  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800CA548 000C74A8  4E 80 00 20 */	blr 
+/* 800CA548 000C74A8  4E 80 00 20 */	blr
 
 .global LoadRadialDamage__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRadialDamage__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -5836,7 +5836,7 @@ lbl_800CA6F0:
 /* 800CA6FC 000C765C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 800CA700 000C7660  7C 08 03 A6 */	mtlr r0
 /* 800CA704 000C7664  38 21 01 00 */	addi r1, r1, 0x100
-/* 800CA708 000C7668  4E 80 00 20 */	blr 
+/* 800CA708 000C7668  4E 80 00 20 */	blr
 
 .global LoadEyeBall__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadEyeBall__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6037,7 +6037,7 @@ lbl_800CA9E8:
 /* 800CA9FC 000C795C  80 01 03 C4 */	lwz r0, 0x3c4(r1)
 /* 800CAA00 000C7960  7C 08 03 A6 */	mtlr r0
 /* 800CAA04 000C7964  38 21 03 C0 */	addi r1, r1, 0x3c0
-/* 800CAA08 000C7968  4E 80 00 20 */	blr 
+/* 800CAA08 000C7968  4E 80 00 20 */	blr
 
 .global LoadBabygoth__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadBabygoth__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6169,7 +6169,7 @@ lbl_800CABD8:
 /* 800CABE8 000C7B48  83 81 04 60 */	lwz r28, 0x460(r1)
 /* 800CABEC 000C7B4C  7C 08 03 A6 */	mtlr r0
 /* 800CABF0 000C7B50  38 21 04 70 */	addi r1, r1, 0x470
-/* 800CABF4 000C7B54  4E 80 00 20 */	blr 
+/* 800CABF4 000C7B54  4E 80 00 20 */	blr
 
 .global LoadGunTurret__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadGunTurret__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6395,7 +6395,7 @@ lbl_800CAF30:
 /* 800CAF34 000C7E94  80 01 03 B4 */	lwz r0, 0x3b4(r1)
 /* 800CAF38 000C7E98  7C 08 03 A6 */	mtlr r0
 /* 800CAF3C 000C7E9C  38 21 03 B0 */	addi r1, r1, 0x3b0
-/* 800CAF40 000C7EA0  4E 80 00 20 */	blr 
+/* 800CAF40 000C7EA0  4E 80 00 20 */	blr
 
 .global LoadRepulsor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRepulsor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6463,7 +6463,7 @@ lbl_800CB018:
 /* 800CB02C 000C7F8C  83 81 00 38 */	lwz r28, 0x38(r1)
 /* 800CB030 000C7F90  7C 08 03 A6 */	mtlr r0
 /* 800CB034 000C7F94  38 21 00 50 */	addi r1, r1, 0x50
-/* 800CB038 000C7F98  4E 80 00 20 */	blr 
+/* 800CB038 000C7F98  4E 80 00 20 */	blr
 
 .global LoadStreamedMusic__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadStreamedMusic__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6551,7 +6551,7 @@ lbl_800CB168:
 /* 800CB174 000C80D4  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800CB178 000C80D8  7C 08 03 A6 */	mtlr r0
 /* 800CB17C 000C80DC  38 21 00 70 */	addi r1, r1, 0x70
-/* 800CB180 000C80E0  4E 80 00 20 */	blr 
+/* 800CB180 000C80E0  4E 80 00 20 */	blr
 
 .global LoadMidi__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMidi__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6623,7 +6623,7 @@ lbl_800CB270:
 /* 800CB27C 000C81DC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800CB280 000C81E0  7C 08 03 A6 */	mtlr r0
 /* 800CB284 000C81E4  38 21 00 50 */	addi r1, r1, 0x50
-/* 800CB288 000C81E8  4E 80 00 20 */	blr 
+/* 800CB288 000C81E8  4E 80 00 20 */	blr
 
 .global LoadThardusRockProjectile__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadThardusRockProjectile__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6805,7 +6805,7 @@ lbl_800CB518:
 /* 800CB524 000C8484  80 01 03 84 */	lwz r0, 0x384(r1)
 /* 800CB528 000C8488  7C 08 03 A6 */	mtlr r0
 /* 800CB52C 000C848C  38 21 03 80 */	addi r1, r1, 0x380
-/* 800CB530 000C8490  4E 80 00 20 */	blr 
+/* 800CB530 000C8490  4E 80 00 20 */	blr
 
 .global "construct<10CModelData>__4rstlFPvRC10CModelData"
 "construct<10CModelData>__4rstlFPvRC10CModelData":
@@ -6841,7 +6841,7 @@ lbl_800CB574:
 /* 800CB5A0 000C8500  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800CB5A4 000C8504  7C 08 03 A6 */	mtlr r0
 /* 800CB5A8 000C8508  38 21 00 10 */	addi r1, r1, 0x10
-/* 800CB5AC 000C850C  4E 80 00 20 */	blr 
+/* 800CB5AC 000C850C  4E 80 00 20 */	blr
 
 .global sub_800cb5b0
 sub_800cb5b0:
@@ -6855,7 +6855,7 @@ lbl_800CB5C8:
 /* 800CB5C8 000C8528  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800CB5CC 000C852C  7C 08 03 A6 */	mtlr r0
 /* 800CB5D0 000C8530  38 21 00 10 */	addi r1, r1, 0x10
-/* 800CB5D4 000C8534  4E 80 00 20 */	blr 
+/* 800CB5D4 000C8534  4E 80 00 20 */	blr
 
 .global LoadFlaahgraTentacle__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFlaahgraTentacle__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -6979,7 +6979,7 @@ lbl_800CB784:
 /* 800CB794 000C86F4  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 800CB798 000C86F8  7C 08 03 A6 */	mtlr r0
 /* 800CB79C 000C86FC  38 21 02 F0 */	addi r1, r1, 0x2f0
-/* 800CB7A0 000C8700  4E 80 00 20 */	blr 
+/* 800CB7A0 000C8700  4E 80 00 20 */	blr
 
 .global LoadWallCrawlerSwarm__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadWallCrawlerSwarm__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -7274,7 +7274,7 @@ lbl_800CBB90:
 /* 800CBC14 000C8B74  80 01 04 14 */	lwz r0, 0x414(r1)
 /* 800CBC18 000C8B78  7C 08 03 A6 */	mtlr r0
 /* 800CBC1C 000C8B7C  38 21 04 10 */	addi r1, r1, 0x410
-/* 800CBC20 000C8B80  4E 80 00 20 */	blr 
+/* 800CBC20 000C8B80  4E 80 00 20 */	blr
 
 .global LoadThardus__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadThardus__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -7827,7 +7827,7 @@ lbl_800CC440:
 /* 800CC474 000C93D4  80 01 09 54 */	lwz r0, 0x954(r1)
 /* 800CC478 000C93D8  7C 08 03 A6 */	mtlr r0
 /* 800CC47C 000C93DC  38 21 09 50 */	addi r1, r1, 0x950
-/* 800CC480 000C93E0  4E 80 00 20 */	blr 
+/* 800CC480 000C93E0  4E 80 00 20 */	blr
 
 .global LoadJellyZap__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadJellyZap__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -8054,7 +8054,7 @@ lbl_800CC778:
 /* 800CC7DC 000C973C  80 01 03 E4 */	lwz r0, 0x3e4(r1)
 /* 800CC7E0 000C9740  7C 08 03 A6 */	mtlr r0
 /* 800CC7E4 000C9744  38 21 03 E0 */	addi r1, r1, 0x3e0
-/* 800CC7E8 000C9748  4E 80 00 20 */	blr 
+/* 800CC7E8 000C9748  4E 80 00 20 */	blr
 
 .global LoadVisorGoo__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadVisorGoo__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -8165,12 +8165,12 @@ lbl_800CC970:
 /* 800CC97C 000C98DC  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800CC980 000C98E0  7C 08 03 A6 */	mtlr r0
 /* 800CC984 000C98E4  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800CC988 000C98E8  4E 80 00 20 */	blr 
+/* 800CC988 000C98E8  4E 80 00 20 */	blr
 
 .global LoadSaveStation__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSaveStation__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 /* 800CC98C 000C98EC  38 60 00 00 */	li r3, 0
-/* 800CC990 000C98F0  4E 80 00 20 */	blr 
+/* 800CC990 000C98F0  4E 80 00 20 */	blr
 
 .global LoadPlayerStateChange__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPlayerStateChange__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -8242,7 +8242,7 @@ lbl_800CCA88:
 /* 800CCA8C 000C99EC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800CCA90 000C99F0  7C 08 03 A6 */	mtlr r0
 /* 800CCA94 000C99F4  38 21 00 50 */	addi r1, r1, 0x50
-/* 800CCA98 000C99F8  4E 80 00 20 */	blr 
+/* 800CCA98 000C99F8  4E 80 00 20 */	blr
 
 .global LoadSwitch__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSwitch__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -8302,7 +8302,7 @@ lbl_800CCB60:
 /* 800CCB64 000C9AC4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800CCB68 000C9AC8  7C 08 03 A6 */	mtlr r0
 /* 800CCB6C 000C9ACC  38 21 00 40 */	addi r1, r1, 0x40
-/* 800CCB70 000C9AD0  4E 80 00 20 */	blr 
+/* 800CCB70 000C9AD0  4E 80 00 20 */	blr
 
 .global LoadControllerAction__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadControllerAction__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -8392,7 +8392,7 @@ lbl_800CCC9C:
 /* 800CCCA0 000C9C00  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800CCCA4 000C9C04  7C 08 03 A6 */	mtlr r0
 /* 800CCCA8 000C9C08  38 21 00 50 */	addi r1, r1, 0x50
-/* 800CCCAC 000C9C0C  4E 80 00 20 */	blr 
+/* 800CCCAC 000C9C0C  4E 80 00 20 */	blr
 
 .global LoadWorldTeleporter__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadWorldTeleporter__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -8674,7 +8674,7 @@ lbl_800CD070:
 /* 800CD08C 000C9FEC  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 800CD090 000C9FF0  7C 08 03 A6 */	mtlr r0
 /* 800CD094 000C9FF4  38 21 01 10 */	addi r1, r1, 0x110
-/* 800CD098 000C9FF8  4E 80 00 20 */	blr 
+/* 800CD098 000C9FF8  4E 80 00 20 */	blr
 
 .global LoadVisorFlare__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadVisorFlare__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -9170,7 +9170,7 @@ lbl_800CD78C:
 /* 800CD7A8 000CA708  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 800CD7AC 000CA70C  7C 08 03 A6 */	mtlr r0
 /* 800CD7B0 000CA710  38 21 01 90 */	addi r1, r1, 0x190
-/* 800CD7B4 000CA714  4E 80 00 20 */	blr 
+/* 800CD7B4 000CA714  4E 80 00 20 */	blr
 
 .global sub_800cd7b8
 sub_800cd7b8:
@@ -9223,7 +9223,7 @@ lbl_800CD848:
 /* 800CD85C 000CA7BC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800CD860 000CA7C0  7C 08 03 A6 */	mtlr r0
 /* 800CD864 000CA7C4  38 21 00 30 */	addi r1, r1, 0x30
-/* 800CD868 000CA7C8  4E 80 00 20 */	blr 
+/* 800CD868 000CA7C8  4E 80 00 20 */	blr
 
 .global LoadDrone__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDrone__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -10041,7 +10041,7 @@ lbl_800CE3C8:
 /* 800CE45C 000CB3BC  80 01 06 34 */	lwz r0, 0x634(r1)
 /* 800CE460 000CB3C0  7C 08 03 A6 */	mtlr r0
 /* 800CE464 000CB3C4  38 21 06 30 */	addi r1, r1, 0x630
-/* 800CE468 000CB3C8  4E 80 00 20 */	blr 
+/* 800CE468 000CB3C8  4E 80 00 20 */	blr
 
 .global sub_800ce46c
 sub_800ce46c:
@@ -10110,7 +10110,7 @@ lbl_800CE540:
 /* 800CE548 000CB4A8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800CE54C 000CB4AC  7C 08 03 A6 */	mtlr r0
 /* 800CE550 000CB4B0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800CE554 000CB4B4  4E 80 00 20 */	blr 
+/* 800CE554 000CB4B4  4E 80 00 20 */	blr
 
 .global LoadFlareDef__FR12CInputStream
 LoadFlareDef__FR12CInputStream:
@@ -10155,7 +10155,7 @@ LoadFlareDef__FR12CInputStream:
 /* 800CE5F0 000CB550  81 84 00 00 */	lwz r12, 0(r4)
 /* 800CE5F4 000CB554  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800CE5F8 000CB558  7D 89 03 A6 */	mtctr r12
-/* 800CE5FC 000CB55C  4E 80 04 21 */	bctrl 
+/* 800CE5FC 000CB55C  4E 80 04 21 */	bctrl
 /* 800CE600 000CB560  38 61 00 1C */	addi r3, r1, 0x1c
 /* 800CE604 000CB564  38 81 00 0C */	addi r4, r1, 0xc
 /* 800CE608 000CB568  48 27 28 A1 */	bl __ct__6CTokenFRC6CToken
@@ -10205,7 +10205,7 @@ lbl_800CE690:
 /* 800CE6AC 000CB60C  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 800CE6B0 000CB610  7C 08 03 A6 */	mtlr r0
 /* 800CE6B4 000CB614  38 21 00 70 */	addi r1, r1, 0x70
-/* 800CE6B8 000CB618  4E 80 00 20 */	blr 
+/* 800CE6B8 000CB618  4E 80 00 20 */	blr
 
 .global LoadFishCloudModifier__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFishCloudModifier__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -10297,7 +10297,7 @@ lbl_800CE7EC:
 /* 800CE7F8 000CB758  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800CE7FC 000CB75C  7C 08 03 A6 */	mtlr r0
 /* 800CE800 000CB760  38 21 00 60 */	addi r1, r1, 0x60
-/* 800CE804 000CB764  4E 80 00 20 */	blr 
+/* 800CE804 000CB764  4E 80 00 20 */	blr
 
 .global LoadFishCloud__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFishCloud__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -10578,7 +10578,7 @@ lbl_800CEBC8:
 /* 800CEC3C 000CBB9C  80 01 02 84 */	lwz r0, 0x284(r1)
 /* 800CEC40 000CBBA0  7C 08 03 A6 */	mtlr r0
 /* 800CEC44 000CBBA4  38 21 02 80 */	addi r1, r1, 0x280
-/* 800CEC48 000CBBA8  4E 80 00 20 */	blr 
+/* 800CEC48 000CBBA8  4E 80 00 20 */	blr
 
 .global LoadRoomAcoustics__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRoomAcoustics__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -10754,7 +10754,7 @@ lbl_800CEED8:
 /* 800CEEE4 000CBE44  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 800CEEE8 000CBE48  7C 08 03 A6 */	mtlr r0
 /* 800CEEEC 000CBE4C  38 21 01 30 */	addi r1, r1, 0x130
-/* 800CEEF0 000CBE50  4E 80 00 20 */	blr 
+/* 800CEEF0 000CBE50  4E 80 00 20 */	blr
 
 .global LoadPlayerActor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPlayerActor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11036,7 +11036,7 @@ lbl_800CF2EC:
 /* 800CF300 000CC260  80 01 03 14 */	lwz r0, 0x314(r1)
 /* 800CF304 000CC264  7C 08 03 A6 */	mtlr r0
 /* 800CF308 000CC268  38 21 03 10 */	addi r1, r1, 0x310
-/* 800CF30C 000CC26C  4E 80 00 20 */	blr 
+/* 800CF30C 000CC26C  4E 80 00 20 */	blr
 
 .global LoadIceSheegoth__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadIceSheegoth__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11168,7 +11168,7 @@ lbl_800CF4DC:
 /* 800CF4EC 000CC44C  83 81 04 D0 */	lwz r28, 0x4d0(r1)
 /* 800CF4F0 000CC450  7C 08 03 A6 */	mtlr r0
 /* 800CF4F4 000CC454  38 21 04 E0 */	addi r1, r1, 0x4e0
-/* 800CF4F8 000CC458  4E 80 00 20 */	blr 
+/* 800CF4F8 000CC458  4E 80 00 20 */	blr
 
 .global LoadEMPulse__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadEMPulse__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11256,7 +11256,7 @@ lbl_800CF628:
 /* 800CF634 000CC594  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 800CF638 000CC598  7C 08 03 A6 */	mtlr r0
 /* 800CF63C 000CC59C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 800CF640 000CC5A0  4E 80 00 20 */	blr 
+/* 800CF640 000CC5A0  4E 80 00 20 */	blr
 
 .global LoadTargetingPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadTargetingPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11314,7 +11314,7 @@ lbl_800CF6F4:
 /* 800CF704 000CC664  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800CF708 000CC668  7C 08 03 A6 */	mtlr r0
 /* 800CF70C 000CC66C  38 21 00 60 */	addi r1, r1, 0x60
-/* 800CF710 000CC670  4E 80 00 20 */	blr 
+/* 800CF710 000CC670  4E 80 00 20 */	blr
 
 .global LoadBallTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadBallTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11417,7 +11417,7 @@ lbl_800CF86C:
 /* 800CF888 000CC7E8  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800CF88C 000CC7EC  7C 08 03 A6 */	mtlr r0
 /* 800CF890 000CC7F0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800CF894 000CC7F4  4E 80 00 20 */	blr 
+/* 800CF894 000CC7F4  4E 80 00 20 */	blr
 
 .global LoadMetroidBeta__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMetroidBeta__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11559,7 +11559,7 @@ lbl_800CFA8C:
 /* 800CFA9C 000CC9FC  83 81 04 20 */	lwz r28, 0x420(r1)
 /* 800CFAA0 000CCA00  7C 08 03 A6 */	mtlr r0
 /* 800CFAA4 000CCA04  38 21 04 30 */	addi r1, r1, 0x430
-/* 800CFAA8 000CCA08  4E 80 00 20 */	blr 
+/* 800CFAA8 000CCA08  4E 80 00 20 */	blr
 
 .global LoadMetroid__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMetroid__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11724,7 +11724,7 @@ lbl_800CFD04:
 /* 800CFD08 000CCC68  80 01 04 64 */	lwz r0, 0x464(r1)
 /* 800CFD0C 000CCC6C  7C 08 03 A6 */	mtlr r0
 /* 800CFD10 000CCC70  38 21 04 60 */	addi r1, r1, 0x460
-/* 800CFD14 000CCC74  4E 80 00 20 */	blr 
+/* 800CFD14 000CCC74  4E 80 00 20 */	blr
 
 .global sub_800cfd18
 sub_800cfd18:
@@ -11764,7 +11764,7 @@ lbl_800CFD80:
 /* 800CFD88 000CCCE8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800CFD8C 000CCCEC  7C 08 03 A6 */	mtlr r0
 /* 800CFD90 000CCCF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800CFD94 000CCCF4  4E 80 00 20 */	blr 
+/* 800CFD94 000CCCF4  4E 80 00 20 */	blr
 
 .global LoadPickupGenerator__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPickupGenerator__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11832,7 +11832,7 @@ lbl_800CFE6C:
 /* 800CFE80 000CCDE0  83 81 00 38 */	lwz r28, 0x38(r1)
 /* 800CFE84 000CCDE4  7C 08 03 A6 */	mtlr r0
 /* 800CFE88 000CCDE8  38 21 00 50 */	addi r1, r1, 0x50
-/* 800CFE8C 000CCDEC  4E 80 00 20 */	blr 
+/* 800CFE8C 000CCDEC  4E 80 00 20 */	blr
 
 .global LoadRipper__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRipper__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -11996,7 +11996,7 @@ lbl_800D00E8:
 /* 800D00EC 000CD04C  80 01 03 94 */	lwz r0, 0x394(r1)
 /* 800D00F0 000CD050  7C 08 03 A6 */	mtlr r0
 /* 800D00F4 000CD054  38 21 03 90 */	addi r1, r1, 0x390
-/* 800D00F8 000CD058  4E 80 00 20 */	blr 
+/* 800D00F8 000CD058  4E 80 00 20 */	blr
 
 .global LoadParasite__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadParasite__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -12312,7 +12312,7 @@ lbl_800D052C:
 /* 800D05B8 000CD518  80 01 04 B4 */	lwz r0, 0x4b4(r1)
 /* 800D05BC 000CD51C  7C 08 03 A6 */	mtlr r0
 /* 800D05C0 000CD520  38 21 04 B0 */	addi r1, r1, 0x4b0
-/* 800D05C4 000CD524  4E 80 00 20 */	blr 
+/* 800D05C4 000CD524  4E 80 00 20 */	blr
 
 .global LoadFlaahgra__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFlaahgra__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -12470,7 +12470,7 @@ lbl_800D07F4:
 /* 800D0804 000CD764  83 81 04 20 */	lwz r28, 0x420(r1)
 /* 800D0808 000CD768  7C 08 03 A6 */	mtlr r0
 /* 800D080C 000CD76C  38 21 04 30 */	addi r1, r1, 0x430
-/* 800D0810 000CD770  4E 80 00 20 */	blr 
+/* 800D0810 000CD770  4E 80 00 20 */	blr
 
 .global LoadNewIntroBoss__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadNewIntroBoss__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -12621,7 +12621,7 @@ lbl_800D0A30:
 /* 800D0A3C 000CD99C  80 01 03 44 */	lwz r0, 0x344(r1)
 /* 800D0A40 000CD9A0  7C 08 03 A6 */	mtlr r0
 /* 800D0A44 000CD9A4  38 21 03 40 */	addi r1, r1, 0x340
-/* 800D0A48 000CD9A8  4E 80 00 20 */	blr 
+/* 800D0A48 000CD9A8  4E 80 00 20 */	blr
 
 .global LoadMetaree__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMetaree__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -12804,7 +12804,7 @@ lbl_800D0CC4:
 /* 800D0CF4 000CDC54  83 81 03 40 */	lwz r28, 0x340(r1)
 /* 800D0CF8 000CDC58  7C 08 03 A6 */	mtlr r0
 /* 800D0CFC 000CDC5C  38 21 03 90 */	addi r1, r1, 0x390
-/* 800D0D00 000CDC60  4E 80 00 20 */	blr 
+/* 800D0D00 000CDC60  4E 80 00 20 */	blr
 
 .global LoadDockAreaChange__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDockAreaChange__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -12860,7 +12860,7 @@ lbl_800D0DB8:
 /* 800D0DBC 000CDD1C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800D0DC0 000CDD20  7C 08 03 A6 */	mtlr r0
 /* 800D0DC4 000CDD24  38 21 00 40 */	addi r1, r1, 0x40
-/* 800D0DC8 000CDD28  4E 80 00 20 */	blr 
+/* 800D0DC8 000CDD28  4E 80 00 20 */	blr
 
 .global LoadAreaAttributes__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadAreaAttributes__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -12947,7 +12947,7 @@ lbl_800D0EF0:
 /* 800D0EFC 000CDE5C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800D0F00 000CDE60  7C 08 03 A6 */	mtlr r0
 /* 800D0F04 000CDE64  38 21 00 50 */	addi r1, r1, 0x50
-/* 800D0F08 000CDE68  4E 80 00 20 */	blr 
+/* 800D0F08 000CDE68  4E 80 00 20 */	blr
 
 .global LoadDistanceFog__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDistanceFog__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13081,7 +13081,7 @@ lbl_800D10CC:
 /* 800D10D8 000CE038  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800D10DC 000CE03C  7C 08 03 A6 */	mtlr r0
 /* 800D10E0 000CE040  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D10E4 000CE044  4E 80 00 20 */	blr 
+/* 800D10E4 000CE044  4E 80 00 20 */	blr
 
 .global LoadSpankWeed__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpankWeed__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13239,7 +13239,7 @@ lbl_800D12FC:
 /* 800D132C 000CE28C  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 800D1330 000CE290  7C 08 03 A6 */	mtlr r0
 /* 800D1334 000CE294  38 21 03 30 */	addi r1, r1, 0x330
-/* 800D1338 000CE298  4E 80 00 20 */	blr 
+/* 800D1338 000CE298  4E 80 00 20 */	blr
 
 .global LoadFireFlea__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFireFlea__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13375,7 +13375,7 @@ lbl_800D1510:
 /* 800D1528 000CE488  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 800D152C 000CE48C  7C 08 03 A6 */	mtlr r0
 /* 800D1530 000CE490  38 21 03 00 */	addi r1, r1, 0x300
-/* 800D1534 000CE494  4E 80 00 20 */	blr 
+/* 800D1534 000CE494  4E 80 00 20 */	blr
 
 .global LoadPuddleToadGamma__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPuddleToadGamma__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13569,7 +13569,7 @@ lbl_800D17DC:
 /* 800D1810 000CE770  80 01 03 F4 */	lwz r0, 0x3f4(r1)
 /* 800D1814 000CE774  7C 08 03 A6 */	mtlr r0
 /* 800D1818 000CE778  38 21 03 F0 */	addi r1, r1, 0x3f0
-/* 800D181C 000CE77C  4E 80 00 20 */	blr 
+/* 800D181C 000CE77C  4E 80 00 20 */	blr
 
 .global LoadDebugCameraWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDebugCameraWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13627,7 +13627,7 @@ lbl_800D18D0:
 /* 800D18E0 000CE840  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800D18E4 000CE844  7C 08 03 A6 */	mtlr r0
 /* 800D18E8 000CE848  38 21 00 60 */	addi r1, r1, 0x60
-/* 800D18EC 000CE84C  4E 80 00 20 */	blr 
+/* 800D18EC 000CE84C  4E 80 00 20 */	blr
 
 .global LoadSpiderBallAttractionSurface__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpiderBallAttractionSurface__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13686,7 +13686,7 @@ lbl_800D19A4:
 /* 800D19B4 000CE914  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 800D19B8 000CE918  7C 08 03 A6 */	mtlr r0
 /* 800D19BC 000CE91C  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D19C0 000CE920  4E 80 00 20 */	blr 
+/* 800D19C0 000CE920  4E 80 00 20 */	blr
 
 .global LoadPuddleSpore__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPuddleSpore__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -13883,7 +13883,7 @@ lbl_800D1C78:
 /* 800D1CA4 000CEC04  80 01 03 B4 */	lwz r0, 0x3b4(r1)
 /* 800D1CA8 000CEC08  7C 08 03 A6 */	mtlr r0
 /* 800D1CAC 000CEC0C  38 21 03 B0 */	addi r1, r1, 0x3b0
-/* 800D1CB0 000CEC10  4E 80 00 20 */	blr 
+/* 800D1CB0 000CEC10  4E 80 00 20 */	blr
 
 .global LoadChozoGhost__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadChozoGhost__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14153,7 +14153,7 @@ lbl_800D206C:
 /* 800D20B8 000CF018  80 01 04 94 */	lwz r0, 0x494(r1)
 /* 800D20BC 000CF01C  7C 08 03 A6 */	mtlr r0
 /* 800D20C0 000CF020  38 21 04 90 */	addi r1, r1, 0x490
-/* 800D20C4 000CF024  4E 80 00 20 */	blr 
+/* 800D20C4 000CF024  4E 80 00 20 */	blr
 
 .global LoadFlickerBat__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFlickerBat__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14307,7 +14307,7 @@ lbl_800D22F8:
 /* 800D22FC 000CF25C  80 01 03 44 */	lwz r0, 0x344(r1)
 /* 800D2300 000CF260  7C 08 03 A6 */	mtlr r0
 /* 800D2304 000CF264  38 21 03 40 */	addi r1, r1, 0x340
-/* 800D2308 000CF268  4E 80 00 20 */	blr 
+/* 800D2308 000CF268  4E 80 00 20 */	blr
 
 .global LoadGrapplePoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadGrapplePoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14410,7 +14410,7 @@ lbl_800D246C:
 /* 800D247C 000CF3DC  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 800D2480 000CF3E0  7C 08 03 A6 */	mtlr r0
 /* 800D2484 000CF3E4  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800D2488 000CF3E8  4E 80 00 20 */	blr 
+/* 800D2488 000CF3E8  4E 80 00 20 */	blr
 
 .global LoadBloodFlower__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadBloodFlower__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14587,7 +14587,7 @@ lbl_800D2710:
 /* 800D271C 000CF67C  80 01 03 A4 */	lwz r0, 0x3a4(r1)
 /* 800D2720 000CF680  7C 08 03 A6 */	mtlr r0
 /* 800D2724 000CF684  38 21 03 A0 */	addi r1, r1, 0x3a0
-/* 800D2728 000CF688  4E 80 00 20 */	blr 
+/* 800D2728 000CF688  4E 80 00 20 */	blr
 
 .global LoadSpiderBallWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpiderBallWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14643,7 +14643,7 @@ lbl_800D27E0:
 /* 800D27E4 000CF744  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800D27E8 000CF748  7C 08 03 A6 */	mtlr r0
 /* 800D27EC 000CF74C  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D27F0 000CF750  4E 80 00 20 */	blr 
+/* 800D27F0 000CF750  4E 80 00 20 */	blr
 
 .global LoadAiJumpPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadAiJumpPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14707,7 +14707,7 @@ lbl_800D28B8:
 /* 800D28CC 000CF82C  83 81 00 58 */	lwz r28, 0x58(r1)
 /* 800D28D0 000CF830  7C 08 03 A6 */	mtlr r0
 /* 800D28D4 000CF834  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D28D8 000CF838  4E 80 00 20 */	blr 
+/* 800D28D8 000CF838  4E 80 00 20 */	blr
 
 .global LoadCoverPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCoverPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14785,7 +14785,7 @@ lbl_800D29DC:
 /* 800D29EC 000CF94C  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800D29F0 000CF950  7C 08 03 A6 */	mtlr r0
 /* 800D29F4 000CF954  38 21 00 80 */	addi r1, r1, 0x80
-/* 800D29F8 000CF958  4E 80 00 20 */	blr 
+/* 800D29F8 000CF958  4E 80 00 20 */	blr
 
 .global LoadFlyingPirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFlyingPirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -14910,7 +14910,7 @@ lbl_800D2BB8:
 /* 800D2BBC 000CFB1C  80 01 03 04 */	lwz r0, 0x304(r1)
 /* 800D2BC0 000CFB20  7C 08 03 A6 */	mtlr r0
 /* 800D2BC4 000CFB24  38 21 03 00 */	addi r1, r1, 0x300
-/* 800D2BC8 000CFB28  4E 80 00 20 */	blr 
+/* 800D2BC8 000CFB28  4E 80 00 20 */	blr
 
 .global LoadSpacePirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpacePirate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15072,12 +15072,12 @@ lbl_800D2E18:
 /* 800D2E1C 000CFD7C  80 01 03 54 */	lwz r0, 0x354(r1)
 /* 800D2E20 000CFD80  7C 08 03 A6 */	mtlr r0
 /* 800D2E24 000CFD84  38 21 03 50 */	addi r1, r1, 0x350
-/* 800D2E28 000CFD88  4E 80 00 20 */	blr 
+/* 800D2E28 000CFD88  4E 80 00 20 */	blr
 
 .global LoadMapStation__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadMapStation__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 /* 800D2E2C 000CFD8C  38 60 00 00 */	li r3, 0
-/* 800D2E30 000CFD90  4E 80 00 20 */	blr 
+/* 800D2E30 000CFD90  4E 80 00 20 */	blr
 
 .global LoadFogVolume__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFogVolume__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15228,7 +15228,7 @@ lbl_800D3050:
 /* 800D3064 000CFFC4  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 800D3068 000CFFC8  7C 08 03 A6 */	mtlr r0
 /* 800D306C 000CFFCC  38 21 01 00 */	addi r1, r1, 0x100
-/* 800D3070 000CFFD0  4E 80 00 20 */	blr 
+/* 800D3070 000CFFD0  4E 80 00 20 */	blr
 
 .global LoadSpecialFunction__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpecialFunction__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15393,7 +15393,7 @@ lbl_800D32B4:
 /* 800D32D8 000D0238  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 800D32DC 000D023C  7C 08 03 A6 */	mtlr r0
 /* 800D32E0 000D0240  38 21 01 20 */	addi r1, r1, 0x120
-/* 800D32E4 000D0244  4E 80 00 20 */	blr 
+/* 800D32E4 000D0244  4E 80 00 20 */	blr
 
 .global LoadActorRotate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadActorRotate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15463,7 +15463,7 @@ lbl_800D33D0:
 /* 800D33D8 000D0338  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800D33DC 000D033C  7C 08 03 A6 */	mtlr r0
 /* 800D33E0 000D0340  38 21 00 50 */	addi r1, r1, 0x50
-/* 800D33E4 000D0344  4E 80 00 20 */	blr 
+/* 800D33E4 000D0344  4E 80 00 20 */	blr
 
 .global LoadColorModulate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadColorModulate__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15560,7 +15560,7 @@ lbl_800D3538:
 /* 800D3544 000D04A4  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800D3548 000D04A8  7C 08 03 A6 */	mtlr r0
 /* 800D354C 000D04AC  38 21 00 80 */	addi r1, r1, 0x80
-/* 800D3550 000D04B0  4E 80 00 20 */	blr 
+/* 800D3550 000D04B0  4E 80 00 20 */	blr
 
 .global LoadAIKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadAIKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15578,7 +15578,7 @@ lbl_800D357C:
 /* 800D357C 000D04DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800D3580 000D04E0  7C 08 03 A6 */	mtlr r0
 /* 800D3584 000D04E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800D3588 000D04E8  4E 80 00 20 */	blr 
+/* 800D3588 000D04E8  4E 80 00 20 */	blr
 
 .global LoadActorKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadActorKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15693,7 +15693,7 @@ lbl_800D3720:
 /* 800D372C 000D068C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800D3730 000D0690  7C 08 03 A6 */	mtlr r0
 /* 800D3734 000D0694  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800D3738 000D0698  4E 80 00 20 */	blr 
+/* 800D3738 000D0698  4E 80 00 20 */	blr
 
 .global LoadNewCameraShaker__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadNewCameraShaker__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -15926,7 +15926,7 @@ lbl_800D3A80:
 /* 800D3A94 000D09F4  80 01 02 A4 */	lwz r0, 0x2a4(r1)
 /* 800D3A98 000D09F8  7C 08 03 A6 */	mtlr r0
 /* 800D3A9C 000D09FC  38 21 02 A0 */	addi r1, r1, 0x2a0
-/* 800D3AA0 000D0A00  4E 80 00 20 */	blr 
+/* 800D3AA0 000D0A00  4E 80 00 20 */	blr
 
 .global LoadCameraShaker__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCameraShaker__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16027,7 +16027,7 @@ lbl_800D3BE8:
 /* 800D3BF8 000D0B58  83 81 01 D0 */	lwz r28, 0x1d0(r1)
 /* 800D3BFC 000D0B5C  7C 08 03 A6 */	mtlr r0
 /* 800D3C00 000D0B60  38 21 01 E0 */	addi r1, r1, 0x1e0
-/* 800D3C04 000D0B64  4E 80 00 20 */	blr 
+/* 800D3C04 000D0B64  4E 80 00 20 */	blr
 
 .global LoadDebrisExtended__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDebrisExtended__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16321,7 +16321,7 @@ lbl_800D4004:
 /* 800D4068 000D0FC8  80 01 03 A4 */	lwz r0, 0x3a4(r1)
 /* 800D406C 000D0FCC  7C 08 03 A6 */	mtlr r0
 /* 800D4070 000D0FD0  38 21 03 A0 */	addi r1, r1, 0x3a0
-/* 800D4074 000D0FD4  4E 80 00 20 */	blr 
+/* 800D4074 000D0FD4  4E 80 00 20 */	blr
 
 .global LoadDebris__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDebris__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16485,7 +16485,7 @@ lbl_800D42B4:
 /* 800D42D8 000D1238  80 01 02 34 */	lwz r0, 0x234(r1)
 /* 800D42DC 000D123C  7C 08 03 A6 */	mtlr r0
 /* 800D42E0 000D1240  38 21 02 30 */	addi r1, r1, 0x230
-/* 800D42E4 000D1244  4E 80 00 20 */	blr 
+/* 800D42E4 000D1244  4E 80 00 20 */	blr
 
 .global LoadCameraBlurKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCameraBlurKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16563,7 +16563,7 @@ lbl_800D43E8:
 /* 800D43F8 000D1358  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800D43FC 000D135C  7C 08 03 A6 */	mtlr r0
 /* 800D4400 000D1360  38 21 00 50 */	addi r1, r1, 0x50
-/* 800D4404 000D1364  4E 80 00 20 */	blr 
+/* 800D4404 000D1364  4E 80 00 20 */	blr
 
 .global LoadCameraFilterKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCameraFilterKeyframe__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16663,7 +16663,7 @@ lbl_800D455C:
 /* 800D4570 000D14D0  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800D4574 000D14D4  7C 08 03 A6 */	mtlr r0
 /* 800D4578 000D14D8  38 21 00 80 */	addi r1, r1, 0x80
-/* 800D457C 000D14DC  4E 80 00 20 */	blr 
+/* 800D457C 000D14DC  4E 80 00 20 */	blr
 
 .global LoadHUDMemo__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadHUDMemo__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16741,7 +16741,7 @@ lbl_800D4680:
 /* 800D4684 000D15E4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800D4688 000D15E8  7C 08 03 A6 */	mtlr r0
 /* 800D468C 000D15EC  38 21 00 40 */	addi r1, r1, 0x40
-/* 800D4690 000D15F0  4E 80 00 20 */	blr 
+/* 800D4690 000D15F0  4E 80 00 20 */	blr
 
 .global LoadFaultyRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadFaultyRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16815,7 +16815,7 @@ lbl_800D477C:
 /* 800D478C 000D16EC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800D4790 000D16F0  7C 08 03 A6 */	mtlr r0
 /* 800D4794 000D16F4  38 21 00 30 */	addi r1, r1, 0x30
-/* 800D4798 000D16F8  4E 80 00 20 */	blr 
+/* 800D4798 000D16F8  4E 80 00 20 */	blr
 
 .global LoadRandomRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRandomRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16881,7 +16881,7 @@ lbl_800D4878:
 /* 800D487C 000D17DC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800D4880 000D17E0  7C 08 03 A6 */	mtlr r0
 /* 800D4884 000D17E4  38 21 00 40 */	addi r1, r1, 0x40
-/* 800D4888 000D17E8  4E 80 00 20 */	blr 
+/* 800D4888 000D17E8  4E 80 00 20 */	blr
 
 .global LoadRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRelay__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -16955,7 +16955,7 @@ lbl_800D4980:
 /* 800D4984 000D18E4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800D4988 000D18E8  7C 08 03 A6 */	mtlr r0
 /* 800D498C 000D18EC  38 21 00 40 */	addi r1, r1, 0x40
-/* 800D4990 000D18F0  4E 80 00 20 */	blr 
+/* 800D4990 000D18F0  4E 80 00 20 */	blr
 
 .global LoadSpindleCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpindleCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -17574,7 +17574,7 @@ lbl_800D52F4:
 /* 800D5318 000D2278  80 01 05 F4 */	lwz r0, 0x5f4(r1)
 /* 800D531C 000D227C  7C 08 03 A6 */	mtlr r0
 /* 800D5320 000D2280  38 21 05 F0 */	addi r1, r1, 0x5f0
-/* 800D5324 000D2284  4E 80 00 20 */	blr 
+/* 800D5324 000D2284  4E 80 00 20 */	blr
 
 .global LoadPathCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPathCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -17660,7 +17660,7 @@ lbl_800D544C:
 /* 800D5458 000D23B8  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 800D545C 000D23BC  7C 08 03 A6 */	mtlr r0
 /* 800D5460 000D23C0  38 21 00 90 */	addi r1, r1, 0x90
-/* 800D5464 000D23C4  4E 80 00 20 */	blr 
+/* 800D5464 000D23C4  4E 80 00 20 */	blr
 
 .global LoadCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCamera__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -17851,7 +17851,7 @@ lbl_800D5704:
 /* 800D5730 000D2690  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800D5734 000D2694  7C 08 03 A6 */	mtlr r0
 /* 800D5738 000D2698  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800D573C 000D269C  4E 80 00 20 */	blr 
+/* 800D573C 000D269C  4E 80 00 20 */	blr
 
 .global LoadCameraWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCameraWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -17913,7 +17913,7 @@ lbl_800D5808:
 /* 800D5810 000D2770  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800D5814 000D2774  7C 08 03 A6 */	mtlr r0
 /* 800D5818 000D2778  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D581C 000D277C  4E 80 00 20 */	blr 
+/* 800D581C 000D277C  4E 80 00 20 */	blr
 
 .global LoadPlatform__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPlatform__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -18051,7 +18051,7 @@ lbl_800D5990:
 /* 800D5A24 000D2984  81 84 00 00 */	lwz r12, 0(r4)
 /* 800D5A28 000D2988  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800D5A2C 000D298C  7D 89 03 A6 */	mtctr r12
-/* 800D5A30 000D2990  4E 80 04 21 */	bctrl 
+/* 800D5A30 000D2990  4E 80 04 21 */	bctrl
 /* 800D5A34 000D2994  3B 01 00 60 */	addi r24, r1, 0x60
 /* 800D5A38 000D2998  38 81 00 38 */	addi r4, r1, 0x38
 /* 800D5A3C 000D299C  7F 03 C3 78 */	mr r3, r24
@@ -18246,7 +18246,7 @@ lbl_800D5CF0:
 /* 800D5D04 000D2C64  80 01 04 44 */	lwz r0, 0x444(r1)
 /* 800D5D08 000D2C68  7C 08 03 A6 */	mtlr r0
 /* 800D5D0C 000D2C6C  38 21 04 40 */	addi r1, r1, 0x440
-/* 800D5D10 000D2C70  4E 80 00 20 */	blr 
+/* 800D5D10 000D2C70  4E 80 00 20 */	blr
 
 .global __as__10CModelDataFRC10CModelData
 __as__10CModelDataFRC10CModelData:
@@ -18427,7 +18427,7 @@ lbl_800D5F74:
 /* 800D5F88 000D2EE8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800D5F8C 000D2EEC  7C 08 03 A6 */	mtlr r0
 /* 800D5F90 000D2EF0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800D5F94 000D2EF4  4E 80 00 20 */	blr 
+/* 800D5F94 000D2EF4  4E 80 00 20 */	blr
 
 .global LoadSound__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSound__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -18559,7 +18559,7 @@ lbl_800D616C:
 /* 800D617C 000D30DC  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 800D6180 000D30E0  7C 08 03 A6 */	mtlr r0
 /* 800D6184 000D30E4  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800D6188 000D30E8  4E 80 00 20 */	blr 
+/* 800D6188 000D30E8  4E 80 00 20 */	blr
 
 .global LoadGenerator__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadGenerator__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -18640,7 +18640,7 @@ lbl_800D629C:
 /* 800D62A8 000D3208  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800D62AC 000D320C  7C 08 03 A6 */	mtlr r0
 /* 800D62B0 000D3210  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D62B4 000D3214  4E 80 00 20 */	blr 
+/* 800D62B4 000D3214  4E 80 00 20 */	blr
 
 .global LoadCounter__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCounter__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -18704,7 +18704,7 @@ lbl_800D638C:
 /* 800D6390 000D32F0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800D6394 000D32F4  7C 08 03 A6 */	mtlr r0
 /* 800D6398 000D32F8  38 21 00 40 */	addi r1, r1, 0x40
-/* 800D639C 000D32FC  4E 80 00 20 */	blr 
+/* 800D639C 000D32FC  4E 80 00 20 */	blr
 
 .global LoadTimer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadTimer__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -18776,7 +18776,7 @@ lbl_800D648C:
 /* 800D6498 000D33F8  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800D649C 000D33FC  7C 08 03 A6 */	mtlr r0
 /* 800D64A0 000D3400  38 21 00 50 */	addi r1, r1, 0x50
-/* 800D64A4 000D3404  4E 80 00 20 */	blr 
+/* 800D64A4 000D3404  4E 80 00 20 */	blr
 
 .global LoadEffect__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadEffect__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -19004,7 +19004,7 @@ lbl_800D67CC:
 /* 800D6808 000D3768  80 01 01 C4 */	lwz r0, 0x1c4(r1)
 /* 800D680C 000D376C  7C 08 03 A6 */	mtlr r0
 /* 800D6810 000D3770  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 800D6814 000D3774  4E 80 00 20 */	blr 
+/* 800D6814 000D3774  4E 80 00 20 */	blr
 
 .global LoadDoor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDoor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -19224,7 +19224,7 @@ lbl_800D6B3C:
 /* 800D6B48 000D3AA8  80 01 02 A4 */	lwz r0, 0x2a4(r1)
 /* 800D6B4C 000D3AAC  7C 08 03 A6 */	mtlr r0
 /* 800D6B50 000D3AB0  38 21 02 A0 */	addi r1, r1, 0x2a0
-/* 800D6B54 000D3AB4  4E 80 00 20 */	blr 
+/* 800D6B54 000D3AB4  4E 80 00 20 */	blr
 
 .global LoadWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadWaypoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -19316,7 +19316,7 @@ lbl_800D6C94:
 /* 800D6CA0 000D3C00  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 800D6CA4 000D3C04  7C 08 03 A6 */	mtlr r0
 /* 800D6CA8 000D3C08  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800D6CAC 000D3C0C  4E 80 00 20 */	blr 
+/* 800D6CAC 000D3C0C  4E 80 00 20 */	blr
 
 .global LoadWarWasp__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadWarWasp__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -19497,7 +19497,7 @@ lbl_800D6F4C:
 /* 800D6F50 000D3EB0  80 01 03 B4 */	lwz r0, 0x3b4(r1)
 /* 800D6F54 000D3EB4  7C 08 03 A6 */	mtlr r0
 /* 800D6F58 000D3EB8  38 21 03 B0 */	addi r1, r1, 0x3b0
-/* 800D6F5C 000D3EBC  4E 80 00 20 */	blr 
+/* 800D6F5C 000D3EBC  4E 80 00 20 */	blr
 
 .global LoadBeetle__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadBeetle__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -19744,12 +19744,12 @@ lbl_800D72DC:
 /* 800D72F8 000D4258  80 01 04 A4 */	lwz r0, 0x4a4(r1)
 /* 800D72FC 000D425C  7C 08 03 A6 */	mtlr r0
 /* 800D7300 000D4260  38 21 04 A0 */	addi r1, r1, 0x4a0
-/* 800D7304 000D4264  4E 80 00 20 */	blr 
+/* 800D7304 000D4264  4E 80 00 20 */	blr
 
 .global LoadEnemy__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadEnemy__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 /* 800D7308 000D4268  38 60 00 00 */	li r3, 0
-/* 800D730C 000D426C  4E 80 00 20 */	blr 
+/* 800D730C 000D426C  4E 80 00 20 */	blr
 
 .global LoadPickup__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPickup__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -20039,7 +20039,7 @@ lbl_800D7724:
 /* 800D7748 000D46A8  80 01 03 C4 */	lwz r0, 0x3c4(r1)
 /* 800D774C 000D46AC  7C 08 03 A6 */	mtlr r0
 /* 800D7750 000D46B0  38 21 03 C0 */	addi r1, r1, 0x3c0
-/* 800D7754 000D46B4  4E 80 00 20 */	blr 
+/* 800D7754 000D46B4  4E 80 00 20 */	blr
 
 .global LoadActor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadActor__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -20380,7 +20380,7 @@ lbl_800D7C34:
 /* 800D7C50 000D4BB0  80 01 04 54 */	lwz r0, 0x454(r1)
 /* 800D7C54 000D4BB4  7C 08 03 A6 */	mtlr r0
 /* 800D7C58 000D4BB8  38 21 04 50 */	addi r1, r1, 0x450
-/* 800D7C5C 000D4BBC  4E 80 00 20 */	blr 
+/* 800D7C5C 000D4BBC  4E 80 00 20 */	blr
 
 .global LoadPointOfInterest__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPointOfInterest__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -20450,7 +20450,7 @@ lbl_800D7D3C:
 /* 800D7D50 000D4CB0  83 81 00 58 */	lwz r28, 0x58(r1)
 /* 800D7D54 000D4CB4  7C 08 03 A6 */	mtlr r0
 /* 800D7D58 000D4CB8  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D7D5C 000D4CBC  4E 80 00 20 */	blr 
+/* 800D7D5C 000D4CBC  4E 80 00 20 */	blr
 
 .global LoadPlayerHint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadPlayerHint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -20511,7 +20511,7 @@ lbl_800D7E28:
 /* 800D7E2C 000D4D8C  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800D7E30 000D4D90  7C 08 03 A6 */	mtlr r0
 /* 800D7E34 000D4D94  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D7E38 000D4D98  4E 80 00 20 */	blr 
+/* 800D7E38 000D4D98  4E 80 00 20 */	blr
 
 .global LoadCameraHint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCameraHint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -20774,7 +20774,7 @@ lbl_800D819C:
 /* 800D8208 000D5168  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 800D820C 000D516C  7C 08 03 A6 */	mtlr r0
 /* 800D8210 000D5170  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 800D8214 000D5174  4E 80 00 20 */	blr 
+/* 800D8214 000D5174  4E 80 00 20 */	blr
 
 .global LoadDock__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDock__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -20851,12 +20851,12 @@ lbl_800D8320:
 /* 800D8324 000D5284  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800D8328 000D5288  7C 08 03 A6 */	mtlr r0
 /* 800D832C 000D528C  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D8330 000D5290  4E 80 00 20 */	blr 
+/* 800D8330 000D5290  4E 80 00 20 */	blr
 
 .global LoadJumpPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadJumpPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
 /* 800D8334 000D5294  38 60 00 00 */	li r3, 0
-/* 800D8338 000D5298  4E 80 00 20 */	blr 
+/* 800D8338 000D5298  4E 80 00 20 */	blr
 
 .global LoadSpawnPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSpawnPoint__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -21047,7 +21047,7 @@ lbl_800D85C0:
 /* 800D85C4 000D5524  80 01 01 E4 */	lwz r0, 0x1e4(r1)
 /* 800D85C8 000D5528  7C 08 03 A6 */	mtlr r0
 /* 800D85CC 000D552C  38 21 01 E0 */	addi r1, r1, 0x1e0
-/* 800D85D0 000D5530  4E 80 00 20 */	blr 
+/* 800D85D0 000D5530  4E 80 00 20 */	blr
 
 .global LoadRipple__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadRipple__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -21115,7 +21115,7 @@ lbl_800D86A8:
 /* 800D86BC 000D561C  83 81 00 38 */	lwz r28, 0x38(r1)
 /* 800D86C0 000D5620  7C 08 03 A6 */	mtlr r0
 /* 800D86C4 000D5624  38 21 00 50 */	addi r1, r1, 0x50
-/* 800D86C8 000D5628  4E 80 00 20 */	blr 
+/* 800D86C8 000D5628  4E 80 00 20 */	blr
 
 .global LoadSteam__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadSteam__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -21259,7 +21259,7 @@ lbl_800D88C0:
 /* 800D88E4 000D5844  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 800D88E8 000D5848  7C 08 03 A6 */	mtlr r0
 /* 800D88EC 000D584C  38 21 01 20 */	addi r1, r1, 0x120
-/* 800D88F0 000D5850  4E 80 00 20 */	blr 
+/* 800D88F0 000D5850  4E 80 00 20 */	blr
 
 .global LoadWater__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadWater__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -21829,7 +21829,7 @@ lbl_800D90E4:
 /* 800D9178 000D60D8  80 01 04 24 */	lwz r0, 0x424(r1)
 /* 800D917C 000D60DC  7C 08 03 A6 */	mtlr r0
 /* 800D9180 000D60E0  38 21 04 20 */	addi r1, r1, 0x420
-/* 800D9184 000D60E4  4E 80 00 20 */	blr 
+/* 800D9184 000D60E4  4E 80 00 20 */	blr
 
 .global LoadFluidUVMotion__FR12CInputStream
 LoadFluidUVMotion__FR12CInputStream:
@@ -21958,7 +21958,7 @@ LoadFluidUVMotion__FR12CInputStream:
 /* 800D9370 000D62D0  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 800D9374 000D62D4  7C 08 03 A6 */	mtlr r0
 /* 800D9378 000D62D8  38 21 00 90 */	addi r1, r1, 0x90
-/* 800D937C 000D62DC  4E 80 00 20 */	blr 
+/* 800D937C 000D62DC  4E 80 00 20 */	blr
 
 .global LoadDamageableTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadDamageableTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -22063,7 +22063,7 @@ lbl_800D94F8:
 /* 800D94FC 000D645C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 800D9500 000D6460  7C 08 03 A6 */	mtlr r0
 /* 800D9504 000D6464  38 21 01 00 */	addi r1, r1, 0x100
-/* 800D9508 000D6468  4E 80 00 20 */	blr 
+/* 800D9508 000D6468  4E 80 00 20 */	blr
 
 .global TransformDamageableTriggerFlags__FR13CStateManager7TAreaIdUi
 TransformDamageableTriggerFlags__FR13CStateManager7TAreaIdUi:
@@ -22159,7 +22159,7 @@ lbl_800D964C:
 /* 800D9658 000D65B8  83 C1 00 B8 */	lwz r30, 0xb8(r1)
 /* 800D965C 000D65BC  7C 08 03 A6 */	mtlr r0
 /* 800D9660 000D65C0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800D9664 000D65C4  4E 80 00 20 */	blr 
+/* 800D9664 000D65C4  4E 80 00 20 */	blr
 
 .global ClassifyVector__FRC9CVector3f
 ClassifyVector__FRC9CVector3f:
@@ -22259,7 +22259,7 @@ lbl_800D97BC:
 /* 800D97BC 000D671C  38 60 00 00 */	li r3, 0
 lbl_800D97C0:
 /* 800D97C0 000D6720  38 21 00 20 */	addi r1, r1, 0x20
-/* 800D97C4 000D6724  4E 80 00 20 */	blr 
+/* 800D97C4 000D6724  4E 80 00 20 */	blr
 
 .global LoadCameraHintTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadCameraHintTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -22424,7 +22424,7 @@ lbl_800D9A28:
 /* 800D9A2C 000D698C  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 800D9A30 000D6990  7C 08 03 A6 */	mtlr r0
 /* 800D9A34 000D6994  38 21 01 30 */	addi r1, r1, 0x130
-/* 800D9A38 000D6998  4E 80 00 20 */	blr 
+/* 800D9A38 000D6998  4E 80 00 20 */	blr
 
 .global LoadTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadTrigger__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:
@@ -22545,7 +22545,7 @@ lbl_800D9BE8:
 
 .global sub_800d9bf8
 sub_800d9bf8:
-/* 800D9BF8 000D6B58  4E 80 00 20 */	blr 
+/* 800D9BF8 000D6B58  4E 80 00 20 */	blr
 
 .global LoadParameterFlags__FR12CInputStream
 LoadParameterFlags__FR12CInputStream:
@@ -22577,7 +22577,7 @@ lbl_800D9C44:
 /* 800D9C54 000D6BB4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800D9C58 000D6BB8  7C 08 03 A6 */	mtlr r0
 /* 800D9C5C 000D6BBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 800D9C60 000D6BC0  4E 80 00 20 */	blr 
+/* 800D9C60 000D6BC0  4E 80 00 20 */	blr
 
 .global LoadGrappleParameters__FR12CInputStream
 LoadGrappleParameters__FR12CInputStream:
@@ -22648,7 +22648,7 @@ LoadGrappleParameters__FR12CInputStream:
 /* 800D9D64 000D6CC4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 800D9D68 000D6CC8  7C 08 03 A6 */	mtlr r0
 /* 800D9D6C 000D6CCC  38 21 00 70 */	addi r1, r1, 0x70
-/* 800D9D70 000D6CD0  4E 80 00 20 */	blr 
+/* 800D9D70 000D6CD0  4E 80 00 20 */	blr
 
 .global LoadActorParameters__FR12CInputStream
 LoadActorParameters__FR12CInputStream:
@@ -22911,7 +22911,7 @@ lbl_800DA0EC:
 /* 800DA108 000D7068  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 800DA10C 000D706C  7C 08 03 A6 */	mtlr r0
 /* 800DA110 000D7070  38 21 01 40 */	addi r1, r1, 0x140
-/* 800DA114 000D7074  4E 80 00 20 */	blr 
+/* 800DA114 000D7074  4E 80 00 20 */	blr
 
 .global LoadVisorParameters__FR12CInputStream
 LoadVisorParameters__FR12CInputStream:
@@ -22978,7 +22978,7 @@ lbl_800DA1EC:
 /* 800DA1F0 000D7150  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800DA1F4 000D7154  7C 08 03 A6 */	mtlr r0
 /* 800DA1F8 000D7158  38 21 00 20 */	addi r1, r1, 0x20
-/* 800DA1FC 000D715C  4E 80 00 20 */	blr 
+/* 800DA1FC 000D715C  4E 80 00 20 */	blr
 
 .global LoadScannableParameters__FR12CInputStream
 LoadScannableParameters__FR12CInputStream:
@@ -23006,7 +23006,7 @@ lbl_800DA244:
 /* 800DA24C 000D71AC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DA250 000D71B0  7C 08 03 A6 */	mtlr r0
 /* 800DA254 000D71B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DA258 000D71B8  4E 80 00 20 */	blr 
+/* 800DA258 000D71B8  4E 80 00 20 */	blr
 
 .global LoadLightParameters__FR12CInputStream
 LoadLightParameters__FR12CInputStream:
@@ -23119,7 +23119,7 @@ lbl_800DA3CC:
 /* 800DA3DC 000D733C  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800DA3E0 000D7340  7C 08 03 A6 */	mtlr r0
 /* 800DA3E4 000D7344  38 21 00 70 */	addi r1, r1, 0x70
-/* 800DA3E8 000D7348  4E 80 00 20 */	blr 
+/* 800DA3E8 000D7348  4E 80 00 20 */	blr
 
 .global None__16CLightParametersFv
 None__16CLightParametersFv:
@@ -23130,7 +23130,7 @@ None__16CLightParametersFv:
 /* 800DA3FC 000D735C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800DA400 000D7360  7C 08 03 A6 */	mtlr r0
 /* 800DA404 000D7364  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DA408 000D7368  4E 80 00 20 */	blr 
+/* 800DA408 000D7368  4E 80 00 20 */	blr
 
 .global LoadAnimationParameters__FR12CInputStream
 LoadAnimationParameters__FR12CInputStream:
@@ -23164,7 +23164,7 @@ LoadAnimationParameters__FR12CInputStream:
 
 .global sub_800da478
 sub_800da478:
-/* 800DA478 000D73D8  4E 80 00 20 */	blr 
+/* 800DA478 000D73D8  4E 80 00 20 */	blr
 
 .global LoadScaledActorHead__FR12CInputStreamR13CStateManager
 LoadScaledActorHead__FR12CInputStreamR13CStateManager:
@@ -23185,7 +23185,7 @@ LoadScaledActorHead__FR12CInputStreamR13CStateManager:
 /* 800DA4B4 000D7414  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DA4B8 000D7418  7C 08 03 A6 */	mtlr r0
 /* 800DA4BC 000D741C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DA4C0 000D7420  4E 80 00 20 */	blr 
+/* 800DA4C0 000D7420  4E 80 00 20 */	blr
 
 .global LoadActorHead__FR12CInputStreamR13CStateManager
 LoadActorHead__FR12CInputStreamR13CStateManager:
@@ -23213,7 +23213,7 @@ LoadActorHead__FR12CInputStreamR13CStateManager:
 /* 800DA518 000D7478  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 800DA51C 000D747C  7C 08 03 A6 */	mtlr r0
 /* 800DA520 000D7480  38 21 00 40 */	addi r1, r1, 0x40
-/* 800DA524 000D7484  4E 80 00 20 */	blr 
+/* 800DA524 000D7484  4E 80 00 20 */	blr
 
 .global LoadEditorTransformPivotOnly__FR12CInputStream
 LoadEditorTransformPivotOnly__FR12CInputStream:
@@ -23241,7 +23241,7 @@ LoadEditorTransformPivotOnly__FR12CInputStream:
 /* 800DA57C 000D74DC  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800DA580 000D74E0  7C 08 03 A6 */	mtlr r0
 /* 800DA584 000D74E4  38 21 00 30 */	addi r1, r1, 0x30
-/* 800DA588 000D74E8  4E 80 00 20 */	blr 
+/* 800DA588 000D74E8  4E 80 00 20 */	blr
 
 .global LoadEditorTransform__FR12CInputStream
 LoadEditorTransform__FR12CInputStream:
@@ -23266,7 +23266,7 @@ LoadEditorTransform__FR12CInputStream:
 /* 800DA5D4 000D7534  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800DA5D8 000D7538  7C 08 03 A6 */	mtlr r0
 /* 800DA5DC 000D753C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800DA5E0 000D7540  4E 80 00 20 */	blr 
+/* 800DA5E0 000D7540  4E 80 00 20 */	blr
 
 .global ConvertEditorEulerToTransform4f__FRC9CVector3fRC9CVector3f
 ConvertEditorEulerToTransform4f__FRC9CVector3fRC9CVector3f:
@@ -23347,7 +23347,7 @@ ConvertEditorEulerToTransform4f__FRC9CVector3fRC9CVector3f:
 /* 800DA70C 000D766C  83 C1 00 E8 */	lwz r30, 0xe8(r1)
 /* 800DA710 000D7670  7C 08 03 A6 */	mtlr r0
 /* 800DA714 000D7674  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800DA718 000D7678  4E 80 00 20 */	blr 
+/* 800DA718 000D7678  4E 80 00 20 */	blr
 
 .global GetCollisionBox__FR13CStateManager7TAreaIdRC9CVector3fRC9CVector3f
 GetCollisionBox__FR13CStateManager7TAreaIdRC9CVector3fRC9CVector3f:
@@ -23396,7 +23396,7 @@ GetCollisionBox__FR13CStateManager7TAreaIdRC9CVector3fRC9CVector3f:
 /* 800DA7C4 000D7724  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 800DA7C8 000D7728  7C 08 03 A6 */	mtlr r0
 /* 800DA7CC 000D772C  38 21 00 60 */	addi r1, r1, 0x60
-/* 800DA7D0 000D7730  4E 80 00 20 */	blr 
+/* 800DA7D0 000D7730  4E 80 00 20 */	blr
 
 .global sub_800da7d4
 sub_800da7d4:
@@ -23479,7 +23479,7 @@ lbl_800DA8D8:
 /* 800DA8DC 000D783C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800DA8E0 000D7840  7C 08 03 A6 */	mtlr r0
 /* 800DA8E4 000D7844  38 21 00 30 */	addi r1, r1, 0x30
-/* 800DA8E8 000D7848  4E 80 00 20 */	blr 
+/* 800DA8E8 000D7848  4E 80 00 20 */	blr
 
 .global sub_800da8ec
 sub_800da8ec:
@@ -23543,7 +23543,7 @@ lbl_800DA9B4:
 /* 800DA9B8 000D7918  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800DA9BC 000D791C  7C 08 03 A6 */	mtlr r0
 /* 800DA9C0 000D7920  38 21 00 30 */	addi r1, r1, 0x30
-/* 800DA9C4 000D7924  4E 80 00 20 */	blr 
+/* 800DA9C4 000D7924  4E 80 00 20 */	blr
 
 .global sub_800da9c8
 sub_800da9c8:
@@ -23574,4 +23574,4 @@ lbl_800DAA04:
 /* 800DAA20 000D7980  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800DAA24 000D7984  7C 08 03 A6 */	mtlr r0
 /* 800DAA28 000D7988  38 21 00 20 */	addi r1, r1, 0x20
-/* 800DAA2C 000D798C  4E 80 00 20 */	blr 
+/* 800DAA2C 000D798C  4E 80 00 20 */	blr

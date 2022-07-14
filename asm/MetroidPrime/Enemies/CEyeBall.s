@@ -281,7 +281,7 @@ lbl_80224714:
 /* 80224720 00221680  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80224724 00221684  7C 08 03 A6 */	mtlr r0
 /* 80224728 00221688  38 21 00 10 */	addi r1, r1, 0x10
-/* 8022472C 0022168C  4E 80 00 20 */	blr 
+/* 8022472C 0022168C  4E 80 00 20 */	blr
 
 .global Death__8CEyeBallFRC9CVector3fR13CStateManager
 Death__8CEyeBallFRC9CVector3fR13CStateManager:
@@ -324,7 +324,7 @@ Death__8CEyeBallFRC9CVector3fR13CStateManager:
 /* 802247C0 00221720  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802247C4 00221724  7C 08 03 A6 */	mtlr r0
 /* 802247C8 00221728  38 21 00 50 */	addi r1, r1, 0x50
-/* 802247CC 0022172C  4E 80 00 20 */	blr 
+/* 802247CC 0022172C  4E 80 00 20 */	blr
 
 .global ResetBeamState__8CEyeballFR13CStateManager
 ResetBeamState__8CEyeballFR13CStateManager:
@@ -347,7 +347,7 @@ ResetBeamState__8CEyeballFR13CStateManager:
 /* 80224810 00221770  38 A0 00 01 */	li r5, 1
 /* 80224814 00221774  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 80224818 00221778  7D 89 03 A6 */	mtctr r12
-/* 8022481C 0022177C  4E 80 04 21 */	bctrl 
+/* 8022481C 0022177C  4E 80 04 21 */	bctrl
 lbl_80224820:
 /* 80224820 00221780  88 1E 06 0C */	lbz r0, 0x60c(r30)
 /* 80224824 00221784  38 60 00 00 */	li r3, 0
@@ -368,7 +368,7 @@ lbl_80224854:
 /* 8022485C 002217BC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80224860 002217C0  7C 08 03 A6 */	mtlr r0
 /* 80224864 002217C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80224868 002217C8  4E 80 00 20 */	blr 
+/* 80224868 002217C8  4E 80 00 20 */	blr
 
 .global FireBeam__8CEyeballFR13CStateManagerRC12CTransform4f
 FireBeam__8CEyeballFR13CStateManagerRC12CTransform4f:
@@ -397,7 +397,7 @@ FireBeam__8CEyeballFR13CStateManagerRC12CTransform4f:
 /* 802248C4 00221824  38 C0 00 00 */	li r6, 0
 /* 802248C8 00221828  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 802248CC 0022182C  7D 89 03 A6 */	mtctr r12
-/* 802248D0 00221830  4E 80 04 21 */	bctrl 
+/* 802248D0 00221830  4E 80 04 21 */	bctrl
 /* 802248D4 00221834  88 1F 06 0C */	lbz r0, 0x60c(r31)
 /* 802248D8 00221838  39 80 00 01 */	li r12, 1
 /* 802248DC 0022183C  51 80 1F 38 */	rlwimi r0, r12, 3, 0x1c, 0x1c
@@ -458,11 +458,11 @@ lbl_802249A8:
 /* 802249B4 00221914  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 802249B8 00221918  7C 08 03 A6 */	mtlr r0
 /* 802249BC 0022191C  38 21 00 50 */	addi r1, r1, 0x50
-/* 802249C0 00221920  4E 80 00 20 */	blr 
+/* 802249C0 00221920  4E 80 00 20 */	blr
 
 .global Touch__8CEyeBallFR6CActorR13CStateManager
 Touch__8CEyeBallFR6CActorR13CStateManager:
-/* 802249C4 00221924  4E 80 00 20 */	blr 
+/* 802249C4 00221924  4E 80 00 20 */	blr
 
 .global UpdateAnimation__8CEyeballFv
 UpdateAnimation__8CEyeballFv:
@@ -569,13 +569,13 @@ lbl_80224B40:
 /* 80224B48 00221AA8  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80224B4C 00221AAC  7C 08 03 A6 */	mtlr r0
 /* 80224B50 00221AB0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80224B54 00221AB4  4E 80 00 20 */	blr 
+/* 80224B54 00221AB4  4E 80 00 20 */	blr
 
 .global ShouldAttack__8CEyeBallFR13CStateManagerf
 ShouldAttack__8CEyeBallFR13CStateManagerf:
 /* 80224B58 00221AB8  88 03 06 0C */	lbz r0, 0x60c(r3)
 /* 80224B5C 00221ABC  54 03 DF FE */	rlwinm r3, r0, 0x1b, 0x1f, 0x1f
-/* 80224B60 00221AC0  4E 80 00 20 */	blr 
+/* 80224B60 00221AC0  4E 80 00 20 */	blr
 
 .global ShouldFire__8CEyeBallFR13CStateManagerf
 ShouldFire__8CEyeBallFR13CStateManagerf:
@@ -583,7 +583,7 @@ ShouldFire__8CEyeBallFR13CStateManagerf:
 /* 80224B68 00221AC8  54 00 E7 FE */	rlwinm r0, r0, 0x1c, 0x1f, 0x1f
 /* 80224B6C 00221ACC  7C 00 00 34 */	cntlzw r0, r0
 /* 80224B70 00221AD0  54 03 D9 7E */	srwi r3, r0, 5
-/* 80224B74 00221AD4  4E 80 00 20 */	blr 
+/* 80224B74 00221AD4  4E 80 00 20 */	blr
 
 .global Cover__8CEyeBallFR13CStateManager9EStateMsgf
 Cover__8CEyeBallFR13CStateManager9EStateMsgf:
@@ -611,7 +611,7 @@ lbl_80224BC0:
 /* 80224BC4 00221B24  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80224BC8 00221B28  7C 08 03 A6 */	mtlr r0
 /* 80224BCC 00221B2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80224BD0 00221B30  4E 80 00 20 */	blr 
+/* 80224BD0 00221B30  4E 80 00 20 */	blr
 
 .global Flinch__8CEyeBallFR13CStateManager9EStateMsgf
 Flinch__8CEyeBallFR13CStateManager9EStateMsgf:
@@ -655,7 +655,7 @@ lbl_80224C54:
 /* 80224C54 00221BB4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80224C58 00221BB8  7C 08 03 A6 */	mtlr r0
 /* 80224C5C 00221BBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80224C60 00221BC0  4E 80 00 20 */	blr 
+/* 80224C60 00221BC0  4E 80 00 20 */	blr
 
 .global Render__8CEyeBallCFRC13CStateManager
 Render__8CEyeBallCFRC13CStateManager:
@@ -666,7 +666,7 @@ Render__8CEyeBallCFRC13CStateManager:
 /* 80224C74 00221BD4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80224C78 00221BD8  7C 08 03 A6 */	mtlr r0
 /* 80224C7C 00221BDC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80224C80 00221BE0  4E 80 00 20 */	blr 
+/* 80224C80 00221BE0  4E 80 00 20 */	blr
 
 .global sub_80224c84
 sub_80224c84:
@@ -714,7 +714,7 @@ sub_80224c84:
 /* 80224D28 00221C88  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80224D2C 00221C8C  7C 08 03 A6 */	mtlr r0
 /* 80224D30 00221C90  38 21 00 30 */	addi r1, r1, 0x30
-/* 80224D34 00221C94  4E 80 00 20 */	blr 
+/* 80224D34 00221C94  4E 80 00 20 */	blr
 
 .global Think__8CEyeBallFfR13CStateManager
 Think__8CEyeBallFfR13CStateManager:
@@ -869,7 +869,7 @@ lbl_80224F04:
 /* 80224F78 00221ED8  38 81 00 90 */	addi r4, r1, 0x90
 /* 80224F7C 00221EDC  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80224F80 00221EE0  7D 89 03 A6 */	mtctr r12
-/* 80224F84 00221EE4  4E 80 04 21 */	bctrl 
+/* 80224F84 00221EE4  4E 80 04 21 */	bctrl
 lbl_80224F88:
 /* 80224F88 00221EE8  88 1E 06 0C */	lbz r0, 0x60c(r30)
 /* 80224F8C 00221EEC  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f
@@ -905,7 +905,7 @@ lbl_80224FE4:
 /* 80224FF8 00221F58  83 A1 00 C4 */	lwz r29, 0xc4(r1)
 /* 80224FFC 00221F5C  7C 08 03 A6 */	mtlr r0
 /* 80225000 00221F60  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80225004 00221F64  4E 80 00 20 */	blr 
+/* 80225004 00221F64  4E 80 00 20 */	blr
 
 .global PreRender__8CEyeBallFR13CStateManagerRC14CFrustumPlanes
 PreRender__8CEyeBallFR13CStateManagerRC14CFrustumPlanes:
@@ -937,7 +937,7 @@ PreRender__8CEyeBallFR13CStateManagerRC14CFrustumPlanes:
 /* 8022506C 00221FCC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80225070 00221FD0  7C 08 03 A6 */	mtlr r0
 /* 80225074 00221FD4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80225078 00221FD8  4E 80 00 20 */	blr 
+/* 80225078 00221FD8  4E 80 00 20 */	blr
 
 .global Active__8CEyeBallFR13CStateManager9EStateMsgf
 Active__8CEyeBallFR13CStateManager9EStateMsgf:
@@ -999,7 +999,7 @@ lbl_80225118:
 /* 80225144 002220A4  38 A0 00 01 */	li r5, 1
 /* 80225148 002220A8  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 8022514C 002220AC  7D 89 03 A6 */	mtctr r12
-/* 80225150 002220B0  4E 80 04 21 */	bctrl 
+/* 80225150 002220B0  4E 80 04 21 */	bctrl
 lbl_80225154:
 /* 80225154 002220B4  88 1E 06 0C */	lbz r0, 0x60c(r30)
 /* 80225158 002220B8  38 60 00 00 */	li r3, 0
@@ -1017,7 +1017,7 @@ lbl_8022517C:
 /* 80225184 002220E4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80225188 002220E8  7C 08 03 A6 */	mtlr r0
 /* 8022518C 002220EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80225190 002220F0  4E 80 00 20 */	blr 
+/* 80225190 002220F0  4E 80 00 20 */	blr
 
 .global InActive__8CEyeBallFR13CStateManager9EStateMsgf
 InActive__8CEyeBallFR13CStateManager9EStateMsgf:
@@ -1036,7 +1036,7 @@ lbl_802251BC:
 /* 802251BC 0022211C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802251C0 00222120  7C 08 03 A6 */	mtlr r0
 /* 802251C4 00222124  38 21 00 10 */	addi r1, r1, 0x10
-/* 802251C8 00222128  4E 80 00 20 */	blr 
+/* 802251C8 00222128  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__8CEyeBallFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__8CEyeBallFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -1092,7 +1092,7 @@ lbl_80225278:
 /* 80225280 002221E0  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80225284 002221E4  7C 08 03 A6 */	mtlr r0
 /* 80225288 002221E8  38 21 00 90 */	addi r1, r1, 0x90
-/* 8022528C 002221EC  4E 80 00 20 */	blr 
+/* 8022528C 002221EC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__8CEyeBallF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__8CEyeBallF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1113,7 +1113,7 @@ AcceptScriptMsg__8CEyeBallF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 802252C8 00222228  38 84 7A 18 */	addi r4, r4, lbl_803E7A18@l
 /* 802252CC 0022222C  7C 04 00 2E */	lwzx r0, r4, r0
 /* 802252D0 00222230  7C 09 03 A6 */	mtctr r0
-/* 802252D4 00222234  4E 80 04 20 */	bctr 
+/* 802252D4 00222234  4E 80 04 20 */	bctr
 .global lbl_802252D8
 lbl_802252D8:
 /* 802252D8 00222238  A0 1D 00 00 */	lhz r0, 0(r29)
@@ -1136,7 +1136,7 @@ lbl_802252D8:
 /* 8022531C 0022227C  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80225320 00222280  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80225324 00222284  7D 89 03 A6 */	mtctr r12
-/* 80225328 00222288  4E 80 04 21 */	bctrl 
+/* 80225328 00222288  4E 80 04 21 */	bctrl
 /* 8022532C 0022228C  38 9F 01 2C */	addi r4, r31, 0x12c
 /* 80225330 00222290  38 A0 00 00 */	li r5, 0
 /* 80225334 00222294  4B ED D1 89 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
@@ -1171,7 +1171,7 @@ lbl_80225358:
 /* 8022539C 002222FC  81 9B 00 00 */	lwz r12, 0(r27)
 /* 802253A0 00222300  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 802253A4 00222304  7D 89 03 A6 */	mtctr r12
-/* 802253A8 00222308  4E 80 04 21 */	bctrl 
+/* 802253A8 00222308  4E 80 04 21 */	bctrl
 /* 802253AC 0022230C  38 9F 01 2C */	addi r4, r31, 0x12c
 /* 802253B0 00222310  38 A0 00 00 */	li r5, 0
 /* 802253B4 00222314  4B ED D1 09 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
@@ -1247,7 +1247,7 @@ lbl_8022549C:
 /* 802254A0 00222400  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802254A4 00222404  7C 08 03 A6 */	mtlr r0
 /* 802254A8 00222408  38 21 00 50 */	addi r1, r1, 0x50
-/* 802254AC 0022240C  4E 80 00 20 */	blr 
+/* 802254AC 0022240C  4E 80 00 20 */	blr
 
 .global CreateBeam__8CEyeballFR13CStateManager
 CreateBeam__8CEyeballFR13CStateManager:
@@ -1385,7 +1385,7 @@ lbl_802256A0:
 /* 802256B0 00222610  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 802256B4 00222614  7C 08 03 A6 */	mtlr r0
 /* 802256B8 00222618  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802256BC 0022261C  4E 80 00 20 */	blr 
+/* 802256BC 0022261C  4E 80 00 20 */	blr
 
 .global Accept__8CEyeBallFR8IVisitor
 Accept__8CEyeBallFR8IVisitor:
@@ -1398,11 +1398,11 @@ Accept__8CEyeBallFR8IVisitor:
 /* 802256D8 00222638  7C 04 03 78 */	mr r4, r0
 /* 802256DC 0022263C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 802256E0 00222640  7D 89 03 A6 */	mtctr r12
-/* 802256E4 00222644  4E 80 04 21 */	bctrl 
+/* 802256E4 00222644  4E 80 04 21 */	bctrl
 /* 802256E8 00222648  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802256EC 0022264C  7C 08 03 A6 */	mtlr r0
 /* 802256F0 00222650  38 21 00 10 */	addi r1, r1, 0x10
-/* 802256F4 00222654  4E 80 00 20 */	blr 
+/* 802256F4 00222654  4E 80 00 20 */	blr
 
 .global "__ct__8CEyeBallF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoffUiRC11CDamageInfoUiUiUiUiRC16CActorParameters"
 "__ct__8CEyeBallF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoffUiRC11CDamageInfoUiUiUiUiRC16CActorParameters":

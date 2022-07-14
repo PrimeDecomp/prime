@@ -48,7 +48,7 @@ lbl_8034EFE8:
 /* 8034EFF8 0034BF58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034EFFC 0034BF5C  7C 08 03 A6 */	mtlr r0
 /* 8034F000 0034BF60  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F004 0034BF64  4E 80 00 20 */	blr 
+/* 8034F004 0034BF64  4E 80 00 20 */	blr
 
 .global __dt__11IControllerFv
 __dt__11IControllerFv:
@@ -70,7 +70,7 @@ lbl_8034F038:
 /* 8034F040 0034BFA0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034F044 0034BFA4  7C 08 03 A6 */	mtlr r0
 /* 8034F048 0034BFA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F04C 0034BFAC  4E 80 00 20 */	blr 
+/* 8034F04C 0034BFAC  4E 80 00 20 */	blr
 
 .global __ct__11IControllerFv
 __ct__11IControllerFv:

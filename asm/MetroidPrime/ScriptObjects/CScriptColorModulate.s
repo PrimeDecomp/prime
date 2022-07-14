@@ -54,7 +54,7 @@ lbl_80200C1C:
 /* 80200C28 001FDB88  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80200C2C 001FDB8C  7C 08 03 A6 */	mtlr r0
 /* 80200C30 001FDB90  38 21 00 10 */	addi r1, r1, 0x10
-/* 80200C34 001FDB94  4E 80 00 20 */	blr 
+/* 80200C34 001FDB94  4E 80 00 20 */	blr
 
 .global Accept__20CScriptColorModulateFR8IVisitor
 Accept__20CScriptColorModulateFR8IVisitor:
@@ -67,11 +67,11 @@ Accept__20CScriptColorModulateFR8IVisitor:
 /* 80200C50 001FDBB0  7C 04 03 78 */	mr r4, r0
 /* 80200C54 001FDBB4  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80200C58 001FDBB8  7D 89 03 A6 */	mtctr r12
-/* 80200C5C 001FDBBC  4E 80 04 21 */	bctrl 
+/* 80200C5C 001FDBBC  4E 80 04 21 */	bctrl
 /* 80200C60 001FDBC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80200C64 001FDBC4  7C 08 03 A6 */	mtlr r0
 /* 80200C68 001FDBC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80200C6C 001FDBCC  4E 80 00 20 */	blr 
+/* 80200C6C 001FDBCC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__20CScriptColorModulateF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CScriptColorModulateF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -198,7 +198,7 @@ lbl_80200E18:
 /* 80200E24 001FDD84  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80200E28 001FDD88  7C 08 03 A6 */	mtlr r0
 /* 80200E2C 001FDD8C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80200E30 001FDD90  4E 80 00 20 */	blr 
+/* 80200E30 001FDD90  4E 80 00 20 */	blr
 
 .global Think__20CScriptColorModulateFfR13CStateManager
 Think__20CScriptColorModulateFfR13CStateManager:
@@ -324,7 +324,7 @@ lbl_80200FD8:
 /* 80200FE0 001FDF40  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80200FE4 001FDF44  7C 08 03 A6 */	mtlr r0
 /* 80200FE8 001FDF48  38 21 00 40 */	addi r1, r1, 0x40
-/* 80200FEC 001FDF4C  4E 80 00 20 */	blr 
+/* 80200FEC 001FDF4C  4E 80 00 20 */	blr
 
 .global CalculateFlags__20CScriptColorModulateCFRC6CColor
 CalculateFlags__20CScriptColorModulateCFRC6CColor:
@@ -655,7 +655,7 @@ lbl_802014B0:
 /* 802014BC 001FE41C  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 802014C0 001FE420  7C 08 03 A6 */	mtlr r0
 /* 802014C4 001FE424  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802014C8 001FE428  4E 80 00 20 */	blr 
+/* 802014C8 001FE428  4E 80 00 20 */	blr
 
 .global End__20CScriptColorModulateFR13CStateManager
 End__20CScriptColorModulateFR13CStateManager:
@@ -741,7 +741,7 @@ lbl_802015F0:
 /* 802015F8 001FE558  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802015FC 001FE55C  7C 08 03 A6 */	mtlr r0
 /* 80201600 001FE560  38 21 00 30 */	addi r1, r1, 0x30
-/* 80201604 001FE564  4E 80 00 20 */	blr 
+/* 80201604 001FE564  4E 80 00 20 */	blr
 
 .global SetTargetFlags__20CScriptColorModulateFR13CStateManagerRC11CModelFlags
 SetTargetFlags__20CScriptColorModulateFR13CStateManagerRC11CModelFlags:
@@ -845,7 +845,7 @@ lbl_80201764:
 /* 80201768 001FE6C8  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8020176C 001FE6CC  7C 08 03 A6 */	mtlr r0
 /* 80201770 001FE6D0  38 21 00 60 */	addi r1, r1, 0x60
-/* 80201774 001FE6D4  4E 80 00 20 */	blr 
+/* 80201774 001FE6D4  4E 80 00 20 */	blr
 
 .global FadeOutHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf
 FadeOutHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf:
@@ -983,7 +983,7 @@ lbl_80201924:
 /* 8020196C 001FE8CC  C0 22 B0 30 */	lfs f1, lbl_805ACD50@sda21(r2)
 /* 80201970 001FE8D0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80201974 001FE8D4  7D 89 03 A6 */	mtctr r12
-/* 80201978 001FE8D8  4E 80 04 21 */	bctrl 
+/* 80201978 001FE8D8  4E 80 04 21 */	bctrl
 /* 8020197C 001FE8DC  A0 01 00 2C */	lhz r0, 0x2c(r1)
 /* 80201980 001FE8E0  38 61 00 5C */	addi r3, r1, 0x5c
 /* 80201984 001FE8E4  B0 1D 00 00 */	sth r0, 0(r29)
@@ -994,7 +994,7 @@ lbl_80201924:
 /* 80201998 001FE8F8  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8020199C 001FE8FC  7C 08 03 A6 */	mtlr r0
 /* 802019A0 001FE900  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802019A4 001FE904  4E 80 00 20 */	blr 
+/* 802019A4 001FE904  4E 80 00 20 */	blr
 
 .global FadeInHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf
 FadeInHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf:
@@ -1129,7 +1129,7 @@ lbl_80201B54:
 /* 80201B90 001FEAF0  C0 22 B0 30 */	lfs f1, lbl_805ACD50@sda21(r2)
 /* 80201B94 001FEAF4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80201B98 001FEAF8  7D 89 03 A6 */	mtctr r12
-/* 80201B9C 001FEAFC  4E 80 04 21 */	bctrl 
+/* 80201B9C 001FEAFC  4E 80 04 21 */	bctrl
 /* 80201BA0 001FEB00  A0 01 00 2C */	lhz r0, 0x2c(r1)
 /* 80201BA4 001FEB04  38 61 00 5C */	addi r3, r1, 0x5c
 /* 80201BA8 001FEB08  B0 1D 00 00 */	sth r0, 0(r29)
@@ -1140,7 +1140,7 @@ lbl_80201B54:
 /* 80201BBC 001FEB1C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80201BC0 001FEB20  7C 08 03 A6 */	mtlr r0
 /* 80201BC4 001FEB24  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80201BC8 001FEB28  4E 80 00 20 */	blr 
+/* 80201BC8 001FEB28  4E 80 00 20 */	blr
 
 .global "__ct__20CScriptColorModulateF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC6CColorRC6CColorQ220CScriptColorModulate10EBlendModeffbbbbbb"
 "__ct__20CScriptColorModulateF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC6CColorRC6CColorQ220CScriptColorModulate10EBlendModeffbbbbbb":

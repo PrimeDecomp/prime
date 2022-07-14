@@ -22,10 +22,10 @@ lbl_8035056C:
 /* 80350574 0034D4D4  28 00 00 01 */	cmplwi r0, 1
 /* 80350578 0034D4D8  98 83 00 00 */	stb r4, 0(r3)
 /* 8035057C 0034D4DC  54 84 06 3E */	clrlwi r4, r4, 0x18
-/* 80350580 0034D4E0  4C 81 00 20 */	blelr 
+/* 80350580 0034D4E0  4C 81 00 20 */	blelr
 /* 80350584 0034D4E4  7C 63 02 14 */	add r3, r3, r0
 /* 80350588 0034D4E8  98 83 FF FF */	stb r4, -1(r3)
-/* 8035058C 0034D4EC  4E 80 00 20 */	blr 
+/* 8035058C 0034D4EC  4E 80 00 20 */	blr
 lbl_80350590:
 /* 80350590 0034D4F0  54 80 C6 3E */	rlwinm r0, r4, 0x18, 0x18, 0x1f
 /* 80350594 0034D4F4  7C A3 2A 14 */	add r5, r3, r5
@@ -34,7 +34,7 @@ lbl_80350590:
 /* 803505A0 0034D500  98 83 00 01 */	stb r4, 1(r3)
 /* 803505A4 0034D504  98 85 FF FE */	stb r4, -2(r5)
 /* 803505A8 0034D508  98 05 FF FF */	stb r0, -1(r5)
-/* 803505AC 0034D50C  4E 80 00 20 */	blr 
+/* 803505AC 0034D50C  4E 80 00 20 */	blr
 
 .global sub_803505b0
 sub_803505b0:
@@ -52,7 +52,7 @@ lbl_803505C8:
 /* 803505D4 0034D534  7C 63 02 14 */	add r3, r3, r0
 /* 803505D8 0034D538  54 60 04 65 */	rlwinm. r0, r3, 0, 0x11, 0x12
 /* 803505DC 0034D53C  54 63 04 3E */	clrlwi r3, r3, 0x10
-/* 803505E0 0034D540  4D 82 00 20 */	beqlr 
+/* 803505E0 0034D540  4D 82 00 20 */	beqlr
 /* 803505E4 0034D544  28 00 60 00 */	cmplwi r0, 0x6000
 /* 803505E8 0034D548  40 82 00 0C */	bne lbl_803505F4
 /* 803505EC 0034D54C  38 00 00 03 */	li r0, 3
@@ -64,7 +64,7 @@ lbl_803505F4:
 /* 80350600 0034D560  38 03 00 01 */	addi r0, r3, 1
 lbl_80350604:
 /* 80350604 0034D564  54 03 04 3E */	clrlwi r3, r0, 0x10
-/* 80350608 0034D568  4E 80 00 20 */	blr 
+/* 80350608 0034D568  4E 80 00 20 */	blr
 
 .global sub_8035060c
 sub_8035060c:
@@ -155,7 +155,7 @@ lbl_80350734:
 /* 80350738 0034D698  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8035073C 0034D69C  7C 08 03 A6 */	mtlr r0
 /* 80350740 0034D6A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80350744 0034D6A4  4E 80 00 20 */	blr 
+/* 80350744 0034D6A4  4E 80 00 20 */	blr
 
 .global sub_80350748
 sub_80350748:
@@ -224,7 +224,7 @@ lbl_80350814:
 /* 80350818 0034D778  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8035081C 0034D77C  7C 08 03 A6 */	mtlr r0
 /* 80350820 0034D780  38 21 00 20 */	addi r1, r1, 0x20
-/* 80350824 0034D784  4E 80 00 20 */	blr 
+/* 80350824 0034D784  4E 80 00 20 */	blr
 
 .global FindFree__16CMediumAllocPoolFi
 FindFree__16CMediumAllocPoolFi:
@@ -261,7 +261,7 @@ lbl_80350890:
 /* 80350898 0034D7F8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8035089C 0034D7FC  7C 08 03 A6 */	mtlr r0
 /* 803508A0 0034D800  38 21 00 10 */	addi r1, r1, 0x10
-/* 803508A4 0034D804  4E 80 00 20 */	blr 
+/* 803508A4 0034D804  4E 80 00 20 */	blr
 
 .global __dt__18SMediumAllocPuddleFv
 __dt__18SMediumAllocPuddleFv:
@@ -291,7 +291,7 @@ lbl_803508F0:
 /* 803508FC 0034D85C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80350900 0034D860  7C 08 03 A6 */	mtlr r0
 /* 80350904 0034D864  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350908 0034D868  4E 80 00 20 */	blr 
+/* 80350908 0034D868  4E 80 00 20 */	blr
 
 .global __ct__18SMediumAllocPuddleFUiPvPv
 __ct__18SMediumAllocPuddleFUiPvPv:
@@ -327,7 +327,7 @@ __ct__18SMediumAllocPuddleFUiPvPv:
 /* 80350980 0034D8E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80350984 0034D8E4  7C 08 03 A6 */	mtlr r0
 /* 80350988 0034D8E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035098C 0034D8EC  4E 80 00 20 */	blr 
+/* 8035098C 0034D8EC  4E 80 00 20 */	blr
 
 .global AddPuddle__16CMediumAllocPoolFUiPvPvi
 AddPuddle__16CMediumAllocPoolFUiPvPvi:
@@ -353,7 +353,7 @@ AddPuddle__16CMediumAllocPoolFUiPvPvi:
 /* 803509DC 0034D93C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 803509E0 0034D940  7C 08 03 A6 */	mtlr r0
 /* 803509E4 0034D944  38 21 00 40 */	addi r1, r1, 0x40
-/* 803509E8 0034D948  4E 80 00 20 */	blr 
+/* 803509E8 0034D948  4E 80 00 20 */	blr
 
 .global sub_803509ec
 sub_803509ec:
@@ -366,7 +366,7 @@ sub_803509ec:
 /* 80350A04 0034D964  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80350A08 0034D968  7C 08 03 A6 */	mtlr r0
 /* 80350A0C 0034D96C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350A10 0034D970  4E 80 00 20 */	blr 
+/* 80350A10 0034D970  4E 80 00 20 */	blr
 
 .global "do_insert_before__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FPQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>4nodeRC18SMediumAllocPuddle"
 "do_insert_before__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FPQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>4nodeRC18SMediumAllocPuddle":
@@ -433,7 +433,7 @@ lbl_80350ACC:
 /* 80350AF8 0034DA58  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80350AFC 0034DA5C  7C 08 03 A6 */	mtlr r0
 /* 80350B00 0034DA60  38 21 00 20 */	addi r1, r1, 0x20
-/* 80350B04 0034DA64  4E 80 00 20 */	blr 
+/* 80350B04 0034DA64  4E 80 00 20 */	blr
 
 .global GetNumBlocksAvailable__16CMediumAllocPoolFv
 GetNumBlocksAvailable__16CMediumAllocPoolFv:
@@ -449,7 +449,7 @@ lbl_80350B24:
 /* 80350B24 0034DA84  7C 04 18 40 */	cmplw r4, r3
 /* 80350B28 0034DA88  40 82 FF F0 */	bne lbl_80350B18
 /* 80350B2C 0034DA8C  7C A3 2B 78 */	mr r3, r5
-/* 80350B30 0034DA90  4E 80 00 20 */	blr 
+/* 80350B30 0034DA90  4E 80 00 20 */	blr
 
 .global GetTotalEntries__16CMediumAllocPoolFv
 GetTotalEntries__16CMediumAllocPoolFv:
@@ -465,7 +465,7 @@ lbl_80350B50:
 /* 80350B50 0034DAB0  7C 04 18 40 */	cmplw r4, r3
 /* 80350B54 0034DAB4  40 82 FF F0 */	bne lbl_80350B44
 /* 80350B58 0034DAB8  7C A3 2B 78 */	mr r3, r5
-/* 80350B5C 0034DABC  4E 80 00 20 */	blr 
+/* 80350B5C 0034DABC  4E 80 00 20 */	blr
 
 .global GetNumAllocs__16CMediumAllocPoolFv
 GetNumAllocs__16CMediumAllocPoolFv:
@@ -481,7 +481,7 @@ lbl_80350B7C:
 /* 80350B7C 0034DADC  7C 04 18 40 */	cmplw r4, r3
 /* 80350B80 0034DAE0  40 82 FF F0 */	bne lbl_80350B70
 /* 80350B84 0034DAE4  7C A3 2B 78 */	mr r3, r5
-/* 80350B88 0034DAE8  4E 80 00 20 */	blr 
+/* 80350B88 0034DAE8  4E 80 00 20 */	blr
 
 .global Free__16CMediumAllocPoolFPCv
 Free__16CMediumAllocPoolFPCv:
@@ -533,7 +533,7 @@ lbl_80350C20:
 /* 80350C28 0034DB88  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80350C2C 0034DB8C  7C 08 03 A6 */	mtlr r0
 /* 80350C30 0034DB90  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350C34 0034DB94  4E 80 00 20 */	blr 
+/* 80350C34 0034DB94  4E 80 00 20 */	blr
 
 .global Alloc__16CMediumAllocPoolFUi
 Alloc__16CMediumAllocPoolFUi:
@@ -582,7 +582,7 @@ lbl_80350CC0:
 /* 80350CCC 0034DC2C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80350CD0 0034DC30  7C 08 03 A6 */	mtlr r0
 /* 80350CD4 0034DC34  38 21 00 20 */	addi r1, r1, 0x20
-/* 80350CD8 0034DC38  4E 80 00 20 */	blr 
+/* 80350CD8 0034DC38  4E 80 00 20 */	blr
 
 .global sub_80350cdc
 sub_80350cdc:
@@ -590,7 +590,7 @@ sub_80350cdc:
 /* 80350CE0 0034DC40  7C 03 00 D0 */	neg r0, r3
 /* 80350CE4 0034DC44  7C 00 1B 78 */	or r0, r0, r3
 /* 80350CE8 0034DC48  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80350CEC 0034DC4C  4E 80 00 20 */	blr 
+/* 80350CEC 0034DC4C  4E 80 00 20 */	blr
 
 .global ClearPuddles__16CMediumAllocPoolFv
 ClearPuddles__16CMediumAllocPoolFv:
@@ -626,7 +626,7 @@ lbl_80350D3C:
 /* 80350D54 0034DCB4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80350D58 0034DCB8  7C 08 03 A6 */	mtlr r0
 /* 80350D5C 0034DCBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350D60 0034DCC0  4E 80 00 20 */	blr 
+/* 80350D60 0034DCC0  4E 80 00 20 */	blr
 
 .global __ct__16CMediumAllocPoolFv
 __ct__16CMediumAllocPoolFv:
@@ -640,7 +640,7 @@ __ct__16CMediumAllocPoolFv:
 /* 80350D80 0034DCE0  80 03 00 04 */	lwz r0, 4(r3)
 /* 80350D84 0034DCE4  90 03 00 18 */	stw r0, 0x18(r3)
 /* 80350D88 0034DCE8  90 6D AA 18 */	stw r3, lbl_805A95D8@sda21(r13)
-/* 80350D8C 0034DCEC  4E 80 00 20 */	blr 
+/* 80350D8C 0034DCEC  4E 80 00 20 */	blr
 
 .global "erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iterator"
 "erase__Q24rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>FRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl53list<18SMediumAllocPuddle,Q24rstl17rmemory_allocator>8iterator":

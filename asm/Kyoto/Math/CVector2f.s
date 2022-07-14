@@ -24,7 +24,7 @@ __dv__FRC9CVector2fRCf:
 /* 80313E90 00310DF0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80313E94 00310DF4  7C 08 03 A6 */	mtlr r0
 /* 80313E98 00310DF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80313E9C 00310DFC  4E 80 00 20 */	blr 
+/* 80313E9C 00310DFC  4E 80 00 20 */	blr
 
 .global __ml__FRCfRC9CVector2f
 __ml__FRCfRC9CVector2f:
@@ -40,7 +40,7 @@ __ml__FRCfRC9CVector2f:
 /* 80313EC4 00310E24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80313EC8 00310E28  7C 08 03 A6 */	mtlr r0
 /* 80313ECC 00310E2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80313ED0 00310E30  4E 80 00 20 */	blr 
+/* 80313ED0 00310E30  4E 80 00 20 */	blr
 
 .global __ml__FRC9CVector2fRCf
 __ml__FRC9CVector2fRCf:
@@ -56,7 +56,7 @@ __ml__FRC9CVector2fRCf:
 /* 80313EF8 00310E58  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80313EFC 00310E5C  7C 08 03 A6 */	mtlr r0
 /* 80313F00 00310E60  38 21 00 10 */	addi r1, r1, 0x10
-/* 80313F04 00310E64  4E 80 00 20 */	blr 
+/* 80313F04 00310E64  4E 80 00 20 */	blr
 
 .global __eq__FRC9CVector2fRC9CVector2f
 __eq__FRC9CVector2fRC9CVector2f:
@@ -72,7 +72,7 @@ __eq__FRC9CVector2fRC9CVector2f:
 /* 80313F2C 00310E8C  38 00 00 01 */	li r0, 1
 lbl_80313F30:
 /* 80313F30 00310E90  7C 03 03 78 */	mr r3, r0
-/* 80313F34 00310E94  4E 80 00 20 */	blr 
+/* 80313F34 00310E94  4E 80 00 20 */	blr
 
 .global __mi__FRC9CVector2fRC9CVector2f
 __mi__FRC9CVector2fRC9CVector2f:
@@ -89,7 +89,7 @@ __mi__FRC9CVector2fRC9CVector2f:
 /* 80313F60 00310EC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80313F64 00310EC4  7C 08 03 A6 */	mtlr r0
 /* 80313F68 00310EC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80313F6C 00310ECC  4E 80 00 20 */	blr 
+/* 80313F6C 00310ECC  4E 80 00 20 */	blr
 
 .global __pl__FRC9CVector2fRC9CVector2f
 __pl__FRC9CVector2fRC9CVector2f:
@@ -106,7 +106,7 @@ __pl__FRC9CVector2fRC9CVector2f:
 /* 80313F98 00310EF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80313F9C 00310EFC  7C 08 03 A6 */	mtlr r0
 /* 80313FA0 00310F00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80313FA4 00310F04  4E 80 00 20 */	blr 
+/* 80313FA4 00310F04  4E 80 00 20 */	blr
 
 .global Dot__9CVector2fFRC9CVector2fRC9CVector2f
 Dot__9CVector2fFRC9CVector2fRC9CVector2f:
@@ -116,7 +116,7 @@ Dot__9CVector2fFRC9CVector2fRC9CVector2f:
 /* 80313FB4 00310F14  EC 01 00 32 */	fmuls f0, f1, f0
 /* 80313FB8 00310F18  C0 24 00 00 */	lfs f1, 0(r4)
 /* 80313FBC 00310F1C  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 80313FC0 00310F20  4E 80 00 20 */	blr 
+/* 80313FC0 00310F20  4E 80 00 20 */	blr
 
 .global GetAngleDiff__9CVector2fFRC9CVector2fRC9CVector2f
 GetAngleDiff__9CVector2fFRC9CVector2fRC9CVector2f:
@@ -169,7 +169,7 @@ lbl_80314058:
 /* 80314070 00310FD0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80314074 00310FD4  7C 08 03 A6 */	mtlr r0
 /* 80314078 00310FD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8031407C 00310FDC  4E 80 00 20 */	blr 
+/* 8031407C 00310FDC  4E 80 00 20 */	blr
 
 .global AsNormalized__9CVector2fCFv
 AsNormalized__9CVector2fCFv:
@@ -195,7 +195,7 @@ AsNormalized__9CVector2fCFv:
 /* 803140CC 0031102C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803140D0 00311030  7C 08 03 A6 */	mtlr r0
 /* 803140D4 00311034  38 21 00 10 */	addi r1, r1, 0x10
-/* 803140D8 00311038  4E 80 00 20 */	blr 
+/* 803140D8 00311038  4E 80 00 20 */	blr
 
 .global MagSquared__9CVector2fCFv
 MagSquared__9CVector2fCFv:
@@ -204,7 +204,7 @@ MagSquared__9CVector2fCFv:
 /* 803140E4 00311044  EC 20 00 32 */	fmuls f1, f0, f0
 /* 803140E8 00311048  EC 02 00 B2 */	fmuls f0, f2, f2
 /* 803140EC 0031104C  EC 21 00 2A */	fadds f1, f1, f0
-/* 803140F0 00311050  4E 80 00 20 */	blr 
+/* 803140F0 00311050  4E 80 00 20 */	blr
 
 .global Magnitude__9CVector2fCFv
 Magnitude__9CVector2fCFv:
@@ -220,7 +220,7 @@ Magnitude__9CVector2fCFv:
 /* 80314118 00311078  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8031411C 0031107C  7C 08 03 A6 */	mtlr r0
 /* 80314120 00311080  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314124 00311084  4E 80 00 20 */	blr 
+/* 80314124 00311084  4E 80 00 20 */	blr
 
 .global sub_80314128
 sub_80314128:
@@ -232,7 +232,7 @@ sub_80314128:
 /* 8031413C 0031109C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80314140 003110A0  EC 00 00 72 */	fmuls f0, f0, f1
 /* 80314144 003110A4  D0 03 00 04 */	stfs f0, 4(r3)
-/* 80314148 003110A8  4E 80 00 20 */	blr 
+/* 80314148 003110A8  4E 80 00 20 */	blr
 
 .global __amu__9CVector2fFf
 __amu__9CVector2fFf:
@@ -242,7 +242,7 @@ __amu__9CVector2fFf:
 /* 80314158 003110B8  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8031415C 003110BC  EC 00 00 72 */	fmuls f0, f0, f1
 /* 80314160 003110C0  D0 03 00 04 */	stfs f0, 4(r3)
-/* 80314164 003110C4  4E 80 00 20 */	blr 
+/* 80314164 003110C4  4E 80 00 20 */	blr
 
 .global sub_80314168
 sub_80314168:
@@ -254,7 +254,7 @@ sub_80314168:
 /* 8031417C 003110DC  C0 04 00 04 */	lfs f0, 4(r4)
 /* 80314180 003110E0  EC 01 00 28 */	fsubs f0, f1, f0
 /* 80314184 003110E4  D0 03 00 04 */	stfs f0, 4(r3)
-/* 80314188 003110E8  4E 80 00 20 */	blr 
+/* 80314188 003110E8  4E 80 00 20 */	blr
 
 .global __apl__9CVector2fFRC9CVector2f
 __apl__9CVector2fFRC9CVector2f:
@@ -266,7 +266,7 @@ __apl__9CVector2fFRC9CVector2f:
 /* 803141A0 00311100  C0 04 00 04 */	lfs f0, 4(r4)
 /* 803141A4 00311104  EC 01 00 2A */	fadds f0, f1, f0
 /* 803141A8 00311108  D0 03 00 04 */	stfs f0, 4(r3)
-/* 803141AC 0031110C  4E 80 00 20 */	blr 
+/* 803141AC 0031110C  4E 80 00 20 */	blr
 
 .global Normalize__9CVector2fFv
 Normalize__9CVector2fFv:
@@ -289,13 +289,13 @@ Normalize__9CVector2fFv:
 /* 803141F0 00311150  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803141F4 00311154  7C 08 03 A6 */	mtlr r0
 /* 803141F8 00311158  38 21 00 10 */	addi r1, r1, 0x10
-/* 803141FC 0031115C  4E 80 00 20 */	blr 
+/* 803141FC 0031115C  4E 80 00 20 */	blr
 
 .global __ct__9CVector2fFff
 __ct__9CVector2fFff:
 /* 80314200 00311160  D0 23 00 00 */	stfs f1, 0(r3)
 /* 80314204 00311164  D0 43 00 04 */	stfs f2, 4(r3)
-/* 80314208 00311168  4E 80 00 20 */	blr 
+/* 80314208 00311168  4E 80 00 20 */	blr
 
 .global __sinit_CVector2f_cpp
 __sinit_CVector2f_cpp:
@@ -314,4 +314,4 @@ __sinit_CVector2f_cpp:
 /* 8031423C 0031119C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314240 003111A0  7C 08 03 A6 */	mtlr r0
 /* 80314244 003111A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314248 003111A8  4E 80 00 20 */	blr 
+/* 80314248 003111A8  4E 80 00 20 */	blr

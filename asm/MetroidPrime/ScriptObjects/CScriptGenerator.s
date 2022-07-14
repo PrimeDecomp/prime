@@ -27,11 +27,11 @@ Accept__16CScriptGeneratorFR8IVisitor:
 /* 800B4520 000B1480  7C 04 03 78 */	mr r4, r0
 /* 800B4524 000B1484  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800B4528 000B1488  7D 89 03 A6 */	mtctr r12
-/* 800B452C 000B148C  4E 80 04 21 */	bctrl 
+/* 800B452C 000B148C  4E 80 04 21 */	bctrl
 /* 800B4530 000B1490  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B4534 000B1494  7C 08 03 A6 */	mtlr r0
 /* 800B4538 000B1498  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B453C 000B149C  4E 80 00 20 */	blr 
+/* 800B453C 000B149C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__16CScriptGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__16CScriptGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -692,7 +692,7 @@ lbl_800B4E7C:
 /* 800B4EAC 000B1E0C  80 01 01 E4 */	lwz r0, 0x1e4(r1)
 /* 800B4EB0 000B1E10  7C 08 03 A6 */	mtlr r0
 /* 800B4EB4 000B1E14  38 21 01 E0 */	addi r1, r1, 0x1e0
-/* 800B4EB8 000B1E18  4E 80 00 20 */	blr 
+/* 800B4EB8 000B1E18  4E 80 00 20 */	blr
 
 .global sub_800b4ebc
 sub_800b4ebc:
@@ -714,7 +714,7 @@ sub_800b4ebc:
 /* 800B4EF8 000B1E58  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800B4EFC 000B1E5C  7C 08 03 A6 */	mtlr r0
 /* 800B4F00 000B1E60  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B4F04 000B1E64  4E 80 00 20 */	blr 
+/* 800B4F04 000B1E64  4E 80 00 20 */	blr
 
 .global sub_800b4f08
 sub_800b4f08:
@@ -761,7 +761,7 @@ lbl_800B4F78:
 /* 800B4F94 000B1EF4  80 05 00 00 */	lwz r0, 0(r5)
 /* 800B4F98 000B1EF8  90 03 00 00 */	stw r0, 0(r3)
 /* 800B4F9C 000B1EFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B4FA0 000B1F00  4E 80 00 20 */	blr 
+/* 800B4FA0 000B1F00  4E 80 00 20 */	blr
 
 .global __dt__16CScriptGenerator
 __dt__16CScriptGenerator:
@@ -789,7 +789,7 @@ lbl_800B4FE8:
 /* 800B4FF4 000B1F54  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B4FF8 000B1F58  7C 08 03 A6 */	mtlr r0
 /* 800B4FFC 000B1F5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B5000 000B1F60  4E 80 00 20 */	blr 
+/* 800B5000 000B1F60  4E 80 00 20 */	blr
 
 .global "__ct__16CScriptGeneratorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibRC9CVector3fbbff"
 "__ct__16CScriptGeneratorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibRC9CVector3fbbff":
@@ -844,7 +844,7 @@ lbl_800B4FE8:
 /* 800B50C4 000B2024  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800B50C8 000B2028  7C 08 03 A6 */	mtlr r0
 /* 800B50CC 000B202C  38 21 00 50 */	addi r1, r1, 0x50
-/* 800B50D0 000B2030  4E 80 00 20 */	blr 
+/* 800B50D0 000B2030  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl71vector<Q24rstl27pair<9TUniqueId,9TEditorId>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl71vector<Q24rstl27pair<9TUniqueId,9TEditorId>,Q24rstl17rmemory_allocator>Fi":
@@ -917,4 +917,4 @@ lbl_800B51AC:
 /* 800B51B8 000B2118  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800B51BC 000B211C  7C 08 03 A6 */	mtlr r0
 /* 800B51C0 000B2120  38 21 00 30 */	addi r1, r1, 0x30
-/* 800B51C4 000B2124  4E 80 00 20 */	blr 
+/* 800B51C4 000B2124  4E 80 00 20 */	blr

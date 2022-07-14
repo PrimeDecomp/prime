@@ -230,7 +230,7 @@ lbl_801C91B4:
 /* 801C9214 001C6174  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 801C9218 001C6178  7C 08 03 A6 */	mtlr r0
 /* 801C921C 001C617C  38 21 01 30 */	addi r1, r1, 0x130
-/* 801C9220 001C6180  4E 80 00 20 */	blr 
+/* 801C9220 001C6180  4E 80 00 20 */	blr
 
 .global FitThroughLink2d__9CPFRegionCFRC9CVector3fRC7CPFLinkRC9CVector3ff
 FitThroughLink2d__9CPFRegionCFRC9CVector3fRC7CPFLinkRC9CVector3ff:
@@ -388,7 +388,7 @@ lbl_801C9414:
 /* 801C947C 001C63DC  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 801C9480 001C63E0  7C 08 03 A6 */	mtlr r0
 /* 801C9484 001C63E4  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801C9488 001C63E8  4E 80 00 20 */	blr 
+/* 801C9488 001C63E8  4E 80 00 20 */	blr
 
 .global GetLinkMidPoint__9CPFRegionCFRC7CPFLink
 GetLinkMidPoint__9CPFRegionCFRC7CPFLink:
@@ -419,7 +419,7 @@ GetLinkMidPoint__9CPFRegionCFRC7CPFLink:
 /* 801C94EC 001C644C  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801C94F0 001C6450  D0 43 00 04 */	stfs f2, 4(r3)
 /* 801C94F4 001C6454  D0 23 00 08 */	stfs f1, 8(r3)
-/* 801C94F8 001C6458  4E 80 00 20 */	blr 
+/* 801C94F8 001C6458  4E 80 00 20 */	blr
 
 .global DropToGround__9CPFRegionCFR9CVector3f
 DropToGround__9CPFRegionCFR9CVector3f:
@@ -448,7 +448,7 @@ DropToGround__9CPFRegionCFR9CVector3f:
 /* 801C9554 001C64B4  EC 01 00 28 */	fsubs f0, f1, f0
 /* 801C9558 001C64B8  D0 04 00 08 */	stfs f0, 8(r4)
 /* 801C955C 001C64BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801C9560 001C64C0  4E 80 00 20 */	blr 
+/* 801C9560 001C64C0  4E 80 00 20 */	blr
 
 .global SetLinkTo__9CPFRegionFi
 SetLinkTo__9CPFRegionFi:
@@ -457,7 +457,7 @@ SetLinkTo__9CPFRegionFi:
 /* 801C956C 001C64CC  38 C0 00 00 */	li r6, 0
 /* 801C9570 001C64D0  7C 09 03 A6 */	mtctr r0
 /* 801C9574 001C64D4  2C 00 00 00 */	cmpwi r0, 0
-/* 801C9578 001C64D8  4C 81 00 20 */	blelr 
+/* 801C9578 001C64D8  4C 81 00 20 */	blelr
 lbl_801C957C:
 /* 801C957C 001C64DC  80 A3 00 0C */	lwz r5, 0xc(r3)
 /* 801C9580 001C64E0  38 06 00 04 */	addi r0, r6, 4
@@ -466,7 +466,7 @@ lbl_801C957C:
 /* 801C958C 001C64EC  40 82 00 10 */	bne lbl_801C959C
 /* 801C9590 001C64F0  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 801C9594 001C64F4  90 E3 00 2C */	stw r7, 0x2c(r3)
-/* 801C9598 001C64F8  4E 80 00 20 */	blr 
+/* 801C9598 001C64F8  4E 80 00 20 */	blr
 lbl_801C959C:
 /* 801C959C 001C64FC  38 C6 00 10 */	addi r6, r6, 0x10
 /* 801C95A0 001C6500  38 E7 00 01 */	addi r7, r7, 1
@@ -474,7 +474,7 @@ lbl_801C959C:
 
 .global sub_801c95a8
 sub_801c95a8:
-/* 801C95A8 001C6508  4E 80 00 20 */	blr 
+/* 801C95A8 001C6508  4E 80 00 20 */	blr
 
 .global "FindBestPoint__9CPFRegionFRQ24rstl45vector<9CVector3f,Q24rstl17rmemory_allocator>RC9CVector3fUif"
 "FindBestPoint__9CPFRegionFRQ24rstl45vector<9CVector3f,Q24rstl17rmemory_allocator>RC9CVector3fUif":
@@ -810,7 +810,7 @@ lbl_801C9A48:
 /* 801C9A50 001C69B0  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801C9A54 001C69B4  7C 08 03 A6 */	mtlr r0
 /* 801C9A58 001C69B8  38 21 00 70 */	addi r1, r1, 0x70
-/* 801C9A5C 001C69BC  4E 80 00 20 */	blr 
+/* 801C9A5C 001C69BC  4E 80 00 20 */	blr
 
 .global "FindClosestPointOnPolygon__9CPFRegionFRCQ24rstl45vector<9CVector3f,Q24rstl17rmemory_allocator>RC9CVector3fRC9CVector3fb"
 "FindClosestPointOnPolygon__9CPFRegionFRCQ24rstl45vector<9CVector3f,Q24rstl17rmemory_allocator>RC9CVector3fRC9CVector3fb":
@@ -1077,7 +1077,7 @@ lbl_801C9E2C:
 /* 801C9E4C 001C6DAC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801C9E50 001C6DB0  7C 08 03 A6 */	mtlr r0
 /* 801C9E54 001C6DB4  38 21 00 70 */	addi r1, r1, 0x70
-/* 801C9E58 001C6DB8  4E 80 00 20 */	blr 
+/* 801C9E58 001C6DB8  4E 80 00 20 */	blr
 
 .global PointHeight__9CPFRegionCFRC9CVector3f
 PointHeight__9CPFRegionCFRC9CVector3f:
@@ -1097,7 +1097,7 @@ PointHeight__9CPFRegionCFRC9CVector3f:
 /* 801C9E90 001C6DF0  C0 63 00 20 */	lfs f3, 0x20(r3)
 /* 801C9E94 001C6DF4  EC 02 00 7A */	fmadds f0, f2, f1, f0
 /* 801C9E98 001C6DF8  EC 24 00 FA */	fmadds f1, f4, f3, f0
-/* 801C9E9C 001C6DFC  4E 80 00 20 */	blr 
+/* 801C9E9C 001C6DFC  4E 80 00 20 */	blr
 
 .global IsPointInside__9CPFRegionCFRC9CVector3f
 IsPointInside__9CPFRegionCFRC9CVector3f:
@@ -1194,7 +1194,7 @@ lbl_801C9FEC:
 /* 801C9FFC 001C6F5C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801CA000 001C6F60  7C 08 03 A6 */	mtlr r0
 /* 801CA004 001C6F64  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CA008 001C6F68  4E 80 00 20 */	blr 
+/* 801CA008 001C6F68  4E 80 00 20 */	blr
 
 .global __ct__9CPFRegionFv
 __ct__9CPFRegionFv:
@@ -1233,7 +1233,7 @@ __ct__9CPFRegionFv:
 /* 801CA08C 001C6FEC  D0 03 00 44 */	stfs f0, 0x44(r3)
 /* 801CA090 001C6FF0  C0 04 00 14 */	lfs f0, 0x14(r4)
 /* 801CA094 001C6FF4  D0 03 00 48 */	stfs f0, 0x48(r3)
-/* 801CA098 001C6FF8  4E 80 00 20 */	blr 
+/* 801CA098 001C6FF8  4E 80 00 20 */	blr
 
 .global Fixup__9CPFRegionFR7CPFAreaRi
 Fixup__9CPFRegionFR7CPFAreaRi:
@@ -1269,9 +1269,9 @@ lbl_801CA0E8:
 /* 801CA100 001C7060  80 63 00 00 */	lwz r3, 0(r3)
 /* 801CA104 001C7064  80 05 00 00 */	lwz r0, 0(r5)
 /* 801CA108 001C7068  7C 03 00 00 */	cmpw r3, r0
-/* 801CA10C 001C706C  4C 81 00 20 */	blelr 
+/* 801CA10C 001C706C  4C 81 00 20 */	blelr
 /* 801CA110 001C7070  90 65 00 00 */	stw r3, 0(r5)
-/* 801CA114 001C7074  4E 80 00 20 */	blr 
+/* 801CA114 001C7074  4E 80 00 20 */	blr
 
 .global __ct__13CPFRegionDataFv
 __ct__13CPFRegionDataFv:

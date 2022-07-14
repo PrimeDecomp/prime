@@ -36,7 +36,7 @@ __OSInIPL:
 .global __OSStartTime
 __OSStartTime:
 	.skip 0x8
-	
+
 .section .data
 .global lbl_803F0DA0
 lbl_803F0DA0:
@@ -94,13 +94,13 @@ __OSExceptionLocations:
 	.balign 4
 	.asciz "Exceptions initialized...\n"
 	.balign 4
-	
+
 .section .sdata
 
 .global lbl_805A8B28
 lbl_805A8B28:
 	.4byte lbl_803F0DA0
-	
+
 .global lbl_805A8B2C
 lbl_805A8B2C:
 	.asciz "%s\n"
@@ -121,7 +121,7 @@ lbl_8037D734:
 /* 8037D738 0037A698  38 63 00 02 */	addi r3, r3, 0x10000002@l
 /* 8037D73C 0037A69C  48 00 00 04 */	b lbl_8037D740
 lbl_8037D740:
-/* 8037D740 0037A6A0  4E 80 00 20 */	blr 
+/* 8037D740 0037A6A0  4E 80 00 20 */	blr
 
 .global ClearArena
 ClearArena:
@@ -202,7 +202,7 @@ lbl_8037D858:
 /* 8037D85C 0037A7BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8037D860 0037A7C0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8037D864 0037A7C4  7C 08 03 A6 */	mtlr r0
-/* 8037D868 0037A7C8  4E 80 00 20 */	blr 
+/* 8037D868 0037A7C8  4E 80 00 20 */	blr
 
 .global InquiryCallback
 InquiryCallback:
@@ -223,7 +223,7 @@ lbl_8037D898:
 /* 8037D89C 0037A7FC  3C 60 80 00 */	lis r3, 0x800030E6@ha
 /* 8037D8A0 0037A800  B0 03 30 E6 */	sth r0, 0x800030E6@l(r3)
 lbl_8037d8a4:
-/* 8037D8A4 0037A804  4E 80 00 20 */	blr 
+/* 8037D8A4 0037A804  4E 80 00 20 */	blr
 
 .global OSInit
 OSInit:
@@ -468,7 +468,7 @@ lbl_8037DC04:
 /* 8037DC10 0037AB70  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 8037DC14 0037AB74  38 21 00 18 */	addi r1, r1, 0x18
 /* 8037DC18 0037AB78  7C 08 03 A6 */	mtlr r0
-/* 8037DC1C 0037AB7C  4E 80 00 20 */	blr 
+/* 8037DC1C 0037AB7C  4E 80 00 20 */	blr
 
 .global OSExceptionInit
 OSExceptionInit:
@@ -648,7 +648,7 @@ lbl_8037DE70:
 /* 8037DE90 0037ADF0  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 8037DE94 0037ADF4  38 21 00 38 */	addi r1, r1, 0x38
 /* 8037DE98 0037ADF8  7C 08 03 A6 */	mtlr r0
-/* 8037DE9C 0037ADFC  4E 80 00 20 */	blr 
+/* 8037DE9C 0037ADFC  4E 80 00 20 */	blr
 
 .global __OSDBIntegrator
 __OSDBIntegrator:
@@ -660,7 +660,7 @@ __OSDBIntegrator:
 /* 8037DEB4 0037AE14  7C 68 03 A6 */	mtlr r3
 /* 8037DEB8 0037AE18  38 60 00 30 */	li r3, 0x30
 /* 8037DEBC 0037AE1C  7C 60 01 24 */	mtmsr r3
-/* 8037DEC0 0037AE20  4E 80 00 20 */	blr 
+/* 8037DEC0 0037AE20  4E 80 00 20 */	blr
 
 .global __OSDBJump
 __OSDBJump:
@@ -678,7 +678,7 @@ __OSSetExceptionHandler:
 /* 8037DED4 0037AE34  7C A3 02 14 */	add r5, r3, r0
 /* 8037DED8 0037AE38  80 65 00 00 */	lwz r3, 0(r5)
 /* 8037DEDC 0037AE3C  90 85 00 00 */	stw r4, 0(r5)
-/* 8037DEE0 0037AE40  4E 80 00 20 */	blr 
+/* 8037DEE0 0037AE40  4E 80 00 20 */	blr
 
 .global __OSGetExceptionHandler
 __OSGetExceptionHandler:
@@ -686,7 +686,7 @@ __OSGetExceptionHandler:
 /* 8037DEE8 0037AE48  80 6D AC D4 */	lwz r3, OSExceptionTable@sda21(r13)
 /* 8037DEEC 0037AE4C  54 00 10 3A */	slwi r0, r0, 2
 /* 8037DEF0 0037AE50  7C 63 00 2E */	lwzx r3, r3, r0
-/* 8037DEF4 0037AE54  4E 80 00 20 */	blr 
+/* 8037DEF4 0037AE54  4E 80 00 20 */	blr
 
 .global OSExceptionVector
 OSExceptionVector:
@@ -713,7 +713,7 @@ OSExceptionVector:
 /* 8037DF48 0037AEA8  90 64 01 9C */	stw r3, 0x19c(r4)
 /* 8037DF4C 0037AEAC  7C 65 1B 78 */	mr r5, r3
 __DBVECTOR:
-/* 8037DF50 0037AEB0  60 00 00 00 */	nop 
+/* 8037DF50 0037AEB0  60 00 00 00 */	nop
 /* 8037DF54 0037AEB4  7C 60 00 A6 */	mfmsr r3
 /* 8037DF58 0037AEB8  60 63 00 30 */	ori r3, r3, 0x30
 /* 8037DF5C 0037AEBC  7C 7B 03 A6 */	mtspr 0x1b, r3
@@ -725,12 +725,12 @@ lbl_8037DF60:
 /* 8037DF70 0037AED0  3C A0 80 38 */	lis r5, OSDefaultExceptionHandler@ha
 /* 8037DF74 0037AED4  38 A5 DF 94 */	addi r5, r5, OSDefaultExceptionHandler@l
 /* 8037DF78 0037AED8  7C BA 03 A6 */	mtspr 0x1a, r5
-/* 8037DF7C 0037AEDC  4C 00 00 64 */	rfi 
+/* 8037DF7C 0037AEDC  4C 00 00 64 */	rfi
 lbl_8037DF80:
 /* 8037DF80 0037AEE0  54 65 15 BA */	rlwinm r5, r3, 2, 0x16, 0x1d
 /* 8037DF84 0037AEE4  80 A5 30 00 */	lwz r5, 0x3000(r5)
 /* 8037DF88 0037AEE8  7C BA 03 A6 */	mtspr 0x1a, r5
-/* 8037DF8C 0037AEEC  4C 00 00 64 */	rfi 
+/* 8037DF8C 0037AEEC  4C 00 00 64 */	rfi
 lbl_8037DF90:
 /* 8037DF90 0037AEF0  60 00 00 00 */	nop
 
@@ -774,7 +774,7 @@ __OSPSInit:
 /* 8037E014 0037AF74  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8037E018 0037AF78  38 21 00 08 */	addi r1, r1, 8
 /* 8037E01C 0037AF7C  7C 08 03 A6 */	mtlr r0
-/* 8037E020 0037AF80  4E 80 00 20 */	blr 
+/* 8037E020 0037AF80  4E 80 00 20 */	blr
 
 .global __OSGetDIConfig
 __OSGetDIConfig:
@@ -782,7 +782,7 @@ __OSGetDIConfig:
 /* 8037E028 0037AF88  38 63 60 00 */	addi r3, r3, 0xCC006000@l
 /* 8037E02C 0037AF8C  80 03 00 24 */	lwz r0, 0x24(r3)
 /* 8037E030 0037AF90  54 03 06 3E */	clrlwi r3, r0, 0x18
-/* 8037E034 0037AF94  4E 80 00 20 */	blr 
+/* 8037E034 0037AF94  4E 80 00 20 */	blr
 
 .global OSRegisterVersion
 OSRegisterVersion:
@@ -796,4 +796,4 @@ OSRegisterVersion:
 /* 8037E054 0037AFB4  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8037E058 0037AFB8  38 21 00 08 */	addi r1, r1, 8
 /* 8037E05C 0037AFBC  7C 08 03 A6 */	mtlr r0
-/* 8037E060 0037AFC0  4E 80 00 20 */	blr 
+/* 8037E060 0037AFC0  4E 80 00 20 */	blr

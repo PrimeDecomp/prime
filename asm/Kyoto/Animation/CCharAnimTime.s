@@ -76,7 +76,7 @@ PutTo__13CCharAnimTimeCFR13COutputStream:
 /* 803483A0 00345300  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 803483A4 00345304  7C 08 03 A6 */	mtlr r0
 /* 803483A8 00345308  38 21 00 20 */	addi r1, r1, 0x20
-/* 803483AC 0034530C  4E 80 00 20 */	blr 
+/* 803483AC 0034530C  4E 80 00 20 */	blr
 
 .global EqualsZero__13CCharAnimTimeCFv
 EqualsZero__13CCharAnimTimeCFv:
@@ -96,7 +96,7 @@ lbl_803483E0:
 /* 803483E0 00345340  38 00 00 01 */	li r0, 1
 lbl_803483E4:
 /* 803483E4 00345344  7C 03 03 78 */	mr r3, r0
-/* 803483E8 00345348  4E 80 00 20 */	blr 
+/* 803483E8 00345348  4E 80 00 20 */	blr
 
 .global GreaterThanZero__13CCharAnimTimeCFv
 GreaterThanZero__13CCharAnimTimeCFv:
@@ -121,7 +121,7 @@ lbl_80348428:
 /* 8034842C 0034538C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80348430 00345390  7C 08 03 A6 */	mtlr r0
 /* 80348434 00345394  38 21 00 10 */	addi r1, r1, 0x10
-/* 80348438 00345398  4E 80 00 20 */	blr 
+/* 80348438 00345398  4E 80 00 20 */	blr
 
 .global __ge__13CCharAnimTimeCFRC13CCharAnimTime
 __ge__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -152,7 +152,7 @@ lbl_80348484:
 /* 80348494 003453F4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80348498 003453F8  7C 08 03 A6 */	mtlr r0
 /* 8034849C 003453FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 803484A0 00345400  4E 80 00 20 */	blr 
+/* 803484A0 00345400  4E 80 00 20 */	blr
 
 .global __le__13CCharAnimTimeCFRC13CCharAnimTime
 __le__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -183,7 +183,7 @@ lbl_803484EC:
 /* 803484FC 0034545C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80348500 00345460  7C 08 03 A6 */	mtlr r0
 /* 80348504 00345464  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348508 00345468  4E 80 00 20 */	blr 
+/* 80348508 00345468  4E 80 00 20 */	blr
 
 .global __ami__13CCharAnimTimeFRC13CCharAnimTime
 __ami__13CCharAnimTimeFRC13CCharAnimTime:
@@ -205,7 +205,7 @@ __ami__13CCharAnimTimeFRC13CCharAnimTime:
 /* 80348548 003454A8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034854C 003454AC  7C 08 03 A6 */	mtlr r0
 /* 80348550 003454B0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348554 003454B4  4E 80 00 20 */	blr 
+/* 80348554 003454B4  4E 80 00 20 */	blr
 
 .global __apl__13CCharAnimTimeFRC13CCharAnimTime
 __apl__13CCharAnimTimeFRC13CCharAnimTime:
@@ -227,7 +227,7 @@ __apl__13CCharAnimTimeFRC13CCharAnimTime:
 /* 80348594 003454F4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80348598 003454F8  7C 08 03 A6 */	mtlr r0
 /* 8034859C 003454FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 803485A0 00345500  4E 80 00 20 */	blr 
+/* 803485A0 00345500  4E 80 00 20 */	blr
 
 .global __pl__13CCharAnimTimeCFRC13CCharAnimTime
 __pl__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -361,7 +361,7 @@ lbl_80348748:
 /* 80348754 003456B4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80348758 003456B8  7C 08 03 A6 */	mtlr r0
 /* 8034875C 003456BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348760 003456C0  4E 80 00 20 */	blr 
+/* 80348760 003456C0  4E 80 00 20 */	blr
 
 .global __mi__13CCharAnimTimeCFRC13CCharAnimTime
 __mi__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -480,7 +480,7 @@ lbl_803488D8:
 /* 803488E4 00345844  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803488E8 00345848  7C 08 03 A6 */	mtlr r0
 /* 803488EC 0034584C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803488F0 00345850  4E 80 00 20 */	blr 
+/* 803488F0 00345850  4E 80 00 20 */	blr
 
 .global __ml__13CCharAnimTimeCFRCf
 __ml__13CCharAnimTimeCFRCf:
@@ -567,7 +567,7 @@ lbl_803489FC:
 /* 80348A08 00345968  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80348A0C 0034596C  7C 08 03 A6 */	mtlr r0
 /* 80348A10 00345970  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348A14 00345974  4E 80 00 20 */	blr 
+/* 80348A14 00345974  4E 80 00 20 */	blr
 
 .global __dv__13CCharAnimTimeCFRC13CCharAnimTime
 __dv__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -593,7 +593,7 @@ lbl_80348A54:
 /* 80348A5C 003459BC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80348A60 003459C0  7C 08 03 A6 */	mtlr r0
 /* 80348A64 003459C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80348A68 003459C8  4E 80 00 20 */	blr 
+/* 80348A68 003459C8  4E 80 00 20 */	blr
 
 .global __gt__13CCharAnimTimeCFRC13CCharAnimTime
 __gt__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -623,7 +623,7 @@ lbl_80348AB4:
 /* 80348AC4 00345A24  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80348AC8 00345A28  7C 08 03 A6 */	mtlr r0
 /* 80348ACC 00345A2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348AD0 00345A30  4E 80 00 20 */	blr 
+/* 80348AD0 00345A30  4E 80 00 20 */	blr
 
 .global __ne__13CCharAnimTimeCFRC13CCharAnimTime
 __ne__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -637,7 +637,7 @@ __ne__13CCharAnimTimeCFRC13CCharAnimTime:
 /* 80348AF0 00345A50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80348AF4 00345A54  7C 08 03 A6 */	mtlr r0
 /* 80348AF8 00345A58  38 21 00 10 */	addi r1, r1, 0x10
-/* 80348AFC 00345A5C  4E 80 00 20 */	blr 
+/* 80348AFC 00345A5C  4E 80 00 20 */	blr
 
 .global __eq__13CCharAnimTimeCFRC13CCharAnimTime
 __eq__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -731,7 +731,7 @@ lbl_80348C24:
 /* 80348C2C 00345B8C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80348C30 00345B90  7C 08 03 A6 */	mtlr r0
 /* 80348C34 00345B94  38 21 00 10 */	addi r1, r1, 0x10
-/* 80348C38 00345B98  4E 80 00 20 */	blr 
+/* 80348C38 00345B98  4E 80 00 20 */	blr
 
 .global __lt__13CCharAnimTimeCFRC13CCharAnimTime
 __lt__13CCharAnimTimeCFRC13CCharAnimTime:
@@ -857,7 +857,7 @@ lbl_80348DD4:
 /* 80348DDC 00345D3C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80348DE0 00345D40  7C 08 03 A6 */	mtlr r0
 /* 80348DE4 00345D44  38 21 00 10 */	addi r1, r1, 0x10
-/* 80348DE8 00345D48  4E 80 00 20 */	blr 
+/* 80348DE8 00345D48  4E 80 00 20 */	blr
 
 .global __ct__13CCharAnimTimeFf
 __ct__13CCharAnimTimeFf:
@@ -867,11 +867,11 @@ __ct__13CCharAnimTimeFf:
 /* 80348DF8 00345D58  40 82 00 10 */	bne lbl_80348E08
 /* 80348DFC 00345D5C  38 00 00 02 */	li r0, 2
 /* 80348E00 00345D60  90 03 00 04 */	stw r0, 4(r3)
-/* 80348E04 00345D64  4E 80 00 20 */	blr 
+/* 80348E04 00345D64  4E 80 00 20 */	blr
 lbl_80348E08:
 /* 80348E08 00345D68  38 00 00 00 */	li r0, 0
 /* 80348E0C 00345D6C  90 03 00 04 */	stw r0, 4(r3)
-/* 80348E10 00345D70  4E 80 00 20 */	blr 
+/* 80348E10 00345D70  4E 80 00 20 */	blr
 
 .global __ct__13CCharAnimTimeFR12CInputStream
 __ct__13CCharAnimTimeFR12CInputStream:

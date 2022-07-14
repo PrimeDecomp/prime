@@ -456,7 +456,7 @@ lbl_802D5ADC:
 /* 802D5B64 002D2AC4  E1 C1 00 88 */	psq_l f14, 136(r1), 0, qr0
 /* 802D5B68 002D2AC8  C9 C1 00 80 */	lfd f14, 0x80(r1)
 /* 802D5B6C 002D2ACC  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 802D5B70 002D2AD0  4E 80 00 20 */	blr 
+/* 802D5B70 002D2AD0  4E 80 00 20 */	blr
 
 .global AABoxIntersectsBox__6COBBoxFRC6CAABox
 AABoxIntersectsBox__6COBBoxFRC6CAABox:
@@ -476,7 +476,7 @@ AABoxIntersectsBox__6COBBoxFRC6CAABox:
 /* 802D5BA8 002D2B08  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 802D5BAC 002D2B0C  7C 08 03 A6 */	mtlr r0
 /* 802D5BB0 002D2B10  38 21 00 50 */	addi r1, r1, 0x50
-/* 802D5BB4 002D2B14  4E 80 00 20 */	blr 
+/* 802D5BB4 002D2B14  4E 80 00 20 */	blr
 
 .global LineIntersectsBox__6COBBoxCFRC5CMRayRf
 LineIntersectsBox__6COBBoxCFRC5CMRayRf:
@@ -568,7 +568,7 @@ LineIntersectsBox__6COBBoxCFRC5CMRayRf:
 /* 802D5D0C 002D2C6C  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 802D5D10 002D2C70  7C 08 03 A6 */	mtlr r0
 /* 802D5D14 002D2C74  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 802D5D18 002D2C78  4E 80 00 20 */	blr 
+/* 802D5D18 002D2C78  4E 80 00 20 */	blr
 
 .global FromAABox__6COBBoxFRC6CAABoxRC12CTransform4f
 FromAABox__6COBBoxFRC6CAABoxRC12CTransform4f:
@@ -618,7 +618,7 @@ FromAABox__6COBBoxFRC6CAABoxRC12CTransform4f:
 /* 802D5DC8 002D2D28  83 A1 00 C4 */	lwz r29, 0xc4(r1)
 /* 802D5DCC 002D2D2C  7C 08 03 A6 */	mtlr r0
 /* 802D5DD0 002D2D30  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802D5DD4 002D2D34  4E 80 00 20 */	blr 
+/* 802D5DD4 002D2D34  4E 80 00 20 */	blr
 
 .global CalculateAABox__6COBBoxCFRC12CTransform4f
 CalculateAABox__6COBBoxCFRC12CTransform4f:
@@ -721,7 +721,7 @@ lbl_802D5ECC:
 /* 802D5F3C 002D2E9C  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802D5F40 002D2EA0  7C 08 03 A6 */	mtlr r0
 /* 802D5F44 002D2EA4  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802D5F48 002D2EA8  4E 80 00 20 */	blr 
+/* 802D5F48 002D2EA8  4E 80 00 20 */	blr
 
 .global __ct__6COBBoxFR12CInputStream
 __ct__6COBBoxFR12CInputStream:
@@ -742,7 +742,7 @@ __ct__6COBBoxFR12CInputStream:
 /* 802D5F84 002D2EE4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802D5F88 002D2EE8  7C 08 03 A6 */	mtlr r0
 /* 802D5F8C 002D2EEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D5F90 002D2EF0  4E 80 00 20 */	blr 
+/* 802D5F90 002D2EF0  4E 80 00 20 */	blr
 
 .global __ct__6COBBoxFRC12CTransform4fRC9CVector3f
 __ct__6COBBoxFRC12CTransform4fRC9CVector3f:

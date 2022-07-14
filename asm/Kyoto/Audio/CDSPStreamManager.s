@@ -6,19 +6,19 @@
 
 .global lbl_80540004
 lbl_80540004:
-	.skip 0xC	
+	.skip 0xC
 .global lbl_80540010
 lbl_80540010:
-	.skip 0x10	
+	.skip 0x10
 .global lbl_80540020
 lbl_80540020:
 	.skip 0x500
 .global lbl_80540520
 lbl_80540520:
-	.skip 0x30	
+	.skip 0x30
 .global lbl_80540550
 lbl_80540550:
-	.skip 0x30	
+	.skip 0x30
 .global lbl_80540580
 lbl_80540580:
 	.skip 0x64
@@ -40,7 +40,7 @@ lbl_80540A2C:
 .global lbl_805A9678
 lbl_805A9678:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global AllocateStream__17CDSPStreamManagerFv
@@ -196,7 +196,7 @@ lbl_80363714:
 /* 8036371C 0036067C  80 0A 00 04 */	lwz r0, 4(r10)
 /* 80363720 00360680  7C 08 03 A6 */	mtlr r0
 /* 80363724 00360684  7D 41 53 78 */	mr r1, r10
-/* 80363728 00360688  4E 80 00 20 */	blr 
+/* 80363728 00360688  4E 80 00 20 */	blr
 
 .global sub_8036372c
 sub_8036372c:
@@ -224,7 +224,7 @@ lbl_8036376C:
 /* 80363778 003606D8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036377C 003606DC  7C 08 03 A6 */	mtlr r0
 /* 80363780 003606E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80363784 003606E4  4E 80 00 20 */	blr 
+/* 80363784 003606E4  4E 80 00 20 */	blr
 
 .global HeaderReadComplete__17CDSPStreamManagerFiP11DVDFileInfo
 HeaderReadComplete__17CDSPStreamManagerFiP11DVDFileInfo:
@@ -365,7 +365,7 @@ lbl_80363958:
 /* 8036396C 003608CC  83 8A FF F0 */	lwz r28, -0x10(r10)
 /* 80363970 003608D0  7C 08 03 A6 */	mtlr r0
 /* 80363974 003608D4  7D 41 53 78 */	mr r1, r10
-/* 80363978 003608D8  4E 80 00 20 */	blr 
+/* 80363978 003608D8  4E 80 00 20 */	blr
 
 .global GetStreamState__17CDSPStreamManagerFi
 GetStreamState__17CDSPStreamManagerFi:
@@ -426,7 +426,7 @@ lbl_80363A38:
 /* 80363A3C 0036099C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80363A40 003609A0  7C 08 03 A6 */	mtlr r0
 /* 80363A44 003609A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80363A48 003609A8  4E 80 00 20 */	blr 
+/* 80363A48 003609A8  4E 80 00 20 */	blr
 
 .global CanStop__17CDSPStreamManagerFi
 CanStop__17CDSPStreamManagerFi:
@@ -483,7 +483,7 @@ lbl_80363B00:
 /* 80363B04 00360A64  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80363B08 00360A68  7C 08 03 A6 */	mtlr r0
 /* 80363B0C 00360A6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80363B10 00360A70  4E 80 00 20 */	blr 
+/* 80363B10 00360A70  4E 80 00 20 */	blr
 
 .global IsStreamAvailable__17CDSPStreamManagerFi
 IsStreamAvailable__17CDSPStreamManagerFi:
@@ -538,7 +538,7 @@ lbl_80363BC0:
 /* 80363BC4 00360B24  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80363BC8 00360B28  7C 08 03 A6 */	mtlr r0
 /* 80363BCC 00360B2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80363BD0 00360B30  4E 80 00 20 */	blr 
+/* 80363BD0 00360B30  4E 80 00 20 */	blr
 
 .global UpdateVolume__17CDSPStreamManagerFic
 UpdateVolume__17CDSPStreamManagerFic:
@@ -582,7 +582,7 @@ lbl_80363C54:
 /* 80363C5C 00360BBC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80363C60 00360BC0  7C 08 03 A6 */	mtlr r0
 /* 80363C64 00360BC4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80363C68 00360BC8  4E 80 00 20 */	blr 
+/* 80363C68 00360BC8  4E 80 00 20 */	blr
 
 .global __ct__14SDSPStreamInfoFRC17CDSPStreamManager
 __ct__14SDSPStreamInfoFRC17CDSPStreamManager:
@@ -661,7 +661,7 @@ lbl_80363CF4:
 /* 80363D80 00360CE0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80363D84 00360CE4  7C 08 03 A6 */	mtlr r0
 /* 80363D88 00360CE8  38 21 00 50 */	addi r1, r1, 0x50
-/* 80363D8C 00360CEC  4E 80 00 20 */	blr 
+/* 80363D8C 00360CEC  4E 80 00 20 */	blr
 
 .global StopStreaming__17CDSPStreamManagerFi
 StopStreaming__17CDSPStreamManagerFi:
@@ -748,7 +748,7 @@ lbl_80363EAC:
 /* 80363EB8 00360E18  83 CA FF F8 */	lwz r30, -8(r10)
 /* 80363EBC 00360E1C  7C 08 03 A6 */	mtlr r0
 /* 80363EC0 00360E20  7D 41 53 78 */	mr r1, r10
-/* 80363EC4 00360E24  4E 80 00 20 */	blr 
+/* 80363EC4 00360E24  4E 80 00 20 */	blr
 
 .global FindClaimedStreamIdx__17CDSPStreamManagerFi
 FindClaimedStreamIdx__17CDSPStreamManagerFi:
@@ -761,7 +761,7 @@ FindClaimedStreamIdx__17CDSPStreamManagerFi:
 /* 80363EE0 00360E40  7C 03 00 00 */	cmpw r3, r0
 /* 80363EE4 00360E44  40 82 00 0C */	bne lbl_80363EF0
 /* 80363EE8 00360E48  38 60 00 00 */	li r3, 0
-/* 80363EEC 00360E4C  4E 80 00 20 */	blr 
+/* 80363EEC 00360E4C  4E 80 00 20 */	blr
 lbl_80363EF0:
 /* 80363EF0 00360E50  38 84 00 C0 */	addi r4, r4, 0xc0
 /* 80363EF4 00360E54  88 04 00 70 */	lbz r0, 0x70(r4)
@@ -771,7 +771,7 @@ lbl_80363EF0:
 /* 80363F04 00360E64  7C 03 00 00 */	cmpw r3, r0
 /* 80363F08 00360E68  40 82 00 0C */	bne lbl_80363F14
 /* 80363F0C 00360E6C  38 60 00 01 */	li r3, 1
-/* 80363F10 00360E70  4E 80 00 20 */	blr 
+/* 80363F10 00360E70  4E 80 00 20 */	blr
 lbl_80363F14:
 /* 80363F14 00360E74  88 04 01 30 */	lbz r0, 0x130(r4)
 /* 80363F18 00360E78  38 84 00 C0 */	addi r4, r4, 0xc0
@@ -781,7 +781,7 @@ lbl_80363F14:
 /* 80363F28 00360E88  7C 03 00 00 */	cmpw r3, r0
 /* 80363F2C 00360E8C  40 82 00 0C */	bne lbl_80363F38
 /* 80363F30 00360E90  38 60 00 02 */	li r3, 2
-/* 80363F34 00360E94  4E 80 00 20 */	blr 
+/* 80363F34 00360E94  4E 80 00 20 */	blr
 lbl_80363F38:
 /* 80363F38 00360E98  88 04 01 30 */	lbz r0, 0x130(r4)
 /* 80363F3C 00360E9C  38 84 00 C0 */	addi r4, r4, 0xc0
@@ -791,10 +791,10 @@ lbl_80363F38:
 /* 80363F4C 00360EAC  7C 03 00 00 */	cmpw r3, r0
 /* 80363F50 00360EB0  40 82 00 0C */	bne lbl_80363F5C
 /* 80363F54 00360EB4  38 60 00 03 */	li r3, 3
-/* 80363F58 00360EB8  4E 80 00 20 */	blr 
+/* 80363F58 00360EB8  4E 80 00 20 */	blr
 lbl_80363F5C:
 /* 80363F5C 00360EBC  38 60 FF FF */	li r3, -1
-/* 80363F60 00360EC0  4E 80 00 20 */	blr 
+/* 80363F60 00360EC0  4E 80 00 20 */	blr
 
 .global GetFreeHandleId__17CDSPStreamManagerFv
 GetFreeHandleId__17CDSPStreamManagerFv:
@@ -866,7 +866,7 @@ lbl_80364038:
 /* 80364050 00360FB0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80364054 00360FB4  7C 08 03 A6 */	mtlr r0
 /* 80364058 00360FB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036405C 00360FBC  4E 80 00 20 */	blr 
+/* 8036405C 00360FBC  4E 80 00 20 */	blr
 
 .global FindUnclaimedStereoPair__17CDSPStreamManagerFRiRi
 FindUnclaimedStereoPair__17CDSPStreamManagerFRiRi:
@@ -933,7 +933,7 @@ lbl_80364134:
 /* 8036413C 0036109C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80364140 003610A0  7C 08 03 A6 */	mtlr r0
 /* 80364144 003610A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80364148 003610A8  4E 80 00 20 */	blr 
+/* 80364148 003610A8  4E 80 00 20 */	blr
 
 .global FindUnclaimedStreamIdx__17CDSPStreamManagerFv
 FindUnclaimedStreamIdx__17CDSPStreamManagerFv:
@@ -943,30 +943,30 @@ FindUnclaimedStreamIdx__17CDSPStreamManagerFv:
 /* 80364158 003610B8  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8036415C 003610BC  41 82 00 0C */	beq lbl_80364168
 /* 80364160 003610C0  38 60 00 00 */	li r3, 0
-/* 80364164 003610C4  4E 80 00 20 */	blr 
+/* 80364164 003610C4  4E 80 00 20 */	blr
 lbl_80364168:
 /* 80364168 003610C8  38 63 00 C0 */	addi r3, r3, 0xc0
 /* 8036416C 003610CC  88 03 00 70 */	lbz r0, 0x70(r3)
 /* 80364170 003610D0  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 80364174 003610D4  41 82 00 0C */	beq lbl_80364180
 /* 80364178 003610D8  38 60 00 01 */	li r3, 1
-/* 8036417C 003610DC  4E 80 00 20 */	blr 
+/* 8036417C 003610DC  4E 80 00 20 */	blr
 lbl_80364180:
 /* 80364180 003610E0  88 03 01 30 */	lbz r0, 0x130(r3)
 /* 80364184 003610E4  38 63 00 C0 */	addi r3, r3, 0xc0
 /* 80364188 003610E8  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8036418C 003610EC  41 82 00 0C */	beq lbl_80364198
 /* 80364190 003610F0  38 60 00 02 */	li r3, 2
-/* 80364194 003610F4  4E 80 00 20 */	blr 
+/* 80364194 003610F4  4E 80 00 20 */	blr
 lbl_80364198:
 /* 80364198 003610F8  88 03 01 30 */	lbz r0, 0x130(r3)
 /* 8036419C 003610FC  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 803641A0 00361100  41 82 00 0C */	beq lbl_803641AC
 /* 803641A4 00361104  38 60 00 03 */	li r3, 3
-/* 803641A8 00361108  4E 80 00 20 */	blr 
+/* 803641A8 00361108  4E 80 00 20 */	blr
 lbl_803641AC:
 /* 803641AC 0036110C  38 60 FF FF */	li r3, -1
-/* 803641B0 00361110  4E 80 00 20 */	blr 
+/* 803641B0 00361110  4E 80 00 20 */	blr
 
 .global StartStreaming__17CDSPStreamManagerFRCQ24rstl6stringcb
 StartStreaming__17CDSPStreamManagerFRCQ24rstl6stringcb:
@@ -1251,7 +1251,7 @@ lbl_803645A0:
 /* 803645B4 00361514  83 8A FF F0 */	lwz r28, -0x10(r10)
 /* 803645B8 00361518  7C 08 03 A6 */	mtlr r0
 /* 803645BC 0036151C  7D 41 53 78 */	mr r1, r10
-/* 803645C0 00361520  4E 80 00 20 */	blr 
+/* 803645C0 00361520  4E 80 00 20 */	blr
 
 .global Shutdown__17CDSPStreamManagerFv
 Shutdown__17CDSPStreamManagerFv:
@@ -1292,7 +1292,7 @@ lbl_80364624:
 /* 80364644 003615A4  83 AA FF F4 */	lwz r29, -0xc(r10)
 /* 80364648 003615A8  7C 08 03 A6 */	mtlr r0
 /* 8036464C 003615AC  7D 41 53 78 */	mr r1, r10
-/* 80364650 003615B0  4E 80 00 20 */	blr 
+/* 80364650 003615B0  4E 80 00 20 */	blr
 
 .global Initialize__17CDSPStreamManagerFv
 Initialize__17CDSPStreamManagerFv:
@@ -1333,7 +1333,7 @@ lbl_803646B4:
 /* 803646D4 00361634  83 AA FF F4 */	lwz r29, -0xc(r10)
 /* 803646D8 00361638  7C 08 03 A6 */	mtlr r0
 /* 803646DC 0036163C  7D 41 53 78 */	mr r1, r10
-/* 803646E0 00361640  4E 80 00 20 */	blr 
+/* 803646E0 00361640  4E 80 00 20 */	blr
 
 .global __as__17CDSPStreamManagerFRC17CDSPStreamManager
 __as__17CDSPStreamManagerFRC17CDSPStreamManager:
@@ -1416,7 +1416,7 @@ lbl_803647FC:
 /* 80364808 00361768  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036480C 0036176C  7C 08 03 A6 */	mtlr r0
 /* 80364810 00361770  38 21 00 10 */	addi r1, r1, 0x10
-/* 80364814 00361774  4E 80 00 20 */	blr 
+/* 80364814 00361774  4E 80 00 20 */	blr
 
 .global WaitForReadCompletion__17CDSPStreamManagerFv
 WaitForReadCompletion__17CDSPStreamManagerFv:
@@ -1443,7 +1443,7 @@ lbl_80364840:
 /* 80364860 003617C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80364864 003617C4  7C 08 03 A6 */	mtlr r0
 /* 80364868 003617C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036486C 003617CC  4E 80 00 20 */	blr 
+/* 8036486C 003617CC  4E 80 00 20 */	blr
 
 .global sub_80364870
 sub_80364870:
@@ -1451,7 +1451,7 @@ sub_80364870:
 /* 80364874 003617D4  20 00 7D 00 */	subfic r0, r0, 0x7d00
 /* 80364878 003617D8  7C 00 00 34 */	cntlzw r0, r0
 /* 8036487C 003617DC  54 03 D9 7E */	srwi r3, r0, 5
-/* 80364880 003617E0  4E 80 00 20 */	blr 
+/* 80364880 003617E0  4E 80 00 20 */	blr
 
 .global StartHeaderRead__17CDSPStreamManagerF11DVDCallback
 StartHeaderRead__17CDSPStreamManagerF11DVDCallback:
@@ -1508,7 +1508,7 @@ lbl_80364934:
 /* 8036493C 0036189C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80364940 003618A0  7C 08 03 A6 */	mtlr r0
 /* 80364944 003618A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80364948 003618A8  4E 80 00 20 */	blr 
+/* 80364948 003618A8  4E 80 00 20 */	blr
 
 .global __ct__17CDSPStreamManagerFv
 __ct__17CDSPStreamManagerFv:
@@ -1548,7 +1548,7 @@ __ct__17CDSPStreamManagerFv:
 /* 803649D0 00361930  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803649D4 00361934  7C 08 03 A6 */	mtlr r0
 /* 803649D8 00361938  38 21 00 20 */	addi r1, r1, 0x20
-/* 803649DC 0036193C  4E 80 00 20 */	blr 
+/* 803649DC 0036193C  4E 80 00 20 */	blr
 
 .global __ct__17CDSPStreamManagerFRCQ24rstl6stringicc
 __ct__17CDSPStreamManagerFRCQ24rstl6stringicc:
@@ -1597,7 +1597,7 @@ lbl_80364A7C:
 /* 80364A80 003619E0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80364A84 003619E4  7C 08 03 A6 */	mtlr r0
 /* 80364A88 003619E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80364A8C 003619EC  4E 80 00 20 */	blr 
+/* 80364A8C 003619EC  4E 80 00 20 */	blr
 
 .global __sinit_CDSPStreamManager_cpp
 __sinit_CDSPStreamManager_cpp:

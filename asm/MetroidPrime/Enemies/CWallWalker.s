@@ -185,7 +185,7 @@ lbl_803EA0F0:
 	.4byte PhazeOut__10CPatternedFR13CStateManager
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 	.4byte 0
-	
+
 
 .section .text, "ax"
 
@@ -283,7 +283,7 @@ lbl_802686B0:
 /* 802686BC 0026561C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802686C0 00265620  7C 08 03 A6 */	mtlr r0
 /* 802686C4 00265624  38 21 00 20 */	addi r1, r1, 0x20
-/* 802686C8 00265628  4E 80 00 20 */	blr 
+/* 802686C8 00265628  4E 80 00 20 */	blr
 
 .global Render__11CWallWalkerCFRC13CStateManager
 Render__11CWallWalkerCFRC13CStateManager:
@@ -294,7 +294,7 @@ Render__11CWallWalkerCFRC13CStateManager:
 /* 802686DC 0026563C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802686E0 00265640  7C 08 03 A6 */	mtlr r0
 /* 802686E4 00265644  38 21 00 10 */	addi r1, r1, 0x10
-/* 802686E8 00265648  4E 80 00 20 */	blr 
+/* 802686E8 00265648  4E 80 00 20 */	blr
 
 .global GotoNextWaypoint__11CWallWalkerFR13CStateManager
 GotoNextWaypoint__11CWallWalkerFR13CStateManager:
@@ -381,7 +381,7 @@ lbl_80268814:
 /* 80268820 00265780  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80268824 00265784  7C 08 03 A6 */	mtlr r0
 /* 80268828 00265788  38 21 00 50 */	addi r1, r1, 0x50
-/* 8026882C 0026578C  4E 80 00 20 */	blr 
+/* 8026882C 0026578C  4E 80 00 20 */	blr
 
 .global PreThink__11CWallWalkerFfR13CStateManager
 PreThink__11CWallWalkerFfR13CStateManager:
@@ -518,12 +518,12 @@ lbl_80268A24:
 /* 80268A30 00265990  83 E1 00 CC */	lwz r31, 0xcc(r1)
 /* 80268A34 00265994  7C 08 03 A6 */	mtlr r0
 /* 80268A38 00265998  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80268A3C 0026599C  4E 80 00 20 */	blr 
+/* 80268A3C 0026599C  4E 80 00 20 */	blr
 
 .global GetCollisionPrimitive__11CWallWalkerCFv
 GetCollisionPrimitive__11CWallWalkerCFv:
 /* 80268A40 002659A0  38 63 05 90 */	addi r3, r3, 0x590
-/* 80268A44 002659A4  4E 80 00 20 */	blr 
+/* 80268A44 002659A4  4E 80 00 20 */	blr
 
 .global AlignToFloor__11CWallWalkerFR13CStateManagerfRC9CVector3ff
 AlignToFloor__11CWallWalkerFR13CStateManagerfRC9CVector3ff:
@@ -833,7 +833,7 @@ lbl_80268E84:
 /* 80268EAC 00265E0C  80 01 1C 74 */	lwz r0, 0x1c74(r1)
 /* 80268EB0 00265E10  7C 08 03 A6 */	mtlr r0
 /* 80268EB4 00265E14  38 21 1C 70 */	addi r1, r1, 0x1c70
-/* 80268EB8 00265E18  4E 80 00 20 */	blr 
+/* 80268EB8 00265E18  4E 80 00 20 */	blr
 
 .global OrientToSurfaceNormal__11CWallWalkerFRC9CVector3ff
 OrientToSurfaceNormal__11CWallWalkerFRC9CVector3ff:
@@ -935,7 +935,7 @@ lbl_80269030:
 /* 80269034 00265F94  83 E1 00 DC */	lwz r31, 0xdc(r1)
 /* 80269038 00265F98  7C 08 03 A6 */	mtlr r0
 /* 8026903C 00265F9C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80269040 00265FA0  4E 80 00 20 */	blr 
+/* 80269040 00265FA0  4E 80 00 20 */	blr
 
 .global PointOnSurface__11CWallWalkerFRC17CCollisionSurfaceRC9CVector3f
 PointOnSurface__11CWallWalkerFRC17CCollisionSurfaceRC9CVector3f:
@@ -1027,7 +1027,7 @@ lbl_8026916C:
 /* 8026918C 002660EC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80269190 002660F0  7C 08 03 A6 */	mtlr r0
 /* 80269194 002660F4  38 21 00 70 */	addi r1, r1, 0x70
-/* 80269198 002660F8  4E 80 00 20 */	blr 
+/* 80269198 002660F8  4E 80 00 20 */	blr
 
 .global ProjectVectorToPlane__11CWallWalkerFRC9CVector3fRC9CVector3f
 ProjectVectorToPlane__11CWallWalkerFRC9CVector3fRC9CVector3f:
@@ -1049,7 +1049,7 @@ ProjectVectorToPlane__11CWallWalkerFRC9CVector3fRC9CVector3f:
 /* 802691D8 00266138  D0 43 00 00 */	stfs f2, 0(r3)
 /* 802691DC 0026613C  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802691E0 00266140  D0 03 00 08 */	stfs f0, 8(r3)
-/* 802691E4 00266144  4E 80 00 20 */	blr 
+/* 802691E4 00266144  4E 80 00 20 */	blr
 
 .global ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f
 ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -1082,7 +1082,7 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 80269250 002661B0  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80269254 002661B4  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80269258 002661B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8026925C 002661BC  4E 80 00 20 */	blr 
+/* 8026925C 002661BC  4E 80 00 20 */	blr
 
 .global "__ct__11CWallWalkerFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUiUi"
 "__ct__11CWallWalkerFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUiUi":

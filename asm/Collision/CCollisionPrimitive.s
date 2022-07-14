@@ -47,7 +47,7 @@ lbl_805A9230:
 .global lbl_805A9234
 lbl_805A9234:
 	.skip 0x4
-	
+
 .section .text, "ax"
 
 .global InitAddMovingCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_bPCcPCc
@@ -63,7 +63,7 @@ InitAddMovingCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureRC
 /* 802CE6A4 002CB604  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CE6A8 002CB608  7C 08 03 A6 */	mtlr r0
 /* 802CE6AC 002CB60C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CE6B0 002CB610  4E 80 00 20 */	blr 
+/* 802CE6B0 002CB610  4E 80 00 20 */	blr
 
 .global InitAddBooleanCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructure_bPCcPCc
 InitAddBooleanCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructure_bPCcPCc:
@@ -78,7 +78,7 @@ InitAddBooleanCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructure_
 /* 802CE6D4 002CB634  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CE6D8 002CB638  7C 08 03 A6 */	mtlr r0
 /* 802CE6DC 002CB63C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CE6E0 002CB640  4E 80 00 20 */	blr 
+/* 802CE6E0 002CB640  4E 80 00 20 */	blr
 
 .global InitAddCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureR18CCollisionInfoList_bPCcPCc
 InitAddCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureR18CCollisionInfoList_bPCcPCc:
@@ -93,7 +93,7 @@ InitAddCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureR18CColl
 /* 802CE704 002CB664  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CE708 002CB668  7C 08 03 A6 */	mtlr r0
 /* 802CE70C 002CB66C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CE710 002CB670  4E 80 00 20 */	blr 
+/* 802CE710 002CB670  4E 80 00 20 */	blr
 
 .global CollideMoving__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227CInternalCollisionStructure9CPrimDescRC9CVector3fRdR14CCollisionInfo
 CollideMoving__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227CInternalCollisionStructure9CPrimDescRC9CVector3fRdR14CCollisionInfo:
@@ -135,7 +135,7 @@ CollideMoving__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDesc
 /* 802CE7A0 002CB700  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 802CE7A4 002CB704  7C 08 03 A6 */	mtlr r0
 /* 802CE7A8 002CB708  38 21 00 90 */	addi r1, r1, 0x90
-/* 802CE7AC 002CB70C  4E 80 00 20 */	blr 
+/* 802CE7AC 002CB70C  4E 80 00 20 */	blr
 
 .global Collide__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227CInternalCollisionStructure9CPrimDescR18CCollisionInfoList
 Collide__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227CInternalCollisionStructure9CPrimDescR18CCollisionInfoList:
@@ -169,7 +169,7 @@ Collide__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227
 /* 802CE81C 002CB77C  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 802CE820 002CB780  7C 08 03 A6 */	mtlr r0
 /* 802CE824 002CB784  38 21 00 80 */	addi r1, r1, 0x80
-/* 802CE828 002CB788  4E 80 00 20 */	blr 
+/* 802CE828 002CB788  4E 80 00 20 */	blr
 
 .global CollideBoolean__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227CInternalCollisionStructure9CPrimDesc
 CollideBoolean__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDescRCQ227CInternalCollisionStructure9CPrimDesc:
@@ -199,7 +199,7 @@ CollideBoolean__19CCollisionPrimitiveFRCQ227CInternalCollisionStructure9CPrimDes
 /* 802CE888 002CB7E8  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 802CE88C 002CB7EC  7C 08 03 A6 */	mtlr r0
 /* 802CE890 002CB7F0  38 21 00 80 */	addi r1, r1, 0x80
-/* 802CE894 002CB7F4  4E 80 00 20 */	blr 
+/* 802CE894 002CB7F4  4E 80 00 20 */	blr
 
 .global Uninitialize__19CCollisionPrimitiveFv
 Uninitialize__19CCollisionPrimitiveFv:
@@ -257,7 +257,7 @@ lbl_802CE918:
 /* 802CE954 002CB8B4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802CE958 002CB8B8  7C 08 03 A6 */	mtlr r0
 /* 802CE95C 002CB8BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CE960 002CB8C0  4E 80 00 20 */	blr 
+/* 802CE960 002CB8C0  4E 80 00 20 */	blr
 
 .global InternalCollideBoolean__19CCollisionPrimitiveFRC27CInternalCollisionStructure
 InternalCollideBoolean__19CCollisionPrimitiveFRC27CInternalCollisionStructure:
@@ -274,13 +274,13 @@ InternalCollideBoolean__19CCollisionPrimitiveFRC27CInternalCollisionStructure:
 /* 802CE98C 002CB8EC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802CE990 002CB8F0  83 7A 00 3C */	lwz r27, 0x3c(r26)
 /* 802CE994 002CB8F4  7D 89 03 A6 */	mtctr r12
-/* 802CE998 002CB8F8  4E 80 04 21 */	bctrl 
+/* 802CE998 002CB8F8  4E 80 04 21 */	bctrl
 /* 802CE99C 002CB8FC  7C 7F 1B 78 */	mr r31, r3
 /* 802CE9A0 002CB900  7F A3 EB 78 */	mr r3, r29
 /* 802CE9A4 002CB904  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CE9A8 002CB908  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802CE9AC 002CB90C  7D 89 03 A6 */	mtctr r12
-/* 802CE9B0 002CB910  4E 80 04 21 */	bctrl 
+/* 802CE9B0 002CB910  4E 80 04 21 */	bctrl
 /* 802CE9B4 002CB914  3C 1F 00 01 */	addis r0, r31, 1
 /* 802CE9B8 002CB918  28 00 FF FF */	cmplwi r0, 0xffff
 /* 802CE9BC 002CB91C  41 82 00 10 */	beq lbl_802CE9CC
@@ -307,7 +307,7 @@ lbl_802CE9F4:
 /* 802CEA04 002CB964  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CEA08 002CB968  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEA0C 002CB96C  7D 89 03 A6 */	mtctr r12
-/* 802CEA10 002CB970  4E 80 04 21 */	bctrl 
+/* 802CEA10 002CB970  4E 80 04 21 */	bctrl
 /* 802CEA14 002CB974  7C 64 1B 78 */	mr r4, r3
 /* 802CEA18 002CB978  7F 83 E3 78 */	mr r3, r28
 /* 802CEA1C 002CB97C  48 00 69 31 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -317,7 +317,7 @@ lbl_802CE9F4:
 /* 802CEA2C 002CB98C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CEA30 002CB990  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEA34 002CB994  7D 89 03 A6 */	mtctr r12
-/* 802CEA38 002CB998  4E 80 04 21 */	bctrl 
+/* 802CEA38 002CB998  4E 80 04 21 */	bctrl
 /* 802CEA3C 002CB99C  7C 64 1B 78 */	mr r4, r3
 /* 802CEA40 002CB9A0  7F 63 DB 78 */	mr r3, r27
 /* 802CEA44 002CB9A4  48 00 69 09 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -330,7 +330,7 @@ lbl_802CEA58:
 /* 802CEA58 002CB9B8  7F 2C CB 78 */	mr r12, r25
 /* 802CEA5C 002CB9BC  7F 43 D3 78 */	mr r3, r26
 /* 802CEA60 002CB9C0  7D 89 03 A6 */	mtctr r12
-/* 802CEA64 002CB9C4  4E 80 04 21 */	bctrl 
+/* 802CEA64 002CB9C4  4E 80 04 21 */	bctrl
 /* 802CEA68 002CB9C8  48 00 01 A8 */	b lbl_802CEC10
 lbl_802CEA6C:
 /* 802CEA6C 002CB9CC  3C 03 00 01 */	addis r0, r3, 1
@@ -359,7 +359,7 @@ lbl_802CEAAC:
 /* 802CEABC 002CBA1C  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CEAC0 002CBA20  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEAC4 002CBA24  7D 89 03 A6 */	mtctr r12
-/* 802CEAC8 002CBA28  4E 80 04 21 */	bctrl 
+/* 802CEAC8 002CBA28  4E 80 04 21 */	bctrl
 /* 802CEACC 002CBA2C  7C 64 1B 78 */	mr r4, r3
 /* 802CEAD0 002CBA30  7F 83 E3 78 */	mr r3, r28
 /* 802CEAD4 002CBA34  48 00 68 79 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -369,7 +369,7 @@ lbl_802CEAAC:
 /* 802CEAE4 002CBA44  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CEAE8 002CBA48  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEAEC 002CBA4C  7D 89 03 A6 */	mtctr r12
-/* 802CEAF0 002CBA50  4E 80 04 21 */	bctrl 
+/* 802CEAF0 002CBA50  4E 80 04 21 */	bctrl
 /* 802CEAF4 002CBA54  7C 64 1B 78 */	mr r4, r3
 /* 802CEAF8 002CBA58  7F 63 DB 78 */	mr r3, r27
 /* 802CEAFC 002CBA5C  48 00 68 51 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -411,7 +411,7 @@ lbl_802CEB10:
 /* 802CEB84 002CBAE4  7F EC FB 78 */	mr r12, r31
 /* 802CEB88 002CBAE8  38 61 00 78 */	addi r3, r1, 0x78
 /* 802CEB8C 002CBAEC  7D 89 03 A6 */	mtctr r12
-/* 802CEB90 002CBAF0  4E 80 04 21 */	bctrl 
+/* 802CEB90 002CBAF0  4E 80 04 21 */	bctrl
 /* 802CEB94 002CBAF4  54 63 06 3E */	clrlwi r3, r3, 0x18
 /* 802CEB98 002CBAF8  7C 03 00 D0 */	neg r0, r3
 /* 802CEB9C 002CBAFC  7C 00 1B 78 */	or r0, r0, r3
@@ -453,7 +453,7 @@ lbl_802CEC10:
 /* 802CEC14 002CBB74  80 01 0D 14 */	lwz r0, 0xd14(r1)
 /* 802CEC18 002CBB78  7C 08 03 A6 */	mtlr r0
 /* 802CEC1C 002CBB7C  38 21 0D 10 */	addi r1, r1, 0xd10
-/* 802CEC20 002CBB80  4E 80 00 20 */	blr 
+/* 802CEC20 002CBB80  4E 80 00 20 */	blr
 
 .global InternalCollideMoving__19CCollisionPrimitiveFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo
 InternalCollideMoving__19CCollisionPrimitiveFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo:
@@ -473,13 +473,13 @@ InternalCollideMoving__19CCollisionPrimitiveFRC27CInternalCollisionStructureRC9C
 /* 802CEC58 002CBBB8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802CEC5C 002CBBBC  83 B9 00 3C */	lwz r29, 0x3c(r25)
 /* 802CEC60 002CBBC0  7D 89 03 A6 */	mtctr r12
-/* 802CEC64 002CBBC4  4E 80 04 21 */	bctrl 
+/* 802CEC64 002CBBC4  4E 80 04 21 */	bctrl
 /* 802CEC68 002CBBC8  7C 78 1B 78 */	mr r24, r3
 /* 802CEC6C 002CBBCC  7E E3 BB 78 */	mr r3, r23
 /* 802CEC70 002CBBD0  81 97 00 00 */	lwz r12, 0(r23)
 /* 802CEC74 002CBBD4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802CEC78 002CBBD8  7D 89 03 A6 */	mtctr r12
-/* 802CEC7C 002CBBDC  4E 80 04 21 */	bctrl 
+/* 802CEC7C 002CBBDC  4E 80 04 21 */	bctrl
 /* 802CEC80 002CBBE0  3C 18 00 01 */	addis r0, r24, 1
 /* 802CEC84 002CBBE4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 802CEC88 002CBBE8  41 82 00 10 */	beq lbl_802CEC98
@@ -506,7 +506,7 @@ lbl_802CECC0:
 /* 802CECD0 002CBC30  81 97 00 00 */	lwz r12, 0(r23)
 /* 802CECD4 002CBC34  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CECD8 002CBC38  7D 89 03 A6 */	mtctr r12
-/* 802CECDC 002CBC3C  4E 80 04 21 */	bctrl 
+/* 802CECDC 002CBC3C  4E 80 04 21 */	bctrl
 /* 802CECE0 002CBC40  7C 64 1B 78 */	mr r4, r3
 /* 802CECE4 002CBC44  7F C3 F3 78 */	mr r3, r30
 /* 802CECE8 002CBC48  48 00 66 65 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -516,7 +516,7 @@ lbl_802CECC0:
 /* 802CECF8 002CBC58  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802CECFC 002CBC5C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CED00 002CBC60  7D 89 03 A6 */	mtctr r12
-/* 802CED04 002CBC64  4E 80 04 21 */	bctrl 
+/* 802CED04 002CBC64  4E 80 04 21 */	bctrl
 /* 802CED08 002CBC68  7C 64 1B 78 */	mr r4, r3
 /* 802CED0C 002CBC6C  7F A3 EB 78 */	mr r3, r29
 /* 802CED10 002CBC70  48 00 66 3D */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -532,7 +532,7 @@ lbl_802CED24:
 /* 802CED30 002CBC90  7F 65 DB 78 */	mr r5, r27
 /* 802CED34 002CBC94  7F 86 E3 78 */	mr r6, r28
 /* 802CED38 002CBC98  7D 89 03 A6 */	mtctr r12
-/* 802CED3C 002CBC9C  4E 80 04 21 */	bctrl 
+/* 802CED3C 002CBC9C  4E 80 04 21 */	bctrl
 /* 802CED40 002CBCA0  48 00 00 08 */	b lbl_802CED48
 lbl_802CED44:
 /* 802CED44 002CBCA4  38 60 00 00 */	li r3, 0
@@ -541,7 +541,7 @@ lbl_802CED48:
 /* 802CED4C 002CBCAC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802CED50 002CBCB0  7C 08 03 A6 */	mtlr r0
 /* 802CED54 002CBCB4  38 21 00 30 */	addi r1, r1, 0x30
-/* 802CED58 002CBCB8  4E 80 00 20 */	blr 
+/* 802CED58 002CBCB8  4E 80 00 20 */	blr
 
 .global InternalCollide__19CCollisionPrimitiveFRC27CInternalCollisionStructureR18CCollisionInfoList
 InternalCollide__19CCollisionPrimitiveFRC27CInternalCollisionStructureR18CCollisionInfoList:
@@ -559,13 +559,13 @@ InternalCollide__19CCollisionPrimitiveFRC27CInternalCollisionStructureR18CCollis
 /* 802CED88 002CBCE8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802CED8C 002CBCEC  83 79 00 3C */	lwz r27, 0x3c(r25)
 /* 802CED90 002CBCF0  7D 89 03 A6 */	mtctr r12
-/* 802CED94 002CBCF4  4E 80 04 21 */	bctrl 
+/* 802CED94 002CBCF4  4E 80 04 21 */	bctrl
 /* 802CED98 002CBCF8  7C 7F 1B 78 */	mr r31, r3
 /* 802CED9C 002CBCFC  7F A3 EB 78 */	mr r3, r29
 /* 802CEDA0 002CBD00  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CEDA4 002CBD04  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802CEDA8 002CBD08  7D 89 03 A6 */	mtctr r12
-/* 802CEDAC 002CBD0C  4E 80 04 21 */	bctrl 
+/* 802CEDAC 002CBD0C  4E 80 04 21 */	bctrl
 /* 802CEDB0 002CBD10  3C 1F 00 01 */	addis r0, r31, 1
 /* 802CEDB4 002CBD14  28 00 FF FF */	cmplwi r0, 0xffff
 /* 802CEDB8 002CBD18  41 82 00 10 */	beq lbl_802CEDC8
@@ -592,7 +592,7 @@ lbl_802CEDF0:
 /* 802CEE00 002CBD60  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CEE04 002CBD64  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEE08 002CBD68  7D 89 03 A6 */	mtctr r12
-/* 802CEE0C 002CBD6C  4E 80 04 21 */	bctrl 
+/* 802CEE0C 002CBD6C  4E 80 04 21 */	bctrl
 /* 802CEE10 002CBD70  7C 64 1B 78 */	mr r4, r3
 /* 802CEE14 002CBD74  7F 83 E3 78 */	mr r3, r28
 /* 802CEE18 002CBD78  48 00 65 35 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -602,7 +602,7 @@ lbl_802CEDF0:
 /* 802CEE28 002CBD88  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CEE2C 002CBD8C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEE30 002CBD90  7D 89 03 A6 */	mtctr r12
-/* 802CEE34 002CBD94  4E 80 04 21 */	bctrl 
+/* 802CEE34 002CBD94  4E 80 04 21 */	bctrl
 /* 802CEE38 002CBD98  7C 64 1B 78 */	mr r4, r3
 /* 802CEE3C 002CBD9C  7F 63 DB 78 */	mr r3, r27
 /* 802CEE40 002CBDA0  48 00 65 0D */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -616,7 +616,7 @@ lbl_802CEE54:
 /* 802CEE58 002CBDB8  7F 23 CB 78 */	mr r3, r25
 /* 802CEE5C 002CBDBC  7F 44 D3 78 */	mr r4, r26
 /* 802CEE60 002CBDC0  7D 89 03 A6 */	mtctr r12
-/* 802CEE64 002CBDC4  4E 80 04 21 */	bctrl 
+/* 802CEE64 002CBDC4  4E 80 04 21 */	bctrl
 /* 802CEE68 002CBDC8  48 00 01 7C */	b lbl_802CEFE4
 lbl_802CEE6C:
 /* 802CEE6C 002CBDCC  3C 03 00 01 */	addis r0, r3, 1
@@ -645,7 +645,7 @@ lbl_802CEEAC:
 /* 802CEEBC 002CBE1C  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CEEC0 002CBE20  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEEC4 002CBE24  7D 89 03 A6 */	mtctr r12
-/* 802CEEC8 002CBE28  4E 80 04 21 */	bctrl 
+/* 802CEEC8 002CBE28  4E 80 04 21 */	bctrl
 /* 802CEECC 002CBE2C  7C 64 1B 78 */	mr r4, r3
 /* 802CEED0 002CBE30  7F 83 E3 78 */	mr r3, r28
 /* 802CEED4 002CBE34  48 00 64 79 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -655,7 +655,7 @@ lbl_802CEEAC:
 /* 802CEEE4 002CBE44  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CEEE8 002CBE48  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802CEEEC 002CBE4C  7D 89 03 A6 */	mtctr r12
-/* 802CEEF0 002CBE50  4E 80 04 21 */	bctrl 
+/* 802CEEF0 002CBE50  4E 80 04 21 */	bctrl
 /* 802CEEF4 002CBE54  7C 64 1B 78 */	mr r4, r3
 /* 802CEEF8 002CBE58  7F 63 DB 78 */	mr r3, r27
 /* 802CEEFC 002CBE5C  48 00 64 51 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -699,7 +699,7 @@ lbl_802CEF10:
 /* 802CEF8C 002CBEEC  38 61 00 78 */	addi r3, r1, 0x78
 /* 802CEF90 002CBEF0  83 3A 00 00 */	lwz r25, 0(r26)
 /* 802CEF94 002CBEF4  7D 89 03 A6 */	mtctr r12
-/* 802CEF98 002CBEF8  4E 80 04 21 */	bctrl 
+/* 802CEF98 002CBEF8  4E 80 04 21 */	bctrl
 /* 802CEF9C 002CBEFC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802CEFA0 002CBF00  41 82 00 38 */	beq lbl_802CEFD8
 /* 802CEFA4 002CBF04  1C 19 00 60 */	mulli r0, r25, 0x60
@@ -727,7 +727,7 @@ lbl_802CEFE4:
 /* 802CEFE8 002CBF48  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802CEFEC 002CBF4C  7C 08 03 A6 */	mtlr r0
 /* 802CEFF0 002CBF50  38 21 01 10 */	addi r1, r1, 0x110
-/* 802CEFF4 002CBF54  4E 80 00 20 */	blr 
+/* 802CEFF4 002CBF54  4E 80 00 20 */	blr
 
 .global InitAddMovingCollider__19CCollisionPrimitiveFRCQ219CCollisionPrimitive16MovingComparison
 InitAddMovingCollider__19CCollisionPrimitiveFRCQ219CCollisionPrimitive16MovingComparison:
@@ -821,7 +821,7 @@ lbl_802CF11C:
 /* 802CF120 002CC080  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CF124 002CC084  7C 08 03 A6 */	mtlr r0
 /* 802CF128 002CC088  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CF12C 002CC08C  4E 80 00 20 */	blr 
+/* 802CF12C 002CC08C  4E 80 00 20 */	blr
 
 .global InitAddBooleanCollider__19CCollisionPrimitiveFRCQ219CCollisionPrimitive17BooleanComparison
 InitAddBooleanCollider__19CCollisionPrimitiveFRCQ219CCollisionPrimitive17BooleanComparison:
@@ -915,7 +915,7 @@ lbl_802CF254:
 /* 802CF258 002CC1B8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CF25C 002CC1BC  7C 08 03 A6 */	mtlr r0
 /* 802CF260 002CC1C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CF264 002CC1C4  4E 80 00 20 */	blr 
+/* 802CF264 002CC1C4  4E 80 00 20 */	blr
 
 .global InitAddCollider__19CCollisionPrimitiveFRCQ219CCollisionPrimitive10Comparison
 InitAddCollider__19CCollisionPrimitiveFRCQ219CCollisionPrimitive10Comparison:
@@ -1009,7 +1009,7 @@ lbl_802CF38C:
 /* 802CF390 002CC2F0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802CF394 002CC2F4  7C 08 03 A6 */	mtlr r0
 /* 802CF398 002CC2F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CF39C 002CC2FC  4E 80 00 20 */	blr 
+/* 802CF39C 002CC2FC  4E 80 00 20 */	blr
 
 .global InitEndColliders__19CCollisionPrimitiveFv
 InitEndColliders__19CCollisionPrimitiveFv:
@@ -1057,7 +1057,7 @@ lbl_802CF414:
 /* 802CF424 002CC384  98 6D A6 58 */	stb r3, lbl_805A9218@sda21(r13)
 /* 802CF428 002CC388  98 0D A6 57 */	stb r0, lbl_805A9217@sda21(r13)
 /* 802CF42C 002CC38C  98 0D A6 54 */	stb r0, lbl_805A9214@sda21(r13)
-/* 802CF430 002CC390  4E 80 00 20 */	blr 
+/* 802CF430 002CC390  4E 80 00 20 */	blr
 
 .global InitBeginColliders__19CCollisionPrimitiveFv
 InitBeginColliders__19CCollisionPrimitiveFv:
@@ -1117,7 +1117,7 @@ InitBeginColliders__19CCollisionPrimitiveFv:
 /* 802CF508 002CC468  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CF50C 002CC46C  7C 08 03 A6 */	mtlr r0
 /* 802CF510 002CC470  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CF514 002CC474  4E 80 00 20 */	blr 
+/* 802CF514 002CC474  4E 80 00 20 */	blr
 
 .global InitEndTypes__19CCollisionPrimitiveFv
 InitEndTypes__19CCollisionPrimitiveFv:
@@ -1275,7 +1275,7 @@ lbl_802CF720:
 /* 802CF728 002CC688  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802CF72C 002CC68C  7C 08 03 A6 */	mtlr r0
 /* 802CF730 002CC690  38 21 00 40 */	addi r1, r1, 0x40
-/* 802CF734 002CC694  4E 80 00 20 */	blr 
+/* 802CF734 002CC694  4E 80 00 20 */	blr
 
 .global InitAddType__19CCollisionPrimitiveFRCQ219CCollisionPrimitive4Type
 InitAddType__19CCollisionPrimitiveFRCQ219CCollisionPrimitive4Type:
@@ -1289,7 +1289,7 @@ InitAddType__19CCollisionPrimitiveFRCQ219CCollisionPrimitive4Type:
 /* 802CF754 002CC6B4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802CF758 002CC6B8  80 63 00 04 */	lwz r3, 4(r3)
 /* 802CF75C 002CC6BC  7D 89 03 A6 */	mtctr r12
-/* 802CF760 002CC6C0  4E 80 04 21 */	bctrl 
+/* 802CF760 002CC6C0  4E 80 04 21 */	bctrl
 /* 802CF764 002CC6C4  80 6D A6 5C */	lwz r3, lbl_805A921C@sda21(r13)
 /* 802CF768 002CC6C8  80 83 00 04 */	lwz r4, 4(r3)
 /* 802CF76C 002CC6CC  38 84 00 01 */	addi r4, r4, 1
@@ -1325,7 +1325,7 @@ lbl_802CF7C4:
 /* 802CF7D8 002CC738  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802CF7DC 002CC73C  7C 08 03 A6 */	mtlr r0
 /* 802CF7E0 002CC740  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CF7E4 002CC744  4E 80 00 20 */	blr 
+/* 802CF7E4 002CC744  4E 80 00 20 */	blr
 
 .global InitBeginTypes__19CCollisionPrimitiveFv
 InitBeginTypes__19CCollisionPrimitiveFv:
@@ -1384,7 +1384,7 @@ lbl_802CF880:
 /* 802CF8A4 002CC804  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802CF8A8 002CC808  7C 08 03 A6 */	mtlr r0
 /* 802CF8AC 002CC80C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CF8B0 002CC810  4E 80 00 20 */	blr 
+/* 802CF8B0 002CC810  4E 80 00 20 */	blr
 
 .global __ct__19CCollisionPrimitiveFRC13CMaterialList
 __ct__19CCollisionPrimitiveFRC13CMaterialList:
@@ -1395,7 +1395,7 @@ __ct__19CCollisionPrimitiveFRC13CMaterialList:
 /* 802CF8C4 002CC824  80 84 00 04 */	lwz r4, 4(r4)
 /* 802CF8C8 002CC828  90 83 00 0C */	stw r4, 0xc(r3)
 /* 802CF8CC 002CC82C  90 03 00 08 */	stw r0, 8(r3)
-/* 802CF8D0 002CC830  4E 80 00 20 */	blr 
+/* 802CF8D0 002CC830  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl63vector<Q219CCollisionPrimitive4Type,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl63vector<Q219CCollisionPrimitive4Type,Q24rstl17rmemory_allocator>Fi":
@@ -1468,7 +1468,7 @@ lbl_802CF9AC:
 /* 802CF9B8 002CC918  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802CF9BC 002CC91C  7C 08 03 A6 */	mtlr r0
 /* 802CF9C0 002CC920  38 21 00 30 */	addi r1, r1, 0x30
-/* 802CF9C4 002CC924  4E 80 00 20 */	blr 
+/* 802CF9C4 002CC924  4E 80 00 20 */	blr
 
 .global __sinit_CCollisionPrimitive_cpp
 __sinit_CCollisionPrimitive_cpp:
@@ -1510,7 +1510,7 @@ __sinit_CCollisionPrimitive_cpp:
 /* 802CFA54 002CC9B4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802CFA58 002CC9B8  7C 08 03 A6 */	mtlr r0
 /* 802CFA5C 002CC9BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CFA60 002CC9C0  4E 80 00 20 */	blr 
+/* 802CFA60 002CC9C0  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl78single_ptr<PFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_b>Fv"
 "__dt__Q24rstl78single_ptr<PFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_b>Fv":
@@ -1535,7 +1535,7 @@ lbl_802CFA9C:
 /* 802CFAA8 002CCA08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CFAAC 002CCA0C  7C 08 03 A6 */	mtlr r0
 /* 802CFAB0 002CCA10  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CFAB4 002CCA14  4E 80 00 20 */	blr 
+/* 802CFAB4 002CCA14  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl47single_ptr<PFRC27CInternalCollisionStructure_b>Fv"
 "__dt__Q24rstl47single_ptr<PFRC27CInternalCollisionStructure_b>Fv":
@@ -1560,7 +1560,7 @@ lbl_802CFAF0:
 /* 802CFAFC 002CCA5C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CFB00 002CCA60  7C 08 03 A6 */	mtlr r0
 /* 802CFB04 002CCA64  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CFB08 002CCA68  4E 80 00 20 */	blr 
+/* 802CFB08 002CCA68  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl68single_ptr<PFRC27CInternalCollisionStructureR18CCollisionInfoList_b>Fv"
 "__dt__Q24rstl68single_ptr<PFRC27CInternalCollisionStructureR18CCollisionInfoList_b>Fv":
@@ -1585,7 +1585,7 @@ lbl_802CFB44:
 /* 802CFB50 002CCAB0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CFB54 002CCAB4  7C 08 03 A6 */	mtlr r0
 /* 802CFB58 002CCAB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CFB5C 002CCABC  4E 80 00 20 */	blr 
+/* 802CFB5C 002CCABC  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl84single_ptr<Q24rstl63vector<Q219CCollisionPrimitive4Type,Q24rstl17rmemory_allocator>>Fv"
 "__dt__Q24rstl84single_ptr<Q24rstl63vector<Q219CCollisionPrimitive4Type,Q24rstl17rmemory_allocator>>Fv":

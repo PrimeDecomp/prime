@@ -371,7 +371,7 @@ __ct__15CTweakGuiColorsFR12CInputStream:
 /* 801CDFB4 001CAF14  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801CDFB8 001CAF18  7C 08 03 A6 */	mtlr r0
 /* 801CDFBC 001CAF1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CDFC0 001CAF20  4E 80 00 20 */	blr 
+/* 801CDFC0 001CAF20  4E 80 00 20 */	blr
 
 .global sub_801cdfc4
 sub_801cdfc4:
@@ -443,7 +443,7 @@ lbl_801CE0A8:
 /* 801CE0BC 001CB01C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801CE0C0 001CB020  7C 08 03 A6 */	mtlr r0
 /* 801CE0C4 001CB024  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CE0C8 001CB028  4E 80 00 20 */	blr 
+/* 801CE0C8 001CB028  4E 80 00 20 */	blr
 
 .global __dt__15CTweakGuiColorsFv
 __dt__15CTweakGuiColorsFv:
@@ -500,7 +500,7 @@ lbl_801CE170:
 /* 801CE178 001CB0D8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801CE17C 001CB0DC  7C 08 03 A6 */	mtlr r0
 /* 801CE180 001CB0E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CE184 001CB0E4  4E 80 00 20 */	blr 
+/* 801CE184 001CB0E4  4E 80 00 20 */	blr
 
 .global "__dl__29TOneStatic<15CTweakGuiColors>FPv"
 "__dl__29TOneStatic<15CTweakGuiColors>FPv":

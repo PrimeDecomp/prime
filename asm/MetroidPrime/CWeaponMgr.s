@@ -85,7 +85,7 @@ lbl_800C1DDC:
 /* 800C1DDC 000BED3C  38 60 00 00 */	li r3, 0
 lbl_800C1DE0:
 /* 800C1DE0 000BED40  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C1DE4 000BED44  4E 80 00 20 */	blr 
+/* 800C1DE4 000BED44  4E 80 00 20 */	blr
 
 .global DecrCount__10CWeaponMgrF9TUniqueId11EWeaponType
 DecrCount__10CWeaponMgrF9TUniqueId11EWeaponType:
@@ -176,7 +176,7 @@ lbl_800C1EFC:
 /* 800C1EFC 000BEE5C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C1F00 000BEE60  7C 08 03 A6 */	mtlr r0
 /* 800C1F04 000BEE64  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C1F08 000BEE68  4E 80 00 20 */	blr 
+/* 800C1F08 000BEE68  4E 80 00 20 */	blr
 
 .global IncrCount__10CWeaponMgrF9TUniqueId11EWeaponType
 IncrCount__10CWeaponMgrF9TUniqueId11EWeaponType:
@@ -362,7 +362,7 @@ lbl_800C2160:
 /* 800C2164 000BF0C4  83 E1 00 AC */	lwz r31, 0xac(r1)
 /* 800C2168 000BF0C8  7C 08 03 A6 */	mtlr r0
 /* 800C216C 000BF0CC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800C2170 000BF0D0  4E 80 00 20 */	blr 
+/* 800C2170 000BF0D0  4E 80 00 20 */	blr
 
 .global Remove__10CWeaponMgrF9TUniqueId
 Remove__10CWeaponMgrF9TUniqueId:
@@ -468,7 +468,7 @@ lbl_800C22C0:
 /* 800C22C4 000BF224  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 800C22C8 000BF228  7C 08 03 A6 */	mtlr r0
 /* 800C22CC 000BF22C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800C22D0 000BF230  4E 80 00 20 */	blr 
+/* 800C22D0 000BF230  4E 80 00 20 */	blr
 
 .global __ct__10CWeaponMgrFv
 __ct__10CWeaponMgrFv:
@@ -483,7 +483,7 @@ __ct__10CWeaponMgrFv:
 /* 800C22F4 000BF254  90 03 00 0C */	stw r0, 0xc(r3)
 /* 800C22F8 000BF258  90 03 00 10 */	stw r0, 0x10(r3)
 /* 800C22FC 000BF25C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C2300 000BF260  4E 80 00 20 */	blr 
+/* 800C2300 000BF260  4E 80 00 20 */	blr
 
 .global sub_800c2304
 sub_800c2304:
@@ -494,7 +494,7 @@ sub_800c2304:
 /* 800C2314 000BF274  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C2318 000BF278  7C 08 03 A6 */	mtlr r0
 /* 800C231C 000BF27C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C2320 000BF280  4E 80 00 20 */	blr 
+/* 800C2320 000BF280  4E 80 00 20 */	blr
 
 .global sub_800c2324
 sub_800c2324:
@@ -693,4 +693,4 @@ lbl_800C25DC:
 /* 800C25E0 000BF540  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800C25E4 000BF544  7C 08 03 A6 */	mtlr r0
 /* 800C25E8 000BF548  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C25EC 000BF54C  4E 80 00 20 */	blr 
+/* 800C25EC 000BF54C  4E 80 00 20 */	blr

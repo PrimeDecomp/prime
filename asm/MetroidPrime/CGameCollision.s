@@ -612,7 +612,7 @@ lbl_80180220:
 /* 801802FC 0017D25C  80 01 1E 44 */	lwz r0, 0x1e44(r1)
 /* 80180300 0017D260  7C 08 03 A6 */	mtlr r0
 /* 80180304 0017D264  38 21 1E 40 */	addi r1, r1, 0x1e40
-/* 80180308 0017D268  4E 80 00 20 */	blr 
+/* 80180308 0017D268  4E 80 00 20 */	blr
 
 .global GetActorRelativeVelocities__14CGameCollisionFPC13CPhysicsActorPC13CPhysicsActor
 GetActorRelativeVelocities__14CGameCollisionFPC13CPhysicsActorPC13CPhysicsActor:
@@ -673,7 +673,7 @@ lbl_801803AC:
 /* 801803DC 0017D33C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801803E0 0017D340  7C 08 03 A6 */	mtlr r0
 /* 801803E4 0017D344  38 21 00 60 */	addi r1, r1, 0x60
-/* 801803E8 0017D348  4E 80 00 20 */	blr 
+/* 801803E8 0017D348  4E 80 00 20 */	blr
 
 .global "FindNonIntersectingVector__14CGameCollisionFR13CStateManagerRC19CAreaCollisionCacheRC13CPhysicsActorRC19CCollisionPrimitiveRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "FindNonIntersectingVector__14CGameCollisionFR13CStateManagerRC19CAreaCollisionCacheRC13CPhysicsActorRC19CCollisionPrimitiveRCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -718,7 +718,7 @@ lbl_801803AC:
 /* 80180484 0017D3E4  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80180488 0017D3E8  38 61 00 58 */	addi r3, r1, 0x58
 /* 8018048C 0017D3EC  7D 89 03 A6 */	mtctr r12
-/* 80180490 0017D3F0  4E 80 04 21 */	bctrl 
+/* 80180490 0017D3F0  4E 80 04 21 */	bctrl
 /* 80180494 0017D3F4  38 61 00 88 */	addi r3, r1, 0x88
 /* 80180498 0017D3F8  38 81 00 58 */	addi r4, r1, 0x58
 /* 8018049C 0017D3FC  48 19 26 D9 */	bl __ct__12CTransform4fFRC12CTransform4f
@@ -731,7 +731,7 @@ lbl_801803AC:
 /* 801804B8 0017D418  C3 81 00 A4 */	lfs f28, 0xa4(r1)
 /* 801804BC 0017D41C  C3 A1 00 94 */	lfs f29, 0x94(r1)
 /* 801804C0 0017D420  7D 89 03 A6 */	mtctr r12
-/* 801804C4 0017D424  4E 80 04 21 */	bctrl 
+/* 801804C4 0017D424  4E 80 04 21 */	bctrl
 /* 801804C8 0017D428  38 61 00 28 */	addi r3, r1, 0x28
 /* 801804CC 0017D42C  38 81 00 40 */	addi r4, r1, 0x40
 /* 801804D0 0017D430  48 1B 71 3D */	bl GetCenterPoint__6CAABoxCFv
@@ -768,7 +768,7 @@ lbl_8018052C:
 /* 80180544 0017D4A4  38 63 3F 80 */	addi r3, r3, lbl_803E3F80@l
 /* 80180548 0017D4A8  7C 03 A8 2E */	lwzx r0, r3, r21
 /* 8018054C 0017D4AC  7C 09 03 A6 */	mtctr r0
-/* 80180550 0017D4B0  4E 80 04 20 */	bctr 
+/* 80180550 0017D4B0  4E 80 04 20 */	bctr
 .global lbl_80180554
 lbl_80180554:
 /* 80180554 0017D4B4  C3 42 A2 A8 */	lfs f26, lbl_805ABFC8@sda21(r2)
@@ -1030,7 +1030,7 @@ lbl_80180810:
 /* 8018087C 0017D7DC  80 01 01 C4 */	lwz r0, 0x1c4(r1)
 /* 80180880 0017D7E0  7C 08 03 A6 */	mtlr r0
 /* 80180884 0017D7E4  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 80180888 0017D7E8  4E 80 00 20 */	blr 
+/* 80180888 0017D7E8  4E 80 00 20 */	blr
 
 .global "CollisionFailsafe__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheR13CPhysicsActorRC19CCollisionPrimitiveRCQ24rstl32reserved_vector<9TUniqueId,1024>fUi"
 "CollisionFailsafe__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheR13CPhysicsActorRC19CCollisionPrimitiveRCQ24rstl32reserved_vector<9TUniqueId,1024>fUi":
@@ -1070,7 +1070,7 @@ lbl_801808EC:
 /* 8018090C 0017D86C  38 61 02 50 */	addi r3, r1, 0x250
 /* 80180910 0017D870  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80180914 0017D874  7D 89 03 A6 */	mtctr r12
-/* 80180918 0017D878  4E 80 04 21 */	bctrl 
+/* 80180918 0017D878  4E 80 04 21 */	bctrl
 /* 8018091C 0017D87C  7F 63 DB 78 */	mr r3, r27
 /* 80180920 0017D880  7F 84 E3 78 */	mr r4, r28
 /* 80180924 0017D884  7F C5 F3 78 */	mr r5, r30
@@ -1142,7 +1142,7 @@ lbl_80180940:
 /* 80180A28 0017D988  38 61 01 84 */	addi r3, r1, 0x184
 /* 80180A2C 0017D98C  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80180A30 0017D990  7D 89 03 A6 */	mtctr r12
-/* 80180A34 0017D994  4E 80 04 21 */	bctrl 
+/* 80180A34 0017D994  4E 80 04 21 */	bctrl
 /* 80180A38 0017D998  7F 63 DB 78 */	mr r3, r27
 /* 80180A3C 0017D99C  7F 84 E3 78 */	mr r4, r28
 /* 80180A40 0017D9A0  7F C5 F3 78 */	mr r5, r30
@@ -1451,7 +1451,7 @@ lbl_80180ED8:
 /* 80180EE4 0017DE44  80 01 02 B4 */	lwz r0, 0x2b4(r1)
 /* 80180EE8 0017DE48  7C 08 03 A6 */	mtlr r0
 /* 80180EEC 0017DE4C  38 21 02 B0 */	addi r1, r1, 0x2b0
-/* 80180EF0 0017DE50  4E 80 00 20 */	blr 
+/* 80180EF0 0017DE50  4E 80 00 20 */	blr
 
 .global "MoveAndCollide__14CGameCollisionFR13CStateManagerR13CPhysicsActorfRC16ICollisionFilterPCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "MoveAndCollide__14CGameCollisionFR13CStateManagerR13CPhysicsActorfRC16ICollisionFilterPCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -1662,11 +1662,11 @@ lbl_801811E0:
 /* 801811F4 0017E154  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801811F8 0017E158  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 801811FC 0017E15C  7D 89 03 A6 */	mtctr r12
-/* 80181200 0017E160  4E 80 04 21 */	bctrl 
+/* 80181200 0017E160  4E 80 04 21 */	bctrl
 /* 80181204 0017E164  81 83 00 00 */	lwz r12, 0(r3)
 /* 80181208 0017E168  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8018120C 0017E16C  7D 89 03 A6 */	mtctr r12
-/* 80181210 0017E170  4E 80 04 21 */	bctrl 
+/* 80181210 0017E170  4E 80 04 21 */	bctrl
 /* 80181214 0017E174  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 80181218 0017E178  28 00 54 47 */	cmplwi r0, 0x5447
 /* 8018121C 0017E17C  41 82 00 30 */	beq lbl_8018124C
@@ -1692,19 +1692,19 @@ lbl_8018124C:
 /* 80181268 0017E1C8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8018126C 0017E1CC  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80181270 0017E1D0  7D 89 03 A6 */	mtctr r12
-/* 80181274 0017E1D4  4E 80 04 21 */	bctrl 
+/* 80181274 0017E1D4  4E 80 04 21 */	bctrl
 /* 80181278 0017E1D8  7F C3 F3 78 */	mr r3, r30
 /* 8018127C 0017E1DC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80181280 0017E1E0  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80181284 0017E1E4  7D 89 03 A6 */	mtctr r12
-/* 80181288 0017E1E8  4E 80 04 21 */	bctrl 
+/* 80181288 0017E1E8  4E 80 04 21 */	bctrl
 /* 8018128C 0017E1EC  7C 64 1B 78 */	mr r4, r3
 /* 80181290 0017E1F0  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 80181294 0017E1F4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80181298 0017E1F8  38 A1 02 80 */	addi r5, r1, 0x280
 /* 8018129C 0017E1FC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801812A0 0017E200  7D 89 03 A6 */	mtctr r12
-/* 801812A4 0017E204  4E 80 04 21 */	bctrl 
+/* 801812A4 0017E204  4E 80 04 21 */	bctrl
 /* 801812A8 0017E208  C0 A1 00 A4 */	lfs f5, 0xa4(r1)
 /* 801812AC 0017E20C  38 61 00 5C */	addi r3, r1, 0x5c
 /* 801812B0 0017E210  C0 81 00 A8 */	lfs f4, 0xa8(r1)
@@ -1730,7 +1730,7 @@ lbl_8018124C:
 /* 80181300 0017E260  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80181304 0017E264  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80181308 0017E268  7D 89 03 A6 */	mtctr r12
-/* 8018130C 0017E26C  4E 80 04 21 */	bctrl 
+/* 8018130C 0017E26C  4E 80 04 21 */	bctrl
 /* 80181310 0017E270  48 00 13 BD */	bl GetMinExtentForCollisionPrimitive__14CGameCollisionFRC19CCollisionPrimitive
 /* 80181314 0017E274  C0 02 A2 C4 */	lfs f0, lbl_805ABFE4@sda21(r2)
 /* 80181318 0017E278  EC 00 00 72 */	fmuls f0, f0, f1
@@ -1824,12 +1824,12 @@ lbl_80181454:
 /* 80181468 0017E3C8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8018146C 0017E3CC  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80181470 0017E3D0  7D 89 03 A6 */	mtctr r12
-/* 80181474 0017E3D4  4E 80 04 21 */	bctrl 
+/* 80181474 0017E3D4  4E 80 04 21 */	bctrl
 /* 80181478 0017E3D8  7F C3 F3 78 */	mr r3, r30
 /* 8018147C 0017E3DC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80181480 0017E3E0  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80181484 0017E3E4  7D 89 03 A6 */	mtctr r12
-/* 80181488 0017E3E8  4E 80 04 21 */	bctrl 
+/* 80181488 0017E3E8  4E 80 04 21 */	bctrl
 /* 8018148C 0017E3EC  7C 65 1B 78 */	mr r5, r3
 /* 80181490 0017E3F0  7F A3 EB 78 */	mr r3, r29
 /* 80181494 0017E3F4  7F 27 CB 78 */	mr r7, r25
@@ -1879,12 +1879,12 @@ lbl_8018151C:
 /* 80181534 0017E494  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80181538 0017E498  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8018153C 0017E49C  7D 89 03 A6 */	mtctr r12
-/* 80181540 0017E4A0  4E 80 04 21 */	bctrl 
+/* 80181540 0017E4A0  4E 80 04 21 */	bctrl
 /* 80181544 0017E4A4  7F C3 F3 78 */	mr r3, r30
 /* 80181548 0017E4A8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8018154C 0017E4AC  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80181550 0017E4B0  7D 89 03 A6 */	mtctr r12
-/* 80181554 0017E4B4  4E 80 04 21 */	bctrl 
+/* 80181554 0017E4B4  4E 80 04 21 */	bctrl
 /* 80181558 0017E4B8  7C 65 1B 78 */	mr r5, r3
 /* 8018155C 0017E4BC  7F A3 EB 78 */	mr r3, r29
 /* 80181560 0017E4C0  7F 27 CB 78 */	mr r7, r25
@@ -1933,7 +1933,7 @@ lbl_8018151C:
 /* 8018160C 0017E56C  38 A1 0F 1C */	addi r5, r1, 0xf1c
 /* 80181610 0017E570  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80181614 0017E574  7D 89 03 A6 */	mtctr r12
-/* 80181618 0017E578  4E 80 04 21 */	bctrl 
+/* 80181618 0017E578  4E 80 04 21 */	bctrl
 /* 8018161C 0017E57C  80 01 0F 1C */	lwz r0, 0xf1c(r1)
 /* 80181620 0017E580  2C 00 00 00 */	cmpwi r0, 0
 /* 80181624 0017E584  40 82 01 34 */	bne lbl_80181758
@@ -2207,7 +2207,7 @@ lbl_801819F4:
 /* 80181A00 0017E960  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80181A04 0017E964  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80181A08 0017E968  7D 89 03 A6 */	mtctr r12
-/* 80181A0C 0017E96C  4E 80 04 21 */	bctrl 
+/* 80181A0C 0017E96C  4E 80 04 21 */	bctrl
 /* 80181A10 0017E970  FC 20 D8 90 */	fmr f1, f27
 /* 80181A14 0017E974  7C 66 1B 78 */	mr r6, r3
 /* 80181A18 0017E978  7F A3 EB 78 */	mr r3, r29
@@ -2339,7 +2339,7 @@ lbl_80181B84:
 /* 80181BCC 0017EB2C  80 01 4A F4 */	lwz r0, 0x4af4(r1)
 /* 80181BD0 0017EB30  7C 08 03 A6 */	mtlr r0
 /* 80181BD4 0017EB34  38 21 4A F0 */	addi r1, r1, 0x4af0
-/* 80181BD8 0017EB38  4E 80 00 20 */	blr 
+/* 80181BD8 0017EB38  4E 80 00 20 */	blr
 
 .global "MovePlayer__14CGameCollisionFR13CStateManagerR13CPhysicsActorfPCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "MovePlayer__14CGameCollisionFR13CStateManagerR13CPhysicsActorfPCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -2433,7 +2433,7 @@ lbl_80181D08:
 /* 80181D28 0017EC88  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80181D2C 0017EC8C  7C 08 03 A6 */	mtlr r0
 /* 80181D30 0017EC90  38 21 00 70 */	addi r1, r1, 0x70
-/* 80181D34 0017EC94  4E 80 00 20 */	blr 
+/* 80181D34 0017EC94  4E 80 00 20 */	blr
 
 .global "Move__14CGameCollisionFR13CStateManagerR13CPhysicsActorfPCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "Move__14CGameCollisionFR13CStateManagerR13CPhysicsActorfPCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -2585,7 +2585,7 @@ lbl_80181F48:
 /* 80181F5C 0017EEBC  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 80181F60 0017EEC0  7C 08 03 A6 */	mtlr r0
 /* 80181F64 0017EEC4  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80181F68 0017EEC8  4E 80 00 20 */	blr 
+/* 80181F68 0017EEC8  4E 80 00 20 */	blr
 
 .global CollideWithStaticBodyNoRot__14CGameCollisionFR13CPhysicsActorRC13CMaterialListRC13CMaterialListRC13CUnitVector3ffb
 CollideWithStaticBodyNoRot__14CGameCollisionFR13CPhysicsActorRC13CMaterialListRC13CMaterialListRC13CUnitVector3ffb:
@@ -2692,7 +2692,7 @@ lbl_801820E4:
 /* 801820F0 0017F050  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801820F4 0017F054  7C 08 03 A6 */	mtlr r0
 /* 801820F8 0017F058  38 21 00 50 */	addi r1, r1, 0x50
-/* 801820FC 0017F05C  4E 80 00 20 */	blr 
+/* 801820FC 0017F05C  4E 80 00 20 */	blr
 
 .global CollideWithDynamicBodyNoRot__14CGameCollisionFR13CPhysicsActorR13CPhysicsActorRC14CCollisionInfofb
 CollideWithDynamicBodyNoRot__14CGameCollisionFR13CPhysicsActorR13CPhysicsActorRC14CCollisionInfofb:
@@ -3029,7 +3029,7 @@ lbl_8018258C:
 /* 801825E0 0017F540  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 801825E4 0017F544  7C 08 03 A6 */	mtlr r0
 /* 801825E8 0017F548  38 21 01 40 */	addi r1, r1, 0x140
-/* 801825EC 0017F54C  4E 80 00 20 */	blr 
+/* 801825EC 0017F54C  4E 80 00 20 */	blr
 
 .global ResolveCollisions__14CGameCollisionFR13CPhysicsActorP13CPhysicsActorRC18CCollisionInfoList
 ResolveCollisions__14CGameCollisionFR13CPhysicsActorP13CPhysicsActorRC18CCollisionInfoList:
@@ -3091,7 +3091,7 @@ lbl_801826A4:
 /* 801826BC 0017F61C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 801826C0 0017F620  7C 08 03 A6 */	mtlr r0
 /* 801826C4 0017F624  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801826C8 0017F628  4E 80 00 20 */	blr 
+/* 801826C8 0017F628  4E 80 00 20 */	blr
 
 .global GetMinExtentForCollisionPrimitive__14CGameCollisionFRC19CCollisionPrimitive
 GetMinExtentForCollisionPrimitive__14CGameCollisionFRC19CCollisionPrimitive:
@@ -3103,7 +3103,7 @@ GetMinExtentForCollisionPrimitive__14CGameCollisionFRC19CCollisionPrimitive:
 /* 801826E0 0017F640  81 83 00 00 */	lwz r12, 0(r3)
 /* 801826E4 0017F644  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801826E8 0017F648  7D 89 03 A6 */	mtctr r12
-/* 801826EC 0017F64C  4E 80 04 21 */	bctrl 
+/* 801826EC 0017F64C  4E 80 04 21 */	bctrl
 /* 801826F0 0017F650  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 801826F4 0017F654  28 00 48 52 */	cmplwi r0, 0x4852
 /* 801826F8 0017F658  40 82 00 14 */	bne lbl_8018270C
@@ -3116,7 +3116,7 @@ lbl_8018270C:
 /* 80182710 0017F670  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80182714 0017F674  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80182718 0017F678  7D 89 03 A6 */	mtctr r12
-/* 8018271C 0017F67C  4E 80 04 21 */	bctrl 
+/* 8018271C 0017F67C  4E 80 04 21 */	bctrl
 /* 80182720 0017F680  3C 03 BE BF */	addis r0, r3, 0xbebf
 /* 80182724 0017F684  28 00 42 58 */	cmplwi r0, 0x4258
 /* 80182728 0017F688  40 82 00 6C */	bne lbl_80182794
@@ -3155,7 +3155,7 @@ lbl_80182794:
 /* 80182798 0017F6F8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8018279C 0017F6FC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801827A0 0017F700  7D 89 03 A6 */	mtctr r12
-/* 801827A4 0017F704  4E 80 04 21 */	bctrl 
+/* 801827A4 0017F704  4E 80 04 21 */	bctrl
 /* 801827A8 0017F708  3C 03 BE BE */	addis r0, r3, 0xbebe
 /* 801827AC 0017F70C  28 00 53 48 */	cmplwi r0, 0x5348
 /* 801827B0 0017F710  40 82 00 40 */	bne lbl_801827F0
@@ -3183,7 +3183,7 @@ lbl_801827F4:
 /* 801827F8 0017F758  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801827FC 0017F75C  7C 08 03 A6 */	mtlr r0
 /* 80182800 0017F760  38 21 00 30 */	addi r1, r1, 0x30
-/* 80182804 0017F764  4E 80 00 20 */	blr 
+/* 80182804 0017F764  4E 80 00 20 */	blr
 
 .global CanBlock__14CGameCollisionFRC13CMaterialListRC9CVector3f
 CanBlock__14CGameCollisionFRC13CMaterialListRC9CVector3f:
@@ -3210,7 +3210,7 @@ lbl_80182834:
 /* 80182854 0017F7B4  7C 60 03 79 */	or. r0, r3, r0
 /* 80182858 0017F7B8  40 82 00 0C */	bne lbl_80182864
 /* 8018285C 0017F7BC  38 60 00 00 */	li r3, 0
-/* 80182860 0017F7C0  4E 80 00 20 */	blr 
+/* 80182860 0017F7C0  4E 80 00 20 */	blr
 lbl_80182864:
 /* 80182864 0017F7C4  38 A0 00 00 */	li r5, 0
 /* 80182868 0017F7C8  3C 00 04 00 */	lis r0, 0x400
@@ -3221,7 +3221,7 @@ lbl_80182864:
 /* 8018287C 0017F7DC  7C 60 03 79 */	or. r0, r3, r0
 /* 80182880 0017F7E0  41 82 00 0C */	beq lbl_8018288C
 /* 80182884 0017F7E4  38 60 00 00 */	li r3, 0
-/* 80182888 0017F7E8  4E 80 00 20 */	blr 
+/* 80182888 0017F7E8  4E 80 00 20 */	blr
 lbl_8018288C:
 /* 8018288C 0017F7EC  3C 60 80 00 */	lis r3, 0x8000
 /* 80182890 0017F7F0  7C C0 28 38 */	and r0, r6, r5
@@ -3231,14 +3231,14 @@ lbl_8018288C:
 /* 801828A0 0017F800  7C 60 03 79 */	or. r0, r3, r0
 /* 801828A4 0017F804  41 82 00 0C */	beq lbl_801828B0
 /* 801828A8 0017F808  38 60 00 01 */	li r3, 1
-/* 801828AC 0017F80C  4E 80 00 20 */	blr 
+/* 801828AC 0017F80C  4E 80 00 20 */	blr
 lbl_801828B0:
 /* 801828B0 0017F810  C0 24 00 08 */	lfs f1, 8(r4)
 /* 801828B4 0017F814  C0 02 A2 EC */	lfs f0, lbl_805AC00C@sda21(r2)
 /* 801828B8 0017F818  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801828BC 0017F81C  7C 00 00 26 */	mfcr r0
 /* 801828C0 0017F820  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801828C4 0017F824  4E 80 00 20 */	blr 
+/* 801828C4 0017F824  4E 80 00 20 */	blr
 
 .global IsFloor__14CGameCollisionFRC13CMaterialListRC9CVector3f
 IsFloor__14CGameCollisionFRC13CMaterialListRC9CVector3f:
@@ -3253,14 +3253,14 @@ IsFloor__14CGameCollisionFRC13CMaterialListRC9CVector3f:
 /* 801828E8 0017F848  7C 60 03 79 */	or. r0, r3, r0
 /* 801828EC 0017F84C  41 82 00 0C */	beq lbl_801828F8
 /* 801828F0 0017F850  38 60 00 01 */	li r3, 1
-/* 801828F4 0017F854  4E 80 00 20 */	blr 
+/* 801828F4 0017F854  4E 80 00 20 */	blr
 lbl_801828F8:
 /* 801828F8 0017F858  C0 24 00 08 */	lfs f1, 8(r4)
 /* 801828FC 0017F85C  C0 02 A2 EC */	lfs f0, lbl_805AC00C@sda21(r2)
 /* 80182900 0017F860  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80182904 0017F864  7C 00 00 26 */	mfcr r0
 /* 80182908 0017F868  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 8018290C 0017F86C  4E 80 00 20 */	blr 
+/* 8018290C 0017F86C  4E 80 00 20 */	blr
 
 .global CollisionImpulseFiniteVsInfinite__Ffff
 CollisionImpulseFiniteVsInfinite__Ffff:
@@ -3269,7 +3269,7 @@ CollisionImpulseFiniteVsInfinite__Ffff:
 /* 80182918 0017F878  FC 00 00 50 */	fneg f0, f0
 /* 8018291C 0017F87C  EC 00 00 B2 */	fmuls f0, f0, f2
 /* 80182920 0017F880  EC 21 00 32 */	fmuls f1, f1, f0
-/* 80182924 0017F884  4E 80 00 20 */	blr 
+/* 80182924 0017F884  4E 80 00 20 */	blr
 
 .global CollisionImpulseFiniteVsFinite__Fffff
 CollisionImpulseFiniteVsFinite__Fffff:
@@ -3281,16 +3281,16 @@ CollisionImpulseFiniteVsFinite__Fffff:
 /* 8018293C 0017F89C  FC 20 10 50 */	fneg f1, f2
 /* 80182940 0017F8A0  EC 21 00 F2 */	fmuls f1, f1, f3
 /* 80182944 0017F8A4  EC 21 00 24 */	fdivs f1, f1, f0
-/* 80182948 0017F8A8  4E 80 00 20 */	blr 
+/* 80182948 0017F8A8  4E 80 00 20 */	blr
 
 .global GetCoefficientOfRestitution__14CGameCollisionFRC14CCollisionInfo
 GetCoefficientOfRestitution__14CGameCollisionFRC14CCollisionInfo:
 /* 8018294C 0017F8AC  C0 22 A2 A8 */	lfs f1, lbl_805ABFC8@sda21(r2)
-/* 80182950 0017F8B0  4E 80 00 20 */	blr 
+/* 80182950 0017F8B0  4E 80 00 20 */	blr
 
 .global ShowCollisionResults__14CGameCollisionFR18CCollisionInfoListRC6CColor
 ShowCollisionResults__14CGameCollisionFR18CCollisionInfoListRC6CColor:
-/* 80182954 0017F8B4  4E 80 00 20 */	blr 
+/* 80182954 0017F8B4  4E 80 00 20 */	blr
 
 .global SendMaterialMessage__14CGameCollisionFR13CStateManagerRC13CMaterialListR6CActor
 SendMaterialMessage__14CGameCollisionFR13CStateManagerRC13CMaterialListR6CActor:
@@ -3335,7 +3335,7 @@ lbl_801829CC:
 /* 801829E0 0017F940  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801829E4 0017F944  7C 08 03 A6 */	mtlr r0
 /* 801829E8 0017F948  38 21 00 10 */	addi r1, r1, 0x10
-/* 801829EC 0017F94C  4E 80 00 20 */	blr 
+/* 801829EC 0017F94C  4E 80 00 20 */	blr
 
 .global SendScriptMessages__14CGameCollisionFR13CStateManagerR6CActorP6CActorRC18CCollisionInfoList
 SendScriptMessages__14CGameCollisionFR13CStateManagerR6CActorP6CActorRC18CCollisionInfoList:
@@ -3462,7 +3462,7 @@ lbl_80182BA4:
 /* 80182BA8 0017FB08  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80182BAC 0017FB0C  7C 08 03 A6 */	mtlr r0
 /* 80182BB0 0017FB10  38 21 00 60 */	addi r1, r1, 0x60
-/* 80182BB4 0017FB14  4E 80 00 20 */	blr 
+/* 80182BB4 0017FB14  4E 80 00 20 */	blr
 
 .global MakeCollisionCallbacks__14CGameCollisionFR13CStateManagerR13CPhysicsActorRC9TUniqueIdRC18CCollisionInfoList
 MakeCollisionCallbacks__14CGameCollisionFR13CStateManagerR13CPhysicsActorRC9TUniqueIdRC18CCollisionInfoList:
@@ -3481,7 +3481,7 @@ MakeCollisionCallbacks__14CGameCollisionFR13CStateManagerR13CPhysicsActorRC9TUni
 /* 80182BE8 0017FB48  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80182BEC 0017FB4C  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 80182BF0 0017FB50  7D 89 03 A6 */	mtctr r12
-/* 80182BF4 0017FB54  4E 80 04 21 */	bctrl 
+/* 80182BF4 0017FB54  4E 80 04 21 */	bctrl
 /* 80182BF8 0017FB58  A0 7D 00 00 */	lhz r3, 0(r29)
 /* 80182BFC 0017FB5C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80182C00 0017FB60  7C 03 00 40 */	cmplw r3, r0
@@ -3520,7 +3520,7 @@ lbl_80182C58:
 /* 80182C7C 0017FBDC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80182C80 0017FBE0  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 80182C84 0017FBE4  7D 89 03 A6 */	mtctr r12
-/* 80182C88 0017FBE8  4E 80 04 21 */	bctrl 
+/* 80182C88 0017FBE8  4E 80 04 21 */	bctrl
 /* 80182C8C 0017FBEC  80 A1 00 18 */	lwz r5, 0x18(r1)
 /* 80182C90 0017FBF0  38 60 00 00 */	li r3, 0
 /* 80182C94 0017FBF4  2C 05 00 00 */	cmpwi r5, 0
@@ -3551,7 +3551,7 @@ lbl_80182CE0:
 /* 80182CE4 0017FC44  80 01 0C 44 */	lwz r0, 0xc44(r1)
 /* 80182CE8 0017FC48  7C 08 03 A6 */	mtlr r0
 /* 80182CEC 0017FC4C  38 21 0C 40 */	addi r1, r1, 0xc40
-/* 80182CF0 0017FC50  4E 80 00 20 */	blr 
+/* 80182CF0 0017FC50  4E 80 00 20 */	blr
 
 .global __ct__18CCollisionInfoListFRC18CCollisionInfoList
 __ct__18CCollisionInfoListFRC18CCollisionInfoList:
@@ -3566,7 +3566,7 @@ __ct__18CCollisionInfoListFRC18CCollisionInfoList:
 /* 80182D14 0017FC74  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80182D18 0017FC78  7C 08 03 A6 */	mtlr r0
 /* 80182D1C 0017FC7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80182D20 0017FC80  4E 80 00 20 */	blr 
+/* 80182D20 0017FC80  4E 80 00 20 */	blr
 
 .global sub_80182d24
 sub_80182d24:
@@ -3586,7 +3586,7 @@ sub_80182d24:
 /* 80182D58 0017FCB8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80182D5C 0017FCBC  7C 08 03 A6 */	mtlr r0
 /* 80182D60 0017FCC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80182D64 0017FCC4  4E 80 00 20 */	blr 
+/* 80182D64 0017FCC4  4E 80 00 20 */	blr
 
 .global sub_80182d68
 sub_80182d68:
@@ -3620,7 +3620,7 @@ lbl_80182DB0:
 /* 80182DCC 0017FD2C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80182DD0 0017FD30  7C 08 03 A6 */	mtlr r0
 /* 80182DD4 0017FD34  38 21 00 20 */	addi r1, r1, 0x20
-/* 80182DD8 0017FD38  4E 80 00 20 */	blr 
+/* 80182DD8 0017FD38  4E 80 00 20 */	blr
 
 .global sub_80182ddc
 sub_80182ddc:
@@ -3634,7 +3634,7 @@ lbl_80182DF4:
 /* 80182DF4 0017FD54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80182DF8 0017FD58  7C 08 03 A6 */	mtlr r0
 /* 80182DFC 0017FD5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80182E00 0017FD60  4E 80 00 20 */	blr 
+/* 80182E00 0017FD60  4E 80 00 20 */	blr
 
 .global DetectStaticCollision_Cached_Moving__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter9CVector3fR14CCollisionInfoRd
 DetectStaticCollision_Cached_Moving__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter9CVector3fR14CCollisionInfoRd:
@@ -3660,7 +3660,7 @@ DetectStaticCollision_Cached_Moving__14CGameCollisionFRC13CStateManagerR19CAreaC
 /* 80182E50 0017FDB0  7D 3B 4B 78 */	mr r27, r9
 /* 80182E54 0017FDB4  7D 5C 53 78 */	mr r28, r10
 /* 80182E58 0017FDB8  7D 89 03 A6 */	mtctr r12
-/* 80182E5C 0017FDBC  4E 80 04 21 */	bctrl 
+/* 80182E5C 0017FDBC  4E 80 04 21 */	bctrl
 /* 80182E60 0017FDC0  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 80182E64 0017FDC4  28 00 54 47 */	cmplwi r0, 0x5447
 /* 80182E68 0017FDC8  40 82 00 0C */	bne lbl_80182E74
@@ -3681,7 +3681,7 @@ lbl_80182E74:
 /* 80182EA0 0017FE00  EF A3 00 72 */	fmuls f29, f3, f1
 /* 80182EA4 0017FE04  EF C3 00 32 */	fmuls f30, f3, f0
 /* 80182EA8 0017FE08  7D 89 03 A6 */	mtctr r12
-/* 80182EAC 0017FE0C  4E 80 04 21 */	bctrl 
+/* 80182EAC 0017FE0C  4E 80 04 21 */	bctrl
 /* 80182EB0 0017FE10  C1 01 00 8C */	lfs f8, 0x8c(r1)
 /* 80182EB4 0017FE14  38 61 00 BC */	addi r3, r1, 0xbc
 /* 80182EB8 0017FE18  C0 E1 00 90 */	lfs f7, 0x90(r1)
@@ -3768,7 +3768,7 @@ lbl_80182FF4:
 /* 80182FF8 0017FF58  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80182FFC 0017FF5C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183000 0017FF60  7D 89 03 A6 */	mtctr r12
-/* 80183004 0017FF64  4E 80 04 21 */	bctrl 
+/* 80183004 0017FF64  4E 80 04 21 */	bctrl
 /* 80183008 0017FF68  3C 03 BE BF */	addis r0, r3, 0xbebf
 /* 8018300C 0017FF6C  28 00 42 58 */	cmplwi r0, 0x4258
 /* 80183010 0017FF70  40 82 01 88 */	bne lbl_80183198
@@ -3877,7 +3877,7 @@ lbl_80183198:
 /* 8018319C 001800FC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801831A0 00180100  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801831A4 00180104  7D 89 03 A6 */	mtctr r12
-/* 801831A8 00180108  4E 80 04 21 */	bctrl 
+/* 801831A8 00180108  4E 80 04 21 */	bctrl
 /* 801831AC 0018010C  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 801831B0 00180110  28 00 48 52 */	cmplwi r0, 0x4852
 /* 801831B4 00180114  40 82 01 BC */	bne lbl_80183370
@@ -4007,7 +4007,7 @@ lbl_80183374:
 /* 80183390 001802F0  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 80183394 001802F4  7C 08 03 A6 */	mtlr r0
 /* 80183398 001802F8  38 21 02 10 */	addi r1, r1, 0x210
-/* 8018339C 001802FC  4E 80 00 20 */	blr 
+/* 8018339C 001802FC  4E 80 00 20 */	blr
 
 .global DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
 DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter:
@@ -4023,7 +4023,7 @@ DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPr
 /* 801833C4 00180324  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801833C8 00180328  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801833CC 0018032C  7D 89 03 A6 */	mtctr r12
-/* 801833D0 00180330  4E 80 04 21 */	bctrl 
+/* 801833D0 00180330  4E 80 04 21 */	bctrl
 /* 801833D4 00180334  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 801833D8 00180338  28 00 54 47 */	cmplwi r0, 0x5447
 /* 801833DC 0018033C  40 82 00 0C */	bne lbl_801833E8
@@ -4035,7 +4035,7 @@ lbl_801833E8:
 /* 801833F0 00180350  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801833F4 00180354  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801833F8 00180358  7D 89 03 A6 */	mtctr r12
-/* 801833FC 0018035C  4E 80 04 21 */	bctrl 
+/* 801833FC 0018035C  4E 80 04 21 */	bctrl
 /* 80183400 00180360  3C 03 BE BF */	addis r0, r3, 0xbebf
 /* 80183404 00180364  28 00 42 58 */	cmplwi r0, 0x4258
 /* 80183408 00180368  40 82 00 90 */	bne lbl_80183498
@@ -4045,7 +4045,7 @@ lbl_801833E8:
 /* 80183418 00180378  38 61 00 40 */	addi r3, r1, 0x40
 /* 8018341C 0018037C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80183420 00180380  7D 89 03 A6 */	mtctr r12
-/* 80183424 00180384  4E 80 04 21 */	bctrl 
+/* 80183424 00180384  4E 80 04 21 */	bctrl
 /* 80183428 00180388  C0 A1 00 40 */	lfs f5, 0x40(r1)
 /* 8018342C 0018038C  C0 81 00 44 */	lfs f4, 0x44(r1)
 /* 80183430 00180390  C0 61 00 48 */	lfs f3, 0x48(r1)
@@ -4082,7 +4082,7 @@ lbl_80183498:
 /* 8018349C 001803FC  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801834A0 00180400  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801834A4 00180404  7D 89 03 A6 */	mtctr r12
-/* 801834A8 00180408  4E 80 04 21 */	bctrl 
+/* 801834A8 00180408  4E 80 04 21 */	bctrl
 /* 801834AC 0018040C  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 801834B0 00180410  28 00 48 52 */	cmplwi r0, 0x4852
 /* 801834B4 00180414  40 82 00 C4 */	bne lbl_80183578
@@ -4092,7 +4092,7 @@ lbl_80183498:
 /* 801834C4 00180424  38 61 00 28 */	addi r3, r1, 0x28
 /* 801834C8 00180428  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801834CC 0018042C  7D 89 03 A6 */	mtctr r12
-/* 801834D0 00180430  4E 80 04 21 */	bctrl 
+/* 801834D0 00180430  4E 80 04 21 */	bctrl
 /* 801834D4 00180434  C0 A1 00 28 */	lfs f5, 0x28(r1)
 /* 801834D8 00180438  7F 84 E3 78 */	mr r4, r28
 /* 801834DC 0018043C  C0 81 00 2C */	lfs f4, 0x2c(r1)
@@ -4142,7 +4142,7 @@ lbl_80183578:
 /* 8018357C 001804DC  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80183580 001804E0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183584 001804E4  7D 89 03 A6 */	mtctr r12
-/* 80183588 001804E8  4E 80 04 21 */	bctrl 
+/* 80183588 001804E8  4E 80 04 21 */	bctrl
 /* 8018358C 001804EC  3C 03 BE BE */	addis r0, r3, 0xbebe
 /* 80183590 001804F0  28 00 53 48 */	cmplwi r0, 0x5348
 /* 80183594 001804F4  40 82 00 4C */	bne lbl_801835E0
@@ -4172,7 +4172,7 @@ lbl_801835E4:
 /* 801835E8 00180548  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801835EC 0018054C  7C 08 03 A6 */	mtlr r0
 /* 801835F0 00180550  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801835F4 00180554  4E 80 00 20 */	blr 
+/* 801835F4 00180554  4E 80 00 20 */	blr
 
 .global DetectStaticCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
 DetectStaticCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter:
@@ -4189,7 +4189,7 @@ DetectStaticCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaC
 /* 80183620 00180580  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80183624 00180584  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183628 00180588  7D 89 03 A6 */	mtctr r12
-/* 8018362C 0018058C  4E 80 04 21 */	bctrl 
+/* 8018362C 0018058C  4E 80 04 21 */	bctrl
 /* 80183630 00180590  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 80183634 00180594  28 00 54 47 */	cmplwi r0, 0x5447
 /* 80183638 00180598  40 82 00 0C */	bne lbl_80183644
@@ -4203,7 +4203,7 @@ lbl_80183644:
 /* 80183654 001805B4  3B 80 00 00 */	li r28, 0
 /* 80183658 001805B8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8018365C 001805BC  7D 89 03 A6 */	mtctr r12
-/* 80183660 001805C0  4E 80 04 21 */	bctrl 
+/* 80183660 001805C0  4E 80 04 21 */	bctrl
 /* 80183664 001805C4  C0 A1 00 40 */	lfs f5, 0x40(r1)
 /* 80183668 001805C8  7F C4 F3 78 */	mr r4, r30
 /* 8018366C 001805CC  C0 81 00 44 */	lfs f4, 0x44(r1)
@@ -4273,7 +4273,7 @@ lbl_80183760:
 /* 80183764 001806C4  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80183768 001806C8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8018376C 001806CC  7D 89 03 A6 */	mtctr r12
-/* 80183770 001806D0  4E 80 04 21 */	bctrl 
+/* 80183770 001806D0  4E 80 04 21 */	bctrl
 /* 80183774 001806D4  3C 03 BE BF */	addis r0, r3, 0xbebf
 /* 80183778 001806D8  28 00 42 58 */	cmplwi r0, 0x4258
 /* 8018377C 001806DC  40 82 00 48 */	bne lbl_801837C4
@@ -4302,7 +4302,7 @@ lbl_801837C4:
 /* 801837C8 00180728  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801837CC 0018072C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801837D0 00180730  7D 89 03 A6 */	mtctr r12
-/* 801837D4 00180734  4E 80 04 21 */	bctrl 
+/* 801837D4 00180734  4E 80 04 21 */	bctrl
 /* 801837D8 00180738  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 801837DC 0018073C  28 00 48 52 */	cmplwi r0, 0x4852
 /* 801837E0 00180740  40 82 00 7C */	bne lbl_8018385C
@@ -4344,7 +4344,7 @@ lbl_8018385C:
 /* 80183860 001807C0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80183864 001807C4  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183868 001807C8  7D 89 03 A6 */	mtctr r12
-/* 8018386C 001807CC  4E 80 04 21 */	bctrl 
+/* 8018386C 001807CC  4E 80 04 21 */	bctrl
 /* 80183870 001807D0  3C 03 BE BE */	addis r0, r3, 0xbebe
 /* 80183874 001807D4  28 00 53 48 */	cmplwi r0, 0x5348
 /* 80183878 001807D8  40 82 00 50 */	bne lbl_801838C8
@@ -4375,7 +4375,7 @@ lbl_801838CC:
 /* 801838D0 00180830  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801838D4 00180834  7C 08 03 A6 */	mtlr r0
 /* 801838D8 00180838  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801838DC 0018083C  4E 80 00 20 */	blr 
+/* 801838DC 0018083C  4E 80 00 20 */	blr
 
 .global DetectStaticCollision__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterR18CCollisionInfoList
 DetectStaticCollision__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterR18CCollisionInfoList:
@@ -4392,7 +4392,7 @@ DetectStaticCollision__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitive
 /* 80183908 00180868  81 9A 00 00 */	lwz r12, 0(r26)
 /* 8018390C 0018086C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183910 00180870  7D 89 03 A6 */	mtctr r12
-/* 80183914 00180874  4E 80 04 21 */	bctrl 
+/* 80183914 00180874  4E 80 04 21 */	bctrl
 /* 80183918 00180878  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 8018391C 0018087C  28 00 54 47 */	cmplwi r0, 0x5447
 /* 80183920 00180880  40 82 00 0C */	bne lbl_8018392C
@@ -4405,7 +4405,7 @@ lbl_8018392C:
 /* 80183938 00180898  3B E0 00 00 */	li r31, 0
 /* 8018393C 0018089C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183940 001808A0  7D 89 03 A6 */	mtctr r12
-/* 80183944 001808A4  4E 80 04 21 */	bctrl 
+/* 80183944 001808A4  4E 80 04 21 */	bctrl
 /* 80183948 001808A8  3C 03 BE BF */	addis r0, r3, 0xbebf
 /* 8018394C 001808AC  28 00 42 58 */	cmplwi r0, 0x4258
 /* 80183950 001808B0  40 82 00 AC */	bne lbl_801839FC
@@ -4415,7 +4415,7 @@ lbl_8018392C:
 /* 80183960 001808C0  38 61 00 40 */	addi r3, r1, 0x40
 /* 80183964 001808C4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80183968 001808C8  7D 89 03 A6 */	mtctr r12
-/* 8018396C 001808CC  4E 80 04 21 */	bctrl 
+/* 8018396C 001808CC  4E 80 04 21 */	bctrl
 /* 80183970 001808D0  C0 A1 00 40 */	lfs f5, 0x40(r1)
 /* 80183974 001808D4  C0 81 00 44 */	lfs f4, 0x44(r1)
 /* 80183978 001808D8  C0 61 00 48 */	lfs f3, 0x48(r1)
@@ -4437,7 +4437,7 @@ lbl_801839A8:
 /* 801839B4 00180914  83 84 00 04 */	lwz r28, 4(r4)
 /* 801839B8 00180918  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801839BC 0018091C  7D 89 03 A6 */	mtctr r12
-/* 801839C0 00180920  4E 80 04 21 */	bctrl 
+/* 801839C0 00180920  4E 80 04 21 */	bctrl
 /* 801839C4 00180924  7C 66 1B 78 */	mr r6, r3
 /* 801839C8 00180928  7F 83 E3 78 */	mr r3, r28
 /* 801839CC 0018092C  7F A5 EB 78 */	mr r5, r29
@@ -4459,7 +4459,7 @@ lbl_801839FC:
 /* 80183A00 00180960  81 9A 00 00 */	lwz r12, 0(r26)
 /* 80183A04 00180964  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183A08 00180968  7D 89 03 A6 */	mtctr r12
-/* 80183A0C 0018096C  4E 80 04 21 */	bctrl 
+/* 80183A0C 0018096C  4E 80 04 21 */	bctrl
 /* 80183A10 00180970  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 80183A14 00180974  28 00 48 52 */	cmplwi r0, 0x4852
 /* 80183A18 00180978  40 82 00 E0 */	bne lbl_80183AF8
@@ -4469,7 +4469,7 @@ lbl_801839FC:
 /* 80183A28 00180988  38 61 00 28 */	addi r3, r1, 0x28
 /* 80183A2C 0018098C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80183A30 00180990  7D 89 03 A6 */	mtctr r12
-/* 80183A34 00180994  4E 80 04 21 */	bctrl 
+/* 80183A34 00180994  4E 80 04 21 */	bctrl
 /* 80183A38 00180998  C0 A1 00 28 */	lfs f5, 0x28(r1)
 /* 80183A3C 0018099C  7F 44 D3 78 */	mr r4, r26
 /* 80183A40 001809A0  C0 81 00 2C */	lfs f4, 0x2c(r1)
@@ -4503,7 +4503,7 @@ lbl_80183AA0:
 /* 80183AAC 00180A0C  83 84 00 04 */	lwz r28, 4(r4)
 /* 80183AB0 00180A10  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80183AB4 00180A14  7D 89 03 A6 */	mtctr r12
-/* 80183AB8 00180A18  4E 80 04 21 */	bctrl 
+/* 80183AB8 00180A18  4E 80 04 21 */	bctrl
 /* 80183ABC 00180A1C  7C 66 1B 78 */	mr r6, r3
 /* 80183AC0 00180A20  7F 83 E3 78 */	mr r3, r28
 /* 80183AC4 00180A24  7F A7 EB 78 */	mr r7, r29
@@ -4526,7 +4526,7 @@ lbl_80183AF8:
 /* 80183AFC 00180A5C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 80183B00 00180A60  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183B04 00180A64  7D 89 03 A6 */	mtctr r12
-/* 80183B08 00180A68  4E 80 04 21 */	bctrl 
+/* 80183B08 00180A68  4E 80 04 21 */	bctrl
 /* 80183B0C 00180A6C  3C 03 BE BE */	addis r0, r3, 0xbebe
 /* 80183B10 00180A70  28 00 53 48 */	cmplwi r0, 0x5348
 /* 80183B14 00180A74  40 82 00 4C */	bne lbl_80183B60
@@ -4556,7 +4556,7 @@ lbl_80183B64:
 /* 80183B68 00180AC8  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80183B6C 00180ACC  7C 08 03 A6 */	mtlr r0
 /* 80183B70 00180AD0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80183B74 00180AD4  4E 80 00 20 */	blr 
+/* 80183B74 00180AD4  4E 80 00 20 */	blr
 
 .global DetectStaticCollision_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterR18CCollisionInfoList
 DetectStaticCollision_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterR18CCollisionInfoList:
@@ -4574,7 +4574,7 @@ DetectStaticCollision_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisio
 /* 80183BA4 00180B04  81 99 00 00 */	lwz r12, 0(r25)
 /* 80183BA8 00180B08  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183BAC 00180B0C  7D 89 03 A6 */	mtctr r12
-/* 80183BB0 00180B10  4E 80 04 21 */	bctrl 
+/* 80183BB0 00180B10  4E 80 04 21 */	bctrl
 /* 80183BB4 00180B14  3C 03 B0 BE */	addis r0, r3, 0xb0be
 /* 80183BB8 00180B18  28 00 54 47 */	cmplwi r0, 0x5447
 /* 80183BBC 00180B1C  40 82 00 0C */	bne lbl_80183BC8
@@ -4588,7 +4588,7 @@ lbl_80183BC8:
 /* 80183BD8 00180B38  3B E0 00 00 */	li r31, 0
 /* 80183BDC 00180B3C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80183BE0 00180B40  7D 89 03 A6 */	mtctr r12
-/* 80183BE4 00180B44  4E 80 04 21 */	bctrl 
+/* 80183BE4 00180B44  4E 80 04 21 */	bctrl
 /* 80183BE8 00180B48  C0 A1 00 40 */	lfs f5, 0x40(r1)
 /* 80183BEC 00180B4C  7F 84 E3 78 */	mr r4, r28
 /* 80183BF0 00180B50  C0 81 00 44 */	lfs f4, 0x44(r1)
@@ -4659,7 +4659,7 @@ lbl_80183CE8:
 /* 80183CEC 00180C4C  81 99 00 00 */	lwz r12, 0(r25)
 /* 80183CF0 00180C50  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183CF4 00180C54  7D 89 03 A6 */	mtctr r12
-/* 80183CF8 00180C58  4E 80 04 21 */	bctrl 
+/* 80183CF8 00180C58  4E 80 04 21 */	bctrl
 /* 80183CFC 00180C5C  3C 03 BE BF */	addis r0, r3, 0xbebf
 /* 80183D00 00180C60  28 00 42 58 */	cmplwi r0, 0x4258
 /* 80183D04 00180C64  40 82 00 64 */	bne lbl_80183D68
@@ -4672,7 +4672,7 @@ lbl_80183D18:
 /* 80183D1C 00180C7C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 80183D20 00180C80  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80183D24 00180C84  7D 89 03 A6 */	mtctr r12
-/* 80183D28 00180C88  4E 80 04 21 */	bctrl 
+/* 80183D28 00180C88  4E 80 04 21 */	bctrl
 /* 80183D2C 00180C8C  7C 66 1B 78 */	mr r6, r3
 /* 80183D30 00180C90  7F 63 DB 78 */	mr r3, r27
 /* 80183D34 00180C94  7F A5 EB 78 */	mr r5, r29
@@ -4695,7 +4695,7 @@ lbl_80183D68:
 /* 80183D6C 00180CCC  81 99 00 00 */	lwz r12, 0(r25)
 /* 80183D70 00180CD0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183D74 00180CD4  7D 89 03 A6 */	mtctr r12
-/* 80183D78 00180CD8  4E 80 04 21 */	bctrl 
+/* 80183D78 00180CD8  4E 80 04 21 */	bctrl
 /* 80183D7C 00180CDC  3C 03 AC B0 */	addis r0, r3, 0xacb0
 /* 80183D80 00180CE0  28 00 48 52 */	cmplwi r0, 0x4852
 /* 80183D84 00180CE4  40 82 00 94 */	bne lbl_80183E18
@@ -4719,7 +4719,7 @@ lbl_80183DC4:
 /* 80183DC8 00180D28  81 99 00 00 */	lwz r12, 0(r25)
 /* 80183DCC 00180D2C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80183DD0 00180D30  7D 89 03 A6 */	mtctr r12
-/* 80183DD4 00180D34  4E 80 04 21 */	bctrl 
+/* 80183DD4 00180D34  4E 80 04 21 */	bctrl
 /* 80183DD8 00180D38  7C 66 1B 78 */	mr r6, r3
 /* 80183DDC 00180D3C  7F 63 DB 78 */	mr r3, r27
 /* 80183DE0 00180D40  7F A7 EB 78 */	mr r7, r29
@@ -4743,7 +4743,7 @@ lbl_80183E18:
 /* 80183E1C 00180D7C  81 99 00 00 */	lwz r12, 0(r25)
 /* 80183E20 00180D80  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80183E24 00180D84  7D 89 03 A6 */	mtctr r12
-/* 80183E28 00180D88  4E 80 04 21 */	bctrl 
+/* 80183E28 00180D88  4E 80 04 21 */	bctrl
 /* 80183E2C 00180D8C  3C 03 BE BE */	addis r0, r3, 0xbebe
 /* 80183E30 00180D90  28 00 53 48 */	cmplwi r0, 0x5348
 /* 80183E34 00180D94  40 82 00 54 */	bne lbl_80183E88
@@ -4775,7 +4775,7 @@ lbl_80183E8C:
 /* 80183E90 00180DF0  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80183E94 00180DF4  7C 08 03 A6 */	mtlr r0
 /* 80183E98 00180DF8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80183E9C 00180DFC  4E 80 00 20 */	blr 
+/* 80183E9C 00180DFC  4E 80 00 20 */	blr
 
 .global "DetectDynamicCollision__14CGameCollisionFRC19CCollisionPrimitiveRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>R9TUniqueIdR18CCollisionInfoListRC13CStateManager"
 "DetectDynamicCollision__14CGameCollisionFRC19CCollisionPrimitiveRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>R9TUniqueIdR18CCollisionInfoListRC13CStateManager":
@@ -4810,12 +4810,12 @@ lbl_80183ED8:
 /* 80183F0C 00180E6C  81 96 00 00 */	lwz r12, 0(r22)
 /* 80183F10 00180E70  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80183F14 00180E74  7D 89 03 A6 */	mtctr r12
-/* 80183F18 00180E78  4E 80 04 21 */	bctrl 
+/* 80183F18 00180E78  4E 80 04 21 */	bctrl
 /* 80183F1C 00180E7C  7E C3 B3 78 */	mr r3, r22
 /* 80183F20 00180E80  81 96 00 00 */	lwz r12, 0(r22)
 /* 80183F24 00180E84  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80183F28 00180E88  7D 89 03 A6 */	mtctr r12
-/* 80183F2C 00180E8C  4E 80 04 21 */	bctrl 
+/* 80183F2C 00180E8C  4E 80 04 21 */	bctrl
 /* 80183F30 00180E90  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
 /* 80183F34 00180E94  90 61 00 44 */	stw r3, 0x44(r1)
 /* 80183F38 00180E98  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
@@ -4857,7 +4857,7 @@ lbl_80183FB8:
 /* 80183FBC 00180F1C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 80183FC0 00180F20  7C 08 03 A6 */	mtlr r0
 /* 80183FC4 00180F24  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80183FC8 00180F28  4E 80 00 20 */	blr 
+/* 80183FC8 00180F28  4E 80 00 20 */	blr
 
 .global "DetectDynamicCollisionBoolean__14CGameCollisionFRC19CCollisionPrimitiveRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>RC13CStateManager"
 "DetectDynamicCollisionBoolean__14CGameCollisionFRC19CCollisionPrimitiveRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>RC13CStateManager":
@@ -4890,12 +4890,12 @@ lbl_80183FFC:
 /* 80184030 00180F90  81 98 00 00 */	lwz r12, 0(r24)
 /* 80184034 00180F94  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80184038 00180F98  7D 89 03 A6 */	mtctr r12
-/* 8018403C 00180F9C  4E 80 04 21 */	bctrl 
+/* 8018403C 00180F9C  4E 80 04 21 */	bctrl
 /* 80184040 00180FA0  7F 03 C3 78 */	mr r3, r24
 /* 80184044 00180FA4  81 98 00 00 */	lwz r12, 0(r24)
 /* 80184048 00180FA8  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8018404C 00180FAC  7D 89 03 A6 */	mtctr r12
-/* 80184050 00180FB0  4E 80 04 21 */	bctrl 
+/* 80184050 00180FB0  4E 80 04 21 */	bctrl
 /* 80184054 00180FB4  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
 /* 80184058 00180FB8  90 61 00 44 */	stw r3, 0x44(r1)
 /* 8018405C 00180FBC  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
@@ -4932,7 +4932,7 @@ lbl_801840C8:
 /* 801840CC 0018102C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801840D0 00181030  7C 08 03 A6 */	mtlr r0
 /* 801840D4 00181034  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801840D8 00181038  4E 80 00 20 */	blr 
+/* 801840D8 00181038  4E 80 00 20 */	blr
 
 .global "DetectDynamicCollisionMoving__14CGameCollisionFRC19CCollisionPrimitiveRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>9CVector3fR9TUniqueIdR14CCollisionInfoRdRC13CStateManager"
 "DetectDynamicCollisionMoving__14CGameCollisionFRC19CCollisionPrimitiveRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>9CVector3fR9TUniqueIdR14CCollisionInfoRdRC13CStateManager":
@@ -4975,12 +4975,12 @@ lbl_80184120:
 /* 80184168 001810C8  81 9B 00 00 */	lwz r12, 0(r27)
 /* 8018416C 001810CC  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80184170 001810D0  7D 89 03 A6 */	mtctr r12
-/* 80184174 001810D4  4E 80 04 21 */	bctrl 
+/* 80184174 001810D4  4E 80 04 21 */	bctrl
 /* 80184178 001810D8  7F 63 DB 78 */	mr r3, r27
 /* 8018417C 001810DC  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80184180 001810E0  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80184184 001810E4  7D 89 03 A6 */	mtctr r12
-/* 80184188 001810E8  4E 80 04 21 */	bctrl 
+/* 80184188 001810E8  4E 80 04 21 */	bctrl
 /* 8018418C 001810EC  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
 /* 80184190 001810F0  90 61 00 50 */	stw r3, 0x50(r1)
 /* 80184194 001810F4  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
@@ -5070,7 +5070,7 @@ lbl_801842BC:
 /* 801842DC 0018123C  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 801842E0 00181240  7C 08 03 A6 */	mtlr r0
 /* 801842E4 00181244  38 21 01 60 */	addi r1, r1, 0x160
-/* 801842E8 00181248  4E 80 00 20 */	blr 
+/* 801842E8 00181248  4E 80 00 20 */	blr
 
 .global "DetectCollision_Cached_Moving__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>9CVector3fR9TUniqueIdR14CCollisionInfoRd"
 "DetectCollision_Cached_Moving__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>9CVector3fR9TUniqueIdR14CCollisionInfoRd":
@@ -5137,7 +5137,7 @@ lbl_801843CC:
 /* 801843D4 00181334  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801843D8 00181338  7C 08 03 A6 */	mtlr r0
 /* 801843DC 0018133C  38 21 00 50 */	addi r1, r1, 0x50
-/* 801843E0 00181340  4E 80 00 20 */	blr 
+/* 801843E0 00181340  4E 80 00 20 */	blr
 
 .global "DetectCollision_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>R9TUniqueIdR18CCollisionInfoList"
 "DetectCollision_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>R9TUniqueIdR18CCollisionInfoList":
@@ -5190,7 +5190,7 @@ lbl_8018448C:
 /* 80184494 001813F4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80184498 001813F8  7C 08 03 A6 */	mtlr r0
 /* 8018449C 001813FC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801844A0 00181400  4E 80 00 20 */	blr 
+/* 801844A0 00181400  4E 80 00 20 */	blr
 
 .global "DetectCollision__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>R9TUniqueIdR18CCollisionInfoList"
 "DetectCollision__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>R9TUniqueIdR18CCollisionInfoList":
@@ -5243,7 +5243,7 @@ lbl_8018454C:
 /* 80184554 001814B4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80184558 001814B8  7C 08 03 A6 */	mtlr r0
 /* 8018455C 001814BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80184560 001814C0  4E 80 00 20 */	blr 
+/* 80184560 001814C0  4E 80 00 20 */	blr
 
 .global "DetectCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "DetectCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -5293,7 +5293,7 @@ lbl_801845F4:
 /* 80184604 00181564  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80184608 00181568  7C 08 03 A6 */	mtlr r0
 /* 8018460C 0018156C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80184610 00181570  4E 80 00 20 */	blr 
+/* 80184610 00181570  4E 80 00 20 */	blr
 
 .global "DetectCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "DetectCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -5343,7 +5343,7 @@ lbl_801846A4:
 /* 801846B4 00181614  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801846B8 00181618  7C 08 03 A6 */	mtlr r0
 /* 801846BC 0018161C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801846C0 00181620  4E 80 00 20 */	blr 
+/* 801846C0 00181620  4E 80 00 20 */	blr
 
 .global BuildAreaCollisionCache__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCache
 BuildAreaCollisionCache__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCache:
@@ -5434,7 +5434,7 @@ lbl_801847D8:
 /* 801847F8 00181758  83 A1 09 44 */	lwz r29, 0x944(r1)
 /* 801847FC 0018175C  7C 08 03 A6 */	mtlr r0
 /* 80184800 00181760  38 21 09 50 */	addi r1, r1, 0x950
-/* 80184804 00181764  4E 80 00 20 */	blr 
+/* 80184804 00181764  4E 80 00 20 */	blr
 
 .global RayStaticIntersection__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3ffRC15CMaterialFilter
 RayStaticIntersection__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3ffRC15CMaterialFilter:
@@ -5645,7 +5645,7 @@ lbl_80184A90:
 /* 80184B18 00181A78  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 80184B1C 00181A7C  7C 08 03 A6 */	mtlr r0
 /* 80184B20 00181A80  38 21 01 50 */	addi r1, r1, 0x150
-/* 80184B24 00181A84  4E 80 00 20 */	blr 
+/* 80184B24 00181A84  4E 80 00 20 */	blr
 
 .global RayStaticIntersectionArea__14CGameCollisionFRC9CGameAreaRC9CVector3fRC9CVector3fRC15CMaterialFilter
 RayStaticIntersectionArea__14CGameCollisionFRC9CGameAreaRC9CVector3fRC9CVector3fRC15CMaterialFilter:
@@ -5704,7 +5704,7 @@ lbl_80184BE8:
 /* 80184BE8 00181B48  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80184BEC 00181B4C  7C 08 03 A6 */	mtlr r0
 /* 80184BF0 00181B50  38 21 00 50 */	addi r1, r1, 0x50
-/* 80184BF4 00181B54  4E 80 00 20 */	blr 
+/* 80184BF4 00181B54  4E 80 00 20 */	blr
 
 .global RayStaticIntersectionBool__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3ffRC15CMaterialFilter
 RayStaticIntersectionBool__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3ffRC15CMaterialFilter:
@@ -5783,7 +5783,7 @@ lbl_80184CF0:
 /* 80184D00 00181C60  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80184D04 00181C64  7C 08 03 A6 */	mtlr r0
 /* 80184D08 00181C68  38 21 00 60 */	addi r1, r1, 0x60
-/* 80184D0C 00181C6C  4E 80 00 20 */	blr 
+/* 80184D0C 00181C6C  4E 80 00 20 */	blr
 
 .global "RayDynamicIntersectionBool__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3fRC15CMaterialFilterQ24rstl49reserved_vector<9TUniqueId,1024>PC6CActorf"
 "RayDynamicIntersectionBool__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3fRC15CMaterialFilterQ24rstl49reserved_vector<9TUniqueId,1024>PC6CActorf":
@@ -5834,12 +5834,12 @@ lbl_80184DA8:
 /* 80184DB0 00181D10  81 97 00 00 */	lwz r12, 0(r23)
 /* 80184DB4 00181D14  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80184DB8 00181D18  7D 89 03 A6 */	mtctr r12
-/* 80184DBC 00181D1C  4E 80 04 21 */	bctrl 
+/* 80184DBC 00181D1C  4E 80 04 21 */	bctrl
 /* 80184DC0 00181D20  7E E3 BB 78 */	mr r3, r23
 /* 80184DC4 00181D24  81 97 00 00 */	lwz r12, 0(r23)
 /* 80184DC8 00181D28  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80184DCC 00181D2C  7D 89 03 A6 */	mtctr r12
-/* 80184DD0 00181D30  4E 80 04 21 */	bctrl 
+/* 80184DD0 00181D30  4E 80 04 21 */	bctrl
 /* 80184DD4 00181D34  FC 20 F8 90 */	fmr f1, f31
 /* 80184DD8 00181D38  7C 77 1B 78 */	mr r23, r3
 /* 80184DDC 00181D3C  7F 24 CB 78 */	mr r4, r25
@@ -5857,7 +5857,7 @@ lbl_80184DA8:
 /* 80184E0C 00181D6C  81 97 00 00 */	lwz r12, 0(r23)
 /* 80184E10 00181D70  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80184E14 00181D74  7D 89 03 A6 */	mtctr r12
-/* 80184E18 00181D78  4E 80 04 21 */	bctrl 
+/* 80184E18 00181D78  4E 80 04 21 */	bctrl
 /* 80184E1C 00181D7C  88 01 00 68 */	lbz r0, 0x68(r1)
 /* 80184E20 00181D80  28 00 00 00 */	cmplwi r0, 0
 /* 80184E24 00181D84  41 82 00 0C */	beq lbl_80184E30
@@ -5880,7 +5880,7 @@ lbl_80184E50:
 /* 80184E5C 00181DBC  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 80184E60 00181DC0  7C 08 03 A6 */	mtlr r0
 /* 80184E64 00181DC4  38 21 01 20 */	addi r1, r1, 0x120
-/* 80184E68 00181DC8  4E 80 00 20 */	blr 
+/* 80184E68 00181DC8  4E 80 00 20 */	blr
 
 .global "RayDynamicIntersection__14CGameCollisionFRC13CStateManagerR9TUniqueIdRC9CVector3fRC9CVector3ffRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "RayDynamicIntersection__14CGameCollisionFRC13CStateManagerR9TUniqueIdRC9CVector3fRC9CVector3ffRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -5948,12 +5948,12 @@ lbl_80184F20:
 /* 80184F54 00181EB4  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80184F58 00181EB8  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80184F5C 00181EBC  7D 89 03 A6 */	mtctr r12
-/* 80184F60 00181EC0  4E 80 04 21 */	bctrl 
+/* 80184F60 00181EC0  4E 80 04 21 */	bctrl
 /* 80184F64 00181EC4  7F A3 EB 78 */	mr r3, r29
 /* 80184F68 00181EC8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80184F6C 00181ECC  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80184F70 00181ED0  7D 89 03 A6 */	mtctr r12
-/* 80184F74 00181ED4  4E 80 04 21 */	bctrl 
+/* 80184F74 00181ED4  4E 80 04 21 */	bctrl
 /* 80184F78 00181ED8  FC 20 F8 90 */	fmr f1, f31
 /* 80184F7C 00181EDC  7C 75 1B 78 */	mr r21, r3
 /* 80184F80 00181EE0  7F 24 CB 78 */	mr r4, r25
@@ -5971,7 +5971,7 @@ lbl_80184F20:
 /* 80184FB0 00181F10  81 95 00 00 */	lwz r12, 0(r21)
 /* 80184FB4 00181F14  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80184FB8 00181F18  7D 89 03 A6 */	mtctr r12
-/* 80184FBC 00181F1C  4E 80 04 21 */	bctrl 
+/* 80184FBC 00181F1C  4E 80 04 21 */	bctrl
 /* 80184FC0 00181F20  88 C1 00 70 */	lbz r6, 0x70(r1)
 /* 80184FC4 00181F24  C0 E1 00 50 */	lfs f7, 0x50(r1)
 /* 80184FC8 00181F28  C0 C1 00 54 */	lfs f6, 0x54(r1)
@@ -6052,7 +6052,7 @@ lbl_80185070:
 /* 801850EC 0018204C  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 801850F0 00182050  7C 08 03 A6 */	mtlr r0
 /* 801850F4 00182054  38 21 01 90 */	addi r1, r1, 0x190
-/* 801850F8 00182058  4E 80 00 20 */	blr 
+/* 801850F8 00182058  4E 80 00 20 */	blr
 
 .global "RayWorldIntersection__14CGameCollisionFRC13CStateManagerR9TUniqueIdRC9CVector3fRC9CVector3ffRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 "RayWorldIntersection__14CGameCollisionFRC13CStateManagerR9TUniqueIdRC9CVector3fRC9CVector3ffRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>":
@@ -6185,22 +6185,22 @@ lbl_801852A4:
 /* 801852E8 00182248  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 801852EC 0018224C  7C 08 03 A6 */	mtlr r0
 /* 801852F0 00182250  38 21 01 10 */	addi r1, r1, 0x110
-/* 801852F4 00182254  4E 80 00 20 */	blr 
+/* 801852F4 00182254  4E 80 00 20 */	blr
 
 .global NullMovingCollider__14CGameCollisionFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo
 NullMovingCollider__14CGameCollisionFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo:
 /* 801852F8 00182258  38 60 00 00 */	li r3, 0
-/* 801852FC 0018225C  4E 80 00 20 */	blr 
+/* 801852FC 0018225C  4E 80 00 20 */	blr
 
 .global NullBooleanCollider__14CGameCollisionFRC27CInternalCollisionStructure
 NullBooleanCollider__14CGameCollisionFRC27CInternalCollisionStructure:
 /* 80185300 00182260  38 60 00 00 */	li r3, 0
-/* 80185304 00182264  4E 80 00 20 */	blr 
+/* 80185304 00182264  4E 80 00 20 */	blr
 
 .global NullCollisionCollider__14CGameCollisionFRC27CInternalCollisionStructureR18CCollisionInfoList
 NullCollisionCollider__14CGameCollisionFRC27CInternalCollisionStructureR18CCollisionInfoList:
 /* 80185308 00182268  38 60 00 00 */	li r3, 0
-/* 8018530C 0018226C  4E 80 00 20 */	blr 
+/* 8018530C 0018226C  4E 80 00 20 */	blr
 
 .global InitCollision__14CGameCollisionFv
 InitCollision__14CGameCollisionFv:
@@ -6278,7 +6278,7 @@ InitCollision__14CGameCollisionFv:
 /* 8018542C 0018238C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80185430 00182390  7C 08 03 A6 */	mtlr r0
 /* 80185434 00182394  38 21 00 10 */	addi r1, r1, 0x10
-/* 80185438 00182398  4E 80 00 20 */	blr 
+/* 80185438 00182398  4E 80 00 20 */	blr
 
 .global sub_8018543c
 sub_8018543c:
@@ -6411,7 +6411,7 @@ lbl_80185600:
 /* 80185610 00182570  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80185614 00182574  7C 08 03 A6 */	mtlr r0
 /* 80185618 00182578  38 21 00 40 */	addi r1, r1, 0x40
-/* 8018561C 0018257C  4E 80 00 20 */	blr 
+/* 8018561C 0018257C  4E 80 00 20 */	blr
 
 .global Add__18CCollisionInfoListFRC14CCollisionInfob
 Add__18CCollisionInfoListFRC14CCollisionInfob:
@@ -6548,4 +6548,4 @@ lbl_80185814:
 /* 80185818 00182778  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 8018581C 0018277C  7C 08 03 A6 */	mtlr r0
 /* 80185820 00182780  38 21 00 70 */	addi r1, r1, 0x70
-/* 80185824 00182784  4E 80 00 20 */	blr 
+/* 80185824 00182784  4E 80 00 20 */	blr

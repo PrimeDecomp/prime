@@ -26,7 +26,7 @@ close_enough__FRC9CVector2fRC9CVector2ff:
 /* 8030FF58 0030CEB8  38 00 00 01 */	li r0, 1
 lbl_8030FF5C:
 /* 8030FF5C 0030CEBC  7C 03 03 78 */	mr r3, r0
-/* 8030FF60 0030CEC0  4E 80 00 20 */	blr 
+/* 8030FF60 0030CEC0  4E 80 00 20 */	blr
 
 .global close_enough__FRC9CVector3fRC9CVector3ff
 close_enough__FRC9CVector3fRC9CVector3ff:
@@ -57,7 +57,7 @@ lbl_8030FFA0:
 /* 8030FFC0 0030CF20  38 A0 00 01 */	li r5, 1
 lbl_8030FFC4:
 /* 8030FFC4 0030CF24  7C A3 2B 78 */	mr r3, r5
-/* 8030FFC8 0030CF28  4E 80 00 20 */	blr 
+/* 8030FFC8 0030CF28  4E 80 00 20 */	blr
 
 .global __sinit_CloseEnough_cpp
 __sinit_CloseEnough_cpp:

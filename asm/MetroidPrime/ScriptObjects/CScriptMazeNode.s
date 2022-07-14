@@ -84,7 +84,7 @@ lbl_80288858:
 /* 80288864 002857C4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80288868 002857C8  7C 08 03 A6 */	mtlr r0
 /* 8028886C 002857CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80288870 002857D0  4E 80 00 20 */	blr 
+/* 80288870 002857D0  4E 80 00 20 */	blr
 
 .global LoadMazeSeeds__15CScriptMazeNodeFv
 LoadMazeSeeds__15CScriptMazeNodeFv:
@@ -99,7 +99,7 @@ LoadMazeSeeds__15CScriptMazeNodeFv:
 /* 80288894 002857F4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80288898 002857F8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8028889C 002857FC  7D 89 03 A6 */	mtctr r12
-/* 802888A0 00285800  4E 80 04 21 */	bctrl 
+/* 802888A0 00285800  4E 80 04 21 */	bctrl
 /* 802888A4 00285804  80 CD A0 60 */	lwz r6, gpResourceFactory@sda21(r13)
 /* 802888A8 00285808  7C 64 1B 78 */	mr r4, r3
 /* 802888AC 0028580C  38 A0 00 00 */	li r5, 0
@@ -131,14 +131,14 @@ lbl_802888D8:
 /* 80288910 00285870  38 80 00 01 */	li r4, 1
 /* 80288914 00285874  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80288918 00285878  7D 89 03 A6 */	mtctr r12
-/* 8028891C 0028587C  4E 80 04 21 */	bctrl 
+/* 8028891C 0028587C  4E 80 04 21 */	bctrl
 lbl_80288920:
 /* 80288920 00285880  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80288924 00285884  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80288928 00285888  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8028892C 0028588C  7C 08 03 A6 */	mtlr r0
 /* 80288930 00285890  38 21 00 20 */	addi r1, r1, 0x20
-/* 80288934 00285894  4E 80 00 20 */	blr 
+/* 80288934 00285894  4E 80 00 20 */	blr
 
 .global Think__15CScriptMazeNodeFfR13CStateManager
 Think__15CScriptMazeNodeFfR13CStateManager:
@@ -180,7 +180,7 @@ lbl_802889BC:
 /* 802889BC 0028591C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802889C0 00285920  7C 08 03 A6 */	mtlr r0
 /* 802889C4 00285924  38 21 00 10 */	addi r1, r1, 0x10
-/* 802889C8 00285928  4E 80 00 20 */	blr 
+/* 802889C8 00285928  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__15CScriptMazeNodeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CScriptMazeNodeF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -759,7 +759,7 @@ lbl_802891F0:
 /* 80289210 00286170  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 80289214 00286174  7C 08 03 A6 */	mtlr r0
 /* 80289218 00286178  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8028921C 0028617C  4E 80 00 20 */	blr 
+/* 8028921C 0028617C  4E 80 00 20 */	blr
 
 .global sub_80289220
 sub_80289220:
@@ -834,7 +834,7 @@ sub_80289220:
 /* 80289330 00286290  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80289334 00286294  7C 08 03 A6 */	mtlr r0
 /* 80289338 00286298  38 21 00 50 */	addi r1, r1, 0x50
-/* 8028933C 0028629C  4E 80 00 20 */	blr 
+/* 8028933C 0028629C  4E 80 00 20 */	blr
 
 .global sub_80289340
 sub_80289340:
@@ -878,7 +878,7 @@ sub_80289340:
 /* 802893D4 00286334  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802893D8 00286338  7C 08 03 A6 */	mtlr r0
 /* 802893DC 0028633C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802893E0 00286340  4E 80 00 20 */	blr 
+/* 802893E0 00286340  4E 80 00 20 */	blr
 
 .global sub_802893e4
 sub_802893e4:
@@ -1036,7 +1036,7 @@ lbl_80289608:
 /* 80289624 00286584  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80289628 00286588  7C 08 03 A6 */	mtlr r0
 /* 8028962C 0028658C  38 21 00 90 */	addi r1, r1, 0x90
-/* 80289630 00286590  4E 80 00 20 */	blr 
+/* 80289630 00286590  4E 80 00 20 */	blr
 
 .global Accept__15CScriptMazeNodeFR8IVisitor
 Accept__15CScriptMazeNodeFR8IVisitor:
@@ -1049,11 +1049,11 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 8028964C 002865AC  7C 04 03 78 */	mr r4, r0
 /* 80289650 002865B0  81 8C 00 94 */	lwz r12, 0x94(r12)
 /* 80289654 002865B4  7D 89 03 A6 */	mtctr r12
-/* 80289658 002865B8  4E 80 04 21 */	bctrl 
+/* 80289658 002865B8  4E 80 04 21 */	bctrl
 /* 8028965C 002865BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80289660 002865C0  7C 08 03 A6 */	mtlr r0
 /* 80289664 002865C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80289668 002865C8  4E 80 00 20 */	blr 
+/* 80289668 002865C8  4E 80 00 20 */	blr
 
 .global "__ct__15CScriptMazeNodeF9TUniqueIdQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUiUiUiRC9CVector3fRC9CVector3fRC9CVector3f"
 "__ct__15CScriptMazeNodeF9TUniqueIdQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUiUiUiRC9CVector3fRC9CVector3fRC9CVector3f":
@@ -1156,7 +1156,7 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 802897EC 0028674C  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802897F0 00286750  7C 08 03 A6 */	mtlr r0
 /* 802897F4 00286754  38 21 01 10 */	addi r1, r1, 0x110
-/* 802897F8 00286758  4E 80 00 20 */	blr 
+/* 802897F8 00286758  4E 80 00 20 */	blr
 
 .global sub_802897fc
 sub_802897fc:
@@ -1283,7 +1283,7 @@ lbl_802899A0:
 /* 802899B8 00286918  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 802899BC 0028691C  98 03 00 94 */	stb r0, 0x94(r3)
 /* 802899C0 00286920  38 21 01 10 */	addi r1, r1, 0x110
-/* 802899C4 00286924  4E 80 00 20 */	blr 
+/* 802899C4 00286924  4E 80 00 20 */	blr
 
 .global sub_802899c8
 sub_802899c8:
@@ -1643,7 +1643,7 @@ lbl_80289EE4:
 /* 80289EE8 00286E48  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80289EEC 00286E4C  7C 08 03 A6 */	mtlr r0
 /* 80289EF0 00286E50  38 21 00 20 */	addi r1, r1, 0x20
-/* 80289EF4 00286E54  4E 80 00 20 */	blr 
+/* 80289EF4 00286E54  4E 80 00 20 */	blr
 
 .global sub_80289ef8
 sub_80289ef8:
@@ -1653,7 +1653,7 @@ sub_80289ef8:
 /* 80289F04 00286E64  54 03 08 3C */	slwi r3, r0, 1
 /* 80289F08 00286E68  38 63 00 04 */	addi r3, r3, 4
 /* 80289F0C 00286E6C  7C 65 1A 14 */	add r3, r5, r3
-/* 80289F10 00286E70  4E 80 00 20 */	blr 
+/* 80289F10 00286E70  4E 80 00 20 */	blr
 
 .global sub_80289f14
 sub_80289f14:
@@ -1663,7 +1663,7 @@ sub_80289f14:
 /* 80289F20 00286E80  54 03 08 3C */	slwi r3, r0, 1
 /* 80289F24 00286E84  38 63 00 04 */	addi r3, r3, 4
 /* 80289F28 00286E88  7C 65 1A 14 */	add r3, r5, r3
-/* 80289F2C 00286E8C  4E 80 00 20 */	blr 
+/* 80289F2C 00286E8C  4E 80 00 20 */	blr
 
 .global sub_80289f30
 sub_80289f30:
@@ -2288,7 +2288,7 @@ lbl_8028A870:
 /* 8028A888 002877E8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8028A88C 002877EC  7C 08 03 A6 */	mtlr r0
 /* 8028A890 002877F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8028A894 002877F4  4E 80 00 20 */	blr 
+/* 8028A894 002877F4  4E 80 00 20 */	blr
 
 .global sub_8028a898
 sub_8028a898:
@@ -2323,7 +2323,7 @@ sub_8028a898:
 /* 8028A908 00287868  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8028A90C 0028786C  7C 08 03 A6 */	mtlr r0
 /* 8028A910 00287870  38 21 00 20 */	addi r1, r1, 0x20
-/* 8028A914 00287874  4E 80 00 20 */	blr 
+/* 8028A914 00287874  4E 80 00 20 */	blr
 
 .global sub_8028a918
 sub_8028a918:
@@ -2371,4 +2371,4 @@ sub_8028a918:
 /* 8028A9BC 0028791C  88 03 00 00 */	lbz r0, 0(r3)
 /* 8028A9C0 00287920  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8028A9C4 00287924  98 03 00 00 */	stb r0, 0(r3)
-/* 8028A9C8 00287928  4E 80 00 20 */	blr 
+/* 8028A9C8 00287928  4E 80 00 20 */	blr

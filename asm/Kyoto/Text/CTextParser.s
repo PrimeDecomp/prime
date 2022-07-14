@@ -31,7 +31,7 @@ lbl_803ED718:
 	.string16 "push"
 	.string16 "pop"
 	.balign 8
-	
+
 .section .text, "ax"
 
 .global ParseColor__11CTextParserFPCwi
@@ -68,7 +68,7 @@ lbl_80304354:
 /* 80304368 003012C8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8030436C 003012CC  7C 08 03 A6 */	mtlr r0
 /* 80304370 003012D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80304374 003012D4  4E 80 00 20 */	blr 
+/* 80304374 003012D4  4E 80 00 20 */	blr
 
 .global GetColorValue__11CTextParserFPCw
 GetColorValue__11CTextParserFPCw:
@@ -88,7 +88,7 @@ GetColorValue__11CTextParserFPCw:
 /* 803043AC 0030130C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803043B0 00301310  7C 08 03 A6 */	mtlr r0
 /* 803043B4 00301314  38 21 00 10 */	addi r1, r1, 0x10
-/* 803043B8 00301318  4E 80 00 20 */	blr 
+/* 803043B8 00301318  4E 80 00 20 */	blr
 
 .global FromHex__11CTextParserFw
 FromHex__11CTextParserFw:
@@ -98,7 +98,7 @@ FromHex__11CTextParserFw:
 /* 803043C8 00301328  28 04 00 39 */	cmplwi r4, 0x39
 /* 803043CC 0030132C  41 81 00 0C */	bgt lbl_803043D8
 /* 803043D0 00301330  38 64 FF D0 */	addi r3, r4, -48
-/* 803043D4 00301334  4E 80 00 20 */	blr 
+/* 803043D4 00301334  4E 80 00 20 */	blr
 lbl_803043D8:
 /* 803043D8 00301338  54 64 04 3E */	clrlwi r4, r3, 0x10
 /* 803043DC 0030133C  28 04 00 41 */	cmplwi r4, 0x41
@@ -106,7 +106,7 @@ lbl_803043D8:
 /* 803043E4 00301344  28 04 00 46 */	cmplwi r4, 0x46
 /* 803043E8 00301348  41 81 00 0C */	bgt lbl_803043F4
 /* 803043EC 0030134C  38 64 FF C9 */	addi r3, r4, -55
-/* 803043F0 00301350  4E 80 00 20 */	blr 
+/* 803043F0 00301350  4E 80 00 20 */	blr
 lbl_803043F4:
 /* 803043F4 00301354  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 803043F8 00301358  28 03 00 61 */	cmplwi r3, 0x61
@@ -114,10 +114,10 @@ lbl_803043F4:
 /* 80304400 00301360  28 03 00 66 */	cmplwi r3, 0x66
 /* 80304404 00301364  41 81 00 0C */	bgt lbl_80304410
 /* 80304408 00301368  38 63 FF A9 */	addi r3, r3, -87
-/* 8030440C 0030136C  4E 80 00 20 */	blr 
+/* 8030440C 0030136C  4E 80 00 20 */	blr
 lbl_80304410:
 /* 80304410 00301370  38 60 00 00 */	li r3, 0
-/* 80304414 00301374  4E 80 00 20 */	blr 
+/* 80304414 00301374  4E 80 00 20 */	blr
 
 .global ParseInt__11CTextParserFPCwib
 ParseInt__11CTextParserFPCwib:
@@ -191,9 +191,9 @@ lbl_803044FC:
 lbl_80304514:
 /* 80304514 00301474  54 C0 06 3F */	clrlwi. r0, r6, 0x18
 /* 80304518 00301478  7C 83 23 78 */	mr r3, r4
-/* 8030451C 0030147C  4D 82 00 20 */	beqlr 
+/* 8030451C 0030147C  4D 82 00 20 */	beqlr
 /* 80304520 00301480  7C 64 00 D0 */	neg r3, r4
-/* 80304524 00301484  4E 80 00 20 */	blr 
+/* 80304524 00301484  4E 80 00 20 */	blr
 
 .global Equals__11CTextParserFPCwiPCw
 Equals__11CTextParserFPCwiPCw:
@@ -205,7 +205,7 @@ lbl_80304534:
 /* 80304538 00301498  7C 00 38 40 */	cmplw r0, r7
 /* 8030453C 0030149C  41 82 00 0C */	beq lbl_80304548
 /* 80304540 003014A0  38 60 00 00 */	li r3, 0
-/* 80304544 003014A4  4E 80 00 20 */	blr 
+/* 80304544 003014A4  4E 80 00 20 */	blr
 lbl_80304548:
 /* 80304548 003014A8  38 C6 00 02 */	addi r6, r6, 2
 /* 8030454C 003014AC  38 63 00 02 */	addi r3, r3, 2
@@ -221,7 +221,7 @@ lbl_80304568:
 /* 8030456C 003014CC  7C 05 02 2E */	lhzx r0, r5, r0
 /* 80304570 003014D0  7C 00 00 34 */	cntlzw r0, r0
 /* 80304574 003014D4  54 03 D9 7E */	srwi r3, r0, 5
-/* 80304578 003014D8  4E 80 00 20 */	blr 
+/* 80304578 003014D8  4E 80 00 20 */	blr
 
 .global BeginsWith__11CTextParserFPCwiPCw
 BeginsWith__11CTextParserFPCwiPCw:
@@ -233,7 +233,7 @@ lbl_80304588:
 /* 8030458C 003014EC  7C 00 38 40 */	cmplw r0, r7
 /* 80304590 003014F0  41 82 00 0C */	beq lbl_8030459C
 /* 80304594 003014F4  38 60 00 00 */	li r3, 0
-/* 80304598 003014F8  4E 80 00 20 */	blr 
+/* 80304598 003014F8  4E 80 00 20 */	blr
 lbl_8030459C:
 /* 8030459C 003014FC  38 C6 00 02 */	addi r6, r6, 2
 /* 803045A0 00301500  38 63 00 02 */	addi r3, r3, 2
@@ -249,7 +249,7 @@ lbl_803045BC:
 /* 803045C0 00301520  7C 05 02 2E */	lhzx r0, r5, r0
 /* 803045C4 00301524  7C 00 00 34 */	cntlzw r0, r0
 /* 803045C8 00301528  54 03 D9 7E */	srwi r3, r0, 5
-/* 803045CC 0030152C  4E 80 00 20 */	blr 
+/* 803045CC 0030152C  4E 80 00 20 */	blr
 
 .global ParseTag__11CTextParserFR18CTextExecuteBufferPCwi
 ParseTag__11CTextParserFR18CTextExecuteBufferPCwi:
@@ -718,12 +718,12 @@ lbl_80304C90:
 /* 80304C94 00301BF4  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80304C98 00301BF8  7C 08 03 A6 */	mtlr r0
 /* 80304C9C 00301BFC  38 21 00 90 */	addi r1, r1, 0x90
-/* 80304CA0 00301C00  4E 80 00 20 */	blr 
+/* 80304CA0 00301C00  4E 80 00 20 */	blr
 
 .global HandleUserTag__11CTextParserFR18CTextExecuteBufferPCwi
 HandleUserTag__11CTextParserFR18CTextExecuteBufferPCwi:
 /* 80304CA4 00301C04  38 60 00 00 */	li r3, 0
-/* 80304CA8 00301C08  4E 80 00 20 */	blr 
+/* 80304CA8 00301C08  4E 80 00 20 */	blr
 
 .global GetImage__11CTextParserFPCwi
 GetImage__11CTextParserFPCwi:
@@ -897,7 +897,7 @@ lbl_80304EF0:
 /* 80304F10 00301E70  81 84 00 00 */	lwz r12, 0(r4)
 /* 80304F14 00301E74  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80304F18 00301E78  7D 89 03 A6 */	mtctr r12
-/* 80304F1C 00301E7C  4E 80 04 21 */	bctrl 
+/* 80304F1C 00301E7C  4E 80 04 21 */	bctrl
 /* 80304F20 00301E80  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 80304F24 00301E84  38 81 00 F8 */	addi r4, r1, 0xf8
 /* 80304F28 00301E88  48 03 BF 81 */	bl __ct__6CTokenFRC6CToken
@@ -1060,7 +1060,7 @@ lbl_80305144:
 /* 80305164 003020C4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80305168 003020C8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8030516C 003020CC  7D 89 03 A6 */	mtctr r12
-/* 80305170 003020D0  4E 80 04 21 */	bctrl 
+/* 80305170 003020D0  4E 80 04 21 */	bctrl
 /* 80305174 003020D4  38 61 00 D0 */	addi r3, r1, 0xd0
 /* 80305178 003020D8  38 81 00 D8 */	addi r4, r1, 0xd8
 /* 8030517C 003020DC  48 03 BD 2D */	bl __ct__6CTokenFRC6CToken
@@ -1206,7 +1206,7 @@ lbl_803052CC:
 /* 80305378 003022D8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8030537C 003022DC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80305380 003022E0  7D 89 03 A6 */	mtctr r12
-/* 80305384 003022E4  4E 80 04 21 */	bctrl 
+/* 80305384 003022E4  4E 80 04 21 */	bctrl
 /* 80305388 003022E8  38 61 00 B0 */	addi r3, r1, 0xb0
 /* 8030538C 003022EC  38 81 00 B8 */	addi r4, r1, 0xb8
 /* 80305390 003022F0  48 03 BB 19 */	bl __ct__6CTokenFRC6CToken
@@ -1289,7 +1289,7 @@ lbl_80305478:
 /* 803054A0 00302400  81 84 00 00 */	lwz r12, 0(r4)
 /* 803054A4 00302404  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 803054A8 00302408  7D 89 03 A6 */	mtctr r12
-/* 803054AC 0030240C  4E 80 04 21 */	bctrl 
+/* 803054AC 0030240C  4E 80 04 21 */	bctrl
 /* 803054B0 00302410  38 61 00 90 */	addi r3, r1, 0x90
 /* 803054B4 00302414  38 81 00 98 */	addi r4, r1, 0x98
 /* 803054B8 00302418  48 03 B9 F1 */	bl __ct__6CTokenFRC6CToken
@@ -1320,7 +1320,7 @@ lbl_803054FC:
 /* 80305518 00302478  80 01 02 34 */	lwz r0, 0x234(r1)
 /* 8030551C 0030247C  7C 08 03 A6 */	mtlr r0
 /* 80305520 00302480  38 21 02 30 */	addi r1, r1, 0x230
-/* 80305524 00302484  4E 80 00 20 */	blr 
+/* 80305524 00302484  4E 80 00 20 */	blr
 
 .global GetFont__11CTextParserFPCwi
 GetFont__11CTextParserFPCwi:
@@ -1358,7 +1358,7 @@ GetFont__11CTextParserFPCwi:
 /* 803055A4 00302504  81 84 00 00 */	lwz r12, 0(r4)
 /* 803055A8 00302508  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 803055AC 0030250C  7D 89 03 A6 */	mtctr r12
-/* 803055B0 00302510  4E 80 04 21 */	bctrl 
+/* 803055B0 00302510  4E 80 04 21 */	bctrl
 /* 803055B4 00302514  7F 83 E3 78 */	mr r3, r28
 /* 803055B8 00302518  38 81 00 08 */	addi r4, r1, 8
 /* 803055BC 0030251C  48 03 B8 ED */	bl __ct__6CTokenFRC6CToken
@@ -1372,7 +1372,7 @@ GetFont__11CTextParserFPCwi:
 /* 803055DC 0030253C  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 803055E0 00302540  7C 08 03 A6 */	mtlr r0
 /* 803055E4 00302544  38 21 00 30 */	addi r1, r1, 0x30
-/* 803055E8 00302548  4E 80 00 20 */	blr 
+/* 803055E8 00302548  4E 80 00 20 */	blr
 
 .global "GetAssetIdFromString__11CTextParserFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetAssetIdFromString__11CTextParserFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1467,7 +1467,7 @@ lbl_80305730:
 /* 8030573C 0030269C  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 80305740 003026A0  7C 08 03 A6 */	mtlr r0
 /* 80305744 003026A4  38 21 00 70 */	addi r1, r1, 0x70
-/* 80305748 003026A8  4E 80 00 20 */	blr 
+/* 80305748 003026A8  4E 80 00 20 */	blr
 
 .global ParseText__11CTextParserFR18CTextExecuteBufferPCwi
 ParseText__11CTextParserFR18CTextExecuteBufferPCwi:
@@ -1567,12 +1567,12 @@ lbl_8030588C:
 /* 80305890 003027F0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80305894 003027F4  7C 08 03 A6 */	mtlr r0
 /* 80305898 003027F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030589C 003027FC  4E 80 00 20 */	blr 
+/* 8030589C 003027FC  4E 80 00 20 */	blr
 
 .global __ct__11CTextParserFR12IObjectStore
 __ct__11CTextParserFR12IObjectStore:
 /* 803058A0 00302800  90 83 00 00 */	stw r4, 0(r3)
-/* 803058A4 00302804  4E 80 00 20 */	blr 
+/* 803058A4 00302804  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl54vector<17TToken<8CTexture>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl54vector<17TToken<8CTexture>,Q24rstl17rmemory_allocator>Fi":

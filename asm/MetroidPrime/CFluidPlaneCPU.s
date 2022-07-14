@@ -178,7 +178,7 @@ lbl_80199A58:
 /* 80199A58 001969B8  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 80199A5C 001969BC  7C 08 03 A6 */	mtlr r0
 /* 80199A60 001969C0  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80199A64 001969C4  4E 80 00 20 */	blr 
+/* 80199A64 001969C4  4E 80 00 20 */	blr
 
 .global "Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 "Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f":
@@ -745,7 +745,7 @@ lbl_8019A21C:
 /* 8019A298 001971F8  80 01 02 94 */	lwz r0, 0x294(r1)
 /* 8019A29C 001971FC  7C 08 03 A6 */	mtlr r0
 /* 8019A2A0 00197200  38 21 02 90 */	addi r1, r1, 0x290
-/* 8019A2A4 00197204  4E 80 00 20 */	blr 
+/* 8019A2A4 00197204  4E 80 00 20 */	blr
 
 .global __ct__Q220CFluidPlaneCPURender10SPatchInfoFRC9CVector3fRC9CVector3fRC9CVector3fffb
 __ct__Q220CFluidPlaneCPURender10SPatchInfoFRC9CVector3fRC9CVector3fRC9CVector3fffb:
@@ -850,7 +850,7 @@ lbl_8019A3DC:
 /* 8019A420 00197380  D0 63 00 38 */	stfs f3, 0x38(r3)
 /* 8019A424 00197384  BB 21 00 24 */	lmw r25, 0x24(r1)
 /* 8019A428 00197388  38 21 00 40 */	addi r1, r1, 0x40
-/* 8019A42C 0019738C  4E 80 00 20 */	blr 
+/* 8019A42C 0019738C  4E 80 00 20 */	blr
 
 .global RenderSetup__14CFluidPlaneCPUCFRC13CStateManagerfRC12CTransform4fRC12CTransform4fRC6CAABoxP12CScriptWater
 RenderSetup__14CFluidPlaneCPUCFRC13CStateManagerfRC12CTransform4fRC12CTransform4fRC6CAABoxP12CScriptWater:
@@ -912,7 +912,7 @@ lbl_8019A4F0:
 /* 8019A500 00197460  81 83 00 00 */	lwz r12, 0(r3)
 /* 8019A504 00197464  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8019A508 00197468  7D 89 03 A6 */	mtctr r12
-/* 8019A50C 0019746C  4E 80 04 21 */	bctrl 
+/* 8019A50C 0019746C  4E 80 04 21 */	bctrl
 /* 8019A510 00197470  80 82 D7 40 */	lwz r4, lbl_805AF460@sda21(r2)
 /* 8019A514 00197474  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 8019A518 00197478  80 62 A6 D8 */	lwz r3, lbl_805AC3F8@sda21(r2)
@@ -2312,7 +2312,7 @@ lbl_8019B9CC:
 /* 8019B9F0 00198950  80 01 04 44 */	lwz r0, 0x444(r1)
 /* 8019B9F4 00198954  7C 08 03 A6 */	mtlr r0
 /* 8019B9F8 00198958  38 21 04 40 */	addi r1, r1, 0x440
-/* 8019B9FC 0019895C  4E 80 00 20 */	blr 
+/* 8019B9FC 0019895C  4E 80 00 20 */	blr
 
 .global CalculateLightmapMtx__14CFluidPlaneCPUFRC12CTransform4fRC12CTransform4fRC6CAABoxi
 CalculateLightmapMtx__14CFluidPlaneCPUFRC12CTransform4fRC12CTransform4fRC6CAABoxi:
@@ -2549,7 +2549,7 @@ CalculateLightmapMtx__14CFluidPlaneCPUFRC12CTransform4fRC12CTransform4fRC6CAABox
 /* 8019BD98 00198CF8  80 01 02 74 */	lwz r0, 0x274(r1)
 /* 8019BD9C 00198CFC  7C 08 03 A6 */	mtlr r0
 /* 8019BDA0 00198D00  38 21 02 70 */	addi r1, r1, 0x270
-/* 8019BDA4 00198D04  4E 80 00 20 */	blr 
+/* 8019BDA4 00198D04  4E 80 00 20 */	blr
 
 .global UpdatePatch__FfRQ220CFluidPlaneCPURender10SPatchInfoRC14CFluidPlaneCPURC9CVector3fRC14CRippleManageriiii
 UpdatePatch__FfRQ220CFluidPlaneCPURender10SPatchInfoRC14CFluidPlaneCPURC9CVector3fRC14CRippleManageriiii:
@@ -2734,7 +2734,7 @@ lbl_8019C020:
 /* 8019C02C 00198F8C  80 01 04 F4 */	lwz r0, 0x4f4(r1)
 /* 8019C030 00198F90  7C 08 03 A6 */	mtlr r0
 /* 8019C034 00198F94  38 21 04 F0 */	addi r1, r1, 0x4f0
-/* 8019C038 00198F98  4E 80 00 20 */	blr 
+/* 8019C038 00198F98  4E 80 00 20 */	blr
 
 .global ApplyTurbulence__FfRA45_A45_Q220CFluidPlaneCPURender13SHFieldSamplePCUcRA256_CfRCQ220CFluidPlaneCPURender10SPatchInfoRC14CFluidPlaneCPURC9CVector3f
 ApplyTurbulence__FfRA45_A45_Q220CFluidPlaneCPURender13SHFieldSamplePCUcRA256_CfRCQ220CFluidPlaneCPURender10SPatchInfoRC14CFluidPlaneCPURC9CVector3f:
@@ -2836,7 +2836,7 @@ lbl_8019C18C:
 /* 8019C190 001990F0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8019C194 001990F4  7C 08 03 A6 */	mtlr r0
 /* 8019C198 001990F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8019C19C 001990FC  4E 80 00 20 */	blr 
+/* 8019C19C 001990FC  4E 80 00 20 */	blr
 
 .global UpdatePatchNoNormals__FPCUcPCUcQ220CFluidPlaneCPURender10SPatchInfo
 UpdatePatchNoNormals__FPCUcPCUcQ220CFluidPlaneCPURender10SPatchInfo:
@@ -3065,7 +3065,7 @@ lbl_8019C490:
 /* 8019C4B8 00199418  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8019C4BC 0019941C  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8019C4C0 00199420  38 21 00 40 */	addi r1, r1, 0x40
-/* 8019C4C4 00199424  4E 80 00 20 */	blr 
+/* 8019C4C4 00199424  4E 80 00 20 */	blr
 
 .global UpdatePatchWithNormals__FPCUcPCUcQ220CFluidPlaneCPURender10SPatchInfo
 UpdatePatchWithNormals__FPCUcPCUcQ220CFluidPlaneCPURender10SPatchInfo:
@@ -3515,7 +3515,7 @@ lbl_8019CB08:
 /* 8019CB24 00199A84  40 81 F9 EC */	ble lbl_8019C510
 /* 8019CB28 00199A88  BB 41 00 38 */	lmw r26, 0x38(r1)
 /* 8019CB2C 00199A8C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8019CB30 00199A90  4E 80 00 20 */	blr 
+/* 8019CB30 00199A90  4E 80 00 20 */	blr
 
 .global __dt__11CTurbulenceFv
 __dt__11CTurbulenceFv:
@@ -3540,7 +3540,7 @@ lbl_8019CB6C:
 /* 8019CB78 00199AD8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8019CB7C 00199ADC  7C 08 03 A6 */	mtlr r0
 /* 8019CB80 00199AE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019CB84 00199AE4  4E 80 00 20 */	blr 
+/* 8019CB84 00199AE4  4E 80 00 20 */	blr
 
 .global __ct__Q214CFluidPlaneCPU11CTurbulenceFffffffff
 __ct__Q214CFluidPlaneCPU11CTurbulenceFffffffff:
@@ -3689,7 +3689,7 @@ lbl_8019CD5C:
 /* 8019CDB0 00199D10  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8019CDB4 00199D14  7C 08 03 A6 */	mtlr r0
 /* 8019CDB8 00199D18  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8019CDBC 00199D1C  4E 80 00 20 */	blr 
+/* 8019CDBC 00199D1C  4E 80 00 20 */	blr
 
 .global __ct__14CFluidPlaneCPUFUiUiUiUiUiUifUiQ211CFluidPlane10EFluidTypefRC9CVector3ffRC14CFluidUVMotionfffffffffffff
 __ct__14CFluidPlaneCPUFUiUiUiUiUiUifUiQ211CFluidPlane10EFluidTypefRC9CVector3ffRC14CFluidUVMotionfffffffffffff:
@@ -3830,7 +3830,7 @@ lbl_8019CFB4:
 /* 8019CFD4 00199F34  81 84 00 00 */	lwz r12, 0(r4)
 /* 8019CFD8 00199F38  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8019CFDC 00199F3C  7D 89 03 A6 */	mtctr r12
-/* 8019CFE0 00199F40  4E 80 04 21 */	bctrl 
+/* 8019CFE0 00199F40  4E 80 04 21 */	bctrl
 /* 8019CFE4 00199F44  3B 01 00 6C */	addi r24, r1, 0x6c
 /* 8019CFE8 00199F48  38 81 00 38 */	addi r4, r1, 0x38
 /* 8019CFEC 00199F4C  7F 03 C3 78 */	mr r3, r24
@@ -3890,7 +3890,7 @@ lbl_8019D070:
 /* 8019D0B4 0019A014  81 84 00 00 */	lwz r12, 0(r4)
 /* 8019D0B8 0019A018  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8019D0BC 0019A01C  7D 89 03 A6 */	mtctr r12
-/* 8019D0C0 0019A020  4E 80 04 21 */	bctrl 
+/* 8019D0C0 0019A020  4E 80 04 21 */	bctrl
 /* 8019D0C4 0019A024  3B 01 00 60 */	addi r24, r1, 0x60
 /* 8019D0C8 0019A028  38 81 00 28 */	addi r4, r1, 0x28
 /* 8019D0CC 0019A02C  7F 03 C3 78 */	mr r3, r24
@@ -3948,7 +3948,7 @@ lbl_8019D150:
 /* 8019D18C 0019A0EC  81 84 00 00 */	lwz r12, 0(r4)
 /* 8019D190 0019A0F0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8019D194 0019A0F4  7D 89 03 A6 */	mtctr r12
-/* 8019D198 0019A0F8  4E 80 04 21 */	bctrl 
+/* 8019D198 0019A0F8  4E 80 04 21 */	bctrl
 /* 8019D19C 0019A0FC  3B 01 00 54 */	addi r24, r1, 0x54
 /* 8019D1A0 0019A100  38 81 00 18 */	addi r4, r1, 0x18
 /* 8019D1A4 0019A104  7F 03 C3 78 */	mr r3, r24
@@ -4010,7 +4010,7 @@ lbl_8019D228:
 /* 8019D274 0019A1D4  81 84 00 00 */	lwz r12, 0(r4)
 /* 8019D278 0019A1D8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8019D27C 0019A1DC  7D 89 03 A6 */	mtctr r12
-/* 8019D280 0019A1E0  4E 80 04 21 */	bctrl 
+/* 8019D280 0019A1E0  4E 80 04 21 */	bctrl
 /* 8019D284 0019A1E4  3B 01 00 48 */	addi r24, r1, 0x48
 /* 8019D288 0019A1E8  38 81 00 08 */	addi r4, r1, 8
 /* 8019D28C 0019A1EC  7F 03 C3 78 */	mr r3, r24

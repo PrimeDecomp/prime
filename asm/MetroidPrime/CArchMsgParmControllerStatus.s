@@ -38,7 +38,7 @@ lbl_8005A0D4:
 /* 8005A0DC 0005703C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8005A0E0 00057040  7C 08 03 A6 */	mtlr r0
 /* 8005A0E4 00057044  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005A0E8 00057048  4E 80 00 20 */	blr 
+/* 8005A0E8 00057048  4E 80 00 20 */	blr
 
 .global __ct__28CArchMsgParmControllerStatusFsb
 __ct__28CArchMsgParmControllerStatusFsb:
@@ -50,5 +50,5 @@ __ct__28CArchMsgParmControllerStatusFsb:
 /* 8005A100 00057060  90 03 00 00 */	stw r0, 0(r3)
 /* 8005A104 00057064  B0 83 00 04 */	sth r4, 4(r3)
 /* 8005A108 00057068  98 A3 00 06 */	stb r5, 6(r3)
-/* 8005A10C 0005706C  4E 80 00 20 */	blr 
+/* 8005A10C 0005706C  4E 80 00 20 */	blr
 

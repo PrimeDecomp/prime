@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global sndAuxCallbackReverbHI
 sndAuxCallbackReverbHI:
@@ -28,7 +28,7 @@ lbl_803B5B4C:
 /* 803B5B4C 003B2AAC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5B50 003B2AB0  7C 08 03 A6 */	mtlr r0
 /* 803B5B54 003B2AB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5B58 003B2AB8  4E 80 00 20 */	blr 
+/* 803B5B58 003B2AB8  4E 80 00 20 */	blr
 
 .global sndAuxCallbackPrepareReverbHI
 sndAuxCallbackPrepareReverbHI:
@@ -47,7 +47,7 @@ sndAuxCallbackPrepareReverbHI:
 /* 803B5B8C 003B2AEC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5B90 003B2AF0  7C 08 03 A6 */	mtlr r0
 /* 803B5B94 003B2AF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5B98 003B2AF8  4E 80 00 20 */	blr 
+/* 803B5B98 003B2AF8  4E 80 00 20 */	blr
 
 .global sndAuxCallbackShutdownReverbHI
 sndAuxCallbackShutdownReverbHI:
@@ -59,4 +59,4 @@ sndAuxCallbackShutdownReverbHI:
 /* 803B5BB0 003B2B10  38 60 00 01 */	li r3, 1
 /* 803B5BB4 003B2B14  7C 08 03 A6 */	mtlr r0
 /* 803B5BB8 003B2B18  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5BBC 003B2B1C  4E 80 00 20 */	blr  
+/* 803B5BBC 003B2B1C  4E 80 00 20 */	blr

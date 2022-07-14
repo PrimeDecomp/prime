@@ -16,7 +16,7 @@ lbl_805A98E0:
 .global lbl_805A98E4
 lbl_805A98E4:
 	.skip 0x4
-	
+
 .section .data
 .balign 8
 .global lbl_803F2260
@@ -33,7 +33,7 @@ lbl_803F2260:
 	.4byte 0x00004000
 	.4byte 0xFFFFFFFF
 	.4byte 0x00000000
-	
+
 .section .text, "ax"
 
 .global OSDisableInterrupts
@@ -46,7 +46,7 @@ __RAS_OSDisableInterrupts_begin:
 .global __RAS_OSDisableInterrupts_end
 __RAS_OSDisableInterrupts_end:
 /* 8038166C 0037E5CC  54 63 8F FE */	rlwinm r3, r3, 0x11, 0x1f, 0x1f
-/* 80381670 0037E5D0  4E 80 00 20 */	blr 
+/* 80381670 0037E5D0  4E 80 00 20 */	blr
 
 .global OSEnableInterrupts
 OSEnableInterrupts:
@@ -54,7 +54,7 @@ OSEnableInterrupts:
 /* 80381678 0037E5D8  60 64 80 00 */	ori r4, r3, 0x8000
 /* 8038167C 0037E5DC  7C 80 01 24 */	mtmsr r4
 /* 80381680 0037E5E0  54 63 8F FE */	rlwinm r3, r3, 0x11, 0x1f, 0x1f
-/* 80381684 0037E5E4  4E 80 00 20 */	blr 
+/* 80381684 0037E5E4  4E 80 00 20 */	blr
 
 .global OSRestoreInterrupts
 OSRestoreInterrupts:
@@ -68,7 +68,7 @@ lbl_8038169C:
 lbl_803816A0:
 /* 803816A0 0037E600  7C A0 01 24 */	mtmsr r5
 /* 803816A4 0037E604  54 83 8F FE */	rlwinm r3, r4, 0x11, 0x1f, 0x1f
-/* 803816A8 0037E608  4E 80 00 20 */	blr 
+/* 803816A8 0037E608  4E 80 00 20 */	blr
 
 .global __OSSetInterruptHandler
 __OSSetInterruptHandler:
@@ -78,7 +78,7 @@ __OSSetInterruptHandler:
 /* 803816B8 0037E618  7C A3 02 14 */	add r5, r3, r0
 /* 803816BC 0037E61C  80 65 00 00 */	lwz r3, 0(r5)
 /* 803816C0 0037E620  90 85 00 00 */	stw r4, 0(r5)
-/* 803816C4 0037E624  4E 80 00 20 */	blr 
+/* 803816C4 0037E624  4E 80 00 20 */	blr
 
 .global __OSGetInterruptHandler
 __OSGetInterruptHandler:
@@ -86,7 +86,7 @@ __OSGetInterruptHandler:
 /* 803816CC 0037E62C  80 6D AD 10 */	lwz r3, lbl_805A98D0@sda21(r13)
 /* 803816D0 0037E630  54 00 10 3A */	slwi r0, r0, 2
 /* 803816D4 0037E634  7C 63 00 2E */	lwzx r3, r3, r0
-/* 803816D8 0037E638  4E 80 00 20 */	blr 
+/* 803816D8 0037E638  4E 80 00 20 */	blr
 
 .global __OSInterruptInit
 __OSInterruptInit:
@@ -118,7 +118,7 @@ __OSInterruptInit:
 /* 80381740 0037E6A0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80381744 0037E6A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80381748 0037E6A8  7C 08 03 A6 */	mtlr r0
-/* 8038174C 0037E6AC  4E 80 00 20 */	blr 
+/* 8038174C 0037E6AC  4E 80 00 20 */	blr
 
 .global SetInterruptMask
 SetInterruptMask:
@@ -340,7 +340,7 @@ lbl_80381A14:
 /* 80381A1C 0037E97C  90 A4 00 04 */	stw r5, 4(r4)
 /* 80381A20 0037E980  54 63 06 E0 */	rlwinm r3, r3, 0, 0x1b, 0x10
 lbl_80381A24:
-/* 80381A24 0037E984  4E 80 00 20 */	blr 
+/* 80381A24 0037E984  4E 80 00 20 */	blr
 
 .global __OSMaskInterrupts
 __OSMaskInterrupts:
@@ -381,7 +381,7 @@ lbl_80381A80:
 /* 80381AA0 0037EA00  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80381AA4 0037EA04  38 21 00 20 */	addi r1, r1, 0x20
 /* 80381AA8 0037EA08  7C 08 03 A6 */	mtlr r0
-/* 80381AAC 0037EA0C  4E 80 00 20 */	blr 
+/* 80381AAC 0037EA0C  4E 80 00 20 */	blr
 
 .global __OSUnmaskInterrupts
 __OSUnmaskInterrupts:
@@ -422,7 +422,7 @@ lbl_80381B08:
 /* 80381B28 0037EA88  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80381B2C 0037EA8C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80381B30 0037EA90  7C 08 03 A6 */	mtlr r0
-/* 80381B34 0037EA94  4E 80 00 20 */	blr 
+/* 80381B34 0037EA94  4E 80 00 20 */	blr
 
 .global __OSDispatchInterrupt
 __OSDispatchInterrupt:
@@ -655,7 +655,7 @@ lbl_80381E30:
 /* 80381E38 0037ED98  7F C4 F3 78 */	mr r4, r30
 /* 80381E3C 0037ED9C  7F EC FB 78 */	mr r12, r31
 /* 80381E40 0037EDA0  7D 88 03 A6 */	mtlr r12
-/* 80381E44 0037EDA4  4E 80 00 21 */	blrl 
+/* 80381E44 0037EDA4  4E 80 00 21 */	blrl
 /* 80381E48 0037EDA8  48 00 27 D9 */	bl OSEnableScheduler
 /* 80381E4C 0037EDAC  48 00 2C A1 */	bl __OSReschedule
 /* 80381E50 0037EDB0  7F C3 F3 78 */	mr r3, r30
@@ -669,7 +669,7 @@ lbl_80381E58:
 /* 80381E6C 0037EDCC  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80381E70 0037EDD0  38 21 00 28 */	addi r1, r1, 0x28
 /* 80381E74 0037EDD4  7C 08 03 A6 */	mtlr r0
-/* 80381E78 0037EDD8  4E 80 00 20 */	blr 
+/* 80381E78 0037EDD8  4E 80 00 20 */	blr
 
 .global ExternalInterruptHandler
 ExternalInterruptHandler:

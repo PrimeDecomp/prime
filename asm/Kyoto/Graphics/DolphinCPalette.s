@@ -35,7 +35,7 @@ UnLock__16CGraphicsPaletteFv:
 /* 8030DEB4 0030AE14  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030DEB8 0030AE18  7C 08 03 A6 */	mtlr r0
 /* 8030DEBC 0030AE1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030DEC0 0030AE20  4E 80 00 20 */	blr 
+/* 8030DEC0 0030AE20  4E 80 00 20 */	blr
 
 .global Load__16CGraphicsPaletteCFv
 Load__16CGraphicsPaletteCFv:
@@ -53,7 +53,7 @@ Load__16CGraphicsPaletteCFv:
 /* 8030DEF0 0030AE50  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030DEF4 0030AE54  7C 08 03 A6 */	mtlr r0
 /* 8030DEF8 0030AE58  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030DEFC 0030AE5C  4E 80 00 20 */	blr 
+/* 8030DEFC 0030AE5C  4E 80 00 20 */	blr
 
 .global __dt__16CGraphicsPaletteFv
 __dt__16CGraphicsPaletteFv:
@@ -93,7 +93,7 @@ lbl_8030DF6C:
 /* 8030DF78 0030AED8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8030DF7C 0030AEDC  7C 08 03 A6 */	mtlr r0
 /* 8030DF80 0030AEE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030DF84 0030AEE4  4E 80 00 20 */	blr 
+/* 8030DF84 0030AEE4  4E 80 00 20 */	blr
 
 .global __ct__16CGraphicsPaletteFR12CInputStream
 __ct__16CGraphicsPaletteFR12CInputStream:
@@ -155,7 +155,7 @@ __ct__16CGraphicsPaletteFR12CInputStream:
 /* 8030E064 0030AFC4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8030E068 0030AFC8  7C 08 03 A6 */	mtlr r0
 /* 8030E06C 0030AFCC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030E070 0030AFD0  4E 80 00 20 */	blr 
+/* 8030E070 0030AFD0  4E 80 00 20 */	blr
 
 .global __ct__16CGraphicsPaletteF14EPaletteFormati
 __ct__16CGraphicsPaletteF14EPaletteFormati:

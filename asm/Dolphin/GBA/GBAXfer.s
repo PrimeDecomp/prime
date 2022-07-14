@@ -1,5 +1,5 @@
 .include "macros.inc"
-    
+
 .section .text, "ax"
 
 .global __GBAHandler
@@ -35,7 +35,7 @@ lbl_803CAC60:
 /* 803CAC70 003C7BD0  7D 88 03 A6 */	mtlr r12
 /* 803CAC74 003C7BD4  90 1F 00 38 */	stw r0, 0x38(r31)
 /* 803CAC78 003C7BD8  7F A3 EB 78 */	mr r3, r29
-/* 803CAC7C 003C7BDC  4E 80 00 21 */	blrl 
+/* 803CAC7C 003C7BDC  4E 80 00 21 */	blrl
 lbl_803CAC80:
 /* 803CAC80 003C7BE0  80 1F 00 1C */	lwz r0, 0x1c(r31)
 /* 803CAC84 003C7BE4  28 00 00 00 */	cmplwi r0, 0
@@ -50,7 +50,7 @@ lbl_803CAC80:
 /* 803CACA8 003C7C08  90 1F 00 1C */	stw r0, 0x1c(r31)
 /* 803CACAC 003C7C0C  7D 88 03 A6 */	mtlr r12
 /* 803CACB0 003C7C10  80 9F 00 20 */	lwz r4, 0x20(r31)
-/* 803CACB4 003C7C14  4E 80 00 21 */	blrl 
+/* 803CACB4 003C7C14  4E 80 00 21 */	blrl
 /* 803CACB8 003C7C18  38 61 00 18 */	addi r3, r1, 0x18
 /* 803CACBC 003C7C1C  4B FB 49 59 */	bl OSClearContext
 /* 803CACC0 003C7C20  7F C3 F3 78 */	mr r3, r30
@@ -62,7 +62,7 @@ lbl_803CACC8:
 /* 803CACD4 003C7C34  83 A1 02 EC */	lwz r29, 0x2ec(r1)
 /* 803CACD8 003C7C38  38 21 02 F8 */	addi r1, r1, 0x2f8
 /* 803CACDC 003C7C3C  7C 08 03 A6 */	mtlr r0
-/* 803CACE0 003C7C40  4E 80 00 20 */	blr 
+/* 803CACE0 003C7C40  4E 80 00 20 */	blr
 
 .global __GBASyncCallback
 __GBASyncCallback:
@@ -78,7 +78,7 @@ __GBASyncCallback:
 /* 803CAD08 003C7C68  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 803CAD0C 003C7C6C  38 21 00 08 */	addi r1, r1, 8
 /* 803CAD10 003C7C70  7C 08 03 A6 */	mtlr r0
-/* 803CAD14 003C7C74  4E 80 00 20 */	blr 
+/* 803CAD14 003C7C74  4E 80 00 20 */	blr
 
 .global __GBASync
 __GBASync:
@@ -110,7 +110,7 @@ lbl_803CAD50:
 /* 803CAD74 003C7CD4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803CAD78 003C7CD8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803CAD7C 003C7CDC  7C 08 03 A6 */	mtlr r0
-/* 803CAD80 003C7CE0  4E 80 00 20 */	blr 
+/* 803CAD80 003C7CE0  4E 80 00 20 */	blr
 
 .global TypeAndStatusCallback
 TypeAndStatusCallback:
@@ -161,7 +161,7 @@ lbl_803CAE18:
 /* 803CAE28 003C7D88  7D 88 03 A6 */	mtlr r12
 /* 803CAE2C 003C7D8C  90 1E 00 38 */	stw r0, 0x38(r30)
 /* 803CAE30 003C7D90  7F E3 FB 78 */	mr r3, r31
-/* 803CAE34 003C7D94  4E 80 00 21 */	blrl 
+/* 803CAE34 003C7D94  4E 80 00 21 */	blrl
 lbl_803CAE38:
 /* 803CAE38 003C7D98  80 1E 00 1C */	lwz r0, 0x1c(r30)
 /* 803CAE3C 003C7D9C  28 00 00 00 */	cmplwi r0, 0
@@ -178,7 +178,7 @@ lbl_803CAE38:
 /* 803CAE68 003C7DC8  90 1E 00 1C */	stw r0, 0x1c(r30)
 /* 803CAE6C 003C7DCC  7D 88 03 A6 */	mtlr r12
 /* 803CAE70 003C7DD0  80 9E 00 20 */	lwz r4, 0x20(r30)
-/* 803CAE74 003C7DD4  4E 80 00 21 */	blrl 
+/* 803CAE74 003C7DD4  4E 80 00 21 */	blrl
 /* 803CAE78 003C7DD8  38 61 00 10 */	addi r3, r1, 0x10
 /* 803CAE7C 003C7DDC  4B FB 47 99 */	bl OSClearContext
 /* 803CAE80 003C7DE0  7F A3 EB 78 */	mr r3, r29
@@ -191,7 +191,7 @@ lbl_803CAE8C:
 /* 803CAE98 003C7DF8  83 A1 02 E4 */	lwz r29, 0x2e4(r1)
 /* 803CAE9C 003C7DFC  38 21 02 F0 */	addi r1, r1, 0x2f0
 /* 803CAEA0 003C7E00  7C 08 03 A6 */	mtlr r0
-/* 803CAEA4 003C7E04  4E 80 00 20 */	blr 
+/* 803CAEA4 003C7E04  4E 80 00 20 */	blr
 
 .global __GBATransfer
 __GBATransfer:
@@ -223,4 +223,4 @@ __GBATransfer:
 /* 803CAF0C 003C7E6C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803CAF10 003C7E70  38 21 00 30 */	addi r1, r1, 0x30
 /* 803CAF14 003C7E74  7C 08 03 A6 */	mtlr r0
-/* 803CAF18 003C7E78  4E 80 00 20 */	blr 
+/* 803CAF18 003C7E78  4E 80 00 20 */	blr

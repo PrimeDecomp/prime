@@ -42,7 +42,7 @@ lbl_800E20AC:
 /* 800E20B8 000DF018  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E20BC 000DF01C  7C 08 03 A6 */	mtlr r0
 /* 800E20C0 000DF020  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E20C4 000DF024  4E 80 00 20 */	blr 
+/* 800E20C4 000DF024  4E 80 00 20 */	blr
 
 .global Accept__12CScriptRelayFR8IVisitor
 Accept__12CScriptRelayFR8IVisitor:
@@ -55,11 +55,11 @@ Accept__12CScriptRelayFR8IVisitor:
 /* 800E20E0 000DF040  7C 04 03 78 */	mr r4, r0
 /* 800E20E4 000DF044  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800E20E8 000DF048  7D 89 03 A6 */	mtctr r12
-/* 800E20EC 000DF04C  4E 80 04 21 */	bctrl 
+/* 800E20EC 000DF04C  4E 80 04 21 */	bctrl
 /* 800E20F0 000DF050  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E20F4 000DF054  7C 08 03 A6 */	mtlr r0
 /* 800E20F8 000DF058  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E20FC 000DF05C  4E 80 00 20 */	blr 
+/* 800E20FC 000DF05C  4E 80 00 20 */	blr
 
 .global Think__12CScriptRelayFfR13CStateManager
 Think__12CScriptRelayFfR13CStateManager:
@@ -96,7 +96,7 @@ lbl_800E2164:
 /* 800E216C 000DF0CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E2170 000DF0D0  7C 08 03 A6 */	mtlr r0
 /* 800E2174 000DF0D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E2178 000DF0D8  4E 80 00 20 */	blr 
+/* 800E2178 000DF0D8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CScriptRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CScriptRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -172,7 +172,7 @@ lbl_800E2268:
 /* 800E2274 000DF1D4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800E2278 000DF1D8  7C 08 03 A6 */	mtlr r0
 /* 800E227C 000DF1DC  38 21 00 30 */	addi r1, r1, 0x30
-/* 800E2280 000DF1E0  4E 80 00 20 */	blr 
+/* 800E2280 000DF1E0  4E 80 00 20 */	blr
 
 .global UpdateObjectRef__12CScriptRelayFR13CStateManager
 UpdateObjectRef__12CScriptRelayFR13CStateManager:
@@ -214,7 +214,7 @@ lbl_800E22F8:
 /* 800E2300 000DF260  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800E2304 000DF264  7C 08 03 A6 */	mtlr r0
 /* 800E2308 000DF268  38 21 00 20 */	addi r1, r1, 0x20
-/* 800E230C 000DF26C  4E 80 00 20 */	blr 
+/* 800E230C 000DF26C  4E 80 00 20 */	blr
 
 .global "__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfofb"
 "__ct__12CScriptRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfofb":

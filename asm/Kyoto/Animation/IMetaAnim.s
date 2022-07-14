@@ -47,7 +47,7 @@ lbl_802E712C:
 /* 802E7138 002E4098  38 A1 00 10 */	addi r5, r1, 0x10
 /* 802E713C 002E409C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802E7140 002E40A0  7D 89 03 A6 */	mtctr r12
-/* 802E7144 002E40A4  4E 80 04 21 */	bctrl 
+/* 802E7144 002E40A4  4E 80 04 21 */	bctrl
 /* 802E7148 002E40A8  C0 E1 00 18 */	lfs f7, 0x18(r1)
 /* 802E714C 002E40AC  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 802E7150 002E40B0  C0 C1 00 20 */	lfs f6, 0x20(r1)
@@ -82,7 +82,7 @@ lbl_802E7198:
 /* 802E71C0 002E4120  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 802E71C4 002E4124  7C 08 03 A6 */	mtlr r0
 /* 802E71C8 002E4128  38 21 00 70 */	addi r1, r1, 0x70
-/* 802E71CC 002E412C  4E 80 00 20 */	blr 
+/* 802E71CC 002E412C  4E 80 00 20 */	blr
 
 .global GetTime__9IMetaAnimFRC20CPreAdvanceIndicatorRC11IAnimReader
 GetTime__9IMetaAnimFRC20CPreAdvanceIndicatorRC11IAnimReader:
@@ -121,7 +121,7 @@ lbl_802E7218:
 /* 802E724C 002E41AC  38 61 00 08 */	addi r3, r1, 8
 /* 802E7250 002E41B0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802E7254 002E41B4  7D 89 03 A6 */	mtctr r12
-/* 802E7258 002E41B8  4E 80 04 21 */	bctrl 
+/* 802E7258 002E41B8  4E 80 04 21 */	bctrl
 /* 802E725C 002E41BC  7F 63 DB 78 */	mr r3, r27
 /* 802E7260 002E41C0  38 81 00 08 */	addi r4, r1, 8
 /* 802E7264 002E41C4  38 A1 00 10 */	addi r5, r1, 0x10
@@ -174,7 +174,7 @@ lbl_802E730C:
 /* 802E7310 002E4270  80 01 0F 34 */	lwz r0, 0xf34(r1)
 /* 802E7314 002E4274  7C 08 03 A6 */	mtlr r0
 /* 802E7318 002E4278  38 21 0F 30 */	addi r1, r1, 0xf30
-/* 802E731C 002E427C  4E 80 00 20 */	blr 
+/* 802E731C 002E427C  4E 80 00 20 */	blr
 
 .global PutTo__9IMetaAnimCFR13COutputStream
 PutTo__9IMetaAnimCFR13COutputStream:
@@ -188,7 +188,7 @@ PutTo__9IMetaAnimCFR13COutputStream:
 /* 802E733C 002E429C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E7340 002E42A0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802E7344 002E42A4  7D 89 03 A6 */	mtctr r12
-/* 802E7348 002E42A8  4E 80 04 21 */	bctrl 
+/* 802E7348 002E42A8  4E 80 04 21 */	bctrl
 /* 802E734C 002E42AC  90 61 00 08 */	stw r3, 8(r1)
 /* 802E7350 002E42B0  7F E3 FB 78 */	mr r3, r31
 /* 802E7354 002E42B4  48 05 81 65 */	bl FlushShiftRegister__13COutputStreamFv
@@ -201,13 +201,13 @@ PutTo__9IMetaAnimCFR13COutputStream:
 /* 802E7370 002E42D0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802E7374 002E42D4  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802E7378 002E42D8  7D 89 03 A6 */	mtctr r12
-/* 802E737C 002E42DC  4E 80 04 21 */	bctrl 
+/* 802E737C 002E42DC  4E 80 04 21 */	bctrl
 /* 802E7380 002E42E0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E7384 002E42E4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802E7388 002E42E8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802E738C 002E42EC  7C 08 03 A6 */	mtlr r0
 /* 802E7390 002E42F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E7394 002E42F4  4E 80 00 20 */	blr 
+/* 802E7394 002E42F4  4E 80 00 20 */	blr
 
 .global GetAnimationTree__9IMetaAnimCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 GetAnimationTree__9IMetaAnimCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders:
@@ -234,7 +234,7 @@ GetAnimationTree__9IMetaAnimCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders:
 /* 802E73E8 002E4348  38 C1 01 38 */	addi r6, r1, 0x138
 /* 802E73EC 002E434C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 802E73F0 002E4350  7D 89 03 A6 */	mtctr r12
-/* 802E73F4 002E4354  4E 80 04 21 */	bctrl 
+/* 802E73F4 002E4354  4E 80 04 21 */	bctrl
 /* 802E73F8 002E4358  80 A1 00 0C */	lwz r5, 0xc(r1)
 /* 802E73FC 002E435C  38 61 00 0C */	addi r3, r1, 0xc
 /* 802E7400 002E4360  90 A1 00 14 */	stw r5, 0x14(r1)
@@ -286,7 +286,7 @@ lbl_802E7488:
 /* 802E74AC 002E440C  38 C1 00 B0 */	addi r6, r1, 0xb0
 /* 802E74B0 002E4410  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 802E74B4 002E4414  7D 89 03 A6 */	mtctr r12
-/* 802E74B8 002E4418  4E 80 04 21 */	bctrl 
+/* 802E74B8 002E4418  4E 80 04 21 */	bctrl
 /* 802E74BC 002E441C  80 A1 00 08 */	lwz r5, 8(r1)
 /* 802E74C0 002E4420  38 61 00 08 */	addi r3, r1, 8
 /* 802E74C4 002E4424  90 A1 00 10 */	stw r5, 0x10(r1)
@@ -335,7 +335,7 @@ lbl_802E754C:
 /* 802E7564 002E44C4  38 C1 00 28 */	addi r6, r1, 0x28
 /* 802E7568 002E44C8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 802E756C 002E44CC  7D 89 03 A6 */	mtctr r12
-/* 802E7570 002E44D0  4E 80 04 21 */	bctrl 
+/* 802E7570 002E44D0  4E 80 04 21 */	bctrl
 /* 802E7574 002E44D4  38 00 00 00 */	li r0, 0
 /* 802E7578 002E44D8  98 01 00 AC */	stb r0, 0xac(r1)
 /* 802E757C 002E44DC  98 01 00 68 */	stb r0, 0x68(r1)
@@ -347,7 +347,7 @@ lbl_802E7580:
 /* 802E7590 002E44F0  83 81 01 C0 */	lwz r28, 0x1c0(r1)
 /* 802E7594 002E44F4  7C 08 03 A6 */	mtlr r0
 /* 802E7598 002E44F8  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 802E759C 002E44FC  4E 80 00 20 */	blr 
+/* 802E759C 002E44FC  4E 80 00 20 */	blr
 
 .global PreAdvanceForAll__24CMetaAnimTreeBuildOrdersFRC20CPreAdvanceIndicator
 PreAdvanceForAll__24CMetaAnimTreeBuildOrdersFRC20CPreAdvanceIndicator:
@@ -513,19 +513,19 @@ lbl_802E7800:
 /* 802E7808 002E4768  98 01 00 8C */	stb r0, 0x8c(r1)
 /* 802E780C 002E476C  98 01 00 48 */	stb r0, 0x48(r1)
 /* 802E7810 002E4770  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802E7814 002E4774  4E 80 00 20 */	blr 
+/* 802E7814 002E4774  4E 80 00 20 */	blr
 
 .global NoSpecialOrders__24CMetaAnimTreeBuildOrdersFv
 NoSpecialOrders__24CMetaAnimTreeBuildOrdersFv:
 /* 802E7818 002E4778  38 00 00 00 */	li r0, 0
 /* 802E781C 002E477C  98 03 00 40 */	stb r0, 0x40(r3)
 /* 802E7820 002E4780  98 03 00 84 */	stb r0, 0x84(r3)
-/* 802E7824 002E4784  4E 80 00 20 */	blr 
+/* 802E7824 002E4784  4E 80 00 20 */	blr
 
 .global GetString__20CPreAdvanceIndicatorCFv
 GetString__20CPreAdvanceIndicatorCFv:
 /* 802E7828 002E4788  38 63 00 0C */	addi r3, r3, 0xc
-/* 802E782C 002E478C  4E 80 00 20 */	blr 
+/* 802E782C 002E478C  4E 80 00 20 */	blr
 
 .global IsString__20CPreAdvanceIndicatorCFv
 IsString__20CPreAdvanceIndicatorCFv:
@@ -539,12 +539,12 @@ IsString__20CPreAdvanceIndicatorCFv:
 /* 802E784C 002E47AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E7850 002E47B0  7C 08 03 A6 */	mtlr r0
 /* 802E7854 002E47B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E7858 002E47B8  4E 80 00 20 */	blr 
+/* 802E7858 002E47B8  4E 80 00 20 */	blr
 
 .global GetTime__20CPreAdvanceIndicatorCFv
 GetTime__20CPreAdvanceIndicatorCFv:
 /* 802E785C 002E47BC  38 63 00 04 */	addi r3, r3, 4
-/* 802E7860 002E47C0  4E 80 00 20 */	blr 
+/* 802E7860 002E47C0  4E 80 00 20 */	blr
 
 .global IsTime__20CPreAdvanceIndicatorCFv
 IsTime__20CPreAdvanceIndicatorCFv:

@@ -233,7 +233,7 @@ lbl_8015BE0C:
 /* 8015BE10 00158D70  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8015BE14 00158D74  7C 08 03 A6 */	mtlr r0
 /* 8015BE18 00158D78  38 21 00 20 */	addi r1, r1, 0x20
-/* 8015BE1C 00158D7C  4E 80 00 20 */	blr 
+/* 8015BE1C 00158D7C  4E 80 00 20 */	blr
 
 .global AddPlatform__7CRipperFR13CStateManager
 AddPlatform__7CRipperFR13CStateManager:
@@ -377,7 +377,7 @@ lbl_8015C020:
 /* 8015C024 00158F84  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8015C028 00158F88  7C 08 03 A6 */	mtlr r0
 /* 8015C02C 00158F8C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8015C030 00158F90  4E 80 00 20 */	blr 
+/* 8015C030 00158F90  4E 80 00 20 */	blr
 
 .global sub_8015c034
 sub_8015c034:
@@ -424,7 +424,7 @@ lbl_8015C0C8:
 /* 8015C0D0 00159030  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8015C0D4 00159034  7C 08 03 A6 */	mtlr r0
 /* 8015C0D8 00159038  38 21 00 20 */	addi r1, r1, 0x20
-/* 8015C0DC 0015903C  4E 80 00 20 */	blr 
+/* 8015C0DC 0015903C  4E 80 00 20 */	blr
 
 .global sub_8015c0e0
 sub_8015c0e0:
@@ -449,7 +449,7 @@ lbl_8015C120:
 /* 8015C124 00159084  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8015C128 00159088  7C 08 03 A6 */	mtlr r0
 /* 8015C12C 0015908C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8015C130 00159090  4E 80 00 20 */	blr 
+/* 8015C130 00159090  4E 80 00 20 */	blr
 
 .global AddGrapplePoint__7CRipperFR13CStateManager
 AddGrapplePoint__7CRipperFR13CStateManager:
@@ -539,7 +539,7 @@ lbl_8015C268:
 /* 8015C26C 001591CC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8015C270 001591D0  7C 08 03 A6 */	mtlr r0
 /* 8015C274 001591D4  38 21 00 70 */	addi r1, r1, 0x70
-/* 8015C278 001591D8  4E 80 00 20 */	blr 
+/* 8015C278 001591D8  4E 80 00 20 */	blr
 
 .global Patrol__7CRipperFR13CStateManager9EStateMsgf
 Patrol__7CRipperFR13CStateManager9EStateMsgf:
@@ -576,12 +576,12 @@ Patrol__7CRipperFR13CStateManager9EStateMsgf:
 /* 8015C2F4 00159254  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8015C2F8 00159258  7C 08 03 A6 */	mtlr r0
 /* 8015C2FC 0015925C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8015C300 00159260  4E 80 00 20 */	blr 
+/* 8015C300 00159260  4E 80 00 20 */	blr
 
 .global PathOver__7CRipperFR13CStateManagerf
 PathOver__7CRipperFR13CStateManagerf:
 /* 8015C304 00159264  38 60 00 00 */	li r3, 0
-/* 8015C308 00159268  4E 80 00 20 */	blr 
+/* 8015C308 00159268  4E 80 00 20 */	blr
 
 .global KnockBack__7CRipperFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 KnockBack__7CRipperFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef:
@@ -638,7 +638,7 @@ KnockBack__7CRipperFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 /* 8015C3D4 00159334  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8015C3D8 00159338  7C 08 03 A6 */	mtlr r0
 /* 8015C3DC 0015933C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8015C3E0 00159340  4E 80 00 20 */	blr 
+/* 8015C3E0 00159340  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__7CRipperFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__7CRipperFRC9CVector3fRC9CVector3fRC11CWeaponModei:
@@ -652,7 +652,7 @@ GetCollisionResponseType__7CRipperFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 8015C400 00159360  81 83 00 00 */	lwz r12, 0(r3)
 /* 8015C404 00159364  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 8015C408 00159368  7D 89 03 A6 */	mtctr r12
-/* 8015C40C 0015936C  4E 80 04 21 */	bctrl 
+/* 8015C40C 0015936C  4E 80 04 21 */	bctrl
 /* 8015C410 00159370  7F C4 F3 78 */	mr r4, r30
 /* 8015C414 00159374  38 A0 00 00 */	li r5, 0
 /* 8015C418 00159378  4B FA 61 6D */	bl WeaponHits__20CDamageVulnerabilityCFRC11CWeaponModei
@@ -666,7 +666,7 @@ lbl_8015C428:
 /* 8015C434 00159394  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8015C438 00159398  7C 08 03 A6 */	mtlr r0
 /* 8015C43C 0015939C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015C440 001593A0  4E 80 00 20 */	blr 
+/* 8015C440 001593A0  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__7CRipperF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__7CRipperF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -753,7 +753,7 @@ lbl_8015C55C:
 /* 8015C568 001594C8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8015C56C 001594CC  7C 08 03 A6 */	mtlr r0
 /* 8015C570 001594D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8015C574 001594D4  4E 80 00 20 */	blr 
+/* 8015C574 001594D4  4E 80 00 20 */	blr
 
 .global Think__7CRipperFfR13CStateManager
 Think__7CRipperFfR13CStateManager:
@@ -833,7 +833,7 @@ lbl_8015C67C:
 /* 8015C688 001595E8  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8015C68C 001595EC  7C 08 03 A6 */	mtlr r0
 /* 8015C690 001595F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8015C694 001595F4  4E 80 00 20 */	blr 
+/* 8015C694 001595F4  4E 80 00 20 */	blr
 
 .global Accept__7CRipperFR8IVisitor
 Accept__7CRipperFR8IVisitor:
@@ -846,11 +846,11 @@ Accept__7CRipperFR8IVisitor:
 /* 8015C6B0 00159610  7C 04 03 78 */	mr r4, r0
 /* 8015C6B4 00159614  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8015C6B8 00159618  7D 89 03 A6 */	mtctr r12
-/* 8015C6BC 0015961C  4E 80 04 21 */	bctrl 
+/* 8015C6BC 0015961C  4E 80 04 21 */	bctrl
 /* 8015C6C0 00159620  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015C6C4 00159624  7C 08 03 A6 */	mtlr r0
 /* 8015C6C8 00159628  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015C6CC 0015962C  4E 80 00 20 */	blr 
+/* 8015C6CC 0015962C  4E 80 00 20 */	blr
 
 .global __dt__7CRipperFv
 __dt__7CRipperFv:
@@ -878,7 +878,7 @@ lbl_8015C714:
 /* 8015C720 00159680  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8015C724 00159684  7C 08 03 A6 */	mtlr r0
 /* 8015C728 00159688  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015C72C 0015968C  4E 80 00 20 */	blr 
+/* 8015C72C 0015968C  4E 80 00 20 */	blr
 
 .global "__ct__7CRipperF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParametersRC18CGrappleParameters"
 "__ct__7CRipperF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParametersRC18CGrappleParameters":

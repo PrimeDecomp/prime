@@ -36,7 +36,7 @@ TestBit__13CCubeRendererFPCUii:
 /* 802AE6E0 002AB640  7C 03 00 D0 */	neg r0, r3
 /* 802AE6E4 002AB644  7C 00 1B 78 */	or r0, r0, r3
 /* 802AE6E8 002AB648  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 802AE6EC 002AB64C  4E 80 00 20 */	blr 
+/* 802AE6EC 002AB64C  4E 80 00 20 */	blr
 
 .global RecursiveBuildOverlaps__18CAreaRenderOctTreeFPUiRC18CAreaRenderOctTreeRC6CAABoxRC6CAABox
 RecursiveBuildOverlaps__18CAreaRenderOctTreeFPUiRC18CAreaRenderOctTreeRC6CAABoxRC6CAABox:
@@ -120,7 +120,7 @@ lbl_802AE804:
 /* 802AE808 002AB768  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802AE80C 002AB76C  7C 08 03 A6 */	mtlr r0
 /* 802AE810 002AB770  38 21 00 50 */	addi r1, r1, 0x50
-/* 802AE814 002AB774  4E 80 00 20 */	blr 
+/* 802AE814 002AB774  4E 80 00 20 */	blr
 
 .global FindOverlappingModels__18CAreaRenderOctTreeFPUiRC6CAABox
 FindOverlappingModels__18CAreaRenderOctTreeFPUiRC6CAABox:
@@ -138,7 +138,7 @@ FindOverlappingModels__18CAreaRenderOctTreeFPUiRC6CAABox:
 /* 802AE844 002AB7A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802AE848 002AB7A8  7C 08 03 A6 */	mtlr r0
 /* 802AE84C 002AB7AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802AE850 002AB7B0  4E 80 00 20 */	blr 
+/* 802AE850 002AB7B0  4E 80 00 20 */	blr
 
 .global "FindOverlappingModels__18CAreaRenderOctTreeFRQ24rstl10vector<Ui>RC6CAABox"
 "FindOverlappingModels__18CAreaRenderOctTreeFRQ24rstl10vector<Ui>RC6CAABox":
@@ -170,7 +170,7 @@ FindOverlappingModels__18CAreaRenderOctTreeFPUiRC6CAABox:
 /* 802AE8B8 002AB818  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802AE8BC 002AB81C  7C 08 03 A6 */	mtlr r0
 /* 802AE8C0 002AB820  38 21 00 20 */	addi r1, r1, 0x20
-/* 802AE8C4 002AB824  4E 80 00 20 */	blr 
+/* 802AE8C4 002AB824  4E 80 00 20 */	blr
 
 .global sub_802ae8c8
 sub_802ae8c8:
@@ -230,7 +230,7 @@ lbl_802AE974:
 /* 802AE980 002AB8E0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802AE984 002AB8E4  7C 08 03 A6 */	mtlr r0
 /* 802AE988 002AB8E8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802AE98C 002AB8EC  4E 80 00 20 */	blr 
+/* 802AE98C 002AB8EC  4E 80 00 20 */	blr
 
 .global sub_802ae990
 sub_802ae990:
@@ -262,7 +262,7 @@ sub_802ae990:
 /* 802AE9F4 002AB954  38 63 C4 A8 */	addi r3, r3, lbl_803EC4A8@l
 /* 802AE9F8 002AB958  7C 03 00 2E */	lwzx r0, r3, r0
 /* 802AE9FC 002AB95C  7C 09 03 A6 */	mtctr r0
-/* 802AEA00 002AB960  4E 80 04 20 */	bctr 
+/* 802AEA00 002AB960  4E 80 04 20 */	bctr
 .global lbl_802AEA04
 lbl_802AEA04:
 /* 802AEA04 002AB964  EC 02 28 2A */	fadds f0, f2, f5
@@ -426,7 +426,7 @@ lbl_802AEC04:
 /* 802AEC20 002ABB80  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 802AEC24 002ABB84  7C 08 03 A6 */	mtlr r0
 /* 802AEC28 002ABB88  38 21 00 60 */	addi r1, r1, 0x60
-/* 802AEC2C 002ABB8C  4E 80 00 20 */	blr 
+/* 802AEC2C 002ABB8C  4E 80 00 20 */	blr
 
 .global sub_802aec30
 sub_802aec30:
@@ -435,7 +435,7 @@ sub_802aec30:
 /* 802AEC38 002ABB98  38 63 61 18 */	addi r3, r3, lbl_803D6118@l
 /* 802AEC3C 002ABB9C  54 00 10 3A */	slwi r0, r0, 2
 /* 802AEC40 002ABBA0  7C 63 00 2E */	lwzx r3, r3, r0
-/* 802AEC44 002ABBA4  4E 80 00 20 */	blr 
+/* 802AEC44 002ABBA4  4E 80 00 20 */	blr
 
 .global sub_802aec48
 sub_802aec48:

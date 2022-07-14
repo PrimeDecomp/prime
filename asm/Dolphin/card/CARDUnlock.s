@@ -4,7 +4,96 @@
 
 .global lbl_803F6D00
 lbl_803F6D00:
-	.incbin "baserom.dol", 0x3F3D00, 0x160
+	# ROM: 0x3F3D00
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000021
+	.4byte 0x02FF0021
+	.4byte 0x13061203
+	.4byte 0x12041305
+	.4byte 0x009200FF
+	.4byte 0x0088FFFF
+	.4byte 0x0089FFFF
+	.4byte 0x008AFFFF
+	.4byte 0x008BFFFF
+	.4byte 0x8F0002BF
+	.4byte 0x008816FC
+	.4byte 0xDCD116FD
+	.4byte 0x000016FB
+	.4byte 0x000102BF
+	.4byte 0x008E25FF
+	.4byte 0x0380FF00
+	.4byte 0x02940027
+	.4byte 0x02BF008E
+	.4byte 0x1FDF24FF
+	.4byte 0x02400FFF
+	.4byte 0x00980400
+	.4byte 0x009A0010
+	.4byte 0x00990000
+	.4byte 0x8E0002BF
+	.4byte 0x009402BF
+	.4byte 0x864402BF
+	.4byte 0x008816FC
+	.4byte 0xDCD116FD
+	.4byte 0x000316FB
+	.4byte 0x00018F00
+	.4byte 0x02BF008E
+	.4byte 0x0380CDD1
+	.4byte 0x02940048
+	.4byte 0x27FF0380
+	.4byte 0x00010295
+	.4byte 0x005A0380
+	.4byte 0x00020295
+	.4byte 0x8000029F
+	.4byte 0x00480021
+	.4byte 0x8E0002BF
+	.4byte 0x008E25FF
+	.4byte 0x02BF008E
+	.4byte 0x25FF02BF
+	.4byte 0x008E25FF
+	.4byte 0x02BF008E
+	.4byte 0x00C5FFFF
+	.4byte 0x03400FFF
+	.4byte 0x1C9F02BF
+	.4byte 0x008E00C7
+	.4byte 0xFFFF02BF
+	.4byte 0x008E00C6
+	.4byte 0xFFFF02BF
+	.4byte 0x008E00C0
+	.4byte 0xFFFF02BF
+	.4byte 0x008E20FF
+	.4byte 0x03400FFF
+	.4byte 0x1F5F02BF
+	.4byte 0x008E21FF
+	.4byte 0x02BF008E
+	.4byte 0x23FF1205
+	.4byte 0x1206029F
+	.4byte 0x80B50021
+	.4byte 0x27FC03C0
+	.4byte 0x8000029D
+	.4byte 0x008802DF
+	.4byte 0x27FE03C0
+	.4byte 0x8000029C
+	.4byte 0x008E02DF
+	.4byte 0x2ECE2CCF
+	.4byte 0x00F8FFCD
+	.4byte 0x00F9FFC9
+	.4byte 0x00FAFFCB
+	.4byte 0x26C902C0
+	.4byte 0x0004029D
+	.4byte 0x009C02DF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 
 .section .sdata, "wa"
 .global lbl_805A8BF8
@@ -118,7 +207,7 @@ lbl_803B91E8:
 /* 803B91E8 003B6148  39 08 00 01 */	addi r8, r8, 1
 /* 803B91EC 003B614C  42 00 FE C0 */	bdnz lbl_803B90AC
 /* 803B91F0 003B6150  7C E3 3B 78 */	mr r3, r7
-/* 803B91F4 003B6154  4E 80 00 20 */	blr 
+/* 803B91F4 003B6154  4E 80 00 20 */	blr
 
 .global ReadArrayUnlock
 ReadArrayUnlock:
@@ -207,7 +296,7 @@ lbl_803B9328:
 /* 803B932C 003B628C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 803B9330 003B6290  38 21 00 40 */	addi r1, r1, 0x40
 /* 803B9334 003B6294  7C 08 03 A6 */	mtlr r0
-/* 803B9338 003B6298  4E 80 00 20 */	blr 
+/* 803B9338 003B6298  4E 80 00 20 */	blr
 
 .global DummyLen
 DummyLen:
@@ -264,7 +353,7 @@ lbl_803B93E4:
 /* 803B93F0 003B6350  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 803B93F4 003B6354  38 21 00 28 */	addi r1, r1, 0x28
 /* 803B93F8 003B6358  7C 08 03 A6 */	mtlr r0
-/* 803B93FC 003B635C  4E 80 00 20 */	blr 
+/* 803B93FC 003B635C  4E 80 00 20 */	blr
 
 .global __CARDUnlock
 __CARDUnlock:
@@ -1011,7 +1100,7 @@ lbl_803B9F44:
 /* 803B9F48 003B6EA8  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 803B9F4C 003B6EAC  38 21 01 20 */	addi r1, r1, 0x120
 /* 803B9F50 003B6EB0  7C 08 03 A6 */	mtlr r0
-/* 803B9F54 003B6EB4  4E 80 00 20 */	blr 
+/* 803B9F54 003B6EB4  4E 80 00 20 */	blr
 
 .global InitCallback
 InitCallback:
@@ -1045,7 +1134,7 @@ lbl_803B9FA8:
 /* 803B9FB8 003B6F18  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803B9FBC 003B6F1C  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B9FC0 003B6F20  7C 08 03 A6 */	mtlr r0
-/* 803B9FC4 003B6F24  4E 80 00 20 */	blr 
+/* 803B9FC4 003B6F24  4E 80 00 20 */	blr
 
 .global DoneCallback
 DoneCallback:
@@ -1259,4 +1348,4 @@ lbl_803BA2CC:
 /* 803BA2DC 003B723C  83 81 00 78 */	lwz r28, 0x78(r1)
 /* 803BA2E0 003B7240  38 21 00 88 */	addi r1, r1, 0x88
 /* 803BA2E4 003B7244  7C 08 03 A6 */	mtlr r0
-/* 803BA2E8 003B7248  4E 80 00 20 */	blr 
+/* 803BA2E8 003B7248  4E 80 00 20 */	blr

@@ -43,7 +43,7 @@ CopyNodeMinusStartTime__16CParticlePOINodeFRC16CParticlePOINodeRC13CCharAnimTime
 /* 802FD044 002F9FA4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802FD048 002F9FA8  7C 08 03 A6 */	mtlr r0
 /* 802FD04C 002F9FAC  38 21 00 40 */	addi r1, r1, 0x40
-/* 802FD050 002F9FB0  4E 80 00 20 */	blr 
+/* 802FD050 002F9FB0  4E 80 00 20 */	blr
 
 .global __ct__16CParticlePOINodeFR12CInputStream
 __ct__16CParticlePOINodeFR12CInputStream:
@@ -67,4 +67,4 @@ __ct__16CParticlePOINodeFR12CInputStream:
 /* 802FD098 002F9FF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FD09C 002F9FFC  7C 08 03 A6 */	mtlr r0
 /* 802FD0A0 002FA000  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FD0A4 002FA004  4E 80 00 20 */	blr 
+/* 802FD0A4 002FA004  4E 80 00 20 */	blr

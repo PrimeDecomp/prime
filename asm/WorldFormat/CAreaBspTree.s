@@ -23,4 +23,4 @@ __ct__12CAreaBspTreeFR12CInputStreamRC12CTransform4f:
 /* 802A2960 0029F8C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A2964 0029F8C4  7C 08 03 A6 */	mtlr r0
 /* 802A2968 0029F8C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A296C 0029F8CC  4E 80 00 20 */	blr 
+/* 802A296C 0029F8CC  4E 80 00 20 */	blr

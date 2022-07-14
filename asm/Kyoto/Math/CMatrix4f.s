@@ -15,7 +15,7 @@ MultiplyGetW__9CMatrix4fCFRC9CVector3f:
 /* 80310740 0030D6A0  C0 23 00 3C */	lfs f1, 0x3c(r3)
 /* 80310744 0030D6A4  EC 04 00 FA */	fmadds f0, f4, f3, f0
 /* 80310748 0030D6A8  EC 21 00 2A */	fadds f1, f1, f0
-/* 8031074C 0030D6AC  4E 80 00 20 */	blr 
+/* 8031074C 0030D6AC  4E 80 00 20 */	blr
 
 .global MultiplyOneOverW__9CMatrix4fCFRC9CVector3f
 MultiplyOneOverW__9CMatrix4fCFRC9CVector3f:
@@ -62,7 +62,7 @@ MultiplyOneOverW__9CMatrix4fCFRC9CVector3f:
 /* 803107F0 0030D750  EC 00 03 72 */	fmuls f0, f0, f13
 /* 803107F4 0030D754  D0 23 00 04 */	stfs f1, 4(r3)
 /* 803107F8 0030D758  D0 03 00 08 */	stfs f0, 8(r3)
-/* 803107FC 0030D75C  4E 80 00 20 */	blr 
+/* 803107FC 0030D75C  4E 80 00 20 */	blr
 
 .global __ml__9CMatrix4fCFRC9CVector3f
 __ml__9CMatrix4fCFRC9CVector3f:
@@ -96,7 +96,7 @@ __ml__9CMatrix4fCFRC9CVector3f:
 /* 8031086C 0030D7CC  EC 04 08 2A */	fadds f0, f4, f1
 /* 80310870 0030D7D0  D0 43 00 04 */	stfs f2, 4(r3)
 /* 80310874 0030D7D4  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80310878 0030D7D8  4E 80 00 20 */	blr 
+/* 80310878 0030D7D8  4E 80 00 20 */	blr
 
 .global __ct__9CMatrix4fFffffffffffffffff
 __ct__9CMatrix4fFffffffffffffffff:
@@ -124,7 +124,7 @@ __ct__9CMatrix4fFffffffffffffffff:
 /* 803108D0 0030D830  D0 43 00 34 */	stfs f2, 0x34(r3)
 /* 803108D4 0030D834  D0 23 00 38 */	stfs f1, 0x38(r3)
 /* 803108D8 0030D838  D0 03 00 3C */	stfs f0, 0x3c(r3)
-/* 803108DC 0030D83C  4E 80 00 20 */	blr 
+/* 803108DC 0030D83C  4E 80 00 20 */	blr
 
 .global __sinit_CMatrix4f_cpp
 __sinit_CMatrix4f_cpp:

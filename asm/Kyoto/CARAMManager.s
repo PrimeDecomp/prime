@@ -49,7 +49,7 @@ CollectGarbage__12CARAMManagerFv:
 /* 803445F8 00341558  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803445FC 0034155C  7C 08 03 A6 */	mtlr r0
 /* 80344600 00341560  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344604 00341564  4E 80 00 20 */	blr 
+/* 80344604 00341564  4E 80 00 20 */	blr
 
 .global RefreshActiveDMAList__12CARAMManagerFv
 RefreshActiveDMAList__12CARAMManagerFv:
@@ -84,7 +84,7 @@ lbl_80344658:
 /* 8034466C 003415CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80344670 003415D0  7C 08 03 A6 */	mtlr r0
 /* 80344674 003415D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344678 003415D8  4E 80 00 20 */	blr 
+/* 80344678 003415D8  4E 80 00 20 */	blr
 
 .global AramManagerDMACallback__12CARAMManagerFUl
 AramManagerDMACallback__12CARAMManagerFUl:
@@ -104,7 +104,7 @@ lbl_803446AC:
 /* 803446AC 0034160C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803446B0 00341610  7C 08 03 A6 */	mtlr r0
 /* 803446B4 00341614  38 21 00 10 */	addi r1, r1, 0x10
-/* 803446B8 00341618  4E 80 00 20 */	blr 
+/* 803446B8 00341618  4E 80 00 20 */	blr
 
 .global CancelDMA__12CARAMManagerFUi
 CancelDMA__12CARAMManagerFUi:
@@ -122,14 +122,14 @@ lbl_803446D0:
 /* 803446E4 00341644  7C 03 00 D0 */	neg r0, r3
 /* 803446E8 00341648  7C 00 1B 78 */	or r0, r0, r3
 /* 803446EC 0034164C  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 803446F0 00341650  4E 80 00 20 */	blr 
+/* 803446F0 00341650  4E 80 00 20 */	blr
 lbl_803446F4:
 /* 803446F4 00341654  80 A5 00 04 */	lwz r5, 4(r5)
 lbl_803446F8:
 /* 803446F8 00341658  7C 05 20 40 */	cmplw r5, r4
 /* 803446FC 0034165C  40 82 FF D4 */	bne lbl_803446D0
 /* 80344700 00341660  38 60 00 01 */	li r3, 1
-/* 80344704 00341664  4E 80 00 20 */	blr 
+/* 80344704 00341664  4E 80 00 20 */	blr
 
 .global WaitForAllDMAsToComplete__12CARAMManagerFv
 WaitForAllDMAsToComplete__12CARAMManagerFv:
@@ -150,7 +150,7 @@ lbl_80344728:
 /* 80344738 00341698  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034473C 0034169C  7C 08 03 A6 */	mtlr r0
 /* 80344740 003416A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344744 003416A4  4E 80 00 20 */	blr 
+/* 80344744 003416A4  4E 80 00 20 */	blr
 
 .global WaitForDMACompletion__12CARAMManagerFUi
 WaitForDMACompletion__12CARAMManagerFUi:
@@ -189,7 +189,7 @@ lbl_803447B0:
 /* 803447B4 00341714  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803447B8 00341718  7C 08 03 A6 */	mtlr r0
 /* 803447BC 0034171C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803447C0 00341720  4E 80 00 20 */	blr 
+/* 803447C0 00341720  4E 80 00 20 */	blr
 
 .global IsDMACompleted__12CARAMManagerFUi
 IsDMACompleted__12CARAMManagerFUi:
@@ -232,7 +232,7 @@ lbl_8034483C:
 /* 80344840 003417A0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80344844 003417A4  7C 08 03 A6 */	mtlr r0
 /* 80344848 003417A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034484C 003417AC  4E 80 00 20 */	blr 
+/* 8034484C 003417AC  4E 80 00 20 */	blr
 
 .global DMAToMRAM__12CARAMManagerFPvPvUiQ212CARAMManager12EDMAPriority
 DMAToMRAM__12CARAMManagerFPvPvUiQ212CARAMManager12EDMAPriority:
@@ -317,7 +317,7 @@ lbl_80344970:
 /* 80344978 003418D8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8034497C 003418DC  7C 08 03 A6 */	mtlr r0
 /* 80344980 003418E0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80344984 003418E4  4E 80 00 20 */	blr 
+/* 80344984 003418E4  4E 80 00 20 */	blr
 
 .global DMAToARAM__12CARAMManagerFPvPvUiQ212CARAMManager12EDMAPriority
 DMAToARAM__12CARAMManagerFPvPvUiQ212CARAMManager12EDMAPriority:
@@ -401,7 +401,7 @@ lbl_80344AA4:
 /* 80344AAC 00341A0C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80344AB0 00341A10  7C 08 03 A6 */	mtlr r0
 /* 80344AB4 00341A14  38 21 00 30 */	addi r1, r1, 0x30
-/* 80344AB8 00341A18  4E 80 00 20 */	blr 
+/* 80344AB8 00341A18  4E 80 00 20 */	blr
 
 .global Free__12CARAMManagerFPCv
 Free__12CARAMManagerFPCv:
@@ -409,7 +409,7 @@ Free__12CARAMManagerFPCv:
 /* 80344AC0 00341A20  7C 00 18 40 */	cmplw r0, r3
 /* 80344AC4 00341A24  40 82 00 0C */	bne lbl_80344AD0
 /* 80344AC8 00341A28  38 60 00 00 */	li r3, 0
-/* 80344ACC 00341A2C  4E 80 00 20 */	blr 
+/* 80344ACC 00341A2C  4E 80 00 20 */	blr
 lbl_80344AD0:
 /* 80344AD0 00341A30  80 8D A9 64 */	lwz r4, lbl_805A9524@sda21(r13)
 /* 80344AD4 00341A34  38 A0 00 00 */	li r5, 0
@@ -464,7 +464,7 @@ lbl_80344B80:
 /* 80344B8C 00341AEC  42 00 FF F4 */	bdnz lbl_80344B80
 lbl_80344B90:
 /* 80344B90 00341AF0  38 60 00 01 */	li r3, 1
-/* 80344B94 00341AF4  4E 80 00 20 */	blr 
+/* 80344B94 00341AF4  4E 80 00 20 */	blr
 
 .global FindFreeBlocks__12CARAMManagerFUiUiUi
 FindFreeBlocks__12CARAMManagerFUiUiUi:
@@ -476,7 +476,7 @@ lbl_80344BA0:
 /* 80344BA8 00341B08  28 00 00 00 */	cmplwi r0, 0
 /* 80344BAC 00341B0C  40 82 00 68 */	bne lbl_80344C14
 /* 80344BB0 00341B10  28 05 00 01 */	cmplwi r5, 1
-/* 80344BB4 00341B14  4D 82 00 20 */	beqlr 
+/* 80344BB4 00341B14  4D 82 00 20 */	beqlr
 /* 80344BB8 00341B18  38 63 00 01 */	addi r3, r3, 1
 /* 80344BBC 00341B1C  39 00 00 01 */	li r8, 1
 /* 80344BC0 00341B20  54 66 10 3A */	slwi r6, r3, 2
@@ -497,7 +497,7 @@ lbl_80344BEC:
 /* 80344BF4 00341B54  40 82 00 10 */	bne lbl_80344C04
 /* 80344BF8 00341B58  38 05 FF FF */	addi r0, r5, -1
 /* 80344BFC 00341B5C  7C 60 18 50 */	subf r3, r0, r3
-/* 80344C00 00341B60  4E 80 00 20 */	blr 
+/* 80344C00 00341B60  4E 80 00 20 */	blr
 lbl_80344C04:
 /* 80344C04 00341B64  38 C6 00 04 */	addi r6, r6, 4
 /* 80344C08 00341B68  38 63 00 01 */	addi r3, r3, 1
@@ -509,7 +509,7 @@ lbl_80344C18:
 /* 80344C18 00341B78  7C 03 20 40 */	cmplw r3, r4
 /* 80344C1C 00341B7C  41 80 FF 84 */	blt lbl_80344BA0
 /* 80344C20 00341B80  38 60 FF FF */	li r3, -1
-/* 80344C24 00341B84  4E 80 00 20 */	blr 
+/* 80344C24 00341B84  4E 80 00 20 */	blr
 
 .global Alloc__12CARAMManagerFUi
 Alloc__12CARAMManagerFUi:
@@ -555,7 +555,7 @@ lbl_80344CB0:
 /* 80344CB4 00341C14  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80344CB8 00341C18  7C 08 03 A6 */	mtlr r0
 /* 80344CBC 00341C1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344CC0 00341C20  4E 80 00 20 */	blr 
+/* 80344CC0 00341C20  4E 80 00 20 */	blr
 
 .global Shutdown__12CARAMManagerFv
 Shutdown__12CARAMManagerFv:
@@ -578,7 +578,7 @@ Shutdown__12CARAMManagerFv:
 /* 80344D04 00341C64  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80344D08 00341C68  7C 08 03 A6 */	mtlr r0
 /* 80344D0C 00341C6C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344D10 00341C70  4E 80 00 20 */	blr 
+/* 80344D10 00341C70  4E 80 00 20 */	blr
 
 .global Initialize__12CARAMManagerFUi
 Initialize__12CARAMManagerFUi:
@@ -677,7 +677,7 @@ lbl_80344E58:
 /* 80344E74 00341DD4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80344E78 00341DD8  7C 08 03 A6 */	mtlr r0
 /* 80344E7C 00341DDC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80344E80 00341DE0  4E 80 00 20 */	blr 
+/* 80344E80 00341DE0  4E 80 00 20 */	blr
 
 .global sub_80344e84
 sub_80344e84:
@@ -713,7 +713,7 @@ lbl_80344ED8:
 /* 80344EF0 00341E50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80344EF4 00341E54  7C 08 03 A6 */	mtlr r0
 /* 80344EF8 00341E58  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344EFC 00341E5C  4E 80 00 20 */	blr 
+/* 80344EFC 00341E5C  4E 80 00 20 */	blr
 
 .global __sinit_CARAMManager_cpp
 __sinit_CARAMManager_cpp:
@@ -737,7 +737,7 @@ __sinit_CARAMManager_cpp:
 /* 80344F44 00341EA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80344F48 00341EA8  7C 08 03 A6 */	mtlr r0
 /* 80344F4C 00341EAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80344F50 00341EB0  4E 80 00 20 */	blr 
+/* 80344F50 00341EB0  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl67list<PQ212CARAMManager15SAramDMARequest,Q24rstl17rmemory_allocator>Fv"
 "__dt__Q24rstl67list<PQ212CARAMManager15SAramDMARequest,Q24rstl17rmemory_allocator>Fv":

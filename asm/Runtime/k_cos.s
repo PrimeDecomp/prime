@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global __kernel_cos
 __kernel_cos:
@@ -69,4 +69,4 @@ lbl_80393090:
 /* 803930B4 00390014  FC 22 00 28 */	fsub f1, f2, f0
 lbl_803930B8:
 /* 803930B8 00390018  38 21 00 20 */	addi r1, r1, 0x20
-/* 803930BC 0039001C  4E 80 00 20 */	blr 
+/* 803930BC 0039001C  4E 80 00 20 */	blr

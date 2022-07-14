@@ -9,7 +9,7 @@ lbl_803D96D8:
 	.4byte 0
 	.4byte IsQualified__11CObjectListFRC7CEntity
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global GetObjectByIndex__11CObjectListCFi
@@ -17,7 +17,7 @@ GetObjectByIndex__11CObjectListCFi:
 /* 8000FCCC 0000CC2C  54 80 18 38 */	slwi r0, r4, 3
 /* 8000FCD0 0000CC30  7C 63 02 14 */	add r3, r3, r0
 /* 8000FCD4 0000CC34  80 63 00 04 */	lwz r3, 4(r3)
-/* 8000FCD8 0000CC38  4E 80 00 20 */	blr 
+/* 8000FCD8 0000CC38  4E 80 00 20 */	blr
 
 .global __vc__11CObjectListCFi
 __vc__11CObjectListCFi:
@@ -34,9 +34,9 @@ lbl_8000FD00:
 /* 8000FD00 0000CC60  38 80 00 01 */	li r4, 1
 lbl_8000FD04:
 /* 8000FD04 0000CC64  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8000FD08 0000CC68  4D 82 00 20 */	beqlr 
+/* 8000FD08 0000CC68  4D 82 00 20 */	beqlr
 /* 8000FD0C 0000CC6C  38 60 00 00 */	li r3, 0
-/* 8000FD10 0000CC70  4E 80 00 20 */	blr 
+/* 8000FD10 0000CC70  4E 80 00 20 */	blr
 
 .global __vc__11CObjectListFi
 __vc__11CObjectListFi:
@@ -53,9 +53,9 @@ lbl_8000FD38:
 /* 8000FD38 0000CC98  38 80 00 01 */	li r4, 1
 lbl_8000FD3C:
 /* 8000FD3C 0000CC9C  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8000FD40 0000CCA0  4D 82 00 20 */	beqlr 
+/* 8000FD40 0000CCA0  4D 82 00 20 */	beqlr
 /* 8000FD44 0000CCA4  38 60 00 00 */	li r3, 0
-/* 8000FD48 0000CCA8  4E 80 00 20 */	blr 
+/* 8000FD48 0000CCA8  4E 80 00 20 */	blr
 
 .global GetValidObjectById__11CObjectListCF9TUniqueId
 GetValidObjectById__11CObjectListCF9TUniqueId:
@@ -64,7 +64,7 @@ GetValidObjectById__11CObjectListCF9TUniqueId:
 /* 8000FD54 0000CCB4  7C 05 00 40 */	cmplw r5, r0
 /* 8000FD58 0000CCB8  40 82 00 0C */	bne lbl_8000FD64
 /* 8000FD5C 0000CCBC  38 60 00 00 */	li r3, 0
-/* 8000FD60 0000CCC0  4E 80 00 20 */	blr 
+/* 8000FD60 0000CCC0  4E 80 00 20 */	blr
 lbl_8000FD64:
 /* 8000FD64 0000CCC4  54 A0 1C F8 */	rlwinm r0, r5, 3, 0x13, 0x1c
 /* 8000FD68 0000CCC8  38 80 00 00 */	li r4, 0
@@ -78,9 +78,9 @@ lbl_8000FD64:
 /* 8000FD88 0000CCE8  38 80 00 01 */	li r4, 1
 lbl_8000FD8C:
 /* 8000FD8C 0000CCEC  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8000FD90 0000CCF0  4C 82 00 20 */	bnelr 
+/* 8000FD90 0000CCF0  4C 82 00 20 */	bnelr
 /* 8000FD94 0000CCF4  38 60 00 00 */	li r3, 0
-/* 8000FD98 0000CCF8  4E 80 00 20 */	blr 
+/* 8000FD98 0000CCF8  4E 80 00 20 */	blr
 
 .global GetValidObjectById__11CObjectListF9TUniqueId
 GetValidObjectById__11CObjectListF9TUniqueId:
@@ -89,7 +89,7 @@ GetValidObjectById__11CObjectListF9TUniqueId:
 /* 8000FDA4 0000CD04  7C 05 00 40 */	cmplw r5, r0
 /* 8000FDA8 0000CD08  40 82 00 0C */	bne lbl_8000FDB4
 /* 8000FDAC 0000CD0C  38 60 00 00 */	li r3, 0
-/* 8000FDB0 0000CD10  4E 80 00 20 */	blr 
+/* 8000FDB0 0000CD10  4E 80 00 20 */	blr
 lbl_8000FDB4:
 /* 8000FDB4 0000CD14  54 A0 1C F8 */	rlwinm r0, r5, 3, 0x13, 0x1c
 /* 8000FDB8 0000CD18  38 80 00 00 */	li r4, 0
@@ -103,9 +103,9 @@ lbl_8000FDB4:
 /* 8000FDD8 0000CD38  38 80 00 01 */	li r4, 1
 lbl_8000FDDC:
 /* 8000FDDC 0000CD3C  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8000FDE0 0000CD40  4C 82 00 20 */	bnelr 
+/* 8000FDE0 0000CD40  4C 82 00 20 */	bnelr
 /* 8000FDE4 0000CD44  38 60 00 00 */	li r3, 0
-/* 8000FDE8 0000CD48  4E 80 00 20 */	blr 
+/* 8000FDE8 0000CD48  4E 80 00 20 */	blr
 
 .global GetObjectById__11CObjectListCF9TUniqueId
 GetObjectById__11CObjectListCF9TUniqueId:
@@ -114,7 +114,7 @@ GetObjectById__11CObjectListCF9TUniqueId:
 /* 8000FDF4 0000CD54  7C 05 00 40 */	cmplw r5, r0
 /* 8000FDF8 0000CD58  40 82 00 0C */	bne lbl_8000FE04
 /* 8000FDFC 0000CD5C  38 60 00 00 */	li r3, 0
-/* 8000FE00 0000CD60  4E 80 00 20 */	blr 
+/* 8000FE00 0000CD60  4E 80 00 20 */	blr
 lbl_8000FE04:
 /* 8000FE04 0000CD64  54 A0 1C F8 */	rlwinm r0, r5, 3, 0x13, 0x1c
 /* 8000FE08 0000CD68  38 80 00 00 */	li r4, 0
@@ -131,9 +131,9 @@ lbl_8000FE04:
 /* 8000FE34 0000CD94  38 80 00 01 */	li r4, 1
 lbl_8000FE38:
 /* 8000FE38 0000CD98  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8000FE3C 0000CD9C  4C 82 00 20 */	bnelr 
+/* 8000FE3C 0000CD9C  4C 82 00 20 */	bnelr
 /* 8000FE40 0000CDA0  38 60 00 00 */	li r3, 0
-/* 8000FE44 0000CDA4  4E 80 00 20 */	blr 
+/* 8000FE44 0000CDA4  4E 80 00 20 */	blr
 
 .global GetObjectById__11CObjectListF9TUniqueId
 GetObjectById__11CObjectListF9TUniqueId:
@@ -142,7 +142,7 @@ GetObjectById__11CObjectListF9TUniqueId:
 /* 8000FE50 0000CDB0  7C 05 00 40 */	cmplw r5, r0
 /* 8000FE54 0000CDB4  40 82 00 0C */	bne lbl_8000FE60
 /* 8000FE58 0000CDB8  38 60 00 00 */	li r3, 0
-/* 8000FE5C 0000CDBC  4E 80 00 20 */	blr 
+/* 8000FE5C 0000CDBC  4E 80 00 20 */	blr
 lbl_8000FE60:
 /* 8000FE60 0000CDC0  54 A0 1C F8 */	rlwinm r0, r5, 3, 0x13, 0x1c
 /* 8000FE64 0000CDC4  38 80 00 00 */	li r4, 0
@@ -159,9 +159,9 @@ lbl_8000FE60:
 /* 8000FE90 0000CDF0  38 80 00 01 */	li r4, 1
 lbl_8000FE94:
 /* 8000FE94 0000CDF4  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8000FE98 0000CDF8  4C 82 00 20 */	bnelr 
+/* 8000FE98 0000CDF8  4C 82 00 20 */	bnelr
 /* 8000FE9C 0000CDFC  38 60 00 00 */	li r3, 0
-/* 8000FEA0 0000CE00  4E 80 00 20 */	blr 
+/* 8000FEA0 0000CE00  4E 80 00 20 */	blr
 
 .global RemoveObject__11CObjectListF9TUniqueId
 RemoveObject__11CObjectListF9TUniqueId:
@@ -171,10 +171,10 @@ RemoveObject__11CObjectListF9TUniqueId:
 /* 8000FEB0 0000CE10  7C A3 02 14 */	add r5, r3, r0
 /* 8000FEB4 0000CE14  80 C5 00 04 */	lwz r6, 4(r5)
 /* 8000FEB8 0000CE18  28 06 00 00 */	cmplwi r6, 0
-/* 8000FEBC 0000CE1C  4D 82 00 20 */	beqlr 
+/* 8000FEBC 0000CE1C  4D 82 00 20 */	beqlr
 /* 8000FEC0 0000CE20  A0 06 00 08 */	lhz r0, 8(r6)
 /* 8000FEC4 0000CE24  7C 00 38 40 */	cmplw r0, r7
-/* 8000FEC8 0000CE28  4C 82 00 20 */	bnelr 
+/* 8000FEC8 0000CE28  4C 82 00 20 */	bnelr
 /* 8000FECC 0000CE2C  A8 03 20 08 */	lha r0, 0x2008(r3)
 /* 8000FED0 0000CE30  7C 00 40 00 */	cmpw r0, r8
 /* 8000FED4 0000CE34  40 82 00 38 */	bne lbl_8000FF0C
@@ -222,7 +222,7 @@ lbl_8000FF48:
 /* 8000FF74 0000CED4  7C 63 02 14 */	add r3, r3, r0
 /* 8000FF78 0000CED8  B0 A3 00 08 */	sth r5, 8(r3)
 /* 8000FF7C 0000CEDC  B0 A3 00 0A */	sth r5, 0xa(r3)
-/* 8000FF80 0000CEE0  4E 80 00 20 */	blr 
+/* 8000FF80 0000CEE0  4E 80 00 20 */	blr
 
 .global AddObject__11CObjectListFR7CEntity
 AddObject__11CObjectListFR7CEntity:
@@ -236,7 +236,7 @@ AddObject__11CObjectListFR7CEntity:
 /* 8000FFA0 0000CF00  81 83 00 00 */	lwz r12, 0(r3)
 /* 8000FFA4 0000CF04  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8000FFA8 0000CF08  7D 89 03 A6 */	mtctr r12
-/* 8000FFAC 0000CF0C  4E 80 04 21 */	bctrl 
+/* 8000FFAC 0000CF0C  4E 80 04 21 */	bctrl
 /* 8000FFB0 0000CF10  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8000FFB4 0000CF14  41 82 00 64 */	beq lbl_80010018
 /* 8000FFB8 0000CF18  A8 1E 20 08 */	lha r0, 0x2008(r30)
@@ -270,12 +270,12 @@ lbl_80010018:
 /* 80010020 0000CF80  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80010024 0000CF84  7C 08 03 A6 */	mtlr r0
 /* 80010028 0000CF88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001002C 0000CF8C  4E 80 00 20 */	blr 
+/* 8001002C 0000CF8C  4E 80 00 20 */	blr
 
 .global IsQualified__11CObjectListFRC7CEntity
 IsQualified__11CObjectListFRC7CEntity:
 /* 80010030 0000CF90  38 60 00 01 */	li r3, 1
-/* 80010034 0000CF94  4E 80 00 20 */	blr 
+/* 80010034 0000CF94  4E 80 00 20 */	blr
 
 .global __ct__11CObjectListF15EGameObjectList
 __ct__11CObjectListF15EGameObjectList:
@@ -340,7 +340,7 @@ lbl_800100A0:
 /* 8001011C 0000D07C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80010120 0000D080  7C 08 03 A6 */	mtlr r0
 /* 80010124 0000D084  38 21 00 10 */	addi r1, r1, 0x10
-/* 80010128 0000D088  4E 80 00 20 */	blr 
+/* 80010128 0000D088  4E 80 00 20 */	blr
 
 .global __ct__Q211CObjectList16SObjectListEntryFv
 __ct__Q211CObjectList16SObjectListEntryFv:
@@ -349,4 +349,4 @@ __ct__Q211CObjectList16SObjectListEntryFv:
 /* 80010134 0000D094  90 83 00 00 */	stw r4, 0(r3)
 /* 80010138 0000D098  B0 03 00 04 */	sth r0, 4(r3)
 /* 8001013C 0000D09C  B0 03 00 06 */	sth r0, 6(r3)
-/* 80010140 0000D0A0  4E 80 00 20 */	blr 
+/* 80010140 0000D0A0  4E 80 00 20 */	blr

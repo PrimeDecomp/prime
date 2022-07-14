@@ -40,16 +40,16 @@ lbl_802E2B50:
 /* 802E2B58 002DFAB8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E2B5C 002DFABC  7C 08 03 A6 */	mtlr r0
 /* 802E2B60 002DFAC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2B64 002DFAC4  4E 80 00 20 */	blr 
+/* 802E2B64 002DFAC4  4E 80 00 20 */	blr
 
 .global GetType__14CMetaTransSnapCFv
 GetType__14CMetaTransSnapCFv:
 /* 802E2B68 002DFAC8  38 60 00 03 */	li r3, 3
-/* 802E2B6C 002DFACC  4E 80 00 20 */	blr 
+/* 802E2B6C 002DFACC  4E 80 00 20 */	blr
 
 .global WriteTransData__14CMetaTransSnapCFR13COutputStream
 WriteTransData__14CMetaTransSnapCFR13COutputStream:
-/* 802E2B70 002DFAD0  4E 80 00 20 */	blr 
+/* 802E2B70 002DFAD0  4E 80 00 20 */	blr
 
 .global "VGetTransitionTree__14CMetaTransSnapCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext"
 "VGetTransitionTree__14CMetaTransSnapCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext":

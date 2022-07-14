@@ -68,7 +68,7 @@ lbl_8024B880:
 /* 8024B88C 002487EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024B890 002487F0  7C 08 03 A6 */	mtlr r0
 /* 8024B894 002487F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024B898 002487F8  4E 80 00 20 */	blr 
+/* 8024B898 002487F8  4E 80 00 20 */	blr
 
 .global Accept__10CAmbientAIFR8IVisitor
 Accept__10CAmbientAIFR8IVisitor:
@@ -81,11 +81,11 @@ Accept__10CAmbientAIFR8IVisitor:
 /* 8024B8B4 00248814  7C 04 03 78 */	mr r4, r0
 /* 8024B8B8 00248818  81 8C 00 50 */	lwz r12, 0x50(r12)
 /* 8024B8BC 0024881C  7D 89 03 A6 */	mtctr r12
-/* 8024B8C0 00248820  4E 80 04 21 */	bctrl 
+/* 8024B8C0 00248820  4E 80 04 21 */	bctrl
 /* 8024B8C4 00248824  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024B8C8 00248828  7C 08 03 A6 */	mtlr r0
 /* 8024B8CC 0024882C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024B8D0 00248830  4E 80 00 20 */	blr 
+/* 8024B8D0 00248830  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__10CAmbientAIF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CAmbientAIF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -118,7 +118,7 @@ lbl_8024B924:
 /* 8024B934 00248894  38 80 00 01 */	li r4, 1
 /* 8024B938 00248898  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8024B93C 0024889C  7D 89 03 A6 */	mtctr r12
-/* 8024B940 002488A0  4E 80 04 21 */	bctrl 
+/* 8024B940 002488A0  4E 80 04 21 */	bctrl
 lbl_8024B944:
 /* 8024B944 002488A4  38 E0 00 00 */	li r7, 0
 /* 8024B948 002488A8  C0 02 B8 90 */	lfs f0, lbl_805AD5B0@sda21(r2)
@@ -207,7 +207,7 @@ lbl_8024BA5C:
 /* 8024BA88 002489E8  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 8024BA8C 002489EC  7C 08 03 A6 */	mtlr r0
 /* 8024BA90 002489F0  38 21 00 70 */	addi r1, r1, 0x70
-/* 8024BA94 002489F4  4E 80 00 20 */	blr 
+/* 8024BA94 002489F4  4E 80 00 20 */	blr
 
 .global Think__10CAmbientAIFfR13CStateManager
 Think__10CAmbientAIFfR13CStateManager:
@@ -438,7 +438,7 @@ lbl_8024BDCC:
 /* 8024BDF8 00248D58  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8024BDFC 00248D5C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8024BE00 00248D60  7D 89 03 A6 */	mtctr r12
-/* 8024BE04 00248D64  4E 80 04 21 */	bctrl 
+/* 8024BE04 00248D64  4E 80 04 21 */	bctrl
 /* 8024BE08 00248D68  48 00 00 7C */	b lbl_8024BE84
 lbl_8024BE0C:
 /* 8024BE0C 00248D6C  88 1E 02 E8 */	lbz r0, 0x2e8(r30)
@@ -480,7 +480,7 @@ lbl_8024BE84:
 /* 8024BE98 00248DF8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8024BE9C 00248DFC  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8024BEA0 00248E00  7D 89 03 A6 */	mtctr r12
-/* 8024BEA4 00248E04  4E 80 04 21 */	bctrl 
+/* 8024BEA4 00248E04  4E 80 04 21 */	bctrl
 /* 8024BEA8 00248E08  C0 23 00 00 */	lfs f1, 0(r3)
 /* 8024BEAC 00248E0C  C0 02 B8 98 */	lfs f0, lbl_805AD5B8@sda21(r2)
 /* 8024BEB0 00248E10  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -502,7 +502,7 @@ lbl_8024BE84:
 /* 8024BEF0 00248E50  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8024BEF4 00248E54  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8024BEF8 00248E58  7D 89 03 A6 */	mtctr r12
-/* 8024BEFC 00248E5C  4E 80 04 21 */	bctrl 
+/* 8024BEFC 00248E5C  4E 80 04 21 */	bctrl
 lbl_8024BF00:
 /* 8024BF00 00248E60  E3 E1 01 18 */	psq_l f31, 280(r1), 0, qr0
 /* 8024BF04 00248E64  CB E1 01 10 */	lfd f31, 0x110(r1)
@@ -510,7 +510,7 @@ lbl_8024BF00:
 /* 8024BF0C 00248E6C  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8024BF10 00248E70  7C 08 03 A6 */	mtlr r0
 /* 8024BF14 00248E74  38 21 01 20 */	addi r1, r1, 0x120
-/* 8024BF18 00248E78  4E 80 00 20 */	blr 
+/* 8024BF18 00248E78  4E 80 00 20 */	blr
 
 .global sub_8024bf1c
 sub_8024bf1c:
@@ -531,7 +531,7 @@ sub_8024bf1c:
 /* 8024BF54 00248EB4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024BF58 00248EB8  7C 08 03 A6 */	mtlr r0
 /* 8024BF5C 00248EBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024BF60 00248EC0  4E 80 00 20 */	blr 
+/* 8024BF60 00248EC0  4E 80 00 20 */	blr
 
 .global GetTouchBounds__10CAmbientAICFv
 GetTouchBounds__10CAmbientAICFv:
@@ -570,21 +570,21 @@ lbl_8024BFD8:
 /* 8024BFDC 00248F3C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8024BFE0 00248F40  7C 08 03 A6 */	mtlr r0
 /* 8024BFE4 00248F44  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024BFE8 00248F48  4E 80 00 20 */	blr 
+/* 8024BFE8 00248F48  4E 80 00 20 */	blr
 
 .global Touch__10CAmbientAIFR6CActorR13CStateManager
 Touch__10CAmbientAIFR6CActorR13CStateManager:
-/* 8024BFEC 00248F4C  4E 80 00 20 */	blr 
+/* 8024BFEC 00248F4C  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__10CAmbientAICFv
 GetDamageVulnerability__10CAmbientAICFv:
 /* 8024BFF0 00248F50  38 63 02 68 */	addi r3, r3, 0x268
-/* 8024BFF4 00248F54  4E 80 00 20 */	blr 
+/* 8024BFF4 00248F54  4E 80 00 20 */	blr
 
 .global HealthInfo__10CAmbientAIFR13CStateManager
 HealthInfo__10CAmbientAIFR13CStateManager:
 /* 8024BFF8 00248F58  38 63 02 60 */	addi r3, r3, 0x260
-/* 8024BFFC 00248F5C  4E 80 00 20 */	blr 
+/* 8024BFFC 00248F5C  4E 80 00 20 */	blr
 
 .global __ct__10CAmbientAI
 __ct__10CAmbientAI:

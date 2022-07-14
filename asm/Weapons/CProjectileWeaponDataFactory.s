@@ -555,7 +555,7 @@ lbl_802B1888:
 /* 802B18C0 002AE820  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802B18C4 002AE824  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802B18C8 002AE828  7D 89 03 A6 */	mtctr r12
-/* 802B18CC 002AE82C  4E 80 04 21 */	bctrl 
+/* 802B18CC 002AE82C  4E 80 04 21 */	bctrl
 /* 802B18D0 002AE830  3B 41 00 AC */	addi r26, r1, 0xac
 /* 802B18D4 002AE834  38 81 00 6C */	addi r4, r1, 0x6c
 /* 802B18D8 002AE838  7F 43 D3 78 */	mr r3, r26
@@ -618,7 +618,7 @@ lbl_802B1970:
 /* 802B19A8 002AE908  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802B19AC 002AE90C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802B19B0 002AE910  7D 89 03 A6 */	mtctr r12
-/* 802B19B4 002AE914  4E 80 04 21 */	bctrl 
+/* 802B19B4 002AE914  4E 80 04 21 */	bctrl
 /* 802B19B8 002AE918  3B 41 00 A0 */	addi r26, r1, 0xa0
 /* 802B19BC 002AE91C  38 81 00 5C */	addi r4, r1, 0x5c
 /* 802B19C0 002AE920  7F 43 D3 78 */	mr r3, r26
@@ -681,7 +681,7 @@ lbl_802B1A58:
 /* 802B1A90 002AE9F0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802B1A94 002AE9F4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802B1A98 002AE9F8  7D 89 03 A6 */	mtctr r12
-/* 802B1A9C 002AE9FC  4E 80 04 21 */	bctrl 
+/* 802B1A9C 002AE9FC  4E 80 04 21 */	bctrl
 /* 802B1AA0 002AEA00  3B 41 00 94 */	addi r26, r1, 0x94
 /* 802B1AA4 002AEA04  38 81 00 4C */	addi r4, r1, 0x4c
 /* 802B1AA8 002AEA08  7F 43 D3 78 */	mr r3, r26
@@ -744,7 +744,7 @@ lbl_802B1B40:
 /* 802B1B78 002AEAD8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802B1B7C 002AEADC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802B1B80 002AEAE0  7D 89 03 A6 */	mtctr r12
-/* 802B1B84 002AEAE4  4E 80 04 21 */	bctrl 
+/* 802B1B84 002AEAE4  4E 80 04 21 */	bctrl
 /* 802B1B88 002AEAE8  3B 41 00 88 */	addi r26, r1, 0x88
 /* 802B1B8C 002AEAEC  38 81 00 3C */	addi r4, r1, 0x3c
 /* 802B1B90 002AEAF0  7F 43 D3 78 */	mr r3, r26
@@ -812,7 +812,7 @@ lbl_802B1C38:
 /* 802B1C70 002AEBD0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802B1C74 002AEBD4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802B1C78 002AEBD8  7D 89 03 A6 */	mtctr r12
-/* 802B1C7C 002AEBDC  4E 80 04 21 */	bctrl 
+/* 802B1C7C 002AEBDC  4E 80 04 21 */	bctrl
 /* 802B1C80 002AEBE0  3B 41 00 7C */	addi r26, r1, 0x7c
 /* 802B1C84 002AEBE4  38 81 00 2C */	addi r4, r1, 0x2c
 /* 802B1C88 002AEBE8  7F 43 D3 78 */	mr r3, r26
@@ -931,7 +931,7 @@ lbl_802B1E00:
 /* 802B1E04 002AED64  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 802B1E08 002AED68  7C 08 03 A6 */	mtlr r0
 /* 802B1E0C 002AED6C  38 21 01 70 */	addi r1, r1, 0x170
-/* 802B1E10 002AED70  4E 80 00 20 */	blr 
+/* 802B1E10 002AED70  4E 80 00 20 */	blr
 
 .global CreateGeneratorDescription__28CProjectileWeaponDataFactoryFR12CInputStreamP11CSimplePool
 CreateGeneratorDescription__28CProjectileWeaponDataFactoryFR12CInputStreamP11CSimplePool:
@@ -972,7 +972,7 @@ lbl_802B1E84:
 /* 802B1E90 002AEDF0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802B1E94 002AEDF4  7C 08 03 A6 */	mtlr r0
 /* 802B1E98 002AEDF8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B1E9C 002AEDFC  4E 80 00 20 */	blr 
+/* 802B1E9C 002AEDFC  4E 80 00 20 */	blr
 
 .global GetGeneratorDesc__28CProjectileWeaponDataFactoryFR12CInputStreamP11CSimplePool
 GetGeneratorDesc__28CProjectileWeaponDataFactoryFR12CInputStreamP11CSimplePool:
@@ -1011,7 +1011,7 @@ lbl_802B1F0C:
 /* 802B1F14 002AEE74  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802B1F18 002AEE78  7C 08 03 A6 */	mtlr r0
 /* 802B1F1C 002AEE7C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B1F20 002AEE80  4E 80 00 20 */	blr 
+/* 802B1F20 002AEE80  4E 80 00 20 */	blr
 
 .global "__dt__46TObjOwnerDerivedFromIObj<18CWeaponDescription>Fv"
 "__dt__46TObjOwnerDerivedFromIObj<18CWeaponDescription>Fv":
@@ -1053,7 +1053,7 @@ lbl_802B1F98:
 /* 802B1FA4 002AEF04  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802B1FA8 002AEF08  7C 08 03 A6 */	mtlr r0
 /* 802B1FAC 002AEF0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B1FB0 002AEF10  4E 80 00 20 */	blr 
+/* 802B1FB0 002AEF10  4E 80 00 20 */	blr
 
 .global FProjectileWeaponDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FProjectileWeaponDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -1098,7 +1098,7 @@ FProjectileWeaponDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 802B204C 002AEFAC  38 80 00 01 */	li r4, 1
 /* 802B2050 002AEFB0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802B2054 002AEFB4  7D 89 03 A6 */	mtctr r12
-/* 802B2058 002AEFB8  4E 80 04 21 */	bctrl 
+/* 802B2058 002AEFB8  4E 80 04 21 */	bctrl
 lbl_802B205C:
 /* 802B205C 002AEFBC  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 802B2060 002AEFC0  28 00 00 00 */	cmplwi r0, 0
@@ -1113,7 +1113,7 @@ lbl_802B2074:
 /* 802B2080 002AEFE0  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802B2084 002AEFE4  7C 08 03 A6 */	mtlr r0
 /* 802B2088 002AEFE8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B208C 002AEFEC  4E 80 00 20 */	blr 
+/* 802B208C 002AEFEC  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__28TToken<18CWeaponDescription>FRCQ24rstl30auto_ptr<18CWeaponDescription>"
 "GetIObjObjectFor__28TToken<18CWeaponDescription>FRCQ24rstl30auto_ptr<18CWeaponDescription>":
@@ -1127,7 +1127,7 @@ lbl_802B2074:
 /* 802B20AC 002AF00C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802B20B0 002AF010  7C 08 03 A6 */	mtlr r0
 /* 802B20B4 002AF014  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B20B8 002AF018  4E 80 00 20 */	blr 
+/* 802B20B8 002AF018  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__46TObjOwnerDerivedFromIObj<18CWeaponDescription>FRCQ24rstl30auto_ptr<18CWeaponDescription>"
 "GetNewDerivedObject__46TObjOwnerDerivedFromIObj<18CWeaponDescription>FRCQ24rstl30auto_ptr<18CWeaponDescription>":

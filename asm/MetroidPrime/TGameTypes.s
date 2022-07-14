@@ -33,7 +33,7 @@ __ct__9TEditorIdFR12CInputStream:
 /* 8011A488 001173E8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011A48C 001173EC  7C 08 03 A6 */	mtlr r0
 /* 8011A490 001173F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011A494 001173F4  4E 80 00 20 */	blr 
+/* 8011A494 001173F4  4E 80 00 20 */	blr
 
 .global __sinit_TGameTypes_cpp
 __sinit_TGameTypes_cpp:

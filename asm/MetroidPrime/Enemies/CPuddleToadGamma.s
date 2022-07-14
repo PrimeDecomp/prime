@@ -267,7 +267,7 @@ lbl_8014B428:
 /* 8014B464 001483C4  38 80 00 01 */	li r4, 1
 /* 8014B468 001483C8  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8014B46C 001483CC  7D 89 03 A6 */	mtctr r12
-/* 8014B470 001483D0  4E 80 04 21 */	bctrl 
+/* 8014B470 001483D0  4E 80 04 21 */	bctrl
 lbl_8014B474:
 /* 8014B474 001483D4  7F C3 F3 78 */	mr r3, r30
 /* 8014B478 001483D8  38 80 00 00 */	li r4, 0
@@ -283,7 +283,7 @@ lbl_8014B490:
 /* 8014B49C 001483FC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014B4A0 00148400  7C 08 03 A6 */	mtlr r0
 /* 8014B4A4 00148404  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014B4A8 00148408  4E 80 00 20 */	blr 
+/* 8014B4A8 00148408  4E 80 00 20 */	blr
 
 .global GetPrimitiveTransform__16CPuddleToadGammaCFv
 GetPrimitiveTransform__16CPuddleToadGammaCFv:
@@ -320,7 +320,7 @@ GetPrimitiveTransform__16CPuddleToadGammaCFv:
 /* 8014B524 00148484  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 8014B528 00148488  7C 08 03 A6 */	mtlr r0
 /* 8014B52C 0014848C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8014B530 00148490  4E 80 00 20 */	blr 
+/* 8014B530 00148490  4E 80 00 20 */	blr
 
 .global GetCollisionPrimitive__16CPuddleToadGammaCFv
 GetCollisionPrimitive__16CPuddleToadGammaCFv:
@@ -338,7 +338,7 @@ lbl_8014B558:
 /* 8014B558 001484B8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014B55C 001484BC  7C 08 03 A6 */	mtlr r0
 /* 8014B560 001484C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014B564 001484C4  4E 80 00 20 */	blr 
+/* 8014B564 001484C4  4E 80 00 20 */	blr
 
 .global GetTouchBounds__16CPuddleToadGammaCFv
 GetTouchBounds__16CPuddleToadGammaCFv:
@@ -360,7 +360,7 @@ GetTouchBounds__16CPuddleToadGammaCFv:
 /* 8014B5A4 00148504  38 A5 00 34 */	addi r5, r5, 0x34
 /* 8014B5A8 00148508  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8014B5AC 0014850C  7D 89 03 A6 */	mtctr r12
-/* 8014B5B0 00148510  4E 80 04 21 */	bctrl 
+/* 8014B5B0 00148510  4E 80 04 21 */	bctrl
 /* 8014B5B4 00148514  38 00 00 01 */	li r0, 1
 /* 8014B5B8 00148518  28 1F 00 00 */	cmplwi r31, 0
 /* 8014B5BC 0014851C  98 1F 00 18 */	stb r0, 0x18(r31)
@@ -406,7 +406,7 @@ lbl_8014B64C:
 /* 8014B650 001485B0  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8014B654 001485B4  7C 08 03 A6 */	mtlr r0
 /* 8014B658 001485B8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014B65C 001485BC  4E 80 00 20 */	blr 
+/* 8014B65C 001485BC  4E 80 00 20 */	blr
 
 .global Attack__16CPuddleToadGammaFR13CStateManager9EStateMsgf
 Attack__16CPuddleToadGammaFR13CStateManager9EStateMsgf:
@@ -532,7 +532,7 @@ lbl_8014B828:
 /* 8014B82C 0014878C  C0 22 9C F0 */	lfs f1, lbl_805ABA10@sda21(r2)
 /* 8014B830 00148790  81 8C 02 74 */	lwz r12, 0x274(r12)
 /* 8014B834 00148794  7D 89 03 A6 */	mtctr r12
-/* 8014B838 00148798  4E 80 04 21 */	bctrl 
+/* 8014B838 00148798  4E 80 04 21 */	bctrl
 /* 8014B83C 0014879C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8014B840 001487A0  41 82 00 4C */	beq lbl_8014B88C
 /* 8014B844 001487A4  7F A3 EB 78 */	mr r3, r29
@@ -561,7 +561,7 @@ lbl_8014B88C:
 /* 8014B898 001487F8  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 8014B89C 001487FC  7C 08 03 A6 */	mtlr r0
 /* 8014B8A0 00148800  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8014B8A4 00148804  4E 80 00 20 */	blr 
+/* 8014B8A4 00148804  4E 80 00 20 */	blr
 
 .global Crouch__16CPuddleToadGammaFR13CStateManager9EStateMsgf
 Crouch__16CPuddleToadGammaFR13CStateManager9EStateMsgf:
@@ -706,7 +706,7 @@ lbl_8014BAA4:
 /* 8014BAAC 00148A0C  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 8014BAB0 00148A10  7C 08 03 A6 */	mtlr r0
 /* 8014BAB4 00148A14  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8014BAB8 00148A18  4E 80 00 20 */	blr 
+/* 8014BAB8 00148A18  4E 80 00 20 */	blr
 
 .global LostInterest__16CPuddleToadGammaFR13CStateManagerf
 LostInterest__16CPuddleToadGammaFR13CStateManagerf:
@@ -720,7 +720,7 @@ LostInterest__16CPuddleToadGammaFR13CStateManagerf:
 /* 8014BAD8 00148A38  81 84 00 00 */	lwz r12, 0(r4)
 /* 8014BADC 00148A3C  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 8014BAE0 00148A40  7D 89 03 A6 */	mtctr r12
-/* 8014BAE4 00148A44  4E 80 04 21 */	bctrl 
+/* 8014BAE4 00148A44  4E 80 04 21 */	bctrl
 /* 8014BAE8 00148A48  80 9F 08 4C */	lwz r4, 0x84c(r31)
 /* 8014BAEC 00148A4C  38 61 00 08 */	addi r3, r1, 8
 /* 8014BAF0 00148A50  4B FC EE 3D */	bl GetBoundingBox__13CPhysicsActorCFv
@@ -736,7 +736,7 @@ LostInterest__16CPuddleToadGammaFR13CStateManagerf:
 /* 8014BB18 00148A78  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 8014BB1C 00148A7C  7C 08 03 A6 */	mtlr r0
 /* 8014BB20 00148A80  38 21 00 50 */	addi r1, r1, 0x50
-/* 8014BB24 00148A84  4E 80 00 20 */	blr 
+/* 8014BB24 00148A84  4E 80 00 20 */	blr
 
 .global Suck__16CPuddleToadGammaFR13CStateManager9EStateMsgf
 Suck__16CPuddleToadGammaFR13CStateManager9EStateMsgf:
@@ -830,7 +830,7 @@ lbl_8014BC60:
 /* 8014BC64 00148BC4  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8014BC68 00148BC8  7C 08 03 A6 */	mtlr r0
 /* 8014BC6C 00148BCC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8014BC70 00148BD0  4E 80 00 20 */	blr 
+/* 8014BC70 00148BD0  4E 80 00 20 */	blr
 
 .global Active__16CPuddleToadGammaFR13CStateManager9EStateMsgf
 Active__16CPuddleToadGammaFR13CStateManager9EStateMsgf:
@@ -909,7 +909,7 @@ lbl_8014BD7C:
 /* 8014BD84 00148CE4  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 8014BD88 00148CE8  7C 08 03 A6 */	mtlr r0
 /* 8014BD8C 00148CEC  38 21 00 90 */	addi r1, r1, 0x90
-/* 8014BD90 00148CF0  4E 80 00 20 */	blr 
+/* 8014BD90 00148CF0  4E 80 00 20 */	blr
 
 .global InActive__16CPuddleToadGammaFR13CStateManager9EStateMsgf
 InActive__16CPuddleToadGammaFR13CStateManager9EStateMsgf:
@@ -943,7 +943,7 @@ lbl_8014BDF0:
 /* 8014BDF8 00148D58  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014BDFC 00148D5C  7C 08 03 A6 */	mtlr r0
 /* 8014BE00 00148D60  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014BE04 00148D64  4E 80 00 20 */	blr 
+/* 8014BE04 00148D64  4E 80 00 20 */	blr
 
 .global SpotPlayer__16CPuddleToadGammaFR13CStateManagerf
 SpotPlayer__16CPuddleToadGammaFR13CStateManagerf:
@@ -953,7 +953,7 @@ SpotPlayer__16CPuddleToadGammaFR13CStateManagerf:
 /* 8014BE14 00148D74  4C 41 13 82 */	cror 2, 1, 2
 /* 8014BE18 00148D78  7C 00 00 26 */	mfcr r0
 /* 8014BE1C 00148D7C  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
-/* 8014BE20 00148D80  4E 80 00 20 */	blr 
+/* 8014BE20 00148D80  4E 80 00 20 */	blr
 
 .global ShouldAttack__16CPuddleToadGammaFR13CStateManagerf
 ShouldAttack__16CPuddleToadGammaFR13CStateManagerf:
@@ -963,7 +963,7 @@ ShouldAttack__16CPuddleToadGammaFR13CStateManagerf:
 /* 8014BE30 00148D90  4C 41 13 82 */	cror 2, 1, 2
 /* 8014BE34 00148D94  7C 00 00 26 */	mfcr r0
 /* 8014BE38 00148D98  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
-/* 8014BE3C 00148D9C  4E 80 00 20 */	blr 
+/* 8014BE3C 00148D9C  4E 80 00 20 */	blr
 
 .global Inside__16CPuddleToadGammaFR13CStateManagerf
 Inside__16CPuddleToadGammaFR13CStateManagerf:
@@ -1006,7 +1006,7 @@ lbl_8014BECC:
 /* 8014BECC 00148E2C  38 60 00 00 */	li r3, 0
 lbl_8014BED0:
 /* 8014BED0 00148E30  38 21 00 20 */	addi r1, r1, 0x20
-/* 8014BED4 00148E34  4E 80 00 20 */	blr 
+/* 8014BED4 00148E34  4E 80 00 20 */	blr
 
 .global InAttackPosition__16CPuddleToadGammaFR13CStateManagerf
 InAttackPosition__16CPuddleToadGammaFR13CStateManagerf:
@@ -1025,7 +1025,7 @@ lbl_8014BF00:
 /* 8014BF00 00148E60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014BF04 00148E64  7C 08 03 A6 */	mtlr r0
 /* 8014BF08 00148E68  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014BF0C 00148E6C  4E 80 00 20 */	blr 
+/* 8014BF0C 00148E6C  4E 80 00 20 */	blr
 
 .global sub_8014bf10
 sub_8014bf10:
@@ -1138,7 +1138,7 @@ lbl_8014C094:
 /* 8014C0A0 00149000  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 8014C0A4 00149004  7C 08 03 A6 */	mtlr r0
 /* 8014C0A8 00149008  38 21 01 10 */	addi r1, r1, 0x110
-/* 8014C0AC 0014900C  4E 80 00 20 */	blr 
+/* 8014C0AC 0014900C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__16CPuddleToadGammaF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__16CPuddleToadGammaF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1220,7 +1220,7 @@ lbl_8014C1C8:
 /* 8014C1D4 00149134  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 8014C1D8 00149138  7C 08 03 A6 */	mtlr r0
 /* 8014C1DC 0014913C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8014C1E0 00149140  4E 80 00 20 */	blr 
+/* 8014C1E0 00149140  4E 80 00 20 */	blr
 
 .global Accept__16CPuddleToadGammaFR8IVisitor
 Accept__16CPuddleToadGammaFR8IVisitor:
@@ -1233,11 +1233,11 @@ Accept__16CPuddleToadGammaFR8IVisitor:
 /* 8014C1FC 0014915C  7C 04 03 78 */	mr r4, r0
 /* 8014C200 00149160  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8014C204 00149164  7D 89 03 A6 */	mtctr r12
-/* 8014C208 00149168  4E 80 04 21 */	bctrl 
+/* 8014C208 00149168  4E 80 04 21 */	bctrl
 /* 8014C20C 0014916C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014C210 00149170  7C 08 03 A6 */	mtlr r0
 /* 8014C214 00149174  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014C218 00149178  4E 80 00 20 */	blr 
+/* 8014C218 00149178  4E 80 00 20 */	blr
 
 .global CenterPlayer__16CPuddleToadGammaFR13CStateManagerRC9CVector3f
 CenterPlayer__16CPuddleToadGammaFR13CStateManagerRC9CVector3f:
@@ -1286,7 +1286,7 @@ CenterPlayer__16CPuddleToadGammaFR13CStateManagerRC9CVector3f:
 /* 8014C2C4 00149224  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8014C2C8 00149228  7C 08 03 A6 */	mtlr r0
 /* 8014C2CC 0014922C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8014C2D0 00149230  4E 80 00 20 */	blr 
+/* 8014C2D0 00149230  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__16CPuddleToadGammaFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__16CPuddleToadGammaFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -1330,7 +1330,7 @@ lbl_8014C344:
 /* 8014C35C 001492BC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8014C360 001492C0  7C 08 03 A6 */	mtlr r0
 /* 8014C364 001492C4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8014C368 001492C8  4E 80 00 20 */	blr 
+/* 8014C368 001492C8  4E 80 00 20 */	blr
 
 .global SetSolid__16CPuddleToadGammaFR13CStateManagerb
 SetSolid__16CPuddleToadGammaFR13CStateManagerb:
@@ -1365,7 +1365,7 @@ lbl_8014C3CC:
 /* 8014C3D4 00149334  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014C3D8 00149338  7C 08 03 A6 */	mtlr r0
 /* 8014C3DC 0014933C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014C3E0 00149340  4E 80 00 20 */	blr 
+/* 8014C3E0 00149340  4E 80 00 20 */	blr
 
 .global ShootPlayer__16CPuddleToadGammaFR13CStateManagerf
 ShootPlayer__16CPuddleToadGammaFR13CStateManagerf:
@@ -1568,7 +1568,7 @@ lbl_8014C6A4:
 /* 8014C6D4 00149634  83 81 08 B0 */	lwz r28, 0x8b0(r1)
 /* 8014C6D8 00149638  7C 08 03 A6 */	mtlr r0
 /* 8014C6DC 0014963C  38 21 09 00 */	addi r1, r1, 0x900
-/* 8014C6E0 00149640  4E 80 00 20 */	blr 
+/* 8014C6E0 00149640  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__16CPuddleToadGammaCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__16CPuddleToadGammaCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
@@ -1607,13 +1607,13 @@ lbl_8014C75C:
 /* 8014C75C 001496BC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8014C760 001496C0  7C 08 03 A6 */	mtlr r0
 /* 8014C764 001496C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8014C768 001496C8  4E 80 00 20 */	blr 
+/* 8014C768 001496C8  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__16CPuddleToadGammaCFv
 GetDamageVulnerability__16CPuddleToadGammaCFv:
 /* 8014C76C 001496CC  3C 60 80 57 */	lis r3, lbl_8056D718@ha
 /* 8014C770 001496D0  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
-/* 8014C774 001496D4  4E 80 00 20 */	blr 
+/* 8014C774 001496D4  4E 80 00 20 */	blr
 
 .global sub_8014c778
 sub_8014c778:
@@ -1693,7 +1693,7 @@ lbl_8014C880:
 /* 8014C894 001497F4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8014C898 001497F8  7C 08 03 A6 */	mtlr r0
 /* 8014C89C 001497FC  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014C8A0 00149800  4E 80 00 20 */	blr 
+/* 8014C8A0 00149800  4E 80 00 20 */	blr
 
 .global sub_8014c8a4
 sub_8014c8a4:
@@ -1905,7 +1905,7 @@ lbl_8014CB94:
 /* 8014CBC8 00149B28  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 8014CBCC 00149B2C  7C 08 03 A6 */	mtlr r0
 /* 8014CBD0 00149B30  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 8014CBD4 00149B34  4E 80 00 20 */	blr 
+/* 8014CBD4 00149B34  4E 80 00 20 */	blr
 
 .global Think__16CPuddleToadGammaFfR13CStateManager
 Think__16CPuddleToadGammaFfR13CStateManager:
@@ -1931,7 +1931,7 @@ lbl_8014CC14:
 /* 8014CC20 00149B80  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8014CC24 00149B84  7C 08 03 A6 */	mtlr r0
 /* 8014CC28 00149B88  38 21 00 20 */	addi r1, r1, 0x20
-/* 8014CC2C 00149B8C  4E 80 00 20 */	blr 
+/* 8014CC2C 00149B8C  4E 80 00 20 */	blr
 
 .global "__ct__16CPuddleToadGammaF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParametersfff9CVector3ffffRC11CDamageInfoRC11CDamageInfo"
 "__ct__16CPuddleToadGammaF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParametersfff9CVector3ffffRC11CDamageInfoRC11CDamageInfo":
@@ -2105,7 +2105,7 @@ lbl_8014CC14:
 /* 8014CECC 00149E2C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8014CED0 00149E30  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8014CED4 00149E34  7D 89 03 A6 */	mtctr r12
-/* 8014CED8 00149E38  4E 80 04 21 */	bctrl 
+/* 8014CED8 00149E38  4E 80 04 21 */	bctrl
 /* 8014CEDC 00149E3C  3B 21 00 34 */	addi r25, r1, 0x34
 /* 8014CEE0 00149E40  38 81 00 24 */	addi r4, r1, 0x24
 /* 8014CEE4 00149E44  7F 23 CB 78 */	mr r3, r25
@@ -2148,7 +2148,7 @@ lbl_8014CF64:
 /* 8014CF74 00149ED4  38 80 00 01 */	li r4, 1
 /* 8014CF78 00149ED8  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8014CF7C 00149EDC  7D 89 03 A6 */	mtctr r12
-/* 8014CF80 00149EE0  4E 80 04 21 */	bctrl 
+/* 8014CF80 00149EE0  4E 80 04 21 */	bctrl
 lbl_8014CF84:
 /* 8014CF84 00149EE4  93 DD 05 E4 */	stw r30, 0x5e4(r29)
 /* 8014CF88 00149EE8  38 61 00 40 */	addi r3, r1, 0x40
@@ -2172,7 +2172,7 @@ lbl_8014CF94:
 /* 8014CFCC 00149F2C  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 8014CFD0 00149F30  7C 08 03 A6 */	mtlr r0
 /* 8014CFD4 00149F34  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8014CFD8 00149F38  4E 80 00 20 */	blr 
+/* 8014CFD8 00149F38  4E 80 00 20 */	blr
 
 .global __sinit_CPuddleToadGamma_cpp
 __sinit_CPuddleToadGamma_cpp:

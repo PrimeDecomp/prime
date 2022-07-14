@@ -153,7 +153,7 @@ lbl_8001B7C4:
 /* 8001B7F0 00018750  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8001B7F4 00018754  7C 08 03 A6 */	mtlr r0
 /* 8001B7F8 00018758  38 21 00 60 */	addi r1, r1, 0x60
-/* 8001B7FC 0001875C  4E 80 00 20 */	blr 
+/* 8001B7FC 0001875C  4E 80 00 20 */	blr
 
 .global sub_8001b800
 sub_8001b800:
@@ -267,7 +267,7 @@ lbl_8001B978:
 /* 8001B994 000188F4  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8001B998 000188F8  7C 08 03 A6 */	mtlr r0
 /* 8001B99C 000188FC  38 21 00 70 */	addi r1, r1, 0x70
-/* 8001B9A0 00018900  4E 80 00 20 */	blr 
+/* 8001B9A0 00018900  4E 80 00 20 */	blr
 
 .global __sinit_CEulerAngles_cpp
 __sinit_CEulerAngles_cpp:
@@ -276,7 +276,7 @@ __sinit_CEulerAngles_cpp:
 /* 8001B9AC 0001890C  D4 03 A5 F4 */	stfsu f0, lbl_8056A5F4@l(r3)
 /* 8001B9B0 00018910  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8001B9B4 00018914  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B9B8 00018918  4E 80 00 20 */	blr 
+/* 8001B9B8 00018918  4E 80 00 20 */	blr
 
 .global FromMatrix3f__12CEulerAnglesFRC9CMatrix3f
 FromMatrix3f__12CEulerAnglesFRC9CMatrix3f:
@@ -289,4 +289,4 @@ FromMatrix3f__12CEulerAnglesFRC9CMatrix3f:
 /* 8001B9D4 00018934  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001B9D8 00018938  7C 08 03 A6 */	mtlr r0
 /* 8001B9DC 0001893C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001B9E0 00018940  4E 80 00 20 */	blr 
+/* 8001B9E0 00018940  4E 80 00 20 */	blr

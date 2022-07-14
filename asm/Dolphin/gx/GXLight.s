@@ -3,43 +3,75 @@
 .section .sdata2
 .global lbl_805AEB58
 lbl_805AEB58:
-	.incbin "baserom.dol", 0x3FB3F8, 0x4
+	# ROM: 0x3FB3F8
+	.4byte 0
+
 .global lbl_805AEB5C
 lbl_805AEB5C:
-	.incbin "baserom.dol", 0x3FB3FC, 0x4
+	# ROM: 0x3FB3FC
+	.4byte 0x42B40000
+
 .global lbl_805AEB60
 lbl_805AEB60:
-	.incbin "baserom.dol", 0x3FB400, 0x4
+	# ROM: 0x3FB400
+	.4byte 0x40490FDB
+
 .global lbl_805AEB64
 lbl_805AEB64:
-	.incbin "baserom.dol", 0x3FB404, 0x4
+	# ROM: 0x3FB404
+	.4byte 0x43340000
+
 .global lbl_805AEB68
 lbl_805AEB68:
-	.incbin "baserom.dol", 0x3FB408, 0x4
+	# ROM: 0x3FB408
+	.4byte 0xC47A0000
+
 .global lbl_805AEB6C
 lbl_805AEB6C:
-	.incbin "baserom.dol", 0x3FB40C, 0x4
+	# ROM: 0x3FB40C
+	.4byte 0x447A0000
+
 .global lbl_805AEB70
 lbl_805AEB70:
-	.incbin "baserom.dol", 0x3FB410, 0x4
+	# ROM: 0x3FB410
+	.4byte 0x3F800000
+
 .global lbl_805AEB74
 lbl_805AEB74:
-	.incbin "baserom.dol", 0x3FB414, 0x4
+	# ROM: 0x3FB414
+	.4byte 0x40000000
+
 .global lbl_805AEB78
 lbl_805AEB78:
-	.incbin "baserom.dol", 0x3FB418, 0x4
+	# ROM: 0x3FB418
+	.4byte 0xC0800000
+
 .global lbl_805AEB7C
 lbl_805AEB7C:
-	.incbin "baserom.dol", 0x3FB41C, 0x4
+	# ROM: 0x3FB41C
+	.4byte 0x40800000
+
 .global lbl_805AEB80
 lbl_805AEB80:
-	.incbin "baserom.dol", 0x3FB420, 0x8
-	
+	# ROM: 0x3FB420
+	.4byte 0xC0000000
+	.4byte 0
+
+
 .section .data
 .global lbl_803F09D0
 lbl_803F09D0:
-	.incbin "baserom.dol", 0x3ED9D0, 0x20
-	
+	# ROM: 0x3ED9D0
+	.4byte 0x80379864
+	.4byte 0x80379774
+	.4byte 0x80379788
+	.4byte 0x803797A8
+	.4byte 0x803797C8
+	.4byte 0x803797F4
+	.4byte 0x80379828
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global GXInitLightAttn
@@ -50,7 +82,7 @@ GXInitLightAttn:
 /* 803796F4 00376654  D0 83 00 1C */	stfs f4, 0x1c(r3)
 /* 803796F8 00376658  D0 A3 00 20 */	stfs f5, 0x20(r3)
 /* 803796FC 0037665C  D0 C3 00 24 */	stfs f6, 0x24(r3)
-/* 80379700 00376660  4E 80 00 20 */	blr 
+/* 80379700 00376660  4E 80 00 20 */	blr
 
 .global GXInitLightSpot
 GXInitLightSpot:
@@ -83,7 +115,7 @@ lbl_80379740:
 /* 80379764 003766C4  57 E0 10 3A */	slwi r0, r31, 2
 /* 80379768 003766C8  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8037976C 003766CC  7C 09 03 A6 */	mtctr r0
-/* 80379770 003766D0  4E 80 04 20 */	bctr 
+/* 80379770 003766D0  4E 80 04 20 */	bctr
 /* 80379774 003766D4  C0 02 CE 48 */	lfs f0, lbl_805AEB68@sda21(r2)
 /* 80379778 003766D8  C0 82 CE 4C */	lfs f4, lbl_805AEB6C@sda21(r2)
 /* 8037977C 003766DC  EC 60 00 72 */	fmuls f3, f0, f1
@@ -157,14 +189,14 @@ lbl_80379870:
 /* 80379884 003767E4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80379888 003767E8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8037988C 003767EC  7C 08 03 A6 */	mtlr r0
-/* 80379890 003767F0  4E 80 00 20 */	blr 
+/* 80379890 003767F0  4E 80 00 20 */	blr
 
 .global GXInitLightPos
 GXInitLightPos:
 /* 80379894 003767F4  D0 23 00 28 */	stfs f1, 0x28(r3)
 /* 80379898 003767F8  D0 43 00 2C */	stfs f2, 0x2c(r3)
 /* 8037989C 003767FC  D0 63 00 30 */	stfs f3, 0x30(r3)
-/* 803798A0 00376800  4E 80 00 20 */	blr 
+/* 803798A0 00376800  4E 80 00 20 */	blr
 
 .global GXInitLightDir
 GXInitLightDir:
@@ -174,13 +206,13 @@ GXInitLightDir:
 /* 803798B0 00376810  D0 83 00 34 */	stfs f4, 0x34(r3)
 /* 803798B4 00376814  D0 23 00 38 */	stfs f1, 0x38(r3)
 /* 803798B8 00376818  D0 03 00 3C */	stfs f0, 0x3c(r3)
-/* 803798BC 0037681C  4E 80 00 20 */	blr 
+/* 803798BC 0037681C  4E 80 00 20 */	blr
 
 .global GXInitLightColor
 GXInitLightColor:
 /* 803798C0 00376820  80 04 00 00 */	lwz r0, 0(r4)
 /* 803798C4 00376824  90 03 00 0C */	stw r0, 0xc(r3)
-/* 803798C8 00376828  4E 80 00 20 */	blr 
+/* 803798C8 00376828  4E 80 00 20 */	blr
 
 .global GXLoadLightObjImm
 GXLoadLightObjImm:
@@ -214,7 +246,7 @@ GXLoadLightObjImm:
 /* 80379938 00376898  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 8037993C 0037689C  38 00 00 01 */	li r0, 1
 /* 80379940 003768A0  B0 03 00 02 */	sth r0, 2(r3)
-/* 80379944 003768A4  4E 80 00 20 */	blr 
+/* 80379944 003768A4  4E 80 00 20 */	blr
 
 .global GXSetChanAmbColor
 GXSetChanAmbColor:
@@ -226,11 +258,11 @@ GXSetChanAmbColor:
 /* 8037995C 003768BC  40 80 00 60 */	bge lbl_803799BC
 /* 80379960 003768C0  2C 03 00 00 */	cmpwi r3, 0
 /* 80379964 003768C4  40 80 00 18 */	bge lbl_8037997C
-/* 80379968 003768C8  4E 80 00 20 */	blr 
+/* 80379968 003768C8  4E 80 00 20 */	blr
 lbl_8037996C:
 /* 8037996C 003768CC  2C 03 00 05 */	cmpwi r3, 5
 /* 80379970 003768D0  41 82 00 88 */	beq lbl_803799F8
-/* 80379974 003768D4  4C 80 00 20 */	bgelr 
+/* 80379974 003768D4  4C 80 00 20 */	bgelr
 /* 80379978 003768D8  48 00 00 74 */	b lbl_803799EC
 lbl_8037997C:
 /* 8037997C 003768DC  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
@@ -272,7 +304,7 @@ lbl_803799F8:
 /* 803799F8 00376958  80 E4 00 00 */	lwz r7, 0(r4)
 /* 803799FC 0037695C  38 A0 00 01 */	li r5, 1
 /* 80379A00 00376960  48 00 00 08 */	b lbl_80379A08
-/* 80379A04 00376964  4E 80 00 20 */	blr 
+/* 80379A04 00376964  4E 80 00 20 */	blr
 lbl_80379A08:
 /* 80379A08 00376968  38 00 00 10 */	li r0, 0x10
 /* 80379A0C 0037696C  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
@@ -286,7 +318,7 @@ lbl_80379A08:
 /* 80379A2C 0037698C  90 E6 80 00 */	stw r7, 0xCC008000@l(r6)
 /* 80379A30 00376990  B0 A4 00 02 */	sth r5, 2(r4)
 /* 80379A34 00376994  90 E3 00 A8 */	stw r7, 0xa8(r3)
-/* 80379A38 00376998  4E 80 00 20 */	blr 
+/* 80379A38 00376998  4E 80 00 20 */	blr
 
 .global GXSetChanMatColor
 GXSetChanMatColor:
@@ -298,11 +330,11 @@ GXSetChanMatColor:
 /* 80379A50 003769B0  40 80 00 60 */	bge lbl_80379AB0
 /* 80379A54 003769B4  2C 03 00 00 */	cmpwi r3, 0
 /* 80379A58 003769B8  40 80 00 18 */	bge lbl_80379A70
-/* 80379A5C 003769BC  4E 80 00 20 */	blr 
+/* 80379A5C 003769BC  4E 80 00 20 */	blr
 lbl_80379A60:
 /* 80379A60 003769C0  2C 03 00 05 */	cmpwi r3, 5
 /* 80379A64 003769C4  41 82 00 88 */	beq lbl_80379AEC
-/* 80379A68 003769C8  4C 80 00 20 */	bgelr 
+/* 80379A68 003769C8  4C 80 00 20 */	bgelr
 /* 80379A6C 003769CC  48 00 00 74 */	b lbl_80379AE0
 lbl_80379A70:
 /* 80379A70 003769D0  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
@@ -344,7 +376,7 @@ lbl_80379AEC:
 /* 80379AEC 00376A4C  80 E4 00 00 */	lwz r7, 0(r4)
 /* 80379AF0 00376A50  38 A0 00 01 */	li r5, 1
 /* 80379AF4 00376A54  48 00 00 08 */	b lbl_80379AFC
-/* 80379AF8 00376A58  4E 80 00 20 */	blr 
+/* 80379AF8 00376A58  4E 80 00 20 */	blr
 lbl_80379AFC:
 /* 80379AFC 00376A5C  38 00 00 10 */	li r0, 0x10
 /* 80379B00 00376A60  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
@@ -358,7 +390,7 @@ lbl_80379AFC:
 /* 80379B20 00376A80  90 E6 80 00 */	stw r7, 0xCC008000@l(r6)
 /* 80379B24 00376A84  B0 A4 00 02 */	sth r5, 2(r4)
 /* 80379B28 00376A88  90 E3 00 B0 */	stw r7, 0xb0(r3)
-/* 80379B2C 00376A8C  4E 80 00 20 */	blr 
+/* 80379B2C 00376A8C  4E 80 00 20 */	blr
 
 .global GXSetNumChans
 GXSetNumChans:
@@ -378,7 +410,7 @@ GXSetNumChans:
 /* 80379B64 00376AC4  80 06 04 F4 */	lwz r0, 0x4f4(r6)
 /* 80379B68 00376AC8  60 00 00 04 */	ori r0, r0, 4
 /* 80379B6C 00376ACC  90 06 04 F4 */	stw r0, 0x4f4(r6)
-/* 80379B70 00376AD0  4E 80 00 20 */	blr 
+/* 80379B70 00376AD0  4E 80 00 20 */	blr
 
 .global GXSetChanCtrl
 GXSetChanCtrl:
@@ -435,4 +467,4 @@ lbl_80379C30:
 /* 80379C30 00376B90  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 80379C34 00376B94  38 00 00 01 */	li r0, 1
 /* 80379C38 00376B98  B0 03 00 02 */	sth r0, 2(r3)
-/* 80379C3C 00376B9C  4E 80 00 20 */	blr 
+/* 80379C3C 00376B9C  4E 80 00 20 */	blr

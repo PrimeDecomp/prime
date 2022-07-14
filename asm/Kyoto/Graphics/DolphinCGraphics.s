@@ -248,7 +248,7 @@ lbl_805A941C:
 .global lbl_805A9420
 lbl_805A9420:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global sub_80309254
@@ -293,7 +293,7 @@ sub_80309254:
 /* 803092E8 00306248  90 03 00 44 */	stw r0, 0x44(r3)
 /* 803092EC 0030624C  80 07 00 10 */	lwz r0, 0x10(r7)
 /* 803092F0 00306250  90 03 00 48 */	stw r0, 0x48(r3)
-/* 803092F4 00306254  4E 80 00 20 */	blr 
+/* 803092F4 00306254  4E 80 00 20 */	blr
 
 .global ResetFlushAll__Q29CGraphics12CRenderStateFv
 ResetFlushAll__Q29CGraphics12CRenderStateFv:
@@ -325,7 +325,7 @@ lbl_8030932C:
 /* 80309358 003062B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8030935C 003062BC  7C 08 03 A6 */	mtlr r0
 /* 80309360 003062C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309364 003062C4  4E 80 00 20 */	blr 
+/* 80309364 003062C4  4E 80 00 20 */	blr
 
 .global SetVtxState__Q29CGraphics12CRenderStateFPCfPCfPCUi
 SetVtxState__Q29CGraphics12CRenderStateFPCfPCfPCUi:
@@ -361,18 +361,18 @@ lbl_803093CC:
 /* 803093D4 00306334  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803093D8 00306338  7C 08 03 A6 */	mtlr r0
 /* 803093DC 0030633C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803093E0 00306340  4E 80 00 20 */	blr 
+/* 803093E0 00306340  4E 80 00 20 */	blr
 
 .global Flush__Q29CGraphics12CRenderStateFv
 Flush__Q29CGraphics12CRenderStateFv:
-/* 803093E4 00306344  4E 80 00 20 */	blr 
+/* 803093E4 00306344  4E 80 00 20 */	blr
 
 .global __ct__Q29CGraphics12CRenderStateFv
 __ct__Q29CGraphics12CRenderStateFv:
 /* 803093E8 00306348  38 00 00 00 */	li r0, 0
 /* 803093EC 0030634C  90 03 00 00 */	stw r0, 0(r3)
 /* 803093F0 00306350  90 03 00 04 */	stw r0, 4(r3)
-/* 803093F4 00306354  4E 80 00 20 */	blr 
+/* 803093F4 00306354  4E 80 00 20 */	blr
 
 .global __dt__12CGraphicsSysFv
 __dt__12CGraphicsSysFv:
@@ -402,7 +402,7 @@ lbl_80309440:
 /* 8030944C 003063AC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80309450 003063B0  7C 08 03 A6 */	mtlr r0
 /* 80309454 003063B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309458 003063B8  4E 80 00 20 */	blr 
+/* 80309458 003063B8  4E 80 00 20 */	blr
 
 .global __ct__12CGraphicsSysFRC10COsContextRC10CMemorySysUiPv
 __ct__12CGraphicsSysFRC10COsContextRC10CMemorySysUiPv:
@@ -425,12 +425,12 @@ lbl_80309490:
 /* 80309498 003063F8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030949C 003063FC  7C 08 03 A6 */	mtlr r0
 /* 803094A0 00306400  38 21 00 10 */	addi r1, r1, 0x10
-/* 803094A4 00306404  4E 80 00 20 */	blr 
+/* 803094A4 00306404  4E 80 00 20 */	blr
 
 .global SetIsBeginSceneClearFb__9CGraphicsFb
 SetIsBeginSceneClearFb__9CGraphicsFb:
 /* 803094A8 00306408  98 6D 9C 6C */	stb r3, lbl_805A882C@sda21(r13)
-/* 803094AC 0030640C  4E 80 00 20 */	blr 
+/* 803094AC 0030640C  4E 80 00 20 */	blr
 
 .global sub_803094b0
 sub_803094b0:
@@ -480,7 +480,7 @@ lbl_80309548:
 /* 80309554 003064B4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80309558 003064B8  7C 08 03 A6 */	mtlr r0
 /* 8030955C 003064BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80309560 003064C0  4E 80 00 20 */	blr 
+/* 80309560 003064C0  4E 80 00 20 */	blr
 
 .global sub_80309564
 sub_80309564:
@@ -495,10 +495,10 @@ lbl_80309574:
 /* 80309580 003064E0  90 04 00 00 */	stw r0, 0(r4)
 lbl_80309584:
 /* 80309584 003064E4  28 05 00 00 */	cmplwi r5, 0
-/* 80309588 003064E8  4D 82 00 20 */	beqlr 
+/* 80309588 003064E8  4D 82 00 20 */	beqlr
 /* 8030958C 003064EC  80 0D A8 50 */	lwz r0, lbl_805A9410@sda21(r13)
 /* 80309590 003064F0  90 05 00 00 */	stw r0, 0(r5)
-/* 80309594 003064F4  4E 80 00 20 */	blr 
+/* 80309594 003064F4  4E 80 00 20 */	blr
 
 .global GetProgressiveDefault__9CGraphicsFv
 GetProgressiveDefault__9CGraphicsFv:
@@ -512,7 +512,7 @@ GetProgressiveDefault__9CGraphicsFv:
 /* 803095B4 00306514  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803095B8 00306518  7C 08 03 A6 */	mtlr r0
 /* 803095BC 0030651C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803095C0 00306520  4E 80 00 20 */	blr 
+/* 803095C0 00306520  4E 80 00 20 */	blr
 
 .global CanSetProgressiveMode__9CGraphicsFv
 CanSetProgressiveMode__9CGraphicsFv:
@@ -526,7 +526,7 @@ CanSetProgressiveMode__9CGraphicsFv:
 /* 803095E0 00306540  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803095E4 00306544  7C 08 03 A6 */	mtlr r0
 /* 803095E8 00306548  38 21 00 10 */	addi r1, r1, 0x10
-/* 803095EC 0030654C  4E 80 00 20 */	blr 
+/* 803095EC 0030654C  4E 80 00 20 */	blr
 
 .global GetProgressiveMode__9CGraphicsFv
 GetProgressiveMode__9CGraphicsFv:
@@ -535,7 +535,7 @@ GetProgressiveMode__9CGraphicsFv:
 /* 803095F8 00306558  20 00 00 02 */	subfic r0, r0, 2
 /* 803095FC 0030655C  7C 00 00 34 */	cntlzw r0, r0
 /* 80309600 00306560  54 03 D9 7E */	srwi r3, r0, 5
-/* 80309604 00306564  4E 80 00 20 */	blr 
+/* 80309604 00306564  4E 80 00 20 */	blr
 
 .global SetProgressiveMode__9CGraphicsFb
 SetProgressiveMode__9CGraphicsFb:
@@ -633,7 +633,7 @@ lbl_80309754:
 /* 8030975C 003066BC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80309760 003066C0  7C 08 03 A6 */	mtlr r0
 /* 80309764 003066C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80309768 003066C8  4E 80 00 20 */	blr 
+/* 80309768 003066C8  4E 80 00 20 */	blr
 
 .global ProjectPoint__9CGraphicsFRC9CVector3f
 ProjectPoint__9CGraphicsFRC9CVector3f:
@@ -672,17 +672,17 @@ ProjectPoint__9CGraphicsFRC9CVector3f:
 /* 803097EC 0030674C  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 803097F0 00306750  7C 08 03 A6 */	mtlr r0
 /* 803097F4 00306754  38 21 00 70 */	addi r1, r1, 0x70
-/* 803097F8 00306758  4E 80 00 20 */	blr 
+/* 803097F8 00306758  4E 80 00 20 */	blr
 
 .global GetFrameCounter__9CGraphicsFv
 GetFrameCounter__9CGraphicsFv:
 /* 803097FC 0030675C  80 6D A8 00 */	lwz r3, lbl_805A93C0@sda21(r13)
-/* 80309800 00306760  4E 80 00 20 */	blr 
+/* 80309800 00306760  4E 80 00 20 */	blr
 
 .global GetUseVideoFilter__9CGraphicsFv
 GetUseVideoFilter__9CGraphicsFv:
 /* 80309804 00306764  88 6D 9C 82 */	lbz r3, lbl_805A8842@sda21(r13)
-/* 80309808 00306768  4E 80 00 20 */	blr 
+/* 80309808 00306768  4E 80 00 20 */	blr
 
 .global SetUseVideoFilter__9CGraphicsFb
 SetUseVideoFilter__9CGraphicsFb:
@@ -703,7 +703,7 @@ SetUseVideoFilter__9CGraphicsFb:
 /* 80309844 003067A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80309848 003067A8  7C 08 03 A6 */	mtlr r0
 /* 8030984C 003067AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309850 003067B0  4E 80 00 20 */	blr 
+/* 80309850 003067B0  4E 80 00 20 */	blr
 
 .global GetFPS__9CGraphicsFv
 GetFPS__9CGraphicsFv:
@@ -730,7 +730,7 @@ lbl_80309888:
 /* 8030989C 003067FC  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 803098A0 00306800  7C 08 03 A6 */	mtlr r0
 /* 803098A4 00306804  38 21 00 20 */	addi r1, r1, 0x20
-/* 803098A8 00306808  4E 80 00 20 */	blr 
+/* 803098A8 00306808  4E 80 00 20 */	blr
 
 .global ClipScreenRectFromMS__9CGraphicsFRC9CVector3fRC9CVector3f12ETexelFormat
 ClipScreenRectFromMS__9CGraphicsFRC9CVector3fRC9CVector3f12ETexelFormat:
@@ -801,7 +801,7 @@ ClipScreenRectFromMS__9CGraphicsFRC9CVector3fRC9CVector3f12ETexelFormat:
 /* 803099AC 0030690C  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 803099B0 00306910  7C 08 03 A6 */	mtlr r0
 /* 803099B4 00306914  38 21 00 60 */	addi r1, r1, 0x60
-/* 803099B8 00306918  4E 80 00 20 */	blr 
+/* 803099B8 00306918  4E 80 00 20 */	blr
 
 .global ClipScreenRectFromVS__9CGraphicsFRC9CVector3fRC9CVector3f12ETexelFormat
 ClipScreenRectFromVS__9CGraphicsFRC9CVector3fRC9CVector3f12ETexelFormat:
@@ -1104,7 +1104,7 @@ lbl_80309DE0:
 /* 80309DF0 00306D50  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 80309DF4 00306D54  7C 08 03 A6 */	mtlr r0
 /* 80309DF8 00306D58  38 21 00 70 */	addi r1, r1, 0x70
-/* 80309DFC 00306D5C  4E 80 00 20 */	blr 
+/* 80309DFC 00306D5C  4E 80 00 20 */	blr
 
 .global SetProjectionState__9CGraphicsFRCQ29CGraphics16CProjectionState
 SetProjectionState__9CGraphicsFRCQ29CGraphics16CProjectionState:
@@ -1130,13 +1130,13 @@ SetProjectionState__9CGraphicsFRCQ29CGraphics16CProjectionState:
 /* 80309E4C 00306DAC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80309E50 00306DB0  7C 08 03 A6 */	mtlr r0
 /* 80309E54 00306DB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309E58 00306DB8  4E 80 00 20 */	blr 
+/* 80309E58 00306DB8  4E 80 00 20 */	blr
 
 .global GetProjectionState__9CGraphicsFv
 GetProjectionState__9CGraphicsFv:
 /* 80309E5C 00306DBC  3C 60 80 5A */	lis r3, lbl_805A61B8@ha
 /* 80309E60 00306DC0  38 63 61 B8 */	addi r3, r3, lbl_805A61B8@l
-/* 80309E64 00306DC4  4E 80 00 20 */	blr 
+/* 80309E64 00306DC4  4E 80 00 20 */	blr
 
 .global FlushProjection__9CGraphicsFv
 FlushProjection__9CGraphicsFv:
@@ -1169,12 +1169,12 @@ lbl_80309EC8:
 /* 80309EC8 00306E28  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80309ECC 00306E2C  7C 08 03 A6 */	mtlr r0
 /* 80309ED0 00306E30  38 21 00 90 */	addi r1, r1, 0x90
-/* 80309ED4 00306E34  4E 80 00 20 */	blr 
+/* 80309ED4 00306E34  4E 80 00 20 */	blr
 
 .global SetExternalTimeProvider__9CGraphicsFP13CTimeProvider
 SetExternalTimeProvider__9CGraphicsFP13CTimeProvider:
 /* 80309ED8 00306E38  90 6D A8 44 */	stw r3, lbl_805A9404@sda21(r13)
-/* 80309EDC 00306E3C  4E 80 00 20 */	blr 
+/* 80309EDC 00306E3C  4E 80 00 20 */	blr
 
 .global GetSecondsMod900__9CGraphicsFv
 GetSecondsMod900__9CGraphicsFv:
@@ -1183,10 +1183,10 @@ GetSecondsMod900__9CGraphicsFv:
 /* 80309EE8 00306E48  41 82 00 10 */	beq lbl_80309EF8
 /* 80309EEC 00306E4C  80 63 00 00 */	lwz r3, 0(r3)
 /* 80309EF0 00306E50  C0 23 00 00 */	lfs f1, 0(r3)
-/* 80309EF4 00306E54  4E 80 00 20 */	blr 
+/* 80309EF4 00306E54  4E 80 00 20 */	blr
 lbl_80309EF8:
 /* 80309EF8 00306E58  C0 2D A8 40 */	lfs f1, lbl_805A9400@sda21(r13)
-/* 80309EFC 00306E5C  4E 80 00 20 */	blr 
+/* 80309EFC 00306E5C  4E 80 00 20 */	blr
 
 .global TickRenderTimings__9CGraphicsFv
 TickRenderTimings__9CGraphicsFv:
@@ -1215,7 +1215,7 @@ TickRenderTimings__9CGraphicsFv:
 /* 80309F58 00306EB8  EC 01 00 24 */	fdivs f0, f1, f0
 /* 80309F5C 00306EBC  D0 0D A8 40 */	stfs f0, lbl_805A9400@sda21(r13)
 /* 80309F60 00306EC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80309F64 00306EC4  4E 80 00 20 */	blr 
+/* 80309F64 00306EC4  4E 80 00 20 */	blr
 
 .global LoadDolphinSpareTexture__9CGraphicsFii11_GXCITexFmt7_GXTlutPv11_GXTexMapID
 LoadDolphinSpareTexture__9CGraphicsFii11_GXCITexFmt7_GXTlutPv11_GXTexMapID:
@@ -1267,7 +1267,7 @@ lbl_8030A00C:
 /* 8030A010 00306F70  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8030A014 00306F74  7C 08 03 A6 */	mtlr r0
 /* 8030A018 00306F78  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030A01C 00306F7C  4E 80 00 20 */	blr 
+/* 8030A01C 00306F7C  4E 80 00 20 */	blr
 
 .global LoadDolphinSpareTexture__9CGraphicsFii9_GXTexFmtPv11_GXTexMapID
 LoadDolphinSpareTexture__9CGraphicsFii9_GXTexFmtPv11_GXTexMapID:
@@ -1318,7 +1318,7 @@ lbl_8030A0C0:
 /* 8030A0C4 00307024  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8030A0C8 00307028  7C 08 03 A6 */	mtlr r0
 /* 8030A0CC 0030702C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030A0D0 00307030  4E 80 00 20 */	blr 
+/* 8030A0D0 00307030  4E 80 00 20 */	blr
 
 .global SetDefaultVtxAttrFmt__9CGraphicsFv
 SetDefaultVtxAttrFmt__9CGraphicsFv:
@@ -1428,13 +1428,13 @@ lbl_8030A20C:
 /* 8030A26C 003071CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8030A270 003071D0  7C 08 03 A6 */	mtlr r0
 /* 8030A274 003071D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030A278 003071D8  4E 80 00 20 */	blr 
+/* 8030A278 003071D8  4E 80 00 20 */	blr
 
 .global ResetGfxStates__9CGraphicsFv
 ResetGfxStates__9CGraphicsFv:
 /* 8030A27C 003071DC  38 00 00 00 */	li r0, 0
 /* 8030A280 003071E0  90 0D A7 B8 */	stw r0, lbl_805A9378@sda21(r13)
-/* 8030A284 003071E4  4E 80 00 20 */	blr 
+/* 8030A284 003071E4  4E 80 00 20 */	blr
 
 .global SetFog__9CGraphicsF11ERglFogModeffRC6CColor
 SetFog__9CGraphicsF11ERglFogModeffRC6CColor:
@@ -1449,7 +1449,7 @@ SetFog__9CGraphicsF11ERglFogModeffRC6CColor:
 /* 8030A2A8 00307208  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030A2AC 0030720C  7C 08 03 A6 */	mtlr r0
 /* 8030A2B0 00307210  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030A2B4 00307214  4E 80 00 20 */	blr 
+/* 8030A2B4 00307214  4E 80 00 20 */	blr
 
 .global SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass:
@@ -1542,7 +1542,7 @@ lbl_8030A3CC:
 /* 8030A3D0 00307330  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030A3D4 00307334  7C 08 03 A6 */	mtlr r0
 /* 8030A3D8 00307338  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030A3DC 0030733C  4E 80 00 20 */	blr 
+/* 8030A3DC 0030733C  4E 80 00 20 */	blr
 
 .global SetDepthRange__9CGraphicsFff
 SetDepthRange__9CGraphicsFff:
@@ -1585,7 +1585,7 @@ SetDepthRange__9CGraphicsFff:
 /* 8030A470 003073D0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8030A474 003073D4  7C 08 03 A6 */	mtlr r0
 /* 8030A478 003073D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030A47C 003073DC  4E 80 00 20 */	blr 
+/* 8030A47C 003073DC  4E 80 00 20 */	blr
 
 .global FullRender__9CGraphicsFv
 FullRender__9CGraphicsFv:
@@ -1607,7 +1607,7 @@ FullRender__9CGraphicsFv:
 /* 8030A4BC 0030741C  38 63 D9 48 */	addi r3, r3, lbl_803ED948@l
 /* 8030A4C0 00307420  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8030A4C4 00307424  7C 09 03 A6 */	mtctr r0
-/* 8030A4C8 00307428  4E 80 04 20 */	bctr 
+/* 8030A4C8 00307428  4E 80 04 20 */	bctr
 .global lbl_8030A4CC
 lbl_8030A4CC:
 /* 8030A4CC 0030742C  80 CD A7 FC */	lwz r6, lbl_805A93BC@sda21(r13)
@@ -2289,7 +2289,7 @@ lbl_8030AEBC:
 /* 8030AEC0 00307E20  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030AEC4 00307E24  7C 08 03 A6 */	mtlr r0
 /* 8030AEC8 00307E28  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030AECC 00307E2C  4E 80 00 20 */	blr 
+/* 8030AECC 00307E2C  4E 80 00 20 */	blr
 
 .global SetTevStates__9CGraphicsFUc
 SetTevStates__9CGraphicsFUc:
@@ -2389,7 +2389,7 @@ lbl_8030B004:
 /* 8030B024 00307F84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030B028 00307F88  7C 08 03 A6 */	mtlr r0
 /* 8030B02C 00307F8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B030 00307F90  4E 80 00 20 */	blr 
+/* 8030B030 00307F90  4E 80 00 20 */	blr
 
 .global FlushStream__9CGraphicsFv
 FlushStream__9CGraphicsFv:
@@ -2454,7 +2454,7 @@ lbl_8030B0E0:
 /* 8030B110 00308070  83 E1 00 8C */	lwz r31, 0x8c(r1)
 /* 8030B114 00308074  7C 08 03 A6 */	mtlr r0
 /* 8030B118 00308078  38 21 00 90 */	addi r1, r1, 0x90
-/* 8030B11C 0030807C  4E 80 00 20 */	blr 
+/* 8030B11C 0030807C  4E 80 00 20 */	blr
 
 .global ResetVertexDataStream__9CGraphicsFb
 ResetVertexDataStream__9CGraphicsFb:
@@ -2556,7 +2556,7 @@ lbl_8030B280:
 /* 8030B284 003081E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030B288 003081E8  7C 08 03 A6 */	mtlr r0
 /* 8030B28C 003081EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B290 003081F0  4E 80 00 20 */	blr 
+/* 8030B290 003081F0  4E 80 00 20 */	blr
 
 .global UpdateVertexDataStream__9CGraphicsFv
 UpdateVertexDataStream__9CGraphicsFv:
@@ -2644,7 +2644,7 @@ lbl_8030B3C8:
 /* 8030B3C8 00308328  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B3CC 0030832C  7C 08 03 A6 */	mtlr r0
 /* 8030B3D0 00308330  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B3D4 00308334  4E 80 00 20 */	blr 
+/* 8030B3D4 00308334  4E 80 00 20 */	blr
 
 .global SetLineWidth__9CGraphicsFf13ERglTexOffset
 SetLineWidth__9CGraphicsFf13ERglTexOffset:
@@ -2661,7 +2661,7 @@ SetLineWidth__9CGraphicsFf13ERglTexOffset:
 /* 8030B400 00308360  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B404 00308364  7C 08 03 A6 */	mtlr r0
 /* 8030B408 00308368  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B40C 0030836C  4E 80 00 20 */	blr 
+/* 8030B40C 0030836C  4E 80 00 20 */	blr
 
 .global StreamEnd__9CGraphicsFv
 StreamEnd__9CGraphicsFv:
@@ -2686,7 +2686,7 @@ lbl_8030B42C:
 /* 8030B454 003083B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B458 003083B8  7C 08 03 A6 */	mtlr r0
 /* 8030B45C 003083BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B460 003083C0  4E 80 00 20 */	blr 
+/* 8030B460 003083C0  4E 80 00 20 */	blr
 
 .global StreamTexcoord__9CGraphicsFff
 StreamTexcoord__9CGraphicsFff:
@@ -2701,7 +2701,7 @@ StreamTexcoord__9CGraphicsFff:
 /* 8030B484 003083E4  D0 45 00 1C */	stfs f2, 0x1c(r5)
 /* 8030B488 003083E8  98 65 00 2E */	stb r3, 0x2e(r5)
 /* 8030B48C 003083EC  B0 05 00 2C */	sth r0, 0x2c(r5)
-/* 8030B490 003083F0  4E 80 00 20 */	blr 
+/* 8030B490 003083F0  4E 80 00 20 */	blr
 
 .global StreamTexcoord__9CGraphicsFRC9CVector2f
 StreamTexcoord__9CGraphicsFRC9CVector2f:
@@ -2718,7 +2718,7 @@ StreamTexcoord__9CGraphicsFRC9CVector2f:
 /* 8030B4BC 0030841C  D0 06 00 1C */	stfs f0, 0x1c(r6)
 /* 8030B4C0 00308420  98 66 00 2E */	stb r3, 0x2e(r6)
 /* 8030B4C4 00308424  B0 06 00 2C */	sth r0, 0x2c(r6)
-/* 8030B4C8 00308428  4E 80 00 20 */	blr 
+/* 8030B4C8 00308428  4E 80 00 20 */	blr
 
 .global StreamColor__9CGraphicsFffff
 StreamColor__9CGraphicsFffff:
@@ -2752,7 +2752,7 @@ StreamColor__9CGraphicsFffff:
 /* 8030B538 00308498  50 60 06 3E */	rlwimi r0, r3, 0, 0x18, 0x1f
 /* 8030B53C 0030849C  90 04 00 28 */	stw r0, 0x28(r4)
 /* 8030B540 003084A0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030B544 003084A4  4E 80 00 20 */	blr 
+/* 8030B544 003084A4  4E 80 00 20 */	blr
 
 .global StreamColor__9CGraphicsFRC6CColor
 StreamColor__9CGraphicsFRC6CColor:
@@ -2764,7 +2764,7 @@ StreamColor__9CGraphicsFRC6CColor:
 /* 8030B55C 003084BC  90 A4 00 28 */	stw r5, 0x28(r4)
 /* 8030B560 003084C0  7C 60 03 78 */	or r0, r3, r0
 /* 8030B564 003084C4  98 04 00 2E */	stb r0, 0x2e(r4)
-/* 8030B568 003084C8  4E 80 00 20 */	blr 
+/* 8030B568 003084C8  4E 80 00 20 */	blr
 
 .global StreamColor__9CGraphicsFUi
 StreamColor__9CGraphicsFUi:
@@ -2775,7 +2775,7 @@ StreamColor__9CGraphicsFUi:
 /* 8030B57C 003084DC  90 65 00 28 */	stw r3, 0x28(r5)
 /* 8030B580 003084E0  7C 80 03 78 */	or r0, r4, r0
 /* 8030B584 003084E4  98 05 00 2E */	stb r0, 0x2e(r5)
-/* 8030B588 003084E8  4E 80 00 20 */	blr 
+/* 8030B588 003084E8  4E 80 00 20 */	blr
 
 .global StreamNormal__9CGraphicsFPCf
 StreamNormal__9CGraphicsFPCf:
@@ -2791,7 +2791,7 @@ StreamNormal__9CGraphicsFPCf:
 /* 8030B5B0 00308510  D0 25 00 10 */	stfs f1, 0x10(r5)
 /* 8030B5B4 00308514  D0 05 00 14 */	stfs f0, 0x14(r5)
 /* 8030B5B8 00308518  98 05 00 2E */	stb r0, 0x2e(r5)
-/* 8030B5BC 0030851C  4E 80 00 20 */	blr 
+/* 8030B5BC 0030851C  4E 80 00 20 */	blr
 
 .global StreamVertex__9CGraphicsFRC9CVector3f
 StreamVertex__9CGraphicsFRC9CVector3f:
@@ -2809,7 +2809,7 @@ StreamVertex__9CGraphicsFRC9CVector3f:
 /* 8030B5EC 0030854C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B5F0 00308550  7C 08 03 A6 */	mtlr r0
 /* 8030B5F4 00308554  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B5F8 00308558  4E 80 00 20 */	blr 
+/* 8030B5F8 00308558  4E 80 00 20 */	blr
 
 .global StreamVertex__9CGraphicsFPCf
 StreamVertex__9CGraphicsFPCf:
@@ -2827,7 +2827,7 @@ StreamVertex__9CGraphicsFPCf:
 /* 8030B628 00308588  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B62C 0030858C  7C 08 03 A6 */	mtlr r0
 /* 8030B630 00308590  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B634 00308594  4E 80 00 20 */	blr 
+/* 8030B634 00308594  4E 80 00 20 */	blr
 
 .global StreamVertex__9CGraphicsFfff
 StreamVertex__9CGraphicsFfff:
@@ -2842,7 +2842,7 @@ StreamVertex__9CGraphicsFfff:
 /* 8030B658 003085B8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B65C 003085BC  7C 08 03 A6 */	mtlr r0
 /* 8030B660 003085C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B664 003085C4  4E 80 00 20 */	blr 
+/* 8030B664 003085C4  4E 80 00 20 */	blr
 
 .global StreamBegin__9CGraphicsF13ERglPrimitive
 StreamBegin__9CGraphicsF13ERglPrimitive:
@@ -2872,7 +2872,7 @@ StreamBegin__9CGraphicsF13ERglPrimitive:
 /* 8030B6C4 00308624  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030B6C8 00308628  7C 08 03 A6 */	mtlr r0
 /* 8030B6CC 0030862C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030B6D0 00308630  4E 80 00 20 */	blr 
+/* 8030B6D0 00308630  4E 80 00 20 */	blr
 
 .global DrawPrimitive__9CGraphicsF13ERglPrimitivePCfRC9CVector3fRC6CColori
 DrawPrimitive__9CGraphicsF13ERglPrimitivePCfRC9CVector3fRC6CColori:
@@ -2911,7 +2911,7 @@ lbl_8030B730:
 /* 8030B74C 003086AC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8030B750 003086B0  7C 08 03 A6 */	mtlr r0
 /* 8030B754 003086B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030B758 003086B8  4E 80 00 20 */	blr 
+/* 8030B758 003086B8  4E 80 00 20 */	blr
 
 .global Render2D__9CGraphicsFRC8CTextureiiiiRC6CColor
 Render2D__9CGraphicsFRC8CTextureiiiiRC6CColor:
@@ -3095,7 +3095,7 @@ lbl_8030B9D4:
 /* 8030BA18 00308978  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8030BA1C 0030897C  7C 08 03 A6 */	mtlr r0
 /* 8030BA20 00308980  38 21 01 20 */	addi r1, r1, 0x120
-/* 8030BA24 00308984  4E 80 00 20 */	blr 
+/* 8030BA24 00308984  4E 80 00 20 */	blr
 
 .global SetAlphaCompare__9CGraphicsF13ERglAlphaFuncUc11ERglAlphaOp13ERglAlphaFuncUc
 SetAlphaCompare__9CGraphicsF13ERglAlphaFuncUc11ERglAlphaOp13ERglAlphaFuncUc:
@@ -3108,7 +3108,7 @@ SetAlphaCompare__9CGraphicsF13ERglAlphaFuncUc11ERglAlphaOp13ERglAlphaFuncUc:
 /* 8030BA40 003089A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BA44 003089A4  7C 08 03 A6 */	mtlr r0
 /* 8030BA48 003089A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BA4C 003089AC  4E 80 00 20 */	blr 
+/* 8030BA4C 003089AC  4E 80 00 20 */	blr
 
 .global SetBlendMode__9CGraphicsF13ERglBlendMode15ERglBlendFactor15ERglBlendFactor11ERglLogicOp
 SetBlendMode__9CGraphicsF13ERglBlendMode15ERglBlendFactor15ERglBlendFactor11ERglLogicOp:
@@ -3119,7 +3119,7 @@ SetBlendMode__9CGraphicsF13ERglBlendMode15ERglBlendFactor15ERglBlendFactor11ERgl
 /* 8030BA60 003089C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BA64 003089C4  7C 08 03 A6 */	mtlr r0
 /* 8030BA68 003089C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BA6C 003089CC  4E 80 00 20 */	blr 
+/* 8030BA6C 003089CC  4E 80 00 20 */	blr
 
 .global SetCullMode__9CGraphicsF12ERglCullMode
 SetCullMode__9CGraphicsF12ERglCullMode:
@@ -3131,7 +3131,7 @@ SetCullMode__9CGraphicsF12ERglCullMode:
 /* 8030BA84 003089E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BA88 003089E8  7C 08 03 A6 */	mtlr r0
 /* 8030BA8C 003089EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BA90 003089F0  4E 80 00 20 */	blr 
+/* 8030BA90 003089F0  4E 80 00 20 */	blr
 
 .global SetDepthWriteMode__9CGraphicsFb8ERglEnumb
 SetDepthWriteMode__9CGraphicsFb8ERglEnumb:
@@ -3145,7 +3145,7 @@ SetDepthWriteMode__9CGraphicsFb8ERglEnumb:
 /* 8030BAB0 00308A10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BAB4 00308A14  7C 08 03 A6 */	mtlr r0
 /* 8030BAB8 00308A18  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BABC 00308A1C  4E 80 00 20 */	blr 
+/* 8030BABC 00308A1C  4E 80 00 20 */	blr
 
 .global EndScene__9CGraphicsFv
 EndScene__9CGraphicsFv:
@@ -3308,7 +3308,7 @@ lbl_8030BB40:
 /* 8030BD24 00308C84  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 8030BD28 00308C88  7C 08 03 A6 */	mtlr r0
 /* 8030BD2C 00308C8C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8030BD30 00308C90  4E 80 00 20 */	blr 
+/* 8030BD30 00308C90  4E 80 00 20 */	blr
 
 .global VideoPostCallback__9CGraphicsFUl
 VideoPostCallback__9CGraphicsFUl:
@@ -3364,7 +3364,7 @@ lbl_8030BDEC:
 /* 8030BDF0 00308D50  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030BDF4 00308D54  7C 08 03 A6 */	mtlr r0
 /* 8030BDF8 00308D58  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BDFC 00308D5C  4E 80 00 20 */	blr 
+/* 8030BDFC 00308D5C  4E 80 00 20 */	blr
 
 .global VideoPreCallback__9CGraphicsFUl
 VideoPreCallback__9CGraphicsFUl:
@@ -3401,7 +3401,7 @@ lbl_8030BE6C:
 /* 8030BE6C 00308DCC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BE70 00308DD0  7C 08 03 A6 */	mtlr r0
 /* 8030BE74 00308DD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BE78 00308DD8  4E 80 00 20 */	blr 
+/* 8030BE78 00308DD8  4E 80 00 20 */	blr
 
 .global SwapBuffers__9CGraphicsFv
 SwapBuffers__9CGraphicsFv:
@@ -3414,7 +3414,7 @@ SwapBuffers__9CGraphicsFv:
 /* 8030BE94 00308DF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BE98 00308DF8  7C 08 03 A6 */	mtlr r0
 /* 8030BE9C 00308DFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BEA0 00308E00  4E 80 00 20 */	blr 
+/* 8030BEA0 00308E00  4E 80 00 20 */	blr
 
 .global BeginScene__9CGraphicsFv
 BeginScene__9CGraphicsFv:
@@ -3425,7 +3425,7 @@ BeginScene__9CGraphicsFv:
 /* 8030BEB4 00308E14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BEB8 00308E18  7C 08 03 A6 */	mtlr r0
 /* 8030BEBC 00308E1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BEC0 00308E20  4E 80 00 20 */	blr 
+/* 8030BEC0 00308E20  4E 80 00 20 */	blr
 
 .global ClearBackAndDepthBuffers__9CGraphicsFv
 ClearBackAndDepthBuffers__9CGraphicsFv:
@@ -3482,7 +3482,7 @@ lbl_8030BF80:
 /* 8030BF84 00308EE4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8030BF88 00308EE8  7C 08 03 A6 */	mtlr r0
 /* 8030BF8C 00308EEC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030BF90 00308EF0  4E 80 00 20 */	blr 
+/* 8030BF90 00308EF0  4E 80 00 20 */	blr
 
 .global SetClearColor__9CGraphicsFRC6CColor
 SetClearColor__9CGraphicsFRC6CColor:
@@ -3498,7 +3498,7 @@ SetClearColor__9CGraphicsFRC6CColor:
 /* 8030BFB8 00308F18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030BFBC 00308F1C  7C 08 03 A6 */	mtlr r0
 /* 8030BFC0 00308F20  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030BFC4 00308F24  4E 80 00 20 */	blr 
+/* 8030BFC4 00308F24  4E 80 00 20 */	blr
 
 .global SetCopyClear__9CGraphicsFRC6CColorf
 SetCopyClear__9CGraphicsFRC6CColorf:
@@ -3522,7 +3522,7 @@ SetCopyClear__9CGraphicsFRC6CColorf:
 /* 8030C00C 00308F6C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8030C010 00308F70  7C 08 03 A6 */	mtlr r0
 /* 8030C014 00308F74  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030C018 00308F78  4E 80 00 20 */	blr 
+/* 8030C018 00308F78  4E 80 00 20 */	blr
 
 .global SetAmbientColor__9CGraphicsFRC6CColor
 SetAmbientColor__9CGraphicsFRC6CColor:
@@ -3541,7 +3541,7 @@ SetAmbientColor__9CGraphicsFRC6CColor:
 /* 8030C04C 00308FAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030C050 00308FB0  7C 08 03 A6 */	mtlr r0
 /* 8030C054 00308FB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C058 00308FB8  4E 80 00 20 */	blr 
+/* 8030C058 00308FB8  4E 80 00 20 */	blr
 
 .global SetScissor__9CGraphicsFiiii
 SetScissor__9CGraphicsFiiii:
@@ -3557,7 +3557,7 @@ SetScissor__9CGraphicsFiiii:
 /* 8030C080 00308FE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030C084 00308FE4  7C 08 03 A6 */	mtlr r0
 /* 8030C088 00308FE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C08C 00308FEC  4E 80 00 20 */	blr 
+/* 8030C08C 00308FEC  4E 80 00 20 */	blr
 
 .global SetViewport__9CGraphicsFiiii
 SetViewport__9CGraphicsFiiii:
@@ -3622,7 +3622,7 @@ SetViewport__9CGraphicsFiiii:
 /* 8030C178 003090D8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8030C17C 003090DC  7C 08 03 A6 */	mtlr r0
 /* 8030C180 003090E0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030C184 003090E4  4E 80 00 20 */	blr 
+/* 8030C184 003090E4  4E 80 00 20 */	blr
 
 .global CalculatePerspectiveMatrix__9CGraphicsFffff
 CalculatePerspectiveMatrix__9CGraphicsFffff:
@@ -3731,7 +3731,7 @@ CalculatePerspectiveMatrix__9CGraphicsFffff:
 /* 8030C320 00309280  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 8030C324 00309284  7C 08 03 A6 */	mtlr r0
 /* 8030C328 00309288  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8030C32C 0030928C  4E 80 00 20 */	blr 
+/* 8030C32C 0030928C  4E 80 00 20 */	blr
 
 .global GetPerspectiveProjectionMatrix__9CGraphicsFv
 GetPerspectiveProjectionMatrix__9CGraphicsFv:
@@ -3822,7 +3822,7 @@ GetPerspectiveProjectionMatrix__9CGraphicsFv:
 /* 8030C480 003093E0  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 8030C484 003093E4  7C 08 03 A6 */	mtlr r0
 /* 8030C488 003093E8  38 21 00 80 */	addi r1, r1, 0x80
-/* 8030C48C 003093EC  4E 80 00 20 */	blr 
+/* 8030C48C 003093EC  4E 80 00 20 */	blr
 
 .global SetPerspective__9CGraphicsFffff
 SetPerspective__9CGraphicsFffff:
@@ -3874,7 +3874,7 @@ SetPerspective__9CGraphicsFffff:
 /* 8030C544 003094A4  CB A1 00 10 */	lfd f29, 0x10(r1)
 /* 8030C548 003094A8  7C 08 03 A6 */	mtlr r0
 /* 8030C54C 003094AC  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030C550 003094B0  4E 80 00 20 */	blr 
+/* 8030C550 003094B0  4E 80 00 20 */	blr
 
 .global SetOrtho__9CGraphicsFffffff
 SetOrtho__9CGraphicsFffffff:
@@ -3894,7 +3894,7 @@ SetOrtho__9CGraphicsFffffff:
 /* 8030C588 003094E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030C58C 003094EC  7C 08 03 A6 */	mtlr r0
 /* 8030C590 003094F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C594 003094F4  4E 80 00 20 */	blr 
+/* 8030C594 003094F4  4E 80 00 20 */	blr
 
 .global SetIdentityModelMatrix__9CGraphicsFv
 SetIdentityModelMatrix__9CGraphicsFv:
@@ -3916,7 +3916,7 @@ lbl_8030C5D0:
 /* 8030C5D0 00309530  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030C5D4 00309534  7C 08 03 A6 */	mtlr r0
 /* 8030C5D8 00309538  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C5DC 0030953C  4E 80 00 20 */	blr 
+/* 8030C5DC 0030953C  4E 80 00 20 */	blr
 
 .global SetModelMatrix__9CGraphicsFRC12CTransform4f
 SetModelMatrix__9CGraphicsFRC12CTransform4f:
@@ -3978,7 +3978,7 @@ lbl_8030C6B0:
 /* 8030C6B4 00309614  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030C6B8 00309618  7C 08 03 A6 */	mtlr r0
 /* 8030C6BC 0030961C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C6C0 00309620  4E 80 00 20 */	blr 
+/* 8030C6C0 00309620  4E 80 00 20 */	blr
 
 .global SetIdentityViewPointMatrix__9CGraphicsFv
 SetIdentityViewPointMatrix__9CGraphicsFv:
@@ -4015,7 +4015,7 @@ SetIdentityViewPointMatrix__9CGraphicsFv:
 /* 8030C73C 0030969C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030C740 003096A0  7C 08 03 A6 */	mtlr r0
 /* 8030C744 003096A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C748 003096A8  4E 80 00 20 */	blr 
+/* 8030C748 003096A8  4E 80 00 20 */	blr
 
 .global SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 SetViewPointMatrix__9CGraphicsFRC12CTransform4f:
@@ -4066,7 +4066,7 @@ SetViewPointMatrix__9CGraphicsFRC12CTransform4f:
 /* 8030C7FC 0030975C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030C800 00309760  7C 08 03 A6 */	mtlr r0
 /* 8030C804 00309764  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C808 00309768  4E 80 00 20 */	blr 
+/* 8030C808 00309768  4E 80 00 20 */	blr
 
 .global SetViewMatrix__9CGraphicsFv
 SetViewMatrix__9CGraphicsFv:
@@ -4120,7 +4120,7 @@ lbl_8030C894:
 /* 8030C8C0 00309820  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8030C8C4 00309824  7C 08 03 A6 */	mtlr r0
 /* 8030C8C8 00309828  38 21 00 70 */	addi r1, r1, 0x70
-/* 8030C8CC 0030982C  4E 80 00 20 */	blr 
+/* 8030C8CC 0030982C  4E 80 00 20 */	blr
 
 .global SetLightState__9CGraphicsFUc
 SetLightState__9CGraphicsFUc:
@@ -4168,7 +4168,7 @@ lbl_8030C904:
 /* 8030C96C 003098CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030C970 003098D0  7C 08 03 A6 */	mtlr r0
 /* 8030C974 003098D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C978 003098D8  4E 80 00 20 */	blr 
+/* 8030C978 003098D8  4E 80 00 20 */	blr
 
 .global DisableAllLights__9CGraphicsFv
 DisableAllLights__9CGraphicsFv:
@@ -4189,7 +4189,7 @@ DisableAllLights__9CGraphicsFv:
 /* 8030C9B4 00309914  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030C9B8 00309918  7C 08 03 A6 */	mtlr r0
 /* 8030C9BC 0030991C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030C9C0 00309920  4E 80 00 20 */	blr 
+/* 8030C9C0 00309920  4E 80 00 20 */	blr
 
 .global LoadLight__9CGraphicsF9ERglLightRC6CLight
 LoadLight__9CGraphicsF9ERglLightRC6CLight:
@@ -4425,7 +4425,7 @@ lbl_8030CCCC:
 /* 8030CD20 00309C80  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8030CD24 00309C84  7C 08 03 A6 */	mtlr r0
 /* 8030CD28 00309C88  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030CD2C 00309C8C  4E 80 00 20 */	blr 
+/* 8030CD2C 00309C8C  4E 80 00 20 */	blr
 
 .global EnableLight__9CGraphicsF9ERglLight
 EnableLight__9CGraphicsF9ERglLight:
@@ -4461,7 +4461,7 @@ lbl_8030CD94:
 /* 8030CDA0 00309D00  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030CDA4 00309D04  7C 08 03 A6 */	mtlr r0
 /* 8030CDA8 00309D08  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030CDAC 00309D0C  4E 80 00 20 */	blr 
+/* 8030CDAC 00309D0C  4E 80 00 20 */	blr
 
 .global ConfigureFrameBuffer__9CGraphicsFRC10COsContext
 ConfigureFrameBuffer__9CGraphicsFRC10COsContext:
@@ -4603,7 +4603,7 @@ lbl_8030CF84:
 /* 8030CFC4 00309F24  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8030CFC8 00309F28  7C 08 03 A6 */	mtlr r0
 /* 8030CFCC 00309F2C  38 21 00 60 */	addi r1, r1, 0x60
-/* 8030CFD0 00309F30  4E 80 00 20 */	blr 
+/* 8030CFD0 00309F30  4E 80 00 20 */	blr
 
 .global InitGraphicsDefaults__9CGraphicsFv
 InitGraphicsDefaults__9CGraphicsFv:
@@ -4641,7 +4641,7 @@ InitGraphicsDefaults__9CGraphicsFv:
 /* 8030D050 00309FB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030D054 00309FB4  7C 08 03 A6 */	mtlr r0
 /* 8030D058 00309FB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030D05C 00309FBC  4E 80 00 20 */	blr 
+/* 8030D05C 00309FBC  4E 80 00 20 */	blr
 
 .global Shutdown__9CGraphicsFv
 Shutdown__9CGraphicsFv:
@@ -4653,7 +4653,7 @@ Shutdown__9CGraphicsFv:
 /* 8030D074 00309FD4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030D078 00309FD8  7C 08 03 A6 */	mtlr r0
 /* 8030D07C 00309FDC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030D080 00309FE0  4E 80 00 20 */	blr 
+/* 8030D080 00309FE0  4E 80 00 20 */	blr
 
 .global InitGraphicsVariables__9CGraphicsFv
 InitGraphicsVariables__9CGraphicsFv:
@@ -4733,7 +4733,7 @@ InitGraphicsVariables__9CGraphicsFv:
 /* 8030D1A8 0030A108  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8030D1AC 0030A10C  7C 08 03 A6 */	mtlr r0
 /* 8030D1B0 0030A110  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030D1B4 0030A114  4E 80 00 20 */	blr 
+/* 8030D1B4 0030A114  4E 80 00 20 */	blr
 
 .global TexRegionCallback__9CGraphicsFP9_GXTexObj11_GXTexMapID
 TexRegionCallback__9CGraphicsFP9_GXTexObj11_GXTexMapID:
@@ -4795,7 +4795,7 @@ lbl_8030D27C:
 /* 8030D27C 0030A1DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030D280 0030A1E0  7C 08 03 A6 */	mtlr r0
 /* 8030D284 0030A1E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030D288 0030A1E8  4E 80 00 20 */	blr 
+/* 8030D288 0030A1E8  4E 80 00 20 */	blr
 
 .global Startup__9CGraphicsFRC10COsContextUiPv
 Startup__9CGraphicsFRC10COsContextUiPv:
@@ -4898,7 +4898,7 @@ lbl_8030D38C:
 /* 8030D404 0030A364  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8030D408 0030A368  7C 08 03 A6 */	mtlr r0
 /* 8030D40C 0030A36C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8030D410 0030A370  4E 80 00 20 */	blr 
+/* 8030D410 0030A370  4E 80 00 20 */	blr
 
 .global __sinit_DolphinCGraphics_cpp
 __sinit_DolphinCGraphics_cpp:

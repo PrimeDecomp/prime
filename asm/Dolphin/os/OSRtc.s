@@ -3,7 +3,7 @@
 .section .bss
 Scb:
 	.skip 0x58
-	
+
 .section .text, "ax"
 
 .global WriteSramCallback
@@ -32,7 +32,7 @@ lbl_80383870:
 /* 80383878 003807D8  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8038387C 003807DC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80383880 003807E0  7C 08 03 A6 */	mtlr r0
-/* 80383884 003807E4  4E 80 00 20 */	blr 
+/* 80383884 003807E4  4E 80 00 20 */	blr
 
 .global WriteSram
 WriteSram:
@@ -108,7 +108,7 @@ lbl_80383984:
 /* 80383990 003808F0  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80383994 003808F4  38 21 00 28 */	addi r1, r1, 0x28
 /* 80383998 003808F8  7C 08 03 A6 */	mtlr r0
-/* 8038399C 003808FC  4E 80 00 20 */	blr 
+/* 8038399C 003808FC  4E 80 00 20 */	blr
 
 .global __OSInitSram
 __OSInitSram:
@@ -191,7 +191,7 @@ lbl_80383AB0:
 /* 80383AC4 00380A24  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 80383AC8 00380A28  38 21 00 18 */	addi r1, r1, 0x18
 /* 80383ACC 00380A2C  7C 08 03 A6 */	mtlr r0
-/* 80383AD0 00380A30  4E 80 00 20 */	blr 
+/* 80383AD0 00380A30  4E 80 00 20 */	blr
 
 .global __OSLockSram
 __OSLockSram:
@@ -219,7 +219,7 @@ lbl_80383B18:
 /* 80383B20 00380A80  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80383B24 00380A84  38 21 00 10 */	addi r1, r1, 0x10
 /* 80383B28 00380A88  7C 08 03 A6 */	mtlr r0
-/* 80383B2C 00380A8C  4E 80 00 20 */	blr 
+/* 80383B2C 00380A8C  4E 80 00 20 */	blr
 
 .global __OSLockSramEx
 __OSLockSramEx:
@@ -247,7 +247,7 @@ lbl_80383B78:
 /* 80383B7C 00380ADC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80383B80 00380AE0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80383B84 00380AE4  7C 08 03 A6 */	mtlr r0
-/* 80383B88 00380AE8  4E 80 00 20 */	blr 
+/* 80383B88 00380AE8  4E 80 00 20 */	blr
 
 .global UnlockSram
 UnlockSram:
@@ -454,7 +454,7 @@ lbl_80383E6C:
 /* 80383E84 00380DE4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80383E88 00380DE8  38 21 00 30 */	addi r1, r1, 0x30
 /* 80383E8C 00380DEC  7C 08 03 A6 */	mtlr r0
-/* 80383E90 00380DF0  4E 80 00 20 */	blr 
+/* 80383E90 00380DF0  4E 80 00 20 */	blr
 
 .global __OSUnlockSram
 __OSUnlockSram:
@@ -466,7 +466,7 @@ __OSUnlockSram:
 /* 80383EA8 00380E08  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80383EAC 00380E0C  38 21 00 08 */	addi r1, r1, 8
 /* 80383EB0 00380E10  7C 08 03 A6 */	mtlr r0
-/* 80383EB4 00380E14  4E 80 00 20 */	blr 
+/* 80383EB4 00380E14  4E 80 00 20 */	blr
 
 .global __OSUnlockSramEx
 __OSUnlockSramEx:
@@ -478,14 +478,14 @@ __OSUnlockSramEx:
 /* 80383ECC 00380E2C  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80383ED0 00380E30  38 21 00 08 */	addi r1, r1, 8
 /* 80383ED4 00380E34  7C 08 03 A6 */	mtlr r0
-/* 80383ED8 00380E38  4E 80 00 20 */	blr 
+/* 80383ED8 00380E38  4E 80 00 20 */	blr
 
 .global __OSSyncSram
 __OSSyncSram:
 /* 80383EDC 00380E3C  3C 60 80 54 */	lis r3, Scb@ha
 /* 80383EE0 00380E40  38 63 15 A0 */	addi r3, r3, Scb@l
 /* 80383EE4 00380E44  80 63 00 4C */	lwz r3, 0x4c(r3)
-/* 80383EE8 00380E48  4E 80 00 20 */	blr 
+/* 80383EE8 00380E48  4E 80 00 20 */	blr
 
 .global sub_80383eec
 sub_80383eec:
@@ -564,7 +564,7 @@ lbl_80383FF4:
 /* 80384000 00380F60  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80384004 00380F64  38 21 00 28 */	addi r1, r1, 0x28
 /* 80384008 00380F68  7C 08 03 A6 */	mtlr r0
-/* 8038400C 00380F6C  4E 80 00 20 */	blr 
+/* 8038400C 00380F6C  4E 80 00 20 */	blr
 
 .global OSGetSoundMode
 OSGetSoundMode:
@@ -603,7 +603,7 @@ lbl_8038406C:
 /* 80384080 00380FE0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80384084 00380FE4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80384088 00380FE8  7C 08 03 A6 */	mtlr r0
-/* 8038408C 00380FEC  4E 80 00 20 */	blr 
+/* 8038408C 00380FEC  4E 80 00 20 */	blr
 
 .global OSSetSoundMode
 OSSetSoundMode:
@@ -651,7 +651,7 @@ lbl_8038411C:
 /* 80384124 00381084  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80384128 00381088  38 21 00 20 */	addi r1, r1, 0x20
 /* 8038412C 0038108C  7C 08 03 A6 */	mtlr r0
-/* 80384130 00381090  4E 80 00 20 */	blr 
+/* 80384130 00381090  4E 80 00 20 */	blr
 
 .global OSGetProgressiveMode
 OSGetProgressiveMode:
@@ -684,7 +684,7 @@ lbl_80384178:
 /* 80384194 003810F4  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80384198 003810F8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8038419C 003810FC  7C 08 03 A6 */	mtlr r0
-/* 803841A0 00381100  4E 80 00 20 */	blr 
+/* 803841A0 00381100  4E 80 00 20 */	blr
 
 .global sub_803841a4
 sub_803841a4:
@@ -732,7 +732,7 @@ lbl_80384230:
 /* 80384238 00381198  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8038423C 0038119C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80384240 003811A0  7C 08 03 A6 */	mtlr r0
-/* 80384244 003811A4  4E 80 00 20 */	blr 
+/* 80384244 003811A4  4E 80 00 20 */	blr
 
 .global OSGetLanguage
 OSGetLanguage:
@@ -764,7 +764,7 @@ lbl_8038428C:
 /* 803842A4 00381204  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803842A8 00381208  38 21 00 18 */	addi r1, r1, 0x18
 /* 803842AC 0038120C  7C 08 03 A6 */	mtlr r0
-/* 803842B0 00381210  4E 80 00 20 */	blr 
+/* 803842B0 00381210  4E 80 00 20 */	blr
 
 .global OSGetWirelessID
 OSGetWirelessID:
@@ -802,7 +802,7 @@ lbl_80384304:
 /* 80384328 00381288  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8038432C 0038128C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80384330 00381290  7C 08 03 A6 */	mtlr r0
-/* 80384334 00381294  4E 80 00 20 */	blr 
+/* 80384334 00381294  4E 80 00 20 */	blr
 
 .global OSSetWirelessID
 OSSetWirelessID:
@@ -852,4 +852,4 @@ lbl_803843C8:
 /* 803843D4 00381334  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 803843D8 00381338  38 21 00 28 */	addi r1, r1, 0x28
 /* 803843DC 0038133C  7C 08 03 A6 */	mtlr r0
-/* 803843E0 00381340  4E 80 00 20 */	blr 
+/* 803843E0 00381340  4E 80 00 20 */	blr

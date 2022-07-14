@@ -79,15 +79,15 @@ lbl_8005AD28:
 /* 8005AD38 00057C98  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8005AD3C 00057C9C  7C 08 03 A6 */	mtlr r0
 /* 8005AD40 00057CA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005AD44 00057CA4  4E 80 00 20 */	blr 
+/* 8005AD44 00057CA4  4E 80 00 20 */	blr
 
 .global nullsub_83
 nullsub_83:
-/* 8005AD48 00057CA8  4E 80 00 20 */	blr 
+/* 8005AD48 00057CA8  4E 80 00 20 */	blr
 
 .global nullsub_84
 nullsub_84:
-/* 8005AD4C 00057CAC  4E 80 00 20 */	blr 
+/* 8005AD4C 00057CAC  4E 80 00 20 */	blr
 
 .global "__ct__7CEffectF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f"
 "__ct__7CEffectF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f":

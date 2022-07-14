@@ -153,7 +153,7 @@ SetCameraShake__17CEnergyProjectileFRC16CCameraShakeData:
 /* 80213C60 00210BC0  88 03 03 D0 */	lbz r0, 0x3d0(r3)
 /* 80213C64 00210BC4  50 A0 26 F6 */	rlwimi r0, r5, 4, 0x1b, 0x1b
 /* 80213C68 00210BC8  98 03 03 D0 */	stb r0, 0x3d0(r3)
-/* 80213C6C 00210BCC  4E 80 00 20 */	blr 
+/* 80213C6C 00210BCC  4E 80 00 20 */	blr
 
 .global PlayImpactSound__17CEnergyProjectileFRC9CVector3f29EWeaponCollisionResponseTypes
 PlayImpactSound__17CEnergyProjectileFRC9CVector3f29EWeaponCollisionResponseTypes:
@@ -234,7 +234,7 @@ lbl_80213D7C:
 /* 80213D94 00210CF4  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 80213D98 00210CF8  7C 08 03 A6 */	mtlr r0
 /* 80213D9C 00210CFC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80213DA0 00210D00  4E 80 00 20 */	blr 
+/* 80213DA0 00210D00  4E 80 00 20 */	blr
 
 .global ChangeProjectileOwner__17CEnergyProjectileF9TUniqueIdR13CStateManager
 ChangeProjectileOwner__17CEnergyProjectileF9TUniqueIdR13CStateManager:
@@ -322,7 +322,7 @@ lbl_80213ED8:
 /* 80213EE4 00210E44  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 80213EE8 00210E48  7C 08 03 A6 */	mtlr r0
 /* 80213EEC 00210E4C  38 21 00 70 */	addi r1, r1, 0x70
-/* 80213EF0 00210E50  4E 80 00 20 */	blr 
+/* 80213EF0 00210E50  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CEnergyProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CEnergyProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -370,7 +370,7 @@ lbl_80213F7C:
 /* 80213F8C 00210EEC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80213F90 00210EF0  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80213F94 00210EF4  7D 89 03 A6 */	mtctr r12
-/* 80213F98 00210EF8  4E 80 04 21 */	bctrl 
+/* 80213F98 00210EF8  4E 80 04 21 */	bctrl
 /* 80213F9C 00210EFC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80213FA0 00210F00  41 82 00 48 */	beq lbl_80213FE8
 /* 80213FA4 00210F04  3C 80 80 3D */	lis r4, lbl_803D2890@ha
@@ -382,7 +382,7 @@ lbl_80213F7C:
 /* 80213FBC 00210F1C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80213FC0 00210F20  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80213FC4 00210F24  7D 89 03 A6 */	mtctr r12
-/* 80213FC8 00210F28  4E 80 04 21 */	bctrl 
+/* 80213FC8 00210F28  4E 80 04 21 */	bctrl
 /* 80213FCC 00210F2C  7F 63 DB 78 */	mr r3, r27
 /* 80213FD0 00210F30  7F C6 F3 78 */	mr r6, r30
 /* 80213FD4 00210F34  38 81 00 80 */	addi r4, r1, 0x80
@@ -427,7 +427,7 @@ lbl_80213FE8:
 /* 8021406C 00210FCC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80214070 00210FD0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80214074 00210FD4  7D 89 03 A6 */	mtctr r12
-/* 80214078 00210FD8  4E 80 04 21 */	bctrl 
+/* 80214078 00210FD8  4E 80 04 21 */	bctrl
 /* 8021407C 00210FDC  38 61 00 5C */	addi r3, r1, 0x5c
 /* 80214080 00210FE0  38 80 00 00 */	li r4, 0
 /* 80214084 00210FE4  48 12 CD BD */	bl __dt__6CTokenFv
@@ -452,7 +452,7 @@ lbl_80214088:
 /* 802140CC 0021102C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802140D0 00211030  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802140D4 00211034  7D 89 03 A6 */	mtctr r12
-/* 802140D8 00211038  4E 80 04 21 */	bctrl 
+/* 802140D8 00211038  4E 80 04 21 */	bctrl
 /* 802140DC 0021103C  38 61 00 44 */	addi r3, r1, 0x44
 /* 802140E0 00211040  38 80 00 00 */	li r4, 0
 /* 802140E4 00211044  48 12 CD 5D */	bl __dt__6CTokenFv
@@ -484,7 +484,7 @@ lbl_802140E8:
 /* 80214148 002110A8  81 9B 01 70 */	lwz r12, 0x170(r27)
 /* 8021414C 002110AC  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80214150 002110B0  7D 89 03 A6 */	mtctr r12
-/* 80214154 002110B4  4E 80 04 21 */	bctrl 
+/* 80214154 002110B4  4E 80 04 21 */	bctrl
 /* 80214158 002110B8  C0 41 00 38 */	lfs f2, 0x38(r1)
 /* 8021415C 002110BC  38 7B 01 70 */	addi r3, r27, 0x170
 /* 80214160 002110C0  C0 21 00 3C */	lfs f1, 0x3c(r1)
@@ -539,7 +539,7 @@ lbl_802141FC:
 /* 8021421C 0021117C  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 80214220 00211180  7C 08 03 A6 */	mtlr r0
 /* 80214224 00211184  38 21 01 30 */	addi r1, r1, 0x130
-/* 80214228 00211188  4E 80 00 20 */	blr 
+/* 80214228 00211188  4E 80 00 20 */	blr
 
 .global Accept__17CEnergyProjectileFR8IVisitor
 Accept__17CEnergyProjectileFR8IVisitor:
@@ -552,11 +552,11 @@ Accept__17CEnergyProjectileFR8IVisitor:
 /* 80214244 002111A4  7C 04 03 78 */	mr r4, r0
 /* 80214248 002111A8  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8021424C 002111AC  7D 89 03 A6 */	mtctr r12
-/* 80214250 002111B0  4E 80 04 21 */	bctrl 
+/* 80214250 002111B0  4E 80 04 21 */	bctrl
 /* 80214254 002111B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80214258 002111B8  7C 08 03 A6 */	mtlr r0
 /* 8021425C 002111BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80214260 002111C0  4E 80 00 20 */	blr 
+/* 80214260 002111C0  4E 80 00 20 */	blr
 
 .global ResolveCollisionWithWorld__17CEnergyProjectileFRC14CRayCastResultR13CStateManager
 ResolveCollisionWithWorld__17CEnergyProjectileFRC14CRayCastResultR13CStateManager:
@@ -598,7 +598,7 @@ ResolveCollisionWithWorld__17CEnergyProjectileFRC14CRayCastResultR13CStateManage
 /* 802142F0 00211250  39 21 00 14 */	addi r9, r1, 0x14
 /* 802142F4 00211254  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 802142F8 00211258  7D 89 03 A6 */	mtctr r12
-/* 802142FC 0021125C  4E 80 04 21 */	bctrl 
+/* 802142FC 0021125C  4E 80 04 21 */	bctrl
 /* 80214300 00211260  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80214304 00211264  41 82 00 54 */	beq lbl_80214358
 /* 80214308 00211268  80 1D 00 F8 */	lwz r0, 0xf8(r29)
@@ -632,7 +632,7 @@ lbl_80214364:
 /* 80214370 002112D0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80214374 002112D4  7C 08 03 A6 */	mtlr r0
 /* 80214378 002112D8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8021437C 002112DC  4E 80 00 20 */	blr 
+/* 8021437C 002112DC  4E 80 00 20 */	blr
 
 .global ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CStateManager
 ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CStateManager:
@@ -666,7 +666,7 @@ ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CSta
 /* 802143EC 0021134C  38 DB 01 2C */	addi r6, r27, 0x12c
 /* 802143F0 00211350  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 802143F4 00211354  7D 89 03 A6 */	mtctr r12
-/* 802143F8 00211358  4E 80 04 21 */	bctrl 
+/* 802143F8 00211358  4E 80 04 21 */	bctrl
 /* 802143FC 0021135C  7C 60 1B 78 */	mr r0, r3
 /* 80214400 00211360  7F A3 EB 78 */	mr r3, r29
 /* 80214404 00211364  81 9D 00 00 */	lwz r12, 0(r29)
@@ -675,7 +675,7 @@ ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CSta
 /* 80214410 00211370  7F C5 F3 78 */	mr r5, r30
 /* 80214414 00211374  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 80214418 00211378  7D 89 03 A6 */	mtctr r12
-/* 8021441C 0021137C  4E 80 04 21 */	bctrl 
+/* 8021441C 0021137C  4E 80 04 21 */	bctrl
 /* 80214420 00211380  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 80214424 00211384  7F A3 EB 78 */	mr r3, r29
 /* 80214428 00211388  B0 01 00 24 */	sth r0, 0x24(r1)
@@ -683,7 +683,7 @@ ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CSta
 /* 80214430 00211390  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80214434 00211394  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80214438 00211398  7D 89 03 A6 */	mtctr r12
-/* 8021443C 0021139C  4E 80 04 21 */	bctrl 
+/* 8021443C 0021139C  4E 80 04 21 */	bctrl
 /* 80214440 002113A0  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80214444 002113A4  7C 68 1B 78 */	mr r8, r3
 /* 80214448 002113A8  7F 63 DB 78 */	mr r3, r27
@@ -694,7 +694,7 @@ ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CSta
 /* 8021445C 002113BC  38 BC 00 10 */	addi r5, r28, 0x10
 /* 80214460 002113C0  39 21 00 24 */	addi r9, r1, 0x24
 /* 80214464 002113C4  7D 89 03 A6 */	mtctr r12
-/* 80214468 002113C8  4E 80 04 21 */	bctrl 
+/* 80214468 002113C8  4E 80 04 21 */	bctrl
 /* 8021446C 002113CC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80214470 002113D0  40 82 00 3C */	bne lbl_802144AC
 /* 80214474 002113D4  A0 1B 00 08 */	lhz r0, 8(r27)
@@ -751,7 +751,7 @@ lbl_802144D0:
 /* 80214538 00211498  81 9B 00 00 */	lwz r12, 0(r27)
 /* 8021453C 0021149C  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80214540 002114A0  7D 89 03 A6 */	mtctr r12
-/* 80214544 002114A4  4E 80 04 21 */	bctrl 
+/* 80214544 002114A4  4E 80 04 21 */	bctrl
 /* 80214548 002114A8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8021454C 002114AC  7C 68 1B 78 */	mr r8, r3
 /* 80214550 002114B0  7F E3 FB 78 */	mr r3, r31
@@ -762,13 +762,13 @@ lbl_802144D0:
 /* 80214564 002114C4  39 21 00 0C */	addi r9, r1, 0xc
 /* 80214568 002114C8  38 C0 00 0D */	li r6, 0xd
 /* 8021456C 002114CC  7D 89 03 A6 */	mtctr r12
-/* 80214570 002114D0  4E 80 04 21 */	bctrl 
+/* 80214570 002114D0  4E 80 04 21 */	bctrl
 lbl_80214574:
 /* 80214574 002114D4  BB 61 00 6C */	lmw r27, 0x6c(r1)
 /* 80214578 002114D8  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8021457C 002114DC  7C 08 03 A6 */	mtlr r0
 /* 80214580 002114E0  38 21 00 80 */	addi r1, r1, 0x80
-/* 80214584 002114E4  4E 80 00 20 */	blr 
+/* 80214584 002114E4  4E 80 00 20 */	blr
 
 .global Think__17CEnergyProjectileFfR13CStateManager
 Think__17CEnergyProjectileFfR13CStateManager:
@@ -853,7 +853,7 @@ lbl_802145F8:
 /* 802146BC 0021161C  38 81 00 A0 */	addi r4, r1, 0xa0
 /* 802146C0 00211620  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 802146C4 00211624  7D 89 03 A6 */	mtctr r12
-/* 802146C8 00211628  4E 80 04 21 */	bctrl 
+/* 802146C8 00211628  4E 80 04 21 */	bctrl
 /* 802146CC 0021162C  48 00 00 14 */	b lbl_802146E0
 lbl_802146D0:
 /* 802146D0 00211630  7F A3 EB 78 */	mr r3, r29
@@ -890,7 +890,7 @@ lbl_802146E0:
 /* 80214748 002116A8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8021474C 002116AC  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80214750 002116B0  7D 89 03 A6 */	mtctr r12
-/* 80214754 002116B4  4E 80 04 21 */	bctrl 
+/* 80214754 002116B4  4E 80 04 21 */	bctrl
 lbl_80214758:
 /* 80214758 002116B8  A0 BD 02 C8 */	lhz r5, 0x2c8(r29)
 /* 8021475C 002116BC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -935,7 +935,7 @@ lbl_80214758:
 /* 802147F8 00211758  81 83 00 00 */	lwz r12, 0(r3)
 /* 802147FC 0021175C  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80214800 00211760  7D 89 03 A6 */	mtctr r12
-/* 80214804 00211764  4E 80 04 21 */	bctrl 
+/* 80214804 00211764  4E 80 04 21 */	bctrl
 /* 80214808 00211768  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8021480C 0021176C  41 82 00 28 */	beq lbl_80214834
 /* 80214810 00211770  80 9F 00 FC */	lwz r4, 0xfc(r31)
@@ -943,7 +943,7 @@ lbl_80214758:
 /* 80214818 00211778  81 84 00 00 */	lwz r12, 0(r4)
 /* 8021481C 0021177C  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80214820 00211780  7D 89 03 A6 */	mtctr r12
-/* 80214824 00211784  4E 80 04 21 */	bctrl 
+/* 80214824 00211784  4E 80 04 21 */	bctrl
 /* 80214828 00211788  7F 83 E3 78 */	mr r3, r28
 /* 8021482C 0021178C  38 81 00 D0 */	addi r4, r1, 0xd0
 /* 80214830 00211790  4B EA 0F 15 */	bl SetLight__10CGameLightFRC6CLight
@@ -961,7 +961,7 @@ lbl_80214834:
 /* 8021485C 002117BC  38 61 00 4C */	addi r3, r1, 0x4c
 /* 80214860 002117C0  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80214864 002117C4  7D 89 03 A6 */	mtctr r12
-/* 80214868 002117C8  4E 80 04 21 */	bctrl 
+/* 80214868 002117C8  4E 80 04 21 */	bctrl
 /* 8021486C 002117CC  7F 85 E3 78 */	mr r5, r28
 /* 80214870 002117D0  38 61 00 30 */	addi r3, r1, 0x30
 /* 80214874 002117D4  38 81 00 4C */	addi r4, r1, 0x4c
@@ -1018,7 +1018,7 @@ lbl_80214918:
 /* 80214930 00211890  83 81 01 20 */	lwz r28, 0x120(r1)
 /* 80214934 00211894  7C 08 03 A6 */	mtlr r0
 /* 80214938 00211898  38 21 01 40 */	addi r1, r1, 0x140
-/* 8021493C 0021189C  4E 80 00 20 */	blr 
+/* 8021493C 0021189C  4E 80 00 20 */	blr
 
 .global Render__17CEnergyProjectileCFRC13CStateManager
 Render__17CEnergyProjectileCFRC13CStateManager:
@@ -1126,7 +1126,7 @@ lbl_80214AB4:
 /* 80214AC0 00211A20  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80214AC4 00211A24  7C 08 03 A6 */	mtlr r0
 /* 80214AC8 00211A28  38 21 00 40 */	addi r1, r1, 0x40
-/* 80214ACC 00211A2C  4E 80 00 20 */	blr 
+/* 80214ACC 00211A2C  4E 80 00 20 */	blr
 
 .global AddToRenderer__17CEnergyProjectileCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__17CEnergyProjectileCFRC14CFrustumPlanesRC13CStateManager:
@@ -1193,7 +1193,7 @@ lbl_80214BB0:
 /* 80214BB4 00211B14  81 9D 01 70 */	lwz r12, 0x170(r29)
 /* 80214BB8 00211B18  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80214BBC 00211B1C  7D 89 03 A6 */	mtctr r12
-/* 80214BC0 00211B20  4E 80 04 21 */	bctrl 
+/* 80214BC0 00211B20  4E 80 04 21 */	bctrl
 lbl_80214BC4:
 /* 80214BC4 00211B24  7F A3 EB 78 */	mr r3, r29
 /* 80214BC8 00211B28  7F E4 FB 78 */	mr r4, r31
@@ -1207,11 +1207,11 @@ lbl_80214BD8:
 /* 80214BE4 00211B44  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80214BE8 00211B48  7C 08 03 A6 */	mtlr r0
 /* 80214BEC 00211B4C  38 21 00 50 */	addi r1, r1, 0x50
-/* 80214BF0 00211B50  4E 80 00 20 */	blr 
+/* 80214BF0 00211B50  4E 80 00 20 */	blr
 
 .global Touch__17CEnergyProjectileFR6CActorR13CStateManager
 Touch__17CEnergyProjectileFR6CActorR13CStateManager:
-/* 80214BF4 00211B54  4E 80 00 20 */	blr 
+/* 80214BF4 00211B54  4E 80 00 20 */	blr
 
 .global Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
 Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId:
@@ -1337,7 +1337,7 @@ lbl_80214D7C:
 /* 80214DBC 00211D1C  C0 22 B3 10 */	lfs f1, lbl_805AD030@sda21(r2)
 /* 80214DC0 00211D20  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80214DC4 00211D24  7D 89 03 A6 */	mtctr r12
-/* 80214DC8 00211D28  4E 80 04 21 */	bctrl 
+/* 80214DC8 00211D28  4E 80 04 21 */	bctrl
 /* 80214DCC 00211D2C  C0 01 00 E0 */	lfs f0, 0xe0(r1)
 /* 80214DD0 00211D30  7F E3 FB 78 */	mr r3, r31
 /* 80214DD4 00211D34  C0 41 00 D8 */	lfs f2, 0xd8(r1)
@@ -1802,7 +1802,7 @@ lbl_80215458:
 /* 8021547C 002123DC  38 A5 00 44 */	addi r5, r5, 0x44
 /* 80215480 002123E0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80215484 002123E4  7D 89 03 A6 */	mtctr r12
-/* 80215488 002123E8  4E 80 04 21 */	bctrl 
+/* 80215488 002123E8  4E 80 04 21 */	bctrl
 /* 8021548C 002123EC  3A A1 00 E4 */	addi r21, r1, 0xe4
 /* 80215490 002123F0  38 81 00 60 */	addi r4, r1, 0x60
 /* 80215494 002123F4  7E A3 AB 78 */	mr r3, r21
@@ -1898,7 +1898,7 @@ lbl_802155CC:
 /* 802155EC 0021254C  80 01 02 44 */	lwz r0, 0x244(r1)
 /* 802155F0 00212550  7C 08 03 A6 */	mtlr r0
 /* 802155F4 00212554  38 21 02 40 */	addi r1, r1, 0x240
-/* 802155F8 00212558  4E 80 00 20 */	blr 
+/* 802155F8 00212558  4E 80 00 20 */	blr
 
 .global StopProjectile__17CEnergyProjectileFR13CStateManager
 StopProjectile__17CEnergyProjectileFR13CStateManager:
@@ -1941,7 +1941,7 @@ lbl_80215680:
 /* 80215688 002125E8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8021568C 002125EC  7C 08 03 A6 */	mtlr r0
 /* 80215690 002125F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80215694 002125F4  4E 80 00 20 */	blr 
+/* 80215694 002125F4  4E 80 00 20 */	blr
 
 .global "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb"
 "__ct__17CEnergyProjectileFbRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId9TUniqueIdUibRC9CVector3fRCQ24rstl50optional_object<31TLockedToken<15CGenDescription>>sb":
@@ -2067,7 +2067,7 @@ lbl_80215814:
 /* 80215868 002127C8  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 8021586C 002127CC  7C 08 03 A6 */	mtlr r0
 /* 80215870 002127D0  38 21 01 70 */	addi r1, r1, 0x170
-/* 80215874 002127D4  4E 80 00 20 */	blr 
+/* 80215874 002127D4  4E 80 00 20 */	blr
 
 .global __sinit_CEnergyProjectile_cpp
 __sinit_CEnergyProjectile_cpp:

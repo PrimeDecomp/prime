@@ -78,7 +78,7 @@ lbl_805A82D8:
 .global SetInGame__15CSaveGameScreenb
 SetInGame__15CSaveGameScreenb:
 /* 8024F16C 0024C0CC  98 83 00 93 */	stb r4, 0x93(r3)
-/* 8024F170 0024C0D0  4E 80 00 20 */	blr 
+/* 8024F170 0024C0D0  4E 80 00 20 */	blr
 
 .global SetUIColors__15CSaveGameScreenFv
 SetUIColors__15CSaveGameScreenFv:
@@ -100,7 +100,7 @@ SetUIColors__15CSaveGameScreenFv:
 /* 8024F1B0 0024C110  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024F1B4 0024C114  7C 08 03 A6 */	mtlr r0
 /* 8024F1B8 0024C118  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024F1BC 0024C11C  4E 80 00 20 */	blr 
+/* 8024F1BC 0024C11C  4E 80 00 20 */	blr
 
 .global DoSelectionChange__15CSaveGameScreenFP14CGuiTableGroup
 DoSelectionChange__15CSaveGameScreenFP14CGuiTableGroup:
@@ -124,7 +124,7 @@ DoSelectionChange__15CSaveGameScreenFP14CGuiTableGroup:
 /* 8024F204 0024C164  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8024F208 0024C168  7C 08 03 A6 */	mtlr r0
 /* 8024F20C 0024C16C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024F210 0024C170  4E 80 00 20 */	blr 
+/* 8024F210 0024C170  4E 80 00 20 */	blr
 
 .global DoAdvance__15CSaveGameScreenFP14CGuiTableGroup
 DoAdvance__15CSaveGameScreenFP14CGuiTableGroup:
@@ -144,7 +144,7 @@ DoAdvance__15CSaveGameScreenFP14CGuiTableGroup:
 /* 8024F248 0024C1A8  38 84 8D B8 */	addi r4, r4, lbl_803E8DB8@l
 /* 8024F24C 0024C1AC  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8024F250 0024C1B0  7C 09 03 A6 */	mtctr r0
-/* 8024F254 0024C1B4  4E 80 04 20 */	bctr 
+/* 8024F254 0024C1B4  4E 80 04 20 */	bctr
 .global lbl_8024F258
 lbl_8024F258:
 /* 8024F258 0024C1B8  2C 05 00 00 */	cmpwi r5, 0
@@ -422,7 +422,7 @@ lbl_8024F5E0:
 /* 8024F5E4 0024C544  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8024F5E8 0024C548  7C 08 03 A6 */	mtlr r0
 /* 8024F5EC 0024C54C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024F5F0 0024C550  4E 80 00 20 */	blr 
+/* 8024F5F0 0024C550  4E 80 00 20 */	blr
 
 .global StartGame__15CSaveGameScreenFi
 StartGame__15CSaveGameScreenFi:
@@ -458,7 +458,7 @@ lbl_8024F654:
 /* 8024F660 0024C5C0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8024F664 0024C5C4  7C 08 03 A6 */	mtlr r0
 /* 8024F668 0024C5C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024F66C 0024C5CC  4E 80 00 20 */	blr 
+/* 8024F66C 0024C5CC  4E 80 00 20 */	blr
 
 .global SaveNESState__15CSaveGameScreenFv
 SaveNESState__15CSaveGameScreenFv:
@@ -481,7 +481,7 @@ lbl_8024F6AC:
 /* 8024F6AC 0024C60C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024F6B0 0024C610  7C 08 03 A6 */	mtlr r0
 /* 8024F6B4 0024C614  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024F6B8 0024C618  4E 80 00 20 */	blr 
+/* 8024F6B8 0024C618  4E 80 00 20 */	blr
 
 .global EraseGame__15CSaveGameScreenFi
 EraseGame__15CSaveGameScreenFi:
@@ -500,7 +500,7 @@ EraseGame__15CSaveGameScreenFi:
 /* 8024F6EC 0024C64C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024F6F0 0024C650  7C 08 03 A6 */	mtlr r0
 /* 8024F6F4 0024C654  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024F6F8 0024C658  4E 80 00 20 */	blr 
+/* 8024F6F8 0024C658  4E 80 00 20 */	blr
 
 .global GetGameData__15CSaveGameScreenFi
 GetGameData__15CSaveGameScreenFi:
@@ -512,7 +512,7 @@ GetGameData__15CSaveGameScreenFi:
 /* 8024F710 0024C670  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024F714 0024C674  7C 08 03 A6 */	mtlr r0
 /* 8024F718 0024C678  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024F71C 0024C67C  4E 80 00 20 */	blr 
+/* 8024F71C 0024C67C  4E 80 00 20 */	blr
 
 .global Draw__15CSaveGameScreenFv
 Draw__15CSaveGameScreenFv:
@@ -529,7 +529,7 @@ lbl_8024F744:
 /* 8024F744 0024C6A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024F748 0024C6A8  7C 08 03 A6 */	mtlr r0
 /* 8024F74C 0024C6AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024F750 0024C6B0  4E 80 00 20 */	blr 
+/* 8024F750 0024C6B0  4E 80 00 20 */	blr
 
 .global ContinueWithoutSaving__15CSaveGameScreenFv
 ContinueWithoutSaving__15CSaveGameScreenFv:
@@ -539,7 +539,7 @@ ContinueWithoutSaving__15CSaveGameScreenFv:
 /* 8024F760 0024C6C0  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8024F764 0024C6C4  90 03 02 14 */	stw r0, 0x214(r3)
 /* 8024F768 0024C6C8  90 03 02 10 */	stw r0, 0x210(r3)
-/* 8024F76C 0024C6CC  4E 80 00 20 */	blr 
+/* 8024F76C 0024C6CC  4E 80 00 20 */	blr
 
 .global ProcessUserInput__15CSaveGameScreenFRC11CFinalInput
 ProcessUserInput__15CSaveGameScreenFRC11CFinalInput:
@@ -554,7 +554,7 @@ lbl_8024F78C:
 /* 8024F78C 0024C6EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024F790 0024C6F0  7C 08 03 A6 */	mtlr r0
 /* 8024F794 0024C6F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024F798 0024C6F8  4E 80 00 20 */	blr 
+/* 8024F798 0024C6F8  4E 80 00 20 */	blr
 
 .global Update__15CSaveGameScreenFf
 Update__15CSaveGameScreenFf:
@@ -702,7 +702,7 @@ lbl_8024F980:
 /* 8024F994 0024C8F4  83 81 00 28 */	lwz r28, 0x28(r1)
 /* 8024F998 0024C8F8  7C 08 03 A6 */	mtlr r0
 /* 8024F99C 0024C8FC  38 21 00 40 */	addi r1, r1, 0x40
-/* 8024F9A0 0024C900  4E 80 00 20 */	blr 
+/* 8024F9A0 0024C900  4E 80 00 20 */	blr
 
 .global PumpLoad__15CSaveGameScreenFv
 PumpLoad__15CSaveGameScreenFv:
@@ -931,7 +931,7 @@ lbl_8024FCC0:
 /* 8024FCC4 0024CC24  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 8024FCC8 0024CC28  7C 08 03 A6 */	mtlr r0
 /* 8024FCCC 0024CC2C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8024FCD0 0024CC30  4E 80 00 20 */	blr 
+/* 8024FCD0 0024CC30  4E 80 00 20 */	blr
 
 .global sub_8024fcd4
 sub_8024fcd4:
@@ -952,14 +952,14 @@ sub_8024fcd4:
 /* 8024FD0C 0024CC6C  7F E5 FB 78 */	mr r5, r31
 /* 8024FD10 0024CC70  39 81 00 08 */	addi r12, r1, 8
 /* 8024FD14 0024CC74  48 13 9C 19 */	bl __ptmf_scall
-/* 8024FD18 0024CC78  60 00 00 00 */	nop 
+/* 8024FD18 0024CC78  60 00 00 00 */	nop
 /* 8024FD1C 0024CC7C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8024FD20 0024CC80  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8024FD24 0024CC84  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8024FD28 0024CC88  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8024FD2C 0024CC8C  7C 08 03 A6 */	mtlr r0
 /* 8024FD30 0024CC90  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024FD34 0024CC94  4E 80 00 20 */	blr 
+/* 8024FD34 0024CC94  4E 80 00 20 */	blr
 
 .global sub_8024fd38
 sub_8024fd38:
@@ -977,13 +977,13 @@ sub_8024fd38:
 /* 8024FD64 0024CCC4  7F E4 FB 78 */	mr r4, r31
 /* 8024FD68 0024CCC8  39 81 00 08 */	addi r12, r1, 8
 /* 8024FD6C 0024CCCC  48 13 9B C1 */	bl __ptmf_scall
-/* 8024FD70 0024CCD0  60 00 00 00 */	nop 
+/* 8024FD70 0024CCD0  60 00 00 00 */	nop
 /* 8024FD74 0024CCD4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8024FD78 0024CCD8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8024FD7C 0024CCDC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8024FD80 0024CCE0  7C 08 03 A6 */	mtlr r0
 /* 8024FD84 0024CCE4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024FD88 0024CCE8  4E 80 00 20 */	blr 
+/* 8024FD88 0024CCE8  4E 80 00 20 */	blr
 
 .global ResetCardDriver__15CSaveGameScreenFv
 ResetCardDriver__15CSaveGameScreenFv:
@@ -1025,7 +1025,7 @@ lbl_8024FDDC:
 /* 8024FE14 0024CD74  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024FE18 0024CD78  7C 08 03 A6 */	mtlr r0
 /* 8024FE1C 0024CD7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024FE20 0024CD80  4E 80 00 20 */	blr 
+/* 8024FE20 0024CD80  4E 80 00 20 */	blr
 
 .global __dt__15CSaveGameScreenFv
 __dt__15CSaveGameScreenFv:
@@ -1125,7 +1125,7 @@ lbl_8024FF58:
 /* 8024FF6C 0024CECC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8024FF70 0024CED0  7C 08 03 A6 */	mtlr r0
 /* 8024FF74 0024CED4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024FF78 0024CED8  4E 80 00 20 */	blr 
+/* 8024FF78 0024CED8  4E 80 00 20 */	blr
 
 .global __ct__15CSaveGameScreen
 __ct__15CSaveGameScreen:
@@ -1148,7 +1148,7 @@ __ct__15CSaveGameScreen:
 /* 8024FFBC 0024CF1C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8024FFC0 0024CF20  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8024FFC4 0024CF24  7D 89 03 A6 */	mtctr r12
-/* 8024FFC8 0024CF28  4E 80 04 21 */	bctrl 
+/* 8024FFC8 0024CF28  4E 80 04 21 */	bctrl
 /* 8024FFCC 0024CF2C  3B 9F 00 14 */	addi r28, r31, 0x14
 /* 8024FFD0 0024CF30  38 81 00 38 */	addi r4, r1, 0x38
 /* 8024FFD4 0024CF34  7F 83 E3 78 */	mr r3, r28
@@ -1164,7 +1164,7 @@ __ct__15CSaveGameScreen:
 /* 8024FFFC 0024CF5C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80250000 0024CF60  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80250004 0024CF64  7D 89 03 A6 */	mtctr r12
-/* 80250008 0024CF68  4E 80 04 21 */	bctrl 
+/* 80250008 0024CF68  4E 80 04 21 */	bctrl
 /* 8025000C 0024CF6C  3B 9F 00 20 */	addi r28, r31, 0x20
 /* 80250010 0024CF70  38 81 00 30 */	addi r4, r1, 0x30
 /* 80250014 0024CF74  7F 83 E3 78 */	mr r3, r28
@@ -1180,7 +1180,7 @@ __ct__15CSaveGameScreen:
 /* 8025003C 0024CF9C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80250040 0024CFA0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80250044 0024CFA4  7D 89 03 A6 */	mtctr r12
-/* 80250048 0024CFA8  4E 80 04 21 */	bctrl 
+/* 80250048 0024CFA8  4E 80 04 21 */	bctrl
 /* 8025004C 0024CFAC  3B 9F 00 2C */	addi r28, r31, 0x2c
 /* 80250050 0024CFB0  38 81 00 28 */	addi r4, r1, 0x28
 /* 80250054 0024CFB4  7F 83 E3 78 */	mr r3, r28
@@ -1196,7 +1196,7 @@ __ct__15CSaveGameScreen:
 /* 8025007C 0024CFDC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80250080 0024CFE0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80250084 0024CFE4  7D 89 03 A6 */	mtctr r12
-/* 80250088 0024CFE8  4E 80 04 21 */	bctrl 
+/* 80250088 0024CFE8  4E 80 04 21 */	bctrl
 /* 8025008C 0024CFEC  3B 9F 00 38 */	addi r28, r31, 0x38
 /* 80250090 0024CFF0  38 81 00 20 */	addi r4, r1, 0x20
 /* 80250094 0024CFF4  7F 83 E3 78 */	mr r3, r28
@@ -1212,7 +1212,7 @@ __ct__15CSaveGameScreen:
 /* 802500BC 0024D01C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802500C0 0024D020  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802500C4 0024D024  7D 89 03 A6 */	mtctr r12
-/* 802500C8 0024D028  4E 80 04 21 */	bctrl 
+/* 802500C8 0024D028  4E 80 04 21 */	bctrl
 /* 802500CC 0024D02C  3B 9F 00 44 */	addi r28, r31, 0x44
 /* 802500D0 0024D030  38 81 00 18 */	addi r4, r1, 0x18
 /* 802500D4 0024D034  7F 83 E3 78 */	mr r3, r28
@@ -1292,7 +1292,7 @@ lbl_802501D4:
 /* 802501EC 0024D14C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802501F0 0024D150  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802501F4 0024D154  7D 89 03 A6 */	mtctr r12
-/* 802501F8 0024D158  4E 80 04 21 */	bctrl 
+/* 802501F8 0024D158  4E 80 04 21 */	bctrl
 /* 802501FC 0024D15C  38 61 00 40 */	addi r3, r1, 0x40
 /* 80250200 0024D160  38 81 00 08 */	addi r4, r1, 8
 /* 80250204 0024D164  48 0F 0C A5 */	bl __ct__6CTokenFRC6CToken
@@ -1343,7 +1343,7 @@ lbl_8025027C:
 /* 802502A8 0024D208  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 802502AC 0024D20C  7C 08 03 A6 */	mtlr r0
 /* 802502B0 0024D210  38 21 00 60 */	addi r1, r1, 0x60
-/* 802502B4 0024D214  4E 80 00 20 */	blr 
+/* 802502B4 0024D214  4E 80 00 20 */	blr
 
 .global ConstructCardDriver__15CSaveGameScreen
 ConstructCardDriver__15CSaveGameScreen:
@@ -1368,21 +1368,21 @@ ConstructCardDriver__15CSaveGameScreen:
 /* 80250300 0024D260  81 83 00 00 */	lwz r12, 0(r3)
 /* 80250304 0024D264  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80250308 0024D268  7D 89 03 A6 */	mtctr r12
-/* 8025030C 0024D26C  4E 80 04 21 */	bctrl 
+/* 8025030C 0024D26C  4E 80 04 21 */	bctrl
 /* 80250310 0024D270  7C 7E 1B 78 */	mr r30, r3
 /* 80250314 0024D274  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 80250318 0024D278  80 82 B8 BC */	lwz r4, lbl_805AD5DC@sda21(r2)
 /* 8025031C 0024D27C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80250320 0024D280  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80250324 0024D284  7D 89 03 A6 */	mtctr r12
-/* 80250328 0024D288  4E 80 04 21 */	bctrl 
+/* 80250328 0024D288  4E 80 04 21 */	bctrl
 /* 8025032C 0024D28C  7C 7F 1B 78 */	mr r31, r3
 /* 80250330 0024D290  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 80250334 0024D294  80 82 B8 B8 */	lwz r4, lbl_805AD5D8@sda21(r2)
 /* 80250338 0024D298  81 83 00 00 */	lwz r12, 0(r3)
 /* 8025033C 0024D29C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80250340 0024D2A0  7D 89 03 A6 */	mtctr r12
-/* 80250344 0024D2A4  4E 80 04 21 */	bctrl 
+/* 80250344 0024D2A4  4E 80 04 21 */	bctrl
 /* 80250348 0024D2A8  80 A3 00 04 */	lwz r5, 4(r3)
 /* 8025034C 0024D2AC  7F A3 EB 78 */	mr r3, r29
 /* 80250350 0024D2B0  80 DF 00 04 */	lwz r6, 4(r31)
@@ -1400,7 +1400,7 @@ lbl_80250368:
 /* 8025037C 0024D2DC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80250380 0024D2E0  7C 08 03 A6 */	mtlr r0
 /* 80250384 0024D2E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80250388 0024D2E8  4E 80 00 20 */	blr 
+/* 80250388 0024D2E8  4E 80 00 20 */	blr
 
 .global SetUIText__15CSaveGameScreenFv
 SetUIText__15CSaveGameScreenFv:
@@ -1425,7 +1425,7 @@ SetUIText__15CSaveGameScreenFv:
 /* 802503D4 0024D334  38 63 8D FC */	addi r3, r3, lbl_803E8DFC@l
 /* 802503D8 0024D338  7C 03 00 2E */	lwzx r0, r3, r0
 /* 802503DC 0024D33C  7C 09 03 A6 */	mtctr r0
-/* 802503E0 0024D340  4E 80 04 20 */	bctr 
+/* 802503E0 0024D340  4E 80 04 20 */	bctr
 .global lbl_802503E4
 lbl_802503E4:
 /* 802503E4 0024D344  3B 20 00 18 */	li r25, 0x18
@@ -1751,7 +1751,7 @@ lbl_802507E8:
 /* 80250814 0024D774  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 80250818 0024D778  7C 08 03 A6 */	mtlr r0
 /* 8025081C 0024D77C  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80250820 0024D780  4E 80 00 20 */	blr 
+/* 80250820 0024D780  4E 80 00 20 */	blr
 
 .global SelectUIType__15CSaveGameScreenFv
 SelectUIType__15CSaveGameScreenFv:
@@ -1842,7 +1842,7 @@ lbl_8025093C:
 /* 80250944 0024D8A4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80250948 0024D8A8  7C 08 03 A6 */	mtlr r0
 /* 8025094C 0024D8AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80250950 0024D8B0  4E 80 00 20 */	blr 
+/* 80250950 0024D8B0  4E 80 00 20 */	blr
 
 .global IsHiddenFromFrontEnd__15CSaveGameScreenFv
 IsHiddenFromFrontEnd__15CSaveGameScreenFv:
@@ -1856,10 +1856,10 @@ IsHiddenFromFrontEnd__15CSaveGameScreenFv:
 /* 80250970 0024D8D0  48 00 00 0C */	b lbl_8025097C
 lbl_80250974:
 /* 80250974 0024D8D4  38 60 00 00 */	li r3, 0
-/* 80250978 0024D8D8  4E 80 00 20 */	blr 
+/* 80250978 0024D8D8  4E 80 00 20 */	blr
 lbl_8025097C:
 /* 8025097C 0024D8DC  38 60 00 01 */	li r3, 1
-/* 80250980 0024D8E0  4E 80 00 20 */	blr 
+/* 80250980 0024D8E0  4E 80 00 20 */	blr
 
 .global sub_80250984
 sub_80250984:

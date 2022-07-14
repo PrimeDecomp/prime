@@ -125,11 +125,11 @@ lbl_8012D988:
 /* 8012D994 0012A8F4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8012D998 0012A8F8  7C 08 03 A6 */	mtlr r0
 /* 8012D99C 0012A8FC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8012D9A0 0012A900  4E 80 00 20 */	blr 
+/* 8012D9A0 0012A900  4E 80 00 20 */	blr
 
 .global Render__11CPathCameraCFRC13CStateManager
 Render__11CPathCameraCFRC13CStateManager:
-/* 8012D9A4 0012A904  4E 80 00 20 */	blr 
+/* 8012D9A4 0012A904  4E 80 00 20 */	blr
 
 .global Accept__11CPathCameraFR8IVisitor
 Accept__11CPathCameraFR8IVisitor:
@@ -142,15 +142,15 @@ Accept__11CPathCameraFR8IVisitor:
 /* 8012D9C0 0012A920  7C 04 03 78 */	mr r4, r0
 /* 8012D9C4 0012A924  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8012D9C8 0012A928  7D 89 03 A6 */	mtctr r12
-/* 8012D9CC 0012A92C  4E 80 04 21 */	bctrl 
+/* 8012D9CC 0012A92C  4E 80 04 21 */	bctrl
 /* 8012D9D0 0012A930  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012D9D4 0012A934  7C 08 03 A6 */	mtlr r0
 /* 8012D9D8 0012A938  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012D9DC 0012A93C  4E 80 00 20 */	blr 
+/* 8012D9DC 0012A93C  4E 80 00 20 */	blr
 
 .global ProcessInput__11CPathCameraFRC11CFinalInputR13CStateManager
 ProcessInput__11CPathCameraFRC11CFinalInputR13CStateManager:
-/* 8012D9E0 0012A940  4E 80 00 20 */	blr 
+/* 8012D9E0 0012A940  4E 80 00 20 */	blr
 
 .global Think__11CPathCameraFfR13CStateManager
 Think__11CPathCameraFfR13CStateManager:
@@ -373,7 +373,7 @@ lbl_8012DD18:
 /* 8012DD2C 0012AC8C  83 A1 01 64 */	lwz r29, 0x164(r1)
 /* 8012DD30 0012AC90  7C 08 03 A6 */	mtlr r0
 /* 8012DD34 0012AC94  38 21 01 80 */	addi r1, r1, 0x180
-/* 8012DD38 0012AC98  4E 80 00 20 */	blr 
+/* 8012DD38 0012AC98  4E 80 00 20 */	blr
 
 .global ClampToClosedDoor__11CPathCameraFR13CStateManager
 ClampToClosedDoor__11CPathCameraFR13CStateManager:
@@ -439,7 +439,7 @@ lbl_8012DE18:
 /* 8012DE20 0012AD80  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 8012DE24 0012AD84  7C 08 03 A6 */	mtlr r0
 /* 8012DE28 0012AD88  38 21 00 70 */	addi r1, r1, 0x70
-/* 8012DE2C 0012AD8C  4E 80 00 20 */	blr 
+/* 8012DE2C 0012AD8C  4E 80 00 20 */	blr
 
 .global MoveAlongSpline__11CPathCameraFfR13CStateManager
 MoveAlongSpline__11CPathCameraFfR13CStateManager:
@@ -705,7 +705,7 @@ lbl_8012E1C0:
 /* 8012E1F8 0012B158  83 A1 00 F4 */	lwz r29, 0xf4(r1)
 /* 8012E1FC 0012B15C  7C 08 03 A6 */	mtlr r0
 /* 8012E200 0012B160  38 21 01 40 */	addi r1, r1, 0x140
-/* 8012E204 0012B164  4E 80 00 20 */	blr 
+/* 8012E204 0012B164  4E 80 00 20 */	blr
 
 .global Reset__11CPathCameraFRC12CTransform4fR13CStateManager
 Reset__11CPathCameraFRC12CTransform4fR13CStateManager:
@@ -1015,7 +1015,7 @@ lbl_8012E5D8:
 /* 8012E698 0012B5F8  83 A1 02 24 */	lwz r29, 0x224(r1)
 /* 8012E69C 0012B5FC  7C 08 03 A6 */	mtlr r0
 /* 8012E6A0 0012B600  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 8012E6A4 0012B604  4E 80 00 20 */	blr 
+/* 8012E6A4 0012B604  4E 80 00 20 */	blr
 
 .global __dt__11CPathCameraFv
 __dt__11CPathCameraFv:
@@ -1047,7 +1047,7 @@ lbl_8012E6FC:
 /* 8012E708 0012B668  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8012E70C 0012B66C  7C 08 03 A6 */	mtlr r0
 /* 8012E710 0012B670  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012E714 0012B674  4E 80 00 20 */	blr 
+/* 8012E714 0012B674  4E 80 00 20 */	blr
 
 .global "__ct__11CPathCameraF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbbbbbfffffffQ211CPathCamera22EInitialSplinePosition"
 "__ct__11CPathCameraF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbbbbbfffffffQ211CPathCamera22EInitialSplinePosition":
@@ -1145,7 +1145,7 @@ lbl_8012E6FC:
 /* 8012E884 0012B7E4  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8012E888 0012B7E8  7C 08 03 A6 */	mtlr r0
 /* 8012E88C 0012B7EC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8012E890 0012B7F0  4E 80 00 20 */	blr 
+/* 8012E890 0012B7F0  4E 80 00 20 */	blr
 
 .global __sinit_CPathCamera_cpp
 __sinit_CPathCamera_cpp:
@@ -1178,4 +1178,4 @@ __sinit_CPathCamera_cpp:
 /* 8012E8FC 0012B85C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8012E900 0012B860  7C 08 03 A6 */	mtlr r0
 /* 8012E904 0012B864  38 21 00 20 */	addi r1, r1, 0x20
-/* 8012E908 0012B868  4E 80 00 20 */	blr 
+/* 8012E908 0012B868  4E 80 00 20 */	blr

@@ -16,7 +16,7 @@ __pl__FRC10CAxisAngleRC10CAxisAngle:
 /* 8001B448 000183A8  EC 02 08 2A */	fadds f0, f2, f1
 /* 8001B44C 000183AC  D0 63 00 04 */	stfs f3, 4(r3)
 /* 8001B450 000183B0  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B454 000183B4  4E 80 00 20 */	blr 
+/* 8001B454 000183B4  4E 80 00 20 */	blr
 
 .global __ml__FRCfRC10CAxisAngle
 __ml__FRCfRC10CAxisAngle:
@@ -30,7 +30,7 @@ __ml__FRCfRC10CAxisAngle:
 /* 8001B474 000183D4  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8001B478 000183D8  D0 43 00 04 */	stfs f2, 4(r3)
 /* 8001B47C 000183DC  D0 23 00 08 */	stfs f1, 8(r3)
-/* 8001B480 000183E0  4E 80 00 20 */	blr 
+/* 8001B480 000183E0  4E 80 00 20 */	blr
 
 .global __ml__FRC10CAxisAngleRCf
 __ml__FRC10CAxisAngleRCf:
@@ -44,7 +44,7 @@ __ml__FRC10CAxisAngleRCf:
 /* 8001B4A0 00018400  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8001B4A4 00018404  D0 43 00 04 */	stfs f2, 4(r3)
 /* 8001B4A8 00018408  D0 23 00 08 */	stfs f1, 8(r3)
-/* 8001B4AC 0001840C  4E 80 00 20 */	blr 
+/* 8001B4AC 0001840C  4E 80 00 20 */	blr
 
 .global __apl__10CAxisAngleFRC10CAxisAngle
 __apl__10CAxisAngleFRC10CAxisAngle:
@@ -60,7 +60,7 @@ __apl__10CAxisAngleFRC10CAxisAngle:
 /* 8001B4D4 00018434  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8001B4D8 00018438  EC 01 00 2A */	fadds f0, f1, f0
 /* 8001B4DC 0001843C  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B4E0 00018440  4E 80 00 20 */	blr 
+/* 8001B4E0 00018440  4E 80 00 20 */	blr
 
 .global __amu__10CAxisAngleFRCf
 __amu__10CAxisAngleFRCf:
@@ -74,7 +74,7 @@ __amu__10CAxisAngleFRCf:
 /* 8001B500 00018460  C0 03 00 08 */	lfs f0, 8(r3)
 /* 8001B504 00018464  EC 00 00 72 */	fmuls f0, f0, f1
 /* 8001B508 00018468  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B50C 0001846C  4E 80 00 20 */	blr 
+/* 8001B50C 0001846C  4E 80 00 20 */	blr
 
 .global GetAngle__10CAxisAngleCFv
 GetAngle__10CAxisAngleCFv:
@@ -85,17 +85,17 @@ GetAngle__10CAxisAngleCFv:
 /* 8001B520 00018480  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001B524 00018484  7C 08 03 A6 */	mtlr r0
 /* 8001B528 00018488  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001B52C 0001848C  4E 80 00 20 */	blr 
+/* 8001B52C 0001848C  4E 80 00 20 */	blr
 
 .global GetVector__10CAxisAngleCFv
 GetVector__10CAxisAngleCFv:
-/* 8001B530 00018490  4E 80 00 20 */	blr 
+/* 8001B530 00018490  4E 80 00 20 */	blr
 
 .global Identity__10CAxisAngleFv
 Identity__10CAxisAngleFv:
 /* 8001B534 00018494  3C 60 80 57 */	lis r3, lbl_8056A5E8@ha
 /* 8001B538 00018498  38 63 A5 E8 */	addi r3, r3, lbl_8056A5E8@l
-/* 8001B53C 0001849C  4E 80 00 20 */	blr 
+/* 8001B53C 0001849C  4E 80 00 20 */	blr
 
 .global FromVector__10CAxisAngleFRC9CVector3f
 FromVector__10CAxisAngleFRC9CVector3f:
@@ -105,7 +105,7 @@ FromVector__10CAxisAngleFRC9CVector3f:
 /* 8001B54C 000184AC  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8001B550 000184B0  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8001B554 000184B4  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B558 000184B8  4E 80 00 20 */	blr 
+/* 8001B558 000184B8  4E 80 00 20 */	blr
 
 .global __ct__10CAxisAngleFRC13CUnitVector3ff
 __ct__10CAxisAngleFRC13CUnitVector3ff:
@@ -118,7 +118,7 @@ __ct__10CAxisAngleFRC13CUnitVector3ff:
 /* 8001B574 000184D4  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8001B578 000184D8  D0 63 00 04 */	stfs f3, 4(r3)
 /* 8001B57C 000184DC  D0 23 00 08 */	stfs f1, 8(r3)
-/* 8001B580 000184E0  4E 80 00 20 */	blr 
+/* 8001B580 000184E0  4E 80 00 20 */	blr
 
 .global __ct__10CAxisAngleFRC9CVector3f
 __ct__10CAxisAngleFRC9CVector3f:
@@ -128,7 +128,7 @@ __ct__10CAxisAngleFRC9CVector3f:
 /* 8001B590 000184F0  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8001B594 000184F4  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8001B598 000184F8  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B59C 000184FC  4E 80 00 20 */	blr 
+/* 8001B59C 000184FC  4E 80 00 20 */	blr
 
 .global __sinit_CAxisAngle_cpp
 __sinit_CAxisAngle_cpp:
@@ -140,4 +140,4 @@ __sinit_CAxisAngle_cpp:
 /* 8001B5B4 00018514  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8001B5B8 00018518  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8001B5BC 0001851C  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8001B5C0 00018520  4E 80 00 20 */	blr 
+/* 8001B5C0 00018520  4E 80 00 20 */	blr

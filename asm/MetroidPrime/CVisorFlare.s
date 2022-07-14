@@ -50,7 +50,7 @@ lbl_80207624:
 /* 80207624 00204584  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80207628 00204588  7C 08 03 A6 */	mtlr r0
 /* 8020762C 0020458C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80207630 00204590  4E 80 00 20 */	blr 
+/* 80207630 00204590  4E 80 00 20 */	blr
 
 .global sub_80207634
 sub_80207634:
@@ -164,14 +164,14 @@ lbl_802077C8:
 /* 802077CC 0020472C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802077D0 00204730  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 802077D4 00204734  7D 89 03 A6 */	mtctr r12
-/* 802077D8 00204738  4E 80 04 21 */	bctrl 
+/* 802077D8 00204738  4E 80 04 21 */	bctrl
 /* 802077DC 0020473C  48 00 00 18 */	b lbl_802077F4
 lbl_802077E0:
 /* 802077E0 00204740  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 802077E4 00204744  81 83 00 00 */	lwz r12, 0(r3)
 /* 802077E8 00204748  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 802077EC 0020474C  7D 89 03 A6 */	mtctr r12
-/* 802077F0 00204750  4E 80 04 21 */	bctrl 
+/* 802077F0 00204750  4E 80 04 21 */	bctrl
 lbl_802077F4:
 /* 802077F4 00204754  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
 /* 802077F8 00204758  38 60 00 00 */	li r3, 0
@@ -185,7 +185,7 @@ lbl_80207810:
 /* 80207814 00204774  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80207818 00204778  7C 08 03 A6 */	mtlr r0
 /* 8020781C 0020477C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80207820 00204780  4E 80 00 20 */	blr 
+/* 80207820 00204780  4E 80 00 20 */	blr
 
 .global sub_80207824
 sub_80207824:
@@ -270,7 +270,7 @@ sub_80207824:
 /* 8020795C 002048BC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80207960 002048C0  7C 08 03 A6 */	mtlr r0
 /* 80207964 002048C4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80207968 002048C8  4E 80 00 20 */	blr 
+/* 80207968 002048C8  4E 80 00 20 */	blr
 
 .global sub_8020796c
 sub_8020796c:
@@ -342,7 +342,7 @@ sub_8020796c:
 /* 80207A70 002049D0  CB C1 00 10 */	lfd f30, 0x10(r1)
 /* 80207A74 002049D4  7C 08 03 A6 */	mtlr r0
 /* 80207A78 002049D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80207A7C 002049DC  4E 80 00 20 */	blr 
+/* 80207A7C 002049DC  4E 80 00 20 */	blr
 
 .global Render__11CVisorFlareCFRC9CVector3fRC13CStateManager
 Render__11CVisorFlareCFRC9CVector3fRC13CStateManager:
@@ -413,7 +413,7 @@ lbl_80207B60:
 /* 80207B70 00204AD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80207B74 00204AD4  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80207B78 00204AD8  7D 89 03 A6 */	mtctr r12
-/* 80207B7C 00204ADC  4E 80 04 21 */	bctrl 
+/* 80207B7C 00204ADC  4E 80 04 21 */	bctrl
 /* 80207B80 00204AE0  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 80207B84 00204AE4  7F E4 FB 78 */	mr r4, r31
 /* 80207B88 00204AE8  4B E0 3F 91 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
@@ -558,7 +558,7 @@ lbl_80207D40:
 /* 80207DA8 00204D08  81 83 00 00 */	lwz r12, 0(r3)
 /* 80207DAC 00204D0C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80207DB0 00204D10  7D 89 03 A6 */	mtctr r12
-/* 80207DB4 00204D14  4E 80 04 21 */	bctrl 
+/* 80207DB4 00204D14  4E 80 04 21 */	bctrl
 /* 80207DB8 00204D18  C0 1E 00 24 */	lfs f0, 0x24(r30)
 /* 80207DBC 00204D1C  88 1E 00 14 */	lbz r0, 0x14(r30)
 /* 80207DC0 00204D20  EC 3F 00 32 */	fmuls f1, f31, f0
@@ -670,7 +670,7 @@ lbl_80207EFC:
 /* 80207F48 00204EA8  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 80207F4C 00204EAC  7C 08 03 A6 */	mtlr r0
 /* 80207F50 00204EB0  38 21 02 10 */	addi r1, r1, 0x210
-/* 80207F54 00204EB4  4E 80 00 20 */	blr 
+/* 80207F54 00204EB4  4E 80 00 20 */	blr
 
 .global Update__11CVisorFlareFfRC9CVector3fPC6CActorR13CStateManager
 Update__11CVisorFlareFfRC9CVector3fPC6CActorR13CStateManager:
@@ -911,7 +911,7 @@ lbl_802082AC:
 /* 802082C8 00205228  80 01 09 24 */	lwz r0, 0x924(r1)
 /* 802082CC 0020522C  7C 08 03 A6 */	mtlr r0
 /* 802082D0 00205230  38 21 09 20 */	addi r1, r1, 0x920
-/* 802082D4 00205234  4E 80 00 20 */	blr 
+/* 802082D4 00205234  4E 80 00 20 */	blr
 
 .global "__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 "__ct__11CVisorFlareFQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":
@@ -968,7 +968,7 @@ lbl_80208350:
 /* 80208398 002052F8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8020839C 002052FC  7C 08 03 A6 */	mtlr r0
 /* 802083A0 00205300  38 21 00 40 */	addi r1, r1, 0x40
-/* 802083A4 00205304  4E 80 00 20 */	blr 
+/* 802083A4 00205304  4E 80 00 20 */	blr
 
 .global "__ct__Q211CVisorFlare9CFlareDefFRC17TToken<8CTexture>ffUi"
 "__ct__Q211CVisorFlare9CFlareDefFRC17TToken<8CTexture>ffUi":

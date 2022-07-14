@@ -22,7 +22,7 @@ sub_8002940c:
 /* 80029448 000263A8  38 80 00 01 */	li r4, 1
 /* 8002944C 000263AC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80029450 000263B0  7D 89 03 A6 */	mtctr r12
-/* 80029454 000263B4  4E 80 04 21 */	bctrl 
+/* 80029454 000263B4  4E 80 04 21 */	bctrl
 lbl_80029458:
 /* 80029458 000263B8  80 7F 00 00 */	lwz r3, 0(r31)
 /* 8002945C 000263BC  28 03 00 00 */	cmplwi r3, 0
@@ -33,17 +33,17 @@ lbl_80029468:
 /* 8002946C 000263CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80029470 000263D0  7C 08 03 A6 */	mtlr r0
 /* 80029474 000263D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80029478 000263D8  4E 80 00 20 */	blr 
+/* 80029478 000263D8  4E 80 00 20 */	blr
 
 .global PageInvoke__12CInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 PageInvoke__12CInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
-/* 8002947C 000263DC  4E 80 00 20 */	blr 
+/* 8002947C 000263DC  4E 80 00 20 */	blr
 
 .global "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "GetAssets__12CInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
-/* 80029480 000263E0  4E 80 00 20 */	blr 
+/* 80029480 000263E0  4E 80 00 20 */	blr
 
 .global GetAssetCount__12CInstructionCFv
 GetAssetCount__12CInstructionCFv:
 /* 80029484 000263E4  38 60 00 00 */	li r3, 0
-/* 80029488 000263E8  4E 80 00 20 */	blr 
+/* 80029488 000263E8  4E 80 00 20 */	blr

@@ -83,7 +83,7 @@ GetPatchRenderFlags__12CScriptWaterCFii:
 /* 800FECA0 000FBC00  7C 00 1A 14 */	add r0, r0, r3
 /* 800FECA4 000FBC04  7C 64 00 AE */	lbzx r3, r4, r0
 /* 800FECA8 000FBC08  7C 63 07 74 */	extsb r3, r3
-/* 800FECAC 000FBC0C  4E 80 00 20 */	blr 
+/* 800FECAC 000FBC0C  4E 80 00 20 */	blr
 
 .global CanRippleAtPoint__12CScriptWaterCFRC9CVector3f
 CanRippleAtPoint__12CScriptWaterCFRC9CVector3f:
@@ -157,7 +157,7 @@ lbl_800FED98:
 /* 800FEDA4 000FBD04  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 800FEDA8 000FBD08  7C 08 03 A6 */	mtlr r0
 /* 800FEDAC 000FBD0C  38 21 00 50 */	addi r1, r1, 0x50
-/* 800FEDB0 000FBD10  4E 80 00 20 */	blr 
+/* 800FEDB0 000FBD10  4E 80 00 20 */	blr
 
 .global SetupGrid__12CScriptWaterFb
 SetupGrid__12CScriptWaterFb:
@@ -336,7 +336,7 @@ lbl_800FEF5C:
 /* 800FF040 000FBFA0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800FF044 000FBFA4  7C 08 03 A6 */	mtlr r0
 /* 800FF048 000FBFA8  38 21 00 60 */	addi r1, r1, 0x60
-/* 800FF04C 000FBFAC  4E 80 00 20 */	blr 
+/* 800FF04C 000FBFAC  4E 80 00 20 */	blr
 
 .global SetupGridClipping__12CScriptWaterFR13CStateManageri
 SetupGridClipping__12CScriptWaterFR13CStateManageri:
@@ -730,7 +730,7 @@ lbl_800FF590:
 /* 800FF5C4 000FC524  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 800FF5C8 000FC528  7C 08 03 A6 */	mtlr r0
 /* 800FF5CC 000FC52C  38 21 01 40 */	addi r1, r1, 0x140
-/* 800FF5D0 000FC530  4E 80 00 20 */	blr 
+/* 800FF5D0 000FC530  4E 80 00 20 */	blr
 
 .global SetMorphing__12CScriptWaterFb
 SetMorphing__12CScriptWaterFb:
@@ -751,12 +751,12 @@ lbl_800FF608:
 /* 800FF608 000FC568  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FF60C 000FC56C  7C 08 03 A6 */	mtlr r0
 /* 800FF610 000FC570  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FF614 000FC574  4E 80 00 20 */	blr 
+/* 800FF614 000FC574  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__12CScriptWaterCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__12CScriptWaterCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 800FF618 000FC578  38 60 00 08 */	li r3, 8
-/* 800FF61C 000FC57C  4E 80 00 20 */	blr 
+/* 800FF61C 000FC57C  4E 80 00 20 */	blr
 
 .global GetSplashEffectScale__12CScriptWaterCFf
 GetSplashEffectScale__12CScriptWaterCFf:
@@ -802,7 +802,7 @@ lbl_800FF6A8:
 /* 800FF6B4 000FC614  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800FF6B8 000FC618  7C 08 03 A6 */	mtlr r0
 /* 800FF6BC 000FC61C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800FF6C0 000FC620  4E 80 00 20 */	blr 
+/* 800FF6C0 000FC620  4E 80 00 20 */	blr
 
 .global GetSplashSound__12CScriptWaterCFf
 GetSplashSound__12CScriptWaterCFf:
@@ -819,7 +819,7 @@ GetSplashSound__12CScriptWaterCFf:
 /* 800FF6EC 000FC64C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FF6F0 000FC650  7C 08 03 A6 */	mtlr r0
 /* 800FF6F4 000FC654  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FF6F8 000FC658  4E 80 00 20 */	blr 
+/* 800FF6F8 000FC658  4E 80 00 20 */	blr
 
 .global GetSplashEffect__12CScriptWaterCFf
 GetSplashEffect__12CScriptWaterCFf:
@@ -836,7 +836,7 @@ GetSplashEffect__12CScriptWaterCFf:
 /* 800FF724 000FC684  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FF728 000FC688  7C 08 03 A6 */	mtlr r0
 /* 800FF72C 000FC68C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FF730 000FC690  4E 80 00 20 */	blr 
+/* 800FF730 000FC690  4E 80 00 20 */	blr
 
 .global GetSplashIndex__12CScriptWaterCFf
 GetSplashIndex__12CScriptWaterCFf:
@@ -851,7 +851,7 @@ GetSplashIndex__12CScriptWaterCFf:
 /* 800FF754 000FC6B4  38 63 FF FF */	addi r3, r3, -1
 lbl_800FF758:
 /* 800FF758 000FC6B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FF75C 000FC6BC  4E 80 00 20 */	blr 
+/* 800FF75C 000FC6BC  4E 80 00 20 */	blr
 
 .global Render__12CScriptWaterCFRC13CStateManager
 Render__12CScriptWaterCFRC13CStateManager:
@@ -956,7 +956,7 @@ Render__12CScriptWaterCFRC13CStateManager:
 /* 800FF8E8 000FC848  C0 3E 02 BC */	lfs f1, 0x2bc(r30)
 /* 800FF8EC 000FC84C  38 E7 00 0C */	addi r7, r7, 0xc
 /* 800FF8F0 000FC850  7D 89 03 A6 */	mtctr r12
-/* 800FF8F4 000FC854  4E 80 04 21 */	bctrl 
+/* 800FF8F4 000FC854  4E 80 04 21 */	bctrl
 /* 800FF8F8 000FC858  38 61 00 C8 */	addi r3, r1, 0xc8
 /* 800FF8FC 000FC85C  38 80 FF FF */	li r4, -1
 /* 800FF900 000FC860  4B FF AF 41 */	bl sub_800fa840
@@ -1070,14 +1070,14 @@ Render__12CScriptWaterCFRC13CStateManager:
 /* 800FFAB0 000FCA10  81 83 00 00 */	lwz r12, 0(r3)
 /* 800FFAB4 000FCA14  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800FFAB8 000FCA18  7D 89 03 A6 */	mtctr r12
-/* 800FFABC 000FCA1C  4E 80 04 21 */	bctrl 
+/* 800FFABC 000FCA1C  4E 80 04 21 */	bctrl
 /* 800FFAC0 000FCA20  48 24 A4 ED */	bl White__6CColorFv
 /* 800FFAC4 000FCA24  7C 64 1B 78 */	mr r4, r3
 /* 800FFAC8 000FCA28  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800FFACC 000FCA2C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800FFAD0 000FCA30  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 800FFAD4 000FCA34  7D 89 03 A6 */	mtctr r12
-/* 800FFAD8 000FCA38  4E 80 04 21 */	bctrl 
+/* 800FFAD8 000FCA38  4E 80 04 21 */	bctrl
 /* 800FFADC 000FCA3C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800FFAE0 000FCA40  38 9E 02 28 */	addi r4, r30, 0x228
 /* 800FFAE4 000FCA44  38 A1 00 FC */	addi r5, r1, 0xfc
@@ -1086,7 +1086,7 @@ Render__12CScriptWaterCFRC13CStateManager:
 /* 800FFAF0 000FCA50  38 E0 00 00 */	li r7, 0
 /* 800FFAF4 000FCA54  81 8C 00 E4 */	lwz r12, 0xe4(r12)
 /* 800FFAF8 000FCA58  7D 89 03 A6 */	mtctr r12
-/* 800FFAFC 000FCA5C  4E 80 04 21 */	bctrl 
+/* 800FFAFC 000FCA5C  4E 80 04 21 */	bctrl
 lbl_800FFB00:
 /* 800FFB00 000FCA60  48 20 CE 7D */	bl DisableAllLights__9CGraphicsFv
 lbl_800FFB04:
@@ -1101,7 +1101,7 @@ lbl_800FFB04:
 /* 800FFB24 000FCA84  83 A1 02 84 */	lwz r29, 0x284(r1)
 /* 800FFB28 000FCA88  7C 08 03 A6 */	mtlr r0
 /* 800FFB2C 000FCA8C  38 21 02 A0 */	addi r1, r1, 0x2a0
-/* 800FFB30 000FCA90  4E 80 00 20 */	blr 
+/* 800FFB30 000FCA90  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl33optional_object<14CRippleManager>FRC14CRippleManager"
 "__ct__Q24rstl33optional_object<14CRippleManager>FRC14CRippleManager":
@@ -1118,7 +1118,7 @@ lbl_800FFB04:
 /* 800FFB5C 000FCABC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800FFB60 000FCAC0  7C 08 03 A6 */	mtlr r0
 /* 800FFB64 000FCAC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FFB68 000FCAC8  4E 80 00 20 */	blr 
+/* 800FFB68 000FCAC8  4E 80 00 20 */	blr
 
 .global sub_800ffb6c
 sub_800ffb6c:
@@ -1132,7 +1132,7 @@ lbl_800FFB84:
 /* 800FFB84 000FCAE4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FFB88 000FCAE8  7C 08 03 A6 */	mtlr r0
 /* 800FFB8C 000FCAEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FFB90 000FCAF0  4E 80 00 20 */	blr 
+/* 800FFB90 000FCAF0  4E 80 00 20 */	blr
 
 .global __ct__14CRippleManagerFRC14CRippleManager
 __ct__14CRippleManagerFRC14CRippleManager:
@@ -1156,7 +1156,7 @@ __ct__14CRippleManagerFRC14CRippleManager:
 /* 800FFBD8 000FCB38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FFBDC 000FCB3C  7C 08 03 A6 */	mtlr r0
 /* 800FFBE0 000FCB40  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FFBE4 000FCB44  4E 80 00 20 */	blr 
+/* 800FFBE4 000FCB44  4E 80 00 20 */	blr
 
 .global sub_800ffbe8
 sub_800ffbe8:
@@ -1205,7 +1205,7 @@ lbl_800FFC74:
 /* 800FFC80 000FCBE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800FFC84 000FCBE4  7C 08 03 A6 */	mtlr r0
 /* 800FFC88 000FCBE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FFC8C 000FCBEC  4E 80 00 20 */	blr 
+/* 800FFC8C 000FCBEC  4E 80 00 20 */	blr
 
 .global sub_800ffc90
 sub_800ffc90:
@@ -1253,7 +1253,7 @@ lbl_800FFD24:
 /* 800FFD2C 000FCC8C  42 00 FF 70 */	bdnz lbl_800FFC9C
 lbl_800FFD30:
 /* 800FFD30 000FCC90  7C A3 2B 78 */	mr r3, r5
-/* 800FFD34 000FCC94  4E 80 00 20 */	blr 
+/* 800FFD34 000FCC94  4E 80 00 20 */	blr
 
 .global PreRender__12CScriptWaterFR13CStateManagerRC14CFrustumPlanes
 PreRender__12CScriptWaterFR13CStateManagerRC14CFrustumPlanes:
@@ -1273,7 +1273,7 @@ PreRender__12CScriptWaterFR13CStateManagerRC14CFrustumPlanes:
 /* 800FFD6C 000FCCCC  38 61 00 48 */	addi r3, r1, 0x48
 /* 800FFD70 000FCCD0  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800FFD74 000FCCD4  7D 89 03 A6 */	mtctr r12
-/* 800FFD78 000FCCD8  4E 80 04 21 */	bctrl 
+/* 800FFD78 000FCCD8  4E 80 04 21 */	bctrl
 /* 800FFD7C 000FCCDC  7F E3 FB 78 */	mr r3, r31
 /* 800FFD80 000FCCE0  38 81 00 48 */	addi r4, r1, 0x48
 /* 800FFD84 000FCCE4  48 24 54 4D */	bl BoxInFrustumPlanes__14CFrustumPlanesCFRC6CAABox
@@ -1398,7 +1398,7 @@ lbl_800FFF2C:
 /* 800FFF30 000FCE90  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800FFF34 000FCE94  7C 08 03 A6 */	mtlr r0
 /* 800FFF38 000FCE98  38 21 00 80 */	addi r1, r1, 0x80
-/* 800FFF3C 000FCE9C  4E 80 00 20 */	blr 
+/* 800FFF3C 000FCE9C  4E 80 00 20 */	blr
 
 .global AddToRenderer__12CScriptWaterCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__12CScriptWaterCFRC14CFrustumPlanesRC13CStateManager:
@@ -1444,7 +1444,7 @@ AddToRenderer__12CScriptWaterCFRC14CFrustumPlanesRC13CStateManager:
 /* 800FFFDC 000FCF3C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800FFFE0 000FCF40  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800FFFE4 000FCF44  7D 89 03 A6 */	mtctr r12
-/* 800FFFE8 000FCF48  4E 80 04 21 */	bctrl 
+/* 800FFFE8 000FCF48  4E 80 04 21 */	bctrl
 /* 800FFFEC 000FCF4C  7F E3 FB 78 */	mr r3, r31
 /* 800FFFF0 000FCF50  7F C4 F3 78 */	mr r4, r30
 /* 800FFFF4 000FCF54  38 A1 00 14 */	addi r5, r1, 0x14
@@ -1460,7 +1460,7 @@ lbl_80100000:
 /* 80100018 000FCF78  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 8010001C 000FCF7C  7C 08 03 A6 */	mtlr r0
 /* 80100020 000FCF80  38 21 00 70 */	addi r1, r1, 0x70
-/* 80100024 000FCF84  4E 80 00 20 */	blr 
+/* 80100024 000FCF84  4E 80 00 20 */	blr
 
 .global GetRenderBounds__12CScriptWaterCFRC12CTransform4f
 GetRenderBounds__12CScriptWaterCFRC12CTransform4f:
@@ -1490,7 +1490,7 @@ lbl_80100074:
 /* 80100080 000FCFE0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80100084 000FCFE4  7C 08 03 A6 */	mtlr r0
 /* 80100088 000FCFE8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8010008C 000FCFEC  4E 80 00 20 */	blr 
+/* 8010008C 000FCFEC  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__12CScriptWaterFv
 CalculateRenderBounds__12CScriptWaterFv:
@@ -1548,7 +1548,7 @@ CalculateRenderBounds__12CScriptWaterFv:
 /* 8010015C 000FD0BC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80100160 000FD0C0  7C 08 03 A6 */	mtlr r0
 /* 80100164 000FD0C4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80100168 000FD0C8  4E 80 00 20 */	blr 
+/* 80100168 000FD0C8  4E 80 00 20 */	blr
 
 .global Accept__12CScriptWaterFR8IVisitor
 Accept__12CScriptWaterFR8IVisitor:
@@ -1561,11 +1561,11 @@ Accept__12CScriptWaterFR8IVisitor:
 /* 80100184 000FD0E4  7C 04 03 78 */	mr r4, r0
 /* 80100188 000FD0E8  81 8C 00 D4 */	lwz r12, 0xd4(r12)
 /* 8010018C 000FD0EC  7D 89 03 A6 */	mtctr r12
-/* 80100190 000FD0F0  4E 80 04 21 */	bctrl 
+/* 80100190 000FD0F0  4E 80 04 21 */	bctrl
 /* 80100194 000FD0F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80100198 000FD0F8  7C 08 03 A6 */	mtlr r0
 /* 8010019C 000FD0FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801001A0 000FD100  4E 80 00 20 */	blr 
+/* 801001A0 000FD100  4E 80 00 20 */	blr
 
 .global Think__12CScriptWaterFfR13CStateManager
 Think__12CScriptWaterFfR13CStateManager:
@@ -1818,7 +1818,7 @@ lbl_801003F4:
 /* 80100564 000FD4C4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80100568 000FD4C8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8010056C 000FD4CC  7D 89 03 A6 */	mtctr r12
-/* 80100570 000FD4D0  4E 80 04 21 */	bctrl 
+/* 80100570 000FD4D0  4E 80 04 21 */	bctrl
 /* 80100574 000FD4D4  57 A0 06 3F */	clrlwi. r0, r29, 0x18
 /* 80100578 000FD4D8  40 82 00 14 */	bne lbl_8010058C
 /* 8010057C 000FD4DC  7F C3 F3 78 */	mr r3, r30
@@ -1843,7 +1843,7 @@ lbl_801005A8:
 /* 801005BC 000FD51C  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 801005C0 000FD520  7C 08 03 A6 */	mtlr r0
 /* 801005C4 000FD524  38 21 00 90 */	addi r1, r1, 0x90
-/* 801005C8 000FD528  4E 80 00 20 */	blr 
+/* 801005C8 000FD528  4E 80 00 20 */	blr
 
 .global UpdateSplashInhabitants__12CScriptWaterFR13CStateManager
 UpdateSplashInhabitants__12CScriptWaterFR13CStateManager:
@@ -1874,7 +1874,7 @@ lbl_801005EC:
 /* 80100628 000FD588  81 9B 00 00 */	lwz r12, 0(r27)
 /* 8010062C 000FD58C  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80100630 000FD590  7D 89 03 A6 */	mtctr r12
-/* 80100634 000FD594  4E 80 04 21 */	bctrl 
+/* 80100634 000FD594  4E 80 04 21 */	bctrl
 /* 80100638 000FD598  88 01 00 54 */	lbz r0, 0x54(r1)
 /* 8010063C 000FD59C  28 00 00 00 */	cmplwi r0, 0
 /* 80100640 000FD5A0  98 01 00 70 */	stb r0, 0x70(r1)
@@ -1930,7 +1930,7 @@ lbl_801006D0:
 /* 801006FC 000FD65C  38 80 00 01 */	li r4, 1
 /* 80100700 000FD660  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 80100704 000FD664  7D 89 03 A6 */	mtctr r12
-/* 80100708 000FD668  4E 80 04 21 */	bctrl 
+/* 80100708 000FD668  4E 80 04 21 */	bctrl
 lbl_8010070C:
 /* 8010070C 000FD66C  A0 1E 00 08 */	lhz r0, 8(r30)
 /* 80100710 000FD670  7F E3 FB 78 */	mr r3, r31
@@ -1958,7 +1958,7 @@ lbl_80100738:
 /* 80100764 000FD6C4  38 80 00 02 */	li r4, 2
 /* 80100768 000FD6C8  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 8010076C 000FD6CC  7D 89 03 A6 */	mtctr r12
-/* 80100770 000FD6D0  4E 80 04 21 */	bctrl 
+/* 80100770 000FD6D0  4E 80 04 21 */	bctrl
 lbl_80100774:
 /* 80100774 000FD6D4  A0 1E 00 08 */	lhz r0, 8(r30)
 /* 80100778 000FD6D8  7F E3 FB 78 */	mr r3, r31
@@ -1978,7 +1978,7 @@ lbl_80100798:
 /* 801007A8 000FD708  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801007AC 000FD70C  7C 08 03 A6 */	mtlr r0
 /* 801007B0 000FD710  38 21 00 90 */	addi r1, r1, 0x90
-/* 801007B4 000FD714  4E 80 00 20 */	blr 
+/* 801007B4 000FD714  4E 80 00 20 */	blr
 
 .global Touch__12CScriptWaterFR6CActorR13CStateManager
 Touch__12CScriptWaterFR6CActorR13CStateManager:
@@ -2024,7 +2024,7 @@ lbl_80100838:
 /* 80100848 000FD7A8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8010084C 000FD7AC  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80100850 000FD7B0  7D 89 03 A6 */	mtctr r12
-/* 80100854 000FD7B4  4E 80 04 21 */	bctrl 
+/* 80100854 000FD7B4  4E 80 04 21 */	bctrl
 /* 80100858 000FD7B8  88 01 00 40 */	lbz r0, 0x40(r1)
 /* 8010085C 000FD7BC  28 00 00 00 */	cmplwi r0, 0
 /* 80100860 000FD7C0  40 82 00 10 */	bne lbl_80100870
@@ -2082,7 +2082,7 @@ lbl_801008C4:
 /* 80100920 000FD880  38 80 00 00 */	li r4, 0
 /* 80100924 000FD884  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 80100928 000FD888  7D 89 03 A6 */	mtctr r12
-/* 8010092C 000FD88C  4E 80 04 21 */	bctrl 
+/* 8010092C 000FD88C  4E 80 04 21 */	bctrl
 lbl_80100930:
 /* 80100930 000FD890  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 80100934 000FD894  7F E3 FB 78 */	mr r3, r31
@@ -2099,7 +2099,7 @@ lbl_80100958:
 /* 8010095C 000FD8BC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80100960 000FD8C0  7C 08 03 A6 */	mtlr r0
 /* 80100964 000FD8C4  38 21 00 70 */	addi r1, r1, 0x70
-/* 80100968 000FD8C8  4E 80 00 20 */	blr 
+/* 80100968 000FD8C8  4E 80 00 20 */	blr
 
 .global GetNextConnectedWater__12CScriptWaterFR13CStateManager
 GetNextConnectedWater__12CScriptWaterFR13CStateManager:
@@ -2169,7 +2169,7 @@ lbl_80100A44:
 /* 80100A50 000FD9B0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80100A54 000FD9B4  7C 08 03 A6 */	mtlr r0
 /* 80100A58 000FD9B8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80100A5C 000FD9BC  4E 80 00 20 */	blr 
+/* 80100A5C 000FD9BC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CScriptWaterF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CScriptWaterF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -2357,7 +2357,7 @@ lbl_80100CE0:
 /* 80100D00 000FDC60  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80100D04 000FDC64  7C 08 03 A6 */	mtlr r0
 /* 80100D08 000FDC68  38 21 00 50 */	addi r1, r1, 0x50
-/* 80100D0C 000FDC6C  4E 80 00 20 */	blr 
+/* 80100D0C 000FDC6C  4E 80 00 20 */	blr
 
 .global __dt__12CScriptWaterFv
 __dt__12CScriptWaterFv:
@@ -2460,7 +2460,7 @@ lbl_80100E3C:
 /* 80100E60 000FDDC0  38 80 00 01 */	li r4, 1
 /* 80100E64 000FDDC4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80100E68 000FDDC8  7D 89 03 A6 */	mtctr r12
-/* 80100E6C 000FDDCC  4E 80 04 21 */	bctrl 
+/* 80100E6C 000FDDCC  4E 80 04 21 */	bctrl
 lbl_80100E70:
 /* 80100E70 000FDDD0  34 1E 01 50 */	addic. r0, r30, 0x150
 /* 80100E74 000FDDD4  41 82 00 60 */	beq lbl_80100ED4
@@ -2506,7 +2506,7 @@ lbl_80100EF0:
 /* 80100EFC 000FDE5C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80100F00 000FDE60  7C 08 03 A6 */	mtlr r0
 /* 80100F04 000FDE64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80100F08 000FDE68  4E 80 00 20 */	blr 
+/* 80100F08 000FDE68  4E 80 00 20 */	blr
 
 .global __dt__14CFluidPlaneCPUFv
 __dt__14CFluidPlaneCPUFv:
@@ -2598,7 +2598,7 @@ lbl_80101030:
 /* 8010103C 000FDF9C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80101040 000FDFA0  7C 08 03 A6 */	mtlr r0
 /* 80101044 000FDFA4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80101048 000FDFA8  4E 80 00 20 */	blr 
+/* 80101048 000FDFA8  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl78reserved_vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,3>Fv"
 "clear__Q24rstl78reserved_vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,3>Fv":
@@ -2646,7 +2646,7 @@ lbl_801010D4:
 /* 801010DC 000FE03C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801010E0 000FE040  7C 08 03 A6 */	mtlr r0
 /* 801010E4 000FE044  38 21 00 20 */	addi r1, r1, 0x20
-/* 801010E8 000FE048  4E 80 00 20 */	blr 
+/* 801010E8 000FE048  4E 80 00 20 */	blr
 
 .global "__ct__12CScriptWaterFR13CStateManager9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbUiUiUiUiUiUiUiRC9CVector3fffbQ211CFluidPlane10EFluidTypebfRC14CFluidUVMotionffffffffRC6CColorRC6CColorUiUiUiUiUiiiiifUiffffffffRC6CColorUifffUiUibiiPCUi"
 "__ct__12CScriptWaterFR13CStateManager9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbUiUiUiUiUiUiUiRC9CVector3fffbQ211CFluidPlane10EFluidTypebfRC14CFluidUVMotionffffffffRC6CColorRC6CColorUiUiUiUiUiiiiifUiffffffffRC6CColorUifffUiUibiiPCUi":
@@ -2964,7 +2964,7 @@ lbl_801015AC:
 /* 801015BC 000FE51C  38 80 00 01 */	li r4, 1
 /* 801015C0 000FE520  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801015C4 000FE524  7D 89 03 A6 */	mtctr r12
-/* 801015C8 000FE528  4E 80 04 21 */	bctrl 
+/* 801015C8 000FE528  4E 80 04 21 */	bctrl
 lbl_801015CC:
 /* 801015CC 000FE52C  91 CF 01 B4 */	stw r14, 0x1b4(r15)
 /* 801015D0 000FE530  80 61 03 A8 */	lwz r3, 0x3a8(r1)
@@ -3092,7 +3092,7 @@ lbl_8010176C:
 /* 801017A0 000FE700  81 84 00 00 */	lwz r12, 0(r4)
 /* 801017A4 000FE704  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801017A8 000FE708  7D 89 03 A6 */	mtctr r12
-/* 801017AC 000FE70C  4E 80 04 21 */	bctrl 
+/* 801017AC 000FE70C  4E 80 04 21 */	bctrl
 /* 801017B0 000FE710  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 801017B4 000FE714  38 81 00 AC */	addi r4, r1, 0xac
 /* 801017B8 000FE718  48 23 F6 F1 */	bl __ct__6CTokenFRC6CToken
@@ -3152,7 +3152,7 @@ lbl_80101854:
 /* 80101880 000FE7E0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80101884 000FE7E4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80101888 000FE7E8  7D 89 03 A6 */	mtctr r12
-/* 8010188C 000FE7EC  4E 80 04 21 */	bctrl 
+/* 8010188C 000FE7EC  4E 80 04 21 */	bctrl
 /* 80101890 000FE7F0  38 61 00 8C */	addi r3, r1, 0x8c
 /* 80101894 000FE7F4  38 81 00 94 */	addi r4, r1, 0x94
 /* 80101898 000FE7F8  48 23 F6 11 */	bl __ct__6CTokenFRC6CToken
@@ -3212,7 +3212,7 @@ lbl_80101934:
 /* 80101960 000FE8C0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80101964 000FE8C4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80101968 000FE8C8  7D 89 03 A6 */	mtctr r12
-/* 8010196C 000FE8CC  4E 80 04 21 */	bctrl 
+/* 8010196C 000FE8CC  4E 80 04 21 */	bctrl
 /* 80101970 000FE8D0  38 61 00 74 */	addi r3, r1, 0x74
 /* 80101974 000FE8D4  38 81 00 7C */	addi r4, r1, 0x7c
 /* 80101978 000FE8D8  48 23 F5 31 */	bl __ct__6CTokenFRC6CToken
@@ -3272,7 +3272,7 @@ lbl_80101A14:
 /* 80101A40 000FE9A0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80101A44 000FE9A4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80101A48 000FE9A8  7D 89 03 A6 */	mtctr r12
-/* 80101A4C 000FE9AC  4E 80 04 21 */	bctrl 
+/* 80101A4C 000FE9AC  4E 80 04 21 */	bctrl
 /* 80101A50 000FE9B0  38 61 00 5C */	addi r3, r1, 0x5c
 /* 80101A54 000FE9B4  38 81 00 64 */	addi r4, r1, 0x64
 /* 80101A58 000FE9B8  48 23 F4 51 */	bl __ct__6CTokenFRC6CToken
@@ -3332,7 +3332,7 @@ lbl_80101AF4:
 /* 80101B20 000FEA80  81 84 00 00 */	lwz r12, 0(r4)
 /* 80101B24 000FEA84  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80101B28 000FEA88  7D 89 03 A6 */	mtctr r12
-/* 80101B2C 000FEA8C  4E 80 04 21 */	bctrl 
+/* 80101B2C 000FEA8C  4E 80 04 21 */	bctrl
 /* 80101B30 000FEA90  38 61 00 44 */	addi r3, r1, 0x44
 /* 80101B34 000FEA94  38 81 00 4C */	addi r4, r1, 0x4c
 /* 80101B38 000FEA98  48 23 F3 71 */	bl __ct__6CTokenFRC6CToken
@@ -3462,7 +3462,7 @@ lbl_80101CBC:
 /* 80101D08 000FEC68  81 8F 00 00 */	lwz r12, 0(r15)
 /* 80101D0C 000FEC6C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80101D10 000FEC70  7D 89 03 A6 */	mtctr r12
-/* 80101D14 000FEC74  4E 80 04 21 */	bctrl 
+/* 80101D14 000FEC74  4E 80 04 21 */	bctrl
 /* 80101D18 000FEC78  88 01 02 E3 */	lbz r0, 0x2e3(r1)
 /* 80101D1C 000FEC7C  28 00 00 00 */	cmplwi r0, 0
 /* 80101D20 000FEC80  38 00 00 01 */	li r0, 1
@@ -3525,7 +3525,7 @@ lbl_80101D58:
 /* 80101DFC 000FED5C  80 01 02 D4 */	lwz r0, 0x2d4(r1)
 /* 80101E00 000FED60  7C 08 03 A6 */	mtlr r0
 /* 80101E04 000FED64  38 21 02 D0 */	addi r1, r1, 0x2d0
-/* 80101E08 000FED68  4E 80 00 20 */	blr 
+/* 80101E08 000FED68  4E 80 00 20 */	blr
 
 .global sub_80101e0c
 sub_80101e0c:
@@ -3561,7 +3561,7 @@ lbl_80101E60:
 /* 80101E78 000FEDD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80101E7C 000FEDDC  7C 08 03 A6 */	mtlr r0
 /* 80101E80 000FEDE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80101E84 000FEDE4  4E 80 00 20 */	blr 
+/* 80101E84 000FEDE4  4E 80 00 20 */	blr
 
 .global sub_80101e88
 sub_80101e88:
@@ -3597,4 +3597,4 @@ lbl_80101EE0:
 /* 80101EF0 000FEE50  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80101EF4 000FEE54  7C 08 03 A6 */	mtlr r0
 /* 80101EF8 000FEE58  38 21 00 20 */	addi r1, r1, 0x20
-/* 80101EFC 000FEE5C  4E 80 00 20 */	blr 
+/* 80101EFC 000FEE5C  4E 80 00 20 */	blr

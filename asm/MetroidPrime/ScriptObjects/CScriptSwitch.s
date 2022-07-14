@@ -42,7 +42,7 @@ lbl_801D9774:
 /* 801D9780 001D66E0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D9784 001D66E4  7C 08 03 A6 */	mtlr r0
 /* 801D9788 001D66E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D978C 001D66EC  4E 80 00 20 */	blr 
+/* 801D978C 001D66EC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__13CScriptSwitchF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__13CScriptSwitchF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -112,7 +112,7 @@ lbl_801D9848:
 /* 801D9874 001D67D4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801D9878 001D67D8  7C 08 03 A6 */	mtlr r0
 /* 801D987C 001D67DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D9880 001D67E0  4E 80 00 20 */	blr 
+/* 801D9880 001D67E0  4E 80 00 20 */	blr
 
 .global Accept__13CScriptSwitchFR8IVisitor
 Accept__13CScriptSwitchFR8IVisitor:
@@ -125,11 +125,11 @@ Accept__13CScriptSwitchFR8IVisitor:
 /* 801D989C 001D67FC  7C 04 03 78 */	mr r4, r0
 /* 801D98A0 001D6800  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 801D98A4 001D6804  7D 89 03 A6 */	mtctr r12
-/* 801D98A8 001D6808  4E 80 04 21 */	bctrl 
+/* 801D98A8 001D6808  4E 80 04 21 */	bctrl
 /* 801D98AC 001D680C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D98B0 001D6810  7C 08 03 A6 */	mtlr r0
 /* 801D98B4 001D6814  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D98B8 001D6818  4E 80 00 20 */	blr 
+/* 801D98B8 001D6818  4E 80 00 20 */	blr
 
 .global "__ct__13CScriptSwitchF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbb"
 "__ct__13CScriptSwitchF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbb":

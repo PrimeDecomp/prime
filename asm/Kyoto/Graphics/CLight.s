@@ -105,7 +105,7 @@ lbl_80306124:
 /* 80306144 003030A4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80306148 003030A8  7C 08 03 A6 */	mtlr r0
 /* 8030614C 003030AC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80306150 003030B0  4E 80 00 20 */	blr 
+/* 80306150 003030B0  4E 80 00 20 */	blr
 
 .global GetIntensity__6CLightCFv
 GetIntensity__6CLightCFv:
@@ -153,7 +153,7 @@ lbl_803061D8:
 lbl_803061E4:
 /* 803061E4 00303144  C0 23 00 48 */	lfs f1, 0x48(r3)
 /* 803061E8 00303148  38 21 00 20 */	addi r1, r1, 0x20
-/* 803061EC 0030314C  4E 80 00 20 */	blr 
+/* 803061EC 0030314C  4E 80 00 20 */	blr
 
 .global CalculateLightRadius__6CLightCFv
 CalculateLightRadius__6CLightCFv:
@@ -221,7 +221,7 @@ lbl_803062C0:
 /* 803062C4 00303224  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803062C8 00303228  7C 08 03 A6 */	mtlr r0
 /* 803062CC 0030322C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803062D0 00303230  4E 80 00 20 */	blr 
+/* 803062D0 00303230  4E 80 00 20 */	blr
 
 .global GetRadius__6CLightCFv
 GetRadius__6CLightCFv:
@@ -245,7 +245,7 @@ lbl_8030630C:
 /* 80306314 00303274  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80306318 00303278  7C 08 03 A6 */	mtlr r0
 /* 8030631C 0030327C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80306320 00303280  4E 80 00 20 */	blr 
+/* 80306320 00303280  4E 80 00 20 */	blr
 
 .global SetDirection__6CLightFRC9CVector3f
 SetDirection__6CLightFRC9CVector3f:
@@ -255,7 +255,7 @@ SetDirection__6CLightFRC9CVector3f:
 /* 80306330 00303290  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 80306334 00303294  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80306338 00303298  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8030633C 0030329C  4E 80 00 20 */	blr 
+/* 8030633C 0030329C  4E 80 00 20 */	blr
 
 .global SetPosition__6CLightFRC9CVector3f
 SetPosition__6CLightFRC9CVector3f:
@@ -265,7 +265,7 @@ SetPosition__6CLightFRC9CVector3f:
 /* 8030634C 003032AC  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80306350 003032B0  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80306354 003032B4  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80306358 003032B8  4E 80 00 20 */	blr 
+/* 80306358 003032B8  4E 80 00 20 */	blr
 
 .global SetColor__6CLightFRC6CColor
 SetColor__6CLightFRC6CColor:
@@ -278,7 +278,7 @@ SetColor__6CLightFRC6CColor:
 /* 80306374 003032D4  88 03 00 4C */	lbz r0, 0x4c(r3)
 /* 80306378 003032D8  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8030637C 003032DC  98 03 00 4C */	stb r0, 0x4c(r3)
-/* 80306380 003032E0  4E 80 00 20 */	blr 
+/* 80306380 003032E0  4E 80 00 20 */	blr
 
 .global SetAngleAttenuation__6CLightFfff
 SetAngleAttenuation__6CLightFfff:
@@ -292,7 +292,7 @@ SetAngleAttenuation__6CLightFfff:
 /* 803063A0 00303300  88 03 00 4C */	lbz r0, 0x4c(r3)
 /* 803063A4 00303304  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 803063A8 00303308  98 03 00 4C */	stb r0, 0x4c(r3)
-/* 803063AC 0030330C  4E 80 00 20 */	blr 
+/* 803063AC 0030330C  4E 80 00 20 */	blr
 
 .global SetAttenuation__6CLightFfff
 SetAttenuation__6CLightFfff:
@@ -306,7 +306,7 @@ SetAttenuation__6CLightFfff:
 /* 803063CC 0030332C  88 03 00 4C */	lbz r0, 0x4c(r3)
 /* 803063D0 00303330  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 803063D4 00303334  98 03 00 4C */	stb r0, 0x4c(r3)
-/* 803063D8 00303338  4E 80 00 20 */	blr 
+/* 803063D8 00303338  4E 80 00 20 */	blr
 
 .global BuildCustom__6CLightFRC9CVector3fRC9CVector3fRC6CColorffffff
 BuildCustom__6CLightFRC9CVector3fRC9CVector3fRC6CColorffffff:
@@ -317,7 +317,7 @@ BuildCustom__6CLightFRC9CVector3fRC9CVector3fRC6CColorffffff:
 /* 803063EC 0030334C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803063F0 00303350  7C 08 03 A6 */	mtlr r0
 /* 803063F4 00303354  38 21 00 10 */	addi r1, r1, 0x10
-/* 803063F8 00303358  4E 80 00 20 */	blr 
+/* 803063F8 00303358  4E 80 00 20 */	blr
 
 .global BuildSpot__6CLightFRC9CVector3fRC9CVector3fRC6CColorf
 BuildSpot__6CLightFRC9CVector3fRC9CVector3fRC6CColorf:
@@ -334,7 +334,7 @@ BuildSpot__6CLightFRC9CVector3fRC9CVector3fRC6CColorf:
 /* 80306424 00303384  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80306428 00303388  7C 08 03 A6 */	mtlr r0
 /* 8030642C 0030338C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80306430 00303390  4E 80 00 20 */	blr 
+/* 80306430 00303390  4E 80 00 20 */	blr
 
 .global BuildPoint__6CLightFRC9CVector3fRC6CColor
 BuildPoint__6CLightFRC9CVector3fRC6CColor:
@@ -351,7 +351,7 @@ BuildPoint__6CLightFRC9CVector3fRC6CColor:
 /* 8030645C 003033BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80306460 003033C0  7C 08 03 A6 */	mtlr r0
 /* 80306464 003033C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80306468 003033C8  4E 80 00 20 */	blr 
+/* 80306468 003033C8  4E 80 00 20 */	blr
 
 .global BuildDirectional__6CLightFRC9CVector3fRC6CColor
 BuildDirectional__6CLightFRC9CVector3fRC6CColor:
@@ -368,7 +368,7 @@ BuildDirectional__6CLightFRC9CVector3fRC6CColor:
 /* 80306494 003033F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80306498 003033F8  7C 08 03 A6 */	mtlr r0
 /* 8030649C 003033FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803064A0 00303400  4E 80 00 20 */	blr 
+/* 803064A0 00303400  4E 80 00 20 */	blr
 
 .global BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor
 BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor:
@@ -385,7 +385,7 @@ BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor:
 /* 803064CC 0030342C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803064D0 00303430  7C 08 03 A6 */	mtlr r0
 /* 803064D4 00303434  38 21 00 10 */	addi r1, r1, 0x10
-/* 803064D8 00303438  4E 80 00 20 */	blr 
+/* 803064D8 00303438  4E 80 00 20 */	blr
 
 .global __ct__6CLightFRC9CVector3fRC9CVector3fRC6CColorffffff
 __ct__6CLightFRC9CVector3fRC9CVector3fRC6CColorffffff:
@@ -425,7 +425,7 @@ __ct__6CLightFRC9CVector3fRC9CVector3fRC6CColorffffff:
 /* 80306560 003034C0  88 03 00 4C */	lbz r0, 0x4c(r3)
 /* 80306564 003034C4  50 E0 36 72 */	rlwimi r0, r7, 6, 0x19, 0x19
 /* 80306568 003034C8  98 03 00 4C */	stb r0, 0x4c(r3)
-/* 8030656C 003034CC  4E 80 00 20 */	blr 
+/* 8030656C 003034CC  4E 80 00 20 */	blr
 
 .global __ct__6CLightF10ELightTypeRC9CVector3fRC9CVector3fRC6CColorf
 __ct__6CLightF10ELightTypeRC9CVector3fRC9CVector3fRC6CColorf:
@@ -465,7 +465,7 @@ __ct__6CLightF10ELightTypeRC9CVector3fRC9CVector3fRC6CColorf:
 /* 803065F4 00303554  88 03 00 4C */	lbz r0, 0x4c(r3)
 /* 803065F8 00303558  51 00 36 72 */	rlwimi r0, r8, 6, 0x19, 0x19
 /* 803065FC 0030355C  98 03 00 4C */	stb r0, 0x4c(r3)
-/* 80306600 00303560  4E 80 00 20 */	blr 
+/* 80306600 00303560  4E 80 00 20 */	blr
 
 .global __sinit_CLight_cpp
 __sinit_CLight_cpp:

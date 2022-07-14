@@ -64,19 +64,19 @@ lbl_805A8E04:
 
 .global InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager
 InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager:
-/* 80075C60 00072BC0  4E 80 00 20 */	blr 
+/* 80075C60 00072BC0  4E 80 00 20 */	blr
 
 .global InhabitantExited__14CScriptTriggerFR6CActorR13CStateManager
 InhabitantExited__14CScriptTriggerFR6CActorR13CStateManager:
-/* 80075C64 00072BC4  4E 80 00 20 */	blr 
+/* 80075C64 00072BC4  4E 80 00 20 */	blr
 
 .global InhabitantIdle__14CScriptTriggerFR6CActorR13CStateManager
 InhabitantIdle__14CScriptTriggerFR6CActorR13CStateManager:
-/* 80075C68 00072BC8  4E 80 00 20 */	blr 
+/* 80075C68 00072BC8  4E 80 00 20 */	blr
 
 .global InhabitantAdded__14CScriptTriggerFR6CActorR13CStateManager
 InhabitantAdded__14CScriptTriggerFR6CActorR13CStateManager:
-/* 80075C6C 00072BCC  4E 80 00 20 */	blr 
+/* 80075C6C 00072BCC  4E 80 00 20 */	blr
 
 .global Accept__14CScriptTriggerFR8IVisitor
 Accept__14CScriptTriggerFR8IVisitor:
@@ -89,11 +89,11 @@ Accept__14CScriptTriggerFR8IVisitor:
 /* 80075C88 00072BE8  7C 04 03 78 */	mr r4, r0
 /* 80075C8C 00072BEC  81 8C 00 CC */	lwz r12, 0xcc(r12)
 /* 80075C90 00072BF0  7D 89 03 A6 */	mtctr r12
-/* 80075C94 00072BF4  4E 80 04 21 */	bctrl 
+/* 80075C94 00072BF4  4E 80 04 21 */	bctrl
 /* 80075C98 00072BF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80075C9C 00072BFC  7C 08 03 A6 */	mtlr r0
 /* 80075CA0 00072C00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80075CA4 00072C04  4E 80 00 20 */	blr 
+/* 80075CA4 00072C04  4E 80 00 20 */	blr
 
 .global FindObject__14CScriptTriggerF9TUniqueId
 FindObject__14CScriptTriggerF9TUniqueId:
@@ -131,12 +131,12 @@ lbl_80075D08:
 /* 80075D14 00072C74  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80075D18 00072C78  7C 08 03 A6 */	mtlr r0
 /* 80075D1C 00072C7C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80075D20 00072C80  4E 80 00 20 */	blr 
+/* 80075D20 00072C80  4E 80 00 20 */	blr
 
 .global GetInhabitants__14CScriptTriggerCFv
 GetInhabitants__14CScriptTriggerCFv:
 /* 80075D24 00072C84  38 63 00 E8 */	addi r3, r3, 0xe8
-/* 80075D28 00072C88  4E 80 00 20 */	blr 
+/* 80075D28 00072C88  4E 80 00 20 */	blr
 
 .global UpdateInhabitants__14CScriptTriggerFR13CStateManager
 UpdateInhabitants__14CScriptTriggerFR13CStateManager:
@@ -229,7 +229,7 @@ lbl_80075E64:
 /* 80075E70 00072DD0  7F C5 F3 78 */	mr r5, r30
 /* 80075E74 00072DD4  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 80075E78 00072DD8  7D 89 03 A6 */	mtctr r12
-/* 80075E7C 00072DDC  4E 80 04 21 */	bctrl 
+/* 80075E7C 00072DDC  4E 80 04 21 */	bctrl
 lbl_80075E80:
 /* 80075E80 00072DE0  57 00 06 3F */	clrlwi. r0, r24, 0x18
 /* 80075E84 00072DE4  41 82 04 58 */	beq lbl_800762DC
@@ -238,7 +238,7 @@ lbl_80075E80:
 /* 80075E90 00072DF0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80075E94 00072DF4  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80075E98 00072DF8  7D 89 03 A6 */	mtctr r12
-/* 80075E9C 00072DFC  4E 80 04 21 */	bctrl 
+/* 80075E9C 00072DFC  4E 80 04 21 */	bctrl
 /* 80075EA0 00072E00  88 01 01 10 */	lbz r0, 0x110(r1)
 /* 80075EA4 00072E04  28 00 00 00 */	cmplwi r0, 0
 /* 80075EA8 00072E08  98 01 01 48 */	stb r0, 0x148(r1)
@@ -265,7 +265,7 @@ lbl_80075EE8:
 /* 80075EF8 00072E58  81 9A 00 00 */	lwz r12, 0(r26)
 /* 80075EFC 00072E5C  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80075F00 00072E60  7D 89 03 A6 */	mtctr r12
-/* 80075F04 00072E64  4E 80 04 21 */	bctrl 
+/* 80075F04 00072E64  4E 80 04 21 */	bctrl
 /* 80075F08 00072E68  88 01 00 F4 */	lbz r0, 0xf4(r1)
 /* 80075F0C 00072E6C  28 00 00 00 */	cmplwi r0, 0
 /* 80075F10 00072E70  98 01 01 2C */	stb r0, 0x12c(r1)
@@ -305,13 +305,13 @@ lbl_80075F50:
 /* 80075F94 00072EF4  3B 80 00 01 */	li r28, 1
 /* 80075F98 00072EF8  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80075F9C 00072EFC  7D 89 03 A6 */	mtctr r12
-/* 80075FA0 00072F00  4E 80 04 21 */	bctrl 
+/* 80075FA0 00072F00  4E 80 04 21 */	bctrl
 /* 80075FA4 00072F04  7F 43 D3 78 */	mr r3, r26
 /* 80075FA8 00072F08  7F C4 F3 78 */	mr r4, r30
 /* 80075FAC 00072F0C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 80075FB0 00072F10  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80075FB4 00072F14  7D 89 03 A6 */	mtctr r12
-/* 80075FB8 00072F18  4E 80 04 21 */	bctrl 
+/* 80075FB8 00072F18  4E 80 04 21 */	bctrl
 /* 80075FBC 00072F1C  28 03 00 00 */	cmplwi r3, 0
 /* 80075FC0 00072F20  41 82 01 34 */	beq lbl_800760F4
 /* 80075FC4 00072F24  C0 3D 01 08 */	lfs f1, 0x108(r29)
@@ -486,7 +486,7 @@ lbl_80076238:
 /* 80076244 000731A4  7F C5 F3 78 */	mr r5, r30
 /* 80076248 000731A8  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 8007624C 000731AC  7D 89 03 A6 */	mtctr r12
-/* 80076250 000731B0  4E 80 04 21 */	bctrl 
+/* 80076250 000731B0  4E 80 04 21 */	bctrl
 lbl_80076254:
 /* 80076254 000731B4  38 00 00 00 */	li r0, 0
 /* 80076258 000731B8  98 01 01 2C */	stb r0, 0x12c(r1)
@@ -571,7 +571,7 @@ lbl_80076304:
 /* 80076380 000732E0  3B E0 00 01 */	li r31, 1
 /* 80076384 000732E4  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 80076388 000732E8  7D 89 03 A6 */	mtctr r12
-/* 8007638C 000732EC  4E 80 04 21 */	bctrl 
+/* 8007638C 000732EC  4E 80 04 21 */	bctrl
 /* 80076390 000732F0  48 00 00 84 */	b lbl_80076414
 lbl_80076394:
 /* 80076394 000732F4  80 1D 01 2C */	lwz r0, 0x12c(r29)
@@ -583,7 +583,7 @@ lbl_80076394:
 /* 800763AC 0007330C  7F C5 F3 78 */	mr r5, r30
 /* 800763B0 00073310  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800763B4 00073314  7D 89 03 A6 */	mtctr r12
-/* 800763B8 00073318  4E 80 04 21 */	bctrl 
+/* 800763B8 00073318  4E 80 04 21 */	bctrl
 /* 800763BC 0007331C  3B 80 00 01 */	li r28, 1
 /* 800763C0 00073320  48 00 00 54 */	b lbl_80076414
 lbl_800763C4:
@@ -601,7 +601,7 @@ lbl_800763C4:
 /* 800763F0 00073350  7F C5 F3 78 */	mr r5, r30
 /* 800763F4 00073354  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 800763F8 00073358  7D 89 03 A6 */	mtctr r12
-/* 800763FC 0007335C  4E 80 04 21 */	bctrl 
+/* 800763FC 0007335C  4E 80 04 21 */	bctrl
 /* 80076400 00073360  7F A3 EB 78 */	mr r3, r29
 /* 80076404 00073364  7F C5 F3 78 */	mr r5, r30
 /* 80076408 00073368  38 80 00 03 */	li r4, 3
@@ -655,7 +655,7 @@ lbl_800764A0:
 /* 800764BC 0007341C  80 01 01 B4 */	lwz r0, 0x1b4(r1)
 /* 800764C0 00073420  7C 08 03 A6 */	mtlr r0
 /* 800764C4 00073424  38 21 01 B0 */	addi r1, r1, 0x1b0
-/* 800764C8 00073428  4E 80 00 20 */	blr 
+/* 800764C8 00073428  4E 80 00 20 */	blr
 
 .global Think__14CScriptTriggerFfR13CStateManager
 Think__14CScriptTriggerFfR13CStateManager:
@@ -670,7 +670,7 @@ lbl_800764E8:
 /* 800764E8 00073448  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800764EC 0007344C  7C 08 03 A6 */	mtlr r0
 /* 800764F0 00073450  38 21 00 10 */	addi r1, r1, 0x10
-/* 800764F4 00073454  4E 80 00 20 */	blr 
+/* 800764F4 00073454  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__14CScriptTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__14CScriptTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -762,7 +762,7 @@ lbl_80076614:
 /* 80076634 00073594  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80076638 00073598  7C 08 03 A6 */	mtlr r0
 /* 8007663C 0007359C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80076640 000735A0  4E 80 00 20 */	blr 
+/* 80076640 000735A0  4E 80 00 20 */	blr
 
 .global GetTouchBounds__14CScriptTriggerCFv
 GetTouchBounds__14CScriptTriggerCFv:
@@ -801,7 +801,7 @@ lbl_800766B8:
 /* 800766BC 0007361C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 800766C0 00073620  7C 08 03 A6 */	mtlr r0
 /* 800766C4 00073624  38 21 00 30 */	addi r1, r1, 0x30
-/* 800766C8 00073628  4E 80 00 20 */	blr 
+/* 800766C8 00073628  4E 80 00 20 */	blr
 
 .global GetTriggerBoundsWR__14CScriptTriggerCFv
 GetTriggerBoundsWR__14CScriptTriggerCFv:
@@ -835,7 +835,7 @@ GetTriggerBoundsWR__14CScriptTriggerCFv:
 /* 80076738 00073698  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8007673C 0007369C  7C 08 03 A6 */	mtlr r0
 /* 80076740 000736A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80076744 000736A4  4E 80 00 20 */	blr 
+/* 80076744 000736A4  4E 80 00 20 */	blr
 
 .global Touch__14CScriptTriggerFR6CActorR13CStateManager
 Touch__14CScriptTriggerFR6CActorR13CStateManager:
@@ -975,7 +975,7 @@ lbl_8007690C:
 /* 80076934 00073894  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80076938 00073898  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8007693C 0007389C  7D 89 03 A6 */	mtctr r12
-/* 80076940 000738A0  4E 80 04 21 */	bctrl 
+/* 80076940 000738A0  4E 80 04 21 */	bctrl
 /* 80076944 000738A4  57 E0 07 FF */	clrlwi. r0, r31, 0x1f
 /* 80076948 000738A8  41 82 00 D0 */	beq lbl_80076A18
 /* 8007694C 000738AC  28 1E 00 00 */	cmplwi r30, 0
@@ -1007,7 +1007,7 @@ lbl_80076998:
 /* 800769B0 00073910  81 99 00 00 */	lwz r12, 0(r25)
 /* 800769B4 00073914  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 800769B8 00073918  7D 89 03 A6 */	mtctr r12
-/* 800769BC 0007391C  4E 80 04 21 */	bctrl 
+/* 800769BC 0007391C  4E 80 04 21 */	bctrl
 /* 800769C0 00073920  38 9B 01 00 */	addi r4, r27, 0x100
 /* 800769C4 00073924  38 A0 00 00 */	li r5, 0
 /* 800769C8 00073928  48 08 BD 41 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
@@ -1063,7 +1063,7 @@ lbl_80076A18:
 /* 80076A88 000739E8  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80076A8C 000739EC  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80076A90 000739F0  7D 89 03 A6 */	mtctr r12
-/* 80076A94 000739F4  4E 80 04 21 */	bctrl 
+/* 80076A94 000739F4  4E 80 04 21 */	bctrl
 /* 80076A98 000739F8  28 03 00 00 */	cmplwi r3, 0
 /* 80076A9C 000739FC  41 82 00 88 */	beq lbl_80076B24
 /* 80076AA0 00073A00  C0 3B 01 08 */	lfs f1, 0x108(r27)
@@ -1108,7 +1108,7 @@ lbl_80076B24:
 /* 80076B38 00073A98  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80076B3C 00073A9C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80076B40 00073AA0  7D 89 03 A6 */	mtctr r12
-/* 80076B44 00073AA4  4E 80 04 21 */	bctrl 
+/* 80076B44 00073AA4  4E 80 04 21 */	bctrl
 /* 80076B48 00073AA8  28 03 00 00 */	cmplwi r3, 0
 /* 80076B4C 00073AAC  41 82 01 20 */	beq lbl_80076C6C
 /* 80076B50 00073AB0  88 0D A2 40 */	lbz r0, lbl_805A8E00@sda21(r13)
@@ -1183,13 +1183,13 @@ lbl_80076C50:
 /* 80076C5C 00073BBC  7F A5 EB 78 */	mr r5, r29
 /* 80076C60 00073BC0  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 80076C64 00073BC4  7D 89 03 A6 */	mtctr r12
-/* 80076C68 00073BC8  4E 80 04 21 */	bctrl 
+/* 80076C68 00073BC8  4E 80 04 21 */	bctrl
 lbl_80076C6C:
 /* 80076C6C 00073BCC  BB 21 00 E4 */	lmw r25, 0xe4(r1)
 /* 80076C70 00073BD0  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 80076C74 00073BD4  7C 08 03 A6 */	mtlr r0
 /* 80076C78 00073BD8  38 21 01 00 */	addi r1, r1, 0x100
-/* 80076C7C 00073BDC  4E 80 00 20 */	blr 
+/* 80076C7C 00073BDC  4E 80 00 20 */	blr
 
 .global __dt__14CScriptTriggerFv
 __dt__14CScriptTriggerFv:
@@ -1250,7 +1250,7 @@ lbl_80076D34:
 /* 80076D48 00073CA8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80076D4C 00073CAC  7C 08 03 A6 */	mtlr r0
 /* 80076D50 00073CB0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80076D54 00073CB4  4E 80 00 20 */	blr 
+/* 80076D54 00073CB4  4E 80 00 20 */	blr
 
 .global "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
 "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb":
@@ -1386,13 +1386,13 @@ lbl_80076D34:
 /* 80076F5C 00073EBC  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 80076F60 00073EC0  7C 08 03 A6 */	mtlr r0
 /* 80076F64 00073EC4  38 21 01 40 */	addi r1, r1, 0x140
-/* 80076F68 00073EC8  4E 80 00 20 */	blr 
+/* 80076F68 00073EC8  4E 80 00 20 */	blr
 
 .global "GetPtr__Q24rstl22rc_ptr<12CPlayerState>CFv"
 "GetPtr__Q24rstl22rc_ptr<12CPlayerState>CFv":
 /* 80076F6C 00073ECC  80 63 00 00 */	lwz r3, 0(r3)
 /* 80076F70 00073ED0  80 63 00 00 */	lwz r3, 0(r3)
-/* 80076F74 00073ED4  4E 80 00 20 */	blr 
+/* 80076F74 00073ED4  4E 80 00 20 */	blr
 
 .global "erase__Q24rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>FRCQ34rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>8iterator"
 "erase__Q24rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>FRCQ34rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>8iteratorRCQ34rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>8iterator":
@@ -1428,7 +1428,7 @@ lbl_80076FCC:
 /* 80076FE4 00073F44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80076FE8 00073F48  7C 08 03 A6 */	mtlr r0
 /* 80076FEC 00073F4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80076FF0 00073F50  4E 80 00 20 */	blr 
+/* 80076FF0 00073F50  4E 80 00 20 */	blr
 
 .global sub_80076ff4
 sub_80076ff4:
@@ -1464,4 +1464,4 @@ lbl_8007704C:
 /* 8007705C 00073FBC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80077060 00073FC0  7C 08 03 A6 */	mtlr r0
 /* 80077064 00073FC4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80077068 00073FC8  4E 80 00 20 */	blr 
+/* 80077068 00073FC8  4E 80 00 20 */	blr

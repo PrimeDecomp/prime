@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global modf
 modf:
@@ -72,4 +72,4 @@ lbl_8039493C:
 /* 8039494C 003918AC  FC 21 00 28 */	fsub f1, f1, f0
 lbl_80394950:
 /* 80394950 003918B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80394954 003918B4  4E 80 00 20 */	blr 
+/* 80394954 003918B4  4E 80 00 20 */	blr

@@ -72,12 +72,12 @@ lbl_80139218:
 /* 80139220 00136180  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80139224 00136184  7C 08 03 A6 */	mtlr r0
 /* 80139228 00136188  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013922C 0013618C  4E 80 00 20 */	blr 
+/* 8013922C 0013618C  4E 80 00 20 */	blr
 
 .global CanShoot__7CBSTurnCFv
 CanShoot__7CBSTurnCFv:
 /* 80139230 00136190  38 60 00 01 */	li r3, 1
-/* 80139234 00136194  4E 80 00 20 */	blr 
+/* 80139234 00136194  4E 80 00 20 */	blr
 
 .global UpdateBody__12CBSFlyerTurnFfR15CBodyControllerR13CStateManager
 UpdateBody__12CBSFlyerTurnFfR15CBodyControllerR13CStateManager:
@@ -114,7 +114,7 @@ lbl_801392A0:
 /* 801392AC 0013620C  7F C4 F3 78 */	mr r4, r30
 /* 801392B0 00136210  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801392B4 00136214  7D 89 03 A6 */	mtctr r12
-/* 801392B8 00136218  4E 80 04 21 */	bctrl 
+/* 801392B8 00136218  4E 80 04 21 */	bctrl
 /* 801392BC 0013621C  7C 7F 1B 78 */	mr r31, r3
 /* 801392C0 00136220  2C 1F FF FF */	cmpwi r31, -1
 /* 801392C4 00136224  40 82 00 E4 */	bne lbl_801393A8
@@ -189,7 +189,7 @@ lbl_801393A8:
 /* 801393C0 00136320  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801393C4 00136324  7C 08 03 A6 */	mtlr r0
 /* 801393C8 00136328  38 21 00 60 */	addi r1, r1, 0x60
-/* 801393CC 0013632C  4E 80 00 20 */	blr 
+/* 801393CC 0013632C  4E 80 00 20 */	blr
 
 .global Start__12CBSFlyerTurnFR15CBodyControllerR13CStateManager
 Start__12CBSFlyerTurnFR15CBodyControllerR13CStateManager:
@@ -350,7 +350,7 @@ lbl_80139604:
 /* 80139614 00136574  83 81 00 F0 */	lwz r28, 0xf0(r1)
 /* 80139618 00136578  7C 08 03 A6 */	mtlr r0
 /* 8013961C 0013657C  38 21 01 00 */	addi r1, r1, 0x100
-/* 80139620 00136580  4E 80 00 20 */	blr 
+/* 80139620 00136580  4E 80 00 20 */	blr
 
 .global __ct__12CBSFlyerTurnFv
 __ct__12CBSFlyerTurnFv:
@@ -368,7 +368,7 @@ __ct__12CBSFlyerTurnFv:
 /* 80139650 001365B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80139654 001365B4  7C 08 03 A6 */	mtlr r0
 /* 80139658 001365B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013965C 001365BC  4E 80 00 20 */	blr 
+/* 8013965C 001365BC  4E 80 00 20 */	blr
 
 .global __dt__7CBSTurnFv
 __dt__7CBSTurnFv:
@@ -396,7 +396,7 @@ lbl_801396A4:
 /* 801396AC 0013660C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801396B0 00136610  7C 08 03 A6 */	mtlr r0
 /* 801396B4 00136614  38 21 00 10 */	addi r1, r1, 0x10
-/* 801396B8 00136618  4E 80 00 20 */	blr 
+/* 801396B8 00136618  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__7CBSTurnFfR15CBodyController
 GetBodyStateTransition__7CBSTurnFfR15CBodyController:
@@ -549,7 +549,7 @@ lbl_801398B0:
 /* 801398BC 0013681C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801398C0 00136820  7C 08 03 A6 */	mtlr r0
 /* 801398C4 00136824  38 21 00 20 */	addi r1, r1, 0x20
-/* 801398C8 00136828  4E 80 00 20 */	blr 
+/* 801398C8 00136828  4E 80 00 20 */	blr
 
 .global FacingDest__7CBSTurnCFR15CBodyController
 FacingDest__7CBSTurnCFR15CBodyController:
@@ -601,11 +601,11 @@ lbl_80139970:
 /* 80139974 001368D4  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 80139978 001368D8  7C 08 03 A6 */	mtlr r0
 /* 8013997C 001368DC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80139980 001368E0  4E 80 00 20 */	blr 
+/* 80139980 001368E0  4E 80 00 20 */	blr
 
 .global Shutdown__7CBSTurnFR15CBodyController
 Shutdown__7CBSTurnFR15CBodyController:
-/* 80139984 001368E4  4E 80 00 20 */	blr 
+/* 80139984 001368E4  4E 80 00 20 */	blr
 
 .global UpdateBody__7CBSTurnFfR15CBodyControllerR13CStateManager
 UpdateBody__7CBSTurnFfR15CBodyControllerR13CStateManager:
@@ -623,7 +623,7 @@ UpdateBody__7CBSTurnFfR15CBodyControllerR13CStateManager:
 /* 801399B4 00136914  7C 9E 23 78 */	mr r30, r4
 /* 801399B8 00136918  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801399BC 0013691C  7D 89 03 A6 */	mtctr r12
-/* 801399C0 00136920  4E 80 04 21 */	bctrl 
+/* 801399C0 00136920  4E 80 04 21 */	bctrl
 /* 801399C4 00136924  7C 7F 1B 78 */	mr r31, r3
 /* 801399C8 00136928  2C 1F FF FF */	cmpwi r31, -1
 /* 801399CC 0013692C  40 82 00 28 */	bne lbl_801399F4
@@ -646,7 +646,7 @@ lbl_801399F4:
 /* 80139A0C 0013696C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80139A10 00136970  7C 08 03 A6 */	mtlr r0
 /* 80139A14 00136974  38 21 00 40 */	addi r1, r1, 0x40
-/* 80139A18 00136978  4E 80 00 20 */	blr 
+/* 80139A18 00136978  4E 80 00 20 */	blr
 
 .global Start__7CBSTurnFR15CBodyControllerR13CStateManager
 Start__7CBSTurnFR15CBodyControllerR13CStateManager:
@@ -837,7 +837,7 @@ lbl_80139CC4:
 /* 80139CD0 00136C30  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 80139CD4 00136C34  7C 08 03 A6 */	mtlr r0
 /* 80139CD8 00136C38  38 21 01 30 */	addi r1, r1, 0x130
-/* 80139CDC 00136C3C  4E 80 00 20 */	blr 
+/* 80139CDC 00136C3C  4E 80 00 20 */	blr
 
 .global __ct__7CBSTurnFv
 __ct__7CBSTurnFv:

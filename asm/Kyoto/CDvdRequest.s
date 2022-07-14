@@ -58,16 +58,16 @@ lbl_802FE618:
 /* 802FE620 002FB580  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FE624 002FB584  7C 08 03 A6 */	mtlr r0
 /* 802FE628 002FB588  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE62C 002FB58C  4E 80 00 20 */	blr 
+/* 802FE62C 002FB58C  4E 80 00 20 */	blr
 
 .global GetMediaType__15CARAMDvdRequestCFv
 GetMediaType__15CARAMDvdRequestCFv:
 /* 802FE630 002FB590  38 60 00 00 */	li r3, 0
-/* 802FE634 002FB594  4E 80 00 20 */	blr 
+/* 802FE634 002FB594  4E 80 00 20 */	blr
 
 .global PostCancelRequest__15CARAMDvdRequestFv
 PostCancelRequest__15CARAMDvdRequestFv:
-/* 802FE638 002FB598  4E 80 00 20 */	blr 
+/* 802FE638 002FB598  4E 80 00 20 */	blr
 
 .global IsComplete__15CARAMDvdRequestFv
 IsComplete__15CARAMDvdRequestFv:
@@ -95,7 +95,7 @@ lbl_802FE680:
 /* 802FE684 002FB5E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FE688 002FB5E8  7C 08 03 A6 */	mtlr r0
 /* 802FE68C 002FB5EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE690 002FB5F0  4E 80 00 20 */	blr 
+/* 802FE690 002FB5F0  4E 80 00 20 */	blr
 
 .global WaitUntilComplete__15CARAMDvdRequestFv
 WaitUntilComplete__15CARAMDvdRequestFv:
@@ -116,12 +116,12 @@ lbl_802FE6C4:
 /* 802FE6C8 002FB628  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FE6CC 002FB62C  7C 08 03 A6 */	mtlr r0
 /* 802FE6D0 002FB630  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE6D4 002FB634  4E 80 00 20 */	blr 
+/* 802FE6D4 002FB634  4E 80 00 20 */	blr
 
 .global GetMediaType__15CRealDvdRequestCFv
 GetMediaType__15CRealDvdRequestCFv:
 /* 802FE6D8 002FB638  38 60 00 01 */	li r3, 1
-/* 802FE6DC 002FB63C  4E 80 00 20 */	blr 
+/* 802FE6DC 002FB63C  4E 80 00 20 */	blr
 
 .global PostCancelRequest__15CRealDvdRequestFv
 PostCancelRequest__15CRealDvdRequestFv:
@@ -134,7 +134,7 @@ PostCancelRequest__15CRealDvdRequestFv:
 /* 802FE6F8 002FB658  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FE6FC 002FB65C  7C 08 03 A6 */	mtlr r0
 /* 802FE700 002FB660  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE704 002FB664  4E 80 00 20 */	blr 
+/* 802FE704 002FB664  4E 80 00 20 */	blr
 
 .global IsComplete__15CRealDvdRequestFv
 IsComplete__15CRealDvdRequestFv:
@@ -155,7 +155,7 @@ lbl_802FE734:
 /* 802FE738 002FB698  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FE73C 002FB69C  7C 08 03 A6 */	mtlr r0
 /* 802FE740 002FB6A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE744 002FB6A4  4E 80 00 20 */	blr 
+/* 802FE744 002FB6A4  4E 80 00 20 */	blr
 
 .global WaitUntilComplete__15CRealDvdRequestFv
 WaitUntilComplete__15CRealDvdRequestFv:
@@ -173,7 +173,7 @@ lbl_802FE75C:
 /* 802FE770 002FB6D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FE774 002FB6D4  7C 08 03 A6 */	mtlr r0
 /* 802FE778 002FB6D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE77C 002FB6DC  4E 80 00 20 */	blr 
+/* 802FE77C 002FB6DC  4E 80 00 20 */	blr
 
 .global __dt__15CRealDvdRequestFv
 __dt__15CRealDvdRequestFv:
@@ -191,19 +191,19 @@ __dt__15CRealDvdRequestFv:
 /* 802FE7AC 002FB70C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802FE7B0 002FB710  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802FE7B4 002FB714  7D 89 03 A6 */	mtctr r12
-/* 802FE7B8 002FB718  4E 80 04 21 */	bctrl 
+/* 802FE7B8 002FB718  4E 80 04 21 */	bctrl
 /* 802FE7BC 002FB71C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802FE7C0 002FB720  40 82 00 2C */	bne lbl_802FE7EC
 /* 802FE7C4 002FB724  7F C3 F3 78 */	mr r3, r30
 /* 802FE7C8 002FB728  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802FE7CC 002FB72C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802FE7D0 002FB730  7D 89 03 A6 */	mtctr r12
-/* 802FE7D4 002FB734  4E 80 04 21 */	bctrl 
+/* 802FE7D4 002FB734  4E 80 04 21 */	bctrl
 /* 802FE7D8 002FB738  7F C3 F3 78 */	mr r3, r30
 /* 802FE7DC 002FB73C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802FE7E0 002FB740  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802FE7E4 002FB744  7D 89 03 A6 */	mtctr r12
-/* 802FE7E8 002FB748  4E 80 04 21 */	bctrl 
+/* 802FE7E8 002FB748  4E 80 04 21 */	bctrl
 lbl_802FE7EC:
 /* 802FE7EC 002FB74C  38 7E 00 04 */	addi r3, r30, 4
 /* 802FE7F0 002FB750  48 07 2F 5D */	bl DVDClose

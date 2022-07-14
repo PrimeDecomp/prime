@@ -312,7 +312,7 @@ lbl_8025C3B8:
 /* 8025C3C8 00259328  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8025C3CC 0025932C  7C 08 03 A6 */	mtlr r0
 /* 8025C3D0 00259330  38 21 00 70 */	addi r1, r1, 0x70
-/* 8025C3D4 00259334  4E 80 00 20 */	blr 
+/* 8025C3D4 00259334  4E 80 00 20 */	blr
 
 .global Death__7CPufferFRC9CVector3fR13CStateManager
 Death__7CPufferFRC9CVector3fR13CStateManager:
@@ -446,7 +446,7 @@ lbl_8025C5C4:
 /* 8025C5D0 00259530  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 8025C5D4 00259534  7C 08 03 A6 */	mtlr r0
 /* 8025C5D8 00259538  38 21 01 60 */	addi r1, r1, 0x160
-/* 8025C5DC 0025953C  4E 80 00 20 */	blr 
+/* 8025C5DC 0025953C  4E 80 00 20 */	blr
 
 .global GetTouchBounds__7CPufferCFv
 GetTouchBounds__7CPufferCFv:
@@ -561,7 +561,7 @@ lbl_8025C778:
 /* 8025C77C 002596DC  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8025C780 002596E0  7C 08 03 A6 */	mtlr r0
 /* 8025C784 002596E4  38 21 00 80 */	addi r1, r1, 0x80
-/* 8025C788 002596E8  4E 80 00 20 */	blr 
+/* 8025C788 002596E8  4E 80 00 20 */	blr
 
 .global Touch__7CPufferR6CActorR13CStateManager
 Touch__7CPufferR6CActorR13CStateManager:
@@ -594,7 +594,7 @@ lbl_8025C7E4:
 /* 8025C7F0 00259750  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8025C7F4 00259754  7C 08 03 A6 */	mtlr r0
 /* 8025C7F8 00259758  38 21 00 20 */	addi r1, r1, 0x20
-/* 8025C7FC 0025975C  4E 80 00 20 */	blr 
+/* 8025C7FC 0025975C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__7CPufferF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__7CPufferF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -656,7 +656,7 @@ lbl_8025C8C4:
 /* 8025C8D0 00259830  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8025C8D4 00259834  7C 08 03 A6 */	mtlr r0
 /* 8025C8D8 00259838  38 21 00 40 */	addi r1, r1, 0x40
-/* 8025C8DC 0025983C  4E 80 00 20 */	blr 
+/* 8025C8DC 0025983C  4E 80 00 20 */	blr
 
 .global Accept__7CPufferFR8IVisitor
 Accept__7CPufferFR8IVisitor:
@@ -669,11 +669,11 @@ Accept__7CPufferFR8IVisitor:
 /* 8025C8F8 00259858  7C 04 03 78 */	mr r4, r0
 /* 8025C8FC 0025985C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8025C900 00259860  7D 89 03 A6 */	mtctr r12
-/* 8025C904 00259864  4E 80 04 21 */	bctrl 
+/* 8025C904 00259864  4E 80 04 21 */	bctrl
 /* 8025C908 00259868  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8025C90C 0025986C  7C 08 03 A6 */	mtlr r0
 /* 8025C910 00259870  38 21 00 10 */	addi r1, r1, 0x10
-/* 8025C914 00259874  4E 80 00 20 */	blr 
+/* 8025C914 00259874  4E 80 00 20 */	blr
 
 .global __dt__7CPufferFv
 __dt__7CPufferFv:
@@ -736,7 +736,7 @@ lbl_8025C9D0:
 /* 8025C9DC 0025993C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8025C9E0 00259940  7C 08 03 A6 */	mtlr r0
 /* 8025C9E4 00259944  38 21 00 10 */	addi r1, r1, 0x10
-/* 8025C9E8 00259948  4E 80 00 20 */	blr 
+/* 8025C9E8 00259948  4E 80 00 20 */	blr
 
 .global __ct__7CPuffer
 __ct__7CPuffer:
@@ -800,7 +800,7 @@ __ct__7CPuffer:
 /* 8025CAD0 00259A30  81 84 00 00 */	lwz r12, 0(r4)
 /* 8025CAD4 00259A34  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8025CAD8 00259A38  7D 89 03 A6 */	mtctr r12
-/* 8025CADC 00259A3C  4E 80 04 21 */	bctrl 
+/* 8025CADC 00259A3C  4E 80 04 21 */	bctrl
 /* 8025CAE0 00259A40  38 77 05 74 */	addi r3, r23, 0x574
 /* 8025CAE4 00259A44  38 81 00 24 */	addi r4, r1, 0x24
 /* 8025CAE8 00259A48  48 0E 43 C1 */	bl __ct__6CTokenFRC6CToken

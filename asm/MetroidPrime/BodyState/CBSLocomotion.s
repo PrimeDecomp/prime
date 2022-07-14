@@ -308,27 +308,27 @@ lbl_80136C14:
 /* 80136C1C 00133B7C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80136C20 00133B80  7C 08 03 A6 */	mtlr r0
 /* 80136C24 00133B84  38 21 00 10 */	addi r1, r1, 0x10
-/* 80136C28 00133B88  4E 80 00 20 */	blr 
+/* 80136C28 00133B88  4E 80 00 20 */	blr
 
 .global IsMoving__23CBSRestrictedLocomotionCFv
 IsMoving__23CBSRestrictedLocomotionCFv:
 /* 80136C2C 00133B8C  38 60 00 00 */	li r3, 0
-/* 80136C30 00133B90  4E 80 00 20 */	blr 
+/* 80136C30 00133B90  4E 80 00 20 */	blr
 
 .global GetLocomotionSpeed__23CBSRestrictedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
 GetLocomotionSpeed__23CBSRestrictedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim:
 /* 80136C34 00133B94  C0 22 9A 34 */	lfs f1, lbl_805AB754@sda21(r2)
-/* 80136C38 00133B98  4E 80 00 20 */	blr 
+/* 80136C38 00133B98  4E 80 00 20 */	blr
 
 .global CanShoot__13CBSLocomotionCFv
 CanShoot__13CBSLocomotionCFv:
 /* 80136C3C 00133B9C  38 60 00 01 */	li r3, 1
-/* 80136C40 00133BA0  4E 80 00 20 */	blr 
+/* 80136C40 00133BA0  4E 80 00 20 */	blr
 
 .global IsPitchable__13CBSLocomotionCFv
 IsPitchable__13CBSLocomotionCFv:
 /* 80136C44 00133BA4  38 60 00 00 */	li r3, 0
-/* 80136C48 00133BA8  4E 80 00 20 */	blr 
+/* 80136C48 00133BA8  4E 80 00 20 */	blr
 
 .global ApplyLocomotionPhysics__28CBSRestrictedFlyerLocomotionFfR15CBodyController
 ApplyLocomotionPhysics__28CBSRestrictedFlyerLocomotionFfR15CBodyController:
@@ -379,7 +379,7 @@ lbl_80136CE4:
 /* 80136CF8 00133C58  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80136CFC 00133C5C  7C 08 03 A6 */	mtlr r0
 /* 80136D00 00133C60  38 21 00 40 */	addi r1, r1, 0x40
-/* 80136D04 00133C64  4E 80 00 20 */	blr 
+/* 80136D04 00133C64  4E 80 00 20 */	blr
 
 .global __ct__28CBSRestrictedFlyerLocomotionFR6CActor
 __ct__28CBSRestrictedFlyerLocomotionFR6CActor:
@@ -397,7 +397,7 @@ __ct__28CBSRestrictedFlyerLocomotionFR6CActor:
 /* 80136D34 00133C94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80136D38 00133C98  7C 08 03 A6 */	mtlr r0
 /* 80136D3C 00133C9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80136D40 00133CA0  4E 80 00 20 */	blr 
+/* 80136D40 00133CA0  4E 80 00 20 */	blr
 
 .global __dt__23CBSRestrictedLocomotionFv
 __dt__23CBSRestrictedLocomotionFv:
@@ -458,7 +458,7 @@ lbl_80136DF8:
 /* 80136E00 00133D60  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80136E04 00133D64  7C 08 03 A6 */	mtlr r0
 /* 80136E08 00133D68  38 21 00 10 */	addi r1, r1, 0x10
-/* 80136E0C 00133D6C  4E 80 00 20 */	blr 
+/* 80136E0C 00133D6C  4E 80 00 20 */	blr
 
 .global UpdateLocomotionAnimation__21CBSNewFlyerLocomotionFffR15CBodyControllerb
 UpdateLocomotionAnimation__21CBSNewFlyerLocomotionFffR15CBodyControllerb:
@@ -585,7 +585,7 @@ lbl_80136FC0:
 /* 80136FC8 00133F28  C0 22 9A 38 */	lfs f1, lbl_805AB758@sda21(r2)
 /* 80136FCC 00133F2C  7C 08 03 A6 */	mtlr r0
 /* 80136FD0 00133F30  38 21 00 80 */	addi r1, r1, 0x80
-/* 80136FD4 00133F34  4E 80 00 20 */	blr 
+/* 80136FD4 00133F34  4E 80 00 20 */	blr
 
 .global ApplyLocomotionPhysics__21CBSNewFlyerLocomotionFfR15CBodyController
 ApplyLocomotionPhysics__21CBSNewFlyerLocomotionFfR15CBodyController:
@@ -615,7 +615,7 @@ lbl_80137020:
 /* 80137030 00133F90  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80137034 00133F94  7C 08 03 A6 */	mtlr r0
 /* 80137038 00133F98  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013703C 00133F9C  4E 80 00 20 */	blr 
+/* 8013703C 00133F9C  4E 80 00 20 */	blr
 
 .global __ct__21CBSNewFlyerLocomotionFR6CActor
 __ct__21CBSNewFlyerLocomotionFR6CActor:
@@ -633,7 +633,7 @@ __ct__21CBSNewFlyerLocomotionFR6CActor:
 /* 8013706C 00133FCC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80137070 00133FD0  7C 08 03 A6 */	mtlr r0
 /* 80137074 00133FD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80137078 00133FD8  4E 80 00 20 */	blr 
+/* 80137078 00133FD8  4E 80 00 20 */	blr
 
 .global __dt__18CBSBiPedLocomotionFv
 __dt__18CBSBiPedLocomotionFv:
@@ -710,7 +710,7 @@ lbl_80137164:
 /* 8013716C 001340CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80137170 001340D0  7C 08 03 A6 */	mtlr r0
 /* 80137174 001340D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80137178 001340D8  4E 80 00 20 */	blr 
+/* 80137178 001340D8  4E 80 00 20 */	blr
 
 .global ApplyLocomotionPhysics__23CBSWallWalkerLocomotionFfR15CBodyController
 ApplyLocomotionPhysics__23CBSWallWalkerLocomotionFfR15CBodyController:
@@ -858,7 +858,7 @@ lbl_80137374:
 /* 80137390 001342F0  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 80137394 001342F4  7C 08 03 A6 */	mtlr r0
 /* 80137398 001342F8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8013739C 001342FC  4E 80 00 20 */	blr 
+/* 8013739C 001342FC  4E 80 00 20 */	blr
 
 .global __ct__23CBSWallWalkerLocomotionFR6CActor
 __ct__23CBSWallWalkerLocomotionFR6CActor:
@@ -876,7 +876,7 @@ __ct__23CBSWallWalkerLocomotionFR6CActor:
 /* 801373CC 0013432C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801373D0 00134330  7C 08 03 A6 */	mtlr r0
 /* 801373D4 00134334  38 21 00 10 */	addi r1, r1, 0x10
-/* 801373D8 00134338  4E 80 00 20 */	blr 
+/* 801373D8 00134338  4E 80 00 20 */	blr
 
 .global ApplyLocomotionPhysics__18CBSFlyerLocomotionFfR15CBodyController
 ApplyLocomotionPhysics__18CBSFlyerLocomotionFfR15CBodyController:
@@ -952,7 +952,7 @@ lbl_801374C8:
 /* 801374E8 00134448  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801374EC 0013444C  7C 08 03 A6 */	mtlr r0
 /* 801374F0 00134450  38 21 00 70 */	addi r1, r1, 0x70
-/* 801374F4 00134454  4E 80 00 20 */	blr 
+/* 801374F4 00134454  4E 80 00 20 */	blr
 
 .global __ct__18CBSFlyerLocomotionFR6CActorb
 __ct__18CBSFlyerLocomotionFR6CActorb:
@@ -974,7 +974,7 @@ __ct__18CBSFlyerLocomotionFR6CActorb:
 /* 80137534 00134494  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80137538 00134498  7C 08 03 A6 */	mtlr r0
 /* 8013753C 0013449C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80137540 001344A0  4E 80 00 20 */	blr 
+/* 80137540 001344A0  4E 80 00 20 */	blr
 
 .global UpdateLocomotionAnimation__23CBSRestrictedLocomotionFffR15CBodyControllerb
 UpdateLocomotionAnimation__23CBSRestrictedLocomotionFffR15CBodyControllerb:
@@ -1027,7 +1027,7 @@ lbl_801375E4:
 /* 801375EC 0013454C  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801375F0 00134550  7C 08 03 A6 */	mtlr r0
 /* 801375F4 00134554  38 21 00 40 */	addi r1, r1, 0x40
-/* 801375F8 00134558  4E 80 00 20 */	blr 
+/* 801375F8 00134558  4E 80 00 20 */	blr
 
 .global __ct__23CBSRestrictedLocomotionFR6CActor
 __ct__23CBSRestrictedLocomotionFR6CActor:
@@ -1200,7 +1200,7 @@ lbl_80137840:
 /* 80137848 001347A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013784C 001347AC  7C 08 03 A6 */	mtlr r0
 /* 80137850 001347B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80137854 001347B4  4E 80 00 20 */	blr 
+/* 80137854 001347B4  4E 80 00 20 */	blr
 
 .global UpdateRun__18CBSBiPedLocomotionFfR15CBodyControllerQ23pas15ELocomotionAnim
 UpdateRun__18CBSBiPedLocomotionFfR15CBodyControllerQ23pas15ELocomotionAnim:
@@ -1328,7 +1328,7 @@ lbl_80137A0C:
 /* 80137A1C 0013497C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80137A20 00134980  7C 08 03 A6 */	mtlr r0
 /* 80137A24 00134984  38 21 00 90 */	addi r1, r1, 0x90
-/* 80137A28 00134988  4E 80 00 20 */	blr 
+/* 80137A28 00134988  4E 80 00 20 */	blr
 
 .global UpdateWalk__18CBSBiPedLocomotionFfR15CBodyControllerQ23pas15ELocomotionAnim
 UpdateWalk__18CBSBiPedLocomotionFfR15CBodyControllerQ23pas15ELocomotionAnim:
@@ -1414,7 +1414,7 @@ lbl_80137B30:
 /* 80137B58 00134AB8  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80137B5C 00134ABC  7C 08 03 A6 */	mtlr r0
 /* 80137B60 00134AC0  38 21 00 60 */	addi r1, r1, 0x60
-/* 80137B64 00134AC4  4E 80 00 20 */	blr 
+/* 80137B64 00134AC4  4E 80 00 20 */	blr
 
 .global UpdateStrafe__18CBSBiPedLocomotionFfR15CBodyControllerQ23pas15ELocomotionAnim
 UpdateStrafe__18CBSBiPedLocomotionFfR15CBodyControllerQ23pas15ELocomotionAnim:
@@ -1508,7 +1508,7 @@ lbl_80137C8C:
 /* 80137CB0 00134C10  7F A5 00 2E */	lwzx r29, r5, r0
 /* 80137CB4 00134C14  7F A5 EB 78 */	mr r5, r29
 /* 80137CB8 00134C18  7D 89 03 A6 */	mtctr r12
-/* 80137CBC 00134C1C  4E 80 04 21 */	bctrl 
+/* 80137CBC 00134C1C  4E 80 04 21 */	bctrl
 /* 80137CC0 00134C20  7C 1C E8 00 */	cmpw r28, r29
 /* 80137CC4 00134C24  EF FF 00 72 */	fmuls f31, f31, f1
 /* 80137CC8 00134C28  41 82 00 7C */	beq lbl_80137D44
@@ -1582,7 +1582,7 @@ lbl_80137DA8:
 /* 80137DC4 00134D24  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 80137DC8 00134D28  7C 08 03 A6 */	mtlr r0
 /* 80137DCC 00134D2C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80137DD0 00134D30  4E 80 00 20 */	blr 
+/* 80137DD0 00134D30  4E 80 00 20 */	blr
 
 .global IsStrafing__18CBSBiPedLocomotionCFR15CBodyController
 IsStrafing__18CBSBiPedLocomotionCFR15CBodyController:
@@ -1615,7 +1615,7 @@ lbl_80137E2C:
 /* 80137E38 00134D98  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80137E3C 00134D9C  7C 08 03 A6 */	mtlr r0
 /* 80137E40 00134DA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80137E44 00134DA4  4E 80 00 20 */	blr 
+/* 80137E44 00134DA4  4E 80 00 20 */	blr
 
 .global GetLocoAnimation__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
 GetLocoAnimation__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim:
@@ -1624,7 +1624,7 @@ GetLocoAnimation__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomoti
 /* 80137E50 00134DB0  7C 63 22 14 */	add r3, r3, r4
 /* 80137E54 00134DB4  7C 63 02 14 */	add r3, r3, r0
 /* 80137E58 00134DB8  38 63 00 10 */	addi r3, r3, 0x10
-/* 80137E5C 00134DBC  4E 80 00 20 */	blr 
+/* 80137E5C 00134DBC  4E 80 00 20 */	blr
 
 .global UpdateLocomotionAnimation__18CBSBiPedLocomotionFffR15CBodyControllerb
 UpdateLocomotionAnimation__18CBSBiPedLocomotionFffR15CBodyControllerb:
@@ -1670,14 +1670,14 @@ lbl_80137EE4:
 /* 80137EF0 00134E50  38 A0 00 02 */	li r5, 2
 /* 80137EF4 00134E54  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80137EF8 00134E58  7D 89 03 A6 */	mtctr r12
-/* 80137EFC 00134E5C  4E 80 04 21 */	bctrl 
+/* 80137EFC 00134E5C  4E 80 04 21 */	bctrl
 /* 80137F00 00134E60  7F 83 E3 78 */	mr r3, r28
 /* 80137F04 00134E64  EF DD 00 72 */	fmuls f30, f29, f1
 /* 80137F08 00134E68  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80137F0C 00134E6C  7F A4 EB 78 */	mr r4, r29
 /* 80137F10 00134E70  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80137F14 00134E74  7D 89 03 A6 */	mtctr r12
-/* 80137F18 00134E78  4E 80 04 21 */	bctrl 
+/* 80137F18 00134E78  4E 80 04 21 */	bctrl
 /* 80137F1C 00134E7C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80137F20 00134E80  41 82 00 30 */	beq lbl_80137F50
 /* 80137F24 00134E84  C0 02 9A 44 */	lfs f0, lbl_805AB764@sda21(r2)
@@ -1783,7 +1783,7 @@ lbl_80138064:
 /* 80138098 00134FF8  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8013809C 00134FFC  7C 08 03 A6 */	mtlr r0
 /* 801380A0 00135000  38 21 00 80 */	addi r1, r1, 0x80
-/* 801380A4 00135004  4E 80 00 20 */	blr 
+/* 801380A4 00135004  4E 80 00 20 */	blr
 
 .global UpdateBody__18CBSBiPedLocomotionFfR15CBodyControllerR13CStateManager
 UpdateBody__18CBSBiPedLocomotionFfR15CBodyControllerR13CStateManager:
@@ -1801,7 +1801,7 @@ lbl_801380CC:
 /* 801380D0 00135030  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801380D4 00135034  7C 08 03 A6 */	mtlr r0
 /* 801380D8 00135038  38 21 00 10 */	addi r1, r1, 0x10
-/* 801380DC 0013503C  4E 80 00 20 */	blr 
+/* 801380DC 0013503C  4E 80 00 20 */	blr
 
 .global Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager
 Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager:
@@ -1814,7 +1814,7 @@ Start__18CBSBiPedLocomotionFR15CBodyControllerR13CStateManager:
 /* 801380F8 00135058  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801380FC 0013505C  7C 08 03 A6 */	mtlr r0
 /* 80138100 00135060  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138104 00135064  4E 80 00 20 */	blr 
+/* 80138104 00135064  4E 80 00 20 */	blr
 
 .global GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim
 GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomotionAnim:
@@ -1826,7 +1826,7 @@ GetLocomotionSpeed__18CBSBiPedLocomotionCFQ23pas15ELocomotionTypeQ23pas15ELocomo
 /* 8013811C 0013507C  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80138120 00135080  7C 08 03 A6 */	mtlr r0
 /* 80138124 00135084  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138128 00135088  4E 80 00 20 */	blr 
+/* 80138128 00135088  4E 80 00 20 */	blr
 
 .global __ct__18CBSBiPedLocomotionFR6CActor
 __ct__18CBSBiPedLocomotionFR6CActor:
@@ -2047,7 +2047,7 @@ lbl_801383F8:
 /* 80138420 00135380  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 80138424 00135384  7C 08 03 A6 */	mtlr r0
 /* 80138428 00135388  38 21 01 20 */	addi r1, r1, 0x120
-/* 8013842C 0013538C  4E 80 00 20 */	blr 
+/* 8013842C 0013538C  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
 GetBodyStateTransition__13CBSLocomotionFfR15CBodyController:
@@ -2233,7 +2233,7 @@ lbl_8013869C:
 /* 801386A8 00135608  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801386AC 0013560C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801386B0 00135610  7D 89 03 A6 */	mtctr r12
-/* 801386B4 00135614  4E 80 04 21 */	bctrl 
+/* 801386B4 00135614  4E 80 04 21 */	bctrl
 /* 801386B8 00135618  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801386BC 0013561C  40 82 00 0C */	bne lbl_801386C8
 /* 801386C0 00135620  38 60 00 08 */	li r3, 8
@@ -2254,7 +2254,7 @@ lbl_801386E4:
 /* 801386F0 00135650  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801386F4 00135654  7C 08 03 A6 */	mtlr r0
 /* 801386F8 00135658  38 21 00 20 */	addi r1, r1, 0x20
-/* 801386FC 0013565C  4E 80 00 20 */	blr 
+/* 801386FC 0013565C  4E 80 00 20 */	blr
 
 .global "ComputeWeightPercentage__13CBSLocomotionCFRCQ24rstl9pair<i,f>RCQ24rstl9pair<i,f>f"
 "ComputeWeightPercentage__13CBSLocomotionCFRCQ24rstl9pair<i,f>RCQ24rstl9pair<i,f>f":
@@ -2288,7 +2288,7 @@ lbl_8013875C:
 /* 8013875C 001356BC  C0 22 9A 34 */	lfs f1, lbl_805AB754@sda21(r2)
 lbl_80138760:
 /* 80138760 001356C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138764 001356C4  4E 80 00 20 */	blr 
+/* 80138764 001356C4  4E 80 00 20 */	blr
 
 .global GetStartVelocityMagnitude__13CBSLocomotionCFR15CBodyController
 GetStartVelocityMagnitude__13CBSLocomotionCFR15CBodyController:
@@ -2336,7 +2336,7 @@ lbl_801387EC:
 /* 801387F8 00135758  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801387FC 0013575C  7C 08 03 A6 */	mtlr r0
 /* 80138800 00135760  38 21 00 30 */	addi r1, r1, 0x30
-/* 80138804 00135764  4E 80 00 20 */	blr 
+/* 80138804 00135764  4E 80 00 20 */	blr
 
 .global ReStartBodyState__13CBSLocomotionFR15CBodyControllerb
 ReStartBodyState__13CBSLocomotionFR15CBodyControllerb:
@@ -2362,13 +2362,13 @@ lbl_80138838:
 /* 8013884C 001357AC  38 A0 00 01 */	li r5, 1
 /* 80138850 001357B0  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 80138854 001357B4  7D 89 03 A6 */	mtctr r12
-/* 80138858 001357B8  4E 80 04 21 */	bctrl 
+/* 80138858 001357B8  4E 80 04 21 */	bctrl
 /* 8013885C 001357BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80138860 001357C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80138864 001357C4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80138868 001357C8  7C 08 03 A6 */	mtlr r0
 /* 8013886C 001357CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138870 001357D0  4E 80 00 20 */	blr 
+/* 80138870 001357D0  4E 80 00 20 */	blr
 
 .global ApplyLocomotionPhysics__13CBSLocomotionFfR15CBodyController
 ApplyLocomotionPhysics__13CBSLocomotionFfR15CBodyController:
@@ -2412,7 +2412,7 @@ lbl_801388D8:
 /* 80138904 00135864  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80138908 00135868  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 8013890C 0013586C  7D 89 03 A6 */	mtctr r12
-/* 80138910 00135870  4E 80 04 21 */	bctrl 
+/* 80138910 00135870  4E 80 04 21 */	bctrl
 /* 80138914 00135874  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80138918 00135878  41 82 01 64 */	beq lbl_80138A7C
 /* 8013891C 0013587C  C0 7F 00 58 */	lfs f3, 0x58(r31)
@@ -2538,7 +2538,7 @@ lbl_80138ACC:
 /* 80138AD8 00135A38  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80138ADC 00135A3C  7C 08 03 A6 */	mtlr r0
 /* 80138AE0 00135A40  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80138AE4 00135A44  4E 80 00 20 */	blr 
+/* 80138AE4 00135A44  4E 80 00 20 */	blr
 
 .global Shutdown__13CBSLocomotionFR15CBodyController
 Shutdown__13CBSLocomotionFR15CBodyController:
@@ -2551,7 +2551,7 @@ Shutdown__13CBSLocomotionFR15CBodyController:
 /* 80138B00 00135A60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80138B04 00135A64  7C 08 03 A6 */	mtlr r0
 /* 80138B08 00135A68  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138B0C 00135A6C  4E 80 00 20 */	blr 
+/* 80138B0C 00135A6C  4E 80 00 20 */	blr
 
 .global UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager
 UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager:
@@ -2568,7 +2568,7 @@ UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager:
 /* 80138B38 00135A98  81 83 00 00 */	lwz r12, 0(r3)
 /* 80138B3C 00135A9C  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 80138B40 00135AA0  7D 89 03 A6 */	mtctr r12
-/* 80138B44 00135AA4  4E 80 04 21 */	bctrl 
+/* 80138B44 00135AA4  4E 80 04 21 */	bctrl
 /* 80138B48 00135AA8  7C 7F 1B 78 */	mr r31, r3
 /* 80138B4C 00135AAC  2C 1F FF FF */	cmpwi r31, -1
 /* 80138B50 00135AB0  40 82 00 48 */	bne lbl_80138B98
@@ -2578,7 +2578,7 @@ UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager:
 /* 80138B60 00135AC0  7F C4 F3 78 */	mr r4, r30
 /* 80138B64 00135AC4  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80138B68 00135AC8  7D 89 03 A6 */	mtctr r12
-/* 80138B6C 00135ACC  4E 80 04 21 */	bctrl 
+/* 80138B6C 00135ACC  4E 80 04 21 */	bctrl
 /* 80138B70 00135AD0  FC 00 08 90 */	fmr f0, f1
 /* 80138B74 00135AD4  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80138B78 00135AD8  FC 20 F8 90 */	fmr f1, f31
@@ -2588,7 +2588,7 @@ UpdateBody__13CBSLocomotionFfR15CBodyControllerR13CStateManager:
 /* 80138B88 00135AE8  FC 40 00 90 */	fmr f2, f0
 /* 80138B8C 00135AEC  38 A0 00 00 */	li r5, 0
 /* 80138B90 00135AF0  7D 89 03 A6 */	mtctr r12
-/* 80138B94 00135AF4  4E 80 04 21 */	bctrl 
+/* 80138B94 00135AF4  4E 80 04 21 */	bctrl
 lbl_80138B98:
 /* 80138B98 00135AF8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80138B9C 00135AFC  7F E3 FB 78 */	mr r3, r31
@@ -2598,7 +2598,7 @@ lbl_80138B98:
 /* 80138BAC 00135B0C  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 80138BB0 00135B10  7C 08 03 A6 */	mtlr r0
 /* 80138BB4 00135B14  38 21 00 20 */	addi r1, r1, 0x20
-/* 80138BB8 00135B18  4E 80 00 20 */	blr 
+/* 80138BB8 00135B18  4E 80 00 20 */	blr
 
 .global Start__13CBSLocomotionFR15CBodyControllerR13CStateManager
 Start__13CBSLocomotionFR15CBodyControllerR13CStateManager:
@@ -2632,7 +2632,7 @@ lbl_80138C18:
 /* 80138C20 00135B80  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80138C24 00135B84  7C 08 03 A6 */	mtlr r0
 /* 80138C28 00135B88  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138C2C 00135B8C  4E 80 00 20 */	blr 
+/* 80138C2C 00135B8C  4E 80 00 20 */	blr
 
 .global __ct__13CBSLocomotionFv
 __ct__13CBSLocomotionFv:
@@ -2644,7 +2644,7 @@ __ct__13CBSLocomotionFv:
 /* 80138C44 00135BA4  38 84 16 CC */	addi r4, r4, lbl_803E16CC@l
 /* 80138C48 00135BA8  90 83 00 00 */	stw r4, 0(r3)
 /* 80138C4C 00135BAC  90 03 00 04 */	stw r0, 4(r3)
-/* 80138C50 00135BB0  4E 80 00 20 */	blr 
+/* 80138C50 00135BB0  4E 80 00 20 */	blr
 
 .global __dt__21CBSNewFlyerLocomotion
 __dt__21CBSNewFlyerLocomotion:
@@ -2672,7 +2672,7 @@ lbl_80138C98:
 /* 80138CA4 00135C04  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80138CA8 00135C08  7C 08 03 A6 */	mtlr r0
 /* 80138CAC 00135C0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138CB0 00135C10  4E 80 00 20 */	blr 
+/* 80138CB0 00135C10  4E 80 00 20 */	blr
 
 .global IsMoving__18CBSBiPedLocomotionCFv
 IsMoving__18CBSBiPedLocomotionCFv:
@@ -2680,7 +2680,7 @@ IsMoving__18CBSBiPedLocomotionCFv:
 /* 80138CB8 00135C18  7C 03 00 D0 */	neg r0, r3
 /* 80138CBC 00135C1C  7C 00 1B 78 */	or r0, r0, r3
 /* 80138CC0 00135C20  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80138CC4 00135C24  4E 80 00 20 */	blr 
+/* 80138CC4 00135C24  4E 80 00 20 */	blr
 
 .global __dt__23CBSWallWalkerLocomotion
 __dt__23CBSWallWalkerLocomotion:
@@ -2708,7 +2708,7 @@ lbl_80138D0C:
 /* 80138D18 00135C78  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80138D1C 00135C7C  7C 08 03 A6 */	mtlr r0
 /* 80138D20 00135C80  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138D24 00135C84  4E 80 00 20 */	blr 
+/* 80138D24 00135C84  4E 80 00 20 */	blr
 
 .global __dt__18CBSFlyerLocomotion
 __dt__18CBSFlyerLocomotion:
@@ -2736,20 +2736,20 @@ lbl_80138D6C:
 /* 80138D78 00135CD8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80138D7C 00135CDC  7C 08 03 A6 */	mtlr r0
 /* 80138D80 00135CE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138D84 00135CE4  4E 80 00 20 */	blr 
+/* 80138D84 00135CE4  4E 80 00 20 */	blr
 
 .global IsBackPedal__18CBSFlyerLocomotionCFR15CBodyController
 IsBackPedal__18CBSFlyerLocomotionCFR15CBodyController:
 /* 80138D88 00135CE8  38 60 00 00 */	li r3, 0
-/* 80138D8C 00135CEC  4E 80 00 20 */	blr 
+/* 80138D8C 00135CEC  4E 80 00 20 */	blr
 
 .global IsPitchable__18CBSFlyerLocomotionCFv
 IsPitchable__18CBSFlyerLocomotionCFv:
 /* 80138D90 00135CF0  88 63 03 CC */	lbz r3, 0x3cc(r3)
-/* 80138D94 00135CF4  4E 80 00 20 */	blr 
+/* 80138D94 00135CF4  4E 80 00 20 */	blr
 
 .global __sinit_CBSFlyerLocomotion_cpp
 __sinit_CBSFlyerLocomotion_cpp:
 /* 80138D98 00135CF8  C0 02 9A 54 */	lfs f0, lbl_805AB774@sda21(r2)
 /* 80138D9C 00135CFC  D0 0D A3 C0 */	stfs f0, lbl_805A8F80@sda21(r13)
-/* 80138DA0 00135D00  4E 80 00 20 */	blr 
+/* 80138DA0 00135D00  4E 80 00 20 */	blr

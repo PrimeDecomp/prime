@@ -50,9 +50,9 @@ GetTouchBounds__25CScriptSpiderBallWaypointCFv:
 /* 80117C74 00114BD4  98 03 00 18 */	stb r0, 0x18(r3)
 /* 80117C78 00114BD8  88 04 01 14 */	lbz r0, 0x114(r4)
 /* 80117C7C 00114BDC  28 00 00 00 */	cmplwi r0, 0
-/* 80117C80 00114BE0  4D 82 00 20 */	beqlr 
+/* 80117C80 00114BE0  4D 82 00 20 */	beqlr
 /* 80117C84 00114BE4  28 03 00 00 */	cmplwi r3, 0
-/* 80117C88 00114BE8  4D 82 00 20 */	beqlr 
+/* 80117C88 00114BE8  4D 82 00 20 */	beqlr
 /* 80117C8C 00114BEC  C0 04 00 FC */	lfs f0, 0xfc(r4)
 /* 80117C90 00114BF0  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80117C94 00114BF4  C0 04 01 00 */	lfs f0, 0x100(r4)
@@ -65,7 +65,7 @@ GetTouchBounds__25CScriptSpiderBallWaypointCFv:
 /* 80117CB0 00114C10  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 80117CB4 00114C14  C0 04 01 10 */	lfs f0, 0x110(r4)
 /* 80117CB8 00114C18  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 80117CBC 00114C1C  4E 80 00 20 */	blr 
+/* 80117CBC 00114C1C  4E 80 00 20 */	blr
 
 .global Accept__25CScriptSpiderBallWaypointFR8IVisitor
 Accept__25CScriptSpiderBallWaypointFR8IVisitor:
@@ -78,11 +78,11 @@ Accept__25CScriptSpiderBallWaypointFR8IVisitor:
 /* 80117CD8 00114C38  7C 04 03 78 */	mr r4, r0
 /* 80117CDC 00114C3C  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80117CE0 00114C40  7D 89 03 A6 */	mtctr r12
-/* 80117CE4 00114C44  4E 80 04 21 */	bctrl 
+/* 80117CE4 00114C44  4E 80 04 21 */	bctrl
 /* 80117CE8 00114C48  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117CEC 00114C4C  7C 08 03 A6 */	mtlr r0
 /* 80117CF0 00114C50  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117CF4 00114C54  4E 80 00 20 */	blr 
+/* 80117CF4 00114C54  4E 80 00 20 */	blr
 
 .global Render__25CScriptSpiderBallWaypointCFRC13CStateManager
 Render__25CScriptSpiderBallWaypointCFRC13CStateManager:
@@ -93,11 +93,11 @@ Render__25CScriptSpiderBallWaypointCFRC13CStateManager:
 /* 80117D08 00114C68  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117D0C 00114C6C  7C 08 03 A6 */	mtlr r0
 /* 80117D10 00114C70  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117D14 00114C74  4E 80 00 20 */	blr 
+/* 80117D14 00114C74  4E 80 00 20 */	blr
 
 .global AddToRenderer__25CScriptSpiderBallWaypointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__25CScriptSpiderBallWaypointCFRC14CFrustumPlanesRC13CStateManager:
-/* 80117D18 00114C78  4E 80 00 20 */	blr 
+/* 80117D18 00114C78  4E 80 00 20 */	blr
 
 .global GetClosestPointAlongWaypoints__25CScriptSpiderBallWaypointCFR13CStateManagerRC9CVector3ffPPC25CScriptSpiderBallWaypointR9CVector3fR9CVector3ffR9CVector3f
 GetClosestPointAlongWaypoints__25CScriptSpiderBallWaypointCFR13CStateManagerRC9CVector3ffPPC25CScriptSpiderBallWaypointR9CVector3fR9CVector3ffR9CVector3f:
@@ -596,7 +596,7 @@ lbl_80118434:
 /* 80118498 001153F8  80 01 01 F4 */	lwz r0, 0x1f4(r1)
 /* 8011849C 001153FC  7C 08 03 A6 */	mtlr r0
 /* 801184A0 00115400  38 21 01 F0 */	addi r1, r1, 0x1f0
-/* 801184A4 00115404  4E 80 00 20 */	blr 
+/* 801184A4 00115404  4E 80 00 20 */	blr
 
 .global AddPreviousWaypoint__25CScriptSpiderBallWaypointF9TUniqueId
 AddPreviousWaypoint__25CScriptSpiderBallWaypointF9TUniqueId:
@@ -647,7 +647,7 @@ lbl_80118530:
 /* 80118544 001154A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80118548 001154A8  7C 08 03 A6 */	mtlr r0
 /* 8011854C 001154AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80118550 001154B0  4E 80 00 20 */	blr 
+/* 80118550 001154B0  4E 80 00 20 */	blr
 
 .global PreviousWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 PreviousWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint:
@@ -701,7 +701,7 @@ lbl_801185F8:
 /* 801185FC 0011555C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80118600 00115560  7C 08 03 A6 */	mtlr r0
 /* 80118604 00115564  38 21 00 30 */	addi r1, r1, 0x30
-/* 80118608 00115568  4E 80 00 20 */	blr 
+/* 80118608 00115568  4E 80 00 20 */	blr
 
 .global NextWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint
 NextWaypoint__25CScriptSpiderBallWaypointCFRC13CStateManagerQ225CScriptSpiderBallWaypoint20ECheckActiveWaypoint:
@@ -764,7 +764,7 @@ lbl_801186D4:
 /* 801186D8 00115638  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801186DC 0011563C  7C 08 03 A6 */	mtlr r0
 /* 801186E0 00115640  38 21 00 30 */	addi r1, r1, 0x30
-/* 801186E4 00115644  4E 80 00 20 */	blr 
+/* 801186E4 00115644  4E 80 00 20 */	blr
 
 .global AddPointToTouchBounds__25CScriptSpiderBallWaypointFRC9CVector3f
 AddPointToTouchBounds__25CScriptSpiderBallWaypointFRC9CVector3f:
@@ -822,7 +822,7 @@ lbl_801187A0:
 /* 801187A4 00115704  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801187A8 00115708  7C 08 03 A6 */	mtlr r0
 /* 801187AC 0011570C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801187B0 00115710  4E 80 00 20 */	blr 
+/* 801187B0 00115710  4E 80 00 20 */	blr
 
 .global BuildWaypointListAndBounds__25CScriptSpiderBallWaypointFR13CStateManager
 BuildWaypointListAndBounds__25CScriptSpiderBallWaypointFR13CStateManager:
@@ -929,7 +929,7 @@ lbl_80118918:
 /* 80118928 00115888  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 8011892C 0011588C  7C 08 03 A6 */	mtlr r0
 /* 80118930 00115890  38 21 00 60 */	addi r1, r1, 0x60
-/* 80118934 00115894  4E 80 00 20 */	blr 
+/* 80118934 00115894  4E 80 00 20 */	blr
 
 .global ClearWaypoints__25CScriptSpiderBallWaypointFv
 ClearWaypoints__25CScriptSpiderBallWaypointFv:
@@ -953,7 +953,7 @@ lbl_8011896C:
 /* 80118974 001158D4  38 00 00 00 */	li r0, 0
 /* 80118978 001158D8  90 03 00 F0 */	stw r0, 0xf0(r3)
 /* 8011897C 001158DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80118980 001158E0  4E 80 00 20 */	blr 
+/* 80118980 001158E0  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__25CScriptSpiderBallWaypointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__25CScriptSpiderBallWaypointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -997,7 +997,7 @@ lbl_80118A00:
 /* 80118A0C 0011596C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80118A10 00115970  7C 08 03 A6 */	mtlr r0
 /* 80118A14 00115974  38 21 00 20 */	addi r1, r1, 0x20
-/* 80118A18 00115978  4E 80 00 20 */	blr 
+/* 80118A18 00115978  4E 80 00 20 */	blr
 
 .global __dt__25CScriptSpiderBallWaypointFv
 __dt__25CScriptSpiderBallWaypointFv:
@@ -1052,7 +1052,7 @@ lbl_80118ABC:
 /* 80118AC8 00115A28  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80118ACC 00115A2C  7C 08 03 A6 */	mtlr r0
 /* 80118AD0 00115A30  38 21 00 20 */	addi r1, r1, 0x20
-/* 80118AD4 00115A34  4E 80 00 20 */	blr 
+/* 80118AD4 00115A34  4E 80 00 20 */	blr
 
 .global "__ct__25CScriptSpiderBallWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUi"
 "__ct__25CScriptSpiderBallWaypointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUi":

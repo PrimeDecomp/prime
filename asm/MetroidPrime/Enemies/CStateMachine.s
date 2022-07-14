@@ -43,7 +43,7 @@ lbl_8007F654:
 /* 8007F664 0007C5C4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8007F668 0007C5C8  7C 08 03 A6 */	mtlr r0
 /* 8007F66C 0007C5CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8007F670 0007C5D0  4E 80 00 20 */	blr 
+/* 8007F670 0007C5D0  4E 80 00 20 */	blr
 
 .global __ct__13CStateMachineFR12CInputStream
 __ct__13CStateMachineFR12CInputStream:
@@ -406,7 +406,7 @@ lbl_8007FB74:
 /* 8007FB8C 0007CAEC  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8007FB90 0007CAF0  7C 08 03 A6 */	mtlr r0
 /* 8007FB94 0007CAF4  38 21 01 20 */	addi r1, r1, 0x120
-/* 8007FB98 0007CAF8  4E 80 00 20 */	blr 
+/* 8007FB98 0007CAF8  4E 80 00 20 */	blr
 
 .global GetName__18CStateMachineStateCFv
 GetName__18CStateMachineStateCFv:
@@ -414,10 +414,10 @@ GetName__18CStateMachineStateCFv:
 /* 8007FBA0 0007CB00  28 03 00 00 */	cmplwi r3, 0
 /* 8007FBA4 0007CB04  41 82 00 0C */	beq lbl_8007FBB0
 /* 8007FBA8 0007CB08  38 63 00 0C */	addi r3, r3, 0xc
-/* 8007FBAC 0007CB0C  4E 80 00 20 */	blr 
+/* 8007FBAC 0007CB0C  4E 80 00 20 */	blr
 lbl_8007FBB0:
 /* 8007FBB0 0007CB10  38 60 00 00 */	li r3, 0
-/* 8007FBB4 0007CB14  4E 80 00 20 */	blr 
+/* 8007FBB4 0007CB14  4E 80 00 20 */	blr
 
 .global Setup__18CStateMachineStateFPC13CStateMachine
 Setup__18CStateMachineStateFPC13CStateMachine:
@@ -428,7 +428,7 @@ Setup__18CStateMachineStateFPC13CStateMachine:
 /* 8007FBC8 0007CB28  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8007FBCC 0007CB2C  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 8007FBD0 0007CB30  D0 03 00 10 */	stfs f0, 0x10(r3)
-/* 8007FBD4 0007CB34  4E 80 00 20 */	blr 
+/* 8007FBD4 0007CB34  4E 80 00 20 */	blr
 
 .global __ct__18CStateMachineStateFv
 __ct__18CStateMachineStateFv:
@@ -442,7 +442,7 @@ __ct__18CStateMachineStateFv:
 /* 8007FBF4 0007CB54  88 03 00 18 */	lbz r0, 0x18(r3)
 /* 8007FBF8 0007CB58  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8007FBFC 0007CB5C  98 03 00 18 */	stb r0, 0x18(r3)
-/* 8007FC00 0007CB60  4E 80 00 20 */	blr 
+/* 8007FC00 0007CB60  4E 80 00 20 */	blr
 
 .global "SetState__18CStateMachineStateFR13CStateManagerR3CAiPC13CStateMachineRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "SetState__18CStateMachineStateFR13CStateManagerR3CAiPC13CStateMachineRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -476,7 +476,7 @@ lbl_8007FC64:
 /* 8007FC68 0007CBC8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8007FC6C 0007CBCC  7C 08 03 A6 */	mtlr r0
 /* 8007FC70 0007CBD0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8007FC74 0007CBD4  4E 80 00 20 */	blr 
+/* 8007FC74 0007CBD4  4E 80 00 20 */	blr
 
 .global SetState__18CStateMachineStateFR13CStateManagerR3CAii
 SetState__18CStateMachineStateFR13CStateManagerR3CAii:
@@ -506,7 +506,7 @@ SetState__18CStateMachineStateFR13CStateManagerR3CAii:
 /* 8007FCD4 0007CC34  7F CC F3 78 */	mr r12, r30
 /* 8007FCD8 0007CC38  38 A0 00 02 */	li r5, 2
 /* 8007FCDC 0007CC3C  48 30 9C 51 */	bl __ptmf_scall
-/* 8007FCE0 0007CC40  60 00 00 00 */	nop 
+/* 8007FCE0 0007CC40  60 00 00 00 */	nop
 lbl_8007FCE4:
 /* 8007FCE4 0007CC44  93 FB 00 04 */	stw r31, 4(r27)
 /* 8007FCE8 0007CC48  C0 02 89 80 */	lfs f0, lbl_805AA6A0@sda21(r2)
@@ -529,13 +529,13 @@ lbl_8007FCE4:
 /* 8007FD2C 0007CC8C  7F EC FB 78 */	mr r12, r31
 /* 8007FD30 0007CC90  38 A0 00 00 */	li r5, 0
 /* 8007FD34 0007CC94  48 30 9B F9 */	bl __ptmf_scall
-/* 8007FD38 0007CC98  60 00 00 00 */	nop 
+/* 8007FD38 0007CC98  60 00 00 00 */	nop
 lbl_8007FD3C:
 /* 8007FD3C 0007CC9C  BB 61 00 0C */	lmw r27, 0xc(r1)
 /* 8007FD40 0007CCA0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8007FD44 0007CCA4  7C 08 03 A6 */	mtlr r0
 /* 8007FD48 0007CCA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8007FD4C 0007CCAC  4E 80 00 20 */	blr 
+/* 8007FD4C 0007CCAC  4E 80 00 20 */	blr
 
 .global Update__18CStateMachineStateFR13CStateManagerR3CAif
 Update__18CStateMachineStateFR13CStateManagerR3CAif:
@@ -566,7 +566,7 @@ Update__18CStateMachineStateFR13CStateManagerR3CAif:
 /* 8007FDB0 0007CD10  7F 8C E3 78 */	mr r12, r28
 /* 8007FDB4 0007CD14  38 A0 00 01 */	li r5, 1
 /* 8007FDB8 0007CD18  48 30 9B 75 */	bl __ptmf_scall
-/* 8007FDBC 0007CD1C  60 00 00 00 */	nop 
+/* 8007FDBC 0007CD1C  60 00 00 00 */	nop
 lbl_8007FDC0:
 /* 8007FDC0 0007CD20  3B 40 00 00 */	li r26, 0
 /* 8007FDC4 0007CD24  3B 60 00 00 */	li r27, 0
@@ -589,7 +589,7 @@ lbl_8007FDE0:
 /* 8007FE00 0007CD60  7F C4 F3 78 */	mr r4, r30
 /* 8007FE04 0007CD64  7F 2C CB 78 */	mr r12, r25
 /* 8007FE08 0007CD68  48 30 9B 25 */	bl __ptmf_scall
-/* 8007FE0C 0007CD6C  60 00 00 00 */	nop 
+/* 8007FE0C 0007CD6C  60 00 00 00 */	nop
 /* 8007FE10 0007CD70  88 19 00 18 */	lbz r0, 0x18(r25)
 /* 8007FE14 0007CD74  7C 7C 1B 78 */	mr r28, r3
 /* 8007FE18 0007CD78  28 00 00 00 */	cmplwi r0, 0
@@ -624,7 +624,7 @@ lbl_8007FE50:
 /* 8007FE80 0007CDE0  7F 8C E3 78 */	mr r12, r28
 /* 8007FE84 0007CDE4  38 A0 00 02 */	li r5, 2
 /* 8007FE88 0007CDE8  48 30 9A A5 */	bl __ptmf_scall
-/* 8007FE8C 0007CDEC  60 00 00 00 */	nop 
+/* 8007FE8C 0007CDEC  60 00 00 00 */	nop
 lbl_8007FE90:
 /* 8007FE90 0007CDF0  93 1D 00 04 */	stw r24, 4(r29)
 /* 8007FE94 0007CDF4  38 60 00 00 */	li r3, 0
@@ -647,7 +647,7 @@ lbl_8007FE90:
 /* 8007FED8 0007CE38  7F 8C E3 78 */	mr r12, r28
 /* 8007FEDC 0007CE3C  38 A0 00 00 */	li r5, 0
 /* 8007FEE0 0007CE40  48 30 9A 4D */	bl __ptmf_scall
-/* 8007FEE4 0007CE44  60 00 00 00 */	nop 
+/* 8007FEE4 0007CE44  60 00 00 00 */	nop
 /* 8007FEE8 0007CE48  48 00 00 1C */	b lbl_8007FF04
 lbl_8007FEEC:
 /* 8007FEEC 0007CE4C  3B 7B 00 1C */	addi r27, r27, 0x1c
@@ -664,7 +664,7 @@ lbl_8007FF04:
 /* 8007FF10 0007CE70  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8007FF14 0007CE74  7C 08 03 A6 */	mtlr r0
 /* 8007FF18 0007CE78  38 21 00 40 */	addi r1, r1, 0x40
-/* 8007FF1C 0007CE7C  4E 80 00 20 */	blr 
+/* 8007FF1C 0007CE7C  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl44vector<8CAiState,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl44vector<8CAiState,Q24rstl17rmemory_allocator>Fi":
@@ -760,7 +760,7 @@ lbl_80080054:
 /* 80080060 0007CFC0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80080064 0007CFC4  7C 08 03 A6 */	mtlr r0
 /* 80080068 0007CFC8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008006C 0007CFCC  4E 80 00 20 */	blr 
+/* 8008006C 0007CFCC  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl47vector<10CAiTrigger,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl47vector<10CAiTrigger,Q24rstl17rmemory_allocator>Fi":
@@ -844,4 +844,4 @@ lbl_80080174:
 /* 80080180 0007D0E0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80080184 0007D0E4  7C 08 03 A6 */	mtlr r0
 /* 80080188 0007D0E8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008018C 0007D0EC  4E 80 00 20 */	blr 
+/* 8008018C 0007D0EC  4E 80 00 20 */	blr

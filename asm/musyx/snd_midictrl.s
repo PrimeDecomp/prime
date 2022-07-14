@@ -15,7 +15,7 @@ midi_lastNote:
 	.skip 0x80
 fx_lastNote:
 	.skip 0x40
-	
+
 .section .data, "wa"
 
 .global lbl_803F41E8

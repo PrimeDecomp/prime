@@ -3,8 +3,11 @@
 .section .rodata
 .global lbl_803CCAA0
 lbl_803CCAA0:
-	.incbin "baserom.dol", 0x3C9AA0, 0x8
-	
+	# ROM: 0x3C9AA0
+	.asciz "??(??)"
+	.balign 4
+
+
 .section .text, "ax"
 
 .global Update__15CInputGeneratorFfR18CArchitectureQueue
@@ -33,13 +36,13 @@ lbl_80023018:
 /* 80023028 0001FF88  81 83 00 00 */	lwz r12, 0(r3)
 /* 8002302C 0001FF8C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80023030 0001FF90  7D 89 03 A6 */	mtctr r12
-/* 80023034 0001FF94  4E 80 04 21 */	bctrl 
+/* 80023034 0001FF94  4E 80 04 21 */	bctrl
 /* 80023038 0001FF98  7C 7D 1B 78 */	mr r29, r3
 /* 8002303C 0001FF9C  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80023040 0001FFA0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80023044 0001FFA4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80023048 0001FFA8  7D 89 03 A6 */	mtctr r12
-/* 8002304C 0001FFAC  4E 80 04 21 */	bctrl 
+/* 8002304C 0001FFAC  4E 80 04 21 */	bctrl
 /* 80023050 0001FFB0  3B 61 00 38 */	addi r27, r1, 0x38
 /* 80023054 0001FFB4  3B 41 00 68 */	addi r26, r1, 0x68
 /* 80023058 0001FFB8  3B 21 00 2C */	addi r25, r1, 0x2c
@@ -52,7 +55,7 @@ lbl_80023068:
 /* 80023070 0001FFD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80023074 0001FFD4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80023078 0001FFD8  7D 89 03 A6 */	mtctr r12
-/* 8002307C 0001FFDC  4E 80 04 21 */	bctrl 
+/* 8002307C 0001FFDC  4E 80 04 21 */	bctrl
 /* 80023080 0001FFE0  88 03 00 00 */	lbz r0, 0(r3)
 /* 80023084 0001FFE4  7C 73 1B 78 */	mr r19, r3
 /* 80023088 0001FFE8  28 00 00 00 */	cmplwi r0, 0
@@ -346,7 +349,7 @@ lbl_80023498:
 /* 800234A4 00020404  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 800234A8 00020408  7C 08 03 A6 */	mtlr r0
 /* 800234AC 0002040C  38 21 01 50 */	addi r1, r1, 0x150
-/* 800234B0 00020410  4E 80 00 20 */	blr 
+/* 800234B0 00020410  4E 80 00 20 */	blr
 
 .global __ct__15CInputGeneratorFP10COsContextff
 __ct__15CInputGeneratorFP10COsContextff:
@@ -377,4 +380,4 @@ __ct__15CInputGeneratorFP10COsContextff:
 /* 80023514 00020474  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80023518 00020478  7C 08 03 A6 */	mtlr r0
 /* 8002351C 0002047C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80023520 00020480  4E 80 00 20 */	blr 
+/* 80023520 00020480  4E 80 00 20 */	blr

@@ -82,7 +82,7 @@ lbl_8013B8D8:
 /* 8013B8E4 00138844  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013B8E8 00138848  7C 08 03 A6 */	mtlr r0
 /* 8013B8EC 0013884C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013B8F0 00138850  4E 80 00 20 */	blr 
+/* 8013B8F0 00138850  4E 80 00 20 */	blr
 
 .global __dt__17CEnergyProjectileFv
 __dt__17CEnergyProjectileFv:
@@ -131,7 +131,7 @@ lbl_8013B980:
 /* 8013B98C 001388EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013B990 001388F0  7C 08 03 A6 */	mtlr r0
 /* 8013B994 001388F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013B998 001388F8  4E 80 00 20 */	blr 
+/* 8013B998 001388F8  4E 80 00 20 */	blr
 
 .global ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13CStateManager
 ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13CStateManager:
@@ -153,7 +153,7 @@ ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13
 /* 8013B9D8 00138938  81 9C 00 00 */	lwz r12, 0(r28)
 /* 8013B9DC 0013893C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8013B9E0 00138940  7D 89 03 A6 */	mtctr r12
-/* 8013B9E4 00138944  4E 80 04 21 */	bctrl 
+/* 8013B9E4 00138944  4E 80 04 21 */	bctrl
 /* 8013B9E8 00138948  C0 41 00 14 */	lfs f2, 0x14(r1)
 /* 8013B9EC 0013894C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
 /* 8013B9F0 00138950  C0 21 00 18 */	lfs f1, 0x18(r1)
@@ -206,7 +206,7 @@ ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13
 /* 8013BAAC 00138A0C  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 8013BAB0 00138A10  7C 08 03 A6 */	mtlr r0
 /* 8013BAB4 00138A14  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8013BAB8 00138A18  4E 80 00 20 */	blr 
+/* 8013BAB8 00138A18  4E 80 00 20 */	blr
 
 .global GetAimPosition__21CTargetableProjectileCFRC13CStateManagerf
 GetAimPosition__21CTargetableProjectileCFRC13CStateManagerf:
@@ -307,7 +307,7 @@ lbl_8013BB3C:
 /* 8013BC30 00138B90  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013BC34 00138B94  7C 08 03 A6 */	mtlr r0
 /* 8013BC38 00138B98  38 21 00 90 */	addi r1, r1, 0x90
-/* 8013BC3C 00138B9C  4E 80 00 20 */	blr 
+/* 8013BC3C 00138B9C  4E 80 00 20 */	blr
 
 .global Think__21CTargetableProjectileFfR13CStateManager
 Think__21CTargetableProjectileFfR13CStateManager:
@@ -359,7 +359,7 @@ Think__21CTargetableProjectileFfR13CStateManager:
 /* 8013BCF4 00138C54  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8013BCF8 00138C58  C0 22 9A A4 */	lfs f1, lbl_805AB7C4@sda21(r2)
 /* 8013BCFC 00138C5C  7D 89 03 A6 */	mtctr r12
-/* 8013BD00 00138C60  4E 80 04 21 */	bctrl 
+/* 8013BD00 00138C60  4E 80 04 21 */	bctrl
 /* 8013BD04 00138C64  C0 41 00 9C */	lfs f2, 0x9c(r1)
 /* 8013BD08 00138C68  3C 60 80 3D */	lis r3, lbl_803D0070@ha
 /* 8013BD0C 00138C6C  C0 21 00 A0 */	lfs f1, 0xa0(r1)
@@ -397,7 +397,7 @@ Think__21CTargetableProjectileFfR13CStateManager:
 /* 8013BD8C 00138CEC  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8013BD90 00138CF0  83 3C 00 F0 */	lwz r25, 0xf0(r28)
 /* 8013BD94 00138CF4  7D 89 03 A6 */	mtctr r12
-/* 8013BD98 00138CF8  4E 80 04 21 */	bctrl 
+/* 8013BD98 00138CF8  4E 80 04 21 */	bctrl
 /* 8013BD9C 00138CFC  3C 80 80 5A */	lis r4, lbl_805A66F4@ha
 /* 8013BDA0 00138D00  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 8013BDA4 00138D04  38 C4 66 F4 */	addi r6, r4, lbl_805A66F4@l
@@ -473,7 +473,7 @@ lbl_8013BEA4:
 /* 8013BEAC 00138E0C  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 8013BEB0 00138E10  7C 08 03 A6 */	mtlr r0
 /* 8013BEB4 00138E14  38 21 01 10 */	addi r1, r1, 0x110
-/* 8013BEB8 00138E18  4E 80 00 20 */	blr 
+/* 8013BEB8 00138E18  4E 80 00 20 */	blr
 
 .global Accept__21CTargetableProjectileFR8IVisitor
 Accept__21CTargetableProjectileFR8IVisitor:
@@ -486,11 +486,11 @@ Accept__21CTargetableProjectileFR8IVisitor:
 /* 8013BED4 00138E34  7C 04 03 78 */	mr r4, r0
 /* 8013BED8 00138E38  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8013BEDC 00138E3C  7D 89 03 A6 */	mtctr r12
-/* 8013BEE0 00138E40  4E 80 04 21 */	bctrl 
+/* 8013BEE0 00138E40  4E 80 04 21 */	bctrl
 /* 8013BEE4 00138E44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013BEE8 00138E48  7C 08 03 A6 */	mtlr r0
 /* 8013BEEC 00138E4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013BEF0 00138E50  4E 80 00 20 */	blr 
+/* 8013BEF0 00138E50  4E 80 00 20 */	blr
 
 .global "__ct__21CTargetableProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfoRC11CDamageInfo9TUniqueId9TUniqueIdRC28TToken<18CWeaponDescription>9TUniqueIdUi"
 "__ct__21CTargetableProjectileFRC28TToken<18CWeaponDescription>11EWeaponTypeRC12CTransform4f14EMaterialTypesRC11CDamageInfoRC11CDamageInfo9TUniqueId9TUniqueIdRC28TToken<18CWeaponDescription>9TUniqueIdUi":

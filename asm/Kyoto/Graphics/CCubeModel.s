@@ -147,7 +147,7 @@ lbl_803067C8:
 /* 803067E0 00303740  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803067E4 00303744  7C 08 03 A6 */	mtlr r0
 /* 803067E8 00303748  38 21 00 20 */	addi r1, r1, 0x20
-/* 803067EC 0030374C  4E 80 00 20 */	blr 
+/* 803067EC 0030374C  4E 80 00 20 */	blr
 
 .global "RemapMaterialData__10CCubeModelFPCvPQ24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>"
 "RemapMaterialData__10CCubeModelFPCvPQ24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>":
@@ -157,7 +157,7 @@ lbl_803067C8:
 /* 803067FC 0030375C  88 03 00 40 */	lbz r0, 0x40(r3)
 /* 80306800 00303760  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 80306804 00303764  98 03 00 40 */	stb r0, 0x40(r3)
-/* 80306808 00303768  4E 80 00 20 */	blr 
+/* 80306808 00303768  4E 80 00 20 */	blr
 
 .global UnlockTextures__10CCubeModelCFv
 UnlockTextures__10CCubeModelCFv:
@@ -195,17 +195,17 @@ lbl_80306848:
 /* 80306880 003037E0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80306884 003037E4  7C 08 03 A6 */	mtlr r0
 /* 80306888 003037E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030688C 003037EC  4E 80 00 20 */	blr 
+/* 8030688C 003037EC  4E 80 00 20 */	blr
 
 .global SetModelWireframe__10CCubeModelFb
 SetModelWireframe__10CCubeModelFb:
 /* 80306890 003037F0  98 6D A7 81 */	stb r3, lbl_805A9341@sda21(r13)
-/* 80306894 003037F4  4E 80 00 20 */	blr 
+/* 80306894 003037F4  4E 80 00 20 */	blr
 
 .global SetDrawingOccluders__10CCubeModelFb
 SetDrawingOccluders__10CCubeModelFb:
 /* 80306898 003037F8  98 6D A7 80 */	stb r3, lbl_805A9340@sda21(r13)
-/* 8030689C 003037FC  4E 80 00 20 */	blr 
+/* 8030689C 003037FC  4E 80 00 20 */	blr
 
 .global DrawAlpha__10CCubeModelCFRC11CModelFlags
 DrawAlpha__10CCubeModelCFRC11CModelFlags:
@@ -227,7 +227,7 @@ DrawAlpha__10CCubeModelCFRC11CModelFlags:
 /* 803068DC 0030383C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803068E0 00303840  7C 08 03 A6 */	mtlr r0
 /* 803068E4 00303844  38 21 00 10 */	addi r1, r1, 0x10
-/* 803068E8 00303848  4E 80 00 20 */	blr 
+/* 803068E8 00303848  4E 80 00 20 */	blr
 
 .global DrawNormal__10CCubeModelCFRC11CModelFlags
 DrawNormal__10CCubeModelCFRC11CModelFlags:
@@ -249,7 +249,7 @@ DrawNormal__10CCubeModelCFRC11CModelFlags:
 /* 80306928 00303888  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8030692C 0030388C  7C 08 03 A6 */	mtlr r0
 /* 80306930 00303890  38 21 00 10 */	addi r1, r1, 0x10
-/* 80306934 00303894  4E 80 00 20 */	blr 
+/* 80306934 00303894  4E 80 00 20 */	blr
 
 .global Draw__10CCubeModelCFPCfPCfRC11CModelFlags
 Draw__10CCubeModelCFPCfPCfRC11CModelFlags:
@@ -279,7 +279,7 @@ Draw__10CCubeModelCFPCfPCfRC11CModelFlags:
 /* 80306994 003038F4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80306998 003038F8  7C 08 03 A6 */	mtlr r0
 /* 8030699C 003038FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 803069A0 00303900  4E 80 00 20 */	blr 
+/* 803069A0 00303900  4E 80 00 20 */	blr
 
 .global Draw__10CCubeModelCFRC11CModelFlags
 Draw__10CCubeModelCFRC11CModelFlags:
@@ -301,7 +301,7 @@ Draw__10CCubeModelCFRC11CModelFlags:
 /* 803069E0 00303940  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803069E4 00303944  7C 08 03 A6 */	mtlr r0
 /* 803069E8 00303948  38 21 00 10 */	addi r1, r1, 0x10
-/* 803069EC 0030394C  4E 80 00 20 */	blr 
+/* 803069EC 0030394C  4E 80 00 20 */	blr
 
 .global DrawFlat__10CCubeModelCFPCfPCf17ESurfaceSelection
 DrawFlat__10CCubeModelCFPCfPCf17ESurfaceSelection:
@@ -394,7 +394,7 @@ lbl_80306B1C:
 /* 80306B20 00303A80  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80306B24 00303A84  7C 08 03 A6 */	mtlr r0
 /* 80306B28 00303A88  38 21 00 30 */	addi r1, r1, 0x30
-/* 80306B2C 00303A8C  4E 80 00 20 */	blr 
+/* 80306B2C 00303A8C  4E 80 00 20 */	blr
 
 .global DrawAlphaSurfaces__10CCubeModelCFRC11CModelFlags
 DrawAlphaSurfaces__10CCubeModelCFRC11CModelFlags:
@@ -448,7 +448,7 @@ lbl_80306BCC:
 /* 80306BD4 00303B34  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80306BD8 00303B38  7C 08 03 A6 */	mtlr r0
 /* 80306BDC 00303B3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80306BE0 00303B40  4E 80 00 20 */	blr 
+/* 80306BE0 00303B40  4E 80 00 20 */	blr
 
 .global DrawNormalSurfaces__10CCubeModelCFRC11CModelFlags
 DrawNormalSurfaces__10CCubeModelCFRC11CModelFlags:
@@ -502,7 +502,7 @@ lbl_80306C80:
 /* 80306C88 00303BE8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80306C8C 00303BEC  7C 08 03 A6 */	mtlr r0
 /* 80306C90 00303BF0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80306C94 00303BF4  4E 80 00 20 */	blr 
+/* 80306C94 00303BF4  4E 80 00 20 */	blr
 
 .global DrawSurfaces__10CCubeModelCFRC11CModelFlags
 DrawSurfaces__10CCubeModelCFRC11CModelFlags:
@@ -589,7 +589,7 @@ lbl_80306DA4:
 /* 80306DAC 00303D0C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80306DB0 00303D10  7C 08 03 A6 */	mtlr r0
 /* 80306DB4 00303D14  38 21 00 20 */	addi r1, r1, 0x20
-/* 80306DB8 00303D18  4E 80 00 20 */	blr 
+/* 80306DB8 00303D18  4E 80 00 20 */	blr
 
 .global TryLockTextures__10CCubeModelCFv
 TryLockTextures__10CCubeModelCFv:
@@ -671,7 +671,7 @@ lbl_80306EB0:
 /* 80306EC8 00303E28  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80306ECC 00303E2C  7C 08 03 A6 */	mtlr r0
 /* 80306ED0 00303E30  38 21 00 20 */	addi r1, r1, 0x20
-/* 80306ED4 00303E34  4E 80 00 20 */	blr 
+/* 80306ED4 00303E34  4E 80 00 20 */	blr
 
 .global DrawSurfaceWireframe__10CCubeModelCFRC12CCubeSurface
 DrawSurfaceWireframe__10CCubeModelCFRC12CCubeSurface:
@@ -1050,7 +1050,7 @@ lbl_80307430:
 /* 80307434 00304394  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80307438 00304398  7C 08 03 A6 */	mtlr r0
 /* 8030743C 0030439C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80307440 003043A0  4E 80 00 20 */	blr 
+/* 80307440 003043A0  4E 80 00 20 */	blr
 
 .global DrawSurface__10CCubeModelCFRC12CCubeSurfaceRC11CModelFlags
 DrawSurface__10CCubeModelCFRC12CCubeSurfaceRC11CModelFlags:
@@ -1106,7 +1106,7 @@ lbl_803074F0:
 /* 803074FC 0030445C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80307500 00304460  7C 08 03 A6 */	mtlr r0
 /* 80307504 00304464  38 21 00 20 */	addi r1, r1, 0x20
-/* 80307508 00304468  4E 80 00 20 */	blr 
+/* 80307508 00304468  4E 80 00 20 */	blr
 
 .global GetMaterialByIndex__10CCubeModelCFi
 GetMaterialByIndex__10CCubeModelCFi:
@@ -1129,7 +1129,7 @@ lbl_80307544:
 /* 80307548 003044A8  7C E7 02 14 */	add r7, r7, r0
 /* 8030754C 003044AC  7C E7 42 14 */	add r7, r7, r8
 /* 80307550 003044B0  90 E3 00 00 */	stw r7, 0(r3)
-/* 80307554 003044B4  4E 80 00 20 */	blr 
+/* 80307554 003044B4  4E 80 00 20 */	blr
 
 .global SetUsingPackedLightmaps__10CCubeModelCFb
 SetUsingPackedLightmaps__10CCubeModelCFb:
@@ -1169,7 +1169,7 @@ lbl_803075D4:
 /* 803075D4 00304534  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803075D8 00304538  7C 08 03 A6 */	mtlr r0
 /* 803075DC 0030453C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803075E0 00304540  4E 80 00 20 */	blr 
+/* 803075E0 00304540  4E 80 00 20 */	blr
 
 .global SetSkinningArraysCurrent__10CCubeModelCFPCfPCf
 SetSkinningArraysCurrent__10CCubeModelCFPCfPCf:
@@ -1187,7 +1187,7 @@ SetSkinningArraysCurrent__10CCubeModelCFPCfPCf:
 /* 80307610 00304570  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80307614 00304574  7C 08 03 A6 */	mtlr r0
 /* 80307618 00304578  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030761C 0030457C  4E 80 00 20 */	blr 
+/* 8030761C 0030457C  4E 80 00 20 */	blr
 
 .global SetArraysCurrent__10CCubeModelCFv
 SetArraysCurrent__10CCubeModelCFv:
@@ -1233,7 +1233,7 @@ lbl_803076A4:
 /* 803076B0 00304610  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803076B4 00304614  7C 08 03 A6 */	mtlr r0
 /* 803076B8 00304618  38 21 00 10 */	addi r1, r1, 0x10
-/* 803076BC 0030461C  4E 80 00 20 */	blr 
+/* 803076BC 0030461C  4E 80 00 20 */	blr
 
 .global SetStaticArraysCurrent__10CCubeModelCFv
 SetStaticArraysCurrent__10CCubeModelCFv:
@@ -1323,7 +1323,7 @@ lbl_803077E0:
 /* 803077F0 00304750  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803077F4 00304754  7C 08 03 A6 */	mtlr r0
 /* 803077F8 00304758  38 21 00 20 */	addi r1, r1, 0x20
-/* 803077FC 0030475C  4E 80 00 20 */	blr 
+/* 803077FC 0030475C  4E 80 00 20 */	blr
 
 .global "MakeTexturesFromMats__10CCubeModelFPCvRQ24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>R12IObjectStoreb"
 "MakeTexturesFromMats__10CCubeModelFPCvRQ24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>R12IObjectStoreb":
@@ -1355,7 +1355,7 @@ lbl_80307848:
 /* 80307860 003047C0  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80307864 003047C4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80307868 003047C8  7D 89 03 A6 */	mtctr r12
-/* 8030786C 003047CC  4E 80 04 21 */	bctrl 
+/* 8030786C 003047CC  4E 80 04 21 */	bctrl
 /* 80307870 003047D0  38 61 00 18 */	addi r3, r1, 0x18
 /* 80307874 003047D4  38 81 00 08 */	addi r4, r1, 8
 /* 80307878 003047D8  48 03 96 31 */	bl __ct__6CTokenFRC6CToken
@@ -1417,7 +1417,7 @@ lbl_80307938:
 /* 80307944 003048A4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80307948 003048A8  7C 08 03 A6 */	mtlr r0
 /* 8030794C 003048AC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80307950 003048B0  4E 80 00 20 */	blr 
+/* 80307950 003048B0  4E 80 00 20 */	blr
 
 .global "__ct__10CCubeModelFPQ24rstl37vector<Pv,Q24rstl17rmemory_allocator>PQ24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>PCvPCvPCvPCvPCvPCvRC6CAABoxUcb"
 "__ct__10CCubeModelFPQ24rstl37vector<Pv,Q24rstl17rmemory_allocator>PQ24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>PCvPCvPCvPCvPCvPCvRC6CAABoxUcb":
@@ -1515,7 +1515,7 @@ lbl_80307A98:
 /* 80307AA8 00304A08  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80307AAC 00304A0C  7C 08 03 A6 */	mtlr r0
 /* 80307AB0 00304A10  38 21 00 30 */	addi r1, r1, 0x30
-/* 80307AB4 00304A14  4E 80 00 20 */	blr 
+/* 80307AB4 00304A14  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl60vector<23TCachedToken<8CTexture>,Q24rstl17rmemory_allocator>Fi":
@@ -1593,4 +1593,4 @@ lbl_80307BA8:
 /* 80307BAC 00304B0C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80307BB0 00304B10  7C 08 03 A6 */	mtlr r0
 /* 80307BB4 00304B14  38 21 00 30 */	addi r1, r1, 0x30
-/* 80307BB8 00304B18  4E 80 00 20 */	blr 
+/* 80307BB8 00304B18  4E 80 00 20 */	blr

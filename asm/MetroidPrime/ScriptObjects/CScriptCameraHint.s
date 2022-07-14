@@ -55,11 +55,11 @@ Accept__17CScriptCameraHintFR8IVisitor:
 /* 800C46A4 000C1604  7C 04 03 78 */	mr r4, r0
 /* 800C46A8 000C1608  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 800C46AC 000C160C  7D 89 03 A6 */	mtctr r12
-/* 800C46B0 000C1610  4E 80 04 21 */	bctrl 
+/* 800C46B0 000C1610  4E 80 04 21 */	bctrl
 /* 800C46B4 000C1614  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C46B8 000C1618  7C 08 03 A6 */	mtlr r0
 /* 800C46BC 000C161C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C46C0 000C1620  4E 80 00 20 */	blr 
+/* 800C46C0 000C1620  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CScriptCameraHintF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CScriptCameraHintF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -150,7 +150,7 @@ lbl_800C47E0:
 /* 800C47F4 000C1754  81 9B 00 00 */	lwz r12, 0(r27)
 /* 800C47F8 000C1758  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800C47FC 000C175C  7D 89 03 A6 */	mtctr r12
-/* 800C4800 000C1760  4E 80 04 21 */	bctrl 
+/* 800C4800 000C1760  4E 80 04 21 */	bctrl
 /* 800C4804 000C1764  A0 1D 00 00 */	lhz r0, 0(r29)
 /* 800C4808 000C1768  7F C3 F3 78 */	mr r3, r30
 /* 800C480C 000C176C  38 81 00 18 */	addi r4, r1, 0x18
@@ -258,7 +258,7 @@ lbl_800C4974:
 /* 800C4994 000C18F4  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 800C4998 000C18F8  7C 08 03 A6 */	mtlr r0
 /* 800C499C 000C18FC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800C49A0 000C1900  4E 80 00 20 */	blr 
+/* 800C49A0 000C1900  4E 80 00 20 */	blr
 
 .global InitializeInArea__17CScriptCameraHintFR13CStateManager
 InitializeInArea__17CScriptCameraHintFR13CStateManager:
@@ -400,7 +400,7 @@ lbl_800C4B7C:
 /* 800C4B88 000C1AE8  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800C4B8C 000C1AEC  7C 08 03 A6 */	mtlr r0
 /* 800C4B90 000C1AF0  38 21 00 70 */	addi r1, r1, 0x70
-/* 800C4B94 000C1AF4  4E 80 00 20 */	blr 
+/* 800C4B94 000C1AF4  4E 80 00 20 */	blr
 
 .global sub_800c4b98
 sub_800c4b98:
@@ -422,7 +422,7 @@ sub_800c4b98:
 /* 800C4BD4 000C1B34  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800C4BD8 000C1B38  7C 08 03 A6 */	mtlr r0
 /* 800C4BDC 000C1B3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C4BE0 000C1B40  4E 80 00 20 */	blr 
+/* 800C4BE0 000C1B40  4E 80 00 20 */	blr
 
 .global sub_800c4be4
 sub_800c4be4:
@@ -475,13 +475,13 @@ lbl_800C4C6C:
 /* 800C4C88 000C1BE8  80 05 00 00 */	lwz r0, 0(r5)
 /* 800C4C8C 000C1BEC  90 03 00 00 */	stw r0, 0(r3)
 /* 800C4C90 000C1BF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C4C94 000C1BF4  4E 80 00 20 */	blr 
+/* 800C4C94 000C1BF4  4E 80 00 20 */	blr
 
 .global RemoveHelper__17CScriptCameraHintF9TUniqueId
 RemoveHelper__17CScriptCameraHintF9TUniqueId:
 /* 800C4C98 000C1BF8  80 03 01 50 */	lwz r0, 0x150(r3)
 /* 800C4C9C 000C1BFC  2C 00 00 00 */	cmpwi r0, 0
-/* 800C4CA0 000C1C00  4D 82 00 20 */	beqlr 
+/* 800C4CA0 000C1C00  4D 82 00 20 */	beqlr
 /* 800C4CA4 000C1C04  38 E3 01 54 */	addi r7, r3, 0x154
 /* 800C4CA8 000C1C08  54 00 08 3C */	slwi r0, r0, 1
 /* 800C4CAC 000C1C0C  7C E6 3B 78 */	mr r6, r7
@@ -500,9 +500,9 @@ lbl_800C4CD4:
 /* 800C4CD4 000C1C34  7C 06 40 40 */	cmplw r6, r8
 /* 800C4CD8 000C1C38  40 82 00 4C */	bne lbl_800C4D24
 /* 800C4CDC 000C1C3C  7C 07 38 40 */	cmplw r7, r7
-/* 800C4CE0 000C1C40  4D 80 00 20 */	bltlr 
+/* 800C4CE0 000C1C40  4D 80 00 20 */	bltlr
 /* 800C4CE4 000C1C44  7C 07 40 40 */	cmplw r7, r8
-/* 800C4CE8 000C1C48  4C 80 00 20 */	bgelr 
+/* 800C4CE8 000C1C48  4C 80 00 20 */	bgelr
 /* 800C4CEC 000C1C4C  7C E6 3B 78 */	mr r6, r7
 /* 800C4CF0 000C1C50  48 00 00 10 */	b lbl_800C4D00
 lbl_800C4CF4:
@@ -518,12 +518,12 @@ lbl_800C4D00:
 /* 800C4D14 000C1C74  41 80 FF E0 */	blt lbl_800C4CF4
 /* 800C4D18 000C1C78  38 05 FF FF */	addi r0, r5, -1
 /* 800C4D1C 000C1C7C  90 03 01 50 */	stw r0, 0x150(r3)
-/* 800C4D20 000C1C80  4E 80 00 20 */	blr 
+/* 800C4D20 000C1C80  4E 80 00 20 */	blr
 lbl_800C4D24:
 /* 800C4D24 000C1C84  7C 06 38 40 */	cmplw r6, r7
-/* 800C4D28 000C1C88  4D 80 00 20 */	bltlr 
+/* 800C4D28 000C1C88  4D 80 00 20 */	bltlr
 /* 800C4D2C 000C1C8C  7C 06 40 40 */	cmplw r6, r8
-/* 800C4D30 000C1C90  4C 80 00 20 */	bgelr 
+/* 800C4D30 000C1C90  4C 80 00 20 */	bgelr
 /* 800C4D34 000C1C94  48 00 00 10 */	b lbl_800C4D44
 lbl_800C4D38:
 /* 800C4D38 000C1C98  A0 06 00 02 */	lhz r0, 2(r6)
@@ -538,7 +538,7 @@ lbl_800C4D44:
 /* 800C4D58 000C1CB8  41 80 FF E0 */	blt lbl_800C4D38
 /* 800C4D5C 000C1CBC  38 05 FF FF */	addi r0, r5, -1
 /* 800C4D60 000C1CC0  90 03 01 50 */	stw r0, 0x150(r3)
-/* 800C4D64 000C1CC4  4E 80 00 20 */	blr 
+/* 800C4D64 000C1CC4  4E 80 00 20 */	blr
 
 .global AddHelper__17CScriptCameraHintF9TUniqueId
 AddHelper__17CScriptCameraHintF9TUniqueId:
@@ -558,7 +558,7 @@ lbl_800C4D80:
 /* 800C4D94 000C1CF4  40 82 FF E8 */	bne lbl_800C4D7C
 lbl_800C4D98:
 /* 800C4D98 000C1CF8  7C 06 38 40 */	cmplw r6, r7
-/* 800C4D9C 000C1CFC  4C 82 00 20 */	bnelr 
+/* 800C4D9C 000C1CFC  4C 82 00 20 */	bnelr
 /* 800C4DA0 000C1D00  28 07 00 00 */	cmplwi r7, 0
 /* 800C4DA4 000C1D04  41 82 00 0C */	beq lbl_800C4DB0
 /* 800C4DA8 000C1D08  A0 04 00 00 */	lhz r0, 0(r4)
@@ -567,7 +567,7 @@ lbl_800C4DB0:
 /* 800C4DB0 000C1D10  80 83 01 50 */	lwz r4, 0x150(r3)
 /* 800C4DB4 000C1D14  38 04 00 01 */	addi r0, r4, 1
 /* 800C4DB8 000C1D18  90 03 01 50 */	stw r0, 0x150(r3)
-/* 800C4DBC 000C1D1C  4E 80 00 20 */	blr 
+/* 800C4DBC 000C1D1C  4E 80 00 20 */	blr
 
 .global ClearIdList__17CScriptCameraHintFv
 ClearIdList__17CScriptCameraHintFv:
@@ -596,7 +596,7 @@ lbl_800C4E08:
 lbl_800C4E0C:
 /* 800C4E0C 000C1D6C  38 00 00 00 */	li r0, 0
 /* 800C4E10 000C1D70  90 03 01 50 */	stw r0, 0x150(r3)
-/* 800C4E14 000C1D74  4E 80 00 20 */	blr 
+/* 800C4E14 000C1D74  4E 80 00 20 */	blr
 
 .global GetFirstHelper__17CScriptCameraHintCFv
 GetFirstHelper__17CScriptCameraHintCFv:
@@ -605,11 +605,11 @@ GetFirstHelper__17CScriptCameraHintCFv:
 /* 800C4E20 000C1D80  40 81 00 10 */	ble lbl_800C4E30
 /* 800C4E24 000C1D84  A0 04 01 54 */	lhz r0, 0x154(r4)
 /* 800C4E28 000C1D88  B0 03 00 00 */	sth r0, 0(r3)
-/* 800C4E2C 000C1D8C  4E 80 00 20 */	blr 
+/* 800C4E2C 000C1D8C  4E 80 00 20 */	blr
 lbl_800C4E30:
 /* 800C4E30 000C1D90  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800C4E34 000C1D94  B0 03 00 00 */	sth r0, 0(r3)
-/* 800C4E38 000C1D98  4E 80 00 20 */	blr 
+/* 800C4E38 000C1D98  4E 80 00 20 */	blr
 
 .global __dt__17CScriptCameraHintFv
 __dt__17CScriptCameraHintFv:
@@ -672,7 +672,7 @@ lbl_800C4EF4:
 /* 800C4F00 000C1E60  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800C4F04 000C1E64  7C 08 03 A6 */	mtlr r0
 /* 800C4F08 000C1E68  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C4F0C 000C1E6C  4E 80 00 20 */	blr 
+/* 800C4F0C 000C1E6C  4E 80 00 20 */	blr
 
 .global "__ct__17CScriptCameraHintF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbiQ211CBallCamera20EBallCameraBehaviourifffRC13CCameraSpringRC13CCameraSpringfRC9CVector3fRC9CVector3ff"
 "__ct__17CScriptCameraHintF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbiQ211CBallCamera20EBallCameraBehaviourifffRC13CCameraSpringRC13CCameraSpringfRC9CVector3fRC9CVector3ff":

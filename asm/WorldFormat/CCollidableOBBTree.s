@@ -60,12 +60,12 @@ lbl_802A9930:
 /* 802A9938 002A6898  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802A993C 002A689C  7C 08 03 A6 */	mtlr r0
 /* 802A9940 002A68A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A9944 002A68A4  4E 80 00 20 */	blr 
+/* 802A9944 002A68A4  4E 80 00 20 */	blr
 
 .global GetTableIndex__18CCollidableOBBTreeCFv
 GetTableIndex__18CCollidableOBBTreeCFv:
 /* 802A9948 002A68A8  80 6D 9A 70 */	lwz r3, lbl_805A8630@sda21(r13)
-/* 802A994C 002A68AC  4E 80 00 20 */	blr 
+/* 802A994C 002A68AC  4E 80 00 20 */	blr
 
 .global LineIntersectsLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataR12CRayCastInfo
 LineIntersectsLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataR12CRayCastInfo:
@@ -94,7 +94,7 @@ lbl_802A9988:
 /* 802A99A4 002A6904  81 97 00 00 */	lwz r12, 0(r23)
 /* 802A99A8 002A6908  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802A99AC 002A690C  7D 89 03 A6 */	mtctr r12
-/* 802A99B0 002A6910  4E 80 04 21 */	bctrl 
+/* 802A99B0 002A6910  4E 80 04 21 */	bctrl
 /* 802A99B4 002A6914  80 C1 00 6C */	lwz r6, 0x6c(r1)
 /* 802A99B8 002A6918  38 81 00 08 */	addi r4, r1, 8
 /* 802A99BC 002A691C  80 03 00 04 */	lwz r0, 4(r3)
@@ -150,7 +150,7 @@ lbl_802A9A70:
 /* 802A9A78 002A69D8  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 802A9A7C 002A69DC  7C 08 03 A6 */	mtlr r0
 /* 802A9A80 002A69E0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802A9A84 002A69E4  4E 80 00 20 */	blr 
+/* 802A9A84 002A69E4  4E 80 00 20 */	blr
 
 .global LineIntersectsOBBTree__18CCollidableOBBTreeCFPCQ28COBBTree5CNodePCQ28COBBTree5CNodeR12CRayCastInfo
 LineIntersectsOBBTree__18CCollidableOBBTreeCFPCQ28COBBTree5CNodePCQ28COBBTree5CNodeR12CRayCastInfo:
@@ -358,7 +358,7 @@ lbl_802A9D5C:
 /* 802A9D60 002A6CC0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802A9D64 002A6CC4  7C 08 03 A6 */	mtlr r0
 /* 802A9D68 002A6CC8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802A9D6C 002A6CCC  4E 80 00 20 */	blr 
+/* 802A9D6C 002A6CCC  4E 80 00 20 */	blr
 
 .global LineIntersectsOBBTree__18CCollidableOBBTreeCFPCQ28COBBTree5CNodeR12CRayCastInfo
 LineIntersectsOBBTree__18CCollidableOBBTreeCFPCQ28COBBTree5CNodeR12CRayCastInfo:
@@ -425,7 +425,7 @@ lbl_802A9E3C:
 /* 802A9E50 002A6DB0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802A9E54 002A6DB4  7C 08 03 A6 */	mtlr r0
 /* 802A9E58 002A6DB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A9E5C 002A6DBC  4E 80 00 20 */	blr 
+/* 802A9E5C 002A6DBC  4E 80 00 20 */	blr
 
 .global LineIntersectsTree__18CCollidableOBBTreeCFRC5CMRayRC15CMaterialFilterfRC12CTransform4f
 LineIntersectsTree__18CCollidableOBBTreeCFRC5CMRayRC15CMaterialFilterfRC12CTransform4f:
@@ -585,7 +585,7 @@ lbl_802AA0A0:
 /* 802AA0BC 002A701C  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802AA0C0 002A7020  7C 08 03 A6 */	mtlr r0
 /* 802AA0C4 002A7024  38 21 01 10 */	addi r1, r1, 0x110
-/* 802AA0C8 002A7028  4E 80 00 20 */	blr 
+/* 802AA0C8 002A7028  4E 80 00 20 */	blr
 
 .global TransformPlane__FRC6CPlaneRC12CTransform4f
 TransformPlane__FRC6CPlaneRC12CTransform4f:
@@ -647,7 +647,7 @@ TransformPlane__FRC6CPlaneRC12CTransform4f:
 /* 802AA1A8 002A7108  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 802AA1AC 002A710C  7C 08 03 A6 */	mtlr r0
 /* 802AA1B0 002A7110  38 21 00 70 */	addi r1, r1, 0x70
-/* 802AA1B4 002A7114  4E 80 00 20 */	blr 
+/* 802AA1B4 002A7114  4E 80 00 20 */	blr
 
 .global CastRayInternal__18CCollidableOBBTreeCFRC25CInternalRayCastStructure
 CastRayInternal__18CCollidableOBBTreeCFRC25CInternalRayCastStructure:
@@ -664,7 +664,7 @@ CastRayInternal__18CCollidableOBBTreeCFRC25CInternalRayCastStructure:
 /* 802AA1E0 002A7140  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802AA1E4 002A7144  7C 08 03 A6 */	mtlr r0
 /* 802AA1E8 002A7148  38 21 00 10 */	addi r1, r1, 0x10
-/* 802AA1EC 002A714C  4E 80 00 20 */	blr 
+/* 802AA1EC 002A714C  4E 80 00 20 */	blr
 
 .global SphereCollideWithLeafMoving__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC7CSphereRC13CMaterialListRC15CMaterialFilterRC9CVector3fRdR14CCollisionInfo
 SphereCollideWithLeafMoving__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC7CSphereRC13CMaterialListRC15CMaterialFilterRC9CVector3fRdR14CCollisionInfo:
@@ -838,7 +838,7 @@ lbl_802AA410:
 /* 802AA488 002A73E8  81 8F 00 00 */	lwz r12, 0(r15)
 /* 802AA48C 002A73EC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802AA490 002A73F0  7D 89 03 A6 */	mtctr r12
-/* 802AA494 002A73F4  4E 80 04 21 */	bctrl 
+/* 802AA494 002A73F4  4E 80 04 21 */	bctrl
 /* 802AA498 002A73F8  80 C1 02 74 */	lwz r6, 0x274(r1)
 /* 802AA49C 002A73FC  38 81 00 48 */	addi r4, r1, 0x48
 /* 802AA4A0 002A7400  80 03 00 04 */	lwz r0, 4(r3)
@@ -1666,7 +1666,7 @@ lbl_802AB0AC:
 /* 802AB134 002A8094  80 01 04 D4 */	lwz r0, 0x4d4(r1)
 /* 802AB138 002A8098  7C 08 03 A6 */	mtlr r0
 /* 802AB13C 002A809C  38 21 04 D0 */	addi r1, r1, 0x4d0
-/* 802AB140 002A80A0  4E 80 00 20 */	blr 
+/* 802AB140 002A80A0  4E 80 00 20 */	blr
 
 .global SphereCollisionMoving__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC7CSphereRC6COBBoxRC13CMaterialListRC15CMaterialFilterRC9CVector3fRdR14CCollisionInfo
 SphereCollisionMoving__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC7CSphereRC6COBBoxRC13CMaterialListRC15CMaterialFilterRC9CVector3fRdR14CCollisionInfo:
@@ -1752,7 +1752,7 @@ lbl_802AB268:
 /* 802AB270 002A81D0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802AB274 002A81D4  7C 08 03 A6 */	mtlr r0
 /* 802AB278 002A81D8  38 21 00 40 */	addi r1, r1, 0x40
-/* 802AB27C 002A81DC  4E 80 00 20 */	blr 
+/* 802AB27C 002A81DC  4E 80 00 20 */	blr
 
 .global AABoxCollideWithLeafMoving__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC6CAABoxRC13CMaterialListRC15CMaterialFilterRCQ220CMetroidAreaCollider22CMovingAABoxComponentsRC9CVector3fRdR14CCollisionInfo
 AABoxCollideWithLeafMoving__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC6CAABoxRC13CMaterialListRC15CMaterialFilterRCQ220CMetroidAreaCollider22CMovingAABoxComponentsRC9CVector3fRdR14CCollisionInfo:
@@ -1894,7 +1894,7 @@ lbl_802AB428:
 /* 802AB498 002A83F8  81 8F 00 00 */	lwz r12, 0(r15)
 /* 802AB49C 002A83FC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802AB4A0 002A8400  7D 89 03 A6 */	mtctr r12
-/* 802AB4A4 002A8404  4E 80 04 21 */	bctrl 
+/* 802AB4A4 002A8404  4E 80 04 21 */	bctrl
 /* 802AB4A8 002A8408  80 C1 01 1C */	lwz r6, 0x11c(r1)
 /* 802AB4AC 002A840C  38 81 00 38 */	addi r4, r1, 0x38
 /* 802AB4B0 002A8410  80 03 00 04 */	lwz r0, 4(r3)
@@ -2271,7 +2271,7 @@ lbl_802ABA30:
 /* 802ABA5C 002A89BC  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 802ABA60 002A89C0  7C 08 03 A6 */	mtlr r0
 /* 802ABA64 002A89C4  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 802ABA68 002A89C8  4E 80 00 20 */	blr 
+/* 802ABA68 002A89C8  4E 80 00 20 */	blr
 
 .global AABoxCollisionMoving__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC6CAABoxRC6COBBoxRC13CMaterialListRC15CMaterialFilterRCQ220CMetroidAreaCollider22CMovingAABoxComponentsRC9CVector3fRdR14CCollisionInfo
 AABoxCollisionMoving__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC6CAABoxRC6COBBoxRC13CMaterialListRC15CMaterialFilterRCQ220CMetroidAreaCollider22CMovingAABoxComponentsRC9CVector3fRdR14CCollisionInfo:
@@ -2361,7 +2361,7 @@ lbl_802ABBA0:
 /* 802ABBA8 002A8B08  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802ABBAC 002A8B0C  7C 08 03 A6 */	mtlr r0
 /* 802ABBB0 002A8B10  38 21 00 50 */	addi r1, r1, 0x50
-/* 802ABBB4 002A8B14  4E 80 00 20 */	blr 
+/* 802ABBB4 002A8B14  4E 80 00 20 */	blr
 
 .global SphereCollisionBoolean__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC7CSphereRC6COBBoxRC15CMaterialFilter
 SphereCollisionBoolean__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC7CSphereRC6COBBoxRC15CMaterialFilter:
@@ -2425,7 +2425,7 @@ lbl_802ABC2C:
 /* 802ABC98 002A8BF8  81 96 00 00 */	lwz r12, 0(r22)
 /* 802ABC9C 002A8BFC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802ABCA0 002A8C00  7D 89 03 A6 */	mtctr r12
-/* 802ABCA4 002A8C04  4E 80 04 21 */	bctrl 
+/* 802ABCA4 002A8C04  4E 80 04 21 */	bctrl
 /* 802ABCA8 002A8C08  80 C1 00 5C */	lwz r6, 0x5c(r1)
 /* 802ABCAC 002A8C0C  38 81 00 08 */	addi r4, r1, 8
 /* 802ABCB0 002A8C10  80 03 00 04 */	lwz r0, 4(r3)
@@ -2488,7 +2488,7 @@ lbl_802ABD74:
 /* 802ABD78 002A8CD8  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802ABD7C 002A8CDC  7C 08 03 A6 */	mtlr r0
 /* 802ABD80 002A8CE0  38 21 00 90 */	addi r1, r1, 0x90
-/* 802ABD84 002A8CE4  4E 80 00 20 */	blr 
+/* 802ABD84 002A8CE4  4E 80 00 20 */	blr
 
 .global AABoxCollisionBoolean__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC6CAABoxRC6COBBoxRC15CMaterialFilter
 AABoxCollisionBoolean__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC6CAABoxRC6COBBoxRC15CMaterialFilter:
@@ -2578,7 +2578,7 @@ lbl_802ABE64:
 /* 802ABED0 002A8E30  81 98 00 00 */	lwz r12, 0(r24)
 /* 802ABED4 002A8E34  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802ABED8 002A8E38  7D 89 03 A6 */	mtctr r12
-/* 802ABEDC 002A8E3C  4E 80 04 21 */	bctrl 
+/* 802ABEDC 002A8E3C  4E 80 04 21 */	bctrl
 /* 802ABEE0 002A8E40  80 C1 00 80 */	lwz r6, 0x80(r1)
 /* 802ABEE4 002A8E44  38 81 00 08 */	addi r4, r1, 8
 /* 802ABEE8 002A8E48  80 03 00 04 */	lwz r0, 4(r3)
@@ -2642,7 +2642,7 @@ lbl_802ABFB0:
 /* 802ABFB4 002A8F14  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 802ABFB8 002A8F18  7C 08 03 A6 */	mtlr r0
 /* 802ABFBC 002A8F1C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802ABFC0 002A8F20  4E 80 00 20 */	blr 
+/* 802ABFC0 002A8F20  4E 80 00 20 */	blr
 
 .global SphereCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList
 SphereCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList:
@@ -2706,7 +2706,7 @@ lbl_802AC038:
 /* 802AC0A4 002A9004  81 93 00 00 */	lwz r12, 0(r19)
 /* 802AC0A8 002A9008  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802AC0AC 002A900C  7D 89 03 A6 */	mtctr r12
-/* 802AC0B0 002A9010  4E 80 04 21 */	bctrl 
+/* 802AC0B0 002A9010  4E 80 04 21 */	bctrl
 /* 802AC0B4 002A9014  80 C1 00 74 */	lwz r6, 0x74(r1)
 /* 802AC0B8 002A9018  38 81 00 08 */	addi r4, r1, 8
 /* 802AC0BC 002A901C  80 03 00 04 */	lwz r0, 4(r3)
@@ -2752,7 +2752,7 @@ lbl_802AC144:
 /* 802AC154 002A90B4  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802AC158 002A90B8  7C 08 03 A6 */	mtlr r0
 /* 802AC15C 002A90BC  38 21 01 10 */	addi r1, r1, 0x110
-/* 802AC160 002A90C0  4E 80 00 20 */	blr 
+/* 802AC160 002A90C0  4E 80 00 20 */	blr
 
 .global SphereCollision__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC7CSphereRC6COBBoxRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList
 SphereCollision__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC7CSphereRC6COBBoxRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList:
@@ -2830,7 +2830,7 @@ lbl_802AC268:
 /* 802AC270 002A91D0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802AC274 002A91D4  7C 08 03 A6 */	mtlr r0
 /* 802AC278 002A91D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802AC27C 002A91DC  4E 80 00 20 */	blr 
+/* 802AC27C 002A91DC  4E 80 00 20 */	blr
 
 .global AABoxCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC6CAABoxRC13CMaterialListRC15CMaterialFilterPC6CPlaneR18CCollisionInfoList
 AABoxCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC6CAABoxRC13CMaterialListRC15CMaterialFilterPC6CPlaneR18CCollisionInfoList:
@@ -2911,7 +2911,7 @@ lbl_802AC338:
 /* 802AC3A4 002A9304  81 92 00 00 */	lwz r12, 0(r18)
 /* 802AC3A8 002A9308  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802AC3AC 002A930C  7D 89 03 A6 */	mtctr r12
-/* 802AC3B0 002A9310  4E 80 04 21 */	bctrl 
+/* 802AC3B0 002A9310  4E 80 04 21 */	bctrl
 /* 802AC3B4 002A9314  80 C1 00 C4 */	lwz r6, 0xc4(r1)
 /* 802AC3B8 002A9318  38 81 00 08 */	addi r4, r1, 8
 /* 802AC3BC 002A931C  80 03 00 04 */	lwz r0, 4(r3)
@@ -2993,7 +2993,7 @@ lbl_802AC4D4:
 /* 802AC4E4 002A9444  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 802AC4E8 002A9448  7C 08 03 A6 */	mtlr r0
 /* 802AC4EC 002A944C  38 21 01 60 */	addi r1, r1, 0x160
-/* 802AC4F0 002A9450  4E 80 00 20 */	blr 
+/* 802AC4F0 002A9450  4E 80 00 20 */	blr
 
 .global AABoxCollision__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC6CAABoxRC6COBBoxRC13CMaterialListRC15CMaterialFilterPC6CPlaneR18CCollisionInfoList
 AABoxCollision__18CCollidableOBBTreeCFRCQ28COBBTree5CNodeRC12CTransform4fRC6CAABoxRC6COBBoxRC13CMaterialListRC15CMaterialFilterPC6CPlaneR18CCollisionInfoList:
@@ -3075,13 +3075,13 @@ lbl_802AC608:
 /* 802AC610 002A9570  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802AC614 002A9574  7C 08 03 A6 */	mtlr r0
 /* 802AC618 002A9578  38 21 00 40 */	addi r1, r1, 0x40
-/* 802AC61C 002A957C  4E 80 00 20 */	blr 
+/* 802AC61C 002A957C  4E 80 00 20 */	blr
 
 .global GetPrimType__18CCollidableOBBTreeCFv
 GetPrimType__18CCollidableOBBTreeCFv:
 /* 802AC620 002A9580  3C 60 4F 42 */	lis r3, 0x4F424254@ha
 /* 802AC624 002A9584  38 63 42 54 */	addi r3, r3, 0x4F424254@l
-/* 802AC628 002A9588  4E 80 00 20 */	blr 
+/* 802AC628 002A9588  4E 80 00 20 */	blr
 
 .global CalculateLocalAABox__18CCollidableOBBTreeCFv
 CalculateLocalAABox__18CCollidableOBBTreeCFv:
@@ -3096,7 +3096,7 @@ CalculateLocalAABox__18CCollidableOBBTreeCFv:
 /* 802AC64C 002A95AC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802AC650 002A95B0  7C 08 03 A6 */	mtlr r0
 /* 802AC654 002A95B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802AC658 002A95B8  4E 80 00 20 */	blr 
+/* 802AC658 002A95B8  4E 80 00 20 */	blr
 
 .global CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f
 CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f:
@@ -3133,7 +3133,7 @@ CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f:
 /* 802AC6D4 002A9634  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 802AC6D8 002A9638  7C 08 03 A6 */	mtlr r0
 /* 802AC6DC 002A963C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802AC6E0 002A9640  4E 80 00 20 */	blr 
+/* 802AC6E0 002A9640  4E 80 00 20 */	blr
 
 .global __ct__18CCollidableOBBTreeFP8COBBTreeRC13CMaterialList
 __ct__18CCollidableOBBTreeFP8COBBTreeRC13CMaterialList:

@@ -106,7 +106,7 @@ lbl_80237C84:
 /* 80237C90 00234BF0  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80237C94 00234BF4  7C 08 03 A6 */	mtlr r0
 /* 80237C98 00234BF8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80237C9C 00234BFC  4E 80 00 20 */	blr 
+/* 80237C9C 00234BFC  4E 80 00 20 */	blr
 
 .global UpdateTeamCaptain__10CTeamAiMgrFv
 UpdateTeamCaptain__10CTeamAiMgrFv:
@@ -134,7 +134,7 @@ lbl_80237CD0:
 
 .global sub_80237ce8
 sub_80237ce8:
-/* 80237CE8 00234C48  4E 80 00 20 */	blr 
+/* 80237CE8 00234C48  4E 80 00 20 */	blr
 
 .global SpacingSort__10CTeamAiMgrFR13CStateManagerRC9CVector3f
 SpacingSort__10CTeamAiMgrFR13CStateManagerRC9CVector3f:
@@ -351,7 +351,7 @@ lbl_80237F88:
 /* 80238014 00234F74  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 80238018 00234F78  7C 08 03 A6 */	mtlr r0
 /* 8023801C 00234F7C  38 21 01 30 */	addi r1, r1, 0x130
-/* 80238020 00234F80  4E 80 00 20 */	blr 
+/* 80238020 00234F80  4E 80 00 20 */	blr
 
 .global PositionTeam__10CTeamAiMgrFR13CStateManager
 PositionTeam__10CTeamAiMgrFR13CStateManager:
@@ -370,7 +370,7 @@ PositionTeam__10CTeamAiMgrFR13CStateManager:
 /* 80238054 00234FB4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80238058 00234FB8  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8023805C 00234FBC  7D 89 03 A6 */	mtctr r12
-/* 80238060 00234FC0  4E 80 04 21 */	bctrl 
+/* 80238060 00234FC0  4E 80 04 21 */	bctrl
 /* 80238064 00234FC4  C0 41 00 24 */	lfs f2, 0x24(r1)
 /* 80238068 00234FC8  C0 21 00 28 */	lfs f1, 0x28(r1)
 /* 8023806C 00234FCC  C0 01 00 2C */	lfs f0, 0x2c(r1)
@@ -411,7 +411,7 @@ lbl_802380AC:
 /* 802380EC 0023504C  81 8C 00 A0 */	lwz r12, 0xa0(r12)
 /* 802380F0 00235050  38 E1 00 30 */	addi r7, r1, 0x30
 /* 802380F4 00235054  7D 89 03 A6 */	mtctr r12
-/* 802380F8 00235058  4E 80 04 21 */	bctrl 
+/* 802380F8 00235058  4E 80 04 21 */	bctrl
 /* 802380FC 0023505C  C0 01 00 18 */	lfs f0, 0x18(r1)
 /* 80238100 00235060  D0 1F 00 1C */	stfs f0, 0x1c(r31)
 /* 80238104 00235064  C0 01 00 1C */	lfs f0, 0x1c(r1)
@@ -434,12 +434,12 @@ lbl_80238130:
 /* 8023813C 0023509C  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80238140 002350A0  7C 08 03 A6 */	mtlr r0
 /* 80238144 002350A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80238148 002350A8  4E 80 00 20 */	blr 
+/* 80238148 002350A8  4E 80 00 20 */	blr
 
 .global AssignRoles__10CTeamAiMgrFQ211CTeamAiRole11ETeamAiRoleQ211CTeamAiRole11ETeamAiRole
 AssignRoles__10CTeamAiMgrFQ211CTeamAiRole11ETeamAiRoleQ211CTeamAiRole11ETeamAiRole:
 /* 8023814C 002350AC  28 05 00 00 */	cmplwi r5, 0
-/* 80238150 002350B0  4D 82 00 20 */	beqlr 
+/* 80238150 002350B0  4D 82 00 20 */	beqlr
 /* 80238154 002350B4  80 E3 00 64 */	lwz r7, 0x64(r3)
 /* 80238158 002350B8  39 00 00 00 */	li r8, 0
 /* 8023815C 002350BC  48 00 00 5C */	b lbl_802381B8
@@ -466,7 +466,7 @@ lbl_80238198:
 /* 802381A4 00235104  91 07 00 14 */	stw r8, 0x14(r7)
 /* 802381A8 00235108  39 08 00 01 */	addi r8, r8, 1
 /* 802381AC 0023510C  7C 08 28 40 */	cmplw r8, r5
-/* 802381B0 00235110  4D 82 00 20 */	beqlr 
+/* 802381B0 00235110  4D 82 00 20 */	beqlr
 lbl_802381B4:
 /* 802381B4 00235114  38 E7 00 28 */	addi r7, r7, 0x28
 lbl_802381B8:
@@ -479,7 +479,7 @@ lbl_802381B8:
 
 .global sub_802381d0
 sub_802381d0:
-/* 802381D0 00235130  4E 80 00 20 */	blr 
+/* 802381D0 00235130  4E 80 00 20 */	blr
 
 .global ResetRoles__10CTeamAiMgrFR13CStateManager
 ResetRoles__10CTeamAiMgrFR13CStateManager:
@@ -528,7 +528,7 @@ lbl_80238248:
 /* 80238270 002351D0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80238274 002351D4  7C 08 03 A6 */	mtlr r0
 /* 80238278 002351D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023827C 002351DC  4E 80 00 20 */	blr 
+/* 8023827C 002351DC  4E 80 00 20 */	blr
 
 .global UpdateRoles__10CTeamAiMgrFR13CStateManager
 UpdateRoles__10CTeamAiMgrFR13CStateManager:
@@ -553,7 +553,7 @@ UpdateRoles__10CTeamAiMgrFR13CStateManager:
 /* 802382C8 00235228  81 84 00 00 */	lwz r12, 0(r4)
 /* 802382CC 0023522C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 802382D0 00235230  7D 89 03 A6 */	mtctr r12
-/* 802382D4 00235234  4E 80 04 21 */	bctrl 
+/* 802382D4 00235234  4E 80 04 21 */	bctrl
 /* 802382D8 00235238  C3 A1 00 68 */	lfs f29, 0x68(r1)
 /* 802382DC 0023523C  39 00 00 01 */	li r8, 1
 /* 802382E0 00235240  C3 E1 00 6C */	lfs f31, 0x6c(r1)
@@ -653,7 +653,7 @@ lbl_802383B4:
 /* 80238448 002353A8  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8023844C 002353AC  7C 08 03 A6 */	mtlr r0
 /* 80238450 002353B0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80238454 002353B4  4E 80 00 20 */	blr 
+/* 80238454 002353B4  4E 80 00 20 */	blr
 
 .global ShouldUpdateRoles__10CTeamAiMgrFf
 ShouldUpdateRoles__10CTeamAiMgrFf:
@@ -669,7 +669,7 @@ ShouldUpdateRoles__10CTeamAiMgrFf:
 /* 8023847C 002353DC  4C 41 13 82 */	cror 2, 1, 2
 /* 80238480 002353E0  40 82 00 0C */	bne lbl_8023848C
 /* 80238484 002353E4  38 60 00 01 */	li r3, 1
-/* 80238488 002353E8  4E 80 00 20 */	blr 
+/* 80238488 002353E8  4E 80 00 20 */	blr
 lbl_8023848C:
 /* 8023848C 002353EC  80 03 00 5C */	lwz r0, 0x5c(r3)
 /* 80238490 002353F0  80 83 00 64 */	lwz r4, 0x64(r3)
@@ -689,7 +689,7 @@ lbl_802384C0:
 /* 802384C0 00235420  54 00 06 3F */	clrlwi. r0, r0, 0x18
 /* 802384C4 00235424  40 82 00 0C */	bne lbl_802384D0
 /* 802384C8 00235428  38 60 00 01 */	li r3, 1
-/* 802384CC 0023542C  4E 80 00 20 */	blr 
+/* 802384CC 0023542C  4E 80 00 20 */	blr
 lbl_802384D0:
 /* 802384D0 00235430  38 84 00 28 */	addi r4, r4, 0x28
 lbl_802384D4:
@@ -697,7 +697,7 @@ lbl_802384D4:
 /* 802384D8 00235438  40 82 FF C8 */	bne lbl_802384A0
 lbl_802384DC:
 /* 802384DC 0023543C  38 60 00 00 */	li r3, 0
-/* 802384E0 00235440  4E 80 00 20 */	blr 
+/* 802384E0 00235440  4E 80 00 20 */	blr
 
 .global RemoveProjectileAttacker__10CTeamAiMgrF9TUniqueId
 RemoveProjectileAttacker__10CTeamAiMgrF9TUniqueId:
@@ -759,7 +759,7 @@ lbl_802385AC:
 /* 802385B4 00235514  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802385B8 00235518  7C 08 03 A6 */	mtlr r0
 /* 802385BC 0023551C  38 21 00 40 */	addi r1, r1, 0x40
-/* 802385C0 00235520  4E 80 00 20 */	blr 
+/* 802385C0 00235520  4E 80 00 20 */	blr
 
 .global AddProjectileAttacker__10CTeamAiMgrF9TUniqueId
 AddProjectileAttacker__10CTeamAiMgrF9TUniqueId:
@@ -862,7 +862,7 @@ lbl_80238728:
 /* 80238730 00235690  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80238734 00235694  7C 08 03 A6 */	mtlr r0
 /* 80238738 00235698  38 21 00 50 */	addi r1, r1, 0x50
-/* 8023873C 0023569C  4E 80 00 20 */	blr 
+/* 8023873C 0023569C  4E 80 00 20 */	blr
 
 .global sub_80238740
 sub_80238740:
@@ -901,7 +901,7 @@ sub_80238740:
 /* 802387C0 00235720  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802387C4 00235724  7C 08 03 A6 */	mtlr r0
 /* 802387C8 00235728  38 21 00 30 */	addi r1, r1, 0x30
-/* 802387CC 0023572C  4E 80 00 20 */	blr 
+/* 802387CC 0023572C  4E 80 00 20 */	blr
 
 .global sub_802387d0
 sub_802387d0:
@@ -1070,7 +1070,7 @@ lbl_802389F0:
 /* 802389F4 00235954  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802389F8 00235958  7C 08 03 A6 */	mtlr r0
 /* 802389FC 0023595C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80238A00 00235960  4E 80 00 20 */	blr 
+/* 80238A00 00235960  4E 80 00 20 */	blr
 
 .global CanAcceptProjectileAttacker__10CTeamAiMgrCF9TUniqueId
 CanAcceptProjectileAttacker__10CTeamAiMgrCF9TUniqueId:
@@ -1141,7 +1141,7 @@ lbl_80238AE8:
 /* 80238AF0 00235A50  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80238AF4 00235A54  7C 08 03 A6 */	mtlr r0
 /* 80238AF8 00235A58  38 21 00 30 */	addi r1, r1, 0x30
-/* 80238AFC 00235A5C  4E 80 00 20 */	blr 
+/* 80238AFC 00235A5C  4E 80 00 20 */	blr
 
 .global IsProjectileAttacker__10CTeamAiMgrCF9TUniqueId
 IsProjectileAttacker__10CTeamAiMgrCF9TUniqueId:
@@ -1197,7 +1197,7 @@ lbl_80238B90:
 /* 80238BBC 00235B1C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80238BC0 00235B20  7C 08 03 A6 */	mtlr r0
 /* 80238BC4 00235B24  38 21 00 30 */	addi r1, r1, 0x30
-/* 80238BC8 00235B28  4E 80 00 20 */	blr 
+/* 80238BC8 00235B28  4E 80 00 20 */	blr
 
 .global RemoveMeleeAttacker__10CTeamAiMgrF9TUniqueId
 RemoveMeleeAttacker__10CTeamAiMgrF9TUniqueId:
@@ -1259,7 +1259,7 @@ lbl_80238C94:
 /* 80238C9C 00235BFC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80238CA0 00235C00  7C 08 03 A6 */	mtlr r0
 /* 80238CA4 00235C04  38 21 00 40 */	addi r1, r1, 0x40
-/* 80238CA8 00235C08  4E 80 00 20 */	blr 
+/* 80238CA8 00235C08  4E 80 00 20 */	blr
 
 .global AddMeleeAttacker__10CTeamAiMgrF9TUniqueId
 AddMeleeAttacker__10CTeamAiMgrF9TUniqueId:
@@ -1362,7 +1362,7 @@ lbl_80238E10:
 /* 80238E18 00235D78  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80238E1C 00235D7C  7C 08 03 A6 */	mtlr r0
 /* 80238E20 00235D80  38 21 00 50 */	addi r1, r1, 0x50
-/* 80238E24 00235D84  4E 80 00 20 */	blr 
+/* 80238E24 00235D84  4E 80 00 20 */	blr
 
 .global CanAcceptMeleeAttacker__10CTeamAiMgrCF9TUniqueId
 CanAcceptMeleeAttacker__10CTeamAiMgrCF9TUniqueId:
@@ -1433,7 +1433,7 @@ lbl_80238F0C:
 /* 80238F14 00235E74  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80238F18 00235E78  7C 08 03 A6 */	mtlr r0
 /* 80238F1C 00235E7C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80238F20 00235E80  4E 80 00 20 */	blr 
+/* 80238F20 00235E80  4E 80 00 20 */	blr
 
 .global IsMeleeAttacker__10CTeamAiMgrCF9TUniqueId
 IsMeleeAttacker__10CTeamAiMgrCF9TUniqueId:
@@ -1489,7 +1489,7 @@ lbl_80238FB4:
 /* 80238FE0 00235F40  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80238FE4 00235F44  7C 08 03 A6 */	mtlr r0
 /* 80238FE8 00235F48  38 21 00 30 */	addi r1, r1, 0x30
-/* 80238FEC 00235F4C  4E 80 00 20 */	blr 
+/* 80238FEC 00235F4C  4E 80 00 20 */	blr
 
 .global IsPartOfTeam__10CTeamAiMgrCF9TUniqueId
 IsPartOfTeam__10CTeamAiMgrCF9TUniqueId:
@@ -1563,7 +1563,7 @@ lbl_802390CC:
 /* 802390F4 00236054  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802390F8 00236058  7C 08 03 A6 */	mtlr r0
 /* 802390FC 0023605C  38 21 00 60 */	addi r1, r1, 0x60
-/* 80239100 00236060  4E 80 00 20 */	blr 
+/* 80239100 00236060  4E 80 00 20 */	blr
 
 .global HasTeamAiRole__10CTeamAiMgrCF9TUniqueId
 HasTeamAiRole__10CTeamAiMgrCF9TUniqueId:
@@ -1647,7 +1647,7 @@ lbl_80239224:
 /* 80239228 00236188  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 8023922C 0023618C  7C 08 03 A6 */	mtlr r0
 /* 80239230 00236190  38 21 00 60 */	addi r1, r1, 0x60
-/* 80239234 00236194  4E 80 00 20 */	blr 
+/* 80239234 00236194  4E 80 00 20 */	blr
 
 .global ClearTeamAiRole__10CTeamAiMgrF9TUniqueId
 ClearTeamAiRole__10CTeamAiMgrF9TUniqueId:
@@ -1722,7 +1722,7 @@ lbl_80239338:
 /* 8023933C 0023629C  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 80239340 002362A0  7C 08 03 A6 */	mtlr r0
 /* 80239344 002362A4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80239348 002362A8  4E 80 00 20 */	blr 
+/* 80239348 002362A8  4E 80 00 20 */	blr
 
 .global GetTeamAiRole__10CTeamAiMgrCF9TUniqueId
 GetTeamAiRole__10CTeamAiMgrCF9TUniqueId:
@@ -1798,7 +1798,7 @@ lbl_8023944C:
 /* 80239450 002363B0  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 80239454 002363B4  7C 08 03 A6 */	mtlr r0
 /* 80239458 002363B8  38 21 00 60 */	addi r1, r1, 0x60
-/* 8023945C 002363BC  4E 80 00 20 */	blr 
+/* 8023945C 002363BC  4E 80 00 20 */	blr
 
 .global GetNumAssignedOfRole__10CTeamAiMgrCFQ211CTeamAiRole11ETeamAiRole
 GetNumAssignedOfRole__10CTeamAiMgrCFQ211CTeamAiRole11ETeamAiRole:
@@ -1819,7 +1819,7 @@ lbl_8023948C:
 /* 8023948C 002363EC  7C 05 18 40 */	cmplw r5, r3
 /* 80239490 002363F0  40 82 FF E8 */	bne lbl_80239478
 /* 80239494 002363F4  7C C3 33 78 */	mr r3, r6
-/* 80239498 002363F8  4E 80 00 20 */	blr 
+/* 80239498 002363F8  4E 80 00 20 */	blr
 
 .global GetNumAssignedAiRoles__10CTeamAiMgrCFv
 GetNumAssignedAiRoles__10CTeamAiMgrCFv:
@@ -1848,7 +1848,7 @@ lbl_802394E4:
 /* 802394E4 00236444  7C 04 18 40 */	cmplw r4, r3
 /* 802394E8 00236448  40 82 FF CC */	bne lbl_802394B4
 /* 802394EC 0023644C  7C C3 33 78 */	mr r3, r6
-/* 802394F0 00236450  4E 80 00 20 */	blr 
+/* 802394F0 00236450  4E 80 00 20 */	blr
 
 .global RemoveTeamAiRole__10CTeamAiMgrF9TUniqueId
 RemoveTeamAiRole__10CTeamAiMgrF9TUniqueId:
@@ -1951,7 +1951,7 @@ lbl_80239638:
 /* 80239664 002365C4  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 80239668 002365C8  7C 08 03 A6 */	mtlr r0
 /* 8023966C 002365CC  38 21 00 80 */	addi r1, r1, 0x80
-/* 80239670 002365D0  4E 80 00 20 */	blr 
+/* 80239670 002365D0  4E 80 00 20 */	blr
 
 .global sub_80239674
 sub_80239674:
@@ -1973,7 +1973,7 @@ sub_80239674:
 /* 802396B0 00236610  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802396B4 00236614  7C 08 03 A6 */	mtlr r0
 /* 802396B8 00236618  38 21 00 20 */	addi r1, r1, 0x20
-/* 802396BC 0023661C  4E 80 00 20 */	blr 
+/* 802396BC 0023661C  4E 80 00 20 */	blr
 
 .global sub_802396c0
 sub_802396c0:
@@ -2040,7 +2040,7 @@ lbl_80239780:
 /* 8023979C 002366FC  80 05 00 00 */	lwz r0, 0(r5)
 /* 802397A0 00236700  90 03 00 00 */	stw r0, 0(r3)
 /* 802397A4 00236704  38 21 00 10 */	addi r1, r1, 0x10
-/* 802397A8 00236708  4E 80 00 20 */	blr 
+/* 802397A8 00236708  4E 80 00 20 */	blr
 
 .global AssignTeamAiRole__10CTeamAiMgrFRC3CAiiii
 AssignTeamAiRole__10CTeamAiMgrFRC3CAiiii:
@@ -2165,7 +2165,7 @@ lbl_80239968:
 /* 8023996C 002368CC  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 80239970 002368D0  7C 08 03 A6 */	mtlr r0
 /* 80239974 002368D4  38 21 00 80 */	addi r1, r1, 0x80
-/* 80239978 002368D8  4E 80 00 20 */	blr 
+/* 80239978 002368D8  4E 80 00 20 */	blr
 
 .global sub_8023997c
 sub_8023997c:
@@ -2207,7 +2207,7 @@ sub_8023997c:
 /* 80239A08 00236968  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80239A0C 0023696C  7C 08 03 A6 */	mtlr r0
 /* 80239A10 00236970  38 21 00 30 */	addi r1, r1, 0x30
-/* 80239A14 00236974  4E 80 00 20 */	blr 
+/* 80239A14 00236974  4E 80 00 20 */	blr
 
 .global sub_80239a18
 sub_80239a18:
@@ -2476,7 +2476,7 @@ lbl_80239DC8:
 /* 80239DCC 00236D2C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80239DD0 00236D30  7C 08 03 A6 */	mtlr r0
 /* 80239DD4 00236D34  38 21 00 30 */	addi r1, r1, 0x30
-/* 80239DD8 00236D38  4E 80 00 20 */	blr 
+/* 80239DD8 00236D38  4E 80 00 20 */	blr
 
 .global Think__10CTeamAiMgrFfR13CStateManager
 Think__10CTeamAiMgrFfR13CStateManager:
@@ -2516,7 +2516,7 @@ lbl_80239E28:
 /* 80239E5C 00236DBC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80239E60 00236DC0  7C 08 03 A6 */	mtlr r0
 /* 80239E64 00236DC4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80239E68 00236DC8  4E 80 00 20 */	blr 
+/* 80239E68 00236DC8  4E 80 00 20 */	blr
 
 .global Accept__10CTeamAiMgrFR8IVisitor
 Accept__10CTeamAiMgrFR8IVisitor:
@@ -2529,11 +2529,11 @@ Accept__10CTeamAiMgrFR8IVisitor:
 /* 80239E84 00236DE4  7C 04 03 78 */	mr r4, r0
 /* 80239E88 00236DE8  81 8C 00 C4 */	lwz r12, 0xc4(r12)
 /* 80239E8C 00236DEC  7D 89 03 A6 */	mtctr r12
-/* 80239E90 00236DF0  4E 80 04 21 */	bctrl 
+/* 80239E90 00236DF0  4E 80 04 21 */	bctrl
 /* 80239E94 00236DF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80239E98 00236DF8  7C 08 03 A6 */	mtlr r0
 /* 80239E9C 00236DFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80239EA0 00236E00  4E 80 00 20 */	blr 
+/* 80239EA0 00236E00  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__10CTeamAiMgrF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CTeamAiMgrF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -2547,7 +2547,7 @@ AcceptScriptMsg__10CTeamAiMgrF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 80239EC0 00236E20  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80239EC4 00236E24  7C 08 03 A6 */	mtlr r0
 /* 80239EC8 00236E28  38 21 00 10 */	addi r1, r1, 0x10
-/* 80239ECC 00236E2C  4E 80 00 20 */	blr 
+/* 80239ECC 00236E2C  4E 80 00 20 */	blr
 
 .global ResetTeamAiRole__10CTeamAiMgrF11EAttackTypeR13CStateManager9TUniqueId9TUniqueIdb
 ResetTeamAiRole__10CTeamAiMgrF11EAttackTypeR13CStateManager9TUniqueId9TUniqueIdb:
@@ -2625,7 +2625,7 @@ lbl_80239FD0:
 /* 80239FE0 00236F40  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80239FE4 00236F44  7C 08 03 A6 */	mtlr r0
 /* 80239FE8 00236F48  38 21 00 40 */	addi r1, r1, 0x40
-/* 80239FEC 00236F4C  4E 80 00 20 */	blr 
+/* 80239FEC 00236F4C  4E 80 00 20 */	blr
 
 .global AddAttacker__10CTeamAiMgrF11EAttackTypeR13CStateManager9TUniqueId9TUniqueId
 AddAttacker__10CTeamAiMgrF11EAttackTypeR13CStateManager9TUniqueId9TUniqueId:
@@ -2681,7 +2681,7 @@ lbl_8023A09C:
 /* 8023A0A8 00237008  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8023A0AC 0023700C  7C 08 03 A6 */	mtlr r0
 /* 8023A0B0 00237010  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023A0B4 00237014  4E 80 00 20 */	blr 
+/* 8023A0B4 00237014  4E 80 00 20 */	blr
 
 .global CanAcceptAttacker__10CTeamAiMgrF11EAttackTypeR13CStateManager9TUniqueId9TUniqueId
 CanAcceptAttacker__10CTeamAiMgrF11EAttackTypeR13CStateManager9TUniqueId9TUniqueId:
@@ -2737,7 +2737,7 @@ lbl_8023A164:
 /* 8023A170 002370D0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8023A174 002370D4  7C 08 03 A6 */	mtlr r0
 /* 8023A178 002370D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023A17C 002370DC  4E 80 00 20 */	blr 
+/* 8023A17C 002370DC  4E 80 00 20 */	blr
 
 .global GetTeamAiRole__10CTeamAiMgrCFRC13CStateManager9TUniqueId9TUniqueId
 GetTeamAiRole__10CTeamAiMgrCFRC13CStateManager9TUniqueId9TUniqueId:
@@ -2768,7 +2768,7 @@ lbl_8023A1D4:
 /* 8023A1D8 00237138  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8023A1DC 0023713C  7C 08 03 A6 */	mtlr r0
 /* 8023A1E0 00237140  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023A1E4 00237144  4E 80 00 20 */	blr 
+/* 8023A1E4 00237144  4E 80 00 20 */	blr
 
 .global GetTeamAiMgr__10CTeamAiMgrF3CAiRC13CStateManager
 GetTeamAiMgr__10CTeamAiMgrF3CAiRC13CStateManager:
@@ -2830,7 +2830,7 @@ lbl_8023A2A4:
 /* 8023A2B4 00237214  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8023A2B8 00237218  7C 08 03 A6 */	mtlr r0
 /* 8023A2BC 0023721C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023A2C0 00237220  4E 80 00 20 */	blr 
+/* 8023A2C0 00237220  4E 80 00 20 */	blr
 
 .global "__ct__10CTeamAiMgrF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRCQ210CTeamAiMgr8CUnknown"
 "__ct__10CTeamAiMgrF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRCQ210CTeamAiMgr8CUnknown":
@@ -2912,7 +2912,7 @@ lbl_8023A3D8:
 /* 8023A3E4 00237344  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8023A3E8 00237348  7C 08 03 A6 */	mtlr r0
 /* 8023A3EC 0023734C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023A3F0 00237350  4E 80 00 20 */	blr 
+/* 8023A3F0 00237350  4E 80 00 20 */	blr
 
 .global sub_8023a3f4
 sub_8023a3f4:
@@ -2971,7 +2971,7 @@ lbl_8023A4A0:
 /* 8023A4B4 00237414  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8023A4B8 00237418  7C 08 03 A6 */	mtlr r0
 /* 8023A4BC 0023741C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023A4C0 00237420  4E 80 00 20 */	blr 
+/* 8023A4C0 00237420  4E 80 00 20 */	blr
 
 .global __lt__11CTeamAiRoleCFRC11CTeamAiRole
 __lt__11CTeamAiRoleCFRC11CTeamAiRole:
@@ -3045,7 +3045,7 @@ lbl_8023A5B0:
 /* 8023A5C0 00237520  54 03 0F FE */	srwi r3, r0, 0x1f
 lbl_8023A5C4:
 /* 8023A5C4 00237524  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023A5C8 00237528  4E 80 00 20 */	blr 
+/* 8023A5C8 00237528  4E 80 00 20 */	blr
 
 .global "sort<rstl__vector<CTeamAiRole>_with_custom_comparator>"
 "sort<rstl__vector<CTeamAiRole>_with_custom_comparator>":
@@ -3217,7 +3217,7 @@ lbl_8023A834:
 /* 8023A844 002377A4  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 8023A848 002377A8  7C 08 03 A6 */	mtlr r0
 /* 8023A84C 002377AC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8023A850 002377B0  4E 80 00 20 */	blr 
+/* 8023A850 002377B0  4E 80 00 20 */	blr
 
 .global __swap__11CTeamAiRoleFRC11CTeamAiRole
 __swap__11CTeamAiRoleFRC11CTeamAiRole:
@@ -3287,7 +3287,7 @@ __swap__11CTeamAiRoleFRC11CTeamAiRole:
 /* 8023A950 002378B0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8023A954 002378B4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8023A958 002378B8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8023A95C 002378BC  4E 80 00 20 */	blr 
+/* 8023A95C 002378BC  4E 80 00 20 */	blr
 
 .global "lower_bound<Q34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>14const_iterator,11CTeamAiRole>__4rstlFQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>14iteratorQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>14iteratorRC11CTeamAiRole"
 "lower_bound<Q34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>14const_iterator,11CTeamAiRole>__4rstlFQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>14iteratorQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>14iteratorRC11CTeamAiRole":
@@ -3343,7 +3343,7 @@ lbl_8023AA04:
 /* 8023AA18 00237978  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8023AA1C 0023797C  7C 08 03 A6 */	mtlr r0
 /* 8023AA20 00237980  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023AA24 00237984  4E 80 00 20 */	blr 
+/* 8023AA24 00237984  4E 80 00 20 */	blr
 
 .global "lower_bound_const<Q34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>8iterator,11CTeamAiRole>__4rstlFQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>8const_iteratorQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>8const_iteratorRC11CTeamAiRole"
 "lower_bound_const<Q34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>8iterator,11CTeamAiRole>__4rstlFQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>8const_iteratorQ34rstl46list<11CTeamAiRole,Q24rstl17rmemory_allocator>8const_iteratorRC11CTeamAiRole":
@@ -3399,7 +3399,7 @@ lbl_8023AACC:
 /* 8023AAE0 00237A40  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8023AAE4 00237A44  7C 08 03 A6 */	mtlr r0
 /* 8023AAE8 00237A48  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023AAEC 00237A4C  4E 80 00 20 */	blr 
+/* 8023AAEC 00237A4C  4E 80 00 20 */	blr
 
 .global "lower_bound_const<Q24rstl17vector<TUniqueId>>"
 "lower_bound_const<Q24rstl17vector<TUniqueId>>":
@@ -3453,7 +3453,7 @@ lbl_8023AB8C:
 /* 8023ABA0 00237B00  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8023ABA4 00237B04  7C 08 03 A6 */	mtlr r0
 /* 8023ABA8 00237B08  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023ABAC 00237B0C  4E 80 00 20 */	blr 
+/* 8023ABAC 00237B0C  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl17vector<TUniqueId>>"
 "lower_bound<Q24rstl17vector<TUniqueId>>":
@@ -3507,7 +3507,7 @@ lbl_8023AC4C:
 /* 8023AC60 00237BC0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8023AC64 00237BC4  7C 08 03 A6 */	mtlr r0
 /* 8023AC68 00237BC8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023AC6C 00237BCC  4E 80 00 20 */	blr 
+/* 8023AC6C 00237BCC  4E 80 00 20 */	blr
 
 .global sub_8023ac70
 sub_8023ac70:
@@ -3597,7 +3597,7 @@ lbl_8023AD8C:
 /* 8023AD98 00237CF8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8023AD9C 00237CFC  7C 08 03 A6 */	mtlr r0
 /* 8023ADA0 00237D00  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023ADA4 00237D04  4E 80 00 20 */	blr 
+/* 8023ADA4 00237D04  4E 80 00 20 */	blr
 
 .global sub_8023ada8
 sub_8023ada8:
@@ -3611,7 +3611,7 @@ sub_8023ada8:
 /* 8023ADC4 00237D24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023ADC8 00237D28  7C 08 03 A6 */	mtlr r0
 /* 8023ADCC 00237D2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023ADD0 00237D30  4E 80 00 20 */	blr 
+/* 8023ADD0 00237D30  4E 80 00 20 */	blr
 
 .global sub_8023add4
 sub_8023add4:
@@ -3625,7 +3625,7 @@ sub_8023add4:
 /* 8023ADF0 00237D50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023ADF4 00237D54  7C 08 03 A6 */	mtlr r0
 /* 8023ADF8 00237D58  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023ADFC 00237D5C  4E 80 00 20 */	blr 
+/* 8023ADFC 00237D5C  4E 80 00 20 */	blr
 
 .global sub_8023ae00
 sub_8023ae00:
@@ -3639,7 +3639,7 @@ sub_8023ae00:
 /* 8023AE1C 00237D7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023AE20 00237D80  7C 08 03 A6 */	mtlr r0
 /* 8023AE24 00237D84  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023AE28 00237D88  4E 80 00 20 */	blr 
+/* 8023AE28 00237D88  4E 80 00 20 */	blr
 
 .global sub_8023ae2c
 sub_8023ae2c:
@@ -3653,7 +3653,7 @@ sub_8023ae2c:
 /* 8023AE48 00237DA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023AE4C 00237DAC  7C 08 03 A6 */	mtlr r0
 /* 8023AE50 00237DB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023AE54 00237DB4  4E 80 00 20 */	blr 
+/* 8023AE54 00237DB4  4E 80 00 20 */	blr
 
 .global sub_8023ae58
 sub_8023ae58:
@@ -3661,7 +3661,7 @@ sub_8023ae58:
 /* 8023AE5C 00237DBC  54 80 08 3C */	slwi r0, r4, 1
 /* 8023AE60 00237DC0  7C 05 02 14 */	add r0, r5, r0
 /* 8023AE64 00237DC4  90 03 00 00 */	stw r0, 0(r3)
-/* 8023AE68 00237DC8  4E 80 00 20 */	blr 
+/* 8023AE68 00237DC8  4E 80 00 20 */	blr
 
 .global sub_8023ae6c
 sub_8023ae6c:
@@ -3669,7 +3669,7 @@ sub_8023ae6c:
 /* 8023AE70 00237DD0  54 80 08 3C */	slwi r0, r4, 1
 /* 8023AE74 00237DD4  7C 05 02 14 */	add r0, r5, r0
 /* 8023AE78 00237DD8  90 03 00 00 */	stw r0, 0(r3)
-/* 8023AE7C 00237DDC  4E 80 00 20 */	blr 
+/* 8023AE7C 00237DDC  4E 80 00 20 */	blr
 
 .global sub_8023ae80
 sub_8023ae80:
@@ -3677,7 +3677,7 @@ sub_8023ae80:
 /* 8023AE84 00237DE4  80 83 00 00 */	lwz r4, 0(r3)
 /* 8023AE88 00237DE8  7C 04 02 14 */	add r0, r4, r0
 /* 8023AE8C 00237DEC  90 03 00 00 */	stw r0, 0(r3)
-/* 8023AE90 00237DF0  4E 80 00 20 */	blr 
+/* 8023AE90 00237DF0  4E 80 00 20 */	blr
 
 .global sub_8023ae94
 sub_8023ae94:
@@ -3685,7 +3685,7 @@ sub_8023ae94:
 /* 8023AE98 00237DF8  80 83 00 00 */	lwz r4, 0(r3)
 /* 8023AE9C 00237DFC  7C 04 02 14 */	add r0, r4, r0
 /* 8023AEA0 00237E00  90 03 00 00 */	stw r0, 0(r3)
-/* 8023AEA4 00237E04  4E 80 00 20 */	blr 
+/* 8023AEA4 00237E04  4E 80 00 20 */	blr
 
 .global sub_8023aea8
 sub_8023aea8:
@@ -3705,7 +3705,7 @@ sub_8023aea8:
 /* 8023AEDC 00237E3C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8023AEE0 00237E40  7C 08 03 A6 */	mtlr r0
 /* 8023AEE4 00237E44  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023AEE8 00237E48  4E 80 00 20 */	blr 
+/* 8023AEE8 00237E48  4E 80 00 20 */	blr
 
 .global sub_8023aeec
 sub_8023aeec:
@@ -3725,7 +3725,7 @@ sub_8023aeec:
 /* 8023AF20 00237E80  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8023AF24 00237E84  7C 08 03 A6 */	mtlr r0
 /* 8023AF28 00237E88  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023AF2C 00237E8C  4E 80 00 20 */	blr 
+/* 8023AF2C 00237E8C  4E 80 00 20 */	blr
 
 .global sub_8023af30
 sub_8023af30:
@@ -3745,7 +3745,7 @@ sub_8023af30:
 /* 8023AF64 00237EC4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8023AF68 00237EC8  7C 08 03 A6 */	mtlr r0
 /* 8023AF6C 00237ECC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023AF70 00237ED0  4E 80 00 20 */	blr 
+/* 8023AF70 00237ED0  4E 80 00 20 */	blr
 
 .global sub_8023af74
 sub_8023af74:
@@ -3765,7 +3765,7 @@ sub_8023af74:
 /* 8023AFA8 00237F08  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8023AFAC 00237F0C  7C 08 03 A6 */	mtlr r0
 /* 8023AFB0 00237F10  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023AFB4 00237F14  4E 80 00 20 */	blr 
+/* 8023AFB4 00237F14  4E 80 00 20 */	blr
 
 .global sub_8023afb8
 sub_8023afb8:
@@ -3775,7 +3775,7 @@ sub_8023afb8:
 /* 8023AFC4 00237F24  54 60 0F FE */	srwi r0, r3, 0x1f
 /* 8023AFC8 00237F28  7C 00 1A 14 */	add r0, r0, r3
 /* 8023AFCC 00237F2C  7C 03 0E 70 */	srawi r3, r0, 1
-/* 8023AFD0 00237F30  4E 80 00 20 */	blr 
+/* 8023AFD0 00237F30  4E 80 00 20 */	blr
 
 .global sub_8023afd4
 sub_8023afd4:
@@ -3788,7 +3788,7 @@ sub_8023afd4:
 /* 8023AFEC 00237F4C  7C 00 26 70 */	srawi r0, r0, 4
 /* 8023AFF0 00237F50  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 8023AFF4 00237F54  7C 60 1A 14 */	add r3, r0, r3
-/* 8023AFF8 00237F58  4E 80 00 20 */	blr 
+/* 8023AFF8 00237F58  4E 80 00 20 */	blr
 
 .global sub_8023affc
 sub_8023affc:
@@ -3801,7 +3801,7 @@ sub_8023affc:
 /* 8023B014 00237F74  7C 00 26 70 */	srawi r0, r0, 4
 /* 8023B018 00237F78  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 8023B01C 00237F7C  7C 60 1A 14 */	add r3, r0, r3
-/* 8023B020 00237F80  4E 80 00 20 */	blr 
+/* 8023B020 00237F80  4E 80 00 20 */	blr
 
 .global sub_8023b024
 sub_8023b024:
@@ -3811,7 +3811,7 @@ sub_8023b024:
 /* 8023B030 00237F90  54 60 0F FE */	srwi r0, r3, 0x1f
 /* 8023B034 00237F94  7C 00 1A 14 */	add r0, r0, r3
 /* 8023B038 00237F98  7C 03 0E 70 */	srawi r3, r0, 1
-/* 8023B03C 00237F9C  4E 80 00 20 */	blr 
+/* 8023B03C 00237F9C  4E 80 00 20 */	blr
 
 .global sub_8023b040
 sub_8023b040:
@@ -3957,7 +3957,7 @@ lbl_8023B250:
 /* 8023B260 002381C0  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8023B264 002381C4  7C 08 03 A6 */	mtlr r0
 /* 8023B268 002381C8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8023B26C 002381CC  4E 80 00 20 */	blr 
+/* 8023B26C 002381CC  4E 80 00 20 */	blr
 
 .global sub_8023b270
 sub_8023b270:
@@ -4022,7 +4022,7 @@ sub_8023b270:
 /* 8023B358 002382B8  91 21 00 20 */	stw r9, 0x20(r1)
 /* 8023B35C 002382BC  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8023B360 002382C0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8023B364 002382C4  4E 80 00 20 */	blr 
+/* 8023B364 002382C4  4E 80 00 20 */	blr
 
 .global sub_8023b368
 sub_8023b368:

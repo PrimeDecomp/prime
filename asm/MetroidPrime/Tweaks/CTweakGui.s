@@ -9,7 +9,7 @@ lbl_803DA440:
 	.4byte 0
 	.4byte __dt__9CTweakGuiFv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global FaceReflectionOrthoHeightDebugValueToActualValue__9CTweakGuiFf
@@ -17,35 +17,35 @@ FaceReflectionOrthoHeightDebugValueToActualValue__9CTweakGuiFf:
 /* 80074310 00071270  C0 42 88 74 */	lfs f2, lbl_805AA594@sda21(r2)
 /* 80074314 00071274  C0 02 88 70 */	lfs f0, lbl_805AA590@sda21(r2)
 /* 80074318 00071278  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 8007431C 0007127C  4E 80 00 20 */	blr 
+/* 8007431C 0007127C  4E 80 00 20 */	blr
 
 .global FaceReflectionOrthoWidthDebugValueToActualValue__9CTweakGuiFf
 FaceReflectionOrthoWidthDebugValueToActualValue__9CTweakGuiFf:
 /* 80074320 00071280  C0 42 88 74 */	lfs f2, lbl_805AA594@sda21(r2)
 /* 80074324 00071284  C0 02 88 70 */	lfs f0, lbl_805AA590@sda21(r2)
 /* 80074328 00071288  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 8007432C 0007128C  4E 80 00 20 */	blr 
+/* 8007432C 0007128C  4E 80 00 20 */	blr
 
 .global FaceReflectionAspectDebugValueToActualValue__9CTweakGuiFf
 FaceReflectionAspectDebugValueToActualValue__9CTweakGuiFf:
 /* 80074330 00071290  C0 42 88 7C */	lfs f2, lbl_805AA59C@sda21(r2)
 /* 80074334 00071294  C0 02 88 78 */	lfs f0, lbl_805AA598@sda21(r2)
 /* 80074338 00071298  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 8007433C 0007129C  4E 80 00 20 */	blr 
+/* 8007433C 0007129C  4E 80 00 20 */	blr
 
 .global FaceReflectionHeightDebugValueToActualValue__9CTweakGuiFf
 FaceReflectionHeightDebugValueToActualValue__9CTweakGuiFf:
 /* 80074340 000712A0  C0 42 88 80 */	lfs f2, lbl_805AA5A0@sda21(r2)
 /* 80074344 000712A4  C0 02 88 7C */	lfs f0, lbl_805AA59C@sda21(r2)
 /* 80074348 000712A8  EC 22 00 78 */	fmsubs f1, f2, f1, f0
-/* 8007434C 000712AC  4E 80 00 20 */	blr 
+/* 8007434C 000712AC  4E 80 00 20 */	blr
 
 .global FaceReflectionDistanceDebugValueToActualValue__9CTweakGuiFf
 FaceReflectionDistanceDebugValueToActualValue__9CTweakGuiFf:
 /* 80074350 000712B0  C0 42 88 88 */	lfs f2, lbl_805AA5A8@sda21(r2)
 /* 80074354 000712B4  C0 02 88 84 */	lfs f0, lbl_805AA5A4@sda21(r2)
 /* 80074358 000712B8  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 8007435C 000712BC  4E 80 00 20 */	blr 
+/* 8007435C 000712BC  4E 80 00 20 */	blr
 
 .global __ct__9CTweakGuiFR12CInputStream
 __ct__9CTweakGuiFR12CInputStream:
@@ -721,7 +721,7 @@ lbl_80074C74:
 /* 80074DAC 00071D0C  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80074DB0 00071D10  7C 08 03 A6 */	mtlr r0
 /* 80074DB4 00071D14  38 21 00 70 */	addi r1, r1, 0x70
-/* 80074DB8 00071D18  4E 80 00 20 */	blr 
+/* 80074DB8 00071D18  4E 80 00 20 */	blr
 
 .global __dt__9CTweakGuiFv
 __dt__9CTweakGuiFv:
@@ -836,7 +836,7 @@ lbl_80074F18:
 /* 80074F24 00071E84  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80074F28 00071E88  7C 08 03 A6 */	mtlr r0
 /* 80074F2C 00071E8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80074F30 00071E90  4E 80 00 20 */	blr 
+/* 80074F30 00071E90  4E 80 00 20 */	blr
 
 .global "__dl__22TOneStatic<9CTweakGui>FPv"
 "__dl__22TOneStatic<9CTweakGui>FPv":
@@ -850,4 +850,4 @@ lbl_80074F18:
 /* 80074F50 00071EB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80074F54 00071EB4  7C 08 03 A6 */	mtlr r0
 /* 80074F58 00071EB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80074F5C 00071EBC  4E 80 00 20 */	blr 
+/* 80074F5C 00071EBC  4E 80 00 20 */	blr

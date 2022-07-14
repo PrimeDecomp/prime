@@ -42,7 +42,7 @@ lbl_8014EF98:
 /* 8014EFA4 0014BF04  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014EFA8 0014BF08  7C 08 03 A6 */	mtlr r0
 /* 8014EFAC 0014BF0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014EFB0 0014BF10  4E 80 00 20 */	blr 
+/* 8014EFB0 0014BF10  4E 80 00 20 */	blr
 
 .global Accept__21CScriptDockAreaChangeFR8IVisitor
 Accept__21CScriptDockAreaChangeFR8IVisitor:
@@ -55,11 +55,11 @@ Accept__21CScriptDockAreaChangeFR8IVisitor:
 /* 8014EFCC 0014BF2C  7C 04 03 78 */	mr r4, r0
 /* 8014EFD0 0014BF30  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8014EFD4 0014BF34  7D 89 03 A6 */	mtctr r12
-/* 8014EFD8 0014BF38  4E 80 04 21 */	bctrl 
+/* 8014EFD8 0014BF38  4E 80 04 21 */	bctrl
 /* 8014EFDC 0014BF3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014EFE0 0014BF40  7C 08 03 A6 */	mtlr r0
 /* 8014EFE4 0014BF44  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014EFE8 0014BF48  4E 80 00 20 */	blr 
+/* 8014EFE8 0014BF48  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__21CScriptDockAreaChangeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__21CScriptDockAreaChangeF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -155,7 +155,7 @@ lbl_8014F108:
 /* 8014F128 0014C088  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8014F12C 0014C08C  7C 08 03 A6 */	mtlr r0
 /* 8014F130 0014C090  38 21 00 60 */	addi r1, r1, 0x60
-/* 8014F134 0014C094  4E 80 00 20 */	blr 
+/* 8014F134 0014C094  4E 80 00 20 */	blr
 
 .global "__ct__21CScriptDockAreaChangeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoib"
 "__ct__21CScriptDockAreaChangeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoib":

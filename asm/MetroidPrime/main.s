@@ -5,18 +5,18 @@
 .global sGraphicsFifo
 sGraphicsFifo:
 	.skip 0x60000
-	
+
 .global sMainSpace
 sMainSpace:
 	.skip 0x168
-	
+
 .global lbl_804576C8
 lbl_804576C8:
 	.skip 0xD0
 .global lbl_80457798
 lbl_80457798:
 	.skip 0x160
-	
+
 .section .data, "wa"
 .global lbl_803D8D60
 lbl_803D8D60:
@@ -6964,7 +6964,7 @@ lbl_8000892C:
 /* 8000894C 000058AC  EC 02 00 24 */	fdivs f0, f2, f0
 /* 80008950 000058B0  EC 23 00 32 */	fmuls f1, f3, f0
 /* 80008954 000058B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80008958 000058B8  4E 80 00 20 */	blr 
+/* 80008958 000058B8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl42vector<6CToken,Q24rstl17rmemory_allocator>Fi":
@@ -7036,7 +7036,7 @@ lbl_80008A38:
 /* 80008A3C 0000599C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80008A40 000059A0  7C 08 03 A6 */	mtlr r0
 /* 80008A44 000059A4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80008A48 000059A8  4E 80 00 20 */	blr 
+/* 80008A48 000059A8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl55vector<Q24rstl11pair<Ui,Ui>,Q24rstl17rmemory_allocator>Fi":
@@ -7110,4 +7110,4 @@ lbl_80008B28:
 /* 80008B34 00005A94  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80008B38 00005A98  7C 08 03 A6 */	mtlr r0
 /* 80008B3C 00005A9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80008B40 00005AA0  4E 80 00 20 */	blr 
+/* 80008B40 00005AA0  4E 80 00 20 */	blr

@@ -4,13 +4,16 @@
 .global lbl_80569E98
 lbl_80569E98:
 	.skip 0xC8
-	
+
 .section .sdata, "wa"
 
 .global lbl_805A8C10
 lbl_805A8C10:
-	.incbin "baserom.dol", 0x3F65B0, 0x8
-	
+	# ROM: 0x3F65B0
+	.4byte 0x803F7050
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global SetExiInterruptMask
@@ -87,7 +90,7 @@ lbl_803C00F4:
 /* 803C00F8 003BD058  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803C00FC 003BD05C  38 21 00 18 */	addi r1, r1, 0x18
 /* 803C0100 003BD060  7C 08 03 A6 */	mtlr r0
-/* 803C0104 003BD064  4E 80 00 20 */	blr 
+/* 803C0104 003BD064  4E 80 00 20 */	blr
 
 .global EXIImm
 EXIImm:
@@ -253,7 +256,7 @@ lbl_803C0350:
 /* 803C0354 003BD2B4  BB 21 00 24 */	lmw r25, 0x24(r1)
 /* 803C0358 003BD2B8  38 21 00 40 */	addi r1, r1, 0x40
 /* 803C035C 003BD2BC  7C 08 03 A6 */	mtlr r0
-/* 803C0360 003BD2C0  4E 80 00 20 */	blr 
+/* 803C0360 003BD2C0  4E 80 00 20 */	blr
 
 .global EXIImmEx
 EXIImmEx:
@@ -303,7 +306,7 @@ lbl_803C03F0:
 /* 803C03F4 003BD354  BB 61 00 1C */	lmw r27, 0x1c(r1)
 /* 803C03F8 003BD358  38 21 00 30 */	addi r1, r1, 0x30
 /* 803C03FC 003BD35C  7C 08 03 A6 */	mtlr r0
-/* 803C0400 003BD360  4E 80 00 20 */	blr 
+/* 803C0400 003BD360  4E 80 00 20 */	blr
 
 .global EXIDma
 EXIDma:
@@ -369,7 +372,7 @@ lbl_803C04DC:
 /* 803C04E0 003BD440  BB 21 00 24 */	lmw r25, 0x24(r1)
 /* 803C04E4 003BD444  38 21 00 40 */	addi r1, r1, 0x40
 /* 803C04E8 003BD448  7C 08 03 A6 */	mtlr r0
-/* 803C04EC 003BD44C  4E 80 00 20 */	blr 
+/* 803C04EC 003BD44C  4E 80 00 20 */	blr
 
 .global sub_803c04f0
 sub_803c04f0:
@@ -525,7 +528,7 @@ lbl_803C0710:
 /* 803C0718 003BD678  BB 61 00 1C */	lmw r27, 0x1c(r1)
 /* 803C071C 003BD67C  38 21 00 30 */	addi r1, r1, 0x30
 /* 803C0720 003BD680  7C 08 03 A6 */	mtlr r0
-/* 803C0724 003BD684  4E 80 00 20 */	blr 
+/* 803C0724 003BD684  4E 80 00 20 */	blr
 
 .global EXIClearInterrupts
 EXIClearInterrupts:
@@ -549,7 +552,7 @@ lbl_803C075C:
 /* 803C0764 003BD6C4  60 00 08 00 */	ori r0, r0, 0x800
 lbl_803C0768:
 /* 803C0768 003BD6C8  90 07 00 00 */	stw r0, 0(r7)
-/* 803C076C 003BD6CC  4E 80 00 20 */	blr 
+/* 803C076C 003BD6CC  4E 80 00 20 */	blr
 
 .global EXISetExiCallback
 EXISetExiCallback:
@@ -585,7 +588,7 @@ lbl_803C07CC:
 /* 803C07DC 003BD73C  BB 41 00 10 */	lmw r26, 0x10(r1)
 /* 803C07E0 003BD740  38 21 00 28 */	addi r1, r1, 0x28
 /* 803C07E4 003BD744  7C 08 03 A6 */	mtlr r0
-/* 803C07E8 003BD748  4E 80 00 20 */	blr 
+/* 803C07E8 003BD748  4E 80 00 20 */	blr
 
 .global __EXIProbe
 __EXIProbe:
@@ -689,7 +692,7 @@ lbl_803C094C:
 /* 803C0950 003BD8B0  BB 61 00 14 */	lmw r27, 0x14(r1)
 /* 803C0954 003BD8B4  38 21 00 28 */	addi r1, r1, 0x28
 /* 803C0958 003BD8B8  7C 08 03 A6 */	mtlr r0
-/* 803C095C 003BD8BC  4E 80 00 20 */	blr 
+/* 803C095C 003BD8BC  4E 80 00 20 */	blr
 
 .global EXIProbe
 EXIProbe:
@@ -726,7 +729,7 @@ lbl_803C09C8:
 /* 803C09D0 003BD930  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803C09D4 003BD934  38 21 00 18 */	addi r1, r1, 0x18
 /* 803C09D8 003BD938  7C 08 03 A6 */	mtlr r0
-/* 803C09DC 003BD93C  4E 80 00 20 */	blr 
+/* 803C09DC 003BD93C  4E 80 00 20 */	blr
 
 .global EXIProbeEx
 EXIProbeEx:
@@ -779,7 +782,7 @@ lbl_803C0A7C:
 /* 803C0A84 003BD9E4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803C0A88 003BD9E8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803C0A8C 003BD9EC  7C 08 03 A6 */	mtlr r0
-/* 803C0A90 003BD9F0  4E 80 00 20 */	blr 
+/* 803C0A90 003BD9F0  4E 80 00 20 */	blr
 
 .global EXIAttach
 EXIAttach:
@@ -855,7 +858,7 @@ lbl_803C0B8C:
 /* 803C0B90 003BDAF0  BB 61 00 2C */	lmw r27, 0x2c(r1)
 /* 803C0B94 003BDAF4  38 21 00 40 */	addi r1, r1, 0x40
 /* 803C0B98 003BDAF8  7C 08 03 A6 */	mtlr r0
-/* 803C0B9C 003BDAFC  4E 80 00 20 */	blr 
+/* 803C0B9C 003BDAFC  4E 80 00 20 */	blr
 
 .global EXIDetach
 EXIDetach:
@@ -908,7 +911,7 @@ lbl_803C0C40:
 /* 803C0C4C 003BDBAC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803C0C50 003BDBB0  38 21 00 20 */	addi r1, r1, 0x20
 /* 803C0C54 003BDBB4  7C 08 03 A6 */	mtlr r0
-/* 803C0C58 003BDBB8  4E 80 00 20 */	blr 
+/* 803C0C58 003BDBB8  4E 80 00 20 */	blr
 
 .global EXISelect
 EXISelect:
@@ -993,7 +996,7 @@ lbl_803C0D74:
 /* 803C0D78 003BDCD8  BB 61 00 1C */	lmw r27, 0x1c(r1)
 /* 803C0D7C 003BDCDC  38 21 00 30 */	addi r1, r1, 0x30
 /* 803C0D80 003BDCE0  7C 08 03 A6 */	mtlr r0
-/* 803C0D84 003BDCE4  4E 80 00 20 */	blr 
+/* 803C0D84 003BDCE4  4E 80 00 20 */	blr
 
 .global EXIDeselect
 EXIDeselect:
@@ -1071,7 +1074,7 @@ lbl_803C0E78:
 /* 803C0E88 003BDDE8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803C0E8C 003BDDEC  38 21 00 20 */	addi r1, r1, 0x20
 /* 803C0E90 003BDDF0  7C 08 03 A6 */	mtlr r0
-/* 803C0E94 003BDDF4  4E 80 00 20 */	blr 
+/* 803C0E94 003BDDF4  4E 80 00 20 */	blr
 
 .global EXIIntrruptHandler
 EXIIntrruptHandler:
@@ -1113,7 +1116,7 @@ EXIIntrruptHandler:
 /* 803C0F24 003BDE84  38 9F 00 00 */	addi r4, r31, 0
 /* 803C0F28 003BDE88  39 9D 00 00 */	addi r12, r29, 0
 /* 803C0F2C 003BDE8C  7D 88 03 A6 */	mtlr r12
-/* 803C0F30 003BDE90  4E 80 00 21 */	blrl 
+/* 803C0F30 003BDE90  4E 80 00 21 */	blrl
 /* 803C0F34 003BDE94  38 61 00 18 */	addi r3, r1, 0x18
 /* 803C0F38 003BDE98  4B FB E6 DD */	bl OSClearContext
 /* 803C0F3C 003BDE9C  7F E3 FB 78 */	mr r3, r31
@@ -1125,7 +1128,7 @@ lbl_803C0F44:
 /* 803C0F50 003BDEB0  83 A1 02 EC */	lwz r29, 0x2ec(r1)
 /* 803C0F54 003BDEB4  38 21 02 F8 */	addi r1, r1, 0x2f8
 /* 803C0F58 003BDEB8  7C 08 03 A6 */	mtlr r0
-/* 803C0F5C 003BDEBC  4E 80 00 20 */	blr 
+/* 803C0F5C 003BDEBC  4E 80 00 20 */	blr
 
 .global TCIntrruptHandler
 TCIntrruptHandler:
@@ -1255,7 +1258,7 @@ lbl_803C1124:
 /* 803C1138 003BE098  38 9C 00 00 */	addi r4, r28, 0
 /* 803C113C 003BE09C  39 9D 00 00 */	addi r12, r29, 0
 /* 803C1140 003BE0A0  7D 88 03 A6 */	mtlr r12
-/* 803C1144 003BE0A4  4E 80 00 21 */	blrl 
+/* 803C1144 003BE0A4  4E 80 00 21 */	blrl
 /* 803C1148 003BE0A8  38 61 00 20 */	addi r3, r1, 0x20
 /* 803C114C 003BE0AC  4B FB E4 C9 */	bl OSClearContext
 /* 803C1150 003BE0B0  7F 83 E3 78 */	mr r3, r28
@@ -1268,7 +1271,7 @@ lbl_803C1158:
 /* 803C1168 003BE0C8  83 81 02 E8 */	lwz r28, 0x2e8(r1)
 /* 803C116C 003BE0CC  38 21 02 F8 */	addi r1, r1, 0x2f8
 /* 803C1170 003BE0D0  7C 08 03 A6 */	mtlr r0
-/* 803C1174 003BE0D4  4E 80 00 20 */	blr 
+/* 803C1174 003BE0D4  4E 80 00 20 */	blr
 
 .global EXTIntrruptHandler
 EXTIntrruptHandler:
@@ -1311,7 +1314,7 @@ EXTIntrruptHandler:
 /* 803C1208 003BE168  38 9F 00 00 */	addi r4, r31, 0
 /* 803C120C 003BE16C  39 9C 00 00 */	addi r12, r28, 0
 /* 803C1210 003BE170  7D 88 03 A6 */	mtlr r12
-/* 803C1214 003BE174  4E 80 00 21 */	blrl 
+/* 803C1214 003BE174  4E 80 00 21 */	blrl
 /* 803C1218 003BE178  38 61 00 10 */	addi r3, r1, 0x10
 /* 803C121C 003BE17C  4B FB E3 F9 */	bl OSClearContext
 /* 803C1220 003BE180  7F E3 FB 78 */	mr r3, r31
@@ -1324,7 +1327,7 @@ lbl_803C1228:
 /* 803C1238 003BE198  83 81 02 D8 */	lwz r28, 0x2d8(r1)
 /* 803C123C 003BE19C  38 21 02 E8 */	addi r1, r1, 0x2e8
 /* 803C1240 003BE1A0  7C 08 03 A6 */	mtlr r0
-/* 803C1244 003BE1A4  4E 80 00 20 */	blr 
+/* 803C1244 003BE1A4  4E 80 00 20 */	blr
 
 .global EXIInit
 EXIInit:
@@ -1399,7 +1402,7 @@ lbl_803C1344:
 /* 803C1354 003BE2B4  83 81 00 08 */	lwz r28, 8(r1)
 /* 803C1358 003BE2B8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803C135C 003BE2BC  7C 08 03 A6 */	mtlr r0
-/* 803C1360 003BE2C0  4E 80 00 20 */	blr 
+/* 803C1360 003BE2C0  4E 80 00 20 */	blr
 
 .global EXILock
 EXILock:
@@ -1469,7 +1472,7 @@ lbl_803C1444:
 /* 803C1448 003BE3A8  BB 61 00 1C */	lmw r27, 0x1c(r1)
 /* 803C144C 003BE3AC  38 21 00 30 */	addi r1, r1, 0x30
 /* 803C1450 003BE3B0  7C 08 03 A6 */	mtlr r0
-/* 803C1454 003BE3B4  4E 80 00 20 */	blr 
+/* 803C1454 003BE3B4  4E 80 00 20 */	blr
 
 .global EXIUnlock
 EXIUnlock:
@@ -1518,7 +1521,7 @@ lbl_803C14F4:
 /* 803C14F8 003BE458  38 80 00 00 */	li r4, 0
 /* 803C14FC 003BE45C  39 9D 00 00 */	addi r12, r29, 0
 /* 803C1500 003BE460  7D 88 03 A6 */	mtlr r12
-/* 803C1504 003BE464  4E 80 00 21 */	blrl 
+/* 803C1504 003BE464  4E 80 00 21 */	blrl
 lbl_803C1508:
 /* 803C1508 003BE468  7F C3 F3 78 */	mr r3, r30
 /* 803C150C 003BE46C  4B FC 01 7D */	bl OSRestoreInterrupts
@@ -1531,7 +1534,7 @@ lbl_803C1514:
 /* 803C1524 003BE484  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803C1528 003BE488  38 21 00 20 */	addi r1, r1, 0x20
 /* 803C152C 003BE48C  7C 08 03 A6 */	mtlr r0
-/* 803C1530 003BE490  4E 80 00 20 */	blr 
+/* 803C1530 003BE490  4E 80 00 20 */	blr
 
 .global EXIGetState
 EXIGetState:
@@ -1540,7 +1543,7 @@ EXIGetState:
 /* 803C153C 003BE49C  38 03 9E 98 */	addi r0, r3, lbl_80569E98@l
 /* 803C1540 003BE4A0  7C 60 22 14 */	add r3, r0, r4
 /* 803C1544 003BE4A4  80 63 00 0C */	lwz r3, 0xc(r3)
-/* 803C1548 003BE4A8  4E 80 00 20 */	blr 
+/* 803C1548 003BE4A8  4E 80 00 20 */	blr
 
 .global UnlockedHandler
 UnlockedHandler:
@@ -1553,7 +1556,7 @@ UnlockedHandler:
 /* 803C1564 003BE4C4  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 803C1568 003BE4C8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803C156C 003BE4CC  7C 08 03 A6 */	mtlr r0
-/* 803C1570 003BE4D0  4E 80 00 20 */	blr 
+/* 803C1570 003BE4D0  4E 80 00 20 */	blr
 
 .global EXIGetID
 EXIGetID:
@@ -1730,7 +1733,7 @@ lbl_803C17E4:
 /* 803C17E8 003BE748  38 80 00 00 */	li r4, 0
 /* 803C17EC 003BE74C  39 99 00 00 */	addi r12, r25, 0
 /* 803C17F0 003BE750  7D 88 03 A6 */	mtlr r12
-/* 803C17F4 003BE754  4E 80 00 21 */	blrl 
+/* 803C17F4 003BE754  4E 80 00 21 */	blrl
 lbl_803C17F8:
 /* 803C17F8 003BE758  7F 03 C3 78 */	mr r3, r24
 /* 803C17FC 003BE75C  4B FB FE 8D */	bl OSRestoreInterrupts
@@ -1802,4 +1805,4 @@ lbl_803C18DC:
 /* 803C18E0 003BE840  BB 01 00 20 */	lmw r24, 0x20(r1)
 /* 803C18E4 003BE844  38 21 00 40 */	addi r1, r1, 0x40
 /* 803C18E8 003BE848  7C 08 03 A6 */	mtlr r0
-/* 803C18EC 003BE84C  4E 80 00 20 */	blr 
+/* 803C18EC 003BE84C  4E 80 00 20 */	blr

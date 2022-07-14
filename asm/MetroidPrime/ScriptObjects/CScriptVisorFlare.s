@@ -63,7 +63,7 @@ Render__17CScriptVisorFlareCFRC13CStateManager:
 /* 801D64C8 001D3428  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801D64CC 001D342C  7C 08 03 A6 */	mtlr r0
 /* 801D64D0 001D3430  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D64D4 001D3434  4E 80 00 20 */	blr 
+/* 801D64D4 001D3434  4E 80 00 20 */	blr
 
 .global AddToRenderer__17CScriptVisorFlareCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__17CScriptVisorFlareCFRC14CFrustumPlanesRC13CStateManager:
@@ -89,7 +89,7 @@ AddToRenderer__17CScriptVisorFlareCFRC14CFrustumPlanesRC13CStateManager:
 /* 801D6524 001D3484  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801D6528 001D3488  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 801D652C 001D348C  7D 89 03 A6 */	mtctr r12
-/* 801D6530 001D3490  4E 80 04 21 */	bctrl 
+/* 801D6530 001D3490  4E 80 04 21 */	bctrl
 /* 801D6534 001D3494  7F C3 F3 78 */	mr r3, r30
 /* 801D6538 001D3498  7F E4 FB 78 */	mr r4, r31
 /* 801D653C 001D349C  38 A1 00 08 */	addi r5, r1, 8
@@ -101,7 +101,7 @@ lbl_801D6548:
 /* 801D6550 001D34B0  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801D6554 001D34B4  7C 08 03 A6 */	mtlr r0
 /* 801D6558 001D34B8  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D655C 001D34BC  4E 80 00 20 */	blr 
+/* 801D655C 001D34BC  4E 80 00 20 */	blr
 
 .global PreRender__17CScriptVisorFlareFR13CStateManagerRC14CFrustumPlanes
 PreRender__17CScriptVisorFlareFR13CStateManagerRC14CFrustumPlanes:
@@ -123,7 +123,7 @@ PreRender__17CScriptVisorFlareFR13CStateManagerRC14CFrustumPlanes:
 /* 801D659C 001D34FC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801D65A0 001D3500  7C 08 03 A6 */	mtlr r0
 /* 801D65A4 001D3504  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D65A8 001D3508  4E 80 00 20 */	blr 
+/* 801D65A8 001D3508  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CScriptVisorFlareF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CScriptVisorFlareF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -137,7 +137,7 @@ AcceptScriptMsg__17CScriptVisorFlareF20EScriptObjectMessage9TUniqueIdR13CStateMa
 /* 801D65C8 001D3528  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D65CC 001D352C  7C 08 03 A6 */	mtlr r0
 /* 801D65D0 001D3530  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D65D4 001D3534  4E 80 00 20 */	blr 
+/* 801D65D4 001D3534  4E 80 00 20 */	blr
 
 .global Think__17CScriptVisorFlareFfR13CStateManager
 Think__17CScriptVisorFlareFfR13CStateManager:
@@ -162,7 +162,7 @@ lbl_801D661C:
 /* 801D661C 001D357C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801D6620 001D3580  7C 08 03 A6 */	mtlr r0
 /* 801D6624 001D3584  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D6628 001D3588  4E 80 00 20 */	blr 
+/* 801D6628 001D3588  4E 80 00 20 */	blr
 
 .global Accept__17CScriptVisorFlareFR8IVisitor
 Accept__17CScriptVisorFlareFR8IVisitor:
@@ -175,11 +175,11 @@ Accept__17CScriptVisorFlareFR8IVisitor:
 /* 801D6644 001D35A4  7C 04 03 78 */	mr r4, r0
 /* 801D6648 001D35A8  81 8C 00 D0 */	lwz r12, 0xd0(r12)
 /* 801D664C 001D35AC  7D 89 03 A6 */	mtctr r12
-/* 801D6650 001D35B0  4E 80 04 21 */	bctrl 
+/* 801D6650 001D35B0  4E 80 04 21 */	bctrl
 /* 801D6654 001D35B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D6658 001D35B8  7C 08 03 A6 */	mtlr r0
 /* 801D665C 001D35BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D6660 001D35C0  4E 80 00 20 */	blr 
+/* 801D6660 001D35C0  4E 80 00 20 */	blr
 
 .global __dt__17CScriptVisorFlareFv
 __dt__17CScriptVisorFlareFv:
@@ -211,7 +211,7 @@ lbl_801D66B8:
 /* 801D66C4 001D3624  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D66C8 001D3628  7C 08 03 A6 */	mtlr r0
 /* 801D66CC 001D362C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D66D0 001D3630  4E 80 00 20 */	blr 
+/* 801D66D0 001D3630  4E 80 00 20 */	blr
 
 .global sub_801d66d4
 sub_801d66d4:
@@ -237,7 +237,7 @@ lbl_801D6710:
 /* 801D671C 001D367C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D6720 001D3680  7C 08 03 A6 */	mtlr r0
 /* 801D6724 001D3684  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D6728 001D3688  4E 80 00 20 */	blr 
+/* 801D6728 001D3688  4E 80 00 20 */	blr
 
 .global "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>"
 "__ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC9CVector3fQ211CVisorFlare10EBlendModebfffRCQ24rstl60vector<Q211CVisorFlare9CFlareDef,Q24rstl17rmemory_allocator>":

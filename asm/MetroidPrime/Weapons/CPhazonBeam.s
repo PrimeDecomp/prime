@@ -54,7 +54,7 @@ lbl_8018C27C:
 /* 8018C27C 001891DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018C280 001891E0  7C 08 03 A6 */	mtlr r0
 /* 8018C284 001891E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018C288 001891E8  4E 80 00 20 */	blr 
+/* 8018C288 001891E8  4E 80 00 20 */	blr
 
 .global CreateBeam__11CPhazonBeamFR13CStateManager
 CreateBeam__11CPhazonBeamFR13CStateManager:
@@ -92,7 +92,7 @@ lbl_8018C2F4:
 /* 8018C304 00189264  38 80 00 01 */	li r4, 1
 /* 8018C308 00189268  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8018C30C 0018926C  7D 89 03 A6 */	mtctr r12
-/* 8018C310 00189270  4E 80 04 21 */	bctrl 
+/* 8018C310 00189270  4E 80 04 21 */	bctrl
 lbl_8018C314:
 /* 8018C314 00189274  7F A0 07 75 */	extsb. r0, r29
 /* 8018C318 00189278  93 FE 02 34 */	stw r31, 0x234(r30)
@@ -108,13 +108,13 @@ lbl_8018C32C:
 /* 8018C33C 0018929C  38 9E 00 04 */	addi r4, r30, 4
 /* 8018C340 001892A0  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8018C344 001892A4  7D 89 03 A6 */	mtctr r12
-/* 8018C348 001892A8  4E 80 04 21 */	bctrl 
+/* 8018C348 001892A8  4E 80 04 21 */	bctrl
 /* 8018C34C 001892AC  80 7E 02 34 */	lwz r3, 0x234(r30)
 /* 8018C350 001892B0  38 80 00 00 */	li r4, 0
 /* 8018C354 001892B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018C358 001892B8  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8018C35C 001892BC  7D 89 03 A6 */	mtctr r12
-/* 8018C360 001892C0  4E 80 04 21 */	bctrl 
+/* 8018C360 001892C0  4E 80 04 21 */	bctrl
 lbl_8018C364:
 /* 8018C364 001892C4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8018C368 001892C8  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -122,7 +122,7 @@ lbl_8018C364:
 /* 8018C370 001892D0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8018C374 001892D4  7C 08 03 A6 */	mtlr r0
 /* 8018C378 001892D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018C37C 001892DC  4E 80 00 20 */	blr 
+/* 8018C37C 001892DC  4E 80 00 20 */	blr
 
 .global IsLoaded__11CPhazonBeamCFv
 IsLoaded__11CPhazonBeamCFv:
@@ -147,7 +147,7 @@ lbl_8018C3B8:
 /* 8018C3C4 00189324  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8018C3C8 00189328  7C 08 03 A6 */	mtlr r0
 /* 8018C3CC 0018932C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018C3D0 00189330  4E 80 00 20 */	blr 
+/* 8018C3D0 00189330  4E 80 00 20 */	blr
 
 .global Unload__11CPhazonBeamFR13CStateManager
 Unload__11CPhazonBeamFR13CStateManager:
@@ -169,7 +169,7 @@ Unload__11CPhazonBeamFR13CStateManager:
 /* 8018C410 00189370  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8018C414 00189374  7C 08 03 A6 */	mtlr r0
 /* 8018C418 00189378  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018C41C 0018937C  4E 80 00 20 */	blr 
+/* 8018C41C 0018937C  4E 80 00 20 */	blr
 
 .global Load__11CPhazonBeamFb
 Load__11CPhazonBeamFb:
@@ -201,7 +201,7 @@ lbl_8018C47C:
 /* 8018C47C 001893DC  81 84 00 00 */	lwz r12, 0(r4)
 /* 8018C480 001893E0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8018C484 001893E4  7D 89 03 A6 */	mtctr r12
-/* 8018C488 001893E8  4E 80 04 21 */	bctrl 
+/* 8018C488 001893E8  4E 80 04 21 */	bctrl
 /* 8018C48C 001893EC  38 61 00 08 */	addi r3, r1, 8
 /* 8018C490 001893F0  38 81 00 10 */	addi r4, r1, 0x10
 /* 8018C494 001893F4  48 1B 4A 15 */	bl __ct__6CTokenFRC6CToken
@@ -221,7 +221,7 @@ lbl_8018C47C:
 /* 8018C4CC 0018942C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8018C4D0 00189430  7C 08 03 A6 */	mtlr r0
 /* 8018C4D4 00189434  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018C4D8 00189438  4E 80 00 20 */	blr 
+/* 8018C4D8 00189438  4E 80 00 20 */	blr
 
 .global StopBeam__11CPhazonBeamFR13CStateManagerb
 StopBeam__11CPhazonBeamFR13CStateManagerb:
@@ -235,12 +235,12 @@ StopBeam__11CPhazonBeamFR13CStateManagerb:
 /* 8018C4F8 00189458  38 80 00 00 */	li r4, 0
 /* 8018C4FC 0018945C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8018C500 00189460  7D 89 03 A6 */	mtctr r12
-/* 8018C504 00189464  4E 80 04 21 */	bctrl 
+/* 8018C504 00189464  4E 80 04 21 */	bctrl
 lbl_8018C508:
 /* 8018C508 00189468  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018C50C 0018946C  7C 08 03 A6 */	mtlr r0
 /* 8018C510 00189470  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018C514 00189474  4E 80 00 20 */	blr 
+/* 8018C514 00189474  4E 80 00 20 */	blr
 
 .global UpdateBeam__11CPhazonBeamFfRC12CTransform4fRC9CVector3fR13CStateManager
 UpdateBeam__11CPhazonBeamFfRC12CTransform4fRC9CVector3fR13CStateManager:
@@ -266,7 +266,7 @@ UpdateBeam__11CPhazonBeamFfRC12CTransform4fRC9CVector3fR13CStateManager:
 /* 8018C564 001894C4  7F E3 FB 78 */	mr r3, r31
 /* 8018C568 001894C8  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8018C56C 001894CC  7D 89 03 A6 */	mtctr r12
-/* 8018C570 001894D0  4E 80 04 21 */	bctrl 
+/* 8018C570 001894D0  4E 80 04 21 */	bctrl
 lbl_8018C574:
 /* 8018C574 001894D4  7F 83 E3 78 */	mr r3, r28
 /* 8018C578 001894D8  7F C4 F3 78 */	mr r4, r30
@@ -285,7 +285,7 @@ lbl_8018C574:
 /* 8018C5AC 0018950C  83 81 00 08 */	lwz r28, 8(r1)
 /* 8018C5B0 00189510  7C 08 03 A6 */	mtlr r0
 /* 8018C5B4 00189514  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018C5B8 00189518  4E 80 00 20 */	blr 
+/* 8018C5B8 00189518  4E 80 00 20 */	blr
 
 .global Update__11CPhazonBeamFfR13CStateManager
 Update__11CPhazonBeamFfR13CStateManager:
@@ -332,7 +332,7 @@ lbl_8018C650:
 /* 8018C654 001895B4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8018C658 001895B8  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 8018C65C 001895BC  7D 89 03 A6 */	mtctr r12
-/* 8018C660 001895C0  4E 80 04 21 */	bctrl 
+/* 8018C660 001895C0  4E 80 04 21 */	bctrl
 /* 8018C664 001895C4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8018C668 001895C8  40 82 01 44 */	bne lbl_8018C7AC
 /* 8018C66C 001895CC  7F C3 F3 78 */	mr r3, r30
@@ -484,7 +484,7 @@ lbl_8018C874:
 /* 8018C884 001897E4  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 8018C888 001897E8  7C 08 03 A6 */	mtlr r0
 /* 8018C88C 001897EC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8018C890 001897F0  4E 80 00 20 */	blr 
+/* 8018C890 001897F0  4E 80 00 20 */	blr
 
 .global Fire__11CPhazonBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId
 Fire__11CPhazonBeamFbfQ212CPlayerState12EChargeStageRC12CTransform4fR13CStateManager9TUniqueId:
@@ -578,7 +578,7 @@ lbl_8018C9B8:
 /* 8018C9D4 00189934  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8018C9D8 00189938  7C 08 03 A6 */	mtlr r0
 /* 8018C9DC 0018993C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8018C9E0 00189940  4E 80 00 20 */	blr 
+/* 8018C9E0 00189940  4E 80 00 20 */	blr
 
 .global Draw__11CPhazonBeamCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights
 Draw__11CPhazonBeamCFbRC13CStateManagerRC12CTransform4fRC11CModelFlagsPC12CActorLights:
@@ -700,7 +700,7 @@ lbl_8018CB10:
 /* 8018CB9C 00189AFC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018CBA0 00189B00  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8018CBA4 00189B04  7D 89 03 A6 */	mtctr r12
-/* 8018CBA8 00189B08  4E 80 04 21 */	bctrl 
+/* 8018CBA8 00189B08  4E 80 04 21 */	bctrl
 /* 8018CBAC 00189B0C  38 7C 02 38 */	addi r3, r28, 0x238
 /* 8018CBB0 00189B10  48 02 D0 9D */	bl DrawClipCube__FRC6CAABox
 /* 8018CBB4 00189B14  C0 22 A4 28 */	lfs f1, lbl_805AC148@sda21(r2)
@@ -718,7 +718,7 @@ lbl_8018CB10:
 /* 8018CBE4 00189B44  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018CBE8 00189B48  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8018CBEC 00189B4C  7D 89 03 A6 */	mtctr r12
-/* 8018CBF0 00189B50  4E 80 04 21 */	bctrl 
+/* 8018CBF0 00189B50  4E 80 04 21 */	bctrl
 /* 8018CBF4 00189B54  38 7C 02 50 */	addi r3, r28, 0x250
 /* 8018CBF8 00189B58  48 02 D0 55 */	bl DrawClipCube__FRC6CAABox
 lbl_8018CBFC:
@@ -768,7 +768,7 @@ lbl_8018CC9C:
 /* 8018CCA0 00189C00  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 8018CCA4 00189C04  7C 08 03 A6 */	mtlr r0
 /* 8018CCA8 00189C08  38 21 02 10 */	addi r1, r1, 0x210
-/* 8018CCAC 00189C0C  4E 80 00 20 */	blr 
+/* 8018CCAC 00189C0C  4E 80 00 20 */	blr
 
 .global DrawMuzzleFx__11CPhazonBeamCFRC13CStateManager
 DrawMuzzleFx__11CPhazonBeamCFRC13CStateManager:
@@ -791,7 +791,7 @@ lbl_8018CCE4:
 /* 8018CCEC 00189C4C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8018CCF0 00189C50  7C 08 03 A6 */	mtlr r0
 /* 8018CCF4 00189C54  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018CCF8 00189C58  4E 80 00 20 */	blr 
+/* 8018CCF8 00189C58  4E 80 00 20 */	blr
 
 .global UpdateGunFx__11CPhazonBeamFbfRC13CStateManagerRC12CTransform4f
 UpdateGunFx__11CPhazonBeamFbfRC13CStateManagerRC12CTransform4f:
@@ -818,7 +818,7 @@ UpdateGunFx__11CPhazonBeamFbfRC13CStateManagerRC12CTransform4f:
 /* 8018CD4C 00189CAC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018CD50 00189CB0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8018CD54 00189CB4  7D 89 03 A6 */	mtctr r12
-/* 8018CD58 00189CB8  4E 80 04 21 */	bctrl 
+/* 8018CD58 00189CB8  4E 80 04 21 */	bctrl
 lbl_8018CD5C:
 /* 8018CD5C 00189CBC  FC 20 F8 90 */	fmr f1, f31
 /* 8018CD60 00189CC0  7F 83 E3 78 */	mr r3, r28
@@ -834,7 +834,7 @@ lbl_8018CD5C:
 /* 8018CD88 00189CE8  83 81 00 08 */	lwz r28, 8(r1)
 /* 8018CD8C 00189CEC  7C 08 03 A6 */	mtlr r0
 /* 8018CD90 00189CF0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018CD94 00189CF4  4E 80 00 20 */	blr 
+/* 8018CD94 00189CF4  4E 80 00 20 */	blr
 
 .global PostRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f
 PostRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f:
@@ -853,7 +853,7 @@ PostRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f:
 /* 8018CDC8 00189D28  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018CDCC 00189D2C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8018CDD0 00189D30  7D 89 03 A6 */	mtctr r12
-/* 8018CDD4 00189D34  4E 80 04 21 */	bctrl 
+/* 8018CDD4 00189D34  4E 80 04 21 */	bctrl
 lbl_8018CDD8:
 /* 8018CDD8 00189D38  7F A3 EB 78 */	mr r3, r29
 /* 8018CDDC 00189D3C  7F C4 F3 78 */	mr r4, r30
@@ -865,7 +865,7 @@ lbl_8018CDD8:
 /* 8018CDF4 00189D54  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8018CDF8 00189D58  7C 08 03 A6 */	mtlr r0
 /* 8018CDFC 00189D5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018CE00 00189D60  4E 80 00 20 */	blr 
+/* 8018CE00 00189D60  4E 80 00 20 */	blr
 
 .global PreRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f
 PreRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f:
@@ -900,7 +900,7 @@ PreRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f:
 /* 8018CE74 00189DD4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018CE78 00189DD8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8018CE7C 00189DDC  7D 89 03 A6 */	mtctr r12
-/* 8018CE80 00189DE0  4E 80 04 21 */	bctrl 
+/* 8018CE80 00189DE0  4E 80 04 21 */	bctrl
 /* 8018CE84 00189DE4  7F A3 EB 78 */	mr r3, r29
 /* 8018CE88 00189DE8  7F C4 F3 78 */	mr r4, r30
 /* 8018CE8C 00189DEC  48 02 F2 95 */	bl DrawMuzzleFx__10CGunWeaponCFRC13CStateManager
@@ -913,7 +913,7 @@ lbl_8018CE98:
 /* 8018CEA4 00189E04  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 8018CEA8 00189E08  7C 08 03 A6 */	mtlr r0
 /* 8018CEAC 00189E0C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8018CEB0 00189E10  4E 80 00 20 */	blr 
+/* 8018CEB0 00189E10  4E 80 00 20 */	blr
 
 .global IsFiring__11CPhazonBeamCFRC13CStateManager
 IsFiring__11CPhazonBeamCFRC13CStateManager:
@@ -922,7 +922,7 @@ IsFiring__11CPhazonBeamCFRC13CStateManager:
 /* 8018CEBC 00189E1C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8018CEC0 00189E20  7C 00 00 26 */	mfcr r0
 /* 8018CEC4 00189E24  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8018CEC8 00189E28  4E 80 00 20 */	blr 
+/* 8018CEC8 00189E28  4E 80 00 20 */	blr
 
 .global ReInitVariables__11CPhazonBeamFv
 ReInitVariables__11CPhazonBeamFv:
@@ -943,7 +943,7 @@ ReInitVariables__11CPhazonBeamFv:
 /* 8018CF04 00189E64  38 80 00 01 */	li r4, 1
 /* 8018CF08 00189E68  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8018CF0C 00189E6C  7D 89 03 A6 */	mtctr r12
-/* 8018CF10 00189E70  4E 80 04 21 */	bctrl 
+/* 8018CF10 00189E70  4E 80 04 21 */	bctrl
 lbl_8018CF14:
 /* 8018CF14 00189E74  38 00 00 00 */	li r0, 0
 /* 8018CF18 00189E78  38 80 00 01 */	li r4, 1
@@ -967,7 +967,7 @@ lbl_8018CF14:
 /* 8018CF60 00189EC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018CF64 00189EC4  7C 08 03 A6 */	mtlr r0
 /* 8018CF68 00189EC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018CF6C 00189ECC  4E 80 00 20 */	blr 
+/* 8018CF6C 00189ECC  4E 80 00 20 */	blr
 
 .global __dt__11CPhazonBeamFv
 __dt__11CPhazonBeamFv:
@@ -991,7 +991,7 @@ __dt__11CPhazonBeamFv:
 /* 8018CFB4 00189F14  38 80 00 01 */	li r4, 1
 /* 8018CFB8 00189F18  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8018CFBC 00189F1C  7D 89 03 A6 */	mtctr r12
-/* 8018CFC0 00189F20  4E 80 04 21 */	bctrl 
+/* 8018CFC0 00189F20  4E 80 04 21 */	bctrl
 lbl_8018CFC4:
 /* 8018CFC4 00189F24  34 1E 02 28 */	addic. r0, r30, 0x228
 /* 8018CFC8 00189F28  41 82 00 18 */	beq lbl_8018CFE0
@@ -1027,7 +1027,7 @@ lbl_8018D024:
 /* 8018D030 00189F90  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8018D034 00189F94  7C 08 03 A6 */	mtlr r0
 /* 8018D038 00189F98  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018D03C 00189F9C  4E 80 00 20 */	blr 
+/* 8018D03C 00189F9C  4E 80 00 20 */	blr
 
 .global __ct__11CPhazonBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f
 __ct__11CPhazonBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
@@ -1052,7 +1052,7 @@ __ct__11CPhazonBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 8018D088 00189FE8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8018D08C 00189FEC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8018D090 00189FF0  7D 89 03 A6 */	mtctr r12
-/* 8018D094 00189FF4  4E 80 04 21 */	bctrl 
+/* 8018D094 00189FF4  4E 80 04 21 */	bctrl
 /* 8018D098 00189FF8  38 7E 02 1C */	addi r3, r30, 0x21c
 /* 8018D09C 00189FFC  38 81 00 14 */	addi r4, r1, 0x14
 /* 8018D0A0 0018A000  48 1B 3E 09 */	bl __ct__6CTokenFRC6CToken
@@ -1069,7 +1069,7 @@ __ct__11CPhazonBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 8018D0CC 0018A02C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8018D0D0 0018A030  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8018D0D4 0018A034  7D 89 03 A6 */	mtctr r12
-/* 8018D0D8 0018A038  4E 80 04 21 */	bctrl 
+/* 8018D0D8 0018A038  4E 80 04 21 */	bctrl
 /* 8018D0DC 0018A03C  3B BE 02 28 */	addi r29, r30, 0x228
 /* 8018D0E0 0018A040  38 81 00 0C */	addi r4, r1, 0xc
 /* 8018D0E4 0018A044  7F A3 EB 78 */	mr r3, r29

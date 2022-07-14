@@ -16,13 +16,16 @@ lbl_805A9928:
 
 .global lbl_805A8B50
 lbl_805A8B50:
-	.incbin "baserom.dol", 0x3F64F0, 0x8
+	# ROM: 0x3F64F0
+	.4byte 0x80384468
+	.4byte 0
+
 
 .section .text, "ax"
 
 .global DefaultSwitchThreadCallback
 DefaultSwitchThreadCallback:
-/* 80384468 003813C8  4E 80 00 20 */	blr 
+/* 80384468 003813C8  4E 80 00 20 */	blr
 
 .global __OSThreadInit
 __OSThreadInit:
@@ -72,7 +75,7 @@ __OSThreadInit:
 /* 80384518 00381478  81 8D 9F 90 */	lwz r12, lbl_805A8B50@sda21(r13)
 /* 8038451C 0038147C  80 7E 00 E4 */	lwz r3, 0xe4(r30)
 /* 80384520 00381480  7D 88 03 A6 */	mtlr r12
-/* 80384524 00381484  4E 80 00 21 */	blrl 
+/* 80384524 00381484  4E 80 00 21 */	blrl
 /* 80384528 00381488  93 FE 00 E4 */	stw r31, 0xe4(r30)
 /* 8038452C 0038148C  38 60 00 00 */	li r3, 0
 /* 80384530 00381490  48 00 0D CD */	bl OSClearStack
@@ -114,20 +117,20 @@ lbl_80384588:
 /* 803845B4 00381514  83 81 00 08 */	lwz r28, 8(r1)
 /* 803845B8 00381518  38 21 00 18 */	addi r1, r1, 0x18
 /* 803845BC 0038151C  7C 08 03 A6 */	mtlr r0
-/* 803845C0 00381520  4E 80 00 20 */	blr 
+/* 803845C0 00381520  4E 80 00 20 */	blr
 
 .global OSInitThreadQueue
 OSInitThreadQueue:
 /* 803845C4 00381524  38 00 00 00 */	li r0, 0
 /* 803845C8 00381528  90 03 00 04 */	stw r0, 4(r3)
 /* 803845CC 0038152C  90 03 00 00 */	stw r0, 0(r3)
-/* 803845D0 00381530  4E 80 00 20 */	blr 
+/* 803845D0 00381530  4E 80 00 20 */	blr
 
 .global OSGetCurrentThread
 OSGetCurrentThread:
 /* 803845D4 00381534  3C 60 80 00 */	lis r3, 0x800000E4@ha
 /* 803845D8 00381538  80 63 00 E4 */	lwz r3, 0x800000E4@l(r3)
-/* 803845DC 0038153C  4E 80 00 20 */	blr 
+/* 803845DC 0038153C  4E 80 00 20 */	blr
 
 .global OSDisableScheduler
 OSDisableScheduler:
@@ -146,7 +149,7 @@ OSDisableScheduler:
 /* 80384610 00381570  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80384614 00381574  38 21 00 10 */	addi r1, r1, 0x10
 /* 80384618 00381578  7C 08 03 A6 */	mtlr r0
-/* 8038461C 0038157C  4E 80 00 20 */	blr 
+/* 8038461C 0038157C  4E 80 00 20 */	blr
 
 .global OSEnableScheduler
 OSEnableScheduler:
@@ -165,7 +168,7 @@ OSEnableScheduler:
 /* 80384650 003815B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80384654 003815B4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80384658 003815B8  7C 08 03 A6 */	mtlr r0
-/* 8038465C 003815BC  4E 80 00 20 */	blr 
+/* 8038465C 003815BC  4E 80 00 20 */	blr
 
 .global UnsetRun
 UnsetRun:
@@ -199,7 +202,7 @@ lbl_80384694:
 lbl_803846BC:
 /* 803846BC 0038161C  38 00 00 00 */	li r0, 0
 /* 803846C0 00381620  90 03 02 DC */	stw r0, 0x2dc(r3)
-/* 803846C4 00381624  4E 80 00 20 */	blr 
+/* 803846C4 00381624  4E 80 00 20 */	blr
 
 .global __OSGetEffectivePriority
 __OSGetEffectivePriority:
@@ -220,7 +223,7 @@ lbl_803846F4:
 /* 803846F4 00381654  28 05 00 00 */	cmplwi r5, 0
 /* 803846F8 00381658  40 82 FF DC */	bne lbl_803846D4
 /* 803846FC 0038165C  7C 83 23 78 */	mr r3, r4
-/* 80384700 00381660  4E 80 00 20 */	blr 
+/* 80384700 00381660  4E 80 00 20 */	blr
 
 .global SetEffectivePriority
 SetEffectivePriority:
@@ -355,7 +358,7 @@ lbl_803848AC:
 /* 803848B4 00381814  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803848B8 00381818  38 21 00 18 */	addi r1, r1, 0x18
 /* 803848BC 0038181C  7C 08 03 A6 */	mtlr r0
-/* 803848C0 00381820  4E 80 00 20 */	blr 
+/* 803848C0 00381820  4E 80 00 20 */	blr
 
 .global SelectThread
 SelectThread:
@@ -440,7 +443,7 @@ lbl_803849D8:
 /* 803849E0 00381940  80 7E 00 E4 */	lwz r3, 0x800000E4@l(r30)
 /* 803849E4 00381944  38 80 00 00 */	li r4, 0
 /* 803849E8 00381948  7D 88 03 A6 */	mtlr r12
-/* 803849EC 0038194C  4E 80 00 21 */	blrl 
+/* 803849EC 0038194C  4E 80 00 21 */	blrl
 /* 803849F0 00381950  80 0D AD 60 */	lwz r0, lbl_805A9920@sda21(r13)
 /* 803849F4 00381954  38 60 00 00 */	li r3, 0
 /* 803849F8 00381958  90 7E 00 E4 */	stw r3, 0xe4(r30)
@@ -497,7 +500,7 @@ lbl_80384A94:
 /* 80384AAC 00381A0C  81 8D 9F 90 */	lwz r12, lbl_805A8B50@sda21(r13)
 /* 80384AB0 00381A10  80 7F 00 E4 */	lwz r3, 0x800000E4@l(r31)
 /* 80384AB4 00381A14  7D 88 03 A6 */	mtlr r12
-/* 80384AB8 00381A18  4E 80 00 21 */	blrl 
+/* 80384AB8 00381A18  4E 80 00 21 */	blrl
 /* 80384ABC 00381A1C  93 DF 00 E4 */	stw r30, 0xe4(r31)
 /* 80384AC0 00381A20  7F C3 F3 78 */	mr r3, r30
 /* 80384AC4 00381A24  4B FF A9 59 */	bl OSSetCurrentContext
@@ -510,7 +513,7 @@ lbl_80384AD4:
 /* 80384ADC 00381A3C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 80384AE0 00381A40  38 21 00 18 */	addi r1, r1, 0x18
 /* 80384AE4 00381A44  7C 08 03 A6 */	mtlr r0
-/* 80384AE8 00381A48  4E 80 00 20 */	blr 
+/* 80384AE8 00381A48  4E 80 00 20 */	blr
 
 .global __OSReschedule
 __OSReschedule:
@@ -526,7 +529,7 @@ lbl_80384B0C:
 /* 80384B0C 00381A6C  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80384B10 00381A70  38 21 00 08 */	addi r1, r1, 8
 /* 80384B14 00381A74  7C 08 03 A6 */	mtlr r0
-/* 80384B18 00381A78  4E 80 00 20 */	blr 
+/* 80384B18 00381A78  4E 80 00 20 */	blr
 
 .global OSYieldThread
 OSYieldThread:
@@ -544,7 +547,7 @@ OSYieldThread:
 /* 80384B48 00381AA8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80384B4C 00381AAC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80384B50 00381AB0  7C 08 03 A6 */	mtlr r0
-/* 80384B54 00381AB4  4E 80 00 20 */	blr 
+/* 80384B54 00381AB4  4E 80 00 20 */	blr
 
 .global OSCancelThread
 OSCancelThread:
@@ -677,7 +680,7 @@ lbl_80384CF8:
 /* 80384D04 00381C64  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80384D08 00381C68  38 21 00 20 */	addi r1, r1, 0x20
 /* 80384D0C 00381C6C  7C 08 03 A6 */	mtlr r0
-/* 80384D10 00381C70  4E 80 00 20 */	blr 
+/* 80384D10 00381C70  4E 80 00 20 */	blr
 
 .global OSResumeThread
 OSResumeThread:
@@ -868,7 +871,7 @@ lbl_80384F74:
 /* 80384F8C 00381EEC  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80384F90 00381EF0  38 21 00 28 */	addi r1, r1, 0x28
 /* 80384F94 00381EF4  7C 08 03 A6 */	mtlr r0
-/* 80384F98 00381EF8  4E 80 00 20 */	blr 
+/* 80384F98 00381EF8  4E 80 00 20 */	blr
 
 .global OSSuspendThread
 OSSuspendThread:
@@ -976,7 +979,7 @@ lbl_803850E4:
 /* 803850FC 0038205C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80385100 00382060  38 21 00 20 */	addi r1, r1, 0x20
 /* 80385104 00382064  7C 08 03 A6 */	mtlr r0
-/* 80385108 00382068  4E 80 00 20 */	blr 
+/* 80385108 00382068  4E 80 00 20 */	blr
 
 .global OSSleepThread
 OSSleepThread:
@@ -1047,7 +1050,7 @@ lbl_803851D8:
 /* 803851E8 00382148  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803851EC 0038214C  38 21 00 18 */	addi r1, r1, 0x18
 /* 803851F0 00382150  7C 08 03 A6 */	mtlr r0
-/* 803851F4 00382154  4E 80 00 20 */	blr 
+/* 803851F4 00382154  4E 80 00 20 */	blr
 
 .global OSWakeupThread
 OSWakeupThread:
@@ -1122,7 +1125,7 @@ lbl_803852DC:
 /* 803852EC 0038224C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803852F0 00382250  38 21 00 18 */	addi r1, r1, 0x18
 /* 803852F4 00382254  7C 08 03 A6 */	mtlr r0
-/* 803852F8 00382258  4E 80 00 20 */	blr 
+/* 803852F8 00382258  4E 80 00 20 */	blr
 
 .global OSClearStack
 OSClearStack:
@@ -1172,4 +1175,4 @@ lbl_80385394:
 /* 80385398 003822F8  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 8038539C 003822FC  38 21 00 18 */	addi r1, r1, 0x18
 /* 803853A0 00382300  7C 08 03 A6 */	mtlr r0
-/* 803853A4 00382304  4E 80 00 20 */	blr 
+/* 803853A4 00382304  4E 80 00 20 */	blr

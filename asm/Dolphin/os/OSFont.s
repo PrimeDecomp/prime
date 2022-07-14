@@ -3,8 +3,11 @@
 .section .sdata
 .global lbl_805A8B48
 lbl_805A8B48:
-	.incbin "baserom.dol", 0x3F64E8, 0x8
-	
+	# ROM: 0x3F64E8
+	.4byte 0xFFFF0000
+	.4byte 0
+
+
 .section .sbss
 lbl_805A98C0:
 	.skip 0x4
@@ -14,7 +17,7 @@ lbl_805A98C8:
 	.skip 0x4
 lbl_805A98CC:
 	.skip 0x4
-	
+
 .section .data
 .balign 8
 .global HankakuToCode
@@ -115,7 +118,7 @@ HankakuToCode:
 	.4byte 0x02A402A5
 	.4byte 0x02A602A7
 	.4byte 0x02A802A9
-	
+
 .global Zenkaku2Code
 Zenkaku2Code:
 
@@ -735,16 +738,26 @@ Zenkaku2Code:
 .section .sdata2
 .global lbl_805AEC48
 lbl_805AEC48:
-	.incbin "baserom.dol", 0x3FB4E8, 0x8
+	# ROM: 0x3FB4E8
+	.4byte 0x43700000
+	.4byte 0
+
 .global lbl_805AEC50
 lbl_805AEC50:
-	.incbin "baserom.dol", 0x3FB4F0, 0x8
+	# ROM: 0x3FB4F0
+	.4byte 0x43300000
+	.4byte 0
+
 .global lbl_805AEC58
 lbl_805AEC58:
-	.incbin "baserom.dol", 0x3FB4F8, 0x4
+	# ROM: 0x3FB4F8
+	.4byte 0x2ABE003D
+
 .global lbl_805AEC5C
 lbl_805AEC5C:
-	.incbin "baserom.dol", 0x3FB4FC, 0x4
+	# ROM: 0x3FB4FC
+	.4byte 0x003D003D
+
 
 .section .text, "ax"
 
@@ -865,7 +878,7 @@ lbl_80380DBC:
 /* 80380DC0 0037DD20  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80380DC4 0037DD24  38 21 00 18 */	addi r1, r1, 0x18
 /* 80380DC8 0037DD28  7C 08 03 A6 */	mtlr r0
-/* 80380DCC 0037DD2C  4E 80 00 20 */	blr 
+/* 80380DCC 0037DD2C  4E 80 00 20 */	blr
 
 .global sub_80380dd0
 sub_80380dd0:
@@ -970,13 +983,13 @@ lbl_80380F20:
 /* 80380F34 0037DE94  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80380F38 0037DE98  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80380F3C 0037DE9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80380F40 0037DEA0  4E 80 00 20 */	blr 
+/* 80380F40 0037DEA0  4E 80 00 20 */	blr
 
 .global OSGetFontEncode
 OSGetFontEncode:
 /* 80380F44 0037DEA4  A0 6D 9F 88 */	lhz r3, lbl_805A8B48@sda21(r13)
 /* 80380F48 0037DEA8  28 03 00 01 */	cmplwi r3, 1
-/* 80380F4C 0037DEAC  4C 81 00 20 */	blelr 
+/* 80380F4C 0037DEAC  4C 81 00 20 */	blelr
 /* 80380F50 0037DEB0  3C 60 80 00 */	lis r3, 0x800000CC@ha
 /* 80380F54 0037DEB4  80 03 00 CC */	lwz r0, 0x800000CC@l(r3)
 /* 80380F58 0037DEB8  2C 00 00 00 */	cmpwi r0, 0
@@ -1000,7 +1013,7 @@ lbl_80380F8C:
 /* 80380F90 0037DEF0  B0 0D 9F 88 */	sth r0, lbl_805A8B48@sda21(r13)
 lbl_80380F94:
 /* 80380F94 0037DEF4  A0 6D 9F 88 */	lhz r3, lbl_805A8B48@sda21(r13)
-/* 80380F98 0037DEF8  4E 80 00 20 */	blr 
+/* 80380F98 0037DEF8  4E 80 00 20 */	blr
 
 .global sub_80380f9c
 sub_80380f9c:
@@ -1043,7 +1056,7 @@ lbl_80381000:
 /* 80381018 0037DF78  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 8038101C 0037DF7C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80381020 0037DF80  7C 08 03 A6 */	mtlr r0
-/* 80381024 0037DF84  4E 80 00 20 */	blr 
+/* 80381024 0037DF84  4E 80 00 20 */	blr
 
 .global sub_80381028
 sub_80381028:
@@ -1263,7 +1276,7 @@ lbl_8038133C:
 /* 8038134C 0037E2AC  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80381350 0037E2B0  38 21 00 40 */	addi r1, r1, 0x40
 /* 80381354 0037E2B4  7C 08 03 A6 */	mtlr r0
-/* 80381358 0037E2B8  4E 80 00 20 */	blr 
+/* 80381358 0037E2B8  4E 80 00 20 */	blr
 
 .global sub_8038135c
 sub_8038135c:
@@ -1479,4 +1492,4 @@ lbl_8038164C:
 /* 80381650 0037E5B0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80381654 0037E5B4  38 21 00 60 */	addi r1, r1, 0x60
 /* 80381658 0037E5B8  7C 08 03 A6 */	mtlr r0
-/* 8038165C 0037E5BC  4E 80 00 20 */	blr 
+/* 8038165C 0037E5BC  4E 80 00 20 */	blr

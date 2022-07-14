@@ -111,12 +111,15 @@ lbl_805A6BE8:
 	# ROM: 0x3F4588
 	.4byte 0x42FE0000
 	.4byte 0
-	
+
 .section .rodata
 .global lbl_803CC028
 lbl_803CC028:
-	.incbin "baserom.dol", 0x3C9028, 0x8
-	
+	# ROM: 0x3C9028
+	.asciz "??(??)"
+	.balign 4
+
+
 .section .text, "ax"
 
 
@@ -170,13 +173,13 @@ lbl_800091E4:
 /* 800091F4 00006154  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 800091F8 00006158  7C 08 03 A6 */	mtlr r0
 /* 800091FC 0000615C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80009200 00006160  4E 80 00 20 */	blr 
+/* 80009200 00006160  4E 80 00 20 */	blr
 
 .global GetSpindleCameraId__14CCameraManagerCFv
 GetSpindleCameraId__14CCameraManagerCFv:
 /* 80009204 00006164  A0 04 00 A2 */	lhz r0, 0xa2(r4)
 /* 80009208 00006168  B0 03 00 00 */	sth r0, 0(r3)
-/* 8000920C 0000616C  4E 80 00 20 */	blr 
+/* 8000920C 0000616C  4E 80 00 20 */	blr
 
 .global SetSpindleCamera__14CCameraManagerF9TUniqueIdR13CStateManager
 SetSpindleCamera__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -211,7 +214,7 @@ SetSpindleCamera__14CCameraManagerF9TUniqueIdR13CStateManager:
 /* 80009280 000061E0  38 81 00 14 */	addi r4, r1, 0x14
 /* 80009284 000061E4  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80009288 000061E8  7D 89 03 A6 */	mtctr r12
-/* 8000928C 000061EC  4E 80 04 21 */	bctrl 
+/* 8000928C 000061EC  4E 80 04 21 */	bctrl
 /* 80009290 000061F0  80 7D 00 80 */	lwz r3, 0x80(r29)
 /* 80009294 000061F4  7F C5 F3 78 */	mr r5, r30
 /* 80009298 000061F8  38 9F 00 34 */	addi r4, r31, 0x34
@@ -223,13 +226,13 @@ lbl_800092A0:
 /* 800092AC 0000620C  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 800092B0 00006210  7C 08 03 A6 */	mtlr r0
 /* 800092B4 00006214  38 21 00 60 */	addi r1, r1, 0x60
-/* 800092B8 00006218  4E 80 00 20 */	blr 
+/* 800092B8 00006218  4E 80 00 20 */	blr
 
 .global GetPathCameraId__14CCameraManagerCFv
 GetPathCameraId__14CCameraManagerCFv:
 /* 800092BC 0000621C  A0 04 00 A4 */	lhz r0, 0xa4(r4)
 /* 800092C0 00006220  B0 03 00 00 */	sth r0, 0(r3)
-/* 800092C4 00006224  4E 80 00 20 */	blr 
+/* 800092C4 00006224  4E 80 00 20 */	blr
 
 .global SetPathCamera__14CCameraManagerF9TUniqueIdR13CStateManager
 SetPathCamera__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -264,7 +267,7 @@ SetPathCamera__14CCameraManagerF9TUniqueIdR13CStateManager:
 /* 80009338 00006298  38 81 00 14 */	addi r4, r1, 0x14
 /* 8000933C 0000629C  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80009340 000062A0  7D 89 03 A6 */	mtctr r12
-/* 80009344 000062A4  4E 80 04 21 */	bctrl 
+/* 80009344 000062A4  4E 80 04 21 */	bctrl
 /* 80009348 000062A8  80 7D 00 80 */	lwz r3, 0x80(r29)
 /* 8000934C 000062AC  7F C5 F3 78 */	mr r5, r30
 /* 80009350 000062B0  38 9F 00 34 */	addi r4, r31, 0x34
@@ -276,7 +279,7 @@ lbl_80009358:
 /* 80009364 000062C4  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80009368 000062C8  7C 08 03 A6 */	mtlr r0
 /* 8000936C 000062CC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80009370 000062D0  4E 80 00 20 */	blr 
+/* 80009370 000062D0  4E 80 00 20 */	blr
 
 .global HasCameraHint__14CCameraManagerCFR13CStateManager
 HasCameraHint__14CCameraManagerCFR13CStateManager:
@@ -304,7 +307,7 @@ lbl_800093C0:
 /* 800093C0 00006320  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800093C4 00006324  7C 08 03 A6 */	mtlr r0
 /* 800093C8 00006328  38 21 00 10 */	addi r1, r1, 0x10
-/* 800093CC 0000632C  4E 80 00 20 */	blr 
+/* 800093CC 0000632C  4E 80 00 20 */	blr
 
 .global GetCameraHint__14CCameraManagerCFR13CStateManager
 GetCameraHint__14CCameraManagerCFR13CStateManager:
@@ -323,7 +326,7 @@ GetCameraHint__14CCameraManagerCFR13CStateManager:
 /* 80009400 00006360  80 63 00 04 */	lwz r3, 4(r3)
 /* 80009404 00006364  7C 08 03 A6 */	mtlr r0
 /* 80009408 00006368  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000940C 0000636C  4E 80 00 20 */	blr 
+/* 8000940C 0000636C  4E 80 00 20 */	blr
 
 .global SetupBallCamera__14CCameraManagerFR13CStateManager
 SetupBallCamera__14CCameraManagerFR13CStateManager:
@@ -375,7 +378,7 @@ lbl_800094B0:
 /* 800094B0 00006410  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800094B4 00006414  7C 08 03 A6 */	mtlr r0
 /* 800094B8 00006418  38 21 00 20 */	addi r1, r1, 0x20
-/* 800094BC 0000641C  4E 80 00 20 */	blr 
+/* 800094BC 0000641C  4E 80 00 20 */	blr
 
 .global AddInactiveCameraHint__14CCameraManagerF9TUniqueIdR13CStateManager
 AddInactiveCameraHint__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -430,7 +433,7 @@ lbl_80009564:
 /* 8000956C 000064CC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80009570 000064D0  7C 08 03 A6 */	mtlr r0
 /* 80009574 000064D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80009578 000064D8  4E 80 00 20 */	blr 
+/* 80009578 000064D8  4E 80 00 20 */	blr
 
 .global DeleteCameraHint__14CCameraManagerF9TUniqueIdR13CStateManager
 DeleteCameraHint__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -496,7 +499,7 @@ lbl_80009644:
 /* 80009654 000065B4  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80009658 000065B8  7C 08 03 A6 */	mtlr r0
 /* 8000965C 000065BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80009660 000065C0  4E 80 00 20 */	blr 
+/* 80009660 000065C0  4E 80 00 20 */	blr
 
 .global AddActiveCameraHint__14CCameraManagerF9TUniqueIdR13CStateManager
 AddActiveCameraHint__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -556,7 +559,7 @@ lbl_80009718:
 /* 80009720 00006680  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80009724 00006684  7C 08 03 A6 */	mtlr r0
 /* 80009728 00006688  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000972C 0000668C  4E 80 00 20 */	blr 
+/* 8000972C 0000668C  4E 80 00 20 */	blr
 
 .global HasBallCameraInitialPositionHint__14CCameraManagerCFR13CStateManager
 HasBallCameraInitialPositionHint__14CCameraManagerCFR13CStateManager:
@@ -594,7 +597,7 @@ lbl_80009798:
 /* 8000979C 000066FC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800097A0 00006700  7C 08 03 A6 */	mtlr r0
 /* 800097A4 00006704  38 21 00 10 */	addi r1, r1, 0x10
-/* 800097A8 00006708  4E 80 00 20 */	blr 
+/* 800097A8 00006708  4E 80 00 20 */	blr
 
 .global UpdateCameraHints__14CCameraManagerFfR13CStateManager
 UpdateCameraHints__14CCameraManagerFfR13CStateManager:
@@ -1372,7 +1375,7 @@ lbl_8000A248:
 /* 8000A28C 000071EC  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 8000A290 000071F0  7C 08 03 A6 */	mtlr r0
 /* 8000A294 000071F4  38 21 02 00 */	addi r1, r1, 0x200
-/* 8000A298 000071F8  4E 80 00 20 */	blr 
+/* 8000A298 000071F8  4E 80 00 20 */	blr
 
 .global RestoreHintlessCamera__14CCameraManagerFR13CStateManager
 RestoreHintlessCamera__14CCameraManagerFR13CStateManager:
@@ -1502,7 +1505,7 @@ lbl_8000A46C:
 /* 8000A478 000073D8  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 8000A47C 000073DC  7C 08 03 A6 */	mtlr r0
 /* 8000A480 000073E0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8000A484 000073E4  4E 80 00 20 */	blr 
+/* 8000A484 000073E4  4E 80 00 20 */	blr
 
 .global ApplyCameraHint__14CCameraManagerFRC17CScriptCameraHintR13CStateManager
 ApplyCameraHint__14CCameraManagerFRC17CScriptCameraHintR13CStateManager:
@@ -1648,7 +1651,7 @@ lbl_8000A680:
 /* 8000A690 000075F0  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 8000A694 000075F4  7C 08 03 A6 */	mtlr r0
 /* 8000A698 000075F8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8000A69C 000075FC  4E 80 00 20 */	blr 
+/* 8000A69C 000075FC  4E 80 00 20 */	blr
 
 .global SkipBallCameraCinematic__14CCameraManagerFR13CStateManager
 SkipBallCameraCinematic__14CCameraManagerFR13CStateManager:
@@ -1702,7 +1705,7 @@ lbl_8000A748:
 /* 8000A758 000076B8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8000A75C 000076BC  7C 08 03 A6 */	mtlr r0
 /* 8000A760 000076C0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8000A764 000076C4  4E 80 00 20 */	blr 
+/* 8000A764 000076C4  4E 80 00 20 */	blr
 
 .global InterpolateToBallCamera__14CCameraManagerFRC12CTransform4f9TUniqueIdRC9CVector3ffffbR13CStateManager
 InterpolateToBallCamera__14CCameraManagerFRC12CTransform4f9TUniqueIdRC9CVector3ffffbR13CStateManager:
@@ -1762,7 +1765,7 @@ lbl_8000A828:
 /* 8000A838 00007798  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8000A83C 0000779C  7C 08 03 A6 */	mtlr r0
 /* 8000A840 000077A0  38 21 00 50 */	addi r1, r1, 0x50
-/* 8000A844 000077A4  4E 80 00 20 */	blr 
+/* 8000A844 000077A4  4E 80 00 20 */	blr
 
 .global SetPlayerCamera__14CCameraManagerFR13CStateManager9TUniqueId
 SetPlayerCamera__14CCameraManagerFR13CStateManager9TUniqueId:
@@ -1781,7 +1784,7 @@ SetPlayerCamera__14CCameraManagerFR13CStateManager9TUniqueId:
 /* 8000A878 000077D8  38 80 00 00 */	li r4, 0
 /* 8000A87C 000077DC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8000A880 000077E0  7D 89 03 A6 */	mtctr r12
-/* 8000A884 000077E4  4E 80 04 21 */	bctrl 
+/* 8000A884 000077E4  4E 80 04 21 */	bctrl
 /* 8000A888 000077E8  80 7E 00 80 */	lwz r3, 0x80(r30)
 /* 8000A88C 000077EC  48 05 06 FD */	bl SkipFovInterpolation__11CGameCameraFv
 /* 8000A890 000077F0  7F C3 F3 78 */	mr r3, r30
@@ -1799,19 +1802,19 @@ lbl_8000A8B4:
 /* 8000A8BC 0000781C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8000A8C0 00007820  7C 08 03 A6 */	mtlr r0
 /* 8000A8C4 00007824  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000A8C8 00007828  4E 80 00 20 */	blr 
+/* 8000A8C8 00007828  4E 80 00 20 */	blr
 
 .global ShouldBypassInterpolationCamera__14CCameraManagerCFv
 ShouldBypassInterpolationCamera__14CCameraManagerCFv:
 /* 8000A8CC 0000782C  38 60 00 00 */	li r3, 0
-/* 8000A8D0 00007830  4E 80 00 20 */	blr 
+/* 8000A8D0 00007830  4E 80 00 20 */	blr
 
 .global IsInterpolationCameraActive__14CCameraManagerCFv
 IsInterpolationCameraActive__14CCameraManagerCFv:
 /* 8000A8D4 00007834  80 63 00 88 */	lwz r3, 0x88(r3)
 /* 8000A8D8 00007838  88 03 00 30 */	lbz r0, 0x30(r3)
 /* 8000A8DC 0000783C  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 8000A8E0 00007840  4E 80 00 20 */	blr 
+/* 8000A8E0 00007840  4E 80 00 20 */	blr
 
 .global IsInFirstPersonCamera__14CCameraManagerCFv
 IsInFirstPersonCamera__14CCameraManagerCFv:
@@ -1824,7 +1827,7 @@ IsInFirstPersonCamera__14CCameraManagerCFv:
 
 .global sub_8000a8fc
 sub_8000a8fc:
-/* 8000A8FC 0000785C  4E 80 00 20 */	blr 
+/* 8000A8FC 0000785C  4E 80 00 20 */	blr
 
 .global IsInCinematicCamera__14CCameraManagerCFv
 IsInCinematicCamera__14CCameraManagerCFv:
@@ -1832,7 +1835,7 @@ IsInCinematicCamera__14CCameraManagerCFv:
 /* 8000A904 00007864  7C 03 00 D0 */	neg r0, r3
 /* 8000A908 00007868  7C 00 1B 78 */	or r0, r0, r3
 /* 8000A90C 0000786C  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8000A910 00007870  4E 80 00 20 */	blr 
+/* 8000A910 00007870  4E 80 00 20 */	blr
 
 .global GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager
 GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager:
@@ -1856,7 +1859,7 @@ GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager:
 /* 8000A958 000078B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8000A95C 000078BC  7C 08 03 A6 */	mtlr r0
 /* 8000A960 000078C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000A964 000078C4  4E 80 00 20 */	blr 
+/* 8000A964 000078C4  4E 80 00 20 */	blr
 
 .global GetCurrentCameraTransform__14CCameraManagerCFRC13CStateManager
 GetCurrentCameraTransform__14CCameraManagerCFRC13CStateManager:
@@ -1885,7 +1888,7 @@ GetCurrentCameraTransform__14CCameraManagerCFRC13CStateManager:
 /* 8000A9C0 00007920  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8000A9C4 00007924  7C 08 03 A6 */	mtlr r0
 /* 8000A9C8 00007928  38 21 00 50 */	addi r1, r1, 0x50
-/* 8000A9CC 0000792C  4E 80 00 20 */	blr 
+/* 8000A9CC 0000792C  4E 80 00 20 */	blr
 
 .global RemoveCameraShaker__14CCameraManagerFi
 RemoveCameraShaker__14CCameraManagerFi:
@@ -1912,7 +1915,7 @@ lbl_8000AA10:
 /* 8000AA10 00007970  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8000AA14 00007974  7C 08 03 A6 */	mtlr r0
 /* 8000AA18 00007978  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000AA1C 0000797C  4E 80 00 20 */	blr 
+/* 8000AA1C 0000797C  4E 80 00 20 */	blr
 
 .global AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab
 AddCameraShaker__14CCameraManagerFRC16CCameraShakeDatab:
@@ -2047,7 +2050,7 @@ lbl_8000ABE4:
 /* 8000AC00 00007B60  83 A1 01 14 */	lwz r29, 0x114(r1)
 /* 8000AC04 00007B64  7C 08 03 A6 */	mtlr r0
 /* 8000AC08 00007B68  38 21 01 40 */	addi r1, r1, 0x140
-/* 8000AC0C 00007B6C  4E 80 00 20 */	blr 
+/* 8000AC0C 00007B6C  4E 80 00 20 */	blr
 
 .global sub_8000ac10
 sub_8000ac10:
@@ -2060,7 +2063,7 @@ sub_8000ac10:
 /* 8000AC28 00007B88  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8000AC2C 00007B8C  7C 08 03 A6 */	mtlr r0
 /* 8000AC30 00007B90  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000AC34 00007B94  4E 80 00 20 */	blr 
+/* 8000AC34 00007B94  4E 80 00 20 */	blr
 
 .global sub_8000ac38
 sub_8000ac38:
@@ -2092,7 +2095,7 @@ lbl_8000AC74:
 /* 8000AC98 00007BF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8000AC9C 00007BFC  7C 08 03 A6 */	mtlr r0
 /* 8000ACA0 00007C00  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000ACA4 00007C04  4E 80 00 20 */	blr 
+/* 8000ACA4 00007C04  4E 80 00 20 */	blr
 
 .global sub_8000aca8
 sub_8000aca8:
@@ -2130,7 +2133,7 @@ lbl_8000AD08:
 /* 8000AD1C 00007C7C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8000AD20 00007C80  7C 08 03 A6 */	mtlr r0
 /* 8000AD24 00007C84  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000AD28 00007C88  4E 80 00 20 */	blr 
+/* 8000AD28 00007C88  4E 80 00 20 */	blr
 
 .global sub_8000ad2c
 sub_8000ad2c:
@@ -2168,7 +2171,7 @@ lbl_8000AD90:
 /* 8000AD98 00007CF8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8000AD9C 00007CFC  7C 08 03 A6 */	mtlr r0
 /* 8000ADA0 00007D00  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000ADA4 00007D04  4E 80 00 20 */	blr 
+/* 8000ADA4 00007D04  4E 80 00 20 */	blr
 
 .global __ct__16CCameraShakeDataFRC16CCameraShakeData
 __ct__16CCameraShakeDataFRC16CCameraShakeData:
@@ -2277,7 +2280,7 @@ __ct__16CCameraShakeDataFRC16CCameraShakeData:
 /* 8000AF40 00007EA0  D0 03 00 CC */	stfs f0, 0xcc(r3)
 /* 8000AF44 00007EA4  C0 04 00 D0 */	lfs f0, 0xd0(r4)
 /* 8000AF48 00007EA8  D0 03 00 D0 */	stfs f0, 0xd0(r3)
-/* 8000AF4C 00007EAC  4E 80 00 20 */	blr 
+/* 8000AF4C 00007EAC  4E 80 00 20 */	blr
 
 .global __dt__22CCameraShakerComponentFv
 __dt__22CCameraShakerComponentFv:
@@ -2299,7 +2302,7 @@ lbl_8000AF80:
 /* 8000AF88 00007EE8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8000AF8C 00007EEC  7C 08 03 A6 */	mtlr r0
 /* 8000AF90 00007EF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000AF94 00007EF4  4E 80 00 20 */	blr 
+/* 8000AF94 00007EF4  4E 80 00 20 */	blr
 
 .global SkipCinematic__14CCameraManagerFR13CStateManager
 SkipCinematic__14CCameraManagerFR13CStateManager:
@@ -2327,7 +2330,7 @@ lbl_8000AFE0:
 /* 8000AFE8 00007F48  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8000AFEC 00007F4C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8000AFF0 00007F50  7D 89 03 A6 */	mtctr r12
-/* 8000AFF4 00007F54  4E 80 04 21 */	bctrl 
+/* 8000AFF4 00007F54  4E 80 04 21 */	bctrl
 /* 8000AFF8 00007F58  7F E3 FB 78 */	mr r3, r31
 /* 8000AFFC 00007F5C  7F C4 F3 78 */	mr r4, r30
 /* 8000B000 00007F60  48 08 92 E9 */	bl WasDeactivated__16CCinematicCameraFR13CStateManager
@@ -2355,7 +2358,7 @@ lbl_8000B020:
 
 .global sub_8000b054
 sub_8000b054:
-/* 8000B054 00007FB4  4E 80 00 20 */	blr 
+/* 8000B054 00007FB4  4E 80 00 20 */	blr
 
 .global EnterCinematic__14CCameraManagerFR13CStateManager
 EnterCinematic__14CCameraManagerFR13CStateManager:
@@ -2455,7 +2458,7 @@ lbl_8000B1A8:
 /* 8000B1B4 00008114  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8000B1B8 00008118  7C 08 03 A6 */	mtlr r0
 /* 8000B1BC 0000811C  38 21 00 60 */	addi r1, r1, 0x60
-/* 8000B1C0 00008120  4E 80 00 20 */	blr 
+/* 8000B1C0 00008120  4E 80 00 20 */	blr
 
 .global RemoveCinemaCamera__14CCameraManagerF9TUniqueIdR13CStateManager
 RemoveCinemaCamera__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -2499,7 +2502,7 @@ lbl_8000B248:
 /* 8000B248 000081A8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8000B24C 000081AC  7C 08 03 A6 */	mtlr r0
 /* 8000B250 000081B0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8000B254 000081B4  4E 80 00 20 */	blr 
+/* 8000B254 000081B4  4E 80 00 20 */	blr
 
 .global "find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId"
 "find<Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,9TUniqueId>__4rstlFQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC9TUniqueId":
@@ -2521,7 +2524,7 @@ lbl_8000B248:
 /* 8000B294 000081F4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8000B298 000081F8  7C 08 03 A6 */	mtlr r0
 /* 8000B29C 000081FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000B2A0 00008200  4E 80 00 20 */	blr 
+/* 8000B2A0 00008200  4E 80 00 20 */	blr
 
 .global sub_8000b2a4
 sub_8000b2a4:
@@ -2567,7 +2570,7 @@ lbl_8000B310:
 /* 8000B32C 0000828C  80 05 00 00 */	lwz r0, 0(r5)
 /* 8000B330 00008290  90 03 00 00 */	stw r0, 0(r3)
 /* 8000B334 00008294  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000B338 00008298  4E 80 00 20 */	blr 
+/* 8000B338 00008298  4E 80 00 20 */	blr
 
 .global AddCinemaCamera__14CCameraManagerF9TUniqueIdR13CStateManager
 AddCinemaCamera__14CCameraManagerF9TUniqueIdR13CStateManager:
@@ -2652,7 +2655,7 @@ lbl_8000B450:
 /* 8000B45C 000083BC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8000B460 000083C0  7C 08 03 A6 */	mtlr r0
 /* 8000B464 000083C4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8000B468 000083C8  4E 80 00 20 */	blr 
+/* 8000B468 000083C8  4E 80 00 20 */	blr
 
 .global ProcessInput__14CCameraManagerFRC11CFinalInputR13CStateManager
 ProcessInput__14CCameraManagerFRC11CFinalInputR13CStateManager:
@@ -2683,7 +2686,7 @@ lbl_8000B49C:
 /* 8000B4C8 00008428  7F A5 EB 78 */	mr r5, r29
 /* 8000B4CC 0000842C  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8000B4D0 00008430  7D 89 03 A6 */	mtctr r12
-/* 8000B4D4 00008434  4E 80 04 21 */	bctrl 
+/* 8000B4D4 00008434  4E 80 04 21 */	bctrl
 lbl_8000B4D8:
 /* 8000B4D8 00008438  2C 1E FF FF */	cmpwi r30, -1
 /* 8000B4DC 0000843C  41 82 00 14 */	beq lbl_8000B4F0
@@ -2703,7 +2706,7 @@ lbl_8000B4F4:
 /* 8000B50C 0000846C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8000B510 00008470  7C 08 03 A6 */	mtlr r0
 /* 8000B514 00008474  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000B518 00008478  4E 80 00 20 */	blr 
+/* 8000B518 00008478  4E 80 00 20 */	blr
 
 .global SetInsideFluid__14CCameraManagerFb9TUniqueId
 SetInsideFluid__14CCameraManagerFb9TUniqueId:
@@ -2714,12 +2717,12 @@ SetInsideFluid__14CCameraManagerFb9TUniqueId:
 /* 8000B52C 0000848C  90 03 00 74 */	stw r0, 0x74(r3)
 /* 8000B530 00008490  A0 05 00 00 */	lhz r0, 0(r5)
 /* 8000B534 00008494  B0 03 00 78 */	sth r0, 0x78(r3)
-/* 8000B538 00008498  4E 80 00 20 */	blr 
+/* 8000B538 00008498  4E 80 00 20 */	blr
 lbl_8000B53C:
 /* 8000B53C 0000849C  80 83 00 74 */	lwz r4, 0x74(r3)
 /* 8000B540 000084A0  38 04 FF FF */	addi r0, r4, -1
 /* 8000B544 000084A4  90 03 00 74 */	stw r0, 0x74(r3)
-/* 8000B548 000084A8  4E 80 00 20 */	blr 
+/* 8000B548 000084A8  4E 80 00 20 */	blr
 
 .global Update__14CCameraManagerFfR13CStateManager
 Update__14CCameraManagerFfR13CStateManager:
@@ -2754,7 +2757,7 @@ Update__14CCameraManagerFfR13CStateManager:
 /* 8000B5BC 0000851C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8000B5C0 00008520  7C 08 03 A6 */	mtlr r0
 /* 8000B5C4 00008524  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000B5C8 00008528  4E 80 00 20 */	blr 
+/* 8000B5C8 00008528  4E 80 00 20 */	blr
 
 .global sub_8000b5cc
 sub_8000b5cc:
@@ -2765,10 +2768,10 @@ sub_8000b5cc:
 /* 8000B5DC 0000853C  40 80 00 10 */	bge lbl_8000B5EC
 /* 8000B5E0 00008540  FC 00 10 50 */	fneg f0, f2
 /* 8000B5E4 00008544  D0 03 00 98 */	stfs f0, 0x98(r3)
-/* 8000B5E8 00008548  4E 80 00 20 */	blr 
+/* 8000B5E8 00008548  4E 80 00 20 */	blr
 lbl_8000B5EC:
 /* 8000B5EC 0000854C  D0 43 00 98 */	stfs f2, 0x98(r3)
-/* 8000B5F0 00008550  4E 80 00 20 */	blr 
+/* 8000B5F0 00008550  4E 80 00 20 */	blr
 
 .global CalculateFogDensity__14CCameraManagerFR13CStateManagerPC12CScriptWater
 CalculateFogDensity__14CCameraManagerFR13CStateManagerPC12CScriptWater:
@@ -2808,7 +2811,7 @@ lbl_8000B65C:
 /* 8000B670 000085D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8000B674 000085D4  7C 08 03 A6 */	mtlr r0
 /* 8000B678 000085D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000B67C 000085DC  4E 80 00 20 */	blr 
+/* 8000B67C 000085DC  4E 80 00 20 */	blr
 
 .global UpdateFog__14CCameraManagerFfR13CStateManager
 UpdateFog__14CCameraManagerFfR13CStateManager:
@@ -2944,7 +2947,7 @@ lbl_8000B83C:
 /* 8000B868 000087C8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8000B86C 000087CC  7C 08 03 A6 */	mtlr r0
 /* 8000B870 000087D0  38 21 00 50 */	addi r1, r1, 0x50
-/* 8000B874 000087D4  4E 80 00 20 */	blr 
+/* 8000B874 000087D4  4E 80 00 20 */	blr
 
 .global UpdateRumble__14CCameraManagerFfR13CStateManager
 UpdateRumble__14CCameraManagerFfR13CStateManager:
@@ -3062,7 +3065,7 @@ lbl_8000BA0C:
 /* 8000BA18 00008978  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8000BA1C 0000897C  7C 08 03 A6 */	mtlr r0
 /* 8000BA20 00008980  38 21 00 40 */	addi r1, r1, 0x40
-/* 8000BA24 00008984  4E 80 00 20 */	blr 
+/* 8000BA24 00008984  4E 80 00 20 */	blr
 
 .global UpdateSfxListener__14CCameraManagerFR13CStateManager
 UpdateSfxListener__14CCameraManagerFR13CStateManager:
@@ -3104,13 +3107,13 @@ UpdateSfxListener__14CCameraManagerFR13CStateManager:
 /* 8000BAB4 00008A14  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8000BAB8 00008A18  7C 08 03 A6 */	mtlr r0
 /* 8000BABC 00008A1C  38 21 00 90 */	addi r1, r1, 0x90
-/* 8000BAC0 00008A20  4E 80 00 20 */	blr 
+/* 8000BAC0 00008A20  4E 80 00 20 */	blr
 
 .global SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager
 SetCurrentCameraId__14CCameraManagerF9TUniqueIdR13CStateManager:
 /* 8000BAC4 00008A24  A0 04 00 00 */	lhz r0, 0(r4)
 /* 8000BAC8 00008A28  B0 03 00 00 */	sth r0, 0(r3)
-/* 8000BACC 00008A2C  4E 80 00 20 */	blr 
+/* 8000BACC 00008A2C  4E 80 00 20 */	blr
 
 .global GetLastCineCamera__14CCameraManagerCFR13CStateManager
 GetLastCineCamera__14CCameraManagerCFR13CStateManager:
@@ -3131,7 +3134,7 @@ GetLastCineCamera__14CCameraManagerCFR13CStateManager:
 /* 8000BB08 00008A68  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8000BB0C 00008A6C  7C 08 03 A6 */	mtlr r0
 /* 8000BB10 00008A70  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000BB14 00008A74  4E 80 00 20 */	blr 
+/* 8000BB14 00008A74  4E 80 00 20 */	blr
 
 .global GetCurrentCamera__14CCameraManagerCFR13CStateManager
 GetCurrentCamera__14CCameraManagerCFR13CStateManager:
@@ -3152,7 +3155,7 @@ GetCurrentCamera__14CCameraManagerCFR13CStateManager:
 /* 8000BB50 00008AB0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8000BB54 00008AB4  7C 08 03 A6 */	mtlr r0
 /* 8000BB58 00008AB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000BB5C 00008ABC  4E 80 00 20 */	blr 
+/* 8000BB5C 00008ABC  4E 80 00 20 */	blr
 
 .global GetCurrentCamera__14CCameraManagerFR13CStateManager
 GetCurrentCamera__14CCameraManagerFR13CStateManager:
@@ -3173,7 +3176,7 @@ GetCurrentCamera__14CCameraManagerFR13CStateManager:
 /* 8000BB98 00008AF8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8000BB9C 00008AFC  7C 08 03 A6 */	mtlr r0
 /* 8000BBA0 00008B00  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000BBA4 00008B04  4E 80 00 20 */	blr 
+/* 8000BBA4 00008B04  4E 80 00 20 */	blr
 
 .global GetLastCineCameraId__14CCameraManagerCFv
 GetLastCineCameraId__14CCameraManagerCFv:
@@ -3182,14 +3185,14 @@ GetLastCineCameraId__14CCameraManagerCFv:
 /* 8000BBB0 00008B10  40 82 00 10 */	bne lbl_8000BBC0
 /* 8000BBB4 00008B14  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8000BBB8 00008B18  B0 03 00 00 */	sth r0, 0(r3)
-/* 8000BBBC 00008B1C  4E 80 00 20 */	blr 
+/* 8000BBBC 00008B1C  4E 80 00 20 */	blr
 lbl_8000BBC0:
 /* 8000BBC0 00008B20  38 05 FF FF */	addi r0, r5, -1
 /* 8000BBC4 00008B24  80 84 00 10 */	lwz r4, 0x10(r4)
 /* 8000BBC8 00008B28  54 00 08 3C */	slwi r0, r0, 1
 /* 8000BBCC 00008B2C  7C 04 02 2E */	lhzx r0, r4, r0
 /* 8000BBD0 00008B30  B0 03 00 00 */	sth r0, 0(r3)
-/* 8000BBD4 00008B34  4E 80 00 20 */	blr 
+/* 8000BBD4 00008B34  4E 80 00 20 */	blr
 
 .global GetCurrentCameraId__14CCameraManagerCFv
 GetCurrentCameraId__14CCameraManagerCFv:
@@ -3198,14 +3201,14 @@ GetCurrentCameraId__14CCameraManagerCFv:
 /* 8000BBE0 00008B40  40 82 00 10 */	bne lbl_8000BBF0
 /* 8000BBE4 00008B44  A0 04 00 00 */	lhz r0, 0(r4)
 /* 8000BBE8 00008B48  B0 03 00 00 */	sth r0, 0(r3)
-/* 8000BBEC 00008B4C  4E 80 00 20 */	blr 
+/* 8000BBEC 00008B4C  4E 80 00 20 */	blr
 lbl_8000BBF0:
 /* 8000BBF0 00008B50  38 05 FF FF */	addi r0, r5, -1
 /* 8000BBF4 00008B54  80 84 00 10 */	lwz r4, 0x10(r4)
 /* 8000BBF8 00008B58  54 00 08 3C */	slwi r0, r0, 1
 /* 8000BBFC 00008B5C  7C 04 02 2E */	lhzx r0, r4, r0
 /* 8000BC00 00008B60  B0 03 00 00 */	sth r0, 0(r3)
-/* 8000BC04 00008B64  4E 80 00 20 */	blr 
+/* 8000BC04 00008B64  4E 80 00 20 */	blr
 
 .global RenderCameras__14CCameraManagerFRC13CStateManager
 RenderCameras__14CCameraManagerFRC13CStateManager:
@@ -3227,7 +3230,7 @@ lbl_8000BC30:
 /* 8000BC40 00008BA0  7F A4 EB 78 */	mr r4, r29
 /* 8000BC44 00008BA4  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 8000BC48 00008BA8  7D 89 03 A6 */	mtctr r12
-/* 8000BC4C 00008BAC  4E 80 04 21 */	bctrl 
+/* 8000BC4C 00008BAC  4E 80 04 21 */	bctrl
 /* 8000BC50 00008BB0  2C 1E FF FF */	cmpwi r30, -1
 /* 8000BC54 00008BB4  41 82 00 14 */	beq lbl_8000BC68
 /* 8000BC58 00008BB8  57 C3 18 38 */	slwi r3, r30, 3
@@ -3245,7 +3248,7 @@ lbl_8000BC6C:
 /* 8000BC80 00008BE0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000BC84 00008BE4  7C 08 03 A6 */	mtlr r0
 /* 8000BC88 00008BE8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000BC8C 00008BEC  4E 80 00 20 */	blr 
+/* 8000BC8C 00008BEC  4E 80 00 20 */	blr
 
 .global ResetCameras__14CCameraManagerFR13CStateManager
 ResetCameras__14CCameraManagerFR13CStateManager:
@@ -3285,7 +3288,7 @@ lbl_8000BCF4:
 /* 8000BD10 00008C70  38 81 00 44 */	addi r4, r1, 0x44
 /* 8000BD14 00008C74  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8000BD18 00008C78  7D 89 03 A6 */	mtctr r12
-/* 8000BD1C 00008C7C  4E 80 04 21 */	bctrl 
+/* 8000BD1C 00008C7C  4E 80 04 21 */	bctrl
 lbl_8000BD20:
 /* 8000BD20 00008C80  2C 1E FF FF */	cmpwi r30, -1
 /* 8000BD24 00008C84  41 82 00 14 */	beq lbl_8000BD38
@@ -3304,7 +3307,7 @@ lbl_8000BD3C:
 /* 8000BD50 00008CB0  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8000BD54 00008CB4  7C 08 03 A6 */	mtlr r0
 /* 8000BD58 00008CB8  38 21 00 90 */	addi r1, r1, 0x90
-/* 8000BD5C 00008CBC  4E 80 00 20 */	blr 
+/* 8000BD5C 00008CBC  4E 80 00 20 */	blr
 
 .global ThinkCameras__14CCameraManagerFfR13CStateManager
 ThinkCameras__14CCameraManagerFfR13CStateManager:
@@ -3331,7 +3334,7 @@ lbl_8000BD90:
 /* 8000BDAC 00008D0C  7F 84 E3 78 */	mr r4, r28
 /* 8000BDB0 00008D10  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8000BDB4 00008D14  7D 89 03 A6 */	mtctr r12
-/* 8000BDB8 00008D18  4E 80 04 21 */	bctrl 
+/* 8000BDB8 00008D18  4E 80 04 21 */	bctrl
 /* 8000BDBC 00008D1C  FC 20 F8 90 */	fmr f1, f31
 /* 8000BDC0 00008D20  7F A3 EB 78 */	mr r3, r29
 /* 8000BDC4 00008D24  48 04 F0 79 */	bl UpdatePerspective__11CGameCameraFf
@@ -3374,7 +3377,7 @@ lbl_8000BE3C:
 /* 8000BE48 00008DA8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8000BE4C 00008DAC  7C 08 03 A6 */	mtlr r0
 /* 8000BE50 00008DB0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8000BE54 00008DB4  4E 80 00 20 */	blr 
+/* 8000BE54 00008DB4  4E 80 00 20 */	blr
 
 .global CreateStandardCameras__14CCameraManagerFR13CStateManager
 CreateStandardCameras__14CCameraManagerFR13CStateManager:
@@ -3532,32 +3535,32 @@ lbl_8000C06C:
 /* 8000C0A8 00009008  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8000C0AC 0000900C  7C 08 03 A6 */	mtlr r0
 /* 8000C0B0 00009010  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8000C0B4 00009014  4E 80 00 20 */	blr 
+/* 8000C0B4 00009014  4E 80 00 20 */	blr
 
 .global DefaultAspect__14CCameraManagerFv
 DefaultAspect__14CCameraManagerFv:
 /* 8000C0B8 00009018  C0 2D 80 20 */	lfs f1, lbl_805A6BE0@sda21(r13)
-/* 8000C0BC 0000901C  4E 80 00 20 */	blr 
+/* 8000C0BC 0000901C  4E 80 00 20 */	blr
 
 .global DefaultFarPlane__14CCameraManagerFv
 DefaultFarPlane__14CCameraManagerFv:
 /* 8000C0C0 00009020  C0 2D 80 1C */	lfs f1, lbl_805A6BDC@sda21(r13)
-/* 8000C0C4 00009024  4E 80 00 20 */	blr 
+/* 8000C0C4 00009024  4E 80 00 20 */	blr
 
 .global DefaultNearPlane__14CCameraManagerFv
 DefaultNearPlane__14CCameraManagerFv:
 /* 8000C0C8 00009028  C0 2D 80 18 */	lfs f1, lbl_805A6BD8@sda21(r13)
-/* 8000C0CC 0000902C  4E 80 00 20 */	blr 
+/* 8000C0CC 0000902C  4E 80 00 20 */	blr
 
 .global DefaultFirstPersonFov__14CCameraManagerFv
 DefaultFirstPersonFov__14CCameraManagerFv:
 /* 8000C0D0 00009030  C0 2D 80 10 */	lfs f1, lbl_805A6BD0@sda21(r13)
-/* 8000C0D4 00009034  4E 80 00 20 */	blr 
+/* 8000C0D4 00009034  4E 80 00 20 */	blr
 
 .global DefaultThirdPersonFov__14CCameraManagerFv
 DefaultThirdPersonFov__14CCameraManagerFv:
 /* 8000C0D8 00009038  C0 2D 80 14 */	lfs f1, lbl_805A6BD4@sda21(r13)
-/* 8000C0DC 0000903C  4E 80 00 20 */	blr 
+/* 8000C0DC 0000903C  4E 80 00 20 */	blr
 
 .global __ct__14CCameraManagerF9TUniqueId
 __ct__14CCameraManagerF9TUniqueId:
@@ -3677,22 +3680,22 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C2A4 00009204  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8000C2A8 00009208  7C 08 03 A6 */	mtlr r0
 /* 8000C2AC 0000920C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8000C2B0 00009210  4E 80 00 20 */	blr 
+/* 8000C2B0 00009210  4E 80 00 20 */	blr
 
 .global "Clamp<f>__5CMathFRCfRCfRCf"
 "Clamp<f>__5CMathFRCfRCfRCf":
 /* 8000C2B4 00009214  C0 03 00 00 */	lfs f0, 0(r3)
 /* 8000C2B8 00009218  C0 24 00 00 */	lfs f1, 0(r4)
 /* 8000C2BC 0000921C  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8000C2C0 00009220  4D 81 00 20 */	bgtlr 
+/* 8000C2C0 00009220  4D 81 00 20 */	bgtlr
 /* 8000C2C4 00009224  C0 05 00 00 */	lfs f0, 0(r5)
 /* 8000C2C8 00009228  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 8000C2CC 0000922C  40 80 00 0C */	bge lbl_8000C2D8
 /* 8000C2D0 00009230  7C A3 2B 78 */	mr r3, r5
-/* 8000C2D4 00009234  4E 80 00 20 */	blr 
+/* 8000C2D4 00009234  4E 80 00 20 */	blr
 lbl_8000C2D8:
 /* 8000C2D8 00009238  7C 83 23 78 */	mr r3, r4
-/* 8000C2DC 0000923C  4E 80 00 20 */	blr 
+/* 8000C2DC 0000923C  4E 80 00 20 */	blr
 
 .global sub_8000c2e0
 sub_8000c2e0:
@@ -3776,7 +3779,7 @@ lbl_8000C3F4:
 /* 8000C3F8 00009358  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8000C3FC 0000935C  7C 08 03 A6 */	mtlr r0
 /* 8000C400 00009360  38 21 00 40 */	addi r1, r1, 0x40
-/* 8000C404 00009364  4E 80 00 20 */	blr 
+/* 8000C404 00009364  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>Fi":
@@ -3847,7 +3850,7 @@ lbl_8000C4D8:
 /* 8000C4E4 00009444  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8000C4E8 00009448  7C 08 03 A6 */	mtlr r0
 /* 8000C4EC 0000944C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8000C4F0 00009450  4E 80 00 20 */	blr 
+/* 8000C4F0 00009450  4E 80 00 20 */	blr
 
 .global sub_8000c4f4
 sub_8000c4f4:
@@ -3903,7 +3906,7 @@ lbl_8000C58C:
 /* 8000C5A4 00009504  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8000C5A8 00009508  7C 08 03 A6 */	mtlr r0
 /* 8000C5AC 0000950C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000C5B0 00009510  4E 80 00 20 */	blr 
+/* 8000C5B0 00009510  4E 80 00 20 */	blr
 
 .global sub_8000c5b4
 sub_8000c5b4:
@@ -3960,7 +3963,7 @@ lbl_8000C654:
 /* 8000C664 000095C4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000C668 000095C8  7C 08 03 A6 */	mtlr r0
 /* 8000C66C 000095CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000C670 000095D0  4E 80 00 20 */	blr 
+/* 8000C670 000095D0  4E 80 00 20 */	blr
 
 .global sub_8000c674
 sub_8000c674:
@@ -4001,7 +4004,7 @@ lbl_8000C6D8:
 /* 8000C6EC 0000964C  42 00 FF A8 */	bdnz lbl_8000C694
 lbl_8000C6F0:
 /* 8000C6F0 00009650  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000C6F4 00009654  4E 80 00 20 */	blr 
+/* 8000C6F4 00009654  4E 80 00 20 */	blr
 
 .global sub_8000c6f8
 sub_8000c6f8:
@@ -4043,4 +4046,4 @@ lbl_8000C778:
 /* 8000C77C 000096DC  B0 C4 00 04 */	sth r6, 4(r4)
 lbl_8000C780:
 /* 8000C780 000096E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000C784 000096E4  4E 80 00 20 */	blr 
+/* 8000C784 000096E4  4E 80 00 20 */	blr

@@ -23,7 +23,7 @@ lbl_80369D28:
 /* 80369D3C 00366C9C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80369D40 00366CA0  7C 08 03 A6 */	mtlr r0
 /* 80369D44 00366CA4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80369D48 00366CA8  4E 80 00 20 */	blr 
+/* 80369D48 00366CA8  4E 80 00 20 */	blr
 
 .global HardStopAll__16CRumbleGeneratorFv
 HardStopAll__16CRumbleGeneratorFv:
@@ -64,7 +64,7 @@ lbl_80369D84:
 /* 80369DD0 00366D30  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80369DD4 00366D34  7C 08 03 A6 */	mtlr r0
 /* 80369DD8 00366D38  38 21 00 30 */	addi r1, r1, 0x30
-/* 80369DDC 00366D3C  4E 80 00 20 */	blr 
+/* 80369DDC 00366D3C  4E 80 00 20 */	blr
 
 .global Update__16CRumbleGeneratorFf
 Update__16CRumbleGeneratorFf:
@@ -164,7 +164,7 @@ lbl_80369F28:
 /* 80369F3C 00366E9C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80369F40 00366EA0  7C 08 03 A6 */	mtlr r0
 /* 80369F44 00366EA4  38 21 00 40 */	addi r1, r1, 0x40
-/* 80369F48 00366EA8  4E 80 00 20 */	blr 
+/* 80369F48 00366EA8  4E 80 00 20 */	blr
 
 .global Rumble__16CRumbleGeneratorFRC9SAdsrDataf15ERumblePriority7EIOPort
 Rumble__16CRumbleGeneratorFRC9SAdsrDataf15ERumblePriority7EIOPort:
@@ -211,7 +211,7 @@ lbl_80369FD8:
 /* 80369FE4 00366F44  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80369FE8 00366F48  7C 08 03 A6 */	mtlr r0
 /* 80369FEC 00366F4C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80369FF0 00366F50  4E 80 00 20 */	blr 
+/* 80369FF0 00366F50  4E 80 00 20 */	blr
 
 .global __dt__16CRumbleGeneratorFv
 __dt__16CRumbleGeneratorFv:
@@ -241,7 +241,7 @@ lbl_8036A040:
 /* 8036A04C 00366FAC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036A050 00366FB0  7C 08 03 A6 */	mtlr r0
 /* 8036A054 00366FB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A058 00366FB8  4E 80 00 20 */	blr 
+/* 8036A058 00366FB8  4E 80 00 20 */	blr
 
 .global __dt__12CRumbleVoiceFv
 __dt__12CRumbleVoiceFv:
@@ -334,7 +334,7 @@ lbl_8036A178:
 /* 8036A184 003670E4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8036A188 003670E8  7C 08 03 A6 */	mtlr r0
 /* 8036A18C 003670EC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036A190 003670F0  4E 80 00 20 */	blr 
+/* 8036A190 003670F0  4E 80 00 20 */	blr
 
 .global __ct__16CRumbleGeneratorFv
 __ct__16CRumbleGeneratorFv:

@@ -28,7 +28,7 @@ lbl_8028AA10:
 /* 8028AA14 00287974  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8028AA18 00287978  7C 08 03 A6 */	mtlr r0
 /* 8028AA1C 0028797C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8028AA20 00287980  4E 80 00 20 */	blr 
+/* 8028AA20 00287980  4E 80 00 20 */	blr
 
 .global GetShotDamageInfo__10CGunWeaponCFRC10SShotParamR13CStateManager
 GetShotDamageInfo__10CGunWeaponCFRC10SShotParamR13CStateManager:
@@ -85,7 +85,7 @@ lbl_8028AAAC:
 /* 8028AAE8 00287A48  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8028AAEC 00287A4C  7C 08 03 A6 */	mtlr r0
 /* 8028AAF0 00287A50  38 21 00 30 */	addi r1, r1, 0x30
-/* 8028AAF4 00287A54  4E 80 00 20 */	blr 
+/* 8028AAF4 00287A54  4E 80 00 20 */	blr
 
 .global play_sfx__12NWeaponTypesFUsbbs
 play_sfx__12NWeaponTypesFUsbbs:
@@ -125,7 +125,7 @@ lbl_8028AB68:
 /* 8028AB78 00287AD8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8028AB7C 00287ADC  7C 08 03 A6 */	mtlr r0
 /* 8028AB80 00287AE0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8028AB84 00287AE4  4E 80 00 20 */	blr 
+/* 8028AB84 00287AE4  4E 80 00 20 */	blr
 
 .global "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId"
 "do_sound_event__12NWeaponTypesFRQ24rstl21pair<Us,10CSfxHandle>RibUifUiffUcRC9CVector3fRC9CVector3f7TAreaId":
@@ -342,7 +342,7 @@ lbl_8028AE90:
 /* 8028AEAC 00287E0C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 8028AEB0 00287E10  7C 08 03 A6 */	mtlr r0
 /* 8028AEB4 00287E14  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8028AEB8 00287E18  4E 80 00 20 */	blr 
+/* 8028AEB8 00287E18  4E 80 00 20 */	blr
 
 .global "primitive_set_to_token_vector__12NWeaponTypesFRC9CAnimDataRCQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 "primitive_set_to_token_vector__12NWeaponTypesFRC9CAnimDataRCQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b":
@@ -436,7 +436,7 @@ lbl_8028AFC0:
 /* 8028AFF4 00287F54  81 84 00 00 */	lwz r12, 0(r4)
 /* 8028AFF8 00287F58  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8028AFFC 00287F5C  7D 89 03 A6 */	mtctr r12
-/* 8028B000 00287F60  4E 80 04 21 */	bctrl 
+/* 8028B000 00287F60  4E 80 04 21 */	bctrl
 /* 8028B004 00287F64  38 61 00 40 */	addi r3, r1, 0x40
 /* 8028B008 00287F68  38 81 00 28 */	addi r4, r1, 0x28
 /* 8028B00C 00287F6C  48 0B 5E 9D */	bl __ct__6CTokenFRC6CToken
@@ -483,7 +483,7 @@ lbl_8028B088:
 /* 8028B09C 00287FFC  81 84 00 00 */	lwz r12, 0(r4)
 /* 8028B0A0 00288000  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8028B0A4 00288004  7D 89 03 A6 */	mtctr r12
-/* 8028B0A8 00288008  4E 80 04 21 */	bctrl 
+/* 8028B0A8 00288008  4E 80 04 21 */	bctrl
 /* 8028B0AC 0028800C  38 61 00 38 */	addi r3, r1, 0x38
 /* 8028B0B0 00288010  38 81 00 18 */	addi r4, r1, 0x18
 /* 8028B0B4 00288014  48 0B 5D F5 */	bl __ct__6CTokenFRC6CToken
@@ -540,7 +540,7 @@ lbl_8028B158:
 /* 8028B164 002880C4  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8028B168 002880C8  7C 08 03 A6 */	mtlr r0
 /* 8028B16C 002880CC  38 21 00 80 */	addi r1, r1, 0x80
-/* 8028B170 002880D0  4E 80 00 20 */	blr 
+/* 8028B170 002880D0  4E 80 00 20 */	blr
 
 .global "unlock_tokens__12NWeaponTypesFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "unlock_tokens__12NWeaponTypesFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
@@ -568,7 +568,7 @@ lbl_8028B1A0:
 /* 8028B1C0 00288120  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8028B1C4 00288124  7C 08 03 A6 */	mtlr r0
 /* 8028B1C8 00288128  38 21 00 10 */	addi r1, r1, 0x10
-/* 8028B1CC 0028812C  4E 80 00 20 */	blr 
+/* 8028B1CC 0028812C  4E 80 00 20 */	blr
 
 .global "lock_tokens__12NWeaponTypesFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "lock_tokens__12NWeaponTypesFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
@@ -596,7 +596,7 @@ lbl_8028B1FC:
 /* 8028B21C 0028817C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8028B220 00288180  7C 08 03 A6 */	mtlr r0
 /* 8028B224 00288184  38 21 00 10 */	addi r1, r1, 0x10
-/* 8028B228 00288188  4E 80 00 20 */	blr 
+/* 8028B228 00288188  4E 80 00 20 */	blr
 
 .global "are_tokens_ready__12NWeaponTypesFRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "are_tokens_ready__12NWeaponTypesFRCQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
@@ -611,14 +611,14 @@ lbl_8028B240:
 /* 8028B248 002881A8  28 00 00 00 */	cmplwi r0, 0
 /* 8028B24C 002881AC  40 82 00 0C */	bne lbl_8028B258
 /* 8028B250 002881B0  38 60 00 00 */	li r3, 0
-/* 8028B254 002881B4  4E 80 00 20 */	blr 
+/* 8028B254 002881B4  4E 80 00 20 */	blr
 lbl_8028B258:
 /* 8028B258 002881B8  38 A5 00 08 */	addi r5, r5, 8
 lbl_8028B25C:
 /* 8028B25C 002881BC  7C 05 20 40 */	cmplw r5, r4
 /* 8028B260 002881C0  40 82 FF E0 */	bne lbl_8028B240
 /* 8028B264 002881C4  38 60 00 01 */	li r3, 1
-/* 8028B268 002881C8  4E 80 00 20 */	blr 
+/* 8028B268 002881C8  4E 80 00 20 */	blr
 
 .global "get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 "get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b":
@@ -687,7 +687,7 @@ lbl_8028B338:
 /* 8028B358 002882B8  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8028B35C 002882BC  7C 08 03 A6 */	mtlr r0
 /* 8028B360 002882C0  38 21 00 80 */	addi r1, r1, 0x80
-/* 8028B364 002882C4  4E 80 00 20 */	blr 
+/* 8028B364 002882C4  4E 80 00 20 */	blr
 
 .global "get_token_vector__12NWeaponTypesFR9CAnimDataiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 "get_token_vector__12NWeaponTypesFR9CAnimDataiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b":
@@ -747,7 +747,7 @@ lbl_8028B418:
 /* 8028B438 00288398  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8028B43C 0028839C  7C 08 03 A6 */	mtlr r0
 /* 8028B440 002883A0  38 21 00 60 */	addi r1, r1, 0x60
-/* 8028B444 002883A4  4E 80 00 20 */	blr 
+/* 8028B444 002883A4  4E 80 00 20 */	blr
 
 .global get_asset_id_from_name__12NWeaponTypesFPCc
 get_asset_id_from_name__12NWeaponTypesFPCc:
@@ -759,7 +759,7 @@ get_asset_id_from_name__12NWeaponTypesFPCc:
 /* 8028B45C 002883BC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8028B460 002883C0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8028B464 002883C4  7D 89 03 A6 */	mtctr r12
-/* 8028B468 002883C8  4E 80 04 21 */	bctrl 
+/* 8028B468 002883C8  4E 80 04 21 */	bctrl
 /* 8028B46C 002883CC  28 03 00 00 */	cmplwi r3, 0
 /* 8028B470 002883D0  41 82 00 0C */	beq lbl_8028B47C
 /* 8028B474 002883D4  80 63 00 04 */	lwz r3, 4(r3)

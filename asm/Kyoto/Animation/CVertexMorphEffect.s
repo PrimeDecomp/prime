@@ -53,7 +53,7 @@ lbl_80357580:
 /* 80357588 003544E8  38 00 00 00 */	li r0, 0
 /* 8035758C 003544EC  90 03 00 3C */	stw r0, 0x3c(r3)
 /* 80357590 003544F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80357594 003544F4  4E 80 00 20 */	blr 
+/* 80357594 003544F4  4E 80 00 20 */	blr
 
 .global "MorphVertices__18CVertexMorphEffectCFP9CVector3fPC9CVector3fRC26TLockedToken<10CSkinRules>RC17CPoseAsTransformsUi"
 "MorphVertices__18CVertexMorphEffectCFP9CVector3fPC9CVector3fRC26TLockedToken<10CSkinRules>RC17CPoseAsTransformsUi":
@@ -315,7 +315,7 @@ lbl_80357948:
 /* 8035795C 003548BC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80357960 003548C0  7C 08 03 A6 */	mtlr r0
 /* 80357964 003548C4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80357968 003548C8  4E 80 00 20 */	blr 
+/* 80357968 003548C8  4E 80 00 20 */	blr
 
 .global Update__18CVertexMorphEffectFf
 Update__18CVertexMorphEffectFf:

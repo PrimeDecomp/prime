@@ -48,17 +48,17 @@ lbl_80143FC8:
 /* 80143FD0 00140F30  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80143FD4 00140F34  7C 08 03 A6 */	mtlr r0
 /* 80143FD8 00140F38  38 21 00 10 */	addi r1, r1, 0x10
-/* 80143FDC 00140F3C  4E 80 00 20 */	blr 
+/* 80143FDC 00140F3C  4E 80 00 20 */	blr
 
 .global IsMoving__8CBSSlideCFv
 IsMoving__8CBSSlideCFv:
 /* 80143FE0 00140F40  38 60 00 01 */	li r3, 1
-/* 80143FE4 00140F44  4E 80 00 20 */	blr 
+/* 80143FE4 00140F44  4E 80 00 20 */	blr
 
 .global ApplyHeadTracking__8CBSSlideCFv
 ApplyHeadTracking__8CBSSlideCFv:
 /* 80143FE8 00140F48  38 60 00 00 */	li r3, 0
-/* 80143FEC 00140F4C  4E 80 00 20 */	blr 
+/* 80143FEC 00140F4C  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__8CBSSlideFfR15CBodyController
 GetBodyStateTransition__8CBSSlideFfR15CBodyController:
@@ -112,11 +112,11 @@ lbl_80144090:
 /* 80144098 00140FF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014409C 00140FFC  7C 08 03 A6 */	mtlr r0
 /* 801440A0 00141000  38 21 00 10 */	addi r1, r1, 0x10
-/* 801440A4 00141004  4E 80 00 20 */	blr 
+/* 801440A4 00141004  4E 80 00 20 */	blr
 
 .global Shutdown__8CBSSlideFR15CBodyController
 Shutdown__8CBSSlideFR15CBodyController:
-/* 801440A8 00141008  4E 80 00 20 */	blr 
+/* 801440A8 00141008  4E 80 00 20 */	blr
 
 .global UpdateBody__8CBSSlideFfR15CBodyControllerR13CStateManager
 UpdateBody__8CBSSlideFfR15CBodyControllerR13CStateManager:
@@ -157,7 +157,7 @@ lbl_80144118:
 /* 80144130 00141090  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80144134 00141094  7C 08 03 A6 */	mtlr r0
 /* 80144138 00141098  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014413C 0014109C  4E 80 00 20 */	blr 
+/* 8014413C 0014109C  4E 80 00 20 */	blr
 
 .global Start__8CBSSlideFR15CBodyControllerR13CStateManager
 Start__8CBSSlideFR15CBodyControllerR13CStateManager:
@@ -339,7 +339,7 @@ lbl_801443C4:
 /* 801443D8 00141338  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 801443DC 0014133C  7C 08 03 A6 */	mtlr r0
 /* 801443E0 00141340  38 21 01 30 */	addi r1, r1, 0x130
-/* 801443E4 00141344  4E 80 00 20 */	blr 
+/* 801443E4 00141344  4E 80 00 20 */	blr
 
 .global __ct__8CBSSlideFv
 __ct__8CBSSlideFv:

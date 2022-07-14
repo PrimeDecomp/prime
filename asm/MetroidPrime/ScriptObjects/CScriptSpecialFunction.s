@@ -265,7 +265,7 @@ lbl_8014F2C8:
 /* 8014F2D4 0014C234  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8014F2D8 0014C238  7C 08 03 A6 */	mtlr r0
 /* 8014F2DC 0014C23C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8014F2E0 0014C240  4E 80 00 20 */	blr 
+/* 8014F2E0 0014C240  4E 80 00 20 */	blr
 
 .global GetTouchBounds__22CScriptSpecialFunctionCFv
 GetTouchBounds__22CScriptSpecialFunctionCFv:
@@ -273,9 +273,9 @@ GetTouchBounds__22CScriptSpecialFunctionCFv:
 /* 8014F2E8 0014C248  98 03 00 18 */	stb r0, 0x18(r3)
 /* 8014F2EC 0014C24C  88 04 01 E0 */	lbz r0, 0x1e0(r4)
 /* 8014F2F0 0014C250  28 00 00 00 */	cmplwi r0, 0
-/* 8014F2F4 0014C254  4D 82 00 20 */	beqlr 
+/* 8014F2F4 0014C254  4D 82 00 20 */	beqlr
 /* 8014F2F8 0014C258  28 03 00 00 */	cmplwi r3, 0
-/* 8014F2FC 0014C25C  4D 82 00 20 */	beqlr 
+/* 8014F2FC 0014C25C  4D 82 00 20 */	beqlr
 /* 8014F300 0014C260  C0 04 01 C8 */	lfs f0, 0x1c8(r4)
 /* 8014F304 0014C264  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8014F308 0014C268  C0 04 01 CC */	lfs f0, 0x1cc(r4)
@@ -288,7 +288,7 @@ GetTouchBounds__22CScriptSpecialFunctionCFv:
 /* 8014F324 0014C284  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 8014F328 0014C288  C0 04 01 DC */	lfs f0, 0x1dc(r4)
 /* 8014F32C 0014C28C  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8014F330 0014C290  4E 80 00 20 */	blr 
+/* 8014F330 0014C290  4E 80 00 20 */	blr
 
 .global GetSpecialEnding__22CScriptSpecialFunctionCFv
 GetSpecialEnding__22CScriptSpecialFunctionCFv:
@@ -321,7 +321,7 @@ lbl_8014F38C:
 /* 8014F394 0014C2F4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014F398 0014C2F8  7C 08 03 A6 */	mtlr r0
 /* 8014F39C 0014C2FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014F3A0 0014C300  4E 80 00 20 */	blr 
+/* 8014F3A0 0014C300  4E 80 00 20 */	blr
 
 .global sub_8014f3a4
 sub_8014f3a4:
@@ -344,7 +344,7 @@ lbl_8014F3DC:
 /* 8014F3E0 0014C340  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8014F3E4 0014C344  7C 08 03 A6 */	mtlr r0
 /* 8014F3E8 0014C348  38 21 00 20 */	addi r1, r1, 0x20
-/* 8014F3EC 0014C34C  4E 80 00 20 */	blr 
+/* 8014F3EC 0014C34C  4E 80 00 20 */	blr
 
 .global sub_8014f3f0
 sub_8014f3f0:
@@ -400,7 +400,7 @@ lbl_8014F4A0:
 /* 8014F4AC 0014C40C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8014F4B0 0014C410  7C 08 03 A6 */	mtlr r0
 /* 8014F4B4 0014C414  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014F4B8 0014C418  4E 80 00 20 */	blr 
+/* 8014F4B8 0014C418  4E 80 00 20 */	blr
 
 .global ThinkPlayerInArea__22CScriptSpecialFunctionFfR13CStateManager
 ThinkPlayerInArea__22CScriptSpecialFunctionFfR13CStateManager:
@@ -438,7 +438,7 @@ lbl_8014F530:
 /* 8014F530 0014C490  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014F534 0014C494  7C 08 03 A6 */	mtlr r0
 /* 8014F538 0014C498  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014F53C 0014C49C  4E 80 00 20 */	blr 
+/* 8014F53C 0014C49C  4E 80 00 20 */	blr
 
 .global sub_8014f540
 sub_8014f540:
@@ -574,7 +574,7 @@ lbl_8014F6E8:
 /* 8014F728 0014C688  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8014F72C 0014C68C  7C 08 03 A6 */	mtlr r0
 /* 8014F730 0014C690  38 21 00 80 */	addi r1, r1, 0x80
-/* 8014F734 0014C694  4E 80 00 20 */	blr 
+/* 8014F734 0014C694  4E 80 00 20 */	blr
 
 .global ThinkAreaDamage__22CScriptSpecialFunctionFfR13CStateManager
 ThinkAreaDamage__22CScriptSpecialFunctionFfR13CStateManager:
@@ -710,7 +710,7 @@ lbl_8014F914:
 /* 8014F928 0014C888  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 8014F92C 0014C88C  7C 08 03 A6 */	mtlr r0
 /* 8014F930 0014C890  38 21 00 80 */	addi r1, r1, 0x80
-/* 8014F934 0014C894  4E 80 00 20 */	blr 
+/* 8014F934 0014C894  4E 80 00 20 */	blr
 
 .global ThinkRainSimulator__22CScriptSpecialFunctionFfR13CStateManager
 ThinkRainSimulator__22CScriptSpecialFunctionFfR13CStateManager:
@@ -749,7 +749,7 @@ lbl_8014F9B0:
 /* 8014F9B0 0014C910  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014F9B4 0014C914  7C 08 03 A6 */	mtlr r0
 /* 8014F9B8 0014C918  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014F9BC 0014C91C  4E 80 00 20 */	blr 
+/* 8014F9BC 0014C91C  4E 80 00 20 */	blr
 
 .global ThinkChaffTarget__22CScriptSpecialFunctionFfR13CStateManager
 ThinkChaffTarget__22CScriptSpecialFunctionFfR13CStateManager:
@@ -954,7 +954,7 @@ lbl_8014FC98:
 /* 8014FCAC 0014CC0C  80 01 08 B4 */	lwz r0, 0x8b4(r1)
 /* 8014FCB0 0014CC10  7C 08 03 A6 */	mtlr r0
 /* 8014FCB4 0014CC14  38 21 08 B0 */	addi r1, r1, 0x8b0
-/* 8014FCB8 0014CC18  4E 80 00 20 */	blr 
+/* 8014FCB8 0014CC18  4E 80 00 20 */	blr
 
 .global Render__22CScriptSpecialFunctionCFRC13CStateManager
 Render__22CScriptSpecialFunctionCFRC13CStateManager:
@@ -1058,7 +1058,7 @@ Render__22CScriptSpecialFunctionCFRC13CStateManager:
 /* 8014FE40 0014CDA0  81 83 00 00 */	lwz r12, 0(r3)
 /* 8014FE44 0014CDA4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8014FE48 0014CDA8  7D 89 03 A6 */	mtctr r12
-/* 8014FE4C 0014CDAC  4E 80 04 21 */	bctrl 
+/* 8014FE4C 0014CDAC  4E 80 04 21 */	bctrl
 /* 8014FE50 0014CDB0  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 8014FE54 0014CDB4  38 9E 01 18 */	addi r4, r30, 0x118
 /* 8014FE58 0014CDB8  38 A1 00 5C */	addi r5, r1, 0x5c
@@ -1067,7 +1067,7 @@ Render__22CScriptSpecialFunctionCFRC13CStateManager:
 /* 8014FE64 0014CDC4  38 E0 00 00 */	li r7, 0
 /* 8014FE68 0014CDC8  81 8C 00 E4 */	lwz r12, 0xe4(r12)
 /* 8014FE6C 0014CDCC  7D 89 03 A6 */	mtctr r12
-/* 8014FE70 0014CDD0  4E 80 04 21 */	bctrl 
+/* 8014FE70 0014CDD0  4E 80 04 21 */	bctrl
 /* 8014FE74 0014CDD4  48 00 00 08 */	b lbl_8014FE7C
 lbl_8014FE78:
 /* 8014FE78 0014CDD8  4B F0 49 2D */	bl Render__6CActorCFRC13CStateManager
@@ -1077,7 +1077,7 @@ lbl_8014FE7C:
 /* 8014FE84 0014CDE4  83 C1 01 58 */	lwz r30, 0x158(r1)
 /* 8014FE88 0014CDE8  7C 08 03 A6 */	mtlr r0
 /* 8014FE8C 0014CDEC  38 21 01 60 */	addi r1, r1, 0x160
-/* 8014FE90 0014CDF0  4E 80 00 20 */	blr 
+/* 8014FE90 0014CDF0  4E 80 00 20 */	blr
 
 .global ThinkObjectFollowObject__22CScriptSpecialFunctionFfR13CStateManager
 ThinkObjectFollowObject__22CScriptSpecialFunctionFfR13CStateManager:
@@ -1200,7 +1200,7 @@ lbl_8015003C:
 /* 80150048 0014CFA8  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8015004C 0014CFAC  7C 08 03 A6 */	mtlr r0
 /* 80150050 0014CFB0  38 21 00 60 */	addi r1, r1, 0x60
-/* 80150054 0014CFB4  4E 80 00 20 */	blr 
+/* 80150054 0014CFB4  4E 80 00 20 */	blr
 
 .global ThinkObjectFollowLocator__22CScriptSpecialFunctionFfR13CStateManager
 ThinkObjectFollowLocator__22CScriptSpecialFunctionFfR13CStateManager:
@@ -1352,7 +1352,7 @@ lbl_80150270:
 /* 8015027C 0014D1DC  83 A1 00 E4 */	lwz r29, 0xe4(r1)
 /* 80150280 0014D1E0  7C 08 03 A6 */	mtlr r0
 /* 80150284 0014D1E4  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80150288 0014D1E8  4E 80 00 20 */	blr 
+/* 80150288 0014D1E8  4E 80 00 20 */	blr
 
 .global ThinkSpinnerController__22CScriptSpecialFunctionFfR13CStateManagerQ222CScriptSpecialFunction22ESpinnerControllerMode
 ThinkSpinnerController__22CScriptSpecialFunctionFfR13CStateManagerQ222CScriptSpecialFunction22ESpinnerControllerMode:
@@ -1878,7 +1878,7 @@ lbl_801509C8:
 /* 80150A14 0014D974  80 01 01 E4 */	lwz r0, 0x1e4(r1)
 /* 80150A18 0014D978  7C 08 03 A6 */	mtlr r0
 /* 80150A1C 0014D97C  38 21 01 E0 */	addi r1, r1, 0x1e0
-/* 80150A20 0014D980  4E 80 00 20 */	blr 
+/* 80150A20 0014D980  4E 80 00 20 */	blr
 
 .global sub_80150a24
 sub_80150a24:
@@ -1904,7 +1904,7 @@ lbl_80150A50:
 /* 80150A6C 0014D9CC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80150A70 0014D9D0  7C 08 03 A6 */	mtlr r0
 /* 80150A74 0014D9D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80150A78 0014D9D8  4E 80 00 20 */	blr 
+/* 80150A78 0014D9D8  4E 80 00 20 */	blr
 
 .global sub_80150a7c
 sub_80150a7c:
@@ -1942,7 +1942,7 @@ sub_80150a7c:
 /* 80150AF8 0014DA58  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80150AFC 0014DA5C  7C 08 03 A6 */	mtlr r0
 /* 80150B00 0014DA60  38 21 00 30 */	addi r1, r1, 0x30
-/* 80150B04 0014DA64  4E 80 00 20 */	blr 
+/* 80150B04 0014DA64  4E 80 00 20 */	blr
 
 .global sub_80150b08
 sub_80150b08:
@@ -2110,7 +2110,7 @@ lbl_80150D24:
 /* 80150D28 0014DC88  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80150D2C 0014DC8C  7C 08 03 A6 */	mtlr r0
 /* 80150D30 0014DC90  38 21 00 30 */	addi r1, r1, 0x30
-/* 80150D34 0014DC94  4E 80 00 20 */	blr 
+/* 80150D34 0014DC94  4E 80 00 20 */	blr
 
 .global sub_80150d38
 sub_80150d38:
@@ -2139,7 +2139,7 @@ lbl_80150D84:
 /* 80150D88 0014DCE8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80150D8C 0014DCEC  7C 08 03 A6 */	mtlr r0
 /* 80150D90 0014DCF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80150D94 0014DCF4  4E 80 00 20 */	blr 
+/* 80150D94 0014DCF4  4E 80 00 20 */	blr
 
 .global sub_80150d98
 sub_80150d98:
@@ -2197,7 +2197,7 @@ lbl_80150E4C:
 /* 80150E54 0014DDB4  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 80150E58 0014DDB8  7C 08 03 A6 */	mtlr r0
 /* 80150E5C 0014DDBC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80150E60 0014DDC0  4E 80 00 20 */	blr 
+/* 80150E60 0014DDC0  4E 80 00 20 */	blr
 
 .global sub_80150e64
 sub_80150e64:
@@ -2277,7 +2277,7 @@ lbl_80150F5C:
 /* 80150F60 0014DEC0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80150F64 0014DEC4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80150F68 0014DEC8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80150F6C 0014DECC  4E 80 00 20 */	blr 
+/* 80150F6C 0014DECC  4E 80 00 20 */	blr
 
 .global ThinkPlayerFollowLocator__22CScriptSpecialFunctionFfR13CStateManager
 ThinkPlayerFollowLocator__22CScriptSpecialFunctionFfR13CStateManager:
@@ -2393,7 +2393,7 @@ lbl_801510FC:
 /* 8015110C 0014E06C  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 80151110 0014E070  7C 08 03 A6 */	mtlr r0
 /* 80151114 0014E074  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80151118 0014E078  4E 80 00 20 */	blr 
+/* 80151118 0014E078  4E 80 00 20 */	blr
 
 .global ThinkIntroBossRingController__22CScriptSpecialFunctionFfR13CStateManager
 ThinkIntroBossRingController__22CScriptSpecialFunctionFfR13CStateManager:
@@ -2553,7 +2553,7 @@ lbl_80151348:
 /* 80151358 0014E2B8  81 9B 00 00 */	lwz r12, 0(r27)
 /* 8015135C 0014E2BC  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80151360 0014E2C0  7D 89 03 A6 */	mtctr r12
-/* 80151364 0014E2C4  4E 80 04 21 */	bctrl 
+/* 80151364 0014E2C4  4E 80 04 21 */	bctrl
 /* 80151368 0014E2C8  C0 21 00 24 */	lfs f1, 0x24(r1)
 /* 8015136C 0014E2CC  C0 02 9D 9C */	lfs f0, lbl_805ABABC@sda21(r2)
 /* 80151370 0014E2D0  FC 01 00 00 */	fcmpu cr0, f1, f0
@@ -2574,7 +2574,7 @@ lbl_80151384:
 /* 801513A8 0014E308  38 80 00 00 */	li r4, 0
 /* 801513AC 0014E30C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801513B0 0014E310  7D 89 03 A6 */	mtctr r12
-/* 801513B4 0014E314  4E 80 04 21 */	bctrl 
+/* 801513B4 0014E314  4E 80 04 21 */	bctrl
 lbl_801513B8:
 /* 801513B8 0014E318  3B BD 00 18 */	addi r29, r29, 0x18
 /* 801513BC 0014E31C  3B DE 00 01 */	addi r30, r30, 1
@@ -2587,7 +2587,7 @@ lbl_801513C0:
 /* 801513D4 0014E334  81 9B 00 00 */	lwz r12, 0(r27)
 /* 801513D8 0014E338  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801513DC 0014E33C  7D 89 03 A6 */	mtctr r12
-/* 801513E0 0014E340  4E 80 04 21 */	bctrl 
+/* 801513E0 0014E340  4E 80 04 21 */	bctrl
 /* 801513E4 0014E344  48 00 02 AC */	b lbl_80151690
 lbl_801513E8:
 /* 801513E8 0014E348  88 1B 01 B8 */	lbz r0, 0x1b8(r27)
@@ -2779,7 +2779,7 @@ lbl_80151690:
 /* 8015169C 0014E5FC  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 801516A0 0014E600  7C 08 03 A6 */	mtlr r0
 /* 801516A4 0014E604  38 21 01 80 */	addi r1, r1, 0x180
-/* 801516A8 0014E608  4E 80 00 20 */	blr 
+/* 801516A8 0014E608  4E 80 00 20 */	blr
 
 .global ThinkSaveStation__22CScriptSpecialFunctionFfR13CStateManager
 ThinkSaveStation__22CScriptSpecialFunctionFfR13CStateManager:
@@ -2812,7 +2812,7 @@ lbl_8015170C:
 /* 8015170C 0014E66C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80151710 0014E670  7C 08 03 A6 */	mtlr r0
 /* 80151714 0014E674  38 21 00 10 */	addi r1, r1, 0x10
-/* 80151718 0014E678  4E 80 00 20 */	blr 
+/* 80151718 0014E678  4E 80 00 20 */	blr
 
 .global RingScramble__22CScriptSpecialFunctionFR13CStateManager
 RingScramble__22CScriptSpecialFunctionFR13CStateManager:
@@ -2871,7 +2871,7 @@ lbl_801517C4:
 /* 801517DC 0014E73C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801517E0 0014E740  7C 08 03 A6 */	mtlr r0
 /* 801517E4 0014E744  38 21 00 30 */	addi r1, r1, 0x30
-/* 801517E8 0014E748  4E 80 00 20 */	blr 
+/* 801517E8 0014E748  4E 80 00 20 */	blr
 
 .global Accept__22CScriptSpecialFunctionFR8IVisitor
 Accept__22CScriptSpecialFunctionFR8IVisitor:
@@ -2884,11 +2884,11 @@ Accept__22CScriptSpecialFunctionFR8IVisitor:
 /* 80151804 0014E764  7C 04 03 78 */	mr r4, r0
 /* 80151808 0014E768  81 8C 00 B4 */	lwz r12, 0xb4(r12)
 /* 8015180C 0014E76C  7D 89 03 A6 */	mtctr r12
-/* 80151810 0014E770  4E 80 04 21 */	bctrl 
+/* 80151810 0014E770  4E 80 04 21 */	bctrl
 /* 80151814 0014E774  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80151818 0014E778  7C 08 03 A6 */	mtlr r0
 /* 8015181C 0014E77C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80151820 0014E780  4E 80 00 20 */	blr 
+/* 80151820 0014E780  4E 80 00 20 */	blr
 
 .global SkipCinematic__22CScriptSpecialFunctionFR13CStateManager
 SkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
@@ -2908,7 +2908,7 @@ SkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
 /* 80151858 0014E7B8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8015185C 0014E7BC  7C 08 03 A6 */	mtlr r0
 /* 80151860 0014E7C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80151864 0014E7C4  4E 80 00 20 */	blr 
+/* 80151864 0014E7C4  4E 80 00 20 */	blr
 
 .global ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager
 ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
@@ -2929,7 +2929,7 @@ ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
 /* 801518A0 0014E800  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801518A4 0014E804  7C 08 03 A6 */	mtlr r0
 /* 801518A8 0014E808  38 21 00 20 */	addi r1, r1, 0x20
-/* 801518AC 0014E80C  4E 80 00 20 */	blr 
+/* 801518AC 0014E80C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__22CScriptSpecialFunctionF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__22CScriptSpecialFunctionF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -3041,7 +3041,7 @@ lbl_80151A14:
 /* 80151A34 0014E994  38 63 2B D4 */	addi r3, r3, lbl_803E2BD4@l
 /* 80151A38 0014E998  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80151A3C 0014E99C  7C 09 03 A6 */	mtctr r0
-/* 80151A40 0014E9A0  4E 80 04 20 */	bctr 
+/* 80151A40 0014E9A0  4E 80 04 20 */	bctr
 .global lbl_80151A44
 lbl_80151A44:
 /* 80151A44 0014E9A4  2C 1C 00 13 */	cmpwi r28, 0x13
@@ -3858,7 +3858,7 @@ lbl_80152574:
 /* 80152584 0014F4E4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80152588 0014F4E8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8015258C 0014F4EC  7D 89 03 A6 */	mtctr r12
-/* 80152590 0014F4F0  4E 80 04 21 */	bctrl 
+/* 80152590 0014F4F0  4E 80 04 21 */	bctrl
 /* 80152594 0014F4F4  7C 7C 1B 79 */	or. r28, r3, r3
 /* 80152598 0014F4F8  41 82 00 0C */	beq lbl_801525A4
 /* 8015259C 0014F4FC  83 BC 00 04 */	lwz r29, 4(r28)
@@ -3900,7 +3900,7 @@ lbl_801525A8:
 /* 80152624 0014F584  81 84 00 00 */	lwz r12, 0(r4)
 /* 80152628 0014F588  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8015262C 0014F58C  7D 89 03 A6 */	mtctr r12
-/* 80152630 0014F590  4E 80 04 21 */	bctrl 
+/* 80152630 0014F590  4E 80 04 21 */	bctrl
 /* 80152634 0014F594  88 1F 01 F0 */	lbz r0, 0x1f0(r31)
 /* 80152638 0014F598  28 00 00 00 */	cmplwi r0, 0
 /* 8015263C 0014F59C  40 82 00 20 */	bne lbl_8015265C
@@ -4091,7 +4091,7 @@ lbl_801528A0:
 /* 801528BC 0014F81C  80 01 01 C4 */	lwz r0, 0x1c4(r1)
 /* 801528C0 0014F820  7C 08 03 A6 */	mtlr r0
 /* 801528C4 0014F824  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 801528C8 0014F828  4E 80 00 20 */	blr 
+/* 801528C8 0014F828  4E 80 00 20 */	blr
 
 .global PreRender__22CScriptSpecialFunctionFR13CStateManagerRC14CFrustumPlanes
 PreRender__22CScriptSpecialFunctionFR13CStateManagerRC14CFrustumPlanes:
@@ -4180,7 +4180,7 @@ lbl_801529F4:
 /* 801529FC 0014F95C  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80152A00 0014F960  7C 08 03 A6 */	mtlr r0
 /* 80152A04 0014F964  38 21 00 50 */	addi r1, r1, 0x50
-/* 80152A08 0014F968  4E 80 00 20 */	blr 
+/* 80152A08 0014F968  4E 80 00 20 */	blr
 
 .global AddToRenderer__22CScriptSpecialFunctionCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__22CScriptSpecialFunctionCFRC14CFrustumPlanesRC13CStateManager:
@@ -4202,7 +4202,7 @@ lbl_80152A44:
 /* 80152A44 0014F9A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80152A48 0014F9A8  7C 08 03 A6 */	mtlr r0
 /* 80152A4C 0014F9AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80152A50 0014F9B0  4E 80 00 20 */	blr 
+/* 80152A50 0014F9B0  4E 80 00 20 */	blr
 
 .global Think__22CScriptSpecialFunctionFfR13CStateManager
 Think__22CScriptSpecialFunctionFfR13CStateManager:
@@ -4224,7 +4224,7 @@ Think__22CScriptSpecialFunctionFfR13CStateManager:
 /* 80152A90 0014F9F0  38 A5 2C A0 */	addi r5, r5, lbl_803E2CA0@l
 /* 80152A94 0014F9F4  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80152A98 0014F9F8  7C 09 03 A6 */	mtctr r0
-/* 80152A9C 0014F9FC  4E 80 04 20 */	bctr 
+/* 80152A9C 0014F9FC  4E 80 04 20 */	bctr
 .global lbl_80152AA0
 lbl_80152AA0:
 /* 80152AA0 0014FA00  4B FF E4 D1 */	bl ThinkPlayerFollowLocator__22CScriptSpecialFunctionFfR13CStateManager
@@ -4327,7 +4327,7 @@ lbl_80152BA8:
 /* 80152BB0 0014FB10  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80152BB4 0014FB14  7C 08 03 A6 */	mtlr r0
 /* 80152BB8 0014FB18  38 21 00 10 */	addi r1, r1, 0x10
-/* 80152BBC 0014FB1C  4E 80 00 20 */	blr 
+/* 80152BBC 0014FB1C  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoUiUiUiUsUsUs"
 "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoUiUiUiUsUsUs":
@@ -4562,7 +4562,7 @@ lbl_80152F1C:
 /* 80152F44 0014FEA4  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 80152F48 0014FEA8  7C 08 03 A6 */	mtlr r0
 /* 80152F4C 0014FEAC  38 21 01 90 */	addi r1, r1, 0x190
-/* 80152F50 0014FEB0  4E 80 00 20 */	blr 
+/* 80152F50 0014FEB0  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FRCQ24rstl17rmemory_allocator":
@@ -4581,7 +4581,7 @@ lbl_80152F1C:
 /* 80152F84 0014FEE4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80152F88 0014FEE8  7C 08 03 A6 */	mtlr r0
 /* 80152F8C 0014FEEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80152F90 0014FEF0  4E 80 00 20 */	blr 
+/* 80152F90 0014FEF0  4E 80 00 20 */	blr
 
 .global sub_80152f94
 sub_80152f94:
@@ -4641,7 +4641,7 @@ lbl_80153040:
 /* 8015304C 0014FFAC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80153050 0014FFB0  7C 08 03 A6 */	mtlr r0
 /* 80153054 0014FFB4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80153058 0014FFB8  4E 80 00 20 */	blr 
+/* 80153058 0014FFB8  4E 80 00 20 */	blr
 
 .global "sort<Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFQ24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController"
 "sort<Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q236@unnamed@CScriptSpecialFunction_cpp@11CRingSorter>__4rstlFQ24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController,Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl176pointer_iterator<Q222CScriptSpecialFunction15SRingController":
@@ -4879,7 +4879,7 @@ lbl_801533C8:
 /* 801533CC 0015032C  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 801533D0 00150330  7C 08 03 A6 */	mtlr r0
 /* 801533D4 00150334  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801533D8 00150338  4E 80 00 20 */	blr 
+/* 801533D8 00150338  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl78vector<Q222CScriptSpecialFunction15SRingController,Q24rstl17rmemory_allocator>Fi":
@@ -4962,7 +4962,7 @@ lbl_801534DC:
 /* 801534E8 00150448  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801534EC 0015044C  7C 08 03 A6 */	mtlr r0
 /* 801534F0 00150450  38 21 00 30 */	addi r1, r1, 0x30
-/* 801534F4 00150454  4E 80 00 20 */	blr 
+/* 801534F4 00150454  4E 80 00 20 */	blr
 
 .global sub_801534f8
 sub_801534f8:
@@ -5203,7 +5203,7 @@ lbl_80153878:
 /* 8015387C 001507DC  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 80153880 001507E0  7C 08 03 A6 */	mtlr r0
 /* 80153884 001507E4  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80153888 001507E8  4E 80 00 20 */	blr 
+/* 80153888 001507E8  4E 80 00 20 */	blr
 
 .global sub_8015388c
 sub_8015388c:

@@ -42,7 +42,7 @@ lbl_801BD48C:
 /* 801BD498 001BA3F8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801BD49C 001BA3FC  7C 08 03 A6 */	mtlr r0
 /* 801BD4A0 001BA400  38 21 00 10 */	addi r1, r1, 0x10
-/* 801BD4A4 001BA404  4E 80 00 20 */	blr 
+/* 801BD4A4 001BA404  4E 80 00 20 */	blr
 
 .global Accept__21CScriptAreaAttributesFR8IVisitor
 Accept__21CScriptAreaAttributesFR8IVisitor:
@@ -55,11 +55,11 @@ Accept__21CScriptAreaAttributesFR8IVisitor:
 /* 801BD4C0 001BA420  7C 04 03 78 */	mr r4, r0
 /* 801BD4C4 001BA424  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 801BD4C8 001BA428  7D 89 03 A6 */	mtctr r12
-/* 801BD4CC 001BA42C  4E 80 04 21 */	bctrl 
+/* 801BD4CC 001BA42C  4E 80 04 21 */	bctrl
 /* 801BD4D0 001BA430  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801BD4D4 001BA434  7C 08 03 A6 */	mtlr r0
 /* 801BD4D8 001BA438  38 21 00 10 */	addi r1, r1, 0x10
-/* 801BD4DC 001BA43C  4E 80 00 20 */	blr 
+/* 801BD4DC 001BA43C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__21CScriptAreaAttributesF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__21CScriptAreaAttributesF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -123,7 +123,7 @@ lbl_801BD5AC:
 /* 801BD5B8 001BA518  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801BD5BC 001BA51C  7C 08 03 A6 */	mtlr r0
 /* 801BD5C0 001BA520  38 21 00 40 */	addi r1, r1, 0x40
-/* 801BD5C4 001BA524  4E 80 00 20 */	blr 
+/* 801BD5C4 001BA524  4E 80 00 20 */	blr
 
 .global __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffi11EPhazonType
 __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffi11EPhazonType:

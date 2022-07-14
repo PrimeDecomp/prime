@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global sin
 sin:
@@ -65,4 +65,4 @@ lbl_80394BA4:
 /* 80394BA4 00391B04  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80394BA8 00391B08  7C 08 03 A6 */	mtlr r0
 /* 80394BAC 00391B0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80394BB0 00391B10  4E 80 00 20 */	blr 
+/* 80394BB0 00391B10  4E 80 00 20 */	blr

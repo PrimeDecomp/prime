@@ -16,7 +16,7 @@ __ct__9SAdsrDataFffffffbb:
 /* 80369BFC 00366B5C  88 03 00 18 */	lbz r0, 0x18(r3)
 /* 80369C00 00366B60  50 A0 36 72 */	rlwimi r0, r5, 6, 0x19, 0x19
 /* 80369C04 00366B64  98 03 00 18 */	stb r0, 0x18(r3)
-/* 80369C08 00366B68  4E 80 00 20 */	blr 
+/* 80369C08 00366B68  4E 80 00 20 */	blr
 
 .global __ct__9SAdsrDataFv
 __ct__9SAdsrDataFv:
@@ -34,7 +34,7 @@ __ct__9SAdsrDataFv:
 /* 80369C38 00366B98  88 03 00 18 */	lbz r0, 0x18(r3)
 /* 80369C3C 00366B9C  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 80369C40 00366BA0  98 03 00 18 */	stb r0, 0x18(r3)
-/* 80369C44 00366BA4  4E 80 00 20 */	blr 
+/* 80369C44 00366BA4  4E 80 00 20 */	blr
 
 .global __ct__10SAdsrDeltaFQ210SAdsrDelta6EPhase15ERumblePriority
 __ct__10SAdsrDeltaFQ210SAdsrDelta6EPhase15ERumblePriority:
@@ -53,7 +53,7 @@ lbl_80369C5C:
 /* 80369C70 00366BD0  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 80369C74 00366BD4  90 A3 00 1C */	stw r5, 0x1c(r3)
 /* 80369C78 00366BD8  90 83 00 20 */	stw r4, 0x20(r3)
-/* 80369C7C 00366BDC  4E 80 00 20 */	blr 
+/* 80369C7C 00366BDC  4E 80 00 20 */	blr
 
 .global __ct__10SAdsrDeltaFQ210SAdsrDelta6EPhase
 __ct__10SAdsrDeltaFQ210SAdsrDelta6EPhase:
@@ -66,7 +66,7 @@ __ct__10SAdsrDeltaFQ210SAdsrDelta6EPhase:
 /* 80369C98 00366BF8  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 80369C9C 00366BFC  90 03 00 1C */	stw r0, 0x1c(r3)
 /* 80369CA0 00366C00  90 83 00 20 */	stw r4, 0x20(r3)
-/* 80369CA4 00366C04  4E 80 00 20 */	blr 
+/* 80369CA4 00366C04  4E 80 00 20 */	blr
 
 .global Stopped__10SAdsrDeltaFv
 Stopped__10SAdsrDeltaFv:
@@ -78,7 +78,7 @@ Stopped__10SAdsrDeltaFv:
 /* 80369CBC 00366C1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80369CC0 00366C20  7C 08 03 A6 */	mtlr r0
 /* 80369CC4 00366C24  38 21 00 10 */	addi r1, r1, 0x10
-/* 80369CC8 00366C28  4E 80 00 20 */	blr 
+/* 80369CC8 00366C28  4E 80 00 20 */	blr
 
 .global Start__10SAdsrDeltaF15ERumblePriorityb
 Start__10SAdsrDeltaF15ERumblePriorityb:

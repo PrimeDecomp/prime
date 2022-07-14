@@ -48,16 +48,16 @@ lbl_8013597C:
 /* 80135984 001328E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80135988 001328E8  7C 08 03 A6 */	mtlr r0
 /* 8013598C 001328EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80135990 001328F0  4E 80 00 20 */	blr 
+/* 80135990 001328F0  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__7CBSFallFfR15CBodyController
 GetBodyStateTransition__7CBSFallFfR15CBodyController:
 /* 80135994 001328F4  88 04 03 00 */	lbz r0, 0x300(r4)
 /* 80135998 001328F8  38 60 FF FF */	li r3, -1
 /* 8013599C 001328FC  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 801359A0 00132900  4D 82 00 20 */	beqlr 
+/* 801359A0 00132900  4D 82 00 20 */	beqlr
 /* 801359A4 00132904  38 60 00 02 */	li r3, 2
-/* 801359A8 00132908  4E 80 00 20 */	blr 
+/* 801359A8 00132908  4E 80 00 20 */	blr
 
 .global Shutdown__7CBSFallFR15CBodyController
 Shutdown__7CBSFallFR15CBodyController:
@@ -71,7 +71,7 @@ Shutdown__7CBSFallFR15CBodyController:
 /* 801359C8 00132928  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801359CC 0013292C  7C 08 03 A6 */	mtlr r0
 /* 801359D0 00132930  38 21 00 10 */	addi r1, r1, 0x10
-/* 801359D4 00132934  4E 80 00 20 */	blr 
+/* 801359D4 00132934  4E 80 00 20 */	blr
 
 .global UpdateBody__7CBSFallFfR15CBodyControllerR13CStateManager
 UpdateBody__7CBSFallFfR15CBodyControllerR13CStateManager:
@@ -116,7 +116,7 @@ lbl_80135A54:
 /* 80135A6C 001329CC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80135A70 001329D0  7C 08 03 A6 */	mtlr r0
 /* 80135A74 001329D4  38 21 00 40 */	addi r1, r1, 0x40
-/* 80135A78 001329D8  4E 80 00 20 */	blr 
+/* 80135A78 001329D8  4E 80 00 20 */	blr
 
 .global Start__7CBSFallFR15CBodyControllerR13CStateManager
 Start__7CBSFallFR15CBodyControllerR13CStateManager:
@@ -382,7 +382,7 @@ lbl_80135E3C:
 /* 80135E48 00132DA8  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 80135E4C 00132DAC  7C 08 03 A6 */	mtlr r0
 /* 80135E50 00132DB0  38 21 01 60 */	addi r1, r1, 0x160
-/* 80135E54 00132DB4  4E 80 00 20 */	blr 
+/* 80135E54 00132DB4  4E 80 00 20 */	blr
 
 .global __ct__7CBSFallFv
 __ct__7CBSFallFv:

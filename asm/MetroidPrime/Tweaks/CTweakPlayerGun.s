@@ -39,28 +39,28 @@ GetRichochetDamage__15CTweakPlayerGunCF11EWeaponType:
 /* 8006FC34 0006CB94  38 85 A3 60 */	addi r4, r5, lbl_803DA360@l
 /* 8006FC38 0006CB98  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8006FC3C 0006CB9C  7C 09 03 A6 */	mtctr r0
-/* 8006FC40 0006CBA0  4E 80 04 20 */	bctr 
+/* 8006FC40 0006CBA0  4E 80 04 20 */	bctr
 lbl_8006FC44:
 /* 8006FC44 0006CBA4  C0 23 02 84 */	lfs f1, 0x284(r3)
-/* 8006FC48 0006CBA8  4E 80 00 20 */	blr 
+/* 8006FC48 0006CBA8  4E 80 00 20 */	blr
 lbl_8006FC4C:
 /* 8006FC4C 0006CBAC  C0 23 02 88 */	lfs f1, 0x288(r3)
-/* 8006FC50 0006CBB0  4E 80 00 20 */	blr 
+/* 8006FC50 0006CBB0  4E 80 00 20 */	blr
 lbl_8006FC54:
 /* 8006FC54 0006CBB4  C0 23 02 8C */	lfs f1, 0x28c(r3)
-/* 8006FC58 0006CBB8  4E 80 00 20 */	blr 
+/* 8006FC58 0006CBB8  4E 80 00 20 */	blr
 lbl_8006FC5C:
 /* 8006FC5C 0006CBBC  C0 23 02 90 */	lfs f1, 0x290(r3)
-/* 8006FC60 0006CBC0  4E 80 00 20 */	blr 
+/* 8006FC60 0006CBC0  4E 80 00 20 */	blr
 lbl_8006FC64:
 /* 8006FC64 0006CBC4  C0 23 02 94 */	lfs f1, 0x294(r3)
-/* 8006FC68 0006CBC8  4E 80 00 20 */	blr 
+/* 8006FC68 0006CBC8  4E 80 00 20 */	blr
 lbl_8006FC6C:
 /* 8006FC6C 0006CBCC  C0 23 02 98 */	lfs f1, 0x298(r3)
-/* 8006FC70 0006CBD0  4E 80 00 20 */	blr 
+/* 8006FC70 0006CBD0  4E 80 00 20 */	blr
 lbl_8006FC74:
 /* 8006FC74 0006CBD4  C0 22 88 18 */	lfs f1, lbl_805AA538@sda21(r2)
-/* 8006FC78 0006CBD8  4E 80 00 20 */	blr 
+/* 8006FC78 0006CBD8  4E 80 00 20 */	blr
 
 .global GetBeamInfo__15CTweakPlayerGunCFi
 GetBeamInfo__15CTweakPlayerGunCFi:
@@ -102,7 +102,7 @@ lbl_8006FCF4:
 lbl_8006FD00:
 /* 8006FD00 0006CC60  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8006FD04 0006CC64  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006FD08 0006CC68  4E 80 00 20 */	blr 
+/* 8006FD08 0006CC68  4E 80 00 20 */	blr
 
 .global sub_8006fd0c
 sub_8006fd0c:
@@ -269,7 +269,7 @@ lbl_8006FD98:
 /* 8006FF88 0006CEE8  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8006FF8C 0006CEEC  7C 08 03 A6 */	mtlr r0
 /* 8006FF90 0006CEF0  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8006FF94 0006CEF4  4E 80 00 20 */	blr 
+/* 8006FF94 0006CEF4  4E 80 00 20 */	blr
 
 .global __ct__15CTweakPlayerGunFR12CInputStream
 __ct__15CTweakPlayerGunFR12CInputStream:
@@ -907,7 +907,7 @@ lbl_80070904:
 /* 80070944 0006D8A4  80 01 01 D4 */	lwz r0, 0x1d4(r1)
 /* 80070948 0006D8A8  7C 08 03 A6 */	mtlr r0
 /* 8007094C 0006D8AC  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 80070950 0006D8B0  4E 80 00 20 */	blr 
+/* 80070950 0006D8B0  4E 80 00 20 */	blr
 
 .global __dt__15CTweakPlayerGunFv
 __dt__15CTweakPlayerGunFv:
@@ -992,7 +992,7 @@ lbl_80070A54:
 /* 80070A5C 0006D9BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80070A60 0006D9C0  7C 08 03 A6 */	mtlr r0
 /* 80070A64 0006D9C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80070A68 0006D9C8  4E 80 00 20 */	blr 
+/* 80070A68 0006D9C8  4E 80 00 20 */	blr
 
 .global "__dl__29TOneStatic<15CTweakPlayerGun>FPv"
 "__dl__29TOneStatic<15CTweakPlayerGun>FPv":
@@ -1006,4 +1006,4 @@ lbl_80070A54:
 /* 80070A88 0006D9E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80070A8C 0006D9EC  7C 08 03 A6 */	mtlr r0
 /* 80070A90 0006D9F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80070A94 0006D9F4  4E 80 00 20 */	blr 
+/* 80070A94 0006D9F4  4E 80 00 20 */	blr

@@ -282,7 +282,7 @@ lbl_80269494:
 /* 80269494 002663F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80269498 002663F8  7C 08 03 A6 */	mtlr r0
 /* 8026949C 002663FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802694A0 00266400  4E 80 00 20 */	blr 
+/* 802694A0 00266400  4E 80 00 20 */	blr
 
 .global sub_802694a4
 sub_802694a4:
@@ -293,7 +293,7 @@ sub_802694a4:
 /* 802694B4 00266414  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802694B8 00266418  7C 08 03 A6 */	mtlr r0
 /* 802694BC 0026641C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802694C0 00266420  4E 80 00 20 */	blr 
+/* 802694C0 00266420  4E 80 00 20 */	blr
 
 .global sub_802694c4
 sub_802694c4:
@@ -317,7 +317,7 @@ lbl_802694F8:
 /* 80269504 00266464  81 83 00 00 */	lwz r12, 0(r3)
 /* 80269508 00266468  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8026950C 0026646C  7D 89 03 A6 */	mtctr r12
-/* 80269510 00266470  4E 80 04 21 */	bctrl 
+/* 80269510 00266470  4E 80 04 21 */	bctrl
 /* 80269514 00266474  3B BD 00 01 */	addi r29, r29, 1
 /* 80269518 00266478  2C 1D 00 04 */	cmpwi r29, 4
 /* 8026951C 0026647C  41 80 FF DC */	blt lbl_802694F8
@@ -379,7 +379,7 @@ lbl_802695DC:
 /* 802695E8 00266548  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802695EC 0026654C  7C 08 03 A6 */	mtlr r0
 /* 802695F0 00266550  38 21 00 20 */	addi r1, r1, 0x20
-/* 802695F4 00266554  4E 80 00 20 */	blr 
+/* 802695F4 00266554  4E 80 00 20 */	blr
 
 .global sub_802695f8
 sub_802695f8:
@@ -564,7 +564,7 @@ lbl_802698A4:
 /* 802698B8 00266818  83 A1 04 14 */	lwz r29, 0x414(r1)
 /* 802698BC 0026681C  7C 08 03 A6 */	mtlr r0
 /* 802698C0 00266820  38 21 04 30 */	addi r1, r1, 0x430
-/* 802698C4 00266824  4E 80 00 20 */	blr 
+/* 802698C4 00266824  4E 80 00 20 */	blr
 
 .global Draw__18CErrorOutputWindowCFv
 Draw__18CErrorOutputWindowCFv:
@@ -599,7 +599,7 @@ lbl_80269928:
 /* 80269928 00266888  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8026992C 0026688C  7C 08 03 A6 */	mtlr r0
 /* 80269930 00266890  38 21 00 10 */	addi r1, r1, 0x10
-/* 80269934 00266894  4E 80 00 20 */	blr 
+/* 80269934 00266894  4E 80 00 20 */	blr
 
 .global UpdateWindow__18CErrorOutputWindowFv
 UpdateWindow__18CErrorOutputWindowFv:
@@ -642,7 +642,7 @@ lbl_802699A8:
 /* 802699BC 0026691C  38 84 A3 DC */	addi r4, r4, lbl_803EA3DC@l
 /* 802699C0 00266920  7C 04 00 2E */	lwzx r0, r4, r0
 /* 802699C4 00266924  7C 09 03 A6 */	mtctr r0
-/* 802699C8 00266928  4E 80 04 20 */	bctr 
+/* 802699C8 00266928  4E 80 04 20 */	bctr
 .global lbl_802699CC
 lbl_802699CC:
 /* 802699CC 0026692C  3C 80 80 3F */	lis r4, lbl_803EA410@ha
@@ -741,7 +741,7 @@ lbl_80269AF4:
 /* 80269AF8 00266A58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80269AFC 00266A5C  7C 08 03 A6 */	mtlr r0
 /* 80269B00 00266A60  38 21 00 10 */	addi r1, r1, 0x10
-/* 80269B04 00266A64  4E 80 00 20 */	blr 
+/* 80269B04 00266A64  4E 80 00 20 */	blr
 
 .global OnMessage__18CErrorOutputWindowCFv
 OnMessage__18CErrorOutputWindowCFv:
@@ -788,7 +788,7 @@ lbl_80269B8C:
 /* 80269B90 00266AF0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80269B94 00266AF4  7C 08 03 A6 */	mtlr r0
 /* 80269B98 00266AF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80269B9C 00266AFC  4E 80 00 20 */	blr 
+/* 80269B9C 00266AFC  4E 80 00 20 */	blr
 
 .global GetIsContinueDraw__18CErrorOutputWindowCFv
 GetIsContinueDraw__18CErrorOutputWindowCFv:
@@ -799,7 +799,7 @@ GetIsContinueDraw__18CErrorOutputWindowCFv:
 /* 80269BB0 00266B10  7C 00 20 38 */	and r0, r0, r4
 /* 80269BB4 00266B14  7C 00 18 50 */	subf r0, r0, r3
 /* 80269BB8 00266B18  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80269BBC 00266B1C  4E 80 00 20 */	blr 
+/* 80269BBC 00266B1C  4E 80 00 20 */	blr
 
 .global __ct__18CErrorOutputWindowFiff
 __ct__18CErrorOutputWindowFiff:

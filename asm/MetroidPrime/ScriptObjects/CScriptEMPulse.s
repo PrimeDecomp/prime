@@ -66,7 +66,7 @@ __dt__14CScriptEMPulseFv:
 /* 8018EBF8 0018BB58  38 80 00 01 */	li r4, 1
 /* 8018EBFC 0018BB5C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8018EC00 0018BB60  7D 89 03 A6 */	mtctr r12
-/* 8018EC04 0018BB64  4E 80 04 21 */	bctrl 
+/* 8018EC04 0018BB64  4E 80 04 21 */	bctrl
 lbl_8018EC08:
 /* 8018EC08 0018BB68  34 1E 01 08 */	addic. r0, r30, 0x108
 /* 8018EC0C 0018BB6C  41 82 00 18 */	beq lbl_8018EC24
@@ -90,7 +90,7 @@ lbl_8018EC40:
 /* 8018EC4C 0018BBAC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8018EC50 0018BBB0  7C 08 03 A6 */	mtlr r0
 /* 8018EC54 0018BBB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018EC58 0018BBB8  4E 80 00 20 */	blr 
+/* 8018EC58 0018BBB8  4E 80 00 20 */	blr
 
 .global AddToRenderer__14CScriptEMPulseCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__14CScriptEMPulseCFRC14CFrustumPlanesRC13CStateManager:
@@ -108,13 +108,13 @@ AddToRenderer__14CScriptEMPulseCFRC14CFrustumPlanesRC13CStateManager:
 /* 8018EC88 0018BBE8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018EC8C 0018BBEC  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8018EC90 0018BBF0  7D 89 03 A6 */	mtctr r12
-/* 8018EC94 0018BBF4  4E 80 04 21 */	bctrl 
+/* 8018EC94 0018BBF4  4E 80 04 21 */	bctrl
 lbl_8018EC98:
 /* 8018EC98 0018BBF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018EC9C 0018BBFC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8018ECA0 0018BC00  7C 08 03 A6 */	mtlr r0
 /* 8018ECA4 0018BC04  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018ECA8 0018BC08  4E 80 00 20 */	blr 
+/* 8018ECA8 0018BC08  4E 80 00 20 */	blr
 
 .global Touch__14CScriptEMPulseFR6CActorR13CStateManager
 Touch__14CScriptEMPulseFR6CActorR13CStateManager:
@@ -208,7 +208,7 @@ lbl_8018EDE4:
 /* 8018EE00 0018BD60  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8018EE04 0018BD64  7C 08 03 A6 */	mtlr r0
 /* 8018EE08 0018BD68  38 21 00 70 */	addi r1, r1, 0x70
-/* 8018EE0C 0018BD6C  4E 80 00 20 */	blr 
+/* 8018EE0C 0018BD6C  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__14CScriptEMPulseFv
 CalculateRenderBounds__14CScriptEMPulseFv:
@@ -236,7 +236,7 @@ CalculateRenderBounds__14CScriptEMPulseFv:
 /* 8018EE64 0018BDC4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8018EE68 0018BDC8  7C 08 03 A6 */	mtlr r0
 /* 8018EE6C 0018BDCC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8018EE70 0018BDD0  4E 80 00 20 */	blr 
+/* 8018EE70 0018BDD0  4E 80 00 20 */	blr
 
 .global GetTouchBounds__14CScriptEMPulseCFv
 GetTouchBounds__14CScriptEMPulseCFv:
@@ -268,7 +268,7 @@ lbl_8018EED0:
 /* 8018EED4 0018BE34  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8018EED8 0018BE38  7C 08 03 A6 */	mtlr r0
 /* 8018EEDC 0018BE3C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8018EEE0 0018BE40  4E 80 00 20 */	blr 
+/* 8018EEE0 0018BE40  4E 80 00 20 */	blr
 
 .global CalculateBoundingBox__14CScriptEMPulseCFv
 CalculateBoundingBox__14CScriptEMPulseCFv:
@@ -297,7 +297,7 @@ CalculateBoundingBox__14CScriptEMPulseCFv:
 /* 8018EF3C 0018BE9C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8018EF40 0018BEA0  7C 08 03 A6 */	mtlr r0
 /* 8018EF44 0018BEA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018EF48 0018BEA8  4E 80 00 20 */	blr 
+/* 8018EF48 0018BEA8  4E 80 00 20 */	blr
 
 .global Think__14CScriptEMPulseFfR13CStateManager
 Think__14CScriptEMPulseFfR13CStateManager:
@@ -337,7 +337,7 @@ lbl_8018EFC4:
 /* 8018EFCC 0018BF2C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018EFD0 0018BF30  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8018EFD4 0018BF34  7D 89 03 A6 */	mtctr r12
-/* 8018EFD8 0018BF38  4E 80 04 21 */	bctrl 
+/* 8018EFD8 0018BF38  4E 80 04 21 */	bctrl
 lbl_8018EFDC:
 /* 8018EFDC 0018BF3C  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
 /* 8018EFE0 0018BF40  80 01 00 34 */	lwz r0, 0x34(r1)
@@ -345,7 +345,7 @@ lbl_8018EFDC:
 /* 8018EFE8 0018BF48  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8018EFEC 0018BF4C  7C 08 03 A6 */	mtlr r0
 /* 8018EFF0 0018BF50  38 21 00 30 */	addi r1, r1, 0x30
-/* 8018EFF4 0018BF54  4E 80 00 20 */	blr 
+/* 8018EFF4 0018BF54  4E 80 00 20 */	blr
 
 .global Accept__14CScriptEMPulseFR8IVisitor
 Accept__14CScriptEMPulseFR8IVisitor:
@@ -358,11 +358,11 @@ Accept__14CScriptEMPulseFR8IVisitor:
 /* 8018F010 0018BF70  7C 04 03 78 */	mr r4, r0
 /* 8018F014 0018BF74  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8018F018 0018BF78  7D 89 03 A6 */	mtctr r12
-/* 8018F01C 0018BF7C  4E 80 04 21 */	bctrl 
+/* 8018F01C 0018BF7C  4E 80 04 21 */	bctrl
 /* 8018F020 0018BF80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018F024 0018BF84  7C 08 03 A6 */	mtlr r0
 /* 8018F028 0018BF88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018F02C 0018BF8C  4E 80 00 20 */	blr 
+/* 8018F02C 0018BF8C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__14CScriptEMPulseF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__14CScriptEMPulseF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -410,7 +410,7 @@ lbl_8018F0BC:
 /* 8018F0CC 0018C02C  38 80 00 01 */	li r4, 1
 /* 8018F0D0 0018C030  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8018F0D4 0018C034  7D 89 03 A6 */	mtctr r12
-/* 8018F0D8 0018C038  4E 80 04 21 */	bctrl 
+/* 8018F0D8 0018C038  4E 80 04 21 */	bctrl
 lbl_8018F0DC:
 /* 8018F0DC 0018C03C  7F 80 07 75 */	extsb. r0, r28
 /* 8018F0E0 0018C040  93 FD 01 14 */	stw r31, 0x114(r29)
@@ -428,7 +428,7 @@ lbl_8018F0F4:
 /* 8018F10C 0018C06C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8018F110 0018C070  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8018F114 0018C074  7D 89 03 A6 */	mtctr r12
-/* 8018F118 0018C078  4E 80 04 21 */	bctrl 
+/* 8018F118 0018C078  4E 80 04 21 */	bctrl
 /* 8018F11C 0018C07C  C0 5D 00 60 */	lfs f2, 0x60(r29)
 /* 8018F120 0018C080  38 81 00 1C */	addi r4, r1, 0x1c
 /* 8018F124 0018C084  C0 3D 00 50 */	lfs f1, 0x50(r29)
@@ -440,13 +440,13 @@ lbl_8018F0F4:
 /* 8018F13C 0018C09C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018F140 0018C0A0  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8018F144 0018C0A4  7D 89 03 A6 */	mtctr r12
-/* 8018F148 0018C0A8  4E 80 04 21 */	bctrl 
+/* 8018F148 0018C0A8  4E 80 04 21 */	bctrl
 /* 8018F14C 0018C0AC  80 7D 01 14 */	lwz r3, 0x114(r29)
 /* 8018F150 0018C0B0  38 80 00 01 */	li r4, 1
 /* 8018F154 0018C0B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018F158 0018C0B8  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8018F15C 0018C0BC  7D 89 03 A6 */	mtctr r12
-/* 8018F160 0018C0C0  4E 80 04 21 */	bctrl 
+/* 8018F160 0018C0C0  4E 80 04 21 */	bctrl
 /* 8018F164 0018C0C4  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 8018F168 0018C0C8  38 81 00 0C */	addi r4, r1, 0xc
 /* 8018F16C 0018C0CC  B0 01 00 0C */	sth r0, 0xc(r1)
@@ -465,7 +465,7 @@ lbl_8018F18C:
 /* 8018F19C 0018C0FC  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 8018F1A0 0018C100  7C 08 03 A6 */	mtlr r0
 /* 8018F1A4 0018C104  38 21 00 70 */	addi r1, r1, 0x70
-/* 8018F1A8 0018C108  4E 80 00 20 */	blr 
+/* 8018F1A8 0018C108  4E 80 00 20 */	blr
 
 .global "__ct__14CScriptEMPulseF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfffffUi"
 "__ct__14CScriptEMPulseF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbfffffUi":
@@ -557,7 +557,7 @@ lbl_8018F18C:
 /* 8018F300 0018C260  81 84 00 00 */	lwz r12, 0(r4)
 /* 8018F304 0018C264  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8018F308 0018C268  7D 89 03 A6 */	mtctr r12
-/* 8018F30C 0018C26C  4E 80 04 21 */	bctrl 
+/* 8018F30C 0018C26C  4E 80 04 21 */	bctrl
 /* 8018F310 0018C270  3B 3F 01 08 */	addi r25, r31, 0x108
 /* 8018F314 0018C274  38 81 00 18 */	addi r4, r1, 0x18
 /* 8018F318 0018C278  7F 23 CB 78 */	mr r3, r25

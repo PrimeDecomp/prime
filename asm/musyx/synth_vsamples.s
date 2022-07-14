@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global vsInit
 vsInit:
@@ -51,7 +51,7 @@ lbl_803A99EC:
 /* 803A9A7C 003A69DC  38 63 E3 10 */	addi r3, r3, vs@l
 /* 803A9A80 003A69E0  B0 03 09 48 */	sth r0, 0x948(r3)
 /* 803A9A84 003A69E4  90 03 09 4C */	stw r0, 0x94c(r3)
-/* 803A9A88 003A69E8  4E 80 00 20 */	blr 
+/* 803A9A88 003A69E8  4E 80 00 20 */	blr
 
 .global vsSampleStartNotify
 vsSampleStartNotify:
@@ -190,7 +190,7 @@ lbl_803A9C28:
 /* 803A9C6C 003A6BCC  38 84 00 18 */	addi r4, r4, 0x18
 /* 803A9C70 003A6BD0  38 60 00 00 */	li r3, 0
 /* 803A9C74 003A6BD4  7D 89 03 A6 */	mtctr r12
-/* 803A9C78 003A6BD8  4E 80 04 21 */	bctrl 
+/* 803A9C78 003A6BD8  4E 80 04 21 */	bctrl
 /* 803A9C7C 003A6BDC  A0 1C 00 00 */	lhz r0, 0(r28)
 /* 803A9C80 003A6BE0  7F A3 EB 78 */	mr r3, r29
 /* 803A9C84 003A6BE4  50 03 42 2E */	rlwimi r3, r0, 8, 8, 0x17
@@ -216,7 +216,7 @@ lbl_803A9CB4:
 /* 803A9CC4 003A6C24  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803A9CC8 003A6C28  7C 08 03 A6 */	mtlr r0
 /* 803A9CCC 003A6C2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803A9CD0 003A6C30  4E 80 00 20 */	blr 
+/* 803A9CD0 003A6C30  4E 80 00 20 */	blr
 
 .global vsSampleEndNotify
 vsSampleEndNotify:
@@ -247,7 +247,7 @@ vsSampleEndNotify:
 /* 803A9D34 003A6C94  38 84 00 18 */	addi r4, r4, 0x18
 /* 803A9D38 003A6C98  38 60 00 02 */	li r3, 2
 /* 803A9D3C 003A6C9C  7D 89 03 A6 */	mtctr r12
-/* 803A9D40 003A6CA0  4E 80 04 21 */	bctrl 
+/* 803A9D40 003A6CA0  4E 80 04 21 */	bctrl
 lbl_803A9D44:
 /* 803A9D44 003A6CA4  3C 60 80 56 */	lis r3, vs@ha
 /* 803A9D48 003A6CA8  38 A0 00 00 */	li r5, 0
@@ -263,4 +263,4 @@ lbl_803A9D64:
 /* 803A9D6C 003A6CCC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803A9D70 003A6CD0  7C 08 03 A6 */	mtlr r0
 /* 803A9D74 003A6CD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803A9D78 003A6CD8  4E 80 00 20 */	blr 
+/* 803A9D78 003A6CD8  4E 80 00 20 */	blr

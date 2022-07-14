@@ -11,7 +11,7 @@ IsAnimLoaded__9CGSFidgetCFv:
 /* 801F10D8 001EE038  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F10DC 001EE03C  7C 08 03 A6 */	mtlr r0
 /* 801F10E0 001EE040  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F10E4 001EE044  4E 80 00 20 */	blr 
+/* 801F10E4 001EE044  4E 80 00 20 */	blr
 
 .global UnLoadAnim__9CGSFidgetFv
 UnLoadAnim__9CGSFidgetFv:
@@ -56,7 +56,7 @@ lbl_801F116C:
 /* 801F1174 001EE0D4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801F1178 001EE0D8  7C 08 03 A6 */	mtlr r0
 /* 801F117C 001EE0DC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F1180 001EE0E0  4E 80 00 20 */	blr 
+/* 801F1180 001EE0E0  4E 80 00 20 */	blr
 
 .global LoadAnimAsync__9CGSFidgetFR9CAnimDataiiiR13CStateManager
 LoadAnimAsync__9CGSFidgetFR9CAnimDataiiiR13CStateManager:
@@ -148,7 +148,7 @@ lbl_801F12BC:
 /* 801F12C0 001EE220  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801F12C4 001EE224  7C 08 03 A6 */	mtlr r0
 /* 801F12C8 001EE228  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801F12CC 001EE22C  4E 80 00 20 */	blr 
+/* 801F12CC 001EE22C  4E 80 00 20 */	blr
 
 .global SetAnim__9CGSFidgetFR9CAnimDataiiiR13CStateManager
 SetAnim__9CGSFidgetFR9CAnimDataiiiR13CStateManager:
@@ -280,7 +280,7 @@ lbl_801F14A4:
 /* 801F14AC 001EE40C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801F14B0 001EE410  7C 08 03 A6 */	mtlr r0
 /* 801F14B4 001EE414  38 21 01 00 */	addi r1, r1, 0x100
-/* 801F14B8 001EE418  4E 80 00 20 */	blr 
+/* 801F14B8 001EE418  4E 80 00 20 */	blr
 
 .global Update__9CGSFidgetFR9CAnimDatafR13CStateManager
 Update__9CGSFidgetFR9CAnimDatafR13CStateManager:
@@ -307,7 +307,7 @@ Update__9CGSFidgetFR9CAnimDatafR13CStateManager:
 /* 801F150C 001EE46C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801F1510 001EE470  7C 08 03 A6 */	mtlr r0
 /* 801F1514 001EE474  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F1518 001EE478  4E 80 00 20 */	blr 
+/* 801F1518 001EE478  4E 80 00 20 */	blr
 
 .global __ct__9CGSFidgetFv
 __ct__9CGSFidgetFv:

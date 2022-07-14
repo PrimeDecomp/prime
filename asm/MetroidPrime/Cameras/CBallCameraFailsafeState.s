@@ -57,7 +57,7 @@ lbl_805A826C:
 
 .global nullsub_19
 nullsub_19:
-/* 8023E604 0023B564  4E 80 00 20 */	blr 
+/* 8023E604 0023B564  4E 80 00 20 */	blr
 
 .global __ct__Q211CBallCamera14SFailsafeStateFv
 __ct__Q211CBallCamera14SFailsafeStateFv:
@@ -108,7 +108,7 @@ __ct__Q211CBallCamera14SFailsafeStateFv:
 /* 8023E6B8 0023B618  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023E6BC 0023B61C  7C 08 03 A6 */	mtlr r0
 /* 8023E6C0 0023B620  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023E6C4 0023B624  4E 80 00 20 */	blr 
+/* 8023E6C4 0023B624  4E 80 00 20 */	blr
 
 .global UpdateTransitionFromBallCamera__11CBallCameraFR13CStateManager
 UpdateTransitionFromBallCamera__11CBallCameraFR13CStateManager:
@@ -285,7 +285,7 @@ lbl_8023E950:
 /* 8023E960 0023B8C0  81 83 00 00 */	lwz r12, 0(r3)
 /* 8023E964 0023B8C4  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8023E968 0023B8C8  7D 89 03 A6 */	mtctr r12
-/* 8023E96C 0023B8CC  4E 80 04 21 */	bctrl 
+/* 8023E96C 0023B8CC  4E 80 04 21 */	bctrl
 /* 8023E970 0023B8D0  80 9E 04 7C */	lwz r4, 0x47c(r30)
 /* 8023E974 0023B8D4  38 60 00 00 */	li r3, 0
 /* 8023E978 0023B8D8  D3 E4 00 84 */	stfs f31, 0x84(r4)
@@ -305,7 +305,7 @@ lbl_8023E950:
 /* 8023E9B0 0023B910  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8023E9B4 0023B914  7C 08 03 A6 */	mtlr r0
 /* 8023E9B8 0023B918  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8023E9BC 0023B91C  4E 80 00 20 */	blr 
+/* 8023E9BC 0023B91C  4E 80 00 20 */	blr
 
 .global TransitionFromMorphBallState__11CBallCameraFR13CStateManager
 TransitionFromMorphBallState__11CBallCameraFR13CStateManager:
@@ -581,7 +581,7 @@ lbl_8023ED6C:
 /* 8023EDB4 0023BD14  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 8023EDB8 0023BD18  7C 08 03 A6 */	mtlr r0
 /* 8023EDBC 0023BD1C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8023EDC0 0023BD20  4E 80 00 20 */	blr 
+/* 8023EDC0 0023BD20  4E 80 00 20 */	blr
 
 .global "GetFailsafeBezierPoint__11CBallCameraFRCQ24rstl18vector<9CVector3f>f"
 "GetFailsafeBezierPoint__11CBallCameraFRCQ24rstl18vector<9CVector3f>f":
@@ -627,7 +627,7 @@ lbl_8023EE14:
 /* 8023EE58 0023BDB8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8023EE5C 0023BDBC  7C 08 03 A6 */	mtlr r0
 /* 8023EE60 0023BDC0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023EE64 0023BDC4  4E 80 00 20 */	blr 
+/* 8023EE64 0023BDC4  4E 80 00 20 */	blr
 
 .global CheckTransitionLineOfSight__11CBallCameraFRC9CVector3fRC9CVector3fRffR13CStateManager
 CheckTransitionLineOfSight__11CBallCameraFRC9CVector3fRC9CVector3fRffR13CStateManager:

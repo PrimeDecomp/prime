@@ -163,7 +163,7 @@ lbl_8005DDDC:
 /* 8005DDE8 0005AD48  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8005DDEC 0005AD4C  7C 08 03 A6 */	mtlr r0
 /* 8005DDF0 0005AD50  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005DDF4 0005AD54  4E 80 00 20 */	blr 
+/* 8005DDF4 0005AD54  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl36vector<f,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl36vector<f,Q24rstl17rmemory_allocator>Fi":
@@ -234,7 +234,7 @@ lbl_8005DEC8:
 /* 8005DED4 0005AE34  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8005DED8 0005AE38  7C 08 03 A6 */	mtlr r0
 /* 8005DEDC 0005AE3C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005DEE0 0005AE40  4E 80 00 20 */	blr 
+/* 8005DEE0 0005AE40  4E 80 00 20 */	blr
 
 .global sub_8005dee4
 sub_8005dee4:
@@ -246,7 +246,7 @@ sub_8005dee4:
 /* 8005DEF8 0005AE58  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005DEFC 0005AE5C  7C 08 03 A6 */	mtlr r0
 /* 8005DF00 0005AE60  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005DF04 0005AE64  4E 80 00 20 */	blr 
+/* 8005DF04 0005AE64  4E 80 00 20 */	blr
 
 .global Get2ndPVSLightFeature__9CGameAreaFUi
 Get2ndPVSLightFeature__9CGameAreaFUi:
@@ -259,11 +259,11 @@ Get2ndPVSLightFeature__9CGameAreaFUi:
 /* 8005DF20 0005AE80  40 82 00 0C */	bne lbl_8005DF2C
 lbl_8005DF24:
 /* 8005DF24 0005AE84  38 60 FF FF */	li r3, -1
-/* 8005DF28 0005AE88  4E 80 00 20 */	blr 
+/* 8005DF28 0005AE88  4E 80 00 20 */	blr
 lbl_8005DF2C:
 /* 8005DF2C 0005AE8C  80 03 00 00 */	lwz r0, 0(r3)
 /* 8005DF30 0005AE90  7C 60 22 14 */	add r3, r0, r4
-/* 8005DF34 0005AE94  4E 80 00 20 */	blr 
+/* 8005DF34 0005AE94  4E 80 00 20 */	blr
 
 .global Get1stPVSLightFeature__9CGameAreaFUi
 Get1stPVSLightFeature__9CGameAreaFUi:
@@ -272,13 +272,13 @@ Get1stPVSLightFeature__9CGameAreaFUi:
 /* 8005DF40 0005AEA0  28 03 00 00 */	cmplwi r3, 0
 /* 8005DF44 0005AEA4  40 82 00 0C */	bne lbl_8005DF50
 /* 8005DF48 0005AEA8  38 60 FF FF */	li r3, -1
-/* 8005DF4C 0005AEAC  4E 80 00 20 */	blr 
+/* 8005DF4C 0005AEAC  4E 80 00 20 */	blr
 lbl_8005DF50:
 /* 8005DF50 0005AEB0  80 03 00 08 */	lwz r0, 8(r3)
 /* 8005DF54 0005AEB4  80 A3 00 00 */	lwz r5, 0(r3)
 /* 8005DF58 0005AEB8  7C 60 22 14 */	add r3, r0, r4
 /* 8005DF5C 0005AEBC  7C 65 1A 14 */	add r3, r5, r3
-/* 8005DF60 0005AEC0  4E 80 00 20 */	blr 
+/* 8005DF60 0005AEC0  4E 80 00 20 */	blr
 
 .global LookupPVSUniqueID__9CGameAreaF9TUniqueId
 LookupPVSUniqueID__9CGameAreaF9TUniqueId:
@@ -288,7 +288,7 @@ LookupPVSUniqueID__9CGameAreaF9TUniqueId:
 /* 8005DF70 0005AED0  7C 84 02 14 */	add r4, r4, r0
 /* 8005DF74 0005AED4  A0 04 00 AA */	lhz r0, 0xaa(r4)
 /* 8005DF78 0005AED8  B0 03 00 00 */	sth r0, 0(r3)
-/* 8005DF7C 0005AEDC  4E 80 00 20 */	blr 
+/* 8005DF7C 0005AEDC  4E 80 00 20 */	blr
 
 .global LookupPVSID__9CGameAreaF9TUniqueId
 LookupPVSID__9CGameAreaF9TUniqueId:
@@ -297,7 +297,7 @@ LookupPVSID__9CGameAreaF9TUniqueId:
 /* 8005DF88 0005AEE8  54 00 15 3A */	rlwinm r0, r0, 2, 0x14, 0x1d
 /* 8005DF8C 0005AEEC  7C 63 02 14 */	add r3, r3, r0
 /* 8005DF90 0005AEF0  A0 63 00 A8 */	lhz r3, 0xa8(r3)
-/* 8005DF94 0005AEF4  4E 80 00 20 */	blr 
+/* 8005DF94 0005AEF4  4E 80 00 20 */	blr
 
 .global UpdateWeaponWorldLighting__9CGameAreaFf
 UpdateWeaponWorldLighting__9CGameAreaFf:
@@ -434,7 +434,7 @@ lbl_8005E158:
 /* 8005E164 0005B0C4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8005E168 0005B0C8  7C 08 03 A6 */	mtlr r0
 /* 8005E16C 0005B0CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005E170 0005B0D0  4E 80 00 20 */	blr 
+/* 8005E170 0005B0D0  4E 80 00 20 */	blr
 
 .global UpdateThermalVisor__9CGameAreaFf
 UpdateThermalVisor__9CGameAreaFf:
@@ -442,7 +442,7 @@ UpdateThermalVisor__9CGameAreaFf:
 /* 8005E178 0005B0D8  C0 42 87 00 */	lfs f2, lbl_805AA420@sda21(r2)
 /* 8005E17C 0005B0DC  C0 04 11 20 */	lfs f0, 0x1120(r4)
 /* 8005E180 0005B0E0  FC 02 00 00 */	fcmpu cr0, f2, f0
-/* 8005E184 0005B0E4  4D 82 00 20 */	beqlr 
+/* 8005E184 0005B0E4  4D 82 00 20 */	beqlr
 /* 8005E188 0005B0E8  C0 64 11 1C */	lfs f3, 0x111c(r4)
 /* 8005E18C 0005B0EC  EC 81 00 32 */	fmuls f4, f1, f0
 /* 8005E190 0005B0F0  C0 24 11 24 */	lfs f1, 0x1124(r4)
@@ -464,7 +464,7 @@ lbl_8005E1C4:
 lbl_8005E1C8:
 /* 8005E1C8 0005B128  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 8005E1CC 0005B12C  D0 63 11 1C */	stfs f3, 0x111c(r3)
-/* 8005E1D0 0005B130  4E 80 00 20 */	blr 
+/* 8005E1D0 0005B130  4E 80 00 20 */	blr
 
 .global SetWeaponWorldLighting__9CGameAreaFff
 SetWeaponWorldLighting__9CGameAreaFff:
@@ -472,7 +472,7 @@ SetWeaponWorldLighting__9CGameAreaFff:
 /* 8005E1D8 0005B138  D0 24 11 34 */	stfs f1, 0x1134(r4)
 /* 8005E1DC 0005B13C  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 8005E1E0 0005B140  D0 43 11 38 */	stfs f2, 0x1138(r3)
-/* 8005E1E4 0005B144  4E 80 00 20 */	blr 
+/* 8005E1E4 0005B144  4E 80 00 20 */	blr
 
 .global sub_8005e1e8
 sub_8005e1e8:
@@ -480,7 +480,7 @@ sub_8005e1e8:
 /* 8005E1EC 0005B14C  D0 24 11 2C */	stfs f1, 0x112c(r4)
 /* 8005E1F0 0005B150  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 8005E1F4 0005B154  D0 43 11 30 */	stfs f2, 0x1130(r3)
-/* 8005E1F8 0005B158  4E 80 00 20 */	blr 
+/* 8005E1F8 0005B158  4E 80 00 20 */	blr
 
 .global sub_8005e1fc
 sub_8005e1fc:
@@ -488,21 +488,21 @@ sub_8005e1fc:
 /* 8005E200 0005B160  D0 24 11 20 */	stfs f1, 0x1120(r4)
 /* 8005E204 0005B164  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 8005E208 0005B168  D0 43 11 24 */	stfs f2, 0x1124(r3)
-/* 8005E20C 0005B16C  4E 80 00 20 */	blr 
+/* 8005E20C 0005B16C  4E 80 00 20 */	blr
 
 .global sub_8005e210
 sub_8005e210:
 /* 8005E210 0005B170  80 A3 01 2C */	lwz r5, 0x12c(r3)
 /* 8005E214 0005B174  28 04 00 00 */	cmplwi r4, 0
 /* 8005E218 0005B178  90 85 10 D8 */	stw r4, 0x10d8(r5)
-/* 8005E21C 0005B17C  4D 82 00 20 */	beqlr 
+/* 8005E21C 0005B17C  4D 82 00 20 */	beqlr
 /* 8005E220 0005B180  C0 04 00 40 */	lfs f0, 0x40(r4)
 /* 8005E224 0005B184  80 A3 01 2C */	lwz r5, 0x12c(r3)
 /* 8005E228 0005B188  D0 05 11 1C */	stfs f0, 0x111c(r5)
 /* 8005E22C 0005B18C  C0 04 00 48 */	lfs f0, 0x48(r4)
 /* 8005E230 0005B190  80 63 01 2C */	lwz r3, 0x12c(r3)
 /* 8005E234 0005B194  D0 03 11 28 */	stfs f0, 0x1128(r3)
-/* 8005E238 0005B198  4E 80 00 20 */	blr 
+/* 8005E238 0005B198  4E 80 00 20 */	blr
 
 .global GetXRayFogDistance__9CGameAreaFv
 GetXRayFogDistance__9CGameAreaFv:
@@ -511,10 +511,10 @@ GetXRayFogDistance__9CGameAreaFv:
 /* 8005E244 0005B1A4  28 03 00 00 */	cmplwi r3, 0
 /* 8005E248 0005B1A8  41 82 00 0C */	beq lbl_8005E254
 /* 8005E24C 0005B1AC  C0 23 00 44 */	lfs f1, 0x44(r3)
-/* 8005E250 0005B1B0  4E 80 00 20 */	blr 
+/* 8005E250 0005B1B0  4E 80 00 20 */	blr
 lbl_8005E254:
 /* 8005E254 0005B1B4  C0 22 87 08 */	lfs f1, lbl_805AA428@sda21(r2)
-/* 8005E258 0005B1B8  4E 80 00 20 */	blr 
+/* 8005E258 0005B1B8  4E 80 00 20 */	blr
 
 .global SetLoadPauseState__9CGameAreaFb
 SetLoadPauseState__9CGameAreaFb:
@@ -557,7 +557,7 @@ lbl_8005E2D0:
 /* 8005E2DC 0005B23C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8005E2E0 0005B240  7C 08 03 A6 */	mtlr r0
 /* 8005E2E4 0005B244  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005E2E8 0005B248  4E 80 00 20 */	blr 
+/* 8005E2E8 0005B248  4E 80 00 20 */	blr
 
 .global GetLayerScriptBuffer__9CGameAreaFi
 GetLayerScriptBuffer__9CGameAreaFi:
@@ -575,13 +575,13 @@ GetLayerScriptBuffer__9CGameAreaFi:
 /* 8005E318 0005B278  90 03 00 00 */	stw r0, 0(r3)
 /* 8005E31C 0005B27C  80 05 00 04 */	lwz r0, 4(r5)
 /* 8005E320 0005B280  90 03 00 04 */	stw r0, 4(r3)
-/* 8005E324 0005B284  4E 80 00 20 */	blr 
+/* 8005E324 0005B284  4E 80 00 20 */	blr
 lbl_8005E328:
 /* 8005E328 0005B288  38 00 00 00 */	li r0, 0
 /* 8005E32C 0005B28C  90 03 00 00 */	stw r0, 0(r3)
 /* 8005E330 0005B290  80 0D 82 E8 */	lwz r0, lbl_805A6EA8@sda21(r13)
 /* 8005E334 0005B294  90 03 00 04 */	stw r0, 4(r3)
-/* 8005E338 0005B298  4E 80 00 20 */	blr 
+/* 8005E338 0005B298  4E 80 00 20 */	blr
 
 .global IsFinishedOccluding__9CGameAreaCFv
 IsFinishedOccluding__9CGameAreaCFv:
@@ -591,10 +591,10 @@ IsFinishedOccluding__9CGameAreaCFv:
 /* 8005E348 0005B2A8  40 82 00 10 */	bne lbl_8005E358
 /* 8005E34C 0005B2AC  88 03 11 08 */	lbz r0, 0x1108(r3)
 /* 8005E350 0005B2B0  54 03 E7 FE */	rlwinm r3, r0, 0x1c, 0x1f, 0x1f
-/* 8005E354 0005B2B4  4E 80 00 20 */	blr 
+/* 8005E354 0005B2B4  4E 80 00 20 */	blr
 lbl_8005E358:
 /* 8005E358 0005B2B8  38 60 00 01 */	li r3, 1
-/* 8005E35C 0005B2BC  4E 80 00 20 */	blr 
+/* 8005E35C 0005B2BC  4E 80 00 20 */	blr
 
 .global IGetScriptingMemoryAlways__14CDummyGameAreaCFv
 IGetScriptingMemoryAlways__14CDummyGameAreaCFv:
@@ -608,22 +608,22 @@ IGetScriptingMemoryAlways__14CDummyGameAreaCFv:
 /* 8005E37C 0005B2DC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8005E380 0005B2E0  7C 08 03 A6 */	mtlr r0
 /* 8005E384 0005B2E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005E388 0005B2E8  4E 80 00 20 */	blr 
+/* 8005E388 0005B2E8  4E 80 00 20 */	blr
 
 .global IGetAreaId__14CDummyGameAreaCFv
 IGetAreaId__14CDummyGameAreaCFv:
 /* 8005E38C 0005B2EC  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8005E390 0005B2F0  4E 80 00 20 */	blr 
+/* 8005E390 0005B2F0  4E 80 00 20 */	blr
 
 .global IGetAreaAssetID__14CDummyGameAreaCFv
 IGetAreaAssetID__14CDummyGameAreaCFv:
 /* 8005E394 0005B2F4  80 63 00 0C */	lwz r3, 0xc(r3)
-/* 8005E398 0005B2F8  4E 80 00 20 */	blr 
+/* 8005E398 0005B2F8  4E 80 00 20 */	blr
 
 .global IIsActive__14CDummyGameAreaCFv
 IIsActive__14CDummyGameAreaCFv:
 /* 8005E39C 0005B2FC  38 60 00 01 */	li r3, 1
-/* 8005E3A0 0005B300  4E 80 00 20 */	blr 
+/* 8005E3A0 0005B300  4E 80 00 20 */	blr
 
 .global IGetAttachedAreaId__14CDummyGameAreaCFi
 IGetAttachedAreaId__14CDummyGameAreaCFi:
@@ -631,22 +631,22 @@ IGetAttachedAreaId__14CDummyGameAreaCFi:
 /* 8005E3A8 0005B308  54 A0 08 3C */	slwi r0, r5, 1
 /* 8005E3AC 0005B30C  7C 04 02 2E */	lhzx r0, r4, r0
 /* 8005E3B0 0005B310  90 03 00 00 */	stw r0, 0(r3)
-/* 8005E3B4 0005B314  4E 80 00 20 */	blr 
+/* 8005E3B4 0005B314  4E 80 00 20 */	blr
 
 .global IGetNumAttachedAreas__14CDummyGameAreaCFv
 IGetNumAttachedAreas__14CDummyGameAreaCFv:
 /* 8005E3B8 0005B318  80 63 00 48 */	lwz r3, 0x48(r3)
-/* 8005E3BC 0005B31C  4E 80 00 20 */	blr 
+/* 8005E3BC 0005B31C  4E 80 00 20 */	blr
 
 .global IGetStringTableAssetId__14CDummyGameAreaCFv
 IGetStringTableAssetId__14CDummyGameAreaCFv:
 /* 8005E3C0 0005B320  80 63 00 08 */	lwz r3, 8(r3)
-/* 8005E3C4 0005B324  4E 80 00 20 */	blr 
+/* 8005E3C4 0005B324  4E 80 00 20 */	blr
 
 .global IGetTM__14CDummyGameAreaCFv
 IGetTM__14CDummyGameAreaCFv:
 /* 8005E3C8 0005B328  38 63 00 14 */	addi r3, r3, 0x14
-/* 8005E3CC 0005B32C  4E 80 00 20 */	blr 
+/* 8005E3CC 0005B32C  4E 80 00 20 */	blr
 
 .global __ct__14CDummyGameAreaFR12CInputStreamii
 __ct__14CDummyGameAreaFR12CInputStreamii:
@@ -900,7 +900,7 @@ lbl_8005E738:
 /* 8005E748 0005B6A8  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 8005E74C 0005B6AC  7C 08 03 A6 */	mtlr r0
 /* 8005E750 0005B6B0  38 21 01 40 */	addi r1, r1, 0x140
-/* 8005E754 0005B6B4  4E 80 00 20 */	blr 
+/* 8005E754 0005B6B4  4E 80 00 20 */	blr
 
 .global sub_8005e758
 sub_8005e758:
@@ -936,7 +936,7 @@ lbl_8005E798:
 /* 8005E7C4 0005B724  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005E7C8 0005B728  7C 08 03 A6 */	mtlr r0
 /* 8005E7CC 0005B72C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005E7D0 0005B730  4E 80 00 20 */	blr 
+/* 8005E7D0 0005B730  4E 80 00 20 */	blr
 
 .global sub_8005e7d4
 sub_8005e7d4:
@@ -950,7 +950,7 @@ lbl_8005E7EC:
 /* 8005E7EC 0005B74C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005E7F0 0005B750  7C 08 03 A6 */	mtlr r0
 /* 8005E7F4 0005B754  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005E7F8 0005B758  4E 80 00 20 */	blr 
+/* 8005E7F8 0005B758  4E 80 00 20 */	blr
 
 .global sub_8005e7fc
 sub_8005e7fc:
@@ -1040,7 +1040,7 @@ lbl_8005E910:
 /* 8005E924 0005B884  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005E928 0005B888  7C 08 03 A6 */	mtlr r0
 /* 8005E92C 0005B88C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005E930 0005B890  4E 80 00 20 */	blr 
+/* 8005E930 0005B890  4E 80 00 20 */	blr
 
 .global ReadDependencyList__9CGameArea
 ReadDependencyList__9CGameArea:
@@ -1101,7 +1101,7 @@ lbl_8005E9E8:
 /* 8005E9F8 0005B958  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8005E9FC 0005B95C  7C 08 03 A6 */	mtlr r0
 /* 8005EA00 0005B960  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005EA04 0005B964  4E 80 00 20 */	blr 
+/* 8005EA04 0005B964  4E 80 00 20 */	blr
 
 .global sub_8005ea08
 sub_8005ea08:
@@ -1175,7 +1175,7 @@ lbl_8005EAE4:
 /* 8005EAEC 0005BA4C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8005EAF0 0005BA50  7C 08 03 A6 */	mtlr r0
 /* 8005EAF4 0005BA54  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005EAF8 0005BA58  4E 80 00 20 */	blr 
+/* 8005EAF8 0005BA58  4E 80 00 20 */	blr
 
 .global IGetScriptingMemoryAlways__9CGameAreaCFv
 IGetScriptingMemoryAlways__9CGameAreaCFv:
@@ -1189,23 +1189,23 @@ IGetScriptingMemoryAlways__9CGameAreaCFv:
 /* 8005EB18 0005BA78  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8005EB1C 0005BA7C  7C 08 03 A6 */	mtlr r0
 /* 8005EB20 0005BA80  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005EB24 0005BA84  4E 80 00 20 */	blr 
+/* 8005EB24 0005BA84  4E 80 00 20 */	blr
 
 .global IGetAreaId__9CGameAreaCFv
 IGetAreaId__9CGameAreaCFv:
 /* 8005EB28 0005BA88  80 63 00 88 */	lwz r3, 0x88(r3)
-/* 8005EB2C 0005BA8C  4E 80 00 20 */	blr 
+/* 8005EB2C 0005BA8C  4E 80 00 20 */	blr
 
 .global IGetAreaAssetID__9CGameAreaCFv
 IGetAreaAssetID__9CGameAreaCFv:
 /* 8005EB30 0005BA90  80 63 00 84 */	lwz r3, 0x84(r3)
-/* 8005EB34 0005BA94  4E 80 00 20 */	blr 
+/* 8005EB34 0005BA94  4E 80 00 20 */	blr
 
 .global IIsActive__9CGameAreaCFv
 IIsActive__9CGameAreaCFv:
 /* 8005EB38 0005BA98  88 03 00 F0 */	lbz r0, 0xf0(r3)
 /* 8005EB3C 0005BA9C  54 03 D7 FE */	rlwinm r3, r0, 0x1a, 0x1f, 0x1f
-/* 8005EB40 0005BAA0  4E 80 00 20 */	blr 
+/* 8005EB40 0005BAA0  4E 80 00 20 */	blr
 
 .global IGetAttachedAreaId__9CGameAreaCFi
 IGetAttachedAreaId__9CGameAreaCFi:
@@ -1213,22 +1213,22 @@ IGetAttachedAreaId__9CGameAreaCFi:
 /* 8005EB48 0005BAA8  54 A0 08 3C */	slwi r0, r5, 1
 /* 8005EB4C 0005BAAC  7C 04 02 2E */	lhzx r0, r4, r0
 /* 8005EB50 0005BAB0  90 03 00 00 */	stw r0, 0(r3)
-/* 8005EB54 0005BAB4  4E 80 00 20 */	blr 
+/* 8005EB54 0005BAB4  4E 80 00 20 */	blr
 
 .global IGetNumAttachedAreas__9CGameAreaCFv
 IGetNumAttachedAreas__9CGameAreaCFv:
 /* 8005EB58 0005BAB8  80 63 00 90 */	lwz r3, 0x90(r3)
-/* 8005EB5C 0005BABC  4E 80 00 20 */	blr 
+/* 8005EB5C 0005BABC  4E 80 00 20 */	blr
 
 .global IGetStringTableAssetId__9CGameAreaCFv
 IGetStringTableAssetId__9CGameAreaCFv:
 /* 8005EB60 0005BAC0  80 63 00 08 */	lwz r3, 8(r3)
-/* 8005EB64 0005BAC4  4E 80 00 20 */	blr 
+/* 8005EB64 0005BAC4  4E 80 00 20 */	blr
 
 .global IGetTM__9CGameAreaCFv
 IGetTM__9CGameAreaCFv:
 /* 8005EB68 0005BAC8  38 63 00 0C */	addi r3, r3, 0xc
-/* 8005EB6C 0005BACC  4E 80 00 20 */	blr 
+/* 8005EB6C 0005BACC  4E 80 00 20 */	blr
 
 .global TryTakingOutOfARAM__9CGameAreaFv
 TryTakingOutOfARAM__9CGameAreaFv:
@@ -1265,7 +1265,7 @@ lbl_8005EBD4:
 /* 8005EBE0 0005BB40  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8005EBE4 0005BB44  7C 08 03 A6 */	mtlr r0
 /* 8005EBE8 0005BB48  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005EBEC 0005BB4C  4E 80 00 20 */	blr 
+/* 8005EBEC 0005BB4C  4E 80 00 20 */	blr
 
 .global DoesAreaNeedEnvFx__9CGameAreaCFv
 DoesAreaNeedEnvFx__9CGameAreaCFv:
@@ -1273,22 +1273,22 @@ DoesAreaNeedEnvFx__9CGameAreaCFv:
 /* 8005EBF4 0005BB54  28 03 00 00 */	cmplwi r3, 0
 /* 8005EBF8 0005BB58  40 82 00 0C */	bne lbl_8005EC04
 /* 8005EBFC 0005BB5C  38 60 00 00 */	li r3, 0
-/* 8005EC00 0005BB60  4E 80 00 20 */	blr 
+/* 8005EC00 0005BB60  4E 80 00 20 */	blr
 lbl_8005EC04:
 /* 8005EC04 0005BB64  80 83 10 D8 */	lwz r4, 0x10d8(r3)
 /* 8005EC08 0005BB68  28 04 00 00 */	cmplwi r4, 0
 /* 8005EC0C 0005BB6C  40 82 00 0C */	bne lbl_8005EC18
 /* 8005EC10 0005BB70  38 60 00 00 */	li r3, 0
-/* 8005EC14 0005BB74  4E 80 00 20 */	blr 
+/* 8005EC14 0005BB74  4E 80 00 20 */	blr
 lbl_8005EC18:
 /* 8005EC18 0005BB78  80 03 10 DC */	lwz r0, 0x10dc(r3)
 /* 8005EC1C 0005BB7C  2C 00 00 01 */	cmpwi r0, 1
 /* 8005EC20 0005BB80  41 82 00 0C */	beq lbl_8005EC2C
 /* 8005EC24 0005BB84  38 60 00 00 */	li r3, 0
-/* 8005EC28 0005BB88  4E 80 00 20 */	blr 
+/* 8005EC28 0005BB88  4E 80 00 20 */	blr
 lbl_8005EC2C:
 /* 8005EC2C 0005BB8C  80 64 00 38 */	lwz r3, 0x38(r4)
-/* 8005EC30 0005BB90  4E 80 00 20 */	blr 
+/* 8005EC30 0005BB90  4E 80 00 20 */	blr
 
 .global DoesAreaNeedSkyNow__9CGameAreaCFv
 DoesAreaNeedSkyNow__9CGameAreaCFv:
@@ -1296,17 +1296,17 @@ DoesAreaNeedSkyNow__9CGameAreaCFv:
 /* 8005EC38 0005BB98  28 03 00 00 */	cmplwi r3, 0
 /* 8005EC3C 0005BB9C  40 82 00 0C */	bne lbl_8005EC48
 /* 8005EC40 0005BBA0  38 60 00 00 */	li r3, 0
-/* 8005EC44 0005BBA4  4E 80 00 20 */	blr 
+/* 8005EC44 0005BBA4  4E 80 00 20 */	blr
 lbl_8005EC48:
 /* 8005EC48 0005BBA8  80 63 10 D8 */	lwz r3, 0x10d8(r3)
 /* 8005EC4C 0005BBAC  28 03 00 00 */	cmplwi r3, 0
 /* 8005EC50 0005BBB0  41 82 00 10 */	beq lbl_8005EC60
 /* 8005EC54 0005BBB4  88 03 00 34 */	lbz r0, 0x34(r3)
 /* 8005EC58 0005BBB8  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 8005EC5C 0005BBBC  4E 80 00 20 */	blr 
+/* 8005EC5C 0005BBBC  4E 80 00 20 */	blr
 lbl_8005EC60:
 /* 8005EC60 0005BBC0  38 60 00 00 */	li r3, 0
-/* 8005EC64 0005BBC4  4E 80 00 20 */	blr 
+/* 8005EC64 0005BBC4  4E 80 00 20 */	blr
 
 .global SetCurrent__Q29CGameArea8CAreaFogCFv
 SetCurrent__Q29CGameArea8CAreaFogCFv:
@@ -1335,7 +1335,7 @@ SetCurrent__Q29CGameArea8CAreaFogCFv:
 /* 8005ECC0 0005BC20  FC 40 F8 90 */	fmr f2, f31
 /* 8005ECC4 0005BC24  81 8C 00 E0 */	lwz r12, 0xe0(r12)
 /* 8005ECC8 0005BC28  7D 89 03 A6 */	mtctr r12
-/* 8005ECCC 0005BC2C  4E 80 04 21 */	bctrl 
+/* 8005ECCC 0005BC2C  4E 80 04 21 */	bctrl
 /* 8005ECD0 0005BC30  E3 E1 00 38 */	psq_l f31, 56(r1), 0, qr0
 /* 8005ECD4 0005BC34  CB E1 00 30 */	lfd f31, 0x30(r1)
 /* 8005ECD8 0005BC38  E3 C1 00 28 */	psq_l f30, 40(r1), 0, qr0
@@ -1344,7 +1344,7 @@ SetCurrent__Q29CGameArea8CAreaFogCFv:
 /* 8005ECE4 0005BC44  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8005ECE8 0005BC48  7C 08 03 A6 */	mtlr r0
 /* 8005ECEC 0005BC4C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8005ECF0 0005BC50  4E 80 00 20 */	blr 
+/* 8005ECF0 0005BC50  4E 80 00 20 */	blr
 
 .global Update__Q29CGameArea8CAreaFogFf
 Update__Q29CGameArea8CAreaFogFf:
@@ -1490,7 +1490,7 @@ lbl_8005EEF8:
 /* 8005EF04 0005BE64  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8005EF08 0005BE68  7C 08 03 A6 */	mtlr r0
 /* 8005EF0C 0005BE6C  38 21 00 90 */	addi r1, r1, 0x90
-/* 8005EF10 0005BE70  4E 80 00 20 */	blr 
+/* 8005EF10 0005BE70  4E 80 00 20 */	blr
 
 .global UpdateFog__9CGameAreaFf
 UpdateFog__9CGameAreaFf:
@@ -1509,7 +1509,7 @@ lbl_8005EF34:
 
 .global sub_8005ef40
 sub_8005ef40:
-/* 8005EF40 0005BEA0  4E 80 00 20 */	blr 
+/* 8005EF40 0005BEA0  4E 80 00 20 */	blr
 
 .global RollFogOut__Q29CGameArea8CAreaFogFffRC6CColor
 RollFogOut__Q29CGameArea8CAreaFogFffRC6CColor:
@@ -1557,7 +1557,7 @@ RollFogOut__Q29CGameArea8CAreaFogFffRC6CColor:
 /* 8005EFE8 0005BF48  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8005EFEC 0005BF4C  7C 08 03 A6 */	mtlr r0
 /* 8005EFF0 0005BF50  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005EFF4 0005BF54  4E 80 00 20 */	blr 
+/* 8005EFF4 0005BF54  4E 80 00 20 */	blr
 
 .global FadeFog__Q29CGameArea8CAreaFogF11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2f
 FadeFog__Q29CGameArea8CAreaFogF11ERglFogModeRC6CColorRC9CVector2ffRC9CVector2f:
@@ -1636,7 +1636,7 @@ lbl_8005F0E8:
 /* 8005F110 0005C070  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8005F114 0005C074  7C 08 03 A6 */	mtlr r0
 /* 8005F118 0005C078  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005F11C 0005C07C  4E 80 00 20 */	blr 
+/* 8005F11C 0005C07C  4E 80 00 20 */	blr
 
 .global SetFogExplicit__Q29CGameArea8CAreaFogF11ERglFogModeRC6CColorRC9CVector2f
 SetFogExplicit__Q29CGameArea8CAreaFogF11ERglFogModeRC6CColorRC9CVector2f:
@@ -1665,20 +1665,20 @@ SetFogExplicit__Q29CGameArea8CAreaFogF11ERglFogModeRC6CColorRC9CVector2f:
 /* 8005F178 0005C0D8  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8005F17C 0005C0DC  C0 03 00 10 */	lfs f0, 0x10(r3)
 /* 8005F180 0005C0E0  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8005F184 0005C0E4  4E 80 00 20 */	blr 
+/* 8005F184 0005C0E4  4E 80 00 20 */	blr
 
 .global IsFogDisabled__Q29CGameArea8CAreaFogCFv
 IsFogDisabled__Q29CGameArea8CAreaFogCFv:
 /* 8005F188 0005C0E8  80 03 00 00 */	lwz r0, 0(r3)
 /* 8005F18C 0005C0EC  7C 00 00 34 */	cntlzw r0, r0
 /* 8005F190 0005C0F0  54 03 D9 7E */	srwi r3, r0, 5
-/* 8005F194 0005C0F4  4E 80 00 20 */	blr 
+/* 8005F194 0005C0F4  4E 80 00 20 */	blr
 
 .global DisableFog__Q29CGameArea8CAreaFogFv
 DisableFog__Q29CGameArea8CAreaFogFv:
 /* 8005F198 0005C0F8  38 00 00 00 */	li r0, 0
 /* 8005F19C 0005C0FC  90 03 00 00 */	stw r0, 0(r3)
-/* 8005F1A0 0005C100  4E 80 00 20 */	blr 
+/* 8005F1A0 0005C100  4E 80 00 20 */	blr
 
 .global __ct__Q29CGameArea8CAreaFogFv
 __ct__Q29CGameArea8CAreaFogFv:
@@ -1718,7 +1718,7 @@ __ct__Q29CGameArea8CAreaFogFv:
 /* 8005F228 0005C188  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005F22C 0005C18C  7C 08 03 A6 */	mtlr r0
 /* 8005F230 0005C190  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F234 0005C194  4E 80 00 20 */	blr 
+/* 8005F234 0005C194  4E 80 00 20 */	blr
 
 .global IsQualified__Q29CGameArea15CAreaObjectListFRC7CEntity
 IsQualified__Q29CGameArea15CAreaObjectListFRC7CEntity:
@@ -1727,7 +1727,7 @@ IsQualified__Q29CGameArea15CAreaObjectListFRC7CEntity:
 /* 8005F240 0005C1A0  7C 03 00 50 */	subf r0, r3, r0
 /* 8005F244 0005C1A4  7C 00 00 34 */	cntlzw r0, r0
 /* 8005F248 0005C1A8  54 03 DE 3E */	rlwinm r3, r0, 0x1b, 0x18, 0x1f
-/* 8005F24C 0005C1AC  4E 80 00 20 */	blr 
+/* 8005F24C 0005C1AC  4E 80 00 20 */	blr
 
 .global GetShouldLoadOther__Q29IGameArea4DockCFi
 GetShouldLoadOther__Q29IGameArea4DockCFi:
@@ -1744,16 +1744,16 @@ GetShouldLoadOther__Q29IGameArea4DockCFi:
 /* 8005F278 0005C1D8  7C 03 00 D0 */	neg r0, r3
 /* 8005F27C 0005C1DC  7C 00 1B 78 */	or r0, r0, r3
 /* 8005F280 0005C1E0  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8005F284 0005C1E4  4E 80 00 20 */	blr 
+/* 8005F284 0005C1E4  4E 80 00 20 */	blr
 lbl_8005F288:
 /* 8005F288 0005C1E8  38 60 00 00 */	li r3, 0
-/* 8005F28C 0005C1EC  4E 80 00 20 */	blr 
+/* 8005F28C 0005C1EC  4E 80 00 20 */	blr
 
 .global SetShouldLoadOther__Q29IGameArea4DockFib
 SetShouldLoadOther__Q29IGameArea4DockFib:
 /* 8005F290 0005C1F0  80 03 00 08 */	lwz r0, 8(r3)
 /* 8005F294 0005C1F4  7C 04 00 00 */	cmpw r4, r0
-/* 8005F298 0005C1F8  4C 80 00 20 */	bgelr 
+/* 8005F298 0005C1F8  4C 80 00 20 */	bgelr
 /* 8005F29C 0005C1FC  54 84 18 38 */	slwi r4, r4, 3
 /* 8005F2A0 0005C200  80 C3 00 10 */	lwz r6, 0x10(r3)
 /* 8005F2A4 0005C204  38 64 00 06 */	addi r3, r4, 6
@@ -1761,7 +1761,7 @@ SetShouldLoadOther__Q29IGameArea4DockFib:
 /* 8005F2AC 0005C20C  7C 06 18 AE */	lbzx r0, r6, r3
 /* 8005F2B0 0005C210  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8005F2B4 0005C214  7C 06 19 AE */	stbx r0, r6, r3
-/* 8005F2B8 0005C218  4E 80 00 20 */	blr 
+/* 8005F2B8 0005C218  4E 80 00 20 */	blr
 
 .global ShouldLoadOtherArea__Q29IGameArea4DockCFi
 ShouldLoadOtherArea__Q29IGameArea4DockCFi:
@@ -1769,7 +1769,7 @@ ShouldLoadOtherArea__Q29IGameArea4DockCFi:
 /* 8005F2C0 0005C220  2C 00 00 00 */	cmpwi r0, 0
 /* 8005F2C4 0005C224  40 82 00 0C */	bne lbl_8005F2D0
 /* 8005F2C8 0005C228  38 60 00 00 */	li r3, 0
-/* 8005F2CC 0005C22C  4E 80 00 20 */	blr 
+/* 8005F2CC 0005C22C  4E 80 00 20 */	blr
 lbl_8005F2D0:
 /* 8005F2D0 0005C230  54 84 18 38 */	slwi r4, r4, 3
 /* 8005F2D4 0005C234  80 63 00 10 */	lwz r3, 0x10(r3)
@@ -1781,7 +1781,7 @@ lbl_8005F2D0:
 /* 8005F2EC 0005C24C  7C 03 00 D0 */	neg r0, r3
 /* 8005F2F0 0005C250  7C 00 1B 78 */	or r0, r0, r3
 /* 8005F2F4 0005C254  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8005F2F8 0005C258  4E 80 00 20 */	blr 
+/* 8005F2F8 0005C258  4E 80 00 20 */	blr
 
 .global GetOtherDockNumber__Q29IGameArea4DockCFi
 GetOtherDockNumber__Q29IGameArea4DockCFi:
@@ -1789,13 +1789,13 @@ GetOtherDockNumber__Q29IGameArea4DockCFi:
 /* 8005F300 0005C260  2C 00 00 00 */	cmpwi r0, 0
 /* 8005F304 0005C264  40 82 00 0C */	bne lbl_8005F310
 /* 8005F308 0005C268  38 60 FF FF */	li r3, -1
-/* 8005F30C 0005C26C  4E 80 00 20 */	blr 
+/* 8005F30C 0005C26C  4E 80 00 20 */	blr
 lbl_8005F310:
 /* 8005F310 0005C270  54 84 18 38 */	slwi r4, r4, 3
 /* 8005F314 0005C274  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 8005F318 0005C278  38 04 00 04 */	addi r0, r4, 4
 /* 8005F31C 0005C27C  7C 63 02 AE */	lhax r3, r3, r0
-/* 8005F320 0005C280  4E 80 00 20 */	blr 
+/* 8005F320 0005C280  4E 80 00 20 */	blr
 
 .global GetConnectedAreaId__Q29IGameArea4DockCFi
 GetConnectedAreaId__Q29IGameArea4DockCFi:
@@ -1815,24 +1815,24 @@ lbl_8005F350:
 /* 8005F350 0005C2B0  80 04 00 00 */	lwz r0, 0(r4)
 /* 8005F354 0005C2B4  90 03 00 00 */	stw r0, 0(r3)
 /* 8005F358 0005C2B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F35C 0005C2BC  4E 80 00 20 */	blr 
+/* 8005F35C 0005C2BC  4E 80 00 20 */	blr
 
 .global SetReferenceCount__Q29IGameArea4DockFi
 SetReferenceCount__Q29IGameArea4DockFi:
 /* 8005F360 0005C2C0  90 83 00 00 */	stw r4, 0(r3)
 /* 8005F364 0005C2C4  38 00 00 01 */	li r0, 1
 /* 8005F368 0005C2C8  98 03 00 48 */	stb r0, 0x48(r3)
-/* 8005F36C 0005C2CC  4E 80 00 20 */	blr 
+/* 8005F36C 0005C2CC  4E 80 00 20 */	blr
 
 .global GetReferenceCount__Q29IGameArea4DockCFv
 GetReferenceCount__Q29IGameArea4DockCFv:
 /* 8005F370 0005C2D0  80 63 00 00 */	lwz r3, 0(r3)
-/* 8005F374 0005C2D4  4E 80 00 20 */	blr 
+/* 8005F374 0005C2D4  4E 80 00 20 */	blr
 
 .global IsReferenced__Q29IGameArea4DockCFv
 IsReferenced__Q29IGameArea4DockCFv:
 /* 8005F378 0005C2D8  88 63 00 48 */	lbz r3, 0x48(r3)
-/* 8005F37C 0005C2DC  4E 80 00 20 */	blr 
+/* 8005F37C 0005C2DC  4E 80 00 20 */	blr
 
 .global __ct__Q29IGameArea4DockFR12CInputStreamRC12CTransform4f
 __ct__Q29IGameArea4DockFR12CInputStreamRC12CTransform4f:
@@ -1939,7 +1939,7 @@ lbl_8005F4E0:
 /* 8005F4F0 0005C450  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8005F4F4 0005C454  7C 08 03 A6 */	mtlr r0
 /* 8005F4F8 0005C458  38 21 00 40 */	addi r1, r1, 0x40
-/* 8005F4FC 0005C45C  4E 80 00 20 */	blr 
+/* 8005F4FC 0005C45C  4E 80 00 20 */	blr
 
 .global OtherAreaOcclusionChanged__9CGameAreaFv
 OtherAreaOcclusionChanged__9CGameAreaFv:
@@ -1984,7 +1984,7 @@ lbl_8005F584:
 /* 8005F58C 0005C4EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8005F590 0005C4F0  7C 08 03 A6 */	mtlr r0
 /* 8005F594 0005C4F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F598 0005C4F8  4E 80 00 20 */	blr 
+/* 8005F598 0005C4F8  4E 80 00 20 */	blr
 
 .global PingOcclusionState__9CGameAreaFv
 PingOcclusionState__9CGameAreaFv:
@@ -2036,7 +2036,7 @@ lbl_8005F63C:
 /* 8005F644 0005C5A4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8005F648 0005C5A8  7C 08 03 A6 */	mtlr r0
 /* 8005F64C 0005C5AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F650 0005C5B0  4E 80 00 20 */	blr 
+/* 8005F650 0005C5B0  4E 80 00 20 */	blr
 
 .global PreRender__9CGameAreaFv
 PreRender__9CGameAreaFv:
@@ -2060,7 +2060,7 @@ lbl_8005F690:
 /* 8005F690 0005C5F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005F694 0005C5F4  7C 08 03 A6 */	mtlr r0
 /* 8005F698 0005C5F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F69C 0005C5FC  4E 80 00 20 */	blr 
+/* 8005F69C 0005C5FC  4E 80 00 20 */	blr
 
 .global AliveUpdate__9CGameAreaFf
 AliveUpdate__9CGameAreaFf:
@@ -2099,7 +2099,7 @@ lbl_8005F6E8:
 /* 8005F718 0005C678  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8005F71C 0005C67C  7C 08 03 A6 */	mtlr r0
 /* 8005F720 0005C680  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005F724 0005C684  4E 80 00 20 */	blr 
+/* 8005F724 0005C684  4E 80 00 20 */	blr
 
 .global SetOcclusionState__9CGameAreaFQ29CGameArea15EOcclusionState
 SetOcclusionState__9CGameAreaFQ29CGameArea15EOcclusionState:
@@ -2137,7 +2137,7 @@ lbl_8005F798:
 /* 8005F79C 0005C6FC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8005F7A0 0005C700  7C 08 03 A6 */	mtlr r0
 /* 8005F7A4 0005C704  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F7A8 0005C708  4E 80 00 20 */	blr 
+/* 8005F7A8 0005C708  4E 80 00 20 */	blr
 
 .global RemoveStaticGeometry__9CGameAreaFv
 RemoveStaticGeometry__9CGameAreaFv:
@@ -2164,12 +2164,12 @@ RemoveStaticGeometry__9CGameAreaFv:
 /* 8005F7FC 0005C75C  38 84 00 4C */	addi r4, r4, 0x4c
 /* 8005F800 0005C760  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8005F804 0005C764  7D 89 03 A6 */	mtctr r12
-/* 8005F808 0005C768  4E 80 04 21 */	bctrl 
+/* 8005F808 0005C768  4E 80 04 21 */	bctrl
 lbl_8005F80C:
 /* 8005F80C 0005C76C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005F810 0005C770  7C 08 03 A6 */	mtlr r0
 /* 8005F814 0005C774  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F818 0005C778  4E 80 00 20 */	blr 
+/* 8005F818 0005C778  4E 80 00 20 */	blr
 
 .global AddStaticGeometry__9CGameAreaFv
 AddStaticGeometry__9CGameAreaFv:
@@ -2211,13 +2211,13 @@ lbl_8005F894:
 /* 8005F89C 0005C7FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8005F8A0 0005C800  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8005F8A4 0005C804  7D 89 03 A6 */	mtctr r12
-/* 8005F8A8 0005C808  4E 80 04 21 */	bctrl 
+/* 8005F8A8 0005C808  4E 80 04 21 */	bctrl
 lbl_8005F8AC:
 /* 8005F8AC 0005C80C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005F8B0 0005C810  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8005F8B4 0005C814  7C 08 03 A6 */	mtlr r0
 /* 8005F8B8 0005C818  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005F8BC 0005C81C  4E 80 00 20 */	blr 
+/* 8005F8BC 0005C81C  4E 80 00 20 */	blr
 
 .global TransferTokensToARAM__9CGameAreaFv
 TransferTokensToARAM__9CGameAreaFv:
@@ -2314,7 +2314,7 @@ lbl_8005F9FC:
 /* 8005FA04 0005C964  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8005FA08 0005C968  7C 08 03 A6 */	mtlr r0
 /* 8005FA0C 0005C96C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8005FA10 0005C970  4E 80 00 20 */	blr 
+/* 8005FA10 0005C970  4E 80 00 20 */	blr
 
 .global TransferARAMTokensOver__9CGameAreaFQ29CGameArea13EARAMTransfer
 TransferARAMTokensOver__9CGameAreaFQ29CGameArea13EARAMTransfer:
@@ -2424,7 +2424,7 @@ lbl_8005FB7C:
 /* 8005FB80 0005CAE0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8005FB84 0005CAE4  7C 08 03 A6 */	mtlr r0
 /* 8005FB88 0005CAE8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8005FB8C 0005CAEC  4E 80 00 20 */	blr 
+/* 8005FB8C 0005CAEC  4E 80 00 20 */	blr
 
 .global SetChain__9CGameAreaFP9CGameAreai
 SetChain__9CGameAreaFP9CGameAreai:
@@ -2432,7 +2432,7 @@ SetChain__9CGameAreaFP9CGameAreai:
 /* 8005FB94 0005CAF4  7C 00 28 00 */	cmpw r0, r5
 /* 8005FB98 0005CAF8  40 82 00 0C */	bne lbl_8005FBA4
 /* 8005FB9C 0005CAFC  7C 03 03 78 */	mr r3, r0
-/* 8005FBA0 0005CB00  4E 80 00 20 */	blr 
+/* 8005FBA0 0005CB00  4E 80 00 20 */	blr
 lbl_8005FBA4:
 /* 8005FBA4 0005CB04  80 C3 01 34 */	lwz r6, 0x134(r3)
 /* 8005FBA8 0005CB08  28 06 00 00 */	cmplwi r6, 0
@@ -2456,7 +2456,7 @@ lbl_8005FBE4:
 /* 8005FBE4 0005CB44  80 03 01 38 */	lwz r0, 0x138(r3)
 /* 8005FBE8 0005CB48  90 A3 01 38 */	stw r5, 0x138(r3)
 /* 8005FBEC 0005CB4C  7C 03 03 78 */	mr r3, r0
-/* 8005FBF0 0005CB50  4E 80 00 20 */	blr 
+/* 8005FBF0 0005CB50  4E 80 00 20 */	blr
 
 .global StartStreamingMainArea__9CGameAreaFv
 StartStreamingMainArea__9CGameAreaFv:
@@ -2656,7 +2656,7 @@ lbl_8005FE8C:
 /* 8005FEC4 0005CE24  38 80 00 01 */	li r4, 1
 /* 8005FEC8 0005CE28  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8005FECC 0005CE2C  7D 89 03 A6 */	mtctr r12
-/* 8005FED0 0005CE30  4E 80 04 21 */	bctrl 
+/* 8005FED0 0005CE30  4E 80 04 21 */	bctrl
 lbl_8005FED4:
 /* 8005FED4 0005CE34  80 1E 01 28 */	lwz r0, 0x128(r30)
 /* 8005FED8 0005CE38  38 60 00 00 */	li r3, 0
@@ -2799,7 +2799,7 @@ lbl_800600BC:
 /* 800600C0 0005D020  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 800600C4 0005D024  7C 08 03 A6 */	mtlr r0
 /* 800600C8 0005D028  38 21 00 70 */	addi r1, r1, 0x70
-/* 800600CC 0005D02C  4E 80 00 20 */	blr 
+/* 800600CC 0005D02C  4E 80 00 20 */	blr
 
 .global sub_800600d0
 sub_800600d0:
@@ -2820,7 +2820,7 @@ sub_800600d0:
 /* 80060108 0005D068  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8006010C 0005D06C  7C 08 03 A6 */	mtlr r0
 /* 80060110 0005D070  38 21 00 10 */	addi r1, r1, 0x10
-/* 80060114 0005D074  4E 80 00 20 */	blr 
+/* 80060114 0005D074  4E 80 00 20 */	blr
 
 .global __dt__Q29CGameArea16CPostConstructedFv
 __dt__Q29CGameArea16CPostConstructedFv:
@@ -3092,7 +3092,7 @@ lbl_80060498:
 /* 800604AC 0005D40C  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 800604B0 0005D410  7C 08 03 A6 */	mtlr r0
 /* 800604B4 0005D414  38 21 00 80 */	addi r1, r1, 0x80
-/* 800604B8 0005D418  4E 80 00 20 */	blr 
+/* 800604B8 0005D418  4E 80 00 20 */	blr
 
 .global sub_800604bc
 sub_800604bc:
@@ -3132,7 +3132,7 @@ lbl_8006052C:
 /* 80060538 0005D498  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8006053C 0005D49C  7C 08 03 A6 */	mtlr r0
 /* 80060540 0005D4A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80060544 0005D4A4  4E 80 00 20 */	blr 
+/* 80060544 0005D4A4  4E 80 00 20 */	blr
 
 .global "destroy<Q24rstl136pointer_iterator<21CMetroidModelInstance,Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl136pointer_iterator<21CMetroidModelInstance,Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl136pointer_iterator<21CMetroidModelInstance,Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "destroy<Q24rstl136pointer_iterator<21CMetroidModelInstance,Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl136pointer_iterator<21CMetroidModelInstance,Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl136pointer_iterator<21CMetroidModelInstance,Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -3157,7 +3157,7 @@ lbl_80060574:
 /* 80060588 0005D4E8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8006058C 0005D4EC  7C 08 03 A6 */	mtlr r0
 /* 80060590 0005D4F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80060594 0005D4F4  4E 80 00 20 */	blr 
+/* 80060594 0005D4F4  4E 80 00 20 */	blr
 
 .global __dt__21CMetroidModelInstanceFv
 __dt__21CMetroidModelInstanceFv:
@@ -3190,7 +3190,7 @@ lbl_800605F4:
 /* 800605F4 0005D554  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800605F8 0005D558  7C 08 03 A6 */	mtlr r0
 /* 800605FC 0005D55C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80060600 0005D560  4E 80 00 20 */	blr 
+/* 80060600 0005D560  4E 80 00 20 */	blr
 
 .global UnloadAllloadedTextures__9CGameAreaFv
 UnloadAllloadedTextures__9CGameAreaFv:
@@ -3247,7 +3247,7 @@ lbl_800606A8:
 /* 800606BC 0005D61C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800606C0 0005D620  7C 08 03 A6 */	mtlr r0
 /* 800606C4 0005D624  38 21 00 30 */	addi r1, r1, 0x30
-/* 800606C8 0005D628  4E 80 00 20 */	blr 
+/* 800606C8 0005D628  4E 80 00 20 */	blr
 
 .global ReloadAllUnloadedTextures__9CGameAreaFv
 ReloadAllUnloadedTextures__9CGameAreaFv:
@@ -3302,14 +3302,14 @@ lbl_80060768:
 /* 8006077C 0005D6DC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80060780 0005D6E0  7C 08 03 A6 */	mtlr r0
 /* 80060784 0005D6E4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80060788 0005D6E8  4E 80 00 20 */	blr 
+/* 80060788 0005D6E8  4E 80 00 20 */	blr
 
 .global GetNumPartSizes__9CGameAreaCFv
 GetNumPartSizes__9CGameAreaCFv:
 /* 8006078C 0005D6EC  80 63 01 1C */	lwz r3, 0x11c(r3)
 /* 80060790 0005D6F0  80 63 00 04 */	lwz r3, 4(r3)
 /* 80060794 0005D6F4  80 63 00 3C */	lwz r3, 0x3c(r3)
-/* 80060798 0005D6F8  4E 80 00 20 */	blr 
+/* 80060798 0005D6F8  4E 80 00 20 */	blr
 
 .global AllocNewAreaData__9CGameAreaFii
 AllocNewAreaData__9CGameAreaFii:
@@ -3440,7 +3440,7 @@ lbl_80060938:
 /* 80060970 0005D8D0  38 80 00 01 */	li r4, 1
 /* 80060974 0005D8D4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80060978 0005D8D8  7D 89 03 A6 */	mtctr r12
-/* 8006097C 0005D8DC  4E 80 04 21 */	bctrl 
+/* 8006097C 0005D8DC  4E 80 04 21 */	bctrl
 lbl_80060980:
 /* 80060980 0005D8E0  88 01 00 28 */	lbz r0, 0x28(r1)
 /* 80060984 0005D8E4  28 00 00 00 */	cmplwi r0, 0
@@ -3456,7 +3456,7 @@ lbl_80060994:
 /* 800609A8 0005D908  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 800609AC 0005D90C  7C 08 03 A6 */	mtlr r0
 /* 800609B0 0005D910  38 21 00 50 */	addi r1, r1, 0x50
-/* 800609B4 0005D914  4E 80 00 20 */	blr 
+/* 800609B4 0005D914  4E 80 00 20 */	blr
 
 .global Invalidate__9CGameAreaFP13CStateManager
 Invalidate__9CGameAreaFP13CStateManager:
@@ -3481,14 +3481,14 @@ lbl_800609F0:
 /* 800609FC 0005D95C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80060A00 0005D960  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80060A04 0005D964  7D 89 03 A6 */	mtctr r12
-/* 80060A08 0005D968  4E 80 04 21 */	bctrl 
+/* 80060A08 0005D968  4E 80 04 21 */	bctrl
 /* 80060A0C 0005D96C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80060A10 0005D970  40 82 00 1C */	bne lbl_80060A2C
 /* 80060A14 0005D974  80 7E 00 0C */	lwz r3, 0xc(r30)
 /* 80060A18 0005D978  81 83 00 00 */	lwz r12, 0(r3)
 /* 80060A1C 0005D97C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80060A20 0005D980  7D 89 03 A6 */	mtctr r12
-/* 80060A24 0005D984  4E 80 04 21 */	bctrl 
+/* 80060A24 0005D984  4E 80 04 21 */	bctrl
 /* 80060A28 0005D988  48 00 00 10 */	b lbl_80060A38
 lbl_80060A2C:
 /* 80060A2C 0005D98C  7F C4 F3 78 */	mr r4, r30
@@ -3566,7 +3566,7 @@ lbl_80060B28:
 /* 80060B34 0005DA94  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80060B38 0005DA98  7C 08 03 A6 */	mtlr r0
 /* 80060B3C 0005DA9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80060B40 0005DAA0  4E 80 00 20 */	blr 
+/* 80060B40 0005DAA0  4E 80 00 20 */	blr
 
 .global sub_80060b44
 sub_80060b44:
@@ -3586,7 +3586,7 @@ sub_80060b44:
 /* 80060B78 0005DAD8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80060B7C 0005DADC  7C 08 03 A6 */	mtlr r0
 /* 80060B80 0005DAE0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80060B84 0005DAE4  4E 80 00 20 */	blr 
+/* 80060B84 0005DAE4  4E 80 00 20 */	blr
 
 .global sub_80060b88
 sub_80060b88:
@@ -3679,7 +3679,7 @@ lbl_80060CA4:
 /* 80060CB4 0005DC14  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80060CB8 0005DC18  7C 08 03 A6 */	mtlr r0
 /* 80060CBC 0005DC1C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80060CC0 0005DC20  4E 80 00 20 */	blr 
+/* 80060CC0 0005DC20  4E 80 00 20 */	blr
 
 .global sub_80060cc4
 sub_80060cc4:
@@ -3734,7 +3734,7 @@ lbl_80060D5C:
 /* 80060D70 0005DCD0  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80060D74 0005DCD4  7C 08 03 A6 */	mtlr r0
 /* 80060D78 0005DCD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80060D7C 0005DCDC  4E 80 00 20 */	blr 
+/* 80060D7C 0005DCDC  4E 80 00 20 */	blr
 
 .global CullDeadAreaRequests__9CGameAreaFv
 CullDeadAreaRequests__9CGameAreaFv:
@@ -3757,7 +3757,7 @@ lbl_80060DA4:
 /* 80060DB8 0005DD18  81 83 00 00 */	lwz r12, 0(r3)
 /* 80060DBC 0005DD1C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80060DC0 0005DD20  7D 89 03 A6 */	mtctr r12
-/* 80060DC4 0005DD24  4E 80 04 21 */	bctrl 
+/* 80060DC4 0005DD24  4E 80 04 21 */	bctrl
 /* 80060DC8 0005DD28  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80060DCC 0005DD2C  40 82 FF CC */	bne lbl_80060D98
 lbl_80060DD0:
@@ -3765,7 +3765,7 @@ lbl_80060DD0:
 /* 80060DD4 0005DD34  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80060DD8 0005DD38  7C 08 03 A6 */	mtlr r0
 /* 80060DDC 0005DD3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80060DE0 0005DD40  4E 80 00 20 */	blr 
+/* 80060DE0 0005DD40  4E 80 00 20 */	blr
 
 .global StartStreamIn__9CGameAreaFR13CStateManager
 StartStreamIn__9CGameAreaFR13CStateManager:
@@ -3870,7 +3870,7 @@ lbl_80060F4C:
 /* 80060F50 0005DEB0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80060F54 0005DEB4  7C 08 03 A6 */	mtlr r0
 /* 80060F58 0005DEB8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80060F5C 0005DEBC  4E 80 00 20 */	blr 
+/* 80060F5C 0005DEBC  4E 80 00 20 */	blr
 
 .global LoadScriptObjects__9CGameAreaFR13CStateManager
 LoadScriptObjects__9CGameAreaFR13CStateManager:
@@ -3960,7 +3960,7 @@ lbl_80061090:
 /* 80061094 0005DFF4  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80061098 0005DFF8  7C 08 03 A6 */	mtlr r0
 /* 8006109C 0005DFFC  38 21 00 90 */	addi r1, r1, 0x90
-/* 800610A0 0005E000  4E 80 00 20 */	blr 
+/* 800610A0 0005E000  4E 80 00 20 */	blr
 
 .global Validate__9CGameAreaFR13CStateManager
 Validate__9CGameAreaFR13CStateManager:
@@ -3990,7 +3990,7 @@ lbl_800610EC:
 /* 800610F8 0005E058  81 83 00 00 */	lwz r12, 0(r3)
 /* 800610FC 0005E05C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80061100 0005E060  7D 89 03 A6 */	mtctr r12
-/* 80061104 0005E064  4E 80 04 21 */	bctrl 
+/* 80061104 0005E064  4E 80 04 21 */	bctrl
 lbl_80061108:
 /* 80061108 0005E068  83 FF 00 04 */	lwz r31, 4(r31)
 lbl_8006110C:
@@ -4127,7 +4127,7 @@ lbl_800612D0:
 /* 800612E0 0005E240  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 800612E4 0005E244  7C 08 03 A6 */	mtlr r0
 /* 800612E8 0005E248  38 21 00 40 */	addi r1, r1, 0x40
-/* 800612EC 0005E24C  4E 80 00 20 */	blr 
+/* 800612EC 0005E24C  4E 80 00 20 */	blr
 
 .global PostConstructArea__9CGameAreaFv
 PostConstructArea__9CGameAreaFv:
@@ -4657,7 +4657,7 @@ lbl_80061A58:
 /* 80061AA0 0005EA00  81 84 00 00 */	lwz r12, 0(r4)
 /* 80061AA4 0005EA04  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80061AA8 0005EA08  7D 89 03 A6 */	mtctr r12
-/* 80061AAC 0005EA0C  4E 80 04 21 */	bctrl 
+/* 80061AAC 0005EA0C  4E 80 04 21 */	bctrl
 /* 80061AB0 0005EA10  3A C1 00 54 */	addi r22, r1, 0x54
 /* 80061AB4 0005EA14  38 81 00 24 */	addi r4, r1, 0x24
 /* 80061AB8 0005EA18  7E C3 B3 78 */	mr r3, r22
@@ -5121,7 +5121,7 @@ lbl_800620FC:
 /* 80062118 0005F078  80 01 03 44 */	lwz r0, 0x344(r1)
 /* 8006211C 0005F07C  7C 08 03 A6 */	mtlr r0
 /* 80062120 0005F080  38 21 03 40 */	addi r1, r1, 0x340
-/* 80062124 0005F084  4E 80 00 20 */	blr 
+/* 80062124 0005F084  4E 80 00 20 */	blr
 
 .global sub_80062128
 sub_80062128:
@@ -5184,7 +5184,7 @@ lbl_800621E4:
 /* 800621EC 0005F14C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800621F0 0005F150  7C 08 03 A6 */	mtlr r0
 /* 800621F4 0005F154  38 21 00 20 */	addi r1, r1, 0x20
-/* 800621F8 0005F158  4E 80 00 20 */	blr 
+/* 800621F8 0005F158  4E 80 00 20 */	blr
 
 .global sub_800621fc
 sub_800621fc:
@@ -5233,7 +5233,7 @@ lbl_80062298:
 /* 80062298 0005F1F8  7C 03 20 40 */	cmplw r3, r4
 /* 8006229C 0005F1FC  40 82 FF 64 */	bne lbl_80062200
 /* 800622A0 0005F200  7C A3 2B 78 */	mr r3, r5
-/* 800622A4 0005F204  4E 80 00 20 */	blr 
+/* 800622A4 0005F204  4E 80 00 20 */	blr
 
 .global sub_800622a8
 sub_800622a8:
@@ -5303,7 +5303,7 @@ lbl_80062384:
 /* 80062398 0005F2F8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8006239C 0005F2FC  7C 08 03 A6 */	mtlr r0
 /* 800623A0 0005F300  38 21 00 10 */	addi r1, r1, 0x10
-/* 800623A4 0005F304  4E 80 00 20 */	blr 
+/* 800623A4 0005F304  4E 80 00 20 */	blr
 
 .global sub_800623a8
 sub_800623a8:
@@ -5318,7 +5318,7 @@ sub_800623a8:
 /* 800623C8 0005F328  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800623CC 0005F32C  7C 08 03 A6 */	mtlr r0
 /* 800623D0 0005F330  38 21 00 10 */	addi r1, r1, 0x10
-/* 800623D4 0005F334  4E 80 00 20 */	blr 
+/* 800623D4 0005F334  4E 80 00 20 */	blr
 
 .global sub_800623d8
 sub_800623d8:
@@ -5418,7 +5418,7 @@ lbl_80062530:
 /* 80062538 0005F498  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8006253C 0005F49C  7C 08 03 A6 */	mtlr r0
 /* 80062540 0005F4A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80062544 0005F4A4  4E 80 00 20 */	blr 
+/* 80062544 0005F4A4  4E 80 00 20 */	blr
 
 .global FillInStaticGeometry__9CGameAreaFv
 FillInStaticGeometry__9CGameAreaFv:
@@ -5579,7 +5579,7 @@ lbl_8006276C:
 /* 80062770 0005F6D0  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 80062774 0005F6D4  7C 08 03 A6 */	mtlr r0
 /* 80062778 0005F6D8  38 21 01 00 */	addi r1, r1, 0x100
-/* 8006277C 0005F6DC  4E 80 00 20 */	blr 
+/* 8006277C 0005F6DC  4E 80 00 20 */	blr
 
 .global sub_80062780
 sub_80062780:
@@ -5615,7 +5615,7 @@ lbl_800627C0:
 /* 800627EC 0005F74C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800627F0 0005F750  7C 08 03 A6 */	mtlr r0
 /* 800627F4 0005F754  38 21 00 10 */	addi r1, r1, 0x10
-/* 800627F8 0005F758  4E 80 00 20 */	blr 
+/* 800627F8 0005F758  4E 80 00 20 */	blr
 
 .global sub_800627fc
 sub_800627fc:
@@ -5629,7 +5629,7 @@ lbl_80062814:
 /* 80062814 0005F774  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80062818 0005F778  7C 08 03 A6 */	mtlr r0
 /* 8006281C 0005F77C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80062820 0005F780  4E 80 00 20 */	blr 
+/* 80062820 0005F780  4E 80 00 20 */	blr
 
 .global sub_80062824
 sub_80062824:
@@ -5718,7 +5718,7 @@ lbl_80062920:
 /* 80062954 0005F8B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80062958 0005F8B8  7C 08 03 A6 */	mtlr r0
 /* 8006295C 0005F8BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80062960 0005F8C0  4E 80 00 20 */	blr 
+/* 80062960 0005F8C0  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>Fv"
 "clear__Q24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>Fv":
@@ -5745,7 +5745,7 @@ lbl_80062920:
 /* 800629B4 0005F914  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800629B8 0005F918  7C 08 03 A6 */	mtlr r0
 /* 800629BC 0005F91C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800629C0 0005F920  4E 80 00 20 */	blr 
+/* 800629C0 0005F920  4E 80 00 20 */	blr
 
 .global GetScriptingMemoryAlways__FRC9IGameArea
 GetScriptingMemoryAlways__FRC9IGameArea:
@@ -5758,7 +5758,7 @@ GetScriptingMemoryAlways__FRC9IGameArea:
 /* 800629DC 0005F93C  81 84 00 00 */	lwz r12, 0(r4)
 /* 800629E0 0005F940  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800629E4 0005F944  7D 89 03 A6 */	mtctr r12
-/* 800629E8 0005F948  4E 80 04 21 */	bctrl 
+/* 800629E8 0005F948  4E 80 04 21 */	bctrl
 /* 800629EC 0005F94C  3C A0 4D 52 */	lis r5, 0x4D524541@ha
 /* 800629F0 0005F950  3C 80 80 3D */	lis r4, lbl_803CCFAC@ha
 /* 800629F4 0005F954  38 05 45 41 */	addi r0, r5, 0x4D524541@l
@@ -5926,7 +5926,7 @@ lbl_80062BDC:
 /* 80062C58 0005FBB8  38 80 00 01 */	li r4, 1
 /* 80062C5C 0005FBBC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80062C60 0005FBC0  7D 89 03 A6 */	mtctr r12
-/* 80062C64 0005FBC4  4E 80 04 21 */	bctrl 
+/* 80062C64 0005FBC4  4E 80 04 21 */	bctrl
 lbl_80062C68:
 /* 80062C68 0005FBC8  88 01 00 2C */	lbz r0, 0x2c(r1)
 /* 80062C6C 0005FBCC  28 00 00 00 */	cmplwi r0, 0
@@ -5960,7 +5960,7 @@ lbl_80062CBC:
 /* 80062CCC 0005FC2C  38 80 00 01 */	li r4, 1
 /* 80062CD0 0005FC30  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80062CD4 0005FC34  7D 89 03 A6 */	mtctr r12
-/* 80062CD8 0005FC38  4E 80 04 21 */	bctrl 
+/* 80062CD8 0005FC38  4E 80 04 21 */	bctrl
 lbl_80062CDC:
 /* 80062CDC 0005FC3C  80 61 00 20 */	lwz r3, 0x20(r1)
 /* 80062CE0 0005FC40  28 03 00 00 */	cmplwi r3, 0
@@ -5969,7 +5969,7 @@ lbl_80062CDC:
 /* 80062CEC 0005FC4C  38 80 00 01 */	li r4, 1
 /* 80062CF0 0005FC50  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80062CF4 0005FC54  7D 89 03 A6 */	mtctr r12
-/* 80062CF8 0005FC58  4E 80 04 21 */	bctrl 
+/* 80062CF8 0005FC58  4E 80 04 21 */	bctrl
 lbl_80062CFC:
 /* 80062CFC 0005FC5C  88 01 00 34 */	lbz r0, 0x34(r1)
 /* 80062D00 0005FC60  28 00 00 00 */	cmplwi r0, 0
@@ -5996,7 +5996,7 @@ lbl_80062D3C:
 /* 80062D4C 0005FCAC  38 80 00 01 */	li r4, 1
 /* 80062D50 0005FCB0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80062D54 0005FCB4  7D 89 03 A6 */	mtctr r12
-/* 80062D58 0005FCB8  4E 80 04 21 */	bctrl 
+/* 80062D58 0005FCB8  4E 80 04 21 */	bctrl
 lbl_80062D5C:
 /* 80062D5C 0005FCBC  88 01 00 34 */	lbz r0, 0x34(r1)
 /* 80062D60 0005FCC0  28 00 00 00 */	cmplwi r0, 0
@@ -6008,7 +6008,7 @@ lbl_80062D70:
 /* 80062D74 0005FCD4  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80062D78 0005FCD8  7C 08 03 A6 */	mtlr r0
 /* 80062D7C 0005FCDC  38 21 00 70 */	addi r1, r1, 0x70
-/* 80062D80 0005FCE0  4E 80 00 20 */	blr 
+/* 80062D80 0005FCE0  4E 80 00 20 */	blr
 
 .global VerifyTokenList__9CGameAreaFv
 VerifyTokenList__9CGameAreaFv:
@@ -6070,7 +6070,7 @@ lbl_80062E2C:
 /* 80062E50 0005FDB0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80062E54 0005FDB4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80062E58 0005FDB8  7D 89 03 A6 */	mtctr r12
-/* 80062E5C 0005FDBC  4E 80 04 21 */	bctrl 
+/* 80062E5C 0005FDBC  4E 80 04 21 */	bctrl
 /* 80062E60 0005FDC0  80 1A 00 E0 */	lwz r0, 0xe0(r26)
 /* 80062E64 0005FDC4  80 BA 00 E4 */	lwz r5, 0xe4(r26)
 /* 80062E68 0005FDC8  7C 00 28 00 */	cmpw r0, r5
@@ -6113,7 +6113,7 @@ lbl_80062EDC:
 /* 80062EE0 0005FE40  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80062EE4 0005FE44  7C 08 03 A6 */	mtlr r0
 /* 80062EE8 0005FE48  38 21 00 50 */	addi r1, r1, 0x50
-/* 80062EEC 0005FE4C  4E 80 00 20 */	blr 
+/* 80062EEC 0005FE4C  4E 80 00 20 */	blr
 
 .global ClearTokenList__9CGameAreaFv
 ClearTokenList__9CGameAreaFv:
@@ -6162,7 +6162,7 @@ lbl_80062F6C:
 /* 80062F88 0005FEE8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80062F8C 0005FEEC  7C 08 03 A6 */	mtlr r0
 /* 80062F90 0005FEF0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80062F94 0005FEF4  4E 80 00 20 */	blr 
+/* 80062F94 0005FEF4  4E 80 00 20 */	blr
 
 .global __dt__9CGameAreaFv
 __dt__9CGameAreaFv:
@@ -6341,7 +6341,7 @@ lbl_800631E8:
 /* 800631FC 0006015C  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 80063200 00060160  7C 08 03 A6 */	mtlr r0
 /* 80063204 00060164  38 21 00 70 */	addi r1, r1, 0x70
-/* 80063208 00060168  4E 80 00 20 */	blr 
+/* 80063208 00060168  4E 80 00 20 */	blr
 
 .global sub_8006320c
 sub_8006320c:
@@ -6367,7 +6367,7 @@ lbl_80063248:
 /* 80063254 000601B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80063258 000601B8  7C 08 03 A6 */	mtlr r0
 /* 8006325C 000601BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80063260 000601C0  4E 80 00 20 */	blr 
+/* 80063260 000601C0  4E 80 00 20 */	blr
 
 .global __ct__9CGameAreaFR12CInputStreami
 __ct__9CGameAreaFR12CInputStreami:
@@ -6687,7 +6687,7 @@ lbl_80063694:
 /* 800636EC 0006064C  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 800636F0 00060650  7C 08 03 A6 */	mtlr r0
 /* 800636F4 00060654  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800636F8 00060658  4E 80 00 20 */	blr 
+/* 800636F8 00060658  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl37vector<Ui,Q24rstl17rmemory_allocator>Fv"
 "clear__Q24rstl37vector<Ui,Q24rstl17rmemory_allocator>Fv":
@@ -6761,7 +6761,7 @@ lbl_800637D8:
 /* 800637E0 00060740  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800637E4 00060744  7C 08 03 A6 */	mtlr r0
 /* 800637E8 00060748  38 21 00 20 */	addi r1, r1, 0x20
-/* 800637EC 0006074C  4E 80 00 20 */	blr 
+/* 800637EC 0006074C  4E 80 00 20 */	blr
 
 .global __ct__Q29CGameArea16CPostConstructedFv
 __ct__Q29CGameArea16CPostConstructedFv:
@@ -6898,7 +6898,7 @@ lbl_800638F4:
 /* 800639D4 00060934  D0 03 11 38 */	stfs f0, 0x1138(r3)
 /* 800639D8 00060938  90 83 11 3C */	stw r4, 0x113c(r3)
 /* 800639DC 0006093C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800639E0 00060940  4E 80 00 20 */	blr 
+/* 800639E0 00060940  4E 80 00 20 */	blr
 
 .global GetPostConstructedSize__9CGameAreaCFv
 GetPostConstructedSize__9CGameAreaCFv:
@@ -6935,7 +6935,7 @@ lbl_80063A04:
 /* 80063A54 000609B4  7C 60 2A 14 */	add r3, r0, r5
 /* 80063A58 000609B8  38 63 20 10 */	addi r3, r3, 0x2010
 /* 80063A5C 000609BC  7C 68 1A 14 */	add r3, r8, r3
-/* 80063A60 000609C0  4E 80 00 20 */	blr 
+/* 80063A60 000609C0  4E 80 00 20 */	blr
 
 .global GetPreConstructedSize__9CGameAreaCFv
 GetPreConstructedSize__9CGameAreaCFv:
@@ -6952,7 +6952,7 @@ GetPreConstructedSize__9CGameAreaCFv:
 /* 80063A8C 000609EC  7C 00 1A 14 */	add r0, r0, r3
 /* 80063A90 000609F0  7C 60 2A 14 */	add r3, r0, r5
 /* 80063A94 000609F4  38 63 01 44 */	addi r3, r3, 0x144
-/* 80063A98 000609F8  4E 80 00 20 */	blr 
+/* 80063A98 000609F8  4E 80 00 20 */	blr
 
 .global VerifyHeader__9CGameAreaCFv
 VerifyHeader__9CGameAreaCFv:
@@ -6969,10 +6969,10 @@ VerifyHeader__9CGameAreaCFv:
 /* 80063AC4 00060A24  2C 03 00 0C */	cmpwi r3, 0xc
 /* 80063AC8 00060A28  41 80 00 0C */	blt lbl_80063AD4
 /* 80063ACC 00060A2C  2C 03 00 0F */	cmpwi r3, 0xf
-/* 80063AD0 00060A30  4C 81 00 20 */	blelr 
+/* 80063AD0 00060A30  4C 81 00 20 */	blelr
 lbl_80063AD4:
 /* 80063AD4 00060A34  38 60 00 00 */	li r3, 0
-/* 80063AD8 00060A38  4E 80 00 20 */	blr 
+/* 80063AD8 00060A38  4E 80 00 20 */	blr
 
 .global __dt__9IGameAreaFv
 __dt__9IGameAreaFv:
@@ -6994,7 +6994,7 @@ lbl_80063B0C:
 /* 80063B14 00060A74  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80063B18 00060A78  7C 08 03 A6 */	mtlr r0
 /* 80063B1C 00060A7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80063B20 00060A80  4E 80 00 20 */	blr 
+/* 80063B20 00060A80  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl37vector<Ui,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl37vector<Ui,Q24rstl17rmemory_allocator>Fi":
@@ -7065,7 +7065,7 @@ lbl_80063BF4:
 /* 80063C00 00060B60  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80063C04 00060B64  7C 08 03 A6 */	mtlr r0
 /* 80063C08 00060B68  38 21 00 30 */	addi r1, r1, 0x30
-/* 80063C0C 00060B6C  4E 80 00 20 */	blr 
+/* 80063C0C 00060B6C  4E 80 00 20 */	blr
 
 .global sub_80063c10
 sub_80063c10:
@@ -7136,7 +7136,7 @@ lbl_80063CE0:
 /* 80063CEC 00060C4C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80063CF0 00060C50  7C 08 03 A6 */	mtlr r0
 /* 80063CF4 00060C54  38 21 00 30 */	addi r1, r1, 0x30
-/* 80063CF8 00060C58  4E 80 00 20 */	blr 
+/* 80063CF8 00060C58  4E 80 00 20 */	blr
 
 .global sub_80063cfc
 sub_80063cfc:
@@ -7195,7 +7195,7 @@ lbl_80063DB0:
 /* 80063DBC 00060D1C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80063DC0 00060D20  7C 08 03 A6 */	mtlr r0
 /* 80063DC4 00060D24  38 21 00 30 */	addi r1, r1, 0x30
-/* 80063DC8 00060D28  4E 80 00 20 */	blr 
+/* 80063DC8 00060D28  4E 80 00 20 */	blr
 
 .global sub_80063dcc
 sub_80063dcc:
@@ -7219,7 +7219,7 @@ lbl_80063DF8:
 /* 80063E08 00060D68  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80063E0C 00060D6C  7C 08 03 A6 */	mtlr r0
 /* 80063E10 00060D70  38 21 00 10 */	addi r1, r1, 0x10
-/* 80063E14 00060D74  4E 80 00 20 */	blr 
+/* 80063E14 00060D74  4E 80 00 20 */	blr
 
 .global sub_80063e18
 sub_80063e18:
@@ -7250,7 +7250,7 @@ lbl_80063E54:
 /* 80063E70 00060DD0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80063E74 00060DD4  7C 08 03 A6 */	mtlr r0
 /* 80063E78 00060DD8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80063E7C 00060DDC  4E 80 00 20 */	blr 
+/* 80063E7C 00060DDC  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl68vector<Q39IGameArea4Dock14SDockReference,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl68vector<Q39IGameArea4Dock14SDockReference,Q24rstl17rmemory_allocator>Fi":
@@ -7325,7 +7325,7 @@ lbl_80063F60:
 /* 80063F6C 00060ECC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80063F70 00060ED0  7C 08 03 A6 */	mtlr r0
 /* 80063F74 00060ED4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80063F78 00060ED8  4E 80 00 20 */	blr 
+/* 80063F78 00060ED8  4E 80 00 20 */	blr
 
 .global sub_80063f7c
 sub_80063f7c:
@@ -7389,7 +7389,7 @@ lbl_8006403C:
 /* 80064048 00060FA8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8006404C 00060FAC  7C 08 03 A6 */	mtlr r0
 /* 80064050 00060FB0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80064054 00060FB4  4E 80 00 20 */	blr 
+/* 80064054 00060FB4  4E 80 00 20 */	blr
 
 .global sub_80064058
 sub_80064058:
@@ -7440,7 +7440,7 @@ lbl_800640F8:
 /* 800640FC 0006105C  7C 03 00 40 */	cmplw r3, r0
 /* 80064100 00061060  40 82 FF 60 */	bne lbl_80064060
 /* 80064104 00061064  7C A3 2B 78 */	mr r3, r5
-/* 80064108 00061068  4E 80 00 20 */	blr 
+/* 80064108 00061068  4E 80 00 20 */	blr
 
 .global sub_8006410c
 sub_8006410c:
@@ -7517,7 +7517,7 @@ lbl_800641F8:
 /* 800641FC 0006115C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80064200 00061160  7C 08 03 A6 */	mtlr r0
 /* 80064204 00061164  38 21 00 30 */	addi r1, r1, 0x30
-/* 80064208 00061168  4E 80 00 20 */	blr 
+/* 80064208 00061168  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl52vector<Q24rstl9pair<i,i>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl52vector<Q24rstl9pair<i,i>,Q24rstl17rmemory_allocator>Fi":
@@ -7590,7 +7590,7 @@ lbl_800642E4:
 /* 800642F0 00061250  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800642F4 00061254  7C 08 03 A6 */	mtlr r0
 /* 800642F8 00061258  38 21 00 30 */	addi r1, r1, 0x30
-/* 800642FC 0006125C  4E 80 00 20 */	blr 
+/* 800642FC 0006125C  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl37vector<Us,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl37vector<Us,Q24rstl17rmemory_allocator>Fi":
@@ -7661,7 +7661,7 @@ lbl_800643D0:
 /* 800643DC 0006133C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800643E0 00061340  7C 08 03 A6 */	mtlr r0
 /* 800643E4 00061344  38 21 00 30 */	addi r1, r1, 0x30
-/* 800643E8 00061348  4E 80 00 20 */	blr 
+/* 800643E8 00061348  4E 80 00 20 */	blr
 
 .global sub_800643ec
 sub_800643ec:
@@ -7720,7 +7720,7 @@ lbl_800644A0:
 /* 800644AC 0006140C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800644B0 00061410  7C 08 03 A6 */	mtlr r0
 /* 800644B4 00061414  38 21 00 30 */	addi r1, r1, 0x30
-/* 800644B8 00061418  4E 80 00 20 */	blr 
+/* 800644B8 00061418  4E 80 00 20 */	blr
 
 .global sub_800644bc
 sub_800644bc:
@@ -7744,7 +7744,7 @@ lbl_800644E8:
 /* 800644F8 00061458  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800644FC 0006145C  7C 08 03 A6 */	mtlr r0
 /* 80064500 00061460  38 21 00 10 */	addi r1, r1, 0x10
-/* 80064504 00061464  4E 80 00 20 */	blr 
+/* 80064504 00061464  4E 80 00 20 */	blr
 
 .global sub_80064508
 sub_80064508:
@@ -7775,7 +7775,7 @@ lbl_80064544:
 /* 80064560 000614C0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80064564 000614C4  7C 08 03 A6 */	mtlr r0
 /* 80064568 000614C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006456C 000614CC  4E 80 00 20 */	blr 
+/* 8006456C 000614CC  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl72vector<Q24rstl28pair<Q24rstl11auto_ptr<c>,i>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl72vector<Q24rstl28pair<Q24rstl11auto_ptr<c>,i>,Q24rstl17rmemory_allocator>Fi":
@@ -7858,7 +7858,7 @@ lbl_80064674:
 /* 80064678 000615D8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006467C 000615DC  7C 08 03 A6 */	mtlr r0
 /* 80064680 000615E0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80064684 000615E4  4E 80 00 20 */	blr 
+/* 80064684 000615E4  4E 80 00 20 */	blr
 
 .global "pop_front__Q24rstl65list<Q24rstl23auto_ptr<11CDvdRequest>,Q24rstl17rmemory_allocator>Fv"
 "pop_front__Q24rstl65list<Q24rstl23auto_ptr<11CDvdRequest>,Q24rstl17rmemory_allocator>Fv":
@@ -7894,7 +7894,7 @@ lbl_800646BC:
 /* 800646F8 00061658  38 80 00 01 */	li r4, 1
 /* 800646FC 0006165C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80064700 00061660  7D 89 03 A6 */	mtctr r12
-/* 80064704 00061664  4E 80 04 21 */	bctrl 
+/* 80064704 00061664  4E 80 04 21 */	bctrl
 lbl_80064708:
 /* 80064708 00061668  28 1E 00 00 */	cmplwi r30, 0
 /* 8006470C 0006166C  41 82 00 0C */	beq lbl_80064718
@@ -7911,7 +7911,7 @@ lbl_80064718:
 /* 80064734 00061694  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80064738 00061698  7C 08 03 A6 */	mtlr r0
 /* 8006473C 0006169C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80064740 000616A0  4E 80 00 20 */	blr 
+/* 80064740 000616A0  4E 80 00 20 */	blr
 
 .global sub_80064744
 sub_80064744:
@@ -7942,7 +7942,7 @@ lbl_80064774:
 /* 800647A0 00061700  38 80 00 01 */	li r4, 1
 /* 800647A4 00061704  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800647A8 00061708  7D 89 03 A6 */	mtctr r12
-/* 800647AC 0006170C  4E 80 04 21 */	bctrl 
+/* 800647AC 0006170C  4E 80 04 21 */	bctrl
 lbl_800647B0:
 /* 800647B0 00061710  28 1E 00 00 */	cmplwi r30, 0
 /* 800647B4 00061714  41 82 00 0C */	beq lbl_800647C0
@@ -7965,4 +7965,4 @@ lbl_800647DC:
 /* 800647F0 00061750  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800647F4 00061754  7C 08 03 A6 */	mtlr r0
 /* 800647F8 00061758  38 21 00 20 */	addi r1, r1, 0x20
-/* 800647FC 0006175C  4E 80 00 20 */	blr 
+/* 800647FC 0006175C  4E 80 00 20 */	blr

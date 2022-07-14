@@ -32,13 +32,13 @@ lbl_805A7C94:
 Get4CharID__10CFlameWarpFv:
 /* 801B4F5C 001B1EBC  3C 60 46 57 */	lis r3, 0x46575250@ha
 /* 801B4F60 001B1EC0  38 63 52 50 */	addi r3, r3, 0x46575250@l
-/* 801B4F64 001B1EC4  4E 80 00 20 */	blr 
+/* 801B4F64 001B1EC4  4E 80 00 20 */	blr
 
 .global IsActivated__10CFlameWarpFv
 IsActivated__10CFlameWarpFv:
 /* 801B4F68 001B1EC8  88 03 00 A0 */	lbz r0, 0xa0(r3)
 /* 801B4F6C 001B1ECC  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 801B4F70 001B1ED0  4E 80 00 20 */	blr 
+/* 801B4F70 001B1ED0  4E 80 00 20 */	blr
 
 .global sub_801b4f74
 sub_801b4f74:
@@ -63,7 +63,7 @@ lbl_801B4F9C:
 /* 801B4FB4 001B1F14  38 80 00 00 */	li r4, 0
 /* 801B4FB8 001B1F18  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a
 /* 801B4FBC 001B1F1C  98 03 00 A0 */	stb r0, 0xa0(r3)
-/* 801B4FC0 001B1F20  4E 80 00 20 */	blr 
+/* 801B4FC0 001B1F20  4E 80 00 20 */	blr
 
 .global ModifyParticles__10CFlameWarpFiiPiP9CVector3fP9CVector3fP9CVector3fP6CColorPfPf
 ModifyParticles__10CFlameWarpFiiPiP9CVector3fP9CVector3fP9CVector3fP6CColorPfPf:
@@ -503,13 +503,13 @@ lbl_801B5618:
 /* 801B564C 001B25AC  80 01 01 B4 */	lwz r0, 0x1b4(r1)
 /* 801B5650 001B25B0  7C 08 03 A6 */	mtlr r0
 /* 801B5654 001B25B4  38 21 01 B0 */	addi r1, r1, 0x1b0
-/* 801B5658 001B25B8  4E 80 00 20 */	blr 
+/* 801B5658 001B25B8  4E 80 00 20 */	blr
 
 .global UpdateWarp__10CFlameWarpFv
 UpdateWarp__10CFlameWarpFv:
 /* 801B565C 001B25BC  88 03 00 A0 */	lbz r0, 0xa0(r3)
 /* 801B5660 001B25C0  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 801B5664 001B25C4  4E 80 00 20 */	blr 
+/* 801B5664 001B25C4  4E 80 00 20 */	blr
 
 .global __dt__10CFlameWarpFv
 __dt__10CFlameWarpFv:
@@ -566,7 +566,7 @@ lbl_801B570C:
 /* 801B5718 001B2678  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B571C 001B267C  7C 08 03 A6 */	mtlr r0
 /* 801B5720 001B2680  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B5724 001B2684  4E 80 00 20 */	blr 
+/* 801B5724 001B2684  4E 80 00 20 */	blr
 
 .global __ct__10CFlameWarpFfRC9CVector3fb
 __ct__10CFlameWarpFfRC9CVector3fb:
@@ -644,7 +644,7 @@ lbl_801B57B8:
 /* 801B5834 001B2794  88 03 00 A0 */	lbz r0, 0xa0(r3)
 /* 801B5838 001B2798  50 C0 2E B4 */	rlwimi r0, r6, 5, 0x1a, 0x1a
 /* 801B583C 001B279C  98 03 00 A0 */	stb r0, 0xa0(r3)
-/* 801B5840 001B27A0  4E 80 00 20 */	blr 
+/* 801B5840 001B27A0  4E 80 00 20 */	blr
 
 .global sub_801b5844
 sub_801b5844:
@@ -752,7 +752,7 @@ lbl_801B59B0:
 /* 801B59BC 001B291C  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801B59C0 001B2920  7C 08 03 A6 */	mtlr r0
 /* 801B59C4 001B2924  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B59C8 001B2928  4E 80 00 20 */	blr 
+/* 801B59C8 001B2928  4E 80 00 20 */	blr
 
 .global sub_801b59cc
 sub_801b59cc:
@@ -825,7 +825,7 @@ lbl_801B5AA4:
 /* 801B5AB0 001B2A10  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801B5AB4 001B2A14  7C 08 03 A6 */	mtlr r0
 /* 801B5AB8 001B2A18  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B5ABC 001B2A1C  4E 80 00 20 */	blr 
+/* 801B5ABC 001B2A1C  4E 80 00 20 */	blr
 
 .global sub_801b5ac0
 sub_801b5ac0:
@@ -843,7 +843,7 @@ lbl_801B5AE8:
 /* 801B5AE8 001B2A48  C0 05 00 00 */	lfs f0, 0(r5)
 /* 801B5AEC 001B2A4C  C0 24 00 00 */	lfs f1, 0(r4)
 /* 801B5AF0 001B2A50  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 801B5AF4 001B2A54  4C 80 00 20 */	bgelr 
+/* 801B5AF4 001B2A54  4C 80 00 20 */	bgelr
 /* 801B5AF8 001B2A58  88 C5 00 04 */	lbz r6, 4(r5)
 /* 801B5AFC 001B2A5C  D0 25 00 00 */	stfs f1, 0(r5)
 /* 801B5B00 001B2A60  88 04 00 04 */	lbz r0, 4(r4)
@@ -856,11 +856,11 @@ lbl_801B5AE8:
 /* 801B5B1C 001B2A7C  98 04 00 04 */	stb r0, 4(r4)
 /* 801B5B20 001B2A80  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801B5B24 001B2A84  98 C3 00 04 */	stb r6, 4(r3)
-/* 801B5B28 001B2A88  4E 80 00 20 */	blr 
+/* 801B5B28 001B2A88  4E 80 00 20 */	blr
 lbl_801B5B2C:
 /* 801B5B2C 001B2A8C  D0 04 00 00 */	stfs f0, 0(r4)
 /* 801B5B30 001B2A90  98 C4 00 04 */	stb r6, 4(r4)
-/* 801B5B34 001B2A94  4E 80 00 20 */	blr 
+/* 801B5B34 001B2A94  4E 80 00 20 */	blr
 
 .global sub_801b5b38
 sub_801b5b38:
@@ -895,4 +895,4 @@ lbl_801B5B94:
 /* 801B5B94 001B2AF4  80 04 00 00 */	lwz r0, 0(r4)
 /* 801B5B98 001B2AF8  7C 05 00 40 */	cmplw r5, r0
 /* 801B5B9C 001B2AFC  41 80 FF A8 */	blt lbl_801B5B44
-/* 801B5BA0 001B2B00  4E 80 00 20 */	blr 
+/* 801B5BA0 001B2B00  4E 80 00 20 */	blr

@@ -13,7 +13,7 @@ lbl_803DADD8:
 	.4byte Think__12CScriptTimerFfR13CStateManager
 	.4byte AcceptScriptMsg__12CScriptTimerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
-	
+
 .section .text, "ax"
 
 .global Accept__12CScriptTimerFR8IVisitor
@@ -27,11 +27,11 @@ Accept__12CScriptTimerFR8IVisitor:
 /* 800927A8 0008F708  7C 04 03 78 */	mr r4, r0
 /* 800927AC 0008F70C  81 8C 00 C8 */	lwz r12, 0xc8(r12)
 /* 800927B0 0008F710  7D 89 03 A6 */	mtctr r12
-/* 800927B4 0008F714  4E 80 04 21 */	bctrl 
+/* 800927B4 0008F714  4E 80 04 21 */	bctrl
 /* 800927B8 0008F718  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800927BC 0008F71C  7C 08 03 A6 */	mtlr r0
 /* 800927C0 0008F720  38 21 00 10 */	addi r1, r1, 0x10
-/* 800927C4 0008F724  4E 80 00 20 */	blr 
+/* 800927C4 0008F724  4E 80 00 20 */	blr
 
 .global Think__12CScriptTimerFfR13CStateManager
 Think__12CScriptTimerFfR13CStateManager:
@@ -56,7 +56,7 @@ lbl_80092808:
 /* 80092808 0008F768  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8009280C 0008F76C  7C 08 03 A6 */	mtlr r0
 /* 80092810 0008F770  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092814 0008F774  4E 80 00 20 */	blr 
+/* 80092814 0008F774  4E 80 00 20 */	blr
 
 .global ApplyTime__12CScriptTimerFfR13CStateManager
 ApplyTime__12CScriptTimerFfR13CStateManager:
@@ -103,7 +103,7 @@ lbl_800928AC:
 /* 800928B4 0008F814  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800928B8 0008F818  7C 08 03 A6 */	mtlr r0
 /* 800928BC 0008F81C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800928C0 0008F820  4E 80 00 20 */	blr 
+/* 800928C0 0008F820  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CScriptTimerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CScriptTimerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -190,7 +190,7 @@ lbl_800929BC:
 /* 800929E8 0008F948  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800929EC 0008F94C  7C 08 03 A6 */	mtlr r0
 /* 800929F0 0008F950  38 21 00 20 */	addi r1, r1, 0x20
-/* 800929F4 0008F954  4E 80 00 20 */	blr 
+/* 800929F4 0008F954  4E 80 00 20 */	blr
 
 .global Reset__12CScriptTimerFR13CStateManager
 Reset__12CScriptTimerFR13CStateManager:
@@ -209,7 +209,7 @@ Reset__12CScriptTimerFR13CStateManager:
 /* 80092A28 0008F988  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80092A2C 0008F98C  7C 08 03 A6 */	mtlr r0
 /* 80092A30 0008F990  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092A34 0008F994  4E 80 00 20 */	blr 
+/* 80092A34 0008F994  4E 80 00 20 */	blr
 
 .global __dt__12CScriptTimerFv
 __dt__12CScriptTimerFv:
@@ -237,7 +237,7 @@ lbl_80092A7C:
 /* 80092A88 0008F9E8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80092A8C 0008F9EC  7C 08 03 A6 */	mtlr r0
 /* 80092A90 0008F9F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092A94 0008F9F4  4E 80 00 20 */	blr 
+/* 80092A94 0008F9F4  4E 80 00 20 */	blr
 
 .global "__ct__12CScriptTimerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoffbbb"
 "__ct__12CScriptTimerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoffbbb":
@@ -280,4 +280,4 @@ lbl_80092A7C:
 /* 80092B28 0008FA88  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80092B2C 0008FA8C  7C 08 03 A6 */	mtlr r0
 /* 80092B30 0008FA90  38 21 00 30 */	addi r1, r1, 0x30
-/* 80092B34 0008FA94  4E 80 00 20 */	blr 
+/* 80092B34 0008FA94  4E 80 00 20 */	blr

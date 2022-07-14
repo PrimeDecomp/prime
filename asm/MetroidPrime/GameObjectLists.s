@@ -68,7 +68,7 @@ IsQualified__14CGameLightListFRC7CEntity:
 /* 801B84A0 001B5400  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B84A4 001B5404  7C 08 03 A6 */	mtlr r0
 /* 801B84A8 001B5408  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B84AC 001B540C  4E 80 00 20 */	blr 
+/* 801B84AC 001B540C  4E 80 00 20 */	blr
 
 .global __ct__14CGameLightListFv
 __ct__14CGameLightListFv:
@@ -87,7 +87,7 @@ __ct__14CGameLightListFv:
 /* 801B84E0 001B5440  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B84E4 001B5444  7C 08 03 A6 */	mtlr r0
 /* 801B84E8 001B5448  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B84EC 001B544C  4E 80 00 20 */	blr 
+/* 801B84EC 001B544C  4E 80 00 20 */	blr
 
 .global IsQualified__20CPlatformAndDoorListFRC7CEntity
 IsQualified__20CPlatformAndDoorListFRC7CEntity:
@@ -115,7 +115,7 @@ lbl_801B8530:
 /* 801B853C 001B549C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B8540 001B54A0  7C 08 03 A6 */	mtlr r0
 /* 801B8544 001B54A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8548 001B54A8  4E 80 00 20 */	blr 
+/* 801B8548 001B54A8  4E 80 00 20 */	blr
 
 .global IsDoor__20CPlatformAndDoorListFPC7CEntity
 IsDoor__20CPlatformAndDoorListFPC7CEntity:
@@ -132,7 +132,7 @@ IsDoor__20CPlatformAndDoorListFPC7CEntity:
 /* 801B8574 001B54D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B8578 001B54D8  7C 08 03 A6 */	mtlr r0
 /* 801B857C 001B54DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8580 001B54E0  4E 80 00 20 */	blr 
+/* 801B8580 001B54E0  4E 80 00 20 */	blr
 
 .global IsPlatform__20CPlatformAndDoorListFPC7CEntity
 IsPlatform__20CPlatformAndDoorListFPC7CEntity:
@@ -149,7 +149,7 @@ IsPlatform__20CPlatformAndDoorListFPC7CEntity:
 /* 801B85AC 001B550C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B85B0 001B5510  7C 08 03 A6 */	mtlr r0
 /* 801B85B4 001B5514  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B85B8 001B5518  4E 80 00 20 */	blr 
+/* 801B85B8 001B5518  4E 80 00 20 */	blr
 
 .global __ct__20CPlatformAndDoorListFv
 __ct__20CPlatformAndDoorListFv:
@@ -168,7 +168,7 @@ __ct__20CPlatformAndDoorListFv:
 /* 801B85EC 001B554C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B85F0 001B5550  7C 08 03 A6 */	mtlr r0
 /* 801B85F4 001B5554  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B85F8 001B5558  4E 80 00 20 */	blr 
+/* 801B85F8 001B5558  4E 80 00 20 */	blr
 
 .global IsQualified__15CAiWaypointListFRC7CEntity
 IsQualified__15CAiWaypointListFRC7CEntity:
@@ -201,7 +201,7 @@ lbl_801B8650:
 /* 801B865C 001B55BC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B8660 001B55C0  7C 08 03 A6 */	mtlr r0
 /* 801B8664 001B55C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B8668 001B55C8  4E 80 00 20 */	blr 
+/* 801B8668 001B55C8  4E 80 00 20 */	blr
 
 .global __ct__15CAiWaypointListFv
 __ct__15CAiWaypointListFv:
@@ -220,7 +220,7 @@ __ct__15CAiWaypointListFv:
 /* 801B869C 001B55FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B86A0 001B5600  7C 08 03 A6 */	mtlr r0
 /* 801B86A4 001B5604  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B86A8 001B5608  4E 80 00 20 */	blr 
+/* 801B86A8 001B5608  4E 80 00 20 */	blr
 
 .global IsQualified__16CListeningAiListFRC7CEntity
 IsQualified__16CListeningAiListFRC7CEntity:
@@ -237,7 +237,7 @@ IsQualified__16CListeningAiListFRC7CEntity:
 /* 801B86D4 001B5634  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B86D8 001B5638  81 8C 00 98 */	lwz r12, 0x98(r12)
 /* 801B86DC 001B563C  7D 89 03 A6 */	mtctr r12
-/* 801B86E0 001B5640  4E 80 04 21 */	bctrl 
+/* 801B86E0 001B5640  4E 80 04 21 */	bctrl
 /* 801B86E4 001B5644  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B86E8 001B5648  41 82 00 08 */	beq lbl_801B86F0
 /* 801B86EC 001B564C  3B E0 00 01 */	li r31, 1
@@ -247,7 +247,7 @@ lbl_801B86F0:
 /* 801B86F8 001B5658  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801B86FC 001B565C  7C 08 03 A6 */	mtlr r0
 /* 801B8700 001B5660  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B8704 001B5664  4E 80 00 20 */	blr 
+/* 801B8704 001B5664  4E 80 00 20 */	blr
 
 .global __ct__16CListeningAiListFv
 __ct__16CListeningAiListFv:
@@ -266,7 +266,7 @@ __ct__16CListeningAiListFv:
 /* 801B8738 001B5698  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B873C 001B569C  7C 08 03 A6 */	mtlr r0
 /* 801B8740 001B56A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8744 001B56A4  4E 80 00 20 */	blr 
+/* 801B8744 001B56A4  4E 80 00 20 */	blr
 
 .global IsQualified__15CGameCameraListFRC7CEntity
 IsQualified__15CGameCameraListFRC7CEntity:
@@ -282,7 +282,7 @@ IsQualified__15CGameCameraListFRC7CEntity:
 /* 801B876C 001B56CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B8770 001B56D0  7C 08 03 A6 */	mtlr r0
 /* 801B8774 001B56D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8778 001B56D8  4E 80 00 20 */	blr 
+/* 801B8778 001B56D8  4E 80 00 20 */	blr
 
 .global __ct__15CGameCameraListFv
 __ct__15CGameCameraListFv:
@@ -301,7 +301,7 @@ __ct__15CGameCameraListFv:
 /* 801B87AC 001B570C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B87B0 001B5710  7C 08 03 A6 */	mtlr r0
 /* 801B87B4 001B5714  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B87B8 001B5718  4E 80 00 20 */	blr 
+/* 801B87B8 001B5718  4E 80 00 20 */	blr
 
 .global IsQualified__17CPhysicsActorListFRC7CEntity
 IsQualified__17CPhysicsActorListFRC7CEntity:
@@ -317,7 +317,7 @@ IsQualified__17CPhysicsActorListFRC7CEntity:
 /* 801B87E0 001B5740  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B87E4 001B5744  7C 08 03 A6 */	mtlr r0
 /* 801B87E8 001B5748  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B87EC 001B574C  4E 80 00 20 */	blr 
+/* 801B87EC 001B574C  4E 80 00 20 */	blr
 
 .global __ct__17CPhysicsActorListFv
 __ct__17CPhysicsActorListFv:
@@ -336,7 +336,7 @@ __ct__17CPhysicsActorListFv:
 /* 801B8820 001B5780  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B8824 001B5784  7C 08 03 A6 */	mtlr r0
 /* 801B8828 001B5788  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B882C 001B578C  4E 80 00 20 */	blr 
+/* 801B882C 001B578C  4E 80 00 20 */	blr
 
 .global IsQualified__10CActorListFRC7CEntity
 IsQualified__10CActorListFRC7CEntity:
@@ -352,7 +352,7 @@ IsQualified__10CActorListFRC7CEntity:
 /* 801B8854 001B57B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B8858 001B57B8  7C 08 03 A6 */	mtlr r0
 /* 801B885C 001B57BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B8860 001B57C0  4E 80 00 20 */	blr 
+/* 801B8860 001B57C0  4E 80 00 20 */	blr
 
 .global __ct__10CActorListFv
 __ct__10CActorListFv:

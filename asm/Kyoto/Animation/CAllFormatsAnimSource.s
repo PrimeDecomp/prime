@@ -35,7 +35,7 @@ lbl_802FDF54:
 /* 802FDF60 002FAEC0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FDF64 002FAEC4  7C 08 03 A6 */	mtlr r0
 /* 802FDF68 002FAEC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FDF6C 002FAECC  4E 80 00 20 */	blr 
+/* 802FDF6C 002FAECC  4E 80 00 20 */	blr
 
 .global "GetNewReader__21CAllFormatsAnimSourceFRC37TLockedToken<21CAllFormatsAnimSource>RC13CCharAnimTime"
 "GetNewReader__21CAllFormatsAnimSourceFRC37TLockedToken<21CAllFormatsAnimSource>RC13CCharAnimTime":
@@ -184,7 +184,7 @@ lbl_802FE184:
 /* 802FE188 002FB0E8  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802FE18C 002FB0EC  7C 08 03 A6 */	mtlr r0
 /* 802FE190 002FB0F0  38 21 00 60 */	addi r1, r1, 0x60
-/* 802FE194 002FB0F4  4E 80 00 20 */	blr 
+/* 802FE194 002FB0F4  4E 80 00 20 */	blr
 
 .global AnimSourceFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 AnimSourceFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -246,7 +246,7 @@ lbl_802FE214:
 /* 802FE270 002FB1D0  38 80 00 01 */	li r4, 1
 /* 802FE274 002FB1D4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802FE278 002FB1D8  7D 89 03 A6 */	mtctr r12
-/* 802FE27C 002FB1DC  4E 80 04 21 */	bctrl 
+/* 802FE27C 002FB1DC  4E 80 04 21 */	bctrl
 lbl_802FE280:
 /* 802FE280 002FB1E0  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 802FE284 002FB1E4  28 00 00 00 */	cmplwi r0, 0
@@ -264,7 +264,7 @@ lbl_802FE298:
 /* 802FE2B0 002FB210  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802FE2B4 002FB214  7C 08 03 A6 */	mtlr r0
 /* 802FE2B8 002FB218  38 21 00 30 */	addi r1, r1, 0x30
-/* 802FE2BC 002FB21C  4E 80 00 20 */	blr 
+/* 802FE2BC 002FB21C  4E 80 00 20 */	blr
 
 .global "__dt__49TObjOwnerDerivedFromIObj<21CAllFormatsAnimSource>Fv"
 "__dt__49TObjOwnerDerivedFromIObj<21CAllFormatsAnimSource>Fv":
@@ -306,7 +306,7 @@ lbl_802FE334:
 /* 802FE340 002FB2A0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FE344 002FB2A4  7C 08 03 A6 */	mtlr r0
 /* 802FE348 002FB2A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE34C 002FB2AC  4E 80 00 20 */	blr 
+/* 802FE34C 002FB2AC  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__31TToken<21CAllFormatsAnimSource>FRCQ24rstl33auto_ptr<21CAllFormatsAnimSource>"
 "GetIObjObjectFor__31TToken<21CAllFormatsAnimSource>FRCQ24rstl33auto_ptr<21CAllFormatsAnimSource>":
@@ -320,7 +320,7 @@ lbl_802FE334:
 /* 802FE36C 002FB2CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FE370 002FB2D0  7C 08 03 A6 */	mtlr r0
 /* 802FE374 002FB2D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE378 002FB2D8  4E 80 00 20 */	blr 
+/* 802FE378 002FB2D8  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__49TObjOwnerDerivedFromIObj<21CAllFormatsAnimSource>FRCQ24rstl33auto_ptr<21CAllFormatsAnimSource>"
 "GetNewDerivedObject__49TObjOwnerDerivedFromIObj<21CAllFormatsAnimSource>FRCQ24rstl33auto_ptr<21CAllFormatsAnimSource>":
@@ -363,7 +363,7 @@ lbl_802FE3EC:
 /* 802FE408 002FB368  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FE40C 002FB36C  7C 08 03 A6 */	mtlr r0
 /* 802FE410 002FB370  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE414 002FB374  4E 80 00 20 */	blr 
+/* 802FE414 002FB374  4E 80 00 20 */	blr
 
 .global __ct__21CAllFormatsAnimSourceFR12CInputStreamR12IObjectStoreRC10SObjectTag
 __ct__21CAllFormatsAnimSourceFR12CInputStreamR12IObjectStoreRC10SObjectTag:
@@ -389,7 +389,7 @@ __ct__21CAllFormatsAnimSourceFR12CInputStreamR12IObjectStoreRC10SObjectTag:
 /* 802FE464 002FB3C4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FE468 002FB3C8  7C 08 03 A6 */	mtlr r0
 /* 802FE46C 002FB3CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE470 002FB3D0  4E 80 00 20 */	blr 
+/* 802FE470 002FB3D0  4E 80 00 20 */	blr
 
 .global SubConstruct__16CAnimFormatUnionFPUcUiR12CInputStreamR12IObjectStore
 SubConstruct__16CAnimFormatUnionFPUcUiR12CInputStreamR12IObjectStore:
@@ -423,7 +423,7 @@ lbl_802FE4D0:
 /* 802FE4D0 002FB430  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FE4D4 002FB434  7C 08 03 A6 */	mtlr r0
 /* 802FE4D8 002FB438  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE4DC 002FB43C  4E 80 00 20 */	blr 
+/* 802FE4DC 002FB43C  4E 80 00 20 */	blr
 
 .global __dt__16CAnimFormatUnionFv
 __dt__16CAnimFormatUnionFv:
@@ -467,7 +467,7 @@ lbl_802FE554:
 /* 802FE560 002FB4C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FE564 002FB4C4  7C 08 03 A6 */	mtlr r0
 /* 802FE568 002FB4C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FE56C 002FB4CC  4E 80 00 20 */	blr 
+/* 802FE56C 002FB4CC  4E 80 00 20 */	blr
 
 .global __ct__16CAnimFormatUnionFR12CInputStreamR12IObjectStore
 __ct__16CAnimFormatUnionFR12CInputStreamR12IObjectStore:

@@ -105,7 +105,7 @@ lbl_802F5A5C:
 /* 802F5A60 002F29C0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802F5A64 002F29C4  7C 08 03 A6 */	mtlr r0
 /* 802F5A68 002F29C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F5A6C 002F29CC  4E 80 00 20 */	blr 
+/* 802F5A6C 002F29CC  4E 80 00 20 */	blr
 
 .global SetBlendingWeight__19CAnimTreeTransitionFf
 SetBlendingWeight__19CAnimTreeTransitionFf:
@@ -122,13 +122,13 @@ SetBlendingWeight__19CAnimTreeTransitionFf:
 /* 802F5A98 002F29F8  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F5A9C 002F29FC  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 802F5AA0 002F2A00  7D 89 03 A6 */	mtctr r12
-/* 802F5AA4 002F2A04  4E 80 04 21 */	bctrl 
+/* 802F5AA4 002F2A04  4E 80 04 21 */	bctrl
 /* 802F5AA8 002F2A08  38 61 00 08 */	addi r3, r1, 8
 /* 802F5AAC 002F2A0C  4B D3 B4 F5 */	bl sub_80030fa0
 /* 802F5AB0 002F2A10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F5AB4 002F2A14  7C 08 03 A6 */	mtlr r0
 /* 802F5AB8 002F2A18  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F5ABC 002F2A1C  4E 80 00 20 */	blr 
+/* 802F5ABC 002F2A1C  4E 80 00 20 */	blr
 
 .global "CreatePrimitiveName__19CAnimTreeTransitionFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>f"
 "CreatePrimitiveName__19CAnimTreeTransitionFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>f":
@@ -144,7 +144,7 @@ SetBlendingWeight__19CAnimTreeTransitionFf:
 /* 802F5AE4 002F2A44  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F5AE8 002F2A48  7C 08 03 A6 */	mtlr r0
 /* 802F5AEC 002F2A4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F5AF0 002F2A50  4E 80 00 20 */	blr 
+/* 802F5AF0 002F2A50  4E 80 00 20 */	blr
 
 .global VGetSteadyStateAnimInfo__19CAnimTreeTransitionCFv
 VGetSteadyStateAnimInfo__19CAnimTreeTransitionCFv:
@@ -167,7 +167,7 @@ VGetSteadyStateAnimInfo__19CAnimTreeTransitionCFv:
 /* 802F5B34 002F2A94  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F5B38 002F2A98  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802F5B3C 002F2A9C  7D 89 03 A6 */	mtctr r12
-/* 802F5B40 002F2AA0  4E 80 04 21 */	bctrl 
+/* 802F5B40 002F2AA0  4E 80 04 21 */	bctrl
 /* 802F5B44 002F2AA4  80 A1 00 14 */	lwz r5, 0x14(r1)
 /* 802F5B48 002F2AA8  38 7F 00 24 */	addi r3, r31, 0x24
 /* 802F5B4C 002F2AAC  C3 A1 00 18 */	lfs f29, 0x18(r1)
@@ -211,7 +211,7 @@ lbl_802F5B98:
 /* 802F5BDC 002F2B3C  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 802F5BE0 002F2B40  7C 08 03 A6 */	mtlr r0
 /* 802F5BE4 002F2B44  38 21 00 80 */	addi r1, r1, 0x80
-/* 802F5BE8 002F2B48  4E 80 00 20 */	blr 
+/* 802F5BE8 002F2B48  4E 80 00 20 */	blr
 
 .global VGetTimeRemaining__19CAnimTreeTransitionCFv
 VGetTimeRemaining__19CAnimTreeTransitionCFv:
@@ -232,7 +232,7 @@ VGetTimeRemaining__19CAnimTreeTransitionCFv:
 /* 802F5C24 002F2B84  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F5C28 002F2B88  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802F5C2C 002F2B8C  7D 89 03 A6 */	mtctr r12
-/* 802F5C30 002F2B90  4E 80 04 21 */	bctrl 
+/* 802F5C30 002F2B90  4E 80 04 21 */	bctrl
 /* 802F5C34 002F2B94  38 61 00 10 */	addi r3, r1, 0x10
 /* 802F5C38 002F2B98  38 81 00 08 */	addi r4, r1, 8
 /* 802F5C3C 002F2B9C  48 05 30 01 */	bl __lt__13CCharAnimTimeCFRC13CCharAnimTime
@@ -250,7 +250,7 @@ lbl_802F5C50:
 /* 802F5C68 002F2BC8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802F5C6C 002F2BCC  7C 08 03 A6 */	mtlr r0
 /* 802F5C70 002F2BD0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F5C74 002F2BD4  4E 80 00 20 */	blr 
+/* 802F5C74 002F2BD4  4E 80 00 20 */	blr
 
 .global VGetBlendingWeight__19CAnimTreeTransitionCFv
 VGetBlendingWeight__19CAnimTreeTransitionCFv:
@@ -276,7 +276,7 @@ lbl_802F5CB8:
 /* 802F5CBC 002F2C1C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F5CC0 002F2C20  7C 08 03 A6 */	mtlr r0
 /* 802F5CC4 002F2C24  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F5CC8 002F2C28  4E 80 00 20 */	blr 
+/* 802F5CC8 002F2C28  4E 80 00 20 */	blr
 
 .global VClone__19CAnimTreeTransitionCFv
 VClone__19CAnimTreeTransitionCFv:
@@ -361,7 +361,7 @@ lbl_802F5DD8:
 /* 802F5DFC 002F2D5C  38 80 00 01 */	li r4, 1
 /* 802F5E00 002F2D60  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F5E04 002F2D64  7D 89 03 A6 */	mtctr r12
-/* 802F5E08 002F2D68  4E 80 04 21 */	bctrl 
+/* 802F5E08 002F2D68  4E 80 04 21 */	bctrl
 lbl_802F5E0C:
 /* 802F5E0C 002F2D6C  7F A0 07 75 */	extsb. r0, r29
 /* 802F5E10 002F2D70  41 82 00 0C */	beq lbl_802F5E1C
@@ -380,13 +380,13 @@ lbl_802F5E1C:
 /* 802F5E40 002F2DA0  38 80 00 01 */	li r4, 1
 /* 802F5E44 002F2DA4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F5E48 002F2DA8  7D 89 03 A6 */	mtctr r12
-/* 802F5E4C 002F2DAC  4E 80 04 21 */	bctrl 
+/* 802F5E4C 002F2DAC  4E 80 04 21 */	bctrl
 lbl_802F5E50:
 /* 802F5E50 002F2DB0  BB 21 00 34 */	lmw r25, 0x34(r1)
 /* 802F5E54 002F2DB4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802F5E58 002F2DB8  7C 08 03 A6 */	mtlr r0
 /* 802F5E5C 002F2DBC  38 21 00 50 */	addi r1, r1, 0x50
-/* 802F5E60 002F2DC0  4E 80 00 20 */	blr 
+/* 802F5E60 002F2DC0  4E 80 00 20 */	blr
 
 .global VAdvanceView__19CAnimTreeTransitionFRC13CCharAnimTime
 VAdvanceView__19CAnimTreeTransitionFRC13CCharAnimTime:
@@ -427,7 +427,7 @@ VAdvanceView__19CAnimTreeTransitionFRC13CCharAnimTime:
 /* 802F5EEC 002F2E4C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F5EF0 002F2E50  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802F5EF4 002F2E54  7D 89 03 A6 */	mtctr r12
-/* 802F5EF8 002F2E58  4E 80 04 21 */	bctrl 
+/* 802F5EF8 002F2E58  4E 80 04 21 */	bctrl
 /* 802F5EFC 002F2E5C  88 1E 00 34 */	lbz r0, 0x34(r30)
 /* 802F5F00 002F2E60  28 00 00 00 */	cmplwi r0, 0
 /* 802F5F04 002F2E64  41 82 00 24 */	beq lbl_802F5F28
@@ -438,7 +438,7 @@ VAdvanceView__19CAnimTreeTransitionFRC13CCharAnimTime:
 /* 802F5F18 002F2E78  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F5F1C 002F2E7C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802F5F20 002F2E80  7D 89 03 A6 */	mtctr r12
-/* 802F5F24 002F2E84  4E 80 04 21 */	bctrl 
+/* 802F5F24 002F2E84  4E 80 04 21 */	bctrl
 lbl_802F5F28:
 /* 802F5F28 002F2E88  80 6D A7 40 */	lwz r3, lbl_805A9300@sda21(r13)
 /* 802F5F2C 002F2E8C  38 03 FF FF */	addi r0, r3, -1
@@ -663,7 +663,7 @@ lbl_802F623C:
 /* 802F6280 002F31E0  83 A1 01 24 */	lwz r29, 0x124(r1)
 /* 802F6284 002F31E4  7C 08 03 A6 */	mtlr r0
 /* 802F6288 002F31E8  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 802F628C 002F31EC  4E 80 00 20 */	blr 
+/* 802F628C 002F31EC  4E 80 00 20 */	blr
 
 .global AdvanceViewForTransitionalPeriod__19CAnimTreeTransitionFRC13CCharAnimTime
 AdvanceViewForTransitionalPeriod__19CAnimTreeTransitionFRC13CCharAnimTime:
@@ -805,7 +805,7 @@ lbl_802F647C:
 /* 802F6498 002F33F8  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 802F649C 002F33FC  7C 08 03 A6 */	mtlr r0
 /* 802F64A0 002F3400  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 802F64A4 002F3404  4E 80 00 20 */	blr 
+/* 802F64A4 002F3404  4E 80 00 20 */	blr
 
 .global __ct__Q220CAnimTreeDoubleChild29CDoubleChildAdvancementResultFRCQ220CAnimTreeDoubleChild29CDoubleChildAdvancementResult
 __ct__Q220CAnimTreeDoubleChild29CDoubleChildAdvancementResultFRCQ220CAnimTreeDoubleChild29CDoubleChildAdvancementResult:
@@ -841,7 +841,7 @@ __ct__Q220CAnimTreeDoubleChild29CDoubleChildAdvancementResultFRCQ220CAnimTreeDou
 /* 802F651C 002F347C  D0 03 00 38 */	stfs f0, 0x38(r3)
 /* 802F6520 002F3480  C0 04 00 3C */	lfs f0, 0x3c(r4)
 /* 802F6524 002F3484  D0 03 00 3C */	stfs f0, 0x3c(r3)
-/* 802F6528 002F3488  4E 80 00 20 */	blr 
+/* 802F6528 002F3488  4E 80 00 20 */	blr
 
 .global VReverseSimplified__19CAnimTreeTransitionFv
 VReverseSimplified__19CAnimTreeTransitionFv:
@@ -885,7 +885,7 @@ lbl_802F65A0:
 /* 802F65BC 002F351C  38 80 00 01 */	li r4, 1
 /* 802F65C0 002F3520  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F65C4 002F3524  7D 89 03 A6 */	mtctr r12
-/* 802F65C8 002F3528  4E 80 04 21 */	bctrl 
+/* 802F65C8 002F3528  4E 80 04 21 */	bctrl
 /* 802F65CC 002F352C  48 00 00 10 */	b lbl_802F65DC
 lbl_802F65D0:
 /* 802F65D0 002F3530  7F C3 F3 78 */	mr r3, r30
@@ -897,7 +897,7 @@ lbl_802F65DC:
 /* 802F65E4 002F3544  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802F65E8 002F3548  7C 08 03 A6 */	mtlr r0
 /* 802F65EC 002F354C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F65F0 002F3550  4E 80 00 20 */	blr 
+/* 802F65F0 002F3550  4E 80 00 20 */	blr
 
 .global VSimplified__19CAnimTreeTransitionFv
 VSimplified__19CAnimTreeTransitionFv:
@@ -948,7 +948,7 @@ lbl_802F6670:
 /* 802F66A0 002F3600  38 80 00 01 */	li r4, 1
 /* 802F66A4 002F3604  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F66A8 002F3608  7D 89 03 A6 */	mtctr r12
-/* 802F66AC 002F360C  4E 80 04 21 */	bctrl 
+/* 802F66AC 002F360C  4E 80 04 21 */	bctrl
 lbl_802F66B0:
 /* 802F66B0 002F3610  88 01 00 24 */	lbz r0, 0x24(r1)
 /* 802F66B4 002F3614  38 80 00 00 */	li r4, 0
@@ -980,7 +980,7 @@ lbl_802F66E8:
 /* 802F6718 002F3678  38 80 00 01 */	li r4, 1
 /* 802F671C 002F367C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F6720 002F3680  7D 89 03 A6 */	mtctr r12
-/* 802F6724 002F3684  4E 80 04 21 */	bctrl 
+/* 802F6724 002F3684  4E 80 04 21 */	bctrl
 lbl_802F6728:
 /* 802F6728 002F3688  38 00 00 00 */	li r0, 0
 /* 802F672C 002F368C  98 01 00 24 */	stb r0, 0x24(r1)
@@ -1011,7 +1011,7 @@ lbl_802F676C:
 /* 802F6788 002F36E8  38 80 00 01 */	li r4, 1
 /* 802F678C 002F36EC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F6790 002F36F0  7D 89 03 A6 */	mtctr r12
-/* 802F6794 002F36F4  4E 80 04 21 */	bctrl 
+/* 802F6794 002F36F4  4E 80 04 21 */	bctrl
 lbl_802F6798:
 /* 802F6798 002F36F8  88 01 00 24 */	lbz r0, 0x24(r1)
 /* 802F679C 002F36FC  28 00 00 00 */	cmplwi r0, 0
@@ -1028,7 +1028,7 @@ lbl_802F6798:
 /* 802F67C8 002F3728  38 80 00 01 */	li r4, 1
 /* 802F67CC 002F372C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F67D0 002F3730  7D 89 03 A6 */	mtctr r12
-/* 802F67D4 002F3734  4E 80 04 21 */	bctrl 
+/* 802F67D4 002F3734  4E 80 04 21 */	bctrl
 lbl_802F67D8:
 /* 802F67D8 002F3738  38 00 00 00 */	li r0, 0
 /* 802F67DC 002F373C  98 01 00 24 */	stb r0, 0x24(r1)
@@ -1043,7 +1043,7 @@ lbl_802F67F0:
 /* 802F67F8 002F3758  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802F67FC 002F375C  7C 08 03 A6 */	mtlr r0
 /* 802F6800 002F3760  38 21 00 30 */	addi r1, r1, 0x30
-/* 802F6804 002F3764  4E 80 00 20 */	blr 
+/* 802F6804 002F3764  4E 80 00 20 */	blr
 
 .global __dt__19CAnimTreeTransitionFv
 __dt__19CAnimTreeTransitionFv:
@@ -1075,7 +1075,7 @@ lbl_802F685C:
 /* 802F6868 002F37C8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802F686C 002F37CC  7C 08 03 A6 */	mtlr r0
 /* 802F6870 002F37D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F6874 002F37D4  4E 80 00 20 */	blr 
+/* 802F6874 002F37D4  4E 80 00 20 */	blr
 
 .global "__ct__19CAnimTreeTransitionFbRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimeRC13CCharAnimTimebbiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
 "__ct__19CAnimTreeTransitionFbRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimeRC13CCharAnimTimebbiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b":
@@ -1116,7 +1116,7 @@ lbl_802F685C:
 /* 802F6900 002F3860  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802F6904 002F3864  7C 08 03 A6 */	mtlr r0
 /* 802F6908 002F3868  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F690C 002F386C  4E 80 00 20 */	blr 
+/* 802F690C 002F386C  4E 80 00 20 */	blr
 
 .global "__ct__19CAnimTreeTransitionFbRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimebiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__19CAnimTreeTransitionFbRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimebiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1153,7 +1153,7 @@ lbl_802F685C:
 /* 802F6988 002F38E8  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F698C 002F38EC  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 802F6990 002F38F0  7D 89 03 A6 */	mtctr r12
-/* 802F6994 002F38F4  4E 80 04 21 */	bctrl 
+/* 802F6994 002F38F4  4E 80 04 21 */	bctrl
 /* 802F6998 002F38F8  98 7C 00 35 */	stb r3, 0x35(r28)
 /* 802F699C 002F38FC  38 00 00 00 */	li r0, 0
 /* 802F69A0 002F3900  38 60 00 13 */	li r3, 0x13

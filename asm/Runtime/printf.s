@@ -3,55 +3,593 @@
 .section .rodata
 .global lbl_803D86C0
 lbl_803D86C0:
-	.incbin "baserom.dol", 0x3D56C0, 0x28
-	
+	# ROM: 0x3D56C0
+	.4byte 0x002D494E
+	.4byte 0x46002D69
+	.4byte 0x6E660049
+	.4byte 0x4E460069
+	.4byte 0x6E66002D
+	.4byte 0x4E414E00
+	.asciz "-nan"
+	.byte 0x4E, 0x41, 0x4E
+	.4byte 0x006E616E
+	.4byte 0
+
+
 .section .data, "wa"
 # TODO: Move these where they actually belong
 .global lbl_803F2778
 lbl_803F2778:
-	.incbin "baserom.dol", 0x3EF778, 0x140
+	# ROM: 0x3EF778
+	.4byte 0
+	.4byte 0x0A800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x805424D0
+	.4byte 0x00000100
+	.4byte 0x805424D0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x80003648  ;# ptr
+	.4byte 0x8039127C
+	.4byte 0x80391274
+	.4byte 0
+	.4byte 0x803F27C8
+	.4byte 0x00000001
+	.4byte 0x12800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x805423D0
+	.4byte 0x00000100
+	.4byte 0x805423D0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x80003648  ;# ptr
+	.4byte 0x8039127C
+	.4byte 0x80391274
+	.4byte 0
+	.4byte 0x803F2818
+	.4byte 0x00000002
+	.4byte 0x10800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x805422D0
+	.4byte 0x00000100
+	.4byte 0x805422D0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x80003648  ;# ptr
+	.4byte 0x8039127C
+	.4byte 0x80391274
+	.4byte 0
+	.4byte 0x803F2868
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .global lbl_803F28B8
 lbl_803F28B8:
-	.incbin "baserom.dol", 0x3EF8B8, 0x40
+	# ROM: 0x3EF8B8
+	.4byte 0x40240000
+	.4byte 0
+	.4byte 0x40590000
+	.4byte 0
+	.4byte 0x408F4000
+	.4byte 0
+	.4byte 0x40C38800
+	.4byte 0
+	.4byte 0x40F86A00
+	.4byte 0
+	.4byte 0x412E8480
+	.4byte 0
+	.4byte 0x416312D0
+	.4byte 0
+	.4byte 0x4197D784
+	.4byte 0
+
 .global lbl_803F28F8
 lbl_803F28F8:
-	.incbin "baserom.dol", 0x3EF8F8, 0x128
+	# ROM: 0x3EF8F8
+	.4byte 0x8038C62C
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C644
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C65C
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C674
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C824
+	.4byte 0x8038C68C
+	.4byte 0x8038C6A4
+	.4byte 0x8038C6BC
+	.4byte 0x8038C6D4
+	.4byte 0x8038C6EC
+	.4byte 0x8038C704
+	.4byte 0x8038C71C
+	.4byte 0x8038C734
+	.4byte 0x8038C74C
+	.4byte 0x8038C764
+	.4byte 0x8038C77C
+	.4byte 0x8038C794
+	.4byte 0x8038C7AC
+	.4byte 0x8038C7C4
+	.4byte 0x8038C7DC
+	.4byte 0x8038C7F4
+	.4byte 0x8038C80C
+	.4byte 0
+
 .global lbl_803F2A20
 lbl_803F2A20:
-	.incbin "baserom.dol", 0x3EFA20, 0x100
+	# ROM: 0x3EFA20
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01020202
+	.4byte 0x02020101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x01010101
+	.4byte 0x04080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x08080808
+	.4byte 0x30303030
+	.4byte 0x30303030
+	.4byte 0x30300808
+	.4byte 0x08080808
+	.4byte 0x08A0A0A0
+	.4byte 0xA0A0A080
+	.4byte 0x80808080
+	.4byte 0x80808080
+	.4byte 0x80808080
+	.4byte 0x80808080
+	.4byte 0x80808008
+	.4byte 0x08080808
+	.4byte 0x08606060
+	.4byte 0x60606040
+	.4byte 0x40404040
+	.4byte 0x40404040
+	.4byte 0x40404040
+	.4byte 0x40404040
+	.4byte 0x40404008
+	.4byte 0x08080801
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .global lbl_803F2B20
 lbl_803F2B20:
-	.incbin "baserom.dol", 0x3EFB20, 0x100
+	# ROM: 0x3EFB20
+	.4byte 0x00010203
+	.4byte 0x04050607
+	.4byte 0x08090A0B
+	.4byte 0x0C0D0E0F
+	.4byte 0x10111213
+	.4byte 0x14151617
+	.4byte 0x18191A1B
+	.4byte 0x1C1D1E1F
+	.4byte 0x20212223
+	.4byte 0x24252627
+	.4byte 0x28292A2B
+	.4byte 0x2C2D2E2F
+	.4byte 0x30313233
+	.4byte 0x34353637
+	.4byte 0x38393A3B
+	.4byte 0x3C3D3E3F
+	.4byte 0x40616263
+	.4byte 0x64656667
+	.4byte 0x68696A6B
+	.4byte 0x6C6D6E6F
+	.4byte 0x70717273
+	.4byte 0x74757677
+	.4byte 0x78797A5B
+	.4byte 0x5C5D5E5F
+	.4byte 0x60616263
+	.4byte 0x64656667
+	.4byte 0x68696A6B
+	.4byte 0x6C6D6E6F
+	.4byte 0x70717273
+	.4byte 0x74757677
+	.4byte 0x78797A7B
+	.4byte 0x7C7D7E7F
+	.4byte 0x80818283
+	.4byte 0x84858687
+	.4byte 0x88898A8B
+	.4byte 0x8C8D8E8F
+	.4byte 0x90919293
+	.4byte 0x94959697
+	.4byte 0x98999A9B
+	.4byte 0x9C9D9E9F
+	.4byte 0xA0A1A2A3
+	.4byte 0xA4A5A6A7
+	.4byte 0xA8A9AAAB
+	.4byte 0xACADAEAF
+	.4byte 0xB0B1B2B3
+	.4byte 0xB4B5B6B7
+	.4byte 0xB8B9BABB
+	.4byte 0xBCBDBEBF
+	.4byte 0xC0C1C2C3
+	.4byte 0xC4C5C6C7
+	.4byte 0xC8C9CACB
+	.4byte 0xCCCDCECF
+	.4byte 0xD0D1D2D3
+	.4byte 0xD4D5D6D7
+	.4byte 0xD8D9DADB
+	.4byte 0xDCDDDEDF
+	.4byte 0xE0E1E2E3
+	.4byte 0xE4E5E6E7
+	.4byte 0xE8E9EAEB
+	.4byte 0xECEDEEEF
+	.4byte 0xF0F1F2F3
+	.4byte 0xF4F5F6F7
+	.4byte 0xF8F9FAFB
+	.4byte 0xFCFDFEFF
+
 .global lbl_803F2C20
 lbl_803F2C20:
-	.incbin "baserom.dol", 0x3EFC20, 0x100
+	# ROM: 0x3EFC20
+	.4byte 0x00010203
+	.4byte 0x04050607
+	.4byte 0x08090A0B
+	.4byte 0x0C0D0E0F
+	.4byte 0x10111213
+	.4byte 0x14151617
+	.4byte 0x18191A1B
+	.4byte 0x1C1D1E1F
+	.4byte 0x20212223
+	.4byte 0x24252627
+	.4byte 0x28292A2B
+	.4byte 0x2C2D2E2F
+	.4byte 0x30313233
+	.4byte 0x34353637
+	.4byte 0x38393A3B
+	.4byte 0x3C3D3E3F
+	.4byte 0x40414243
+	.4byte 0x44454647
+	.4byte 0x48494A4B
+	.4byte 0x4C4D4E4F
+	.4byte 0x50515253
+	.4byte 0x54555657
+	.4byte 0x58595A5B
+	.4byte 0x5C5D5E5F
+	.4byte 0x60414243
+	.4byte 0x44454647
+	.4byte 0x48494A4B
+	.4byte 0x4C4D4E4F
+	.4byte 0x50515253
+	.4byte 0x54555657
+	.4byte 0x58595A7B
+	.4byte 0x7C7D7E7F
+	.4byte 0x80818283
+	.4byte 0x84858687
+	.4byte 0x88898A8B
+	.4byte 0x8C8D8E8F
+	.4byte 0x90919293
+	.4byte 0x94959697
+	.4byte 0x98999A9B
+	.4byte 0x9C9D9E9F
+	.4byte 0xA0A1A2A3
+	.4byte 0xA4A5A6A7
+	.4byte 0xA8A9AAAB
+	.4byte 0xACADAEAF
+	.4byte 0xB0B1B2B3
+	.4byte 0xB4B5B6B7
+	.4byte 0xB8B9BABB
+	.4byte 0xBCBDBEBF
+	.4byte 0xC0C1C2C3
+	.4byte 0xC4C5C6C7
+	.4byte 0xC8C9CACB
+	.4byte 0xCCCDCECF
+	.4byte 0xD0D1D2D3
+	.4byte 0xD4D5D6D7
+	.4byte 0xD8D9DADB
+	.4byte 0xDCDDDEDF
+	.4byte 0xE0E1E2E3
+	.4byte 0xE4E5E6E7
+	.4byte 0xE8E9EAEB
+	.4byte 0xECEDEEEF
+	.4byte 0xF0F1F2F3
+	.4byte 0xF4F5F6F7
+	.4byte 0xF8F9FAFB
+	.4byte 0xFCFDFEFF
+
 .global lbl_803F2D20
 lbl_803F2D20:
-	.incbin "baserom.dol", 0x3EFD20, 0x38
+	# ROM: 0x3EFD20
+	.4byte 0x803D86B8
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x803D86BA
+	.4byte 0x7F7F7F7F
+	.4byte 0x7F7F7F00
+	.4byte 0x803D86BA
+	.4byte 0x7F7F7F7F
+	.4byte 0x7F7F7F00
+
 .global lbl_803F2D58
 lbl_803F2D58:
-	.incbin "baserom.dol", 0x3EFD58, 0x84
+	# ROM: 0x3EFD58
+	.4byte 0x8038F3FC
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F39C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F39C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F3D4
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F3E8
+	.4byte 0x8038F40C
+	.4byte 0x8038F40C
+	.4byte 0x8038F3FC
+
 .global lbl_803F2DDC
 lbl_803F2DDC:
-	.incbin "baserom.dol", 0x3EFDDC, 0x84
+	# ROM: 0x3EFDDC
+	.4byte 0x8038F688
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F650
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F650
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F668
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F678
+	.4byte 0x8038F694
+	.4byte 0x8038F694
+	.4byte 0x8038F688
+
 .global lbl_803F2E60
 lbl_803F2E60:
-	.incbin "baserom.dol", 0x3EFE60, 0xE0
+	# ROM: 0x3EFE60
+	.4byte 0x8038FB8C
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FBDC
+	.4byte 0x8038FB54
+	.4byte 0x8038FBC8
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FB0C
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FB8C
+	.4byte 0x8038FCBC
+	.4byte 0x8038FC40
+	.4byte 0x8038FB0C
+	.4byte 0x8038FBDC
+	.4byte 0x8038FB54
+	.4byte 0x8038FBC8
+	.4byte 0x8038FCBC
+	.4byte 0x8038FB0C
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCA4
+	.4byte 0x8038FB0C
+	.4byte 0x8038FC1C
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FC78
+	.4byte 0x8038FCBC
+	.4byte 0x8038FB0C
+	.4byte 0x8038FCBC
+	.4byte 0x8038FCBC
+	.4byte 0x8038FB0C
+
 .global lbl_803F2F40
 lbl_803F2F40:
-	.incbin "baserom.dol", 0x3EFF40, 0x48
-	
+	# ROM: 0x3EFF40
+	.4byte 0x8038F8BC
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8D4
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8B0
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8A4
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8F8
+	.4byte 0x8038F8E0
+	.4byte 0
+
+
 .section .text, "ax"
 .if 1
-/* TODO: Move __stdio_atexit to its own file (misc_io), 
- * it's here to work around a bug with CW 
+/* TODO: Move __stdio_atexit to its own file (misc_io),
+ * it's here to work around a bug with CW
  */
 .global __stdio_atexit
 __stdio_atexit:
 /* 8038DCCC 0038AC2C  3C 60 80 39 */	lis r3, __close_all@ha
 /* 8038DCD0 0038AC30  38 03 B1 18 */	addi r0, r3, __close_all@l
 /* 8038DCD4 0038AC34  90 0D AE 00 */	stw r0, lbl_805A99C0@sda21(r13)
-/* 8038DCD8 0038AC38  4E 80 00 20 */	blr 
+/* 8038DCD8 0038AC38  4E 80 00 20 */	blr
 .endif
 
 .global sprintf
@@ -114,7 +652,7 @@ lbl_8038DDA8:
 /* 8038DDAC 0038AD0C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8038DDB0 0038AD10  7C 08 03 A6 */	mtlr r0
 /* 8038DDB4 0038AD14  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8038DDB8 0038AD18  4E 80 00 20 */	blr 
+/* 8038DDB8 0038AD18  4E 80 00 20 */	blr
 
 .global vsprintf
 vsprintf:
@@ -149,7 +687,7 @@ lbl_8038DE20:
 /* 8038DE24 0038AD84  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8038DE28 0038AD88  7C 08 03 A6 */	mtlr r0
 /* 8038DE2C 0038AD8C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8038DE30 0038AD90  4E 80 00 20 */	blr 
+/* 8038DE30 0038AD90  4E 80 00 20 */	blr
 
 .global vprintf
 vprintf:
@@ -185,7 +723,7 @@ lbl_8038DE94:
 /* 8038DEA0 0038AE00  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8038DEA4 0038AE04  7C 08 03 A6 */	mtlr r0
 /* 8038DEA8 0038AE08  38 21 00 20 */	addi r1, r1, 0x20
-/* 8038DEAC 0038AE0C  4E 80 00 20 */	blr 
+/* 8038DEAC 0038AE0C  4E 80 00 20 */	blr
 
 .global printf
 printf:
@@ -242,7 +780,7 @@ lbl_8038DF64:
 /* 8038DF6C 0038AECC  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8038DF70 0038AED0  7C 08 03 A6 */	mtlr r0
 /* 8038DF74 0038AED4  38 21 00 80 */	addi r1, r1, 0x80
-/* 8038DF78 0038AED8  4E 80 00 20 */	blr 
+/* 8038DF78 0038AED8  4E 80 00 20 */	blr
 
 .global __StringWrite
 __StringWrite:
@@ -273,7 +811,7 @@ lbl_8038DFB0:
 /* 8038DFD8 0038AF38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8038DFDC 0038AF3C  7C 08 03 A6 */	mtlr r0
 /* 8038DFE0 0038AF40  38 21 00 10 */	addi r1, r1, 0x10
-/* 8038DFE4 0038AF44  4E 80 00 20 */	blr 
+/* 8038DFE4 0038AF44  4E 80 00 20 */	blr
 
 .global __FileWrite
 __FileWrite:
@@ -300,7 +838,7 @@ lbl_8038E028:
 /* 8038E030 0038AF90  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8038E034 0038AF94  7C 08 03 A6 */	mtlr r0
 /* 8038E038 0038AF98  38 21 00 10 */	addi r1, r1, 0x10
-/* 8038E03C 0038AF9C  4E 80 00 20 */	blr 
+/* 8038E03C 0038AF9C  4E 80 00 20 */	blr
 
 .global __pformatter
 __pformatter:
@@ -333,7 +871,7 @@ lbl_8038E078:
 /* 8038E0A4 0038B004  7F C3 F3 78 */	mr r3, r30
 /* 8038E0A8 0038B008  7F 44 D3 78 */	mr r4, r26
 /* 8038E0AC 0038B00C  7D 89 03 A6 */	mtctr r12
-/* 8038E0B0 0038B010  4E 80 04 21 */	bctrl 
+/* 8038E0B0 0038B010  4E 80 04 21 */	bctrl
 /* 8038E0B4 0038B014  28 03 00 00 */	cmplwi r3, 0
 /* 8038E0B8 0038B018  40 82 06 E4 */	bne lbl_8038E79C
 /* 8038E0BC 0038B01C  38 60 FF FF */	li r3, -1
@@ -346,7 +884,7 @@ lbl_8038E0C4:
 /* 8038E0D4 0038B034  7F C3 F3 78 */	mr r3, r30
 /* 8038E0D8 0038B038  7F 44 D3 78 */	mr r4, r26
 /* 8038E0DC 0038B03C  7D 89 03 A6 */	mtctr r12
-/* 8038E0E0 0038B040  4E 80 04 21 */	bctrl 
+/* 8038E0E0 0038B040  4E 80 04 21 */	bctrl
 /* 8038E0E4 0038B044  28 03 00 00 */	cmplwi r3, 0
 /* 8038E0E8 0038B048  40 82 00 0C */	bne lbl_8038E0F4
 /* 8038E0EC 0038B04C  38 60 FF FF */	li r3, -1
@@ -733,7 +1271,7 @@ lbl_8038E610:
 /* 8038E628 0038B588  7F C3 F3 78 */	mr r3, r30
 /* 8038E62C 0038B58C  7F 24 CB 78 */	mr r4, r25
 /* 8038E630 0038B590  7D 89 03 A6 */	mtctr r12
-/* 8038E634 0038B594  4E 80 04 21 */	bctrl 
+/* 8038E634 0038B594  4E 80 04 21 */	bctrl
 /* 8038E638 0038B598  28 03 00 00 */	cmplwi r3, 0
 /* 8038E63C 0038B59C  40 82 00 0C */	bne lbl_8038E648
 /* 8038E640 0038B5A0  38 60 FF FF */	li r3, -1
@@ -769,7 +1307,7 @@ lbl_8038E694:
 /* 8038E6A8 0038B608  7E 84 A3 78 */	mr r4, r20
 /* 8038E6AC 0038B60C  38 A0 00 01 */	li r5, 1
 /* 8038E6B0 0038B610  7D 89 03 A6 */	mtctr r12
-/* 8038E6B4 0038B614  4E 80 04 21 */	bctrl 
+/* 8038E6B4 0038B614  4E 80 04 21 */	bctrl
 /* 8038E6B8 0038B618  28 03 00 00 */	cmplwi r3, 0
 /* 8038E6BC 0038B61C  40 82 00 0C */	bne lbl_8038E6C8
 /* 8038E6C0 0038B620  38 60 FF FF */	li r3, -1
@@ -784,7 +1322,7 @@ lbl_8038E6D4:
 /* 8038E6DC 0038B63C  38 81 00 09 */	addi r4, r1, 9
 /* 8038E6E0 0038B640  38 A0 00 01 */	li r5, 1
 /* 8038E6E4 0038B644  7D 89 03 A6 */	mtctr r12
-/* 8038E6E8 0038B648  4E 80 04 21 */	bctrl 
+/* 8038E6E8 0038B648  4E 80 04 21 */	bctrl
 /* 8038E6EC 0038B64C  28 03 00 00 */	cmplwi r3, 0
 /* 8038E6F0 0038B650  40 82 00 0C */	bne lbl_8038E6FC
 /* 8038E6F4 0038B654  38 60 FF FF */	li r3, -1
@@ -803,7 +1341,7 @@ lbl_8038E70C:
 /* 8038E71C 0038B67C  7E 84 A3 78 */	mr r4, r20
 /* 8038E720 0038B680  7F 25 CB 78 */	mr r5, r25
 /* 8038E724 0038B684  7D 89 03 A6 */	mtctr r12
-/* 8038E728 0038B688  4E 80 04 21 */	bctrl 
+/* 8038E728 0038B688  4E 80 04 21 */	bctrl
 /* 8038E72C 0038B68C  28 03 00 00 */	cmplwi r3, 0
 /* 8038E730 0038B690  40 82 00 0C */	bne lbl_8038E73C
 /* 8038E734 0038B694  38 60 FF FF */	li r3, -1
@@ -821,7 +1359,7 @@ lbl_8038E750:
 /* 8038E75C 0038B6BC  38 81 00 08 */	addi r4, r1, 8
 /* 8038E760 0038B6C0  38 A0 00 01 */	li r5, 1
 /* 8038E764 0038B6C4  7D 89 03 A6 */	mtctr r12
-/* 8038E768 0038B6C8  4E 80 04 21 */	bctrl 
+/* 8038E768 0038B6C8  4E 80 04 21 */	bctrl
 /* 8038E76C 0038B6CC  28 03 00 00 */	cmplwi r3, 0
 /* 8038E770 0038B6D0  40 82 00 0C */	bne lbl_8038E77C
 /* 8038E774 0038B6D4  38 60 FF FF */	li r3, -1
@@ -845,7 +1383,7 @@ lbl_8038E7A0:
 /* 8038E7A4 0038B704  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 8038E7A8 0038B708  7C 08 03 A6 */	mtlr r0
 /* 8038E7AC 0038B70C  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 8038E7B0 0038B710  4E 80 00 20 */	blr 
+/* 8038E7B0 0038B710  4E 80 00 20 */	blr
 
 .global float2str
 float2str:
@@ -1360,7 +1898,7 @@ lbl_8038EE7C:
 /* 8038EE90 0038BDF0  83 81 00 38 */	lwz r28, 0x38(r1)
 /* 8038EE94 0038BDF4  7C 08 03 A6 */	mtlr r0
 /* 8038EE98 0038BDF8  38 21 00 50 */	addi r1, r1, 0x50
-/* 8038EE9C 0038BDFC  4E 80 00 20 */	blr 
+/* 8038EE9C 0038BDFC  4E 80 00 20 */	blr
 
 .global round_decimal
 round_decimal:
@@ -1373,11 +1911,11 @@ lbl_8038EEA8:
 /* 8038EEB4 0038BE14  38 00 00 30 */	li r0, 0x30
 /* 8038EEB8 0038BE18  98 83 00 04 */	stb r4, 4(r3)
 /* 8038EEBC 0038BE1C  98 03 00 05 */	stb r0, 5(r3)
-/* 8038EEC0 0038BE20  4E 80 00 20 */	blr 
+/* 8038EEC0 0038BE20  4E 80 00 20 */	blr
 lbl_8038EEC4:
 /* 8038EEC4 0038BE24  88 E3 00 04 */	lbz r7, 4(r3)
 /* 8038EEC8 0038BE28  7C 04 38 00 */	cmpw r4, r7
-/* 8038EECC 0038BE2C  4C 80 00 20 */	bgelr 
+/* 8038EECC 0038BE2C  4C 80 00 20 */	bgelr
 /* 8038EED0 0038BE30  7C C3 22 14 */	add r6, r3, r4
 /* 8038EED4 0038BE34  88 A6 00 05 */	lbz r5, 5(r6)
 /* 8038EED8 0038BE38  39 06 00 05 */	addi r8, r6, 5
@@ -1446,12 +1984,12 @@ lbl_8038EF94:
 /* 8038EFAC 0038BF0C  B0 A3 00 02 */	sth r5, 2(r3)
 /* 8038EFB0 0038BF10  98 83 00 04 */	stb r4, 4(r3)
 /* 8038EFB4 0038BF14  98 03 00 05 */	stb r0, 5(r3)
-/* 8038EFB8 0038BF18  4E 80 00 20 */	blr 
+/* 8038EFB8 0038BF18  4E 80 00 20 */	blr
 lbl_8038EFBC:
 /* 8038EFBC 0038BF1C  2C 04 00 00 */	cmpwi r4, 0
 /* 8038EFC0 0038BF20  41 82 FE E8 */	beq lbl_8038EEA8
 /* 8038EFC4 0038BF24  98 83 00 04 */	stb r4, 4(r3)
-/* 8038EFC8 0038BF28  4E 80 00 20 */	blr 
+/* 8038EFC8 0038BF28  4E 80 00 20 */	blr
 
 .global double2hex
 double2hex:
@@ -1687,7 +2225,7 @@ lbl_8038F2EC:
 /* 8038F2F4 0038C254  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8038F2F8 0038C258  7C 08 03 A6 */	mtlr r0
 /* 8038F2FC 0038C25C  38 21 00 80 */	addi r1, r1, 0x80
-/* 8038F300 0038C260  4E 80 00 20 */	blr 
+/* 8038F300 0038C260  4E 80 00 20 */	blr
 
 .global longlong2str
 longlong2str:
@@ -1730,7 +2268,7 @@ lbl_8038F374:
 /* 8038F38C 0038C2EC  38 A5 2D 58 */	addi r5, r5, lbl_803F2D58@l
 /* 8038F390 0038C2F0  7C 05 00 2E */	lwzx r0, r5, r0
 /* 8038F394 0038C2F4  7C 09 03 A6 */	mtctr r0
-/* 8038F398 0038C2F8  4E 80 04 20 */	bctr 
+/* 8038F398 0038C2F8  4E 80 04 20 */	bctr
 /* 8038F39C 0038C2FC  38 00 00 00 */	li r0, 0
 /* 8038F3A0 0038C300  6C 65 80 00 */	xoris r5, r3, 0x8000
 /* 8038F3A4 0038C304  6C 03 80 00 */	xoris r3, r0, 0x8000
@@ -1891,7 +2429,7 @@ lbl_8038F5CC:
 /* 8038F5D0 0038C530  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8038F5D4 0038C534  7C 08 03 A6 */	mtlr r0
 /* 8038F5D8 0038C538  38 21 00 30 */	addi r1, r1, 0x30
-/* 8038F5DC 0038C53C  4E 80 00 20 */	blr 
+/* 8038F5DC 0038C53C  4E 80 00 20 */	blr
 
 .global long2str
 long2str:
@@ -1913,7 +2451,7 @@ long2str:
 /* 8038F61C 0038C57C  41 82 00 0C */	beq lbl_8038F628
 lbl_8038F620:
 /* 8038F620 0038C580  7C C3 33 78 */	mr r3, r6
-/* 8038F624 0038C584  4E 80 00 20 */	blr 
+/* 8038F624 0038C584  4E 80 00 20 */	blr
 lbl_8038F628:
 /* 8038F628 0038C588  89 25 00 05 */	lbz r9, 5(r5)
 /* 8038F62C 0038C58C  39 49 FF A8 */	addi r10, r9, -88
@@ -1924,7 +2462,7 @@ lbl_8038F628:
 /* 8038F640 0038C5A0  39 29 2D DC */	addi r9, r9, lbl_803F2DDC@l
 /* 8038F644 0038C5A4  7D 29 50 2E */	lwzx r9, r9, r10
 /* 8038F648 0038C5A8  7D 29 03 A6 */	mtctr r9
-/* 8038F64C 0038C5AC  4E 80 04 20 */	bctr 
+/* 8038F64C 0038C5AC  4E 80 04 20 */	bctr
 /* 8038F650 0038C5B0  2C 03 00 00 */	cmpwi r3, 0
 /* 8038F654 0038C5B4  38 00 00 0A */	li r0, 0xa
 /* 8038F658 0038C5B8  40 80 00 3C */	bge lbl_8038F694
@@ -2007,7 +2545,7 @@ lbl_8038F760:
 /* 8038F76C 0038C6CC  2C 03 01 FD */	cmpwi r3, 0x1fd
 /* 8038F770 0038C6D0  40 81 00 0C */	ble lbl_8038F77C
 /* 8038F774 0038C6D4  38 60 00 00 */	li r3, 0
-/* 8038F778 0038C6D8  4E 80 00 20 */	blr 
+/* 8038F778 0038C6D8  4E 80 00 20 */	blr
 lbl_8038F77C:
 /* 8038F77C 0038C6DC  38 80 00 30 */	li r4, 0x30
 /* 8038F780 0038C6E0  48 00 00 0C */	b lbl_8038F78C
@@ -2047,7 +2585,7 @@ lbl_8038F7E8:
 /* 8038F7F4 0038C754  9C 06 FF FF */	stbu r0, -1(r6)
 lbl_8038F7F8:
 /* 8038F7F8 0038C758  7C C3 33 78 */	mr r3, r6
-/* 8038F7FC 0038C75C  4E 80 00 20 */	blr 
+/* 8038F7FC 0038C75C  4E 80 00 20 */	blr
 
 .global parse_format
 parse_format:
@@ -2092,7 +2630,7 @@ lbl_8038F87C:
 /* 8038F894 0038C7F4  38 63 2F 40 */	addi r3, r3, lbl_803F2F40@l
 /* 8038F898 0038C7F8  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8038F89C 0038C7FC  7C 09 03 A6 */	mtctr r0
-/* 8038F8A0 0038C800  4E 80 04 20 */	bctr 
+/* 8038F8A0 0038C800  4E 80 04 20 */	bctr
 /* 8038F8A4 0038C804  38 00 00 00 */	li r0, 0
 /* 8038F8A8 0038C808  98 01 00 08 */	stb r0, 8(r1)
 /* 8038F8AC 0038C80C  48 00 00 50 */	b lbl_8038F8FC
@@ -2267,7 +2805,7 @@ lbl_8038FAE4:
 /* 8038FAFC 0038CA5C  38 63 2E 60 */	addi r3, r3, lbl_803F2E60@l
 /* 8038FB00 0038CA60  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8038FB04 0038CA64  7C 09 03 A6 */	mtctr r0
-/* 8038FB08 0038CA68  4E 80 04 20 */	bctr 
+/* 8038FB08 0038CA68  4E 80 04 20 */	bctr
 /* 8038FB0C 0038CA6C  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 8038FB10 0038CA70  28 00 00 05 */	cmplwi r0, 5
 /* 8038FB14 0038CA74  40 82 00 10 */	bne lbl_8038FB24
@@ -2408,4 +2946,4 @@ lbl_8038FCE8:
 /* 8038FCF4 0038CC54  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8038FCF8 0038CC58  7C 08 03 A6 */	mtlr r0
 /* 8038FCFC 0038CC5C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8038FD00 0038CC60  4E 80 00 20 */	blr 
+/* 8038FD00 0038CC60  4E 80 00 20 */	blr

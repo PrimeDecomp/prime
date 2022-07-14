@@ -62,7 +62,7 @@ lbl_805A7D70:
 	# ROM: 0x3F5710
 	.4byte 0
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global SetDeferPowerupInit__10CGameStateFb
@@ -70,26 +70,26 @@ SetDeferPowerupInit__10CGameStateFb:
 /* 801D389C 001D07FC  88 03 02 28 */	lbz r0, 0x228(r3)
 /* 801D38A0 001D0800  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 801D38A4 001D0804  98 03 02 28 */	stb r0, 0x228(r3)
-/* 801D38A8 001D0808  4E 80 00 20 */	blr 
+/* 801D38A8 001D0808  4E 80 00 20 */	blr
 
 .global GetHardModeWeaponMultiplier__10CGameStateCFv
 GetHardModeWeaponMultiplier__10CGameStateCFv:
 /* 801D38AC 001D080C  80 6D A1 20 */	lwz r3, gpTweakGame@sda21(r13)
 /* 801D38B0 001D0810  C0 23 00 64 */	lfs f1, 0x64(r3)
-/* 801D38B4 001D0814  4E 80 00 20 */	blr 
+/* 801D38B4 001D0814  4E 80 00 20 */	blr
 
 .global GetHardModeDamageMultiplier__10CGameStateCFv
 GetHardModeDamageMultiplier__10CGameStateCFv:
 /* 801D38B8 001D0818  80 6D A1 20 */	lwz r3, gpTweakGame@sda21(r13)
 /* 801D38BC 001D081C  C0 23 00 60 */	lfs f1, 0x60(r3)
-/* 801D38C0 001D0820  4E 80 00 20 */	blr 
+/* 801D38C0 001D0820  4E 80 00 20 */	blr
 
 .global SetHardMode__10CGameStateFb
 SetHardMode__10CGameStateFb:
 /* 801D38C4 001D0824  88 03 02 28 */	lbz r0, 0x228(r3)
 /* 801D38C8 001D0828  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 801D38CC 001D082C  98 03 02 28 */	stb r0, 0x228(r3)
-/* 801D38D0 001D0830  4E 80 00 20 */	blr 
+/* 801D38D0 001D0830  4E 80 00 20 */	blr
 
 .global SetTotalPlayTime__10CGameStateFd
 SetTotalPlayTime__10CGameStateFd:
@@ -109,12 +109,12 @@ SetTotalPlayTime__10CGameStateFd:
 /* 801D3908 001D0868  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801D390C 001D086C  7C 08 03 A6 */	mtlr r0
 /* 801D3910 001D0870  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D3914 001D0874  4E 80 00 20 */	blr 
+/* 801D3914 001D0874  4E 80 00 20 */	blr
 
 .global WorldTransitionManager__10CGameStateFv
 WorldTransitionManager__10CGameStateFv:
 /* 801D3918 001D0878  38 63 00 9C */	addi r3, r3, 0x9c
-/* 801D391C 001D087C  4E 80 00 20 */	blr 
+/* 801D391C 001D087C  4E 80 00 20 */	blr
 
 .global GetPlayerState__10CGameStateCFv
 GetPlayerState__10CGameStateCFv:
@@ -124,12 +124,12 @@ GetPlayerState__10CGameStateCFv:
 /* 801D392C 001D088C  80 64 00 04 */	lwz r3, 4(r4)
 /* 801D3930 001D0890  38 03 00 01 */	addi r0, r3, 1
 /* 801D3934 001D0894  90 04 00 04 */	stw r0, 4(r4)
-/* 801D3938 001D0898  4E 80 00 20 */	blr 
+/* 801D3938 001D0898  4E 80 00 20 */	blr
 
 .global PlayerState__10CGameStateFv
 PlayerState__10CGameStateFv:
 /* 801D393C 001D089C  38 63 00 98 */	addi r3, r3, 0x98
-/* 801D3940 001D08A0  4E 80 00 20 */	blr 
+/* 801D3940 001D08A0  4E 80 00 20 */	blr
 
 .global SetCurrentWorldId__10CGameStateFUi
 SetCurrentWorldId__10CGameStateFUi:
@@ -149,7 +149,7 @@ SetCurrentWorldId__10CGameStateFUi:
 /* 801D3978 001D08D8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D397C 001D08DC  7C 08 03 A6 */	mtlr r0
 /* 801D3980 001D08E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D3984 001D08E4  4E 80 00 20 */	blr 
+/* 801D3984 001D08E4  4E 80 00 20 */	blr
 
 .global GetCurrentWorldState__10CGameStateCFv
 GetCurrentWorldState__10CGameStateCFv:
@@ -161,7 +161,7 @@ GetCurrentWorldState__10CGameStateCFv:
 /* 801D399C 001D08FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D39A0 001D0900  7C 08 03 A6 */	mtlr r0
 /* 801D39A4 001D0904  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D39A8 001D0908  4E 80 00 20 */	blr 
+/* 801D39A8 001D0908  4E 80 00 20 */	blr
 
 .global CurrentWorldState__10CGameStateFv
 CurrentWorldState__10CGameStateFv:
@@ -173,12 +173,12 @@ CurrentWorldState__10CGameStateFv:
 /* 801D39C0 001D0920  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D39C4 001D0924  7C 08 03 A6 */	mtlr r0
 /* 801D39C8 001D0928  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D39CC 001D092C  4E 80 00 20 */	blr 
+/* 801D39CC 001D092C  4E 80 00 20 */	blr
 
 .global CurrentWorldAssetId__10CGameStateCFv
 CurrentWorldAssetId__10CGameStateCFv:
 /* 801D39D0 001D0930  80 63 00 84 */	lwz r3, 0x84(r3)
-/* 801D39D4 001D0934  4E 80 00 20 */	blr 
+/* 801D39D4 001D0934  4E 80 00 20 */	blr
 
 .global StateForWorld__10CGameStateFUi
 StateForWorld__10CGameStateFUi:
@@ -254,7 +254,7 @@ lbl_801D3AC0:
 /* 801D3ACC 001D0A2C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D3AD0 001D0A30  7C 08 03 A6 */	mtlr r0
 /* 801D3AD4 001D0A34  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D3AD8 001D0A38  4E 80 00 20 */	blr 
+/* 801D3AD8 001D0A38  4E 80 00 20 */	blr
 
 .global __ct__11CWorldStateFRC11CWorldState
 __ct__11CWorldStateFRC11CWorldState:
@@ -314,7 +314,7 @@ lbl_801D3B90:
 /* 801D3BA4 001D0B04  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D3BA8 001D0B08  7C 08 03 A6 */	mtlr r0
 /* 801D3BAC 001D0B0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D3BB0 001D0B10  4E 80 00 20 */	blr 
+/* 801D3BB0 001D0B10  4E 80 00 20 */	blr
 
 .global WriteBackupBuf__10CGameStateFv
 WriteBackupBuf__10CGameStateFv:
@@ -343,7 +343,7 @@ WriteBackupBuf__10CGameStateFv:
 /* 801D3C0C 001D0B6C  83 E1 00 9C */	lwz r31, 0x9c(r1)
 /* 801D3C10 001D0B70  7C 08 03 A6 */	mtlr r0
 /* 801D3C14 001D0B74  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801D3C18 001D0B78  4E 80 00 20 */	blr 
+/* 801D3C18 001D0B78  4E 80 00 20 */	blr
 
 .global "resize__Q24rstl37vector<Uc,Q24rstl17rmemory_allocator>FiRCUc"
 "resize__Q24rstl37vector<Uc,Q24rstl17rmemory_allocator>FiRCUc":
@@ -412,7 +412,7 @@ lbl_801D3CE0:
 /* 801D3CF8 001D0C58  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801D3CFC 001D0C5C  7C 08 03 A6 */	mtlr r0
 /* 801D3D00 001D0C60  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D3D04 001D0C64  4E 80 00 20 */	blr 
+/* 801D3D04 001D0C64  4E 80 00 20 */	blr
 
 .global ExportPersistentOptions__10CGameStateFRC14CSystemOptions
 ExportPersistentOptions__10CGameStateFRC14CSystemOptions:
@@ -546,7 +546,7 @@ lbl_801D3EB4:
 /* 801D3EBC 001D0E1C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D3EC0 001D0E20  7C 08 03 A6 */	mtlr r0
 /* 801D3EC4 001D0E24  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D3EC8 001D0E28  4E 80 00 20 */	blr 
+/* 801D3EC8 001D0E28  4E 80 00 20 */	blr
 
 .global ImportPersistentOptions__10CGameStateFRC14CSystemOptions
 ImportPersistentOptions__10CGameStateFRC14CSystemOptions:
@@ -643,7 +643,7 @@ lbl_801D3FC0:
 /* 801D400C 001D0F6C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D4010 001D0F70  7C 08 03 A6 */	mtlr r0
 /* 801D4014 001D0F74  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D4018 001D0F78  4E 80 00 20 */	blr 
+/* 801D4018 001D0F78  4E 80 00 20 */	blr
 
 .global sub_801d401c
 sub_801d401c:
@@ -655,7 +655,7 @@ sub_801d401c:
 /* 801D4030 001D0F90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D4034 001D0F94  7C 08 03 A6 */	mtlr r0
 /* 801D4038 001D0F98  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D403C 001D0F9C  4E 80 00 20 */	blr 
+/* 801D403C 001D0F9C  4E 80 00 20 */	blr
 
 .global ReadSystemOptions__10CGameStateFR12CInputStream
 ReadSystemOptions__10CGameStateFR12CInputStream:
@@ -676,7 +676,7 @@ ReadSystemOptions__10CGameStateFR12CInputStream:
 /* 801D4078 001D0FD8  83 E1 00 EC */	lwz r31, 0xec(r1)
 /* 801D407C 001D0FDC  7C 08 03 A6 */	mtlr r0
 /* 801D4080 001D0FE0  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801D4084 001D0FE4  4E 80 00 20 */	blr 
+/* 801D4084 001D0FE4  4E 80 00 20 */	blr
 
 .global PutTo__10CGameStateFR16CMemoryStreamOut
 PutTo__10CGameStateFR16CMemoryStreamOut:
@@ -765,7 +765,7 @@ lbl_801D41A8:
 /* 801D41C4 001D1124  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D41C8 001D1128  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D41CC 001D112C  7D 89 03 A6 */	mtctr r12
-/* 801D41D0 001D1130  4E 80 04 21 */	bctrl 
+/* 801D41D0 001D1130  4E 80 04 21 */	bctrl
 /* 801D41D4 001D1134  7F 03 C3 78 */	mr r3, r24
 /* 801D41D8 001D1138  38 81 00 08 */	addi r4, r1, 8
 /* 801D41DC 001D113C  48 16 CC CD */	bl __ct__6CTokenFRC6CToken
@@ -798,7 +798,7 @@ lbl_801D4228:
 /* 801D4244 001D11A4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801D4248 001D11A8  7C 08 03 A6 */	mtlr r0
 /* 801D424C 001D11AC  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D4250 001D11B0  4E 80 00 20 */	blr 
+/* 801D4250 001D11B0  4E 80 00 20 */	blr
 
 .global LoadGameFileState__10CGameStateFPCv
 LoadGameFileState__10CGameStateFPCv:
@@ -929,7 +929,7 @@ lbl_801D43D4:
 /* 801D4430 001D1390  83 A1 02 14 */	lwz r29, 0x214(r1)
 /* 801D4434 001D1394  7C 08 03 A6 */	mtlr r0
 /* 801D4438 001D1398  38 21 02 20 */	addi r1, r1, 0x220
-/* 801D443C 001D139C  4E 80 00 20 */	blr 
+/* 801D443C 001D139C  4E 80 00 20 */	blr
 
 .global InitializeMemoryWorlds__10CGameStateFv
 InitializeMemoryWorlds__10CGameStateFv:
@@ -988,7 +988,7 @@ lbl_801D44E4:
 /* 801D4508 001D1468  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D450C 001D146C  7C 08 03 A6 */	mtlr r0
 /* 801D4510 001D1470  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D4514 001D1474  4E 80 00 20 */	blr 
+/* 801D4514 001D1474  4E 80 00 20 */	blr
 
 .global InitializeMemoryStates__10CGameStateFv
 InitializeMemoryStates__10CGameStateFv:
@@ -1010,7 +1010,7 @@ InitializeMemoryStates__10CGameStateFv:
 /* 801D4554 001D14B4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D4558 001D14B8  7C 08 03 A6 */	mtlr r0
 /* 801D455C 001D14BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D4560 001D14C0  4E 80 00 20 */	blr 
+/* 801D4560 001D14C0  4E 80 00 20 */	blr
 
 .global __ct__10CGameStateFR12CInputStreami
 __ct__10CGameStateFR12CInputStreami:
@@ -1271,7 +1271,7 @@ lbl_801D48F0:
 /* 801D490C 001D186C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D4910 001D1870  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D4914 001D1874  7D 89 03 A6 */	mtctr r12
-/* 801D4918 001D1878  4E 80 04 21 */	bctrl 
+/* 801D4918 001D1878  4E 80 04 21 */	bctrl
 /* 801D491C 001D187C  7E C3 B3 78 */	mr r3, r22
 /* 801D4920 001D1880  38 81 00 18 */	addi r4, r1, 0x18
 /* 801D4924 001D1884  48 16 C5 85 */	bl __ct__6CTokenFRC6CToken
@@ -1328,7 +1328,7 @@ lbl_801D49B0:
 /* 801D49E0 001D1940  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 801D49E4 001D1944  7C 08 03 A6 */	mtlr r0
 /* 801D49E8 001D1948  38 21 01 10 */	addi r1, r1, 0x110
-/* 801D49EC 001D194C  4E 80 00 20 */	blr 
+/* 801D49EC 001D194C  4E 80 00 20 */	blr
 
 .global __ct__12CHintOptionsFR12CHintOptions
 __ct__12CHintOptionsFR12CHintOptions:
@@ -1348,7 +1348,7 @@ __ct__12CHintOptionsFR12CHintOptions:
 /* 801D4A24 001D1984  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D4A28 001D1988  7C 08 03 A6 */	mtlr r0
 /* 801D4A2C 001D198C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D4A30 001D1990  4E 80 00 20 */	blr 
+/* 801D4A30 001D1990  4E 80 00 20 */	blr
 
 .global sub_801d4a34
 sub_801d4a34:
@@ -1426,7 +1426,7 @@ lbl_801D4B20:
 /* 801D4B28 001D1A88  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801D4B2C 001D1A8C  7C 08 03 A6 */	mtlr r0
 /* 801D4B30 001D1A90  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D4B34 001D1A94  4E 80 00 20 */	blr 
+/* 801D4B34 001D1A94  4E 80 00 20 */	blr
 
 .global __ct__10CGameStateFv
 __ct__10CGameStateFv:
@@ -1571,33 +1571,33 @@ lbl_801D4D18:
 /* 801D4D28 001D1C88  7C 08 03 A6 */	mtlr r0
 /* 801D4D2C 001D1C8C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D4D30 001D1C90  4E 80 00 20 */	blr
- 
+
 .global GetLayerState__11CWorldStateFv
 GetLayerState__11CWorldStateFv:
 /* 801D4D34 001D1C94  38 63 00 14 */	addi r3, r3, 0x14
-/* 801D4D38 001D1C98  4E 80 00 20 */	blr 
+/* 801D4D38 001D1C98  4E 80 00 20 */	blr
 
 .global SetDesiredAreaAssetId__11CWorldStateFUi
 SetDesiredAreaAssetId__11CWorldStateFUi:
 /* 801D4D3C 001D1C9C  90 83 00 10 */	stw r4, 0x10(r3)
-/* 801D4D40 001D1CA0  4E 80 00 20 */	blr 
+/* 801D4D40 001D1CA0  4E 80 00 20 */	blr
 
 .global GetDesiredAreaAssetId__11CWorldStateCFv
 GetDesiredAreaAssetId__11CWorldStateCFv:
 /* 801D4D44 001D1CA4  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 801D4D48 001D1CA8  4E 80 00 20 */	blr 
+/* 801D4D48 001D1CA8  4E 80 00 20 */	blr
 
 .global SetAreaId__11CWorldStateF7TAreaId
 SetAreaId__11CWorldStateF7TAreaId:
 /* 801D4D4C 001D1CAC  80 04 00 00 */	lwz r0, 0(r4)
 /* 801D4D50 001D1CB0  90 03 00 04 */	stw r0, 4(r3)
-/* 801D4D54 001D1CB4  4E 80 00 20 */	blr 
+/* 801D4D54 001D1CB4  4E 80 00 20 */	blr
 
 .global GetCurrentArea__11CWorldStateCFv
 GetCurrentArea__11CWorldStateCFv:
 /* 801D4D58 001D1CB8  80 04 00 04 */	lwz r0, 4(r4)
 /* 801D4D5C 001D1CBC  90 03 00 00 */	stw r0, 0(r3)
-/* 801D4D60 001D1CC0  4E 80 00 20 */	blr 
+/* 801D4D60 001D1CC0  4E 80 00 20 */	blr
 
 .global GetMapWorldInfo__11CWorldStateCFv
 GetMapWorldInfo__11CWorldStateCFv:
@@ -1607,22 +1607,22 @@ GetMapWorldInfo__11CWorldStateCFv:
 /* 801D4D70 001D1CD0  80 64 00 04 */	lwz r3, 4(r4)
 /* 801D4D74 001D1CD4  38 03 00 01 */	addi r0, r3, 1
 /* 801D4D78 001D1CD8  90 04 00 04 */	stw r0, 4(r4)
-/* 801D4D7C 001D1CDC  4E 80 00 20 */	blr 
+/* 801D4D7C 001D1CDC  4E 80 00 20 */	blr
 
 .global MapWorldInfo__11CWorldStateFv
 MapWorldInfo__11CWorldStateFv:
 /* 801D4D80 001D1CE0  38 63 00 0C */	addi r3, r3, 0xc
-/* 801D4D84 001D1CE4  4E 80 00 20 */	blr 
+/* 801D4D84 001D1CE4  4E 80 00 20 */	blr
 
 .global Mailbox__11CWorldStateFv
 Mailbox__11CWorldStateFv:
 /* 801D4D88 001D1CE8  38 63 00 08 */	addi r3, r3, 8
-/* 801D4D8C 001D1CEC  4E 80 00 20 */	blr 
+/* 801D4D8C 001D1CEC  4E 80 00 20 */	blr
 
 .global GetWorldAssetId__11CWorldStateCFv
 GetWorldAssetId__11CWorldStateCFv:
 /* 801D4D90 001D1CF0  80 63 00 00 */	lwz r3, 0(r3)
-/* 801D4D94 001D1CF4  4E 80 00 20 */	blr 
+/* 801D4D94 001D1CF4  4E 80 00 20 */	blr
 
 .global PutTo__11CWorldStateFR16CMemoryStreamOut
 PutTo__11CWorldStateFR16CMemoryStreamOut:
@@ -1665,7 +1665,7 @@ PutTo__11CWorldStateFR16CMemoryStreamOut:
 /* 801D4E28 001D1D88  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801D4E2C 001D1D8C  7C 08 03 A6 */	mtlr r0
 /* 801D4E30 001D1D90  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D4E34 001D1D94  4E 80 00 20 */	blr 
+/* 801D4E34 001D1D94  4E 80 00 20 */	blr
 
 .global __ct__11CWorldStateFR12CInputStreamPCvR10CSaveWorld
 __ct__11CWorldStateFR12CInputStreamPCvR10CSaveWorld:
@@ -1819,7 +1819,7 @@ lbl_801D5048:
 /* 801D5060 001D1FC0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801D5064 001D1FC4  7C 08 03 A6 */	mtlr r0
 /* 801D5068 001D1FC8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D506C 001D1FCC  4E 80 00 20 */	blr 
+/* 801D506C 001D1FCC  4E 80 00 20 */	blr
 
 .global __ct__11CWorldStateFUi
 __ct__11CWorldStateFUi:
@@ -1907,63 +1907,63 @@ lbl_801D5188:
 /* 801D519C 001D20FC  7C 08 03 A6 */	mtlr r0
 /* 801D51A0 001D2100  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D51A4 001D2104  4E 80 00 20 */	blr
- 
+
 .global SetAutoMapperKeyState__14CSystemOptionsFi
 SetAutoMapperKeyState__14CSystemOptionsFi:
 /* 801D51A8 001D2108  90 83 00 BC */	stw r4, 0xbc(r3)
-/* 801D51AC 001D210C  4E 80 00 20 */	blr 
+/* 801D51AC 001D210C  4E 80 00 20 */	blr
 
 .global SetAllItemsCollected__14CSystemOptionsFb
 SetAllItemsCollected__14CSystemOptionsFb:
 /* 801D51B0 001D2110  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D51B4 001D2114  50 80 17 7A */	rlwimi r0, r4, 2, 0x1d, 0x1d
 /* 801D51B8 001D2118  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D51BC 001D211C  4E 80 00 20 */	blr 
+/* 801D51BC 001D211C  4E 80 00 20 */	blr
 
 .global SetHasFusion__14CSystemOptionsFb
 SetHasFusion__14CSystemOptionsFb:
 /* 801D51C0 001D2120  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D51C4 001D2124  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 801D51C8 001D2128  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D51CC 001D212C  4E 80 00 20 */	blr 
+/* 801D51CC 001D212C  4E 80 00 20 */	blr
 
 .global sub_801d51d0
 sub_801d51d0:
 /* 801D51D0 001D2130  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D51D4 001D2134  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
 /* 801D51D8 001D2138  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D51DC 001D213C  4E 80 00 20 */	blr 
+/* 801D51DC 001D213C  4E 80 00 20 */	blr
 
 .global SetHardModeBeat__14CSystemOptionsFb
 SetHardModeBeat__14CSystemOptionsFb:
 /* 801D51E0 001D2140  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D51E4 001D2144  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a
 /* 801D51E8 001D2148  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D51EC 001D214C  4E 80 00 20 */	blr 
+/* 801D51EC 001D214C  4E 80 00 20 */	blr
 
 .global SetHasHardMode__14CSystemOptionsFb
 SetHasHardMode__14CSystemOptionsFb:
 /* 801D51F0 001D2150  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D51F4 001D2154  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 801D51F8 001D2158  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D51FC 001D215C  4E 80 00 20 */	blr 
+/* 801D51FC 001D215C  4E 80 00 20 */	blr
 
 .global SetLogScanCount__14CSystemOptionsFi
 SetLogScanCount__14CSystemOptionsFi:
 /* 801D5200 001D2160  90 83 00 CC */	stw r4, 0xcc(r3)
-/* 801D5204 001D2164  4E 80 00 20 */	blr 
+/* 801D5204 001D2164  4E 80 00 20 */	blr
 
 .global GetLogScanCount__14CSystemOptionsFv
 GetLogScanCount__14CSystemOptionsFv:
 /* 801D5208 001D2168  80 63 00 CC */	lwz r3, 0xcc(r3)
-/* 801D520C 001D216C  4E 80 00 20 */	blr 
+/* 801D520C 001D216C  4E 80 00 20 */	blr
 
 .global sub_801d5210
 sub_801d5210:
 /* 801D5210 001D2170  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D5214 001D2174  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 801D5218 001D2178  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D521C 001D217C  4E 80 00 20 */	blr 
+/* 801D521C 001D217C  4E 80 00 20 */	blr
 
 .global sub_801d5220
 sub_801d5220:
@@ -1980,7 +1980,7 @@ lbl_801D5244:
 /* 801D5244 001D21A4  80 04 00 00 */	lwz r0, 0(r4)
 /* 801D5248 001D21A8  90 03 00 C8 */	stw r0, 0xc8(r3)
 /* 801D524C 001D21AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D5250 001D21B0  4E 80 00 20 */	blr 
+/* 801D5250 001D21B0  4E 80 00 20 */	blr
 
 .global sub_801d5254
 sub_801d5254:
@@ -1990,7 +1990,7 @@ sub_801d5254:
 /* 801D5260 001D21C0  7C 00 00 34 */	cntlzw r0, r0
 /* 801D5264 001D21C4  7C 60 00 30 */	slw r0, r3, r0
 /* 801D5268 001D21C8  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801D526C 001D21CC  4E 80 00 20 */	blr 
+/* 801D526C 001D21CC  4E 80 00 20 */	blr
 
 .global IncrementFrozenBallCount__14CSystemOptionsFv
 IncrementFrozenBallCount__14CSystemOptionsFv:
@@ -2007,7 +2007,7 @@ lbl_801D5294:
 /* 801D5294 001D21F4  80 04 00 00 */	lwz r0, 0(r4)
 /* 801D5298 001D21F8  90 03 00 C4 */	stw r0, 0xc4(r3)
 /* 801D529C 001D21FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D52A0 001D2200  4E 80 00 20 */	blr 
+/* 801D52A0 001D2200  4E 80 00 20 */	blr
 
 .global GetShowFrozenBallMessage__14CSystemOptionsCFv
 GetShowFrozenBallMessage__14CSystemOptionsCFv:
@@ -2017,7 +2017,7 @@ GetShowFrozenBallMessage__14CSystemOptionsCFv:
 /* 801D52B0 001D2210  7C 00 00 34 */	cntlzw r0, r0
 /* 801D52B4 001D2214  7C 60 00 30 */	slw r0, r3, r0
 /* 801D52B8 001D2218  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801D52BC 001D221C  4E 80 00 20 */	blr 
+/* 801D52BC 001D221C  4E 80 00 20 */	blr
 
 .global IncrementFrozenFpsCount__14CSystemOptionsFv
 IncrementFrozenFpsCount__14CSystemOptionsFv:
@@ -2034,7 +2034,7 @@ lbl_801D52E4:
 /* 801D52E4 001D2244  80 04 00 00 */	lwz r0, 0(r4)
 /* 801D52E8 001D2248  90 03 00 C0 */	stw r0, 0xc0(r3)
 /* 801D52EC 001D224C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D52F0 001D2250  4E 80 00 20 */	blr 
+/* 801D52F0 001D2250  4E 80 00 20 */	blr
 
 .global GetShowFrozenFpsMessage__14CSystemOptionsCFv
 GetShowFrozenFpsMessage__14CSystemOptionsCFv:
@@ -2044,7 +2044,7 @@ GetShowFrozenFpsMessage__14CSystemOptionsCFv:
 /* 801D5300 001D2260  7C 00 00 34 */	cntlzw r0, r0
 /* 801D5304 001D2264  7C 60 00 30 */	slw r0, r3, r0
 /* 801D5308 001D2268  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801D530C 001D226C  4E 80 00 20 */	blr 
+/* 801D530C 001D226C  4E 80 00 20 */	blr
 
 .global SetCinematicState__14CSystemOptionsFUi9TEditorIdb
 SetCinematicState__14CSystemOptionsFUi9TEditorIdb:
@@ -2131,7 +2131,7 @@ lbl_801D5428:
 /* 801D5430 001D2390  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801D5434 001D2394  7C 08 03 A6 */	mtlr r0
 /* 801D5438 001D2398  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D543C 001D239C  4E 80 00 20 */	blr 
+/* 801D543C 001D239C  4E 80 00 20 */	blr
 
 .global sub_801d5440
 sub_801d5440:
@@ -2153,7 +2153,7 @@ sub_801d5440:
 /* 801D547C 001D23DC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801D5480 001D23E0  7C 08 03 A6 */	mtlr r0
 /* 801D5484 001D23E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D5488 001D23E8  4E 80 00 20 */	blr 
+/* 801D5488 001D23E8  4E 80 00 20 */	blr
 
 .global sub_801d548c
 sub_801d548c:
@@ -2200,7 +2200,7 @@ lbl_801D54FC:
 /* 801D5518 001D2478  80 05 00 00 */	lwz r0, 0(r5)
 /* 801D551C 001D247C  90 03 00 00 */	stw r0, 0(r3)
 /* 801D5520 001D2480  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D5524 001D2484  4E 80 00 20 */	blr 
+/* 801D5524 001D2484  4E 80 00 20 */	blr
 
 .global "GetCinematicState__14CSystemOptionsFRCQ24rstl19pair<Ui,9TEditorId>"
 "GetCinematicState__14CSystemOptionsFRCQ24rstl19pair<Ui,9TEditorId>":
@@ -2226,14 +2226,14 @@ lbl_801D556C:
 /* 801D556C 001D24CC  54 A0 06 3F */	clrlwi. r0, r5, 0x18
 /* 801D5570 001D24D0  41 82 00 0C */	beq lbl_801D557C
 /* 801D5574 001D24D4  38 60 00 01 */	li r3, 1
-/* 801D5578 001D24D8  4E 80 00 20 */	blr 
+/* 801D5578 001D24D8  4E 80 00 20 */	blr
 lbl_801D557C:
 /* 801D557C 001D24DC  38 E7 00 08 */	addi r7, r7, 8
 lbl_801D5580:
 /* 801D5580 001D24E0  7C 07 30 40 */	cmplw r7, r6
 /* 801D5584 001D24E4  40 82 FF B8 */	bne lbl_801D553C
 /* 801D5588 001D24E8  38 60 00 00 */	li r3, 0
-/* 801D558C 001D24EC  4E 80 00 20 */	blr 
+/* 801D558C 001D24EC  4E 80 00 20 */	blr
 
 .global PutTo__14CSystemOptionsFR13COutputStream
 PutTo__14CSystemOptionsFR13COutputStream:
@@ -2349,7 +2349,7 @@ lbl_801D5720:
 /* 801D5738 001D2698  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D573C 001D269C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D5740 001D26A0  7D 89 03 A6 */	mtctr r12
-/* 801D5744 001D26A4  4E 80 04 21 */	bctrl 
+/* 801D5744 001D26A4  4E 80 04 21 */	bctrl
 /* 801D5748 001D26A8  7F 03 C3 78 */	mr r3, r24
 /* 801D574C 001D26AC  38 81 00 38 */	addi r4, r1, 0x38
 /* 801D5750 001D26B0  48 16 B7 59 */	bl __ct__6CTokenFRC6CToken
@@ -2397,7 +2397,7 @@ lbl_801D57D4:
 /* 801D57F0 001D2750  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D57F4 001D2754  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D57F8 001D2758  7D 89 03 A6 */	mtctr r12
-/* 801D57FC 001D275C  4E 80 04 21 */	bctrl 
+/* 801D57FC 001D275C  4E 80 04 21 */	bctrl
 /* 801D5800 001D2760  7E A3 AB 78 */	mr r3, r21
 /* 801D5804 001D2764  38 81 00 28 */	addi r4, r1, 0x28
 /* 801D5808 001D2768  48 16 B6 A1 */	bl __ct__6CTokenFRC6CToken
@@ -2498,7 +2498,7 @@ lbl_801D5954:
 /* 801D5958 001D28B8  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801D595C 001D28BC  7C 08 03 A6 */	mtlr r0
 /* 801D5960 001D28C0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801D5964 001D28C4  4E 80 00 20 */	blr 
+/* 801D5964 001D28C4  4E 80 00 20 */	blr
 
 .global __ct__14CSystemOptionsFRC12CInputStream
 __ct__14CSystemOptionsFRC12CInputStream:
@@ -2740,7 +2740,7 @@ lbl_801D5CAC:
 /* 801D5CC4 001D2C24  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D5CC8 001D2C28  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D5CCC 001D2C2C  7D 89 03 A6 */	mtctr r12
-/* 801D5CD0 001D2C30  4E 80 04 21 */	bctrl 
+/* 801D5CD0 001D2C30  4E 80 04 21 */	bctrl
 /* 801D5CD4 001D2C34  7E C3 B3 78 */	mr r3, r22
 /* 801D5CD8 001D2C38  38 81 00 38 */	addi r4, r1, 0x38
 /* 801D5CDC 001D2C3C  48 16 B1 CD */	bl __ct__6CTokenFRC6CToken
@@ -2826,7 +2826,7 @@ lbl_801D5DDC:
 /* 801D5DF8 001D2D58  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D5DFC 001D2D5C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D5E00 001D2D60  7D 89 03 A6 */	mtctr r12
-/* 801D5E04 001D2D64  4E 80 04 21 */	bctrl 
+/* 801D5E04 001D2D64  4E 80 04 21 */	bctrl
 /* 801D5E08 001D2D68  7F A3 EB 78 */	mr r3, r29
 /* 801D5E0C 001D2D6C  38 81 00 28 */	addi r4, r1, 0x28
 /* 801D5E10 001D2D70  48 16 B0 99 */	bl __ct__6CTokenFRC6CToken
@@ -2897,7 +2897,7 @@ lbl_801D5EF0:
 /* 801D5EF8 001D2E58  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801D5EFC 001D2E5C  7C 08 03 A6 */	mtlr r0
 /* 801D5F00 001D2E60  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801D5F04 001D2E64  4E 80 00 20 */	blr 
+/* 801D5F04 001D2E64  4E 80 00 20 */	blr
 
 .global __ct__14CSystemOptionsFv
 __ct__14CSystemOptionsFv:
@@ -3023,7 +3023,7 @@ lbl_801D6034:
 /* 801D60A0 001D3000  88 03 00 D0 */	lbz r0, 0xd0(r3)
 /* 801D60A4 001D3004  50 80 17 7A */	rlwimi r0, r4, 2, 0x1d, 0x1d
 /* 801D60A8 001D3008  98 03 00 D0 */	stb r0, 0xd0(r3)
-/* 801D60AC 001D300C  4E 80 00 20 */	blr 
+/* 801D60AC 001D300C  4E 80 00 20 */	blr
 
 .global sub_801d60b0
 sub_801d60b0:
@@ -3044,15 +3044,15 @@ lbl_801D60C0:
 /* 801D60D0 001D3030  C8 03 00 00 */	lfd f0, 0(r3)
 /* 801D60D4 001D3034  C8 24 00 00 */	lfd f1, 0(r4)
 /* 801D60D8 001D3038  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 801D60DC 001D303C  4D 81 00 20 */	bgtlr 
+/* 801D60DC 001D303C  4D 81 00 20 */	bgtlr
 /* 801D60E0 001D3040  C8 05 00 00 */	lfd f0, 0(r5)
 /* 801D60E4 001D3044  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 801D60E8 001D3048  40 80 00 0C */	bge lbl_801D60F4
 /* 801D60EC 001D304C  7C A3 2B 78 */	mr r3, r5
-/* 801D60F0 001D3050  4E 80 00 20 */	blr 
+/* 801D60F0 001D3050  4E 80 00 20 */	blr
 lbl_801D60F4:
 /* 801D60F4 001D3054  7C 83 23 78 */	mr r3, r4
-/* 801D60F8 001D3058  4E 80 00 20 */	blr 
+/* 801D60F8 001D3058  4E 80 00 20 */	blr
 
 .global sub_801d60fc
 sub_801d60fc:
@@ -3128,7 +3128,7 @@ lbl_801D61E0:
 /* 801D61EC 001D314C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D61F0 001D3150  7C 08 03 A6 */	mtlr r0
 /* 801D61F4 001D3154  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D61F8 001D3158  4E 80 00 20 */	blr 
+/* 801D61F8 001D3158  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl37vector<Uc,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl37vector<Uc,Q24rstl17rmemory_allocator>Fi":
@@ -3199,7 +3199,7 @@ lbl_801D62CC:
 /* 801D62D8 001D3238  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D62DC 001D323C  7C 08 03 A6 */	mtlr r0
 /* 801D62E0 001D3240  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D62E4 001D3244  4E 80 00 20 */	blr 
+/* 801D62E4 001D3244  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl48vector<11CWorldState,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl48vector<11CWorldState,Q24rstl17rmemory_allocator>Fi":
@@ -3323,4 +3323,4 @@ lbl_801D647C:
 /* 801D6480 001D33E0  7C 07 00 40 */	cmplw r7, r0
 /* 801D6484 001D33E4  40 82 FF 88 */	bne lbl_801D640C
 /* 801D6488 001D33E8  7C A3 2B 78 */	mr r3, r5
-/* 801D648C 001D33EC  4E 80 00 20 */	blr 
+/* 801D648C 001D33EC  4E 80 00 20 */	blr

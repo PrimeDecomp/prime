@@ -162,12 +162,12 @@ lbl_805A90EC:
 .global HealthInfo__16CGrenadeLauncherFR13CStateManager
 HealthInfo__16CGrenadeLauncherFR13CStateManager:
 /* 8022F68C 0022C5EC  38 63 02 5C */	addi r3, r3, 0x25c
-/* 8022F690 0022C5F0  4E 80 00 20 */	blr 
+/* 8022F690 0022C5F0  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__16CGrenadeLauncherCFv
 GetDamageVulnerability__16CGrenadeLauncherCFv:
 /* 8022F694 0022C5F4  38 63 02 64 */	addi r3, r3, 0x264
-/* 8022F698 0022C5F8  4E 80 00 20 */	blr 
+/* 8022F698 0022C5F8  4E 80 00 20 */	blr
 
 .global sub_8022f69c
 sub_8022f69c:
@@ -225,7 +225,7 @@ lbl_8022F758:
 /* 8022F760 0022C6C0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8022F764 0022C6C4  7C 08 03 A6 */	mtlr r0
 /* 8022F768 0022C6C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8022F76C 0022C6CC  4E 80 00 20 */	blr 
+/* 8022F76C 0022C6CC  4E 80 00 20 */	blr
 
 .global sub_8022f770
 sub_8022f770:
@@ -341,7 +341,7 @@ lbl_8022F908:
 /* 8022F90C 0022C86C  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8022F910 0022C870  7C 08 03 A6 */	mtlr r0
 /* 8022F914 0022C874  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8022F918 0022C878  4E 80 00 20 */	blr 
+/* 8022F918 0022C878  4E 80 00 20 */	blr
 
 .global sub_8022f91c
 sub_8022f91c:
@@ -394,7 +394,7 @@ lbl_8022F9C8:
 /* 8022F9D0 0022C930  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8022F9D4 0022C934  7C 08 03 A6 */	mtlr r0
 /* 8022F9D8 0022C938  38 21 00 20 */	addi r1, r1, 0x20
-/* 8022F9DC 0022C93C  4E 80 00 20 */	blr 
+/* 8022F9DC 0022C93C  4E 80 00 20 */	blr
 
 .global sub_8022f9e0
 sub_8022f9e0:
@@ -435,7 +435,7 @@ lbl_8022FA38:
 /* 8022FA64 0022C9C4  81 84 00 00 */	lwz r12, 0(r4)
 /* 8022FA68 0022C9C8  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8022FA6C 0022C9CC  7D 89 03 A6 */	mtctr r12
-/* 8022FA70 0022C9D0  4E 80 04 21 */	bctrl 
+/* 8022FA70 0022C9D0  4E 80 04 21 */	bctrl
 /* 8022FA74 0022C9D4  C0 9F 00 60 */	lfs f4, 0x60(r31)
 /* 8022FA78 0022C9D8  38 9F 00 34 */	addi r4, r31, 0x34
 /* 8022FA7C 0022C9DC  C0 3F 00 60 */	lfs f1, 0x60(r31)
@@ -715,7 +715,7 @@ lbl_8022FE58:
 /* 8022FE78 0022CDD8  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 8022FE7C 0022CDDC  7C 08 03 A6 */	mtlr r0
 /* 8022FE80 0022CDE0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8022FE84 0022CDE4  4E 80 00 20 */	blr 
+/* 8022FE84 0022CDE4  4E 80 00 20 */	blr
 
 .global sub_8022fe88
 sub_8022fe88:
@@ -755,7 +755,7 @@ sub_8022fe88:
 /* 8022FF0C 0022CE6C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8022FF10 0022CE70  7C 08 03 A6 */	mtlr r0
 /* 8022FF14 0022CE74  38 21 00 90 */	addi r1, r1, 0x90
-/* 8022FF18 0022CE78  4E 80 00 20 */	blr 
+/* 8022FF18 0022CE78  4E 80 00 20 */	blr
 
 .global sub_8022ff1c
 sub_8022ff1c:
@@ -1101,7 +1101,7 @@ lbl_80230424:
 /* 80230428 0022D388  80 01 02 E4 */	lwz r0, 0x2e4(r1)
 /* 8023042C 0022D38C  7C 08 03 A6 */	mtlr r0
 /* 80230430 0022D390  38 21 02 E0 */	addi r1, r1, 0x2e0
-/* 80230434 0022D394  4E 80 00 20 */	blr 
+/* 80230434 0022D394  4E 80 00 20 */	blr
 
 .global sub_80230438
 sub_80230438:
@@ -1227,7 +1227,7 @@ lbl_802305F4:
 /* 802305F8 0022D558  83 E1 00 CC */	lwz r31, 0xcc(r1)
 /* 802305FC 0022D55C  7C 08 03 A6 */	mtlr r0
 /* 80230600 0022D560  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80230604 0022D564  4E 80 00 20 */	blr 
+/* 80230604 0022D564  4E 80 00 20 */	blr
 
 .global sub_80230608
 sub_80230608:
@@ -1390,7 +1390,7 @@ lbl_802307E0:
 /* 80230854 0022D7B4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80230858 0022D7B8  7C 08 03 A6 */	mtlr r0
 /* 8023085C 0022D7BC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80230860 0022D7C0  4E 80 00 20 */	blr 
+/* 80230860 0022D7C0  4E 80 00 20 */	blr
 
 .global sub_80230864
 sub_80230864:
@@ -1414,7 +1414,7 @@ sub_80230864:
 /* 802308A8 0022D808  81 84 00 00 */	lwz r12, 0(r4)
 /* 802308AC 0022D80C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 802308B0 0022D810  7D 89 03 A6 */	mtctr r12
-/* 802308B4 0022D814  4E 80 04 21 */	bctrl 
+/* 802308B4 0022D814  4E 80 04 21 */	bctrl
 /* 802308B8 0022D818  80 7F 08 4C */	lwz r3, 0x84c(r31)
 /* 802308BC 0022D81C  C3 E1 00 08 */	lfs f31, 8(r1)
 /* 802308C0 0022D820  80 03 02 F8 */	lwz r0, 0x2f8(r3)
@@ -1444,12 +1444,12 @@ lbl_802308F0:
 /* 8023091C 0022D87C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80230920 0022D880  7C 08 03 A6 */	mtlr r0
 /* 80230924 0022D884  38 21 00 50 */	addi r1, r1, 0x50
-/* 80230928 0022D888  4E 80 00 20 */	blr 
+/* 80230928 0022D888  4E 80 00 20 */	blr
 
 .global GetCollisionPrimitive__16CGrenadeLauncherCFv
 GetCollisionPrimitive__16CGrenadeLauncherCFv:
 /* 8023092C 0022D88C  38 63 03 28 */	addi r3, r3, 0x328
-/* 80230930 0022D890  4E 80 00 20 */	blr 
+/* 80230930 0022D890  4E 80 00 20 */	blr
 
 .global GetTouchBounds__16CGrenadeLauncherCFv
 GetTouchBounds__16CGrenadeLauncherCFv:
@@ -1465,7 +1465,7 @@ GetTouchBounds__16CGrenadeLauncherCFv:
 /* 80230958 0022D8B8  38 A5 00 34 */	addi r5, r5, 0x34
 /* 8023095C 0022D8BC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80230960 0022D8C0  7D 89 03 A6 */	mtctr r12
-/* 80230964 0022D8C4  4E 80 04 21 */	bctrl 
+/* 80230964 0022D8C4  4E 80 04 21 */	bctrl
 /* 80230968 0022D8C8  38 00 00 01 */	li r0, 1
 /* 8023096C 0022D8CC  28 1F 00 00 */	cmplwi r31, 0
 /* 80230970 0022D8D0  98 1F 00 18 */	stb r0, 0x18(r31)
@@ -1487,7 +1487,7 @@ lbl_802309A8:
 /* 802309AC 0022D90C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802309B0 0022D910  7C 08 03 A6 */	mtlr r0
 /* 802309B4 0022D914  38 21 00 30 */	addi r1, r1, 0x30
-/* 802309B8 0022D918  4E 80 00 20 */	blr 
+/* 802309B8 0022D918  4E 80 00 20 */	blr
 
 .global Touch__16CGrenadeLauncherFR6CActorR13CStateManager
 Touch__16CGrenadeLauncherFR6CActorR13CStateManager:
@@ -1513,7 +1513,7 @@ Touch__16CGrenadeLauncherFR6CActorR13CStateManager:
 /* 80230A08 0022D968  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80230A0C 0022D96C  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80230A10 0022D970  7D 89 03 A6 */	mtctr r12
-/* 80230A14 0022D974  4E 80 04 21 */	bctrl 
+/* 80230A14 0022D974  4E 80 04 21 */	bctrl
 /* 80230A18 0022D978  80 9F 00 F0 */	lwz r4, 0xf0(r31)
 /* 80230A1C 0022D97C  38 E0 00 00 */	li r7, 0
 /* 80230A20 0022D980  88 01 00 20 */	lbz r0, 0x20(r1)
@@ -1554,7 +1554,7 @@ lbl_80230A9C:
 /* 80230AA8 0022DA08  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80230AAC 0022DA0C  7C 08 03 A6 */	mtlr r0
 /* 80230AB0 0022DA10  38 21 00 40 */	addi r1, r1, 0x40
-/* 80230AB4 0022DA14  4E 80 00 20 */	blr 
+/* 80230AB4 0022DA14  4E 80 00 20 */	blr
 
 .global AddToRenderer__16CGrenadeLauncherCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__16CGrenadeLauncherCFRC14CFrustumPlanesRC13CStateManager:
@@ -1565,7 +1565,7 @@ AddToRenderer__16CGrenadeLauncherCFRC14CFrustumPlanesRC13CStateManager:
 /* 80230AC8 0022DA28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80230ACC 0022DA2C  7C 08 03 A6 */	mtlr r0
 /* 80230AD0 0022DA30  38 21 00 10 */	addi r1, r1, 0x10
-/* 80230AD4 0022DA34  4E 80 00 20 */	blr 
+/* 80230AD4 0022DA34  4E 80 00 20 */	blr
 
 .global PreRender__16CGrenadeLauncherFR13CStateManagerRC14CFrustumPlanes
 PreRender__16CGrenadeLauncherFR13CStateManagerRC14CFrustumPlanes:
@@ -1612,7 +1612,7 @@ lbl_80230B6C:
 /* 80230B70 0022DAD0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80230B74 0022DAD4  7C 08 03 A6 */	mtlr r0
 /* 80230B78 0022DAD8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80230B7C 0022DADC  4E 80 00 20 */	blr 
+/* 80230B7C 0022DADC  4E 80 00 20 */	blr
 
 .global Render__16CGrenadeLauncherCFRC13CStateManager
 Render__16CGrenadeLauncherCFRC13CStateManager:
@@ -1627,7 +1627,7 @@ lbl_80230B9C:
 /* 80230B9C 0022DAFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80230BA0 0022DB00  7C 08 03 A6 */	mtlr r0
 /* 80230BA4 0022DB04  38 21 00 10 */	addi r1, r1, 0x10
-/* 80230BA8 0022DB08  4E 80 00 20 */	blr 
+/* 80230BA8 0022DB08  4E 80 00 20 */	blr
 
 .global Accept__16CGrenadeLauncherFR8IVisitor
 Accept__16CGrenadeLauncherFR8IVisitor:
@@ -1640,11 +1640,11 @@ Accept__16CGrenadeLauncherFR8IVisitor:
 /* 80230BC4 0022DB24  7C 04 03 78 */	mr r4, r0
 /* 80230BC8 0022DB28  81 8C 00 50 */	lwz r12, 0x50(r12)
 /* 80230BCC 0022DB2C  7D 89 03 A6 */	mtctr r12
-/* 80230BD0 0022DB30  4E 80 04 21 */	bctrl 
+/* 80230BD0 0022DB30  4E 80 04 21 */	bctrl
 /* 80230BD4 0022DB34  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80230BD8 0022DB38  7C 08 03 A6 */	mtlr r0
 /* 80230BDC 0022DB3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80230BE0 0022DB40  4E 80 00 20 */	blr 
+/* 80230BE0 0022DB40  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1669,7 +1669,7 @@ AcceptScriptMsg__16CGrenadeLauncherF20EScriptObjectMessage9TUniqueIdR13CStateMan
 /* 80230C2C 0022DB8C  38 63 7F DC */	addi r3, r3, lbl_803E7FDC@l
 /* 80230C30 0022DB90  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80230C34 0022DB94  7C 09 03 A6 */	mtctr r0
-/* 80230C38 0022DB98  4E 80 04 20 */	bctr 
+/* 80230C38 0022DB98  4E 80 04 20 */	bctr
 .global lbl_80230C3C
 lbl_80230C3C:
 /* 80230C3C 0022DB9C  7F E3 FB 78 */	mr r3, r31
@@ -1727,7 +1727,7 @@ lbl_80230CD8:
 /* 80230CE4 0022DC44  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80230CE8 0022DC48  7C 08 03 A6 */	mtlr r0
 /* 80230CEC 0022DC4C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80230CF0 0022DC50  4E 80 00 20 */	blr 
+/* 80230CF0 0022DC50  4E 80 00 20 */	blr
 
 .global Think__16CGrenadeLauncherFfR13CStateManager
 Think__16CGrenadeLauncherFfR13CStateManager:
@@ -1812,7 +1812,7 @@ lbl_80230D44:
 /* 80230E28 0022DD88  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80230E2C 0022DD8C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80230E30 0022DD90  7D 89 03 A6 */	mtctr r12
-/* 80230E34 0022DD94  4E 80 04 21 */	bctrl 
+/* 80230E34 0022DD94  4E 80 04 21 */	bctrl
 /* 80230E38 0022DD98  C0 23 00 00 */	lfs f1, 0(r3)
 /* 80230E3C 0022DD9C  C0 02 B6 64 */	lfs f0, lbl_805AD384@sda21(r2)
 /* 80230E40 0022DDA0  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1845,7 +1845,7 @@ lbl_80230E90:
 /* 80230EA4 0022DE04  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 80230EA8 0022DE08  7C 08 03 A6 */	mtlr r0
 /* 80230EAC 0022DE0C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80230EB0 0022DE10  4E 80 00 20 */	blr 
+/* 80230EB0 0022DE10  4E 80 00 20 */	blr
 
 .global __dt__16CGrenadeLauncherFv
 __dt__16CGrenadeLauncherFv:
@@ -1906,7 +1906,7 @@ lbl_80230F6C:
 /* 80230F78 0022DED8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80230F7C 0022DEDC  7C 08 03 A6 */	mtlr r0
 /* 80230F80 0022DEE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80230F84 0022DEE4  4E 80 00 20 */	blr 
+/* 80230F84 0022DEE4  4E 80 00 20 */	blr
 
 .global __ct__16CGrenadeLauncherF9TUniqueId
 __ct__16CGrenadeLauncherF9TUniqueId:
@@ -2088,7 +2088,7 @@ __ct__16CGrenadeLauncherF9TUniqueId:
 /* 80231244 0022E1A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80231248 0022E1A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8023124C 0022E1AC  7D 89 03 A6 */	mtctr r12
-/* 80231250 0022E1B0  4E 80 04 21 */	bctrl 
+/* 80231250 0022E1B0  4E 80 04 21 */	bctrl
 /* 80231254 0022E1B4  3A 61 00 94 */	addi r19, r1, 0x94
 /* 80231258 0022E1B8  38 81 00 64 */	addi r4, r1, 0x64
 /* 8023125C 0022E1BC  7E 63 9B 78 */	mr r3, r19
@@ -2291,7 +2291,7 @@ lbl_80231508:
 /* 80231530 0022E490  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 80231534 0022E494  7C 08 03 A6 */	mtlr r0
 /* 80231538 0022E498  38 21 01 80 */	addi r1, r1, 0x180
-/* 8023153C 0022E49C  4E 80 00 20 */	blr 
+/* 8023153C 0022E49C  4E 80 00 20 */	blr
 
 .global sub_80231540
 sub_80231540:
@@ -2341,7 +2341,7 @@ sub_80231540:
 /* 802315EC 0022E54C  D0 03 00 50 */	stfs f0, 0x50(r3)
 /* 802315F0 0022E550  C0 04 00 54 */	lfs f0, 0x54(r4)
 /* 802315F4 0022E554  D0 03 00 54 */	stfs f0, 0x54(r3)
-/* 802315F8 0022E558  4E 80 00 20 */	blr 
+/* 802315F8 0022E558  4E 80 00 20 */	blr
 
 .global __sinit_CGrenadeLauncher_cpp
 __sinit_CGrenadeLauncher_cpp:

@@ -515,7 +515,7 @@ lbl_803D9600:
 	.4byte lbl_8000CF08
 	.4byte lbl_8000CF18
 	.4byte 0
-	
+
 .section .bss
 .global lbl_804578F8
 lbl_804578F8:

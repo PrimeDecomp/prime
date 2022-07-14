@@ -32,7 +32,7 @@ lbl_803EC8E0:
 GetWidgetTypeID__8CGuiPaneCFv:
 /* 802C54E4 002C2444  3C 60 50 41 */	lis r3, 0x50414E45@ha
 /* 802C54E8 002C2448  38 63 4E 45 */	addi r3, r3, 0x50414E45@l
-/* 802C54EC 002C244C  4E 80 00 20 */	blr 
+/* 802C54EC 002C244C  4E 80 00 20 */	blr
 
 .global GetDimensions__8CGuiPaneCFv
 GetDimensions__8CGuiPaneCFv:
@@ -45,7 +45,7 @@ GetDimensions__8CGuiPaneCFv:
 /* 802C5508 002C2468  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C550C 002C246C  7C 08 03 A6 */	mtlr r0
 /* 802C5510 002C2470  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5514 002C2474  4E 80 00 20 */	blr 
+/* 802C5514 002C2474  4E 80 00 20 */	blr
 
 .global SetDimensions__8CGuiPaneFRC9CVector2fb
 SetDimensions__8CGuiPaneFRC9CVector2fb:
@@ -61,12 +61,12 @@ SetDimensions__8CGuiPaneFRC9CVector2fb:
 /* 802C553C 002C249C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C5540 002C24A0  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 802C5544 002C24A4  7D 89 03 A6 */	mtctr r12
-/* 802C5548 002C24A8  4E 80 04 21 */	bctrl 
+/* 802C5548 002C24A8  4E 80 04 21 */	bctrl
 lbl_802C554C:
 /* 802C554C 002C24AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C5550 002C24B0  7C 08 03 A6 */	mtlr r0
 /* 802C5554 002C24B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5558 002C24B8  4E 80 00 20 */	blr 
+/* 802C5558 002C24B8  4E 80 00 20 */	blr
 
 .global InitializeBuffers__8CGuiPaneFv
 InitializeBuffers__8CGuiPaneFv:
@@ -137,7 +137,7 @@ lbl_802C559C:
 /* 802C5658 002C25B8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C565C 002C25BC  7C 08 03 A6 */	mtlr r0
 /* 802C5660 002C25C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5664 002C25C4  4E 80 00 20 */	blr 
+/* 802C5664 002C25C4  4E 80 00 20 */	blr
 
 .global ScaleDimensions__8CGuiPaneFRC9CVector3f
 ScaleDimensions__8CGuiPaneFRC9CVector3f:
@@ -151,7 +151,7 @@ ScaleDimensions__8CGuiPaneFRC9CVector3f:
 /* 802C5684 002C25E4  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C5688 002C25E8  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 802C568C 002C25EC  7D 89 03 A6 */	mtctr r12
-/* 802C5690 002C25F0  4E 80 04 21 */	bctrl 
+/* 802C5690 002C25F0  4E 80 04 21 */	bctrl
 /* 802C5694 002C25F4  3C 60 55 55 */	lis r3, 0x55555556@ha
 /* 802C5698 002C25F8  38 DE 00 C8 */	addi r6, r30, 0xc8
 /* 802C569C 002C25FC  38 83 55 56 */	addi r4, r3, 0x55555556@l
@@ -189,7 +189,7 @@ lbl_802C56FC:
 /* 802C5714 002C2674  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C5718 002C2678  7C 08 03 A6 */	mtlr r0
 /* 802C571C 002C267C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5720 002C2680  4E 80 00 20 */	blr 
+/* 802C5720 002C2680  4E 80 00 20 */	blr
 
 .global Draw__8CGuiPaneCFRC19CGuiWidgetDrawParms
 Draw__8CGuiPaneCFRC19CGuiWidgetDrawParms:
@@ -215,7 +215,7 @@ Draw__8CGuiPaneCFRC19CGuiWidgetDrawParms:
 /* 802C5770 002C26D0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C5774 002C26D4  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802C5778 002C26D8  7D 89 03 A6 */	mtctr r12
-/* 802C577C 002C26DC  4E 80 04 21 */	bctrl 
+/* 802C577C 002C26DC  4E 80 04 21 */	bctrl
 /* 802C5780 002C26E0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C5784 002C26E4  41 82 00 74 */	beq lbl_802C57F8
 /* 802C5788 002C26E8  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
@@ -257,7 +257,7 @@ lbl_802C57F8:
 /* 802C5814 002C2774  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 802C5818 002C2778  7C 08 03 A6 */	mtlr r0
 /* 802C581C 002C277C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802C5820 002C2780  4E 80 00 20 */	blr 
+/* 802C5820 002C2780  4E 80 00 20 */	blr
 
 .global __dt__8CGuiPaneFv
 __dt__8CGuiPaneFv:
@@ -292,7 +292,7 @@ lbl_802C5880:
 /* 802C588C 002C27EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C5890 002C27F0  7C 08 03 A6 */	mtlr r0
 /* 802C5894 002C27F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5898 002C27F8  4E 80 00 20 */	blr 
+/* 802C5898 002C27F8  4E 80 00 20 */	blr
 
 .global __ct__8CGuiPaneFRCQ210CGuiWidget15CGuiWidgetParmsffRC9CVector3f
 __ct__8CGuiPaneFRCQ210CGuiWidget15CGuiWidgetParmsffRC9CVector3f:
@@ -329,7 +329,7 @@ __ct__8CGuiPaneFRCQ210CGuiWidget15CGuiWidgetParmsffRC9CVector3f:
 /* 802C5914 002C2874  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C5918 002C2878  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 802C591C 002C287C  7D 89 03 A6 */	mtctr r12
-/* 802C5920 002C2880  4E 80 04 21 */	bctrl 
+/* 802C5920 002C2880  4E 80 04 21 */	bctrl
 /* 802C5924 002C2884  7F C3 F3 78 */	mr r3, r30
 /* 802C5928 002C2888  E3 E1 00 28 */	psq_l f31, 40(r1), 0, qr0
 /* 802C592C 002C288C  CB E1 00 20 */	lfd f31, 0x20(r1)
@@ -340,7 +340,7 @@ __ct__8CGuiPaneFRCQ210CGuiWidget15CGuiWidgetParmsffRC9CVector3f:
 /* 802C5940 002C28A0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C5944 002C28A4  7C 08 03 A6 */	mtlr r0
 /* 802C5948 002C28A8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C594C 002C28AC  4E 80 00 20 */	blr 
+/* 802C594C 002C28AC  4E 80 00 20 */	blr
 
 .global WriteData__8CGuiPaneCFR13COutputStreamb
 WriteData__8CGuiPaneCFR13COutputStreamb:
@@ -406,7 +406,7 @@ WriteData__8CGuiPaneCFR13COutputStreamb:
 /* 802C5A3C 002C299C  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802C5A40 002C29A0  7C 08 03 A6 */	mtlr r0
 /* 802C5A44 002C29A4  38 21 00 40 */	addi r1, r1, 0x40
-/* 802C5A48 002C29A8  4E 80 00 20 */	blr 
+/* 802C5A48 002C29A8  4E 80 00 20 */	blr
 
 .global Create__8CGuiPaneFP9CGuiFrameR12CInputStreamb
 Create__8CGuiPaneFP9CGuiFrameR12CInputStreamb:

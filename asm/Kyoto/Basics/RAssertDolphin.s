@@ -71,7 +71,7 @@ lbl_802D6868:
 /* 802D68EC 002D384C  83 A1 03 44 */	lwz r29, 0x344(r1)
 /* 802D68F0 002D3850  7C 08 03 A6 */	mtlr r0
 /* 802D68F4 002D3854  38 21 03 50 */	addi r1, r1, 0x350
-/* 802D68F8 002D3858  4E 80 00 20 */	blr 
+/* 802D68F8 002D3858  4E 80 00 20 */	blr
 
 .global SetErrorHandlers
 SetErrorHandlers:
@@ -97,7 +97,7 @@ SetErrorHandlers:
 /* 802D6948 002D38A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D694C 002D38AC  7C 08 03 A6 */	mtlr r0
 /* 802D6950 002D38B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6954 002D38B4  4E 80 00 20 */	blr 
+/* 802D6954 002D38B4  4E 80 00 20 */	blr
 
 .global ErrorHandler
 ErrorHandler:

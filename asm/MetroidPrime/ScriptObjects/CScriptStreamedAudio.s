@@ -70,7 +70,7 @@ lbl_8020BE74:
 /* 8020BE80 00208DE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8020BE84 00208DE4  7C 08 03 A6 */	mtlr r0
 /* 8020BE88 00208DE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020BE8C 00208DEC  4E 80 00 20 */	blr 
+/* 8020BE8C 00208DEC  4E 80 00 20 */	blr
 
 .global sub_8020be90
 sub_8020be90:
@@ -208,7 +208,7 @@ lbl_8020C07C:
 /* 8020C084 00208FE4  83 C1 00 B8 */	lwz r30, 0xb8(r1)
 /* 8020C088 00208FE8  7C 08 03 A6 */	mtlr r0
 /* 8020C08C 00208FEC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8020C090 00208FF0  4E 80 00 20 */	blr 
+/* 8020C090 00208FF0  4E 80 00 20 */	blr
 
 .global "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>c"
 "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>c":
@@ -235,7 +235,7 @@ lbl_8020C07C:
 /* 8020C0E4 00209044  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020C0E8 00209048  7C 08 03 A6 */	mtlr r0
 /* 8020C0EC 0020904C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020C0F0 00209050  4E 80 00 20 */	blr 
+/* 8020C0F0 00209050  4E 80 00 20 */	blr
 
 .global "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCc"
 "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCc":
@@ -262,7 +262,7 @@ lbl_8020C07C:
 /* 8020C144 002090A4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8020C148 002090A8  7C 08 03 A6 */	mtlr r0
 /* 8020C14C 002090AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020C150 002090B0  4E 80 00 20 */	blr 
+/* 8020C150 002090B0  4E 80 00 20 */	blr
 
 .global sub_8020c154
 sub_8020c154:
@@ -336,7 +336,7 @@ lbl_8020C22C:
 /* 8020C238 00209198  7D 03 43 78 */	mr r3, r8
 lbl_8020C23C:
 /* 8020C23C 0020919C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8020C240 002091A0  4E 80 00 20 */	blr 
+/* 8020C240 002091A0  4E 80 00 20 */	blr
 
 .global sub_8020c244
 sub_8020c244:
@@ -414,7 +414,7 @@ lbl_8020C33C:
 /* 8020C35C 002092BC  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 8020C360 002092C0  7C 08 03 A6 */	mtlr r0
 /* 8020C364 002092C4  38 21 00 70 */	addi r1, r1, 0x70
-/* 8020C368 002092C8  4E 80 00 20 */	blr 
+/* 8020C368 002092C8  4E 80 00 20 */	blr
 
 .global StopStream__20CScriptStreamedMusicFR13CStateManager
 StopStream__20CScriptStreamedMusicFR13CStateManager:
@@ -431,7 +431,7 @@ StopStream__20CScriptStreamedMusicFR13CStateManager:
 /* 8020C394 002092F4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020C398 002092F8  7C 08 03 A6 */	mtlr r0
 /* 8020C39C 002092FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C3A0 00209300  4E 80 00 20 */	blr 
+/* 8020C3A0 00209300  4E 80 00 20 */	blr
 
 .global StartStream__20CScriptStreamedMusicFR13CStateManager
 StartStream__20CScriptStreamedMusicFR13CStateManager:
@@ -453,7 +453,7 @@ StartStream__20CScriptStreamedMusicFR13CStateManager:
 /* 8020C3E0 00209340  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020C3E4 00209344  7C 08 03 A6 */	mtlr r0
 /* 8020C3E8 00209348  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C3EC 0020934C  4E 80 00 20 */	blr 
+/* 8020C3EC 0020934C  4E 80 00 20 */	blr
 
 .global sub_8020c3f0
 sub_8020c3f0:
@@ -465,7 +465,7 @@ sub_8020c3f0:
 /* 8020C404 00209364  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020C408 00209368  7C 08 03 A6 */	mtlr r0
 /* 8020C40C 0020936C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C410 00209370  4E 80 00 20 */	blr 
+/* 8020C410 00209370  4E 80 00 20 */	blr
 
 .global sub_8020c414
 sub_8020c414:
@@ -494,7 +494,7 @@ lbl_8020C464:
 /* 8020C464 002093C4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020C468 002093C8  7C 08 03 A6 */	mtlr r0
 /* 8020C46C 002093CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C470 002093D0  4E 80 00 20 */	blr 
+/* 8020C470 002093D0  4E 80 00 20 */	blr
 
 .global Stop__20CScriptStreamedMusicFR13CStateManager
 Stop__20CScriptStreamedMusicFR13CStateManager:
@@ -512,7 +512,7 @@ lbl_8020C498:
 /* 8020C498 002093F8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020C49C 002093FC  7C 08 03 A6 */	mtlr r0
 /* 8020C4A0 00209400  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C4A4 00209404  4E 80 00 20 */	blr 
+/* 8020C4A4 00209404  4E 80 00 20 */	blr
 
 .global Play__20CScriptStreamedMusicFR13CStateManager
 Play__20CScriptStreamedMusicFR13CStateManager:
@@ -541,7 +541,7 @@ lbl_8020C4F0:
 /* 8020C4F8 00209458  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8020C4FC 0020945C  7C 08 03 A6 */	mtlr r0
 /* 8020C500 00209460  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C504 00209464  4E 80 00 20 */	blr 
+/* 8020C504 00209464  4E 80 00 20 */	blr
 
 .global Accept__20CScriptStreamedMusicFR8IVisitor
 Accept__20CScriptStreamedMusicFR8IVisitor:
@@ -554,11 +554,11 @@ Accept__20CScriptStreamedMusicFR8IVisitor:
 /* 8020C520 00209480  7C 04 03 78 */	mr r4, r0
 /* 8020C524 00209484  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8020C528 00209488  7D 89 03 A6 */	mtctr r12
-/* 8020C52C 0020948C  4E 80 04 21 */	bctrl 
+/* 8020C52C 0020948C  4E 80 04 21 */	bctrl
 /* 8020C530 00209490  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020C534 00209494  7C 08 03 A6 */	mtlr r0
 /* 8020C538 00209498  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020C53C 0020949C  4E 80 00 20 */	blr 
+/* 8020C53C 0020949C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -583,7 +583,7 @@ AcceptScriptMsg__20CScriptStreamedMusicF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8020C588 002094E8  38 63 70 88 */	addi r3, r3, lbl_803E7088@l
 /* 8020C58C 002094EC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8020C590 002094F0  7C 09 03 A6 */	mtctr r0
-/* 8020C594 002094F4  4E 80 04 20 */	bctr 
+/* 8020C594 002094F4  4E 80 04 20 */	bctr
 .global lbl_8020C598
 lbl_8020C598:
 /* 8020C598 002094F8  88 1D 00 30 */	lbz r0, 0x30(r29)
@@ -653,7 +653,7 @@ lbl_8020C654:
 /* 8020C660 002095C0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8020C664 002095C4  7C 08 03 A6 */	mtlr r0
 /* 8020C668 002095C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020C66C 002095CC  4E 80 00 20 */	blr 
+/* 8020C66C 002095CC  4E 80 00 20 */	blr
 
 .global IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string
 IsDSPFile__20CScriptStreamedMusicFRCQ24rstl6string:
@@ -703,11 +703,11 @@ lbl_8020C6FC:
 /* 8020C714 00209674  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8020C718 00209678  7C 08 03 A6 */	mtlr r0
 /* 8020C71C 0020967C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8020C720 00209680  4E 80 00 20 */	blr 
+/* 8020C720 00209680  4E 80 00 20 */	blr
 
 .global nullsub_42
 nullsub_42:
-/* 8020C724 00209684  4E 80 00 20 */	blr 
+/* 8020C724 00209684  4E 80 00 20 */	blr
 
 .global "__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffi"
 "__ct__20CScriptStreamedMusicF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bffi":
@@ -756,14 +756,14 @@ nullsub_42:
 /* 8020C7D0 00209730  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8020C7D4 00209734  7C 08 03 A6 */	mtlr r0
 /* 8020C7D8 00209738  38 21 00 40 */	addi r1, r1, 0x40
-/* 8020C7DC 0020973C  4E 80 00 20 */	blr 
+/* 8020C7DC 0020973C  4E 80 00 20 */	blr
 
 .global IsOneShot__20CScriptStreamedMusicFb
 IsOneShot__20CScriptStreamedMusicFb:
 /* 8020C7E0 00209740  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 8020C7E4 00209744  7C 00 00 34 */	cntlzw r0, r0
 /* 8020C7E8 00209748  54 03 D9 7E */	srwi r3, r0, 5
-/* 8020C7EC 0020974C  4E 80 00 20 */	blr 
+/* 8020C7EC 0020974C  4E 80 00 20 */	blr
 
 .global sub_8020c7f0
 sub_8020c7f0:
@@ -787,7 +787,7 @@ sub_8020c7f0:
 /* 8020C834 00209794  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020C838 00209798  7C 08 03 A6 */	mtlr r0
 /* 8020C83C 0020979C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020C840 002097A0  4E 80 00 20 */	blr 
+/* 8020C840 002097A0  4E 80 00 20 */	blr
 
 .global sub_8020c844
 sub_8020c844:

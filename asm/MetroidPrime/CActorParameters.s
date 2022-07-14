@@ -58,7 +58,7 @@ MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters:
 /* 801067FC 0010375C  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 80106800 00103760  7C 08 03 A6 */	mtlr r0
 /* 80106804 00103764  38 21 00 80 */	addi r1, r1, 0x80
-/* 80106808 00103768  4E 80 00 20 */	blr 
+/* 80106808 00103768  4E 80 00 20 */	blr
 
 .global sub_8010680c
 sub_8010680c:
@@ -85,7 +85,7 @@ sub_8010680c:
 /* 8010685C 001037BC  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 80106860 001037C0  7C 08 03 A6 */	mtlr r0
 /* 80106864 001037C4  38 21 00 80 */	addi r1, r1, 0x80
-/* 80106868 001037C8  4E 80 00 20 */	blr 
+/* 80106868 001037C8  4E 80 00 20 */	blr
 
 .global Scannable__16CActorParametersCFRC20CScannableParameters
 Scannable__16CActorParametersCFRC20CScannableParameters:
@@ -111,7 +111,7 @@ Scannable__16CActorParametersCFRC20CScannableParameters:
 /* 801068B8 00103818  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 801068BC 0010381C  7C 08 03 A6 */	mtlr r0
 /* 801068C0 00103820  38 21 00 80 */	addi r1, r1, 0x80
-/* 801068C4 00103824  4E 80 00 20 */	blr 
+/* 801068C4 00103824  4E 80 00 20 */	blr
 
 .global sub_801068c8
 sub_801068c8:
@@ -180,7 +180,7 @@ sub_801068c8:
 /* 801069C0 00103920  D0 23 00 5C */	stfs f1, 0x5c(r3)
 /* 801069C4 00103924  D0 43 00 60 */	stfs f2, 0x60(r3)
 /* 801069C8 00103928  D0 63 00 64 */	stfs f3, 0x64(r3)
-/* 801069CC 0010392C  4E 80 00 20 */	blr 
+/* 801069CC 0010392C  4E 80 00 20 */	blr
 
 .global __ct__16CActorParametersFv
 __ct__16CActorParametersFv:

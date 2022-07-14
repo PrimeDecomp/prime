@@ -39,7 +39,7 @@ lbl_8020B974:
 /* 8020B980 002088E0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8020B984 002088E4  7C 08 03 A6 */	mtlr r0
 /* 8020B988 002088E8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020B98C 002088EC  4E 80 00 20 */	blr 
+/* 8020B98C 002088EC  4E 80 00 20 */	blr
 
 .global Stop__11CScriptMidiFR13CStateManagerf
 Stop__11CScriptMidiFR13CStateManagerf:
@@ -90,7 +90,7 @@ lbl_8020BA1C:
 /* 8020BA3C 0020899C  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8020BA40 002089A0  7C 08 03 A6 */	mtlr r0
 /* 8020BA44 002089A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8020BA48 002089A8  4E 80 00 20 */	blr 
+/* 8020BA48 002089A8  4E 80 00 20 */	blr
 
 .global Play__11CScriptMidiFR13CStateManagerf
 Play__11CScriptMidiFR13CStateManagerf:
@@ -145,7 +145,7 @@ Play__11CScriptMidiFR13CStateManagerf:
 /* 8020BB0C 00208A6C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8020BB10 00208A70  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8020BB14 00208A74  7D 89 03 A6 */	mtctr r12
-/* 8020BB18 00208A78  4E 80 04 21 */	bctrl 
+/* 8020BB18 00208A78  4E 80 04 21 */	bctrl
 /* 8020BB1C 00208A7C  38 61 00 18 */	addi r3, r1, 0x18
 /* 8020BB20 00208A80  38 81 00 20 */	addi r4, r1, 0x20
 /* 8020BB24 00208A84  48 13 53 85 */	bl __ct__6CTokenFRC6CToken
@@ -189,7 +189,7 @@ lbl_8020BB64:
 /* 8020BBB8 00208B18  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8020BBBC 00208B1C  7C 08 03 A6 */	mtlr r0
 /* 8020BBC0 00208B20  38 21 00 80 */	addi r1, r1, 0x80
-/* 8020BBC4 00208B24  4E 80 00 20 */	blr 
+/* 8020BBC4 00208B24  4E 80 00 20 */	blr
 
 .global __dt__11CScriptMidiFv
 __dt__11CScriptMidiFv:
@@ -226,7 +226,7 @@ lbl_8020BC2C:
 /* 8020BC38 00208B98  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8020BC3C 00208B9C  7C 08 03 A6 */	mtlr r0
 /* 8020BC40 00208BA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020BC44 00208BA4  4E 80 00 20 */	blr 
+/* 8020BC44 00208BA4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CScriptMidiF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CScriptMidiF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -282,7 +282,7 @@ lbl_8020BCEC:
 /* 8020BCF8 00208C58  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8020BCFC 00208C5C  7C 08 03 A6 */	mtlr r0
 /* 8020BD00 00208C60  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020BD04 00208C64  4E 80 00 20 */	blr 
+/* 8020BD04 00208C64  4E 80 00 20 */	blr
 
 .global Accept__11CScriptMidiFR8IVisitor
 Accept__11CScriptMidiFR8IVisitor:
@@ -295,11 +295,11 @@ Accept__11CScriptMidiFR8IVisitor:
 /* 8020BD20 00208C80  7C 04 03 78 */	mr r4, r0
 /* 8020BD24 00208C84  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8020BD28 00208C88  7D 89 03 A6 */	mtctr r12
-/* 8020BD2C 00208C8C  4E 80 04 21 */	bctrl 
+/* 8020BD2C 00208C8C  4E 80 04 21 */	bctrl
 /* 8020BD30 00208C90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020BD34 00208C94  7C 08 03 A6 */	mtlr r0
 /* 8020BD38 00208C98  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020BD3C 00208C9C  4E 80 00 20 */	blr 
+/* 8020BD3C 00208C9C  4E 80 00 20 */	blr
 
 .global "__ct__11CScriptMidiF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bUiffi"
 "__ct__11CScriptMidiF9TUniqueIdRC11CEntityInfoRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bUiffi":
@@ -336,7 +336,7 @@ Accept__11CScriptMidiFR8IVisitor:
 /* 8020BDB8 00208D18  81 84 00 00 */	lwz r12, 0(r4)
 /* 8020BDBC 00208D1C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8020BDC0 00208D20  7D 89 03 A6 */	mtctr r12
-/* 8020BDC4 00208D24  4E 80 04 21 */	bctrl 
+/* 8020BDC4 00208D24  4E 80 04 21 */	bctrl
 /* 8020BDC8 00208D28  38 7D 00 34 */	addi r3, r29, 0x34
 /* 8020BDCC 00208D2C  38 81 00 0C */	addi r4, r1, 0xc
 /* 8020BDD0 00208D30  48 13 50 D9 */	bl __ct__6CTokenFRC6CToken

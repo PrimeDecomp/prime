@@ -58,32 +58,32 @@ lbl_805A7634:
 .global GetMaximumCollisionVelocity__13CPhysicsActorCFv
 GetMaximumCollisionVelocity__13CPhysicsActorCFv:
 /* 8011A4B8 00117418  C0 23 02 38 */	lfs f1, 0x238(r3)
-/* 8011A4BC 0011741C  4E 80 00 20 */	blr 
+/* 8011A4BC 0011741C  4E 80 00 20 */	blr
 
 .global SetMaximumCollisionVelocity__13CPhysicsActorFf
 SetMaximumCollisionVelocity__13CPhysicsActorFf:
 /* 8011A4C0 00117420  D0 23 02 38 */	stfs f1, 0x238(r3)
-/* 8011A4C4 00117424  4E 80 00 20 */	blr 
+/* 8011A4C4 00117424  4E 80 00 20 */	blr
 
 .global GetCollisionAccuracyModifier__13CPhysicsActorCFv
 GetCollisionAccuracyModifier__13CPhysicsActorCFv:
 /* 8011A4C8 00117428  C0 23 02 48 */	lfs f1, 0x248(r3)
-/* 8011A4CC 0011742C  4E 80 00 20 */	blr 
+/* 8011A4CC 0011742C  4E 80 00 20 */	blr
 
 .global SetCollisionAccuracyModifier__13CPhysicsActorFf
 SetCollisionAccuracyModifier__13CPhysicsActorFf:
 /* 8011A4D0 00117430  D0 23 02 48 */	stfs f1, 0x248(r3)
-/* 8011A4D4 00117434  4E 80 00 20 */	blr 
+/* 8011A4D4 00117434  4E 80 00 20 */	blr
 
 .global GetCoefficientOfRestitutionModifier__13CPhysicsActorCFv
 GetCoefficientOfRestitutionModifier__13CPhysicsActorCFv:
 /* 8011A4D8 00117438  C0 23 02 44 */	lfs f1, 0x244(r3)
-/* 8011A4DC 0011743C  4E 80 00 20 */	blr 
+/* 8011A4DC 0011743C  4E 80 00 20 */	blr
 
 .global SetCoefficientOfRestitutionModifier__13CPhysicsActorFf
 SetCoefficientOfRestitutionModifier__13CPhysicsActorFf:
 /* 8011A4E0 00117440  D0 23 02 44 */	stfs f1, 0x244(r3)
-/* 8011A4E4 00117444  4E 80 00 20 */	blr 
+/* 8011A4E4 00117444  4E 80 00 20 */	blr
 
 .global Render__13CPhysicsActorCFRC13CStateManager
 Render__13CPhysicsActorCFRC13CStateManager:
@@ -94,7 +94,7 @@ Render__13CPhysicsActorCFRC13CStateManager:
 /* 8011A4F8 00117458  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011A4FC 0011745C  7C 08 03 A6 */	mtlr r0
 /* 8011A500 00117460  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011A504 00117464  4E 80 00 20 */	blr 
+/* 8011A504 00117464  4E 80 00 20 */	blr
 
 .global GetAimPosition__13CPhysicsActorCFRC13CStateManagerf
 GetAimPosition__13CPhysicsActorCFRC13CStateManagerf:
@@ -153,7 +153,7 @@ lbl_8011A5B0:
 /* 8011A5D0 00117530  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8011A5D4 00117534  7C 08 03 A6 */	mtlr r0
 /* 8011A5D8 00117538  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8011A5DC 0011753C  4E 80 00 20 */	blr 
+/* 8011A5DC 0011753C  4E 80 00 20 */	blr
 
 .global GetOrbitPosition__13CPhysicsActorCFRC13CStateManager
 GetOrbitPosition__13CPhysicsActorCFRC13CStateManager:
@@ -171,17 +171,17 @@ GetOrbitPosition__13CPhysicsActorCFRC13CStateManager:
 /* 8011A60C 0011756C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8011A610 00117570  7C 08 03 A6 */	mtlr r0
 /* 8011A614 00117574  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011A618 00117578  4E 80 00 20 */	blr 
+/* 8011A618 00117578  4E 80 00 20 */	blr
 
 .global GetStepUpHeight__13CPhysicsActorCFv
 GetStepUpHeight__13CPhysicsActorCFv:
 /* 8011A61C 0011757C  C0 23 02 3C */	lfs f1, 0x23c(r3)
-/* 8011A620 00117580  4E 80 00 20 */	blr 
+/* 8011A620 00117580  4E 80 00 20 */	blr
 
 .global GetStepDownHeight__13CPhysicsActorCFv
 GetStepDownHeight__13CPhysicsActorCFv:
 /* 8011A624 00117584  C0 23 02 40 */	lfs f1, 0x240(r3)
-/* 8011A628 00117588  4E 80 00 20 */	blr 
+/* 8011A628 00117588  4E 80 00 20 */	blr
 
 .global GetPrimitiveOffset__13CPhysicsActorCFv
 GetPrimitiveOffset__13CPhysicsActorCFv:
@@ -191,14 +191,14 @@ GetPrimitiveOffset__13CPhysicsActorCFv:
 /* 8011A638 00117598  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8011A63C 0011759C  C0 04 01 F0 */	lfs f0, 0x1f0(r4)
 /* 8011A640 001175A0  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8011A644 001175A4  4E 80 00 20 */	blr 
+/* 8011A644 001175A4  4E 80 00 20 */	blr
 
 .global GetWeight__13CPhysicsActorCFv
 GetWeight__13CPhysicsActorCFv:
 /* 8011A648 001175A8  C0 22 96 A8 */	lfs f1, lbl_805AB3C8@sda21(r2)
 /* 8011A64C 001175AC  C0 03 00 E8 */	lfs f0, 0xe8(r3)
 /* 8011A650 001175B0  EC 21 00 32 */	fmuls f1, f1, f0
-/* 8011A654 001175B4  4E 80 00 20 */	blr 
+/* 8011A654 001175B4  4E 80 00 20 */	blr
 
 .global SetBoundingBox__13CPhysicsActorFRC6CAABox
 SetBoundingBox__13CPhysicsActorFRC6CAABox:
@@ -224,7 +224,7 @@ SetBoundingBox__13CPhysicsActorFRC6CAABox:
 /* 8011A6A4 00117604  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011A6A8 00117608  7C 08 03 A6 */	mtlr r0
 /* 8011A6AC 0011760C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011A6B0 00117610  4E 80 00 20 */	blr 
+/* 8011A6B0 00117610  4E 80 00 20 */	blr
 
 .global GetMotionVolume__13CPhysicsActorCFf
 GetMotionVolume__13CPhysicsActorCFf:
@@ -246,19 +246,19 @@ GetMotionVolume__13CPhysicsActorCFf:
 /* 8011A6F0 00117650  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8011A6F4 00117654  38 61 00 7C */	addi r3, r1, 0x7c
 /* 8011A6F8 00117658  7D 89 03 A6 */	mtctr r12
-/* 8011A6FC 0011765C  4E 80 04 21 */	bctrl 
+/* 8011A6FC 0011765C  4E 80 04 21 */	bctrl
 /* 8011A700 00117660  7F E3 FB 78 */	mr r3, r31
 /* 8011A704 00117664  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8011A708 00117668  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8011A70C 0011766C  7D 89 03 A6 */	mtctr r12
-/* 8011A710 00117670  4E 80 04 21 */	bctrl 
+/* 8011A710 00117670  4E 80 04 21 */	bctrl
 /* 8011A714 00117674  7C 64 1B 78 */	mr r4, r3
 /* 8011A718 00117678  38 61 00 4C */	addi r3, r1, 0x4c
 /* 8011A71C 0011767C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011A720 00117680  38 A1 00 7C */	addi r5, r1, 0x7c
 /* 8011A724 00117684  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8011A728 00117688  7D 89 03 A6 */	mtctr r12
-/* 8011A72C 0011768C  4E 80 04 21 */	bctrl 
+/* 8011A72C 0011768C  4E 80 04 21 */	bctrl
 /* 8011A730 00117690  C0 A1 00 4C */	lfs f5, 0x4c(r1)
 /* 8011A734 00117694  7F E4 FB 78 */	mr r4, r31
 /* 8011A738 00117698  C0 81 00 50 */	lfs f4, 0x50(r1)
@@ -308,7 +308,7 @@ GetMotionVolume__13CPhysicsActorCFf:
 /* 8011A7E8 00117748  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8011A7EC 0011774C  81 8C 00 7C */	lwz r12, 0x7c(r12)
 /* 8011A7F0 00117750  7D 89 03 A6 */	mtctr r12
-/* 8011A7F4 00117754  4E 80 04 21 */	bctrl 
+/* 8011A7F4 00117754  4E 80 04 21 */	bctrl
 /* 8011A7F8 00117758  FC 40 08 18 */	frsp f2, f1
 /* 8011A7FC 0011775C  C0 0D 8A 70 */	lfs f0, lbl_805A7630@sda21(r13)
 /* 8011A800 00117760  D0 21 00 0C */	stfs f1, 0xc(r1)
@@ -339,7 +339,7 @@ lbl_8011A818:
 /* 8011A85C 001177BC  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8011A860 001177C0  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 8011A864 001177C4  7D 89 03 A6 */	mtctr r12
-/* 8011A868 001177C8  4E 80 04 21 */	bctrl 
+/* 8011A868 001177C8  4E 80 04 21 */	bctrl
 /* 8011A86C 001177CC  FC 40 08 18 */	frsp f2, f1
 /* 8011A870 001177D0  C0 0D 8A 74 */	lfs f0, lbl_805A7634@sda21(r13)
 /* 8011A874 001177D4  D0 21 00 08 */	stfs f1, 8(r1)
@@ -389,7 +389,7 @@ lbl_8011A88C:
 /* 8011A91C 0011787C  83 C1 00 B8 */	lwz r30, 0xb8(r1)
 /* 8011A920 00117880  7C 08 03 A6 */	mtlr r0
 /* 8011A924 00117884  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8011A928 00117888  4E 80 00 20 */	blr 
+/* 8011A928 00117888  4E 80 00 20 */	blr
 
 .global GetBoundingBox__13CPhysicsActorCFv
 GetBoundingBox__13CPhysicsActorCFv:
@@ -429,16 +429,16 @@ GetBoundingBox__13CPhysicsActorCFv:
 /* 8011A9B0 00117910  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8011A9B4 00117914  7C 08 03 A6 */	mtlr r0
 /* 8011A9B8 00117918  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011A9BC 0011791C  4E 80 00 20 */	blr 
+/* 8011A9BC 0011791C  4E 80 00 20 */	blr
 
 .global GetBaseBoundingBox__13CPhysicsActorCFv
 GetBaseBoundingBox__13CPhysicsActorCFv:
 /* 8011A9C0 00117920  38 63 01 A4 */	addi r3, r3, 0x1a4
-/* 8011A9C4 00117924  4E 80 00 20 */	blr 
+/* 8011A9C4 00117924  4E 80 00 20 */	blr
 
 .global CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
 CollidedWith__13CPhysicsActorFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager:
-/* 8011A9C8 00117928  4E 80 00 20 */	blr 
+/* 8011A9C8 00117928  4E 80 00 20 */	blr
 
 .global GetPrimitiveTransform__13CPhysicsActorCFv
 GetPrimitiveTransform__13CPhysicsActorCFv:
@@ -468,7 +468,7 @@ GetPrimitiveTransform__13CPhysicsActorCFv:
 /* 8011AA28 00117988  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8011AA2C 0011798C  7C 08 03 A6 */	mtlr r0
 /* 8011AA30 00117990  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011AA34 00117994  4E 80 00 20 */	blr 
+/* 8011AA34 00117994  4E 80 00 20 */	blr
 
 .global MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f:
@@ -478,12 +478,12 @@ MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f:
 /* 8011AA44 001179A4  D0 03 01 EC */	stfs f0, 0x1ec(r3)
 /* 8011AA48 001179A8  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8011AA4C 001179AC  D0 03 01 F0 */	stfs f0, 0x1f0(r3)
-/* 8011AA50 001179B0  4E 80 00 20 */	blr 
+/* 8011AA50 001179B0  4E 80 00 20 */	blr
 
 .global GetCollisionPrimitive__13CPhysicsActorCFv
 GetCollisionPrimitive__13CPhysicsActorCFv:
 /* 8011AA54 001179B4  38 63 01 C0 */	addi r3, r3, 0x1c0
-/* 8011AA58 001179B8  4E 80 00 20 */	blr 
+/* 8011AA58 001179B8  4E 80 00 20 */	blr
 
 .global SetInertiaTensorScalar__13CPhysicsActorFf
 SetInertiaTensorScalar__13CPhysicsActorFf:
@@ -499,7 +499,7 @@ lbl_8011AA70:
 /* 8011AA78 001179D8  C0 03 00 F0 */	lfs f0, 0xf0(r3)
 /* 8011AA7C 001179DC  EC 01 00 24 */	fdivs f0, f1, f0
 /* 8011AA80 001179E0  D0 03 00 F4 */	stfs f0, 0xf4(r3)
-/* 8011AA84 001179E4  4E 80 00 20 */	blr 
+/* 8011AA84 001179E4  4E 80 00 20 */	blr
 
 .global SetMass__13CPhysicsActorFf
 SetMass__13CPhysicsActorFf:
@@ -525,7 +525,7 @@ lbl_8011AAB8:
 /* 8011AACC 00117A2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011AAD0 00117A30  7C 08 03 A6 */	mtlr r0
 /* 8011AAD4 00117A34  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011AAD8 00117A38  4E 80 00 20 */	blr 
+/* 8011AAD8 00117A38  4E 80 00 20 */	blr
 
 .global SetAngularVelocityOR__13CPhysicsActorFRC10CAxisAngle
 SetAngularVelocityOR__13CPhysicsActorFRC10CAxisAngle:
@@ -578,7 +578,7 @@ SetAngularVelocityOR__13CPhysicsActorFRC10CAxisAngle:
 /* 8011AB94 00117AF4  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8011AB98 00117AF8  7C 08 03 A6 */	mtlr r0
 /* 8011AB9C 00117AFC  38 21 00 50 */	addi r1, r1, 0x50
-/* 8011ABA0 00117B00  4E 80 00 20 */	blr 
+/* 8011ABA0 00117B00  4E 80 00 20 */	blr
 
 .global GetAngularVelocityOR__13CPhysicsActorCFv
 GetAngularVelocityOR__13CPhysicsActorCFv:
@@ -603,7 +603,7 @@ GetAngularVelocityOR__13CPhysicsActorCFv:
 /* 8011ABEC 00117B4C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8011ABF0 00117B50  7C 08 03 A6 */	mtlr r0
 /* 8011ABF4 00117B54  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011ABF8 00117B58  4E 80 00 20 */	blr 
+/* 8011ABF8 00117B58  4E 80 00 20 */	blr
 
 .global SetAngularVelocityWR__13CPhysicsActorFRC10CAxisAngle
 SetAngularVelocityWR__13CPhysicsActorFRC10CAxisAngle:
@@ -647,7 +647,7 @@ SetAngularVelocityWR__13CPhysicsActorFRC10CAxisAngle:
 /* 8011AC90 00117BF0  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8011AC94 00117BF4  7C 08 03 A6 */	mtlr r0
 /* 8011AC98 00117BF8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8011AC9C 00117BFC  4E 80 00 20 */	blr 
+/* 8011AC9C 00117BFC  4E 80 00 20 */	blr
 
 .global SetVelocityWR__13CPhysicsActorFRC9CVector3f
 SetVelocityWR__13CPhysicsActorFRC9CVector3f:
@@ -667,7 +667,7 @@ SetVelocityWR__13CPhysicsActorFRC9CVector3f:
 /* 8011ACD4 00117C34  D0 03 00 FC */	stfs f0, 0xfc(r3)
 /* 8011ACD8 00117C38  D0 43 01 00 */	stfs f2, 0x100(r3)
 /* 8011ACDC 00117C3C  D0 23 01 04 */	stfs f1, 0x104(r3)
-/* 8011ACE0 00117C40  4E 80 00 20 */	blr 
+/* 8011ACE0 00117C40  4E 80 00 20 */	blr
 
 .global GetTotalForceWR__13CPhysicsActorCFv
 GetTotalForceWR__13CPhysicsActorCFv:
@@ -683,7 +683,7 @@ GetTotalForceWR__13CPhysicsActorCFv:
 /* 8011AD08 00117C68  EC 02 08 2A */	fadds f0, f2, f1
 /* 8011AD0C 00117C6C  D0 63 00 04 */	stfs f3, 4(r3)
 /* 8011AD10 00117C70  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8011AD14 00117C74  4E 80 00 20 */	blr 
+/* 8011AD14 00117C74  4E 80 00 20 */	blr
 
 .global SetVelocityOR__13CPhysicsActorFRC9CVector3f
 SetVelocityOR__13CPhysicsActorFRC9CVector3f:
@@ -703,7 +703,7 @@ SetVelocityOR__13CPhysicsActorFRC9CVector3f:
 /* 8011AD4C 00117CAC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8011AD50 00117CB0  7C 08 03 A6 */	mtlr r0
 /* 8011AD54 00117CB4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011AD58 00117CB8  4E 80 00 20 */	blr 
+/* 8011AD58 00117CB8  4E 80 00 20 */	blr
 
 .global RotateInOneFrameOR__13CPhysicsActorFRC11CQuaternionf
 RotateInOneFrameOR__13CPhysicsActorFRC11CQuaternionf:
@@ -726,7 +726,7 @@ RotateInOneFrameOR__13CPhysicsActorFRC11CQuaternionf:
 /* 8011AD9C 00117CFC  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8011ADA0 00117D00  7C 08 03 A6 */	mtlr r0
 /* 8011ADA4 00117D04  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011ADA8 00117D08  4E 80 00 20 */	blr 
+/* 8011ADA8 00117D08  4E 80 00 20 */	blr
 
 .global MoveInOneFrameOR__13CPhysicsActorFRC9CVector3ff
 MoveInOneFrameOR__13CPhysicsActorFRC9CVector3ff:
@@ -755,7 +755,7 @@ MoveInOneFrameOR__13CPhysicsActorFRC9CVector3ff:
 /* 8011AE04 00117D64  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8011AE08 00117D68  7C 08 03 A6 */	mtlr r0
 /* 8011AE0C 00117D6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011AE10 00117D70  4E 80 00 20 */	blr 
+/* 8011AE10 00117D70  4E 80 00 20 */	blr
 
 .global RotateToOR__13CPhysicsActorFRC11CQuaternionf
 RotateToOR__13CPhysicsActorFRC11CQuaternionf:
@@ -783,7 +783,7 @@ RotateToOR__13CPhysicsActorFRC11CQuaternionf:
 /* 8011AE68 00117DC8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8011AE6C 00117DCC  7C 08 03 A6 */	mtlr r0
 /* 8011AE70 00117DD0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011AE74 00117DD4  4E 80 00 20 */	blr 
+/* 8011AE74 00117DD4  4E 80 00 20 */	blr
 
 .global MoveToOR__13CPhysicsActorFRC9CVector3ff
 MoveToOR__13CPhysicsActorFRC9CVector3ff:
@@ -808,7 +808,7 @@ MoveToOR__13CPhysicsActorFRC9CVector3ff:
 /* 8011AEC0 00117E20  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8011AEC4 00117E24  7C 08 03 A6 */	mtlr r0
 /* 8011AEC8 00117E28  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011AECC 00117E2C  4E 80 00 20 */	blr 
+/* 8011AECC 00117E2C  4E 80 00 20 */	blr
 
 .global GetRotateToORAngularMomentumWR__13CPhysicsActorCFRC11CQuaternionf
 GetRotateToORAngularMomentumWR__13CPhysicsActorCFRC11CQuaternionf:
@@ -891,7 +891,7 @@ lbl_8011AFD4:
 /* 8011AFF8 00117F58  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8011AFFC 00117F5C  7C 08 03 A6 */	mtlr r0
 /* 8011B000 00117F60  38 21 00 70 */	addi r1, r1, 0x70
-/* 8011B004 00117F64  4E 80 00 20 */	blr 
+/* 8011B004 00117F64  4E 80 00 20 */	blr
 
 .global GetMoveToORImpulseWR__13CPhysicsActorCFRC9CVector3ff
 GetMoveToORImpulseWR__13CPhysicsActorCFRC9CVector3ff:
@@ -930,7 +930,7 @@ GetMoveToORImpulseWR__13CPhysicsActorCFRC9CVector3ff:
 /* 8011B088 00117FE8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8011B08C 00117FEC  7C 08 03 A6 */	mtlr r0
 /* 8011B090 00117FF0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011B094 00117FF4  4E 80 00 20 */	blr 
+/* 8011B094 00117FF4  4E 80 00 20 */	blr
 
 .global MoveToInOneFrameWR__13CPhysicsActorFRC9CVector3ff
 MoveToInOneFrameWR__13CPhysicsActorFRC9CVector3ff:
@@ -961,7 +961,7 @@ MoveToInOneFrameWR__13CPhysicsActorFRC9CVector3ff:
 /* 8011B0F8 00118058  C0 03 01 94 */	lfs f0, 0x194(r3)
 /* 8011B0FC 0011805C  EC 00 08 2A */	fadds f0, f0, f1
 /* 8011B100 00118060  D0 03 01 94 */	stfs f0, 0x194(r3)
-/* 8011B104 00118064  4E 80 00 20 */	blr 
+/* 8011B104 00118064  4E 80 00 20 */	blr
 
 .global MoveToWR__13CPhysicsActorFRC9CVector3ff
 MoveToWR__13CPhysicsActorFRC9CVector3ff:
@@ -993,7 +993,7 @@ MoveToWR__13CPhysicsActorFRC9CVector3ff:
 /* 8011B16C 001180CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011B170 001180D0  7C 08 03 A6 */	mtlr r0
 /* 8011B174 001180D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011B178 001180D8  4E 80 00 20 */	blr 
+/* 8011B178 001180D8  4E 80 00 20 */	blr
 
 .global UseCollisionImpulses__13CPhysicsActorFv
 UseCollisionImpulses__13CPhysicsActorFv:
@@ -1037,7 +1037,7 @@ UseCollisionImpulses__13CPhysicsActorFv:
 /* 8011B210 00118170  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011B214 00118174  7C 08 03 A6 */	mtlr r0
 /* 8011B218 00118178  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011B21C 0011817C  4E 80 00 20 */	blr 
+/* 8011B21C 0011817C  4E 80 00 20 */	blr
 
 .global ClearImpulses__13CPhysicsActorFv
 ClearImpulses__13CPhysicsActorFv:
@@ -1077,7 +1077,7 @@ ClearImpulses__13CPhysicsActorFv:
 /* 8011B2A4 00118204  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011B2A8 00118208  7C 08 03 A6 */	mtlr r0
 /* 8011B2AC 0011820C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011B2B0 00118210  4E 80 00 20 */	blr 
+/* 8011B2B0 00118210  4E 80 00 20 */	blr
 
 .global ClearForcesAndTorques__13CPhysicsActorFv
 ClearForcesAndTorques__13CPhysicsActorFv:
@@ -1129,7 +1129,7 @@ ClearForcesAndTorques__13CPhysicsActorFv:
 /* 8011B368 001182C8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8011B36C 001182CC  7C 08 03 A6 */	mtlr r0
 /* 8011B370 001182D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011B374 001182D4  4E 80 00 20 */	blr 
+/* 8011B374 001182D4  4E 80 00 20 */	blr
 
 .global Stop__13CPhysicsActorFv
 Stop__13CPhysicsActorFv:
@@ -1159,7 +1159,7 @@ Stop__13CPhysicsActorFv:
 /* 8011B3D4 00118334  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011B3D8 00118338  7C 08 03 A6 */	mtlr r0
 /* 8011B3DC 0011833C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011B3E0 00118340  4E 80 00 20 */	blr 
+/* 8011B3E0 00118340  4E 80 00 20 */	blr
 
 .global WillMove__13CPhysicsActorFRC13CStateManager
 WillMove__13CPhysicsActorFRC13CStateManager:
@@ -1240,7 +1240,7 @@ lbl_8011B500:
 /* 8011B504 00118464  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8011B508 00118468  7C 08 03 A6 */	mtlr r0
 /* 8011B50C 0011846C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011B510 00118470  4E 80 00 20 */	blr 
+/* 8011B510 00118470  4E 80 00 20 */	blr
 
 .global AddMotionState__13CPhysicsActorFRC12CMotionState
 AddMotionState__13CPhysicsActorFRC12CMotionState:
@@ -1331,7 +1331,7 @@ AddMotionState__13CPhysicsActorFRC12CMotionState:
 /* 8011B664 001185C4  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 8011B668 001185C8  7C 08 03 A6 */	mtlr r0
 /* 8011B66C 001185CC  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8011B670 001185D0  4E 80 00 20 */	blr 
+/* 8011B670 001185D0  4E 80 00 20 */	blr
 
 .global GetMotionState__13CPhysicsActorCFv
 GetMotionState__13CPhysicsActorCFv:
@@ -1379,7 +1379,7 @@ GetMotionState__13CPhysicsActorCFv:
 /* 8011B718 00118678  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8011B71C 0011867C  7C 08 03 A6 */	mtlr r0
 /* 8011B720 00118680  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011B724 00118684  4E 80 00 20 */	blr 
+/* 8011B724 00118684  4E 80 00 20 */	blr
 
 .global SetMotionState__13CPhysicsActorFRC12CMotionState
 SetMotionState__13CPhysicsActorFRC12CMotionState:
@@ -1438,7 +1438,7 @@ SetMotionState__13CPhysicsActorFRC12CMotionState:
 /* 8011B7F8 00118758  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8011B7FC 0011875C  7C 08 03 A6 */	mtlr r0
 /* 8011B800 00118760  38 21 00 60 */	addi r1, r1, 0x60
-/* 8011B804 00118764  4E 80 00 20 */	blr 
+/* 8011B804 00118764  4E 80 00 20 */	blr
 
 .global PredictMotion_Internal__13CPhysicsActorCFf
 PredictMotion_Internal__13CPhysicsActorCFf:
@@ -1518,7 +1518,7 @@ lbl_8011B8EC:
 /* 8011B924 00118884  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8011B928 00118888  7C 08 03 A6 */	mtlr r0
 /* 8011B92C 0011888C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8011B930 00118890  4E 80 00 20 */	blr 
+/* 8011B930 00118890  4E 80 00 20 */	blr
 
 .global PredictLinearMotion__13CPhysicsActorCFf
 PredictLinearMotion__13CPhysicsActorCFf:
@@ -1616,7 +1616,7 @@ PredictLinearMotion__13CPhysicsActorCFf:
 /* 8011BAA0 00118A00  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8011BAA4 00118A04  7C 08 03 A6 */	mtlr r0
 /* 8011BAA8 00118A08  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8011BAAC 00118A0C  4E 80 00 20 */	blr 
+/* 8011BAAC 00118A0C  4E 80 00 20 */	blr
 
 .global PredictAngularMotion__13CPhysicsActorCFf
 PredictAngularMotion__13CPhysicsActorCFf:
@@ -1747,7 +1747,7 @@ PredictAngularMotion__13CPhysicsActorCFf:
 /* 8011BCA0 00118C00  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 8011BCA4 00118C04  7C 08 03 A6 */	mtlr r0
 /* 8011BCA8 00118C08  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8011BCAC 00118C0C  4E 80 00 20 */	blr 
+/* 8011BCAC 00118C0C  4E 80 00 20 */	blr
 
 .global PredictMotion__13CPhysicsActorCFf
 PredictMotion__13CPhysicsActorCFf:
@@ -1820,7 +1820,7 @@ PredictMotion__13CPhysicsActorCFf:
 /* 8011BDB8 00118D18  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8011BDBC 00118D1C  7C 08 03 A6 */	mtlr r0
 /* 8011BDC0 00118D20  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8011BDC4 00118D24  4E 80 00 20 */	blr 
+/* 8011BDC4 00118D24  4E 80 00 20 */	blr
 
 .global CalculateNewVelocityWR_UsingImpulses__13CPhysicsActorCFv
 CalculateNewVelocityWR_UsingImpulses__13CPhysicsActorCFv:
@@ -1846,7 +1846,7 @@ CalculateNewVelocityWR_UsingImpulses__13CPhysicsActorCFv:
 /* 8011BE14 00118D74  EC 03 08 2A */	fadds f0, f3, f1
 /* 8011BE18 00118D78  D0 43 00 04 */	stfs f2, 4(r3)
 /* 8011BE1C 00118D7C  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8011BE20 00118D80  4E 80 00 20 */	blr 
+/* 8011BE20 00118D80  4E 80 00 20 */	blr
 
 .global SetPhysicsState__13CPhysicsActorFRC13CPhysicsState
 SetPhysicsState__13CPhysicsActorFRC13CPhysicsState:
@@ -1963,7 +1963,7 @@ SetPhysicsState__13CPhysicsActorFRC13CPhysicsState:
 /* 8011BFDC 00118F3C  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 8011BFE0 00118F40  7C 08 03 A6 */	mtlr r0
 /* 8011BFE4 00118F44  38 21 00 90 */	addi r1, r1, 0x90
-/* 8011BFE8 00118F48  4E 80 00 20 */	blr 
+/* 8011BFE8 00118F48  4E 80 00 20 */	blr
 
 .global GetPhysicsState__13CPhysicsActorCFv
 GetPhysicsState__13CPhysicsActorCFv:
@@ -2001,7 +2001,7 @@ GetPhysicsState__13CPhysicsActorCFv:
 /* 8011C068 00118FC8  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8011C06C 00118FCC  7C 08 03 A6 */	mtlr r0
 /* 8011C070 00118FD0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8011C074 00118FD4  4E 80 00 20 */	blr 
+/* 8011C074 00118FD4  4E 80 00 20 */	blr
 
 .global ComputeDerivedQuantities__13CPhysicsActorFv
 ComputeDerivedQuantities__13CPhysicsActorFv:
@@ -2055,7 +2055,7 @@ ComputeDerivedQuantities__13CPhysicsActorFv:
 /* 8011C134 00119094  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 8011C138 00119098  7C 08 03 A6 */	mtlr r0
 /* 8011C13C 0011909C  38 21 00 60 */	addi r1, r1, 0x60
-/* 8011C140 001190A0  4E 80 00 20 */	blr 
+/* 8011C140 001190A0  4E 80 00 20 */	blr
 
 .global ApplyForceOR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle
 ApplyForceOR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
@@ -2106,7 +2106,7 @@ ApplyForceOR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
 /* 8011C1F4 00119154  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8011C1F8 00119158  7C 08 03 A6 */	mtlr r0
 /* 8011C1FC 0011915C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8011C200 00119160  4E 80 00 20 */	blr 
+/* 8011C200 00119160  4E 80 00 20 */	blr
 
 .global ApplyImpulseOR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle
 ApplyImpulseOR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
@@ -2157,7 +2157,7 @@ ApplyImpulseOR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
 /* 8011C2B4 00119214  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8011C2B8 00119218  7C 08 03 A6 */	mtlr r0
 /* 8011C2BC 0011921C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8011C2C0 00119220  4E 80 00 20 */	blr 
+/* 8011C2C0 00119220  4E 80 00 20 */	blr
 
 .global ApplyForceWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle
 ApplyForceWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
@@ -2191,7 +2191,7 @@ ApplyForceWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
 /* 8011C330 00119290  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8011C334 00119294  7C 08 03 A6 */	mtlr r0
 /* 8011C338 00119298  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011C33C 0011929C  4E 80 00 20 */	blr 
+/* 8011C33C 0011929C  4E 80 00 20 */	blr
 
 .global ApplyTorqueWR__13CPhysicsActorFRC9CVector3f
 ApplyTorqueWR__13CPhysicsActorFRC9CVector3f:
@@ -2216,7 +2216,7 @@ ApplyTorqueWR__13CPhysicsActorFRC9CVector3f:
 /* 8011C388 001192E8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8011C38C 001192EC  7C 08 03 A6 */	mtlr r0
 /* 8011C390 001192F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8011C394 001192F4  4E 80 00 20 */	blr 
+/* 8011C394 001192F4  4E 80 00 20 */	blr
 
 .global ApplyImpulseWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle
 ApplyImpulseWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
@@ -2250,7 +2250,7 @@ ApplyImpulseWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle:
 /* 8011C404 00119364  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8011C408 00119368  7C 08 03 A6 */	mtlr r0
 /* 8011C40C 0011936C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011C410 00119370  4E 80 00 20 */	blr 
+/* 8011C410 00119370  4E 80 00 20 */	blr
 
 .global __dt__13CPhysicsActorFv
 __dt__13CPhysicsActorFv:
@@ -2295,7 +2295,7 @@ lbl_8011C494:
 /* 8011C4A0 00119400  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8011C4A4 00119404  7C 08 03 A6 */	mtlr r0
 /* 8011C4A8 00119408  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011C4AC 0011940C  4E 80 00 20 */	blr 
+/* 8011C4AC 0011940C  4E 80 00 20 */	blr
 
 .global "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff":
@@ -2524,4 +2524,4 @@ lbl_8011C548:
 /* 8011C820 00119780  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8011C824 00119784  7C 08 03 A6 */	mtlr r0
 /* 8011C828 00119788  38 21 00 90 */	addi r1, r1, 0x90
-/* 8011C82C 0011978C  4E 80 00 20 */	blr 
+/* 8011C82C 0011978C  4E 80 00 20 */	blr

@@ -78,7 +78,7 @@ lbl_80074FC8:
 /* 80074FD4 00071F34  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80074FD8 00071F38  7C 08 03 A6 */	mtlr r0
 /* 80074FDC 00071F3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80074FE0 00071F40  4E 80 00 20 */	blr 
+/* 80074FE0 00071F40  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
@@ -94,7 +94,7 @@ GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMod
 /* 80075008 00071F68  81 83 00 00 */	lwz r12, 0(r3)
 /* 8007500C 00071F6C  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80075010 00071F70  7D 89 03 A6 */	mtctr r12
-/* 80075014 00071F74  4E 80 04 21 */	bctrl 
+/* 80075014 00071F74  4E 80 04 21 */	bctrl
 /* 80075018 00071F78  7F A4 EB 78 */	mr r4, r29
 /* 8007501C 00071F7C  7C 7F 1B 78 */	mr r31, r3
 /* 80075020 00071F80  38 A0 00 00 */	li r5, 0
@@ -124,7 +124,7 @@ lbl_80075070:
 /* 80075074 00071FD4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80075078 00071FD8  7C 08 03 A6 */	mtlr r0
 /* 8007507C 00071FDC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80075080 00071FE0  4E 80 00 20 */	blr 
+/* 80075080 00071FE0  4E 80 00 20 */	blr
 
 .global Accept__12CScriptActorFR8IVisitor
 Accept__12CScriptActorFR8IVisitor:
@@ -137,11 +137,11 @@ Accept__12CScriptActorFR8IVisitor:
 /* 8007509C 00071FFC  7C 04 03 78 */	mr r4, r0
 /* 800750A0 00072000  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 800750A4 00072004  7D 89 03 A6 */	mtctr r12
-/* 800750A8 00072008  4E 80 04 21 */	bctrl 
+/* 800750A8 00072008  4E 80 04 21 */	bctrl
 /* 800750AC 0007200C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800750B0 00072010  7C 08 03 A6 */	mtlr r0
 /* 800750B4 00072014  38 21 00 10 */	addi r1, r1, 0x10
-/* 800750B8 00072018  4E 80 00 20 */	blr 
+/* 800750B8 00072018  4E 80 00 20 */	blr
 
 .global PreRender__12CScriptActorFR13CStateManagerRC14CFrustumPlanes
 PreRender__12CScriptActorFR13CStateManagerRC14CFrustumPlanes:
@@ -297,7 +297,7 @@ lbl_800752EC:
 /* 800752F0 00072250  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800752F4 00072254  7C 08 03 A6 */	mtlr r0
 /* 800752F8 00072258  38 21 00 40 */	addi r1, r1, 0x40
-/* 800752FC 0007225C  4E 80 00 20 */	blr 
+/* 800752FC 0007225C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CScriptActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CScriptActorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -446,7 +446,7 @@ lbl_800754DC:
 /* 800754FC 0007245C  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80075500 00072460  7C 08 03 A6 */	mtlr r0
 /* 80075504 00072464  38 21 00 80 */	addi r1, r1, 0x80
-/* 80075508 00072468  4E 80 00 20 */	blr 
+/* 80075508 00072468  4E 80 00 20 */	blr
 
 .global Think__12CScriptActorFfR13CStateManager
 Think__12CScriptActorFfR13CStateManager:
@@ -593,7 +593,7 @@ lbl_80075710:
 /* 80075724 00072684  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80075728 00072688  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8007572C 0007268C  7D 89 03 A6 */	mtctr r12
-/* 80075730 00072690  4E 80 04 21 */	bctrl 
+/* 80075730 00072690  4E 80 04 21 */	bctrl
 /* 80075734 00072694  C0 23 00 00 */	lfs f1, 0(r3)
 /* 80075738 00072698  C0 02 88 B8 */	lfs f0, lbl_805AA5D8@sda21(r2)
 /* 8007573C 0007269C  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -615,7 +615,7 @@ lbl_8007576C:
 /* 80075778 000726D8  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8007577C 000726DC  7C 08 03 A6 */	mtlr r0
 /* 80075780 000726E0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80075784 000726E4  4E 80 00 20 */	blr 
+/* 80075784 000726E4  4E 80 00 20 */	blr
 
 .global GetTouchBounds__12CScriptActorCFv
 GetTouchBounds__12CScriptActorCFv:
@@ -664,21 +664,21 @@ lbl_80075824:
 /* 80075828 00072788  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8007582C 0007278C  7C 08 03 A6 */	mtlr r0
 /* 80075830 00072790  38 21 00 30 */	addi r1, r1, 0x30
-/* 80075834 00072794  4E 80 00 20 */	blr 
+/* 80075834 00072794  4E 80 00 20 */	blr
 
 .global Touch__12CScriptActorFR6CActorR13CStateManager
 Touch__12CScriptActorFR6CActorR13CStateManager:
-/* 80075838 00072798  4E 80 00 20 */	blr 
+/* 80075838 00072798  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__12CScriptActorCFv
 GetDamageVulnerability__12CScriptActorCFv:
 /* 8007583C 0007279C  38 63 02 68 */	addi r3, r3, 0x268
-/* 80075840 000727A0  4E 80 00 20 */	blr 
+/* 80075840 000727A0  4E 80 00 20 */	blr
 
 .global GetHealthInfo__12CScriptActorCFRC13CStateManager
 GetHealthInfo__12CScriptActorCFRC13CStateManager:
 /* 80075844 000727A4  38 63 02 60 */	addi r3, r3, 0x260
-/* 80075848 000727A8  4E 80 00 20 */	blr 
+/* 80075848 000727A8  4E 80 00 20 */	blr
 
 .global __dt__12CScriptActorFv
 __dt__12CScriptActorFv:
@@ -706,7 +706,7 @@ lbl_80075890:
 /* 8007589C 000727FC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800758A0 00072800  7C 08 03 A6 */	mtlr r0
 /* 800758A4 00072804  38 21 00 10 */	addi r1, r1, 0x10
-/* 800758A8 00072808  4E 80 00 20 */	blr 
+/* 800758A8 00072808  4E 80 00 20 */	blr
 
 .global "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb"
 "__ct__12CScriptActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbbUibbbb":
@@ -953,4 +953,4 @@ lbl_80075C1C:
 /* 80075C50 00072BB0  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 80075C54 00072BB4  7C 08 03 A6 */	mtlr r0
 /* 80075C58 00072BB8  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80075C5C 00072BBC  4E 80 00 20 */	blr 
+/* 80075C5C 00072BBC  4E 80 00 20 */	blr

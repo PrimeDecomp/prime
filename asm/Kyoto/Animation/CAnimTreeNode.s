@@ -39,7 +39,7 @@ lbl_803ED1D0:
 .global IsCAnimTreeNode__13CAnimTreeNodeCFv
 IsCAnimTreeNode__13CAnimTreeNodeCFv:
 /* 802F3BF0 002F0B50  38 60 00 01 */	li r3, 1
-/* 802F3BF4 002F0B54  4E 80 00 20 */	blr 
+/* 802F3BF4 002F0B54  4E 80 00 20 */	blr
 
 .global "Cast__FRCQ24rstl33ownership_transfer<11IAnimReader>"
 "Cast__FRCQ24rstl33ownership_transfer<11IAnimReader>":
@@ -56,7 +56,7 @@ IsCAnimTreeNode__13CAnimTreeNodeCFv:
 /* 802F3C20 002F0B80  7F E3 FB 78 */	mr r3, r31
 /* 802F3C24 002F0B84  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802F3C28 002F0B88  7D 89 03 A6 */	mtctr r12
-/* 802F3C2C 002F0B8C  4E 80 04 21 */	bctrl 
+/* 802F3C2C 002F0B8C  4E 80 04 21 */	bctrl
 /* 802F3C30 002F0B90  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F3C34 002F0B94  41 82 00 34 */	beq lbl_802F3C68
 /* 802F3C38 002F0B98  3C 80 80 3D */	lis r4, lbl_803D6E00@ha
@@ -92,14 +92,14 @@ lbl_802F3C68:
 /* 802F3CA8 002F0C08  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802F3CAC 002F0C0C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F3CB0 002F0C10  7D 89 03 A6 */	mtctr r12
-/* 802F3CB4 002F0C14  4E 80 04 21 */	bctrl 
+/* 802F3CB4 002F0C14  4E 80 04 21 */	bctrl
 lbl_802F3CB8:
 /* 802F3CB8 002F0C18  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802F3CBC 002F0C1C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802F3CC0 002F0C20  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802F3CC4 002F0C24  7C 08 03 A6 */	mtlr r0
 /* 802F3CC8 002F0C28  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F3CCC 002F0C2C  4E 80 00 20 */	blr 
+/* 802F3CCC 002F0C2C  4E 80 00 20 */	blr
 
 .global "__ct__13CAnimTreeNodeFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__13CAnimTreeNodeFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":

@@ -172,7 +172,7 @@ lbl_8036A444:
 /* 8036A448 003673A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036A44C 003673AC  7C 08 03 A6 */	mtlr r0
 /* 8036A450 003673B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A454 003673B4  4E 80 00 20 */	blr 
+/* 8036A454 003673B4  4E 80 00 20 */	blr
 
 .global InitializeStream__10SDSPStreamFv
 InitializeStream__10SDSPStreamFv:
@@ -228,7 +228,7 @@ lbl_8036A50C:
 /* 8036A510 00367470  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036A514 00367474  7C 08 03 A6 */	mtlr r0
 /* 8036A518 00367478  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A51C 0036747C  4E 80 00 20 */	blr 
+/* 8036A51C 0036747C  4E 80 00 20 */	blr
 
 .global UpdateStream__10SDSPStreamFPviPvii
 UpdateStream__10SDSPStreamFPviPvii:
@@ -268,7 +268,7 @@ lbl_8036A590:
 /* 8036A594 003674F4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036A598 003674F8  7C 08 03 A6 */	mtlr r0
 /* 8036A59C 003674FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A5A0 00367500  4E 80 00 20 */	blr 
+/* 8036A5A0 00367500  4E 80 00 20 */	blr
 
 .global BufferStream__10SDSPStreamFv
 BufferStream__10SDSPStreamFv:
@@ -404,7 +404,7 @@ lbl_8036A758:
 /* 8036A770 003676D0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8036A774 003676D4  7C 08 03 A6 */	mtlr r0
 /* 8036A778 003676D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036A77C 003676DC  4E 80 00 20 */	blr 
+/* 8036A77C 003676DC  4E 80 00 20 */	blr
 
 .global StopStream__10SDSPStreamFv
 StopStream__10SDSPStreamFv:
@@ -428,7 +428,7 @@ lbl_8036A7B8:
 /* 8036A7BC 0036771C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036A7C0 00367720  7C 08 03 A6 */	mtlr r0
 /* 8036A7C4 00367724  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A7C8 00367728  4E 80 00 20 */	blr 
+/* 8036A7C8 00367728  4E 80 00 20 */	blr
 
 .global IsStreamAvailable__10SDSPStreamFi
 IsStreamAvailable__10SDSPStreamFi:
@@ -463,7 +463,7 @@ lbl_8036A824:
 /* 8036A838 00367798  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036A83C 0036779C  7C 08 03 A6 */	mtlr r0
 /* 8036A840 003677A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A844 003677A4  4E 80 00 20 */	blr 
+/* 8036A844 003677A4  4E 80 00 20 */	blr
 
 .global IsStreamActive__10SDSPStreamFi
 IsStreamActive__10SDSPStreamFi:
@@ -498,7 +498,7 @@ lbl_8036A8A0:
 /* 8036A8B4 00367814  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036A8B8 00367818  7C 08 03 A6 */	mtlr r0
 /* 8036A8BC 0036781C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A8C0 00367820  4E 80 00 20 */	blr 
+/* 8036A8C0 00367820  4E 80 00 20 */	blr
 
 .global UpdateVolume__10SDSPStreamFi
 UpdateVolume__10SDSPStreamFi:
@@ -545,7 +545,7 @@ lbl_8036A948:
 /* 8036A95C 003678BC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8036A960 003678C0  7C 08 03 A6 */	mtlr r0
 /* 8036A964 003678C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036A968 003678C8  4E 80 00 20 */	blr 
+/* 8036A968 003678C8  4E 80 00 20 */	blr
 
 .global UpdateStreamVolume__10SDSPStreamFi
 UpdateStreamVolume__10SDSPStreamFi:
@@ -571,7 +571,7 @@ lbl_8036A9B4:
 /* 8036A9B4 00367914  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036A9B8 00367918  7C 08 03 A6 */	mtlr r0
 /* 8036A9BC 0036791C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036A9C0 00367920  4E 80 00 20 */	blr 
+/* 8036A9C0 00367920  4E 80 00 20 */	blr
 
 .global Silence__10SDSPStreamFv
 Silence__10SDSPStreamFv:
@@ -617,7 +617,7 @@ lbl_8036AA48:
 /* 8036AA58 003679B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036AA5C 003679BC  7C 08 03 A6 */	mtlr r0
 /* 8036AA60 003679C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036AA64 003679C4  4E 80 00 20 */	blr 
+/* 8036AA64 003679C4  4E 80 00 20 */	blr
 
 .global SilenceStream__10SDSPStreamFv
 SilenceStream__10SDSPStreamFv:
@@ -646,7 +646,7 @@ lbl_8036AAB8:
 /* 8036AABC 00367A1C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036AAC0 00367A20  7C 08 03 A6 */	mtlr r0
 /* 8036AAC4 00367A24  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036AAC8 00367A28  4E 80 00 20 */	blr 
+/* 8036AAC8 00367A28  4E 80 00 20 */	blr
 
 .global AllocateStereo__10SDSPStreamFRC11SStreamInfoRC11SStreamInfoci
 AllocateStereo__10SDSPStreamFRC11SStreamInfoRC11SStreamInfoci:
@@ -732,7 +732,7 @@ lbl_8036ABF8:
 /* 8036ABFC 00367B5C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8036AC00 00367B60  7C 08 03 A6 */	mtlr r0
 /* 8036AC04 00367B64  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036AC08 00367B68  4E 80 00 20 */	blr 
+/* 8036AC08 00367B68  4E 80 00 20 */	blr
 
 .global DeallocateStream__10SDSPStreamFv
 DeallocateStream__10SDSPStreamFv:
@@ -778,7 +778,7 @@ lbl_8036AC98:
 /* 8036AC9C 00367BFC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036ACA0 00367C00  7C 08 03 A6 */	mtlr r0
 /* 8036ACA4 00367C04  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036ACA8 00367C08  4E 80 00 20 */	blr 
+/* 8036ACA8 00367C08  4E 80 00 20 */	blr
 
 .global AllocateMono__10SDSPStreamFRC11SStreamInfocci
 AllocateMono__10SDSPStreamFRC11SStreamInfocci:
@@ -831,7 +831,7 @@ lbl_8036AD58:
 /* 8036AD5C 00367CBC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8036AD60 00367CC0  7C 08 03 A6 */	mtlr r0
 /* 8036AD64 00367CC4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036AD68 00367CC8  4E 80 00 20 */	blr 
+/* 8036AD68 00367CC8  4E 80 00 20 */	blr
 
 .global AllocateStream__10SDSPStreamFi
 AllocateStream__10SDSPStreamFi:
@@ -927,7 +927,7 @@ lbl_8036AEA8:
 /* 8036AEC0 00367E20  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8036AEC4 00367E24  7C 08 03 A6 */	mtlr r0
 /* 8036AEC8 00367E28  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036AECC 00367E2C  4E 80 00 20 */	blr 
+/* 8036AECC 00367E2C  4E 80 00 20 */	blr
 
 .global FreeAllStreams__10SDSPStreamFi
 FreeAllStreams__10SDSPStreamFi:
@@ -953,7 +953,7 @@ lbl_8036AEF0:
 /* 8036AF18 00367E78  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036AF1C 00367E7C  7C 08 03 A6 */	mtlr r0
 /* 8036AF20 00367E80  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036AF24 00367E84  4E 80 00 20 */	blr 
+/* 8036AF24 00367E84  4E 80 00 20 */	blr
 
 .global Initialize__10SDSPStreamFv
 Initialize__10SDSPStreamFv:
@@ -999,7 +999,7 @@ lbl_8036AF90:
 /* 8036AFB8 00367F18  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8036AFBC 00367F1C  7C 08 03 A6 */	mtlr r0
 /* 8036AFC0 00367F20  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036AFC4 00367F24  4E 80 00 20 */	blr 
+/* 8036AFC4 00367F24  4E 80 00 20 */	blr
 
 .global DoAllocateStream__10SDSPStreamFi
 DoAllocateStream__10SDSPStreamFi:
@@ -1048,7 +1048,7 @@ DoAllocateStream__10SDSPStreamFi:
 /* 8036B070 00367FD0  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8036B074 00367FD4  7C 08 03 A6 */	mtlr r0
 /* 8036B078 00367FD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036B07C 00367FDC  4E 80 00 20 */	blr 
+/* 8036B07C 00367FDC  4E 80 00 20 */	blr
 
 .global FindStreamIdx__10SDSPStreamFi
 FindStreamIdx__10SDSPStreamFi:
@@ -1060,7 +1060,7 @@ FindStreamIdx__10SDSPStreamFi:
 /* 8036B094 00367FF4  7C 03 00 40 */	cmplw r3, r0
 /* 8036B098 00367FF8  40 82 00 0C */	bne lbl_8036B0A4
 /* 8036B09C 00367FFC  38 60 00 00 */	li r3, 0
-/* 8036B0A0 00368000  4E 80 00 20 */	blr 
+/* 8036B0A0 00368000  4E 80 00 20 */	blr
 lbl_8036B0A4:
 /* 8036B0A4 00368004  8C 04 00 F4 */	lbzu r0, 0xf4(r4)
 /* 8036B0A8 00368008  28 00 00 00 */	cmplwi r0, 0
@@ -1069,7 +1069,7 @@ lbl_8036B0A4:
 /* 8036B0B4 00368014  7C 03 00 40 */	cmplw r3, r0
 /* 8036B0B8 00368018  40 82 00 0C */	bne lbl_8036B0C4
 /* 8036B0BC 0036801C  38 60 00 01 */	li r3, 1
-/* 8036B0C0 00368020  4E 80 00 20 */	blr 
+/* 8036B0C0 00368020  4E 80 00 20 */	blr
 lbl_8036B0C4:
 /* 8036B0C4 00368024  8C 04 00 F4 */	lbzu r0, 0xf4(r4)
 /* 8036B0C8 00368028  28 00 00 00 */	cmplwi r0, 0
@@ -1078,7 +1078,7 @@ lbl_8036B0C4:
 /* 8036B0D4 00368034  7C 03 00 40 */	cmplw r3, r0
 /* 8036B0D8 00368038  40 82 00 0C */	bne lbl_8036B0E4
 /* 8036B0DC 0036803C  38 60 00 02 */	li r3, 2
-/* 8036B0E0 00368040  4E 80 00 20 */	blr 
+/* 8036B0E0 00368040  4E 80 00 20 */	blr
 lbl_8036B0E4:
 /* 8036B0E4 00368044  8C 04 00 F4 */	lbzu r0, 0xf4(r4)
 /* 8036B0E8 00368048  28 00 00 00 */	cmplwi r0, 0
@@ -1087,10 +1087,10 @@ lbl_8036B0E4:
 /* 8036B0F4 00368054  7C 03 00 40 */	cmplw r3, r0
 /* 8036B0F8 00368058  40 82 00 0C */	bne lbl_8036B104
 /* 8036B0FC 0036805C  38 60 00 03 */	li r3, 3
-/* 8036B100 00368060  4E 80 00 20 */	blr 
+/* 8036B100 00368060  4E 80 00 20 */	blr
 lbl_8036B104:
 /* 8036B104 00368064  38 60 FF FF */	li r3, -1
-/* 8036B108 00368068  4E 80 00 20 */	blr 
+/* 8036B108 00368068  4E 80 00 20 */	blr
 
 .global PickFreeStream__10SDSPStreamFi
 PickFreeStream__10SDSPStreamFi:
@@ -1171,13 +1171,13 @@ lbl_8036B1E8:
 /* 8036B214 00368174  90 04 00 0C */	stw r0, 0xc(r4)
 /* 8036B218 00368178  90 83 00 00 */	stw r4, 0(r3)
 /* 8036B21C 0036817C  7D 23 4B 78 */	mr r3, r9
-/* 8036B220 00368180  4E 80 00 20 */	blr 
+/* 8036B220 00368180  4E 80 00 20 */	blr
 lbl_8036B224:
 /* 8036B224 00368184  38 A5 00 F4 */	addi r5, r5, 0xf4
 /* 8036B228 00368188  39 08 00 01 */	addi r8, r8, 1
 /* 8036B22C 0036818C  42 00 FE F8 */	bdnz lbl_8036B124
 /* 8036B230 00368190  38 60 FF FF */	li r3, -1
-/* 8036B234 00368194  4E 80 00 20 */	blr 
+/* 8036B234 00368194  4E 80 00 20 */	blr
 
 .global CloseFiles__10SDSPStreamFv
 CloseFiles__10SDSPStreamFv:
@@ -1194,7 +1194,7 @@ CloseFiles__10SDSPStreamFv:
 /* 8036B260 003681C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036B264 003681C4  7C 08 03 A6 */	mtlr r0
 /* 8036B268 003681C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036B26C 003681CC  4E 80 00 20 */	blr 
+/* 8036B26C 003681CC  4E 80 00 20 */	blr
 
 .global OpenFiles__10SDSPStreamFPCc
 OpenFiles__10SDSPStreamFPCc:

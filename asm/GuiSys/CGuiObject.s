@@ -45,7 +45,7 @@ SetO2WTransform__10CGuiObjectFRC12CTransform4f:
 /* 802C47A0 002C1700  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 802C47A4 002C1704  7C 08 03 A6 */	mtlr r0
 /* 802C47A8 002C1708  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802C47AC 002C170C  4E 80 00 20 */	blr 
+/* 802C47AC 002C170C  4E 80 00 20 */	blr
 
 .global sub_802c47b0
 sub_802c47b0:
@@ -62,7 +62,7 @@ sub_802c47b0:
 /* 802C47D8 002C1738  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C47DC 002C173C  7C 08 03 A6 */	mtlr r0
 /* 802C47E0 002C1740  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C47E4 002C1744  4E 80 00 20 */	blr 
+/* 802C47E4 002C1744  4E 80 00 20 */	blr
 
 .global RecalculateTransforms__10CGuiObjectFv
 RecalculateTransforms__10CGuiObjectFv:
@@ -443,12 +443,12 @@ lbl_802C4CF8:
 /* 802C4D08 002C1C68  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 802C4D0C 002C1C6C  7C 08 03 A6 */	mtlr r0
 /* 802C4D10 002C1C70  38 21 02 F0 */	addi r1, r1, 0x2f0
-/* 802C4D14 002C1C74  4E 80 00 20 */	blr 
+/* 802C4D14 002C1C74  4E 80 00 20 */	blr
 
 .global GetParent__10CGuiObjectFv
 GetParent__10CGuiObjectFv:
 /* 802C4D18 002C1C78  80 63 00 64 */	lwz r3, 0x64(r3)
-/* 802C4D1C 002C1C7C  4E 80 00 20 */	blr 
+/* 802C4D1C 002C1C7C  4E 80 00 20 */	blr
 
 .global GetNextSibling__10CGuiObjectFv
 GetNextSibling__10CGuiObjectFv:
@@ -458,17 +458,17 @@ GetNextSibling__10CGuiObjectFv:
 .global GetNextSibling__18CGuiCompoundWidgetFv
 GetNextSibling__18CGuiCompoundWidgetFv:
 /* 802C4D28 002C1C88  80 63 00 6C */	lwz r3, 0x6c(r3)
-/* 802C4D2C 002C1C8C  4E 80 00 20 */	blr 
+/* 802C4D2C 002C1C8C  4E 80 00 20 */	blr
 
 .global GetChildObject__10CGuiObjectFv
 GetChildObject__10CGuiObjectFv:
 /* 802C4D30 002C1C90  80 63 00 68 */	lwz r3, 0x68(r3)
-/* 802C4D34 002C1C94  4E 80 00 20 */	blr 
+/* 802C4D34 002C1C94  4E 80 00 20 */	blr
 
 .global GetChildObject__18CGuiCompoundWidgetFv
 GetChildObject__18CGuiCompoundWidgetFv:
 /* 802C4D38 002C1C98  80 63 00 68 */	lwz r3, 0x68(r3)
-/* 802C4D3C 002C1C9C  4E 80 00 20 */	blr 
+/* 802C4D3C 002C1C9C  4E 80 00 20 */	blr
 
 .global AddChildObject__10CGuiObjectFP10CGuiObjectbb
 AddChildObject__10CGuiObjectFP10CGuiObjectbb:
@@ -663,7 +663,7 @@ lbl_802C4FF4:
 /* 802C5018 002C1F78  83 A1 01 94 */	lwz r29, 0x194(r1)
 /* 802C501C 002C1F7C  7C 08 03 A6 */	mtlr r0
 /* 802C5020 002C1F80  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 802C5024 002C1F84  4E 80 00 20 */	blr 
+/* 802C5024 002C1F84  4E 80 00 20 */	blr
 
 .global MultiplyO2P__10CGuiObjectFRC12CTransform4f
 MultiplyO2P__10CGuiObjectFRC12CTransform4f:
@@ -684,7 +684,7 @@ MultiplyO2P__10CGuiObjectFRC12CTransform4f:
 /* 802C5060 002C1FC0  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802C5064 002C1FC4  7C 08 03 A6 */	mtlr r0
 /* 802C5068 002C1FC8  38 21 00 40 */	addi r1, r1, 0x40
-/* 802C506C 002C1FCC  4E 80 00 20 */	blr 
+/* 802C506C 002C1FCC  4E 80 00 20 */	blr
 
 .global RotateTranslateW2O__10CGuiObjectCFRC9CVector3f
 RotateTranslateW2O__10CGuiObjectCFRC9CVector3f:
@@ -720,7 +720,7 @@ RotateTranslateW2O__10CGuiObjectCFRC9CVector3f:
 /* 802C50E4 002C2044  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C50E8 002C2048  7C 08 03 A6 */	mtlr r0
 /* 802C50EC 002C204C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C50F0 002C2050  4E 80 00 20 */	blr 
+/* 802C50F0 002C2050  4E 80 00 20 */	blr
 
 .global RotateO2P__10CGuiObjectCFRC9CVector3f
 RotateO2P__10CGuiObjectCFRC9CVector3f:
@@ -742,7 +742,7 @@ RotateO2P__10CGuiObjectCFRC9CVector3f:
 /* 802C5130 002C2090  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C5134 002C2094  7C 08 03 A6 */	mtlr r0
 /* 802C5138 002C2098  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C513C 002C209C  4E 80 00 20 */	blr 
+/* 802C513C 002C209C  4E 80 00 20 */	blr
 
 .global RotateReset__10CGuiObjectFv
 RotateReset__10CGuiObjectFv:
@@ -779,7 +779,7 @@ RotateReset__10CGuiObjectFv:
 /* 802C51B8 002C2118  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C51BC 002C211C  7C 08 03 A6 */	mtlr r0
 /* 802C51C0 002C2120  38 21 00 40 */	addi r1, r1, 0x40
-/* 802C51C4 002C2124  4E 80 00 20 */	blr 
+/* 802C51C4 002C2124  4E 80 00 20 */	blr
 
 .global SetLocalPosition__10CGuiObjectFRC9CVector3f
 SetLocalPosition__10CGuiObjectFRC9CVector3f:
@@ -803,7 +803,7 @@ SetLocalPosition__10CGuiObjectFRC9CVector3f:
 /* 802C520C 002C216C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C5210 002C2170  7C 08 03 A6 */	mtlr r0
 /* 802C5214 002C2174  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C5218 002C2178  4E 80 00 20 */	blr 
+/* 802C5218 002C2178  4E 80 00 20 */	blr
 
 .global GetLocalPosition__10CGuiObjectCFv
 GetLocalPosition__10CGuiObjectCFv:
@@ -813,7 +813,7 @@ GetLocalPosition__10CGuiObjectCFv:
 /* 802C5228 002C2188  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802C522C 002C218C  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802C5230 002C2190  D0 43 00 08 */	stfs f2, 8(r3)
-/* 802C5234 002C2194  4E 80 00 20 */	blr 
+/* 802C5234 002C2194  4E 80 00 20 */	blr
 
 .global GetWorldPosition__10CGuiObjectCFv
 GetWorldPosition__10CGuiObjectCFv:
@@ -823,7 +823,7 @@ GetWorldPosition__10CGuiObjectCFv:
 /* 802C5244 002C21A4  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802C5248 002C21A8  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802C524C 002C21AC  D0 43 00 08 */	stfs f2, 8(r3)
-/* 802C5250 002C21B0  4E 80 00 20 */	blr 
+/* 802C5250 002C21B0  4E 80 00 20 */	blr
 
 .global MoveInWorld__10CGuiObjectFRC9CVector3f
 MoveInWorld__10CGuiObjectFRC9CVector3f:
@@ -867,7 +867,7 @@ lbl_802C52A4:
 /* 802C52E4 002C2244  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802C52E8 002C2248  7C 08 03 A6 */	mtlr r0
 /* 802C52EC 002C224C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C52F0 002C2250  4E 80 00 20 */	blr 
+/* 802C52F0 002C2250  4E 80 00 20 */	blr
 
 .global Draw__10CGuiObjectCFRC19CGuiWidgetDrawParms
 Draw__10CGuiObjectCFRC19CGuiWidgetDrawParms:
@@ -884,7 +884,7 @@ Draw__10CGuiObjectCFRC19CGuiWidgetDrawParms:
 /* 802C531C 002C227C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C5320 002C2280  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802C5324 002C2284  7D 89 03 A6 */	mtctr r12
-/* 802C5328 002C2288  4E 80 04 21 */	bctrl 
+/* 802C5328 002C2288  4E 80 04 21 */	bctrl
 lbl_802C532C:
 /* 802C532C 002C228C  80 7E 00 6C */	lwz r3, 0x6c(r30)
 /* 802C5330 002C2290  28 03 00 00 */	cmplwi r3, 0
@@ -893,14 +893,14 @@ lbl_802C532C:
 /* 802C533C 002C229C  7F E4 FB 78 */	mr r4, r31
 /* 802C5340 002C22A0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802C5344 002C22A4  7D 89 03 A6 */	mtctr r12
-/* 802C5348 002C22A8  4E 80 04 21 */	bctrl 
+/* 802C5348 002C22A8  4E 80 04 21 */	bctrl
 lbl_802C534C:
 /* 802C534C 002C22AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C5350 002C22B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C5354 002C22B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C5358 002C22B8  7C 08 03 A6 */	mtlr r0
 /* 802C535C 002C22BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5360 002C22C0  4E 80 00 20 */	blr 
+/* 802C5360 002C22C0  4E 80 00 20 */	blr
 
 .global Update__10CGuiObjectFf
 Update__10CGuiObjectFf:
@@ -917,7 +917,7 @@ Update__10CGuiObjectFf:
 /* 802C538C 002C22EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C5390 002C22F0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802C5394 002C22F4  7D 89 03 A6 */	mtctr r12
-/* 802C5398 002C22F8  4E 80 04 21 */	bctrl 
+/* 802C5398 002C22F8  4E 80 04 21 */	bctrl
 lbl_802C539C:
 /* 802C539C 002C22FC  80 7F 00 6C */	lwz r3, 0x6c(r31)
 /* 802C53A0 002C2300  28 03 00 00 */	cmplwi r3, 0
@@ -926,14 +926,14 @@ lbl_802C539C:
 /* 802C53AC 002C230C  FC 20 F8 90 */	fmr f1, f31
 /* 802C53B0 002C2310  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802C53B4 002C2314  7D 89 03 A6 */	mtctr r12
-/* 802C53B8 002C2318  4E 80 04 21 */	bctrl 
+/* 802C53B8 002C2318  4E 80 04 21 */	bctrl
 lbl_802C53BC:
 /* 802C53BC 002C231C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C53C0 002C2320  CB E1 00 18 */	lfd f31, 0x18(r1)
 /* 802C53C4 002C2324  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 802C53C8 002C2328  7C 08 03 A6 */	mtlr r0
 /* 802C53CC 002C232C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C53D0 002C2330  4E 80 00 20 */	blr 
+/* 802C53D0 002C2330  4E 80 00 20 */	blr
 
 .global __dt__10CGuiObjectFv
 __dt__10CGuiObjectFv:
@@ -955,7 +955,7 @@ __dt__10CGuiObjectFv:
 /* 802C5410 002C2370  38 80 00 01 */	li r4, 1
 /* 802C5414 002C2374  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802C5418 002C2378  7D 89 03 A6 */	mtctr r12
-/* 802C541C 002C237C  4E 80 04 21 */	bctrl 
+/* 802C541C 002C237C  4E 80 04 21 */	bctrl
 lbl_802C5420:
 /* 802C5420 002C2380  38 00 00 00 */	li r0, 0
 /* 802C5424 002C2384  90 1E 00 68 */	stw r0, 0x68(r30)
@@ -966,7 +966,7 @@ lbl_802C5420:
 /* 802C5438 002C2398  38 80 00 01 */	li r4, 1
 /* 802C543C 002C239C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802C5440 002C23A0  7D 89 03 A6 */	mtctr r12
-/* 802C5444 002C23A4  4E 80 04 21 */	bctrl 
+/* 802C5444 002C23A4  4E 80 04 21 */	bctrl
 lbl_802C5448:
 /* 802C5448 002C23A8  38 60 00 00 */	li r3, 0
 /* 802C544C 002C23AC  7F E0 07 35 */	extsh. r0, r31
@@ -981,7 +981,7 @@ lbl_802C5460:
 /* 802C546C 002C23CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C5470 002C23D0  7C 08 03 A6 */	mtlr r0
 /* 802C5474 002C23D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5478 002C23D8  4E 80 00 20 */	blr 
+/* 802C5478 002C23D8  4E 80 00 20 */	blr
 
 .global __ct__10CGuiObjectFv
 __ct__10CGuiObjectFv:

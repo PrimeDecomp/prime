@@ -5,7 +5,7 @@ dsp_task:
 	.skip 0x60
 dram_image:
 	.skip 0x2008
-	
+
 .section .sbss, "wa"
 .balign 4
 .global oldState
@@ -38,8 +38,8 @@ salAIBufferIndex:
 .global userCallback
 userCallback:
 	.skip 0x4
-	
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global salCallback
 salCallback:
@@ -74,7 +74,7 @@ salCallback:
 /* 803B4CAC 003B1C0C  4B FC C9 C9 */	bl OSEnableInterrupts
 /* 803B4CB0 003B1C10  81 8D AF D4 */	lwz r12, userCallback@sda21(r13)
 /* 803B4CB4 003B1C14  7D 89 03 A6 */	mtctr r12
-/* 803B4CB8 003B1C18  4E 80 04 21 */	bctrl 
+/* 803B4CB8 003B1C18  4E 80 04 21 */	bctrl
 /* 803B4CBC 003B1C1C  4B FC C9 A5 */	bl OSDisableInterrupts
 /* 803B4CC0 003B1C20  38 00 00 00 */	li r0, 0
 /* 803B4CC4 003B1C24  90 0D AF C0 */	stw r0, salLogicActive@sda21(r13)
@@ -86,14 +86,14 @@ lbl_803B4CD4:
 /* 803B4CD4 003B1C34  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B4CD8 003B1C38  7C 08 03 A6 */	mtlr r0
 /* 803B4CDC 003B1C3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4CE0 003B1C40  4E 80 00 20 */	blr 
+/* 803B4CE0 003B1C40  4E 80 00 20 */	blr
 
 .global dspInitCallback
 dspInitCallback:
 /* 803B4CE4 003B1C44  38 00 00 01 */	li r0, 1
 /* 803B4CE8 003B1C48  90 0D AF C8 */	stw r0, salDspIsDone@sda21(r13)
 /* 803B4CEC 003B1C4C  90 0D AF B8 */	stw r0, salDspInitIsDone@sda21(r13)
-/* 803B4CF0 003B1C50  4E 80 00 20 */	blr 
+/* 803B4CF0 003B1C50  4E 80 00 20 */	blr
 
 .global dspResumeCallback
 dspResumeCallback:
@@ -114,7 +114,7 @@ dspResumeCallback:
 /* 803B4D2C 003B1C8C  4B FC C9 49 */	bl OSEnableInterrupts
 /* 803B4D30 003B1C90  81 8D AF D4 */	lwz r12, userCallback@sda21(r13)
 /* 803B4D34 003B1C94  7D 89 03 A6 */	mtctr r12
-/* 803B4D38 003B1C98  4E 80 04 21 */	bctrl 
+/* 803B4D38 003B1C98  4E 80 04 21 */	bctrl
 /* 803B4D3C 003B1C9C  4B FC C9 25 */	bl OSDisableInterrupts
 /* 803B4D40 003B1CA0  38 00 00 00 */	li r0, 0
 /* 803B4D44 003B1CA4  90 0D AF C0 */	stw r0, salLogicActive@sda21(r13)
@@ -122,7 +122,7 @@ lbl_803B4D48:
 /* 803B4D48 003B1CA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B4D4C 003B1CAC  7C 08 03 A6 */	mtlr r0
 /* 803B4D50 003B1CB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4D54 003B1CB4  4E 80 00 20 */	blr 
+/* 803B4D54 003B1CB4  4E 80 00 20 */	blr
 
 .global salInitAi
 salInitAi:
@@ -177,7 +177,7 @@ lbl_803B4E08:
 /* 803B4E10 003B1D70  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803B4E14 003B1D74  7C 08 03 A6 */	mtlr r0
 /* 803B4E18 003B1D78  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4E1C 003B1D7C  4E 80 00 20 */	blr 
+/* 803B4E1C 003B1D7C  4E 80 00 20 */	blr
 
 .global salStartAi
 salStartAi:
@@ -188,7 +188,7 @@ salStartAi:
 /* 803B4E30 003B1D90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B4E34 003B1D94  7C 08 03 A6 */	mtlr r0
 /* 803B4E38 003B1D98  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4E3C 003B1D9C  4E 80 00 20 */	blr 
+/* 803B4E3C 003B1D9C  4E 80 00 20 */	blr
 
 .global salExitAi
 salExitAi:
@@ -204,7 +204,7 @@ salExitAi:
 /* 803B4E64 003B1DC4  38 60 00 01 */	li r3, 1
 /* 803B4E68 003B1DC8  7C 08 03 A6 */	mtlr r0
 /* 803B4E6C 003B1DCC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4E70 003B1DD0  4E 80 00 20 */	blr 
+/* 803B4E70 003B1DD0  4E 80 00 20 */	blr
 
 .global salAiGetDest
 salAiGetDest:
@@ -219,7 +219,7 @@ salAiGetDest:
 /* 803B4E94 003B1DF4  54 00 06 3E */	clrlwi r0, r0, 0x18
 /* 803B4E98 003B1DF8  1C 00 02 80 */	mulli r0, r0, 0x280
 /* 803B4E9C 003B1DFC  7C 64 02 14 */	add r3, r4, r0
-/* 803B4EA0 003B1E00  4E 80 00 20 */	blr 
+/* 803B4EA0 003B1E00  4E 80 00 20 */	blr
 
 .global salInitDsp
 salInitDsp:
@@ -270,7 +270,7 @@ lbl_803B4F3C:
 /* 803B4F50 003B1EB0  38 60 00 01 */	li r3, 1
 /* 803B4F54 003B1EB4  7C 08 03 A6 */	mtlr r0
 /* 803B4F58 003B1EB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4F5C 003B1EBC  4E 80 00 20 */	blr 
+/* 803B4F5C 003B1EBC  4E 80 00 20 */	blr
 
 .global salExitDsp
 salExitDsp:
@@ -287,7 +287,7 @@ lbl_803B4F70:
 /* 803B4F84 003B1EE4  38 60 00 01 */	li r3, 1
 /* 803B4F88 003B1EE8  7C 08 03 A6 */	mtlr r0
 /* 803B4F8C 003B1EEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B4F90 003B1EF0  4E 80 00 20 */	blr 
+/* 803B4F90 003B1EF0  4E 80 00 20 */	blr
 
 .global salCtrlDsp
 salCtrlDsp:
@@ -321,7 +321,7 @@ lbl_803B4FE8:
 /* 803B4FF8 003B1F58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803B4FFC 003B1F5C  7C 08 03 A6 */	mtlr r0
 /* 803B5000 003B1F60  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5004 003B1F64  4E 80 00 20 */	blr 
+/* 803B5004 003B1F64  4E 80 00 20 */	blr
 
 .global salGetStartDelay
 salGetStartDelay:
@@ -343,7 +343,7 @@ salGetStartDelay:
 /* 803B5044 003B1FA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5048 003B1FA8  7C 08 03 A6 */	mtlr r0
 /* 803B504C 003B1FAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5050 003B1FB0  4E 80 00 20 */	blr 
+/* 803B5050 003B1FB0  4E 80 00 20 */	blr
 
 .global hwInitIrq
 hwInitIrq:
@@ -357,11 +357,11 @@ hwInitIrq:
 /* 803B5070 003B1FD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5074 003B1FD4  7C 08 03 A6 */	mtlr r0
 /* 803B5078 003B1FD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B507C 003B1FDC  4E 80 00 20 */	blr 
+/* 803B507C 003B1FDC  4E 80 00 20 */	blr
 
 .global hwExitIrq
 hwExitIrq:
-/* 803B5080 003B1FE0  4E 80 00 20 */	blr 
+/* 803B5080 003B1FE0  4E 80 00 20 */	blr
 
 .global hwEnableIrq
 hwEnableIrq:
@@ -379,7 +379,7 @@ lbl_803B50AC:
 /* 803B50AC 003B200C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B50B0 003B2010  7C 08 03 A6 */	mtlr r0
 /* 803B50B4 003B2014  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B50B8 003B2018  4E 80 00 20 */	blr 
+/* 803B50B8 003B2018  4E 80 00 20 */	blr
 
 .global hwDisableIrq
 hwDisableIrq:
@@ -397,7 +397,7 @@ lbl_803B50E4:
 /* 803B50E4 003B2044  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B50E8 003B2048  7C 08 03 A6 */	mtlr r0
 /* 803B50EC 003B204C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B50F0 003B2050  4E 80 00 20 */	blr 
+/* 803B50F0 003B2050  4E 80 00 20 */	blr
 
 .global hwIRQEnterCritical
 hwIRQEnterCritical:
@@ -408,7 +408,7 @@ hwIRQEnterCritical:
 /* 803B5104 003B2064  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5108 003B2068  7C 08 03 A6 */	mtlr r0
 /* 803B510C 003B206C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5110 003B2070  4E 80 00 20 */	blr 
+/* 803B5110 003B2070  4E 80 00 20 */	blr
 
 .global hwIRQLeaveCritical
 hwIRQLeaveCritical:
@@ -419,4 +419,4 @@ hwIRQLeaveCritical:
 /* 803B5124 003B2084  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B5128 003B2088  7C 08 03 A6 */	mtlr r0
 /* 803B512C 003B208C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B5130 003B2090  4E 80 00 20 */	blr 
+/* 803B5130 003B2090  4E 80 00 20 */	blr

@@ -38,7 +38,7 @@ lbl_802FEAE4:
 /* 802FEAF0 002FBA50  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FEAF4 002FBA54  7C 08 03 A6 */	mtlr r0
 /* 802FEAF8 002FBA58  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FEAFC 002FBA5C  4E 80 00 20 */	blr 
+/* 802FEAFC 002FBA5C  4E 80 00 20 */	blr
 
 .global PageInvoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 PageInvoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
@@ -48,16 +48,16 @@ PageInvoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
 /* 802FEB0C 002FBA6C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802FEB10 002FBA70  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802FEB14 002FBA74  7D 89 03 A6 */	mtctr r12
-/* 802FEB18 002FBA78  4E 80 04 21 */	bctrl 
+/* 802FEB18 002FBA78  4E 80 04 21 */	bctrl
 /* 802FEB1C 002FBA7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FEB20 002FBA80  7C 08 03 A6 */	mtlr r0
 /* 802FEB24 002FBA84  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FEB28 002FBA88  4E 80 00 20 */	blr 
+/* 802FEB28 002FBA88  4E 80 00 20 */	blr
 
 .global GetAssetCount__16CFontInstructionCFv
 GetAssetCount__16CFontInstructionCFv:
 /* 802FEB2C 002FBA8C  38 60 00 02 */	li r3, 2
-/* 802FEB30 002FBA90  4E 80 00 20 */	blr 
+/* 802FEB30 002FBA90  4E 80 00 20 */	blr
 
 .global "GetAssets__16CFontInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>"
 "GetAssets__16CFontInstructionCFRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>":
@@ -134,7 +134,7 @@ lbl_802FEC28:
 /* 802FEC30 002FBB90  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FEC34 002FBB94  7C 08 03 A6 */	mtlr r0
 /* 802FEC38 002FBB98  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FEC3C 002FBB9C  4E 80 00 20 */	blr 
+/* 802FEC3C 002FBB9C  4E 80 00 20 */	blr
 
 .global Invoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__16CFontInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
