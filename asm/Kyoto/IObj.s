@@ -1,6 +1,15 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9510
+lbl_805A9510:
+	.skip 0x8
+.global lbl_805A9518
+lbl_805A9518:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global Type2Text__10SObjectTagFUi
 Type2Text__10SObjectTagFUi:

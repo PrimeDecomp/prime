@@ -36,7 +36,7 @@ lbl_805A86C4:
 	# ROM: 0x3F6064
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget
 AddWorkerWidget__14CGuiTableGroupFP10CGuiWidget:

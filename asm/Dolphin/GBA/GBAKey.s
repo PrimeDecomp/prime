@@ -67,7 +67,7 @@ lbl_803F7520:
 lbl_803F752C:
     .asciz "GBA - unexpected dsp call"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __GBASetDelay
 __GBASetDelay:

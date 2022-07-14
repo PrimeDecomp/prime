@@ -14,7 +14,7 @@ lbl_803E02A8:
 	.4byte PreDraw__6CIOWinCFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__14CAudioStateWinFv
 __dt__14CAudioStateWinFv:

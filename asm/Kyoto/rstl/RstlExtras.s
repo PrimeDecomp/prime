@@ -5,8 +5,14 @@
 .global lbl_804BFF30
 lbl_804BFF30:
 	.skip 0x10
+
+.section .sbss, "wa"
+
+.global lbl_805A94E8
+lbl_805A94E8:
+	.skip 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global "TokenizeString__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCci"
 "TokenizeString__13CStringExtrasFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCci":

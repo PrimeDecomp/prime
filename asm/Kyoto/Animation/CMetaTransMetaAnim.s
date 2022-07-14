@@ -12,7 +12,7 @@ lbl_803ECD90:
 	.4byte GetType__18CMetaTransMetaAnimCFv
 	.4byte WriteTransData__18CMetaTransMetaAnimCFR13COutputStream
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__18CMetaTransMetaAnimFv
 __dt__18CMetaTransMetaAnimFv:

@@ -53,7 +53,7 @@ lbl_805A7634:
 	.4byte 0
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetMaximumCollisionVelocity__13CPhysicsActorCFv
 GetMaximumCollisionVelocity__13CPhysicsActorCFv:

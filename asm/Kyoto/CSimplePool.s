@@ -51,7 +51,13 @@ lbl_805A8912:
 	.byte 0x01, 0x00
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9508
+lbl_805A9508:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global GetFactory__11CSimplePoolCFv
 GetFactory__11CSimplePoolCFv:

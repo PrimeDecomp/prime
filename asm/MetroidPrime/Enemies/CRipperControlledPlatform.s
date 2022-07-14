@@ -42,7 +42,7 @@ lbl_803E80C0:
 	.4byte Move__25CRipperControlledPlatformFR13CStateManager
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__25CRipperControlledPlatformFv
 __dt__25CRipperControlledPlatformFv:

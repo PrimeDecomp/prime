@@ -214,7 +214,7 @@ lbl_803EA7C4:
 	.4byte PhazeOut__10CPatternedFR13CStateManager
 	.4byte sub_8026fb50
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetSearchPath__9CBurrowerFv
 GetSearchPath__9CBurrowerFv:

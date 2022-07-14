@@ -20,7 +20,7 @@ lbl_803E1488:
 	.4byte UpdateBody__14CBSLieOnGroundFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__14CBSLieOnGroundFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__14CBSLieOnGroundFv
 __dt__14CBSLieOnGroundFv:

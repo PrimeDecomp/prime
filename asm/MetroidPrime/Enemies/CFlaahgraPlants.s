@@ -72,7 +72,7 @@ lbl_805A7F80:
 	.4byte 0x00000021
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AcceptScriptMsg__15CFlaahgraPlantsF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CFlaahgraPlantsF20EScriptObjectMessage9TUniqueIdR13CStateManager:

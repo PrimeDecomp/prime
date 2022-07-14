@@ -252,7 +252,7 @@ lbl_805A8F98:
 lbl_805A8F9C:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__9CFireFleaFv
 __dt__9CFireFleaFv:

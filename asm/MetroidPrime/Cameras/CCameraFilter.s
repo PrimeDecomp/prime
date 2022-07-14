@@ -53,7 +53,7 @@ lbl_805A73E0:
 lbl_805A8EE0:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FreePersistentFbTexture__15CCameraBlurPassFv
 FreePersistentFbTexture__15CCameraBlurPassFv:

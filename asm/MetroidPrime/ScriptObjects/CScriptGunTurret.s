@@ -186,8 +186,22 @@ lbl_805A80D4:
 	# ROM: 0x3F5A74
 	.4byte 0x00000014
 
+.section .sbss, "wa"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.global lbl_805A90C0
+lbl_805A90C0:
+	.skip 0x4
+.global lbl_805A90C4
+lbl_805A90C4:
+	.skip 0x4
+.global lbl_805A90C8
+lbl_805A90C8:
+	.skip 0x4
+.global lbl_805A90CC
+lbl_805A90CC:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global HealthInfo__16CScriptGunTurretFR13CStateManager
 HealthInfo__16CScriptGunTurretFR13CStateManager:

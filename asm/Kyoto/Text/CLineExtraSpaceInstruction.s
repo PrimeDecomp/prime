@@ -14,7 +14,7 @@ lbl_803ED610:
 	.4byte GetAssetCount__12CInstructionCFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__26CLineExtraSpaceInstructionFv
 __dt__26CLineExtraSpaceInstructionFv:

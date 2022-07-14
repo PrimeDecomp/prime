@@ -44,7 +44,16 @@ lbl_805A8864:
 	# ROM: 0x3F6204
 	.4byte 0xBF800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9448
+lbl_805A9448:
+	.skip 0x4
+.global lbl_805A944C
+lbl_805A944C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global FromNUQuaternion__11CQuaternionFRC13CNUQuaternion
 FromNUQuaternion__11CQuaternionFRC13CNUQuaternion:

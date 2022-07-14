@@ -77,7 +77,7 @@ lbl_805A7E78:
 	.4byte 0x0000001E
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ExplosionFinished__Q220CIceAttackProjectile12CTrailObjectCFv
 ExplosionFinished__Q220CIceAttackProjectile12CTrailObjectCFv:

@@ -31,8 +31,17 @@ lbl_804BFFA0:
 .global lbl_804BFFAC
 lbl_804BFFAC:
 	.skip 0x14
+
+.section .sbss, "wa"
+
+.global lbl_805A95C0
+lbl_805A95C0:
+	.skip 0x1
+.global lbl_805A95C1
+lbl_805A95C1:
+	.skip 0x7
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FreeCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 FreeCardWorkArea__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:

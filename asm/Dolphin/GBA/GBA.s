@@ -55,7 +55,7 @@ lbl_803F7170:
 	.byte 0x00
 	
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ShortCommandProc
 ShortCommandProc:

@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global OnPath__15CPathFindSearchCFRC9CVector3f
 OnPath__15CPathFindSearchCFRC9CVector3f:

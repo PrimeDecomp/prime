@@ -52,7 +52,7 @@ lbl_803E52A0:
 	.4byte IsQualified__10CActorListFRC7CEntity
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global IsQualified__14CGameLightListFRC7CEntity
 IsQualified__14CGameLightListFRC7CEntity:

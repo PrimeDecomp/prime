@@ -20,7 +20,7 @@ lbl_803E13A8:
 	.4byte UpdateBody__6CBSDieFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__6CBSDieFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__6CBSDieFv
 __dt__6CBSDieFv:

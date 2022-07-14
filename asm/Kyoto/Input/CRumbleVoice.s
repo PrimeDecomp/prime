@@ -8,7 +8,7 @@ lbl_805A8A60:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global CreateRumbleHandle__12CRumbleVoiceFs
 CreateRumbleHandle__12CRumbleVoiceFs:

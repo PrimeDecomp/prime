@@ -20,7 +20,7 @@ lbl_803E1878:
 	.4byte UpdateBody__15CBSLoopReactionFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__15CBSLoopReactionFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__15CBSLoopReactionFv
 __dt__15CBSLoopReactionFv:

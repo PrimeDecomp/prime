@@ -38,7 +38,25 @@ lbl_803ED3A0:
 	.4byte VReverseSimplified__18CAnimTreeTweenBaseFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9300
+lbl_805A9300:
+	.skip 0x4
+.global lbl_805A9304
+lbl_805A9304:
+	.skip 0x4
+.global lbl_805A9308
+lbl_805A9308:
+	.skip 0x4
+.global lbl_805A930C
+lbl_805A930C:
+	.skip 0x4
+.global lbl_805A9310
+lbl_805A9310:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global "VGetWeightedReaders__18CAnimTreeTweenBaseFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 "VGetWeightedReaders__18CAnimTreeTweenBaseFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>":

@@ -72,8 +72,56 @@ lbl_805A89A7:
 .global lbl_804BFF90
 lbl_804BFF90:
 	.skip 0x10
+
+.section .sbss, "wa"
+
+.global lbl_805A9590
+lbl_805A9590:
+	.skip 0x1
+.global lbl_805A9591
+lbl_805A9591:
+	.skip 0x1
+.global lbl_805A9592
+lbl_805A9592:
+	.skip 0x1
+.global lbl_805A9593
+lbl_805A9593:
+	.skip 0x1
+.global lbl_805A9594
+lbl_805A9594:
+	.skip 0x4
+.global lbl_805A9598
+lbl_805A9598:
+	.skip 0x4
+.global lbl_805A959C
+lbl_805A959C:
+	.skip 0x4
+.global lbl_805A95A0
+lbl_805A95A0:
+	.skip 0x4
+.global lbl_805A95A4
+lbl_805A95A4:
+	.skip 0x4
+.global lbl_805A95A8
+lbl_805A95A8:
+	.skip 0x4
+.global lbl_805A95AC
+lbl_805A95AC:
+	.skip 0x4
+.global lbl_805A95B0
+lbl_805A95B0:
+	.skip 0x4
+.global lbl_805A95B4
+lbl_805A95B4:
+	.skip 0x4
+.global lbl_805A95B8
+lbl_805A95B8:
+	.skip 0x4
+.global lbl_805A95BC
+lbl_805A95BC:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_8034a7a4
 sub_8034a7a4:

@@ -26,7 +26,7 @@ lbl_805A7C94:
 	# ROM: 0x3F5634
 	.4byte 0x00000012
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Get4CharID__10CFlameWarpFv
 Get4CharID__10CFlameWarpFv:

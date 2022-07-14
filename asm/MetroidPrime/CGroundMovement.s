@@ -56,7 +56,31 @@ lbl_805A7A98:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9020
+lbl_805A9020:
+	.skip 0x8
+.global lbl_805A9028
+lbl_805A9028:
+	.skip 0x4
+.global lbl_805A902C
+lbl_805A902C:
+	.skip 0x4
+.global lbl_805A9030
+lbl_805A9030:
+	.skip 0x4
+.global lbl_805A9034
+lbl_805A9034:
+	.skip 0x4
+.global lbl_805A9038
+lbl_805A9038:
+	.skip 0x4
+.global lbl_805A903C
+lbl_805A903C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global "MoveObjectAnalytical__15CGroundMovementFR13CStateManagerR13CPhysicsActorfRCQ24rstl32reserved_vector<9TUniqueId,1024>R19CAreaCollisionCacheRfRCQ215CGroundMovement16SMovementOptions"
 "MoveObjectAnalytical__15CGroundMovementFR13CStateManagerR13CPhysicsActorfRCQ24rstl32reserved_vector<9TUniqueId,1024>R19CAreaCollisionCacheRfRCQ215CGroundMovement16SMovementOptions":

@@ -1,5 +1,53 @@
 .include "macros.inc"
 
+.section .sbss, "wa"
+
+.global lbl_805A91B0
+lbl_805A91B0:
+	.skip 0x4
+.global lbl_805A91B4
+lbl_805A91B4:
+	.skip 0x8
+.global lbl_805A91BC
+lbl_805A91BC:
+	.skip 0x8
+.global lbl_805A91C4
+lbl_805A91C4:
+	.skip 0x8
+.global lbl_805A91CC
+lbl_805A91CC:
+	.skip 0x4
+.global lbl_805A91D0
+lbl_805A91D0:
+	.skip 0x4
+.global lbl_805A91D4
+lbl_805A91D4:
+	.skip 0x8
+.global lbl_805A91DC
+lbl_805A91DC:
+	.skip 0x4
+.global lbl_805A91E0
+lbl_805A91E0:
+	.skip 0x4
+.global lbl_805A91E4
+lbl_805A91E4:
+	.skip 0x4
+.global lbl_805A91E8
+lbl_805A91E8:
+	.skip 0x1
+.global lbl_805A91E9
+lbl_805A91E9:
+	.skip 0x3
+.global lbl_805A91EC
+lbl_805A91EC:
+	.skip 0x4
+.global lbl_805A91F0
+lbl_805A91F0:
+	.skip 0x4
+.global lbl_805A91F4
+lbl_805A91F4:
+	.skip 0x4
+
 .section .data
 
 .global lbl_803EC5D8
@@ -221,7 +269,7 @@ lbl_8047916C:
 lbl_80479178:
 	.skip 0x320
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global DrawString__13CCubeRendererFPCcii
 DrawString__13CCubeRendererFPCcii:

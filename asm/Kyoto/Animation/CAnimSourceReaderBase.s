@@ -62,7 +62,7 @@ lbl_805A87A4:
 	# ROM: 0x3F6144
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global PostConstruct__21CAnimSourceReaderBaseFRC13CCharAnimTime
 PostConstruct__21CAnimSourceReaderBaseFRC13CCharAnimTime:

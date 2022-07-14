@@ -314,7 +314,7 @@ lbl_805A7778:
 lbl_8046C748:
 	.skip 0x10
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__11CChozoGhostFv
 __dt__11CChozoGhostFv:

@@ -10,7 +10,7 @@ lbl_803E3AC8:
 	.4byte sub_80169a70
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FScannableObjectInfoFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FScannableObjectInfoFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

@@ -74,8 +74,17 @@ lbl_8046D360:
 .global lbl_8046D378
 lbl_8046D378:
 	.skip 0x18
-	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.section .sbss, "wa"
+
+.global lbl_805A90F0
+lbl_805A90F0:
+	.skip 0x1
+.global lbl_805A90F1
+lbl_805A90F1:
+	.skip 0x7
+
+.section .text, "ax"
 
 .global __dt__15CSnakeWeedSwarmFv
 __dt__15CSnakeWeedSwarmFv:

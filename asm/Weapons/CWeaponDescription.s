@@ -10,7 +10,7 @@ lbl_803EC5C8:
 	.4byte __dt__17CModVectorElement
 	.4byte 0
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__18CWeaponDescriptionFv
 __dt__18CWeaponDescriptionFv:

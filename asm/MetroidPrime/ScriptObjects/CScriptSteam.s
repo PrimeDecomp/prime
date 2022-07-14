@@ -38,7 +38,7 @@ lbl_803E3DA8:
 	.4byte InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__12CScriptSteamFR8IVisitor
 Accept__12CScriptSteamFR8IVisitor:

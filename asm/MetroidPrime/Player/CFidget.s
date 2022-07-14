@@ -12,7 +12,7 @@ lbl_805A7834:
 	# ROM: 0x3F51D4
 	.4byte 0x41A00000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Update__7CFidgetFibbfR13CStateManager
 Update__7CFidgetFibbfR13CStateManager:

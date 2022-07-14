@@ -10,7 +10,7 @@ lbl_803ED568:
 	.4byte "__dt__49TObjOwnerDerivedFromIObj<21CAllFormatsAnimSource>Fv"
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__21CAllFormatsAnimSourceFv
 __dt__21CAllFormatsAnimSourceFv:

@@ -10,7 +10,7 @@ __vt__15CMemoryInStream:
 	.4byte __dt__15CMemoryInStreamFv
 	.4byte Read__15CMemoryInStreamFPvUl
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Read__15CMemoryInStreamFPvUl
 Read__15CMemoryInStreamFPvUl:

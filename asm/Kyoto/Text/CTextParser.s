@@ -32,7 +32,7 @@ lbl_803ED718:
 	.string16 "pop"
 	.balign 8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ParseColor__11CTextParserFPCwi
 ParseColor__11CTextParserFPCwi:

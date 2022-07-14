@@ -22,7 +22,7 @@ lbl_803DFE40:
 	.4byte __dt__14CBCScriptedCmdFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__20CScriptActorKeyframeFv
 __dt__20CScriptActorKeyframeFv:

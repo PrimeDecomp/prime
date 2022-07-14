@@ -36,7 +36,16 @@ lbl_803E7158:
 	.4byte Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A90B8
+lbl_805A90B8:
+	.skip 0x4
+.global lbl_805A90BC
+lbl_805A90BC:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global SetCameraShake__17CEnergyProjectileFRC16CCameraShakeData
 SetCameraShake__17CEnergyProjectileFRC16CCameraShakeData:

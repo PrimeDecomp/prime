@@ -73,7 +73,7 @@ lbl_805A82D8:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SetInGame__15CSaveGameScreenb
 SetInGame__15CSaveGameScreenb:

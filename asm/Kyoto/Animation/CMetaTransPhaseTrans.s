@@ -34,7 +34,7 @@ lbl_805A8734:
 	# ROM: 0x3F60D4
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__20CMetaTransPhaseTransFv
 __dt__20CMetaTransPhaseTransFv:

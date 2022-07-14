@@ -86,7 +86,7 @@ lbl_805A8F68:
 lbl_805A8F6C:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AcceptScriptMsg__11CPathCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CPathCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager:

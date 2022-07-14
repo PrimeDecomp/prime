@@ -22,6 +22,12 @@ lbl_805A862C:
 	# ROM: 0x3F5FCC
 	.4byte 0
 
+.section .sbss, "wa"
+
+.global lbl_805A9198
+lbl_805A9198:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global Alloc__Q28COBBTree16CSimpleAllocatorFUl

@@ -32,8 +32,14 @@ sWeaponRenderer__15IWeaponRenderer:
 .global lbl_8046E1F0
 lbl_8046E1F0:
 	.skip 0x10
+
+.section .sbss, "wa"
+
+.global lbl_805A91A0
+lbl_805A91A0:
+	.skip 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __sinit_IWeaponRenderer_cpp
 __sinit_IWeaponRenderer_cpp:

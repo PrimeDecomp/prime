@@ -27,7 +27,7 @@ lbl_805A7334:
 	.4byte 0x00000064
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__18CScriptRandomRelayFR8IVisitor
 Accept__18CScriptRandomRelayFR8IVisitor:

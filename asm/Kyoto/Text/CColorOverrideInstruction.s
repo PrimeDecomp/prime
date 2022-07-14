@@ -26,7 +26,7 @@ lbl_803ED5F0:
 	.4byte GetAssetCount__16CFontInstructionCFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__25CColorOverrideInstructionFv
 __dt__25CColorOverrideInstructionFv:

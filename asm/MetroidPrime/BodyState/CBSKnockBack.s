@@ -20,7 +20,7 @@ lbl_803E1450:
 	.4byte UpdateBody__12CBSKnockBackFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__12CBSKnockBackFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__12CBSKnockBackFv
 __dt__12CBSKnockBackFv:

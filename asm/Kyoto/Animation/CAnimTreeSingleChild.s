@@ -34,7 +34,7 @@ lbl_803ED240:
 	.4byte 0
 	.4byte "VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global "VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 "VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>":

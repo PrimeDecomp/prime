@@ -258,7 +258,16 @@ lbl_803EA410:
 	.4byte 0x006F006E
 	.4byte 0x002E0000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9128
+lbl_805A9128:
+	.skip 0x4
+.global lbl_805A912C
+lbl_805A912C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global sub_80269478
 sub_80269478:

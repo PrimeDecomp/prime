@@ -22,7 +22,7 @@ lbl_805A881C:
 	# ROM: 0x3F61BC
 	.4byte 0x3E4CCCCD
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetNormalIndependentLightingAtPoint__6CLightCFRC9CVector3f
 GetNormalIndependentLightingAtPoint__6CLightCFRC9CVector3f:

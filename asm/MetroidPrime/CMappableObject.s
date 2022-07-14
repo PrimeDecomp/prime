@@ -66,7 +66,7 @@ lbl_805A7374:
 lbl_8046C498:
 	.skip 0x60
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AdjustTransformForType__15CMappableObjectFv
 AdjustTransformForType__15CMappableObjectFv:

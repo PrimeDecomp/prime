@@ -10,7 +10,7 @@ lbl_803EC000:
 	.4byte sub_8029c7cc
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__15CTweakSlideShowFR12CInputStream
 __ct__15CTweakSlideShowFR12CInputStream:

@@ -23,7 +23,28 @@ lbl_805A89F0:
 	.4byte 0x7F000000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9660
+lbl_805A9660:
+	.skip 0x4
+.global lbl_805A9664
+lbl_805A9664:
+	.skip 0x4
+.global lbl_805A9668
+lbl_805A9668:
+	.skip 0x4
+.global lbl_805A966C
+lbl_805A966C:
+	.skip 0x4
+.global lbl_805A9670
+lbl_805A9670:
+	.skip 0x1
+.global lbl_805A9671
+lbl_805A9671:
+	.skip 0x7
+
+.section .text, "ax"
 
 .global SetSfxVolume__12CMoviePlayerFUc
 SetSfxVolume__12CMoviePlayerFUc:

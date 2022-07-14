@@ -33,7 +33,19 @@ lbl_805A8A41:
 	.byte 0x01, 0x00, 0x00
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9680
+lbl_805A9680:
+	.skip 0x4
+.global lbl_805A9684
+lbl_805A9684:
+	.skip 0x4
+.global lbl_805A9688
+lbl_805A9688:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global sub_803653f8
 sub_803653f8:

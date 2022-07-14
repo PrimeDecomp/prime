@@ -16,7 +16,7 @@ lbl_803EE440:
 	.4byte lbl_803420A8
 	.4byte lbl_803420E4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global inflate_blocks_free
 inflate_blocks_free:

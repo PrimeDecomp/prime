@@ -42,13 +42,22 @@ lbl_805A7BA8:
 	.4byte 0x00000007
 	.4byte 0
 
+.section .sbss, "wa"
+
+.global lbl_805A9040
+lbl_805A9040:
+	.skip 0x1
+.global lbl_805A9041
+lbl_805A9041:
+	.skip 0x7
+
 .section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
 # CFluidPlaneCPU
 .global lbl_805AF460
 lbl_805AF460:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global RenderCleanup__14CFluidPlaneCPUCFv
 RenderCleanup__14CFluidPlaneCPUCFv:

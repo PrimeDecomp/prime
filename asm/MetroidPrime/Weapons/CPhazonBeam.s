@@ -24,7 +24,7 @@ lbl_803E42E8:
 	.4byte IsLoaded__11CPhazonBeamCFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AcceptScriptMsg__11CPhazonBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CPhazonBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager:

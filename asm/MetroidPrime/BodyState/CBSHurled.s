@@ -32,7 +32,7 @@ lbl_803E1FE8:
 	.4byte lbl_80145064
 	.4byte lbl_80145064
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__9CBSHurledFv
 __dt__9CBSHurledFv:

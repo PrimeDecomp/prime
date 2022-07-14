@@ -22,7 +22,28 @@ lbl_803EF6D8:
 	.4byte OffsetFakeStatics__14CGameAllocatorFi
 	.4byte GetMetrics__14CGameAllocatorCFv
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A95D8
+lbl_805A95D8:
+	.skip 0x8
+.global lbl_805A95E0
+lbl_805A95E0:
+	.skip 0x4
+.global lbl_805A95E4
+lbl_805A95E4:
+	.skip 0x4
+.global lbl_805A95E8
+lbl_805A95E8:
+	.skip 0x1
+.global lbl_805A95E9
+lbl_805A95E9:
+	.skip 0x1
+.global lbl_805A95EA
+lbl_805A95EA:
+	.skip 0x6
+
+.section .text, "ax"
 
 .global OffsetFakeStatics__14CGameAllocatorFi
 OffsetFakeStatics__14CGameAllocatorFi:

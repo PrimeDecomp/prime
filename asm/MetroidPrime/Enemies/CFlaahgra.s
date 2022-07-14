@@ -428,7 +428,16 @@ lbl_805A7C8C:
 	# ROM: 0x3F562C
 	.4byte 0x00000021
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9058
+lbl_805A9058:
+	.skip 0x4
+.global lbl_805A905C
+lbl_805A905C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global __dt__17CFlaahgraRendererFv
 __dt__17CFlaahgraRendererFv:

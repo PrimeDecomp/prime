@@ -1,6 +1,30 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9340
+lbl_805A9340:
+	.skip 0x1
+.global lbl_805A9341
+lbl_805A9341:
+	.skip 0x1
+.global lbl_805A9342
+lbl_805A9342:
+	.skip 0x2
+.global lbl_805A9344
+lbl_805A9344:
+	.skip 0x4
+.global lbl_805A9348
+lbl_805A9348:
+	.skip 0x4
+.global lbl_805A934C
+lbl_805A934C:
+	.skip 0x4
+.global lbl_805A9350
+lbl_805A9350:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global sub_80306630
 sub_80306630:

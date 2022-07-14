@@ -226,7 +226,16 @@ lbl_805A80F8:
 	.4byte 0x803D3248
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A90D0
+lbl_805A90D0:
+	.skip 0x4
+.global lbl_805A90D4
+lbl_805A90D4:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global __dt__8CEyeBallFv
 __dt__8CEyeBallFv:

@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __as__9CMatrix3fFRC9CMatrix3f
 __as__9CMatrix3fFRC9CMatrix3f:

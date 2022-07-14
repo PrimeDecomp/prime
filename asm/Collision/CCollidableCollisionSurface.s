@@ -8,7 +8,7 @@ lbl_805A86F0:
 	.4byte 0xFFFFFFFF
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetType__27CCollidableCollisionSurfaceFv
 GetType__27CCollidableCollisionSurfaceFv:

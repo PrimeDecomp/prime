@@ -24,7 +24,7 @@ lbl_803DF7E8:
 	.4byte IsLoaded__8CIceBeamCFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global EnableFx__8CIceBeamFb
 EnableFx__8CIceBeamFb:

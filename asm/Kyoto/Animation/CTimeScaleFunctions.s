@@ -25,7 +25,7 @@ lbl_803ED4EC:
 	.4byte VGetFunctionMirrored__27CConstantAnimationTimeScaleCFRCf
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetType__25CLinearAnimationTimeScaleCFv
 GetType__25CLinearAnimationTimeScaleCFv:

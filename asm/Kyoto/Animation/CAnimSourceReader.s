@@ -70,7 +70,7 @@ lbl_805A878C:
 	# ROM: 0x3F612C
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global VGetAdvancementResults__17CAnimSourceReaderCFRC13CCharAnimTimeRC13CCharAnimTime
 VGetAdvancementResults__17CAnimSourceReaderCFRC13CCharAnimTimeRC13CCharAnimTime:

@@ -8,8 +8,32 @@ lbl_804BFF10:
 .global lbl_804BFF1C
 lbl_804BFF1C:
 	.skip 0x14
-	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.section .sbss, "wa"
+
+.global lbl_805A94C0
+lbl_805A94C0:
+	.skip 0x4
+.global lbl_805A94C4
+lbl_805A94C4:
+	.skip 0x4
+.global lbl_805A94C8
+lbl_805A94C8:
+	.skip 0x4
+.global lbl_805A94CC
+lbl_805A94CC:
+	.skip 0x4
+.global lbl_805A94D0
+lbl_805A94D0:
+	.skip 0x4
+.global lbl_805A94D4
+lbl_805A94D4:
+	.skip 0x1
+.global lbl_805A94D5
+lbl_805A94D5:
+	.skip 0x3
+
+.section .text, "ax"
 
 .global LoadToken__Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfoFP11CSimplePool
 LoadToken__Q224CSpawnSystemKeyframeData24CSpawnSystemKeyframeInfoFP11CSimplePool:

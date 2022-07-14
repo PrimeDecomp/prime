@@ -30,7 +30,7 @@ sTableIndex__16CCollidableAABox:
 lbl_80479498:
 	.skip 0x48
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetTableIndex__16CCollidableAABoxCFv
 GetTableIndex__16CCollidableAABoxCFv:

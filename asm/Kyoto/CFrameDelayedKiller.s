@@ -8,8 +8,14 @@ lbl_80540A40:
 .global lbl_80540A4C
 lbl_80540A4C:
 	.skip 0x34
+
+.section .sbss, "wa"
+
+.global lbl_805A96B0
+lbl_805A96B0:
+	.skip 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_8036ca64
 sub_8036ca64:

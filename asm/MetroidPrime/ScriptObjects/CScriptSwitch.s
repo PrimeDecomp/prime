@@ -14,7 +14,7 @@ lbl_803E5C40:
 	.4byte AcceptScriptMsg__13CScriptSwitchF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__13CScriptSwitchFv
 __dt__13CScriptSwitchFv:

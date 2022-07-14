@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ProjectedDeltaDist__RC6CPlaneRC9CVector3fRC9CVector3f
 ProjectedDeltaDist__RC6CPlaneRC9CVector3fRC9CVector3f:

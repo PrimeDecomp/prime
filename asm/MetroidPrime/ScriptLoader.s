@@ -48,7 +48,7 @@ lbl_805A72C0:
 	.4byte 0x00000032
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global LoadEnergyBall__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo
 LoadEnergyBall__12ScriptLoaderFR13CStateManagerR12CInputStreamiRC11CEntityInfo:

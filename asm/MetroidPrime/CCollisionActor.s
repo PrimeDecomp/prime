@@ -148,7 +148,16 @@ lbl_805A7C30:
 	.4byte 0x00000026
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9050
+lbl_805A9050:
+	.skip 0x4
+.global lbl_805A9054
+lbl_805A9054:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global __dt__15CCollisionActorFv
 __dt__15CCollisionActorFv:

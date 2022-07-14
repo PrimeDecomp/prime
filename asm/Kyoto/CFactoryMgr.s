@@ -37,7 +37,7 @@ lbl_805A8908:
 	# ROM: 0x3F62A8
 	.4byte 0x00000002
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FourCCToTypeIdx__11CFactoryMgrFUi
 FourCCToTypeIdx__11CFactoryMgrFUi:

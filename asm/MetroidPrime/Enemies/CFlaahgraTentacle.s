@@ -259,7 +259,7 @@ lbl_805A7E58:
 	# ROM: 0x3F57F8
 	.4byte 0x00000013
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SaveBombSlotInfo__17CFlaahgraTentacleFR13CStateManager
 SaveBombSlotInfo__17CFlaahgraTentacleFR13CStateManager:

@@ -456,7 +456,7 @@ lbl_8046C950:
 lbl_8046CA4C:
 	.skip 0xF4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FixedRandom__10CPatternedFR13CStateManagerf
 FixedRandom__10CPatternedFR13CStateManagerf:

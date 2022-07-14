@@ -28,7 +28,13 @@ lbl_805A82BC:
 	# ROM: 0x3F5C5C
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9110
+lbl_805A9110:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global PollResponse__11CGBASupportFv
 PollResponse__11CGBASupportFv:

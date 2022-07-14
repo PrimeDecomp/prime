@@ -28,7 +28,7 @@ lbl_803EC9B8:
 	.4byte sub_802c7638
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetWidgetTypeID__12CGuiTextPaneCFv
 GetWidgetTypeID__12CGuiTextPaneCFv:

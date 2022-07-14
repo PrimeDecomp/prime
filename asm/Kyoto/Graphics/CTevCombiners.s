@@ -17,7 +17,19 @@ lbl_805A8828:
 	# ROM: 0x3F61C8
 	.4byte 0x805A564C
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9358
+lbl_805A9358:
+	.skip 0x4
+.global lbl_805A935C
+lbl_805A935C:
+	.skip 0x4
+.global lbl_805A9360
+lbl_805A9360:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global ResetStates__13CTevCombinersFv
 ResetStates__13CTevCombinersFv:

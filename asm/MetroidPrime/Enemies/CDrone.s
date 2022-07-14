@@ -510,7 +510,7 @@ lbl_805A8FE3:
 .global lbl_805A8FE4
 lbl_805A8FE4:
 	.skip 0x4
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__6CDroneFv
 __dt__6CDroneFv:

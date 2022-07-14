@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__13CUnitVector3fFRC9CVector3f
 __ct__13CUnitVector3fFRC9CVector3f:

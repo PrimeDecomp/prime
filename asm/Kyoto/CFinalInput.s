@@ -92,7 +92,7 @@ lbl_805A8994:
 	# ROM: 0x3F6334
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ScaleAnalogueSticks__11CFinalInputCFff
 ScaleAnalogueSticks__11CFinalInputCFff:

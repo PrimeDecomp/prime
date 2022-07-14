@@ -14,7 +14,7 @@ lbl_803E5C60:
 	.4byte UpdateBody__8CABSIdleFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__8CABSIdleFR15CBodyController
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__8CABSIdleFv
 __dt__8CABSIdleFv:

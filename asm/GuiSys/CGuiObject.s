@@ -12,7 +12,7 @@ lbl_803EC8C8:
 	.4byte Draw__10CGuiObjectCFRC19CGuiWidgetDrawParms
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SetO2WTransform__10CGuiObjectFRC12CTransform4f
 SetO2WTransform__10CGuiObjectFRC12CTransform4f:

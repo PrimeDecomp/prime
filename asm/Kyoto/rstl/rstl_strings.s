@@ -1,6 +1,33 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
+	.skip 0x2
+.global lbl_805A94DA
+lbl_805A94DA:
+	.skip 0x2
+.global lbl_805A94DC
+lbl_805A94DC:
+	.skip 0x2
+.global lbl_805A94DE
+lbl_805A94DE:
+	.skip 0x2
+.global lbl_805A94E0
+lbl_805A94E0:
+	.skip 0x1
+.global lbl_805A94E1
+lbl_805A94E1:
+	.skip 0x1
+.global lbl_805A94E2
+lbl_805A94E2:
+	.skip 0x1
+.global lbl_805A94E3
+lbl_805A94E3:
+	.skip 0x5
+
+.section .text, "ax"
 
 .global "internal_dereference__Q24rstl83basic_string<c,Q24rstl31case_insensitive_char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 "internal_dereference__Q24rstl83basic_string<c,Q24rstl31case_insensitive_char_traits<c>,Q24rstl17rmemory_allocator>Fv":

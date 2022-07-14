@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FSaveWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FSaveWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

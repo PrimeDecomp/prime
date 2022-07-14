@@ -16,7 +16,7 @@ lbl_805A8F20:
 lbl_805A8F24:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ResetBlur__12CWorldShadowFv
 ResetBlur__12CWorldShadowFv:

@@ -14,7 +14,7 @@ lbl_803E52F8:
 	.4byte AcceptScriptMsg__21CScriptAreaAttributesF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__21CScriptAreaAttributesFv
 __dt__21CScriptAreaAttributesFv:

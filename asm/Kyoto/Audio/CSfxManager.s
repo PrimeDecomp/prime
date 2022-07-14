@@ -95,7 +95,6 @@ lbl_803ECEE4:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	
 
 .section .sdata
 
@@ -134,8 +133,29 @@ lbl_805A877C:
 .global lbl_80479BA0
 lbl_80479BA0:
 	.skip 0x30
-	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.section .sbss, "wa"
+
+.global lbl_805A92C0
+lbl_805A92C0:
+	.skip 0x4
+.global lbl_805A92C4
+lbl_805A92C4:
+	.skip 0x4
+.global lbl_805A92C8
+lbl_805A92C8:
+	.skip 0x4
+.global lbl_805A92CC
+lbl_805A92CC:
+	.skip 0x4
+.global lbl_805A92D0
+lbl_805A92D0:
+	.skip 0x8
+.global lbl_805A92D8
+lbl_805A92D8:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global __dt__Q211CSfxManager11CSfxWrapperFv
 __dt__Q211CSfxManager11CSfxWrapperFv:

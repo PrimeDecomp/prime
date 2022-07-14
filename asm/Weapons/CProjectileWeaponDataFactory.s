@@ -10,7 +10,7 @@ lbl_803EC508:
 	.4byte "__dt__46TObjOwnerDerivedFromIObj<18CWeaponDescription>Fv"
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global CreateWPSM__28CProjectileWeaponDataFactoryFP18CWeaponDescriptionR12CInputStreamP11CSimplePool
 CreateWPSM__28CProjectileWeaponDataFactoryFP18CWeaponDescriptionR12CInputStreamP11CSimplePool:

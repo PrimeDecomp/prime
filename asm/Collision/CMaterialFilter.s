@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Passes__15CMaterialFilterCFRC13CMaterialList
 Passes__15CMaterialFilterCFRC13CMaterialList:

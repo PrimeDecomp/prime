@@ -1,6 +1,15 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A91A8
+lbl_805A91A8:
+	.skip 0x4
+.global lbl_805A91AC
+lbl_805A91AC:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global Update__6CDecalFf
 Update__6CDecalFf:

@@ -22,7 +22,7 @@ lbl_803EC888:
 	.4byte OnActivate__10CGuiWidgetFv
 	.4byte GetModelAssets__9CGuiModelCFv
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetWidgetTypeID__9CGuiModelCFv
 GetWidgetTypeID__9CGuiModelCFv:

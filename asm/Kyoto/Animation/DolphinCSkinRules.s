@@ -32,7 +32,46 @@ lbl_803EF728:
 	.4byte "__dt__20TToken<10CSkinRules>Fv"
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9608
+lbl_805A9608:
+	.skip 0x4
+.global lbl_805A960C
+lbl_805A960C:
+	.skip 0x4
+.global lbl_805A9610
+lbl_805A9610:
+	.skip 0x4
+.global lbl_805A9614
+lbl_805A9614:
+	.skip 0x4
+.global lbl_805A9618
+lbl_805A9618:
+	.skip 0x4
+.global lbl_805A961C
+lbl_805A961C:
+	.skip 0x4
+.global lbl_805A9620
+lbl_805A9620:
+	.skip 0x4
+.global lbl_805A9624
+lbl_805A9624:
+	.skip 0x4
+.global lbl_805A9628
+lbl_805A9628:
+	.skip 0x4
+.global lbl_805A962C
+lbl_805A962C:
+	.skip 0x4
+.global lbl_805A9630
+lbl_805A9630:
+	.skip 0x4
+.global lbl_805A9634
+lbl_805A9634:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global ProcessingNormals__10CSkinRulesFiPPUs
 ProcessingNormals__10CSkinRulesFiPPUs:

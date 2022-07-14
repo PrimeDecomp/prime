@@ -104,6 +104,36 @@ lbl_805A7E20:
 	.4byte 0x0000007F
 	.4byte 0
 
+.section .sbss, "wa"
+
+.global lbl_805A9080
+lbl_805A9080:
+	.skip 0x4
+.global lbl_805A9084
+lbl_805A9084:
+	.skip 0x4
+.global lbl_805A9088
+lbl_805A9088:
+	.skip 0x4
+.global lbl_805A908C
+lbl_805A908C:
+	.skip 0x4
+.global lbl_805A9090
+lbl_805A9090:
+	.skip 0x4
+.global lbl_805A9094
+lbl_805A9094:
+	.skip 0x4
+.global lbl_805A9098
+lbl_805A9098:
+	.skip 0x4
+.global lbl_805A909C
+lbl_805A909C:
+	.skip 0x4
+.global lbl_805A90A0
+lbl_805A90A0:
+	.skip 0x8
+
 .section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
 # CWallCrawlerSwarm
 .global lbl_805AF468
@@ -119,7 +149,7 @@ lbl_805AF46C:
 lbl_8046C938:
 	.skip 0x18
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global UpdateEffects__17CWallCrawlerSwarmFR13CStateManagerR9CAnimData
 UpdateEffects__17CWallCrawlerSwarmFR13CStateManagerR9CAnimData:

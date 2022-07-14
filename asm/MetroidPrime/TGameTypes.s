@@ -16,7 +16,7 @@ kInvalidAreaId:
 lbl_805A8F54:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__9TEditorIdFR12CInputStream
 __ct__9TEditorIdFR12CInputStream:

@@ -36,7 +36,7 @@ lbl_803E9D80:
 	.4byte Reset__20CInterpolationCameraFRC12CTransform4fR13CStateManager
 	.4byte 0
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AcceptScriptMsg__20CInterpolationCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CInterpolationCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager:

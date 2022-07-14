@@ -82,7 +82,7 @@ lbl_805A74D0:
 	.4byte 0x00000038
 	.4byte 0
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__24CScriptDamageableTriggerFR8IVisitor
 Accept__24CScriptDamageableTriggerFR8IVisitor:

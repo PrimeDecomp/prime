@@ -34,7 +34,7 @@ lbl_803EB658:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__15CScriptMazeNodeFv
 __dt__15CScriptMazeNodeFv:

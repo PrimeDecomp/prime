@@ -10,7 +10,28 @@ lbl_803EE388:
 	.4byte __dt__12CInputStreamFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A94F0
+lbl_805A94F0:
+	.skip 0x2
+.global lbl_805A94F2
+lbl_805A94F2:
+	.skip 0x2
+.global lbl_805A94F4
+lbl_805A94F4:
+	.skip 0x4
+.global lbl_805A94F8
+lbl_805A94F8:
+	.skip 0x4
+.global lbl_805A94FC
+lbl_805A94FC:
+	.skip 0x4
+.global lbl_805A9500
+lbl_805A9500:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global ReadFloat__12CInputStreamFv
 ReadFloat__12CInputStreamFv:

@@ -187,7 +187,7 @@ lbl_803EA0F0:
 	.4byte 0
 	
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Think__11CWallWalkerFfR13CStateManager
 Think__11CWallWalkerFfR13CStateManager:

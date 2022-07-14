@@ -35,7 +35,7 @@ lbl_803EF778:
 	.4byte GetValue__16CEESimpleEmitterCFiR9CVector3fR9CVector3f
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetValue__14CVEAngleSphereCFiR9CVector3fR9CVector3f
 GetValue__14CVEAngleSphereCFiR9CVector3fR9CVector3f:

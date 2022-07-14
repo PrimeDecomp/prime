@@ -50,7 +50,7 @@ lbl_805A87CC:
 	# ROM: 0x3F616C
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global VGetBestUnblendedChild__19CAnimTreeTransitionCFv
 VGetBestUnblendedChild__19CAnimTreeTransitionCFv:

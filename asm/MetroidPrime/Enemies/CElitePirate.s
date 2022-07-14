@@ -370,7 +370,7 @@ lbl_805A8174:
 	.4byte 0x00000021
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetSearchPath__12CElitePirateFv
 GetSearchPath__12CElitePirateFv:

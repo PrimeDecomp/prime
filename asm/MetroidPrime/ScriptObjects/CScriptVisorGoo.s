@@ -42,7 +42,7 @@ lbl_805A7D80:
 	.4byte 0x42B40000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__15CScriptVisorGooFR8IVisitor
 Accept__15CScriptVisorGooFR8IVisitor:

@@ -527,7 +527,7 @@ lbl_8046C570:
 lbl_8046C618:
 	.skip 0x108
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__12CSpacePirateFv
 __dt__12CSpacePirateFv:

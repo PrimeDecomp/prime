@@ -38,8 +38,20 @@ lbl_803ED994:
 .global lbl_804BFD10
 lbl_804BFD10:
 	.skip 0x20
+
+.section .sbss, "wa"
+
+.global lbl_805A9430
+lbl_805A9430:
+	.skip 0x4
+.global lbl_805A9434
+lbl_805A9434:
+	.skip 0x4
+.global lbl_805A9438
+lbl_805A9438:
+	.skip 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_8030e10c
 sub_8030e10c:

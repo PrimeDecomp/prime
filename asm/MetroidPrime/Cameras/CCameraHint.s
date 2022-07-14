@@ -9,7 +9,7 @@ lbl_803DF6F4:
 	.4byte 0
 	.4byte __dt__11CCameraHintFv
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__11CCameraHintFv
 __dt__11CCameraHintFv:

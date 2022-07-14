@@ -198,7 +198,7 @@ lbl_805A82A4:
 	# ROM: 0x3F5C44
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__12CAtomicAlphaFv
 __dt__12CAtomicAlphaFv:

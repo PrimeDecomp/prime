@@ -204,7 +204,7 @@ lbl_805A8388:
 	.4byte 0x00000026
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Think__7CPufferFfR13CStateManager
 Think__7CPufferFfR13CStateManager:

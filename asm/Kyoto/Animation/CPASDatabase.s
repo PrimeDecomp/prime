@@ -22,7 +22,7 @@ lbl_805A874C:
 	# ROM: 0x3F60EC
 	.4byte 0xFFFFFFFF
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AddAnimState__12CPASDatabaseFRC13CPASAnimState
 AddAnimState__12CPASDatabaseFRC13CPASAnimState:

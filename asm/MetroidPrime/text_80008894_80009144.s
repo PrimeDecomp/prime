@@ -13,7 +13,7 @@ lbl_805A9D80:
 	.4byte 0x43300000
 	.4byte 0x80000000
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 
 # CPlayer?

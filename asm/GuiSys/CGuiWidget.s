@@ -23,7 +23,7 @@ lbl_803ECA10:
 	.4byte 0
 	
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global OnActivate__10CGuiWidgetFv
 OnActivate__10CGuiWidgetFv:

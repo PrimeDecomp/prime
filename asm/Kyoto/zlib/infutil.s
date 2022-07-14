@@ -24,7 +24,7 @@ lbl_803EF5C8:
 	.4byte 0x0000FFFF
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global inflate_flush
 inflate_flush:

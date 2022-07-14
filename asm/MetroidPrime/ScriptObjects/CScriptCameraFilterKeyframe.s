@@ -14,7 +14,7 @@ lbl_803DFC80:
 	.4byte AcceptScriptMsg__27CScriptCameraFilterKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__27CScriptCameraFilterKeyframeFR8IVisitor
 Accept__27CScriptCameraFilterKeyframeFR8IVisitor:

@@ -149,8 +149,15 @@ lbl_805A81E0:
 	.4byte 0x3F800000
 	.4byte 0
 
+.section .sbss, "wa"
+.global lbl_805A90E8
+lbl_805A90E8:
+	.skip 0x4
+.global lbl_805A90EC
+lbl_805A90EC:
+	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global HealthInfo__16CGrenadeLauncherFR13CStateManager
 HealthInfo__16CGrenadeLauncherFR13CStateManager:

@@ -14,7 +14,7 @@ lbl_803E8558:
 	.4byte AcceptScriptMsg__10CTeamAiMgrF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__10CTeamAiMgr
 __dt__10CTeamAiMgr:

@@ -44,7 +44,7 @@ lbl_803E3F00:
 lbl_805A8FF8:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__17CPlasmaProjectileFv
 __dt__17CPlasmaProjectileFv:

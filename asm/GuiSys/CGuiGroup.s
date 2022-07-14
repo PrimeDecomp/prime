@@ -2,6 +2,12 @@
 
 #TODO: Split this up properly (need to split CGuiCamera and CGuiCompoundWidget)
 
+.section .sbss, "wa"
+
+.global lbl_805A91F8
+lbl_805A91F8:
+	.skip 0x8
+
 .section .data
 
 .global lbl_803EC738
@@ -73,7 +79,7 @@ lbl_803EC7C8:
 	.4byte OnActivate__9CGuiGroupFv
 	.4byte GetWorkerWidget__18CGuiCompoundWidgetFi
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__9CGuiGroupFv
 __dt__9CGuiGroupFv:

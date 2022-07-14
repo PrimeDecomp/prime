@@ -83,7 +83,7 @@ lbl_805A8580:
 	.4byte 0x01000000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_802925e0
 sub_802925e0:

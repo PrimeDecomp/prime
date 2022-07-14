@@ -93,7 +93,7 @@ lbl_805A7C3C:
 	.4byte 0x40000000
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__18CScriptPlayerActorFv
 __dt__18CScriptPlayerActorFv:

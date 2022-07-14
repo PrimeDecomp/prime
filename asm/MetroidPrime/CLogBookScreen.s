@@ -72,7 +72,13 @@ lbl_805A82B4:
 	# ROM: 0x3F5C54
 	.4byte 0x00000005
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9108
+lbl_805A9108:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global IsScanComplete__14CLogBookScreenF13EScanCategoryUiRC12CPlayerState
 IsScanComplete__14CLogBookScreenF13EScanCategoryUiRC12CPlayerState:

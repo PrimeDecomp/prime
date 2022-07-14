@@ -9,7 +9,7 @@ lbl_803EE3D8:
 	.4byte 0
 	.4byte "__dt__31TObjOwnerParam<P12IObjectStore>Fv"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global "__dt__31TObjOwnerParam<P12IObjectStore>Fv"
 "__dt__31TObjOwnerParam<P12IObjectStore>Fv":

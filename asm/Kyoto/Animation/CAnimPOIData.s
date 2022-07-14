@@ -10,7 +10,34 @@ lbl_803ECF48:
 	.4byte sub_802ebbf8
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A92E0
+lbl_805A92E0:
+	.skip 0x4
+.global lbl_805A92E4
+lbl_805A92E4:
+	.skip 0x4
+.global lbl_805A92E8
+lbl_805A92E8:
+	.skip 0x4
+.global lbl_805A92EC
+lbl_805A92EC:
+	.skip 0x4
+.global lbl_805A92F0
+lbl_805A92F0:
+	.skip 0x4
+.global lbl_805A92F4
+lbl_805A92F4:
+	.skip 0x4
+.global lbl_805A92F8
+lbl_805A92F8:
+	.skip 0x4
+.global lbl_805A92FC
+lbl_805A92FC:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global AnimPOIDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 AnimPOIDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

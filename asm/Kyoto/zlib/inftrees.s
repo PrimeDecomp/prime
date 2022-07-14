@@ -1110,7 +1110,7 @@ lbl_805A891C:
 	# ROM: 0x3F62BC
 	.4byte 0x00000005
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global inflate_trees_fixed
 inflate_trees_fixed:

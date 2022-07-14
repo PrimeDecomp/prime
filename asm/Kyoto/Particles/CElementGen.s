@@ -389,8 +389,47 @@ lbl_804BFEB4:
 .global lbl_804BFF00
 lbl_804BFF00:
 	.skip 0x10
+
+.section .sbss, "wa"
+# TODO this probably isn't split properly
+.global lbl_805A9470
+lbl_805A9470:
+	.skip 0x4
+.global lbl_805A9474
+lbl_805A9474:
+	.skip 0x4
+.global lbl_805A9478
+lbl_805A9478:
+	.skip 0x1
+.global lbl_805A9479
+lbl_805A9479:
+	.skip 0x1
+.global lbl_805A947A
+lbl_805A947A:
+	.skip 0x1
+.global lbl_805A947B
+lbl_805A947B:
+	.skip 0x1
+.global lbl_805A947C
+lbl_805A947C:
+	.skip 0x4
+.global lbl_805A9480
+lbl_805A9480:
+	.skip 0x4
+.global lbl_805A9484
+lbl_805A9484:
+	.skip 0x1
+.global lbl_805A9485
+lbl_805A9485:
+	.skip 0x3
+.global lbl_805A9488
+lbl_805A9488:
+	.skip 0x4
+.global lbl_805A948C
+lbl_805A948C:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetGlobalTranslation__11CElementGenCFv
 GetGlobalTranslation__11CElementGenCFv:

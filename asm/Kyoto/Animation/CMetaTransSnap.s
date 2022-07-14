@@ -12,7 +12,7 @@ lbl_803ECDC0:
 	.4byte GetType__14CMetaTransSnapCFv
 	.4byte WriteTransData__14CMetaTransSnapCFR13COutputStream
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__14CMetaTransSnapFv
 __dt__14CMetaTransSnapFv:

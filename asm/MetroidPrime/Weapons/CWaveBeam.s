@@ -31,7 +31,7 @@ lbl_803DF7A0:
 lbl_805A8EB8:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType
 EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType:

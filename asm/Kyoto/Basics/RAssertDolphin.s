@@ -5,8 +5,17 @@
 .global lbl_804797A0
 lbl_804797A0:
 	.skip 0x400
-	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.section .sbss, "wa"
+
+.global lbl_805A9248
+lbl_805A9248:
+	.skip 0x4
+.global lbl_805A924C
+lbl_805A924C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global rs_debugger_printf__FPCce
 rs_debugger_printf__FPCce:

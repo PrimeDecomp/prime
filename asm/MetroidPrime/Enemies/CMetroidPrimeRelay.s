@@ -14,7 +14,7 @@ lbl_803EB638:
 	.4byte AcceptScriptMsg__18CMetroidPrimeRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__18CMetroidPrimeRelayFv
 __dt__18CMetroidPrimeRelayFv:

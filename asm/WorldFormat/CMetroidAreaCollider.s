@@ -10,6 +10,24 @@ lbl_803EC428:
 	.4byte 0x00000002
 	.4byte 0
 
+.section .sbss, "wa"
+
+.global lbl_805A9180
+lbl_805A9180:
+	.skip 0x4
+.global lbl_805A9184
+lbl_805A9184:
+	.skip 0x4
+.global lbl_805A9188
+lbl_805A9188:
+	.skip 0x4
+.global lbl_805A918C
+lbl_805A918C:
+	.skip 0x4
+.global lbl_805A9190
+lbl_805A9190:
+	.skip 0x8
+
 .section .sbss2, "", @nobits
 # CMovingAABoxComponent
 .global lbl_805AF488

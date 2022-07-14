@@ -34,7 +34,7 @@ lbl_803ED068:
 	.4byte VGetBestUnblendedChild__28CAnimTreeAnimReaderContainerCFv
 	.4byte "VGetWeightedReaders__28CAnimTreeAnimReaderContainerFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__28CAnimTreeAnimReaderContainerFv
 __dt__28CAnimTreeAnimReaderContainerFv:

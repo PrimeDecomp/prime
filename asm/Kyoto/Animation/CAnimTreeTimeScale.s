@@ -56,7 +56,7 @@ lbl_805A87C4:
 	# ROM: 0x3F6164
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global "CreatePrimitiveName__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fRC13CCharAnimTimef"
 "CreatePrimitiveName__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fRC13CCharAnimTimef":

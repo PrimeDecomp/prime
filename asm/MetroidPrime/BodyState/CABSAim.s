@@ -37,7 +37,7 @@ lbl_805A7DA4:
 	# ROM: 0x3F5744
 	.4byte 0xC1200000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__7CABSAimFv
 __dt__7CABSAimFv:

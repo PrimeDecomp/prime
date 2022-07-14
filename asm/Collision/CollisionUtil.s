@@ -6,7 +6,7 @@
 lbl_80479510:
 	.skip 0x48
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global TriPointSqrDist__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fPfPf
 TriPointSqrDist__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fPfPf:

@@ -14,7 +14,7 @@ lbl_803E58A0:
 	.4byte AcceptScriptMsg__22CScriptWorldTeleporterF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global StartTransition__22CScriptWorldTeleporterFv
 StartTransition__22CScriptWorldTeleporterFv:

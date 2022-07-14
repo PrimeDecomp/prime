@@ -23,7 +23,7 @@ lbl_803EC930:
 	.4byte GetWorkerWidget__15CGuiSliderGroupFi
 	
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__15CGuiSliderGroupFv
 __dt__15CGuiSliderGroupFv:

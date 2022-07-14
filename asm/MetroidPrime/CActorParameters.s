@@ -32,7 +32,7 @@ lbl_805A758C:
 	# ROM: 0x3F4F2C
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters
 MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters:
