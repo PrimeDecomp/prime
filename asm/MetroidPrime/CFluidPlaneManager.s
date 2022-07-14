@@ -12,7 +12,7 @@ lbl_805A76DC:
 	# ROM: 0x3F507C
 	.4byte 0x000000FF
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SetupRippleMap__18CFluidPlaneManagerFv
 SetupRippleMap__18CFluidPlaneManagerFv:

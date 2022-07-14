@@ -21,7 +21,7 @@ lbl_805AF4C0:
 lbl_805AF4C4:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetPakFile__10CResLoaderCFi
 GetPakFile__10CResLoaderCFi:

@@ -22,7 +22,7 @@ lbl_805A7360:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__14CScriptHUDMemoFR8IVisitor
 Accept__14CScriptHUDMemoFR8IVisitor:

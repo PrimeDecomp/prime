@@ -48,7 +48,7 @@ lbl_805A8704:
 	# ROM: 0x3F60A4
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__17CAnimTreeSequenceFv
 __dt__17CAnimTreeSequenceFv:

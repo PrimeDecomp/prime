@@ -10,7 +10,7 @@ lbl_803ECBD0:
 	.4byte sub_802d81c0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FAnimCharacterSet__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FAnimCharacterSet__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

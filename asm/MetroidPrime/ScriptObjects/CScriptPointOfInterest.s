@@ -42,7 +42,7 @@ lbl_805A78A8:
 	.4byte 0x00000029
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global CalculateRenderBounds__22CScriptPointOfInterestFv
 CalculateRenderBounds__22CScriptPointOfInterestFv:

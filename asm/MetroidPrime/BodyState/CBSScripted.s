@@ -20,7 +20,7 @@ lbl_803E24A8:
 	.4byte UpdateBody__11CBSScriptedFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__11CBSScriptedFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__11CBSScriptedFv
 __dt__11CBSScriptedFv:

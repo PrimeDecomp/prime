@@ -117,7 +117,7 @@ lbl_805A6BE8:
 lbl_803CC028:
 	.incbin "baserom.dol", 0x3C9028, 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 
 .global GetCameraBobMagnitude__14CCameraManagerCFv

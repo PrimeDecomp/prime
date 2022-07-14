@@ -6,7 +6,7 @@
 lbl_804795A0:
 	.skip 0x200
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Stringize__7CBasicsFPCce
 Stringize__7CBasicsFPCce:

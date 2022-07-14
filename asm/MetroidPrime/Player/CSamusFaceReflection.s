@@ -18,7 +18,7 @@ lbl_805A786C:
 lbl_8046C7A0:
 	.skip 0x30
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Draw__20CSamusFaceReflectionCFRC13CStateManager
 Draw__20CSamusFaceReflectionCFRC13CStateManager:

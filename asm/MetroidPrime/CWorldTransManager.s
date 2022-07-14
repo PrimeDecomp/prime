@@ -58,7 +58,16 @@ lbl_805A7FB0:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A90A8
+lbl_805A90A8:
+	.skip 0x4
+.global lbl_805A90AC
+lbl_805A90AC:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global WaitForModelsAndTextures__18CWorldTransManagerFv
 WaitForModelsAndTextures__18CWorldTransManagerFv:

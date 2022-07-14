@@ -10,7 +10,7 @@ lbl_803EF788:
 	.4byte sub_80358ca4
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FMidiDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FMidiDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

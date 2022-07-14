@@ -13,7 +13,7 @@ lbl_803E6758:
 	.4byte UpdateBody__12CABSReactionFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__12CABSReactionFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__12CABSReactionFv
 __dt__12CABSReactionFv:

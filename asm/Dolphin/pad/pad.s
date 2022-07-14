@@ -80,7 +80,7 @@ CmdReadOrigin:
 CmdCalibrate:
 	.4byte 0x42000000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global UpdateOrigin
 UpdateOrigin:

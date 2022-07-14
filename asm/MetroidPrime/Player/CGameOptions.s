@@ -183,7 +183,7 @@ lbl_805A8068:
 	.4byte 0x8ADA8184
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SetControls__12CGameOptionsFi
 SetControls__12CGameOptionsFi:

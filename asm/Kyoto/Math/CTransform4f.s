@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetInverse__12CTransform4fCFv
 GetInverse__12CTransform4fCFv:

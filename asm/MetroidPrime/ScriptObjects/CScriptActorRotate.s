@@ -15,7 +15,7 @@ lbl_803E2D08:
 	.4byte SetActive__7CEntityFb
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__18CScriptActorRotateFv
 __dt__18CScriptActorRotateFv:

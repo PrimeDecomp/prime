@@ -10,7 +10,7 @@ lbl_803E4CF8:
 	.4byte __dt__15CTweakPlayerResFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetCinematicBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId
 GetCinematicBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId:

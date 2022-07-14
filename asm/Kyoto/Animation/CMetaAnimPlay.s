@@ -32,7 +32,7 @@ lbl_805A8722:
 	.byte 0x01, 0x00
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__13CMetaAnimPlayFv
 __dt__13CMetaAnimPlayFv:

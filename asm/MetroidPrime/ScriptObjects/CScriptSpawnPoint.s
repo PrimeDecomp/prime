@@ -14,7 +14,7 @@ lbl_803DF850:
 	.4byte AcceptScriptMsg__17CScriptSpawnPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__17CScriptSpawnPointFR8IVisitor
 Accept__17CScriptSpawnPointFR8IVisitor:

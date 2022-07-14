@@ -344,7 +344,7 @@ lbl_805A822C:
 	# ROM: 0x3F5BCC
 	.4byte 0x00000012
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__10CMagdoliteFv
 __dt__10CMagdoliteFv:

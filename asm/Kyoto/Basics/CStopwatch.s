@@ -1,6 +1,15 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9238
+lbl_805A9238:
+	.skip 0x4
+.global lbl_805A923C
+lbl_805A923C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global GetGlobalTimerObj__10CStopwatchFv
 GetGlobalTimerObj__10CStopwatchFv:

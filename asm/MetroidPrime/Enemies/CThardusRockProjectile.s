@@ -249,7 +249,7 @@ lbl_805A7F3C:
 	.4byte 0x00000013
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__22CThardusRockProjectileFv
 __dt__22CThardusRockProjectileFv:

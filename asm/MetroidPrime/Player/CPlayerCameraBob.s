@@ -135,7 +135,7 @@ lbl_805A8ED4:
 lbl_805A8ED8:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetViewWanderTransform__16CPlayerCameraBobCFv
 GetViewWanderTransform__16CPlayerCameraBobCFv:

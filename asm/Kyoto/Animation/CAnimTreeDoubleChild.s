@@ -58,7 +58,7 @@ lbl_805A87B4:
 	# ROM: 0x3F6154
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global "VGetWeightedReaders__20CAnimTreeDoubleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 "VGetWeightedReaders__20CAnimTreeDoubleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>":

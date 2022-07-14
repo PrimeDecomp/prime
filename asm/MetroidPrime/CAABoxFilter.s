@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Filter__12CAABoxFilterCFRC18CCollisionInfoListR18CCollisionInfoList
 Filter__12CAABoxFilterCFRC18CCollisionInfoListR18CCollisionInfoList:

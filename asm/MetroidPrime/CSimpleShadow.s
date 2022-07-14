@@ -12,7 +12,7 @@ lbl_805A757C:
 	# ROM: 0x3F4F1C
 	.4byte 0x00000031
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Valid__13CSimpleShadowCFv
 Valid__13CSimpleShadowCFv:

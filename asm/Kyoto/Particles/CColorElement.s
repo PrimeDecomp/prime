@@ -148,7 +148,7 @@ lbl_805A88AC:
 	# ROM: 0x3F624C
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__16CCEParticleColor
 __dt__16CCEParticleColor:

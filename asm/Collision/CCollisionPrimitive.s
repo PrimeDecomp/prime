@@ -5,8 +5,50 @@
 .global lbl_804794E0
 lbl_804794E0:
 	.skip 0x30
+
+.section .sbss, "wa"
+
+.global lbl_805A9210
+lbl_805A9210:
+	.skip 0x4
+.global lbl_805A9214
+lbl_805A9214:
+	.skip 0x1
+.global lbl_805A9215
+lbl_805A9215:
+	.skip 0x1
+.global lbl_805A9216
+lbl_805A9216:
+	.skip 0x1
+.global lbl_805A9217
+lbl_805A9217:
+	.skip 0x1
+.global lbl_805A9218
+lbl_805A9218:
+	.skip 0x4
+.global lbl_805A921C
+lbl_805A921C:
+	.skip 0x4
+.global lbl_805A9220
+lbl_805A9220:
+	.skip 0x4
+.global lbl_805A9224
+lbl_805A9224:
+	.skip 0x4
+.global lbl_805A9228
+lbl_805A9228:
+	.skip 0x4
+.global lbl_805A922C
+lbl_805A922C:
+	.skip 0x4
+.global lbl_805A9230
+lbl_805A9230:
+	.skip 0x4
+.global lbl_805A9234
+lbl_805A9234:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global InitAddMovingCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_bPCcPCc
 InitAddMovingCollider__19CCollisionPrimitiveFPFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo_bPCcPCc:

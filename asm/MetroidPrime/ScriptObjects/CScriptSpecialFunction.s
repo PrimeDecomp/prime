@@ -170,7 +170,7 @@ lbl_805A782C:
 	# ROM: 0x3F51CC
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__22CScriptSpecialFunctionFv
 __dt__22CScriptSpecialFunctionFv:

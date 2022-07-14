@@ -243,7 +243,7 @@ lbl_805A7738:
 lbl_805A8F80:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__28CBSRestrictedFlyerLocomotionFv
 __dt__28CBSRestrictedFlyerLocomotionFv:

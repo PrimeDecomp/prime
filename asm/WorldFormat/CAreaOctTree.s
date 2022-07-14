@@ -14,7 +14,7 @@ lbl_803EC408:
 	.4byte lbl_802A3030
 	.4byte lbl_802A3070
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetTriangleEdgeIndices__12CAreaOctTreeCFUs
 GetTriangleEdgeIndices__12CAreaOctTreeCFUs:

@@ -1,6 +1,12 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+# skZero2f
+.global lbl_805A9458
+lbl_805A9458:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global __dv__FRC9CVector2fRCf
 __dv__FRC9CVector2fRCf:

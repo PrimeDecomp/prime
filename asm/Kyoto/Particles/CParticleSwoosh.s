@@ -48,7 +48,7 @@ lbl_805A88DC:
 	# ROM: 0x3F627C
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetTranslation__15CParticleSwooshCFv
 GetTranslation__15CParticleSwooshCFv:

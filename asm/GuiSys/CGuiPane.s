@@ -26,7 +26,7 @@ lbl_803EC8E0:
 	.4byte InitializeBuffers__8CGuiPaneFv
 	.4byte WriteData__8CGuiPaneCFR13COutputStreamb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetWidgetTypeID__8CGuiPaneCFv
 GetWidgetTypeID__8CGuiPaneCFv:

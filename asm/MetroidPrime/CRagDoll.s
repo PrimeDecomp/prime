@@ -60,7 +60,7 @@ lbl_805A7FD8:
 	.4byte 0x00000020
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global PreRender__8CRagDollFRC9CVector3fR10CModelData
 PreRender__8CRagDollFRC9CVector3fR10CModelData:

@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetInvUnscaledTransformRay__5CMRayCFRC12CTransform4f
 GetInvUnscaledTransformRay__5CMRayCFRC12CTransform4f:

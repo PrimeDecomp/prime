@@ -37,7 +37,22 @@ lbl_805A87D4:
 	# ROM: 0x3F6174
 	.4byte 0x01000000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9320
+lbl_805A9320:
+	.skip 0x4
+.global lbl_805A9324
+lbl_805A9324:
+	.skip 0x4
+.global lbl_805A9328
+lbl_805A9328:
+	.skip 0x4
+.global lbl_805A932C
+lbl_805A932C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global "GetSegIdFromString__15CCharLayoutInfoCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetSegIdFromString__15CCharLayoutInfoCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":

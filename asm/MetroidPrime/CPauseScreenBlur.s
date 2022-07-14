@@ -22,7 +22,7 @@ lbl_805A839C:
 	# ROM: 0x3F5D3C
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetBlurAmt__16CPauseScreenBlurCFv
 GetBlurAmt__16CPauseScreenBlurCFv:

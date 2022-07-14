@@ -36,7 +36,7 @@ lbl_803EC390:
 	.4byte Explode__23CMetroidPrimeProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__23CMetroidPrimeProjectileFv
 __dt__23CMetroidPrimeProjectileFv:

@@ -24,7 +24,7 @@ lbl_803E10C8:
 	.4byte __dt__22CBCAdditiveReactionCmdFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd:

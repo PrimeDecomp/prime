@@ -42,7 +42,7 @@ lbl_805A7D78:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Render__17CScriptVisorFlareCFRC13CStateManager
 Render__17CScriptVisorFlareCFRC13CStateManager:

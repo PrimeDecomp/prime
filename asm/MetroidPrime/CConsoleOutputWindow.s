@@ -33,7 +33,7 @@ lbl_805A7544:
 lbl_805A8F00:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Draw__20CConsoleOutputWindowCFv
 Draw__20CConsoleOutputWindowCFv:

@@ -23,7 +23,7 @@ lbl_805A87F3:
 	.byte 0xFF
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_802fc358
 sub_802fc358:

@@ -46,7 +46,7 @@ lbl_805A82E8:
 	.4byte 0x3F800000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__23CElectricBeamProjectileFv
 __dt__23CElectricBeamProjectileFv:

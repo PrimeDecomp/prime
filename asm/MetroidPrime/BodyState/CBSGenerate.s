@@ -20,7 +20,7 @@ lbl_803E2040:
 	.4byte UpdateBody__11CBSGenerateFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__11CBSGenerateFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__11CBSGenerateFv
 __dt__11CBSGenerateFv:

@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FitThroughLink3d__9CPFRegionCFRC9CVector3fRC7CPFLinkfRC9CVector3fff
 FitThroughLink3d__9CPFRegionCFRC9CVector3fRC7CPFLinkfRC9CVector3fff:

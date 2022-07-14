@@ -45,7 +45,7 @@ include obj_files.mk
 
 O_FILES := $(INIT_O_FILES) $(EXTAB_O_FILES) $(EXTABINDEX_O_FILES) $(METROTRK_FILES) \
 	   $(METROIDPRIME) $(WORLDFORMAT) $(WEAPONS) $(METARENDER) $(GUISYS) $(COLLISION) \
-	   $(KYOTO) $(RODATA_O_FILES) $(SBSS_O_FILES) $(SDATA2_O_FILES) $(AI_FILES) \
+	   $(KYOTO) $(RODATA_O_FILES) $(SDATA2_O_FILES) $(AI_FILES) \
 	   $(AR_FILES) $(BASE_FILES) $(DB_FILES) $(DSP_FILES) $(DVD_FILES) $(GX_FILES) $(MTX_FILES) \
 	   $(OS_FILES) $(PAD_FILES) $(VI_FILES) $(MSL_PPCEABI_BARE_H) $(MUSYX_FILES) \
 	   $(DTK_FILES) $(CARD_FILES) $(SI_FILES) $(EXI_FILES) $(THP_FILES) \
@@ -68,7 +68,12 @@ ifeq ($(WINDOWS),1)
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as.exe
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp.exe -P
 else
-  WINE      ?= wine
+  WIBO   := $(shell command -v wibo 2> /dev/null)
+  ifdef WIBO
+    WINE ?= wibo
+  else
+    WINE ?= wine
+  endif
   DEVKITPPC ?= /opt/devkitpro/devkitPPC
   DEPENDS   := $(DEPENDS:.d=.d.unix)
   AS        := $(DEVKITPPC)/bin/powerpc-eabi-as

@@ -22,7 +22,16 @@ lbl_805A86D4:
 	# ROM: 0x3F6074
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9208
+lbl_805A9208:
+	.skip 0x4
+.global lbl_805A920C
+lbl_805A920C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global sub_802c7cfc
 sub_802c7cfc:

@@ -241,7 +241,7 @@ lbl_8046C758:
 lbl_805A8FA0:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__16CPuddleToadGammaFv
 __dt__16CPuddleToadGammaFv:

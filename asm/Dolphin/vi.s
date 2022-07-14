@@ -71,7 +71,7 @@ lbl_805A99A8:
 lbl_805A99AC:
 	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __VIRetraceHandler
 __VIRetraceHandler:

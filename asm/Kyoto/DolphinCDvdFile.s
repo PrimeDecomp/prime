@@ -18,7 +18,13 @@ lbl_805A89B8:
 	.4byte 0x00010000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A95D0
+lbl_805A95D0:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global UpdateFilePos__8CDvdFileFi
 UpdateFilePos__8CDvdFileFi:

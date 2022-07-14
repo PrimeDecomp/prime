@@ -14,7 +14,7 @@ lbl_803E86E8:
 	.4byte AcceptScriptMsg__18CScriptMemoryRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__18CScriptMemoryRelayFR8IVisitor
 Accept__18CScriptMemoryRelayFR8IVisitor:

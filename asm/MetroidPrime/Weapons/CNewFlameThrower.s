@@ -98,7 +98,7 @@ lbl_805A83F0:
 lbl_8046DCA8:
 	.skip 0x18
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__16CNewFlameThrowerFv
 __dt__16CNewFlameThrowerFv:

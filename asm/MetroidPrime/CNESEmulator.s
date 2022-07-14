@@ -18,7 +18,13 @@ lbl_803EBC60:
 	.4byte 0x0D000000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9160
+lbl_805A9160:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global GetPassword__12CNESEmulatorFv
 GetPassword__12CNESEmulatorFv:

@@ -407,7 +407,7 @@ lbl_805A857C:
 	# ROM: 0x3F5F1C
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__Q212COmegaPirate6CFlashFv
 __dt__Q212COmegaPirate6CFlashFv:

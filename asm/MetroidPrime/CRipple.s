@@ -10,7 +10,7 @@ lbl_805A8F58:
 lbl_805A8F5C:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__7CRippleF9TUniqueIdRC9CVector3ff
 __ct__7CRippleF9TUniqueIdRC9CVector3ff:

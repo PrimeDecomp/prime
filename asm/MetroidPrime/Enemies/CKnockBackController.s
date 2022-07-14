@@ -43,7 +43,7 @@ lbl_805A81FC:
 	.4byte 0
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global DoKnockBackAnimation__20CKnockBackControllerFRC9CVector3fR13CStateManagerR10CPatternedf
 DoKnockBackAnimation__20CKnockBackControllerFRC9CVector3fR13CStateManagerR10CPatternedf:

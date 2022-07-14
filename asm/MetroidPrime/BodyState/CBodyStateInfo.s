@@ -251,7 +251,7 @@ lbl_805A770E:
 	# ROM: 0x3F50AE
 	.2byte 0x00000100
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SetupRestrictedFlyerBodyStates__14CBodyStateInfoFiR6CActor
 SetupRestrictedFlyerBodyStates__14CBodyStateInfoFiR6CActor:

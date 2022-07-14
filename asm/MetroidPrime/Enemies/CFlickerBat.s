@@ -198,7 +198,7 @@ lbl_805A76F4:
 	# ROM: 0x3F5094
 	.4byte 0x0000001A
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Attack__11CFlickerBatFR13CStateManager9EStateMsgf
 Attack__11CFlickerBatFR13CStateManager9EStateMsgf:

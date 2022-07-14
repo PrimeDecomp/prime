@@ -15,7 +15,7 @@ lbl_803ECCD0:
 	.4byte VGetAnimationTree__14CMetaAnimBlendCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 	
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__14CMetaAnimBlendFv
 __dt__14CMetaAnimBlendFv:

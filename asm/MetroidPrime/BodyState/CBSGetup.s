@@ -20,7 +20,7 @@ lbl_803E1418:
 	.4byte UpdateBody__8CBSGetupFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__8CBSGetupFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__8CBSGetupFv
 __dt__8CBSGetupFv:

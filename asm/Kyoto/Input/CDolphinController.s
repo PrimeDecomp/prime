@@ -24,7 +24,7 @@ lbl_803EF6B8:
 	.4byte GetControllerType__18CDolphinControllerFi
 	.4byte SetMotorState__18CDolphinControllerF7EIOPort11EMotorState
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetAnalogStickMaxValue__18CDolphinControllerCF8EJoyAxis
 GetAnalogStickMaxValue__18CDolphinControllerCF8EJoyAxis:

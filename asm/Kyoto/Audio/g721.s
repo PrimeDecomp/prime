@@ -46,7 +46,7 @@ lbl_803EF840:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global g721_decoder__FiP10g72x_state
 g721_decoder__FiP10g72x_state:

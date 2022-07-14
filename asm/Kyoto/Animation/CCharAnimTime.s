@@ -42,7 +42,7 @@ lbl_805A8954:
 	# ROM: 0x3F62F4
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global PutTo__13CCharAnimTimeCFR13COutputStream
 PutTo__13CCharAnimTimeCFR13COutputStream:

@@ -83,7 +83,23 @@ lbl_805A828C:
 .global lbl_8046D390
 lbl_8046D390:
 	.skip 0x18
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.section .sbss, "wa"
+
+.global lbl_805A90F8
+lbl_805A90F8:
+	.skip 0x4
+.global lbl_805A90FC
+lbl_805A90FC:
+	.skip 0x4
+.global lbl_805A9100
+lbl_805A9100:
+	.skip 0x4
+.global lbl_805A9104
+lbl_805A9104:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global AcceptScriptMsg__20CScriptSpindleCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CScriptSpindleCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager:

@@ -1,6 +1,12 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9440
+lbl_805A9440:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global close_enough__FRC9CVector2fRC9CVector2ff
 close_enough__FRC9CVector2fRC9CVector2ff:
@@ -58,7 +64,7 @@ __sinit_CloseEnough_cpp:
 /* 8030FFCC 0030CF2C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8030FFD0 0030CF30  7C 08 02 A6 */	mflr r0
 /* 8030FFD4 0030CF34  C0 22 C8 48 */	lfs f1, lbl_805AE568@sda21(r2)
-/* 8030FFD8 0030CF38  38 6D A8 80 */	addi r3, r13, skZero2f@sda21
+/* 8030FFD8 0030CF38  38 6D A8 80 */	addi r3, r13, lbl_805A9440@sda21
 /* 8030FFDC 0030CF3C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8030FFE0 0030CF40  FC 40 08 90 */	fmr f2, f1
 /* 8030FFE4 0030CF44  48 00 42 1D */	bl __ct__9CVector2fFff

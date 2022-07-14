@@ -59,7 +59,13 @@ lbl_805A82D3:
 	.balign 4
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9118
+lbl_805A9118:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global GetCardFreeBytes__17CMemoryCardDriverFv
 GetCardFreeBytes__17CMemoryCardDriverFv:

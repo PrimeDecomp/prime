@@ -610,7 +610,7 @@ lbl_8046D7E0:
 lbl_8046D9C0:
 	.skip 0x2D0
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__7CRidleyFv
 __dt__7CRidleyFv:

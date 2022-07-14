@@ -121,7 +121,7 @@ lbl_8046C470:
 lbl_8046C47C:
 	.skip 0xC
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SetRotationSfxPlaying__10CSamusDollFb
 SetRotationSfxPlaying__10CSamusDollFb:

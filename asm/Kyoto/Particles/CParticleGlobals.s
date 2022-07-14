@@ -1,6 +1,42 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9490
+lbl_805A9490:
+	.skip 0x4
+.global lbl_805A9494
+lbl_805A9494:
+	.skip 0x4
+.global lbl_805A9498
+lbl_805A9498:
+	.skip 0x4
+.global lbl_805A949C
+lbl_805A949C:
+	.skip 0x4
+.global lbl_805A94A0
+lbl_805A94A0:
+	.skip 0x4
+.global lbl_805A94A4
+lbl_805A94A4:
+	.skip 0x4
+.global lbl_805A94A8
+lbl_805A94A8:
+	.skip 0x4
+.global lbl_805A94AC
+lbl_805A94AC:
+	.skip 0x4
+.global lbl_805A94B0
+lbl_805A94B0:
+	.skip 0x4
+.global lbl_805A94B4
+lbl_805A94B4:
+	.skip 0x4
+.global lbl_805A94B8
+lbl_805A94B8:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global UpdateParticleLifetimeTweenValues__16CParticleGlobalsFi
 UpdateParticleLifetimeTweenValues__16CParticleGlobalsFi:

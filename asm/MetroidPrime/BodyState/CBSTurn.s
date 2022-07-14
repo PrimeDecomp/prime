@@ -40,7 +40,7 @@ lbl_803E178C:
 	.4byte Shutdown__7CBSTurnFR15CBodyController
 	.4byte GetBodyStateTransition__7CBSTurnFfR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__12CBSFlyerTurnFv
 __dt__12CBSFlyerTurnFv:

@@ -70,7 +70,7 @@ lbl_8046C908:
 lbl_8046C914:
 	.skip 0xC
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_801bd69c
 sub_801bd69c:

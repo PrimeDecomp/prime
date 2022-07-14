@@ -1,6 +1,15 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9650
+lbl_805A9650:
+	.skip 0x4
+.global lbl_805A9654
+lbl_805A9654:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global __ct__13CParticleDataFR12CInputStream
 __ct__13CParticleDataFR12CInputStream:

@@ -10,7 +10,7 @@ lbl_803EF830:
 	.4byte sub_8036505c
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FDependencyGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FDependencyGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

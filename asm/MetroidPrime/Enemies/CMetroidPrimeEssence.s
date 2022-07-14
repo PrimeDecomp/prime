@@ -404,7 +404,7 @@ lbl_805A84E4:
 	# ROM: 0x3F5E84
 	.4byte 0x00000012
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetSearchPath__20CMetroidPrimeEssenceFv
 GetSearchPath__20CMetroidPrimeEssenceFv:

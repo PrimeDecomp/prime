@@ -38,7 +38,7 @@ lbl_803ED0D8:
 	.4byte VReverseSimplified__18CAnimTreeTweenBaseFv
 	.4byte VGetBlendingWeight__14CAnimTreeBlendCFv
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__14CAnimTreeBlendFv
 __dt__14CAnimTreeBlendFv:

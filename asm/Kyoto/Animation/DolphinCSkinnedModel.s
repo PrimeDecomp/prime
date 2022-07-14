@@ -21,8 +21,29 @@ lbl_8053FFCC:
 .global lbl_8053FFF4
 lbl_8053FFF4:
 	.skip 0x10
+
+.section .sbss, "wa"
+
+.global lbl_805A95F0
+lbl_805A95F0:
+	.skip 0x4
+.global lbl_805A95F4
+lbl_805A95F4:
+	.skip 0x4
+.global lbl_805A95F8
+lbl_805A95F8:
+	.skip 0x4
+.global lbl_805A95FC
+lbl_805A95FC:
+	.skip 0x4
+.global lbl_805A9600
+lbl_805A9600:
+	.skip 0x1
+.global lbl_805A9601
+lbl_805A9601:
+	.skip 0x7
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_80352668
 sub_80352668:

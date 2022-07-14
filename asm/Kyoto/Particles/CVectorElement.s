@@ -200,7 +200,7 @@ lbl_805A88F8:
 	.4byte 0x3F800000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetValue__7CVECVTCCFiR9CVector3f
 GetValue__7CVECVTCCFiR9CVector3f:

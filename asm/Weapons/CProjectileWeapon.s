@@ -34,7 +34,7 @@ lbl_805A8648:
 	.4byte 0x00000063
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetBounds__17CProjectileWeaponCFv
 GetBounds__17CProjectileWeaponCFv:

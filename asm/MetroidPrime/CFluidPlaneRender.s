@@ -17,8 +17,23 @@ lbl_805A840C:
 .global lbl_8046DCC0
 lbl_8046DCC0:
 	.skip 0x400
+
+.section .sbss, "wa"
+
+.global lbl_805A9130
+lbl_805A9130:
+	.skip 0x4
+.global lbl_805A9134
+lbl_805A9134:
+	.skip 0x4
+.global lbl_805A9138
+lbl_805A9138:
+	.skip 0x4
+.global lbl_805A913C
+lbl_805A913C:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global RenderPatch__FRCQ220CFluidPlaneCPURender10SPatchInfob
 RenderPatch__FRCQ220CFluidPlaneCPURender10SPatchInfob:

@@ -208,7 +208,7 @@ lbl_805A7884:
 	# ROM: 0x3F5224
 	.4byte 0x00000031
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global RemovePlatform__7CRipperFR13CStateManager
 RemovePlatform__7CRipperFR13CStateManager:

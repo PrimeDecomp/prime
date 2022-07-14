@@ -8,7 +8,7 @@ lbl_805A8800:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__18CDrawStringOptionsFv
 __ct__18CDrawStringOptionsFv:

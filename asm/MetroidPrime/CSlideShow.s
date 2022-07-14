@@ -115,7 +115,13 @@ lbl_805A85C8:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9168
+lbl_805A9168:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global GetIsContinueDraw__10CSlideShowFv
 GetIsContinueDraw__10CSlideShowFv:

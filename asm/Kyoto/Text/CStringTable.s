@@ -8,7 +8,7 @@ lbl_805A89D8:
 	.asciz "ENGL"
 	.balign 4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FStringTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FStringTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

@@ -1,6 +1,30 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9250
+lbl_805A9250:
+	.skip 0x4
+.global lbl_805A9254
+lbl_805A9254:
+	.skip 0x4
+.global lbl_805A9258
+lbl_805A9258:
+	.skip 0x4
+.global lbl_805A925C
+lbl_805A925C:
+	.skip 0x4
+.global lbl_805A9260
+lbl_805A9260:
+	.skip 0x4
+.global lbl_805A9264
+lbl_805A9264:
+	.skip 0x4
+.global lbl_805A9268
+lbl_805A9268:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global StreamAnimResIdEventResIdList__13CAnimationSetFUsR12CInputStream
 StreamAnimResIdEventResIdList__13CAnimationSetFUsR12CInputStream:

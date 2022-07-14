@@ -14,7 +14,7 @@ lbl_803E7048:
 	.4byte AcceptScriptMsg__11CScriptMidiF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global StopInternal__11CScriptMidiFf
 StopInternal__11CScriptMidiFf:

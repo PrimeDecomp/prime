@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AddColliders__17InternalCollidersFv
 AddColliders__17InternalCollidersFv:

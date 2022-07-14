@@ -24,7 +24,7 @@ lbl_803E52B0:
 	.4byte IsLoaded__10CGunWeaponCFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global DrawClipCube__FRC6CAABox
 DrawClipCube__FRC6CAABox:

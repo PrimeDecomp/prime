@@ -22,7 +22,16 @@ lbl_805A85DC:
 	# ROM: 0x3F5F7C
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9170
+lbl_805A9170:
+	.skip 0x4
+.global lbl_805A9174
+lbl_805A9174:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global GetArtifactHeadScanIndex__13CArtifactDollFUi
 GetArtifactHeadScanIndex__13CArtifactDollFUi:

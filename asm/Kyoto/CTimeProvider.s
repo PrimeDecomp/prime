@@ -1,6 +1,12 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9658
+lbl_805A9658:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global __dt__13CTimeProviderFv
 __dt__13CTimeProviderFv:

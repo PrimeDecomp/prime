@@ -22,7 +22,7 @@ lbl_805A8A2C:
 	# ROM: 0x3F63CC
 	.4byte 0x000000FF
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ToRGB5A3__6CColorCFv
 ToRGB5A3__6CColorCFv:

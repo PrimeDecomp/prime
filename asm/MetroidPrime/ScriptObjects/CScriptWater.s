@@ -73,7 +73,7 @@ lbl_8046C520:
 lbl_805A8F08:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetPatchRenderFlags__12CScriptWaterCFii
 GetPatchRenderFlags__12CScriptWaterCFii:

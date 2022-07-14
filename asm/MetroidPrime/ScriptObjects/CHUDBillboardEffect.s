@@ -61,7 +61,7 @@ lbl_805A8F74:
 lbl_805A8F78:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__19CHUDBillboardEffectFR8IVisitor
 Accept__19CHUDBillboardEffectFR8IVisitor:

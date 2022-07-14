@@ -27,7 +27,22 @@ lbl_805A8A54:
 	# ROM: 0x3F63F4
 	.4byte 0x00000040
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9690
+lbl_805A9690:
+	.skip 0x4
+.global lbl_805A9694
+lbl_805A9694:
+	.skip 0x4
+.global lbl_805A9698
+lbl_805A9698:
+	.skip 0x4
+.global lbl_805A969C
+lbl_805A969C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global EnsureWorldPakReady__8CPakFileFv
 EnsureWorldPakReady__8CPakFileFv:

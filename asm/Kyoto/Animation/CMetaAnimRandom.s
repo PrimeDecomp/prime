@@ -14,7 +14,7 @@ lbl_803ECD50:
 	.4byte WriteAnimData__15CMetaAnimRandomCFR13COutputStream
 	.4byte VGetAnimationTree__15CMetaAnimRandomCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__15CMetaAnimRandomFv
 __dt__15CMetaAnimRandomFv:

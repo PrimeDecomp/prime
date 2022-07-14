@@ -12,7 +12,7 @@ lbl_805A82C4:
 	# ROM: 0x3F5C64
 	.4byte 0xFFFFFFFF
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_80248ddc
 sub_80248ddc:

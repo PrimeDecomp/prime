@@ -14,7 +14,16 @@ lbl_803EF680:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A95C8
+lbl_805A95C8:
+	.skip 0x1
+.global lbl_805A95C9
+lbl_805A95C9:
+	.skip 0x7
+
+.section .text, "ax"
 
 .global Create__11IControllerFRC10COsContext
 Create__11IControllerFRC10COsContext:

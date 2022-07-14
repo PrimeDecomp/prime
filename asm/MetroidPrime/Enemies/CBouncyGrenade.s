@@ -98,7 +98,19 @@ lbl_805A81A0:
 	.4byte 0x00000020
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A90D8
+lbl_805A90D8:
+	.skip 0x8
+.global lbl_805A90E0
+lbl_805A90E0:
+	.skip 0x4
+.global lbl_805A90E4
+lbl_805A90E4:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global __dt__14CBouncyGrenadeFv
 __dt__14CBouncyGrenadeFv:

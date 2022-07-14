@@ -24,7 +24,13 @@ lbl_803ED594:
 	.4byte PostCancelRequest__15CRealDvdRequestFv
 	.4byte GetMediaType__15CRealDvdRequestCFv
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9330
+lbl_805A9330:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global __dt__15CARAMDvdRequestFv
 __dt__15CARAMDvdRequestFv:

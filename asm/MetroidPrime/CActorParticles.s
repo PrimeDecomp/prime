@@ -22,7 +22,7 @@ lbl_805A7DF4:
 	# ROM: 0x3F5794
 	.4byte 0x00000004
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetAshyTexture__20CActorModelParticlesFR5CActor
 GetAshyTexture__20CActorModelParticlesFR5CActor:

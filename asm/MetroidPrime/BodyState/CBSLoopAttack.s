@@ -20,7 +20,7 @@ lbl_803E17C8:
 	.4byte UpdateBody__13CBSLoopAttackFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__13CBSLoopAttackFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__13CBSLoopAttackFv
 __dt__13CBSLoopAttackFv:

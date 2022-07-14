@@ -18,7 +18,7 @@ lbl_805A7F08:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global FMapUniverseFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FMapUniverseFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:

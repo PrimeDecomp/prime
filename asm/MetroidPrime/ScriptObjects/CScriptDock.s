@@ -99,7 +99,7 @@ lbl_805A7294:
 	.4byte 0x00000030
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetCurrentConnectedAreaId__11CScriptDockCFRC13CStateManager
 GetCurrentConnectedAreaId__11CScriptDockCFRC13CStateManager:

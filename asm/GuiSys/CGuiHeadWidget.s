@@ -22,7 +22,7 @@ lbl_803EC808:
 	.4byte OnActivate__10CGuiWidgetFv
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__14CGuiHeadWidgetFRCQ210CGuiWidget15CGuiWidgetParms
 __ct__14CGuiHeadWidgetFRCQ210CGuiWidget15CGuiWidgetParms:

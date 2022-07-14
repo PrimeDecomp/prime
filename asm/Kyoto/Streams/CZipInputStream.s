@@ -10,7 +10,7 @@ lbl_803EE3C8:
 	.4byte __dt__15CZipInputStreamFv
 	.4byte Read__15CZipInputStreamFPvUl
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Read__15CZipInputStreamFPvUl
 Read__15CZipInputStreamFPvUl:

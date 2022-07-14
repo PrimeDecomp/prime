@@ -14,7 +14,13 @@ lbl_803E4708:
 	.4byte AcceptScriptMsg__20CScriptRoomAcousticsF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9048
+lbl_805A9048:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global __dt__20CScriptRoomAcousticsFv
 __dt__20CScriptRoomAcousticsFv:

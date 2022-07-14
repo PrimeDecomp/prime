@@ -6,7 +6,7 @@
 lbl_8046C538:
 	.skip 0x20
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetNumMaterialSets__10CModelDataCFv
 GetNumMaterialSets__10CModelDataCFv:

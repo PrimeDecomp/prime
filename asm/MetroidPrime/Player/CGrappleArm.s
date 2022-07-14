@@ -58,7 +58,7 @@ lbl_805A7648:
 	.4byte 0xFFFF0000
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global DisconnectGrappleBeam__11CGrappleArmFv
 DisconnectGrappleBeam__11CGrappleArmFv:

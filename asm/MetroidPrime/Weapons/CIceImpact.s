@@ -83,7 +83,7 @@ lbl_805A7CB8:
 	.4byte 0
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global SubdivideAndGenerateParticles__10CIceImpactFR13CStateManagerRC9CVector3fRC9CVector3fRC9CVector3fRC7CSphereRC7CSphere
 SubdivideAndGenerateParticles__10CIceImpactFR13CStateManagerRC9CVector3fRC9CVector3fRC9CVector3fRC7CSphereRC7CSphere:

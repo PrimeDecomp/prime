@@ -13,8 +13,32 @@ lbl_805A8920:
 .global lbl_804BFF40
 lbl_804BFF40:
 	.skip 0x10
-	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+
+.section .sbss, "wa"
+
+.global lbl_805A9520
+lbl_805A9520:
+	.skip 0x4
+.global lbl_805A9524
+lbl_805A9524:
+	.skip 0x4
+.global lbl_805A9528
+lbl_805A9528:
+	.skip 0x4
+.global lbl_805A952C
+lbl_805A952C:
+	.skip 0x4
+.global lbl_805A9530
+lbl_805A9530:
+	.skip 0x4
+.global lbl_805A9534
+lbl_805A9534:
+	.skip 0x4
+.global lbl_805A9538
+lbl_805A9538:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global CollectGarbage__12CARAMManagerFv
 CollectGarbage__12CARAMManagerFv:

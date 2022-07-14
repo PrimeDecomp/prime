@@ -20,7 +20,7 @@ lbl_803E2008:
 	.4byte UpdateBody__7CBSJumpFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__7CBSJumpFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__7CBSJumpFv
 __dt__7CBSJumpFv:

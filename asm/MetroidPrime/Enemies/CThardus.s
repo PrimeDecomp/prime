@@ -494,7 +494,13 @@ lbl_805A7DE4:
 	# ROM: 0x3F5784
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9078
+lbl_805A9078:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global __dt__8CThardusFv
 __dt__8CThardusFv:

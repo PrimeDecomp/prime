@@ -31,7 +31,7 @@ lbl_805A890E:
 	# ROM: 0x3F62AE
 	.2byte 0x00000100
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_803394a8
 sub_803394a8:

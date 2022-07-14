@@ -37,7 +37,7 @@ lbl_803ECBE0:
 	.4byte 0
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__15CAnimTreeLoopInFv
 __dt__15CAnimTreeLoopInFv:

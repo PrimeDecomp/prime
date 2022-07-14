@@ -42,7 +42,7 @@ lbl_805A82C8:
 	.4byte 0x00000022
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__24CScriptCameraHintTriggerFv
 __dt__24CScriptCameraHintTriggerFv:

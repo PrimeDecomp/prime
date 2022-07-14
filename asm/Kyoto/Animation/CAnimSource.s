@@ -18,7 +18,7 @@ lbl_805A8782:
 	.byte 0x01, 0x00
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetSegStatementSet__11CAnimSourceCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
 GetSegStatementSet__11CAnimSourceCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime:

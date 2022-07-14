@@ -103,8 +103,23 @@ lbl_805A8530:
 .global lbl_8046E0D8
 lbl_8046E0D8:
 	.skip 0x18
+
+.section .sbss, "wa"
+
+.global lbl_805A9150
+lbl_805A9150:
+	.skip 0x4
+.global lbl_805A9154
+lbl_805A9154:
+	.skip 0x4
+.global lbl_805A9158
+lbl_805A9158:
+	.skip 0x4
+.global lbl_805A915C
+lbl_805A915C:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global UpdateMorphBallTransition__7CPlayerFfR13CStateManager
 UpdateMorphBallTransition__7CPlayerFfR13CStateManager:

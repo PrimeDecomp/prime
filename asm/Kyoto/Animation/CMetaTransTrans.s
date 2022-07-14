@@ -12,7 +12,7 @@ lbl_803ECDD8:
 	.4byte GetType__15CMetaTransTransCFv
 	.4byte WriteTransData__15CMetaTransTransCFR13COutputStream
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__15CMetaTransTransFv
 __dt__15CMetaTransTransFv:

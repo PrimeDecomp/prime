@@ -60,8 +60,47 @@ lbl_804BFF50:
 .global lbl_804BFF5C
 lbl_804BFF5C:
 	.skip 0x34
+
+.section .sbss, "wa"
+
+.global lbl_805A9540
+lbl_805A9540:
+	.skip 0x4
+.global lbl_805A9544
+lbl_805A9544:
+	.skip 0x4
+.global lbl_805A9548
+lbl_805A9548:
+	.skip 0x4
+.global lbl_805A954C
+lbl_805A954C:
+	.skip 0x4
+.global lbl_805A9550
+lbl_805A9550:
+	.skip 0x4
+.global lbl_805A9554
+lbl_805A9554:
+	.skip 0x4
+.global lbl_805A9558
+lbl_805A9558:
+	.skip 0x1
+.global lbl_805A9559
+lbl_805A9559:
+	.skip 0x1
+.global lbl_805A955A
+lbl_805A955A:
+	.skip 0x2
+.global lbl_805A955C
+lbl_805A955C:
+	.skip 0x4
+.global lbl_805A9560
+lbl_805A9560:
+	.skip 0x1
+.global lbl_805A9561
+lbl_805A9561:
+	.skip 0x7
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetCompressedBlend__13CCubeMaterialCFv
 GetCompressedBlend__13CCubeMaterialCFv:

@@ -9,7 +9,7 @@ lbl_805AF470:
 lbl_805AF474:
 	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AreasValid__16CMorphBallShadowCFRC13CStateManager
 AreasValid__16CMorphBallShadowCFRC13CStateManager:

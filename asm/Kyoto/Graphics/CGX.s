@@ -12,7 +12,7 @@ lbl_80479BD0:
 lbl_805AF4A0:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global sub_80307bbc
 sub_80307bbc:

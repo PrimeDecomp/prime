@@ -57,8 +57,17 @@ lbl_805A809C:
 .global lbl_8046CB40
 lbl_8046CB40:
 	.skip 0x800
+
+.section .sbss, "wa"
+
+.global lbl_805A90B0
+lbl_805A90B0:
+	.skip 0x4
+.global lbl_805A90B4
+lbl_805A90B4:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AreaLoaded__13CEnvFxManagerFv
 AreaLoaded__13CEnvFxManagerFv:

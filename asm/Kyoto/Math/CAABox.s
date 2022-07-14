@@ -39,7 +39,7 @@ lbl_805AF4A8:
 lbl_805AF4AC:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global ClosestPointAlongVector__6CAABoxCFRC9CVector3f
 ClosestPointAlongVector__6CAABoxCFRC9CVector3f:

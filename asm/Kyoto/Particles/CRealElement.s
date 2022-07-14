@@ -362,7 +362,7 @@ lbl_805A88E0:
 	.4byte 0
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetValue__15CREIntTimesRealCFiRf
 GetValue__15CREIntTimesRealCFiRf:

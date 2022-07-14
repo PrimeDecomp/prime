@@ -1,6 +1,36 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9568
+lbl_805A9568:
+	.skip 0x4
+.global lbl_805A956C
+lbl_805A956C:
+	.skip 0x4
+.global lbl_805A9570
+lbl_805A9570:
+	.skip 0x4
+.global lbl_805A9574
+lbl_805A9574:
+	.skip 0x4
+.global lbl_805A9578
+lbl_805A9578:
+	.skip 0x4
+.global lbl_805A957C
+lbl_805A957C:
+	.skip 0x4
+.global lbl_805A9580
+lbl_805A9580:
+	.skip 0x4
+.global lbl_805A9584
+lbl_805A9584:
+	.skip 0x4
+.global lbl_805A9588
+lbl_805A9588:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global Orange__6CColorFv
 Orange__6CColorFv:

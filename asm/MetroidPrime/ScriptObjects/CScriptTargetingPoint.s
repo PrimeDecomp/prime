@@ -43,7 +43,7 @@ lbl_805A7AA8:
 	.4byte 0
 
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__21CScriptTargetingPointFv
 __dt__21CScriptTargetingPointFv:

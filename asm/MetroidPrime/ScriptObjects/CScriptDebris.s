@@ -168,7 +168,7 @@ lbl_805A7538:
 	.4byte 0x00000023
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global CollidedWith__13CScriptDebrisFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
 CollidedWith__13CScriptDebrisFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager:

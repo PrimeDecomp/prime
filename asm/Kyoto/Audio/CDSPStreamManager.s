@@ -34,8 +34,14 @@ lbl_80540A20:
 .global lbl_80540A2C
 lbl_80540A2C:
 	.skip 0x14
+
+.section .sbss, "wa"
+
+.global lbl_805A9678
+lbl_805A9678:
+	.skip 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AllocateStream__17CDSPStreamManagerFv
 AllocateStream__17CDSPStreamManagerFv:

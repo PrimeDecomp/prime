@@ -83,8 +83,35 @@ lbl_8046C8D8:
 .global lbl_8046C8F0
 lbl_8046C8F0:
 	.skip 0x18
+
+.section .sbss, "wa"
+
+.global lbl_805A9000
+lbl_805A9000:
+	.skip 0x4
+.global lbl_805A9004
+lbl_805A9004:
+	.skip 0x4
+.global lbl_805A9008
+lbl_805A9008:
+	.skip 0x4
+.global lbl_805A900C
+lbl_805A900C:
+	.skip 0x4
+.global lbl_805A9010
+lbl_805A9010:
+	.skip 0x4
+.global lbl_805A9014
+lbl_805A9014:
+	.skip 0x4
+.global lbl_805A9018
+lbl_805A9018:
+	.skip 0x4
+.global lbl_805A901C
+lbl_805A901C:
+	.skip 0x4
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global UpdateGrappleArmTransform__7CPlayerFRC9CVector3fR13CStateManagerf
 UpdateGrappleArmTransform__7CPlayerFRC9CVector3fR13CStateManagerf:

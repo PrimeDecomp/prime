@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __ct__13CPhysicsStateFRC9CVector3fRC11CQuaternionRC9CVector3fRC10CAxisAngleRC9CVector3fRC9CVector3fRC9CVector3fRC10CAxisAngleRC10CAxisAngle
 __ct__13CPhysicsStateFRC9CVector3fRC11CQuaternionRC9CVector3fRC10CAxisAngleRC9CVector3fRC9CVector3fRC9CVector3fRC10CAxisAngleRC10CAxisAngle:

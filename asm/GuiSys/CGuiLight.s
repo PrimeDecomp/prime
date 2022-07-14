@@ -22,7 +22,7 @@ lbl_803EC848:
 	.4byte OnActivate__10CGuiWidgetFv
 	.4byte SetIsVisible__9CGuiLightFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global GetWidgetTypeID__9CGuiLightCFv
 GetWidgetTypeID__9CGuiLightCFv:

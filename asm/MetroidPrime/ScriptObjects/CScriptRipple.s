@@ -14,7 +14,7 @@ lbl_803E3E28:
 	.4byte AcceptScriptMsg__13CScriptRippleF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Accept__13CScriptRippleFR8IVisitor
 Accept__13CScriptRippleFR8IVisitor:

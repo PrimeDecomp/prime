@@ -20,7 +20,7 @@ lbl_803E1F78:
 	.4byte UpdateBody__8CBSSlideFfR15CBodyControllerR13CStateManager
 	.4byte Shutdown__8CBSSlideFR15CBodyController
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__8CBSSlideFv
 __dt__8CBSSlideFv:

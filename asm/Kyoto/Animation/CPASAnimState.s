@@ -12,7 +12,7 @@ lbl_805A873C:
 	# ROM: 0x3F60DC
 	.4byte 0x3F800000
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global PickRandomAnimation__13CPASAnimStateCFR9CRandom16
 PickRandomAnimation__13CPASAnimStateCFR9CRandom16:

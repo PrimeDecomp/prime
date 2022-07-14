@@ -376,7 +376,7 @@ lbl_805A7B8C:
 	# ROM: 0x3F552C
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Update__23CHudBossEnergyInterfaceFf
 Update__23CHudBossEnergyInterfaceFf:

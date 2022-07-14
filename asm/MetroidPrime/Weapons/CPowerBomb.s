@@ -79,7 +79,7 @@ lbl_805A77F0:
 lbl_805A8FA8:
 	.skip 0x8
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global AcceptScriptMsg__10CPowerBombF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CPowerBombF20EScriptObjectMessage9TUniqueIdR13CStateManager:

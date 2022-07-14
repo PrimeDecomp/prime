@@ -365,7 +365,19 @@ lbl_805A7D44:
 	# ROM: 0x3F56E4
 	.4byte 0x00003FFF
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9060
+lbl_805A9060:
+	.skip 0x8
+.global lbl_805A9068
+lbl_805A9068:
+	.skip 0x4
+.global lbl_805A906C
+lbl_805A906C:
+	.skip 0x4
+
+.section .text, "ax"
 
 .global IsListening__12CMetroidBetaCFv
 IsListening__12CMetroidBetaCFv:

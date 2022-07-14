@@ -18,7 +18,25 @@ lbl_803EF738:
 	.4byte "__dt__15TToken<6CModel>Fv"
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .sbss, "wa"
+
+.global lbl_805A9638
+lbl_805A9638:
+	.skip 0x4
+.global lbl_805A963C
+lbl_805A963C:
+	.skip 0x4
+.global lbl_805A9640
+lbl_805A9640:
+	.skip 0x4
+.global lbl_805A9644
+lbl_805A9644:
+	.skip 0x4
+.global lbl_805A9648
+lbl_805A9648:
+	.skip 0x8
+
+.section .text, "ax"
 
 .global UpdateLastFrame__6CModelFv
 UpdateLastFrame__6CModelFv:

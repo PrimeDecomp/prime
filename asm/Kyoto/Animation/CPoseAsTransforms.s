@@ -32,7 +32,7 @@ lbl_805A8A5D:
 	# ROM: 0x3F63FD
 	.byte 0xFF, 0x00, 0x00
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global Clear__17CPoseAsTransformsFv
 Clear__17CPoseAsTransformsFv:

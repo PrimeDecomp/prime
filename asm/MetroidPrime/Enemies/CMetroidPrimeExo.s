@@ -705,8 +705,20 @@ lbl_805A849C:
 .global lbl_8046E0C0
 lbl_8046E0C0:
 	.skip 0x18
+
+.section .sbss, "wa"
+
+.global lbl_805A9140
+lbl_805A9140:
+	.skip 0x4
+.global lbl_805A9144
+lbl_805A9144:
+	.skip 0x4
+.global lbl_805A9148
+lbl_805A9148:
+	.skip 0x8
 	
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global __dt__16CMetroidPrimeExo
 __dt__16CMetroidPrimeExo:

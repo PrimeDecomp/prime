@@ -30,7 +30,7 @@ lbl_803ED508:
 	.4byte VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
 	.4byte 0
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global IsCAnimTreeNode__11IAnimReaderCFv
 IsCAnimTreeNode__11IAnimReaderCFv:

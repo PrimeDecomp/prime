@@ -279,7 +279,7 @@ lbl_805A8EF8:
 lbl_805A8EFC:
 	.skip 0x4
 
-.section .text, "ax"  # 0x80003640 - 0x803CB1C0
+.section .text, "ax"
 
 .global DeleteBallShadow__10CMorphBallFv
 DeleteBallShadow__10CMorphBallFv:
