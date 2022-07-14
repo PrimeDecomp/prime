@@ -70,7 +70,7 @@ lbl_80232804:
 /* 80232810 0022F770  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80232814 0022F774  7C 08 03 A6 */	mtlr r0
 /* 80232818 0022F778  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023281C 0022F77C  4E 80 00 20 */	blr 
+/* 8023281C 0022F77C  4E 80 00 20 */	blr
 
 .global Move__25CRipperControlledPlatformFR13CStateManager
 Move__25CRipperControlledPlatformFR13CStateManager:
@@ -311,7 +311,7 @@ lbl_80232B78:
 /* 80232B88 0022FAE8  80 01 10 C4 */	lwz r0, 0x10c4(r1)
 /* 80232B8C 0022FAEC  7C 08 03 A6 */	mtlr r0
 /* 80232B90 0022FAF0  38 21 10 C0 */	addi r1, r1, 0x10c0
-/* 80232B94 0022FAF4  4E 80 00 20 */	blr 
+/* 80232B94 0022FAF4  4E 80 00 20 */	blr
 
 .global "__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>"
 "__ct__25CRipperControlledPlatformF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC6CAABoxbRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>":

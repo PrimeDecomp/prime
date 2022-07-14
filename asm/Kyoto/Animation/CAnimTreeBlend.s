@@ -80,14 +80,14 @@ Depth__20CAnimTreeDoubleChildCFv:
 /* 802F1ED8 002EEE38  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1EDC 002EEE3C  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 802F1EE0 002EEE40  7D 89 03 A6 */	mtctr r12
-/* 802F1EE4 002EEE44  4E 80 04 21 */	bctrl 
+/* 802F1EE4 002EEE44  4E 80 04 21 */	bctrl
 /* 802F1EE8 002EEE48  90 61 00 08 */	stw r3, 8(r1)
 /* 802F1EEC 002EEE4C  80 7F 00 14 */	lwz r3, 0x14(r31)
 /* 802F1EF0 002EEE50  80 63 00 00 */	lwz r3, 0(r3)
 /* 802F1EF4 002EEE54  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1EF8 002EEE58  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 802F1EFC 002EEE5C  7D 89 03 A6 */	mtctr r12
-/* 802F1F00 002EEE60  4E 80 04 21 */	bctrl 
+/* 802F1F00 002EEE60  4E 80 04 21 */	bctrl
 /* 802F1F04 002EEE64  80 01 00 08 */	lwz r0, 8(r1)
 /* 802F1F08 002EEE68  38 81 00 0C */	addi r4, r1, 0xc
 /* 802F1F0C 002EEE6C  90 61 00 0C */	stw r3, 0xc(r1)
@@ -101,7 +101,7 @@ lbl_802F1F1C:
 /* 802F1F28 002EEE88  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802F1F2C 002EEE8C  7C 08 03 A6 */	mtlr r0
 /* 802F1F30 002EEE90  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F1F34 002EEE94  4E 80 00 20 */	blr 
+/* 802F1F34 002EEE94  4E 80 00 20 */	blr
 
 .global VAdvanceView__14CAnimTreeBlendFRC13CCharAnimTime
 VAdvanceView__14CAnimTreeBlendFRC13CCharAnimTime:
@@ -126,7 +126,7 @@ VAdvanceView__14CAnimTreeBlendFRC13CCharAnimTime:
 /* 802F1F80 002EEEE0  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1F84 002EEEE4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802F1F88 002EEEE8  7D 89 03 A6 */	mtctr r12
-/* 802F1F8C 002EEEEC  4E 80 04 21 */	bctrl 
+/* 802F1F8C 002EEEEC  4E 80 04 21 */	bctrl
 /* 802F1F90 002EEEF0  C0 E1 00 50 */	lfs f7, 0x50(r1)
 /* 802F1F94 002EEEF4  7F C5 F3 78 */	mr r5, r30
 /* 802F1F98 002EEEF8  80 01 00 54 */	lwz r0, 0x54(r1)
@@ -153,7 +153,7 @@ VAdvanceView__14CAnimTreeBlendFRC13CCharAnimTime:
 /* 802F1FEC 002EEF4C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1FF0 002EEF50  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802F1FF4 002EEF54  7D 89 03 A6 */	mtctr r12
-/* 802F1FF8 002EEF58  4E 80 04 21 */	bctrl 
+/* 802F1FF8 002EEF58  4E 80 04 21 */	bctrl
 /* 802F1FFC 002EEF5C  80 6D A7 40 */	lwz r3, lbl_805A9300@sda21(r13)
 /* 802F2000 002EEF60  3B C1 00 7C */	addi r30, r1, 0x7c
 /* 802F2004 002EEF64  C0 E1 00 2C */	lfs f7, 0x2c(r1)
@@ -263,12 +263,12 @@ lbl_802F2178:
 /* 802F2190 002EF0F0  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 802F2194 002EF0F4  7C 08 03 A6 */	mtlr r0
 /* 802F2198 002EF0F8  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 802F219C 002EF0FC  4E 80 00 20 */	blr 
+/* 802F219C 002EF0FC  4E 80 00 20 */	blr
 
 .global SetBlendingWeight__14CAnimTreeBlendFf
 SetBlendingWeight__14CAnimTreeBlendFf:
 /* 802F21A0 002EF100  D0 23 00 24 */	stfs f1, 0x24(r3)
-/* 802F21A4 002EF104  4E 80 00 20 */	blr 
+/* 802F21A4 002EF104  4E 80 00 20 */	blr
 
 .global "CreatePrimitiveName__14CAnimTreeBlendFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>f"
 "CreatePrimitiveName__14CAnimTreeBlendFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>f":
@@ -284,7 +284,7 @@ SetBlendingWeight__14CAnimTreeBlendFf:
 /* 802F21CC 002EF12C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F21D0 002EF130  7C 08 03 A6 */	mtlr r0
 /* 802F21D4 002EF134  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F21D8 002EF138  4E 80 00 20 */	blr 
+/* 802F21D8 002EF138  4E 80 00 20 */	blr
 
 .global VGetSteadyStateAnimInfo__14CAnimTreeBlendCFv
 VGetSteadyStateAnimInfo__14CAnimTreeBlendCFv:
@@ -319,7 +319,7 @@ VGetSteadyStateAnimInfo__14CAnimTreeBlendCFv:
 /* 802F224C 002EF1AC  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F2250 002EF1B0  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802F2254 002EF1B4  7D 89 03 A6 */	mtctr r12
-/* 802F2258 002EF1B8  4E 80 04 21 */	bctrl 
+/* 802F2258 002EF1B8  4E 80 04 21 */	bctrl
 /* 802F225C 002EF1BC  80 9D 00 18 */	lwz r4, 0x18(r29)
 /* 802F2260 002EF1C0  38 61 00 38 */	addi r3, r1, 0x38
 /* 802F2264 002EF1C4  80 A1 00 54 */	lwz r5, 0x54(r1)
@@ -337,7 +337,7 @@ VGetSteadyStateAnimInfo__14CAnimTreeBlendCFv:
 /* 802F2294 002EF1F4  D0 01 00 90 */	stfs f0, 0x90(r1)
 /* 802F2298 002EF1F8  98 01 00 94 */	stb r0, 0x94(r1)
 /* 802F229C 002EF1FC  7D 89 03 A6 */	mtctr r12
-/* 802F22A0 002EF200  4E 80 04 21 */	bctrl 
+/* 802F22A0 002EF200  4E 80 04 21 */	bctrl
 /* 802F22A4 002EF204  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802F22A8 002EF208  38 61 00 30 */	addi r3, r1, 0x30
 /* 802F22AC 002EF20C  83 C1 00 84 */	lwz r30, 0x84(r1)
@@ -457,7 +457,7 @@ lbl_802F23F0:
 /* 802F2464 002EF3C4  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 802F2468 002EF3C8  7C 08 03 A6 */	mtlr r0
 /* 802F246C 002EF3CC  38 21 01 30 */	addi r1, r1, 0x130
-/* 802F2470 002EF3D0  4E 80 00 20 */	blr 
+/* 802F2470 002EF3D0  4E 80 00 20 */	blr
 
 .global VGetTimeRemaining__14CAnimTreeBlendCFv
 VGetTimeRemaining__14CAnimTreeBlendCFv:
@@ -474,14 +474,14 @@ VGetTimeRemaining__14CAnimTreeBlendCFv:
 /* 802F249C 002EF3FC  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F24A0 002EF400  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802F24A4 002EF404  7D 89 03 A6 */	mtctr r12
-/* 802F24A8 002EF408  4E 80 04 21 */	bctrl 
+/* 802F24A8 002EF408  4E 80 04 21 */	bctrl
 /* 802F24AC 002EF40C  80 9F 00 14 */	lwz r4, 0x14(r31)
 /* 802F24B0 002EF410  38 61 00 10 */	addi r3, r1, 0x10
 /* 802F24B4 002EF414  80 84 00 00 */	lwz r4, 0(r4)
 /* 802F24B8 002EF418  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F24BC 002EF41C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802F24C0 002EF420  7D 89 03 A6 */	mtctr r12
-/* 802F24C4 002EF424  4E 80 04 21 */	bctrl 
+/* 802F24C4 002EF424  4E 80 04 21 */	bctrl
 /* 802F24C8 002EF428  38 61 00 10 */	addi r3, r1, 0x10
 /* 802F24CC 002EF42C  38 81 00 08 */	addi r4, r1, 8
 /* 802F24D0 002EF430  48 05 67 6D */	bl __lt__13CCharAnimTimeCFRC13CCharAnimTime
@@ -499,12 +499,12 @@ lbl_802F24E4:
 /* 802F24FC 002EF45C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802F2500 002EF460  7C 08 03 A6 */	mtlr r0
 /* 802F2504 002EF464  38 21 00 20 */	addi r1, r1, 0x20
-/* 802F2508 002EF468  4E 80 00 20 */	blr 
+/* 802F2508 002EF468  4E 80 00 20 */	blr
 
 .global VGetBlendingWeight__14CAnimTreeBlendCFv
 VGetBlendingWeight__14CAnimTreeBlendCFv:
 /* 802F250C 002EF46C  C0 23 00 24 */	lfs f1, 0x24(r3)
-/* 802F2510 002EF470  4E 80 00 20 */	blr 
+/* 802F2510 002EF470  4E 80 00 20 */	blr
 
 .global VClone__14CAnimTreeBlendCFv
 VClone__14CAnimTreeBlendCFv:
@@ -590,7 +590,7 @@ lbl_802F2624:
 /* 802F2648 002EF5A8  38 80 00 01 */	li r4, 1
 /* 802F264C 002EF5AC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F2650 002EF5B0  7D 89 03 A6 */	mtctr r12
-/* 802F2654 002EF5B4  4E 80 04 21 */	bctrl 
+/* 802F2654 002EF5B4  4E 80 04 21 */	bctrl
 lbl_802F2658:
 /* 802F2658 002EF5B8  7F 80 07 75 */	extsb. r0, r28
 /* 802F265C 002EF5BC  41 82 00 0C */	beq lbl_802F2668
@@ -609,7 +609,7 @@ lbl_802F2668:
 /* 802F268C 002EF5EC  38 80 00 01 */	li r4, 1
 /* 802F2690 002EF5F0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F2694 002EF5F4  7D 89 03 A6 */	mtctr r12
-/* 802F2698 002EF5F8  4E 80 04 21 */	bctrl 
+/* 802F2698 002EF5F8  4E 80 04 21 */	bctrl
 lbl_802F269C:
 /* 802F269C 002EF5FC  E3 E1 00 48 */	psq_l f31, 72(r1), 0, qr0
 /* 802F26A0 002EF600  CB E1 00 40 */	lfd f31, 0x40(r1)

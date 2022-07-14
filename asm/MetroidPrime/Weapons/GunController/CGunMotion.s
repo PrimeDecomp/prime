@@ -17,7 +17,7 @@ LoadAnimations__10CGunMotionFv:
 /* 801D8F9C 001D5EFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D8FA0 001D5F00  7C 08 03 A6 */	mtlr r0
 /* 801D8FA4 001D5F04  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8FA8 001D5F08  4E 80 00 20 */	blr 
+/* 801D8FA8 001D5F08  4E 80 00 20 */	blr
 
 .global EnterFidget__10CGunMotionFR13CStateManagerQ28SamusGun11EFidgetTypei
 EnterFidget__10CGunMotionFR13CStateManagerQ28SamusGun11EFidgetTypei:
@@ -35,7 +35,7 @@ EnterFidget__10CGunMotionFR13CStateManagerQ28SamusGun11EFidgetTypei:
 /* 801D8FD8 001D5F38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D8FDC 001D5F3C  7C 08 03 A6 */	mtlr r0
 /* 801D8FE0 001D5F40  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8FE4 001D5F44  4E 80 00 20 */	blr 
+/* 801D8FE4 001D5F44  4E 80 00 20 */	blr
 
 .global BasePosition__10CGunMotionFb
 BasePosition__10CGunMotionFb:
@@ -75,12 +75,12 @@ lbl_801D9024:
 /* 801D9068 001D5FC8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801D906C 001D5FCC  7C 08 03 A6 */	mtlr r0
 /* 801D9070 001D5FD0  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D9074 001D5FD4  4E 80 00 20 */	blr 
+/* 801D9074 001D5FD4  4E 80 00 20 */	blr
 
 .global GetFreeLookSetId__10CGunMotionCFv
 GetFreeLookSetId__10CGunMotionCFv:
 /* 801D9078 001D5FD8  80 63 00 60 */	lwz r3, 0x60(r3)
-/* 801D907C 001D5FDC  4E 80 00 20 */	blr 
+/* 801D907C 001D5FDC  4E 80 00 20 */	blr
 
 .global ReturnToDefault__10CGunMotionFR13CStateManager
 ReturnToDefault__10CGunMotionFR13CStateManager:
@@ -93,7 +93,7 @@ ReturnToDefault__10CGunMotionFR13CStateManager:
 /* 801D9098 001D5FF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D909C 001D5FFC  7C 08 03 A6 */	mtlr r0
 /* 801D90A0 001D6000  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D90A4 001D6004  4E 80 00 20 */	blr 
+/* 801D90A4 001D6004  4E 80 00 20 */	blr
 
 .global Draw__10CGunMotionCFRC13CStateManagerRC12CTransform4f
 Draw__10CGunMotionCFRC13CStateManagerRC12CTransform4f:
@@ -129,7 +129,7 @@ Draw__10CGunMotionCFRC13CStateManagerRC12CTransform4f:
 /* 801D911C 001D607C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801D9120 001D6080  7C 08 03 A6 */	mtlr r0
 /* 801D9124 001D6084  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D9128 001D6088  4E 80 00 20 */	blr 
+/* 801D9128 001D6088  4E 80 00 20 */	blr
 
 .global Update__10CGunMotionFfR13CStateManager
 Update__10CGunMotionFfR13CStateManager:
@@ -169,7 +169,7 @@ lbl_801D919C:
 /* 801D91A8 001D6108  83 C1 00 30 */	lwz r30, 0x30(r1)
 /* 801D91AC 001D610C  7C 08 03 A6 */	mtlr r0
 /* 801D91B0 001D6110  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D91B4 001D6114  4E 80 00 20 */	blr 
+/* 801D91B4 001D6114  4E 80 00 20 */	blr
 
 .global PlayPasAnim__10CGunMotionFQ28SamusGun15EAnimationStateR13CStateManagerfb
 PlayPasAnim__10CGunMotionFQ28SamusGun15EAnimationStateR13CStateManagerfb:
@@ -459,7 +459,7 @@ lbl_801D95B8:
 /* 801D95C8 001D6528  80 01 02 24 */	lwz r0, 0x224(r1)
 /* 801D95CC 001D652C  7C 08 03 A6 */	mtlr r0
 /* 801D95D0 001D6530  38 21 02 20 */	addi r1, r1, 0x220
-/* 801D95D4 001D6534  4E 80 00 20 */	blr 
+/* 801D95D4 001D6534  4E 80 00 20 */	blr
 
 .global __dt__10CGunMotionFv
 __dt__10CGunMotionFv:
@@ -516,7 +516,7 @@ lbl_801D967C:
 /* 801D9690 001D65F0  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801D9694 001D65F4  7C 08 03 A6 */	mtlr r0
 /* 801D9698 001D65F8  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D969C 001D65FC  4E 80 00 20 */	blr 
+/* 801D969C 001D65FC  4E 80 00 20 */	blr
 
 .global __ct__10CGunMotionFUiRC9CVector3f
 __ct__10CGunMotionFUiRC9CVector3f:

@@ -7,7 +7,7 @@ SetNoHorizontalAim__13CBoneTrackingFb:
 /* 801751A8 00172108  88 03 00 36 */	lbz r0, 0x36(r3)
 /* 801751AC 0017210C  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 801751B0 00172110  98 03 00 36 */	stb r0, 0x36(r3)
-/* 801751B4 00172114  4E 80 00 20 */	blr 
+/* 801751B4 00172114  4E 80 00 20 */	blr
 
 .global SetTargetPosition__13CBoneTrackingFRC9CVector3f
 SetTargetPosition__13CBoneTrackingFRC9CVector3f:
@@ -25,7 +25,7 @@ SetTargetPosition__13CBoneTrackingFRC9CVector3f:
 lbl_801751E4:
 /* 801751E4 00172144  38 00 00 01 */	li r0, 1
 /* 801751E8 00172148  98 03 00 30 */	stb r0, 0x30(r3)
-/* 801751EC 0017214C  4E 80 00 20 */	blr 
+/* 801751EC 0017214C  4E 80 00 20 */	blr
 lbl_801751F0:
 /* 801751F0 00172150  C0 04 00 00 */	lfs f0, 0(r4)
 /* 801751F4 00172154  D0 03 00 24 */	stfs f0, 0x24(r3)
@@ -33,26 +33,26 @@ lbl_801751F0:
 /* 801751FC 0017215C  D0 03 00 28 */	stfs f0, 0x28(r3)
 /* 80175200 00172160  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80175204 00172164  D0 03 00 2C */	stfs f0, 0x2c(r3)
-/* 80175208 00172168  4E 80 00 20 */	blr 
+/* 80175208 00172168  4E 80 00 20 */	blr
 
 .global UnsetTarget__13CBoneTrackingFv
 UnsetTarget__13CBoneTrackingFv:
 /* 8017520C 0017216C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80175210 00172170  B0 03 00 34 */	sth r0, 0x34(r3)
-/* 80175214 00172174  4E 80 00 20 */	blr 
+/* 80175214 00172174  4E 80 00 20 */	blr
 
 .global SetTarget__13CBoneTrackingF9TUniqueId
 SetTarget__13CBoneTrackingF9TUniqueId:
 /* 80175218 00172178  A0 04 00 00 */	lhz r0, 0(r4)
 /* 8017521C 0017217C  B0 03 00 34 */	sth r0, 0x34(r3)
-/* 80175220 00172180  4E 80 00 20 */	blr 
+/* 80175220 00172180  4E 80 00 20 */	blr
 
 .global SetActive__13CBoneTrackingFb
 SetActive__13CBoneTrackingFb:
 /* 80175224 00172184  88 03 00 36 */	lbz r0, 0x36(r3)
 /* 80175228 00172188  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8017522C 0017218C  98 03 00 36 */	stb r0, 0x36(r3)
-/* 80175230 00172190  4E 80 00 20 */	blr 
+/* 80175230 00172190  4E 80 00 20 */	blr
 
 .global PreRender__13CBoneTrackingFRC13CStateManagerR9CAnimDataRC12CTransform4fRC9CVector3fb
 PreRender__13CBoneTrackingFRC13CStateManagerR9CAnimDataRC12CTransform4fRC9CVector3fb:
@@ -177,7 +177,7 @@ lbl_8017539C:
 /* 801753F4 00172354  C0 22 A1 78 */	lfs f1, lbl_805ABE98@sda21(r2)
 /* 801753F8 00172358  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801753FC 0017235C  7D 89 03 A6 */	mtctr r12
-/* 80175400 00172360  4E 80 04 21 */	bctrl 
+/* 80175400 00172360  4E 80 04 21 */	bctrl
 /* 80175404 00172364  38 C1 01 04 */	addi r6, r1, 0x104
 /* 80175408 00172368  48 00 00 08 */	b lbl_80175410
 lbl_8017540C:
@@ -510,7 +510,7 @@ lbl_801758EC:
 /* 80175900 00172860  80 01 02 64 */	lwz r0, 0x264(r1)
 /* 80175904 00172864  7C 08 03 A6 */	mtlr r0
 /* 80175908 00172868  38 21 02 60 */	addi r1, r1, 0x260
-/* 8017590C 0017286C  4E 80 00 20 */	blr 
+/* 8017590C 0017286C  4E 80 00 20 */	blr
 
 .global PreRender__13CBoneTrackingFRC13CStateManagerR9CAnimDataRC12CTransform4fRC9CVector3fRC15CBodyController
 PreRender__13CBoneTrackingFRC13CStateManagerR9CAnimDataRC12CTransform4fRC9CVector3fRC15CBodyController:
@@ -553,14 +553,14 @@ lbl_80175978:
 /* 80175998 001728F8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8017599C 001728FC  7C 08 03 A6 */	mtlr r0
 /* 801759A0 00172900  38 21 00 30 */	addi r1, r1, 0x30
-/* 801759A4 00172904  4E 80 00 20 */	blr 
+/* 801759A4 00172904  4E 80 00 20 */	blr
 
 .global Update__13CBoneTrackingFf
 Update__13CBoneTrackingFf:
 /* 801759A8 00172908  C0 03 00 18 */	lfs f0, 0x18(r3)
 /* 801759AC 0017290C  EC 00 08 2A */	fadds f0, f0, f1
 /* 801759B0 00172910  D0 03 00 18 */	stfs f0, 0x18(r3)
-/* 801759B4 00172914  4E 80 00 20 */	blr 
+/* 801759B4 00172914  4E 80 00 20 */	blr
 
 .global "__ct__13CBoneTrackingFRC9CAnimDataRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffb"
 "__ct__13CBoneTrackingFRC9CAnimDataRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffb":

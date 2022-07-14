@@ -96,7 +96,7 @@ lbl_802E5888:
 /* 802E5898 002E27F8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802E589C 002E27FC  7C 08 03 A6 */	mtlr r0
 /* 802E58A0 002E2800  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E58A4 002E2804  4E 80 00 20 */	blr 
+/* 802E58A4 002E2804  4E 80 00 20 */	blr
 
 .global PutTo__10CPrimitiveCFR13COutputStream
 PutTo__10CPrimitiveCFR13COutputStream:

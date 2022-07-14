@@ -15,7 +15,7 @@ __dv__FRC9CVector2ii:
 /* 8031426C 003111CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314270 003111D0  7C 08 03 A6 */	mtlr r0
 /* 80314274 003111D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314278 003111D8  4E 80 00 20 */	blr 
+/* 80314278 003111D8  4E 80 00 20 */	blr
 
 .global __ml__FRC9CVector2ii
 __ml__FRC9CVector2ii:
@@ -30,7 +30,7 @@ __ml__FRC9CVector2ii:
 /* 8031429C 003111FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803142A0 00311200  7C 08 03 A6 */	mtlr r0
 /* 803142A4 00311204  38 21 00 10 */	addi r1, r1, 0x10
-/* 803142A8 00311208  4E 80 00 20 */	blr 
+/* 803142A8 00311208  4E 80 00 20 */	blr
 
 .global __eq__FRC9CVector2iRC9CVector2i
 __eq__FRC9CVector2iRC9CVector2i:
@@ -46,7 +46,7 @@ __eq__FRC9CVector2iRC9CVector2i:
 /* 803142D0 00311230  38 C0 00 01 */	li r6, 1
 lbl_803142D4:
 /* 803142D4 00311234  7C C3 33 78 */	mr r3, r6
-/* 803142D8 00311238  4E 80 00 20 */	blr 
+/* 803142D8 00311238  4E 80 00 20 */	blr
 
 .global __mi__FRC9CVector2iRC9CVector2i
 __mi__FRC9CVector2iRC9CVector2i:
@@ -63,7 +63,7 @@ __mi__FRC9CVector2iRC9CVector2i:
 /* 80314304 00311264  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314308 00311268  7C 08 03 A6 */	mtlr r0
 /* 8031430C 0031126C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314310 00311270  4E 80 00 20 */	blr 
+/* 80314310 00311270  4E 80 00 20 */	blr
 
 .global __pl__FRC9CVector2iRC9CVector2i
 __pl__FRC9CVector2iRC9CVector2i:
@@ -80,7 +80,7 @@ __pl__FRC9CVector2iRC9CVector2i:
 /* 8031433C 0031129C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314340 003112A0  7C 08 03 A6 */	mtlr r0
 /* 80314344 003112A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314348 003112A8  4E 80 00 20 */	blr 
+/* 80314348 003112A8  4E 80 00 20 */	blr
 
 .global __ct__9CVector2iFii
 __ct__9CVector2iFii:

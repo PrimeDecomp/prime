@@ -81,7 +81,7 @@ lbl_805A74D0:
 	# ROM: 0x3F4E70
 	.4byte 0x00000038
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global Accept__24CScriptDamageableTriggerFR8IVisitor
@@ -95,11 +95,11 @@ Accept__24CScriptDamageableTriggerFR8IVisitor:
 /* 800FA63C 000F759C  7C 04 03 78 */	mr r4, r0
 /* 800FA640 000F75A0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800FA644 000F75A4  7D 89 03 A6 */	mtctr r12
-/* 800FA648 000F75A8  4E 80 04 21 */	bctrl 
+/* 800FA648 000F75A8  4E 80 04 21 */	bctrl
 /* 800FA64C 000F75AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FA650 000F75B0  7C 08 03 A6 */	mtlr r0
 /* 800FA654 000F75B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FA658 000F75B8  4E 80 00 20 */	blr 
+/* 800FA658 000F75B8  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__24CScriptDamageableTriggerCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__24CScriptDamageableTriggerCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
@@ -118,7 +118,7 @@ lbl_800FA688:
 /* 800FA688 000F75E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FA68C 000F75EC  7C 08 03 A6 */	mtlr r0
 /* 800FA690 000F75F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FA694 000F75F4  4E 80 00 20 */	blr 
+/* 800FA694 000F75F4  4E 80 00 20 */	blr
 
 .global Render__24CScriptDamageableTriggerCFRC13CStateManager
 Render__24CScriptDamageableTriggerCFRC13CStateManager:
@@ -214,7 +214,7 @@ Render__24CScriptDamageableTriggerCFRC13CStateManager:
 /* 800FA7FC 000F775C  C0 3E 01 E0 */	lfs f1, 0x1e0(r30)
 /* 800FA800 000F7760  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800FA804 000F7764  7D 89 03 A6 */	mtctr r12
-/* 800FA808 000F7768  4E 80 04 21 */	bctrl 
+/* 800FA808 000F7768  4E 80 04 21 */	bctrl
 /* 800FA80C 000F776C  38 61 00 48 */	addi r3, r1, 0x48
 /* 800FA810 000F7770  38 80 FF FF */	li r4, -1
 /* 800FA814 000F7774  48 00 00 2D */	bl sub_800fa840
@@ -227,11 +227,11 @@ lbl_800FA818:
 /* 800FA82C 000F778C  83 C1 01 48 */	lwz r30, 0x148(r1)
 /* 800FA830 000F7790  7C 08 03 A6 */	mtlr r0
 /* 800FA834 000F7794  38 21 01 50 */	addi r1, r1, 0x150
-/* 800FA838 000F7798  4E 80 00 20 */	blr 
+/* 800FA838 000F7798  4E 80 00 20 */	blr
 
 .global "Render__11CFluidPlaneCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 "Render__11CFluidPlaneCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f":
-/* 800FA83C 000F779C  4E 80 00 20 */	blr 
+/* 800FA83C 000F779C  4E 80 00 20 */	blr
 
 .global sub_800fa840
 sub_800fa840:
@@ -255,7 +255,7 @@ lbl_800FA874:
 /* 800FA880 000F77E0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800FA884 000F77E4  7C 08 03 A6 */	mtlr r0
 /* 800FA888 000F77E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FA88C 000F77EC  4E 80 00 20 */	blr 
+/* 800FA88C 000F77EC  4E 80 00 20 */	blr
 
 .global sub_800fa890
 sub_800fa890:
@@ -275,7 +275,7 @@ lbl_800FA8B4:
 /* 800FA8C0 000F7820  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800FA8C4 000F7824  7C 08 03 A6 */	mtlr r0
 /* 800FA8C8 000F7828  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FA8CC 000F782C  4E 80 00 20 */	blr 
+/* 800FA8CC 000F782C  4E 80 00 20 */	blr
 
 .global sub_800fa8d0
 sub_800fa8d0:
@@ -308,7 +308,7 @@ lbl_800FA92C:
 /* 800FA92C 000F788C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800FA930 000F7890  7C 08 03 A6 */	mtlr r0
 /* 800FA934 000F7894  38 21 00 20 */	addi r1, r1, 0x20
-/* 800FA938 000F7898  4E 80 00 20 */	blr 
+/* 800FA938 000F7898  4E 80 00 20 */	blr
 
 .global AddToRenderer__24CScriptDamageableTriggerCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__24CScriptDamageableTriggerCFRC14CFrustumPlanesRC13CStateManager:
@@ -339,7 +339,7 @@ AddToRenderer__24CScriptDamageableTriggerCFRC14CFrustumPlanesRC13CStateManager:
 /* 800FA99C 000F78FC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800FA9A0 000F7900  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800FA9A4 000F7904  7D 89 03 A6 */	mtctr r12
-/* 800FA9A8 000F7908  4E 80 04 21 */	bctrl 
+/* 800FA9A8 000F7908  4E 80 04 21 */	bctrl
 /* 800FA9AC 000F790C  7F C3 F3 78 */	mr r3, r30
 /* 800FA9B0 000F7910  7F E4 FB 78 */	mr r4, r31
 /* 800FA9B4 000F7914  38 A1 00 08 */	addi r5, r1, 8
@@ -351,7 +351,7 @@ lbl_800FA9C0:
 /* 800FA9C8 000F7928  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 800FA9CC 000F792C  7C 08 03 A6 */	mtlr r0
 /* 800FA9D0 000F7930  38 21 00 40 */	addi r1, r1, 0x40
-/* 800FA9D4 000F7934  4E 80 00 20 */	blr 
+/* 800FA9D4 000F7934  4E 80 00 20 */	blr
 
 .global PreRender__24CScriptDamageableTriggerFR13CStateManagerRC14CFrustumPlanes
 PreRender__24CScriptDamageableTriggerFR13CStateManagerRC14CFrustumPlanes:
@@ -457,17 +457,17 @@ lbl_800FAB34:
 /* 800FAB40 000F7AA0  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 800FAB44 000F7AA4  7C 08 03 A6 */	mtlr r0
 /* 800FAB48 000F7AA8  38 21 00 50 */	addi r1, r1, 0x50
-/* 800FAB4C 000F7AAC  4E 80 00 20 */	blr 
+/* 800FAB4C 000F7AAC  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__24CScriptDamageableTriggerCFv
 GetDamageVulnerability__24CScriptDamageableTriggerCFv:
 /* 800FAB50 000F7AB0  38 63 01 74 */	addi r3, r3, 0x174
-/* 800FAB54 000F7AB4  4E 80 00 20 */	blr 
+/* 800FAB54 000F7AB4  4E 80 00 20 */	blr
 
 .global GetHealthInfo__24CScriptDamageableTriggerCFRC13CStateManager
 GetHealthInfo__24CScriptDamageableTriggerCFRC13CStateManager:
 /* 800FAB58 000F7AB8  38 63 01 6C */	addi r3, r3, 0x16c
-/* 800FAB5C 000F7ABC  4E 80 00 20 */	blr 
+/* 800FAB5C 000F7ABC  4E 80 00 20 */	blr
 
 .global Think__24CScriptDamageableTriggerFfR13CStateManager
 Think__24CScriptDamageableTriggerFfR13CStateManager:
@@ -520,7 +520,7 @@ lbl_800FABD4:
 /* 800FAC10 000F7B70  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800FAC14 000F7B74  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800FAC18 000F7B78  7D 89 03 A6 */	mtctr r12
-/* 800FAC1C 000F7B7C  4E 80 04 21 */	bctrl 
+/* 800FAC1C 000F7B7C  4E 80 04 21 */	bctrl
 /* 800FAC20 000F7B80  83 BE 00 2C */	lwz r29, 0x2c(r30)
 /* 800FAC24 000F7B84  48 00 00 78 */	b lbl_800FAC9C
 lbl_800FAC28:
@@ -551,7 +551,7 @@ lbl_800FAC28:
 /* 800FAC88 000F7BE8  38 80 00 00 */	li r4, 0
 /* 800FAC8C 000F7BEC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800FAC90 000F7BF0  7D 89 03 A6 */	mtctr r12
-/* 800FAC94 000F7BF4  4E 80 04 21 */	bctrl 
+/* 800FAC94 000F7BF4  4E 80 04 21 */	bctrl
 lbl_800FAC98:
 /* 800FAC98 000F7BF8  3B BD 00 0C */	addi r29, r29, 0xc
 lbl_800FAC9C:
@@ -620,7 +620,7 @@ lbl_800FAD70:
 /* 800FAD84 000F7CE4  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 800FAD88 000F7CE8  7C 08 03 A6 */	mtlr r0
 /* 800FAD8C 000F7CEC  38 21 00 50 */	addi r1, r1, 0x50
-/* 800FAD90 000F7CF0  4E 80 00 20 */	blr 
+/* 800FAD90 000F7CF0  4E 80 00 20 */	blr
 
 .global SetLinkedObjectAlpha__24CScriptDamageableTriggerFfR13CStateManager
 SetLinkedObjectAlpha__24CScriptDamageableTriggerFfR13CStateManager:
@@ -668,7 +668,7 @@ lbl_800FADC4:
 /* 800FAE34 000F7D94  81 9B 00 00 */	lwz r12, 0(r27)
 /* 800FAE38 000F7D98  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800FAE3C 000F7D9C  7D 89 03 A6 */	mtctr r12
-/* 800FAE40 000F7DA0  4E 80 04 21 */	bctrl 
+/* 800FAE40 000F7DA0  4E 80 04 21 */	bctrl
 lbl_800FAE44:
 /* 800FAE44 000F7DA4  C0 22 93 48 */	lfs f1, lbl_805AB068@sda21(r2)
 /* 800FAE48 000F7DA8  38 60 00 05 */	li r3, 5
@@ -705,7 +705,7 @@ lbl_800FAE98:
 /* 800FAEBC 000F7E1C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800FAEC0 000F7E20  7C 08 03 A6 */	mtlr r0
 /* 800FAEC4 000F7E24  38 21 00 50 */	addi r1, r1, 0x50
-/* 800FAEC8 000F7E28  4E 80 00 20 */	blr 
+/* 800FAEC8 000F7E28  4E 80 00 20 */	blr
 
 .global GetPuddleAlphaScale__24CScriptDamageableTriggerCFv
 GetPuddleAlphaScale__24CScriptDamageableTriggerCFv:
@@ -720,19 +720,19 @@ GetPuddleAlphaScale__24CScriptDamageableTriggerCFv:
 /* 800FAEEC 000F7E4C  EC 01 00 24 */	fdivs f0, f1, f0
 /* 800FAEF0 000F7E50  C0 22 93 48 */	lfs f1, lbl_805AB068@sda21(r2)
 /* 800FAEF4 000F7E54  EC 21 00 28 */	fsubs f1, f1, f0
-/* 800FAEF8 000F7E58  4E 80 00 20 */	blr 
+/* 800FAEF8 000F7E58  4E 80 00 20 */	blr
 lbl_800FAEFC:
 /* 800FAEFC 000F7E5C  EC 21 00 24 */	fdivs f1, f1, f0
-/* 800FAF00 000F7E60  4E 80 00 20 */	blr 
+/* 800FAF00 000F7E60  4E 80 00 20 */	blr
 lbl_800FAF04:
 /* 800FAF04 000F7E64  88 03 03 00 */	lbz r0, 0x300(r3)
 /* 800FAF08 000F7E68  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 800FAF0C 000F7E6C  41 82 00 0C */	beq lbl_800FAF18
 /* 800FAF10 000F7E70  C0 22 93 38 */	lfs f1, lbl_805AB058@sda21(r2)
-/* 800FAF14 000F7E74  4E 80 00 20 */	blr 
+/* 800FAF14 000F7E74  4E 80 00 20 */	blr
 lbl_800FAF18:
 /* 800FAF18 000F7E78  C0 22 93 48 */	lfs f1, lbl_805AB068@sda21(r2)
-/* 800FAF1C 000F7E7C  4E 80 00 20 */	blr 
+/* 800FAF1C 000F7E7C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__24CScriptDamageableTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__24CScriptDamageableTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -839,7 +839,7 @@ lbl_800FB078:
 /* 800FB088 000F7FE8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800FB08C 000F7FEC  7C 08 03 A6 */	mtlr r0
 /* 800FB090 000F7FF0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800FB094 000F7FF4  4E 80 00 20 */	blr 
+/* 800FB094 000F7FF4  4E 80 00 20 */	blr
 
 .global GetTouchBounds__24CScriptDamageableTriggerCFv
 GetTouchBounds__24CScriptDamageableTriggerCFv:
@@ -904,7 +904,7 @@ lbl_800FB174:
 /* 800FB178 000F80D8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 800FB17C 000F80DC  7C 08 03 A6 */	mtlr r0
 /* 800FB180 000F80E0  38 21 00 40 */	addi r1, r1, 0x40
-/* 800FB184 000F80E4  4E 80 00 20 */	blr 
+/* 800FB184 000F80E4  4E 80 00 20 */	blr
 
 .global __dt__24CScriptDamageableTriggerFv
 __dt__24CScriptDamageableTriggerFv:
@@ -966,7 +966,7 @@ lbl_800FB240:
 /* 800FB24C 000F81AC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800FB250 000F81B0  7C 08 03 A6 */	mtlr r0
 /* 800FB254 000F81B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FB258 000F81B8  4E 80 00 20 */	blr 
+/* 800FB258 000F81B8  4E 80 00 20 */	blr
 
 .global "__ct__24CScriptDamageableTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fRC11CHealthInfoRC20CDamageVulnerabilityUiUiUiUiQ224CScriptDamageableTrigger9ECanOrbitbRC16CVisorParameters"
 "__ct__24CScriptDamageableTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fRC11CHealthInfoRC20CDamageVulnerabilityUiUiUiUiQ224CScriptDamageableTrigger9ECanOrbitbRC16CVisorParameters":

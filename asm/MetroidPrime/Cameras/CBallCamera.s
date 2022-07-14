@@ -912,7 +912,7 @@ lbl_80081794:
 /* 800817C0 0007E720  80 01 0E 44 */	lwz r0, 0xe44(r1)
 /* 800817C4 0007E724  7C 08 03 A6 */	mtlr r0
 /* 800817C8 0007E728  38 21 0E 40 */	addi r1, r1, 0xe40
-/* 800817CC 0007E72C  4E 80 00 20 */	blr 
+/* 800817CC 0007E72C  4E 80 00 20 */	blr
 
 .global CheckFailsafeFromMorphBallState__11CBallCameraCFR13CStateManager
 CheckFailsafeFromMorphBallState__11CBallCameraCFR13CStateManager:
@@ -1380,7 +1380,7 @@ lbl_80081E44:
 /* 80081E70 0007EDD0  80 01 0B C4 */	lwz r0, 0xbc4(r1)
 /* 80081E74 0007EDD4  7C 08 03 A6 */	mtlr r0
 /* 80081E78 0007EDD8  38 21 0B C0 */	addi r1, r1, 0xbc0
-/* 80081E7C 0007EDDC  4E 80 00 20 */	blr 
+/* 80081E7C 0007EDDC  4E 80 00 20 */	blr
 
 .global ApplyCameraHint__11CBallCameraFR13CStateManager
 ApplyCameraHint__11CBallCameraFR13CStateManager:
@@ -1688,7 +1688,7 @@ lbl_80082294:
 /* 800822A8 0007F208  38 63 AC 04 */	addi r3, r3, lbl_803DAC04@l
 /* 800822AC 0007F20C  7C 03 00 2E */	lwzx r0, r3, r0
 /* 800822B0 0007F210  7C 09 03 A6 */	mtctr r0
-/* 800822B4 0007F214  4E 80 04 20 */	bctr 
+/* 800822B4 0007F214  4E 80 04 20 */	bctr
 .global lbl_800822B8
 lbl_800822B8:
 /* 800822B8 0007F218  C0 1F 01 1C */	lfs f0, 0x11c(r31)
@@ -1987,7 +1987,7 @@ lbl_800826F4:
 /* 80082710 0007F670  83 A1 03 04 */	lwz r29, 0x304(r1)
 /* 80082714 0007F674  7C 08 03 A6 */	mtlr r0
 /* 80082718 0007F678  38 21 03 30 */	addi r1, r1, 0x330
-/* 8008271C 0007F67C  4E 80 00 20 */	blr 
+/* 8008271C 0007F67C  4E 80 00 20 */	blr
 
 .global Accept__11CBallCameraFR8IVisitor
 Accept__11CBallCameraFR8IVisitor:
@@ -2000,11 +2000,11 @@ Accept__11CBallCameraFR8IVisitor:
 /* 80082738 0007F698  7C 04 03 78 */	mr r4, r0
 /* 8008273C 0007F69C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80082740 0007F6A0  7D 89 03 A6 */	mtctr r12
-/* 80082744 0007F6A4  4E 80 04 21 */	bctrl 
+/* 80082744 0007F6A4  4E 80 04 21 */	bctrl
 /* 80082748 0007F6A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8008274C 0007F6AC  7C 08 03 A6 */	mtlr r0
 /* 80082750 0007F6B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80082754 0007F6B4  4E 80 00 20 */	blr 
+/* 80082754 0007F6B4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CBallCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CBallCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -2249,7 +2249,7 @@ lbl_80082AF8:
 /* 80082AFC 0007FA5C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 80082B00 0007FA60  7C 08 03 A6 */	mtlr r0
 /* 80082B04 0007FA64  38 21 01 00 */	addi r1, r1, 0x100
-/* 80082B08 0007FA68  4E 80 00 20 */	blr 
+/* 80082B08 0007FA68  4E 80 00 20 */	blr
 
 .global ProcessInput__11CBallCameraFRC11CFinalInputR13CStateManager
 ProcessInput__11CBallCameraFRC11CFinalInputR13CStateManager:
@@ -2360,7 +2360,7 @@ lbl_80082C7C:
 /* 80082C8C 0007FBEC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80082C90 0007FBF0  7C 08 03 A6 */	mtlr r0
 /* 80082C94 0007FBF4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80082C98 0007FBF8  4E 80 00 20 */	blr 
+/* 80082C98 0007FBF8  4E 80 00 20 */	blr
 
 .global SetState__11CBallCameraFQ211CBallCamera16EBallCameraStateR13CStateManager
 SetState__11CBallCameraFQ211CBallCamera16EBallCameraStateR13CStateManager:
@@ -2465,7 +2465,7 @@ lbl_80082DF8:
 /* 80082E10 0007FD70  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80082E14 0007FD74  7C 08 03 A6 */	mtlr r0
 /* 80082E18 0007FD78  38 21 00 70 */	addi r1, r1, 0x70
-/* 80082E1C 0007FD7C  4E 80 00 20 */	blr 
+/* 80082E1C 0007FD7C  4E 80 00 20 */	blr
 
 .global Think__11CBallCameraFfR13CStateManager
 Think__11CBallCameraFfR13CStateManager:
@@ -2526,7 +2526,7 @@ lbl_80082EB8:
 /* 80082EF4 0007FE54  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80082EF8 0007FE58  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80082EFC 0007FE5C  7D 89 03 A6 */	mtctr r12
-/* 80082F00 0007FE60  4E 80 04 21 */	bctrl 
+/* 80082F00 0007FE60  4E 80 04 21 */	bctrl
 /* 80082F04 0007FE64  48 00 01 D0 */	b lbl_800830D4
 lbl_80082F08:
 /* 80082F08 0007FE68  28 1E 00 00 */	cmplwi r30, 0
@@ -2536,7 +2536,7 @@ lbl_80082F08:
 /* 80082F18 0007FE78  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80082F1C 0007FE7C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80082F20 0007FE80  7D 89 03 A6 */	mtctr r12
-/* 80082F24 0007FE84  4E 80 04 21 */	bctrl 
+/* 80082F24 0007FE84  4E 80 04 21 */	bctrl
 lbl_80082F28:
 /* 80082F28 0007FE88  38 61 00 B0 */	addi r3, r1, 0xb0
 /* 80082F2C 0007FE8C  38 9F 00 34 */	addi r4, r31, 0x34
@@ -2663,31 +2663,31 @@ lbl_800830D4:
 /* 800830E4 00080044  83 A1 00 EC */	lwz r29, 0xec(r1)
 /* 800830E8 00080048  7C 08 03 A6 */	mtlr r0
 /* 800830EC 0008004C  38 21 01 00 */	addi r1, r1, 0x100
-/* 800830F0 00080050  4E 80 00 20 */	blr 
+/* 800830F0 00080050  4E 80 00 20 */	blr
 
 .global DoorClosed__11CBallCameraF9TUniqueId
 DoorClosed__11CBallCameraF9TUniqueId:
 /* 800830F4 00080054  A0 84 00 00 */	lhz r4, 0(r4)
 /* 800830F8 00080058  A0 03 03 DC */	lhz r0, 0x3dc(r3)
 /* 800830FC 0008005C  7C 04 00 40 */	cmplw r4, r0
-/* 80083100 00080060  4C 82 00 20 */	bnelr 
+/* 80083100 00080060  4C 82 00 20 */	bnelr
 /* 80083104 00080064  88 03 01 8E */	lbz r0, 0x18e(r3)
 /* 80083108 00080068  38 80 00 01 */	li r4, 1
 /* 8008310C 0008006C  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
 /* 80083110 00080070  98 03 01 8E */	stb r0, 0x18e(r3)
-/* 80083114 00080074  4E 80 00 20 */	blr 
+/* 80083114 00080074  4E 80 00 20 */	blr
 
 .global DoorClosing__11CBallCameraF9TUniqueId
 DoorClosing__11CBallCameraF9TUniqueId:
 /* 80083118 00080078  A0 84 00 00 */	lhz r4, 0(r4)
 /* 8008311C 0008007C  A0 03 03 DC */	lhz r0, 0x3dc(r3)
 /* 80083120 00080080  7C 04 00 40 */	cmplw r4, r0
-/* 80083124 00080084  4C 82 00 20 */	bnelr 
+/* 80083124 00080084  4C 82 00 20 */	bnelr
 /* 80083128 00080088  88 03 01 8E */	lbz r0, 0x18e(r3)
 /* 8008312C 0008008C  38 80 00 01 */	li r4, 1
 /* 80083130 00080090  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 80083134 00080094  98 03 01 8E */	stb r0, 0x18e(r3)
-/* 80083138 00080098  4E 80 00 20 */	blr 
+/* 80083138 00080098  4E 80 00 20 */	blr
 
 .global IsBallNearDoor__11CBallCameraCFRC9CVector3fR13CStateManager
 IsBallNearDoor__11CBallCameraCFRC9CVector3fR13CStateManager:
@@ -2726,7 +2726,7 @@ lbl_800831AC:
 /* 800831B4 00080114  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800831B8 00080118  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 800831BC 0008011C  7D 89 03 A6 */	mtctr r12
-/* 800831C0 00080120  4E 80 04 21 */	bctrl 
+/* 800831C0 00080120  4E 80 04 21 */	bctrl
 /* 800831C4 00080124  88 01 00 68 */	lbz r0, 0x68(r1)
 /* 800831C8 00080128  28 00 00 00 */	cmplwi r0, 0
 /* 800831CC 0008012C  98 01 00 9C */	stb r0, 0x9c(r1)
@@ -2833,7 +2833,7 @@ lbl_8008333C:
 /* 80083348 000802A8  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 8008334C 000802AC  7C 08 03 A6 */	mtlr r0
 /* 80083350 000802B0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80083354 000802B4  4E 80 00 20 */	blr 
+/* 80083354 000802B4  4E 80 00 20 */	blr
 
 .global CheckFailSafe__11CBallCameraFfR13CStateManager
 CheckFailSafe__11CBallCameraFfR13CStateManager:
@@ -3230,7 +3230,7 @@ lbl_8008390C:
 /* 80083934 00080894  83 81 09 10 */	lwz r28, 0x910(r1)
 /* 80083938 00080898  7C 08 03 A6 */	mtlr r0
 /* 8008393C 0008089C  38 21 09 40 */	addi r1, r1, 0x940
-/* 80083940 000808A0  4E 80 00 20 */	blr 
+/* 80083940 000808A0  4E 80 00 20 */	blr
 
 .global ActivateFailSafe__11CBallCameraFfR13CStateManager
 ActivateFailSafe__11CBallCameraFfR13CStateManager:
@@ -3305,7 +3305,7 @@ ActivateFailSafe__11CBallCameraFfR13CStateManager:
 /* 80083A54 000809B4  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80083A58 000809B8  7C 08 03 A6 */	mtlr r0
 /* 80083A5C 000809BC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80083A60 000809C0  4E 80 00 20 */	blr 
+/* 80083A60 000809C0  4E 80 00 20 */	blr
 
 .global UpdateLookAtPosition__11CBallCameraFfR13CStateManager
 UpdateLookAtPosition__11CBallCameraFfR13CStateManager:
@@ -3681,7 +3681,7 @@ lbl_80083F7C:
 /* 80083FE8 00080F48  83 A1 00 F4 */	lwz r29, 0xf4(r1)
 /* 80083FEC 00080F4C  7C 08 03 A6 */	mtlr r0
 /* 80083FF0 00080F50  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 80083FF4 00080F54  4E 80 00 20 */	blr 
+/* 80083FF4 00080F54  4E 80 00 20 */	blr
 
 .global UpdateUsingFixedCameras__11CBallCameraFfR13CStateManager
 UpdateUsingFixedCameras__11CBallCameraFfR13CStateManager:
@@ -3790,7 +3790,7 @@ lbl_80084168:
 /* 8008417C 000810DC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80084180 000810E0  7C 08 03 A6 */	mtlr r0
 /* 80084184 000810E4  38 21 00 70 */	addi r1, r1, 0x70
-/* 80084188 000810E8  4E 80 00 20 */	blr 
+/* 80084188 000810E8  4E 80 00 20 */	blr
 
 .global GetFixedLookTarget__11CBallCameraCFRC9CVector3fR13CStateManager
 GetFixedLookTarget__11CBallCameraCFRC9CVector3fR13CStateManager:
@@ -4055,7 +4055,7 @@ lbl_80084544:
 /* 80084558 000814B8  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 8008455C 000814BC  7C 08 03 A6 */	mtlr r0
 /* 80084560 000814C0  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80084564 000814C4  4E 80 00 20 */	blr 
+/* 80084564 000814C4  4E 80 00 20 */	blr
 
 .global MoveCollisionActor__11CBallCameraFRC9CVector3ffR13CStateManager
 MoveCollisionActor__11CBallCameraFRC9CVector3ffR13CStateManager:
@@ -4281,7 +4281,7 @@ lbl_800848AC:
 /* 800848B8 00081818  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 800848BC 0008181C  7C 08 03 A6 */	mtlr r0
 /* 800848C0 00081820  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800848C4 00081824  4E 80 00 20 */	blr 
+/* 800848C4 00081824  4E 80 00 20 */	blr
 
 .global ClampElevationToWater__11CBallCameraCFRC9CVector3fR13CStateManager
 ClampElevationToWater__11CBallCameraCFRC9CVector3fR13CStateManager:
@@ -4352,7 +4352,7 @@ lbl_80084994:
 /* 800849C0 00081920  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 800849C4 00081924  7C 08 03 A6 */	mtlr r0
 /* 800849C8 00081928  38 21 00 70 */	addi r1, r1, 0x70
-/* 800849CC 0008192C  4E 80 00 20 */	blr 
+/* 800849CC 0008192C  4E 80 00 20 */	blr
 
 .global UpdateAnglePerSecond__11CBallCameraFf
 UpdateAnglePerSecond__11CBallCameraFf:
@@ -4381,10 +4381,10 @@ lbl_80084A1C:
 /* 80084A24 00081984  EC 22 00 72 */	fmuls f1, f2, f1
 /* 80084A28 00081988  EC 03 00 7A */	fmadds f0, f3, f1, f0
 /* 80084A2C 0008198C  D0 03 01 A4 */	stfs f0, 0x1a4(r3)
-/* 80084A30 00081990  4E 80 00 20 */	blr 
+/* 80084A30 00081990  4E 80 00 20 */	blr
 lbl_80084A34:
 /* 80084A34 00081994  D0 63 01 A4 */	stfs f3, 0x1a4(r3)
-/* 80084A38 00081998  4E 80 00 20 */	blr 
+/* 80084A38 00081998  4E 80 00 20 */	blr
 
 .global ComputeVelocity__11CBallCameraCFRC9CVector3fRC9CVector3f
 ComputeVelocity__11CBallCameraCFRC9CVector3fRC9CVector3f:
@@ -4452,7 +4452,7 @@ lbl_80084B00:
 /* 80084B28 00081A88  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80084B2C 00081A8C  7C 08 03 A6 */	mtlr r0
 /* 80084B30 00081A90  38 21 00 40 */	addi r1, r1, 0x40
-/* 80084B34 00081A94  4E 80 00 20 */	blr 
+/* 80084B34 00081A94  4E 80 00 20 */	blr
 
 .global TweenVelocity__11CBallCameraFRC9CVector3fRC9CVector3fff
 TweenVelocity__11CBallCameraFRC9CVector3fRC9CVector3fff:
@@ -4550,7 +4550,7 @@ lbl_80084C54:
 /* 80084C98 00081BF8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80084C9C 00081BFC  7C 08 03 A6 */	mtlr r0
 /* 80084CA0 00081C00  38 21 00 90 */	addi r1, r1, 0x90
-/* 80084CA4 00081C04  4E 80 00 20 */	blr 
+/* 80084CA4 00081C04  4E 80 00 20 */	blr
 
 .global UpdateUsingPathCameras__11CBallCameraFfR13CStateManager
 UpdateUsingPathCameras__11CBallCameraFfR13CStateManager:
@@ -4589,7 +4589,7 @@ lbl_80084D1C:
 /* 80084D24 00081C84  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80084D28 00081C88  7C 08 03 A6 */	mtlr r0
 /* 80084D2C 00081C8C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80084D30 00081C90  4E 80 00 20 */	blr 
+/* 80084D30 00081C90  4E 80 00 20 */	blr
 
 .global UpdateUsingSpindleCameras__11CBallCameraFfR13CStateManager
 UpdateUsingSpindleCameras__11CBallCameraFfR13CStateManager:
@@ -4628,7 +4628,7 @@ lbl_80084DA8:
 /* 80084DB0 00081D10  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80084DB4 00081D14  7C 08 03 A6 */	mtlr r0
 /* 80084DB8 00081D18  38 21 00 20 */	addi r1, r1, 0x20
-/* 80084DBC 00081D1C  4E 80 00 20 */	blr 
+/* 80084DBC 00081D1C  4E 80 00 20 */	blr
 
 .global UpdateUsingTransitions__11CBallCameraFfR13CStateManager
 UpdateUsingTransitions__11CBallCameraFfR13CStateManager:
@@ -5331,7 +5331,7 @@ lbl_80085818:
 /* 80085828 00082788  81 83 00 00 */	lwz r12, 0(r3)
 /* 8008582C 0008278C  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80085830 00082790  7D 89 03 A6 */	mtctr r12
-/* 80085834 00082794  4E 80 04 21 */	bctrl 
+/* 80085834 00082794  4E 80 04 21 */	bctrl
 lbl_80085838:
 /* 80085838 00082798  E3 E1 03 98 */	psq_l f31, 920(r1), 0, qr0
 /* 8008583C 0008279C  CB E1 03 90 */	lfd f31, 0x390(r1)
@@ -5360,7 +5360,7 @@ lbl_80085838:
 /* 80085898 000827F8  83 81 02 F0 */	lwz r28, 0x2f0(r1)
 /* 8008589C 000827FC  7C 08 03 A6 */	mtlr r0
 /* 800858A0 00082800  38 21 03 A0 */	addi r1, r1, 0x3a0
-/* 800858A4 00082804  4E 80 00 20 */	blr 
+/* 800858A4 00082804  4E 80 00 20 */	blr
 
 .global UpdateUsingColliders__11CBallCameraFfR13CStateManager
 UpdateUsingColliders__11CBallCameraFfR13CStateManager:
@@ -6717,7 +6717,7 @@ lbl_80086C80:
 /* 80086CC4 00083C24  80 01 0C 84 */	lwz r0, 0xc84(r1)
 /* 80086CC8 00083C28  7C 08 03 A6 */	mtlr r0
 /* 80086CCC 00083C2C  38 21 0C 80 */	addi r1, r1, 0xc80
-/* 80086CD0 00083C30  4E 80 00 20 */	blr 
+/* 80086CD0 00083C30  4E 80 00 20 */	blr
 
 .global UpdateUsingFreeLook__11CBallCameraFfR13CStateManager
 UpdateUsingFreeLook__11CBallCameraFfR13CStateManager:
@@ -7176,7 +7176,7 @@ lbl_80087368:
 /* 800873A4 00084304  83 A1 01 D4 */	lwz r29, 0x1d4(r1)
 /* 800873A8 00084308  7C 08 03 A6 */	mtlr r0
 /* 800873AC 0008430C  38 21 02 40 */	addi r1, r1, 0x240
-/* 800873B0 00084310  4E 80 00 20 */	blr 
+/* 800873B0 00084310  4E 80 00 20 */	blr
 
 .global ResetSpline__11CBallCameraFR13CStateManager
 ResetSpline__11CBallCameraFR13CStateManager:
@@ -7578,7 +7578,7 @@ lbl_8008797C:
 /* 800879B4 00084914  83 81 09 90 */	lwz r28, 0x990(r1)
 /* 800879B8 00084918  7C 08 03 A6 */	mtlr r0
 /* 800879BC 0008491C  38 21 09 E0 */	addi r1, r1, 0x9e0
-/* 800879C0 00084920  4E 80 00 20 */	blr 
+/* 800879C0 00084920  4E 80 00 20 */	blr
 
 .global BuildSpline__11CBallCameraFR13CStateManager
 BuildSpline__11CBallCameraFR13CStateManager:
@@ -8399,7 +8399,7 @@ lbl_80088610:
 /* 80088630 00085590  83 C1 0B D8 */	lwz r30, 0xbd8(r1)
 /* 80088634 00085594  7C 08 03 A6 */	mtlr r0
 /* 80088638 00085598  38 21 0C 10 */	addi r1, r1, 0xc10
-/* 8008863C 0008559C  4E 80 00 20 */	blr 
+/* 8008863C 0008559C  4E 80 00 20 */	blr
 
 .global ShouldResetSpline__11CBallCameraCFR13CStateManager
 ShouldResetSpline__11CBallCameraCFR13CStateManager:
@@ -8442,7 +8442,7 @@ lbl_800886B8:
 /* 800886C8 00085628  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800886CC 0008562C  7C 08 03 A6 */	mtlr r0
 /* 800886D0 00085630  38 21 00 20 */	addi r1, r1, 0x20
-/* 800886D4 00085634  4E 80 00 20 */	blr 
+/* 800886D4 00085634  4E 80 00 20 */	blr
 
 .global InterpolateCameraElevation__11CBallCameraCFRC9CVector3ff
 InterpolateCameraElevation__11CBallCameraCFRC9CVector3ff:
@@ -8533,7 +8533,7 @@ lbl_800887F8:
 /* 80088818 00085778  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8008881C 0008577C  7C 08 03 A6 */	mtlr r0
 /* 80088820 00085780  38 21 00 60 */	addi r1, r1, 0x60
-/* 80088824 00085784  4E 80 00 20 */	blr 
+/* 80088824 00085784  4E 80 00 20 */	blr
 
 .global UpdatePlayerMovement__11CBallCameraFfR13CStateManager
 UpdatePlayerMovement__11CBallCameraFfR13CStateManager:
@@ -8717,7 +8717,7 @@ lbl_80088A8C:
 /* 80088ACC 00085A2C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80088AD0 00085A30  7C 08 03 A6 */	mtlr r0
 /* 80088AD4 00085A34  38 21 00 70 */	addi r1, r1, 0x70
-/* 80088AD8 00085A38  4E 80 00 20 */	blr 
+/* 80088AD8 00085A38  4E 80 00 20 */	blr
 
 .global UpdateTransform__11CBallCameraFRC9CVector3fRC9CVector3ffR13CStateManager
 UpdateTransform__11CBallCameraFRC9CVector3fRC9CVector3ffR13CStateManager:
@@ -9100,7 +9100,7 @@ lbl_80089040:
 
 .global sub_8008907c
 sub_8008907c:
-/* 8008907C 00085FDC  4E 80 00 20 */	blr 
+/* 8008907C 00085FDC  4E 80 00 20 */	blr
 
 .global UpdateCameraPositions__11CBallCameraFfRC12CTransform4fRC12CTransform4f
 UpdateCameraPositions__11CBallCameraFfRC12CTransform4fRC12CTransform4f:
@@ -9293,7 +9293,7 @@ lbl_80089340:
 /* 80089364 000862C4  83 81 01 90 */	lwz r28, 0x190(r1)
 /* 80089368 000862C8  7C 08 03 A6 */	mtlr r0
 /* 8008936C 000862CC  38 21 01 B0 */	addi r1, r1, 0x1b0
-/* 80089370 000862D0  4E 80 00 20 */	blr 
+/* 80089370 000862D0  4E 80 00 20 */	blr
 
 .global ConstrainYawAngle__11CBallCameraCFRC7CPlayerfffR13CStateManager
 ConstrainYawAngle__11CBallCameraCFRC7CPlayerfffR13CStateManager:
@@ -9521,7 +9521,7 @@ lbl_80089690:
 /* 800896BC 0008661C  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 800896C0 00086620  7C 08 03 A6 */	mtlr r0
 /* 800896C4 00086624  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 800896C8 00086628  4E 80 00 20 */	blr 
+/* 800896C8 00086628  4E 80 00 20 */	blr
 
 .global ConstrainElevationAndDistance__11CBallCameraFRfRffR13CStateManager
 ConstrainElevationAndDistance__11CBallCameraFRfRffR13CStateManager:
@@ -9673,7 +9673,7 @@ lbl_800898A0:
 /* 800898EC 0008684C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 800898F0 00086850  7C 08 03 A6 */	mtlr r0
 /* 800898F4 00086854  38 21 00 90 */	addi r1, r1, 0x90
-/* 800898F8 00086858  4E 80 00 20 */	blr 
+/* 800898F8 00086858  4E 80 00 20 */	blr
 
 .global UpdateObjectTooCloseId__11CBallCameraFR13CStateManager
 UpdateObjectTooCloseId__11CBallCameraFR13CStateManager:
@@ -9842,7 +9842,7 @@ lbl_80089B10:
 /* 80089B70 00086AD0  83 81 20 80 */	lwz r28, 0x2080(r1)
 /* 80089B74 00086AD4  7C 08 03 A6 */	mtlr r0
 /* 80089B78 00086AD8  38 21 20 F0 */	addi r1, r1, 0x20f0
-/* 80089B7C 00086ADC  4E 80 00 20 */	blr 
+/* 80089B7C 00086ADC  4E 80 00 20 */	blr
 
 .global UpdateLookDirection__11CBallCameraFRC9CVector3fR13CStateManager
 UpdateLookDirection__11CBallCameraFRC9CVector3fR13CStateManager:
@@ -9923,7 +9923,7 @@ lbl_80089BE0:
 /* 80089CA4 00086C04  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 80089CA8 00086C08  7C 08 03 A6 */	mtlr r0
 /* 80089CAC 00086C0C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80089CB0 00086C10  4E 80 00 20 */	blr 
+/* 80089CB0 00086C10  4E 80 00 20 */	blr
 
 .global FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
 FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb:
@@ -10817,7 +10817,7 @@ lbl_8008A97C:
 /* 8008A9EC 0008794C  80 01 15 F4 */	lwz r0, 0x15f4(r1)
 /* 8008A9F0 00087950  7C 08 03 A6 */	mtlr r0
 /* 8008A9F4 00087954  38 21 15 F0 */	addi r1, r1, 0x15f0
-/* 8008A9F8 00087958  4E 80 00 20 */	blr 
+/* 8008A9F8 00087958  4E 80 00 20 */	blr
 
 .global DetectCollision__11CBallCameraFRC9CVector3fRC9CVector3ffRfR13CStateManager
 DetectCollision__11CBallCameraFRC9CVector3fRC9CVector3ffRfR13CStateManager:
@@ -11304,7 +11304,7 @@ lbl_8008B0C8:
 /* 8008B108 00088068  80 01 25 94 */	lwz r0, 0x2594(r1)
 /* 8008B10C 0008806C  7C 08 03 A6 */	mtlr r0
 /* 8008B110 00088070  38 21 25 90 */	addi r1, r1, 0x2590
-/* 8008B114 00088074  4E 80 00 20 */	blr 
+/* 8008B114 00088074  4E 80 00 20 */	blr
 
 .global "AvoidGeometry__11CBallCameraFRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>fR13CStateManager"
 "AvoidGeometry__11CBallCameraFRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>fR13CStateManager":
@@ -11391,7 +11391,7 @@ lbl_8008B228:
 /* 8008B23C 0008819C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8008B240 000881A0  7C 08 03 A6 */	mtlr r0
 /* 8008B244 000881A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8008B248 000881A8  4E 80 00 20 */	blr 
+/* 8008B248 000881A8  4E 80 00 20 */	blr
 
 .global "AvoidGeometryFull__11CBallCameraFRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>fR13CStateManager"
 "AvoidGeometryFull__11CBallCameraFRC12CTransform4fRCQ24rstl32reserved_vector<9TUniqueId,1024>fR13CStateManager":
@@ -11446,7 +11446,7 @@ lbl_8008B228:
 /* 8008B30C 0008826C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8008B310 00088270  7C 08 03 A6 */	mtlr r0
 /* 8008B314 00088274  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008B318 00088278  4E 80 00 20 */	blr 
+/* 8008B318 00088278  4E 80 00 20 */	blr
 
 .global "CalculateCollidersBoundingBox__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>RC13CStateManager"
 "CalculateCollidersBoundingBox__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>RC13CStateManager":
@@ -11512,7 +11512,7 @@ lbl_8008B398:
 /* 8008B400 00088360  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8008B404 00088364  7C 08 03 A6 */	mtlr r0
 /* 8008B408 00088368  38 21 00 50 */	addi r1, r1, 0x50
-/* 8008B40C 0008836C  4E 80 00 20 */	blr 
+/* 8008B40C 0008836C  4E 80 00 20 */	blr
 
 .global "CountObscuredColliders__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>"
 "CountObscuredColliders__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>":
@@ -11521,7 +11521,7 @@ lbl_8008B398:
 /* 8008B418 00088378  38 C0 00 00 */	li r6, 0
 /* 8008B41C 0008837C  7C 09 03 A6 */	mtctr r0
 /* 8008B420 00088380  2C 00 00 00 */	cmpwi r0, 0
-/* 8008B424 00088384  4C 81 00 20 */	blelr 
+/* 8008B424 00088384  4C 81 00 20 */	blelr
 lbl_8008B428:
 /* 8008B428 00088388  80 A4 00 0C */	lwz r5, 0xc(r4)
 /* 8008B42C 0008838C  38 06 00 4C */	addi r0, r6, 0x4c
@@ -11535,7 +11535,7 @@ lbl_8008B440:
 
 .global sub_8008b448
 sub_8008b448:
-/* 8008B448 000883A8  4E 80 00 20 */	blr 
+/* 8008B448 000883A8  4E 80 00 20 */	blr
 
 .global ApplyColliders__11CBallCameraFv
 ApplyColliders__11CBallCameraFv:
@@ -11750,7 +11750,7 @@ lbl_8008B714:
 /* 8008B74C 000886AC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8008B750 000886B0  7C 08 03 A6 */	mtlr r0
 /* 8008B754 000886B4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8008B758 000886B8  4E 80 00 20 */	blr 
+/* 8008B758 000886B8  4E 80 00 20 */	blr
 
 .global "CalculateCollidersCentroid__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>i"
 "CalculateCollidersCentroid__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>i":
@@ -11853,7 +11853,7 @@ lbl_8008B8B4:
 /* 8008B8C0 00088820  D0 23 00 08 */	stfs f1, 8(r3)
 lbl_8008B8C4:
 /* 8008B8C4 00088824  38 21 00 20 */	addi r1, r1, 0x20
-/* 8008B8C8 00088828  4E 80 00 20 */	blr 
+/* 8008B8C8 00088828  4E 80 00 20 */	blr
 
 .global "UpdateColliders__11CBallCameraFRC12CTransform4fRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>RiifRCQ24rstl32reserved_vector<9TUniqueId,1024>fR13CStateManager"
 "UpdateColliders__11CBallCameraFRC12CTransform4fRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>RiifRCQ24rstl32reserved_vector<9TUniqueId,1024>fR13CStateManager":
@@ -12247,7 +12247,7 @@ lbl_8008BE74:
 /* 8008BEB8 00088E18  80 01 02 54 */	lwz r0, 0x254(r1)
 /* 8008BEBC 00088E1C  7C 08 03 A6 */	mtlr r0
 /* 8008BEC0 00088E20  38 21 02 50 */	addi r1, r1, 0x250
-/* 8008BEC4 00088E24  4E 80 00 20 */	blr 
+/* 8008BEC4 00088E24  4E 80 00 20 */	blr
 
 .global "UpdateCollidersDistances__11CBallCameraFRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>fff"
 "UpdateCollidersDistances__11CBallCameraFRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>fff":
@@ -12367,7 +12367,7 @@ lbl_8008C018:
 /* 8008C07C 00088FDC  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8008C080 00088FE0  7C 08 03 A6 */	mtlr r0
 /* 8008C084 00088FE4  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8008C088 00088FE8  4E 80 00 20 */	blr 
+/* 8008C088 00088FE8  4E 80 00 20 */	blr
 
 .global Reset__11CBallCameraFRC12CTransform4fR13CStateManager
 Reset__11CBallCameraFRC12CTransform4fR13CStateManager:
@@ -12581,7 +12581,7 @@ lbl_8008C288:
 /* 8008C3C0 00089320  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8008C3C4 00089324  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8008C3C8 00089328  7D 89 03 A6 */	mtctr r12
-/* 8008C3CC 0008932C  4E 80 04 21 */	bctrl 
+/* 8008C3CC 0008932C  4E 80 04 21 */	bctrl
 /* 8008C3D0 00089330  88 1E 01 8D */	lbz r0, 0x18d(r30)
 /* 8008C3D4 00089334  38 60 00 00 */	li r3, 0
 /* 8008C3D8 00089338  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -12597,11 +12597,11 @@ lbl_8008C3EC:
 /* 8008C3FC 0008935C  83 81 01 00 */	lwz r28, 0x100(r1)
 /* 8008C400 00089360  7C 08 03 A6 */	mtlr r0
 /* 8008C404 00089364  38 21 01 10 */	addi r1, r1, 0x110
-/* 8008C408 00089368  4E 80 00 20 */	blr 
+/* 8008C408 00089368  4E 80 00 20 */	blr
 
 .global Render__11CBallCameraCFRC13CStateManager
 Render__11CBallCameraCFRC13CStateManager:
-/* 8008C40C 0008936C  4E 80 00 20 */	blr 
+/* 8008C40C 0008936C  4E 80 00 20 */	blr
 
 .global "SetupColliders__11CBallCameraFRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>fffifff"
 "SetupColliders__11CBallCameraFRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>fffifff":
@@ -12742,7 +12742,7 @@ lbl_8008C5A4:
 /* 8008C618 00089578  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 8008C61C 0008957C  7C 08 03 A6 */	mtlr r0
 /* 8008C620 00089580  38 21 01 80 */	addi r1, r1, 0x180
-/* 8008C624 00089584  4E 80 00 20 */	blr 
+/* 8008C624 00089584  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>FRC15CCameraCollider"
 "push_back__Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>FRC15CCameraCollider":
@@ -12778,7 +12778,7 @@ lbl_8008C668:
 /* 8008C694 000895F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8008C698 000895F8  7C 08 03 A6 */	mtlr r0
 /* 8008C69C 000895FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8008C6A0 00089600  4E 80 00 20 */	blr 
+/* 8008C6A0 00089600  4E 80 00 20 */	blr
 
 .global "construct<15CCameraCollider>__4rstlFPvRC15CCameraCollider"
 "construct<15CCameraCollider>__4rstlFPvRC15CCameraCollider":
@@ -12792,7 +12792,7 @@ lbl_8008C6BC:
 /* 8008C6BC 0008961C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8008C6C0 00089620  7C 08 03 A6 */	mtlr r0
 /* 8008C6C4 00089624  38 21 00 10 */	addi r1, r1, 0x10
-/* 8008C6C8 00089628  4E 80 00 20 */	blr 
+/* 8008C6C8 00089628  4E 80 00 20 */	blr
 
 .global __ct__15CCameraColliderFRC15CCameraCollider
 __ct__15CCameraColliderFRC15CCameraCollider:
@@ -12839,7 +12839,7 @@ __ct__15CCameraColliderFRC15CCameraCollider:
 /* 8008C76C 000896CC  90 03 00 4C */	stw r0, 0x4c(r3)
 /* 8008C770 000896D0  C0 04 00 50 */	lfs f0, 0x50(r4)
 /* 8008C774 000896D4  D0 03 00 50 */	stfs f0, 0x50(r3)
-/* 8008C778 000896D8  4E 80 00 20 */	blr 
+/* 8008C778 000896D8  4E 80 00 20 */	blr
 
 .global __dt__15CCameraColliderFv
 __dt__15CCameraColliderFv:
@@ -12861,7 +12861,7 @@ lbl_8008C7AC:
 /* 8008C7B4 00089714  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8008C7B8 00089718  7C 08 03 A6 */	mtlr r0
 /* 8008C7BC 0008971C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8008C7C0 00089720  4E 80 00 20 */	blr 
+/* 8008C7C0 00089720  4E 80 00 20 */	blr
 
 .global ResetToTweaks__11CBallCameraFR13CStateManager
 ResetToTweaks__11CBallCameraFR13CStateManager:
@@ -13005,7 +13005,7 @@ ResetToTweaks__11CBallCameraFR13CStateManager:
 /* 8008C9E8 00089948  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8008C9EC 0008994C  7C 08 03 A6 */	mtlr r0
 /* 8008C9F0 00089950  38 21 00 60 */	addi r1, r1, 0x60
-/* 8008C9F4 00089954  4E 80 00 20 */	blr 
+/* 8008C9F4 00089954  4E 80 00 20 */	blr
 
 .global TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager
 TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager:
@@ -13046,7 +13046,7 @@ TeleportCamera__11CBallCameraFRC12CTransform4fR13CStateManager:
 /* 8008CA80 000899E0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8008CA84 000899E4  7C 08 03 A6 */	mtlr r0
 /* 8008CA88 000899E8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008CA8C 000899EC  4E 80 00 20 */	blr 
+/* 8008CA8C 000899EC  4E 80 00 20 */	blr
 
 .global ResetPosition__11CBallCameraFR13CStateManager
 ResetPosition__11CBallCameraFR13CStateManager:
@@ -13084,7 +13084,7 @@ ResetPosition__11CBallCameraFR13CStateManager:
 /* 8008CB0C 00089A6C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8008CB10 00089A70  7C 08 03 A6 */	mtlr r0
 /* 8008CB14 00089A74  38 21 00 20 */	addi r1, r1, 0x20
-/* 8008CB18 00089A78  4E 80 00 20 */	blr 
+/* 8008CB18 00089A78  4E 80 00 20 */	blr
 
 .global TeleportCamera__11CBallCameraFRC9CVector3fR13CStateManager
 TeleportCamera__11CBallCameraFRC9CVector3fR13CStateManager:
@@ -13152,7 +13152,7 @@ lbl_8008CC00:
 /* 8008CC0C 00089B6C  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8008CC10 00089B70  7C 08 03 A6 */	mtlr r0
 /* 8008CC14 00089B74  38 21 00 50 */	addi r1, r1, 0x50
-/* 8008CC18 00089B78  4E 80 00 20 */	blr 
+/* 8008CC18 00089B78  4E 80 00 20 */	blr
 
 .global "TeleportColliders__11CBallCameraFRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>9CVector3f"
 "TeleportColliders__11CBallCameraFRQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>9CVector3f":
@@ -13210,7 +13210,7 @@ lbl_8008CCDC:
 /* 8008CCE0 00089C40  7C 08 00 00 */	cmpw r8, r0
 /* 8008CCE4 00089C44  41 80 FF 48 */	blt lbl_8008CC2C
 /* 8008CCE8 00089C48  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008CCEC 00089C4C  4E 80 00 20 */	blr 
+/* 8008CCEC 00089C4C  4E 80 00 20 */	blr
 
 .global __dt__11CBallCameraFv
 __dt__11CBallCameraFv:
@@ -13255,7 +13255,7 @@ lbl_8008CD78:
 /* 8008CD80 00089CE0  81 9C 00 00 */	lwz r12, 0(r28)
 /* 8008CD84 00089CE4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8008CD88 00089CE8  7D 89 03 A6 */	mtctr r12
-/* 8008CD8C 00089CEC  4E 80 04 21 */	bctrl 
+/* 8008CD8C 00089CEC  4E 80 04 21 */	bctrl
 /* 8008CD90 00089CF0  3B 9C 00 54 */	addi r28, r28, 0x54
 lbl_8008CD94:
 /* 8008CD94 00089CF4  7C 1C E8 40 */	cmplw r28, r29
@@ -13282,7 +13282,7 @@ lbl_8008CDD8:
 /* 8008CDE0 00089D40  81 9C 00 00 */	lwz r12, 0(r28)
 /* 8008CDE4 00089D44  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8008CDE8 00089D48  7D 89 03 A6 */	mtctr r12
-/* 8008CDEC 00089D4C  4E 80 04 21 */	bctrl 
+/* 8008CDEC 00089D4C  4E 80 04 21 */	bctrl
 /* 8008CDF0 00089D50  3B 9C 00 54 */	addi r28, r28, 0x54
 lbl_8008CDF4:
 /* 8008CDF4 00089D54  7C 1C E8 40 */	cmplw r28, r29
@@ -13309,7 +13309,7 @@ lbl_8008CE38:
 /* 8008CE40 00089DA0  81 9C 00 00 */	lwz r12, 0(r28)
 /* 8008CE44 00089DA4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8008CE48 00089DA8  7D 89 03 A6 */	mtctr r12
-/* 8008CE4C 00089DAC  4E 80 04 21 */	bctrl 
+/* 8008CE4C 00089DAC  4E 80 04 21 */	bctrl
 /* 8008CE50 00089DB0  3B 9C 00 54 */	addi r28, r28, 0x54
 lbl_8008CE54:
 /* 8008CE54 00089DB4  7C 1C E8 40 */	cmplw r28, r29
@@ -13335,7 +13335,7 @@ lbl_8008CE88:
 /* 8008CE9C 00089DFC  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8008CEA0 00089E00  7C 08 03 A6 */	mtlr r0
 /* 8008CEA4 00089E04  38 21 00 50 */	addi r1, r1, 0x50
-/* 8008CEA8 00089E08  4E 80 00 20 */	blr 
+/* 8008CEA8 00089E08  4E 80 00 20 */	blr
 
 .global __dt__Q211CBallCamera14SFailsafeStateFv
 __dt__Q211CBallCamera14SFailsafeStateFv:
@@ -13387,7 +13387,7 @@ lbl_8008CF3C:
 /* 8008CF4C 00089EAC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8008CF50 00089EB0  7C 08 03 A6 */	mtlr r0
 /* 8008CF54 00089EB4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008CF58 00089EB8  4E 80 00 20 */	blr 
+/* 8008CF58 00089EB8  4E 80 00 20 */	blr
 
 .global __ct__11CBallCameraF9TUniqueId9TUniqueIdRC12CTransform4fffff
 __ct__11CBallCameraF9TUniqueId9TUniqueIdRC12CTransform4fffff:
@@ -13925,7 +13925,7 @@ lbl_8008D6E4:
 /* 8008D794 0008A6F4  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 8008D798 0008A6F8  7C 08 03 A6 */	mtlr r0
 /* 8008D79C 0008A6FC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8008D7A0 0008A700  4E 80 00 20 */	blr 
+/* 8008D7A0 0008A700  4E 80 00 20 */	blr
 
 .global __ct__15CCameraColliderFf9CVector3fRC13CCameraSpringf
 __ct__15CCameraColliderFf9CVector3fRC13CCameraSpringf:
@@ -13970,7 +13970,7 @@ __ct__15CCameraColliderFf9CVector3fRC13CCameraSpringf:
 /* 8008D83C 0008A79C  D0 03 00 48 */	stfs f0, 0x48(r3)
 /* 8008D840 0008A7A0  90 03 00 4C */	stw r0, 0x4c(r3)
 /* 8008D844 0008A7A4  D0 43 00 50 */	stfs f2, 0x50(r3)
-/* 8008D848 0008A7A8  4E 80 00 20 */	blr 
+/* 8008D848 0008A7A8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>Fi":
@@ -14019,7 +14019,7 @@ lbl_8008D8E0:
 /* 8008D8E8 0008A848  81 9B 00 00 */	lwz r12, 0(r27)
 /* 8008D8EC 0008A84C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8008D8F0 0008A850  7D 89 03 A6 */	mtctr r12
-/* 8008D8F4 0008A854  4E 80 04 21 */	bctrl 
+/* 8008D8F4 0008A854  4E 80 04 21 */	bctrl
 /* 8008D8F8 0008A858  3B 7B 00 54 */	addi r27, r27, 0x54
 lbl_8008D8FC:
 /* 8008D8FC 0008A85C  7C 1B E0 40 */	cmplw r27, r28
@@ -14036,7 +14036,7 @@ lbl_8008D91C:
 /* 8008D920 0008A880  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8008D924 0008A884  7C 08 03 A6 */	mtlr r0
 /* 8008D928 0008A888  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008D92C 0008A88C  4E 80 00 20 */	blr 
+/* 8008D92C 0008A88C  4E 80 00 20 */	blr
 
 .global "uninitialized_copy<Q24rstl124pointer_iterator<15CCameraCollider,Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,P15CCameraCollider>__4rstlFQ24rstl124pointer_iterator<15CCameraCollider,Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124pointer_iterator<15CCameraCollider,Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>P15CCameraCollider"
 "uninitialized_copy<Q24rstl124pointer_iterator<15CCameraCollider,Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,P15CCameraCollider>__4rstlFQ24rstl124pointer_iterator<15CCameraCollider,Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124pointer_iterator<15CCameraCollider,Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>P15CCameraCollider":
@@ -14067,7 +14067,7 @@ lbl_8008D96C:
 /* 8008D988 0008A8E8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8008D98C 0008A8EC  7C 08 03 A6 */	mtlr r0
 /* 8008D990 0008A8F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8008D994 0008A8F4  4E 80 00 20 */	blr 
+/* 8008D994 0008A8F4  4E 80 00 20 */	blr
 
 .global __sinit_CBallCamera_cpp
 __sinit_CBallCamera_cpp:
@@ -14124,4 +14124,4 @@ __sinit_CBallCamera_cpp:
 /* 8008DA60 0008A9C0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8008DA64 0008A9C4  7C 08 03 A6 */	mtlr r0
 /* 8008DA68 0008A9C8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8008DA6C 0008A9CC  4E 80 00 20 */	blr 
+/* 8008DA6C 0008A9CC  4E 80 00 20 */	blr

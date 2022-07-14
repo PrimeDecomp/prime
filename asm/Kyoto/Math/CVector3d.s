@@ -18,7 +18,7 @@ __ml__FdRC9CVector3d:
 /* 80314384 003112E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314388 003112E8  7C 08 03 A6 */	mtlr r0
 /* 8031438C 003112EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314390 003112F0  4E 80 00 20 */	blr 
+/* 80314390 003112F0  4E 80 00 20 */	blr
 
 .global __mi__FRC9CVector3dRC9CVector3d
 __mi__FRC9CVector3dRC9CVector3d:
@@ -38,7 +38,7 @@ __mi__FRC9CVector3dRC9CVector3d:
 /* 803143C8 00311328  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803143CC 0031132C  7C 08 03 A6 */	mtlr r0
 /* 803143D0 00311330  38 21 00 10 */	addi r1, r1, 0x10
-/* 803143D4 00311334  4E 80 00 20 */	blr 
+/* 803143D4 00311334  4E 80 00 20 */	blr
 
 .global __pl__FRC9CVector3dRC9CVector3d
 __pl__FRC9CVector3dRC9CVector3d:
@@ -58,7 +58,7 @@ __pl__FRC9CVector3dRC9CVector3d:
 /* 8031440C 0031136C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314410 00311370  7C 08 03 A6 */	mtlr r0
 /* 80314414 00311374  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314418 00311378  4E 80 00 20 */	blr 
+/* 80314418 00311378  4E 80 00 20 */	blr
 
 .global Cross__9CVector3dFRC9CVector3dRC9CVector3d
 Cross__9CVector3dFRC9CVector3dRC9CVector3d:
@@ -81,7 +81,7 @@ Cross__9CVector3dFRC9CVector3dRC9CVector3d:
 /* 8031445C 003113BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314460 003113C0  7C 08 03 A6 */	mtlr r0
 /* 80314464 003113C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314468 003113C8  4E 80 00 20 */	blr 
+/* 80314468 003113C8  4E 80 00 20 */	blr
 
 .global Dot__9CVector3dFRC9CVector3dRC9CVector3d
 Dot__9CVector3dFRC9CVector3dRC9CVector3d:
@@ -94,7 +94,7 @@ Dot__9CVector3dFRC9CVector3dRC9CVector3d:
 /* 80314484 003113E4  C8 04 00 10 */	lfd f0, 0x10(r4)
 /* 80314488 003113E8  FC 24 08 FA */	fmadd f1, f4, f3, f1
 /* 8031448C 003113EC  FC 22 08 3A */	fmadd f1, f2, f0, f1
-/* 80314490 003113F0  4E 80 00 20 */	blr 
+/* 80314490 003113F0  4E 80 00 20 */	blr
 
 .global AsCVector3f__9CVector3dCFv
 AsCVector3f__9CVector3dCFv:
@@ -107,7 +107,7 @@ AsCVector3f__9CVector3dCFv:
 /* 803144AC 0031140C  D0 03 00 00 */	stfs f0, 0(r3)
 /* 803144B0 00311410  D0 43 00 04 */	stfs f2, 4(r3)
 /* 803144B4 00311414  D0 23 00 08 */	stfs f1, 8(r3)
-/* 803144B8 00311418  4E 80 00 20 */	blr 
+/* 803144B8 00311418  4E 80 00 20 */	blr
 
 .global AsNormalized__9CVector3dCFv
 AsNormalized__9CVector3dCFv:
@@ -135,7 +135,7 @@ AsNormalized__9CVector3dCFv:
 /* 80314510 00311470  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80314514 00311474  7C 08 03 A6 */	mtlr r0
 /* 80314518 00311478  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031451C 0031147C  4E 80 00 20 */	blr 
+/* 8031451C 0031147C  4E 80 00 20 */	blr
 
 .global MagSquared__9CVector3dCFv
 MagSquared__9CVector3dCFv:
@@ -147,7 +147,7 @@ MagSquared__9CVector3dCFv:
 /* 80314534 00311494  FC 00 00 32 */	fmul f0, f0, f0
 /* 80314538 00311498  FC 21 10 2A */	fadd f1, f1, f2
 /* 8031453C 0031149C  FC 21 00 2A */	fadd f1, f1, f0
-/* 80314540 003114A0  4E 80 00 20 */	blr 
+/* 80314540 003114A0  4E 80 00 20 */	blr
 
 .global Magnitude__9CVector3dCFv
 Magnitude__9CVector3dCFv:
@@ -166,7 +166,7 @@ Magnitude__9CVector3dCFv:
 /* 80314574 003114D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314578 003114D8  7C 08 03 A6 */	mtlr r0
 /* 8031457C 003114DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314580 003114E0  4E 80 00 20 */	blr 
+/* 80314580 003114E0  4E 80 00 20 */	blr
 
 .global __ct__9CVector3dFRC9CVector3f
 __ct__9CVector3dFRC9CVector3f:
@@ -176,7 +176,7 @@ __ct__9CVector3dFRC9CVector3f:
 /* 80314590 003114F0  D8 03 00 08 */	stfd f0, 8(r3)
 /* 80314594 003114F4  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80314598 003114F8  D8 03 00 10 */	stfd f0, 0x10(r3)
-/* 8031459C 003114FC  4E 80 00 20 */	blr 
+/* 8031459C 003114FC  4E 80 00 20 */	blr
 
 .global __ct__9CVector3dFddd
 __ct__9CVector3dFddd:

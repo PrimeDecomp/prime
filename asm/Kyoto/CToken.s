@@ -37,7 +37,7 @@ lbl_80340D28:
 /* 80340D30 0033DC90  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80340D34 0033DC94  7C 08 03 A6 */	mtlr r0
 /* 80340D38 0033DC98  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340D3C 0033DC9C  4E 80 00 20 */	blr 
+/* 80340D3C 0033DC9C  4E 80 00 20 */	blr
 
 .global Unlock__6CTokenFv
 Unlock__6CTokenFv:
@@ -58,7 +58,7 @@ lbl_80340D70:
 /* 80340D74 0033DCD4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80340D78 0033DCD8  7C 08 03 A6 */	mtlr r0
 /* 80340D7C 0033DCDC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340D80 0033DCE0  4E 80 00 20 */	blr 
+/* 80340D80 0033DCE0  4E 80 00 20 */	blr
 
 .global Lock__6CTokenFv
 Lock__6CTokenFv:
@@ -79,7 +79,7 @@ lbl_80340DB4:
 /* 80340DB8 0033DD18  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80340DBC 0033DD1C  7C 08 03 A6 */	mtlr r0
 /* 80340DC0 0033DD20  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340DC4 0033DD24  4E 80 00 20 */	blr 
+/* 80340DC4 0033DD24  4E 80 00 20 */	blr
 
 .global RemoveRef__6CTokenFv
 RemoveRef__6CTokenFv:
@@ -100,7 +100,7 @@ lbl_80340DF8:
 /* 80340DFC 0033DD5C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80340E00 0033DD60  7C 08 03 A6 */	mtlr r0
 /* 80340E04 0033DD64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340E08 0033DD68  4E 80 00 20 */	blr 
+/* 80340E08 0033DD68  4E 80 00 20 */	blr
 
 .global GetObj__6CTokenFv
 GetObj__6CTokenFv:
@@ -116,7 +116,7 @@ GetObj__6CTokenFv:
 /* 80340E30 0033DD90  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80340E34 0033DD94  7C 08 03 A6 */	mtlr r0
 /* 80340E38 0033DD98  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340E3C 0033DD9C  4E 80 00 20 */	blr 
+/* 80340E3C 0033DD9C  4E 80 00 20 */	blr
 
 .global __dt__6CTokenFv
 __dt__6CTokenFv:
@@ -147,7 +147,7 @@ lbl_80340E8C:
 /* 80340E98 0033DDF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80340E9C 0033DDFC  7C 08 03 A6 */	mtlr r0
 /* 80340EA0 0033DE00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340EA4 0033DE04  4E 80 00 20 */	blr 
+/* 80340EA4 0033DE04  4E 80 00 20 */	blr
 
 .global __ct__6CTokenFRC6CToken
 __ct__6CTokenFRC6CToken:
@@ -174,7 +174,7 @@ lbl_80340EEC:
 /* 80340EF4 0033DE54  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80340EF8 0033DE58  7C 08 03 A6 */	mtlr r0
 /* 80340EFC 0033DE5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80340F00 0033DE60  4E 80 00 20 */	blr 
+/* 80340F00 0033DE60  4E 80 00 20 */	blr
 
 .global __ct__6CTokenFP4IObj
 __ct__6CTokenFP4IObj:
@@ -218,7 +218,7 @@ lbl_80340F6C:
 /* 80340F94 0033DEF4  38 80 00 01 */	li r4, 1
 /* 80340F98 0033DEF8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80340F9C 0033DEFC  7D 89 03 A6 */	mtctr r12
-/* 80340FA0 0033DF00  4E 80 04 21 */	bctrl 
+/* 80340FA0 0033DF00  4E 80 04 21 */	bctrl
 lbl_80340FA4:
 /* 80340FA4 0033DF04  38 00 00 00 */	li r0, 0
 /* 80340FA8 0033DF08  7F C3 F3 78 */	mr r3, r30
@@ -235,7 +235,7 @@ lbl_80340FA4:
 /* 80340FD4 0033DF34  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80340FD8 0033DF38  7C 08 03 A6 */	mtlr r0
 /* 80340FDC 0033DF3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80340FE0 0033DF40  4E 80 00 20 */	blr 
+/* 80340FE0 0033DF40  4E 80 00 20 */	blr
 
 .global __ct__6CTokenFP16CObjectReference
 __ct__6CTokenFP16CObjectReference:

@@ -40,12 +40,12 @@ __THPAANScaleFactor: # local object
 	.double 0.5411961078643799
 	.double 0.27589938044548035
 
-	
+
 .section .sdata2, "wa"
 .global lbl_805AF440
 lbl_805AF440:
 	.double 4.503599627370496E15
-	
+
 .global lbl_805AF448
 lbl_805AF448:
 	.float 1.4142135
@@ -61,7 +61,7 @@ lbl_805AF454:
 .global lbl_805AF458
 lbl_805AF458:
 	.float 1024.0
-	
+
 .section .sbss, "wa"
 .balign 32
 Ydchuff:
@@ -106,16 +106,16 @@ __THPInfo:
 	.skip 4
 __THPInitFlag:
 	.skip 4
-	
+
 .section .data, "wa"
 THPVersionStr:
 	.asciz "<< Dolphin SDK - THP\trelease build: Aug 27 2002 20:42:01 >>"
 	.skip 4
-	
+
 .section .sdata, "wa"
 THPVersion:
 	.4byte THPVersionStr
-	
+
 .section .text, "ax"
 
 .global THPVideoDecode
@@ -285,7 +285,7 @@ lbl_803C1D90:
 /* 803C1D94 003BECF4  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 803C1D98 003BECF8  38 21 00 38 */	addi r1, r1, 0x38
 /* 803C1D9C 003BECFC  7C 08 03 A6 */	mtlr r0
-/* 803C1DA0 003BED00  4E 80 00 20 */	blr 
+/* 803C1DA0 003BED00  4E 80 00 20 */	blr
 
 __THPSetupBuffers: # local func
 /* 803C1DA4 003BED04  80 8D B1 4C */	lwz r4, __THPWorkArea@sda21(r13)
@@ -304,7 +304,7 @@ __THPSetupBuffers: # local func
 /* 803C1DD8 003BED38  90 85 00 0C */	stw r4, 0xc(r5)
 /* 803C1DDC 003BED3C  90 65 00 10 */	stw r3, 0x10(r5)
 /* 803C1DE0 003BED40  90 05 00 14 */	stw r0, 0x14(r5)
-/* 803C1DE4 003BED44  4E 80 00 20 */	blr 
+/* 803C1DE4 003BED44  4E 80 00 20 */	blr
 
 __THPReadFrameHeader: # local func
 /* 803C1DE8 003BED48  80 8D B1 50 */	lwz r4, __THPInfo@sda21(r13)
@@ -319,7 +319,7 @@ __THPReadFrameHeader: # local func
 /* 803C1E0C 003BED6C  28 00 00 08 */	cmplwi r0, 8
 /* 803C1E10 003BED70  41 82 00 0C */	beq lbl_803C1E1C
 /* 803C1E14 003BED74  38 60 00 0A */	li r3, 0xa
-/* 803C1E18 003BED78  4E 80 00 20 */	blr 
+/* 803C1E18 003BED78  4E 80 00 20 */	blr
 lbl_803C1E1C:
 /* 803C1E1C 003BED7C  80 AD B1 50 */	lwz r5, __THPInfo@sda21(r13)
 /* 803C1E20 003BED80  80 85 06 9C */	lwz r4, 0x69c(r5)
@@ -349,7 +349,7 @@ lbl_803C1E1C:
 /* 803C1E80 003BEDE0  28 00 00 03 */	cmplwi r0, 3
 /* 803C1E84 003BEDE4  41 82 00 0C */	beq lbl_803C1E90
 /* 803C1E88 003BEDE8  38 60 00 0C */	li r3, 0xc
-/* 803C1E8C 003BEDEC  4E 80 00 20 */	blr 
+/* 803C1E8C 003BEDEC  4E 80 00 20 */	blr
 lbl_803C1E90:
 /* 803C1E90 003BEDF0  38 E0 00 00 */	li r7, 0
 /* 803C1E94 003BEDF4  38 C0 00 00 */	li r6, 0
@@ -375,7 +375,7 @@ lbl_803C1ED0:
 /* 803C1EDC 003BEE3C  41 82 00 0C */	beq lbl_803C1EE8
 lbl_803C1EE0:
 /* 803C1EE0 003BEE40  38 60 00 13 */	li r3, 0x13
-/* 803C1EE4 003BEE44  4E 80 00 20 */	blr 
+/* 803C1EE4 003BEE44  4E 80 00 20 */	blr
 lbl_803C1EE8:
 /* 803C1EE8 003BEE48  80 AD B1 50 */	lwz r5, __THPInfo@sda21(r13)
 /* 803C1EEC 003BEE4C  38 06 06 80 */	addi r0, r6, 0x680
@@ -392,7 +392,7 @@ lbl_803C1F10:
 /* 803C1F14 003BEE74  28 00 00 03 */	cmplwi r0, 3
 /* 803C1F18 003BEE78  41 80 FF 84 */	blt lbl_803C1E9C
 /* 803C1F1C 003BEE7C  38 60 00 00 */	li r3, 0
-/* 803C1F20 003BEE80  4E 80 00 20 */	blr 
+/* 803C1F20 003BEE80  4E 80 00 20 */	blr
 
 __THPReadScaneHeader: # local func
 /* 803C1F24 003BEE84  80 8D B1 50 */	lwz r4, __THPInfo@sda21(r13)
@@ -407,7 +407,7 @@ __THPReadScaneHeader: # local func
 /* 803C1F48 003BEEA8  28 00 00 03 */	cmplwi r0, 3
 /* 803C1F4C 003BEEAC  41 82 00 0C */	beq lbl_803C1F58
 /* 803C1F50 003BEEB0  38 60 00 0C */	li r3, 0xc
-/* 803C1F54 003BEEB4  4E 80 00 20 */	blr 
+/* 803C1F54 003BEEB4  4E 80 00 20 */	blr
 lbl_803C1F58:
 /* 803C1F58 003BEEB8  39 20 00 00 */	li r9, 0
 /* 803C1F5C 003BEEBC  39 00 00 00 */	li r8, 0
@@ -437,14 +437,14 @@ lbl_803C1F64:
 /* 803C1FB8 003BEF18  7C 80 00 39 */	and. r0, r4, r0
 /* 803C1FBC 003BEF1C  40 82 00 0C */	bne lbl_803C1FC8
 /* 803C1FC0 003BEF20  38 60 00 0F */	li r3, 0xf
-/* 803C1FC4 003BEF24  4E 80 00 20 */	blr 
+/* 803C1FC4 003BEF24  4E 80 00 20 */	blr
 lbl_803C1FC8:
 /* 803C1FC8 003BEF28  38 07 00 01 */	addi r0, r7, 1
 /* 803C1FCC 003BEF2C  7C 60 00 30 */	slw r0, r3, r0
 /* 803C1FD0 003BEF30  7C 80 00 39 */	and. r0, r4, r0
 /* 803C1FD4 003BEF34  40 82 00 0C */	bne lbl_803C1FE0
 /* 803C1FD8 003BEF38  38 60 00 0F */	li r3, 0xf
-/* 803C1FDC 003BEF3C  4E 80 00 20 */	blr 
+/* 803C1FDC 003BEF3C  4E 80 00 20 */	blr
 lbl_803C1FE0:
 /* 803C1FE0 003BEF40  39 08 00 06 */	addi r8, r8, 6
 /* 803C1FE4 003BEF44  39 29 00 01 */	addi r9, r9, 1
@@ -470,7 +470,7 @@ lbl_803C1FE8:
 /* 803C2030 003BEF90  B0 04 06 8A */	sth r0, 0x68a(r4)
 /* 803C2034 003BEF94  80 8D B1 50 */	lwz r4, __THPInfo@sda21(r13)
 /* 803C2038 003BEF98  B0 04 06 90 */	sth r0, 0x690(r4)
-/* 803C203C 003BEF9C  4E 80 00 20 */	blr 
+/* 803C203C 003BEF9C  4E 80 00 20 */	blr
 
 .global __THPReadQuantizationTable
 __THPReadQuantizationTable:
@@ -717,7 +717,7 @@ lbl_803C23D4:
 /* 803C23EC 003BF34C  38 60 00 00 */	li r3, 0
 /* 803C23F0 003BF350  BA A1 01 5C */	lmw r21, 0x15c(r1)
 /* 803C23F4 003BF354  38 21 01 88 */	addi r1, r1, 0x188
-/* 803C23F8 003BF358  4E 80 00 20 */	blr 
+/* 803C23F8 003BF358  4E 80 00 20 */	blr
 
 .global __THPReadHuffmanTableSpecification
 __THPReadHuffmanTableSpecification:
@@ -843,7 +843,7 @@ lbl_803C2550:
 /* 803C25CC 003BF52C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803C25D0 003BF530  38 21 00 20 */	addi r1, r1, 0x20
 /* 803C25D4 003BF534  7C 08 03 A6 */	mtlr r0
-/* 803C25D8 003BF538  4E 80 00 20 */	blr 
+/* 803C25D8 003BF538  4E 80 00 20 */	blr
 
 .global __THPHuffGenerateSizeTable
 __THPHuffGenerateSizeTable:
@@ -911,7 +911,7 @@ lbl_803C26B0:
 /* 803C26BC 003BF61C  80 6D B0 E8 */	lwz r3, __THPHuffmanSizeTab@sda21(r13)
 /* 803C26C0 003BF620  38 00 00 00 */	li r0, 0
 /* 803C26C4 003BF624  7C 03 31 AE */	stbx r0, r3, r6
-/* 803C26C8 003BF628  4E 80 00 20 */	blr 
+/* 803C26C8 003BF628  4E 80 00 20 */	blr
 
 .global __THPHuffGenerateCodeTable
 __THPHuffGenerateCodeTable:
@@ -947,7 +947,7 @@ lbl_803C2720:
 
 .global sub_803c2730
 sub_803c2730:
-/* 803C2730 003BF690  4E 80 00 20 */	blr 
+/* 803C2730 003BF690  4E 80 00 20 */	blr
 
 .global __THPHuffGenerateDecoderTables
 __THPHuffGenerateDecoderTables:
@@ -1070,7 +1070,7 @@ lbl_803C28D4:
 /* 803C28E0 003BF840  3C 60 00 10 */	lis r3, 0x000FFFFF@ha
 /* 803C28E4 003BF844  38 03 FF FF */	addi r0, r3, 0x000FFFFF@l
 /* 803C28E8 003BF848  90 07 00 88 */	stw r0, 0x88(r7)
-/* 803C28EC 003BF84C  4E 80 00 20 */	blr 
+/* 803C28EC 003BF84C  4E 80 00 20 */	blr
 
 .global __THPRestartDefinition
 __THPRestartDefinition:
@@ -1094,7 +1094,7 @@ __THPRestartDefinition:
 /* 803C2934 003BF894  80 6D B1 50 */	lwz r3, __THPInfo@sda21(r13)
 /* 803C2938 003BF898  A0 03 06 AA */	lhz r0, 0x6aa(r3)
 /* 803C293C 003BF89C  B0 03 06 AC */	sth r0, 0x6ac(r3)
-/* 803C2940 003BF8A0  4E 80 00 20 */	blr 
+/* 803C2940 003BF8A0  4E 80 00 20 */	blr
 
 .global __THPPrepBitStream
 __THPPrepBitStream:
@@ -1255,7 +1255,7 @@ lbl_803C2AD4:
 /* 803C2B80 003BFAE0  90 0D B0 E0 */	stw r0, Vachuff@sda21(r13)
 /* 803C2B84 003BFAE4  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803C2B88 003BFAE8  38 21 00 18 */	addi r1, r1, 0x18
-/* 803C2B8C 003BFAEC  4E 80 00 20 */	blr 
+/* 803C2B8C 003BFAEC  4E 80 00 20 */	blr
 
 .global __THPDecompressYUV
 __THPDecompressYUV:
@@ -1333,7 +1333,7 @@ lbl_803C2C74:
 /* 803C2C8C 003BFBEC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 803C2C90 003BFBF0  38 21 00 20 */	addi r1, r1, 0x20
 /* 803C2C94 003BFBF4  7C 08 03 A6 */	mtlr r0
-/* 803C2C98 003BFBF8  4E 80 00 20 */	blr 
+/* 803C2C98 003BFBF8  4E 80 00 20 */	blr
 
 .global __THPDecompressiMCURow512x448
 __THPDecompressiMCURow512x448:
@@ -3080,7 +3080,7 @@ lbl_803C467C:
 /* 803C4714 003C1674  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803C4718 003C1678  38 21 00 38 */	addi r1, r1, 0x38
 /* 803C471C 003C167C  7C 08 03 A6 */	mtlr r0
-/* 803C4720 003C1680  4E 80 00 20 */	blr 
+/* 803C4720 003C1680  4E 80 00 20 */	blr
 
 .global __THPDecompressiMCURow640x480
 __THPDecompressiMCURow640x480:
@@ -4828,7 +4828,7 @@ lbl_803C6108:
 /* 803C61A0 003C3100  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803C61A4 003C3104  38 21 00 38 */	addi r1, r1, 0x38
 /* 803C61A8 003C3108  7C 08 03 A6 */	mtlr r0
-/* 803C61AC 003C310C  4E 80 00 20 */	blr 
+/* 803C61AC 003C310C  4E 80 00 20 */	blr
 
 .global __THPDecompressiMCURowNxN
 __THPDecompressiMCURowNxN:
@@ -6584,7 +6584,7 @@ lbl_803C7BA0:
 /* 803C7C4C 003C4BAC  83 81 00 08 */	lwz r28, 8(r1)
 /* 803C7C50 003C4BB0  38 21 00 40 */	addi r1, r1, 0x40
 /* 803C7C54 003C4BB4  7C 08 03 A6 */	mtlr r0
-/* 803C7C58 003C4BB8  4E 80 00 20 */	blr 
+/* 803C7C58 003C4BB8  4E 80 00 20 */	blr
 
 __THPHuffDecodeDCTCompY: #local func
 /* 803C7C5C 003C4BBC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -7049,7 +7049,7 @@ lbl_803C82BC:
 /* 803C82C8 003C5228  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 803C82CC 003C522C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803C82D0 003C5230  38 21 00 20 */	addi r1, r1, 0x20
-/* 803C82D4 003C5234  4E 80 00 20 */	blr 
+/* 803C82D4 003C5234  4E 80 00 20 */	blr
 
 __THPHuffDecodeDCTCompU: # local func
 /* 803C82D8 003C5238  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -7526,7 +7526,7 @@ lbl_803C8970:
 /* 803C8970 003C58D0  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803C8974 003C58D4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803C8978 003C58D8  38 21 00 18 */	addi r1, r1, 0x18
-/* 803C897C 003C58DC  4E 80 00 20 */	blr 
+/* 803C897C 003C58DC  4E 80 00 20 */	blr
 
 __THPHuffDecodeDCTCompV: # local func
 /* 803C8980 003C58E0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -8003,7 +8003,7 @@ lbl_803C9018:
 /* 803C9018 003C5F78  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803C901C 003C5F7C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803C9020 003C5F80  38 21 00 18 */	addi r1, r1, 0x18
-/* 803C9024 003C5F84  4E 80 00 20 */	blr 
+/* 803C9024 003C5F84  4E 80 00 20 */	blr
 
 .global THPInit
 THPInit:
@@ -8046,5 +8046,5 @@ THPInit:
 /* 803C90B8 003C6018  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803C90BC 003C601C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803C90C0 003C6020  7C 08 03 A6 */	mtlr r0
-/* 803C90C4 003C6024  4E 80 00 20 */	blr 
+/* 803C90C4 003C6024  4E 80 00 20 */	blr
 

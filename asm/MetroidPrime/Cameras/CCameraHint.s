@@ -31,7 +31,7 @@ lbl_800C51BC:
 /* 800C51C4 000C2124  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800C51C8 000C2128  7C 08 03 A6 */	mtlr r0
 /* 800C51CC 000C212C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C51D0 000C2130  4E 80 00 20 */	blr 
+/* 800C51D0 000C2130  4E 80 00 20 */	blr
 
 .global __ct__11CCameraHintFiQ211CBallCamera20EBallCameraBehaviourfffRC9CVector3fRC9CVector3fRC9CVector3fffffffffff
 __ct__11CCameraHintFiQ211CBallCamera20EBallCameraBehaviourfffRC9CVector3fRC9CVector3fRC9CVector3fffffffffff:
@@ -76,4 +76,4 @@ __ct__11CCameraHintFiQ211CBallCamera20EBallCameraBehaviourfffRC9CVector3fRC9CVec
 /* 800C526C 000C21CC  D1 63 00 58 */	stfs f11, 0x58(r3)
 /* 800C5270 000C21D0  D1 43 00 5C */	stfs f10, 0x5c(r3)
 /* 800C5274 000C21D4  D1 23 00 60 */	stfs f9, 0x60(r3)
-/* 800C5278 000C21D8  4E 80 00 20 */	blr 
+/* 800C5278 000C21D8  4E 80 00 20 */	blr

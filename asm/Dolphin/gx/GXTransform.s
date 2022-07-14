@@ -3,13 +3,20 @@
 .section .sdata2
 .global lbl_805AEBE8
 lbl_805AEBE8:
-	.incbin "baserom.dol", 0x3FB488, 0x4
+	# ROM: 0x3FB488
+	.4byte 0x3F000000
+
 .global lbl_805AEBEC
 lbl_805AEBEC:
-	.incbin "baserom.dol", 0x3FB48C, 0x4
+	# ROM: 0x3FB48C
+	.4byte 0x43AB0000
+
 .global lbl_805AEBF0
 lbl_805AEBF0:
-	.incbin "baserom.dol", 0x3FB490, 0x8
+	# ROM: 0x3FB490
+	.4byte 0x4B7FFFFF
+	.4byte 0
+
 
 
 .section .text, "ax"
@@ -62,7 +69,7 @@ lbl_8037C298:
 /* 8037C2E8 00379248  80 64 04 20 */	lwz r3, 0x420(r4)
 /* 8037C2EC 0037924C  90 65 80 00 */	stw r3, 0xCC008000@l(r5)
 /* 8037C2F0 00379250  B0 04 00 02 */	sth r0, 2(r4)
-/* 8037C2F4 00379254  4E 80 00 20 */	blr 
+/* 8037C2F4 00379254  4E 80 00 20 */	blr
 
 .global GXSetProjectionv
 GXSetProjectionv:
@@ -113,7 +120,7 @@ GXSetProjectionv:
 /* 8037C3A8 00379308  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 8037C3AC 0037930C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8037C3B0 00379310  7C 08 03 A6 */	mtlr r0
-/* 8037C3B4 00379314  4E 80 00 20 */	blr 
+/* 8037C3B4 00379314  4E 80 00 20 */	blr
 
 .global GXLoadPosMtxImm
 GXLoadPosMtxImm:
@@ -136,7 +143,7 @@ GXLoadPosMtxImm:
 /* 8037C3F8 00379358  F0 44 00 00 */	psq_st f2, 0(r4), 0, qr0
 /* 8037C3FC 0037935C  F0 24 00 00 */	psq_st f1, 0(r4), 0, qr0
 /* 8037C400 00379360  F0 04 00 00 */	psq_st f0, 0(r4), 0, qr0
-/* 8037C404 00379364  4E 80 00 20 */	blr 
+/* 8037C404 00379364  4E 80 00 20 */	blr
 
 .global GXLoadNrmMtxImm
 GXLoadNrmMtxImm:
@@ -159,7 +166,7 @@ GXLoadNrmMtxImm:
 /* 8037C448 003793A8  D0 44 00 00 */	stfs f2, 0(r4)
 /* 8037C44C 003793AC  F0 24 00 00 */	psq_st f1, 0(r4), 0, qr0
 /* 8037C450 003793B0  D0 04 00 00 */	stfs f0, 0(r4)
-/* 8037C454 003793B4  4E 80 00 20 */	blr 
+/* 8037C454 003793B4  4E 80 00 20 */	blr
 
 .global GXSetCurrentMtx
 GXSetCurrentMtx:
@@ -176,7 +183,7 @@ GXSetCurrentMtx:
 /* 8037C480 003793E0  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8037C484 003793E4  38 21 00 08 */	addi r1, r1, 8
 /* 8037C488 003793E8  7C 08 03 A6 */	mtlr r0
-/* 8037C48C 003793EC  4E 80 00 20 */	blr 
+/* 8037C48C 003793EC  4E 80 00 20 */	blr
 
 .global GXLoadTexMtxImm
 GXLoadTexMtxImm:
@@ -218,7 +225,7 @@ lbl_8037C4C0:
 /* 8037C50C 0037946C  F0 44 00 00 */	psq_st f2, 0(r4), 0, qr0
 /* 8037C510 00379470  F0 24 00 00 */	psq_st f1, 0(r4), 0, qr0
 /* 8037C514 00379474  F0 04 00 00 */	psq_st f0, 0(r4), 0, qr0
-/* 8037C518 00379478  4E 80 00 20 */	blr 
+/* 8037C518 00379478  4E 80 00 20 */	blr
 lbl_8037C51C:
 /* 8037C51C 0037947C  38 84 80 00 */	addi r4, r4, -32768
 /* 8037C520 00379480  E0 63 00 00 */	psq_l f3, 0(r3), 0, qr0
@@ -229,7 +236,7 @@ lbl_8037C51C:
 /* 8037C534 00379494  F0 44 00 00 */	psq_st f2, 0(r4), 0, qr0
 /* 8037C538 00379498  F0 24 00 00 */	psq_st f1, 0(r4), 0, qr0
 /* 8037C53C 0037949C  F0 04 00 00 */	psq_st f0, 0(r4), 0, qr0
-/* 8037C540 003794A0  4E 80 00 20 */	blr 
+/* 8037C540 003794A0  4E 80 00 20 */	blr
 
 .global GXSetViewportJitter
 GXSetViewportJitter:
@@ -299,7 +306,7 @@ lbl_8037C5E4:
 /* 8037C638 00379598  CB 41 00 30 */	lfd f26, 0x30(r1)
 /* 8037C63C 0037959C  38 21 00 60 */	addi r1, r1, 0x60
 /* 8037C640 003795A0  7C 08 03 A6 */	mtlr r0
-/* 8037C644 003795A4  4E 80 00 20 */	blr 
+/* 8037C644 003795A4  4E 80 00 20 */	blr
 
 .global GXSetViewport
 GXSetViewport:
@@ -311,7 +318,7 @@ GXSetViewport:
 /* 8037C65C 003795BC  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8037C660 003795C0  38 21 00 08 */	addi r1, r1, 8
 /* 8037C664 003795C4  7C 08 03 A6 */	mtlr r0
-/* 8037C668 003795C8  4E 80 00 20 */	blr 
+/* 8037C668 003795C8  4E 80 00 20 */	blr
 
 .global GXSetScissor
 GXSetScissor:
@@ -350,7 +357,7 @@ GXSetScissor:
 /* 8037C6EC 0037964C  80 68 00 FC */	lwz r3, 0xfc(r8)
 /* 8037C6F0 00379650  90 64 80 00 */	stw r3, 0xCC008000@l(r4)
 /* 8037C6F4 00379654  B0 08 00 02 */	sth r0, 2(r8)
-/* 8037C6F8 00379658  4E 80 00 20 */	blr 
+/* 8037C6F8 00379658  4E 80 00 20 */	blr
 
 .global GXSetScissorBoxOffset
 GXSetScissorBoxOffset:
@@ -369,7 +376,7 @@ GXSetScissorBoxOffset:
 /* 8037C72C 0037968C  38 00 00 00 */	li r0, 0
 /* 8037C730 00379690  90 A4 80 00 */	stw r5, 0xCC008000@l(r4)
 /* 8037C734 00379694  B0 03 00 02 */	sth r0, 2(r3)
-/* 8037C738 00379698  4E 80 00 20 */	blr 
+/* 8037C738 00379698  4E 80 00 20 */	blr
 
 .global GXSetClipMode
 GXSetClipMode:
@@ -382,7 +389,7 @@ GXSetClipMode:
 /* 8037C754 003796B4  90 A6 80 00 */	stw r5, 0xCC008000@l(r6)
 /* 8037C758 003796B8  90 66 80 00 */	stw r3, 0xCC008000@l(r6)
 /* 8037C75C 003796BC  B0 04 00 02 */	sth r0, 2(r4)
-/* 8037C760 003796C0  4E 80 00 20 */	blr 
+/* 8037C760 003796C0  4E 80 00 20 */	blr
 
 .global __GXSetMatrixIndex
 __GXSetMatrixIndex:
@@ -420,5 +427,5 @@ lbl_8037C7D8:
 /* 8037C7D8 00379738  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 8037C7DC 0037973C  38 00 00 01 */	li r0, 1
 /* 8037C7E0 00379740  B0 03 00 02 */	sth r0, 2(r3)
-/* 8037C7E4 00379744  4E 80 00 20 */	blr 
+/* 8037C7E4 00379744  4E 80 00 20 */	blr
 

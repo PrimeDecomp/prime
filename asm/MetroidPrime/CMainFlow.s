@@ -92,7 +92,7 @@ lbl_803CCAA8:
 	.asciz "??(??)"
 	.asciz "MainFlow"
 	.balign 4
-	
+
 .section .text, "ax"
 
 .global __dt__9CMainFlowFv
@@ -121,7 +121,7 @@ lbl_80023568:
 /* 80023574 000204D4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80023578 000204D8  7C 08 03 A6 */	mtlr r0
 /* 8002357C 000204DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80023580 000204E0  4E 80 00 20 */	blr 
+/* 80023580 000204E0  4E 80 00 20 */	blr
 
 .global SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue
 SetGameState__9CMainFlowF17EClientFlowStatesR18CArchitectureQueue:
@@ -320,7 +320,7 @@ lbl_80023840:
 /* 80023844 000207A4  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 80023848 000207A8  7C 08 03 A6 */	mtlr r0
 /* 8002384C 000207AC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80023850 000207B0  4E 80 00 20 */	blr 
+/* 80023850 000207B0  4E 80 00 20 */	blr
 
 .global AdvanceGameState__9CMainFlowFR18CArchitectureQueue
 AdvanceGameState__9CMainFlowFR18CArchitectureQueue:
@@ -336,7 +336,7 @@ AdvanceGameState__9CMainFlowFR18CArchitectureQueue:
 /* 80023878 000207D8  38 A5 99 44 */	addi r5, r5, lbl_803D9944@l
 /* 8002387C 000207DC  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80023880 000207E0  7C 09 03 A6 */	mtctr r0
-/* 80023884 000207E4  4E 80 04 20 */	bctr 
+/* 80023884 000207E4  4E 80 04 20 */	bctr
 .global lbl_80023888
 lbl_80023888:
 /* 80023888 000207E8  7C 85 23 78 */	mr r5, r4
@@ -377,16 +377,16 @@ lbl_800238EC:
 /* 800238EC 0002084C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800238F0 00020850  7C 08 03 A6 */	mtlr r0
 /* 800238F4 00020854  38 21 00 10 */	addi r1, r1, 0x10
-/* 800238F8 00020858  4E 80 00 20 */	blr 
+/* 800238F8 00020858  4E 80 00 20 */	blr
 
 .global Draw__9CMainFlowCFv
 Draw__9CMainFlowCFv:
-/* 800238FC 0002085C  4E 80 00 20 */	blr 
+/* 800238FC 0002085C  4E 80 00 20 */	blr
 
 .global GetIsContinueDraw__9CMainFlowCFv
 GetIsContinueDraw__9CMainFlowCFv:
 /* 80023900 00020860  38 60 00 00 */	li r3, 0
-/* 80023904 00020864  4E 80 00 20 */	blr 
+/* 80023904 00020864  4E 80 00 20 */	blr
 
 .global OnMessage__9CMainFlowFRC20CArchitectureMessageR18CArchitectureQueue
 OnMessage__9CMainFlowFRC20CArchitectureMessageR18CArchitectureQueue:
@@ -439,7 +439,7 @@ lbl_800239A4:
 /* 800239AC 0002090C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800239B0 00020910  7C 08 03 A6 */	mtlr r0
 /* 800239B4 00020914  38 21 00 20 */	addi r1, r1, 0x20
-/* 800239B8 00020918  4E 80 00 20 */	blr 
+/* 800239B8 00020918  4E 80 00 20 */	blr
 
 .global __ct__9CMainFlowFv
 __ct__9CMainFlowFv:

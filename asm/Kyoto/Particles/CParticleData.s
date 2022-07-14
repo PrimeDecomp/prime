@@ -52,7 +52,7 @@ __ct__13CParticleDataFR12CInputStream:
 /* 80357494 003543F4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80357498 003543F8  7C 08 03 A6 */	mtlr r0
 /* 8035749C 003543FC  38 21 00 30 */	addi r1, r1, 0x30
-/* 803574A0 00354400  4E 80 00 20 */	blr 
+/* 803574A0 00354400  4E 80 00 20 */	blr
 
 .global "Get<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__12CInputStreamFRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>"
 "Get<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>__12CInputStreamFRC82TType<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>":
@@ -70,4 +70,4 @@ __ct__13CParticleDataFR12CInputStream:
 /* 803574D0 00354430  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803574D4 00354434  7C 08 03 A6 */	mtlr r0
 /* 803574D8 00354438  38 21 00 20 */	addi r1, r1, 0x20
-/* 803574DC 0035443C  4E 80 00 20 */	blr 
+/* 803574DC 0035443C  4E 80 00 20 */	blr

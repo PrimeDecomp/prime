@@ -56,15 +56,15 @@ Accept__34CScriptSpiderBallAttractionSurfaceFR8IVisitor:
 /* 8014AD84 00147CE4  7C 04 03 78 */	mr r4, r0
 /* 8014AD88 00147CE8  81 8C 00 B8 */	lwz r12, 0xb8(r12)
 /* 8014AD8C 00147CEC  7D 89 03 A6 */	mtctr r12
-/* 8014AD90 00147CF0  4E 80 04 21 */	bctrl 
+/* 8014AD90 00147CF0  4E 80 04 21 */	bctrl
 /* 8014AD94 00147CF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014AD98 00147CF8  7C 08 03 A6 */	mtlr r0
 /* 8014AD9C 00147CFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014ADA0 00147D00  4E 80 00 20 */	blr 
+/* 8014ADA0 00147D00  4E 80 00 20 */	blr
 
 .global Think__34CScriptSpiderBallAttractionSurfaceFfR13CStateManager
 Think__34CScriptSpiderBallAttractionSurfaceFfR13CStateManager:
-/* 8014ADA4 00147D04  4E 80 00 20 */	blr 
+/* 8014ADA4 00147D04  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__34CScriptSpiderBallAttractionSurfaceF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__34CScriptSpiderBallAttractionSurfaceF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -78,7 +78,7 @@ AcceptScriptMsg__34CScriptSpiderBallAttractionSurfaceF20EScriptObjectMessage9TUn
 /* 8014ADC4 00147D24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014ADC8 00147D28  7C 08 03 A6 */	mtlr r0
 /* 8014ADCC 00147D2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014ADD0 00147D30  4E 80 00 20 */	blr 
+/* 8014ADD0 00147D30  4E 80 00 20 */	blr
 
 .global GetTouchBounds__34CScriptSpiderBallAttractionSurfaceCFv
 GetTouchBounds__34CScriptSpiderBallAttractionSurfaceCFv:
@@ -140,11 +140,11 @@ lbl_8014AEA4:
 /* 8014AEA8 00147E08  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8014AEAC 00147E0C  7C 08 03 A6 */	mtlr r0
 /* 8014AEB0 00147E10  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014AEB4 00147E14  4E 80 00 20 */	blr 
+/* 8014AEB4 00147E14  4E 80 00 20 */	blr
 
 .global Touch__34CScriptSpiderBallAttractionSurfaceFR6CActorR13CStateManager
 Touch__34CScriptSpiderBallAttractionSurfaceFR6CActorR13CStateManager:
-/* 8014AEB8 00147E18  4E 80 00 20 */	blr 
+/* 8014AEB8 00147E18  4E 80 00 20 */	blr
 
 .global __dt__34CScriptSpiderBallAttractionSurfaceFv
 __dt__34CScriptSpiderBallAttractionSurfaceFv:
@@ -172,7 +172,7 @@ lbl_8014AF00:
 /* 8014AF0C 00147E6C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014AF10 00147E70  7C 08 03 A6 */	mtlr r0
 /* 8014AF14 00147E74  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014AF18 00147E78  4E 80 00 20 */	blr 
+/* 8014AF18 00147E78  4E 80 00 20 */	blr
 
 .global "__ct__34CScriptSpiderBallAttractionSurfaceF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC9CVector3fb"
 "__ct__34CScriptSpiderBallAttractionSurfaceF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC9CVector3fb":

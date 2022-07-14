@@ -5,7 +5,7 @@
 .global srand
 srand:
 /* 8038FE74 0038CDD4  90 6D 9F D8 */	stw r3, lbl_805A8B98@sda21(r13)
-/* 8038FE78 0038CDD8  4E 80 00 20 */	blr 
+/* 8038FE78 0038CDD8  4E 80 00 20 */	blr
 
 .global rand
 rand:
@@ -16,4 +16,4 @@ rand:
 /* 8038FE8C 0038CDEC  38 03 30 39 */	addi r0, r3, 0x3039
 /* 8038FE90 0038CDF0  90 0D 9F D8 */	stw r0, lbl_805A8B98@sda21(r13)
 /* 8038FE94 0038CDF4  54 03 84 7E */	rlwinm r3, r0, 0x10, 0x11, 0x1f
-/* 8038FE98 0038CDF8  4E 80 00 20 */	blr 
+/* 8038FE98 0038CDF8  4E 80 00 20 */	blr

@@ -45,7 +45,7 @@ CopyNodeMinusStartTime__13CInt32POINodeFRC13CInt32POINodeRC13CCharAnimTime:
 /* 802FCF40 002F9EA0  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802FCF44 002F9EA4  7C 08 03 A6 */	mtlr r0
 /* 802FCF48 002F9EA8  38 21 00 40 */	addi r1, r1, 0x40
-/* 802FCF4C 002F9EAC  4E 80 00 20 */	blr 
+/* 802FCF4C 002F9EAC  4E 80 00 20 */	blr
 
 .global __ct__13CInt32POINodeFR12CInputStream
 __ct__13CInt32POINodeFR12CInputStream:
@@ -73,4 +73,4 @@ __ct__13CInt32POINodeFR12CInputStream:
 /* 802FCFA4 002F9F04  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FCFA8 002F9F08  7C 08 03 A6 */	mtlr r0
 /* 802FCFAC 002F9F0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FCFB0 002F9F10  4E 80 00 20 */	blr 
+/* 802FCFB0 002F9F10  4E 80 00 20 */	blr

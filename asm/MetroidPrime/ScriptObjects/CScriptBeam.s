@@ -72,7 +72,7 @@ lbl_8027C630:
 /* 8027C63C 0027959C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8027C640 002795A0  7C 08 03 A6 */	mtlr r0
 /* 8027C644 002795A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8027C648 002795A8  4E 80 00 20 */	blr 
+/* 8027C648 002795A8  4E 80 00 20 */	blr
 
 .global Think__11CScriptBeamFfR13CStateManager
 Think__11CScriptBeamFfR13CStateManager:
@@ -101,7 +101,7 @@ Think__11CScriptBeamFfR13CStateManager:
 /* 8027C6A4 00279604  38 9E 00 34 */	addi r4, r30, 0x34
 /* 8027C6A8 00279608  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8027C6AC 0027960C  7D 89 03 A6 */	mtctr r12
-/* 8027C6B0 00279610  4E 80 04 21 */	bctrl 
+/* 8027C6B0 00279610  4E 80 04 21 */	bctrl
 /* 8027C6B4 00279614  48 00 00 0C */	b lbl_8027C6C0
 lbl_8027C6B8:
 /* 8027C6B8 00279618  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -113,7 +113,7 @@ lbl_8027C6C0:
 /* 8027C6CC 0027962C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8027C6D0 00279630  7C 08 03 A6 */	mtlr r0
 /* 8027C6D4 00279634  38 21 00 20 */	addi r1, r1, 0x20
-/* 8027C6D8 00279638  4E 80 00 20 */	blr 
+/* 8027C6D8 00279638  4E 80 00 20 */	blr
 
 .global Accept__11CScriptBeamFR8IVisitor
 Accept__11CScriptBeamFR8IVisitor:
@@ -126,11 +126,11 @@ Accept__11CScriptBeamFR8IVisitor:
 /* 8027C6F4 00279654  7C 04 03 78 */	mr r4, r0
 /* 8027C6F8 00279658  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8027C6FC 0027965C  7D 89 03 A6 */	mtctr r12
-/* 8027C700 00279660  4E 80 04 21 */	bctrl 
+/* 8027C700 00279660  4E 80 04 21 */	bctrl
 /* 8027C704 00279664  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8027C708 00279668  7C 08 03 A6 */	mtlr r0
 /* 8027C70C 0027966C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8027C710 00279670  4E 80 00 20 */	blr 
+/* 8027C710 00279670  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CScriptBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CScriptBeamF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -257,7 +257,7 @@ lbl_8027C8B8:
 /* 8027C8DC 0027983C  38 A0 00 01 */	li r5, 1
 /* 8027C8E0 00279840  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 8027C8E4 00279844  7D 89 03 A6 */	mtctr r12
-/* 8027C8E8 00279848  4E 80 04 21 */	bctrl 
+/* 8027C8E8 00279848  4E 80 04 21 */	bctrl
 /* 8027C8EC 0027984C  7F 23 CB 78 */	mr r3, r25
 /* 8027C8F0 00279850  7F C5 F3 78 */	mr r5, r30
 /* 8027C8F4 00279854  81 99 00 00 */	lwz r12, 0(r25)
@@ -265,7 +265,7 @@ lbl_8027C8B8:
 /* 8027C8FC 0027985C  38 C0 00 00 */	li r6, 0
 /* 8027C900 00279860  81 8C 00 78 */	lwz r12, 0x78(r12)
 /* 8027C904 00279864  7D 89 03 A6 */	mtctr r12
-/* 8027C908 00279868  4E 80 04 21 */	bctrl 
+/* 8027C908 00279868  4E 80 04 21 */	bctrl
 /* 8027C90C 0027986C  48 00 00 44 */	b lbl_8027C950
 lbl_8027C910:
 /* 8027C910 00279870  A0 1B 01 54 */	lhz r0, 0x154(r27)
@@ -283,7 +283,7 @@ lbl_8027C910:
 /* 8027C940 002798A0  38 A0 00 00 */	li r5, 0
 /* 8027C944 002798A4  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 8027C948 002798A8  7D 89 03 A6 */	mtctr r12
-/* 8027C94C 002798AC  4E 80 04 21 */	bctrl 
+/* 8027C94C 002798AC  4E 80 04 21 */	bctrl
 lbl_8027C950:
 /* 8027C950 002798B0  A0 1D 00 00 */	lhz r0, 0(r29)
 /* 8027C954 002798B4  7F 63 DB 78 */	mr r3, r27
@@ -296,7 +296,7 @@ lbl_8027C950:
 /* 8027C970 002798D0  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8027C974 002798D4  7C 08 03 A6 */	mtlr r0
 /* 8027C978 002798D8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8027C97C 002798DC  4E 80 00 20 */	blr 
+/* 8027C97C 002798DC  4E 80 00 20 */	blr
 
 .global "__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC34TLockedToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo"
 "__ct__11CScriptBeamF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC34TLockedToken<18CWeaponDescription>RC9CBeamInfoRC11CDamageInfo":

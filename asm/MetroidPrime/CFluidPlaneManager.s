@@ -160,7 +160,7 @@ lbl_8012F25C:
 /* 8012F2A8 0012C208  E3 41 00 28 */	psq_l f26, 40(r1), 0, qr0
 /* 8012F2AC 0012C20C  CB 41 00 20 */	lfd f26, 0x20(r1)
 /* 8012F2B0 0012C210  38 21 00 80 */	addi r1, r1, 0x80
-/* 8012F2B4 0012C214  4E 80 00 20 */	blr 
+/* 8012F2B4 0012C214  4E 80 00 20 */	blr
 
 .global CreateSplash__18CFluidPlaneManagerF9TUniqueIdR13CStateManagerRC12CScriptWaterRC9CVector3ffb
 CreateSplash__18CFluidPlaneManagerF9TUniqueIdR13CStateManagerRC12CScriptWaterRC9CVector3ffb:
@@ -354,7 +354,7 @@ lbl_8012F55C:
 /* 8012F570 0012C4D0  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8012F574 0012C4D4  7C 08 03 A6 */	mtlr r0
 /* 8012F578 0012C4D8  38 21 01 00 */	addi r1, r1, 0x100
-/* 8012F57C 0012C4DC  4E 80 00 20 */	blr 
+/* 8012F57C 0012C4DC  4E 80 00 20 */	blr
 
 .global GetLastRippleDeltaTime__18CFluidPlaneManagerCF9TUniqueId
 GetLastRippleDeltaTime__18CFluidPlaneManagerCF9TUniqueId:
@@ -368,7 +368,7 @@ GetLastRippleDeltaTime__18CFluidPlaneManagerCF9TUniqueId:
 /* 8012F59C 0012C4FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012F5A0 0012C500  7C 08 03 A6 */	mtlr r0
 /* 8012F5A4 0012C504  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F5A8 0012C508  4E 80 00 20 */	blr 
+/* 8012F5A8 0012C508  4E 80 00 20 */	blr
 
 .global GetLastSplashDeltaTime__18CFluidPlaneManagerCF9TUniqueId
 GetLastSplashDeltaTime__18CFluidPlaneManagerCF9TUniqueId:
@@ -397,13 +397,13 @@ lbl_8012F5E0:
 
 .global sub_8012f5f8
 sub_8012f5f8:
-/* 8012F5F8 0012C558  4E 80 00 20 */	blr 
+/* 8012F5F8 0012C558  4E 80 00 20 */	blr
 
 .global EndFrame__18CFluidPlaneManagerCFv
 EndFrame__18CFluidPlaneManagerCFv:
 /* 8012F5FC 0012C55C  38 00 00 00 */	li r0, 0
 /* 8012F600 0012C560  98 03 01 21 */	stb r0, 0x121(r3)
-/* 8012F604 0012C564  4E 80 00 20 */	blr 
+/* 8012F604 0012C564  4E 80 00 20 */	blr
 
 .global StartFrame__18CFluidPlaneManagerCFb
 StartFrame__18CFluidPlaneManagerCFb:
@@ -417,7 +417,7 @@ StartFrame__18CFluidPlaneManagerCFb:
 /* 8012F624 0012C584  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012F628 0012C588  7C 08 03 A6 */	mtlr r0
 /* 8012F62C 0012C58C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F630 0012C590  4E 80 00 20 */	blr 
+/* 8012F630 0012C590  4E 80 00 20 */	blr
 
 .global Update__18CFluidPlaneManagerFf
 Update__18CFluidPlaneManagerFf:
@@ -460,7 +460,7 @@ lbl_8012F694:
 /* 8012F6B8 0012C618  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8012F6BC 0012C61C  7C 08 03 A6 */	mtlr r0
 /* 8012F6C0 0012C620  38 21 00 20 */	addi r1, r1, 0x20
-/* 8012F6C4 0012C624  4E 80 00 20 */	blr 
+/* 8012F6C4 0012C624  4E 80 00 20 */	blr
 
 .global __ct__18CFluidPlaneManagerFv
 __ct__18CFluidPlaneManagerFv:
@@ -501,7 +501,7 @@ lbl_8012F724:
 /* 8012F748 0012C6A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8012F74C 0012C6AC  7C 08 03 A6 */	mtlr r0
 /* 8012F750 0012C6B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F754 0012C6B4  4E 80 00 20 */	blr 
+/* 8012F754 0012C6B4  4E 80 00 20 */	blr
 
 .global Clear__Q218CFluidPlaneManager13CFluidProfileFv
 Clear__Q218CFluidPlaneManager13CFluidProfileFv:

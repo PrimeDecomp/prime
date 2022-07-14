@@ -149,7 +149,7 @@ lbl_801CE258:
 /* 801CE27C 001CB1DC  38 80 00 01 */	li r4, 1
 /* 801CE280 001CB1E0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801CE284 001CB1E4  7D 89 03 A6 */	mtctr r12
-/* 801CE288 001CB1E8  4E 80 04 21 */	bctrl 
+/* 801CE288 001CB1E8  4E 80 04 21 */	bctrl
 lbl_801CE28C:
 /* 801CE28C 001CB1EC  3B 9C 00 08 */	addi r28, r28, 8
 /* 801CE290 001CB1F0  3B BD 00 01 */	addi r29, r29, 1
@@ -333,7 +333,7 @@ lbl_801CE4D0:
 /* 801CE4E4 001CB444  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 801CE4E8 001CB448  7C 08 03 A6 */	mtlr r0
 /* 801CE4EC 001CB44C  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CE4F0 001CB450  4E 80 00 20 */	blr 
+/* 801CE4F0 001CB450  4E 80 00 20 */	blr
 
 .global sub_801ce4f4
 sub_801ce4f4:
@@ -353,7 +353,7 @@ lbl_801CE51C:
 /* 801CE524 001CB484  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CE528 001CB488  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801CE52C 001CB48C  7D 89 03 A6 */	mtctr r12
-/* 801CE530 001CB490  4E 80 04 21 */	bctrl 
+/* 801CE530 001CB490  4E 80 04 21 */	bctrl
 /* 801CE534 001CB494  3B FF 00 08 */	addi r31, r31, 8
 /* 801CE538 001CB498  3B DE 00 01 */	addi r30, r30, 1
 lbl_801CE53C:
@@ -366,7 +366,7 @@ lbl_801CE53C:
 /* 801CE554 001CB4B4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801CE558 001CB4B8  7C 08 03 A6 */	mtlr r0
 /* 801CE55C 001CB4BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CE560 001CB4C0  4E 80 00 20 */	blr 
+/* 801CE560 001CB4C0  4E 80 00 20 */	blr
 
 .global sub_801ce564
 sub_801ce564:
@@ -388,7 +388,7 @@ lbl_801CE594:
 /* 801CE59C 001CB4FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CE5A0 001CB500  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801CE5A4 001CB504  7D 89 03 A6 */	mtctr r12
-/* 801CE5A8 001CB508  4E 80 04 21 */	bctrl 
+/* 801CE5A8 001CB508  4E 80 04 21 */	bctrl
 /* 801CE5AC 001CB50C  3B FF 00 08 */	addi r31, r31, 8
 /* 801CE5B0 001CB510  3B DE 00 01 */	addi r30, r30, 1
 lbl_801CE5B4:
@@ -402,7 +402,7 @@ lbl_801CE5B4:
 /* 801CE5D0 001CB530  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 801CE5D4 001CB534  7C 08 03 A6 */	mtlr r0
 /* 801CE5D8 001CB538  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CE5DC 001CB53C  4E 80 00 20 */	blr 
+/* 801CE5DC 001CB53C  4E 80 00 20 */	blr
 
 .global sub_801ce5e0
 sub_801ce5e0:
@@ -422,13 +422,13 @@ lbl_801CE608:
 /* 801CE610 001CB570  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CE614 001CB574  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801CE618 001CB578  7D 89 03 A6 */	mtctr r12
-/* 801CE61C 001CB57C  4E 80 04 21 */	bctrl 
+/* 801CE61C 001CB57C  4E 80 04 21 */	bctrl
 /* 801CE620 001CB580  80 7F 00 04 */	lwz r3, 4(r31)
 /* 801CE624 001CB584  7F 84 E3 78 */	mr r4, r28
 /* 801CE628 001CB588  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CE62C 001CB58C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801CE630 001CB590  7D 89 03 A6 */	mtctr r12
-/* 801CE634 001CB594  4E 80 04 21 */	bctrl 
+/* 801CE634 001CB594  4E 80 04 21 */	bctrl
 /* 801CE638 001CB598  80 7F 00 04 */	lwz r3, 4(r31)
 /* 801CE63C 001CB59C  80 9E 00 00 */	lwz r4, 0(r30)
 /* 801CE640 001CB5A0  48 14 E2 81 */	bl ForceParticleCreation__11CElementGenFi
@@ -437,7 +437,7 @@ lbl_801CE608:
 /* 801CE64C 001CB5AC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CE650 001CB5B0  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801CE654 001CB5B4  7D 89 03 A6 */	mtctr r12
-/* 801CE658 001CB5B8  4E 80 04 21 */	bctrl 
+/* 801CE658 001CB5B8  4E 80 04 21 */	bctrl
 /* 801CE65C 001CB5BC  3B FF 00 08 */	addi r31, r31, 8
 /* 801CE660 001CB5C0  3B DE 00 04 */	addi r30, r30, 4
 /* 801CE664 001CB5C4  3B BD 00 01 */	addi r29, r29, 1
@@ -449,7 +449,7 @@ lbl_801CE668:
 /* 801CE678 001CB5D8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801CE67C 001CB5DC  7C 08 03 A6 */	mtlr r0
 /* 801CE680 001CB5E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CE684 001CB5E4  4E 80 00 20 */	blr 
+/* 801CE684 001CB5E4  4E 80 00 20 */	blr
 
 .global ApplyContainment__10CFishCloudFRQ210CFishCloud5CBoidRC6CAABox
 ApplyContainment__10CFishCloudFRQ210CFishCloud5CBoidRC6CAABox:
@@ -515,7 +515,7 @@ lbl_801CE75C:
 /* 801CE770 001CB6D0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801CE774 001CB6D4  7C 08 03 A6 */	mtlr r0
 /* 801CE778 001CB6D8  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CE77C 001CB6DC  4E 80 00 20 */	blr 
+/* 801CE77C 001CB6DC  4E 80 00 20 */	blr
 
 .global ApplyRepulsion__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff
 ApplyRepulsion__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff:
@@ -526,7 +526,7 @@ ApplyRepulsion__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff:
 /* 801CE790 001CB6F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CE794 001CB6F4  7C 08 03 A6 */	mtlr r0
 /* 801CE798 001CB6F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CE79C 001CB6FC  4E 80 00 20 */	blr 
+/* 801CE79C 001CB6FC  4E 80 00 20 */	blr
 
 .global ApplyAttraction__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff
 ApplyAttraction__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff:
@@ -601,7 +601,7 @@ lbl_801CE898:
 /* 801CE8AC 001CB80C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801CE8B0 001CB810  7C 08 03 A6 */	mtlr r0
 /* 801CE8B4 001CB814  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CE8B8 001CB818  4E 80 00 20 */	blr 
+/* 801CE8B8 001CB818  4E 80 00 20 */	blr
 
 .global ApplySeparation__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff
 ApplySeparation__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff:
@@ -676,7 +676,7 @@ lbl_801CE9B4:
 /* 801CE9C8 001CB928  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801CE9CC 001CB92C  7C 08 03 A6 */	mtlr r0
 /* 801CE9D0 001CB930  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CE9D4 001CB934  4E 80 00 20 */	blr 
+/* 801CE9D4 001CB934  4E 80 00 20 */	blr
 
 .global "ApplySeparation__10CFishCloudFRQ210CFishCloud5CBoidRCQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>"
 "ApplySeparation__10CFishCloudFRQ210CFishCloud5CBoidRCQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>":
@@ -730,7 +730,7 @@ lbl_801CEA84:
 /* 801CEA84 001CB9E4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801CEA88 001CB9E8  7C 08 03 A6 */	mtlr r0
 /* 801CEA8C 001CB9EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CEA90 001CB9F0  4E 80 00 20 */	blr 
+/* 801CEA90 001CB9F0  4E 80 00 20 */	blr
 
 .global ApplyCohesion__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff
 ApplyCohesion__10CFishCloudFRQ210CFishCloud5CBoidRC9CVector3fff:
@@ -806,7 +806,7 @@ lbl_801CEB88:
 /* 801CEB9C 001CBAFC  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801CEBA0 001CBB00  7C 08 03 A6 */	mtlr r0
 /* 801CEBA4 001CBB04  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CEBA8 001CBB08  4E 80 00 20 */	blr 
+/* 801CEBA8 001CBB08  4E 80 00 20 */	blr
 
 .global "ApplyCohesion__10CFishCloudFRQ210CFishCloud5CBoidRCQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>"
 "ApplyCohesion__10CFishCloudFRQ210CFishCloud5CBoidRCQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>":
@@ -870,7 +870,7 @@ lbl_801CEC84:
 /* 801CEC84 001CBBE4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801CEC88 001CBBE8  7C 08 03 A6 */	mtlr r0
 /* 801CEC8C 001CBBEC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CEC90 001CBBF0  4E 80 00 20 */	blr 
+/* 801CEC90 001CBBF0  4E 80 00 20 */	blr
 
 .global sub_801cec94
 sub_801cec94:
@@ -942,7 +942,7 @@ sub_801cec94:
 /* 801CED98 001CBCF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801CED9C 001CBCFC  7C 08 03 A6 */	mtlr r0
 /* 801CEDA0 001CBD00  38 21 00 60 */	addi r1, r1, 0x60
-/* 801CEDA4 001CBD04  4E 80 00 20 */	blr 
+/* 801CEDA4 001CBD04  4E 80 00 20 */	blr
 
 .global "ApplyAlignment__10CFishCloudFRQ210CFishCloud5CBoidRCQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>"
 "ApplyAlignment__10CFishCloudFRQ210CFishCloud5CBoidRCQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>":
@@ -1038,7 +1038,7 @@ lbl_801CEEF8:
 /* 801CEF00 001CBE60  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801CEF04 001CBE64  7C 08 03 A6 */	mtlr r0
 /* 801CEF08 001CBE68  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CEF0C 001CBE6C  4E 80 00 20 */	blr 
+/* 801CEF0C 001CBE6C  4E 80 00 20 */	blr
 
 .global sub_801cef10
 sub_801cef10:
@@ -1182,7 +1182,7 @@ lbl_801CF0A4:
 /* 801CF124 001CC084  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 801CF128 001CC088  7C 08 03 A6 */	mtlr r0
 /* 801CF12C 001CC08C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801CF130 001CC090  4E 80 00 20 */	blr 
+/* 801CF130 001CC090  4E 80 00 20 */	blr
 
 .global "BuildBoidNearList__10CFishCloudFRC9CVector3ffRQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>"
 "BuildBoidNearList__10CFishCloudFRC9CVector3ffRQ24rstl41reserved_vector<PQ210CFishCloud5CBoid,25>":
@@ -1248,7 +1248,7 @@ lbl_801CF1F8:
 /* 801CF20C 001CC16C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801CF210 001CC170  7C 08 03 A6 */	mtlr r0
 /* 801CF214 001CC174  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CF218 001CC178  4E 80 00 20 */	blr 
+/* 801CF218 001CC178  4E 80 00 20 */	blr
 
 .global sub_801cf21c
 sub_801cf21c:
@@ -1475,7 +1475,7 @@ lbl_801CF500:
 /* 801CF53C 001CC49C  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 801CF540 001CC4A0  7C 08 03 A6 */	mtlr r0
 /* 801CF544 001CC4A4  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801CF548 001CC4A8  4E 80 00 20 */	blr 
+/* 801CF548 001CC4A8  4E 80 00 20 */	blr
 
 .global GetListAt__10CFishCloudFRC9CVector3f
 GetListAt__10CFishCloudFRC9CVector3f:
@@ -1542,7 +1542,7 @@ lbl_801CF628:
 /* 801CF630 001CC590  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801CF634 001CC594  7C 08 03 A6 */	mtlr r0
 /* 801CF638 001CC598  38 21 00 60 */	addi r1, r1, 0x60
-/* 801CF63C 001CC59C  4E 80 00 20 */	blr 
+/* 801CF63C 001CC59C  4E 80 00 20 */	blr
 
 .global UpdatePartitionList__10CFishCloudFv
 UpdatePartitionList__10CFishCloudFv:
@@ -1668,7 +1668,7 @@ lbl_801CF7D0:
 /* 801CF7F4 001CC754  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 801CF7F8 001CC758  7C 08 03 A6 */	mtlr r0
 /* 801CF7FC 001CC75C  38 21 00 70 */	addi r1, r1, 0x70
-/* 801CF800 001CC760  4E 80 00 20 */	blr 
+/* 801CF800 001CC760  4E 80 00 20 */	blr
 
 .global CreatePartitionList__10CFishCloudFv
 CreatePartitionList__10CFishCloudFv:
@@ -1687,7 +1687,7 @@ CreatePartitionList__10CFishCloudFv:
 /* 801CF834 001CC794  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801CF838 001CC798  7C 08 03 A6 */	mtlr r0
 /* 801CF83C 001CC79C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CF840 001CC7A0  4E 80 00 20 */	blr 
+/* 801CF840 001CC7A0  4E 80 00 20 */	blr
 
 .global Touch__10CFishCloudFR6CActorR13CStateManager
 Touch__10CFishCloudFR6CActorR13CStateManager:
@@ -1768,7 +1768,7 @@ lbl_801CF938:
 /* 801CF95C 001CC8BC  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801CF960 001CC8C0  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801CF964 001CC8C4  7D 89 03 A6 */	mtctr r12
-/* 801CF968 001CC8C8  4E 80 04 21 */	bctrl 
+/* 801CF968 001CC8C8  4E 80 04 21 */	bctrl
 /* 801CF96C 001CC8CC  88 01 00 60 */	lbz r0, 0x60(r1)
 /* 801CF970 001CC8D0  28 00 00 00 */	cmplwi r0, 0
 /* 801CF974 001CC8D4  98 01 00 AC */	stb r0, 0xac(r1)
@@ -1933,7 +1933,7 @@ lbl_801CFB90:
 /* 801CFBC4 001CCB24  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 801CFBC8 001CCB28  7C 08 03 A6 */	mtlr r0
 /* 801CFBCC 001CCB2C  38 21 01 30 */	addi r1, r1, 0x130
-/* 801CFBD0 001CCB30  4E 80 00 20 */	blr 
+/* 801CFBD0 001CCB30  4E 80 00 20 */	blr
 
 .global sub_801cfbd4
 sub_801cfbd4:
@@ -1997,7 +1997,7 @@ sub_801cfbd4:
 /* 801CFCB8 001CCC18  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801CFCBC 001CCC1C  7C 08 03 A6 */	mtlr r0
 /* 801CFCC0 001CCC20  38 21 00 40 */	addi r1, r1, 0x40
-/* 801CFCC4 001CCC24  4E 80 00 20 */	blr 
+/* 801CFCC4 001CCC24  4E 80 00 20 */	blr
 
 .global Render__10CFishCloudCFRC13CStateManager
 Render__10CFishCloudCFRC13CStateManager:
@@ -2075,7 +2075,7 @@ lbl_801CFDBC:
 /* 801CFDDC 001CCD3C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CFDE0 001CCD40  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 801CFDE4 001CCD44  7D 89 03 A6 */	mtctr r12
-/* 801CFDE8 001CCD48  4E 80 04 21 */	bctrl 
+/* 801CFDE8 001CCD48  4E 80 04 21 */	bctrl
 /* 801CFDEC 001CCD4C  48 13 CB 91 */	bl DisableAllLights__9CGraphicsFv
 /* 801CFDF0 001CCD50  38 00 FF FF */	li r0, -1
 /* 801CFDF4 001CCD54  83 DD 00 F4 */	lwz r30, 0xf4(r29)
@@ -2112,7 +2112,7 @@ lbl_801CFE50:
 /* 801CFE60 001CCDC0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CFE64 001CCDC4  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 801CFE68 001CCDC8  7D 89 03 A6 */	mtctr r12
-/* 801CFE6C 001CCDCC  4E 80 04 21 */	bctrl 
+/* 801CFE6C 001CCDCC  4E 80 04 21 */	bctrl
 /* 801CFE70 001CCDD0  48 13 CB 0D */	bl DisableAllLights__9CGraphicsFv
 /* 801CFE74 001CCDD4  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 801CFE78 001CCDD8  3C 80 80 5A */	lis r4, skIdentity4f@ha
@@ -2120,7 +2120,7 @@ lbl_801CFE50:
 /* 801CFE80 001CCDE0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801CFE84 001CCDE4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801CFE88 001CCDE8  7D 89 03 A6 */	mtctr r12
-/* 801CFE8C 001CCDEC  4E 80 04 21 */	bctrl 
+/* 801CFE8C 001CCDEC  4E 80 04 21 */	bctrl
 /* 801CFE90 001CCDF0  83 9D 00 F4 */	lwz r28, 0xf4(r29)
 /* 801CFE94 001CCDF4  48 00 00 84 */	b lbl_801CFF18
 lbl_801CFE98:
@@ -2172,7 +2172,7 @@ lbl_801CFF30:
 /* 801CFF40 001CCEA0  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 801CFF44 001CCEA4  7C 08 03 A6 */	mtlr r0
 /* 801CFF48 001CCEA8  38 21 00 70 */	addi r1, r1, 0x70
-/* 801CFF4C 001CCEAC  4E 80 00 20 */	blr 
+/* 801CFF4C 001CCEAC  4E 80 00 20 */	blr
 
 .global sub_801cff50
 sub_801cff50:
@@ -2239,7 +2239,7 @@ lbl_801CFFEC:
 /* 801D003C 001CCF9C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801D0040 001CCFA0  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801D0044 001CCFA4  7D 89 03 A6 */	mtctr r12
-/* 801D0048 001CCFA8  4E 80 04 21 */	bctrl 
+/* 801D0048 001CCFA8  4E 80 04 21 */	bctrl
 /* 801D004C 001CCFAC  57 C3 18 38 */	slwi r3, r30, 3
 /* 801D0050 001CCFB0  57 40 06 3F */	clrlwi. r0, r26, 0x18
 /* 801D0054 001CCFB4  7C 97 1A 14 */	add r4, r23, r3
@@ -2296,7 +2296,7 @@ lbl_801D0110:
 /* 801D0118 001CD078  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 801D011C 001CD07C  7C 08 03 A6 */	mtlr r0
 /* 801D0120 001CD080  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801D0124 001CD084  4E 80 00 20 */	blr 
+/* 801D0124 001CD084  4E 80 00 20 */	blr
 
 .global PreRender__10CFishCloudFR13CStateManagerRC14CFrustumPlanes
 PreRender__10CFishCloudFR13CStateManagerRC14CFrustumPlanes:
@@ -2336,7 +2336,7 @@ lbl_801D017C:
 
 .global sub_801d01a4
 sub_801d01a4:
-/* 801D01A4 001CD104  4E 80 00 20 */	blr 
+/* 801D01A4 001CD104  4E 80 00 20 */	blr
 
 .global Think__10CFishCloudFfR13CStateManager
 Think__10CFishCloudFfR13CStateManager:
@@ -2874,7 +2874,7 @@ lbl_801D0908:
 /* 801D091C 001CD87C  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 801D0920 001CD880  7C 08 03 A6 */	mtlr r0
 /* 801D0924 001CD884  38 21 01 50 */	addi r1, r1, 0x150
-/* 801D0928 001CD888  4E 80 00 20 */	blr 
+/* 801D0928 001CD888  4E 80 00 20 */	blr
 
 .global GetTouchBounds__10CFishCloudCFv
 GetTouchBounds__10CFishCloudCFv:
@@ -2906,7 +2906,7 @@ lbl_801D0988:
 /* 801D098C 001CD8EC  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801D0990 001CD8F0  7C 08 03 A6 */	mtlr r0
 /* 801D0994 001CD8F4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D0998 001CD8F8  4E 80 00 20 */	blr 
+/* 801D0998 001CD8F8  4E 80 00 20 */	blr
 
 .global sub_801d099c
 sub_801d099c:
@@ -2973,7 +2973,7 @@ lbl_801D0A78:
 /* 801D0A80 001CD9E0  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 801D0A84 001CD9E4  7C 08 03 A6 */	mtlr r0
 /* 801D0A88 001CD9E8  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D0A8C 001CD9EC  4E 80 00 20 */	blr 
+/* 801D0A8C 001CD9EC  4E 80 00 20 */	blr
 
 .global sub_801d0a90
 sub_801d0a90:
@@ -2995,7 +2995,7 @@ sub_801d0a90:
 /* 801D0ACC 001CDA2C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801D0AD0 001CDA30  7C 08 03 A6 */	mtlr r0
 /* 801D0AD4 001CDA34  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D0AD8 001CDA38  4E 80 00 20 */	blr 
+/* 801D0AD8 001CDA38  4E 80 00 20 */	blr
 
 .global sub_801d0adc
 sub_801d0adc:
@@ -3048,7 +3048,7 @@ lbl_801D0B64:
 /* 801D0B80 001CDAE0  80 05 00 00 */	lwz r0, 0(r5)
 /* 801D0B84 001CDAE4  90 03 00 00 */	stw r0, 0(r3)
 /* 801D0B88 001CDAE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D0B8C 001CDAEC  4E 80 00 20 */	blr 
+/* 801D0B8C 001CDAEC  4E 80 00 20 */	blr
 
 .global sub_801d0b90
 sub_801d0b90:
@@ -3115,7 +3115,7 @@ lbl_801D0C6C:
 /* 801D0C74 001CDBD4  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 801D0C78 001CDBD8  7C 08 03 A6 */	mtlr r0
 /* 801D0C7C 001CDBDC  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D0C80 001CDBE0  4E 80 00 20 */	blr 
+/* 801D0C80 001CDBE0  4E 80 00 20 */	blr
 
 .global sub_801d0c84
 sub_801d0c84:
@@ -3210,7 +3210,7 @@ lbl_801D0DC0:
 /* 801D0DD0 001CDD30  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801D0DD4 001CDD34  7C 08 03 A6 */	mtlr r0
 /* 801D0DD8 001CDD38  38 21 00 70 */	addi r1, r1, 0x70
-/* 801D0DDC 001CDD3C  4E 80 00 20 */	blr 
+/* 801D0DDC 001CDD3C  4E 80 00 20 */	blr
 
 .global sub_801d0de0
 sub_801d0de0:
@@ -3248,7 +3248,7 @@ sub_801d0de0:
 /* 801D0E5C 001CDDBC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D0E60 001CDDC0  7C 08 03 A6 */	mtlr r0
 /* 801D0E64 001CDDC4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D0E68 001CDDC8  4E 80 00 20 */	blr 
+/* 801D0E68 001CDDC8  4E 80 00 20 */	blr
 
 .global sub_801d0e6c
 sub_801d0e6c:
@@ -3458,7 +3458,7 @@ lbl_801D1130:
 /* 801D1134 001CE094  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801D1138 001CE098  7C 08 03 A6 */	mtlr r0
 /* 801D113C 001CE09C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D1140 001CE0A0  4E 80 00 20 */	blr 
+/* 801D1140 001CE0A0  4E 80 00 20 */	blr
 
 .global sub_801d1144
 sub_801d1144:
@@ -3553,7 +3553,7 @@ lbl_801D1280:
 /* 801D1290 001CE1F0  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801D1294 001CE1F4  7C 08 03 A6 */	mtlr r0
 /* 801D1298 001CE1F8  38 21 00 70 */	addi r1, r1, 0x70
-/* 801D129C 001CE1FC  4E 80 00 20 */	blr 
+/* 801D129C 001CE1FC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__10CFishCloudF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__10CFishCloudF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -3764,7 +3764,7 @@ lbl_801D1540:
 /* 801D15B0 001CE510  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 801D15B4 001CE514  7C 08 03 A6 */	mtlr r0
 /* 801D15B8 001CE518  38 21 01 60 */	addi r1, r1, 0x160
-/* 801D15BC 001CE51C  4E 80 00 20 */	blr 
+/* 801D15BC 001CE51C  4E 80 00 20 */	blr
 
 .global PlaceBoid__10CFishCloudFR13CStateManagerRQ210CFishCloud5CBoidRC6CAABox
 PlaceBoid__10CFishCloudFR13CStateManagerRQ210CFishCloud5CBoidRC6CAABox:
@@ -3934,7 +3934,7 @@ lbl_801D181C:
 /* 801D1844 001CE7A4  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 801D1848 001CE7A8  7C 08 03 A6 */	mtlr r0
 /* 801D184C 001CE7AC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801D1850 001CE7B0  4E 80 00 20 */	blr 
+/* 801D1850 001CE7B0  4E 80 00 20 */	blr
 
 .global FindClosestPlane__10CFishCloudCFRC6CAABoxRC9CVector3f
 FindClosestPlane__10CFishCloudCFRC6CAABoxRC9CVector3f:
@@ -4226,7 +4226,7 @@ lbl_801D1C84:
 /* 801D1CB0 001CEC10  80 01 02 B4 */	lwz r0, 0x2b4(r1)
 /* 801D1CB4 001CEC14  7C 08 03 A6 */	mtlr r0
 /* 801D1CB8 001CEC18  38 21 02 B0 */	addi r1, r1, 0x2b0
-/* 801D1CBC 001CEC1C  4E 80 00 20 */	blr 
+/* 801D1CBC 001CEC1C  4E 80 00 20 */	blr
 
 .global PointInBox__10CFishCloudCFRC6CAABoxRC9CVector3f
 PointInBox__10CFishCloudCFRC6CAABoxRC9CVector3f:
@@ -4277,7 +4277,7 @@ lbl_801D1D64:
 /* 801D1D68 001CECC8  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 801D1D6C 001CECCC  7C 08 03 A6 */	mtlr r0
 /* 801D1D70 001CECD0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D1D74 001CECD4  4E 80 00 20 */	blr 
+/* 801D1D74 001CECD4  4E 80 00 20 */	blr
 
 .global GetUntransformedBoundingBox__10CFishCloudCFv
 GetUntransformedBoundingBox__10CFishCloudCFv:
@@ -4306,7 +4306,7 @@ GetUntransformedBoundingBox__10CFishCloudCFv:
 /* 801D1DD0 001CED30  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801D1DD4 001CED34  7C 08 03 A6 */	mtlr r0
 /* 801D1DD8 001CED38  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D1DDC 001CED3C  4E 80 00 20 */	blr 
+/* 801D1DDC 001CED3C  4E 80 00 20 */	blr
 
 .global GetBoundingBox__10CFishCloudCFv
 GetBoundingBox__10CFishCloudCFv:
@@ -4340,7 +4340,7 @@ GetBoundingBox__10CFishCloudCFv:
 /* 801D1E4C 001CEDAC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801D1E50 001CEDB0  7C 08 03 A6 */	mtlr r0
 /* 801D1E54 001CEDB4  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D1E58 001CEDB8  4E 80 00 20 */	blr 
+/* 801D1E58 001CEDB8  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__10CFishCloudFv
 CalculateRenderBounds__10CFishCloudFv:
@@ -4380,7 +4380,7 @@ CalculateRenderBounds__10CFishCloudFv:
 /* 801D1EE0 001CEE40  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801D1EE4 001CEE44  7C 08 03 A6 */	mtlr r0
 /* 801D1EE8 001CEE48  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D1EEC 001CEE4C  4E 80 00 20 */	blr 
+/* 801D1EEC 001CEE4C  4E 80 00 20 */	blr
 
 .global Accept__10CFishCloudFR8IVisitor
 Accept__10CFishCloudFR8IVisitor:
@@ -4393,11 +4393,11 @@ Accept__10CFishCloudFR8IVisitor:
 /* 801D1F08 001CEE68  7C 04 03 78 */	mr r4, r0
 /* 801D1F0C 001CEE6C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801D1F10 001CEE70  7D 89 03 A6 */	mtctr r12
-/* 801D1F14 001CEE74  4E 80 04 21 */	bctrl 
+/* 801D1F14 001CEE74  4E 80 04 21 */	bctrl
 /* 801D1F18 001CEE78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D1F1C 001CEE7C  7C 08 03 A6 */	mtlr r0
 /* 801D1F20 001CEE80  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D1F24 001CEE84  4E 80 00 20 */	blr 
+/* 801D1F24 001CEE84  4E 80 00 20 */	blr
 
 .global sub_801d1f28
 sub_801d1f28:
@@ -4548,7 +4548,7 @@ lbl_801D2090:
 /* 801D213C 001CF09C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801D2140 001CF0A0  7C 08 03 A6 */	mtlr r0
 /* 801D2144 001CF0A4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801D2148 001CF0A8  4E 80 00 20 */	blr 
+/* 801D2148 001CF0A8  4E 80 00 20 */	blr
 
 .global "__ct__10CFishCloudF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fRC10CModelDatafffff"
 "__ct__10CFishCloudF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fRC10CModelDatafffff":
@@ -5063,7 +5063,7 @@ lbl_801D28BC:
 /* 801D28E4 001CF844  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D28E8 001CF848  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D28EC 001CF84C  7D 89 03 A6 */	mtctr r12
-/* 801D28F0 001CF850  4E 80 04 21 */	bctrl 
+/* 801D28F0 001CF850  4E 80 04 21 */	bctrl
 /* 801D28F4 001CF854  39 C1 00 A4 */	addi r14, r1, 0xa4
 /* 801D28F8 001CF858  38 81 00 68 */	addi r4, r1, 0x68
 /* 801D28FC 001CF85C  7D C3 73 78 */	mr r3, r14
@@ -5109,7 +5109,7 @@ lbl_801D296C:
 /* 801D2994 001CF8F4  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D2998 001CF8F8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D299C 001CF8FC  7D 89 03 A6 */	mtctr r12
-/* 801D29A0 001CF900  4E 80 04 21 */	bctrl 
+/* 801D29A0 001CF900  4E 80 04 21 */	bctrl
 /* 801D29A4 001CF904  39 C1 00 98 */	addi r14, r1, 0x98
 /* 801D29A8 001CF908  38 81 00 58 */	addi r4, r1, 0x58
 /* 801D29AC 001CF90C  7D C3 73 78 */	mr r3, r14
@@ -5155,7 +5155,7 @@ lbl_801D2A1C:
 /* 801D2A44 001CF9A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D2A48 001CF9A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D2A4C 001CF9AC  7D 89 03 A6 */	mtctr r12
-/* 801D2A50 001CF9B0  4E 80 04 21 */	bctrl 
+/* 801D2A50 001CF9B0  4E 80 04 21 */	bctrl
 /* 801D2A54 001CF9B4  39 C1 00 8C */	addi r14, r1, 0x8c
 /* 801D2A58 001CF9B8  38 81 00 48 */	addi r4, r1, 0x48
 /* 801D2A5C 001CF9BC  7D C3 73 78 */	mr r3, r14
@@ -5201,7 +5201,7 @@ lbl_801D2ACC:
 /* 801D2AF4 001CFA54  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D2AF8 001CFA58  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D2AFC 001CFA5C  7D 89 03 A6 */	mtctr r12
-/* 801D2B00 001CFA60  4E 80 04 21 */	bctrl 
+/* 801D2B00 001CFA60  4E 80 04 21 */	bctrl
 /* 801D2B04 001CFA64  39 C1 00 80 */	addi r14, r1, 0x80
 /* 801D2B08 001CFA68  38 81 00 38 */	addi r4, r1, 0x38
 /* 801D2B0C 001CFA6C  7D C3 73 78 */	mr r3, r14
@@ -5289,7 +5289,7 @@ lbl_801D2C18:
 /* 801D2C40 001CFBA0  38 80 00 01 */	li r4, 1
 /* 801D2C44 001CFBA4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801D2C48 001CFBA8  7D 89 03 A6 */	mtctr r12
-/* 801D2C4C 001CFBAC  4E 80 04 21 */	bctrl 
+/* 801D2C4C 001CFBAC  4E 80 04 21 */	bctrl
 lbl_801D2C50:
 /* 801D2C50 001CFBB0  7E 80 07 75 */	extsb. r0, r20
 /* 801D2C54 001CFBB4  41 82 00 10 */	beq lbl_801D2C64
@@ -5303,7 +5303,7 @@ lbl_801D2C64:
 /* 801D2C70 001CFBD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801D2C74 001CFBD4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801D2C78 001CFBD8  7D 89 03 A6 */	mtctr r12
-/* 801D2C7C 001CFBDC  4E 80 04 21 */	bctrl 
+/* 801D2C7C 001CFBDC  4E 80 04 21 */	bctrl
 /* 801D2C80 001CFBE0  3A 10 00 0C */	addi r16, r16, 0xc
 /* 801D2C84 001CFBE4  3A 31 00 08 */	addi r17, r17, 8
 /* 801D2C88 001CFBE8  3A 73 00 01 */	addi r19, r19, 1
@@ -5421,7 +5421,7 @@ lbl_801D2D3C:
 /* 801D2E34 001CFD94  80 01 02 F4 */	lwz r0, 0x2f4(r1)
 /* 801D2E38 001CFD98  7C 08 03 A6 */	mtlr r0
 /* 801D2E3C 001CFD9C  38 21 02 F0 */	addi r1, r1, 0x2f0
-/* 801D2E40 001CFDA0  4E 80 00 20 */	blr 
+/* 801D2E40 001CFDA0  4E 80 00 20 */	blr
 
 .global __ct__Q210CFishCloud5CBoidFRC9CVector3fRC9CVector3ff
 __ct__Q210CFishCloud5CBoidFRC9CVector3fRC9CVector3ff:
@@ -5442,7 +5442,7 @@ __ct__Q210CFishCloud5CBoidFRC9CVector3fRC9CVector3ff:
 /* 801D2E7C 001CFDDC  D0 23 00 18 */	stfs f1, 0x18(r3)
 /* 801D2E80 001CFDE0  90 C3 00 1C */	stw r6, 0x1c(r3)
 /* 801D2E84 001CFDE4  98 03 00 20 */	stb r0, 0x20(r3)
-/* 801D2E88 001CFDE8  4E 80 00 20 */	blr 
+/* 801D2E88 001CFDE8  4E 80 00 20 */	blr
 
 .global __lt__Q210CFishCloud15CModifierSourceCFRCQ210CFishCloud15CModifierSource
 __lt__Q210CFishCloud15CModifierSourceCFRCQ210CFishCloud15CModifierSource:
@@ -5454,11 +5454,11 @@ __lt__Q210CFishCloud15CModifierSourceCFRCQ210CFishCloud15CModifierSource:
 /* 801D2EA0 001CFE00  88 04 00 0C */	lbz r0, 0xc(r4)
 /* 801D2EA4 001CFE04  7C 00 18 50 */	subf r0, r0, r3
 /* 801D2EA8 001CFE08  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801D2EAC 001CFE0C  4E 80 00 20 */	blr 
+/* 801D2EAC 001CFE0C  4E 80 00 20 */	blr
 lbl_801D2EB0:
 /* 801D2EB0 001CFE10  7C 00 28 50 */	subf r0, r0, r5
 /* 801D2EB4 001CFE14  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801D2EB8 001CFE18  4E 80 00 20 */	blr 
+/* 801D2EB8 001CFE18  4E 80 00 20 */	blr
 
 .global __ct__Q210CFishCloud15CModifierSourceFRC9TUniqueIdbff
 __ct__Q210CFishCloud15CModifierSourceFRC9TUniqueIdbff:
@@ -5468,7 +5468,7 @@ __ct__Q210CFishCloud15CModifierSourceFRC9TUniqueIdbff:
 /* 801D2EC8 001CFE28  D0 43 00 08 */	stfs f2, 8(r3)
 /* 801D2ECC 001CFE2C  98 A3 00 0C */	stb r5, 0xc(r3)
 /* 801D2ED0 001CFE30  98 C3 00 0D */	stb r6, 0xd(r3)
-/* 801D2ED4 001CFE34  4E 80 00 20 */	blr 
+/* 801D2ED4 001CFE34  4E 80 00 20 */	blr
 
 .global RemoveSelf__18CFishCloudModifierFR13CStateManager
 RemoveSelf__18CFishCloudModifierFR13CStateManager:
@@ -5540,7 +5540,7 @@ lbl_801D2FA8:
 /* 801D2FCC 001CFF2C  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801D2FD0 001CFF30  7C 08 03 A6 */	mtlr r0
 /* 801D2FD4 001CFF34  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D2FD8 001CFF38  4E 80 00 20 */	blr 
+/* 801D2FD8 001CFF38  4E 80 00 20 */	blr
 
 .global AddSelf__18CFishCloudModifierFR13CStateManager
 AddSelf__18CFishCloudModifierFR13CStateManager:
@@ -5618,7 +5618,7 @@ lbl_801D30C4:
 /* 801D30E8 001D0048  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801D30EC 001D004C  7C 08 03 A6 */	mtlr r0
 /* 801D30F0 001D0050  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D30F4 001D0054  4E 80 00 20 */	blr 
+/* 801D30F4 001D0054  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CFishCloudModifierF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CFishCloudModifierF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -5667,7 +5667,7 @@ lbl_801D3184:
 /* 801D3190 001D00F0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801D3194 001D00F4  7C 08 03 A6 */	mtlr r0
 /* 801D3198 001D00F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D319C 001D00FC  4E 80 00 20 */	blr 
+/* 801D319C 001D00FC  4E 80 00 20 */	blr
 
 .global Accept__18CFishCloudModifierFR8IVisitor
 Accept__18CFishCloudModifierFR8IVisitor:
@@ -5680,11 +5680,11 @@ Accept__18CFishCloudModifierFR8IVisitor:
 /* 801D31B8 001D0118  7C 04 03 78 */	mr r4, r0
 /* 801D31BC 001D011C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801D31C0 001D0120  7D 89 03 A6 */	mtctr r12
-/* 801D31C4 001D0124  4E 80 04 21 */	bctrl 
+/* 801D31C4 001D0124  4E 80 04 21 */	bctrl
 /* 801D31C8 001D0128  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D31CC 001D012C  7C 08 03 A6 */	mtlr r0
 /* 801D31D0 001D0130  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D31D4 001D0134  4E 80 00 20 */	blr 
+/* 801D31D4 001D0134  4E 80 00 20 */	blr
 
 .global "__ct__18CFishCloudModifierF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbff"
 "__ct__18CFishCloudModifierF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbff":
@@ -5761,7 +5761,7 @@ Accept__18CFishCloudModifierFR8IVisitor:
 /* 801D32F0 001D0250  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 801D32F4 001D0254  7C 08 03 A6 */	mtlr r0
 /* 801D32F8 001D0258  38 21 01 40 */	addi r1, r1, 0x140
-/* 801D32FC 001D025C  4E 80 00 20 */	blr 
+/* 801D32FC 001D025C  4E 80 00 20 */	blr
 
 .global __dt__18CFishCloudModifierFv
 __dt__18CFishCloudModifierFv:
@@ -5789,7 +5789,7 @@ lbl_801D3344:
 /* 801D3350 001D02B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D3354 001D02B4  7C 08 03 A6 */	mtlr r0
 /* 801D3358 001D02B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D335C 001D02BC  4E 80 00 20 */	blr 
+/* 801D335C 001D02BC  4E 80 00 20 */	blr
 
 .global sub_801d3360
 sub_801d3360:
@@ -5816,7 +5816,7 @@ lbl_801D33A8:
 /* 801D33AC 001D030C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D33B0 001D0310  7C 08 03 A6 */	mtlr r0
 /* 801D33B4 001D0314  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D33B8 001D0318  4E 80 00 20 */	blr 
+/* 801D33B8 001D0318  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q210CFishCloud15CModifierSource>__4rstlFQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator"
 "lower_bound<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q210CFishCloud15CModifierSource>__4rstlFQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator":
@@ -5871,7 +5871,7 @@ lbl_801D345C:
 /* 801D3470 001D03D0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801D3474 001D03D4  7C 08 03 A6 */	mtlr r0
 /* 801D3478 001D03D8  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D347C 001D03DC  4E 80 00 20 */	blr 
+/* 801D347C 001D03DC  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>Fi":
@@ -5950,7 +5950,7 @@ lbl_801D3570:
 /* 801D357C 001D04DC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D3580 001D04E0  7C 08 03 A6 */	mtlr r0
 /* 801D3584 001D04E4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D3588 001D04E8  4E 80 00 20 */	blr 
+/* 801D3588 001D04E8  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl56vector<PQ210CFishCloud5CBoid,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl56vector<PQ210CFishCloud5CBoid,Q24rstl17rmemory_allocator>Fi":
@@ -6021,7 +6021,7 @@ lbl_801D365C:
 /* 801D3668 001D05C8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D366C 001D05CC  7C 08 03 A6 */	mtlr r0
 /* 801D3670 001D05D0  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D3674 001D05D4  4E 80 00 20 */	blr 
+/* 801D3674 001D05D4  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl55vector<Q210CFishCloud5CBoid,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl55vector<Q210CFishCloud5CBoid,Q24rstl17rmemory_allocator>Fi":
@@ -6109,7 +6109,7 @@ lbl_801D378C:
 /* 801D3798 001D06F8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801D379C 001D06FC  7C 08 03 A6 */	mtlr r0
 /* 801D37A0 001D0700  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D37A4 001D0704  4E 80 00 20 */	blr 
+/* 801D37A4 001D0704  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -6123,7 +6123,7 @@ lbl_801D378C:
 /* 801D37C4 001D0724  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D37C8 001D0728  7C 08 03 A6 */	mtlr r0
 /* 801D37CC 001D072C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D37D0 001D0730  4E 80 00 20 */	blr 
+/* 801D37D0 001D0730  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -6131,7 +6131,7 @@ lbl_801D378C:
 /* 801D37D8 001D0738  54 80 20 36 */	slwi r0, r4, 4
 /* 801D37DC 001D073C  7C 05 02 14 */	add r0, r5, r0
 /* 801D37E0 001D0740  90 03 00 00 */	stw r0, 0(r3)
-/* 801D37E4 001D0744  4E 80 00 20 */	blr 
+/* 801D37E4 001D0744  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "distance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -6151,7 +6151,7 @@ lbl_801D378C:
 /* 801D381C 001D077C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801D3820 001D0780  7C 08 03 A6 */	mtlr r0
 /* 801D3824 001D0784  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D3828 001D0788  4E 80 00 20 */	blr 
+/* 801D3828 001D0788  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24r"
 "__distance<Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl152pointer_iterator<Q210CFishCloud15CModifierSource,Q24rstl66vector<Q210CFishCloud15CModifierSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24r":

@@ -14,7 +14,7 @@ lbl_805A923C:
 .global GetGlobalTimerObj__10CStopwatchFv
 GetGlobalTimerObj__10CStopwatchFv:
 /* 802D6264 002D31C4  38 6D A6 78 */	addi r3, r13, lbl_805A9238@sda21
-/* 802D6268 002D31C8  4E 80 00 20 */	blr 
+/* 802D6268 002D31C8  4E 80 00 20 */	blr
 
 .global Wait__10CStopwatchFf
 Wait__10CStopwatchFf:
@@ -38,7 +38,7 @@ lbl_802D62A8:
 /* 802D62A8 002D3208  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D62AC 002D320C  7C 08 03 A6 */	mtlr r0
 /* 802D62B0 002D3210  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D62B4 002D3214  4E 80 00 20 */	blr 
+/* 802D62B4 002D3214  4E 80 00 20 */	blr
 
 .global InitGlobalTimer__10CStopwatchFv
 InitGlobalTimer__10CStopwatchFv:
@@ -62,7 +62,7 @@ lbl_802D62E8:
 /* 802D62F8 002D3258  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D62FC 002D325C  7C 08 03 A6 */	mtlr r0
 /* 802D6300 002D3260  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6304 002D3264  4E 80 00 20 */	blr 
+/* 802D6304 002D3264  4E 80 00 20 */	blr
 
 .global __sinit_CStopwatch_cpp
 __sinit_CStopwatch_cpp:

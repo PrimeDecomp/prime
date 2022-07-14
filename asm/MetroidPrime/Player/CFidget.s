@@ -298,13 +298,13 @@ lbl_80154B40:
 /* 80154B48 00151AA8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80154B4C 00151AAC  7C 08 03 A6 */	mtlr r0
 /* 80154B50 00151AB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80154B54 00151AB4  4E 80 00 20 */	blr 
+/* 80154B54 00151AB4  4E 80 00 20 */	blr
 
 .global ResetMinor__7CFidgetFv
 ResetMinor__7CFidgetFv:
 /* 80154B58 00151AB8  38 00 00 00 */	li r0, 0
 /* 80154B5C 00151ABC  90 03 00 00 */	stw r0, 0(r3)
-/* 80154B60 00151AC0  4E 80 00 20 */	blr 
+/* 80154B60 00151AC0  4E 80 00 20 */	blr
 
 .global ResetAll__7CFidgetFv
 ResetAll__7CFidgetFv:
@@ -326,7 +326,7 @@ ResetAll__7CFidgetFv:
 /* 80154BA0 00151B00  88 03 00 34 */	lbz r0, 0x34(r3)
 /* 80154BA4 00151B04  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
 /* 80154BA8 00151B08  98 03 00 34 */	stb r0, 0x34(r3)
-/* 80154BAC 00151B0C  4E 80 00 20 */	blr 
+/* 80154BAC 00151B0C  4E 80 00 20 */	blr
 
 .global __ct__7CFidgetFv
 __ct__7CFidgetFv:

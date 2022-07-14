@@ -76,7 +76,7 @@ FromNUQuaternion__11CQuaternionFRC13CNUQuaternion:
 /* 80310A28 0030D988  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80310A2C 0030D98C  7C 08 03 A6 */	mtlr r0
 /* 80310A30 0030D990  38 21 00 20 */	addi r1, r1, 0x20
-/* 80310A34 0030D994  4E 80 00 20 */	blr 
+/* 80310A34 0030D994  4E 80 00 20 */	blr
 
 .global __ml__FfRC13CNUQuaternion
 __ml__FfRC13CNUQuaternion:
@@ -102,7 +102,7 @@ __ml__FfRC13CNUQuaternion:
 /* 80310A84 0030D9E4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80310A88 0030D9E8  7C 08 03 A6 */	mtlr r0
 /* 80310A8C 0030D9EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80310A90 0030D9F0  4E 80 00 20 */	blr 
+/* 80310A90 0030D9F0  4E 80 00 20 */	blr
 
 .global __ml__FRC13CNUQuaternionf
 __ml__FRC13CNUQuaternionf:
@@ -128,7 +128,7 @@ __ml__FRC13CNUQuaternionf:
 /* 80310AE0 0030DA40  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80310AE4 0030DA44  7C 08 03 A6 */	mtlr r0
 /* 80310AE8 0030DA48  38 21 00 20 */	addi r1, r1, 0x20
-/* 80310AEC 0030DA4C  4E 80 00 20 */	blr 
+/* 80310AEC 0030DA4C  4E 80 00 20 */	blr
 
 .global BuildFromMatrix3f__13CNUQuaternionFRC9CMatrix3f
 BuildFromMatrix3f__13CNUQuaternionFRC9CMatrix3f:
@@ -277,7 +277,7 @@ lbl_80310CFC:
 /* 80310D04 0030DC64  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80310D08 0030DC68  7C 08 03 A6 */	mtlr r0
 /* 80310D0C 0030DC6C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80310D10 0030DC70  4E 80 00 20 */	blr 
+/* 80310D10 0030DC70  4E 80 00 20 */	blr
 
 .global BuildFromQuaternion__13CNUQuaternionFRC11CQuaternion
 BuildFromQuaternion__13CNUQuaternionFRC11CQuaternion:
@@ -290,7 +290,7 @@ BuildFromQuaternion__13CNUQuaternionFRC11CQuaternion:
 /* 80310D2C 0030DC8C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80310D30 0030DC90  7C 08 03 A6 */	mtlr r0
 /* 80310D34 0030DC94  38 21 00 10 */	addi r1, r1, 0x10
-/* 80310D38 0030DC98  4E 80 00 20 */	blr 
+/* 80310D38 0030DC98  4E 80 00 20 */	blr
 
 .global BuildFromAxisAngle__13CNUQuaternionFRC9CVector3ff
 BuildFromAxisAngle__13CNUQuaternionFRC9CVector3ff:
@@ -336,7 +336,7 @@ BuildFromAxisAngle__13CNUQuaternionFRC9CVector3ff:
 /* 80310DD8 0030DD38  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80310DDC 0030DD3C  7C 08 03 A6 */	mtlr r0
 /* 80310DE0 0030DD40  38 21 00 50 */	addi r1, r1, 0x50
-/* 80310DE4 0030DD44  4E 80 00 20 */	blr 
+/* 80310DE4 0030DD44  4E 80 00 20 */	blr
 
 .global AsNormalized__13CNUQuaternionCFv
 AsNormalized__13CNUQuaternionCFv:
@@ -381,7 +381,7 @@ AsNormalized__13CNUQuaternionCFv:
 /* 80310E80 0030DDE0  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80310E84 0030DDE4  7C 08 03 A6 */	mtlr r0
 /* 80310E88 0030DDE8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80310E8C 0030DDEC  4E 80 00 20 */	blr 
+/* 80310E8C 0030DDEC  4E 80 00 20 */	blr
 
 .global __apl__13CNUQuaternionFRC13CNUQuaternion
 __apl__13CNUQuaternionFRC13CNUQuaternion:
@@ -401,7 +401,7 @@ __apl__13CNUQuaternionFRC13CNUQuaternion:
 /* 80310EC4 0030DE24  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 80310EC8 0030DE28  EC 01 00 2A */	fadds f0, f1, f0
 /* 80310ECC 0030DE2C  D0 03 00 0C */	stfs f0, 0xc(r3)
-/* 80310ED0 0030DE30  4E 80 00 20 */	blr 
+/* 80310ED0 0030DE30  4E 80 00 20 */	blr
 
 .global __ml__13CNUQuaternionCFRC13CNUQuaternion
 __ml__13CNUQuaternionCFRC13CNUQuaternion:
@@ -474,7 +474,7 @@ __ml__13CNUQuaternionCFRC13CNUQuaternion:
 /* 80310FDC 0030DF3C  CB 81 00 50 */	lfd f28, 0x50(r1)
 /* 80310FE0 0030DF40  7C 08 03 A6 */	mtlr r0
 /* 80310FE4 0030DF44  38 21 00 90 */	addi r1, r1, 0x90
-/* 80310FE8 0030DF48  4E 80 00 20 */	blr 
+/* 80310FE8 0030DF48  4E 80 00 20 */	blr
 
 .global __ct__13CNUQuaternionFffff
 __ct__13CNUQuaternionFffff:
@@ -482,7 +482,7 @@ __ct__13CNUQuaternionFffff:
 /* 80310FF0 0030DF50  D0 43 00 04 */	stfs f2, 4(r3)
 /* 80310FF4 0030DF54  D0 63 00 08 */	stfs f3, 8(r3)
 /* 80310FF8 0030DF58  D0 83 00 0C */	stfs f4, 0xc(r3)
-/* 80310FFC 0030DF5C  4E 80 00 20 */	blr 
+/* 80310FFC 0030DF5C  4E 80 00 20 */	blr
 
 .global __ct__13CNUQuaternionFfRC9CVector3f
 __ct__13CNUQuaternionFfRC9CVector3f:
@@ -493,7 +493,7 @@ __ct__13CNUQuaternionFfRC9CVector3f:
 /* 80311010 0030DF70  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80311014 0030DF74  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80311018 0030DF78  D0 03 00 0C */	stfs f0, 0xc(r3)
-/* 8031101C 0030DF7C  4E 80 00 20 */	blr 
+/* 8031101C 0030DF7C  4E 80 00 20 */	blr
 
 .global ClampedRotateTo__11CQuaternionFRC10UnitVectorRC10UnitVectorRC9CRelAngle
 ClampedRotateTo__11CQuaternionFRC10UnitVectorRC10UnitVectorRC9CRelAngle:
@@ -552,7 +552,7 @@ lbl_803110D4:
 /* 803110E8 0030E048  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 803110EC 0030E04C  7C 08 03 A6 */	mtlr r0
 /* 803110F0 0030E050  38 21 00 60 */	addi r1, r1, 0x60
-/* 803110F4 0030E054  4E 80 00 20 */	blr 
+/* 803110F4 0030E054  4E 80 00 20 */	blr
 
 .global ZRotation__11CQuaternionFRC9CRelAngle
 ZRotation__11CQuaternionFRC9CRelAngle:
@@ -569,7 +569,7 @@ ZRotation__11CQuaternionFRC9CRelAngle:
 /* 80311120 0030E080  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80311124 0030E084  7C 08 03 A6 */	mtlr r0
 /* 80311128 0030E088  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031112C 0030E08C  4E 80 00 20 */	blr 
+/* 8031112C 0030E08C  4E 80 00 20 */	blr
 
 .global YRotation__11CQuaternionFRC9CRelAngle
 YRotation__11CQuaternionFRC9CRelAngle:
@@ -586,7 +586,7 @@ YRotation__11CQuaternionFRC9CRelAngle:
 /* 80311158 0030E0B8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8031115C 0030E0BC  7C 08 03 A6 */	mtlr r0
 /* 80311160 0030E0C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80311164 0030E0C4  4E 80 00 20 */	blr 
+/* 80311164 0030E0C4  4E 80 00 20 */	blr
 
 .global XRotation__11CQuaternionFRC9CRelAngle
 XRotation__11CQuaternionFRC9CRelAngle:
@@ -603,7 +603,7 @@ XRotation__11CQuaternionFRC9CRelAngle:
 /* 80311190 0030E0F0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80311194 0030E0F4  7C 08 03 A6 */	mtlr r0
 /* 80311198 0030E0F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031119C 0030E0FC  4E 80 00 20 */	blr 
+/* 8031119C 0030E0FC  4E 80 00 20 */	blr
 
 .global __ml__11CQuaternionCFRC11CQuaternion
 __ml__11CQuaternionCFRC11CQuaternion:
@@ -655,7 +655,7 @@ __ml__11CQuaternionCFRC11CQuaternion:
 /* 80311254 0030E1B4  E3 A1 00 18 */	psq_l f29, 24(r1), 0, qr0
 /* 80311258 0030E1B8  CB A1 00 10 */	lfd f29, 0x10(r1)
 /* 8031125C 0030E1BC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80311260 0030E1C0  4E 80 00 20 */	blr 
+/* 80311260 0030E1C0  4E 80 00 20 */	blr
 
 .global Transform__11CQuaternionCFRC9CVector3f
 Transform__11CQuaternionCFRC9CVector3f:
@@ -694,7 +694,7 @@ Transform__11CQuaternionCFRC9CVector3f:
 /* 803112E4 0030E244  EC 08 01 7A */	fmadds f0, f8, f5, f0
 /* 803112E8 0030E248  D0 23 00 04 */	stfs f1, 4(r3)
 /* 803112EC 0030E24C  D0 03 00 08 */	stfs f0, 8(r3)
-/* 803112F0 0030E250  4E 80 00 20 */	blr 
+/* 803112F0 0030E250  4E 80 00 20 */	blr
 
 .global AxisAngle__11CQuaternionFRC13CUnitVector3fRC9CRelAngle
 AxisAngle__11CQuaternionFRC13CUnitVector3fRC9CRelAngle:
@@ -739,7 +739,7 @@ AxisAngle__11CQuaternionFRC13CUnitVector3fRC9CRelAngle:
 /* 8031138C 0030E2EC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80311390 0030E2F0  7C 08 03 A6 */	mtlr r0
 /* 80311394 0030E2F4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80311398 0030E2F8  4E 80 00 20 */	blr 
+/* 80311398 0030E2F8  4E 80 00 20 */	blr
 
 .global BuildNormalized__11CQuaternionCFv
 BuildNormalized__11CQuaternionCFv:
@@ -779,7 +779,7 @@ BuildNormalized__11CQuaternionCFv:
 /* 80311420 0030E380  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80311424 0030E384  7C 08 03 A6 */	mtlr r0
 /* 80311428 0030E388  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031142C 0030E38C  4E 80 00 20 */	blr 
+/* 8031142C 0030E38C  4E 80 00 20 */	blr
 
 .global BuildEquivalent__11CQuaternionCFv
 BuildEquivalent__11CQuaternionCFv:
@@ -848,7 +848,7 @@ lbl_80311504:
 /* 80311514 0030E474  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80311518 0030E478  7C 08 03 A6 */	mtlr r0
 /* 8031151C 0030E47C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80311520 0030E480  4E 80 00 20 */	blr 
+/* 80311520 0030E480  4E 80 00 20 */	blr
 
 .global AngleFrom__11CQuaternionCFRC11CQuaternion
 AngleFrom__11CQuaternionCFRC11CQuaternion:
@@ -891,7 +891,7 @@ lbl_80311598:
 /* 803115A8 0030E508  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803115AC 0030E50C  7C 08 03 A6 */	mtlr r0
 /* 803115B0 0030E510  38 21 00 20 */	addi r1, r1, 0x20
-/* 803115B4 0030E514  4E 80 00 20 */	blr 
+/* 803115B4 0030E514  4E 80 00 20 */	blr
 
 .global SlerpLocal__11CQuaternionFRC11CQuaternionRC11CQuaternionf
 SlerpLocal__11CQuaternionFRC11CQuaternionRC11CQuaternionf:
@@ -951,7 +951,7 @@ lbl_80311654:
 /* 80311684 0030E5E4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80311688 0030E5E8  7C 08 03 A6 */	mtlr r0
 /* 8031168C 0030E5EC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80311690 0030E5F0  4E 80 00 20 */	blr 
+/* 80311690 0030E5F0  4E 80 00 20 */	blr
 
 .global LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle
 LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle:
@@ -1238,7 +1238,7 @@ lbl_80311A7C:
 /* 80311AA8 0030EA08  83 A1 00 E4 */	lwz r29, 0xe4(r1)
 /* 80311AAC 0030EA0C  7C 08 03 A6 */	mtlr r0
 /* 80311AB0 0030EA10  38 21 01 30 */	addi r1, r1, 0x130
-/* 80311AB4 0030EA14  4E 80 00 20 */	blr 
+/* 80311AB4 0030EA14  4E 80 00 20 */	blr
 
 .global ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f
 ShortestRotationArc__11CQuaternionFRC9CVector3fRC9CVector3f:
@@ -1395,7 +1395,7 @@ lbl_80311CE4:
 /* 80311CE8 0030EC48  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80311CEC 0030EC4C  7C 08 03 A6 */	mtlr r0
 /* 80311CF0 0030EC50  38 21 00 50 */	addi r1, r1, 0x50
-/* 80311CF4 0030EC54  4E 80 00 20 */	blr 
+/* 80311CF4 0030EC54  4E 80 00 20 */	blr
 
 .global Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf
 Slerp__11CQuaternionFRC11CQuaternionRC11CQuaternionf:
@@ -1516,7 +1516,7 @@ lbl_80311E80:
 /* 80311EAC 0030EE0C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80311EB0 0030EE10  7C 08 03 A6 */	mtlr r0
 /* 80311EB4 0030EE14  38 21 00 60 */	addi r1, r1, 0x60
-/* 80311EB8 0030EE18  4E 80 00 20 */	blr 
+/* 80311EB8 0030EE18  4E 80 00 20 */	blr
 
 .global BuildTransform4f__11CQuaternionCFRC9CVector3f
 BuildTransform4f__11CQuaternionCFRC9CVector3f:
@@ -1582,7 +1582,7 @@ BuildTransform4f__11CQuaternionCFRC9CVector3f:
 /* 80311FA8 0030EF08  E3 81 00 18 */	psq_l f28, 24(r1), 0, qr0
 /* 80311FAC 0030EF0C  CB 81 00 10 */	lfd f28, 0x10(r1)
 /* 80311FB0 0030EF10  38 21 00 50 */	addi r1, r1, 0x50
-/* 80311FB4 0030EF14  4E 80 00 20 */	blr 
+/* 80311FB4 0030EF14  4E 80 00 20 */	blr
 
 .global BuildTransform4f__11CQuaternionCFv
 BuildTransform4f__11CQuaternionCFv:
@@ -1638,7 +1638,7 @@ BuildTransform4f__11CQuaternionCFv:
 /* 8031207C 0030EFDC  E3 C1 00 18 */	psq_l f30, 24(r1), 0, qr0
 /* 80312080 0030EFE0  CB C1 00 10 */	lfd f30, 0x10(r1)
 /* 80312084 0030EFE4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80312088 0030EFE8  4E 80 00 20 */	blr 
+/* 80312088 0030EFE8  4E 80 00 20 */	blr
 
 .global BuildTransform__11CQuaternionCFv
 BuildTransform__11CQuaternionCFv:
@@ -1680,7 +1680,7 @@ BuildTransform__11CQuaternionCFv:
 /* 80312118 0030F078  D0 43 00 18 */	stfs f2, 0x18(r3)
 /* 8031211C 0030F07C  D0 23 00 1C */	stfs f1, 0x1c(r3)
 /* 80312120 0030F080  D0 03 00 20 */	stfs f0, 0x20(r3)
-/* 80312124 0030F084  4E 80 00 20 */	blr 
+/* 80312124 0030F084  4E 80 00 20 */	blr
 
 .global FromMatrix__11CQuaternionFRC12CTransform4f
 FromMatrix__11CQuaternionFRC12CTransform4f:
@@ -1705,7 +1705,7 @@ FromMatrix__11CQuaternionFRC12CTransform4f:
 /* 80312170 0030F0D0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80312174 0030F0D4  7C 08 03 A6 */	mtlr r0
 /* 80312178 0030F0D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8031217C 0030F0DC  4E 80 00 20 */	blr 
+/* 8031217C 0030F0DC  4E 80 00 20 */	blr
 
 .global FromMatrix__11CQuaternionFRC9CMatrix3f
 FromMatrix__11CQuaternionFRC9CMatrix3f:
@@ -1730,7 +1730,7 @@ FromMatrix__11CQuaternionFRC9CMatrix3f:
 /* 803121C8 0030F128  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803121CC 0030F12C  7C 08 03 A6 */	mtlr r0
 /* 803121D0 0030F130  38 21 00 20 */	addi r1, r1, 0x20
-/* 803121D4 0030F134  4E 80 00 20 */	blr 
+/* 803121D4 0030F134  4E 80 00 20 */	blr
 
 .global FromMatrixRows__11CQuaternionFRC9CVector3fRC9CVector3fRC9CVector3f
 FromMatrixRows__11CQuaternionFRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -1891,7 +1891,7 @@ lbl_80312410:
 /* 80312420 0030F380  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80312424 0030F384  7C 08 03 A6 */	mtlr r0
 /* 80312428 0030F388  38 21 00 20 */	addi r1, r1, 0x20
-/* 8031242C 0030F38C  4E 80 00 20 */	blr 
+/* 8031242C 0030F38C  4E 80 00 20 */	blr
 
 .global __ct__11CQuaternionFR12CInputStream
 __ct__11CQuaternionFR12CInputStream:
@@ -1914,7 +1914,7 @@ __ct__11CQuaternionFR12CInputStream:
 /* 80312470 0030F3D0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80312474 0030F3D4  7C 08 03 A6 */	mtlr r0
 /* 80312478 0030F3D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031247C 0030F3DC  4E 80 00 20 */	blr 
+/* 8031247C 0030F3DC  4E 80 00 20 */	blr
 
 .global __sinit_CQuaternion_cpp
 __sinit_CQuaternion_cpp:

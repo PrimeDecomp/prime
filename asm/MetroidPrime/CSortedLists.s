@@ -104,7 +104,7 @@ lbl_801496F4:
 /* 80149720 00146680  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80149724 00146684  7C 08 03 A6 */	mtlr r0
 /* 80149728 00146688  38 21 00 50 */	addi r1, r1, 0x50
-/* 8014972C 0014668C  4E 80 00 20 */	blr 
+/* 8014972C 0014668C  4E 80 00 20 */	blr
 
 .global "BuildNearList__Q22SL18CSortedListManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CActorRC6CAABox"
 "BuildNearList__Q22SL18CSortedListManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CActorRC6CAABox":
@@ -166,7 +166,7 @@ lbl_801497EC:
 /* 801497FC 0014675C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80149800 00146760  7C 08 03 A6 */	mtlr r0
 /* 80149804 00146764  38 21 00 30 */	addi r1, r1, 0x30
-/* 80149808 00146768  4E 80 00 20 */	blr 
+/* 80149808 00146768  4E 80 00 20 */	blr
 
 .global "BuildNearList__Q22SL18CSortedListManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CAABoxRC15CMaterialFilterPC6CActor"
 "BuildNearList__Q22SL18CSortedListManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CAABoxRC15CMaterialFilterPC6CActor":
@@ -216,7 +216,7 @@ lbl_80149898:
 /* 801498A8 00146808  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801498AC 0014680C  7C 08 03 A6 */	mtlr r0
 /* 801498B0 00146810  38 21 00 20 */	addi r1, r1, 0x20
-/* 801498B4 00146814  4E 80 00 20 */	blr 
+/* 801498B4 00146814  4E 80 00 20 */	blr
 
 .global ConstructIntersectionArray__Q22SL18CSortedListManagerCFRC6CAABox
 ConstructIntersectionArray__Q22SL18CSortedListManagerCFRC6CAABox:
@@ -414,7 +414,7 @@ lbl_80149B98:
 /* 80149B9C 00146AFC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80149BA0 00146B00  7C 08 03 A6 */	mtlr r0
 /* 80149BA4 00146B04  38 21 00 70 */	addi r1, r1, 0x70
-/* 80149BA8 00146B08  4E 80 00 20 */	blr 
+/* 80149BA8 00146B08  4E 80 00 20 */	blr
 
 .global CalculateIntersections__Q22SL18CSortedListManagerCFQ22SL12ESortedListsQ22SL12ESortedListsssssQ22SL12ESortedListsQ22SL12ESortedListsQ22SL12ESortedListsQ22SL12ESortedListsRC6CAABox
 CalculateIntersections__Q22SL18CSortedListManagerCFQ22SL12ESortedListsQ22SL12ESortedListsssssQ22SL12ESortedListsQ22SL12ESortedListsQ22SL12ESortedListsQ22SL12ESortedListsRC6CAABox:
@@ -584,7 +584,7 @@ lbl_80149DE4:
 /* 80149DF8 00146D58  A8 61 00 0A */	lha r3, 0xa(r1)
 /* 80149DFC 00146D5C  7C 08 03 A6 */	mtlr r0
 /* 80149E00 00146D60  38 21 00 50 */	addi r1, r1, 0x50
-/* 80149E04 00146D64  4E 80 00 20 */	blr 
+/* 80149E04 00146D64  4E 80 00 20 */	blr
 
 .global AddToLinkedList__Q22SL18CSortedListManagerCFsRsRs
 AddToLinkedList__Q22SL18CSortedListManagerCFsRsRs:
@@ -597,20 +597,20 @@ AddToLinkedList__Q22SL18CSortedListManagerCFsRsRs:
 /* 80149E20 00146D80  B1 03 00 28 */	sth r8, 0x28(r3)
 /* 80149E24 00146D84  B0 86 00 00 */	sth r4, 0(r6)
 /* 80149E28 00146D88  B0 85 00 00 */	sth r4, 0(r5)
-/* 80149E2C 00146D8C  4E 80 00 20 */	blr 
+/* 80149E2C 00146D8C  4E 80 00 20 */	blr
 lbl_80149E30:
 /* 80149E30 00146D90  7C 87 07 34 */	extsh r7, r4
 /* 80149E34 00146D94  1C 07 00 2C */	mulli r0, r7, 0x2c
 /* 80149E38 00146D98  7C 63 02 14 */	add r3, r3, r0
 /* 80149E3C 00146D9C  A8 03 00 28 */	lha r0, 0x28(r3)
 /* 80149E40 00146DA0  2C 00 FF FF */	cmpwi r0, -1
-/* 80149E44 00146DA4  4C 82 00 20 */	bnelr 
+/* 80149E44 00146DA4  4C 82 00 20 */	bnelr
 /* 80149E48 00146DA8  A8 06 00 00 */	lha r0, 0(r6)
 /* 80149E4C 00146DAC  7C 07 00 00 */	cmpw r7, r0
-/* 80149E50 00146DB0  4D 82 00 20 */	beqlr 
+/* 80149E50 00146DB0  4D 82 00 20 */	beqlr
 /* 80149E54 00146DB4  B1 03 00 28 */	sth r8, 0x28(r3)
 /* 80149E58 00146DB8  B0 85 00 00 */	sth r4, 0(r5)
-/* 80149E5C 00146DBC  4E 80 00 20 */	blr 
+/* 80149E5C 00146DBC  4E 80 00 20 */	blr
 
 .global Move__Q22SL18CSortedListManagerFPC6CActorRC6CAABox
 Move__Q22SL18CSortedListManagerFPC6CActorRC6CAABox:
@@ -664,7 +664,7 @@ Move__Q22SL18CSortedListManagerFPC6CActorRC6CAABox:
 /* 80149F1C 00146E7C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80149F20 00146E80  7C 08 03 A6 */	mtlr r0
 /* 80149F24 00146E84  38 21 00 10 */	addi r1, r1, 0x10
-/* 80149F28 00146E88  4E 80 00 20 */	blr 
+/* 80149F28 00146E88  4E 80 00 20 */	blr
 
 .global Remove__Q22SL18CSortedListManagerFPC6CActor
 Remove__Q22SL18CSortedListManagerFPC6CActor:
@@ -714,7 +714,7 @@ lbl_80149FCC:
 /* 80149FD4 00146F34  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80149FD8 00146F38  7C 08 03 A6 */	mtlr r0
 /* 80149FDC 00146F3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80149FE0 00146F40  4E 80 00 20 */	blr 
+/* 80149FE0 00146F40  4E 80 00 20 */	blr
 
 .global Insert__Q22SL18CSortedListManagerFP6CActorRC6CAABox
 Insert__Q22SL18CSortedListManagerFP6CActorRC6CAABox:
@@ -795,7 +795,7 @@ lbl_8014A0FC:
 /* 8014A104 00147064  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8014A108 00147068  7C 08 03 A6 */	mtlr r0
 /* 8014A10C 0014706C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014A110 00147070  4E 80 00 20 */	blr 
+/* 8014A110 00147070  4E 80 00 20 */	blr
 
 .global MoveInList__Q22SL18CSortedListManagerFQ22SL12ESortedListss
 MoveInList__Q22SL18CSortedListManagerFQ22SL12ESortedListss:
@@ -843,7 +843,7 @@ lbl_8014A1AC:
 /* 8014A1B0 00147110  7C CA 07 34 */	extsh r10, r6
 /* 8014A1B4 00147114  38 E7 FF FF */	addi r7, r7, -1
 /* 8014A1B8 00147118  7C 0A 38 00 */	cmpw r10, r7
-/* 8014A1BC 0014711C  4C 80 00 20 */	bgelr 
+/* 8014A1BC 0014711C  4C 80 00 20 */	bgelr
 /* 8014A1C0 00147120  55 49 08 3C */	slwi r9, r10, 1
 /* 8014A1C4 00147124  39 89 00 02 */	addi r12, r9, 2
 /* 8014A1C8 00147128  7D 05 4A AE */	lhax r8, r5, r9
@@ -857,7 +857,7 @@ lbl_8014A1AC:
 /* 8014A1E8 00147148  7C 03 44 2E */	lfsx f0, r3, r8
 /* 8014A1EC 0014714C  7C 23 3C 2E */	lfsx f1, r3, r7
 /* 8014A1F0 00147150  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 8014A1F4 00147154  4C 80 00 20 */	bgelr 
+/* 8014A1F4 00147154  4C 80 00 20 */	bgelr
 /* 8014A1F8 00147158  38 EB 00 1C */	addi r7, r11, 0x1c
 /* 8014A1FC 0014715C  39 0A 00 01 */	addi r8, r10, 1
 /* 8014A200 00147160  7C C4 3B 2E */	sthx r6, r4, r7
@@ -871,7 +871,7 @@ lbl_8014A1AC:
 /* 8014A220 00147180  7C E5 63 2E */	sthx r7, r5, r12
 /* 8014A224 00147184  7D 05 4B 2E */	sthx r8, r5, r9
 /* 8014A228 00147188  4B FF FF 0C */	b lbl_8014A134
-/* 8014A22C 0014718C  4E 80 00 20 */	blr 
+/* 8014A22C 0014718C  4E 80 00 20 */	blr
 
 .global RemoveFromList__Q22SL18CSortedListManagerFQ22SL12ESortedListss
 RemoveFromList__Q22SL18CSortedListManagerFQ22SL12ESortedListss:
@@ -900,7 +900,7 @@ lbl_8014A278:
 /* 8014A280 001471E0  7C 07 00 00 */	cmpw r7, r0
 /* 8014A284 001471E4  41 80 FF D4 */	blt lbl_8014A258
 /* 8014A288 001471E8  90 06 08 00 */	stw r0, 0x800(r6)
-/* 8014A28C 001471EC  4E 80 00 20 */	blr 
+/* 8014A28C 001471EC  4E 80 00 20 */	blr
 
 .global InsertInList__Q22SL18CSortedListManagerFQ22SL12ESortedListsRQ22SL5SNode
 InsertInList__Q22SL18CSortedListManagerFQ22SL12ESortedListsRQ22SL5SNode:
@@ -1003,7 +1003,7 @@ lbl_8014A3D8:
 /* 8014A3F4 00147354  38 84 00 01 */	addi r4, r4, 1
 /* 8014A3F8 00147358  90 86 08 00 */	stw r4, 0x800(r6)
 /* 8014A3FC 0014735C  B0 03 00 1C */	sth r0, 0x1c(r3)
-/* 8014A400 00147360  4E 80 00 20 */	blr 
+/* 8014A400 00147360  4E 80 00 20 */	blr
 
 .global FindInListUpper__Q22SL18CSortedListManagerCFQ22SL12ESortedListsf
 FindInListUpper__Q22SL18CSortedListManagerCFQ22SL12ESortedListsf:
@@ -1038,7 +1038,7 @@ lbl_8014A468:
 /* 8014A468 001473C8  2C 07 00 00 */	cmpwi r7, 0
 /* 8014A46C 001473CC  41 81 FF B8 */	bgt lbl_8014A424
 /* 8014A470 001473D0  7D 23 07 34 */	extsh r3, r9
-/* 8014A474 001473D4  4E 80 00 20 */	blr 
+/* 8014A474 001473D4  4E 80 00 20 */	blr
 
 .global FindInListLower__Q22SL18CSortedListManagerCFQ22SL12ESortedListsf
 FindInListLower__Q22SL18CSortedListManagerCFQ22SL12ESortedListsf:
@@ -1073,7 +1073,7 @@ lbl_8014A4DC:
 /* 8014A4DC 0014743C  2C 07 00 00 */	cmpwi r7, 0
 /* 8014A4E0 00147440  41 81 FF B8 */	bgt lbl_8014A498
 /* 8014A4E4 00147444  7D 23 07 34 */	extsh r3, r9
-/* 8014A4E8 00147448  4E 80 00 20 */	blr 
+/* 8014A4E8 00147448  4E 80 00 20 */	blr
 
 .global ActorInLists__Q22SL18CSortedListManagerCFPC6CActor
 ActorInLists__Q22SL18CSortedListManagerCFPC6CActor:
@@ -1090,7 +1090,7 @@ ActorInLists__Q22SL18CSortedListManagerCFPC6CActor:
 /* 8014A514 00147474  38 A0 00 01 */	li r5, 1
 lbl_8014A518:
 /* 8014A518 00147478  7C A3 2B 78 */	mr r3, r5
-/* 8014A51C 0014747C  4E 80 00 20 */	blr 
+/* 8014A51C 0014747C  4E 80 00 20 */	blr
 
 .global Reset__Q22SL18CSortedListManagerFv
 Reset__Q22SL18CSortedListManagerFv:
@@ -1423,7 +1423,7 @@ lbl_8014A9F4:
 /* 8014AA18 00147978  80 01 08 44 */	lwz r0, 0x844(r1)
 /* 8014AA1C 0014797C  7C 08 03 A6 */	mtlr r0
 /* 8014AA20 00147980  38 21 08 40 */	addi r1, r1, 0x840
-/* 8014AA24 00147984  4E 80 00 20 */	blr 
+/* 8014AA24 00147984  4E 80 00 20 */	blr
 
 .global __ct__Q22SL18CSortedListManagerFv
 __ct__Q22SL18CSortedListManagerFv:
@@ -1453,7 +1453,7 @@ __ct__Q22SL18CSortedListManagerFv:
 /* 8014AA84 001479E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8014AA88 001479E8  7C 08 03 A6 */	mtlr r0
 /* 8014AA8C 001479EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014AA90 001479F0  4E 80 00 20 */	blr 
+/* 8014AA90 001479F0  4E 80 00 20 */	blr
 
 .global __ct__Q22SL11SSortedListFv
 __ct__Q22SL11SSortedListFv:
@@ -1498,7 +1498,7 @@ lbl_8014AAAC:
 /* 8014AB28 00147A88  B0 85 00 3E */	sth r4, 0x3e(r5)
 /* 8014AB2C 00147A8C  38 A5 00 40 */	addi r5, r5, 0x40
 /* 8014AB30 00147A90  42 00 FF 7C */	bdnz lbl_8014AAAC
-/* 8014AB34 00147A94  4E 80 00 20 */	blr 
+/* 8014AB34 00147A94  4E 80 00 20 */	blr
 
 .global __ct__Q22SL5SNodeFP6CActorRC6CAABox
 __ct__Q22SL5SNodeFP6CActorRC6CAABox:
@@ -1525,7 +1525,7 @@ __ct__Q22SL5SNodeFP6CActorRC6CAABox:
 /* 8014AB88 00147AE8  B0 83 00 22 */	sth r4, 0x22(r3)
 /* 8014AB8C 00147AEC  B0 83 00 24 */	sth r4, 0x24(r3)
 /* 8014AB90 00147AF0  B0 83 00 26 */	sth r4, 0x26(r3)
-/* 8014AB94 00147AF4  4E 80 00 20 */	blr 
+/* 8014AB94 00147AF4  4E 80 00 20 */	blr
 
 .global __ct__Q22SL5SNodeFv
 __ct__Q22SL5SNodeFv:

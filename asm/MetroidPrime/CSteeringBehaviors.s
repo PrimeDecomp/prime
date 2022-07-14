@@ -216,7 +216,7 @@ lbl_8013CCC4:
 /* 8013CD40 00139CA0  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 8013CD44 00139CA4  7C 08 03 A6 */	mtlr r0
 /* 8013CD48 00139CA8  38 21 01 30 */	addi r1, r1, 0x130
-/* 8013CD4C 00139CAC  4E 80 00 20 */	blr 
+/* 8013CD4C 00139CAC  4E 80 00 20 */	blr
 
 .global ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
 ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
@@ -489,7 +489,7 @@ lbl_8013D0D8:
 /* 8013D15C 0013A0BC  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 8013D160 0013A0C0  7C 08 03 A6 */	mtlr r0
 /* 8013D164 0013A0C4  38 21 01 80 */	addi r1, r1, 0x180
-/* 8013D168 0013A0C8  4E 80 00 20 */	blr 
+/* 8013D168 0013A0C8  4E 80 00 20 */	blr
 
 .global ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
 ProjectOrbitalIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
@@ -756,7 +756,7 @@ lbl_8013D4D8:
 /* 8013D55C 0013A4BC  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 8013D560 0013A4C0  7C 08 03 A6 */	mtlr r0
 /* 8013D564 0013A4C4  38 21 01 80 */	addi r1, r1, 0x180
-/* 8013D568 0013A4C8  4E 80 00 20 */	blr 
+/* 8013D568 0013A4C8  4E 80 00 20 */	blr
 
 .global ProjectLinearIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f
 ProjectLinearIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3f:
@@ -971,7 +971,7 @@ lbl_8013D85C:
 /* 8013D868 0013A7C8  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8013D86C 0013A7CC  7C 08 03 A6 */	mtlr r0
 /* 8013D870 0013A7D0  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013D874 0013A7D4  4E 80 00 20 */	blr 
+/* 8013D874 0013A7D4  4E 80 00 20 */	blr
 
 .global ProjectLinearIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fR9CVector3f
 ProjectLinearIntersection__18CSteeringBehaviorsFRC9CVector3ffRC9CVector3fRC9CVector3fR9CVector3f:
@@ -1043,7 +1043,7 @@ lbl_8013D968:
 /* 8013D974 0013A8D4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013D978 0013A8D8  7C 08 03 A6 */	mtlr r0
 /* 8013D97C 0013A8DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013D980 0013A8E0  4E 80 00 20 */	blr 
+/* 8013D980 0013A8E0  4E 80 00 20 */	blr
 
 .global "SolveQuartic__18CSteeringBehaviorsFRCQ24rstl20reserved_vector<f,5>RQ24rstl20reserved_vector<f,4>"
 "SolveQuartic__18CSteeringBehaviorsFRCQ24rstl20reserved_vector<f,5>RQ24rstl20reserved_vector<f,4>":
@@ -1505,7 +1505,7 @@ lbl_8013DFAC:
 /* 8013DFE4 0013AF44  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 8013DFE8 0013AF48  7C 08 03 A6 */	mtlr r0
 /* 8013DFEC 0013AF4C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8013DFF0 0013AF50  4E 80 00 20 */	blr 
+/* 8013DFF0 0013AF50  4E 80 00 20 */	blr
 
 .global "SolveCubic__18CSteeringBehaviorsFRCQ24rstl20reserved_vector<f,4>RQ24rstl20reserved_vector<f,4>"
 "SolveCubic__18CSteeringBehaviorsFRCQ24rstl20reserved_vector<f,4>RQ24rstl20reserved_vector<f,4>":
@@ -1785,7 +1785,7 @@ lbl_8013E384:
 /* 8013E3E4 0013B344  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8013E3E8 0013B348  7C 08 03 A6 */	mtlr r0
 /* 8013E3EC 0013B34C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8013E3F0 0013B350  4E 80 00 20 */	blr 
+/* 8013E3F0 0013B350  4E 80 00 20 */	blr
 
 .global SolveQuadratic__18CSteeringBehaviorsFfffRfRf
 SolveQuadratic__18CSteeringBehaviorsFfffRfRf:
@@ -1838,7 +1838,7 @@ lbl_8013E488:
 /* 8013E4A0 0013B400  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013E4A4 0013B404  7C 08 03 A6 */	mtlr r0
 /* 8013E4A8 0013B408  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013E4AC 0013B40C  4E 80 00 20 */	blr 
+/* 8013E4AC 0013B40C  4E 80 00 20 */	blr
 
 .global Arrival2D__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector2ff
 Arrival2D__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector2ff:
@@ -1886,7 +1886,7 @@ lbl_8013E544:
 /* 8013E54C 0013B4AC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8013E550 0013B4B0  7C 08 03 A6 */	mtlr r0
 /* 8013E554 0013B4B4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8013E558 0013B4B8  4E 80 00 20 */	blr 
+/* 8013E558 0013B4B8  4E 80 00 20 */	blr
 
 .global Flee2D__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector2f
 Flee2D__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector2f:
@@ -1940,7 +1940,7 @@ lbl_8013E604:
 /* 8013E610 0013B570  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8013E614 0013B574  7C 08 03 A6 */	mtlr r0
 /* 8013E618 0013B578  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013E61C 0013B57C  4E 80 00 20 */	blr 
+/* 8013E61C 0013B57C  4E 80 00 20 */	blr
 
 .global "Cohesion__18CSteeringBehaviorsCFRC13CPhysicsActorRQ24rstl32reserved_vector<9TUniqueId,1024>fRC13CStateManager"
 "Cohesion__18CSteeringBehaviorsCFRC13CPhysicsActorRQ24rstl32reserved_vector<9TUniqueId,1024>fRC13CStateManager":
@@ -2035,7 +2035,7 @@ lbl_8013E760:
 /* 8013E76C 0013B6CC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8013E770 0013B6D0  7C 08 03 A6 */	mtlr r0
 /* 8013E774 0013B6D4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013E778 0013B6D8  4E 80 00 20 */	blr 
+/* 8013E778 0013B6D8  4E 80 00 20 */	blr
 
 .global "Alignment__18CSteeringBehaviorsCFRC13CPhysicsActorRQ24rstl32reserved_vector<9TUniqueId,1024>RC13CStateManager"
 "Alignment__18CSteeringBehaviorsCFRC13CPhysicsActorRQ24rstl32reserved_vector<9TUniqueId,1024>RC13CStateManager":
@@ -2135,7 +2135,7 @@ lbl_8013E878:
 /* 8013E8E0 0013B840  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8013E8E4 0013B844  7C 08 03 A6 */	mtlr r0
 /* 8013E8E8 0013B848  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013E8EC 0013B84C  4E 80 00 20 */	blr 
+/* 8013E8EC 0013B84C  4E 80 00 20 */	blr
 
 .global Separation__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3ff
 Separation__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3ff:
@@ -2216,7 +2216,7 @@ lbl_8013E9F0:
 /* 8013EA0C 0013B96C  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8013EA10 0013B970  7C 08 03 A6 */	mtlr r0
 /* 8013EA14 0013B974  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013EA18 0013B978  4E 80 00 20 */	blr 
+/* 8013EA18 0013B978  4E 80 00 20 */	blr
 
 .global Pursuit__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3fRC9CVector3f
 Pursuit__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3fRC9CVector3f:
@@ -2284,7 +2284,7 @@ lbl_8013EADC:
 /* 8013EB0C 0013BA6C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8013EB10 0013BA70  7C 08 03 A6 */	mtlr r0
 /* 8013EB14 0013BA74  38 21 00 50 */	addi r1, r1, 0x50
-/* 8013EB18 0013BA78  4E 80 00 20 */	blr 
+/* 8013EB18 0013BA78  4E 80 00 20 */	blr
 
 .global Arrival__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3ff
 Arrival__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3ff:
@@ -2356,7 +2356,7 @@ lbl_8013EC04:
 /* 8013EC10 0013BB70  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8013EC14 0013BB74  7C 08 03 A6 */	mtlr r0
 /* 8013EC18 0013BB78  38 21 00 40 */	addi r1, r1, 0x40
-/* 8013EC1C 0013BB7C  4E 80 00 20 */	blr 
+/* 8013EC1C 0013BB7C  4E 80 00 20 */	blr
 
 .global Seek__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3f
 Seek__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3f:
@@ -2398,7 +2398,7 @@ lbl_8013ECA0:
 /* 8013ECA4 0013BC04  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8013ECA8 0013BC08  7C 08 03 A6 */	mtlr r0
 /* 8013ECAC 0013BC0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013ECB0 0013BC10  4E 80 00 20 */	blr 
+/* 8013ECB0 0013BC10  4E 80 00 20 */	blr
 
 .global Flee__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3f
 Flee__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3f:
@@ -2442,7 +2442,7 @@ lbl_8013ED38:
 /* 8013ED40 0013BCA0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8013ED44 0013BCA4  7C 08 03 A6 */	mtlr r0
 /* 8013ED48 0013BCA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013ED4C 0013BCAC  4E 80 00 20 */	blr 
+/* 8013ED4C 0013BCAC  4E 80 00 20 */	blr
 
 .global __ct__18CSteeringBehaviorsFv
 __ct__18CSteeringBehaviorsFv:

@@ -208,7 +208,7 @@ lbl_802A7864:
 /* 802A787C 002A47DC  83 81 00 E0 */	lwz r28, 0xe0(r1)
 /* 802A7880 002A47E0  7C 08 03 A6 */	mtlr r0
 /* 802A7884 002A47E4  38 21 01 00 */	addi r1, r1, 0x100
-/* 802A7888 002A47E8  4E 80 00 20 */	blr 
+/* 802A7888 002A47E8  4E 80 00 20 */	blr
 
 .global __ct__11CWorldLightFR12CInputStream
 __ct__11CWorldLightFR12CInputStream:
@@ -258,7 +258,7 @@ __ct__11CWorldLightFR12CInputStream:
 /* 802A7938 002A4898  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A793C 002A489C  7C 08 03 A6 */	mtlr r0
 /* 802A7940 002A48A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7944 002A48A4  4E 80 00 20 */	blr 
+/* 802A7944 002A48A4  4E 80 00 20 */	blr
 
 .global __sinit_CWorldLight_cpp
 __sinit_CWorldLight_cpp:

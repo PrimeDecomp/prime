@@ -48,17 +48,17 @@ lbl_80175D1C:
 /* 80175D24 00172C84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80175D28 00172C88  7C 08 03 A6 */	mtlr r0
 /* 80175D2C 00172C8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80175D30 00172C90  4E 80 00 20 */	blr 
+/* 80175D30 00172C90  4E 80 00 20 */	blr
 
 .global IsMoving__8CBSCoverCFv
 IsMoving__8CBSCoverCFv:
 /* 80175D34 00172C94  38 60 00 01 */	li r3, 1
-/* 80175D38 00172C98  4E 80 00 20 */	blr 
+/* 80175D38 00172C98  4E 80 00 20 */	blr
 
 .global ApplyHeadTracking__8CBSCoverCFv
 ApplyHeadTracking__8CBSCoverCFv:
 /* 80175D3C 00172C9C  38 60 00 00 */	li r3, 0
-/* 80175D40 00172CA0  4E 80 00 20 */	blr 
+/* 80175D40 00172CA0  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__8CBSCoverFfR15CBodyController
 GetBodyStateTransition__8CBSCoverFfR15CBodyController:
@@ -111,11 +111,11 @@ lbl_80175DE4:
 /* 80175DE8 00172D48  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80175DEC 00172D4C  7C 08 03 A6 */	mtlr r0
 /* 80175DF0 00172D50  38 21 00 10 */	addi r1, r1, 0x10
-/* 80175DF4 00172D54  4E 80 00 20 */	blr 
+/* 80175DF4 00172D54  4E 80 00 20 */	blr
 
 .global Shutdown__8CBSCoverFR15CBodyController
 Shutdown__8CBSCoverFR15CBodyController:
-/* 80175DF8 00172D58  4E 80 00 20 */	blr 
+/* 80175DF8 00172D58  4E 80 00 20 */	blr
 
 .global UpdateBody__8CBSCoverFfR15CBodyControllerR13CStateManager
 UpdateBody__8CBSCoverFfR15CBodyControllerR13CStateManager:
@@ -412,7 +412,7 @@ lbl_80176210:
 /* 80176220 00173180  80 01 01 D4 */	lwz r0, 0x1d4(r1)
 /* 80176224 00173184  7C 08 03 A6 */	mtlr r0
 /* 80176228 00173188  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 8017622C 0017318C  4E 80 00 20 */	blr 
+/* 8017622C 0017318C  4E 80 00 20 */	blr
 
 .global Start__8CBSCoverFR15CBodyControllerR13CStateManager
 Start__8CBSCoverFR15CBodyControllerR13CStateManager:
@@ -575,7 +575,7 @@ lbl_80176484:
 /* 80176488 001733E8  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 8017648C 001733EC  7C 08 03 A6 */	mtlr r0
 /* 80176490 001733F0  38 21 01 30 */	addi r1, r1, 0x130
-/* 80176494 001733F4  4E 80 00 20 */	blr 
+/* 80176494 001733F4  4E 80 00 20 */	blr
 
 .global __ct__8CBSCoverFv
 __ct__8CBSCoverFv:
@@ -590,7 +590,7 @@ __ct__8CBSCoverFv:
 /* 801764B8 00173418  90 83 00 04 */	stw r4, 4(r3)
 /* 801764BC 0017341C  90 83 00 08 */	stw r4, 8(r3)
 /* 801764C0 00173420  98 03 00 0C */	stb r0, 0xc(r3)
-/* 801764C4 00173424  4E 80 00 20 */	blr 
+/* 801764C4 00173424  4E 80 00 20 */	blr
 
 .global CanShoot__8CBSCoverCFv
 CanShoot__8CBSCoverCFv:
@@ -598,4 +598,4 @@ CanShoot__8CBSCoverCFv:
 /* 801764CC 0017342C  20 00 00 02 */	subfic r0, r0, 2
 /* 801764D0 00173430  7C 00 00 34 */	cntlzw r0, r0
 /* 801764D4 00173434  54 03 D9 7E */	srwi r3, r0, 5
-/* 801764D8 00173438  4E 80 00 20 */	blr 
+/* 801764D8 00173438  4E 80 00 20 */	blr

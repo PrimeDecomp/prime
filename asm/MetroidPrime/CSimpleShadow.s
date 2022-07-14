@@ -18,7 +18,7 @@ lbl_805A757C:
 Valid__13CSimpleShadowCFv:
 /* 80105B00 00102A60  88 03 00 48 */	lbz r0, 0x48(r3)
 /* 80105B04 00102A64  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 80105B08 00102A68  4E 80 00 20 */	blr 
+/* 80105B08 00102A68  4E 80 00 20 */	blr
 
 .global GetMaxShadowBox__13CSimpleShadowCFRC6CAABox
 GetMaxShadowBox__13CSimpleShadowCFRC6CAABox:
@@ -111,7 +111,7 @@ GetMaxShadowBox__13CSimpleShadowCFRC6CAABox:
 /* 80105C64 00102BC4  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80105C68 00102BC8  7C 08 03 A6 */	mtlr r0
 /* 80105C6C 00102BCC  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80105C70 00102BD0  4E 80 00 20 */	blr 
+/* 80105C70 00102BD0  4E 80 00 20 */	blr
 
 .global GetBounds__13CSimpleShadowCFv
 GetBounds__13CSimpleShadowCFv:
@@ -145,28 +145,28 @@ GetBounds__13CSimpleShadowCFv:
 /* 80105CE0 00102C40  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80105CE4 00102C44  7C 08 03 A6 */	mtlr r0
 /* 80105CE8 00102C48  38 21 00 30 */	addi r1, r1, 0x30
-/* 80105CEC 00102C4C  4E 80 00 20 */	blr 
+/* 80105CEC 00102C4C  4E 80 00 20 */	blr
 
 .global sub_80105cf0
 sub_80105cf0:
 /* 80105CF0 00102C50  88 03 00 48 */	lbz r0, 0x48(r3)
 /* 80105CF4 00102C54  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 80105CF8 00102C58  98 03 00 48 */	stb r0, 0x48(r3)
-/* 80105CFC 00102C5C  4E 80 00 20 */	blr 
+/* 80105CFC 00102C5C  4E 80 00 20 */	blr
 
 .global GetMaxObjectHeight__13CSimpleShadowCFv
 GetMaxObjectHeight__13CSimpleShadowCFv:
 /* 80105D00 00102C60  C0 23 00 40 */	lfs f1, 0x40(r3)
-/* 80105D04 00102C64  4E 80 00 20 */	blr 
+/* 80105D04 00102C64  4E 80 00 20 */	blr
 
 .global SetUserAlpha__13CSimpleShadowFf
 SetUserAlpha__13CSimpleShadowFf:
 /* 80105D08 00102C68  D0 23 00 38 */	stfs f1, 0x38(r3)
-/* 80105D0C 00102C6C  4E 80 00 20 */	blr 
+/* 80105D0C 00102C6C  4E 80 00 20 */	blr
 
 .global GetTransform__13CSimpleShadowCFv
 GetTransform__13CSimpleShadowCFv:
-/* 80105D10 00102C70  4E 80 00 20 */	blr 
+/* 80105D10 00102C70  4E 80 00 20 */	blr
 
 .global Render__13CSimpleShadowCFPC8CTexture
 Render__13CSimpleShadowCFPC8CTexture:
@@ -190,7 +190,7 @@ Render__13CSimpleShadowCFPC8CTexture:
 /* 80105D58 00102CB8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80105D5C 00102CBC  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80105D60 00102CC0  7D 89 03 A6 */	mtctr r12
-/* 80105D64 00102CC4  4E 80 04 21 */	bctrl 
+/* 80105D64 00102CC4  4E 80 04 21 */	bctrl
 /* 80105D68 00102CC8  7F E3 FB 78 */	mr r3, r31
 /* 80105D6C 00102CCC  38 80 00 00 */	li r4, 0
 /* 80105D70 00102CD0  38 A0 00 01 */	li r5, 1
@@ -279,7 +279,7 @@ lbl_80105EA0:
 /* 80105EB8 00102E18  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80105EBC 00102E1C  7C 08 03 A6 */	mtlr r0
 /* 80105EC0 00102E20  38 21 00 70 */	addi r1, r1, 0x70
-/* 80105EC4 00102E24  4E 80 00 20 */	blr 
+/* 80105EC4 00102E24  4E 80 00 20 */	blr
 
 .global Calculate__13CSimpleShadowFRC6CAABoxRC12CTransform4fRC13CStateManager
 Calculate__13CSimpleShadowFRC6CAABoxRC12CTransform4fRC13CStateManager:
@@ -578,7 +578,7 @@ lbl_80106308:
 /* 80106330 00103290  83 C1 09 68 */	lwz r30, 0x968(r1)
 /* 80106334 00103294  7C 08 03 A6 */	mtlr r0
 /* 80106338 00103298  38 21 09 B0 */	addi r1, r1, 0x9b0
-/* 8010633C 0010329C  4E 80 00 20 */	blr 
+/* 8010633C 0010329C  4E 80 00 20 */	blr
 
 .global __ct__13CSimpleShadowFffff
 __ct__13CSimpleShadowFffff:

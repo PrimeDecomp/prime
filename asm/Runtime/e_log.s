@@ -5,8 +5,8 @@
 .global lbl_805A99E0
 lbl_805A99E0:
 	.skip 0x8
-	
-.section .text, "ax" 
+
+.section .text, "ax"
 
 .global __ieee754_log
 __ieee754_log:
@@ -180,4 +180,4 @@ lbl_8039237C:
 /* 80392394 0038F2F4  FC 24 01 78 */	fmsub f1, f4, f5, f0
 lbl_80392398:
 /* 80392398 0038F2F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039239C 0038F2FC  4E 80 00 20 */	blr 
+/* 8039239C 0038F2FC  4E 80 00 20 */	blr

@@ -25,7 +25,7 @@ GetSObjectTagFromStream__16CEffectComponentFR12CInputStream:
 /* 80357360 003542C0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80357364 003542C4  7C 08 03 A6 */	mtlr r0
 /* 80357368 003542C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035736C 003542CC  4E 80 00 20 */	blr 
+/* 8035736C 003542CC  4E 80 00 20 */	blr
 
 .global __ct__16CEffectComponentFR12CInputStream
 __ct__16CEffectComponentFR12CInputStream:

@@ -84,7 +84,7 @@ lbl_801CD588:
 /* 801CD59C 001CA4FC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801CD5A0 001CA500  7C 08 03 A6 */	mtlr r0
 /* 801CD5A4 001CA504  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CD5A8 001CA508  4E 80 00 20 */	blr 
+/* 801CD5A8 001CA508  4E 80 00 20 */	blr
 
 .global SetBallModeFactor__17CHudBallInterfaceFf
 SetBallModeFactor__17CHudBallInterfaceFf:
@@ -122,7 +122,7 @@ SetBallModeFactor__17CHudBallInterfaceFf:
 /* 801CD628 001CA588  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 801CD62C 001CA58C  7C 08 03 A6 */	mtlr r0
 /* 801CD630 001CA590  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CD634 001CA594  4E 80 00 20 */	blr 
+/* 801CD634 001CA594  4E 80 00 20 */	blr
 
 .global SetBombParams__17CHudBallInterfaceFiiibbb
 SetBombParams__17CHudBallInterfaceFiiibbb:
@@ -232,7 +232,7 @@ lbl_801CD7A4:
 /* 801CD7B0 001CA710  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801CD7B4 001CA714  7C 08 03 A6 */	mtlr r0
 /* 801CD7B8 001CA718  38 21 00 40 */	addi r1, r1, 0x40
-/* 801CD7BC 001CA71C  4E 80 00 20 */	blr 
+/* 801CD7BC 001CA71C  4E 80 00 20 */	blr
 
 .global __ct__17CHudBallInterfaceFR9CGuiFrameiiibb
 __ct__17CHudBallInterfaceFR9CGuiFrameiiibb:
@@ -305,14 +305,14 @@ lbl_801CD888:
 /* 801CD8C4 001CA824  38 80 00 01 */	li r4, 1
 /* 801CD8C8 001CA828  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 801CD8CC 001CA82C  7D 89 03 A6 */	mtctr r12
-/* 801CD8D0 001CA830  4E 80 04 21 */	bctrl 
+/* 801CD8D0 001CA830  4E 80 04 21 */	bctrl
 /* 801CD8D4 001CA834  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801CD8D8 001CA838  7C 7D 1B 78 */	mr r29, r3
 /* 801CD8DC 001CA83C  7F 83 E3 78 */	mr r3, r28
 /* 801CD8E0 001CA840  38 80 00 00 */	li r4, 0
 /* 801CD8E4 001CA844  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 801CD8E8 001CA848  7D 89 03 A6 */	mtctr r12
-/* 801CD8EC 001CA84C  4E 80 04 21 */	bctrl 
+/* 801CD8EC 001CA84C  4E 80 04 21 */	bctrl
 /* 801CD8F0 001CA850  80 1B 00 00 */	lwz r0, 0(r27)
 /* 801CD8F4 001CA854  7C 7C 1B 78 */	mr r28, r3
 /* 801CD8F8 001CA858  54 00 10 3A */	slwi r0, r0, 2

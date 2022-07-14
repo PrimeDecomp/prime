@@ -54,7 +54,7 @@ lbl_80305A20:
 /* 80305A24 00302984  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80305A28 00302988  7C 08 03 A6 */	mtlr r0
 /* 80305A2C 0030298C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80305A30 00302990  4E 80 00 20 */	blr 
+/* 80305A30 00302990  4E 80 00 20 */	blr
 
 .global GetBeginRank__16CWordBreakTablesFw
 GetBeginRank__16CWordBreakTablesFw:
@@ -99,7 +99,7 @@ lbl_80305AB4:
 /* 80305AB8 00302A18  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80305ABC 00302A1C  7C 08 03 A6 */	mtlr r0
 /* 80305AC0 00302A20  38 21 00 20 */	addi r1, r1, 0x20
-/* 80305AC4 00302A24  4E 80 00 20 */	blr 
+/* 80305AC4 00302A24  4E 80 00 20 */	blr
 
 .global "lower_bound<PC20CCharacterIdentifier,w,Q220CCharacterIdentifier7Compare>__4rstlFPC20CCharacterIdentifierPC20CCharacterIdentifierRCwQ220CCharacterIdentifier7Compare"
 "lower_bound<PC20CCharacterIdentifier,w,Q220CCharacterIdentifier7Compare>__4rstlFPC20CCharacterIdentifierPC20CCharacterIdentifierRCwQ220CCharacterIdentifier7Compare":
@@ -146,7 +146,7 @@ lbl_80305B40:
 /* 80305B5C 00302ABC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80305B60 00302AC0  7C 08 03 A6 */	mtlr r0
 /* 80305B64 00302AC4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80305B68 00302AC8  4E 80 00 20 */	blr 
+/* 80305B68 00302AC8  4E 80 00 20 */	blr
 
 .global "advance<PC20CCharacterIdentifier,i>__4rstlFRPC20CCharacterIdentifieri"
 "advance<PC20CCharacterIdentifier,i>__4rstlFRPC20CCharacterIdentifieri":
@@ -160,7 +160,7 @@ lbl_80305B40:
 /* 80305B88 00302AE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80305B8C 00302AEC  7C 08 03 A6 */	mtlr r0
 /* 80305B90 00302AF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80305B94 00302AF4  4E 80 00 20 */	blr 
+/* 80305B94 00302AF4  4E 80 00 20 */	blr
 
 .global "__advance<PC20CCharacterIdentifier,i>__4rstlFRPC20CCharacterIdentifieriQ24rstl26random_access_iterator_tag"
 "__advance<PC20CCharacterIdentifier,i>__4rstlFRPC20CCharacterIdentifieriQ24rstl26random_access_iterator_tag":
@@ -168,7 +168,7 @@ lbl_80305B40:
 /* 80305B9C 00302AFC  54 80 18 38 */	slwi r0, r4, 3
 /* 80305BA0 00302B00  7C 05 02 14 */	add r0, r5, r0
 /* 80305BA4 00302B04  90 03 00 00 */	stw r0, 0(r3)
-/* 80305BA8 00302B08  4E 80 00 20 */	blr 
+/* 80305BA8 00302B08  4E 80 00 20 */	blr
 
 .global "distance<PC20CCharacterIdentifier>__4rstlFPC20CCharacterIdentifierPC20CCharacterIdentifier"
 "distance<PC20CCharacterIdentifier>__4rstlFPC20CCharacterIdentifierPC20CCharacterIdentifier":
@@ -182,7 +182,7 @@ lbl_80305B40:
 /* 80305BC8 00302B28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80305BCC 00302B2C  7C 08 03 A6 */	mtlr r0
 /* 80305BD0 00302B30  38 21 00 10 */	addi r1, r1, 0x10
-/* 80305BD4 00302B34  4E 80 00 20 */	blr 
+/* 80305BD4 00302B34  4E 80 00 20 */	blr
 
 .global "__distance<PC20CCharacterIdentifier>__4rstlFPC20CCharacterIdentifierPC20CCharacterIdentifierQ24rstl26random_access_iterator_tag"
 "__distance<PC20CCharacterIdentifier>__4rstlFPC20CCharacterIdentifierPC20CCharacterIdentifierQ24rstl26random_access_iterator_tag":

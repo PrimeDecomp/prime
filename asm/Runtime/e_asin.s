@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global __ieee754_asin
 __ieee754_asin:
@@ -169,4 +169,4 @@ lbl_80391930:
 /* 80391930 0038E890  FC 20 08 50 */	fneg f1, f1
 lbl_80391934:
 /* 80391934 0038E894  38 21 00 20 */	addi r1, r1, 0x20
-/* 80391938 0038E898  4E 80 00 20 */	blr 
+/* 80391938 0038E898  4E 80 00 20 */	blr

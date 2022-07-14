@@ -60,17 +60,17 @@ lbl_80144450:
 /* 80144458 001413B8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8014445C 001413BC  7C 08 03 A6 */	mtlr r0
 /* 80144460 001413C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80144464 001413C4  4E 80 00 20 */	blr 
+/* 80144464 001413C4  4E 80 00 20 */	blr
 
 .global IsMoving__9CBSHurledCFv
 IsMoving__9CBSHurledCFv:
 /* 80144468 001413C8  38 60 00 01 */	li r3, 1
-/* 8014446C 001413CC  4E 80 00 20 */	blr 
+/* 8014446C 001413CC  4E 80 00 20 */	blr
 
 .global ApplyHeadTracking__9CBSHurledCFv
 ApplyHeadTracking__9CBSHurledCFv:
 /* 80144470 001413D0  38 60 00 00 */	li r3, 0
-/* 80144474 001413D4  4E 80 00 20 */	blr 
+/* 80144474 001413D4  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__9CBSHurledFfR15CBodyController
 GetBodyStateTransition__9CBSHurledFfR15CBodyController:
@@ -110,7 +110,7 @@ lbl_801444E8:
 /* 801444F0 00141450  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801444F4 00141454  7C 08 03 A6 */	mtlr r0
 /* 801444F8 00141458  38 21 00 10 */	addi r1, r1, 0x10
-/* 801444FC 0014145C  4E 80 00 20 */	blr 
+/* 801444FC 0014145C  4E 80 00 20 */	blr
 
 .global Recover__9CBSHurledFR13CStateManagerR15CBodyControllerQ23pas12EHurledState
 Recover__9CBSHurledFR13CStateManagerR15CBodyControllerQ23pas12EHurledState:
@@ -238,7 +238,7 @@ lbl_801446C8:
 /* 801446CC 0014162C  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 801446D0 00141630  7C 08 03 A6 */	mtlr r0
 /* 801446D4 00141634  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801446D8 00141638  4E 80 00 20 */	blr 
+/* 801446D8 00141638  4E 80 00 20 */	blr
 
 .global PlayStrikeWallAnimation__9CBSHurledFR15CBodyControllerR13CStateManager
 PlayStrikeWallAnimation__9CBSHurledFR15CBodyControllerR13CStateManager:
@@ -356,7 +356,7 @@ lbl_80144870:
 /* 80144880 001417E0  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 80144884 001417E4  7C 08 03 A6 */	mtlr r0
 /* 80144888 001417E8  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8014488C 001417EC  4E 80 00 20 */	blr 
+/* 8014488C 001417EC  4E 80 00 20 */	blr
 
 .global PlayLandAnimation__9CBSHurledFR15CBodyControllerR13CStateManager
 PlayLandAnimation__9CBSHurledFR15CBodyControllerR13CStateManager:
@@ -497,7 +497,7 @@ lbl_80144A80:
 /* 80144A90 001419F0  83 81 00 F0 */	lwz r28, 0xf0(r1)
 /* 80144A94 001419F4  7C 08 03 A6 */	mtlr r0
 /* 80144A98 001419F8  38 21 01 00 */	addi r1, r1, 0x100
-/* 80144A9C 001419FC  4E 80 00 20 */	blr 
+/* 80144A9C 001419FC  4E 80 00 20 */	blr
 
 .global ShouldStartStrikeWall__9CBSHurledCFR15CBodyController
 ShouldStartStrikeWall__9CBSHurledCFR15CBodyController:
@@ -516,7 +516,7 @@ ShouldStartStrikeWall__9CBSHurledCFR15CBodyController:
 /* 80144AD0 00141A30  81 83 00 00 */	lwz r12, 0(r3)
 /* 80144AD4 00141A34  81 8C 02 B8 */	lwz r12, 0x2b8(r12)
 /* 80144AD8 00141A38  7D 89 03 A6 */	mtctr r12
-/* 80144ADC 00141A3C  4E 80 04 21 */	bctrl 
+/* 80144ADC 00141A3C  4E 80 04 21 */	bctrl
 /* 80144AE0 00141A40  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80144AE4 00141A44  40 82 00 08 */	bne lbl_80144AEC
 /* 80144AE8 00141A48  3B E0 00 01 */	li r31, 1
@@ -526,7 +526,7 @@ lbl_80144AEC:
 /* 80144AF4 00141A54  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80144AF8 00141A58  7C 08 03 A6 */	mtlr r0
 /* 80144AFC 00141A5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80144B00 00141A60  4E 80 00 20 */	blr 
+/* 80144B00 00141A60  4E 80 00 20 */	blr
 
 .global ShouldStartLand__9CBSHurledCFfR15CBodyController
 ShouldStartLand__9CBSHurledCFfR15CBodyController:
@@ -552,7 +552,7 @@ ShouldStartLand__9CBSHurledCFfR15CBodyController:
 /* 80144B50 00141AB0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80144B54 00141AB4  81 8C 02 B8 */	lwz r12, 0x2b8(r12)
 /* 80144B58 00141AB8  7D 89 03 A6 */	mtctr r12
-/* 80144B5C 00141ABC  4E 80 04 21 */	bctrl 
+/* 80144B5C 00141ABC  4E 80 04 21 */	bctrl
 /* 80144B60 00141AC0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80144B64 00141AC4  41 82 00 0C */	beq lbl_80144B70
 /* 80144B68 00141AC8  3B E0 00 01 */	li r31, 1
@@ -606,11 +606,11 @@ lbl_80144C00:
 /* 80144C18 00141B78  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80144C1C 00141B7C  7C 08 03 A6 */	mtlr r0
 /* 80144C20 00141B80  38 21 00 40 */	addi r1, r1, 0x40
-/* 80144C24 00141B84  4E 80 00 20 */	blr 
+/* 80144C24 00141B84  4E 80 00 20 */	blr
 
 .global Shutdown__9CBSHurledFR15CBodyController
 Shutdown__9CBSHurledFR15CBodyController:
-/* 80144C28 00141B88  4E 80 00 20 */	blr 
+/* 80144C28 00141B88  4E 80 00 20 */	blr
 
 .global UpdateBody__9CBSHurledFfR15CBodyControllerR13CStateManager
 UpdateBody__9CBSHurledFfR15CBodyControllerR13CStateManager:
@@ -669,7 +669,7 @@ lbl_80144CE0:
 /* 80144CF4 00141C54  38 63 1F E8 */	addi r3, r3, lbl_803E1FE8@l
 /* 80144CF8 00141C58  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80144CFC 00141C5C  7C 09 03 A6 */	mtctr r0
-/* 80144D00 00141C60  4E 80 04 20 */	bctr 
+/* 80144D00 00141C60  4E 80 04 20 */	bctr
 .global lbl_80144D04
 lbl_80144D04:
 /* 80144D04 00141C64  88 1D 03 00 */	lbz r0, 0x300(r29)
@@ -778,7 +778,7 @@ lbl_80144E44:
 /* 80144E84 00141DE4  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80144E88 00141DE8  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 80144E8C 00141DEC  7D 89 03 A6 */	mtctr r12
-/* 80144E90 00141DF0  4E 80 04 21 */	bctrl 
+/* 80144E90 00141DF0  4E 80 04 21 */	bctrl
 /* 80144E94 00141DF4  C0 02 9C 2C */	lfs f0, lbl_805AB94C@sda21(r2)
 /* 80144E98 00141DF8  3C 60 80 5A */	lis r3, lbl_805A6700@ha
 /* 80144E9C 00141DFC  38 A3 67 00 */	addi r5, r3, lbl_805A6700@l
@@ -964,7 +964,7 @@ lbl_8014510C:
 /* 80145128 00142088  83 81 01 60 */	lwz r28, 0x160(r1)
 /* 8014512C 0014208C  7C 08 03 A6 */	mtlr r0
 /* 80145130 00142090  38 21 01 80 */	addi r1, r1, 0x180
-/* 80145134 00142094  4E 80 00 20 */	blr 
+/* 80145134 00142094  4E 80 00 20 */	blr
 
 .global Start__9CBSHurledFR15CBodyControllerR13CStateManager
 Start__9CBSHurledFR15CBodyControllerR13CStateManager:
@@ -1262,12 +1262,12 @@ lbl_8014557C:
 /* 80145588 001424E8  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 8014558C 001424EC  7C 08 03 A6 */	mtlr r0
 /* 80145590 001424F0  38 21 01 60 */	addi r1, r1, 0x160
-/* 80145594 001424F4  4E 80 00 20 */	blr 
+/* 80145594 001424F4  4E 80 00 20 */	blr
 
 .global IsInAir__9CBSHurledCFRC15CBodyController
 IsInAir__9CBSHurledCFRC15CBodyController:
 /* 80145598 001424F8  38 60 00 01 */	li r3, 1
-/* 8014559C 001424FC  4E 80 00 20 */	blr 
+/* 8014559C 001424FC  4E 80 00 20 */	blr
 
 .global __ct__9CBSHurledFv
 __ct__9CBSHurledFv:
@@ -1298,4 +1298,4 @@ __ct__9CBSHurledFv:
 /* 80145600 00142560  88 03 00 2C */	lbz r0, 0x2c(r3)
 /* 80145604 00142564  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 80145608 00142568  98 03 00 2C */	stb r0, 0x2c(r3)
-/* 8014560C 0014256C  4E 80 00 20 */	blr 
+/* 8014560C 0014256C  4E 80 00 20 */	blr

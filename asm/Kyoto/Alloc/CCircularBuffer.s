@@ -15,7 +15,7 @@ GetAllocatedAmount__15CCircularBufferCFv:
 /* 80315680 003125E0  7C 84 02 14 */	add r4, r4, r0
 lbl_80315684:
 /* 80315684 003125E4  7C 83 23 78 */	mr r3, r4
-/* 80315688 003125E8  4E 80 00 20 */	blr 
+/* 80315688 003125E8  4E 80 00 20 */	blr
 
 .global Free__15CCircularBufferFPvi
 Free__15CCircularBufferFPvi:
@@ -40,15 +40,15 @@ lbl_803156C0:
 lbl_803156CC:
 /* 803156CC 0031262C  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 803156D0 00312630  2C 00 FF FF */	cmpwi r0, -1
-/* 803156D4 00312634  4C 82 00 20 */	bnelr 
+/* 803156D4 00312634  4C 82 00 20 */	bnelr
 /* 803156D8 00312638  80 83 00 0C */	lwz r4, 0xc(r3)
 /* 803156DC 0031263C  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 803156E0 00312640  7C 04 00 00 */	cmpw r4, r0
-/* 803156E4 00312644  4C 82 00 20 */	bnelr 
+/* 803156E4 00312644  4C 82 00 20 */	bnelr
 /* 803156E8 00312648  38 00 00 00 */	li r0, 0
 /* 803156EC 0031264C  90 03 00 10 */	stw r0, 0x10(r3)
 /* 803156F0 00312650  90 03 00 0C */	stw r0, 0xc(r3)
-/* 803156F4 00312654  4E 80 00 20 */	blr 
+/* 803156F4 00312654  4E 80 00 20 */	blr
 
 .global Alloc__15CCircularBufferFi
 Alloc__15CCircularBufferFi:
@@ -99,7 +99,7 @@ lbl_80315794:
 /* 8031579C 003126FC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803157A0 00312700  7C 08 03 A6 */	mtlr r0
 /* 803157A4 00312704  38 21 00 10 */	addi r1, r1, 0x10
-/* 803157A8 00312708  4E 80 00 20 */	blr 
+/* 803157A8 00312708  4E 80 00 20 */	blr
 
 .global IsWrappedMemory__15CCircularBufferFii
 IsWrappedMemory__15CCircularBufferFii:
@@ -112,10 +112,10 @@ IsWrappedMemory__15CCircularBufferFii:
 /* 803157C4 00312724  7C 03 00 00 */	cmpw r3, r0
 /* 803157C8 00312728  40 80 00 0C */	bge lbl_803157D4
 /* 803157CC 0031272C  38 60 00 01 */	li r3, 1
-/* 803157D0 00312730  4E 80 00 20 */	blr 
+/* 803157D0 00312730  4E 80 00 20 */	blr
 lbl_803157D4:
 /* 803157D4 00312734  38 60 00 00 */	li r3, 0
-/* 803157D8 00312738  4E 80 00 20 */	blr 
+/* 803157D8 00312738  4E 80 00 20 */	blr
 
 .global __ct__15CCircularBufferFPviQ215CCircularBuffer10EOwnership
 __ct__15CCircularBufferFPviQ215CCircularBuffer10EOwnership:
@@ -131,6 +131,6 @@ __ct__15CCircularBufferFPviQ215CCircularBuffer10EOwnership:
 /* 80315800 00312760  90 E3 00 0C */	stw r7, 0xc(r3)
 /* 80315804 00312764  90 E3 00 10 */	stw r7, 0x10(r3)
 /* 80315808 00312768  90 03 00 14 */	stw r0, 0x14(r3)
-/* 8031580C 0031276C  4C 82 00 20 */	bnelr 
+/* 8031580C 0031276C  4C 82 00 20 */	bnelr
 /* 80315810 00312770  98 E3 00 00 */	stb r7, 0(r3)
 /* 80315814 00312774  4E 80 00 20 */	blr

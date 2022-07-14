@@ -94,7 +94,7 @@ lbl_8032A730:
 /* 8032A73C 0032769C  90 0D A8 E0 */	stw r0, lbl_805A94A0@sda21(r13)
 lbl_8032A740:
 /* 8032A740 003276A0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8032A744 003276A4  4E 80 00 20 */	blr 
+/* 8032A744 003276A4  4E 80 00 20 */	blr
 
 .global SetEmitterTime__16CParticleGlobalsFi
 SetEmitterTime__16CParticleGlobalsFi:
@@ -109,7 +109,7 @@ SetEmitterTime__16CParticleGlobalsFi:
 /* 8032A768 003276C8  EC 00 08 28 */	fsubs f0, f0, f1
 /* 8032A76C 003276CC  D0 0D A8 DC */	stfs f0, lbl_805A949C@sda21(r13)
 /* 8032A770 003276D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032A774 003276D4  4E 80 00 20 */	blr 
+/* 8032A774 003276D4  4E 80 00 20 */	blr
 
 .global SetParticleLifetime__16CParticleGlobalsFi
 SetParticleLifetime__16CParticleGlobalsFi:

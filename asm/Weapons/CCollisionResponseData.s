@@ -68,7 +68,7 @@ lbl_802B21C4:
 /* 802B2220 002AF180  38 80 00 01 */	li r4, 1
 /* 802B2224 002AF184  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802B2228 002AF188  7D 89 03 A6 */	mtctr r12
-/* 802B222C 002AF18C  4E 80 04 21 */	bctrl 
+/* 802B222C 002AF18C  4E 80 04 21 */	bctrl
 lbl_802B2230:
 /* 802B2230 002AF190  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 802B2234 002AF194  28 00 00 00 */	cmplwi r0, 0
@@ -85,7 +85,7 @@ lbl_802B2248:
 /* 802B225C 002AF1BC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802B2260 002AF1C0  7C 08 03 A6 */	mtlr r0
 /* 802B2264 002AF1C4  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B2268 002AF1C8  4E 80 00 20 */	blr 
+/* 802B2268 002AF1C8  4E 80 00 20 */	blr
 
 .global "__dt__50TObjOwnerDerivedFromIObj<22CCollisionResponseData>Fv"
 "__dt__50TObjOwnerDerivedFromIObj<22CCollisionResponseData>Fv":
@@ -127,7 +127,7 @@ lbl_802B22E0:
 /* 802B22EC 002AF24C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802B22F0 002AF250  7C 08 03 A6 */	mtlr r0
 /* 802B22F4 002AF254  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B22F8 002AF258  4E 80 00 20 */	blr 
+/* 802B22F8 002AF258  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__32TToken<22CCollisionResponseData>FRCQ24rstl34auto_ptr<22CCollisionResponseData>"
 "GetIObjObjectFor__32TToken<22CCollisionResponseData>FRCQ24rstl34auto_ptr<22CCollisionResponseData>":
@@ -141,7 +141,7 @@ lbl_802B22E0:
 /* 802B2318 002AF278  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802B231C 002AF27C  7C 08 03 A6 */	mtlr r0
 /* 802B2320 002AF280  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B2324 002AF284  4E 80 00 20 */	blr 
+/* 802B2324 002AF284  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__50TObjOwnerDerivedFromIObj<22CCollisionResponseData>FRCQ24rstl34auto_ptr<22CCollisionResponseData>"
 "GetNewDerivedObject__50TObjOwnerDerivedFromIObj<22CCollisionResponseData>FRCQ24rstl34auto_ptr<22CCollisionResponseData>":
@@ -184,7 +184,7 @@ lbl_802B2398:
 /* 802B23B4 002AF314  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B23B8 002AF318  7C 08 03 A6 */	mtlr r0
 /* 802B23BC 002AF31C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B23C0 002AF320  4E 80 00 20 */	blr 
+/* 802B23C0 002AF320  4E 80 00 20 */	blr
 
 .global GetWorldCollisionResponseType__22CCollisionResponseDataFi
 GetWorldCollisionResponseType__22CCollisionResponseDataFi:
@@ -196,20 +196,20 @@ GetWorldCollisionResponseType__22CCollisionResponseDataFi:
 /* 802B23D8 002AF338  54 60 10 3A */	slwi r0, r3, 2
 /* 802B23DC 002AF33C  38 64 61 98 */	addi r3, r4, lbl_803D6198@l
 /* 802B23E0 002AF340  7C 63 00 2E */	lwzx r3, r3, r0
-/* 802B23E4 002AF344  4E 80 00 20 */	blr 
+/* 802B23E4 002AF344  4E 80 00 20 */	blr
 lbl_802B23E8:
 /* 802B23E8 002AF348  38 60 00 01 */	li r3, 1
-/* 802B23EC 002AF34C  4E 80 00 20 */	blr 
+/* 802B23EC 002AF34C  4E 80 00 20 */	blr
 
 .global GetAudibleFallOff__22CCollisionResponseDataCFv
 GetAudibleFallOff__22CCollisionResponseDataCFv:
 /* 802B23F0 002AF350  C0 23 00 34 */	lfs f1, 0x34(r3)
-/* 802B23F4 002AF354  4E 80 00 20 */	blr 
+/* 802B23F4 002AF354  4E 80 00 20 */	blr
 
 .global GetAudibleRange__22CCollisionResponseDataCFv
 GetAudibleRange__22CCollisionResponseDataCFv:
 /* 802B23F8 002AF358  C0 23 00 30 */	lfs f1, 0x30(r3)
-/* 802B23FC 002AF35C  4E 80 00 20 */	blr 
+/* 802B23FC 002AF35C  4E 80 00 20 */	blr
 
 .global ResponseTypeIsEnemySpecial__22CCollisionResponseDataF29EWeaponCollisionResponseTypes
 ResponseTypeIsEnemySpecial__22CCollisionResponseDataF29EWeaponCollisionResponseTypes:
@@ -218,10 +218,10 @@ ResponseTypeIsEnemySpecial__22CCollisionResponseDataF29EWeaponCollisionResponseT
 /* 802B2408 002AF368  2C 03 00 44 */	cmpwi r3, 0x44
 /* 802B240C 002AF36C  41 81 00 0C */	bgt lbl_802B2418
 /* 802B2410 002AF370  38 60 00 01 */	li r3, 1
-/* 802B2414 002AF374  4E 80 00 20 */	blr 
+/* 802B2414 002AF374  4E 80 00 20 */	blr
 lbl_802B2418:
 /* 802B2418 002AF378  38 60 00 00 */	li r3, 0
-/* 802B241C 002AF37C  4E 80 00 20 */	blr 
+/* 802B241C 002AF37C  4E 80 00 20 */	blr
 
 .global ResponseTypeIsEnemyNormal__22CCollisionResponseDataF29EWeaponCollisionResponseTypes
 ResponseTypeIsEnemyNormal__22CCollisionResponseDataF29EWeaponCollisionResponseTypes:
@@ -230,10 +230,10 @@ ResponseTypeIsEnemyNormal__22CCollisionResponseDataF29EWeaponCollisionResponseTy
 /* 802B2428 002AF388  2C 03 00 2B */	cmpwi r3, 0x2b
 /* 802B242C 002AF38C  41 81 00 0C */	bgt lbl_802B2438
 /* 802B2430 002AF390  38 60 00 01 */	li r3, 1
-/* 802B2434 002AF394  4E 80 00 20 */	blr 
+/* 802B2434 002AF394  4E 80 00 20 */	blr
 lbl_802B2438:
 /* 802B2438 002AF398  38 60 00 00 */	li r3, 0
-/* 802B243C 002AF39C  4E 80 00 20 */	blr 
+/* 802B243C 002AF39C  4E 80 00 20 */	blr
 
 .global ResponseTypeIsEnemyShielded__22CCollisionResponseDataF29EWeaponCollisionResponseTypes
 ResponseTypeIsEnemyShielded__22CCollisionResponseDataF29EWeaponCollisionResponseTypes:
@@ -242,10 +242,10 @@ ResponseTypeIsEnemyShielded__22CCollisionResponseDataF29EWeaponCollisionResponse
 /* 802B2448 002AF3A8  2C 03 00 5D */	cmpwi r3, 0x5d
 /* 802B244C 002AF3AC  41 81 00 0C */	bgt lbl_802B2458
 /* 802B2450 002AF3B0  38 60 00 01 */	li r3, 1
-/* 802B2454 002AF3B4  4E 80 00 20 */	blr 
+/* 802B2454 002AF3B4  4E 80 00 20 */	blr
 lbl_802B2458:
 /* 802B2458 002AF3B8  38 60 00 00 */	li r3, 0
-/* 802B245C 002AF3BC  4E 80 00 20 */	blr 
+/* 802B245C 002AF3BC  4E 80 00 20 */	blr
 
 .global GetDecalDescription__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes
 GetDecalDescription__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes:
@@ -277,7 +277,7 @@ lbl_802B24B8:
 /* 802B24C0 002AF420  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802B24C4 002AF424  7C 08 03 A6 */	mtlr r0
 /* 802B24C8 002AF428  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B24CC 002AF42C  4E 80 00 20 */	blr 
+/* 802B24CC 002AF42C  4E 80 00 20 */	blr
 
 .global GetSoundEffectId__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes
 GetSoundEffectId__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes:
@@ -345,7 +345,7 @@ lbl_802B2598:
 /* 802B25B0 002AF510  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B25B4 002AF514  7C 08 03 A6 */	mtlr r0
 /* 802B25B8 002AF518  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B25BC 002AF51C  4E 80 00 20 */	blr 
+/* 802B25BC 002AF51C  4E 80 00 20 */	blr
 
 .global GetParticleDescription__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes
 GetParticleDescription__22CCollisionResponseDataCF29EWeaponCollisionResponseTypes:
@@ -434,7 +434,7 @@ lbl_802B26E0:
 /* 802B26F0 002AF650  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802B26F4 002AF654  7C 08 03 A6 */	mtlr r0
 /* 802B26F8 002AF658  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B26FC 002AF65C  4E 80 00 20 */	blr 
+/* 802B26FC 002AF65C  4E 80 00 20 */	blr
 
 .global sub_802b2700
 sub_802b2700:
@@ -484,7 +484,7 @@ lbl_802B2790:
 /* 802B279C 002AF6FC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802B27A0 002AF700  7C 08 03 A6 */	mtlr r0
 /* 802B27A4 002AF704  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B27A8 002AF708  4E 80 00 20 */	blr 
+/* 802B27A8 002AF708  4E 80 00 20 */	blr
 
 .global sub_802b27ac
 sub_802b27ac:
@@ -539,7 +539,7 @@ lbl_802B284C:
 /* 802B2854 002AF7B4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B2858 002AF7B8  7C 08 03 A6 */	mtlr r0
 /* 802B285C 002AF7BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B2860 002AF7C0  4E 80 00 20 */	blr 
+/* 802B2860 002AF7C0  4E 80 00 20 */	blr
 
 .global sub_802b2864
 sub_802b2864:
@@ -594,7 +594,7 @@ lbl_802B2904:
 /* 802B290C 002AF86C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B2910 002AF870  7C 08 03 A6 */	mtlr r0
 /* 802B2914 002AF874  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B2918 002AF878  4E 80 00 20 */	blr 
+/* 802B2918 002AF878  4E 80 00 20 */	blr
 
 .global AddParticleSystemToResponse__22CCollisionResponseDataF29EWeaponCollisionResponseTypesR12CInputStreamP11CSimplePool
 AddParticleSystemToResponse__22CCollisionResponseDataF29EWeaponCollisionResponseTypesR12CInputStreamP11CSimplePool:
@@ -742,7 +742,7 @@ lbl_802B2B08:
 /* 802B2B14 002AFA74  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 802B2B18 002AFA78  7C 08 03 A6 */	mtlr r0
 /* 802B2B1C 002AFA7C  38 21 00 70 */	addi r1, r1, 0x70
-/* 802B2B20 002AFA80  4E 80 00 20 */	blr 
+/* 802B2B20 002AFA80  4E 80 00 20 */	blr
 
 .global CheckAndAddDecalToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool
 CheckAndAddDecalToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool:
@@ -782,7 +782,7 @@ lbl_802B2B60:
 /* 802B2BA4 002AFB04  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802B2BA8 002AFB08  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802B2BAC 002AFB0C  7D 89 03 A6 */	mtctr r12
-/* 802B2BB0 002AFB10  4E 80 04 21 */	bctrl 
+/* 802B2BB0 002AFB10  4E 80 04 21 */	bctrl
 /* 802B2BB4 002AFB14  38 61 00 08 */	addi r3, r1, 8
 /* 802B2BB8 002AFB18  38 81 00 10 */	addi r4, r1, 0x10
 /* 802B2BBC 002AFB1C  48 08 E2 ED */	bl __ct__6CTokenFRC6CToken
@@ -846,7 +846,7 @@ lbl_802B2C7C:
 /* 802B2C8C 002AFBEC  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802B2C90 002AFBF0  7C 08 03 A6 */	mtlr r0
 /* 802B2C94 002AFBF4  38 21 00 40 */	addi r1, r1, 0x40
-/* 802B2C98 002AFBF8  4E 80 00 20 */	blr 
+/* 802B2C98 002AFBF8  4E 80 00 20 */	blr
 
 .global CheckAndAddSoundFXToResponse__22CCollisionResponseDataFUiR12CInputStream
 CheckAndAddSoundFXToResponse__22CCollisionResponseDataFUiR12CInputStream:
@@ -892,7 +892,7 @@ lbl_802B2D1C:
 /* 802B2D28 002AFC88  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802B2D2C 002AFC8C  7C 08 03 A6 */	mtlr r0
 /* 802B2D30 002AFC90  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B2D34 002AFC94  4E 80 00 20 */	blr 
+/* 802B2D34 002AFC94  4E 80 00 20 */	blr
 
 .global CheckAndAddParticleSystemToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool
 CheckAndAddParticleSystemToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool:
@@ -921,7 +921,7 @@ lbl_802B2D84:
 /* 802B2D84 002AFCE4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B2D88 002AFCE8  7C 08 03 A6 */	mtlr r0
 /* 802B2D8C 002AFCEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B2D90 002AFCF0  4E 80 00 20 */	blr 
+/* 802B2D90 002AFCF0  4E 80 00 20 */	blr
 
 .global CheckAndAddResourcesToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool
 CheckAndAddResourcesToResponse__22CCollisionResponseDataFUiR12CInputStreamP11CSimplePool:
@@ -968,7 +968,7 @@ lbl_802B2E18:
 /* 802B2E28 002AFD88  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802B2E2C 002AFD8C  7C 08 03 A6 */	mtlr r0
 /* 802B2E30 002AFD90  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B2E34 002AFD94  4E 80 00 20 */	blr 
+/* 802B2E34 002AFD94  4E 80 00 20 */	blr
 
 .global __ct__22CCollisionResponseDataFR12CInputStreamP11CSimplePool
 __ct__22CCollisionResponseDataFR12CInputStreamP11CSimplePool:
@@ -1110,7 +1110,7 @@ lbl_802B3024:
 /* 802B3028 002AFF88  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802B302C 002AFF8C  7C 08 03 A6 */	mtlr r0
 /* 802B3030 002AFF90  38 21 00 50 */	addi r1, r1, 0x50
-/* 802B3034 002AFF94  4E 80 00 20 */	blr 
+/* 802B3034 002AFF94  4E 80 00 20 */	blr
 
 .global "resize__Q24rstl96vector<Q24rstl52optional_object<33TLockedToken<17CDecalDescription>>,Q24rstl17rmemory_allocator>Fi"
 "resize__Q24rstl96vector<Q24rstl52optional_object<33TLockedToken<17CDecalDescription>>,Q24rstl17rmemory_allocator>Fi":
@@ -1171,7 +1171,7 @@ lbl_802B30F0:
 /* 802B30FC 002B005C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B3100 002B0060  7C 08 03 A6 */	mtlr r0
 /* 802B3104 002B0064  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B3108 002B0068  4E 80 00 20 */	blr 
+/* 802B3108 002B0068  4E 80 00 20 */	blr
 
 .global sub_802b310c
 sub_802b310c:
@@ -1221,7 +1221,7 @@ lbl_802B3188:
 /* 802B31A8 002B0108  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802B31AC 002B010C  7C 08 03 A6 */	mtlr r0
 /* 802B31B0 002B0110  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B31B4 002B0114  4E 80 00 20 */	blr 
+/* 802B31B4 002B0114  4E 80 00 20 */	blr
 
 .global "resize__Q24rstl36vector<i,Q24rstl17rmemory_allocator>Fi"
 "resize__Q24rstl36vector<i,Q24rstl17rmemory_allocator>Fi":
@@ -1291,7 +1291,7 @@ lbl_802B3280:
 /* 802B3298 002B01F8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802B329C 002B01FC  7C 08 03 A6 */	mtlr r0
 /* 802B32A0 002B0200  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B32A4 002B0204  4E 80 00 20 */	blr 
+/* 802B32A4 002B0204  4E 80 00 20 */	blr
 
 .global "resize__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fi"
 "resize__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fi":
@@ -1352,7 +1352,7 @@ lbl_802B3360:
 /* 802B336C 002B02CC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B3370 002B02D0  7C 08 03 A6 */	mtlr r0
 /* 802B3374 002B02D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B3378 002B02D8  4E 80 00 20 */	blr 
+/* 802B3378 002B02D8  4E 80 00 20 */	blr
 
 .global "clear__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fv"
 "clear__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fv":
@@ -1402,7 +1402,7 @@ lbl_802B33F8:
 /* 802B3418 002B0378  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802B341C 002B037C  7C 08 03 A6 */	mtlr r0
 /* 802B3420 002B0380  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B3424 002B0384  4E 80 00 20 */	blr 
+/* 802B3424 002B0384  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl94vector<Q24rstl50optional_object<31TLockedToken<15CGenDescription>>,Q24rstl17rmemory_allocator>Fi":
@@ -1496,7 +1496,7 @@ lbl_802B3554:
 /* 802B3558 002B04B8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B355C 002B04BC  7C 08 03 A6 */	mtlr r0
 /* 802B3560 002B04C0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B3564 002B04C4  4E 80 00 20 */	blr 
+/* 802B3564 002B04C4  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl96vector<Q24rstl52optional_object<33TLockedToken<17CDecalDescription>>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl96vector<Q24rstl52optional_object<33TLockedToken<17CDecalDescription>>,Q24rstl17rmemory_allocator>Fi":

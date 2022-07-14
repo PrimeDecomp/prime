@@ -274,7 +274,7 @@ lbl_80359E5C:
 /* 80359EA8 00356E08  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80359EAC 00356E0C  7C 08 03 A6 */	mtlr r0
 /* 80359EB0 00356E10  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80359EB4 00356E14  4E 80 00 20 */	blr 
+/* 80359EB4 00356E14  4E 80 00 20 */	blr
 
 .global HasSpaceAvailable__17CTextRenderBufferFRC9CVector2iRC9CVector2i
 HasSpaceAvailable__17CTextRenderBufferFRC9CVector2iRC9CVector2i:
@@ -332,7 +332,7 @@ lbl_80359F6C:
 /* 80359F78 00356ED8  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80359F7C 00356EDC  7C 08 03 A6 */	mtlr r0
 /* 80359F80 00356EE0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80359F84 00356EE4  4E 80 00 20 */	blr 
+/* 80359F84 00356EE4  4E 80 00 20 */	blr
 
 .global SetPrimitive__17CTextRenderBufferFRCQ217CTextRenderBuffer9Primitivei
 SetPrimitive__17CTextRenderBufferFRCQ217CTextRenderBuffer9Primitivei:
@@ -483,7 +483,7 @@ lbl_8035A19C:
 /* 8035A1B0 00357110  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 8035A1B4 00357114  7C 08 03 A6 */	mtlr r0
 /* 8035A1B8 00357118  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8035A1BC 0035711C  4E 80 00 20 */	blr 
+/* 8035A1BC 0035711C  4E 80 00 20 */	blr
 
 .global GetPrimitive__17CTextRenderBufferCFi
 GetPrimitive__17CTextRenderBufferCFi:
@@ -589,7 +589,7 @@ lbl_8035A32C:
 /* 8035A33C 0035729C  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8035A340 003572A0  7C 08 03 A6 */	mtlr r0
 /* 8035A344 003572A4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8035A348 003572A8  4E 80 00 20 */	blr 
+/* 8035A348 003572A8  4E 80 00 20 */	blr
 
 .global sub_8035a34c
 sub_8035a34c:
@@ -606,7 +606,7 @@ sub_8035a34c:
 /* 8035A374 003572D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035A378 003572D8  7C 08 03 A6 */	mtlr r0
 /* 8035A37C 003572DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035A380 003572E0  4E 80 00 20 */	blr 
+/* 8035A380 003572E0  4E 80 00 20 */	blr
 
 .global GetOutStream__17CTextRenderBufferFv
 GetOutStream__17CTextRenderBufferFv:
@@ -623,12 +623,12 @@ GetOutStream__17CTextRenderBufferFv:
 /* 8035A3AC 0035730C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035A3B0 00357310  7C 08 03 A6 */	mtlr r0
 /* 8035A3B4 00357314  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035A3B8 00357318  4E 80 00 20 */	blr 
+/* 8035A3B8 00357318  4E 80 00 20 */	blr
 
 .global SetMode__17CTextRenderBufferFQ217CTextRenderBuffer5EMode
 SetMode__17CTextRenderBufferFQ217CTextRenderBuffer5EMode:
 /* 8035A3BC 0035731C  90 83 00 00 */	stw r4, 0(r3)
-/* 8035A3C0 00357320  4E 80 00 20 */	blr 
+/* 8035A3C0 00357320  4E 80 00 20 */	blr
 
 .global sub_8035a3c4
 sub_8035a3c4:
@@ -646,7 +646,7 @@ lbl_8035A3EC:
 /* 8035A3EC 0035734C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035A3F0 00357350  7C 08 03 A6 */	mtlr r0
 /* 8035A3F4 00357354  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035A3F8 00357358  4E 80 00 20 */	blr 
+/* 8035A3F8 00357358  4E 80 00 20 */	blr
 
 .global VerifyBuffer__17CTextRenderBufferFv
 VerifyBuffer__17CTextRenderBufferFv:
@@ -703,7 +703,7 @@ lbl_8035A4A0:
 /* 8035A4AC 0035740C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8035A4B0 00357410  7C 08 03 A6 */	mtlr r0
 /* 8035A4B4 00357414  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035A4B8 00357418  4E 80 00 20 */	blr 
+/* 8035A4B8 00357418  4E 80 00 20 */	blr
 
 .global Render__17CTextRenderBufferCFRC6CColorf
 Render__17CTextRenderBufferCFRC6CColorf:
@@ -1169,7 +1169,7 @@ lbl_8035AB74:
 /* 8035ABB8 00357B18  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8035ABBC 00357B1C  7C 08 03 A6 */	mtlr r0
 /* 8035ABC0 00357B20  38 21 01 20 */	addi r1, r1, 0x120
-/* 8035ABC4 00357B24  4E 80 00 20 */	blr 
+/* 8035ABC4 00357B24  4E 80 00 20 */	blr
 
 .global AddImage__17CTextRenderBufferFRC9CVector2iRC13CFontImageDef
 AddImage__17CTextRenderBufferFRC9CVector2iRC13CFontImageDef:
@@ -1314,7 +1314,7 @@ lbl_8035ADBC:
 /* 8035ADCC 00357D2C  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 8035ADD0 00357D30  7C 08 03 A6 */	mtlr r0
 /* 8035ADD4 00357D34  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8035ADD8 00357D38  4E 80 00 20 */	blr 
+/* 8035ADD8 00357D38  4E 80 00 20 */	blr
 
 .global sub_8035addc
 sub_8035addc:
@@ -1350,7 +1350,7 @@ lbl_8035AE1C:
 /* 8035AE48 00357DA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035AE4C 00357DAC  7C 08 03 A6 */	mtlr r0
 /* 8035AE50 00357DB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035AE54 00357DB4  4E 80 00 20 */	blr 
+/* 8035AE54 00357DB4  4E 80 00 20 */	blr
 
 .global sub_8035ae58
 sub_8035ae58:
@@ -1364,7 +1364,7 @@ lbl_8035AE70:
 /* 8035AE70 00357DD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8035AE74 00357DD4  7C 08 03 A6 */	mtlr r0
 /* 8035AE78 00357DD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035AE7C 00357DDC  4E 80 00 20 */	blr 
+/* 8035AE7C 00357DDC  4E 80 00 20 */	blr
 
 .global AddCharacter__17CTextRenderBufferFRC9CVector2isUi
 AddCharacter__17CTextRenderBufferFRC9CVector2isUi:
@@ -1481,7 +1481,7 @@ lbl_8035B01C:
 /* 8035B020 00357F80  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8035B024 00357F84  7C 08 03 A6 */	mtlr r0
 /* 8035B028 00357F88  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8035B02C 00357F8C  4E 80 00 20 */	blr 
+/* 8035B02C 00357F8C  4E 80 00 20 */	blr
 
 .global AddPaletteChange__17CTextRenderBufferFRC16CGraphicsPalette
 AddPaletteChange__17CTextRenderBufferFRC16CGraphicsPalette:
@@ -1585,7 +1585,7 @@ lbl_8035B190:
 /* 8035B1A0 00358100  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 8035B1A4 00358104  7C 08 03 A6 */	mtlr r0
 /* 8035B1A8 00358108  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8035B1AC 0035810C  4E 80 00 20 */	blr 
+/* 8035B1AC 0035810C  4E 80 00 20 */	blr
 
 .global "AddFontChange__17CTextRenderBufferFRC21TToken<11CRasterFont>"
 "AddFontChange__17CTextRenderBufferFRC21TToken<11CRasterFont>":
@@ -1751,7 +1751,7 @@ lbl_8035B3EC:
 /* 8035B3F8 00358358  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 8035B3FC 0035835C  7C 08 03 A6 */	mtlr r0
 /* 8035B400 00358360  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8035B404 00358364  4E 80 00 20 */	blr 
+/* 8035B404 00358364  4E 80 00 20 */	blr
 
 .global GetMatchingPaletteIndex__17CTextRenderBufferCFRC16CGraphicsPalette
 GetMatchingPaletteIndex__17CTextRenderBufferCFRC16CGraphicsPalette:
@@ -1793,7 +1793,7 @@ lbl_8035B474:
 /* 8035B484 003583E4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8035B488 003583E8  7C 08 03 A6 */	mtlr r0
 /* 8035B48C 003583EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035B490 003583F0  4E 80 00 20 */	blr 
+/* 8035B490 003583F0  4E 80 00 20 */	blr
 
 .global GetNextAvailablePalette__17CTextRenderBufferCFv
 GetNextAvailablePalette__17CTextRenderBufferCFv:
@@ -1858,7 +1858,7 @@ lbl_8035B548:
 /* 8035B56C 003584CC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8035B570 003584D0  7C 08 03 A6 */	mtlr r0
 /* 8035B574 003584D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035B578 003584D8  4E 80 00 20 */	blr 
+/* 8035B578 003584D8  4E 80 00 20 */	blr
 
 .global __ct__17CTextRenderBufferFQ217CTextRenderBuffer5EMode
 __ct__17CTextRenderBufferFQ217CTextRenderBuffer5EMode:

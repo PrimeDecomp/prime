@@ -41,7 +41,7 @@ lbl_802CAFDC:
 /* 802CAFEC 002C7F4C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802CAFF0 002C7F50  7C 08 03 A6 */	mtlr r0
 /* 802CAFF4 002C7F54  38 21 00 20 */	addi r1, r1, 0x20
-/* 802CAFF8 002C7F58  4E 80 00 20 */	blr 
+/* 802CAFF8 002C7F58  4E 80 00 20 */	blr
 
 .global "AddWidget__14CGuiWidgetIdDBFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "AddWidget__14CGuiWidgetIdDBFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -90,7 +90,7 @@ lbl_802CB088:
 /* 802CB094 002C7FF4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CB098 002C7FF8  7C 08 03 A6 */	mtlr r0
 /* 802CB09C 002C7FFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CB0A0 002C8000  4E 80 00 20 */	blr 
+/* 802CB0A0 002C8000  4E 80 00 20 */	blr
 
 .global sub_802cb0a4
 sub_802cb0a4:
@@ -103,7 +103,7 @@ sub_802cb0a4:
 /* 802CB0BC 002C801C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802CB0C0 002C8020  7C 08 03 A6 */	mtlr r0
 /* 802CB0C4 002C8024  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CB0C8 002C8028  4E 80 00 20 */	blr 
+/* 802CB0C8 002C8028  4E 80 00 20 */	blr
 
 .global __ct__14CGuiWidgetIdDBFv
 __ct__14CGuiWidgetIdDBFv:
@@ -163,4 +163,4 @@ __ct__14CGuiWidgetIdDBFv:
 /* 802CB1A0 002C8100  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 802CB1A4 002C8104  7C 08 03 A6 */	mtlr r0
 /* 802CB1A8 002C8108  38 21 00 50 */	addi r1, r1, 0x50
-/* 802CB1AC 002C810C  4E 80 00 20 */	blr 
+/* 802CB1AC 002C810C  4E 80 00 20 */	blr

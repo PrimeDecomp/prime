@@ -1078,567 +1078,567 @@ lbl_805A8E88:
 .global ShouldCallForBackup__3CAiFR13CStateManagerf
 ShouldCallForBackup__3CAiFR13CStateManagerf:
 /* 800A25F4 0009F554  38 60 00 00 */	li r3, 0
-/* 800A25F8 0009F558  4E 80 00 20 */	blr 
+/* 800A25F8 0009F558  4E 80 00 20 */	blr
 
 .global IsDizzy__3CAiFR13CStateManagerf
 IsDizzy__3CAiFR13CStateManagerf:
 /* 800A25FC 0009F55C  38 60 00 00 */	li r3, 0
-/* 800A2600 0009F560  4E 80 00 20 */	blr 
+/* 800A2600 0009F560  4E 80 00 20 */	blr
 
 .global FixedRandom__3CAiFR13CStateManagerf
 FixedRandom__3CAiFR13CStateManagerf:
 /* 800A2604 0009F564  38 60 00 00 */	li r3, 0
-/* 800A2608 0009F568  4E 80 00 20 */	blr 
+/* 800A2608 0009F568  4E 80 00 20 */	blr
 
 .global Random__3CAiFR13CStateManagerf
 Random__3CAiFR13CStateManagerf:
 /* 800A260C 0009F56C  38 60 00 00 */	li r3, 0
-/* 800A2610 0009F570  4E 80 00 20 */	blr 
+/* 800A2610 0009F570  4E 80 00 20 */	blr
 
 .global BounceFind__3CAiFR13CStateManagerf
 BounceFind__3CAiFR13CStateManagerf:
 /* 800A2614 0009F574  38 60 00 00 */	li r3, 0
-/* 800A2618 0009F578  4E 80 00 20 */	blr 
+/* 800A2618 0009F578  4E 80 00 20 */	blr
 
 .global CodeTrigger__3CAiFR13CStateManagerf
 CodeTrigger__3CAiFR13CStateManagerf:
 /* 800A261C 0009F57C  38 60 00 00 */	li r3, 0
-/* 800A2620 0009F580  4E 80 00 20 */	blr 
+/* 800A2620 0009F580  4E 80 00 20 */	blr
 
 .global LostInterest__3CAiFR13CStateManagerf
 LostInterest__3CAiFR13CStateManagerf:
 /* 800A2624 0009F584  38 60 00 00 */	li r3, 0
-/* 800A2628 0009F588  4E 80 00 20 */	blr 
+/* 800A2628 0009F588  4E 80 00 20 */	blr
 
 .global ShouldSpecialAttack__3CAiFR13CStateManagerf
 ShouldSpecialAttack__3CAiFR13CStateManagerf:
 /* 800A262C 0009F58C  38 60 00 00 */	li r3, 0
-/* 800A2630 0009F590  4E 80 00 20 */	blr 
+/* 800A2630 0009F590  4E 80 00 20 */	blr
 
 .global ShouldStrafe__3CAiFR13CStateManagerf
 ShouldStrafe__3CAiFR13CStateManagerf:
 /* 800A2634 0009F594  38 60 00 00 */	li r3, 0
-/* 800A2638 0009F598  4E 80 00 20 */	blr 
+/* 800A2638 0009F598  4E 80 00 20 */	blr
 
 .global BreakAttack__3CAiFR13CStateManagerf
 BreakAttack__3CAiFR13CStateManagerf:
 /* 800A263C 0009F59C  38 60 00 00 */	li r3, 0
-/* 800A2640 0009F5A0  4E 80 00 20 */	blr 
+/* 800A2640 0009F5A0  4E 80 00 20 */	blr
 
 .global StartAttack__3CAiFR13CStateManagerf
 StartAttack__3CAiFR13CStateManagerf:
 /* 800A2644 0009F5A4  38 60 00 00 */	li r3, 0
-/* 800A2648 0009F5A8  4E 80 00 20 */	blr 
+/* 800A2648 0009F5A8  4E 80 00 20 */	blr
 
 .global AIStage__3CAiFR13CStateManagerf
 AIStage__3CAiFR13CStateManagerf:
 /* 800A264C 0009F5AC  38 60 00 00 */	li r3, 0
-/* 800A2650 0009F5B0  4E 80 00 20 */	blr 
+/* 800A2650 0009F5B0  4E 80 00 20 */	blr
 
 .global SetAIStage__3CAiFR13CStateManagerf
 SetAIStage__3CAiFR13CStateManagerf:
 /* 800A2654 0009F5B4  38 60 00 00 */	li r3, 0
-/* 800A2658 0009F5B8  4E 80 00 20 */	blr 
+/* 800A2658 0009F5B8  4E 80 00 20 */	blr
 
 .global ShouldWallHang__3CAiFR13CStateManagerf
 ShouldWallHang__3CAiFR13CStateManagerf:
 /* 800A265C 0009F5BC  38 60 00 00 */	li r3, 0
-/* 800A2660 0009F5C0  4E 80 00 20 */	blr 
+/* 800A2660 0009F5C0  4E 80 00 20 */	blr
 
 .global HasTargetingPoint__3CAiFR13CStateManagerf
 HasTargetingPoint__3CAiFR13CStateManagerf:
 /* 800A2664 0009F5C4  38 60 00 00 */	li r3, 0
-/* 800A2668 0009F5C8  4E 80 00 20 */	blr 
+/* 800A2668 0009F5C8  4E 80 00 20 */	blr
 
 .global ShotAt__3CAiFR13CStateManagerf
 ShotAt__3CAiFR13CStateManagerf:
 /* 800A266C 0009F5CC  38 60 00 00 */	li r3, 0
-/* 800A2670 0009F5D0  4E 80 00 20 */	blr 
+/* 800A2670 0009F5D0  4E 80 00 20 */	blr
 
 .global ShouldMove__3CAiFR13CStateManagerf
 ShouldMove__3CAiFR13CStateManagerf:
 /* 800A2674 0009F5D4  38 60 00 00 */	li r3, 0
-/* 800A2678 0009F5D8  4E 80 00 20 */	blr 
+/* 800A2678 0009F5D8  4E 80 00 20 */	blr
 
 .global ShouldCrouch__3CAiFR13CStateManagerf
 ShouldCrouch__3CAiFR13CStateManagerf:
 /* 800A267C 0009F5DC  38 60 00 00 */	li r3, 0
-/* 800A2680 0009F5E0  4E 80 00 20 */	blr 
+/* 800A2680 0009F5E0  4E 80 00 20 */	blr
 
 .global ShouldRetreat__3CAiFR13CStateManagerf
 ShouldRetreat__3CAiFR13CStateManagerf:
 /* 800A2684 0009F5E4  38 60 00 00 */	li r3, 0
-/* 800A2688 0009F5E8  4E 80 00 20 */	blr 
+/* 800A2688 0009F5E8  4E 80 00 20 */	blr
 
 .global ShouldDodge__3CAiFR13CStateManagerf
 ShouldDodge__3CAiFR13CStateManagerf:
 /* 800A268C 0009F5EC  38 60 00 00 */	li r3, 0
-/* 800A2690 0009F5F0  4E 80 00 20 */	blr 
+/* 800A2690 0009F5F0  4E 80 00 20 */	blr
 
 .global PatrolPathOver__3CAiFR13CStateManagerf
 PatrolPathOver__3CAiFR13CStateManagerf:
 /* 800A2694 0009F5F4  38 60 00 00 */	li r3, 0
-/* 800A2698 0009F5F8  4E 80 00 20 */	blr 
+/* 800A2698 0009F5F8  4E 80 00 20 */	blr
 
 .global ShouldFlinch__3CAiFR13CStateManagerf
 ShouldFlinch__3CAiFR13CStateManagerf:
 /* 800A269C 0009F5FC  38 60 00 00 */	li r3, 0
-/* 800A26A0 0009F600  4E 80 00 20 */	blr 
+/* 800A26A0 0009F600  4E 80 00 20 */	blr
 
 .global ShouldFire__3CAiFR13CStateManagerf
 ShouldFire__3CAiFR13CStateManagerf:
 /* 800A26A4 0009F604  38 60 00 00 */	li r3, 0
-/* 800A26A8 0009F608  4E 80 00 20 */	blr 
+/* 800A26A8 0009F608  4E 80 00 20 */	blr
 
 .global Inside__3CAiFR13CStateManagerf
 Inside__3CAiFR13CStateManagerf:
 /* 800A26AC 0009F60C  38 60 00 00 */	li r3, 0
-/* 800A26B0 0009F610  4E 80 00 20 */	blr 
+/* 800A26B0 0009F610  4E 80 00 20 */	blr
 
 .global ShouldTaunt__3CAiFR13CStateManagerf
 ShouldTaunt__3CAiFR13CStateManagerf:
 /* 800A26B4 0009F614  38 60 00 00 */	li r3, 0
-/* 800A26B8 0009F618  4E 80 00 20 */	blr 
+/* 800A26B8 0009F618  4E 80 00 20 */	blr
 
 .global AttackOver__3CAiFR13CStateManagerf
 AttackOver__3CAiFR13CStateManagerf:
 /* 800A26BC 0009F61C  38 60 00 00 */	li r3, 0
-/* 800A26C0 0009F620  4E 80 00 20 */	blr 
+/* 800A26C0 0009F620  4E 80 00 20 */	blr
 
 .global AggressionCheck__3CAiFR13CStateManagerf
 AggressionCheck__3CAiFR13CStateManagerf:
 /* 800A26C4 0009F624  38 60 00 00 */	li r3, 0
-/* 800A26C8 0009F628  4E 80 00 20 */	blr 
+/* 800A26C8 0009F628  4E 80 00 20 */	blr
 
 .global LineOfSight__3CAiFR13CStateManagerf
 LineOfSight__3CAiFR13CStateManagerf:
 /* 800A26CC 0009F62C  38 60 00 00 */	li r3, 0
-/* 800A26D0 0009F630  4E 80 00 20 */	blr 
+/* 800A26D0 0009F630  4E 80 00 20 */	blr
 
 .global GotUp__3CAiFR13CStateManagerf
 GotUp__3CAiFR13CStateManagerf:
 /* 800A26D4 0009F634  38 60 00 00 */	li r3, 0
-/* 800A26D8 0009F638  4E 80 00 20 */	blr 
+/* 800A26D8 0009F638  4E 80 00 20 */	blr
 
 .global CoveringFire__3CAiFR13CStateManagerf
 CoveringFire__3CAiFR13CStateManagerf:
 /* 800A26DC 0009F63C  38 60 00 00 */	li r3, 0
-/* 800A26E0 0009F640  4E 80 00 20 */	blr 
+/* 800A26E0 0009F640  4E 80 00 20 */	blr
 
 .global CoverNearlyBlown__3CAiFR13CStateManagerf
 CoverNearlyBlown__3CAiFR13CStateManagerf:
 /* 800A26E4 0009F644  38 60 00 00 */	li r3, 0
-/* 800A26E8 0009F648  4E 80 00 20 */	blr 
+/* 800A26E8 0009F648  4E 80 00 20 */	blr
 
 .global CoverBlown__3CAiFR13CStateManagerf
 CoverBlown__3CAiFR13CStateManagerf:
 /* 800A26EC 0009F64C  38 60 00 00 */	li r3, 0
-/* 800A26F0 0009F650  4E 80 00 20 */	blr 
+/* 800A26F0 0009F650  4E 80 00 20 */	blr
 
 .global CoverFind__3CAiFR13CStateManagerf
 CoverFind__3CAiFR13CStateManagerf:
 /* 800A26F4 0009F654  38 60 00 00 */	li r3, 0
-/* 800A26F8 0009F658  4E 80 00 20 */	blr 
+/* 800A26F8 0009F658  4E 80 00 20 */	blr
 
 .global CoverCheck__3CAiFR13CStateManagerf
 CoverCheck__3CAiFR13CStateManagerf:
 /* 800A26FC 0009F65C  38 60 00 00 */	li r3, 0
-/* 800A2700 0009F660  4E 80 00 20 */	blr 
+/* 800A2700 0009F660  4E 80 00 20 */	blr
 
 .global HearPlayer__3CAiFR13CStateManagerf
 HearPlayer__3CAiFR13CStateManagerf:
 /* 800A2704 0009F664  38 60 00 00 */	li r3, 0
-/* 800A2708 0009F668  4E 80 00 20 */	blr 
+/* 800A2708 0009F668  4E 80 00 20 */	blr
 
 .global HearShot__3CAiFR13CStateManagerf
 HearShot__3CAiFR13CStateManagerf:
 /* 800A270C 0009F66C  38 60 00 00 */	li r3, 0
-/* 800A2710 0009F670  4E 80 00 20 */	blr 
+/* 800A2710 0009F670  4E 80 00 20 */	blr
 
 .global Landed__3CAiFR13CStateManagerf
 Landed__3CAiFR13CStateManagerf:
 /* 800A2714 0009F674  38 60 00 00 */	li r3, 0
-/* 800A2718 0009F678  4E 80 00 20 */	blr 
+/* 800A2718 0009F678  4E 80 00 20 */	blr
 
 .global NoPathNodes__3CAiFR13CStateManagerf
 NoPathNodes__3CAiFR13CStateManagerf:
 /* 800A271C 0009F67C  38 60 00 00 */	li r3, 0
-/* 800A2720 0009F680  4E 80 00 20 */	blr 
+/* 800A2720 0009F680  4E 80 00 20 */	blr
 
 .global Stuck__3CAiFR13CStateManagerf
 Stuck__3CAiFR13CStateManagerf:
 /* 800A2724 0009F684  38 60 00 00 */	li r3, 0
-/* 800A2728 0009F688  4E 80 00 20 */	blr 
+/* 800A2728 0009F688  4E 80 00 20 */	blr
 
 .global ShouldJumpBack__3CAiFR13CStateManagerf
 ShouldJumpBack__3CAiFR13CStateManagerf:
 /* 800A272C 0009F68C  38 60 00 00 */	li r3, 0
-/* 800A2730 0009F690  4E 80 00 20 */	blr 
+/* 800A2730 0009F690  4E 80 00 20 */	blr
 
 .global HitSomething__3CAiFR13CStateManagerf
 HitSomething__3CAiFR13CStateManagerf:
 /* 800A2734 0009F694  38 60 00 00 */	li r3, 0
-/* 800A2738 0009F698  4E 80 00 20 */	blr 
+/* 800A2738 0009F698  4E 80 00 20 */	blr
 
 .global ShouldTurn__3CAiFR13CStateManagerf
 ShouldTurn__3CAiFR13CStateManagerf:
 /* 800A273C 0009F69C  38 60 00 00 */	li r3, 0
-/* 800A2740 0009F6A0  4E 80 00 20 */	blr 
+/* 800A2740 0009F6A0  4E 80 00 20 */	blr
 
 .global InPosition__3CAiFR13CStateManagerf
 InPosition__3CAiFR13CStateManagerf:
 /* 800A2744 0009F6A4  38 60 00 00 */	li r3, 0
-/* 800A2748 0009F6A8  4E 80 00 20 */	blr 
+/* 800A2748 0009F6A8  4E 80 00 20 */	blr
 
 .global ShouldDoubleSnap__3CAiFR13CStateManagerf
 ShouldDoubleSnap__3CAiFR13CStateManagerf:
 /* 800A274C 0009F6AC  38 60 00 00 */	li r3, 0
-/* 800A2750 0009F6B0  4E 80 00 20 */	blr 
+/* 800A2750 0009F6B0  4E 80 00 20 */	blr
 
 .global ShouldAttack__3CAiFR13CStateManagerf
 ShouldAttack__3CAiFR13CStateManagerf:
 /* 800A2754 0009F6B4  38 60 00 00 */	li r3, 0
-/* 800A2758 0009F6B8  4E 80 00 20 */	blr 
+/* 800A2758 0009F6B8  4E 80 00 20 */	blr
 
 .global AnimOver__3CAiFR13CStateManagerf
 AnimOver__3CAiFR13CStateManagerf:
 /* 800A275C 0009F6BC  38 60 00 00 */	li r3, 0
-/* 800A2760 0009F6C0  4E 80 00 20 */	blr 
+/* 800A2760 0009F6C0  4E 80 00 20 */	blr
 
 .global Default__3CAiFR13CStateManagerf
 Default__3CAiFR13CStateManagerf:
 /* 800A2764 0009F6C4  38 60 00 00 */	li r3, 0
-/* 800A2768 0009F6C8  4E 80 00 20 */	blr 
+/* 800A2768 0009F6C8  4E 80 00 20 */	blr
 
 .global FixedDelay__3CAiFR13CStateManagerf
 FixedDelay__3CAiFR13CStateManagerf:
 /* 800A276C 0009F6CC  38 60 00 00 */	li r3, 0
-/* 800A2770 0009F6D0  4E 80 00 20 */	blr 
+/* 800A2770 0009F6D0  4E 80 00 20 */	blr
 
 .global RandomDelay__3CAiFR13CStateManagerf
 RandomDelay__3CAiFR13CStateManagerf:
 /* 800A2774 0009F6D4  38 60 00 00 */	li r3, 0
-/* 800A2778 0009F6D8  4E 80 00 20 */	blr 
+/* 800A2778 0009F6D8  4E 80 00 20 */	blr
 
 .global Delay__3CAiFR13CStateManagerf
 Delay__3CAiFR13CStateManagerf:
 /* 800A277C 0009F6DC  38 60 00 00 */	li r3, 0
-/* 800A2780 0009F6E0  4E 80 00 20 */	blr 
+/* 800A2780 0009F6E0  4E 80 00 20 */	blr
 
 .global HasRetreatPattern__3CAiFR13CStateManagerf
 HasRetreatPattern__3CAiFR13CStateManagerf:
 /* 800A2784 0009F6E4  38 60 00 00 */	li r3, 0
-/* 800A2788 0009F6E8  4E 80 00 20 */	blr 
+/* 800A2788 0009F6E8  4E 80 00 20 */	blr
 
 .global HasPatrolPath__3CAiFR13CStateManagerf
 HasPatrolPath__3CAiFR13CStateManagerf:
 /* 800A278C 0009F6EC  38 60 00 00 */	li r3, 0
-/* 800A2790 0009F6F0  4E 80 00 20 */	blr 
+/* 800A2790 0009F6F0  4E 80 00 20 */	blr
 
 .global HasAttackPattern__3CAiFR13CStateManagerf
 HasAttackPattern__3CAiFR13CStateManagerf:
 /* 800A2794 0009F6F4  38 60 00 00 */	li r3, 0
-/* 800A2798 0009F6F8  4E 80 00 20 */	blr 
+/* 800A2798 0009F6F8  4E 80 00 20 */	blr
 
 .global PatternShagged__3CAiFR13CStateManagerf
 PatternShagged__3CAiFR13CStateManagerf:
 /* 800A279C 0009F6FC  38 60 00 00 */	li r3, 0
-/* 800A27A0 0009F700  4E 80 00 20 */	blr 
+/* 800A27A0 0009F700  4E 80 00 20 */	blr
 
 .global PatternOver__3CAiFR13CStateManagerf
 PatternOver__3CAiFR13CStateManagerf:
 /* 800A27A4 0009F704  38 60 00 00 */	li r3, 0
-/* 800A27A8 0009F708  4E 80 00 20 */	blr 
+/* 800A27A8 0009F708  4E 80 00 20 */	blr
 
 .global PlayerSpot__3CAiFR13CStateManagerf
 PlayerSpot__3CAiFR13CStateManagerf:
 /* 800A27AC 0009F70C  38 60 00 00 */	li r3, 0
-/* 800A27B0 0009F710  4E 80 00 20 */	blr 
+/* 800A27B0 0009F710  4E 80 00 20 */	blr
 
 .global SpotPlayer__3CAiFR13CStateManagerf
 SpotPlayer__3CAiFR13CStateManagerf:
 /* 800A27B4 0009F714  38 60 00 00 */	li r3, 0
-/* 800A27B8 0009F718  4E 80 00 20 */	blr 
+/* 800A27B8 0009F718  4E 80 00 20 */	blr
 
 .global InDetectionRange__3CAiFR13CStateManagerf
 InDetectionRange__3CAiFR13CStateManagerf:
 /* 800A27BC 0009F71C  38 60 00 00 */	li r3, 0
-/* 800A27C0 0009F720  4E 80 00 20 */	blr 
+/* 800A27C0 0009F720  4E 80 00 20 */	blr
 
 .global InMaxRange__3CAiFR13CStateManagerf
 InMaxRange__3CAiFR13CStateManagerf:
 /* 800A27C4 0009F724  38 60 00 00 */	li r3, 0
-/* 800A27C8 0009F728  4E 80 00 20 */	blr 
+/* 800A27C8 0009F728  4E 80 00 20 */	blr
 
 .global InRange__3CAiFR13CStateManagerf
 InRange__3CAiFR13CStateManagerf:
 /* 800A27CC 0009F72C  38 60 00 00 */	li r3, 0
-/* 800A27D0 0009F730  4E 80 00 20 */	blr 
+/* 800A27D0 0009F730  4E 80 00 20 */	blr
 
 .global TooClose__3CAiFR13CStateManagerf
 TooClose__3CAiFR13CStateManagerf:
 /* 800A27D4 0009F734  38 60 00 00 */	li r3, 0
-/* 800A27D8 0009F738  4E 80 00 20 */	blr 
+/* 800A27D8 0009F738  4E 80 00 20 */	blr
 
 .global PathFound__3CAiFR13CStateManagerf
 PathFound__3CAiFR13CStateManagerf:
 /* 800A27DC 0009F73C  38 60 00 00 */	li r3, 0
-/* 800A27E0 0009F740  4E 80 00 20 */	blr 
+/* 800A27E0 0009F740  4E 80 00 20 */	blr
 
 .global PathOver__3CAiFR13CStateManagerf
 PathOver__3CAiFR13CStateManagerf:
 /* 800A27E4 0009F744  38 60 00 00 */	li r3, 0
-/* 800A27E8 0009F748  4E 80 00 20 */	blr 
+/* 800A27E8 0009F748  4E 80 00 20 */	blr
 
 .global PathShagged__3CAiFR13CStateManagerf
 PathShagged__3CAiFR13CStateManagerf:
 /* 800A27EC 0009F74C  38 60 00 00 */	li r3, 0
-/* 800A27F0 0009F750  4E 80 00 20 */	blr 
+/* 800A27F0 0009F750  4E 80 00 20 */	blr
 
 .global Attacked__3CAiFR13CStateManagerf
 Attacked__3CAiFR13CStateManagerf:
 /* 800A27F4 0009F754  38 60 00 00 */	li r3, 0
-/* 800A27F8 0009F758  4E 80 00 20 */	blr 
+/* 800A27F8 0009F758  4E 80 00 20 */	blr
 
 .global Offline__3CAiFR13CStateManagerf
 Offline__3CAiFR13CStateManagerf:
 /* 800A27FC 0009F75C  38 60 00 00 */	li r3, 0
-/* 800A2800 0009F760  4E 80 00 20 */	blr 
+/* 800A2800 0009F760  4E 80 00 20 */	blr
 
 .global Leash__3CAiFR13CStateManagerf
 Leash__3CAiFR13CStateManagerf:
 /* 800A2804 0009F764  38 60 00 00 */	li r3, 0
-/* 800A2808 0009F768  4E 80 00 20 */	blr 
+/* 800A2808 0009F768  4E 80 00 20 */	blr
 
 .global InAttackPosition__3CAiFR13CStateManagerf
 InAttackPosition__3CAiFR13CStateManagerf:
 /* 800A280C 0009F76C  38 60 00 00 */	li r3, 0
-/* 800A2810 0009F770  4E 80 00 20 */	blr 
+/* 800A2810 0009F770  4E 80 00 20 */	blr
 
 .global PodAttack__3CAiFR13CStateManager9EStateMsgf
 PodAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2814 0009F774  4E 80 00 20 */	blr 
+/* 800A2814 0009F774  4E 80 00 20 */	blr
 
 .global BulbAttack__3CAiFR13CStateManager9EStateMsgf
 BulbAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2818 0009F778  4E 80 00 20 */	blr 
+/* 800A2818 0009F778  4E 80 00 20 */	blr
 
 .global CallForBackup__3CAiFR13CStateManager9EStateMsgf
 CallForBackup__3CAiFR13CStateManager9EStateMsgf:
-/* 800A281C 0009F77C  4E 80 00 20 */	blr 
+/* 800A281C 0009F77C  4E 80 00 20 */	blr
 
 .global Dizzy__3CAiFR13CStateManager9EStateMsgf
 Dizzy__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2820 0009F780  4E 80 00 20 */	blr 
+/* 800A2820 0009F780  4E 80 00 20 */	blr
 
 .global PathFindEx__3CAiFR13CStateManager9EStateMsgf
 PathFindEx__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2824 0009F784  4E 80 00 20 */	blr 
+/* 800A2824 0009F784  4E 80 00 20 */	blr
 
 .global Bounce__3CAiFR13CStateManager9EStateMsgf
 Bounce__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2828 0009F788  4E 80 00 20 */	blr 
+/* 800A2828 0009F788  4E 80 00 20 */	blr
 
 .global Land__3CAiFR13CStateManager9EStateMsgf
 Land__3CAiFR13CStateManager9EStateMsgf:
-/* 800A282C 0009F78C  4E 80 00 20 */	blr 
+/* 800A282C 0009F78C  4E 80 00 20 */	blr
 
 .global Faint__3CAiFR13CStateManager9EStateMsgf
 Faint__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2830 0009F790  4E 80 00 20 */	blr 
+/* 800A2830 0009F790  4E 80 00 20 */	blr
 
 .global Growth__3CAiFR13CStateManager9EStateMsgf
 Growth__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2834 0009F794  4E 80 00 20 */	blr 
+/* 800A2834 0009F794  4E 80 00 20 */	blr
 
 .global SpecialAttack__3CAiFR13CStateManager9EStateMsgf
 SpecialAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2838 0009F798  4E 80 00 20 */	blr 
+/* 800A2838 0009F798  4E 80 00 20 */	blr
 
 .global Enraged__3CAiFR13CStateManager9EStateMsgf
 Enraged__3CAiFR13CStateManager9EStateMsgf:
-/* 800A283C 0009F79C  4E 80 00 20 */	blr 
+/* 800A283C 0009F79C  4E 80 00 20 */	blr
 
 .global WallDetach__3CAiFR13CStateManager9EStateMsgf
 WallDetach__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2840 0009F7A0  4E 80 00 20 */	blr 
+/* 800A2840 0009F7A0  4E 80 00 20 */	blr
 
 .global WallHang__3CAiFR13CStateManager9EStateMsgf
 WallHang__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2844 0009F7A4  4E 80 00 20 */	blr 
+/* 800A2844 0009F7A4  4E 80 00 20 */	blr
 
 .global Approach__3CAiFR13CStateManager9EStateMsgf
 Approach__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2848 0009F7A8  4E 80 00 20 */	blr 
+/* 800A2848 0009F7A8  4E 80 00 20 */	blr
 
 .global Cover__3CAiFR13CStateManager9EStateMsgf
 Cover__3CAiFR13CStateManager9EStateMsgf:
-/* 800A284C 0009F7AC  4E 80 00 20 */	blr 
+/* 800A284C 0009F7AC  4E 80 00 20 */	blr
 
 .global Retreat__3CAiFR13CStateManager9EStateMsgf
 Retreat__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2850 0009F7B0  4E 80 00 20 */	blr 
+/* 800A2850 0009F7B0  4E 80 00 20 */	blr
 
 .global Dodge__3CAiFR13CStateManager9EStateMsgf
 Dodge__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2854 0009F7B4  4E 80 00 20 */	blr 
+/* 800A2854 0009F7B4  4E 80 00 20 */	blr
 
 .global Explode__3CAiFR13CStateManager9EStateMsgf
 Explode__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2858 0009F7B8  4E 80 00 20 */	blr 
+/* 800A2858 0009F7B8  4E 80 00 20 */	blr
 
 .global Jump__3CAiFR13CStateManager9EStateMsgf
 Jump__3CAiFR13CStateManager9EStateMsgf:
-/* 800A285C 0009F7BC  4E 80 00 20 */	blr 
+/* 800A285C 0009F7BC  4E 80 00 20 */	blr
 
 .global TelegraphAttack__3CAiFR13CStateManager9EStateMsgf
 TelegraphAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2860 0009F7C0  4E 80 00 20 */	blr 
+/* 800A2860 0009F7C0  4E 80 00 20 */	blr
 
 .global Hurled__3CAiFR13CStateManager9EStateMsgf
 Hurled__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2864 0009F7C4  4E 80 00 20 */	blr 
+/* 800A2864 0009F7C4  4E 80 00 20 */	blr
 
 .global Flinch__3CAiFR13CStateManager9EStateMsgf
 Flinch__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2868 0009F7C8  4E 80 00 20 */	blr 
+/* 800A2868 0009F7C8  4E 80 00 20 */	blr
 
 .global ProjectileAttack__3CAiFR13CStateManager9EStateMsgf
 ProjectileAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A286C 0009F7CC  4E 80 00 20 */	blr 
+/* 800A286C 0009F7CC  4E 80 00 20 */	blr
 
 .global Lurk__3CAiFR13CStateManager9EStateMsgf
 Lurk__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2870 0009F7D0  4E 80 00 20 */	blr 
+/* 800A2870 0009F7D0  4E 80 00 20 */	blr
 
 .global Flee__3CAiFR13CStateManager9EStateMsgf
 Flee__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2874 0009F7D4  4E 80 00 20 */	blr 
+/* 800A2874 0009F7D4  4E 80 00 20 */	blr
 
 .global Suck__3CAiFR13CStateManager9EStateMsgf
 Suck__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2878 0009F7D8  4E 80 00 20 */	blr 
+/* 800A2878 0009F7D8  4E 80 00 20 */	blr
 
 .global Taunt__3CAiFR13CStateManager9EStateMsgf
 Taunt__3CAiFR13CStateManager9EStateMsgf:
-/* 800A287C 0009F7DC  4E 80 00 20 */	blr 
+/* 800A287C 0009F7DC  4E 80 00 20 */	blr
 
 .global GetUp__3CAiFR13CStateManager9EStateMsgf
 GetUp__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2880 0009F7E0  4E 80 00 20 */	blr 
+/* 800A2880 0009F7E0  4E 80 00 20 */	blr
 
 .global FadeOut__3CAiFR13CStateManager9EStateMsgf
 FadeOut__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2884 0009F7E4  4E 80 00 20 */	blr 
+/* 800A2884 0009F7E4  4E 80 00 20 */	blr
 
 .global FadeIn__3CAiFR13CStateManager9EStateMsgf
 FadeIn__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2888 0009F7E8  4E 80 00 20 */	blr 
+/* 800A2888 0009F7E8  4E 80 00 20 */	blr
 
 .global Crouch__3CAiFR13CStateManager9EStateMsgf
 Crouch__3CAiFR13CStateManager9EStateMsgf:
-/* 800A288C 0009F7EC  4E 80 00 20 */	blr 
+/* 800A288C 0009F7EC  4E 80 00 20 */	blr
 
 .global CoverAttack__3CAiFR13CStateManager9EStateMsgf
 CoverAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2890 0009F7F0  4E 80 00 20 */	blr 
+/* 800A2890 0009F7F0  4E 80 00 20 */	blr
 
 .global InActive__3CAiFR13CStateManager9EStateMsgf
 InActive__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2894 0009F7F4  4E 80 00 20 */	blr 
+/* 800A2894 0009F7F4  4E 80 00 20 */	blr
 
 .global Active__3CAiFR13CStateManager9EStateMsgf
 Active__3CAiFR13CStateManager9EStateMsgf:
-/* 800A2898 0009F7F8  4E 80 00 20 */	blr 
+/* 800A2898 0009F7F8  4E 80 00 20 */	blr
 
 .global Skid__3CAiFR13CStateManager9EStateMsgf
 Skid__3CAiFR13CStateManager9EStateMsgf:
-/* 800A289C 0009F7FC  4E 80 00 20 */	blr 
+/* 800A289C 0009F7FC  4E 80 00 20 */	blr
 
 .global TurnAround__3CAiFR13CStateManager9EStateMsgf
 TurnAround__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28A0 0009F800  4E 80 00 20 */	blr 
+/* 800A28A0 0009F800  4E 80 00 20 */	blr
 
 .global Shuffle__3CAiFR13CStateManager9EStateMsgf
 Shuffle__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28A4 0009F804  4E 80 00 20 */	blr 
+/* 800A28A4 0009F804  4E 80 00 20 */	blr
 
 .global DoubleSnap__3CAiFR13CStateManager9EStateMsgf
 DoubleSnap__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28A8 0009F808  4E 80 00 20 */	blr 
+/* 800A28A8 0009F808  4E 80 00 20 */	blr
 
 .global JumpBack__3CAiFR13CStateManager9EStateMsgf
 JumpBack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28AC 0009F80C  4E 80 00 20 */	blr 
+/* 800A28AC 0009F80C  4E 80 00 20 */	blr
 
 .global LoopedAttack__3CAiFR13CStateManager9EStateMsgf
 LoopedAttack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28B0 0009F810  4E 80 00 20 */	blr 
+/* 800A28B0 0009F810  4E 80 00 20 */	blr
 
 .global Attack__3CAiFR13CStateManager9EStateMsgf
 Attack__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28B4 0009F814  4E 80 00 20 */	blr 
+/* 800A28B4 0009F814  4E 80 00 20 */	blr
 
 .global Deactivate__3CAiFR13CStateManager9EStateMsgf
 Deactivate__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28B8 0009F818  4E 80 00 20 */	blr 
+/* 800A28B8 0009F818  4E 80 00 20 */	blr
 
 .global Generate__3CAiFR13CStateManager9EStateMsgf
 Generate__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28BC 0009F81C  4E 80 00 20 */	blr 
+/* 800A28BC 0009F81C  4E 80 00 20 */	blr
 
 .global Run__3CAiFR13CStateManager9EStateMsgf
 Run__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28C0 0009F820  4E 80 00 20 */	blr 
+/* 800A28C0 0009F820  4E 80 00 20 */	blr
 
 .global Walk__3CAiFR13CStateManager9EStateMsgf
 Walk__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28C4 0009F824  4E 80 00 20 */	blr 
+/* 800A28C4 0009F824  4E 80 00 20 */	blr
 
 .global Halt__3CAiFR13CStateManager9EStateMsgf
 Halt__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28C8 0009F828  4E 80 00 20 */	blr 
+/* 800A28C8 0009F828  4E 80 00 20 */	blr
 
 .global TargetCover__3CAiFR13CStateManager9EStateMsgf
 TargetCover__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28CC 0009F82C  4E 80 00 20 */	blr 
+/* 800A28CC 0009F82C  4E 80 00 20 */	blr
 
 .global TargetPlayer__3CAiFR13CStateManager9EStateMsgf
 TargetPlayer__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28D0 0009F830  4E 80 00 20 */	blr 
+/* 800A28D0 0009F830  4E 80 00 20 */	blr
 
 .global TargetPatrol__3CAiFR13CStateManager9EStateMsgf
 TargetPatrol__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28D4 0009F834  4E 80 00 20 */	blr 
+/* 800A28D4 0009F834  4E 80 00 20 */	blr
 
 .global SelectTarget__3CAiFR13CStateManager9EStateMsgf
 SelectTarget__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28D8 0009F838  4E 80 00 20 */	blr 
+/* 800A28D8 0009F838  4E 80 00 20 */	blr
 
 .global Start__3CAiFR13CStateManager9EStateMsgf
 Start__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28DC 0009F83C  4E 80 00 20 */	blr 
+/* 800A28DC 0009F83C  4E 80 00 20 */	blr
 
 .global PathFind__3CAiFR13CStateManager9EStateMsgf
 PathFind__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28E0 0009F840  4E 80 00 20 */	blr 
+/* 800A28E0 0009F840  4E 80 00 20 */	blr
 
 .global Dead__3CAiFR13CStateManager9EStateMsgf
 Dead__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28E4 0009F844  4E 80 00 20 */	blr 
+/* 800A28E4 0009F844  4E 80 00 20 */	blr
 
 .global FollowPattern__3CAiFR13CStateManager9EStateMsgf
 FollowPattern__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28E8 0009F848  4E 80 00 20 */	blr 
+/* 800A28E8 0009F848  4E 80 00 20 */	blr
 
 .global Patrol__3CAiFR13CStateManager9EStateMsgf
 Patrol__3CAiFR13CStateManager9EStateMsgf:
-/* 800A28EC 0009F84C  4E 80 00 20 */	blr 
+/* 800A28EC 0009F84C  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__3CAiCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__3CAiCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 800A28F0 0009F850  38 60 00 10 */	li r3, 0x10
-/* 800A28F4 0009F854  4E 80 00 20 */	blr 
+/* 800A28F4 0009F854  4E 80 00 20 */	blr
 
 .global GetStateMachine__3CAiFv
 GetStateMachine__3CAiFv:
@@ -1680,7 +1680,7 @@ lbl_800A296C:
 /* 800A2970 0009F8D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800A2974 0009F8D4  7C 08 03 A6 */	mtlr r0
 /* 800A2978 0009F8D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A297C 0009F8DC  4E 80 00 20 */	blr 
+/* 800A297C 0009F8DC  4E 80 00 20 */	blr
 
 .global GetTriggerFunc__3CAiFPCc
 GetTriggerFunc__3CAiFPCc:
@@ -1703,7 +1703,7 @@ GetTriggerFunc__3CAiFPCc:
 /* 800A29C0 0009F920  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800A29C4 0009F924  7C 08 03 A6 */	mtlr r0
 /* 800A29C8 0009F928  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A29CC 0009F92C  4E 80 00 20 */	blr 
+/* 800A29CC 0009F92C  4E 80 00 20 */	blr
 
 .global GetStateFunc__3CAiFPCc
 GetStateFunc__3CAiFPCc:
@@ -1726,12 +1726,12 @@ GetStateFunc__3CAiFPCc:
 /* 800A2A10 0009F970  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800A2A14 0009F974  7C 08 03 A6 */	mtlr r0
 /* 800A2A18 0009F978  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A2A1C 0009F97C  4E 80 00 20 */	blr 
+/* 800A2A1C 0009F97C  4E 80 00 20 */	blr
 
 .global CreateFuncLookup__3CAiFP10CAiFuncMap
 CreateFuncLookup__3CAiFP10CAiFuncMap:
 /* 800A2A20 0009F980  90 6D A2 B8 */	stw r3, lbl_805A8E78@sda21(r13)
-/* 800A2A24 0009F984  4E 80 00 20 */	blr 
+/* 800A2A24 0009F984  4E 80 00 20 */	blr
 
 .global FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
@@ -1831,7 +1831,7 @@ lbl_800A2B6C:
 /* 800A2B90 0009FAF0  7F E4 FB 78 */	mr r4, r31
 /* 800A2B94 0009FAF4  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 800A2B98 0009FAF8  7D 89 03 A6 */	mtctr r12
-/* 800A2B9C 0009FAFC  4E 80 04 21 */	bctrl 
+/* 800A2B9C 0009FAFC  4E 80 04 21 */	bctrl
 /* 800A2BA0 0009FB00  C0 23 00 00 */	lfs f1, 0(r3)
 /* 800A2BA4 0009FB04  C0 02 8C 78 */	lfs f0, lbl_805AA998@sda21(r2)
 /* 800A2BA8 0009FB08  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1889,7 +1889,7 @@ lbl_800A2BBC:
 /* 800A2C70 0009FBD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800A2C74 0009FBD4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800A2C78 0009FBD8  7D 89 03 A6 */	mtctr r12
-/* 800A2C7C 0009FBDC  4E 80 04 21 */	bctrl 
+/* 800A2C7C 0009FBDC  4E 80 04 21 */	bctrl
 lbl_800A2C80:
 /* 800A2C80 0009FBE0  E3 E1 00 D8 */	psq_l f31, 216(r1), 0, qr0
 /* 800A2C84 0009FBE4  80 01 00 E4 */	lwz r0, 0xe4(r1)
@@ -1899,7 +1899,7 @@ lbl_800A2C80:
 /* 800A2C94 0009FBF4  83 A1 00 C4 */	lwz r29, 0xc4(r1)
 /* 800A2C98 0009FBF8  7C 08 03 A6 */	mtlr r0
 /* 800A2C9C 0009FBFC  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800A2CA0 0009FC00  4E 80 00 20 */	blr 
+/* 800A2CA0 0009FC00  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__3CAiF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__3CAiF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1952,26 +1952,26 @@ lbl_800A2D34:
 /* 800A2D54 0009FCB4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800A2D58 0009FCB8  7C 08 03 A6 */	mtlr r0
 /* 800A2D5C 0009FCBC  38 21 00 50 */	addi r1, r1, 0x50
-/* 800A2D60 0009FCC0  4E 80 00 20 */	blr 
+/* 800A2D60 0009FCC0  4E 80 00 20 */	blr
 
 .global TakeDamage__3CAiFRC9CVector3ff
 TakeDamage__3CAiFRC9CVector3ff:
-/* 800A2D64 0009FCC4  4E 80 00 20 */	blr 
+/* 800A2D64 0009FCC4  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__3CAiFv
 GetDamageVulnerability__3CAiFv:
 /* 800A2D68 0009FCC8  38 63 02 60 */	addi r3, r3, 0x260
-/* 800A2D6C 0009FCCC  4E 80 00 20 */	blr 
+/* 800A2D6C 0009FCCC  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__3CAiCFv
 GetDamageVulnerability__3CAiCFv:
 /* 800A2D70 0009FCD0  38 63 02 60 */	addi r3, r3, 0x260
-/* 800A2D74 0009FCD4  4E 80 00 20 */	blr 
+/* 800A2D74 0009FCD4  4E 80 00 20 */	blr
 
 .global HealthInfo__3CAiFR13CStateManager
 HealthInfo__3CAiFR13CStateManager:
 /* 800A2D78 0009FCD8  38 63 02 58 */	addi r3, r3, 0x258
-/* 800A2D7C 0009FCDC  4E 80 00 20 */	blr 
+/* 800A2D7C 0009FCDC  4E 80 00 20 */	blr
 
 .global __dt__3CAiFv
 __dt__3CAiFv:
@@ -2008,7 +2008,7 @@ lbl_800A2DE4:
 /* 800A2DF0 0009FD50  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800A2DF4 0009FD54  7C 08 03 A6 */	mtlr r0
 /* 800A2DF8 0009FD58  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A2DFC 0009FD5C  4E 80 00 20 */	blr 
+/* 800A2DFC 0009FD5C  4E 80 00 20 */	blr
 
 .global "__ct__3CAiF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxfRC11CHealthInfoRC20CDamageVulnerabilityRC13CMaterialListUiRC16CActorParametersff"
 "__ct__3CAiF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxfRC11CHealthInfoRC20CDamageVulnerabilityRC13CMaterialListUiRC16CActorParametersff":
@@ -2169,7 +2169,7 @@ lbl_800A2DE4:
 /* 800A3068 0009FFC8  81 84 00 00 */	lwz r12, 0(r4)
 /* 800A306C 0009FFCC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800A3070 0009FFD0  7D 89 03 A6 */	mtctr r12
-/* 800A3074 0009FFD4  4E 80 04 21 */	bctrl 
+/* 800A3074 0009FFD4  4E 80 04 21 */	bctrl
 /* 800A3078 0009FFD8  3A 3F 02 C8 */	addi r17, r31, 0x2c8
 /* 800A307C 0009FFDC  38 81 00 1C */	addi r4, r1, 0x1c
 /* 800A3080 0009FFE0  7E 23 8B 78 */	mr r3, r17
@@ -2212,7 +2212,7 @@ lbl_800A30EC:
 /* 800A310C 000A006C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800A3110 000A0070  7C 08 03 A6 */	mtlr r0
 /* 800A3114 000A0074  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800A3118 000A0078  4E 80 00 20 */	blr 
+/* 800A3118 000A0078  4E 80 00 20 */	blr
 
 .global GetTriggerFunc__10CAiFuncMapCFPCc
 GetTriggerFunc__10CAiFuncMapCFPCc:
@@ -2272,7 +2272,7 @@ lbl_800A31C4:
 /* 800A31E8 000A0148  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800A31EC 000A014C  7C 08 03 A6 */	mtlr r0
 /* 800A31F0 000A0150  38 21 00 40 */	addi r1, r1, 0x40
-/* 800A31F4 000A0154  4E 80 00 20 */	blr 
+/* 800A31F4 000A0154  4E 80 00 20 */	blr
 
 .global GetStateFunc__10CAiFuncMapCFPCc
 GetStateFunc__10CAiFuncMapCFPCc:
@@ -2355,7 +2355,7 @@ lbl_800A32F8:
 /* 800A331C 000A027C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800A3320 000A0280  7C 08 03 A6 */	mtlr r0
 /* 800A3324 000A0284  38 21 00 50 */	addi r1, r1, 0x50
-/* 800A3328 000A0288  4E 80 00 20 */	blr 
+/* 800A3328 000A0288  4E 80 00 20 */	blr
 
 .global __ct__10CAiFuncMapFv
 __ct__10CAiFuncMapFv:
@@ -2513,7 +2513,7 @@ lbl_800A34BC:
 /* 800A3560 000A04C0  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800A3564 000A04C4  7C 08 03 A6 */	mtlr r0
 /* 800A3568 000A04C8  38 21 00 80 */	addi r1, r1, 0x80
-/* 800A356C 000A04CC  4E 80 00 20 */	blr 
+/* 800A356C 000A04CC  4E 80 00 20 */	blr
 
 .global "sort<Q24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateM"
 "sort<Q24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateM":
@@ -2652,7 +2652,7 @@ lbl_800A3754:
 /* 800A3764 000A06C4  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800A3768 000A06C8  7C 08 03 A6 */	mtlr r0
 /* 800A376C 000A06CC  38 21 00 60 */	addi r1, r1, 0x60
-/* 800A3770 000A06D0  4E 80 00 20 */	blr 
+/* 800A3770 000A06D0  4E 80 00 20 */	blr
 
 .global "sort<Q24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemor"
 "sort<Q24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemor":
@@ -2791,7 +2791,7 @@ lbl_800A3958:
 /* 800A3968 000A08C8  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800A396C 000A08CC  7C 08 03 A6 */	mtlr r0
 /* 800A3970 000A08D0  38 21 00 60 */	addi r1, r1, 0x60
-/* 800A3974 000A08D4  4E 80 00 20 */	blr 
+/* 800A3974 000A08D4  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,PCc,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR"
 "lower_bound<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,PCc,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR":
@@ -2847,7 +2847,7 @@ lbl_800A3A1C:
 /* 800A3A30 000A0990  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800A3A34 000A0994  7C 08 03 A6 */	mtlr r0
 /* 800A3A38 000A0998  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A3A3C 000A099C  4E 80 00 20 */	blr 
+/* 800A3A3C 000A099C  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,PCc,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_all"
 "lower_bound<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,PCc,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_all":
@@ -2903,7 +2903,7 @@ lbl_800A3AE4:
 /* 800A3AF8 000A0A58  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800A3AFC 000A0A5C  7C 08 03 A6 */	mtlr r0
 /* 800A3B00 000A0A60  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A3B04 000A0A64  4E 80 00 20 */	blr 
+/* 800A3B04 000A0A64  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>Fi":
@@ -2981,7 +2981,7 @@ lbl_800A3BF4:
 /* 800A3C00 000A0B60  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800A3C04 000A0B64  7C 08 03 A6 */	mtlr r0
 /* 800A3C08 000A0B68  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A3C0C 000A0B6C  4E 80 00 20 */	blr 
+/* 800A3C0C 000A0B6C  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>Fi":
@@ -3059,7 +3059,7 @@ lbl_800A3CFC:
 /* 800A3D08 000A0C68  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800A3D0C 000A0C6C  7C 08 03 A6 */	mtlr r0
 /* 800A3D10 000A0C70  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A3D14 000A0C74  4E 80 00 20 */	blr 
+/* 800A3D14 000A0C74  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -3073,7 +3073,7 @@ lbl_800A3CFC:
 /* 800A3D34 000A0C94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800A3D38 000A0C98  7C 08 03 A6 */	mtlr r0
 /* 800A3D3C 000A0C9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A3D40 000A0CA0  4E 80 00 20 */	blr 
+/* 800A3D40 000A0CA0  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -3087,7 +3087,7 @@ lbl_800A3CFC:
 /* 800A3D60 000A0CC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800A3D64 000A0CC4  7C 08 03 A6 */	mtlr r0
 /* 800A3D68 000A0CC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A3D6C 000A0CCC  4E 80 00 20 */	blr 
+/* 800A3D6C 000A0CCC  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -3095,7 +3095,7 @@ lbl_800A3CFC:
 /* 800A3D74 000A0CD4  54 80 20 36 */	slwi r0, r4, 4
 /* 800A3D78 000A0CD8  7C 05 02 14 */	add r0, r5, r0
 /* 800A3D7C 000A0CDC  90 03 00 00 */	stw r0, 0(r3)
-/* 800A3D80 000A0CE0  4E 80 00 20 */	blr 
+/* 800A3D80 000A0CE0  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -3103,7 +3103,7 @@ lbl_800A3CFC:
 /* 800A3D88 000A0CE8  54 80 20 36 */	slwi r0, r4, 4
 /* 800A3D8C 000A0CEC  7C 05 02 14 */	add r0, r5, r0
 /* 800A3D90 000A0CF0  90 03 00 00 */	stw r0, 0(r3)
-/* 800A3D94 000A0CF4  4E 80 00 20 */	blr 
+/* 800A3D94 000A0CF4  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl214const_pointer_iterator<Q24rstl50pa"
 "distance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl214const_pointer_iterator<Q24rstl50pa":
@@ -3123,7 +3123,7 @@ lbl_800A3CFC:
 /* 800A3DCC 000A0D2C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800A3DD0 000A0D30  7C 08 03 A6 */	mtlr r0
 /* 800A3DD4 000A0D34  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A3DD8 000A0D38  4E 80 00 20 */	blr 
+/* 800A3DD8 000A0D38  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q"
 "distance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q":
@@ -3143,7 +3143,7 @@ lbl_800A3CFC:
 /* 800A3E10 000A0D70  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800A3E14 000A0D74  7C 08 03 A6 */	mtlr r0
 /* 800A3E18 000A0D78  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A3E1C 000A0D7C  4E 80 00 20 */	blr 
+/* 800A3E1C 000A0D7C  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl214const_pointer_iterator<Q24rstl50"
 "__distance<Q24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl214const_pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl214const_pointer_iterator<Q24rstl50":
@@ -3152,7 +3152,7 @@ lbl_800A3CFC:
 /* 800A3E28 000A0D88  7C 03 00 50 */	subf r0, r3, r0
 /* 800A3E2C 000A0D8C  7C 00 26 70 */	srawi r0, r0, 4
 /* 800A3E30 000A0D90  7C 60 01 94 */	addze r3, r0
-/* 800A3E34 000A0D94  4E 80 00 20 */	blr 
+/* 800A3E34 000A0D94  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>"
 "__distance<Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl194const_pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>":
@@ -3161,7 +3161,7 @@ lbl_800A3CFC:
 /* 800A3E40 000A0DA0  7C 03 00 50 */	subf r0, r3, r0
 /* 800A3E44 000A0DA4  7C 00 26 70 */	srawi r0, r0, 4
 /* 800A3E48 000A0DA8  7C 60 01 94 */	addze r3, r0
-/* 800A3E4C 000A0DAC  4E 80 00 20 */	blr 
+/* 800A3E4C 000A0DAC  4E 80 00 20 */	blr
 
 .global "__sort3<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFRQ24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>RQ24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>RQ24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>"
 "__sort3<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFRQ24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>RQ24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>RQ24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>":
@@ -3257,7 +3257,7 @@ lbl_800A3F98:
 /* 800A3FA8 000A0F08  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 800A3FAC 000A0F0C  7C 08 03 A6 */	mtlr r0
 /* 800A3FB0 000A0F10  38 21 00 40 */	addi r1, r1, 0x40
-/* 800A3FB4 000A0F14  4E 80 00 20 */	blr 
+/* 800A3FB4 000A0F14  4E 80 00 20 */	blr
 
 .global "__sort3<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFRQ24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>RQ24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>RQ24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>"
 "__sort3<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFRQ24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>RQ24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>RQ24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>":
@@ -3353,7 +3353,7 @@ lbl_800A4100:
 /* 800A4110 000A1070  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 800A4114 000A1074  7C 08 03 A6 */	mtlr r0
 /* 800A4118 000A1078  38 21 00 40 */	addi r1, r1, 0x40
-/* 800A411C 000A107C  4E 80 00 20 */	blr 
+/* 800A411C 000A107C  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24"
 "__insertion_sort<Q24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl101pair_sorter_finder<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl188pointer_iterator<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl84vector<Q24rstl40pair<PCc,M3CAiFPCvPvR13CStateManagerf_b>,Q24rstl17rmemory_allocator>,Q24":
@@ -3414,7 +3414,7 @@ lbl_800A41D4:
 /* 800A41E4 000A1144  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800A41E8 000A1148  7C 08 03 A6 */	mtlr r0
 /* 800A41EC 000A114C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A41F0 000A1150  4E 80 00 20 */	blr 
+/* 800A41F0 000A1150  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateMan"
 "__insertion_sort<Q24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl111pair_sorter_finder<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q217@unnamed@CAi_cpp@9cstr_less>>__4rstlFQ24rstl208pointer_iterator<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateManager9EStateMsgf_v>,Q24rstl94vector<Q24rstl50pair<PCc,M3CAiFPCvPvR13CStateMan":
@@ -3475,7 +3475,7 @@ lbl_800A42A8:
 /* 800A42B8 000A1218  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800A42BC 000A121C  7C 08 03 A6 */	mtlr r0
 /* 800A42C0 000A1220  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A42C4 000A1224  4E 80 00 20 */	blr 
+/* 800A42C4 000A1224  4E 80 00 20 */	blr
 
 .global __sinit_CAi_cpp
 __sinit_CAi_cpp:
@@ -4531,4 +4531,4 @@ __sinit_CAi_cpp:
 /* 800A532C 000A228C  90 03 03 2C */	stw r0, 0x32c(r3)
 /* 800A5330 000A2290  B9 C1 02 78 */	lmw r14, 0x278(r1)
 /* 800A5334 000A2294  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 800A5338 000A2298  4E 80 00 20 */	blr 
+/* 800A5338 000A2298  4E 80 00 20 */	blr

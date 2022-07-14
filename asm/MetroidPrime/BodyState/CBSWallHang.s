@@ -63,12 +63,12 @@ lbl_8018D500:
 /* 8018D508 0018A468  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8018D50C 0018A46C  7C 08 03 A6 */	mtlr r0
 /* 8018D510 0018A470  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018D514 0018A474  4E 80 00 20 */	blr 
+/* 8018D514 0018A474  4E 80 00 20 */	blr
 
 .global IsMoving__11CBSWallHangCFv
 IsMoving__11CBSWallHangCFv:
 /* 8018D518 0018A478  38 60 00 01 */	li r3, 1
-/* 8018D51C 0018A47C  4E 80 00 20 */	blr 
+/* 8018D51C 0018A47C  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__11CBSWallHangFfR15CBodyController
 GetBodyStateTransition__11CBSWallHangFfR15CBodyController:
@@ -96,7 +96,7 @@ lbl_8018D568:
 /* 8018D56C 0018A4CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8018D570 0018A4D0  7C 08 03 A6 */	mtlr r0
 /* 8018D574 0018A4D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018D578 0018A4D8  4E 80 00 20 */	blr 
+/* 8018D578 0018A4D8  4E 80 00 20 */	blr
 
 .global FixInPlace__11CBSWallHangFR15CBodyController
 FixInPlace__11CBSWallHangFR15CBodyController:
@@ -121,7 +121,7 @@ lbl_8018D5C0:
 /* 8018D5C0 0018A520  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018D5C4 0018A524  7C 08 03 A6 */	mtlr r0
 /* 8018D5C8 0018A528  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018D5CC 0018A52C  4E 80 00 20 */	blr 
+/* 8018D5CC 0018A52C  4E 80 00 20 */	blr
 
 .global CheckForLand__11CBSWallHangFR15CBodyControllerR13CStateManager
 CheckForLand__11CBSWallHangFR15CBodyControllerR13CStateManager:
@@ -146,7 +146,7 @@ CheckForLand__11CBSWallHangFR15CBodyControllerR13CStateManager:
 /* 8018D618 0018A578  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8018D61C 0018A57C  81 8C 02 B8 */	lwz r12, 0x2b8(r12)
 /* 8018D620 0018A580  7D 89 03 A6 */	mtctr r12
-/* 8018D624 0018A584  4E 80 04 21 */	bctrl 
+/* 8018D624 0018A584  4E 80 04 21 */	bctrl
 /* 8018D628 0018A588  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8018D62C 0018A58C  41 82 01 10 */	beq lbl_8018D73C
 lbl_8018D630:
@@ -227,7 +227,7 @@ lbl_8018D73C:
 /* 8018D744 0018A6A4  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8018D748 0018A6A8  7C 08 03 A6 */	mtlr r0
 /* 8018D74C 0018A6AC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8018D750 0018A6B0  4E 80 00 20 */	blr 
+/* 8018D750 0018A6B0  4E 80 00 20 */	blr
 
 .global CheckForWall__11CBSWallHangFR15CBodyControllerR13CStateManager
 CheckForWall__11CBSWallHangFR15CBodyControllerR13CStateManager:
@@ -435,11 +435,11 @@ lbl_8018DA4C:
 /* 8018DA54 0018A9B4  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 8018DA58 0018A9B8  7C 08 03 A6 */	mtlr r0
 /* 8018DA5C 0018A9BC  38 21 01 40 */	addi r1, r1, 0x140
-/* 8018DA60 0018A9C0  4E 80 00 20 */	blr 
+/* 8018DA60 0018A9C0  4E 80 00 20 */	blr
 
 .global nullsub_134
 nullsub_134:
-/* 8018DA64 0018A9C4  4E 80 00 20 */	blr 
+/* 8018DA64 0018A9C4  4E 80 00 20 */	blr
 
 .global UpdateBody__11CBSWallHangFfR15CBodyControllerR13CStateManager
 UpdateBody__11CBSWallHangFfR15CBodyControllerR13CStateManager:
@@ -469,7 +469,7 @@ UpdateBody__11CBSWallHangFfR15CBodyControllerR13CStateManager:
 /* 8018DAC4 0018AA24  38 63 43 D8 */	addi r3, r3, lbl_803E43D8@l
 /* 8018DAC8 0018AA28  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8018DACC 0018AA2C  7C 09 03 A6 */	mtctr r0
-/* 8018DAD0 0018AA30  4E 80 04 20 */	bctr 
+/* 8018DAD0 0018AA30  4E 80 04 20 */	bctr
 .global lbl_8018DAD4
 lbl_8018DAD4:
 /* 8018DAD4 0018AA34  88 1D 03 00 */	lbz r0, 0x300(r29)
@@ -1426,7 +1426,7 @@ lbl_8018E86C:
 /* 8018E88C 0018B7EC  80 01 06 14 */	lwz r0, 0x614(r1)
 /* 8018E890 0018B7F0  7C 08 03 A6 */	mtlr r0
 /* 8018E894 0018B7F4  38 21 06 10 */	addi r1, r1, 0x610
-/* 8018E898 0018B7F8  4E 80 00 20 */	blr 
+/* 8018E898 0018B7F8  4E 80 00 20 */	blr
 
 .global Start__11CBSWallHangFR15CBodyControllerR13CStateManager
 Start__11CBSWallHangFR15CBodyControllerR13CStateManager:
@@ -1517,20 +1517,20 @@ lbl_8018E9CC:
 /* 8018E9D8 0018B938  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 8018E9DC 0018B93C  7C 08 03 A6 */	mtlr r0
 /* 8018E9E0 0018B940  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8018E9E4 0018B944  4E 80 00 20 */	blr 
+/* 8018E9E4 0018B944  4E 80 00 20 */	blr
 
 .global ApplyGravity__11CBSWallHangCFv
 ApplyGravity__11CBSWallHangCFv:
 /* 8018E9E8 0018B948  80 03 00 04 */	lwz r0, 4(r3)
 /* 8018E9EC 0018B94C  38 60 00 00 */	li r3, 0
 /* 8018E9F0 0018B950  2C 00 00 04 */	cmpwi r0, 4
-/* 8018E9F4 0018B954  4D 82 00 20 */	beqlr 
+/* 8018E9F4 0018B954  4D 82 00 20 */	beqlr
 /* 8018E9F8 0018B958  2C 00 00 03 */	cmpwi r0, 3
-/* 8018E9FC 0018B95C  4D 82 00 20 */	beqlr 
+/* 8018E9FC 0018B95C  4D 82 00 20 */	beqlr
 /* 8018EA00 0018B960  2C 00 00 06 */	cmpwi r0, 6
-/* 8018EA04 0018B964  4D 82 00 20 */	beqlr 
+/* 8018EA04 0018B964  4D 82 00 20 */	beqlr
 /* 8018EA08 0018B968  38 60 00 01 */	li r3, 1
-/* 8018EA0C 0018B96C  4E 80 00 20 */	blr 
+/* 8018EA0C 0018B96C  4E 80 00 20 */	blr
 
 .global CanShoot__11CBSWallHangCFv
 CanShoot__11CBSWallHangCFv:
@@ -1538,7 +1538,7 @@ CanShoot__11CBSWallHangCFv:
 /* 8018EA14 0018B974  20 00 00 04 */	subfic r0, r0, 4
 /* 8018EA18 0018B978  7C 00 00 34 */	cntlzw r0, r0
 /* 8018EA1C 0018B97C  54 03 D9 7E */	srwi r3, r0, 5
-/* 8018EA20 0018B980  4E 80 00 20 */	blr 
+/* 8018EA20 0018B980  4E 80 00 20 */	blr
 
 .global ApplyHeadTracking__11CBSWallHangCFv
 ApplyHeadTracking__11CBSWallHangCFv:
@@ -1547,10 +1547,10 @@ ApplyHeadTracking__11CBSWallHangCFv:
 /* 8018EA2C 0018B98C  2C 00 00 04 */	cmpwi r0, 4
 /* 8018EA30 0018B990  41 82 00 0C */	beq lbl_8018EA3C
 /* 8018EA34 0018B994  2C 00 00 05 */	cmpwi r0, 5
-/* 8018EA38 0018B998  4C 82 00 20 */	bnelr 
+/* 8018EA38 0018B998  4C 82 00 20 */	bnelr
 lbl_8018EA3C:
 /* 8018EA3C 0018B99C  38 60 00 01 */	li r3, 1
-/* 8018EA40 0018B9A0  4E 80 00 20 */	blr 
+/* 8018EA40 0018B9A0  4E 80 00 20 */	blr
 
 .global ApplyAnimationDeltas__11CBSWallHangCFv
 ApplyAnimationDeltas__11CBSWallHangCFv:
@@ -1567,10 +1567,10 @@ ApplyAnimationDeltas__11CBSWallHangCFv:
 /* 8018EA6C 0018B9CC  2C 00 00 06 */	cmpwi r0, 6
 /* 8018EA70 0018B9D0  41 82 00 0C */	beq lbl_8018EA7C
 /* 8018EA74 0018B9D4  2C 00 00 09 */	cmpwi r0, 9
-/* 8018EA78 0018B9D8  4C 82 00 20 */	bnelr 
+/* 8018EA78 0018B9D8  4C 82 00 20 */	bnelr
 lbl_8018EA7C:
 /* 8018EA7C 0018B9DC  38 60 00 01 */	li r3, 1
-/* 8018EA80 0018B9E0  4E 80 00 20 */	blr 
+/* 8018EA80 0018B9E0  4E 80 00 20 */	blr
 
 .global IsInAir__11CBSWallHangCFRC15CBodyController
 IsInAir__11CBSWallHangCFRC15CBodyController:
@@ -1583,10 +1583,10 @@ IsInAir__11CBSWallHangCFRC15CBodyController:
 /* 8018EA9C 0018B9FC  2C 00 00 07 */	cmpwi r0, 7
 /* 8018EAA0 0018BA00  41 82 00 0C */	beq lbl_8018EAAC
 /* 8018EAA4 0018BA04  2C 00 00 08 */	cmpwi r0, 8
-/* 8018EAA8 0018BA08  4C 82 00 20 */	bnelr 
+/* 8018EAA8 0018BA08  4C 82 00 20 */	bnelr
 lbl_8018EAAC:
 /* 8018EAAC 0018BA0C  38 60 00 01 */	li r3, 1
-/* 8018EAB0 0018BA10  4E 80 00 20 */	blr 
+/* 8018EAB0 0018BA10  4E 80 00 20 */	blr
 
 .global SetLaunchVelocity__11CBSWallHangFR15CBodyController
 SetLaunchVelocity__11CBSWallHangFR15CBodyController:
@@ -1629,7 +1629,7 @@ lbl_8018EB34:
 /* 8018EB3C 0018BA9C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8018EB40 0018BAA0  7C 08 03 A6 */	mtlr r0
 /* 8018EB44 0018BAA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018EB48 0018BAA8  4E 80 00 20 */	blr 
+/* 8018EB48 0018BAA8  4E 80 00 20 */	blr
 
 .global __ct__11CBSWallHangFv
 __ct__11CBSWallHangFv:

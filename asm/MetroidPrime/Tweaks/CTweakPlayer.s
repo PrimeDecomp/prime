@@ -732,7 +732,7 @@ lbl_800354E0:
 /* 800358CC 0003282C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800358D0 00032830  7C 08 03 A6 */	mtlr r0
 /* 800358D4 00032834  38 21 00 20 */	addi r1, r1, 0x20
-/* 800358D8 00032838  4E 80 00 20 */	blr 
+/* 800358D8 00032838  4E 80 00 20 */	blr
 
 .global __dt__12CTweakPlayerFv
 __dt__12CTweakPlayerFv:
@@ -760,7 +760,7 @@ lbl_80035920:
 /* 80035928 00032888  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8003592C 0003288C  7C 08 03 A6 */	mtlr r0
 /* 80035930 00032890  38 21 00 10 */	addi r1, r1, 0x10
-/* 80035934 00032894  4E 80 00 20 */	blr 
+/* 80035934 00032894  4E 80 00 20 */	blr
 
 .global "__dl__26TOneStatic<12CTweakPlayer>FPv"
 "__dl__26TOneStatic<12CTweakPlayer>FPv":
@@ -774,7 +774,7 @@ lbl_80035920:
 /* 80035954 000328B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80035958 000328B8  7C 08 03 A6 */	mtlr r0
 /* 8003595C 000328BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80035960 000328C0  4E 80 00 20 */	blr 
+/* 80035960 000328C0  4E 80 00 20 */	blr
 
 .global "ReferenceCount__26TOneStatic<12CTweakPlayer>Fv"
 "ReferenceCount__26TOneStatic<12CTweakPlayer>Fv":
@@ -787,4 +787,4 @@ lbl_80035920:
 /* 8003597C 000328DC  98 0D A1 14 */	stb r0, lbl_805A8CD4@sda21(r13)
 lbl_80035980:
 /* 80035980 000328E0  38 6D A1 10 */	addi r3, r13, lbl_805A8CD0@sda21
-/* 80035984 000328E4  4E 80 00 20 */	blr 
+/* 80035984 000328E4  4E 80 00 20 */	blr

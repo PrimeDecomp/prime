@@ -161,7 +161,7 @@ lbl_805A71B8:
 lbl_805A71BC:
 	# ROM: 0x3F4B5C
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global SetupMiniMapWorld__11CAutoMapperFv
@@ -186,7 +186,7 @@ SetupMiniMapWorld__11CAutoMapperFv:
 /* 800956D4 00092634  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800956D8 00092638  7C 08 03 A6 */	mtlr r0
 /* 800956DC 0009263C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800956E0 00092640  4E 80 00 20 */	blr 
+/* 800956E0 00092640  4E 80 00 20 */	blr
 
 .global LeaveMapScreen__11CAutoMapperCFRC13CStateManager
 LeaveMapScreen__11CAutoMapperCFRC13CStateManager:
@@ -309,7 +309,7 @@ lbl_80095730:
 /* 800958B0 00092810  81 84 00 00 */	lwz r12, 0(r4)
 /* 800958B4 00092814  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800958B8 00092818  7D 89 03 A6 */	mtctr r12
-/* 800958BC 0009281C  4E 80 04 21 */	bctrl 
+/* 800958BC 0009281C  4E 80 04 21 */	bctrl
 /* 800958C0 00092820  80 01 00 08 */	lwz r0, 8(r1)
 /* 800958C4 00092824  7F C4 F3 78 */	mr r4, r30
 /* 800958C8 00092828  7F E5 FB 78 */	mr r5, r31
@@ -341,7 +341,7 @@ lbl_80095924:
 /* 8009592C 0009288C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80095930 00092890  7C 08 03 A6 */	mtlr r0
 /* 80095934 00092894  38 21 00 20 */	addi r1, r1, 0x20
-/* 80095938 00092898  4E 80 00 20 */	blr 
+/* 80095938 00092898  4E 80 00 20 */	blr
 
 .global SetCurWorldAssetId__11CAutoMapperFi
 SetCurWorldAssetId__11CAutoMapperFi:
@@ -351,7 +351,7 @@ SetCurWorldAssetId__11CAutoMapperFi:
 /* 80095948 000928A8  80 07 00 14 */	lwz r0, 0x14(r7)
 /* 8009594C 000928AC  7C 09 03 A6 */	mtctr r0
 /* 80095950 000928B0  2C 00 00 00 */	cmpwi r0, 0
-/* 80095954 000928B4  4C 81 00 20 */	blelr 
+/* 80095954 000928B4  4C 81 00 20 */	blelr
 lbl_80095958:
 /* 80095958 000928B8  80 A7 00 1C */	lwz r5, 0x1c(r7)
 /* 8009595C 000928BC  38 06 00 10 */	addi r0, r6, 0x10
@@ -359,7 +359,7 @@ lbl_80095958:
 /* 80095964 000928C4  7C 04 00 40 */	cmplw r4, r0
 /* 80095968 000928C8  40 82 00 0C */	bne lbl_80095974
 /* 8009596C 000928CC  91 03 00 9C */	stw r8, 0x9c(r3)
-/* 80095970 000928D0  4E 80 00 20 */	blr 
+/* 80095970 000928D0  4E 80 00 20 */	blr
 lbl_80095974:
 /* 80095974 000928D4  38 C6 00 70 */	addi r6, r6, 0x70
 /* 80095978 000928D8  39 08 00 01 */	addi r8, r8, 1
@@ -367,7 +367,7 @@ lbl_80095974:
 
 .global sub_80095980
 sub_80095980:
-/* 80095980 000928E0  4E 80 00 20 */	blr 
+/* 80095980 000928E0  4E 80 00 20 */	blr
 
 .global TransformRenderStateWorldToUniverse__11CAutoMapperFRQ211CAutoMapper22SAutoMapperRenderState
 TransformRenderStateWorldToUniverse__11CAutoMapperFRQ211CAutoMapper22SAutoMapperRenderState:
@@ -396,7 +396,7 @@ TransformRenderStateWorldToUniverse__11CAutoMapperFRQ211CAutoMapper22SAutoMapper
 /* 800959DC 0009293C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800959E0 00092940  7C 08 03 A6 */	mtlr r0
 /* 800959E4 00092944  38 21 00 20 */	addi r1, r1, 0x20
-/* 800959E8 00092948  4E 80 00 20 */	blr 
+/* 800959E8 00092948  4E 80 00 20 */	blr
 
 .global TransformRenderStatesUniverseToWorld__11CAutoMapperFv
 TransformRenderStatesUniverseToWorld__11CAutoMapperFv:
@@ -497,7 +497,7 @@ TransformRenderStatesUniverseToWorld__11CAutoMapperFv:
 /* 80095B64 00092AC4  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 80095B68 00092AC8  7C 08 03 A6 */	mtlr r0
 /* 80095B6C 00092ACC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80095B70 00092AD0  4E 80 00 20 */	blr 
+/* 80095B70 00092AD0  4E 80 00 20 */	blr
 
 .global TransformRenderStatesWorldToUniverse__11CAutoMapperFv
 TransformRenderStatesWorldToUniverse__11CAutoMapperFv:
@@ -595,7 +595,7 @@ TransformRenderStatesWorldToUniverse__11CAutoMapperFv:
 /* 80095CE0 00092C40  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80095CE4 00092C44  7C 08 03 A6 */	mtlr r0
 /* 80095CE8 00092C48  38 21 00 90 */	addi r1, r1, 0x90
-/* 80095CEC 00092C4C  4E 80 00 20 */	blr 
+/* 80095CEC 00092C4C  4E 80 00 20 */	blr
 
 .global IsRenderStateInterpolating__11CAutoMapperCFv
 IsRenderStateInterpolating__11CAutoMapperCFv:
@@ -604,7 +604,7 @@ IsRenderStateInterpolating__11CAutoMapperCFv:
 /* 80095CF8 00092C58  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80095CFC 00092C5C  7C 00 00 26 */	mfcr r0
 /* 80095D00 00092C60  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80095D04 00092C64  4E 80 00 20 */	blr 
+/* 80095D04 00092C64  4E 80 00 20 */	blr
 
 .global IsInMapperStateTransition__11CAutoMapperCFv
 IsInMapperStateTransition__11CAutoMapperCFv:
@@ -614,7 +614,7 @@ IsInMapperStateTransition__11CAutoMapperCFv:
 /* 80095D14 00092C74  7C 00 20 50 */	subf r0, r0, r4
 /* 80095D18 00092C78  7C 60 03 78 */	or r0, r3, r0
 /* 80095D1C 00092C7C  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80095D20 00092C80  4E 80 00 20 */	blr 
+/* 80095D20 00092C80  4E 80 00 20 */	blr
 
 .global IsInMapperState__11CAutoMapperCFQ211CAutoMapper16EAutoMapperState
 IsInMapperState__11CAutoMapperCFQ211CAutoMapper16EAutoMapperState:
@@ -628,7 +628,7 @@ IsInMapperState__11CAutoMapperCFQ211CAutoMapper16EAutoMapperState:
 /* 80095D40 00092CA0  38 A0 00 01 */	li r5, 1
 lbl_80095D44:
 /* 80095D44 00092CA4  7C A3 2B 78 */	mr r3, r5
-/* 80095D48 00092CA8  4E 80 00 20 */	blr 
+/* 80095D48 00092CA8  4E 80 00 20 */	blr
 
 .global GetFinalMapScreenCameraMoveSpeed__11CAutoMapperCFv
 GetFinalMapScreenCameraMoveSpeed__11CAutoMapperCFv:
@@ -651,13 +651,13 @@ lbl_80095D84:
 /* 80095D88 00092CE8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80095D8C 00092CEC  7C 08 03 A6 */	mtlr r0
 /* 80095D90 00092CF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80095D94 00092CF4  4E 80 00 20 */	blr 
+/* 80095D94 00092CF4  4E 80 00 20 */	blr
 
 .global GetBaseMapScreenCameraMoveSpeed__11CAutoMapperCFv
 GetBaseMapScreenCameraMoveSpeed__11CAutoMapperCFv:
 /* 80095D98 00092CF8  80 6D A1 44 */	lwz r3, gpTweakAutoMapper@sda21(r13)
 /* 80095D9C 00092CFC  C0 23 00 78 */	lfs f1, 0x78(r3)
-/* 80095DA0 00092D00  4E 80 00 20 */	blr 
+/* 80095DA0 00092D00  4E 80 00 20 */	blr
 
 .global GetDesiredMiniMapCameraDistance__11CAutoMapperCFRC13CStateManager
 GetDesiredMiniMapCameraDistance__11CAutoMapperCFRC13CStateManager:
@@ -676,7 +676,7 @@ GetDesiredMiniMapCameraDistance__11CAutoMapperCFRC13CStateManager:
 /* 80095DD4 00092D34  81 83 00 00 */	lwz r12, 0(r3)
 /* 80095DD8 00092D38  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80095DDC 00092D3C  7D 89 03 A6 */	mtctr r12
-/* 80095DE0 00092D40  4E 80 04 21 */	bctrl 
+/* 80095DE0 00092D40  4E 80 04 21 */	bctrl
 /* 80095DE4 00092D44  7C 64 1B 78 */	mr r4, r3
 /* 80095DE8 00092D48  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 80095DEC 00092D4C  48 13 DB ED */	bl StateForWorld__10CGameStateFUi
@@ -691,7 +691,7 @@ GetDesiredMiniMapCameraDistance__11CAutoMapperCFRC13CStateManager:
 /* 80095E10 00092D70  81 83 00 00 */	lwz r12, 0(r3)
 /* 80095E14 00092D74  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80095E18 00092D78  7D 89 03 A6 */	mtctr r12
-/* 80095E1C 00092D7C  4E 80 04 21 */	bctrl 
+/* 80095E1C 00092D7C  4E 80 04 21 */	bctrl
 /* 80095E20 00092D80  3C 80 80 5A */	lis r4, lbl_805A6754@ha
 /* 80095E24 00092D84  80 1D 00 A0 */	lwz r0, 0xa0(r29)
 /* 80095E28 00092D88  38 A4 67 54 */	addi r5, r4, lbl_805A6754@l
@@ -715,7 +715,7 @@ GetDesiredMiniMapCameraDistance__11CAutoMapperCFRC13CStateManager:
 /* 80095E70 00092DD0  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80095E74 00092DD4  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 80095E78 00092DD8  7D 89 03 A6 */	mtctr r12
-/* 80095E7C 00092DDC  4E 80 04 21 */	bctrl 
+/* 80095E7C 00092DDC  4E 80 04 21 */	bctrl
 /* 80095E80 00092DE0  80 9D 00 A0 */	lwz r4, 0xa0(r29)
 /* 80095E84 00092DE4  7C 77 1B 78 */	mr r23, r3
 /* 80095E88 00092DE8  7F C3 F3 78 */	mr r3, r30
@@ -739,7 +739,7 @@ lbl_80095EBC:
 /* 80095EC8 00092E28  38 61 00 30 */	addi r3, r1, 0x30
 /* 80095ECC 00092E2C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80095ED0 00092E30  7D 89 03 A6 */	mtctr r12
-/* 80095ED4 00092E34  4E 80 04 21 */	bctrl 
+/* 80095ED4 00092E34  4E 80 04 21 */	bctrl
 /* 80095ED8 00092E38  83 21 00 30 */	lwz r25, 0x30(r1)
 lbl_80095EDC:
 /* 80095EDC 00092E3C  7F C3 F3 78 */	mr r3, r30
@@ -790,7 +790,7 @@ lbl_80095F80:
 /* 80095F84 00092EE4  81 97 00 00 */	lwz r12, 0(r23)
 /* 80095F88 00092EE8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80095F8C 00092EEC  7D 89 03 A6 */	mtctr r12
-/* 80095F90 00092EF0  4E 80 04 21 */	bctrl 
+/* 80095F90 00092EF0  4E 80 04 21 */	bctrl
 lbl_80095F94:
 /* 80095F94 00092EF4  7C 15 18 00 */	cmpw r21, r3
 /* 80095F98 00092EF8  41 80 FF 14 */	blt lbl_80095EAC
@@ -901,7 +901,7 @@ lbl_80096064:
 /* 80096124 00093084  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 80096128 00093088  7C 08 03 A6 */	mtlr r0
 /* 8009612C 0009308C  38 21 01 70 */	addi r1, r1, 0x170
-/* 80096130 00093090  4E 80 00 20 */	blr 
+/* 80096130 00093090  4E 80 00 20 */	blr
 
 .global GetClampedMapScreenCameraDistance__11CAutoMapperCFf
 GetClampedMapScreenCameraDistance__11CAutoMapperCFf:
@@ -930,7 +930,7 @@ lbl_80096184:
 /* 80096184 000930E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80096188 000930E8  7C 08 03 A6 */	mtlr r0
 /* 8009618C 000930EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80096190 000930F0  4E 80 00 20 */	blr 
+/* 80096190 000930F0  4E 80 00 20 */	blr
 
 .global GetMapAreaMiniMapDrawAlphaOutlineUnvisited__11CAutoMapperFRC13CStateManager
 GetMapAreaMiniMapDrawAlphaOutlineUnvisited__11CAutoMapperFRC13CStateManager:
@@ -944,7 +944,7 @@ GetMapAreaMiniMapDrawAlphaOutlineUnvisited__11CAutoMapperFRC13CStateManager:
 /* 800961B0 00093110  C0 44 00 9C */	lfs f2, 0x9c(r4)
 /* 800961B4 00093114  EC 01 18 3A */	fmadds f0, f1, f0, f3
 /* 800961B8 00093118  EC 22 00 32 */	fmuls f1, f2, f0
-/* 800961BC 0009311C  4E 80 00 20 */	blr 
+/* 800961BC 0009311C  4E 80 00 20 */	blr
 
 .global GetMapAreaMiniMapDrawAlphaSurfaceUnvisited__11CAutoMapperFRC13CStateManager
 GetMapAreaMiniMapDrawAlphaSurfaceUnvisited__11CAutoMapperFRC13CStateManager:
@@ -958,7 +958,7 @@ GetMapAreaMiniMapDrawAlphaSurfaceUnvisited__11CAutoMapperFRC13CStateManager:
 /* 800961DC 0009313C  C0 44 00 94 */	lfs f2, 0x94(r4)
 /* 800961E0 00093140  EC 01 18 3A */	fmadds f0, f1, f0, f3
 /* 800961E4 00093144  EC 22 00 32 */	fmuls f1, f2, f0
-/* 800961E8 00093148  4E 80 00 20 */	blr 
+/* 800961E8 00093148  4E 80 00 20 */	blr
 
 .global GetMapAreaMiniMapDrawAlphaOutlineVisited__11CAutoMapperFRC13CStateManager
 GetMapAreaMiniMapDrawAlphaOutlineVisited__11CAutoMapperFRC13CStateManager:
@@ -972,7 +972,7 @@ GetMapAreaMiniMapDrawAlphaOutlineVisited__11CAutoMapperFRC13CStateManager:
 /* 80096208 00093168  C0 44 00 8C */	lfs f2, 0x8c(r4)
 /* 8009620C 0009316C  EC 01 18 3A */	fmadds f0, f1, f0, f3
 /* 80096210 00093170  EC 22 00 32 */	fmuls f1, f2, f0
-/* 80096214 00093174  4E 80 00 20 */	blr 
+/* 80096214 00093174  4E 80 00 20 */	blr
 
 .global GetMapAreaMiniMapDrawAlphaSurfaceVisited__11CAutoMapperFRC13CStateManager
 GetMapAreaMiniMapDrawAlphaSurfaceVisited__11CAutoMapperFRC13CStateManager:
@@ -986,7 +986,7 @@ GetMapAreaMiniMapDrawAlphaSurfaceVisited__11CAutoMapperFRC13CStateManager:
 /* 80096234 00093194  C0 44 00 84 */	lfs f2, 0x84(r4)
 /* 80096238 00093198  EC 01 18 3A */	fmadds f0, f1, f0, f3
 /* 8009623C 0009319C  EC 22 00 32 */	fmuls f1, f2, f0
-/* 80096240 000931A0  4E 80 00 20 */	blr 
+/* 80096240 000931A0  4E 80 00 20 */	blr
 
 .global GetMapAreaMaxDrawDepth__11CAutoMapperCFRC13CStateManageri
 GetMapAreaMaxDrawDepth__11CAutoMapperCFRC13CStateManageri:
@@ -1001,7 +1001,7 @@ GetMapAreaMaxDrawDepth__11CAutoMapperCFRC13CStateManageri:
 /* 80096264 000931C4  7F E3 FB 78 */	mr r3, r31
 /* 80096268 000931C8  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8009626C 000931CC  7D 89 03 A6 */	mtctr r12
-/* 80096270 000931D0  4E 80 04 21 */	bctrl 
+/* 80096270 000931D0  4E 80 04 21 */	bctrl
 /* 80096274 000931D4  7F E4 FB 78 */	mr r4, r31
 /* 80096278 000931D8  7F C5 F3 78 */	mr r5, r30
 /* 8009627C 000931DC  48 00 AD 85 */	bl GetCurrentMapAreaDepth__9CMapWorldCFRC6IWorldi
@@ -1017,12 +1017,12 @@ GetMapAreaMaxDrawDepth__11CAutoMapperCFRC13CStateManageri:
 /* 800962A4 00093204  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800962A8 00093208  7C 08 03 A6 */	mtlr r0
 /* 800962AC 0009320C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800962B0 00093210  4E 80 00 20 */	blr 
+/* 800962B0 00093210  4E 80 00 20 */	blr
 
 .global GetMapAreaMiniMapDrawDepth__11CAutoMapperFv
 GetMapAreaMiniMapDrawDepth__11CAutoMapperFv:
 /* 800962B4 00093214  C0 22 8B 90 */	lfs f1, lbl_805AA8B0@sda21(r2)
-/* 800962B8 00093218  4E 80 00 20 */	blr 
+/* 800962B8 00093218  4E 80 00 20 */	blr
 
 .global GetMapScreenViewportSize__11CAutoMapperFv
 GetMapScreenViewportSize__11CAutoMapperFv:
@@ -1037,7 +1037,7 @@ GetMapScreenViewportSize__11CAutoMapperFv:
 /* 800962DC 0009323C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800962E0 00093240  7C 08 03 A6 */	mtlr r0
 /* 800962E4 00093244  38 21 00 10 */	addi r1, r1, 0x10
-/* 800962E8 00093248  4E 80 00 20 */	blr 
+/* 800962E8 00093248  4E 80 00 20 */	blr
 
 .global GetMiniMapViewportSize__11CAutoMapperFv
 GetMiniMapViewportSize__11CAutoMapperFv:
@@ -1079,7 +1079,7 @@ GetMiniMapViewportSize__11CAutoMapperFv:
 /* 80096378 000932D8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8009637C 000932DC  7C 08 03 A6 */	mtlr r0
 /* 80096380 000932E0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80096384 000932E4  4E 80 00 20 */	blr 
+/* 80096384 000932E4  4E 80 00 20 */	blr
 
 .global FindClosestVisibleWorld__11CAutoMapperCFRC9CVector3fRC13CUnitVector3fRC13CStateManager
 FindClosestVisibleWorld__11CAutoMapperCFRC9CVector3fRC13CUnitVector3fRC13CStateManager:
@@ -1231,7 +1231,7 @@ lbl_8009656C:
 /* 800965AC 0009350C  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 800965B0 00093510  7C 08 03 A6 */	mtlr r0
 /* 800965B4 00093514  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 800965B8 00093518  4E 80 00 20 */	blr 
+/* 800965B8 00093518  4E 80 00 20 */	blr
 
 .global FindClosestVisibleArea__11CAutoMapperCFRC9CVector3fRC13CUnitVector3fRC13CStateManagerRC6IWorldRC13CMapWorldInfo
 FindClosestVisibleArea__11CAutoMapperCFRC9CVector3fRC13CUnitVector3fRC13CStateManagerRC6IWorldRC13CMapWorldInfo:
@@ -1258,7 +1258,7 @@ FindClosestVisibleArea__11CAutoMapperCFRC9CVector3fRC13CUnitVector3fRC13CStateMa
 /* 8009660C 0009356C  7D 16 43 78 */	mr r22, r8
 /* 80096610 00093570  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80096614 00093574  7D 89 03 A6 */	mtctr r12
-/* 80096618 00093578  4E 80 04 21 */	bctrl 
+/* 80096618 00093578  4E 80 04 21 */	bctrl
 /* 8009661C 0009357C  7C 7F 1B 78 */	mr r31, r3
 /* 80096620 00093580  83 D7 00 A0 */	lwz r30, 0xa0(r23)
 /* 80096624 00093584  C3 82 8B A0 */	lfs f28, lbl_805AA8C0@sda21(r2)
@@ -1487,7 +1487,7 @@ lbl_8009691C:
 /* 80096948 000938A8  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 8009694C 000938AC  7C 08 03 A6 */	mtlr r0
 /* 80096950 000938B0  38 21 01 90 */	addi r1, r1, 0x190
-/* 80096954 000938B4  4E 80 00 20 */	blr 
+/* 80096954 000938B4  4E 80 00 20 */	blr
 
 .global GetAreaPointOfInterest__11CAutoMapperCFRC13CStateManageri
 GetAreaPointOfInterest__11CAutoMapperCFRC13CStateManageri:
@@ -1505,7 +1505,7 @@ GetAreaPointOfInterest__11CAutoMapperCFRC13CStateManageri:
 /* 80096984 000938E4  7F C3 F3 78 */	mr r3, r30
 /* 80096988 000938E8  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8009698C 000938EC  7D 89 03 A6 */	mtctr r12
-/* 80096990 000938F0  4E 80 04 21 */	bctrl 
+/* 80096990 000938F0  4E 80 04 21 */	bctrl
 /* 80096994 000938F4  7F A4 EB 78 */	mr r4, r29
 /* 80096998 000938F8  48 00 AA 21 */	bl GetMapArea__9CMapWorldCFi
 /* 8009699C 000938FC  7C 7F 1B 78 */	mr r31, r3
@@ -1528,7 +1528,7 @@ GetAreaPointOfInterest__11CAutoMapperCFRC13CStateManageri:
 /* 800969E0 00093940  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800969E4 00093944  7C 08 03 A6 */	mtlr r0
 /* 800969E8 00093948  38 21 00 60 */	addi r1, r1, 0x60
-/* 800969EC 0009394C  4E 80 00 20 */	blr 
+/* 800969EC 0009394C  4E 80 00 20 */	blr
 
 .global GetMiniMapCameraOrientation__11CAutoMapperFRC13CStateManager
 GetMiniMapCameraOrientation__11CAutoMapperFRC13CStateManager:
@@ -1590,7 +1590,7 @@ lbl_80096A84:
 /* 80096AC8 00093A28  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 80096ACC 00093A2C  7C 08 03 A6 */	mtlr r0
 /* 80096AD0 00093A30  38 21 00 80 */	addi r1, r1, 0x80
-/* 80096AD4 00093A34  4E 80 00 20 */	blr 
+/* 80096AD4 00093A34  4E 80 00 20 */	blr
 
 .global LeaveMapScreenState__11CAutoMapperFv
 LeaveMapScreenState__11CAutoMapperFv:
@@ -1611,7 +1611,7 @@ LeaveMapScreenState__11CAutoMapperFv:
 /* 80096B10 00093A70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80096B14 00093A74  7C 08 03 A6 */	mtlr r0
 /* 80096B18 00093A78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80096B1C 00093A7C  4E 80 00 20 */	blr 
+/* 80096B1C 00093A7C  4E 80 00 20 */	blr
 
 .global SetShouldRotatingSoundBePlaying__11CAutoMapperFb
 SetShouldRotatingSoundBePlaying__11CAutoMapperFb:
@@ -1649,7 +1649,7 @@ lbl_80096B90:
 /* 80096B94 00093AF4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80096B98 00093AF8  7C 08 03 A6 */	mtlr r0
 /* 80096B9C 00093AFC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80096BA0 00093B00  4E 80 00 20 */	blr 
+/* 80096BA0 00093B00  4E 80 00 20 */	blr
 
 .global SetShouldZoomingSoundBePlaying__11CAutoMapperFb
 SetShouldZoomingSoundBePlaying__11CAutoMapperFb:
@@ -1687,7 +1687,7 @@ lbl_80096C14:
 /* 80096C18 00093B78  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80096C1C 00093B7C  7C 08 03 A6 */	mtlr r0
 /* 80096C20 00093B80  38 21 00 20 */	addi r1, r1, 0x20
-/* 80096C24 00093B84  4E 80 00 20 */	blr 
+/* 80096C24 00093B84  4E 80 00 20 */	blr
 
 .global SetShouldPanningSoundBePlaying__11CAutoMapperFb
 SetShouldPanningSoundBePlaying__11CAutoMapperFb:
@@ -1725,7 +1725,7 @@ lbl_80096C98:
 /* 80096C9C 00093BFC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80096CA0 00093C00  7C 08 03 A6 */	mtlr r0
 /* 80096CA4 00093C04  38 21 00 20 */	addi r1, r1, 0x20
-/* 80096CA8 00093C08  4E 80 00 20 */	blr 
+/* 80096CA8 00093C08  4E 80 00 20 */	blr
 
 .global BuildMapScreenUniverseRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaternioni
 BuildMapScreenUniverseRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaternioni:
@@ -1792,7 +1792,7 @@ BuildMapScreenUniverseRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaterni
 /* 80096D9C 00093CFC  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80096DA0 00093D00  7C 08 03 A6 */	mtlr r0
 /* 80096DA4 00093D04  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80096DA8 00093D08  4E 80 00 20 */	blr 
+/* 80096DA8 00093D08  4E 80 00 20 */	blr
 
 .global __ct__Q211CAutoMapper22SAutoMapperRenderStateFRCQ211CAutoMapper22SAutoMapperRenderState
 __ct__Q211CAutoMapper22SAutoMapperRenderStateFRCQ211CAutoMapper22SAutoMapperRenderState:
@@ -1842,7 +1842,7 @@ __ct__Q211CAutoMapper22SAutoMapperRenderStateFRCQ211CAutoMapper22SAutoMapperRend
 /* 80096E58 00093DB8  90 03 00 54 */	stw r0, 0x54(r3)
 /* 80096E5C 00093DBC  80 04 00 58 */	lwz r0, 0x58(r4)
 /* 80096E60 00093DC0  90 03 00 58 */	stw r0, 0x58(r3)
-/* 80096E64 00093DC4  4E 80 00 20 */	blr 
+/* 80096E64 00093DC4  4E 80 00 20 */	blr
 
 .global BuildMapScreenWorldRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaternioni
 BuildMapScreenWorldRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaternioni:
@@ -1923,7 +1923,7 @@ lbl_80096EC0:
 /* 80096F88 00093EE8  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80096F8C 00093EEC  7C 08 03 A6 */	mtlr r0
 /* 80096F90 00093EF0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80096F94 00093EF4  4E 80 00 20 */	blr 
+/* 80096F94 00093EF4  4E 80 00 20 */	blr
 
 .global BuildMiniMapWorldRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaternioni
 BuildMiniMapWorldRenderState__11CAutoMapperCFRC13CStateManagerRC11CQuaternioni:
@@ -2048,14 +2048,14 @@ lbl_80097050:
 /* 80097168 000940C8  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8009716C 000940CC  7C 08 03 A6 */	mtlr r0
 /* 80097170 000940D0  38 21 01 20 */	addi r1, r1, 0x120
-/* 80097174 000940D4  4E 80 00 20 */	blr 
+/* 80097174 000940D4  4E 80 00 20 */	blr
 
 .global ResetInterpolationTimer__11CAutoMapperFf
 ResetInterpolationTimer__11CAutoMapperFf:
 /* 80097178 000940D8  D0 23 01 C4 */	stfs f1, 0x1c4(r3)
 /* 8009717C 000940DC  C0 02 8B A8 */	lfs f0, lbl_805AA8C8@sda21(r2)
 /* 80097180 000940E0  D0 03 01 C8 */	stfs f0, 0x1c8(r3)
-/* 80097184 000940E4  4E 80 00 20 */	blr 
+/* 80097184 000940E4  4E 80 00 20 */	blr
 
 .global CompleteMapperStateTransition__11CAutoMapperFv
 CompleteMapperStateTransition__11CAutoMapperFv:
@@ -2080,14 +2080,14 @@ lbl_800971BC:
 /* 800971CC 0009412C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800971D0 00094130  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800971D4 00094134  7D 89 03 A6 */	mtctr r12
-/* 800971D8 00094138  4E 80 04 21 */	bctrl 
+/* 800971D8 00094138  4E 80 04 21 */	bctrl
 /* 800971DC 0009413C  7C 7E 1B 78 */	mr r30, r3
 /* 800971E0 00094140  48 00 9F A1 */	bl IsMapAreasStreaming__9CMapWorldCFv
 /* 800971E4 00094144  80 7C 00 24 */	lwz r3, 0x24(r28)
 /* 800971E8 00094148  81 83 00 00 */	lwz r12, 0(r3)
 /* 800971EC 0009414C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800971F0 00094150  7D 89 03 A6 */	mtctr r12
-/* 800971F4 00094154  4E 80 04 21 */	bctrl 
+/* 800971F4 00094154  4E 80 04 21 */	bctrl
 /* 800971F8 00094158  7C 64 1B 78 */	mr r4, r3
 /* 800971FC 0009415C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 80097200 00094160  48 13 C7 D9 */	bl StateForWorld__10CGameStateFUi
@@ -2171,7 +2171,7 @@ lbl_8009730C:
 /* 80097324 00094284  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80097328 00094288  7C 08 03 A6 */	mtlr r0
 /* 8009732C 0009428C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80097330 00094290  4E 80 00 20 */	blr 
+/* 80097330 00094290  4E 80 00 20 */	blr
 
 .global BeginMapperStateTransition__11CAutoMapperFQ211CAutoMapper16EAutoMapperStateRC13CStateManager
 BeginMapperStateTransition__11CAutoMapperFQ211CAutoMapper16EAutoMapperStateRC13CStateManager:
@@ -2366,7 +2366,7 @@ lbl_800975FC:
 /* 80097614 00094574  81 84 00 00 */	lwz r12, 0(r4)
 /* 80097618 00094578  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8009761C 0009457C  7D 89 03 A6 */	mtctr r12
-/* 80097620 00094580  4E 80 04 21 */	bctrl 
+/* 80097620 00094580  4E 80 04 21 */	bctrl
 /* 80097624 00094584  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80097628 00094588  7F 84 E3 78 */	mr r4, r28
 /* 8009762C 0009458C  7F A5 EB 78 */	mr r5, r29
@@ -2618,7 +2618,7 @@ lbl_800979B0:
 /* 800979EC 0009494C  38 80 00 01 */	li r4, 1
 /* 800979F0 00094950  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800979F4 00094954  7D 89 03 A6 */	mtctr r12
-/* 800979F8 00094958  4E 80 04 21 */	bctrl 
+/* 800979F8 00094958  4E 80 04 21 */	bctrl
 lbl_800979FC:
 /* 800979FC 0009495C  88 61 00 20 */	lbz r3, 0x20(r1)
 /* 80097A00 00094960  38 00 00 00 */	li r0, 0
@@ -2637,7 +2637,7 @@ lbl_80097A14:
 /* 80097A30 00094990  38 80 00 01 */	li r4, 1
 /* 80097A34 00094994  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80097A38 00094998  7D 89 03 A6 */	mtctr r12
-/* 80097A3C 0009499C  4E 80 04 21 */	bctrl 
+/* 80097A3C 0009499C  4E 80 04 21 */	bctrl
 lbl_80097A40:
 /* 80097A40 000949A0  3B FF 00 08 */	addi r31, r31, 8
 /* 80097A44 000949A4  3B DE 00 01 */	addi r30, r30, 1
@@ -2658,7 +2658,7 @@ lbl_80097A58:
 /* 80097A78 000949D8  81 84 00 00 */	lwz r12, 0(r4)
 /* 80097A7C 000949DC  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80097A80 000949E0  7D 89 03 A6 */	mtctr r12
-/* 80097A84 000949E4  4E 80 04 21 */	bctrl 
+/* 80097A84 000949E4  4E 80 04 21 */	bctrl
 /* 80097A88 000949E8  80 01 00 08 */	lwz r0, 8(r1)
 /* 80097A8C 000949EC  7F 84 E3 78 */	mr r4, r28
 /* 80097A90 000949F0  7F A5 EB 78 */	mr r5, r29
@@ -2717,7 +2717,7 @@ lbl_80097A58:
 /* 80097B64 00094AC4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80097B68 00094AC8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80097B6C 00094ACC  7D 89 03 A6 */	mtctr r12
-/* 80097B70 00094AD0  4E 80 04 21 */	bctrl 
+/* 80097B70 00094AD0  4E 80 04 21 */	bctrl
 /* 80097B74 00094AD4  7C 64 1B 78 */	mr r4, r3
 /* 80097B78 00094AD8  7F 83 E3 78 */	mr r3, r28
 /* 80097B7C 00094ADC  4B FF DD C1 */	bl SetCurWorldAssetId__11CAutoMapperFi
@@ -2760,7 +2760,7 @@ lbl_80097BCC:
 /* 80097C04 00094B64  38 80 00 01 */	li r4, 1
 /* 80097C08 00094B68  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80097C0C 00094B6C  7D 89 03 A6 */	mtctr r12
-/* 80097C10 00094B70  4E 80 04 21 */	bctrl 
+/* 80097C10 00094B70  4E 80 04 21 */	bctrl
 lbl_80097C14:
 /* 80097C14 00094B74  88 61 00 18 */	lbz r3, 0x18(r1)
 /* 80097C18 00094B78  38 00 00 00 */	li r0, 0
@@ -2779,7 +2779,7 @@ lbl_80097C2C:
 /* 80097C48 00094BA8  38 80 00 01 */	li r4, 1
 /* 80097C4C 00094BAC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80097C50 00094BB0  7D 89 03 A6 */	mtctr r12
-/* 80097C54 00094BB4  4E 80 04 21 */	bctrl 
+/* 80097C54 00094BB4  4E 80 04 21 */	bctrl
 lbl_80097C58:
 /* 80097C58 00094BB8  3B DE 00 08 */	addi r30, r30, 8
 /* 80097C5C 00094BBC  3B FF 00 01 */	addi r31, r31, 1
@@ -2792,7 +2792,7 @@ lbl_80097C6C:
 /* 80097C70 00094BD0  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 80097C74 00094BD4  7C 08 03 A6 */	mtlr r0
 /* 80097C78 00094BD8  38 21 02 10 */	addi r1, r1, 0x210
-/* 80097C7C 00094BDC  4E 80 00 20 */	blr 
+/* 80097C7C 00094BDC  4E 80 00 20 */	blr
 
 .global Update__11CAutoMapperFfRC13CStateManager
 Update__11CAutoMapperFfRC13CStateManager:
@@ -3380,7 +3380,7 @@ lbl_800984F4:
 /* 800984FC 0009545C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80098500 00095460  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80098504 00095464  7D 89 03 A6 */	mtctr r12
-/* 80098508 00095468  4E 80 04 21 */	bctrl 
+/* 80098508 00095468  4E 80 04 21 */	bctrl
 /* 8009850C 0009546C  80 01 00 48 */	lwz r0, 0x48(r1)
 /* 80098510 00095470  80 7F 00 A0 */	lwz r3, 0xa0(r31)
 /* 80098514 00095474  7C 00 18 00 */	cmpw r0, r3
@@ -3573,14 +3573,14 @@ lbl_800987D4:
 /* 800987E8 00095748  81 83 00 00 */	lwz r12, 0(r3)
 /* 800987EC 0009574C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800987F0 00095750  7D 89 03 A6 */	mtctr r12
-/* 800987F4 00095754  4E 80 04 21 */	bctrl 
+/* 800987F4 00095754  4E 80 04 21 */	bctrl
 /* 800987F8 00095758  7C 60 1B 78 */	mr r0, r3
 /* 800987FC 0009575C  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 80098800 00095760  7C 1C 03 78 */	mr r28, r0
 /* 80098804 00095764  81 83 00 00 */	lwz r12, 0(r3)
 /* 80098808 00095768  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009880C 0009576C  7D 89 03 A6 */	mtctr r12
-/* 80098810 00095770  4E 80 04 21 */	bctrl 
+/* 80098810 00095770  4E 80 04 21 */	bctrl
 /* 80098814 00095774  7C 64 1B 78 */	mr r4, r3
 /* 80098818 00095778  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8009881C 0009577C  48 13 B1 BD */	bl StateForWorld__10CGameStateFUi
@@ -3657,14 +3657,14 @@ lbl_800988EC:
 /* 80098924 00095884  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80098928 00095888  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8009892C 0009588C  7D 89 03 A6 */	mtctr r12
-/* 80098930 00095890  4E 80 04 21 */	bctrl 
+/* 80098930 00095890  4E 80 04 21 */	bctrl
 /* 80098934 00095894  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80098938 00095898  41 82 00 20 */	beq lbl_80098958
 /* 8009893C 0009589C  7F A3 EB 78 */	mr r3, r29
 /* 80098940 000958A0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80098944 000958A4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80098948 000958A8  7D 89 03 A6 */	mtctr r12
-/* 8009894C 000958AC  4E 80 04 21 */	bctrl 
+/* 8009894C 000958AC  4E 80 04 21 */	bctrl
 /* 80098950 000958B0  7C 7C 1B 78 */	mr r28, r3
 /* 80098954 000958B4  48 00 01 0C */	b lbl_80098A60
 lbl_80098958:
@@ -3674,7 +3674,7 @@ lbl_80098958:
 /* 80098964 000958C4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80098968 000958C8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8009896C 000958CC  7D 89 03 A6 */	mtctr r12
-/* 80098970 000958D0  4E 80 04 21 */	bctrl 
+/* 80098970 000958D0  4E 80 04 21 */	bctrl
 /* 80098974 000958D4  7C 7C 1B 78 */	mr r28, r3
 /* 80098978 000958D8  48 00 00 E8 */	b lbl_80098A60
 lbl_8009897C:
@@ -3689,14 +3689,14 @@ lbl_8009897C:
 /* 8009899C 000958FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800989A0 00095900  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800989A4 00095904  7D 89 03 A6 */	mtctr r12
-/* 800989A8 00095908  4E 80 04 21 */	bctrl 
+/* 800989A8 00095908  4E 80 04 21 */	bctrl
 /* 800989AC 0009590C  7C 60 1B 78 */	mr r0, r3
 /* 800989B0 00095910  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 800989B4 00095914  7C 1C 03 78 */	mr r28, r0
 /* 800989B8 00095918  81 83 00 00 */	lwz r12, 0(r3)
 /* 800989BC 0009591C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800989C0 00095920  7D 89 03 A6 */	mtctr r12
-/* 800989C4 00095924  4E 80 04 21 */	bctrl 
+/* 800989C4 00095924  4E 80 04 21 */	bctrl
 /* 800989C8 00095928  7C 64 1B 78 */	mr r4, r3
 /* 800989CC 0009592C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800989D0 00095930  48 13 B0 09 */	bl StateForWorld__10CGameStateFUi
@@ -3732,7 +3732,7 @@ lbl_80098A38:
 /* 80098A44 000959A4  81 9C 00 00 */	lwz r12, 0(r28)
 /* 80098A48 000959A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80098A4C 000959AC  7D 89 03 A6 */	mtctr r12
-/* 80098A50 000959B0  4E 80 04 21 */	bctrl 
+/* 80098A50 000959B0  4E 80 04 21 */	bctrl
 /* 80098A54 000959B4  48 00 00 08 */	b lbl_80098A5C
 lbl_80098A58:
 /* 80098A58 000959B8  38 60 FF FF */	li r3, -1
@@ -3757,7 +3757,7 @@ lbl_80098A60:
 /* 80098A9C 000959FC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80098AA0 00095A00  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80098AA4 00095A04  7D 89 03 A6 */	mtctr r12
-/* 80098AA8 00095A08  4E 80 04 21 */	bctrl 
+/* 80098AA8 00095A08  4E 80 04 21 */	bctrl
 /* 80098AAC 00095A0C  38 61 00 BC */	addi r3, r1, 0xbc
 /* 80098AB0 00095A10  38 81 00 60 */	addi r4, r1, 0x60
 /* 80098AB4 00095A14  48 2A 83 F5 */	bl __ct__6CTokenFRC6CToken
@@ -3921,11 +3921,11 @@ lbl_80098CC4:
 /* 80098CEC 00095C4C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80098CF0 00095C50  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 80098CF4 00095C54  7D 89 03 A6 */	mtctr r12
-/* 80098CF8 00095C58  4E 80 04 21 */	bctrl 
+/* 80098CF8 00095C58  4E 80 04 21 */	bctrl
 /* 80098CFC 00095C5C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80098D00 00095C60  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 80098D04 00095C64  7D 89 03 A6 */	mtctr r12
-/* 80098D08 00095C68  4E 80 04 21 */	bctrl 
+/* 80098D08 00095C68  4E 80 04 21 */	bctrl
 /* 80098D0C 00095C6C  7C 64 1B 78 */	mr r4, r3
 /* 80098D10 00095C70  7F E3 FB 78 */	mr r3, r31
 /* 80098D14 00095C74  48 00 02 05 */	bl GetAreaHintDescriptionString__11CAutoMapperFUi
@@ -3947,7 +3947,7 @@ lbl_80098CC4:
 /* 80098D54 00095CB4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80098D58 00095CB8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80098D5C 00095CBC  7D 89 03 A6 */	mtctr r12
-/* 80098D60 00095CC0  4E 80 04 21 */	bctrl 
+/* 80098D60 00095CC0  4E 80 04 21 */	bctrl
 /* 80098D64 00095CC4  38 61 00 80 */	addi r3, r1, 0x80
 /* 80098D68 00095CC8  38 81 00 50 */	addi r4, r1, 0x50
 /* 80098D6C 00095CCC  48 2A 81 3D */	bl __ct__6CTokenFRC6CToken
@@ -4051,7 +4051,7 @@ lbl_80098EB0:
 /* 80098EC4 00095E24  81 83 00 00 */	lwz r12, 0(r3)
 /* 80098EC8 00095E28  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80098ECC 00095E2C  7D 89 03 A6 */	mtctr r12
-/* 80098ED0 00095E30  4E 80 04 21 */	bctrl 
+/* 80098ED0 00095E30  4E 80 04 21 */	bctrl
 lbl_80098ED4:
 /* 80098ED4 00095E34  3B BD 00 08 */	addi r29, r29, 8
 /* 80098ED8 00095E38  3B 9C 00 01 */	addi r28, r28, 1
@@ -4070,7 +4070,7 @@ lbl_80098EDC:
 /* 80098F08 00095E68  83 81 03 10 */	lwz r28, 0x310(r1)
 /* 80098F0C 00095E6C  7C 08 03 A6 */	mtlr r0
 /* 80098F10 00095E70  38 21 03 40 */	addi r1, r1, 0x340
-/* 80098F14 00095E74  4E 80 00 20 */	blr 
+/* 80098F14 00095E74  4E 80 00 20 */	blr
 
 .global GetAreaHintDescriptionString__11CAutoMapperFUi
 GetAreaHintDescriptionString__11CAutoMapperFUi:
@@ -4141,7 +4141,7 @@ lbl_80098FEC:
 /* 80098FF4 00095F54  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80098FF8 00095F58  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80098FFC 00095F5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80099000 00095F60  4E 80 00 20 */	blr 
+/* 80099000 00095F60  4E 80 00 20 */	blr
 
 .global Draw__11CAutoMapperCFRC13CStateManagerRC12CTransform4ff
 Draw__11CAutoMapperCFRC13CStateManagerRC12CTransform4ff:
@@ -4175,7 +4175,7 @@ Draw__11CAutoMapperCFRC13CStateManagerRC12CTransform4ff:
 /* 80099070 00095FD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099074 00095FD4  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80099078 00095FD8  7D 89 03 A6 */	mtctr r12
-/* 8009907C 00095FDC  4E 80 04 21 */	bctrl 
+/* 8009907C 00095FDC  4E 80 04 21 */	bctrl
 /* 80099080 00095FE0  38 60 00 01 */	li r3, 1
 /* 80099084 00095FE4  48 27 29 ED */	bl SetCullMode__9CGraphicsF12ERglCullMode
 /* 80099088 00095FE8  80 1F 01 BC */	lwz r0, 0x1bc(r31)
@@ -4397,7 +4397,7 @@ lbl_80099378:
 /* 80099398 000962F8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009939C 000962FC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800993A0 00096300  7D 89 03 A6 */	mtctr r12
-/* 800993A4 00096304  4E 80 04 21 */	bctrl 
+/* 800993A4 00096304  4E 80 04 21 */	bctrl
 /* 800993A8 00096308  7C 64 1B 78 */	mr r4, r3
 /* 800993AC 0009630C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800993B0 00096310  48 13 A6 29 */	bl StateForWorld__10CGameStateFUi
@@ -4412,7 +4412,7 @@ lbl_80099378:
 /* 800993D4 00096334  81 83 00 00 */	lwz r12, 0(r3)
 /* 800993D8 00096338  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800993DC 0009633C  7D 89 03 A6 */	mtctr r12
-/* 800993E0 00096340  4E 80 04 21 */	bctrl 
+/* 800993E0 00096340  4E 80 04 21 */	bctrl
 /* 800993E4 00096344  80 1F 01 F4 */	lwz r0, 0x1f4(r31)
 /* 800993E8 00096348  7C 7B 1B 78 */	mr r27, r3
 /* 800993EC 0009634C  C3 42 8B A8 */	lfs f26, lbl_805AA8C8@sda21(r2)
@@ -4457,7 +4457,7 @@ lbl_80099474:
 /* 80099478 000963D8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009947C 000963DC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80099480 000963E0  7D 89 03 A6 */	mtctr r12
-/* 80099484 000963E4  4E 80 04 21 */	bctrl 
+/* 80099484 000963E4  4E 80 04 21 */	bctrl
 /* 80099488 000963E8  80 1A 00 10 */	lwz r0, 0x10(r26)
 /* 8009948C 000963EC  7C 00 18 40 */	cmplw r0, r3
 /* 80099490 000963F0  40 82 00 80 */	bne lbl_80099510
@@ -4549,14 +4549,14 @@ lbl_800995B0:
 /* 800995C8 00096528  81 83 00 00 */	lwz r12, 0(r3)
 /* 800995CC 0009652C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800995D0 00096530  7D 89 03 A6 */	mtctr r12
-/* 800995D4 00096534  4E 80 04 21 */	bctrl 
+/* 800995D4 00096534  4E 80 04 21 */	bctrl
 /* 800995D8 00096538  7C 60 1B 78 */	mr r0, r3
 /* 800995DC 0009653C  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 800995E0 00096540  7C 1A 03 78 */	mr r26, r0
 /* 800995E4 00096544  81 83 00 00 */	lwz r12, 0(r3)
 /* 800995E8 00096548  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800995EC 0009654C  7D 89 03 A6 */	mtctr r12
-/* 800995F0 00096550  4E 80 04 21 */	bctrl 
+/* 800995F0 00096550  4E 80 04 21 */	bctrl
 /* 800995F4 00096554  7C 64 1B 78 */	mr r4, r3
 /* 800995F8 00096558  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800995FC 0009655C  48 13 A3 DD */	bl StateForWorld__10CGameStateFUi
@@ -4603,14 +4603,14 @@ lbl_80099698:
 /* 8009969C 000965FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800996A0 00096600  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800996A4 00096604  7D 89 03 A6 */	mtctr r12
-/* 800996A8 00096608  4E 80 04 21 */	bctrl 
+/* 800996A8 00096608  4E 80 04 21 */	bctrl
 /* 800996AC 0009660C  7C 60 1B 78 */	mr r0, r3
 /* 800996B0 00096610  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 800996B4 00096614  7C 1C 03 78 */	mr r28, r0
 /* 800996B8 00096618  81 83 00 00 */	lwz r12, 0(r3)
 /* 800996BC 0009661C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800996C0 00096620  7D 89 03 A6 */	mtctr r12
-/* 800996C4 00096624  4E 80 04 21 */	bctrl 
+/* 800996C4 00096624  4E 80 04 21 */	bctrl
 /* 800996C8 00096628  7C 64 1B 78 */	mr r4, r3
 /* 800996CC 0009662C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800996D0 00096630  48 13 A3 09 */	bl StateForWorld__10CGameStateFUi
@@ -4870,7 +4870,7 @@ lbl_800999F0:
 /* 80099AA8 00096A08  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099AAC 00096A0C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80099AB0 00096A10  7D 89 03 A6 */	mtctr r12
-/* 80099AB4 00096A14  4E 80 04 21 */	bctrl 
+/* 80099AB4 00096A14  4E 80 04 21 */	bctrl
 /* 80099AB8 00096A18  80 1F 01 BC */	lwz r0, 0x1bc(r31)
 /* 80099ABC 00096A1C  38 80 00 00 */	li r4, 0
 /* 80099AC0 00096A20  80 7F 00 38 */	lwz r3, 0x38(r31)
@@ -4932,13 +4932,13 @@ lbl_80099B78:
 /* 80099B90 00096AF0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099B94 00096AF4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80099B98 00096AF8  7D 89 03 A6 */	mtctr r12
-/* 80099B9C 00096AFC  4E 80 04 21 */	bctrl 
+/* 80099B9C 00096AFC  4E 80 04 21 */	bctrl
 /* 80099BA0 00096B00  7C 7D 1B 78 */	mr r29, r3
 /* 80099BA4 00096B04  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 80099BA8 00096B08  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099BAC 00096B0C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80099BB0 00096B10  7D 89 03 A6 */	mtctr r12
-/* 80099BB4 00096B14  4E 80 04 21 */	bctrl 
+/* 80099BB4 00096B14  4E 80 04 21 */	bctrl
 /* 80099BB8 00096B18  83 9F 01 FC */	lwz r28, 0x1fc(r31)
 /* 80099BBC 00096B1C  7C 7B 1B 78 */	mr r27, r3
 /* 80099BC0 00096B20  48 00 02 70 */	b lbl_80099E30
@@ -5021,7 +5021,7 @@ lbl_80099CBC:
 /* 80099CEC 00096C4C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099CF0 00096C50  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80099CF4 00096C54  7D 89 03 A6 */	mtctr r12
-/* 80099CF8 00096C58  4E 80 04 21 */	bctrl 
+/* 80099CF8 00096C58  4E 80 04 21 */	bctrl
 /* 80099CFC 00096C5C  38 60 00 98 */	li r3, 0x98
 /* 80099D00 00096C60  48 27 19 69 */	bl StreamBegin__9CGraphicsF13ERglPrimitive
 /* 80099D04 00096C64  80 1F 01 BC */	lwz r0, 0x1bc(r31)
@@ -5114,14 +5114,14 @@ lbl_80099E3C:
 /* 80099E48 00096DA8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099E4C 00096DAC  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80099E50 00096DB0  7D 89 03 A6 */	mtctr r12
-/* 80099E54 00096DB4  4E 80 04 21 */	bctrl 
+/* 80099E54 00096DB4  4E 80 04 21 */	bctrl
 /* 80099E58 00096DB8  48 2B 01 55 */	bl White__6CColorFv
 /* 80099E5C 00096DBC  7C 64 1B 78 */	mr r4, r3
 /* 80099E60 00096DC0  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80099E64 00096DC4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80099E68 00096DC8  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80099E6C 00096DCC  7D 89 03 A6 */	mtctr r12
-/* 80099E70 00096DD0  4E 80 04 21 */	bctrl 
+/* 80099E70 00096DD0  4E 80 04 21 */	bctrl
 /* 80099E74 00096DD4  48 27 2B 09 */	bl DisableAllLights__9CGraphicsFv
 /* 80099E78 00096DD8  80 1F 00 2C */	lwz r0, 0x2c(r31)
 /* 80099E7C 00096DDC  28 00 00 00 */	cmplwi r0, 0
@@ -5198,7 +5198,7 @@ lbl_80099F44:
 /* 80099F80 00096EE0  80 01 08 C4 */	lwz r0, 0x8c4(r1)
 /* 80099F84 00096EE4  7C 08 03 A6 */	mtlr r0
 /* 80099F88 00096EE8  38 21 08 C0 */	addi r1, r1, 0x8c0
-/* 80099F8C 00096EEC  4E 80 00 20 */	blr 
+/* 80099F8C 00096EEC  4E 80 00 20 */	blr
 
 .global ProcessMapPanInput__11CAutoMapperFRC11CFinalInputRC13CStateManager
 ProcessMapPanInput__11CAutoMapperFRC11CFinalInputRC13CStateManager:
@@ -5285,7 +5285,7 @@ lbl_8009A0AC:
 /* 8009A0BC 0009701C  38 63 AE 7C */	addi r3, r3, lbl_803DAE7C@l
 /* 8009A0C0 00097020  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8009A0C4 00097024  7C 09 03 A6 */	mtctr r0
-/* 8009A0C8 00097028  4E 80 04 20 */	bctr 
+/* 8009A0C8 00097028  4E 80 04 20 */	bctr
 .global lbl_8009A0CC
 lbl_8009A0CC:
 /* 8009A0CC 0009702C  38 00 00 01 */	li r0, 1
@@ -5382,7 +5382,7 @@ lbl_8009A1E0:
 /* 8009A1F0 00097150  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009A1F4 00097154  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8009A1F8 00097158  7D 89 03 A6 */	mtctr r12
-/* 8009A1FC 0009715C  4E 80 04 21 */	bctrl 
+/* 8009A1FC 0009715C  4E 80 04 21 */	bctrl
 /* 8009A200 00097160  C0 41 01 40 */	lfs f2, 0x140(r1)
 /* 8009A204 00097164  7C 64 1B 78 */	mr r4, r3
 /* 8009A208 00097168  C0 21 01 34 */	lfs f1, 0x134(r1)
@@ -5462,7 +5462,7 @@ lbl_8009A2F4:
 /* 8009A324 00097284  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009A328 00097288  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8009A32C 0009728C  7D 89 03 A6 */	mtctr r12
-/* 8009A330 00097290  4E 80 04 21 */	bctrl 
+/* 8009A330 00097290  4E 80 04 21 */	bctrl
 /* 8009A334 00097294  80 9F 00 A0 */	lwz r4, 0xa0(r31)
 /* 8009A338 00097298  7C 7D 1B 78 */	mr r29, r3
 /* 8009A33C 0009729C  48 00 70 7D */	bl GetMapArea__9CMapWorldCFi
@@ -5604,7 +5604,7 @@ lbl_8009A518:
 /* 8009A54C 000974AC  83 A1 01 54 */	lwz r29, 0x154(r1)
 /* 8009A550 000974B0  7C 08 03 A6 */	mtlr r0
 /* 8009A554 000974B4  38 21 01 B0 */	addi r1, r1, 0x1b0
-/* 8009A558 000974B8  4E 80 00 20 */	blr 
+/* 8009A558 000974B8  4E 80 00 20 */	blr
 
 .global ProcessMapZoomInput__11CAutoMapperFRC11CFinalInputRC13CStateManager
 ProcessMapZoomInput__11CAutoMapperFRC11CFinalInputRC13CStateManager:
@@ -5728,7 +5728,7 @@ lbl_8009A6E4:
 /* 8009A6F8 00097658  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8009A6FC 0009765C  7C 08 03 A6 */	mtlr r0
 /* 8009A700 00097660  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009A704 00097664  4E 80 00 20 */	blr 
+/* 8009A704 00097664  4E 80 00 20 */	blr
 
 .global ProcessMapRotateInput__11CAutoMapperFRC11CFinalInputRC13CStateManager
 ProcessMapRotateInput__11CAutoMapperFRC11CFinalInputRC13CStateManager:
@@ -5791,7 +5791,7 @@ lbl_8009A7C8:
 /* 8009A7D8 00097738  38 63 AE A8 */	addi r3, r3, lbl_803DAEA8@l
 /* 8009A7DC 0009773C  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8009A7E0 00097740  7C 09 03 A6 */	mtctr r0
-/* 8009A7E4 00097744  4E 80 04 20 */	bctr 
+/* 8009A7E4 00097744  4E 80 04 20 */	bctr
 .global lbl_8009A7E8
 lbl_8009A7E8:
 /* 8009A7E8 00097748  38 00 00 01 */	li r0, 1
@@ -6122,7 +6122,7 @@ lbl_8009AC3C:
 /* 8009AC6C 00097BCC  83 C1 00 F8 */	lwz r30, 0xf8(r1)
 /* 8009AC70 00097BD0  7C 08 03 A6 */	mtlr r0
 /* 8009AC74 00097BD4  38 21 01 50 */	addi r1, r1, 0x150
-/* 8009AC78 00097BD8  4E 80 00 20 */	blr 
+/* 8009AC78 00097BD8  4E 80 00 20 */	blr
 
 .global ProcessMapScreenInput__11CAutoMapperRC11CFinalInputRC13CStateManager
 ProcessMapScreenInput__11CAutoMapperRC11CFinalInputRC13CStateManager:
@@ -6195,7 +6195,7 @@ lbl_8009AD70:
 /* 8009AD7C 00097CDC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009AD80 00097CE0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009AD84 00097CE4  7D 89 03 A6 */	mtctr r12
-/* 8009AD88 00097CE8  4E 80 04 21 */	bctrl 
+/* 8009AD88 00097CE8  4E 80 04 21 */	bctrl
 /* 8009AD8C 00097CEC  7C 64 1B 78 */	mr r4, r3
 /* 8009AD90 00097CF0  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8009AD94 00097CF4  48 13 8C 45 */	bl StateForWorld__10CGameStateFUi
@@ -6274,7 +6274,7 @@ lbl_8009AEA0:
 /* 8009AEA4 00097E04  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8009AEA8 00097E08  7C 08 03 A6 */	mtlr r0
 /* 8009AEAC 00097E0C  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8009AEB0 00097E10  4E 80 00 20 */	blr 
+/* 8009AEB0 00097E10  4E 80 00 20 */	blr
 
 .global ProcessControllerInput__11CAutoMapperFRC11CFinalInputRC13CStateManager
 ProcessControllerInput__11CAutoMapperFRC11CFinalInputRC13CStateManager:
@@ -6344,7 +6344,7 @@ lbl_8009AF6C:
 /* 8009AF9C 00097EFC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009AFA0 00097F00  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009AFA4 00097F04  7D 89 03 A6 */	mtctr r12
-/* 8009AFA8 00097F08  4E 80 04 21 */	bctrl 
+/* 8009AFA8 00097F08  4E 80 04 21 */	bctrl
 /* 8009AFAC 00097F0C  7C 64 1B 78 */	mr r4, r3
 /* 8009AFB0 00097F10  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8009AFB4 00097F14  48 13 8A 25 */	bl StateForWorld__10CGameStateFUi
@@ -6474,7 +6474,7 @@ lbl_8009B154:
 /* 8009B18C 000980EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009B190 000980F0  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8009B194 000980F4  7D 89 03 A6 */	mtctr r12
-/* 8009B198 000980F8  4E 80 04 21 */	bctrl 
+/* 8009B198 000980F8  4E 80 04 21 */	bctrl
 /* 8009B19C 000980FC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8009B1A0 00098100  41 82 01 60 */	beq lbl_8009B300
 /* 8009B1A4 00098104  3C 80 80 3D */	lis r4, lbl_803CD80C@ha
@@ -6510,7 +6510,7 @@ lbl_8009B1D4:
 /* 8009B218 00098178  38 80 00 01 */	li r4, 1
 /* 8009B21C 0009817C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009B220 00098180  7D 89 03 A6 */	mtctr r12
-/* 8009B224 00098184  4E 80 04 21 */	bctrl 
+/* 8009B224 00098184  4E 80 04 21 */	bctrl
 lbl_8009B228:
 /* 8009B228 00098188  88 61 00 38 */	lbz r3, 0x38(r1)
 /* 8009B22C 0009818C  38 00 00 00 */	li r0, 0
@@ -6529,7 +6529,7 @@ lbl_8009B240:
 /* 8009B25C 000981BC  38 80 00 01 */	li r4, 1
 /* 8009B260 000981C0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009B264 000981C4  7D 89 03 A6 */	mtctr r12
-/* 8009B268 000981C8  4E 80 04 21 */	bctrl 
+/* 8009B268 000981C8  4E 80 04 21 */	bctrl
 /* 8009B26C 000981CC  48 00 00 94 */	b lbl_8009B300
 lbl_8009B270:
 /* 8009B270 000981D0  38 60 00 00 */	li r3, 0
@@ -6550,7 +6550,7 @@ lbl_8009B270:
 /* 8009B2AC 0009820C  38 80 00 01 */	li r4, 1
 /* 8009B2B0 00098210  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009B2B4 00098214  7D 89 03 A6 */	mtctr r12
-/* 8009B2B8 00098218  4E 80 04 21 */	bctrl 
+/* 8009B2B8 00098218  4E 80 04 21 */	bctrl
 lbl_8009B2BC:
 /* 8009B2BC 0009821C  88 61 00 30 */	lbz r3, 0x30(r1)
 /* 8009B2C0 00098220  38 00 00 00 */	li r0, 0
@@ -6569,7 +6569,7 @@ lbl_8009B2D4:
 /* 8009B2F0 00098250  38 80 00 01 */	li r4, 1
 /* 8009B2F4 00098254  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009B2F8 00098258  7D 89 03 A6 */	mtctr r12
-/* 8009B2FC 0009825C  4E 80 04 21 */	bctrl 
+/* 8009B2FC 0009825C  4E 80 04 21 */	bctrl
 lbl_8009B300:
 /* 8009B300 00098260  3B 7B 00 70 */	addi r27, r27, 0x70
 /* 8009B304 00098264  3B 5A 00 08 */	addi r26, r26, 8
@@ -6964,7 +6964,7 @@ lbl_8009B8D0:
 /* 8009B8D4 00098834  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 8009B8D8 00098838  7C 08 03 A6 */	mtlr r0
 /* 8009B8DC 0009883C  38 21 02 00 */	addi r1, r1, 0x200
-/* 8009B8E0 00098840  4E 80 00 20 */	blr 
+/* 8009B8E0 00098840  4E 80 00 20 */	blr
 
 .global UpdateHintNavigation__11CAutoMapperFfRC13CStateManager
 UpdateHintNavigation__11CAutoMapperFfRC13CStateManager:
@@ -6993,7 +6993,7 @@ UpdateHintNavigation__11CAutoMapperFfRC13CStateManager:
 /* 8009B93C 0009889C  38 A5 AE D4 */	addi r5, r5, lbl_803DAED4@l
 /* 8009B940 000988A0  7C 05 00 2E */	lwzx r0, r5, r0
 /* 8009B944 000988A4  7C 09 03 A6 */	mtctr r0
-/* 8009B948 000988A8  4E 80 04 20 */	bctr 
+/* 8009B948 000988A8  4E 80 04 20 */	bctr
 .global lbl_8009B94C
 lbl_8009B94C:
 /* 8009B94C 000988AC  80 7E 00 24 */	lwz r3, 0x24(r30)
@@ -7001,7 +7001,7 @@ lbl_8009B94C:
 /* 8009B954 000988B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009B958 000988B8  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8009B95C 000988BC  7D 89 03 A6 */	mtctr r12
-/* 8009B960 000988C0  4E 80 04 21 */	bctrl 
+/* 8009B960 000988C0  4E 80 04 21 */	bctrl
 /* 8009B964 000988C4  7F A4 EB 78 */	mr r4, r29
 /* 8009B968 000988C8  48 00 5A 51 */	bl GetMapArea__9CMapWorldCFi
 /* 8009B96C 000988CC  28 03 00 00 */	cmplwi r3, 0
@@ -7253,7 +7253,7 @@ lbl_8009BCF8:
 /* 8009BCFC 00098C5C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009BD00 00098C60  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009BD04 00098C64  7D 89 03 A6 */	mtctr r12
-/* 8009BD08 00098C68  4E 80 04 21 */	bctrl 
+/* 8009BD08 00098C68  4E 80 04 21 */	bctrl
 /* 8009BD0C 00098C6C  80 1D 00 10 */	lwz r0, 0x10(r29)
 /* 8009BD10 00098C70  7C 00 18 40 */	cmplw r0, r3
 /* 8009BD14 00098C74  40 82 00 58 */	bne lbl_8009BD6C
@@ -7427,7 +7427,7 @@ lbl_8009BF78:
 /* 8009BF8C 00098EEC  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8009BF90 00098EF0  7C 08 03 A6 */	mtlr r0
 /* 8009BF94 00098EF4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8009BF98 00098EF8  4E 80 00 20 */	blr 
+/* 8009BF98 00098EF8  4E 80 00 20 */	blr
 
 .global CheckDummyWorldLoad__11CAutoMapperFRC13CStateManager
 CheckDummyWorldLoad__11CAutoMapperFRC13CStateManager:
@@ -7452,14 +7452,14 @@ CheckDummyWorldLoad__11CAutoMapperFRC13CStateManager:
 /* 8009BFE4 00098F44  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8009BFE8 00098F48  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 8009BFEC 00098F4C  7D 89 03 A6 */	mtctr r12
-/* 8009BFF0 00098F50  4E 80 04 21 */	bctrl 
+/* 8009BFF0 00098F50  4E 80 04 21 */	bctrl
 /* 8009BFF4 00098F54  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8009BFF8 00098F58  41 82 01 18 */	beq lbl_8009C110
 /* 8009BFFC 00098F5C  7F C3 F3 78 */	mr r3, r30
 /* 8009C000 00098F60  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8009C004 00098F64  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009C008 00098F68  7D 89 03 A6 */	mtctr r12
-/* 8009C00C 00098F6C  4E 80 04 21 */	bctrl 
+/* 8009C00C 00098F6C  4E 80 04 21 */	bctrl
 /* 8009C010 00098F70  7C 64 1B 78 */	mr r4, r3
 /* 8009C014 00098F74  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8009C018 00098F78  48 13 79 C1 */	bl StateForWorld__10CGameStateFUi
@@ -7507,7 +7507,7 @@ CheckDummyWorldLoad__11CAutoMapperFRC13CStateManager:
 /* 8009C0C0 00099020  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8009C0C4 00099024  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8009C0C8 00099028  7D 89 03 A6 */	mtctr r12
-/* 8009C0CC 0009902C  4E 80 04 21 */	bctrl 
+/* 8009C0CC 0009902C  4E 80 04 21 */	bctrl
 /* 8009C0D0 00099030  7F 84 E3 78 */	mr r4, r28
 /* 8009C0D4 00099034  7F C5 F3 78 */	mr r5, r30
 /* 8009C0D8 00099038  48 00 37 85 */	bl RecalculateWorldSphere__9CMapWorldCFRC13CMapWorldInfoRC6IWorld
@@ -7537,7 +7537,7 @@ lbl_8009C124:
 /* 8009C128 00099088  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8009C12C 0009908C  7C 08 03 A6 */	mtlr r0
 /* 8009C130 00099090  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8009C134 00099094  4E 80 00 20 */	blr 
+/* 8009C134 00099094  4E 80 00 20 */	blr
 
 .global HasCurrentMapUniverseWorld__11CAutoMapperFv
 HasCurrentMapUniverseWorld__11CAutoMapperFv:
@@ -7551,7 +7551,7 @@ HasCurrentMapUniverseWorld__11CAutoMapperFv:
 /* 8009C154 000990B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009C158 000990B8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009C15C 000990BC  7D 89 03 A6 */	mtctr r12
-/* 8009C160 000990C0  4E 80 04 21 */	bctrl 
+/* 8009C160 000990C0  4E 80 04 21 */	bctrl
 /* 8009C164 000990C4  80 1F 00 14 */	lwz r0, 0x14(r31)
 /* 8009C168 000990C8  38 A0 00 00 */	li r5, 0
 /* 8009C16C 000990CC  7C 09 03 A6 */	mtctr r0
@@ -7575,7 +7575,7 @@ lbl_8009C1A0:
 /* 8009C1A4 00099104  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8009C1A8 00099108  7C 08 03 A6 */	mtlr r0
 /* 8009C1AC 0009910C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009C1B0 00099110  4E 80 00 20 */	blr 
+/* 8009C1B0 00099110  4E 80 00 20 */	blr
 
 .global UnmuteAllLoopedSounds__11CAutoMapperFv
 UnmuteAllLoopedSounds__11CAutoMapperFv:
@@ -7603,7 +7603,7 @@ UnmuteAllLoopedSounds__11CAutoMapperFv:
 /* 8009C208 00099168  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8009C20C 0009916C  7C 08 03 A6 */	mtlr r0
 /* 8009C210 00099170  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009C214 00099174  4E 80 00 20 */	blr 
+/* 8009C214 00099174  4E 80 00 20 */	blr
 
 .global NotHintNavigating__11CAutoMapperFv
 NotHintNavigating__11CAutoMapperFv:
@@ -7611,7 +7611,7 @@ NotHintNavigating__11CAutoMapperFv:
 /* 8009C21C 0009917C  38 60 00 01 */	li r3, 1
 /* 8009C220 00099180  7C 00 00 34 */	cntlzw r0, r0
 /* 8009C224 00099184  5C 63 07 FE */	rlwnm r3, r3, r0, 0x1f, 0x1f
-/* 8009C228 00099188  4E 80 00 20 */	blr 
+/* 8009C228 00099188  4E 80 00 20 */	blr
 
 .global CanLeaveMapScreenInternal__11CAutoMapperCFRC13CStateManager
 CanLeaveMapScreenInternal__11CAutoMapperCFRC13CStateManager:
@@ -7664,7 +7664,7 @@ lbl_8009C2C4:
 /* 8009C2D0 00099230  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8009C2D4 00099234  7C 08 03 A6 */	mtlr r0
 /* 8009C2D8 00099238  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009C2DC 0009923C  4E 80 00 20 */	blr 
+/* 8009C2DC 0009923C  4E 80 00 20 */	blr
 
 .global CanLeaveMapScreen__11CAutoMapperCFRC13CStateManager
 CanLeaveMapScreen__11CAutoMapperCFRC13CStateManager:
@@ -7686,7 +7686,7 @@ lbl_8009C310:
 /* 8009C318 00099278  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8009C31C 0009927C  7C 08 03 A6 */	mtlr r0
 /* 8009C320 00099280  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009C324 00099284  4E 80 00 20 */	blr 
+/* 8009C324 00099284  4E 80 00 20 */	blr
 
 .global OnNewInGameGuiState__11CAutoMapperF15EInGameGuiStateR13CStateManager
 OnNewInGameGuiState__11CAutoMapperF15EInGameGuiStateR13CStateManager:
@@ -7730,7 +7730,7 @@ OnNewInGameGuiState__11CAutoMapperF15EInGameGuiStateR13CStateManager:
 /* 8009C3BC 0009931C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009C3C0 00099320  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8009C3C4 00099324  7D 89 03 A6 */	mtctr r12
-/* 8009C3C8 00099328  4E 80 04 21 */	bctrl 
+/* 8009C3C8 00099328  4E 80 04 21 */	bctrl
 /* 8009C3CC 0009932C  7F E3 FB 78 */	mr r3, r31
 /* 8009C3D0 00099330  38 81 00 08 */	addi r4, r1, 8
 /* 8009C3D4 00099334  3B 80 00 01 */	li r28, 1
@@ -7808,7 +7808,7 @@ lbl_8009C4C4:
 /* 8009C4D4 00099434  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8009C4D8 00099438  7C 08 03 A6 */	mtlr r0
 /* 8009C4DC 0009943C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009C4E0 00099440  4E 80 00 20 */	blr 
+/* 8009C4E0 00099440  4E 80 00 20 */	blr
 
 .global SetupHintNavigation__11CAutoMapperFv
 SetupHintNavigation__11CAutoMapperFv:
@@ -7903,7 +7903,7 @@ lbl_8009C5EC:
 /* 8009C628 00099588  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009C62C 0009958C  7F 44 02 14 */	add r26, r4, r0
 /* 8009C630 00099590  7D 89 03 A6 */	mtctr r12
-/* 8009C634 00099594  4E 80 04 21 */	bctrl 
+/* 8009C634 00099594  4E 80 04 21 */	bctrl
 /* 8009C638 00099598  3C 80 80 3D */	lis r4, lbl_803CD80C@ha
 /* 8009C63C 0009959C  83 A2 8C 1C */	lwz r29, lbl_805AA93C@sda21(r2)
 /* 8009C640 000995A0  7C 75 1B 78 */	mr r21, r3
@@ -8323,7 +8323,7 @@ lbl_8009CC18:
 /* 8009CC1C 00099B7C  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8009CC20 00099B80  7C 08 03 A6 */	mtlr r0
 /* 8009CC24 00099B84  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8009CC28 00099B88  4E 80 00 20 */	blr 
+/* 8009CC28 00099B88  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__11CAutoMapperFv
 CheckLoadComplete__11CAutoMapperFv:
@@ -8494,13 +8494,13 @@ lbl_8009CE34:
 /* 8009CE68 00099DC8  38 80 00 01 */	li r4, 1
 /* 8009CE6C 00099DCC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009CE70 00099DD0  7D 89 03 A6 */	mtctr r12
-/* 8009CE74 00099DD4  4E 80 04 21 */	bctrl 
+/* 8009CE74 00099DD4  4E 80 04 21 */	bctrl
 lbl_8009CE78:
 /* 8009CE78 00099DD8  80 7F 00 24 */	lwz r3, 0x24(r31)
 /* 8009CE7C 00099DDC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8009CE80 00099DE0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009CE84 00099DE4  7D 89 03 A6 */	mtctr r12
-/* 8009CE88 00099DE8  4E 80 04 21 */	bctrl 
+/* 8009CE88 00099DE8  4E 80 04 21 */	bctrl
 /* 8009CE8C 00099DEC  7C 64 1B 78 */	mr r4, r3
 /* 8009CE90 00099DF0  7F E3 FB 78 */	mr r3, r31
 /* 8009CE94 00099DF4  4B FF 8A A9 */	bl SetCurWorldAssetId__11CAutoMapperFi
@@ -8521,7 +8521,7 @@ lbl_8009CEB8:
 /* 8009CEC0 00099E20  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8009CEC4 00099E24  7C 08 03 A6 */	mtlr r0
 /* 8009CEC8 00099E28  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009CECC 00099E2C  4E 80 00 20 */	blr 
+/* 8009CECC 00099E2C  4E 80 00 20 */	blr
 
 .global sub_8009ced0
 sub_8009ced0:
@@ -8560,7 +8560,7 @@ lbl_8009CF24:
 /* 8009CF48 00099EA8  38 80 00 01 */	li r4, 1
 /* 8009CF4C 00099EAC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009CF50 00099EB0  7D 89 03 A6 */	mtctr r12
-/* 8009CF54 00099EB4  4E 80 04 21 */	bctrl 
+/* 8009CF54 00099EB4  4E 80 04 21 */	bctrl
 lbl_8009CF58:
 /* 8009CF58 00099EB8  3B 9C 00 08 */	addi r28, r28, 8
 lbl_8009CF5C:
@@ -8617,7 +8617,7 @@ lbl_8009CFF8:
 /* 8009D008 00099F68  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8009D00C 00099F6C  7C 08 03 A6 */	mtlr r0
 /* 8009D010 00099F70  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009D014 00099F74  4E 80 00 20 */	blr 
+/* 8009D014 00099F74  4E 80 00 20 */	blr
 
 .global sub_8009d018
 sub_8009d018:
@@ -8653,7 +8653,7 @@ lbl_8009D064:
 /* 8009D088 00099FE8  38 80 00 01 */	li r4, 1
 /* 8009D08C 00099FEC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009D090 00099FF0  7D 89 03 A6 */	mtctr r12
-/* 8009D094 00099FF4  4E 80 04 21 */	bctrl 
+/* 8009D094 00099FF4  4E 80 04 21 */	bctrl
 lbl_8009D098:
 /* 8009D098 00099FF8  3B DE 00 08 */	addi r30, r30, 8
 lbl_8009D09C:
@@ -8677,7 +8677,7 @@ lbl_8009D0C4:
 /* 8009D0D8 0009A038  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8009D0DC 0009A03C  7C 08 03 A6 */	mtlr r0
 /* 8009D0E0 0009A040  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009D0E4 0009A044  4E 80 00 20 */	blr 
+/* 8009D0E4 0009A044  4E 80 00 20 */	blr
 
 .global __dt__11CAutoMapperFv
 __dt__11CAutoMapperFv:
@@ -8893,7 +8893,7 @@ lbl_8009D3A8:
 /* 8009D3BC 0009A31C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8009D3C0 0009A320  7C 08 03 A6 */	mtlr r0
 /* 8009D3C4 0009A324  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009D3C8 0009A328  4E 80 00 20 */	blr 
+/* 8009D3C8 0009A328  4E 80 00 20 */	blr
 
 .global "SetResLockState<Q24rstl44reserved_vector<23TLockedToken<8CTexture>,2>>__11CAutoMapperFv"
 "SetResLockState<Q24rstl44reserved_vector<23TLockedToken<8CTexture>,2>>__11CAutoMapperFv":
@@ -8931,7 +8931,7 @@ lbl_8009D414:
 /* 8009D438 0009A398  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8009D43C 0009A39C  7C 08 03 A6 */	mtlr r0
 /* 8009D440 0009A3A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009D444 0009A3A4  4E 80 00 20 */	blr 
+/* 8009D444 0009A3A4  4E 80 00 20 */	blr
 
 .global "SetResLockState<Q24rstl44reserved_vector<23TLockedToken<8CTexture>,9>>__11CAutoMapperFv"
 "SetResLockState<Q24rstl44reserved_vector<23TLockedToken<8CTexture>,9>>__11CAutoMapperFv":
@@ -8969,7 +8969,7 @@ lbl_8009D490:
 /* 8009D4B4 0009A414  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8009D4B8 0009A418  7C 08 03 A6 */	mtlr r0
 /* 8009D4BC 0009A41C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009D4C0 0009A420  4E 80 00 20 */	blr 
+/* 8009D4C0 0009A420  4E 80 00 20 */	blr
 
 .global __ct__11CAutoMapperFR13CStateManager
 __ct__11CAutoMapperFR13CStateManager:
@@ -8992,7 +8992,7 @@ __ct__11CAutoMapperFR13CStateManager:
 /* 8009D504 0009A464  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D508 0009A468  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8009D50C 0009A46C  7D 89 03 A6 */	mtctr r12
-/* 8009D510 0009A470  4E 80 04 21 */	bctrl 
+/* 8009D510 0009A470  4E 80 04 21 */	bctrl
 /* 8009D514 0009A474  3B 5F 00 08 */	addi r26, r31, 8
 /* 8009D518 0009A478  38 81 00 BC */	addi r4, r1, 0xbc
 /* 8009D51C 0009A47C  7F 43 D3 78 */	mr r3, r26
@@ -9018,7 +9018,7 @@ __ct__11CAutoMapperFR13CStateManager:
 /* 8009D56C 0009A4CC  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D570 0009A4D0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8009D574 0009A4D4  7D 89 03 A6 */	mtctr r12
-/* 8009D578 0009A4D8  4E 80 04 21 */	bctrl 
+/* 8009D578 0009A4D8  4E 80 04 21 */	bctrl
 /* 8009D57C 0009A4DC  3B 5F 00 30 */	addi r26, r31, 0x30
 /* 8009D580 0009A4E0  38 81 00 B4 */	addi r4, r1, 0xb4
 /* 8009D584 0009A4E4  7F 43 D3 78 */	mr r3, r26
@@ -9036,7 +9036,7 @@ __ct__11CAutoMapperFR13CStateManager:
 /* 8009D5B4 0009A514  38 A5 01 44 */	addi r5, r5, 0x144
 /* 8009D5B8 0009A518  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8009D5BC 0009A51C  7D 89 03 A6 */	mtctr r12
-/* 8009D5C0 0009A520  4E 80 04 21 */	bctrl 
+/* 8009D5C0 0009A520  4E 80 04 21 */	bctrl
 /* 8009D5C4 0009A524  3B 5F 00 3C */	addi r26, r31, 0x3c
 /* 8009D5C8 0009A528  38 81 00 AC */	addi r4, r1, 0xac
 /* 8009D5CC 0009A52C  7F 43 D3 78 */	mr r3, r26
@@ -9059,7 +9059,7 @@ __ct__11CAutoMapperFR13CStateManager:
 /* 8009D610 0009A570  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D614 0009A574  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8009D618 0009A578  7D 89 03 A6 */	mtctr r12
-/* 8009D61C 0009A57C  4E 80 04 21 */	bctrl 
+/* 8009D61C 0009A57C  4E 80 04 21 */	bctrl
 /* 8009D620 0009A580  80 01 00 08 */	lwz r0, 8(r1)
 /* 8009D624 0009A584  7F 24 CB 78 */	mr r4, r25
 /* 8009D628 0009A588  90 1F 00 A0 */	stw r0, 0xa0(r31)
@@ -9151,7 +9151,7 @@ __ct__11CAutoMapperFR13CStateManager:
 /* 8009D780 0009A6E0  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D784 0009A6E4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009D788 0009A6E8  7D 89 03 A6 */	mtctr r12
-/* 8009D78C 0009A6EC  4E 80 04 21 */	bctrl 
+/* 8009D78C 0009A6EC  4E 80 04 21 */	bctrl
 /* 8009D790 0009A6F0  38 7F 00 48 */	addi r3, r31, 0x48
 /* 8009D794 0009A6F4  80 1F 00 48 */	lwz r0, 0x48(r31)
 /* 8009D798 0009A6F8  54 00 18 38 */	slwi r0, r0, 3
@@ -9179,7 +9179,7 @@ lbl_8009D7B0:
 /* 8009D7EC 0009A74C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D7F0 0009A750  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009D7F4 0009A754  7D 89 03 A6 */	mtctr r12
-/* 8009D7F8 0009A758  4E 80 04 21 */	bctrl 
+/* 8009D7F8 0009A758  4E 80 04 21 */	bctrl
 /* 8009D7FC 0009A75C  38 7F 00 48 */	addi r3, r31, 0x48
 /* 8009D800 0009A760  80 1F 00 48 */	lwz r0, 0x48(r31)
 /* 8009D804 0009A764  54 00 18 38 */	slwi r0, r0, 3
@@ -9207,7 +9207,7 @@ lbl_8009D81C:
 /* 8009D858 0009A7B8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D85C 0009A7BC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009D860 0009A7C0  7D 89 03 A6 */	mtctr r12
-/* 8009D864 0009A7C4  4E 80 04 21 */	bctrl 
+/* 8009D864 0009A7C4  4E 80 04 21 */	bctrl
 /* 8009D868 0009A7C8  38 7F 00 48 */	addi r3, r31, 0x48
 /* 8009D86C 0009A7CC  80 1F 00 48 */	lwz r0, 0x48(r31)
 /* 8009D870 0009A7D0  54 00 18 38 */	slwi r0, r0, 3
@@ -9235,7 +9235,7 @@ lbl_8009D888:
 /* 8009D8C4 0009A824  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D8C8 0009A828  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009D8CC 0009A82C  7D 89 03 A6 */	mtctr r12
-/* 8009D8D0 0009A830  4E 80 04 21 */	bctrl 
+/* 8009D8D0 0009A830  4E 80 04 21 */	bctrl
 /* 8009D8D4 0009A834  38 7F 00 48 */	addi r3, r31, 0x48
 /* 8009D8D8 0009A838  80 1F 00 48 */	lwz r0, 0x48(r31)
 /* 8009D8DC 0009A83C  54 00 18 38 */	slwi r0, r0, 3
@@ -9263,7 +9263,7 @@ lbl_8009D8F4:
 /* 8009D930 0009A890  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D934 0009A894  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009D938 0009A898  7D 89 03 A6 */	mtctr r12
-/* 8009D93C 0009A89C  4E 80 04 21 */	bctrl 
+/* 8009D93C 0009A89C  4E 80 04 21 */	bctrl
 /* 8009D940 0009A8A0  38 7F 00 48 */	addi r3, r31, 0x48
 /* 8009D944 0009A8A4  80 1F 00 48 */	lwz r0, 0x48(r31)
 /* 8009D948 0009A8A8  54 00 18 38 */	slwi r0, r0, 3
@@ -9311,7 +9311,7 @@ lbl_8009D9C0:
 /* 8009D9E0 0009A940  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009D9E4 0009A944  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009D9E8 0009A948  7D 89 03 A6 */	mtctr r12
-/* 8009D9EC 0009A94C  4E 80 04 21 */	bctrl 
+/* 8009D9EC 0009A94C  4E 80 04 21 */	bctrl
 /* 8009D9F0 0009A950  80 1C 00 00 */	lwz r0, 0(r28)
 /* 8009D9F4 0009A954  54 00 18 38 */	slwi r0, r0, 3
 /* 8009D9F8 0009A958  7C 7C 02 14 */	add r3, r28, r0
@@ -9337,7 +9337,7 @@ lbl_8009DA0C:
 /* 8009DA44 0009A9A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009DA48 0009A9A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009DA4C 0009A9AC  7D 89 03 A6 */	mtctr r12
-/* 8009DA50 0009A9B0  4E 80 04 21 */	bctrl 
+/* 8009DA50 0009A9B0  4E 80 04 21 */	bctrl
 /* 8009DA54 0009A9B4  80 1B 00 00 */	lwz r0, 0(r27)
 /* 8009DA58 0009A9B8  54 00 18 38 */	slwi r0, r0, 3
 /* 8009DA5C 0009A9BC  7C 7B 02 14 */	add r3, r27, r0
@@ -9375,7 +9375,7 @@ lbl_8009DAB4:
 /* 8009DAD4 0009AA34  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009DAD8 0009AA38  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009DADC 0009AA3C  7D 89 03 A6 */	mtctr r12
-/* 8009DAE0 0009AA40  4E 80 04 21 */	bctrl 
+/* 8009DAE0 0009AA40  4E 80 04 21 */	bctrl
 /* 8009DAE4 0009AA44  80 1B 00 00 */	lwz r0, 0(r27)
 /* 8009DAE8 0009AA48  54 00 18 38 */	slwi r0, r0, 3
 /* 8009DAEC 0009AA4C  7C 7B 02 14 */	add r3, r27, r0
@@ -9401,7 +9401,7 @@ lbl_8009DB00:
 /* 8009DB38 0009AA98  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009DB3C 0009AA9C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009DB40 0009AAA0  7D 89 03 A6 */	mtctr r12
-/* 8009DB44 0009AAA4  4E 80 04 21 */	bctrl 
+/* 8009DB44 0009AAA4  4E 80 04 21 */	bctrl
 /* 8009DB48 0009AAA8  80 1C 00 00 */	lwz r0, 0(r28)
 /* 8009DB4C 0009AAAC  54 00 18 38 */	slwi r0, r0, 3
 /* 8009DB50 0009AAB0  7C 7C 02 14 */	add r3, r28, r0
@@ -9427,7 +9427,7 @@ lbl_8009DB64:
 /* 8009DB9C 0009AAFC  81 84 00 00 */	lwz r12, 0(r4)
 /* 8009DBA0 0009AB00  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8009DBA4 0009AB04  7D 89 03 A6 */	mtctr r12
-/* 8009DBA8 0009AB08  4E 80 04 21 */	bctrl 
+/* 8009DBA8 0009AB08  4E 80 04 21 */	bctrl
 /* 8009DBAC 0009AB0C  80 1A 00 00 */	lwz r0, 0(r26)
 /* 8009DBB0 0009AB10  54 00 18 38 */	slwi r0, r0, 3
 /* 8009DBB4 0009AB14  7C 7A 02 14 */	add r3, r26, r0
@@ -9451,7 +9451,7 @@ lbl_8009DBC8:
 /* 8009DBF8 0009AB58  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 8009DBFC 0009AB5C  7C 08 03 A6 */	mtlr r0
 /* 8009DC00 0009AB60  38 21 01 50 */	addi r1, r1, 0x150
-/* 8009DC04 0009AB64  4E 80 00 20 */	blr 
+/* 8009DC04 0009AB64  4E 80 00 20 */	blr
 
 .global __ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId
 __ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId:
@@ -9459,7 +9459,7 @@ __ct__Q211CAutoMapper23SAutoMapperHintLocationUifUi7TAreaId:
 /* 8009DC0C 0009AB6C  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8009DC10 0009AB70  90 A3 00 08 */	stw r5, 8(r3)
 /* 8009DC14 0009AB74  90 C3 00 0C */	stw r6, 0xc(r3)
-/* 8009DC18 0009AB78  4E 80 00 20 */	blr 
+/* 8009DC18 0009AB78  4E 80 00 20 */	blr
 
 .global ResetInterpolation__Q211CAutoMapper22SAutoMapperRenderStateFv
 ResetInterpolation__Q211CAutoMapper22SAutoMapperRenderStateFv:
@@ -9470,7 +9470,7 @@ ResetInterpolation__Q211CAutoMapper22SAutoMapperRenderStateFv:
 /* 8009DC2C 0009AB8C  90 03 00 50 */	stw r0, 0x50(r3)
 /* 8009DC30 0009AB90  90 03 00 54 */	stw r0, 0x54(r3)
 /* 8009DC34 0009AB94  90 03 00 58 */	stw r0, 0x58(r3)
-/* 8009DC38 0009AB98  4E 80 00 20 */	blr 
+/* 8009DC38 0009AB98  4E 80 00 20 */	blr
 
 .global InterpolateWithClamp__Q211CAutoMapper22SAutoMapperRenderStateFRCQ211CAutoMapper22SAutoMapperRenderStateRQ211CAutoMapper22SAutoMapperRenderStateRCQ211CAutoMapper22SAutoMapperRenderStatef
 InterpolateWithClamp__Q211CAutoMapper22SAutoMapperRenderStateFRCQ211CAutoMapper22SAutoMapperRenderStateRQ211CAutoMapper22SAutoMapperRenderStateRCQ211CAutoMapper22SAutoMapperRenderStatef:
@@ -9743,7 +9743,7 @@ lbl_8009E018:
 /* 8009E044 0009AFA4  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8009E048 0009AFA8  7C 08 03 A6 */	mtlr r0
 /* 8009E04C 0009AFAC  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8009E050 0009AFB0  4E 80 00 20 */	blr 
+/* 8009E050 0009AFB0  4E 80 00 20 */	blr
 
 .global __ct__Q211CAutoMapper22SAutoMapperRenderStateFRC9CVector2iRC11CQuaternionffRC9CVector3fffffff
 __ct__Q211CAutoMapper22SAutoMapperRenderStateFRC9CVector2iRC11CQuaternionffRC9CVector3fffffff:
@@ -9780,7 +9780,7 @@ __ct__Q211CAutoMapper22SAutoMapperRenderStateFRC9CVector2iRC11CQuaternionffRC9CV
 /* 8009E0CC 0009B02C  90 03 00 50 */	stw r0, 0x50(r3)
 /* 8009E0D0 0009B030  90 03 00 54 */	stw r0, 0x54(r3)
 /* 8009E0D4 0009B034  90 03 00 58 */	stw r0, 0x58(r3)
-/* 8009E0D8 0009B038  4E 80 00 20 */	blr 
+/* 8009E0D8 0009B038  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl61vector<Q24rstl17auto_ptr<6IWorld>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl61vector<Q24rstl17auto_ptr<6IWorld>,Q24rstl17rmemory_allocator>Fi":
@@ -9848,7 +9848,7 @@ lbl_8009E194:
 /* 8009E1B8 0009B118  38 80 00 01 */	li r4, 1
 /* 8009E1BC 0009B11C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009E1C0 0009B120  7D 89 03 A6 */	mtctr r12
-/* 8009E1C4 0009B124  4E 80 04 21 */	bctrl 
+/* 8009E1C4 0009B124  4E 80 04 21 */	bctrl
 lbl_8009E1C8:
 /* 8009E1C8 0009B128  3B 7B 00 08 */	addi r27, r27, 8
 lbl_8009E1CC:
@@ -9866,7 +9866,7 @@ lbl_8009E1EC:
 /* 8009E1F0 0009B150  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8009E1F4 0009B154  7C 08 03 A6 */	mtlr r0
 /* 8009E1F8 0009B158  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009E1FC 0009B15C  4E 80 00 20 */	blr 
+/* 8009E1FC 0009B15C  4E 80 00 20 */	blr
 
 .global sub_8009e200
 sub_8009e200:
@@ -9902,7 +9902,7 @@ lbl_8009E254:
 /* 8009E26C 0009B1CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8009E270 0009B1D0  7C 08 03 A6 */	mtlr r0
 /* 8009E274 0009B1D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009E278 0009B1D8  4E 80 00 20 */	blr 
+/* 8009E278 0009B1D8  4E 80 00 20 */	blr
 
 .global sub_8009e27c
 sub_8009e27c:
@@ -9938,7 +9938,7 @@ lbl_8009E2D4:
 /* 8009E2E4 0009B244  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8009E2E8 0009B248  7C 08 03 A6 */	mtlr r0
 /* 8009E2EC 0009B24C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009E2F0 0009B250  4E 80 00 20 */	blr 
+/* 8009E2F0 0009B250  4E 80 00 20 */	blr
 
 .global sub_8009e2f4
 sub_8009e2f4:
@@ -9974,7 +9974,7 @@ lbl_8009E348:
 /* 8009E360 0009B2C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8009E364 0009B2C4  7C 08 03 A6 */	mtlr r0
 /* 8009E368 0009B2C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009E36C 0009B2CC  4E 80 00 20 */	blr 
+/* 8009E36C 0009B2CC  4E 80 00 20 */	blr
 
 .global sub_8009e370
 sub_8009e370:
@@ -10010,4 +10010,4 @@ lbl_8009E3C8:
 /* 8009E3D8 0009B338  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8009E3DC 0009B33C  7C 08 03 A6 */	mtlr r0
 /* 8009E3E0 0009B340  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009E3E4 0009B344  4E 80 00 20 */	blr 
+/* 8009E3E4 0009B344  4E 80 00 20 */	blr

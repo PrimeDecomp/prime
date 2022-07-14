@@ -455,7 +455,7 @@ lbl_8046C950:
 .global lbl_8046CA4C
 lbl_8046CA4C:
 	.skip 0xF4
-	
+
 .section .text, "ax"
 
 .global FixedRandom__10CPatternedFR13CStateManagerf
@@ -465,7 +465,7 @@ FixedRandom__10CPatternedFR13CStateManagerf:
 /* 801F40D0 001F1030  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801F40D4 001F1034  7C 00 00 26 */	mfcr r0
 /* 801F40D8 001F1038  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801F40DC 001F103C  4E 80 00 20 */	blr 
+/* 801F40DC 001F103C  4E 80 00 20 */	blr
 
 .global Random__10CPatternedFR13CStateManagerf
 Random__10CPatternedFR13CStateManagerf:
@@ -473,7 +473,7 @@ Random__10CPatternedFR13CStateManagerf:
 /* 801F40E4 001F1044  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 801F40E8 001F1048  7C 00 00 26 */	mfcr r0
 /* 801F40EC 001F104C  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801F40F0 001F1050  4E 80 00 20 */	blr 
+/* 801F40F0 001F1050  4E 80 00 20 */	blr
 
 .global UpdatePatternDestPos__10CPatternedFR13CStateManager
 UpdatePatternDestPos__10CPatternedFR13CStateManager:
@@ -659,7 +659,7 @@ lbl_801F4388:
 /* 801F4390 001F12F0  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 801F4394 001F12F4  7C 08 03 A6 */	mtlr r0
 /* 801F4398 001F12F8  38 21 00 80 */	addi r1, r1, 0x80
-/* 801F439C 001F12FC  4E 80 00 20 */	blr 
+/* 801F439C 001F12FC  4E 80 00 20 */	blr
 
 .global SetupPattern__10CPatternedFR13CStateManager
 SetupPattern__10CPatternedFR13CStateManager:
@@ -1015,7 +1015,7 @@ lbl_801F4868:
 /* 801F48C4 001F1824  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 801F48C8 001F1828  7C 08 03 A6 */	mtlr r0
 /* 801F48CC 001F182C  38 21 01 60 */	addi r1, r1, 0x160
-/* 801F48D0 001F1830  4E 80 00 20 */	blr 
+/* 801F48D0 001F1830  4E 80 00 20 */	blr
 
 .global GetDesiredAttackState__10CPatternedCFR13CStateManager
 GetDesiredAttackState__10CPatternedCFR13CStateManager:
@@ -1061,7 +1061,7 @@ lbl_801F4968:
 /* 801F4968 001F18C8  38 60 00 0A */	li r3, 0xa
 lbl_801F496C:
 /* 801F496C 001F18CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F4970 001F18D0  4E 80 00 20 */	blr 
+/* 801F4970 001F18D0  4E 80 00 20 */	blr
 
 .global GetDestWaypoints__10CPatternedCFR13CStateManager
 GetDestWaypoints__10CPatternedCFR13CStateManager:
@@ -1107,7 +1107,7 @@ lbl_801F49F8:
 /* 801F4A0C 001F196C  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801F4A10 001F1970  7C 08 03 A6 */	mtlr r0
 /* 801F4A14 001F1974  38 21 00 40 */	addi r1, r1, 0x40
-/* 801F4A18 001F1978  4E 80 00 20 */	blr 
+/* 801F4A18 001F1978  4E 80 00 20 */	blr
 
 .global FindPatternRotation__10CPatternedFRC9CVector3f
 FindPatternRotation__10CPatternedFRC9CVector3f:
@@ -1250,7 +1250,7 @@ lbl_801F4C04:
 /* 801F4C30 001F1B90  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801F4C34 001F1B94  7C 08 03 A6 */	mtlr r0
 /* 801F4C38 001F1B98  38 21 01 00 */	addi r1, r1, 0x100
-/* 801F4C3C 001F1B9C  4E 80 00 20 */	blr 
+/* 801F4C3C 001F1B9C  4E 80 00 20 */	blr
 
 .global FindPatternDir__10CPatternedFR13CStateManager
 FindPatternDir__10CPatternedFR13CStateManager:
@@ -1310,7 +1310,7 @@ lbl_801F4CFC:
 /* 801F4CFC 001F1C5C  D0 83 00 00 */	stfs f4, 0(r3)
 /* 801F4D00 001F1C60  D0 43 00 04 */	stfs f2, 4(r3)
 /* 801F4D04 001F1C64  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801F4D08 001F1C68  4E 80 00 20 */	blr 
+/* 801F4D08 001F1C68  4E 80 00 20 */	blr
 
 .global GetStepDirection__10CPatternedFRC9CVector3f
 GetStepDirection__10CPatternedFRC9CVector3f:
@@ -1366,7 +1366,7 @@ lbl_801F4DC0:
 /* 801F4DC0 001F1D20  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801F4DC4 001F1D24  7C 08 03 A6 */	mtlr r0
 /* 801F4DC8 001F1D28  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F4DCC 001F1D2C  4E 80 00 20 */	blr 
+/* 801F4DCC 001F1D2C  4E 80 00 20 */	blr
 
 .global IsPatternObstructed__10CPatternedCFR13CStateManagerRC9CVector3fRC9CVector3f
 IsPatternObstructed__10CPatternedCFR13CStateManagerRC9CVector3fRC9CVector3f:
@@ -1488,7 +1488,7 @@ lbl_801F4F70:
 /* 801F4F88 001F1EE8  80 01 08 F4 */	lwz r0, 0x8f4(r1)
 /* 801F4F8C 001F1EEC  7C 08 03 A6 */	mtlr r0
 /* 801F4F90 001F1EF0  38 21 08 F0 */	addi r1, r1, 0x8f0
-/* 801F4F94 001F1EF4  4E 80 00 20 */	blr 
+/* 801F4F94 001F1EF4  4E 80 00 20 */	blr
 
 .global GetWaypointForState__10CPatternedFR13CStateManager18EScriptObjectState
 GetWaypointForState__10CPatternedFR13CStateManager18EScriptObjectState:
@@ -1623,7 +1623,7 @@ lbl_801F5158:
 /* 801F515C 001F20BC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801F5160 001F20C0  7C 08 03 A6 */	mtlr r0
 /* 801F5164 001F20C4  38 21 00 50 */	addi r1, r1, 0x50
-/* 801F5168 001F20C8  4E 80 00 20 */	blr 
+/* 801F5168 001F20C8  4E 80 00 20 */	blr
 
 .global UpdateActorKeyframe__10CPatternedFR13CStateManager
 UpdateActorKeyframe__10CPatternedFR13CStateManager:
@@ -1703,7 +1703,7 @@ lbl_801F5270:
 /* 801F5280 001F21E0  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 801F5284 001F21E4  7C 08 03 A6 */	mtlr r0
 /* 801F5288 001F21E8  38 21 00 50 */	addi r1, r1, 0x50
-/* 801F528C 001F21EC  4E 80 00 20 */	blr 
+/* 801F528C 001F21EC  4E 80 00 20 */	blr
 
 .global UpdateDest__10CPatternedFR13CStateManager
 UpdateDest__10CPatternedFR13CStateManager:
@@ -1950,7 +1950,7 @@ lbl_801F563C:
 /* 801F5640 001F25A0  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801F5644 001F25A4  7C 08 03 A6 */	mtlr r0
 /* 801F5648 001F25A8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801F564C 001F25AC  4E 80 00 20 */	blr 
+/* 801F564C 001F25AC  4E 80 00 20 */	blr
 
 .global ApproachDest__10CPatternedFR13CStateManager
 ApproachDest__10CPatternedFR13CStateManager:
@@ -2103,7 +2103,7 @@ lbl_801F5840:
 /* 801F5878 001F27D8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801F587C 001F27DC  81 8C 02 94 */	lwz r12, 0x294(r12)
 /* 801F5880 001F27E0  7D 89 03 A6 */	mtctr r12
-/* 801F5884 001F27E4  4E 80 04 21 */	bctrl 
+/* 801F5884 001F27E4  4E 80 04 21 */	bctrl
 /* 801F5888 001F27E8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801F588C 001F27EC  40 82 00 50 */	bne lbl_801F58DC
 /* 801F5890 001F27F0  C0 3F 03 10 */	lfs f1, 0x310(r31)
@@ -2264,13 +2264,13 @@ lbl_801F5AC0:
 /* 801F5AE0 001F2A40  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 801F5AE4 001F2A44  7C 08 03 A6 */	mtlr r0
 /* 801F5AE8 001F2A48  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801F5AEC 001F2A4C  4E 80 00 20 */	blr 
+/* 801F5AEC 001F2A4C  4E 80 00 20 */	blr
 
 .global CodeTrigger__10CPatternedFR13CStateManagerf
 CodeTrigger__10CPatternedFR13CStateManagerf:
 /* 801F5AF0 001F2A50  88 03 03 48 */	lbz r0, 0x348(r3)
 /* 801F5AF4 001F2A54  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 801F5AF8 001F2A58  4E 80 00 20 */	blr 
+/* 801F5AF8 001F2A58  4E 80 00 20 */	blr
 
 .global FixedDelay__10CPatternedFR13CStateManagerf
 FixedDelay__10CPatternedFR13CStateManagerf:
@@ -2279,7 +2279,7 @@ FixedDelay__10CPatternedFR13CStateManagerf:
 /* 801F5B04 001F2A64  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801F5B08 001F2A68  7C 00 00 26 */	mfcr r0
 /* 801F5B0C 001F2A6C  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801F5B10 001F2A70  4E 80 00 20 */	blr 
+/* 801F5B10 001F2A70  4E 80 00 20 */	blr
 
 .global RandomDelay__10CPatternedFR13CStateManagerf
 RandomDelay__10CPatternedFR13CStateManagerf:
@@ -2289,7 +2289,7 @@ RandomDelay__10CPatternedFR13CStateManagerf:
 /* 801F5B20 001F2A80  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 801F5B24 001F2A84  7C 00 00 26 */	mfcr r0
 /* 801F5B28 001F2A88  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801F5B2C 001F2A8C  4E 80 00 20 */	blr 
+/* 801F5B2C 001F2A8C  4E 80 00 20 */	blr
 
 .global Delay__10CPatternedFR13CStateManagerf
 Delay__10CPatternedFR13CStateManagerf:
@@ -2297,7 +2297,7 @@ Delay__10CPatternedFR13CStateManagerf:
 /* 801F5B34 001F2A94  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 801F5B38 001F2A98  7C 00 00 26 */	mfcr r0
 /* 801F5B3C 001F2A9C  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801F5B40 001F2AA0  4E 80 00 20 */	blr 
+/* 801F5B40 001F2AA0  4E 80 00 20 */	blr
 
 .global PatrolPathOver__10CPatternedFR13CStateManagerf
 PatrolPathOver__10CPatternedFR13CStateManagerf:
@@ -2306,7 +2306,7 @@ PatrolPathOver__10CPatternedFR13CStateManagerf:
 /* 801F5B4C 001F2AAC  7C 03 00 50 */	subf r0, r3, r0
 /* 801F5B50 001F2AB0  7C 00 00 34 */	cntlzw r0, r0
 /* 801F5B54 001F2AB4  54 03 D9 7E */	srwi r3, r0, 5
-/* 801F5B58 001F2AB8  4E 80 00 20 */	blr 
+/* 801F5B58 001F2AB8  4E 80 00 20 */	blr
 
 .global Stuck__10CPatternedFR13CStateManagerf
 Stuck__10CPatternedFR13CStateManagerf:
@@ -2315,7 +2315,7 @@ Stuck__10CPatternedFR13CStateManagerf:
 /* 801F5B64 001F2AC4  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801F5B68 001F2AC8  7C 00 00 26 */	mfcr r0
 /* 801F5B6C 001F2ACC  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801F5B70 001F2AD0  4E 80 00 20 */	blr 
+/* 801F5B70 001F2AD0  4E 80 00 20 */	blr
 
 .global AnimOver__10CPatternedFR13CStateManagerf
 AnimOver__10CPatternedFR13CStateManagerf:
@@ -2323,13 +2323,13 @@ AnimOver__10CPatternedFR13CStateManagerf:
 /* 801F5B78 001F2AD8  20 00 00 03 */	subfic r0, r0, 3
 /* 801F5B7C 001F2ADC  7C 00 00 34 */	cntlzw r0, r0
 /* 801F5B80 001F2AE0  54 03 D9 7E */	srwi r3, r0, 5
-/* 801F5B84 001F2AE4  4E 80 00 20 */	blr 
+/* 801F5B84 001F2AE4  4E 80 00 20 */	blr
 
 .global InPosition__10CPatternedFR13CStateManagerf
 InPosition__10CPatternedFR13CStateManagerf:
 /* 801F5B88 001F2AE8  88 03 03 28 */	lbz r0, 0x328(r3)
 /* 801F5B8C 001F2AEC  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 801F5B90 001F2AF0  4E 80 00 20 */	blr 
+/* 801F5B90 001F2AF0  4E 80 00 20 */	blr
 
 .global HasPatrolPath__10CPatternedFR13CStateManagerf
 HasPatrolPath__10CPatternedFR13CStateManagerf:
@@ -2351,7 +2351,7 @@ HasPatrolPath__10CPatternedFR13CStateManagerf:
 /* 801F5BD0 001F2B30  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F5BD4 001F2B34  7C 08 03 A6 */	mtlr r0
 /* 801F5BD8 001F2B38  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F5BDC 001F2B3C  4E 80 00 20 */	blr 
+/* 801F5BDC 001F2B3C  4E 80 00 20 */	blr
 
 .global Attacked__10CPatternedFR13CStateManagerf
 Attacked__10CPatternedFR13CStateManagerf:
@@ -2360,7 +2360,7 @@ Attacked__10CPatternedFR13CStateManagerf:
 /* 801F5BE8 001F2B48  7C 03 00 D0 */	neg r0, r3
 /* 801F5BEC 001F2B4C  7C 00 1B 78 */	or r0, r0, r3
 /* 801F5BF0 001F2B50  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801F5BF4 001F2B54  4E 80 00 20 */	blr 
+/* 801F5BF4 001F2B54  4E 80 00 20 */	blr
 
 .global PatternShagged__10CPatternedFR13CStateManagerf
 PatternShagged__10CPatternedFR13CStateManagerf:
@@ -2369,7 +2369,7 @@ PatternShagged__10CPatternedFR13CStateManagerf:
 /* 801F5C00 001F2B60  7C 03 00 D0 */	neg r0, r3
 /* 801F5C04 001F2B64  7C 00 1B 78 */	or r0, r0, r3
 /* 801F5C08 001F2B68  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801F5C0C 001F2B6C  4E 80 00 20 */	blr 
+/* 801F5C0C 001F2B6C  4E 80 00 20 */	blr
 
 .global PatternOver__10CPatternedFR13CStateManagerf
 PatternOver__10CPatternedFR13CStateManagerf:
@@ -2379,7 +2379,7 @@ PatternOver__10CPatternedFR13CStateManagerf:
 /* 801F5C1C 001F2B7C  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 801F5C20 001F2B80  7C 00 28 10 */	subfc r0, r0, r5
 /* 801F5C24 001F2B84  7C 64 19 14 */	adde r3, r4, r3
-/* 801F5C28 001F2B88  4E 80 00 20 */	blr 
+/* 801F5C28 001F2B88  4E 80 00 20 */	blr
 
 .global HasRetreatPattern__10CPatternedFR13CStateManagerf
 HasRetreatPattern__10CPatternedFR13CStateManagerf:
@@ -2401,7 +2401,7 @@ HasRetreatPattern__10CPatternedFR13CStateManagerf:
 /* 801F5C68 001F2BC8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F5C6C 001F2BCC  7C 08 03 A6 */	mtlr r0
 /* 801F5C70 001F2BD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F5C74 001F2BD4  4E 80 00 20 */	blr 
+/* 801F5C74 001F2BD4  4E 80 00 20 */	blr
 
 .global HasAttackPattern__10CPatternedFR13CStateManagerf
 HasAttackPattern__10CPatternedFR13CStateManagerf:
@@ -2423,7 +2423,7 @@ HasAttackPattern__10CPatternedFR13CStateManagerf:
 /* 801F5CB4 001F2C14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F5CB8 001F2C18  7C 08 03 A6 */	mtlr r0
 /* 801F5CBC 001F2C1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F5CC0 001F2C20  4E 80 00 20 */	blr 
+/* 801F5CC0 001F2C20  4E 80 00 20 */	blr
 
 .global NoPathNodes__10CPatternedFR13CStateManagerf
 NoPathNodes__10CPatternedFR13CStateManagerf:
@@ -2435,7 +2435,7 @@ NoPathNodes__10CPatternedFR13CStateManagerf:
 /* 801F5CD8 001F2C38  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F5CDC 001F2C3C  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5CE0 001F2C40  7D 89 03 A6 */	mtctr r12
-/* 801F5CE4 001F2C44  4E 80 04 21 */	bctrl 
+/* 801F5CE4 001F2C44  4E 80 04 21 */	bctrl
 /* 801F5CE8 001F2C48  28 03 00 00 */	cmplwi r3, 0
 /* 801F5CEC 001F2C4C  41 82 00 48 */	beq lbl_801F5D34
 /* 801F5CF0 001F2C50  C0 5F 00 60 */	lfs f2, 0x60(r31)
@@ -2448,7 +2448,7 @@ NoPathNodes__10CPatternedFR13CStateManagerf:
 /* 801F5D0C 001F2C6C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801F5D10 001F2C70  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5D14 001F2C74  7D 89 03 A6 */	mtctr r12
-/* 801F5D18 001F2C78  4E 80 04 21 */	bctrl 
+/* 801F5D18 001F2C78  4E 80 04 21 */	bctrl
 /* 801F5D1C 001F2C7C  38 81 00 08 */	addi r4, r1, 8
 /* 801F5D20 001F2C80  4B FD 0E 15 */	bl OnPath__15CPathFindSearchCFRC9CVector3f
 /* 801F5D24 001F2C84  7C 03 00 D0 */	neg r0, r3
@@ -2462,7 +2462,7 @@ lbl_801F5D38:
 /* 801F5D3C 001F2C9C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801F5D40 001F2CA0  7C 08 03 A6 */	mtlr r0
 /* 801F5D44 001F2CA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F5D48 001F2CA8  4E 80 00 20 */	blr 
+/* 801F5D48 001F2CA8  4E 80 00 20 */	blr
 
 .global PathShagged__10CPatternedFR13CStateManagerf
 PathShagged__10CPatternedFR13CStateManagerf:
@@ -2480,14 +2480,14 @@ PathShagged__10CPatternedFR13CStateManagerf:
 /* 801F5D78 001F2CD8  7C 7F 1B 78 */	mr r31, r3
 /* 801F5D7C 001F2CDC  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5D80 001F2CE0  7D 89 03 A6 */	mtctr r12
-/* 801F5D84 001F2CE4  4E 80 04 21 */	bctrl 
+/* 801F5D84 001F2CE4  4E 80 04 21 */	bctrl
 /* 801F5D88 001F2CE8  28 03 00 00 */	cmplwi r3, 0
 /* 801F5D8C 001F2CEC  41 82 01 24 */	beq lbl_801F5EB0
 /* 801F5D90 001F2CF0  7F E3 FB 78 */	mr r3, r31
 /* 801F5D94 001F2CF4  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801F5D98 001F2CF8  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5D9C 001F2CFC  7D 89 03 A6 */	mtctr r12
-/* 801F5DA0 001F2D00  4E 80 04 21 */	bctrl 
+/* 801F5DA0 001F2D00  4E 80 04 21 */	bctrl
 /* 801F5DA4 001F2D04  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801F5DA8 001F2D08  2C 00 00 00 */	cmpwi r0, 0
 /* 801F5DAC 001F2D0C  41 82 00 0C */	beq lbl_801F5DB8
@@ -2498,7 +2498,7 @@ lbl_801F5DB8:
 /* 801F5DBC 001F2D1C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801F5DC0 001F2D20  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5DC4 001F2D24  7D 89 03 A6 */	mtctr r12
-/* 801F5DC8 001F2D28  4E 80 04 21 */	bctrl 
+/* 801F5DC8 001F2D28  4E 80 04 21 */	bctrl
 /* 801F5DCC 001F2D2C  80 03 00 C8 */	lwz r0, 0xc8(r3)
 /* 801F5DD0 001F2D30  2C 00 00 00 */	cmpwi r0, 0
 /* 801F5DD4 001F2D34  40 81 00 DC */	ble lbl_801F5EB0
@@ -2530,7 +2530,7 @@ lbl_801F5DB8:
 /* 801F5E3C 001F2D9C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801F5E40 001F2DA0  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5E44 001F2DA4  7D 89 03 A6 */	mtctr r12
-/* 801F5E48 001F2DA8  4E 80 04 21 */	bctrl 
+/* 801F5E48 001F2DA8  4E 80 04 21 */	bctrl
 /* 801F5E4C 001F2DAC  38 81 00 20 */	addi r4, r1, 0x20
 /* 801F5E50 001F2DB0  38 A1 00 14 */	addi r5, r1, 0x14
 /* 801F5E54 001F2DB4  4B FD 5F 59 */	bl GetSplinePoint__15CPathFindSearchCFR9CVector3fRC9CVector3f
@@ -2569,7 +2569,7 @@ lbl_801F5EB4:
 /* 801F5ED0 001F2E30  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801F5ED4 001F2E34  7C 08 03 A6 */	mtlr r0
 /* 801F5ED8 001F2E38  38 21 00 70 */	addi r1, r1, 0x70
-/* 801F5EDC 001F2E3C  4E 80 00 20 */	blr 
+/* 801F5EDC 001F2E3C  4E 80 00 20 */	blr
 
 .global PathFound__10CPatternedFR13CStateManagerf
 PathFound__10CPatternedFR13CStateManagerf:
@@ -2583,14 +2583,14 @@ PathFound__10CPatternedFR13CStateManagerf:
 /* 801F5EFC 001F2E5C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F5F00 001F2E60  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5F04 001F2E64  7D 89 03 A6 */	mtctr r12
-/* 801F5F08 001F2E68  4E 80 04 21 */	bctrl 
+/* 801F5F08 001F2E68  4E 80 04 21 */	bctrl
 /* 801F5F0C 001F2E6C  28 03 00 00 */	cmplwi r3, 0
 /* 801F5F10 001F2E70  41 82 00 28 */	beq lbl_801F5F38
 /* 801F5F14 001F2E74  7F C3 F3 78 */	mr r3, r30
 /* 801F5F18 001F2E78  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F5F1C 001F2E7C  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5F20 001F2E80  7D 89 03 A6 */	mtctr r12
-/* 801F5F24 001F2E84  4E 80 04 21 */	bctrl 
+/* 801F5F24 001F2E84  4E 80 04 21 */	bctrl
 /* 801F5F28 001F2E88  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801F5F2C 001F2E8C  2C 00 00 00 */	cmpwi r0, 0
 /* 801F5F30 001F2E90  40 82 00 08 */	bne lbl_801F5F38
@@ -2602,7 +2602,7 @@ lbl_801F5F38:
 /* 801F5F44 001F2EA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F5F48 001F2EA8  7C 08 03 A6 */	mtlr r0
 /* 801F5F4C 001F2EAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F5F50 001F2EB0  4E 80 00 20 */	blr 
+/* 801F5F50 001F2EB0  4E 80 00 20 */	blr
 
 .global PathOver__10CPatternedFR13CStateManagerf
 PathOver__10CPatternedFR13CStateManagerf:
@@ -2615,7 +2615,7 @@ PathOver__10CPatternedFR13CStateManagerf:
 /* 801F5F6C 001F2ECC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F5F70 001F2ED0  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5F74 001F2ED4  7D 89 03 A6 */	mtctr r12
-/* 801F5F78 001F2ED8  4E 80 04 21 */	bctrl 
+/* 801F5F78 001F2ED8  4E 80 04 21 */	bctrl
 /* 801F5F7C 001F2EDC  28 03 00 00 */	cmplwi r3, 0
 /* 801F5F80 001F2EE0  41 82 00 70 */	beq lbl_801F5FF0
 /* 801F5F84 001F2EE4  88 7E 03 28 */	lbz r3, 0x328(r30)
@@ -2629,7 +2629,7 @@ lbl_801F5F98:
 /* 801F5FA0 001F2F00  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F5FA4 001F2F04  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5FA8 001F2F08  7D 89 03 A6 */	mtctr r12
-/* 801F5FAC 001F2F0C  4E 80 04 21 */	bctrl 
+/* 801F5FAC 001F2F0C  4E 80 04 21 */	bctrl
 /* 801F5FB0 001F2F10  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801F5FB4 001F2F14  2C 00 00 00 */	cmpwi r0, 0
 /* 801F5FB8 001F2F18  40 82 00 30 */	bne lbl_801F5FE8
@@ -2637,7 +2637,7 @@ lbl_801F5F98:
 /* 801F5FC0 001F2F20  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F5FC4 001F2F24  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F5FC8 001F2F28  7D 89 03 A6 */	mtctr r12
-/* 801F5FCC 001F2F2C  4E 80 04 21 */	bctrl 
+/* 801F5FCC 001F2F2C  4E 80 04 21 */	bctrl
 /* 801F5FD0 001F2F30  80 83 00 04 */	lwz r4, 4(r3)
 /* 801F5FD4 001F2F34  80 63 00 C8 */	lwz r3, 0xc8(r3)
 /* 801F5FD8 001F2F38  38 04 FF FF */	addi r0, r4, -1
@@ -2655,7 +2655,7 @@ lbl_801F5FF4:
 /* 801F5FFC 001F2F5C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F6000 001F2F60  7C 08 03 A6 */	mtlr r0
 /* 801F6004 001F2F64  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F6008 001F2F68  4E 80 00 20 */	blr 
+/* 801F6008 001F2F68  4E 80 00 20 */	blr
 
 .global Landed__10CPatternedFR13CStateManagerf
 Landed__10CPatternedFR13CStateManagerf:
@@ -2671,7 +2671,7 @@ lbl_801F6028:
 /* 801F602C 001F2F8C  50 A0 1F 38 */	rlwimi r0, r5, 3, 0x1c, 0x1c
 /* 801F6030 001F2F90  98 03 03 28 */	stb r0, 0x328(r3)
 /* 801F6034 001F2F94  7C 83 23 78 */	mr r3, r4
-/* 801F6038 001F2F98  4E 80 00 20 */	blr 
+/* 801F6038 001F2F98  4E 80 00 20 */	blr
 
 .global PlayerSpot__10CPatternedFR13CStateManagerf
 PlayerSpot__10CPatternedFR13CStateManagerf:
@@ -2694,7 +2694,7 @@ PlayerSpot__10CPatternedFR13CStateManagerf:
 /* 801F607C 001F2FDC  C0 22 AF 20 */	lfs f1, lbl_805ACC40@sda21(r2)
 /* 801F6080 001F2FE0  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801F6084 001F2FE4  7D 89 03 A6 */	mtctr r12
-/* 801F6088 001F2FE8  4E 80 04 21 */	bctrl 
+/* 801F6088 001F2FE8  4E 80 04 21 */	bctrl
 /* 801F608C 001F2FEC  C0 41 00 20 */	lfs f2, 0x20(r1)
 /* 801F6090 001F2FF0  7F C4 F3 78 */	mr r4, r30
 /* 801F6094 001F2FF4  C0 21 00 24 */	lfs f1, 0x24(r1)
@@ -2788,7 +2788,7 @@ lbl_801F61DC:
 /* 801F61EC 001F314C  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 801F61F0 001F3150  7C 08 03 A6 */	mtlr r0
 /* 801F61F4 001F3154  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801F61F8 001F3158  4E 80 00 20 */	blr 
+/* 801F61F8 001F3158  4E 80 00 20 */	blr
 
 .global SpotPlayer__10CPatternedFR13CStateManagerf
 SpotPlayer__10CPatternedFR13CStateManagerf:
@@ -2811,7 +2811,7 @@ SpotPlayer__10CPatternedFR13CStateManagerf:
 /* 801F623C 001F319C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801F6240 001F31A0  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801F6244 001F31A4  7D 89 03 A6 */	mtctr r12
-/* 801F6248 001F31A8  4E 80 04 21 */	bctrl 
+/* 801F6248 001F31A8  4E 80 04 21 */	bctrl
 /* 801F624C 001F31AC  C0 21 00 24 */	lfs f1, 0x24(r1)
 /* 801F6250 001F31B0  C0 01 00 18 */	lfs f0, 0x18(r1)
 /* 801F6254 001F31B4  C0 DD 00 48 */	lfs f6, 0x48(r29)
@@ -2850,7 +2850,7 @@ lbl_801F62C4:
 /* 801F62D4 001F3234  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801F62D8 001F3238  7C 08 03 A6 */	mtlr r0
 /* 801F62DC 001F323C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801F62E0 001F3240  4E 80 00 20 */	blr 
+/* 801F62E0 001F3240  4E 80 00 20 */	blr
 
 .global Leash__10CPatternedFR13CStateManagerf
 Leash__10CPatternedFR13CStateManagerf:
@@ -2888,7 +2888,7 @@ Leash__10CPatternedFR13CStateManagerf:
 lbl_801F6360:
 /* 801F6360 001F32C0  7C 03 03 78 */	mr r3, r0
 /* 801F6364 001F32C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F6368 001F32C8  4E 80 00 20 */	blr 
+/* 801F6368 001F32C8  4E 80 00 20 */	blr
 
 .global InDetectionRange__10CPatternedFR13CStateManagerf
 InDetectionRange__10CPatternedFR13CStateManagerf:
@@ -2922,7 +2922,7 @@ InDetectionRange__10CPatternedFR13CStateManagerf:
 /* 801F63D8 001F3338  54 00 0F FE */	srwi r0, r0, 0x1f
 lbl_801F63DC:
 /* 801F63DC 001F333C  7C 03 03 78 */	mr r3, r0
-/* 801F63E0 001F3340  4E 80 00 20 */	blr 
+/* 801F63E0 001F3340  4E 80 00 20 */	blr
 
 .global InMaxRange__10CPatternedFR13CStateManagerf
 InMaxRange__10CPatternedFR13CStateManagerf:
@@ -2954,7 +2954,7 @@ InMaxRange__10CPatternedFR13CStateManagerf:
 /* 801F6448 001F33A8  7C 00 00 26 */	mfcr r0
 /* 801F644C 001F33AC  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 801F6450 001F33B0  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F6454 001F33B4  4E 80 00 20 */	blr 
+/* 801F6454 001F33B4  4E 80 00 20 */	blr
 
 .global TooClose__10CPatternedFR13CStateManagerf
 TooClose__10CPatternedFR13CStateManagerf:
@@ -2986,7 +2986,7 @@ TooClose__10CPatternedFR13CStateManagerf:
 /* 801F64BC 001F341C  7C 00 00 26 */	mfcr r0
 /* 801F64C0 001F3420  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 801F64C4 001F3424  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F64C8 001F3428  4E 80 00 20 */	blr 
+/* 801F64C8 001F3428  4E 80 00 20 */	blr
 
 .global InRange__10CPatternedFR13CStateManagerf
 InRange__10CPatternedFR13CStateManagerf:
@@ -3022,7 +3022,7 @@ InRange__10CPatternedFR13CStateManagerf:
 /* 801F6540 001F34A0  7C 00 00 26 */	mfcr r0
 /* 801F6544 001F34A4  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 801F6548 001F34A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F654C 001F34AC  4E 80 00 20 */	blr 
+/* 801F654C 001F34AC  4E 80 00 20 */	blr
 
 .global OffLine__10CPatternedFR13CStateManagerf
 OffLine__10CPatternedFR13CStateManagerf:
@@ -3122,7 +3122,7 @@ lbl_801F6688:
 /* 801F66BC 001F361C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801F66C0 001F3620  7C 08 03 A6 */	mtlr r0
 /* 801F66C4 001F3624  38 21 00 60 */	addi r1, r1, 0x60
-/* 801F66C8 001F3628  4E 80 00 20 */	blr 
+/* 801F66C8 001F3628  4E 80 00 20 */	blr
 
 .global PathFind__10CPatternedFR13CStateManager9EStateMsgf
 PathFind__10CPatternedFR13CStateManager9EStateMsgf:
@@ -3138,7 +3138,7 @@ PathFind__10CPatternedFR13CStateManager9EStateMsgf:
 /* 801F66F0 001F3650  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F66F4 001F3654  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F66F8 001F3658  7D 89 03 A6 */	mtctr r12
-/* 801F66FC 001F365C  4E 80 04 21 */	bctrl 
+/* 801F66FC 001F365C  4E 80 04 21 */	bctrl
 /* 801F6700 001F3660  28 03 00 00 */	cmplwi r3, 0
 /* 801F6704 001F3664  41 82 02 A4 */	beq lbl_801F69A8
 /* 801F6708 001F3668  2C 1D 00 01 */	cmpwi r29, 1
@@ -3159,7 +3159,7 @@ lbl_801F6724:
 /* 801F6740 001F36A0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F6744 001F36A4  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F6748 001F36A8  7D 89 03 A6 */	mtctr r12
-/* 801F674C 001F36AC  4E 80 04 21 */	bctrl 
+/* 801F674C 001F36AC  4E 80 04 21 */	bctrl
 /* 801F6750 001F36B0  38 81 00 20 */	addi r4, r1, 0x20
 /* 801F6754 001F36B4  38 BE 02 E0 */	addi r5, r30, 0x2e0
 /* 801F6758 001F36B8  4B FD 15 15 */	bl Search__15CPathFindSearchFRC9CVector3fRC9CVector3f
@@ -3175,7 +3175,7 @@ lbl_801F6724:
 /* 801F6780 001F36E0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F6784 001F36E4  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F6788 001F36E8  7D 89 03 A6 */	mtctr r12
-/* 801F678C 001F36EC  4E 80 04 21 */	bctrl 
+/* 801F678C 001F36EC  4E 80 04 21 */	bctrl
 /* 801F6790 001F36F0  80 A3 00 C8 */	lwz r5, 0xc8(r3)
 /* 801F6794 001F36F4  80 03 00 04 */	lwz r0, 4(r3)
 /* 801F6798 001F36F8  38 85 00 01 */	addi r4, r5, 1
@@ -3205,7 +3205,7 @@ lbl_801F67E8:
 /* 801F67EC 001F374C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F67F0 001F3750  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F67F4 001F3754  7D 89 03 A6 */	mtctr r12
-/* 801F67F8 001F3758  4E 80 04 21 */	bctrl 
+/* 801F67F8 001F3758  4E 80 04 21 */	bctrl
 /* 801F67FC 001F375C  80 83 00 04 */	lwz r4, 4(r3)
 /* 801F6800 001F3760  80 63 00 C8 */	lwz r3, 0xc8(r3)
 /* 801F6804 001F3764  38 04 FF FF */	addi r0, r4, -1
@@ -3288,7 +3288,7 @@ lbl_801F6844:
 /* 801F6930 001F3890  D0 C1 00 0C */	stfs f6, 0xc(r1)
 /* 801F6934 001F3894  D0 81 00 10 */	stfs f4, 0x10(r1)
 /* 801F6938 001F3898  7D 89 03 A6 */	mtctr r12
-/* 801F693C 001F389C  4E 80 04 21 */	bctrl 
+/* 801F693C 001F389C  4E 80 04 21 */	bctrl
 /* 801F6940 001F38A0  C0 22 88 F4 */	lfs f1, lbl_805AA614@sda21(r2)
 /* 801F6944 001F38A4  38 81 00 2C */	addi r4, r1, 0x2c
 /* 801F6948 001F38A8  C0 01 00 0C */	lfs f0, 0xc(r1)
@@ -3302,7 +3302,7 @@ lbl_801F6844:
 /* 801F6968 001F38C8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F696C 001F38CC  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F6970 001F38D0  7D 89 03 A6 */	mtctr r12
-/* 801F6974 001F38D4  4E 80 04 21 */	bctrl 
+/* 801F6974 001F38D4  4E 80 04 21 */	bctrl
 /* 801F6978 001F38D8  38 81 00 38 */	addi r4, r1, 0x38
 /* 801F697C 001F38DC  4B FD 56 C9 */	bl SegmentOver__15CPathFindSearchCFRC9CVector3f
 /* 801F6980 001F38E0  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -3311,7 +3311,7 @@ lbl_801F6844:
 /* 801F698C 001F38EC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F6990 001F38F0  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F6994 001F38F4  7D 89 03 A6 */	mtctr r12
-/* 801F6998 001F38F8  4E 80 04 21 */	bctrl 
+/* 801F6998 001F38F8  4E 80 04 21 */	bctrl
 /* 801F699C 001F38FC  80 83 00 C8 */	lwz r4, 0xc8(r3)
 /* 801F69A0 001F3900  38 04 00 01 */	addi r0, r4, 1
 /* 801F69A4 001F3904  90 03 00 C8 */	stw r0, 0xc8(r3)
@@ -3322,7 +3322,7 @@ lbl_801F69A8:
 /* 801F69B4 001F3914  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 801F69B8 001F3918  7C 08 03 A6 */	mtlr r0
 /* 801F69BC 001F391C  38 21 00 60 */	addi r1, r1, 0x60
-/* 801F69C0 001F3920  4E 80 00 20 */	blr 
+/* 801F69C0 001F3920  4E 80 00 20 */	blr
 
 .global Dead__10CPatternedFR13CStateManager9EStateMsgf
 Dead__10CPatternedFR13CStateManager9EStateMsgf:
@@ -3373,7 +3373,7 @@ lbl_801F6A50:
 /* 801F6A68 001F39C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F6A6C 001F39CC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801F6A70 001F39D0  7D 89 03 A6 */	mtctr r12
-/* 801F6A74 001F39D4  4E 80 04 21 */	bctrl 
+/* 801F6A74 001F39D4  4E 80 04 21 */	bctrl
 /* 801F6A78 001F39D8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801F6A7C 001F39DC  41 82 00 48 */	beq lbl_801F6AC4
 /* 801F6A80 001F39E0  88 1E 04 00 */	lbz r0, 0x400(r30)
@@ -3399,7 +3399,7 @@ lbl_801F6AC4:
 /* 801F6ACC 001F3A2C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F6AD0 001F3A30  7C 08 03 A6 */	mtlr r0
 /* 801F6AD4 001F3A34  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F6AD8 001F3A38  4E 80 00 20 */	blr 
+/* 801F6AD8 001F3A38  4E 80 00 20 */	blr
 
 .global TargetPlayer__10CPatternedFR13CStateManager9EStateMsgf
 TargetPlayer__10CPatternedFR13CStateManager9EStateMsgf:
@@ -3439,7 +3439,7 @@ lbl_801F6B54:
 /* 801F6B58 001F3AB8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801F6B5C 001F3ABC  7C 08 03 A6 */	mtlr r0
 /* 801F6B60 001F3AC0  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F6B64 001F3AC4  4E 80 00 20 */	blr 
+/* 801F6B64 001F3AC4  4E 80 00 20 */	blr
 
 .global TargetPatrol__10CPatternedFR13CStateManager9EStateMsgf
 TargetPatrol__10CPatternedFR13CStateManager9EStateMsgf:
@@ -3499,7 +3499,7 @@ lbl_801F6C28:
 /* 801F6C30 001F3B90  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801F6C34 001F3B94  7C 08 03 A6 */	mtlr r0
 /* 801F6C38 001F3B98  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F6C3C 001F3B9C  4E 80 00 20 */	blr 
+/* 801F6C3C 001F3B9C  4E 80 00 20 */	blr
 
 .global FollowPattern__10CPatternedFR13CStateManager9EStateMsgf
 FollowPattern__10CPatternedFR13CStateManager9EStateMsgf:
@@ -3655,7 +3655,7 @@ lbl_801F6E5C:
 /* 801F6E64 001F3DC4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801F6E68 001F3DC8  7C 08 03 A6 */	mtlr r0
 /* 801F6E6C 001F3DCC  38 21 00 40 */	addi r1, r1, 0x40
-/* 801F6E70 001F3DD0  4E 80 00 20 */	blr 
+/* 801F6E70 001F3DD0  4E 80 00 20 */	blr
 
 .global Patrol__10CPatternedFR13CStateManager9EStateMsgf
 Patrol__10CPatternedFR13CStateManager9EStateMsgf:
@@ -3811,11 +3811,11 @@ lbl_801F708C:
 /* 801F7094 001F3FF4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801F7098 001F3FF8  7C 08 03 A6 */	mtlr r0
 /* 801F709C 001F3FFC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F70A0 001F4000  4E 80 00 20 */	blr 
+/* 801F70A0 001F4000  4E 80 00 20 */	blr
 
 .global Start__10CPatternedFR13CStateManager9EStateMsgf
 Start__10CPatternedFR13CStateManager9EStateMsgf:
-/* 801F70A4 001F4004  4E 80 00 20 */	blr 
+/* 801F70A4 001F4004  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl63vector<Q210CPatterned12CPatternNode,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl63vector<Q210CPatterned12CPatternNode,Q24rstl17rmemory_allocator>Fi":
@@ -3907,7 +3907,7 @@ lbl_801F71CC:
 /* 801F71D8 001F4138  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801F71DC 001F413C  7C 08 03 A6 */	mtlr r0
 /* 801F71E0 001F4140  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F71E4 001F4144  4E 80 00 20 */	blr 
+/* 801F71E4 001F4144  4E 80 00 20 */	blr
 
 .global __dt__13CFlyingPirateFv
 __dt__13CFlyingPirateFv:
@@ -4043,7 +4043,7 @@ lbl_801F7380:
 /* 801F73A4 001F4304  38 80 00 01 */	li r4, 1
 /* 801F73A8 001F4308  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801F73AC 001F430C  7D 89 03 A6 */	mtctr r12
-/* 801F73B0 001F4310  4E 80 04 21 */	bctrl 
+/* 801F73B0 001F4310  4E 80 04 21 */	bctrl
 lbl_801F73B4:
 /* 801F73B4 001F4314  3B 9C 00 08 */	addi r28, r28, 8
 /* 801F73B8 001F4318  3B BD 00 01 */	addi r29, r29, 1
@@ -4095,7 +4095,7 @@ lbl_801F7440:
 /* 801F7454 001F43B4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801F7458 001F43B8  7C 08 03 A6 */	mtlr r0
 /* 801F745C 001F43BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F7460 001F43C0  4E 80 00 20 */	blr 
+/* 801F7460 001F43C0  4E 80 00 20 */	blr
 
 .global sub_801f7464
 sub_801f7464:
@@ -4156,17 +4156,17 @@ lbl_801F751C:
 /* 801F7528 001F4488  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F752C 001F448C  7C 08 03 A6 */	mtlr r0
 /* 801F7530 001F4490  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F7534 001F4494  4E 80 00 20 */	blr 
+/* 801F7534 001F4494  4E 80 00 20 */	blr
 
 .global GetSearchPath__13CFlyingPirateFv
 GetSearchPath__13CFlyingPirateFv:
 /* 801F7538 001F4498  38 63 06 A8 */	addi r3, r3, 0x6a8
-/* 801F753C 001F449C  4E 80 00 20 */	blr 
+/* 801F753C 001F449C  4E 80 00 20 */	blr
 
 .global IsListening__13CFlyingPirateCFv
 IsListening__13CFlyingPirateCFv:
 /* 801F7540 001F44A0  38 60 00 01 */	li r3, 1
-/* 801F7544 001F44A4  4E 80 00 20 */	blr 
+/* 801F7544 001F44A4  4E 80 00 20 */	blr
 
 .global GetGravityConstant__13CFlyingPirateCFv
 GetGravityConstant__13CFlyingPirateCFv:
@@ -4174,15 +4174,15 @@ GetGravityConstant__13CFlyingPirateCFv:
 /* 801F754C 001F44AC  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 801F7550 001F44B0  41 82 00 0C */	beq lbl_801F755C
 /* 801F7554 001F44B4  C0 22 AF 58 */	lfs f1, lbl_805ACC78@sda21(r2)
-/* 801F7558 001F44B8  4E 80 00 20 */	blr 
+/* 801F7558 001F44B8  4E 80 00 20 */	blr
 lbl_801F755C:
 /* 801F755C 001F44BC  C0 22 AF 54 */	lfs f1, lbl_805ACC74@sda21(r2)
-/* 801F7560 001F44C0  4E 80 00 20 */	blr 
+/* 801F7560 001F44C0  4E 80 00 20 */	blr
 
 .global KnockbackWhenFrozen__13CFlyingPirateCFv
 KnockbackWhenFrozen__13CFlyingPirateCFv:
 /* 801F7564 001F44C4  38 60 00 00 */	li r3, 0
-/* 801F7568 001F44C8  4E 80 00 20 */	blr 
+/* 801F7568 001F44C8  4E 80 00 20 */	blr
 
 .global Think__13CFlyingPirateFfR13CStateManager
 Think__13CFlyingPirateFfR13CStateManager:
@@ -4300,7 +4300,7 @@ lbl_801F7710:
 /* 801F7718 001F4678  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F771C 001F467C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801F7720 001F4680  7D 89 03 A6 */	mtctr r12
-/* 801F7724 001F4684  4E 80 04 21 */	bctrl 
+/* 801F7724 001F4684  4E 80 04 21 */	bctrl
 /* 801F7728 001F4688  3B 5A 00 08 */	addi r26, r26, 8
 /* 801F772C 001F468C  3B 7B 00 01 */	addi r27, r27, 1
 lbl_801F7730:
@@ -4445,7 +4445,7 @@ lbl_801F791C:
 /* 801F7940 001F48A0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F7944 001F48A4  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 801F7948 001F48A8  7D 89 03 A6 */	mtctr r12
-/* 801F794C 001F48AC  4E 80 04 21 */	bctrl 
+/* 801F794C 001F48AC  4E 80 04 21 */	bctrl
 /* 801F7950 001F48B0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801F7954 001F48B4  41 82 02 64 */	beq lbl_801F7BB8
 /* 801F7958 001F48B8  88 1F 06 A0 */	lbz r0, 0x6a0(r31)
@@ -4481,7 +4481,7 @@ lbl_801F7990:
 /* 801F79CC 001F492C  81 8C 01 B0 */	lwz r12, 0x1b0(r12)
 /* 801F79D0 001F4930  54 1A 00 3C */	rlwinm r26, r0, 0, 0, 0x1e
 /* 801F79D4 001F4934  7D 89 03 A6 */	mtctr r12
-/* 801F79D8 001F4938  4E 80 04 21 */	bctrl 
+/* 801F79D8 001F4938  4E 80 04 21 */	bctrl
 /* 801F79DC 001F493C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801F79E0 001F4940  40 82 00 08 */	bne lbl_801F79E8
 /* 801F79E4 001F4944  3B 5A 00 01 */	addi r26, r26, 1
@@ -4506,7 +4506,7 @@ lbl_801F79E8:
 /* 801F7A2C 001F498C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801F7A30 001F4990  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801F7A34 001F4994  7D 89 03 A6 */	mtctr r12
-/* 801F7A38 001F4998  4E 80 04 21 */	bctrl 
+/* 801F7A38 001F4998  4E 80 04 21 */	bctrl
 /* 801F7A3C 001F499C  7F E4 FB 78 */	mr r4, r31
 /* 801F7A40 001F49A0  38 61 01 F4 */	addi r3, r1, 0x1f4
 /* 801F7A44 001F49A4  4B F2 2E E9 */	bl GetBoundingBox__13CPhysicsActorCFv
@@ -5061,7 +5061,7 @@ lbl_801F824C:
 /* 801F828C 001F51EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F8290 001F51F0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801F8294 001F51F4  7D 89 03 A6 */	mtctr r12
-/* 801F8298 001F51F8  4E 80 04 21 */	bctrl 
+/* 801F8298 001F51F8  4E 80 04 21 */	bctrl
 /* 801F829C 001F51FC  C0 5F 00 60 */	lfs f2, 0x60(r31)
 /* 801F82A0 001F5200  3C 60 80 5A */	lis r3, skIdentity4f@ha
 /* 801F82A4 001F5204  C0 3F 00 50 */	lfs f1, 0x50(r31)
@@ -5121,7 +5121,7 @@ lbl_801F8354:
 /* 801F8374 001F52D4  7F C4 F3 78 */	mr r4, r30
 /* 801F8378 001F52D8  EC 20 00 72 */	fmuls f1, f0, f1
 /* 801F837C 001F52DC  7D 89 03 A6 */	mtctr r12
-/* 801F8380 001F52E0  4E 80 04 21 */	bctrl 
+/* 801F8380 001F52E0  4E 80 04 21 */	bctrl
 /* 801F8384 001F52E4  80 7F 00 64 */	lwz r3, 0x64(r31)
 /* 801F8388 001F52E8  7F C5 F3 78 */	mr r5, r30
 /* 801F838C 001F52EC  C0 21 00 08 */	lfs f1, 8(r1)
@@ -5214,7 +5214,7 @@ lbl_801F84C4:
 /* 801F84D8 001F5438  80 01 02 B4 */	lwz r0, 0x2b4(r1)
 /* 801F84DC 001F543C  7C 08 03 A6 */	mtlr r0
 /* 801F84E0 001F5440  38 21 02 B0 */	addi r1, r1, 0x2b0
-/* 801F84E4 001F5444  4E 80 00 20 */	blr 
+/* 801F84E4 001F5444  4E 80 00 20 */	blr
 
 .global PreRender__13CFlyingPirateFR13CStateManagerRC14CFrustumPlanes
 PreRender__13CFlyingPirateFR13CStateManagerRC14CFrustumPlanes:
@@ -5244,7 +5244,7 @@ PreRender__13CFlyingPirateFR13CStateManagerRC14CFrustumPlanes:
 /* 801F8544 001F54A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F8548 001F54A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801F854C 001F54AC  7D 89 03 A6 */	mtctr r12
-/* 801F8550 001F54B0  4E 80 04 21 */	bctrl 
+/* 801F8550 001F54B0  4E 80 04 21 */	bctrl
 lbl_801F8554:
 /* 801F8554 001F54B4  7F A3 EB 78 */	mr r3, r29
 /* 801F8558 001F54B8  7F C4 F3 78 */	mr r4, r30
@@ -5271,7 +5271,7 @@ lbl_801F8554:
 /* 801F85AC 001F550C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801F85B0 001F5510  7C 08 03 A6 */	mtlr r0
 /* 801F85B4 001F5514  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F85B8 001F5518  4E 80 00 20 */	blr 
+/* 801F85B8 001F5518  4E 80 00 20 */	blr
 
 .global AddToRenderer__13CFlyingPirateCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__13CFlyingPirateCFRC14CFrustumPlanesRC13CStateManager:
@@ -5292,7 +5292,7 @@ lbl_801F85E4:
 /* 801F85F0 001F5550  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801F85F4 001F5554  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 801F85F8 001F5558  7D 89 03 A6 */	mtctr r12
-/* 801F85FC 001F555C  4E 80 04 21 */	bctrl 
+/* 801F85FC 001F555C  4E 80 04 21 */	bctrl
 /* 801F8600 001F5560  7F 63 DB 78 */	mr r3, r27
 /* 801F8604 001F5564  38 81 00 08 */	addi r4, r1, 8
 /* 801F8608 001F5568  48 14 CB 81 */	bl "BoxInFrustumPlanes__14CFrustumPlanesCFRCQ24rstl24optional_object<6CAABox>"
@@ -5305,7 +5305,7 @@ lbl_801F85E4:
 /* 801F8624 001F5584  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F8628 001F5588  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801F862C 001F558C  7D 89 03 A6 */	mtctr r12
-/* 801F8630 001F5590  4E 80 04 21 */	bctrl 
+/* 801F8630 001F5590  4E 80 04 21 */	bctrl
 lbl_801F8634:
 /* 801F8634 001F5594  3B DE 00 08 */	addi r30, r30, 8
 /* 801F8638 001F5598  3B BD 00 01 */	addi r29, r29, 1
@@ -5321,7 +5321,7 @@ lbl_801F863C:
 /* 801F865C 001F55BC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801F8660 001F55C0  7C 08 03 A6 */	mtlr r0
 /* 801F8664 001F55C4  38 21 00 40 */	addi r1, r1, 0x40
-/* 801F8668 001F55C8  4E 80 00 20 */	blr 
+/* 801F8668 001F55C8  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__13CFlyingPirateFv
 CalculateRenderBounds__13CFlyingPirateFv:
@@ -5389,7 +5389,7 @@ lbl_801F8754:
 /* 801F8758 001F56B8  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 801F875C 001F56BC  7C 08 03 A6 */	mtlr r0
 /* 801F8760 001F56C0  38 21 00 60 */	addi r1, r1, 0x60
-/* 801F8764 001F56C4  4E 80 00 20 */	blr 
+/* 801F8764 001F56C4  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__13CFlyingPirateFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__13CFlyingPirateFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -5612,7 +5612,7 @@ lbl_801F8A70:
 /* 801F8A84 001F59E4  81 98 00 00 */	lwz r12, 0(r24)
 /* 801F8A88 001F59E8  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801F8A8C 001F59EC  7D 89 03 A6 */	mtctr r12
-/* 801F8A90 001F59F0  4E 80 04 21 */	bctrl 
+/* 801F8A90 001F59F0  4E 80 04 21 */	bctrl
 /* 801F8A94 001F59F4  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801F8A98 001F59F8  C0 02 AF 60 */	lfs f0, lbl_805ACC80@sda21(r2)
 /* 801F8A9C 001F59FC  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -5655,7 +5655,7 @@ lbl_801F8B14:
 /* 801F8B20 001F5A80  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 801F8B24 001F5A84  7C 08 03 A6 */	mtlr r0
 /* 801F8B28 001F5A88  38 21 02 00 */	addi r1, r1, 0x200
-/* 801F8B2C 001F5A8C  4E 80 00 20 */	blr 
+/* 801F8B2C 001F5A8C  4E 80 00 20 */	blr
 
 .global FireProjectile__13CFlyingPirateFR13CStateManagerRC9CVector3f
 FireProjectile__13CFlyingPirateFR13CStateManagerRC9CVector3f:
@@ -5750,12 +5750,12 @@ lbl_801F8C08:
 /* 801F8C88 001F5BE8  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801F8C8C 001F5BEC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801F8C90 001F5BF0  7D 89 03 A6 */	mtctr r12
-/* 801F8C94 001F5BF4  4E 80 04 21 */	bctrl 
+/* 801F8C94 001F5BF4  4E 80 04 21 */	bctrl
 /* 801F8C98 001F5BF8  7F A3 EB 78 */	mr r3, r29
 /* 801F8C9C 001F5BFC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801F8CA0 001F5C00  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 801F8CA4 001F5C04  7D 89 03 A6 */	mtctr r12
-/* 801F8CA8 001F5C08  4E 80 04 21 */	bctrl 
+/* 801F8CA8 001F5C08  4E 80 04 21 */	bctrl
 /* 801F8CAC 001F5C0C  FC 20 F8 90 */	fmr f1, f31
 /* 801F8CB0 001F5C10  7C 64 1B 78 */	mr r4, r3
 /* 801F8CB4 001F5C14  7F 87 E3 78 */	mr r7, r28
@@ -6026,12 +6026,12 @@ lbl_801F9094:
 /* 801F90B0 001F6010  83 81 02 30 */	lwz r28, 0x230(r1)
 /* 801F90B4 001F6014  7C 08 03 A6 */	mtlr r0
 /* 801F90B8 001F6018  38 21 02 50 */	addi r1, r1, 0x250
-/* 801F90BC 001F601C  4E 80 00 20 */	blr 
+/* 801F90BC 001F601C  4E 80 00 20 */	blr
 
 .global ProjectileInfo__13CFlyingPirateFv
 ProjectileInfo__13CFlyingPirateFv:
 /* 801F90C0 001F6020  38 63 05 74 */	addi r3, r3, 0x574
-/* 801F90C4 001F6024  4E 80 00 20 */	blr 
+/* 801F90C4 001F6024  4E 80 00 20 */	blr
 
 .global ShouldRetreat__13CFlyingPirateFR13CStateManagerf
 ShouldRetreat__13CFlyingPirateFR13CStateManagerf:
@@ -6132,17 +6132,17 @@ lbl_801F9228:
 /* 801F9238 001F6198  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801F923C 001F619C  7C 08 03 A6 */	mtlr r0
 /* 801F9240 001F61A0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801F9244 001F61A4  4E 80 00 20 */	blr 
+/* 801F9244 001F61A4  4E 80 00 20 */	blr
 
 .global Deactivate__13CFlyingPirateFR13CStateManager9EStateMsgf
 Deactivate__13CFlyingPirateFR13CStateManager9EStateMsgf:
 /* 801F9248 001F61A8  2C 05 00 00 */	cmpwi r5, 0
-/* 801F924C 001F61AC  4C 82 00 20 */	bnelr 
+/* 801F924C 001F61AC  4C 82 00 20 */	bnelr
 /* 801F9250 001F61B0  88 03 04 01 */	lbz r0, 0x401(r3)
 /* 801F9254 001F61B4  38 80 00 01 */	li r4, 1
 /* 801F9258 001F61B8  50 80 0F BC */	rlwimi r0, r4, 1, 0x1e, 0x1e
 /* 801F925C 001F61BC  98 03 04 01 */	stb r0, 0x401(r3)
-/* 801F9260 001F61C0  4E 80 00 20 */	blr 
+/* 801F9260 001F61C0  4E 80 00 20 */	blr
 
 .global Explode__13CFlyingPirateFR13CStateManager9EStateMsgf
 Explode__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6182,7 +6182,7 @@ lbl_801F929C:
 /* 801F92E4 001F6244  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801F92E8 001F6248  81 8C 02 98 */	lwz r12, 0x298(r12)
 /* 801F92EC 001F624C  7D 89 03 A6 */	mtctr r12
-/* 801F92F0 001F6250  4E 80 04 21 */	bctrl 
+/* 801F92F0 001F6250  4E 80 04 21 */	bctrl
 /* 801F92F4 001F6254  48 00 00 18 */	b lbl_801F930C
 lbl_801F92F8:
 /* 801F92F8 001F6258  C0 3E 03 38 */	lfs f1, 0x338(r30)
@@ -6196,7 +6196,7 @@ lbl_801F930C:
 /* 801F9314 001F6274  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F9318 001F6278  7C 08 03 A6 */	mtlr r0
 /* 801F931C 001F627C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F9320 001F6280  4E 80 00 20 */	blr 
+/* 801F9320 001F6280  4E 80 00 20 */	blr
 
 .global AnimOver__13CFlyingPirateFR13CStateManagerf
 AnimOver__13CFlyingPirateFR13CStateManagerf:
@@ -6215,7 +6215,7 @@ lbl_801F934C:
 /* 801F934C 001F62AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F9350 001F62B0  7C 08 03 A6 */	mtlr r0
 /* 801F9354 001F62B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801F9358 001F62B8  4E 80 00 20 */	blr 
+/* 801F9358 001F62B8  4E 80 00 20 */	blr
 
 .global Dead__13CFlyingPirateFR13CStateManager9EStateMsgf
 Dead__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6262,7 +6262,7 @@ lbl_801F93E8:
 /* 801F93F4 001F6354  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801F93F8 001F6358  7C 08 03 A6 */	mtlr r0
 /* 801F93FC 001F635C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801F9400 001F6360  4E 80 00 20 */	blr 
+/* 801F9400 001F6360  4E 80 00 20 */	blr
 
 .global Enraged__13CFlyingPirateFR13CStateManager9EStateMsgf
 Enraged__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6360,13 +6360,13 @@ lbl_801F9548:
 /* 801F9568 001F64C8  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 801F956C 001F64CC  7C 08 03 A6 */	mtlr r0
 /* 801F9570 001F64D0  38 21 00 80 */	addi r1, r1, 0x80
-/* 801F9574 001F64D4  4E 80 00 20 */	blr 
+/* 801F9574 001F64D4  4E 80 00 20 */	blr
 
 .global AggressionCheck__13CFlyingPirateFR13CStateManagerf
 AggressionCheck__13CFlyingPirateFR13CStateManagerf:
 /* 801F9578 001F64D8  88 03 06 A2 */	lbz r0, 0x6a2(r3)
 /* 801F957C 001F64DC  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 801F9580 001F64E0  4E 80 00 20 */	blr 
+/* 801F9580 001F64E0  4E 80 00 20 */	blr
 
 .global Stuck__13CFlyingPirateFR13CStateManagerf
 Stuck__13CFlyingPirateFR13CStateManagerf:
@@ -6390,7 +6390,7 @@ Stuck__13CFlyingPirateFR13CStateManagerf:
 /* 801F95C8 001F6528  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801F95CC 001F652C  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801F95D0 001F6530  7D 89 03 A6 */	mtctr r12
-/* 801F95D4 001F6534  4E 80 04 21 */	bctrl 
+/* 801F95D4 001F6534  4E 80 04 21 */	bctrl
 /* 801F95D8 001F6538  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801F95DC 001F653C  2C 00 00 00 */	cmpwi r0, 0
 /* 801F95E0 001F6540  40 82 00 08 */	bne lbl_801F95E8
@@ -6407,7 +6407,7 @@ lbl_801F95F4:
 /* 801F9604 001F6564  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801F9608 001F6568  7C 08 03 A6 */	mtlr r0
 /* 801F960C 001F656C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F9610 001F6570  4E 80 00 20 */	blr 
+/* 801F9610 001F6570  4E 80 00 20 */	blr
 
 .global ShouldMove__13CFlyingPirateFR13CStateManagerf
 ShouldMove__13CFlyingPirateFR13CStateManagerf:
@@ -6517,7 +6517,7 @@ lbl_801F96B8:
 /* 801F97A8 001F6708  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801F97AC 001F670C  7C 08 03 A6 */	mtlr r0
 /* 801F97B0 001F6710  38 21 00 80 */	addi r1, r1, 0x80
-/* 801F97B4 001F6714  4E 80 00 20 */	blr 
+/* 801F97B4 001F6714  4E 80 00 20 */	blr
 
 .global ProjectileAttack__13CFlyingPirateFR13CStateManager9EStateMsgf
 ProjectileAttack__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6570,7 +6570,7 @@ lbl_801F9858:
 /* 801F985C 001F67BC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801F9860 001F67C0  7C 08 03 A6 */	mtlr r0
 /* 801F9864 001F67C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F9868 001F67C8  4E 80 00 20 */	blr 
+/* 801F9868 001F67C8  4E 80 00 20 */	blr
 
 .global Walk__13CFlyingPirateFR13CStateManager9EStateMsgf
 Walk__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6684,7 +6684,7 @@ lbl_801F99F8:
 /* 801F9A00 001F6960  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 801F9A04 001F6964  7C 08 03 A6 */	mtlr r0
 /* 801F9A08 001F6968  38 21 00 50 */	addi r1, r1, 0x50
-/* 801F9A0C 001F696C  4E 80 00 20 */	blr 
+/* 801F9A0C 001F696C  4E 80 00 20 */	blr
 
 .global Land__13CFlyingPirateFR13CStateManager9EStateMsgf
 Land__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6752,7 +6752,7 @@ lbl_801F9AE8:
 /* 801F9AF0 001F6A50  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F9AF4 001F6A54  7C 08 03 A6 */	mtlr r0
 /* 801F9AF8 001F6A58  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F9AFC 001F6A5C  4E 80 00 20 */	blr 
+/* 801F9AFC 001F6A5C  4E 80 00 20 */	blr
 
 .global InPosition__13CFlyingPirateFR13CStateManagerf
 InPosition__13CFlyingPirateFR13CStateManagerf:
@@ -6801,7 +6801,7 @@ lbl_801F9B94:
 /* 801F9B9C 001F6AFC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F9BA0 001F6B00  7C 08 03 A6 */	mtlr r0
 /* 801F9BA4 001F6B04  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F9BA8 001F6B08  4E 80 00 20 */	blr 
+/* 801F9BA8 001F6B08  4E 80 00 20 */	blr
 
 .global Landed__13CFlyingPirateFR13CStateManagerf
 Landed__13CFlyingPirateFR13CStateManagerf:
@@ -6810,7 +6810,7 @@ Landed__13CFlyingPirateFR13CStateManagerf:
 /* 801F9BB4 001F6B14  20 00 00 02 */	subfic r0, r0, 2
 /* 801F9BB8 001F6B18  7C 00 00 34 */	cntlzw r0, r0
 /* 801F9BBC 001F6B1C  54 03 D9 7E */	srwi r3, r0, 5
-/* 801F9BC0 001F6B20  4E 80 00 20 */	blr 
+/* 801F9BC0 001F6B20  4E 80 00 20 */	blr
 
 .global Jump__13CFlyingPirateFR13CStateManager9EStateMsgf
 Jump__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -6895,7 +6895,7 @@ lbl_801F9CDC:
 /* 801F9CEC 001F6C4C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801F9CF0 001F6C50  7C 08 03 A6 */	mtlr r0
 /* 801F9CF4 001F6C54  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F9CF8 001F6C58  4E 80 00 20 */	blr 
+/* 801F9CF8 001F6C58  4E 80 00 20 */	blr
 
 .global ShouldSpecialAttack__13CFlyingPirateFR13CStateManagerf
 ShouldSpecialAttack__13CFlyingPirateFR13CStateManagerf:
@@ -6998,7 +6998,7 @@ lbl_801F9E64:
 /* 801F9E70 001F6DD0  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 801F9E74 001F6DD4  7C 08 03 A6 */	mtlr r0
 /* 801F9E78 001F6DD8  38 21 00 60 */	addi r1, r1, 0x60
-/* 801F9E7C 001F6DDC  4E 80 00 20 */	blr 
+/* 801F9E7C 001F6DDC  4E 80 00 20 */	blr
 
 .global Attacked__13CFlyingPirateFR13CStateManagerf
 Attacked__13CFlyingPirateFR13CStateManagerf:
@@ -7013,7 +7013,7 @@ lbl_801F9E98:
 /* 801F9E98 001F6DF8  FC 02 08 40 */	fcmpo cr0, f2, f1
 /* 801F9E9C 001F6DFC  7C 00 00 26 */	mfcr r0
 /* 801F9EA0 001F6E00  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801F9EA4 001F6E04  4E 80 00 20 */	blr 
+/* 801F9EA4 001F6E04  4E 80 00 20 */	blr
 
 .global ShotAt__13CFlyingPirateFR13CStateManagerf
 ShotAt__13CFlyingPirateFR13CStateManagerf:
@@ -7028,7 +7028,7 @@ lbl_801F9EC0:
 /* 801F9EC0 001F6E20  FC 02 08 40 */	fcmpo cr0, f2, f1
 /* 801F9EC4 001F6E24  7C 00 00 26 */	mfcr r0
 /* 801F9EC8 001F6E28  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801F9ECC 001F6E2C  4E 80 00 20 */	blr 
+/* 801F9ECC 001F6E2C  4E 80 00 20 */	blr
 
 .global Dodge__13CFlyingPirateFR13CStateManager9EStateMsgf
 Dodge__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -7113,7 +7113,7 @@ lbl_801F9FE4:
 /* 801F9FEC 001F6F4C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801F9FF0 001F6F50  7C 08 03 A6 */	mtlr r0
 /* 801F9FF4 001F6F54  38 21 00 20 */	addi r1, r1, 0x20
-/* 801F9FF8 001F6F58  4E 80 00 20 */	blr 
+/* 801F9FF8 001F6F58  4E 80 00 20 */	blr
 
 .global ShouldDodge__13CFlyingPirateFR13CStateManagerf
 ShouldDodge__13CFlyingPirateFR13CStateManagerf:
@@ -7186,7 +7186,7 @@ lbl_801FA0D8:
 /* 801FA0FC 001F705C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801FA100 001F7060  7C 08 03 A6 */	mtlr r0
 /* 801FA104 001F7064  38 21 00 60 */	addi r1, r1, 0x60
-/* 801FA108 001F7068  4E 80 00 20 */	blr 
+/* 801FA108 001F7068  4E 80 00 20 */	blr
 
 .global TurnAround__13CFlyingPirateFR13CStateManager9EStateMsgf
 TurnAround__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -7274,7 +7274,7 @@ lbl_801FA238:
 /* 801FA23C 001F719C  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 801FA240 001F71A0  7C 08 03 A6 */	mtlr r0
 /* 801FA244 001F71A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 801FA248 001F71A8  4E 80 00 20 */	blr 
+/* 801FA248 001F71A8  4E 80 00 20 */	blr
 
 .global Retreat__13CFlyingPirateFR13CStateManager9EStateMsgf
 Retreat__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -7339,7 +7339,7 @@ lbl_801FA2A0:
 /* 801FA330 001F7290  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA334 001F7294  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA338 001F7298  7D 89 03 A6 */	mtctr r12
-/* 801FA33C 001F729C  4E 80 04 21 */	bctrl 
+/* 801FA33C 001F729C  4E 80 04 21 */	bctrl
 /* 801FA340 001F72A0  38 81 00 BC */	addi r4, r1, 0xbc
 /* 801FA344 001F72A4  4B FC C7 F1 */	bl OnPath__15CPathFindSearchCFRC9CVector3f
 /* 801FA348 001F72A8  2C 03 00 02 */	cmpwi r3, 2
@@ -7354,7 +7354,7 @@ lbl_801FA2A0:
 /* 801FA36C 001F72CC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA370 001F72D0  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA374 001F72D4  7D 89 03 A6 */	mtctr r12
-/* 801FA378 001F72D8  4E 80 04 21 */	bctrl 
+/* 801FA378 001F72D8  4E 80 04 21 */	bctrl
 /* 801FA37C 001F72DC  38 81 00 80 */	addi r4, r1, 0x80
 /* 801FA380 001F72E0  38 A1 00 BC */	addi r5, r1, 0xbc
 /* 801FA384 001F72E4  4B FC CD 79 */	bl FindClosestReachablePoint__15CPathFindSearchCFRC9CVector3fR9CVector3f
@@ -7416,7 +7416,7 @@ lbl_801FA2A0:
 /* 801FA464 001F73C4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA468 001F73C8  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA46C 001F73CC  7D 89 03 A6 */	mtctr r12
-/* 801FA470 001F73D0  4E 80 04 21 */	bctrl 
+/* 801FA470 001F73D0  4E 80 04 21 */	bctrl
 /* 801FA474 001F73D4  38 81 00 BC */	addi r4, r1, 0xbc
 /* 801FA478 001F73D8  4B FC C6 BD */	bl OnPath__15CPathFindSearchCFRC9CVector3f
 /* 801FA47C 001F73DC  2C 03 00 02 */	cmpwi r3, 2
@@ -7431,7 +7431,7 @@ lbl_801FA2A0:
 /* 801FA4A0 001F7400  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA4A4 001F7404  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA4A8 001F7408  7D 89 03 A6 */	mtctr r12
-/* 801FA4AC 001F740C  4E 80 04 21 */	bctrl 
+/* 801FA4AC 001F740C  4E 80 04 21 */	bctrl
 /* 801FA4B0 001F7410  38 81 00 50 */	addi r4, r1, 0x50
 /* 801FA4B4 001F7414  38 A1 00 BC */	addi r5, r1, 0xbc
 /* 801FA4B8 001F7418  4B FC CC 45 */	bl FindClosestReachablePoint__15CPathFindSearchCFRC9CVector3fR9CVector3f
@@ -7450,7 +7450,7 @@ lbl_801FA4CC:
 /* 801FA4E8 001F7448  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA4EC 001F744C  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA4F0 001F7450  7D 89 03 A6 */	mtctr r12
-/* 801FA4F4 001F7454  4E 80 04 21 */	bctrl 
+/* 801FA4F4 001F7454  4E 80 04 21 */	bctrl
 /* 801FA4F8 001F7458  38 81 00 44 */	addi r4, r1, 0x44
 /* 801FA4FC 001F745C  38 A1 00 BC */	addi r5, r1, 0xbc
 /* 801FA500 001F7460  4B FC D7 6D */	bl Search__15CPathFindSearchFRC9CVector3fRC9CVector3f
@@ -7471,7 +7471,7 @@ lbl_801FA51C:
 /* 801FA538 001F7498  81 83 00 00 */	lwz r12, 0(r3)
 /* 801FA53C 001F749C  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA540 001F74A0  7D 89 03 A6 */	mtctr r12
-/* 801FA544 001F74A4  4E 80 04 21 */	bctrl 
+/* 801FA544 001F74A4  4E 80 04 21 */	bctrl
 /* 801FA548 001F74A8  80 83 00 04 */	lwz r4, 4(r3)
 /* 801FA54C 001F74AC  80 63 00 C8 */	lwz r3, 0xc8(r3)
 /* 801FA550 001F74B0  38 04 FF FF */	addi r0, r4, -1
@@ -7496,7 +7496,7 @@ lbl_801FA51C:
 /* 801FA59C 001F74FC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA5A0 001F7500  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA5A4 001F7504  7D 89 03 A6 */	mtctr r12
-/* 801FA5A8 001F7508  4E 80 04 21 */	bctrl 
+/* 801FA5A8 001F7508  4E 80 04 21 */	bctrl
 /* 801FA5AC 001F750C  C0 22 AF 7C */	lfs f1, lbl_805ACC9C@sda21(r2)
 /* 801FA5B0 001F7510  38 81 00 A4 */	addi r4, r1, 0xa4
 /* 801FA5B4 001F7514  38 A1 00 38 */	addi r5, r1, 0x38
@@ -7505,7 +7505,7 @@ lbl_801FA51C:
 /* 801FA5C0 001F7520  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA5C4 001F7524  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA5C8 001F7528  7D 89 03 A6 */	mtctr r12
-/* 801FA5CC 001F752C  4E 80 04 21 */	bctrl 
+/* 801FA5CC 001F752C  4E 80 04 21 */	bctrl
 /* 801FA5D0 001F7530  38 81 00 A4 */	addi r4, r1, 0xa4
 /* 801FA5D4 001F7534  4B FD 1A 71 */	bl SegmentOver__15CPathFindSearchCFRC9CVector3f
 /* 801FA5D8 001F7538  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -7514,7 +7514,7 @@ lbl_801FA51C:
 /* 801FA5E4 001F7544  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA5E8 001F7548  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA5EC 001F754C  7D 89 03 A6 */	mtctr r12
-/* 801FA5F0 001F7550  4E 80 04 21 */	bctrl 
+/* 801FA5F0 001F7550  4E 80 04 21 */	bctrl
 /* 801FA5F4 001F7554  80 83 00 C8 */	lwz r4, 0xc8(r3)
 /* 801FA5F8 001F7558  38 04 00 01 */	addi r0, r4, 1
 /* 801FA5FC 001F755C  90 03 00 C8 */	stw r0, 0xc8(r3)
@@ -7654,7 +7654,7 @@ lbl_801FA7DC:
 /* 801FA7FC 001F775C  83 C1 00 E8 */	lwz r30, 0xe8(r1)
 /* 801FA800 001F7760  7C 08 03 A6 */	mtlr r0
 /* 801FA804 001F7764  38 21 01 20 */	addi r1, r1, 0x120
-/* 801FA808 001F7768  4E 80 00 20 */	blr 
+/* 801FA808 001F7768  4E 80 00 20 */	blr
 
 .global PathFind__13CFlyingPirateFR13CStateManager9EStateMsgf
 PathFind__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -7690,7 +7690,7 @@ lbl_801FA868:
 /* 801FA878 001F77D8  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FA87C 001F77DC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801FA880 001F77E0  7D 89 03 A6 */	mtctr r12
-/* 801FA884 001F77E4  4E 80 04 21 */	bctrl 
+/* 801FA884 001F77E4  4E 80 04 21 */	bctrl
 /* 801FA888 001F77E8  C0 41 00 6C */	lfs f2, 0x6c(r1)
 /* 801FA88C 001F77EC  C0 21 00 70 */	lfs f1, 0x70(r1)
 /* 801FA890 001F77F0  C0 01 00 74 */	lfs f0, 0x74(r1)
@@ -7733,7 +7733,7 @@ lbl_801FA900:
 /* 801FA91C 001F787C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA920 001F7880  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA924 001F7884  7D 89 03 A6 */	mtctr r12
-/* 801FA928 001F7888  4E 80 04 21 */	bctrl 
+/* 801FA928 001F7888  4E 80 04 21 */	bctrl
 /* 801FA92C 001F788C  38 81 00 60 */	addi r4, r1, 0x60
 /* 801FA930 001F7890  38 A1 00 90 */	addi r5, r1, 0x90
 /* 801FA934 001F7894  4B FC D3 39 */	bl Search__15CPathFindSearchFRC9CVector3fRC9CVector3f
@@ -7743,7 +7743,7 @@ lbl_801FA900:
 /* 801FA944 001F78A4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA948 001F78A8  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA94C 001F78AC  7D 89 03 A6 */	mtctr r12
-/* 801FA950 001F78B0  4E 80 04 21 */	bctrl 
+/* 801FA950 001F78B0  4E 80 04 21 */	bctrl
 /* 801FA954 001F78B4  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801FA958 001F78B8  2C 00 00 03 */	cmpwi r0, 3
 /* 801FA95C 001F78BC  41 82 00 24 */	beq lbl_801FA980
@@ -7751,7 +7751,7 @@ lbl_801FA900:
 /* 801FA964 001F78C4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA968 001F78C8  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA96C 001F78CC  7D 89 03 A6 */	mtctr r12
-/* 801FA970 001F78D0  4E 80 04 21 */	bctrl 
+/* 801FA970 001F78D0  4E 80 04 21 */	bctrl
 /* 801FA974 001F78D4  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801FA978 001F78D8  2C 00 00 04 */	cmpwi r0, 4
 /* 801FA97C 001F78DC  40 82 00 7C */	bne lbl_801FA9F8
@@ -7766,7 +7766,7 @@ lbl_801FA980:
 /* 801FA99C 001F78FC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA9A0 001F7900  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA9A4 001F7904  7D 89 03 A6 */	mtctr r12
-/* 801FA9A8 001F7908  4E 80 04 21 */	bctrl 
+/* 801FA9A8 001F7908  4E 80 04 21 */	bctrl
 /* 801FA9AC 001F790C  38 81 00 54 */	addi r4, r1, 0x54
 /* 801FA9B0 001F7910  38 A1 00 90 */	addi r5, r1, 0x90
 /* 801FA9B4 001F7914  4B FC C7 49 */	bl FindClosestReachablePoint__15CPathFindSearchCFRC9CVector3fR9CVector3f
@@ -7782,7 +7782,7 @@ lbl_801FA980:
 /* 801FA9DC 001F793C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FA9E0 001F7940  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FA9E4 001F7944  7D 89 03 A6 */	mtctr r12
-/* 801FA9E8 001F7948  4E 80 04 21 */	bctrl 
+/* 801FA9E8 001F7948  4E 80 04 21 */	bctrl
 /* 801FA9EC 001F794C  38 81 00 48 */	addi r4, r1, 0x48
 /* 801FA9F0 001F7950  38 A1 00 90 */	addi r5, r1, 0x90
 /* 801FA9F4 001F7954  4B FC D2 79 */	bl Search__15CPathFindSearchFRC9CVector3fRC9CVector3f
@@ -7804,7 +7804,7 @@ lbl_801FAA10:
 /* 801FAA2C 001F798C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801FAA30 001F7990  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FAA34 001F7994  7D 89 03 A6 */	mtctr r12
-/* 801FAA38 001F7998  4E 80 04 21 */	bctrl 
+/* 801FAA38 001F7998  4E 80 04 21 */	bctrl
 /* 801FAA3C 001F799C  80 03 00 CC */	lwz r0, 0xcc(r3)
 /* 801FAA40 001F79A0  2C 00 00 00 */	cmpwi r0, 0
 /* 801FAA44 001F79A4  40 82 01 18 */	bne lbl_801FAB5C
@@ -7812,7 +7812,7 @@ lbl_801FAA10:
 /* 801FAA4C 001F79AC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FAA50 001F79B0  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FAA54 001F79B4  7D 89 03 A6 */	mtctr r12
-/* 801FAA58 001F79B8  4E 80 04 21 */	bctrl 
+/* 801FAA58 001F79B8  4E 80 04 21 */	bctrl
 /* 801FAA5C 001F79BC  80 83 00 04 */	lwz r4, 4(r3)
 /* 801FAA60 001F79C0  80 63 00 C8 */	lwz r3, 0xc8(r3)
 /* 801FAA64 001F79C4  38 04 FF FF */	addi r0, r4, -1
@@ -7837,7 +7837,7 @@ lbl_801FAA10:
 /* 801FAAB0 001F7A10  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FAAB4 001F7A14  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FAAB8 001F7A18  7D 89 03 A6 */	mtctr r12
-/* 801FAABC 001F7A1C  4E 80 04 21 */	bctrl 
+/* 801FAABC 001F7A1C  4E 80 04 21 */	bctrl
 /* 801FAAC0 001F7A20  C0 22 AF 7C */	lfs f1, lbl_805ACC9C@sda21(r2)
 /* 801FAAC4 001F7A24  38 81 00 78 */	addi r4, r1, 0x78
 /* 801FAAC8 001F7A28  38 A1 00 3C */	addi r5, r1, 0x3c
@@ -7846,7 +7846,7 @@ lbl_801FAA10:
 /* 801FAAD4 001F7A34  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FAAD8 001F7A38  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FAADC 001F7A3C  7D 89 03 A6 */	mtctr r12
-/* 801FAAE0 001F7A40  4E 80 04 21 */	bctrl 
+/* 801FAAE0 001F7A40  4E 80 04 21 */	bctrl
 /* 801FAAE4 001F7A44  38 81 00 78 */	addi r4, r1, 0x78
 /* 801FAAE8 001F7A48  4B FD 15 5D */	bl SegmentOver__15CPathFindSearchCFRC9CVector3f
 /* 801FAAEC 001F7A4C  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -7855,7 +7855,7 @@ lbl_801FAA10:
 /* 801FAAF8 001F7A58  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801FAAFC 001F7A5C  81 8C 02 AC */	lwz r12, 0x2ac(r12)
 /* 801FAB00 001F7A60  7D 89 03 A6 */	mtctr r12
-/* 801FAB04 001F7A64  4E 80 04 21 */	bctrl 
+/* 801FAB04 001F7A64  4E 80 04 21 */	bctrl
 /* 801FAB08 001F7A68  80 83 00 C8 */	lwz r4, 0xc8(r3)
 /* 801FAB0C 001F7A6C  38 04 00 01 */	addi r0, r4, 1
 /* 801FAB10 001F7A70  90 03 00 C8 */	stw r0, 0xc8(r3)
@@ -8001,7 +8001,7 @@ lbl_801FAD04:
 /* 801FAD24 001F7C84  83 C1 00 B8 */	lwz r30, 0xb8(r1)
 /* 801FAD28 001F7C88  7C 08 03 A6 */	mtlr r0
 /* 801FAD2C 001F7C8C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801FAD30 001F7C90  4E 80 00 20 */	blr 
+/* 801FAD30 001F7C90  4E 80 00 20 */	blr
 
 .global InRange__13CFlyingPirateFR13CStateManagerf
 InRange__13CFlyingPirateFR13CStateManagerf:
@@ -8025,7 +8025,7 @@ InRange__13CFlyingPirateFR13CStateManagerf:
 /* 801FAD78 001F7CD8  38 00 00 01 */	li r0, 1
 lbl_801FAD7C:
 /* 801FAD7C 001F7CDC  7C 03 03 78 */	mr r3, r0
-/* 801FAD80 001F7CE0  4E 80 00 20 */	blr 
+/* 801FAD80 001F7CE0  4E 80 00 20 */	blr
 
 .global LineOfSight__13CFlyingPirateFR13CStateManagerf
 LineOfSight__13CFlyingPirateFR13CStateManagerf:
@@ -8033,7 +8033,7 @@ LineOfSight__13CFlyingPirateFR13CStateManagerf:
 /* 801FAD88 001F7CE8  54 00 07 FE */	clrlwi r0, r0, 0x1f
 /* 801FAD8C 001F7CEC  7C 00 00 34 */	cntlzw r0, r0
 /* 801FAD90 001F7CF0  54 03 D9 7E */	srwi r3, r0, 5
-/* 801FAD94 001F7CF4  4E 80 00 20 */	blr 
+/* 801FAD94 001F7CF4  4E 80 00 20 */	blr
 
 .global SpotPlayer__13CFlyingPirateFR13CStateManagerf
 SpotPlayer__13CFlyingPirateFR13CStateManagerf:
@@ -8054,7 +8054,7 @@ SpotPlayer__13CFlyingPirateFR13CStateManagerf:
 /* 801FADD0 001F7D30  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FADD4 001F7D34  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801FADD8 001F7D38  7D 89 03 A6 */	mtctr r12
-/* 801FADDC 001F7D3C  4E 80 04 21 */	bctrl 
+/* 801FADDC 001F7D3C  4E 80 04 21 */	bctrl
 /* 801FADE0 001F7D40  C0 21 00 28 */	lfs f1, 0x28(r1)
 /* 801FADE4 001F7D44  38 61 00 2C */	addi r3, r1, 0x2c
 /* 801FADE8 001F7D48  C0 01 00 1C */	lfs f0, 0x1c(r1)
@@ -8091,7 +8091,7 @@ SpotPlayer__13CFlyingPirateFR13CStateManagerf:
 /* 801FAE64 001F7DC4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801FAE68 001F7DC8  7C 08 03 A6 */	mtlr r0
 /* 801FAE6C 001F7DCC  38 21 00 40 */	addi r1, r1, 0x40
-/* 801FAE70 001F7DD0  4E 80 00 20 */	blr 
+/* 801FAE70 001F7DD0  4E 80 00 20 */	blr
 
 .global Attack__13CFlyingPirateFR13CStateManager9EStateMsgf
 Attack__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -8206,7 +8206,7 @@ lbl_801FAFF4:
 /* 801FB008 001F7F68  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801FB00C 001F7F6C  7C 08 03 A6 */	mtlr r0
 /* 801FB010 001F7F70  38 21 00 60 */	addi r1, r1, 0x60
-/* 801FB014 001F7F74  4E 80 00 20 */	blr 
+/* 801FB014 001F7F74  4E 80 00 20 */	blr
 
 .global ShouldAttack__13CFlyingPirateFR13CStateManagerf
 ShouldAttack__13CFlyingPirateFR13CStateManagerf:
@@ -8309,7 +8309,7 @@ lbl_801FB168:
 /* 801FB188 001F80E8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801FB18C 001F80EC  7C 08 03 A6 */	mtlr r0
 /* 801FB190 001F80F0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801FB194 001F80F4  4E 80 00 20 */	blr 
+/* 801FB194 001F80F4  4E 80 00 20 */	blr
 
 .global CoverFind__13CFlyingPirateFR13CStateManagerf
 CoverFind__13CFlyingPirateFR13CStateManagerf:
@@ -8425,7 +8425,7 @@ lbl_801FB328:
 /* 801FB338 001F8298  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801FB33C 001F829C  7C 08 03 A6 */	mtlr r0
 /* 801FB340 001F82A0  38 21 00 70 */	addi r1, r1, 0x70
-/* 801FB344 001F82A4  4E 80 00 20 */	blr 
+/* 801FB344 001F82A4  4E 80 00 20 */	blr
 
 .global CoverCheck__13CFlyingPirateFR13CStateManagerf
 CoverCheck__13CFlyingPirateFR13CStateManagerf:
@@ -8457,7 +8457,7 @@ lbl_801FB39C:
 /* 801FB3A4 001F8304  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 801FB3A8 001F8308  7C 08 03 A6 */	mtlr r0
 /* 801FB3AC 001F830C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801FB3B0 001F8310  4E 80 00 20 */	blr 
+/* 801FB3B0 001F8310  4E 80 00 20 */	blr
 
 .global Lurk__13CFlyingPirateFR13CStateManager9EStateMsgf
 Lurk__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -8595,7 +8595,7 @@ lbl_801FB5A0:
 /* 801FB5A8 001F8508  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801FB5AC 001F850C  7C 08 03 A6 */	mtlr r0
 /* 801FB5B0 001F8510  38 21 00 60 */	addi r1, r1, 0x60
-/* 801FB5B4 001F8514  4E 80 00 20 */	blr 
+/* 801FB5B4 001F8514  4E 80 00 20 */	blr
 
 .global Bounce__13CFlyingPirateFR13CStateManager9EStateMsgf
 Bounce__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -8691,7 +8691,7 @@ lbl_801FB6F8:
 /* 801FB6FC 001F865C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801FB700 001F8660  7C 08 03 A6 */	mtlr r0
 /* 801FB704 001F8664  38 21 00 30 */	addi r1, r1, 0x30
-/* 801FB708 001F8668  4E 80 00 20 */	blr 
+/* 801FB708 001F8668  4E 80 00 20 */	blr
 
 .global GetUp__13CFlyingPirateFR13CStateManager9EStateMsgf
 GetUp__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -8776,7 +8776,7 @@ lbl_801FB824:
 /* 801FB82C 001F878C  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801FB830 001F8790  7C 08 03 A6 */	mtlr r0
 /* 801FB834 001F8794  38 21 00 40 */	addi r1, r1, 0x40
-/* 801FB838 001F8798  4E 80 00 20 */	blr 
+/* 801FB838 001F8798  4E 80 00 20 */	blr
 
 .global Taunt__13CFlyingPirateFR13CStateManager9EStateMsgf
 Taunt__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -8903,7 +8903,7 @@ lbl_801FB9F8:
 /* 801FB9FC 001F895C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801FBA00 001F8960  7C 08 03 A6 */	mtlr r0
 /* 801FBA04 001F8964  38 21 00 50 */	addi r1, r1, 0x50
-/* 801FBA08 001F8968  4E 80 00 20 */	blr 
+/* 801FBA08 001F8968  4E 80 00 20 */	blr
 
 .global HearPlayer__13CFlyingPirateFR13CStateManagerf
 HearPlayer__13CFlyingPirateFR13CStateManagerf:
@@ -8939,7 +8939,7 @@ HearPlayer__13CFlyingPirateFR13CStateManagerf:
 /* 801FBA80 001F89E0  38 00 00 01 */	li r0, 1
 lbl_801FBA84:
 /* 801FBA84 001F89E4  7C 03 03 78 */	mr r3, r0
-/* 801FBA88 001F89E8  4E 80 00 20 */	blr 
+/* 801FBA88 001F89E8  4E 80 00 20 */	blr
 
 .global HearShot__13CFlyingPirateFR13CStateManagerf
 HearShot__13CFlyingPirateFR13CStateManagerf:
@@ -8949,7 +8949,7 @@ HearShot__13CFlyingPirateFR13CStateManagerf:
 /* 801FBA98 001F89F8  50 05 2E B4 */	rlwimi r5, r0, 5, 0x1a, 0x1a
 /* 801FBA9C 001F89FC  98 A3 06 A0 */	stb r5, 0x6a0(r3)
 /* 801FBAA0 001F8A00  7C 83 23 78 */	mr r3, r4
-/* 801FBAA4 001F8A04  4E 80 00 20 */	blr 
+/* 801FBAA4 001F8A04  4E 80 00 20 */	blr
 
 .global PatternOver__13CFlyingPirateFR13CStateManagerf
 PatternOver__13CFlyingPirateFR13CStateManagerf:
@@ -8958,7 +8958,7 @@ PatternOver__13CFlyingPirateFR13CStateManagerf:
 /* 801FBAB0 001F8A10  7C 03 00 50 */	subf r0, r3, r0
 /* 801FBAB4 001F8A14  7C 00 00 34 */	cntlzw r0, r0
 /* 801FBAB8 001F8A18  54 03 D9 7E */	srwi r3, r0, 5
-/* 801FBABC 001F8A1C  4E 80 00 20 */	blr 
+/* 801FBABC 001F8A1C  4E 80 00 20 */	blr
 
 .global TargetPatrol__13CFlyingPirateFR13CStateManager9EStateMsgf
 TargetPatrol__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -9132,7 +9132,7 @@ lbl_801FBD10:
 /* 801FBD3C 001F8C9C  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 801FBD40 001F8CA0  7C 08 03 A6 */	mtlr r0
 /* 801FBD44 001F8CA4  38 21 00 90 */	addi r1, r1, 0x90
-/* 801FBD48 001F8CA8  4E 80 00 20 */	blr 
+/* 801FBD48 001F8CA8  4E 80 00 20 */	blr
 
 .global Patrol__13CFlyingPirateFR13CStateManager9EStateMsgf
 Patrol__13CFlyingPirateFR13CStateManager9EStateMsgf:
@@ -9291,7 +9291,7 @@ lbl_801FBF5C:
 /* 801FBF88 001F8EE8  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801FBF8C 001F8EEC  7C 08 03 A6 */	mtlr r0
 /* 801FBF90 001F8EF0  38 21 00 80 */	addi r1, r1, 0x80
-/* 801FBF94 001F8EF4  4E 80 00 20 */	blr 
+/* 801FBF94 001F8EF4  4E 80 00 20 */	blr
 
 .global Explode__13CFlyingPirateFR13CStateManager
 Explode__13CFlyingPirateFR13CStateManager:
@@ -9444,7 +9444,7 @@ lbl_801FC1B0:
 /* 801FC1C0 001F9120  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 801FC1C4 001F9124  7C 08 03 A6 */	mtlr r0
 /* 801FC1C8 001F9128  38 21 01 90 */	addi r1, r1, 0x190
-/* 801FC1CC 001F912C  4E 80 00 20 */	blr 
+/* 801FC1CC 001F912C  4E 80 00 20 */	blr
 
 .global KnockBack__13CFlyingPirateFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 KnockBack__13CFlyingPirateFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef:
@@ -9486,7 +9486,7 @@ lbl_801FC258:
 /* 801FC258 001F91B8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801FC25C 001F91BC  81 8C 02 B8 */	lwz r12, 0x2b8(r12)
 /* 801FC260 001F91C0  7D 89 03 A6 */	mtctr r12
-/* 801FC264 001F91C4  4E 80 04 21 */	bctrl 
+/* 801FC264 001F91C4  4E 80 04 21 */	bctrl
 /* 801FC268 001F91C8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801FC26C 001F91CC  40 82 02 3C */	bne lbl_801FC4A8
 /* 801FC270 001F91D0  C3 3A 06 20 */	lfs f25, 0x620(r26)
@@ -9519,7 +9519,7 @@ lbl_801FC2BC:
 /* 801FC2D8 001F9238  81 9A 00 00 */	lwz r12, 0(r26)
 /* 801FC2DC 001F923C  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 801FC2E0 001F9240  7D 89 03 A6 */	mtctr r12
-/* 801FC2E4 001F9244  4E 80 04 21 */	bctrl 
+/* 801FC2E4 001F9244  4E 80 04 21 */	bctrl
 /* 801FC2E8 001F9248  FC 20 08 50 */	fneg f1, f1
 /* 801FC2EC 001F924C  C0 02 AF 60 */	lfs f0, lbl_805ACC80@sda21(r2)
 /* 801FC2F0 001F9250  D0 1A 01 50 */	stfs f0, 0x150(r26)
@@ -9561,7 +9561,7 @@ lbl_801FC368:
 /* 801FC378 001F92D8  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FC37C 001F92DC  81 8C 00 50 */	lwz r12, 0x50(r12)
 /* 801FC380 001F92E0  7D 89 03 A6 */	mtctr r12
-/* 801FC384 001F92E4  4E 80 04 21 */	bctrl 
+/* 801FC384 001F92E4  4E 80 04 21 */	bctrl
 /* 801FC388 001F92E8  C3 81 00 6C */	lfs f28, 0x6c(r1)
 /* 801FC38C 001F92EC  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
 /* 801FC390 001F92F0  C0 3A 00 40 */	lfs f1, 0x40(r26)
@@ -9741,7 +9741,7 @@ lbl_801FC5B0:
 /* 801FC630 001F9590  81 9A 00 00 */	lwz r12, 0(r26)
 /* 801FC634 001F9594  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 801FC638 001F9598  7D 89 03 A6 */	mtctr r12
-/* 801FC63C 001F959C  4E 80 04 21 */	bctrl 
+/* 801FC63C 001F959C  4E 80 04 21 */	bctrl
 /* 801FC640 001F95A0  FC 20 08 50 */	fneg f1, f1
 /* 801FC644 001F95A4  C0 02 AF 60 */	lfs f0, lbl_805ACC80@sda21(r2)
 /* 801FC648 001F95A8  D0 1A 01 50 */	stfs f0, 0x150(r26)
@@ -9767,7 +9767,7 @@ lbl_801FC658:
 /* 801FC694 001F95F4  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 801FC698 001F95F8  7C 08 03 A6 */	mtlr r0
 /* 801FC69C 001F95FC  38 21 01 10 */	addi r1, r1, 0x110
-/* 801FC6A0 001F9600  4E 80 00 20 */	blr 
+/* 801FC6A0 001F9600  4E 80 00 20 */	blr
 
 .global CanFireMissiles__13CFlyingPirateFR13CStateManager
 CanFireMissiles__13CFlyingPirateFR13CStateManager:
@@ -9898,7 +9898,7 @@ lbl_801FC874:
 /* 801FC884 001F97E4  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 801FC888 001F97E8  7C 08 03 A6 */	mtlr r0
 /* 801FC88C 001F97EC  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801FC890 001F97F0  4E 80 00 20 */	blr 
+/* 801FC890 001F97F0  4E 80 00 20 */	blr
 
 .global GetTargetPos__13CFlyingPirateFR13CStateManager
 GetTargetPos__13CFlyingPirateFR13CStateManager:
@@ -9956,7 +9956,7 @@ lbl_801FC948:
 /* 801FC958 001F98B8  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FC95C 001F98BC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801FC960 001F98C0  7D 89 03 A6 */	mtctr r12
-/* 801FC964 001F98C4  4E 80 04 21 */	bctrl 
+/* 801FC964 001F98C4  4E 80 04 21 */	bctrl
 lbl_801FC968:
 /* 801FC968 001F98C8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801FC96C 001F98CC  83 E1 00 2C */	lwz r31, 0x2c(r1)
@@ -9964,7 +9964,7 @@ lbl_801FC968:
 /* 801FC974 001F98D4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801FC978 001F98D8  7C 08 03 A6 */	mtlr r0
 /* 801FC97C 001F98DC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801FC980 001F98E0  4E 80 00 20 */	blr 
+/* 801FC980 001F98E0  4E 80 00 20 */	blr
 
 .global GetDodgeDirection__13CFlyingPirateFR13CStateManagerf
 GetDodgeDirection__13CFlyingPirateFR13CStateManagerf:
@@ -10343,7 +10343,7 @@ lbl_801FCED0:
 /* 801FCEE8 001F9E48  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 801FCEEC 001F9E4C  7C 08 03 A6 */	mtlr r0
 /* 801FCEF0 001F9E50  38 21 01 70 */	addi r1, r1, 0x170
-/* 801FCEF4 001F9E54  4E 80 00 20 */	blr 
+/* 801FCEF4 001F9E54  4E 80 00 20 */	blr
 
 .global AvoidActors__13CFlyingPirateFR13CStateManager
 AvoidActors__13CFlyingPirateFR13CStateManager:
@@ -10508,7 +10508,7 @@ lbl_801FD130:
 /* 801FD154 001FA0B4  80 01 08 E4 */	lwz r0, 0x8e4(r1)
 /* 801FD158 001FA0B8  7C 08 03 A6 */	mtlr r0
 /* 801FD15C 001FA0BC  38 21 08 E0 */	addi r1, r1, 0x8e0
-/* 801FD160 001FA0C0  4E 80 00 20 */	blr 
+/* 801FD160 001FA0C0  4E 80 00 20 */	blr
 
 .global UpdateCantSeePlayer__13CFlyingPirateFR13CStateManager
 UpdateCantSeePlayer__13CFlyingPirateFR13CStateManager:
@@ -10544,7 +10544,7 @@ UpdateCantSeePlayer__13CFlyingPirateFR13CStateManager:
 /* 801FD1D8 001FA138  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FD1DC 001FA13C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801FD1E0 001FA140  7D 89 03 A6 */	mtctr r12
-/* 801FD1E4 001FA144  4E 80 04 21 */	bctrl 
+/* 801FD1E4 001FA144  4E 80 04 21 */	bctrl
 /* 801FD1E8 001FA148  C0 41 00 54 */	lfs f2, 0x54(r1)
 /* 801FD1EC 001FA14C  7F A4 EB 78 */	mr r4, r29
 /* 801FD1F0 001FA150  C0 21 00 58 */	lfs f1, 0x58(r1)
@@ -10665,7 +10665,7 @@ lbl_801FD384:
 /* 801FD3B4 001FA314  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 801FD3B8 001FA318  7C 08 03 A6 */	mtlr r0
 /* 801FD3BC 001FA31C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801FD3C0 001FA320  4E 80 00 20 */	blr 
+/* 801FD3C0 001FA320  4E 80 00 20 */	blr
 
 .global LineOfSightTest__13CFlyingPirateFR13CStateManagerRC9CVector3fRC9CVector3f
 LineOfSightTest__13CFlyingPirateFR13CStateManagerRC9CVector3fRC9CVector3f:
@@ -10702,7 +10702,7 @@ LineOfSightTest__13CFlyingPirateFR13CStateManagerRC9CVector3fRC9CVector3f:
 /* 801FD43C 001FA39C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801FD440 001FA3A0  7C 08 03 A6 */	mtlr r0
 /* 801FD444 001FA3A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 801FD448 001FA3A8  4E 80 00 20 */	blr 
+/* 801FD448 001FA3A8  4E 80 00 20 */	blr
 
 .global CheckForProjectiles__13CFlyingPirateFR13CStateManager
 CheckForProjectiles__13CFlyingPirateFR13CStateManager:
@@ -10909,7 +10909,7 @@ lbl_801FD724:
 /* 801FD740 001FA6A0  80 01 09 04 */	lwz r0, 0x904(r1)
 /* 801FD744 001FA6A4  7C 08 03 A6 */	mtlr r0
 /* 801FD748 001FA6A8  38 21 09 00 */	addi r1, r1, 0x900
-/* 801FD74C 001FA6AC  4E 80 00 20 */	blr 
+/* 801FD74C 001FA6AC  4E 80 00 20 */	blr
 
 .global sub_801fd750
 sub_801fd750:
@@ -10956,7 +10956,7 @@ lbl_801FD7E4:
 /* 801FD7EC 001FA74C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801FD7F0 001FA750  7C 08 03 A6 */	mtlr r0
 /* 801FD7F4 001FA754  38 21 00 30 */	addi r1, r1, 0x30
-/* 801FD7F8 001FA758  4E 80 00 20 */	blr 
+/* 801FD7F8 001FA758  4E 80 00 20 */	blr
 
 .global sub_801fd7fc
 sub_801fd7fc:
@@ -11004,7 +11004,7 @@ lbl_801FD890:
 /* 801FD898 001FA7F8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801FD89C 001FA7FC  7C 08 03 A6 */	mtlr r0
 /* 801FD8A0 001FA800  38 21 00 20 */	addi r1, r1, 0x20
-/* 801FD8A4 001FA804  4E 80 00 20 */	blr 
+/* 801FD8A4 001FA804  4E 80 00 20 */	blr
 
 .global GetOrigin__13CFlyingPirateCFv
 GetOrigin__13CFlyingPirateCFv:
@@ -11014,7 +11014,7 @@ GetOrigin__13CFlyingPirateCFv:
 /* 801FD8B4 001FA814  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801FD8B8 001FA818  D0 23 00 04 */	stfs f1, 4(r3)
 /* 801FD8BC 001FA81C  D0 43 00 08 */	stfs f2, 8(r3)
-/* 801FD8C0 001FA820  4E 80 00 20 */	blr 
+/* 801FD8C0 001FA820  4E 80 00 20 */	blr
 
 .global sub_801fd8c4
 sub_801fd8c4:
@@ -11171,7 +11171,7 @@ lbl_801FDAF0:
 /* 801FDB00 001FAA60  81 83 00 00 */	lwz r12, 0(r3)
 /* 801FDB04 001FAA64  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801FDB08 001FAA68  7D 89 03 A6 */	mtctr r12
-/* 801FDB0C 001FAA6C  4E 80 04 21 */	bctrl 
+/* 801FDB0C 001FAA6C  4E 80 04 21 */	bctrl
 /* 801FDB10 001FAA70  C0 5E 00 60 */	lfs f2, 0x60(r30)
 /* 801FDB14 001FAA74  38 81 00 18 */	addi r4, r1, 0x18
 /* 801FDB18 001FAA78  C0 3E 00 50 */	lfs f1, 0x50(r30)
@@ -11186,7 +11186,7 @@ lbl_801FDAF0:
 /* 801FDB3C 001FAA9C  D0 41 00 14 */	stfs f2, 0x14(r1)
 /* 801FDB40 001FAAA0  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801FDB44 001FAAA4  7D 89 03 A6 */	mtctr r12
-/* 801FDB48 001FAAA8  4E 80 04 21 */	bctrl 
+/* 801FDB48 001FAAA8  4E 80 04 21 */	bctrl
 lbl_801FDB4C:
 /* 801FDB4C 001FAAAC  80 BE 00 64 */	lwz r5, 0x64(r30)
 /* 801FDB50 001FAAB0  3C 60 80 57 */	lis r3, lbl_80572108@ha
@@ -11206,7 +11206,7 @@ lbl_801FDB78:
 /* 801FDB80 001FAAE0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801FDB84 001FAAE4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801FDB88 001FAAE8  7D 89 03 A6 */	mtctr r12
-/* 801FDB8C 001FAAEC  4E 80 04 21 */	bctrl 
+/* 801FDB8C 001FAAEC  4E 80 04 21 */	bctrl
 /* 801FDB90 001FAAF0  3B BD 00 08 */	addi r29, r29, 8
 /* 801FDB94 001FAAF4  3B 9C 00 01 */	addi r28, r28, 1
 lbl_801FDB98:
@@ -11230,7 +11230,7 @@ lbl_801FDBC0:
 /* 801FDBD8 001FAB38  83 81 00 E0 */	lwz r28, 0xe0(r1)
 /* 801FDBDC 001FAB3C  7C 08 03 A6 */	mtlr r0
 /* 801FDBE0 001FAB40  38 21 01 00 */	addi r1, r1, 0x100
-/* 801FDBE4 001FAB44  4E 80 00 20 */	blr 
+/* 801FDBE4 001FAB44  4E 80 00 20 */	blr
 
 .global sub_801fdbe8
 sub_801fdbe8:
@@ -11326,7 +11326,7 @@ lbl_801FDD28:
 /* 801FDD34 001FAC94  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801FDD38 001FAC98  7C 08 03 A6 */	mtlr r0
 /* 801FDD3C 001FAC9C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801FDD40 001FACA0  4E 80 00 20 */	blr 
+/* 801FDD40 001FACA0  4E 80 00 20 */	blr
 
 .global sub_801fdd44
 sub_801fdd44:
@@ -11366,7 +11366,7 @@ lbl_801FDDC0:
 /* 801FDDC4 001FAD24  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801FDDC8 001FAD28  7C 08 03 A6 */	mtlr r0
 /* 801FDDCC 001FAD2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801FDDD0 001FAD30  4E 80 00 20 */	blr 
+/* 801FDDD0 001FAD30  4E 80 00 20 */	blr
 
 .global Listen__13CFlyingPirateFRC9CVector3f16EListenNoiseType
 Listen__13CFlyingPirateFRC9CVector3f16EListenNoiseType:
@@ -11413,7 +11413,7 @@ lbl_801FDE58:
 /* 801FDE6C 001FADCC  98 03 06 A0 */	stb r0, 0x6a0(r3)
 lbl_801FDE70:
 /* 801FDE70 001FADD0  54 C3 06 3E */	clrlwi r3, r6, 0x18
-/* 801FDE74 001FADD4  4E 80 00 20 */	blr 
+/* 801FDE74 001FADD4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__13CFlyingPirateF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__13CFlyingPirateF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -11480,7 +11480,7 @@ lbl_801FDF24:
 /* 801FDF54 001FAEB4  38 63 6B 28 */	addi r3, r3, lbl_803E6B28@l
 /* 801FDF58 001FAEB8  7C 03 00 2E */	lwzx r0, r3, r0
 /* 801FDF5C 001FAEBC  7C 09 03 A6 */	mtctr r0
-/* 801FDF60 001FAEC0  4E 80 04 20 */	bctr 
+/* 801FDF60 001FAEC0  4E 80 04 20 */	bctr
 .global lbl_801FDF64
 lbl_801FDF64:
 /* 801FDF64 001FAEC4  83 FD 00 2C */	lwz r31, 0x2c(r29)
@@ -11605,7 +11605,7 @@ lbl_801FE0E4:
 /* 801FE118 001FB078  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801FE11C 001FB07C  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 801FE120 001FB080  7D 89 03 A6 */	mtctr r12
-/* 801FE124 001FB084  4E 80 04 21 */	bctrl 
+/* 801FE124 001FB084  4E 80 04 21 */	bctrl
 /* 801FE128 001FB088  FC 20 08 50 */	fneg f1, f1
 /* 801FE12C 001FB08C  C0 02 AF 60 */	lfs f0, lbl_805ACC80@sda21(r2)
 /* 801FE130 001FB090  D0 1D 01 50 */	stfs f0, 0x150(r29)
@@ -11640,7 +11640,7 @@ lbl_801FE158:
 /* 801FE190 001FB0F0  C3 BD 00 E8 */	lfs f29, 0xe8(r29)
 /* 801FE194 001FB0F4  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 801FE198 001FB0F8  7D 89 03 A6 */	mtctr r12
-/* 801FE19C 001FB0FC  4E 80 04 21 */	bctrl 
+/* 801FE19C 001FB0FC  4E 80 04 21 */	bctrl
 /* 801FE1A0 001FB100  FC 40 E8 50 */	fneg f2, f29
 /* 801FE1A4 001FB104  C0 02 AF 60 */	lfs f0, lbl_805ACC80@sda21(r2)
 /* 801FE1A8 001FB108  7F A3 EB 78 */	mr r3, r29
@@ -11682,7 +11682,7 @@ lbl_801FE158:
 /* 801FE238 001FB198  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801FE23C 001FB19C  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 801FE240 001FB1A0  7D 89 03 A6 */	mtctr r12
-/* 801FE244 001FB1A4  4E 80 04 21 */	bctrl 
+/* 801FE244 001FB1A4  4E 80 04 21 */	bctrl
 /* 801FE248 001FB1A8  C0 02 AF 64 */	lfs f0, lbl_805ACC84@sda21(r2)
 /* 801FE24C 001FB1AC  C0 81 00 74 */	lfs f4, 0x74(r1)
 /* 801FE250 001FB1B0  EC 40 00 72 */	fmuls f2, f0, f1
@@ -11782,7 +11782,7 @@ lbl_801FE378:
 /* 801FE3A0 001FB300  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 801FE3A4 001FB304  7C 08 03 A6 */	mtlr r0
 /* 801FE3A8 001FB308  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801FE3AC 001FB30C  4E 80 00 20 */	blr 
+/* 801FE3AC 001FB30C  4E 80 00 20 */	blr
 
 .global Accept__13CFlyingPirateFR8IVisitor
 Accept__13CFlyingPirateFR8IVisitor:
@@ -11795,11 +11795,11 @@ Accept__13CFlyingPirateFR8IVisitor:
 /* 801FE3C8 001FB328  7C 04 03 78 */	mr r4, r0
 /* 801FE3CC 001FB32C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801FE3D0 001FB330  7D 89 03 A6 */	mtctr r12
-/* 801FE3D4 001FB334  4E 80 04 21 */	bctrl 
+/* 801FE3D4 001FB334  4E 80 04 21 */	bctrl
 /* 801FE3D8 001FB338  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801FE3DC 001FB33C  7C 08 03 A6 */	mtlr r0
 /* 801FE3E0 001FB340  38 21 00 10 */	addi r1, r1, 0x10
-/* 801FE3E4 001FB344  4E 80 00 20 */	blr 
+/* 801FE3E4 001FB344  4E 80 00 20 */	blr
 
 .global "__ct__13CFlyingPirateF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfoffUiUiRC11CDamageInfoUsUiRC11CDamageInfoUiffUiRC11CDamageInfoifffUsUs"
 "__ct__13CFlyingPirateF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfoffUiUiRC11CDamageInfoUsUiRC11CDamageInfoUiffUiRC11CDamageInfoifffUsUs":
@@ -12131,7 +12131,7 @@ lbl_801FE7FC:
 /* 801FE8F4 001FB854  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FE8F8 001FB858  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801FE8FC 001FB85C  7D 89 03 A6 */	mtctr r12
-/* 801FE900 001FB860  4E 80 04 21 */	bctrl 
+/* 801FE900 001FB860  4E 80 04 21 */	bctrl
 /* 801FE904 001FB864  3B 01 00 CC */	addi r24, r1, 0xcc
 /* 801FE908 001FB868  38 81 00 64 */	addi r4, r1, 0x64
 /* 801FE90C 001FB86C  7F 03 C3 78 */	mr r3, r24
@@ -12174,7 +12174,7 @@ lbl_801FE958:
 /* 801FE99C 001FB8FC  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FE9A0 001FB900  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801FE9A4 001FB904  7D 89 03 A6 */	mtctr r12
-/* 801FE9A8 001FB908  4E 80 04 21 */	bctrl 
+/* 801FE9A8 001FB908  4E 80 04 21 */	bctrl
 /* 801FE9AC 001FB90C  3B 01 00 C0 */	addi r24, r1, 0xc0
 /* 801FE9B0 001FB910  38 81 00 54 */	addi r4, r1, 0x54
 /* 801FE9B4 001FB914  7F 03 C3 78 */	mr r3, r24
@@ -12217,7 +12217,7 @@ lbl_801FEA00:
 /* 801FEA44 001FB9A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FEA48 001FB9A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801FEA4C 001FB9AC  7D 89 03 A6 */	mtctr r12
-/* 801FEA50 001FB9B0  4E 80 04 21 */	bctrl 
+/* 801FEA50 001FB9B0  4E 80 04 21 */	bctrl
 /* 801FEA54 001FB9B4  3B 01 00 B4 */	addi r24, r1, 0xb4
 /* 801FEA58 001FB9B8  38 81 00 44 */	addi r4, r1, 0x44
 /* 801FEA5C 001FB9BC  7F 03 C3 78 */	mr r3, r24
@@ -12304,7 +12304,7 @@ lbl_801FEB68:
 /* 801FEB90 001FBAF0  38 80 00 01 */	li r4, 1
 /* 801FEB94 001FBAF4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801FEB98 001FBAF8  7D 89 03 A6 */	mtctr r12
-/* 801FEB9C 001FBAFC  4E 80 04 21 */	bctrl 
+/* 801FEB9C 001FBAFC  4E 80 04 21 */	bctrl
 lbl_801FEBA0:
 /* 801FEBA0 001FBB00  7F 20 07 75 */	extsb. r0, r25
 /* 801FEBA4 001FBB04  41 82 00 10 */	beq lbl_801FEBB4
@@ -12318,7 +12318,7 @@ lbl_801FEBB4:
 /* 801FEBC0 001FBB20  81 83 00 00 */	lwz r12, 0(r3)
 /* 801FEBC4 001FBB24  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801FEBC8 001FBB28  7D 89 03 A6 */	mtctr r12
-/* 801FEBCC 001FBB2C  4E 80 04 21 */	bctrl 
+/* 801FEBCC 001FBB2C  4E 80 04 21 */	bctrl
 /* 801FEBD0 001FBB30  3B DE 00 0C */	addi r30, r30, 0xc
 /* 801FEBD4 001FBB34  3B BD 00 08 */	addi r29, r29, 8
 /* 801FEBD8 001FBB38  3B 7B 00 01 */	addi r27, r27, 1
@@ -12364,7 +12364,7 @@ lbl_801FEC54:
 /* 801FEC5C 001FBBBC  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 801FEC60 001FBBC0  7C 08 03 A6 */	mtlr r0
 /* 801FEC64 001FBBC4  38 21 01 90 */	addi r1, r1, 0x190
-/* 801FEC68 001FBBC8  4E 80 00 20 */	blr 
+/* 801FEC68 001FBBC8  4E 80 00 20 */	blr
 
 .global sub_801fec6c
 sub_801fec6c:
@@ -12444,7 +12444,7 @@ sub_801fec6c:
 /* 801FED90 001FBCF0  81 84 00 00 */	lwz r12, 0(r4)
 /* 801FED94 001FBCF4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801FED98 001FBCF8  7D 89 03 A6 */	mtctr r12
-/* 801FED9C 001FBCFC  4E 80 04 21 */	bctrl 
+/* 801FED9C 001FBCFC  4E 80 04 21 */	bctrl
 /* 801FEDA0 001FBD00  3B 9D 00 90 */	addi r28, r29, 0x90
 /* 801FEDA4 001FBD04  38 81 00 10 */	addi r4, r1, 0x10
 /* 801FEDA8 001FBD08  7F 83 E3 78 */	mr r3, r28
@@ -12538,7 +12538,7 @@ lbl_801FEED0:
 /* 801FEF00 001FBE60  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 801FEF04 001FBE64  7C 08 03 A6 */	mtlr r0
 /* 801FEF08 001FBE68  38 21 00 50 */	addi r1, r1, 0x50
-/* 801FEF0C 001FBE6C  4E 80 00 20 */	blr 
+/* 801FEF0C 001FBE6C  4E 80 00 20 */	blr
 
 .global PreRender__20CFlyingPirateRagDollFRC9CVector3fR10CModelData
 PreRender__20CFlyingPirateRagDollFRC9CVector3fR10CModelData:
@@ -12969,7 +12969,7 @@ lbl_801FF59C:
 /* 801FF5A0 001FC500  80 01 02 64 */	lwz r0, 0x264(r1)
 /* 801FF5A4 001FC504  7C 08 03 A6 */	mtlr r0
 /* 801FF5A8 001FC508  38 21 02 60 */	addi r1, r1, 0x260
-/* 801FF5AC 001FC50C  4E 80 00 20 */	blr 
+/* 801FF5AC 001FC50C  4E 80 00 20 */	blr
 
 .global Update__20CFlyingPirateRagDollFR13CStateManagerf
 Update__20CFlyingPirateRagDollFR13CStateManagerf:
@@ -13531,7 +13531,7 @@ lbl_801FFE14:
 /* 801FFE40 001FCDA0  83 A1 00 E4 */	lwz r29, 0xe4(r1)
 /* 801FFE44 001FCDA4  7C 08 03 A6 */	mtlr r0
 /* 801FFE48 001FCDA8  38 21 01 30 */	addi r1, r1, 0x130
-/* 801FFE4C 001FCDAC  4E 80 00 20 */	blr 
+/* 801FFE4C 001FCDAC  4E 80 00 20 */	blr
 
 .global sub_801ffe50
 sub_801ffe50:
@@ -13581,7 +13581,7 @@ lbl_801FFED4:
 /* 801FFEF8 001FCE58  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801FFEFC 001FCE5C  7C 08 03 A6 */	mtlr r0
 /* 801FFF00 001FCE60  38 21 00 30 */	addi r1, r1, 0x30
-/* 801FFF04 001FCE64  4E 80 00 20 */	blr 
+/* 801FFF04 001FCE64  4E 80 00 20 */	blr
 
 .global __dt__20CFlyingPirateRagDollFv
 __dt__20CFlyingPirateRagDollFv:
@@ -13614,7 +13614,7 @@ lbl_801FFF60:
 /* 801FFF6C 001FCECC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801FFF70 001FCED0  7C 08 03 A6 */	mtlr r0
 /* 801FFF74 001FCED4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801FFF78 001FCED8  4E 80 00 20 */	blr 
+/* 801FFF78 001FCED8  4E 80 00 20 */	blr
 
 .global __ct__20CFlyingPirateRagDollFR13CStateManagerP13CFlyingPiratefUsUs
 __ct__20CFlyingPirateRagDollFR13CStateManagerP13CFlyingPiratefUsUs:
@@ -13638,7 +13638,7 @@ __ct__20CFlyingPirateRagDollFR13CStateManagerP13CFlyingPiratefUsUs:
 /* 801FFFC0 001FCF20  C3 A2 AF 5C */	lfs f29, lbl_805ACC7C@sda21(r2)
 /* 801FFFC4 001FCF24  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 801FFFC8 001FCF28  7D 89 03 A6 */	mtctr r12
-/* 801FFFCC 001FCF2C  4E 80 04 21 */	bctrl 
+/* 801FFFCC 001FCF2C  4E 80 04 21 */	bctrl
 /* 801FFFD0 001FCF30  FC 20 08 50 */	fneg f1, f1
 /* 801FFFD4 001FCF34  C0 62 AF EC */	lfs f3, lbl_805ACD0C@sda21(r2)
 /* 801FFFD8 001FCF38  FC 40 E8 50 */	fneg f2, f29
@@ -13702,7 +13702,7 @@ __ct__20CFlyingPirateRagDollFR13CStateManagerP13CFlyingPiratefUsUs:
 /* 802000C0 001FD020  81 83 00 00 */	lwz r12, 0(r3)
 /* 802000C4 001FD024  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 802000C8 001FD028  7D 89 03 A6 */	mtctr r12
-/* 802000CC 001FD02C  4E 80 04 21 */	bctrl 
+/* 802000CC 001FD02C  4E 80 04 21 */	bctrl
 /* 802000D0 001FD030  C0 02 B0 28 */	lfs f0, lbl_805ACD48@sda21(r2)
 /* 802000D4 001FD034  38 80 00 0F */	li r4, 0xf
 /* 802000D8 001FD038  D0 03 00 00 */	stfs f0, 0(r3)
@@ -14084,7 +14084,7 @@ lbl_80200178:
 /* 802006B4 001FD614  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802006B8 001FD618  7C 08 03 A6 */	mtlr r0
 /* 802006BC 001FD61C  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802006C0 001FD620  4E 80 00 20 */	blr 
+/* 802006C0 001FD620  4E 80 00 20 */	blr
 
 .global __sinit_CFlyingPirate_cpp
 __sinit_CFlyingPirate_cpp:

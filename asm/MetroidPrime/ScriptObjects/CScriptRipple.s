@@ -27,15 +27,15 @@ Accept__13CScriptRippleFR8IVisitor:
 /* 80174F2C 00171E8C  7C 04 03 78 */	mr r4, r0
 /* 80174F30 00171E90  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80174F34 00171E94  7D 89 03 A6 */	mtctr r12
-/* 80174F38 00171E98  4E 80 04 21 */	bctrl 
+/* 80174F38 00171E98  4E 80 04 21 */	bctrl
 /* 80174F3C 00171E9C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80174F40 00171EA0  7C 08 03 A6 */	mtlr r0
 /* 80174F44 00171EA4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80174F48 00171EA8  4E 80 00 20 */	blr 
+/* 80174F48 00171EA8  4E 80 00 20 */	blr
 
 .global Think__13CScriptRippleFfR13CStateManager
 Think__13CScriptRippleFfR13CStateManager:
-/* 80174F4C 00171EAC  4E 80 00 20 */	blr 
+/* 80174F4C 00171EAC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__13CScriptRippleF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__13CScriptRippleF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -105,7 +105,7 @@ lbl_80174FE8:
 /* 8017503C 00171F9C  C0 3E 00 34 */	lfs f1, 0x34(r30)
 /* 80175040 00171FA0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80175044 00171FA4  7D 89 03 A6 */	mtctr r12
-/* 80175048 00171FA8  4E 80 04 21 */	bctrl 
+/* 80175048 00171FA8  4E 80 04 21 */	bctrl
 lbl_8017504C:
 /* 8017504C 00171FAC  3B BD 00 0C */	addi r29, r29, 0xc
 lbl_80175050:
@@ -128,7 +128,7 @@ lbl_8017507C:
 /* 80175088 00171FE8  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8017508C 00171FEC  7C 08 03 A6 */	mtlr r0
 /* 80175090 00171FF0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80175094 00171FF4  4E 80 00 20 */	blr 
+/* 80175094 00171FF4  4E 80 00 20 */	blr
 
 .global __dt__13CScriptRippleFv
 __dt__13CScriptRippleFv:
@@ -156,7 +156,7 @@ lbl_801750DC:
 /* 801750E8 00172048  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801750EC 0017204C  7C 08 03 A6 */	mtlr r0
 /* 801750F0 00172050  38 21 00 10 */	addi r1, r1, 0x10
-/* 801750F4 00172054  4E 80 00 20 */	blr 
+/* 801750F4 00172054  4E 80 00 20 */	blr
 
 .global "__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbffff"
 "__ct__13CScriptRippleF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fbffff":

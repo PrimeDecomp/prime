@@ -57,7 +57,7 @@ lbl_801A6F68:
 /* 801A6F78 001A3ED8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801A6F7C 001A3EDC  7C 08 03 A6 */	mtlr r0
 /* 801A6F80 001A3EE0  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A6F84 001A3EE4  4E 80 00 20 */	blr 
+/* 801A6F84 001A3EE4  4E 80 00 20 */	blr
 
 .global GetWRLocatorTransform__22CCollisionActorManagerFRC9CAnimData6CSegIdRC12CTransform4fRC12CTransform4f
 GetWRLocatorTransform__22CCollisionActorManagerFRC9CAnimData6CSegIdRC12CTransform4fRC12CTransform4f:
@@ -127,7 +127,7 @@ GetWRLocatorTransform__22CCollisionActorManagerFRC9CAnimData6CSegIdRC12CTransfor
 /* 801A7084 001A3FE4  83 A1 00 C4 */	lwz r29, 0xc4(r1)
 /* 801A7088 001A3FE8  7C 08 03 A6 */	mtlr r0
 /* 801A708C 001A3FEC  38 21 01 00 */	addi r1, r1, 0x100
-/* 801A7090 001A3FF0  4E 80 00 20 */	blr 
+/* 801A7090 001A3FF0  4E 80 00 20 */	blr
 
 .global sub_801a7094
 sub_801a7094:
@@ -239,19 +239,19 @@ lbl_801A7224:
 /* 801A7228 001A4188  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 801A722C 001A418C  7C 08 03 A6 */	mtlr r0
 /* 801A7230 001A4190  38 21 01 70 */	addi r1, r1, 0x170
-/* 801A7234 001A4194  4E 80 00 20 */	blr 
+/* 801A7234 001A4194  4E 80 00 20 */	blr
 
 .global GetCollisionDescFromIndex__22CCollisionActorManagerCFUi
 GetCollisionDescFromIndex__22CCollisionActorManagerCFUi:
 /* 801A7238 001A4198  1C 04 00 44 */	mulli r0, r4, 0x44
 /* 801A723C 001A419C  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 801A7240 001A41A0  7C 63 02 14 */	add r3, r3, r0
-/* 801A7244 001A41A4  4E 80 00 20 */	blr 
+/* 801A7244 001A41A4  4E 80 00 20 */	blr
 
 .global GetNumCollisionActors__22CCollisionActorManagerCFv
 GetNumCollisionActors__22CCollisionActorManagerCFv:
 /* 801A7248 001A41A8  80 63 00 04 */	lwz r3, 4(r3)
-/* 801A724C 001A41AC  4E 80 00 20 */	blr 
+/* 801A724C 001A41AC  4E 80 00 20 */	blr
 
 .global AddMaterial__22CCollisionActorManagerFR13CStateManagerRC13CMaterialList
 AddMaterial__22CCollisionActorManagerFR13CStateManagerRC13CMaterialList:
@@ -299,7 +299,7 @@ lbl_801A72D8:
 /* 801A72E8 001A4248  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801A72EC 001A424C  7C 08 03 A6 */	mtlr r0
 /* 801A72F0 001A4250  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A72F4 001A4254  4E 80 00 20 */	blr 
+/* 801A72F4 001A4254  4E 80 00 20 */	blr
 
 .global SetActive__22CCollisionActorManagerFR13CStateManagerb
 SetActive__22CCollisionActorManagerFR13CStateManagerb:
@@ -335,7 +335,7 @@ lbl_801A7328:
 /* 801A7368 001A42C8  7F C4 F3 78 */	mr r4, r30
 /* 801A736C 001A42CC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801A7370 001A42D0  7D 89 03 A6 */	mtctr r12
-/* 801A7374 001A42D4  4E 80 04 21 */	bctrl 
+/* 801A7374 001A42D4  4E 80 04 21 */	bctrl
 /* 801A7378 001A42D8  57 80 06 3F */	clrlwi. r0, r28, 0x18
 /* 801A737C 001A42DC  41 82 00 18 */	beq lbl_801A7394
 /* 801A7380 001A42E0  C0 22 A7 F8 */	lfs f1, lbl_805AC518@sda21(r2)
@@ -354,12 +354,12 @@ lbl_801A739C:
 /* 801A73AC 001A430C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801A73B0 001A4310  7C 08 03 A6 */	mtlr r0
 /* 801A73B4 001A4314  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A73B8 001A4318  4E 80 00 20 */	blr 
+/* 801A73B8 001A4318  4E 80 00 20 */	blr
 
 .global GetActive__22CCollisionActorManagerCFv
 GetActive__22CCollisionActorManagerCFv:
 /* 801A73BC 001A431C  88 63 00 12 */	lbz r3, 0x12(r3)
-/* 801A73C0 001A4320  4E 80 00 20 */	blr 
+/* 801A73C0 001A4320  4E 80 00 20 */	blr
 
 .global Destroy__22CCollisionActorManagerCFR13CStateManager
 Destroy__22CCollisionActorManagerCFR13CStateManager:
@@ -399,7 +399,7 @@ lbl_801A741C:
 /* 801A7440 001A43A0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801A7444 001A43A4  7C 08 03 A6 */	mtlr r0
 /* 801A7448 001A43A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801A744C 001A43AC  4E 80 00 20 */	blr 
+/* 801A744C 001A43AC  4E 80 00 20 */	blr
 
 .global Update__22CCollisionActorManagerCFfR13CStateManagerQ222CCollisionActorManager14EUpdateOptions
 Update__22CCollisionActorManagerCFfR13CStateManagerQ222CCollisionActorManager14EUpdateOptions:
@@ -704,7 +704,7 @@ lbl_801A78B8:
 /* 801A78CC 001A482C  80 01 03 A4 */	lwz r0, 0x3a4(r1)
 /* 801A78D0 001A4830  7C 08 03 A6 */	mtlr r0
 /* 801A78D4 001A4834  38 21 03 A0 */	addi r1, r1, 0x3a0
-/* 801A78D8 001A4838  4E 80 00 20 */	blr 
+/* 801A78D8 001A4838  4E 80 00 20 */	blr
 
 .global sub_801a78dc
 sub_801a78dc:
@@ -729,7 +729,7 @@ lbl_801A7914:
 /* 801A7920 001A4880  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801A7924 001A4884  7C 08 03 A6 */	mtlr r0
 /* 801A7928 001A4888  38 21 00 10 */	addi r1, r1, 0x10
-/* 801A792C 001A488C  4E 80 00 20 */	blr 
+/* 801A792C 001A488C  4E 80 00 20 */	blr
 
 .global "__ct__22CCollisionActorManagerFR13CStateManager9TUniqueId7TAreaIdRCQ24rstl63vector<26CJointCollisionDescription,Q24rstl17rmemory_allocator>b"
 "__ct__22CCollisionActorManagerFR13CStateManager9TUniqueId7TAreaIdRCQ24rstl63vector<26CJointCollisionDescription,Q24rstl17rmemory_allocator>b":
@@ -1488,7 +1488,7 @@ lbl_801A8464:
 /* 801A8484 001A53E4  80 01 05 C4 */	lwz r0, 0x5c4(r1)
 /* 801A8488 001A53E8  7C 08 03 A6 */	mtlr r0
 /* 801A848C 001A53EC  38 21 05 C0 */	addi r1, r1, 0x5c0
-/* 801A8490 001A53F0  4E 80 00 20 */	blr 
+/* 801A8490 001A53F0  4E 80 00 20 */	blr
 
 .global ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f
 ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
@@ -1524,7 +1524,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A8508 001A5468  EC 04 00 72 */	fmuls f0, f4, f1
 /* 801A850C 001A546C  D0 43 00 1C */	stfs f2, 0x1c(r3)
 /* 801A8510 001A5470  D0 03 00 20 */	stfs f0, 0x20(r3)
-/* 801A8514 001A5474  4E 80 00 20 */	blr 
+/* 801A8514 001A5474  4E 80 00 20 */	blr
 
 .global "OBBCollision__26CJointCollisionDescriptionF6CSegIdRC9CVector3fRC9CVector3fRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f"
 "OBBCollision__26CJointCollisionDescriptionF6CSegIdRC9CVector3fRC9CVector3fRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f":
@@ -1574,7 +1574,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A85C4 001A5524  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801A85C8 001A5528  7C 08 03 A6 */	mtlr r0
 /* 801A85CC 001A552C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A85D0 001A5530  4E 80 00 20 */	blr 
+/* 801A85D0 001A5530  4E 80 00 20 */	blr
 
 .global "OBBAutoSizeCollision__26CJointCollisionDescriptionF6CSegId6CSegIdRC9CVector3fQ226CJointCollisionDescription16EOrientationTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f"
 "OBBAutoSizeCollision__26CJointCollisionDescriptionF6CSegId6CSegIdRC9CVector3fQ226CJointCollisionDescription16EOrientationTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f":
@@ -1624,7 +1624,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A8680 001A55E0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801A8684 001A55E4  7C 08 03 A6 */	mtlr r0
 /* 801A8688 001A55E8  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A868C 001A55EC  4E 80 00 20 */	blr 
+/* 801A868C 001A55EC  4E 80 00 20 */	blr
 
 .global "AABoxCollision__26CJointCollisionDescriptionF6CSegIdRC9CVector3fRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f"
 "AABoxCollision__26CJointCollisionDescriptionF6CSegIdRC9CVector3fRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f":
@@ -1676,7 +1676,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A8744 001A56A4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801A8748 001A56A8  7C 08 03 A6 */	mtlr r0
 /* 801A874C 001A56AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A8750 001A56B0  4E 80 00 20 */	blr 
+/* 801A8750 001A56B0  4E 80 00 20 */	blr
 
 .global "SphereSubdivideCollision__26CJointCollisionDescriptionF6CSegId6CSegIdffQ226CJointCollisionDescription16EOrientationTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f"
 "SphereSubdivideCollision__26CJointCollisionDescriptionF6CSegId6CSegIdffQ226CJointCollisionDescription16EOrientationTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f":
@@ -1725,7 +1725,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A87FC 001A575C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801A8800 001A5760  7C 08 03 A6 */	mtlr r0
 /* 801A8804 001A5764  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A8808 001A5768  4E 80 00 20 */	blr 
+/* 801A8808 001A5768  4E 80 00 20 */	blr
 
 .global "SphereCollision__26CJointCollisionDescriptionF6CSegIdfRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f"
 "SphereCollision__26CJointCollisionDescriptionF6CSegIdfRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>f":
@@ -1776,4 +1776,4 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A88BC 001A581C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801A88C0 001A5820  7C 08 03 A6 */	mtlr r0
 /* 801A88C4 001A5824  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A88C8 001A5828  4E 80 00 20 */	blr 
+/* 801A88C8 001A5828  4E 80 00 20 */	blr

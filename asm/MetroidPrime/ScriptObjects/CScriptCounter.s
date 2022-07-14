@@ -41,11 +41,11 @@ Accept__14CScriptCounterFR8IVisitor:
 /* 8009E400 0009B360  7C 04 03 78 */	mr r4, r0
 /* 8009E404 0009B364  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8009E408 0009B368  7D 89 03 A6 */	mtctr r12
-/* 8009E40C 0009B36C  4E 80 04 21 */	bctrl 
+/* 8009E40C 0009B36C  4E 80 04 21 */	bctrl
 /* 8009E410 0009B370  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8009E414 0009B374  7C 08 03 A6 */	mtlr r0
 /* 8009E418 0009B378  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009E41C 0009B37C  4E 80 00 20 */	blr 
+/* 8009E41C 0009B37C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__14CScriptCounterF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__14CScriptCounterF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -68,7 +68,7 @@ AcceptScriptMsg__14CScriptCounterF20EScriptObjectMessage9TUniqueIdR13CStateManag
 /* 8009E460 0009B3C0  38 84 AF 10 */	addi r4, r4, lbl_803DAF10@l
 /* 8009E464 0009B3C4  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8009E468 0009B3C8  7C 09 03 A6 */	mtctr r0
-/* 8009E46C 0009B3CC  4E 80 04 20 */	bctr 
+/* 8009E46C 0009B3CC  4E 80 04 20 */	bctr
 .global lbl_8009E470
 lbl_8009E470:
 /* 8009E470 0009B3D0  88 1C 00 30 */	lbz r0, 0x30(r28)
@@ -174,7 +174,7 @@ lbl_8009E5AC:
 /* 8009E5D8 0009B538  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8009E5DC 0009B53C  7C 08 03 A6 */	mtlr r0
 /* 8009E5E0 0009B540  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009E5E4 0009B544  4E 80 00 20 */	blr 
+/* 8009E5E4 0009B544  4E 80 00 20 */	blr
 
 .global __dt__14CScriptCounterFv
 __dt__14CScriptCounterFv:
@@ -202,7 +202,7 @@ lbl_8009E62C:
 /* 8009E638 0009B598  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8009E63C 0009B59C  7C 08 03 A6 */	mtlr r0
 /* 8009E640 0009B5A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009E644 0009B5A4  4E 80 00 20 */	blr 
+/* 8009E644 0009B5A4  4E 80 00 20 */	blr
 
 .global "__ct__14CScriptCounterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoiibb"
 "__ct__14CScriptCounterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoiibb":

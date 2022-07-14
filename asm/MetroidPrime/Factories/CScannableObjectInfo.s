@@ -62,7 +62,7 @@ lbl_80169970:
 /* 801699CC 0016692C  38 80 00 01 */	li r4, 1
 /* 801699D0 00166930  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801699D4 00166934  7D 89 03 A6 */	mtctr r12
-/* 801699D8 00166938  4E 80 04 21 */	bctrl 
+/* 801699D8 00166938  4E 80 04 21 */	bctrl
 lbl_801699DC:
 /* 801699DC 0016693C  88 01 00 08 */	lbz r0, 8(r1)
 /* 801699E0 00166940  28 00 00 00 */	cmplwi r0, 0
@@ -106,7 +106,7 @@ lbl_80169A54:
 /* 80169A60 001669C0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80169A64 001669C4  7C 08 03 A6 */	mtlr r0
 /* 80169A68 001669C8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80169A6C 001669CC  4E 80 00 20 */	blr 
+/* 80169A6C 001669CC  4E 80 00 20 */	blr
 
 .global sub_80169a70
 sub_80169a70:
@@ -176,7 +176,7 @@ lbl_80169B40:
 /* 80169B4C 00166AAC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80169B50 00166AB0  7C 08 03 A6 */	mtlr r0
 /* 80169B54 00166AB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80169B58 00166AB8  4E 80 00 20 */	blr 
+/* 80169B58 00166AB8  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__30TToken<20CScannableObjectInfo>FRCQ24rstl32auto_ptr<20CScannableObjectInfo>"
 "GetIObjObjectFor__30TToken<20CScannableObjectInfo>FRCQ24rstl32auto_ptr<20CScannableObjectInfo>":
@@ -190,7 +190,7 @@ lbl_80169B40:
 /* 80169B78 00166AD8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80169B7C 00166ADC  7C 08 03 A6 */	mtlr r0
 /* 80169B80 00166AE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80169B84 00166AE4  4E 80 00 20 */	blr 
+/* 80169B84 00166AE4  4E 80 00 20 */	blr
 
 .global sub_80169b88
 sub_80169b88:
@@ -233,7 +233,7 @@ lbl_80169BF8:
 /* 80169C14 00166B74  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80169C18 00166B78  7C 08 03 A6 */	mtlr r0
 /* 80169C1C 00166B7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80169C20 00166B80  4E 80 00 20 */	blr 
+/* 80169C20 00166B80  4E 80 00 20 */	blr
 
 .global LoadVersion4or5__20CScannableObjectInfoFR12CInputStreamUi
 LoadVersion4or5__20CScannableObjectInfoFR12CInputStreamUi:
@@ -356,7 +356,7 @@ lbl_80169DA4:
 /* 80169DC8 00166D28  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80169DCC 00166D2C  7C 08 03 A6 */	mtlr r0
 /* 80169DD0 00166D30  38 21 00 60 */	addi r1, r1, 0x60
-/* 80169DD4 00166D34  4E 80 00 20 */	blr 
+/* 80169DD4 00166D34  4E 80 00 20 */	blr
 
 .global __ct__20CScannableObjectInfoFR12CInputStreamUi
 __ct__20CScannableObjectInfoFR12CInputStreamUi:
@@ -473,7 +473,7 @@ lbl_80169F44:
 /* 80169F60 00166EC0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80169F64 00166EC4  7C 08 03 A6 */	mtlr r0
 /* 80169F68 00166EC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80169F6C 00166ECC  4E 80 00 20 */	blr 
+/* 80169F6C 00166ECC  4E 80 00 20 */	blr
 
 .global GetImagePaneName__16CPauseScreenBaseFUi
 GetImagePaneName__16CPauseScreenBaseFUi:

@@ -48,7 +48,7 @@ lbl_8013EDA0:
 /* 8013EDA8 0013BD08  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013EDAC 0013BD0C  7C 08 03 A6 */	mtlr r0
 /* 8013EDB0 0013BD10  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013EDB4 0013BD14  4E 80 00 20 */	blr 
+/* 8013EDB4 0013BD14  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__12CBSGroundHitFfR15CBodyController
 GetBodyStateTransition__12CBSGroundHitFfR15CBodyController:
@@ -72,7 +72,7 @@ lbl_8013EDF4:
 /* 8013EDF4 0013BD54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013EDF8 0013BD58  7C 08 03 A6 */	mtlr r0
 /* 8013EDFC 0013BD5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013EE00 0013BD60  4E 80 00 20 */	blr 
+/* 8013EE00 0013BD60  4E 80 00 20 */	blr
 
 .global Shutdown__12CBSGroundHitFR15CBodyController
 Shutdown__12CBSGroundHitFR15CBodyController:
@@ -86,7 +86,7 @@ Shutdown__12CBSGroundHitFR15CBodyController:
 /* 8013EE20 0013BD80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013EE24 0013BD84  7C 08 03 A6 */	mtlr r0
 /* 8013EE28 0013BD88  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013EE2C 0013BD8C  4E 80 00 20 */	blr 
+/* 8013EE2C 0013BD8C  4E 80 00 20 */	blr
 
 .global UpdateBody__12CBSGroundHitFfR15CBodyControllerR13CStateManager
 UpdateBody__12CBSGroundHitFfR15CBodyControllerR13CStateManager:
@@ -131,7 +131,7 @@ lbl_8013EEAC:
 /* 8013EEC4 0013BE24  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8013EEC8 0013BE28  7C 08 03 A6 */	mtlr r0
 /* 8013EECC 0013BE2C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8013EED0 0013BE30  4E 80 00 20 */	blr 
+/* 8013EED0 0013BE30  4E 80 00 20 */	blr
 
 .global Start__12CBSGroundHitFR15CBodyControllerR13CStateManager
 Start__12CBSGroundHitFR15CBodyControllerR13CStateManager:
@@ -401,7 +401,7 @@ lbl_8013F2A4:
 /* 8013F2B0 0013C210  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 8013F2B4 0013C214  7C 08 03 A6 */	mtlr r0
 /* 8013F2B8 0013C218  38 21 01 60 */	addi r1, r1, 0x160
-/* 8013F2BC 0013C21C  4E 80 00 20 */	blr 
+/* 8013F2BC 0013C21C  4E 80 00 20 */	blr
 
 .global __ct__12CBSGroundHitFv
 __ct__12CBSGroundHitFv:
@@ -416,4 +416,4 @@ __ct__12CBSGroundHitFv:
 /* 8013F2E0 0013C240  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8013F2E4 0013C244  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8013F2E8 0013C248  90 03 00 0C */	stw r0, 0xc(r3)
-/* 8013F2EC 0013C24C  4E 80 00 20 */	blr 
+/* 8013F2EC 0013C24C  4E 80 00 20 */	blr

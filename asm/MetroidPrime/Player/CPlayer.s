@@ -90,7 +90,7 @@ lbl_803D97E4:
 	.4byte __dt__19CCollisionPrimitiveFv
 	.4byte 0
 	.4byte 0
-	
+
 .section .bss
 .global lbl_80457908
 lbl_80457908:
@@ -151,7 +151,7 @@ skRightStepSounds_7CPlayer:
 	.2byte 0x05D8, 0x05DB, 0xFFFF, 0xFFFF
 	.2byte 0xFFFF, 0xFFFF, 0x05FA, 0x062A
 
-	
+
 .global lbl_803CC4F8
 lbl_803CC4F8:
 	.asciz "GUN_LCTR"
@@ -396,7 +396,7 @@ lbl_805A6CD0:
 lbl_805A6CD4:
 	# ROM: 0x3F4674
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __dt__7CPlayerFv
@@ -947,7 +947,7 @@ lbl_80010850:
 
 .global sub_80010870
 sub_80010870:
-/* 80010870 0000D7D0  4E 80 00 20 */	blr 
+/* 80010870 0000D7D0  4E 80 00 20 */	blr
 
 .global sub_80010874
 sub_80010874:
@@ -973,7 +973,7 @@ lbl_800108B0:
 /* 800108BC 0000D81C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800108C0 0000D820  7C 08 03 A6 */	mtlr r0
 /* 800108C4 0000D824  38 21 00 10 */	addi r1, r1, 0x10
-/* 800108C8 0000D828  4E 80 00 20 */	blr 
+/* 800108C8 0000D828  4E 80 00 20 */	blr
 
 .global __dt__10CMorphBallFv
 __dt__10CMorphBallFv:
@@ -1115,7 +1115,7 @@ lbl_80010A80:
 
 .global sub_80010a94
 sub_80010a94:
-/* 80010A94 0000D9F4  4E 80 00 20 */	blr 
+/* 80010A94 0000D9F4  4E 80 00 20 */	blr
 
 .global IsTransparent__7CPlayerCFv
 IsTransparent__7CPlayerCFv:
@@ -1124,7 +1124,7 @@ IsTransparent__7CPlayerCFv:
 /* 80010AA0 0000DA00  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80010AA4 0000DA04  7C 00 00 26 */	mfcr r0
 /* 80010AA8 0000DA08  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80010AAC 0000DA0C  4E 80 00 20 */	blr 
+/* 80010AAC 0000DA0C  4E 80 00 20 */	blr
 
 .global IsEnergyLow__7CPlayerCFRC13CStateManager
 IsEnergyLow__7CPlayerCFRC13CStateManager:
@@ -1138,7 +1138,7 @@ IsEnergyLow__7CPlayerCFRC13CStateManager:
 /* 80010ACC 0000DA2C  7C 9F 23 78 */	mr r31, r4
 /* 80010AD0 0000DA30  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80010AD4 0000DA34  7D 89 03 A6 */	mtctr r12
-/* 80010AD8 0000DA38  4E 80 04 21 */	bctrl 
+/* 80010AD8 0000DA38  4E 80 04 21 */	bctrl
 /* 80010ADC 0000DA3C  80 BF 08 B8 */	lwz r5, 0x8b8(r31)
 /* 80010AE0 0000DA40  38 80 00 18 */	li r4, 0x18
 /* 80010AE4 0000DA44  C3 E3 00 00 */	lfs f31, 0(r3)
@@ -1160,7 +1160,7 @@ lbl_80010B04:
 /* 80010B1C 0000DA7C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80010B20 0000DA80  7C 08 03 A6 */	mtlr r0
 /* 80010B24 0000DA84  38 21 00 20 */	addi r1, r1, 0x20
-/* 80010B28 0000DA88  4E 80 00 20 */	blr 
+/* 80010B28 0000DA88  4E 80 00 20 */	blr
 
 .global FinishNewScan__7CPlayerFR13CStateManager
 FinishNewScan__7CPlayerFR13CStateManager:
@@ -1240,12 +1240,12 @@ lbl_80010C3C:
 /* 80010C48 0000DBA8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80010C4C 0000DBAC  7C 08 03 A6 */	mtlr r0
 /* 80010C50 0000DBB0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80010C54 0000DBB4  4E 80 00 20 */	blr 
+/* 80010C54 0000DBB4  4E 80 00 20 */	blr
 
 .global GetAttachedActorStruggle__7CPlayerCFv
 GetAttachedActorStruggle__7CPlayerCFv:
 /* 80010C58 0000DBB8  C0 23 0A 28 */	lfs f1, 0xa28(r3)
-/* 80010C5C 0000DBBC  4E 80 00 20 */	blr 
+/* 80010C5C 0000DBBC  4E 80 00 20 */	blr
 
 .global StartSamusVoiceSfx__7CPlayerFUssi
 StartSamusVoiceSfx__7CPlayerFUssi:
@@ -1304,7 +1304,7 @@ lbl_80010D1C:
 /* 80010D20 0000DC80  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80010D24 0000DC84  7C 08 03 A6 */	mtlr r0
 /* 80010D28 0000DC88  38 21 00 30 */	addi r1, r1, 0x30
-/* 80010D2C 0000DC8C  4E 80 00 20 */	blr 
+/* 80010D2C 0000DC8C  4E 80 00 20 */	blr
 
 .global PostUpdate__7CPlayerFfR13CStateManager
 PostUpdate__7CPlayerFfR13CStateManager:
@@ -1437,7 +1437,7 @@ lbl_80010EA4:
 /* 80010EF4 0000DE54  83 C1 01 18 */	lwz r30, 0x118(r1)
 /* 80010EF8 0000DE58  7C 08 03 A6 */	mtlr r0
 /* 80010EFC 0000DE5C  38 21 01 50 */	addi r1, r1, 0x150
-/* 80010F00 0000DE60  4E 80 00 20 */	blr 
+/* 80010F00 0000DE60  4E 80 00 20 */	blr
 
 .global __ct__16CPlayerCameraBobFRC16CPlayerCameraBob
 __ct__16CPlayerCameraBobFRC16CPlayerCameraBob:
@@ -1612,7 +1612,7 @@ lbl_80011124:
 /* 80011164 0000E0C4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80011168 0000E0C8  7C 08 03 A6 */	mtlr r0
 /* 8001116C 0000E0CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80011170 0000E0D0  4E 80 00 20 */	blr 
+/* 80011170 0000E0D0  4E 80 00 20 */	blr
 
 .global SetPlayerHitWallDuringMove__7CPlayerFv
 SetPlayerHitWallDuringMove__7CPlayerFv:
@@ -1621,7 +1621,7 @@ SetPlayerHitWallDuringMove__7CPlayerFv:
 /* 8001117C 0000E0DC  50 80 17 7A */	rlwimi r0, r4, 2, 0x1d, 0x1d
 /* 80011180 0000E0E0  98 03 09 C5 */	stb r0, 0x9c5(r3)
 /* 80011184 0000E0E4  90 83 02 D0 */	stw r4, 0x2d0(r3)
-/* 80011188 0000E0E8  4E 80 00 20 */	blr 
+/* 80011188 0000E0E8  4E 80 00 20 */	blr
 
 .global ApplySubmergedPitchBend__7CPlayerFR10CSfxHandle
 ApplySubmergedPitchBend__7CPlayerFR10CSfxHandle:
@@ -1643,7 +1643,7 @@ lbl_800111C0:
 /* 800111C4 0000E124  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800111C8 0000E128  7C 08 03 A6 */	mtlr r0
 /* 800111CC 0000E12C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800111D0 0000E130  4E 80 00 20 */	blr 
+/* 800111D0 0000E130  4E 80 00 20 */	blr
 
 .global UpdatePhazonDamage__7CPlayerFfR13CStateManager
 UpdatePhazonDamage__7CPlayerFfR13CStateManager:
@@ -1751,14 +1751,14 @@ lbl_800112F8:
 /* 80011354 0000E2B4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80011358 0000E2B8  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8001135C 0000E2BC  7D 89 03 A6 */	mtctr r12
-/* 80011360 0000E2C0  4E 80 04 21 */	bctrl 
+/* 80011360 0000E2C0  4E 80 04 21 */	bctrl
 /* 80011364 0000E2C4  7C 64 1B 78 */	mr r4, r3
 /* 80011368 0000E2C8  38 61 00 90 */	addi r3, r1, 0x90
 /* 8001136C 0000E2CC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80011370 0000E2D0  38 BE 00 34 */	addi r5, r30, 0x34
 /* 80011374 0000E2D4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80011378 0000E2D8  7D 89 03 A6 */	mtctr r12
-/* 8001137C 0000E2DC  4E 80 04 21 */	bctrl 
+/* 8001137C 0000E2DC  4E 80 04 21 */	bctrl
 /* 80011380 0000E2E0  38 61 00 50 */	addi r3, r1, 0x50
 /* 80011384 0000E2E4  38 81 00 90 */	addi r4, r1, 0x90
 /* 80011388 0000E2E8  48 32 62 85 */	bl GetCenterPoint__6CAABoxCFv
@@ -1819,12 +1819,12 @@ lbl_80011428:
 /* 8001145C 0000E3BC  81 97 00 00 */	lwz r12, 0(r23)
 /* 80011460 0000E3C0  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80011464 0000E3C4  7D 89 03 A6 */	mtctr r12
-/* 80011468 0000E3C8  4E 80 04 21 */	bctrl 
+/* 80011468 0000E3C8  4E 80 04 21 */	bctrl
 /* 8001146C 0000E3CC  7E E3 BB 78 */	mr r3, r23
 /* 80011470 0000E3D0  81 97 00 00 */	lwz r12, 0(r23)
 /* 80011474 0000E3D4  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80011478 0000E3D8  7D 89 03 A6 */	mtctr r12
-/* 8001147C 0000E3DC  4E 80 04 21 */	bctrl 
+/* 8001147C 0000E3DC  4E 80 04 21 */	bctrl
 /* 80011480 0000E3E0  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
 /* 80011484 0000E3E4  90 61 01 48 */	stw r3, 0x148(r1)
 /* 80011488 0000E3E8  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
@@ -2023,7 +2023,7 @@ lbl_80011718:
 /* 8001173C 0000E69C  80 01 0A 34 */	lwz r0, 0xa34(r1)
 /* 80011740 0000E6A0  7C 08 03 A6 */	mtlr r0
 /* 80011744 0000E6A4  38 21 0A 30 */	addi r1, r1, 0xa30
-/* 80011748 0000E6A8  4E 80 00 20 */	blr 
+/* 80011748 0000E6A8  4E 80 00 20 */	blr
 
 .global __dt__17CCollidableSphere
 __dt__17CCollidableSphere:
@@ -2051,7 +2051,7 @@ lbl_80011790:
 /* 80011798 0000E6F8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8001179C 0000E6FC  7C 08 03 A6 */	mtlr r0
 /* 800117A0 0000E700  38 21 00 10 */	addi r1, r1, 0x10
-/* 800117A4 0000E704  4E 80 00 20 */	blr 
+/* 800117A4 0000E704  4E 80 00 20 */	blr
 
 .global __dt__19CCollisionPrimitiveFv
 __dt__19CCollisionPrimitiveFv:
@@ -2073,7 +2073,7 @@ lbl_800117D8:
 /* 800117E0 0000E740  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800117E4 0000E744  7C 08 03 A6 */	mtlr r0
 /* 800117E8 0000E748  38 21 00 10 */	addi r1, r1, 0x10
-/* 800117EC 0000E74C  4E 80 00 20 */	blr 
+/* 800117EC 0000E74C  4E 80 00 20 */	blr
 
 .global UpdatePhazonCameraShake__7CPlayerFfR13CStateManager
 UpdatePhazonCameraShake__7CPlayerFfR13CStateManager:
@@ -2169,16 +2169,16 @@ lbl_80011924:
 /* 80011934 0000E894  83 C1 01 B8 */	lwz r30, 0x1b8(r1)
 /* 80011938 0000E898  7C 08 03 A6 */	mtlr r0
 /* 8001193C 0000E89C  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 80011940 0000E8A0  4E 80 00 20 */	blr 
+/* 80011940 0000E8A0  4E 80 00 20 */	blr
 
 .global DecrementPhazon__7CPlayerFv
 DecrementPhazon__7CPlayerFv:
 /* 80011944 0000E8A4  80 83 0A 10 */	lwz r4, 0xa10(r3)
 /* 80011948 0000E8A8  2C 04 00 00 */	cmpwi r4, 0
-/* 8001194C 0000E8AC  4D 82 00 20 */	beqlr 
+/* 8001194C 0000E8AC  4D 82 00 20 */	beqlr
 /* 80011950 0000E8B0  38 04 FF FF */	addi r0, r4, -1
 /* 80011954 0000E8B4  90 03 0A 10 */	stw r0, 0xa10(r3)
-/* 80011958 0000E8B8  4E 80 00 20 */	blr 
+/* 80011958 0000E8B8  4E 80 00 20 */	blr
 
 .global IncrementPhazon__7CPlayerFv
 IncrementPhazon__7CPlayerFv:
@@ -2191,7 +2191,7 @@ lbl_80011970:
 /* 80011970 0000E8D0  80 83 0A 10 */	lwz r4, 0xa10(r3)
 /* 80011974 0000E8D4  38 04 00 01 */	addi r0, r4, 1
 /* 80011978 0000E8D8  90 03 0A 10 */	stw r0, 0xa10(r3)
-/* 8001197C 0000E8DC  4E 80 00 20 */	blr 
+/* 8001197C 0000E8DC  4E 80 00 20 */	blr
 
 .global DoPreThink__7CPlayerfRC13CStateManager
 DoPreThink__7CPlayerfRC13CStateManager:
@@ -2207,7 +2207,7 @@ DoPreThink__7CPlayerfRC13CStateManager:
 /* 800119A4 0000E904  81 83 00 00 */	lwz r12, 0(r3)
 /* 800119A8 0000E908  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800119AC 0000E90C  7D 89 03 A6 */	mtctr r12
-/* 800119B0 0000E910  4E 80 04 21 */	bctrl 
+/* 800119B0 0000E910  4E 80 04 21 */	bctrl
 /* 800119B4 0000E914  A0 1E 0A 00 */	lhz r0, 0xa00(r30)
 /* 800119B8 0000E918  7F E3 FB 78 */	mr r3, r31
 /* 800119BC 0000E91C  38 81 00 08 */	addi r4, r1, 8
@@ -2220,7 +2220,7 @@ DoPreThink__7CPlayerfRC13CStateManager:
 /* 800119D8 0000E938  7F E4 FB 78 */	mr r4, r31
 /* 800119DC 0000E93C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800119E0 0000E940  7D 89 03 A6 */	mtctr r12
-/* 800119E4 0000E944  4E 80 04 21 */	bctrl 
+/* 800119E4 0000E944  4E 80 04 21 */	bctrl
 lbl_800119E8:
 /* 800119E8 0000E948  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800119EC 0000E94C  CB E1 00 18 */	lfd f31, 0x18(r1)
@@ -2228,7 +2228,7 @@ lbl_800119E8:
 /* 800119F4 0000E954  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 800119F8 0000E958  7C 08 03 A6 */	mtlr r0
 /* 800119FC 0000E95C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80011A00 0000E960  4E 80 00 20 */	blr 
+/* 80011A00 0000E960  4E 80 00 20 */	blr
 
 .global DoThink__7CPlayerFfRC13CStateManager
 DoThink__7CPlayerFfRC13CStateManager:
@@ -2244,7 +2244,7 @@ DoThink__7CPlayerFfRC13CStateManager:
 /* 80011A28 0000E988  81 83 00 00 */	lwz r12, 0(r3)
 /* 80011A2C 0000E98C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80011A30 0000E990  7D 89 03 A6 */	mtctr r12
-/* 80011A34 0000E994  4E 80 04 21 */	bctrl 
+/* 80011A34 0000E994  4E 80 04 21 */	bctrl
 /* 80011A38 0000E998  A0 1E 0A 00 */	lhz r0, 0xa00(r30)
 /* 80011A3C 0000E99C  7F E3 FB 78 */	mr r3, r31
 /* 80011A40 0000E9A0  38 81 00 08 */	addi r4, r1, 8
@@ -2257,7 +2257,7 @@ DoThink__7CPlayerFfRC13CStateManager:
 /* 80011A5C 0000E9BC  7F E4 FB 78 */	mr r4, r31
 /* 80011A60 0000E9C0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80011A64 0000E9C4  7D 89 03 A6 */	mtctr r12
-/* 80011A68 0000E9C8  4E 80 04 21 */	bctrl 
+/* 80011A68 0000E9C8  4E 80 04 21 */	bctrl
 lbl_80011A6C:
 /* 80011A6C 0000E9CC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80011A70 0000E9D0  CB E1 00 18 */	lfd f31, 0x18(r1)
@@ -2265,7 +2265,7 @@ lbl_80011A6C:
 /* 80011A78 0000E9D8  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 80011A7C 0000E9DC  7C 08 03 A6 */	mtlr r0
 /* 80011A80 0000E9E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80011A84 0000E9E4  4E 80 00 20 */	blr 
+/* 80011A84 0000E9E4  4E 80 00 20 */	blr
 
 .global ResetControlDirectionInterpolation__7CPlayerFv
 ResetControlDirectionInterpolation__7CPlayerFv:
@@ -2275,7 +2275,7 @@ ResetControlDirectionInterpolation__7CPlayerFv:
 /* 80011A94 0000E9F4  C0 02 81 0C */	lfs f0, lbl_805A9E2C@sda21(r2)
 /* 80011A98 0000E9F8  98 03 09 C6 */	stb r0, 0x9c6(r3)
 /* 80011A9C 0000E9FC  D0 03 09 F8 */	stfs f0, 0x9f8(r3)
-/* 80011AA0 0000EA00  4E 80 00 20 */	blr 
+/* 80011AA0 0000EA00  4E 80 00 20 */	blr
 
 .global SetControlDirectionInterpolation__7CPlayerFf
 SetControlDirectionInterpolation__7CPlayerFf:
@@ -2286,7 +2286,7 @@ SetControlDirectionInterpolation__7CPlayerFf:
 /* 80011AB4 0000EA14  98 03 09 C6 */	stb r0, 0x9c6(r3)
 /* 80011AB8 0000EA18  D0 03 09 F8 */	stfs f0, 0x9f8(r3)
 /* 80011ABC 0000EA1C  D0 23 09 FC */	stfs f1, 0x9fc(r3)
-/* 80011AC0 0000EA20  4E 80 00 20 */	blr 
+/* 80011AC0 0000EA20  4E 80 00 20 */	blr
 
 .global IsPlayerDeadEnough__7CPlayerCFv
 IsPlayerDeadEnough__7CPlayerCFv:
@@ -2307,20 +2307,20 @@ lbl_80011AEC:
 /* 80011AF4 0000EA54  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80011AF8 0000EA58  7C 00 00 26 */	mfcr r0
 /* 80011AFC 0000EA5C  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 80011B00 0000EA60  4E 80 00 20 */	blr 
+/* 80011B00 0000EA60  4E 80 00 20 */	blr
 lbl_80011B04:
 /* 80011B04 0000EA64  C0 23 09 F4 */	lfs f1, 0x9f4(r3)
 /* 80011B08 0000EA68  C0 02 81 3C */	lfs f0, lbl_805A9E5C@sda21(r2)
 /* 80011B0C 0000EA6C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80011B10 0000EA70  7C 00 00 26 */	mfcr r0
 /* 80011B14 0000EA74  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 80011B18 0000EA78  4E 80 00 20 */	blr 
+/* 80011B18 0000EA78  4E 80 00 20 */	blr
 lbl_80011B1C:
 /* 80011B1C 0000EA7C  38 60 00 00 */	li r3, 0
-/* 80011B20 0000EA80  4E 80 00 20 */	blr 
+/* 80011B20 0000EA80  4E 80 00 20 */	blr
 lbl_80011B24:
 /* 80011B24 0000EA84  38 60 00 00 */	li r3, 0
-/* 80011B28 0000EA88  4E 80 00 20 */	blr 
+/* 80011B28 0000EA88  4E 80 00 20 */	blr
 
 .global AsyncLoadSuit__7CPlayerFR13CStateManager
 AsyncLoadSuit__7CPlayerFR13CStateManager:
@@ -2332,7 +2332,7 @@ AsyncLoadSuit__7CPlayerFR13CStateManager:
 /* 80011B40 0000EAA0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80011B44 0000EAA4  7C 08 03 A6 */	mtlr r0
 /* 80011B48 0000EAA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80011B4C 0000EAAC  4E 80 00 20 */	blr 
+/* 80011B4C 0000EAAC  4E 80 00 20 */	blr
 
 .global LoadAnimationTokens__7CPlayerFv
 LoadAnimationTokens__7CPlayerFv:
@@ -2351,7 +2351,7 @@ LoadAnimationTokens__7CPlayerFv:
 /* 80011B80 0000EAE0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80011B84 0000EAE4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80011B88 0000EAE8  7D 89 03 A6 */	mtctr r12
-/* 80011B8C 0000EAEC  4E 80 04 21 */	bctrl 
+/* 80011B8C 0000EAEC  4E 80 04 21 */	bctrl
 /* 80011B90 0000EAF0  3B C1 00 20 */	addi r30, r1, 0x20
 /* 80011B94 0000EAF4  38 81 00 10 */	addi r4, r1, 0x10
 /* 80011B98 0000EAF8  7F C3 F3 78 */	mr r3, r30
@@ -2386,7 +2386,7 @@ lbl_80011BD4:
 /* 80011C08 0000EB68  81 84 00 00 */	lwz r12, 0(r4)
 /* 80011C0C 0000EB6C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80011C10 0000EB70  7D 89 03 A6 */	mtctr r12
-/* 80011C14 0000EB74  4E 80 04 21 */	bctrl 
+/* 80011C14 0000EB74  4E 80 04 21 */	bctrl
 /* 80011C18 0000EB78  38 61 00 18 */	addi r3, r1, 0x18
 /* 80011C1C 0000EB7C  38 81 00 08 */	addi r4, r1, 8
 /* 80011C20 0000EB80  48 32 F2 89 */	bl __ct__6CTokenFRC6CToken
@@ -2442,28 +2442,28 @@ lbl_80011C98:
 
 .global sub_80011cd4
 sub_80011cd4:
-/* 80011CD4 0000EC34  4E 80 00 20 */	blr 
+/* 80011CD4 0000EC34  4E 80 00 20 */	blr
 
 .global HasTransitionBeamModel__7CPlayerCFv
 HasTransitionBeamModel__7CPlayerCFv:
 /* 80011CD8 0000EC38  80 83 07 F0 */	lwz r4, 0x7f0(r3)
 /* 80011CDC 0000EC3C  38 60 00 00 */	li r3, 0
 /* 80011CE0 0000EC40  28 04 00 00 */	cmplwi r4, 0
-/* 80011CE4 0000EC44  4D 82 00 20 */	beqlr 
+/* 80011CE4 0000EC44  4D 82 00 20 */	beqlr
 /* 80011CE8 0000EC48  80 04 00 10 */	lwz r0, 0x10(r4)
 /* 80011CEC 0000EC4C  28 00 00 00 */	cmplwi r0, 0
 /* 80011CF0 0000EC50  40 82 00 10 */	bne lbl_80011D00
 /* 80011CF4 0000EC54  88 04 00 28 */	lbz r0, 0x28(r4)
 /* 80011CF8 0000EC58  28 00 00 00 */	cmplwi r0, 0
-/* 80011CFC 0000EC5C  4D 82 00 20 */	beqlr 
+/* 80011CFC 0000EC5C  4D 82 00 20 */	beqlr
 lbl_80011D00:
 /* 80011D00 0000EC60  38 60 00 01 */	li r3, 1
-/* 80011D04 0000EC64  4E 80 00 20 */	blr 
+/* 80011D04 0000EC64  4E 80 00 20 */	blr
 
 .global CanRenderUnsorted__7CPlayerCFRC13CStateManager
 CanRenderUnsorted__7CPlayerCFRC13CStateManager:
 /* 80011D08 0000EC68  38 60 00 00 */	li r3, 0
-/* 80011D0C 0000EC6C  4E 80 00 20 */	blr 
+/* 80011D0C 0000EC6C  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__7CPlayerCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__7CPlayerCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
@@ -2479,11 +2479,11 @@ GetDamageVulnerability__7CPlayerCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 80011D34 0000EC94  40 82 00 10 */	bne lbl_80011D44
 /* 80011D38 0000EC98  3C 60 80 57 */	lis r3, lbl_8056D718@ha
 /* 80011D3C 0000EC9C  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
-/* 80011D40 0000ECA0  4E 80 00 20 */	blr 
+/* 80011D40 0000ECA0  4E 80 00 20 */	blr
 lbl_80011D44:
 /* 80011D44 0000ECA4  3C 60 80 57 */	lis r3, lbl_8056D578@ha
 /* 80011D48 0000ECA8  38 63 D5 78 */	addi r3, r3, lbl_8056D578@l
-/* 80011D4C 0000ECAC  4E 80 00 20 */	blr 
+/* 80011D4C 0000ECAC  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__7CPlayerCFv
 GetDamageVulnerability__7CPlayerCFv:
@@ -2519,11 +2519,11 @@ GetDamageVulnerability__7CPlayerCFv:
 /* 80011DC4 0000ED24  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80011DC8 0000ED28  98 E1 00 0C */	stb r7, 0xc(r1)
 /* 80011DCC 0000ED2C  7D 89 03 A6 */	mtctr r12
-/* 80011DD0 0000ED30  4E 80 04 21 */	bctrl 
+/* 80011DD0 0000ED30  4E 80 04 21 */	bctrl
 /* 80011DD4 0000ED34  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80011DD8 0000ED38  7C 08 03 A6 */	mtlr r0
 /* 80011DDC 0000ED3C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80011DE0 0000ED40  4E 80 00 20 */	blr 
+/* 80011DE0 0000ED40  4E 80 00 20 */	blr
 
 .global GetHomingPosition__7CPlayerCFRC13CStateManagerf
 GetHomingPosition__7CPlayerCFRC13CStateManagerf:
@@ -2565,7 +2565,7 @@ lbl_80011E60:
 /* 80011E68 0000EDC8  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80011E6C 0000EDCC  7C 08 03 A6 */	mtlr r0
 /* 80011E70 0000EDD0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80011E74 0000EDD4  4E 80 00 20 */	blr 
+/* 80011E74 0000EDD4  4E 80 00 20 */	blr
 
 .global GetAimPosition__7CPlayerCFRC13CStateManagerf
 GetAimPosition__7CPlayerCFRC13CStateManagerf:
@@ -2646,7 +2646,7 @@ lbl_80011F64:
 /* 80011F90 0000EEF0  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80011F94 0000EEF4  7C 08 03 A6 */	mtlr r0
 /* 80011F98 0000EEF8  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80011F9C 0000EEFC  4E 80 00 20 */	blr 
+/* 80011F9C 0000EEFC  4E 80 00 20 */	blr
 
 .global ObjectInScanningRange__7CPlayerF9TUniqueIdRC13CStateManager
 ObjectInScanningRange__7CPlayerF9TUniqueIdRC13CStateManager:
@@ -2701,7 +2701,7 @@ lbl_8001204C:
 /* 80012058 0000EFB8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8001205C 0000EFBC  7C 08 03 A6 */	mtlr r0
 /* 80012060 0000EFC0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80012064 0000EFC4  4E 80 00 20 */	blr 
+/* 80012064 0000EFC4  4E 80 00 20 */	blr
 
 .global FluidFXThink__7CPlayerFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 FluidFXThink__7CPlayerFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
@@ -2964,7 +2964,7 @@ lbl_800123B0:
 /* 80012444 0000F3A4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80012448 0000F3A8  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 8001244C 0000F3AC  7D 89 03 A6 */	mtctr r12
-/* 80012450 0000F3B0  4E 80 04 21 */	bctrl 
+/* 80012450 0000F3B0  4E 80 04 21 */	bctrl
 /* 80012454 0000F3B4  48 00 00 74 */	b lbl_800124C8
 lbl_80012458:
 /* 80012458 0000F3B8  7F A4 EB 78 */	mr r4, r29
@@ -3014,7 +3014,7 @@ lbl_800124C8:
 
 .global sub_80012504
 sub_80012504:
-/* 80012504 0000F464  4E 80 00 20 */	blr 
+/* 80012504 0000F464  4E 80 00 20 */	blr
 
 .global GetDamageLocationWR__7CPlayerCFv
 GetDamageLocationWR__7CPlayerCFv:
@@ -3024,22 +3024,22 @@ GetDamageLocationWR__7CPlayerCFv:
 /* 80012514 0000F474  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80012518 0000F478  C0 04 05 6C */	lfs f0, 0x56c(r4)
 /* 8001251C 0000F47C  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80012520 0000F480  4E 80 00 20 */	blr 
+/* 80012520 0000F480  4E 80 00 20 */	blr
 
 .global GetPrevDamageAmount__7CPlayerCFv
 GetPrevDamageAmount__7CPlayerCFv:
 /* 80012524 0000F484  C0 23 05 60 */	lfs f1, 0x560(r3)
-/* 80012528 0000F488  4E 80 00 20 */	blr 
+/* 80012528 0000F488  4E 80 00 20 */	blr
 
 .global GetDamageAmount__7CPlayerCFv
 GetDamageAmount__7CPlayerCFv:
 /* 8001252C 0000F48C  C0 23 05 5C */	lfs f1, 0x55c(r3)
-/* 80012530 0000F490  4E 80 00 20 */	blr 
+/* 80012530 0000F490  4E 80 00 20 */	blr
 
 .global WasDamaged__7CPlayerCFv
 WasDamaged__7CPlayerCFv:
 /* 80012534 0000F494  88 63 05 58 */	lbz r3, 0x558(r3)
-/* 80012538 0000F498  4E 80 00 20 */	blr 
+/* 80012538 0000F498  4E 80 00 20 */	blr
 
 .global TakeDamage__7CPlayerFbRC9CVector3ff11EWeaponTypeR13CStateManager
 TakeDamage__7CPlayerFbRC9CVector3ff11EWeaponTypeR13CStateManager:
@@ -3098,7 +3098,7 @@ lbl_800125B8:
 /* 80012600 0000F560  38 63 97 70 */	addi r3, r3, lbl_803D9770@l
 /* 80012604 0000F564  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80012608 0000F568  7C 09 03 A6 */	mtctr r0
-/* 8001260C 0000F56C  4E 80 04 20 */	bctr 
+/* 8001260C 0000F56C  4E 80 04 20 */	bctr
 .global lbl_80012610
 lbl_80012610:
 /* 80012610 0000F570  3B C0 0C 2A */	li r30, 0xc2a
@@ -3297,7 +3297,7 @@ lbl_8001289C:
 /* 800128A8 0000F808  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800128AC 0000F80C  7C 08 03 A6 */	mtlr r0
 /* 800128B0 0000F810  38 21 00 50 */	addi r1, r1, 0x50
-/* 800128B4 0000F814  4E 80 00 20 */	blr 
+/* 800128B4 0000F814  4E 80 00 20 */	blr
 
 .global Accept__7CPlayerFR8IVisitor
 Accept__7CPlayerFR8IVisitor:
@@ -3310,18 +3310,18 @@ Accept__7CPlayerFR8IVisitor:
 /* 800128D0 0000F830  7C 04 03 78 */	mr r4, r0
 /* 800128D4 0000F834  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 800128D8 0000F838  7D 89 03 A6 */	mtctr r12
-/* 800128DC 0000F83C  4E 80 04 21 */	bctrl 
+/* 800128DC 0000F83C  4E 80 04 21 */	bctrl
 /* 800128E0 0000F840  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800128E4 0000F844  7C 08 03 A6 */	mtlr r0
 /* 800128E8 0000F848  38 21 00 10 */	addi r1, r1, 0x10
-/* 800128EC 0000F84C  4E 80 00 20 */	blr 
+/* 800128EC 0000F84C  4E 80 00 20 */	blr
 
 .global HealthInfo__7CPlayerFR13CStateManager
 HealthInfo__7CPlayerFR13CStateManager:
 /* 800128F0 0000F850  80 64 08 B8 */	lwz r3, 0x8b8(r4)
 /* 800128F4 0000F854  80 63 00 00 */	lwz r3, 0(r3)
 /* 800128F8 0000F858  38 63 00 0C */	addi r3, r3, 0xc
-/* 800128FC 0000F85C  4E 80 00 20 */	blr 
+/* 800128FC 0000F85C  4E 80 00 20 */	blr
 
 .global GetTransitionAlpha__7CPlayerCFRC9CVector3ff
 GetTransitionAlpha__7CPlayerCFRC9CVector3ff:
@@ -3383,7 +3383,7 @@ lbl_800129BC:
 /* 800129D4 0000F934  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 800129D8 0000F938  7C 08 03 A6 */	mtlr r0
 /* 800129DC 0000F93C  38 21 00 50 */	addi r1, r1, 0x50
-/* 800129E0 0000F940  4E 80 00 20 */	blr 
+/* 800129E0 0000F940  4E 80 00 20 */	blr
 
 .global IsUnderBetaMetroidAttack__7CPlayerCFR13CStateManager
 IsUnderBetaMetroidAttack__7CPlayerCFR13CStateManager:
@@ -3435,7 +3435,7 @@ lbl_80012A78:
 /* 80012A84 0000F9E4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80012A88 0000F9E8  7C 08 03 A6 */	mtlr r0
 /* 80012A8C 0000F9EC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80012A90 0000F9F0  4E 80 00 20 */	blr 
+/* 80012A90 0000F9F0  4E 80 00 20 */	blr
 
 .global CanLeaveMorphBallState__7CPlayerCFR13CStateManagerR9CVector3f
 CanLeaveMorphBallState__7CPlayerCFR13CStateManagerR9CVector3f:
@@ -3711,7 +3711,7 @@ lbl_80012E6C:
 /* 80012E90 0000FDF0  80 01 09 84 */	lwz r0, 0x984(r1)
 /* 80012E94 0000FDF4  7C 08 03 A6 */	mtlr r0
 /* 80012E98 0000FDF8  38 21 09 80 */	addi r1, r1, 0x980
-/* 80012E9C 0000FDFC  4E 80 00 20 */	blr 
+/* 80012E9C 0000FDFC  4E 80 00 20 */	blr
 
 .global __dt__16CCollidableAABoxFv
 __dt__16CCollidableAABoxFv:
@@ -3739,7 +3739,7 @@ lbl_80012EE4:
 /* 80012EEC 0000FE4C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80012EF0 0000FE50  7C 08 03 A6 */	mtlr r0
 /* 80012EF4 0000FE54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80012EF8 0000FE58  4E 80 00 20 */	blr 
+/* 80012EF8 0000FE58  4E 80 00 20 */	blr
 
 .global CanEnterMorphBallState__7CPlayerCFR13CStateManagerf
 CanEnterMorphBallState__7CPlayerCFR13CStateManagerf:
@@ -3850,7 +3850,7 @@ lbl_80013058:
 /* 8001305C 0000FFBC  83 E1 08 1C */	lwz r31, 0x81c(r1)
 /* 80013060 0000FFC0  7C 08 03 A6 */	mtlr r0
 /* 80013064 0000FFC4  38 21 08 20 */	addi r1, r1, 0x820
-/* 80013068 0000FFC8  4E 80 00 20 */	blr 
+/* 80013068 0000FFC8  4E 80 00 20 */	blr
 
 .global SetHudDisable__7CPlayerFfff
 SetHudDisable__7CPlayerFfff:
@@ -3860,16 +3860,16 @@ SetHudDisable__7CPlayerFfff:
 /* 80013078 0000FFD8  D0 63 07 48 */	stfs f3, 0x748(r3)
 /* 8001307C 0000FFDC  C0 03 07 44 */	lfs f0, 0x744(r3)
 /* 80013080 0000FFE0  FC 01 00 00 */	fcmpu cr0, f1, f0
-/* 80013084 0000FFE4  4C 82 00 20 */	bnelr 
+/* 80013084 0000FFE4  4C 82 00 20 */	bnelr
 /* 80013088 0000FFE8  C0 03 07 40 */	lfs f0, 0x740(r3)
 /* 8001308C 0000FFEC  FC 01 00 00 */	fcmpu cr0, f1, f0
 /* 80013090 0000FFF0  40 82 00 10 */	bne lbl_800130A0
 /* 80013094 0000FFF4  C0 02 81 00 */	lfs f0, lbl_805A9E20@sda21(r2)
 /* 80013098 0000FFF8  D0 03 07 4C */	stfs f0, 0x74c(r3)
-/* 8001309C 0000FFFC  4E 80 00 20 */	blr 
+/* 8001309C 0000FFFC  4E 80 00 20 */	blr
 lbl_800130A0:
 /* 800130A0 00010000  D0 23 07 4C */	stfs f1, 0x74c(r3)
-/* 800130A4 00010004  4E 80 00 20 */	blr 
+/* 800130A4 00010004  4E 80 00 20 */	blr
 
 .global GetTouchBounds__7CPlayerCFv
 GetTouchBounds__7CPlayerCFv:
@@ -3962,7 +3962,7 @@ lbl_800131E0:
 /* 800131F8 00010158  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 800131FC 0001015C  7C 08 03 A6 */	mtlr r0
 /* 80013200 00010160  38 21 00 80 */	addi r1, r1, 0x80
-/* 80013204 00010164  4E 80 00 20 */	blr 
+/* 80013204 00010164  4E 80 00 20 */	blr
 
 .global Touch__7CPlayerFR6CActorR13CStateManager
 Touch__7CPlayerFR6CActorR13CStateManager:
@@ -3978,7 +3978,7 @@ lbl_80013228:
 /* 80013228 00010188  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001322C 0001018C  7C 08 03 A6 */	mtlr r0
 /* 80013230 00010190  38 21 00 10 */	addi r1, r1, 0x10
-/* 80013234 00010194  4E 80 00 20 */	blr 
+/* 80013234 00010194  4E 80 00 20 */	blr
 
 .global UpdateScanningState__7CPlayerFRC11CFinalInputR13CStateManagerf
 UpdateScanningState__7CPlayerFRC11CFinalInputR13CStateManagerf:
@@ -4173,7 +4173,7 @@ lbl_800134E0:
 /* 800134F4 00010454  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 800134F8 00010458  7C 08 03 A6 */	mtlr r0
 /* 800134FC 0001045C  38 21 00 50 */	addi r1, r1, 0x50
-/* 80013500 00010460  4E 80 00 20 */	blr 
+/* 80013500 00010460  4E 80 00 20 */	blr
 
 .global ValidateScanning__7CPlayerFRC11CFinalInputR13CStateManager
 ValidateScanning__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -4249,7 +4249,7 @@ lbl_80013600:
 /* 80013610 00010570  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80013614 00010574  7C 08 03 A6 */	mtlr r0
 /* 80013618 00010578  38 21 00 40 */	addi r1, r1, 0x40
-/* 8001361C 0001057C  4E 80 00 20 */	blr 
+/* 8001361C 0001057C  4E 80 00 20 */	blr
 
 .global SetScanningState__7CPlayerFQ27CPlayer16EPlayerScanStateR13CStateManager
 SetScanningState__7CPlayerFQ27CPlayer16EPlayerScanStateR13CStateManager:
@@ -4288,7 +4288,7 @@ SetScanningState__7CPlayerFQ27CPlayer16EPlayerScanStateR13CStateManager:
 /* 800136A0 00010600  38 80 00 02 */	li r4, 2
 /* 800136A4 00010604  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800136A8 00010608  7D 89 03 A6 */	mtctr r12
-/* 800136AC 0001060C  4E 80 04 21 */	bctrl 
+/* 800136AC 0001060C  4E 80 04 21 */	bctrl
 lbl_800136B0:
 /* 800136B0 00010610  2C 1E 00 01 */	cmpwi r30, 1
 /* 800136B4 00010614  41 82 01 08 */	beq lbl_800137BC
@@ -4387,7 +4387,7 @@ lbl_800137F0:
 /* 80013800 00010760  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80013804 00010764  7C 08 03 A6 */	mtlr r0
 /* 80013808 00010768  38 21 00 40 */	addi r1, r1, 0x40
-/* 8001380C 0001076C  4E 80 00 20 */	blr 
+/* 8001380C 0001076C  4E 80 00 20 */	blr
 
 .global GetExplorationMode__7CPlayerCFv
 GetExplorationMode__7CPlayerCFv:
@@ -4401,13 +4401,13 @@ GetExplorationMode__7CPlayerCFv:
 /* 8001382C 0001078C  48 00 00 14 */	b lbl_80013840
 lbl_80013830:
 /* 80013830 00010790  38 60 00 00 */	li r3, 0
-/* 80013834 00010794  4E 80 00 20 */	blr 
+/* 80013834 00010794  4E 80 00 20 */	blr
 lbl_80013838:
 /* 80013838 00010798  38 60 00 01 */	li r3, 1
-/* 8001383C 0001079C  4E 80 00 20 */	blr 
+/* 8001383C 0001079C  4E 80 00 20 */	blr
 lbl_80013840:
 /* 80013840 000107A0  38 60 00 00 */	li r3, 0
-/* 80013844 000107A4  4E 80 00 20 */	blr 
+/* 80013844 000107A4  4E 80 00 20 */	blr
 
 .global GetCombatMode__7CPlayerCFv
 GetCombatMode__7CPlayerCFv:
@@ -4421,13 +4421,13 @@ GetCombatMode__7CPlayerCFv:
 /* 80013864 000107C4  48 00 00 14 */	b lbl_80013878
 lbl_80013868:
 /* 80013868 000107C8  38 60 00 01 */	li r3, 1
-/* 8001386C 000107CC  4E 80 00 20 */	blr 
+/* 8001386C 000107CC  4E 80 00 20 */	blr
 lbl_80013870:
 /* 80013870 000107D0  38 60 00 00 */	li r3, 0
-/* 80013874 000107D4  4E 80 00 20 */	blr 
+/* 80013874 000107D4  4E 80 00 20 */	blr
 lbl_80013878:
 /* 80013878 000107D8  38 60 00 00 */	li r3, 0
-/* 8001387C 000107DC  4E 80 00 20 */	blr 
+/* 8001387C 000107DC  4E 80 00 20 */	blr
 
 .global RenderGun__7CPlayerCFRC13CStateManagerRC9CVector3f
 RenderGun__7CPlayerCFRC13CStateManagerRC9CVector3f:
@@ -4519,7 +4519,7 @@ lbl_800139B0:
 /* 800139C0 00010920  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800139C4 00010924  7C 08 03 A6 */	mtlr r0
 /* 800139C8 00010928  38 21 00 20 */	addi r1, r1, 0x20
-/* 800139CC 0001092C  4E 80 00 20 */	blr 
+/* 800139CC 0001092C  4E 80 00 20 */	blr
 
 .global Render__7CPlayerCFRC13CStateManager
 Render__7CPlayerCFRC13CStateManager:
@@ -4996,7 +4996,7 @@ lbl_8001409C:
 /* 800140C8 00011028  80 01 02 A4 */	lwz r0, 0x2a4(r1)
 /* 800140CC 0001102C  7C 08 03 A6 */	mtlr r0
 /* 800140D0 00011030  38 21 02 A0 */	addi r1, r1, 0x2a0
-/* 800140D4 00011034  4E 80 00 20 */	blr 
+/* 800140D4 00011034  4E 80 00 20 */	blr
 
 .global "GetEntry__34TReservedAverage<12CTransform4f,4>CFi"
 "GetEntry__34TReservedAverage<12CTransform4f,4>CFi":
@@ -5025,7 +5025,7 @@ lbl_80014124:
 /* 80014128 00011088  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8001412C 0001108C  7C 08 03 A6 */	mtlr r0
 /* 80014130 00011090  38 21 00 10 */	addi r1, r1, 0x10
-/* 80014134 00011094  4E 80 00 20 */	blr 
+/* 80014134 00011094  4E 80 00 20 */	blr
 
 .global "GetEntry__21TReservedAverage<f,4>CFi"
 "GetEntry__21TReservedAverage<f,4>CFi":
@@ -5034,17 +5034,17 @@ lbl_80014124:
 /* 80014140 000110A0  41 80 00 10 */	blt lbl_80014150
 /* 80014144 000110A4  38 00 00 00 */	li r0, 0
 /* 80014148 000110A8  98 03 00 04 */	stb r0, 4(r3)
-/* 8001414C 000110AC  4E 80 00 20 */	blr 
+/* 8001414C 000110AC  4E 80 00 20 */	blr
 lbl_80014150:
 /* 80014150 000110B0  38 00 00 01 */	li r0, 1
 /* 80014154 000110B4  28 03 00 00 */	cmplwi r3, 0
 /* 80014158 000110B8  54 A5 10 3A */	slwi r5, r5, 2
 /* 8001415C 000110BC  98 03 00 04 */	stb r0, 4(r3)
 /* 80014160 000110C0  7C 84 2A 14 */	add r4, r4, r5
-/* 80014164 000110C4  4D 82 00 20 */	beqlr 
+/* 80014164 000110C4  4D 82 00 20 */	beqlr
 /* 80014168 000110C8  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8001416C 000110CC  D0 03 00 00 */	stfs f0, 0(r3)
-/* 80014170 000110D0  4E 80 00 20 */	blr 
+/* 80014170 000110D0  4E 80 00 20 */	blr
 
 .global RenderReflectedPlayer__7CPlayerFR13CStateManager
 RenderReflectedPlayer__7CPlayerFR13CStateManager:
@@ -5139,7 +5139,7 @@ lbl_800142A0:
 /* 800142B0 00011210  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 800142B4 00011214  7C 08 03 A6 */	mtlr r0
 /* 800142B8 00011218  38 21 00 80 */	addi r1, r1, 0x80
-/* 800142BC 0001121C  4E 80 00 20 */	blr 
+/* 800142BC 0001121C  4E 80 00 20 */	blr
 
 .global PreRender__7CPlayerFR13CStateManagerRC14CFrustumPlanes
 PreRender__7CPlayerFR13CStateManagerRC14CFrustumPlanes:
@@ -5222,7 +5222,7 @@ lbl_800143CC:
 /* 800143D0 00011330  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800143D4 00011334  7C 08 03 A6 */	mtlr r0
 /* 800143D8 00011338  38 21 00 30 */	addi r1, r1, 0x30
-/* 800143DC 0001133C  4E 80 00 20 */	blr 
+/* 800143DC 0001133C  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__7CPlayerFv
 CalculateRenderBounds__7CPlayerFv:
@@ -5275,7 +5275,7 @@ lbl_8001448C:
 /* 80014490 000113F0  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80014494 000113F4  7C 08 03 A6 */	mtlr r0
 /* 80014498 000113F8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8001449C 000113FC  4E 80 00 20 */	blr 
+/* 8001449C 000113FC  4E 80 00 20 */	blr
 
 .global AddToRenderer__7CPlayerCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__7CPlayerCFRC14CFrustumPlanesRC13CStateManager:
@@ -5324,7 +5324,7 @@ lbl_80014530:
 /* 8001453C 0001149C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80014540 000114A0  7C 08 03 A6 */	mtlr r0
 /* 80014544 000114A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80014548 000114A8  4E 80 00 20 */	blr 
+/* 80014548 000114A8  4E 80 00 20 */	blr
 
 .global UpdateGunAlpha__7CPlayerFRC13CStateManager
 UpdateGunAlpha__7CPlayerFRC13CStateManager:
@@ -5384,7 +5384,7 @@ lbl_80014604:
 /* 80014608 00011568  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8001460C 0001156C  7C 08 03 A6 */	mtlr r0
 /* 80014610 00011570  38 21 00 20 */	addi r1, r1, 0x20
-/* 80014614 00011574  4E 80 00 20 */	blr 
+/* 80014614 00011574  4E 80 00 20 */	blr
 
 .global ComputeFreeLook__7CPlayerFRC11CFinalInput
 ComputeFreeLook__7CPlayerFRC11CFinalInput:
@@ -5527,7 +5527,7 @@ lbl_800147E8:
 /* 80014810 00011770  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80014814 00011774  7C 08 03 A6 */	mtlr r0
 /* 80014818 00011778  38 21 00 50 */	addi r1, r1, 0x50
-/* 8001481C 0001177C  4E 80 00 20 */	blr 
+/* 8001481C 0001177C  4E 80 00 20 */	blr
 
 .global UpdateFreeLook__7CPlayerFf
 UpdateFreeLook__7CPlayerFf:
@@ -5633,7 +5633,7 @@ lbl_80014978:
 /* 80014994 000118F4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80014998 000118F8  7C 08 03 A6 */	mtlr r0
 /* 8001499C 000118FC  38 21 00 50 */	addi r1, r1, 0x50
-/* 800149A0 00011900  4E 80 00 20 */	blr 
+/* 800149A0 00011900  4E 80 00 20 */	blr
 
 .global DetachActorFromPlayer__7CPlayerFv
 DetachActorFromPlayer__7CPlayerFv:
@@ -5647,7 +5647,7 @@ DetachActorFromPlayer__7CPlayerFv:
 /* 800149C0 00011920  88 03 08 35 */	lbz r0, 0x835(r3)
 /* 800149C4 00011924  50 80 07 FE */	rlwimi r0, r4, 0, 0x1f, 0x1f
 /* 800149C8 00011928  98 03 08 35 */	stb r0, 0x835(r3)
-/* 800149CC 0001192C  4E 80 00 20 */	blr 
+/* 800149CC 0001192C  4E 80 00 20 */	blr
 
 .global AttachActorToPlayer__7CPlayerF9TUniqueId
 AttachActorToPlayer__7CPlayerF9TUniqueId:
@@ -5681,7 +5681,7 @@ lbl_80014A30:
 /* 80014A30 00011990  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80014A34 00011994  7C 08 03 A6 */	mtlr r0
 /* 80014A38 00011998  38 21 00 10 */	addi r1, r1, 0x10
-/* 80014A3C 0001199C  4E 80 00 20 */	blr 
+/* 80014A3C 0001199C  4E 80 00 20 */	blr
 
 .global CalculateLeftStickEdgePosition__7CPlayerCFff
 CalculateLeftStickEdgePosition__7CPlayerCFff:
@@ -5751,7 +5751,7 @@ lbl_80014AE4:
 /* 80014B30 00011A90  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80014B34 00011A94  7C 08 03 A6 */	mtlr r0
 /* 80014B38 00011A98  38 21 00 40 */	addi r1, r1, 0x40
-/* 80014B3C 00011A9C  4E 80 00 20 */	blr 
+/* 80014B3C 00011A9C  4E 80 00 20 */	blr
 
 .global GetMaximumPlayerPositiveVerticalVelocity__7CPlayerCFRC13CStateManager
 GetMaximumPlayerPositiveVerticalVelocity__7CPlayerCFRC13CStateManager:
@@ -5772,7 +5772,7 @@ lbl_80014B70:
 /* 80014B70 00011AD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80014B74 00011AD4  7C 08 03 A6 */	mtlr r0
 /* 80014B78 00011AD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80014B7C 00011ADC  4E 80 00 20 */	blr 
+/* 80014B7C 00011ADC  4E 80 00 20 */	blr
 
 .global UpdateMorphBallState__7CPlayerFfRC11CFinalInputR13CStateManager
 UpdateMorphBallState__7CPlayerFfRC11CFinalInputR13CStateManager:
@@ -5899,7 +5899,7 @@ lbl_80014D3C:
 /* 80014D4C 00011CAC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80014D50 00011CB0  7C 08 03 A6 */	mtlr r0
 /* 80014D54 00011CB4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80014D58 00011CB8  4E 80 00 20 */	blr 
+/* 80014D58 00011CB8  4E 80 00 20 */	blr
 
 .global ProcessInput__7CPlayerFRC11CFinalInputR13CStateManager
 ProcessInput__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -5999,17 +5999,17 @@ lbl_80014E9C:
 /* 80014EBC 00011E1C  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80014EC0 00011E20  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80014EC4 00011E24  7D 89 03 A6 */	mtctr r12
-/* 80014EC8 00011E28  4E 80 04 21 */	bctrl 
+/* 80014EC8 00011E28  4E 80 04 21 */	bctrl
 /* 80014ECC 00011E2C  3B 43 00 10 */	addi r26, r3, 0x10
 /* 80014ED0 00011E30  7F A3 EB 78 */	mr r3, r29
 /* 80014ED4 00011E34  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80014ED8 00011E38  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80014EDC 00011E3C  7D 89 03 A6 */	mtctr r12
-/* 80014EE0 00011E40  4E 80 04 21 */	bctrl 
+/* 80014EE0 00011E40  4E 80 04 21 */	bctrl
 /* 80014EE4 00011E44  81 83 00 00 */	lwz r12, 0(r3)
 /* 80014EE8 00011E48  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80014EEC 00011E4C  7D 89 03 A6 */	mtctr r12
-/* 80014EF0 00011E50  4E 80 04 21 */	bctrl 
+/* 80014EF0 00011E50  4E 80 04 21 */	bctrl
 /* 80014EF4 00011E54  C0 5A 00 10 */	lfs f2, 0x10(r26)
 /* 80014EF8 00011E58  7C 79 1B 78 */	mr r25, r3
 /* 80014EFC 00011E5C  C0 62 81 20 */	lfs f3, lbl_805A9E40@sda21(r2)
@@ -6561,12 +6561,12 @@ lbl_800156D4:
 /* 800156FC 0001265C  80 01 25 A4 */	lwz r0, 0x25a4(r1)
 /* 80015700 00012660  7C 08 03 A6 */	mtlr r0
 /* 80015704 00012664  38 21 25 A0 */	addi r1, r1, 0x25a0
-/* 80015708 00012668  4E 80 00 20 */	blr 
+/* 80015708 00012668  4E 80 00 20 */	blr
 
 .global GetMaterial__19CCollisionPrimitiveCFv
 GetMaterial__19CCollisionPrimitiveCFv:
 /* 8001570C 0001266C  38 63 00 08 */	addi r3, r3, 8
-/* 80015710 00012670  4E 80 00 20 */	blr 
+/* 80015710 00012670  4E 80 00 20 */	blr
 
 .global StartLandingControlFreeze__7CPlayerFv
 StartLandingControlFreeze__7CPlayerFv:
@@ -6574,7 +6574,7 @@ StartLandingControlFreeze__7CPlayerFv:
 /* 80015718 00012678  C0 02 81 4C */	lfs f0, lbl_805A9E6C@sda21(r2)
 /* 8001571C 0001267C  98 03 07 60 */	stb r0, 0x760(r3)
 /* 80015720 00012680  D0 03 07 64 */	stfs f0, 0x764(r3)
-/* 80015724 00012684  4E 80 00 20 */	blr 
+/* 80015724 00012684  4E 80 00 20 */	blr
 
 .global ProcessFrozenInput__7CPlayerFfR13CStateManager
 ProcessFrozenInput__7CPlayerFfR13CStateManager:
@@ -6628,7 +6628,7 @@ lbl_800157C8:
 /* 800157D8 00012738  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 800157DC 0001273C  7C 08 03 A6 */	mtlr r0
 /* 800157E0 00012740  38 21 00 50 */	addi r1, r1, 0x50
-/* 800157E4 00012744  4E 80 00 20 */	blr 
+/* 800157E4 00012744  4E 80 00 20 */	blr
 
 .global EndLandingControlFreeze__7CPlayerFv
 EndLandingControlFreeze__7CPlayerFv:
@@ -6636,7 +6636,7 @@ EndLandingControlFreeze__7CPlayerFv:
 /* 800157EC 0001274C  C0 02 81 0C */	lfs f0, lbl_805A9E2C@sda21(r2)
 /* 800157F0 00012750  98 03 07 60 */	stb r0, 0x760(r3)
 /* 800157F4 00012754  D0 03 07 64 */	stfs f0, 0x764(r3)
-/* 800157F8 00012758  4E 80 00 20 */	blr 
+/* 800157F8 00012758  4E 80 00 20 */	blr
 
 .global UpdateFrozenState__7CPlayerFRC11CFinalInputR13CStateManager
 UpdateFrozenState__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -6774,7 +6774,7 @@ lbl_800159D4:
 /* 800159E0 00012940  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 800159E4 00012944  7C 08 03 A6 */	mtlr r0
 /* 800159E8 00012948  38 21 00 40 */	addi r1, r1, 0x40
-/* 800159EC 0001294C  4E 80 00 20 */	blr 
+/* 800159EC 0001294C  4E 80 00 20 */	blr
 
 .global wstring_l__4rstlFPCw
 wstring_l__4rstlFPCw:
@@ -6794,7 +6794,7 @@ lbl_80015A08:
 /* 80015A1C 0001297C  7C 00 22 14 */	add r0, r0, r4
 /* 80015A20 00012980  7C 00 0E 70 */	srawi r0, r0, 1
 /* 80015A24 00012984  90 03 00 08 */	stw r0, 8(r3)
-/* 80015A28 00012988  4E 80 00 20 */	blr 
+/* 80015A28 00012988  4E 80 00 20 */	blr
 
 .global UnFreeze__7CPlayerFR13CStateManager
 UnFreeze__7CPlayerFR13CStateManager:
@@ -6851,7 +6851,7 @@ UnFreeze__7CPlayerFR13CStateManager:
 /* 80015AF4 00012A54  81 84 00 00 */	lwz r12, 0(r4)
 /* 80015AF8 00012A58  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80015AFC 00012A5C  7D 89 03 A6 */	mtctr r12
-/* 80015B00 00012A60  4E 80 04 21 */	bctrl 
+/* 80015B00 00012A60  4E 80 04 21 */	bctrl
 /* 80015B04 00012A64  38 61 00 24 */	addi r3, r1, 0x24
 /* 80015B08 00012A68  38 81 00 2C */	addi r4, r1, 0x2c
 /* 80015B0C 00012A6C  3B 40 00 01 */	li r26, 1
@@ -6988,7 +6988,7 @@ lbl_80015CE8:
 /* 80015CEC 00012C4C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80015CF0 00012C50  7C 08 03 A6 */	mtlr r0
 /* 80015CF4 00012C54  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80015CF8 00012C58  4E 80 00 20 */	blr 
+/* 80015CF8 00012C58  4E 80 00 20 */	blr
 
 .global GetFrozenState__7CPlayerCFv
 GetFrozenState__7CPlayerCFv:
@@ -6997,7 +6997,7 @@ GetFrozenState__7CPlayerCFv:
 /* 80015D04 00012C64  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80015D08 00012C68  7C 00 00 26 */	mfcr r0
 /* 80015D0C 00012C6C  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 80015D10 00012C70  4E 80 00 20 */	blr 
+/* 80015D10 00012C70  4E 80 00 20 */	blr
 
 .global Freeze__7CPlayerFR13CStateManagerUiUsUi
 Freeze__7CPlayerFR13CStateManagerUiUsUi:
@@ -7109,7 +7109,7 @@ lbl_80015E9C:
 /* 80015EA0 00012E00  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80015EA4 00012E04  7C 08 03 A6 */	mtlr r0
 /* 80015EA8 00012E08  38 21 00 40 */	addi r1, r1, 0x40
-/* 80015EAC 00012E0C  4E 80 00 20 */	blr 
+/* 80015EAC 00012E0C  4E 80 00 20 */	blr
 
 .global Think__7CPlayerFfR13CStateManager
 Think__7CPlayerFfR13CStateManager:
@@ -7495,7 +7495,7 @@ lbl_80016418:
 
 .global sub_80016448
 sub_80016448:
-/* 80016448 000133A8  4E 80 00 20 */	blr 
+/* 80016448 000133A8  4E 80 00 20 */	blr
 
 .global UpdateWaterSurfaceCameraBias__7CPlayerFR13CStateManager
 UpdateWaterSurfaceCameraBias__7CPlayerFR13CStateManager:
@@ -7561,7 +7561,7 @@ lbl_80016524:
 /* 80016530 00013490  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80016534 00013494  7C 08 03 A6 */	mtlr r0
 /* 80016538 00013498  38 21 00 60 */	addi r1, r1, 0x60
-/* 8001653C 0001349C  4E 80 00 20 */	blr 
+/* 8001653C 0001349C  4E 80 00 20 */	blr
 
 .global PreThink__7CPlayerFfR13CStateManager
 PreThink__7CPlayerFfR13CStateManager:
@@ -7578,7 +7578,7 @@ PreThink__7CPlayerFfR13CStateManager:
 /* 80016568 000134C8  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8001656C 000134CC  D0 03 05 6C */	stfs f0, 0x56c(r3)
 /* 80016570 000134D0  D0 23 0A 04 */	stfs f1, 0xa04(r3)
-/* 80016574 000134D4  4E 80 00 20 */	blr 
+/* 80016574 000134D4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__7CPlayerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__7CPlayerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -7602,7 +7602,7 @@ AcceptScriptMsg__7CPlayerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800165BC 0001351C  38 84 97 8C */	addi r4, r4, lbl_803D978C@l
 /* 800165C0 00013520  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800165C4 00013524  7C 09 03 A6 */	mtctr r0
-/* 800165C8 00013528  4E 80 04 20 */	bctr 
+/* 800165C8 00013528  4E 80 04 20 */	bctr
 .global lbl_800165CC
 lbl_800165CC:
 /* 800165CC 0001352C  80 7B 02 58 */	lwz r3, 0x258(r27)
@@ -8161,7 +8161,7 @@ lbl_80016D24:
 /* 80016D8C 00013CEC  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 80016D90 00013CF0  7C 08 03 A6 */	mtlr r0
 /* 80016D94 00013CF4  38 21 02 00 */	addi r1, r1, 0x200
-/* 80016D98 00013CF8  4E 80 00 20 */	blr 
+/* 80016D98 00013CF8  4E 80 00 20 */	blr
 
 .global UpdateCameraTimers__7CPlayerFfRC11CFinalInput
 UpdateCameraTimers__7CPlayerFfRC11CFinalInput:
@@ -8253,7 +8253,7 @@ lbl_80016EC4:
 /* 80016ED4 00013E34  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80016ED8 00013E38  7C 08 03 A6 */	mtlr r0
 /* 80016EDC 00013E3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80016EE0 00013E40  4E 80 00 20 */	blr 
+/* 80016EE0 00013E40  4E 80 00 20 */	blr
 
 .global UpdateFreeLookState__7CPlayerFRC11CFinalInputfR13CStateManager
 UpdateFreeLookState__7CPlayerFRC11CFinalInputfR13CStateManager:
@@ -8511,7 +8511,7 @@ lbl_80017268:
 /* 8001728C 000141EC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80017290 000141F0  7C 08 03 A6 */	mtlr r0
 /* 80017294 000141F4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80017298 000141F8  4E 80 00 20 */	blr 
+/* 80017298 000141F8  4E 80 00 20 */	blr
 
 .global SetCameraState__7CPlayerFQ27CPlayer18EPlayerCameraStateR13CStateManager
 SetCameraState__7CPlayerFQ27CPlayer18EPlayerCameraStateR13CStateManager:
@@ -8608,7 +8608,7 @@ lbl_800173D8:
 /* 800173E4 00014344  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 800173E8 00014348  7C 08 03 A6 */	mtlr r0
 /* 800173EC 0001434C  38 21 00 40 */	addi r1, r1, 0x40
-/* 800173F0 00014350  4E 80 00 20 */	blr 
+/* 800173F0 00014350  4E 80 00 20 */	blr
 
 .global UpdateCameraState__7CPlayerFR13CStateManager
 UpdateCameraState__7CPlayerFR13CStateManager:
@@ -8619,7 +8619,7 @@ UpdateCameraState__7CPlayerFR13CStateManager:
 /* 80017404 00014364  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80017408 00014368  7C 08 03 A6 */	mtlr r0
 /* 8001740C 0001436C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80017410 00014370  4E 80 00 20 */	blr 
+/* 80017410 00014370  4E 80 00 20 */	blr
 
 .global UpdateCinematicState__7CPlayerFR13CStateManager
 UpdateCinematicState__7CPlayerFR13CStateManager:
@@ -8774,14 +8774,14 @@ lbl_80017600:
 /* 80017644 000145A4  38 81 00 20 */	addi r4, r1, 0x20
 /* 80017648 000145A8  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 8001764C 000145AC  7D 89 03 A6 */	mtctr r12
-/* 80017650 000145B0  4E 80 04 21 */	bctrl 
+/* 80017650 000145B0  4E 80 04 21 */	bctrl
 lbl_80017654:
 /* 80017654 000145B4  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80017658 000145B8  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 8001765C 000145BC  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 80017660 000145C0  7C 08 03 A6 */	mtlr r0
 /* 80017664 000145C4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80017668 000145C8  4E 80 00 20 */	blr 
+/* 80017668 000145C8  4E 80 00 20 */	blr
 
 .global SetSpawnedMorphBallState__7CPlayerFQ27CPlayer21EPlayerMorphBallStateR13CStateManager
 SetSpawnedMorphBallState__7CPlayerFQ27CPlayer21EPlayerMorphBallStateR13CStateManager:
@@ -8874,14 +8874,14 @@ lbl_80017778:
 /* 800177BC 0001471C  38 81 00 20 */	addi r4, r1, 0x20
 /* 800177C0 00014720  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800177C4 00014724  7D 89 03 A6 */	mtctr r12
-/* 800177C8 00014728  4E 80 04 21 */	bctrl 
+/* 800177C8 00014728  4E 80 04 21 */	bctrl
 lbl_800177CC:
 /* 800177CC 0001472C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800177D0 00014730  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 800177D4 00014734  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 800177D8 00014738  7C 08 03 A6 */	mtlr r0
 /* 800177DC 0001473C  38 21 00 60 */	addi r1, r1, 0x60
-/* 800177E0 00014740  4E 80 00 20 */	blr 
+/* 800177E0 00014740  4E 80 00 20 */	blr
 
 .global SetMorphBallState__7CPlayerFQ27CPlayer21EPlayerMorphBallStateR13CStateManager
 SetMorphBallState__7CPlayerFQ27CPlayer21EPlayerMorphBallStateR13CStateManager:
@@ -9054,7 +9054,7 @@ lbl_80017A4C:
 /* 80017A50 000149B0  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80017A54 000149B4  7C 08 03 A6 */	mtlr r0
 /* 80017A58 000149B8  38 21 00 90 */	addi r1, r1, 0x90
-/* 80017A5C 000149BC  4E 80 00 20 */	blr 
+/* 80017A5C 000149BC  4E 80 00 20 */	blr
 
 .global GetVisorRunoffEffect__FRC7CPlayerRC13CStateManager
 GetVisorRunoffEffect__FRC7CPlayerRC13CStateManager:
@@ -9079,7 +9079,7 @@ lbl_80017AA4:
 /* 80017AA4 00014A04  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80017AA8 00014A08  7C 08 03 A6 */	mtlr r0
 /* 80017AAC 00014A0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80017AB0 00014A10  4E 80 00 20 */	blr 
+/* 80017AB0 00014A10  4E 80 00 20 */	blr
 
 .global SetVisorSteam__7CPlayerFfffUib
 SetVisorSteam__7CPlayerFfffUib:
@@ -9091,7 +9091,7 @@ SetVisorSteam__7CPlayerFfffUib:
 /* 80017AC8 00014A28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80017ACC 00014A2C  7C 08 03 A6 */	mtlr r0
 /* 80017AD0 00014A30  38 21 00 10 */	addi r1, r1, 0x10
-/* 80017AD4 00014A34  4E 80 00 20 */	blr 
+/* 80017AD4 00014A34  4E 80 00 20 */	blr
 
 .global SetSteam__Q27CPlayer11CVisorSteamFfffUib
 SetSteam__Q27CPlayer11CVisorSteamFfffUib:
@@ -9109,7 +9109,7 @@ lbl_80017AF4:
 /* 80017B00 00014A60  90 83 00 1C */	stw r4, 0x1c(r3)
 lbl_80017B04:
 /* 80017B04 00014A64  98 A3 00 28 */	stb r5, 0x28(r3)
-/* 80017B08 00014A68  4E 80 00 20 */	blr 
+/* 80017B08 00014A68  4E 80 00 20 */	blr
 
 .global Update__Q27CPlayer11CVisorSteamFf
 Update__Q27CPlayer11CVisorSteamFf:
@@ -9193,7 +9193,7 @@ lbl_80017C0C:
 /* 80017C2C 00014B8C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80017C30 00014B90  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80017C34 00014B94  7D 89 03 A6 */	mtctr r12
-/* 80017C38 00014B98  4E 80 04 21 */	bctrl 
+/* 80017C38 00014B98  4E 80 04 21 */	bctrl
 /* 80017C3C 00014B9C  80 A1 00 08 */	lwz r5, 8(r1)
 /* 80017C40 00014BA0  38 61 00 08 */	addi r3, r1, 8
 /* 80017C44 00014BA4  38 80 FF FF */	li r4, -1
@@ -9225,7 +9225,7 @@ lbl_80017C94:
 /* 80017CA4 00014C04  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80017CA8 00014C08  7C 08 03 A6 */	mtlr r0
 /* 80017CAC 00014C0C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80017CB0 00014C10  4E 80 00 20 */	blr 
+/* 80017CB0 00014C10  4E 80 00 20 */	blr
 
 .global __ct__Q27CPlayer11CVisorSteamFv
 __ct__Q27CPlayer11CVisorSteamFv:
@@ -9243,7 +9243,7 @@ __ct__Q27CPlayer11CVisorSteamFv:
 /* 80017CE0 00014C40  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 80017CE4 00014C44  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80017CE8 00014C48  98 03 00 28 */	stb r0, 0x28(r3)
-/* 80017CEC 00014C4C  4E 80 00 20 */	blr 
+/* 80017CEC 00014C4C  4E 80 00 20 */	blr
 
 .global UpdateFootstepSounds__7CPlayerFRC11CFinalInputR13CStateManagerf
 UpdateFootstepSounds__7CPlayerFRC11CFinalInputR13CStateManagerf:
@@ -9540,7 +9540,7 @@ lbl_800180F4:
 /* 80018124 00015084  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80018128 00015088  7C 08 03 A6 */	mtlr r0
 /* 8001812C 0001508C  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80018130 00015090  4E 80 00 20 */	blr 
+/* 80018130 00015090  4E 80 00 20 */	blr
 
 .global GetMaterialSoundUnderPlayer__7CPlayerFR13CStateManagerPCUsiUs
 GetMaterialSoundUnderPlayer__7CPlayerFR13CStateManagerPCUsiUs:
@@ -9706,7 +9706,7 @@ lbl_80018388:
 /* 80018394 000152F4  80 01 08 F4 */	lwz r0, 0x8f4(r1)
 /* 80018398 000152F8  7C 08 03 A6 */	mtlr r0
 /* 8001839C 000152FC  38 21 08 F0 */	addi r1, r1, 0x8f0
-/* 800183A0 00015300  4E 80 00 20 */	blr 
+/* 800183A0 00015300  4E 80 00 20 */	blr
 
 .global SfxIdFromMaterial__7CPlayerFRC13CMaterialListPCUsiUs
 SfxIdFromMaterial__7CPlayerFRC13CMaterialListPCUsiUs:
@@ -9749,7 +9749,7 @@ lbl_80018414:
 /* 80018428 00015388  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8001842C 0001538C  7C 08 03 A6 */	mtlr r0
 /* 80018430 00015390  38 21 00 20 */	addi r1, r1, 0x20
-/* 80018434 00015394  4E 80 00 20 */	blr 
+/* 80018434 00015394  4E 80 00 20 */	blr
 
 .global UpdatePlayerSounds__7CPlayerFf
 UpdatePlayerSounds__7CPlayerFf:
@@ -9779,7 +9779,7 @@ lbl_8001848C:
 /* 80018490 000153F0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80018494 000153F4  7C 08 03 A6 */	mtlr r0
 /* 80018498 000153F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8001849C 000153FC  4E 80 00 20 */	blr 
+/* 8001849C 000153FC  4E 80 00 20 */	blr
 
 .global UpdateCrosshairsState__7CPlayerFRC11CFinalInput
 UpdateCrosshairsState__7CPlayerFRC11CFinalInput:
@@ -9797,7 +9797,7 @@ UpdateCrosshairsState__7CPlayerFRC11CFinalInput:
 /* 800184CC 0001542C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800184D0 00015430  7C 08 03 A6 */	mtlr r0
 /* 800184D4 00015434  38 21 00 10 */	addi r1, r1, 0x10
-/* 800184D8 00015438  4E 80 00 20 */	blr 
+/* 800184D8 00015438  4E 80 00 20 */	blr
 
 .global UpdateVisorTransition__7CPlayerFfR13CStateManager
 UpdateVisorTransition__7CPlayerFfR13CStateManager:
@@ -9822,7 +9822,7 @@ lbl_80018518:
 /* 80018520 00015480  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80018524 00015484  7C 08 03 A6 */	mtlr r0
 /* 80018528 00015488  38 21 00 20 */	addi r1, r1, 0x20
-/* 8001852C 0001548C  4E 80 00 20 */	blr 
+/* 8001852C 0001548C  4E 80 00 20 */	blr
 
 .global UpdateVisorState__7CPlayerFRC11CFinalInputfR13CStateManager
 UpdateVisorState__7CPlayerFRC11CFinalInputfR13CStateManager:
@@ -9942,7 +9942,7 @@ lbl_800186D0:
 /* 800186D4 00015634  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800186D8 00015638  7C 08 03 A6 */	mtlr r0
 /* 800186DC 0001563C  38 21 00 40 */	addi r1, r1, 0x40
-/* 800186E0 00015640  4E 80 00 20 */	blr 
+/* 800186E0 00015640  4E 80 00 20 */	blr
 
 .global ShouldSampleFailsafe__7CPlayerCFv
 ShouldSampleFailsafe__7CPlayerCFv:
@@ -9983,7 +9983,7 @@ lbl_80018758:
 /* 80018760 000156C0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80018764 000156C4  7C 08 03 A6 */	mtlr r0
 /* 80018768 000156C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8001876C 000156CC  4E 80 00 20 */	blr 
+/* 8001876C 000156CC  4E 80 00 20 */	blr
 
 .global Update__7CPlayerFfR13CStateManager
 Update__7CPlayerFfR13CStateManager:
@@ -10411,7 +10411,7 @@ lbl_80018D68:
 /* 80018D7C 00015CDC  83 A1 01 34 */	lwz r29, 0x134(r1)
 /* 80018D80 00015CE0  7C 08 03 A6 */	mtlr r0
 /* 80018D84 00015CE4  38 21 01 50 */	addi r1, r1, 0x150
-/* 80018D88 00015CE8  4E 80 00 20 */	blr 
+/* 80018D88 00015CE8  4E 80 00 20 */	blr
 
 .global __ct__10CModelDataFRC10CModelData
 __ct__10CModelDataFRC10CModelData:
@@ -10496,7 +10496,7 @@ lbl_80018EA4:
 /* 80018EB8 00015E18  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80018EBC 00015E1C  7C 08 03 A6 */	mtlr r0
 /* 80018EC0 00015E20  38 21 00 20 */	addi r1, r1, 0x20
-/* 80018EC4 00015E24  4E 80 00 20 */	blr 
+/* 80018EC4 00015E24  4E 80 00 20 */	blr
 
 .global ForceGunOrientation__7CPlayerFRC12CTransform4fR13CStateManager
 ForceGunOrientation__7CPlayerFRC12CTransform4fR13CStateManager:
@@ -10534,7 +10534,7 @@ ForceGunOrientation__7CPlayerFRC12CTransform4fR13CStateManager:
 /* 80018F44 00015EA4  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80018F48 00015EA8  7C 08 03 A6 */	mtlr r0
 /* 80018F4C 00015EAC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80018F50 00015EB0  4E 80 00 20 */	blr 
+/* 80018F50 00015EB0  4E 80 00 20 */	blr
 
 .global UpdateArmAndGunTransforms__7CPlayerFfR13CStateManager
 UpdateArmAndGunTransforms__7CPlayerFfR13CStateManager:
@@ -10634,11 +10634,11 @@ lbl_80019030:
 /* 800190B8 00016018  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 800190BC 0001601C  7C 08 03 A6 */	mtlr r0
 /* 800190C0 00016020  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800190C4 00016024  4E 80 00 20 */	blr 
+/* 800190C4 00016024  4E 80 00 20 */	blr
 
 .global UpdateDebugCamera__7CPlayerFR13CStateManager
 UpdateDebugCamera__7CPlayerFR13CStateManager:
-/* 800190C8 00016028  4E 80 00 20 */	blr 
+/* 800190C8 00016028  4E 80 00 20 */	blr
 
 .global GetFirstPersonCameraTransform__7CPlayerCFR13CStateManager
 GetFirstPersonCameraTransform__7CPlayerCFR13CStateManager:
@@ -10651,7 +10651,7 @@ GetFirstPersonCameraTransform__7CPlayerCFR13CStateManager:
 /* 800190E4 00016044  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800190E8 00016048  7C 08 03 A6 */	mtlr r0
 /* 800190EC 0001604C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800190F0 00016050  4E 80 00 20 */	blr 
+/* 800190F0 00016050  4E 80 00 20 */	blr
 
 .global UpdateGunTransform__7CPlayerFRC9CVector3fR13CStateManager
 UpdateGunTransform__7CPlayerFRC9CVector3fR13CStateManager:
@@ -10946,7 +10946,7 @@ lbl_800194DC:
 /* 80019548 000164A8  83 A1 03 B4 */	lwz r29, 0x3b4(r1)
 /* 8001954C 000164AC  7C 08 03 A6 */	mtlr r0
 /* 80019550 000164B0  38 21 03 F0 */	addi r1, r1, 0x3f0
-/* 80019554 000164B4  4E 80 00 20 */	blr 
+/* 80019554 000164B4  4E 80 00 20 */	blr
 
 .global UpdateAssistedAiming__7CPlayerFRC12CTransform4fR13CStateManager
 UpdateAssistedAiming__7CPlayerFRC12CTransform4fR13CStateManager:
@@ -11208,7 +11208,7 @@ lbl_800198E8:
 /* 80019930 00016890  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 80019934 00016894  7C 08 03 A6 */	mtlr r0
 /* 80019938 00016898  38 21 01 20 */	addi r1, r1, 0x120
-/* 8001993C 0001689C  4E 80 00 20 */	blr 
+/* 8001993C 0001689C  4E 80 00 20 */	blr
 
 .global UpdateAimTargetPrediction__7CPlayerFRC12CTransform4fR13CStateManager
 UpdateAimTargetPrediction__7CPlayerFRC12CTransform4fR13CStateManager:
@@ -11269,7 +11269,7 @@ UpdateAimTargetPrediction__7CPlayerFRC12CTransform4fR13CStateManager:
 /* 80019A18 00016978  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80019A1C 0001697C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80019A20 00016980  7D 89 03 A6 */	mtctr r12
-/* 80019A24 00016984  4E 80 04 21 */	bctrl 
+/* 80019A24 00016984  4E 80 04 21 */	bctrl
 /* 80019A28 00016988  C3 61 00 58 */	lfs f27, 0x58(r1)
 /* 80019A2C 0001698C  C0 1C 00 0C */	lfs f0, 0xc(r28)
 /* 80019A30 00016990  C3 C1 00 5C */	lfs f30, 0x5c(r1)
@@ -11294,7 +11294,7 @@ UpdateAimTargetPrediction__7CPlayerFRC12CTransform4fR13CStateManager:
 /* 80019A7C 000169DC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80019A80 000169E0  38 61 00 4C */	addi r3, r1, 0x4c
 /* 80019A84 000169E4  7D 89 03 A6 */	mtctr r12
-/* 80019A88 000169E8  4E 80 04 21 */	bctrl 
+/* 80019A88 000169E8  4E 80 04 21 */	bctrl
 /* 80019A8C 000169EC  C3 41 00 4C */	lfs f26, 0x4c(r1)
 /* 80019A90 000169F0  38 61 00 64 */	addi r3, r1, 0x64
 /* 80019A94 000169F4  C3 E1 00 50 */	lfs f31, 0x50(r1)
@@ -11380,7 +11380,7 @@ lbl_80019B74:
 /* 80019BC4 00016B24  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 80019BC8 00016B28  7C 08 03 A6 */	mtlr r0
 /* 80019BCC 00016B2C  38 21 01 10 */	addi r1, r1, 0x110
-/* 80019BD0 00016B30  4E 80 00 20 */	blr 
+/* 80019BD0 00016B30  4E 80 00 20 */	blr
 
 .global "GetAverage__31TReservedAverage<9CVector3f,20>CFv"
 "GetAverage__31TReservedAverage<9CVector3f,20>CFv":
@@ -11414,7 +11414,7 @@ lbl_80019C34:
 /* 80019C38 00016B98  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80019C3C 00016B9C  7C 08 03 A6 */	mtlr r0
 /* 80019C40 00016BA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80019C44 00016BA4  4E 80 00 20 */	blr 
+/* 80019C44 00016BA4  4E 80 00 20 */	blr
 
 .global sub_80019c48
 sub_80019c48:
@@ -11510,7 +11510,7 @@ lbl_80019D88:
 /* 80019D94 00016CF4  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80019D98 00016CF8  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80019D9C 00016CFC  D0 03 00 0C */	stfs f0, 0xc(r3)
-/* 80019DA0 00016D00  4E 80 00 20 */	blr 
+/* 80019DA0 00016D00  4E 80 00 20 */	blr
 
 .global ResetAimTargetPrediction__7CPlayerF9TUniqueId
 ResetAimTargetPrediction__7CPlayerF9TUniqueId:
@@ -11550,7 +11550,7 @@ lbl_80019E0C:
 lbl_80019E14:
 /* 80019E14 00016D74  A0 04 00 00 */	lhz r0, 0(r4)
 /* 80019E18 00016D78  B0 03 03 F4 */	sth r0, 0x3f4(r3)
-/* 80019E1C 00016D7C  4E 80 00 20 */	blr 
+/* 80019E1C 00016D7C  4E 80 00 20 */	blr
 
 .global UpdateGunState__7CPlayerFRC11CFinalInputR13CStateManager
 UpdateGunState__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -11733,7 +11733,7 @@ lbl_8001A084:
 /* 8001A09C 00016FFC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8001A0A0 00017000  7C 08 03 A6 */	mtlr r0
 /* 8001A0A4 00017004  38 21 00 30 */	addi r1, r1, 0x30
-/* 8001A0A8 00017008  4E 80 00 20 */	blr 
+/* 8001A0A8 00017008  4E 80 00 20 */	blr
 
 .global DrawGun__7CPlayerFR13CStateManager
 DrawGun__7CPlayerFR13CStateManager:
@@ -11765,7 +11765,7 @@ lbl_8001A100:
 /* 8001A108 00017068  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8001A10C 0001706C  7C 08 03 A6 */	mtlr r0
 /* 8001A110 00017070  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001A114 00017074  4E 80 00 20 */	blr 
+/* 8001A114 00017074  4E 80 00 20 */	blr
 
 .global ResetGun__7CPlayerFR13CStateManager
 ResetGun__7CPlayerFR13CStateManager:
@@ -11789,7 +11789,7 @@ ResetGun__7CPlayerFR13CStateManager:
 /* 8001A15C 000170BC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8001A160 000170C0  7C 08 03 A6 */	mtlr r0
 /* 8001A164 000170C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8001A168 000170C8  4E 80 00 20 */	blr 
+/* 8001A168 000170C8  4E 80 00 20 */	blr
 
 .global HolsterGun__7CPlayerFR13CStateManager
 HolsterGun__7CPlayerFR13CStateManager:
@@ -11839,7 +11839,7 @@ lbl_8001A200:
 /* 8001A204 00017164  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8001A208 00017168  7C 08 03 A6 */	mtlr r0
 /* 8001A20C 0001716C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8001A210 00017170  4E 80 00 20 */	blr 
+/* 8001A210 00017170  4E 80 00 20 */	blr
 
 .global IsMorphBallTransitioning__7CPlayerCFv
 IsMorphBallTransitioning__7CPlayerCFv:
@@ -11851,10 +11851,10 @@ IsMorphBallTransitioning__7CPlayerCFv:
 /* 8001A228 00017188  48 00 00 0C */	b lbl_8001A234
 lbl_8001A22C:
 /* 8001A22C 0001718C  38 60 00 01 */	li r3, 1
-/* 8001A230 00017190  4E 80 00 20 */	blr 
+/* 8001A230 00017190  4E 80 00 20 */	blr
 lbl_8001A234:
 /* 8001A234 00017194  38 60 00 00 */	li r3, 0
-/* 8001A238 00017198  4E 80 00 20 */	blr 
+/* 8001A238 00017198  4E 80 00 20 */	blr
 
 .global __ct__7CPlayerF9TUniqueIdRC12CTransform4fRC6CAABoxUi9CVector3fffffRC13CMaterialList
 __ct__7CPlayerF9TUniqueIdRC12CTransform4fRC6CAABoxUi9CVector3fffffRC13CMaterialList:
@@ -12639,7 +12639,7 @@ lbl_8001AD78:
 /* 8001AE28 00017D88  80 01 02 B4 */	lwz r0, 0x2b4(r1)
 /* 8001AE2C 00017D8C  7C 08 03 A6 */	mtlr r0
 /* 8001AE30 00017D90  38 21 02 B0 */	addi r1, r1, 0x2b0
-/* 8001AE34 00017D94  4E 80 00 20 */	blr 
+/* 8001AE34 00017D94  4E 80 00 20 */	blr
 
 .global None__16CActorParametersFv
 None__16CActorParametersFv:
@@ -12650,7 +12650,7 @@ None__16CActorParametersFv:
 /* 8001AE48 00017DA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001AE4C 00017DAC  7C 08 03 A6 */	mtlr r0
 /* 8001AE50 00017DB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001AE54 00017DB4  4E 80 00 20 */	blr 
+/* 8001AE54 00017DB4  4E 80 00 20 */	blr
 
 .global MakePlayerAnimres__FUiRC9CVector3f
 MakePlayerAnimres__FUiRC9CVector3f:
@@ -12667,7 +12667,7 @@ MakePlayerAnimres__FUiRC9CVector3f:
 /* 8001AE80 00017DE0  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 8001AE84 00017DE4  98 83 00 14 */	stb r4, 0x14(r3)
 /* 8001AE88 00017DE8  90 03 00 18 */	stw r0, 0x18(r3)
-/* 8001AE8C 00017DEC  4E 80 00 20 */	blr 
+/* 8001AE8C 00017DEC  4E 80 00 20 */	blr
 
 .global SetMaterial__19CCollisionPrimitiveFRC13CMaterialList
 SetMaterial__19CCollisionPrimitiveFRC13CMaterialList:
@@ -12675,7 +12675,7 @@ SetMaterial__19CCollisionPrimitiveFRC13CMaterialList:
 /* 8001AE94 00017DF4  80 84 00 04 */	lwz r4, 4(r4)
 /* 8001AE98 00017DF8  90 83 00 0C */	stw r4, 0xc(r3)
 /* 8001AE9C 00017DFC  90 03 00 08 */	stw r0, 8(r3)
-/* 8001AEA0 00017E00  4E 80 00 20 */	blr 
+/* 8001AEA0 00017E00  4E 80 00 20 */	blr
 
 .global "__nw__24TOneStatic<10CPlayerGun>FUlPCcPCc"
 "__nw__24TOneStatic<10CPlayerGun>FUlPCcPCc":
@@ -12690,13 +12690,13 @@ SetMaterial__19CCollisionPrimitiveFRC13CMaterialList:
 /* 8001AEC4 00017E24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001AEC8 00017E28  7C 08 03 A6 */	mtlr r0
 /* 8001AECC 00017E2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001AED0 00017E30  4E 80 00 20 */	blr 
+/* 8001AED0 00017E30  4E 80 00 20 */	blr
 
 .global "GetAllocSpace__24TOneStatic<10CPlayerGun>Fv"
 "GetAllocSpace__24TOneStatic<10CPlayerGun>Fv":
 /* 8001AED4 00017E34  3C 60 80 45 */	lis r3, lbl_80457A10@ha
 /* 8001AED8 00017E38  38 63 7A 10 */	addi r3, r3, lbl_80457A10@l
-/* 8001AEDC 00017E3C  4E 80 00 20 */	blr 
+/* 8001AEDC 00017E3C  4E 80 00 20 */	blr
 
 .global "ReferenceCount__24TOneStatic<10CPlayerGun>Fv"
 "ReferenceCount__24TOneStatic<10CPlayerGun>Fv":
@@ -12709,7 +12709,7 @@ SetMaterial__19CCollisionPrimitiveFRC13CMaterialList:
 /* 8001AEF8 00017E58  98 0D A0 D0 */	stb r0, lbl_805A8C90@sda21(r13)
 lbl_8001AEFC:
 /* 8001AEFC 00017E5C  38 6D A0 CC */	addi r3, r13, lbl_805A8C8C@sda21
-/* 8001AF00 00017E60  4E 80 00 20 */	blr 
+/* 8001AF00 00017E60  4E 80 00 20 */	blr
 
 .global "__nw__30TOneStatic<16CPlayerCameraBob>FUlPCcPCc"
 "__nw__30TOneStatic<16CPlayerCameraBob>FUlPCcPCc":
@@ -12724,7 +12724,7 @@ lbl_8001AEFC:
 /* 8001AF24 00017E84  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001AF28 00017E88  7C 08 03 A6 */	mtlr r0
 /* 8001AF2C 00017E8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001AF30 00017E90  4E 80 00 20 */	blr 
+/* 8001AF30 00017E90  4E 80 00 20 */	blr
 
 .global "__dl__30TOneStatic<16CPlayerCameraBob>FPv"
 "__dl__30TOneStatic<16CPlayerCameraBob>FPv":
@@ -12738,13 +12738,13 @@ lbl_8001AEFC:
 /* 8001AF50 00017EB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001AF54 00017EB4  7C 08 03 A6 */	mtlr r0
 /* 8001AF58 00017EB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001AF5C 00017EBC  4E 80 00 20 */	blr 
+/* 8001AF5C 00017EBC  4E 80 00 20 */	blr
 
 .global "GetAllocSpace__30TOneStatic<16CPlayerCameraBob>Fv"
 "GetAllocSpace__30TOneStatic<16CPlayerCameraBob>Fv":
 /* 8001AF60 00017EC0  3C 60 80 46 */	lis r3, lbl_80458248@ha
 /* 8001AF64 00017EC4  38 63 82 48 */	addi r3, r3, lbl_80458248@l
-/* 8001AF68 00017EC8  4E 80 00 20 */	blr 
+/* 8001AF68 00017EC8  4E 80 00 20 */	blr
 
 .global "ReferenceCount__30TOneStatic<16CPlayerCameraBob>Fv"
 "ReferenceCount__30TOneStatic<16CPlayerCameraBob>Fv":
@@ -12757,7 +12757,7 @@ lbl_8001AEFC:
 /* 8001AF84 00017EE4  98 0D A0 D8 */	stb r0, lbl_805A8C98@sda21(r13)
 lbl_8001AF88:
 /* 8001AF88 00017EE8  38 6D A0 D4 */	addi r3, r13, lbl_805A8C94@sda21
-/* 8001AF8C 00017EEC  4E 80 00 20 */	blr 
+/* 8001AF8C 00017EEC  4E 80 00 20 */	blr
 
 .global "__nw__24TOneStatic<10CMorphBall>FUlPCcPCc"
 "__nw__24TOneStatic<10CMorphBall>FUlPCcPCc":
@@ -12772,13 +12772,13 @@ lbl_8001AF88:
 /* 8001AFB0 00017F10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001AFB4 00017F14  7C 08 03 A6 */	mtlr r0
 /* 8001AFB8 00017F18  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001AFBC 00017F1C  4E 80 00 20 */	blr 
+/* 8001AFBC 00017F1C  4E 80 00 20 */	blr
 
 .global "GetAllocSpace__24TOneStatic<10CMorphBall>Fv"
 "GetAllocSpace__24TOneStatic<10CMorphBall>Fv":
 /* 8001AFC0 00017F20  3C 60 80 46 */	lis r3, lbl_80458350@ha
 /* 8001AFC4 00017F24  38 63 83 50 */	addi r3, r3, lbl_80458350@l
-/* 8001AFC8 00017F28  4E 80 00 20 */	blr 
+/* 8001AFC8 00017F28  4E 80 00 20 */	blr
 
 .global "ReferenceCount__24TOneStatic<10CMorphBall>Fv"
 "ReferenceCount__24TOneStatic<10CMorphBall>Fv":
@@ -12791,7 +12791,7 @@ lbl_8001AF88:
 /* 8001AFE4 00017F44  98 0D A0 E0 */	stb r0, lbl_805A8CA0@sda21(r13)
 lbl_8001AFE8:
 /* 8001AFE8 00017F48  38 6D A0 DC */	addi r3, r13, lbl_805A8C9C@sda21
-/* 8001AFEC 00017F4C  4E 80 00 20 */	blr 
+/* 8001AFEC 00017F4C  4E 80 00 20 */	blr
 
 .global "__dl__20TOneStatic<7CPlayer>FPv"
 "__dl__20TOneStatic<7CPlayer>FPv":
@@ -12805,7 +12805,7 @@ lbl_8001AFE8:
 /* 8001B00C 00017F6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8001B010 00017F70  7C 08 03 A6 */	mtlr r0
 /* 8001B014 00017F74  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001B018 00017F78  4E 80 00 20 */	blr 
+/* 8001B018 00017F78  4E 80 00 20 */	blr
 
 .global "ReferenceCount__20TOneStatic<7CPlayer>Fv"
 "ReferenceCount__20TOneStatic<7CPlayer>Fv":
@@ -12818,7 +12818,7 @@ lbl_8001AFE8:
 /* 8001B034 00017F94  98 0D A0 E8 */	stb r0, lbl_805A8CA8@sda21(r13)
 lbl_8001B038:
 /* 8001B038 00017F98  38 6D A0 E4 */	addi r3, r13, lbl_805A8CA4@sda21
-/* 8001B03C 00017F9C  4E 80 00 20 */	blr 
+/* 8001B03C 00017F9C  4E 80 00 20 */	blr
 
 .global "GetAverageValue<9CVector3f>__FPC9CVector3fi"
 "GetAverageValue<9CVector3f>__FPC9CVector3fi":
@@ -12919,7 +12919,7 @@ lbl_8001B174:
 /* 8001B1A8 00018108  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8001B1AC 0001810C  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8001B1B0 00018110  38 21 00 10 */	addi r1, r1, 0x10
-/* 8001B1B4 00018114  4E 80 00 20 */	blr 
+/* 8001B1B4 00018114  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl66vector<Q24rstl22auto_ptr<10CModelData>,Q24rstl17rmemory_allocator>Fi":
@@ -13000,7 +13000,7 @@ lbl_8001B2B4:
 /* 8001B2B8 00018218  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8001B2BC 0001821C  7C 08 03 A6 */	mtlr r0
 /* 8001B2C0 00018220  38 21 00 30 */	addi r1, r1, 0x30
-/* 8001B2C4 00018224  4E 80 00 20 */	blr 
+/* 8001B2C4 00018224  4E 80 00 20 */	blr
 
 .global __sinit_CPlayer_cpp
 __sinit_CPlayer_cpp:
@@ -13090,4 +13090,4 @@ __sinit_CPlayer_cpp:
 /* 8001B414 00018374  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8001B418 00018378  7C 08 03 A6 */	mtlr r0
 /* 8001B41C 0001837C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8001B420 00018380  4E 80 00 20 */	blr 
+/* 8001B420 00018380  4E 80 00 20 */	blr

@@ -45,7 +45,7 @@ Alloc__Q28COBBTree16CSimpleAllocatorFUl:
 /* 802A799C 002A48FC  90 03 00 08 */	stw r0, 8(r3)
 lbl_802A79A0:
 /* 802A79A0 002A4900  7C A3 2B 78 */	mr r3, r5
-/* 802A79A4 002A4904  4E 80 00 20 */	blr 
+/* 802A79A4 002A4904  4E 80 00 20 */	blr
 
 .global __dt__Q28COBBTree16CSimpleAllocatorFv
 __dt__Q28COBBTree16CSimpleAllocatorFv:
@@ -73,7 +73,7 @@ lbl_802A79E8:
 /* 802A79F4 002A4954  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A79F8 002A4958  7C 08 03 A6 */	mtlr r0
 /* 802A79FC 002A495C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7A00 002A4960  4E 80 00 20 */	blr 
+/* 802A7A00 002A4960  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree16CSimpleAllocatorFUi
 __ct__Q28COBBTree16CSimpleAllocatorFUi:
@@ -99,7 +99,7 @@ __ct__Q28COBBTree16CSimpleAllocatorFUi:
 /* 802A7A50 002A49B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A7A54 002A49B4  7C 08 03 A6 */	mtlr r0
 /* 802A7A58 002A49B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7A5C 002A49BC  4E 80 00 20 */	blr 
+/* 802A7A5C 002A49BC  4E 80 00 20 */	blr
 
 .global GetMemoryUsage__Q28COBBTree9CLeafDataCFv
 GetMemoryUsage__Q28COBBTree9CLeafDataCFv:
@@ -107,10 +107,10 @@ GetMemoryUsage__Q28COBBTree9CLeafDataCFv:
 /* 802A7A64 002A49C4  54 03 08 3C */	slwi r3, r0, 1
 /* 802A7A68 002A49C8  38 63 00 10 */	addi r3, r3, 0x10
 /* 802A7A6C 002A49CC  54 60 07 BF */	clrlwi. r0, r3, 0x1e
-/* 802A7A70 002A49D0  4D 82 00 20 */	beqlr 
+/* 802A7A70 002A49D0  4D 82 00 20 */	beqlr
 /* 802A7A74 002A49D4  20 00 00 04 */	subfic r0, r0, 4
 /* 802A7A78 002A49D8  7C 63 02 14 */	add r3, r3, r0
-/* 802A7A7C 002A49DC  4E 80 00 20 */	blr 
+/* 802A7A7C 002A49DC  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree9CLeafDataFR12CInputStream
 __ct__Q28COBBTree9CLeafDataFR12CInputStream:
@@ -167,7 +167,7 @@ lbl_802A7B24:
 /* 802A7B34 002A4A94  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A7B38 002A4A98  7C 08 03 A6 */	mtlr r0
 /* 802A7B3C 002A4A9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A7B40 002A4AA0  4E 80 00 20 */	blr 
+/* 802A7B40 002A4AA0  4E 80 00 20 */	blr
 
 .global "__ct__Q28COBBTree9CLeafDataFRCQ24rstl37vector<Us,Q24rstl17rmemory_allocator>"
 "__ct__Q28COBBTree9CLeafDataFRCQ24rstl37vector<Us,Q24rstl17rmemory_allocator>":
@@ -227,7 +227,7 @@ lbl_802A7BF4:
 /* 802A7C00 002A4B60  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A7C04 002A4B64  7C 08 03 A6 */	mtlr r0
 /* 802A7C08 002A4B68  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7C0C 002A4B6C  4E 80 00 20 */	blr 
+/* 802A7C0C 002A4B6C  4E 80 00 20 */	blr
 
 .global __dl__Q28COBBTree5CNodeFPvUl
 __dl__Q28COBBTree5CNodeFPvUl:
@@ -244,7 +244,7 @@ lbl_802A7C34:
 /* 802A7C34 002A4B94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A7C38 002A4B98  7C 08 03 A6 */	mtlr r0
 /* 802A7C3C 002A4B9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7C40 002A4BA0  4E 80 00 20 */	blr 
+/* 802A7C40 002A4BA0  4E 80 00 20 */	blr
 
 .global __nw__Q28COBBTree5CNodeFUlPCci
 __nw__Q28COBBTree5CNodeFUlPCci:
@@ -267,12 +267,12 @@ lbl_802A7C7C:
 /* 802A7C7C 002A4BDC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A7C80 002A4BE0  7C 08 03 A6 */	mtlr r0
 /* 802A7C84 002A4BE4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7C88 002A4BE8  4E 80 00 20 */	blr 
+/* 802A7C88 002A4BE8  4E 80 00 20 */	blr
 
 .global SetAllocator__Q28COBBTree5CNodeFPQ28COBBTree16CSimpleAllocator
 SetAllocator__Q28COBBTree5CNodeFPQ28COBBTree16CSimpleAllocator:
 /* 802A7C8C 002A4BEC  90 6D A5 D8 */	stw r3, lbl_805A9198@sda21(r13)
-/* 802A7C90 002A4BF0  4E 80 00 20 */	blr 
+/* 802A7C90 002A4BF0  4E 80 00 20 */	blr
 
 .global GetMemoryUsage__Q28COBBTree5CNodeCFv
 GetMemoryUsage__Q28COBBTree5CNodeCFv:
@@ -308,7 +308,7 @@ lbl_802A7CF0:
 /* 802A7CFC 002A4C5C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A7D00 002A4C60  7C 08 03 A6 */	mtlr r0
 /* 802A7D04 002A4C64  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7D08 002A4C68  4E 80 00 20 */	blr 
+/* 802A7D08 002A4C68  4E 80 00 20 */	blr
 
 .global __dt__Q28COBBTree5CNodeFv
 __dt__Q28COBBTree5CNodeFv:
@@ -366,7 +366,7 @@ lbl_802A7DB4:
 /* 802A7DC4 002A4D24  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802A7DC8 002A4D28  7C 08 03 A6 */	mtlr r0
 /* 802A7DCC 002A4D2C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802A7DD0 002A4D30  4E 80 00 20 */	blr 
+/* 802A7DD0 002A4D30  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree5CNodeFR12CInputStream
 __ct__Q28COBBTree5CNodeFR12CInputStream:
@@ -441,7 +441,7 @@ lbl_802A7EBC:
 /* 802A7ECC 002A4E2C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A7ED0 002A4E30  7C 08 03 A6 */	mtlr r0
 /* 802A7ED4 002A4E34  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A7ED8 002A4E38  4E 80 00 20 */	blr 
+/* 802A7ED8 002A4E38  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree5CNodeFRC12CTransform4fRC9CVector3fPCQ28COBBTree5CNodePCQ28COBBTree5CNodePCQ28COBBTree9CLeafData
 __ct__Q28COBBTree5CNodeFRC12CTransform4fRC9CVector3fPCQ28COBBTree5CNodePCQ28COBBTree5CNodePCQ28COBBTree9CLeafData:
@@ -472,7 +472,7 @@ __ct__Q28COBBTree5CNodeFRC12CTransform4fRC9CVector3fPCQ28COBBTree5CNodePCQ28COBB
 /* 802A7F3C 002A4E9C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A7F40 002A4EA0  7C 08 03 A6 */	mtlr r0
 /* 802A7F44 002A4EA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A7F48 002A4EA8  4E 80 00 20 */	blr 
+/* 802A7F48 002A4EA8  4E 80 00 20 */	blr
 
 .global GetTriangleEdgeIndices__8COBBTreeCFUs
 GetTriangleEdgeIndices__8COBBTreeCFUs:
@@ -480,7 +480,7 @@ GetTriangleEdgeIndices__8COBBTreeCFUs:
 /* 802A7F50 002A4EB0  80 63 00 74 */	lwz r3, 0x74(r3)
 /* 802A7F54 002A4EB4  1C 00 00 06 */	mulli r0, r0, 6
 /* 802A7F58 002A4EB8  7C 63 02 14 */	add r3, r3, r0
-/* 802A7F5C 002A4EBC  4E 80 00 20 */	blr 
+/* 802A7F5C 002A4EBC  4E 80 00 20 */	blr
 
 .global GetTriangleVertexIndices__8COBBTreeCFUsPUs
 GetTriangleVertexIndices__8COBBTreeCFUsPUs:
@@ -525,13 +525,13 @@ lbl_802A7FC8:
 /* 802A7FEC 002A4F4C  B0 05 00 00 */	sth r0, 0(r5)
 /* 802A7FF0 002A4F50  A0 06 00 00 */	lhz r0, 0(r6)
 /* 802A7FF4 002A4F54  B0 05 00 02 */	sth r0, 2(r5)
-/* 802A7FF8 002A4F58  4E 80 00 20 */	blr 
+/* 802A7FF8 002A4F58  4E 80 00 20 */	blr
 lbl_802A7FFC:
 /* 802A7FFC 002A4F5C  A0 06 00 00 */	lhz r0, 0(r6)
 /* 802A8000 002A4F60  B0 05 00 00 */	sth r0, 0(r5)
 /* 802A8004 002A4F64  A0 06 00 02 */	lhz r0, 2(r6)
 /* 802A8008 002A4F68  B0 05 00 02 */	sth r0, 2(r5)
-/* 802A800C 002A4F6C  4E 80 00 20 */	blr 
+/* 802A800C 002A4F6C  4E 80 00 20 */	blr
 
 .global BuildOrientedBoundingBoxTree__8COBBTreeFRC9CVector3fRC9CVector3f
 BuildOrientedBoundingBoxTree__8COBBTreeFRC9CVector3fRC9CVector3f:
@@ -1012,7 +1012,7 @@ lbl_802A8694:
 /* 802A86A4 002A5604  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 802A86A8 002A5608  7C 08 03 A6 */	mtlr r0
 /* 802A86AC 002A560C  38 21 01 50 */	addi r1, r1, 0x150
-/* 802A86B0 002A5610  4E 80 00 20 */	blr 
+/* 802A86B0 002A5610  4E 80 00 20 */	blr
 
 .global sub_802a86b4
 sub_802a86b4:
@@ -1087,7 +1087,7 @@ lbl_802A8794:
 /* 802A879C 002A56FC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802A87A0 002A5700  7C 08 03 A6 */	mtlr r0
 /* 802A87A4 002A5704  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A87A8 002A5708  4E 80 00 20 */	blr 
+/* 802A87A8 002A5708  4E 80 00 20 */	blr
 
 .global sub_802a87ac
 sub_802a87ac:
@@ -1254,7 +1254,7 @@ lbl_802A89C8:
 /* 802A89D4 002A5934  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 802A89D8 002A5938  7C 08 03 A6 */	mtlr r0
 /* 802A89DC 002A593C  38 21 00 80 */	addi r1, r1, 0x80
-/* 802A89E0 002A5940  4E 80 00 20 */	blr 
+/* 802A89E0 002A5940  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree10SIndexDataFv
 __ct__Q28COBBTree10SIndexDataFv:
@@ -1280,7 +1280,7 @@ __ct__Q28COBBTree10SIndexDataFv:
 /* 802A8A30 002A5990  90 03 00 64 */	stw r0, 0x64(r3)
 /* 802A8A34 002A5994  90 03 00 68 */	stw r0, 0x68(r3)
 /* 802A8A38 002A5998  90 03 00 6C */	stw r0, 0x6c(r3)
-/* 802A8A3C 002A599C  4E 80 00 20 */	blr 
+/* 802A8A3C 002A599C  4E 80 00 20 */	blr
 
 .global GetTransformedSurface__8COBBTreeCFUsRC12CTransform4f
 GetTransformedSurface__8COBBTreeCFUsRC12CTransform4f:
@@ -1383,7 +1383,7 @@ lbl_802A8BA8:
 /* 802A8BAC 002A5B0C  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802A8BB0 002A5B10  7C 08 03 A6 */	mtlr r0
 /* 802A8BB4 002A5B14  38 21 00 70 */	addi r1, r1, 0x70
-/* 802A8BB8 002A5B18  4E 80 00 20 */	blr 
+/* 802A8BB8 002A5B18  4E 80 00 20 */	blr
 
 .global GetSurface__8COBBTreeCFUs
 GetSurface__8COBBTreeCFUs:
@@ -1452,7 +1452,7 @@ lbl_802A8CA0:
 /* 802A8CA0 002A5C00  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A8CA4 002A5C04  7C 08 03 A6 */	mtlr r0
 /* 802A8CA8 002A5C08  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A8CAC 002A5C0C  4E 80 00 20 */	blr 
+/* 802A8CAC 002A5C0C  4E 80 00 20 */	blr
 
 .global CalculateLocalAABox__8COBBTreeCFv
 CalculateLocalAABox__8COBBTreeCFv:
@@ -1481,7 +1481,7 @@ lbl_802A8CFC:
 /* 802A8D00 002A5C60  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802A8D04 002A5C64  7C 08 03 A6 */	mtlr r0
 /* 802A8D08 002A5C68  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A8D0C 002A5C6C  4E 80 00 20 */	blr 
+/* 802A8D0C 002A5C6C  4E 80 00 20 */	blr
 
 .global __dt__8COBBTreeFv
 __dt__8COBBTreeFv:
@@ -1523,7 +1523,7 @@ lbl_802A8D84:
 /* 802A8D90 002A5CF0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A8D94 002A5CF4  7C 08 03 A6 */	mtlr r0
 /* 802A8D98 002A5CF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A8D9C 002A5CFC  4E 80 00 20 */	blr 
+/* 802A8D9C 002A5CFC  4E 80 00 20 */	blr
 
 .global __ct__8COBBTreeFR12CInputStream
 __ct__8COBBTreeFR12CInputStream:
@@ -1571,7 +1571,7 @@ lbl_802A8E30:
 /* 802A8E40 002A5DA0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A8E44 002A5DA4  7C 08 03 A6 */	mtlr r0
 /* 802A8E48 002A5DA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A8E4C 002A5DAC  4E 80 00 20 */	blr 
+/* 802A8E4C 002A5DAC  4E 80 00 20 */	blr
 
 .global verify_version__FR12CInputStream
 verify_version__FR12CInputStream:
@@ -1582,7 +1582,7 @@ verify_version__FR12CInputStream:
 /* 802A8E60 002A5DC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A8E64 002A5DC4  7C 08 03 A6 */	mtlr r0
 /* 802A8E68 002A5DC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A8E6C 002A5DCC  4E 80 00 20 */	blr 
+/* 802A8E6C 002A5DCC  4E 80 00 20 */	blr
 
 .global verify_deaf_babe__FR12CInputStream
 verify_deaf_babe__FR12CInputStream:
@@ -1593,7 +1593,7 @@ verify_deaf_babe__FR12CInputStream:
 /* 802A8E80 002A5DE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A8E84 002A5DE4  7C 08 03 A6 */	mtlr r0
 /* 802A8E88 002A5DE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A8E8C 002A5DEC  4E 80 00 20 */	blr 
+/* 802A8E8C 002A5DEC  4E 80 00 20 */	blr
 
 .global __ct__8COBBTreeFRCQ28COBBTree10SIndexDataPCQ28COBBTree5CNode
 __ct__8COBBTreeFRCQ28COBBTree10SIndexDataPCQ28COBBTree5CNode:
@@ -1625,7 +1625,7 @@ __ct__8COBBTreeFRCQ28COBBTree10SIndexDataPCQ28COBBTree5CNode:
 /* 802A8EF4 002A5E54  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802A8EF8 002A5E58  7C 08 03 A6 */	mtlr r0
 /* 802A8EFC 002A5E5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A8F00 002A5E60  4E 80 00 20 */	blr 
+/* 802A8F00 002A5E60  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree10SIndexDataFRCQ28COBBTree10SIndexData
 __ct__Q28COBBTree10SIndexDataFRCQ28COBBTree10SIndexData:
@@ -1950,7 +1950,7 @@ lbl_802A9348:
 /* 802A9354 002A62B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802A9358 002A62B8  7C 08 03 A6 */	mtlr r0
 /* 802A935C 002A62BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A9360 002A62C0  4E 80 00 20 */	blr 
+/* 802A9360 002A62C0  4E 80 00 20 */	blr
 
 .global __ct__Q28COBBTree10SIndexDataFR12CInputStream
 __ct__Q28COBBTree10SIndexDataFR12CInputStream:
@@ -2223,7 +2223,7 @@ lbl_802A9704:
 /* 802A9714 002A6674  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802A9718 002A6678  7C 08 03 A6 */	mtlr r0
 /* 802A971C 002A667C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802A9720 002A6680  4E 80 00 20 */	blr 
+/* 802A9720 002A6680  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl51vector<14CCollisionEdge,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl51vector<14CCollisionEdge,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -2284,7 +2284,7 @@ lbl_802A97D8:
 /* 802A97E8 002A6748  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A97EC 002A674C  7C 08 03 A6 */	mtlr r0
 /* 802A97F0 002A6750  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A97F4 002A6754  4E 80 00 20 */	blr 
+/* 802A97F4 002A6754  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl51vector<14CCollisionEdge,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl51vector<14CCollisionEdge,Q24rstl17rmemory_allocator>Fi":

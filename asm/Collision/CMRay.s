@@ -36,7 +36,7 @@ GetInvUnscaledTransformRay__5CMRayCFRC12CTransform4f:
 /* 802D605C 002D2FBC  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 802D6060 002D2FC0  7C 08 03 A6 */	mtlr r0
 /* 802D6064 002D2FC4  38 21 00 90 */	addi r1, r1, 0x90
-/* 802D6068 002D2FC8  4E 80 00 20 */	blr 
+/* 802D6068 002D2FC8  4E 80 00 20 */	blr
 
 .global __ct__5CMRayFRC9CVector3fRC9CVector3ff
 __ct__5CMRayFRC9CVector3fRC9CVector3ff:
@@ -83,7 +83,7 @@ __ct__5CMRayFRC9CVector3fRC9CVector3ff:
 /* 802D610C 002D306C  D0 03 00 30 */	stfs f0, 0x30(r3)
 /* 802D6110 002D3070  C0 05 00 08 */	lfs f0, 8(r5)
 /* 802D6114 002D3074  D0 03 00 34 */	stfs f0, 0x34(r3)
-/* 802D6118 002D3078  4E 80 00 20 */	blr 
+/* 802D6118 002D3078  4E 80 00 20 */	blr
 
 .global __ct__5CMRayFRC9CVector3fRC9CVector3fff
 __ct__5CMRayFRC9CVector3fRC9CVector3fff:

@@ -27,11 +27,11 @@ Accept__17CScriptSpawnPointFR8IVisitor:
 /* 800E2390 000DF2F0  7C 04 03 78 */	mr r4, r0
 /* 800E2394 000DF2F4  81 8C 00 B0 */	lwz r12, 0xb0(r12)
 /* 800E2398 000DF2F8  7D 89 03 A6 */	mtctr r12
-/* 800E239C 000DF2FC  4E 80 04 21 */	bctrl 
+/* 800E239C 000DF2FC  4E 80 04 21 */	bctrl
 /* 800E23A0 000DF300  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E23A4 000DF304  7C 08 03 A6 */	mtlr r0
 /* 800E23A8 000DF308  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E23AC 000DF30C  4E 80 00 20 */	blr 
+/* 800E23AC 000DF30C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CScriptSpawnPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CScriptSpawnPointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -178,7 +178,7 @@ lbl_800E25B4:
 /* 800E25B8 000DF518  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800E25BC 000DF51C  7C 08 03 A6 */	mtlr r0
 /* 800E25C0 000DF520  38 21 00 40 */	addi r1, r1, 0x40
-/* 800E25C4 000DF524  4E 80 00 20 */	blr 
+/* 800E25C4 000DF524  4E 80 00 20 */	blr
 
 .global GetPowerup__17CScriptSpawnPointCFRCQ212CPlayerState9EItemType
 GetPowerup__17CScriptSpawnPointCFRCQ212CPlayerState9EItemType:
@@ -189,17 +189,17 @@ GetPowerup__17CScriptSpawnPointCFRCQ212CPlayerState9EItemType:
 /* 800E25D8 000DF538  40 80 00 0C */	bge lbl_800E25E4
 lbl_800E25DC:
 /* 800E25DC 000DF53C  80 63 00 68 */	lwz r3, 0x68(r3)
-/* 800E25E0 000DF540  4E 80 00 20 */	blr 
+/* 800E25E0 000DF540  4E 80 00 20 */	blr
 lbl_800E25E4:
 /* 800E25E4 000DF544  54 00 10 3A */	slwi r0, r0, 2
 /* 800E25E8 000DF548  7C 63 02 14 */	add r3, r3, r0
 /* 800E25EC 000DF54C  80 63 00 68 */	lwz r3, 0x68(r3)
-/* 800E25F0 000DF550  4E 80 00 20 */	blr 
+/* 800E25F0 000DF550  4E 80 00 20 */	blr
 
 .global GetTransform__17CScriptSpawnPointCFv
 GetTransform__17CScriptSpawnPointCFv:
 /* 800E25F4 000DF554  38 63 00 34 */	addi r3, r3, 0x34
-/* 800E25F8 000DF558  4E 80 00 20 */	blr 
+/* 800E25F8 000DF558  4E 80 00 20 */	blr
 
 .global __dt__17CScriptSpawnPointFv
 __dt__17CScriptSpawnPointFv:
@@ -256,7 +256,7 @@ lbl_800E26A0:
 /* 800E26AC 000DF60C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E26B0 000DF610  7C 08 03 A6 */	mtlr r0
 /* 800E26B4 000DF614  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E26B8 000DF618  4E 80 00 20 */	blr 
+/* 800E26B8 000DF618  4E 80 00 20 */	blr
 
 .global "__ct__17CScriptSpawnPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ24rstl21reserved_vector<i,29>bbb"
 "__ct__17CScriptSpawnPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ24rstl21reserved_vector<i,29>bbb":
@@ -312,4 +312,4 @@ lbl_800E2754:
 /* 800E2774 000DF6D4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800E2778 000DF6D8  7C 08 03 A6 */	mtlr r0
 /* 800E277C 000DF6DC  38 21 00 30 */	addi r1, r1, 0x30
-/* 800E2780 000DF6E0  4E 80 00 20 */	blr 
+/* 800E2780 000DF6E0  4E 80 00 20 */	blr

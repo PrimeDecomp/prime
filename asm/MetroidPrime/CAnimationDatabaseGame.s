@@ -18,7 +18,7 @@ lbl_803DA320:
 
 .global "GetUniquePrimitivesFromMetaAnim__22CAnimationDatabaseGameCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetUniquePrimitivesFromMetaAnim__22CAnimationDatabaseGameCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
-/* 8006D80C 0006A76C  4E 80 00 20 */	blr 
+/* 8006D80C 0006A76C  4E 80 00 20 */	blr
 
 .global "GetAllUniquePrimitives__22CAnimationDatabaseGameCFRQ24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>"
 "GetAllUniquePrimitives__22CAnimationDatabaseGameCFRQ24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>":
@@ -49,7 +49,7 @@ lbl_8006D85C:
 /* 8006D86C 0006A7CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8006D870 0006A7D0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8006D874 0006A7D4  7D 89 03 A6 */	mtctr r12
-/* 8006D878 0006A7D8  4E 80 04 21 */	bctrl 
+/* 8006D878 0006A7D8  4E 80 04 21 */	bctrl
 /* 8006D87C 0006A7DC  3B 9C 00 01 */	addi r28, r28, 1
 /* 8006D880 0006A7E0  3B FF 00 04 */	addi r31, r31, 4
 lbl_8006D884:
@@ -96,7 +96,7 @@ lbl_8006D908:
 /* 8006D920 0006A880  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8006D924 0006A884  7C 08 03 A6 */	mtlr r0
 /* 8006D928 0006A888  38 21 00 70 */	addi r1, r1, 0x70
-/* 8006D92C 0006A88C  4E 80 00 20 */	blr 
+/* 8006D92C 0006A88C  4E 80 00 20 */	blr
 
 .global sub_8006d930
 sub_8006d930:
@@ -129,7 +129,7 @@ sub_8006d930:
 /* 8006D998 0006A8F8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8006D99C 0006A8FC  7C 08 03 A6 */	mtlr r0
 /* 8006D9A0 0006A900  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006D9A4 0006A904  4E 80 00 20 */	blr 
+/* 8006D9A4 0006A904  4E 80 00 20 */	blr
 
 .global "insert_into<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>FQ24rstl114pointer_iterator<10CPrimitive,Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator"
 "insert_into<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>FQ24rstl114pointer_iterator<10CPrimitive,Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator":
@@ -361,19 +361,19 @@ lbl_8006DCBC:
 /* 8006DCC0 0006AC20  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8006DCC4 0006AC24  7C 08 03 A6 */	mtlr r0
 /* 8006DCC8 0006AC28  38 21 00 40 */	addi r1, r1, 0x40
-/* 8006DCCC 0006AC2C  4E 80 00 20 */	blr 
+/* 8006DCCC 0006AC2C  4E 80 00 20 */	blr
 
 .global GetMetaAnim__22CAnimationDatabaseGameCFUi
 GetMetaAnim__22CAnimationDatabaseGameCFUi:
 /* 8006DCD0 0006AC30  80 63 00 1C */	lwz r3, 0x1c(r3)
 /* 8006DCD4 0006AC34  54 80 10 3A */	slwi r0, r4, 2
 /* 8006DCD8 0006AC38  7C 63 02 14 */	add r3, r3, r0
-/* 8006DCDC 0006AC3C  4E 80 00 20 */	blr 
+/* 8006DCDC 0006AC3C  4E 80 00 20 */	blr
 
 .global GetNumMetaAnims__22CAnimationDatabaseGameCFv
 GetNumMetaAnims__22CAnimationDatabaseGameCFv:
 /* 8006DCE0 0006AC40  80 63 00 14 */	lwz r3, 0x14(r3)
-/* 8006DCE4 0006AC44  4E 80 00 20 */	blr 
+/* 8006DCE4 0006AC44  4E 80 00 20 */	blr
 
 .global GetMetaAnimName__22CAnimationDatabaseGameCFUi
 GetMetaAnimName__22CAnimationDatabaseGameCFUi:
@@ -389,7 +389,7 @@ GetMetaAnimName__22CAnimationDatabaseGameCFUi:
 /* 8006DD0C 0006AC6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8006DD10 0006AC70  7C 08 03 A6 */	mtlr r0
 /* 8006DD14 0006AC74  38 21 00 10 */	addi r1, r1, 0x10
-/* 8006DD18 0006AC78  4E 80 00 20 */	blr 
+/* 8006DD18 0006AC78  4E 80 00 20 */	blr
 
 .global "__ct__22CAnimationDatabaseGameFRCQ24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>"
 "__ct__22CAnimationDatabaseGameFRCQ24rstl47vector<10CAnimation,Q24rstl17rmemory_allocator>":
@@ -478,7 +478,7 @@ lbl_8006DE30:
 /* 8006DE48 0006ADA8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8006DE4C 0006ADAC  7C 08 03 A6 */	mtlr r0
 /* 8006DE50 0006ADB0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006DE54 0006ADB4  4E 80 00 20 */	blr 
+/* 8006DE54 0006ADB4  4E 80 00 20 */	blr
 
 .global "distance<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__4rstlFQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator"
 "distance<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__4rstlFQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator":
@@ -502,7 +502,7 @@ lbl_8006DE30:
 /* 8006DE9C 0006ADFC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8006DEA0 0006AE00  7C 08 03 A6 */	mtlr r0
 /* 8006DEA4 0006AE04  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006DEA8 0006AE08  4E 80 00 20 */	blr 
+/* 8006DEA8 0006AE08  4E 80 00 20 */	blr
 
 .global "__distance<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__4rstlFQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ24rstl20forward_iterator_tag"
 "__distance<Q34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iterator>__4rstlFQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>8iteratorQ24rstl20forward_iterator_tag":
@@ -543,7 +543,7 @@ lbl_8006DF0C:
 /* 8006DF24 0006AE84  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8006DF28 0006AE88  7C 08 03 A6 */	mtlr r0
 /* 8006DF2C 0006AE8C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006DF30 0006AE90  4E 80 00 20 */	blr 
+/* 8006DF30 0006AE90  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl47vector<10CPrimitive,Q24rstl17rmemory_allocator>Fi":
@@ -623,7 +623,7 @@ lbl_8006E02C:
 /* 8006E030 0006AF90  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006E034 0006AF94  7C 08 03 A6 */	mtlr r0
 /* 8006E038 0006AF98  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006E03C 0006AF9C  4E 80 00 20 */	blr 
+/* 8006E03C 0006AF9C  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl62vector<Q24rstl18rc_ptr<9IMetaAnim>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl62vector<Q24rstl18rc_ptr<9IMetaAnim>,Q24rstl17rmemory_allocator>Fi":
@@ -699,4 +699,4 @@ lbl_8006E128:
 /* 8006E12C 0006B08C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8006E130 0006B090  7C 08 03 A6 */	mtlr r0
 /* 8006E134 0006B094  38 21 00 30 */	addi r1, r1, 0x30
-/* 8006E138 0006B098  4E 80 00 20 */	blr 
+/* 8006E138 0006B098  4E 80 00 20 */	blr

@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global pow
 pow:
@@ -11,4 +11,4 @@ pow:
 /* 80394CFC 00391C5C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80394D00 00391C60  7C 08 03 A6 */	mtlr r0
 /* 80394D04 00391C64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80394D08 00391C68  4E 80 00 20 */	blr 
+/* 80394D08 00391C68  4E 80 00 20 */	blr

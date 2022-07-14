@@ -153,7 +153,7 @@ lbl_801CCEC0:
 /* 801CCED0 001C9E30  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 801CCED4 001C9E34  7C 08 03 A6 */	mtlr r0
 /* 801CCED8 001C9E38  38 21 01 10 */	addi r1, r1, 0x110
-/* 801CCEDC 001C9E3C  4E 80 00 20 */	blr 
+/* 801CCEDC 001C9E3C  4E 80 00 20 */	blr
 
 .global Update__11CGSFreeLookFR9CAnimDatafR13CStateManager
 Update__11CGSFreeLookFR9CAnimDatafR13CStateManager:
@@ -262,7 +262,7 @@ lbl_801CD050:
 /* 801CD060 001C9FC0  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 801CD064 001C9FC4  7C 08 03 A6 */	mtlr r0
 /* 801CD068 001C9FC8  38 21 00 50 */	addi r1, r1, 0x50
-/* 801CD06C 001C9FCC  4E 80 00 20 */	blr 
+/* 801CD06C 001C9FCC  4E 80 00 20 */	blr
 
 .global __ct__11CGSFreeLookFv
 __ct__11CGSFreeLookFv:
@@ -277,4 +277,4 @@ __ct__11CGSFreeLookFv:
 /* 801CD090 001C9FF0  88 03 00 14 */	lbz r0, 0x14(r3)
 /* 801CD094 001C9FF4  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 801CD098 001C9FF8  98 03 00 14 */	stb r0, 0x14(r3)
-/* 801CD09C 001C9FFC  4E 80 00 20 */	blr 
+/* 801CD09C 001C9FFC  4E 80 00 20 */	blr

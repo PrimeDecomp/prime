@@ -70,12 +70,12 @@ lbl_802E0A4C:
 /* 802E0A58 002DD9B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802E0A5C 002DD9BC  7C 08 03 A6 */	mtlr r0
 /* 802E0A60 002DD9C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E0A64 002DD9C4  4E 80 00 20 */	blr 
+/* 802E0A64 002DD9C4  4E 80 00 20 */	blr
 
 .global GetType__13CMetaAnimPlayCFv
 GetType__13CMetaAnimPlayCFv:
 /* 802E0A68 002DD9C8  38 60 00 00 */	li r3, 0
-/* 802E0A6C 002DD9CC  4E 80 00 20 */	blr 
+/* 802E0A6C 002DD9CC  4E 80 00 20 */	blr
 
 .global WriteAnimData__13CMetaAnimPlayCFR13COutputStream
 WriteAnimData__13CMetaAnimPlayCFR13COutputStream:
@@ -96,7 +96,7 @@ WriteAnimData__13CMetaAnimPlayCFR13COutputStream:
 /* 802E0AA8 002DDA08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802E0AAC 002DDA0C  7C 08 03 A6 */	mtlr r0
 /* 802E0AB0 002DDA10  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E0AB4 002DDA14  4E 80 00 20 */	blr 
+/* 802E0AB4 002DDA14  4E 80 00 20 */	blr
 
 .global "GetUniquePrimitives__13CMetaAnimPlayCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>"
 "GetUniquePrimitives__13CMetaAnimPlayCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>":
@@ -111,7 +111,7 @@ WriteAnimData__13CMetaAnimPlayCFR13COutputStream:
 /* 802E0AD8 002DDA38  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E0ADC 002DDA3C  7C 08 03 A6 */	mtlr r0
 /* 802E0AE0 002DDA40  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E0AE4 002DDA44  4E 80 00 20 */	blr 
+/* 802E0AE4 002DDA44  4E 80 00 20 */	blr
 
 .global VGetAnimationTree__13CMetaAnimPlayCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 VGetAnimationTree__13CMetaAnimPlayCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders:
@@ -138,7 +138,7 @@ VGetAnimationTree__13CMetaAnimPlayCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrd
 /* 802E0B38 002DDA98  38 C1 00 34 */	addi r6, r1, 0x34
 /* 802E0B3C 002DDA9C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E0B40 002DDAA0  7D 89 03 A6 */	mtctr r12
-/* 802E0B44 002DDAA4  4E 80 04 21 */	bctrl 
+/* 802E0B44 002DDAA4  4E 80 04 21 */	bctrl
 /* 802E0B48 002DDAA8  38 00 00 00 */	li r0, 0
 /* 802E0B4C 002DDAAC  98 01 00 B8 */	stb r0, 0xb8(r1)
 /* 802E0B50 002DDAB0  98 01 00 74 */	stb r0, 0x74(r1)
@@ -155,7 +155,7 @@ lbl_802E0B58:
 /* 802E0B78 002DDAD8  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E0B7C 002DDADC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E0B80 002DDAE0  7D 89 03 A6 */	mtctr r12
-/* 802E0B84 002DDAE4  4E 80 04 21 */	bctrl 
+/* 802E0B84 002DDAE4  4E 80 04 21 */	bctrl
 /* 802E0B88 002DDAE8  3B 81 00 28 */	addi r28, r1, 0x28
 /* 802E0B8C 002DDAEC  38 81 00 10 */	addi r4, r1, 0x10
 /* 802E0B90 002DDAF0  7F 83 E3 78 */	mr r3, r28
@@ -183,7 +183,7 @@ lbl_802E0B58:
 /* 802E0BE8 002DDB48  38 80 00 01 */	li r4, 1
 /* 802E0BEC 002DDB4C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802E0BF0 002DDB50  7D 89 03 A6 */	mtctr r12
-/* 802E0BF4 002DDB54  4E 80 04 21 */	bctrl 
+/* 802E0BF4 002DDB54  4E 80 04 21 */	bctrl
 lbl_802E0BF8:
 /* 802E0BF8 002DDB58  3C 80 80 3D */	lis r4, lbl_803D6D70@ha
 /* 802E0BFC 002DDB5C  38 60 00 20 */	li r3, 0x20
@@ -229,7 +229,7 @@ lbl_802E0C74:
 /* 802E0C94 002DDBF4  38 80 00 01 */	li r4, 1
 /* 802E0C98 002DDBF8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802E0C9C 002DDBFC  7D 89 03 A6 */	mtctr r12
-/* 802E0CA0 002DDC00  4E 80 04 21 */	bctrl 
+/* 802E0CA0 002DDC00  4E 80 04 21 */	bctrl
 lbl_802E0CA4:
 /* 802E0CA4 002DDC04  38 61 00 28 */	addi r3, r1, 0x28
 /* 802E0CA8 002DDC08  38 80 00 00 */	li r4, 0
@@ -242,7 +242,7 @@ lbl_802E0CB0:
 /* 802E0CC0 002DDC20  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 802E0CC4 002DDC24  7C 08 03 A6 */	mtlr r0
 /* 802E0CC8 002DDC28  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802E0CCC 002DDC2C  4E 80 00 20 */	blr 
+/* 802E0CCC 002DDC2C  4E 80 00 20 */	blr
 
 .global "insert_into__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4nodeRC10CPrimitive"
 "insert_into__Q24rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>FPQ34rstl130red_black_tree<10CPrimitive,10CPrimitive,0,Q24rstl22identity<10CPrimitive>,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>4nodeRC10CPrimitive":
@@ -408,4 +408,4 @@ lbl_802E0F1C:
 /* 802E0F20 002DDE80  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802E0F24 002DDE84  7C 08 03 A6 */	mtlr r0
 /* 802E0F28 002DDE88  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E0F2C 002DDE8C  4E 80 00 20 */	blr 
+/* 802E0F2C 002DDE8C  4E 80 00 20 */	blr

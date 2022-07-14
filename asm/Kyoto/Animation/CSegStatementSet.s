@@ -79,7 +79,7 @@ lbl_802FD350:
 /* 802FD35C 002FA2BC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FD360 002FA2C0  7C 08 03 A6 */	mtlr r0
 /* 802FD364 002FA2C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FD368 002FA2C8  4E 80 00 20 */	blr 
+/* 802FD368 002FA2C8  4E 80 00 20 */	blr
 
 .global __ct__21CStackSegStatementSetFv
 __ct__21CStackSegStatementSetFv:
@@ -137,7 +137,7 @@ lbl_802FD40C:
 /* 802FD428 002FA388  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FD42C 002FA38C  7C 08 03 A6 */	mtlr r0
 /* 802FD430 002FA390  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FD434 002FA394  4E 80 00 20 */	blr 
+/* 802FD434 002FA394  4E 80 00 20 */	blr
 
 .global Add__16CSegStatementSetFRC10CSegIdListRC15CCharLayoutInfoRC16CSegStatementSetf
 Add__16CSegStatementSetFRC10CSegIdListRC15CCharLayoutInfoRC16CSegStatementSetf:
@@ -250,7 +250,7 @@ lbl_802FD5C0:
 /* 802FD5D4 002FA534  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802FD5D8 002FA538  7C 08 03 A6 */	mtlr r0
 /* 802FD5DC 002FA53C  38 21 00 90 */	addi r1, r1, 0x90
-/* 802FD5E0 002FA540  4E 80 00 20 */	blr 
+/* 802FD5E0 002FA540  4E 80 00 20 */	blr
 
 .global __ct__16CSegStatementSetFPv
 __ct__16CSegStatementSetFPv:

@@ -99,7 +99,7 @@ lbl_805A9560:
 .global lbl_805A9561
 lbl_805A9561:
 	.skip 0x7
-	
+
 .section .text, "ax"
 
 .global GetCompressedBlend__13CCubeMaterialCFv
@@ -118,13 +118,13 @@ GetCompressedBlend__13CCubeMaterialCFv:
 /* 80345778 003426D8  7C A5 02 14 */	add r5, r5, r0
 lbl_8034577C:
 /* 8034577C 003426DC  80 65 00 00 */	lwz r3, 0(r5)
-/* 80345780 003426E0  4E 80 00 20 */	blr 
+/* 80345780 003426E0  4E 80 00 20 */	blr
 
 .global DisableShadowMaps__10CCubeModelFv
 DisableShadowMaps__10CCubeModelFv:
 /* 80345784 003426E4  38 00 00 00 */	li r0, 0
 /* 80345788 003426E8  98 0D A9 9A */	stb r0, lbl_805A955A@sda21(r13)
-/* 8034578C 003426EC  4E 80 00 20 */	blr 
+/* 8034578C 003426EC  4E 80 00 20 */	blr
 
 .global EnableShadowMaps__10CCubeModelFPC8CTextureRC12CTransform4fUcUc
 EnableShadowMaps__10CCubeModelFPC8CTextureRC12CTransform4fUcUc:
@@ -149,14 +149,14 @@ EnableShadowMaps__10CCubeModelFPC8CTextureRC12CTransform4fUcUc:
 /* 803457D8 00342738  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803457DC 0034273C  7C 08 03 A6 */	mtlr r0
 /* 803457E0 00342740  38 21 00 10 */	addi r1, r1, 0x10
-/* 803457E4 00342744  4E 80 00 20 */	blr 
+/* 803457E4 00342744  4E 80 00 20 */	blr
 
 .global SetRenderModelBlack__10CCubeModelFb
 SetRenderModelBlack__10CCubeModelFb:
 /* 803457E8 00342748  38 00 00 00 */	li r0, 0
 /* 803457EC 0034274C  98 6D A9 98 */	stb r3, lbl_805A9558@sda21(r13)
 /* 803457F0 00342750  98 0D A9 99 */	stb r0, lbl_805A9559@sda21(r13)
-/* 803457F4 00342754  4E 80 00 20 */	blr 
+/* 803457F4 00342754  4E 80 00 20 */	blr
 
 .global SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch
 SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch:
@@ -228,7 +228,7 @@ SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch:
 /* 803458FC 0034285C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80345900 00342860  7C 08 03 A6 */	mtlr r0
 /* 80345904 00342864  38 21 00 20 */	addi r1, r1, 0x20
-/* 80345908 00342868  4E 80 00 20 */	blr 
+/* 80345908 00342868  4E 80 00 20 */	blr
 
 .global ResetCachedMaterials__13CCubeMaterialFv
 ResetCachedMaterials__13CCubeMaterialFv:
@@ -244,13 +244,13 @@ ResetCachedMaterials__13CCubeMaterialFv:
 /* 80345930 00342890  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80345934 00342894  7C 08 03 A6 */	mtlr r0
 /* 80345938 00342898  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034593C 0034289C  4E 80 00 20 */	blr 
+/* 8034593C 0034289C  4E 80 00 20 */	blr
 
 .global KillCachedViewDepState__13CCubeMaterialFv
 KillCachedViewDepState__13CCubeMaterialFv:
 /* 80345940 003428A0  38 00 00 00 */	li r0, 0
 /* 80345944 003428A4  90 0D A9 84 */	stw r0, lbl_805A9544@sda21(r13)
-/* 80345948 003428A8  4E 80 00 20 */	blr 
+/* 80345948 003428A8  4E 80 00 20 */	blr
 
 .global EnsureViewDepStateCached__13CCubeMaterialFPC12CCubeSurface
 EnsureViewDepStateCached__13CCubeMaterialFPC12CCubeSurface:
@@ -587,7 +587,7 @@ lbl_80345E2C:
 /* 80345E4C 00342DAC  83 C1 01 48 */	lwz r30, 0x148(r1)
 /* 80345E50 00342DB0  7C 08 03 A6 */	mtlr r0
 /* 80345E54 00342DB4  38 21 01 80 */	addi r1, r1, 0x180
-/* 80345E58 00342DB8  4E 80 00 20 */	blr 
+/* 80345E58 00342DB8  4E 80 00 20 */	blr
 
 .global SetCurrent__13CCubeMaterialCFRC11CModelFlagsRC12CCubeSurfaceRC10CCubeModel
 SetCurrent__13CCubeMaterialCFRC11CModelFlagsRC12CCubeSurfaceRC10CCubeModel:
@@ -1116,7 +1116,7 @@ lbl_803465BC:
 /* 803465C0 00343520  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 803465C4 00343524  7C 08 03 A6 */	mtlr r0
 /* 803465C8 00343528  38 21 00 80 */	addi r1, r1, 0x80
-/* 803465CC 0034352C  4E 80 00 20 */	blr 
+/* 803465CC 0034352C  4E 80 00 20 */	blr
 
 .global DoPassthru__FUi
 DoPassthru__FUi:
@@ -1182,7 +1182,7 @@ lbl_8034669C:
 /* 803466AC 0034360C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803466B0 00343610  7C 08 03 A6 */	mtlr r0
 /* 803466B4 00343614  38 21 00 10 */	addi r1, r1, 0x10
-/* 803466B8 00343618  4E 80 00 20 */	blr 
+/* 803466B8 00343618  4E 80 00 20 */	blr
 
 .global HandleDepth__FUiUi
 HandleDepth__FUiUi:
@@ -1245,7 +1245,7 @@ lbl_8034677C:
 /* 8034677C 003436DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80346780 003436E0  7C 08 03 A6 */	mtlr r0
 /* 80346784 003436E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80346788 003436E8  4E 80 00 20 */	blr 
+/* 80346788 003436E8  4E 80 00 20 */	blr
 
 .global HandleColorChannels__FUiUi
 HandleColorChannels__FUiUi:
@@ -1456,7 +1456,7 @@ lbl_80346A74:
 /* 80346A80 003439E0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80346A84 003439E4  7C 08 03 A6 */	mtlr r0
 /* 80346A88 003439E8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80346A8C 003439EC  4E 80 00 20 */	blr 
+/* 80346A8C 003439EC  4E 80 00 20 */	blr
 
 .global SetCurrentBlack__13CCubeMaterialCFv
 SetCurrentBlack__13CCubeMaterialCFv:
@@ -1628,7 +1628,7 @@ lbl_80346CEC:
 /* 80346CF4 00343C54  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80346CF8 00343C58  7C 08 03 A6 */	mtlr r0
 /* 80346CFC 00343C5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80346D00 00343C60  4E 80 00 20 */	blr 
+/* 80346D00 00343C60  4E 80 00 20 */	blr
 
 .global EnsureTevsDirect__13CCubeMaterialFv
 EnsureTevsDirect__13CCubeMaterialFv:
@@ -1667,7 +1667,7 @@ lbl_80346D78:
 /* 80346D78 00343CD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80346D7C 00343CDC  7C 08 03 A6 */	mtlr r0
 /* 80346D80 00343CE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80346D84 00343CE4  4E 80 00 20 */	blr 
+/* 80346D84 00343CE4  4E 80 00 20 */	blr
 
 .global HandleReflection__13CCubeMaterialFb11_GXTexMapIDiUiUiUiUiRUiRUi
 HandleReflection__13CCubeMaterialFb11_GXTexMapIDiUiUiUiUiRUiRUi:
@@ -1939,7 +1939,7 @@ lbl_80347160:
 /* 80347168 003440C8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8034716C 003440CC  7C 08 03 A6 */	mtlr r0
 /* 80347170 003440D0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80347174 003440D4  4E 80 00 20 */	blr 
+/* 80347174 003440D4  4E 80 00 20 */	blr
 
 .global SetTevIndWarp__3CGXF13_GXTevStageID16_GXIndTexStageIDUcUc14_GXIndTexMtxID
 SetTevIndWarp__3CGXF13_GXTevStageID16_GXIndTexStageIDUcUc14_GXIndTexMtxID:
@@ -1989,7 +1989,7 @@ lbl_80347214:
 /* 80347214 00344174  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80347218 00344178  7C 08 03 A6 */	mtlr r0
 /* 8034721C 0034417C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80347220 00344180  4E 80 00 20 */	blr 
+/* 80347220 00344180  4E 80 00 20 */	blr
 
 .global DoModelShadow__FUiUi
 DoModelShadow__FUiUi:
@@ -2222,7 +2222,7 @@ lbl_80347578:
 /* 8034757C 003444DC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80347580 003444E0  7C 08 03 A6 */	mtlr r0
 /* 80347584 003444E4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80347588 003444E8  4E 80 00 20 */	blr 
+/* 80347588 003444E8  4E 80 00 20 */	blr
 
 .global HandleTransparency__FUiUiRC11CModelFlagsRUiRUi
 HandleTransparency__FUiUiRC11CModelFlagsRUiRUi:
@@ -2530,7 +2530,7 @@ lbl_803479D8:
 /* 803479DC 0034493C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803479E0 00344940  7C 08 03 A6 */	mtlr r0
 /* 803479E4 00344944  38 21 00 30 */	addi r1, r1, 0x30
-/* 803479E8 00344948  4E 80 00 20 */	blr 
+/* 803479E8 00344948  4E 80 00 20 */	blr
 
 .global HandleAnimatedUV__FPCUi9_GXTexMtx11_GXPTTexMtx
 HandleAnimatedUV__FPCUi9_GXTexMtx11_GXPTTexMtx:
@@ -2561,7 +2561,7 @@ HandleAnimatedUV__FPCUi9_GXTexMtx11_GXPTTexMtx:
 /* 80347A4C 003449AC  38 63 F6 40 */	addi r3, r3, lbl_803EF640@l
 /* 80347A50 003449B0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80347A54 003449B4  7C 09 03 A6 */	mtctr r0
-/* 80347A58 003449B8  4E 80 04 20 */	bctr 
+/* 80347A58 003449B8  4E 80 04 20 */	bctr
 .global lbl_80347A5C
 lbl_80347A5C:
 /* 80347A5C 003449BC  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
@@ -2948,7 +2948,7 @@ lbl_80347FE4:
 /* 80348010 00344F70  80 01 03 44 */	lwz r0, 0x344(r1)
 /* 80348014 00344F74  7C 08 03 A6 */	mtlr r0
 /* 80348018 00344F78  38 21 03 40 */	addi r1, r1, 0x340
-/* 8034801C 00344F7C  4E 80 00 20 */	blr 
+/* 8034801C 00344F7C  4E 80 00 20 */	blr
 
 .global HandleTev__FiPCUiPCUib
 HandleTev__FiPCUiPCUib:
@@ -3015,7 +3015,7 @@ lbl_803480F0:
 /* 803480FC 0034505C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80348100 00345060  7C 08 03 A6 */	mtlr r0
 /* 80348104 00345064  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348108 00345068  4E 80 00 20 */	blr 
+/* 80348108 00345068  4E 80 00 20 */	blr
 
 .global SetupBlendMode__13CCubeMaterialFUiRC11CModelFlagsb
 SetupBlendMode__13CCubeMaterialFUiRC11CModelFlagsb:
@@ -3108,7 +3108,7 @@ lbl_8034823C:
 /* 8034824C 003451AC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80348250 003451B0  7C 08 03 A6 */	mtlr r0
 /* 80348254 003451B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80348258 003451B8  4E 80 00 20 */	blr 
+/* 80348258 003451B8  4E 80 00 20 */	blr
 
 .global __sinit_CCubeMaterial_cpp
 __sinit_CCubeMaterial_cpp:

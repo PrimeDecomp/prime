@@ -78,7 +78,7 @@ lbl_8023F398:
 /* 8023F3A4 0023C304  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8023F3A8 0023C308  7C 08 03 A6 */	mtlr r0
 /* 8023F3AC 0023C30C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023F3B0 0023C310  4E 80 00 20 */	blr 
+/* 8023F3B0 0023C310  4E 80 00 20 */	blr
 
 .global Accept__17CActorContraptionFR8IVisitor
 Accept__17CActorContraptionFR8IVisitor:
@@ -91,11 +91,11 @@ Accept__17CActorContraptionFR8IVisitor:
 /* 8023F3CC 0023C32C  7C 04 03 78 */	mr r4, r0
 /* 8023F3D0 0023C330  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 8023F3D4 0023C334  7D 89 03 A6 */	mtctr r12
-/* 8023F3D8 0023C338  4E 80 04 21 */	bctrl 
+/* 8023F3D8 0023C338  4E 80 04 21 */	bctrl
 /* 8023F3DC 0023C33C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023F3E0 0023C340  7C 08 03 A6 */	mtlr r0
 /* 8023F3E4 0023C344  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023F3E8 0023C348  4E 80 00 20 */	blr 
+/* 8023F3E8 0023C348  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__17CActorContraptionFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__17CActorContraptionFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -171,7 +171,7 @@ lbl_8023F4D4:
 /* 8023F4E4 0023C444  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8023F4E8 0023C448  7C 08 03 A6 */	mtlr r0
 /* 8023F4EC 0023C44C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023F4F0 0023C450  4E 80 00 20 */	blr 
+/* 8023F4F0 0023C450  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CActorContraptionF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CActorContraptionF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -284,7 +284,7 @@ lbl_8023F660:
 /* 8023F664 0023C5C4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8023F668 0023C5C8  7C 08 03 A6 */	mtlr r0
 /* 8023F66C 0023C5CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8023F670 0023C5D0  4E 80 00 20 */	blr 
+/* 8023F670 0023C5D0  4E 80 00 20 */	blr
 
 .global Think__17CActorContraptionFfR13CStateManager
 Think__17CActorContraptionFfR13CStateManager:
@@ -343,7 +343,7 @@ lbl_8023F718:
 /* 8023F738 0023C698  83 81 00 A8 */	lwz r28, 0xa8(r1)
 /* 8023F73C 0023C69C  7C 08 03 A6 */	mtlr r0
 /* 8023F740 0023C6A0  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8023F744 0023C6A4  4E 80 00 20 */	blr 
+/* 8023F744 0023C6A4  4E 80 00 20 */	blr
 
 .global sub_8023f748
 sub_8023f748:
@@ -501,7 +501,7 @@ lbl_8023F978:
 /* 8023F97C 0023C8DC  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8023F980 0023C8E0  7C 08 03 A6 */	mtlr r0
 /* 8023F984 0023C8E4  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8023F988 0023C8E8  4E 80 00 20 */	blr 
+/* 8023F988 0023C8E8  4E 80 00 20 */	blr
 
 .global "__ct__17CActorContraptionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersiRC11CDamageInfob"
 "__ct__17CActorContraptionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC6CAABoxRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersiRC11CDamageInfob":
@@ -552,7 +552,7 @@ lbl_8023F978:
 /* 8023FA3C 0023C99C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8023FA40 0023C9A0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8023FA44 0023C9A4  7D 89 03 A6 */	mtctr r12
-/* 8023FA48 0023C9A8  4E 80 04 21 */	bctrl 
+/* 8023FA48 0023C9A8  4E 80 04 21 */	bctrl
 /* 8023FA4C 0023C9AC  38 7F 03 00 */	addi r3, r31, 0x300
 /* 8023FA50 0023C9B0  38 81 00 34 */	addi r4, r1, 0x34
 /* 8023FA54 0023C9B4  48 10 14 55 */	bl __ct__6CTokenFRC6CToken
@@ -581,7 +581,7 @@ lbl_8023F978:
 /* 8023FAB0 0023CA10  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8023FAB4 0023CA14  7C 08 03 A6 */	mtlr r0
 /* 8023FAB8 0023CA18  38 21 00 50 */	addi r1, r1, 0x50
-/* 8023FABC 0023CA1C  4E 80 00 20 */	blr 
+/* 8023FABC 0023CA1C  4E 80 00 20 */	blr
 
 .global sub_8023fac0
 sub_8023fac0:
@@ -627,7 +627,7 @@ lbl_8023FB34:
 /* 8023FB50 0023CAB0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8023FB54 0023CAB4  7C 08 03 A6 */	mtlr r0
 /* 8023FB58 0023CAB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023FB5C 0023CABC  4E 80 00 20 */	blr 
+/* 8023FB5C 0023CABC  4E 80 00 20 */	blr
 
 .global sub_8023fb60
 sub_8023fb60:

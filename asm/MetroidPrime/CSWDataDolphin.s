@@ -7,7 +7,7 @@ lbl_805AE290:
     # ROM: 0x3FAB30
     .float 1.0
     .4byte 0
-    
+
 .global lbl_805AE298
 lbl_805AE298:
     # ROM: 0x3FAB38
@@ -46,7 +46,7 @@ Initialize__Q210CStopwatch7CSWDataFv:
 /* 802D6788 002D36E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D678C 002D36EC  7C 08 03 A6 */	mtlr r0
 /* 802D6790 002D36F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6794 002D36F4  4E 80 00 20 */	blr 
+/* 802D6794 002D36F4  4E 80 00 20 */	blr
 
 .global Wait__Q210CStopwatch7CSWDataCFf
 Wait__Q210CStopwatch7CSWDataCFf:
@@ -87,4 +87,4 @@ lbl_802D67EC:
 /* 802D681C 002D377C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802D6820 002D3780  7C 08 03 A6 */	mtlr r0
 /* 802D6824 002D3784  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D6828 002D3788  4E 80 00 20 */	blr 
+/* 802D6828 002D3788  4E 80 00 20 */	blr

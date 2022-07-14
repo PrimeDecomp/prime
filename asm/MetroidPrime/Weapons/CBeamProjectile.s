@@ -371,7 +371,7 @@ lbl_80199298:
 /* 801992B0 00196210  83 81 09 D0 */	lwz r28, 0x9d0(r1)
 /* 801992B4 00196214  7C 08 03 A6 */	mtlr r0
 /* 801992B8 00196218  38 21 09 F0 */	addi r1, r1, 0x9f0
-/* 801992BC 0019621C  4E 80 00 20 */	blr 
+/* 801992BC 0019621C  4E 80 00 20 */	blr
 
 .global SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeRC14CRayCastResult
 SetCollisionResultData__15CBeamProjectileFQ215CBeamProjectile11EDamageTypeRC14CRayCastResult:
@@ -406,20 +406,20 @@ lbl_80199318:
 /* 80199328 00196288  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019932C 0019628C  7C 08 03 A6 */	mtlr r0
 /* 80199330 00196290  38 21 00 10 */	addi r1, r1, 0x10
-/* 80199334 00196294  4E 80 00 20 */	blr 
+/* 80199334 00196294  4E 80 00 20 */	blr
 
 .global ResetBeam__15CBeamProjectileFR13CStateManagerb
 ResetBeam__15CBeamProjectileFR13CStateManagerb:
 /* 80199338 00196298  88 03 04 64 */	lbz r0, 0x464(r3)
 /* 8019933C 0019629C  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 80199340 001962A0  4D 82 00 20 */	beqlr 
+/* 80199340 001962A0  4D 82 00 20 */	beqlr
 /* 80199344 001962A4  C0 02 A6 C8 */	lfs f0, lbl_805AC3E8@sda21(r2)
 /* 80199348 001962A8  D0 03 03 00 */	stfs f0, 0x300(r3)
-/* 8019934C 001962AC  4E 80 00 20 */	blr 
+/* 8019934C 001962AC  4E 80 00 20 */	blr
 
 .global nullsub_142
 nullsub_142:
-/* 80199350 001962B0  4E 80 00 20 */	blr 
+/* 80199350 001962B0  4E 80 00 20 */	blr
 
 .global Accept__15CBeamProjectileFR8IVisitor
 Accept__15CBeamProjectileFR8IVisitor:
@@ -432,11 +432,11 @@ Accept__15CBeamProjectileFR8IVisitor:
 /* 8019936C 001962CC  7C 04 03 78 */	mr r4, r0
 /* 80199370 001962D0  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80199374 001962D4  7D 89 03 A6 */	mtctr r12
-/* 80199378 001962D8  4E 80 04 21 */	bctrl 
+/* 80199378 001962D8  4E 80 04 21 */	bctrl
 /* 8019937C 001962DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80199380 001962E0  7C 08 03 A6 */	mtlr r0
 /* 80199384 001962E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80199388 001962E8  4E 80 00 20 */	blr 
+/* 80199388 001962E8  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__15CBeamProjectileFv
 CalculateRenderBounds__15CBeamProjectileFv:
@@ -465,7 +465,7 @@ CalculateRenderBounds__15CBeamProjectileFv:
 /* 801993E4 00196344  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801993E8 00196348  7C 08 03 A6 */	mtlr r0
 /* 801993EC 0019634C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801993F0 00196350  4E 80 00 20 */	blr 
+/* 801993F0 00196350  4E 80 00 20 */	blr
 
 .global GetTouchBounds__15CBeamProjectileCFv
 GetTouchBounds__15CBeamProjectileCFv:
@@ -509,7 +509,7 @@ lbl_8019941C:
 /* 80199480 001963E0  D0 03 00 14 */	stfs f0, 0x14(r3)
 lbl_80199484:
 /* 80199484 001963E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80199488 001963E8  4E 80 00 20 */	blr 
+/* 80199488 001963E8  4E 80 00 20 */	blr
 
 .global "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUib"
 "__ct__15CBeamProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC12CTransform4fiff14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUib":

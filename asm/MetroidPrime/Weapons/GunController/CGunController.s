@@ -127,7 +127,7 @@ lbl_801CC240:
 /* 801CC2C0 001C9220  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801CC2C4 001C9224  7C 08 03 A6 */	mtlr r0
 /* 801CC2C8 001C9228  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801CC2CC 001C922C  4E 80 00 20 */	blr 
+/* 801CC2CC 001C922C  4E 80 00 20 */	blr
 
 .global Reset__14CGunControllerFv
 Reset__14CGunControllerFv:
@@ -140,7 +140,7 @@ Reset__14CGunControllerFv:
 /* 801CC2E8 001C9248  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 801CC2EC 001C924C  98 03 00 58 */	stb r0, 0x58(r3)
 /* 801CC2F0 001C9250  90 83 00 50 */	stw r4, 0x50(r3)
-/* 801CC2F4 001C9254  4E 80 00 20 */	blr 
+/* 801CC2F4 001C9254  4E 80 00 20 */	blr
 
 .global ReturnToDefault__14CGunControllerFR13CStateManagerf
 ReturnToDefault__14CGunControllerFR13CStateManagerf:
@@ -218,7 +218,7 @@ lbl_801CC3EC:
 /* 801CC3F4 001C9354  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801CC3F8 001C9358  7C 08 03 A6 */	mtlr r0
 /* 801CC3FC 001C935C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CC400 001C9360  4E 80 00 20 */	blr 
+/* 801CC400 001C9360  4E 80 00 20 */	blr
 
 .global EnterIdle__14CGunControllerFR13CStateManager
 EnterIdle__14CGunControllerFR13CStateManager:
@@ -373,7 +373,7 @@ lbl_801CC624:
 /* 801CC630 001C9590  83 A1 00 E4 */	lwz r29, 0xe4(r1)
 /* 801CC634 001C9594  7C 08 03 A6 */	mtlr r0
 /* 801CC638 001C9598  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801CC63C 001C959C  4E 80 00 20 */	blr 
+/* 801CC63C 001C959C  4E 80 00 20 */	blr
 
 .global Update__14CGunControllerFfR13CStateManager
 Update__14CGunControllerFfR13CStateManager:
@@ -399,7 +399,7 @@ Update__14CGunControllerFfR13CStateManager:
 /* 801CC68C 001C95EC  38 63 57 28 */	addi r3, r3, lbl_803E5728@l
 /* 801CC690 001C95F0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 801CC694 001C95F4  7C 09 03 A6 */	mtctr r0
-/* 801CC698 001C95F8  4E 80 04 20 */	bctr 
+/* 801CC698 001C95F8  4E 80 04 20 */	bctr
 .global lbl_801CC69C
 lbl_801CC69C:
 /* 801CC69C 001C95FC  7F A4 EB 78 */	mr r4, r29
@@ -509,7 +509,7 @@ lbl_801CC800:
 /* 801CC80C 001C976C  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801CC810 001C9770  7C 08 03 A6 */	mtlr r0
 /* 801CC814 001C9774  38 21 00 40 */	addi r1, r1, 0x40
-/* 801CC818 001C9778  4E 80 00 20 */	blr 
+/* 801CC818 001C9778  4E 80 00 20 */	blr
 
 .global LoadFidgetAnimAsync__14CGunControllerFR13CStateManageriii
 LoadFidgetAnimAsync__14CGunControllerFR13CStateManageriii:
@@ -524,7 +524,7 @@ LoadFidgetAnimAsync__14CGunControllerFR13CStateManageriii:
 /* 801CC83C 001C979C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CC840 001C97A0  7C 08 03 A6 */	mtlr r0
 /* 801CC844 001C97A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CC848 001C97A8  4E 80 00 20 */	blr 
+/* 801CC848 001C97A8  4E 80 00 20 */	blr
 
 .global EnterStruck__14CGunControllerFR13CStateManagerf
 EnterStruck__14CGunControllerFR13CStateManagerf:
@@ -717,7 +717,7 @@ lbl_801CCAE4:
 /* 801CCAF0 001C9A50  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 801CCAF4 001C9A54  7C 08 03 A6 */	mtlr r0
 /* 801CCAF8 001C9A58  38 21 01 40 */	addi r1, r1, 0x140
-/* 801CCAFC 001C9A5C  4E 80 00 20 */	blr 
+/* 801CCAFC 001C9A5C  4E 80 00 20 */	blr
 
 .global EnterFidget__14CGunControllerFR13CStateManageriii
 EnterFidget__14CGunControllerFR13CStateManageriii:
@@ -738,7 +738,7 @@ EnterFidget__14CGunControllerFR13CStateManageriii:
 /* 801CCB38 001C9A98  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CCB3C 001C9A9C  7C 08 03 A6 */	mtlr r0
 /* 801CCB40 001C9AA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CCB44 001C9AA4  4E 80 00 20 */	blr 
+/* 801CCB44 001C9AA4  4E 80 00 20 */	blr
 
 .global EnterComboFire__14CGunControllerFR13CStateManageri
 EnterComboFire__14CGunControllerFR13CStateManageri:
@@ -773,7 +773,7 @@ lbl_801CCB94:
 /* 801CCBB0 001C9B10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CCBB4 001C9B14  7C 08 03 A6 */	mtlr r0
 /* 801CCBB8 001C9B18  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CCBBC 001C9B1C  4E 80 00 20 */	blr 
+/* 801CCBBC 001C9B1C  4E 80 00 20 */	blr
 
 .global EnterFreeLook__14CGunControllerFR13CStateManagerii
 EnterFreeLook__14CGunControllerFR13CStateManagerii:
@@ -807,7 +807,7 @@ lbl_801CCC18:
 /* 801CCC24 001C9B84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801CCC28 001C9B88  7C 08 03 A6 */	mtlr r0
 /* 801CCC2C 001C9B8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CCC30 001C9B90  4E 80 00 20 */	blr 
+/* 801CCC30 001C9B90  4E 80 00 20 */	blr
 
 .global __ct__14CGunControllerFR10CModelData
 __ct__14CGunControllerFR10CModelData:

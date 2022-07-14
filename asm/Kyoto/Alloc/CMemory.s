@@ -8,7 +8,7 @@ lbl_804BFD58:
 .global lbl_804BFD64
 lbl_804BFD64:
 	.skip 0xC4
-	
+
 .section .sdata
 
 .global lbl_805A8868
@@ -53,7 +53,7 @@ __nwa__FUlPCcPCc:
 /* 8031585C 003127BC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80315860 003127C0  7C 08 03 A6 */	mtlr r0
 /* 80315864 003127C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80315868 003127C8  4E 80 00 20 */	blr 
+/* 80315868 003127C8  4E 80 00 20 */	blr
 
 .global __nw__FUlPCcPCc
 __nw__FUlPCcPCc:
@@ -77,7 +77,7 @@ __nw__FUlPCcPCc:
 /* 803158B0 00312810  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803158B4 00312814  7C 08 03 A6 */	mtlr r0
 /* 803158B8 00312818  38 21 00 20 */	addi r1, r1, 0x20
-/* 803158BC 0031281C  4E 80 00 20 */	blr 
+/* 803158BC 0031281C  4E 80 00 20 */	blr
 
 .global OffsetFakeStatics__7CMemoryFi
 OffsetFakeStatics__7CMemoryFi:
@@ -89,11 +89,11 @@ OffsetFakeStatics__7CMemoryFi:
 /* 803158D4 00312834  81 83 00 00 */	lwz r12, 0(r3)
 /* 803158D8 00312838  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 803158DC 0031283C  7D 89 03 A6 */	mtctr r12
-/* 803158E0 00312840  4E 80 04 21 */	bctrl 
+/* 803158E0 00312840  4E 80 04 21 */	bctrl
 /* 803158E4 00312844  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803158E8 00312848  7C 08 03 A6 */	mtlr r0
 /* 803158EC 0031284C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803158F0 00312850  4E 80 00 20 */	blr 
+/* 803158F0 00312850  4E 80 00 20 */	blr
 
 .global SetOutOfMemoryCallback__7CMemoryFPFPCvUi_CbPCv
 SetOutOfMemoryCallback__7CMemoryFPFPCvUi_CbPCv:
@@ -107,11 +107,11 @@ SetOutOfMemoryCallback__7CMemoryFPFPCvUi_CbPCv:
 /* 80315910 00312870  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315914 00312874  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80315918 00312878  7D 89 03 A6 */	mtctr r12
-/* 8031591C 0031287C  4E 80 04 21 */	bctrl 
+/* 8031591C 0031287C  4E 80 04 21 */	bctrl
 /* 80315920 00312880  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80315924 00312884  7C 08 03 A6 */	mtlr r0
 /* 80315928 00312888  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031592C 0031288C  4E 80 00 20 */	blr 
+/* 8031592C 0031288C  4E 80 00 20 */	blr
 
 .global Free__7CMemoryFPCv
 Free__7CMemoryFPCv:
@@ -132,7 +132,7 @@ Free__7CMemoryFPCv:
 /* 80315968 003128C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8031596C 003128CC  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80315970 003128D0  7D 89 03 A6 */	mtctr r12
-/* 80315974 003128D4  4E 80 04 21 */	bctrl 
+/* 80315974 003128D4  4E 80 04 21 */	bctrl
 lbl_80315978:
 /* 80315978 003128D8  88 61 00 08 */	lbz r3, 8(r1)
 /* 8031597C 003128DC  48 06 BD 0D */	bl OSRestoreInterrupts
@@ -140,7 +140,7 @@ lbl_80315978:
 /* 80315984 003128E4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80315988 003128E8  7C 08 03 A6 */	mtlr r0
 /* 8031598C 003128EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80315990 003128F0  4E 80 00 20 */	blr 
+/* 80315990 003128F0  4E 80 00 20 */	blr
 
 .global Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack:
@@ -167,7 +167,7 @@ Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeR
 /* 803159E4 00312944  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 803159E8 00312948  98 01 00 08 */	stb r0, 8(r1)
 /* 803159EC 0031294C  7D 89 03 A6 */	mtctr r12
-/* 803159F0 00312950  4E 80 04 21 */	bctrl 
+/* 803159F0 00312950  4E 80 04 21 */	bctrl
 /* 803159F4 00312954  7C 7F 1B 79 */	or. r31, r3, r3
 /* 803159F8 00312958  40 82 00 18 */	bne lbl_80315A10
 /* 803159FC 0031295C  3C 60 80 3D */	lis r3, lbl_803D7808@ha
@@ -183,7 +183,7 @@ lbl_80315A10:
 /* 80315A20 00312980  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80315A24 00312984  7C 08 03 A6 */	mtlr r0
 /* 80315A28 00312988  38 21 00 30 */	addi r1, r1, 0x30
-/* 80315A2C 0031298C  4E 80 00 20 */	blr 
+/* 80315A2C 0031298C  4E 80 00 20 */	blr
 
 .global Shutdown__7CMemoryFv
 Shutdown__7CMemoryFv:
@@ -197,7 +197,7 @@ Shutdown__7CMemoryFv:
 /* 80315A4C 003129AC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80315A50 003129B0  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80315A54 003129B4  7D 89 03 A6 */	mtctr r12
-/* 80315A58 003129B8  4E 80 04 21 */	bctrl 
+/* 80315A58 003129B8  4E 80 04 21 */	bctrl
 /* 80315A5C 003129BC  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 80315A60 003129C0  28 00 00 00 */	cmplwi r0, 0
 /* 80315A64 003129C4  41 82 00 34 */	beq lbl_80315A98
@@ -212,17 +212,17 @@ Shutdown__7CMemoryFv:
 /* 80315A88 003129E8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315A8C 003129EC  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80315A90 003129F0  7D 89 03 A6 */	mtctr r12
-/* 80315A94 003129F4  4E 80 04 21 */	bctrl 
+/* 80315A94 003129F4  4E 80 04 21 */	bctrl
 lbl_80315A98:
 /* 80315A98 003129F8  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
 /* 80315A9C 003129FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315AA0 00312A00  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80315AA4 00312A04  7D 89 03 A6 */	mtctr r12
-/* 80315AA8 00312A08  4E 80 04 21 */	bctrl 
+/* 80315AA8 00312A08  4E 80 04 21 */	bctrl
 /* 80315AAC 00312A0C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80315AB0 00312A10  7C 08 03 A6 */	mtlr r0
 /* 80315AB4 00312A14  38 21 00 60 */	addi r1, r1, 0x60
-/* 80315AB8 00312A18  4E 80 00 20 */	blr 
+/* 80315AB8 00312A18  4E 80 00 20 */	blr
 
 .global cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv
 cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv:
@@ -241,7 +241,7 @@ cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv:
 /* 80315AEC 00312A4C  90 0D A8 A8 */	stw r0, lbl_805A9468@sda21(r13)
 lbl_80315AF0:
 /* 80315AF0 00312A50  38 60 00 01 */	li r3, 1
-/* 80315AF4 00312A54  4E 80 00 20 */	blr 
+/* 80315AF4 00312A54  4E 80 00 20 */	blr
 
 .global SetAllocator__7CMemoryFR10COsContextR10IAllocator
 SetAllocator__7CMemoryFR10COsContextR10IAllocator:
@@ -261,7 +261,7 @@ SetAllocator__7CMemoryFR10COsContextR10IAllocator:
 /* 80315B2C 00312A8C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315B30 00312A90  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80315B34 00312A94  7D 89 03 A6 */	mtctr r12
-/* 80315B38 00312A98  4E 80 04 21 */	bctrl 
+/* 80315B38 00312A98  4E 80 04 21 */	bctrl
 lbl_80315B3C:
 /* 80315B3C 00312A9C  93 ED 9C A8 */	stw r31, lbl_805A8868@sda21(r13)
 /* 80315B40 00312AA0  7F E3 FB 78 */	mr r3, r31
@@ -269,14 +269,14 @@ lbl_80315B3C:
 /* 80315B48 00312AA8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80315B4C 00312AAC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80315B50 00312AB0  7D 89 03 A6 */	mtctr r12
-/* 80315B54 00312AB4  4E 80 04 21 */	bctrl 
+/* 80315B54 00312AB4  4E 80 04 21 */	bctrl
 lbl_80315B58:
 /* 80315B58 00312AB8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80315B5C 00312ABC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80315B60 00312AC0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80315B64 00312AC4  7C 08 03 A6 */	mtlr r0
 /* 80315B68 00312AC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80315B6C 00312ACC  4E 80 00 20 */	blr 
+/* 80315B6C 00312ACC  4E 80 00 20 */	blr
 
 .global Startup__7CMemoryFR10COsContext
 Startup__7CMemoryFR10COsContext:
@@ -288,18 +288,18 @@ Startup__7CMemoryFR10COsContext:
 /* 80315B84 00312AE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315B88 00312AE8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80315B8C 00312AEC  7D 89 03 A6 */	mtctr r12
-/* 80315B90 00312AF0  4E 80 04 21 */	bctrl 
+/* 80315B90 00312AF0  4E 80 04 21 */	bctrl
 /* 80315B94 00312AF4  98 6D A8 A0 */	stb r3, lbl_805A9460@sda21(r13)
 /* 80315B98 00312AF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80315B9C 00312AFC  7C 08 03 A6 */	mtlr r0
 /* 80315BA0 00312B00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80315BA4 00312B04  4E 80 00 20 */	blr 
+/* 80315BA4 00312B04  4E 80 00 20 */	blr
 
 .global GetGameAllocator__10CMemorySysFv
 GetGameAllocator__10CMemorySysFv:
 /* 80315BA8 00312B08  3C 60 80 4C */	lis r3, lbl_804BFD64@ha
 /* 80315BAC 00312B0C  38 63 FD 64 */	addi r3, r3, lbl_804BFD64@l
-/* 80315BB0 00312B10  4E 80 00 20 */	blr 
+/* 80315BB0 00312B10  4E 80 00 20 */	blr
 
 .global __dt__10CMemorySysFv
 __dt__10CMemorySysFv:
@@ -323,7 +323,7 @@ lbl_80315BE8:
 /* 80315BF4 00312B54  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80315BF8 00312B58  7C 08 03 A6 */	mtlr r0
 /* 80315BFC 00312B5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80315C00 00312B60  4E 80 00 20 */	blr 
+/* 80315C00 00312B60  4E 80 00 20 */	blr
 
 .global __ct__10CMemorySysFR10COsContextR10IAllocator
 __ct__10CMemorySysFR10COsContextR10IAllocator:
@@ -348,7 +348,7 @@ __ct__10CMemorySysFR10COsContextR10IAllocator:
 /* 80315C4C 00312BAC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80315C50 00312BB0  7C 08 03 A6 */	mtlr r0
 /* 80315C54 00312BB4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80315C58 00312BB8  4E 80 00 20 */	blr 
+/* 80315C58 00312BB8  4E 80 00 20 */	blr
 
 .global __sinit_CMemory_cpp
 __sinit_CMemory_cpp:

@@ -23,7 +23,7 @@ __ct__11CDamageInfoFRC11CDamageInfof:
 /* 800C3488 000C03E8  88 03 00 18 */	lbz r0, 0x18(r3)
 /* 800C348C 000C03EC  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
 /* 800C3490 000C03F0  98 03 00 18 */	stb r0, 0x18(r3)
-/* 800C3494 000C03F4  4E 80 00 20 */	blr 
+/* 800C3494 000C03F4  4E 80 00 20 */	blr
 
 .global GetRadiusDamage__11CDamageInfoCFRC20CDamageVulnerability
 GetRadiusDamage__11CDamageInfoCFRC20CDamageVulnerability:
@@ -54,7 +54,7 @@ lbl_800C34E8:
 /* 800C34EC 000C044C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800C34F0 000C0450  7C 08 03 A6 */	mtlr r0
 /* 800C34F4 000C0454  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C34F8 000C0458  4E 80 00 20 */	blr 
+/* 800C34F8 000C0458  4E 80 00 20 */	blr
 
 .global GetDamage__11CDamageInfoCFRC20CDamageVulnerability
 GetDamage__11CDamageInfoCFRC20CDamageVulnerability:
@@ -85,7 +85,7 @@ lbl_800C354C:
 /* 800C3550 000C04B0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800C3554 000C04B4  7C 08 03 A6 */	mtlr r0
 /* 800C3558 000C04B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C355C 000C04BC  4E 80 00 20 */	blr 
+/* 800C355C 000C04BC  4E 80 00 20 */	blr
 
 .global __ct__11CDamageInfoFR12CInputStream
 __ct__11CDamageInfoFR12CInputStream:

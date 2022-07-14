@@ -42,7 +42,7 @@ lbl_80305C2C:
 /* 80305C34 00302B94  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80305C38 00302B98  7C 08 03 A6 */	mtlr r0
 /* 80305C3C 00302B9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80305C40 00302BA0  4E 80 00 20 */	blr 
+/* 80305C40 00302BA0  4E 80 00 20 */	blr
 
 .global InvokeLTR__16CWordInstructionCFR16CFontRenderState
 InvokeLTR__16CWordInstructionCFR16CFontRenderState:
@@ -130,13 +130,13 @@ lbl_80305D14:
 /* 80305D78 00302CD8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80305D7C 00302CDC  7C 08 03 A6 */	mtlr r0
 /* 80305D80 00302CE0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80305D84 00302CE4  4E 80 00 20 */	blr 
+/* 80305D84 00302CE4  4E 80 00 20 */	blr
 
 .global PageInvoke__16CWordInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 PageInvoke__16CWordInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
 /* 80305D88 00302CE8  38 00 00 00 */	li r0, 0
 /* 80305D8C 00302CEC  98 04 01 08 */	stb r0, 0x108(r4)
-/* 80305D90 00302CF0  4E 80 00 20 */	blr 
+/* 80305D90 00302CF0  4E 80 00 20 */	blr
 
 .global Invoke__16CWordInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__16CWordInstructionCFR16CFontRenderStateP17CTextRenderBuffer:

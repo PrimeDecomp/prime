@@ -44,7 +44,7 @@ lbl_80315CC8:
 /* 80315CD0 00312C30  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80315CD4 00312C34  7C 08 03 A6 */	mtlr r0
 /* 80315CD8 00312C38  38 21 00 10 */	addi r1, r1, 0x10
-/* 80315CDC 00312C3C  4E 80 00 20 */	blr 
+/* 80315CDC 00312C3C  4E 80 00 20 */	blr
 
 .global __ct__Q210IAllocator8SMetricsFUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUi
 __ct__Q210IAllocator8SMetricsFUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUiUi:

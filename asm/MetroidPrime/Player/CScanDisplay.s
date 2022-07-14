@@ -92,7 +92,7 @@ lbl_80172B14:
 /* 80172B24 0016FA84  CB C1 00 10 */	lfd f30, 0x10(r1)
 /* 80172B28 0016FA88  7C 08 03 A6 */	mtlr r0
 /* 80172B2C 0016FA8C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80172B30 0016FA90  4E 80 00 20 */	blr 
+/* 80172B30 0016FA90  4E 80 00 20 */	blr
 
 .global GetDownloadStartTime__12CScanDisplayFi
 GetDownloadStartTime__12CScanDisplayFi:
@@ -176,7 +176,7 @@ lbl_80172C24:
 /* 80172C34 0016FB94  D0 21 00 0C */	stfs f1, 0xc(r1)
 lbl_80172C38:
 /* 80172C38 0016FB98  38 21 00 10 */	addi r1, r1, 0x10
-/* 80172C3C 0016FB9C  4E 80 00 20 */	blr 
+/* 80172C3C 0016FB9C  4E 80 00 20 */	blr
 
 .global Draw__12CScanDisplayCFv
 Draw__12CScanDisplayCFv:
@@ -198,7 +198,7 @@ Draw__12CScanDisplayCFv:
 /* 80172C7C 0016FBDC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80172C80 0016FBE0  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80172C84 0016FBE4  7D 89 03 A6 */	mtctr r12
-/* 80172C88 0016FBE8  4E 80 04 21 */	bctrl 
+/* 80172C88 0016FBE8  4E 80 04 21 */	bctrl
 /* 80172C8C 0016FBEC  80 8D A0 68 */	lwz r4, gpRender@sda21(r13)
 /* 80172C90 0016FBF0  38 61 00 0C */	addi r3, r1, 0xc
 /* 80172C94 0016FBF4  C0 22 A1 18 */	lfs f1, lbl_805ABE38@sda21(r2)
@@ -207,12 +207,12 @@ Draw__12CScanDisplayCFv:
 /* 80172CA0 0016FC00  C0 42 A1 1C */	lfs f2, lbl_805ABE3C@sda21(r2)
 /* 80172CA4 0016FC04  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 80172CA8 0016FC08  7D 89 03 A6 */	mtctr r12
-/* 80172CAC 0016FC0C  4E 80 04 21 */	bctrl 
+/* 80172CAC 0016FC0C  4E 80 04 21 */	bctrl
 /* 80172CB0 0016FC10  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80172CB4 0016FC14  81 83 00 00 */	lwz r12, 0(r3)
 /* 80172CB8 0016FC18  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80172CBC 0016FC1C  7D 89 03 A6 */	mtctr r12
-/* 80172CC0 0016FC20  4E 80 04 21 */	bctrl 
+/* 80172CC0 0016FC20  4E 80 04 21 */	bctrl
 /* 80172CC4 0016FC24  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
 /* 80172CC8 0016FC28  38 60 00 00 */	li r3, 0
 /* 80172CCC 0016FC2C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
@@ -246,7 +246,7 @@ lbl_80172D20:
 /* 80172D34 0016FC94  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80172D38 0016FC98  7C 08 03 A6 */	mtlr r0
 /* 80172D3C 0016FC9C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80172D40 0016FCA0  4E 80 00 20 */	blr 
+/* 80172D40 0016FCA0  4E 80 00 20 */	blr
 
 .global ProcessInput__12CScanDisplayFRC11CFinalInput
 ProcessInput__12CScanDisplayFRC11CFinalInput:
@@ -527,7 +527,7 @@ lbl_80173104:
 /* 80173144 001700A4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80173148 001700A8  7C 08 03 A6 */	mtlr r0
 /* 8017314C 001700AC  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80173150 001700B0  4E 80 00 20 */	blr 
+/* 80173150 001700B0  4E 80 00 20 */	blr
 
 .global Update__12CScanDisplayFff
 Update__12CScanDisplayFff:
@@ -1393,7 +1393,7 @@ lbl_80173D54:
 /* 80173D88 00170CE8  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 80173D8C 00170CEC  7C 08 03 A6 */	mtlr r0
 /* 80173D90 00170CF0  38 21 02 10 */	addi r1, r1, 0x210
-/* 80173D94 00170CF4  4E 80 00 20 */	blr 
+/* 80173D94 00170CF4  4E 80 00 20 */	blr
 
 .global sub_80173d98
 sub_80173d98:
@@ -1454,7 +1454,7 @@ lbl_80173E48:
 /* 80173E4C 00170DAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80173E50 00170DB0  7C 08 03 A6 */	mtlr r0
 /* 80173E54 00170DB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80173E58 00170DB8  4E 80 00 20 */	blr 
+/* 80173E58 00170DB8  4E 80 00 20 */	blr
 
 .global sub_80173e5c
 sub_80173e5c:
@@ -1477,7 +1477,7 @@ lbl_80173E90:
 /* 80173E94 00170DF4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80173E98 00170DF8  7C 08 03 A6 */	mtlr r0
 /* 80173E9C 00170DFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80173EA0 00170E00  4E 80 00 20 */	blr 
+/* 80173EA0 00170E00  4E 80 00 20 */	blr
 
 .global sub_80173ea4
 sub_80173ea4:
@@ -1505,12 +1505,12 @@ sub_80173ea4:
 /* 80173EF8 00170E58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80173EFC 00170E5C  7C 08 03 A6 */	mtlr r0
 /* 80173F00 00170E60  38 21 00 10 */	addi r1, r1, 0x10
-/* 80173F04 00170E64  4E 80 00 20 */	blr 
+/* 80173F04 00170E64  4E 80 00 20 */	blr
 
 .global sub_80173f08
 sub_80173f08:
 /* 80173F08 00170E68  7C 03 20 40 */	cmplw r3, r4
-/* 80173F0C 00170E6C  4D 82 00 20 */	beqlr 
+/* 80173F0C 00170E6C  4D 82 00 20 */	beqlr
 /* 80173F10 00170E70  80 E3 00 00 */	lwz r7, 0(r3)
 /* 80173F14 00170E74  38 A0 00 00 */	li r5, 0
 /* 80173F18 00170E78  2C 07 00 00 */	cmpwi r7, 0
@@ -1568,7 +1568,7 @@ lbl_80173FC8:
 /* 80173FCC 00170F2C  40 82 FF B4 */	bne lbl_80173F80
 /* 80173FD0 00170F30  80 04 00 00 */	lwz r0, 0(r4)
 /* 80173FD4 00170F34  90 03 00 00 */	stw r0, 0(r3)
-/* 80173FD8 00170F38  4E 80 00 20 */	blr 
+/* 80173FD8 00170F38  4E 80 00 20 */	blr
 
 .global sub_80173fdc
 sub_80173fdc:
@@ -1582,7 +1582,7 @@ lbl_80173FF4:
 /* 80173FF4 00170F54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80173FF8 00170F58  7C 08 03 A6 */	mtlr r0
 /* 80173FFC 00170F5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80174000 00170F60  4E 80 00 20 */	blr 
+/* 80174000 00170F60  4E 80 00 20 */	blr
 
 .global sub_80174004
 sub_80174004:
@@ -1603,7 +1603,7 @@ sub_80174004:
 /* 8017403C 00170F9C  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 80174040 00170FA0  7C 09 03 A6 */	mtctr r0
 /* 80174044 00170FA4  2C 00 00 00 */	cmpwi r0, 0
-/* 80174048 00170FA8  4C 81 00 20 */	blelr 
+/* 80174048 00170FA8  4C 81 00 20 */	blelr
 lbl_8017404C:
 /* 8017404C 00170FAC  28 05 00 00 */	cmplwi r5, 0
 /* 80174050 00170FB0  41 82 00 3C */	beq lbl_8017408C
@@ -1628,25 +1628,25 @@ lbl_8017408C:
 
 .global sub_80174098
 sub_80174098:
-/* 80174098 00170FF8  4E 80 00 20 */	blr 
+/* 80174098 00170FF8  4E 80 00 20 */	blr
 
 .global StopScan__12CScanDisplayFv
 StopScan__12CScanDisplayFv:
 /* 8017409C 00170FFC  80 03 00 0C */	lwz r0, 0xc(r3)
 /* 801740A0 00171000  2C 00 00 04 */	cmpwi r0, 4
-/* 801740A4 00171004  4D 82 00 20 */	beqlr 
-/* 801740A8 00171008  4C 80 00 20 */	bgelr 
+/* 801740A4 00171004  4D 82 00 20 */	beqlr
+/* 801740A8 00171008  4C 80 00 20 */	bgelr
 /* 801740AC 0017100C  2C 00 00 00 */	cmpwi r0, 0
-/* 801740B0 00171010  4D 82 00 20 */	beqlr 
+/* 801740B0 00171010  4D 82 00 20 */	beqlr
 /* 801740B4 00171014  40 80 00 0C */	bge lbl_801740C0
 
 .global sub_801740b8
 sub_801740b8:
-/* 801740B8 00171018  4E 80 00 20 */	blr 
+/* 801740B8 00171018  4E 80 00 20 */	blr
 
 .global sub_801740bc
 sub_801740bc:
-/* 801740BC 0017101C  4E 80 00 20 */	blr 
+/* 801740BC 0017101C  4E 80 00 20 */	blr
 lbl_801740C0:
 /* 801740C0 00171020  38 00 00 04 */	li r0, 4
 /* 801740C4 00171024  C0 02 A1 10 */	lfs f0, lbl_805ABE30@sda21(r2)
@@ -1655,7 +1655,7 @@ lbl_801740C0:
 /* 801740D0 00171030  D0 03 01 14 */	stfs f0, 0x114(r3)
 /* 801740D4 00171034  D0 03 01 40 */	stfs f0, 0x140(r3)
 /* 801740D8 00171038  D0 03 01 6C */	stfs f0, 0x16c(r3)
-/* 801740DC 0017103C  4E 80 00 20 */	blr 
+/* 801740DC 0017103C  4E 80 00 20 */	blr
 
 .global StartScan__12CScanDisplayF9TUniqueIdRC20CScannableObjectInfoP12CGuiTextPaneP10CGuiWidgetf
 StartScan__12CScanDisplayF9TUniqueIdRC20CScannableObjectInfoP12CGuiTextPaneP10CGuiWidgetf:
@@ -1857,7 +1857,7 @@ lbl_80174384:
 /* 801743BC 0017131C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801743C0 00171320  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801743C4 00171324  7D 89 03 A6 */	mtctr r12
-/* 801743C8 00171328  4E 80 04 21 */	bctrl 
+/* 801743C8 00171328  4E 80 04 21 */	bctrl
 /* 801743CC 0017132C  38 61 00 30 */	addi r3, r1, 0x30
 /* 801743D0 00171330  38 81 00 18 */	addi r4, r1, 0x18
 /* 801743D4 00171334  48 1C CA D5 */	bl __ct__6CTokenFRC6CToken
@@ -1947,7 +1947,7 @@ lbl_801744D4:
 /* 80174504 00171464  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80174508 00171468  7C 08 03 A6 */	mtlr r0
 /* 8017450C 0017146C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80174510 00171470  4E 80 00 20 */	blr 
+/* 80174510 00171470  4E 80 00 20 */	blr
 
 .global sub_80174514
 sub_80174514:
@@ -1962,7 +1962,7 @@ sub_80174514:
 /* 80174534 00171494  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80174538 00171498  7C 08 03 A6 */	mtlr r0
 /* 8017453C 0017149C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80174540 001714A0  4E 80 00 20 */	blr 
+/* 80174540 001714A0  4E 80 00 20 */	blr
 
 .global __ct__12CScanDisplayFv
 __ct__12CScanDisplayFv:
@@ -1980,7 +1980,7 @@ __ct__12CScanDisplayFv:
 /* 80174570 001714D0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80174574 001714D4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80174578 001714D8  7D 89 03 A6 */	mtctr r12
-/* 8017457C 001714DC  4E 80 04 21 */	bctrl 
+/* 8017457C 001714DC  4E 80 04 21 */	bctrl
 /* 80174580 001714E0  7F C3 F3 78 */	mr r3, r30
 /* 80174584 001714E4  38 81 00 08 */	addi r4, r1, 8
 /* 80174588 001714E8  48 1C C9 21 */	bl __ct__6CTokenFRC6CToken
@@ -2102,7 +2102,7 @@ lbl_8017470C:
 /* 8017473C 0017169C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80174740 001716A0  7C 08 03 A6 */	mtlr r0
 /* 80174744 001716A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80174748 001716A8  4E 80 00 20 */	blr 
+/* 80174748 001716A8  4E 80 00 20 */	blr
 
 .global SetDestPosition__Q212CScanDisplay8CDataDotFRC9CVector2f
 SetDestPosition__Q212CScanDisplay8CDataDotFRC9CVector2f:
@@ -2114,13 +2114,13 @@ SetDestPosition__Q212CScanDisplay8CDataDotFRC9CVector2f:
 /* 80174760 001716C0  D0 03 00 14 */	stfs f0, 0x14(r3)
 /* 80174764 001716C4  C0 04 00 04 */	lfs f0, 4(r4)
 /* 80174768 001716C8  D0 03 00 18 */	stfs f0, 0x18(r3)
-/* 8017476C 001716CC  4E 80 00 20 */	blr 
+/* 8017476C 001716CC  4E 80 00 20 */	blr
 lbl_80174770:
 /* 80174770 001716D0  C0 04 00 00 */	lfs f0, 0(r4)
 /* 80174774 001716D4  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 80174778 001716D8  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8017477C 001716DC  D0 03 00 10 */	stfs f0, 0x10(r3)
-/* 80174780 001716E0  4E 80 00 20 */	blr 
+/* 80174780 001716E0  4E 80 00 20 */	blr
 
 .global Update__Q212CScanDisplay8CDataDotFf
 Update__Q212CScanDisplay8CDataDotFf:
@@ -2212,7 +2212,7 @@ lbl_801748A4:
 /* 801748B0 00171810  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801748B4 00171814  7C 08 03 A6 */	mtlr r0
 /* 801748B8 00171818  38 21 00 40 */	addi r1, r1, 0x40
-/* 801748BC 0017181C  4E 80 00 20 */	blr 
+/* 801748BC 0017181C  4E 80 00 20 */	blr
 
 .global StartTransitionTo__Q212CScanDisplay8CDataDotFRC9CVector2ff
 StartTransitionTo__Q212CScanDisplay8CDataDotFRC9CVector2ff:
@@ -2226,7 +2226,7 @@ StartTransitionTo__Q212CScanDisplay8CDataDotFRC9CVector2ff:
 /* 801748DC 0017183C  D0 03 00 14 */	stfs f0, 0x14(r3)
 /* 801748E0 00171840  C0 04 00 04 */	lfs f0, 4(r4)
 /* 801748E4 00171844  D0 03 00 18 */	stfs f0, 0x18(r3)
-/* 801748E8 00171848  4E 80 00 20 */	blr 
+/* 801748E8 00171848  4E 80 00 20 */	blr
 
 .global Draw__Q212CScanDisplay8CDataDotCF6CColorf
 Draw__Q212CScanDisplay8CDataDotCF6CColorf:
@@ -2260,7 +2260,7 @@ lbl_8017493C:
 /* 80174954 001718B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80174958 001718B8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8017495C 001718BC  7D 89 03 A6 */	mtctr r12
-/* 80174960 001718C0  4E 80 04 21 */	bctrl 
+/* 80174960 001718C0  4E 80 04 21 */	bctrl
 /* 80174964 001718C4  38 60 00 98 */	li r3, 0x98
 /* 80174968 001718C8  48 19 6D 01 */	bl StreamBegin__9CGraphicsF13ERglPrimitive
 /* 8017496C 001718CC  88 7F 00 03 */	lbz r3, 3(r31)
@@ -2327,7 +2327,7 @@ lbl_80174A44:
 /* 80174A5C 001719BC  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 80174A60 001719C0  7C 08 03 A6 */	mtlr r0
 /* 80174A64 001719C4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80174A68 001719C8  4E 80 00 20 */	blr 
+/* 80174A68 001719C8  4E 80 00 20 */	blr
 
 .global __ct__Q212CScanDisplay8CDataDotFv
 __ct__Q212CScanDisplay8CDataDotFv:
@@ -2351,7 +2351,7 @@ __ct__Q212CScanDisplay8CDataDotFv:
 /* 80174AB0 00171A10  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 80174AB4 00171A14  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80174AB8 00171A18  D0 03 00 28 */	stfs f0, 0x28(r3)
-/* 80174ABC 00171A1C  4E 80 00 20 */	blr 
+/* 80174ABC 00171A1C  4E 80 00 20 */	blr
 
 .global SetScanMessageTypeEffect__12CScanDisplayFP12CGuiTextPaneb
 SetScanMessageTypeEffect__12CScanDisplayFP12CGuiTextPaneb:

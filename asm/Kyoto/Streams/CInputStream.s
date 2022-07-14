@@ -45,7 +45,7 @@ ReadFloat__12CInputStreamFv:
 /* 8033EC44 0033BBA4  C0 2D A9 40 */	lfs f1, lbl_805A9500@sda21(r13)
 /* 8033EC48 0033BBA8  7C 08 03 A6 */	mtlr r0
 /* 8033EC4C 0033BBAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033EC50 0033BBB0  4E 80 00 20 */	blr 
+/* 8033EC50 0033BBB0  4E 80 00 20 */	blr
 
 .global ReadLongLong__12CInputStreamFv
 ReadLongLong__12CInputStreamFv:
@@ -60,7 +60,7 @@ ReadLongLong__12CInputStreamFv:
 /* 8033EC74 0033BBD4  80 8D A9 3C */	lwz r4, lbl_805A94FC@sda21(r13)
 /* 8033EC78 0033BBD8  7C 08 03 A6 */	mtlr r0
 /* 8033EC7C 0033BBDC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033EC80 0033BBE0  4E 80 00 20 */	blr 
+/* 8033EC80 0033BBE0  4E 80 00 20 */	blr
 
 .global ReadLong__12CInputStreamFv
 ReadLong__12CInputStreamFv:
@@ -74,7 +74,7 @@ ReadLong__12CInputStreamFv:
 /* 8033ECA0 0033BC00  80 6D A9 34 */	lwz r3, lbl_805A94F4@sda21(r13)
 /* 8033ECA4 0033BC04  7C 08 03 A6 */	mtlr r0
 /* 8033ECA8 0033BC08  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033ECAC 0033BC0C  4E 80 00 20 */	blr 
+/* 8033ECAC 0033BC0C  4E 80 00 20 */	blr
 
 .global ReadShort__12CInputStreamFv
 ReadShort__12CInputStreamFv:
@@ -88,7 +88,7 @@ ReadShort__12CInputStreamFv:
 /* 8033ECCC 0033BC2C  A0 6D A9 32 */	lhz r3, lbl_805A94F2@sda21(r13)
 /* 8033ECD0 0033BC30  7C 08 03 A6 */	mtlr r0
 /* 8033ECD4 0033BC34  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033ECD8 0033BC38  4E 80 00 20 */	blr 
+/* 8033ECD8 0033BC38  4E 80 00 20 */	blr
 
 .global ReadBool__12CInputStreamFv
 ReadBool__12CInputStreamFv:
@@ -103,7 +103,7 @@ ReadBool__12CInputStreamFv:
 /* 8033ECFC 0033BC5C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033ED00 0033BC60  7C 08 03 A6 */	mtlr r0
 /* 8033ED04 0033BC64  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033ED08 0033BC68  4E 80 00 20 */	blr 
+/* 8033ED08 0033BC68  4E 80 00 20 */	blr
 
 .global ReadChar__12CInputStreamFv
 ReadChar__12CInputStreamFv:
@@ -117,7 +117,7 @@ ReadChar__12CInputStreamFv:
 /* 8033ED28 0033BC88  88 6D A9 30 */	lbz r3, lbl_805A94F0@sda21(r13)
 /* 8033ED2C 0033BC8C  7C 08 03 A6 */	mtlr r0
 /* 8033ED30 0033BC90  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033ED34 0033BC94  4E 80 00 20 */	blr 
+/* 8033ED34 0033BC94  4E 80 00 20 */	blr
 
 .global ReadBits__12CInputStreamFi
 ReadBits__12CInputStreamFi:
@@ -207,7 +207,7 @@ lbl_8033EE60:
 /* 8033EE70 0033BDD0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8033EE74 0033BDD4  7C 08 03 A6 */	mtlr r0
 /* 8033EE78 0033BDD8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033EE7C 0033BDDC  4E 80 00 20 */	blr 
+/* 8033EE7C 0033BDDC  4E 80 00 20 */	blr
 
 .global ReadBytes__12CInputStreamFPvUl
 ReadBytes__12CInputStreamFPvUl:
@@ -270,7 +270,7 @@ lbl_8033EF40:
 /* 8033EF44 0033BEA4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8033EF48 0033BEA8  7C 08 03 A6 */	mtlr r0
 /* 8033EF4C 0033BEAC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033EF50 0033BEB0  4E 80 00 20 */	blr 
+/* 8033EF50 0033BEB0  4E 80 00 20 */	blr
 
 .global Get__12CInputStreamFPvUl
 Get__12CInputStreamFPvUl:
@@ -316,7 +316,7 @@ lbl_8033EFD0:
 /* 8033EFE4 0033BF44  7C 9C EA 14 */	add r4, r28, r29
 /* 8033EFE8 0033BF48  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8033EFEC 0033BF4C  7D 89 03 A6 */	mtctr r12
-/* 8033EFF0 0033BF50  4E 80 04 21 */	bctrl 
+/* 8033EFF0 0033BF50  4E 80 04 21 */	bctrl
 /* 8033EFF4 0033BF54  7F C3 F0 50 */	subf r30, r3, r30
 /* 8033EFF8 0033BF58  7F BD 1A 14 */	add r29, r29, r3
 /* 8033EFFC 0033BF5C  48 00 00 0C */	b lbl_8033F008
@@ -333,7 +333,7 @@ lbl_8033F008:
 /* 8033F020 0033BF80  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8033F024 0033BF84  7C 08 03 A6 */	mtlr r0
 /* 8033F028 0033BF88  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033F02C 0033BF8C  4E 80 00 20 */	blr 
+/* 8033F02C 0033BF8C  4E 80 00 20 */	blr
 
 .global GrabAnotherBlock__12CInputStreamFv
 GrabAnotherBlock__12CInputStreamFv:
@@ -344,7 +344,7 @@ GrabAnotherBlock__12CInputStreamFv:
 /* 8033F040 0033BFA0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033F044 0033BFA4  7C 08 03 A6 */	mtlr r0
 /* 8033F048 0033BFA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F04C 0033BFAC  4E 80 00 20 */	blr 
+/* 8033F04C 0033BFAC  4E 80 00 20 */	blr
 
 .global InternalReadNext__12CInputStreamFv
 InternalReadNext__12CInputStreamFv:
@@ -358,7 +358,7 @@ InternalReadNext__12CInputStreamFv:
 /* 8033F06C 0033BFCC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8033F070 0033BFD0  80 A3 00 0C */	lwz r5, 0xc(r3)
 /* 8033F074 0033BFD4  7D 89 03 A6 */	mtctr r12
-/* 8033F078 0033BFD8  4E 80 04 21 */	bctrl 
+/* 8033F078 0033BFD8  4E 80 04 21 */	bctrl
 /* 8033F07C 0033BFDC  90 7F 00 08 */	stw r3, 8(r31)
 /* 8033F080 0033BFE0  38 00 00 00 */	li r0, 0
 /* 8033F084 0033BFE4  90 1F 00 04 */	stw r0, 4(r31)
@@ -370,7 +370,7 @@ InternalReadNext__12CInputStreamFv:
 /* 8033F09C 0033BFFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033F0A0 0033C000  7C 08 03 A6 */	mtlr r0
 /* 8033F0A4 0033C004  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F0A8 0033C008  4E 80 00 20 */	blr 
+/* 8033F0A8 0033C008  4E 80 00 20 */	blr
 
 .global __dt__12CInputStreamFv
 __dt__12CInputStreamFv:
@@ -402,7 +402,7 @@ lbl_8033F0FC:
 /* 8033F108 0033C068  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8033F10C 0033C06C  7C 08 03 A6 */	mtlr r0
 /* 8033F110 0033C070  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F114 0033C074  4E 80 00 20 */	blr 
+/* 8033F114 0033C074  4E 80 00 20 */	blr
 
 .global __ct__12CInputStreamFPCvib
 __ct__12CInputStreamFPCvib:
@@ -418,7 +418,7 @@ __ct__12CInputStreamFPCvib:
 /* 8033F13C 0033C09C  90 03 00 18 */	stw r0, 0x18(r3)
 /* 8033F140 0033C0A0  90 03 00 1C */	stw r0, 0x1c(r3)
 /* 8033F144 0033C0A4  90 03 00 20 */	stw r0, 0x20(r3)
-/* 8033F148 0033C0A8  4E 80 00 20 */	blr 
+/* 8033F148 0033C0A8  4E 80 00 20 */	blr
 
 .global __ct__12CInputStreamFi
 __ct__12CInputStreamFi:

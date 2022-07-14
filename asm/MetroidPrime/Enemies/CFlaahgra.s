@@ -465,13 +465,13 @@ lbl_801AD5C4:
 /* 801AD5D0 001AA530  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801AD5D4 001AA534  7C 08 03 A6 */	mtlr r0
 /* 801AD5D8 001AA538  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AD5DC 001AA53C  4E 80 00 20 */	blr 
+/* 801AD5DC 001AA53C  4E 80 00 20 */	blr
 
 .global GetTouchBounds__17CFlaahgraRendererCFv
 GetTouchBounds__17CFlaahgraRendererCFv:
 /* 801AD5E0 001AA540  38 00 00 00 */	li r0, 0
 /* 801AD5E4 001AA544  98 03 00 18 */	stb r0, 0x18(r3)
-/* 801AD5E8 001AA548  4E 80 00 20 */	blr 
+/* 801AD5E8 001AA548  4E 80 00 20 */	blr
 
 .global AddToRenderer__17CFlaahgraRendererCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__17CFlaahgraRendererCFRC14CFrustumPlanesRC13CStateManager:
@@ -506,7 +506,7 @@ lbl_801AD650:
 /* 801AD654 001AA5B4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801AD658 001AA5B8  7C 08 03 A6 */	mtlr r0
 /* 801AD65C 001AA5BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AD660 001AA5C0  4E 80 00 20 */	blr 
+/* 801AD660 001AA5C0  4E 80 00 20 */	blr
 
 .global Accept__17CFlaahgraRendererFR8IVisitor
 Accept__17CFlaahgraRendererFR8IVisitor:
@@ -519,11 +519,11 @@ Accept__17CFlaahgraRendererFR8IVisitor:
 /* 801AD67C 001AA5DC  7C 04 03 78 */	mr r4, r0
 /* 801AD680 001AA5E0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801AD684 001AA5E4  7D 89 03 A6 */	mtctr r12
-/* 801AD688 001AA5E8  4E 80 04 21 */	bctrl 
+/* 801AD688 001AA5E8  4E 80 04 21 */	bctrl
 /* 801AD68C 001AA5EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801AD690 001AA5F0  7C 08 03 A6 */	mtlr r0
 /* 801AD694 001AA5F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AD698 001AA5F8  4E 80 00 20 */	blr 
+/* 801AD698 001AA5F8  4E 80 00 20 */	blr
 
 .global "__ct__17CFlaahgraRendererF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4f"
 "__ct__17CFlaahgraRendererF9TUniqueId9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4f":
@@ -587,7 +587,7 @@ Accept__17CFlaahgraRendererFR8IVisitor:
 /* 801AD780 001AA6E0  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 801AD784 001AA6E4  7C 08 03 A6 */	mtlr r0
 /* 801AD788 001AA6E8  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801AD78C 001AA6EC  4E 80 00 20 */	blr 
+/* 801AD78C 001AA6EC  4E 80 00 20 */	blr
 
 .global sub_801ad790
 sub_801ad790:
@@ -696,7 +696,7 @@ lbl_801AD900:
 /* 801AD90C 001AA86C  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 801AD910 001AA870  7C 08 03 A6 */	mtlr r0
 /* 801AD914 001AA874  38 21 00 80 */	addi r1, r1, 0x80
-/* 801AD918 001AA878  4E 80 00 20 */	blr 
+/* 801AD918 001AA878  4E 80 00 20 */	blr
 
 .global sub_801ad91c
 sub_801ad91c:
@@ -725,7 +725,7 @@ lbl_801AD954:
 /* 801AD970 001AA8D0  81 84 00 00 */	lwz r12, 0(r4)
 /* 801AD974 001AA8D4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801AD978 001AA8D8  7D 89 03 A6 */	mtctr r12
-/* 801AD97C 001AA8DC  4E 80 04 21 */	bctrl 
+/* 801AD97C 001AA8DC  4E 80 04 21 */	bctrl
 /* 801AD980 001AA8E0  88 1F 08 D0 */	lbz r0, 0x8d0(r31)
 /* 801AD984 001AA8E4  28 00 00 00 */	cmplwi r0, 0
 /* 801AD988 001AA8E8  40 82 00 20 */	bne lbl_801AD9A8
@@ -752,7 +752,7 @@ lbl_801AD9C8:
 /* 801AD9CC 001AA92C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801AD9D0 001AA930  7C 08 03 A6 */	mtlr r0
 /* 801AD9D4 001AA934  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AD9D8 001AA938  4E 80 00 20 */	blr 
+/* 801AD9D8 001AA938  4E 80 00 20 */	blr
 
 .global sub_801ad9dc
 sub_801ad9dc:
@@ -798,7 +798,7 @@ lbl_801ADA60:
 /* 801ADA6C 001AA9CC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801ADA70 001AA9D0  7C 08 03 A6 */	mtlr r0
 /* 801ADA74 001AA9D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801ADA78 001AA9D8  4E 80 00 20 */	blr 
+/* 801ADA78 001AA9D8  4E 80 00 20 */	blr
 
 .global sub_801ada7c
 sub_801ada7c:
@@ -833,7 +833,7 @@ lbl_801ADAE4:
 /* 801ADAE8 001AAA48  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ADAEC 001AAA4C  7C 08 03 A6 */	mtlr r0
 /* 801ADAF0 001AAA50  38 21 00 10 */	addi r1, r1, 0x10
-/* 801ADAF4 001AAA54  4E 80 00 20 */	blr 
+/* 801ADAF4 001AAA54  4E 80 00 20 */	blr
 
 .global sub_801adaf8
 sub_801adaf8:
@@ -905,7 +905,7 @@ lbl_801ADBD8:
 /* 801ADBE8 001AAB48  7C A0 EA 14 */	add r5, r0, r29
 /* 801ADBEC 001AAB4C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801ADBF0 001AAB50  7D 89 03 A6 */	mtctr r12
-/* 801ADBF4 001AAB54  4E 80 04 21 */	bctrl 
+/* 801ADBF4 001AAB54  4E 80 04 21 */	bctrl
 /* 801ADBF8 001AAB58  38 61 00 10 */	addi r3, r1, 0x10
 /* 801ADBFC 001AAB5C  38 81 00 08 */	addi r4, r1, 8
 /* 801ADC00 001AAB60  48 19 32 A9 */	bl __ct__6CTokenFRC6CToken
@@ -958,7 +958,7 @@ lbl_801ADC94:
 /* 801ADCA4 001AAC04  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801ADCA8 001AAC08  7C 08 03 A6 */	mtlr r0
 /* 801ADCAC 001AAC0C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801ADCB0 001AAC10  4E 80 00 20 */	blr 
+/* 801ADCB0 001AAC10  4E 80 00 20 */	blr
 
 .global sub_801adcb4
 sub_801adcb4:
@@ -973,7 +973,7 @@ sub_801adcb4:
 /* 801ADCD4 001AAC34  81 83 00 00 */	lwz r12, 0(r3)
 /* 801ADCD8 001AAC38  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 801ADCDC 001AAC3C  7D 89 03 A6 */	mtctr r12
-/* 801ADCE0 001AAC40  4E 80 04 21 */	bctrl 
+/* 801ADCE0 001AAC40  4E 80 04 21 */	bctrl
 /* 801ADCE4 001AAC44  7C 7C 1B 78 */	mr r28, r3
 /* 801ADCE8 001AAC48  80 03 00 08 */	lwz r0, 8(r3)
 /* 801ADCEC 001AAC4C  28 00 00 00 */	cmplwi r0, 0
@@ -1012,7 +1012,7 @@ lbl_801ADD30:
 /* 801ADD64 001AACC4  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801ADD68 001AACC8  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 801ADD6C 001AACCC  7D 89 03 A6 */	mtctr r12
-/* 801ADD70 001AACD0  4E 80 04 21 */	bctrl 
+/* 801ADD70 001AACD0  4E 80 04 21 */	bctrl
 /* 801ADD74 001AACD4  80 03 00 0C */	lwz r0, 0xc(r3)
 /* 801ADD78 001AACD8  90 01 00 28 */	stw r0, 0x28(r1)
 /* 801ADD7C 001AACDC  88 03 00 10 */	lbz r0, 0x10(r3)
@@ -1057,7 +1057,7 @@ lbl_801ADDC4:
 /* 801ADE14 001AAD74  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801ADE18 001AAD78  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 801ADE1C 001AAD7C  7D 89 03 A6 */	mtctr r12
-/* 801ADE20 001AAD80  4E 80 04 21 */	bctrl 
+/* 801ADE20 001AAD80  4E 80 04 21 */	bctrl
 /* 801ADE24 001AAD84  88 1D 08 E4 */	lbz r0, 0x8e4(r29)
 /* 801ADE28 001AAD88  7C 65 1B 78 */	mr r5, r3
 /* 801ADE2C 001AAD8C  7F 83 E3 78 */	mr r3, r28
@@ -1082,7 +1082,7 @@ lbl_801ADE68:
 /* 801ADE70 001AADD0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801ADE74 001AADD4  7C 08 03 A6 */	mtlr r0
 /* 801ADE78 001AADD8  38 21 00 60 */	addi r1, r1, 0x60
-/* 801ADE7C 001AADDC  4E 80 00 20 */	blr 
+/* 801ADE7C 001AADDC  4E 80 00 20 */	blr
 
 .global sub_801ade80
 sub_801ade80:
@@ -1165,7 +1165,7 @@ lbl_801ADF84:
 /* 801ADF94 001AAEF4  7C 06 00 40 */	cmplw r6, r0
 /* 801ADF98 001AAEF8  40 82 FF 98 */	bne lbl_801ADF30
 /* 801ADF9C 001AAEFC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801ADFA0 001AAF00  4E 80 00 20 */	blr 
+/* 801ADFA0 001AAF00  4E 80 00 20 */	blr
 
 .global sub_801adfa4
 sub_801adfa4:
@@ -1238,7 +1238,7 @@ lbl_801AE064:
 /* 801AE0A0 001AB000  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801AE0A4 001AB004  7C 08 03 A6 */	mtlr r0
 /* 801AE0A8 001AB008  38 21 00 70 */	addi r1, r1, 0x70
-/* 801AE0AC 001AB00C  4E 80 00 20 */	blr 
+/* 801AE0AC 001AB00C  4E 80 00 20 */	blr
 
 .global sub_801ae0b0
 sub_801ae0b0:
@@ -1330,7 +1330,7 @@ lbl_801AE1BC:
 /* 801AE1E4 001AB144  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801AE1E8 001AB148  7C 08 03 A6 */	mtlr r0
 /* 801AE1EC 001AB14C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AE1F0 001AB150  4E 80 00 20 */	blr 
+/* 801AE1F0 001AB150  4E 80 00 20 */	blr
 
 .global sub_801ae1f4
 sub_801ae1f4:
@@ -1440,7 +1440,7 @@ lbl_801AE370:
 /* 801AE378 001AB2D8  83 C1 00 F8 */	lwz r30, 0xf8(r1)
 /* 801AE37C 001AB2DC  7C 08 03 A6 */	mtlr r0
 /* 801AE380 001AB2E0  38 21 01 00 */	addi r1, r1, 0x100
-/* 801AE384 001AB2E4  4E 80 00 20 */	blr 
+/* 801AE384 001AB2E4  4E 80 00 20 */	blr
 
 .global sub_801ae388
 sub_801ae388:
@@ -1492,7 +1492,7 @@ lbl_801AE410:
 /* 801AE430 001AB390  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801AE434 001AB394  7C 08 03 A6 */	mtlr r0
 /* 801AE438 001AB398  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AE43C 001AB39C  4E 80 00 20 */	blr 
+/* 801AE43C 001AB39C  4E 80 00 20 */	blr
 
 .global sub_801ae440
 sub_801ae440:
@@ -1626,7 +1626,7 @@ lbl_801AE600:
 /* 801AE628 001AB588  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801AE62C 001AB58C  7C 08 03 A6 */	mtlr r0
 /* 801AE630 001AB590  38 21 00 70 */	addi r1, r1, 0x70
-/* 801AE634 001AB594  4E 80 00 20 */	blr 
+/* 801AE634 001AB594  4E 80 00 20 */	blr
 
 .global sub_801ae638
 sub_801ae638:
@@ -1635,7 +1635,7 @@ sub_801ae638:
 /* 801AE640 001AB5A0  20 00 00 12 */	subfic r0, r0, 0x12
 /* 801AE644 001AB5A4  7C 00 00 34 */	cntlzw r0, r0
 /* 801AE648 001AB5A8  54 03 D9 7E */	srwi r3, r0, 5
-/* 801AE64C 001AB5AC  4E 80 00 20 */	blr 
+/* 801AE64C 001AB5AC  4E 80 00 20 */	blr
 
 .global sub_801ae650
 sub_801ae650:
@@ -1644,10 +1644,10 @@ sub_801ae650:
 /* 801AE658 001AB5B8  2C 00 00 00 */	cmpwi r0, 0
 /* 801AE65C 001AB5BC  41 82 00 0C */	beq lbl_801AE668
 /* 801AE660 001AB5C0  2C 00 00 01 */	cmpwi r0, 1
-/* 801AE664 001AB5C4  4C 82 00 20 */	bnelr 
+/* 801AE664 001AB5C4  4C 82 00 20 */	bnelr
 lbl_801AE668:
 /* 801AE668 001AB5C8  38 60 00 01 */	li r3, 1
-/* 801AE66C 001AB5CC  4E 80 00 20 */	blr 
+/* 801AE66C 001AB5CC  4E 80 00 20 */	blr
 
 .global sub_801ae670
 sub_801ae670:
@@ -1658,10 +1658,10 @@ sub_801ae670:
 /* 801AE680 001AB5E0  2C 00 00 03 */	cmpwi r0, 3
 /* 801AE684 001AB5E4  41 82 00 0C */	beq lbl_801AE690
 /* 801AE688 001AB5E8  2C 00 00 04 */	cmpwi r0, 4
-/* 801AE68C 001AB5EC  4C 82 00 20 */	bnelr 
+/* 801AE68C 001AB5EC  4C 82 00 20 */	bnelr
 lbl_801AE690:
 /* 801AE690 001AB5F0  38 60 00 01 */	li r3, 1
-/* 801AE694 001AB5F4  4E 80 00 20 */	blr 
+/* 801AE694 001AB5F4  4E 80 00 20 */	blr
 
 .global sub_801ae698
 sub_801ae698:
@@ -1713,7 +1713,7 @@ lbl_801AE71C:
 /* 801AE744 001AB6A4  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801AE748 001AB6A8  7C 08 03 A6 */	mtlr r0
 /* 801AE74C 001AB6AC  38 21 00 70 */	addi r1, r1, 0x70
-/* 801AE750 001AB6B0  4E 80 00 20 */	blr 
+/* 801AE750 001AB6B0  4E 80 00 20 */	blr
 
 .global sub_801ae754
 sub_801ae754:
@@ -1753,7 +1753,7 @@ lbl_801AE7B4:
 /* 801AE7CC 001AB72C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801AE7D0 001AB730  38 61 00 08 */	addi r3, r1, 8
 /* 801AE7D4 001AB734  7D 89 03 A6 */	mtctr r12
-/* 801AE7D8 001AB738  4E 80 04 21 */	bctrl 
+/* 801AE7D8 001AB738  4E 80 04 21 */	bctrl
 /* 801AE7DC 001AB73C  C0 21 00 08 */	lfs f1, 8(r1)
 /* 801AE7E0 001AB740  C0 1C 00 40 */	lfs f0, 0x40(r28)
 /* 801AE7E4 001AB744  C0 81 00 0C */	lfs f4, 0xc(r1)
@@ -1772,7 +1772,7 @@ lbl_801AE7B4:
 /* 801AE818 001AB778  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801AE81C 001AB77C  7C 08 03 A6 */	mtlr r0
 /* 801AE820 001AB780  38 21 00 40 */	addi r1, r1, 0x40
-/* 801AE824 001AB784  4E 80 00 20 */	blr 
+/* 801AE824 001AB784  4E 80 00 20 */	blr
 
 .global sub_801ae828
 sub_801ae828:
@@ -1811,13 +1811,13 @@ lbl_801AE87C:
 /* 801AE8A4 001AB804  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801AE8A8 001AB808  40 81 00 0C */	ble lbl_801AE8B4
 /* 801AE8AC 001AB80C  38 60 00 01 */	li r3, 1
-/* 801AE8B0 001AB810  4E 80 00 20 */	blr 
+/* 801AE8B0 001AB810  4E 80 00 20 */	blr
 lbl_801AE8B4:
 /* 801AE8B4 001AB814  38 60 00 00 */	li r3, 0
-/* 801AE8B8 001AB818  4E 80 00 20 */	blr 
+/* 801AE8B8 001AB818  4E 80 00 20 */	blr
 lbl_801AE8BC:
 /* 801AE8BC 001AB81C  38 60 00 03 */	li r3, 3
-/* 801AE8C0 001AB820  4E 80 00 20 */	blr 
+/* 801AE8C0 001AB820  4E 80 00 20 */	blr
 
 .global sub_801ae8c4
 sub_801ae8c4:
@@ -1856,7 +1856,7 @@ lbl_801AE93C:
 /* 801AE93C 001AB89C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801AE940 001AB8A0  7C 08 03 A6 */	mtlr r0
 /* 801AE944 001AB8A4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AE948 001AB8A8  4E 80 00 20 */	blr 
+/* 801AE948 001AB8A8  4E 80 00 20 */	blr
 
 .global sub_801ae94c
 sub_801ae94c:
@@ -1872,7 +1872,7 @@ sub_801ae94c:
 /* 801AE970 001AB8D0  D0 63 00 00 */	stfs f3, 0(r3)
 /* 801AE974 001AB8D4  D0 83 00 04 */	stfs f4, 4(r3)
 /* 801AE978 001AB8D8  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801AE97C 001AB8DC  4E 80 00 20 */	blr 
+/* 801AE97C 001AB8DC  4E 80 00 20 */	blr
 
 .global sub_801ae980
 sub_801ae980:
@@ -1900,7 +1900,7 @@ sub_801ae980:
 /* 801AE9D4 001AB934  90 C1 00 08 */	stw r6, 8(r1)
 /* 801AE9D8 001AB938  98 01 00 0C */	stb r0, 0xc(r1)
 /* 801AE9DC 001AB93C  7D 89 03 A6 */	mtctr r12
-/* 801AE9E0 001AB940  4E 80 04 21 */	bctrl 
+/* 801AE9E0 001AB940  4E 80 04 21 */	bctrl
 /* 801AE9E4 001AB944  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801AE9E8 001AB948  7F C3 F3 78 */	mr r3, r30
 /* 801AE9EC 001AB94C  81 9E 00 00 */	lwz r12, 0(r30)
@@ -1909,7 +1909,7 @@ sub_801ae980:
 /* 801AE9F8 001AB958  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AE9FC 001AB95C  EF E1 00 28 */	fsubs f31, f1, f0
 /* 801AEA00 001AB960  7D 89 03 A6 */	mtctr r12
-/* 801AEA04 001AB964  4E 80 04 21 */	bctrl 
+/* 801AEA04 001AB964  4E 80 04 21 */	bctrl
 /* 801AEA08 001AB968  D3 E3 00 00 */	stfs f31, 0(r3)
 /* 801AEA0C 001AB96C  38 60 00 01 */	li r3, 1
 /* 801AEA10 001AB970  C0 02 A8 BC */	lfs f0, lbl_805AC5DC@sda21(r2)
@@ -1931,7 +1931,7 @@ sub_801ae980:
 /* 801AEA50 001AB9B0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801AEA54 001AB9B4  7C 08 03 A6 */	mtlr r0
 /* 801AEA58 001AB9B8  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AEA5C 001AB9BC  4E 80 00 20 */	blr 
+/* 801AEA5C 001AB9BC  4E 80 00 20 */	blr
 
 .global sub_801aea60
 sub_801aea60:
@@ -2014,7 +2014,7 @@ lbl_801AEB04:
 /* 801AEB78 001ABAD8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801AEB7C 001ABADC  81 8C 00 90 */	lwz r12, 0x90(r12)
 /* 801AEB80 001ABAE0  7D 89 03 A6 */	mtctr r12
-/* 801AEB84 001ABAE4  4E 80 04 21 */	bctrl 
+/* 801AEB84 001ABAE4  4E 80 04 21 */	bctrl
 /* 801AEB88 001ABAE8  C0 1F 07 D8 */	lfs f0, 0x7d8(r31)
 /* 801AEB8C 001ABAEC  EC 00 F8 2A */	fadds f0, f0, f31
 /* 801AEB90 001ABAF0  D0 1F 07 D8 */	stfs f0, 0x7d8(r31)
@@ -2027,7 +2027,7 @@ lbl_801AEB94:
 /* 801AEBA8 001ABB08  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801AEBAC 001ABB0C  7C 08 03 A6 */	mtlr r0
 /* 801AEBB0 001ABB10  38 21 00 40 */	addi r1, r1, 0x40
-/* 801AEBB4 001ABB14  4E 80 00 20 */	blr 
+/* 801AEBB4 001ABB14  4E 80 00 20 */	blr
 
 .global sub_801aebb8
 sub_801aebb8:
@@ -2043,14 +2043,14 @@ lbl_801AEBD0:
 /* 801AEBD8 001ABB38  7C 03 00 40 */	cmplw r3, r0
 /* 801AEBDC 001ABB3C  40 82 00 0C */	bne lbl_801AEBE8
 /* 801AEBE0 001ABB40  38 60 00 01 */	li r3, 1
-/* 801AEBE4 001ABB44  4E 80 00 20 */	blr 
+/* 801AEBE4 001ABB44  4E 80 00 20 */	blr
 lbl_801AEBE8:
 /* 801AEBE8 001ABB48  38 C6 00 02 */	addi r6, r6, 2
 lbl_801AEBEC:
 /* 801AEBEC 001ABB4C  7C 06 28 40 */	cmplw r6, r5
 /* 801AEBF0 001ABB50  40 82 FF E0 */	bne lbl_801AEBD0
 /* 801AEBF4 001ABB54  38 60 00 00 */	li r3, 0
-/* 801AEBF8 001ABB58  4E 80 00 20 */	blr 
+/* 801AEBF8 001ABB58  4E 80 00 20 */	blr
 
 .global sub_801aebfc
 sub_801aebfc:
@@ -2086,7 +2086,7 @@ lbl_801AEC3C:
 /* 801AEC6C 001ABBCC  7F E4 FB 78 */	mr r4, r31
 /* 801AEC70 001ABBD0  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AEC74 001ABBD4  7D 89 03 A6 */	mtctr r12
-/* 801AEC78 001ABBD8  4E 80 04 21 */	bctrl 
+/* 801AEC78 001ABBD8  4E 80 04 21 */	bctrl
 /* 801AEC7C 001ABBDC  C0 03 00 00 */	lfs f0, 0(r3)
 /* 801AEC80 001ABBE0  38 61 00 14 */	addi r3, r1, 0x14
 /* 801AEC84 001ABBE4  C0 3E 08 18 */	lfs f1, 0x818(r30)
@@ -2113,7 +2113,7 @@ lbl_801AECA4:
 /* 801AECD0 001ABC30  C0 22 A8 BC */	lfs f1, lbl_805AC5DC@sda21(r2)
 /* 801AECD4 001ABC34  81 8C 02 88 */	lwz r12, 0x288(r12)
 /* 801AECD8 001ABC38  7D 89 03 A6 */	mtctr r12
-/* 801AECDC 001ABC3C  4E 80 04 21 */	bctrl 
+/* 801AECDC 001ABC3C  4E 80 04 21 */	bctrl
 /* 801AECE0 001ABC40  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801AECE4 001ABC44  41 82 00 18 */	beq lbl_801AECFC
 /* 801AECE8 001ABC48  C0 3E 08 14 */	lfs f1, 0x814(r30)
@@ -2137,7 +2137,7 @@ lbl_801AED1C:
 /* 801AED24 001ABC84  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801AED28 001ABC88  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AED2C 001ABC8C  7D 89 03 A6 */	mtctr r12
-/* 801AED30 001ABC90  4E 80 04 21 */	bctrl 
+/* 801AED30 001ABC90  4E 80 04 21 */	bctrl
 /* 801AED34 001ABC94  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801AED38 001ABC98  C0 02 A8 BC */	lfs f0, lbl_805AC5DC@sda21(r2)
 /* 801AED3C 001ABC9C  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -2151,7 +2151,7 @@ lbl_801AED1C:
 /* 801AED5C 001ABCBC  7F E4 FB 78 */	mr r4, r31
 /* 801AED60 001ABCC0  38 C0 00 14 */	li r6, 0x14
 /* 801AED64 001ABCC4  7D 89 03 A6 */	mtctr r12
-/* 801AED68 001ABCC8  4E 80 04 21 */	bctrl 
+/* 801AED68 001ABCC8  4E 80 04 21 */	bctrl
 /* 801AED6C 001ABCCC  7F C3 F3 78 */	mr r3, r30
 /* 801AED70 001ABCD0  7F E5 FB 78 */	mr r5, r31
 /* 801AED74 001ABCD4  38 80 00 29 */	li r4, 0x29
@@ -2177,7 +2177,7 @@ lbl_801AED88:
 /* 801AEDBC 001ABD1C  C3 FE 08 18 */	lfs f31, 0x818(r30)
 /* 801AEDC0 001ABD20  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AEDC4 001ABD24  7D 89 03 A6 */	mtctr r12
-/* 801AEDC8 001ABD28  4E 80 04 21 */	bctrl 
+/* 801AEDC8 001ABD28  4E 80 04 21 */	bctrl
 /* 801AEDCC 001ABD2C  D3 E3 00 00 */	stfs f31, 0(r3)
 lbl_801AEDD0:
 /* 801AEDD0 001ABD30  3B 9C 00 02 */	addi r28, r28, 2
@@ -2197,7 +2197,7 @@ lbl_801AEDE8:
 /* 801AEE00 001ABD60  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801AEE04 001ABD64  7C 08 03 A6 */	mtlr r0
 /* 801AEE08 001ABD68  38 21 00 50 */	addi r1, r1, 0x50
-/* 801AEE0C 001ABD6C  4E 80 00 20 */	blr 
+/* 801AEE0C 001ABD6C  4E 80 00 20 */	blr
 
 .global sub_801aee10
 sub_801aee10:
@@ -2257,14 +2257,14 @@ lbl_801AEE88:
 /* 801AEED0 001ABE30  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801AEED4 001ABE34  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AEED8 001ABE38  7D 89 03 A6 */	mtctr r12
-/* 801AEEDC 001ABE3C  4E 80 04 21 */	bctrl 
+/* 801AEEDC 001ABE3C  4E 80 04 21 */	bctrl
 /* 801AEEE0 001ABE40  7C 7B 1B 78 */	mr r27, r3
 /* 801AEEE4 001ABE44  7F 23 CB 78 */	mr r3, r25
 /* 801AEEE8 001ABE48  81 99 00 00 */	lwz r12, 0(r25)
 /* 801AEEEC 001ABE4C  7F A4 EB 78 */	mr r4, r29
 /* 801AEEF0 001ABE50  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AEEF4 001ABE54  7D 89 03 A6 */	mtctr r12
-/* 801AEEF8 001ABE58  4E 80 04 21 */	bctrl 
+/* 801AEEF8 001ABE58  4E 80 04 21 */	bctrl
 /* 801AEEFC 001ABE5C  C0 1B 00 00 */	lfs f0, 0(r27)
 /* 801AEF00 001ABE60  3C 80 80 3D */	lis r4, lbl_803D1590@ha
 /* 801AEF04 001ABE64  38 84 15 90 */	addi r4, r4, lbl_803D1590@l
@@ -2307,14 +2307,14 @@ lbl_801AEF70:
 /* 801AEF88 001ABEE8  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801AEF8C 001ABEEC  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801AEF90 001ABEF0  7D 89 03 A6 */	mtctr r12
-/* 801AEF94 001ABEF4  4E 80 04 21 */	bctrl 
+/* 801AEF94 001ABEF4  4E 80 04 21 */	bctrl
 /* 801AEF98 001ABEF8  C0 03 00 00 */	lfs f0, 0(r3)
 /* 801AEF9C 001ABEFC  D0 1C 08 18 */	stfs f0, 0x818(r28)
 /* 801AEFA0 001ABF00  BB 21 00 34 */	lmw r25, 0x34(r1)
 /* 801AEFA4 001ABF04  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801AEFA8 001ABF08  7C 08 03 A6 */	mtlr r0
 /* 801AEFAC 001ABF0C  38 21 00 50 */	addi r1, r1, 0x50
-/* 801AEFB0 001ABF10  4E 80 00 20 */	blr 
+/* 801AEFB0 001ABF10  4E 80 00 20 */	blr
 
 .global sub_801aefb4
 sub_801aefb4:
@@ -2348,7 +2348,7 @@ lbl_801AF018:
 /* 801AF01C 001ABF7C  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801AF020 001ABF80  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801AF024 001ABF84  7D 89 03 A6 */	mtctr r12
-/* 801AF028 001ABF88  4E 80 04 21 */	bctrl 
+/* 801AF028 001ABF88  4E 80 04 21 */	bctrl
 /* 801AF02C 001ABF8C  7C 64 1B 78 */	mr r4, r3
 /* 801AF030 001ABF90  7F E3 FB 78 */	mr r3, r31
 /* 801AF034 001ABF94  4B FF 9B 65 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
@@ -2359,7 +2359,7 @@ lbl_801AF038:
 /* 801AF044 001ABFA4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801AF048 001ABFA8  7C 08 03 A6 */	mtlr r0
 /* 801AF04C 001ABFAC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AF050 001ABFB0  4E 80 00 20 */	blr 
+/* 801AF050 001ABFB0  4E 80 00 20 */	blr
 
 .global sub_801af054
 sub_801af054:
@@ -2391,7 +2391,7 @@ sub_801af054:
 /* 801AF0B8 001AC018  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 801AF0BC 001AC01C  7C 08 03 A6 */	mtlr r0
 /* 801AF0C0 001AC020  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AF0C4 001AC024  4E 80 00 20 */	blr 
+/* 801AF0C4 001AC024  4E 80 00 20 */	blr
 
 .global sub_801af0c8
 sub_801af0c8:
@@ -2462,7 +2462,7 @@ lbl_801AF0EC:
 /* 801AF1C4 001AC124  81 99 00 00 */	lwz r12, 0(r25)
 /* 801AF1C8 001AC128  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801AF1CC 001AC12C  7D 89 03 A6 */	mtctr r12
-/* 801AF1D0 001AC130  4E 80 04 21 */	bctrl 
+/* 801AF1D0 001AC130  4E 80 04 21 */	bctrl
 /* 801AF1D4 001AC134  7C 64 1B 78 */	mr r4, r3
 /* 801AF1D8 001AC138  7F 83 E3 78 */	mr r3, r28
 /* 801AF1DC 001AC13C  4B FF 99 BD */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
@@ -2477,7 +2477,7 @@ lbl_801AF1E4:
 /* 801AF1F8 001AC158  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801AF1FC 001AC15C  7C 08 03 A6 */	mtlr r0
 /* 801AF200 001AC160  38 21 00 50 */	addi r1, r1, 0x50
-/* 801AF204 001AC164  4E 80 00 20 */	blr 
+/* 801AF204 001AC164  4E 80 00 20 */	blr
 
 .global sub_801af208
 sub_801af208:
@@ -2575,7 +2575,7 @@ lbl_801AF358:
 /* 801AF364 001AC2C4  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801AF368 001AC2C8  7C 08 03 A6 */	mtlr r0
 /* 801AF36C 001AC2CC  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801AF370 001AC2D0  4E 80 00 20 */	blr 
+/* 801AF370 001AC2D0  4E 80 00 20 */	blr
 
 .global sub_801af374
 sub_801af374:
@@ -2692,7 +2692,7 @@ lbl_801AF510:
 /* 801AF51C 001AC47C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801AF520 001AC480  7C 08 03 A6 */	mtlr r0
 /* 801AF524 001AC484  38 21 01 00 */	addi r1, r1, 0x100
-/* 801AF528 001AC488  4E 80 00 20 */	blr 
+/* 801AF528 001AC488  4E 80 00 20 */	blr
 
 .global sub_801af52c
 sub_801af52c:
@@ -3000,7 +3000,7 @@ lbl_801AF764:
 /* 801AF9D4 001AC934  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 801AF9D8 001AC938  7C 08 03 A6 */	mtlr r0
 /* 801AF9DC 001AC93C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801AF9E0 001AC940  4E 80 00 20 */	blr 
+/* 801AF9E0 001AC940  4E 80 00 20 */	blr
 
 .global Dead__9CFlaahgraFR13CStateManager9EStateMsgf
 Dead__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -3208,7 +3208,7 @@ lbl_801AFCD4:
 /* 801AFCE0 001ACC40  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 801AFCE4 001ACC44  7C 08 03 A6 */	mtlr r0
 /* 801AFCE8 001ACC48  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801AFCEC 001ACC4C  4E 80 00 20 */	blr 
+/* 801AFCEC 001ACC4C  4E 80 00 20 */	blr
 
 .global Cover__9CFlaahgraFR13CStateManager9EStateMsgf
 Cover__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -3464,7 +3464,7 @@ lbl_801B0090:
 /* 801B0098 001ACFF8  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 801B009C 001ACFFC  7C 08 03 A6 */	mtlr r0
 /* 801B00A0 001AD000  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801B00A4 001AD004  4E 80 00 20 */	blr 
+/* 801B00A4 001AD004  4E 80 00 20 */	blr
 
 .global Dizzy__9CFlaahgraFR13CStateManager9EStateMsgf
 Dizzy__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -3563,7 +3563,7 @@ lbl_801B01E4:
 
 .global sub_801b01f4
 sub_801b01f4:
-/* 801B01F4 001AD154  4E 80 00 20 */	blr 
+/* 801B01F4 001AD154  4E 80 00 20 */	blr
 
 .global ProjectileAttack__9CFlaahgraFR13CStateManager9EStateMsgf
 ProjectileAttack__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -3767,7 +3767,7 @@ lbl_801B04C8:
 /* 801B04D4 001AD434  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801B04D8 001AD438  7C 08 03 A6 */	mtlr r0
 /* 801B04DC 001AD43C  38 21 00 50 */	addi r1, r1, 0x50
-/* 801B04E0 001AD440  4E 80 00 20 */	blr 
+/* 801B04E0 001AD440  4E 80 00 20 */	blr
 
 .global SpecialAttack__9CFlaahgraFR13CStateManager9EStateMsgf
 SpecialAttack__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -3937,7 +3937,7 @@ lbl_801B073C:
 /* 801B0748 001AD6A8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801B074C 001AD6AC  7C 08 03 A6 */	mtlr r0
 /* 801B0750 001AD6B0  38 21 00 50 */	addi r1, r1, 0x50
-/* 801B0754 001AD6B4  4E 80 00 20 */	blr 
+/* 801B0754 001AD6B4  4E 80 00 20 */	blr
 
 .global Attack__9CFlaahgraFR13CStateManager9EStateMsgf
 Attack__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -4104,7 +4104,7 @@ lbl_801B0990:
 /* 801B09AC 001AD90C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B09B0 001AD910  81 8C 01 DC */	lwz r12, 0x1dc(r12)
 /* 801B09B4 001AD914  7D 89 03 A6 */	mtctr r12
-/* 801B09B8 001AD918  4E 80 04 21 */	bctrl 
+/* 801B09B8 001AD918  4E 80 04 21 */	bctrl
 /* 801B09BC 001AD91C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B09C0 001AD920  41 82 01 C8 */	beq lbl_801B0B88
 /* 801B09C4 001AD924  80 1E 07 A8 */	lwz r0, 0x7a8(r30)
@@ -4232,7 +4232,7 @@ lbl_801B0B88:
 /* 801B0B98 001ADAF8  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 801B0B9C 001ADAFC  7C 08 03 A6 */	mtlr r0
 /* 801B0BA0 001ADB00  38 21 00 80 */	addi r1, r1, 0x80
-/* 801B0BA4 001ADB04  4E 80 00 20 */	blr 
+/* 801B0BA4 001ADB04  4E 80 00 20 */	blr
 
 .global TurnAround__9CFlaahgraFR13CStateManager9EStateMsgf
 TurnAround__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -4274,7 +4274,7 @@ lbl_801B0C24:
 /* 801B0C28 001ADB88  C0 22 A8 BC */	lfs f1, lbl_805AC5DC@sda21(r2)
 /* 801B0C2C 001ADB8C  81 8C 01 E8 */	lwz r12, 0x1e8(r12)
 /* 801B0C30 001ADB90  7D 89 03 A6 */	mtctr r12
-/* 801B0C34 001ADB94  4E 80 04 21 */	bctrl 
+/* 801B0C34 001ADB94  4E 80 04 21 */	bctrl
 /* 801B0C38 001ADB98  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B0C3C 001ADB9C  41 82 00 E8 */	beq lbl_801B0D24
 /* 801B0C40 001ADBA0  80 9E 00 64 */	lwz r4, 0x64(r30)
@@ -4292,7 +4292,7 @@ lbl_801B0C6C:
 /* 801B0C6C 001ADBCC  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B0C70 001ADBD0  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801B0C74 001ADBD4  7D 89 03 A6 */	mtctr r12
-/* 801B0C78 001ADBD8  4E 80 04 21 */	bctrl 
+/* 801B0C78 001ADBD8  4E 80 04 21 */	bctrl
 /* 801B0C7C 001ADBDC  C0 21 00 20 */	lfs f1, 0x20(r1)
 /* 801B0C80 001ADBE0  38 61 00 28 */	addi r3, r1, 0x28
 /* 801B0C84 001ADBE4  C0 1E 00 50 */	lfs f0, 0x50(r30)
@@ -4342,7 +4342,7 @@ lbl_801B0D24:
 /* 801B0D2C 001ADC8C  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801B0D30 001ADC90  7C 08 03 A6 */	mtlr r0
 /* 801B0D34 001ADC94  38 21 00 60 */	addi r1, r1, 0x60
-/* 801B0D38 001ADC98  4E 80 00 20 */	blr 
+/* 801B0D38 001ADC98  4E 80 00 20 */	blr
 
 .global Suck__9CFlaahgraFR13CStateManager9EStateMsgf
 Suck__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -4516,7 +4516,7 @@ lbl_801B0FA0:
 /* 801B0FA8 001ADF08  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801B0FAC 001ADF0C  7C 08 03 A6 */	mtlr r0
 /* 801B0FB0 001ADF10  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B0FB4 001ADF14  4E 80 00 20 */	blr 
+/* 801B0FB4 001ADF14  4E 80 00 20 */	blr
 
 .global GetUp__9CFlaahgraFR13CStateManager9EStateMsgf
 GetUp__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -4662,7 +4662,7 @@ lbl_801B11AC:
 /* 801B11B4 001AE114  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B11B8 001AE118  7C 08 03 A6 */	mtlr r0
 /* 801B11BC 001AE11C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B11C0 001AE120  4E 80 00 20 */	blr 
+/* 801B11C0 001AE120  4E 80 00 20 */	blr
 
 .global Faint__9CFlaahgraFR13CStateManager9EStateMsgf
 Faint__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -4853,7 +4853,7 @@ lbl_801B1474:
 /* 801B147C 001AE3DC  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801B1480 001AE3E0  7C 08 03 A6 */	mtlr r0
 /* 801B1484 001AE3E4  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B1488 001AE3E8  4E 80 00 20 */	blr 
+/* 801B1488 001AE3E8  4E 80 00 20 */	blr
 
 .global Growth__9CFlaahgraFR13CStateManager9EStateMsgf
 Growth__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -5089,7 +5089,7 @@ lbl_801B17E4:
 /* 801B17EC 001AE74C  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 801B17F0 001AE750  7C 08 03 A6 */	mtlr r0
 /* 801B17F4 001AE754  38 21 00 60 */	addi r1, r1, 0x60
-/* 801B17F8 001AE758  4E 80 00 20 */	blr 
+/* 801B17F8 001AE758  4E 80 00 20 */	blr
 
 .global Generate__9CFlaahgraFR13CStateManager9EStateMsgf
 Generate__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -5205,7 +5205,7 @@ lbl_801B1988:
 /* 801B198C 001AE8EC  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801B1990 001AE8F0  7C 08 03 A6 */	mtlr r0
 /* 801B1994 001AE8F4  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B1998 001AE8F8  4E 80 00 20 */	blr 
+/* 801B1998 001AE8F8  4E 80 00 20 */	blr
 
 .global Enraged__9CFlaahgraFR13CStateManager9EStateMsgf
 Enraged__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -5289,7 +5289,7 @@ lbl_801B1AA8:
 /* 801B1AAC 001AEA0C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801B1AB0 001AEA10  7C 08 03 A6 */	mtlr r0
 /* 801B1AB4 001AEA14  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B1AB8 001AEA18  4E 80 00 20 */	blr 
+/* 801B1AB8 001AEA18  4E 80 00 20 */	blr
 
 .global FadeIn__9CFlaahgraFR13CStateManager9EStateMsgf
 FadeIn__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -5305,7 +5305,7 @@ FadeIn__9CFlaahgraFR13CStateManager9EStateMsgf:
 /* 801B1AE0 001AEA40  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B1AE4 001AEA44  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801B1AE8 001AEA48  7D 89 03 A6 */	mtctr r12
-/* 801B1AEC 001AEA4C  4E 80 04 21 */	bctrl 
+/* 801B1AEC 001AEA4C  4E 80 04 21 */	bctrl
 /* 801B1AF0 001AEA50  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801B1AF4 001AEA54  C0 02 A8 BC */	lfs f0, lbl_805AC5DC@sda21(r2)
 /* 801B1AF8 001AEA58  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -5330,7 +5330,7 @@ lbl_801B1B34:
 /* 801B1B3C 001AEA9C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B1B40 001AEAA0  7C 08 03 A6 */	mtlr r0
 /* 801B1B44 001AEAA4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B1B48 001AEAA8  4E 80 00 20 */	blr 
+/* 801B1B48 001AEAA8  4E 80 00 20 */	blr
 
 .global FadeOut__9CFlaahgraFR13CStateManager9EStateMsgf
 FadeOut__9CFlaahgraFR13CStateManager9EStateMsgf:
@@ -5410,7 +5410,7 @@ lbl_801B1C60:
 /* 801B1C68 001AEBC8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801B1C6C 001AEBCC  7C 08 03 A6 */	mtlr r0
 /* 801B1C70 001AEBD0  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B1C74 001AEBD4  4E 80 00 20 */	blr 
+/* 801B1C74 001AEBD4  4E 80 00 20 */	blr
 
 .global sub_801b1c78
 sub_801b1c78:
@@ -5418,7 +5418,7 @@ sub_801b1c78:
 /* 801B1C7C 001AEBDC  20 00 00 04 */	subfic r0, r0, 4
 /* 801B1C80 001AEBE0  7C 00 00 34 */	cntlzw r0, r0
 /* 801B1C84 001AEBE4  54 03 D9 7E */	srwi r3, r0, 5
-/* 801B1C88 001AEBE8  4E 80 00 20 */	blr 
+/* 801B1C88 001AEBE8  4E 80 00 20 */	blr
 
 .global CoverCheck__9CFlaahgraFR13CStateManagerf
 CoverCheck__9CFlaahgraFR13CStateManagerf:
@@ -5474,7 +5474,7 @@ lbl_801B1D28:
 /* 801B1D38 001AEC98  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801B1D3C 001AEC9C  7C 08 03 A6 */	mtlr r0
 /* 801B1D40 001AECA0  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B1D44 001AECA4  4E 80 00 20 */	blr 
+/* 801B1D44 001AECA4  4E 80 00 20 */	blr
 
 .global IsDizzy__9CFlaahgraFR13CStateManagerf
 IsDizzy__9CFlaahgraFR13CStateManagerf:
@@ -5483,7 +5483,7 @@ IsDizzy__9CFlaahgraFR13CStateManagerf:
 /* 801B1D50 001AECB0  20 00 00 0A */	subfic r0, r0, 0xa
 /* 801B1D54 001AECB4  7C 00 00 34 */	cntlzw r0, r0
 /* 801B1D58 001AECB8  54 03 D9 7E */	srwi r3, r0, 5
-/* 801B1D5C 001AECBC  4E 80 00 20 */	blr 
+/* 801B1D5C 001AECBC  4E 80 00 20 */	blr
 
 .global BreakAttack__9CFlaahgraFR13CStateManagerf
 BreakAttack__9CFlaahgraFR13CStateManagerf:
@@ -5499,7 +5499,7 @@ BreakAttack__9CFlaahgraFR13CStateManagerf:
 /* 801B1D84 001AECE4  38 80 00 01 */	li r4, 1
 lbl_801B1D88:
 /* 801B1D88 001AECE8  7C 83 23 78 */	mr r3, r4
-/* 801B1D8C 001AECEC  4E 80 00 20 */	blr 
+/* 801B1D8C 001AECEC  4E 80 00 20 */	blr
 
 .global ShouldFire__9CFlaahgraFR13CStateManagerf
 ShouldFire__9CFlaahgraFR13CStateManagerf:
@@ -5556,7 +5556,7 @@ lbl_801B1E4C:
 /* 801B1E50 001AEDB0  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801B1E54 001AEDB4  7C 08 03 A6 */	mtlr r0
 /* 801B1E58 001AEDB8  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B1E5C 001AEDBC  4E 80 00 20 */	blr 
+/* 801B1E5C 001AEDBC  4E 80 00 20 */	blr
 
 .global ShouldSpecialAttack__9CFlaahgraFR13CStateManagerf
 ShouldSpecialAttack__9CFlaahgraFR13CStateManagerf:
@@ -5573,7 +5573,7 @@ ShouldSpecialAttack__9CFlaahgraFR13CStateManagerf:
 /* 801B1E88 001AEDE8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B1E8C 001AEDEC  81 8C 02 34 */	lwz r12, 0x234(r12)
 /* 801B1E90 001AEDF0  7D 89 03 A6 */	mtctr r12
-/* 801B1E94 001AEDF4  4E 80 04 21 */	bctrl 
+/* 801B1E94 001AEDF4  4E 80 04 21 */	bctrl
 /* 801B1E98 001AEDF8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B1E9C 001AEDFC  41 82 00 1C */	beq lbl_801B1EB8
 /* 801B1EA0 001AEE00  80 1F 07 88 */	lwz r0, 0x788(r31)
@@ -5589,7 +5589,7 @@ lbl_801B1EBC:
 /* 801B1EC0 001AEE20  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801B1EC4 001AEE24  7C 08 03 A6 */	mtlr r0
 /* 801B1EC8 001AEE28  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B1ECC 001AEE2C  4E 80 00 20 */	blr 
+/* 801B1ECC 001AEE2C  4E 80 00 20 */	blr
 
 .global ShouldAttack__9CFlaahgraFR13CStateManagerf
 ShouldAttack__9CFlaahgraFR13CStateManagerf:
@@ -5708,7 +5708,7 @@ lbl_801B2068:
 /* 801B2080 001AEFE0  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 801B2084 001AEFE4  7C 08 03 A6 */	mtlr r0
 /* 801B2088 001AEFE8  38 21 00 70 */	addi r1, r1, 0x70
-/* 801B208C 001AEFEC  4E 80 00 20 */	blr 
+/* 801B208C 001AEFEC  4E 80 00 20 */	blr
 
 .global ShouldTurn__9CFlaahgraFR13CStateManagerf
 ShouldTurn__9CFlaahgraFR13CStateManagerf:
@@ -5762,7 +5762,7 @@ ShouldTurn__9CFlaahgraFR13CStateManagerf:
 /* 801B214C 001AF0AC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801B2150 001AF0B0  7C 08 03 A6 */	mtlr r0
 /* 801B2154 001AF0B4  38 21 00 60 */	addi r1, r1, 0x60
-/* 801B2158 001AF0B8  4E 80 00 20 */	blr 
+/* 801B2158 001AF0B8  4E 80 00 20 */	blr
 
 .global AIStage__9CFlaahgraFR13CStateManagerf
 AIStage__9CFlaahgraFR13CStateManagerf:
@@ -5775,7 +5775,7 @@ AIStage__9CFlaahgraFR13CStateManagerf:
 /* 801B2174 001AF0D4  7C 00 00 34 */	cntlzw r0, r0
 /* 801B2178 001AF0D8  54 03 D9 7E */	srwi r3, r0, 5
 /* 801B217C 001AF0DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B2180 001AF0E0  4E 80 00 20 */	blr 
+/* 801B2180 001AF0E0  4E 80 00 20 */	blr
 
 .global HitSomething__9CFlaahgraFR13CStateManagerf
 HitSomething__9CFlaahgraFR13CStateManagerf:
@@ -5784,18 +5784,18 @@ HitSomething__9CFlaahgraFR13CStateManagerf:
 /* 801B218C 001AF0EC  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801B2190 001AF0F0  7C 00 00 26 */	mfcr r0
 /* 801B2194 001AF0F4  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801B2198 001AF0F8  4E 80 00 20 */	blr 
+/* 801B2198 001AF0F8  4E 80 00 20 */	blr
 
 .global OffLine__9CFlaahgraFR13CStateManagerf
 OffLine__9CFlaahgraFR13CStateManagerf:
 /* 801B219C 001AF0FC  88 83 08 E5 */	lbz r4, 0x8e5(r3)
 /* 801B21A0 001AF100  38 60 00 00 */	li r3, 0
 /* 801B21A4 001AF104  54 80 F7 FF */	rlwinm. r0, r4, 0x1e, 0x1f, 0x1f
-/* 801B21A8 001AF108  4D 82 00 20 */	beqlr 
+/* 801B21A8 001AF108  4D 82 00 20 */	beqlr
 /* 801B21AC 001AF10C  54 80 EF FF */	rlwinm. r0, r4, 0x1d, 0x1f, 0x1f
-/* 801B21B0 001AF110  4D 82 00 20 */	beqlr 
+/* 801B21B0 001AF110  4D 82 00 20 */	beqlr
 /* 801B21B4 001AF114  38 60 00 01 */	li r3, 1
-/* 801B21B8 001AF118  4E 80 00 20 */	blr 
+/* 801B21B8 001AF118  4E 80 00 20 */	blr
 
 .global Death__9CFlaahgraFRC9CVector3fR13CStateManager
 Death__9CFlaahgraFRC9CVector3fR13CStateManager:
@@ -5842,7 +5842,7 @@ lbl_801B224C:
 /* 801B2254 001AF1B4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B2258 001AF1B8  7C 08 03 A6 */	mtlr r0
 /* 801B225C 001AF1BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B2260 001AF1C0  4E 80 00 20 */	blr 
+/* 801B2260 001AF1C0  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__9CFlaahgraFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__9CFlaahgraFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -5871,7 +5871,7 @@ DoUserAnimEvent__9CFlaahgraFR13CStateManagerRC13CInt32POINode14EUserEventType:
 /* 801B22BC 001AF21C  38 84 4D 74 */	addi r4, r4, lbl_803E4D74@l
 /* 801B22C0 001AF220  7C 04 00 2E */	lwzx r0, r4, r0
 /* 801B22C4 001AF224  7C 09 03 A6 */	mtctr r0
-/* 801B22C8 001AF228  4E 80 04 20 */	bctr 
+/* 801B22C8 001AF228  4E 80 04 20 */	bctr
 .global lbl_801B22CC
 lbl_801B22CC:
 /* 801B22CC 001AF22C  7F 64 DB 78 */	mr r4, r27
@@ -5937,7 +5937,7 @@ lbl_801B2380:
 /* 801B23A8 001AF308  81 9B 00 00 */	lwz r12, 0(r27)
 /* 801B23AC 001AF30C  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 801B23B0 001AF310  7D 89 03 A6 */	mtctr r12
-/* 801B23B4 001AF314  4E 80 04 21 */	bctrl 
+/* 801B23B4 001AF314  4E 80 04 21 */	bctrl
 /* 801B23B8 001AF318  FC 20 F0 90 */	fmr f1, f30
 /* 801B23BC 001AF31C  7C 64 1B 78 */	mr r4, r3
 /* 801B23C0 001AF320  7F 47 D3 78 */	mr r7, r26
@@ -6077,7 +6077,7 @@ lbl_801B259C:
 /* 801B25BC 001AF51C  81 9B 00 00 */	lwz r12, 0(r27)
 /* 801B25C0 001AF520  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 801B25C4 001AF524  7D 89 03 A6 */	mtctr r12
-/* 801B25C8 001AF528  4E 80 04 21 */	bctrl 
+/* 801B25C8 001AF528  4E 80 04 21 */	bctrl
 /* 801B25CC 001AF52C  FC 20 F0 90 */	fmr f1, f30
 /* 801B25D0 001AF530  7C 64 1B 78 */	mr r4, r3
 /* 801B25D4 001AF534  7F 47 D3 78 */	mr r7, r26
@@ -6270,7 +6270,7 @@ lbl_801B2868:
 /* 801B2894 001AF7F4  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B2898 001AF7F8  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801B289C 001AF7FC  7D 89 03 A6 */	mtctr r12
-/* 801B28A0 001AF800  4E 80 04 21 */	bctrl 
+/* 801B28A0 001AF800  4E 80 04 21 */	bctrl
 /* 801B28A4 001AF804  C0 41 00 7C */	lfs f2, 0x7c(r1)
 /* 801B28A8 001AF808  38 01 01 3C */	addi r0, r1, 0x13c
 /* 801B28AC 001AF80C  C0 A1 03 CC */	lfs f5, 0x3cc(r1)
@@ -6450,7 +6450,7 @@ lbl_801B2B18:
 /* 801B2B3C 001AFA9C  80 01 05 44 */	lwz r0, 0x544(r1)
 /* 801B2B40 001AFAA0  7C 08 03 A6 */	mtlr r0
 /* 801B2B44 001AFAA4  38 21 05 40 */	addi r1, r1, 0x540
-/* 801B2B48 001AFAA8  4E 80 00 20 */	blr 
+/* 801B2B48 001AFAA8  4E 80 00 20 */	blr
 
 .global ProjectileInfo__9CFlaahgraFv
 ProjectileInfo__9CFlaahgraFv:
@@ -6458,10 +6458,10 @@ ProjectileInfo__9CFlaahgraFv:
 /* 801B2B50 001AFAB0  54 00 FF FF */	rlwinm. r0, r0, 0x1f, 0x1f, 0x1f
 /* 801B2B54 001AFAB4  41 82 00 0C */	beq lbl_801B2B60
 /* 801B2B58 001AFAB8  38 63 07 04 */	addi r3, r3, 0x704
-/* 801B2B5C 001AFABC  4E 80 00 20 */	blr 
+/* 801B2B5C 001AFABC  4E 80 00 20 */	blr
 lbl_801B2B60:
 /* 801B2B60 001AFAC0  38 63 06 DC */	addi r3, r3, 0x6dc
-/* 801B2B64 001AFAC4  4E 80 00 20 */	blr 
+/* 801B2B64 001AFAC4  4E 80 00 20 */	blr
 
 .global GetAimPosition__9CFlaahgraCFRC13CStateManagerf
 GetAimPosition__9CFlaahgraCFRC13CStateManagerf:
@@ -6471,7 +6471,7 @@ GetAimPosition__9CFlaahgraCFRC13CStateManagerf:
 /* 801B2B74 001AFAD4  D0 03 00 04 */	stfs f0, 4(r3)
 /* 801B2B78 001AFAD8  C0 04 08 28 */	lfs f0, 0x828(r4)
 /* 801B2B7C 001AFADC  D0 03 00 08 */	stfs f0, 8(r3)
-/* 801B2B80 001AFAE0  4E 80 00 20 */	blr 
+/* 801B2B80 001AFAE0  4E 80 00 20 */	blr
 
 .global AddToRenderer__9CFlaahgraCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__9CFlaahgraCFRC14CFrustumPlanesRC13CStateManager:
@@ -6502,7 +6502,7 @@ lbl_801B2BC4:
 /* 801B2BE0 001AFB40  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801B2BE4 001AFB44  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801B2BE8 001AFB48  7D 89 03 A6 */	mtctr r12
-/* 801B2BEC 001AFB4C  4E 80 04 21 */	bctrl 
+/* 801B2BEC 001AFB4C  4E 80 04 21 */	bctrl
 /* 801B2BF0 001AFB50  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B2BF4 001AFB54  41 82 00 20 */	beq lbl_801B2C14
 /* 801B2BF8 001AFB58  7F C3 F3 78 */	mr r3, r30
@@ -6510,7 +6510,7 @@ lbl_801B2BC4:
 /* 801B2C00 001AFB60  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801B2C04 001AFB64  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 801B2C08 001AFB68  7D 89 03 A6 */	mtctr r12
-/* 801B2C0C 001AFB6C  4E 80 04 21 */	bctrl 
+/* 801B2C0C 001AFB6C  4E 80 04 21 */	bctrl
 /* 801B2C10 001AFB70  48 00 00 10 */	b lbl_801B2C20
 lbl_801B2C14:
 /* 801B2C14 001AFB74  7F C3 F3 78 */	mr r3, r30
@@ -6522,12 +6522,12 @@ lbl_801B2C20:
 /* 801B2C28 001AFB88  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B2C2C 001AFB8C  7C 08 03 A6 */	mtlr r0
 /* 801B2C30 001AFB90  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B2C34 001AFB94  4E 80 00 20 */	blr 
+/* 801B2C34 001AFB94  4E 80 00 20 */	blr
 
 .global CanRenderUnsorted__9CFlaahgraCFRC13CStateManager
 CanRenderUnsorted__9CFlaahgraCFRC13CStateManager:
 /* 801B2C38 001AFB98  38 60 00 01 */	li r3, 1
-/* 801B2C3C 001AFB9C  4E 80 00 20 */	blr 
+/* 801B2C3C 001AFB9C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__9CFlaahgraF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__9CFlaahgraF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -6546,7 +6546,7 @@ AcceptScriptMsg__9CFlaahgraF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 801B2C70 001AFBD0  38 84 4D E0 */	addi r4, r4, lbl_803E4DE0@l
 /* 801B2C74 001AFBD4  7C 04 00 2E */	lwzx r0, r4, r0
 /* 801B2C78 001AFBD8  7C 09 03 A6 */	mtctr r0
-/* 801B2C7C 001AFBDC  4E 80 04 20 */	bctr 
+/* 801B2C7C 001AFBDC  4E 80 04 20 */	bctr
 .global lbl_801B2C80
 lbl_801B2C80:
 /* 801B2C80 001AFBE0  88 7F 08 E4 */	lbz r3, 0x8e4(r31)
@@ -6704,7 +6704,7 @@ lbl_801B2EAC:
 /* 801B2EB0 001AFE10  7F C4 F3 78 */	mr r4, r30
 /* 801B2EB4 001AFE14  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801B2EB8 001AFE18  7D 89 03 A6 */	mtctr r12
-/* 801B2EBC 001AFE1C  4E 80 04 21 */	bctrl 
+/* 801B2EBC 001AFE1C  4E 80 04 21 */	bctrl
 /* 801B2EC0 001AFE20  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801B2EC4 001AFE24  C0 02 A8 BC */	lfs f0, lbl_805AC5DC@sda21(r2)
 /* 801B2EC8 001AFE28  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -6737,7 +6737,7 @@ lbl_801B2EAC:
 /* 801B2F34 001AFE94  81 9F 00 00 */	lwz r12, 0(r31)
 /* 801B2F38 001AFE98  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 801B2F3C 001AFE9C  7D 89 03 A6 */	mtctr r12
-/* 801B2F40 001AFEA0  4E 80 04 21 */	bctrl 
+/* 801B2F40 001AFEA0  4E 80 04 21 */	bctrl
 /* 801B2F44 001AFEA4  80 81 00 F8 */	lwz r4, 0xf8(r1)
 /* 801B2F48 001AFEA8  88 61 00 FC */	lbz r3, 0xfc(r1)
 /* 801B2F4C 001AFEAC  C0 61 01 00 */	lfs f3, 0x100(r1)
@@ -6827,7 +6827,7 @@ lbl_801B3084:
 /* 801B3088 001AFFE8  7F C4 F3 78 */	mr r4, r30
 /* 801B308C 001AFFEC  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801B3090 001AFFF0  7D 89 03 A6 */	mtctr r12
-/* 801B3094 001AFFF4  4E 80 04 21 */	bctrl 
+/* 801B3094 001AFFF4  4E 80 04 21 */	bctrl
 /* 801B3098 001AFFF8  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801B309C 001AFFFC  C0 02 A8 BC */	lfs f0, lbl_805AC5DC@sda21(r2)
 /* 801B30A0 001B0000  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -6875,7 +6875,7 @@ lbl_801B3138:
 /* 801B3144 001B00A4  C0 22 A8 BC */	lfs f1, lbl_805AC5DC@sda21(r2)
 /* 801B3148 001B00A8  81 8C 02 88 */	lwz r12, 0x288(r12)
 /* 801B314C 001B00AC  7D 89 03 A6 */	mtctr r12
-/* 801B3150 001B00B0  4E 80 04 21 */	bctrl 
+/* 801B3150 001B00B0  4E 80 04 21 */	bctrl
 /* 801B3154 001B00B4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801B3158 001B00B8  40 82 01 90 */	bne lbl_801B32E8
 /* 801B315C 001B00BC  80 7F 04 50 */	lwz r3, 0x450(r31)
@@ -6890,7 +6890,7 @@ lbl_801B3138:
 /* 801B3180 001B00E0  81 8C 00 90 */	lwz r12, 0x90(r12)
 /* 801B3184 001B00E4  38 84 66 A0 */	addi r4, r4, skZero3f@l
 /* 801B3188 001B00E8  7D 89 03 A6 */	mtctr r12
-/* 801B318C 001B00EC  4E 80 04 21 */	bctrl 
+/* 801B318C 001B00EC  4E 80 04 21 */	bctrl
 /* 801B3190 001B00F0  C0 3F 06 AC */	lfs f1, 0x6ac(r31)
 /* 801B3194 001B00F4  C0 1B 01 34 */	lfs f0, 0x134(r27)
 /* 801B3198 001B00F8  C0 5F 08 10 */	lfs f2, 0x810(r31)
@@ -6990,7 +6990,7 @@ lbl_801B32E8:
 /* 801B3304 001B0264  81 8C 00 90 */	lwz r12, 0x90(r12)
 /* 801B3308 001B0268  38 84 66 A0 */	addi r4, r4, skZero3f@l
 /* 801B330C 001B026C  7D 89 03 A6 */	mtctr r12
-/* 801B3310 001B0270  4E 80 04 21 */	bctrl 
+/* 801B3310 001B0270  4E 80 04 21 */	bctrl
 lbl_801B3314:
 /* 801B3314 001B0274  A0 7D 00 00 */	lhz r3, 0(r29)
 /* 801B3318 001B0278  A0 1F 08 0C */	lhz r0, 0x80c(r31)
@@ -7104,7 +7104,7 @@ lbl_801B345C:
 /* 801B347C 001B03DC  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 801B3480 001B03E0  7C 08 03 A6 */	mtlr r0
 /* 801B3484 001B03E4  38 21 01 70 */	addi r1, r1, 0x170
-/* 801B3488 001B03E8  4E 80 00 20 */	blr 
+/* 801B3488 001B03E8  4E 80 00 20 */	blr
 
 .global Accept__9CFlaahgraFR8IVisitor
 Accept__9CFlaahgraFR8IVisitor:
@@ -7117,11 +7117,11 @@ Accept__9CFlaahgraFR8IVisitor:
 /* 801B34A4 001B0404  7C 04 03 78 */	mr r4, r0
 /* 801B34A8 001B0408  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801B34AC 001B040C  7D 89 03 A6 */	mtctr r12
-/* 801B34B0 001B0410  4E 80 04 21 */	bctrl 
+/* 801B34B0 001B0410  4E 80 04 21 */	bctrl
 /* 801B34B4 001B0414  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B34B8 001B0418  7C 08 03 A6 */	mtlr r0
 /* 801B34BC 001B041C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B34C0 001B0420  4E 80 00 20 */	blr 
+/* 801B34C0 001B0420  4E 80 00 20 */	blr
 
 .global Think__9CFlaahgraFfR13CStateManager
 Think__9CFlaahgraFfR13CStateManager:
@@ -7192,7 +7192,7 @@ lbl_801B35B0:
 /* 801B35C0 001B0520  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801B35C4 001B0524  7C 08 03 A6 */	mtlr r0
 /* 801B35C8 001B0528  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B35CC 001B052C  4E 80 00 20 */	blr 
+/* 801B35CC 001B052C  4E 80 00 20 */	blr
 
 .global PreThink__9CFlaahgraFfR13CStateManager
 PreThink__9CFlaahgraFfR13CStateManager:
@@ -7220,7 +7220,7 @@ lbl_801B3604:
 /* 801B3620 001B0580  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 801B3624 001B0584  7C 08 03 A6 */	mtlr r0
 /* 801B3628 001B0588  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B362C 001B058C  4E 80 00 20 */	blr 
+/* 801B362C 001B058C  4E 80 00 20 */	blr
 
 .global __dt__9CFlaahgraFv
 __dt__9CFlaahgraFv:
@@ -7495,7 +7495,7 @@ lbl_801B39AC:
 /* 801B39C0 001B0920  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801B39C4 001B0924  7C 08 03 A6 */	mtlr r0
 /* 801B39C8 001B0928  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B39CC 001B092C  4E 80 00 20 */	blr 
+/* 801B39CC 001B092C  4E 80 00 20 */	blr
 
 .global "__ct__9CFlaahgraF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParametersRC13CFlaahgraData"
 "__ct__9CFlaahgraF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoRC16CActorParametersRC13CFlaahgraData":
@@ -7574,7 +7574,7 @@ lbl_801B39AC:
 /* 801B3AF0 001B0A50  81 84 00 00 */	lwz r12, 0(r4)
 /* 801B3AF4 001B0A54  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801B3AF8 001B0A58  7D 89 03 A6 */	mtctr r12
-/* 801B3AFC 001B0A5C  4E 80 04 21 */	bctrl 
+/* 801B3AFC 001B0A5C  4E 80 04 21 */	bctrl
 /* 801B3B00 001B0A60  38 7C 06 D4 */	addi r3, r28, 0x6d4
 /* 801B3B04 001B0A64  38 81 00 2C */	addi r4, r1, 0x2c
 /* 801B3B08 001B0A68  48 18 D3 A1 */	bl __ct__6CTokenFRC6CToken
@@ -7632,7 +7632,7 @@ lbl_801B39AC:
 /* 801B3BD8 001B0B38  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801B3BDC 001B0B3C  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 801B3BE0 001B0B40  7D 89 03 A6 */	mtctr r12
-/* 801B3BE4 001B0B44  4E 80 04 21 */	bctrl 
+/* 801B3BE4 001B0B44  4E 80 04 21 */	bctrl
 /* 801B3BE8 001B0B48  80 81 00 6C */	lwz r4, 0x6c(r1)
 /* 801B3BEC 001B0B4C  38 00 00 00 */	li r0, 0
 /* 801B3BF0 001B0B50  C0 02 A8 BC */	lfs f0, lbl_805AC5DC@sda21(r2)
@@ -7878,7 +7878,7 @@ lbl_801B3F54:
 /* 801B3F9C 001B0EFC  80 01 01 74 */	lwz r0, 0x174(r1)
 /* 801B3FA0 001B0F00  7C 08 03 A6 */	mtlr r0
 /* 801B3FA4 001B0F04  38 21 01 70 */	addi r1, r1, 0x170
-/* 801B3FA8 001B0F08  4E 80 00 20 */	blr 
+/* 801B3FA8 001B0F08  4E 80 00 20 */	blr
 
 .global __ct__13CFlaahgraDataFRC13CFlaahgraData
 __ct__13CFlaahgraDataFRC13CFlaahgraData:
@@ -8020,7 +8020,7 @@ __ct__13CFlaahgraDataFRC13CFlaahgraData:
 /* 801B41C8 001B1128  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B41CC 001B112C  7C 08 03 A6 */	mtlr r0
 /* 801B41D0 001B1130  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B41D4 001B1134  4E 80 00 20 */	blr 
+/* 801B41D4 001B1134  4E 80 00 20 */	blr
 
 .global __ct__13CFlaahgraDataFR12CInputStream
 __ct__13CFlaahgraDataFR12CInputStream:
@@ -8100,7 +8100,7 @@ __ct__13CFlaahgraDataFR12CInputStream:
 /* 801B42FC 001B125C  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 801B4300 001B1260  7C 08 03 A6 */	mtlr r0
 /* 801B4304 001B1264  38 21 00 90 */	addi r1, r1, 0x90
-/* 801B4308 001B1268  4E 80 00 20 */	blr 
+/* 801B4308 001B1268  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__19CFlaahgraProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__19CFlaahgraProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -8151,7 +8151,7 @@ lbl_801B43A8:
 /* 801B43B4 001B1314  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801B43B8 001B1318  7C 08 03 A6 */	mtlr r0
 /* 801B43BC 001B131C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B43C0 001B1320  4E 80 00 20 */	blr 
+/* 801B43C0 001B1320  4E 80 00 20 */	blr
 
 .global "__ct__19CFlaahgraProjectileFbRC28TToken<18CWeaponDescription>RC12CTransform4fRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId"
 "__ct__19CFlaahgraProjectileFbRC28TToken<18CWeaponDescription>RC12CTransform4fRC11CDamageInfo9TUniqueId7TAreaId9TUniqueId":
@@ -8229,13 +8229,13 @@ lbl_801B44D0:
 /* 801B44D8 001B1438  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801B44DC 001B143C  7C 08 03 A6 */	mtlr r0
 /* 801B44E0 001B1440  38 21 00 90 */	addi r1, r1, 0x90
-/* 801B44E4 001B1444  4E 80 00 20 */	blr 
+/* 801B44E4 001B1444  4E 80 00 20 */	blr
 
 .global GetTouchBounds__9CFlaahgraCFv
 GetTouchBounds__9CFlaahgraCFv:
 /* 801B44E8 001B1448  38 00 00 00 */	li r0, 0
 /* 801B44EC 001B144C  98 03 00 18 */	stb r0, 0x18(r3)
-/* 801B44F0 001B1450  4E 80 00 20 */	blr 
+/* 801B44F0 001B1450  4E 80 00 20 */	blr
 
 .global __dt__19CFlaahgraProjectileFv
 __dt__19CFlaahgraProjectileFv:
@@ -8263,7 +8263,7 @@ lbl_801B4538:
 /* 801B4544 001B14A4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801B4548 001B14A8  7C 08 03 A6 */	mtlr r0
 /* 801B454C 001B14AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B4550 001B14B0  4E 80 00 20 */	blr 
+/* 801B4550 001B14B0  4E 80 00 20 */	blr
 
 .global __sinit_CFlaahgra_cpp
 __sinit_CFlaahgra_cpp:

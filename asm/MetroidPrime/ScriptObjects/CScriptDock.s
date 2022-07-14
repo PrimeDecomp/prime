@@ -143,7 +143,7 @@ lbl_800C3784:
 /* 800C378C 000C06EC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800C3790 000C06F0  7C 08 03 A6 */	mtlr r0
 /* 800C3794 000C06F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C3798 000C06F8  4E 80 00 20 */	blr 
+/* 800C3798 000C06F8  4E 80 00 20 */	blr
 
 .global UpdateAreaActivateFlags__11CScriptDockFR13CStateManager
 UpdateAreaActivateFlags__11CScriptDockFR13CStateManager:
@@ -213,7 +213,7 @@ lbl_800C3884:
 /* 800C3888 000C07E8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800C388C 000C07EC  7C 08 03 A6 */	mtlr r0
 /* 800C3890 000C07F0  38 21 00 40 */	addi r1, r1, 0x40
-/* 800C3894 000C07F4  4E 80 00 20 */	blr 
+/* 800C3894 000C07F4  4E 80 00 20 */	blr
 
 .global SetDockReference__11CScriptDockFi
 SetDockReference__11CScriptDockFi:
@@ -243,7 +243,7 @@ SetDockReference__11CScriptDockFi:
 /* 800C38F4 000C0854  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800C38F8 000C0858  7C 08 03 A6 */	mtlr r0
 /* 800C38FC 000C085C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C3900 000C0860  4E 80 00 20 */	blr 
+/* 800C3900 000C0860  4E 80 00 20 */	blr
 
 .global GetDockReference__11CScriptDockCFv
 GetDockReference__11CScriptDockCFv:
@@ -265,7 +265,7 @@ GetDockReference__11CScriptDockCFv:
 /* 800C3940 000C08A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C3944 000C08A4  7C 08 03 A6 */	mtlr r0
 /* 800C3948 000C08A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C394C 000C08AC  4E 80 00 20 */	blr 
+/* 800C394C 000C08AC  4E 80 00 20 */	blr
 
 .global Accept__11CScriptDockFR8IVisitor
 Accept__11CScriptDockFR8IVisitor:
@@ -278,11 +278,11 @@ Accept__11CScriptDockFR8IVisitor:
 /* 800C3968 000C08C8  7C 04 03 78 */	mr r4, r0
 /* 800C396C 000C08CC  81 8C 00 80 */	lwz r12, 0x80(r12)
 /* 800C3970 000C08D0  7D 89 03 A6 */	mtctr r12
-/* 800C3974 000C08D4  4E 80 04 21 */	bctrl 
+/* 800C3974 000C08D4  4E 80 04 21 */	bctrl
 /* 800C3978 000C08D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C397C 000C08DC  7C 08 03 A6 */	mtlr r0
 /* 800C3980 000C08E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C3984 000C08E4  4E 80 00 20 */	blr 
+/* 800C3984 000C08E4  4E 80 00 20 */	blr
 
 .global GetPlane__11CScriptDockCFRC13CStateManager
 GetPlane__11CScriptDockCFRC13CStateManager:
@@ -320,7 +320,7 @@ GetPlane__11CScriptDockCFRC13CStateManager:
 /* 800C3A04 000C0964  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800C3A08 000C0968  7C 08 03 A6 */	mtlr r0
 /* 800C3A0C 000C096C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800C3A10 000C0970  4E 80 00 20 */	blr 
+/* 800C3A10 000C0970  4E 80 00 20 */	blr
 
 .global HasPointCrossedDock__11CScriptDockCFRC13CStateManagerRC9CVector3f
 HasPointCrossedDock__11CScriptDockCFRC13CStateManagerRC9CVector3f:
@@ -364,7 +364,7 @@ HasPointCrossedDock__11CScriptDockCFRC13CStateManagerRC9CVector3f:
 /* 800C3AA8 000C0A08  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800C3AAC 000C0A0C  7C 08 03 A6 */	mtlr r0
 /* 800C3AB0 000C0A10  38 21 00 30 */	addi r1, r1, 0x30
-/* 800C3AB4 000C0A14  4E 80 00 20 */	blr 
+/* 800C3AB4 000C0A14  4E 80 00 20 */	blr
 
 .global Think__11CScriptDockFfR13CStateManager
 Think__11CScriptDockFfR13CStateManager:
@@ -562,7 +562,7 @@ lbl_800C3D80:
 /* 800C3D84 000C0CE4  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800C3D88 000C0CE8  7C 08 03 A6 */	mtlr r0
 /* 800C3D8C 000C0CEC  38 21 00 60 */	addi r1, r1, 0x60
-/* 800C3D90 000C0CF0  4E 80 00 20 */	blr 
+/* 800C3D90 000C0CF0  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -584,7 +584,7 @@ AcceptScriptMsg__11CScriptDockF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 800C3DD0 000C0D30  38 84 F6 04 */	addi r4, r4, lbl_803DF604@l
 /* 800C3DD4 000C0D34  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800C3DD8 000C0D38  7C 09 03 A6 */	mtctr r0
-/* 800C3DDC 000C0D3C  4E 80 04 20 */	bctr 
+/* 800C3DDC 000C0D3C  4E 80 04 20 */	bctr
 .global lbl_800C3DE0
 lbl_800C3DE0:
 /* 800C3DE0 000C0D40  80 BD 02 60 */	lwz r5, 0x260(r29)
@@ -800,7 +800,7 @@ lbl_800C40BC:
 /* 800C40CC 000C102C  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 800C40D0 000C1030  7C 08 03 A6 */	mtlr r0
 /* 800C40D4 000C1034  38 21 00 70 */	addi r1, r1, 0x70
-/* 800C40D8 000C1038  4E 80 00 20 */	blr 
+/* 800C40D8 000C1038  4E 80 00 20 */	blr
 
 .global PropogateAreaChain__6CWorldFQ29CGameArea15EOcclusionStateP9CGameAreaP6CWorld
 PropogateAreaChain__6CWorldFQ29CGameArea15EOcclusionStateP9CGameAreaP6CWorld:
@@ -893,11 +893,11 @@ lbl_800C41EC:
 /* 800C41FC 000C115C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800C4200 000C1160  7C 08 03 A6 */	mtlr r0
 /* 800C4204 000C1164  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C4208 000C1168  4E 80 00 20 */	blr 
+/* 800C4208 000C1168  4E 80 00 20 */	blr
 
 .global nullsub_41
 nullsub_41:
-/* 800C420C 000C116C  4E 80 00 20 */	blr 
+/* 800C420C 000C116C  4E 80 00 20 */	blr
 
 .global AreaLoaded__11CScriptDockFR13CStateManager
 AreaLoaded__11CScriptDockFR13CStateManager:
@@ -910,7 +910,7 @@ AreaLoaded__11CScriptDockFR13CStateManager:
 /* 800C4228 000C1188  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C422C 000C118C  7C 08 03 A6 */	mtlr r0
 /* 800C4230 000C1190  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C4234 000C1194  4E 80 00 20 */	blr 
+/* 800C4234 000C1194  4E 80 00 20 */	blr
 
 .global SetLoadConnected__11CScriptDockFR13CStateManagerb
 SetLoadConnected__11CScriptDockFR13CStateManagerb:
@@ -961,7 +961,7 @@ lbl_800C42D4:
 /* 800C42E4 000C1244  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800C42E8 000C1248  7C 08 03 A6 */	mtlr r0
 /* 800C42EC 000C124C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C42F0 000C1250  4E 80 00 20 */	blr 
+/* 800C42F0 000C1250  4E 80 00 20 */	blr
 
 .global GetTouchBounds__11CScriptDockCFv
 GetTouchBounds__11CScriptDockCFv:
@@ -1000,7 +1000,7 @@ lbl_800C4368:
 /* 800C436C 000C12CC  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 800C4370 000C12D0  7C 08 03 A6 */	mtlr r0
 /* 800C4374 000C12D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 800C4378 000C12D8  4E 80 00 20 */	blr 
+/* 800C4378 000C12D8  4E 80 00 20 */	blr
 
 .global Touch__11CScriptDockFR6CActorR13CStateManager
 Touch__11CScriptDockFR6CActorR13CStateManager:
@@ -1024,7 +1024,7 @@ lbl_800C43B8:
 /* 800C43BC 000C131C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800C43C0 000C1320  7C 08 03 A6 */	mtlr r0
 /* 800C43C4 000C1324  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C43C8 000C1328  4E 80 00 20 */	blr 
+/* 800C43C8 000C1328  4E 80 00 20 */	blr
 
 .global __dt__11CScriptDockFv
 __dt__11CScriptDockFv:
@@ -1052,7 +1052,7 @@ lbl_800C4410:
 /* 800C441C 000C137C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800C4420 000C1380  7C 08 03 A6 */	mtlr r0
 /* 800C4424 000C1384  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C4428 000C1388  4E 80 00 20 */	blr 
+/* 800C4428 000C1388  4E 80 00 20 */	blr
 
 .global "__ct__11CScriptDockF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fi7TAreaIdbib"
 "__ct__11CScriptDockF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC9CVector3fi7TAreaIdbib":
@@ -1207,4 +1207,4 @@ lbl_800C4410:
 /* 800C467C 000C15DC  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 800C4680 000C15E0  7C 08 03 A6 */	mtlr r0
 /* 800C4684 000C15E4  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 800C4688 000C15E8  4E 80 00 20 */	blr 
+/* 800C4688 000C15E8  4E 80 00 20 */	blr

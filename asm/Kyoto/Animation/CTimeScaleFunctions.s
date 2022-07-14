@@ -30,7 +30,7 @@ lbl_803ED4EC:
 .global GetType__25CLinearAnimationTimeScaleCFv
 GetType__25CLinearAnimationTimeScaleCFv:
 /* 802FD6DC 002FA63C  38 60 00 01 */	li r3, 1
-/* 802FD6E0 002FA640  4E 80 00 20 */	blr 
+/* 802FD6E0 002FA640  4E 80 00 20 */	blr
 
 .global VGetFunctionMirrored__25CLinearAnimationTimeScaleCFRCf
 VGetFunctionMirrored__25CLinearAnimationTimeScaleCFRCf:
@@ -129,7 +129,7 @@ lbl_802FD804:
 /* 802FD850 002FA7B0  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802FD854 002FA7B4  7C 08 03 A6 */	mtlr r0
 /* 802FD858 002FA7B8  38 21 00 90 */	addi r1, r1, 0x90
-/* 802FD85C 002FA7BC  4E 80 00 20 */	blr 
+/* 802FD85C 002FA7BC  4E 80 00 20 */	blr
 
 .global VClone__25CLinearAnimationTimeScaleCFv
 VClone__25CLinearAnimationTimeScaleCFv:
@@ -220,7 +220,7 @@ lbl_802FD964:
 /* 802FD9AC 002FA90C  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 802FD9B0 002FA910  7C 08 03 A6 */	mtlr r0
 /* 802FD9B4 002FA914  38 21 00 90 */	addi r1, r1, 0x90
-/* 802FD9B8 002FA918  4E 80 00 20 */	blr 
+/* 802FD9B8 002FA918  4E 80 00 20 */	blr
 
 .global VFindUpperLimit__25CLinearAnimationTimeScaleCFRCfRCf
 VFindUpperLimit__25CLinearAnimationTimeScaleCFRCfRCf:
@@ -232,7 +232,7 @@ VFindUpperLimit__25CLinearAnimationTimeScaleCFRCfRCf:
 /* 802FD9D0 002FA930  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FD9D4 002FA934  7C 08 03 A6 */	mtlr r0
 /* 802FD9D8 002FA938  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FD9DC 002FA93C  4E 80 00 20 */	blr 
+/* 802FD9DC 002FA93C  4E 80 00 20 */	blr
 
 .global FindUpperLimitFromRoot__25CLinearAnimationTimeScaleFRCQ225CLinearAnimationTimeScale20CFunctionDescriptionRCfRCf
 FindUpperLimitFromRoot__25CLinearAnimationTimeScaleFRCQ225CLinearAnimationTimeScale20CFunctionDescriptionRCfRCf:
@@ -263,7 +263,7 @@ lbl_802FDA1C:
 /* 802FDA3C 002FA99C  FC 40 1A 10 */	fabs f2, f3
 /* 802FDA40 002FA9A0  EC 21 18 28 */	fsubs f1, f1, f3
 /* 802FDA44 002FA9A4  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 802FDA48 002FA9A8  4D 80 00 20 */	bltlr 
+/* 802FDA48 002FA9A8  4D 80 00 20 */	bltlr
 /* 802FDA4C 002FA9AC  EC A7 00 72 */	fmuls f5, f7, f1
 /* 802FDA50 002FA9B0  EC 68 00 72 */	fmuls f3, f8, f1
 /* 802FDA54 002FA9B4  EC 46 40 7A */	fmadds f2, f6, f1, f8
@@ -274,7 +274,7 @@ lbl_802FDA1C:
 /* 802FDA68 002FA9C8  FC 40 1A 10 */	fabs f2, f3
 /* 802FDA6C 002FA9CC  EC 21 18 28 */	fsubs f1, f1, f3
 /* 802FDA70 002FA9D0  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 802FDA74 002FA9D4  4D 80 00 20 */	bltlr 
+/* 802FDA74 002FA9D4  4D 80 00 20 */	bltlr
 /* 802FDA78 002FA9D8  EC A7 00 72 */	fmuls f5, f7, f1
 /* 802FDA7C 002FA9DC  EC 68 00 72 */	fmuls f3, f8, f1
 /* 802FDA80 002FA9E0  EC 46 40 7A */	fmadds f2, f6, f1, f8
@@ -285,7 +285,7 @@ lbl_802FDA1C:
 /* 802FDA94 002FA9F4  FC 40 1A 10 */	fabs f2, f3
 /* 802FDA98 002FA9F8  EC 21 18 28 */	fsubs f1, f1, f3
 /* 802FDA9C 002FA9FC  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 802FDAA0 002FAA00  4D 80 00 20 */	bltlr 
+/* 802FDAA0 002FAA00  4D 80 00 20 */	bltlr
 /* 802FDAA4 002FAA04  EC A7 00 72 */	fmuls f5, f7, f1
 /* 802FDAA8 002FAA08  EC 68 00 72 */	fmuls f3, f8, f1
 /* 802FDAAC 002FAA0C  EC 46 40 7A */	fmadds f2, f6, f1, f8
@@ -296,7 +296,7 @@ lbl_802FDA1C:
 /* 802FDAC0 002FAA20  FC 40 1A 10 */	fabs f2, f3
 /* 802FDAC4 002FAA24  EC 21 18 28 */	fsubs f1, f1, f3
 /* 802FDAC8 002FAA28  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 802FDACC 002FAA2C  4D 80 00 20 */	bltlr 
+/* 802FDACC 002FAA2C  4D 80 00 20 */	bltlr
 /* 802FDAD0 002FAA30  EC A7 00 72 */	fmuls f5, f7, f1
 /* 802FDAD4 002FAA34  EC 68 00 72 */	fmuls f3, f8, f1
 /* 802FDAD8 002FAA38  EC 46 40 7A */	fmadds f2, f6, f1, f8
@@ -307,11 +307,11 @@ lbl_802FDA1C:
 /* 802FDAEC 002FAA4C  FC 40 1A 10 */	fabs f2, f3
 /* 802FDAF0 002FAA50  EC 21 18 28 */	fsubs f1, f1, f3
 /* 802FDAF4 002FAA54  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 802FDAF8 002FAA58  4D 80 00 20 */	bltlr 
+/* 802FDAF8 002FAA58  4D 80 00 20 */	bltlr
 /* 802FDAFC 002FAA5C  38 C6 00 04 */	addi r6, r6, 4
 /* 802FDB00 002FAA60  42 00 FF 1C */	bdnz lbl_802FDA1C
 /* 802FDB04 002FAA64  C0 22 C7 28 */	lfs f1, lbl_805AE448@sda21(r2)
-/* 802FDB08 002FAA68  4E 80 00 20 */	blr 
+/* 802FDB08 002FAA68  4E 80 00 20 */	blr
 
 .global VTimeScaleIntegral__25CLinearAnimationTimeScaleCFRCfRCf
 VTimeScaleIntegral__25CLinearAnimationTimeScaleCFRCfRCf:
@@ -337,7 +337,7 @@ lbl_802FDB50:
 /* 802FDB50 002FAAB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FDB54 002FAAB4  7C 08 03 A6 */	mtlr r0
 /* 802FDB58 002FAAB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FDB5C 002FAABC  4E 80 00 20 */	blr 
+/* 802FDB5C 002FAABC  4E 80 00 20 */	blr
 
 .global TimeScaleIntegralWithSortedLimits__25CLinearAnimationTimeScaleFRCQ225CLinearAnimationTimeScale20CFunctionDescriptionRCfRCf
 TimeScaleIntegralWithSortedLimits__25CLinearAnimationTimeScaleFRCQ225CLinearAnimationTimeScale20CFunctionDescriptionRCfRCf:
@@ -352,7 +352,7 @@ TimeScaleIntegralWithSortedLimits__25CLinearAnimationTimeScaleFRCQ225CLinearAnim
 /* 802FDB80 002FAAE0  EC 01 00 2A */	fadds f0, f1, f0
 /* 802FDB84 002FAAE4  EC 02 00 32 */	fmuls f0, f2, f0
 /* 802FDB88 002FAAE8  EC 23 00 32 */	fmuls f1, f3, f0
-/* 802FDB8C 002FAAEC  4E 80 00 20 */	blr 
+/* 802FDB8C 002FAAEC  4E 80 00 20 */	blr
 
 .global VGetFunctionMirrored__27CConstantAnimationTimeScaleCFRCf
 VGetFunctionMirrored__27CConstantAnimationTimeScaleCFRCf:
@@ -366,7 +366,7 @@ VGetFunctionMirrored__27CConstantAnimationTimeScaleCFRCf:
 /* 802FDBAC 002FAB0C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FDBB0 002FAB10  7C 08 03 A6 */	mtlr r0
 /* 802FDBB4 002FAB14  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FDBB8 002FAB18  4E 80 00 20 */	blr 
+/* 802FDBB8 002FAB18  4E 80 00 20 */	blr
 
 .global VClone__27CConstantAnimationTimeScaleCFv
 VClone__27CConstantAnimationTimeScaleCFv:
@@ -404,7 +404,7 @@ lbl_802FDC18:
 /* 802FDC34 002FAB94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FDC38 002FAB98  7C 08 03 A6 */	mtlr r0
 /* 802FDC3C 002FAB9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FDC40 002FABA0  4E 80 00 20 */	blr 
+/* 802FDC40 002FABA0  4E 80 00 20 */	blr
 
 .global VFindUpperLimit__27CConstantAnimationTimeScaleCFRCfRCf
 VFindUpperLimit__27CConstantAnimationTimeScaleCFRCfRCf:
@@ -413,7 +413,7 @@ VFindUpperLimit__27CConstantAnimationTimeScaleCFRCfRCf:
 /* 802FDC4C 002FABAC  C0 44 00 00 */	lfs f2, 0(r4)
 /* 802FDC50 002FABB0  EC 01 00 24 */	fdivs f0, f1, f0
 /* 802FDC54 002FABB4  EC 22 00 2A */	fadds f1, f2, f0
-/* 802FDC58 002FABB8  4E 80 00 20 */	blr 
+/* 802FDC58 002FABB8  4E 80 00 20 */	blr
 
 .global VTimeScaleIntegral__27CConstantAnimationTimeScaleCFRCfRCf
 VTimeScaleIntegral__27CConstantAnimationTimeScaleCFRCfRCf:
@@ -422,7 +422,7 @@ VTimeScaleIntegral__27CConstantAnimationTimeScaleCFRCfRCf:
 /* 802FDC64 002FABC4  C0 43 00 04 */	lfs f2, 4(r3)
 /* 802FDC68 002FABC8  EC 01 00 28 */	fsubs f0, f1, f0
 /* 802FDC6C 002FABCC  EC 22 00 32 */	fmuls f1, f2, f0
-/* 802FDC70 002FABD0  4E 80 00 20 */	blr 
+/* 802FDC70 002FABD0  4E 80 00 20 */	blr
 
 .global GetType__27CConstantAnimationTimeScaleCFv
 GetType__27CConstantAnimationTimeScaleCFv:

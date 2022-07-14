@@ -26,15 +26,15 @@ lbl_805A7BB0:
 
 .global nullsub_143
 nullsub_143:
-/* 8019D3A0 0019A300  4E 80 00 20 */	blr 
+/* 8019D3A0 0019A300  4E 80 00 20 */	blr
 
 .global nullsub_144
 nullsub_144:
-/* 8019D3A4 0019A304  4E 80 00 20 */	blr 
+/* 8019D3A4 0019A304  4E 80 00 20 */	blr
 
 .global nullsub_145
 nullsub_145:
-/* 8019D3A8 0019A308  4E 80 00 20 */	blr 
+/* 8019D3A8 0019A308  4E 80 00 20 */	blr
 
 .global RenderCleanup__15CFluidPlaneDoorCFv
 RenderCleanup__15CFluidPlaneDoorCFv:
@@ -67,7 +67,7 @@ RenderCleanup__15CFluidPlaneDoorCFv:
 /* 8019D414 0019A374  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019D418 0019A378  7C 08 03 A6 */	mtlr r0
 /* 8019D41C 0019A37C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019D420 0019A380  4E 80 00 20 */	blr 
+/* 8019D420 0019A380  4E 80 00 20 */	blr
 
 .global Render__15CFluidPlaneDoorCFRC13CStateManagerRC6CAABoxRC14CFrustumPlanesRC14CRippleManagerRC9CVector3f
 Render__15CFluidPlaneDoorCFRC13CStateManagerRC6CAABoxRC14CFrustumPlanesRC14CRippleManagerRC9CVector3f:
@@ -328,7 +328,7 @@ lbl_8019D7A4:
 /* 8019D7FC 0019A75C  83 81 01 10 */	lwz r28, 0x110(r1)
 /* 8019D800 0019A760  7C 08 03 A6 */	mtlr r0
 /* 8019D804 0019A764  38 21 01 B0 */	addi r1, r1, 0x1b0
-/* 8019D808 0019A768  4E 80 00 20 */	blr 
+/* 8019D808 0019A768  4E 80 00 20 */	blr
 
 .global RenderSetup__15CFluidPlaneDoorCFRC13CStateManagerfRC12CTransform4fRC6CAABox
 RenderSetup__15CFluidPlaneDoorCFRC13CStateManagerfRC12CTransform4fRC6CAABox:
@@ -351,7 +351,7 @@ RenderSetup__15CFluidPlaneDoorCFRC13CStateManagerfRC12CTransform4fRC6CAABox:
 /* 8019D84C 0019A7AC  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8019D850 0019A7B0  C3 E6 01 1C */	lfs f31, 0x11c(r6)
 /* 8019D854 0019A7B4  7D 89 03 A6 */	mtctr r12
-/* 8019D858 0019A7B8  4E 80 04 21 */	bctrl 
+/* 8019D858 0019A7B8  4E 80 04 21 */	bctrl
 /* 8019D85C 0019A7BC  38 60 00 00 */	li r3, 0
 /* 8019D860 0019A7C0  38 8D 8F F0 */	addi r4, r13, lbl_805A7BB0@sda21
 /* 8019D864 0019A7C4  48 16 B4 F9 */	bl SetChanMatColor__3CGXFQ23CGX10EChannelIdRC8_GXColor
@@ -589,7 +589,7 @@ lbl_8019DBA4:
 /* 8019DBF0 0019AB50  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8019DBF4 0019AB54  7C 08 03 A6 */	mtlr r0
 /* 8019DBF8 0019AB58  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8019DBFC 0019AB5C  4E 80 00 20 */	blr 
+/* 8019DBFC 0019AB5C  4E 80 00 20 */	blr
 
 .global __dt__15CFluidPlaneDoorFv
 __dt__15CFluidPlaneDoorFv:
@@ -617,7 +617,7 @@ lbl_8019DC44:
 /* 8019DC50 0019ABB0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8019DC54 0019ABB4  7C 08 03 A6 */	mtlr r0
 /* 8019DC58 0019ABB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019DC5C 0019ABBC  4E 80 00 20 */	blr 
+/* 8019DC5C 0019ABBC  4E 80 00 20 */	blr
 
 .global __ct__15CFluidPlaneDoorFUiUiUifUiQ211CFluidPlane10EFluidTypefRC14CFluidUVMotion
 __ct__15CFluidPlaneDoorFUiUiUifUiQ211CFluidPlane10EFluidTypefRC14CFluidUVMotion:

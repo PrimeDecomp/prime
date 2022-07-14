@@ -206,7 +206,7 @@ ScaleAnalogueSticks__11CFinalInputCFff:
 /* 80349050 00345FB0  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 80349054 00345FB4  7C 08 03 A6 */	mtlr r0
 /* 80349058 00345FB8  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8034905C 00345FBC  4E 80 00 20 */	blr 
+/* 8034905C 00345FBC  4E 80 00 20 */	blr
 
 .global __ct__11CFinalInputFifRC10COsContext
 __ct__11CFinalInputFifRC10COsContext:
@@ -621,7 +621,7 @@ lbl_80349678:
 /* 80349690 003465F0  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 80349694 003465F4  7C 08 03 A6 */	mtlr r0
 /* 80349698 003465F8  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8034969C 003465FC  4E 80 00 20 */	blr 
+/* 8034969C 003465FC  4E 80 00 20 */	blr
 
 .global InitializeAnalog__11CFinalInputFff
 InitializeAnalog__11CFinalInputFff:
@@ -991,7 +991,7 @@ lbl_80349BE8:
 /* 80349BFC 00346B5C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80349C00 00346B60  7C 08 03 A6 */	mtlr r0
 /* 80349C04 00346B64  38 21 00 40 */	addi r1, r1, 0x40
-/* 80349C08 00346B68  4E 80 00 20 */	blr 
+/* 80349C08 00346B68  4E 80 00 20 */	blr
 
 .global __ct__11CFinalInputFifRC22CControllerGamepadDataff
 __ct__11CFinalInputFifRC22CControllerGamepadDataff:
@@ -1127,7 +1127,7 @@ __ct__11CFinalInputFifRC22CControllerGamepadDataff:
 /* 80349E10 00346D70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80349E14 00346D74  7C 08 03 A6 */	mtlr r0
 /* 80349E18 00346D78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80349E1C 00346D7C  4E 80 00 20 */	blr 
+/* 80349E1C 00346D7C  4E 80 00 20 */	blr
 
 .global __ct__11CFinalInputFv
 __ct__11CFinalInputFv:

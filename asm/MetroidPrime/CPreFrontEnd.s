@@ -42,7 +42,7 @@ lbl_8029E4E8:
 /* 8029E4F4 0029B454  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8029E4F8 0029B458  7C 08 03 A6 */	mtlr r0
 /* 8029E4FC 0029B45C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029E500 0029B460  4E 80 00 20 */	blr 
+/* 8029E500 0029B460  4E 80 00 20 */	blr
 
 .global Draw__12CPreFrontEndCFv
 Draw__12CPreFrontEndCFv:
@@ -54,7 +54,7 @@ Draw__12CPreFrontEndCFv:
 /* 8029E518 0029B478  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8029E51C 0029B47C  7C 08 03 A6 */	mtlr r0
 /* 8029E520 0029B480  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029E524 0029B484  4E 80 00 20 */	blr 
+/* 8029E524 0029B484  4E 80 00 20 */	blr
 
 .global OnIOWinMessage__12CPreFrontEndFRC20CArchitectureMessage
 OnIOWinMessage__12CPreFrontEndFRC20CArchitectureMessage:
@@ -108,7 +108,7 @@ lbl_8029E5CC:
 /* 8029E5D0 0029B530  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8029E5D4 0029B534  7C 08 03 A6 */	mtlr r0
 /* 8029E5D8 0029B538  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029E5DC 0029B53C  4E 80 00 20 */	blr 
+/* 8029E5DC 0029B53C  4E 80 00 20 */	blr
 
 .global __ct__12CPreFrontEndFv
 __ct__12CPreFrontEndFv:

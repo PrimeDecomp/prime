@@ -4,8 +4,53 @@
 
 .global lbl_803F6FB8
 lbl_803F6FB8:
-	.incbin "baserom.dol", 0x3F3FB8, 0x168
-	
+	# ROM: 0x3F3FB8
+	.4byte 0x00F60200
+	.4byte 0x000F1200
+	.4byte 0x001E0900
+	.4byte 0x002C0600
+	.4byte 0x00340500
+	.4byte 0x00410400
+	.4byte 0x00570300
+	.4byte 0x00570300
+	.4byte 0x00570300
+	.4byte 0x00830200
+	.4byte 0x00830200
+	.4byte 0x00830200
+	.4byte 0x01280200
+	.4byte 0x000F1500
+	.4byte 0x001D0B00
+	.4byte 0x002D0700
+	.4byte 0x00340600
+	.4byte 0x003F0500
+	.4byte 0x004E0400
+	.4byte 0x00680300
+	.4byte 0x00680300
+	.4byte 0x00680300
+	.4byte 0x00680300
+	.4byte 0x009C0200
+	.asciz "SISetSamplingRate: unknown TV format. Use default."
+	.balign 4
+	.4byte 0
+	.asciz "<< Dolphin SDK - EXI\trelease build: Sep  5 2002 05:33:04 (0x2301) >>"
+	.balign 4
+	.asciz "Memory Card 59"
+	.balign 4
+	.asciz "Memory Card 123"
+	.asciz "Memory Card 251"
+	.asciz "Memory Card 507"
+	.asciz "USB Adapter"
+	.asciz "Net Card"
+	.balign 4
+	.asciz "Artist Ether"
+	.balign 4
+	.asciz "Stream Hanger"
+	.balign 4
+	.asciz "IS Viewer"
+	.balign 4
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global SISetSamplingRate
@@ -74,7 +119,7 @@ lbl_803BFFB4:
 /* 803BFFE0 003BCF40  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803BFFE4 003BCF44  38 21 00 20 */	addi r1, r1, 0x20
 /* 803BFFE8 003BCF48  7C 08 03 A6 */	mtlr r0
-/* 803BFFEC 003BCF4C  4E 80 00 20 */	blr 
+/* 803BFFEC 003BCF4C  4E 80 00 20 */	blr
 
 .global SIRefreshSamplingRate
 SIRefreshSamplingRate:
@@ -86,4 +131,4 @@ SIRefreshSamplingRate:
 /* 803C0004 003BCF64  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 803C0008 003BCF68  38 21 00 08 */	addi r1, r1, 8
 /* 803C000C 003BCF6C  7C 08 03 A6 */	mtlr r0
-/* 803C0010 003BCF70  4E 80 00 20 */	blr 
+/* 803C0010 003BCF70  4E 80 00 20 */	blr

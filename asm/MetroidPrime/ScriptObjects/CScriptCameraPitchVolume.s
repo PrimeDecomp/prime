@@ -71,7 +71,7 @@ lbl_80226518:
 /* 80226524 00223484  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80226528 00223488  7C 08 03 A6 */	mtlr r0
 /* 8022652C 0022348C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80226530 00223490  4E 80 00 20 */	blr 
+/* 80226530 00223490  4E 80 00 20 */	blr
 
 .global Exited__24CScriptCameraPitchVolumeFR13CStateManager
 Exited__24CScriptCameraPitchVolumeFR13CStateManager:
@@ -86,7 +86,7 @@ Exited__24CScriptCameraPitchVolumeFR13CStateManager:
 /* 80226554 002234B4  B0 01 00 08 */	sth r0, 8(r1)
 /* 80226558 002234B8  B0 03 01 C4 */	sth r0, 0x1c4(r3)
 /* 8022655C 002234BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80226560 002234C0  4E 80 00 20 */	blr 
+/* 80226560 002234C0  4E 80 00 20 */	blr
 
 .global Entered__24CScriptCameraPitchVolumeFR13CStateManager
 Entered__24CScriptCameraPitchVolumeFR13CStateManager:
@@ -102,7 +102,7 @@ Entered__24CScriptCameraPitchVolumeFR13CStateManager:
 /* 80226588 002234E8  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 8022658C 002234EC  B0 03 01 C4 */	sth r0, 0x1c4(r3)
 /* 80226590 002234F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80226594 002234F4  4E 80 00 20 */	blr 
+/* 80226594 002234F4  4E 80 00 20 */	blr
 
 .global Think__24CScriptCameraPitchVolumeFfR13CStateManager
 Think__24CScriptCameraPitchVolumeFfR13CStateManager:
@@ -142,7 +142,7 @@ lbl_80226608:
 /* 80226610 00223570  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80226614 00223574  7C 08 03 A6 */	mtlr r0
 /* 80226618 00223578  38 21 00 10 */	addi r1, r1, 0x10
-/* 8022661C 0022357C  4E 80 00 20 */	blr 
+/* 8022661C 0022357C  4E 80 00 20 */	blr
 
 .global Touch__24CScriptCameraPitchVolumeFR6CActorR13CStateManager
 Touch__24CScriptCameraPitchVolumeFR6CActorR13CStateManager:
@@ -163,7 +163,7 @@ Touch__24CScriptCameraPitchVolumeFR6CActorR13CStateManager:
 /* 80226658 002235B8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8022665C 002235BC  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80226660 002235C0  7D 89 03 A6 */	mtctr r12
-/* 80226664 002235C4  4E 80 04 21 */	bctrl 
+/* 80226664 002235C4  4E 80 04 21 */	bctrl
 /* 80226668 002235C8  88 01 00 28 */	lbz r0, 0x28(r1)
 /* 8022666C 002235CC  28 00 00 00 */	cmplwi r0, 0
 /* 80226670 002235D0  98 01 00 44 */	stb r0, 0x44(r1)
@@ -217,7 +217,7 @@ lbl_8022671C:
 /* 80226724 00223684  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 80226728 00223688  7C 08 03 A6 */	mtlr r0
 /* 8022672C 0022368C  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80226730 00223690  4E 80 00 20 */	blr 
+/* 80226730 00223690  4E 80 00 20 */	blr
 
 .global GetTouchBounds__24CScriptCameraPitchVolumeCFv
 GetTouchBounds__24CScriptCameraPitchVolumeCFv:
@@ -252,7 +252,7 @@ lbl_8022679C:
 /* 802267A0 00223700  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802267A4 00223704  7C 08 03 A6 */	mtlr r0
 /* 802267A8 00223708  38 21 00 30 */	addi r1, r1, 0x30
-/* 802267AC 0022370C  4E 80 00 20 */	blr 
+/* 802267AC 0022370C  4E 80 00 20 */	blr
 
 .global Accept__24CScriptCameraPitchVolumeFR8IVisitor
 Accept__24CScriptCameraPitchVolumeFR8IVisitor:
@@ -265,11 +265,11 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 /* 802267C8 00223728  7C 04 03 78 */	mr r4, r0
 /* 802267CC 0022372C  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 802267D0 00223730  7D 89 03 A6 */	mtctr r12
-/* 802267D4 00223734  4E 80 04 21 */	bctrl 
+/* 802267D4 00223734  4E 80 04 21 */	bctrl
 /* 802267D8 00223738  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802267DC 0022373C  7C 08 03 A6 */	mtlr r0
 /* 802267E0 00223740  38 21 00 10 */	addi r1, r1, 0x10
-/* 802267E4 00223744  4E 80 00 20 */	blr 
+/* 802267E4 00223744  4E 80 00 20 */	blr
 
 .global "__ct__24CScriptCameraPitchVolumeF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fRC9CRelAngleRC9CRelAnglef"
 "__ct__24CScriptCameraPitchVolumeF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC12CTransform4fRC9CRelAngleRC9CRelAnglef":
@@ -383,7 +383,7 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 /* 80226994 002238F4  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 80226998 002238F8  7C 08 03 A6 */	mtlr r0
 /* 8022699C 002238FC  38 21 01 20 */	addi r1, r1, 0x120
-/* 802269A0 00223900  4E 80 00 20 */	blr 
+/* 802269A0 00223900  4E 80 00 20 */	blr
 
 .global __sinit_CScriptCameraPitchVolume_cpp
 __sinit_CScriptCameraPitchVolume_cpp:

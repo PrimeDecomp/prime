@@ -3,11 +3,15 @@
 .section .sdata2
 .global lbl_805AEC10
 lbl_805AEC10:
-	.incbin "baserom.dol", 0x3FB4B0, 0x4
+	# ROM: 0x3FB4B0
+	.4byte 0x3F000000
+
 .global lbl_805AEC14
 lbl_805AEC14:
-	.incbin "baserom.dol", 0x3FB4B4, 0x4
-	
+	# ROM: 0x3FB4B4
+	.4byte 0x40400000
+
+
 .section .text, "ax"
 
 .global C_VECNormalize
@@ -28,7 +32,7 @@ C_VECNormalize:
 /* 8037D684 0037A5E4  F0 44 00 00 */	psq_st f2, 0(r4), 0, qr0
 /* 8037D688 0037A5E8  10 63 01 58 */	ps_muls0 f3, f3, f5
 /* 8037D68C 0037A5EC  F0 64 80 08 */	psq_st f3, 8(r4), 1, qr0
-/* 8037D690 0037A5F0  4E 80 00 20 */	blr 
+/* 8037D690 0037A5F0  4E 80 00 20 */	blr
 
 .global C_VECCrossProduct
 C_VECCrossProduct:
@@ -46,5 +50,5 @@ C_VECCrossProduct:
 /* 8037D6C0 0037A620  F1 25 80 00 */	psq_st f9, 0(r5), 1, qr0
 /* 8037D6C4 0037A624  11 40 50 50 */	ps_neg f10, f10
 /* 8037D6C8 0037A628  F1 45 00 04 */	psq_st f10, 4(r5), 0, qr0
-/* 8037D6CC 0037A62C  4E 80 00 20 */	blr 
+/* 8037D6CC 0037A62C  4E 80 00 20 */	blr
 

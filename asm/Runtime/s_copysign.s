@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global copysign
 copysign:
@@ -13,4 +13,4 @@ copysign:
 /* 803943E0 00391340  90 01 00 08 */	stw r0, 8(r1)
 /* 803943E4 00391344  C8 21 00 08 */	lfd f1, 8(r1)
 /* 803943E8 00391348  38 21 00 20 */	addi r1, r1, 0x20
-/* 803943EC 0039134C  4E 80 00 20 */	blr 
+/* 803943EC 0039134C  4E 80 00 20 */	blr

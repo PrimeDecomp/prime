@@ -201,7 +201,7 @@ lbl_801AA3DC:
 /* 801AA3EC 001A734C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801AA3F0 001A7350  7C 08 03 A6 */	mtlr r0
 /* 801AA3F4 001A7354  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AA3F8 001A7358  4E 80 00 20 */	blr 
+/* 801AA3F8 001A7358  4E 80 00 20 */	blr
 
 .global SetIntoStateManager__18CScriptPlayerActorFR13CStateManagerb
 SetIntoStateManager__18CScriptPlayerActorFR13CStateManagerb:
@@ -290,7 +290,7 @@ lbl_801AA528:
 /* 801AA52C 001A748C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801AA530 001A7490  7C 08 03 A6 */	mtlr r0
 /* 801AA534 001A7494  38 21 00 60 */	addi r1, r1, 0x60
-/* 801AA538 001A7498  4E 80 00 20 */	blr 
+/* 801AA538 001A7498  4E 80 00 20 */	blr
 
 .global SetupEnvFx__18CScriptPlayerActorFRC13CStateManagerb
 SetupEnvFx__18CScriptPlayerActorFRC13CStateManagerb:
@@ -340,7 +340,7 @@ lbl_801AA5D8:
 /* 801AA5D8 001A7538  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801AA5DC 001A753C  7C 08 03 A6 */	mtlr r0
 /* 801AA5E0 001A7540  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AA5E4 001A7544  4E 80 00 20 */	blr 
+/* 801AA5E4 001A7544  4E 80 00 20 */	blr
 
 .global SetActive__18CScriptPlayerActorFb
 SetActive__18CScriptPlayerActorFb:
@@ -358,7 +358,7 @@ SetActive__18CScriptPlayerActorFb:
 /* 801AA614 001A7574  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801AA618 001A7578  7C 08 03 A6 */	mtlr r0
 /* 801AA61C 001A757C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AA620 001A7580  4E 80 00 20 */	blr 
+/* 801AA620 001A7580  4E 80 00 20 */	blr
 
 .global PreRender__18CScriptPlayerActorFR13CStateManagerRC14CFrustumPlanes
 PreRender__18CScriptPlayerActorFR13CStateManagerRC14CFrustumPlanes:
@@ -455,7 +455,7 @@ lbl_801AA748:
 /* 801AA768 001A76C8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801AA76C 001A76CC  7C 08 03 A6 */	mtlr r0
 /* 801AA770 001A76D0  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AA774 001A76D4  4E 80 00 20 */	blr 
+/* 801AA774 001A76D4  4E 80 00 20 */	blr
 
 .global GetSuitCharIdx__18CScriptPlayerActorCFRC13CStateManager11EPlayerSuit
 GetSuitCharIdx__18CScriptPlayerActorCFRC13CStateManager11EPlayerSuit:
@@ -497,7 +497,7 @@ lbl_801AA7E4:
 /* 801AA7EC 001A774C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801AA7F0 001A7750  7C 08 03 A6 */	mtlr r0
 /* 801AA7F4 001A7754  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AA7F8 001A7758  4E 80 00 20 */	blr 
+/* 801AA7F8 001A7758  4E 80 00 20 */	blr
 
 .global GetNextSuitCharIdx__18CScriptPlayerActorFRC13CStateManager
 GetNextSuitCharIdx__18CScriptPlayerActorFRC13CStateManager:
@@ -553,7 +553,7 @@ lbl_801AA894:
 /* 801AA898 001A77F8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801AA89C 001A77FC  7C 08 03 A6 */	mtlr r0
 /* 801AA8A0 001A7800  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AA8A4 001A7804  4E 80 00 20 */	blr 
+/* 801AA8A4 001A7804  4E 80 00 20 */	blr
 
 .global PumpBeamModel__18CScriptPlayerActorFRC13CStateManager
 PumpBeamModel__18CScriptPlayerActorFRC13CStateManager:
@@ -598,7 +598,7 @@ lbl_801AA930:
 /* 801AA938 001A7898  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801AA93C 001A789C  7C 08 03 A6 */	mtlr r0
 /* 801AA940 001A78A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AA944 001A78A4  4E 80 00 20 */	blr 
+/* 801AA944 001A78A4  4E 80 00 20 */	blr
 
 .global PumpSuitModel__18CScriptPlayerActorFRC13CStateManager
 PumpSuitModel__18CScriptPlayerActorFRC13CStateManager:
@@ -719,7 +719,7 @@ lbl_801AAAD8:
 /* 801AAAE4 001A7A44  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801AAAE8 001A7A48  7C 08 03 A6 */	mtlr r0
 /* 801AAAEC 001A7A4C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AAAF0 001A7A50  4E 80 00 20 */	blr 
+/* 801AAAF0 001A7A50  4E 80 00 20 */	blr
 
 .global LoadBeam__18CScriptPlayerActorF7EBeamId
 LoadBeam__18CScriptPlayerActorF7EBeamId:
@@ -754,7 +754,7 @@ LoadBeam__18CScriptPlayerActorF7EBeamId:
 /* 801AAB64 001A7AC4  81 84 00 00 */	lwz r12, 0(r4)
 /* 801AAB68 001A7AC8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801AAB6C 001A7ACC  7D 89 03 A6 */	mtctr r12
-/* 801AAB70 001A7AD0  4E 80 04 21 */	bctrl 
+/* 801AAB70 001A7AD0  4E 80 04 21 */	bctrl
 /* 801AAB74 001A7AD4  7F C3 F3 78 */	mr r3, r30
 /* 801AAB78 001A7AD8  38 81 00 08 */	addi r4, r1, 8
 /* 801AAB7C 001A7ADC  3B 60 00 01 */	li r27, 1
@@ -788,7 +788,7 @@ lbl_801AABD8:
 /* 801AABDC 001A7B3C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801AABE0 001A7B40  7C 08 03 A6 */	mtlr r0
 /* 801AABE4 001A7B44  38 21 00 30 */	addi r1, r1, 0x30
-/* 801AABE8 001A7B48  4E 80 00 20 */	blr 
+/* 801AABE8 001A7B48  4E 80 00 20 */	blr
 
 .global LoadSuit__18CScriptPlayerActorFUi
 LoadSuit__18CScriptPlayerActorFUi:
@@ -840,7 +840,7 @@ LoadSuit__18CScriptPlayerActorFUi:
 /* 801AACA0 001A7C00  81 84 00 00 */	lwz r12, 0(r4)
 /* 801AACA4 001A7C04  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801AACA8 001A7C08  7D 89 03 A6 */	mtctr r12
-/* 801AACAC 001A7C0C  4E 80 04 21 */	bctrl 
+/* 801AACAC 001A7C0C  4E 80 04 21 */	bctrl
 /* 801AACB0 001A7C10  7F 83 E3 78 */	mr r3, r28
 /* 801AACB4 001A7C14  38 81 00 18 */	addi r4, r1, 0x18
 /* 801AACB8 001A7C18  3B 40 00 01 */	li r26, 1
@@ -888,7 +888,7 @@ lbl_801AAD04:
 /* 801AAD50 001A7CB0  81 84 00 00 */	lwz r12, 0(r4)
 /* 801AAD54 001A7CB4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801AAD58 001A7CB8  7D 89 03 A6 */	mtctr r12
-/* 801AAD5C 001A7CBC  4E 80 04 21 */	bctrl 
+/* 801AAD5C 001A7CBC  4E 80 04 21 */	bctrl
 /* 801AAD60 001A7CC0  7F 63 DB 78 */	mr r3, r27
 /* 801AAD64 001A7CC4  38 81 00 08 */	addi r4, r1, 8
 /* 801AAD68 001A7CC8  3B 40 00 01 */	li r26, 1
@@ -925,7 +925,7 @@ lbl_801AADD0:
 /* 801AADD4 001A7D34  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801AADD8 001A7D38  7C 08 03 A6 */	mtlr r0
 /* 801AADDC 001A7D3C  38 21 00 60 */	addi r1, r1, 0x60
-/* 801AADE0 001A7D40  4E 80 00 20 */	blr 
+/* 801AADE0 001A7D40  4E 80 00 20 */	blr
 
 .global SetupOfflineModelData__18CScriptPlayerActorFv
 SetupOfflineModelData__18CScriptPlayerActorFv:
@@ -1022,7 +1022,7 @@ lbl_801AAF14:
 /* 801AAF38 001A7E98  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801AAF3C 001A7E9C  7C 08 03 A6 */	mtlr r0
 /* 801AAF40 001A7EA0  38 21 00 40 */	addi r1, r1, 0x40
-/* 801AAF44 001A7EA4  4E 80 00 20 */	blr 
+/* 801AAF44 001A7EA4  4E 80 00 20 */	blr
 
 .global SetupOnlineModelData__18CScriptPlayerActorFv
 SetupOnlineModelData__18CScriptPlayerActorFv:
@@ -1128,7 +1128,7 @@ lbl_801AB0B8:
 /* 801AB0C0 001A8020  83 C1 00 E8 */	lwz r30, 0xe8(r1)
 /* 801AB0C4 001A8024  7C 08 03 A6 */	mtlr r0
 /* 801AB0C8 001A8028  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801AB0CC 001A802C  4E 80 00 20 */	blr 
+/* 801AB0CC 001A802C  4E 80 00 20 */	blr
 
 .global BuildBeamModelData__18CScriptPlayerActorFv
 BuildBeamModelData__18CScriptPlayerActorFv:
@@ -1169,7 +1169,7 @@ lbl_801AB13C:
 /* 801AB154 001A80B4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801AB158 001A80B8  7C 08 03 A6 */	mtlr r0
 /* 801AB15C 001A80BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AB160 001A80C0  4E 80 00 20 */	blr 
+/* 801AB160 001A80C0  4E 80 00 20 */	blr
 
 .global AddToRenderer__18CScriptPlayerActorCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__18CScriptPlayerActorCFRC14CFrustumPlanesRC13CStateManager:
@@ -1198,7 +1198,7 @@ lbl_801AB1AC:
 /* 801AB1B8 001A8118  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801AB1BC 001A811C  7C 08 03 A6 */	mtlr r0
 /* 801AB1C0 001A8120  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AB1C4 001A8124  4E 80 00 20 */	blr 
+/* 801AB1C4 001A8124  4E 80 00 20 */	blr
 
 .global TouchModels_Internal__18CScriptPlayerActorFRC13CStateManager
 TouchModels_Internal__18CScriptPlayerActorFRC13CStateManager:
@@ -1274,7 +1274,7 @@ lbl_801AB2B0:
 /* 801AB2B8 001A8218  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801AB2BC 001A821C  7C 08 03 A6 */	mtlr r0
 /* 801AB2C0 001A8220  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AB2C4 001A8224  4E 80 00 20 */	blr 
+/* 801AB2C4 001A8224  4E 80 00 20 */	blr
 
 .global TouchModels__18CScriptPlayerActorFRC13CStateManager
 TouchModels__18CScriptPlayerActorFRC13CStateManager:
@@ -1323,7 +1323,7 @@ lbl_801AB34C:
 /* 801AB364 001A82C4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801AB368 001A82C8  7C 08 03 A6 */	mtlr r0
 /* 801AB36C 001A82CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AB370 001A82D0  4E 80 00 20 */	blr 
+/* 801AB370 001A82D0  4E 80 00 20 */	blr
 
 .global Render__18CScriptPlayerActorCFRC13CStateManager
 Render__18CScriptPlayerActorCFRC13CStateManager:
@@ -1517,7 +1517,7 @@ lbl_801AB628:
 /* 801AB644 001A85A4  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 801AB648 001A85A8  7C 08 03 A6 */	mtlr r0
 /* 801AB64C 001A85AC  38 21 01 80 */	addi r1, r1, 0x180
-/* 801AB650 001A85B0  4E 80 00 20 */	blr 
+/* 801AB650 001A85B0  4E 80 00 20 */	blr
 
 .global Think__18CScriptPlayerActorFfR13CStateManager
 Think__18CScriptPlayerActorFfR13CStateManager:
@@ -1708,7 +1708,7 @@ lbl_801AB8D0:
 /* 801AB8FC 001A885C  38 A5 00 10 */	addi r5, r5, 0x10
 /* 801AB900 001A8860  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801AB904 001A8864  7D 89 03 A6 */	mtctr r12
-/* 801AB908 001A8868  4E 80 04 21 */	bctrl 
+/* 801AB908 001A8868  4E 80 04 21 */	bctrl
 /* 801AB90C 001A886C  38 61 00 28 */	addi r3, r1, 0x28
 /* 801AB910 001A8870  38 81 00 10 */	addi r4, r1, 0x10
 /* 801AB914 001A8874  48 19 55 95 */	bl __ct__6CTokenFRC6CToken
@@ -1861,7 +1861,7 @@ lbl_801ABB00:
 /* 801ABB28 001A8A88  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 801ABB2C 001A8A8C  7C 08 03 A6 */	mtlr r0
 /* 801ABB30 001A8A90  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801ABB34 001A8A94  4E 80 00 20 */	blr 
+/* 801ABB34 001A8A94  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CScriptPlayerActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CScriptPlayerActorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1880,7 +1880,7 @@ AcceptScriptMsg__18CScriptPlayerActorF20EScriptObjectMessage9TUniqueIdR13CStateM
 /* 801ABB68 001A8AC8  38 84 4C 64 */	addi r4, r4, lbl_803E4C64@l
 /* 801ABB6C 001A8ACC  7C 04 00 2E */	lwzx r0, r4, r0
 /* 801ABB70 001A8AD0  7C 09 03 A6 */	mtctr r0
-/* 801ABB74 001A8AD4  4E 80 04 20 */	bctr 
+/* 801ABB74 001A8AD4  4E 80 04 20 */	bctr
 .global lbl_801ABB78
 lbl_801ABB78:
 /* 801ABB78 001A8AD8  88 1C 03 54 */	lbz r0, 0x354(r28)
@@ -2176,7 +2176,7 @@ lbl_801ABF10:
 /* 801ABF8C 001A8EEC  81 9C 00 00 */	lwz r12, 0(r28)
 /* 801ABF90 001A8EF0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801ABF94 001A8EF4  7D 89 03 A6 */	mtctr r12
-/* 801ABF98 001A8EF8  4E 80 04 21 */	bctrl 
+/* 801ABF98 001A8EF8  4E 80 04 21 */	bctrl
 /* 801ABF9C 001A8EFC  48 00 00 10 */	b lbl_801ABFAC
 .global lbl_801ABFA0
 lbl_801ABFA0:
@@ -2196,7 +2196,7 @@ lbl_801ABFAC:
 /* 801ABFCC 001A8F2C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 801ABFD0 001A8F30  7C 08 03 A6 */	mtlr r0
 /* 801ABFD4 001A8F34  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 801ABFD8 001A8F38  4E 80 00 20 */	blr 
+/* 801ABFD8 001A8F38  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptPlayerActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC8CAnimResRC10CModelDataRC6CAABoxbRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbb"
 "__ct__18CScriptPlayerActorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC8CAnimResRC10CModelDataRC6CAABoxbRC13CMaterialListffRC11CHealthInfoRC20CDamageVulnerabilityRC16CActorParametersbb":

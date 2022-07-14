@@ -12,24 +12,40 @@ lbl_805A982C:
 	.skip 0x4
 lbl_805A9830:
 	.skip 0x8
-	
+
 .section .sdata
 
 .global lbl_805A8AB8
 lbl_805A8AB8:
-	.incbin "baserom.dol", 0x3F6458, 0x4
+	# ROM: 0x3F6458
+	.4byte 0x0A000000
+
 .global lbl_805A8ABC
 lbl_805A8ABC:
-	.incbin "baserom.dol", 0x3F645C, 0x4
+	# ROM: 0x3F645C
+	.4byte 0x4F464600
+
 .global lbl_805A8AC0
 lbl_805A8AC0:
-	.incbin "baserom.dol", 0x3F6460, 0x8
-	
+	# ROM: 0x3F6460
+	.4byte 0x4F4E0000
+	.4byte 0
+
+
 .section .data
 .balign 8
 lbl_803F0578:
-	.incbin "baserom.dol", 0x3ED578, 0xB4
-	
+	# ROM: 0x3ED578
+	.asciz "  Game Name ... %c%c%c%c\n"
+	.balign 4
+	.asciz "  Company ..... %c%c\n"
+	.balign 4
+	.asciz "  Disk # ...... %d\n"
+	.asciz "  Game ver .... %d\n"
+	.asciz "  Streaming ... %s\n"
+	.asciz "<< Dolphin SDK - GX\trelease build: Sep  5 2002 05:33:28 (0x2301) >>"
+
+
 .section .text, "ax"
 
 cb:
@@ -90,7 +106,7 @@ lbl_80374F30:
 /* 80374F34 00371E94  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80374F38 00371E98  38 21 00 18 */	addi r1, r1, 0x18
 /* 80374F3C 00371E9C  7C 08 03 A6 */	mtlr r0
-/* 80374F40 00371EA0  4E 80 00 20 */	blr 
+/* 80374F40 00371EA0  4E 80 00 20 */	blr
 
 .global __fstLoad
 __fstLoad:
@@ -186,4 +202,4 @@ lbl_8037506C:
 /* 8037509C 00371FFC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 803750A0 00372000  38 21 00 60 */	addi r1, r1, 0x60
 /* 803750A4 00372004  7C 08 03 A6 */	mtlr r0
-/* 803750A8 00372008  4E 80 00 20 */	blr 
+/* 803750A8 00372008  4E 80 00 20 */	blr

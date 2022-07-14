@@ -6,7 +6,7 @@
 GetMaxZError__10CBurstFireCFv:
 /* 801AD120 001AA080  80 6D A1 18 */	lwz r3, gpTweakPlayer@sda21(r13)
 /* 801AD124 001AA084  C0 23 01 24 */	lfs f1, 0x124(r3)
-/* 801AD128 001AA088  4E 80 00 20 */	blr 
+/* 801AD128 001AA088  4E 80 00 20 */	blr
 
 .global GetMaxXError__10CBurstFireCFv
 GetMaxXError__10CBurstFireCFv:
@@ -15,7 +15,7 @@ GetMaxXError__10CBurstFireCFv:
 /* 801AD134 001AA094  C0 23 02 70 */	lfs f1, 0x270(r3)
 /* 801AD138 001AA098  C0 02 A8 78 */	lfs f0, lbl_805AC598@sda21(r2)
 /* 801AD13C 001AA09C  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 801AD140 001AA0A0  4E 80 00 20 */	blr 
+/* 801AD140 001AA0A0  4E 80 00 20 */	blr
 
 .global GetDistanceCompensatedError__10CBurstFireCFff
 GetDistanceCompensatedError__10CBurstFireCFff:
@@ -76,7 +76,7 @@ lbl_801AD1DC:
 /* 801AD20C 001AA16C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801AD210 001AA170  7C 08 03 A6 */	mtlr r0
 /* 801AD214 001AA174  38 21 00 40 */	addi r1, r1, 0x40
-/* 801AD218 001AA178  4E 80 00 20 */	blr 
+/* 801AD218 001AA178  4E 80 00 20 */	blr
 
 .global GetError__10CBurstFireCFff
 GetError__10CBurstFireCFff:
@@ -161,7 +161,7 @@ lbl_801AD30C:
 /* 801AD344 001AA2A4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801AD348 001AA2A8  7C 08 03 A6 */	mtlr r0
 /* 801AD34C 001AA2AC  38 21 00 70 */	addi r1, r1, 0x70
-/* 801AD350 001AA2B0  4E 80 00 20 */	blr 
+/* 801AD350 001AA2B0  4E 80 00 20 */	blr
 
 .global Update__10CBurstFireFR13CStateManagerf
 Update__10CBurstFireFR13CStateManagerf:
@@ -218,7 +218,7 @@ lbl_801AD410:
 /* 801AD414 001AA374  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801AD418 001AA378  7C 08 03 A6 */	mtlr r0
 /* 801AD41C 001AA37C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AD420 001AA380  4E 80 00 20 */	blr 
+/* 801AD420 001AA380  4E 80 00 20 */	blr
 
 .global Start__10CBurstFireFR13CStateManager
 Start__10CBurstFireFR13CStateManager:
@@ -281,7 +281,7 @@ lbl_801AD4BC:
 /* 801AD4F4 001AA454  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801AD4F8 001AA458  7C 08 03 A6 */	mtlr r0
 /* 801AD4FC 001AA45C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801AD500 001AA460  4E 80 00 20 */	blr 
+/* 801AD500 001AA460  4E 80 00 20 */	blr
 
 .global __ct__10CBurstFireFPPC6SBursti
 __ct__10CBurstFireFPPC6SBursti:

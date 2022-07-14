@@ -103,7 +103,7 @@ lbl_8036B33C:
 /* 8036B37C 003682DC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8036B380 003682E0  7C 08 03 A6 */	mtlr r0
 /* 8036B384 003682E4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036B388 003682E8  4E 80 00 20 */	blr 
+/* 8036B388 003682E8  4E 80 00 20 */	blr
 
 .global update__FiiiiiiiP10g72x_state
 update__FiiiiiiiP10g72x_state:
@@ -514,7 +514,7 @@ lbl_8036B914:
 /* 8036B918 00368878  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8036B91C 0036887C  7C 08 03 A6 */	mtlr r0
 /* 8036B920 00368880  38 21 00 30 */	addi r1, r1, 0x30
-/* 8036B924 00368884  4E 80 00 20 */	blr 
+/* 8036B924 00368884  4E 80 00 20 */	blr
 
 .global reconstruct__Fiii
 reconstruct__Fiii:
@@ -527,7 +527,7 @@ reconstruct__Fiii:
 /* 8036B940 003688A0  7C 83 1B 78 */	or r3, r4, r3
 /* 8036B944 003688A4  7C 63 FE 70 */	srawi r3, r3, 0x1f
 /* 8036B948 003688A8  7C 03 18 38 */	and r3, r0, r3
-/* 8036B94C 003688AC  4E 80 00 20 */	blr 
+/* 8036B94C 003688AC  4E 80 00 20 */	blr
 lbl_8036B950:
 /* 8036B950 003688B0  54 04 06 7E */	clrlwi r4, r0, 0x19
 /* 8036B954 003688B4  54 00 CF 3E */	rlwinm r0, r0, 0x19, 0x1c, 0x1f
@@ -539,9 +539,9 @@ lbl_8036B950:
 /* 8036B96C 003688CC  20 00 00 0E */	subfic r0, r0, 0xe
 /* 8036B970 003688D0  7C 60 06 30 */	sraw r0, r3, r0
 /* 8036B974 003688D4  7C 03 07 34 */	extsh r3, r0
-/* 8036B978 003688D8  4D 82 00 20 */	beqlr 
+/* 8036B978 003688D8  4D 82 00 20 */	beqlr
 /* 8036B97C 003688DC  38 63 80 00 */	addi r3, r3, -32768
-/* 8036B980 003688E0  4E 80 00 20 */	blr 
+/* 8036B980 003688E0  4E 80 00 20 */	blr
 
 .global step_size__FP10g72x_state
 step_size__FP10g72x_state:
@@ -549,7 +549,7 @@ step_size__FP10g72x_state:
 /* 8036B988 003688E8  2C 05 01 00 */	cmpwi r5, 0x100
 /* 8036B98C 003688EC  41 80 00 0C */	blt lbl_8036B998
 /* 8036B990 003688F0  A8 63 00 04 */	lha r3, 4(r3)
-/* 8036B994 003688F4  4E 80 00 20 */	blr 
+/* 8036B994 003688F4  4E 80 00 20 */	blr
 lbl_8036B998:
 /* 8036B998 003688F8  80 83 00 00 */	lwz r4, 0(r3)
 /* 8036B99C 003688FC  A8 03 00 04 */	lha r0, 4(r3)
@@ -560,14 +560,14 @@ lbl_8036B998:
 /* 8036B9B0 00368910  7C 00 21 D6 */	mullw r0, r0, r4
 /* 8036B9B4 00368914  7C 00 36 70 */	srawi r0, r0, 6
 /* 8036B9B8 00368918  7C 63 02 14 */	add r3, r3, r0
-/* 8036B9BC 0036891C  4E 80 00 20 */	blr 
+/* 8036B9BC 0036891C  4E 80 00 20 */	blr
 lbl_8036B9C0:
-/* 8036B9C0 00368920  4C 80 00 20 */	bgelr 
+/* 8036B9C0 00368920  4C 80 00 20 */	bgelr
 /* 8036B9C4 00368924  7C 80 21 D6 */	mullw r4, r0, r4
 /* 8036B9C8 00368928  38 04 00 3F */	addi r0, r4, 0x3f
 /* 8036B9CC 0036892C  7C 00 36 70 */	srawi r0, r0, 6
 /* 8036B9D0 00368930  7C 63 02 14 */	add r3, r3, r0
-/* 8036B9D4 00368934  4E 80 00 20 */	blr 
+/* 8036B9D4 00368934  4E 80 00 20 */	blr
 
 .global predictor_pole__FP10g72x_state
 predictor_pole__FP10g72x_state:
@@ -592,7 +592,7 @@ predictor_pole__FP10g72x_state:
 /* 8036BA20 00368980  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8036BA24 00368984  7C 08 03 A6 */	mtlr r0
 /* 8036BA28 00368988  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036BA2C 0036898C  4E 80 00 20 */	blr 
+/* 8036BA2C 0036898C  4E 80 00 20 */	blr
 
 .global predictor_zero__FP10g72x_state
 predictor_zero__FP10g72x_state:
@@ -627,7 +627,7 @@ lbl_8036BA68:
 /* 8036BA9C 003689FC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8036BAA0 00368A00  7C 08 03 A6 */	mtlr r0
 /* 8036BAA4 00368A04  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036BAA8 00368A08  4E 80 00 20 */	blr 
+/* 8036BAA8 00368A08  4E 80 00 20 */	blr
 
 .global g72x_init_state__FP10g72x_state
 g72x_init_state__FP10g72x_state:
@@ -660,7 +660,7 @@ g72x_init_state__FP10g72x_state:
 /* 8036BB14 00368A74  B0 83 00 1A */	sth r4, 0x1a(r3)
 /* 8036BB18 00368A78  B0 03 00 2A */	sth r0, 0x2a(r3)
 /* 8036BB1C 00368A7C  98 83 00 30 */	stb r4, 0x30(r3)
-/* 8036BB20 00368A80  4E 80 00 20 */	blr 
+/* 8036BB20 00368A80  4E 80 00 20 */	blr
 
 .global fmult__Fii
 fmult__Fii:
@@ -724,7 +724,7 @@ lbl_8036BBE8:
 /* 8036BBF4 00368B54  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8036BBF8 00368B58  7C 08 03 A6 */	mtlr r0
 /* 8036BBFC 00368B5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036BC00 00368B60  4E 80 00 20 */	blr 
+/* 8036BC00 00368B60  4E 80 00 20 */	blr
 
 .global quan__FiPsi
 quan__FiPsi:

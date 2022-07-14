@@ -5,21 +5,21 @@
 lbl_803F2290:
 	.asciz "OSLink: unknown relocation type %3d\n"
 	.balign 4
-	
+
 .global lbl_803F22B8
 lbl_803F22B8:
 	.asciz "OSUnlink: unknown relocation type %3d\n"
 	.balign 4
-	
+
 .section .text, "ax"
 
 .global OSNotifyLink
 OSNotifyLink:
-/* 80381ECC 0037EE2C  4E 80 00 20 */	blr 
+/* 80381ECC 0037EE2C  4E 80 00 20 */	blr
 
 .global OSNotifyUnlink
 OSNotifyUnlink:
-/* 80381ED0 0037EE30  4E 80 00 20 */	blr 
+/* 80381ED0 0037EE30  4E 80 00 20 */	blr
 
 .global Relocate
 Relocate:
@@ -228,7 +228,7 @@ lbl_8038217C:
 /* 80382180 0037F0E0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80382184 0037F0E4  38 21 00 40 */	addi r1, r1, 0x40
 /* 80382188 0037F0E8  7C 08 03 A6 */	mtlr r0
-/* 8038218C 0037F0EC  4E 80 00 20 */	blr 
+/* 8038218C 0037F0EC  4E 80 00 20 */	blr
 
 .global OSLink
 OSLink:
@@ -401,7 +401,7 @@ lbl_803823D4:
 /* 803823DC 0037F33C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803823E0 0037F340  38 21 00 18 */	addi r1, r1, 0x18
 /* 803823E4 0037F344  7C 08 03 A6 */	mtlr r0
-/* 803823E8 0037F348  4E 80 00 20 */	blr 
+/* 803823E8 0037F348  4E 80 00 20 */	blr
 
 .global Undo
 Undo:
@@ -572,7 +572,7 @@ lbl_80382610:
 /* 80382614 0037F574  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 80382618 0037F578  38 21 00 38 */	addi r1, r1, 0x38
 /* 8038261C 0037F57C  7C 08 03 A6 */	mtlr r0
-/* 80382620 0037F580  4E 80 00 20 */	blr 
+/* 80382620 0037F580  4E 80 00 20 */	blr
 
 .global OSUnlink
 OSUnlink:
@@ -708,7 +708,7 @@ lbl_803827AC:
 /* 803827E8 0037F748  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803827EC 0037F74C  38 21 00 18 */	addi r1, r1, 0x18
 /* 803827F0 0037F750  7C 08 03 A6 */	mtlr r0
-/* 803827F4 0037F754  4E 80 00 20 */	blr 
+/* 803827F4 0037F754  4E 80 00 20 */	blr
 
 .global __OSModuleInit
 __OSModuleInit:
@@ -717,4 +717,4 @@ __OSModuleInit:
 /* 80382800 0037F760  90 04 30 CC */	stw r0, 0x800030CC@l(r4)
 /* 80382804 0037F764  90 04 30 C8 */	stw r0, 0x30c8(r4)
 /* 80382808 0037F768  90 04 30 D0 */	stw r0, 0x30d0(r4)
-/* 8038280C 0037F76C  4E 80 00 20 */	blr 
+/* 8038280C 0037F76C  4E 80 00 20 */	blr

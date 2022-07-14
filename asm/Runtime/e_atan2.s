@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global __ieee754_atan2
 __ieee754_atan2:

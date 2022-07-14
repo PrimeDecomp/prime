@@ -182,7 +182,7 @@ lbl_8036740C:
 /* 8036741C 0036437C  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80367420 00364380  7C 08 03 A6 */	mtlr r0
 /* 80367424 00364384  38 21 00 30 */	addi r1, r1, 0x30
-/* 80367428 00364388  4E 80 00 20 */	blr 
+/* 80367428 00364388  4E 80 00 20 */	blr
 
 .global sub_8036742c
 sub_8036742c:
@@ -253,7 +253,7 @@ lbl_80367510:
 /* 80367514 00364474  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80367518 00364478  7C 08 03 A6 */	mtlr r0
 /* 8036751C 0036447C  38 21 00 50 */	addi r1, r1, 0x50
-/* 80367520 00364480  4E 80 00 20 */	blr 
+/* 80367520 00364480  4E 80 00 20 */	blr
 
 .global sub_80367524
 sub_80367524:
@@ -331,7 +331,7 @@ lbl_80367610:
 /* 80367618 00364578  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8036761C 0036457C  7C 08 03 A6 */	mtlr r0
 /* 80367620 00364580  38 21 00 20 */	addi r1, r1, 0x20
-/* 80367624 00364584  4E 80 00 20 */	blr 
+/* 80367624 00364584  4E 80 00 20 */	blr
 
 .global GetDepList__8CPakFileCFv
 GetDepList__8CPakFileCFv:
@@ -339,10 +339,10 @@ GetDepList__8CPakFileCFv:
 /* 8036762C 0036458C  2C 00 00 00 */	cmpwi r0, 0
 /* 80367630 00364590  41 82 00 0C */	beq lbl_8036763C
 /* 80367634 00364594  38 63 00 64 */	addi r3, r3, 0x64
-/* 80367638 00364598  4E 80 00 20 */	blr 
+/* 80367638 00364598  4E 80 00 20 */	blr
 lbl_8036763C:
 /* 8036763C 0036459C  38 60 00 00 */	li r3, 0
-/* 80367640 003645A0  4E 80 00 20 */	blr 
+/* 80367640 003645A0  4E 80 00 20 */	blr
 
 .global GetResIdByName__8CPakFileCFPCc
 GetResIdByName__8CPakFileCFPCc:
@@ -393,7 +393,7 @@ lbl_803676D0:
 /* 803676E0 00364640  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 803676E4 00364644  7C 08 03 A6 */	mtlr r0
 /* 803676E8 00364648  38 21 00 30 */	addi r1, r1, 0x30
-/* 803676EC 0036464C  4E 80 00 20 */	blr 
+/* 803676EC 0036464C  4E 80 00 20 */	blr
 
 .global GetResInfoForLoadPreferForward__8CPakFileCFUi
 GetResInfoForLoadPreferForward__8CPakFileCFUi:
@@ -501,7 +501,7 @@ lbl_80367858:
 /* 8036785C 003647BC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80367860 003647C0  7C 08 03 A6 */	mtlr r0
 /* 80367864 003647C4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80367868 003647C8  4E 80 00 20 */	blr 
+/* 80367868 003647C8  4E 80 00 20 */	blr
 
 .global GetResInfoForLoadDirectionless__8CPakFileCFUi
 GetResInfoForLoadDirectionless__8CPakFileCFUi:
@@ -600,7 +600,7 @@ lbl_803679B8:
 /* 803679BC 0036491C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 803679C0 00364920  7C 08 03 A6 */	mtlr r0
 /* 803679C4 00364924  38 21 00 50 */	addi r1, r1, 0x50
-/* 803679C8 00364928  4E 80 00 20 */	blr 
+/* 803679C8 00364928  4E 80 00 20 */	blr
 
 .global GetResInfo__8CPakFileCFUi
 GetResInfo__8CPakFileCFUi:
@@ -664,7 +664,7 @@ lbl_80367A98:
 /* 80367AA0 00364A00  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80367AA4 00364A04  7C 08 03 A6 */	mtlr r0
 /* 80367AA8 00364A08  38 21 00 40 */	addi r1, r1, 0x40
-/* 80367AAC 00364A0C  4E 80 00 20 */	blr 
+/* 80367AAC 00364A0C  4E 80 00 20 */	blr
 
 .global GetFakeStaticSize__8CPakFileCFv
 GetFakeStaticSize__8CPakFileCFv:
@@ -673,7 +673,7 @@ GetFakeStaticSize__8CPakFileCFv:
 /* 80367AB8 00364A18  1C 00 00 0A */	mulli r0, r0, 0xa
 /* 80367ABC 00364A1C  54 63 10 3A */	slwi r3, r3, 2
 /* 80367AC0 00364A20  7C 63 02 14 */	add r3, r3, r0
-/* 80367AC4 00364A24  4E 80 00 20 */	blr 
+/* 80367AC4 00364A24  4E 80 00 20 */	blr
 
 .global LoadResourceTable__8CPakFileFR15CMemoryInStream
 LoadResourceTable__8CPakFileFR15CMemoryInStream:
@@ -810,7 +810,7 @@ lbl_80367C58:
 /* 80367CA4 00364C04  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80367CA8 00364C08  7C 08 03 A6 */	mtlr r0
 /* 80367CAC 00364C0C  38 21 00 50 */	addi r1, r1, 0x50
-/* 80367CB0 00364C10  4E 80 00 20 */	blr 
+/* 80367CB0 00364C10  4E 80 00 20 */	blr
 
 .global DataLoad__8CPakFileFv
 DataLoad__8CPakFileFv:
@@ -837,7 +837,7 @@ DataLoad__8CPakFileFv:
 /* 80367D04 00364C64  38 80 00 01 */	li r4, 1
 /* 80367D08 00364C68  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80367D0C 00364C6C  7D 89 03 A6 */	mtctr r12
-/* 80367D10 00364C70  4E 80 04 21 */	bctrl 
+/* 80367D10 00364C70  4E 80 04 21 */	bctrl
 lbl_80367D14:
 /* 80367D14 00364C74  88 61 00 18 */	lbz r3, 0x18(r1)
 /* 80367D18 00364C78  38 00 00 00 */	li r0, 0
@@ -856,7 +856,7 @@ lbl_80367D2C:
 /* 80367D48 00364CA8  38 80 00 01 */	li r4, 1
 /* 80367D4C 00364CAC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80367D50 00364CB0  7D 89 03 A6 */	mtctr r12
-/* 80367D54 00364CB4  4E 80 04 21 */	bctrl 
+/* 80367D54 00364CB4  4E 80 04 21 */	bctrl
 lbl_80367D58:
 /* 80367D58 00364CB8  80 9F 00 44 */	lwz r4, 0x44(r31)
 /* 80367D5C 00364CBC  38 61 00 30 */	addi r3, r1, 0x30
@@ -923,7 +923,7 @@ lbl_80367E14:
 /* 80367E44 00364DA4  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 80367E48 00364DA8  7C 08 03 A6 */	mtlr r0
 /* 80367E4C 00364DAC  38 21 00 60 */	addi r1, r1, 0x60
-/* 80367E50 00364DB0  4E 80 00 20 */	blr 
+/* 80367E50 00364DB0  4E 80 00 20 */	blr
 
 .global InitialHeaderLoad__8CPakFileFv
 InitialHeaderLoad__8CPakFileFv:
@@ -953,7 +953,7 @@ InitialHeaderLoad__8CPakFileFv:
 /* 80367EB0 00364E10  38 80 00 01 */	li r4, 1
 /* 80367EB4 00364E14  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80367EB8 00364E18  7D 89 03 A6 */	mtctr r12
-/* 80367EBC 00364E1C  4E 80 04 21 */	bctrl 
+/* 80367EBC 00364E1C  4E 80 04 21 */	bctrl
 lbl_80367EC0:
 /* 80367EC0 00364E20  88 61 00 10 */	lbz r3, 0x10(r1)
 /* 80367EC4 00364E24  38 00 00 00 */	li r0, 0
@@ -972,7 +972,7 @@ lbl_80367ED8:
 /* 80367EF4 00364E54  38 80 00 01 */	li r4, 1
 /* 80367EF8 00364E58  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80367EFC 00364E5C  7D 89 03 A6 */	mtctr r12
-/* 80367F00 00364E60  4E 80 04 21 */	bctrl 
+/* 80367F00 00364E60  4E 80 04 21 */	bctrl
 lbl_80367F04:
 /* 80367F04 00364E64  38 61 00 50 */	addi r3, r1, 0x50
 /* 80367F08 00364E68  4B FD 6D 7D */	bl ReadLong__12CInputStreamFv
@@ -1108,7 +1108,7 @@ lbl_80368044:
 /* 803680F8 00365058  38 80 00 01 */	li r4, 1
 /* 803680FC 0036505C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80368100 00365060  7D 89 03 A6 */	mtctr r12
-/* 80368104 00365064  4E 80 04 21 */	bctrl 
+/* 80368104 00365064  4E 80 04 21 */	bctrl
 lbl_80368108:
 /* 80368108 00365068  88 61 00 08 */	lbz r3, 8(r1)
 /* 8036810C 0036506C  38 00 00 00 */	li r0, 0
@@ -1127,7 +1127,7 @@ lbl_80368120:
 /* 8036813C 0036509C  38 80 00 01 */	li r4, 1
 /* 80368140 003650A0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80368144 003650A4  7D 89 03 A6 */	mtctr r12
-/* 80368148 003650A8  4E 80 04 21 */	bctrl 
+/* 80368148 003650A8  4E 80 04 21 */	bctrl
 /* 8036814C 003650AC  48 00 00 0C */	b lbl_80368158
 lbl_80368150:
 /* 80368150 003650B0  7F E3 FB 78 */	mr r3, r31
@@ -1144,7 +1144,7 @@ lbl_80368170:
 /* 80368174 003650D4  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 80368178 003650D8  7C 08 03 A6 */	mtlr r0
 /* 8036817C 003650DC  38 21 01 90 */	addi r1, r1, 0x190
-/* 80368180 003650E0  4E 80 00 20 */	blr 
+/* 80368180 003650E0  4E 80 00 20 */	blr
 
 .global sub_80368184
 sub_80368184:
@@ -1201,7 +1201,7 @@ lbl_80368228:
 /* 80368234 00365194  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80368238 00365198  7C 08 03 A6 */	mtlr r0
 /* 8036823C 0036519C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80368240 003651A0  4E 80 00 20 */	blr 
+/* 80368240 003651A0  4E 80 00 20 */	blr
 
 .global Warmup__8CPakFileFv
 Warmup__8CPakFileFv:
@@ -1247,7 +1247,7 @@ lbl_80368278:
 /* 803682DC 0036523C  38 80 00 01 */	li r4, 1
 /* 803682E0 00365240  81 8C 00 08 */	lwz r12, 8(r12)
 /* 803682E4 00365244  7D 89 03 A6 */	mtctr r12
-/* 803682E8 00365248  4E 80 04 21 */	bctrl 
+/* 803682E8 00365248  4E 80 04 21 */	bctrl
 lbl_803682EC:
 /* 803682EC 0036524C  88 61 00 0C */	lbz r3, 0xc(r1)
 /* 803682F0 00365250  38 00 00 00 */	li r0, 0
@@ -1266,7 +1266,7 @@ lbl_80368304:
 /* 80368320 00365280  38 80 00 01 */	li r4, 1
 /* 80368324 00365284  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80368328 00365288  7D 89 03 A6 */	mtctr r12
-/* 8036832C 0036528C  4E 80 04 21 */	bctrl 
+/* 8036832C 0036528C  4E 80 04 21 */	bctrl
 lbl_80368330:
 /* 80368330 00365290  38 00 00 01 */	li r0, 1
 /* 80368334 00365294  90 1F 00 2C */	stw r0, 0x2c(r31)
@@ -1275,7 +1275,7 @@ lbl_80368330:
 /* 80368340 003652A0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80368344 003652A4  7C 08 03 A6 */	mtlr r0
 /* 80368348 003652A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036834C 003652AC  4E 80 00 20 */	blr 
+/* 8036834C 003652AC  4E 80 00 20 */	blr
 
 .global AsyncIdle__8CPakFileFv
 AsyncIdle__8CPakFileFv:
@@ -1296,7 +1296,7 @@ AsyncIdle__8CPakFileFv:
 /* 80368388 003652E8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8036838C 003652EC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80368390 003652F0  7D 89 03 A6 */	mtctr r12
-/* 80368394 003652F4  4E 80 04 21 */	bctrl 
+/* 80368394 003652F4  4E 80 04 21 */	bctrl
 /* 80368398 003652F8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8036839C 003652FC  41 82 00 4C */	beq lbl_803683E8
 lbl_803683A0:
@@ -1327,7 +1327,7 @@ lbl_803683E8:
 /* 803683EC 0036534C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803683F0 00365350  7C 08 03 A6 */	mtlr r0
 /* 803683F4 00365354  38 21 00 10 */	addi r1, r1, 0x10
-/* 803683F8 00365358  4E 80 00 20 */	blr 
+/* 803683F8 00365358  4E 80 00 20 */	blr
 
 .global __dt__8CPakFileFv
 __dt__8CPakFileFv:
@@ -1428,7 +1428,7 @@ lbl_80368524:
 /* 80368548 003654A8  38 80 00 01 */	li r4, 1
 /* 8036854C 003654AC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80368550 003654B0  7D 89 03 A6 */	mtctr r12
-/* 80368554 003654B4  4E 80 04 21 */	bctrl 
+/* 80368554 003654B4  4E 80 04 21 */	bctrl
 lbl_80368558:
 /* 80368558 003654B8  7F C3 F3 78 */	mr r3, r30
 /* 8036855C 003654BC  38 80 FF FF */	li r4, -1
@@ -1444,7 +1444,7 @@ lbl_80368574:
 /* 80368580 003654E0  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80368584 003654E4  7C 08 03 A6 */	mtlr r0
 /* 80368588 003654E8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8036858C 003654EC  4E 80 00 20 */	blr 
+/* 8036858C 003654EC  4E 80 00 20 */	blr
 
 .global "__ct__8CPakFileFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
 "__ct__8CPakFileFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b":
@@ -1501,7 +1501,7 @@ lbl_80368574:
 /* 80368658 003655B8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8036865C 003655BC  7C 08 03 A6 */	mtlr r0
 /* 80368660 003655C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368664 003655C4  4E 80 00 20 */	blr 
+/* 80368664 003655C4  4E 80 00 20 */	blr
 
 .global IsCompressed__Q28CPakFile8SResInfoCFv
 IsCompressed__Q28CPakFile8SResInfoCFv:
@@ -1510,7 +1510,7 @@ IsCompressed__Q28CPakFile8SResInfoCFv:
 /* 80368670 003655D0  7C 03 00 D0 */	neg r0, r3
 /* 80368674 003655D4  7C 00 1B 78 */	or r0, r0, r3
 /* 80368678 003655D8  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8036867C 003655DC  4E 80 00 20 */	blr 
+/* 8036867C 003655DC  4E 80 00 20 */	blr
 
 .global GetSize__Q28CPakFile8SResInfoCFv
 GetSize__Q28CPakFile8SResInfoCFv:
@@ -1521,7 +1521,7 @@ GetSize__Q28CPakFile8SResInfoCFv:
 /* 80368690 003655F0  50 04 0D FC */	rlwimi r4, r0, 1, 0x17, 0x1e
 /* 80368694 003655F4  50 64 4B EC */	rlwimi r4, r3, 9, 0xf, 0x16
 /* 80368698 003655F8  54 83 28 34 */	slwi r3, r4, 5
-/* 8036869C 003655FC  4E 80 00 20 */	blr 
+/* 8036869C 003655FC  4E 80 00 20 */	blr
 
 .global GetOffset__Q28CPakFile8SResInfoCFv
 GetOffset__Q28CPakFile8SResInfoCFv:
@@ -1531,7 +1531,7 @@ GetOffset__Q28CPakFile8SResInfoCFv:
 /* 803686AC 0036560C  50 04 44 2E */	rlwimi r4, r0, 8, 0x10, 0x17
 /* 803686B0 00365610  50 64 82 1E */	rlwimi r4, r3, 0x10, 8, 0xf
 /* 803686B4 00365614  54 83 29 34 */	rlwinm r3, r4, 5, 4, 0x1a
-/* 803686B8 00365618  4E 80 00 20 */	blr 
+/* 803686B8 00365618  4E 80 00 20 */	blr
 
 .global GetType__Q28CPakFile8SResInfoCFv
 GetType__Q28CPakFile8SResInfoCFv:
@@ -1544,7 +1544,7 @@ GetType__Q28CPakFile8SResInfoCFv:
 /* 803686D4 00365634  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803686D8 00365638  7C 08 03 A6 */	mtlr r0
 /* 803686DC 0036563C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803686E0 00365640  4E 80 00 20 */	blr 
+/* 803686E0 00365640  4E 80 00 20 */	blr
 
 .global __ct__Q28CPakFile8SResInfoFUiUiUiUi
 __ct__Q28CPakFile8SResInfoFUiUiUiUi:
@@ -1589,7 +1589,7 @@ __ct__Q28CPakFile8SResInfoFUiUiUiUi:
 /* 8036877C 003656DC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80368780 003656E0  7C 08 03 A6 */	mtlr r0
 /* 80368784 003656E4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368788 003656E8  4E 80 00 20 */	blr 
+/* 80368788 003656E8  4E 80 00 20 */	blr
 
 .global sub_8036878c
 sub_8036878c:
@@ -1722,7 +1722,7 @@ lbl_80368958:
 /* 80368968 003658C8  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 8036896C 003658CC  7C 08 03 A6 */	mtlr r0
 /* 80368970 003658D0  38 21 00 60 */	addi r1, r1, 0x60
-/* 80368974 003658D4  4E 80 00 20 */	blr 
+/* 80368974 003658D4  4E 80 00 20 */	blr
 
 .global sub_80368978
 sub_80368978:
@@ -1776,7 +1776,7 @@ lbl_80368A14:
 /* 80368A28 00365988  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80368A2C 0036598C  7C 08 03 A6 */	mtlr r0
 /* 80368A30 00365990  38 21 00 30 */	addi r1, r1, 0x30
-/* 80368A34 00365994  4E 80 00 20 */	blr 
+/* 80368A34 00365994  4E 80 00 20 */	blr
 
 .global sub_80368a38
 sub_80368a38:
@@ -1830,7 +1830,7 @@ lbl_80368AD4:
 /* 80368AE8 00365A48  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80368AEC 00365A4C  7C 08 03 A6 */	mtlr r0
 /* 80368AF0 00365A50  38 21 00 30 */	addi r1, r1, 0x30
-/* 80368AF4 00365A54  4E 80 00 20 */	blr 
+/* 80368AF4 00365A54  4E 80 00 20 */	blr
 
 .global sub_80368af8
 sub_80368af8:
@@ -1907,7 +1907,7 @@ lbl_80368BE0:
 /* 80368BEC 00365B4C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80368BF0 00365B50  7C 08 03 A6 */	mtlr r0
 /* 80368BF4 00365B54  38 21 00 30 */	addi r1, r1, 0x30
-/* 80368BF8 00365B58  4E 80 00 20 */	blr 
+/* 80368BF8 00365B58  4E 80 00 20 */	blr
 
 .global sub_80368bfc
 sub_80368bfc:
@@ -1921,7 +1921,7 @@ sub_80368bfc:
 /* 80368C18 00365B78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80368C1C 00365B7C  7C 08 03 A6 */	mtlr r0
 /* 80368C20 00365B80  38 21 00 10 */	addi r1, r1, 0x10
-/* 80368C24 00365B84  4E 80 00 20 */	blr 
+/* 80368C24 00365B84  4E 80 00 20 */	blr
 
 .global sub_80368c28
 sub_80368c28:
@@ -1935,7 +1935,7 @@ sub_80368c28:
 /* 80368C44 00365BA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80368C48 00365BA8  7C 08 03 A6 */	mtlr r0
 /* 80368C4C 00365BAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80368C50 00365BB0  4E 80 00 20 */	blr 
+/* 80368C50 00365BB0  4E 80 00 20 */	blr
 
 .global sub_80368c54
 sub_80368c54:
@@ -1943,7 +1943,7 @@ sub_80368c54:
 /* 80368C58 00365BB8  80 83 00 00 */	lwz r4, 0(r3)
 /* 80368C5C 00365BBC  7C 04 02 14 */	add r0, r4, r0
 /* 80368C60 00365BC0  90 03 00 00 */	stw r0, 0(r3)
-/* 80368C64 00365BC4  4E 80 00 20 */	blr 
+/* 80368C64 00365BC4  4E 80 00 20 */	blr
 
 .global sub_80368c68
 sub_80368c68:
@@ -1951,7 +1951,7 @@ sub_80368c68:
 /* 80368C6C 00365BCC  80 83 00 00 */	lwz r4, 0(r3)
 /* 80368C70 00365BD0  7C 04 02 14 */	add r0, r4, r0
 /* 80368C74 00365BD4  90 03 00 00 */	stw r0, 0(r3)
-/* 80368C78 00365BD8  4E 80 00 20 */	blr 
+/* 80368C78 00365BD8  4E 80 00 20 */	blr
 
 .global sub_80368c7c
 sub_80368c7c:
@@ -1971,7 +1971,7 @@ sub_80368c7c:
 /* 80368CB0 00365C10  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80368CB4 00365C14  7C 08 03 A6 */	mtlr r0
 /* 80368CB8 00365C18  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368CBC 00365C1C  4E 80 00 20 */	blr 
+/* 80368CBC 00365C1C  4E 80 00 20 */	blr
 
 .global sub_80368cc0
 sub_80368cc0:
@@ -1991,7 +1991,7 @@ sub_80368cc0:
 /* 80368CF4 00365C54  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80368CF8 00365C58  7C 08 03 A6 */	mtlr r0
 /* 80368CFC 00365C5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368D00 00365C60  4E 80 00 20 */	blr 
+/* 80368D00 00365C60  4E 80 00 20 */	blr
 
 .global sub_80368d04
 sub_80368d04:
@@ -2004,7 +2004,7 @@ sub_80368d04:
 /* 80368D1C 00365C7C  7C 00 16 70 */	srawi r0, r0, 2
 /* 80368D20 00365C80  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 80368D24 00365C84  7C 60 1A 14 */	add r3, r0, r3
-/* 80368D28 00365C88  4E 80 00 20 */	blr 
+/* 80368D28 00365C88  4E 80 00 20 */	blr
 
 .global sub_80368d2c
 sub_80368d2c:
@@ -2017,7 +2017,7 @@ sub_80368d2c:
 /* 80368D44 00365CA4  7C 00 16 70 */	srawi r0, r0, 2
 /* 80368D48 00365CA8  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 80368D4C 00365CAC  7C 60 1A 14 */	add r3, r0, r3
-/* 80368D50 00365CB0  4E 80 00 20 */	blr 
+/* 80368D50 00365CB0  4E 80 00 20 */	blr
 
 .global sub_80368d54
 sub_80368d54:
@@ -2070,7 +2070,7 @@ lbl_80368DFC:
 /* 80368E04 00365D64  B0 C4 00 08 */	sth r6, 8(r4)
 lbl_80368E08:
 /* 80368E08 00365D68  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368E0C 00365D6C  4E 80 00 20 */	blr 
+/* 80368E0C 00365D6C  4E 80 00 20 */	blr
 
 .global sub_80368e10
 sub_80368e10:
@@ -2115,4 +2115,4 @@ lbl_80368E90:
 /* 80368E94 00365DF4  7C 06 00 40 */	cmplw r6, r0
 /* 80368E98 00365DF8  41 80 FF 88 */	blt lbl_80368E20
 /* 80368E9C 00365DFC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80368EA0 00365E00  4E 80 00 20 */	blr 
+/* 80368EA0 00365E00  4E 80 00 20 */	blr

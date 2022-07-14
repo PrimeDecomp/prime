@@ -62,12 +62,12 @@ lbl_802E2260:
 /* 802E2268 002DF1C8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E226C 002DF1CC  7C 08 03 A6 */	mtlr r0
 /* 802E2270 002DF1D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2274 002DF1D4  4E 80 00 20 */	blr 
+/* 802E2274 002DF1D4  4E 80 00 20 */	blr
 
 .global GetType__20CMetaTransPhaseTransCFv
 GetType__20CMetaTransPhaseTransCFv:
 /* 802E2278 002DF1D8  38 60 00 02 */	li r3, 2
-/* 802E227C 002DF1DC  4E 80 00 20 */	blr 
+/* 802E227C 002DF1DC  4E 80 00 20 */	blr
 
 .global WriteTransData__20CMetaTransPhaseTransCFR13COutputStream
 WriteTransData__20CMetaTransPhaseTransCFR13COutputStream:
@@ -137,7 +137,7 @@ lbl_802E2328:
 /* 802E2374 002DF2D4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802E2378 002DF2D8  7C 08 03 A6 */	mtlr r0
 /* 802E237C 002DF2DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E2380 002DF2E0  4E 80 00 20 */	blr 
+/* 802E2380 002DF2E0  4E 80 00 20 */	blr
 
 .global "VGetTransitionTree__20CMetaTransPhaseTransCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext"
 "VGetTransitionTree__20CMetaTransPhaseTransCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext":
@@ -287,7 +287,7 @@ lbl_802E2598:
 /* 802E25A4 002DF504  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E25A8 002DF508  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 802E25AC 002DF50C  7D 89 03 A6 */	mtctr r12
-/* 802E25B0 002DF510  4E 80 04 21 */	bctrl 
+/* 802E25B0 002DF510  4E 80 04 21 */	bctrl
 /* 802E25B4 002DF514  3C 80 80 3D */	lis r4, lbl_803D6D98@ha
 /* 802E25B8 002DF518  38 60 00 14 */	li r3, 0x14
 /* 802E25BC 002DF51C  38 84 6D 98 */	addi r4, r4, lbl_803D6D98@l
@@ -541,7 +541,7 @@ lbl_802E2930:
 /* 802E2964 002DF8C4  80 01 02 54 */	lwz r0, 0x254(r1)
 /* 802E2968 002DF8C8  7C 08 03 A6 */	mtlr r0
 /* 802E296C 002DF8CC  38 21 02 50 */	addi r1, r1, 0x250
-/* 802E2970 002DF8D0  4E 80 00 20 */	blr 
+/* 802E2970 002DF8D0  4E 80 00 20 */	blr
 
 .global "__ct__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl48ownership_transfer<26IVaryingAnimationTimeScale>RC13CCharAnimTimeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl48ownership_transfer<26IVaryingAnimationTimeScale>RC13CCharAnimTimeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -586,14 +586,14 @@ lbl_802E2930:
 /* 802E2A0C 002DF96C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E2A10 002DF970  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802E2A14 002DF974  7D 89 03 A6 */	mtctr r12
-/* 802E2A18 002DF978  4E 80 04 21 */	bctrl 
+/* 802E2A18 002DF978  4E 80 04 21 */	bctrl
 /* 802E2A1C 002DF97C  80 9F 00 00 */	lwz r4, 0(r31)
 /* 802E2A20 002DF980  38 61 00 20 */	addi r3, r1, 0x20
 /* 802E2A24 002DF984  80 84 00 00 */	lwz r4, 0(r4)
 /* 802E2A28 002DF988  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E2A2C 002DF98C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802E2A30 002DF990  7D 89 03 A6 */	mtctr r12
-/* 802E2A34 002DF994  4E 80 04 21 */	bctrl 
+/* 802E2A34 002DF994  4E 80 04 21 */	bctrl
 /* 802E2A38 002DF998  C0 01 00 20 */	lfs f0, 0x20(r1)
 /* 802E2A3C 002DF99C  38 61 00 18 */	addi r3, r1, 0x18
 /* 802E2A40 002DF9A0  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -611,7 +611,7 @@ lbl_802E2930:
 /* 802E2A70 002DF9D0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802E2A74 002DF9D4  7C 08 03 A6 */	mtlr r0
 /* 802E2A78 002DF9D8  38 21 00 50 */	addi r1, r1, 0x50
-/* 802E2A7C 002DF9DC  4E 80 00 20 */	blr 
+/* 802E2A7C 002DF9DC  4E 80 00 20 */	blr
 
 .global __ct__20CMetaTransPhaseTransFR12CInputStream
 __ct__20CMetaTransPhaseTransFR12CInputStream:

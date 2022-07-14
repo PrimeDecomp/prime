@@ -23,8 +23,10 @@ lbl_805A97C4:
 .section .sdata
 .global lbl_805A8A90
 lbl_805A8A90:
-	.incbin "baserom.dol", 0x3F6430, 0x8
-	
+	# ROM: 0x3F6430
+	.asciz "dvdfs.c"
+
+
 .section .data
 .balign 8
 lbl_803EFB90:
@@ -34,7 +36,27 @@ lbl_803EFC58:
 	.asciz "Warning: DVDOpen(): file '%s' was not found under %s.\n"
 .balign 4
 lbl_803EFC90:
-	.incbin "baserom.dol", 0x3ECC90, 0x338
+	# ROM: 0x3ECC90
+	.asciz "DVDReadAsync(): specified area is out of the file  "
+	.asciz "DVDRead(): specified area is out of the file  "
+	.balign 4
+	.asciz "DVDSeek(): offset is out of the file  "
+	.balign 4
+	.asciz "Warning: DVDOpenDir(): file '%s' was not found under %s.\n"
+	.balign 4
+	.asciz "DVDPrepareStreamAsync(): Specified start address (filestart(0x%x) + offset(0x%x)) is not 32KB aligned"
+	.balign 4
+	.asciz "DVDPrepareStreamAsync(): Specified length (0x%x) is not a multiple of 32768(32*1024)"
+	.balign 4
+	.asciz "DVDPrepareStreamAsync(): The area specified (offset(0x%x), length(0x%x)) is out of the file"
+	.asciz "DVDPrepareStream(): Specified start address (filestart(0x%x) + offset(0x%x)) is not 32KB aligned"
+	.balign 4
+	.asciz "DVDPrepareStream(): Specified length (0x%x) is not a multiple of 32768(32*1024)"
+	.asciz "DVDPrepareStream(): The area specified (offset(0x%x), length(0x%x)) is out of the file"
+	.balign 4
+	.asciz "<< Dolphin SDK - DVD\trelease build: Sep  5 2002 05:34:06 (0x2301) >>"
+	.balign 4
+
 
 .section .text, "ax"
 
@@ -46,14 +68,14 @@ __DVDFSInit:
 /* 803712F0 0036E250  90 0D AB F4 */	stw r0, lbl_805A97B4@sda21(r13)
 /* 803712F4 0036E254  80 6D AB F4 */	lwz r3, lbl_805A97B4@sda21(r13)
 /* 803712F8 0036E258  28 03 00 00 */	cmplwi r3, 0
-/* 803712FC 0036E25C  4D 82 00 20 */	beqlr 
+/* 803712FC 0036E25C  4D 82 00 20 */	beqlr
 /* 80371300 0036E260  80 03 00 08 */	lwz r0, 8(r3)
 /* 80371304 0036E264  90 0D AB FC */	stw r0, lbl_805A97BC@sda21(r13)
 /* 80371308 0036E268  80 0D AB FC */	lwz r0, lbl_805A97BC@sda21(r13)
 /* 8037130C 0036E26C  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 80371310 0036E270  7C 03 02 14 */	add r0, r3, r0
 /* 80371314 0036E274  90 0D AB F8 */	stw r0, lbl_805A97B8@sda21(r13)
-/* 80371318 0036E278  4E 80 00 20 */	blr 
+/* 80371318 0036E278  4E 80 00 20 */	blr
 
 .global DVDConvertPathToEntrynum
 DVDConvertPathToEntrynum:
@@ -284,7 +306,7 @@ lbl_803715FC:
 /* 80371600 0036E560  80 01 00 4C */	lwz r0, 0x4c(r1)
 /* 80371604 0036E564  38 21 00 48 */	addi r1, r1, 0x48
 /* 80371608 0036E568  7C 08 03 A6 */	mtlr r0
-/* 8037160C 0036E56C  4E 80 00 20 */	blr 
+/* 8037160C 0036E56C  4E 80 00 20 */	blr
 
 .global DVDFastOpen
 DVDFastOpen:
@@ -307,7 +329,7 @@ lbl_80371644:
 /* 80371648 0036E5A8  41 82 00 0C */	beq lbl_80371654
 lbl_8037164C:
 /* 8037164C 0036E5AC  38 60 00 00 */	li r3, 0
-/* 80371650 0036E5B0  4E 80 00 20 */	blr 
+/* 80371650 0036E5B0  4E 80 00 20 */	blr
 lbl_80371654:
 /* 80371654 0036E5B4  7C 63 32 14 */	add r3, r3, r6
 /* 80371658 0036E5B8  80 A3 00 04 */	lwz r5, 4(r3)
@@ -320,7 +342,7 @@ lbl_80371654:
 /* 80371674 0036E5D4  90 A4 00 34 */	stw r5, 0x34(r4)
 /* 80371678 0036E5D8  90 04 00 38 */	stw r0, 0x38(r4)
 /* 8037167C 0036E5DC  90 04 00 0C */	stw r0, 0xc(r4)
-/* 80371680 0036E5E0  4E 80 00 20 */	blr 
+/* 80371680 0036E5E0  4E 80 00 20 */	blr
 
 .global DVDOpen
 DVDOpen:
@@ -378,7 +400,7 @@ lbl_80371734:
 /* 8037173C 0036E69C  83 C1 00 90 */	lwz r30, 0x90(r1)
 /* 80371740 0036E6A0  38 21 00 98 */	addi r1, r1, 0x98
 /* 80371744 0036E6A4  7C 08 03 A6 */	mtlr r0
-/* 80371748 0036E6A8  4E 80 00 20 */	blr 
+/* 80371748 0036E6A8  4E 80 00 20 */	blr
 
 .global DVDClose
 DVDClose:
@@ -390,7 +412,7 @@ DVDClose:
 /* 80371760 0036E6C0  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80371764 0036E6C4  38 21 00 08 */	addi r1, r1, 8
 /* 80371768 0036E6C8  7C 08 03 A6 */	mtlr r0
-/* 8037176C 0036E6CC  4E 80 00 20 */	blr 
+/* 8037176C 0036E6CC  4E 80 00 20 */	blr
 
 .global entryToPath
 entryToPath:
@@ -493,7 +515,7 @@ lbl_803718B0:
 /* 803718C0 0036E820  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 803718C4 0036E824  38 21 00 30 */	addi r1, r1, 0x30
 /* 803718C8 0036E828  7C 08 03 A6 */	mtlr r0
-/* 803718CC 0036E82C  4E 80 00 20 */	blr 
+/* 803718CC 0036E82C  4E 80 00 20 */	blr
 
 .global DVDGetCurrentDir
 DVDGetCurrentDir:
@@ -551,7 +573,7 @@ lbl_80371974:
 /* 80371984 0036E8E4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80371988 0036E8E8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8037198C 0036E8EC  7C 08 03 A6 */	mtlr r0
-/* 80371990 0036E8F0  4E 80 00 20 */	blr 
+/* 80371990 0036E8F0  4E 80 00 20 */	blr
 
 .global DVDReadAsyncPrio
 DVDReadAsyncPrio:
@@ -606,7 +628,7 @@ lbl_80371A14:
 /* 80371A44 0036E9A4  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 80371A48 0036E9A8  38 21 00 38 */	addi r1, r1, 0x38
 /* 80371A4C 0036E9AC  7C 08 03 A6 */	mtlr r0
-/* 80371A50 0036E9B0  4E 80 00 20 */	blr 
+/* 80371A50 0036E9B0  4E 80 00 20 */	blr
 
 .global cbForReadAsync
 cbForReadAsync:
@@ -617,12 +639,12 @@ cbForReadAsync:
 /* 80371A64 0036E9C4  28 0C 00 00 */	cmplwi r12, 0
 /* 80371A68 0036E9C8  41 82 00 0C */	beq lbl_80371A74
 /* 80371A6C 0036E9CC  7D 88 03 A6 */	mtlr r12
-/* 80371A70 0036E9D0  4E 80 00 21 */	blrl 
+/* 80371A70 0036E9D0  4E 80 00 21 */	blrl
 lbl_80371A74:
 /* 80371A74 0036E9D4  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80371A78 0036E9D8  38 21 00 08 */	addi r1, r1, 8
 /* 80371A7C 0036E9DC  7C 08 03 A6 */	mtlr r0
-/* 80371A80 0036E9E0  4E 80 00 20 */	blr 
+/* 80371A80 0036E9E0  4E 80 00 20 */	blr
 
 .global DVDPrepareStreamAsync
 DVDPrepareStreamAsync:
@@ -689,7 +711,7 @@ lbl_80371B3C:
 /* 80371B60 0036EAC0  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 80371B64 0036EAC4  38 21 00 38 */	addi r1, r1, 0x38
 /* 80371B68 0036EAC8  7C 08 03 A6 */	mtlr r0
-/* 80371B6C 0036EACC  4E 80 00 20 */	blr 
+/* 80371B6C 0036EACC  4E 80 00 20 */	blr
 
 .global cbForPrepareStreamAsync
 cbForPrepareStreamAsync:
@@ -700,14 +722,14 @@ cbForPrepareStreamAsync:
 /* 80371B80 0036EAE0  28 0C 00 00 */	cmplwi r12, 0
 /* 80371B84 0036EAE4  41 82 00 0C */	beq lbl_80371B90
 /* 80371B88 0036EAE8  7D 88 03 A6 */	mtlr r12
-/* 80371B8C 0036EAEC  4E 80 00 21 */	blrl 
+/* 80371B8C 0036EAEC  4E 80 00 21 */	blrl
 lbl_80371B90:
 /* 80371B90 0036EAF0  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80371B94 0036EAF4  38 21 00 08 */	addi r1, r1, 8
 /* 80371B98 0036EAF8  7C 08 03 A6 */	mtlr r0
-/* 80371B9C 0036EAFC  4E 80 00 20 */	blr 
+/* 80371B9C 0036EAFC  4E 80 00 20 */	blr
 
 .global nullsub_62
 nullsub_62:
-/* 80371BA0 0036EB00  4E 80 00 20 */	blr 
+/* 80371BA0 0036EB00  4E 80 00 20 */	blr
 

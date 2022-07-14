@@ -53,42 +53,42 @@ lbl_805A88DC:
 .global GetTranslation__15CParticleSwooshCFv
 GetTranslation__15CParticleSwooshCFv:
 /* 8032A7A8 00327708  38 63 00 38 */	addi r3, r3, 0x38
-/* 8032A7AC 0032770C  4E 80 00 20 */	blr 
+/* 8032A7AC 0032770C  4E 80 00 20 */	blr
 
 .global GetGlobalTranslation__15CParticleSwooshCFv
 GetGlobalTranslation__15CParticleSwooshCFv:
 /* 8032A7B0 00327710  38 63 00 A4 */	addi r3, r3, 0xa4
-/* 8032A7B4 00327714  4E 80 00 20 */	blr 
+/* 8032A7B4 00327714  4E 80 00 20 */	blr
 
 .global GetGlobalOrientation__15CParticleSwooshCFv
 GetGlobalOrientation__15CParticleSwooshCFv:
 /* 8032A7B8 00327718  38 63 00 B0 */	addi r3, r3, 0xb0
-/* 8032A7BC 0032771C  4E 80 00 20 */	blr 
+/* 8032A7BC 0032771C  4E 80 00 20 */	blr
 
 .global GetGlobalScale__15CParticleSwooshCFv
 GetGlobalScale__15CParticleSwooshCFv:
 /* 8032A7C0 00327720  38 63 00 E0 */	addi r3, r3, 0xe0
-/* 8032A7C4 00327724  4E 80 00 20 */	blr 
+/* 8032A7C4 00327724  4E 80 00 20 */	blr
 
 .global GetOrientation__15CParticleSwooshCFv
 GetOrientation__15CParticleSwooshCFv:
 /* 8032A7C8 00327728  38 63 00 44 */	addi r3, r3, 0x44
-/* 8032A7CC 0032772C  4E 80 00 20 */	blr 
+/* 8032A7CC 0032772C  4E 80 00 20 */	blr
 
 .global GetParticleEmission__15CParticleSwooshCFv
 GetParticleEmission__15CParticleSwooshCFv:
 /* 8032A7D0 00327730  88 03 01 D0 */	lbz r0, 0x1d0(r3)
 /* 8032A7D4 00327734  54 03 CF FE */	rlwinm r3, r0, 0x19, 0x1f, 0x1f
-/* 8032A7D8 00327738  4E 80 00 20 */	blr 
+/* 8032A7D8 00327738  4E 80 00 20 */	blr
 
 .global DestroyParticles__15CParticleSwooshFv
 DestroyParticles__15CParticleSwooshFv:
-/* 8032A7DC 0032773C  4E 80 00 20 */	blr 
+/* 8032A7DC 0032773C  4E 80 00 20 */	blr
 
 .global SystemHasLight__15CParticleSwooshCFv
 SystemHasLight__15CParticleSwooshCFv:
 /* 8032A7E0 00327740  38 60 00 00 */	li r3, 0
-/* 8032A7E4 00327744  4E 80 00 20 */	blr 
+/* 8032A7E4 00327744  4E 80 00 20 */	blr
 
 .global SetGlobalScale__15CParticleSwooshFRC9CVector3f
 SetGlobalScale__15CParticleSwooshFRC9CVector3f:
@@ -127,7 +127,7 @@ SetGlobalScale__15CParticleSwooshFRC9CVector3f:
 /* 8032A868 003277C8  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 8032A86C 003277CC  7C 08 03 A6 */	mtlr r0
 /* 8032A870 003277D0  38 21 00 70 */	addi r1, r1, 0x70
-/* 8032A874 003277D4  4E 80 00 20 */	blr 
+/* 8032A874 003277D4  4E 80 00 20 */	blr
 
 .global UpdateSwooshTranslation__15CParticleSwooshFRC9CVector3f
 UpdateSwooshTranslation__15CParticleSwooshFRC9CVector3f:
@@ -155,13 +155,13 @@ UpdateSwooshTranslation__15CParticleSwooshFRC9CVector3f:
 /* 8032A8CC 0032782C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8032A8D0 00327830  7C 08 03 A6 */	mtlr r0
 /* 8032A8D4 00327834  38 21 00 20 */	addi r1, r1, 0x20
-/* 8032A8D8 00327838  4E 80 00 20 */	blr 
+/* 8032A8D8 00327838  4E 80 00 20 */	blr
 
 .global Get4CharId__15CParticleSwooshCF
 Get4CharId__15CParticleSwooshCF:
 /* 8032A8DC 0032783C  3C 60 53 57 */	lis r3, 0x53574843@ha
 /* 8032A8E0 00327840  38 63 48 43 */	addi r3, r3, 0x53574843@l
-/* 8032A8E4 00327844  4E 80 00 20 */	blr 
+/* 8032A8E4 00327844  4E 80 00 20 */	blr
 
 .global GetLight__15CParticleSwooshCFv
 GetLight__15CParticleSwooshCFv:
@@ -180,7 +180,7 @@ GetLight__15CParticleSwooshCFv:
 /* 8032A918 00327878  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8032A91C 0032787C  7C 08 03 A6 */	mtlr r0
 /* 8032A920 00327880  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032A924 00327884  4E 80 00 20 */	blr 
+/* 8032A924 00327884  4E 80 00 20 */	blr
 
 .global UpdateMaxRadius__15CParticleSwooshFf
 UpdateMaxRadius__15CParticleSwooshFf:
@@ -198,7 +198,7 @@ lbl_8032A94C:
 /* 8032A94C 003278AC  C0 04 00 00 */	lfs f0, 0(r4)
 /* 8032A950 003278B0  D0 03 02 08 */	stfs f0, 0x208(r3)
 /* 8032A954 003278B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032A958 003278B8  4E 80 00 20 */	blr 
+/* 8032A958 003278B8  4E 80 00 20 */	blr
 
 .global UpdateBounds__15CParticleSwooshFRC9CVector3f
 UpdateBounds__15CParticleSwooshFRC9CVector3f:
@@ -282,7 +282,7 @@ lbl_8032AA58:
 /* 8032AA60 003279C0  D0 23 01 F4 */	stfs f1, 0x1f4(r3)
 /* 8032AA64 003279C4  D0 43 01 F8 */	stfs f2, 0x1f8(r3)
 /* 8032AA68 003279C8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8032AA6C 003279CC  4E 80 00 20 */	blr 
+/* 8032AA6C 003279CC  4E 80 00 20 */	blr
 
 .global GetBounds__15CParticleSwooshCFv
 GetBounds__15CParticleSwooshCFv:
@@ -297,7 +297,7 @@ GetBounds__15CParticleSwooshCFv:
 /* 8032AA90 003279F0  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8032AA94 003279F4  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 8032AA98 003279F8  7D 89 03 A6 */	mtctr r12
-/* 8032AA9C 003279FC  4E 80 04 21 */	bctrl 
+/* 8032AA9C 003279FC  4E 80 04 21 */	bctrl
 /* 8032AAA0 00327A00  2C 03 00 01 */	cmpwi r3, 1
 /* 8032AAA4 00327A04  41 81 00 94 */	bgt lbl_8032AB38
 /* 8032AAA8 00327A08  C0 3F 00 3C */	lfs f1, 0x3c(r31)
@@ -397,7 +397,7 @@ lbl_8032AC10:
 /* 8032AC18 00327B78  83 C1 01 18 */	lwz r30, 0x118(r1)
 /* 8032AC1C 00327B7C  7C 08 03 A6 */	mtlr r0
 /* 8032AC20 00327B80  38 21 01 20 */	addi r1, r1, 0x120
-/* 8032AC24 00327B84  4E 80 00 20 */	blr 
+/* 8032AC24 00327B84  4E 80 00 20 */	blr
 
 .global GetSplinePoint__15CParticleSwooshCFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff
 GetSplinePoint__15CParticleSwooshCFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff:
@@ -495,7 +495,7 @@ lbl_8032AD58:
 /* 8032AD8C 00327CEC  E3 41 00 18 */	psq_l f26, 24(r1), 0, qr0
 /* 8032AD90 00327CF0  CB 41 00 10 */	lfd f26, 0x10(r1)
 /* 8032AD94 00327CF4  38 21 00 70 */	addi r1, r1, 0x70
-/* 8032AD98 00327CF8  4E 80 00 20 */	blr 
+/* 8032AD98 00327CF8  4E 80 00 20 */	blr
 
 .global GetRightRadius__15CParticleSwooshFi
 GetRightRadius__15CParticleSwooshFi:
@@ -517,13 +517,13 @@ GetRightRadius__15CParticleSwooshFi:
 /* 8032ADD8 00327D38  38 A1 00 08 */	addi r5, r1, 8
 /* 8032ADDC 00327D3C  7C 84 00 2E */	lwzx r4, r4, r0
 /* 8032ADE0 00327D40  7D 89 03 A6 */	mtctr r12
-/* 8032ADE4 00327D44  4E 80 04 21 */	bctrl 
+/* 8032ADE4 00327D44  4E 80 04 21 */	bctrl
 lbl_8032ADE8:
 /* 8032ADE8 00327D48  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032ADEC 00327D4C  C0 21 00 08 */	lfs f1, 8(r1)
 /* 8032ADF0 00327D50  7C 08 03 A6 */	mtlr r0
 /* 8032ADF4 00327D54  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032ADF8 00327D58  4E 80 00 20 */	blr 
+/* 8032ADF8 00327D58  4E 80 00 20 */	blr
 
 .global GetLeftRadius__15CParticleSwooshFi
 GetLeftRadius__15CParticleSwooshFi:
@@ -545,13 +545,13 @@ GetLeftRadius__15CParticleSwooshFi:
 /* 8032AE38 00327D98  38 A1 00 08 */	addi r5, r1, 8
 /* 8032AE3C 00327D9C  7C 84 00 2E */	lwzx r4, r4, r0
 /* 8032AE40 00327DA0  7D 89 03 A6 */	mtctr r12
-/* 8032AE44 00327DA4  4E 80 04 21 */	bctrl 
+/* 8032AE44 00327DA4  4E 80 04 21 */	bctrl
 lbl_8032AE48:
 /* 8032AE48 00327DA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032AE4C 00327DAC  C0 21 00 08 */	lfs f1, 8(r1)
 /* 8032AE50 00327DB0  7C 08 03 A6 */	mtlr r0
 /* 8032AE54 00327DB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032AE58 00327DB8  4E 80 00 20 */	blr 
+/* 8032AE58 00327DB8  4E 80 00 20 */	blr
 
 .global WrapIndex__15CParticleSwooshFi
 WrapIndex__15CParticleSwooshFi:
@@ -570,14 +570,14 @@ lbl_8032AE7C:
 /* 8032AE7C 00327DDC  7C 04 00 00 */	cmpw r4, r0
 /* 8032AE80 00327DE0  40 80 FF F8 */	bge lbl_8032AE78
 /* 8032AE84 00327DE4  7C 83 23 78 */	mr r3, r4
-/* 8032AE88 00327DE8  4E 80 00 20 */	blr 
+/* 8032AE88 00327DE8  4E 80 00 20 */	blr
 
 .global SetParticleEmission__15CParticleSwooshFb
 SetParticleEmission__15CParticleSwooshFb:
 /* 8032AE8C 00327DEC  88 03 01 D0 */	lbz r0, 0x1d0(r3)
 /* 8032AE90 00327DF0  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8032AE94 00327DF4  98 03 01 D0 */	stb r0, 0x1d0(r3)
-/* 8032AE98 00327DF8  4E 80 00 20 */	blr 
+/* 8032AE98 00327DF8  4E 80 00 20 */	blr
 
 .global RenderNSidedSpline__15CParticleSwooshFv
 RenderNSidedSpline__15CParticleSwooshFv:
@@ -1391,7 +1391,7 @@ lbl_8032B9EC:
 /* 8032BA90 003289F0  80 01 02 B4 */	lwz r0, 0x2b4(r1)
 /* 8032BA94 003289F4  7C 08 03 A6 */	mtlr r0
 /* 8032BA98 003289F8  38 21 02 B0 */	addi r1, r1, 0x2b0
-/* 8032BA9C 003289FC  4E 80 00 20 */	blr 
+/* 8032BA9C 003289FC  4E 80 00 20 */	blr
 
 .global RenderNSidedNoSpline__15CParticleSwooshFv
 RenderNSidedNoSpline__15CParticleSwooshFv:
@@ -1402,7 +1402,7 @@ RenderNSidedNoSpline__15CParticleSwooshFv:
 /* 8032BAB0 00328A10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032BAB4 00328A14  7C 08 03 A6 */	mtlr r0
 /* 8032BAB8 00328A18  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032BABC 00328A1C  4E 80 00 20 */	blr 
+/* 8032BABC 00328A1C  4E 80 00 20 */	blr
 
 .global Render3SidedSolidSpline__15CParticleSwooshFv
 Render3SidedSolidSpline__15CParticleSwooshFv:
@@ -2180,7 +2180,7 @@ lbl_8032C5F4:
 /* 8032C688 003295E8  80 01 02 84 */	lwz r0, 0x284(r1)
 /* 8032C68C 003295EC  7C 08 03 A6 */	mtlr r0
 /* 8032C690 003295F0  38 21 02 80 */	addi r1, r1, 0x280
-/* 8032C694 003295F4  4E 80 00 20 */	blr 
+/* 8032C694 003295F4  4E 80 00 20 */	blr
 
 .global Render3SidedSolidNoSplineNoGaps__15CParticleSwooshFv
 Render3SidedSolidNoSplineNoGaps__15CParticleSwooshFv:
@@ -2801,7 +2801,7 @@ lbl_8032CF2C:
 /* 8032CFB8 00329F18  80 01 02 14 */	lwz r0, 0x214(r1)
 /* 8032CFBC 00329F1C  7C 08 03 A6 */	mtlr r0
 /* 8032CFC0 00329F20  38 21 02 10 */	addi r1, r1, 0x210
-/* 8032CFC4 00329F24  4E 80 00 20 */	blr 
+/* 8032CFC4 00329F24  4E 80 00 20 */	blr
 
 .global Render2SidedSpline__15CParticleSwooshFv
 Render2SidedSpline__15CParticleSwooshFv:
@@ -2812,7 +2812,7 @@ Render2SidedSpline__15CParticleSwooshFv:
 /* 8032CFD8 00329F38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032CFDC 00329F3C  7C 08 03 A6 */	mtlr r0
 /* 8032CFE0 00329F40  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032CFE4 00329F44  4E 80 00 20 */	blr 
+/* 8032CFE4 00329F44  4E 80 00 20 */	blr
 
 .global Render2SidedNoSplineGaps__15CParticleSwooshFv
 Render2SidedNoSplineGaps__15CParticleSwooshFv:
@@ -3040,7 +3040,7 @@ lbl_8032D318:
 /* 8032D334 0032A294  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 8032D338 0032A298  7C 08 03 A6 */	mtlr r0
 /* 8032D33C 0032A29C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8032D340 0032A2A0  4E 80 00 20 */	blr 
+/* 8032D340 0032A2A0  4E 80 00 20 */	blr
 
 .global Render2SidedNoSplineNoGaps__15CParticleSwooshFv
 Render2SidedNoSplineNoGaps__15CParticleSwooshFv:
@@ -3670,7 +3670,7 @@ lbl_8032DC54:
 /* 8032DC94 0032ABF4  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 8032DC98 0032ABF8  7C 08 03 A6 */	mtlr r0
 /* 8032DC9C 0032ABFC  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 8032DCA0 0032AC00  4E 80 00 20 */	blr 
+/* 8032DCA0 0032AC00  4E 80 00 20 */	blr
 
 .global Render__15CParticleSwooshFv
 Render__15CParticleSwooshFv:
@@ -3749,7 +3749,7 @@ lbl_8032DD4C:
 /* 8032DDBC 0032AD1C  80 BD 00 28 */	lwz r5, 0x28(r29)
 /* 8032DDC0 0032AD20  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8032DDC4 0032AD24  7D 89 03 A6 */	mtctr r12
-/* 8032DDC8 0032AD28  4E 80 04 21 */	bctrl 
+/* 8032DDC8 0032AD28  4E 80 04 21 */	bctrl
 /* 8032DDCC 0032AD2C  38 61 00 08 */	addi r3, r1, 8
 /* 8032DDD0 0032AD30  38 81 00 10 */	addi r4, r1, 0x10
 /* 8032DDD4 0032AD34  48 01 30 D5 */	bl __ct__6CTokenFRC6CToken
@@ -3776,7 +3776,7 @@ lbl_8032DD4C:
 /* 8032DE28 0032AD88  81 83 00 00 */	lwz r12, 0(r3)
 /* 8032DE2C 0032AD8C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032DE30 0032AD90  7D 89 03 A6 */	mtctr r12
-/* 8032DE34 0032AD94  4E 80 04 21 */	bctrl 
+/* 8032DE34 0032AD94  4E 80 04 21 */	bctrl
 /* 8032DE38 0032AD98  C0 01 00 1C */	lfs f0, 0x1c(r1)
 /* 8032DE3C 0032AD9C  D0 1D 01 D4 */	stfs f0, 0x1d4(r29)
 /* 8032DE40 0032ADA0  C0 01 00 20 */	lfs f0, 0x20(r1)
@@ -3790,7 +3790,7 @@ lbl_8032DD4C:
 /* 8032DE60 0032ADC0  81 83 00 00 */	lwz r12, 0(r3)
 /* 8032DE64 0032ADC4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8032DE68 0032ADC8  7D 89 03 A6 */	mtctr r12
-/* 8032DE6C 0032ADCC  4E 80 04 21 */	bctrl 
+/* 8032DE6C 0032ADCC  4E 80 04 21 */	bctrl
 /* 8032DE70 0032ADD0  88 1D 01 D0 */	lbz r0, 0x1d0(r29)
 /* 8032DE74 0032ADD4  50 60 07 FE */	rlwimi r0, r3, 0, 0x1f, 0x1f
 /* 8032DE78 0032ADD8  98 1D 01 D0 */	stb r0, 0x1d0(r29)
@@ -3799,7 +3799,7 @@ lbl_8032DD4C:
 /* 8032DE84 0032ADE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8032DE88 0032ADE8  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 8032DE8C 0032ADEC  7D 89 03 A6 */	mtctr r12
-/* 8032DE90 0032ADF0  4E 80 04 21 */	bctrl 
+/* 8032DE90 0032ADF0  4E 80 04 21 */	bctrl
 /* 8032DE94 0032ADF4  88 1D 01 D1 */	lbz r0, 0x1d1(r29)
 /* 8032DE98 0032ADF8  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 8032DE9C 0032ADFC  98 1D 01 D1 */	stb r0, 0x1d1(r29)
@@ -3812,7 +3812,7 @@ lbl_8032DD4C:
 /* 8032DEB8 0032AE18  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032DEBC 0032AE1C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032DEC0 0032AE20  7D 89 03 A6 */	mtctr r12
-/* 8032DEC4 0032AE24  4E 80 04 21 */	bctrl 
+/* 8032DEC4 0032AE24  4E 80 04 21 */	bctrl
 lbl_8032DEC8:
 /* 8032DEC8 0032AE28  80 1D 01 EC */	lwz r0, 0x1ec(r29)
 /* 8032DECC 0032AE2C  2C 00 00 00 */	cmpwi r0, 0
@@ -3914,7 +3914,7 @@ lbl_8032E010:
 /* 8032E01C 0032AF7C  83 A1 01 34 */	lwz r29, 0x134(r1)
 /* 8032E020 0032AF80  7C 08 03 A6 */	mtlr r0
 /* 8032E024 0032AF84  38 21 01 40 */	addi r1, r1, 0x140
-/* 8032E028 0032AF88  4E 80 00 20 */	blr 
+/* 8032E028 0032AF88  4E 80 00 20 */	blr
 
 .global IsSystemDeletable__15CParticleSwooshCFv
 IsSystemDeletable__15CParticleSwooshCFv:
@@ -3934,7 +3934,7 @@ lbl_8032E05C:
 /* 8032E05C 0032AFBC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8032E060 0032AFC0  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 8032E064 0032AFC4  7D 89 03 A6 */	mtctr r12
-/* 8032E068 0032AFC8  4E 80 04 21 */	bctrl 
+/* 8032E068 0032AFC8  4E 80 04 21 */	bctrl
 /* 8032E06C 0032AFCC  2C 03 00 02 */	cmpwi r3, 2
 /* 8032E070 0032AFD0  41 80 00 0C */	blt lbl_8032E07C
 /* 8032E074 0032AFD4  38 60 00 00 */	li r3, 0
@@ -3945,23 +3945,23 @@ lbl_8032E080:
 /* 8032E080 0032AFE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032E084 0032AFE4  7C 08 03 A6 */	mtlr r0
 /* 8032E088 0032AFE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032E08C 0032AFEC  4E 80 00 20 */	blr 
+/* 8032E08C 0032AFEC  4E 80 00 20 */	blr
 
 .global GetModulationColor__15CParticleSwooshCFv
 GetModulationColor__15CParticleSwooshCFv:
 /* 8032E090 0032AFF0  38 63 02 0C */	addi r3, r3, 0x20c
-/* 8032E094 0032AFF4  4E 80 00 20 */	blr 
+/* 8032E094 0032AFF4  4E 80 00 20 */	blr
 
 .global SetModulationColor__15CParticleSwooshFRC6CColor
 SetModulationColor__15CParticleSwooshFRC6CColor:
 /* 8032E098 0032AFF8  80 04 00 00 */	lwz r0, 0(r4)
 /* 8032E09C 0032AFFC  90 03 02 0C */	stw r0, 0x20c(r3)
-/* 8032E0A0 0032B000  4E 80 00 20 */	blr 
+/* 8032E0A0 0032B000  4E 80 00 20 */	blr
 
 .global GetParticleCount__15CParticleSwooshCFv
 GetParticleCount__15CParticleSwooshCFv:
 /* 8032E0A4 0032B004  80 63 01 AC */	lwz r3, 0x1ac(r3)
-/* 8032E0A8 0032B008  4E 80 00 20 */	blr 
+/* 8032E0A8 0032B008  4E 80 00 20 */	blr
 
 .global SetLocalScale__15CParticleSwooshFRC9CVector3f
 SetLocalScale__15CParticleSwooshFRC9CVector3f:
@@ -3971,7 +3971,7 @@ SetLocalScale__15CParticleSwooshFRC9CVector3f:
 /* 8032E0B8 0032B018  D0 03 01 50 */	stfs f0, 0x150(r3)
 /* 8032E0BC 0032B01C  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8032E0C0 0032B020  D0 03 01 54 */	stfs f0, 0x154(r3)
-/* 8032E0C4 0032B024  4E 80 00 20 */	blr 
+/* 8032E0C4 0032B024  4E 80 00 20 */	blr
 
 .global SetGlobalOrientation__15CParticleSwooshFRC12CTransform4f
 SetGlobalOrientation__15CParticleSwooshFRC12CTransform4f:
@@ -3989,7 +3989,7 @@ SetGlobalOrientation__15CParticleSwooshFRC12CTransform4f:
 /* 8032E0F4 0032B054  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8032E0F8 0032B058  7C 08 03 A6 */	mtlr r0
 /* 8032E0FC 0032B05C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8032E100 0032B060  4E 80 00 20 */	blr 
+/* 8032E100 0032B060  4E 80 00 20 */	blr
 
 .global SetGlobalTranslation__15CParticleSwooshFRC9CVector3f
 SetGlobalTranslation__15CParticleSwooshFRC9CVector3f:
@@ -3999,7 +3999,7 @@ SetGlobalTranslation__15CParticleSwooshFRC9CVector3f:
 /* 8032E110 0032B070  D0 03 00 A8 */	stfs f0, 0xa8(r3)
 /* 8032E114 0032B074  C0 04 00 08 */	lfs f0, 8(r4)
 /* 8032E118 0032B078  D0 03 00 AC */	stfs f0, 0xac(r3)
-/* 8032E11C 0032B07C  4E 80 00 20 */	blr 
+/* 8032E11C 0032B07C  4E 80 00 20 */	blr
 
 .global SetTranslation__15CParticleSwooshFRC9CVector3f
 SetTranslation__15CParticleSwooshFRC9CVector3f:
@@ -4017,7 +4017,7 @@ SetTranslation__15CParticleSwooshFRC9CVector3f:
 /* 8032E14C 0032B0AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032E150 0032B0B0  7C 08 03 A6 */	mtlr r0
 /* 8032E154 0032B0B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032E158 0032B0B8  4E 80 00 20 */	blr 
+/* 8032E158 0032B0B8  4E 80 00 20 */	blr
 
 .global UpdateTranslationAndOrientation__15CParticleSwooshFv
 UpdateTranslationAndOrientation__15CParticleSwooshFv:
@@ -4084,7 +4084,7 @@ lbl_8032E1F4:
 /* 8032E248 0032B1A8  80 9C 00 28 */	lwz r4, 0x28(r28)
 /* 8032E24C 0032B1AC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E250 0032B1B0  7D 89 03 A6 */	mtctr r12
-/* 8032E254 0032B1B4  4E 80 04 21 */	bctrl 
+/* 8032E254 0032B1B4  4E 80 04 21 */	bctrl
 lbl_8032E258:
 /* 8032E258 0032B1B8  C0 02 CA 94 */	lfs f0, lbl_805AE7B4@sda21(r2)
 /* 8032E25C 0032B1BC  D0 1D 00 34 */	stfs f0, 0x34(r29)
@@ -4098,7 +4098,7 @@ lbl_8032E264:
 /* 8032E278 0032B1D8  80 9C 00 28 */	lwz r4, 0x28(r28)
 /* 8032E27C 0032B1DC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E280 0032B1E0  7D 89 03 A6 */	mtctr r12
-/* 8032E284 0032B1E4  4E 80 04 21 */	bctrl 
+/* 8032E284 0032B1E4  4E 80 04 21 */	bctrl
 /* 8032E288 0032B1E8  48 00 00 0C */	b lbl_8032E294
 lbl_8032E28C:
 /* 8032E28C 0032B1EC  C0 02 CA 94 */	lfs f0, lbl_805AE7B4@sda21(r2)
@@ -4151,7 +4151,7 @@ lbl_8032E294:
 /* 8032E344 0032B2A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8032E348 0032B2A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E34C 0032B2AC  7D 89 03 A6 */	mtctr r12
-/* 8032E350 0032B2B0  4E 80 04 21 */	bctrl 
+/* 8032E350 0032B2B0  4E 80 04 21 */	bctrl
 /* 8032E354 0032B2B4  38 61 00 5C */	addi r3, r1, 0x5c
 /* 8032E358 0032B2B8  38 9C 00 44 */	addi r4, r28, 0x44
 /* 8032E35C 0032B2BC  38 A1 00 98 */	addi r5, r1, 0x98
@@ -4186,7 +4186,7 @@ lbl_8032E3C0:
 /* 8032E3CC 0032B32C  80 9D 00 68 */	lwz r4, 0x68(r29)
 /* 8032E3D0 0032B330  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E3D4 0032B334  7D 89 03 A6 */	mtctr r12
-/* 8032E3D8 0032B338  4E 80 04 21 */	bctrl 
+/* 8032E3D8 0032B338  4E 80 04 21 */	bctrl
 lbl_8032E3DC:
 /* 8032E3DC 0032B33C  80 7C 00 24 */	lwz r3, 0x24(r28)
 /* 8032E3E0 0032B340  80 63 00 34 */	lwz r3, 0x34(r3)
@@ -4235,7 +4235,7 @@ lbl_8032E3DC:
 /* 8032E48C 0032B3EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8032E490 0032B3F0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E494 0032B3F4  7D 89 03 A6 */	mtctr r12
-/* 8032E498 0032B3F8  4E 80 04 21 */	bctrl 
+/* 8032E498 0032B3F8  4E 80 04 21 */	bctrl
 /* 8032E49C 0032B3FC  38 61 00 20 */	addi r3, r1, 0x20
 /* 8032E4A0 0032B400  38 9C 00 44 */	addi r4, r28, 0x44
 /* 8032E4A4 0032B404  38 A1 00 98 */	addi r5, r1, 0x98
@@ -4270,7 +4270,7 @@ lbl_8032E508:
 /* 8032E514 0032B474  80 9D 00 68 */	lwz r4, 0x68(r29)
 /* 8032E518 0032B478  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E51C 0032B47C  7D 89 03 A6 */	mtctr r12
-/* 8032E520 0032B480  4E 80 04 21 */	bctrl 
+/* 8032E520 0032B480  4E 80 04 21 */	bctrl
 lbl_8032E524:
 /* 8032E524 0032B484  80 1D 00 68 */	lwz r0, 0x68(r29)
 /* 8032E528 0032B488  2C 00 00 00 */	cmpwi r0, 0
@@ -4297,7 +4297,7 @@ lbl_8032E560:
 /* 8032E578 0032B4D8  80 9D 00 68 */	lwz r4, 0x68(r29)
 /* 8032E57C 0032B4DC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E580 0032B4E0  7D 89 03 A6 */	mtctr r12
-/* 8032E584 0032B4E4  4E 80 04 21 */	bctrl 
+/* 8032E584 0032B4E4  4E 80 04 21 */	bctrl
 /* 8032E588 0032B4E8  C0 3D 00 18 */	lfs f1, 0x18(r29)
 /* 8032E58C 0032B4EC  C0 01 00 A4 */	lfs f0, 0xa4(r1)
 /* 8032E590 0032B4F0  C0 9D 00 1C */	lfs f4, 0x1c(r29)
@@ -4320,7 +4320,7 @@ lbl_8032E5B8:
 /* 8032E5D0 0032B530  80 9D 00 68 */	lwz r4, 0x68(r29)
 /* 8032E5D4 0032B534  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E5D8 0032B538  7D 89 03 A6 */	mtctr r12
-/* 8032E5DC 0032B53C  4E 80 04 21 */	bctrl 
+/* 8032E5DC 0032B53C  4E 80 04 21 */	bctrl
 lbl_8032E5E0:
 /* 8032E5E0 0032B540  7F 83 E3 78 */	mr r3, r28
 /* 8032E5E4 0032B544  7F C4 F3 78 */	mr r4, r30
@@ -4374,7 +4374,7 @@ lbl_8032E680:
 /* 8032E690 0032B5F0  83 81 00 B0 */	lwz r28, 0xb0(r1)
 /* 8032E694 0032B5F4  7C 08 03 A6 */	mtlr r0
 /* 8032E698 0032B5F8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8032E69C 0032B5FC  4E 80 00 20 */	blr 
+/* 8032E69C 0032B5FC  4E 80 00 20 */	blr
 
 .global SetOrientation__15CParticleSwooshFRC12CTransform4f
 SetOrientation__15CParticleSwooshFRC12CTransform4f:
@@ -4402,7 +4402,7 @@ SetOrientation__15CParticleSwooshFRC12CTransform4f:
 /* 8032E6F4 0032B654  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8032E6F8 0032B658  7C 08 03 A6 */	mtlr r0
 /* 8032E6FC 0032B65C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8032E700 0032B660  4E 80 00 20 */	blr 
+/* 8032E700 0032B660  4E 80 00 20 */	blr
 
 .global Update__15CParticleSwooshFd
 Update__15CParticleSwooshFd:
@@ -4457,7 +4457,7 @@ lbl_8032E748:
 /* 8032E7C0 0032B720  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032E7C4 0032B724  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032E7C8 0032B728  7D 89 03 A6 */	mtctr r12
-/* 8032E7CC 0032B72C  4E 80 04 21 */	bctrl 
+/* 8032E7CC 0032B72C  4E 80 04 21 */	bctrl
 lbl_8032E7D0:
 /* 8032E7D0 0032B730  C0 21 00 14 */	lfs f1, 0x14(r1)
 /* 8032E7D4 0032B734  C8 02 CB 10 */	lfd f0, lbl_805AE830@sda21(r2)
@@ -4506,7 +4506,7 @@ lbl_8032E824:
 /* 8032E874 0032B7D4  7C A0 2A 14 */	add r5, r0, r5
 /* 8032E878 0032B7D8  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032E87C 0032B7DC  7D 89 03 A6 */	mtctr r12
-/* 8032E880 0032B7E0  4E 80 04 21 */	bctrl 
+/* 8032E880 0032B7E0  4E 80 04 21 */	bctrl
 /* 8032E884 0032B7E4  48 00 00 1C */	b lbl_8032E8A0
 lbl_8032E888:
 /* 8032E888 0032B7E8  80 1D 01 58 */	lwz r0, 0x158(r29)
@@ -4563,7 +4563,7 @@ lbl_8032E908:
 /* 8032E94C 0032B8AC  7C A0 2A 14 */	add r5, r0, r5
 /* 8032E950 0032B8B0  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032E954 0032B8B4  7D 89 03 A6 */	mtctr r12
-/* 8032E958 0032B8B8  4E 80 04 21 */	bctrl 
+/* 8032E958 0032B8B8  4E 80 04 21 */	bctrl
 /* 8032E95C 0032B8BC  80 1D 01 58 */	lwz r0, 0x158(r29)
 /* 8032E960 0032B8C0  38 61 00 18 */	addi r3, r1, 0x18
 /* 8032E964 0032B8C4  80 DD 01 68 */	lwz r6, 0x168(r29)
@@ -4597,7 +4597,7 @@ lbl_8032E9A8:
 /* 8032E9D0 0032B930  7C A0 2A 14 */	add r5, r0, r5
 /* 8032E9D4 0032B934  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032E9D8 0032B938  7D 89 03 A6 */	mtctr r12
-/* 8032E9DC 0032B93C  4E 80 04 21 */	bctrl 
+/* 8032E9DC 0032B93C  4E 80 04 21 */	bctrl
 lbl_8032E9E0:
 /* 8032E9E0 0032B940  80 1D 01 58 */	lwz r0, 0x158(r29)
 /* 8032E9E4 0032B944  80 7D 01 68 */	lwz r3, 0x168(r29)
@@ -4622,7 +4622,7 @@ lbl_8032E9E0:
 /* 8032EA30 0032B990  7C A0 2A 14 */	add r5, r0, r5
 /* 8032EA34 0032B994  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032EA38 0032B998  7D 89 03 A6 */	mtctr r12
-/* 8032EA3C 0032B99C  4E 80 04 21 */	bctrl 
+/* 8032EA3C 0032B99C  4E 80 04 21 */	bctrl
 /* 8032EA40 0032B9A0  48 00 00 34 */	b lbl_8032EA74
 lbl_8032EA44:
 /* 8032EA44 0032B9A4  C0 22 CA 90 */	lfs f1, lbl_805AE7B0@sda21(r2)
@@ -4649,7 +4649,7 @@ lbl_8032EA74:
 /* 8032EA94 0032B9F4  80 9D 00 28 */	lwz r4, 0x28(r29)
 /* 8032EA98 0032B9F8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032EA9C 0032B9FC  7D 89 03 A6 */	mtctr r12
-/* 8032EAA0 0032BA00  4E 80 04 21 */	bctrl 
+/* 8032EAA0 0032BA00  4E 80 04 21 */	bctrl
 lbl_8032EAA4:
 /* 8032EAA4 0032BA04  80 61 00 10 */	lwz r3, 0x10(r1)
 /* 8032EAA8 0032BA08  3C 00 43 30 */	lis r0, 0x4330
@@ -4723,7 +4723,7 @@ lbl_8032EB88:
 /* 8032EBA4 0032BB04  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 8032EBA8 0032BB08  7C 08 03 A6 */	mtlr r0
 /* 8032EBAC 0032BB0C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8032EBB0 0032BB10  4E 80 00 20 */	blr 
+/* 8032EBB0 0032BB10  4E 80 00 20 */	blr
 
 .global IsLargeEnough__15CParticleSwooshCFv
 IsLargeEnough__15CParticleSwooshCFv:
@@ -4737,7 +4737,7 @@ IsLargeEnough__15CParticleSwooshCFv:
 /* 8032EBD0 0032BB30  38 80 00 01 */	li r4, 1
 lbl_8032EBD4:
 /* 8032EBD4 0032BB34  7C 83 23 78 */	mr r3, r4
-/* 8032EBD8 0032BB38  4E 80 00 20 */	blr 
+/* 8032EBD8 0032BB38  4E 80 00 20 */	blr
 
 .global __dt__15CParticleSwooshFv
 __dt__15CParticleSwooshFv:
@@ -4888,7 +4888,7 @@ lbl_8032EDC8:
 /* 8032EDD4 0032BD34  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8032EDD8 0032BD38  7C 08 03 A6 */	mtlr r0
 /* 8032EDDC 0032BD3C  38 21 00 60 */	addi r1, r1, 0x60
-/* 8032EDE0 0032BD40  4E 80 00 20 */	blr 
+/* 8032EDE0 0032BD40  4E 80 00 20 */	blr
 
 .global "__ct__15CParticleSwooshF28TToken<18CSwooshDescription>i"
 "__ct__15CParticleSwooshF28TToken<18CSwooshDescription>i":
@@ -5073,7 +5073,7 @@ lbl_8032F088:
 /* 8032F0A0 0032C000  38 80 00 00 */	li r4, 0
 /* 8032F0A4 0032C004  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032F0A8 0032C008  7D 89 03 A6 */	mtctr r12
-/* 8032F0AC 0032C00C  4E 80 04 21 */	bctrl 
+/* 8032F0AC 0032C00C  4E 80 04 21 */	bctrl
 lbl_8032F0B0:
 /* 8032F0B0 0032C010  80 7F 01 B4 */	lwz r3, 0x1b4(r31)
 /* 8032F0B4 0032C014  38 03 00 01 */	addi r0, r3, 1
@@ -5087,7 +5087,7 @@ lbl_8032F0B0:
 /* 8032F0D4 0032C034  38 80 00 00 */	li r4, 0
 /* 8032F0D8 0032C038  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032F0DC 0032C03C  7D 89 03 A6 */	mtctr r12
-/* 8032F0E0 0032C040  4E 80 04 21 */	bctrl 
+/* 8032F0E0 0032C040  4E 80 04 21 */	bctrl
 lbl_8032F0E4:
 /* 8032F0E4 0032C044  80 9F 00 24 */	lwz r4, 0x24(r31)
 /* 8032F0E8 0032C048  7F E3 FB 78 */	mr r3, r31
@@ -5117,7 +5117,7 @@ lbl_8032F0E4:
 /* 8032F148 0032C0A8  38 80 00 00 */	li r4, 0
 /* 8032F14C 0032C0AC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032F150 0032C0B0  7D 89 03 A6 */	mtctr r12
-/* 8032F154 0032C0B4  4E 80 04 21 */	bctrl 
+/* 8032F154 0032C0B4  4E 80 04 21 */	bctrl
 /* 8032F158 0032C0B8  48 00 00 10 */	b lbl_8032F168
 lbl_8032F15C:
 /* 8032F15C 0032C0BC  3C 60 00 80 */	lis r3, 0x007FFFFF@ha
@@ -5138,7 +5138,7 @@ lbl_8032F168:
 /* 8032F194 0032C0F4  38 80 00 00 */	li r4, 0
 /* 8032F198 0032C0F8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8032F19C 0032C0FC  7D 89 03 A6 */	mtctr r12
-/* 8032F1A0 0032C100  4E 80 04 21 */	bctrl 
+/* 8032F1A0 0032C100  4E 80 04 21 */	bctrl
 lbl_8032F1A4:
 /* 8032F1A4 0032C104  80 1F 01 B0 */	lwz r0, 0x1b0(r31)
 /* 8032F1A8 0032C108  2C 00 00 00 */	cmpwi r0, 0
@@ -5206,7 +5206,7 @@ lbl_8032F274:
 /* 8032F28C 0032C1EC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8032F290 0032C1F0  38 84 66 70 */	addi r4, r4, skIdentity4f@l
 /* 8032F294 0032C1F4  7D 89 03 A6 */	mtctr r12
-/* 8032F298 0032C1F8  4E 80 04 21 */	bctrl 
+/* 8032F298 0032C1F8  4E 80 04 21 */	bctrl
 /* 8032F29C 0032C1FC  80 1F 01 70 */	lwz r0, 0x170(r31)
 /* 8032F2A0 0032C200  80 7F 01 78 */	lwz r3, 0x178(r31)
 /* 8032F2A4 0032C204  1C 00 00 0C */	mulli r0, r0, 0xc
@@ -5436,7 +5436,7 @@ lbl_8032F59C:
 /* 8032F5B0 0032C510  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8032F5B4 0032C514  7C 08 03 A6 */	mtlr r0
 /* 8032F5B8 0032C518  38 21 01 00 */	addi r1, r1, 0x100
-/* 8032F5BC 0032C51C  4E 80 00 20 */	blr 
+/* 8032F5BC 0032C51C  4E 80 00 20 */	blr
 
 .global sub_8032f5c0
 sub_8032f5c0:
@@ -5472,7 +5472,7 @@ lbl_8032F600:
 /* 8032F62C 0032C58C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032F630 0032C590  7C 08 03 A6 */	mtlr r0
 /* 8032F634 0032C594  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032F638 0032C598  4E 80 00 20 */	blr 
+/* 8032F638 0032C598  4E 80 00 20 */	blr
 
 .global sub_8032f63c
 sub_8032f63c:
@@ -5486,7 +5486,7 @@ lbl_8032F654:
 /* 8032F654 0032C5B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032F658 0032C5B8  7C 08 03 A6 */	mtlr r0
 /* 8032F65C 0032C5BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032F660 0032C5C0  4E 80 00 20 */	blr 
+/* 8032F660 0032C5C0  4E 80 00 20 */	blr
 
 .global sub_8032f664
 sub_8032f664:
@@ -5546,7 +5546,7 @@ sub_8032f664:
 /* 8032F738 0032C698  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032F73C 0032C69C  7C 08 03 A6 */	mtlr r0
 /* 8032F740 0032C6A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032F744 0032C6A4  4E 80 00 20 */	blr 
+/* 8032F744 0032C6A4  4E 80 00 20 */	blr
 
 .global __ct__Q215CParticleSwoosh11SSwooshDataFRC9CVector3fRC9CVector3fffibRC12CTransform4fRC9CVector3fffRC6CColor
 __ct__Q215CParticleSwoosh11SSwooshDataFRC9CVector3fRC9CVector3fffibRC12CTransform4fRC9CVector3fffRC6CColor:
@@ -5604,7 +5604,7 @@ __ct__Q215CParticleSwoosh11SSwooshDataFRC9CVector3fRC9CVector3fffibRC12CTransfor
 /* 8032F814 0032C774  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8032F818 0032C778  7C 08 03 A6 */	mtlr r0
 /* 8032F81C 0032C77C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8032F820 0032C780  4E 80 00 20 */	blr 
+/* 8032F820 0032C780  4E 80 00 20 */	blr
 
 .global sub_8032f824
 sub_8032f824:
@@ -5667,7 +5667,7 @@ lbl_8032F8E0:
 /* 8032F8EC 0032C84C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8032F8F0 0032C850  7C 08 03 A6 */	mtlr r0
 /* 8032F8F4 0032C854  38 21 00 30 */	addi r1, r1, 0x30
-/* 8032F8F8 0032C858  4E 80 00 20 */	blr 
+/* 8032F8F8 0032C858  4E 80 00 20 */	blr
 
 .global sub_8032f8fc
 sub_8032f8fc:

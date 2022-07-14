@@ -71,7 +71,7 @@ lbl_8020FC8C:
 /* 8020FC98 0020CBF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8020FC9C 0020CBFC  7C 08 03 A6 */	mtlr r0
 /* 8020FCA0 0020CC00  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020FCA4 0020CC04  4E 80 00 20 */	blr 
+/* 8020FCA4 0020CC04  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__9CRepulsorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__9CRepulsorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -85,7 +85,7 @@ AcceptScriptMsg__9CRepulsorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 8020FCC4 0020CC24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020FCC8 0020CC28  7C 08 03 A6 */	mtlr r0
 /* 8020FCCC 0020CC2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020FCD0 0020CC30  4E 80 00 20 */	blr 
+/* 8020FCD0 0020CC30  4E 80 00 20 */	blr
 
 .global Accept__9CRepulsorFR8IVisitor
 Accept__9CRepulsorFR8IVisitor:
@@ -98,11 +98,11 @@ Accept__9CRepulsorFR8IVisitor:
 /* 8020FCEC 0020CC4C  7C 04 03 78 */	mr r4, r0
 /* 8020FCF0 0020CC50  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 8020FCF4 0020CC54  7D 89 03 A6 */	mtctr r12
-/* 8020FCF8 0020CC58  4E 80 04 21 */	bctrl 
+/* 8020FCF8 0020CC58  4E 80 04 21 */	bctrl
 /* 8020FCFC 0020CC5C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020FD00 0020CC60  7C 08 03 A6 */	mtlr r0
 /* 8020FD04 0020CC64  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020FD08 0020CC68  4E 80 00 20 */	blr 
+/* 8020FD08 0020CC68  4E 80 00 20 */	blr
 
 .global "__ct__9CRepulsorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3ff"
 "__ct__9CRepulsorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3ff":

@@ -30,7 +30,7 @@ lbl_802FD0F4:
 /* 802FD0FC 002FA05C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FD100 002FA060  7C 08 03 A6 */	mtlr r0
 /* 802FD104 002FA064  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FD108 002FA068  4E 80 00 20 */	blr 
+/* 802FD108 002FA068  4E 80 00 20 */	blr
 
 .global __lt__8CPOINodeCFRC8CPOINode
 __lt__8CPOINodeCFRC8CPOINode:
@@ -43,7 +43,7 @@ __lt__8CPOINodeCFRC8CPOINode:
 /* 802FD124 002FA084  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FD128 002FA088  7C 08 03 A6 */	mtlr r0
 /* 802FD12C 002FA08C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FD130 002FA090  4E 80 00 20 */	blr 
+/* 802FD130 002FA090  4E 80 00 20 */	blr
 
 .global __gt__8CPOINodeCFRC8CPOINode
 __gt__8CPOINodeCFRC8CPOINode:
@@ -56,7 +56,7 @@ __gt__8CPOINodeCFRC8CPOINode:
 /* 802FD14C 002FA0AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FD150 002FA0B0  7C 08 03 A6 */	mtlr r0
 /* 802FD154 002FA0B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FD158 002FA0B8  4E 80 00 20 */	blr 
+/* 802FD158 002FA0B8  4E 80 00 20 */	blr
 
 .global __ct__8CPOINodeFR12CInputStream
 __ct__8CPOINodeFR12CInputStream:
@@ -104,7 +104,7 @@ __ct__8CPOINodeFR12CInputStream:
 /* 802FD200 002FA160  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FD204 002FA164  7C 08 03 A6 */	mtlr r0
 /* 802FD208 002FA168  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FD20C 002FA16C  4E 80 00 20 */	blr 
+/* 802FD20C 002FA16C  4E 80 00 20 */	blr
 
 .global "__ct__8CPOINodeFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfii"
 "__ct__8CPOINodeFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfii":

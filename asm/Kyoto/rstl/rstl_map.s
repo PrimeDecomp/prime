@@ -7,7 +7,7 @@ rbtree_traverse_forward__4rstlFPCvPv:
 /* 8033C5E0 00339540  28 04 00 00 */	cmplwi r4, 0
 /* 8033C5E4 00339544  40 82 00 0C */	bne lbl_8033C5F0
 /* 8033C5E8 00339548  80 63 00 00 */	lwz r3, 0(r3)
-/* 8033C5EC 0033954C  4E 80 00 20 */	blr 
+/* 8033C5EC 0033954C  4E 80 00 20 */	blr
 lbl_8033C5F0:
 /* 8033C5F0 00339550  80 A4 00 04 */	lwz r5, 4(r4)
 /* 8033C5F4 00339554  28 05 00 00 */	cmplwi r5, 0
@@ -16,14 +16,14 @@ lbl_8033C5F0:
 /* 8033C600 00339560  28 00 00 00 */	cmplwi r0, 0
 /* 8033C604 00339564  40 82 00 0C */	bne lbl_8033C610
 /* 8033C608 00339568  38 60 00 00 */	li r3, 0
-/* 8033C60C 0033956C  4E 80 00 20 */	blr 
+/* 8033C60C 0033956C  4E 80 00 20 */	blr
 lbl_8033C610:
 /* 8033C610 00339570  28 05 00 00 */	cmplwi r5, 0
 /* 8033C614 00339574  40 82 00 14 */	bne lbl_8033C628
 /* 8033C618 00339578  80 64 00 08 */	lwz r3, 8(r4)
 /* 8033C61C 0033957C  80 03 00 00 */	lwz r0, 0(r3)
 /* 8033C620 00339580  7C 00 20 40 */	cmplw r0, r4
-/* 8033C624 00339584  4D 82 00 20 */	beqlr 
+/* 8033C624 00339584  4D 82 00 20 */	beqlr
 lbl_8033C628:
 /* 8033C628 00339588  28 05 00 00 */	cmplwi r5, 0
 /* 8033C62C 0033958C  41 82 00 28 */	beq lbl_8033C654
@@ -35,7 +35,7 @@ lbl_8033C63C:
 /* 8033C63C 0033959C  80 03 00 00 */	lwz r0, 0(r3)
 /* 8033C640 003395A0  28 00 00 00 */	cmplwi r0, 0
 /* 8033C644 003395A4  40 82 FF F4 */	bne lbl_8033C638
-/* 8033C648 003395A8  4E 80 00 20 */	blr 
+/* 8033C648 003395A8  4E 80 00 20 */	blr
 /* 8033C64C 003395AC  48 00 00 08 */	b lbl_8033C654
 lbl_8033C650:
 /* 8033C650 003395B0  7C 64 1B 78 */	mr r4, r3
@@ -48,9 +48,9 @@ lbl_8033C654:
 /* 8033C668 003395C8  41 82 FF E8 */	beq lbl_8033C650
 lbl_8033C66C:
 /* 8033C66C 003395CC  28 03 00 00 */	cmplwi r3, 0
-/* 8033C670 003395D0  4C 82 00 20 */	bnelr 
+/* 8033C670 003395D0  4C 82 00 20 */	bnelr
 /* 8033C674 003395D4  38 60 00 00 */	li r3, 0
-/* 8033C678 003395D8  4E 80 00 20 */	blr 
+/* 8033C678 003395D8  4E 80 00 20 */	blr
 
 .global rbtree_rebalance_for_erase__4rstlFPvPv
 rbtree_rebalance_for_erase__4rstlFPvPv:
@@ -363,7 +363,7 @@ lbl_8033CA74:
 /* 8033CA88 003399E8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8033CA8C 003399EC  7C 08 03 A6 */	mtlr r0
 /* 8033CA90 003399F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033CA94 003399F4  4E 80 00 20 */	blr 
+/* 8033CA94 003399F4  4E 80 00 20 */	blr
 
 .global rbtree_rebalance__4rstlFPvPv
 rbtree_rebalance__4rstlFPvPv:
@@ -467,7 +467,7 @@ lbl_8033CBE8:
 /* 8033CBFC 00339B5C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033CC00 00339B60  7C 08 03 A6 */	mtlr r0
 /* 8033CC04 00339B64  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033CC08 00339B68  4E 80 00 20 */	blr 
+/* 8033CC08 00339B68  4E 80 00 20 */	blr
 
 .global rbtree_rotate_right__4rstlFPvPv
 rbtree_rotate_right__4rstlFPvPv:
@@ -499,7 +499,7 @@ lbl_8033CC50:
 /* 8033CC60 00339BC0  90 87 00 08 */	stw r4, 8(r7)
 lbl_8033CC64:
 /* 8033CC64 00339BC4  90 E4 00 00 */	stw r7, 0(r4)
-/* 8033CC68 00339BC8  4E 80 00 20 */	blr 
+/* 8033CC68 00339BC8  4E 80 00 20 */	blr
 
 .global rbtree_rotate_left__4rstlFPvPv
 rbtree_rotate_left__4rstlFPvPv:

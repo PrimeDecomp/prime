@@ -142,7 +142,7 @@ lbl_803539DC:
 /* 803539E0 00350940  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803539E4 00350944  7C 08 03 A6 */	mtlr r0
 /* 803539E8 00350948  38 21 00 20 */	addi r1, r1, 0x20
-/* 803539EC 0035094C  4E 80 00 20 */	blr 
+/* 803539EC 0035094C  4E 80 00 20 */	blr
 
 .global ProcessingPoints__10CSkinRulesFiPPUs
 ProcessingPoints__10CSkinRulesFiPPUs:
@@ -213,7 +213,7 @@ lbl_80353AD8:
 /* 80353ADC 00350A3C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80353AE0 00350A40  7C 08 03 A6 */	mtlr r0
 /* 80353AE4 00350A44  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353AE8 00350A48  4E 80 00 20 */	blr 
+/* 80353AE8 00350A48  4E 80 00 20 */	blr
 
 .global WaitForQueue__Fv
 WaitForQueue__Fv:
@@ -229,7 +229,7 @@ lbl_80353B0C:
 /* 80353B0C 00350A6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80353B10 00350A70  7C 08 03 A6 */	mtlr r0
 /* 80353B14 00350A74  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353B18 00350A78  4E 80 00 20 */	blr 
+/* 80353B18 00350A78  4E 80 00 20 */	blr
 
 .global StartNextTransaction__10CSkinRulesFv
 StartNextTransaction__10CSkinRulesFv:
@@ -300,7 +300,7 @@ lbl_80353C00:
 /* 80353C04 00350B64  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80353C08 00350B68  7C 08 03 A6 */	mtlr r0
 /* 80353C0C 00350B6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353C10 00350B70  4E 80 00 20 */	blr 
+/* 80353C10 00350B70  4E 80 00 20 */	blr
 
 .global InitLockedCacheState__10CSkinRulesFRC10CSkinRules
 InitLockedCacheState__10CSkinRulesFRC10CSkinRules:
@@ -323,7 +323,7 @@ InitLockedCacheState__10CSkinRulesFRC10CSkinRules:
 /* 80353C54 00350BB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80353C58 00350BB8  7C 08 03 A6 */	mtlr r0
 /* 80353C5C 00350BBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353C60 00350BC0  4E 80 00 20 */	blr 
+/* 80353C60 00350BC0  4E 80 00 20 */	blr
 
 .global FSkinRulesFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FSkinRulesFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -371,7 +371,7 @@ lbl_80353CA8:
 /* 80353D04 00350C64  38 80 00 01 */	li r4, 1
 /* 80353D08 00350C68  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80353D0C 00350C6C  7D 89 03 A6 */	mtctr r12
-/* 80353D10 00350C70  4E 80 04 21 */	bctrl 
+/* 80353D10 00350C70  4E 80 04 21 */	bctrl
 lbl_80353D14:
 /* 80353D14 00350C74  88 01 00 08 */	lbz r0, 8(r1)
 /* 80353D18 00350C78  28 00 00 00 */	cmplwi r0, 0
@@ -385,7 +385,7 @@ lbl_80353D2C:
 /* 80353D34 00350C94  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80353D38 00350C98  7C 08 03 A6 */	mtlr r0
 /* 80353D3C 00350C9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80353D40 00350CA0  4E 80 00 20 */	blr 
+/* 80353D40 00350CA0  4E 80 00 20 */	blr
 
 .global "__dt__20TToken<10CSkinRules>Fv"
 "__dt__20TToken<10CSkinRules>Fv":
@@ -427,7 +427,7 @@ lbl_80353DB8:
 /* 80353DC4 00350D24  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80353DC8 00350D28  7C 08 03 A6 */	mtlr r0
 /* 80353DCC 00350D2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353DD0 00350D30  4E 80 00 20 */	blr 
+/* 80353DD0 00350D30  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__20TToken<10CSkinRules>FRCQ24rstl22auto_ptr<10CSkinRules>"
 "GetIObjObjectFor__20TToken<10CSkinRules>FRCQ24rstl22auto_ptr<10CSkinRules>":
@@ -441,7 +441,7 @@ lbl_80353DB8:
 /* 80353DF0 00350D50  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80353DF4 00350D54  7C 08 03 A6 */	mtlr r0
 /* 80353DF8 00350D58  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353DFC 00350D5C  4E 80 00 20 */	blr 
+/* 80353DFC 00350D5C  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__38TObjOwnerDerivedFromIObj<10CSkinRules>FRCQ24rstl22auto_ptr<10CSkinRules>"
 "GetNewDerivedObject__38TObjOwnerDerivedFromIObj<10CSkinRules>FRCQ24rstl22auto_ptr<10CSkinRules>":
@@ -484,7 +484,7 @@ lbl_80353E70:
 /* 80353E8C 00350DEC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80353E90 00350DF0  7C 08 03 A6 */	mtlr r0
 /* 80353E94 00350DF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80353E98 00350DF8  4E 80 00 20 */	blr 
+/* 80353E98 00350DF8  4E 80 00 20 */	blr
 
 .global BuildNormalsFrom__10CSkinRulesCFPC9CVector3fP9CVector3f
 BuildNormalsFrom__10CSkinRulesCFPC9CVector3fP9CVector3f:
@@ -519,7 +519,7 @@ lbl_80353EF4:
 /* 80353F04 00350E64  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80353F08 00350E68  7C 08 03 A6 */	mtlr r0
 /* 80353F0C 00350E6C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80353F10 00350E70  4E 80 00 20 */	blr 
+/* 80353F10 00350E70  4E 80 00 20 */	blr
 
 .global BuildNormals__10CSkinRulesCFPVv
 BuildNormals__10CSkinRulesCFPVv:
@@ -565,7 +565,7 @@ lbl_80353F90:
 /* 80353FA0 00350F00  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80353FA4 00350F04  7C 08 03 A6 */	mtlr r0
 /* 80353FA8 00350F08  38 21 00 30 */	addi r1, r1, 0x30
-/* 80353FAC 00350F0C  4E 80 00 20 */	blr 
+/* 80353FAC 00350F0C  4E 80 00 20 */	blr
 
 .global BuildPoints__10CSkinRulesCFPVv
 BuildPoints__10CSkinRulesCFPVv:
@@ -611,7 +611,7 @@ lbl_8035402C:
 /* 8035403C 00350F9C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80354040 00350FA0  7C 08 03 A6 */	mtlr r0
 /* 80354044 00350FA4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80354048 00350FA8  4E 80 00 20 */	blr 
+/* 80354048 00350FA8  4E 80 00 20 */	blr
 
 .global BuildAccumulatedTransforms__10CSkinRulesCFRC17CPoseAsTransformsRC15CCharLayoutInfo
 BuildAccumulatedTransforms__10CSkinRulesCFRC17CPoseAsTransformsRC15CCharLayoutInfo:
@@ -694,7 +694,7 @@ lbl_80354154:
 /* 80354164 003510C4  80 01 04 E4 */	lwz r0, 0x4e4(r1)
 /* 80354168 003510C8  7C 08 03 A6 */	mtlr r0
 /* 8035416C 003510CC  38 21 04 E0 */	addi r1, r1, 0x4e0
-/* 80354170 003510D0  4E 80 00 20 */	blr 
+/* 80354170 003510D0  4E 80 00 20 */	blr
 
 .global __dt__10CSkinRulesFv
 __dt__10CSkinRulesFv:
@@ -725,7 +725,7 @@ lbl_803541C4:
 /* 803541D0 00351130  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803541D4 00351134  7C 08 03 A6 */	mtlr r0
 /* 803541D8 00351138  38 21 00 10 */	addi r1, r1, 0x10
-/* 803541DC 0035113C  4E 80 00 20 */	blr 
+/* 803541DC 0035113C  4E 80 00 20 */	blr
 
 .global sub_803541e0
 sub_803541e0:
@@ -797,7 +797,7 @@ lbl_803542B4:
 /* 803542C0 00351220  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 803542C4 00351224  7C 08 03 A6 */	mtlr r0
 /* 803542C8 00351228  38 21 00 20 */	addi r1, r1, 0x20
-/* 803542CC 0035122C  4E 80 00 20 */	blr 
+/* 803542CC 0035122C  4E 80 00 20 */	blr
 
 .global __ct__10CSkinRulesFR12CInputStream
 __ct__10CSkinRulesFR12CInputStream:
@@ -828,7 +828,7 @@ __ct__10CSkinRulesFR12CInputStream:
 /* 80354330 00351290  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80354334 00351294  7C 08 03 A6 */	mtlr r0
 /* 80354338 00351298  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035433C 0035129C  4E 80 00 20 */	blr 
+/* 8035433C 0035129C  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl49vector<12CVirtualBone,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl49vector<12CVirtualBone,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -946,7 +946,7 @@ lbl_803544BC:
 /* 803544CC 0035142C  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 803544D0 00351430  7C 08 03 A6 */	mtlr r0
 /* 803544D4 00351434  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 803544D8 00351438  4E 80 00 20 */	blr 
+/* 803544D8 00351438  4E 80 00 20 */	blr
 
 .global "Get<12CVirtualBone>__12CInputStreamFRC21TType<12CVirtualBone>"
 "Get<12CVirtualBone>__12CInputStreamFRC21TType<12CVirtualBone>":
@@ -964,7 +964,7 @@ lbl_803544BC:
 /* 80354508 00351468  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8035450C 0035146C  7C 08 03 A6 */	mtlr r0
 /* 80354510 00351470  38 21 00 20 */	addi r1, r1, 0x20
-/* 80354514 00351474  4E 80 00 20 */	blr 
+/* 80354514 00351474  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<12CVirtualBone>__FRC21TType<12CVirtualBone>R12CInputStream"
 "cinput_stream_helper<12CVirtualBone>__FRC21TType<12CVirtualBone>R12CInputStream":
@@ -976,7 +976,7 @@ lbl_803544BC:
 /* 8035452C 0035148C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80354530 00351490  7C 08 03 A6 */	mtlr r0
 /* 80354534 00351494  38 21 00 10 */	addi r1, r1, 0x10
-/* 80354538 00351498  4E 80 00 20 */	blr 
+/* 80354538 00351498  4E 80 00 20 */	blr
 
 .global sub_8035453c
 sub_8035453c:
@@ -1020,7 +1020,7 @@ lbl_803545B8:
 /* 803545BC 0035151C  80 01 03 34 */	lwz r0, 0x334(r1)
 /* 803545C0 00351520  7C 08 03 A6 */	mtlr r0
 /* 803545C4 00351524  38 21 03 30 */	addi r1, r1, 0x330
-/* 803545C8 00351528  4E 80 00 20 */	blr 
+/* 803545C8 00351528  4E 80 00 20 */	blr
 
 .global sub_803545cc
 sub_803545cc:

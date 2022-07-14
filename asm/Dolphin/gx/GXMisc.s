@@ -21,9 +21,9 @@ lbl_805A9874:
 GXSetMisc:
 /* 803782A4 00375204  2C 03 00 01 */	cmpwi r3, 1
 /* 803782A8 00375208  41 82 00 14 */	beq lbl_803782BC
-/* 803782AC 0037520C  4D 80 00 20 */	bltlr 
+/* 803782AC 0037520C  4D 80 00 20 */	bltlr
 /* 803782B0 00375210  2C 03 00 03 */	cmpwi r3, 3
-/* 803782B4 00375214  4C 80 00 20 */	bgelr 
+/* 803782B4 00375214  4C 80 00 20 */	bgelr
 /* 803782B8 00375218  48 00 00 40 */	b lbl_803782F8
 lbl_803782BC:
 /* 803782BC 0037521C  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
@@ -36,18 +36,18 @@ lbl_803782BC:
 /* 803782D8 00375238  B0 05 00 02 */	sth r0, 2(r5)
 /* 803782DC 0037523C  A0 05 00 04 */	lhz r0, 4(r5)
 /* 803782E0 00375240  28 00 00 00 */	cmplwi r0, 0
-/* 803782E4 00375244  4D 82 00 20 */	beqlr 
+/* 803782E4 00375244  4D 82 00 20 */	beqlr
 /* 803782E8 00375248  80 05 04 F4 */	lwz r0, 0x4f4(r5)
 /* 803782EC 0037524C  60 00 00 08 */	ori r0, r0, 8
 /* 803782F0 00375250  90 05 04 F4 */	stw r0, 0x4f4(r5)
-/* 803782F4 00375254  4E 80 00 20 */	blr 
+/* 803782F4 00375254  4E 80 00 20 */	blr
 lbl_803782F8:
 /* 803782F8 00375258  7C 84 00 D0 */	neg r4, r4
 /* 803782FC 0037525C  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 80378300 00375260  30 04 FF FF */	addic r0, r4, -1
 /* 80378304 00375264  7C 00 21 10 */	subfe r0, r0, r4
 /* 80378308 00375268  98 03 04 F1 */	stb r0, 0x4f1(r3)
-/* 8037830C 0037526C  4E 80 00 20 */	blr 
+/* 8037830C 0037526C  4E 80 00 20 */	blr
 
 .global GXFlush
 GXFlush:
@@ -74,7 +74,7 @@ lbl_80378330:
 /* 8037835C 003752BC  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80378360 003752C0  38 21 00 08 */	addi r1, r1, 8
 /* 80378364 003752C4  7C 08 03 A6 */	mtlr r0
-/* 80378368 003752C8  4E 80 00 20 */	blr 
+/* 80378368 003752C8  4E 80 00 20 */	blr
 
 .global sub_8037836c
 sub_8037836c:
@@ -124,7 +124,7 @@ lbl_803783E4:
 /* 80378410 00375370  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80378414 00375374  38 21 00 20 */	addi r1, r1, 0x20
 /* 80378418 00375378  7C 08 03 A6 */	mtlr r0
-/* 8037841C 0037537C  4E 80 00 20 */	blr 
+/* 8037841C 0037537C  4E 80 00 20 */	blr
 
 .global GXSetDrawSync
 GXSetDrawSync:
@@ -174,13 +174,13 @@ lbl_80378484:
 /* 803784C8 00375428  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803784CC 0037542C  38 21 00 18 */	addi r1, r1, 0x18
 /* 803784D0 00375430  7C 08 03 A6 */	mtlr r0
-/* 803784D4 00375434  4E 80 00 20 */	blr 
+/* 803784D4 00375434  4E 80 00 20 */	blr
 
 .global GXReadDrawSync
 GXReadDrawSync:
 /* 803784D8 00375438  80 6D AC 80 */	lwz r3, lbl_805A9840@sda21(r13)
 /* 803784DC 0037543C  A0 63 00 0E */	lhz r3, 0xe(r3)
-/* 803784E0 00375440  4E 80 00 20 */	blr 
+/* 803784E0 00375440  4E 80 00 20 */	blr
 
 .global GXDrawDone
 GXDrawDone:
@@ -217,7 +217,7 @@ lbl_8037853C:
 /* 80378554 003754B4  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80378558 003754B8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8037855C 003754BC  7C 08 03 A6 */	mtlr r0
-/* 80378560 003754C0  4E 80 00 20 */	blr 
+/* 80378560 003754C0  4E 80 00 20 */	blr
 
 .global GXPixModeSync
 GXPixModeSync:
@@ -229,7 +229,7 @@ GXPixModeSync:
 /* 80378578 003754D8  80 64 01 DC */	lwz r3, 0x1dc(r4)
 /* 8037857C 003754DC  90 65 80 00 */	stw r3, 0xCC008000@l(r5)
 /* 80378580 003754E0  B0 04 00 02 */	sth r0, 2(r4)
-/* 80378584 003754E4  4E 80 00 20 */	blr 
+/* 80378584 003754E4  4E 80 00 20 */	blr
 
 .global GXPokeAlphaMode
 GXPokeAlphaMode:
@@ -237,7 +237,7 @@ GXPokeAlphaMode:
 /* 8037858C 003754EC  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 80378590 003754F0  50 60 40 2E */	rlwimi r0, r3, 8, 0, 0x17
 /* 80378594 003754F4  B0 05 00 06 */	sth r0, 6(r5)
-/* 80378598 003754F8  4E 80 00 20 */	blr 
+/* 80378598 003754F8  4E 80 00 20 */	blr
 
 .global GXPokeAlphaRead
 GXPokeAlphaRead:
@@ -245,7 +245,7 @@ GXPokeAlphaRead:
 /* 803785A0 00375500  80 6D AC 80 */	lwz r3, lbl_805A9840@sda21(r13)
 /* 803785A4 00375504  60 00 00 04 */	ori r0, r0, 4
 /* 803785A8 00375508  B0 03 00 08 */	sth r0, 8(r3)
-/* 803785AC 0037550C  4E 80 00 20 */	blr 
+/* 803785AC 0037550C  4E 80 00 20 */	blr
 
 .global GXPokeAlphaUpdate
 GXPokeAlphaUpdate:
@@ -255,7 +255,7 @@ GXPokeAlphaUpdate:
 /* 803785BC 0037551C  54 63 07 34 */	rlwinm r3, r3, 0, 0x1c, 0x1a
 /* 803785C0 00375520  7C 60 03 78 */	or r0, r3, r0
 /* 803785C4 00375524  B0 04 00 00 */	sth r0, 0(r4)
-/* 803785C8 00375528  4E 80 00 20 */	blr 
+/* 803785C8 00375528  4E 80 00 20 */	blr
 
 .global GXPokeBlendMode
 GXPokeBlendMode:
@@ -293,7 +293,7 @@ lbl_803785F0:
 /* 80378644 003755A4  54 00 02 3E */	clrlwi r0, r0, 8
 /* 80378648 003755A8  64 00 41 00 */	oris r0, r0, 0x4100
 /* 8037864C 003755AC  B0 0A 00 00 */	sth r0, 0(r10)
-/* 80378650 003755B0  4E 80 00 20 */	blr 
+/* 80378650 003755B0  4E 80 00 20 */	blr
 
 .global GXPokeColorUpdate
 GXPokeColorUpdate:
@@ -303,7 +303,7 @@ GXPokeColorUpdate:
 /* 80378660 003755C0  54 63 07 76 */	rlwinm r3, r3, 0, 0x1d, 0x1b
 /* 80378664 003755C4  7C 60 03 78 */	or r0, r3, r0
 /* 80378668 003755C8  B0 04 00 00 */	sth r0, 0(r4)
-/* 8037866C 003755CC  4E 80 00 20 */	blr 
+/* 8037866C 003755CC  4E 80 00 20 */	blr
 
 .global GXPokeDstAlpha
 GXPokeDstAlpha:
@@ -311,7 +311,7 @@ GXPokeDstAlpha:
 /* 80378674 003755D4  54 60 44 2E */	rlwinm r0, r3, 8, 0x10, 0x17
 /* 80378678 003755D8  50 80 06 3E */	rlwimi r0, r4, 0, 0x18, 0x1f
 /* 8037867C 003755DC  B0 05 00 04 */	sth r0, 4(r5)
-/* 80378680 003755E0  4E 80 00 20 */	blr 
+/* 80378680 003755E0  4E 80 00 20 */	blr
 
 .global GXPokeDither
 GXPokeDither:
@@ -321,7 +321,7 @@ GXPokeDither:
 /* 80378690 003755F0  54 63 07 B8 */	rlwinm r3, r3, 0, 0x1e, 0x1c
 /* 80378694 003755F4  7C 60 03 78 */	or r0, r3, r0
 /* 80378698 003755F8  B0 04 00 00 */	sth r0, 0(r4)
-/* 8037869C 003755FC  4E 80 00 20 */	blr 
+/* 8037869C 003755FC  4E 80 00 20 */	blr
 
 .global GXPokeZMode
 GXPokeZMode:
@@ -334,7 +334,7 @@ GXPokeZMode:
 /* 803786B8 00375618  54 A0 25 36 */	rlwinm r0, r5, 4, 0x14, 0x1b
 /* 803786BC 0037561C  7C 80 03 78 */	or r0, r4, r0
 /* 803786C0 00375620  B0 03 00 00 */	sth r0, 0(r3)
-/* 803786C4 00375624  4E 80 00 20 */	blr 
+/* 803786C4 00375624  4E 80 00 20 */	blr
 
 .global GXTokenInterruptHandler
 GXTokenInterruptHandler:
@@ -356,7 +356,7 @@ GXTokenInterruptHandler:
 /* 80378704 00375664  81 8D AC A8 */	lwz r12, lbl_805A9868@sda21(r13)
 /* 80378708 00375668  38 7F 00 00 */	addi r3, r31, 0
 /* 8037870C 0037566C  7D 88 03 A6 */	mtlr r12
-/* 80378710 00375670  4E 80 00 21 */	blrl 
+/* 80378710 00375670  4E 80 00 21 */	blrl
 /* 80378714 00375674  38 61 00 10 */	addi r3, r1, 0x10
 /* 80378718 00375678  48 00 6E FD */	bl OSClearContext
 /* 8037871C 0037567C  7F C3 F3 78 */	mr r3, r30
@@ -372,7 +372,7 @@ lbl_80378724:
 /* 80378740 003756A0  83 C1 02 D8 */	lwz r30, 0x2d8(r1)
 /* 80378744 003756A4  38 21 02 E0 */	addi r1, r1, 0x2e0
 /* 80378748 003756A8  7C 08 03 A6 */	mtlr r0
-/* 8037874C 003756AC  4E 80 00 20 */	blr 
+/* 8037874C 003756AC  4E 80 00 20 */	blr
 
 .global GXFinishInterruptHandler
 GXFinishInterruptHandler:
@@ -397,7 +397,7 @@ GXFinishInterruptHandler:
 /* 80378798 003756F8  48 00 6C 85 */	bl OSSetCurrentContext
 /* 8037879C 003756FC  81 8D AC AC */	lwz r12, lbl_805A986C@sda21(r13)
 /* 803787A0 00375700  7D 88 03 A6 */	mtlr r12
-/* 803787A4 00375704  4E 80 00 21 */	blrl 
+/* 803787A4 00375704  4E 80 00 21 */	blrl
 /* 803787A8 00375708  38 61 00 10 */	addi r3, r1, 0x10
 /* 803787AC 0037570C  48 00 6E 69 */	bl OSClearContext
 /* 803787B0 00375710  7F E3 FB 78 */	mr r3, r31
@@ -409,7 +409,7 @@ lbl_803787B8:
 /* 803787C4 00375724  83 E1 02 DC */	lwz r31, 0x2dc(r1)
 /* 803787C8 00375728  38 21 02 E0 */	addi r1, r1, 0x2e0
 /* 803787CC 0037572C  7C 08 03 A6 */	mtlr r0
-/* 803787D0 00375730  4E 80 00 20 */	blr 
+/* 803787D0 00375730  4E 80 00 20 */	blr
 
 .global __GXPEInit
 __GXPEInit:
@@ -444,4 +444,4 @@ __GXPEInit:
 /* 80378844 003757A4  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80378848 003757A8  38 21 00 08 */	addi r1, r1, 8
 /* 8037884C 003757AC  7C 08 03 A6 */	mtlr r0
-/* 80378850 003757B0  4E 80 00 20 */	blr 
+/* 80378850 003757B0  4E 80 00 20 */	blr

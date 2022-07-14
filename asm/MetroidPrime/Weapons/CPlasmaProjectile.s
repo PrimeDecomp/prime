@@ -94,7 +94,7 @@ lbl_80176BB0:
 /* 80176BC8 00173B28  38 80 00 01 */	li r4, 1
 /* 80176BCC 00173B2C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80176BD0 00173B30  7D 89 03 A6 */	mtctr r12
-/* 80176BD4 00173B34  4E 80 04 21 */	bctrl 
+/* 80176BD4 00173B34  4E 80 04 21 */	bctrl
 lbl_80176BD8:
 /* 80176BD8 00173B38  34 1E 05 1C */	addic. r0, r30, 0x51c
 /* 80176BDC 00173B3C  41 82 00 24 */	beq lbl_80176C00
@@ -105,7 +105,7 @@ lbl_80176BD8:
 /* 80176BF0 00173B50  38 80 00 01 */	li r4, 1
 /* 80176BF4 00173B54  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80176BF8 00173B58  7D 89 03 A6 */	mtctr r12
-/* 80176BFC 00173B5C  4E 80 04 21 */	bctrl 
+/* 80176BFC 00173B5C  4E 80 04 21 */	bctrl
 lbl_80176C00:
 /* 80176C00 00173B60  34 1E 05 18 */	addic. r0, r30, 0x518
 /* 80176C04 00173B64  41 82 00 24 */	beq lbl_80176C28
@@ -116,7 +116,7 @@ lbl_80176C00:
 /* 80176C18 00173B78  38 80 00 01 */	li r4, 1
 /* 80176C1C 00173B7C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80176C20 00173B80  7D 89 03 A6 */	mtctr r12
-/* 80176C24 00173B84  4E 80 04 21 */	bctrl 
+/* 80176C24 00173B84  4E 80 04 21 */	bctrl
 lbl_80176C28:
 /* 80176C28 00173B88  34 1E 05 0C */	addic. r0, r30, 0x50c
 /* 80176C2C 00173B8C  41 82 00 18 */	beq lbl_80176C44
@@ -185,7 +185,7 @@ lbl_80176CFC:
 /* 80176D08 00173C68  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80176D0C 00173C6C  7C 08 03 A6 */	mtlr r0
 /* 80176D10 00173C70  38 21 00 20 */	addi r1, r1, 0x20
-/* 80176D14 00173C74  4E 80 00 20 */	blr 
+/* 80176D14 00173C74  4E 80 00 20 */	blr
 
 .global __dt__15CBeamProjectileFv
 __dt__15CBeamProjectileFv:
@@ -270,7 +270,7 @@ lbl_80176E18:
 /* 80176E24 00173D84  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80176E28 00173D88  7C 08 03 A6 */	mtlr r0
 /* 80176E2C 00173D8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80176E30 00173D90  4E 80 00 20 */	blr 
+/* 80176E30 00173D90  4E 80 00 20 */	blr
 
 .global sub_80176e34
 sub_80176e34:
@@ -295,12 +295,12 @@ sub_80176e34:
 /* 80176E7C 00173DDC  D0 03 04 AC */	stfs f0, 0x4ac(r3)
 /* 80176E80 00173DE0  88 04 00 18 */	lbz r0, 0x18(r4)
 /* 80176E84 00173DE4  98 03 04 B0 */	stb r0, 0x4b0(r3)
-/* 80176E88 00173DE8  4E 80 00 20 */	blr 
+/* 80176E88 00173DE8  4E 80 00 20 */	blr
 lbl_80176E8C:
 /* 80176E8C 00173DEC  80 03 04 78 */	lwz r0, 0x478(r3)
 /* 80176E90 00173DF0  54 00 07 76 */	rlwinm r0, r0, 0, 0x1d, 0x1b
 /* 80176E94 00173DF4  90 03 04 78 */	stw r0, 0x478(r3)
-/* 80176E98 00173DF8  4E 80 00 20 */	blr 
+/* 80176E98 00173DF8  4E 80 00 20 */	blr
 
 .global UpdateLights__17CPlasmaProjectileFffR13CStateManager
 UpdateLights__17CPlasmaProjectileFffR13CStateManager:
@@ -325,7 +325,7 @@ UpdateLights__17CPlasmaProjectileFffR13CStateManager:
 /* 80176EE4 00173E44  81 83 00 00 */	lwz r12, 0(r3)
 /* 80176EE8 00173E48  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80176EEC 00173E4C  7D 89 03 A6 */	mtctr r12
-/* 80176EF0 00173E50  4E 80 04 21 */	bctrl 
+/* 80176EF0 00173E50  4E 80 04 21 */	bctrl
 /* 80176EF4 00173E54  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80176EF8 00173E58  41 82 01 34 */	beq lbl_8017702C
 /* 80176EFC 00173E5C  80 7E 05 20 */	lwz r3, 0x520(r30)
@@ -333,13 +333,13 @@ UpdateLights__17CPlasmaProjectileFffR13CStateManager:
 /* 80176F04 00173E64  81 83 00 00 */	lwz r12, 0(r3)
 /* 80176F08 00173E68  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80176F0C 00173E6C  7D 89 03 A6 */	mtctr r12
-/* 80176F10 00173E70  4E 80 04 21 */	bctrl 
+/* 80176F10 00173E70  4E 80 04 21 */	bctrl
 /* 80176F14 00173E74  80 9E 05 20 */	lwz r4, 0x520(r30)
 /* 80176F18 00173E78  38 61 00 30 */	addi r3, r1, 0x30
 /* 80176F1C 00173E7C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80176F20 00173E80  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80176F24 00173E84  7D 89 03 A6 */	mtctr r12
-/* 80176F28 00173E88  4E 80 04 21 */	bctrl 
+/* 80176F28 00173E88  4E 80 04 21 */	bctrl
 /* 80176F2C 00173E8C  38 61 00 80 */	addi r3, r1, 0x80
 /* 80176F30 00173E90  38 81 00 30 */	addi r4, r1, 0x30
 /* 80176F34 00173E94  4B EC 46 3D */	bl __ct__6CLightFCR6CLight
@@ -419,7 +419,7 @@ lbl_8017702C:
 /* 8017704C 00173FAC  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 80177050 00173FB0  7C 08 03 A6 */	mtlr r0
 /* 80177054 00173FB4  38 21 01 00 */	addi r1, r1, 0x100
-/* 80177058 00173FB8  4E 80 00 20 */	blr 
+/* 80177058 00173FB8  4E 80 00 20 */	blr
 
 .global DeletePlasmaLights__17CPlasmaProjectileFR13CStateManager
 DeletePlasmaLights__17CPlasmaProjectileFR13CStateManager:
@@ -483,7 +483,7 @@ lbl_8017711C:
 /* 80177128 00174088  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8017712C 0017408C  7C 08 03 A6 */	mtlr r0
 /* 80177130 00174090  38 21 00 40 */	addi r1, r1, 0x40
-/* 80177134 00174094  4E 80 00 20 */	blr 
+/* 80177134 00174094  4E 80 00 20 */	blr
 
 .global CreatePlasmaLights__17CPlasmaProjectileFUiRC6CLightR13CStateManager
 CreatePlasmaLights__17CPlasmaProjectileFUiRC6CLightR13CStateManager:
@@ -582,7 +582,7 @@ lbl_80177270:
 /* 80177294 001741F4  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80177298 001741F8  7C 08 03 A6 */	mtlr r0
 /* 8017729C 001741FC  38 21 00 60 */	addi r1, r1, 0x60
-/* 801772A0 00174200  4E 80 00 20 */	blr 
+/* 801772A0 00174200  4E 80 00 20 */	blr
 
 .global SetLightsActive__17CPlasmaProjectileFbR13CStateManager
 SetLightsActive__17CPlasmaProjectileFbR13CStateManager:
@@ -617,7 +617,7 @@ lbl_801772D4:
 /* 80177310 00174270  7F C4 F3 78 */	mr r4, r30
 /* 80177314 00174274  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80177318 00174278  7D 89 03 A6 */	mtctr r12
-/* 8017731C 0017427C  4E 80 04 21 */	bctrl 
+/* 8017731C 0017427C  4E 80 04 21 */	bctrl
 lbl_80177320:
 /* 80177320 00174280  3B FF 00 02 */	addi r31, r31, 2
 lbl_80177324:
@@ -634,7 +634,7 @@ lbl_80177324:
 /* 8017734C 001742AC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80177350 001742B0  7C 08 03 A6 */	mtlr r0
 /* 80177354 001742B4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80177358 001742B8  4E 80 00 20 */	blr 
+/* 80177358 001742B8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CPlasmaProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CPlasmaProjectileF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -691,7 +691,7 @@ lbl_8017740C:
 /* 8017741C 0017437C  38 80 00 01 */	li r4, 1
 /* 80177420 00174380  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80177424 00174384  7D 89 03 A6 */	mtctr r12
-/* 80177428 00174388  4E 80 04 21 */	bctrl 
+/* 80177428 00174388  4E 80 04 21 */	bctrl
 lbl_8017742C:
 /* 8017742C 0017438C  7F 40 07 75 */	extsb. r0, r26
 /* 80177430 00174390  93 7C 05 20 */	stw r27, 0x520(r28)
@@ -706,7 +706,7 @@ lbl_80177444:
 /* 80177450 001743B0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177454 001743B4  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80177458 001743B8  7D 89 03 A6 */	mtctr r12
-/* 8017745C 001743BC  4E 80 04 21 */	bctrl 
+/* 8017745C 001743BC  4E 80 04 21 */	bctrl
 /* 80177460 001743C0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80177464 001743C4  41 82 00 3C */	beq lbl_801774A0
 /* 80177468 001743C8  80 9C 05 20 */	lwz r4, 0x520(r28)
@@ -716,7 +716,7 @@ lbl_80177444:
 /* 80177478 001743D8  83 65 00 08 */	lwz r27, 8(r5)
 /* 8017747C 001743DC  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80177480 001743E0  7D 89 03 A6 */	mtctr r12
-/* 80177484 001743E4  4E 80 04 21 */	bctrl 
+/* 80177484 001743E4  4E 80 04 21 */	bctrl
 /* 80177488 001743E8  7F 83 E3 78 */	mr r3, r28
 /* 8017748C 001743EC  7F 64 DB 78 */	mr r4, r27
 /* 80177490 001743F0  7F E6 FB 78 */	mr r6, r31
@@ -731,7 +731,7 @@ lbl_801774A0:
 /* 801774B0 00174410  38 80 00 01 */	li r4, 1
 /* 801774B4 00174414  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801774B8 00174418  7D 89 03 A6 */	mtctr r12
-/* 801774BC 0017441C  4E 80 04 21 */	bctrl 
+/* 801774BC 0017441C  4E 80 04 21 */	bctrl
 lbl_801774C0:
 /* 801774C0 00174420  38 00 00 00 */	li r0, 0
 /* 801774C4 00174424  90 1C 05 20 */	stw r0, 0x520(r28)
@@ -787,7 +787,7 @@ lbl_8017755C:
 /* 8017757C 001744DC  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80177580 001744E0  7C 08 03 A6 */	mtlr r0
 /* 80177584 001744E4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80177588 001744E8  4E 80 00 20 */	blr 
+/* 80177588 001744E8  4E 80 00 20 */	blr
 
 .global RenderMotionBlur__17CPlasmaProjectileCFv
 RenderMotionBlur__17CPlasmaProjectileCFv:
@@ -814,12 +814,12 @@ RenderMotionBlur__17CPlasmaProjectileCFv:
 /* 801775DC 0017453C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801775E0 00174540  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801775E4 00174544  7D 89 03 A6 */	mtctr r12
-/* 801775E8 00174548  4E 80 04 21 */	bctrl 
+/* 801775E8 00174548  4E 80 04 21 */	bctrl
 /* 801775EC 0017454C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 801775F0 00174550  81 83 00 00 */	lwz r12, 0(r3)
 /* 801775F4 00174554  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 801775F8 00174558  7D 89 03 A6 */	mtctr r12
-/* 801775FC 0017455C  4E 80 04 21 */	bctrl 
+/* 801775FC 0017455C  4E 80 04 21 */	bctrl
 /* 80177600 00174560  C0 22 A1 C4 */	lfs f1, lbl_805ABEE4@sda21(r2)
 /* 80177604 00174564  C0 1A 04 C4 */	lfs f0, 0x4c4(r26)
 /* 80177608 00174568  80 1A 04 94 */	lwz r0, 0x494(r26)
@@ -914,7 +914,7 @@ lbl_801776D0:
 /* 80177768 001746C8  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 8017776C 001746CC  7C 08 03 A6 */	mtlr r0
 /* 80177770 001746D0  38 21 00 80 */	addi r1, r1, 0x80
-/* 80177774 001746D4  4E 80 00 20 */	blr 
+/* 80177774 001746D4  4E 80 00 20 */	blr
 
 .global UpdateEnergyPulse__17CPlasmaProjectileFf
 UpdateEnergyPulse__17CPlasmaProjectileFf:
@@ -961,7 +961,7 @@ lbl_801777D4:
 /* 80177810 00174770  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177814 00174774  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80177818 00174778  7D 89 03 A6 */	mtctr r12
-/* 8017781C 0017477C  4E 80 04 21 */	bctrl 
+/* 8017781C 0017477C  4E 80 04 21 */	bctrl
 /* 80177820 00174780  C0 3F 03 04 */	lfs f1, 0x304(r31)
 /* 80177824 00174784  C0 1F 02 EC */	lfs f0, 0x2ec(r31)
 /* 80177828 00174788  C3 82 A1 C0 */	lfs f28, lbl_805ABEE0@sda21(r2)
@@ -984,7 +984,7 @@ lbl_8017783C:
 /* 80177868 001747C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8017786C 001747CC  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80177870 001747D0  7D 89 03 A6 */	mtctr r12
-/* 80177874 001747D4  4E 80 04 21 */	bctrl 
+/* 80177874 001747D4  4E 80 04 21 */	bctrl
 /* 80177878 001747D8  80 7F 05 1C */	lwz r3, 0x51c(r31)
 /* 8017787C 001747DC  38 80 00 01 */	li r4, 1
 /* 80177880 001747E0  48 1A 50 41 */	bl ForceParticleCreation__11CElementGenFi
@@ -1002,14 +1002,14 @@ lbl_80177888:
 /* 801778A8 00174808  81 83 00 00 */	lwz r12, 0(r3)
 /* 801778AC 0017480C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801778B0 00174810  7D 89 03 A6 */	mtctr r12
-/* 801778B4 00174814  4E 80 04 21 */	bctrl 
+/* 801778B4 00174814  4E 80 04 21 */	bctrl
 lbl_801778B8:
 /* 801778B8 00174818  80 7F 05 1C */	lwz r3, 0x51c(r31)
 /* 801778BC 0017481C  FC 20 D8 90 */	fmr f1, f27
 /* 801778C0 00174820  81 83 00 00 */	lwz r12, 0(r3)
 /* 801778C4 00174824  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801778C8 00174828  7D 89 03 A6 */	mtctr r12
-/* 801778CC 0017482C  4E 80 04 21 */	bctrl 
+/* 801778CC 0017482C  4E 80 04 21 */	bctrl
 /* 801778D0 00174830  E3 E1 00 68 */	psq_l f31, 104(r1), 0, qr0
 /* 801778D4 00174834  CB E1 00 60 */	lfd f31, 0x60(r1)
 /* 801778D8 00174838  E3 C1 00 58 */	psq_l f30, 88(r1), 0, qr0
@@ -1024,7 +1024,7 @@ lbl_801778B8:
 /* 801778FC 0017485C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80177900 00174860  7C 08 03 A6 */	mtlr r0
 /* 80177904 00174864  38 21 00 70 */	addi r1, r1, 0x70
-/* 80177908 00174868  4E 80 00 20 */	blr 
+/* 80177908 00174868  4E 80 00 20 */	blr
 
 .global RenderBeam__17CPlasmaProjectileCFifRC6CColori
 RenderBeam__17CPlasmaProjectileCFifRC6CColori:
@@ -1284,7 +1284,7 @@ lbl_80177C7C:
 /* 80177CC0 00174C20  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 80177CC4 00174C24  7C 08 03 A6 */	mtlr r0
 /* 80177CC8 00174C28  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80177CCC 00174C2C  4E 80 00 20 */	blr 
+/* 80177CCC 00174C2C  4E 80 00 20 */	blr
 
 .global ResetBeam__17CPlasmaProjectileFR13CStateManagerb
 ResetBeam__17CPlasmaProjectileFR13CStateManagerb:
@@ -1301,7 +1301,7 @@ ResetBeam__17CPlasmaProjectileFR13CStateManagerb:
 /* 80177CF8 00174C58  38 80 00 00 */	li r4, 0
 /* 80177CFC 00174C5C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80177D00 00174C60  7D 89 03 A6 */	mtctr r12
-/* 80177D04 00174C64  4E 80 04 21 */	bctrl 
+/* 80177D04 00174C64  4E 80 04 21 */	bctrl
 /* 80177D08 00174C68  7F C3 F3 78 */	mr r3, r30
 /* 80177D0C 00174C6C  7F E5 FB 78 */	mr r5, r31
 /* 80177D10 00174C70  38 80 00 00 */	li r4, 0
@@ -1325,13 +1325,13 @@ ResetBeam__17CPlasmaProjectileFR13CStateManagerb:
 /* 80177D58 00174CB8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177D5C 00174CBC  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80177D60 00174CC0  7D 89 03 A6 */	mtctr r12
-/* 80177D64 00174CC4  4E 80 04 21 */	bctrl 
+/* 80177D64 00174CC4  4E 80 04 21 */	bctrl
 /* 80177D68 00174CC8  80 7E 05 1C */	lwz r3, 0x51c(r30)
 /* 80177D6C 00174CCC  38 80 00 00 */	li r4, 0
 /* 80177D70 00174CD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177D74 00174CD4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80177D78 00174CD8  7D 89 03 A6 */	mtctr r12
-/* 80177D7C 00174CDC  4E 80 04 21 */	bctrl 
+/* 80177D7C 00174CDC  4E 80 04 21 */	bctrl
 /* 80177D80 00174CE0  48 00 00 4C */	b lbl_80177DCC
 lbl_80177D84:
 /* 80177D84 00174CE4  88 7E 05 48 */	lbz r3, 0x548(r30)
@@ -1345,20 +1345,20 @@ lbl_80177D84:
 /* 80177DA4 00174D04  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177DA8 00174D08  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80177DAC 00174D0C  7D 89 03 A6 */	mtctr r12
-/* 80177DB0 00174D10  4E 80 04 21 */	bctrl 
+/* 80177DB0 00174D10  4E 80 04 21 */	bctrl
 /* 80177DB4 00174D14  80 7E 05 1C */	lwz r3, 0x51c(r30)
 /* 80177DB8 00174D18  38 80 00 00 */	li r4, 0
 /* 80177DBC 00174D1C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177DC0 00174D20  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80177DC4 00174D24  7D 89 03 A6 */	mtctr r12
-/* 80177DC8 00174D28  4E 80 04 21 */	bctrl 
+/* 80177DC8 00174D28  4E 80 04 21 */	bctrl
 lbl_80177DCC:
 /* 80177DCC 00174D2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80177DD0 00174D30  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80177DD4 00174D34  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80177DD8 00174D38  7C 08 03 A6 */	mtlr r0
 /* 80177DDC 00174D3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80177DE0 00174D40  4E 80 00 20 */	blr 
+/* 80177DE0 00174D40  4E 80 00 20 */	blr
 
 .global Fire__17CPlasmaProjectileFRC12CTransform4fR13CStateManagerb
 Fire__17CPlasmaProjectileFRC12CTransform4fR13CStateManagerb:
@@ -1377,7 +1377,7 @@ Fire__17CPlasmaProjectileFRC12CTransform4fR13CStateManagerb:
 /* 80177E14 00174D74  81 83 00 00 */	lwz r12, 0(r3)
 /* 80177E18 00174D78  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80177E1C 00174D7C  7D 89 03 A6 */	mtctr r12
-/* 80177E20 00174D80  4E 80 04 21 */	bctrl 
+/* 80177E20 00174D80  4E 80 04 21 */	bctrl
 /* 80177E24 00174D84  7F 83 E3 78 */	mr r3, r28
 /* 80177E28 00174D88  7F C5 F3 78 */	mr r5, r30
 /* 80177E2C 00174D8C  38 80 00 01 */	li r4, 1
@@ -1452,7 +1452,7 @@ lbl_80177F2C:
 /* 80177F3C 00174E9C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80177F40 00174EA0  7C 08 03 A6 */	mtlr r0
 /* 80177F44 00174EA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80177F48 00174EA8  4E 80 00 20 */	blr 
+/* 80177F48 00174EA8  4E 80 00 20 */	blr
 
 .global Render__17CPlasmaProjectileCFRC13CStateManager
 Render__17CPlasmaProjectileCFRC13CStateManager:
@@ -1505,7 +1505,7 @@ lbl_80177FF0:
 /* 80177FFC 00174F5C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80178000 00174F60  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80178004 00174F64  7D 89 03 A6 */	mtctr r12
-/* 80178008 00174F68  4E 80 04 21 */	bctrl 
+/* 80178008 00174F68  4E 80 04 21 */	bctrl
 /* 8017800C 00174F6C  80 1D 04 78 */	lwz r0, 0x478(r29)
 /* 80178010 00174F70  54 00 07 FF */	clrlwi. r0, r0, 0x1f
 /* 80178014 00174F74  41 82 00 24 */	beq lbl_80178038
@@ -1523,7 +1523,7 @@ lbl_80178038:
 /* 80178040 00174FA0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80178044 00174FA4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80178048 00174FA8  7D 89 03 A6 */	mtctr r12
-/* 8017804C 00174FAC  4E 80 04 21 */	bctrl 
+/* 8017804C 00174FAC  4E 80 04 21 */	bctrl
 /* 80178050 00174FB0  C0 22 A1 FC */	lfs f1, lbl_805ABF1C@sda21(r2)
 /* 80178054 00174FB4  38 61 00 10 */	addi r3, r1, 0x10
 /* 80178058 00174FB8  C0 82 A2 00 */	lfs f4, lbl_805ABF20@sda21(r2)
@@ -1554,7 +1554,7 @@ lbl_80178038:
 /* 801780BC 0017501C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801780C0 00175020  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801780C4 00175024  7D 89 03 A6 */	mtctr r12
-/* 801780C8 00175028  4E 80 04 21 */	bctrl 
+/* 801780C8 00175028  4E 80 04 21 */	bctrl
 /* 801780CC 0017502C  C0 22 A1 E8 */	lfs f1, lbl_805ABF08@sda21(r2)
 /* 801780D0 00175030  7F A3 EB 78 */	mr r3, r29
 /* 801780D4 00175034  C0 1D 04 B8 */	lfs f0, 0x4b8(r29)
@@ -1580,7 +1580,7 @@ lbl_80178038:
 /* 80178124 00175084  81 83 00 00 */	lwz r12, 0(r3)
 /* 80178128 00175088  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8017812C 0017508C  7D 89 03 A6 */	mtctr r12
-/* 80178130 00175090  4E 80 04 21 */	bctrl 
+/* 80178130 00175090  4E 80 04 21 */	bctrl
 /* 80178134 00175094  C0 3D 04 B8 */	lfs f1, 0x4b8(r29)
 /* 80178138 00175098  7F A3 EB 78 */	mr r3, r29
 /* 8017813C 0017509C  38 BD 04 94 */	addi r5, r29, 0x494
@@ -1592,7 +1592,7 @@ lbl_80178038:
 /* 80178154 001750B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80178158 001750B8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8017815C 001750BC  7D 89 03 A6 */	mtctr r12
-/* 80178160 001750C0  4E 80 04 21 */	bctrl 
+/* 80178160 001750C0  4E 80 04 21 */	bctrl
 /* 80178164 001750C4  C0 22 A2 08 */	lfs f1, lbl_805ABF28@sda21(r2)
 /* 80178168 001750C8  7F A3 EB 78 */	mr r3, r29
 /* 8017816C 001750CC  C0 1D 04 B8 */	lfs f0, 0x4b8(r29)
@@ -1608,7 +1608,7 @@ lbl_80178184:
 /* 80178190 001750F0  83 A1 01 14 */	lwz r29, 0x114(r1)
 /* 80178194 001750F4  7C 08 03 A6 */	mtlr r0
 /* 80178198 001750F8  38 21 01 20 */	addi r1, r1, 0x120
-/* 8017819C 001750FC  4E 80 00 20 */	blr 
+/* 8017819C 001750FC  4E 80 00 20 */	blr
 
 .global AddToRenderer__17CPlasmaProjectileCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__17CPlasmaProjectileCFRC14CFrustumPlanesRC13CStateManager:
@@ -1627,7 +1627,7 @@ AddToRenderer__17CPlasmaProjectileCFRC14CFrustumPlanesRC13CStateManager:
 /* 801781D0 00175130  81 83 00 00 */	lwz r12, 0(r3)
 /* 801781D4 00175134  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801781D8 00175138  7D 89 03 A6 */	mtctr r12
-/* 801781DC 0017513C  4E 80 04 21 */	bctrl 
+/* 801781DC 0017513C  4E 80 04 21 */	bctrl
 /* 801781E0 00175140  80 1E 04 78 */	lwz r0, 0x478(r30)
 /* 801781E4 00175144  54 00 07 BD */	rlwinm. r0, r0, 0, 0x1e, 0x1e
 /* 801781E8 00175148  41 82 00 1C */	beq lbl_80178204
@@ -1636,7 +1636,7 @@ AddToRenderer__17CPlasmaProjectileCFRC14CFrustumPlanesRC13CStateManager:
 /* 801781F4 00175154  81 83 00 00 */	lwz r12, 0(r3)
 /* 801781F8 00175158  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 801781FC 0017515C  7D 89 03 A6 */	mtctr r12
-/* 80178200 00175160  4E 80 04 21 */	bctrl 
+/* 80178200 00175160  4E 80 04 21 */	bctrl
 lbl_80178204:
 /* 80178204 00175164  C0 5E 03 50 */	lfs f2, 0x350(r30)
 /* 80178208 00175168  7F C4 F3 78 */	mr r4, r30
@@ -1650,7 +1650,7 @@ lbl_80178204:
 /* 80178228 00175188  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8017822C 0017518C  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80178230 00175190  7D 89 03 A6 */	mtctr r12
-/* 80178234 00175194  4E 80 04 21 */	bctrl 
+/* 80178234 00175194  4E 80 04 21 */	bctrl
 /* 80178238 00175198  7F C3 F3 78 */	mr r3, r30
 /* 8017823C 0017519C  7F E4 FB 78 */	mr r4, r31
 /* 80178240 001751A0  38 A1 00 08 */	addi r5, r1, 8
@@ -1661,12 +1661,12 @@ lbl_80178204:
 /* 80178254 001751B4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80178258 001751B8  7C 08 03 A6 */	mtlr r0
 /* 8017825C 001751BC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80178260 001751C0  4E 80 00 20 */	blr 
+/* 80178260 001751C0  4E 80 00 20 */	blr
 
 .global CanRenderUnsorted__17CPlasmaProjectileCFRC13CStateManager
 CanRenderUnsorted__17CPlasmaProjectileCFRC13CStateManager:
 /* 80178264 001751C4  38 60 00 00 */	li r3, 0
-/* 80178268 001751C8  4E 80 00 20 */	blr 
+/* 80178268 001751C8  4E 80 00 20 */	blr
 
 .global UpdateFx__17CPlasmaProjectileFRC12CTransform4ffR13CStateManager
 UpdateFx__17CPlasmaProjectileFRC12CTransform4ffR13CStateManager:
@@ -1822,7 +1822,7 @@ lbl_80178434:
 /* 80178490 001753F0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80178494 001753F4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80178498 001753F8  7D 89 03 A6 */	mtctr r12
-/* 8017849C 001753FC  4E 80 04 21 */	bctrl 
+/* 8017849C 001753FC  4E 80 04 21 */	bctrl
 /* 801784A0 00175400  C0 62 A2 0C */	lfs f3, lbl_805ABF2C@sda21(r2)
 /* 801784A4 00175404  38 81 00 14 */	addi r4, r1, 0x14
 /* 801784A8 00175408  C0 5D 03 10 */	lfs f2, 0x310(r29)
@@ -1847,13 +1847,13 @@ lbl_80178434:
 /* 801784F4 00175454  D0 81 00 10 */	stfs f4, 0x10(r1)
 /* 801784F8 00175458  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801784FC 0017545C  7D 89 03 A6 */	mtctr r12
-/* 80178500 00175460  4E 80 04 21 */	bctrl 
+/* 80178500 00175460  4E 80 04 21 */	bctrl
 /* 80178504 00175464  80 7D 05 18 */	lwz r3, 0x518(r29)
 /* 80178508 00175468  38 80 00 01 */	li r4, 1
 /* 8017850C 0017546C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80178510 00175470  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80178514 00175474  7D 89 03 A6 */	mtctr r12
-/* 80178518 00175478  4E 80 04 21 */	bctrl 
+/* 80178518 00175478  4E 80 04 21 */	bctrl
 /* 8017851C 0017547C  C0 02 A1 E4 */	lfs f0, lbl_805ABF04@sda21(r2)
 /* 80178520 00175480  D0 1D 04 D4 */	stfs f0, 0x4d4(r29)
 /* 80178524 00175484  48 00 00 1C */	b lbl_80178540
@@ -1863,14 +1863,14 @@ lbl_80178528:
 /* 80178530 00175490  81 83 00 00 */	lwz r12, 0(r3)
 /* 80178534 00175494  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80178538 00175498  7D 89 03 A6 */	mtctr r12
-/* 8017853C 0017549C  4E 80 04 21 */	bctrl 
+/* 8017853C 0017549C  4E 80 04 21 */	bctrl
 lbl_80178540:
 /* 80178540 001754A0  80 7D 05 18 */	lwz r3, 0x518(r29)
 /* 80178544 001754A4  FC 20 F8 90 */	fmr f1, f31
 /* 80178548 001754A8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8017854C 001754AC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80178550 001754B0  7D 89 03 A6 */	mtctr r12
-/* 80178554 001754B4  4E 80 04 21 */	bctrl 
+/* 80178554 001754B4  4E 80 04 21 */	bctrl
 lbl_80178558:
 /* 80178558 001754B8  FC 20 F8 90 */	fmr f1, f31
 /* 8017855C 001754BC  7F A3 EB 78 */	mr r3, r29
@@ -1923,7 +1923,7 @@ lbl_801785F0:
 /* 8017860C 0017556C  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80178610 00175570  7C 08 03 A6 */	mtlr r0
 /* 80178614 00175574  38 21 00 80 */	addi r1, r1, 0x80
-/* 80178618 00175578  4E 80 00 20 */	blr 
+/* 80178618 00175578  4E 80 00 20 */	blr
 
 .global UpdatePlayerEffects__17CPlasmaProjectileFfR13CStateManager
 UpdatePlayerEffects__17CPlasmaProjectileFfR13CStateManager:
@@ -2149,7 +2149,7 @@ lbl_80178948:
 /* 8017895C 001758BC  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 80178960 001758C0  7C 08 03 A6 */	mtlr r0
 /* 80178964 001758C4  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80178968 001758C8  4E 80 00 20 */	blr 
+/* 80178968 001758C8  4E 80 00 20 */	blr
 
 .global "MakeBillboardEffect__17CPlasmaProjectileFRCQ24rstl44optional_object<25TToken<15CGenDescription>>RCQ24rstl49optional_object<30TToken<20CElectricDescription>>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R13CStateManager"
 "MakeBillboardEffect__17CPlasmaProjectileFRCQ24rstl44optional_object<25TToken<15CGenDescription>>RCQ24rstl49optional_object<30TToken<20CElectricDescription>>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>R13CStateManager":
@@ -2216,7 +2216,7 @@ lbl_80178A48:
 /* 80178A58 001759B8  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80178A5C 001759BC  7C 08 03 A6 */	mtlr r0
 /* 80178A60 001759C0  38 21 00 60 */	addi r1, r1, 0x60
-/* 80178A64 001759C4  4E 80 00 20 */	blr 
+/* 80178A64 001759C4  4E 80 00 20 */	blr
 
 .global UpdateBeamState__17CPlasmaProjectileFfR13CStateManager
 UpdateBeamState__17CPlasmaProjectileFfR13CStateManager:
@@ -2313,7 +2313,7 @@ lbl_80178B90:
 /* 80178BAC 00175B0C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80178BB0 00175B10  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 80178BB4 00175B14  7D 89 03 A6 */	mtctr r12
-/* 80178BB8 00175B18  4E 80 04 21 */	bctrl 
+/* 80178BB8 00175B18  4E 80 04 21 */	bctrl
 lbl_80178BBC:
 /* 80178BBC 00175B1C  C0 5E 04 C0 */	lfs f2, 0x4c0(r30)
 /* 80178BC0 00175B20  C0 22 A2 28 */	lfs f1, lbl_805ABF48@sda21(r2)
@@ -2326,11 +2326,11 @@ lbl_80178BBC:
 /* 80178BDC 00175B3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80178BE0 00175B40  7C 08 03 A6 */	mtlr r0
 /* 80178BE4 00175B44  38 21 00 10 */	addi r1, r1, 0x10
-/* 80178BE8 00175B48  4E 80 00 20 */	blr 
+/* 80178BE8 00175B48  4E 80 00 20 */	blr
 
 .global Touch__17CPlasmaProjectileFR6CActorR13CStateManager
 Touch__17CPlasmaProjectileFR6CActorR13CStateManager:
-/* 80178BEC 00175B4C  4E 80 00 20 */	blr 
+/* 80178BEC 00175B4C  4E 80 00 20 */	blr
 
 .global Accept__17CPlasmaProjectileFR8IVisitor
 Accept__17CPlasmaProjectileFR8IVisitor:
@@ -2343,11 +2343,11 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178C08 00175B68  7C 04 03 78 */	mr r4, r0
 /* 80178C0C 00175B6C  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80178C10 00175B70  7D 89 03 A6 */	mtctr r12
-/* 80178C14 00175B74  4E 80 04 21 */	bctrl 
+/* 80178C14 00175B74  4E 80 04 21 */	bctrl
 /* 80178C18 00175B78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80178C1C 00175B7C  7C 08 03 A6 */	mtlr r0
 /* 80178C20 00175B80  38 21 00 10 */	addi r1, r1, 0x10
-/* 80178C24 00175B84  4E 80 00 20 */	blr 
+/* 80178C24 00175B84  4E 80 00 20 */	blr
 
 .global "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi"
 "__ct__17CPlasmaProjectileFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC9CBeamInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdbUi":
@@ -2467,7 +2467,7 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178DEC 00175D4C  81 84 00 00 */	lwz r12, 0(r4)
 /* 80178DF0 00175D50  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80178DF4 00175D54  7D 89 03 A6 */	mtctr r12
-/* 80178DF8 00175D58  4E 80 04 21 */	bctrl 
+/* 80178DF8 00175D58  4E 80 04 21 */	bctrl
 /* 80178DFC 00175D5C  3B 1F 04 E8 */	addi r24, r31, 0x4e8
 /* 80178E00 00175D60  38 81 00 A4 */	addi r4, r1, 0xa4
 /* 80178E04 00175D64  7F 03 C3 78 */	mr r3, r24
@@ -2488,7 +2488,7 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178E40 00175DA0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80178E44 00175DA4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80178E48 00175DA8  7D 89 03 A6 */	mtctr r12
-/* 80178E4C 00175DAC  4E 80 04 21 */	bctrl 
+/* 80178E4C 00175DAC  4E 80 04 21 */	bctrl
 /* 80178E50 00175DB0  3B 1F 04 F4 */	addi r24, r31, 0x4f4
 /* 80178E54 00175DB4  38 81 00 94 */	addi r4, r1, 0x94
 /* 80178E58 00175DB8  7F 03 C3 78 */	mr r3, r24
@@ -2509,7 +2509,7 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178E94 00175DF4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80178E98 00175DF8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80178E9C 00175DFC  7D 89 03 A6 */	mtctr r12
-/* 80178EA0 00175E00  4E 80 04 21 */	bctrl 
+/* 80178EA0 00175E00  4E 80 04 21 */	bctrl
 /* 80178EA4 00175E04  3B 1F 05 00 */	addi r24, r31, 0x500
 /* 80178EA8 00175E08  38 81 00 84 */	addi r4, r1, 0x84
 /* 80178EAC 00175E0C  7F 03 C3 78 */	mr r3, r24
@@ -2532,7 +2532,7 @@ Accept__17CPlasmaProjectileFR8IVisitor:
 /* 80178EF0 00175E50  81 84 00 00 */	lwz r12, 0(r4)
 /* 80178EF4 00175E54  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80178EF8 00175E58  7D 89 03 A6 */	mtctr r12
-/* 80178EFC 00175E5C  4E 80 04 21 */	bctrl 
+/* 80178EFC 00175E5C  4E 80 04 21 */	bctrl
 /* 80178F00 00175E60  3B 1F 05 0C */	addi r24, r31, 0x50c
 /* 80178F04 00175E64  38 81 00 74 */	addi r4, r1, 0x74
 /* 80178F08 00175E68  7F 03 C3 78 */	mr r3, r24
@@ -2620,7 +2620,7 @@ lbl_80178FEC:
 /* 80179040 00175FA0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80179044 00175FA4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80179048 00175FA8  7D 89 03 A6 */	mtctr r12
-/* 8017904C 00175FAC  4E 80 04 21 */	bctrl 
+/* 8017904C 00175FAC  4E 80 04 21 */	bctrl
 /* 80179050 00175FB0  38 61 00 4C */	addi r3, r1, 0x4c
 /* 80179054 00175FB4  38 81 00 54 */	addi r4, r1, 0x54
 /* 80179058 00175FB8  3B 60 00 01 */	li r27, 1
@@ -2706,7 +2706,7 @@ lbl_80179134:
 /* 80179170 001760D0  81 84 00 00 */	lwz r12, 0(r4)
 /* 80179174 001760D4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80179178 001760D8  7D 89 03 A6 */	mtctr r12
-/* 8017917C 001760DC  4E 80 04 21 */	bctrl 
+/* 8017917C 001760DC  4E 80 04 21 */	bctrl
 /* 80179180 001760E0  38 61 00 34 */	addi r3, r1, 0x34
 /* 80179184 001760E4  38 81 00 3C */	addi r4, r1, 0x3c
 /* 80179188 001760E8  3B 00 00 01 */	li r24, 1
@@ -2816,7 +2816,7 @@ lbl_80179268:
 /* 80179300 00176260  81 83 00 00 */	lwz r12, 0(r3)
 /* 80179304 00176264  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80179308 00176268  7D 89 03 A6 */	mtctr r12
-/* 8017930C 0017626C  4E 80 04 21 */	bctrl 
+/* 8017930C 0017626C  4E 80 04 21 */	bctrl
 /* 80179310 00176270  C0 1E 00 34 */	lfs f0, 0x34(r30)
 /* 80179314 00176274  38 81 00 B4 */	addi r4, r1, 0xb4
 /* 80179318 00176278  D0 01 00 B4 */	stfs f0, 0xb4(r1)
@@ -2826,25 +2826,25 @@ lbl_80179268:
 /* 80179328 00176288  81 83 00 00 */	lwz r12, 0(r3)
 /* 8017932C 0017628C  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80179330 00176290  7D 89 03 A6 */	mtctr r12
-/* 80179334 00176294  4E 80 04 21 */	bctrl 
+/* 80179334 00176294  4E 80 04 21 */	bctrl
 /* 80179338 00176298  80 7F 05 18 */	lwz r3, 0x518(r31)
 /* 8017933C 0017629C  38 80 00 00 */	li r4, 0
 /* 80179340 001762A0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80179344 001762A4  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80179348 001762A8  7D 89 03 A6 */	mtctr r12
-/* 8017934C 001762AC  4E 80 04 21 */	bctrl 
+/* 8017934C 001762AC  4E 80 04 21 */	bctrl
 /* 80179350 001762B0  80 7F 05 1C */	lwz r3, 0x51c(r31)
 /* 80179354 001762B4  38 80 00 00 */	li r4, 0
 /* 80179358 001762B8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8017935C 001762BC  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80179360 001762C0  7D 89 03 A6 */	mtctr r12
-/* 80179364 001762C4  4E 80 04 21 */	bctrl 
+/* 80179364 001762C4  4E 80 04 21 */	bctrl
 /* 80179368 001762C8  7F E3 FB 78 */	mr r3, r31
 /* 8017936C 001762CC  BB 01 01 20 */	lmw r24, 0x120(r1)
 /* 80179370 001762D0  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 80179374 001762D4  7C 08 03 A6 */	mtlr r0
 /* 80179378 001762D8  38 21 01 40 */	addi r1, r1, 0x140
-/* 8017937C 001762DC  4E 80 00 20 */	blr 
+/* 8017937C 001762DC  4E 80 00 20 */	blr
 
 .global __sinit_CPlasmaProjectile_cpp
 __sinit_CPlasmaProjectile_cpp:

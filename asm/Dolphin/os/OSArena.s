@@ -3,34 +3,37 @@
 .section .sdata
 .global lbl_805A8B30
 lbl_805A8B30:
-	.incbin "baserom.dol", 0x3F64D0, 0x8
+	# ROM: 0x3F64D0
+	.4byte 0xFFFFFFFF
+	.4byte 0
+
 
 .section .sbss
 .global lbl_805A98B8
 lbl_805A98B8:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global OSGetArenaHi
 OSGetArenaHi:
 /* 8037E790 0037B6F0  80 6D AC F8 */	lwz r3, lbl_805A98B8@sda21(r13)
-/* 8037E794 0037B6F4  4E 80 00 20 */	blr 
+/* 8037E794 0037B6F4  4E 80 00 20 */	blr
 
 .global OSGetArenaLo
 OSGetArenaLo:
 /* 8037E798 0037B6F8  80 6D 9F 70 */	lwz r3, lbl_805A8B30@sda21(r13)
-/* 8037E79C 0037B6FC  4E 80 00 20 */	blr 
+/* 8037E79C 0037B6FC  4E 80 00 20 */	blr
 
 .global OSSetArenaHi
 OSSetArenaHi:
 /* 8037E7A0 0037B700  90 6D AC F8 */	stw r3, lbl_805A98B8@sda21(r13)
-/* 8037E7A4 0037B704  4E 80 00 20 */	blr 
+/* 8037E7A4 0037B704  4E 80 00 20 */	blr
 
 .global OSSetArenaLo
 OSSetArenaLo:
 /* 8037E7A8 0037B708  90 6D 9F 70 */	stw r3, lbl_805A8B30@sda21(r13)
-/* 8037E7AC 0037B70C  4E 80 00 20 */	blr 
+/* 8037E7AC 0037B70C  4E 80 00 20 */	blr
 
 .global OSAllocFromArenaLo
 OSAllocFromArenaLo:
@@ -44,6 +47,6 @@ OSAllocFromArenaLo:
 /* 8037E7CC 0037B72C  7C A0 00 38 */	and r0, r5, r0
 /* 8037E7D0 0037B730  90 0D 9F 70 */	stw r0, lbl_805A8B30@sda21(r13)
 /* 8037E7D4 0037B734  7C C3 33 78 */	mr r3, r6
-/* 8037E7D8 0037B738  4E 80 00 20 */	blr 
+/* 8037E7D8 0037B738  4E 80 00 20 */	blr
 
 

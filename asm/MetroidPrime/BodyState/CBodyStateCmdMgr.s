@@ -33,7 +33,7 @@ DeliverCmd__16CBodyStateCmdMgrF13EBodyStateCmd:
 /* 80131440 0012E3A0  7C 00 20 30 */	slw r0, r0, r4
 /* 80131444 0012E3A4  7C A0 03 78 */	or r0, r5, r0
 /* 80131448 0012E3A8  90 03 00 B4 */	stw r0, 0xb4(r3)
-/* 8013144C 0012E3AC  4E 80 00 20 */	blr 
+/* 8013144C 0012E3AC  4E 80 00 20 */	blr
 
 .global GetCmd__16CBodyStateCmdMgrF13EBodyStateCmd
 GetCmd__16CBodyStateCmdMgrF13EBodyStateCmd:
@@ -45,10 +45,10 @@ GetCmd__16CBodyStateCmdMgrF13EBodyStateCmd:
 /* 80131464 0012E3C4  54 80 10 3A */	slwi r0, r4, 2
 /* 80131468 0012E3C8  7C 63 02 14 */	add r3, r3, r0
 /* 8013146C 0012E3CC  80 63 00 44 */	lwz r3, 0x44(r3)
-/* 80131470 0012E3D0  4E 80 00 20 */	blr 
+/* 80131470 0012E3D0  4E 80 00 20 */	blr
 lbl_80131474:
 /* 80131474 0012E3D4  38 60 00 00 */	li r3, 0
-/* 80131478 0012E3D8  4E 80 00 20 */	blr 
+/* 80131478 0012E3D8  4E 80 00 20 */	blr
 
 .global GetCmd__16CBodyStateCmdMgrCF13EBodyStateCmd
 GetCmd__16CBodyStateCmdMgrCF13EBodyStateCmd:
@@ -60,10 +60,10 @@ GetCmd__16CBodyStateCmdMgrCF13EBodyStateCmd:
 /* 80131490 0012E3F0  54 80 10 3A */	slwi r0, r4, 2
 /* 80131494 0012E3F4  7C 63 02 14 */	add r3, r3, r0
 /* 80131498 0012E3F8  80 63 00 44 */	lwz r3, 0x44(r3)
-/* 8013149C 0012E3FC  4E 80 00 20 */	blr 
+/* 8013149C 0012E3FC  4E 80 00 20 */	blr
 lbl_801314A0:
 /* 801314A0 0012E400  38 60 00 00 */	li r3, 0
-/* 801314A4 0012E404  4E 80 00 20 */	blr 
+/* 801314A4 0012E404  4E 80 00 20 */	blr
 
 .global ClearLocomotionCmds__16CBodyStateCmdMgrFv
 ClearLocomotionCmds__16CBodyStateCmdMgrFv:
@@ -82,7 +82,7 @@ ClearLocomotionCmds__16CBodyStateCmdMgrFv:
 /* 801314D8 0012E438  C0 24 00 08 */	lfs f1, 8(r4)
 /* 801314DC 0012E43C  D0 23 00 14 */	stfs f1, 0x14(r3)
 /* 801314E0 0012E440  D0 03 00 3C */	stfs f0, 0x3c(r3)
-/* 801314E4 0012E444  4E 80 00 20 */	blr 
+/* 801314E4 0012E444  4E 80 00 20 */	blr
 
 .global Reset__16CBodyStateCmdMgrFv
 Reset__16CBodyStateCmdMgrFv:
@@ -109,7 +109,7 @@ Reset__16CBodyStateCmdMgrFv:
 /* 80131538 0012E498  D0 23 00 20 */	stfs f1, 0x20(r3)
 /* 8013153C 0012E49C  D0 03 00 3C */	stfs f0, 0x3c(r3)
 /* 80131540 0012E4A0  90 03 00 B4 */	stw r0, 0xb4(r3)
-/* 80131544 0012E4A4  4E 80 00 20 */	blr 
+/* 80131544 0012E4A4  4E 80 00 20 */	blr
 
 .global BlendSteeringCmds__16CBodyStateCmdMgrFv
 BlendSteeringCmds__16CBodyStateCmdMgrFv:
@@ -234,14 +234,14 @@ lbl_801316FC:
 /* 80131708 0012E668  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8013170C 0012E66C  7C 08 03 A6 */	mtlr r0
 /* 80131710 0012E670  38 21 00 40 */	addi r1, r1, 0x40
-/* 80131714 0012E674  4E 80 00 20 */	blr 
+/* 80131714 0012E674  4E 80 00 20 */	blr
 
 .global DeliverCmd__16CBodyStateCmdMgrFRC16CBCLocomotionCmd
 DeliverCmd__16CBodyStateCmdMgrFRC16CBCLocomotionCmd:
 /* 80131718 0012E678  C0 24 00 18 */	lfs f1, 0x18(r4)
 /* 8013171C 0012E67C  C0 02 99 8C */	lfs f0, lbl_805AB6AC@sda21(r2)
 /* 80131720 0012E680  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 80131724 0012E684  4C 81 00 20 */	blelr 
+/* 80131724 0012E684  4C 81 00 20 */	blelr
 /* 80131728 0012E688  C0 03 00 3C */	lfs f0, 0x3c(r3)
 /* 8013172C 0012E68C  EC 00 08 2A */	fadds f0, f0, f1
 /* 80131730 0012E690  D0 03 00 3C */	stfs f0, 0x3c(r3)
@@ -277,7 +277,7 @@ DeliverCmd__16CBodyStateCmdMgrFRC16CBCLocomotionCmd:
 /* 801317A8 0012E708  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 801317AC 0012E70C  EC 00 08 2A */	fadds f0, f0, f1
 /* 801317B0 0012E710  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 801317B4 0012E714  4E 80 00 20 */	blr 
+/* 801317B4 0012E714  4E 80 00 20 */	blr
 
 .global DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd
 DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd:
@@ -292,13 +292,13 @@ DeliverCmd__16CBodyStateCmdMgrFRC13CBodyStateCmd:
 /* 801317D8 0012E738  7C 63 02 14 */	add r3, r3, r0
 /* 801317DC 0012E73C  80 63 00 44 */	lwz r3, 0x44(r3)
 /* 801317E0 0012E740  90 83 00 04 */	stw r4, 4(r3)
-/* 801317E4 0012E744  4E 80 00 20 */	blr 
+/* 801317E4 0012E744  4E 80 00 20 */	blr
 
 .global SetSteeringSpeedRange__16CBodyStateCmdMgrFff
 SetSteeringSpeedRange__16CBodyStateCmdMgrFff:
 /* 801317E8 0012E748  D0 23 00 34 */	stfs f1, 0x34(r3)
 /* 801317EC 0012E74C  D0 43 00 38 */	stfs f2, 0x38(r3)
-/* 801317F0 0012E750  4E 80 00 20 */	blr 
+/* 801317F0 0012E750  4E 80 00 20 */	blr
 
 .global __dt__16CBodyStateCmdMgrFv
 __dt__16CBodyStateCmdMgrFv:
@@ -637,7 +637,7 @@ lbl_80131C94:
 /* 80131C9C 0012EBFC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80131CA0 0012EC00  7C 08 03 A6 */	mtlr r0
 /* 80131CA4 0012EC04  38 21 00 10 */	addi r1, r1, 0x10
-/* 80131CA8 0012EC08  4E 80 00 20 */	blr 
+/* 80131CA8 0012EC08  4E 80 00 20 */	blr
 
 .global __ct__16CBodyStateCmdMgrFv
 __ct__16CBodyStateCmdMgrFv:
@@ -1091,7 +1091,7 @@ lbl_8013236C:
 /* 80132374 0012F2D4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80132378 0012F2D8  7C 08 03 A6 */	mtlr r0
 /* 8013237C 0012F2DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80132380 0012F2E0  4E 80 00 20 */	blr 
+/* 80132380 0012F2E0  4E 80 00 20 */	blr
 
 .global __dt__20CBCAdditiveFlinchCmdFv
 __dt__20CBCAdditiveFlinchCmdFv:
@@ -1119,7 +1119,7 @@ lbl_801323C8:
 /* 801323D0 0012F330  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801323D4 0012F334  7C 08 03 A6 */	mtlr r0
 /* 801323D8 0012F338  38 21 00 10 */	addi r1, r1, 0x10
-/* 801323DC 0012F33C  4E 80 00 20 */	blr 
+/* 801323DC 0012F33C  4E 80 00 20 */	blr
 
 .global __dt__16CBCLoopAttackCmdFv
 __dt__16CBCLoopAttackCmdFv:
@@ -1147,4 +1147,4 @@ lbl_80132424:
 /* 8013242C 0012F38C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80132430 0012F390  7C 08 03 A6 */	mtlr r0
 /* 80132434 0012F394  38 21 00 10 */	addi r1, r1, 0x10
-/* 80132438 0012F398  4E 80 00 20 */	blr 
+/* 80132438 0012F398  4E 80 00 20 */	blr

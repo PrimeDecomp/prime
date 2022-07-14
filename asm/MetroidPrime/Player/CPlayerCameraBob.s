@@ -140,7 +140,7 @@ lbl_805A8ED8:
 .global GetViewWanderTransform__16CPlayerCameraBobCFv
 GetViewWanderTransform__16CPlayerCameraBobCFv:
 /* 800E9570 000E64D0  38 63 00 D0 */	addi r3, r3, 0xd0
-/* 800E9574 000E64D4  4E 80 00 20 */	blr 
+/* 800E9574 000E64D4  4E 80 00 20 */	blr
 
 .global UpdateViewWander__16CPlayerCameraBobFfR13CStateManager
 UpdateViewWander__16CPlayerCameraBobFfR13CStateManager:
@@ -313,7 +313,7 @@ lbl_800E97F4:
 /* 800E980C 000E676C  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 800E9810 000E6770  7C 08 03 A6 */	mtlr r0
 /* 800E9814 000E6774  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800E9818 000E6778  4E 80 00 20 */	blr 
+/* 800E9818 000E6778  4E 80 00 20 */	blr
 
 .global CalculateRandomViewWanderPitch__16CPlayerCameraBobFR13CStateManager
 CalculateRandomViewWanderPitch__16CPlayerCameraBobFR13CStateManager:
@@ -333,7 +333,7 @@ CalculateRandomViewWanderPitch__16CPlayerCameraBobFR13CStateManager:
 /* 800E9850 000E67B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E9854 000E67B4  7C 08 03 A6 */	mtlr r0
 /* 800E9858 000E67B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E985C 000E67BC  4E 80 00 20 */	blr 
+/* 800E985C 000E67BC  4E 80 00 20 */	blr
 
 .global CalculateRandomViewWanderPosition__16CPlayerCameraBobFR13CStateManager
 CalculateRandomViewWanderPosition__16CPlayerCameraBobFR13CStateManager:
@@ -381,7 +381,7 @@ CalculateRandomViewWanderPosition__16CPlayerCameraBobFR13CStateManager:
 /* 800E9904 000E6864  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E9908 000E6868  7C 08 03 A6 */	mtlr r0
 /* 800E990C 000E686C  38 21 00 40 */	addi r1, r1, 0x40
-/* 800E9910 000E6870  4E 80 00 20 */	blr 
+/* 800E9910 000E6870  4E 80 00 20 */	blr
 
 .global InitViewWander__16CPlayerCameraBobFR13CStateManager
 InitViewWander__16CPlayerCameraBobFR13CStateManager:
@@ -449,7 +449,7 @@ InitViewWander__16CPlayerCameraBobFR13CStateManager:
 /* 800E9A08 000E6968  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800E9A0C 000E696C  7C 08 03 A6 */	mtlr r0
 /* 800E9A10 000E6970  38 21 00 30 */	addi r1, r1, 0x30
-/* 800E9A14 000E6974  4E 80 00 20 */	blr 
+/* 800E9A14 000E6974  4E 80 00 20 */	blr
 
 .global SetPlayerVelocity__16CPlayerCameraBobFRC9CVector3f
 SetPlayerVelocity__16CPlayerCameraBobFRC9CVector3f:
@@ -468,7 +468,7 @@ SetPlayerVelocity__16CPlayerCameraBobFRC9CVector3f:
 lbl_800E9A48:
 /* 800E9A48 000E69A8  C0 05 00 00 */	lfs f0, 0(r5)
 /* 800E9A4C 000E69AC  D0 03 00 68 */	stfs f0, 0x68(r3)
-/* 800E9A50 000E69B0  4E 80 00 20 */	blr 
+/* 800E9A50 000E69B0  4E 80 00 20 */	blr
 
 .global SetState__16CPlayerCameraBobFQ216CPlayerCameraBob15ECameraBobStateR13CStateManager
 SetState__16CPlayerCameraBobFQ216CPlayerCameraBob15ECameraBobStateR13CStateManager:
@@ -530,13 +530,13 @@ lbl_800E9B1C:
 /* 800E9B1C 000E6A7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E9B20 000E6A80  7C 08 03 A6 */	mtlr r0
 /* 800E9B24 000E6A84  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E9B28 000E6A88  4E 80 00 20 */	blr 
+/* 800E9B28 000E6A88  4E 80 00 20 */	blr
 
 .global ResetCameraBobTime__16CPlayerCameraBobFv
 ResetCameraBobTime__16CPlayerCameraBobFv:
 /* 800E9B2C 000E6A8C  C0 02 90 78 */	lfs f0, lbl_805AAD98@sda21(r2)
 /* 800E9B30 000E6A90  D0 03 00 1C */	stfs f0, 0x1c(r3)
-/* 800E9B34 000E6A94  4E 80 00 20 */	blr 
+/* 800E9B34 000E6A94  4E 80 00 20 */	blr
 
 .global CalculateMovingTranslation__16CPlayerCameraBobCFRfRf
 CalculateMovingTranslation__16CPlayerCameraBobCFRfRf:
@@ -650,12 +650,12 @@ lbl_800E9CB4:
 /* 800E9CD0 000E6C30  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800E9CD4 000E6C34  7C 08 03 A6 */	mtlr r0
 /* 800E9CD8 000E6C38  38 21 00 40 */	addi r1, r1, 0x40
-/* 800E9CDC 000E6C3C  4E 80 00 20 */	blr 
+/* 800E9CDC 000E6C3C  4E 80 00 20 */	blr
 
 .global CalculateLandingTranslation__16CPlayerCameraBobCFv
 CalculateLandingTranslation__16CPlayerCameraBobCFv:
 /* 800E9CE0 000E6C40  C0 23 00 70 */	lfs f1, 0x70(r3)
-/* 800E9CE4 000E6C44  4E 80 00 20 */	blr 
+/* 800E9CE4 000E6C44  4E 80 00 20 */	blr
 
 .global GetHelmetBobTranslation__16CPlayerCameraBobCFv
 GetHelmetBobTranslation__16CPlayerCameraBobCFv:
@@ -674,7 +674,7 @@ GetHelmetBobTranslation__16CPlayerCameraBobCFv:
 /* 800E9D18 000E6C78  EC 04 00 72 */	fmuls f0, f4, f1
 /* 800E9D1C 000E6C7C  D0 43 00 04 */	stfs f2, 4(r3)
 /* 800E9D20 000E6C80  D0 03 00 08 */	stfs f0, 8(r3)
-/* 800E9D24 000E6C84  4E 80 00 20 */	blr 
+/* 800E9D24 000E6C84  4E 80 00 20 */	blr
 
 .global GetGunBobTransformation__16CPlayerCameraBobCFv
 GetGunBobTransformation__16CPlayerCameraBobCFv:
@@ -708,7 +708,7 @@ GetGunBobTransformation__16CPlayerCameraBobCFv:
 /* 800E9D94 000E6CF4  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 800E9D98 000E6CF8  7C 08 03 A6 */	mtlr r0
 /* 800E9D9C 000E6CFC  38 21 00 60 */	addi r1, r1, 0x60
-/* 800E9DA0 000E6D00  4E 80 00 20 */	blr 
+/* 800E9DA0 000E6D00  4E 80 00 20 */	blr
 
 .global GetCameraBobTransformation__16CPlayerCameraBobCFv
 GetCameraBobTransformation__16CPlayerCameraBobCFv:
@@ -720,7 +720,7 @@ GetCameraBobTransformation__16CPlayerCameraBobCFv:
 /* 800E9DB8 000E6D18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E9DBC 000E6D1C  7C 08 03 A6 */	mtlr r0
 /* 800E9DC0 000E6D20  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E9DC4 000E6D24  4E 80 00 20 */	blr 
+/* 800E9DC4 000E6D24  4E 80 00 20 */	blr
 
 .global CalculateCameraBobTransformation__16CPlayerCameraBobCFv
 CalculateCameraBobTransformation__16CPlayerCameraBobCFv:
@@ -757,7 +757,7 @@ lbl_800E9E20:
 /* 800E9E3C 000E6D9C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800E9E40 000E6DA0  7C 08 03 A6 */	mtlr r0
 /* 800E9E44 000E6DA4  38 21 00 20 */	addi r1, r1, 0x20
-/* 800E9E48 000E6DA8  4E 80 00 20 */	blr 
+/* 800E9E48 000E6DA8  4E 80 00 20 */	blr
 
 .global SetBobMagnitude__16CPlayerCameraBobFf
 SetBobMagnitude__16CPlayerCameraBobFf:
@@ -784,7 +784,7 @@ lbl_800E9E8C:
 lbl_800E9E90:
 /* 800E9E90 000E6DF0  C0 04 00 00 */	lfs f0, 0(r4)
 /* 800E9E94 000E6DF4  D0 03 00 10 */	stfs f0, 0x10(r3)
-/* 800E9E98 000E6DF8  4E 80 00 20 */	blr 
+/* 800E9E98 000E6DF8  4E 80 00 20 */	blr
 
 .global SetBobTimeScale__16CPlayerCameraBobFf
 SetBobTimeScale__16CPlayerCameraBobFf:
@@ -811,7 +811,7 @@ lbl_800E9EDC:
 lbl_800E9EE0:
 /* 800E9EE0 000E6E40  C0 04 00 00 */	lfs f0, 0(r4)
 /* 800E9EE4 000E6E44  D0 03 00 18 */	stfs f0, 0x18(r3)
-/* 800E9EE8 000E6E48  4E 80 00 20 */	blr 
+/* 800E9EE8 000E6E48  4E 80 00 20 */	blr
 
 .global Update__16CPlayerCameraBobFfR13CStateManager
 Update__16CPlayerCameraBobFfR13CStateManager:
@@ -986,7 +986,7 @@ lbl_800EA0C4:
 /* 800EA174 000E70D4  83 C1 00 D8 */	lwz r30, 0xd8(r1)
 /* 800EA178 000E70D8  7C 08 03 A6 */	mtlr r0
 /* 800EA17C 000E70DC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800EA180 000E70E0  4E 80 00 20 */	blr 
+/* 800EA180 000E70E0  4E 80 00 20 */	blr
 
 .global ReadTweaks__16CPlayerCameraBobFR12CInputStream
 ReadTweaks__16CPlayerCameraBobFR12CInputStream:
@@ -1040,7 +1040,7 @@ ReadTweaks__16CPlayerCameraBobFR12CInputStream:
 /* 800EA240 000E71A0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800EA244 000E71A4  7C 08 03 A6 */	mtlr r0
 /* 800EA248 000E71A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EA24C 000E71AC  4E 80 00 20 */	blr 
+/* 800EA24C 000E71AC  4E 80 00 20 */	blr
 
 .global __ct__16CPlayerCameraBobFQ216CPlayerCameraBob14ECameraBobTypeRC9CVector2ff
 __ct__16CPlayerCameraBobFQ216CPlayerCameraBob14ECameraBobTypeRC9CVector2ff:
@@ -1194,7 +1194,7 @@ lbl_800EA468:
 /* 800EA47C 000E73DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800EA480 000E73E0  7C 08 03 A6 */	mtlr r0
 /* 800EA484 000E73E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800EA488 000E73E8  4E 80 00 20 */	blr 
+/* 800EA488 000E73E8  4E 80 00 20 */	blr
 
 .global __sinit_CPlayerCameraBob_cpp
 __sinit_CPlayerCameraBob_cpp:

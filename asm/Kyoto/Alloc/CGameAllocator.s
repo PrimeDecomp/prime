@@ -50,7 +50,7 @@ OffsetFakeStatics__14CGameAllocatorFi:
 /* 80351138 0034E098  80 03 00 B8 */	lwz r0, 0xb8(r3)
 /* 8035113C 0034E09C  7C 00 22 14 */	add r0, r0, r4
 /* 80351140 0034E0A0  90 03 00 B8 */	stw r0, 0xb8(r3)
-/* 80351144 0034E0A4  4E 80 00 20 */	blr 
+/* 80351144 0034E0A4  4E 80 00 20 */	blr
 
 .global GetLargestFreeChunk__14CGameAllocatorCFv
 GetLargestFreeChunk__14CGameAllocatorCFv:
@@ -71,7 +71,7 @@ lbl_80351170:
 lbl_80351178:
 /* 80351178 0034E0D8  28 04 00 00 */	cmplwi r4, 0
 /* 8035117C 0034E0DC  40 82 FF D8 */	bne lbl_80351154
-/* 80351180 0034E0E0  4E 80 00 20 */	blr 
+/* 80351180 0034E0E0  4E 80 00 20 */	blr
 
 .global DumpAllocations__14CGameAllocatorCFv
 DumpAllocations__14CGameAllocatorCFv:
@@ -106,7 +106,7 @@ lbl_803511D8:
 /* 803511E8 0034E148  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803511EC 0034E14C  7C 08 03 A6 */	mtlr r0
 /* 803511F0 0034E150  38 21 00 10 */	addi r1, r1, 0x10
-/* 803511F4 0034E154  4E 80 00 20 */	blr 
+/* 803511F4 0034E154  4E 80 00 20 */	blr
 
 .global RemoveFreeEntryFromFreeList__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfo
 RemoveFreeEntryFromFreeList__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfo:
@@ -155,7 +155,7 @@ lbl_80351284:
 /* 8035128C 0034E1EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80351290 0034E1F0  7C 08 03 A6 */	mtlr r0
 /* 80351294 0034E1F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80351298 0034E1F8  4E 80 00 20 */	blr 
+/* 80351298 0034E1F8  4E 80 00 20 */	blr
 
 .global AddFreeEntryToFreeList__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfo
 AddFreeEntryToFreeList__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfo:
@@ -182,7 +182,7 @@ AddFreeEntryToFreeList__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfo:
 /* 803512EC 0034E24C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803512F0 0034E250  7C 08 03 A6 */	mtlr r0
 /* 803512F4 0034E254  38 21 00 10 */	addi r1, r1, 0x10
-/* 803512F8 0034E258  4E 80 00 20 */	blr 
+/* 803512F8 0034E258  4E 80 00 20 */	blr
 
 .global GetFreeBinEntryForSize__14CGameAllocatorFUi
 GetFreeBinEntryForSize__14CGameAllocatorFUi:
@@ -194,7 +194,7 @@ lbl_8035130C:
 /* 8035130C 0034E26C  7C 03 20 40 */	cmplw r3, r4
 /* 80351310 0034E270  40 80 00 0C */	bge lbl_8035131C
 /* 80351314 0034E274  7C A3 2B 78 */	mr r3, r5
-/* 80351318 0034E278  4E 80 00 20 */	blr 
+/* 80351318 0034E278  4E 80 00 20 */	blr
 lbl_8035131C:
 /* 8035131C 0034E27C  54 84 08 3C */	slwi r4, r4, 1
 /* 80351320 0034E280  38 A5 00 01 */	addi r5, r5, 1
@@ -202,7 +202,7 @@ lbl_80351324:
 /* 80351324 0034E284  7C 04 00 40 */	cmplw r4, r0
 /* 80351328 0034E288  41 80 FF E4 */	blt lbl_8035130C
 /* 8035132C 0034E28C  38 60 00 0F */	li r3, 0xf
-/* 80351330 0034E290  4E 80 00 20 */	blr 
+/* 80351330 0034E290  4E 80 00 20 */	blr
 
 .global EnumAllocations__14CGameAllocatorCFPFRCQ210IAllocator10SAllocInfoPCv_CbPCvb
 EnumAllocations__14CGameAllocatorCFPFRCQ210IAllocator10SAllocInfoPCv_CbPCvb:
@@ -251,7 +251,7 @@ lbl_80351394:
 /* 803513D0 0034E330  91 01 00 14 */	stw r8, 0x14(r1)
 /* 803513D4 0034E334  91 21 00 18 */	stw r9, 0x18(r1)
 /* 803513D8 0034E338  7D 89 03 A6 */	mtctr r12
-/* 803513DC 0034E33C  4E 80 04 21 */	bctrl 
+/* 803513DC 0034E33C  4E 80 04 21 */	bctrl
 /* 803513E0 0034E340  7F EA FB 78 */	mr r10, r31
 /* 803513E4 0034E344  3B DE 00 01 */	addi r30, r30, 1
 lbl_803513E8:
@@ -266,7 +266,7 @@ lbl_803513F4:
 /* 80351404 0034E364  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80351408 0034E368  7C 08 03 A6 */	mtlr r0
 /* 8035140C 0034E36C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80351410 0034E370  4E 80 00 20 */	blr 
+/* 80351410 0034E370  4E 80 00 20 */	blr
 
 .global GetMetrics__14CGameAllocatorCFv
 GetMetrics__14CGameAllocatorCFv:
@@ -382,7 +382,7 @@ lbl_803514F4:
 /* 80351590 0034E4F0  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80351594 0034E4F4  7C 08 03 A6 */	mtlr r0
 /* 80351598 0034E4F8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8035159C 0034E4FC  4E 80 00 20 */	blr 
+/* 8035159C 0034E4FC  4E 80 00 20 */	blr
 
 .global GetAllocInfo__14CGameAllocatorCFPCv
 GetAllocInfo__14CGameAllocatorCFPCv:
@@ -410,17 +410,17 @@ GetAllocInfo__14CGameAllocatorCFPCv:
 /* 803515F4 0034E554  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803515F8 0034E558  7C 08 03 A6 */	mtlr r0
 /* 803515FC 0034E55C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80351600 0034E560  4E 80 00 20 */	blr 
+/* 80351600 0034E560  4E 80 00 20 */	blr
 
 .global SetOutOfMemoryCallback__14CGameAllocatorFPFPCvUi_CbPCv
 SetOutOfMemoryCallback__14CGameAllocatorFPFPCvUi_CbPCv:
 /* 80351604 0034E564  90 83 00 58 */	stw r4, 0x58(r3)
 /* 80351608 0034E568  90 A3 00 5C */	stw r5, 0x5c(r3)
-/* 8035160C 0034E56C  4E 80 00 20 */	blr 
+/* 8035160C 0034E56C  4E 80 00 20 */	blr
 
 .global ReleaseAllSecondary__14CGameAllocatorFv
 ReleaseAllSecondary__14CGameAllocatorFv:
-/* 80351610 0034E570  4E 80 00 20 */	blr 
+/* 80351610 0034E570  4E 80 00 20 */	blr
 
 .global FreeSecondary__14CGameAllocatorFPCv
 FreeSecondary__14CGameAllocatorFPCv:
@@ -430,11 +430,11 @@ FreeSecondary__14CGameAllocatorFPCv:
 /* 80351620 0034E580  81 83 00 00 */	lwz r12, 0(r3)
 /* 80351624 0034E584  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80351628 0034E588  7D 89 03 A6 */	mtctr r12
-/* 8035162C 0034E58C  4E 80 04 21 */	bctrl 
+/* 8035162C 0034E58C  4E 80 04 21 */	bctrl
 /* 80351630 0034E590  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80351634 0034E594  7C 08 03 A6 */	mtlr r0
 /* 80351638 0034E598  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035163C 0034E59C  4E 80 00 20 */	blr 
+/* 8035163C 0034E59C  4E 80 00 20 */	blr
 
 .global AllocSecondary__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 AllocSecondary__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack:
@@ -444,11 +444,11 @@ AllocSecondary__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210
 /* 8035164C 0034E5AC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80351650 0034E5B0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80351654 0034E5B4  7D 89 03 A6 */	mtctr r12
-/* 80351658 0034E5B8  4E 80 04 21 */	bctrl 
+/* 80351658 0034E5B8  4E 80 04 21 */	bctrl
 /* 8035165C 0034E5BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80351660 0034E5C0  7C 08 03 A6 */	mtlr r0
 /* 80351664 0034E5C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80351668 0034E5C8  4E 80 00 20 */	blr 
+/* 80351668 0034E5C8  4E 80 00 20 */	blr
 
 .global ReleaseAll__14CGameAllocatorFv
 ReleaseAll__14CGameAllocatorFv:
@@ -492,7 +492,7 @@ lbl_803516D4:
 /* 803516F0 0034E650  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803516F4 0034E654  7C 08 03 A6 */	mtlr r0
 /* 803516F8 0034E658  38 21 00 10 */	addi r1, r1, 0x10
-/* 803516FC 0034E65C  4E 80 00 20 */	blr 
+/* 803516FC 0034E65C  4E 80 00 20 */	blr
 
 .global FreeNormalAllocation__14CGameAllocatorFPCv
 FreeNormalAllocation__14CGameAllocatorFPCv:
@@ -614,7 +614,7 @@ lbl_803518A8:
 /* 803518B0 0034E810  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803518B4 0034E814  7C 08 03 A6 */	mtlr r0
 /* 803518B8 0034E818  38 21 00 30 */	addi r1, r1, 0x30
-/* 803518BC 0034E81C  4E 80 00 20 */	blr 
+/* 803518BC 0034E81C  4E 80 00 20 */	blr
 
 .global Free__14CGameAllocatorFPCv
 Free__14CGameAllocatorFPCv:
@@ -663,7 +663,7 @@ lbl_80351950:
 /* 80351958 0034E8B8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8035195C 0034E8BC  7C 08 03 A6 */	mtlr r0
 /* 80351960 0034E8C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80351964 0034E8C4  4E 80 00 20 */	blr 
+/* 80351964 0034E8C4  4E 80 00 20 */	blr
 
 .global UpdateAllocDebugStats__14CGameAllocatorFUiUiUi
 UpdateAllocDebugStats__14CGameAllocatorFUiUiUi:
@@ -713,11 +713,11 @@ lbl_803519F0:
 /* 80351A04 0034E964  7C 04 02 14 */	add r0, r4, r0
 /* 80351A08 0034E968  7C 00 33 96 */	divwu r0, r0, r6
 /* 80351A0C 0034E96C  90 03 00 A4 */	stw r0, 0xa4(r3)
-/* 80351A10 0034E970  4D 81 00 20 */	bgtlr 
+/* 80351A10 0034E970  4D 81 00 20 */	bgtlr
 /* 80351A14 0034E974  80 83 00 A8 */	lwz r4, 0xa8(r3)
 /* 80351A18 0034E978  38 04 00 01 */	addi r0, r4, 1
 /* 80351A1C 0034E97C  90 03 00 A8 */	stw r0, 0xa8(r3)
-/* 80351A20 0034E980  4E 80 00 20 */	blr 
+/* 80351A20 0034E980  4E 80 00 20 */	blr
 
 .global FixupAllocPtrs__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfoUiUiQ210IAllocator5EHintRC10CCallStack
 FixupAllocPtrs__14CGameAllocatorFPQ214CGameAllocator12SGameMemInfoUiUiQ210IAllocator5EHintRC10CCallStack:
@@ -861,7 +861,7 @@ lbl_80351C00:
 /* 80351C30 0034EB90  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80351C34 0034EB94  7C 08 03 A6 */	mtlr r0
 /* 80351C38 0034EB98  38 21 00 70 */	addi r1, r1, 0x70
-/* 80351C3C 0034EB9C  4E 80 00 20 */	blr 
+/* 80351C3C 0034EB9C  4E 80 00 20 */	blr
 
 .global FindFreeBlockFromTopOfHeap__14CGameAllocatorFUi
 FindFreeBlockFromTopOfHeap__14CGameAllocatorFUi:
@@ -894,7 +894,7 @@ lbl_80351C88:
 /* 80351C98 0034EBF8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80351C9C 0034EBFC  7C 08 03 A6 */	mtlr r0
 /* 80351CA0 0034EC00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80351CA4 0034EC04  4E 80 00 20 */	blr 
+/* 80351CA4 0034EC04  4E 80 00 20 */	blr
 
 .global FindFreeBlock__14CGameAllocatorFUi
 FindFreeBlock__14CGameAllocatorFUi:
@@ -980,7 +980,7 @@ lbl_80351DB0:
 /* 80351DC0 0034ED20  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80351DC4 0034ED24  7C 08 03 A6 */	mtlr r0
 /* 80351DC8 0034ED28  38 21 00 20 */	addi r1, r1, 0x20
-/* 80351DCC 0034ED2C  4E 80 00 20 */	blr 
+/* 80351DCC 0034ED2C  4E 80 00 20 */	blr
 
 .global Alloc__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack
 Alloc__14CGameAllocatorFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeRC10CCallStack:
@@ -1104,7 +1104,7 @@ lbl_80351F38:
 /* 80351F84 0034EEE4  38 C0 00 01 */	li r6, 1
 /* 80351F88 0034EEE8  38 E0 00 00 */	li r7, 0
 /* 80351F8C 0034EEEC  7D 89 03 A6 */	mtctr r12
-/* 80351F90 0034EEF0  4E 80 04 21 */	bctrl 
+/* 80351F90 0034EEF0  4E 80 04 21 */	bctrl
 /* 80351F94 0034EEF4  7C 60 1B 78 */	mr r0, r3
 /* 80351F98 0034EEF8  80 7F 00 74 */	lwz r3, 0x74(r31)
 /* 80351F9C 0034EEFC  7C 05 03 78 */	mr r5, r0
@@ -1163,7 +1163,7 @@ lbl_80352040:
 /* 80352058 0034EFB8  7F 44 D3 78 */	mr r4, r26
 /* 8035205C 0034EFBC  80 7F 00 5C */	lwz r3, 0x5c(r31)
 /* 80352060 0034EFC0  7D 89 03 A6 */	mtctr r12
-/* 80352064 0034EFC4  4E 80 04 21 */	bctrl 
+/* 80352064 0034EFC4  4E 80 04 21 */	bctrl
 /* 80352068 0034EFC8  88 0D AA 2A */	lbz r0, lbl_805A95EA@sda21(r13)
 /* 8035206C 0034EFCC  7C 00 07 75 */	extsb. r0, r0
 /* 80352070 0034EFD0  40 82 00 14 */	bne lbl_80352084
@@ -1186,7 +1186,7 @@ lbl_80352084:
 /* 803520B0 0034F010  7F C8 F3 78 */	mr r8, r30
 /* 803520B4 0034F014  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 803520B8 0034F018  7D 89 03 A6 */	mtctr r12
-/* 803520BC 0034F01C  4E 80 04 21 */	bctrl 
+/* 803520BC 0034F01C  4E 80 04 21 */	bctrl
 /* 803520C0 0034F020  38 00 00 00 */	li r0, 0
 /* 803520C4 0034F024  98 0D AA 29 */	stb r0, lbl_805A95E9@sda21(r13)
 /* 803520C8 0034F028  48 00 00 0C */	b lbl_803520D4
@@ -1237,7 +1237,7 @@ lbl_80352164:
 /* 80352168 0034F0C8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8035216C 0034F0CC  7C 08 03 A6 */	mtlr r0
 /* 80352170 0034F0D0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80352174 0034F0D4  4E 80 00 20 */	blr 
+/* 80352174 0034F0D4  4E 80 00 20 */	blr
 
 .global Shutdown__14CGameAllocatorFv
 Shutdown__14CGameAllocatorFv:
@@ -1249,7 +1249,7 @@ Shutdown__14CGameAllocatorFv:
 /* 8035218C 0034F0EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80352190 0034F0F0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80352194 0034F0F4  7D 89 03 A6 */	mtctr r12
-/* 80352198 0034F0F8  4E 80 04 21 */	bctrl 
+/* 80352198 0034F0F8  4E 80 04 21 */	bctrl
 /* 8035219C 0034F0FC  38 00 00 00 */	li r0, 0
 /* 803521A0 0034F100  98 1F 00 04 */	stb r0, 4(r31)
 /* 803521A4 0034F104  90 1F 00 54 */	stw r0, 0x54(r31)
@@ -1257,7 +1257,7 @@ Shutdown__14CGameAllocatorFv:
 /* 803521AC 0034F10C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803521B0 0034F110  7C 08 03 A6 */	mtlr r0
 /* 803521B4 0034F114  38 21 00 10 */	addi r1, r1, 0x10
-/* 803521B8 0034F118  4E 80 00 20 */	blr 
+/* 803521B8 0034F118  4E 80 00 20 */	blr
 
 .global Initialize__14CGameAllocatorFR10COsContext
 Initialize__14CGameAllocatorFR10COsContext:
@@ -1386,7 +1386,7 @@ Initialize__14CGameAllocatorFR10COsContext:
 /* 803523A4 0034F304  38 C0 00 01 */	li r6, 1
 /* 803523A8 0034F308  38 E0 00 00 */	li r7, 0
 /* 803523AC 0034F30C  7D 89 03 A6 */	mtctr r12
-/* 803523B0 0034F310  4E 80 04 21 */	bctrl 
+/* 803523B0 0034F310  4E 80 04 21 */	bctrl
 /* 803523B4 0034F314  3C 80 80 3E */	lis r4, lbl_803D8248@ha
 /* 803523B8 0034F318  90 7F 00 64 */	stw r3, 0x64(r31)
 /* 803523BC 0034F31C  38 C4 82 48 */	addi r6, r4, lbl_803D8248@l
@@ -1405,7 +1405,7 @@ Initialize__14CGameAllocatorFR10COsContext:
 /* 803523F0 0034F350  38 C0 00 01 */	li r6, 1
 /* 803523F4 0034F354  38 E0 00 00 */	li r7, 0
 /* 803523F8 0034F358  7D 89 03 A6 */	mtctr r12
-/* 803523FC 0034F35C  4E 80 04 21 */	bctrl 
+/* 803523FC 0034F35C  4E 80 04 21 */	bctrl
 /* 80352400 0034F360  3C 80 80 3E */	lis r4, lbl_803D8248@ha
 /* 80352404 0034F364  90 7F 00 68 */	stw r3, 0x68(r31)
 /* 80352408 0034F368  38 C4 82 48 */	addi r6, r4, lbl_803D8248@l
@@ -1423,7 +1423,7 @@ Initialize__14CGameAllocatorFR10COsContext:
 /* 80352438 0034F398  38 C0 00 01 */	li r6, 1
 /* 8035243C 0034F39C  38 E0 00 00 */	li r7, 0
 /* 80352440 0034F3A0  7D 89 03 A6 */	mtctr r12
-/* 80352444 0034F3A4  4E 80 04 21 */	bctrl 
+/* 80352444 0034F3A4  4E 80 04 21 */	bctrl
 /* 80352448 0034F3A8  7C 60 1B 79 */	or. r0, r3, r3
 /* 8035244C 0034F3AC  41 82 00 1C */	beq lbl_80352468
 /* 80352450 0034F3B0  3C 80 00 03 */	lis r4, 0x0002C000@ha
@@ -1450,7 +1450,7 @@ lbl_80352468:
 /* 803524A0 0034F400  38 C0 00 01 */	li r6, 1
 /* 803524A4 0034F404  38 E0 00 00 */	li r7, 0
 /* 803524A8 0034F408  7D 89 03 A6 */	mtctr r12
-/* 803524AC 0034F40C  4E 80 04 21 */	bctrl 
+/* 803524AC 0034F40C  4E 80 04 21 */	bctrl
 /* 803524B0 0034F410  7C 60 1B 79 */	or. r0, r3, r3
 /* 803524B4 0034F414  41 82 00 0C */	beq lbl_803524C0
 /* 803524B8 0034F418  4B FF E8 AD */	bl __ct__16CMediumAllocPoolFv
@@ -1474,7 +1474,7 @@ lbl_803524C0:
 /* 803524FC 0034F45C  38 C0 00 01 */	li r6, 1
 /* 80352500 0034F460  38 E0 00 00 */	li r7, 0
 /* 80352504 0034F464  7D 89 03 A6 */	mtctr r12
-/* 80352508 0034F468  4E 80 04 21 */	bctrl 
+/* 80352508 0034F468  4E 80 04 21 */	bctrl
 /* 8035250C 0034F46C  90 7F 00 78 */	stw r3, 0x78(r31)
 /* 80352510 0034F470  3C 60 00 0C */	lis r3, 0x000C6000@ha
 /* 80352514 0034F474  38 03 60 00 */	addi r0, r3, 0x000C6000@l
@@ -1488,7 +1488,7 @@ lbl_803524C0:
 /* 80352534 0034F494  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80352538 0034F498  7C 08 03 A6 */	mtlr r0
 /* 8035253C 0034F49C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80352540 0034F4A0  4E 80 00 20 */	blr 
+/* 80352540 0034F4A0  4E 80 00 20 */	blr
 
 .global __dt__14CGameAllocatorFv
 __dt__14CGameAllocatorFv:
@@ -1527,7 +1527,7 @@ lbl_803525B0:
 /* 803525BC 0034F51C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803525C0 0034F520  7C 08 03 A6 */	mtlr r0
 /* 803525C4 0034F524  38 21 00 10 */	addi r1, r1, 0x10
-/* 803525C8 0034F528  4E 80 00 20 */	blr 
+/* 803525C8 0034F528  4E 80 00 20 */	blr
 
 .global __ct__14CGameAllocatorFv
 __ct__14CGameAllocatorFv:
@@ -1567,7 +1567,7 @@ __ct__14CGameAllocatorFv:
 /* 80352650 0034F5B0  90 03 00 B4 */	stw r0, 0xb4(r3)
 /* 80352654 0034F5B4  90 03 00 B8 */	stw r0, 0xb8(r3)
 /* 80352658 0034F5B8  90 03 00 BC */	stw r0, 0xbc(r3)
-/* 8035265C 0034F5BC  4E 80 00 20 */	blr 
+/* 8035265C 0034F5BC  4E 80 00 20 */	blr
 
 .global GetMemInfoFromBlockPtr__14CGameAllocatorCFPCv
 GetMemInfoFromBlockPtr__14CGameAllocatorCFPCv:

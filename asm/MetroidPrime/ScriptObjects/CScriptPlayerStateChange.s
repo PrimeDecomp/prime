@@ -41,7 +41,7 @@ lbl_801DA4E4:
 /* 801DA4F0 001D7450  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801DA4F4 001D7454  7C 08 03 A6 */	mtlr r0
 /* 801DA4F8 001D7458  38 21 00 10 */	addi r1, r1, 0x10
-/* 801DA4FC 001D745C  4E 80 00 20 */	blr 
+/* 801DA4FC 001D745C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__24CScriptPlayerStateChangeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__24CScriptPlayerStateChangeF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -118,7 +118,7 @@ lbl_801DA5F0:
 /* 801DA610 001D7570  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801DA614 001D7574  7C 08 03 A6 */	mtlr r0
 /* 801DA618 001D7578  38 21 00 30 */	addi r1, r1, 0x30
-/* 801DA61C 001D757C  4E 80 00 20 */	blr 
+/* 801DA61C 001D757C  4E 80 00 20 */	blr
 
 .global Accept__24CScriptPlayerStateChangeFR8IVisitor
 Accept__24CScriptPlayerStateChangeFR8IVisitor:
@@ -131,11 +131,11 @@ Accept__24CScriptPlayerStateChangeFR8IVisitor:
 /* 801DA638 001D7598  7C 04 03 78 */	mr r4, r0
 /* 801DA63C 001D759C  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 801DA640 001D75A0  7D 89 03 A6 */	mtctr r12
-/* 801DA644 001D75A4  4E 80 04 21 */	bctrl 
+/* 801DA644 001D75A4  4E 80 04 21 */	bctrl
 /* 801DA648 001D75A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801DA64C 001D75AC  7C 08 03 A6 */	mtlr r0
 /* 801DA650 001D75B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801DA654 001D75B4  4E 80 00 20 */	blr 
+/* 801DA654 001D75B4  4E 80 00 20 */	blr
 
 .global "__ct__24CScriptPlayerStateChangeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobiiiQ224CScriptPlayerStateChange8EControlQ224CScriptPlayerStateChange21EControlCommandOption"
 "__ct__24CScriptPlayerStateChangeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobiiiQ224CScriptPlayerStateChange8EControlQ224CScriptPlayerStateChange21EControlCommandOption":

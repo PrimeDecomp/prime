@@ -20,7 +20,7 @@ lbl_805AF480:
 sub_8029d6c8:
 /* 8029D6C8 0029A628  38 00 00 00 */	li r0, 0
 /* 8029D6CC 0029A62C  98 03 00 80 */	stb r0, 0x80(r3)
-/* 8029D6D0 0029A630  4E 80 00 20 */	blr 
+/* 8029D6D0 0029A630  4E 80 00 20 */	blr
 
 .global Render__16CProjectedShadowFRC13CStateManager
 Render__16CProjectedShadowFRC13CStateManager:
@@ -306,7 +306,7 @@ lbl_8029DAA0:
 /* 8029DB14 0029AA74  81 83 00 00 */	lwz r12, 0(r3)
 /* 8029DB18 0029AA78  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8029DB1C 0029AA7C  7D 89 03 A6 */	mtctr r12
-/* 8029DB20 0029AA80  4E 80 04 21 */	bctrl 
+/* 8029DB20 0029AA80  4E 80 04 21 */	bctrl
 /* 8029DB24 0029AA84  38 61 00 98 */	addi r3, r1, 0x98
 /* 8029DB28 0029AA88  38 81 02 18 */	addi r4, r1, 0x218
 /* 8029DB2C 0029AA8C  38 A1 01 E8 */	addi r5, r1, 0x1e8
@@ -407,7 +407,7 @@ lbl_8029DC74:
 /* 8029DC88 0029ABE8  80 01 0B 34 */	lwz r0, 0xb34(r1)
 /* 8029DC8C 0029ABEC  7C 08 03 A6 */	mtlr r0
 /* 8029DC90 0029ABF0  38 21 0B 30 */	addi r1, r1, 0xb30
-/* 8029DC94 0029ABF4  4E 80 00 20 */	blr 
+/* 8029DC94 0029ABF4  4E 80 00 20 */	blr
 
 .global sub_8029dc98
 sub_8029dc98:
@@ -470,7 +470,7 @@ sub_8029dc98:
 /* 8029DD78 0029ACD8  CB E1 00 40 */	lfd f31, 0x40(r1)
 /* 8029DD7C 0029ACDC  7C 08 03 A6 */	mtlr r0
 /* 8029DD80 0029ACE0  38 21 00 50 */	addi r1, r1, 0x50
-/* 8029DD84 0029ACE4  4E 80 00 20 */	blr 
+/* 8029DD84 0029ACE4  4E 80 00 20 */	blr
 
 .global RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransform4fiRC9CVector3fff
 RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransform4fiRC9CVector3fff:
@@ -616,7 +616,7 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029DFB4 0029AF14  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 8029DFB8 0029AF18  7C BC 00 50 */	subf r5, r28, r0
 /* 8029DFBC 0029AF1C  7D 89 03 A6 */	mtctr r12
-/* 8029DFC0 0029AF20  4E 80 04 21 */	bctrl 
+/* 8029DFC0 0029AF20  4E 80 04 21 */	bctrl
 /* 8029DFC4 0029AF24  38 60 00 01 */	li r3, 1
 /* 8029DFC8 0029AF28  48 06 AC C9 */	bl SetNumTevStages__3CGXFUc
 /* 8029DFCC 0029AF2C  38 60 00 01 */	li r3, 1
@@ -751,7 +751,7 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029E1D0 0029B130  80 C1 00 48 */	lwz r6, 0x48(r1)
 /* 8029E1D4 0029B134  80 E1 00 4C */	lwz r7, 0x4c(r1)
 /* 8029E1D8 0029B138  7D 89 03 A6 */	mtctr r12
-/* 8029E1DC 0029B13C  4E 80 04 21 */	bctrl 
+/* 8029E1DC 0029B13C  4E 80 04 21 */	bctrl
 /* 8029E1E0 0029B140  FC 20 F8 90 */	fmr f1, f31
 /* 8029E1E4 0029B144  FC 40 F0 90 */	fmr f2, f30
 /* 8029E1E8 0029B148  48 06 C1 F9 */	bl SetDepthRange__9CGraphicsFff
@@ -764,7 +764,7 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029E204 0029B164  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 8029E208 0029B168  7C 08 03 A6 */	mtlr r0
 /* 8029E20C 0029B16C  38 21 02 00 */	addi r1, r1, 0x200
-/* 8029E210 0029B170  4E 80 00 20 */	blr 
+/* 8029E210 0029B170  4E 80 00 20 */	blr
 
 .global sub_8029e214
 sub_8029e214:
@@ -827,7 +827,7 @@ sub_8029e214:
 /* 8029E2F4 0029B254  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8029E2F8 0029B258  7C 08 03 A6 */	mtlr r0
 /* 8029E2FC 0029B25C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8029E300 0029B260  4E 80 00 20 */	blr 
+/* 8029E300 0029B260  4E 80 00 20 */	blr
 
 .global ModelDrawCallback__16CProjectedShadowFPCfPCfPC18SShadowDrawContext
 ModelDrawCallback__16CProjectedShadowFPCfPCfPC18SShadowDrawContext:
@@ -862,7 +862,7 @@ lbl_8029E35C:
 /* 8029E370 0029B2D0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8029E374 0029B2D4  7C 08 03 A6 */	mtlr r0
 /* 8029E378 0029B2D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8029E37C 0029B2DC  4E 80 00 20 */	blr 
+/* 8029E37C 0029B2DC  4E 80 00 20 */	blr
 
 .global __dt__16CProjectedShadowFv
 __dt__16CProjectedShadowFv:
@@ -889,7 +889,7 @@ lbl_8029E3C0:
 /* 8029E3CC 0029B32C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8029E3D0 0029B330  7C 08 03 A6 */	mtlr r0
 /* 8029E3D4 0029B334  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029E3D8 0029B338  4E 80 00 20 */	blr 
+/* 8029E3D8 0029B338  4E 80 00 20 */	blr
 
 .global __ct__16CProjectedShadowFv
 __ct__16CProjectedShadowFv:

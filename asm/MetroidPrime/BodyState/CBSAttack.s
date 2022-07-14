@@ -72,12 +72,12 @@ lbl_80134E44:
 /* 80134E4C 00131DAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80134E50 00131DB0  7C 08 03 A6 */	mtlr r0
 /* 80134E54 00131DB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80134E58 00131DB8  4E 80 00 20 */	blr 
+/* 80134E58 00131DB8  4E 80 00 20 */	blr
 
 .global CanShoot__9CBSAttackCFv
 CanShoot__9CBSAttackCFv:
 /* 80134E5C 00131DBC  38 60 00 00 */	li r3, 0
-/* 80134E60 00131DC0  4E 80 00 20 */	blr 
+/* 80134E60 00131DC0  4E 80 00 20 */	blr
 
 .global UpdatePhysicsActor__9CBSAttackFR15CBodyControllerf
 UpdatePhysicsActor__9CBSAttackFR15CBodyControllerf:
@@ -185,7 +185,7 @@ lbl_80134FD4:
 /* 80134FE4 00131F44  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 80134FE8 00131F48  7C 08 03 A6 */	mtlr r0
 /* 80134FEC 00131F4C  38 21 00 70 */	addi r1, r1, 0x70
-/* 80134FF0 00131F50  4E 80 00 20 */	blr 
+/* 80134FF0 00131F50  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__9CBSAttackFfR15CBodyController
 GetBodyStateTransition__9CBSAttackFfR15CBodyController:
@@ -310,11 +310,11 @@ lbl_8013518C:
 /* 80135198 001320F8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8013519C 001320FC  7C 08 03 A6 */	mtlr r0
 /* 801351A0 00132100  38 21 00 20 */	addi r1, r1, 0x20
-/* 801351A4 00132104  4E 80 00 20 */	blr 
+/* 801351A4 00132104  4E 80 00 20 */	blr
 
 .global Shutdown__9CBSAttackFR15CBodyController
 Shutdown__9CBSAttackFR15CBodyController:
-/* 801351A8 00132108  4E 80 00 20 */	blr 
+/* 801351A8 00132108  4E 80 00 20 */	blr
 
 .global UpdateBody__9CBSAttackFfR15CBodyControllerR13CStateManager
 UpdateBody__9CBSAttackFfR15CBodyControllerR13CStateManager:
@@ -391,7 +391,7 @@ lbl_80135294:
 /* 801352B0 00132210  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801352B4 00132214  7C 08 03 A6 */	mtlr r0
 /* 801352B8 00132218  38 21 00 30 */	addi r1, r1, 0x30
-/* 801352BC 0013221C  4E 80 00 20 */	blr 
+/* 801352BC 0013221C  4E 80 00 20 */	blr
 
 .global Start__9CBSAttackFR15CBodyControllerR13CStateManager
 Start__9CBSAttackFR15CBodyControllerR13CStateManager:
@@ -587,7 +587,7 @@ lbl_80135584:
 /* 80135588 001324E8  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 8013558C 001324EC  7C 08 03 A6 */	mtlr r0
 /* 80135590 001324F0  38 21 01 30 */	addi r1, r1, 0x130
-/* 80135594 001324F4  4E 80 00 20 */	blr 
+/* 80135594 001324F4  4E 80 00 20 */	blr
 
 .global __ct__9CBSAttackFv
 __ct__9CBSAttackFv:

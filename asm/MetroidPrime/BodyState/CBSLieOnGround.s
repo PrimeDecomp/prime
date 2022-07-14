@@ -48,7 +48,7 @@ lbl_80136810:
 /* 80136818 00133778  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013681C 0013377C  7C 08 03 A6 */	mtlr r0
 /* 80136820 00133780  38 21 00 10 */	addi r1, r1, 0x10
-/* 80136824 00133784  4E 80 00 20 */	blr 
+/* 80136824 00133784  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__14CBSLieOnGroundFfR15CBodyController
 GetBodyStateTransition__14CBSLieOnGroundFfR15CBodyController:
@@ -98,7 +98,7 @@ lbl_801368BC:
 /* 801368C4 00133824  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801368C8 00133828  7C 08 03 A6 */	mtlr r0
 /* 801368CC 0013382C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801368D0 00133830  4E 80 00 20 */	blr 
+/* 801368D0 00133830  4E 80 00 20 */	blr
 
 .global Shutdown__14CBSLieOnGroundFR15CBodyController
 Shutdown__14CBSLieOnGroundFR15CBodyController:
@@ -111,7 +111,7 @@ Shutdown__14CBSLieOnGroundFR15CBodyController:
 /* 801368EC 0013384C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801368F0 00133850  7C 08 03 A6 */	mtlr r0
 /* 801368F4 00133854  38 21 00 10 */	addi r1, r1, 0x10
-/* 801368F8 00133858  4E 80 00 20 */	blr 
+/* 801368F8 00133858  4E 80 00 20 */	blr
 
 .global UpdateBody__14CBSLieOnGroundFfR15CBodyControllerR13CStateManager
 UpdateBody__14CBSLieOnGroundFfR15CBodyControllerR13CStateManager:
@@ -122,7 +122,7 @@ UpdateBody__14CBSLieOnGroundFfR15CBodyControllerR13CStateManager:
 /* 8013690C 0013386C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80136910 00133870  7C 08 03 A6 */	mtlr r0
 /* 80136914 00133874  38 21 00 10 */	addi r1, r1, 0x10
-/* 80136918 00133878  4E 80 00 20 */	blr 
+/* 80136918 00133878  4E 80 00 20 */	blr
 
 .global Start__14CBSLieOnGroundFR15CBodyControllerR13CStateManager
 Start__14CBSLieOnGroundFR15CBodyControllerR13CStateManager:
@@ -244,7 +244,7 @@ lbl_80136ABC:
 /* 80136ACC 00133A2C  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 80136AD0 00133A30  7C 08 03 A6 */	mtlr r0
 /* 80136AD4 00133A34  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80136AD8 00133A38  4E 80 00 20 */	blr 
+/* 80136AD8 00133A38  4E 80 00 20 */	blr
 
 .global __ct__14CBSLieOnGroundFRC6CActor
 __ct__14CBSLieOnGroundFRC6CActor:

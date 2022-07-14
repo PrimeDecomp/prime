@@ -97,13 +97,13 @@ lbl_805A7274:
 .global lbl_8046C450
 lbl_8046C450:
 	.skip 0x20
-	
+
 .section .text, "ax"
 
 .global ResetInterpolationTimer__17COrbitPointMarkerFf
 ResetInterpolationTimer__17COrbitPointMarkerFf:
 /* 800BC2B0 000B9210  D0 23 00 20 */	stfs f1, 0x20(r3)
-/* 800BC2B4 000B9214  4E 80 00 20 */	blr 
+/* 800BC2B4 000B9214  4E 80 00 20 */	blr
 
 .global Draw__17COrbitPointMarkerCFRC13CStateManager
 Draw__17COrbitPointMarkerCFRC13CStateManager:
@@ -177,7 +177,7 @@ lbl_800BC34C:
 /* 800BC3BC 000B931C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BC3C0 000B9320  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 800BC3C4 000B9324  7D 89 03 A6 */	mtctr r12
-/* 800BC3C8 000B9328  4E 80 04 21 */	bctrl 
+/* 800BC3C8 000B9328  4E 80 04 21 */	bctrl
 /* 800BC3CC 000B932C  3C 60 80 3F */	lis r3, lbl_803ED910@ha
 /* 800BC3D0 000B9330  3C 80 43 30 */	lis r4, 0x4330
 /* 800BC3D4 000B9334  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
@@ -201,7 +201,7 @@ lbl_800BC34C:
 /* 800BC41C 000B937C  C0 BE 01 64 */	lfs f5, 0x164(r30)
 /* 800BC420 000B9380  EC 60 18 28 */	fsubs f3, f0, f3
 /* 800BC424 000B9384  7D 89 03 A6 */	mtctr r12
-/* 800BC428 000B9388  4E 80 04 21 */	bctrl 
+/* 800BC428 000B9388  4E 80 04 21 */	bctrl
 /* 800BC42C 000B938C  80 A1 00 E0 */	lwz r5, 0xe0(r1)
 /* 800BC430 000B9390  38 60 00 00 */	li r3, 0
 /* 800BC434 000B9394  2C 05 00 00 */	cmpwi r5, 0
@@ -272,7 +272,7 @@ lbl_800BC4B8:
 /* 800BC520 000B9480  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BC524 000B9484  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BC528 000B9488  7D 89 03 A6 */	mtctr r12
-/* 800BC52C 000B948C  4E 80 04 21 */	bctrl 
+/* 800BC52C 000B948C  4E 80 04 21 */	bctrl
 /* 800BC530 000B9490  88 7E 01 BF */	lbz r3, 0x1bf(r30)
 /* 800BC534 000B9494  3C 00 43 30 */	lis r0, 0x4330
 /* 800BC538 000B9498  90 01 01 50 */	stw r0, 0x150(r1)
@@ -311,7 +311,7 @@ lbl_800BC59C:
 /* 800BC5B8 000B9518  83 A1 01 64 */	lwz r29, 0x164(r1)
 /* 800BC5BC 000B951C  7C 08 03 A6 */	mtlr r0
 /* 800BC5C0 000B9520  38 21 01 90 */	addi r1, r1, 0x190
-/* 800BC5C4 000B9524  4E 80 00 20 */	blr 
+/* 800BC5C4 000B9524  4E 80 00 20 */	blr
 
 .global Update__17COrbitPointMarkerFfRC13CStateManager
 Update__17COrbitPointMarkerFfRC13CStateManager:
@@ -536,7 +536,7 @@ lbl_800BC8D4:
 /* 800BC8F0 000B9850  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 800BC8F4 000B9854  7C 08 03 A6 */	mtlr r0
 /* 800BC8F8 000B9858  38 21 01 10 */	addi r1, r1, 0x110
-/* 800BC8FC 000B985C  4E 80 00 20 */	blr 
+/* 800BC8FC 000B985C  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__17COrbitPointMarkerFv
 CheckLoadComplete__17COrbitPointMarkerFv:
@@ -571,7 +571,7 @@ lbl_800BC960:
 /* 800BC964 000B98C4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800BC968 000B98C8  7C 08 03 A6 */	mtlr r0
 /* 800BC96C 000B98CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BC970 000B98D0  4E 80 00 20 */	blr 
+/* 800BC970 000B98D0  4E 80 00 20 */	blr
 
 .global __ct__17COrbitPointMarkerFv
 __ct__17COrbitPointMarkerFv:
@@ -607,7 +607,7 @@ __ct__17COrbitPointMarkerFv:
 /* 800BC9E8 000B9948  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BC9EC 000B994C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800BC9F0 000B9950  7D 89 03 A6 */	mtctr r12
-/* 800BC9F4 000B9954  4E 80 04 21 */	bctrl 
+/* 800BC9F4 000B9954  4E 80 04 21 */	bctrl
 /* 800BC9F8 000B9958  3B FE 00 28 */	addi r31, r30, 0x28
 /* 800BC9FC 000B995C  38 81 00 08 */	addi r4, r1, 8
 /* 800BCA00 000B9960  7F E3 FB 78 */	mr r3, r31
@@ -625,7 +625,7 @@ __ct__17COrbitPointMarkerFv:
 /* 800BCA30 000B9990  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800BCA34 000B9994  7C 08 03 A6 */	mtlr r0
 /* 800BCA38 000B9998  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BCA3C 000B999C  4E 80 00 20 */	blr 
+/* 800BCA3C 000B999C  4E 80 00 20 */	blr
 
 .global Touch__17CTargetingManagerCFv
 Touch__17CTargetingManagerCFv:
@@ -636,7 +636,7 @@ Touch__17CTargetingManagerCFv:
 /* 800BCA50 000B99B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800BCA54 000B99B4  7C 08 03 A6 */	mtlr r0
 /* 800BCA58 000B99B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BCA5C 000B99BC  4E 80 00 20 */	blr 
+/* 800BCA5C 000B99BC  4E 80 00 20 */	blr
 
 .global Touch__22CCompoundTargetReticleCFv
 Touch__22CCompoundTargetReticleCFv:
@@ -746,7 +746,7 @@ lbl_800BCB9C:
 /* 800BCBBC 000B9B1C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BCBC0 000B9B20  7C 08 03 A6 */	mtlr r0
 /* 800BCBC4 000B9B24  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BCBC8 000B9B28  4E 80 00 20 */	blr 
+/* 800BCBC8 000B9B28  4E 80 00 20 */	blr
 
 .global Draw__17CTargetingManagerCFRC13CStateManager
 Draw__17CTargetingManagerCFRC13CStateManager:
@@ -794,7 +794,7 @@ Draw__17CTargetingManagerCFRC13CStateManager:
 /* 800BCC70 000B9BD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BCC74 000B9BD4  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 800BCC78 000B9BD8  7D 89 03 A6 */	mtctr r12
-/* 800BCC7C 000B9BDC  4E 80 04 21 */	bctrl 
+/* 800BCC7C 000B9BDC  4E 80 04 21 */	bctrl
 /* 800BCC80 000B9BE0  3C 60 80 3F */	lis r3, lbl_803ED910@ha
 /* 800BCC84 000B9BE4  3C 80 43 30 */	lis r4, 0x4330
 /* 800BCC88 000B9BE8  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
@@ -818,7 +818,7 @@ Draw__17CTargetingManagerCFRC13CStateManager:
 /* 800BCCD0 000B9C30  C0 BF 01 64 */	lfs f5, 0x164(r31)
 /* 800BCCD4 000B9C34  EC 60 18 28 */	fsubs f3, f0, f3
 /* 800BCCD8 000B9C38  7D 89 03 A6 */	mtctr r12
-/* 800BCCDC 000B9C3C  4E 80 04 21 */	bctrl 
+/* 800BCCDC 000B9C3C  4E 80 04 21 */	bctrl
 /* 800BCCE0 000B9C40  7F 83 E3 78 */	mr r3, r28
 /* 800BCCE4 000B9C44  7F A4 EB 78 */	mr r4, r29
 /* 800BCCE8 000B9C48  7F C5 F3 78 */	mr r5, r30
@@ -855,7 +855,7 @@ lbl_800BCD3C:
 /* 800BCD54 000B9CB4  83 81 00 E0 */	lwz r28, 0xe0(r1)
 /* 800BCD58 000B9CB8  7C 08 03 A6 */	mtlr r0
 /* 800BCD5C 000B9CBC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800BCD60 000B9CC0  4E 80 00 20 */	blr 
+/* 800BCD60 000B9CC0  4E 80 00 20 */	blr
 
 .global Update__17CTargetingManagerFfRC13CStateManager
 Update__17CTargetingManagerFfRC13CStateManager:
@@ -879,7 +879,7 @@ Update__17CTargetingManagerFfRC13CStateManager:
 /* 800BCDA8 000B9D08  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 800BCDAC 000B9D0C  7C 08 03 A6 */	mtlr r0
 /* 800BCDB0 000B9D10  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BCDB4 000B9D14  4E 80 00 20 */	blr 
+/* 800BCDB4 000B9D14  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__17CTargetingManagerFv
 CheckLoadComplete__17CTargetingManagerFv:
@@ -905,7 +905,7 @@ lbl_800BCDF4:
 /* 800BCE00 000B9D60  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BCE04 000B9D64  7C 08 03 A6 */	mtlr r0
 /* 800BCE08 000B9D68  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BCE0C 000B9D6C  4E 80 00 20 */	blr 
+/* 800BCE0C 000B9D6C  4E 80 00 20 */	blr
 
 .global __ct__17CTargetingManagerFRC13CStateManager
 __ct__17CTargetingManagerFRC13CStateManager:
@@ -922,7 +922,7 @@ __ct__17CTargetingManagerFRC13CStateManager:
 /* 800BCE38 000B9D98  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800BCE3C 000B9D9C  7C 08 03 A6 */	mtlr r0
 /* 800BCE40 000B9DA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BCE44 000B9DA4  4E 80 00 20 */	blr 
+/* 800BCE44 000B9DA4  4E 80 00 20 */	blr
 
 .global InterpolateWithClamp__25CTargetReticleRenderStateFRC25CTargetReticleRenderStateR25CTargetReticleRenderStateRC25CTargetReticleRenderStatef
 InterpolateWithClamp__25CTargetReticleRenderStateFRC25CTargetReticleRenderStateR25CTargetReticleRenderStateRC25CTargetReticleRenderStatef:
@@ -1000,7 +1000,7 @@ lbl_800BCF4C:
 /* 800BCF58 000B9EB8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800BCF5C 000B9EBC  7C 08 03 A6 */	mtlr r0
 /* 800BCF60 000B9EC0  38 21 00 30 */	addi r1, r1, 0x30
-/* 800BCF64 000B9EC4  4E 80 00 20 */	blr 
+/* 800BCF64 000B9EC4  4E 80 00 20 */	blr
 
 .global __ct__25CTargetReticleRenderStateF9TUniqueIdf9CVector3fffb
 __ct__25CTargetReticleRenderStateF9TUniqueIdf9CVector3fffb:
@@ -1016,7 +1016,7 @@ __ct__25CTargetReticleRenderStateF9TUniqueIdf9CVector3fffb:
 /* 800BCF8C 000B9EEC  D0 43 00 14 */	stfs f2, 0x14(r3)
 /* 800BCF90 000B9EF0  D0 63 00 18 */	stfs f3, 0x18(r3)
 /* 800BCF94 000B9EF4  98 C3 00 1C */	stb r6, 0x1c(r3)
-/* 800BCF98 000B9EF8  4E 80 00 20 */	blr 
+/* 800BCF98 000B9EF8  4E 80 00 20 */	blr
 
 .global CalculateClampedScale__22CCompoundTargetReticleF9CVector3ffffRC13CStateManager
 CalculateClampedScale__22CCompoundTargetReticleF9CVector3ffffRC13CStateManager:
@@ -1123,7 +1123,7 @@ CalculateClampedScale__22CCompoundTargetReticleF9CVector3ffffRC13CStateManager:
 /* 800BD12C 000BA08C  83 A1 00 D4 */	lwz r29, 0xd4(r1)
 /* 800BD130 000BA090  7C 08 03 A6 */	mtlr r0
 /* 800BD134 000BA094  38 21 01 00 */	addi r1, r1, 0x100
-/* 800BD138 000BA098  4E 80 00 20 */	blr 
+/* 800BD138 000BA098  4E 80 00 20 */	blr
 
 .global IsGrappleTarget__22CCompoundTargetReticleF9TUniqueIdRC13CStateManager
 IsGrappleTarget__22CCompoundTargetReticleF9TUniqueIdRC13CStateManager:
@@ -1145,7 +1145,7 @@ IsGrappleTarget__22CCompoundTargetReticleF9TUniqueIdRC13CStateManager:
 /* 800BD178 000BA0D8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800BD17C 000BA0DC  7C 08 03 A6 */	mtlr r0
 /* 800BD180 000BA0E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BD184 000BA0E4  4E 80 00 20 */	blr 
+/* 800BD184 000BA0E4  4E 80 00 20 */	blr
 
 .global CalculateOrbitZoneReticlePosition__22CCompoundTargetReticleCFRC13CStateManagerb
 CalculateOrbitZoneReticlePosition__22CCompoundTargetReticleCFRC13CStateManagerb:
@@ -1235,7 +1235,7 @@ lbl_800BD27C:
 /* 800BD2D0 000BA230  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 800BD2D4 000BA234  7C 08 03 A6 */	mtlr r0
 /* 800BD2D8 000BA238  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800BD2DC 000BA23C  4E 80 00 20 */	blr 
+/* 800BD2DC 000BA23C  4E 80 00 20 */	blr
 
 .global CalculatePositionWorld__22CCompoundTargetReticleCFRC6CActorRC13CStateManager
 CalculatePositionWorld__22CCompoundTargetReticleCFRC6CActorRC13CStateManager:
@@ -1253,7 +1253,7 @@ CalculatePositionWorld__22CCompoundTargetReticleCFRC6CActorRC13CStateManager:
 /* 800BD30C 000BA26C  38 61 00 14 */	addi r3, r1, 0x14
 /* 800BD310 000BA270  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 800BD314 000BA274  7D 89 03 A6 */	mtctr r12
-/* 800BD318 000BA278  4E 80 04 21 */	bctrl 
+/* 800BD318 000BA278  4E 80 04 21 */	bctrl
 /* 800BD31C 000BA27C  38 61 00 14 */	addi r3, r1, 0x14
 /* 800BD320 000BA280  48 00 00 28 */	b lbl_800BD348
 lbl_800BD324:
@@ -1264,7 +1264,7 @@ lbl_800BD324:
 /* 800BD334 000BA294  C0 22 8D 30 */	lfs f1, lbl_805AAA50@sda21(r2)
 /* 800BD338 000BA298  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 800BD33C 000BA29C  7D 89 03 A6 */	mtctr r12
-/* 800BD340 000BA2A0  4E 80 04 21 */	bctrl 
+/* 800BD340 000BA2A0  4E 80 04 21 */	bctrl
 /* 800BD344 000BA2A4  38 61 00 08 */	addi r3, r1, 8
 lbl_800BD348:
 /* 800BD348 000BA2A8  C0 03 00 00 */	lfs f0, 0(r3)
@@ -1277,7 +1277,7 @@ lbl_800BD348:
 /* 800BD364 000BA2C4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800BD368 000BA2C8  7C 08 03 A6 */	mtlr r0
 /* 800BD36C 000BA2CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 800BD370 000BA2D0  4E 80 00 20 */	blr 
+/* 800BD370 000BA2D0  4E 80 00 20 */	blr
 
 .global CalculateRadiusWorld__22CCompoundTargetReticleCFRC6CActorRC13CStateManager
 CalculateRadiusWorld__22CCompoundTargetReticleCFRC6CActorRC13CStateManager:
@@ -1292,7 +1292,7 @@ CalculateRadiusWorld__22CCompoundTargetReticleCFRC6CActorRC13CStateManager:
 /* 800BD394 000BA2F4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BD398 000BA2F8  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 800BD39C 000BA2FC  7D 89 03 A6 */	mtctr r12
-/* 800BD3A0 000BA300  4E 80 04 21 */	bctrl 
+/* 800BD3A0 000BA300  4E 80 04 21 */	bctrl
 /* 800BD3A4 000BA304  88 01 00 68 */	lbz r0, 0x68(r1)
 /* 800BD3A8 000BA308  28 00 00 00 */	cmplwi r0, 0
 /* 800BD3AC 000BA30C  98 01 00 84 */	stb r0, 0x84(r1)
@@ -1327,7 +1327,7 @@ lbl_800BD408:
 /* 800BD418 000BA378  C0 22 8D 30 */	lfs f1, lbl_805AAA50@sda21(r2)
 /* 800BD41C 000BA37C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 800BD420 000BA380  7D 89 03 A6 */	mtctr r12
-/* 800BD424 000BA384  4E 80 04 21 */	bctrl 
+/* 800BD424 000BA384  4E 80 04 21 */	bctrl
 /* 800BD428 000BA388  7F C4 F3 78 */	mr r4, r30
 /* 800BD42C 000BA38C  7F E5 FB 78 */	mr r5, r31
 /* 800BD430 000BA390  81 9E 00 00 */	lwz r12, 0(r30)
@@ -1335,7 +1335,7 @@ lbl_800BD408:
 /* 800BD438 000BA398  C0 22 8D 30 */	lfs f1, lbl_805AAA50@sda21(r2)
 /* 800BD43C 000BA39C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 800BD440 000BA3A0  7D 89 03 A6 */	mtctr r12
-/* 800BD444 000BA3A4  4E 80 04 21 */	bctrl 
+/* 800BD444 000BA3A4  4E 80 04 21 */	bctrl
 /* 800BD448 000BA3A8  38 61 00 38 */	addi r3, r1, 0x38
 /* 800BD44C 000BA3AC  38 81 00 20 */	addi r4, r1, 0x20
 /* 800BD450 000BA3B0  38 A1 00 2C */	addi r5, r1, 0x2c
@@ -1429,7 +1429,7 @@ lbl_800BD564:
 /* 800BD574 000BA4D4  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 800BD578 000BA4D8  7C 08 03 A6 */	mtlr r0
 /* 800BD57C 000BA4DC  38 21 00 90 */	addi r1, r1, 0x90
-/* 800BD580 000BA4E0  4E 80 00 20 */	blr 
+/* 800BD580 000BA4E0  4E 80 00 20 */	blr
 
 .global UpdateTargetParameters__22CCompoundTargetReticleFR25CTargetReticleRenderStateRC13CStateManager
 UpdateTargetParameters__22CCompoundTargetReticleFR25CTargetReticleRenderStateRC13CStateManager:
@@ -1508,7 +1508,7 @@ lbl_800BD67C:
 /* 800BD68C 000BA5EC  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 800BD690 000BA5F0  7C 08 03 A6 */	mtlr r0
 /* 800BD694 000BA5F4  38 21 00 40 */	addi r1, r1, 0x40
-/* 800BD698 000BA5F8  4E 80 00 20 */	blr 
+/* 800BD698 000BA5F8  4E 80 00 20 */	blr
 
 .global DrawOrbitZoneGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager
 DrawOrbitZoneGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager:
@@ -1565,7 +1565,7 @@ lbl_800BD71C:
 /* 800BD760 000BA6C0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BD764 000BA6C4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BD768 000BA6C8  7D 89 03 A6 */	mtctr r12
-/* 800BD76C 000BA6CC  4E 80 04 21 */	bctrl 
+/* 800BD76C 000BA6CC  4E 80 04 21 */	bctrl
 /* 800BD770 000BA6D0  88 7F 01 C3 */	lbz r3, 0x1c3(r31)
 /* 800BD774 000BA6D4  3C 00 43 30 */	lis r0, 0x4330
 /* 800BD778 000BA6D8  90 01 00 B0 */	stw r0, 0xb0(r1)
@@ -1604,7 +1604,7 @@ lbl_800BD7E0:
 /* 800BD7F8 000BA758  83 81 00 C0 */	lwz r28, 0xc0(r1)
 /* 800BD7FC 000BA75C  7C 08 03 A6 */	mtlr r0
 /* 800BD800 000BA760  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800BD804 000BA764  4E 80 00 20 */	blr 
+/* 800BD804 000BA764  4E 80 00 20 */	blr
 
 .global DrawNextLockOnGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager
 DrawNextLockOnGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager:
@@ -1762,7 +1762,7 @@ lbl_800BD964:
 /* 800BDA4C 000BA9AC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDA50 000BA9B0  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BDA54 000BA9B4  7D 89 03 A6 */	mtctr r12
-/* 800BDA58 000BA9B8  4E 80 04 21 */	bctrl 
+/* 800BDA58 000BA9B8  4E 80 04 21 */	bctrl
 /* 800BDA5C 000BA9BC  88 78 01 53 */	lbz r3, 0x153(r24)
 /* 800BDA60 000BA9C0  3C 00 43 30 */	lis r0, 0x4330
 /* 800BDA64 000BA9C4  90 01 04 48 */	stw r0, 0x448(r1)
@@ -1869,7 +1869,7 @@ lbl_800BDB08:
 /* 800BDBF0 000BAB50  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDBF4 000BAB54  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BDBF8 000BAB58  7D 89 03 A6 */	mtctr r12
-/* 800BDBFC 000BAB5C  4E 80 04 21 */	bctrl 
+/* 800BDBFC 000BAB5C  4E 80 04 21 */	bctrl
 /* 800BDC00 000BAB60  88 78 02 17 */	lbz r3, 0x217(r24)
 /* 800BDC04 000BAB64  3C 00 43 30 */	lis r0, 0x4330
 /* 800BDC08 000BAB68  90 01 04 48 */	stw r0, 0x448(r1)
@@ -1967,7 +1967,7 @@ lbl_800BDCAC:
 /* 800BDD70 000BACD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDD74 000BACD4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BDD78 000BACD8  7D 89 03 A6 */	mtctr r12
-/* 800BDD7C 000BACDC  4E 80 04 21 */	bctrl 
+/* 800BDD7C 000BACDC  4E 80 04 21 */	bctrl
 /* 800BDD80 000BACE0  88 78 00 B3 */	lbz r3, 0xb3(r24)
 /* 800BDD84 000BACE4  3C 00 43 30 */	lis r0, 0x4330
 /* 800BDD88 000BACE8  90 01 04 48 */	stw r0, 0x448(r1)
@@ -2053,7 +2053,7 @@ lbl_800BDDEC:
 /* 800BDEC4 000BAE24  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDEC8 000BAE28  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BDECC 000BAE2C  7D 89 03 A6 */	mtctr r12
-/* 800BDED0 000BAE30  4E 80 04 21 */	bctrl 
+/* 800BDED0 000BAE30  4E 80 04 21 */	bctrl
 /* 800BDED4 000BAE34  38 60 00 01 */	li r3, 1
 /* 800BDED8 000BAE38  38 80 00 01 */	li r4, 1
 /* 800BDEDC 000BAE3C  38 A0 00 00 */	li r5, 0
@@ -2095,13 +2095,13 @@ lbl_800BDF24:
 /* 800BDF60 000BAEC0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDF64 000BAEC4  81 8C 00 94 */	lwz r12, 0x94(r12)
 /* 800BDF68 000BAEC8  7D 89 03 A6 */	mtctr r12
-/* 800BDF6C 000BAECC  4E 80 04 21 */	bctrl 
+/* 800BDF6C 000BAECC  4E 80 04 21 */	bctrl
 /* 800BDF70 000BAED0  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800BDF74 000BAED4  38 81 00 14 */	addi r4, r1, 0x14
 /* 800BDF78 000BAED8  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDF7C 000BAEDC  81 8C 00 B4 */	lwz r12, 0xb4(r12)
 /* 800BDF80 000BAEE0  7D 89 03 A6 */	mtctr r12
-/* 800BDF84 000BAEE4  4E 80 04 21 */	bctrl 
+/* 800BDF84 000BAEE4  4E 80 04 21 */	bctrl
 /* 800BDF88 000BAEE8  D3 C1 00 CC */	stfs f30, 0xcc(r1)
 /* 800BDF8C 000BAEEC  38 81 00 CC */	addi r4, r1, 0xcc
 /* 800BDF90 000BAEF0  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2110,7 +2110,7 @@ lbl_800BDF24:
 /* 800BDF9C 000BAEFC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDFA0 000BAF00  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BDFA4 000BAF04  7D 89 03 A6 */	mtctr r12
-/* 800BDFA8 000BAF08  4E 80 04 21 */	bctrl 
+/* 800BDFA8 000BAF08  4E 80 04 21 */	bctrl
 /* 800BDFAC 000BAF0C  D3 A1 00 C0 */	stfs f29, 0xc0(r1)
 /* 800BDFB0 000BAF10  38 81 00 C0 */	addi r4, r1, 0xc0
 /* 800BDFB4 000BAF14  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2119,7 +2119,7 @@ lbl_800BDF24:
 /* 800BDFC0 000BAF20  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDFC4 000BAF24  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BDFC8 000BAF28  7D 89 03 A6 */	mtctr r12
-/* 800BDFCC 000BAF2C  4E 80 04 21 */	bctrl 
+/* 800BDFCC 000BAF2C  4E 80 04 21 */	bctrl
 /* 800BDFD0 000BAF30  D2 E1 00 B4 */	stfs f23, 0xb4(r1)
 /* 800BDFD4 000BAF34  38 81 00 B4 */	addi r4, r1, 0xb4
 /* 800BDFD8 000BAF38  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2128,7 +2128,7 @@ lbl_800BDF24:
 /* 800BDFE4 000BAF44  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BDFE8 000BAF48  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BDFEC 000BAF4C  7D 89 03 A6 */	mtctr r12
-/* 800BDFF0 000BAF50  4E 80 04 21 */	bctrl 
+/* 800BDFF0 000BAF50  4E 80 04 21 */	bctrl
 /* 800BDFF4 000BAF54  D3 81 00 A8 */	stfs f28, 0xa8(r1)
 /* 800BDFF8 000BAF58  38 81 00 A8 */	addi r4, r1, 0xa8
 /* 800BDFFC 000BAF5C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2137,7 +2137,7 @@ lbl_800BDF24:
 /* 800BE008 000BAF68  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE00C 000BAF6C  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE010 000BAF70  7D 89 03 A6 */	mtctr r12
-/* 800BE014 000BAF74  4E 80 04 21 */	bctrl 
+/* 800BE014 000BAF74  4E 80 04 21 */	bctrl
 /* 800BE018 000BAF78  D3 41 00 9C */	stfs f26, 0x9c(r1)
 /* 800BE01C 000BAF7C  38 81 00 9C */	addi r4, r1, 0x9c
 /* 800BE020 000BAF80  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2146,7 +2146,7 @@ lbl_800BDF24:
 /* 800BE02C 000BAF8C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE030 000BAF90  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE034 000BAF94  7D 89 03 A6 */	mtctr r12
-/* 800BE038 000BAF98  4E 80 04 21 */	bctrl 
+/* 800BE038 000BAF98  4E 80 04 21 */	bctrl
 /* 800BE03C 000BAF9C  D3 41 00 90 */	stfs f26, 0x90(r1)
 /* 800BE040 000BAFA0  38 81 00 90 */	addi r4, r1, 0x90
 /* 800BE044 000BAFA4  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2155,7 +2155,7 @@ lbl_800BDF24:
 /* 800BE050 000BAFB0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE054 000BAFB4  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE058 000BAFB8  7D 89 03 A6 */	mtctr r12
-/* 800BE05C 000BAFBC  4E 80 04 21 */	bctrl 
+/* 800BE05C 000BAFBC  4E 80 04 21 */	bctrl
 /* 800BE060 000BAFC0  D3 41 00 84 */	stfs f26, 0x84(r1)
 /* 800BE064 000BAFC4  38 81 00 84 */	addi r4, r1, 0x84
 /* 800BE068 000BAFC8  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2164,7 +2164,7 @@ lbl_800BDF24:
 /* 800BE074 000BAFD4  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE078 000BAFD8  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE07C 000BAFDC  7D 89 03 A6 */	mtctr r12
-/* 800BE080 000BAFE0  4E 80 04 21 */	bctrl 
+/* 800BE080 000BAFE0  4E 80 04 21 */	bctrl
 /* 800BE084 000BAFE4  D3 41 00 78 */	stfs f26, 0x78(r1)
 /* 800BE088 000BAFE8  38 81 00 78 */	addi r4, r1, 0x78
 /* 800BE08C 000BAFEC  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2173,12 +2173,12 @@ lbl_800BDF24:
 /* 800BE098 000BAFF8  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE09C 000BAFFC  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE0A0 000BB000  7D 89 03 A6 */	mtctr r12
-/* 800BE0A4 000BB004  4E 80 04 21 */	bctrl 
+/* 800BE0A4 000BB004  4E 80 04 21 */	bctrl
 /* 800BE0A8 000BB008  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800BE0AC 000BB00C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE0B0 000BB010  81 8C 00 B8 */	lwz r12, 0xb8(r12)
 /* 800BE0B4 000BB014  7D 89 03 A6 */	mtctr r12
-/* 800BE0B8 000BB018  4E 80 04 21 */	bctrl 
+/* 800BE0B8 000BB018  4E 80 04 21 */	bctrl
 /* 800BE0BC 000BB01C  3B 60 00 00 */	li r27, 0
 lbl_800BE0C0:
 /* 800BE0C0 000BB020  2C 1B 00 02 */	cmpwi r27, 2
@@ -2200,7 +2200,7 @@ lbl_800BE0E8:
 /* 800BE0F0 000BB050  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE0F4 000BB054  81 8C 00 98 */	lwz r12, 0x98(r12)
 /* 800BE0F8 000BB058  7D 89 03 A6 */	mtctr r12
-/* 800BE0FC 000BB05C  4E 80 04 21 */	bctrl 
+/* 800BE0FC 000BB05C  4E 80 04 21 */	bctrl
 /* 800BE100 000BB060  EE 77 05 B2 */	fmuls f19, f23, f22
 /* 800BE104 000BB064  D3 41 00 70 */	stfs f26, 0x70(r1)
 /* 800BE108 000BB068  EC 19 05 72 */	fmuls f0, f25, f21
@@ -2211,7 +2211,7 @@ lbl_800BE0E8:
 /* 800BE11C 000BB07C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE120 000BB080  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE124 000BB084  7D 89 03 A6 */	mtctr r12
-/* 800BE128 000BB088  4E 80 04 21 */	bctrl 
+/* 800BE128 000BB088  4E 80 04 21 */	bctrl
 /* 800BE12C 000BB08C  EC 18 05 72 */	fmuls f0, f24, f21
 /* 800BE130 000BB090  D2 61 00 60 */	stfs f19, 0x60(r1)
 /* 800BE134 000BB094  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2221,7 +2221,7 @@ lbl_800BE0E8:
 /* 800BE144 000BB0A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE148 000BB0A8  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE14C 000BB0AC  7D 89 03 A6 */	mtctr r12
-/* 800BE150 000BB0B0  4E 80 04 21 */	bctrl 
+/* 800BE150 000BB0B0  4E 80 04 21 */	bctrl
 /* 800BE154 000BB0B4  EC 18 05 B2 */	fmuls f0, f24, f22
 /* 800BE158 000BB0B8  D3 41 00 58 */	stfs f26, 0x58(r1)
 /* 800BE15C 000BB0BC  EE 77 05 72 */	fmuls f19, f23, f21
@@ -2232,7 +2232,7 @@ lbl_800BE0E8:
 /* 800BE170 000BB0D0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE174 000BB0D4  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE178 000BB0D8  7D 89 03 A6 */	mtctr r12
-/* 800BE17C 000BB0DC  4E 80 04 21 */	bctrl 
+/* 800BE17C 000BB0DC  4E 80 04 21 */	bctrl
 /* 800BE180 000BB0E0  EC 19 05 B2 */	fmuls f0, f25, f22
 /* 800BE184 000BB0E4  D3 41 00 4C */	stfs f26, 0x4c(r1)
 /* 800BE188 000BB0E8  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2242,12 +2242,12 @@ lbl_800BE0E8:
 /* 800BE198 000BB0F8  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE19C 000BB0FC  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 800BE1A0 000BB100  7D 89 03 A6 */	mtctr r12
-/* 800BE1A4 000BB104  4E 80 04 21 */	bctrl 
+/* 800BE1A4 000BB104  4E 80 04 21 */	bctrl
 /* 800BE1A8 000BB108  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800BE1AC 000BB10C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE1B0 000BB110  81 8C 00 B8 */	lwz r12, 0xb8(r12)
 /* 800BE1B4 000BB114  7D 89 03 A6 */	mtctr r12
-/* 800BE1B8 000BB118  4E 80 04 21 */	bctrl 
+/* 800BE1B8 000BB118  4E 80 04 21 */	bctrl
 /* 800BE1BC 000BB11C  3B 7B 00 01 */	addi r27, r27, 1
 /* 800BE1C0 000BB120  2C 1B 00 04 */	cmpwi r27, 4
 /* 800BE1C4 000BB124  41 80 FE FC */	blt lbl_800BE0C0
@@ -2288,7 +2288,7 @@ lbl_800BE1E0:
 /* 800BE24C 000BB1AC  80 01 05 44 */	lwz r0, 0x544(r1)
 /* 800BE250 000BB1B0  7C 08 03 A6 */	mtlr r0
 /* 800BE254 000BB1B4  38 21 05 40 */	addi r1, r1, 0x540
-/* 800BE258 000BB1B8  4E 80 00 20 */	blr 
+/* 800BE258 000BB1B8  4E 80 00 20 */	blr
 
 .global DrawCurrLockOnGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager
 DrawCurrLockOnGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager:
@@ -2585,7 +2585,7 @@ lbl_800BE5C0:
 /* 800BE6BC 000BB61C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE6C0 000BB620  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BE6C4 000BB624  7D 89 03 A6 */	mtctr r12
-/* 800BE6C8 000BB628  4E 80 04 21 */	bctrl 
+/* 800BE6C8 000BB628  4E 80 04 21 */	bctrl
 /* 800BE6CC 000BB62C  88 75 01 4F */	lbz r3, 0x14f(r21)
 /* 800BE6D0 000BB630  3C 00 43 30 */	lis r0, 0x4330
 /* 800BE6D4 000BB634  90 01 0B 10 */	stw r0, 0xb10(r1)
@@ -2703,7 +2703,7 @@ lbl_800BE790:
 /* 800BE88C 000BB7EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BE890 000BB7F0  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BE894 000BB7F4  7D 89 03 A6 */	mtctr r12
-/* 800BE898 000BB7F8  4E 80 04 21 */	bctrl 
+/* 800BE898 000BB7F8  4E 80 04 21 */	bctrl
 /* 800BE89C 000BB7FC  88 75 00 BB */	lbz r3, 0xbb(r21)
 /* 800BE8A0 000BB800  3C 00 43 30 */	lis r0, 0x4330
 /* 800BE8A4 000BB804  90 01 0B 10 */	stw r0, 0xb10(r1)
@@ -2872,7 +2872,7 @@ lbl_800BEA84:
 /* 800BEB14 000BBA74  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BEB18 000BBA78  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BEB1C 000BBA7C  7D 89 03 A6 */	mtctr r12
-/* 800BEB20 000BBA80  4E 80 04 21 */	bctrl 
+/* 800BEB20 000BBA80  4E 80 04 21 */	bctrl
 /* 800BEB24 000BBA84  88 1C 00 CF */	lbz r0, 0xcf(r28)
 /* 800BEB28 000BBA88  93 41 0B 10 */	stw r26, 0xb10(r1)
 /* 800BEB2C 000BBA8C  90 01 0B 14 */	stw r0, 0xb14(r1)
@@ -3001,7 +3001,7 @@ lbl_800BEC90:
 /* 800BED0C 000BBC6C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BED10 000BBC70  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BED14 000BBC74  7D 89 03 A6 */	mtctr r12
-/* 800BED18 000BBC78  4E 80 04 21 */	bctrl 
+/* 800BED18 000BBC78  4E 80 04 21 */	bctrl
 /* 800BED1C 000BBC7C  88 7C 00 F7 */	lbz r3, 0xf7(r28)
 /* 800BED20 000BBC80  3C 00 43 30 */	lis r0, 0x4330
 /* 800BED24 000BBC84  90 01 0B 10 */	stw r0, 0xb10(r1)
@@ -3163,7 +3163,7 @@ lbl_800BEEFC:
 /* 800BEF84 000BBEE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BEF88 000BBEE8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BEF8C 000BBEEC  7D 89 03 A6 */	mtctr r12
-/* 800BEF90 000BBEF0  4E 80 04 21 */	bctrl 
+/* 800BEF90 000BBEF0  4E 80 04 21 */	bctrl
 /* 800BEF94 000BBEF4  88 61 00 7F */	lbz r3, 0x7f(r1)
 /* 800BEF98 000BBEF8  3C 00 43 30 */	lis r0, 0x4330
 /* 800BEF9C 000BBEFC  90 01 0B 10 */	stw r0, 0xb10(r1)
@@ -3278,7 +3278,7 @@ lbl_800BF0C0:
 /* 800BF140 000BC0A0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BF144 000BC0A4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BF148 000BC0A8  7D 89 03 A6 */	mtctr r12
-/* 800BF14C 000BC0AC  4E 80 04 21 */	bctrl 
+/* 800BF14C 000BC0AC  4E 80 04 21 */	bctrl
 /* 800BF150 000BC0B0  3A D6 00 01 */	addi r22, r22, 1
 lbl_800BF154:
 /* 800BF154 000BC0B4  7C 16 A8 00 */	cmpw r22, r21
@@ -3386,7 +3386,7 @@ lbl_800BF1F8:
 /* 800BF2D4 000BC234  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BF2D8 000BC238  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BF2DC 000BC23C  7D 89 03 A6 */	mtctr r12
-/* 800BF2E0 000BC240  4E 80 04 21 */	bctrl 
+/* 800BF2E0 000BC240  4E 80 04 21 */	bctrl
 /* 800BF2E4 000BC244  88 75 00 03 */	lbz r3, 3(r21)
 /* 800BF2E8 000BC248  3C 00 43 30 */	lis r0, 0x4330
 /* 800BF2EC 000BC24C  90 01 0B 18 */	stw r0, 0xb18(r1)
@@ -3509,7 +3509,7 @@ lbl_800BF3B0:
 /* 800BF4B8 000BC418  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BF4BC 000BC41C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BF4C0 000BC420  7D 89 03 A6 */	mtctr r12
-/* 800BF4C4 000BC424  4E 80 04 21 */	bctrl 
+/* 800BF4C4 000BC424  4E 80 04 21 */	bctrl
 /* 800BF4C8 000BC428  88 75 01 33 */	lbz r3, 0x133(r21)
 /* 800BF4CC 000BC42C  3C 00 43 30 */	lis r0, 0x4330
 /* 800BF4D0 000BC430  EC 15 04 32 */	fmuls f0, f21, f16
@@ -3669,7 +3669,7 @@ lbl_800BF6B4:
 /* 800BF720 000BC680  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BF724 000BC684  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BF728 000BC688  7D 89 03 A6 */	mtctr r12
-/* 800BF72C 000BC68C  4E 80 04 21 */	bctrl 
+/* 800BF72C 000BC68C  4E 80 04 21 */	bctrl
 /* 800BF730 000BC690  88 1D 01 3F */	lbz r0, 0x13f(r29)
 /* 800BF734 000BC694  93 41 0B 18 */	stw r26, 0xb18(r1)
 /* 800BF738 000BC698  90 01 0B 1C */	stw r0, 0xb1c(r1)
@@ -3743,7 +3743,7 @@ lbl_800BF7B8:
 /* 800BF844 000BC7A4  80 01 0C 64 */	lwz r0, 0xc64(r1)
 /* 800BF848 000BC7A8  7C 08 03 A6 */	mtlr r0
 /* 800BF84C 000BC7AC  38 21 0C 60 */	addi r1, r1, 0xc60
-/* 800BF850 000BC7B0  4E 80 00 20 */	blr 
+/* 800BF850 000BC7B0  4E 80 00 20 */	blr
 
 .global DrawGrapplePoint__22CCompoundTargetReticleFRC19CScriptGrapplePointRC13CStateManagerRC9CMatrix3fb
 DrawGrapplePoint__22CCompoundTargetReticleFRC19CScriptGrapplePointRC13CStateManagerRC9CMatrix3fb:
@@ -3763,7 +3763,7 @@ DrawGrapplePoint__22CCompoundTargetReticleFRC19CScriptGrapplePointRC13CStateMana
 /* 800BF888 000BC7E8  7C FD 3B 78 */	mr r29, r7
 /* 800BF88C 000BC7EC  38 61 00 28 */	addi r3, r1, 0x28
 /* 800BF890 000BC7F0  7D 89 03 A6 */	mtctr r12
-/* 800BF894 000BC7F4  4E 80 04 21 */	bctrl 
+/* 800BF894 000BC7F4  4E 80 04 21 */	bctrl
 /* 800BF898 000BC7F8  88 1B 01 2C */	lbz r0, 0x12c(r27)
 /* 800BF89C 000BC7FC  C0 41 00 28 */	lfs f2, 0x28(r1)
 /* 800BF8A0 000BC800  C0 21 00 2C */	lfs f1, 0x2c(r1)
@@ -3831,7 +3831,7 @@ lbl_800BF8D0:
 /* 800BF990 000BC8F0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BF994 000BC8F4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800BF998 000BC8F8  7D 89 03 A6 */	mtctr r12
-/* 800BF99C 000BC8FC  4E 80 04 21 */	bctrl 
+/* 800BF99C 000BC8FC  4E 80 04 21 */	bctrl
 /* 800BF9A0 000BC900  38 A0 00 03 */	li r5, 3
 /* 800BF9A4 000BC904  38 E0 00 07 */	li r7, 7
 /* 800BF9A8 000BC908  38 C0 00 00 */	li r6, 0
@@ -3854,7 +3854,7 @@ lbl_800BF8D0:
 /* 800BF9EC 000BC94C  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 800BF9F0 000BC950  7C 08 03 A6 */	mtlr r0
 /* 800BF9F4 000BC954  38 21 01 10 */	addi r1, r1, 0x110
-/* 800BF9F8 000BC958  4E 80 00 20 */	blr 
+/* 800BF9F8 000BC958  4E 80 00 20 */	blr
 
 .global DrawGrappleGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager
 DrawGrappleGroup__22CCompoundTargetReticleCFRC9CMatrix3fRC13CStateManager:
@@ -4025,7 +4025,7 @@ lbl_800BFC40:
 /* 800BFC44 000BCBA4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800BFC48 000BCBA8  7C 08 03 A6 */	mtlr r0
 /* 800BFC4C 000BCBAC  38 21 00 50 */	addi r1, r1, 0x50
-/* 800BFC50 000BCBB0  4E 80 00 20 */	blr 
+/* 800BFC50 000BCBB0  4E 80 00 20 */	blr
 
 .global Draw__22CCompoundTargetReticleCFRC13CStateManager
 Draw__22CCompoundTargetReticleCFRC13CStateManager:
@@ -4098,7 +4098,7 @@ lbl_800BFD44:
 /* 800BFD50 000BCCB0  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 800BFD54 000BCCB4  7C 08 03 A6 */	mtlr r0
 /* 800BFD58 000BCCB8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800BFD5C 000BCCBC  4E 80 00 20 */	blr 
+/* 800BFD5C 000BCCBC  4E 80 00 20 */	blr
 
 .global UpdateOrbitZoneGroup__22CCompoundTargetReticleFfRC13CStateManager
 UpdateOrbitZoneGroup__22CCompoundTargetReticleFfRC13CStateManager:
@@ -4186,7 +4186,7 @@ lbl_800BFE74:
 /* 800BFE78 000BCDD8  D0 03 01 E8 */	stfs f0, 0x1e8(r3)
 lbl_800BFE7C:
 /* 800BFE7C 000BCDDC  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BFE80 000BCDE0  4E 80 00 20 */	blr 
+/* 800BFE80 000BCDE0  4E 80 00 20 */	blr
 
 .global UpdateNextLockOnGroup__22CCompoundTargetReticleFfRC13CStateManager
 UpdateNextLockOnGroup__22CCompoundTargetReticleFfRC13CStateManager:
@@ -4423,7 +4423,7 @@ lbl_800C01D0:
 /* 800C01E0 000BD140  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 800C01E4 000BD144  7C 08 03 A6 */	mtlr r0
 /* 800C01E8 000BD148  38 21 00 90 */	addi r1, r1, 0x90
-/* 800C01EC 000BD14C  4E 80 00 20 */	blr 
+/* 800C01EC 000BD14C  4E 80 00 20 */	blr
 
 .global UpdateCurrLockOnGroup__22CCompoundTargetReticleFfRC13CStateManager
 UpdateCurrLockOnGroup__22CCompoundTargetReticleFfRC13CStateManager:
@@ -4908,7 +4908,7 @@ lbl_800C08B4:
 /* 800C08C8 000BD828  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 800C08CC 000BD82C  7C 08 03 A6 */	mtlr r0
 /* 800C08D0 000BD830  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800C08D4 000BD834  4E 80 00 20 */	blr 
+/* 800C08D4 000BD834  4E 80 00 20 */	blr
 
 .global Update__22CCompoundTargetReticleFfRC13CStateManager
 Update__22CCompoundTargetReticleFfRC13CStateManager:
@@ -5633,7 +5633,7 @@ lbl_800C12A0:
 /* 800C12B8 000BE218  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 800C12BC 000BE21C  7C 08 03 A6 */	mtlr r0
 /* 800C12C0 000BE220  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800C12C4 000BE224  4E 80 00 20 */	blr 
+/* 800C12C4 000BE224  4E 80 00 20 */	blr
 
 .global GetDesiredReticleState__22CCompoundTargetReticleCFRC13CStateManager
 GetDesiredReticleState__22CCompoundTargetReticleCFRC13CStateManager:
@@ -5653,24 +5653,24 @@ lbl_800C12F0:
 /* 800C12F8 000BE258  48 00 00 1C */	b lbl_800C1314
 lbl_800C12FC:
 /* 800C12FC 000BE25C  38 60 00 01 */	li r3, 1
-/* 800C1300 000BE260  4E 80 00 20 */	blr 
+/* 800C1300 000BE260  4E 80 00 20 */	blr
 lbl_800C1304:
 /* 800C1304 000BE264  38 60 00 02 */	li r3, 2
-/* 800C1308 000BE268  4E 80 00 20 */	blr 
+/* 800C1308 000BE268  4E 80 00 20 */	blr
 lbl_800C130C:
 /* 800C130C 000BE26C  38 60 00 00 */	li r3, 0
-/* 800C1310 000BE270  4E 80 00 20 */	blr 
+/* 800C1310 000BE270  4E 80 00 20 */	blr
 lbl_800C1314:
 /* 800C1314 000BE274  38 60 00 03 */	li r3, 3
-/* 800C1318 000BE278  4E 80 00 20 */	blr 
+/* 800C1318 000BE278  4E 80 00 20 */	blr
 lbl_800C131C:
 /* 800C131C 000BE27C  38 60 00 00 */	li r3, 0
-/* 800C1320 000BE280  4E 80 00 20 */	blr 
+/* 800C1320 000BE280  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__22CCompoundTargetReticleFv
 CheckLoadComplete__22CCompoundTargetReticleFv:
 /* 800C1324 000BE284  38 60 00 01 */	li r3, 1
-/* 800C1328 000BE288  4E 80 00 20 */	blr 
+/* 800C1328 000BE288  4E 80 00 20 */	blr
 
 .global __ct__22CCompoundTargetReticleFRC13CStateManager
 __ct__22CCompoundTargetReticleFRC13CStateManager:
@@ -5731,7 +5731,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1404 000BE364  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1408 000BE368  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C140C 000BE36C  7D 89 03 A6 */	mtctr r12
-/* 800C1410 000BE370  4E 80 04 21 */	bctrl 
+/* 800C1410 000BE370  4E 80 04 21 */	bctrl
 /* 800C1414 000BE374  3B 7D 00 34 */	addi r27, r29, 0x34
 /* 800C1418 000BE378  38 81 00 60 */	addi r4, r1, 0x60
 /* 800C141C 000BE37C  7F 63 DB 78 */	mr r3, r27
@@ -5747,7 +5747,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1444 000BE3A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1448 000BE3A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C144C 000BE3AC  7D 89 03 A6 */	mtctr r12
-/* 800C1450 000BE3B0  4E 80 04 21 */	bctrl 
+/* 800C1450 000BE3B0  4E 80 04 21 */	bctrl
 /* 800C1454 000BE3B4  3B 7D 00 40 */	addi r27, r29, 0x40
 /* 800C1458 000BE3B8  38 81 00 58 */	addi r4, r1, 0x58
 /* 800C145C 000BE3BC  7F 63 DB 78 */	mr r3, r27
@@ -5763,7 +5763,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1484 000BE3E4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1488 000BE3E8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C148C 000BE3EC  7D 89 03 A6 */	mtctr r12
-/* 800C1490 000BE3F0  4E 80 04 21 */	bctrl 
+/* 800C1490 000BE3F0  4E 80 04 21 */	bctrl
 /* 800C1494 000BE3F4  3B 7D 00 4C */	addi r27, r29, 0x4c
 /* 800C1498 000BE3F8  38 81 00 50 */	addi r4, r1, 0x50
 /* 800C149C 000BE3FC  7F 63 DB 78 */	mr r3, r27
@@ -5779,7 +5779,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C14C4 000BE424  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C14C8 000BE428  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C14CC 000BE42C  7D 89 03 A6 */	mtctr r12
-/* 800C14D0 000BE430  4E 80 04 21 */	bctrl 
+/* 800C14D0 000BE430  4E 80 04 21 */	bctrl
 /* 800C14D4 000BE434  3B 7D 00 58 */	addi r27, r29, 0x58
 /* 800C14D8 000BE438  38 81 00 48 */	addi r4, r1, 0x48
 /* 800C14DC 000BE43C  7F 63 DB 78 */	mr r3, r27
@@ -5795,7 +5795,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1504 000BE464  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1508 000BE468  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C150C 000BE46C  7D 89 03 A6 */	mtctr r12
-/* 800C1510 000BE470  4E 80 04 21 */	bctrl 
+/* 800C1510 000BE470  4E 80 04 21 */	bctrl
 /* 800C1514 000BE474  3B 7D 00 64 */	addi r27, r29, 0x64
 /* 800C1518 000BE478  38 81 00 40 */	addi r4, r1, 0x40
 /* 800C151C 000BE47C  7F 63 DB 78 */	mr r3, r27
@@ -5811,7 +5811,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1544 000BE4A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1548 000BE4A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C154C 000BE4AC  7D 89 03 A6 */	mtctr r12
-/* 800C1550 000BE4B0  4E 80 04 21 */	bctrl 
+/* 800C1550 000BE4B0  4E 80 04 21 */	bctrl
 /* 800C1554 000BE4B4  3B 7D 00 70 */	addi r27, r29, 0x70
 /* 800C1558 000BE4B8  38 81 00 38 */	addi r4, r1, 0x38
 /* 800C155C 000BE4BC  7F 63 DB 78 */	mr r3, r27
@@ -5827,7 +5827,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1584 000BE4E4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1588 000BE4E8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C158C 000BE4EC  7D 89 03 A6 */	mtctr r12
-/* 800C1590 000BE4F0  4E 80 04 21 */	bctrl 
+/* 800C1590 000BE4F0  4E 80 04 21 */	bctrl
 /* 800C1594 000BE4F4  3B 7D 00 7C */	addi r27, r29, 0x7c
 /* 800C1598 000BE4F8  38 81 00 30 */	addi r4, r1, 0x30
 /* 800C159C 000BE4FC  7F 63 DB 78 */	mr r3, r27
@@ -5843,7 +5843,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C15C4 000BE524  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C15C8 000BE528  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C15CC 000BE52C  7D 89 03 A6 */	mtctr r12
-/* 800C15D0 000BE530  4E 80 04 21 */	bctrl 
+/* 800C15D0 000BE530  4E 80 04 21 */	bctrl
 /* 800C15D4 000BE534  3B 7D 00 88 */	addi r27, r29, 0x88
 /* 800C15D8 000BE538  38 81 00 28 */	addi r4, r1, 0x28
 /* 800C15DC 000BE53C  7F 63 DB 78 */	mr r3, r27
@@ -5859,7 +5859,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1604 000BE564  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1608 000BE568  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C160C 000BE56C  7D 89 03 A6 */	mtctr r12
-/* 800C1610 000BE570  4E 80 04 21 */	bctrl 
+/* 800C1610 000BE570  4E 80 04 21 */	bctrl
 /* 800C1614 000BE574  3B 7D 00 94 */	addi r27, r29, 0x94
 /* 800C1618 000BE578  38 81 00 20 */	addi r4, r1, 0x20
 /* 800C161C 000BE57C  7F 63 DB 78 */	mr r3, r27
@@ -5875,7 +5875,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1644 000BE5A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1648 000BE5A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C164C 000BE5AC  7D 89 03 A6 */	mtctr r12
-/* 800C1650 000BE5B0  4E 80 04 21 */	bctrl 
+/* 800C1650 000BE5B0  4E 80 04 21 */	bctrl
 /* 800C1654 000BE5B4  3B 7D 00 A0 */	addi r27, r29, 0xa0
 /* 800C1658 000BE5B8  38 81 00 18 */	addi r4, r1, 0x18
 /* 800C165C 000BE5BC  7F 63 DB 78 */	mr r3, r27
@@ -5891,7 +5891,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1684 000BE5E4  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1688 000BE5E8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C168C 000BE5EC  7D 89 03 A6 */	mtctr r12
-/* 800C1690 000BE5F0  4E 80 04 21 */	bctrl 
+/* 800C1690 000BE5F0  4E 80 04 21 */	bctrl
 /* 800C1694 000BE5F4  3B 7D 00 AC */	addi r27, r29, 0xac
 /* 800C1698 000BE5F8  38 81 00 10 */	addi r4, r1, 0x10
 /* 800C169C 000BE5FC  7F 63 DB 78 */	mr r3, r27
@@ -5907,7 +5907,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C16C4 000BE624  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C16C8 000BE628  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C16CC 000BE62C  7D 89 03 A6 */	mtctr r12
-/* 800C16D0 000BE630  4E 80 04 21 */	bctrl 
+/* 800C16D0 000BE630  4E 80 04 21 */	bctrl
 /* 800C16D4 000BE634  3B 7D 00 B8 */	addi r27, r29, 0xb8
 /* 800C16D8 000BE638  38 81 00 08 */	addi r4, r1, 8
 /* 800C16DC 000BE63C  7F 63 DB 78 */	mr r3, r27
@@ -6140,7 +6140,7 @@ lbl_800C1A24:
 /* 800C1A58 000BE9B8  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 800C1A5C 000BE9BC  7C 08 03 A6 */	mtlr r0
 /* 800C1A60 000BE9C0  38 21 01 20 */	addi r1, r1, 0x120
-/* 800C1A64 000BE9C4  4E 80 00 20 */	blr 
+/* 800C1A64 000BE9C4  4E 80 00 20 */	blr
 
 .global __ct__Q222CCompoundTargetReticle14SOuterItemInfoFPCc
 __ct__Q222CCompoundTargetReticle14SOuterItemInfoFPCc:
@@ -6155,7 +6155,7 @@ __ct__Q222CCompoundTargetReticle14SOuterItemInfoFPCc:
 /* 800C1A88 000BE9E8  81 84 00 00 */	lwz r12, 0(r4)
 /* 800C1A8C 000BE9EC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800C1A90 000BE9F0  7D 89 03 A6 */	mtctr r12
-/* 800C1A94 000BE9F4  4E 80 04 21 */	bctrl 
+/* 800C1A94 000BE9F4  4E 80 04 21 */	bctrl
 /* 800C1A98 000BE9F8  7F E3 FB 78 */	mr r3, r31
 /* 800C1A9C 000BE9FC  38 81 00 08 */	addi r4, r1, 8
 /* 800C1AA0 000BEA00  48 27 F4 09 */	bl __ct__6CTokenFRC6CToken
@@ -6174,7 +6174,7 @@ __ct__Q222CCompoundTargetReticle14SOuterItemInfoFPCc:
 /* 800C1AD4 000BEA34  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800C1AD8 000BEA38  7C 08 03 A6 */	mtlr r0
 /* 800C1ADC 000BEA3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C1AE0 000BEA40  4E 80 00 20 */	blr 
+/* 800C1AE0 000BEA40  4E 80 00 20 */	blr
 
 .global calculate_premultiplied_overshoot_offset__Ff
 calculate_premultiplied_overshoot_offset__Ff:
@@ -6192,7 +6192,7 @@ calculate_premultiplied_overshoot_offset__Ff:
 /* 800C1B10 000BEA70  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800C1B14 000BEA74  7C 08 03 A6 */	mtlr r0
 /* 800C1B18 000BEA78  38 21 00 10 */	addi r1, r1, 0x10
-/* 800C1B1C 000BEA7C  4E 80 00 20 */	blr 
+/* 800C1B1C 000BEA7C  4E 80 00 20 */	blr
 
 .global offshoot_func__Ffff
 offshoot_func__Ffff:
@@ -6213,7 +6213,7 @@ offshoot_func__Ffff:
 /* 800C1B58 000BEAB8  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 800C1B5C 000BEABC  7C 08 03 A6 */	mtlr r0
 /* 800C1B60 000BEAC0  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C1B64 000BEAC4  4E 80 00 20 */	blr 
+/* 800C1B64 000BEAC4  4E 80 00 20 */	blr
 
 .global IsDamageOrbit__F19EPlayerOrbitRequest
 IsDamageOrbit__F19EPlayerOrbitRequest:
@@ -6227,10 +6227,10 @@ lbl_800C1B7C:
 /* 800C1B80 000BEAE0  40 80 00 0C */	bge lbl_800C1B8C
 lbl_800C1B84:
 /* 800C1B84 000BEAE4  38 60 00 01 */	li r3, 1
-/* 800C1B88 000BEAE8  4E 80 00 20 */	blr 
+/* 800C1B88 000BEAE8  4E 80 00 20 */	blr
 lbl_800C1B8C:
 /* 800C1B8C 000BEAEC  38 60 00 00 */	li r3, 0
-/* 800C1B90 000BEAF0  4E 80 00 20 */	blr 
+/* 800C1B90 000BEAF0  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl77vector<Q222CCompoundTargetReticle14SOuterItemInfo,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl77vector<Q222CCompoundTargetReticle14SOuterItemInfo,Q24rstl17rmemory_allocator>Fi":
@@ -6318,7 +6318,7 @@ lbl_800C1CAC:
 /* 800C1CB0 000BEC10  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800C1CB4 000BEC14  7C 08 03 A6 */	mtlr r0
 /* 800C1CB8 000BEC18  38 21 00 30 */	addi r1, r1, 0x30
-/* 800C1CBC 000BEC1C  4E 80 00 20 */	blr 
+/* 800C1CBC 000BEC1C  4E 80 00 20 */	blr
 
 .global __sinit_CTargetReticles_cpp
 __sinit_CTargetReticles_cpp:
@@ -6347,4 +6347,4 @@ __sinit_CTargetReticles_cpp:
 /* 800C1D18 000BEC78  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800C1D1C 000BEC7C  7C 08 03 A6 */	mtlr r0
 /* 800C1D20 000BEC80  38 21 00 20 */	addi r1, r1, 0x20
-/* 800C1D24 000BEC84  4E 80 00 20 */	blr 
+/* 800C1D24 000BEC84  4E 80 00 20 */	blr

@@ -49,12 +49,12 @@ lbl_802E203C:
 /* 802E2048 002DEFA8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802E204C 002DEFAC  7C 08 03 A6 */	mtlr r0
 /* 802E2050 002DEFB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2054 002DEFB4  4E 80 00 20 */	blr 
+/* 802E2054 002DEFB4  4E 80 00 20 */	blr
 
 .global GetType__18CMetaTransMetaAnimCFv
 GetType__18CMetaTransMetaAnimCFv:
 /* 802E2058 002DEFB8  38 60 00 00 */	li r3, 0
-/* 802E205C 002DEFBC  4E 80 00 20 */	blr 
+/* 802E205C 002DEFBC  4E 80 00 20 */	blr
 
 .global WriteTransData__18CMetaTransMetaAnimCFR13COutputStream
 WriteTransData__18CMetaTransMetaAnimCFR13COutputStream:
@@ -67,7 +67,7 @@ WriteTransData__18CMetaTransMetaAnimCFR13COutputStream:
 /* 802E2078 002DEFD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E207C 002DEFDC  7C 08 03 A6 */	mtlr r0
 /* 802E2080 002DEFE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2084 002DEFE4  4E 80 00 20 */	blr 
+/* 802E2084 002DEFE4  4E 80 00 20 */	blr
 
 .global "VGetTransitionTree__18CMetaTransMetaAnimCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext"
 "VGetTransitionTree__18CMetaTransMetaAnimCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext":
@@ -90,7 +90,7 @@ WriteTransData__18CMetaTransMetaAnimCFR13COutputStream:
 /* 802E20C8 002DF028  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E20CC 002DF02C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E20D0 002DF030  7D 89 03 A6 */	mtctr r12
-/* 802E20D4 002DF034  4E 80 04 21 */	bctrl 
+/* 802E20D4 002DF034  4E 80 04 21 */	bctrl
 /* 802E20D8 002DF038  80 A1 00 08 */	lwz r5, 8(r1)
 /* 802E20DC 002DF03C  38 61 00 08 */	addi r3, r1, 8
 /* 802E20E0 002DF040  90 A1 00 0C */	stw r5, 0xc(r1)
@@ -147,7 +147,7 @@ lbl_802E2194:
 /* 802E21A0 002DF100  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802E21A4 002DF104  7C 08 03 A6 */	mtlr r0
 /* 802E21A8 002DF108  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802E21AC 002DF10C  4E 80 00 20 */	blr 
+/* 802E21AC 002DF10C  4E 80 00 20 */	blr
 
 .global __ct__18CMetaTransMetaAnimFR12CInputStream
 __ct__18CMetaTransMetaAnimFR12CInputStream:

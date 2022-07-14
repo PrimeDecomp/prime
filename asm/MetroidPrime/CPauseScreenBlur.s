@@ -29,7 +29,7 @@ GetBlurAmt__16CPauseScreenBlurCFv:
 /* 8025D5B4 0025A514  C0 03 00 18 */	lfs f0, 0x18(r3)
 /* 8025D5B8 0025A518  FC 00 02 10 */	fabs f0, f0
 /* 8025D5BC 0025A51C  FC 20 00 18 */	frsp f1, f0
-/* 8025D5C0 0025A520  4E 80 00 20 */	blr 
+/* 8025D5C0 0025A520  4E 80 00 20 */	blr
 
 .global SetState__16CPauseScreenBlurFQ216CPauseScreenBlur6EState
 SetState__16CPauseScreenBlurFQ216CPauseScreenBlur6EState:
@@ -131,7 +131,7 @@ lbl_8025D710:
 /* 8025D71C 0025A67C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8025D720 0025A680  7C 08 03 A6 */	mtlr r0
 /* 8025D724 0025A684  38 21 00 20 */	addi r1, r1, 0x20
-/* 8025D728 0025A688  4E 80 00 20 */	blr 
+/* 8025D728 0025A688  4E 80 00 20 */	blr
 
 .global sub_8025d72c
 sub_8025d72c:
@@ -139,18 +139,18 @@ sub_8025d72c:
 /* 8025D730 0025A690  2C 00 00 00 */	cmpwi r0, 0
 /* 8025D734 0025A694  40 82 00 0C */	bne lbl_8025D740
 /* 8025D738 0025A698  54 80 06 3F */	clrlwi. r0, r4, 0x18
-/* 8025D73C 0025A69C  4D 82 00 20 */	beqlr 
+/* 8025D73C 0025A69C  4D 82 00 20 */	beqlr
 lbl_8025D740:
 /* 8025D740 0025A6A0  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8025D744 0025A6A4  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8025D748 0025A6A8  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 8025D74C 0025A6AC  2C 00 00 00 */	cmpwi r0, 0
-/* 8025D750 0025A6B0  4C 82 00 20 */	bnelr 
+/* 8025D750 0025A6B0  4C 82 00 20 */	bnelr
 /* 8025D754 0025A6B4  88 03 00 50 */	lbz r0, 0x50(r3)
 /* 8025D758 0025A6B8  38 80 00 01 */	li r4, 1
 /* 8025D75C 0025A6BC  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 8025D760 0025A6C0  98 03 00 50 */	stb r0, 0x50(r3)
-/* 8025D764 0025A6C4  4E 80 00 20 */	blr 
+/* 8025D764 0025A6C4  4E 80 00 20 */	blr
 
 .global Draw__16CPauseScreenBlurFRC13CStateManager
 Draw__16CPauseScreenBlurFRC13CStateManager:
@@ -222,7 +222,7 @@ lbl_8025D858:
 /* 8025D864 0025A7C4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8025D868 0025A7C8  7C 08 03 A6 */	mtlr r0
 /* 8025D86C 0025A7CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8025D870 0025A7D0  4E 80 00 20 */	blr 
+/* 8025D870 0025A7D0  4E 80 00 20 */	blr
 
 .global Update__16CPauseScreenBlurfRC13CStateManagerb
 Update__16CPauseScreenBlurfRC13CStateManagerb:
@@ -313,7 +313,7 @@ lbl_8025D994:
 /* 8025D99C 0025A8FC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8025D9A0 0025A900  7C 08 03 A6 */	mtlr r0
 /* 8025D9A4 0025A904  38 21 00 20 */	addi r1, r1, 0x20
-/* 8025D9A8 0025A908  4E 80 00 20 */	blr 
+/* 8025D9A8 0025A908  4E 80 00 20 */	blr
 
 .global OnNewInGameGuiState__16CPauseScreenBlurF15EInGameGuiStateR13CStateManager
 OnNewInGameGuiState__16CPauseScreenBlurF15EInGameGuiStateR13CStateManager:
@@ -363,7 +363,7 @@ lbl_8025DA38:
 /* 8025DA38 0025A998  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8025DA3C 0025A99C  7C 08 03 A6 */	mtlr r0
 /* 8025DA40 0025A9A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8025DA44 0025A9A4  4E 80 00 20 */	blr 
+/* 8025DA44 0025A9A4  4E 80 00 20 */	blr
 
 .global __dt__16CPauseScreenBlurFv
 __dt__16CPauseScreenBlurFv:
@@ -414,7 +414,7 @@ lbl_8025DADC:
 /* 8025DAE8 0025AA48  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8025DAEC 0025AA4C  7C 08 03 A6 */	mtlr r0
 /* 8025DAF0 0025AA50  38 21 00 10 */	addi r1, r1, 0x10
-/* 8025DAF4 0025AA54  4E 80 00 20 */	blr 
+/* 8025DAF4 0025AA54  4E 80 00 20 */	blr
 
 .global __ct__16CPauseScreenBlurFv
 __ct__16CPauseScreenBlurFv:
@@ -434,7 +434,7 @@ __ct__16CPauseScreenBlurFv:
 /* 8025DB2C 0025AA8C  81 84 00 00 */	lwz r12, 0(r4)
 /* 8025DB30 0025AA90  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8025DB34 0025AA94  7D 89 03 A6 */	mtctr r12
-/* 8025DB38 0025AA98  4E 80 04 21 */	bctrl 
+/* 8025DB38 0025AA98  4E 80 04 21 */	bctrl
 /* 8025DB3C 0025AA9C  3B FE 00 04 */	addi r31, r30, 4
 /* 8025DB40 0025AAA0  38 81 00 08 */	addi r4, r1, 8
 /* 8025DB44 0025AAA4  7F E3 FB 78 */	mr r3, r31

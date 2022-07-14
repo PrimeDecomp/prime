@@ -131,7 +131,7 @@ lbl_8011CC6C:
 /* 8011CCB4 00119C14  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8011CCB8 00119C18  7C 08 03 A6 */	mtlr r0
 /* 8011CCBC 00119C1C  38 21 00 90 */	addi r1, r1, 0x90
-/* 8011CCC0 00119C20  4E 80 00 20 */	blr 
+/* 8011CCC0 00119C20  4E 80 00 20 */	blr
 
 .global __ct__14CFluidUVMotionFffRCQ214CFluidUVMotion17SFluidLayerMotionRCQ214CFluidUVMotion17SFluidLayerMotionRCQ214CFluidUVMotion17SFluidLayerMotion
 __ct__14CFluidUVMotionFffRCQ214CFluidUVMotion17SFluidLayerMotionRCQ214CFluidUVMotion17SFluidLayerMotionRCQ214CFluidUVMotion17SFluidLayerMotion:
@@ -215,7 +215,7 @@ lbl_8011CD60:
 /* 8011CDE8 00119D48  C0 06 00 14 */	lfs f0, 0x14(r6)
 /* 8011CDEC 00119D4C  D0 03 00 48 */	stfs f0, 0x48(r3)
 /* 8011CDF0 00119D50  38 21 00 20 */	addi r1, r1, 0x20
-/* 8011CDF4 00119D54  4E 80 00 20 */	blr 
+/* 8011CDF4 00119D54  4E 80 00 20 */	blr
 
 .global __ct__14CFluidUVMotionFff
 __ct__14CFluidUVMotionFff:

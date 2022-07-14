@@ -48,12 +48,12 @@ lbl_8014B104:
 /* 8014B10C 0014806C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8014B110 00148070  7C 08 03 A6 */	mtlr r0
 /* 8014B114 00148074  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014B118 00148078  4E 80 00 20 */	blr 
+/* 8014B118 00148078  4E 80 00 20 */	blr
 
 .global ApplyHeadTracking__11CBSScriptedCFv
 ApplyHeadTracking__11CBSScriptedCFv:
 /* 8014B11C 0014807C  38 60 00 00 */	li r3, 0
-/* 8014B120 00148080  4E 80 00 20 */	blr 
+/* 8014B120 00148080  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__11CBSScriptedFfR15CBodyController
 GetBodyStateTransition__11CBSScriptedFfR15CBodyController:
@@ -131,11 +131,11 @@ lbl_8014B214:
 /* 8014B220 00148180  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8014B224 00148184  7C 08 03 A6 */	mtlr r0
 /* 8014B228 00148188  38 21 00 20 */	addi r1, r1, 0x20
-/* 8014B22C 0014818C  4E 80 00 20 */	blr 
+/* 8014B22C 0014818C  4E 80 00 20 */	blr
 
 .global Shutdown__11CBSScriptedFR15CBodyController
 Shutdown__11CBSScriptedFR15CBodyController:
-/* 8014B230 00148190  4E 80 00 20 */	blr 
+/* 8014B230 00148190  4E 80 00 20 */	blr
 
 .global UpdateBody__11CBSScriptedFfR15CBodyControllerR13CStateManager
 UpdateBody__11CBSScriptedFfR15CBodyControllerR13CStateManager:
@@ -200,7 +200,7 @@ lbl_8014B2F4:
 /* 8014B30C 0014826C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8014B310 00148270  7C 08 03 A6 */	mtlr r0
 /* 8014B314 00148274  38 21 00 30 */	addi r1, r1, 0x30
-/* 8014B318 00148278  4E 80 00 20 */	blr 
+/* 8014B318 00148278  4E 80 00 20 */	blr
 
 .global Start__11CBSScriptedFR15CBodyControllerR13CStateManager
 Start__11CBSScriptedFR15CBodyControllerR13CStateManager:
@@ -252,7 +252,7 @@ Start__11CBSScriptedFR15CBodyControllerR13CStateManager:
 /* 8014B3D0 00148330  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8014B3D4 00148334  7C 08 03 A6 */	mtlr r0
 /* 8014B3D8 00148338  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014B3DC 0014833C  4E 80 00 20 */	blr 
+/* 8014B3DC 0014833C  4E 80 00 20 */	blr
 
 .global __ct__11CBSScriptedFv
 __ct__11CBSScriptedFv:
@@ -271,4 +271,4 @@ __ct__11CBSScriptedFv:
 /* 8014B410 00148370  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 8014B414 00148374  98 03 00 04 */	stb r0, 4(r3)
 /* 8014B418 00148378  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8014B41C 0014837C  4E 80 00 20 */	blr 
+/* 8014B41C 0014837C  4E 80 00 20 */	blr

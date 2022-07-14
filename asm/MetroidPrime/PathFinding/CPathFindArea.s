@@ -43,7 +43,7 @@ lbl_801CA1BC:
 /* 801CA1D0 001C7130  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801CA1D4 001C7134  7C 08 03 A6 */	mtlr r0
 /* 801CA1D8 001C7138  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CA1DC 001C713C  4E 80 00 20 */	blr 
+/* 801CA1DC 001C713C  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__16TToken<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea>"
 "GetIObjObjectFor__16TToken<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea>":
@@ -78,7 +78,7 @@ lbl_801CA1BC:
 /* 801CA250 001C71B0  38 80 00 01 */	li r4, 1
 /* 801CA254 001C71B4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801CA258 001C71B8  7D 89 03 A6 */	mtctr r12
-/* 801CA25C 001C71BC  4E 80 04 21 */	bctrl 
+/* 801CA25C 001C71BC  4E 80 04 21 */	bctrl
 lbl_801CA260:
 /* 801CA260 001C71C0  38 61 00 10 */	addi r3, r1, 0x10
 /* 801CA264 001C71C4  38 80 FF FF */	li r4, -1
@@ -88,7 +88,7 @@ lbl_801CA260:
 /* 801CA274 001C71D4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801CA278 001C71D8  7C 08 03 A6 */	mtlr r0
 /* 801CA27C 001C71DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801CA280 001C71E0  4E 80 00 20 */	blr 
+/* 801CA280 001C71E0  4E 80 00 20 */	blr
 
 .global sub_801ca284
 sub_801ca284:
@@ -130,7 +130,7 @@ lbl_801CA2F8:
 /* 801CA304 001C7264  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801CA308 001C7268  7C 08 03 A6 */	mtlr r0
 /* 801CA30C 001C726C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CA310 001C7270  4E 80 00 20 */	blr 
+/* 801CA310 001C7270  4E 80 00 20 */	blr
 
 .global __dt__7CPFAreaFv
 __dt__7CPFAreaFv:
@@ -200,7 +200,7 @@ lbl_801CA3E4:
 /* 801CA3F0 001C7350  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801CA3F4 001C7354  7C 08 03 A6 */	mtlr r0
 /* 801CA3F8 001C7358  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CA3FC 001C735C  4E 80 00 20 */	blr 
+/* 801CA3FC 001C735C  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__34TObjOwnerDerivedFromIObj<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea>"
 "GetNewDerivedObject__34TObjOwnerDerivedFromIObj<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea>":
@@ -214,7 +214,7 @@ lbl_801CA3E4:
 /* 801CA41C 001C737C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801CA420 001C7380  7C 08 03 A6 */	mtlr r0
 /* 801CA424 001C7384  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CA428 001C7388  4E 80 00 20 */	blr 
+/* 801CA428 001C7388  4E 80 00 20 */	blr
 
 .global "__ct__34TObjOwnerDerivedFromIObj<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea>"
 "__ct__34TObjOwnerDerivedFromIObj<7CPFArea>FRCQ24rstl18auto_ptr<7CPFArea>":
@@ -257,7 +257,7 @@ lbl_801CA49C:
 /* 801CA4B8 001C7418  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CA4BC 001C741C  7C 08 03 A6 */	mtlr r0
 /* 801CA4C0 001C7420  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CA4C4 001C7424  4E 80 00 20 */	blr 
+/* 801CA4C4 001C7424  4E 80 00 20 */	blr
 
 .global "__dt__34TObjOwnerDerivedFromIObj<7CPFArea>Fv"
 "__dt__34TObjOwnerDerivedFromIObj<7CPFArea>Fv":
@@ -287,7 +287,7 @@ lbl_801CA510:
 /* 801CA51C 001C747C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801CA520 001C7480  7C 08 03 A6 */	mtlr r0
 /* 801CA524 001C7484  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CA528 001C7488  4E 80 00 20 */	blr 
+/* 801CA528 001C7488  4E 80 00 20 */	blr
 
 .global PathExists__7CPFAreaCFPC9CPFRegionPC9CPFRegionUi
 PathExists__7CPFAreaCFPC9CPFRegionPC9CPFRegionUi:
@@ -297,7 +297,7 @@ PathExists__7CPFAreaCFPC9CPFRegionPC9CPFRegionUi:
 /* 801CA538 001C7498  41 82 00 0C */	beq lbl_801CA544
 lbl_801CA53C:
 /* 801CA53C 001C749C  38 60 00 01 */	li r3, 1
-/* 801CA540 001C74A0  4E 80 00 20 */	blr 
+/* 801CA540 001C74A0  4E 80 00 20 */	blr
 lbl_801CA544:
 /* 801CA544 001C74A4  80 04 00 24 */	lwz r0, 0x24(r4)
 /* 801CA548 001C74A8  80 85 00 24 */	lwz r4, 0x24(r5)
@@ -332,7 +332,7 @@ lbl_801CA568:
 /* 801CA5B8 001C7518  7C 64 18 2E */	lwzx r3, r4, r3
 /* 801CA5BC 001C751C  7C 60 04 30 */	srw r0, r3, r0
 /* 801CA5C0 001C7520  54 03 07 FE */	clrlwi r3, r0, 0x1f
-/* 801CA5C4 001C7524  4E 80 00 20 */	blr 
+/* 801CA5C4 001C7524  4E 80 00 20 */	blr
 lbl_801CA5C8:
 /* 801CA5C8 001C7528  80 83 01 6C */	lwz r4, 0x16c(r3)
 /* 801CA5CC 001C752C  54 03 E8 FA */	rlwinm r3, r0, 0x1d, 3, 0x1d
@@ -340,7 +340,7 @@ lbl_801CA5C8:
 /* 801CA5D4 001C7534  7C 64 18 2E */	lwzx r3, r4, r3
 /* 801CA5D8 001C7538  7C 60 04 30 */	srw r0, r3, r0
 /* 801CA5DC 001C753C  54 03 07 FE */	clrlwi r3, r0, 0x1f
-/* 801CA5E0 001C7540  4E 80 00 20 */	blr 
+/* 801CA5E0 001C7540  4E 80 00 20 */	blr
 
 .global "FindClosestReachablePoint__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUi"
 "FindClosestReachablePoint__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUi":
@@ -463,7 +463,7 @@ lbl_801CA778:
 /* 801CA78C 001C76EC  D1 43 00 08 */	stfs f10, 8(r3)
 /* 801CA790 001C76F0  BB 21 00 24 */	lmw r25, 0x24(r1)
 /* 801CA794 001C76F4  38 21 00 40 */	addi r1, r1, 0x40
-/* 801CA798 001C76F8  4E 80 00 20 */	blr 
+/* 801CA798 001C76F8  4E 80 00 20 */	blr
 
 .global FindClosestRegion__7CPFAreaFRC9CVector3fUif
 FindClosestRegion__7CPFAreaFRC9CVector3fUif:
@@ -651,7 +651,7 @@ lbl_801CAA1C:
 /* 801CAA34 001C7994  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801CAA38 001C7998  7C 08 03 A6 */	mtlr r0
 /* 801CAA3C 001C799C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801CAA40 001C79A0  4E 80 00 20 */	blr 
+/* 801CAA40 001C79A0  4E 80 00 20 */	blr
 
 .global "FindRegions__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUiUi"
 "FindRegions__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUiUi":
@@ -723,7 +723,7 @@ lbl_801CAB28:
 /* 801CAB30 001C7A90  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801CAB34 001C7A94  7C 08 03 A6 */	mtlr r0
 /* 801CAB38 001C7A98  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CAB3C 001C7A9C  4E 80 00 20 */	blr 
+/* 801CAB3C 001C7A9C  4E 80 00 20 */	blr
 
 .global GetOctreeRegionList__7CPFAreaFRC9CVector3f
 GetOctreeRegionList__7CPFAreaFRC9CVector3f:
@@ -759,7 +759,7 @@ lbl_801CABA4:
 /* 801CABAC 001C7B0C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801CABB0 001C7B10  7C 08 03 A6 */	mtlr r0
 /* 801CABB4 001C7B14  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CABB8 001C7B18  4E 80 00 20 */	blr 
+/* 801CABB8 001C7B18  4E 80 00 20 */	blr
 
 .global "__ct__7CPFAreaFRCQ24rstl12auto_ptr<Uc>i"
 "__ct__7CPFAreaFRCQ24rstl12auto_ptr<Uc>i":
@@ -1183,7 +1183,7 @@ lbl_801CB18C:
 /* 801CB1D4 001C8134  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 801CB1D8 001C8138  7C 08 03 A6 */	mtlr r0
 /* 801CB1DC 001C813C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801CB1E0 001C8140  4E 80 00 20 */	blr 
+/* 801CB1E0 001C8140  4E 80 00 20 */	blr
 
 .global "GetRegionListList__13CPFAreaOctreeFRQ24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>RC9CVector3ff"
 "GetRegionListList__13CPFAreaOctreeFRQ24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>RC9CVector3ff":
@@ -1419,7 +1419,7 @@ lbl_801CB530:
 /* 801CB544 001C84A4  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801CB548 001C84A8  7C 08 03 A6 */	mtlr r0
 /* 801CB54C 001C84AC  38 21 00 60 */	addi r1, r1, 0x60
-/* 801CB550 001C84B0  4E 80 00 20 */	blr 
+/* 801CB550 001C84B0  4E 80 00 20 */	blr
 
 .global IsPointInsidePaddedAABox__13CPFAreaOctreeCFRC9CVector3ff
 IsPointInsidePaddedAABox__13CPFAreaOctreeCFRC9CVector3ff:
@@ -1460,7 +1460,7 @@ IsPointInsidePaddedAABox__13CPFAreaOctreeCFRC9CVector3ff:
 /* 801CB5DC 001C853C  38 00 00 01 */	li r0, 1
 lbl_801CB5E0:
 /* 801CB5E0 001C8540  7C 03 03 78 */	mr r3, r0
-/* 801CB5E4 001C8544  4E 80 00 20 */	blr 
+/* 801CB5E4 001C8544  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>FRCP31prereserved_vector<P9CPFRegion>"
 "push_back__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>FRCP31prereserved_vector<P9CPFRegion>":
@@ -1475,53 +1475,53 @@ lbl_801CB604:
 /* 801CB604 001C8564  80 83 00 00 */	lwz r4, 0(r3)
 /* 801CB608 001C8568  38 04 00 01 */	addi r0, r4, 1
 /* 801CB60C 001C856C  90 03 00 00 */	stw r0, 0(r3)
-/* 801CB610 001C8570  4E 80 00 20 */	blr 
+/* 801CB610 001C8570  4E 80 00 20 */	blr
 
 .global "capacity__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>CFv"
 "capacity__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>CFv":
 /* 801CB614 001C8574  38 60 00 20 */	li r3, 0x20
-/* 801CB618 001C8578  4E 80 00 20 */	blr 
+/* 801CB618 001C8578  4E 80 00 20 */	blr
 
 .global "size__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>CFv"
 "size__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>CFv":
 /* 801CB61C 001C857C  80 63 00 00 */	lwz r3, 0(r3)
-/* 801CB620 001C8580  4E 80 00 20 */	blr 
+/* 801CB620 001C8580  4E 80 00 20 */	blr
 
 .global sub_801cb624
 sub_801cb624:
 /* 801CB624 001C8584  38 63 00 08 */	addi r3, r3, 8
-/* 801CB628 001C8588  4E 80 00 20 */	blr 
+/* 801CB628 001C8588  4E 80 00 20 */	blr
 
 .global sub_801cb62c
 sub_801cb62c:
 /* 801CB62C 001C858C  38 63 00 04 */	addi r3, r3, 4
-/* 801CB630 001C8590  4E 80 00 20 */	blr 
+/* 801CB630 001C8590  4E 80 00 20 */	blr
 
 .global sub_801cb634
 sub_801cb634:
 /* 801CB634 001C8594  38 63 00 0C */	addi r3, r3, 0xc
-/* 801CB638 001C8598  4E 80 00 20 */	blr 
+/* 801CB638 001C8598  4E 80 00 20 */	blr
 
 .global nullsub_44
 nullsub_44:
-/* 801CB63C 001C859C  4E 80 00 20 */	blr 
+/* 801CB63C 001C859C  4E 80 00 20 */	blr
 
 .global nullsub_45
 nullsub_45:
-/* 801CB640 001C85A0  4E 80 00 20 */	blr 
+/* 801CB640 001C85A0  4E 80 00 20 */	blr
 
 .global sub_801cb644
 sub_801cb644:
 /* 801CB644 001C85A4  28 03 00 00 */	cmplwi r3, 0
-/* 801CB648 001C85A8  4D 82 00 20 */	beqlr 
+/* 801CB648 001C85A8  4D 82 00 20 */	beqlr
 /* 801CB64C 001C85AC  80 04 00 00 */	lwz r0, 0(r4)
 /* 801CB650 001C85B0  90 03 00 00 */	stw r0, 0(r3)
-/* 801CB654 001C85B4  4E 80 00 20 */	blr 
+/* 801CB654 001C85B4  4E 80 00 20 */	blr
 
 .global "data__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>Fv"
 "data__Q24rstl54reserved_vector<P31prereserved_vector<P9CPFRegion>,32>Fv":
 /* 801CB658 001C85B8  38 63 00 04 */	addi r3, r3, 4
-/* 801CB65C 001C85BC  4E 80 00 20 */	blr 
+/* 801CB65C 001C85BC  4E 80 00 20 */	blr
 
 .global GetRegionList__13CPFAreaOctreeFRC9CVector3f
 GetRegionList__13CPFAreaOctreeFRC9CVector3f:
@@ -1706,7 +1706,7 @@ lbl_801CB8BC:
 /* 801CB8D0 001C8830  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801CB8D4 001C8834  7C 08 03 A6 */	mtlr r0
 /* 801CB8D8 001C8838  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CB8DC 001C883C  4E 80 00 20 */	blr 
+/* 801CB8DC 001C883C  4E 80 00 20 */	blr
 
 .global GetChildIndex__13CPFAreaOctreeCFRC9CVector3f
 GetChildIndex__13CPFAreaOctreeCFRC9CVector3f:
@@ -1730,7 +1730,7 @@ lbl_801CB90C:
 /* 801CB91C 001C887C  60 00 00 04 */	ori r0, r0, 4
 lbl_801CB920:
 /* 801CB920 001C8880  7C 03 03 78 */	mr r3, r0
-/* 801CB924 001C8884  4E 80 00 20 */	blr 
+/* 801CB924 001C8884  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl50vector<13CPFRegionData,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl50vector<13CPFRegionData,Q24rstl17rmemory_allocator>Fi":
@@ -1824,7 +1824,7 @@ lbl_801CBA54:
 /* 801CBA60 001C89C0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801CBA64 001C89C4  7C 08 03 A6 */	mtlr r0
 /* 801CBA68 001C89C8  38 21 00 30 */	addi r1, r1, 0x30
-/* 801CBA6C 001C89CC  4E 80 00 20 */	blr 
+/* 801CBA6C 001C89CC  4E 80 00 20 */	blr
 
 .global RemainingPathDistance__15CPathFindSearchCFR9CVector3f
 RemainingPathDistance__15CPathFindSearchCFR9CVector3f:
@@ -1904,7 +1904,7 @@ lbl_801CBB6C:
 /* 801CBB88 001C8AE8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 801CBB8C 001C8AEC  7C 08 03 A6 */	mtlr r0
 /* 801CBB90 001C8AF0  38 21 00 40 */	addi r1, r1, 0x40
-/* 801CBB94 001C8AF4  4E 80 00 20 */	blr 
+/* 801CBB94 001C8AF4  4E 80 00 20 */	blr
 
 .global GetSplinePointWithLookahead__15CPathFindSearchCFR9CVector3fRC9CVector3ff
 GetSplinePointWithLookahead__15CPathFindSearchCFR9CVector3fRC9CVector3ff:
@@ -1916,7 +1916,7 @@ GetSplinePointWithLookahead__15CPathFindSearchCFR9CVector3fRC9CVector3ff:
 /* 801CBBAC 001C8B0C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CBBB0 001C8B10  7C 08 03 A6 */	mtlr r0
 /* 801CBBB4 001C8B14  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CBBB8 001C8B18  4E 80 00 20 */	blr 
+/* 801CBBB8 001C8B18  4E 80 00 20 */	blr
 
 .global GetSplinePointWithLookahead__15CPathFindSearchCFR9CVector3fRC9CVector3fif
 GetSplinePointWithLookahead__15CPathFindSearchCFR9CVector3fRC9CVector3fif:
@@ -2047,7 +2047,7 @@ lbl_801CBD90:
 /* 801CBD9C 001C8CFC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 801CBDA0 001C8D00  7C 08 03 A6 */	mtlr r0
 /* 801CBDA4 001C8D04  38 21 00 60 */	addi r1, r1, 0x60
-/* 801CBDA8 001C8D08  4E 80 00 20 */	blr 
+/* 801CBDA8 001C8D08  4E 80 00 20 */	blr
 
 .global GetSplinePoint__15CPathFindSearchCFR9CVector3fRC9CVector3f
 GetSplinePoint__15CPathFindSearchCFR9CVector3fRC9CVector3f:
@@ -2059,7 +2059,7 @@ GetSplinePoint__15CPathFindSearchCFR9CVector3fRC9CVector3f:
 /* 801CBDC0 001C8D20  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801CBDC4 001C8D24  7C 08 03 A6 */	mtlr r0
 /* 801CBDC8 001C8D28  38 21 00 10 */	addi r1, r1, 0x10
-/* 801CBDCC 001C8D2C  4E 80 00 20 */	blr 
+/* 801CBDCC 001C8D2C  4E 80 00 20 */	blr
 
 .global GetSplinePoint__15CPathFindSearchCFR9CVector3fRC9CVector3fi
 GetSplinePoint__15CPathFindSearchCFR9CVector3fRC9CVector3fi:
@@ -2225,7 +2225,7 @@ lbl_801CC024:
 /* 801CC034 001C8F94  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 801CC038 001C8F98  7C 08 03 A6 */	mtlr r0
 /* 801CC03C 001C8F9C  38 21 00 90 */	addi r1, r1, 0x90
-/* 801CC040 001C8FA0  4E 80 00 20 */	blr 
+/* 801CC040 001C8FA0  4E 80 00 20 */	blr
 
 .global SegmentOver__15CPathFindSearchCFRC9CVector3f
 SegmentOver__15CPathFindSearchCFRC9CVector3f:

@@ -196,7 +196,7 @@ lbl_8035E154:
 /* 8035E194 0035B0F4  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8035E198 0035B0F8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8035E19C 0035B0FC  7D 89 03 A6 */	mtctr r12
-/* 8035E1A0 0035B100  4E 80 04 21 */	bctrl 
+/* 8035E1A0 0035B100  4E 80 04 21 */	bctrl
 /* 8035E1A4 0035B104  38 61 00 6C */	addi r3, r1, 0x6c
 /* 8035E1A8 0035B108  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8035E1AC 0035B10C  4B FE 2C FD */	bl __ct__6CTokenFRC6CToken
@@ -472,7 +472,7 @@ lbl_8035E554:
 /* 8035E558 0035B4B8  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 8035E55C 0035B4BC  7C 08 03 A6 */	mtlr r0
 /* 8035E560 0035B4C0  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8035E564 0035B4C4  4E 80 00 20 */	blr 
+/* 8035E564 0035B4C4  4E 80 00 20 */	blr
 
 .global LoadELSMTokens__28CParticleElectricDataFactoryFP20CElectricDescription
 LoadELSMTokens__28CParticleElectricDataFactoryFP20CElectricDescription:
@@ -523,7 +523,7 @@ lbl_8035E604:
 /* 8035E60C 0035B56C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8035E610 0035B570  7C 08 03 A6 */	mtlr r0
 /* 8035E614 0035B574  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035E618 0035B578  4E 80 00 20 */	blr 
+/* 8035E618 0035B578  4E 80 00 20 */	blr
 
 .global CreateGeneratorDescription__28CParticleElectricDataFactoryFR12CInputStreamP11CSimplePool
 CreateGeneratorDescription__28CParticleElectricDataFactoryFR12CInputStreamP11CSimplePool:
@@ -566,7 +566,7 @@ lbl_8035E694:
 /* 8035E6A0 0035B600  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8035E6A4 0035B604  7C 08 03 A6 */	mtlr r0
 /* 8035E6A8 0035B608  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035E6AC 0035B60C  4E 80 00 20 */	blr 
+/* 8035E6AC 0035B60C  4E 80 00 20 */	blr
 
 .global GetGeneratorDesc__28CParticleElectricDataFactoryFR12CInputStreamP11CSimplePool
 GetGeneratorDesc__28CParticleElectricDataFactoryFR12CInputStreamP11CSimplePool:
@@ -605,7 +605,7 @@ lbl_8035E71C:
 /* 8035E724 0035B684  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8035E728 0035B688  7C 08 03 A6 */	mtlr r0
 /* 8035E72C 0035B68C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035E730 0035B690  4E 80 00 20 */	blr 
+/* 8035E730 0035B690  4E 80 00 20 */	blr
 
 .global FParticleElectricDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FParticleElectricDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -650,7 +650,7 @@ FParticleElectricDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 8035E7CC 0035B72C  38 80 00 01 */	li r4, 1
 /* 8035E7D0 0035B730  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8035E7D4 0035B734  7D 89 03 A6 */	mtctr r12
-/* 8035E7D8 0035B738  4E 80 04 21 */	bctrl 
+/* 8035E7D8 0035B738  4E 80 04 21 */	bctrl
 lbl_8035E7DC:
 /* 8035E7DC 0035B73C  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 8035E7E0 0035B740  28 00 00 00 */	cmplwi r0, 0
@@ -665,7 +665,7 @@ lbl_8035E7F4:
 /* 8035E800 0035B760  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8035E804 0035B764  7C 08 03 A6 */	mtlr r0
 /* 8035E808 0035B768  38 21 00 30 */	addi r1, r1, 0x30
-/* 8035E80C 0035B76C  4E 80 00 20 */	blr 
+/* 8035E80C 0035B76C  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__30TToken<20CElectricDescription>FRCQ24rstl32auto_ptr<20CElectricDescription>"
 "GetIObjObjectFor__30TToken<20CElectricDescription>FRCQ24rstl32auto_ptr<20CElectricDescription>":
@@ -679,7 +679,7 @@ lbl_8035E7F4:
 /* 8035E82C 0035B78C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8035E830 0035B790  7C 08 03 A6 */	mtlr r0
 /* 8035E834 0035B794  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035E838 0035B798  4E 80 00 20 */	blr 
+/* 8035E838 0035B798  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__48TObjOwnerDerivedFromIObj<20CElectricDescription>FRCQ24rstl32auto_ptr<20CElectricDescription>"
 "GetNewDerivedObject__48TObjOwnerDerivedFromIObj<20CElectricDescription>FRCQ24rstl32auto_ptr<20CElectricDescription>":

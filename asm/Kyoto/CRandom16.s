@@ -29,7 +29,7 @@ Float__9CRandom16Fv:
 /* 80312510 0030F470  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80312514 0030F474  7C 08 03 A6 */	mtlr r0
 /* 80312518 0030F478  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031251C 0030F47C  4E 80 00 20 */	blr 
+/* 8031251C 0030F47C  4E 80 00 20 */	blr
 
 .global Next__9CRandom16Fv
 Next__9CRandom16Fv:
@@ -41,7 +41,7 @@ Next__9CRandom16Fv:
 /* 80312534 0030F494  90 03 00 00 */	stw r0, 0(r3)
 /* 80312538 0030F498  80 03 00 00 */	lwz r0, 0(r3)
 /* 8031253C 0030F49C  54 03 84 3E */	srwi r3, r0, 0x10
-/* 80312540 0030F4A0  4E 80 00 20 */	blr 
+/* 80312540 0030F4A0  4E 80 00 20 */	blr
 
 .global Range__9CRandom16Fff
 Range__9CRandom16Fff:
@@ -64,7 +64,7 @@ Range__9CRandom16Fff:
 /* 80312584 0030F4E4  CB C1 00 10 */	lfd f30, 0x10(r1)
 /* 80312588 0030F4E8  7C 08 03 A6 */	mtlr r0
 /* 8031258C 0030F4EC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80312590 0030F4F0  4E 80 00 20 */	blr 
+/* 80312590 0030F4F0  4E 80 00 20 */	blr
 
 .global Range__9CRandom16Fii
 Range__9CRandom16Fii:
@@ -87,27 +87,27 @@ Range__9CRandom16Fii:
 /* 803125D4 0030F534  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803125D8 0030F538  7C 08 03 A6 */	mtlr r0
 /* 803125DC 0030F53C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803125E0 0030F540  4E 80 00 20 */	blr 
+/* 803125E0 0030F540  4E 80 00 20 */	blr
 
 .global SetSeed__9CRandom16FUi
 SetSeed__9CRandom16FUi:
 /* 803125E4 0030F544  90 83 00 00 */	stw r4, 0(r3)
-/* 803125E8 0030F548  4E 80 00 20 */	blr 
+/* 803125E8 0030F548  4E 80 00 20 */	blr
 
 .global __ct__9CRandom16FUi
 __ct__9CRandom16FUi:
 /* 803125EC 0030F54C  90 83 00 00 */	stw r4, 0(r3)
-/* 803125F0 0030F550  4E 80 00 20 */	blr 
+/* 803125F0 0030F550  4E 80 00 20 */	blr
 
 .global _SetRandomNumber__9CRandom16FP9CRandom16
 _SetRandomNumber__9CRandom16FP9CRandom16:
 /* 803125F4 0030F554  90 6D A8 90 */	stw r3, lbl_805A9450@sda21(r13)
-/* 803125F8 0030F558  4E 80 00 20 */	blr 
+/* 803125F8 0030F558  4E 80 00 20 */	blr
 
 .global GetRandomNumber__9CRandom16Fv
 GetRandomNumber__9CRandom16Fv:
 /* 803125FC 0030F55C  80 6D A8 90 */	lwz r3, lbl_805A9450@sda21(r13)
-/* 80312600 0030F560  4E 80 00 20 */	blr 
+/* 80312600 0030F560  4E 80 00 20 */	blr
 
 .global __dt__13CGlobalRandomFv
 __dt__13CGlobalRandomFv:
@@ -144,7 +144,7 @@ lbl_80312664:
 /* 80312670 0030F5D0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80312674 0030F5D4  7C 08 03 A6 */	mtlr r0
 /* 80312678 0030F5D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031267C 0030F5DC  4E 80 00 20 */	blr 
+/* 8031267C 0030F5DC  4E 80 00 20 */	blr
 
 .global __ct__13CGlobalRandomFR9CRandom16
 __ct__13CGlobalRandomFR9CRandom16:

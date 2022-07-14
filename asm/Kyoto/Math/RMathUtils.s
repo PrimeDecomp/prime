@@ -7,7 +7,7 @@ FloorPowerOfTwo__5CMathFi:
 /* 80314C58 00311BB8  2C 03 00 00 */	cmpwi r3, 0
 /* 80314C5C 00311BBC  40 82 00 0C */	bne lbl_80314C68
 /* 80314C60 00311BC0  38 60 00 00 */	li r3, 0
-/* 80314C64 00311BC4  4E 80 00 20 */	blr 
+/* 80314C64 00311BC4  4E 80 00 20 */	blr
 lbl_80314C68:
 /* 80314C68 00311BC8  3C A0 00 01 */	lis r5, 0x0000FFFF@ha
 /* 80314C6C 00311BCC  38 80 00 01 */	li r4, 1
@@ -35,7 +35,7 @@ lbl_80314C68:
 /* 80314CC4 00311C24  7C 00 1A 14 */	add r0, r0, r3
 /* 80314CC8 00311C28  7C 05 02 14 */	add r0, r5, r0
 /* 80314CCC 00311C2C  7C 83 00 30 */	slw r3, r4, r0
-/* 80314CD0 00311C30  4E 80 00 20 */	blr 
+/* 80314CD0 00311C30  4E 80 00 20 */	blr
 
 .global FastArcCosR__5CMathFf
 FastArcCosR__5CMathFf:
@@ -68,7 +68,7 @@ lbl_80314D34:
 /* 80314D34 00311C94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314D38 00311C98  7C 08 03 A6 */	mtlr r0
 /* 80314D3C 00311C9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80314D40 00311CA0  4E 80 00 20 */	blr 
+/* 80314D40 00311CA0  4E 80 00 20 */	blr
 
 .global FastCosR__5CMathFf
 FastCosR__5CMathFf:
@@ -116,7 +116,7 @@ lbl_80314DB4:
 /* 80314DE0 00311D40  EC A5 01 32 */	fmuls f5, f5, f4
 /* 80314DE4 00311D44  EC 25 08 3A */	fmadds f1, f5, f0, f1
 /* 80314DE8 00311D48  38 21 00 20 */	addi r1, r1, 0x20
-/* 80314DEC 00311D4C  4E 80 00 20 */	blr 
+/* 80314DEC 00311D4C  4E 80 00 20 */	blr
 
 .global FastSinR__5CMathFf
 FastSinR__5CMathFf:
@@ -164,7 +164,7 @@ lbl_80314E60:
 /* 80314E8C 00311DEC  EC A1 28 3A */	fmadds f5, f1, f0, f5
 /* 80314E90 00311DF0  FC 20 28 90 */	fmr f1, f5
 /* 80314E94 00311DF4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80314E98 00311DF8  4E 80 00 20 */	blr 
+/* 80314E98 00311DF8  4E 80 00 20 */	blr
 
 .global BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f
 BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -198,7 +198,7 @@ BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 80314F08 00311E68  EC 03 08 2A */	fadds f0, f3, f1
 /* 80314F0C 00311E6C  D0 43 00 04 */	stfs f2, 4(r3)
 /* 80314F10 00311E70  D0 03 00 08 */	stfs f0, 8(r3)
-/* 80314F14 00311E74  4E 80 00 20 */	blr 
+/* 80314F14 00311E74  4E 80 00 20 */	blr
 
 .global GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff
 GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff:
@@ -265,7 +265,7 @@ GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff:
 /* 80315008 00311F68  E3 C1 00 18 */	psq_l f30, 24(r1), 0, qr0
 /* 8031500C 00311F6C  CB C1 00 10 */	lfd f30, 0x10(r1)
 /* 80315010 00311F70  38 21 00 30 */	addi r1, r1, 0x30
-/* 80315014 00311F74  4E 80 00 20 */	blr 
+/* 80315014 00311F74  4E 80 00 20 */	blr
 
 .global GetCatmullRomSplinePoint__5CMathFfffff
 GetCatmullRomSplinePoint__5CMathFfffff:
@@ -274,14 +274,14 @@ GetCatmullRomSplinePoint__5CMathFfffff:
 /* 80315020 00311F80  4C 40 13 82 */	cror 2, 0, 2
 /* 80315024 00311F84  40 82 00 0C */	bne lbl_80315030
 /* 80315028 00311F88  FC 20 10 90 */	fmr f1, f2
-/* 8031502C 00311F8C  4E 80 00 20 */	blr 
+/* 8031502C 00311F8C  4E 80 00 20 */	blr
 lbl_80315030:
 /* 80315030 00311F90  C1 82 C9 90 */	lfs f12, lbl_805AE6B0@sda21(r2)
 /* 80315034 00311F94  FC 05 60 40 */	fcmpo cr0, f5, f12
 /* 80315038 00311F98  4C 41 13 82 */	cror 2, 1, 2
 /* 8031503C 00311F9C  40 82 00 0C */	bne lbl_80315048
 /* 80315040 00311FA0  FC 20 18 90 */	fmr f1, f3
-/* 80315044 00311FA4  4E 80 00 20 */	blr 
+/* 80315044 00311FA4  4E 80 00 20 */	blr
 lbl_80315048:
 /* 80315048 00311FA8  C0 C2 C9 A8 */	lfs f6, lbl_805AE6C8@sda21(r2)
 /* 8031504C 00311FAC  EC E5 01 72 */	fmuls f7, f5, f5
@@ -313,7 +313,7 @@ lbl_80315048:
 /* 803150B4 00312014  EC 01 01 BA */	fmadds f0, f1, f6, f0
 /* 803150B8 00312018  EC 03 00 BA */	fmadds f0, f3, f2, f0
 /* 803150BC 0031201C  EC 24 01 7A */	fmadds f1, f4, f5, f0
-/* 803150C0 00312020  4E 80 00 20 */	blr 
+/* 803150C0 00312020  4E 80 00 20 */	blr
 
 .global GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff
 GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff:
@@ -418,7 +418,7 @@ lbl_80315230:
 /* 80315240 003121A0  E3 A1 00 18 */	psq_l f29, 24(r1), 0, qr0
 /* 80315244 003121A4  CB A1 00 10 */	lfd f29, 0x10(r1)
 /* 80315248 003121A8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8031524C 003121AC  4E 80 00 20 */	blr 
+/* 8031524C 003121AC  4E 80 00 20 */	blr
 
 .global CeilingF__5CMathFf
 CeilingF__5CMathFf:
@@ -442,7 +442,7 @@ lbl_80315284:
 /* 8031528C 003121EC  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 80315290 003121F0  7C 08 03 A6 */	mtlr r0
 /* 80315294 003121F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80315298 003121F8  4E 80 00 20 */	blr 
+/* 80315298 003121F8  4E 80 00 20 */	blr
 
 .global FloorF__5CMathFf
 FloorF__5CMathFf:
@@ -454,7 +454,7 @@ FloorF__5CMathFf:
 /* 803152B0 00312210  FC 20 08 18 */	frsp f1, f1
 /* 803152B4 00312214  7C 08 03 A6 */	mtlr r0
 /* 803152B8 00312218  38 21 00 10 */	addi r1, r1, 0x10
-/* 803152BC 0031221C  4E 80 00 20 */	blr 
+/* 803152BC 0031221C  4E 80 00 20 */	blr
 
 .global SlowTangentR__5CMathFf
 SlowTangentR__5CMathFf:
@@ -466,7 +466,7 @@ SlowTangentR__5CMathFf:
 /* 803152D4 00312234  FC 20 08 18 */	frsp f1, f1
 /* 803152D8 00312238  7C 08 03 A6 */	mtlr r0
 /* 803152DC 0031223C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803152E0 00312240  4E 80 00 20 */	blr 
+/* 803152E0 00312240  4E 80 00 20 */	blr
 
 .global SlowCosineR__5CMathFf
 SlowCosineR__5CMathFf:
@@ -478,7 +478,7 @@ SlowCosineR__5CMathFf:
 /* 803152F8 00312258  FC 20 08 18 */	frsp f1, f1
 /* 803152FC 0031225C  7C 08 03 A6 */	mtlr r0
 /* 80315300 00312260  38 21 00 10 */	addi r1, r1, 0x10
-/* 80315304 00312264  4E 80 00 20 */	blr 
+/* 80315304 00312264  4E 80 00 20 */	blr
 
 .global SlowSineR__5CMathFf
 SlowSineR__5CMathFf:
@@ -490,7 +490,7 @@ SlowSineR__5CMathFf:
 /* 8031531C 0031227C  FC 20 08 18 */	frsp f1, f1
 /* 80315320 00312280  7C 08 03 A6 */	mtlr r0
 /* 80315324 00312284  38 21 00 10 */	addi r1, r1, 0x10
-/* 80315328 00312288  4E 80 00 20 */	blr 
+/* 80315328 00312288  4E 80 00 20 */	blr
 
 .global PowF__5CMathFff
 PowF__5CMathFff:
@@ -509,7 +509,7 @@ PowF__5CMathFff:
 /* 8031535C 003122BC  CB E1 00 10 */	lfd f31, 0x10(r1)
 /* 80315360 003122C0  7C 08 03 A6 */	mtlr r0
 /* 80315364 003122C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80315368 003122C8  4E 80 00 20 */	blr 
+/* 80315368 003122C8  4E 80 00 20 */	blr
 
 .global ArcTangentR__5CMathFf
 ArcTangentR__5CMathFf:
@@ -521,7 +521,7 @@ ArcTangentR__5CMathFf:
 /* 80315380 003122E0  FC 20 08 18 */	frsp f1, f1
 /* 80315384 003122E4  7C 08 03 A6 */	mtlr r0
 /* 80315388 003122E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8031538C 003122EC  4E 80 00 20 */	blr 
+/* 8031538C 003122EC  4E 80 00 20 */	blr
 
 .global ArcCosineR__5CMathFf
 ArcCosineR__5CMathFf:
@@ -533,7 +533,7 @@ ArcCosineR__5CMathFf:
 /* 803153A4 00312304  FC 20 08 18 */	frsp f1, f1
 /* 803153A8 00312308  7C 08 03 A6 */	mtlr r0
 /* 803153AC 0031230C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803153B0 00312310  4E 80 00 20 */	blr 
+/* 803153B0 00312310  4E 80 00 20 */	blr
 
 .global ArcSineR__5CMathFf
 ArcSineR__5CMathFf:
@@ -545,7 +545,7 @@ ArcSineR__5CMathFf:
 /* 803153C8 00312328  FC 20 08 18 */	frsp f1, f1
 /* 803153CC 0031232C  7C 08 03 A6 */	mtlr r0
 /* 803153D0 00312330  38 21 00 10 */	addi r1, r1, 0x10
-/* 803153D4 00312334  4E 80 00 20 */	blr 
+/* 803153D4 00312334  4E 80 00 20 */	blr
 
 .global InvSqrtF__5CMathFf
 InvSqrtF__5CMathFf:
@@ -590,7 +590,7 @@ lbl_80315460:
 /* 80315460 003123C0  C8 02 C9 C8 */	lfd f0, lbl_805AE6E8@sda21(r2)
 /* 80315464 003123C4  FC 20 10 24 */	fdiv f1, f0, f2
 /* 80315468 003123C8  FC 20 08 18 */	frsp f1, f1
-/* 8031546C 003123CC  4E 80 00 20 */	blr 
+/* 8031546C 003123CC  4E 80 00 20 */	blr
 
 .global SqrtD__5CMathFd
 SqrtD__5CMathFd:
@@ -633,7 +633,7 @@ lbl_803154F0:
 /* 803154F4 00312454  C0 03 8B A4 */	lfs f0, lbl_805A8BA4@l(r3)
 lbl_803154F8:
 /* 803154F8 00312458  FC 20 00 90 */	fmr f1, f0
-/* 803154FC 0031245C  4E 80 00 20 */	blr 
+/* 803154FC 0031245C  4E 80 00 20 */	blr
 
 .global SqrtF__5CMathFf
 SqrtF__5CMathFf:

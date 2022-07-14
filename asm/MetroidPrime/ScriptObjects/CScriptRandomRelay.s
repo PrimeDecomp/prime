@@ -40,11 +40,11 @@ Accept__18CScriptRandomRelayFR8IVisitor:
 /* 800E279C 000DF6FC  7C 04 03 78 */	mr r4, r0
 /* 800E27A0 000DF700  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800E27A4 000DF704  7D 89 03 A6 */	mtctr r12
-/* 800E27A8 000DF708  4E 80 04 21 */	bctrl 
+/* 800E27A8 000DF708  4E 80 04 21 */	bctrl
 /* 800E27AC 000DF70C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800E27B0 000DF710  7C 08 03 A6 */	mtlr r0
 /* 800E27B4 000DF714  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E27B8 000DF718  4E 80 00 20 */	blr 
+/* 800E27B8 000DF718  4E 80 00 20 */	blr
 
 .global SendLocalScriptMsgs__18CScriptRandomRelayF18EScriptObjectStateR13CStateManager
 SendLocalScriptMsgs__18CScriptRandomRelayF18EScriptObjectStateR13CStateManager:
@@ -316,7 +316,7 @@ lbl_800E2B60:
 /* 800E2B74 000DFAD4  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 800E2B78 000DFAD8  7C 08 03 A6 */	mtlr r0
 /* 800E2B7C 000DFADC  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 800E2B80 000DFAE0  4E 80 00 20 */	blr 
+/* 800E2B80 000DFAE0  4E 80 00 20 */	blr
 
 .global sub_800e2b84
 sub_800e2b84:
@@ -338,7 +338,7 @@ sub_800e2b84:
 /* 800E2BC0 000DFB20  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800E2BC4 000DFB24  7C 08 03 A6 */	mtlr r0
 /* 800E2BC8 000DFB28  38 21 00 20 */	addi r1, r1, 0x20
-/* 800E2BCC 000DFB2C  4E 80 00 20 */	blr 
+/* 800E2BCC 000DFB2C  4E 80 00 20 */	blr
 
 .global sub_800e2bd0
 sub_800e2bd0:
@@ -385,7 +385,7 @@ lbl_800E2C40:
 /* 800E2C5C 000DFBBC  80 05 00 00 */	lwz r0, 0(r5)
 /* 800E2C60 000DFBC0  90 03 00 00 */	stw r0, 0(r3)
 /* 800E2C64 000DFBC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E2C68 000DFBC8  4E 80 00 20 */	blr 
+/* 800E2C68 000DFBC8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CScriptRandomRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CScriptRandomRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -420,7 +420,7 @@ lbl_800E2CC8:
 /* 800E2CD4 000DFC34  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800E2CD8 000DFC38  7C 08 03 A6 */	mtlr r0
 /* 800E2CDC 000DFC3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800E2CE0 000DFC40  4E 80 00 20 */	blr 
+/* 800E2CE0 000DFC40  4E 80 00 20 */	blr
 
 .global __dt__18CScriptRandomRelayFv
 __dt__18CScriptRandomRelayFv:
@@ -448,7 +448,7 @@ lbl_800E2D28:
 /* 800E2D34 000DFC94  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E2D38 000DFC98  7C 08 03 A6 */	mtlr r0
 /* 800E2D3C 000DFC9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E2D40 000DFCA0  4E 80 00 20 */	blr 
+/* 800E2D40 000DFCA0  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptRandomRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoiibb"
 "__ct__18CScriptRandomRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoiibb":
@@ -493,7 +493,7 @@ lbl_800E2DC4:
 /* 800E2DD8 000DFD38  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800E2DDC 000DFD3C  7C 08 03 A6 */	mtlr r0
 /* 800E2DE0 000DFD40  38 21 00 20 */	addi r1, r1, 0x20
-/* 800E2DE4 000DFD44  4E 80 00 20 */	blr 
+/* 800E2DE4 000DFD44  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl82vector<Q24rstl38pair<P7CEntity,20EScriptObjectMessage>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl82vector<Q24rstl38pair<P7CEntity,20EScriptObjectMessage>,Q24rstl17rmemory_allocator>Fi":
@@ -566,4 +566,4 @@ lbl_800E2EC0:
 /* 800E2ECC 000DFE2C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800E2ED0 000DFE30  7C 08 03 A6 */	mtlr r0
 /* 800E2ED4 000DFE34  38 21 00 30 */	addi r1, r1, 0x30
-/* 800E2ED8 000DFE38  4E 80 00 20 */	blr 
+/* 800E2ED8 000DFE38  4E 80 00 20 */	blr

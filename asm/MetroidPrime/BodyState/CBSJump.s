@@ -48,17 +48,17 @@ lbl_80145654:
 /* 8014565C 001425BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80145660 001425C0  7C 08 03 A6 */	mtlr r0
 /* 80145664 001425C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80145668 001425C8  4E 80 00 20 */	blr 
+/* 80145668 001425C8  4E 80 00 20 */	blr
 
 .global IsMoving__7CBSJumpCFv
 IsMoving__7CBSJumpCFv:
 /* 8014566C 001425CC  38 60 00 01 */	li r3, 1
-/* 80145670 001425D0  4E 80 00 20 */	blr 
+/* 80145670 001425D0  4E 80 00 20 */	blr
 
 .global ApplyHeadTracking__7CBSJumpCFv
 ApplyHeadTracking__7CBSJumpCFv:
 /* 80145674 001425D4  38 60 00 00 */	li r3, 0
-/* 80145678 001425D8  4E 80 00 20 */	blr 
+/* 80145678 001425D8  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__7CBSJumpFfR15CBodyController
 GetBodyStateTransition__7CBSJumpFfR15CBodyController:
@@ -105,7 +105,7 @@ lbl_80145704:
 /* 8014570C 0014266C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80145710 00142670  7C 08 03 A6 */	mtlr r0
 /* 80145714 00142674  38 21 00 10 */	addi r1, r1, 0x10
-/* 80145718 00142678  4E 80 00 20 */	blr 
+/* 80145718 00142678  4E 80 00 20 */	blr
 
 .global CheckForWallJump__7CBSJumpFR15CBodyControllerR13CStateManager
 CheckForWallJump__7CBSJumpFR15CBodyControllerR13CStateManager:
@@ -250,7 +250,7 @@ lbl_80145918:
 /* 80145928 00142888  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8014592C 0014288C  7C 08 03 A6 */	mtlr r0
 /* 80145930 00142890  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80145934 00142894  4E 80 00 20 */	blr 
+/* 80145934 00142894  4E 80 00 20 */	blr
 
 .global CheckForLand__7CBSJumpFR15CBodyControllerR13CStateManager
 CheckForLand__7CBSJumpFR15CBodyControllerR13CStateManager:
@@ -277,7 +277,7 @@ CheckForLand__7CBSJumpFR15CBodyControllerR13CStateManager:
 /* 80145988 001428E8  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8014598C 001428EC  81 8C 02 B8 */	lwz r12, 0x2b8(r12)
 /* 80145990 001428F0  7D 89 03 A6 */	mtctr r12
-/* 80145994 001428F4  4E 80 04 21 */	bctrl 
+/* 80145994 001428F4  4E 80 04 21 */	bctrl
 /* 80145998 001428F8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8014599C 001428FC  41 82 01 10 */	beq lbl_80145AAC
 lbl_801459A0:
@@ -360,11 +360,11 @@ lbl_80145AAC:
 /* 80145ABC 00142A1C  83 81 00 B0 */	lwz r28, 0xb0(r1)
 /* 80145AC0 00142A20  7C 08 03 A6 */	mtlr r0
 /* 80145AC4 00142A24  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80145AC8 00142A28  4E 80 00 20 */	blr 
+/* 80145AC8 00142A28  4E 80 00 20 */	blr
 
 .global Shutdown__7CBSJumpFR15CBodyController
 Shutdown__7CBSJumpFR15CBodyController:
-/* 80145ACC 00142A2C  4E 80 00 20 */	blr 
+/* 80145ACC 00142A2C  4E 80 00 20 */	blr
 
 .global UpdateBody__7CBSJumpFfR15CBodyControllerR13CStateManager
 UpdateBody__7CBSJumpFfR15CBodyControllerR13CStateManager:
@@ -676,7 +676,7 @@ lbl_80145E40:
 /* 80145F40 00142EA0  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 80145F44 00142EA4  EF E1 00 28 */	fsubs f31, f1, f0
 /* 80145F48 00142EA8  7D 89 03 A6 */	mtctr r12
-/* 80145F4C 00142EAC  4E 80 04 21 */	bctrl 
+/* 80145F4C 00142EAC  4E 80 04 21 */	bctrl
 /* 80145F50 00142EB0  C0 5C 00 2C */	lfs f2, 0x2c(r28)
 /* 80145F54 00142EB4  C0 1B 00 60 */	lfs f0, 0x60(r27)
 /* 80145F58 00142EB8  C0 62 9C 70 */	lfs f3, lbl_805AB990@sda21(r2)
@@ -739,7 +739,7 @@ lbl_80146008:
 /* 80146020 00142F80  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 80146024 00142F84  7C 08 03 A6 */	mtlr r0
 /* 80146028 00142F88  38 21 01 90 */	addi r1, r1, 0x190
-/* 8014602C 00142F8C  4E 80 00 20 */	blr 
+/* 8014602C 00142F8C  4E 80 00 20 */	blr
 
 .global PlayJumpLoop__7CBSJumpFR13CStateManagerR15CBodyController
 PlayJumpLoop__7CBSJumpFR13CStateManagerR15CBodyController:
@@ -948,7 +948,7 @@ lbl_8014631C:
 /* 80146328 00143288  83 A1 01 64 */	lwz r29, 0x164(r1)
 /* 8014632C 0014328C  7C 08 03 A6 */	mtlr r0
 /* 80146330 00143290  38 21 01 70 */	addi r1, r1, 0x170
-/* 80146334 00143294  4E 80 00 20 */	blr 
+/* 80146334 00143294  4E 80 00 20 */	blr
 
 .global Start__7CBSJumpFR15CBodyControllerR13CStateManager
 Start__7CBSJumpFR15CBodyControllerR13CStateManager:
@@ -1112,7 +1112,7 @@ lbl_80146584:
 /* 80146590 001434F0  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 80146594 001434F4  7C 08 03 A6 */	mtlr r0
 /* 80146598 001434F8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8014659C 001434FC  4E 80 00 20 */	blr 
+/* 8014659C 001434FC  4E 80 00 20 */	blr
 
 .global CanShoot__7CBSJumpCFv
 CanShoot__7CBSJumpCFv:
@@ -1121,21 +1121,21 @@ CanShoot__7CBSJumpCFv:
 /* 801465A8 00143508  2C 00 00 01 */	cmpwi r0, 1
 /* 801465AC 0014350C  41 82 00 0C */	beq lbl_801465B8
 /* 801465B0 00143510  2C 00 00 02 */	cmpwi r0, 2
-/* 801465B4 00143514  4C 82 00 20 */	bnelr 
+/* 801465B4 00143514  4C 82 00 20 */	bnelr
 lbl_801465B8:
 /* 801465B8 00143518  38 60 00 01 */	li r3, 1
-/* 801465BC 0014351C  4E 80 00 20 */	blr 
+/* 801465BC 0014351C  4E 80 00 20 */	blr
 
 .global ApplyAnimationDeltas__7CBSJumpCFv
 ApplyAnimationDeltas__7CBSJumpCFv:
 /* 801465C0 00143520  80 03 00 04 */	lwz r0, 4(r3)
 /* 801465C4 00143524  38 60 00 00 */	li r3, 0
 /* 801465C8 00143528  2C 00 00 01 */	cmpwi r0, 1
-/* 801465CC 0014352C  4D 82 00 20 */	beqlr 
+/* 801465CC 0014352C  4D 82 00 20 */	beqlr
 /* 801465D0 00143530  2C 00 00 02 */	cmpwi r0, 2
-/* 801465D4 00143534  4D 82 00 20 */	beqlr 
+/* 801465D4 00143534  4D 82 00 20 */	beqlr
 /* 801465D8 00143538  38 60 00 01 */	li r3, 1
-/* 801465DC 0014353C  4E 80 00 20 */	blr 
+/* 801465DC 0014353C  4E 80 00 20 */	blr
 
 .global IsInAir__7CBSJumpCFRC15CBodyController
 IsInAir__7CBSJumpCFRC15CBodyController:
@@ -1144,10 +1144,10 @@ IsInAir__7CBSJumpCFRC15CBodyController:
 /* 801465E8 00143548  2C 00 00 01 */	cmpwi r0, 1
 /* 801465EC 0014354C  41 82 00 0C */	beq lbl_801465F8
 /* 801465F0 00143550  2C 00 00 02 */	cmpwi r0, 2
-/* 801465F4 00143554  4C 82 00 20 */	bnelr 
+/* 801465F4 00143554  4C 82 00 20 */	bnelr
 lbl_801465F8:
 /* 801465F8 00143558  38 60 00 01 */	li r3, 1
-/* 801465FC 0014355C  4E 80 00 20 */	blr 
+/* 801465FC 0014355C  4E 80 00 20 */	blr
 
 .global __ct__7CBSJumpFv
 __ct__7CBSJumpFv:

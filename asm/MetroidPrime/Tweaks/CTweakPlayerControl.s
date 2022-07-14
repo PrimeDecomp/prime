@@ -9,7 +9,7 @@ lbl_803DA350:
 	.4byte 0
 	.4byte __dt__19CTweakPlayerControlFv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global GetMapping__19CTweakPlayerControlCFQ213ControlMapper9ECommands
@@ -20,12 +20,12 @@ GetMapping__19CTweakPlayerControlCFQ213ControlMapper9ECommands:
 /* 8006F960 0006C8C0  40 81 00 0C */	ble lbl_8006F96C
 lbl_8006F964:
 /* 8006F964 0006C8C4  80 63 00 08 */	lwz r3, 8(r3)
-/* 8006F968 0006C8C8  4E 80 00 20 */	blr 
+/* 8006F968 0006C8C8  4E 80 00 20 */	blr
 lbl_8006F96C:
 /* 8006F96C 0006C8CC  54 80 10 3A */	slwi r0, r4, 2
 /* 8006F970 0006C8D0  7C 63 02 14 */	add r3, r3, r0
 /* 8006F974 0006C8D4  80 63 00 08 */	lwz r3, 8(r3)
-/* 8006F978 0006C8D8  4E 80 00 20 */	blr 
+/* 8006F978 0006C8D8  4E 80 00 20 */	blr
 
 .global __ct__19CTweakPlayerControlFR12CInputStream
 __ct__19CTweakPlayerControlFR12CInputStream:
@@ -90,7 +90,7 @@ lbl_8006FA38:
 /* 8006FA48 0006C9A8  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8006FA4C 0006C9AC  7C 08 03 A6 */	mtlr r0
 /* 8006FA50 0006C9B0  38 21 01 20 */	addi r1, r1, 0x120
-/* 8006FA54 0006C9B4  4E 80 00 20 */	blr 
+/* 8006FA54 0006C9B4  4E 80 00 20 */	blr
 
 .global LoadMappings__FR12CInputStream
 LoadMappings__FR12CInputStream:
@@ -170,7 +170,7 @@ lbl_8006FB40:
 /* 8006FB58 0006CAB8  83 81 01 20 */	lwz r28, 0x120(r1)
 /* 8006FB5C 0006CABC  7C 08 03 A6 */	mtlr r0
 /* 8006FB60 0006CAC0  38 21 01 30 */	addi r1, r1, 0x130
-/* 8006FB64 0006CAC4  4E 80 00 20 */	blr 
+/* 8006FB64 0006CAC4  4E 80 00 20 */	blr
 
 .global __dt__19CTweakPlayerControlFv
 __dt__19CTweakPlayerControlFv:
@@ -227,4 +227,4 @@ lbl_8006FC0C:
 /* 8006FC14 0006CB74  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8006FC18 0006CB78  7C 08 03 A6 */	mtlr r0
 /* 8006FC1C 0006CB7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8006FC20 0006CB80  4E 80 00 20 */	blr 
+/* 8006FC20 0006CB80  4E 80 00 20 */	blr

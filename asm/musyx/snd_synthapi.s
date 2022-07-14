@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global sndFXCtrl
 sndFXCtrl:
@@ -27,7 +27,7 @@ sndFXCtrl:
 /* 8039C1E0 00399140  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8039C1E4 00399144  7C 08 03 A6 */	mtlr r0
 /* 8039C1E8 00399148  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C1EC 0039914C  4E 80 00 20 */	blr 
+/* 8039C1EC 0039914C  4E 80 00 20 */	blr
 
 .global sndFXCtrl14
 sndFXCtrl14:
@@ -54,7 +54,7 @@ sndFXCtrl14:
 /* 8039C240 003991A0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8039C244 003991A4  7C 08 03 A6 */	mtlr r0
 /* 8039C248 003991A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C24C 003991AC  4E 80 00 20 */	blr 
+/* 8039C24C 003991AC  4E 80 00 20 */	blr
 
 .global sndFXKeyOff
 sndFXKeyOff:
@@ -73,7 +73,7 @@ sndFXKeyOff:
 /* 8039C280 003991E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8039C284 003991E4  7C 08 03 A6 */	mtlr r0
 /* 8039C288 003991E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C28C 003991EC  4E 80 00 20 */	blr 
+/* 8039C28C 003991EC  4E 80 00 20 */	blr
 
 .global sndFXStartEx
 sndFXStartEx:
@@ -109,7 +109,7 @@ sndFXStartEx:
 /* 8039C304 00399264  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8039C308 00399268  7C 08 03 A6 */	mtlr r0
 /* 8039C30C 0039926C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C310 00399270  4E 80 00 20 */	blr 
+/* 8039C310 00399270  4E 80 00 20 */	blr
 
 .global sndFXCheck
 sndFXCheck:
@@ -129,7 +129,7 @@ lbl_8039C340:
 /* 8039C344 003992A4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8039C348 003992A8  7C 08 03 A6 */	mtlr r0
 /* 8039C34C 003992AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C350 003992B0  4E 80 00 20 */	blr 
+/* 8039C350 003992B0  4E 80 00 20 */	blr
 
 .global sndVolume
 sndVolume:
@@ -156,7 +156,7 @@ sndVolume:
 /* 8039C3A4 00399304  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8039C3A8 00399308  7C 08 03 A6 */	mtlr r0
 /* 8039C3AC 0039930C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C3B0 00399310  4E 80 00 20 */	blr 
+/* 8039C3B0 00399310  4E 80 00 20 */	blr
 
 .global sndMasterVolume
 sndMasterVolume:
@@ -198,7 +198,7 @@ lbl_8039C424:
 /* 8039C438 00399398  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8039C43C 0039939C  7C 08 03 A6 */	mtlr r0
 /* 8039C440 003993A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C444 003993A4  4E 80 00 20 */	blr 
+/* 8039C444 003993A4  4E 80 00 20 */	blr
 
 .global sndOutputMode
 sndOutputMode:
@@ -268,7 +268,7 @@ lbl_8039C520:
 /* 8039C524 00399484  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8039C528 00399488  7C 08 03 A6 */	mtlr r0
 /* 8039C52C 0039948C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C530 00399490  4E 80 00 20 */	blr 
+/* 8039C530 00399490  4E 80 00 20 */	blr
 
 .global sndSetAuxProcessingCallbacks
 sndSetAuxProcessingCallbacks:
@@ -361,7 +361,7 @@ lbl_8039C658:
 /* 8039C67C 003995DC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8039C680 003995E0  7C 08 03 A6 */	mtlr r0
 /* 8039C684 003995E4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8039C688 003995E8  4E 80 00 20 */	blr 
+/* 8039C688 003995E8  4E 80 00 20 */	blr
 
 .global synthActivateStudio
 synthActivateStudio:
@@ -406,7 +406,7 @@ synthActivateStudio:
 /* 8039C724 00399684  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8039C728 00399688  7C 08 03 A6 */	mtlr r0
 /* 8039C72C 0039968C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C730 00399690  4E 80 00 20 */	blr 
+/* 8039C730 00399690  4E 80 00 20 */	blr
 
 .global synthDeactivateStudio
 synthDeactivateStudio:
@@ -473,7 +473,7 @@ lbl_8039C7B8:
 /* 8039C814 00399774  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8039C818 00399778  7C 08 03 A6 */	mtlr r0
 /* 8039C81C 0039977C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C820 00399780  4E 80 00 20 */	blr 
+/* 8039C820 00399780  4E 80 00 20 */	blr
 
 .global synthAddStudioInput
 synthAddStudioInput:
@@ -484,7 +484,7 @@ synthAddStudioInput:
 /* 8039C834 00399794  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8039C838 00399798  7C 08 03 A6 */	mtlr r0
 /* 8039C83C 0039979C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C840 003997A0  4E 80 00 20 */	blr 
+/* 8039C840 003997A0  4E 80 00 20 */	blr
 
 .global synthRemoveStudioInput
 synthRemoveStudioInput:
@@ -495,4 +495,4 @@ synthRemoveStudioInput:
 /* 8039C854 003997B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8039C858 003997B8  7C 08 03 A6 */	mtlr r0
 /* 8039C85C 003997BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C860 003997C0  4E 80 00 20 */	blr 
+/* 8039C860 003997C0  4E 80 00 20 */	blr

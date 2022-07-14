@@ -130,13 +130,13 @@ lbl_802CBE1C:
 /* 802CBE28 002C8D88  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802CBE2C 002C8D8C  7C 08 03 A6 */	mtlr r0
 /* 802CBE30 002C8D90  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CBE34 002C8D94  4E 80 00 20 */	blr 
+/* 802CBE34 002C8D94  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__13CAuiImagePaneCFv
 GetWidgetTypeID__13CAuiImagePaneCFv:
 /* 802CBE38 002C8D98  3C 60 49 4D */	lis r3, 0x494D4750@ha
 /* 802CBE3C 002C8D9C  38 63 47 50 */	addi r3, r3, 0x494D4750@l
-/* 802CBE40 002C8DA0  4E 80 00 20 */	blr 
+/* 802CBE40 002C8DA0  4E 80 00 20 */	blr
 
 .global GetIsFinishedLoadingWidgetSpecific__13CAuiImagePaneCFv
 GetIsFinishedLoadingWidgetSpecific__13CAuiImagePaneCFv:
@@ -177,7 +177,7 @@ lbl_802CBEB8:
 /* 802CBEBC 002C8E1C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802CBEC0 002C8E20  7C 08 03 A6 */	mtlr r0
 /* 802CBEC4 002C8E24  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CBEC8 002C8E28  4E 80 00 20 */	blr 
+/* 802CBEC8 002C8E28  4E 80 00 20 */	blr
 
 .global SetTextureID0__13CAuiImagePaneFUib
 SetTextureID0__13CAuiImagePaneFUib:
@@ -204,7 +204,7 @@ SetTextureID0__13CAuiImagePaneFUib:
 /* 802CBF1C 002C8E7C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802CBF20 002C8E80  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802CBF24 002C8E84  7D 89 03 A6 */	mtctr r12
-/* 802CBF28 002C8E88  4E 80 04 21 */	bctrl 
+/* 802CBF28 002C8E88  4E 80 04 21 */	bctrl
 /* 802CBF2C 002C8E8C  38 61 00 28 */	addi r3, r1, 0x28
 /* 802CBF30 002C8E90  38 81 00 08 */	addi r4, r1, 8
 /* 802CBF34 002C8E94  48 07 4F 75 */	bl __ct__6CTokenFRC6CToken
@@ -301,7 +301,7 @@ lbl_802CC06C:
 /* 802CC074 002C8FD4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802CC078 002C8FD8  7C 08 03 A6 */	mtlr r0
 /* 802CC07C 002C8FDC  38 21 00 40 */	addi r1, r1, 0x40
-/* 802CC080 002C8FE0  4E 80 00 20 */	blr 
+/* 802CC080 002C8FE0  4E 80 00 20 */	blr
 
 .global DoDrawImagePane__13CAuiImagePaneCF6CColorRC8CTextureifb
 DoDrawImagePane__13CAuiImagePaneCF6CColorRC8CTextureifb:
@@ -824,7 +824,7 @@ lbl_802CC7F8:
 /* 802CC824 002C9784  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 802CC828 002C9788  7C 08 03 A6 */	mtlr r0
 /* 802CC82C 002C978C  38 21 01 50 */	addi r1, r1, 0x150
-/* 802CC830 002C9790  4E 80 00 20 */	blr 
+/* 802CC830 002C9790  4E 80 00 20 */	blr
 
 .global Draw__13CAuiImagePaneCFRC19CGuiWidgetDrawParms
 Draw__13CAuiImagePaneCFRC19CGuiWidgetDrawParms:
@@ -848,7 +848,7 @@ Draw__13CAuiImagePaneCFRC19CGuiWidgetDrawParms:
 /* 802CC878 002C97D8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CC87C 002C97DC  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802CC880 002C97E0  7D 89 03 A6 */	mtctr r12
-/* 802CC884 002C97E4  4E 80 04 21 */	bctrl 
+/* 802CC884 002C97E4  4E 80 04 21 */	bctrl
 /* 802CC888 002C97E8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802CC88C 002C97EC  41 82 04 BC */	beq lbl_802CCD48
 /* 802CC890 002C97F0  88 1D 00 C4 */	lbz r0, 0xc4(r29)
@@ -860,7 +860,7 @@ lbl_802CC8A0:
 /* 802CC8A4 002C9804  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802CC8A8 002C9808  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 802CC8AC 002C980C  7D 89 03 A6 */	mtctr r12
-/* 802CC8B0 002C9810  4E 80 04 21 */	bctrl 
+/* 802CC8B0 002C9810  4E 80 04 21 */	bctrl
 /* 802CC8B4 002C9814  83 FD 00 C0 */	lwz r31, 0xc0(r29)
 /* 802CC8B8 002C9818  28 1F 00 00 */	cmplwi r31, 0
 /* 802CC8BC 002C981C  41 82 04 8C */	beq lbl_802CCD48
@@ -1181,7 +1181,7 @@ lbl_802CCD48:
 /* 802CCD6C 002C9CCC  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 802CCD70 002C9CD0  7C 08 03 A6 */	mtlr r0
 /* 802CCD74 002C9CD4  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802CCD78 002C9CD8  4E 80 00 20 */	blr 
+/* 802CCD78 002C9CD8  4E 80 00 20 */	blr
 
 .global Update__13CAuiImagePaneFf
 Update__13CAuiImagePaneFf:
@@ -1260,7 +1260,7 @@ lbl_802CCE80:
 /* 802CCE98 002C9DF8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802CCE9C 002C9DFC  7C 08 03 A6 */	mtlr r0
 /* 802CCEA0 002C9E00  38 21 00 50 */	addi r1, r1, 0x50
-/* 802CCEA4 002C9E04  4E 80 00 20 */	blr 
+/* 802CCEA4 002C9E04  4E 80 00 20 */	blr
 
 .global SetAnimationParms__13CAuiImagePaneFRC9CVector2fff
 SetAnimationParms__13CAuiImagePaneFRC9CVector2fff:
@@ -1272,7 +1272,7 @@ SetAnimationParms__13CAuiImagePaneFRC9CVector2fff:
 /* 802CCEBC 002C9E1C  D0 23 01 40 */	stfs f1, 0x140(r3)
 /* 802CCEC0 002C9E20  D0 03 01 44 */	stfs f0, 0x144(r3)
 /* 802CCEC4 002C9E24  D0 43 01 48 */	stfs f2, 0x148(r3)
-/* 802CCEC8 002C9E28  4E 80 00 20 */	blr 
+/* 802CCEC8 002C9E28  4E 80 00 20 */	blr
 
 .global "__ct__13CAuiImagePaneFRCQ210CGuiWidget15CGuiWidgetParmsUiUiRCQ24rstl29reserved_vector<9CVector3f,4>RCQ24rstl29reserved_vector<9CVector2f,4>b"
 "__ct__13CAuiImagePaneFRCQ210CGuiWidget15CGuiWidgetParmsUiUiRCQ24rstl29reserved_vector<9CVector3f,4>RCQ24rstl29reserved_vector<9CVector2f,4>b":
@@ -1368,7 +1368,7 @@ lbl_802CD00C:
 /* 802CD014 002C9F74  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802CD018 002C9F78  7C 08 03 A6 */	mtlr r0
 /* 802CD01C 002C9F7C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802CD020 002C9F80  4E 80 00 20 */	blr 
+/* 802CD020 002C9F80  4E 80 00 20 */	blr
 
 .global WriteData__13CAuiImagePaneCFR13COutputStreamb
 WriteData__13CAuiImagePaneCFR13COutputStreamb:
@@ -1436,7 +1436,7 @@ lbl_802CD0EC:
 /* 802CD110 002CA070  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802CD114 002CA074  7C 08 03 A6 */	mtlr r0
 /* 802CD118 002CA078  38 21 00 30 */	addi r1, r1, 0x30
-/* 802CD11C 002CA07C  4E 80 00 20 */	blr 
+/* 802CD11C 002CA07C  4E 80 00 20 */	blr
 
 .global "StreamObjects<PC9CVector2f>__4rstlFR13COutputStreamRCPC9CVector2fRCPC9CVector2fi"
 "StreamObjects<PC9CVector2f>__4rstlFR13COutputStreamRCPC9CVector2fRCPC9CVector2fi":
@@ -1493,7 +1493,7 @@ lbl_802CD1CC:
 /* 802CD1E0 002CA140  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802CD1E4 002CA144  7C 08 03 A6 */	mtlr r0
 /* 802CD1E8 002CA148  38 21 00 30 */	addi r1, r1, 0x30
-/* 802CD1EC 002CA14C  4E 80 00 20 */	blr 
+/* 802CD1EC 002CA14C  4E 80 00 20 */	blr
 
 .global Create__13CAuiImagePaneFP9CGuiFrameR12CInputStreamb
 Create__13CAuiImagePaneFP9CGuiFrameR12CInputStreamb:

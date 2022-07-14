@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global cosf
 cosf:
@@ -12,4 +12,4 @@ cosf:
 /* 80394D20 00391C80  FC 20 08 18 */	frsp f1, f1
 /* 80394D24 00391C84  7C 08 03 A6 */	mtlr r0
 /* 80394D28 00391C88  38 21 00 10 */	addi r1, r1, 0x10
-/* 80394D2C 00391C8C  4E 80 00 20 */	blr 
+/* 80394D2C 00391C8C  4E 80 00 20 */	blr

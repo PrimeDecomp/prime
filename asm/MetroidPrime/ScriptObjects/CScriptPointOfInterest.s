@@ -94,7 +94,7 @@ lbl_8015EB78:
 /* 8015EB7C 0015BADC  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8015EB80 0015BAE0  7C 08 03 A6 */	mtlr r0
 /* 8015EB84 0015BAE4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8015EB88 0015BAE8  4E 80 00 20 */	blr 
+/* 8015EB88 0015BAE8  4E 80 00 20 */	blr
 
 .global Think__22CScriptPointOfInterestFfR13CStateManager
 Think__22CScriptPointOfInterestFfR13CStateManager:
@@ -113,7 +113,7 @@ Think__22CScriptPointOfInterestFfR13CStateManager:
 /* 8015EBBC 0015BB1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015EBC0 0015BB20  7C 08 03 A6 */	mtlr r0
 /* 8015EBC4 0015BB24  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015EBC8 0015BB28  4E 80 00 20 */	blr 
+/* 8015EBC8 0015BB28  4E 80 00 20 */	blr
 
 .global Accept__22CScriptPointOfInterestFR8IVisitor
 Accept__22CScriptPointOfInterestFR8IVisitor:
@@ -126,19 +126,19 @@ Accept__22CScriptPointOfInterestFR8IVisitor:
 /* 8015EBE4 0015BB44  7C 04 03 78 */	mr r4, r0
 /* 8015EBE8 0015BB48  81 8C 00 A4 */	lwz r12, 0xa4(r12)
 /* 8015EBEC 0015BB4C  7D 89 03 A6 */	mtctr r12
-/* 8015EBF0 0015BB50  4E 80 04 21 */	bctrl 
+/* 8015EBF0 0015BB50  4E 80 04 21 */	bctrl
 /* 8015EBF4 0015BB54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015EBF8 0015BB58  7C 08 03 A6 */	mtlr r0
 /* 8015EBFC 0015BB5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015EC00 0015BB60  4E 80 00 20 */	blr 
+/* 8015EC00 0015BB60  4E 80 00 20 */	blr
 
 .global AddToRenderer__22CScriptPointOfInterestCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__22CScriptPointOfInterestCFRC14CFrustumPlanesRC13CStateManager:
-/* 8015EC04 0015BB64  4E 80 00 20 */	blr 
+/* 8015EC04 0015BB64  4E 80 00 20 */	blr
 
 .global Render__22CScriptPointOfInterestCFRC13CStateManager
 Render__22CScriptPointOfInterestCFRC13CStateManager:
-/* 8015EC08 0015BB68  4E 80 00 20 */	blr 
+/* 8015EC08 0015BB68  4E 80 00 20 */	blr
 
 .global GetTouchBounds__22CScriptPointOfInterestCFv
 GetTouchBounds__22CScriptPointOfInterestCFv:
@@ -181,7 +181,7 @@ lbl_8015EC94:
 /* 8015EC98 0015BBF8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8015EC9C 0015BBFC  7C 08 03 A6 */	mtlr r0
 /* 8015ECA0 0015BC00  38 21 00 40 */	addi r1, r1, 0x40
-/* 8015ECA4 0015BC04  4E 80 00 20 */	blr 
+/* 8015ECA4 0015BC04  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__22CScriptPointOfInterestF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__22CScriptPointOfInterestF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -195,7 +195,7 @@ AcceptScriptMsg__22CScriptPointOfInterestF20EScriptObjectMessage9TUniqueIdR13CSt
 /* 8015ECC4 0015BC24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015ECC8 0015BC28  7C 08 03 A6 */	mtlr r0
 /* 8015ECCC 0015BC2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015ECD0 0015BC30  4E 80 00 20 */	blr 
+/* 8015ECD0 0015BC30  4E 80 00 20 */	blr
 
 .global __dt__22CScriptPointOfInterestFv
 __dt__22CScriptPointOfInterestFv:
@@ -223,7 +223,7 @@ lbl_8015ED18:
 /* 8015ED24 0015BC84  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8015ED28 0015BC88  7C 08 03 A6 */	mtlr r0
 /* 8015ED2C 0015BC8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015ED30 0015BC90  4E 80 00 20 */	blr 
+/* 8015ED30 0015BC90  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParameters"
 "__ct__22CScriptPointOfInterestF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC20CScannableParameters":

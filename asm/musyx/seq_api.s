@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global sndSeqStop
 sndSeqStop:
@@ -17,7 +17,7 @@ sndSeqStop:
 /* 8039C024 00398F84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8039C028 00398F88  7C 08 03 A6 */	mtlr r0
 /* 8039C02C 00398F8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C030 00398F90  4E 80 00 20 */	blr 
+/* 8039C030 00398F90  4E 80 00 20 */	blr
 
 .global sndSeqSpeed
 sndSeqSpeed:
@@ -38,7 +38,7 @@ sndSeqSpeed:
 /* 8039C06C 00398FCC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8039C070 00398FD0  7C 08 03 A6 */	mtlr r0
 /* 8039C074 00398FD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C078 00398FD8  4E 80 00 20 */	blr 
+/* 8039C078 00398FD8  4E 80 00 20 */	blr
 
 .global sndSeqContinue
 sndSeqContinue:
@@ -55,7 +55,7 @@ sndSeqContinue:
 /* 8039C0A4 00399004  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8039C0A8 00399008  7C 08 03 A6 */	mtlr r0
 /* 8039C0AC 0039900C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8039C0B0 00399010  4E 80 00 20 */	blr 
+/* 8039C0B0 00399010  4E 80 00 20 */	blr
 
 .global sndSeqMute
 sndSeqMute:
@@ -80,7 +80,7 @@ sndSeqMute:
 /* 8039C0FC 0039905C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8039C100 00399060  7C 08 03 A6 */	mtlr r0
 /* 8039C104 00399064  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C108 00399068  4E 80 00 20 */	blr 
+/* 8039C108 00399068  4E 80 00 20 */	blr
 
 .global sndSeqVolume
 sndSeqVolume:
@@ -109,7 +109,7 @@ sndSeqVolume:
 /* 8039C164 003990C4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8039C168 003990C8  7C 08 03 A6 */	mtlr r0
 /* 8039C16C 003990CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8039C170 003990D0  4E 80 00 20 */	blr 
+/* 8039C170 003990D0  4E 80 00 20 */	blr
 
 .global seqGetMIDIPriority
 seqGetMIDIPriority:
@@ -119,4 +119,4 @@ seqGetMIDIPriority:
 /* 8039C180 003990E0  54 80 0D FC */	rlwinm r0, r4, 1, 0x17, 0x1e
 /* 8039C184 003990E4  7C 63 32 14 */	add r3, r3, r6
 /* 8039C188 003990E8  7C 63 02 2E */	lhzx r3, r3, r0
-/* 8039C18C 003990EC  4E 80 00 20 */	blr 
+/* 8039C18C 003990EC  4E 80 00 20 */	blr

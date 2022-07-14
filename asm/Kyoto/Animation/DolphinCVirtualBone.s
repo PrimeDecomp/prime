@@ -60,7 +60,7 @@ lbl_803547A8:
 /* 803547C4 00351724  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803547C8 00351728  7C 08 03 A6 */	mtlr r0
 /* 803547CC 0035172C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803547D0 00351730  4E 80 00 20 */	blr 
+/* 803547D0 00351730  4E 80 00 20 */	blr
 
 .global PSMTXROMultVecArrayGathered
 PSMTXROMultVecArrayGathered:
@@ -136,7 +136,7 @@ lbl_803548D4:
 /* 803548E0 00351840  CA 21 00 20 */	lfd f17, 0x20(r1)
 /* 803548E4 00351844  CA 41 00 28 */	lfd f18, 0x28(r1)
 /* 803548E8 00351848  38 21 00 40 */	addi r1, r1, 0x40
-/* 803548EC 0035184C  4E 80 00 20 */	blr 
+/* 803548EC 0035184C  4E 80 00 20 */	blr
 
 .global sub_803548f0
 sub_803548f0:
@@ -171,7 +171,7 @@ lbl_8035494C:
 /* 80354958 003518B8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8035495C 003518BC  7C 08 03 A6 */	mtlr r0
 /* 80354960 003518C0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80354964 003518C4  4E 80 00 20 */	blr 
+/* 80354964 003518C4  4E 80 00 20 */	blr
 
 .global BuildNormals__12CVirtualBoneCFPCUsPVvi
 BuildNormals__12CVirtualBoneCFPCUsPVvi:
@@ -228,7 +228,7 @@ lbl_80354A1C:
 /* 80354A20 00351980  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80354A24 00351984  7C 08 03 A6 */	mtlr r0
 /* 80354A28 00351988  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80354A2C 0035198C  4E 80 00 20 */	blr 
+/* 80354A2C 0035198C  4E 80 00 20 */	blr
 
 .global BuildPoints__12CVirtualBoneCFPCUsPVvi
 BuildPoints__12CVirtualBoneCFPCUsPVvi:
@@ -277,7 +277,7 @@ lbl_80354AC4:
 /* 80354AC8 00351A28  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80354ACC 00351A2C  7C 08 03 A6 */	mtlr r0
 /* 80354AD0 00351A30  38 21 00 60 */	addi r1, r1, 0x60
-/* 80354AD4 00351A34  4E 80 00 20 */	blr 
+/* 80354AD4 00351A34  4E 80 00 20 */	blr
 
 .global sub_80354ad8
 sub_80354ad8:
@@ -300,7 +300,7 @@ sub_80354ad8:
 /* 80354B18 00351A78  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80354B1C 00351A7C  7C 08 03 A6 */	mtlr r0
 /* 80354B20 00351A80  38 21 00 10 */	addi r1, r1, 0x10
-/* 80354B24 00351A84  4E 80 00 20 */	blr 
+/* 80354B24 00351A84  4E 80 00 20 */	blr
 
 .global sub_80354b28
 sub_80354b28:
@@ -459,7 +459,7 @@ lbl_80354D54:
 /* 80354D70 00351CD0  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80354D74 00351CD4  7C 08 03 A6 */	mtlr r0
 /* 80354D78 00351CD8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80354D7C 00351CDC  4E 80 00 20 */	blr 
+/* 80354D7C 00351CDC  4E 80 00 20 */	blr
 
 .global Transform2FromMatrixData
 Transform2FromMatrixData:
@@ -505,7 +505,7 @@ Transform2FromMatrixData:
 /* 80354E1C 00351D7C  F0 63 00 18 */	psq_st f3, 24(r3), 0, qr0
 /* 80354E20 00351D80  F0 83 00 20 */	psq_st f4, 32(r3), 0, qr0
 /* 80354E24 00351D84  F0 A3 00 28 */	psq_st f5, 40(r3), 0, qr0
-/* 80354E28 00351D88  4E 80 00 20 */	blr 
+/* 80354E28 00351D88  4E 80 00 20 */	blr
 
 .global TransformFromMatrixData
 TransformFromMatrixData:
@@ -526,11 +526,11 @@ TransformFromMatrixData:
 /* 80354E64 00351DC4  F0 63 00 18 */	psq_st f3, 24(r3), 0, qr0
 /* 80354E68 00351DC8  F0 83 00 20 */	psq_st f4, 32(r3), 0, qr0
 /* 80354E6C 00351DCC  F0 A3 00 28 */	psq_st f5, 40(r3), 0, qr0
-/* 80354E70 00351DD0  4E 80 00 20 */	blr 
+/* 80354E70 00351DD0  4E 80 00 20 */	blr
 
 .global nullsub_22
 nullsub_22:
-/* 80354E74 00351DD4  4E 80 00 20 */	blr 
+/* 80354E74 00351DD4  4E 80 00 20 */	blr
 
 .global __ct__12CVirtualBoneFR12CInputStream
 __ct__12CVirtualBoneFR12CInputStream:
@@ -605,7 +605,7 @@ lbl_80354F2C:
 /* 80354F6C 00351ECC  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80354F70 00351ED0  7C 08 03 A6 */	mtlr r0
 /* 80354F74 00351ED4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80354F78 00351ED8  4E 80 00 20 */	blr 
+/* 80354F78 00351ED8  4E 80 00 20 */	blr
 
 .global StreamInSkinWeighting__FR12CInputStream
 StreamInSkinWeighting__FR12CInputStream:
@@ -729,4 +729,4 @@ lbl_80355104:
 /* 80355110 00352070  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80355114 00352074  7C 08 03 A6 */	mtlr r0
 /* 80355118 00352078  38 21 00 40 */	addi r1, r1, 0x40
-/* 8035511C 0035207C  4E 80 00 20 */	blr 
+/* 8035511C 0035207C  4E 80 00 20 */	blr

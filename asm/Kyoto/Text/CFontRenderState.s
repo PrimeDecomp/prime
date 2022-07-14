@@ -15,7 +15,7 @@ ConvertToTextureSpace__16CFontRenderStateCFRC10CTextColor:
 /* 802FECE4 002FBC44  98 01 00 0B */	stb r0, 0xb(r1)
 /* 802FECE8 002FBC48  80 61 00 08 */	lwz r3, 8(r1)
 /* 802FECEC 002FBC4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FECF0 002FBC50  4E 80 00 20 */	blr 
+/* 802FECF0 002FBC50  4E 80 00 20 */	blr
 
 .global PopState__16CFontRenderStateFv
 PopState__16CFontRenderStateFv:
@@ -36,7 +36,7 @@ PopState__16CFontRenderStateFv:
 /* 802FED2C 002FBC8C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FED30 002FBC90  7C 08 03 A6 */	mtlr r0
 /* 802FED34 002FBC94  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FED38 002FBC98  4E 80 00 20 */	blr 
+/* 802FED38 002FBC98  4E 80 00 20 */	blr
 
 .global __as__14CSaveableStateFRC14CSaveableState
 __as__14CSaveableStateFRC14CSaveableState:
@@ -152,7 +152,7 @@ lbl_802FEE70:
 /* 802FEEBC 002FBE1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FEEC0 002FBE20  7C 08 03 A6 */	mtlr r0
 /* 802FEEC4 002FBE24  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FEEC8 002FBE28  4E 80 00 20 */	blr 
+/* 802FEEC8 002FBE28  4E 80 00 20 */	blr
 
 .global sub_802feecc
 sub_802feecc:
@@ -232,7 +232,7 @@ lbl_802FEFC0:
 /* 802FEFC8 002FBF28  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802FEFCC 002FBF2C  7C 08 03 A6 */	mtlr r0
 /* 802FEFD0 002FBF30  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FEFD4 002FBF34  4E 80 00 20 */	blr 
+/* 802FEFD4 002FBF34  4E 80 00 20 */	blr
 
 .global sub_802fefd8
 sub_802fefd8:
@@ -245,7 +245,7 @@ sub_802fefd8:
 /* 802FEFF0 002FBF50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FEFF4 002FBF54  7C 08 03 A6 */	mtlr r0
 /* 802FEFF8 002FBF58  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FEFFC 002FBF5C  4E 80 00 20 */	blr 
+/* 802FEFFC 002FBF5C  4E 80 00 20 */	blr
 
 .global sub_802ff000
 sub_802ff000:
@@ -258,7 +258,7 @@ sub_802ff000:
 /* 802FF018 002FBF78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FF01C 002FBF7C  7C 08 03 A6 */	mtlr r0
 /* 802FF020 002FBF80  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF024 002FBF84  4E 80 00 20 */	blr 
+/* 802FF024 002FBF84  4E 80 00 20 */	blr
 
 .global sub_802ff028
 sub_802ff028:
@@ -290,7 +290,7 @@ lbl_802FF064:
 /* 802FF088 002FBFE8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802FF08C 002FBFEC  7C 08 03 A6 */	mtlr r0
 /* 802FF090 002FBFF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF094 002FBFF4  4E 80 00 20 */	blr 
+/* 802FF094 002FBFF4  4E 80 00 20 */	blr
 
 .global sub_802ff098
 sub_802ff098:
@@ -328,7 +328,7 @@ lbl_802FF0F8:
 /* 802FF10C 002FC06C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802FF110 002FC070  7C 08 03 A6 */	mtlr r0
 /* 802FF114 002FC074  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FF118 002FC078  4E 80 00 20 */	blr 
+/* 802FF118 002FC078  4E 80 00 20 */	blr
 
 .global sub_802ff11c
 sub_802ff11c:
@@ -477,7 +477,7 @@ lbl_802FF2E0:
 /* 802FF314 002FC274  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FF318 002FC278  7C 08 03 A6 */	mtlr r0
 /* 802FF31C 002FC27C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF320 002FC280  4E 80 00 20 */	blr 
+/* 802FF320 002FC280  4E 80 00 20 */	blr
 
 .global SetColor__16CFontRenderStateF10EColorTypeRC10CTextColor
 SetColor__16CFontRenderStateF10EColorTypeRC10CTextColor:
@@ -533,7 +533,7 @@ lbl_802FF3D0:
 /* 802FF3D4 002FC334  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FF3D8 002FC338  7C 08 03 A6 */	mtlr r0
 /* 802FF3DC 002FC33C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF3E0 002FC340  4E 80 00 20 */	blr 
+/* 802FF3E0 002FC340  4E 80 00 20 */	blr
 
 .global RefreshPalette__16CFontRenderStateFv
 RefreshPalette__16CFontRenderStateFv:
@@ -551,7 +551,7 @@ RefreshPalette__16CFontRenderStateFv:
 /* 802FF410 002FC370  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FF414 002FC374  7C 08 03 A6 */	mtlr r0
 /* 802FF418 002FC378  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF41C 002FC37C  4E 80 00 20 */	blr 
+/* 802FF41C 002FC37C  4E 80 00 20 */	blr
 
 .global RefreshColor__16CFontRenderStateF10EColorType
 RefreshColor__16CFontRenderStateF10EColorType:
@@ -659,7 +659,7 @@ lbl_802FF58C:
 /* 802FF590 002FC4F0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FF594 002FC4F4  7C 08 03 A6 */	mtlr r0
 /* 802FF598 002FC4F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF59C 002FC4FC  4E 80 00 20 */	blr 
+/* 802FF59C 002FC4FC  4E 80 00 20 */	blr
 
 .global __ct__16CFontRenderStateFv
 __ct__16CFontRenderStateFv:
@@ -715,7 +715,7 @@ __ct__16CFontRenderStateFv:
 /* 802FF664 002FC5C4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FF668 002FC5C8  7C 08 03 A6 */	mtlr r0
 /* 802FF66C 002FC5CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF670 002FC5D0  4E 80 00 20 */	blr 
+/* 802FF670 002FC5D0  4E 80 00 20 */	blr
 
 .global sub_802ff674
 sub_802ff674:
@@ -757,7 +757,7 @@ lbl_802FF6DC:
 /* 802FF6F8 002FC658  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FF6FC 002FC65C  7C 08 03 A6 */	mtlr r0
 /* 802FF700 002FC660  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FF704 002FC664  4E 80 00 20 */	blr 
+/* 802FF704 002FC664  4E 80 00 20 */	blr
 
 .global sub_802ff708
 sub_802ff708:

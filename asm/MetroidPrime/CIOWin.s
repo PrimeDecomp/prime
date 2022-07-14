@@ -13,26 +13,26 @@ lbl_803D9E90:
 	.4byte Draw__6CIOWinCFv
 	.4byte PreDraw__6CIOWinCFv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global PreDraw__6CIOWinCFv
 PreDraw__6CIOWinCFv:
-/* 80052B8C 0004FAEC  4E 80 00 20 */	blr 
+/* 80052B8C 0004FAEC  4E 80 00 20 */	blr
 
 .global Draw__6CIOWinCFv
 Draw__6CIOWinCFv:
-/* 80052B90 0004FAF0  4E 80 00 20 */	blr 
+/* 80052B90 0004FAF0  4E 80 00 20 */	blr
 
 .global GetIsContinueDraw__6CIOWinCFv
 GetIsContinueDraw__6CIOWinCFv:
 /* 80052B94 0004FAF4  38 60 00 01 */	li r3, 1
-/* 80052B98 0004FAF8  4E 80 00 20 */	blr 
+/* 80052B98 0004FAF8  4E 80 00 20 */	blr
 
 .global GetName__6CIOWinCFv
 GetName__6CIOWinCFv:
 /* 80052B9C 0004FAFC  38 63 00 04 */	addi r3, r3, 4
-/* 80052BA0 0004FB00  4E 80 00 20 */	blr 
+/* 80052BA0 0004FB00  4E 80 00 20 */	blr
 
 .global __dt__6CIOWinFv
 __dt__6CIOWinFv:
@@ -63,7 +63,7 @@ lbl_80052BF0:
 /* 80052BFC 0004FB5C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80052C00 0004FB60  7C 08 03 A6 */	mtlr r0
 /* 80052C04 0004FB64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052C08 0004FB68  4E 80 00 20 */	blr 
+/* 80052C08 0004FB68  4E 80 00 20 */	blr
 
 .global "__ct__6CIOWinFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__6CIOWinFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":

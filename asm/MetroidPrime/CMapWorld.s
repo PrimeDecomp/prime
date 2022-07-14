@@ -199,7 +199,7 @@ lbl_8009E8D8:
 /* 8009E914 0009B874  38 61 00 1C */	addi r3, r1, 0x1c
 /* 8009E918 0009B878  38 C1 00 40 */	addi r6, r1, 0x40
 /* 8009E91C 0009B87C  7D 89 03 A6 */	mtctr r12
-/* 8009E920 0009B880  4E 80 04 21 */	bctrl 
+/* 8009E920 0009B880  4E 80 04 21 */	bctrl
 /* 8009E924 0009B884  C0 21 00 24 */	lfs f1, 0x24(r1)
 /* 8009E928 0009B888  C0 01 00 58 */	lfs f0, 0x58(r1)
 /* 8009E92C 0009B88C  C0 61 00 1C */	lfs f3, 0x1c(r1)
@@ -241,7 +241,7 @@ lbl_8009E980:
 /* 8009E9B0 0009B910  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8009E9B4 0009B914  7C 08 03 A6 */	mtlr r0
 /* 8009E9B8 0009B918  38 21 00 90 */	addi r1, r1, 0x90
-/* 8009E9BC 0009B91C  4E 80 00 20 */	blr 
+/* 8009E9BC 0009B91C  4E 80 00 20 */	blr
 
 .global UpdateSupport3__FiPP9CVector2fR7Support
 UpdateSupport3__FiPP9CVector2fR7Support:
@@ -557,7 +557,7 @@ lbl_8009EE14:
 /* 8009EE34 0009BD94  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8009EE38 0009BD98  7C 08 03 A6 */	mtlr r0
 /* 8009EE3C 0009BD9C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8009EE40 0009BDA0  4E 80 00 20 */	blr 
+/* 8009EE40 0009BDA0  4E 80 00 20 */	blr
 
 .global UpdateSupport2__FiPP9CVector2fR7Support
 UpdateSupport2__FiPP9CVector2fR7Support:
@@ -683,7 +683,7 @@ lbl_8009EFEC:
 /* 8009F010 0009BF70  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8009F014 0009BF74  7C 08 03 A6 */	mtlr r0
 /* 8009F018 0009BF78  38 21 00 90 */	addi r1, r1, 0x90
-/* 8009F01C 0009BF7C  4E 80 00 20 */	blr 
+/* 8009F01C 0009BF7C  4E 80 00 20 */	blr
 
 .global UpdateSupport1__FiPP9CVector2fR7Support
 UpdateSupport1__FiPP9CVector2fR7Support:
@@ -719,7 +719,7 @@ UpdateSupport1__FiPP9CVector2fR7Support:
 /* 8009F094 0009BFF4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8009F098 0009BFF8  7C 08 03 A6 */	mtlr r0
 /* 8009F09C 0009BFFC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009F0A0 0009C000  4E 80 00 20 */	blr 
+/* 8009F0A0 0009C000  4E 80 00 20 */	blr
 
 .global ExactCircle3__FRC9CVector2fRC9CVector2fRC9CVector2f
 ExactCircle3__FRC9CVector2fRC9CVector2fRC9CVector2f:
@@ -834,7 +834,7 @@ lbl_8009F200:
 /* 8009F24C 0009C1AC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8009F250 0009C1B0  7C 08 03 A6 */	mtlr r0
 /* 8009F254 0009C1B4  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8009F258 0009C1B8  4E 80 00 20 */	blr 
+/* 8009F258 0009C1B8  4E 80 00 20 */	blr
 
 .global ExactCircle2__FRC9CVector2fRC9CVector2f
 ExactCircle2__FRC9CVector2fRC9CVector2f:
@@ -888,7 +888,7 @@ ExactCircle2__FRC9CVector2fRC9CVector2f:
 /* 8009F318 0009C278  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8009F31C 0009C27C  7C 08 03 A6 */	mtlr r0
 /* 8009F320 0009C280  38 21 00 50 */	addi r1, r1, 0x50
-/* 8009F324 0009C284  4E 80 00 20 */	blr 
+/* 8009F324 0009C284  4E 80 00 20 */	blr
 
 .global ExactCircle1__FRC9CVector2f
 ExactCircle1__FRC9CVector2f:
@@ -909,7 +909,7 @@ ExactCircle1__FRC9CVector2f:
 /* 8009F360 0009C2C0  D0 41 00 10 */	stfs f2, 0x10(r1)
 /* 8009F364 0009C2C4  D0 43 00 08 */	stfs f2, 8(r3)
 /* 8009F368 0009C2C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009F36C 0009C2CC  4E 80 00 20 */	blr 
+/* 8009F36C 0009C2CC  4E 80 00 20 */	blr
 
 .global PointInsideCircle__FRC9CVector2fRC7Circle2Rf
 PointInsideCircle__FRC9CVector2fRC7Circle2Rf:
@@ -945,7 +945,7 @@ PointInsideCircle__FRC9CVector2fRC7Circle2Rf:
 /* 8009F3E4 0009C344  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8009F3E8 0009C348  7C 08 03 A6 */	mtlr r0
 /* 8009F3EC 0009C34C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009F3F0 0009C350  4E 80 00 20 */	blr 
+/* 8009F3F0 0009C350  4E 80 00 20 */	blr
 
 .global FMapWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FMapWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -993,7 +993,7 @@ lbl_8009F438:
 /* 8009F494 0009C3F4  38 80 00 01 */	li r4, 1
 /* 8009F498 0009C3F8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8009F49C 0009C3FC  7D 89 03 A6 */	mtctr r12
-/* 8009F4A0 0009C400  4E 80 04 21 */	bctrl 
+/* 8009F4A0 0009C400  4E 80 04 21 */	bctrl
 lbl_8009F4A4:
 /* 8009F4A4 0009C404  88 01 00 08 */	lbz r0, 8(r1)
 /* 8009F4A8 0009C408  28 00 00 00 */	cmplwi r0, 0
@@ -1007,7 +1007,7 @@ lbl_8009F4BC:
 /* 8009F4C4 0009C424  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8009F4C8 0009C428  7C 08 03 A6 */	mtlr r0
 /* 8009F4CC 0009C42C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009F4D0 0009C430  4E 80 00 20 */	blr 
+/* 8009F4D0 0009C430  4E 80 00 20 */	blr
 
 .global "__dt__36TObjOwnerDerivedFromIObj<9CMapWorld>Fv"
 "__dt__36TObjOwnerDerivedFromIObj<9CMapWorld>Fv":
@@ -1049,7 +1049,7 @@ lbl_8009F548:
 /* 8009F554 0009C4B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8009F558 0009C4B8  7C 08 03 A6 */	mtlr r0
 /* 8009F55C 0009C4BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009F560 0009C4C0  4E 80 00 20 */	blr 
+/* 8009F560 0009C4C0  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__18TToken<9CMapWorld>FRCQ24rstl20auto_ptr<9CMapWorld>"
 "GetIObjObjectFor__18TToken<9CMapWorld>FRCQ24rstl20auto_ptr<9CMapWorld>":
@@ -1063,7 +1063,7 @@ lbl_8009F548:
 /* 8009F580 0009C4E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8009F584 0009C4E4  7C 08 03 A6 */	mtlr r0
 /* 8009F588 0009C4E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009F58C 0009C4EC  4E 80 00 20 */	blr 
+/* 8009F58C 0009C4EC  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__36TObjOwnerDerivedFromIObj<9CMapWorld>FRCQ24rstl20auto_ptr<9CMapWorld>"
 "GetNewDerivedObject__36TObjOwnerDerivedFromIObj<9CMapWorld>FRCQ24rstl20auto_ptr<9CMapWorld>":
@@ -1106,7 +1106,7 @@ lbl_8009F600:
 /* 8009F61C 0009C57C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8009F620 0009C580  7C 08 03 A6 */	mtlr r0
 /* 8009F624 0009C584  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009F628 0009C588  4E 80 00 20 */	blr 
+/* 8009F628 0009C588  4E 80 00 20 */	blr
 
 .global ClearTraversedFlags__9CMapWorldCFv
 ClearTraversedFlags__9CMapWorldCFv:
@@ -1124,7 +1124,7 @@ lbl_8009F644:
 
 .global sub_8009f650
 sub_8009f650:
-/* 8009F650 0009C5B0  4E 80 00 20 */	blr 
+/* 8009F650 0009C5B0  4E 80 00 20 */	blr
 
 .global ConstrainToWorldVolume__9CMapWorldCFRC9CVector3fRC9CVector3f
 ConstrainToWorldVolume__9CMapWorldCFRC9CVector3fRC9CVector3f:
@@ -1261,7 +1261,7 @@ lbl_8009F80C:
 /* 8009F84C 0009C7AC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8009F850 0009C7B0  7C 08 03 A6 */	mtlr r0
 /* 8009F854 0009C7B4  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8009F858 0009C7B8  4E 80 00 20 */	blr 
+/* 8009F858 0009C7B8  4E 80 00 20 */	blr
 
 .global RecalculateWorldSphere__9CMapWorldCFRC13CMapWorldInfoRC6IWorld
 RecalculateWorldSphere__9CMapWorldCFRC13CMapWorldInfoRC6IWorld:
@@ -1449,7 +1449,7 @@ lbl_8009FAEC:
 /* 8009FAF8 0009CA58  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 8009FAFC 0009CA5C  7C 08 03 A6 */	mtlr r0
 /* 8009FB00 0009CA60  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 8009FB04 0009CA64  4E 80 00 20 */	blr 
+/* 8009FB04 0009CA64  4E 80 00 20 */	blr
 
 .global "DrawAreas__9CMapWorldCFRCQ29CMapWorld18CMapWorldDrawParmsiRCQ24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>b"
 "DrawAreas__9CMapWorldCFRCQ29CMapWorld18CMapWorldDrawParmsiRCQ24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>b":
@@ -1484,7 +1484,7 @@ lbl_8009FAEC:
 /* 8009FB78 0009CAD8  7C EF 3B 78 */	mr r15, r7
 /* 8009FB7C 0009CADC  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 8009FB80 0009CAE0  7D 89 03 A6 */	mtctr r12
-/* 8009FB84 0009CAE4  4E 80 04 21 */	bctrl 
+/* 8009FB84 0009CAE4  4E 80 04 21 */	bctrl
 /* 8009FB88 0009CAE8  C0 22 8C 30 */	lfs f1, lbl_805AA950@sda21(r2)
 /* 8009FB8C 0009CAEC  38 60 00 05 */	li r3, 5
 /* 8009FB90 0009CAF0  48 26 B8 49 */	bl SetLineWidth__9CGraphicsFf13ERglTexOffset
@@ -2154,7 +2154,7 @@ lbl_800A0500:
 /* 800A0520 0009D480  81 83 00 00 */	lwz r12, 0(r3)
 /* 800A0524 0009D484  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800A0528 0009D488  7D 89 03 A6 */	mtctr r12
-/* 800A052C 0009D48C  4E 80 04 21 */	bctrl 
+/* 800A052C 0009D48C  4E 80 04 21 */	bctrl
 lbl_800A0530:
 /* 800A0530 0009D490  56 C0 06 3F */	clrlwi. r0, r22, 0x18
 /* 800A0534 0009D494  41 82 00 0C */	beq lbl_800A0540
@@ -2252,7 +2252,7 @@ lbl_800A0684:
 /* 800A0688 0009D5E8  81 83 00 00 */	lwz r12, 0(r3)
 /* 800A068C 0009D5EC  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800A0690 0009D5F0  7D 89 03 A6 */	mtctr r12
-/* 800A0694 0009D5F4  4E 80 04 21 */	bctrl 
+/* 800A0694 0009D5F4  4E 80 04 21 */	bctrl
 /* 800A0698 0009D5F8  C0 3F 00 10 */	lfs f1, 0x10(r31)
 /* 800A069C 0009D5FC  7E 43 93 78 */	mr r3, r18
 /* 800A06A0 0009D600  7F A4 EB 78 */	mr r4, r29
@@ -2292,7 +2292,7 @@ lbl_800A06B8:
 /* 800A0724 0009D684  81 83 00 00 */	lwz r12, 0(r3)
 /* 800A0728 0009D688  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800A072C 0009D68C  7D 89 03 A6 */	mtctr r12
-/* 800A0730 0009D690  4E 80 04 21 */	bctrl 
+/* 800A0730 0009D690  4E 80 04 21 */	bctrl
 /* 800A0734 0009D694  3C 80 2A AB */	lis r4, 0x2AAAAAAB@ha
 /* 800A0738 0009D698  20 72 00 02 */	subfic r3, r18, 2
 /* 800A073C 0009D69C  38 84 AA AB */	addi r4, r4, 0x2AAAAAAB@l
@@ -2360,7 +2360,7 @@ lbl_800A07D0:
 /* 800A081C 0009D77C  80 01 05 D4 */	lwz r0, 0x5d4(r1)
 /* 800A0820 0009D780  7C 08 03 A6 */	mtlr r0
 /* 800A0824 0009D784  38 21 05 D0 */	addi r1, r1, 0x5d0
-/* 800A0828 0009D788  4E 80 00 20 */	blr 
+/* 800A0828 0009D788  4E 80 00 20 */	blr
 
 .global IsMapAreaValid__9CMapWorldCFRC6IWorldib
 IsMapAreaValid__9CMapWorldCFRC6IWorldib:
@@ -2380,11 +2380,11 @@ IsMapAreaValid__9CMapWorldCFRC6IWorldib:
 /* 800A0860 0009D7C0  93 E1 00 08 */	stw r31, 8(r1)
 /* 800A0864 0009D7C4  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800A0868 0009D7C8  7D 89 03 A6 */	mtctr r12
-/* 800A086C 0009D7CC  4E 80 04 21 */	bctrl 
+/* 800A086C 0009D7CC  4E 80 04 21 */	bctrl
 /* 800A0870 0009D7D0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800A0874 0009D7D4  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800A0878 0009D7D8  7D 89 03 A6 */	mtctr r12
-/* 800A087C 0009D7DC  4E 80 04 21 */	bctrl 
+/* 800A087C 0009D7DC  4E 80 04 21 */	bctrl
 /* 800A0880 0009D7E0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800A0884 0009D7E4  40 82 00 0C */	bne lbl_800A0890
 /* 800A0888 0009D7E8  38 60 00 00 */	li r3, 0
@@ -2408,7 +2408,7 @@ lbl_800A08B8:
 /* 800A08C4 0009D824  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800A08C8 0009D828  7C 08 03 A6 */	mtlr r0
 /* 800A08CC 0009D82C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A08D0 0009D830  4E 80 00 20 */	blr 
+/* 800A08D0 0009D830  4E 80 00 20 */	blr
 
 .global "DoBFS__9CMapWorldCFRC6IWorldiiffbRQ24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>"
 "DoBFS__9CMapWorldCFRC6IWorldiiffbRQ24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>":
@@ -2497,7 +2497,7 @@ lbl_800A09C8:
 /* 800A0A0C 0009D96C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 800A0A10 0009D970  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800A0A14 0009D974  7D 89 03 A6 */	mtctr r12
-/* 800A0A18 0009D978  4E 80 04 21 */	bctrl 
+/* 800A0A18 0009D978  4E 80 04 21 */	bctrl
 /* 800A0A1C 0009D97C  3B 40 00 00 */	li r26, 0
 /* 800A0A20 0009D980  7C 7B 1B 78 */	mr r27, r3
 /* 800A0A24 0009D984  48 00 00 E0 */	b lbl_800A0B04
@@ -2508,7 +2508,7 @@ lbl_800A0A28:
 /* 800A0A34 0009D994  38 61 00 08 */	addi r3, r1, 8
 /* 800A0A38 0009D998  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800A0A3C 0009D99C  7D 89 03 A6 */	mtctr r12
-/* 800A0A40 0009D9A0  4E 80 04 21 */	bctrl 
+/* 800A0A40 0009D9A0  4E 80 04 21 */	bctrl
 /* 800A0A44 0009D9A4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800A0A48 0009D9A8  7E A3 AB 78 */	mr r3, r21
 /* 800A0A4C 0009D9AC  7E C4 B3 78 */	mr r4, r22
@@ -2566,7 +2566,7 @@ lbl_800A0B04:
 /* 800A0B08 0009DA68  81 9B 00 00 */	lwz r12, 0(r27)
 /* 800A0B0C 0009DA6C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 800A0B10 0009DA70  7D 89 03 A6 */	mtctr r12
-/* 800A0B14 0009DA74  4E 80 04 21 */	bctrl 
+/* 800A0B14 0009DA74  4E 80 04 21 */	bctrl
 /* 800A0B18 0009DA78  7C 1A 18 00 */	cmpw r26, r3
 /* 800A0B1C 0009DA7C  41 80 FF 0C */	blt lbl_800A0A28
 lbl_800A0B20:
@@ -2584,7 +2584,7 @@ lbl_800A0B2C:
 /* 800A0B48 0009DAA8  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 800A0B4C 0009DAAC  7C 08 03 A6 */	mtlr r0
 /* 800A0B50 0009DAB0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 800A0B54 0009DAB4  4E 80 00 20 */	blr 
+/* 800A0B54 0009DAB4  4E 80 00 20 */	blr
 
 .global Draw__9CMapWorldCFRCQ29CMapWorld18CMapWorldDrawParmsiiffb
 Draw__9CMapWorldCFRCQ29CMapWorld18CMapWorldDrawParmsiiffb:
@@ -2711,11 +2711,11 @@ lbl_800A0CF0:
 /* 800A0D14 0009DC74  D8 01 00 40 */	stfd f0, 0x40(r1)
 /* 800A0D18 0009DC78  83 C1 00 44 */	lwz r30, 0x44(r1)
 /* 800A0D1C 0009DC7C  7D 89 03 A6 */	mtctr r12
-/* 800A0D20 0009DC80  4E 80 04 21 */	bctrl 
+/* 800A0D20 0009DC80  4E 80 04 21 */	bctrl
 /* 800A0D24 0009DC84  81 83 00 00 */	lwz r12, 0(r3)
 /* 800A0D28 0009DC88  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800A0D2C 0009DC8C  7D 89 03 A6 */	mtctr r12
-/* 800A0D30 0009DC90  4E 80 04 21 */	bctrl 
+/* 800A0D30 0009DC90  4E 80 04 21 */	bctrl
 /* 800A0D34 0009DC94  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800A0D38 0009DC98  41 82 00 5C */	beq lbl_800A0D94
 /* 800A0D3C 0009DC9C  80 B9 00 2C */	lwz r5, 0x2c(r25)
@@ -2773,7 +2773,7 @@ lbl_800A0DEC:
 /* 800A0DF8 0009DD58  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800A0DFC 0009DD5C  7C 08 03 A6 */	mtlr r0
 /* 800A0E00 0009DD60  38 21 00 80 */	addi r1, r1, 0x80
-/* 800A0E04 0009DD64  4E 80 00 20 */	blr 
+/* 800A0E04 0009DD64  4E 80 00 20 */	blr
 
 .global GetVisibleAreas__9CMapWorldCFRC6IWorldRC13CMapWorldInfo
 GetVisibleAreas__9CMapWorldCFRC6IWorldRC13CMapWorldInfo:
@@ -2917,7 +2917,7 @@ lbl_800A0FEC:
 /* 800A0FF0 0009DF50  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800A0FF4 0009DF54  7C 08 03 A6 */	mtlr r0
 /* 800A0FF8 0009DF58  38 21 00 60 */	addi r1, r1, 0x60
-/* 800A0FFC 0009DF5C  4E 80 00 20 */	blr 
+/* 800A0FFC 0009DF5C  4E 80 00 20 */	blr
 
 .global GetCurrentMapAreaDepth__9CMapWorldCFRC6IWorldi
 GetCurrentMapAreaDepth__9CMapWorldCFRC6IWorldi:
@@ -3001,7 +3001,7 @@ lbl_800A1108:
 /* 800A1114 0009E074  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 800A1118 0009E078  7C 08 03 A6 */	mtlr r0
 /* 800A111C 0009E07C  38 21 00 50 */	addi r1, r1, 0x50
-/* 800A1120 0009E080  4E 80 00 20 */	blr 
+/* 800A1120 0009E080  4E 80 00 20 */	blr
 
 .global MoveMapAreaToList__9CMapWorldFPQ29CMapWorld12CMapAreaDataQ29CMapWorld12EMapAreaList
 MoveMapAreaToList__9CMapWorldFPQ29CMapWorld12CMapAreaDataQ29CMapWorld12EMapAreaList:
@@ -3031,7 +3031,7 @@ lbl_800A1168:
 /* 800A1170 0009E0D0  90 04 00 14 */	stw r0, 0x14(r4)
 /* 800A1174 0009E0D4  90 A4 00 10 */	stw r5, 0x10(r4)
 /* 800A1178 0009E0D8  7C 86 19 2E */	stwx r4, r6, r3
-/* 800A117C 0009E0DC  4E 80 00 20 */	blr 
+/* 800A117C 0009E0DC  4E 80 00 20 */	blr
 
 .global IsMapAreasStreaming__9CMapWorldCFv
 IsMapAreasStreaming__9CMapWorldCFv:
@@ -3072,7 +3072,7 @@ lbl_800A11DC:
 /* 800A11F8 0009E158  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800A11FC 0009E15C  7C 08 03 A6 */	mtlr r0
 /* 800A1200 0009E160  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A1204 0009E164  4E 80 00 20 */	blr 
+/* 800A1204 0009E164  4E 80 00 20 */	blr
 
 .global SetWhichMapAreasLoaded__9CMapWorldFRC6IWorldii
 SetWhichMapAreasLoaded__9CMapWorldFRC6IWorldii:
@@ -3175,7 +3175,7 @@ lbl_800A135C:
 /* 800A1360 0009E2C0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800A1364 0009E2C4  7C 08 03 A6 */	mtlr r0
 /* 800A1368 0009E2C8  38 21 00 40 */	addi r1, r1, 0x40
-/* 800A136C 0009E2CC  4E 80 00 20 */	blr 
+/* 800A136C 0009E2CC  4E 80 00 20 */	blr
 
 .global "IsMapAreaInBFSInfoVector__9CMapWorldCFPCQ29CMapWorld12CMapAreaDataRCQ24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>"
 "IsMapAreaInBFSInfoVector__9CMapWorldCFPCQ29CMapWorld12CMapAreaDataRCQ24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>":
@@ -3192,14 +3192,14 @@ lbl_800A1384:
 /* 800A1394 0009E2F4  7C 04 00 40 */	cmplw r4, r0
 /* 800A1398 0009E2F8  40 82 00 0C */	bne lbl_800A13A4
 /* 800A139C 0009E2FC  38 60 00 01 */	li r3, 1
-/* 800A13A0 0009E300  4E 80 00 20 */	blr 
+/* 800A13A0 0009E300  4E 80 00 20 */	blr
 lbl_800A13A4:
 /* 800A13A4 0009E304  38 E7 00 10 */	addi r7, r7, 0x10
 lbl_800A13A8:
 /* 800A13A8 0009E308  7C 07 30 40 */	cmplw r7, r6
 /* 800A13AC 0009E30C  40 82 FF D8 */	bne lbl_800A1384
 /* 800A13B0 0009E310  38 60 00 00 */	li r3, 0
-/* 800A13B4 0009E314  4E 80 00 20 */	blr 
+/* 800A13B4 0009E314  4E 80 00 20 */	blr
 
 .global GetMapArea__9CMapWorldCFi
 GetMapArea__9CMapWorldCFi:
@@ -3213,7 +3213,7 @@ GetMapArea__9CMapWorldCFi:
 /* 800A13D4 0009E334  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800A13D8 0009E338  7C 08 03 A6 */	mtlr r0
 /* 800A13DC 0009E33C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A13E0 0009E340  4E 80 00 20 */	blr 
+/* 800A13E0 0009E340  4E 80 00 20 */	blr
 
 .global __dt__9CMapWorldFv
 __dt__9CMapWorldFv:
@@ -3293,7 +3293,7 @@ lbl_800A14D8:
 /* 800A14E4 0009E444  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800A14E8 0009E448  7C 08 03 A6 */	mtlr r0
 /* 800A14EC 0009E44C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A14F0 0009E450  4E 80 00 20 */	blr 
+/* 800A14F0 0009E450  4E 80 00 20 */	blr
 
 .global sub_800a14f4
 sub_800a14f4:
@@ -3349,7 +3349,7 @@ lbl_800A1590:
 /* 800A15A4 0009E504  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800A15A8 0009E508  7C 08 03 A6 */	mtlr r0
 /* 800A15AC 0009E50C  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A15B0 0009E510  4E 80 00 20 */	blr 
+/* 800A15B0 0009E510  4E 80 00 20 */	blr
 
 .global __ct__9CMapWorldFR12CInputStream
 __ct__9CMapWorldFR12CInputStream:
@@ -3532,7 +3532,7 @@ lbl_800A17E8:
 /* 800A1828 0009E788  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800A182C 0009E78C  7C 08 03 A6 */	mtlr r0
 /* 800A1830 0009E790  38 21 00 60 */	addi r1, r1, 0x60
-/* 800A1834 0009E794  4E 80 00 20 */	blr 
+/* 800A1834 0009E794  4E 80 00 20 */	blr
 
 .global sub_800a1838
 sub_800a1838:
@@ -3607,7 +3607,7 @@ lbl_800A1918:
 /* 800A1920 0009E880  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800A1924 0009E884  7C 08 03 A6 */	mtlr r0
 /* 800A1928 0009E888  38 21 00 20 */	addi r1, r1, 0x20
-/* 800A192C 0009E88C  4E 80 00 20 */	blr 
+/* 800A192C 0009E88C  4E 80 00 20 */	blr
 
 .global __ct__Q29CMapWorld15CMapAreaBFSInfoFiiff
 __ct__Q29CMapWorld15CMapAreaBFSInfoFiiff:
@@ -3615,7 +3615,7 @@ __ct__Q29CMapWorld15CMapAreaBFSInfoFiiff:
 /* 800A1934 0009E894  90 A3 00 04 */	stw r5, 4(r3)
 /* 800A1938 0009E898  D0 23 00 08 */	stfs f1, 8(r3)
 /* 800A193C 0009E89C  D0 43 00 0C */	stfs f2, 0xc(r3)
-/* 800A1940 0009E8A0  4E 80 00 20 */	blr 
+/* 800A1940 0009E8A0  4E 80 00 20 */	blr
 
 .global __ct__Q29CMapWorld18CMapWorldDrawParmsFfffffRC13CStateManagerRC12CTransform4fRC12CTransform4fRC6IWorldRC13CMapWorldInfofb
 __ct__Q29CMapWorld18CMapWorldDrawParmsFfffffRC13CStateManagerRC12CTransform4fRC12CTransform4fRC6IWorldRC13CMapWorldInfofb:
@@ -3635,7 +3635,7 @@ __ct__Q29CMapWorld18CMapWorldDrawParmsFfffffRC13CStateManagerRC12CTransform4fRC1
 /* 800A1978 0009E8D8  D1 03 00 30 */	stfs f8, 0x30(r3)
 /* 800A197C 0009E8DC  D0 03 00 34 */	stfs f0, 0x34(r3)
 /* 800A1980 0009E8E0  99 23 00 38 */	stb r9, 0x38(r3)
-/* 800A1984 0009E8E4  4E 80 00 20 */	blr 
+/* 800A1984 0009E8E4  4E 80 00 20 */	blr
 
 .global GetMapArea__Q29CMapWorld12CMapAreaDataCFv
 GetMapArea__Q29CMapWorld12CMapAreaDataCFv:
@@ -3664,7 +3664,7 @@ lbl_800A19D4:
 /* 800A19DC 0009E93C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800A19E0 0009E940  7C 08 03 A6 */	mtlr r0
 /* 800A19E4 0009E944  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A19E8 0009E948  4E 80 00 20 */	blr 
+/* 800A19E8 0009E948  4E 80 00 20 */	blr
 
 .global IsLoaded__Q29CMapWorld12CMapAreaDataCFv
 IsLoaded__Q29CMapWorld12CMapAreaDataCFv:
@@ -3704,7 +3704,7 @@ lbl_800A1A5C:
 /* 800A1A60 0009E9C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800A1A64 0009E9C4  7C 08 03 A6 */	mtlr r0
 /* 800A1A68 0009E9C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A1A6C 0009E9CC  4E 80 00 20 */	blr 
+/* 800A1A6C 0009E9CC  4E 80 00 20 */	blr
 
 .global Unlock__Q29CMapWorld12CMapAreaDataFv
 Unlock__Q29CMapWorld12CMapAreaDataFv:
@@ -3718,7 +3718,7 @@ Unlock__Q29CMapWorld12CMapAreaDataFv:
 /* 800A1A8C 0009E9EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800A1A90 0009E9F0  7C 08 03 A6 */	mtlr r0
 /* 800A1A94 0009E9F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A1A98 0009E9F8  4E 80 00 20 */	blr 
+/* 800A1A98 0009E9F8  4E 80 00 20 */	blr
 
 .global Lock__Q29CMapWorld12CMapAreaDataFv
 Lock__Q29CMapWorld12CMapAreaDataFv:
@@ -3730,7 +3730,7 @@ Lock__Q29CMapWorld12CMapAreaDataFv:
 /* 800A1AB0 0009EA10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800A1AB4 0009EA14  7C 08 03 A6 */	mtlr r0
 /* 800A1AB8 0009EA18  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A1ABC 0009EA1C  4E 80 00 20 */	blr 
+/* 800A1ABC 0009EA1C  4E 80 00 20 */	blr
 
 .global __ct__Q29CMapWorld12CMapAreaDataFUiQ29CMapWorld12EMapAreaListPQ29CMapWorld12CMapAreaData
 __ct__Q29CMapWorld12CMapAreaDataFUiQ29CMapWorld12EMapAreaListPQ29CMapWorld12CMapAreaData:
@@ -3755,7 +3755,7 @@ __ct__Q29CMapWorld12CMapAreaDataFUiQ29CMapWorld12EMapAreaListPQ29CMapWorld12CMap
 /* 800A1B08 0009EA68  81 84 00 00 */	lwz r12, 0(r4)
 /* 800A1B0C 0009EA6C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800A1B10 0009EA70  7D 89 03 A6 */	mtctr r12
-/* 800A1B14 0009EA74  4E 80 04 21 */	bctrl 
+/* 800A1B14 0009EA74  4E 80 04 21 */	bctrl
 /* 800A1B18 0009EA78  3B BC 00 04 */	addi r29, r28, 4
 /* 800A1B1C 0009EA7C  38 81 00 08 */	addi r4, r1, 8
 /* 800A1B20 0009EA80  7F A3 EB 78 */	mr r3, r29
@@ -3775,7 +3775,7 @@ __ct__Q29CMapWorld12CMapAreaDataFUiQ29CMapWorld12EMapAreaListPQ29CMapWorld12CMap
 /* 800A1B58 0009EAB8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800A1B5C 0009EABC  7C 08 03 A6 */	mtlr r0
 /* 800A1B60 0009EAC0  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A1B64 0009EAC4  4E 80 00 20 */	blr 
+/* 800A1B64 0009EAC4  4E 80 00 20 */	blr
 
 .global __ct__Q29CMapWorld18CMapObjectSortInfoFfiQ39CMapWorld18CMapObjectSortInfo11EObjectCodei6CColor6CColor
 __ct__Q29CMapWorld18CMapObjectSortInfoFfiQ39CMapWorld18CMapObjectSortInfo11EObjectCodei6CColor6CColor:
@@ -3787,7 +3787,7 @@ __ct__Q29CMapWorld18CMapObjectSortInfoFfiQ39CMapWorld18CMapObjectSortInfo11EObje
 /* 800A1B7C 0009EADC  90 03 00 0C */	stw r0, 0xc(r3)
 /* 800A1B80 0009EAE0  80 08 00 00 */	lwz r0, 0(r8)
 /* 800A1B84 0009EAE4  90 03 00 10 */	stw r0, 0x10(r3)
-/* 800A1B88 0009EAE8  4E 80 00 20 */	blr 
+/* 800A1B88 0009EAE8  4E 80 00 20 */	blr
 
 .global sub_800a1b8c
 sub_800a1b8c:
@@ -3948,7 +3948,7 @@ lbl_800A1DB0:
 /* 800A1DC8 0009ED28  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 800A1DCC 0009ED2C  7C 08 03 A6 */	mtlr r0
 /* 800A1DD0 0009ED30  38 21 00 60 */	addi r1, r1, 0x60
-/* 800A1DD4 0009ED34  4E 80 00 20 */	blr 
+/* 800A1DD4 0009ED34  4E 80 00 20 */	blr
 
 .global sub_800a1dd8
 sub_800a1dd8:
@@ -3975,7 +3975,7 @@ sub_800a1dd8:
 /* 800A1E28 0009ED88  90 C3 00 08 */	stw r6, 8(r3)
 /* 800A1E2C 0009ED8C  90 E3 00 0C */	stw r7, 0xc(r3)
 /* 800A1E30 0009ED90  91 03 00 10 */	stw r8, 0x10(r3)
-/* 800A1E34 0009ED94  4E 80 00 20 */	blr 
+/* 800A1E34 0009ED94  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl64vector<Q29CMapWorld15CMapAreaBFSInfo,Q24rstl17rmemory_allocator>Fi":
@@ -4052,7 +4052,7 @@ lbl_800A1F20:
 /* 800A1F2C 0009EE8C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800A1F30 0009EE90  7C 08 03 A6 */	mtlr r0
 /* 800A1F34 0009EE94  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A1F38 0009EE98  4E 80 00 20 */	blr 
+/* 800A1F38 0009EE98  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl61vector<Q29CMapWorld12CMapAreaData,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl61vector<Q29CMapWorld12CMapAreaData,Q24rstl17rmemory_allocator>Fi":
@@ -4140,7 +4140,7 @@ lbl_800A2054:
 /* 800A2058 0009EFB8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800A205C 0009EFBC  7C 08 03 A6 */	mtlr r0
 /* 800A2060 0009EFC0  38 21 00 40 */	addi r1, r1, 0x40
-/* 800A2064 0009EFC4  4E 80 00 20 */	blr 
+/* 800A2064 0009EFC4  4E 80 00 20 */	blr
 
 .global sub_800a2068
 sub_800a2068:
@@ -4211,7 +4211,7 @@ lbl_800A2138:
 /* 800A2144 0009F0A4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800A2148 0009F0A8  7C 08 03 A6 */	mtlr r0
 /* 800A214C 0009F0AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A2150 0009F0B0  4E 80 00 20 */	blr 
+/* 800A2150 0009F0B0  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemory_allocator>Fi":
@@ -4291,7 +4291,7 @@ lbl_800A2248:
 /* 800A2254 0009F1B4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800A2258 0009F1B8  7C 08 03 A6 */	mtlr r0
 /* 800A225C 0009F1BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A2260 0009F1C0  4E 80 00 20 */	blr 
+/* 800A2260 0009F1C0  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl45vector<9CVector2f,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl45vector<9CVector2f,Q24rstl17rmemory_allocator>Fi":
@@ -4364,7 +4364,7 @@ lbl_800A233C:
 /* 800A2348 0009F2A8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800A234C 0009F2AC  7C 08 03 A6 */	mtlr r0
 /* 800A2350 0009F2B0  38 21 00 30 */	addi r1, r1, 0x30
-/* 800A2354 0009F2B4  4E 80 00 20 */	blr 
+/* 800A2354 0009F2B4  4E 80 00 20 */	blr
 
 .global "__sort3<Q29CMapWorld18CMapObjectSortInfo,29CMapObjectSortInfoGreaterThan>__4rstlFRQ29CMapWorld18CMapObjectSortInfoRQ29CMapWorld18CMapObjectSortInfoRQ29CMapWorld18CMapObjectSortInfo29CMapObjectSortInfoGreaterThan"
 "__sort3<Q29CMapWorld18CMapObjectSortInfo,29CMapObjectSortInfoGreaterThan>__4rstlFRQ29CMapWorld18CMapObjectSortInfoRQ29CMapWorld18CMapObjectSortInfoRQ29CMapWorld18CMapObjectSortInfo29CMapObjectSortInfoGreaterThan":
@@ -4429,7 +4429,7 @@ lbl_800A2420:
 /* 800A2430 0009F390  54 C6 0F FE */	srwi r6, r6, 0x1f
 lbl_800A2434:
 /* 800A2434 0009F394  54 C6 06 3F */	clrlwi. r6, r6, 0x18
-/* 800A2438 0009F398  4D 82 00 20 */	beqlr 
+/* 800A2438 0009F398  4D 82 00 20 */	beqlr
 /* 800A243C 0009F39C  C0 25 00 00 */	lfs f1, 0(r5)
 /* 800A2440 0009F3A0  54 0A 00 1E */	rlwinm r10, r0, 0, 0, 0xf
 /* 800A2444 0009F3A4  80 E5 00 04 */	lwz r7, 4(r5)
@@ -4478,14 +4478,14 @@ lbl_800A24B0:
 /* 800A24E8 0009F448  90 03 00 08 */	stw r0, 8(r3)
 /* 800A24EC 0009F44C  91 03 00 0C */	stw r8, 0xc(r3)
 /* 800A24F0 0009F450  91 23 00 10 */	stw r9, 0x10(r3)
-/* 800A24F4 0009F454  4E 80 00 20 */	blr 
+/* 800A24F4 0009F454  4E 80 00 20 */	blr
 lbl_800A24F8:
 /* 800A24F8 0009F458  D0 24 00 00 */	stfs f1, 0(r4)
 /* 800A24FC 0009F45C  90 E4 00 04 */	stw r7, 4(r4)
 /* 800A2500 0009F460  90 04 00 08 */	stw r0, 8(r4)
 /* 800A2504 0009F464  91 04 00 0C */	stw r8, 0xc(r4)
 /* 800A2508 0009F468  91 24 00 10 */	stw r9, 0x10(r4)
-/* 800A250C 0009F46C  4E 80 00 20 */	blr 
+/* 800A250C 0009F46C  4E 80 00 20 */	blr
 
 .global "__insertion_sort<Q24rstl154pointer_iterator<Q29CMapWorld18CMapObjectSortInfo,Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,29CMapObjectSortInfoGreaterThan>__4rstlFQ24rstl154pointer_iterator<Q29CMapWorld18CMapObjectSortInfo,Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl154pointer_iterator<Q29CMapWorld18CMapObjectSortInfo,Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemor"
 "__insertion_sort<Q24rstl154pointer_iterator<Q29CMapWorld18CMapObjectSortInfo,Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,29CMapObjectSortInfoGreaterThan>__4rstlFQ24rstl154pointer_iterator<Q29CMapWorld18CMapObjectSortInfo,Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl154pointer_iterator<Q29CMapWorld18CMapObjectSortInfo,Q24rstl67vector<Q29CMapWorld18CMapObjectSortInfo,Q24rstl17rmemor":
@@ -4552,4 +4552,4 @@ lbl_800A25DC:
 /* 800A25E4 0009F544  41 80 FF 40 */	blt lbl_800A2524
 /* 800A25E8 0009F548  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800A25EC 0009F54C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800A25F0 0009F550  4E 80 00 20 */	blr 
+/* 800A25F0 0009F550  4E 80 00 20 */	blr

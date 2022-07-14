@@ -5,27 +5,27 @@
 .global GetEnumValue__12CPASAnimParmCFv
 GetEnumValue__12CPASAnimParmCFv:
 /* 802E2F5C 002DFEBC  80 63 00 00 */	lwz r3, 0(r3)
-/* 802E2F60 002DFEC0  4E 80 00 20 */	blr 
+/* 802E2F60 002DFEC0  4E 80 00 20 */	blr
 
 .global GetBoolValue__12CPASAnimParmCFv
 GetBoolValue__12CPASAnimParmCFv:
 /* 802E2F64 002DFEC4  88 63 00 00 */	lbz r3, 0(r3)
-/* 802E2F68 002DFEC8  4E 80 00 20 */	blr 
+/* 802E2F68 002DFEC8  4E 80 00 20 */	blr
 
 .global GetReal32Value__12CPASAnimParmCFv
 GetReal32Value__12CPASAnimParmCFv:
 /* 802E2F6C 002DFECC  C0 23 00 00 */	lfs f1, 0(r3)
-/* 802E2F70 002DFED0  4E 80 00 20 */	blr 
+/* 802E2F70 002DFED0  4E 80 00 20 */	blr
 
 .global GetUint32Value__12CPASAnimParmCFv
 GetUint32Value__12CPASAnimParmCFv:
 /* 802E2F74 002DFED4  80 63 00 00 */	lwz r3, 0(r3)
-/* 802E2F78 002DFED8  4E 80 00 20 */	blr 
+/* 802E2F78 002DFED8  4E 80 00 20 */	blr
 
 .global GetInt32Value__12CPASAnimParmCFv
 GetInt32Value__12CPASAnimParmCFv:
 /* 802E2F7C 002DFEDC  80 63 00 00 */	lwz r3, 0(r3)
-/* 802E2F80 002DFEE0  4E 80 00 20 */	blr 
+/* 802E2F80 002DFEE0  4E 80 00 20 */	blr
 
 .global FromEnum__12CPASAnimParmFi
 FromEnum__12CPASAnimParmFi:
@@ -40,7 +40,7 @@ FromEnum__12CPASAnimParmFi:
 /* 802E2FA4 002DFF04  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E2FA8 002DFF08  7C 08 03 A6 */	mtlr r0
 /* 802E2FAC 002DFF0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2FB0 002DFF10  4E 80 00 20 */	blr 
+/* 802E2FB0 002DFF10  4E 80 00 20 */	blr
 
 .global FromBool__12CPASAnimParmFb
 FromBool__12CPASAnimParmFb:
@@ -56,7 +56,7 @@ FromBool__12CPASAnimParmFb:
 /* 802E2FD8 002DFF38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E2FDC 002DFF3C  7C 08 03 A6 */	mtlr r0
 /* 802E2FE0 002DFF40  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2FE4 002DFF44  4E 80 00 20 */	blr 
+/* 802E2FE4 002DFF44  4E 80 00 20 */	blr
 
 .global FromReal32__12CPASAnimParmFf
 FromReal32__12CPASAnimParmFf:
@@ -72,7 +72,7 @@ FromReal32__12CPASAnimParmFf:
 /* 802E300C 002DFF6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E3010 002DFF70  7C 08 03 A6 */	mtlr r0
 /* 802E3014 002DFF74  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E3018 002DFF78  4E 80 00 20 */	blr 
+/* 802E3018 002DFF78  4E 80 00 20 */	blr
 
 .global FromUint32__12CPASAnimParmFUi
 FromUint32__12CPASAnimParmFUi:
@@ -87,7 +87,7 @@ FromUint32__12CPASAnimParmFUi:
 /* 802E303C 002DFF9C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E3040 002DFFA0  7C 08 03 A6 */	mtlr r0
 /* 802E3044 002DFFA4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E3048 002DFFA8  4E 80 00 20 */	blr 
+/* 802E3048 002DFFA8  4E 80 00 20 */	blr
 
 .global FromInt32__12CPASAnimParmFi
 FromInt32__12CPASAnimParmFi:
@@ -102,7 +102,7 @@ FromInt32__12CPASAnimParmFi:
 /* 802E306C 002DFFCC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E3070 002DFFD0  7C 08 03 A6 */	mtlr r0
 /* 802E3074 002DFFD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E3078 002DFFD8  4E 80 00 20 */	blr 
+/* 802E3078 002DFFD8  4E 80 00 20 */	blr
 
 .global NoParameter__12CPASAnimParmFv
 NoParameter__12CPASAnimParmFv:
@@ -118,7 +118,7 @@ NoParameter__12CPASAnimParmFv:
 /* 802E30A0 002E0000  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E30A4 002E0004  7C 08 03 A6 */	mtlr r0
 /* 802E30A8 002E0008  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E30AC 002E000C  4E 80 00 20 */	blr 
+/* 802E30AC 002E000C  4E 80 00 20 */	blr
 
 .global __ct__12CPASAnimParmFQ212CPASAnimParm10UParmValueQ212CPASAnimParm9EParmType
 __ct__12CPASAnimParmFQ212CPASAnimParm10UParmValueQ212CPASAnimParm9EParmType:

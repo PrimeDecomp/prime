@@ -49,7 +49,7 @@ lbl_802E0F8C:
 /* 802E0F98 002DDEF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802E0F9C 002DDEFC  7C 08 03 A6 */	mtlr r0
 /* 802E0FA0 002DDF00  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E0FA4 002DDF04  4E 80 00 20 */	blr 
+/* 802E0FA4 002DDF04  4E 80 00 20 */	blr
 
 .global sub_802e0fa8
 sub_802e0fa8:
@@ -101,12 +101,12 @@ lbl_802E1034:
 /* 802E1048 002DDFA8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802E104C 002DDFAC  7C 08 03 A6 */	mtlr r0
 /* 802E1050 002DDFB0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E1054 002DDFB4  4E 80 00 20 */	blr 
+/* 802E1054 002DDFB4  4E 80 00 20 */	blr
 
 .global GetType__15CMetaAnimRandomCFv
 GetType__15CMetaAnimRandomCFv:
 /* 802E1058 002DDFB8  38 60 00 03 */	li r3, 3
-/* 802E105C 002DDFBC  4E 80 00 20 */	blr 
+/* 802E105C 002DDFBC  4E 80 00 20 */	blr
 
 .global CreateRandomData__15CMetaAnimRandomFR12CInputStream
 CreateRandomData__15CMetaAnimRandomFR12CInputStream:
@@ -246,7 +246,7 @@ lbl_802E122C:
 /* 802E1248 002DE1A8  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802E124C 002DE1AC  7C 08 03 A6 */	mtlr r0
 /* 802E1250 002DE1B0  38 21 00 40 */	addi r1, r1, 0x40
-/* 802E1254 002DE1B4  4E 80 00 20 */	blr 
+/* 802E1254 002DE1B4  4E 80 00 20 */	blr
 
 .global WriteAnimData__15CMetaAnimRandomCFR13COutputStream
 WriteAnimData__15CMetaAnimRandomCFR13COutputStream:
@@ -301,7 +301,7 @@ lbl_802E12F8:
 /* 802E1310 002DE270  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802E1314 002DE274  7C 08 03 A6 */	mtlr r0
 /* 802E1318 002DE278  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E131C 002DE27C  4E 80 00 20 */	blr 
+/* 802E131C 002DE27C  4E 80 00 20 */	blr
 
 .global "GetUniquePrimitives__15CMetaAnimRandomCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>"
 "GetUniquePrimitives__15CMetaAnimRandomCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>":
@@ -324,7 +324,7 @@ lbl_802E1350:
 /* 802E135C 002DE2BC  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E1360 002DE2C0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802E1364 002DE2C4  7D 89 03 A6 */	mtctr r12
-/* 802E1368 002DE2C8  4E 80 04 21 */	bctrl 
+/* 802E1368 002DE2C8  4E 80 04 21 */	bctrl
 /* 802E136C 002DE2CC  3B DE 00 08 */	addi r30, r30, 8
 lbl_802E1370:
 /* 802E1370 002DE2D0  7C 1E F8 40 */	cmplw r30, r31
@@ -335,7 +335,7 @@ lbl_802E1370:
 /* 802E1384 002DE2E4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802E1388 002DE2E8  7C 08 03 A6 */	mtlr r0
 /* 802E138C 002DE2EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E1390 002DE2F0  4E 80 00 20 */	blr 
+/* 802E1390 002DE2F0  4E 80 00 20 */	blr
 
 .global VGetAnimationTree__15CMetaAnimRandomCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 VGetAnimationTree__15CMetaAnimRandomCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders:
@@ -377,7 +377,7 @@ lbl_802E13F8:
 /* 802E1414 002DE374  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E1418 002DE378  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E141C 002DE37C  7D 89 03 A6 */	mtctr r12
-/* 802E1420 002DE380  4E 80 04 21 */	bctrl 
+/* 802E1420 002DE380  4E 80 04 21 */	bctrl
 /* 802E1424 002DE384  80 01 00 08 */	lwz r0, 8(r1)
 /* 802E1428 002DE388  38 61 00 08 */	addi r3, r1, 8
 /* 802E142C 002DE38C  90 1C 00 00 */	stw r0, 0(r28)
@@ -393,7 +393,7 @@ lbl_802E13F8:
 /* 802E1454 002DE3B4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802E1458 002DE3B8  7C 08 03 A6 */	mtlr r0
 /* 802E145C 002DE3BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E1460 002DE3C0  4E 80 00 20 */	blr 
+/* 802E1460 002DE3C0  4E 80 00 20 */	blr
 
 .global __ct__15CMetaAnimRandomFR12CInputStream
 __ct__15CMetaAnimRandomFR12CInputStream:
@@ -467,7 +467,7 @@ lbl_802E1544:
 /* 802E1558 002DE4B8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802E155C 002DE4BC  7C 08 03 A6 */	mtlr r0
 /* 802E1560 002DE4C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E1564 002DE4C4  4E 80 00 20 */	blr 
+/* 802E1564 002DE4C4  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl79vector<Q24rstl35pair<Q24rstl18rc_ptr<9IMetaAnim>,i>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl79vector<Q24rstl35pair<Q24rstl18rc_ptr<9IMetaAnim>,i>,Q24rstl17rmemory_allocator>Fi":

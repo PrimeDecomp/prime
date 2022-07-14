@@ -78,7 +78,7 @@ lbl_803EC7C8:
 	.4byte OnVisible__18CGuiCompoundWidgetFv
 	.4byte OnActivate__9CGuiGroupFv
 	.4byte GetWorkerWidget__18CGuiCompoundWidgetFi
-	
+
 .section .text, "ax"
 
 .global __dt__9CGuiGroupFv
@@ -107,7 +107,7 @@ lbl_802C122C:
 /* 802C1238 002BE198  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C123C 002BE19C  7C 08 03 A6 */	mtlr r0
 /* 802C1240 002BE1A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1244 002BE1A4  4E 80 00 20 */	blr 
+/* 802C1244 002BE1A4  4E 80 00 20 */	blr
 
 .global Create__9CAuiMeterFP9CGuiFrameR12CInputStreamb
 Create__9CAuiMeterFP9CGuiFrameR12CInputStreamb:
@@ -179,7 +179,7 @@ lbl_802C132C:
 /* 802C1348 002BE2A8  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802C134C 002BE2AC  7C 08 03 A6 */	mtlr r0
 /* 802C1350 002BE2B0  38 21 00 50 */	addi r1, r1, 0x50
-/* 802C1354 002BE2B4  4E 80 00 20 */	blr 
+/* 802C1354 002BE2B4  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl46vector<P9CGuiGroup,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl46vector<P9CGuiGroup,Q24rstl17rmemory_allocator>Fi":
@@ -250,7 +250,7 @@ lbl_802C1428:
 /* 802C1434 002BE394  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802C1438 002BE398  7C 08 03 A6 */	mtlr r0
 /* 802C143C 002BE39C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C1440 002BE3A0  4E 80 00 20 */	blr 
+/* 802C1440 002BE3A0  4E 80 00 20 */	blr
 
 .global __dt__10CGuiCameraFv
 __dt__10CGuiCameraFv:
@@ -278,18 +278,18 @@ lbl_802C1488:
 /* 802C1494 002BE3F4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C1498 002BE3F8  7C 08 03 A6 */	mtlr r0
 /* 802C149C 002BE3FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C14A0 002BE400  4E 80 00 20 */	blr 
+/* 802C14A0 002BE400  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__10CGuiCameraCFv
 GetWidgetTypeID__10CGuiCameraCFv:
 /* 802C14A4 002BE404  3C 60 43 41 */	lis r3, 0x43414D52@ha
 /* 802C14A8 002BE408  38 63 4D 52 */	addi r3, r3, 0x43414D52@l
-/* 802C14AC 002BE40C  4E 80 00 20 */	blr 
+/* 802C14AC 002BE40C  4E 80 00 20 */	blr
 
 .global AddWorkerWidget__10CGuiWidgetFP10CGuiWidget
 AddWorkerWidget__10CGuiWidgetFP10CGuiWidget:
 /* 802C14B0 002BE410  38 60 00 00 */	li r3, 0
-/* 802C14B4 002BE414  4E 80 00 20 */	blr 
+/* 802C14B4 002BE414  4E 80 00 20 */	blr
 
 .global ConvertToScreenSpace__10CGuiCameraCFRC9CVector3f
 ConvertToScreenSpace__10CGuiCameraCFRC9CVector3f:
@@ -384,7 +384,7 @@ lbl_802C15F0:
 /* 802C1608 002BE568  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 802C160C 002BE56C  7C 08 03 A6 */	mtlr r0
 /* 802C1610 002BE570  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802C1614 002BE574  4E 80 00 20 */	blr 
+/* 802C1614 002BE574  4E 80 00 20 */	blr
 
 .global Draw__10CGuiCameraCFRC19CGuiWidgetDrawParms
 Draw__10CGuiCameraCFRC19CGuiWidgetDrawParms:
@@ -430,7 +430,7 @@ lbl_802C1674:
 /* 802C16AC 002BE60C  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 802C16B0 002BE610  7C 08 03 A6 */	mtlr r0
 /* 802C16B4 002BE614  38 21 00 70 */	addi r1, r1, 0x70
-/* 802C16B8 002BE618  4E 80 00 20 */	blr 
+/* 802C16B8 002BE618  4E 80 00 20 */	blr
 
 .global __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffff
 __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffff:
@@ -466,7 +466,7 @@ __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffff:
 /* 802C1730 002BE690  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C1734 002BE694  7C 08 03 A6 */	mtlr r0
 /* 802C1738 002BE698  38 21 00 40 */	addi r1, r1, 0x40
-/* 802C173C 002BE69C  4E 80 00 20 */	blr 
+/* 802C173C 002BE69C  4E 80 00 20 */	blr
 
 .global __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffffff
 __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffffff:
@@ -517,7 +517,7 @@ __ct__10CGuiCameraFRCQ210CGuiWidget15CGuiWidgetParmsffffff:
 /* 802C17F0 002BE750  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C17F4 002BE754  7C 08 03 A6 */	mtlr r0
 /* 802C17F8 002BE758  38 21 00 60 */	addi r1, r1, 0x60
-/* 802C17FC 002BE75C  4E 80 00 20 */	blr 
+/* 802C17FC 002BE75C  4E 80 00 20 */	blr
 
 .global Create__10CGuiCameraFP9CGuiFrameR12CInputStreamb
 Create__10CGuiCameraFP9CGuiFrameR12CInputStreamb:
@@ -648,12 +648,12 @@ lbl_802C19A8:
 /* 802C19E0 002BE940  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 802C19E4 002BE944  7C 08 03 A6 */	mtlr r0
 /* 802C19E8 002BE948  38 21 00 80 */	addi r1, r1, 0x80
-/* 802C19EC 002BE94C  4E 80 00 20 */	blr 
+/* 802C19EC 002BE94C  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__18CGuiCompoundWidgetCFv
 GetWidgetTypeID__18CGuiCompoundWidgetCFv:
 /* 802C19F0 002BE950  38 60 FF FF */	li r3, -1
-/* 802C19F4 002BE954  4E 80 00 20 */	blr 
+/* 802C19F4 002BE954  4E 80 00 20 */	blr
 
 .global OnVisible__18CGuiCompoundWidgetFv
 OnVisible__18CGuiCompoundWidgetFv:
@@ -671,7 +671,7 @@ lbl_802C1A1C:
 /* 802C1A20 002BE980  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C1A24 002BE984  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802C1A28 002BE988  7D 89 03 A6 */	mtctr r12
-/* 802C1A2C 002BE98C  4E 80 04 21 */	bctrl 
+/* 802C1A2C 002BE98C  4E 80 04 21 */	bctrl
 /* 802C1A30 002BE990  7C 64 1B 78 */	mr r4, r3
 /* 802C1A34 002BE994  7F E3 FB 78 */	mr r3, r31
 /* 802C1A38 002BE998  48 00 8B F5 */	bl SetIsVisible__10CGuiWidgetFb
@@ -688,7 +688,7 @@ lbl_802C1A48:
 /* 802C1A60 002BE9C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C1A64 002BE9C4  7C 08 03 A6 */	mtlr r0
 /* 802C1A68 002BE9C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1A6C 002BE9CC  4E 80 00 20 */	blr 
+/* 802C1A6C 002BE9CC  4E 80 00 20 */	blr
 
 .global OnActivate__18CGuiCompoundWidgetFb
 OnActivate__18CGuiCompoundWidgetFb:
@@ -706,7 +706,7 @@ lbl_802C1A94:
 /* 802C1A98 002BE9F8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C1A9C 002BE9FC  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 802C1AA0 002BEA00  7D 89 03 A6 */	mtctr r12
-/* 802C1AA4 002BEA04  4E 80 04 21 */	bctrl 
+/* 802C1AA4 002BEA04  4E 80 04 21 */	bctrl
 /* 802C1AA8 002BEA08  7C 64 1B 78 */	mr r4, r3
 /* 802C1AAC 002BEA0C  7F E3 FB 78 */	mr r3, r31
 /* 802C1AB0 002BEA10  48 00 8B 35 */	bl SetIsActive__10CGuiWidgetFb
@@ -723,7 +723,7 @@ lbl_802C1AC0:
 /* 802C1AD8 002BEA38  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C1ADC 002BEA3C  7C 08 03 A6 */	mtlr r0
 /* 802C1AE0 002BEA40  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1AE4 002BEA44  4E 80 00 20 */	blr 
+/* 802C1AE4 002BEA44  4E 80 00 20 */	blr
 
 .global GetWorkerWidget__18CGuiCompoundWidgetFi
 GetWorkerWidget__18CGuiCompoundWidgetFi:
@@ -747,7 +747,7 @@ lbl_802C1B1C:
 /* 802C1B20 002BEA80  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C1B24 002BEA84  7C 08 03 A6 */	mtlr r0
 /* 802C1B28 002BEA88  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1B2C 002BEA8C  4E 80 00 20 */	blr 
+/* 802C1B2C 002BEA8C  4E 80 00 20 */	blr
 
 .global __dt__18CGuiCompoundWidgetFv
 __dt__18CGuiCompoundWidgetFv:
@@ -775,7 +775,7 @@ lbl_802C1B74:
 /* 802C1B80 002BEAE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C1B84 002BEAE4  7C 08 03 A6 */	mtlr r0
 /* 802C1B88 002BEAE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1B8C 002BEAEC  4E 80 00 20 */	blr 
+/* 802C1B8C 002BEAEC  4E 80 00 20 */	blr
 
 .global __ct__18CGuiCompoundWidgetFRCQ210CGuiWidget15CGuiWidgetParms
 __ct__18CGuiCompoundWidgetFRCQ210CGuiWidget15CGuiWidgetParms:
@@ -793,7 +793,7 @@ __ct__18CGuiCompoundWidgetFRCQ210CGuiWidget15CGuiWidgetParms:
 /* 802C1BBC 002BEB1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C1BC0 002BEB20  7C 08 03 A6 */	mtlr r0
 /* 802C1BC4 002BEB24  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1BC8 002BEB28  4E 80 00 20 */	blr 
+/* 802C1BC8 002BEB28  4E 80 00 20 */	blr
 
 .global FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStreamb
 FGuiWidgetFactoryInGame__FUiP9CGuiFrameR12CInputStreamb:
@@ -954,7 +954,7 @@ lbl_802C1DE4:
 /* 802C1DE4 002BED44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C1DE8 002BED48  7C 08 03 A6 */	mtlr r0
 /* 802C1DEC 002BED4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1DF0 002BED50  4E 80 00 20 */	blr 
+/* 802C1DF0 002BED50  4E 80 00 20 */	blr
 
 .global RGuiFrameFactoryInGame__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 RGuiFrameFactoryInGame__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -1000,7 +1000,7 @@ RGuiFrameFactoryInGame__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 802C1E90 002BEDF0  38 80 00 01 */	li r4, 1
 /* 802C1E94 002BEDF4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802C1E98 002BEDF8  7D 89 03 A6 */	mtctr r12
-/* 802C1E9C 002BEDFC  4E 80 04 21 */	bctrl 
+/* 802C1E9C 002BEDFC  4E 80 04 21 */	bctrl
 lbl_802C1EA0:
 /* 802C1EA0 002BEE00  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 802C1EA4 002BEE04  28 00 00 00 */	cmplwi r0, 0
@@ -1015,7 +1015,7 @@ lbl_802C1EB8:
 /* 802C1EC4 002BEE24  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802C1EC8 002BEE28  7C 08 03 A6 */	mtlr r0
 /* 802C1ECC 002BEE2C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C1ED0 002BEE30  4E 80 00 20 */	blr 
+/* 802C1ED0 002BEE30  4E 80 00 20 */	blr
 
 .global "__dt__36TObjOwnerDerivedFromIObj<9CGuiFrame>Fv"
 "__dt__36TObjOwnerDerivedFromIObj<9CGuiFrame>Fv":
@@ -1057,7 +1057,7 @@ lbl_802C1F48:
 /* 802C1F54 002BEEB4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C1F58 002BEEB8  7C 08 03 A6 */	mtlr r0
 /* 802C1F5C 002BEEBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1F60 002BEEC0  4E 80 00 20 */	blr 
+/* 802C1F60 002BEEC0  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__18TToken<9CGuiFrame>FRCQ24rstl20auto_ptr<9CGuiFrame>"
 "GetIObjObjectFor__18TToken<9CGuiFrame>FRCQ24rstl20auto_ptr<9CGuiFrame>":
@@ -1071,7 +1071,7 @@ lbl_802C1F48:
 /* 802C1F80 002BEEE0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C1F84 002BEEE4  7C 08 03 A6 */	mtlr r0
 /* 802C1F88 002BEEE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C1F8C 002BEEEC  4E 80 00 20 */	blr 
+/* 802C1F8C 002BEEEC  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__36TObjOwnerDerivedFromIObj<9CGuiFrame>FRCQ24rstl20auto_ptr<9CGuiFrame>"
 "GetNewDerivedObject__36TObjOwnerDerivedFromIObj<9CGuiFrame>FRCQ24rstl20auto_ptr<9CGuiFrame>":
@@ -1114,7 +1114,7 @@ lbl_802C2000:
 /* 802C201C 002BEF7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C2020 002BEF80  7C 08 03 A6 */	mtlr r0
 /* 802C2024 002BEF84  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2028 002BEF88  4E 80 00 20 */	blr 
+/* 802C2028 002BEF88  4E 80 00 20 */	blr
 
 .global __sinit_CGuiFeeHelper_cpp
 __sinit_CGuiFeeHelper_cpp:
@@ -1187,14 +1187,14 @@ __sinit_CGuiFeeHelper_cpp:
 /* 802C2134 002BF094  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C2138 002BF098  7C 08 03 A6 */	mtlr r0
 /* 802C213C 002BF09C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2140 002BF0A0  4E 80 00 20 */	blr 
+/* 802C2140 002BF0A0  4E 80 00 20 */	blr
 
 .global GetFrameLight__9CGuiFrameFi
 GetFrameLight__9CGuiFrameFi:
 /* 802C2144 002BF0A4  80 63 00 48 */	lwz r3, 0x48(r3)
 /* 802C2148 002BF0A8  54 80 10 3A */	slwi r0, r4, 2
 /* 802C214C 002BF0AC  7C 63 00 2E */	lwzx r3, r3, r0
-/* 802C2150 002BF0B0  4E 80 00 20 */	blr 
+/* 802C2150 002BF0B0  4E 80 00 20 */	blr
 
 .global FindWidget__9CGuiFrameCFPCc
 FindWidget__9CGuiFrameCFPCc:
@@ -1216,17 +1216,17 @@ FindWidget__9CGuiFrameCFPCc:
 /* 802C2190 002BF0F0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C2194 002BF0F4  7C 08 03 A6 */	mtlr r0
 /* 802C2198 002BF0F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C219C 002BF0FC  4E 80 00 20 */	blr 
+/* 802C219C 002BF0FC  4E 80 00 20 */	blr
 
 .global SetFrameCamera__9CGuiFrameFP10CGuiCamera
 SetFrameCamera__9CGuiFrameFP10CGuiCamera:
 /* 802C21A0 002BF100  90 83 00 14 */	stw r4, 0x14(r3)
-/* 802C21A4 002BF104  4E 80 00 20 */	blr 
+/* 802C21A4 002BF104  4E 80 00 20 */	blr
 
 .global SetHeadWidget__9CGuiFrameFP14CGuiHeadWidget
 SetHeadWidget__9CGuiFrameFP14CGuiHeadWidget:
 /* 802C21A8 002BF108  90 83 00 0C */	stw r4, 0xc(r3)
-/* 802C21AC 002BF10C  4E 80 00 20 */	blr 
+/* 802C21AC 002BF10C  4E 80 00 20 */	blr
 
 .global FindWidget__9CGuiFrameCFs
 FindWidget__9CGuiFrameCFs:
@@ -1238,7 +1238,7 @@ FindWidget__9CGuiFrameCFs:
 /* 802C21C4 002BF124  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C21C8 002BF128  7C 08 03 A6 */	mtlr r0
 /* 802C21CC 002BF12C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C21D0 002BF130  4E 80 00 20 */	blr 
+/* 802C21D0 002BF130  4E 80 00 20 */	blr
 
 .global "FindWidget__9CGuiFrameCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "FindWidget__9CGuiFrameCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1263,7 +1263,7 @@ lbl_802C2210:
 /* 802C2214 002BF174  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C2218 002BF178  7C 08 03 A6 */	mtlr r0
 /* 802C221C 002BF17C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2220 002BF180  4E 80 00 20 */	blr 
+/* 802C2220 002BF180  4E 80 00 20 */	blr
 
 .global sub_802c2224
 sub_802c2224:
@@ -1301,7 +1301,7 @@ lbl_802C2290:
 /* 802C2290 002BF1F0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C2294 002BF1F4  7C 08 03 A6 */	mtlr r0
 /* 802C2298 002BF1F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C229C 002BF1FC  4E 80 00 20 */	blr 
+/* 802C229C 002BF1FC  4E 80 00 20 */	blr
 
 .global sub_802c22a0
 sub_802c22a0:
@@ -1323,7 +1323,7 @@ sub_802c22a0:
 /* 802C22DC 002BF23C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C22E0 002BF240  7C 08 03 A6 */	mtlr r0
 /* 802C22E4 002BF244  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C22E8 002BF248  4E 80 00 20 */	blr 
+/* 802C22E8 002BF248  4E 80 00 20 */	blr
 
 .global sub_802c22ec
 sub_802c22ec:
@@ -1368,7 +1368,7 @@ lbl_802C2354:
 /* 802C2370 002BF2D0  80 05 00 00 */	lwz r0, 0(r5)
 /* 802C2374 002BF2D4  90 03 00 00 */	stw r0, 0(r3)
 /* 802C2378 002BF2D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C237C 002BF2DC  4E 80 00 20 */	blr 
+/* 802C237C 002BF2DC  4E 80 00 20 */	blr
 
 .global SortDrawOrder__9CGuiFrameFv
 SortDrawOrder__9CGuiFrameFv:
@@ -1393,7 +1393,7 @@ SortDrawOrder__9CGuiFrameFv:
 /* 802C23C8 002BF328  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C23CC 002BF32C  7C 08 03 A6 */	mtlr r0
 /* 802C23D0 002BF330  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C23D4 002BF334  4E 80 00 20 */	blr 
+/* 802C23D4 002BF334  4E 80 00 20 */	blr
 
 .global EnableLights__9CGuiFrameCFUi
 EnableLights__9CGuiFrameCFUi:
@@ -1424,7 +1424,7 @@ lbl_802C2410:
 /* 802C2434 002BF394  81 9A 00 00 */	lwz r12, 0(r26)
 /* 802C2438 002BF398  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802C243C 002BF39C  7D 89 03 A6 */	mtctr r12
-/* 802C2440 002BF3A0  4E 80 04 21 */	bctrl 
+/* 802C2440 002BF3A0  4E 80 04 21 */	bctrl
 /* 802C2444 002BF3A4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C2448 002BF3A8  41 82 00 6C */	beq lbl_802C24B4
 /* 802C244C 002BF3AC  88 1A 00 A8 */	lbz r0, 0xa8(r26)
@@ -1475,7 +1475,7 @@ lbl_802C24E4:
 /* 802C24E8 002BF448  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802C24EC 002BF44C  7C 08 03 A6 */	mtlr r0
 /* 802C24F0 002BF450  38 21 00 80 */	addi r1, r1, 0x80
-/* 802C24F4 002BF454  4E 80 00 20 */	blr 
+/* 802C24F4 002BF454  4E 80 00 20 */	blr
 
 .global DisableLights__9CGuiFrameCFv
 DisableLights__9CGuiFrameCFv:
@@ -1486,7 +1486,7 @@ DisableLights__9CGuiFrameCFv:
 /* 802C2508 002BF468  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C250C 002BF46C  7C 08 03 A6 */	mtlr r0
 /* 802C2510 002BF470  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2514 002BF474  4E 80 00 20 */	blr 
+/* 802C2514 002BF474  4E 80 00 20 */	blr
 
 .global RemoveLight__9CGuiFrameFP9CGuiLight
 RemoveLight__9CGuiFrameFP9CGuiLight:
@@ -1495,10 +1495,10 @@ RemoveLight__9CGuiFrameFP9CGuiLight:
 /* 802C2520 002BF480  54 03 10 3A */	slwi r3, r0, 2
 /* 802C2524 002BF484  7C 05 18 2E */	lwzx r0, r5, r3
 /* 802C2528 002BF488  7C 00 20 40 */	cmplw r0, r4
-/* 802C252C 002BF48C  4C 82 00 20 */	bnelr 
+/* 802C252C 002BF48C  4C 82 00 20 */	bnelr
 /* 802C2530 002BF490  38 00 00 00 */	li r0, 0
 /* 802C2534 002BF494  7C 05 19 2E */	stwx r0, r5, r3
-/* 802C2538 002BF498  4E 80 00 20 */	blr 
+/* 802C2538 002BF498  4E 80 00 20 */	blr
 
 .global AddLight__9CGuiFrameFP9CGuiLight
 AddLight__9CGuiFrameFP9CGuiLight:
@@ -1506,7 +1506,7 @@ AddLight__9CGuiFrameFP9CGuiLight:
 /* 802C2540 002BF4A0  80 63 00 48 */	lwz r3, 0x48(r3)
 /* 802C2544 002BF4A4  54 00 10 3A */	slwi r0, r0, 2
 /* 802C2548 002BF4A8  7C 83 01 2E */	stwx r4, r3, r0
-/* 802C254C 002BF4AC  4E 80 00 20 */	blr 
+/* 802C254C 002BF4AC  4E 80 00 20 */	blr
 
 .global GetIsFinishedLoading__9CGuiFrameCFv
 GetIsFinishedLoading__9CGuiFrameCFv:
@@ -1554,7 +1554,7 @@ lbl_802C25D8:
 /* 802C25E0 002BF540  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C25E4 002BF544  7C 08 03 A6 */	mtlr r0
 /* 802C25E8 002BF548  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C25EC 002BF54C  4E 80 00 20 */	blr 
+/* 802C25EC 002BF54C  4E 80 00 20 */	blr
 
 .global Touch__9CGuiFrameCFv
 Touch__9CGuiFrameCFv:
@@ -1571,7 +1571,7 @@ lbl_802C2610:
 /* 802C2614 002BF574  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C2618 002BF578  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 802C261C 002BF57C  7D 89 03 A6 */	mtctr r12
-/* 802C2620 002BF580  4E 80 04 21 */	bctrl 
+/* 802C2620 002BF580  4E 80 04 21 */	bctrl
 /* 802C2624 002BF584  3B FF 00 04 */	addi r31, r31, 4
 lbl_802C2628:
 /* 802C2628 002BF588  80 1E 00 30 */	lwz r0, 0x30(r30)
@@ -1585,7 +1585,7 @@ lbl_802C2628:
 /* 802C2648 002BF5A8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C264C 002BF5AC  7C 08 03 A6 */	mtlr r0
 /* 802C2650 002BF5B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2654 002BF5B4  4E 80 00 20 */	blr 
+/* 802C2654 002BF5B4  4E 80 00 20 */	blr
 
 .global ProcessUserInput__9CGuiFrameFRC11CFinalInput
 ProcessUserInput__9CGuiFrameFRC11CFinalInput:
@@ -1609,7 +1609,7 @@ lbl_802C2690:
 /* 802C2698 002BF5F8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C269C 002BF5FC  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 802C26A0 002BF600  7D 89 03 A6 */	mtctr r12
-/* 802C26A4 002BF604  4E 80 04 21 */	bctrl 
+/* 802C26A4 002BF604  4E 80 04 21 */	bctrl
 /* 802C26A8 002BF608  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C26AC 002BF60C  41 82 00 1C */	beq lbl_802C26C8
 /* 802C26B0 002BF610  7F C3 F3 78 */	mr r3, r30
@@ -1617,7 +1617,7 @@ lbl_802C2690:
 /* 802C26B8 002BF618  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C26BC 002BF61C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802C26C0 002BF620  7D 89 03 A6 */	mtctr r12
-/* 802C26C4 002BF624  4E 80 04 21 */	bctrl 
+/* 802C26C4 002BF624  4E 80 04 21 */	bctrl
 lbl_802C26C8:
 /* 802C26C8 002BF628  3B FF 00 04 */	addi r31, r31, 4
 lbl_802C26CC:
@@ -1635,7 +1635,7 @@ lbl_802C26E4:
 /* 802C26F4 002BF654  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802C26F8 002BF658  7C 08 03 A6 */	mtlr r0
 /* 802C26FC 002BF65C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C2700 002BF660  4E 80 00 20 */	blr 
+/* 802C2700 002BF660  4E 80 00 20 */	blr
 
 .global Update__9CGuiFrameFf
 Update__9CGuiFrameFf:
@@ -1646,11 +1646,11 @@ Update__9CGuiFrameFf:
 /* 802C2714 002BF674  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C2718 002BF678  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802C271C 002BF67C  7D 89 03 A6 */	mtctr r12
-/* 802C2720 002BF680  4E 80 04 21 */	bctrl 
+/* 802C2720 002BF680  4E 80 04 21 */	bctrl
 /* 802C2724 002BF684  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C2728 002BF688  7C 08 03 A6 */	mtlr r0
 /* 802C272C 002BF68C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2730 002BF690  4E 80 00 20 */	blr 
+/* 802C2730 002BF690  4E 80 00 20 */	blr
 
 .global Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms
 Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms:
@@ -1675,7 +1675,7 @@ Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms:
 /* 802C277C 002BF6DC  81 83 00 00 */	lwz r12, 0(r3)
 /* 802C2780 002BF6E0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802C2784 002BF6E4  7D 89 03 A6 */	mtctr r12
-/* 802C2788 002BF6E8  4E 80 04 21 */	bctrl 
+/* 802C2788 002BF6E8  4E 80 04 21 */	bctrl
 /* 802C278C 002BF6EC  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
 /* 802C2790 002BF6F0  38 60 00 00 */	li r3, 0
 /* 802C2794 002BF6F4  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
@@ -1693,7 +1693,7 @@ lbl_802C27B8:
 /* 802C27C0 002BF720  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C27C4 002BF724  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802C27C8 002BF728  7D 89 03 A6 */	mtctr r12
-/* 802C27CC 002BF72C  4E 80 04 21 */	bctrl 
+/* 802C27CC 002BF72C  4E 80 04 21 */	bctrl
 /* 802C27D0 002BF730  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C27D4 002BF734  41 82 00 1C */	beq lbl_802C27F0
 /* 802C27D8 002BF738  7F C3 F3 78 */	mr r3, r30
@@ -1701,7 +1701,7 @@ lbl_802C27B8:
 /* 802C27E0 002BF740  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C27E4 002BF744  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802C27E8 002BF748  7D 89 03 A6 */	mtctr r12
-/* 802C27EC 002BF74C  4E 80 04 21 */	bctrl 
+/* 802C27EC 002BF74C  4E 80 04 21 */	bctrl
 lbl_802C27F0:
 /* 802C27F0 002BF750  3B FF 00 04 */	addi r31, r31, 4
 lbl_802C27F4:
@@ -1720,7 +1720,7 @@ lbl_802C27F4:
 /* 802C2824 002BF784  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802C2828 002BF788  7C 08 03 A6 */	mtlr r0
 /* 802C282C 002BF78C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C2830 002BF790  4E 80 00 20 */	blr 
+/* 802C2830 002BF790  4E 80 00 20 */	blr
 
 .global Initialize__9CGuiFrameFv
 Initialize__9CGuiFrameFv:
@@ -1740,7 +1740,7 @@ Initialize__9CGuiFrameFv:
 /* 802C2868 002BF7C8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C286C 002BF7CC  7C 08 03 A6 */	mtlr r0
 /* 802C2870 002BF7D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C2874 002BF7D4  4E 80 00 20 */	blr 
+/* 802C2874 002BF7D4  4E 80 00 20 */	blr
 
 .global LoadWidgetsInGame__9CGuiFrameFR12CInputStream
 LoadWidgetsInGame__9CGuiFrameFR12CInputStream:
@@ -1773,7 +1773,7 @@ lbl_802C28C0:
 /* 802C28DC 002BF83C  7C 7A 1B 78 */	mr r26, r3
 /* 802C28E0 002BF840  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 802C28E4 002BF844  7D 89 03 A6 */	mtctr r12
-/* 802C28E8 002BF848  4E 80 04 21 */	bctrl 
+/* 802C28E8 002BF848  4E 80 04 21 */	bctrl
 /* 802C28EC 002BF84C  3C 03 BC BF */	addis r0, r3, 0xbcbf
 /* 802C28F0 002BF850  28 00 4D 52 */	cmplwi r0, 0x4d52
 /* 802C28F4 002BF854  41 82 00 90 */	beq lbl_802C2984
@@ -1781,7 +1781,7 @@ lbl_802C28C0:
 /* 802C28FC 002BF85C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 802C2900 002BF860  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 802C2904 002BF864  7D 89 03 A6 */	mtctr r12
-/* 802C2908 002BF868  4E 80 04 21 */	bctrl 
+/* 802C2908 002BF868  4E 80 04 21 */	bctrl
 /* 802C290C 002BF86C  3C 03 B3 B7 */	addis r0, r3, 0xb3b7
 /* 802C2910 002BF870  28 00 54 45 */	cmplwi r0, 0x5445
 /* 802C2914 002BF874  41 82 00 70 */	beq lbl_802C2984
@@ -1789,7 +1789,7 @@ lbl_802C28C0:
 /* 802C291C 002BF87C  81 9A 00 00 */	lwz r12, 0(r26)
 /* 802C2920 002BF880  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 802C2924 002BF884  7D 89 03 A6 */	mtctr r12
-/* 802C2928 002BF888  4E 80 04 21 */	bctrl 
+/* 802C2928 002BF888  4E 80 04 21 */	bctrl
 /* 802C292C 002BF88C  3C 03 BD B9 */	addis r0, r3, 0xbdb9
 /* 802C2930 002BF890  28 00 4E 44 */	cmplwi r0, 0x4e44
 /* 802C2934 002BF894  41 82 00 50 */	beq lbl_802C2984
@@ -1827,13 +1827,13 @@ lbl_802C2988:
 /* 802C29A0 002BF900  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C29A4 002BF904  7C 08 03 A6 */	mtlr r0
 /* 802C29A8 002BF908  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C29AC 002BF90C  4E 80 00 20 */	blr 
+/* 802C29AC 002BF90C  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__10CGuiWidgetCFv
 GetWidgetTypeID__10CGuiWidgetCFv:
 /* 802C29B0 002BF910  3C 60 42 57 */	lis r3, 0x42574947@ha
 /* 802C29B4 002BF914  38 63 49 47 */	addi r3, r3, 0x42574947@l
-/* 802C29B8 002BF918  4E 80 00 20 */	blr 
+/* 802C29B8 002BF918  4E 80 00 20 */	blr
 
 .global CreateFrame__9CGuiFrameFUiR7CGuiSysR12CInputStreami
 CreateFrame__9CGuiFrameFUiR7CGuiSysR12CInputStreami:
@@ -1885,7 +1885,7 @@ lbl_802C2A50:
 /* 802C2A6C 002BF9CC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C2A70 002BF9D0  7C 08 03 A6 */	mtlr r0
 /* 802C2A74 002BF9D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C2A78 002BF9D8  4E 80 00 20 */	blr 
+/* 802C2A78 002BF9D8  4E 80 00 20 */	blr
 
 .global __dt__9CGuiFrameFv
 __dt__9CGuiFrameFv:
@@ -1905,7 +1905,7 @@ __dt__9CGuiFrameFv:
 /* 802C2AB0 002BFA10  38 80 00 01 */	li r4, 1
 /* 802C2AB4 002BFA14  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802C2AB8 002BFA18  7D 89 03 A6 */	mtctr r12
-/* 802C2ABC 002BFA1C  4E 80 04 21 */	bctrl 
+/* 802C2ABC 002BFA1C  4E 80 04 21 */	bctrl
 lbl_802C2AC0:
 /* 802C2AC0 002BFA20  34 1E 00 3C */	addic. r0, r30, 0x3c
 /* 802C2AC4 002BFA24  41 82 00 44 */	beq lbl_802C2B08
@@ -1963,7 +1963,7 @@ lbl_802C2B6C:
 /* 802C2B78 002BFAD8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802C2B7C 002BFADC  7C 08 03 A6 */	mtlr r0
 /* 802C2B80 002BFAE0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C2B84 002BFAE4  4E 80 00 20 */	blr 
+/* 802C2B84 002BFAE4  4E 80 00 20 */	blr
 
 .global sub_802c2b88
 sub_802c2b88:
@@ -2015,7 +2015,7 @@ lbl_802C2C14:
 /* 802C2C28 002BFB88  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802C2C2C 002BFB8C  7C 08 03 A6 */	mtlr r0
 /* 802C2C30 002BFB90  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C2C34 002BFB94  4E 80 00 20 */	blr 
+/* 802C2C34 002BFB94  4E 80 00 20 */	blr
 
 .global __ct__9CGuiFrameFUiR7CGuiSysiiii
 __ct__9CGuiFrameFUiR7CGuiSysiiii:
@@ -2203,7 +2203,7 @@ lbl_802C2EA4:
 /* 802C2EBC 002BFE1C  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 802C2EC0 002BFE20  7C 08 03 A6 */	mtlr r0
 /* 802C2EC4 002BFE24  38 21 00 60 */	addi r1, r1, 0x60
-/* 802C2EC8 002BFE28  4E 80 00 20 */	blr 
+/* 802C2EC8 002BFE28  4E 80 00 20 */	blr
 
 .global "sort<Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl24CWidgetFartherFromCamera>__4rstlFQ24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl24CWidgetFartherFromCamera"
 "sort<Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,Q24rstl24CWidgetFartherFromCamera>__4rstlFQ24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl116pointer_iterator<P10CGuiWidget,Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl24CWidgetFartherFromCamera":
@@ -2354,7 +2354,7 @@ lbl_802C30EC:
 /* 802C30F0 002C0050  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802C30F4 002C0054  7C 08 03 A6 */	mtlr r0
 /* 802C30F8 002C0058  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802C30FC 002C005C  4E 80 00 20 */	blr 
+/* 802C30FC 002C005C  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl48vector<P10CGuiWidget,Q24rstl17rmemory_allocator>Fi":
@@ -2425,7 +2425,7 @@ lbl_802C31D0:
 /* 802C31DC 002C013C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802C31E0 002C0140  7C 08 03 A6 */	mtlr r0
 /* 802C31E4 002C0144  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C31E8 002C0148  4E 80 00 20 */	blr 
+/* 802C31E8 002C0148  4E 80 00 20 */	blr
 
 .global sub_802c31ec
 sub_802c31ec:
@@ -2492,7 +2492,7 @@ lbl_802C32C4:
 /* 802C32D0 002C0230  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802C32D4 002C0234  7C 08 03 A6 */	mtlr r0
 /* 802C32D8 002C0238  38 21 00 80 */	addi r1, r1, 0x80
-/* 802C32DC 002C023C  4E 80 00 20 */	blr 
+/* 802C32DC 002C023C  4E 80 00 20 */	blr
 
 .global sub_802c32e0
 sub_802c32e0:
@@ -2552,13 +2552,13 @@ lbl_802C3390:
 /* 802C33A0 002C0300  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802C33A4 002C0304  7C 08 03 A6 */	mtlr r0
 /* 802C33A8 002C0308  38 21 00 60 */	addi r1, r1, 0x60
-/* 802C33AC 002C030C  4E 80 00 20 */	blr 
+/* 802C33AC 002C030C  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__9CGuiGroupCFv
 GetWidgetTypeID__9CGuiGroupCFv:
 /* 802C33B0 002C0310  3C 60 47 52 */	lis r3, 0x47525550@ha
 /* 802C33B4 002C0314  38 63 55 50 */	addi r3, r3, 0x47525550@l
-/* 802C33B8 002C0318  4E 80 00 20 */	blr 
+/* 802C33B8 002C0318  4E 80 00 20 */	blr
 
 .global GetSelectedWidget__9CGuiGroupFv
 GetSelectedWidget__9CGuiGroupFv:
@@ -2569,11 +2569,11 @@ GetSelectedWidget__9CGuiGroupFv:
 /* 802C33CC 002C032C  80 83 00 BC */	lwz r4, 0xbc(r3)
 /* 802C33D0 002C0330  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802C33D4 002C0334  7D 89 03 A6 */	mtctr r12
-/* 802C33D8 002C0338  4E 80 04 21 */	bctrl 
+/* 802C33D8 002C0338  4E 80 04 21 */	bctrl
 /* 802C33DC 002C033C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C33E0 002C0340  7C 08 03 A6 */	mtlr r0
 /* 802C33E4 002C0344  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C33E8 002C0348  4E 80 00 20 */	blr 
+/* 802C33E8 002C0348  4E 80 00 20 */	blr
 
 .global AddWorkerWidget__9CGuiGroupFP10CGuiWidget
 AddWorkerWidget__9CGuiGroupFP10CGuiWidget:
@@ -2581,7 +2581,7 @@ AddWorkerWidget__9CGuiGroupFP10CGuiWidget:
 /* 802C33F0 002C0350  38 04 00 01 */	addi r0, r4, 1
 /* 802C33F4 002C0354  90 03 00 B8 */	stw r0, 0xb8(r3)
 /* 802C33F8 002C0358  38 60 00 01 */	li r3, 1
-/* 802C33FC 002C035C  4E 80 00 20 */	blr 
+/* 802C33FC 002C035C  4E 80 00 20 */	blr
 
 .global OnActivate__9CGuiGroupFv
 OnActivate__9CGuiGroupFv:
@@ -2598,7 +2598,7 @@ OnActivate__9CGuiGroupFv:
 /* 802C3428 002C0388  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C342C 002C038C  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 802C3430 002C0390  7D 89 03 A6 */	mtctr r12
-/* 802C3434 002C0394  4E 80 04 21 */	bctrl 
+/* 802C3434 002C0394  4E 80 04 21 */	bctrl
 /* 802C3438 002C0398  7C 64 1B 78 */	mr r4, r3
 /* 802C343C 002C039C  7F E3 FB 78 */	mr r3, r31
 /* 802C3440 002C03A0  48 00 71 A5 */	bl SetIsActive__10CGuiWidgetFb
@@ -2608,7 +2608,7 @@ lbl_802C3444:
 /* 802C344C 002C03AC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C3450 002C03B0  7C 08 03 A6 */	mtlr r0
 /* 802C3454 002C03B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C3458 002C03B8  4E 80 00 20 */	blr 
+/* 802C3458 002C03B8  4E 80 00 20 */	blr
 
 .global __ct__9CGuiGroupFRCQ210CGuiWidget15CGuiWidgetParmsib
 __ct__9CGuiGroupFRCQ210CGuiWidget15CGuiWidgetParmsib:
@@ -2636,7 +2636,7 @@ __ct__9CGuiGroupFRCQ210CGuiWidget15CGuiWidgetParmsib:
 /* 802C34B0 002C0410  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C34B4 002C0414  7C 08 03 A6 */	mtlr r0
 /* 802C34B8 002C0418  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C34BC 002C041C  4E 80 00 20 */	blr 
+/* 802C34BC 002C041C  4E 80 00 20 */	blr
 
 .global Create__9CGuiGroupFP9CGuiFrameR12CInputStreamb
 Create__9CGuiGroupFP9CGuiFrameR12CInputStreamb:

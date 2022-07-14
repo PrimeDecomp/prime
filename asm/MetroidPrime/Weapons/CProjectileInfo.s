@@ -159,7 +159,7 @@ lbl_8021BEB0:
 /* 8021BEDC 00218E3C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8021BEE0 00218E40  7C 08 03 A6 */	mtlr r0
 /* 8021BEE4 00218E44  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8021BEE8 00218E48  4E 80 00 20 */	blr 
+/* 8021BEE8 00218E48  4E 80 00 20 */	blr
 
 .global PredictInterceptPos__15CProjectileInfoFRC9CVector3fRC9CVector3fRC7CPlayerbf
 PredictInterceptPos__15CProjectileInfoFRC9CVector3fRC9CVector3fRC7CPlayerbf:
@@ -188,7 +188,7 @@ PredictInterceptPos__15CProjectileInfoFRC9CVector3fRC9CVector3fRC7CPlayerbf:
 /* 8021BF44 00218EA4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8021BF48 00218EA8  7C 08 03 A6 */	mtlr r0
 /* 8021BF4C 00218EAC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8021BF50 00218EB0  4E 80 00 20 */	blr 
+/* 8021BF50 00218EB0  4E 80 00 20 */	blr
 
 .global GetProjectileSpeed__15CProjectileInfoCFv
 GetProjectileSpeed__15CProjectileInfoCFv:
@@ -223,7 +223,7 @@ GetProjectileSpeed__15CProjectileInfoCFv:
 /* 8021BFC4 00218F24  81 83 00 00 */	lwz r12, 0(r3)
 /* 8021BFC8 00218F28  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8021BFCC 00218F2C  7D 89 03 A6 */	mtctr r12
-/* 8021BFD0 00218F30  4E 80 04 21 */	bctrl 
+/* 8021BFD0 00218F30  4E 80 04 21 */	bctrl
 /* 8021BFD4 00218F34  48 09 51 69 */	bl GetTickPeriod__17CProjectileWeaponFv
 /* 8021BFD8 00218F38  FF E0 08 90 */	fmr f31, f1
 /* 8021BFDC 00218F3C  38 61 00 10 */	addi r3, r1, 0x10
@@ -239,7 +239,7 @@ lbl_8021BFE8:
 /* 8021C000 00218F60  CB E1 00 20 */	lfd f31, 0x20(r1)
 /* 8021C004 00218F64  7C 08 03 A6 */	mtlr r0
 /* 8021C008 00218F68  38 21 00 30 */	addi r1, r1, 0x30
-/* 8021C00C 00218F6C  4E 80 00 20 */	blr 
+/* 8021C00C 00218F6C  4E 80 00 20 */	blr
 
 .global sub_8021c010
 sub_8021c010:
@@ -262,7 +262,7 @@ sub_8021c010:
 /* 8021C050 00218FB0  81 84 00 00 */	lwz r12, 0(r4)
 /* 8021C054 00218FB4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8021C058 00218FB8  7D 89 03 A6 */	mtctr r12
-/* 8021C05C 00218FBC  4E 80 04 21 */	bctrl 
+/* 8021C05C 00218FBC  4E 80 04 21 */	bctrl
 /* 8021C060 00218FC0  7F C3 F3 78 */	mr r3, r30
 /* 8021C064 00218FC4  38 81 00 08 */	addi r4, r1, 8
 /* 8021C068 00218FC8  48 12 4E 41 */	bl __ct__6CTokenFRC6CToken
@@ -280,7 +280,7 @@ sub_8021c010:
 /* 8021C098 00218FF8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8021C09C 00218FFC  7C 08 03 A6 */	mtlr r0
 /* 8021C0A0 00219000  38 21 00 20 */	addi r1, r1, 0x20
-/* 8021C0A4 00219004  4E 80 00 20 */	blr 
+/* 8021C0A4 00219004  4E 80 00 20 */	blr
 
 .global __ct__15CProjectileInfoFUiRC11CDamageInfo
 __ct__15CProjectileInfoFUiRC11CDamageInfo:
@@ -301,7 +301,7 @@ __ct__15CProjectileInfoFUiRC11CDamageInfo:
 /* 8021C0E0 00219040  81 84 00 00 */	lwz r12, 0(r4)
 /* 8021C0E4 00219044  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8021C0E8 00219048  7D 89 03 A6 */	mtctr r12
-/* 8021C0EC 0021904C  4E 80 04 21 */	bctrl 
+/* 8021C0EC 0021904C  4E 80 04 21 */	bctrl
 /* 8021C0F0 00219050  7F C3 F3 78 */	mr r3, r30
 /* 8021C0F4 00219054  38 81 00 08 */	addi r4, r1, 8
 /* 8021C0F8 00219058  48 12 4D B1 */	bl __ct__6CTokenFRC6CToken

@@ -5,7 +5,7 @@
 .global lbl_8046C538
 lbl_8046C538:
 	.skip 0x20
-	
+
 .section .text, "ax"
 
 .global GetNumMaterialSets__10CModelDataCFv
@@ -16,17 +16,17 @@ GetNumMaterialSets__10CModelDataCFv:
 /* 80114C54 00111BB4  80 64 00 E0 */	lwz r3, 0xe0(r4)
 /* 80114C58 00111BB8  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 80114C5C 00111BBC  80 63 00 1C */	lwz r3, 0x1c(r3)
-/* 80114C60 00111BC0  4E 80 00 20 */	blr 
+/* 80114C60 00111BC0  4E 80 00 20 */	blr
 lbl_80114C64:
 /* 80114C64 00111BC4  88 03 00 28 */	lbz r0, 0x28(r3)
 /* 80114C68 00111BC8  28 00 00 00 */	cmplwi r0, 0
 /* 80114C6C 00111BCC  41 82 00 10 */	beq lbl_80114C7C
 /* 80114C70 00111BD0  80 63 00 24 */	lwz r3, 0x24(r3)
 /* 80114C74 00111BD4  80 63 00 1C */	lwz r3, 0x1c(r3)
-/* 80114C78 00111BD8  4E 80 00 20 */	blr 
+/* 80114C78 00111BD8  4E 80 00 20 */	blr
 lbl_80114C7C:
 /* 80114C7C 00111BDC  38 60 00 01 */	li r3, 1
-/* 80114C80 00111BE0  4E 80 00 20 */	blr 
+/* 80114C80 00111BE0  4E 80 00 20 */	blr
 
 .global IsLoaded__10CModelDataCFi
 IsLoaded__10CModelDataCFi:
@@ -114,7 +114,7 @@ lbl_80114DA0:
 /* 80114DAC 00111D0C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80114DB0 00111D10  7C 08 03 A6 */	mtlr r0
 /* 80114DB4 00111D14  38 21 00 20 */	addi r1, r1, 0x20
-/* 80114DB8 00111D18  4E 80 00 20 */	blr 
+/* 80114DB8 00111D18  4E 80 00 20 */	blr
 
 .global Render__10CModelDataCFRC13CStateManagerRC12CTransform4fPC12CActorLightsRC11CModelFlags
 Render__10CModelDataCFRC13CStateManagerRC12CTransform4fPC12CActorLightsRC11CModelFlags:
@@ -144,7 +144,7 @@ Render__10CModelDataCFRC13CStateManagerRC12CTransform4fPC12CActorLightsRC11CMode
 /* 80114E18 00111D78  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80114E1C 00111D7C  7C 08 03 A6 */	mtlr r0
 /* 80114E20 00111D80  38 21 00 20 */	addi r1, r1, 0x20
-/* 80114E24 00111D84  4E 80 00 20 */	blr 
+/* 80114E24 00111D84  4E 80 00 20 */	blr
 
 .global HasModel__10CModelDataCF11EWhichModel
 HasModel__10CModelDataCF11EWhichModel:
@@ -163,24 +163,24 @@ lbl_80114E4C:
 /* 80114E54 00111DB4  48 00 00 24 */	b lbl_80114E78
 lbl_80114E58:
 /* 80114E58 00111DB8  38 60 00 01 */	li r3, 1
-/* 80114E5C 00111DBC  4E 80 00 20 */	blr 
+/* 80114E5C 00111DBC  4E 80 00 20 */	blr
 lbl_80114E60:
 /* 80114E60 00111DC0  80 65 00 F4 */	lwz r3, 0xf4(r5)
 /* 80114E64 00111DC4  80 63 00 00 */	lwz r3, 0(r3)
 /* 80114E68 00111DC8  7C 03 00 D0 */	neg r0, r3
 /* 80114E6C 00111DCC  7C 00 1B 78 */	or r0, r0, r3
 /* 80114E70 00111DD0  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80114E74 00111DD4  4E 80 00 20 */	blr 
+/* 80114E74 00111DD4  4E 80 00 20 */	blr
 lbl_80114E78:
 /* 80114E78 00111DD8  80 65 00 F8 */	lwz r3, 0xf8(r5)
 /* 80114E7C 00111DDC  80 63 00 00 */	lwz r3, 0(r3)
 /* 80114E80 00111DE0  7C 03 00 D0 */	neg r0, r3
 /* 80114E84 00111DE4  7C 00 1B 78 */	or r0, r0, r3
 /* 80114E88 00111DE8  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80114E8C 00111DEC  4E 80 00 20 */	blr 
+/* 80114E8C 00111DEC  4E 80 00 20 */	blr
 lbl_80114E90:
 /* 80114E90 00111DF0  38 60 00 00 */	li r3, 0
-/* 80114E94 00111DF4  4E 80 00 20 */	blr 
+/* 80114E94 00111DF4  4E 80 00 20 */	blr
 lbl_80114E98:
 /* 80114E98 00111DF8  2C 04 00 01 */	cmpwi r4, 1
 /* 80114E9C 00111DFC  41 82 00 28 */	beq lbl_80114EC4
@@ -194,16 +194,16 @@ lbl_80114EB0:
 /* 80114EB8 00111E18  48 00 00 14 */	b lbl_80114ECC
 lbl_80114EBC:
 /* 80114EBC 00111E1C  88 63 00 28 */	lbz r3, 0x28(r3)
-/* 80114EC0 00111E20  4E 80 00 20 */	blr 
+/* 80114EC0 00111E20  4E 80 00 20 */	blr
 lbl_80114EC4:
 /* 80114EC4 00111E24  88 63 00 38 */	lbz r3, 0x38(r3)
-/* 80114EC8 00111E28  4E 80 00 20 */	blr 
+/* 80114EC8 00111E28  4E 80 00 20 */	blr
 lbl_80114ECC:
 /* 80114ECC 00111E2C  88 63 00 48 */	lbz r3, 0x48(r3)
-/* 80114ED0 00111E30  4E 80 00 20 */	blr 
+/* 80114ED0 00111E30  4E 80 00 20 */	blr
 lbl_80114ED4:
 /* 80114ED4 00111E34  38 60 00 00 */	li r3, 0
-/* 80114ED8 00111E38  4E 80 00 20 */	blr 
+/* 80114ED8 00111E38  4E 80 00 20 */	blr
 
 .global GetRenderingModel__10CModelDataFRC13CStateManager
 GetRenderingModel__10CModelDataFRC13CStateManager:
@@ -243,7 +243,7 @@ lbl_80114F48:
 /* 80114F4C 00111EAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80114F50 00111EB0  7C 08 03 A6 */	mtlr r0
 /* 80114F54 00111EB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80114F58 00111EB8  4E 80 00 20 */	blr 
+/* 80114F58 00111EB8  4E 80 00 20 */	blr
 
 .global PickAnimatedModel__10CModelDataCFQ210CModelData11EWhichModel
 PickAnimatedModel__10CModelDataCFQ210CModelData11EWhichModel:
@@ -265,11 +265,11 @@ lbl_80114F90:
 /* 80114F90 00111EF0  28 00 00 00 */	cmplwi r0, 0
 /* 80114F94 00111EF4  41 82 00 0C */	beq lbl_80114FA0
 /* 80114F98 00111EF8  7C 03 03 78 */	mr r3, r0
-/* 80114F9C 00111EFC  4E 80 00 20 */	blr 
+/* 80114F9C 00111EFC  4E 80 00 20 */	blr
 lbl_80114FA0:
 /* 80114FA0 00111F00  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 80114FA4 00111F04  80 63 00 E0 */	lwz r3, 0xe0(r3)
-/* 80114FA8 00111F08  4E 80 00 20 */	blr 
+/* 80114FA8 00111F08  4E 80 00 20 */	blr
 
 .global PickStaticModel__10CModelDataCFQ210CModelData11EWhichModel
 PickStaticModel__10CModelDataCFQ210CModelData11EWhichModel:
@@ -282,16 +282,16 @@ PickStaticModel__10CModelDataCFQ210CModelData11EWhichModel:
 /* 80114FC4 00111F24  28 00 00 00 */	cmplwi r0, 0
 /* 80114FC8 00111F28  41 82 00 20 */	beq lbl_80114FE8
 /* 80114FCC 00111F2C  38 63 00 3C */	addi r3, r3, 0x3c
-/* 80114FD0 00111F30  4E 80 00 20 */	blr 
+/* 80114FD0 00111F30  4E 80 00 20 */	blr
 lbl_80114FD4:
 /* 80114FD4 00111F34  88 03 00 38 */	lbz r0, 0x38(r3)
 /* 80114FD8 00111F38  28 00 00 00 */	cmplwi r0, 0
 /* 80114FDC 00111F3C  41 82 00 0C */	beq lbl_80114FE8
 /* 80114FE0 00111F40  38 63 00 2C */	addi r3, r3, 0x2c
-/* 80114FE4 00111F44  4E 80 00 20 */	blr 
+/* 80114FE4 00111F44  4E 80 00 20 */	blr
 lbl_80114FE8:
 /* 80114FE8 00111F48  38 63 00 1C */	addi r3, r3, 0x1c
-/* 80114FEC 00111F4C  4E 80 00 20 */	blr 
+/* 80114FEC 00111F4C  4E 80 00 20 */	blr
 
 .global "SetXRayModel__10CModelDataFRCQ24rstl11pair<Ui,Ui>"
 "SetXRayModel__10CModelDataFRCQ24rstl11pair<Ui,Ui>":
@@ -337,7 +337,7 @@ lbl_80115038:
 /* 80115088 00111FE8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8011508C 00111FEC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80115090 00111FF0  7D 89 03 A6 */	mtctr r12
-/* 80115094 00111FF4  4E 80 04 21 */	bctrl 
+/* 80115094 00111FF4  4E 80 04 21 */	bctrl
 /* 80115098 00111FF8  38 61 00 30 */	addi r3, r1, 0x30
 /* 8011509C 00111FFC  38 81 00 38 */	addi r4, r1, 0x38
 /* 801150A0 00112000  48 22 BE 09 */	bl __ct__6CTokenFRC6CToken
@@ -360,7 +360,7 @@ lbl_80115038:
 /* 801150E4 00112044  81 84 00 00 */	lwz r12, 0(r4)
 /* 801150E8 00112048  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801150EC 0011204C  7D 89 03 A6 */	mtctr r12
-/* 801150F0 00112050  4E 80 04 21 */	bctrl 
+/* 801150F0 00112050  4E 80 04 21 */	bctrl
 /* 801150F4 00112054  38 61 00 18 */	addi r3, r1, 0x18
 /* 801150F8 00112058  38 81 00 20 */	addi r4, r1, 0x20
 /* 801150FC 0011205C  48 22 BD AD */	bl __ct__6CTokenFRC6CToken
@@ -407,7 +407,7 @@ lbl_8011517C:
 /* 8011519C 001120FC  81 84 00 00 */	lwz r12, 0(r4)
 /* 801151A0 00112100  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801151A4 00112104  7D 89 03 A6 */	mtctr r12
-/* 801151A8 00112108  4E 80 04 21 */	bctrl 
+/* 801151A8 00112108  4E 80 04 21 */	bctrl
 /* 801151AC 0011210C  3B A1 00 48 */	addi r29, r1, 0x48
 /* 801151B0 00112110  38 81 00 08 */	addi r4, r1, 8
 /* 801151B4 00112114  7F A3 EB 78 */	mr r3, r29
@@ -453,7 +453,7 @@ lbl_80115238:
 /* 80115244 001121A4  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 80115248 001121A8  7C 08 03 A6 */	mtlr r0
 /* 8011524C 001121AC  38 21 00 80 */	addi r1, r1, 0x80
-/* 80115250 001121B0  4E 80 00 20 */	blr 
+/* 80115250 001121B0  4E 80 00 20 */	blr
 
 .global "SetInfraModel__10CModelDataFRCQ24rstl11pair<Ui,Ui>"
 "SetInfraModel__10CModelDataFRCQ24rstl11pair<Ui,Ui>":
@@ -484,7 +484,7 @@ lbl_80115238:
 /* 801152B4 00112214  81 84 00 00 */	lwz r12, 0(r4)
 /* 801152B8 00112218  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801152BC 0011221C  7D 89 03 A6 */	mtctr r12
-/* 801152C0 00112220  4E 80 04 21 */	bctrl 
+/* 801152C0 00112220  4E 80 04 21 */	bctrl
 /* 801152C4 00112224  38 61 00 30 */	addi r3, r1, 0x30
 /* 801152C8 00112228  38 81 00 38 */	addi r4, r1, 0x38
 /* 801152CC 0011222C  48 22 BB DD */	bl __ct__6CTokenFRC6CToken
@@ -507,7 +507,7 @@ lbl_80115238:
 /* 80115310 00112270  81 84 00 00 */	lwz r12, 0(r4)
 /* 80115314 00112274  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80115318 00112278  7D 89 03 A6 */	mtctr r12
-/* 8011531C 0011227C  4E 80 04 21 */	bctrl 
+/* 8011531C 0011227C  4E 80 04 21 */	bctrl
 /* 80115320 00112280  38 61 00 18 */	addi r3, r1, 0x18
 /* 80115324 00112284  38 81 00 20 */	addi r4, r1, 0x20
 /* 80115328 00112288  48 22 BB 81 */	bl __ct__6CTokenFRC6CToken
@@ -553,7 +553,7 @@ lbl_801153A8:
 /* 801153C4 00112324  81 84 00 00 */	lwz r12, 0(r4)
 /* 801153C8 00112328  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801153CC 0011232C  7D 89 03 A6 */	mtctr r12
-/* 801153D0 00112330  4E 80 04 21 */	bctrl 
+/* 801153D0 00112330  4E 80 04 21 */	bctrl
 /* 801153D4 00112334  3B A1 00 48 */	addi r29, r1, 0x48
 /* 801153D8 00112338  38 81 00 08 */	addi r4, r1, 8
 /* 801153DC 0011233C  7F A3 EB 78 */	mr r3, r29
@@ -599,7 +599,7 @@ lbl_80115460:
 /* 8011546C 001123CC  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 80115470 001123D0  7C 08 03 A6 */	mtlr r0
 /* 80115474 001123D4  38 21 00 80 */	addi r1, r1, 0x80
-/* 80115478 001123D8  4E 80 00 20 */	blr 
+/* 80115478 001123D8  4E 80 00 20 */	blr
 
 .global IsDefinitelyOpaque__10CModelDataCFQ210CModelData11EWhichModel
 IsDefinitelyOpaque__10CModelDataCFQ210CModelData11EWhichModel:
@@ -641,7 +641,7 @@ lbl_801154FC:
 /* 801154FC 0011245C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80115500 00112460  7C 08 03 A6 */	mtlr r0
 /* 80115504 00112464  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115508 00112468  4E 80 00 20 */	blr 
+/* 80115508 00112468  4E 80 00 20 */	blr
 
 .global GetIsLoop__10CModelDataCFv
 GetIsLoop__10CModelDataCFv:
@@ -649,11 +649,11 @@ GetIsLoop__10CModelDataCFv:
 /* 80115510 00112470  28 03 00 00 */	cmplwi r3, 0
 /* 80115514 00112474  40 82 00 0C */	bne lbl_80115520
 /* 80115518 00112478  38 60 00 00 */	li r3, 0
-/* 8011551C 0011247C  4E 80 00 20 */	blr 
+/* 8011551C 0011247C  4E 80 00 20 */	blr
 lbl_80115520:
 /* 80115520 00112480  88 03 02 20 */	lbz r0, 0x220(r3)
 /* 80115524 00112484  54 03 D7 FE */	rlwinm r3, r0, 0x1a, 0x1f, 0x1f
-/* 80115528 00112488  4E 80 00 20 */	blr 
+/* 80115528 00112488  4E 80 00 20 */	blr
 
 .global GetAnimationDuration__10CModelDataCFi
 GetAnimationDuration__10CModelDataCFi:
@@ -671,13 +671,13 @@ lbl_80115550:
 /* 80115550 001124B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80115554 001124B4  7C 08 03 A6 */	mtlr r0
 /* 80115558 001124B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011555C 001124BC  4E 80 00 20 */	blr 
+/* 8011555C 001124BC  4E 80 00 20 */	blr
 
 .global EnableLooping__10CModelDataFb
 EnableLooping__10CModelDataFb:
 /* 80115560 001124C0  80 A3 00 10 */	lwz r5, 0x10(r3)
 /* 80115564 001124C4  28 05 00 00 */	cmplwi r5, 0
-/* 80115568 001124C8  4D 82 00 20 */	beqlr 
+/* 80115568 001124C8  4D 82 00 20 */	beqlr
 /* 8011556C 001124CC  88 05 02 20 */	lbz r0, 0x220(r5)
 /* 80115570 001124D0  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 80115574 001124D4  38 60 00 01 */	li r3, 1
@@ -685,7 +685,7 @@ EnableLooping__10CModelDataFb:
 /* 8011557C 001124DC  88 05 02 20 */	lbz r0, 0x220(r5)
 /* 80115580 001124E0  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 80115584 001124E4  98 05 02 20 */	stb r0, 0x220(r5)
-/* 80115588 001124E8  4E 80 00 20 */	blr 
+/* 80115588 001124E8  4E 80 00 20 */	blr
 
 .global AdvanceParticles__10CModelDataFRC12CTransform4ffR13CStateManager
 AdvanceParticles__10CModelDataFRC12CTransform4ffR13CStateManager:
@@ -703,7 +703,7 @@ lbl_801155B4:
 /* 801155B4 00112514  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801155B8 00112518  7C 08 03 A6 */	mtlr r0
 /* 801155BC 0011251C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801155C0 00112520  4E 80 00 20 */	blr 
+/* 801155C0 00112520  4E 80 00 20 */	blr
 
 .global GetBounds__10CModelDataCFv
 GetBounds__10CModelDataCFv:
@@ -835,7 +835,7 @@ lbl_80115798:
 /* 801157A4 00112704  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 801157A8 00112708  7C 08 03 A6 */	mtlr r0
 /* 801157AC 0011270C  38 21 00 90 */	addi r1, r1, 0x90
-/* 801157B0 00112710  4E 80 00 20 */	blr 
+/* 801157B0 00112710  4E 80 00 20 */	blr
 
 .global GetBounds__10CModelDataCFRC12CTransform4f
 GetBounds__10CModelDataCFRC12CTransform4f:
@@ -933,7 +933,7 @@ lbl_80115900:
 /* 8011590C 0011286C  83 A1 00 B4 */	lwz r29, 0xb4(r1)
 /* 80115910 00112870  7C 08 03 A6 */	mtlr r0
 /* 80115914 00112874  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80115918 00112878  4E 80 00 20 */	blr 
+/* 80115918 00112878  4E 80 00 20 */	blr
 
 .global "GetScaledLocatorTransformDynamic__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime"
 "GetScaledLocatorTransformDynamic__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime":
@@ -969,7 +969,7 @@ lbl_80115900:
 /* 80115990 001128F0  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80115994 001128F4  7C 08 03 A6 */	mtlr r0
 /* 80115998 001128F8  38 21 00 70 */	addi r1, r1, 0x70
-/* 8011599C 001128FC  4E 80 00 20 */	blr 
+/* 8011599C 001128FC  4E 80 00 20 */	blr
 
 .global "GetScaledLocatorTransform__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetScaledLocatorTransform__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1005,7 +1005,7 @@ lbl_80115900:
 /* 80115A14 00112974  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80115A18 00112978  7C 08 03 A6 */	mtlr r0
 /* 80115A1C 0011297C  38 21 00 70 */	addi r1, r1, 0x70
-/* 80115A20 00112980  4E 80 00 20 */	blr 
+/* 80115A20 00112980  4E 80 00 20 */	blr
 
 .global "GetLocatorTransformDynamic__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime"
 "GetLocatorTransformDynamic__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime":
@@ -1028,7 +1028,7 @@ lbl_80115A58:
 /* 80115A5C 001129BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80115A60 001129C0  7C 08 03 A6 */	mtlr r0
 /* 80115A64 001129C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115A68 001129C8  4E 80 00 20 */	blr 
+/* 80115A68 001129C8  4E 80 00 20 */	blr
 
 .global "GetLocatorTransform__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetLocatorTransform__10CModelDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1052,7 +1052,7 @@ lbl_80115AA4:
 /* 80115AA8 00112A08  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80115AAC 00112A0C  7C 08 03 A6 */	mtlr r0
 /* 80115AB0 00112A10  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115AB4 00112A14  4E 80 00 20 */	blr 
+/* 80115AB4 00112A14  4E 80 00 20 */	blr
 
 .global AdvanceAnimationIgnoreParticles__10CModelDataFfR9CRandom16b
 AdvanceAnimationIgnoreParticles__10CModelDataFfR9CRandom16b:
@@ -1088,7 +1088,7 @@ lbl_80115B20:
 /* 80115B24 00112A84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80115B28 00112A88  7C 08 03 A6 */	mtlr r0
 /* 80115B2C 00112A8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115B30 00112A90  4E 80 00 20 */	blr 
+/* 80115B30 00112A90  4E 80 00 20 */	blr
 
 .global AdvanceAnimation__10CModelDataFfR13CStateManager7TAreaIdb
 AdvanceAnimation__10CModelDataFfR13CStateManager7TAreaIdb:
@@ -1137,19 +1137,19 @@ lbl_80115BD0:
 /* 80115BD4 00112B34  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80115BD8 00112B38  7C 08 03 A6 */	mtlr r0
 /* 80115BDC 00112B3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80115BE0 00112B40  4E 80 00 20 */	blr 
+/* 80115BE0 00112B40  4E 80 00 20 */	blr
 
 .global IsAnimating__10CModelDataCFv
 IsAnimating__10CModelDataCFv:
 /* 80115BE4 00112B44  80 83 00 10 */	lwz r4, 0x10(r3)
 /* 80115BE8 00112B48  38 60 00 00 */	li r3, 0
 /* 80115BEC 00112B4C  28 04 00 00 */	cmplwi r4, 0
-/* 80115BF0 00112B50  4D 82 00 20 */	beqlr 
+/* 80115BF0 00112B50  4D 82 00 20 */	beqlr
 /* 80115BF4 00112B54  88 04 02 20 */	lbz r0, 0x220(r4)
 /* 80115BF8 00112B58  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 80115BFC 00112B5C  4D 82 00 20 */	beqlr 
+/* 80115BFC 00112B5C  4D 82 00 20 */	beqlr
 /* 80115C00 00112B60  38 60 00 01 */	li r3, 1
-/* 80115C04 00112B64  4E 80 00 20 */	blr 
+/* 80115C04 00112B64  4E 80 00 20 */	blr
 
 .global IsInFrustum__10CModelDataCFRC12CTransform4fRC14CFrustumPlanes
 IsInFrustum__10CModelDataCFRC12CTransform4fRC14CFrustumPlanes:
@@ -1185,7 +1185,7 @@ lbl_80115C6C:
 /* 80115C70 00112BD0  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 80115C74 00112BD4  7C 08 03 A6 */	mtlr r0
 /* 80115C78 00112BD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80115C7C 00112BDC  4E 80 00 20 */	blr 
+/* 80115C7C 00112BDC  4E 80 00 20 */	blr
 
 .global RenderParticles__10CModelDataCFRC14CFrustumPlanes
 RenderParticles__10CModelDataCFRC14CFrustumPlanes:
@@ -1200,7 +1200,7 @@ lbl_80115C9C:
 /* 80115C9C 00112BFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80115CA0 00112C00  7C 08 03 A6 */	mtlr r0
 /* 80115CA4 00112C04  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115CA8 00112C08  4E 80 00 20 */	blr 
+/* 80115CA8 00112C08  4E 80 00 20 */	blr
 
 .global Touch__10CModelDataCFQ210CModelData11EWhichModeli
 Touch__10CModelDataCFQ210CModelData11EWhichModeli:
@@ -1230,7 +1230,7 @@ lbl_80115CF8:
 /* 80115D00 00112C60  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80115D04 00112C64  7C 08 03 A6 */	mtlr r0
 /* 80115D08 00112C68  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115D0C 00112C6C  4E 80 00 20 */	blr 
+/* 80115D0C 00112C6C  4E 80 00 20 */	blr
 
 .global Touch__10CModelDataCFRC13CStateManageri
 Touch__10CModelDataCFRC13CStateManageri:
@@ -1252,7 +1252,7 @@ Touch__10CModelDataCFRC13CStateManageri:
 /* 80115D4C 00112CAC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80115D50 00112CB0  7C 08 03 A6 */	mtlr r0
 /* 80115D54 00112CB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80115D58 00112CB8  4E 80 00 20 */	blr 
+/* 80115D58 00112CB8  4E 80 00 20 */	blr
 
 .global MultipassDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsPC11CModelFlagsi
 MultipassDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsPC11CModelFlagsi:
@@ -1281,7 +1281,7 @@ MultipassDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsPC11CMo
 /* 80115DB4 00112D14  81 83 00 00 */	lwz r12, 0(r3)
 /* 80115DB8 00112D18  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80115DBC 00112D1C  7D 89 03 A6 */	mtctr r12
-/* 80115DC0 00112D20  4E 80 04 21 */	bctrl 
+/* 80115DC0 00112D20  4E 80 04 21 */	bctrl
 /* 80115DC4 00112D24  28 1E 00 00 */	cmplwi r30, 0
 /* 80115DC8 00112D28  41 82 00 10 */	beq lbl_80115DD8
 /* 80115DCC 00112D2C  7F C3 F3 78 */	mr r3, r30
@@ -1294,7 +1294,7 @@ lbl_80115DD8:
 /* 80115DE4 00112D44  81 83 00 00 */	lwz r12, 0(r3)
 /* 80115DE8 00112D48  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80115DEC 00112D4C  7D 89 03 A6 */	mtctr r12
-/* 80115DF0 00112D50  4E 80 04 21 */	bctrl 
+/* 80115DF0 00112D50  4E 80 04 21 */	bctrl
 lbl_80115DF4:
 /* 80115DF4 00112D54  80 1A 00 10 */	lwz r0, 0x10(r26)
 /* 80115DF8 00112D58  28 00 00 00 */	cmplwi r0, 0
@@ -1344,7 +1344,7 @@ lbl_80115E94:
 /* 80115E98 00112DF8  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 80115E9C 00112DFC  7C 08 03 A6 */	mtlr r0
 /* 80115EA0 00112E00  38 21 01 10 */	addi r1, r1, 0x110
-/* 80115EA4 00112E04  4E 80 00 20 */	blr 
+/* 80115EA4 00112E04  4E 80 00 20 */	blr
 
 .global MultiLightingDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsRC6CColorRC6CColor
 MultiLightingDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsRC6CColorRC6CColor:
@@ -1373,7 +1373,7 @@ MultiLightingDraw__10CModelDataF11EWhichModelRC12CTransform4fPC12CActorLightsRC6
 /* 80115F00 00112E60  81 83 00 00 */	lwz r12, 0(r3)
 /* 80115F04 00112E64  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80115F08 00112E68  7D 89 03 A6 */	mtctr r12
-/* 80115F0C 00112E6C  4E 80 04 21 */	bctrl 
+/* 80115F0C 00112E6C  4E 80 04 21 */	bctrl
 /* 80115F10 00112E70  80 1A 00 10 */	lwz r0, 0x10(r26)
 /* 80115F14 00112E74  28 00 00 00 */	cmplwi r0, 0
 /* 80115F18 00112E78  41 82 00 68 */	beq lbl_80115F80
@@ -1420,7 +1420,7 @@ lbl_80115FB0:
 /* 80115FB4 00112F14  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 80115FB8 00112F18  7C 08 03 A6 */	mtlr r0
 /* 80115FBC 00112F1C  38 21 01 20 */	addi r1, r1, 0x120
-/* 80115FC0 00112F20  4E 80 00 20 */	blr 
+/* 80115FC0 00112F20  4E 80 00 20 */	blr
 
 .global FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags
 FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags:
@@ -1448,7 +1448,7 @@ FlatDraw__10CModelDataF11EWhichModelRC12CTransform4fbRC11CModelFlags:
 /* 80116018 00112F78  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011601C 00112F7C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80116020 00112F80  7D 89 03 A6 */	mtctr r12
-/* 80116024 00112F84  4E 80 04 21 */	bctrl 
+/* 80116024 00112F84  4E 80 04 21 */	bctrl
 /* 80116028 00112F88  48 1F 69 55 */	bl DisableAllLights__9CGraphicsFv
 /* 8011602C 00112F8C  80 1B 00 10 */	lwz r0, 0x10(r27)
 /* 80116030 00112F90  28 00 00 00 */	cmplwi r0, 0
@@ -1490,13 +1490,13 @@ lbl_80116094:
 /* 801160BC 0011301C  39 00 00 00 */	li r8, 0
 /* 801160C0 00113020  81 8C 00 D8 */	lwz r12, 0xd8(r12)
 /* 801160C4 00113024  7D 89 03 A6 */	mtctr r12
-/* 801160C8 00113028  4E 80 04 21 */	bctrl 
+/* 801160C8 00113028  4E 80 04 21 */	bctrl
 lbl_801160CC:
 /* 801160CC 0011302C  BB 61 00 FC */	lmw r27, 0xfc(r1)
 /* 801160D0 00113030  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 801160D4 00113034  7C 08 03 A6 */	mtlr r0
 /* 801160D8 00113038  38 21 01 10 */	addi r1, r1, 0x110
-/* 801160DC 0011303C  4E 80 00 20 */	blr 
+/* 801160DC 0011303C  4E 80 00 20 */	blr
 
 .global DisintegrateDraw__10CModelDataFRC13CStateManagerRC12CTransform4fRC8CTextureRC6CColor
 DisintegrateDraw__10CModelDataFRC13CStateManagerRC12CTransform4fRC8CTextureRC6CColor:
@@ -1530,7 +1530,7 @@ DisintegrateDraw__10CModelDataFRC13CStateManagerRC12CTransform4fRC8CTextureRC6CC
 /* 8011614C 001130AC  83 81 00 08 */	lwz r28, 8(r1)
 /* 80116150 001130B0  7C 08 03 A6 */	mtlr r0
 /* 80116154 001130B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80116158 001130B8  4E 80 00 20 */	blr 
+/* 80116158 001130B8  4E 80 00 20 */	blr
 
 .global DisintegrateDraw__10CModelDataF11EWhichModelRC12CTransform4fRC8CTextureRC6CColor
 DisintegrateDraw__10CModelDataF11EWhichModelRC12CTransform4fRC8CTextureRC6CColor:
@@ -1560,7 +1560,7 @@ DisintegrateDraw__10CModelDataF11EWhichModelRC12CTransform4fRC8CTextureRC6CColor
 /* 801161B8 00113118  81 83 00 00 */	lwz r12, 0(r3)
 /* 801161BC 0011311C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801161C0 00113120  7D 89 03 A6 */	mtctr r12
-/* 801161C4 00113124  4E 80 04 21 */	bctrl 
+/* 801161C4 00113124  4E 80 04 21 */	bctrl
 /* 801161C8 00113128  48 1F 67 B5 */	bl DisableAllLights__9CGraphicsFv
 /* 801161CC 0011312C  7F 64 DB 78 */	mr r4, r27
 /* 801161D0 00113130  38 61 00 18 */	addi r3, r1, 0x18
@@ -1609,14 +1609,14 @@ lbl_8011624C:
 /* 80116278 001131D8  81 8C 00 D4 */	lwz r12, 0xd4(r12)
 /* 8011627C 001131DC  39 00 00 00 */	li r8, 0
 /* 80116280 001131E0  7D 89 03 A6 */	mtctr r12
-/* 80116284 001131E4  4E 80 04 21 */	bctrl 
+/* 80116284 001131E4  4E 80 04 21 */	bctrl
 lbl_80116288:
 /* 80116288 001131E8  CB E1 01 28 */	lfd f31, 0x128(r1)
 /* 8011628C 001131EC  BB 61 01 14 */	lmw r27, 0x114(r1)
 /* 80116290 001131F0  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 80116294 001131F4  7C 08 03 A6 */	mtlr r0
 /* 80116298 001131F8  38 21 01 30 */	addi r1, r1, 0x130
-/* 8011629C 001131FC  4E 80 00 20 */	blr 
+/* 8011629C 001131FC  4E 80 00 20 */	blr
 
 .global RenderThermal__10CModelDataCFRC12CTransform4fRC6CColorRC6CColorRC11CModelFlags
 RenderThermal__10CModelDataCFRC12CTransform4fRC6CColorRC6CColorRC11CModelFlags:
@@ -1644,7 +1644,7 @@ RenderThermal__10CModelDataCFRC12CTransform4fRC6CColorRC6CColorRC11CModelFlags:
 /* 801162F4 00113254  81 83 00 00 */	lwz r12, 0(r3)
 /* 801162F8 00113258  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801162FC 0011325C  7D 89 03 A6 */	mtctr r12
-/* 80116300 00113260  4E 80 04 21 */	bctrl 
+/* 80116300 00113260  4E 80 04 21 */	bctrl
 /* 80116304 00113264  48 1F 66 79 */	bl DisableAllLights__9CGraphicsFv
 /* 80116308 00113268  80 1B 00 10 */	lwz r0, 0x10(r27)
 /* 8011630C 0011326C  28 00 00 00 */	cmplwi r0, 0
@@ -1684,13 +1684,13 @@ lbl_80116364:
 /* 80116390 001132F0  81 8C 00 D0 */	lwz r12, 0xd0(r12)
 /* 80116394 001132F4  39 00 00 00 */	li r8, 0
 /* 80116398 001132F8  7D 89 03 A6 */	mtctr r12
-/* 8011639C 001132FC  4E 80 04 21 */	bctrl 
+/* 8011639C 001132FC  4E 80 04 21 */	bctrl
 lbl_801163A0:
 /* 801163A0 00113300  BB 61 00 EC */	lmw r27, 0xec(r1)
 /* 801163A4 00113304  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801163A8 00113308  7C 08 03 A6 */	mtlr r0
 /* 801163AC 0011330C  38 21 01 00 */	addi r1, r1, 0x100
-/* 801163B0 00113310  4E 80 00 20 */	blr 
+/* 801163B0 00113310  4E 80 00 20 */	blr
 
 .global RenderThermal__10CModelDataCFPCfPCfRC6CColorRC6CColorRC11CModelFlags
 RenderThermal__10CModelDataCFPCfPCfRC6CColorRC6CColorRC11CModelFlags:
@@ -1709,11 +1709,11 @@ RenderThermal__10CModelDataCFPCfPCfRC6CColorRC6CColorRC11CModelFlags:
 /* 801163E4 00113344  81 83 00 00 */	lwz r12, 0(r3)
 /* 801163E8 00113348  81 8C 00 D0 */	lwz r12, 0xd0(r12)
 /* 801163EC 0011334C  7D 89 03 A6 */	mtctr r12
-/* 801163F0 00113350  4E 80 04 21 */	bctrl 
+/* 801163F0 00113350  4E 80 04 21 */	bctrl
 /* 801163F4 00113354  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801163F8 00113358  7C 08 03 A6 */	mtlr r0
 /* 801163FC 0011335C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80116400 00113360  4E 80 00 20 */	blr 
+/* 80116400 00113360  4E 80 00 20 */	blr
 
 .global ThermalDraw__10CModelDataRC6CColorRC6CColorRC11CModelFlags
 ThermalDraw__10CModelDataRC6CColorRC6CColorRC11CModelFlags:
@@ -1733,7 +1733,7 @@ ThermalDraw__10CModelDataRC6CColorRC6CColorRC11CModelFlags:
 /* 80116438 00113398  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8011643C 0011339C  7C 08 03 A6 */	mtlr r0
 /* 80116440 001133A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80116444 001133A4  4E 80 00 20 */	blr 
+/* 80116444 001133A4  4E 80 00 20 */	blr
 
 .global MultipassDrawCallback__10CModelDataFPCfPCfPC21SMultipassDrawContext
 MultipassDrawCallback__10CModelDataFPCfPCfPC21SMultipassDrawContext:
@@ -1766,7 +1766,7 @@ lbl_80116498:
 /* 801164A8 00113408  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801164AC 0011340C  7C 08 03 A6 */	mtlr r0
 /* 801164B0 00113410  38 21 00 20 */	addi r1, r1, 0x20
-/* 801164B4 00113414  4E 80 00 20 */	blr 
+/* 801164B4 00113414  4E 80 00 20 */	blr
 
 .global MultiLightingDrawCallback__10CModelDataFPCfPCfPC25SMultiLightingDrawContext
 MultiLightingDrawCallback__10CModelDataFPCfPCfPC25SMultiLightingDrawContext:
@@ -1871,7 +1871,7 @@ lbl_80116624:
 /* 80116630 00113590  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80116634 00113594  7C 08 03 A6 */	mtlr r0
 /* 80116638 00113598  38 21 00 50 */	addi r1, r1, 0x50
-/* 8011663C 0011359C  4E 80 00 20 */	blr 
+/* 8011663C 0011359C  4E 80 00 20 */	blr
 
 .global FlatDrawCallback__10CModelDataFPCfPCfPC16SFlatDrawContext
 FlatDrawCallback__10CModelDataFPCfPCfPC16SFlatDrawContext:
@@ -1889,11 +1889,11 @@ FlatDrawCallback__10CModelDataFPCfPCfPC16SFlatDrawContext:
 /* 8011666C 001135CC  80 A6 00 08 */	lwz r5, 8(r6)
 /* 80116670 001135D0  88 C6 00 04 */	lbz r6, 4(r6)
 /* 80116674 001135D4  7D 89 03 A6 */	mtctr r12
-/* 80116678 001135D8  4E 80 04 21 */	bctrl 
+/* 80116678 001135D8  4E 80 04 21 */	bctrl
 /* 8011667C 001135DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80116680 001135E0  7C 08 03 A6 */	mtlr r0
 /* 80116684 001135E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80116688 001135E8  4E 80 00 20 */	blr 
+/* 80116688 001135E8  4E 80 00 20 */	blr
 
 .global DisintegrateDrawCallback__10CModelDataFPCfPCfPC22SOneTextureDrawContext
 DisintegrateDrawCallback__10CModelDataFPCfPCfPC22SOneTextureDrawContext:
@@ -1912,11 +1912,11 @@ DisintegrateDrawCallback__10CModelDataFPCfPCfPC22SOneTextureDrawContext:
 /* 801166BC 0011361C  80 A9 00 04 */	lwz r5, 4(r9)
 /* 801166C0 00113620  C0 29 00 0C */	lfs f1, 0xc(r9)
 /* 801166C4 00113624  7D 89 03 A6 */	mtctr r12
-/* 801166C8 00113628  4E 80 04 21 */	bctrl 
+/* 801166C8 00113628  4E 80 04 21 */	bctrl
 /* 801166CC 0011362C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801166D0 00113630  7C 08 03 A6 */	mtlr r0
 /* 801166D4 00113634  38 21 00 10 */	addi r1, r1, 0x10
-/* 801166D8 00113638  4E 80 00 20 */	blr 
+/* 801166D8 00113638  4E 80 00 20 */	blr
 
 .global ThermalDrawCallback__10CModelDataFPCfPCfPC19SThermalDrawContext
 ThermalDrawCallback__10CModelDataFPCfPCfPC19SThermalDrawContext:
@@ -1935,11 +1935,11 @@ ThermalDrawCallback__10CModelDataFPCfPCfPC19SThermalDrawContext:
 /* 8011670C 0011366C  81 8C 00 D0 */	lwz r12, 0xd0(r12)
 /* 80116710 00113670  81 2A 00 0C */	lwz r9, 0xc(r10)
 /* 80116714 00113674  7D 89 03 A6 */	mtctr r12
-/* 80116718 00113678  4E 80 04 21 */	bctrl 
+/* 80116718 00113678  4E 80 04 21 */	bctrl
 /* 8011671C 0011367C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80116720 00113680  7C 08 03 A6 */	mtlr r0
 /* 80116724 00113684  38 21 00 10 */	addi r1, r1, 0x10
-/* 80116728 00113688  4E 80 00 20 */	blr 
+/* 80116728 00113688  4E 80 00 20 */	blr
 
 .global RenderUnsortedParts__10CModelDataCFQ210CModelData11EWhichModelRC12CTransform4fPC12CActorLightsRC11CModelFlags
 RenderUnsortedParts__10CModelDataCFQ210CModelData11EWhichModelRC12CTransform4fPC12CActorLightsRC11CModelFlags:
@@ -1992,7 +1992,7 @@ lbl_801167A0:
 /* 801167D8 00113738  81 83 00 00 */	lwz r12, 0(r3)
 /* 801167DC 0011373C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801167E0 00113740  7D 89 03 A6 */	mtctr r12
-/* 801167E4 00113744  4E 80 04 21 */	bctrl 
+/* 801167E4 00113744  4E 80 04 21 */	bctrl
 /* 801167E8 00113748  28 1E 00 00 */	cmplwi r30, 0
 /* 801167EC 0011374C  41 82 00 10 */	beq lbl_801167FC
 /* 801167F0 00113750  7F C3 F3 78 */	mr r3, r30
@@ -2005,7 +2005,7 @@ lbl_801167FC:
 /* 80116808 00113768  81 83 00 00 */	lwz r12, 0(r3)
 /* 8011680C 0011376C  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80116810 00113770  7D 89 03 A6 */	mtctr r12
-/* 80116814 00113774  4E 80 04 21 */	bctrl 
+/* 80116814 00113774  4E 80 04 21 */	bctrl
 lbl_80116818:
 /* 80116818 00113778  7F 63 DB 78 */	mr r3, r27
 /* 8011681C 0011377C  7F 84 E3 78 */	mr r4, r28
@@ -2019,7 +2019,7 @@ lbl_80116818:
 /* 8011683C 0011379C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80116840 001137A0  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80116844 001137A4  7D 89 03 A6 */	mtctr r12
-/* 80116848 001137A8  4E 80 04 21 */	bctrl 
+/* 80116848 001137A8  4E 80 04 21 */	bctrl
 /* 8011684C 001137AC  48 1F 61 31 */	bl DisableAllLights__9CGraphicsFv
 /* 80116850 001137B0  88 1B 00 14 */	lbz r0, 0x14(r27)
 /* 80116854 001137B4  38 60 00 01 */	li r3, 1
@@ -2030,7 +2030,7 @@ lbl_80116860:
 /* 80116864 001137C4  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80116868 001137C8  7C 08 03 A6 */	mtlr r0
 /* 8011686C 001137CC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80116870 001137D0  4E 80 00 20 */	blr 
+/* 80116870 001137D0  4E 80 00 20 */	blr
 
 .global Render__10CModelDataCFQ210CModelData11EWhichModelRC12CTransform4fPC12CActorLightsRC11CModelFlags
 Render__10CModelDataCFQ210CModelData11EWhichModelRC12CTransform4fPC12CActorLightsRC11CModelFlags:
@@ -2090,7 +2090,7 @@ lbl_80116900:
 /* 80116944 001138A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80116948 001138A8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8011694C 001138AC  7D 89 03 A6 */	mtctr r12
-/* 80116950 001138B0  4E 80 04 21 */	bctrl 
+/* 80116950 001138B0  4E 80 04 21 */	bctrl
 /* 80116954 001138B4  28 1E 00 00 */	cmplwi r30, 0
 /* 80116958 001138B8  41 82 00 10 */	beq lbl_80116968
 /* 8011695C 001138BC  7F C3 F3 78 */	mr r3, r30
@@ -2103,7 +2103,7 @@ lbl_80116968:
 /* 80116974 001138D4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80116978 001138D8  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 8011697C 001138DC  7D 89 03 A6 */	mtctr r12
-/* 80116980 001138E0  4E 80 04 21 */	bctrl 
+/* 80116980 001138E0  4E 80 04 21 */	bctrl
 lbl_80116984:
 /* 80116984 001138E4  83 DF 00 10 */	lwz r30, 0x10(r31)
 /* 80116988 001138E8  28 1E 00 00 */	cmplwi r30, 0
@@ -2147,7 +2147,7 @@ lbl_80116A08:
 /* 80116A14 00113974  81 83 00 00 */	lwz r12, 0(r3)
 /* 80116A18 00113978  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80116A1C 0011397C  7D 89 03 A6 */	mtctr r12
-/* 80116A20 00113980  4E 80 04 21 */	bctrl 
+/* 80116A20 00113980  4E 80 04 21 */	bctrl
 /* 80116A24 00113984  48 1F 5F 59 */	bl DisableAllLights__9CGraphicsFv
 /* 80116A28 00113988  88 1F 00 14 */	lbz r0, 0x14(r31)
 /* 80116A2C 0011398C  38 60 00 00 */	li r3, 0
@@ -2158,7 +2158,7 @@ lbl_80116A38:
 /* 80116A3C 0011399C  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 80116A40 001139A0  7C 08 03 A6 */	mtlr r0
 /* 80116A44 001139A4  38 21 01 10 */	addi r1, r1, 0x110
-/* 80116A48 001139A8  4E 80 00 20 */	blr 
+/* 80116A48 001139A8  4E 80 00 20 */	blr
 
 .global __dt__10CModelDataFv
 __dt__10CModelDataFv:
@@ -2235,7 +2235,7 @@ lbl_80116B38:
 /* 80116B44 00113AA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80116B48 00113AA8  7C 08 03 A6 */	mtlr r0
 /* 80116B4C 00113AAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80116B50 00113AB0  4E 80 00 20 */	blr 
+/* 80116B50 00113AB0  4E 80 00 20 */	blr
 
 .global __ct__10CModelDataFRC8CAnimRes
 __ct__10CModelDataFRC8CAnimRes:
@@ -2341,7 +2341,7 @@ lbl_80116CB4:
 /* 80116CD0 00113C30  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80116CD4 00113C34  7C 08 03 A6 */	mtlr r0
 /* 80116CD8 00113C38  38 21 00 40 */	addi r1, r1, 0x40
-/* 80116CDC 00113C3C  4E 80 00 20 */	blr 
+/* 80116CDC 00113C3C  4E 80 00 20 */	blr
 
 .global __ct__10CModelDataFv
 __ct__10CModelDataFv:
@@ -2375,7 +2375,7 @@ __ct__10CModelDataFv:
 /* 80116D4C 00113CAC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80116D50 00113CB0  7C 08 03 A6 */	mtlr r0
 /* 80116D54 00113CB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80116D58 00113CB8  4E 80 00 20 */	blr 
+/* 80116D58 00113CB8  4E 80 00 20 */	blr
 
 .global __ct__10CModelDataFRC10CStaticRes
 __ct__10CModelDataFRC10CStaticRes:
@@ -2415,7 +2415,7 @@ __ct__10CModelDataFRC10CStaticRes:
 /* 80116DE0 00113D40  81 84 00 00 */	lwz r12, 0(r4)
 /* 80116DE4 00113D44  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80116DE8 00113D48  7D 89 03 A6 */	mtctr r12
-/* 80116DEC 00113D4C  4E 80 04 21 */	bctrl 
+/* 80116DEC 00113D4C  4E 80 04 21 */	bctrl
 /* 80116DF0 00113D50  3B E1 00 18 */	addi r31, r1, 0x18
 /* 80116DF4 00113D54  38 81 00 08 */	addi r4, r1, 8
 /* 80116DF8 00113D58  7F E3 FB 78 */	mr r3, r31
@@ -2451,7 +2451,7 @@ lbl_80116E3C:
 /* 80116E6C 00113DCC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80116E70 00113DD0  7C 08 03 A6 */	mtlr r0
 /* 80116E74 00113DD4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80116E78 00113DD8  4E 80 00 20 */	blr 
+/* 80116E78 00113DD8  4E 80 00 20 */	blr
 
 .global __sinit_CModelData_cpp
 __sinit_CModelData_cpp:

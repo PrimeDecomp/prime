@@ -213,7 +213,7 @@ lbl_805A83F8:
 .global GetSearchPath__9CSeedlingFv
 GetSearchPath__9CSeedlingFv:
 /* 80266040 00262FA0  38 63 05 D8 */	addi r3, r3, 0x5d8
-/* 80266044 00262FA4  4E 80 00 20 */	blr 
+/* 80266044 00262FA4  4E 80 00 20 */	blr
 
 .global sub_80266048
 sub_80266048:
@@ -266,7 +266,7 @@ lbl_802660E8:
 /* 802660FC 0026305C  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 80266100 00263060  7C 08 03 A6 */	mtlr r0
 /* 80266104 00263064  38 21 00 40 */	addi r1, r1, 0x40
-/* 80266108 00263068  4E 80 00 20 */	blr 
+/* 80266108 00263068  4E 80 00 20 */	blr
 
 .global Touch__9CSeedlingFR6CActorR13CStateManager
 Touch__9CSeedlingFR6CActorR13CStateManager:
@@ -292,7 +292,7 @@ Touch__9CSeedlingFR6CActorR13CStateManager:
 /* 80266158 002630B8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8026615C 002630BC  81 8C 02 98 */	lwz r12, 0x298(r12)
 /* 80266160 002630C0  7D 89 03 A6 */	mtctr r12
-/* 80266164 002630C4  4E 80 04 21 */	bctrl 
+/* 80266164 002630C4  4E 80 04 21 */	bctrl
 lbl_80266168:
 /* 80266168 002630C8  7F A3 EB 78 */	mr r3, r29
 /* 8026616C 002630CC  7F C4 F3 78 */	mr r4, r30
@@ -304,7 +304,7 @@ lbl_80266168:
 /* 80266184 002630E4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80266188 002630E8  7C 08 03 A6 */	mtlr r0
 /* 8026618C 002630EC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80266190 002630F0  4E 80 00 20 */	blr 
+/* 80266190 002630F0  4E 80 00 20 */	blr
 
 .global GetTouchBounds__9CSeedlingCFv
 GetTouchBounds__9CSeedlingCFv:
@@ -339,7 +339,7 @@ lbl_802661FC:
 /* 80266200 00263160  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 80266204 00263164  7C 08 03 A6 */	mtlr r0
 /* 80266208 00263168  38 21 00 30 */	addi r1, r1, 0x30
-/* 8026620C 0026316C  4E 80 00 20 */	blr 
+/* 8026620C 0026316C  4E 80 00 20 */	blr
 
 .global ShouldAttack__9CSeedlingFR13CStateManagerf
 ShouldAttack__9CSeedlingFR13CStateManagerf:
@@ -370,7 +370,7 @@ lbl_80266264:
 /* 8026626C 002631CC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80266270 002631D0  7C 08 03 A6 */	mtlr r0
 /* 80266274 002631D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80266278 002631D8  4E 80 00 20 */	blr 
+/* 80266278 002631D8  4E 80 00 20 */	blr
 
 .global sub_8026627c
 sub_8026627c:
@@ -453,7 +453,7 @@ lbl_8026636C:
 /* 802663A4 00263304  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802663A8 00263308  7C 08 03 A6 */	mtlr r0
 /* 802663AC 0026330C  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802663B0 00263310  4E 80 00 20 */	blr 
+/* 802663B0 00263310  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__9CSeedlingFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__9CSeedlingFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -505,12 +505,12 @@ lbl_80266444:
 /* 80266458 002633B8  83 81 00 08 */	lwz r28, 8(r1)
 /* 8026645C 002633BC  7C 08 03 A6 */	mtlr r0
 /* 80266460 002633C0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80266464 002633C4  4E 80 00 20 */	blr 
+/* 80266464 002633C4  4E 80 00 20 */	blr
 
 .global GetProjectileInfo__9CSeedlingCF
 GetProjectileInfo__9CSeedlingCF:
 /* 80266468 002633C8  38 63 06 C0 */	addi r3, r3, 0x6c0
-/* 8026646C 002633CC  4E 80 00 20 */	blr 
+/* 8026646C 002633CC  4E 80 00 20 */	blr
 
 .global Generate__9CSeedlingFR13CStateManager9EStateMsgf
 Generate__9CSeedlingFR13CStateManager9EStateMsgf:
@@ -552,7 +552,7 @@ lbl_802664E8:
 /* 802664E8 00263448  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802664EC 0026344C  7C 08 03 A6 */	mtlr r0
 /* 802664F0 00263450  38 21 00 20 */	addi r1, r1, 0x20
-/* 802664F4 00263454  4E 80 00 20 */	blr 
+/* 802664F4 00263454  4E 80 00 20 */	blr
 
 .global ProjectileAttack__9CSeedlingFR13CStateManager9EStateMsgf
 ProjectileAttack__9CSeedlingFR13CStateManager9EStateMsgf:
@@ -603,7 +603,7 @@ lbl_80266590:
 /* 80266594 002634F4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80266598 002634F8  7C 08 03 A6 */	mtlr r0
 /* 8026659C 002634FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802665A0 00263500  4E 80 00 20 */	blr 
+/* 802665A0 00263500  4E 80 00 20 */	blr
 
 .global Enraged__9CSeedlingFR13CStateManager9EStateMsgf
 Enraged__9CSeedlingFR13CStateManager9EStateMsgf:
@@ -622,7 +622,7 @@ lbl_802665CC:
 /* 802665CC 0026352C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802665D0 00263530  7C 08 03 A6 */	mtlr r0
 /* 802665D4 00263534  38 21 00 10 */	addi r1, r1, 0x10
-/* 802665D8 00263538  4E 80 00 20 */	blr 
+/* 802665D8 00263538  4E 80 00 20 */	blr
 
 .global Active__9CSeedlingFR13CStateManager9EStateMsgf
 Active__9CSeedlingFR13CStateManager9EStateMsgf:
@@ -657,7 +657,7 @@ lbl_80266620:
 /* 80266644 002635A4  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 80266648 002635A8  7C 08 03 A6 */	mtlr r0
 /* 8026664C 002635AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80266650 002635B0  4E 80 00 20 */	blr 
+/* 80266650 002635B0  4E 80 00 20 */	blr
 
 .global Patrol__9CSeedlingFR13CStateManager9EStateMsgf
 Patrol__9CSeedlingFR13CStateManager9EStateMsgf:
@@ -849,7 +849,7 @@ lbl_80266914:
 /* 8026691C 0026387C  83 C1 00 D8 */	lwz r30, 0xd8(r1)
 /* 80266920 00263880  7C 08 03 A6 */	mtlr r0
 /* 80266924 00263884  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80266928 00263888  4E 80 00 20 */	blr 
+/* 80266928 00263888  4E 80 00 20 */	blr
 
 .global Think__9CSeedlingFfR13CStateManager
 Think__9CSeedlingFfR13CStateManager:
@@ -1036,7 +1036,7 @@ lbl_80266BCC:
 /* 80266BE4 00263B44  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 80266BE8 00263B48  7C 08 03 A6 */	mtlr r0
 /* 80266BEC 00263B4C  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 80266BF0 00263B50  4E 80 00 20 */	blr 
+/* 80266BF0 00263B50  4E 80 00 20 */	blr
 
 .global Render__9CSeedlingCFRC13CStateManager
 Render__9CSeedlingCFRC13CStateManager:
@@ -1119,7 +1119,7 @@ lbl_80266CFC:
 /* 80266D0C 00263C6C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80266D10 00263C70  7C 08 03 A6 */	mtlr r0
 /* 80266D14 00263C74  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80266D18 00263C78  4E 80 00 20 */	blr 
+/* 80266D18 00263C78  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__9CSeedlingF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__9CSeedlingF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1202,7 +1202,7 @@ lbl_80266E2C:
 /* 80266E38 00263D98  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80266E3C 00263D9C  7C 08 03 A6 */	mtlr r0
 /* 80266E40 00263DA0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80266E44 00263DA4  4E 80 00 20 */	blr 
+/* 80266E44 00263DA4  4E 80 00 20 */	blr
 
 .global __dt__9CSeedlingFv
 __dt__9CSeedlingFv:
@@ -1277,7 +1277,7 @@ lbl_80266F2C:
 /* 80266F38 00263E98  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80266F3C 00263E9C  7C 08 03 A6 */	mtlr r0
 /* 80266F40 00263EA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80266F44 00263EA4  4E 80 00 20 */	blr 
+/* 80266F44 00263EA4  4E 80 00 20 */	blr
 
 .global __ct__9CSeedlingF
 __ct__9CSeedlingF:

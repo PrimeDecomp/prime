@@ -9,7 +9,7 @@ lbl_803D9E60:
 	.4byte 0
 	.4byte __dt__29CArchMsgParmInt32Int32VoidPtrFv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __dt__29CArchMsgParmInt32Int32VoidPtrFv
@@ -38,7 +38,7 @@ lbl_80051688:
 /* 80051690 0004E5F0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80051694 0004E5F4  7C 08 03 A6 */	mtlr r0
 /* 80051698 0004E5F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005169C 0004E5FC  4E 80 00 20 */	blr 
+/* 8005169C 0004E5FC  4E 80 00 20 */	blr
 
 .global __ct__29CArchMsgParmInt32Int32VoidPtrFiiPCv
 __ct__29CArchMsgParmInt32Int32VoidPtrFiiPCv:
@@ -51,4 +51,4 @@ __ct__29CArchMsgParmInt32Int32VoidPtrFiiPCv:
 /* 800516B8 0004E618  90 83 00 04 */	stw r4, 4(r3)
 /* 800516BC 0004E61C  90 A3 00 08 */	stw r5, 8(r3)
 /* 800516C0 0004E620  90 C3 00 0C */	stw r6, 0xc(r3)
-/* 800516C4 0004E624  4E 80 00 20 */	blr 
+/* 800516C4 0004E624  4E 80 00 20 */	blr

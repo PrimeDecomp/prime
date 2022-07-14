@@ -27,7 +27,7 @@ lbl_80358374:
 /* 80358378 003552D8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8035837C 003552DC  7C 08 03 A6 */	mtlr r0
 /* 80358380 003552E0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358384 003552E4  4E 80 00 20 */	blr 
+/* 80358384 003552E4  4E 80 00 20 */	blr
 
 .global sub_80358388
 sub_80358388:
@@ -50,7 +50,7 @@ lbl_803583C0:
 /* 803583C4 00355324  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803583C8 00355328  7C 08 03 A6 */	mtlr r0
 /* 803583CC 0035532C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803583D0 00355330  4E 80 00 20 */	blr 
+/* 803583D0 00355330  4E 80 00 20 */	blr
 
 .global sub_803583d4
 sub_803583d4:
@@ -69,7 +69,7 @@ sub_803583d4:
 /* 80358404 00355364  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80358408 00355368  7C 08 03 A6 */	mtlr r0
 /* 8035840C 0035536C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358410 00355370  4E 80 00 20 */	blr 
+/* 80358410 00355370  4E 80 00 20 */	blr
 
 .global MakeInvalid__10CARAMTokenFv
 MakeInvalid__10CARAMTokenFv:
@@ -91,7 +91,7 @@ MakeInvalid__10CARAMTokenFv:
 /* 80358450 003553B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80358454 003553B4  7C 08 03 A6 */	mtlr r0
 /* 80358458 003553B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8035845C 003553BC  4E 80 00 20 */	blr 
+/* 8035845C 003553BC  4E 80 00 20 */	blr
 
 .global RemoveFromList__10CARAMTokenFv
 RemoveFromList__10CARAMTokenFv:
@@ -111,10 +111,10 @@ lbl_80358488:
 lbl_80358490:
 /* 80358490 003553F0  80 83 00 18 */	lwz r4, 0x18(r3)
 /* 80358494 003553F4  28 04 00 00 */	cmplwi r4, 0
-/* 80358498 003553F8  4D 82 00 20 */	beqlr 
+/* 80358498 003553F8  4D 82 00 20 */	beqlr
 /* 8035849C 003553FC  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 803584A0 00355400  90 04 00 14 */	stw r0, 0x14(r4)
-/* 803584A4 00355404  4E 80 00 20 */	blr 
+/* 803584A4 00355404  4E 80 00 20 */	blr
 
 .global MoveToList__10CARAMTokenFQ210CARAMToken7EStatus
 MoveToList__10CARAMTokenFQ210CARAMToken7EStatus:
@@ -138,7 +138,7 @@ lbl_803584E0:
 /* 803584E8 00355448  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803584EC 0035544C  7C 08 03 A6 */	mtlr r0
 /* 803584F0 00355450  38 21 00 10 */	addi r1, r1, 0x10
-/* 803584F4 00355454  4E 80 00 20 */	blr 
+/* 803584F4 00355454  4E 80 00 20 */	blr
 
 .global InitiallyMoveToList__10CARAMTokenFv
 InitiallyMoveToList__10CARAMTokenFv:
@@ -155,9 +155,9 @@ InitiallyMoveToList__10CARAMTokenFv:
 /* 80358520 00355480  7C 64 01 2E */	stwx r3, r4, r0
 /* 80358524 00355484  80 83 00 18 */	lwz r4, 0x18(r3)
 /* 80358528 00355488  28 04 00 00 */	cmplwi r4, 0
-/* 8035852C 0035548C  4D 82 00 20 */	beqlr 
+/* 8035852C 0035548C  4D 82 00 20 */	beqlr
 /* 80358530 00355490  90 64 00 14 */	stw r3, 0x14(r4)
-/* 80358534 00355494  4E 80 00 20 */	blr 
+/* 80358534 00355494  4E 80 00 20 */	blr
 
 .global UpdateAllDMAs__10CARAMTokenFv
 UpdateAllDMAs__10CARAMTokenFv:
@@ -191,7 +191,7 @@ lbl_80358574:
 /* 80358598 003554F8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8035859C 003554FC  7C 08 03 A6 */	mtlr r0
 /* 803585A0 00355500  38 21 00 20 */	addi r1, r1, 0x20
-/* 803585A4 00355504  4E 80 00 20 */	blr 
+/* 803585A4 00355504  4E 80 00 20 */	blr
 
 .global RefreshStatus__10CARAMTokenFv
 RefreshStatus__10CARAMTokenFv:
@@ -254,7 +254,7 @@ lbl_80358664:
 /* 80358668 003555C8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8035866C 003555CC  7C 08 03 A6 */	mtlr r0
 /* 80358670 003555D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358674 003555D4  4E 80 00 20 */	blr 
+/* 80358674 003555D4  4E 80 00 20 */	blr
 
 .global LoadToARAM__10CARAMTokenFv
 LoadToARAM__10CARAMTokenFv:
@@ -328,7 +328,7 @@ lbl_80358758:
 /* 8035875C 003556BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80358760 003556C0  7C 08 03 A6 */	mtlr r0
 /* 80358764 003556C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358768 003556C8  4E 80 00 20 */	blr 
+/* 80358768 003556C8  4E 80 00 20 */	blr
 
 .global LoadToMRAM__10CARAMTokenFv
 LoadToMRAM__10CARAMTokenFv:
@@ -405,7 +405,7 @@ lbl_80358860:
 /* 80358864 003557C4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80358868 003557C8  7C 08 03 A6 */	mtlr r0
 /* 8035886C 003557CC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80358870 003557D0  4E 80 00 20 */	blr 
+/* 80358870 003557D0  4E 80 00 20 */	blr
 
 .global __as__10CARAMTokenFRC10CARAMToken
 __as__10CARAMTokenFRC10CARAMToken:
@@ -435,7 +435,7 @@ lbl_803588BC:
 /* 803588C4 00355824  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803588C8 00355828  7C 08 03 A6 */	mtlr r0
 /* 803588CC 0035582C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803588D0 00355830  4E 80 00 20 */	blr 
+/* 803588D0 00355830  4E 80 00 20 */	blr
 
 .global PostConstruct__10CARAMTokenFPvUi
 PostConstruct__10CARAMTokenFPvUi:
@@ -466,7 +466,7 @@ PostConstruct__10CARAMTokenFPvUi:
 /* 80358934 00355894  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80358938 00355898  7C 08 03 A6 */	mtlr r0
 /* 8035893C 0035589C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80358940 003558A0  4E 80 00 20 */	blr 
+/* 80358940 003558A0  4E 80 00 20 */	blr
 
 .global __dt__10CARAMTokenFv
 __dt__10CARAMTokenFv:
@@ -505,7 +505,7 @@ lbl_803589B0:
 /* 803589BC 0035591C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803589C0 00355920  7C 08 03 A6 */	mtlr r0
 /* 803589C4 00355924  38 21 00 10 */	addi r1, r1, 0x10
-/* 803589C8 00355928  4E 80 00 20 */	blr 
+/* 803589C8 00355928  4E 80 00 20 */	blr
 
 .global __ct__10CARAMTokenFRC10CARAMToken
 __ct__10CARAMTokenFRC10CARAMToken:
@@ -540,7 +540,7 @@ __ct__10CARAMTokenFRC10CARAMToken:
 /* 80358A3C 0035599C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80358A40 003559A0  7C 08 03 A6 */	mtlr r0
 /* 80358A44 003559A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358A48 003559A8  4E 80 00 20 */	blr 
+/* 80358A48 003559A8  4E 80 00 20 */	blr
 
 .global __ct__10CARAMTokenFPvUi
 __ct__10CARAMTokenFPvUi:
@@ -588,7 +588,7 @@ lbl_80358AE4:
 /* 80358AEC 00355A4C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80358AF0 00355A50  7C 08 03 A6 */	mtlr r0
 /* 80358AF4 00355A54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80358AF8 00355A58  4E 80 00 20 */	blr 
+/* 80358AF8 00355A58  4E 80 00 20 */	blr
 
 .global __ct__10CARAMTokenFv
 __ct__10CARAMTokenFv:

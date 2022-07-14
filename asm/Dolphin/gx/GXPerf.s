@@ -2,10 +2,72 @@
 
 .section .data
 lbl_803F0CB0:
-	.incbin "baserom.dol", 0x3EDCB0, 0x5C
+	# ROM: 0x3EDCB0
+	.4byte 0x8037CD4C
+	.4byte 0x8037CD68
+	.4byte 0x8037CD84
+	.4byte 0x8037CDA0
+	.4byte 0x8037CDF4
+	.4byte 0x8037CE10
+	.4byte 0x8037CE2C
+	.4byte 0x8037CE48
+	.4byte 0x8037CDBC
+	.4byte 0x8037CE64
+	.4byte 0x8037CE94
+	.4byte 0x8037CEC4
+	.4byte 0x8037CEF4
+	.4byte 0x8037CF24
+	.4byte 0x8037CF54
+	.4byte 0x8037CF84
+	.4byte 0x8037CFB4
+	.4byte 0x8037CFE4
+	.4byte 0x8037CFF4
+	.4byte 0x8037D004
+	.4byte 0x8037D014
+	.4byte 0x8037CDD8
+	.4byte 0x8037D020
+
 lbl_803F0D0C:
-	.incbin "baserom.dol", 0x3EDD0C, 0x94
-	
+	# ROM: 0x3EDD0C
+	.4byte 0x8037C920
+	.4byte 0x8037C940
+	.4byte 0x8037C960
+	.4byte 0x8037C980
+	.4byte 0x8037C9A0
+	.4byte 0x8037C9C0
+	.4byte 0x8037C9E0
+	.4byte 0x8037CA00
+	.4byte 0x8037CA20
+	.4byte 0x8037CA40
+	.4byte 0x8037CA80
+	.4byte 0x8037CAA0
+	.4byte 0x8037CABC
+	.4byte 0x8037CAD8
+	.4byte 0x8037CAF4
+	.4byte 0x8037CB10
+	.4byte 0x8037CB2C
+	.4byte 0x8037CB48
+	.4byte 0x8037CB64
+	.4byte 0x8037CB80
+	.4byte 0x8037CB9C
+	.4byte 0x8037CBB8
+	.4byte 0x8037CBD4
+	.4byte 0x8037CBF0
+	.4byte 0x8037CC0C
+	.4byte 0x8037CC28
+	.4byte 0x8037CC44
+	.4byte 0x8037CC60
+	.4byte 0x8037CC7C
+	.4byte 0x8037CC98
+	.4byte 0x8037CCB4
+	.4byte 0x8037CCD0
+	.4byte 0x8037CCEC
+	.4byte 0x8037CD08
+	.4byte 0x8037CA60
+	.4byte 0x8037CD20
+	.4byte 0
+
+
 .section .text, "ax"
 
 .global GXSetGPMetric
@@ -97,7 +159,7 @@ lbl_8037C8F4:
 /* 8037C910 00379870  54 00 10 3A */	slwi r0, r0, 2
 /* 8037C914 00379874  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8037C918 00379878  7C 09 03 A6 */	mtctr r0
-/* 8037C91C 0037987C  4E 80 04 20 */	bctr 
+/* 8037C91C 0037987C  4E 80 04 20 */	bctr
 /* 8037C920 00379880  38 00 00 10 */	li r0, 0x10
 /* 8037C924 00379884  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037C928 00379888  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
@@ -365,7 +427,7 @@ lbl_8037CD20:
 /* 8037CD3C 00379C9C  54 00 10 3A */	slwi r0, r0, 2
 /* 8037CD40 00379CA0  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8037CD44 00379CA4  7C 09 03 A6 */	mtctr r0
-/* 8037CD48 00379CA8  4E 80 04 20 */	bctr 
+/* 8037CD48 00379CA8  4E 80 04 20 */	bctr
 /* 8037CD4C 00379CAC  38 00 00 61 */	li r0, 0x61
 /* 8037CD50 00379CB0  3C 80 CC 01 */	lis r4, 0xCC008000@ha
 /* 8037CD54 00379CB4  3C 60 67 00 */	lis r3, 0x67000042@ha
@@ -551,11 +613,11 @@ lbl_8037D020:
 /* 8037D020 00379F80  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 8037D024 00379F84  38 00 00 00 */	li r0, 0
 /* 8037D028 00379F88  B0 03 00 02 */	sth r0, 2(r3)
-/* 8037D02C 00379F8C  4E 80 00 20 */	blr 
+/* 8037D02C 00379F8C  4E 80 00 20 */	blr
 
 .global GXClearGPMetric
 GXClearGPMetric:
 /* 8037D030 00379F90  80 6D AC 7C */	lwz r3, lbl_805A983C@sda21(r13)
 /* 8037D034 00379F94  38 00 00 04 */	li r0, 4
 /* 8037D038 00379F98  B0 03 00 04 */	sth r0, 4(r3)
-/* 8037D03C 00379F9C  4E 80 00 20 */	blr 
+/* 8037D03C 00379F9C  4E 80 00 20 */	blr

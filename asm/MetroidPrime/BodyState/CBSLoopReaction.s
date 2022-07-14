@@ -48,7 +48,7 @@ lbl_8013C08C:
 /* 8013C094 00138FF4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013C098 00138FF8  7C 08 03 A6 */	mtlr r0
 /* 8013C09C 00138FFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013C0A0 00139000  4E 80 00 20 */	blr 
+/* 8013C0A0 00139000  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__15CBSLoopReactionFfR15CBodyController
 GetBodyStateTransition__15CBSLoopReactionFfR15CBodyController:
@@ -174,7 +174,7 @@ lbl_8013C23C:
 /* 8013C244 001391A4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013C248 001391A8  7C 08 03 A6 */	mtlr r0
 /* 8013C24C 001391AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013C250 001391B0  4E 80 00 20 */	blr 
+/* 8013C250 001391B0  4E 80 00 20 */	blr
 
 .global PlayExitAnimation__15CBSLoopReactionCFR15CBodyControllerR13CStateManager
 PlayExitAnimation__15CBSLoopReactionCFR15CBodyControllerR13CStateManager:
@@ -321,11 +321,11 @@ lbl_8013C444:
 /* 8013C454 001393B4  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 8013C458 001393B8  7C 08 03 A6 */	mtlr r0
 /* 8013C45C 001393BC  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 8013C460 001393C0  4E 80 00 20 */	blr 
+/* 8013C460 001393C0  4E 80 00 20 */	blr
 
 .global Shutdown__15CBSLoopReactionFR15CBodyController
 Shutdown__15CBSLoopReactionFR15CBodyController:
-/* 8013C464 001393C4  4E 80 00 20 */	blr 
+/* 8013C464 001393C4  4E 80 00 20 */	blr
 
 .global UpdateBody__15CBSLoopReactionFfR15CBodyControllerR13CStateManager
 UpdateBody__15CBSLoopReactionFfR15CBodyControllerR13CStateManager:
@@ -523,7 +523,7 @@ lbl_8013C70C:
 /* 8013C71C 0013967C  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 8013C720 00139680  7C 08 03 A6 */	mtlr r0
 /* 8013C724 00139684  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8013C728 00139688  4E 80 00 20 */	blr 
+/* 8013C728 00139688  4E 80 00 20 */	blr
 
 .global Start__15CBSLoopReactionFR15CBodyControllerR13CStateManager
 Start__15CBSLoopReactionFR15CBodyControllerR13CStateManager:
@@ -728,7 +728,7 @@ lbl_8013CA00:
 /* 8013CA10 00139970  83 81 01 50 */	lwz r28, 0x150(r1)
 /* 8013CA14 00139974  7C 08 03 A6 */	mtlr r0
 /* 8013CA18 00139978  38 21 01 60 */	addi r1, r1, 0x160
-/* 8013CA1C 0013997C  4E 80 00 20 */	blr 
+/* 8013CA1C 0013997C  4E 80 00 20 */	blr
 
 .global __ct__15CBSLoopReactionFv
 __ct__15CBSLoopReactionFv:

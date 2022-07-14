@@ -45,7 +45,7 @@ lbl_8033709C:
 /* 8033709C 00333FFC  FC 20 00 90 */	fmr f1, f0
 lbl_803370A0:
 /* 803370A0 00334000  38 21 00 20 */	addi r1, r1, 0x20
-/* 803370A4 00334004  4E 80 00 20 */	blr 
+/* 803370A4 00334004  4E 80 00 20 */	blr
 
 .global __ct__6CPlaneFRC9CVector3fRC9CVector3fRC9CVector3f
 __ct__6CPlaneFRC9CVector3fRC9CVector3fRC9CVector3f:

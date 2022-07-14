@@ -14,7 +14,7 @@ lbl_80540A4C:
 .global lbl_805A96B0
 lbl_805A96B0:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global sub_8036ca64
@@ -26,7 +26,7 @@ sub_8036ca64:
 /* 8036CA74 003699D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CA78 003699D8  7C 08 03 A6 */	mtlr r0
 /* 8036CA7C 003699DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CA80 003699E0  4E 80 00 20 */	blr 
+/* 8036CA80 003699E0  4E 80 00 20 */	blr
 
 .global __nw__FUlPCcPCc_0
 __nw__FUlPCcPCc_0:
@@ -37,18 +37,18 @@ __nw__FUlPCcPCc_0:
 /* 8036CA94 003699F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CA98 003699F8  7C 08 03 A6 */	mtlr r0
 /* 8036CA9C 003699FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CAA0 00369A00  4E 80 00 20 */	blr 
+/* 8036CAA0 00369A00  4E 80 00 20 */	blr
 
 .global sub_8036caa4
 sub_8036caa4:
 /* 8036CAA4 00369A04  80 63 00 08 */	lwz r3, 8(r3)
-/* 8036CAA8 00369A08  4E 80 00 20 */	blr 
+/* 8036CAA8 00369A08  4E 80 00 20 */	blr
 
 .global sub_8036caac
 sub_8036caac:
 /* 8036CAAC 00369A0C  80 03 00 04 */	lwz r0, 4(r3)
 /* 8036CAB0 00369A10  54 03 10 3A */	slwi r3, r0, 2
-/* 8036CAB4 00369A14  4E 80 00 20 */	blr 
+/* 8036CAB4 00369A14  4E 80 00 20 */	blr
 
 .global sub_8036cab8
 sub_8036cab8:
@@ -59,18 +59,18 @@ sub_8036cab8:
 /* 8036CAC8 00369A28  40 81 00 10 */	ble lbl_8036CAD8
 /* 8036CACC 00369A2C  38 00 00 00 */	li r0, 0
 /* 8036CAD0 00369A30  90 03 00 04 */	stw r0, 4(r3)
-/* 8036CAD4 00369A34  4E 80 00 20 */	blr 
+/* 8036CAD4 00369A34  4E 80 00 20 */	blr
 lbl_8036CAD8:
 /* 8036CAD8 00369A38  7C 04 00 50 */	subf r0, r4, r0
 /* 8036CADC 00369A3C  90 03 00 04 */	stw r0, 4(r3)
-/* 8036CAE0 00369A40  4E 80 00 20 */	blr 
+/* 8036CAE0 00369A40  4E 80 00 20 */	blr
 
 .global sub_8036cae4
 sub_8036cae4:
 /* 8036CAE4 00369A44  80 83 00 08 */	lwz r4, 8(r3)
 /* 8036CAE8 00369A48  38 04 FF FF */	addi r0, r4, -1
 /* 8036CAEC 00369A4C  90 03 00 08 */	stw r0, 8(r3)
-/* 8036CAF0 00369A50  4E 80 00 20 */	blr 
+/* 8036CAF0 00369A50  4E 80 00 20 */	blr
 
 .global sub_8036caf4
 sub_8036caf4:
@@ -86,7 +86,7 @@ sub_8036caf4:
 /* 8036CB18 00369A78  38 04 00 01 */	addi r0, r4, 1
 /* 8036CB1C 00369A7C  90 03 00 08 */	stw r0, 8(r3)
 /* 8036CB20 00369A80  7C A3 2B 78 */	mr r3, r5
-/* 8036CB24 00369A84  4E 80 00 20 */	blr 
+/* 8036CB24 00369A84  4E 80 00 20 */	blr
 
 .global sub_8036cb28
 sub_8036cb28:
@@ -99,7 +99,7 @@ sub_8036cb28:
 /* 8036CB40 00369AA0  7C 00 00 34 */	cntlzw r0, r0
 /* 8036CB44 00369AA4  7C 60 00 30 */	slw r0, r3, r0
 /* 8036CB48 00369AA8  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8036CB4C 00369AAC  4E 80 00 20 */	blr 
+/* 8036CB4C 00369AAC  4E 80 00 20 */	blr
 
 .global sub_8036cb50
 sub_8036cb50:
@@ -112,7 +112,7 @@ sub_8036cb50:
 /* 8036CB68 00369AC8  7C 00 00 34 */	cntlzw r0, r0
 /* 8036CB6C 00369ACC  7C 60 00 30 */	slw r0, r3, r0
 /* 8036CB70 00369AD0  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8036CB74 00369AD4  4E 80 00 20 */	blr 
+/* 8036CB74 00369AD4  4E 80 00 20 */	blr
 
 .global sub_8036cb78
 sub_8036cb78:
@@ -121,7 +121,7 @@ sub_8036cb78:
 /* 8036CB80 00369AE0  90 83 00 00 */	stw r4, 0(r3)
 /* 8036CB84 00369AE4  90 03 00 04 */	stw r0, 4(r3)
 /* 8036CB88 00369AE8  90 03 00 08 */	stw r0, 8(r3)
-/* 8036CB8C 00369AEC  4E 80 00 20 */	blr 
+/* 8036CB8C 00369AEC  4E 80 00 20 */	blr
 
 .global sub_8036cb90
 sub_8036cb90:
@@ -163,7 +163,7 @@ lbl_8036CBF8:
 /* 8036CC0C 00369B6C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8036CC10 00369B70  7C 08 03 A6 */	mtlr r0
 /* 8036CC14 00369B74  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036CC18 00369B78  4E 80 00 20 */	blr 
+/* 8036CC18 00369B78  4E 80 00 20 */	blr
 
 .global sub_8036cc1c
 sub_8036cc1c:
@@ -226,7 +226,7 @@ lbl_8036CCB4:
 /* 8036CCEC 00369C4C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8036CCF0 00369C50  7C 08 03 A6 */	mtlr r0
 /* 8036CCF4 00369C54  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036CCF8 00369C58  4E 80 00 20 */	blr 
+/* 8036CCF8 00369C58  4E 80 00 20 */	blr
 
 .global sub_8036ccfc
 sub_8036ccfc:
@@ -238,7 +238,7 @@ sub_8036ccfc:
 /* 8036CD10 00369C70  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CD14 00369C74  7C 08 03 A6 */	mtlr r0
 /* 8036CD18 00369C78  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CD1C 00369C7C  4E 80 00 20 */	blr 
+/* 8036CD1C 00369C7C  4E 80 00 20 */	blr
 
 .global sub_8036cd20
 sub_8036cd20:
@@ -256,7 +256,7 @@ lbl_8036CD34:
 /* 8036CD48 00369CA8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036CD4C 00369CAC  7C 08 03 A6 */	mtlr r0
 /* 8036CD50 00369CB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CD54 00369CB4  4E 80 00 20 */	blr 
+/* 8036CD54 00369CB4  4E 80 00 20 */	blr
 
 .global sub_8036cd58
 sub_8036cd58:
@@ -267,7 +267,7 @@ sub_8036cd58:
 /* 8036CD68 00369CC8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CD6C 00369CCC  7C 08 03 A6 */	mtlr r0
 /* 8036CD70 00369CD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CD74 00369CD4  4E 80 00 20 */	blr 
+/* 8036CD74 00369CD4  4E 80 00 20 */	blr
 
 .global sub_8036cd78
 sub_8036cd78:
@@ -278,7 +278,7 @@ sub_8036cd78:
 /* 8036CD88 00369CE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CD8C 00369CEC  7C 08 03 A6 */	mtlr r0
 /* 8036CD90 00369CF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CD94 00369CF4  4E 80 00 20 */	blr 
+/* 8036CD94 00369CF4  4E 80 00 20 */	blr
 
 .global sub_8036cd98
 sub_8036cd98:
@@ -314,7 +314,7 @@ lbl_8036CDEC:
 /* 8036CE04 00369D64  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CE08 00369D68  7C 08 03 A6 */	mtlr r0
 /* 8036CE0C 00369D6C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CE10 00369D70  4E 80 00 20 */	blr 
+/* 8036CE10 00369D70  4E 80 00 20 */	blr
 
 .global __sinit_CFrameDelayedKiller_cpp
 __sinit_CFrameDelayedKiller_cpp:
@@ -339,7 +339,7 @@ __sinit_CFrameDelayedKiller_cpp:
 /* 8036CE5C 00369DBC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CE60 00369DC0  7C 08 03 A6 */	mtlr r0
 /* 8036CE64 00369DC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CE68 00369DC8  4E 80 00 20 */	blr 
+/* 8036CE68 00369DC8  4E 80 00 20 */	blr
 
 .global sub_8036ce6c
 sub_8036ce6c:
@@ -375,7 +375,7 @@ lbl_8036CEC4:
 /* 8036CED4 00369E34  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8036CED8 00369E38  7C 08 03 A6 */	mtlr r0
 /* 8036CEDC 00369E3C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8036CEE0 00369E40  4E 80 00 20 */	blr 
+/* 8036CEE0 00369E40  4E 80 00 20 */	blr
 
 .global __arraydtor$381
 __arraydtor$381:
@@ -392,7 +392,7 @@ __arraydtor$381:
 /* 8036CF0C 00369E6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8036CF10 00369E70  7C 08 03 A6 */	mtlr r0
 /* 8036CF14 00369E74  38 21 00 10 */	addi r1, r1, 0x10
-/* 8036CF18 00369E78  4E 80 00 20 */	blr 
+/* 8036CF18 00369E78  4E 80 00 20 */	blr
 
 .global sub_8036cf1c
 sub_8036cf1c:
@@ -403,5 +403,5 @@ sub_8036cf1c:
 /* 8036CF2C 00369E8C  90 83 00 0C */	stw r4, 0xc(r3)
 /* 8036CF30 00369E90  90 83 00 10 */	stw r4, 0x10(r3)
 /* 8036CF34 00369E94  90 03 00 14 */	stw r0, 0x14(r3)
-/* 8036CF38 00369E98  4E 80 00 20 */	blr 
+/* 8036CF38 00369E98  4E 80 00 20 */	blr
 

@@ -48,7 +48,7 @@ lbl_8030196C:
 /* 80301970 002FE8D0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80301974 002FE8D4  7C 08 03 A6 */	mtlr r0
 /* 80301978 002FE8D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030197C 002FE8DC  4E 80 00 20 */	blr 
+/* 8030197C 002FE8DC  4E 80 00 20 */	blr
 
 .global __ct__14CSaveableStateFv
 __ct__14CSaveableStateFv:

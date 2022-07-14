@@ -13,7 +13,7 @@ lbl_803EE2F8:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __dt__5CWarpFv
@@ -36,4 +36,4 @@ lbl_80336FF4:
 /* 80336FFC 00333F5C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80337000 00333F60  7C 08 03 A6 */	mtlr r0
 /* 80337004 00333F64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80337008 00333F68  4E 80 00 20 */	blr 
+/* 80337008 00333F68  4E 80 00 20 */	blr

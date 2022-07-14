@@ -38,7 +38,7 @@ lbl_8046E1F0:
 .global lbl_805A91A0
 lbl_805A91A0:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global __sinit_IWeaponRenderer_cpp
@@ -61,7 +61,7 @@ __sinit_IWeaponRenderer_cpp:
 /* 802B36E4 002B0644  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B36E8 002B0648  7C 08 03 A6 */	mtlr r0
 /* 802B36EC 002B064C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B36F0 002B0650  4E 80 00 20 */	blr 
+/* 802B36F0 002B0650  4E 80 00 20 */	blr
 
 .global AddParticleGen__22CDefaultWeaponRendererFRC12CParticleGen
 AddParticleGen__22CDefaultWeaponRendererFRC12CParticleGen:
@@ -72,11 +72,11 @@ AddParticleGen__22CDefaultWeaponRendererFRC12CParticleGen:
 /* 802B3704 002B0664  81 84 00 00 */	lwz r12, 0(r4)
 /* 802B3708 002B0668  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802B370C 002B066C  7D 89 03 A6 */	mtctr r12
-/* 802B3710 002B0670  4E 80 04 21 */	bctrl 
+/* 802B3710 002B0670  4E 80 04 21 */	bctrl
 /* 802B3714 002B0674  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B3718 002B0678  7C 08 03 A6 */	mtlr r0
 /* 802B371C 002B067C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B3720 002B0680  4E 80 00 20 */	blr 
+/* 802B3720 002B0680  4E 80 00 20 */	blr
 
 .global __dt__22CDefaultWeaponRendererFv
 __dt__22CDefaultWeaponRendererFv:
@@ -104,4 +104,4 @@ lbl_802B3768:
 /* 802B3770 002B06D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802B3774 002B06D4  7C 08 03 A6 */	mtlr r0
 /* 802B3778 002B06D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B377C 002B06DC  4E 80 00 20 */	blr 
+/* 802B377C 002B06DC  4E 80 00 20 */	blr

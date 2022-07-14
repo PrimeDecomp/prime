@@ -108,7 +108,7 @@ lbl_80245A80:
 /* 80245A84 002429E4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80245A88 002429E8  7C 08 03 A6 */	mtlr r0
 /* 80245A8C 002429EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80245A90 002429F0  4E 80 00 20 */	blr 
+/* 80245A90 002429F0  4E 80 00 20 */	blr
 
 .global IsScanCategoryReady__14CLogBookScreenF13EScanCategory
 IsScanCategoryReady__14CLogBookScreenF13EScanCategory:
@@ -155,7 +155,7 @@ lbl_80245B14:
 /* 80245B24 00242A84  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80245B28 00242A88  7C 08 03 A6 */	mtlr r0
 /* 80245B2C 00242A8C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80245B30 00242A90  4E 80 00 20 */	blr 
+/* 80245B30 00242A90  4E 80 00 20 */	blr
 
 .global InputDisabled__14CLogBookScreenCFv
 InputDisabled__14CLogBookScreenCFv:
@@ -163,13 +163,13 @@ InputDisabled__14CLogBookScreenCFv:
 /* 80245B38 00242A98  20 00 00 01 */	subfic r0, r0, 1
 /* 80245B3C 00242A9C  7C 00 00 34 */	cntlzw r0, r0
 /* 80245B40 00242AA0  54 03 D9 7E */	srwi r3, r0, 5
-/* 80245B44 00242AA4  4E 80 00 20 */	blr 
+/* 80245B44 00242AA4  4E 80 00 20 */	blr
 
 .global TransitioningAway__14CLogBookScreenFv
 TransitioningAway__14CLogBookScreenFv:
 /* 80245B48 00242AA8  38 00 00 01 */	li r0, 1
 /* 80245B4C 00242AAC  90 03 02 5C */	stw r0, 0x25c(r3)
-/* 80245B50 00242AB0  4E 80 00 20 */	blr 
+/* 80245B50 00242AB0  4E 80 00 20 */	blr
 
 .global UpdateRightTitles__14CLogBookScreenFv
 UpdateRightTitles__14CLogBookScreenFv:
@@ -334,7 +334,7 @@ lbl_80245D90:
 /* 80245DA8 00242D08  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 80245DAC 00242D0C  7C 08 03 A6 */	mtlr r0
 /* 80245DB0 00242D10  38 21 01 00 */	addi r1, r1, 0x100
-/* 80245DB4 00242D14  4E 80 00 20 */	blr 
+/* 80245DB4 00242D14  4E 80 00 20 */	blr
 
 .global UpdateBodyText__14CLogBookScreenFv
 UpdateBodyText__14CLogBookScreenFv:
@@ -478,7 +478,7 @@ lbl_80245FB4:
 /* 80245FC0 00242F20  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80245FC4 00242F24  7C 08 03 A6 */	mtlr r0
 /* 80245FC8 00242F28  38 21 00 60 */	addi r1, r1, 0x60
-/* 80245FCC 00242F2C  4E 80 00 20 */	blr 
+/* 80245FCC 00242F2C  4E 80 00 20 */	blr
 
 .global sub_80245fd0
 sub_80245fd0:
@@ -505,7 +505,7 @@ sub_80245fd0:
 /* 80246020 00242F80  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80246024 00242F84  7C 08 03 A6 */	mtlr r0
 /* 80246028 00242F88  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024602C 00242F8C  4E 80 00 20 */	blr 
+/* 8024602C 00242F8C  4E 80 00 20 */	blr
 
 .global UpdateBodyImagesAndText__14CLogBookScreenFv
 UpdateBodyImagesAndText__14CLogBookScreenFv:
@@ -599,7 +599,7 @@ lbl_80246144:
 /* 80246178 002430D8  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8024617C 002430DC  7C 08 03 A6 */	mtlr r0
 /* 80246180 002430E0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80246184 002430E4  4E 80 00 20 */	blr 
+/* 80246184 002430E4  4E 80 00 20 */	blr
 
 .global NextSurroundingArticleIndex__14CLogBookScreenFi
 NextSurroundingArticleIndex__14CLogBookScreenFi:
@@ -612,9 +612,9 @@ NextSurroundingArticleIndex__14CLogBookScreenFi:
 /* 802461A0 00243100  38 64 FF FF */	addi r3, r4, -1
 /* 802461A4 00243104  7C A6 2A 14 */	add r5, r6, r5
 /* 802461A8 00243108  7C 05 00 00 */	cmpw r5, r0
-/* 802461AC 0024310C  4C 80 00 20 */	bgelr 
+/* 802461AC 0024310C  4C 80 00 20 */	bgelr
 /* 802461B0 00243110  7C A3 2B 78 */	mr r3, r5
-/* 802461B4 00243114  4E 80 00 20 */	blr 
+/* 802461B4 00243114  4E 80 00 20 */	blr
 lbl_802461B8:
 /* 802461B8 00243118  38 06 00 06 */	addi r0, r6, 6
 /* 802461BC 0024311C  7C 04 00 00 */	cmpw r4, r0
@@ -622,27 +622,27 @@ lbl_802461B8:
 /* 802461C4 00243124  80 03 01 F4 */	lwz r0, 0x1f4(r3)
 /* 802461C8 00243128  38 64 00 01 */	addi r3, r4, 1
 /* 802461CC 0024312C  7C 03 00 00 */	cmpw r3, r0
-/* 802461D0 00243130  4D 80 00 20 */	bltlr 
+/* 802461D0 00243130  4D 80 00 20 */	bltlr
 /* 802461D4 00243134  2C 06 00 00 */	cmpwi r6, 0
 /* 802461D8 00243138  38 60 FF FF */	li r3, -1
-/* 802461DC 0024313C  4D 82 00 20 */	beqlr 
+/* 802461DC 0024313C  4D 82 00 20 */	beqlr
 /* 802461E0 00243140  38 66 FF FF */	addi r3, r6, -1
-/* 802461E4 00243144  4E 80 00 20 */	blr 
+/* 802461E4 00243144  4E 80 00 20 */	blr
 lbl_802461E8:
 /* 802461E8 00243148  38 06 00 05 */	addi r0, r6, 5
 /* 802461EC 0024314C  7C 00 20 50 */	subf r0, r0, r4
 /* 802461F0 00243150  7C 00 30 51 */	subf. r0, r0, r6
 /* 802461F4 00243154  41 80 00 0C */	blt lbl_80246200
 /* 802461F8 00243158  7C 03 03 78 */	mr r3, r0
-/* 802461FC 0024315C  4E 80 00 20 */	blr 
+/* 802461FC 0024315C  4E 80 00 20 */	blr
 lbl_80246200:
 /* 80246200 00243160  80 A3 01 F4 */	lwz r5, 0x1f4(r3)
 /* 80246204 00243164  38 60 FF FF */	li r3, -1
 /* 80246208 00243168  38 05 FF FF */	addi r0, r5, -1
 /* 8024620C 0024316C  7C 04 00 00 */	cmpw r4, r0
-/* 80246210 00243170  4C 80 00 20 */	bgelr 
+/* 80246210 00243170  4C 80 00 20 */	bgelr
 /* 80246214 00243174  38 64 00 01 */	addi r3, r4, 1
-/* 80246218 00243178  4E 80 00 20 */	blr 
+/* 80246218 00243178  4E 80 00 20 */	blr
 
 .global PumpArticleLoad__14CLogBookScreenFv
 PumpArticleLoad__14CLogBookScreenFv:
@@ -718,7 +718,7 @@ lbl_802462F4:
 /* 80246318 00243278  81 84 00 00 */	lwz r12, 0(r4)
 /* 8024631C 0024327C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80246320 00243280  7D 89 03 A6 */	mtctr r12
-/* 80246324 00243284  4E 80 04 21 */	bctrl 
+/* 80246324 00243284  4E 80 04 21 */	bctrl
 /* 80246328 00243288  38 61 00 34 */	addi r3, r1, 0x34
 /* 8024632C 0024328C  38 81 00 18 */	addi r4, r1, 0x18
 /* 80246330 00243290  48 0F AB 79 */	bl __ct__6CTokenFRC6CToken
@@ -829,7 +829,7 @@ lbl_80246474:
 /* 802464A8 00243408  81 84 00 00 */	lwz r12, 0(r4)
 /* 802464AC 0024340C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802464B0 00243410  7D 89 03 A6 */	mtctr r12
-/* 802464B4 00243414  4E 80 04 21 */	bctrl 
+/* 802464B4 00243414  4E 80 04 21 */	bctrl
 /* 802464B8 00243418  38 61 00 28 */	addi r3, r1, 0x28
 /* 802464BC 0024341C  38 81 00 08 */	addi r4, r1, 8
 /* 802464C0 00243420  48 0F A9 E9 */	bl __ct__6CTokenFRC6CToken
@@ -983,7 +983,7 @@ lbl_802466B0:
 /* 802466C0 00243620  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802466C4 00243624  7C 08 03 A6 */	mtlr r0
 /* 802466C8 00243628  38 21 00 60 */	addi r1, r1, 0x60
-/* 802466CC 0024362C  4E 80 00 20 */	blr 
+/* 802466CC 0024362C  4E 80 00 20 */	blr
 
 .global InitializeLogBook__14CLogBookScreenFv
 InitializeLogBook__14CLogBookScreenFv:
@@ -1107,7 +1107,7 @@ lbl_80246860:
 /* 8024687C 002437DC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80246880 002437E0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80246884 002437E4  7D 89 03 A6 */	mtctr r12
-/* 80246888 002437E8  4E 80 04 21 */	bctrl 
+/* 80246888 002437E8  4E 80 04 21 */	bctrl
 /* 8024688C 002437EC  38 61 00 40 */	addi r3, r1, 0x40
 /* 80246890 002437F0  38 81 00 20 */	addi r4, r1, 0x20
 /* 80246894 002437F4  48 0F A6 15 */	bl __ct__6CTokenFRC6CToken
@@ -1225,7 +1225,7 @@ lbl_80246A20:
 /* 80246A30 00243990  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80246A34 00243994  7C 08 03 A6 */	mtlr r0
 /* 80246A38 00243998  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80246A3C 0024399C  4E 80 00 20 */	blr 
+/* 80246A3C 0024399C  4E 80 00 20 */	blr
 
 .global RightTableSelectionChanged__14CLogBookScreenFii
 RightTableSelectionChanged__14CLogBookScreenFii:
@@ -1236,12 +1236,12 @@ RightTableSelectionChanged__14CLogBookScreenFii:
 /* 80246A50 002439B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80246A54 002439B4  7C 08 03 A6 */	mtlr r0
 /* 80246A58 002439B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80246A5C 002439BC  4E 80 00 20 */	blr 
+/* 80246A5C 002439BC  4E 80 00 20 */	blr
 
 .global GetRightTableCount__14CLogBookScreenCFv
 GetRightTableCount__14CLogBookScreenCFv:
 /* 80246A60 002439C0  80 63 01 F4 */	lwz r3, 0x1f4(r3)
-/* 80246A64 002439C4  4E 80 00 20 */	blr 
+/* 80246A64 002439C4  4E 80 00 20 */	blr
 
 .global ShouldRightTableAdvance__14CLogBookScreenFv
 ShouldRightTableAdvance__14CLogBookScreenFv:
@@ -1340,7 +1340,7 @@ lbl_80246BA4:
 /* 80246BAC 00243B0C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80246BB0 00243B10  7C 08 03 A6 */	mtlr r0
 /* 80246BB4 00243B14  38 21 00 10 */	addi r1, r1, 0x10
-/* 80246BB8 00243B18  4E 80 00 20 */	blr 
+/* 80246BB8 00243B18  4E 80 00 20 */	blr
 
 .global ShouldLeftTableAdvance__14CLogBookScreenFv
 ShouldLeftTableAdvance__14CLogBookScreenFv:
@@ -1365,7 +1365,7 @@ lbl_80246BF8:
 /* 80246BF8 00243B58  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80246BFC 00243B5C  7C 08 03 A6 */	mtlr r0
 /* 80246C00 00243B60  38 21 00 10 */	addi r1, r1, 0x10
-/* 80246C04 00243B64  4E 80 00 20 */	blr 
+/* 80246C04 00243B64  4E 80 00 20 */	blr
 
 .global UpdateRightTable__14CLogBookScreenFv
 UpdateRightTable__14CLogBookScreenFv:
@@ -1409,7 +1409,7 @@ lbl_80246C80:
 /* 80246C98 00243BF8  81 84 00 00 */	lwz r12, 0(r4)
 /* 80246C9C 00243BFC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80246CA0 00243C00  7D 89 03 A6 */	mtctr r12
-/* 80246CA4 00243C04  4E 80 04 21 */	bctrl 
+/* 80246CA4 00243C04  4E 80 04 21 */	bctrl
 /* 80246CA8 00243C08  38 61 00 38 */	addi r3, r1, 0x38
 /* 80246CAC 00243C0C  38 81 00 08 */	addi r4, r1, 8
 /* 80246CB0 00243C10  48 0F A1 F9 */	bl __ct__6CTokenFRC6CToken
@@ -1524,7 +1524,7 @@ lbl_80246E18:
 /* 80246E44 00243DA4  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80246E48 00243DA8  7C 08 03 A6 */	mtlr r0
 /* 80246E4C 00243DAC  38 21 00 80 */	addi r1, r1, 0x80
-/* 80246E50 00243DB0  4E 80 00 20 */	blr 
+/* 80246E50 00243DB0  4E 80 00 20 */	blr
 
 .global sub_80246e54
 sub_80246e54:
@@ -1597,7 +1597,7 @@ lbl_80246F38:
 /* 80246F3C 00243E9C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80246F40 00243EA0  7C 08 03 A6 */	mtlr r0
 /* 80246F44 00243EA4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80246F48 00243EA8  4E 80 00 20 */	blr 
+/* 80246F48 00243EA8  4E 80 00 20 */	blr
 
 .global sub_80246f4c
 sub_80246f4c:
@@ -1624,7 +1624,7 @@ sub_80246f4c:
 /* 80246F9C 00243EFC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80246FA0 00243F00  7C 08 03 A6 */	mtlr r0
 /* 80246FA4 00243F04  38 21 00 20 */	addi r1, r1, 0x20
-/* 80246FA8 00243F08  4E 80 00 20 */	blr 
+/* 80246FA8 00243F08  4E 80 00 20 */	blr
 
 .global sub_80246fac
 sub_80246fac:
@@ -1671,7 +1671,7 @@ lbl_80247024:
 /* 80247038 00243F98  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8024703C 00243F9C  7C 08 03 A6 */	mtlr r0
 /* 80247040 00243FA0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247044 00243FA4  4E 80 00 20 */	blr 
+/* 80247044 00243FA4  4E 80 00 20 */	blr
 
 .global sub_80247048
 sub_80247048:
@@ -1711,7 +1711,7 @@ lbl_802470B8:
 /* 802470C4 00244024  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802470C8 00244028  7C 08 03 A6 */	mtlr r0
 /* 802470CC 0024402C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802470D0 00244030  4E 80 00 20 */	blr 
+/* 802470D0 00244030  4E 80 00 20 */	blr
 
 .global ChangedMode__14CLogBookScreenQ216CPauseScreenBase5EMode
 ChangedMode__14CLogBookScreenQ216CPauseScreenBase5EMode:
@@ -1760,7 +1760,7 @@ lbl_80247170:
 /* 80247174 002440D4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80247178 002440D8  7C 08 03 A6 */	mtlr r0
 /* 8024717C 002440DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247180 002440E0  4E 80 00 20 */	blr 
+/* 80247180 002440E0  4E 80 00 20 */	blr
 
 .global VActivate__14CLogBookScreenFv
 VActivate__14CLogBookScreenFv:
@@ -1813,7 +1813,7 @@ lbl_80247200:
 /* 80247234 00244194  81 83 00 00 */	lwz r12, 0(r3)
 /* 80247238 00244198  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 8024723C 0024419C  7D 89 03 A6 */	mtctr r12
-/* 80247240 002441A0  4E 80 04 21 */	bctrl 
+/* 80247240 002441A0  4E 80 04 21 */	bctrl
 /* 80247244 002441A4  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 80247248 002441A8  38 80 00 00 */	li r4, 0
 /* 8024724C 002441AC  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
@@ -1847,7 +1847,7 @@ lbl_802472AC:
 /* 802472B4 00244214  81 83 00 00 */	lwz r12, 0(r3)
 /* 802472B8 00244218  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802472BC 0024421C  7D 89 03 A6 */	mtctr r12
-/* 802472C0 00244220  4E 80 04 21 */	bctrl 
+/* 802472C0 00244220  4E 80 04 21 */	bctrl
 /* 802472C4 00244224  88 03 00 B6 */	lbz r0, 0xb6(r3)
 /* 802472C8 00244228  53 E0 26 F6 */	rlwimi r0, r31, 4, 0x1b, 0x1b
 /* 802472CC 0024422C  3B BD 00 01 */	addi r29, r29, 1
@@ -1862,12 +1862,12 @@ lbl_802472D4:
 /* 802472EC 0024424C  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 802472F0 00244250  7C 08 03 A6 */	mtlr r0
 /* 802472F4 00244254  38 21 00 50 */	addi r1, r1, 0x50
-/* 802472F8 00244258  4E 80 00 20 */	blr 
+/* 802472F8 00244258  4E 80 00 20 */	blr
 
 .global VReady__14CLogBookScreenCFv
 VReady__14CLogBookScreenCFv:
 /* 802472FC 0024425C  38 60 00 01 */	li r3, 1
-/* 80247300 00244260  4E 80 00 20 */	blr 
+/* 80247300 00244260  4E 80 00 20 */	blr
 
 .global ProcessInput__14CLogBookScreenFRC11CFinalInput
 ProcessInput__14CLogBookScreenFRC11CFinalInput:
@@ -2061,7 +2061,7 @@ lbl_80247598:
 /* 8024759C 002444FC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802475A0 00244500  7C 08 03 A6 */	mtlr r0
 /* 802475A4 00244504  38 21 00 30 */	addi r1, r1, 0x30
-/* 802475A8 00244508  4E 80 00 20 */	blr 
+/* 802475A8 00244508  4E 80 00 20 */	blr
 
 .global Draw__14CLogBookScreenCFfff
 Draw__14CLogBookScreenCFfff:
@@ -2103,7 +2103,7 @@ lbl_802475F8:
 /* 80247634 00244594  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80247638 00244598  7C 08 03 A6 */	mtlr r0
 /* 8024763C 0024459C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80247640 002445A0  4E 80 00 20 */	blr 
+/* 80247640 002445A0  4E 80 00 20 */	blr
 
 .global GetSelectedArtifactHeadScanIndex__14CLogBookScreenFv
 GetSelectedArtifactHeadScanIndex__14CLogBookScreenFv:
@@ -2129,7 +2129,7 @@ lbl_80247688:
 /* 80247688 002445E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024768C 002445EC  7C 08 03 A6 */	mtlr r0
 /* 80247690 002445F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247694 002445F4  4E 80 00 20 */	blr 
+/* 80247694 002445F4  4E 80 00 20 */	blr
 
 .global IsArtifactCategorySelected__14CLogBookScreenCFv
 IsArtifactCategorySelected__14CLogBookScreenCFv:
@@ -2139,7 +2139,7 @@ IsArtifactCategorySelected__14CLogBookScreenCFv:
 /* 802476A4 00244604  20 00 00 05 */	subfic r0, r0, 5
 /* 802476A8 00244608  7C 00 00 34 */	cntlzw r0, r0
 /* 802476AC 0024460C  54 03 D9 7E */	srwi r3, r0, 5
-/* 802476B0 00244610  4E 80 00 20 */	blr 
+/* 802476B0 00244610  4E 80 00 20 */	blr
 
 .global Touch__14CLogBookScreenFv
 Touch__14CLogBookScreenFv:
@@ -2155,7 +2155,7 @@ Touch__14CLogBookScreenFv:
 /* 802476D8 00244638  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802476DC 0024463C  7C 08 03 A6 */	mtlr r0
 /* 802476E0 00244640  38 21 00 10 */	addi r1, r1, 0x10
-/* 802476E4 00244644  4E 80 00 20 */	blr 
+/* 802476E4 00244644  4E 80 00 20 */	blr
 
 .global Update__14CLogBookScreenFfR9CRandom16R18CArchitectureQueue
 Update__14CLogBookScreenFfR9CRandom16R18CArchitectureQueue:
@@ -2299,7 +2299,7 @@ lbl_802478C8:
 /* 802478E4 00244844  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 802478E8 00244848  7C 08 03 A6 */	mtlr r0
 /* 802478EC 0024484C  38 21 00 60 */	addi r1, r1, 0x60
-/* 802478F0 00244850  4E 80 00 20 */	blr 
+/* 802478F0 00244850  4E 80 00 20 */	blr
 
 .global __dt__14CLogBookScreenFv
 __dt__14CLogBookScreenFv:
@@ -2363,7 +2363,7 @@ lbl_802479C0:
 /* 802479C8 00244928  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802479CC 0024492C  7C 08 03 A6 */	mtlr r0
 /* 802479D0 00244930  38 21 00 20 */	addi r1, r1, 0x20
-/* 802479D4 00244934  4E 80 00 20 */	blr 
+/* 802479D4 00244934  4E 80 00 20 */	blr
 
 .global sub_802479d8
 sub_802479d8:
@@ -2387,7 +2387,7 @@ lbl_80247A0C:
 /* 80247A18 00244978  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80247A1C 0024497C  7C 08 03 A6 */	mtlr r0
 /* 80247A20 00244980  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247A24 00244984  4E 80 00 20 */	blr 
+/* 80247A24 00244984  4E 80 00 20 */	blr
 
 .global sub_80247a28
 sub_80247a28:
@@ -2437,7 +2437,7 @@ lbl_80247AA0:
 /* 80247AC0 00244A20  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80247AC4 00244A24  7C 08 03 A6 */	mtlr r0
 /* 80247AC8 00244A28  38 21 00 30 */	addi r1, r1, 0x30
-/* 80247ACC 00244A2C  4E 80 00 20 */	blr 
+/* 80247ACC 00244A2C  4E 80 00 20 */	blr
 
 .global sub_80247ad0
 sub_80247ad0:
@@ -2461,7 +2461,7 @@ lbl_80247B04:
 /* 80247B10 00244A70  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80247B14 00244A74  7C 08 03 A6 */	mtlr r0
 /* 80247B18 00244A78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247B1C 00244A7C  4E 80 00 20 */	blr 
+/* 80247B1C 00244A7C  4E 80 00 20 */	blr
 
 .global sub_80247b20
 sub_80247b20:
@@ -2492,7 +2492,7 @@ lbl_80247B58:
 /* 80247B78 00244AD8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80247B7C 00244ADC  7C 08 03 A6 */	mtlr r0
 /* 80247B80 00244AE0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80247B84 00244AE4  4E 80 00 20 */	blr 
+/* 80247B84 00244AE4  4E 80 00 20 */	blr
 
 .global sub_80247b88
 sub_80247b88:
@@ -2504,7 +2504,7 @@ sub_80247b88:
 /* 80247B9C 00244AFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80247BA0 00244B00  7C 08 03 A6 */	mtlr r0
 /* 80247BA4 00244B04  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247BA8 00244B08  4E 80 00 20 */	blr 
+/* 80247BA8 00244B08  4E 80 00 20 */	blr
 
 .global __ct__14CLogBookScreenFRC13CStateManagerRC9CGuiFrameRC12CStringTable
 __ct__14CLogBookScreenFRC13CStateManagerRC9CGuiFrameRC12CStringTable:
@@ -2590,7 +2590,7 @@ lbl_80247C94:
 /* 80247CD8 00244C38  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80247CDC 00244C3C  7C 08 03 A6 */	mtlr r0
 /* 80247CE0 00244C40  38 21 00 40 */	addi r1, r1, 0x40
-/* 80247CE4 00244C44  4E 80 00 20 */	blr 
+/* 80247CE4 00244C44  4E 80 00 20 */	blr
 
 .global sub_80247ce8
 sub_80247ce8:
@@ -2607,7 +2607,7 @@ sub_80247ce8:
 /* 80247D10 00244C70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80247D14 00244C74  7C 08 03 A6 */	mtlr r0
 /* 80247D18 00244C78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247D1C 00244C7C  4E 80 00 20 */	blr 
+/* 80247D1C 00244C7C  4E 80 00 20 */	blr
 
 .global sub_80247d20
 sub_80247d20:
@@ -2642,7 +2642,7 @@ lbl_80247D6C:
 /* 80247D84 00244CE4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80247D88 00244CE8  7C 08 03 A6 */	mtlr r0
 /* 80247D8C 00244CEC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80247D90 00244CF0  4E 80 00 20 */	blr 
+/* 80247D90 00244CF0  4E 80 00 20 */	blr
 
 .global sub_80247d94
 sub_80247d94:
@@ -2719,7 +2719,7 @@ lbl_80247E88:
 /* 80247E90 00244DF0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80247E94 00244DF4  7C 08 03 A6 */	mtlr r0
 /* 80247E98 00244DF8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80247E9C 00244DFC  4E 80 00 20 */	blr 
+/* 80247E9C 00244DFC  4E 80 00 20 */	blr
 
 .global sub_80247ea0
 sub_80247ea0:
@@ -2736,7 +2736,7 @@ sub_80247ea0:
 /* 80247EC8 00244E28  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80247ECC 00244E2C  7C 08 03 A6 */	mtlr r0
 /* 80247ED0 00244E30  38 21 00 10 */	addi r1, r1, 0x10
-/* 80247ED4 00244E34  4E 80 00 20 */	blr 
+/* 80247ED4 00244E34  4E 80 00 20 */	blr
 
 .global sub_80247ed8
 sub_80247ed8:
@@ -2812,7 +2812,7 @@ lbl_80247FB4:
 /* 80247FCC 00244F2C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80247FD0 00244F30  7C 08 03 A6 */	mtlr r0
 /* 80247FD4 00244F34  38 21 00 20 */	addi r1, r1, 0x20
-/* 80247FD8 00244F38  4E 80 00 20 */	blr 
+/* 80247FD8 00244F38  4E 80 00 20 */	blr
 
 .global sub_80247fdc
 sub_80247fdc:
@@ -2938,7 +2938,7 @@ lbl_80248198:
 /* 8024819C 002450FC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802481A0 00245100  7C 08 03 A6 */	mtlr r0
 /* 802481A4 00245104  38 21 00 60 */	addi r1, r1, 0x60
-/* 802481A8 00245108  4E 80 00 20 */	blr 
+/* 802481A8 00245108  4E 80 00 20 */	blr
 
 .global sub_802481ac
 sub_802481ac:
@@ -3011,7 +3011,7 @@ lbl_80248284:
 /* 80248290 002451F0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80248294 002451F4  7C 08 03 A6 */	mtlr r0
 /* 80248298 002451F8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8024829C 002451FC  4E 80 00 20 */	blr 
+/* 8024829C 002451FC  4E 80 00 20 */	blr
 
 .global sub_802482a0
 sub_802482a0:
@@ -3090,7 +3090,7 @@ lbl_802483A0:
 /* 802483A4 00245304  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802483A8 00245308  7C 08 03 A6 */	mtlr r0
 /* 802483AC 0024530C  38 21 00 40 */	addi r1, r1, 0x40
-/* 802483B0 00245310  4E 80 00 20 */	blr 
+/* 802483B0 00245310  4E 80 00 20 */	blr
 
 .global sub_802483b4
 sub_802483b4:
@@ -3137,7 +3137,7 @@ lbl_8024842C:
 /* 80248440 002453A0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80248444 002453A4  7C 08 03 A6 */	mtlr r0
 /* 80248448 002453A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024844C 002453AC  4E 80 00 20 */	blr 
+/* 8024844C 002453AC  4E 80 00 20 */	blr
 
 .global sub_80248450
 sub_80248450:
@@ -3199,7 +3199,7 @@ lbl_8024851C:
 /* 80248520 00245480  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80248524 00245484  7C 08 03 A6 */	mtlr r0
 /* 80248528 00245488  38 21 00 20 */	addi r1, r1, 0x20
-/* 8024852C 0024548C  4E 80 00 20 */	blr 
+/* 8024852C 0024548C  4E 80 00 20 */	blr
 
 .global sub_80248530
 sub_80248530:

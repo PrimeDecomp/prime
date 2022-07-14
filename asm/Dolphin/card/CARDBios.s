@@ -4,7 +4,7 @@
 .global lbl_80569A58
 lbl_80569A58:
 	.skip 0x220
-	
+
 .section .data, "wa"
 lbl_803F6C90:
 	.asciz "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>"
@@ -23,18 +23,18 @@ lbl_803F6CD8:
 lbl_805A8BF0:
 	.4byte lbl_803F6C90
 	.skip 4
-	
+
 .section .sbss, "wa"
 .balign 4
 .global lbl_805A9BC8
 lbl_805A9BC8:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global __CARDDefaultApiCallback
 __CARDDefaultApiCallback:
-/* 803B7E74 003B4DD4  4E 80 00 20 */	blr 
+/* 803B7E74 003B4DD4  4E 80 00 20 */	blr
 
 .global __CARDExtHandler
 __CARDExtHandler:
@@ -67,7 +67,7 @@ __CARDExtHandler:
 /* 803B7EE0 003B4E40  7D 88 03 A6 */	mtlr r12
 /* 803B7EE4 003B4E44  38 7D 00 00 */	addi r3, r29, 0
 /* 803B7EE8 003B4E48  38 80 FF FD */	li r4, -3
-/* 803B7EEC 003B4E4C  4E 80 00 21 */	blrl 
+/* 803B7EEC 003B4E4C  4E 80 00 21 */	blrl
 lbl_803B7EF0:
 /* 803B7EF0 003B4E50  80 1E 00 04 */	lwz r0, 4(r30)
 /* 803B7EF4 003B4E54  2C 00 FF FF */	cmpwi r0, -1
@@ -86,7 +86,7 @@ lbl_803B7F04:
 /* 803B7F24 003B4E84  90 1E 00 C4 */	stw r0, 0xc4(r30)
 /* 803B7F28 003B4E88  38 7D 00 00 */	addi r3, r29, 0
 /* 803B7F2C 003B4E8C  38 80 FF FD */	li r4, -3
-/* 803B7F30 003B4E90  4E 80 00 21 */	blrl 
+/* 803B7F30 003B4E90  4E 80 00 21 */	blrl
 lbl_803B7F34:
 /* 803B7F34 003B4E94  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803B7F38 003B4E98  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -94,7 +94,7 @@ lbl_803B7F34:
 /* 803B7F40 003B4EA0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803B7F44 003B4EA4  38 21 00 20 */	addi r1, r1, 0x20
 /* 803B7F48 003B4EA8  7C 08 03 A6 */	mtlr r0
-/* 803B7F4C 003B4EAC  4E 80 00 20 */	blr 
+/* 803B7F4C 003B4EAC  4E 80 00 20 */	blr
 
 .global __CARDExiHandler
 __CARDExiHandler:
@@ -165,7 +165,7 @@ lbl_803B8024:
 /* 803B803C 003B4F9C  90 1E 00 CC */	stw r0, 0xcc(r30)
 /* 803B8040 003B4FA0  38 7F 00 00 */	addi r3, r31, 0
 /* 803B8044 003B4FA4  38 9D 00 00 */	addi r4, r29, 0
-/* 803B8048 003B4FA8  4E 80 00 21 */	blrl 
+/* 803B8048 003B4FA8  4E 80 00 21 */	blrl
 lbl_803B804C:
 /* 803B804C 003B4FAC  80 01 00 2C */	lwz r0, 0x2c(r1)
 /* 803B8050 003B4FB0  83 E1 00 24 */	lwz r31, 0x24(r1)
@@ -173,7 +173,7 @@ lbl_803B804C:
 /* 803B8058 003B4FB8  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 803B805C 003B4FBC  38 21 00 28 */	addi r1, r1, 0x28
 /* 803B8060 003B4FC0  7C 08 03 A6 */	mtlr r0
-/* 803B8064 003B4FC4  4E 80 00 20 */	blr 
+/* 803B8064 003B4FC4  4E 80 00 20 */	blr
 
 .global __CARDTxHandler
 __CARDTxHandler:
@@ -216,13 +216,13 @@ lbl_803B80EC:
 /* 803B80EC 003B504C  39 9C 00 00 */	addi r12, r28, 0
 /* 803B80F0 003B5050  7D 88 03 A6 */	mtlr r12
 /* 803B80F4 003B5054  38 7B 00 00 */	addi r3, r27, 0
-/* 803B80F8 003B5058  4E 80 00 21 */	blrl 
+/* 803B80F8 003B5058  4E 80 00 21 */	blrl
 lbl_803B80FC:
 /* 803B80FC 003B505C  BB 61 00 14 */	lmw r27, 0x14(r1)
 /* 803B8100 003B5060  80 01 00 2C */	lwz r0, 0x2c(r1)
 /* 803B8104 003B5064  38 21 00 28 */	addi r1, r1, 0x28
 /* 803B8108 003B5068  7C 08 03 A6 */	mtlr r0
-/* 803B810C 003B506C  4E 80 00 20 */	blr 
+/* 803B810C 003B506C  4E 80 00 20 */	blr
 
 .global __CARDUnlockedHandler
 __CARDUnlockedHandler:
@@ -254,14 +254,14 @@ lbl_803B816C:
 /* 803B816C 003B50CC  39 9F 00 00 */	addi r12, r31, 0
 /* 803B8170 003B50D0  7D 88 03 A6 */	mtlr r12
 /* 803B8174 003B50D4  38 7E 00 00 */	addi r3, r30, 0
-/* 803B8178 003B50D8  4E 80 00 21 */	blrl 
+/* 803B8178 003B50D8  4E 80 00 21 */	blrl
 lbl_803B817C:
 /* 803B817C 003B50DC  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 803B8180 003B50E0  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803B8184 003B50E4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B8188 003B50E8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B818C 003B50EC  7C 08 03 A6 */	mtlr r0
-/* 803B8190 003B50F0  4E 80 00 20 */	blr 
+/* 803B8190 003B50F0  4E 80 00 20 */	blr
 
 .global __CARDEnableInterrupt
 __CARDEnableInterrupt:
@@ -317,7 +317,7 @@ lbl_803B823C:
 /* 803B8244 003B51A4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 803B8248 003B51A8  38 21 00 20 */	addi r1, r1, 0x20
 /* 803B824C 003B51AC  7C 08 03 A6 */	mtlr r0
-/* 803B8250 003B51B0  4E 80 00 20 */	blr 
+/* 803B8250 003B51B0  4E 80 00 20 */	blr
 
 .global __CARDReadStatus
 __CARDReadStatus:
@@ -383,7 +383,7 @@ lbl_803B8328:
 /* 803B8334 003B5294  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 803B8338 003B5298  38 21 00 28 */	addi r1, r1, 0x28
 /* 803B833C 003B529C  7C 08 03 A6 */	mtlr r0
-/* 803B8340 003B52A0  4E 80 00 20 */	blr 
+/* 803B8340 003B52A0  4E 80 00 20 */	blr
 
 .global __CARDClearStatus
 __CARDClearStatus:
@@ -432,7 +432,7 @@ lbl_803B83D8:
 /* 803B83E0 003B5340  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B83E4 003B5344  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B83E8 003B5348  7C 08 03 A6 */	mtlr r0
-/* 803B83EC 003B534C  4E 80 00 20 */	blr 
+/* 803B83EC 003B534C  4E 80 00 20 */	blr
 
 .global TimeoutHandler
 TimeoutHandler:
@@ -471,14 +471,14 @@ lbl_803B843C:
 /* 803B846C 003B53CC  90 1E 00 CC */	stw r0, 0xcc(r30)
 /* 803B8470 003B53D0  38 7F 00 00 */	addi r3, r31, 0
 /* 803B8474 003B53D4  38 80 FF FB */	li r4, -5
-/* 803B8478 003B53D8  4E 80 00 21 */	blrl 
+/* 803B8478 003B53D8  4E 80 00 21 */	blrl
 lbl_803B847C:
 /* 803B847C 003B53DC  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 803B8480 003B53E0  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803B8484 003B53E4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B8488 003B53E8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B848C 003B53EC  7C 08 03 A6 */	mtlr r0
-/* 803B8490 003B53F0  4E 80 00 20 */	blr 
+/* 803B8490 003B53F0  4E 80 00 20 */	blr
 
 .global Retry
 Retry:
@@ -632,7 +632,7 @@ lbl_803B86A8:
 /* 803B86B0 003B5610  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B86B4 003B5614  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B86B8 003B5618  7C 08 03 A6 */	mtlr r0
-/* 803B86BC 003B561C  4E 80 00 20 */	blr 
+/* 803B86BC 003B561C  4E 80 00 20 */	blr
 
 .global UnlockedCallback
 UnlockedCallback:
@@ -692,7 +692,7 @@ lbl_803B8770:
 /* 803B8784 003B56E4  7D 88 03 A6 */	mtlr r12
 /* 803B8788 003B56E8  90 1E 00 C8 */	stw r0, 0xc8(r30)
 /* 803B878C 003B56EC  7F E3 FB 78 */	mr r3, r31
-/* 803B8790 003B56F0  4E 80 00 21 */	blrl 
+/* 803B8790 003B56F0  4E 80 00 21 */	blrl
 /* 803B8794 003B56F4  48 00 00 24 */	b lbl_803B87B8
 lbl_803B8798:
 /* 803B8798 003B56F8  81 9E 00 CC */	lwz r12, 0xcc(r30)
@@ -702,14 +702,14 @@ lbl_803B8798:
 /* 803B87A8 003B5708  7D 88 03 A6 */	mtlr r12
 /* 803B87AC 003B570C  90 1E 00 CC */	stw r0, 0xcc(r30)
 /* 803B87B0 003B5710  7F E3 FB 78 */	mr r3, r31
-/* 803B87B4 003B5714  4E 80 00 21 */	blrl 
+/* 803B87B4 003B5714  4E 80 00 21 */	blrl
 lbl_803B87B8:
 /* 803B87B8 003B5718  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 803B87BC 003B571C  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 803B87C0 003B5720  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B87C4 003B5724  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B87C8 003B5728  7C 08 03 A6 */	mtlr r0
-/* 803B87CC 003B572C  4E 80 00 20 */	blr 
+/* 803B87CC 003B572C  4E 80 00 20 */	blr
 
 .global __CARDStart
 __CARDStart:
@@ -831,7 +831,7 @@ lbl_803B8964:
 /* 803B8974 003B58D4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 803B8978 003B58D8  38 21 00 30 */	addi r1, r1, 0x30
 /* 803B897C 003B58DC  7C 08 03 A6 */	mtlr r0
-/* 803B8980 003B58E0  4E 80 00 20 */	blr 
+/* 803B8980 003B58E0  4E 80 00 20 */	blr
 
 .global __CARDReadSegment
 __CARDReadSegment:
@@ -915,7 +915,7 @@ lbl_803B8AA0:
 /* 803B8AA8 003B5A08  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B8AAC 003B5A0C  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B8AB0 003B5A10  7C 08 03 A6 */	mtlr r0
-/* 803B8AB4 003B5A14  4E 80 00 20 */	blr 
+/* 803B8AB4 003B5A14  4E 80 00 20 */	blr
 
 .global __CARDWritePage
 __CARDWritePage:
@@ -993,7 +993,7 @@ lbl_803B8BBC:
 /* 803B8BC4 003B5B24  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B8BC8 003B5B28  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B8BCC 003B5B2C  7C 08 03 A6 */	mtlr r0
-/* 803B8BD0 003B5B30  4E 80 00 20 */	blr 
+/* 803B8BD0 003B5B30  4E 80 00 20 */	blr
 
 .global __CARDEraseSector
 __CARDEraseSector:
@@ -1056,7 +1056,7 @@ lbl_803B8C94:
 /* 803B8CA4 003B5C04  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 803B8CA8 003B5C08  38 21 00 28 */	addi r1, r1, 0x28
 /* 803B8CAC 003B5C0C  7C 08 03 A6 */	mtlr r0
-/* 803B8CB0 003B5C10  4E 80 00 20 */	blr 
+/* 803B8CB0 003B5C10  4E 80 00 20 */	blr
 
 .global CARDInit
 CARDInit:
@@ -1105,12 +1105,12 @@ lbl_803B8D44:
 /* 803B8D50 003B5CB0  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 803B8D54 003B5CB4  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B8D58 003B5CB8  7C 08 03 A6 */	mtlr r0
-/* 803B8D5C 003B5CBC  4E 80 00 20 */	blr 
+/* 803B8D5C 003B5CBC  4E 80 00 20 */	blr
 
 .global __CARDGetFontEncode
 __CARDGetFontEncode:
 /* 803B8D60 003B5CC0  A0 6D B0 08 */	lhz r3, lbl_805A9BC8@sda21(r13)
-/* 803B8D64 003B5CC4  4E 80 00 20 */	blr 
+/* 803B8D64 003B5CC4  4E 80 00 20 */	blr
 
 .global __CARDSetDiskID
 __CARDSetDiskID:
@@ -1131,7 +1131,7 @@ lbl_803B8D94:
 /* 803B8D94 003B5CF4  38 64 02 20 */	addi r3, r4, 0x220
 lbl_803B8D98:
 /* 803B8D98 003B5CF8  90 64 02 1C */	stw r3, 0x21c(r4)
-/* 803B8D9C 003B5CFC  4E 80 00 20 */	blr 
+/* 803B8D9C 003B5CFC  4E 80 00 20 */	blr
 
 .global __CARDGetControlBlock
 __CARDGetControlBlock:
@@ -1186,7 +1186,7 @@ lbl_803B8E3C:
 /* 803B8E48 003B5DA8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803B8E4C 003B5DAC  38 21 00 20 */	addi r1, r1, 0x20
 /* 803B8E50 003B5DB0  7C 08 03 A6 */	mtlr r0
-/* 803B8E54 003B5DB4  4E 80 00 20 */	blr 
+/* 803B8E54 003B5DB4  4E 80 00 20 */	blr
 
 .global __CARDPutControlBlock
 __CARDPutControlBlock:
@@ -1216,7 +1216,7 @@ lbl_803B8E9C:
 /* 803B8EAC 003B5E0C  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 803B8EB0 003B5E10  38 21 00 18 */	addi r1, r1, 0x18
 /* 803B8EB4 003B5E14  7C 08 03 A6 */	mtlr r0
-/* 803B8EB8 003B5E18  4E 80 00 20 */	blr 
+/* 803B8EB8 003B5E18  4E 80 00 20 */	blr
 
 .global CARDGetResultCode
 CARDGetResultCode:
@@ -1226,14 +1226,14 @@ CARDGetResultCode:
 /* 803B8EC8 003B5E28  41 80 00 0C */	blt lbl_803B8ED4
 lbl_803B8ECC:
 /* 803B8ECC 003B5E2C  38 60 FF 80 */	li r3, -128
-/* 803B8ED0 003B5E30  4E 80 00 20 */	blr 
+/* 803B8ED0 003B5E30  4E 80 00 20 */	blr
 lbl_803B8ED4:
 /* 803B8ED4 003B5E34  1C 83 01 10 */	mulli r4, r3, 0x110
 /* 803B8ED8 003B5E38  3C 60 80 57 */	lis r3, lbl_80569A58@ha
 /* 803B8EDC 003B5E3C  38 03 9A 58 */	addi r0, r3, lbl_80569A58@l
 /* 803B8EE0 003B5E40  7C 60 22 14 */	add r3, r0, r4
 /* 803B8EE4 003B5E44  80 63 00 04 */	lwz r3, 4(r3)
-/* 803B8EE8 003B5E48  4E 80 00 20 */	blr 
+/* 803B8EE8 003B5E48  4E 80 00 20 */	blr
 
 .global CARDFreeBlocks
 CARDFreeBlocks:
@@ -1333,7 +1333,7 @@ lbl_803B9020:
 /* 803B902C 003B5F8C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 803B9030 003B5F90  38 21 00 30 */	addi r1, r1, 0x30
 /* 803B9034 003B5F94  7C 08 03 A6 */	mtlr r0
-/* 803B9038 003B5F98  4E 80 00 20 */	blr 
+/* 803B9038 003B5F98  4E 80 00 20 */	blr
 
 OnReset:
 /* 803B903C 003B5F9C  7C 08 02 A6 */	mflr r0
@@ -1358,4 +1358,4 @@ lbl_803B907C:
 /* 803B907C 003B5FDC  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 803B9080 003B5FE0  38 21 00 08 */	addi r1, r1, 8
 /* 803B9084 003B5FE4  7C 08 03 A6 */	mtlr r0
-/* 803B9088 003B5FE8  4E 80 00 20 */	blr 
+/* 803B9088 003B5FE8  4E 80 00 20 */	blr

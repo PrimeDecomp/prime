@@ -24,7 +24,7 @@ lbl_8010585C:
 /* 80105868 001027C8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8010586C 001027CC  7C 08 03 A6 */	mtlr r0
 /* 80105870 001027D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80105874 001027D4  4E 80 00 20 */	blr 
+/* 80105874 001027D4  4E 80 00 20 */	blr
 
 .global __ct__14CPatternedInfoFR12CInputStreamUi
 __ct__14CPatternedInfoFR12CInputStreamUi:

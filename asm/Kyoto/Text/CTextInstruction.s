@@ -42,7 +42,7 @@ lbl_803040A8:
 /* 803040B0 00301010  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803040B4 00301014  7C 08 03 A6 */	mtlr r0
 /* 803040B8 00301018  38 21 00 10 */	addi r1, r1, 0x10
-/* 803040BC 0030101C  4E 80 00 20 */	blr 
+/* 803040BC 0030101C  4E 80 00 20 */	blr
 
 .global __ct__16CTextInstructionFPCwi
 __ct__16CTextInstructionFPCwi:
@@ -55,7 +55,7 @@ __ct__16CTextInstructionFPCwi:
 /* 803040D8 00301038  39 20 00 00 */	li r9, 0
 /* 803040DC 0030103C  90 03 00 00 */	stw r0, 0(r3)
 /* 803040E0 00301040  90 A3 00 04 */	stw r5, 4(r3)
-/* 803040E4 00301044  4C 81 00 20 */	blelr 
+/* 803040E4 00301044  4C 81 00 20 */	blelr
 /* 803040E8 00301048  2C 05 00 08 */	cmpwi r5, 8
 /* 803040EC 0030104C  38 C5 FF F8 */	addi r6, r5, -8
 /* 803040F0 00301050  40 81 00 70 */	ble lbl_80304160
@@ -94,14 +94,14 @@ lbl_80304160:
 /* 8030416C 003010CC  7C C3 32 14 */	add r6, r3, r6
 /* 80304170 003010D0  7C 09 03 A6 */	mtctr r0
 /* 80304174 003010D4  7C 09 28 00 */	cmpw r9, r5
-/* 80304178 003010D8  4C 80 00 20 */	bgelr 
+/* 80304178 003010D8  4C 80 00 20 */	bgelr
 lbl_8030417C:
 /* 8030417C 003010DC  A0 04 00 00 */	lhz r0, 0(r4)
 /* 80304180 003010E0  38 84 00 02 */	addi r4, r4, 2
 /* 80304184 003010E4  B0 06 00 08 */	sth r0, 8(r6)
 /* 80304188 003010E8  38 C6 00 02 */	addi r6, r6, 2
 /* 8030418C 003010EC  42 00 FF F0 */	bdnz lbl_8030417C
-/* 80304190 003010F0  4E 80 00 20 */	blr 
+/* 80304190 003010F0  4E 80 00 20 */	blr
 
 .global Invoke__16CTextInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__16CTextInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
@@ -170,7 +170,7 @@ lbl_80304280:
 /* 80304284 003011E4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80304288 003011E8  7C 08 03 A6 */	mtlr r0
 /* 8030428C 003011EC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80304290 003011F0  4E 80 00 20 */	blr 
+/* 80304290 003011F0  4E 80 00 20 */	blr
 
 .global Create__16CTextInstructionFPCwi
 Create__16CTextInstructionFPCwi:

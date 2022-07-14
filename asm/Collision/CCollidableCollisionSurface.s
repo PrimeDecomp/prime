@@ -18,7 +18,7 @@ GetType__27CCollidableCollisionSurfaceFv:
 /* 802CE0A0 002CB000  90 03 00 00 */	stw r0, 0(r3)
 /* 802CE0A4 002CB004  38 04 6A 00 */	addi r0, r4, lbl_803D6A00@l
 /* 802CE0A8 002CB008  90 03 00 04 */	stw r0, 4(r3)
-/* 802CE0AC 002CB00C  4E 80 00 20 */	blr 
+/* 802CE0AC 002CB00C  4E 80 00 20 */	blr
 
 .global SetStaticTableIndex__27CCollidableCollisionSurfaceFUi
 SetStaticTableIndex__27CCollidableCollisionSurfaceFUi:

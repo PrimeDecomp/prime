@@ -106,7 +106,7 @@ lbl_80055D94:
 /* 80055D98 00052CF8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80055D9C 00052CFC  7C 08 03 A6 */	mtlr r0
 /* 80055DA0 00052D00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80055DA4 00052D04  4E 80 00 20 */	blr 
+/* 80055DA4 00052D04  4E 80 00 20 */	blr
 
 .global StopSounds__6CWorldFv
 StopSounds__6CWorldFv:
@@ -162,7 +162,7 @@ lbl_80055E40:
 /* 80055E54 00052DB4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80055E58 00052DB8  7C 08 03 A6 */	mtlr r0
 /* 80055E5C 00052DBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80055E60 00052DC0  4E 80 00 20 */	blr 
+/* 80055E60 00052DC0  4E 80 00 20 */	blr
 
 .global StopSound__6CWorldFs
 StopSound__6CWorldFs:
@@ -228,13 +228,13 @@ lbl_80055F20:
 
 .global sub_80055f38
 sub_80055f38:
-/* 80055F38 00052E98  4E 80 00 20 */	blr 
+/* 80055F38 00052E98  4E 80 00 20 */	blr
 
 .global AddGlobalSound__6CWorldFUs10CSfxHandle
 AddGlobalSound__6CWorldFUs10CSfxHandle:
 /* 80055F3C 00052E9C  80 03 00 C8 */	lwz r0, 0xc8(r3)
 /* 80055F40 00052EA0  2C 00 00 0A */	cmpwi r0, 0xa
-/* 80055F44 00052EA4  4C 80 00 20 */	bgelr 
+/* 80055F44 00052EA4  4C 80 00 20 */	bgelr
 /* 80055F48 00052EA8  54 00 18 38 */	slwi r0, r0, 3
 /* 80055F4C 00052EAC  80 C5 00 00 */	lwz r6, 0(r5)
 /* 80055F50 00052EB0  7C A3 02 14 */	add r5, r3, r0
@@ -247,7 +247,7 @@ lbl_80055F68:
 /* 80055F68 00052EC8  80 83 00 C8 */	lwz r4, 0xc8(r3)
 /* 80055F6C 00052ECC  38 04 00 01 */	addi r0, r4, 1
 /* 80055F70 00052ED0  90 03 00 C8 */	stw r0, 0xc8(r3)
-/* 80055F74 00052ED4  4E 80 00 20 */	blr 
+/* 80055F74 00052ED4  4E 80 00 20 */	blr
 
 .global IsPlayingSound__6CWorldCFUi
 IsPlayingSound__6CWorldCFUi:
@@ -262,14 +262,14 @@ lbl_80055F90:
 /* 80055F94 00052EF4  7C 03 00 40 */	cmplw r3, r0
 /* 80055F98 00052EF8  40 82 00 0C */	bne lbl_80055FA4
 /* 80055F9C 00052EFC  38 60 00 01 */	li r3, 1
-/* 80055FA0 00052F00  4E 80 00 20 */	blr 
+/* 80055FA0 00052F00  4E 80 00 20 */	blr
 lbl_80055FA4:
 /* 80055FA4 00052F04  38 C6 00 08 */	addi r6, r6, 8
 lbl_80055FA8:
 /* 80055FA8 00052F08  7C 06 20 40 */	cmplw r6, r4
 /* 80055FAC 00052F0C  40 82 FF E4 */	bne lbl_80055F90
 /* 80055FB0 00052F10  38 60 00 00 */	li r3, 0
-/* 80055FB4 00052F14  4E 80 00 20 */	blr 
+/* 80055FB4 00052F14  4E 80 00 20 */	blr
 
 .global MoveAreaToChain3__6CWorldF7TAreaId
 MoveAreaToChain3__6CWorldF7TAreaId:
@@ -287,7 +287,7 @@ MoveAreaToChain3__6CWorldF7TAreaId:
 /* 80055FE4 00052F44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80055FE8 00052F48  7C 08 03 A6 */	mtlr r0
 /* 80055FEC 00052F4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80055FF0 00052F50  4E 80 00 20 */	blr 
+/* 80055FF0 00052F50  4E 80 00 20 */	blr
 
 .global SetLoadPauseState__6CWorldFb
 SetLoadPauseState__6CWorldFb:
@@ -319,7 +319,7 @@ lbl_8005602C:
 /* 80056050 00052FB0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80056054 00052FB4  7C 08 03 A6 */	mtlr r0
 /* 80056058 00052FB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005605C 00052FBC  4E 80 00 20 */	blr 
+/* 8005605C 00052FBC  4E 80 00 20 */	blr
 
 .global sub_80056060
 sub_80056060:
@@ -352,7 +352,7 @@ lbl_800560B4:
 lbl_800560C0:
 /* 800560C0 00053020  91 03 00 00 */	stw r8, 0(r3)
 /* 800560C4 00053024  38 21 00 10 */	addi r1, r1, 0x10
-/* 800560C8 00053028  4E 80 00 20 */	blr 
+/* 800560C8 00053028  4E 80 00 20 */	blr
 
 .global IGetAreaId__6CWorldCF7TAreaId
 IGetAreaId__6CWorldCF7TAreaId:
@@ -366,7 +366,7 @@ IGetAreaId__6CWorldCF7TAreaId:
 /* 800560E8 00053048  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800560EC 0005304C  7C 08 03 A6 */	mtlr r0
 /* 800560F0 00053050  38 21 00 10 */	addi r1, r1, 0x10
-/* 800560F4 00053054  4E 80 00 20 */	blr 
+/* 800560F4 00053054  4E 80 00 20 */	blr
 
 .global sub_800560f8
 sub_800560f8:
@@ -399,7 +399,7 @@ lbl_8005614C:
 lbl_80056158:
 /* 80056158 000530B8  91 03 00 00 */	stw r8, 0(r3)
 /* 8005615C 000530BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80056160 000530C0  4E 80 00 20 */	blr 
+/* 80056160 000530C0  4E 80 00 20 */	blr
 
 .global AreSkyNeedsMet__6CWorldCFv
 AreSkyNeedsMet__6CWorldCFv:
@@ -433,7 +433,7 @@ lbl_800561C0:
 /* 800561C0 00053120  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800561C4 00053124  7C 08 03 A6 */	mtlr r0
 /* 800561C8 00053128  38 21 00 10 */	addi r1, r1, 0x10
-/* 800561CC 0005312C  4E 80 00 20 */	blr 
+/* 800561CC 0005312C  4E 80 00 20 */	blr
 
 .global DrawSky__6CWorldCFRC12CTransform4f
 DrawSky__6CWorldCFRC12CTransform4f:
@@ -460,14 +460,14 @@ lbl_80056204:
 /* 8005621C 0005317C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80056220 00053180  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80056224 00053184  7D 89 03 A6 */	mtctr r12
-/* 80056228 00053188  4E 80 04 21 */	bctrl 
+/* 80056228 00053188  4E 80 04 21 */	bctrl
 /* 8005622C 0005318C  48 2F 3D 81 */	bl White__6CColorFv
 /* 80056230 00053190  7C 64 1B 78 */	mr r4, r3
 /* 80056234 00053194  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80056238 00053198  81 83 00 00 */	lwz r12, 0(r3)
 /* 8005623C 0005319C  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80056240 000531A0  7D 89 03 A6 */	mtctr r12
-/* 80056244 000531A4  4E 80 04 21 */	bctrl 
+/* 80056244 000531A4  4E 80 04 21 */	bctrl
 /* 80056248 000531A8  C0 22 86 90 */	lfs f1, lbl_805AA3B0@sda21(r2)
 /* 8005624C 000531AC  C0 42 86 94 */	lfs f2, lbl_805AA3B4@sda21(r2)
 /* 80056250 000531B0  48 2B 41 91 */	bl SetDepthRange__9CGraphicsFff
@@ -512,7 +512,7 @@ lbl_800562D8:
 /* 800562E0 00053240  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800562E4 00053244  7C 08 03 A6 */	mtlr r0
 /* 800562E8 00053248  38 21 00 20 */	addi r1, r1, 0x20
-/* 800562EC 0005324C  4E 80 00 20 */	blr 
+/* 800562EC 0005324C  4E 80 00 20 */	blr
 
 .global PreRender__6CWorldFv
 PreRender__6CWorldFv:
@@ -534,7 +534,7 @@ lbl_80056314:
 /* 80056324 00053284  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80056328 00053288  7C 08 03 A6 */	mtlr r0
 /* 8005632C 0005328C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80056330 00053290  4E 80 00 20 */	blr 
+/* 80056330 00053290  4E 80 00 20 */	blr
 
 .global Update__6CWorldFf
 Update__6CWorldFf:
@@ -621,7 +621,7 @@ lbl_800563F8:
 /* 80056458 000533B8  81 84 00 00 */	lwz r12, 0(r4)
 /* 8005645C 000533BC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80056460 000533C0  7D 89 03 A6 */	mtctr r12
-/* 80056464 000533C4  4E 80 04 21 */	bctrl 
+/* 80056464 000533C4  4E 80 04 21 */	bctrl
 /* 80056468 000533C8  3B 41 00 54 */	addi r26, r1, 0x54
 /* 8005646C 000533CC  38 81 00 08 */	addi r4, r1, 8
 /* 80056470 000533D0  7F 43 D3 78 */	mr r3, r26
@@ -945,7 +945,7 @@ lbl_800568E0:
 /* 800568E8 00053848  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 800568EC 0005384C  7C 08 03 A6 */	mtlr r0
 /* 800568F0 00053850  38 21 00 80 */	addi r1, r1, 0x80
-/* 800568F4 00053854  4E 80 00 20 */	blr 
+/* 800568F4 00053854  4E 80 00 20 */	blr
 
 .global TouchSky__6CWorldCFv
 TouchSky__6CWorldCFv:
@@ -972,12 +972,12 @@ lbl_8005693C:
 /* 80056940 000538A0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80056944 000538A4  7C 08 03 A6 */	mtlr r0
 /* 80056948 000538A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005694C 000538AC  4E 80 00 20 */	blr 
+/* 8005694C 000538AC  4E 80 00 20 */	blr
 
 .global IGetAreaCount__11CDummyWorldFv
 IGetAreaCount__11CDummyWorldFv:
 /* 80056950 000538B0  80 63 00 1C */	lwz r3, 0x1c(r3)
-/* 80056954 000538B4  4E 80 00 20 */	blr 
+/* 80056954 000538B4  4E 80 00 20 */	blr
 
 .global IGetDefaultAudioTrack__11CDummyWorldCFv
 IGetDefaultAudioTrack__11CDummyWorldCFv:
@@ -993,7 +993,7 @@ IGetDefaultAudioTrack__11CDummyWorldCFv:
 /* 8005697C 000538DC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80056980 000538E0  7C 08 03 A6 */	mtlr r0
 /* 80056984 000538E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80056988 000538E8  4E 80 00 20 */	blr 
+/* 80056988 000538E8  4E 80 00 20 */	blr
 
 .global IGetAreaId__11CDummyWorldCF7TAreaId
 IGetAreaId__11CDummyWorldCF7TAreaId:
@@ -1018,11 +1018,11 @@ lbl_800569C0:
 /* 800569D0 00053930  93 C1 00 08 */	stw r30, 8(r1)
 /* 800569D4 00053934  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800569D8 00053938  7D 89 03 A6 */	mtctr r12
-/* 800569DC 0005393C  4E 80 04 21 */	bctrl 
+/* 800569DC 0005393C  4E 80 04 21 */	bctrl
 /* 800569E0 00053940  81 83 00 00 */	lwz r12, 0(r3)
 /* 800569E4 00053944  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800569E8 00053948  7D 89 03 A6 */	mtctr r12
-/* 800569EC 0005394C  4E 80 04 21 */	bctrl 
+/* 800569EC 0005394C  4E 80 04 21 */	bctrl
 /* 800569F0 00053950  7C 1D 18 40 */	cmplw r29, r3
 /* 800569F4 00053954  40 82 00 0C */	bne lbl_80056A00
 /* 800569F8 00053958  93 DB 00 00 */	stw r30, 0(r27)
@@ -1040,13 +1040,13 @@ lbl_80056A14:
 /* 80056A18 00053978  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80056A1C 0005397C  7C 08 03 A6 */	mtlr r0
 /* 80056A20 00053980  38 21 00 30 */	addi r1, r1, 0x30
-/* 80056A24 00053984  4E 80 00 20 */	blr 
+/* 80056A24 00053984  4E 80 00 20 */	blr
 
 .global IGetCurrentAreaId__11CDummyWorldCFv
 IGetCurrentAreaId__11CDummyWorldCFv:
 /* 80056A28 00053988  80 04 00 3C */	lwz r0, 0x3c(r4)
 /* 80056A2C 0005398C  90 03 00 00 */	stw r0, 0(r3)
-/* 80056A30 00053990  4E 80 00 20 */	blr 
+/* 80056A30 00053990  4E 80 00 20 */	blr
 
 .global IGetAreaAlways__11CDummyWorldCF7TAreaId
 IGetAreaAlways__11CDummyWorldCF7TAreaId:
@@ -1055,34 +1055,34 @@ IGetAreaAlways__11CDummyWorldCF7TAreaId:
 /* 80056A3C 0005399C  54 03 18 38 */	slwi r3, r0, 3
 /* 80056A40 000539A0  38 03 00 04 */	addi r0, r3, 4
 /* 80056A44 000539A4  7C 64 00 2E */	lwzx r3, r4, r0
-/* 80056A48 000539A8  4E 80 00 20 */	blr 
+/* 80056A48 000539A8  4E 80 00 20 */	blr
 
 .global IMapWorld__11CDummyWorldFv
 IMapWorld__11CDummyWorldFv:
 /* 80056A4C 000539AC  80 63 00 2C */	lwz r3, 0x2c(r3)
 /* 80056A50 000539B0  80 63 00 08 */	lwz r3, 8(r3)
-/* 80056A54 000539B4  4E 80 00 20 */	blr 
+/* 80056A54 000539B4  4E 80 00 20 */	blr
 
 .global IGetMapWorld__11CDummyWorldCFv
 IGetMapWorld__11CDummyWorldCFv:
 /* 80056A58 000539B8  80 63 00 2C */	lwz r3, 0x2c(r3)
 /* 80056A5C 000539BC  80 63 00 08 */	lwz r3, 8(r3)
-/* 80056A60 000539C0  4E 80 00 20 */	blr 
+/* 80056A60 000539C0  4E 80 00 20 */	blr
 
 .global IGetStringTableAssetId__11CDummyWorldCFv
 IGetStringTableAssetId__11CDummyWorldCFv:
 /* 80056A64 000539C4  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80056A68 000539C8  4E 80 00 20 */	blr 
+/* 80056A68 000539C8  4E 80 00 20 */	blr
 
 .global IGetSaveWorldAssetId__11CDummyWorldCFv
 IGetSaveWorldAssetId__11CDummyWorldCFv:
 /* 80056A6C 000539CC  80 63 00 14 */	lwz r3, 0x14(r3)
-/* 80056A70 000539D0  4E 80 00 20 */	blr 
+/* 80056A70 000539D0  4E 80 00 20 */	blr
 
 .global IGetWorldAssetId__11CDummyWorldCFv
 IGetWorldAssetId__11CDummyWorldCFv:
 /* 80056A74 000539D4  80 63 00 0C */	lwz r3, 0xc(r3)
-/* 80056A78 000539D8  4E 80 00 20 */	blr 
+/* 80056A78 000539D8  4E 80 00 20 */	blr
 
 .global ICheckWorldComplete__11CDummyWorldFv
 ICheckWorldComplete__11CDummyWorldFv:
@@ -1108,7 +1108,7 @@ lbl_80056ABC:
 /* 80056AC0 00053A20  81 83 00 00 */	lwz r12, 0(r3)
 /* 80056AC4 00053A24  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80056AC8 00053A28  7D 89 03 A6 */	mtctr r12
-/* 80056ACC 00053A2C  4E 80 04 21 */	bctrl 
+/* 80056ACC 00053A2C  4E 80 04 21 */	bctrl
 /* 80056AD0 00053A30  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80056AD4 00053A34  40 82 00 0C */	bne lbl_80056AE0
 /* 80056AD8 00053A38  38 60 00 00 */	li r3, 0
@@ -1229,7 +1229,7 @@ lbl_80056C50:
 /* 80056C78 00053BD8  38 80 00 01 */	li r4, 1
 /* 80056C7C 00053BDC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80056C80 00053BE0  7D 89 03 A6 */	mtctr r12
-/* 80056C84 00053BE4  4E 80 04 21 */	bctrl 
+/* 80056C84 00053BE4  4E 80 04 21 */	bctrl
 lbl_80056C88:
 /* 80056C88 00053BE8  3B 9C 00 01 */	addi r28, r28, 1
 lbl_80056C8C:
@@ -1261,7 +1261,7 @@ lbl_80056C8C:
 /* 80056CF0 00053C50  81 84 00 00 */	lwz r12, 0(r4)
 /* 80056CF4 00053C54  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80056CF8 00053C58  7D 89 03 A6 */	mtctr r12
-/* 80056CFC 00053C5C  4E 80 04 21 */	bctrl 
+/* 80056CFC 00053C5C  4E 80 04 21 */	bctrl
 /* 80056D00 00053C60  7F 83 E3 78 */	mr r3, r28
 /* 80056D04 00053C64  38 81 00 20 */	addi r4, r1, 0x20
 /* 80056D08 00053C68  3B E0 00 01 */	li r31, 1
@@ -1331,7 +1331,7 @@ lbl_80056DC4:
 /* 80056DE4 00053D44  38 80 00 01 */	li r4, 1
 /* 80056DE8 00053D48  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80056DEC 00053D4C  7D 89 03 A6 */	mtctr r12
-/* 80056DF0 00053D50  4E 80 04 21 */	bctrl 
+/* 80056DF0 00053D50  4E 80 04 21 */	bctrl
 lbl_80056DF4:
 /* 80056DF4 00053D54  38 00 00 00 */	li r0, 0
 /* 80056DF8 00053D58  90 1B 00 30 */	stw r0, 0x30(r27)
@@ -1394,7 +1394,7 @@ lbl_80056EC0:
 /* 80056EC4 00053E24  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80056EC8 00053E28  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80056ECC 00053E2C  7D 89 03 A6 */	mtctr r12
-/* 80056ED0 00053E30  4E 80 04 21 */	bctrl 
+/* 80056ED0 00053E30  4E 80 04 21 */	bctrl
 /* 80056ED4 00053E34  7F 64 DB 78 */	mr r4, r27
 /* 80056ED8 00053E38  38 A0 00 00 */	li r5, 0
 /* 80056EDC 00053E3C  38 C0 27 0F */	li r6, 0x270f
@@ -1422,7 +1422,7 @@ lbl_80056F1C:
 /* 80056F20 00053E80  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80056F24 00053E84  7C 08 03 A6 */	mtlr r0
 /* 80056F28 00053E88  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80056F2C 00053E8C  4E 80 00 20 */	blr 
+/* 80056F2C 00053E8C  4E 80 00 20 */	blr
 
 .global __dt__14CDummyGameAreaFv
 __dt__14CDummyGameAreaFv:
@@ -1475,7 +1475,7 @@ lbl_80056FCC:
 /* 80056FD8 00053F38  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80056FDC 00053F3C  7C 08 03 A6 */	mtlr r0
 /* 80056FE0 00053F40  38 21 00 20 */	addi r1, r1, 0x20
-/* 80056FE4 00053F44  4E 80 00 20 */	blr 
+/* 80056FE4 00053F44  4E 80 00 20 */	blr
 
 .global sub_80056fe8
 sub_80056fe8:
@@ -1515,7 +1515,7 @@ lbl_80057058:
 /* 80057064 00053FC4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80057068 00053FC8  7C 08 03 A6 */	mtlr r0
 /* 8005706C 00053FCC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80057070 00053FD0  4E 80 00 20 */	blr 
+/* 80057070 00053FD0  4E 80 00 20 */	blr
 
 .global sub_80057074
 sub_80057074:
@@ -1540,7 +1540,7 @@ lbl_800570A0:
 /* 800570B4 00054014  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800570B8 00054018  7C 08 03 A6 */	mtlr r0
 /* 800570BC 0005401C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800570C0 00054020  4E 80 00 20 */	blr 
+/* 800570C0 00054020  4E 80 00 20 */	blr
 
 .global sub_800570c4
 sub_800570c4:
@@ -1552,7 +1552,7 @@ sub_800570c4:
 /* 800570D8 00054038  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800570DC 0005403C  7C 08 03 A6 */	mtlr r0
 /* 800570E0 00054040  38 21 00 10 */	addi r1, r1, 0x10
-/* 800570E4 00054044  4E 80 00 20 */	blr 
+/* 800570E4 00054044  4E 80 00 20 */	blr
 
 .global sub_800570e8
 sub_800570e8:
@@ -1624,7 +1624,7 @@ lbl_800571BC:
 /* 800571C8 00054128  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800571CC 0005412C  7C 08 03 A6 */	mtlr r0
 /* 800571D0 00054130  38 21 00 20 */	addi r1, r1, 0x20
-/* 800571D4 00054134  4E 80 00 20 */	blr 
+/* 800571D4 00054134  4E 80 00 20 */	blr
 
 .global "LoadRelays__FR12CInputStreamRQ24rstl44vector<Q26SRelay,Q24rstl17rmemory_allocator>"
 "LoadRelays__FR12CInputStreamRQ24rstl44vector<Q26SRelay,Q24rstl17rmemory_allocator>":
@@ -1694,7 +1694,7 @@ lbl_800572A4:
 /* 800572C0 00054220  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800572C4 00054224  7C 08 03 A6 */	mtlr r0
 /* 800572C8 00054228  38 21 00 30 */	addi r1, r1, 0x30
-/* 800572CC 0005422C  4E 80 00 20 */	blr 
+/* 800572CC 0005422C  4E 80 00 20 */	blr
 
 .global __dt__11CDummyWorldFv
 __dt__11CDummyWorldFv:
@@ -1724,7 +1724,7 @@ lbl_80057310:
 /* 80057328 00054288  38 80 00 01 */	li r4, 1
 /* 8005732C 0005428C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80057330 00054290  7D 89 03 A6 */	mtctr r12
-/* 80057334 00054294  4E 80 04 21 */	bctrl 
+/* 80057334 00054294  4E 80 04 21 */	bctrl
 lbl_80057338:
 /* 80057338 00054298  34 1D 00 2C */	addic. r0, r29, 0x2c
 /* 8005733C 0005429C  41 82 00 28 */	beq lbl_80057364
@@ -1757,7 +1757,7 @@ lbl_8005738C:
 /* 8005739C 000542FC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800573A0 00054300  7C 08 03 A6 */	mtlr r0
 /* 800573A4 00054304  38 21 00 20 */	addi r1, r1, 0x20
-/* 800573A8 00054308  4E 80 00 20 */	blr 
+/* 800573A8 00054308  4E 80 00 20 */	blr
 
 .global sub_800573ac
 sub_800573ac:
@@ -1793,7 +1793,7 @@ lbl_800573F8:
 /* 8005741C 0005437C  38 80 00 01 */	li r4, 1
 /* 80057420 00054380  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80057424 00054384  7D 89 03 A6 */	mtctr r12
-/* 80057428 00054388  4E 80 04 21 */	bctrl 
+/* 80057428 00054388  4E 80 04 21 */	bctrl
 lbl_8005742C:
 /* 8005742C 0005438C  3B DE 00 08 */	addi r30, r30, 8
 lbl_80057430:
@@ -1817,7 +1817,7 @@ lbl_80057458:
 /* 8005746C 000543CC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80057470 000543D0  7C 08 03 A6 */	mtlr r0
 /* 80057474 000543D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80057478 000543D8  4E 80 00 20 */	blr 
+/* 80057478 000543D8  4E 80 00 20 */	blr
 
 .global __ct__11CDummyWorldFUi
 __ct__11CDummyWorldFUi:
@@ -1890,7 +1890,7 @@ __ct__11CDummyWorldFUi:
 /* 80057584 000544E4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80057588 000544E8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8005758C 000544EC  7D 89 03 A6 */	mtctr r12
-/* 80057590 000544F0  4E 80 04 21 */	bctrl 
+/* 80057590 000544F0  4E 80 04 21 */	bctrl
 lbl_80057594:
 /* 80057594 000544F4  93 DF 00 30 */	stw r30, 0x30(r31)
 /* 80057598 000544F8  7F E3 FB 78 */	mr r3, r31
@@ -1899,12 +1899,12 @@ lbl_80057594:
 /* 800575A4 00054504  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800575A8 00054508  7C 08 03 A6 */	mtlr r0
 /* 800575AC 0005450C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800575B0 00054510  4E 80 00 20 */	blr 
+/* 800575B0 00054510  4E 80 00 20 */	blr
 
 .global IGetGameAreas__6CWorldCFv
 IGetGameAreas__6CWorldCFv:
 /* 800575B4 00054514  80 63 00 18 */	lwz r3, 0x18(r3)
-/* 800575B8 00054518  4E 80 00 20 */	blr 
+/* 800575B8 00054518  4E 80 00 20 */	blr
 
 .global IGetDefaultAudioTrack__6CWorldCFv
 IGetDefaultAudioTrack__6CWorldCFv:
@@ -1916,7 +1916,7 @@ IGetDefaultAudioTrack__6CWorldCFv:
 /* 800575D0 00054530  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800575D4 00054534  7C 08 03 A6 */	mtlr r0
 /* 800575D8 00054538  38 21 00 10 */	addi r1, r1, 0x10
-/* 800575DC 0005453C  4E 80 00 20 */	blr 
+/* 800575DC 0005453C  4E 80 00 20 */	blr
 
 .global ICheckWorldComplete__6CWorldFv
 ICheckWorldComplete__6CWorldFv:
@@ -1932,13 +1932,13 @@ ICheckWorldComplete__6CWorldFv:
 /* 80057604 00054564  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80057608 00054568  7C 08 03 A6 */	mtlr r0
 /* 8005760C 0005456C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057610 00054570  4E 80 00 20 */	blr 
+/* 80057610 00054570  4E 80 00 20 */	blr
 
 .global IGetCurrentAreaId__6CWorldCFv
 IGetCurrentAreaId__6CWorldCFv:
 /* 80057614 00054574  80 04 00 68 */	lwz r0, 0x68(r4)
 /* 80057618 00054578  90 03 00 00 */	stw r0, 0(r3)
-/* 8005761C 0005457C  4E 80 00 20 */	blr 
+/* 8005761C 0005457C  4E 80 00 20 */	blr
 
 .global IGetAreaAlways__6CWorldCF7TAreaId
 IGetAreaAlways__6CWorldCF7TAreaId:
@@ -1950,7 +1950,7 @@ IGetAreaAlways__6CWorldCF7TAreaId:
 /* 80057634 00054594  38 03 00 04 */	addi r0, r3, 4
 /* 80057638 00054598  7C 64 00 2E */	lwzx r3, r4, r0
 /* 8005763C 0005459C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057640 000545A0  4E 80 00 20 */	blr 
+/* 80057640 000545A0  4E 80 00 20 */	blr
 
 .global IMapWorld__6CWorldFv
 IMapWorld__6CWorldFv:
@@ -1961,7 +1961,7 @@ IMapWorld__6CWorldFv:
 /* 80057654 000545B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80057658 000545B8  7C 08 03 A6 */	mtlr r0
 /* 8005765C 000545BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057660 000545C0  4E 80 00 20 */	blr 
+/* 80057660 000545C0  4E 80 00 20 */	blr
 
 .global IGetMapWorld__6CWorldCFv
 IGetMapWorld__6CWorldCFv:
@@ -1972,28 +1972,28 @@ IGetMapWorld__6CWorldCFv:
 /* 80057674 000545D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80057678 000545D8  7C 08 03 A6 */	mtlr r0
 /* 8005767C 000545DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057680 000545E0  4E 80 00 20 */	blr 
+/* 80057680 000545E0  4E 80 00 20 */	blr
 
 .global IGetSaveWorldAssetId__6CWorldCFv
 IGetSaveWorldAssetId__6CWorldCFv:
 /* 80057684 000545E4  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 80057688 000545E8  4E 80 00 20 */	blr 
+/* 80057688 000545E8  4E 80 00 20 */	blr
 
 .global IGetStringTableAssetId__6CWorldCFv
 IGetStringTableAssetId__6CWorldCFv:
 /* 8005768C 000545EC  80 63 00 0C */	lwz r3, 0xc(r3)
-/* 80057690 000545F0  4E 80 00 20 */	blr 
+/* 80057690 000545F0  4E 80 00 20 */	blr
 
 .global IGetWorldAssetId__6CWorldCFv
 IGetWorldAssetId__6CWorldCFv:
 /* 80057694 000545F4  80 63 00 08 */	lwz r3, 8(r3)
-/* 80057698 000545F8  4E 80 00 20 */	blr 
+/* 80057698 000545F8  4E 80 00 20 */	blr
 
 .global GetMapWorld__6CWorldCFv
 GetMapWorld__6CWorldCFv:
 /* 8005769C 000545FC  80 63 00 28 */	lwz r3, 0x28(r3)
 /* 800576A0 00054600  80 63 00 08 */	lwz r3, 8(r3)
-/* 800576A4 00054604  4E 80 00 20 */	blr 
+/* 800576A4 00054604  4E 80 00 20 */	blr
 
 .global UnloadSoundGroups__6CWorldFv
 UnloadSoundGroups__6CWorldFv:
@@ -2034,7 +2034,7 @@ lbl_800576FC:
 /* 8005771C 0005467C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80057720 00054680  7C 08 03 A6 */	mtlr r0
 /* 80057724 00054684  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057728 00054688  4E 80 00 20 */	blr 
+/* 80057728 00054688  4E 80 00 20 */	blr
 
 .global LoadSoundGroup__6CWorldFUcUiRQ26CWorld15CSoundGroupData
 LoadSoundGroup__6CWorldFUcUiRQ26CWorld15CSoundGroupData:
@@ -2095,7 +2095,7 @@ lbl_800577E8:
 /* 800577F8 00054758  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800577FC 0005475C  7C 08 03 A6 */	mtlr r0
 /* 80057800 00054760  38 21 00 30 */	addi r1, r1, 0x30
-/* 80057804 00054764  4E 80 00 20 */	blr 
+/* 80057804 00054764  4E 80 00 20 */	blr
 
 .global LoadSoundGroups__6CWorldFv
 LoadSoundGroups__6CWorldFv:
@@ -2107,7 +2107,7 @@ LoadSoundGroups__6CWorldFv:
 /* 8005781C 0005477C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80057820 00054780  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80057824 00054784  7D 89 03 A6 */	mtctr r12
-/* 80057828 00054788  4E 80 04 21 */	bctrl 
+/* 80057828 00054788  4E 80 04 21 */	bctrl
 /* 8005782C 0005478C  80 8D A0 88 */	lwz r4, gpTweakManager@sda21(r13)
 /* 80057830 00054790  7C 65 1B 78 */	mr r5, r3
 /* 80057834 00054794  38 61 00 40 */	addi r3, r1, 0x40
@@ -2199,7 +2199,7 @@ lbl_8005794C:
 /* 80057964 000548C4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80057968 000548C8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8005796C 000548CC  7D 89 03 A6 */	mtctr r12
-/* 80057970 000548D0  4E 80 04 21 */	bctrl 
+/* 80057970 000548D0  4E 80 04 21 */	bctrl
 /* 80057974 000548D4  38 61 00 38 */	addi r3, r1, 0x38
 /* 80057978 000548D8  38 81 00 28 */	addi r4, r1, 0x28
 /* 8005797C 000548DC  48 2E 95 2D */	bl __ct__6CTokenFRC6CToken
@@ -2325,7 +2325,7 @@ lbl_80057B20:
 /* 80057B24 00054A84  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 80057B28 00054A88  7C 08 03 A6 */	mtlr r0
 /* 80057B2C 00054A8C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80057B30 00054A90  4E 80 00 20 */	blr 
+/* 80057B30 00054A90  4E 80 00 20 */	blr
 
 .global MoveToChain__6CWorldFP9CGameAreaQ26CWorld6EChain
 MoveToChain__6CWorldFP9CGameAreaQ26CWorld6EChain:
@@ -2360,7 +2360,7 @@ lbl_80057B94:
 /* 80057B9C 00054AFC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80057BA0 00054B00  7C 08 03 A6 */	mtlr r0
 /* 80057BA4 00054B04  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057BA8 00054B08  4E 80 00 20 */	blr 
+/* 80057BA8 00054B08  4E 80 00 20 */	blr
 
 .global TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb
 TravelToArea__6CWorldFRC7TAreaIdR13CStateManagerb:
@@ -2555,7 +2555,7 @@ lbl_80057E3C:
 /* 80057E40 00054DA0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80057E44 00054DA4  7C 08 03 A6 */	mtlr r0
 /* 80057E48 00054DA8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80057E4C 00054DAC  4E 80 00 20 */	blr 
+/* 80057E4C 00054DAC  4E 80 00 20 */	blr
 
 .global ScheduleAreaToLoad__6CWorldFP9CGameAreaR13CStateManager
 ScheduleAreaToLoad__6CWorldFP9CGameAreaR13CStateManager:
@@ -2588,7 +2588,7 @@ lbl_80057EA8:
 /* 80057EA8 00054E08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80057EAC 00054E0C  7C 08 03 A6 */	mtlr r0
 /* 80057EB0 00054E10  38 21 00 10 */	addi r1, r1, 0x10
-/* 80057EB4 00054E14  4E 80 00 20 */	blr 
+/* 80057EB4 00054E14  4E 80 00 20 */	blr
 
 .global __dt__6CWorldFv
 __dt__6CWorldFv:
@@ -2747,7 +2747,7 @@ lbl_800580B0:
 /* 800580C8 00055028  38 80 00 01 */	li r4, 1
 /* 800580CC 0005502C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800580D0 00055030  7D 89 03 A6 */	mtctr r12
-/* 800580D4 00055034  4E 80 04 21 */	bctrl 
+/* 800580D4 00055034  4E 80 04 21 */	bctrl
 lbl_800580D8:
 /* 800580D8 00055038  34 1E 00 2C */	addic. r0, r30, 0x2c
 /* 800580DC 0005503C  41 82 00 44 */	beq lbl_80058120
@@ -2801,7 +2801,7 @@ lbl_80058174:
 /* 80058184 000550E4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80058188 000550E8  7C 08 03 A6 */	mtlr r0
 /* 8005818C 000550EC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80058190 000550F0  4E 80 00 20 */	blr 
+/* 80058190 000550F0  4E 80 00 20 */	blr
 
 .global sub_80058194
 sub_80058194:
@@ -2837,7 +2837,7 @@ lbl_800581E0:
 /* 80058204 00055164  38 80 00 01 */	li r4, 1
 /* 80058208 00055168  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8005820C 0005516C  7D 89 03 A6 */	mtctr r12
-/* 80058210 00055170  4E 80 04 21 */	bctrl 
+/* 80058210 00055170  4E 80 04 21 */	bctrl
 lbl_80058214:
 /* 80058214 00055174  3B DE 00 08 */	addi r30, r30, 8
 lbl_80058218:
@@ -2861,7 +2861,7 @@ lbl_80058240:
 /* 80058254 000551B4  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80058258 000551B8  7C 08 03 A6 */	mtlr r0
 /* 8005825C 000551BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80058260 000551C0  4E 80 00 20 */	blr 
+/* 80058260 000551C0  4E 80 00 20 */	blr
 
 .global sub_80058264
 sub_80058264:
@@ -2920,7 +2920,7 @@ lbl_80058310:
 /* 80058318 00055278  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8005831C 0005527C  7C 08 03 A6 */	mtlr r0
 /* 80058320 00055280  38 21 00 30 */	addi r1, r1, 0x30
-/* 80058324 00055284  4E 80 00 20 */	blr 
+/* 80058324 00055284  4E 80 00 20 */	blr
 
 .global CheckWorldComplete__6CWorldFP13CStateManager7TAreaIdUi
 CheckWorldComplete__6CWorldFP13CStateManager7TAreaIdUi:
@@ -2985,7 +2985,7 @@ lbl_800583F4:
 /* 800583F8 00055358  81 83 00 00 */	lwz r12, 0(r3)
 /* 800583FC 0005535C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80058400 00055360  7D 89 03 A6 */	mtctr r12
-/* 80058404 00055364  4E 80 04 21 */	bctrl 
+/* 80058404 00055364  4E 80 04 21 */	bctrl
 /* 80058408 00055368  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8005840C 0005536C  40 82 00 0C */	bne lbl_80058418
 /* 80058410 00055370  38 60 00 00 */	li r3, 0
@@ -3028,7 +3028,7 @@ lbl_8005845C:
 /* 8005849C 000553FC  81 84 00 00 */	lwz r12, 0(r4)
 /* 800584A0 00055400  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800584A4 00055404  7D 89 03 A6 */	mtctr r12
-/* 800584A8 00055408  4E 80 04 21 */	bctrl 
+/* 800584A8 00055408  4E 80 04 21 */	bctrl
 /* 800584AC 0005540C  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 800584B0 00055410  38 81 00 58 */	addi r4, r1, 0x58
 /* 800584B4 00055414  48 2E 89 F5 */	bl __ct__6CTokenFRC6CToken
@@ -3160,7 +3160,7 @@ lbl_80058654:
 /* 8005867C 000555DC  38 80 00 01 */	li r4, 1
 /* 80058680 000555E0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80058684 000555E4  7D 89 03 A6 */	mtctr r12
-/* 80058688 000555E8  4E 80 04 21 */	bctrl 
+/* 80058688 000555E8  4E 80 04 21 */	bctrl
 lbl_8005868C:
 /* 8005868C 000555EC  3B 7B 00 01 */	addi r27, r27, 1
 lbl_80058690:
@@ -3226,7 +3226,7 @@ lbl_8005870C:
 /* 80058764 000556C4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80058768 000556C8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8005876C 000556CC  7D 89 03 A6 */	mtctr r12
-/* 80058770 000556D0  4E 80 04 21 */	bctrl 
+/* 80058770 000556D0  4E 80 04 21 */	bctrl
 /* 80058774 000556D4  7F 63 DB 78 */	mr r3, r27
 /* 80058778 000556D8  38 81 00 40 */	addi r4, r1, 0x40
 /* 8005877C 000556DC  3B 20 00 01 */	li r25, 1
@@ -3438,7 +3438,7 @@ lbl_80058A48:
 /* 80058A68 000559C8  38 80 00 01 */	li r4, 1
 /* 80058A6C 000559CC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80058A70 000559D0  7D 89 03 A6 */	mtctr r12
-/* 80058A74 000559D4  4E 80 04 21 */	bctrl 
+/* 80058A74 000559D4  4E 80 04 21 */	bctrl
 lbl_80058A78:
 /* 80058A78 000559D8  38 00 00 00 */	li r0, 0
 /* 80058A7C 000559DC  90 1F 00 3C */	stw r0, 0x3c(r31)
@@ -3676,7 +3676,7 @@ lbl_80058D94:
 /* 80058DA0 00055D00  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 80058DA4 00055D04  7C 08 03 A6 */	mtlr r0
 /* 80058DA8 00055D08  38 21 01 50 */	addi r1, r1, 0x150
-/* 80058DAC 00055D0C  4E 80 00 20 */	blr 
+/* 80058DAC 00055D0C  4E 80 00 20 */	blr
 
 .global sub_80058db0
 sub_80058db0:
@@ -3756,7 +3756,7 @@ lbl_80058EA4:
 /* 80058EAC 00055E0C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80058EB0 00055E10  7C 08 03 A6 */	mtlr r0
 /* 80058EB4 00055E14  38 21 00 20 */	addi r1, r1, 0x20
-/* 80058EB8 00055E18  4E 80 00 20 */	blr 
+/* 80058EB8 00055E18  4E 80 00 20 */	blr
 
 .global __ct__6CWorldFR12IObjectStoreR11CResFactoryUi
 __ct__6CWorldFR12IObjectStoreR11CResFactoryUi:
@@ -3862,7 +3862,7 @@ __ct__6CWorldFR12IObjectStoreR11CResFactoryUi:
 /* 80059048 00055FA8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8005904C 00055FAC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80059050 00055FB0  7D 89 03 A6 */	mtctr r12
-/* 80059054 00055FB4  4E 80 04 21 */	bctrl 
+/* 80059054 00055FB4  4E 80 04 21 */	bctrl
 lbl_80059058:
 /* 80059058 00055FB8  93 FE 00 3C */	stw r31, 0x3c(r30)
 /* 8005905C 00055FBC  7F C3 F3 78 */	mr r3, r30
@@ -3872,7 +3872,7 @@ lbl_80059058:
 /* 8005906C 00055FCC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80059070 00055FD0  7C 08 03 A6 */	mtlr r0
 /* 80059074 00055FD4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059078 00055FD8  4E 80 00 20 */	blr 
+/* 80059078 00055FD8  4E 80 00 20 */	blr
 
 .global __ct__Q26CWorld15CSoundGroupDataFiUi
 __ct__Q26CWorld15CSoundGroupDataFiUi:
@@ -3912,7 +3912,7 @@ __ct__Q26CWorld15CSoundGroupDataFiUi:
 /* 80059100 00056060  81 84 00 00 */	lwz r12, 0(r4)
 /* 80059104 00056064  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80059108 00056068  7D 89 03 A6 */	mtctr r12
-/* 8005910C 0005606C  4E 80 04 21 */	bctrl 
+/* 8005910C 0005606C  4E 80 04 21 */	bctrl
 /* 80059110 00056070  88 1E 00 24 */	lbz r0, 0x24(r30)
 /* 80059114 00056074  28 00 00 00 */	cmplwi r0, 0
 /* 80059118 00056078  40 82 00 20 */	bne lbl_80059138
@@ -3939,7 +3939,7 @@ lbl_80059150:
 /* 8005915C 000560BC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80059160 000560C0  7C 08 03 A6 */	mtlr r0
 /* 80059164 000560C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80059168 000560C8  4E 80 00 20 */	blr 
+/* 80059168 000560C8  4E 80 00 20 */	blr
 
 .global __dt__6IWorldFv
 __dt__6IWorldFv:
@@ -3961,7 +3961,7 @@ lbl_8005919C:
 /* 800591A4 00056104  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800591A8 00056108  7C 08 03 A6 */	mtlr r0
 /* 800591AC 0005610C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800591B0 00056110  4E 80 00 20 */	blr 
+/* 800591B0 00056110  4E 80 00 20 */	blr
 
 .global __ct__6CRelayFR12CInputStream
 __ct__6CRelayFR12CInputStream:
@@ -3990,7 +3990,7 @@ __ct__6CRelayFR12CInputStream:
 /* 8005920C 0005616C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80059210 00056170  7C 08 03 A6 */	mtlr r0
 /* 80059214 00056174  38 21 00 10 */	addi r1, r1, 0x10
-/* 80059218 00056178  4E 80 00 20 */	blr 
+/* 80059218 00056178  4E 80 00 20 */	blr
 
 .global ReadWorldLayers__12CWorldLayersFR12CInputStream
 ReadWorldLayers__12CWorldLayersFR12CInputStream:
@@ -4178,7 +4178,7 @@ lbl_800594A8:
 /* 800594AC 0005640C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800594B0 00056410  7C 08 03 A6 */	mtlr r0
 /* 800594B4 00056414  38 21 00 60 */	addi r1, r1, 0x60
-/* 800594B8 00056418  4E 80 00 20 */	blr 
+/* 800594B8 00056418  4E 80 00 20 */	blr
 
 .global sub_800594bc
 sub_800594bc:
@@ -4196,7 +4196,7 @@ sub_800594bc:
 /* 800594E8 00056448  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800594EC 0005644C  7C 08 03 A6 */	mtlr r0
 /* 800594F0 00056450  38 21 00 20 */	addi r1, r1, 0x20
-/* 800594F4 00056454  4E 80 00 20 */	blr 
+/* 800594F4 00056454  4E 80 00 20 */	blr
 
 .global sub_800594f8
 sub_800594f8:
@@ -4209,7 +4209,7 @@ sub_800594f8:
 /* 80059510 00056470  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80059514 00056474  7C 08 03 A6 */	mtlr r0
 /* 80059518 00056478  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005951C 0005647C  4E 80 00 20 */	blr 
+/* 8005951C 0005647C  4E 80 00 20 */	blr
 
 .global sub_80059520
 sub_80059520:
@@ -4272,7 +4272,7 @@ lbl_800595DC:
 /* 800595EC 0005654C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800595F0 00056550  7C 08 03 A6 */	mtlr r0
 /* 800595F4 00056554  38 21 00 30 */	addi r1, r1, 0x30
-/* 800595F8 00056558  4E 80 00 20 */	blr 
+/* 800595F8 00056558  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl44vector<Q26CRelay,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl44vector<Q26CRelay,Q24rstl17rmemory_allocator>Fi":
@@ -4351,7 +4351,7 @@ lbl_800596EC:
 /* 800596F8 00056658  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800596FC 0005665C  7C 08 03 A6 */	mtlr r0
 /* 80059700 00056660  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059704 00056664  4E 80 00 20 */	blr 
+/* 80059704 00056664  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl61vector<Q26CWorld15CSoundGroupData,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl61vector<Q26CWorld15CSoundGroupData,Q24rstl17rmemory_allocator>Fi":
@@ -4455,7 +4455,7 @@ lbl_80059858:
 /* 8005985C 000567BC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80059860 000567C0  7C 08 03 A6 */	mtlr r0
 /* 80059864 000567C4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059868 000567C8  4E 80 00 20 */	blr 
+/* 80059868 000567C8  4E 80 00 20 */	blr
 
 .global sub_8005986c
 sub_8005986c:
@@ -4523,7 +4523,7 @@ lbl_80059924:
 /* 80059948 000568A8  38 80 00 01 */	li r4, 1
 /* 8005994C 000568AC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80059950 000568B0  7D 89 03 A6 */	mtctr r12
-/* 80059954 000568B4  4E 80 04 21 */	bctrl 
+/* 80059954 000568B4  4E 80 04 21 */	bctrl
 lbl_80059958:
 /* 80059958 000568B8  3B 7B 00 08 */	addi r27, r27, 8
 lbl_8005995C:
@@ -4541,7 +4541,7 @@ lbl_8005997C:
 /* 80059980 000568E0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80059984 000568E4  7C 08 03 A6 */	mtlr r0
 /* 80059988 000568E8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005998C 000568EC  4E 80 00 20 */	blr 
+/* 8005998C 000568EC  4E 80 00 20 */	blr
 
 .global sub_80059990
 sub_80059990:
@@ -4609,7 +4609,7 @@ lbl_80059A48:
 /* 80059A6C 000569CC  38 80 00 01 */	li r4, 1
 /* 80059A70 000569D0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80059A74 000569D4  7D 89 03 A6 */	mtctr r12
-/* 80059A78 000569D8  4E 80 04 21 */	bctrl 
+/* 80059A78 000569D8  4E 80 04 21 */	bctrl
 lbl_80059A7C:
 /* 80059A7C 000569DC  3B 7B 00 08 */	addi r27, r27, 8
 lbl_80059A80:
@@ -4627,7 +4627,7 @@ lbl_80059AA0:
 /* 80059AA4 00056A04  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80059AA8 00056A08  7C 08 03 A6 */	mtlr r0
 /* 80059AAC 00056A0C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059AB0 00056A10  4E 80 00 20 */	blr 
+/* 80059AB0 00056A10  4E 80 00 20 */	blr
 
 .global sub_80059ab4
 sub_80059ab4:
@@ -4703,7 +4703,7 @@ lbl_80059B98:
 /* 80059BA4 00056B04  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80059BA8 00056B08  7C 08 03 A6 */	mtlr r0
 /* 80059BAC 00056B0C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059BB0 00056B10  4E 80 00 20 */	blr 
+/* 80059BB0 00056B10  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl110vector<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl110vector<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Fi":
@@ -4777,7 +4777,7 @@ lbl_80059C94:
 /* 80059C98 00056BF8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80059C9C 00056BFC  7C 08 03 A6 */	mtlr r0
 /* 80059CA0 00056C00  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059CA4 00056C04  4E 80 00 20 */	blr 
+/* 80059CA4 00056C04  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl36vector<i,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl36vector<i,Q24rstl17rmemory_allocator>Fi":
@@ -4849,7 +4849,7 @@ lbl_80059D7C:
 /* 80059D88 00056CE8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80059D8C 00056CEC  7C 08 03 A6 */	mtlr r0
 /* 80059D90 00056CF0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059D94 00056CF4  4E 80 00 20 */	blr 
+/* 80059D94 00056CF4  4E 80 00 20 */	blr
 
 .global sub_80059d98
 sub_80059d98:
@@ -4909,7 +4909,7 @@ lbl_80059E44:
 /* 80059E54 00056DB4  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80059E58 00056DB8  7C 08 03 A6 */	mtlr r0
 /* 80059E5C 00056DBC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80059E60 00056DC0  4E 80 00 20 */	blr 
+/* 80059E60 00056DC0  4E 80 00 20 */	blr
 
 .global sub_80059e64
 sub_80059e64:
@@ -4960,11 +4960,11 @@ lbl_80059EF8:
 /* 80059F00 00056E60  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80059F04 00056E64  7C 08 03 A6 */	mtlr r0
 /* 80059F08 00056E68  38 21 00 20 */	addi r1, r1, 0x20
-/* 80059F0C 00056E6C  4E 80 00 20 */	blr 
+/* 80059F0C 00056E6C  4E 80 00 20 */	blr
 
 .global __sinit_CWorld_cpp
 __sinit_CWorld_cpp:
 /* 80059F10 00056E70  38 00 00 00 */	li r0, 0
 /* 80059F14 00056E74  90 0D A2 18 */	stw r0, lbl_805A8DD8@sda21(r13)
 /* 80059F18 00056E78  90 0D A2 1C */	stw r0, lbl_805A8DDC@sda21(r13)
-/* 80059F1C 00056E7C  4E 80 00 20 */	blr 
+/* 80059F1C 00056E7C  4E 80 00 20 */	blr

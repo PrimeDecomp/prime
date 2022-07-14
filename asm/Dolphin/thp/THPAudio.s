@@ -309,7 +309,7 @@ lbl_803C9518:
 /* 803C951C 003C647C  80 01 00 5C */	lwz r0, 0x5c(r1)
 /* 803C9520 003C6480  38 21 00 58 */	addi r1, r1, 0x58
 /* 803C9524 003C6484  7C 08 03 A6 */	mtlr r0
-/* 803C9528 003C6488  4E 80 00 20 */	blr 
+/* 803C9528 003C6488  4E 80 00 20 */	blr
 
 .global __THPAudioGetNewSample
 __THPAudioGetNewSample:
@@ -351,7 +351,7 @@ lbl_803C95A8:
 /* 803C95AC 003C650C  38 04 00 01 */	addi r0, r4, 1
 /* 803C95B0 003C6510  90 03 00 04 */	stw r0, 4(r3)
 /* 803C95B4 003C6514  7C A3 2B 78 */	mr r3, r5
-/* 803C95B8 003C6518  4E 80 00 20 */	blr 
+/* 803C95B8 003C6518  4E 80 00 20 */	blr
 
 .global __THPAudioInitialize
 __THPAudioInitialize:
@@ -369,4 +369,4 @@ __THPAudioInitialize:
 /* 803C95E8 003C6548  80 83 00 00 */	lwz r4, 0(r3)
 /* 803C95EC 003C654C  38 04 00 01 */	addi r0, r4, 1
 /* 803C95F0 003C6550  90 03 00 00 */	stw r0, 0(r3)
-/* 803C95F4 003C6554  4E 80 00 20 */	blr 
+/* 803C95F4 003C6554  4E 80 00 20 */	blr

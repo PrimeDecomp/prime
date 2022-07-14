@@ -43,7 +43,7 @@ lbl_8034A074:
 /* 8034A088 00346FE8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034A08C 00346FEC  7C 08 03 A6 */	mtlr r0
 /* 8034A090 00346FF0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034A094 00346FF4  4E 80 00 20 */	blr 
+/* 8034A094 00346FF4  4E 80 00 20 */	blr
 
 .global sub_8034a098
 sub_8034a098:
@@ -79,7 +79,7 @@ sub_8034a098:
 /* 8034A10C 0034706C  38 80 00 01 */	li r4, 1
 /* 8034A110 00347070  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8034A114 00347074  7D 89 03 A6 */	mtctr r12
-/* 8034A118 00347078  4E 80 04 21 */	bctrl 
+/* 8034A118 00347078  4E 80 04 21 */	bctrl
 lbl_8034A11C:
 /* 8034A11C 0034707C  88 01 00 10 */	lbz r0, 0x10(r1)
 /* 8034A120 00347080  28 00 00 00 */	cmplwi r0, 0
@@ -122,7 +122,7 @@ lbl_8034A194:
 /* 8034A1A0 00347100  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8034A1A4 00347104  7C 08 03 A6 */	mtlr r0
 /* 8034A1A8 00347108  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034A1AC 0034710C  4E 80 00 20 */	blr 
+/* 8034A1AC 0034710C  4E 80 00 20 */	blr
 
 .global sub_8034a1b0
 sub_8034a1b0:
@@ -193,7 +193,7 @@ lbl_8034A284:
 /* 8034A294 003471F4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8034A298 003471F8  7C 08 03 A6 */	mtlr r0
 /* 8034A29C 003471FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034A2A0 00347200  4E 80 00 20 */	blr 
+/* 8034A2A0 00347200  4E 80 00 20 */	blr
 
 .global sub_8034a2a4
 sub_8034a2a4:
@@ -207,7 +207,7 @@ sub_8034a2a4:
 /* 8034A2C0 00347220  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034A2C4 00347224  7C 08 03 A6 */	mtlr r0
 /* 8034A2C8 00347228  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A2CC 0034722C  4E 80 00 20 */	blr 
+/* 8034A2CC 0034722C  4E 80 00 20 */	blr
 
 .global sub_8034a2d0
 sub_8034a2d0:
@@ -250,7 +250,7 @@ lbl_8034A340:
 /* 8034A35C 003472BC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A360 003472C0  7C 08 03 A6 */	mtlr r0
 /* 8034A364 003472C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A368 003472C8  4E 80 00 20 */	blr 
+/* 8034A368 003472C8  4E 80 00 20 */	blr
 
 .global sub_8034a36c
 sub_8034a36c:
@@ -290,7 +290,7 @@ lbl_8034A3D8:
 /* 8034A3E4 00347344  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8034A3E8 00347348  7C 08 03 A6 */	mtlr r0
 /* 8034A3EC 0034734C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034A3F0 00347350  4E 80 00 20 */	blr 
+/* 8034A3F0 00347350  4E 80 00 20 */	blr
 
 .global __ct__15CAudioGrpSetLocFR12CInputStream
 __ct__15CAudioGrpSetLocFR12CInputStream:
@@ -448,7 +448,7 @@ lbl_8034A5C0:
 /* 8034A644 003475A4  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8034A648 003475A8  7C 08 03 A6 */	mtlr r0
 /* 8034A64C 003475AC  38 21 00 90 */	addi r1, r1, 0x90
-/* 8034A650 003475B0  4E 80 00 20 */	blr 
+/* 8034A650 003475B0  4E 80 00 20 */	blr
 
 .global FreeSampleBuffer__14CAudioGroupSetFv
 FreeSampleBuffer__14CAudioGroupSetFv:
@@ -460,11 +460,11 @@ FreeSampleBuffer__14CAudioGroupSetFv:
 /* 8034A668 003475C8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034A66C 003475CC  7C 08 03 A6 */	mtlr r0
 /* 8034A670 003475D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A674 003475D4  4E 80 00 20 */	blr 
+/* 8034A674 003475D4  4E 80 00 20 */	blr
 
 .global Reload__14CAudioGroupSetFv
 Reload__14CAudioGroupSetFv:
-/* 8034A678 003475D8  4E 80 00 20 */	blr 
+/* 8034A678 003475D8  4E 80 00 20 */	blr
 
 .global __dt__14CAudioGroupSetFv
 __dt__14CAudioGroupSetFv:
@@ -512,7 +512,7 @@ lbl_8034A700:
 /* 8034A70C 0034766C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8034A710 00347670  7C 08 03 A6 */	mtlr r0
 /* 8034A714 00347674  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034A718 00347678  4E 80 00 20 */	blr 
+/* 8034A718 00347678  4E 80 00 20 */	blr
 
 .global "__ct__14CAudioGroupSetFRC31TLockedToken<15CAudioGrpSetLoc>"
 "__ct__14CAudioGroupSetFRC31TLockedToken<15CAudioGrpSetLoc>":

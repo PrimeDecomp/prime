@@ -7,7 +7,7 @@ GetEntityIdByIndex__13CPVSVisOctreeFi:
 /* 802AE3E4 002AB344  80 63 00 18 */	lwz r3, 0x18(r3)
 /* 802AE3E8 002AB348  54 80 10 3A */	slwi r0, r4, 2
 /* 802AE3EC 002AB34C  7C 63 00 2E */	lwzx r3, r3, r0
-/* 802AE3F0 002AB350  4E 80 00 20 */	blr 
+/* 802AE3F0 002AB350  4E 80 00 20 */	blr
 
 .global GetLightSet__11CPVSAreaSetCFi
 GetLightSet__11CPVSAreaSetCFi:
@@ -48,12 +48,12 @@ lbl_802AE474:
 /* 802AE474 002AB3D4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802AE478 002AB3D8  7C 08 03 A6 */	mtlr r0
 /* 802AE47C 002AB3DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802AE480 002AB3E0  4E 80 00 20 */	blr 
+/* 802AE480 002AB3E0  4E 80 00 20 */	blr
 
 .global GetVisOctree__13CPVSVisOctreeFv
 GetVisOctree__13CPVSVisOctreeFv:
 /* 802AE484 002AB3E4  38 63 00 20 */	addi r3, r3, 0x20
-/* 802AE488 002AB3E8  4E 80 00 20 */	blr 
+/* 802AE488 002AB3E8  4E 80 00 20 */	blr
 
 .global __ct__11CPVSAreaSetFPCci
 __ct__11CPVSAreaSetFPCci:
@@ -128,7 +128,7 @@ lbl_802AE568:
 /* 802AE598 002AB4F8  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802AE59C 002AB4FC  7C 08 03 A6 */	mtlr r0
 /* 802AE5A0 002AB500  38 21 00 60 */	addi r1, r1, 0x60
-/* 802AE5A4 002AB504  4E 80 00 20 */	blr 
+/* 802AE5A4 002AB504  4E 80 00 20 */	blr
 
 .global __ct__Q211CPVSAreaSet14CPVSAreaHolderFiiiiiiii
 __ct__Q211CPVSAreaSet14CPVSAreaHolderFiiiiiiii:
@@ -166,7 +166,7 @@ lbl_802AE618:
 /* 802AE620 002AB580  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 802AE624 002AB584  7C 08 03 A6 */	mtlr r0
 /* 802AE628 002AB588  38 21 00 60 */	addi r1, r1, 0x60
-/* 802AE62C 002AB58C  4E 80 00 20 */	blr 
+/* 802AE62C 002AB58C  4E 80 00 20 */	blr
 
 .global sub_802ae630
 sub_802ae630:

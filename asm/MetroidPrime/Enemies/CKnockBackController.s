@@ -80,7 +80,7 @@ lbl_80232D08:
 /* 80232D14 0022FC74  C3 E2 B6 F8 */	lfs f31, lbl_805AD418@sda21(r2)
 /* 80232D18 0022FC78  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80232D1C 0022FC7C  7D 89 03 A6 */	mtctr r12
-/* 80232D20 0022FC80  4E 80 04 21 */	bctrl 
+/* 80232D20 0022FC80  4E 80 04 21 */	bctrl
 /* 80232D24 0022FC84  28 03 00 00 */	cmplwi r3, 0
 /* 80232D28 0022FC88  41 82 00 1C */	beq lbl_80232D44
 /* 80232D2C 0022FC8C  FC 20 F0 90 */	fmr f1, f30
@@ -94,7 +94,7 @@ lbl_80232D44:
 /* 80232D48 0022FCA8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80232D4C 0022FCAC  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 80232D50 0022FCB0  7D 89 03 A6 */	mtctr r12
-/* 80232D54 0022FCB4  4E 80 04 21 */	bctrl 
+/* 80232D54 0022FCB4  4E 80 04 21 */	bctrl
 /* 80232D58 0022FCB8  C0 02 B6 FC */	lfs f0, lbl_805AD41C@sda21(r2)
 /* 80232D5C 0022FCBC  EC 00 07 F2 */	fmuls f0, f0, f31
 /* 80232D60 0022FCC0  EC 20 00 72 */	fmuls f1, f0, f1
@@ -185,7 +185,7 @@ lbl_80232D44:
 /* 80232EB4 0022FE14  90 01 00 A4 */	stw r0, 0xa4(r1)
 /* 80232EB8 0022FE18  C3 FE 00 E8 */	lfs f31, 0xe8(r30)
 /* 80232EBC 0022FE1C  7D 89 03 A6 */	mtctr r12
-/* 80232EC0 0022FE20  4E 80 04 21 */	bctrl 
+/* 80232EC0 0022FE20  4E 80 04 21 */	bctrl
 /* 80232EC4 0022FE24  FC 40 F8 50 */	fneg f2, f31
 /* 80232EC8 0022FE28  C0 02 B7 00 */	lfs f0, lbl_805AD420@sda21(r2)
 /* 80232ECC 0022FE2C  D0 1E 01 50 */	stfs f0, 0x150(r30)
@@ -380,7 +380,7 @@ lbl_80233180:
 /* 80233194 002300F4  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 80233198 002300F8  7C 08 03 A6 */	mtlr r0
 /* 8023319C 002300FC  38 21 01 50 */	addi r1, r1, 0x150
-/* 802331A0 00230100  4E 80 00 20 */	blr 
+/* 802331A0 00230100  4E 80 00 20 */	blr
 
 .global DoDeferredKnockBack__20CKnockBackControllerFR13CStateManagerR10CPatterned
 DoDeferredKnockBack__20CKnockBackControllerFR13CStateManagerR10CPatterned:
@@ -422,7 +422,7 @@ DoDeferredKnockBack__20CKnockBackControllerFR13CStateManagerR10CPatterned:
 /* 80233230 00230190  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80233234 00230194  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80233238 00230198  7D 89 03 A6 */	mtctr r12
-/* 8023323C 0023019C  4E 80 04 21 */	bctrl 
+/* 8023323C 0023019C  4E 80 04 21 */	bctrl
 /* 80233240 002301A0  28 03 00 00 */	cmplwi r3, 0
 /* 80233244 002301A4  41 82 00 FC */	beq lbl_80233340
 /* 80233248 002301A8  C0 5F 00 58 */	lfs f2, 0x58(r31)
@@ -482,7 +482,7 @@ DoDeferredKnockBack__20CKnockBackControllerFR13CStateManagerR10CPatterned:
 /* 80233320 00230280  54 08 D7 FE */	rlwinm r8, r0, 0x1a, 0x1f, 0x1f
 /* 80233324 00230284  99 21 00 0C */	stb r9, 0xc(r1)
 /* 80233328 00230288  7D 89 03 A6 */	mtctr r12
-/* 8023332C 0023028C  4E 80 04 21 */	bctrl 
+/* 8023332C 0023028C  4E 80 04 21 */	bctrl
 /* 80233330 00230290  88 1D 00 82 */	lbz r0, 0x82(r29)
 /* 80233334 00230294  38 60 00 00 */	li r3, 0
 /* 80233338 00230298  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -508,7 +508,7 @@ lbl_80233340:
 /* 80233384 002302E4  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80233388 002302E8  7C 08 03 A6 */	mtlr r0
 /* 8023338C 002302EC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80233390 002302F0  4E 80 00 20 */	blr 
+/* 80233390 002302F0  4E 80 00 20 */	blr
 
 .global ApplyImpulse__20CKnockBackControllerFfR10CPatterned
 ApplyImpulse__20CKnockBackControllerFfR10CPatterned:
@@ -605,7 +605,7 @@ lbl_802334E0:
 /* 802334F0 00230450  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 802334F4 00230454  7C 08 03 A6 */	mtlr r0
 /* 802334F8 00230458  38 21 00 60 */	addi r1, r1, 0x60
-/* 802334FC 0023045C  4E 80 00 20 */	blr 
+/* 802334FC 0023045C  4E 80 00 20 */	blr
 
 .global ResetKnockBackImpulse__20CKnockBackControllerFR10CPatternedRC9CVector3ff
 ResetKnockBackImpulse__20CKnockBackControllerFR10CPatternedRC9CVector3ff:
@@ -693,7 +693,7 @@ lbl_8023361C:
 /* 80233630 00230590  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80233634 00230594  7C 08 03 A6 */	mtlr r0
 /* 80233638 00230598  38 21 00 50 */	addi r1, r1, 0x50
-/* 8023363C 0023059C  4E 80 00 20 */	blr 
+/* 8023363C 0023059C  4E 80 00 20 */	blr
 
 .global TickDeferredTimer__20CKnockBackControllerFf
 TickDeferredTimer__20CKnockBackControllerFf:
@@ -709,10 +709,10 @@ TickDeferredTimer__20CKnockBackControllerFf:
 /* 80233664 002305C4  4C 40 13 82 */	cror 2, 0, 2
 /* 80233668 002305C8  7C 00 00 26 */	mfcr r0
 /* 8023366C 002305CC  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
-/* 80233670 002305D0  4E 80 00 20 */	blr 
+/* 80233670 002305D0  4E 80 00 20 */	blr
 lbl_80233674:
 /* 80233674 002305D4  38 60 00 00 */	li r3, 0
-/* 80233678 002305D8  4E 80 00 20 */	blr 
+/* 80233678 002305D8  4E 80 00 20 */	blr
 
 .global ValidateState__20CKnockBackControllerFR10CPatterned
 ValidateState__20CKnockBackControllerFR10CPatterned:
@@ -843,7 +843,7 @@ lbl_8023382C:
 /* 80233848 002307A8  38 63 81 50 */	addi r3, r3, lbl_803E8150@l
 /* 8023384C 002307AC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80233850 002307B0  7C 09 03 A6 */	mtctr r0
-/* 80233854 002307B4  4E 80 04 20 */	bctr 
+/* 80233854 002307B4  4E 80 04 20 */	bctr
 .global lbl_80233858
 lbl_80233858:
 /* 80233858 002307B8  88 1E 00 81 */	lbz r0, 0x81(r30)
@@ -914,7 +914,7 @@ lbl_80233914:
 /* 80233920 00230880  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80233924 00230884  7C 08 03 A6 */	mtlr r0
 /* 80233928 00230888  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023392C 0023088C  4E 80 00 20 */	blr 
+/* 8023392C 0023088C  4E 80 00 20 */	blr
 
 .global CalculateExtraHurlVelocity__20CKnockBackControllerFR13CStateManagerff
 CalculateExtraHurlVelocity__20CKnockBackControllerFR13CStateManagerff:
@@ -947,7 +947,7 @@ lbl_80233984:
 /* 80233994 002308F4  CB C1 00 10 */	lfd f30, 0x10(r1)
 /* 80233998 002308F8  7C 08 03 A6 */	mtlr r0
 /* 8023399C 002308FC  38 21 00 30 */	addi r1, r1, 0x30
-/* 802339A0 00230900  4E 80 00 20 */	blr 
+/* 802339A0 00230900  4E 80 00 20 */	blr
 
 .global GetKnockBackCharacterState__20CKnockBackControllerFR10CPatterned
 GetKnockBackCharacterState__20CKnockBackControllerFR10CPatterned:
@@ -958,15 +958,15 @@ GetKnockBackCharacterState__20CKnockBackControllerFR10CPatterned:
 /* 802339B4 00230914  88 04 04 00 */	lbz r0, 0x400(r4)
 /* 802339B8 00230918  38 60 00 03 */	li r3, 3
 /* 802339BC 0023091C  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
-/* 802339C0 00230920  4D 82 00 20 */	beqlr 
+/* 802339C0 00230920  4D 82 00 20 */	beqlr
 /* 802339C4 00230924  38 60 00 02 */	li r3, 2
-/* 802339C8 00230928  4E 80 00 20 */	blr 
+/* 802339C8 00230928  4E 80 00 20 */	blr
 lbl_802339CC:
 /* 802339CC 0023092C  88 04 04 00 */	lbz r0, 0x400(r4)
 /* 802339D0 00230930  54 00 D7 FE */	rlwinm r0, r0, 0x1a, 0x1f, 0x1f
 /* 802339D4 00230934  7C 00 00 34 */	cntlzw r0, r0
 /* 802339D8 00230938  54 03 D9 7E */	srwi r3, r0, 5
-/* 802339DC 0023093C  4E 80 00 20 */	blr 
+/* 802339DC 0023093C  4E 80 00 20 */	blr
 
 .global GetKnockBackWeaponType__20CKnockBackControllerFRC11CDamageInfo11EWeaponType14EKnockBackType
 GetKnockBackWeaponType__20CKnockBackControllerFRC11CDamageInfo11EWeaponType14EKnockBackType:
@@ -983,53 +983,53 @@ lbl_802339FC:
 /* 80233A04 00230964  38 E0 00 02 */	li r7, 2
 lbl_80233A08:
 /* 80233A08 00230968  28 05 00 08 */	cmplwi r5, 8
-/* 80233A0C 0023096C  4D 81 00 20 */	bgtlr 
+/* 80233A0C 0023096C  4D 81 00 20 */	bgtlr
 /* 80233A10 00230970  3C 80 80 3F */	lis r4, lbl_803E8178@ha
 /* 80233A14 00230974  54 A0 10 3A */	slwi r0, r5, 2
 /* 80233A18 00230978  38 84 81 78 */	addi r4, r4, lbl_803E8178@l
 /* 80233A1C 0023097C  7C 04 00 2E */	lwzx r0, r4, r0
 /* 80233A20 00230980  7C 09 03 A6 */	mtctr r0
-/* 80233A24 00230984  4E 80 04 20 */	bctr 
+/* 80233A24 00230984  4E 80 04 20 */	bctr
 .global lbl_80233A28
 lbl_80233A28:
 /* 80233A28 00230988  54 C0 06 3F */	clrlwi. r0, r6, 0x18
 /* 80233A2C 0023098C  7C E3 3B 78 */	mr r3, r7
-/* 80233A30 00230990  4C 82 00 20 */	bnelr 
+/* 80233A30 00230990  4C 82 00 20 */	bnelr
 /* 80233A34 00230994  38 67 00 01 */	addi r3, r7, 1
-/* 80233A38 00230998  4E 80 00 20 */	blr 
+/* 80233A38 00230998  4E 80 00 20 */	blr
 .global lbl_80233A3C
 lbl_80233A3C:
 /* 80233A3C 0023099C  54 C0 06 3F */	clrlwi. r0, r6, 0x18
 /* 80233A40 002309A0  38 67 00 08 */	addi r3, r7, 8
-/* 80233A44 002309A4  4C 82 00 20 */	bnelr 
+/* 80233A44 002309A4  4C 82 00 20 */	bnelr
 /* 80233A48 002309A8  38 63 00 01 */	addi r3, r3, 1
-/* 80233A4C 002309AC  4E 80 00 20 */	blr 
+/* 80233A4C 002309AC  4E 80 00 20 */	blr
 .global lbl_80233A50
 lbl_80233A50:
 /* 80233A50 002309B0  38 67 00 04 */	addi r3, r7, 4
-/* 80233A54 002309B4  4E 80 00 20 */	blr 
+/* 80233A54 002309B4  4E 80 00 20 */	blr
 .global lbl_80233A58
 lbl_80233A58:
 /* 80233A58 002309B8  38 67 00 0C */	addi r3, r7, 0xc
-/* 80233A5C 002309BC  4E 80 00 20 */	blr 
+/* 80233A5C 002309BC  4E 80 00 20 */	blr
 .global lbl_80233A60
 lbl_80233A60:
 /* 80233A60 002309C0  38 60 00 10 */	li r3, 0x10
-/* 80233A64 002309C4  4E 80 00 20 */	blr 
+/* 80233A64 002309C4  4E 80 00 20 */	blr
 .global lbl_80233A68
 lbl_80233A68:
 /* 80233A68 002309C8  38 60 00 11 */	li r3, 0x11
-/* 80233A6C 002309CC  4E 80 00 20 */	blr 
+/* 80233A6C 002309CC  4E 80 00 20 */	blr
 .global lbl_80233A70
 lbl_80233A70:
 /* 80233A70 002309D0  38 60 00 0F */	li r3, 0xf
-/* 80233A74 002309D4  4E 80 00 20 */	blr 
+/* 80233A74 002309D4  4E 80 00 20 */	blr
 .global lbl_80233A78
 lbl_80233A78:
 /* 80233A78 002309D8  38 60 00 12 */	li r3, 0x12
 .global lbl_80233A7C
 lbl_80233A7C:
-/* 80233A7C 002309DC  4E 80 00 20 */	blr 
+/* 80233A7C 002309DC  4E 80 00 20 */	blr
 
 .global SelectDamageState__20CKnockBackControllerFR10CPatternedRC11CDamageInfo11EWeaponType14EKnockBackType
 SelectDamageState__20CKnockBackControllerFR10CPatternedRC11CDamageInfo11EWeaponType14EKnockBackType:
@@ -1087,7 +1087,7 @@ lbl_80233B3C:
 /* 80233B48 00230AA8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80233B4C 00230AAC  7C 08 03 A6 */	mtlr r0
 /* 80233B50 00230AB0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80233B54 00230AB4  4E 80 00 20 */	blr 
+/* 80233B54 00230AB4  4E 80 00 20 */	blr
 
 .global Update__20CKnockBackControllerFfR13CStateManagerR10CPatterned
 Update__20CKnockBackControllerFfR13CStateManagerR10CPatterned:
@@ -1146,7 +1146,7 @@ lbl_80233C0C:
 /* 80233C20 00230B80  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80233C24 00230B84  7C 08 03 A6 */	mtlr r0
 /* 80233C28 00230B88  38 21 00 30 */	addi r1, r1, 0x30
-/* 80233C2C 00230B8C  4E 80 00 20 */	blr 
+/* 80233C2C 00230B8C  4E 80 00 20 */	blr
 
 .global KnockBack__C20CKnockBackControllerFRC9CVector3fR13CStateManagerR10CPatternedRC11CDamageInfo14EKnockBackTypef
 KnockBack__C20CKnockBackControllerFRC9CVector3fR13CStateManagerR10CPatternedRC11CDamageInfo14EKnockBackTypef:
@@ -1213,31 +1213,31 @@ lbl_80233D0C:
 /* 80233D18 00230C78  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80233D1C 00230C7C  7C 08 03 A6 */	mtlr r0
 /* 80233D20 00230C80  38 21 00 50 */	addi r1, r1, 0x50
-/* 80233D24 00230C84  4E 80 00 20 */	blr 
+/* 80233D24 00230C84  4E 80 00 20 */	blr
 
 .global SetKnockBackVariant__20CKnockBackControllerF17EKnockBackVariant
 SetKnockBackVariant__20CKnockBackControllerF17EKnockBackVariant:
 /* 80233D28 00230C88  90 83 00 00 */	stw r4, 0(r3)
-/* 80233D2C 00230C8C  4E 80 00 20 */	blr 
+/* 80233D2C 00230C8C  4E 80 00 20 */	blr
 
 .global DeferKnockBack__20CKnockBackControllerF11EWeaponType
 DeferKnockBack__20CKnockBackControllerF11EWeaponType:
 /* 80233D30 00230C90  90 83 00 14 */	stw r4, 0x14(r3)
 /* 80233D34 00230C94  C0 02 B7 18 */	lfs f0, lbl_805AD438@sda21(r2)
 /* 80233D38 00230C98  D0 03 00 68 */	stfs f0, 0x68(r3)
-/* 80233D3C 00230C9C  4E 80 00 20 */	blr 
+/* 80233D3C 00230C9C  4E 80 00 20 */	blr
 
 .global sub_80233d40
 sub_80233d40:
 /* 80233D40 00230CA0  2C 04 00 00 */	cmpwi r4, 0
-/* 80233D44 00230CA4  4D 80 00 20 */	bltlr 
+/* 80233D44 00230CA4  4D 80 00 20 */	bltlr
 /* 80233D48 00230CA8  2C 04 00 04 */	cmpwi r4, 4
-/* 80233D4C 00230CAC  4D 81 00 20 */	bgtlr 
+/* 80233D4C 00230CAC  4D 81 00 20 */	bgtlr
 /* 80233D50 00230CB0  54 80 18 38 */	slwi r0, r4, 3
 /* 80233D54 00230CB4  7C 63 02 14 */	add r3, r3, r0
 /* 80233D58 00230CB8  D0 23 00 28 */	stfs f1, 0x28(r3)
 /* 80233D5C 00230CBC  D0 43 00 2C */	stfs f2, 0x2c(r3)
-/* 80233D60 00230CC0  4E 80 00 20 */	blr 
+/* 80233D60 00230CC0  4E 80 00 20 */	blr
 
 .global SetAutoResetImpulse__20CKnockBackControllerFb
 SetAutoResetImpulse__20CKnockBackControllerFb:
@@ -1246,22 +1246,22 @@ SetAutoResetImpulse__20CKnockBackControllerFb:
 /* 80233D6C 00230CCC  98 03 00 81 */	stb r0, 0x81(r3)
 /* 80233D70 00230CD0  88 03 00 81 */	lbz r0, 0x81(r3)
 /* 80233D74 00230CD4  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 80233D78 00230CD8  4C 82 00 20 */	bnelr 
+/* 80233D78 00230CD8  4C 82 00 20 */	bnelr
 /* 80233D7C 00230CDC  C0 02 B7 00 */	lfs f0, lbl_805AD420@sda21(r2)
 /* 80233D80 00230CE0  D0 03 00 5C */	stfs f0, 0x5c(r3)
 /* 80233D84 00230CE4  D0 03 00 60 */	stfs f0, 0x60(r3)
-/* 80233D88 00230CE8  4E 80 00 20 */	blr 
+/* 80233D88 00230CE8  4E 80 00 20 */	blr
 
 .global SetImpulseDurationIdx__20CKnockBackControllerFi
 SetImpulseDurationIdx__20CKnockBackControllerFi:
 /* 80233D8C 00230CEC  90 83 00 20 */	stw r4, 0x20(r3)
-/* 80233D90 00230CF0  4E 80 00 20 */	blr 
+/* 80233D90 00230CF0  4E 80 00 20 */	blr
 
 .global SetAnimationStateRange__20CKnockBackControllerF24EKnockBackAnimationState24EKnockBackAnimationState
 SetAnimationStateRange__20CKnockBackControllerF24EKnockBackAnimationState24EKnockBackAnimationState:
 /* 80233D94 00230CF4  90 83 00 18 */	stw r4, 0x18(r3)
 /* 80233D98 00230CF8  90 A3 00 1C */	stw r5, 0x1c(r3)
-/* 80233D9C 00230CFC  4E 80 00 20 */	blr 
+/* 80233D9C 00230CFC  4E 80 00 20 */	blr
 
 .global TestAvailableState__20CKnockBackControllerCFi
 TestAvailableState__20CKnockBackControllerCFi:
@@ -1273,7 +1273,7 @@ TestAvailableState__20CKnockBackControllerCFi:
 /* 80233DB4 00230D14  7C 03 00 D0 */	neg r0, r3
 /* 80233DB8 00230D18  7C 00 1B 78 */	or r0, r0, r3
 /* 80233DBC 00230D1C  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80233DC0 00230D20  4E 80 00 20 */	blr 
+/* 80233DC0 00230D20  4E 80 00 20 */	blr
 
 .global SetAvailableState__20CKnockBackControllerFib
 SetAvailableState__20CKnockBackControllerFib:
@@ -1285,12 +1285,12 @@ SetAvailableState__20CKnockBackControllerFib:
 /* 80233DD8 00230D38  88 03 00 80 */	lbz r0, 0x80(r3)
 /* 80233DDC 00230D3C  7C 00 23 78 */	or r0, r0, r4
 /* 80233DE0 00230D40  98 03 00 80 */	stb r0, 0x80(r3)
-/* 80233DE4 00230D44  4E 80 00 20 */	blr 
+/* 80233DE4 00230D44  4E 80 00 20 */	blr
 lbl_80233DE8:
 /* 80233DE8 00230D48  88 03 00 80 */	lbz r0, 0x80(r3)
 /* 80233DEC 00230D4C  7C 00 20 78 */	andc r0, r0, r4
 /* 80233DF0 00230D50  98 03 00 80 */	stb r0, 0x80(r3)
-/* 80233DF4 00230D54  4E 80 00 20 */	blr 
+/* 80233DF4 00230D54  4E 80 00 20 */	blr
 
 .global __ct__20CKnockBackController2F17EKnockBackVariant
 __ct__20CKnockBackController2F17EKnockBackVariant:

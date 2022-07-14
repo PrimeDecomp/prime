@@ -10,7 +10,7 @@ lbl_805A9200:
 
 .global nullsub_7
 nullsub_7:
-/* 802C63E0 002C3340  4E 80 00 20 */	blr 
+/* 802C63E0 002C3340  4E 80 00 20 */	blr
 
 .global CreateWidgetInGame__7CGuiSysFUiR12CInputStreamP9CGuiFrame
 CreateWidgetInGame__7CGuiSysFUiR12CInputStreamP9CGuiFrame:
@@ -24,7 +24,7 @@ CreateWidgetInGame__7CGuiSysFUiR12CInputStreamP9CGuiFrame:
 /* 802C6400 002C3360  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C6404 002C3364  7C 08 03 A6 */	mtlr r0
 /* 802C6408 002C3368  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C640C 002C336C  4E 80 00 20 */	blr 
+/* 802C640C 002C336C  4E 80 00 20 */	blr
 
 .global sub_802c6410
 sub_802c6410:
@@ -55,7 +55,7 @@ lbl_802C645C:
 /* 802C6468 002C33C8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C646C 002C33CC  7C 08 03 A6 */	mtlr r0
 /* 802C6470 002C33D0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C6474 002C33D4  4E 80 00 20 */	blr 
+/* 802C6474 002C33D4  4E 80 00 20 */	blr
 
 .global sub_802c6478
 sub_802c6478:
@@ -81,7 +81,7 @@ lbl_802C64B4:
 /* 802C64C0 002C3420  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C64C4 002C3424  7C 08 03 A6 */	mtlr r0
 /* 802C64C8 002C3428  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C64CC 002C342C  4E 80 00 20 */	blr 
+/* 802C64CC 002C342C  4E 80 00 20 */	blr
 
 .global __ct__7CGuiSysFP8IFactoryP11CSimplePoolQ27CGuiSys10EUsageMode
 __ct__7CGuiSysFP8IFactoryP11CSimplePoolQ27CGuiSys10EUsageMode:
@@ -138,7 +138,7 @@ lbl_802C6564:
 /* 802C6590 002C34F0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C6594 002C34F4  7C 08 03 A6 */	mtlr r0
 /* 802C6598 002C34F8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C659C 002C34FC  4E 80 00 20 */	blr 
+/* 802C659C 002C34FC  4E 80 00 20 */	blr
 
 .global sub_802c65a0
 sub_802c65a0:

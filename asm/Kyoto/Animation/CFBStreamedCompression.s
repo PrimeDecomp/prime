@@ -16,7 +16,7 @@ GetAnimationDuration__22CFBStreamedCompressionCFv:
 /* 802FB948 002F88A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FB94C 002F88AC  7C 08 03 A6 */	mtlr r0
 /* 802FB950 002F88B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FB954 002F88B4  4E 80 00 20 */	blr 
+/* 802FB954 002F88B4  4E 80 00 20 */	blr
 
 .global __dt__22CFBStreamedCompressionFv
 __dt__22CFBStreamedCompressionFv:
@@ -59,7 +59,7 @@ lbl_802FB9C8:
 /* 802FB9D8 002F8938  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802FB9DC 002F893C  7C 08 03 A6 */	mtlr r0
 /* 802FB9E0 002F8940  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FB9E4 002F8944  4E 80 00 20 */	blr 
+/* 802FB9E4 002F8944  4E 80 00 20 */	blr
 
 .global __ct__22CFBStreamedCompressionFR12CInputStreamR12IObjectStore
 __ct__22CFBStreamedCompressionFR12CInputStreamR12IObjectStore:
@@ -132,7 +132,7 @@ lbl_802FBA90:
 /* 802FBAEC 002F8A4C  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802FBAF0 002F8A50  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802FBAF4 002F8A54  7D 89 03 A6 */	mtctr r12
-/* 802FBAF8 002F8A58  4E 80 04 21 */	bctrl 
+/* 802FBAF8 002F8A58  4E 80 04 21 */	bctrl
 /* 802FBAFC 002F8A5C  7F E3 FB 78 */	mr r3, r31
 /* 802FBB00 002F8A60  38 81 00 14 */	addi r4, r1, 0x14
 /* 802FBB04 002F8A64  3B 60 00 01 */	li r27, 1
@@ -326,7 +326,7 @@ lbl_802FBD3C:
 /* 802FBDA0 002F8D00  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 802FBDA4 002F8D04  7C 08 03 A6 */	mtlr r0
 /* 802FBDA8 002F8D08  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 802FBDAC 002F8D0C  4E 80 00 20 */	blr 
+/* 802FBDAC 002F8D0C  4E 80 00 20 */	blr
 
 .global GetRotationsAndOffsets__22CFBStreamedCompressionFUiR12CInputStream
 GetRotationsAndOffsets__22CFBStreamedCompressionFUiR12CInputStream:
@@ -459,7 +459,7 @@ lbl_802FBF64:
 /* 802FBF68 002F8EC8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802FBF6C 002F8ECC  7C 08 03 A6 */	mtlr r0
 /* 802FBF70 002F8ED0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802FBF74 002F8ED4  4E 80 00 20 */	blr 
+/* 802FBF74 002F8ED4  4E 80 00 20 */	blr
 
 .global sub_802fbf78
 sub_802fbf78:
@@ -468,7 +468,7 @@ sub_802fbf78:
 /* 802FBF80 002F8EE0  38 60 00 00 */	li r3, 0
 /* 802FBF84 002F8EE4  7C 09 03 A6 */	mtctr r0
 /* 802FBF88 002F8EE8  2C 00 00 00 */	cmpwi r0, 0
-/* 802FBF8C 002F8EEC  4D 82 00 20 */	beqlr 
+/* 802FBF8C 002F8EEC  4D 82 00 20 */	beqlr
 lbl_802FBF90:
 /* 802FBF90 002F8EF0  A0 08 00 04 */	lhz r0, 4(r8)
 /* 802FBF94 002F8EF4  28 00 00 00 */	cmplwi r0, 0
@@ -568,7 +568,7 @@ lbl_802FC0C4:
 /* 802FC0C4 002F9024  39 04 00 0B */	addi r8, r4, 0xb
 lbl_802FC0C8:
 /* 802FC0C8 002F9028  42 00 FE C8 */	bdnz lbl_802FBF90
-/* 802FC0CC 002F902C  4E 80 00 20 */	blr 
+/* 802FC0CC 002F902C  4E 80 00 20 */	blr
 
 .global sub_802fc0d0
 sub_802fc0d0:
@@ -583,7 +583,7 @@ sub_802fc0d0:
 /* 802FC0F0 002F9050  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FC0F4 002F9054  7C 08 03 A6 */	mtlr r0
 /* 802FC0F8 002F9058  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FC0FC 002F905C  4E 80 00 20 */	blr 
+/* 802FC0FC 002F905C  4E 80 00 20 */	blr
 
 .global sub_802fc100
 sub_802fc100:
@@ -632,7 +632,7 @@ lbl_802FC17C:
 /* 802FC18C 002F90EC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FC190 002F90F0  7C 08 03 A6 */	mtlr r0
 /* 802FC194 002F90F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FC198 002F90F8  4E 80 00 20 */	blr 
+/* 802FC198 002F90F8  4E 80 00 20 */	blr
 
 .global sub_802fc19c
 sub_802fc19c:
@@ -713,7 +713,7 @@ lbl_802FC290:
 /* 802FC2A4 002F9204  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802FC2A8 002F9208  7C 08 03 A6 */	mtlr r0
 /* 802FC2AC 002F920C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FC2B0 002F9210  4E 80 00 20 */	blr 
+/* 802FC2B0 002F9210  4E 80 00 20 */	blr
 
 .global __ct__26CStandardMultiFormatHeaderFR12CInputStream
 __ct__26CStandardMultiFormatHeaderFR12CInputStream:

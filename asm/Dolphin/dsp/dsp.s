@@ -5,12 +5,12 @@
 __DSPVersion:
 	.4byte __DSPVersionString
 	.balign 8
-	
+
 .section .sbss
 .global __DSP_init_flag
 __DSP_init_flag:
 	.skip 0x8
-	
+
 .section .data
 __DSPVersionString:
 	.asciz "<< Dolphin SDK - DSP\trelease build: Sep  5 2002 05:35:13 (0x2301) >>"
@@ -20,7 +20,7 @@ __DSPVersionString:
 	.asciz "Sep  5 2002"
 	.asciz "05:35:13"
 	.balign 4
-	
+
 .section .text, "ax"
 
 .global DSPCheckMailToDSP
@@ -28,14 +28,14 @@ DSPCheckMailToDSP:
 /* 8036F9B8 0036C918  3C 60 CC 00 */	lis r3, 0xCC005000@ha
 /* 8036F9BC 0036C91C  A0 03 50 00 */	lhz r0, 0xCC005000@l(r3)
 /* 8036F9C0 0036C920  54 03 8F FE */	rlwinm r3, r0, 0x11, 0x1f, 0x1f
-/* 8036F9C4 0036C924  4E 80 00 20 */	blr 
+/* 8036F9C4 0036C924  4E 80 00 20 */	blr
 
 .global DSPCheckMailFromDSP
 DSPCheckMailFromDSP:
 /* 8036F9C8 0036C928  3C 60 CC 00 */	lis r3, 0xCC005004@ha
 /* 8036F9CC 0036C92C  A0 03 50 04 */	lhz r0, 0xCC005004@l(r3)
 /* 8036F9D0 0036C930  54 03 8F FE */	rlwinm r3, r0, 0x11, 0x1f, 0x1f
-/* 8036F9D4 0036C934  4E 80 00 20 */	blr 
+/* 8036F9D4 0036C934  4E 80 00 20 */	blr
 
 .global DSPReadMailFromDSP
 DSPReadMailFromDSP:
@@ -44,7 +44,7 @@ DSPReadMailFromDSP:
 /* 8036F9E0 0036C940  A0 03 00 04 */	lhz r0, 4(r3)
 /* 8036F9E4 0036C944  A0 63 00 06 */	lhz r3, 6(r3)
 /* 8036F9E8 0036C948  50 03 80 1E */	rlwimi r3, r0, 0x10, 0, 0xf
-/* 8036F9EC 0036C94C  4E 80 00 20 */	blr 
+/* 8036F9EC 0036C94C  4E 80 00 20 */	blr
 
 .global DSPSendMailToDSP
 DSPSendMailToDSP:
@@ -52,7 +52,7 @@ DSPSendMailToDSP:
 /* 8036F9F4 0036C954  54 60 84 3E */	srwi r0, r3, 0x10
 /* 8036F9F8 0036C958  B0 04 50 00 */	sth r0, 0xCC005000@l(r4)
 /* 8036F9FC 0036C95C  B0 64 50 02 */	sth r3, 0x5002(r4)
-/* 8036FA00 0036C960  4E 80 00 20 */	blr 
+/* 8036FA00 0036C960  4E 80 00 20 */	blr
 
 .global DSPInit
 DSPInit:
@@ -105,7 +105,7 @@ lbl_8036FAB4:
 /* 8036FAB8 0036CA18  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036FABC 0036CA1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8036FAC0 0036CA20  7C 08 03 A6 */	mtlr r0
-/* 8036FAC4 0036CA24  4E 80 00 20 */	blr 
+/* 8036FAC4 0036CA24  4E 80 00 20 */	blr
 
 .global DSPReset
 DSPReset:
@@ -126,7 +126,7 @@ DSPReset:
 /* 8036FB00 0036CA60  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8036FB04 0036CA64  38 21 00 08 */	addi r1, r1, 8
 /* 8036FB08 0036CA68  7C 08 03 A6 */	mtlr r0
-/* 8036FB0C 0036CA6C  4E 80 00 20 */	blr 
+/* 8036FB0C 0036CA6C  4E 80 00 20 */	blr
 
 .global DSPHalt
 DSPHalt:
@@ -145,14 +145,14 @@ DSPHalt:
 /* 8036FB40 0036CAA0  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8036FB44 0036CAA4  38 21 00 08 */	addi r1, r1, 8
 /* 8036FB48 0036CAA8  7C 08 03 A6 */	mtlr r0
-/* 8036FB4C 0036CAAC  4E 80 00 20 */	blr 
+/* 8036FB4C 0036CAAC  4E 80 00 20 */	blr
 
 .global DSPGetDMAStatus
 DSPGetDMAStatus:
 /* 8036FB50 0036CAB0  3C 60 CC 00 */	lis r3, 0xCC00500A@ha
 /* 8036FB54 0036CAB4  A0 03 50 0A */	lhz r0, 0xCC00500A@l(r3)
 /* 8036FB58 0036CAB8  54 03 05 AC */	rlwinm r3, r0, 0, 0x16, 0x16
-/* 8036FB5C 0036CABC  4E 80 00 20 */	blr 
+/* 8036FB5C 0036CABC  4E 80 00 20 */	blr
 
 .global DSPAddTask
 DSPAddTask:
@@ -184,4 +184,4 @@ lbl_8036FBB4:
 /* 8036FBC0 0036CB20  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8036FBC4 0036CB24  38 21 00 18 */	addi r1, r1, 0x18
 /* 8036FBC8 0036CB28  7C 08 03 A6 */	mtlr r0
-/* 8036FBCC 0036CB2C  4E 80 00 20 */	blr 
+/* 8036FBCC 0036CB2C  4E 80 00 20 */	blr

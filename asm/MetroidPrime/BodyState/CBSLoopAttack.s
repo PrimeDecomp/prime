@@ -48,12 +48,12 @@ lbl_8013AF10:
 /* 8013AF18 00137E78  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013AF1C 00137E7C  7C 08 03 A6 */	mtlr r0
 /* 8013AF20 00137E80  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013AF24 00137E84  4E 80 00 20 */	blr 
+/* 8013AF24 00137E84  4E 80 00 20 */	blr
 
 .global CanShoot__13CBSLoopAttackCFv
 CanShoot__13CBSLoopAttackCFv:
 /* 8013AF28 00137E88  38 60 00 01 */	li r3, 1
-/* 8013AF2C 00137E8C  4E 80 00 20 */	blr 
+/* 8013AF2C 00137E8C  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__13CBSLoopAttackFfR15CBodyController
 GetBodyStateTransition__13CBSLoopAttackFfR15CBodyController:
@@ -184,11 +184,11 @@ lbl_8013B0D8:
 /* 8013B0E0 00138040  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013B0E4 00138044  7C 08 03 A6 */	mtlr r0
 /* 8013B0E8 00138048  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013B0EC 0013804C  4E 80 00 20 */	blr 
+/* 8013B0EC 0013804C  4E 80 00 20 */	blr
 
 .global Shutdown__13CBSLoopAttackFR15CBodyController
 Shutdown__13CBSLoopAttackFR15CBodyController:
-/* 8013B0F0 00138050  4E 80 00 20 */	blr 
+/* 8013B0F0 00138050  4E 80 00 20 */	blr
 
 .global UpdateBody__13CBSLoopAttackFfR15CBodyControllerR13CStateManager
 UpdateBody__13CBSLoopAttackFfR15CBodyControllerR13CStateManager:
@@ -433,7 +433,7 @@ lbl_8013B44C:
 /* 8013B45C 001383BC  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 8013B460 001383C0  7C 08 03 A6 */	mtlr r0
 /* 8013B464 001383C4  38 21 01 50 */	addi r1, r1, 0x150
-/* 8013B468 001383C8  4E 80 00 20 */	blr 
+/* 8013B468 001383C8  4E 80 00 20 */	blr
 
 .global Start__13CBSLoopAttackFR15CBodyControllerR13CStateManager
 Start__13CBSLoopAttackFR15CBodyControllerR13CStateManager:
@@ -695,7 +695,7 @@ lbl_8013B81C:
 /* 8013B828 00138788  83 A1 01 E4 */	lwz r29, 0x1e4(r1)
 /* 8013B82C 0013878C  7C 08 03 A6 */	mtlr r0
 /* 8013B830 00138790  38 21 01 F0 */	addi r1, r1, 0x1f0
-/* 8013B834 00138794  4E 80 00 20 */	blr 
+/* 8013B834 00138794  4E 80 00 20 */	blr
 
 .global __ct__13CBSLoopAttackFv
 __ct__13CBSLoopAttackFv:

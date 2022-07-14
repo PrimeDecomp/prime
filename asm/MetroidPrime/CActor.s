@@ -139,7 +139,7 @@ lbl_80052CB8:
 /* 80052CC4 0004FC24  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80052CC8 0004FC28  7C 08 03 A6 */	mtlr r0
 /* 80052CCC 0004FC2C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80052CD0 0004FC30  4E 80 00 20 */	blr 
+/* 80052CD0 0004FC30  4E 80 00 20 */	blr
 
 .global CanDrawStatic__6CActorCFv
 CanDrawStatic__6CActorCFv:
@@ -167,7 +167,7 @@ lbl_80052D0C:
 /* 80052D20 0004FC80  40 81 00 0C */	ble lbl_80052D2C
 lbl_80052D24:
 /* 80052D24 0004FC84  38 60 00 00 */	li r3, 0
-/* 80052D28 0004FC88  4E 80 00 20 */	blr 
+/* 80052D28 0004FC88  4E 80 00 20 */	blr
 lbl_80052D2C:
 /* 80052D2C 0004FC8C  80 85 00 10 */	lwz r4, 0x10(r5)
 /* 80052D30 0004FC90  38 60 00 00 */	li r3, 0
@@ -184,10 +184,10 @@ lbl_80052D4C:
 /* 80052D58 0004FCB8  41 82 00 0C */	beq lbl_80052D64
 lbl_80052D5C:
 /* 80052D5C 0004FCBC  38 60 00 00 */	li r3, 0
-/* 80052D60 0004FCC0  4E 80 00 20 */	blr 
+/* 80052D60 0004FCC0  4E 80 00 20 */	blr
 lbl_80052D64:
 /* 80052D64 0004FCC4  38 60 00 01 */	li r3, 1
-/* 80052D68 0004FCC8  4E 80 00 20 */	blr 
+/* 80052D68 0004FCC8  4E 80 00 20 */	blr
 
 .global CreateShadow__6CActorFb
 CreateShadow__6CActorFb:
@@ -219,7 +219,7 @@ lbl_80052DB8:
 /* 80052DCC 0004FD2C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80052DD0 0004FD30  7C 08 03 A6 */	mtlr r0
 /* 80052DD4 0004FD34  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052DD8 0004FD38  4E 80 00 20 */	blr 
+/* 80052DD8 0004FD38  4E 80 00 20 */	blr
 
 .global CreateShadow__6CActorFv
 CreateShadow__6CActorFv:
@@ -270,7 +270,7 @@ lbl_80052E74:
 /* 80052E7C 0004FDDC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80052E80 0004FDE0  7C 08 03 A6 */	mtlr r0
 /* 80052E84 0004FDE4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052E88 0004FDE8  4E 80 00 20 */	blr 
+/* 80052E88 0004FDE8  4E 80 00 20 */	blr
 
 .global SetTranslation__6CActorFRC9CVector3f
 SetTranslation__6CActorFRC9CVector3f:
@@ -290,7 +290,7 @@ SetTranslation__6CActorFRC9CVector3f:
 /* 80052EC0 0004FE20  88 03 00 E4 */	lbz r0, 0xe4(r3)
 /* 80052EC4 0004FE24  50 A0 17 7A */	rlwimi r0, r5, 2, 0x1d, 0x1d
 /* 80052EC8 0004FE28  98 03 00 E4 */	stb r0, 0xe4(r3)
-/* 80052ECC 0004FE2C  4E 80 00 20 */	blr 
+/* 80052ECC 0004FE2C  4E 80 00 20 */	blr
 
 .global "GetScaledLocatorTransform__6CActorCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetScaledLocatorTransform__6CActorCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -305,7 +305,7 @@ SetTranslation__6CActorFRC9CVector3f:
 /* 80052EF0 0004FE50  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80052EF4 0004FE54  7C 08 03 A6 */	mtlr r0
 /* 80052EF8 0004FE58  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052EFC 0004FE5C  4E 80 00 20 */	blr 
+/* 80052EFC 0004FE5C  4E 80 00 20 */	blr
 
 .global "GetLocatorTransform__6CActorCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetLocatorTransform__6CActorCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -320,7 +320,7 @@ SetTranslation__6CActorFRC9CVector3f:
 /* 80052F20 0004FE80  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80052F24 0004FE84  7C 08 03 A6 */	mtlr r0
 /* 80052F28 0004FE88  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052F2C 0004FE8C  4E 80 00 20 */	blr 
+/* 80052F2C 0004FE8C  4E 80 00 20 */	blr
 
 .global ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
 ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager:
@@ -563,7 +563,7 @@ lbl_80053294:
 /* 800532B0 00050210  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800532B4 00050214  7C 08 03 A6 */	mtlr r0
 /* 800532B8 00050218  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800532BC 0005021C  4E 80 00 20 */	blr 
+/* 800532BC 0005021C  4E 80 00 20 */	blr
 
 .global SetInFluid__6CActorFb9TUniqueId
 SetInFluid__6CActorFb9TUniqueId:
@@ -576,26 +576,26 @@ SetInFluid__6CActorFb9TUniqueId:
 /* 800532D8 00050238  98 C3 00 E6 */	stb r6, 0xe6(r3)
 /* 800532DC 0005023C  A0 05 00 00 */	lhz r0, 0(r5)
 /* 800532E0 00050240  B0 03 00 C4 */	sth r0, 0xc4(r3)
-/* 800532E4 00050244  4E 80 00 20 */	blr 
+/* 800532E4 00050244  4E 80 00 20 */	blr
 lbl_800532E8:
 /* 800532E8 00050248  88 83 00 E6 */	lbz r4, 0xe6(r3)
 /* 800532EC 0005024C  54 85 DF 7F */	rlwinm. r5, r4, 0x1b, 0x1d, 0x1f
-/* 800532F0 00050250  4D 82 00 20 */	beqlr 
+/* 800532F0 00050250  4D 82 00 20 */	beqlr
 /* 800532F4 00050254  38 05 FF FF */	addi r0, r5, -1
 /* 800532F8 00050258  50 04 2E 34 */	rlwimi r4, r0, 5, 0x18, 0x1a
 /* 800532FC 0005025C  98 83 00 E6 */	stb r4, 0xe6(r3)
 /* 80053300 00050260  88 03 00 E6 */	lbz r0, 0xe6(r3)
 /* 80053304 00050264  54 00 DF 7F */	rlwinm. r0, r0, 0x1b, 0x1d, 0x1f
-/* 80053308 00050268  4C 82 00 20 */	bnelr 
+/* 80053308 00050268  4C 82 00 20 */	bnelr
 /* 8005330C 0005026C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80053310 00050270  B0 03 00 C4 */	sth r0, 0xc4(r3)
-/* 80053314 00050274  4E 80 00 20 */	blr 
+/* 80053314 00050274  4E 80 00 20 */	blr
 
 .global GetSfxHandle__6CActorCFv
 GetSfxHandle__6CActorCFv:
 /* 80053318 00050278  80 04 00 8C */	lwz r0, 0x8c(r4)
 /* 8005331C 0005027C  90 03 00 00 */	stw r0, 0(r3)
-/* 80053320 00050280  4E 80 00 20 */	blr 
+/* 80053320 00050280  4E 80 00 20 */	blr
 
 .global SetSoundEventPitchBend__6CActorFi
 SetSoundEventPitchBend__6CActorFi:
@@ -618,7 +618,7 @@ lbl_80053360:
 /* 80053360 000502C0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80053364 000502C4  7C 08 03 A6 */	mtlr r0
 /* 80053368 000502C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005336C 000502CC  4E 80 00 20 */	blr 
+/* 8005336C 000502CC  4E 80 00 20 */	blr
 
 .global SetVolume__6CActorFUc
 SetVolume__6CActorFUc:
@@ -653,7 +653,7 @@ lbl_800533D0:
 /* 800533DC 0005033C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800533E0 00050340  7C 08 03 A6 */	mtlr r0
 /* 800533E4 00050344  38 21 00 30 */	addi r1, r1, 0x30
-/* 800533E8 00050348  4E 80 00 20 */	blr 
+/* 800533E8 00050348  4E 80 00 20 */	blr
 
 .global SetMuted__6CActorFb
 SetMuted__6CActorFb:
@@ -667,7 +667,7 @@ SetMuted__6CActorFb:
 /* 80053408 00050368  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8005340C 0005036C  7C 08 03 A6 */	mtlr r0
 /* 80053410 00050370  38 21 00 10 */	addi r1, r1, 0x10
-/* 80053414 00050374  4E 80 00 20 */	blr 
+/* 80053414 00050374  4E 80 00 20 */	blr
 
 .global MoveScannableObjectInfoToActor__6CActorFP6CActorR13CStateManager
 MoveScannableObjectInfoToActor__6CActorFP6CActorR13CStateManager:
@@ -718,7 +718,7 @@ lbl_800534A8:
 /* 800534B8 00050418  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800534BC 0005041C  7C 08 03 A6 */	mtlr r0
 /* 800534C0 00050420  38 21 00 20 */	addi r1, r1, 0x20
-/* 800534C4 00050424  4E 80 00 20 */	blr 
+/* 800534C4 00050424  4E 80 00 20 */	blr
 
 .global GetScannableObjectInfo__6CActorCFv
 GetScannableObjectInfo__6CActorCFv:
@@ -769,7 +769,7 @@ lbl_80053558:
 /* 80053560 000504C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80053564 000504C4  7C 08 03 A6 */	mtlr r0
 /* 80053568 000504C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005356C 000504CC  4E 80 00 20 */	blr 
+/* 8005356C 000504CC  4E 80 00 20 */	blr
 
 .global OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager:
@@ -804,11 +804,11 @@ lbl_800535CC:
 /* 800535CC 0005052C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800535D0 00050530  7C 08 03 A6 */	mtlr r0
 /* 800535D4 00050534  38 21 00 10 */	addi r1, r1, 0x10
-/* 800535D8 00050538  4E 80 00 20 */	blr 
+/* 800535D8 00050538  4E 80 00 20 */	blr
 
 .global FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
-/* 800535DC 0005053C  4E 80 00 20 */	blr 
+/* 800535DC 0005053C  4E 80 00 20 */	blr
 
 .global GetSortingBounds__6CActorCFRC12CTransform4f
 GetSortingBounds__6CActorCFRC12CTransform4f:
@@ -824,7 +824,7 @@ GetSortingBounds__6CActorCFRC12CTransform4f:
 /* 80053604 00050564  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 80053608 00050568  C0 04 00 B0 */	lfs f0, 0xb0(r4)
 /* 8005360C 0005056C  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 80053610 00050570  4E 80 00 20 */	blr 
+/* 80053610 00050570  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -843,7 +843,7 @@ AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 80053644 000505A4  38 84 9F 1C */	addi r4, r4, lbl_803D9F1C@l
 /* 80053648 000505A8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8005364C 000505AC  7C 09 03 A6 */	mtctr r0
-/* 80053650 000505B0  4E 80 04 20 */	bctr 
+/* 80053650 000505B0  4E 80 04 20 */	bctr
 .global lbl_80053654
 lbl_80053654:
 /* 80053654 000505B4  88 1C 00 30 */	lbz r0, 0x30(r28)
@@ -993,7 +993,7 @@ lbl_8005381C:
 /* 8005383C 0005079C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80053840 000507A0  7C 08 03 A6 */	mtlr r0
 /* 80053844 000507A4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80053848 000507A8  4E 80 00 20 */	blr 
+/* 80053848 000507A8  4E 80 00 20 */	blr
 
 .global SetActive__6CActorFb
 SetActive__6CActorFb:
@@ -1017,7 +1017,7 @@ SetActive__6CActorFb:
 /* 80053890 000507F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80053894 000507F4  7C 08 03 A6 */	mtlr r0
 /* 80053898 000507F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005389C 000507FC  4E 80 00 20 */	blr 
+/* 8005389C 000507FC  4E 80 00 20 */	blr
 
 .global SetMaterialFilter__6CActorFRC15CMaterialFilter
 SetMaterialFilter__6CActorFRC15CMaterialFilter:
@@ -1027,12 +1027,12 @@ SetMaterialFilter__6CActorFRC15CMaterialFilter:
 /* 800538AC 0005080C  D8 03 00 78 */	stfd f0, 0x78(r3)
 /* 800538B0 00050810  80 04 00 10 */	lwz r0, 0x10(r4)
 /* 800538B4 00050814  90 03 00 80 */	stw r0, 0x80(r3)
-/* 800538B8 00050818  4E 80 00 20 */	blr 
+/* 800538B8 00050818  4E 80 00 20 */	blr
 
 .global GetMaterialFilter__6CActorCFv
 GetMaterialFilter__6CActorCFv:
 /* 800538BC 0005081C  38 63 00 70 */	addi r3, r3, 0x70
-/* 800538C0 00050820  4E 80 00 20 */	blr 
+/* 800538C0 00050820  4E 80 00 20 */	blr
 
 .global sub_800538c4
 sub_800538c4:
@@ -1058,7 +1058,7 @@ sub_800538c4:
 /* 80053910 00050870  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80053914 00050874  7C 08 03 A6 */	mtlr r0
 /* 80053918 00050878  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005391C 0005087C  4E 80 00 20 */	blr 
+/* 8005391C 0005087C  4E 80 00 20 */	blr
 
 .global SetCalculateLighting__6CActorFb
 SetCalculateLighting__6CActorFb:
@@ -1113,7 +1113,7 @@ lbl_800539C0:
 /* 800539D8 00050938  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 800539DC 0005093C  7C 08 03 A6 */	mtlr r0
 /* 800539E0 00050940  38 21 00 30 */	addi r1, r1, 0x30
-/* 800539E4 00050944  4E 80 00 20 */	blr 
+/* 800539E4 00050944  4E 80 00 20 */	blr
 
 .global IsModelOpaque__6CActorCFRC13CStateManager
 IsModelOpaque__6CActorCFRC13CStateManager:
@@ -1164,7 +1164,7 @@ lbl_80053A7C:
 /* 80053A80 000509E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80053A84 000509E4  7C 08 03 A6 */	mtlr r0
 /* 80053A88 000509E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80053A8C 000509EC  4E 80 00 20 */	blr 
+/* 80053A8C 000509EC  4E 80 00 20 */	blr
 
 .global GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager
 GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager:
@@ -1196,7 +1196,7 @@ GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager:
 /* 80053AF4 00050A54  38 61 00 40 */	addi r3, r1, 0x40
 /* 80053AF8 00050A58  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 80053AFC 00050A5C  7D 89 03 A6 */	mtctr r12
-/* 80053B00 00050A60  4E 80 04 21 */	bctrl 
+/* 80053B00 00050A60  4E 80 04 21 */	bctrl
 /* 80053B04 00050A64  C3 A1 00 40 */	lfs f29, 0x40(r1)
 /* 80053B08 00050A68  38 61 00 34 */	addi r3, r1, 0x34
 /* 80053B0C 00050A6C  C0 1F 00 40 */	lfs f0, 0x40(r31)
@@ -1292,7 +1292,7 @@ lbl_80053BC8:
 /* 80053C60 00050BC0  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80053C64 00050BC4  7C 08 03 A6 */	mtlr r0
 /* 80053C68 00050BC8  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80053C6C 00050BCC  4E 80 00 20 */	blr 
+/* 80053C6C 00050BCC  4E 80 00 20 */	blr
 
 .global GetHomingPosition__6CActorCFRC13CStateManagerf
 GetHomingPosition__6CActorCFRC13CStateManagerf:
@@ -1304,12 +1304,12 @@ GetHomingPosition__6CActorCFRC13CStateManagerf:
 /* 80053C84 00050BE4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80053C88 00050BE8  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80053C8C 00050BEC  7D 89 03 A6 */	mtctr r12
-/* 80053C90 00050BF0  4E 80 04 21 */	bctrl 
+/* 80053C90 00050BF0  4E 80 04 21 */	bctrl
 /* 80053C94 00050BF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80053C98 00050BF8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80053C9C 00050BFC  7C 08 03 A6 */	mtlr r0
 /* 80053CA0 00050C00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80053CA4 00050C04  4E 80 00 20 */	blr 
+/* 80053CA4 00050C04  4E 80 00 20 */	blr
 
 .global GetAimPosition__6CActorCFRC13CStateManagerf
 GetAimPosition__6CActorCFRC13CStateManagerf:
@@ -1319,7 +1319,7 @@ GetAimPosition__6CActorCFRC13CStateManagerf:
 /* 80053CB4 00050C14  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80053CB8 00050C18  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80053CBC 00050C1C  D0 43 00 08 */	stfs f2, 8(r3)
-/* 80053CC0 00050C20  4E 80 00 20 */	blr 
+/* 80053CC0 00050C20  4E 80 00 20 */	blr
 
 .global GetOrbitPosition__6CActorCFRC13CStateManager
 GetOrbitPosition__6CActorCFRC13CStateManager:
@@ -1329,12 +1329,12 @@ GetOrbitPosition__6CActorCFRC13CStateManager:
 /* 80053CD0 00050C30  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80053CD4 00050C34  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80053CD8 00050C38  D0 43 00 08 */	stfs f2, 8(r3)
-/* 80053CDC 00050C3C  4E 80 00 20 */	blr 
+/* 80053CDC 00050C3C  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 80053CE0 00050C40  38 60 00 0D */	li r3, 0xd
-/* 80053CE4 00050C44  4E 80 00 20 */	blr 
+/* 80053CE4 00050C44  4E 80 00 20 */	blr
 
 .global RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager
 RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1402,7 +1402,7 @@ RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMater
 /* 80053DDC 00050D3C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80053DE0 00050D40  7C 08 03 A6 */	mtlr r0
 /* 80053DE4 00050D44  38 21 00 20 */	addi r1, r1, 0x20
-/* 80053DE8 00050D48  4E 80 00 20 */	blr 
+/* 80053DE8 00050D48  4E 80 00 20 */	blr
 
 .global RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager
 RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1463,7 +1463,7 @@ RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStat
 /* 80053EC4 00050E24  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80053EC8 00050E28  7C 08 03 A6 */	mtlr r0
 /* 80053ECC 00050E2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80053ED0 00050E30  4E 80 00 20 */	blr 
+/* 80053ED0 00050E30  4E 80 00 20 */	blr
 
 .global RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager
 RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1509,7 +1509,7 @@ RemoveMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager:
 /* 80053F70 00050ED0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80053F74 00050ED4  7C 08 03 A6 */	mtlr r0
 /* 80053F78 00050ED8  38 21 00 20 */	addi r1, r1, 0x20
-/* 80053F7C 00050EDC  4E 80 00 20 */	blr 
+/* 80053F7C 00050EDC  4E 80 00 20 */	blr
 
 .global RemoveMaterial__6CActorF14EMaterialTypesR13CStateManager
 RemoveMaterial__6CActorF14EMaterialTypesR13CStateManager:
@@ -1540,7 +1540,7 @@ RemoveMaterial__6CActorF14EMaterialTypesR13CStateManager:
 /* 80053FE0 00050F40  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80053FE4 00050F44  7C 08 03 A6 */	mtlr r0
 /* 80053FE8 00050F48  38 21 00 10 */	addi r1, r1, 0x10
-/* 80053FEC 00050F4C  4E 80 00 20 */	blr 
+/* 80053FEC 00050F4C  4E 80 00 20 */	blr
 
 .global AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager
 AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1611,7 +1611,7 @@ AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterial
 /* 800540F0 00051050  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800540F4 00051054  7C 08 03 A6 */	mtlr r0
 /* 800540F8 00051058  38 21 00 20 */	addi r1, r1, 0x20
-/* 800540FC 0005105C  4E 80 00 20 */	blr 
+/* 800540FC 0005105C  4E 80 00 20 */	blr
 
 .global AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager
 AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1671,7 +1671,7 @@ AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypes14EMaterial
 /* 800541D4 00051134  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800541D8 00051138  7C 08 03 A6 */	mtlr r0
 /* 800541DC 0005113C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800541E0 00051140  4E 80 00 20 */	blr 
+/* 800541E0 00051140  4E 80 00 20 */	blr
 
 .global AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager
 AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1726,7 +1726,7 @@ AddMaterial__6CActorF14EMaterialTypes14EMaterialTypes14EMaterialTypesR13CStateMa
 /* 800542A4 00051204  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800542A8 00051208  7C 08 03 A6 */	mtlr r0
 /* 800542AC 0005120C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800542B0 00051210  4E 80 00 20 */	blr 
+/* 800542B0 00051210  4E 80 00 20 */	blr
 
 .global AddMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager
 AddMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager:
@@ -1768,7 +1768,7 @@ AddMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager:
 /* 80054340 000512A0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80054344 000512A4  7C 08 03 A6 */	mtlr r0
 /* 80054348 000512A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005434C 000512AC  4E 80 00 20 */	blr 
+/* 8005434C 000512AC  4E 80 00 20 */	blr
 
 .global AddMaterial__6CActorF14EMaterialTypesR13CStateManager
 AddMaterial__6CActorF14EMaterialTypesR13CStateManager:
@@ -1797,14 +1797,14 @@ AddMaterial__6CActorF14EMaterialTypesR13CStateManager:
 /* 800543A8 00051308  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800543AC 0005130C  7C 08 03 A6 */	mtlr r0
 /* 800543B0 00051310  38 21 00 10 */	addi r1, r1, 0x10
-/* 800543B4 00051314  4E 80 00 20 */	blr 
+/* 800543B4 00051314  4E 80 00 20 */	blr
 
 .global SetCallTouch__6CActorFb
 SetCallTouch__6CActorFb:
 /* 800543B8 00051318  88 03 00 E5 */	lbz r0, 0xe5(r3)
 /* 800543BC 0005131C  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 800543C0 00051320  98 03 00 E5 */	stb r0, 0xe5(r3)
-/* 800543C4 00051324  4E 80 00 20 */	blr 
+/* 800543C4 00051324  4E 80 00 20 */	blr
 
 .global GetCallTouch__6CActorCFv
 GetCallTouch__6CActorCFv:
@@ -1813,14 +1813,14 @@ GetCallTouch__6CActorCFv:
 /* 800543D0 00051330  7C 03 00 D0 */	neg r0, r3
 /* 800543D4 00051334  7C 00 1B 78 */	or r0, r0, r3
 /* 800543D8 00051338  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 800543DC 0005133C  4E 80 00 20 */	blr 
+/* 800543DC 0005133C  4E 80 00 20 */	blr
 
 .global SetUseInSortedLists__6CActorFb
 SetUseInSortedLists__6CActorFb:
 /* 800543E0 00051340  88 03 00 E5 */	lbz r0, 0xe5(r3)
 /* 800543E4 00051344  50 80 26 F6 */	rlwimi r0, r4, 4, 0x1b, 0x1b
 /* 800543E8 00051348  98 03 00 E5 */	stb r0, 0xe5(r3)
-/* 800543EC 0005134C  4E 80 00 20 */	blr 
+/* 800543EC 0005134C  4E 80 00 20 */	blr
 
 .global GetUseInSortedLists__6CActorCFv
 GetUseInSortedLists__6CActorCFv:
@@ -1829,17 +1829,17 @@ GetUseInSortedLists__6CActorCFv:
 /* 800543F8 00051358  7C 03 00 D0 */	neg r0, r3
 /* 800543FC 0005135C  7C 00 1B 78 */	or r0, r0, r3
 /* 80054400 00051360  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80054404 00051364  4E 80 00 20 */	blr 
+/* 80054404 00051364  4E 80 00 20 */	blr
 
 .global Touch__6CActorFR6CActorR13CStateManager
 Touch__6CActorFR6CActorR13CStateManager:
-/* 80054408 00051368  4E 80 00 20 */	blr 
+/* 80054408 00051368  4E 80 00 20 */	blr
 
 .global GetTouchBounds__6CActorCFv
 GetTouchBounds__6CActorCFv:
 /* 8005440C 0005136C  38 00 00 00 */	li r0, 0
 /* 80054410 00051370  98 03 00 18 */	stb r0, 0x18(r3)
-/* 80054414 00051374  4E 80 00 20 */	blr 
+/* 80054414 00051374  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
@@ -1849,22 +1849,22 @@ GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 80054424 00051384  81 83 00 00 */	lwz r12, 0(r3)
 /* 80054428 00051388  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 8005442C 0005138C  7D 89 03 A6 */	mtctr r12
-/* 80054430 00051390  4E 80 04 21 */	bctrl 
+/* 80054430 00051390  4E 80 04 21 */	bctrl
 /* 80054434 00051394  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80054438 00051398  7C 08 03 A6 */	mtlr r0
 /* 8005443C 0005139C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80054440 000513A0  4E 80 00 20 */	blr 
+/* 80054440 000513A0  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__6CActorCFv
 GetDamageVulnerability__6CActorCFv:
 /* 80054444 000513A4  3C 60 80 57 */	lis r3, lbl_8056D578@ha
 /* 80054448 000513A8  38 63 D5 78 */	addi r3, r3, lbl_8056D578@l
-/* 8005444C 000513AC  4E 80 00 20 */	blr 
+/* 8005444C 000513AC  4E 80 00 20 */	blr
 
 .global HealthInfo__6CActorFR13CStateManager
 HealthInfo__6CActorFR13CStateManager:
 /* 80054450 000513B0  38 60 00 00 */	li r3, 0
-/* 80054454 000513B4  4E 80 00 20 */	blr 
+/* 80054454 000513B4  4E 80 00 20 */	blr
 
 .global GetPitch__6CActorCFv
 GetPitch__6CActorCFv:
@@ -1889,7 +1889,7 @@ GetPitch__6CActorCFv:
 /* 800544A0 00051400  FC 20 00 18 */	frsp f1, f0
 /* 800544A4 00051404  7C 08 03 A6 */	mtlr r0
 /* 800544A8 00051408  38 21 00 10 */	addi r1, r1, 0x10
-/* 800544AC 0005140C  4E 80 00 20 */	blr 
+/* 800544AC 0005140C  4E 80 00 20 */	blr
 
 .global GetYaw__6CActorCFv
 GetYaw__6CActorCFv:
@@ -1954,7 +1954,7 @@ lbl_80054580:
 /* 80054580 000514E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80054584 000514E4  7C 08 03 A6 */	mtlr r0
 /* 80054588 000514E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8005458C 000514EC  4E 80 00 20 */	blr 
+/* 8005458C 000514EC  4E 80 00 20 */	blr
 
 .global RenderInternal__6CActorCFRC13CStateManager
 RenderInternal__6CActorCFRC13CStateManager:
@@ -2098,7 +2098,7 @@ lbl_80054778:
 /* 80054794 000516F4  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80054798 000516F8  7C 08 03 A6 */	mtlr r0
 /* 8005479C 000516FC  38 21 00 60 */	addi r1, r1, 0x60
-/* 800547A0 00051700  4E 80 00 20 */	blr 
+/* 800547A0 00051700  4E 80 00 20 */	blr
 
 .global Render__6CActorCFRC13CStateManager
 Render__6CActorCFRC13CStateManager:
@@ -2209,7 +2209,7 @@ lbl_80054910:
 /* 80054924 00051884  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80054928 00051888  7C 08 03 A6 */	mtlr r0
 /* 8005492C 0005188C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80054930 00051890  4E 80 00 20 */	blr 
+/* 80054930 00051890  4E 80 00 20 */	blr
 
 .global CanRenderUnsorted__6CActorCFRC13CStateManager
 CanRenderUnsorted__6CActorCFRC13CStateManager:
@@ -2254,11 +2254,11 @@ lbl_800549B4:
 /* 800549B8 00051918  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800549BC 0005191C  7C 08 03 A6 */	mtlr r0
 /* 800549C0 00051920  38 21 00 10 */	addi r1, r1, 0x10
-/* 800549C4 00051924  4E 80 00 20 */	blr 
+/* 800549C4 00051924  4E 80 00 20 */	blr
 
 .global DrawTouchBounds__6CActorCFv
 DrawTouchBounds__6CActorCFv:
-/* 800549C8 00051928  4E 80 00 20 */	blr 
+/* 800549C8 00051928  4E 80 00 20 */	blr
 
 .global EnsureRendered__6CActorCFRC13CStateManager
 EnsureRendered__6CActorCFRC13CStateManager:
@@ -2275,7 +2275,7 @@ EnsureRendered__6CActorCFRC13CStateManager:
 /* 800549F4 00051954  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800549F8 00051958  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800549FC 0005195C  7D 89 03 A6 */	mtctr r12
-/* 80054A00 00051960  4E 80 04 21 */	bctrl 
+/* 80054A00 00051960  4E 80 04 21 */	bctrl
 /* 80054A04 00051964  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
 /* 80054A08 00051968  C1 01 00 2C */	lfs f8, 0x2c(r1)
 /* 80054A0C 0005196C  38 C3 61 D4 */	addi r6, r3, lbl_805A61D4@l
@@ -2316,7 +2316,7 @@ EnsureRendered__6CActorCFRC13CStateManager:
 /* 80054A98 000519F8  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 80054A9C 000519FC  7C 08 03 A6 */	mtlr r0
 /* 80054AA0 00051A00  38 21 00 70 */	addi r1, r1, 0x70
-/* 80054AA4 00051A04  4E 80 00 20 */	blr 
+/* 80054AA4 00051A04  4E 80 00 20 */	blr
 
 .global EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
 EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f:
@@ -2356,7 +2356,7 @@ lbl_80054B04:
 /* 80054B28 00051A88  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80054B2C 00051A8C  7C 08 03 A6 */	mtlr r0
 /* 80054B30 00051A90  38 21 00 20 */	addi r1, r1, 0x20
-/* 80054B34 00051A94  4E 80 00 20 */	blr 
+/* 80054B34 00051A94  4E 80 00 20 */	blr
 
 .global AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__6CActorCFRC14CFrustumPlanesRC13CStateManager:
@@ -2398,7 +2398,7 @@ lbl_80054BA4:
 /* 80054BB8 00051B18  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80054BBC 00051B1C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80054BC0 00051B20  7D 89 03 A6 */	mtctr r12
-/* 80054BC4 00051B24  4E 80 04 21 */	bctrl 
+/* 80054BC4 00051B24  4E 80 04 21 */	bctrl
 /* 80054BC8 00051B28  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80054BCC 00051B2C  41 82 00 20 */	beq lbl_80054BEC
 /* 80054BD0 00051B30  7F C3 F3 78 */	mr r3, r30
@@ -2406,7 +2406,7 @@ lbl_80054BA4:
 /* 80054BD8 00051B38  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80054BDC 00051B3C  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 80054BE0 00051B40  7D 89 03 A6 */	mtctr r12
-/* 80054BE4 00051B44  4E 80 04 21 */	bctrl 
+/* 80054BE4 00051B44  4E 80 04 21 */	bctrl
 /* 80054BE8 00051B48  48 00 00 10 */	b lbl_80054BF8
 lbl_80054BEC:
 /* 80054BEC 00051B4C  7F C3 F3 78 */	mr r3, r30
@@ -2463,7 +2463,7 @@ lbl_80054BF8:
 /* 80054CB4 00051C14  39 00 00 00 */	li r8, 0
 /* 80054CB8 00051C18  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80054CBC 00051C1C  7D 89 03 A6 */	mtctr r12
-/* 80054CC0 00051C20  4E 80 04 21 */	bctrl 
+/* 80054CC0 00051C20  4E 80 04 21 */	bctrl
 lbl_80054CC4:
 /* 80054CC4 00051C24  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80054CC8 00051C28  83 E1 00 5C */	lwz r31, 0x5c(r1)
@@ -2471,7 +2471,7 @@ lbl_80054CC4:
 /* 80054CD0 00051C30  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80054CD4 00051C34  7C 08 03 A6 */	mtlr r0
 /* 80054CD8 00051C38  38 21 00 60 */	addi r1, r1, 0x60
-/* 80054CDC 00051C3C  4E 80 00 20 */	blr 
+/* 80054CDC 00051C3C  4E 80 00 20 */	blr
 
 .global PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes
 PreRender__6CActorFR13CStateManagerRC14CFrustumPlanes:
@@ -2702,7 +2702,7 @@ lbl_80055010:
 
 .global sub_8005502c
 sub_8005502c:
-/* 8005502C 00051F8C  4E 80 00 20 */	blr 
+/* 8005502C 00051F8C  4E 80 00 20 */	blr
 
 .global SetModelData__6CActorFRC10CModelData
 SetModelData__6CActorFRC10CModelData:
@@ -2749,7 +2749,7 @@ lbl_800550A8:
 /* 800550C4 00052024  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800550C8 00052028  7C 08 03 A6 */	mtlr r0
 /* 800550CC 0005202C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800550D0 00052030  4E 80 00 20 */	blr 
+/* 800550D0 00052030  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__6CActorFv
 CalculateRenderBounds__6CActorFv:
@@ -2817,7 +2817,7 @@ lbl_800551B4:
 /* 800551B8 00052118  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 800551BC 0005211C  7C 08 03 A6 */	mtlr r0
 /* 800551C0 00052120  38 21 00 50 */	addi r1, r1, 0x50
-/* 800551C4 00052124  4E 80 00 20 */	blr 
+/* 800551C4 00052124  4E 80 00 20 */	blr
 
 .global GetAverageAnimVelocity__6CActorFi
 GetAverageAnimVelocity__6CActorFi:
@@ -2844,7 +2844,7 @@ lbl_8005520C:
 /* 8005520C 0005216C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80055210 00052170  7C 08 03 A6 */	mtlr r0
 /* 80055214 00052174  38 21 00 10 */	addi r1, r1, 0x10
-/* 80055218 00052178  4E 80 00 20 */	blr 
+/* 80055218 00052178  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -2858,7 +2858,7 @@ lbl_80055234:
 /* 80055234 00052194  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80055238 00052198  7C 08 03 A6 */	mtlr r0
 /* 8005523C 0005219C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80055240 000521A0  4E 80 00 20 */	blr 
+/* 80055240 000521A0  4E 80 00 20 */	blr
 
 .global RemoveEmitter__6CActorFv
 RemoveEmitter__6CActorFv:
@@ -2884,7 +2884,7 @@ lbl_80055288:
 /* 8005528C 000521EC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80055290 000521F0  7C 08 03 A6 */	mtlr r0
 /* 80055294 000521F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80055298 000521F8  4E 80 00 20 */	blr 
+/* 80055298 000521F8  4E 80 00 20 */	blr
 
 .global UpdateAnimation__6CActorFfR13CStateManagerb
 UpdateAnimation__6CActorFfR13CStateManagerb:
@@ -3104,7 +3104,7 @@ lbl_80055598:
 /* 800555B4 00052514  80 D9 00 38 */	lwz r6, 0x38(r25)
 /* 800555B8 00052518  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 800555BC 0005251C  7D 89 03 A6 */	mtctr r12
-/* 800555C0 00052520  4E 80 04 21 */	bctrl 
+/* 800555C0 00052520  4E 80 04 21 */	bctrl
 lbl_800555C4:
 /* 800555C4 00052524  3B 39 00 4C */	addi r25, r25, 0x4c
 /* 800555C8 00052528  3B 18 00 01 */	addi r24, r24, 1
@@ -3190,7 +3190,7 @@ lbl_80055680:
 /* 800556E0 00052640  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 800556E4 00052644  7C 08 03 A6 */	mtlr r0
 /* 800556E8 00052648  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 800556EC 0005264C  4E 80 00 20 */	blr 
+/* 800556EC 0005264C  4E 80 00 20 */	blr
 
 .global __dt__6CActorFv
 __dt__6CActorFv:
@@ -3280,7 +3280,7 @@ lbl_80055800:
 /* 80055810 00052770  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80055814 00052774  7C 08 03 A6 */	mtlr r0
 /* 80055818 00052778  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005581C 0005277C  4E 80 00 20 */	blr 
+/* 8005581C 0005277C  4E 80 00 20 */	blr
 
 .global "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId":
@@ -3591,7 +3591,7 @@ lbl_80055C58:
 /* 80055CA4 00052C04  81 84 00 00 */	lwz r12, 0(r4)
 /* 80055CA8 00052C08  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80055CAC 00052C0C  7D 89 03 A6 */	mtctr r12
-/* 80055CB0 00052C10  4E 80 04 21 */	bctrl 
+/* 80055CB0 00052C10  4E 80 04 21 */	bctrl
 /* 80055CB4 00052C14  7F 43 D3 78 */	mr r3, r26
 /* 80055CB8 00052C18  38 81 00 0C */	addi r4, r1, 0xc
 /* 80055CBC 00052C1C  3B 20 00 01 */	li r25, 1
@@ -3625,7 +3625,7 @@ lbl_80055D10:
 /* 80055D18 00052C78  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80055D1C 00052C7C  7C 08 03 A6 */	mtlr r0
 /* 80055D20 00052C80  38 21 00 70 */	addi r1, r1, 0x70
-/* 80055D24 00052C84  4E 80 00 20 */	blr 
+/* 80055D24 00052C84  4E 80 00 20 */	blr
 
 .global MakeActorMaterialList__FRC13CMaterialListRC16CActorParameters
 MakeActorMaterialList__FRC13CMaterialListRC16CActorParameters:
@@ -3644,4 +3644,4 @@ lbl_80055D40:
 lbl_80055D54:
 /* 80055D54 00052CB4  90 83 00 04 */	stw r4, 4(r3)
 /* 80055D58 00052CB8  90 C3 00 00 */	stw r6, 0(r3)
-/* 80055D5C 00052CBC  4E 80 00 20 */	blr 
+/* 80055D5C 00052CBC  4E 80 00 20 */	blr

@@ -814,7 +814,7 @@ lbl_802A156C:
 /* 802A15C8 0029E528  80 01 04 64 */	lwz r0, 0x464(r1)
 /* 802A15CC 0029E52C  7C 08 03 A6 */	mtlr r0
 /* 802A15D0 0029E530  38 21 04 60 */	addi r1, r1, 0x460
-/* 802A15D4 0029E534  4E 80 00 20 */	blr 
+/* 802A15D4 0029E534  4E 80 00 20 */	blr
 
 .global __as__Q212CAreaOctTree10SRayResultFRCQ212CAreaOctTree10SRayResult
 __as__Q212CAreaOctTree10SRayResultFRCQ212CAreaOctTree10SRayResult:
@@ -844,12 +844,12 @@ __as__Q212CAreaOctTree10SRayResultFRCQ212CAreaOctTree10SRayResult:
 /* 802A1634 0029E594  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802A1638 0029E598  7C 08 03 A6 */	mtlr r0
 /* 802A163C 0029E59C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802A1640 0029E5A0  4E 80 00 20 */	blr 
+/* 802A1640 0029E5A0  4E 80 00 20 */	blr
 
 .global "__as__Q24rstl36optional_object<17CCollisionSurface>FRCQ24rstl36optional_object<17CCollisionSurface>"
 "__as__Q24rstl36optional_object<17CCollisionSurface>FRCQ24rstl36optional_object<17CCollisionSurface>":
 /* 802A1644 0029E5A4  7C 03 20 40 */	cmplw r3, r4
-/* 802A1648 0029E5A8  4D 82 00 20 */	beqlr 
+/* 802A1648 0029E5A8  4D 82 00 20 */	beqlr
 /* 802A164C 0029E5AC  88 04 00 28 */	lbz r0, 0x28(r4)
 /* 802A1650 0029E5B0  28 00 00 00 */	cmplwi r0, 0
 /* 802A1654 0029E5B4  41 82 00 C8 */	beq lbl_802A171C
@@ -881,7 +881,7 @@ __as__Q212CAreaOctTree10SRayResultFRCQ212CAreaOctTree10SRayResult:
 lbl_802A16BC:
 /* 802A16BC 0029E61C  38 00 00 01 */	li r0, 1
 /* 802A16C0 0029E620  98 03 00 28 */	stb r0, 0x28(r3)
-/* 802A16C4 0029E624  4E 80 00 20 */	blr 
+/* 802A16C4 0029E624  4E 80 00 20 */	blr
 lbl_802A16C8:
 /* 802A16C8 0029E628  80 A4 00 00 */	lwz r5, 0(r4)
 /* 802A16CC 0029E62C  80 04 00 04 */	lwz r0, 4(r4)
@@ -903,11 +903,11 @@ lbl_802A16C8:
 /* 802A170C 0029E66C  90 03 00 20 */	stw r0, 0x20(r3)
 /* 802A1710 0029E670  80 04 00 24 */	lwz r0, 0x24(r4)
 /* 802A1714 0029E674  90 03 00 24 */	stw r0, 0x24(r3)
-/* 802A1718 0029E678  4E 80 00 20 */	blr 
+/* 802A1718 0029E678  4E 80 00 20 */	blr
 lbl_802A171C:
 /* 802A171C 0029E67C  38 00 00 00 */	li r0, 0
 /* 802A1720 0029E680  98 03 00 28 */	stb r0, 0x28(r3)
-/* 802A1724 0029E684  4E 80 00 20 */	blr 
+/* 802A1724 0029E684  4E 80 00 20 */	blr
 
 .global LineTestInternal__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterfffC9CVector3f
 LineTestInternal__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterfffC9CVector3f:
@@ -1670,7 +1670,7 @@ lbl_802A2240:
 /* 802A229C 0029F1FC  80 01 03 94 */	lwz r0, 0x394(r1)
 /* 802A22A0 0029F200  7C 08 03 A6 */	mtlr r0
 /* 802A22A4 0029F204  38 21 03 90 */	addi r1, r1, 0x390
-/* 802A22A8 0029F208  4E 80 00 20 */	blr 
+/* 802A22A8 0029F208  4E 80 00 20 */	blr
 
 .global LineTest__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterf
 LineTest__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterf:
@@ -1733,7 +1733,7 @@ lbl_802A236C:
 /* 802A2380 0029F2E0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802A2384 0029F2E4  7C 08 03 A6 */	mtlr r0
 /* 802A2388 0029F2E8  38 21 00 40 */	addi r1, r1, 0x40
-/* 802A238C 0029F2EC  4E 80 00 20 */	blr 
+/* 802A238C 0029F2EC  4E 80 00 20 */	blr
 
 .global LineTestEx__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterRQ212CAreaOctTree10SRayResultf
 LineTestEx__Q212CAreaOctTree4NodeCFRC5CLineRC15CMaterialFilterRQ212CAreaOctTree10SRayResultf:
@@ -1794,7 +1794,7 @@ lbl_802A244C:
 /* 802A2464 0029F3C4  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802A2468 0029F3C8  7C 08 03 A6 */	mtlr r0
 /* 802A246C 0029F3CC  38 21 00 40 */	addi r1, r1, 0x40
-/* 802A2470 0029F3D0  4E 80 00 20 */	blr 
+/* 802A2470 0029F3D0  4E 80 00 20 */	blr
 
 .global BoxLineTest__FRC6CAABoxRC5CLineRfRf
 BoxLineTest__FRC6CAABoxRC5CLineRfRf:
@@ -1910,7 +1910,7 @@ lbl_802A2604:
 /* 802A2608 0029F568  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802A260C 0029F56C  7C 08 03 A6 */	mtlr r0
 /* 802A2610 0029F570  38 21 00 40 */	addi r1, r1, 0x40
-/* 802A2614 0029F574  4E 80 00 20 */	blr 
+/* 802A2614 0029F574  4E 80 00 20 */	blr
 
 .global _close_enough__Ffff
 _close_enough__Ffff:

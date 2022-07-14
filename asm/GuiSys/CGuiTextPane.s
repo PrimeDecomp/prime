@@ -34,7 +34,7 @@ lbl_803EC9B8:
 GetWidgetTypeID__12CGuiTextPaneCFv:
 /* 802C75C4 002C4524  3C 60 54 58 */	lis r3, 0x5458504E@ha
 /* 802C75C8 002C4528  38 63 50 4E */	addi r3, r3, 0x5458504E@l
-/* 802C75CC 002C452C  4E 80 00 20 */	blr 
+/* 802C75CC 002C452C  4E 80 00 20 */	blr
 
 .global Update__12CGuiTextPaneFf
 Update__12CGuiTextPaneFf:
@@ -54,7 +54,7 @@ Update__12CGuiTextPaneFf:
 /* 802C7604 002C4564  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 802C7608 002C4568  7C 08 03 A6 */	mtlr r0
 /* 802C760C 002C456C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C7610 002C4570  4E 80 00 20 */	blr 
+/* 802C7610 002C4570  4E 80 00 20 */	blr
 
 .global GetIsFinishedLoadingWidgetSpecific__12CGuiTextPaneCFv
 GetIsFinishedLoadingWidgetSpecific__12CGuiTextPaneCFv:
@@ -66,7 +66,7 @@ GetIsFinishedLoadingWidgetSpecific__12CGuiTextPaneCFv:
 /* 802C7628 002C4588  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C762C 002C458C  7C 08 03 A6 */	mtlr r0
 /* 802C7630 002C4590  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C7634 002C4594  4E 80 00 20 */	blr 
+/* 802C7634 002C4594  4E 80 00 20 */	blr
 
 .global sub_802c7638
 sub_802c7638:
@@ -103,7 +103,7 @@ lbl_802C769C:
 /* 802C76A4 002C4604  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C76A8 002C4608  7C 08 03 A6 */	mtlr r0
 /* 802C76AC 002C460C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C76B0 002C4610  4E 80 00 20 */	blr 
+/* 802C76B0 002C4610  4E 80 00 20 */	blr
 
 .global SetDimensions__12CGuiTextPaneFRC9CVector2fb
 SetDimensions__12CGuiTextPaneFRC9CVector2fb:
@@ -121,18 +121,18 @@ SetDimensions__12CGuiTextPaneFRC9CVector2fb:
 /* 802C76E0 002C4640  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802C76E4 002C4644  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 802C76E8 002C4648  7D 89 03 A6 */	mtctr r12
-/* 802C76EC 002C464C  4E 80 04 21 */	bctrl 
+/* 802C76EC 002C464C  4E 80 04 21 */	bctrl
 lbl_802C76F0:
 /* 802C76F0 002C4650  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C76F4 002C4654  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C76F8 002C4658  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C76FC 002C465C  7C 08 03 A6 */	mtlr r0
 /* 802C7700 002C4660  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C7704 002C4664  4E 80 00 20 */	blr 
+/* 802C7704 002C4664  4E 80 00 20 */	blr
 
 .global ScaleDimensions__12CGuiTextPaneFRC9CVector3f
 ScaleDimensions__12CGuiTextPaneFRC9CVector3f:
-/* 802C7708 002C4668  4E 80 00 20 */	blr 
+/* 802C7708 002C4668  4E 80 00 20 */	blr
 
 .global Draw__12CGuiTextPaneCFRC19CGuiWidgetDrawParms
 Draw__12CGuiTextPaneCFRC19CGuiWidgetDrawParms:
@@ -149,7 +149,7 @@ Draw__12CGuiTextPaneCFRC19CGuiWidgetDrawParms:
 /* 802C7734 002C4694  7C 9D 23 78 */	mr r29, r4
 /* 802C7738 002C4698  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802C773C 002C469C  7D 89 03 A6 */	mtctr r12
-/* 802C7740 002C46A0  4E 80 04 21 */	bctrl 
+/* 802C7740 002C46A0  4E 80 04 21 */	bctrl
 /* 802C7744 002C46A4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C7748 002C46A8  41 82 02 88 */	beq lbl_802C79D0
 /* 802C774C 002C46AC  7F E4 FB 78 */	mr r4, r31
@@ -158,7 +158,7 @@ Draw__12CGuiTextPaneCFRC19CGuiWidgetDrawParms:
 /* 802C7758 002C46B8  83 DF 00 C0 */	lwz r30, 0xc0(r31)
 /* 802C775C 002C46BC  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 802C7760 002C46C0  7D 89 03 A6 */	mtctr r12
-/* 802C7764 002C46C4  4E 80 04 21 */	bctrl 
+/* 802C7764 002C46C4  4E 80 04 21 */	bctrl
 /* 802C7768 002C46C8  80 1F 01 08 */	lwz r0, 0x108(r31)
 /* 802C776C 002C46CC  C0 41 00 1C */	lfs f2, 0x1c(r1)
 /* 802C7770 002C46D0  2C 00 00 00 */	cmpwi r0, 0
@@ -331,7 +331,7 @@ lbl_802C79D0:
 /* 802C79E4 002C4944  83 A1 01 84 */	lwz r29, 0x184(r1)
 /* 802C79E8 002C4948  7C 08 03 A6 */	mtlr r0
 /* 802C79EC 002C494C  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 802C79F0 002C4950  4E 80 00 20 */	blr 
+/* 802C79F0 002C4950  4E 80 00 20 */	blr
 
 .global __dt__12CGuiTextPaneFv
 __dt__12CGuiTextPaneFv:
@@ -363,7 +363,7 @@ lbl_802C7A48:
 /* 802C7A54 002C49B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C7A58 002C49B8  7C 08 03 A6 */	mtlr r0
 /* 802C7A5C 002C49BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C7A60 002C49C0  4E 80 00 20 */	blr 
+/* 802C7A60 002C49C0  4E 80 00 20 */	blr
 
 .global __ct__12CGuiTextPaneFRCQ210CGuiWidget15CGuiWidgetParmsP11CSimplePoolRC9CVector2fRC9CVector3fUiRC18CGuiTextPropertiesRC6CColorRC6CColorii
 __ct__12CGuiTextPaneFRCQ210CGuiWidget15CGuiWidgetParmsP11CSimplePoolRC9CVector2fRC9CVector3fUiRC18CGuiTextPropertiesRC6CColorRC6CColorii:
@@ -400,7 +400,7 @@ __ct__12CGuiTextPaneFRCQ210CGuiWidget15CGuiWidgetParmsP11CSimplePoolRC9CVector2f
 /* 802C7ADC 002C4A3C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C7AE0 002C4A40  7C 08 03 A6 */	mtlr r0
 /* 802C7AE4 002C4A44  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C7AE8 002C4A48  4E 80 00 20 */	blr 
+/* 802C7AE8 002C4A48  4E 80 00 20 */	blr
 
 .global Create__12CGuiTextPaneFP9CGuiFrameR12CInputStreamb
 Create__12CGuiTextPaneFP9CGuiFrameR12CInputStreamb:
@@ -517,7 +517,7 @@ lbl_802C7C88:
 /* 802C7CA0 002C4C00  81 9A 00 00 */	lwz r12, 0(r26)
 /* 802C7CA4 002C4C04  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 802C7CA8 002C4C08  7D 89 03 A6 */	mtctr r12
-/* 802C7CAC 002C4C0C  4E 80 04 21 */	bctrl 
+/* 802C7CAC 002C4C0C  4E 80 04 21 */	bctrl
 /* 802C7CB0 002C4C10  3C 80 80 3D */	lis r4, lbl_803D68D8@ha
 /* 802C7CB4 002C4C14  38 61 00 18 */	addi r3, r1, 0x18
 /* 802C7CB8 002C4C18  38 84 68 D8 */	addi r4, r4, lbl_803D68D8@l
@@ -536,4 +536,4 @@ lbl_802C7C88:
 /* 802C7CEC 002C4C4C  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802C7CF0 002C4C50  7C 08 03 A6 */	mtlr r0
 /* 802C7CF4 002C4C54  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802C7CF8 002C4C58  4E 80 00 20 */	blr 
+/* 802C7CF8 002C4C58  4E 80 00 20 */	blr

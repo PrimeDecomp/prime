@@ -66,7 +66,7 @@ lbl_802EBB34:
 /* 802EBB44 002E8AA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802EBB48 002E8AA8  7C 08 03 A6 */	mtlr r0
 /* 802EBB4C 002E8AAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EBB50 002E8AB0  4E 80 00 20 */	blr 
+/* 802EBB50 002E8AB0  4E 80 00 20 */	blr
 
 .global "__ct<12CAnimPOIData>__16CFactoryFnReturnFP12CAnimPOIData"
 "__ct<12CAnimPOIData>__16CFactoryFnReturnFP12CAnimPOIData":
@@ -101,7 +101,7 @@ lbl_802EBB34:
 /* 802EBBC4 002E8B24  38 80 00 01 */	li r4, 1
 /* 802EBBC8 002E8B28  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802EBBCC 002E8B2C  7D 89 03 A6 */	mtctr r12
-/* 802EBBD0 002E8B30  4E 80 04 21 */	bctrl 
+/* 802EBBD0 002E8B30  4E 80 04 21 */	bctrl
 lbl_802EBBD4:
 /* 802EBBD4 002E8B34  38 61 00 10 */	addi r3, r1, 0x10
 /* 802EBBD8 002E8B38  38 80 FF FF */	li r4, -1
@@ -111,7 +111,7 @@ lbl_802EBBD4:
 /* 802EBBE8 002E8B48  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802EBBEC 002E8B4C  7C 08 03 A6 */	mtlr r0
 /* 802EBBF0 002E8B50  38 21 00 20 */	addi r1, r1, 0x20
-/* 802EBBF4 002E8B54  4E 80 00 20 */	blr 
+/* 802EBBF4 002E8B54  4E 80 00 20 */	blr
 
 .global sub_802ebbf8
 sub_802ebbf8:
@@ -153,7 +153,7 @@ lbl_802EBC6C:
 /* 802EBC78 002E8BD8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802EBC7C 002E8BDC  7C 08 03 A6 */	mtlr r0
 /* 802EBC80 002E8BE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EBC84 002E8BE4  4E 80 00 20 */	blr 
+/* 802EBC84 002E8BE4  4E 80 00 20 */	blr
 
 .global sub_802ebc88
 sub_802ebc88:
@@ -184,7 +184,7 @@ lbl_802EBCDC:
 /* 802EBCE4 002E8C44  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802EBCE8 002E8C48  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802EBCEC 002E8C4C  7D 89 03 A6 */	mtctr r12
-/* 802EBCF0 002E8C50  4E 80 04 21 */	bctrl 
+/* 802EBCF0 002E8C50  4E 80 04 21 */	bctrl
 /* 802EBCF4 002E8C54  3B 9C 00 44 */	addi r28, r28, 0x44
 lbl_802EBCF8:
 /* 802EBCF8 002E8C58  7C 1C E8 40 */	cmplw r28, r29
@@ -211,7 +211,7 @@ lbl_802EBD3C:
 /* 802EBD44 002E8CA4  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802EBD48 002E8CA8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802EBD4C 002E8CAC  7D 89 03 A6 */	mtctr r12
-/* 802EBD50 002E8CB0  4E 80 04 21 */	bctrl 
+/* 802EBD50 002E8CB0  4E 80 04 21 */	bctrl
 /* 802EBD54 002E8CB4  3B 9C 00 5C */	addi r28, r28, 0x5c
 lbl_802EBD58:
 /* 802EBD58 002E8CB8  7C 1C E8 40 */	cmplw r28, r29
@@ -238,7 +238,7 @@ lbl_802EBD9C:
 /* 802EBDA4 002E8D04  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802EBDA8 002E8D08  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802EBDAC 002E8D0C  7D 89 03 A6 */	mtctr r12
-/* 802EBDB0 002E8D10  4E 80 04 21 */	bctrl 
+/* 802EBDB0 002E8D10  4E 80 04 21 */	bctrl
 /* 802EBDB4 002E8D14  3B 9C 00 4C */	addi r28, r28, 0x4c
 lbl_802EBDB8:
 /* 802EBDB8 002E8D18  7C 1C E8 40 */	cmplw r28, r29
@@ -265,7 +265,7 @@ lbl_802EBDFC:
 /* 802EBE04 002E8D64  81 9C 00 00 */	lwz r12, 0(r28)
 /* 802EBE08 002E8D68  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802EBE0C 002E8D6C  7D 89 03 A6 */	mtctr r12
-/* 802EBE10 002E8D70  4E 80 04 21 */	bctrl 
+/* 802EBE10 002E8D70  4E 80 04 21 */	bctrl
 /* 802EBE14 002E8D74  3B 9C 00 3C */	addi r28, r28, 0x3c
 lbl_802EBE18:
 /* 802EBE18 002E8D78  7C 1C E8 40 */	cmplw r28, r29
@@ -288,7 +288,7 @@ lbl_802EBE40:
 /* 802EBE54 002E8DB4  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 802EBE58 002E8DB8  7C 08 03 A6 */	mtlr r0
 /* 802EBE5C 002E8DBC  38 21 00 60 */	addi r1, r1, 0x60
-/* 802EBE60 002E8DC0  4E 80 00 20 */	blr 
+/* 802EBE60 002E8DC0  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__22TToken<12CAnimPOIData>FRCQ24rstl24auto_ptr<12CAnimPOIData>"
 "GetIObjObjectFor__22TToken<12CAnimPOIData>FRCQ24rstl24auto_ptr<12CAnimPOIData>":
@@ -302,7 +302,7 @@ lbl_802EBE40:
 /* 802EBE80 002E8DE0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802EBE84 002E8DE4  7C 08 03 A6 */	mtlr r0
 /* 802EBE88 002E8DE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EBE8C 002E8DEC  4E 80 00 20 */	blr 
+/* 802EBE8C 002E8DEC  4E 80 00 20 */	blr
 
 .global "__ct__40TObjOwnerDerivedFromIObj<12CAnimPOIData>FRCQ24rstl24auto_ptr<12CAnimPOIData>"
 "__ct__40TObjOwnerDerivedFromIObj<12CAnimPOIData>FRCQ24rstl24auto_ptr<12CAnimPOIData>":
@@ -345,7 +345,7 @@ lbl_802EBF00:
 /* 802EBF1C 002E8E7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EBF20 002E8E80  7C 08 03 A6 */	mtlr r0
 /* 802EBF24 002E8E84  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EBF28 002E8E88  4E 80 00 20 */	blr 
+/* 802EBF28 002E8E88  4E 80 00 20 */	blr
 
 .global __dt__12CAnimPOIDataFv
 __dt__12CAnimPOIDataFv:
@@ -375,7 +375,7 @@ lbl_802EBF74:
 /* 802EBF80 002E8EE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802EBF84 002E8EE4  7C 08 03 A6 */	mtlr r0
 /* 802EBF88 002E8EE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EBF8C 002E8EEC  4E 80 00 20 */	blr 
+/* 802EBF8C 002E8EEC  4E 80 00 20 */	blr
 
 .global __ct__12CAnimPOIDataFR12CInputStream
 __ct__12CAnimPOIDataFR12CInputStream:
@@ -431,7 +431,7 @@ lbl_802EC048:
 /* 802EC050 002E8FB0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802EC054 002E8FB4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802EC058 002E8FB8  7D 89 03 A6 */	mtctr r12
-/* 802EC05C 002E8FBC  4E 80 04 21 */	bctrl 
+/* 802EC05C 002E8FBC  4E 80 04 21 */	bctrl
 /* 802EC060 002E8FC0  3B DE 00 44 */	addi r30, r30, 0x44
 lbl_802EC064:
 /* 802EC064 002E8FC4  7C 1E F8 40 */	cmplw r30, r31
@@ -448,7 +448,7 @@ lbl_802EC07C:
 /* 802EC08C 002E8FEC  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 802EC090 002E8FF0  7C 08 03 A6 */	mtlr r0
 /* 802EC094 002E8FF4  38 21 00 50 */	addi r1, r1, 0x50
-/* 802EC098 002E8FF8  4E 80 00 20 */	blr 
+/* 802EC098 002E8FF8  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl50vector<13CSoundPOINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl50vector<13CSoundPOINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -502,7 +502,7 @@ lbl_802EC13C:
 /* 802EC14C 002E90AC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802EC150 002E90B0  7C 08 03 A6 */	mtlr r0
 /* 802EC154 002E90B4  38 21 00 70 */	addi r1, r1, 0x70
-/* 802EC158 002E90B8  4E 80 00 20 */	blr 
+/* 802EC158 002E90B8  4E 80 00 20 */	blr
 
 .global "Get<13CSoundPOINode>__12CInputStreamFRC22TType<13CSoundPOINode>"
 "Get<13CSoundPOINode>__12CInputStreamFRC22TType<13CSoundPOINode>":
@@ -520,7 +520,7 @@ lbl_802EC13C:
 /* 802EC188 002E90E8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802EC18C 002E90EC  7C 08 03 A6 */	mtlr r0
 /* 802EC190 002E90F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802EC194 002E90F4  4E 80 00 20 */	blr 
+/* 802EC194 002E90F4  4E 80 00 20 */	blr
 
 .global __ct__13CSoundPOINodeFR12CInputStream
 __ct__13CSoundPOINodeFR12CInputStream:
@@ -550,7 +550,7 @@ __ct__13CSoundPOINodeFR12CInputStream:
 /* 802EC1F4 002E9154  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802EC1F8 002E9158  7C 08 03 A6 */	mtlr r0
 /* 802EC1FC 002E915C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EC200 002E9160  4E 80 00 20 */	blr 
+/* 802EC200 002E9160  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl53vector<16CParticlePOINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl53vector<16CParticlePOINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -613,7 +613,7 @@ lbl_802EC2C4:
 /* 802EC2D4 002E9234  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802EC2D8 002E9238  7C 08 03 A6 */	mtlr r0
 /* 802EC2DC 002E923C  38 21 00 90 */	addi r1, r1, 0x90
-/* 802EC2E0 002E9240  4E 80 00 20 */	blr 
+/* 802EC2E0 002E9240  4E 80 00 20 */	blr
 
 .global "Get<16CParticlePOINode>__12CInputStreamFRC25TType<16CParticlePOINode>"
 "Get<16CParticlePOINode>__12CInputStreamFRC25TType<16CParticlePOINode>":
@@ -631,7 +631,7 @@ lbl_802EC2C4:
 /* 802EC310 002E9270  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802EC314 002E9274  7C 08 03 A6 */	mtlr r0
 /* 802EC318 002E9278  38 21 00 20 */	addi r1, r1, 0x20
-/* 802EC31C 002E927C  4E 80 00 20 */	blr 
+/* 802EC31C 002E927C  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<16CParticlePOINode>__FRC25TType<16CParticlePOINode>R12CInputStream"
 "cinput_stream_helper<16CParticlePOINode>__FRC25TType<16CParticlePOINode>R12CInputStream":
@@ -643,7 +643,7 @@ lbl_802EC2C4:
 /* 802EC334 002E9294  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EC338 002E9298  7C 08 03 A6 */	mtlr r0
 /* 802EC33C 002E929C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EC340 002E92A0  4E 80 00 20 */	blr 
+/* 802EC340 002E92A0  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl50vector<13CInt32POINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl50vector<13CInt32POINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -753,7 +753,7 @@ lbl_802EC4B4:
 /* 802EC4C4 002E9424  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802EC4C8 002E9428  7C 08 03 A6 */	mtlr r0
 /* 802EC4CC 002E942C  38 21 00 80 */	addi r1, r1, 0x80
-/* 802EC4D0 002E9430  4E 80 00 20 */	blr 
+/* 802EC4D0 002E9430  4E 80 00 20 */	blr
 
 .global "Get<13CInt32POINode>__12CInputStreamFRC22TType<13CInt32POINode>"
 "Get<13CInt32POINode>__12CInputStreamFRC22TType<13CInt32POINode>":
@@ -771,7 +771,7 @@ lbl_802EC4B4:
 /* 802EC500 002E9460  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802EC504 002E9464  7C 08 03 A6 */	mtlr r0
 /* 802EC508 002E9468  38 21 00 20 */	addi r1, r1, 0x20
-/* 802EC50C 002E946C  4E 80 00 20 */	blr 
+/* 802EC50C 002E946C  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<13CInt32POINode>__FRC22TType<13CInt32POINode>R12CInputStream"
 "cinput_stream_helper<13CInt32POINode>__FRC22TType<13CInt32POINode>R12CInputStream":
@@ -783,7 +783,7 @@ lbl_802EC4B4:
 /* 802EC524 002E9484  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EC528 002E9488  7C 08 03 A6 */	mtlr r0
 /* 802EC52C 002E948C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EC530 002E9490  4E 80 00 20 */	blr 
+/* 802EC530 002E9490  4E 80 00 20 */	blr
 
 .global "__ct__Q24rstl49vector<12CBoolPOINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator"
 "__ct__Q24rstl49vector<12CBoolPOINode,Q24rstl17rmemory_allocator>FR12CInputStreamRCQ24rstl17rmemory_allocator":
@@ -884,7 +884,7 @@ lbl_802EC684:
 /* 802EC694 002E95F4  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802EC698 002E95F8  7C 08 03 A6 */	mtlr r0
 /* 802EC69C 002E95FC  38 21 00 70 */	addi r1, r1, 0x70
-/* 802EC6A0 002E9600  4E 80 00 20 */	blr 
+/* 802EC6A0 002E9600  4E 80 00 20 */	blr
 
 .global "Get<12CBoolPOINode>__12CInputStreamFRC21TType<12CBoolPOINode>"
 "Get<12CBoolPOINode>__12CInputStreamFRC21TType<12CBoolPOINode>":
@@ -902,7 +902,7 @@ lbl_802EC684:
 /* 802EC6D0 002E9630  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802EC6D4 002E9634  7C 08 03 A6 */	mtlr r0
 /* 802EC6D8 002E9638  38 21 00 20 */	addi r1, r1, 0x20
-/* 802EC6DC 002E963C  4E 80 00 20 */	blr 
+/* 802EC6DC 002E963C  4E 80 00 20 */	blr
 
 .global "cinput_stream_helper<12CBoolPOINode>__FRC21TType<12CBoolPOINode>R12CInputStream"
 "cinput_stream_helper<12CBoolPOINode>__FRC21TType<12CBoolPOINode>R12CInputStream":

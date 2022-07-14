@@ -8,7 +8,7 @@ lbl_803D9CD0:
 	.4byte 0
 	.4byte __dt__10CTweakGameFv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __ct__10CTweakGameFR12CInputStream
@@ -101,7 +101,7 @@ __ct__10CTweakGameFR12CInputStream:
 /* 80037338 00034298  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8003733C 0003429C  7C 08 03 A6 */	mtlr r0
 /* 80037340 000342A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80037344 000342A4  4E 80 00 20 */	blr 
+/* 80037344 000342A4  4E 80 00 20 */	blr
 
 .global __dt__10CTweakGameFv
 __dt__10CTweakGameFv:
@@ -143,7 +143,7 @@ lbl_800373B8:
 /* 800373C4 00034324  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800373C8 00034328  7C 08 03 A6 */	mtlr r0
 /* 800373CC 0003432C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800373D0 00034330  4E 80 00 20 */	blr 
+/* 800373D0 00034330  4E 80 00 20 */	blr
 
 .global "__dl__24TOneStatic<10CTweakGame>FPv"
 "__dl__24TOneStatic<10CTweakGame>FPv":
@@ -157,4 +157,4 @@ lbl_800373B8:
 /* 800373F0 00034350  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800373F4 00034354  7C 08 03 A6 */	mtlr r0
 /* 800373F8 00034358  38 21 00 10 */	addi r1, r1, 0x10
-/* 800373FC 0003435C  4E 80 00 20 */	blr 
+/* 800373FC 0003435C  4E 80 00 20 */	blr

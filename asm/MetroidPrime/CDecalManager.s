@@ -8,7 +8,7 @@ lbl_8046C558:
 .global lbl_8046C564
 lbl_8046C564:
 	.skip 0xC
-	
+
 .section .sbss
 
 # CDecalManager
@@ -86,7 +86,7 @@ lbl_80116F30:
 /* 80116F88 00113EE8  39 00 00 00 */	li r8, 0
 /* 80116F8C 00113EEC  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80116F90 00113EF0  7D 89 03 A6 */	mtctr r12
-/* 80116F94 00113EF4  4E 80 04 21 */	bctrl 
+/* 80116F94 00113EF4  4E 80 04 21 */	bctrl
 lbl_80116F98:
 /* 80116F98 00113EF8  3B 7B 00 04 */	addi r27, r27, 4
 lbl_80116F9C:
@@ -96,7 +96,7 @@ lbl_80116F9C:
 /* 80116FA8 00113F08  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80116FAC 00113F0C  7C 08 03 A6 */	mtlr r0
 /* 80116FB0 00113F10  38 21 00 60 */	addi r1, r1, 0x60
-/* 80116FB4 00113F14  4E 80 00 20 */	blr 
+/* 80116FB4 00113F14  4E 80 00 20 */	blr
 
 .global Update__13CDecalManagerFfR13CStateManager
 Update__13CDecalManagerFfR13CStateManager:
@@ -151,7 +151,7 @@ lbl_80117048:
 /* 80117068 00113FC8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8011706C 00113FCC  7C 08 03 A6 */	mtlr r0
 /* 80117070 00113FD0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80117074 00113FD4  4E 80 00 20 */	blr 
+/* 80117074 00113FD4  4E 80 00 20 */	blr
 
 .global RemoveFromActiveList__13CDecalManagerFPii
 RemoveFromActiveList__13CDecalManagerFPii:
@@ -199,10 +199,10 @@ lbl_801170F4:
 /* 8011710C 0011406C  7C 00 20 00 */	cmpw r0, r4
 /* 80117110 00114070  7C 86 2A 14 */	add r4, r6, r5
 /* 80117114 00114074  98 E4 00 78 */	stb r7, 0x78(r4)
-/* 80117118 00114078  4C 82 00 20 */	bnelr 
+/* 80117118 00114078  4C 82 00 20 */	bnelr
 /* 8011711C 0011407C  38 00 FF FF */	li r0, -1
 /* 80117120 00114080  90 0D A3 74 */	stw r0, lbl_805A8F34@sda21(r13)
-/* 80117124 00114084  4E 80 00 20 */	blr 
+/* 80117124 00114084  4E 80 00 20 */	blr
 
 .global "AddDecal__13CDecalManagerFRC27TToken<17CDecalDescription>RC12CTransform4fR13CStateManager"
 "AddDecal__13CDecalManagerFRC27TToken<17CDecalDescription>RC12CTransform4fR13CStateManager":
@@ -325,7 +325,7 @@ lbl_801172E0:
 /* 801172E4 00114244  80 01 00 B4 */	lwz r0, 0xb4(r1)
 /* 801172E8 00114248  7C 08 03 A6 */	mtlr r0
 /* 801172EC 0011424C  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801172F0 00114250  4E 80 00 20 */	blr 
+/* 801172F0 00114250  4E 80 00 20 */	blr
 
 .global "assign__Q24rstl24optional_object<6CDecal>FRC6CDecal"
 "assign__Q24rstl24optional_object<6CDecal>FRC6CDecal":
@@ -340,7 +340,7 @@ lbl_801172E0:
 /* 80117314 00114274  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80117318 00114278  7C 08 03 A6 */	mtlr r0
 /* 8011731C 0011427C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117320 00114280  4E 80 00 20 */	blr 
+/* 80117320 00114280  4E 80 00 20 */	blr
 
 .global sub_80117324
 sub_80117324:
@@ -435,7 +435,7 @@ lbl_80117468:
 /* 80117478 001143D8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8011747C 001143DC  7C 08 03 A6 */	mtlr r0
 /* 80117480 001143E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80117484 001143E4  4E 80 00 20 */	blr 
+/* 80117484 001143E4  4E 80 00 20 */	blr
 
 .global Reinitialize__13CDecalManagerFv
 Reinitialize__13CDecalManagerFv:
@@ -531,7 +531,7 @@ lbl_801175B0:
 /* 801175CC 0011452C  83 C1 00 F8 */	lwz r30, 0xf8(r1)
 /* 801175D0 00114530  7C 08 03 A6 */	mtlr r0
 /* 801175D4 00114534  38 21 01 00 */	addi r1, r1, 0x100
-/* 801175D8 00114538  4E 80 00 20 */	blr 
+/* 801175D8 00114538  4E 80 00 20 */	blr
 
 .global sub_801175dc
 sub_801175dc:
@@ -555,7 +555,7 @@ sub_801175dc:
 /* 80117620 00114580  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117624 00114584  7C 08 03 A6 */	mtlr r0
 /* 80117628 00114588  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011762C 0011458C  4E 80 00 20 */	blr 
+/* 8011762C 0011458C  4E 80 00 20 */	blr
 
 .global sub_80117630
 sub_80117630:
@@ -593,7 +593,7 @@ lbl_80117694:
 /* 80117698 001145F8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8011769C 001145FC  7C 08 03 A6 */	mtlr r0
 /* 801176A0 00114600  38 21 00 10 */	addi r1, r1, 0x10
-/* 801176A4 00114604  4E 80 00 20 */	blr 
+/* 801176A4 00114604  4E 80 00 20 */	blr
 
 .global "__as__Q24rstl24optional_object<6CDecal>FRCQ24rstl24optional_object<6CDecal>"
 "__as__Q24rstl24optional_object<6CDecal>FRCQ24rstl24optional_object<6CDecal>":
@@ -624,7 +624,7 @@ lbl_80117694:
 /* 80117708 00114668  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8011770C 0011466C  7C 08 03 A6 */	mtlr r0
 /* 80117710 00114670  38 21 00 20 */	addi r1, r1, 0x20
-/* 80117714 00114674  4E 80 00 20 */	blr 
+/* 80117714 00114674  4E 80 00 20 */	blr
 
 .global sub_80117718
 sub_80117718:
@@ -687,7 +687,7 @@ lbl_801177E0:
 /* 801177F4 00114754  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801177F8 00114758  7C 08 03 A6 */	mtlr r0
 /* 801177FC 0011475C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80117800 00114760  4E 80 00 20 */	blr 
+/* 80117800 00114760  4E 80 00 20 */	blr
 
 .global ShutDown__13CDecalManagerFv
 ShutDown__13CDecalManagerFv:
@@ -729,7 +729,7 @@ lbl_80117860:
 /* 80117880 001147E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117884 001147E4  7C 08 03 A6 */	mtlr r0
 /* 80117888 001147E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8011788C 001147EC  4E 80 00 20 */	blr 
+/* 8011788C 001147EC  4E 80 00 20 */	blr
 
 .global "data__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv"
 "data__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv":
@@ -760,7 +760,7 @@ lbl_801178C8:
 /* 801178E8 00114848  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801178EC 0011484C  7C 08 03 A6 */	mtlr r0
 /* 801178F0 00114850  38 21 00 20 */	addi r1, r1, 0x20
-/* 801178F4 00114854  4E 80 00 20 */	blr 
+/* 801178F4 00114854  4E 80 00 20 */	blr
 
 .global sub_801178f8
 sub_801178f8:
@@ -788,7 +788,7 @@ lbl_80117940:
 /* 80117944 001148A4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80117948 001148A8  7C 08 03 A6 */	mtlr r0
 /* 8011794C 001148AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117950 001148B0  4E 80 00 20 */	blr 
+/* 80117950 001148B0  4E 80 00 20 */	blr
 
 .global Initialize__13CDecalManagerFv
 Initialize__13CDecalManagerFv:
@@ -865,7 +865,7 @@ lbl_80117A54:
 /* 80117A5C 001149BC  83 C1 00 F8 */	lwz r30, 0xf8(r1)
 /* 80117A60 001149C0  7C 08 03 A6 */	mtlr r0
 /* 80117A64 001149C4  38 21 01 00 */	addi r1, r1, 0x100
-/* 80117A68 001149C8  4E 80 00 20 */	blr 
+/* 80117A68 001149C8  4E 80 00 20 */	blr
 
 .global sub_80117a6c
 sub_80117a6c:
@@ -886,7 +886,7 @@ sub_80117a6c:
 /* 80117AA4 00114A04  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117AA8 00114A08  7C 08 03 A6 */	mtlr r0
 /* 80117AAC 00114A0C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117AB0 00114A10  4E 80 00 20 */	blr 
+/* 80117AB0 00114A10  4E 80 00 20 */	blr
 
 .global sub_80117ab4
 sub_80117ab4:
@@ -900,7 +900,7 @@ lbl_80117ACC:
 /* 80117ACC 00114A2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117AD0 00114A30  7C 08 03 A6 */	mtlr r0
 /* 80117AD4 00114A34  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117AD8 00114A38  4E 80 00 20 */	blr 
+/* 80117AD8 00114A38  4E 80 00 20 */	blr
 
 .global sub_80117adc
 sub_80117adc:
@@ -924,7 +924,7 @@ sub_80117adc:
 /* 80117B20 00114A80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117B24 00114A84  7C 08 03 A6 */	mtlr r0
 /* 80117B28 00114A88  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117B2C 00114A8C  4E 80 00 20 */	blr 
+/* 80117B2C 00114A8C  4E 80 00 20 */	blr
 
 .global __sinit_CDecalManager_cpp
 __sinit_CDecalManager_cpp:
@@ -950,7 +950,7 @@ __sinit_CDecalManager_cpp:
 /* 80117B7C 00114ADC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80117B80 00114AE0  7C 08 03 A6 */	mtlr r0
 /* 80117B84 00114AE4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117B88 00114AE8  4E 80 00 20 */	blr 
+/* 80117B88 00114AE8  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl21reserved_vector<i,64>Fv"
 "__dt__Q24rstl21reserved_vector<i,64>Fv":
@@ -995,7 +995,7 @@ lbl_80117C08:
 /* 80117C10 00114B70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80117C14 00114B74  7C 08 03 A6 */	mtlr r0
 /* 80117C18 00114B78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80117C1C 00114B7C  4E 80 00 20 */	blr 
+/* 80117C1C 00114B7C  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv"
 "__dt__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv":

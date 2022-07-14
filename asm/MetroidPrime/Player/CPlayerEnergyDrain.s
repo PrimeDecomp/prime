@@ -58,7 +58,7 @@ lbl_801B466C:
 /* 801B4684 001B15E4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801B4688 001B15E8  7C 08 03 A6 */	mtlr r0
 /* 801B468C 001B15EC  38 21 00 40 */	addi r1, r1, 0x40
-/* 801B4690 001B15F0  4E 80 00 20 */	blr 
+/* 801B4690 001B15F0  4E 80 00 20 */	blr
 
 .global GetEnergyDrainIntensity__18CPlayerEnergyDrainCFv
 GetEnergyDrainIntensity__18CPlayerEnergyDrainCFv:
@@ -75,7 +75,7 @@ lbl_801B46AC:
 lbl_801B46B8:
 /* 801B46B8 001B1618  7C 03 00 40 */	cmplw r3, r0
 /* 801B46BC 001B161C  40 82 FF F0 */	bne lbl_801B46AC
-/* 801B46C0 001B1620  4E 80 00 20 */	blr 
+/* 801B46C0 001B1620  4E 80 00 20 */	blr
 
 .global RemoveEnergyDrainSource__18CPlayerEnergyDrainF9TUniqueId
 RemoveEnergyDrainSource__18CPlayerEnergyDrainF9TUniqueId:
@@ -139,7 +139,7 @@ lbl_801B4798:
 /* 801B479C 001B16FC  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 801B47A0 001B1700  7C 08 03 A6 */	mtlr r0
 /* 801B47A4 001B1704  38 21 00 50 */	addi r1, r1, 0x50
-/* 801B47A8 001B1708  4E 80 00 20 */	blr 
+/* 801B47A8 001B1708  4E 80 00 20 */	blr
 
 .global sub_801b47ac
 sub_801b47ac:
@@ -161,7 +161,7 @@ sub_801b47ac:
 /* 801B47E8 001B1748  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801B47EC 001B174C  7C 08 03 A6 */	mtlr r0
 /* 801B47F0 001B1750  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B47F4 001B1754  4E 80 00 20 */	blr 
+/* 801B47F4 001B1754  4E 80 00 20 */	blr
 
 .global sub_801b47f8
 sub_801b47f8:
@@ -208,7 +208,7 @@ lbl_801B4868:
 /* 801B4884 001B17E4  80 05 00 00 */	lwz r0, 0(r5)
 /* 801B4888 001B17E8  90 03 00 00 */	stw r0, 0(r3)
 /* 801B488C 001B17EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B4890 001B17F0  4E 80 00 20 */	blr 
+/* 801B4890 001B17F0  4E 80 00 20 */	blr
 
 .global sub_801b4894
 sub_801b4894:
@@ -297,7 +297,7 @@ lbl_801B49C0:
 /* 801B49C8 001B1928  83 E1 00 54 */	lwz r31, 0x54(r1)
 /* 801B49CC 001B192C  7C 08 03 A6 */	mtlr r0
 /* 801B49D0 001B1930  38 21 00 60 */	addi r1, r1, 0x60
-/* 801B49D4 001B1934  4E 80 00 20 */	blr 
+/* 801B49D4 001B1934  4E 80 00 20 */	blr
 
 .global sub_801b49d8
 sub_801b49d8:
@@ -335,7 +335,7 @@ sub_801b49d8:
 /* 801B4A54 001B19B4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801B4A58 001B19B8  7C 08 03 A6 */	mtlr r0
 /* 801B4A5C 001B19BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B4A60 001B19C0  4E 80 00 20 */	blr 
+/* 801B4A60 001B19C0  4E 80 00 20 */	blr
 
 .global sub_801b4a64
 sub_801b4a64:
@@ -515,7 +515,7 @@ lbl_801B4CB0:
 /* 801B4CB4 001B1C14  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801B4CB8 001B1C18  7C 08 03 A6 */	mtlr r0
 /* 801B4CBC 001B1C1C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B4CC0 001B1C20  4E 80 00 20 */	blr 
+/* 801B4CC0 001B1C20  4E 80 00 20 */	blr
 
 .global __ct__18CPlayerEnergyDrainFUi
 __ct__18CPlayerEnergyDrainFUi:
@@ -536,7 +536,7 @@ __ct__18CPlayerEnergyDrainFUi:
 /* 801B4CFC 001B1C5C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801B4D00 001B1C60  7C 08 03 A6 */	mtlr r0
 /* 801B4D04 001B1C64  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B4D08 001B1C68  4E 80 00 20 */	blr 
+/* 801B4D08 001B1C68  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,18CEnergyDrainSource>__4rstlFQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC18CEnergyDrainSource"
 "lower_bound<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,18CEnergyDrainSource>__4rstlFQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC18CEnergyDrainSource":
@@ -590,7 +590,7 @@ lbl_801B4DA8:
 /* 801B4DBC 001B1D1C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801B4DC0 001B1D20  7C 08 03 A6 */	mtlr r0
 /* 801B4DC4 001B1D24  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B4DC8 001B1D28  4E 80 00 20 */	blr 
+/* 801B4DC8 001B1D28  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>Fi":
@@ -663,7 +663,7 @@ lbl_801B4EA4:
 /* 801B4EB0 001B1E10  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801B4EB4 001B1E14  7C 08 03 A6 */	mtlr r0
 /* 801B4EB8 001B1E18  38 21 00 30 */	addi r1, r1, 0x30
-/* 801B4EBC 001B1E1C  4E 80 00 20 */	blr 
+/* 801B4EBC 001B1E1C  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -677,7 +677,7 @@ lbl_801B4EA4:
 /* 801B4EDC 001B1E3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B4EE0 001B1E40  7C 08 03 A6 */	mtlr r0
 /* 801B4EE4 001B1E44  38 21 00 10 */	addi r1, r1, 0x10
-/* 801B4EE8 001B1E48  4E 80 00 20 */	blr 
+/* 801B4EE8 001B1E48  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -685,7 +685,7 @@ lbl_801B4EA4:
 /* 801B4EF0 001B1E50  54 80 18 38 */	slwi r0, r4, 3
 /* 801B4EF4 001B1E54  7C 05 02 14 */	add r0, r5, r0
 /* 801B4EF8 001B1E58  90 03 00 00 */	stw r0, 0(r3)
-/* 801B4EFC 001B1E5C  4E 80 00 20 */	blr 
+/* 801B4EFC 001B1E5C  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "distance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -705,7 +705,7 @@ lbl_801B4EA4:
 /* 801B4F34 001B1E94  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801B4F38 001B1E98  7C 08 03 A6 */	mtlr r0
 /* 801B4F3C 001B1E9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 801B4F40 001B1EA0  4E 80 00 20 */	blr 
+/* 801B4F40 001B1EA0  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_iterator_tag"
 "__distance<Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl130pointer_iterator<18CEnergyDrainSource,Q24rstl55vector<18CEnergyDrainSource,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_iterator_tag":

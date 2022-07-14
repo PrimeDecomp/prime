@@ -8,7 +8,7 @@ GetNumChildren__13CPVSVisOctreeCFUc:
 /* 80315D7C 00312CDC  54 80 16 FA */	rlwinm r0, r4, 2, 0x1b, 0x1d
 /* 80315D80 00312CE0  38 63 78 20 */	addi r3, r3, lbl_803D7820@l
 /* 80315D84 00312CE4  7C 63 00 2E */	lwzx r3, r3, r0
-/* 80315D88 00312CE8  4E 80 00 20 */	blr 
+/* 80315D88 00312CE8  4E 80 00 20 */	blr
 
 .global IterateSearch__13CPVSVisOctreeCFUcRC9CVector3f
 IterateSearch__13CPVSVisOctreeCFUcRC9CVector3f:

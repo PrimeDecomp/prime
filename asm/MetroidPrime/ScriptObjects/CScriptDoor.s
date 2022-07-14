@@ -153,7 +153,7 @@ lbl_8007E034:
 /* 8007E040 0007AFA0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8007E044 0007AFA4  7C 08 03 A6 */	mtlr r0
 /* 8007E048 0007AFA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8007E04C 0007AFAC  4E 80 00 20 */	blr 
+/* 8007E04C 0007AFAC  4E 80 00 20 */	blr
 
 .global Accept__11CScriptDoorFR8IVisitor
 Accept__11CScriptDoorFR8IVisitor:
@@ -166,15 +166,15 @@ Accept__11CScriptDoorFR8IVisitor:
 /* 8007E068 0007AFC8  7C 04 03 78 */	mr r4, r0
 /* 8007E06C 0007AFCC  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 8007E070 0007AFD0  7D 89 03 A6 */	mtctr r12
-/* 8007E074 0007AFD4  4E 80 04 21 */	bctrl 
+/* 8007E074 0007AFD4  4E 80 04 21 */	bctrl
 /* 8007E078 0007AFD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8007E07C 0007AFDC  7C 08 03 A6 */	mtlr r0
 /* 8007E080 0007AFE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8007E084 0007AFE4  4E 80 00 20 */	blr 
+/* 8007E084 0007AFE4  4E 80 00 20 */	blr
 
 .global Render__11CScriptDoorCFRC13CStateManager
 Render__11CScriptDoorCFRC13CStateManager:
-/* 8007E088 0007AFE8  4E 80 00 20 */	blr 
+/* 8007E088 0007AFE8  4E 80 00 20 */	blr
 
 .global AddToRenderer__11CScriptDoorCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__11CScriptDoorCFRC14CFrustumPlanesRC13CStateManager:
@@ -190,7 +190,7 @@ lbl_8007E0AC:
 /* 8007E0AC 0007B00C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8007E0B0 0007B010  7C 08 03 A6 */	mtlr r0
 /* 8007E0B4 0007B014  38 21 00 10 */	addi r1, r1, 0x10
-/* 8007E0B8 0007B018  4E 80 00 20 */	blr 
+/* 8007E0B8 0007B018  4E 80 00 20 */	blr
 
 .global ForceClosed__11CScriptDoorFR13CStateManager
 ForceClosed__11CScriptDoorFR13CStateManager:
@@ -261,7 +261,7 @@ lbl_8007E1AC:
 /* 8007E1B4 0007B114  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8007E1B8 0007B118  7C 08 03 A6 */	mtlr r0
 /* 8007E1BC 0007B11C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8007E1C0 0007B120  4E 80 00 20 */	blr 
+/* 8007E1C0 0007B120  4E 80 00 20 */	blr
 
 .global IsConnectedToArea__11CScriptDoorCFRC13CStateManager7TAreaId
 IsConnectedToArea__11CScriptDoorCFRC13CStateManager7TAreaId:
@@ -321,7 +321,7 @@ lbl_8007E284:
 /* 8007E28C 0007B1EC  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8007E290 0007B1F0  7C 08 03 A6 */	mtlr r0
 /* 8007E294 0007B1F4  38 21 00 30 */	addi r1, r1, 0x30
-/* 8007E298 0007B1F8  4E 80 00 20 */	blr 
+/* 8007E298 0007B1F8  4E 80 00 20 */	blr
 
 .global Think__11CScriptDoorFfR13CStateManager
 Think__11CScriptDoorFfR13CStateManager:
@@ -506,7 +506,7 @@ lbl_8007E530:
 /* 8007E540 0007B4A0  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8007E544 0007B4A4  7C 08 03 A6 */	mtlr r0
 /* 8007E548 0007B4A8  38 21 00 50 */	addi r1, r1, 0x50
-/* 8007E54C 0007B4AC  4E 80 00 20 */	blr 
+/* 8007E54C 0007B4AC  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CScriptDoorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CScriptDoorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -527,7 +527,7 @@ AcceptScriptMsg__11CScriptDoorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 8007E588 0007B4E8  38 63 AA FC */	addi r3, r3, lbl_803DAAFC@l
 /* 8007E58C 0007B4EC  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8007E590 0007B4F0  7C 09 03 A6 */	mtctr r0
-/* 8007E594 0007B4F4  4E 80 04 20 */	bctr 
+/* 8007E594 0007B4F4  4E 80 04 20 */	bctr
 .global lbl_8007E598
 lbl_8007E598:
 /* 8007E598 0007B4F8  88 1D 00 30 */	lbz r0, 0x30(r29)
@@ -827,7 +827,7 @@ lbl_8007E9B4:
 /* 8007E9C0 0007B920  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 8007E9C4 0007B924  7C 08 03 A6 */	mtlr r0
 /* 8007E9C8 0007B928  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8007E9CC 0007B92C  4E 80 00 20 */	blr 
+/* 8007E9CC 0007B92C  4E 80 00 20 */	blr
 
 .global SetDoorAnimation__11CScriptDoorFQ211CScriptDoor13EDoorAnimType
 SetDoorAnimation__11CScriptDoorFQ211CScriptDoor13EDoorAnimType:
@@ -869,7 +869,7 @@ lbl_8007EA54:
 /* 8007EA54 0007B9B4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8007EA58 0007B9B8  7C 08 03 A6 */	mtlr r0
 /* 8007EA5C 0007B9BC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8007EA60 0007B9C0  4E 80 00 20 */	blr 
+/* 8007EA60 0007B9C0  4E 80 00 20 */	blr
 
 .global OpenDoor__11CScriptDoorF9TUniqueIdR13CStateManager
 OpenDoor__11CScriptDoorF9TUniqueIdR13CStateManager:
@@ -1070,7 +1070,7 @@ lbl_8007ED38:
 /* 8007ED3C 0007BC9C  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 8007ED40 0007BCA0  7C 08 03 A6 */	mtlr r0
 /* 8007ED44 0007BCA4  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 8007ED48 0007BCA8  4E 80 00 20 */	blr 
+/* 8007ED48 0007BCA8  4E 80 00 20 */	blr
 
 .global GetDoorOpenCondition__11CScriptDoorFR13CStateManager
 GetDoorOpenCondition__11CScriptDoorFR13CStateManager:
@@ -1288,7 +1288,7 @@ lbl_8007F040:
 /* 8007F044 0007BFA4  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8007F048 0007BFA8  7C 08 03 A6 */	mtlr r0
 /* 8007F04C 0007BFAC  38 21 00 70 */	addi r1, r1, 0x70
-/* 8007F050 0007BFB0  4E 80 00 20 */	blr 
+/* 8007F050 0007BFB0  4E 80 00 20 */	blr
 
 .global GetOrbitPosition__11CScriptDoorCFRC13CStateManager
 GetOrbitPosition__11CScriptDoorCFRC13CStateManager:
@@ -1304,7 +1304,7 @@ GetOrbitPosition__11CScriptDoorCFRC13CStateManager:
 /* 8007F078 0007BFD8  EC 02 08 2A */	fadds f0, f2, f1
 /* 8007F07C 0007BFDC  D0 63 00 04 */	stfs f3, 4(r3)
 /* 8007F080 0007BFE0  D0 03 00 08 */	stfs f0, 8(r3)
-/* 8007F084 0007BFE4  4E 80 00 20 */	blr 
+/* 8007F084 0007BFE4  4E 80 00 20 */	blr
 
 .global GetProjectileBounds__11CScriptDoorCFv
 GetProjectileBounds__11CScriptDoorCFv:
@@ -1366,7 +1366,7 @@ lbl_8007F158:
 /* 8007F15C 0007C0BC  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8007F160 0007C0C0  7C 08 03 A6 */	mtlr r0
 /* 8007F164 0007C0C4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8007F168 0007C0C8  4E 80 00 20 */	blr 
+/* 8007F168 0007C0C8  4E 80 00 20 */	blr
 
 .global GetTouchBounds__11CScriptDoorCFv
 GetTouchBounds__11CScriptDoorCFv:
@@ -1415,7 +1415,7 @@ lbl_8007F208:
 /* 8007F20C 0007C16C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8007F210 0007C170  7C 08 03 A6 */	mtlr r0
 /* 8007F214 0007C174  38 21 00 30 */	addi r1, r1, 0x30
-/* 8007F218 0007C178  4E 80 00 20 */	blr 
+/* 8007F218 0007C178  4E 80 00 20 */	blr
 
 .global "__ct__11CScriptDoorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC9CVector3fRC6CAABoxbbfb"
 "__ct__11CScriptDoorF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC9CVector3fRC6CAABoxbbfb":
@@ -1663,4 +1663,4 @@ lbl_8007F5B8:
 /* 8007F5D4 0007C534  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8007F5D8 0007C538  7C 08 03 A6 */	mtlr r0
 /* 8007F5DC 0007C53C  38 21 01 20 */	addi r1, r1, 0x120
-/* 8007F5E0 0007C540  4E 80 00 20 */	blr 
+/* 8007F5E0 0007C540  4E 80 00 20 */	blr

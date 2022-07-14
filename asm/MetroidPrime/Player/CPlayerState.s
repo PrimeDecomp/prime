@@ -67,7 +67,7 @@ lbl_805A7158:
 .global GetMissileComboChargeFactor__12CPlayerStateFv
 GetMissileComboChargeFactor__12CPlayerStateFv:
 /* 800911FC 0008E15C  C0 22 8B 08 */	lfs f1, lbl_805AA828@sda21(r2)
-/* 80091200 0008E160  4E 80 00 20 */	blr 
+/* 80091200 0008E160  4E 80 00 20 */	blr
 
 .global GetComboFireAmmoPeriod__12CPlayerStateCFv
 GetComboFireAmmoPeriod__12CPlayerStateCFv:
@@ -76,7 +76,7 @@ GetComboFireAmmoPeriod__12CPlayerStateCFv:
 /* 8009120C 0008E16C  38 63 D7 78 */	addi r3, r3, lbl_803CD778@l
 /* 80091210 0008E170  54 00 10 3A */	slwi r0, r0, 2
 /* 80091214 0008E174  7C 23 04 2E */	lfsx f1, r3, r0
-/* 80091218 0008E178  4E 80 00 20 */	blr 
+/* 80091218 0008E178  4E 80 00 20 */	blr
 
 .global GetMissileCostForAltAttack__12CPlayerStateCFv
 GetMissileCostForAltAttack__12CPlayerStateCFv:
@@ -85,7 +85,7 @@ GetMissileCostForAltAttack__12CPlayerStateCFv:
 /* 80091224 0008E184  38 63 D7 64 */	addi r3, r3, lbl_803CD764@l
 /* 80091228 0008E188  54 00 10 3A */	slwi r0, r0, 2
 /* 8009122C 0008E18C  7C 63 00 2E */	lwzx r3, r3, r0
-/* 80091230 0008E190  4E 80 00 20 */	blr 
+/* 80091230 0008E190  4E 80 00 20 */	blr
 
 .global CalculateItemCollectionRate__12CPlayerStateFv
 CalculateItemCollectionRate__12CPlayerStateFv:
@@ -247,19 +247,19 @@ lbl_8009126C:
 /* 8009149C 0008E3FC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800914A0 0008E400  7C 08 03 A6 */	mtlr r0
 /* 800914A4 0008E404  38 21 00 20 */	addi r1, r1, 0x20
-/* 800914A8 0008E408  4E 80 00 20 */	blr 
+/* 800914A8 0008E408  4E 80 00 20 */	blr
 
 .global GetTotalPickupCount__12CPlayerStateFv
 GetTotalPickupCount__12CPlayerStateFv:
 /* 800914AC 0008E40C  38 60 00 63 */	li r3, 0x63
-/* 800914B0 0008E410  4E 80 00 20 */	blr 
+/* 800914B0 0008E410  4E 80 00 20 */	blr
 
 .global SetIsFusionEnabled__12CPlayerStateFb
 SetIsFusionEnabled__12CPlayerStateFb:
 /* 800914B4 0008E414  88 03 00 00 */	lbz r0, 0(r3)
 /* 800914B8 0008E418  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a
 /* 800914BC 0008E41C  98 03 00 00 */	stb r0, 0(r3)
-/* 800914C0 0008E420  4E 80 00 20 */	blr 
+/* 800914C0 0008E420  4E 80 00 20 */	blr
 
 .global GetIsFusionEnabled__12CPlayerStateFv
 GetIsFusionEnabled__12CPlayerStateFv:
@@ -268,7 +268,7 @@ GetIsFusionEnabled__12CPlayerStateFv:
 /* 800914CC 0008E42C  7C 03 00 D0 */	neg r0, r3
 /* 800914D0 0008E430  7C 00 1B 78 */	or r0, r0, r3
 /* 800914D4 0008E434  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 800914D8 0008E438  4E 80 00 20 */	blr 
+/* 800914D8 0008E438  4E 80 00 20 */	blr
 
 .global GetCurrentSuit__12CPlayerStateFv
 GetCurrentSuit__12CPlayerStateFv:
@@ -289,7 +289,7 @@ lbl_80091508:
 /* 8009150C 0008E46C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80091510 0008E470  7C 08 03 A6 */	mtlr r0
 /* 80091514 0008E474  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091518 0008E478  4E 80 00 20 */	blr 
+/* 80091518 0008E478  4E 80 00 20 */	blr
 
 .global CanVisorSeeFog__12CPlayerStateCFRC13CStateManager
 CanVisorSeeFog__12CPlayerStateCFRC13CStateManager:
@@ -309,7 +309,7 @@ lbl_80091544:
 /* 80091548 0008E4A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8009154C 0008E4AC  7C 08 03 A6 */	mtlr r0
 /* 80091550 0008E4B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091554 0008E4B4  4E 80 00 20 */	blr 
+/* 80091554 0008E4B4  4E 80 00 20 */	blr
 
 .global GetActiveVisor__12CPlayerStateCFRC13CStateManager
 GetActiveVisor__12CPlayerStateCFRC13CStateManager:
@@ -335,7 +335,7 @@ lbl_80091598:
 /* 8009159C 0008E4FC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800915A0 0008E500  7C 08 03 A6 */	mtlr r0
 /* 800915A4 0008E504  38 21 00 20 */	addi r1, r1, 0x20
-/* 800915A8 0008E508  4E 80 00 20 */	blr 
+/* 800915A8 0008E508  4E 80 00 20 */	blr
 
 .global UpdateStaticInterference__12CPlayerStateFR13CStateManagerRCf
 UpdateStaticInterference__12CPlayerStateFR13CStateManagerRCf:
@@ -348,7 +348,7 @@ UpdateStaticInterference__12CPlayerStateFR13CStateManagerRCf:
 /* 800915C4 0008E524  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800915C8 0008E528  7C 08 03 A6 */	mtlr r0
 /* 800915CC 0008E52C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800915D0 0008E530  4E 80 00 20 */	blr 
+/* 800915D0 0008E530  4E 80 00 20 */	blr
 
 .global SetScanTime__12CPlayerStateFUif
 SetScanTime__12CPlayerStateFUif:
@@ -400,7 +400,7 @@ lbl_80091674:
 /* 80091680 0008E5E0  CB E1 00 38 */	lfd f31, 0x38(r1)
 /* 80091684 0008E5E4  7C 08 03 A6 */	mtlr r0
 /* 80091688 0008E5E8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8009168C 0008E5EC  4E 80 00 20 */	blr 
+/* 8009168C 0008E5EC  4E 80 00 20 */	blr
 
 .global GetScanTime__12CPlayerStateCFUi
 GetScanTime__12CPlayerStateCFUi:
@@ -448,7 +448,7 @@ lbl_80091724:
 /* 8009172C 0008E68C  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80091730 0008E690  7C 08 03 A6 */	mtlr r0
 /* 80091734 0008E694  38 21 00 40 */	addi r1, r1, 0x40
-/* 80091738 0008E698  4E 80 00 20 */	blr 
+/* 80091738 0008E698  4E 80 00 20 */	blr
 
 .global InitializeScanTimes__12CPlayerStateFv
 InitializeScanTimes__12CPlayerStateFv:
@@ -515,17 +515,17 @@ lbl_800917FC:
 /* 80091814 0008E774  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80091818 0008E778  7C 08 03 A6 */	mtlr r0
 /* 8009181C 0008E77C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80091820 0008E780  4E 80 00 20 */	blr 
+/* 80091820 0008E780  4E 80 00 20 */	blr
 
 .global GetEnergyTankCapacity__12CPlayerStateFv
 GetEnergyTankCapacity__12CPlayerStateFv:
 /* 80091824 0008E784  C0 22 8B 0C */	lfs f1, lbl_805AA82C@sda21(r2)
-/* 80091828 0008E788  4E 80 00 20 */	blr 
+/* 80091828 0008E788  4E 80 00 20 */	blr
 
 .global GetBaseHealthCapacity__12CPlayerStateFv
 GetBaseHealthCapacity__12CPlayerStateFv:
 /* 8009182C 0008E78C  C0 22 8B 10 */	lfs f1, lbl_805AA830@sda21(r2)
-/* 80091830 0008E790  4E 80 00 20 */	blr 
+/* 80091830 0008E790  4E 80 00 20 */	blr
 
 .global GetIsVisorTransitioning__12CPlayerStateCFv
 GetIsVisorTransitioning__12CPlayerStateCFv:
@@ -542,14 +542,14 @@ lbl_80091858:
 /* 80091858 0008E7B8  38 A0 00 01 */	li r5, 1
 lbl_8009185C:
 /* 8009185C 0008E7BC  7C A3 2B 78 */	mr r3, r5
-/* 80091860 0008E7C0  4E 80 00 20 */	blr 
+/* 80091860 0008E7C0  4E 80 00 20 */	blr
 
 .global GetVisorTransitionFactor__12CPlayerStateCFv
 GetVisorTransitionFactor__12CPlayerStateCFv:
 /* 80091864 0008E7C4  C0 23 00 1C */	lfs f1, 0x1c(r3)
 /* 80091868 0008E7C8  C0 02 8B 14 */	lfs f0, lbl_805AA834@sda21(r2)
 /* 8009186C 0008E7CC  EC 21 00 24 */	fdivs f1, f1, f0
-/* 80091870 0008E7D0  4E 80 00 20 */	blr 
+/* 80091870 0008E7D0  4E 80 00 20 */	blr
 
 .global UpdateVisorTransition__12CPlayerStateFf
 UpdateVisorTransition__12CPlayerStateFf:
@@ -614,18 +614,18 @@ lbl_80091938:
 /* 80091944 0008E8A4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80091948 0008E8A8  7C 08 03 A6 */	mtlr r0
 /* 8009194C 0008E8AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80091950 0008E8B0  4E 80 00 20 */	blr 
+/* 80091950 0008E8B0  4E 80 00 20 */	blr
 
 .global StartTransitionToVisor__12CPlayerStateFQ212CPlayerState12EPlayerVisor
 StartTransitionToVisor__12CPlayerStateFQ212CPlayerState12EPlayerVisor:
 /* 80091954 0008E8B4  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 80091958 0008E8B8  7C 04 00 00 */	cmpw r4, r0
-/* 8009195C 0008E8BC  4D 82 00 20 */	beqlr 
+/* 8009195C 0008E8BC  4D 82 00 20 */	beqlr
 /* 80091960 0008E8C0  90 83 00 18 */	stw r4, 0x18(r3)
 /* 80091964 0008E8C4  80 83 00 18 */	lwz r4, 0x18(r3)
 /* 80091968 0008E8C8  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8009196C 0008E8CC  7C 04 00 00 */	cmpw r4, r0
-/* 80091970 0008E8D0  4E 80 00 20 */	blr 
+/* 80091970 0008E8D0  4E 80 00 20 */	blr
 
 .global ResetVisor__12CPlayerStateFv
 ResetVisor__12CPlayerStateFv:
@@ -634,7 +634,7 @@ ResetVisor__12CPlayerStateFv:
 /* 8009197C 0008E8DC  90 03 00 18 */	stw r0, 0x18(r3)
 /* 80091980 0008E8E0  90 03 00 14 */	stw r0, 0x14(r3)
 /* 80091984 0008E8E4  D0 03 00 1C */	stfs f0, 0x1c(r3)
-/* 80091988 0008E8E8  4E 80 00 20 */	blr 
+/* 80091988 0008E8E8  4E 80 00 20 */	blr
 
 .global ItemEnabled__12CPlayerStateCFQ212CPlayerState9EItemType
 ItemEnabled__12CPlayerStateCFQ212CPlayerState9EItemType:
@@ -664,7 +664,7 @@ lbl_800919D8:
 /* 800919E0 0008E940  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800919E4 0008E944  7C 08 03 A6 */	mtlr r0
 /* 800919E8 0008E948  38 21 00 10 */	addi r1, r1, 0x10
-/* 800919EC 0008E94C  4E 80 00 20 */	blr 
+/* 800919EC 0008E94C  4E 80 00 20 */	blr
 
 .global DisableItem__12CPlayerStateFQ212CPlayerState9EItemType
 DisableItem__12CPlayerStateFQ212CPlayerState9EItemType:
@@ -689,7 +689,7 @@ lbl_80091A2C:
 /* 80091A34 0008E994  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80091A38 0008E998  7C 08 03 A6 */	mtlr r0
 /* 80091A3C 0008E99C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091A40 0008E9A0  4E 80 00 20 */	blr 
+/* 80091A40 0008E9A0  4E 80 00 20 */	blr
 
 .global EnableItem__12CPlayerStateFQ212CPlayerState9EItemType
 EnableItem__12CPlayerStateFQ212CPlayerState9EItemType:
@@ -714,7 +714,7 @@ lbl_80091A80:
 /* 80091A88 0008E9E8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80091A8C 0008E9EC  7C 08 03 A6 */	mtlr r0
 /* 80091A90 0008E9F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091A94 0008E9F4  4E 80 00 20 */	blr 
+/* 80091A94 0008E9F4  4E 80 00 20 */	blr
 
 .global GetPowerUp__12CPlayerStateFQ212CPlayerState9EItemType
 GetPowerUp__12CPlayerStateFQ212CPlayerState9EItemType:
@@ -724,12 +724,12 @@ GetPowerUp__12CPlayerStateFQ212CPlayerState9EItemType:
 /* 80091AA4 0008EA04  40 81 00 0C */	ble lbl_80091AB0
 lbl_80091AA8:
 /* 80091AA8 0008EA08  38 60 00 00 */	li r3, 0
-/* 80091AAC 0008EA0C  4E 80 00 20 */	blr 
+/* 80091AAC 0008EA0C  4E 80 00 20 */	blr
 lbl_80091AB0:
 /* 80091AB0 0008EA10  54 80 18 38 */	slwi r0, r4, 3
 /* 80091AB4 0008EA14  7C 63 02 14 */	add r3, r3, r0
 /* 80091AB8 0008EA18  80 63 00 2C */	lwz r3, 0x2c(r3)
-/* 80091ABC 0008EA1C  4E 80 00 20 */	blr 
+/* 80091ABC 0008EA1C  4E 80 00 20 */	blr
 
 .global HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType
 HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType:
@@ -739,7 +739,7 @@ HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType:
 /* 80091ACC 0008EA2C  40 81 00 0C */	ble lbl_80091AD8
 lbl_80091AD0:
 /* 80091AD0 0008EA30  38 60 00 00 */	li r3, 0
-/* 80091AD4 0008EA34  4E 80 00 20 */	blr 
+/* 80091AD4 0008EA34  4E 80 00 20 */	blr
 lbl_80091AD8:
 /* 80091AD8 0008EA38  54 80 18 38 */	slwi r0, r4, 3
 /* 80091ADC 0008EA3C  7C 63 02 14 */	add r3, r3, r0
@@ -747,7 +747,7 @@ lbl_80091AD8:
 /* 80091AE4 0008EA44  7C 03 00 D0 */	neg r0, r3
 /* 80091AE8 0008EA48  7C 00 18 78 */	andc r0, r0, r3
 /* 80091AEC 0008EA4C  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80091AF0 0008EA50  4E 80 00 20 */	blr 
+/* 80091AF0 0008EA50  4E 80 00 20 */	blr
 
 .global GetItemCapacity__12CPlayerStateCFQ212CPlayerState9EItemType
 GetItemCapacity__12CPlayerStateCFQ212CPlayerState9EItemType:
@@ -757,12 +757,12 @@ GetItemCapacity__12CPlayerStateCFQ212CPlayerState9EItemType:
 /* 80091B00 0008EA60  40 81 00 0C */	ble lbl_80091B0C
 lbl_80091B04:
 /* 80091B04 0008EA64  38 60 00 00 */	li r3, 0
-/* 80091B08 0008EA68  4E 80 00 20 */	blr 
+/* 80091B08 0008EA68  4E 80 00 20 */	blr
 lbl_80091B0C:
 /* 80091B0C 0008EA6C  54 80 18 38 */	slwi r0, r4, 3
 /* 80091B10 0008EA70  7C 63 02 14 */	add r3, r3, r0
 /* 80091B14 0008EA74  80 63 00 2C */	lwz r3, 0x2c(r3)
-/* 80091B18 0008EA78  4E 80 00 20 */	blr 
+/* 80091B18 0008EA78  4E 80 00 20 */	blr
 
 .global GetItemAmount__12CPlayerStateCFQ212CPlayerState9EItemType
 GetItemAmount__12CPlayerStateCFQ212CPlayerState9EItemType:
@@ -772,7 +772,7 @@ GetItemAmount__12CPlayerStateCFQ212CPlayerState9EItemType:
 /* 80091B28 0008EA88  40 81 00 0C */	ble lbl_80091B34
 lbl_80091B2C:
 /* 80091B2C 0008EA8C  38 60 00 00 */	li r3, 0
-/* 80091B30 0008EA90  4E 80 00 20 */	blr 
+/* 80091B30 0008EA90  4E 80 00 20 */	blr
 lbl_80091B34:
 /* 80091B34 0008EA94  2C 04 00 0F */	cmpwi r4, 0xf
 /* 80091B38 0008EA98  41 82 00 44 */	beq lbl_80091B7C
@@ -799,21 +799,21 @@ lbl_80091B7C:
 /* 80091B7C 0008EADC  54 80 18 38 */	slwi r0, r4, 3
 /* 80091B80 0008EAE0  7C 63 02 14 */	add r3, r3, r0
 /* 80091B84 0008EAE4  80 63 00 28 */	lwz r3, 0x28(r3)
-/* 80091B88 0008EAE8  4E 80 00 20 */	blr 
+/* 80091B88 0008EAE8  4E 80 00 20 */	blr
 lbl_80091B8C:
 /* 80091B8C 0008EAEC  38 60 00 00 */	li r3, 0
-/* 80091B90 0008EAF0  4E 80 00 20 */	blr 
+/* 80091B90 0008EAF0  4E 80 00 20 */	blr
 
 .global DecrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei
 DecrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091B94 0008EAF4  2C 04 00 00 */	cmpwi r4, 0
-/* 80091B98 0008EAF8  4D 80 00 20 */	bltlr 
+/* 80091B98 0008EAF8  4D 80 00 20 */	bltlr
 /* 80091B9C 0008EAFC  2C 04 00 28 */	cmpwi r4, 0x28
 /* 80091BA0 0008EB00  40 81 00 08 */	ble lbl_80091BA8
 
 .global sub_80091ba4
 sub_80091ba4:
-/* 80091BA4 0008EB04  4E 80 00 20 */	blr 
+/* 80091BA4 0008EB04  4E 80 00 20 */	blr
 lbl_80091BA8:
 /* 80091BA8 0008EB08  2C 04 00 07 */	cmpwi r4, 7
 /* 80091BAC 0008EB0C  40 80 00 10 */	bge lbl_80091BBC
@@ -822,10 +822,10 @@ lbl_80091BA8:
 
 .global sub_80091bb8
 sub_80091bb8:
-/* 80091BB8 0008EB18  4E 80 00 20 */	blr 
+/* 80091BB8 0008EB18  4E 80 00 20 */	blr
 lbl_80091BBC:
 /* 80091BBC 0008EB1C  2C 04 00 09 */	cmpwi r4, 9
-/* 80091BC0 0008EB20  4C 80 00 20 */	bgelr 
+/* 80091BC0 0008EB20  4C 80 00 20 */	bgelr
 lbl_80091BC4:
 /* 80091BC4 0008EB24  54 80 18 38 */	slwi r0, r4, 3
 /* 80091BC8 0008EB28  7C 63 02 14 */	add r3, r3, r0
@@ -834,10 +834,10 @@ lbl_80091BC4:
 /* 80091BD4 0008EB34  90 03 00 28 */	stw r0, 0x28(r3)
 /* 80091BD8 0008EB38  80 03 00 28 */	lwz r0, 0x28(r3)
 /* 80091BDC 0008EB3C  2C 00 00 00 */	cmpwi r0, 0
-/* 80091BE0 0008EB40  4C 80 00 20 */	bgelr 
+/* 80091BE0 0008EB40  4C 80 00 20 */	bgelr
 /* 80091BE4 0008EB44  38 00 00 00 */	li r0, 0
 /* 80091BE8 0008EB48  90 03 00 28 */	stw r0, 0x28(r3)
-/* 80091BEC 0008EB4C  4E 80 00 20 */	blr 
+/* 80091BEC 0008EB4C  4E 80 00 20 */	blr
 
 .global IncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei
 IncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
@@ -866,7 +866,7 @@ lbl_80091C28:
 /* 80091C44 0008EBA4  38 84 AD 40 */	addi r4, r4, lbl_803DAD40@l
 /* 80091C48 0008EBA8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 80091C4C 0008EBAC  7C 09 03 A6 */	mtctr r0
-/* 80091C50 0008EBB0  4E 80 04 20 */	bctr 
+/* 80091C50 0008EBB0  4E 80 04 20 */	bctr
 .global lbl_80091C54
 lbl_80091C54:
 /* 80091C54 0008EBB4  57 C0 18 38 */	slwi r0, r30, 3
@@ -917,7 +917,7 @@ lbl_80091CDC:
 /* 80091CF0 0008EC50  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80091CF4 0008EC54  7C 08 03 A6 */	mtlr r0
 /* 80091CF8 0008EC58  38 21 00 30 */	addi r1, r1, 0x30
-/* 80091CFC 0008EC5C  4E 80 00 20 */	blr 
+/* 80091CFC 0008EC5C  4E 80 00 20 */	blr
 
 .global ResetAndIncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei
 ResetAndIncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
@@ -932,7 +932,7 @@ ResetAndIncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091D20 0008EC80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80091D24 0008EC84  7C 08 03 A6 */	mtlr r0
 /* 80091D28 0008EC88  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091D2C 0008EC8C  4E 80 00 20 */	blr 
+/* 80091D2C 0008EC8C  4E 80 00 20 */	blr
 
 .global CalculateHealth__12CPlayerStateFUi
 CalculateHealth__12CPlayerStateFUi:
@@ -949,7 +949,7 @@ CalculateHealth__12CPlayerStateFUi:
 /* 80091D58 0008ECB8  EC 21 10 28 */	fsubs f1, f1, f2
 /* 80091D5C 0008ECBC  EC 23 00 7A */	fmadds f1, f3, f1, f0
 /* 80091D60 0008ECC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091D64 0008ECC4  4E 80 00 20 */	blr 
+/* 80091D64 0008ECC4  4E 80 00 20 */	blr
 
 .global InitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei
 InitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
@@ -1032,7 +1032,7 @@ lbl_80091E70:
 /* 80091E7C 0008EDDC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80091E80 0008EDE0  7C 08 03 A6 */	mtlr r0
 /* 80091E84 0008EDE4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80091E88 0008EDE8  4E 80 00 20 */	blr 
+/* 80091E88 0008EDE8  4E 80 00 20 */	blr
 
 .global ReInitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei
 ReInitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
@@ -1047,7 +1047,7 @@ ReInitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091EAC 0008EE0C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80091EB0 0008EE10  7C 08 03 A6 */	mtlr r0
 /* 80091EB4 0008EE14  38 21 00 10 */	addi r1, r1, 0x10
-/* 80091EB8 0008EE18  4E 80 00 20 */	blr 
+/* 80091EB8 0008EE18  4E 80 00 20 */	blr
 
 .global PutTo__12CPlayerStateFR13COutPutStream
 PutTo__12CPlayerStateFR13COutPutStream:
@@ -1147,7 +1147,7 @@ lbl_80091FC4:
 /* 80092018 0008EF78  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8009201C 0008EF7C  7C 08 03 A6 */	mtlr r0
 /* 80092020 0008EF80  38 21 00 40 */	addi r1, r1, 0x40
-/* 80092024 0008EF84  4E 80 00 20 */	blr 
+/* 80092024 0008EF84  4E 80 00 20 */	blr
 
 .global __ct__12CPlayerStateFR12CInputStream
 __ct__12CPlayerStateFR12CInputStream:
@@ -1328,7 +1328,7 @@ lbl_80092260:
 /* 800922B8 0008F218  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800922BC 0008F21C  7C 08 03 A6 */	mtlr r0
 /* 800922C0 0008F220  38 21 00 50 */	addi r1, r1, 0x50
-/* 800922C4 0008F224  4E 80 00 20 */	blr 
+/* 800922C4 0008F224  4E 80 00 20 */	blr
 
 .global __ct__12CPlayerStateFv
 __ct__12CPlayerStateFv:
@@ -1392,13 +1392,13 @@ lbl_80092370:
 /* 800923A4 0008F304  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800923A8 0008F308  7C 08 03 A6 */	mtlr r0
 /* 800923AC 0008F30C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800923B0 0008F310  4E 80 00 20 */	blr 
+/* 800923B0 0008F310  4E 80 00 20 */	blr
 
 .global __ct__Q212CPlayerState8CPowerUpFii
 __ct__Q212CPlayerState8CPowerUpFii:
 /* 800923B4 0008F314  90 83 00 00 */	stw r4, 0(r3)
 /* 800923B8 0008F318  90 A3 00 04 */	stw r5, 4(r3)
-/* 800923BC 0008F31C  4E 80 00 20 */	blr 
+/* 800923BC 0008F31C  4E 80 00 20 */	blr
 
 .global GetBitCount__12CPlayerStateFUi
 GetBitCount__12CPlayerStateFUi:
@@ -1411,7 +1411,7 @@ lbl_800923D0:
 /* 800923D0 0008F330  28 03 00 00 */	cmplwi r3, 0
 /* 800923D4 0008F334  40 82 FF F4 */	bne lbl_800923C8
 /* 800923D8 0008F338  7C 83 23 78 */	mr r3, r4
-/* 800923DC 0008F33C  4E 80 00 20 */	blr 
+/* 800923DC 0008F33C  4E 80 00 20 */	blr
 
 .global "lower_bound<PCQ24rstl10pair<Ui,f>,Ui,Q24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>>__4rstlFPCQ24rstl10pair<Ui,f>PCQ24rstl10pair<Ui,f>RCUiQ24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>"
 "lower_bound<PCQ24rstl10pair<Ui,f>,Ui,Q24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>>__4rstlFPCQ24rstl10pair<Ui,f>PCQ24rstl10pair<Ui,f>RCUiQ24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>":
@@ -1465,7 +1465,7 @@ lbl_8009247C:
 /* 80092490 0008F3F0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80092494 0008F3F4  7C 08 03 A6 */	mtlr r0
 /* 80092498 0008F3F8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009249C 0008F3FC  4E 80 00 20 */	blr 
+/* 8009249C 0008F3FC  4E 80 00 20 */	blr
 
 .global "lower_bound<PQ24rstl10pair<Ui,f>,Ui,Q24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>>__4rstlFPQ24rstl10pair<Ui,f>PQ24rstl10pair<Ui,f>RCUiQ24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>"
 "lower_bound<PQ24rstl10pair<Ui,f>,Ui,Q24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>>__4rstlFPQ24rstl10pair<Ui,f>PQ24rstl10pair<Ui,f>RCUiQ24rstl56pair_sorter_finder<Q24rstl10pair<Ui,f>,Q24rstl8less<Ui>>":
@@ -1519,7 +1519,7 @@ lbl_8009253C:
 /* 80092550 0008F4B0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80092554 0008F4B4  7C 08 03 A6 */	mtlr r0
 /* 80092558 0008F4B8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8009255C 0008F4BC  4E 80 00 20 */	blr 
+/* 8009255C 0008F4BC  4E 80 00 20 */	blr
 
 .global sub_80092560
 sub_80092560:
@@ -1593,7 +1593,7 @@ lbl_8009263C:
 /* 80092648 0008F5A8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8009264C 0008F5AC  7C 08 03 A6 */	mtlr r0
 /* 80092650 0008F5B0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80092654 0008F5B4  4E 80 00 20 */	blr 
+/* 80092654 0008F5B4  4E 80 00 20 */	blr
 
 .global "advance<PCQ24rstl10pair<Ui,f>,i>__4rstlFRPCQ24rstl10pair<Ui,f>i"
 "advance<PCQ24rstl10pair<Ui,f>,i>__4rstlFRPCQ24rstl10pair<Ui,f>i":
@@ -1607,7 +1607,7 @@ lbl_8009263C:
 /* 80092674 0008F5D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80092678 0008F5D8  7C 08 03 A6 */	mtlr r0
 /* 8009267C 0008F5DC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092680 0008F5E0  4E 80 00 20 */	blr 
+/* 80092680 0008F5E0  4E 80 00 20 */	blr
 
 .global "advance<PQ24rstl10pair<Ui,f>,i>__4rstlFRPQ24rstl10pair<Ui,f>i"
 "advance<PQ24rstl10pair<Ui,f>,i>__4rstlFRPQ24rstl10pair<Ui,f>i":
@@ -1621,7 +1621,7 @@ lbl_8009263C:
 /* 800926A0 0008F600  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800926A4 0008F604  7C 08 03 A6 */	mtlr r0
 /* 800926A8 0008F608  38 21 00 10 */	addi r1, r1, 0x10
-/* 800926AC 0008F60C  4E 80 00 20 */	blr 
+/* 800926AC 0008F60C  4E 80 00 20 */	blr
 
 .global "__advance<PCQ24rstl10pair<Ui,f>,i>__4rstlFRPCQ24rstl10pair<Ui,f>iQ24rstl26random_access_iterator_tag"
 "__advance<PCQ24rstl10pair<Ui,f>,i>__4rstlFRPCQ24rstl10pair<Ui,f>iQ24rstl26random_access_iterator_tag":
@@ -1629,7 +1629,7 @@ lbl_8009263C:
 /* 800926B4 0008F614  54 80 18 38 */	slwi r0, r4, 3
 /* 800926B8 0008F618  7C 05 02 14 */	add r0, r5, r0
 /* 800926BC 0008F61C  90 03 00 00 */	stw r0, 0(r3)
-/* 800926C0 0008F620  4E 80 00 20 */	blr 
+/* 800926C0 0008F620  4E 80 00 20 */	blr
 
 .global sub_800926c4
 sub_800926c4:
@@ -1637,7 +1637,7 @@ sub_800926c4:
 /* 800926C8 0008F628  54 80 18 38 */	slwi r0, r4, 3
 /* 800926CC 0008F62C  7C 05 02 14 */	add r0, r5, r0
 /* 800926D0 0008F630  90 03 00 00 */	stw r0, 0(r3)
-/* 800926D4 0008F634  4E 80 00 20 */	blr 
+/* 800926D4 0008F634  4E 80 00 20 */	blr
 
 .global "distance<PCQ24rstl10pair<Ui,f>>__4rstlFPCQ24rstl10pair<Ui,f>PCQ24rstl10pair<Ui,f>"
 "distance<PCQ24rstl10pair<Ui,f>>__4rstlFPCQ24rstl10pair<Ui,f>PCQ24rstl10pair<Ui,f>":
@@ -1657,7 +1657,7 @@ sub_800926c4:
 /* 8009270C 0008F66C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80092710 0008F670  7C 08 03 A6 */	mtlr r0
 /* 80092714 0008F674  38 21 00 20 */	addi r1, r1, 0x20
-/* 80092718 0008F678  4E 80 00 20 */	blr 
+/* 80092718 0008F678  4E 80 00 20 */	blr
 
 .global "distance<PQ24rstl10pair<Ui,f>>__4rstlFPQ24rstl10pair<Ui,f>PQ24rstl10pair<Ui,f>"
 "distance<PQ24rstl10pair<Ui,f>>__4rstlFPQ24rstl10pair<Ui,f>PQ24rstl10pair<Ui,f>":
@@ -1677,7 +1677,7 @@ sub_800926c4:
 /* 80092750 0008F6B0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80092754 0008F6B4  7C 08 03 A6 */	mtlr r0
 /* 80092758 0008F6B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8009275C 0008F6BC  4E 80 00 20 */	blr 
+/* 8009275C 0008F6BC  4E 80 00 20 */	blr
 
 .global "__distance<PCQ24rstl10pair<Ui,f>>__4rstlFPCQ24rstl10pair<Ui,f>PCQ24rstl10pair<Ui,f>Q24rstl26random_access_iterator_tag"
 "__distance<PCQ24rstl10pair<Ui,f>>__4rstlFPCQ24rstl10pair<Ui,f>PCQ24rstl10pair<Ui,f>Q24rstl26random_access_iterator_tag":
@@ -1686,7 +1686,7 @@ sub_800926c4:
 /* 80092768 0008F6C8  7C 03 00 50 */	subf r0, r3, r0
 /* 8009276C 0008F6CC  7C 00 1E 70 */	srawi r0, r0, 3
 /* 80092770 0008F6D0  7C 60 01 94 */	addze r3, r0
-/* 80092774 0008F6D4  4E 80 00 20 */	blr 
+/* 80092774 0008F6D4  4E 80 00 20 */	blr
 
 .global "__advance<PQ24rstl10pair<Ui,f>,i>__4rstlFRPQ24rstl10pair<Ui,f>iQ24rstl26random_access_iterator_tag"
 "__advance<PQ24rstl10pair<Ui,f>,i>__4rstlFRPQ24rstl10pair<Ui,f>iQ24rstl26random_access_iterator_tag":
@@ -1695,4 +1695,4 @@ sub_800926c4:
 /* 80092780 0008F6E0  7C 03 00 50 */	subf r0, r3, r0
 /* 80092784 0008F6E4  7C 00 1E 70 */	srawi r0, r0, 3
 /* 80092788 0008F6E8  7C 60 01 94 */	addze r3, r0
-/* 8009278C 0008F6EC  4E 80 00 20 */	blr 
+/* 8009278C 0008F6EC  4E 80 00 20 */	blr

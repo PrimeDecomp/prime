@@ -7,7 +7,7 @@ GetAnimParmValue__12CPASAnimInfoCFUi:
 /* 802E2E58 002DFDB8  54 80 10 3A */	slwi r0, r4, 2
 /* 802E2E5C 002DFDBC  7C 63 02 14 */	add r3, r3, r0
 /* 802E2E60 002DFDC0  38 63 00 08 */	addi r3, r3, 8
-/* 802E2E64 002DFDC4  4E 80 00 20 */	blr 
+/* 802E2E64 002DFDC4  4E 80 00 20 */	blr
 
 .global GetAnimParmData__12CPASAnimInfoCFUiQ212CPASAnimParm9EParmType
 GetAnimParmData__12CPASAnimInfoCFUiQ212CPASAnimParm9EParmType:
@@ -58,7 +58,7 @@ lbl_802E2EF4:
 /* 802E2EF8 002DFE58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E2EFC 002DFE5C  7C 08 03 A6 */	mtlr r0
 /* 802E2F00 002DFE60  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2F04 002DFE64  4E 80 00 20 */	blr 
+/* 802E2F04 002DFE64  4E 80 00 20 */	blr
 
 .global "__ct__12CPASAnimInfoFiRCQ24rstl47reserved_vector<Q212CPASAnimParm10UParmValue,8>"
 "__ct__12CPASAnimInfoFiRCQ24rstl47reserved_vector<Q212CPASAnimParm10UParmValue,8>":
@@ -70,7 +70,7 @@ lbl_802E2EF4:
 /* 802E2F1C 002DFE7C  80 03 00 04 */	lwz r0, 4(r3)
 /* 802E2F20 002DFE80  7C 09 03 A6 */	mtctr r0
 /* 802E2F24 002DFE84  2C 00 00 00 */	cmpwi r0, 0
-/* 802E2F28 002DFE88  4C 81 00 20 */	blelr 
+/* 802E2F28 002DFE88  4C 81 00 20 */	blelr
 lbl_802E2F2C:
 /* 802E2F2C 002DFE8C  28 04 00 00 */	cmplwi r4, 0
 /* 802E2F30 002DFE90  41 82 00 0C */	beq lbl_802E2F3C
@@ -87,4 +87,4 @@ __ct__12CPASAnimInfoFi:
 /* 802E2F4C 002DFEAC  90 83 00 00 */	stw r4, 0(r3)
 /* 802E2F50 002DFEB0  38 00 00 00 */	li r0, 0
 /* 802E2F54 002DFEB4  90 03 00 04 */	stw r0, 4(r3)
-/* 802E2F58 002DFEB8  4E 80 00 20 */	blr 
+/* 802E2F58 002DFEB8  4E 80 00 20 */	blr

@@ -57,7 +57,7 @@ lbl_802FF8E4:
 /* 802FF8EC 002FC84C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802FF8F0 002FC850  7C 08 03 A6 */	mtlr r0
 /* 802FF8F4 002FC854  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FF8F8 002FC858  4E 80 00 20 */	blr 
+/* 802FF8F8 002FC858  4E 80 00 20 */	blr
 
 .global GetBaseline__16CLineInstructionFv
 GetBaseline__16CLineInstructionFv:
@@ -73,10 +73,10 @@ lbl_802FF91C:
 /* 802FF91C 002FC87C  54 80 06 3F */	clrlwi. r0, r4, 0x18
 /* 802FF920 002FC880  41 82 00 0C */	beq lbl_802FF92C
 /* 802FF924 002FC884  80 63 00 18 */	lwz r3, 0x18(r3)
-/* 802FF928 002FC888  4E 80 00 20 */	blr 
+/* 802FF928 002FC888  4E 80 00 20 */	blr
 lbl_802FF92C:
 /* 802FF92C 002FC88C  80 63 00 24 */	lwz r3, 0x24(r3)
-/* 802FF930 002FC890  4E 80 00 20 */	blr 
+/* 802FF930 002FC890  4E 80 00 20 */	blr
 
 .global GetHeight__16CLineInstructionFv
 GetHeight__16CLineInstructionFv:
@@ -96,7 +96,7 @@ lbl_802FF960:
 /* 802FF960 002FC8C0  80 A3 00 1C */	lwz r5, 0x1c(r3)
 lbl_802FF964:
 /* 802FF964 002FC8C4  7C A3 2B 78 */	mr r3, r5
-/* 802FF968 002FC8C8  4E 80 00 20 */	blr 
+/* 802FF968 002FC8C8  4E 80 00 20 */	blr
 
 .global TestLargestImage__16CLineInstructionFiii
 TestLargestImage__16CLineInstructionFiii:
@@ -112,10 +112,10 @@ lbl_802FF97C:
 lbl_802FF98C:
 /* 802FF98C 002FC8EC  80 03 00 1C */	lwz r0, 0x1c(r3)
 /* 802FF990 002FC8F0  7C 00 28 00 */	cmpw r0, r5
-/* 802FF994 002FC8F4  4C 80 00 20 */	bgelr 
+/* 802FF994 002FC8F4  4C 80 00 20 */	bgelr
 /* 802FF998 002FC8F8  90 A3 00 1C */	stw r5, 0x1c(r3)
 /* 802FF99C 002FC8FC  90 C3 00 24 */	stw r6, 0x24(r3)
-/* 802FF9A0 002FC900  4E 80 00 20 */	blr 
+/* 802FF9A0 002FC900  4E 80 00 20 */	blr
 
 .global TestLargestFont__16CLineInstructionFiii
 TestLargestFont__16CLineInstructionFiii:
@@ -131,10 +131,10 @@ lbl_802FF9B4:
 lbl_802FF9C4:
 /* 802FF9C4 002FC924  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 802FF9C8 002FC928  7C 00 28 00 */	cmpw r0, r5
-/* 802FF9CC 002FC92C  4C 80 00 20 */	bgelr 
+/* 802FF9CC 002FC92C  4C 80 00 20 */	bgelr
 /* 802FF9D0 002FC930  90 A3 00 10 */	stw r5, 0x10(r3)
 /* 802FF9D4 002FC934  90 C3 00 18 */	stw r6, 0x18(r3)
-/* 802FF9D8 002FC938  4E 80 00 20 */	blr 
+/* 802FF9D8 002FC938  4E 80 00 20 */	blr
 
 .global SetLineSpacing__16CFontRenderStateFf
 SetLineSpacing__16CFontRenderStateFf:
@@ -147,7 +147,7 @@ SetLineSpacing__16CFontRenderStateFf:
 /* 802FF9F4 002FC954  38 A5 D6 4C */	addi r5, r5, lbl_803ED64C@l
 /* 802FF9F8 002FC958  7C 05 00 2E */	lwzx r0, r5, r0
 /* 802FF9FC 002FC95C  7C 09 03 A6 */	mtctr r0
-/* 802FFA00 002FC960  4E 80 04 20 */	bctr 
+/* 802FFA00 002FC960  4E 80 04 20 */	bctr
 .global lbl_802FFA04
 lbl_802FFA04:
 /* 802FFA04 002FC964  80 64 00 88 */	lwz r3, 0x88(r4)
@@ -306,7 +306,7 @@ lbl_802FFC0C:
 /* 802FFC14 002FCB74  90 04 00 D8 */	stw r0, 0xd8(r4)
 lbl_802FFC18:
 /* 802FFC18 002FCB78  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FFC1C 002FCB7C  4E 80 00 20 */	blr 
+/* 802FFC1C 002FCB7C  4E 80 00 20 */	blr
 
 .global PageInvoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 PageInvoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
@@ -319,12 +319,12 @@ PageInvoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer:
 /* 802FFC38 002FCB98  81 83 00 00 */	lwz r12, 0(r3)
 /* 802FFC3C 002FCB9C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802FFC40 002FCBA0  7D 89 03 A6 */	mtctr r12
-/* 802FFC44 002FCBA4  4E 80 04 21 */	bctrl 
+/* 802FFC44 002FCBA4  4E 80 04 21 */	bctrl
 lbl_802FFC48:
 /* 802FFC48 002FCBA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802FFC4C 002FCBAC  7C 08 03 A6 */	mtlr r0
 /* 802FFC50 002FCBB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802FFC54 002FCBB4  4E 80 00 20 */	blr 
+/* 802FFC54 002FCBB4  4E 80 00 20 */	blr
 
 .global Invoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer
 Invoke__16CLineInstructionCFR16CFontRenderStateP17CTextRenderBuffer:

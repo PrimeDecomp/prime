@@ -48,12 +48,12 @@ lbl_8014D408:
 /* 8014D410 0014A370  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8014D414 0014A374  7C 08 03 A6 */	mtlr r0
 /* 8014D418 0014A378  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014D41C 0014A37C  4E 80 00 20 */	blr 
+/* 8014D41C 0014A37C  4E 80 00 20 */	blr
 
 .global CanShoot__19CBSProjectileAttackCFv
 CanShoot__19CBSProjectileAttackCFv:
 /* 8014D420 0014A380  38 60 00 01 */	li r3, 1
-/* 8014D424 0014A384  4E 80 00 20 */	blr 
+/* 8014D424 0014A384  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__19CBSProjectileAttackFfR15CBodyController
 GetBodyStateTransition__19CBSProjectileAttackFfR15CBodyController:
@@ -123,11 +123,11 @@ lbl_8014D4FC:
 /* 8014D504 0014A464  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014D508 0014A468  7C 08 03 A6 */	mtlr r0
 /* 8014D50C 0014A46C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014D510 0014A470  4E 80 00 20 */	blr 
+/* 8014D510 0014A470  4E 80 00 20 */	blr
 
 .global Shutdown__19CBSProjectileAttackFR15CBodyController
 Shutdown__19CBSProjectileAttackFR15CBodyController:
-/* 8014D514 0014A474  4E 80 00 20 */	blr 
+/* 8014D514 0014A474  4E 80 00 20 */	blr
 
 .global UpdateBody__19CBSProjectileAttackFfR15CBodyControllerR13CStateManager
 UpdateBody__19CBSProjectileAttackFfR15CBodyControllerR13CStateManager:
@@ -174,7 +174,7 @@ lbl_8014D598:
 /* 8014D5AC 0014A50C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014D5B0 0014A510  7C 08 03 A6 */	mtlr r0
 /* 8014D5B4 0014A514  38 21 00 20 */	addi r1, r1, 0x20
-/* 8014D5B8 0014A518  4E 80 00 20 */	blr 
+/* 8014D5B8 0014A518  4E 80 00 20 */	blr
 
 .global Start__19CBSProjectileAttackFR15CBodyControllerR13CStateManager
 Start__19CBSProjectileAttackFR15CBodyControllerR13CStateManager:
@@ -407,7 +407,7 @@ lbl_8014D908:
 /* 8014D91C 0014A87C  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 8014D920 0014A880  7C 08 03 A6 */	mtlr r0
 /* 8014D924 0014A884  38 21 01 80 */	addi r1, r1, 0x180
-/* 8014D928 0014A888  4E 80 00 20 */	blr 
+/* 8014D928 0014A888  4E 80 00 20 */	blr
 
 .global __ct__19CBSProjectileAttackFv
 __ct__19CBSProjectileAttackFv:

@@ -55,11 +55,11 @@ Accept__19CScriptGrapplePointFR8IVisitor:
 /* 8012F78C 0012C6EC  7C 04 03 78 */	mr r4, r0
 /* 8012F790 0012C6F0  81 8C 00 8C */	lwz r12, 0x8c(r12)
 /* 8012F794 0012C6F4  7D 89 03 A6 */	mtctr r12
-/* 8012F798 0012C6F8  4E 80 04 21 */	bctrl 
+/* 8012F798 0012C6F8  4E 80 04 21 */	bctrl
 /* 8012F79C 0012C6FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012F7A0 0012C700  7C 08 03 A6 */	mtlr r0
 /* 8012F7A4 0012C704  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F7A8 0012C708  4E 80 00 20 */	blr 
+/* 8012F7A8 0012C708  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__19CScriptGrapplePointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__19CScriptGrapplePointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -86,7 +86,7 @@ lbl_8012F7D8:
 /* 8012F7F8 0012C758  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8012F7FC 0012C75C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8012F800 0012C760  7D 89 03 A6 */	mtctr r12
-/* 8012F804 0012C764  4E 80 04 21 */	bctrl 
+/* 8012F804 0012C764  4E 80 04 21 */	bctrl
 /* 8012F808 0012C768  48 00 00 34 */	b lbl_8012F83C
 lbl_8012F80C:
 /* 8012F80C 0012C76C  88 1F 00 30 */	lbz r0, 0x30(r31)
@@ -100,28 +100,28 @@ lbl_8012F80C:
 /* 8012F82C 0012C78C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8012F830 0012C790  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8012F834 0012C794  7D 89 03 A6 */	mtctr r12
-/* 8012F838 0012C798  4E 80 04 21 */	bctrl 
+/* 8012F838 0012C798  4E 80 04 21 */	bctrl
 lbl_8012F83C:
 /* 8012F83C 0012C79C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012F840 0012C7A0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8012F844 0012C7A4  7C 08 03 A6 */	mtlr r0
 /* 8012F848 0012C7A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F84C 0012C7AC  4E 80 00 20 */	blr 
+/* 8012F84C 0012C7AC  4E 80 00 20 */	blr
 
 .global Think__19CScriptGrapplePointFfR13CStateManager
 Think__19CScriptGrapplePointFfR13CStateManager:
-/* 8012F850 0012C7B0  4E 80 00 20 */	blr 
+/* 8012F850 0012C7B0  4E 80 00 20 */	blr
 
 .global Render__19CScriptGrapplePointCFRC13CStateManager
 Render__19CScriptGrapplePointCFRC13CStateManager:
-/* 8012F854 0012C7B4  4E 80 00 20 */	blr 
+/* 8012F854 0012C7B4  4E 80 00 20 */	blr
 
 .global GetTouchBounds__19CScriptGrapplePointCFv
 GetTouchBounds__19CScriptGrapplePointCFv:
 /* 8012F858 0012C7B8  38 00 00 01 */	li r0, 1
 /* 8012F85C 0012C7BC  28 03 00 00 */	cmplwi r3, 0
 /* 8012F860 0012C7C0  98 03 00 18 */	stb r0, 0x18(r3)
-/* 8012F864 0012C7C4  4D 82 00 20 */	beqlr 
+/* 8012F864 0012C7C4  4D 82 00 20 */	beqlr
 /* 8012F868 0012C7C8  C0 04 00 E8 */	lfs f0, 0xe8(r4)
 /* 8012F86C 0012C7CC  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8012F870 0012C7D0  C0 04 00 EC */	lfs f0, 0xec(r4)
@@ -134,7 +134,7 @@ GetTouchBounds__19CScriptGrapplePointCFv:
 /* 8012F88C 0012C7EC  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 8012F890 0012C7F0  C0 04 00 FC */	lfs f0, 0xfc(r4)
 /* 8012F894 0012C7F4  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8012F898 0012C7F8  4E 80 00 20 */	blr 
+/* 8012F898 0012C7F8  4E 80 00 20 */	blr
 
 .global AddToRenderer__19CScriptGrapplePointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__19CScriptGrapplePointCFRC14CFrustumPlanesRC13CStateManager:
@@ -146,7 +146,7 @@ AddToRenderer__19CScriptGrapplePointCFRC14CFrustumPlanesRC13CStateManager:
 /* 8012F8B0 0012C810  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012F8B4 0012C814  7C 08 03 A6 */	mtlr r0
 /* 8012F8B8 0012C818  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F8BC 0012C81C  4E 80 00 20 */	blr 
+/* 8012F8BC 0012C81C  4E 80 00 20 */	blr
 
 .global __dt__19CScriptGrapplePointFv
 __dt__19CScriptGrapplePointFv:
@@ -174,7 +174,7 @@ lbl_8012F904:
 /* 8012F910 0012C870  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8012F914 0012C874  7C 08 03 A6 */	mtlr r0
 /* 8012F918 0012C878  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012F91C 0012C87C  4E 80 00 20 */	blr 
+/* 8012F91C 0012C87C  4E 80 00 20 */	blr
 
 .global "__ct__19CScriptGrapplePointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC18CGrappleParameters"
 "__ct__19CScriptGrapplePointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbRC18CGrappleParameters":

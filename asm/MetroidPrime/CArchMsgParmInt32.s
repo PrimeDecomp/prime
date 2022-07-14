@@ -9,7 +9,7 @@ lbl_803D9E50:
 	.4byte 0
 	.4byte __dt__17CArchMsgParmInt32Fv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __dt__17CArchMsgParmInt32Fv
@@ -38,7 +38,7 @@ lbl_8005160C:
 /* 80051614 0004E574  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80051618 0004E578  7C 08 03 A6 */	mtlr r0
 /* 8005161C 0004E57C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80051620 0004E580  4E 80 00 20 */	blr 
+/* 80051620 0004E580  4E 80 00 20 */	blr
 
 .global __ct__17CArchMsgParmInt32Fi
 __ct__17CArchMsgParmInt32Fi:
@@ -49,4 +49,4 @@ __ct__17CArchMsgParmInt32Fi:
 /* 80051634 0004E594  38 05 9E 50 */	addi r0, r5, lbl_803D9E50@l
 /* 80051638 0004E598  90 03 00 00 */	stw r0, 0(r3)
 /* 8005163C 0004E59C  90 83 00 04 */	stw r4, 4(r3)
-/* 80051640 0004E5A0  4E 80 00 20 */	blr 
+/* 80051640 0004E5A0  4E 80 00 20 */	blr

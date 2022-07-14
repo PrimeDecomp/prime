@@ -28,14 +28,14 @@ lbl_8037E0A0:
 /* 8037E0A0 0037B000  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8037E0A4 0037B004  38 21 00 08 */	addi r1, r1, 8
 /* 8037E0A8 0037B008  7C 08 03 A6 */	mtlr r0
-/* 8037E0AC 0037B00C  4E 80 00 20 */	blr 
+/* 8037E0AC 0037B00C  4E 80 00 20 */	blr
 
 .global OSCreateAlarm
 OSCreateAlarm:
 /* 8037E0B0 0037B010  38 00 00 00 */	li r0, 0
 /* 8037E0B4 0037B014  90 03 00 00 */	stw r0, 0(r3)
 /* 8037E0B8 0037B018  90 03 00 04 */	stw r0, 4(r3)
-/* 8037E0BC 0037B01C  4E 80 00 20 */	blr 
+/* 8037E0BC 0037B01C  4E 80 00 20 */	blr
 
 .global InsertAlarm
 InsertAlarm:
@@ -197,7 +197,7 @@ lbl_8037E2FC:
 /* 8037E300 0037B260  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8037E304 0037B264  38 21 00 40 */	addi r1, r1, 0x40
 /* 8037E308 0037B268  7C 08 03 A6 */	mtlr r0
-/* 8037E30C 0037B26C  4E 80 00 20 */	blr 
+/* 8037E30C 0037B26C  4E 80 00 20 */	blr
 
 .global OSSetAlarm
 OSSetAlarm:
@@ -226,7 +226,7 @@ OSSetAlarm:
 /* 8037E368 0037B2C8  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 8037E36C 0037B2CC  38 21 00 38 */	addi r1, r1, 0x38
 /* 8037E370 0037B2D0  7C 08 03 A6 */	mtlr r0
-/* 8037E374 0037B2D4  4E 80 00 20 */	blr 
+/* 8037E374 0037B2D4  4E 80 00 20 */	blr
 
 .global OSSetPeriodicAlarm
 OSSetPeriodicAlarm:
@@ -260,7 +260,7 @@ OSSetPeriodicAlarm:
 /* 8037E3E4 0037B344  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8037E3E8 0037B348  38 21 00 40 */	addi r1, r1, 0x40
 /* 8037E3EC 0037B34C  7C 08 03 A6 */	mtlr r0
-/* 8037E3F0 0037B350  4E 80 00 20 */	blr 
+/* 8037E3F0 0037B350  4E 80 00 20 */	blr
 
 .global OSCancelAlarm
 OSCancelAlarm:
@@ -342,7 +342,7 @@ lbl_8037E4F4:
 /* 8037E500 0037B460  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8037E504 0037B464  38 21 00 20 */	addi r1, r1, 0x20
 /* 8037E508 0037B468  7C 08 03 A6 */	mtlr r0
-/* 8037E50C 0037B46C  4E 80 00 20 */	blr 
+/* 8037E50C 0037B46C  4E 80 00 20 */	blr
 
 .global DecrementerExceptionCallback
 DecrementerExceptionCallback:
@@ -480,7 +480,7 @@ lbl_8037E6D8:
 /* 8037E6F0 0037B650  7D 88 03 A6 */	mtlr r12
 /* 8037E6F4 0037B654  38 7F 00 00 */	addi r3, r31, 0
 /* 8037E6F8 0037B658  38 9D 00 00 */	addi r4, r29, 0
-/* 8037E6FC 0037B65C  4E 80 00 21 */	blrl 
+/* 8037E6FC 0037B65C  4E 80 00 21 */	blrl
 /* 8037E700 0037B660  38 61 00 18 */	addi r3, r1, 0x18
 /* 8037E704 0037B664  48 00 0F 11 */	bl OSClearContext
 /* 8037E708 0037B668  7F A3 EB 78 */	mr r3, r29
@@ -496,7 +496,7 @@ lbl_8037E6D8:
 /* 8037E730 0037B690  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 8037E734 0037B694  38 21 02 F0 */	addi r1, r1, 0x2f0
 /* 8037E738 0037B698  7C 08 03 A6 */	mtlr r0
-/* 8037E73C 0037B69C  4E 80 00 20 */	blr 
+/* 8037E73C 0037B69C  4E 80 00 20 */	blr
 
 .global DecrementerExceptionHandler
 DecrementerExceptionHandler:

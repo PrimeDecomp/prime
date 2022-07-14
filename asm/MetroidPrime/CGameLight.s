@@ -71,7 +71,7 @@ lbl_800B55E4:
 /* 800B55F0 000B2550  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B55F4 000B2554  7C 08 03 A6 */	mtlr r0
 /* 800B55F8 000B2558  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B55FC 000B255C  4E 80 00 20 */	blr 
+/* 800B55FC 000B255C  4E 80 00 20 */	blr
 
 .global SetLightPriorityAndId__10CGameLightFv
 SetLightPriorityAndId__10CGameLightFv:
@@ -79,7 +79,7 @@ SetLightPriorityAndId__10CGameLightFv:
 /* 800B5604 000B2564  90 03 01 28 */	stw r0, 0x128(r3)
 /* 800B5608 000B2568  80 03 01 3C */	lwz r0, 0x13c(r3)
 /* 800B560C 000B256C  90 03 01 2C */	stw r0, 0x12c(r3)
-/* 800B5610 000B2570  4E 80 00 20 */	blr 
+/* 800B5610 000B2570  4E 80 00 20 */	blr
 
 .global Accept__10CGameLightFR8IVisitor
 Accept__10CGameLightFR8IVisitor:
@@ -92,11 +92,11 @@ Accept__10CGameLightFR8IVisitor:
 /* 800B562C 000B258C  7C 04 03 78 */	mr r4, r0
 /* 800B5630 000B2590  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 800B5634 000B2594  7D 89 03 A6 */	mtctr r12
-/* 800B5638 000B2598  4E 80 04 21 */	bctrl 
+/* 800B5638 000B2598  4E 80 04 21 */	bctrl
 /* 800B563C 000B259C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B5640 000B25A0  7C 08 03 A6 */	mtlr r0
 /* 800B5644 000B25A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B5648 000B25A8  4E 80 00 20 */	blr 
+/* 800B5648 000B25A8  4E 80 00 20 */	blr
 
 .global Think__10CGameLightFfR13CStateManager
 Think__10CGameLightFfR13CStateManager:
@@ -123,7 +123,7 @@ lbl_800B5698:
 /* 800B5698 000B25F8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B569C 000B25FC  7C 08 03 A6 */	mtlr r0
 /* 800B56A0 000B2600  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B56A4 000B2604  4E 80 00 20 */	blr 
+/* 800B56A4 000B2604  4E 80 00 20 */	blr
 
 .global GetLight__10CGameLightCFv
 GetLight__10CGameLightCFv:
@@ -166,7 +166,7 @@ lbl_800B5720:
 /* 800B5734 000B2694  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 800B5738 000B2698  7C 08 03 A6 */	mtlr r0
 /* 800B573C 000B269C  38 21 00 90 */	addi r1, r1, 0x90
-/* 800B5740 000B26A0  4E 80 00 20 */	blr 
+/* 800B5740 000B26A0  4E 80 00 20 */	blr
 
 .global SetLight__10CGameLightFRC6CLight
 SetLight__10CGameLightFRC6CLight:
@@ -225,7 +225,7 @@ SetLight__10CGameLightFRC6CLight:
 /* 800B5814 000B2774  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800B5818 000B2778  7C 08 03 A6 */	mtlr r0
 /* 800B581C 000B277C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B5820 000B2780  4E 80 00 20 */	blr 
+/* 800B5820 000B2780  4E 80 00 20 */	blr
 
 .global "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif"
 "__ct__10CGameLightF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4f9TUniqueIdRC6CLightUiUif":
@@ -336,4 +336,4 @@ lbl_800B5968:
 /* 800B59B8 000B2918  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 800B59BC 000B291C  7C 08 03 A6 */	mtlr r0
 /* 800B59C0 000B2920  38 21 01 40 */	addi r1, r1, 0x140
-/* 800B59C4 000B2924  4E 80 00 20 */	blr 
+/* 800B59C4 000B2924  4E 80 00 20 */	blr

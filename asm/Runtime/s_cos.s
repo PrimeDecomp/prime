@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global cos
 cos:
@@ -64,4 +64,4 @@ lbl_803944B4:
 /* 803944B4 00391414  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803944B8 00391418  7C 08 03 A6 */	mtlr r0
 /* 803944BC 0039141C  38 21 00 20 */	addi r1, r1, 0x20
-/* 803944C0 00391420  4E 80 00 20 */	blr 
+/* 803944C0 00391420  4E 80 00 20 */	blr

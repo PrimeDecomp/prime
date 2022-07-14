@@ -64,7 +64,7 @@ lbl_805A7FD8:
 
 .global PreRender__8CRagDollFRC9CVector3fR10CModelData
 PreRender__8CRagDollFRC9CVector3fR10CModelData:
-/* 8020C854 002097B4  4E 80 00 20 */	blr 
+/* 8020C854 002097B4  4E 80 00 20 */	blr
 
 .global CalculateRenderBounds__8CRagDollCFv
 CalculateRenderBounds__8CRagDollCFv:
@@ -135,7 +135,7 @@ lbl_8020C92C:
 /* 8020C94C 002098AC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8020C950 002098B0  7C 08 03 A6 */	mtlr r0
 /* 8020C954 002098B4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8020C958 002098B8  4E 80 00 20 */	blr 
+/* 8020C958 002098B8  4E 80 00 20 */	blr
 
 .global BoneAlign__8CRagDollFR21CHierarchyPoseBuilderRC15CCharLayoutInfoiiRC11CQuaternion
 BoneAlign__8CRagDollFR21CHierarchyPoseBuilderRC15CCharLayoutInfoiiRC11CQuaternion:
@@ -239,7 +239,7 @@ BoneAlign__8CRagDollFR21CHierarchyPoseBuilderRC15CCharLayoutInfoiiRC11CQuaternio
 /* 8020CAE0 00209A40  D0 61 00 4C */	stfs f3, 0x4c(r1)
 /* 8020CAE4 00209A44  7C 08 03 A6 */	mtlr r0
 /* 8020CAE8 00209A48  38 21 00 90 */	addi r1, r1, 0x90
-/* 8020CAEC 00209A4C  4E 80 00 20 */	blr 
+/* 8020CAEC 00209A4C  4E 80 00 20 */	blr
 
 .global AddJointConstraint__8CRagDollFiiiiii
 AddJointConstraint__8CRagDollFiiiiii:
@@ -292,7 +292,7 @@ lbl_8020CB8C:
 /* 8020CB9C 00209AFC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8020CBA0 00209B00  7C 08 03 A6 */	mtlr r0
 /* 8020CBA4 00209B04  38 21 00 30 */	addi r1, r1, 0x30
-/* 8020CBA8 00209B08  4E 80 00 20 */	blr 
+/* 8020CBA8 00209B08  4E 80 00 20 */	blr
 
 .global AddMaxLengthConstraint__8CRagDollFiif
 AddMaxLengthConstraint__8CRagDollFiif:
@@ -343,7 +343,7 @@ lbl_8020CC34:
 /* 8020CC50 00209BB0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020CC54 00209BB4  7C 08 03 A6 */	mtlr r0
 /* 8020CC58 00209BB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020CC5C 00209BBC  4E 80 00 20 */	blr 
+/* 8020CC5C 00209BBC  4E 80 00 20 */	blr
 
 .global AddMinLengthConstraint__8CRagDollFiif
 AddMinLengthConstraint__8CRagDollFiif:
@@ -394,7 +394,7 @@ lbl_8020CCE8:
 /* 8020CD04 00209C64  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020CD08 00209C68  7C 08 03 A6 */	mtlr r0
 /* 8020CD0C 00209C6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020CD10 00209C70  4E 80 00 20 */	blr 
+/* 8020CD10 00209C70  4E 80 00 20 */	blr
 
 .global AddLengthConstraint__8CRagDollFii
 AddLengthConstraint__8CRagDollFii:
@@ -466,7 +466,7 @@ lbl_8020CDE8:
 /* 8020CE0C 00209D6C  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8020CE10 00209D70  7C 08 03 A6 */	mtlr r0
 /* 8020CE14 00209D74  38 21 00 40 */	addi r1, r1, 0x40
-/* 8020CE18 00209D78  4E 80 00 20 */	blr 
+/* 8020CE18 00209D78  4E 80 00 20 */	blr
 
 .global AddParticle__8CRagDollFRC6CSegIdRC9CVector3fRC9CVector3ff
 AddParticle__8CRagDollFRC6CSegIdRC9CVector3fRC9CVector3ff:
@@ -514,7 +514,7 @@ AddParticle__8CRagDollFRC6CSegIdRC9CVector3fRC9CVector3ff:
 /* 8020CEC0 00209E20  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8020CEC4 00209E24  7C 08 03 A6 */	mtlr r0
 /* 8020CEC8 00209E28  38 21 00 50 */	addi r1, r1, 0x50
-/* 8020CECC 00209E2C  4E 80 00 20 */	blr 
+/* 8020CECC 00209E2C  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl64vector<Q28CRagDoll16CRagDollParticle,Q24rstl17rmemory_allocator>FRCQ28CRagDoll16CRagDollParticle"
 "push_back__Q24rstl64vector<Q28CRagDoll16CRagDollParticle,Q24rstl17rmemory_allocator>FRCQ28CRagDoll16CRagDollParticle":
@@ -582,7 +582,7 @@ lbl_8020CFA4:
 /* 8020CFB8 00209F18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8020CFBC 00209F1C  7C 08 03 A6 */	mtlr r0
 /* 8020CFC0 00209F20  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020CFC4 00209F24  4E 80 00 20 */	blr 
+/* 8020CFC4 00209F24  4E 80 00 20 */	blr
 
 .global Update__Q28CRagDoll23CRagDollPlaneConstraintFv
 Update__Q28CRagDoll23CRagDollPlaneConstraintFv:
@@ -657,7 +657,7 @@ lbl_8020D0D0:
 /* 8020D0D4 0020A034  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8020D0D8 0020A038  7C 08 03 A6 */	mtlr r0
 /* 8020D0DC 0020A03C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8020D0E0 0020A040  4E 80 00 20 */	blr 
+/* 8020D0E0 0020A040  4E 80 00 20 */	blr
 
 .global Update__Q28CRagDoll23CRagDollJointConstraintFv
 Update__Q28CRagDoll23CRagDollJointConstraintFv:
@@ -790,7 +790,7 @@ lbl_8020D2BC:
 /* 8020D2D8 0020A238  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 8020D2DC 0020A23C  7C 08 03 A6 */	mtlr r0
 /* 8020D2E0 0020A240  38 21 00 70 */	addi r1, r1, 0x70
-/* 8020D2E4 0020A244  4E 80 00 20 */	blr 
+/* 8020D2E4 0020A244  4E 80 00 20 */	blr
 
 .global Update__Q28CRagDoll24CRagDollLengthConstraintFv
 Update__Q28CRagDoll24CRagDollLengthConstraintFv:
@@ -829,7 +829,7 @@ lbl_8020D358:
 /* 8020D360 0020A2C0  54 06 17 FE */	rlwinm r6, r0, 2, 0x1f, 0x1f
 lbl_8020D364:
 /* 8020D364 0020A2C4  54 C0 06 3F */	clrlwi. r0, r6, 0x18
-/* 8020D368 0020A2C8  4D 82 00 20 */	beqlr 
+/* 8020D368 0020A2C8  4D 82 00 20 */	beqlr
 /* 8020D36C 0020A2CC  EC 40 30 2A */	fadds f2, f0, f6
 /* 8020D370 0020A2D0  C0 22 B1 D0 */	lfs f1, lbl_805ACEF0@sda21(r2)
 /* 8020D374 0020A2D4  C0 05 00 04 */	lfs f0, 4(r5)
@@ -855,7 +855,7 @@ lbl_8020D364:
 /* 8020D3C4 0020A324  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 8020D3C8 0020A328  EC 00 08 2A */	fadds f0, f0, f1
 /* 8020D3CC 0020A32C  D0 04 00 0C */	stfs f0, 0xc(r4)
-/* 8020D3D0 0020A330  4E 80 00 20 */	blr 
+/* 8020D3D0 0020A330  4E 80 00 20 */	blr
 
 .global Update__8CRagDollFR13CStateManagerff
 Update__8CRagDollFR13CStateManagerff:
@@ -896,7 +896,7 @@ lbl_8020D448:
 /* 8020D454 0020A3B4  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 8020D458 0020A3B8  7C 08 03 A6 */	mtlr r0
 /* 8020D45C 0020A3BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020D460 0020A3C0  4E 80 00 20 */	blr 
+/* 8020D460 0020A3C0  4E 80 00 20 */	blr
 
 .global CheckStatic__8CRagDollFf
 CheckStatic__8CRagDollFf:
@@ -1044,7 +1044,7 @@ lbl_8020D650:
 /* 8020D67C 0020A5DC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8020D680 0020A5E0  7C 08 03 A6 */	mtlr r0
 /* 8020D684 0020A5E4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8020D688 0020A5E8  4E 80 00 20 */	blr 
+/* 8020D688 0020A5E8  4E 80 00 20 */	blr
 
 .global ClearForces__8CRagDollFv
 ClearForces__8CRagDollFv:
@@ -1072,7 +1072,7 @@ lbl_8020D6CC:
 
 .global sub_8020d6d8
 sub_8020d6d8:
-/* 8020D6D8 0020A638  4E 80 00 20 */	blr 
+/* 8020D6D8 0020A638  4E 80 00 20 */	blr
 
 .global SatisfyConstraints__8CRagDollFR13CStateManager
 SatisfyConstraints__8CRagDollFR13CStateManager:
@@ -1142,7 +1142,7 @@ lbl_8020D7AC:
 /* 8020D7BC 0020A71C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8020D7C0 0020A720  7C 08 03 A6 */	mtlr r0
 /* 8020D7C4 0020A724  38 21 00 20 */	addi r1, r1, 0x20
-/* 8020D7C8 0020A728  4E 80 00 20 */	blr 
+/* 8020D7C8 0020A728  4E 80 00 20 */	blr
 
 .global SatisfyWorldConstraints__8CRagDollFR13CStateManageri
 SatisfyWorldConstraints__8CRagDollFR13CStateManageri:
@@ -1703,7 +1703,7 @@ lbl_8020DFC4:
 /* 8020E008 0020AF68  80 01 25 14 */	lwz r0, 0x2514(r1)
 /* 8020E00C 0020AF6C  7C 08 03 A6 */	mtlr r0
 /* 8020E010 0020AF70  38 21 25 10 */	addi r1, r1, 0x2510
-/* 8020E014 0020AF74  4E 80 00 20 */	blr 
+/* 8020E014 0020AF74  4E 80 00 20 */	blr
 
 .global AccumulateForces__8CRagDollFff
 AccumulateForces__8CRagDollFff:
@@ -1994,7 +1994,7 @@ lbl_8020E410:
 /* 8020E45C 0020B3BC  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 8020E460 0020B3C0  7C 08 03 A6 */	mtlr r0
 /* 8020E464 0020B3C4  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 8020E468 0020B3C8  4E 80 00 20 */	blr 
+/* 8020E468 0020B3C8  4E 80 00 20 */	blr
 
 .global Verlet__8CRagDollFf
 Verlet__8CRagDollFf:
@@ -2156,7 +2156,7 @@ lbl_8020E6A4:
 /* 8020E6C4 0020B624  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8020E6C8 0020B628  7C 08 03 A6 */	mtlr r0
 /* 8020E6CC 0020B62C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8020E6D0 0020B630  4E 80 00 20 */	blr 
+/* 8020E6D0 0020B630  4E 80 00 20 */	blr
 
 .global Prime__8CRagDollFR13CStateManagerRC12CTransform4fR10CModelData
 Prime__8CRagDollFR13CStateManagerRC12CTransform4fR10CModelData:
@@ -2248,7 +2248,7 @@ lbl_8020E7F4:
 /* 8020E814 0020B774  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8020E818 0020B778  7C 08 03 A6 */	mtlr r0
 /* 8020E81C 0020B77C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8020E820 0020B780  4E 80 00 20 */	blr 
+/* 8020E820 0020B780  4E 80 00 20 */	blr
 
 .global SatisfyWorldConstraintsOnConstruction__8CRagDollFR13CStateManager
 SatisfyWorldConstraintsOnConstruction__8CRagDollFR13CStateManager:
@@ -2298,7 +2298,7 @@ lbl_8020E8B0:
 /* 8020E8C0 0020B820  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8020E8C4 0020B824  7C 08 03 A6 */	mtlr r0
 /* 8020E8C8 0020B828  38 21 00 10 */	addi r1, r1, 0x10
-/* 8020E8CC 0020B82C  4E 80 00 20 */	blr 
+/* 8020E8CC 0020B82C  4E 80 00 20 */	blr
 
 .global __ct__8CRagDollFfffUi
 __ct__8CRagDollFfffUi:

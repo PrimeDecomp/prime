@@ -22,7 +22,7 @@ lbl_8046D34C:
 
 .global nullsub_5
 nullsub_5:
-/* 80233FB0 00230F10  4E 80 00 20 */	blr 
+/* 80233FB0 00230F10  4E 80 00 20 */	blr
 
 .global GetAreaLayerCount__16CWorldLayerStateFi
 GetAreaLayerCount__16CWorldLayerStateFi:
@@ -32,7 +32,7 @@ GetAreaLayerCount__16CWorldLayerStateFi:
 /* 80233FC0 00230F20  7C 63 00 2E */	lwzx r3, r3, r0
 .global lbl_80233FC4
 lbl_80233FC4:
-/* 80233FC4 00230F24  4E 80 00 20 */	blr 
+/* 80233FC4 00230F24  4E 80 00 20 */	blr
 
 .global "InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>"
 "InitializeWorldLayers__16CWorldLayerStateFQ24rstl6vector<Q2CWorldLayers4Area>":
@@ -131,7 +131,7 @@ lbl_80234118:
 /* 8023411C 0023107C  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80234120 00231080  7C 08 03 A6 */	mtlr r0
 /* 80234124 00231084  38 21 00 70 */	addi r1, r1, 0x70
-/* 80234128 00231088  4E 80 00 20 */	blr 
+/* 80234128 00231088  4E 80 00 20 */	blr
 
 .global sub_8023412c
 sub_8023412c:
@@ -150,7 +150,7 @@ sub_8023412c:
 /* 8023415C 002310BC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80234160 002310C0  7C 08 03 A6 */	mtlr r0
 /* 80234164 002310C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80234168 002310C8  4E 80 00 20 */	blr 
+/* 80234168 002310C8  4E 80 00 20 */	blr
 
 .global sub_8023416c
 sub_8023416c:
@@ -228,7 +228,7 @@ lbl_80234258:
 /* 80234260 002311C0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80234264 002311C4  7C 08 03 A6 */	mtlr r0
 /* 80234268 002311C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8023426C 002311CC  4E 80 00 20 */	blr 
+/* 8023426C 002311CC  4E 80 00 20 */	blr
 
 .global IsLayerActive__16CWorldLayerStateFii
 IsLayerActive__16CWorldLayerStateFii:
@@ -251,7 +251,7 @@ IsLayerActive__16CWorldLayerStateFii:
 /* 802342B0 00231210  7C 03 1B 78 */	or r3, r0, r3
 /* 802342B4 00231214  30 03 FF FF */	addic r0, r3, -1
 /* 802342B8 00231218  7C 60 19 10 */	subfe r3, r0, r3
-/* 802342BC 0023121C  4E 80 00 20 */	blr 
+/* 802342BC 0023121C  4E 80 00 20 */	blr
 
 .global SetLayerActive__16CWorldLayerStateFiib
 SetLayerActive__16CWorldLayerStateFiib:
@@ -271,7 +271,7 @@ SetLayerActive__16CWorldLayerStateFiib:
 /* 802342F4 00231254  90 06 00 0C */	stw r0, 0xc(r6)
 /* 802342F8 00231258  7C 80 1B 78 */	or r0, r4, r3
 /* 802342FC 0023125C  90 06 00 08 */	stw r0, 8(r6)
-/* 80234300 00231260  4E 80 00 20 */	blr 
+/* 80234300 00231260  4E 80 00 20 */	blr
 lbl_80234304:
 /* 80234304 00231264  38 00 00 01 */	li r0, 1
 /* 80234308 00231268  80 A6 00 0C */	lwz r5, 0xc(r6)
@@ -283,7 +283,7 @@ lbl_80234304:
 /* 80234320 00231280  90 06 00 0C */	stw r0, 0xc(r6)
 /* 80234324 00231284  7C 80 18 38 */	and r0, r4, r3
 /* 80234328 00231288  90 06 00 08 */	stw r0, 8(r6)
-/* 8023432C 0023128C  4E 80 00 20 */	blr 
+/* 8023432C 0023128C  4E 80 00 20 */	blr
 
 .global PutTo__16CWorldLayerStateFR16CMemoryStreamOut
 PutTo__16CWorldLayerStateFR16CMemoryStreamOut:
@@ -352,7 +352,7 @@ lbl_80234404:
 /* 80234410 00231370  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80234414 00231374  7C 08 03 A6 */	mtlr r0
 /* 80234418 00231378  38 21 00 40 */	addi r1, r1, 0x40
-/* 8023441C 0023137C  4E 80 00 20 */	blr 
+/* 8023441C 0023137C  4E 80 00 20 */	blr
 
 .global __ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld
 __ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld:
@@ -472,7 +472,7 @@ lbl_802345B4:
 /* 802345C4 00231524  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802345C8 00231528  7C 08 03 A6 */	mtlr r0
 /* 802345CC 0023152C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802345D0 00231530  4E 80 00 20 */	blr 
+/* 802345D0 00231530  4E 80 00 20 */	blr
 
 .global __ct__13CGLXMemoryInfoFi
 __ct__13CGLXMemoryInfoFi:
@@ -484,7 +484,7 @@ __ct__13CGLXMemoryInfoFi:
 /* 802345E8 00231548  90 03 00 18 */	stw r0, 0x18(r3)
 /* 802345EC 0023154C  90 03 00 1C */	stw r0, 0x1c(r3)
 /* 802345F0 00231550  90 03 00 20 */	stw r0, 0x20(r3)
-/* 802345F4 00231554  4E 80 00 20 */	blr 
+/* 802345F4 00231554  4E 80 00 20 */	blr
 
 .global __sinit_CScriptLayerManager_cpp
 __sinit_CScriptLayerManager_cpp:

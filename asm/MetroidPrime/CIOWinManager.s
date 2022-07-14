@@ -42,7 +42,7 @@ lbl_80051DB4:
 /* 80051E04 0004ED64  38 80 00 01 */	li r4, 1
 /* 80051E08 0004ED68  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80051E0C 0004ED6C  7D 89 03 A6 */	mtctr r12
-/* 80051E10 0004ED70  4E 80 04 21 */	bctrl 
+/* 80051E10 0004ED70  4E 80 04 21 */	bctrl
 lbl_80051E14:
 /* 80051E14 0004ED74  80 7F 00 08 */	lwz r3, 8(r31)
 /* 80051E18 0004ED78  28 03 00 00 */	cmplwi r3, 0
@@ -65,7 +65,7 @@ lbl_80051E34:
 /* 80051E54 0004EDB4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80051E58 0004EDB8  7C 08 03 A6 */	mtlr r0
 /* 80051E5C 0004EDBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051E60 0004EDC0  4E 80 00 20 */	blr 
+/* 80051E60 0004EDC0  4E 80 00 20 */	blr
 
 .global GetIOWin__Q213CIOWinManager11IOWinPQNodeCFv
 GetIOWin__Q213CIOWinManager11IOWinPQNodeCFv:
@@ -75,7 +75,7 @@ GetIOWin__Q213CIOWinManager11IOWinPQNodeCFv:
 /* 80051E70 0004EDD0  80 64 00 04 */	lwz r3, 4(r4)
 /* 80051E74 0004EDD4  38 03 00 01 */	addi r0, r3, 1
 /* 80051E78 0004EDD8  90 04 00 04 */	stw r0, 4(r4)
-/* 80051E7C 0004EDDC  4E 80 00 20 */	blr 
+/* 80051E7C 0004EDDC  4E 80 00 20 */	blr
 
 .global OnIOWinMessage__13CIOWinManagerFRC20CArchitectureMessage
 OnIOWinMessage__13CIOWinManagerFRC20CArchitectureMessage:
@@ -214,7 +214,7 @@ lbl_80052058:
 /* 80052068 0004EFC8  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8005206C 0004EFCC  7C 08 03 A6 */	mtlr r0
 /* 80052070 0004EFD0  38 21 00 40 */	addi r1, r1, 0x40
-/* 80052074 0004EFD4  4E 80 00 20 */	blr 
+/* 80052074 0004EFD4  4E 80 00 20 */	blr
 
 .global Draw__13CIOWinManagerCFv
 Draw__13CIOWinManagerCFv:
@@ -236,7 +236,7 @@ lbl_8005209C:
 /* 800520B0 0004F010  81 83 00 00 */	lwz r12, 0(r3)
 /* 800520B4 0004F014  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800520B8 0004F018  7D 89 03 A6 */	mtctr r12
-/* 800520BC 0004F01C  4E 80 04 21 */	bctrl 
+/* 800520BC 0004F01C  4E 80 04 21 */	bctrl
 /* 800520C0 0004F020  38 61 00 14 */	addi r3, r1, 0x14
 /* 800520C4 0004F024  4B FB 65 D9 */	bl sub_8000869c
 /* 800520C8 0004F028  7F C4 F3 78 */	mr r4, r30
@@ -247,7 +247,7 @@ lbl_8005209C:
 /* 800520DC 0004F03C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800520E0 0004F040  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800520E4 0004F044  7D 89 03 A6 */	mtctr r12
-/* 800520E8 0004F048  4E 80 04 21 */	bctrl 
+/* 800520E8 0004F048  4E 80 04 21 */	bctrl
 /* 800520EC 0004F04C  7C 7F 1B 78 */	mr r31, r3
 /* 800520F0 0004F050  38 61 00 10 */	addi r3, r1, 0x10
 /* 800520F4 0004F054  4B FB 65 A9 */	bl sub_8000869c
@@ -269,7 +269,7 @@ lbl_80052114:
 /* 80052128 0004F088  81 83 00 00 */	lwz r12, 0(r3)
 /* 8005212C 0004F08C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80052130 0004F090  7D 89 03 A6 */	mtctr r12
-/* 80052134 0004F094  4E 80 04 21 */	bctrl 
+/* 80052134 0004F094  4E 80 04 21 */	bctrl
 /* 80052138 0004F098  38 61 00 0C */	addi r3, r1, 0xc
 /* 8005213C 0004F09C  4B FB 65 61 */	bl sub_8000869c
 /* 80052140 0004F0A0  7F C4 F3 78 */	mr r4, r30
@@ -280,7 +280,7 @@ lbl_80052114:
 /* 80052154 0004F0B4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80052158 0004F0B8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8005215C 0004F0BC  7D 89 03 A6 */	mtctr r12
-/* 80052160 0004F0C0  4E 80 04 21 */	bctrl 
+/* 80052160 0004F0C0  4E 80 04 21 */	bctrl
 /* 80052164 0004F0C4  7C 7F 1B 78 */	mr r31, r3
 /* 80052168 0004F0C8  38 61 00 08 */	addi r3, r1, 8
 /* 8005216C 0004F0CC  4B FB 65 31 */	bl sub_8000869c
@@ -297,7 +297,7 @@ lbl_80052184:
 /* 80052190 0004F0F0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80052194 0004F0F4  7C 08 03 A6 */	mtlr r0
 /* 80052198 0004F0F8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005219C 0004F0FC  4E 80 00 20 */	blr 
+/* 8005219C 0004F0FC  4E 80 00 20 */	blr
 
 .global DistributeOneMessage__13CIOWinManagerFRC20CArchitectureMessageR18CArchitectureQueue
 DistributeOneMessage__13CIOWinManagerFRC20CArchitectureMessageR18CArchitectureQueue:
@@ -330,7 +330,7 @@ lbl_800521CC:
 /* 80052204 0004F164  81 83 00 00 */	lwz r12, 0(r3)
 /* 80052208 0004F168  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8005220C 0004F16C  7D 89 03 A6 */	mtctr r12
-/* 80052210 0004F170  4E 80 04 21 */	bctrl 
+/* 80052210 0004F170  4E 80 04 21 */	bctrl
 /* 80052214 0004F174  7C 7F 1B 78 */	mr r31, r3
 /* 80052218 0004F178  48 00 00 E0 */	b lbl_800522F8
 lbl_8005221C:
@@ -442,7 +442,7 @@ lbl_80052378:
 /* 8005237C 0004F2DC  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80052380 0004F2E0  7C 08 03 A6 */	mtlr r0
 /* 80052384 0004F2E4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80052388 0004F2E8  4E 80 00 20 */	blr 
+/* 80052388 0004F2E8  4E 80 00 20 */	blr
 
 .global sub_8005238c
 sub_8005238c:
@@ -486,7 +486,7 @@ lbl_80052414:
 /* 8005241C 0004F37C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80052420 0004F380  7C 08 03 A6 */	mtlr r0
 /* 80052424 0004F384  38 21 00 20 */	addi r1, r1, 0x20
-/* 80052428 0004F388  4E 80 00 20 */	blr 
+/* 80052428 0004F388  4E 80 00 20 */	blr
 
 .global PumpMessages__13CIOWinManagerFR18CArchitectureQueue
 PumpMessages__13CIOWinManagerFR18CArchitectureQueue:
@@ -539,7 +539,7 @@ lbl_800524BC:
 /* 800524D8 0004F438  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800524DC 0004F43C  7C 08 03 A6 */	mtlr r0
 /* 800524E0 0004F440  38 21 00 30 */	addi r1, r1, 0x30
-/* 800524E4 0004F444  4E 80 00 20 */	blr 
+/* 800524E4 0004F444  4E 80 00 20 */	blr
 
 .global sub_800524e8
 sub_800524e8:
@@ -611,7 +611,7 @@ lbl_800525CC:
 /* 800525D0 0004F530  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800525D4 0004F534  7C 08 03 A6 */	mtlr r0
 /* 800525D8 0004F538  38 21 00 30 */	addi r1, r1, 0x30
-/* 800525DC 0004F53C  4E 80 00 20 */	blr 
+/* 800525DC 0004F53C  4E 80 00 20 */	blr
 
 .global "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat"
 "find__Q24rstl418red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>,0,Q24rstl103select1st<Q24rstl83pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,s>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>CFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocat":
@@ -624,7 +624,7 @@ lbl_800525CC:
 /* 800525F8 0004F558  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800525FC 0004F55C  7C 08 03 A6 */	mtlr r0
 /* 80052600 0004F560  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052604 0004F564  4E 80 00 20 */	blr 
+/* 80052604 0004F564  4E 80 00 20 */	blr
 
 .global sub_80052608
 sub_80052608:
@@ -746,7 +746,7 @@ lbl_80052780:
 /* 80052784 0004F6E4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80052788 0004F6E8  7C 08 03 A6 */	mtlr r0
 /* 8005278C 0004F6EC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80052790 0004F6F0  4E 80 00 20 */	blr 
+/* 80052790 0004F6F0  4E 80 00 20 */	blr
 
 .global RemoveAllIOWins__13CIOWinManagerFv
 RemoveAllIOWins__13CIOWinManagerFv:
@@ -785,7 +785,7 @@ lbl_800527F4:
 /* 80052804 0004F764  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80052808 0004F768  7C 08 03 A6 */	mtlr r0
 /* 8005280C 0004F76C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80052810 0004F770  4E 80 00 20 */	blr 
+/* 80052810 0004F770  4E 80 00 20 */	blr
 
 .global "RemoveIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>"
 "RemoveIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>":
@@ -881,7 +881,7 @@ lbl_8005293C:
 /* 80052940 0004F8A0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80052944 0004F8A4  7C 08 03 A6 */	mtlr r0
 /* 80052948 0004F8A8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8005294C 0004F8AC  4E 80 00 20 */	blr 
+/* 8005294C 0004F8AC  4E 80 00 20 */	blr
 
 .global "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii":
@@ -989,7 +989,7 @@ lbl_80052AA8:
 /* 80052AAC 0004FA0C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80052AB0 0004FA10  7C 08 03 A6 */	mtlr r0
 /* 80052AB4 0004FA14  38 21 00 30 */	addi r1, r1, 0x30
-/* 80052AB8 0004FA18  4E 80 00 20 */	blr 
+/* 80052AB8 0004FA18  4E 80 00 20 */	blr
 
 .global "__ct__Q213CIOWinManager11IOWinPQNodeFQ24rstl17ncrc_ptr<6CIOWin>iPQ213CIOWinManager11IOWinPQNode"
 "__ct__Q213CIOWinManager11IOWinPQNodeFQ24rstl17ncrc_ptr<6CIOWin>iPQ213CIOWinManager11IOWinPQNode":
@@ -1001,7 +1001,7 @@ lbl_80052AA8:
 /* 80052AD0 0004FA30  90 07 00 04 */	stw r0, 4(r7)
 /* 80052AD4 0004FA34  90 A3 00 04 */	stw r5, 4(r3)
 /* 80052AD8 0004FA38  90 C3 00 08 */	stw r6, 8(r3)
-/* 80052ADC 0004FA3C  4E 80 00 20 */	blr 
+/* 80052ADC 0004FA3C  4E 80 00 20 */	blr
 
 .global sub_80052ae0
 sub_80052ae0:
@@ -1031,7 +1031,7 @@ lbl_80052B28:
 /* 80052B34 0004FA94  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80052B38 0004FA98  7C 08 03 A6 */	mtlr r0
 /* 80052B3C 0004FA9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80052B40 0004FAA0  4E 80 00 20 */	blr 
+/* 80052B40 0004FAA0  4E 80 00 20 */	blr
 
 .global __ct__13CIOWinManagerFv
 __ct__13CIOWinManagerFv:
@@ -1044,7 +1044,7 @@ __ct__13CIOWinManagerFv:
 /* 80052B5C 0004FABC  90 03 00 14 */	stw r0, 0x14(r3)
 /* 80052B60 0004FAC0  90 03 00 18 */	stw r0, 0x18(r3)
 /* 80052B64 0004FAC4  90 83 00 1C */	stw r4, 0x1c(r3)
-/* 80052B68 0004FAC8  4E 80 00 20 */	blr 
+/* 80052B68 0004FAC8  4E 80 00 20 */	blr
 
 .global "__eq<6CIOWin>__4rstlFRCQ24rstl15rc_ptr<6CIOWin>RCQ24rstl15rc_ptr<6CIOWin>"
 "__eq<6CIOWin>__4rstlFRCQ24rstl15rc_ptr<6CIOWin>RCQ24rstl15rc_ptr<6CIOWin>":
@@ -1055,4 +1055,4 @@ __ct__13CIOWinManagerFv:
 /* 80052B7C 0004FADC  7C 04 00 50 */	subf r0, r4, r0
 /* 80052B80 0004FAE0  7C 00 00 34 */	cntlzw r0, r0
 /* 80052B84 0004FAE4  54 03 D9 7E */	srwi r3, r0, 5
-/* 80052B88 0004FAE8  4E 80 00 20 */	blr 
+/* 80052B88 0004FAE8  4E 80 00 20 */	blr

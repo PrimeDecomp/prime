@@ -52,7 +52,7 @@ BuildConstantAmbientLighting__12CActorLightsFv:
 /* 801030A0 00100000  98 83 02 98 */	stb r4, 0x298(r3)
 /* 801030A4 00100004  90 03 02 9C */	stw r0, 0x29c(r3)
 /* 801030A8 00100008  90 03 02 A0 */	stw r0, 0x2a0(r3)
-/* 801030AC 0010000C  4E 80 00 20 */	blr 
+/* 801030AC 0010000C  4E 80 00 20 */	blr
 
 .global BuildConstantAmbientLighting__12CActorLightsFRC6CColor
 BuildConstantAmbientLighting__12CActorLightsFRC6CColor:
@@ -86,7 +86,7 @@ BuildConstantAmbientLighting__12CActorLightsFRC6CColor:
 /* 8010311C 0010007C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80103120 00100080  7C 08 03 A6 */	mtlr r0
 /* 80103124 00100084  38 21 00 10 */	addi r1, r1, 0x10
-/* 80103128 00100088  4E 80 00 20 */	blr 
+/* 80103128 00100088  4E 80 00 20 */	blr
 
 .global "BuildFakeLightList__12CActorLightsFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>RC6CColor"
 "BuildFakeLightList__12CActorLightsFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>RC6CColor":
@@ -171,7 +171,7 @@ lbl_8010322C:
 /* 8010323C 0010019C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80103240 001001A0  7C 08 03 A6 */	mtlr r0
 /* 80103244 001001A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80103248 001001A8  4E 80 00 20 */	blr 
+/* 80103248 001001A8  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl26reserved_vector<6CLight,4>FRC6CLight"
 "push_back__Q24rstl26reserved_vector<6CLight,4>FRC6CLight":
@@ -192,7 +192,7 @@ lbl_8010322C:
 /* 80103284 001001E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80103288 001001E8  7C 08 03 A6 */	mtlr r0
 /* 8010328C 001001EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80103290 001001F0  4E 80 00 20 */	blr 
+/* 80103290 001001F0  4E 80 00 20 */	blr
 
 .global "construct<6CLight>__4rstlFPvRC6CLight"
 "construct<6CLight>__4rstlFPvRC6CLight":
@@ -206,7 +206,7 @@ lbl_801032AC:
 /* 801032AC 0010020C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801032B0 00100210  7C 08 03 A6 */	mtlr r0
 /* 801032B4 00100214  38 21 00 10 */	addi r1, r1, 0x10
-/* 801032B8 00100218  4E 80 00 20 */	blr 
+/* 801032B8 00100218  4E 80 00 20 */	blr
 
 .global BuildFaceLightList__12CActorLightsFRC13CStateManagerRC9CGameAreaRC6CAABox
 BuildFaceLightList__12CActorLightsFRC13CStateManagerRC9CGameAreaRC6CAABox:
@@ -503,7 +503,7 @@ lbl_801036E4:
 /* 80103700 00100660  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 80103704 00100664  7C 08 03 A6 */	mtlr r0
 /* 80103708 00100668  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 8010370C 0010066C  4E 80 00 20 */	blr 
+/* 8010370C 0010066C  4E 80 00 20 */	blr
 
 .global BuildDynamicLightList__12CActorLightsFRC13CStateManagerRC6CAABox
 BuildDynamicLightList__12CActorLightsFRC13CStateManagerRC6CAABox:
@@ -728,7 +728,7 @@ lbl_80103A2C:
 
 .global sub_80103a3c
 sub_80103a3c:
-/* 80103A3C 0010099C  4E 80 00 20 */	blr 
+/* 80103A3C 0010099C  4E 80 00 20 */	blr
 
 .global MoveAmbienceToLights__12CActorLightsFRC9CVector3f
 MoveAmbienceToLights__12CActorLightsFRC9CVector3f:
@@ -833,7 +833,7 @@ lbl_80103BA0:
 /* 80103BA8 00100B08  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80103BAC 00100B0C  7C 08 03 A6 */	mtlr r0
 /* 80103BB0 00100B10  38 21 00 30 */	addi r1, r1, 0x30
-/* 80103BB4 00100B14  4E 80 00 20 */	blr 
+/* 80103BB4 00100B14  4E 80 00 20 */	blr
 
 .global AddOverflowToLights__12CActorLightsFRC6CLightRC9CVector3f
 AddOverflowToLights__12CActorLightsFRC6CLightRC9CVector3f:
@@ -913,7 +913,7 @@ lbl_80103CC4:
 /* 80103CD4 00100C34  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 80103CD8 00100C38  7C 08 03 A6 */	mtlr r0
 /* 80103CDC 00100C3C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 80103CE0 00100C40  4E 80 00 20 */	blr 
+/* 80103CE0 00100C40  4E 80 00 20 */	blr
 
 .global MultiplyLightingLevels__12CActorLightsFf
 MultiplyLightingLevels__12CActorLightsFf:
@@ -973,7 +973,7 @@ lbl_80103D90:
 /* 80103DB0 00100D10  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80103DB4 00100D14  7C 08 03 A6 */	mtlr r0
 /* 80103DB8 00100D18  38 21 00 40 */	addi r1, r1, 0x40
-/* 80103DBC 00100D1C  4E 80 00 20 */	blr 
+/* 80103DBC 00100D1C  4E 80 00 20 */	blr
 
 .global BuildAreaLightList__12CActorLightsFRC13CStateManagerRC9CGameAreaRC6CAABox
 BuildAreaLightList__12CActorLightsFRC13CStateManagerRC9CGameAreaRC6CAABox:
@@ -1929,7 +1929,7 @@ lbl_80104B44:
 /* 80104B60 00101AC0  80 0A 00 04 */	lwz r0, 4(r10)
 /* 80104B64 00101AC4  7D 41 53 78 */	mr r1, r10
 /* 80104B68 00101AC8  7C 08 03 A6 */	mtlr r0
-/* 80104B6C 00101ACC  4E 80 00 20 */	blr 
+/* 80104B6C 00101ACC  4E 80 00 20 */	blr
 
 .global MergeOverflowLight__12CActorLightsFR6CLightR9CVector3fRC6CLightf
 MergeOverflowLight__12CActorLightsFR6CLightR9CVector3fRC6CLightf:
@@ -2044,7 +2044,7 @@ MergeOverflowLight__12CActorLightsFR6CLightR9CVector3fRC6CLightf:
 /* 80104D20 00101C80  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80104D24 00101C84  7C 08 03 A6 */	mtlr r0
 /* 80104D28 00101C88  38 21 00 70 */	addi r1, r1, 0x70
-/* 80104D2C 00101C8C  4E 80 00 20 */	blr 
+/* 80104D2C 00101C8C  4E 80 00 20 */	blr
 
 .global UpdateBrightLight__12CActorLightsFv
 UpdateBrightLight__12CActorLightsFv:
@@ -2071,7 +2071,7 @@ lbl_80104D74:
 /* 80104D78 00101CD8  38 80 00 01 */	li r4, 1
 /* 80104D7C 00101CDC  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 80104D80 00101CE0  98 03 02 99 */	stb r0, 0x299(r3)
-/* 80104D84 00101CE4  4E 80 00 20 */	blr 
+/* 80104D84 00101CE4  4E 80 00 20 */	blr
 
 .global ActivateLights__12CActorLightsCFv
 ActivateLights__12CActorLightsCFv:
@@ -2100,7 +2100,7 @@ lbl_80104DD0:
 /* 80104DDC 00101D3C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80104DE0 00101D40  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80104DE4 00101D44  7D 89 03 A6 */	mtctr r12
-/* 80104DE8 00101D48  4E 80 04 21 */	bctrl 
+/* 80104DE8 00101D48  4E 80 04 21 */	bctrl
 /* 80104DEC 00101D4C  48 20 7B 91 */	bl DisableAllLights__9CGraphicsFv
 /* 80104DF0 00101D50  48 00 02 20 */	b lbl_80105010
 lbl_80104DF4:
@@ -2115,7 +2115,7 @@ lbl_80104DF4:
 /* 80104E14 00101D74  81 83 00 00 */	lwz r12, 0(r3)
 /* 80104E18 00101D78  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80104E1C 00101D7C  7D 89 03 A6 */	mtctr r12
-/* 80104E20 00101D80  4E 80 04 21 */	bctrl 
+/* 80104E20 00101D80  4E 80 04 21 */	bctrl
 /* 80104E24 00101D84  48 00 00 34 */	b lbl_80104E58
 lbl_80104E28:
 /* 80104E28 00101D88  C0 3F 02 88 */	lfs f1, 0x288(r31)
@@ -2129,7 +2129,7 @@ lbl_80104E28:
 /* 80104E48 00101DA8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80104E4C 00101DAC  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80104E50 00101DB0  7D 89 03 A6 */	mtctr r12
-/* 80104E54 00101DB4  4E 80 04 21 */	bctrl 
+/* 80104E54 00101DB4  4E 80 04 21 */	bctrl
 lbl_80104E58:
 /* 80104E58 00101DB8  80 1F 00 00 */	lwz r0, 0(r31)
 /* 80104E5C 00101DBC  3B A0 00 00 */	li r29, 0
@@ -2243,13 +2243,13 @@ lbl_80104FA8:
 /* 80104FE8 00101F48  81 83 00 00 */	lwz r12, 0(r3)
 /* 80104FEC 00101F4C  81 8C 00 BC */	lwz r12, 0xbc(r12)
 /* 80104FF0 00101F50  7D 89 03 A6 */	mtctr r12
-/* 80104FF4 00101F54  4E 80 04 21 */	bctrl 
+/* 80104FF4 00101F54  4E 80 04 21 */	bctrl
 /* 80104FF8 00101F58  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80104FFC 00101F5C  38 81 00 14 */	addi r4, r1, 0x14
 /* 80105000 00101F60  81 83 00 00 */	lwz r12, 0(r3)
 /* 80105004 00101F64  81 8C 00 FC */	lwz r12, 0xfc(r12)
 /* 80105008 00101F68  7D 89 03 A6 */	mtctr r12
-/* 8010500C 00101F6C  4E 80 04 21 */	bctrl 
+/* 8010500C 00101F6C  4E 80 04 21 */	bctrl
 lbl_80105010:
 /* 80105010 00101F70  E3 E1 00 98 */	psq_l f31, 152(r1), 0, qr0
 /* 80105014 00101F74  80 01 00 A4 */	lwz r0, 0xa4(r1)
@@ -2260,7 +2260,7 @@ lbl_80105010:
 /* 80105028 00101F88  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 8010502C 00101F8C  7C 08 03 A6 */	mtlr r0
 /* 80105030 00101F90  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80105034 00101F94  4E 80 00 20 */	blr 
+/* 80105034 00101F94  4E 80 00 20 */	blr
 
 .global SetAmbientColor__12CActorLightsFRC6CColor
 SetAmbientColor__12CActorLightsFRC6CColor:
@@ -2274,7 +2274,7 @@ SetAmbientColor__12CActorLightsFRC6CColor:
 /* 80105054 00101FB4  E0 04 A0 02 */	psq_l f0, 2(r4), 1, qr2
 /* 80105058 00101FB8  EC 01 00 32 */	fmuls f0, f1, f0
 /* 8010505C 00101FBC  D0 03 02 90 */	stfs f0, 0x290(r3)
-/* 80105060 00101FC0  4E 80 00 20 */	blr 
+/* 80105060 00101FC0  4E 80 00 20 */	blr
 
 .global GetLight__12CActorLightsCFUi
 GetLight__12CActorLightsCFUi:
@@ -2287,18 +2287,18 @@ GetLight__12CActorLightsCFUi:
 /* 8010507C 00101FDC  1C 04 00 50 */	mulli r0, r4, 0x50
 /* 80105080 00101FE0  7C 63 02 14 */	add r3, r3, r0
 /* 80105084 00101FE4  38 63 00 04 */	addi r3, r3, 4
-/* 80105088 00101FE8  4E 80 00 20 */	blr 
+/* 80105088 00101FE8  4E 80 00 20 */	blr
 lbl_8010508C:
 /* 8010508C 00101FEC  7C 00 20 50 */	subf r0, r0, r4
 /* 80105090 00101FF0  1C 00 00 50 */	mulli r0, r0, 0x50
 /* 80105094 00101FF4  7C 63 02 14 */	add r3, r3, r0
 /* 80105098 00101FF8  38 63 01 48 */	addi r3, r3, 0x148
-/* 8010509C 00101FFC  4E 80 00 20 */	blr 
+/* 8010509C 00101FFC  4E 80 00 20 */	blr
 lbl_801050A0:
 /* 801050A0 00102000  1C 04 00 50 */	mulli r0, r4, 0x50
 /* 801050A4 00102004  7C 63 02 14 */	add r3, r3, r0
 /* 801050A8 00102008  38 63 01 48 */	addi r3, r3, 0x148
-/* 801050AC 0010200C  4E 80 00 20 */	blr 
+/* 801050AC 0010200C  4E 80 00 20 */	blr
 
 .global GetActiveLightCount__12CActorLightsCFv
 GetActiveLightCount__12CActorLightsCFv:
@@ -2308,10 +2308,10 @@ GetActiveLightCount__12CActorLightsCFv:
 /* 801050BC 0010201C  80 83 00 00 */	lwz r4, 0(r3)
 /* 801050C0 00102020  80 03 01 44 */	lwz r0, 0x144(r3)
 /* 801050C4 00102024  7C 64 02 14 */	add r3, r4, r0
-/* 801050C8 00102028  4E 80 00 20 */	blr 
+/* 801050C8 00102028  4E 80 00 20 */	blr
 lbl_801050CC:
 /* 801050CC 0010202C  80 63 01 44 */	lwz r3, 0x144(r3)
-/* 801050D0 00102030  4E 80 00 20 */	blr 
+/* 801050D0 00102030  4E 80 00 20 */	blr
 
 .global __dt__12CActorLightsFv
 __dt__12CActorLightsFv:
@@ -2387,7 +2387,7 @@ lbl_801051B4:
 /* 801051BC 0010211C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801051C0 00102120  7C 08 03 A6 */	mtlr r0
 /* 801051C4 00102124  38 21 00 10 */	addi r1, r1, 0x10
-/* 801051C8 00102128  4E 80 00 20 */	blr 
+/* 801051C8 00102128  4E 80 00 20 */	blr
 
 .global __ct__12CActorLightsFUi9CVector3fiif
 __ct__12CActorLightsFUi9CVector3fiif:
@@ -2490,7 +2490,7 @@ lbl_80105254:
 /* 80105348 001022A8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8010534C 001022AC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80105350 001022B0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80105354 001022B4  4E 80 00 20 */	blr 
+/* 80105354 001022B4  4E 80 00 20 */	blr
 
 .global "sort<P11SLightValue,Q211SLightValue10CPredicate>__4rstlFP11SLightValueP11SLightValueQ211SLightValue10CPredicate"
 "sort<P11SLightValue,Q211SLightValue10CPredicate>__4rstlFP11SLightValueP11SLightValueQ211SLightValue10CPredicate":
@@ -2609,7 +2609,7 @@ lbl_801054F8:
 /* 801054FC 0010245C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80105500 00102460  7C 08 03 A6 */	mtlr r0
 /* 80105504 00102464  38 21 00 50 */	addi r1, r1, 0x50
-/* 80105508 00102468  4E 80 00 20 */	blr 
+/* 80105508 00102468  4E 80 00 20 */	blr
 
 .global "__insertion_sort<P11SLightValue,Q211SLightValue10CPredicate>__4rstlFP11SLightValueP11SLightValueQ211SLightValue10CPredicate"
 "__insertion_sort<P11SLightValue,Q211SLightValue10CPredicate>__4rstlFP11SLightValueP11SLightValueQ211SLightValue10CPredicate":
@@ -2682,7 +2682,7 @@ lbl_801055C8:
 /* 80105604 00102564  42 00 FF 2C */	bdnz lbl_80105530
 lbl_80105608:
 /* 80105608 00102568  38 21 00 30 */	addi r1, r1, 0x30
-/* 8010560C 0010256C  4E 80 00 20 */	blr 
+/* 8010560C 0010256C  4E 80 00 20 */	blr
 
 .global "__sort3<11SLightValue,Q211SLightValue10CPredicate>__4rstlFR11SLightValueR11SLightValueR11SLightValueQ211SLightValue10CPredicate"
 "__sort3<11SLightValue,Q211SLightValue10CPredicate>__4rstlFR11SLightValueR11SLightValueR11SLightValueQ211SLightValue10CPredicate":

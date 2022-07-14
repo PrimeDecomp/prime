@@ -313,7 +313,7 @@ lbl_805A7778:
 .global lbl_8046C748
 lbl_8046C748:
 	.skip 0x10
-	
+
 .section .text, "ax"
 
 .global __dt__11CChozoGhostFv
@@ -385,12 +385,12 @@ lbl_8013F3CC:
 /* 8013F3D8 0013C338  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013F3DC 0013C33C  7C 08 03 A6 */	mtlr r0
 /* 8013F3E0 0013C340  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013F3E4 0013C344  4E 80 00 20 */	blr 
+/* 8013F3E4 0013C344  4E 80 00 20 */	blr
 
 .global GetGravityConstant__11CChozoGhostCFv
 GetGravityConstant__11CChozoGhostCFv:
 /* 8013F3E8 0013C348  C0 22 9B 58 */	lfs f1, lbl_805AB878@sda21(r2)
-/* 8013F3EC 0013C34C  4E 80 00 20 */	blr 
+/* 8013F3EC 0013C34C  4E 80 00 20 */	blr
 
 .global Think__11CChozoGhostFfR13CStateManager
 Think__11CChozoGhostFfR13CStateManager:
@@ -436,7 +436,7 @@ lbl_8013F478:
 /* 8013F488 0013C3E8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8013F48C 0013C3EC  7C 08 03 A6 */	mtlr r0
 /* 8013F490 0013C3F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013F494 0013C3F4  4E 80 00 20 */	blr 
+/* 8013F494 0013C3F4  4E 80 00 20 */	blr
 
 .global KnockBack__11CChozoGhostFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 KnockBack__11CChozoGhostFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef:
@@ -525,7 +525,7 @@ lbl_8013F5C4:
 /* 8013F5D0 0013C530  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8013F5D4 0013C534  7C 08 03 A6 */	mtlr r0
 /* 8013F5D8 0013C538  38 21 00 40 */	addi r1, r1, 0x40
-/* 8013F5DC 0013C53C  4E 80 00 20 */	blr 
+/* 8013F5DC 0013C53C  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__11CChozoGhostFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__11CChozoGhostFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -566,7 +566,7 @@ lbl_8013F634:
 /* 8013F660 0013C5C0  81 84 00 00 */	lwz r12, 0(r4)
 /* 8013F664 0013C5C4  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8013F668 0013C5C8  7D 89 03 A6 */	mtctr r12
-/* 8013F66C 0013C5CC  4E 80 04 21 */	bctrl 
+/* 8013F66C 0013C5CC  4E 80 04 21 */	bctrl
 /* 8013F670 0013C5D0  C0 A1 00 54 */	lfs f5, 0x54(r1)
 /* 8013F674 0013C5D4  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
 /* 8013F678 0013C5D8  C0 81 00 58 */	lfs f4, 0x58(r1)
@@ -649,7 +649,7 @@ lbl_8013F754:
 /* 8013F7A4 0013C704  81 9C 00 00 */	lwz r12, 0(r28)
 /* 8013F7A8 0013C708  81 8C 02 C0 */	lwz r12, 0x2c0(r12)
 /* 8013F7AC 0013C70C  7D 89 03 A6 */	mtctr r12
-/* 8013F7B0 0013C710  4E 80 04 21 */	bctrl 
+/* 8013F7B0 0013C710  4E 80 04 21 */	bctrl
 /* 8013F7B4 0013C714  48 0D C7 A1 */	bl GetProjectileSpeed__15CProjectileInfoCFv
 /* 8013F7B8 0013C718  C0 02 9B 5C */	lfs f0, lbl_805AB87C@sda21(r2)
 /* 8013F7BC 0013C71C  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -771,7 +771,7 @@ lbl_8013F95C:
 /* 8013F968 0013C8C8  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 8013F96C 0013C8CC  7C 08 03 A6 */	mtlr r0
 /* 8013F970 0013C8D0  38 21 01 60 */	addi r1, r1, 0x160
-/* 8013F974 0013C8D4  4E 80 00 20 */	blr 
+/* 8013F974 0013C8D4  4E 80 00 20 */	blr
 
 .global ProjectileInfo__11CChozoGhostFv
 ProjectileInfo__11CChozoGhostFv:
@@ -779,10 +779,10 @@ ProjectileInfo__11CChozoGhostFv:
 /* 8013F97C 0013C8DC  2C 00 00 02 */	cmpwi r0, 2
 /* 8013F980 0013C8E0  40 82 00 0C */	bne lbl_8013F98C
 /* 8013F984 0013C8E4  38 63 05 78 */	addi r3, r3, 0x578
-/* 8013F988 0013C8E8  4E 80 00 20 */	blr 
+/* 8013F988 0013C8E8  4E 80 00 20 */	blr
 lbl_8013F98C:
 /* 8013F98C 0013C8EC  38 63 05 A0 */	addi r3, r3, 0x5a0
-/* 8013F990 0013C8F0  4E 80 00 20 */	blr 
+/* 8013F990 0013C8F0  4E 80 00 20 */	blr
 
 .global Dead__11CChozoGhostFR13CStateManager9EStateMsgf
 Dead__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -829,7 +829,7 @@ lbl_8013FA24:
 /* 8013FA28 0013C988  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013FA2C 0013C98C  7C 08 03 A6 */	mtlr r0
 /* 8013FA30 0013C990  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013FA34 0013C994  4E 80 00 20 */	blr 
+/* 8013FA34 0013C994  4E 80 00 20 */	blr
 
 .global Deactivate__11CChozoGhostFR13CStateManager9EStateMsgf
 Deactivate__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -893,19 +893,19 @@ lbl_8013FB00:
 /* 8013FB08 0013CA68  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8013FB0C 0013CA6C  7C 08 03 A6 */	mtlr r0
 /* 8013FB10 0013CA70  38 21 00 20 */	addi r1, r1, 0x20
-/* 8013FB14 0013CA74  4E 80 00 20 */	blr 
+/* 8013FB14 0013CA74  4E 80 00 20 */	blr
 
 .global AggressionCheck__11CChozoGhostFR13CStateManagerf
 AggressionCheck__11CChozoGhostFR13CStateManagerf:
 /* 8013FB18 0013CA78  88 03 06 65 */	lbz r0, 0x665(r3)
 /* 8013FB1C 0013CA7C  54 03 F7 FE */	rlwinm r3, r0, 0x1e, 0x1f, 0x1f
-/* 8013FB20 0013CA80  4E 80 00 20 */	blr 
+/* 8013FB20 0013CA80  4E 80 00 20 */	blr
 
 .global ShouldFlinch__11CChozoGhostFR13CStateManagerf
 ShouldFlinch__11CChozoGhostFR13CStateManagerf:
 /* 8013FB24 0013CA84  88 03 06 64 */	lbz r0, 0x664(r3)
 /* 8013FB28 0013CA88  54 03 D7 FE */	rlwinm r3, r0, 0x1a, 0x1f, 0x1f
-/* 8013FB2C 0013CA8C  4E 80 00 20 */	blr 
+/* 8013FB2C 0013CA8C  4E 80 00 20 */	blr
 
 .global Leash__11CChozoGhostFR13CStateManagerf
 Leash__11CChozoGhostFR13CStateManagerf:
@@ -928,7 +928,7 @@ lbl_8013FB60:
 /* 8013FB68 0013CAC8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8013FB6C 0013CACC  7C 08 03 A6 */	mtlr r0
 /* 8013FB70 0013CAD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013FB74 0013CAD4  4E 80 00 20 */	blr 
+/* 8013FB74 0013CAD4  4E 80 00 20 */	blr
 
 .global sub_8013fb78
 sub_8013fb78:
@@ -936,7 +936,7 @@ sub_8013fb78:
 /* 8013FB7C 0013CADC  20 00 00 03 */	subfic r0, r0, 3
 /* 8013FB80 0013CAE0  7C 00 00 34 */	cntlzw r0, r0
 /* 8013FB84 0013CAE4  54 03 D9 7E */	srwi r3, r0, 5
-/* 8013FB88 0013CAE8  4E 80 00 20 */	blr 
+/* 8013FB88 0013CAE8  4E 80 00 20 */	blr
 
 .global Lurk__11CChozoGhostFR13CStateManager9EStateMsgf
 Lurk__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -961,7 +961,7 @@ lbl_8013FBC8:
 /* 8013FBC8 0013CB28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8013FBCC 0013CB2C  7C 08 03 A6 */	mtlr r0
 /* 8013FBD0 0013CB30  38 21 00 10 */	addi r1, r1, 0x10
-/* 8013FBD4 0013CB34  4E 80 00 20 */	blr 
+/* 8013FBD4 0013CB34  4E 80 00 20 */	blr
 
 .global Hurled__11CChozoGhostFR13CStateManager9EStateMsgf
 Hurled__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1125,7 +1125,7 @@ lbl_8013FE20:
 /* 8013FE30 0013CD90  83 C1 00 78 */	lwz r30, 0x78(r1)
 /* 8013FE34 0013CD94  7C 08 03 A6 */	mtlr r0
 /* 8013FE38 0013CD98  38 21 00 90 */	addi r1, r1, 0x90
-/* 8013FE3C 0013CD9C  4E 80 00 20 */	blr 
+/* 8013FE3C 0013CD9C  4E 80 00 20 */	blr
 
 .global Taunt__11CChozoGhostFR13CStateManager9EStateMsgf
 Taunt__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1182,7 +1182,7 @@ lbl_8013FEE8:
 /* 8013FEF4 0013CE54  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8013FEF8 0013CE58  7C 08 03 A6 */	mtlr r0
 /* 8013FEFC 0013CE5C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8013FF00 0013CE60  4E 80 00 20 */	blr 
+/* 8013FF00 0013CE60  4E 80 00 20 */	blr
 
 .global sub_8013ff04
 sub_8013ff04:
@@ -1190,7 +1190,7 @@ sub_8013ff04:
 /* 8013FF08 0013CE68  20 00 00 01 */	subfic r0, r0, 1
 /* 8013FF0C 0013CE6C  7C 00 00 34 */	cntlzw r0, r0
 /* 8013FF10 0013CE70  54 03 D9 7E */	srwi r3, r0, 5
-/* 8013FF14 0013CE74  4E 80 00 20 */	blr 
+/* 8013FF14 0013CE74  4E 80 00 20 */	blr
 
 .global Shuffle__11CChozoGhostFR13CStateManager9EStateMsgf
 Shuffle__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1296,7 +1296,7 @@ lbl_80140070:
 /* 80140084 0013CFE4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80140088 0013CFE8  7C 08 03 A6 */	mtlr r0
 /* 8014008C 0013CFEC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80140090 0013CFF0  4E 80 00 20 */	blr 
+/* 80140090 0013CFF0  4E 80 00 20 */	blr
 
 .global Land__11CChozoGhostFR13CStateManager9EStateMsgf
 Land__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1334,7 +1334,7 @@ lbl_80140104:
 /* 80140108 0013D068  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8014010C 0013D06C  7C 08 03 A6 */	mtlr r0
 /* 80140110 0013D070  38 21 00 20 */	addi r1, r1, 0x20
-/* 80140114 0013D074  4E 80 00 20 */	blr 
+/* 80140114 0013D074  4E 80 00 20 */	blr
 
 .global Attack__11CChozoGhostFR13CStateManager9EStateMsgf
 Attack__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1525,7 +1525,7 @@ lbl_801403BC:
 /* 801403CC 0013D32C  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 801403D0 0013D330  7C 08 03 A6 */	mtlr r0
 /* 801403D4 0013D334  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801403D8 0013D338  4E 80 00 20 */	blr 
+/* 801403D8 0013D338  4E 80 00 20 */	blr
 
 .global sub_801403dc
 sub_801403dc:
@@ -1533,7 +1533,7 @@ sub_801403dc:
 /* 801403E0 0013D340  20 00 00 02 */	subfic r0, r0, 2
 /* 801403E4 0013D344  7C 00 00 34 */	cntlzw r0, r0
 /* 801403E8 0013D348  54 03 D9 7E */	srwi r3, r0, 5
-/* 801403EC 0013D34C  4E 80 00 20 */	blr 
+/* 801403EC 0013D34C  4E 80 00 20 */	blr
 
 .global SelectTarget__11CChozoGhostFR13CStateManager9EStateMsgf
 SelectTarget__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1549,13 +1549,13 @@ lbl_8014040C:
 /* 8014040C 0013D36C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80140410 0013D370  7C 08 03 A6 */	mtlr r0
 /* 80140414 0013D374  38 21 00 10 */	addi r1, r1, 0x10
-/* 80140418 0013D378  4E 80 00 20 */	blr 
+/* 80140418 0013D378  4E 80 00 20 */	blr
 
 .global InRange__11CChozoGhostFR13CStateManagerf
 InRange__11CChozoGhostFR13CStateManagerf:
 /* 8014041C 0013D37C  88 03 06 65 */	lbz r0, 0x665(r3)
 /* 80140420 0013D380  54 03 EF FE */	rlwinm r3, r0, 0x1d, 0x1f, 0x1f
-/* 80140424 0013D384  4E 80 00 20 */	blr 
+/* 80140424 0013D384  4E 80 00 20 */	blr
 
 .global Run__11CChozoGhostFR13CStateManager9EStateMsgf
 Run__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1714,7 +1714,7 @@ lbl_80140664:
 /* 80140674 0013D5D4  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 80140678 0013D5D8  7C 08 03 A6 */	mtlr r0
 /* 8014067C 0013D5DC  38 21 00 70 */	addi r1, r1, 0x70
-/* 80140680 0013D5E0  4E 80 00 20 */	blr 
+/* 80140680 0013D5E0  4E 80 00 20 */	blr
 
 .global WallDetach__11CChozoGhostFR13CStateManager9EStateMsgf
 WallDetach__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -1854,7 +1854,7 @@ lbl_8014086C:
 /* 80140878 0013D7D8  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 8014087C 0013D7DC  7C 08 03 A6 */	mtlr r0
 /* 80140880 0013D7E0  38 21 00 80 */	addi r1, r1, 0x80
-/* 80140884 0013D7E4  4E 80 00 20 */	blr 
+/* 80140884 0013D7E4  4E 80 00 20 */	blr
 
 .global Generate__11CChozoGhostFR13CStateManager9EStateMsgf
 Generate__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -2028,7 +2028,7 @@ lbl_80140AF0:
 /* 80140B00 0013DA60  83 C1 00 98 */	lwz r30, 0x98(r1)
 /* 80140B04 0013DA64  7C 08 03 A6 */	mtlr r0
 /* 80140B08 0013DA68  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 80140B0C 0013DA6C  4E 80 00 20 */	blr 
+/* 80140B0C 0013DA6C  4E 80 00 20 */	blr
 
 .global Growth__11CChozoGhostFR13CStateManager9EStateMsgf
 Growth__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -2093,7 +2093,7 @@ lbl_80140BE0:
 /* 80140BE8 0013DB48  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80140BEC 0013DB4C  7C 08 03 A6 */	mtlr r0
 /* 80140BF0 0013DB50  38 21 00 20 */	addi r1, r1, 0x20
-/* 80140BF4 0013DB54  4E 80 00 20 */	blr 
+/* 80140BF4 0013DB54  4E 80 00 20 */	blr
 
 .global AIStage__11CChozoGhostFR13CStateManagerf
 AIStage__11CChozoGhostFR13CStateManagerf:
@@ -2106,7 +2106,7 @@ AIStage__11CChozoGhostFR13CStateManagerf:
 /* 80140C10 0013DB70  7C 00 00 34 */	cntlzw r0, r0
 /* 80140C14 0013DB74  54 03 D9 7E */	srwi r3, r0, 5
 /* 80140C18 0013DB78  38 21 00 10 */	addi r1, r1, 0x10
-/* 80140C1C 0013DB7C  4E 80 00 20 */	blr 
+/* 80140C1C 0013DB7C  4E 80 00 20 */	blr
 
 .global InActive__11CChozoGhostFR13CStateManager9EStateMsgf
 InActive__11CChozoGhostFR13CStateManager9EStateMsgf:
@@ -2175,7 +2175,7 @@ lbl_80140CF4:
 /* 80140D04 0013DC64  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80140D08 0013DC68  7C 08 03 A6 */	mtlr r0
 /* 80140D0C 0013DC6C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80140D10 0013DC70  4E 80 00 20 */	blr 
+/* 80140D10 0013DC70  4E 80 00 20 */	blr
 
 .global sub_80140d14
 sub_80140d14:
@@ -2293,7 +2293,7 @@ lbl_80140EA4:
 /* 80140EC8 0013DE28  83 A1 00 D4 */	lwz r29, 0xd4(r1)
 /* 80140ECC 0013DE2C  7C 08 03 A6 */	mtlr r0
 /* 80140ED0 0013DE30  38 21 01 10 */	addi r1, r1, 0x110
-/* 80140ED4 0013DE34  4E 80 00 20 */	blr 
+/* 80140ED4 0013DE34  4E 80 00 20 */	blr
 
 .global sub_80140ed8
 sub_80140ed8:
@@ -2341,7 +2341,7 @@ lbl_80140F6C:
 /* 80140F70 0013DED0  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80140F74 0013DED4  7C 08 03 A6 */	mtlr r0
 /* 80140F78 0013DED8  38 21 00 40 */	addi r1, r1, 0x40
-/* 80140F7C 0013DEDC  4E 80 00 20 */	blr 
+/* 80140F7C 0013DEDC  4E 80 00 20 */	blr
 
 .global sub_80140f80
 sub_80140f80:
@@ -2751,13 +2751,13 @@ lbl_8014154C:
 /* 80141580 0013E4E0  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 80141584 0013E4E4  7C 08 03 A6 */	mtlr r0
 /* 80141588 0013E4E8  38 21 01 80 */	addi r1, r1, 0x180
-/* 8014158C 0013E4EC  4E 80 00 20 */	blr 
+/* 8014158C 0013E4EC  4E 80 00 20 */	blr
 
 .global sub_80141590
 sub_80141590:
 /* 80141590 0013E4F0  88 03 06 64 */	lbz r0, 0x664(r3)
 /* 80141594 0013E4F4  54 03 E7 FE */	rlwinm r3, r0, 0x1c, 0x1f, 0x1f
-/* 80141598 0013E4F8  4E 80 00 20 */	blr 
+/* 80141598 0013E4F8  4E 80 00 20 */	blr
 
 .global sub_8014159c
 sub_8014159c:
@@ -2780,7 +2780,7 @@ sub_8014159c:
 /* 801415DC 0013E53C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801415E0 0013E540  7C 08 03 A6 */	mtlr r0
 /* 801415E4 0013E544  38 21 00 20 */	addi r1, r1, 0x20
-/* 801415E8 0013E548  4E 80 00 20 */	blr 
+/* 801415E8 0013E548  4E 80 00 20 */	blr
 
 .global sub_801415ec
 sub_801415ec:
@@ -2827,7 +2827,7 @@ lbl_80141680:
 /* 80141688 0013E5E8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8014168C 0013E5EC  7C 08 03 A6 */	mtlr r0
 /* 80141690 0013E5F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80141694 0013E5F4  4E 80 00 20 */	blr 
+/* 80141694 0013E5F4  4E 80 00 20 */	blr
 
 .global sub_80141698
 sub_80141698:
@@ -2875,7 +2875,7 @@ lbl_8014172C:
 /* 80141734 0013E694  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80141738 0013E698  7C 08 03 A6 */	mtlr r0
 /* 8014173C 0013E69C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80141740 0013E6A0  4E 80 00 20 */	blr 
+/* 80141740 0013E6A0  4E 80 00 20 */	blr
 
 .global GetOrigin__11CChozoGhostCFv
 GetOrigin__11CChozoGhostCFv:
@@ -2885,7 +2885,7 @@ GetOrigin__11CChozoGhostCFv:
 /* 80141750 0013E6B0  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80141754 0013E6B4  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80141758 0013E6B8  D0 43 00 08 */	stfs f2, 8(r3)
-/* 8014175C 0013E6BC  4E 80 00 20 */	blr 
+/* 8014175C 0013E6BC  4E 80 00 20 */	blr
 
 .global sub_80141760
 sub_80141760:
@@ -2895,14 +2895,14 @@ sub_80141760:
 /* 8014176C 0013E6CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80141770 0013E6D0  81 8C 02 B4 */	lwz r12, 0x2b4(r12)
 /* 80141774 0013E6D4  7D 89 03 A6 */	mtctr r12
-/* 80141778 0013E6D8  4E 80 04 21 */	bctrl 
+/* 80141778 0013E6D8  4E 80 04 21 */	bctrl
 /* 8014177C 0013E6DC  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 80141780 0013E6E0  20 00 00 1F */	subfic r0, r0, 0x1f
 /* 80141784 0013E6E4  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 80141788 0013E6E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014178C 0013E6EC  7C 08 03 A6 */	mtlr r0
 /* 80141790 0013E6F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80141794 0013E6F4  4E 80 00 20 */	blr 
+/* 80141794 0013E6F4  4E 80 00 20 */	blr
 
 .global Render__11CChozoGhostCFRC13CStateManager
 Render__11CChozoGhostCFRC13CStateManager:
@@ -2987,7 +2987,7 @@ lbl_801418B8:
 /* 801418C4 0013E824  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801418C8 0013E828  7C 08 03 A6 */	mtlr r0
 /* 801418CC 0013E82C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801418D0 0013E830  4E 80 00 20 */	blr 
+/* 801418D0 0013E830  4E 80 00 20 */	blr
 
 .global PreRender__11CChozoGhostFR13CStateManagerRC14CFrustumPlanes
 PreRender__11CChozoGhostFR13CStateManagerRC14CFrustumPlanes:
@@ -3038,7 +3038,7 @@ lbl_8014196C:
 /* 8014197C 0013E8DC  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80141980 0013E8E0  81 8C 02 B4 */	lwz r12, 0x2b4(r12)
 /* 80141984 0013E8E4  7D 89 03 A6 */	mtctr r12
-/* 80141988 0013E8E8  4E 80 04 21 */	bctrl 
+/* 80141988 0013E8E8  4E 80 04 21 */	bctrl
 /* 8014198C 0013E8EC  7C 7C 1B 78 */	mr r28, r3
 /* 80141990 0013E8F0  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 80141994 0013E8F4  28 00 00 FF */	cmplwi r0, 0xff
@@ -3130,7 +3130,7 @@ lbl_80141A7C:
 /* 80141AD8 0013EA38  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80141ADC 0013EA3C  7C 08 03 A6 */	mtlr r0
 /* 80141AE0 0013EA40  38 21 00 40 */	addi r1, r1, 0x40
-/* 80141AE4 0013EA44  4E 80 00 20 */	blr 
+/* 80141AE4 0013EA44  4E 80 00 20 */	blr
 
 .global GetModelAlphau8__11CChozoGhostCFRC13CStateManager
 GetModelAlphau8__11CChozoGhostCFRC13CStateManager:
@@ -3158,7 +3158,7 @@ lbl_80141B28:
 /* 80141B34 0013EA94  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80141B38 0013EA98  7C 08 03 A6 */	mtlr r0
 /* 80141B3C 0013EA9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80141B40 0013EAA0  4E 80 00 20 */	blr 
+/* 80141B40 0013EAA0  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__11CChozoGhostCFv
 GetDamageVulnerability__11CChozoGhostCFv:
@@ -3177,12 +3177,12 @@ lbl_80141B6C:
 /* 80141B6C 0013EACC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80141B70 0013EAD0  7C 08 03 A6 */	mtlr r0
 /* 80141B74 0013EAD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80141B78 0013EAD8  4E 80 00 20 */	blr 
+/* 80141B78 0013EAD8  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__11CChozoGhostCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__11CChozoGhostCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 80141B7C 0013EADC  38 60 00 26 */	li r3, 0x26
-/* 80141B80 0013EAE0  4E 80 00 20 */	blr 
+/* 80141B80 0013EAE0  4E 80 00 20 */	blr
 
 .global CanBeShot__11CChozoGhostFRC13CStateManageri
 CanBeShot__11CChozoGhostFRC13CStateManageri:
@@ -3193,7 +3193,7 @@ CanBeShot__11CChozoGhostFRC13CStateManageri:
 /* 80141B94 0013EAF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80141B98 0013EAF8  7C 08 03 A6 */	mtlr r0
 /* 80141B9C 0013EAFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80141BA0 0013EB00  4E 80 00 20 */	blr 
+/* 80141BA0 0013EB00  4E 80 00 20 */	blr
 
 .global Touch__11CChozoGhostFR6CActorR13CStateManager
 Touch__11CChozoGhostFR6CActorR13CStateManager:
@@ -3247,7 +3247,7 @@ Touch__11CChozoGhostFR6CActorR13CStateManager:
 /* 80141C60 0013EBC0  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80141C64 0013EBC4  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 80141C68 0013EBC8  7D 89 03 A6 */	mtctr r12
-/* 80141C6C 0013EBCC  4E 80 04 21 */	bctrl 
+/* 80141C6C 0013EBCC  4E 80 04 21 */	bctrl
 /* 80141C70 0013EBD0  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 80141C74 0013EBD4  7F C3 F3 78 */	mr r3, r30
 /* 80141C78 0013EBD8  39 24 66 A0 */	addi r9, r4, skZero3f@l
@@ -3271,7 +3271,7 @@ lbl_80141C9C:
 /* 80141CBC 0013EC1C  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 80141CC0 0013EC20  7C 08 03 A6 */	mtlr r0
 /* 80141CC4 0013EC24  38 21 00 70 */	addi r1, r1, 0x70
-/* 80141CC8 0013EC28  4E 80 00 20 */	blr 
+/* 80141CC8 0013EC28  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__11CChozoGhostF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__11CChozoGhostF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -3297,7 +3297,7 @@ AcceptScriptMsg__11CChozoGhostF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 80141D18 0013EC78  38 63 1B E4 */	addi r3, r3, lbl_803E1BE4@l
 /* 80141D1C 0013EC7C  7C 03 00 2E */	lwzx r0, r3, r0
 /* 80141D20 0013EC80  7C 09 03 A6 */	mtctr r0
-/* 80141D24 0013EC84  4E 80 04 20 */	bctr 
+/* 80141D24 0013EC84  4E 80 04 20 */	bctr
 .global lbl_80141D28
 lbl_80141D28:
 /* 80141D28 0013EC88  88 1F 00 30 */	lbz r0, 0x30(r31)
@@ -3351,7 +3351,7 @@ lbl_80141DAC:
 /* 80141DC0 0013ED20  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80141DC4 0013ED24  81 8C 02 BC */	lwz r12, 0x2bc(r12)
 /* 80141DC8 0013ED28  7D 89 03 A6 */	mtctr r12
-/* 80141DCC 0013ED2C  4E 80 04 21 */	bctrl 
+/* 80141DCC 0013ED2C  4E 80 04 21 */	bctrl
 /* 80141DD0 0013ED30  FC 20 08 50 */	fneg f1, f1
 /* 80141DD4 0013ED34  C0 02 9B 5C */	lfs f0, lbl_805AB87C@sda21(r2)
 /* 80141DD8 0013ED38  D0 1F 01 50 */	stfs f0, 0x150(r31)
@@ -3368,7 +3368,7 @@ lbl_80141DE8:
 /* 80141DFC 0013ED5C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80141E00 0013ED60  7C 08 03 A6 */	mtlr r0
 /* 80141E04 0013ED64  38 21 00 30 */	addi r1, r1, 0x30
-/* 80141E08 0013ED68  4E 80 00 20 */	blr 
+/* 80141E08 0013ED68  4E 80 00 20 */	blr
 
 .global Accept__11CChozoGhostFR8IVisitor
 Accept__11CChozoGhostFR8IVisitor:
@@ -3381,11 +3381,11 @@ Accept__11CChozoGhostFR8IVisitor:
 /* 80141E24 0013ED84  7C 04 03 78 */	mr r4, r0
 /* 80141E28 0013ED88  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80141E2C 0013ED8C  7D 89 03 A6 */	mtctr r12
-/* 80141E30 0013ED90  4E 80 04 21 */	bctrl 
+/* 80141E30 0013ED90  4E 80 04 21 */	bctrl
 /* 80141E34 0013ED94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80141E38 0013ED98  7C 08 03 A6 */	mtlr r0
 /* 80141E3C 0013ED9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80141E40 0013EDA0  4E 80 00 20 */	blr 
+/* 80141E40 0013EDA0  4E 80 00 20 */	blr
 
 .global "__ct__11CChozoGhostF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfoffffUiRC11CDamageInfoUiRC11CDamageInfoRCQ211CChozoGhost13CBehaveChanceRCQ211CChozoGhost13CBehaveChanceRCQ211CChozoGhost13CBehaveChance"
 "__ct__11CChozoGhostF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfoffffUiRC11CDamageInfoUiRC11CDamageInfoRCQ211CChozoGhost13CBehaveChanceRCQ211CChozoGhost13CBehaveChanceRCQ211CChozoGhost13CBehaveChance":
@@ -3772,7 +3772,7 @@ lbl_80142160:
 /* 80142430 0013F390  81 84 00 00 */	lwz r12, 0(r4)
 /* 80142434 0013F394  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80142438 0013F398  7D 89 03 A6 */	mtctr r12
-/* 8014243C 0013F39C  4E 80 04 21 */	bctrl 
+/* 8014243C 0013F39C  4E 80 04 21 */	bctrl
 /* 80142440 0013F3A0  39 E1 00 F4 */	addi r15, r1, 0xf4
 /* 80142444 0013F3A4  38 81 00 24 */	addi r4, r1, 0x24
 /* 80142448 0013F3A8  7D E3 7B 78 */	mr r3, r15
@@ -3937,7 +3937,7 @@ lbl_80142628:
 /* 80142678 0013F5D8  80 01 02 F4 */	lwz r0, 0x2f4(r1)
 /* 8014267C 0013F5DC  7C 08 03 A6 */	mtlr r0
 /* 80142680 0013F5E0  38 21 02 F0 */	addi r1, r1, 0x2f0
-/* 80142684 0013F5E4  4E 80 00 20 */	blr 
+/* 80142684 0013F5E4  4E 80 00 20 */	blr
 
 .global GetBehave__Q211CChozoGhost13CBehaveChanceCFQ211CChozoGhost11EBehaveTypeR13CStateManager
 GetBehave__Q211CChozoGhost13CBehaveChanceCFQ211CChozoGhost11EBehaveTypeR13CStateManager:
@@ -4021,7 +4021,7 @@ lbl_80142780:
 /* 80142798 0013F6F8  CB A1 00 10 */	lfd f29, 0x10(r1)
 /* 8014279C 0013F6FC  7C 08 03 A6 */	mtlr r0
 /* 801427A0 0013F700  38 21 00 40 */	addi r1, r1, 0x40
-/* 801427A4 0013F704  4E 80 00 20 */	blr 
+/* 801427A4 0013F704  4E 80 00 20 */	blr
 
 .global __ct__Q211CChozoGhost13CBehaveChanceFR12CInputStream
 __ct__Q211CChozoGhost13CBehaveChanceFR12CInputStream:
@@ -4098,16 +4098,16 @@ lbl_80142850:
 /* 801428B0 0013F810  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801428B4 0013F814  7C 08 03 A6 */	mtlr r0
 /* 801428B8 0013F818  38 21 00 10 */	addi r1, r1, 0x10
-/* 801428BC 0013F81C  4E 80 00 20 */	blr 
+/* 801428BC 0013F81C  4E 80 00 20 */	blr
 
 .global sub_801428c0
 sub_801428c0:
 /* 801428C0 0013F820  80 A3 00 00 */	lwz r5, 0(r3)
 /* 801428C4 0013F824  80 04 00 00 */	lwz r0, 0(r4)
 /* 801428C8 0013F828  7C 05 00 00 */	cmpw r5, r0
-/* 801428CC 0013F82C  4D 81 00 20 */	bgtlr 
+/* 801428CC 0013F82C  4D 81 00 20 */	bgtlr
 /* 801428D0 0013F830  7C 83 23 78 */	mr r3, r4
-/* 801428D4 0013F834  4E 80 00 20 */	blr 
+/* 801428D4 0013F834  4E 80 00 20 */	blr
 
 .global __sinit_CChozoGhost_cpp
 __sinit_CChozoGhost_cpp:

@@ -71,25 +71,25 @@ lbl_8018D2A8:
 /* 8018D2B4 0018A214  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8018D2B8 0018A218  7C 08 03 A6 */	mtlr r0
 /* 8018D2BC 0018A21C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018D2C0 0018A220  4E 80 00 20 */	blr 
+/* 8018D2C0 0018A220  4E 80 00 20 */	blr
 
 .global Render__21CScriptTargetingPointCFRC13CStateManager
 Render__21CScriptTargetingPointCFRC13CStateManager:
-/* 8018D2C4 0018A224  4E 80 00 20 */	blr 
+/* 8018D2C4 0018A224  4E 80 00 20 */	blr
 
 .global AddToRenderer__21CScriptTargetingPointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__21CScriptTargetingPointCFRC14CFrustumPlanesRC13CStateManager:
-/* 8018D2C8 0018A228  4E 80 00 20 */	blr 
+/* 8018D2C8 0018A228  4E 80 00 20 */	blr
 
 .global Think__21CScriptTargetingPointFfR13CStateManager
 Think__21CScriptTargetingPointFfR13CStateManager:
 /* 8018D2CC 0018A22C  C0 43 00 EC */	lfs f2, 0xec(r3)
 /* 8018D2D0 0018A230  C0 02 A4 60 */	lfs f0, lbl_805AC180@sda21(r2)
 /* 8018D2D4 0018A234  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 8018D2D8 0018A238  4C 81 00 20 */	blelr 
+/* 8018D2D8 0018A238  4C 81 00 20 */	blelr
 /* 8018D2DC 0018A23C  EC 02 08 28 */	fsubs f0, f2, f1
 /* 8018D2E0 0018A240  D0 03 00 EC */	stfs f0, 0xec(r3)
-/* 8018D2E4 0018A244  4E 80 00 20 */	blr 
+/* 8018D2E4 0018A244  4E 80 00 20 */	blr
 
 .global GetLocked__21CScriptTargetingPointCFv
 GetLocked__21CScriptTargetingPointCFv:
@@ -97,7 +97,7 @@ GetLocked__21CScriptTargetingPointCFv:
 /* 8018D2EC 0018A24C  7C 03 00 D0 */	neg r0, r3
 /* 8018D2F0 0018A250  7C 00 18 78 */	andc r0, r0, r3
 /* 8018D2F4 0018A254  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8018D2F8 0018A258  4E 80 00 20 */	blr 
+/* 8018D2F8 0018A258  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__21CScriptTargetingPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__21CScriptTargetingPointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -133,7 +133,7 @@ lbl_8018D35C:
 /* 8018D368 0018A2C8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8018D36C 0018A2CC  7C 08 03 A6 */	mtlr r0
 /* 8018D370 0018A2D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018D374 0018A2D4  4E 80 00 20 */	blr 
+/* 8018D374 0018A2D4  4E 80 00 20 */	blr
 
 .global Accept__21CScriptTargetingPointFR8IVisitor
 Accept__21CScriptTargetingPointFR8IVisitor:
@@ -146,11 +146,11 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D390 0018A2F0  7C 04 03 78 */	mr r4, r0
 /* 8018D394 0018A2F4  81 8C 00 C0 */	lwz r12, 0xc0(r12)
 /* 8018D398 0018A2F8  7D 89 03 A6 */	mtctr r12
-/* 8018D39C 0018A2FC  4E 80 04 21 */	bctrl 
+/* 8018D39C 0018A2FC  4E 80 04 21 */	bctrl
 /* 8018D3A0 0018A300  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018D3A4 0018A304  7C 08 03 A6 */	mtlr r0
 /* 8018D3A8 0018A308  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018D3AC 0018A30C  4E 80 00 20 */	blr 
+/* 8018D3AC 0018A30C  4E 80 00 20 */	blr
 
 .global "__ct__21CScriptTargetingPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fb"
 "__ct__21CScriptTargetingPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fb":

@@ -61,7 +61,7 @@ __dt__13CFlameThrowerFv:
 /* 8019750C 0019446C  38 80 00 01 */	li r4, 1
 /* 80197510 00194470  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80197514 00194474  7D 89 03 A6 */	mtctr r12
-/* 80197518 00194478  4E 80 04 21 */	bctrl 
+/* 80197518 00194478  4E 80 04 21 */	bctrl
 lbl_8019751C:
 /* 8019751C 0019447C  34 1E 03 3C */	addic. r0, r30, 0x33c
 /* 80197520 00194480  41 82 00 18 */	beq lbl_80197538
@@ -85,7 +85,7 @@ lbl_80197554:
 /* 80197560 001944C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80197564 001944C4  7C 08 03 A6 */	mtlr r0
 /* 80197568 001944C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019756C 001944CC  4E 80 00 20 */	blr 
+/* 8019756C 001944CC  4E 80 00 20 */	blr
 
 .global sub_80197570
 sub_80197570:
@@ -129,7 +129,7 @@ lbl_801975D4:
 /* 80197600 00194560  83 C1 00 30 */	lwz r30, 0x30(r1)
 /* 80197604 00194564  7C 08 03 A6 */	mtlr r0
 /* 80197608 00194568  38 21 00 40 */	addi r1, r1, 0x40
-/* 8019760C 0019456C  4E 80 00 20 */	blr 
+/* 8019760C 0019456C  4E 80 00 20 */	blr
 
 .global SetFlameLightActive__13CFlameThrowerFbR13CStateManager
 SetFlameLightActive__13CFlameThrowerFbR13CStateManager:
@@ -157,13 +157,13 @@ SetFlameLightActive__13CFlameThrowerFbR13CStateManager:
 /* 80197664 001945C4  57 E4 06 3E */	clrlwi r4, r31, 0x18
 /* 80197668 001945C8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8019766C 001945CC  7D 89 03 A6 */	mtctr r12
-/* 80197670 001945D0  4E 80 04 21 */	bctrl 
+/* 80197670 001945D0  4E 80 04 21 */	bctrl
 lbl_80197674:
 /* 80197674 001945D4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80197678 001945D8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8019767C 001945DC  7C 08 03 A6 */	mtlr r0
 /* 80197680 001945E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80197684 001945E4  4E 80 00 20 */	blr 
+/* 80197684 001945E4  4E 80 00 20 */	blr
 
 .global DoCollisionCheck__13CFlameThrowerFR9TUniqueIdRC6CAABoxR13CStateManager
 DoCollisionCheck__13CFlameThrowerFR9TUniqueIdRC6CAABoxR13CStateManager:
@@ -365,7 +365,7 @@ lbl_80197978:
 /* 80197980 001948E0  81 94 00 00 */	lwz r12, 0(r20)
 /* 80197984 001948E4  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 80197988 001948E8  7D 89 03 A6 */	mtctr r12
-/* 8019798C 001948EC  4E 80 04 21 */	bctrl 
+/* 8019798C 001948EC  4E 80 04 21 */	bctrl
 /* 80197990 001948F0  88 01 00 84 */	lbz r0, 0x84(r1)
 /* 80197994 001948F4  28 00 00 00 */	cmplwi r0, 0
 /* 80197998 001948F8  98 01 00 A0 */	stb r0, 0xa0(r1)
@@ -445,7 +445,7 @@ lbl_80197A00:
 /* 80197AB8 00194A18  C3 7F 03 04 */	lfs f27, 0x304(r31)
 /* 80197ABC 00194A1C  C3 9F 02 F4 */	lfs f28, 0x2f4(r31)
 /* 80197AC0 00194A20  7D 89 03 A6 */	mtctr r12
-/* 80197AC4 00194A24  4E 80 04 21 */	bctrl 
+/* 80197AC4 00194A24  4E 80 04 21 */	bctrl
 /* 80197AC8 00194A28  C0 41 00 40 */	lfs f2, 0x40(r1)
 /* 80197ACC 00194A2C  38 61 00 54 */	addi r3, r1, 0x54
 /* 80197AD0 00194A30  C0 21 00 44 */	lfs f1, 0x44(r1)
@@ -486,7 +486,7 @@ lbl_80197A00:
 /* 80197B5C 00194ABC  38 A1 02 98 */	addi r5, r1, 0x298
 /* 80197B60 00194AC0  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 80197B64 00194AC4  7D 89 03 A6 */	mtctr r12
-/* 80197B68 00194AC8  4E 80 04 21 */	bctrl 
+/* 80197B68 00194AC8  4E 80 04 21 */	bctrl
 /* 80197B6C 00194ACC  88 E1 00 F8 */	lbz r7, 0xf8(r1)
 /* 80197B70 00194AD0  C0 21 00 D8 */	lfs f1, 0xd8(r1)
 /* 80197B74 00194AD4  80 81 00 DC */	lwz r4, 0xdc(r1)
@@ -769,7 +769,7 @@ lbl_80197F34:
 /* 80197F68 00194EC8  80 01 0B B4 */	lwz r0, 0xbb4(r1)
 /* 80197F6C 00194ECC  7C 08 03 A6 */	mtlr r0
 /* 80197F70 00194ED0  38 21 0B B0 */	addi r1, r1, 0xbb0
-/* 80197F74 00194ED4  4E 80 00 20 */	blr 
+/* 80197F74 00194ED4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__13CFlameThrowerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__13CFlameThrowerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -829,7 +829,7 @@ lbl_80198014:
 /* 80198040 00194FA0  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80198044 00194FA4  7C 08 03 A6 */	mtlr r0
 /* 80198048 00194FA8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8019804C 00194FAC  4E 80 00 20 */	blr 
+/* 8019804C 00194FAC  4E 80 00 20 */	blr
 
 .global CreateFlameParticles__13CFlameThrowerFR13CStateManager
 CreateFlameParticles__13CFlameThrowerFR13CStateManager:
@@ -869,7 +869,7 @@ lbl_801980C0:
 /* 801980D0 00195030  38 80 00 01 */	li r4, 1
 /* 801980D4 00195034  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801980D8 00195038  7D 89 03 A6 */	mtctr r12
-/* 801980DC 0019503C  4E 80 04 21 */	bctrl 
+/* 801980DC 0019503C  4E 80 04 21 */	bctrl
 lbl_801980E0:
 /* 801980E0 00195040  7F 80 07 75 */	extsb. r0, r28
 /* 801980E4 00195044  93 BE 03 48 */	stw r29, 0x348(r30)
@@ -890,12 +890,12 @@ lbl_801980F8:
 /* 8019811C 0019507C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80198120 00195080  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 80198124 00195084  7D 89 03 A6 */	mtctr r12
-/* 80198128 00195088  4E 80 04 21 */	bctrl 
+/* 80198128 00195088  4E 80 04 21 */	bctrl
 /* 8019812C 0019508C  80 7E 03 48 */	lwz r3, 0x348(r30)
 /* 80198130 00195090  81 83 00 00 */	lwz r12, 0(r3)
 /* 80198134 00195094  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80198138 00195098  7D 89 03 A6 */	mtctr r12
-/* 8019813C 0019509C  4E 80 04 21 */	bctrl 
+/* 8019813C 0019509C  4E 80 04 21 */	bctrl
 /* 80198140 001950A0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80198144 001950A4  41 82 00 5C */	beq lbl_801981A0
 /* 80198148 001950A8  A0 7E 02 C8 */	lhz r3, 0x2c8(r30)
@@ -912,7 +912,7 @@ lbl_801980F8:
 /* 80198174 001950D4  81 84 00 00 */	lwz r12, 0(r4)
 /* 80198178 001950D8  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 8019817C 001950DC  7D 89 03 A6 */	mtctr r12
-/* 80198180 001950E0  4E 80 04 21 */	bctrl 
+/* 80198180 001950E0  4E 80 04 21 */	bctrl
 /* 80198184 001950E4  7F C3 F3 78 */	mr r3, r30
 /* 80198188 001950E8  7F E6 FB 78 */	mr r6, r31
 /* 8019818C 001950EC  38 81 00 10 */	addi r4, r1, 0x10
@@ -928,7 +928,7 @@ lbl_801981A0:
 /* 801981B0 00195110  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 801981B4 00195114  7C 08 03 A6 */	mtlr r0
 /* 801981B8 00195118  38 21 00 80 */	addi r1, r1, 0x80
-/* 801981BC 0019511C  4E 80 00 20 */	blr 
+/* 801981BC 0019511C  4E 80 00 20 */	blr
 
 .global Reset__13CFlameThrowerFR13CStateManagerb
 Reset__13CFlameThrowerFR13CStateManagerb:
@@ -950,7 +950,7 @@ Reset__13CFlameThrowerFR13CStateManagerb:
 /* 801981FC 0019515C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80198200 00195160  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80198204 00195164  7D 89 03 A6 */	mtctr r12
-/* 80198208 00195168  4E 80 04 21 */	bctrl 
+/* 80198208 00195168  4E 80 04 21 */	bctrl
 /* 8019820C 0019516C  88 1E 04 00 */	lbz r0, 0x400(r30)
 /* 80198210 00195170  38 C0 00 00 */	li r6, 0
 /* 80198214 00195174  50 C0 36 72 */	rlwimi r0, r6, 6, 0x19, 0x19
@@ -978,7 +978,7 @@ Reset__13CFlameThrowerFR13CStateManagerb:
 /* 8019826C 001951CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80198270 001951D0  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80198274 001951D4  7D 89 03 A6 */	mtctr r12
-/* 80198278 001951D8  4E 80 04 21 */	bctrl 
+/* 80198278 001951D8  4E 80 04 21 */	bctrl
 /* 8019827C 001951DC  C0 5E 03 14 */	lfs f2, 0x314(r30)
 /* 80198280 001951E0  38 7E 03 4C */	addi r3, r30, 0x34c
 /* 80198284 001951E4  C0 3E 03 04 */	lfs f1, 0x304(r30)
@@ -995,7 +995,7 @@ lbl_801982A4:
 /* 801982AC 0019520C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801982B0 00195210  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 801982B4 00195214  7D 89 03 A6 */	mtctr r12
-/* 801982B8 00195218  4E 80 04 21 */	bctrl 
+/* 801982B8 00195218  4E 80 04 21 */	bctrl
 /* 801982BC 0019521C  88 7E 04 00 */	lbz r3, 0x400(r30)
 /* 801982C0 00195220  38 00 00 00 */	li r0, 0
 /* 801982C4 00195224  50 03 36 72 */	rlwimi r3, r0, 6, 0x19, 0x19
@@ -1008,7 +1008,7 @@ lbl_801982D4:
 /* 801982DC 0019523C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801982E0 00195240  7C 08 03 A6 */	mtlr r0
 /* 801982E4 00195244  38 21 00 20 */	addi r1, r1, 0x20
-/* 801982E8 00195248  4E 80 00 20 */	blr 
+/* 801982E8 00195248  4E 80 00 20 */	blr
 
 .global Fire__13CFlameThrowerFRC12CTransform4fR13CStateManagerb
 Fire__13CFlameThrowerFRC12CTransform4fR13CStateManagerb:
@@ -1023,7 +1023,7 @@ Fire__13CFlameThrowerFRC12CTransform4fR13CStateManagerb:
 /* 8019830C 0019526C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80198310 00195270  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 80198314 00195274  7D 89 03 A6 */	mtctr r12
-/* 80198318 00195278  4E 80 04 21 */	bctrl 
+/* 80198318 00195278  4E 80 04 21 */	bctrl
 /* 8019831C 0019527C  88 1E 04 00 */	lbz r0, 0x400(r30)
 /* 80198320 00195280  38 A0 00 01 */	li r5, 1
 /* 80198324 00195284  50 A0 36 72 */	rlwimi r0, r5, 6, 0x19, 0x19
@@ -1040,13 +1040,13 @@ Fire__13CFlameThrowerFRC12CTransform4fR13CStateManagerb:
 /* 80198350 001952B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80198354 001952B4  7C 08 03 A6 */	mtlr r0
 /* 80198358 001952B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019835C 001952BC  4E 80 00 20 */	blr 
+/* 8019835C 001952BC  4E 80 00 20 */	blr
 
 .global Render__13CFlameThrowerCFRC13CStateManager
 Render__13CFlameThrowerCFRC13CStateManager:
 /* 80198360 001952C0  88 03 00 30 */	lbz r0, 0x30(r3)
 /* 80198364 001952C4  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 80198368 001952C8  4E 80 00 20 */	blr 
+/* 80198368 001952C8  4E 80 00 20 */	blr
 
 .global AddToRenderer__13CFlameThrowerCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__13CFlameThrowerCFRC14CFrustumPlanesRC13CStateManager:
@@ -1062,7 +1062,7 @@ AddToRenderer__13CFlameThrowerCFRC14CFrustumPlanesRC13CStateManager:
 /* 80198390 001952F0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80198394 001952F4  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 80198398 001952F8  7D 89 03 A6 */	mtctr r12
-/* 8019839C 001952FC  4E 80 04 21 */	bctrl 
+/* 8019839C 001952FC  4E 80 04 21 */	bctrl
 /* 801983A0 00195300  C0 5E 03 14 */	lfs f2, 0x314(r30)
 /* 801983A4 00195304  7F C4 F3 78 */	mr r4, r30
 /* 801983A8 00195308  C0 3E 03 04 */	lfs f1, 0x304(r30)
@@ -1075,7 +1075,7 @@ AddToRenderer__13CFlameThrowerCFRC14CFrustumPlanesRC13CStateManager:
 /* 801983C4 00195324  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801983C8 00195328  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 801983CC 0019532C  7D 89 03 A6 */	mtctr r12
-/* 801983D0 00195330  4E 80 04 21 */	bctrl 
+/* 801983D0 00195330  4E 80 04 21 */	bctrl
 /* 801983D4 00195334  7F C3 F3 78 */	mr r3, r30
 /* 801983D8 00195338  7F E4 FB 78 */	mr r4, r31
 /* 801983DC 0019533C  38 A1 00 08 */	addi r5, r1, 8
@@ -1086,7 +1086,7 @@ AddToRenderer__13CFlameThrowerCFRC14CFrustumPlanesRC13CStateManager:
 /* 801983F0 00195350  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801983F4 00195354  7C 08 03 A6 */	mtlr r0
 /* 801983F8 00195358  38 21 00 40 */	addi r1, r1, 0x40
-/* 801983FC 0019535C  4E 80 00 20 */	blr 
+/* 801983FC 0019535C  4E 80 00 20 */	blr
 
 .global SetTransform__13CFlameThrowerFRC12CTransform4f
 SetTransform__13CFlameThrowerFRC12CTransform4f:
@@ -1098,7 +1098,7 @@ SetTransform__13CFlameThrowerFRC12CTransform4f:
 /* 80198414 00195374  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80198418 00195378  7C 08 03 A6 */	mtlr r0
 /* 8019841C 0019537C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80198420 00195380  4E 80 00 20 */	blr 
+/* 80198420 00195380  4E 80 00 20 */	blr
 
 .global UpdateFlameState__13CFlameThrowerFfR13CStateManager
 UpdateFlameState__13CFlameThrowerFfR13CStateManager:
@@ -1168,7 +1168,7 @@ lbl_80198500:
 /* 8019850C 0019546C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80198510 00195470  7C 08 03 A6 */	mtlr r0
 /* 80198514 00195474  38 21 00 10 */	addi r1, r1, 0x10
-/* 80198518 00195478  4E 80 00 20 */	blr 
+/* 80198518 00195478  4E 80 00 20 */	blr
 
 .global Think__13CFlameThrowerFfR13CStateManager
 Think__13CFlameThrowerFfR13CStateManager:
@@ -1215,7 +1215,7 @@ lbl_801985AC:
 /* 801985B4 00195514  81 9D 03 4C */	lwz r12, 0x34c(r29)
 /* 801985B8 00195518  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801985BC 0019551C  7D 89 03 A6 */	mtctr r12
-/* 801985C0 00195520  4E 80 04 21 */	bctrl 
+/* 801985C0 00195520  4E 80 04 21 */	bctrl
 /* 801985C4 00195524  C0 01 00 58 */	lfs f0, 0x58(r1)
 /* 801985C8 00195528  38 81 00 58 */	addi r4, r1, 0x58
 /* 801985CC 0019552C  D0 1D 03 C0 */	stfs f0, 0x3c0(r29)
@@ -1228,7 +1228,7 @@ lbl_801985AC:
 /* 801985E8 00195548  81 83 00 00 */	lwz r12, 0(r3)
 /* 801985EC 0019554C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801985F0 00195550  7D 89 03 A6 */	mtctr r12
-/* 801985F4 00195554  4E 80 04 21 */	bctrl 
+/* 801985F4 00195554  4E 80 04 21 */	bctrl
 /* 801985F8 00195558  83 7D 03 48 */	lwz r27, 0x348(r29)
 /* 801985FC 0019555C  7F E4 FB 78 */	mr r4, r31
 /* 80198600 00195560  38 61 01 18 */	addi r3, r1, 0x118
@@ -1238,7 +1238,7 @@ lbl_801985AC:
 /* 80198610 00195570  81 9B 00 00 */	lwz r12, 0(r27)
 /* 80198614 00195574  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80198618 00195578  7D 89 03 A6 */	mtctr r12
-/* 8019861C 0019557C  4E 80 04 21 */	bctrl 
+/* 8019861C 0019557C  4E 80 04 21 */	bctrl
 /* 80198620 00195580  48 00 00 1C */	b lbl_8019863C
 lbl_80198624:
 /* 80198624 00195584  38 7D 03 4C */	addi r3, r29, 0x34c
@@ -1246,14 +1246,14 @@ lbl_80198624:
 /* 8019862C 0019558C  81 9D 03 4C */	lwz r12, 0x34c(r29)
 /* 80198630 00195590  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80198634 00195594  7D 89 03 A6 */	mtctr r12
-/* 80198638 00195598  4E 80 04 21 */	bctrl 
+/* 80198638 00195598  4E 80 04 21 */	bctrl
 lbl_8019863C:
 /* 8019863C 0019559C  80 7D 03 48 */	lwz r3, 0x348(r29)
 /* 80198640 001955A0  FC 20 F8 90 */	fmr f1, f31
 /* 80198644 001955A4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80198648 001955A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8019864C 001955AC  7D 89 03 A6 */	mtctr r12
-/* 80198650 001955B0  4E 80 04 21 */	bctrl 
+/* 80198650 001955B0  4E 80 04 21 */	bctrl
 /* 80198654 001955B4  C0 02 A6 A4 */	lfs f0, lbl_805AC3C4@sda21(r2)
 /* 80198658 001955B8  57 80 06 3F */	clrlwi. r0, r28, 0x18
 /* 8019865C 001955BC  D0 1D 03 D8 */	stfs f0, 0x3d8(r29)
@@ -1481,7 +1481,7 @@ lbl_801988C0:
 /* 801989AC 0019590C  81 83 00 00 */	lwz r12, 0(r3)
 /* 801989B0 00195910  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 801989B4 00195914  7D 89 03 A6 */	mtctr r12
-/* 801989B8 00195918  4E 80 04 21 */	bctrl 
+/* 801989B8 00195918  4E 80 04 21 */	bctrl
 /* 801989BC 0019591C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801989C0 00195920  41 82 00 28 */	beq lbl_801989E8
 /* 801989C4 00195924  80 9D 03 48 */	lwz r4, 0x348(r29)
@@ -1489,7 +1489,7 @@ lbl_801988C0:
 /* 801989CC 0019592C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801989D0 00195930  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 801989D4 00195934  7D 89 03 A6 */	mtctr r12
-/* 801989D8 00195938  4E 80 04 21 */	bctrl 
+/* 801989D8 00195938  4E 80 04 21 */	bctrl
 /* 801989DC 0019593C  7F 63 DB 78 */	mr r3, r27
 /* 801989E0 00195940  38 81 01 78 */	addi r4, r1, 0x178
 /* 801989E4 00195944  4B F1 CD 61 */	bl SetLight__10CGameLightFRC6CLight
@@ -1500,18 +1500,18 @@ lbl_801989E8:
 /* 801989F4 00195954  80 01 01 F4 */	lwz r0, 0x1f4(r1)
 /* 801989F8 00195958  7C 08 03 A6 */	mtlr r0
 /* 801989FC 0019595C  38 21 01 F0 */	addi r1, r1, 0x1f0
-/* 80198A00 00195960  4E 80 00 20 */	blr 
+/* 80198A00 00195960  4E 80 00 20 */	blr
 
 .global Activate__10CFlameWarpFb
 Activate__10CFlameWarpFb:
 /* 80198A04 00195964  88 03 00 A0 */	lbz r0, 0xa0(r3)
 /* 80198A08 00195968  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 80198A0C 0019596C  98 03 00 A0 */	stb r0, 0xa0(r3)
-/* 80198A10 00195970  4E 80 00 20 */	blr 
+/* 80198A10 00195970  4E 80 00 20 */	blr
 
 .global nullsub_141
 nullsub_141:
-/* 80198A14 00195974  4E 80 00 20 */	blr 
+/* 80198A14 00195974  4E 80 00 20 */	blr
 
 .global Accept__13CFlameThrowerFR8IVisitor
 Accept__13CFlameThrowerFR8IVisitor:
@@ -1524,11 +1524,11 @@ Accept__13CFlameThrowerFR8IVisitor:
 /* 80198A30 00195990  7C 04 03 78 */	mr r4, r0
 /* 80198A34 00195994  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 80198A38 00195998  7D 89 03 A6 */	mtctr r12
-/* 80198A3C 0019599C  4E 80 04 21 */	bctrl 
+/* 80198A3C 0019599C  4E 80 04 21 */	bctrl
 /* 80198A40 001959A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80198A44 001959A4  7C 08 03 A6 */	mtlr r0
 /* 80198A48 001959A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80198A4C 001959AC  4E 80 00 20 */	blr 
+/* 80198A4C 001959AC  4E 80 00 20 */	blr
 
 .global GetTouchBounds__13CFlameThrowerCFv
 GetTouchBounds__13CFlameThrowerCFv:
@@ -1574,7 +1574,7 @@ lbl_80198A80:
 /* 80198AE4 00195A44  D0 03 00 14 */	stfs f0, 0x14(r3)
 lbl_80198AE8:
 /* 80198AE8 00195A48  38 21 00 20 */	addi r1, r1, 0x20
-/* 80198AEC 00195A4C  4E 80 00 20 */	blr 
+/* 80198AEC 00195A4C  4E 80 00 20 */	blr
 
 .global "__ct__13CFlameThrowerFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC10CFlameInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUi"
 "__ct__13CFlameThrowerFRC28TToken<18CWeaponDescription>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>11EWeaponTypeRC10CFlameInfoRC12CTransform4f14EMaterialTypesRC11CDamageInfo9TUniqueId9TUniqueIdUi":
@@ -1677,7 +1677,7 @@ lbl_80198BE4:
 /* 80198C6C 00195BCC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80198C70 00195BD0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80198C74 00195BD4  7D 89 03 A6 */	mtctr r12
-/* 80198C78 00195BD8  4E 80 04 21 */	bctrl 
+/* 80198C78 00195BD8  4E 80 04 21 */	bctrl
 /* 80198C7C 00195BDC  3A 5A 03 3C */	addi r18, r26, 0x33c
 /* 80198C80 00195BE0  38 81 00 48 */	addi r4, r1, 0x48
 /* 80198C84 00195BE4  7E 43 93 78 */	mr r3, r18
@@ -1760,7 +1760,7 @@ lbl_80198D08:
 /* 80198DB0 00195D10  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 80198DB4 00195D14  7C 08 03 A6 */	mtlr r0
 /* 80198DB8 00195D18  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 80198DBC 00195D1C  4E 80 00 20 */	blr 
+/* 80198DBC 00195D1C  4E 80 00 20 */	blr
 
 .global __sinit_CFlameThrower_cpp
 __sinit_CFlameThrower_cpp:

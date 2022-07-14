@@ -42,7 +42,7 @@ lbl_801D9A78:
 /* 801D9A80 001D69E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D9A84 001D69E4  7C 08 03 A6 */	mtlr r0
 /* 801D9A88 001D69E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D9A8C 001D69EC  4E 80 00 20 */	blr 
+/* 801D9A8C 001D69EC  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__10CABSFlinchFfR15CBodyController
 GetBodyStateTransition__10CABSFlinchFfR15CBodyController:
@@ -60,11 +60,11 @@ lbl_801D9AB8:
 /* 801D9AB8 001D6A18  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D9ABC 001D6A1C  7C 08 03 A6 */	mtlr r0
 /* 801D9AC0 001D6A20  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D9AC4 001D6A24  4E 80 00 20 */	blr 
+/* 801D9AC4 001D6A24  4E 80 00 20 */	blr
 
 .global Shutdown__10CABSFlinchFR15CBodyController
 Shutdown__10CABSFlinchFR15CBodyController:
-/* 801D9AC8 001D6A28  4E 80 00 20 */	blr 
+/* 801D9AC8 001D6A28  4E 80 00 20 */	blr
 
 .global UpdateBody__10CABSFlinchFfR15CBodyControllerR13CStateManager
 UpdateBody__10CABSFlinchFfR15CBodyControllerR13CStateManager:
@@ -92,7 +92,7 @@ UpdateBody__10CABSFlinchFfR15CBodyControllerR13CStateManager:
 /* 801D9B20 001D6A80  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D9B24 001D6A84  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801D9B28 001D6A88  7D 89 03 A6 */	mtctr r12
-/* 801D9B2C 001D6A8C  4E 80 04 21 */	bctrl 
+/* 801D9B2C 001D6A8C  4E 80 04 21 */	bctrl
 /* 801D9B30 001D6A90  C0 41 00 08 */	lfs f2, 8(r1)
 /* 801D9B34 001D6A94  C0 22 AC A0 */	lfs f1, lbl_805AC9C0@sda21(r2)
 /* 801D9B38 001D6A98  C0 02 AC A4 */	lfs f0, lbl_805AC9C4@sda21(r2)
@@ -109,7 +109,7 @@ lbl_801D9B50:
 /* 801D9B60 001D6AC0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801D9B64 001D6AC4  7C 08 03 A6 */	mtlr r0
 /* 801D9B68 001D6AC8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D9B6C 001D6ACC  4E 80 00 20 */	blr 
+/* 801D9B6C 001D6ACC  4E 80 00 20 */	blr
 
 .global Start__10CABSFlinchFR15CBodyControllerR13CStateManager
 Start__10CABSFlinchFR15CBodyControllerR13CStateManager:
@@ -212,7 +212,7 @@ lbl_801D9CCC:
 /* 801D9CDC 001D6C3C  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 801D9CE0 001D6C40  7C 08 03 A6 */	mtlr r0
 /* 801D9CE4 001D6C44  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801D9CE8 001D6C48  4E 80 00 20 */	blr 
+/* 801D9CE8 001D6C48  4E 80 00 20 */	blr
 
 .global __ct__10CABSFlinchFv
 __ct__10CABSFlinchFv:

@@ -52,7 +52,7 @@ lbl_800BB9D0:
 lbl_800BB9DC:
 /* 800BB9DC 000B893C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 800BB9E0 000B8940  38 21 00 30 */	addi r1, r1, 0x30
-/* 800BB9E4 000B8944  4E 80 00 20 */	blr 
+/* 800BB9E4 000B8944  4E 80 00 20 */	blr
 
 .global __ct__12CTweakGunResFR12CInputStream
 __ct__12CTweakGunResFR12CInputStream:
@@ -452,7 +452,7 @@ lbl_800BBE8C:
 /* 800BBFC8 000B8F28  80 01 01 E4 */	lwz r0, 0x1e4(r1)
 /* 800BBFCC 000B8F2C  7C 08 03 A6 */	mtlr r0
 /* 800BBFD0 000B8F30  38 21 01 E0 */	addi r1, r1, 0x1e0
-/* 800BBFD4 000B8F34  4E 80 00 20 */	blr 
+/* 800BBFD4 000B8F34  4E 80 00 20 */	blr
 
 .global __dt__12CTweakGunResFv
 __dt__12CTweakGunResFv:
@@ -652,7 +652,7 @@ lbl_800BC268:
 /* 800BC274 000B91D4  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 800BC278 000B91D8  7C 08 03 A6 */	mtlr r0
 /* 800BC27C 000B91DC  38 21 00 90 */	addi r1, r1, 0x90
-/* 800BC280 000B91E0  4E 80 00 20 */	blr 
+/* 800BC280 000B91E0  4E 80 00 20 */	blr
 
 .global "__dl__26TOneStatic<12CTweakGunRes>FPv"
 "__dl__26TOneStatic<12CTweakGunRes>FPv":
@@ -666,4 +666,4 @@ lbl_800BC268:
 /* 800BC2A0 000B9200  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800BC2A4 000B9204  7C 08 03 A6 */	mtlr r0
 /* 800BC2A8 000B9208  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BC2AC 000B920C  4E 80 00 20 */	blr 
+/* 800BC2AC 000B920C  4E 80 00 20 */	blr

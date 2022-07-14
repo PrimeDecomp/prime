@@ -42,7 +42,7 @@ lbl_80111D10:
 /* 80111D1C 0010EC7C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80111D20 0010EC80  7C 08 03 A6 */	mtlr r0
 /* 80111D24 0010EC84  38 21 00 10 */	addi r1, r1, 0x10
-/* 80111D28 0010EC88  4E 80 00 20 */	blr 
+/* 80111D28 0010EC88  4E 80 00 20 */	blr
 
 .global OnMessage__14CAudioStateWinFRC20CArchitectureMessageR18CArchitectureQueue
 OnMessage__14CAudioStateWinFRC20CArchitectureMessageR18CArchitectureQueue:
@@ -88,7 +88,7 @@ lbl_80111DB0:
 /* 80111DB4 0010ED14  38 60 00 00 */	li r3, 0
 /* 80111DB8 0010ED18  7C 08 03 A6 */	mtlr r0
 /* 80111DBC 0010ED1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80111DC0 0010ED20  4E 80 00 20 */	blr 
+/* 80111DC0 0010ED20  4E 80 00 20 */	blr
 
 .global __ct__14CAudioStateWinFv
 __ct__14CAudioStateWinFv:

@@ -100,7 +100,7 @@ lbl_8015B8F8:
 /* 8015B904 00158864  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8015B908 00158868  7C 08 03 A6 */	mtlr r0
 /* 8015B90C 0015886C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015B910 00158870  4E 80 00 20 */	blr 
+/* 8015B910 00158870  4E 80 00 20 */	blr
 
 .global Accept__17CScriptPlayerHintFR8IVisitor
 Accept__17CScriptPlayerHintFR8IVisitor:
@@ -113,11 +113,11 @@ Accept__17CScriptPlayerHintFR8IVisitor:
 /* 8015B92C 0015888C  7C 04 03 78 */	mr r4, r0
 /* 8015B930 00158890  81 8C 00 A0 */	lwz r12, 0xa0(r12)
 /* 8015B934 00158894  7D 89 03 A6 */	mtctr r12
-/* 8015B938 00158898  4E 80 04 21 */	bctrl 
+/* 8015B938 00158898  4E 80 04 21 */	bctrl
 /* 8015B93C 0015889C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8015B940 001588A0  7C 08 03 A6 */	mtlr r0
 /* 8015B944 001588A4  38 21 00 10 */	addi r1, r1, 0x10
-/* 8015B948 001588A8  4E 80 00 20 */	blr 
+/* 8015B948 001588A8  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__17CScriptPlayerHintF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__17CScriptPlayerHintF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -254,13 +254,13 @@ lbl_8015BB0C:
 /* 8015BB2C 00158A8C  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8015BB30 00158A90  7C 08 03 A6 */	mtlr r0
 /* 8015BB34 00158A94  38 21 00 60 */	addi r1, r1, 0x60
-/* 8015BB38 00158A98  4E 80 00 20 */	blr 
+/* 8015BB38 00158A98  4E 80 00 20 */	blr
 
 .global RemoveFromObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager
 RemoveFromObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager:
 /* 8015BB3C 00158A9C  80 03 00 E8 */	lwz r0, 0xe8(r3)
 /* 8015BB40 00158AA0  2C 00 00 00 */	cmpwi r0, 0
-/* 8015BB44 00158AA4  4D 82 00 20 */	beqlr 
+/* 8015BB44 00158AA4  4D 82 00 20 */	beqlr
 /* 8015BB48 00158AA8  38 E3 00 EC */	addi r7, r3, 0xec
 /* 8015BB4C 00158AAC  54 00 08 3C */	slwi r0, r0, 1
 /* 8015BB50 00158AB0  7C E6 3B 78 */	mr r6, r7
@@ -279,9 +279,9 @@ lbl_8015BB78:
 /* 8015BB78 00158AD8  7C 06 40 40 */	cmplw r6, r8
 /* 8015BB7C 00158ADC  40 82 00 4C */	bne lbl_8015BBC8
 /* 8015BB80 00158AE0  7C 07 38 40 */	cmplw r7, r7
-/* 8015BB84 00158AE4  4D 80 00 20 */	bltlr 
+/* 8015BB84 00158AE4  4D 80 00 20 */	bltlr
 /* 8015BB88 00158AE8  7C 07 40 40 */	cmplw r7, r8
-/* 8015BB8C 00158AEC  4C 80 00 20 */	bgelr 
+/* 8015BB8C 00158AEC  4C 80 00 20 */	bgelr
 /* 8015BB90 00158AF0  7C E6 3B 78 */	mr r6, r7
 /* 8015BB94 00158AF4  48 00 00 10 */	b lbl_8015BBA4
 lbl_8015BB98:
@@ -297,12 +297,12 @@ lbl_8015BBA4:
 /* 8015BBB8 00158B18  41 80 FF E0 */	blt lbl_8015BB98
 /* 8015BBBC 00158B1C  38 05 FF FF */	addi r0, r5, -1
 /* 8015BBC0 00158B20  90 03 00 E8 */	stw r0, 0xe8(r3)
-/* 8015BBC4 00158B24  4E 80 00 20 */	blr 
+/* 8015BBC4 00158B24  4E 80 00 20 */	blr
 lbl_8015BBC8:
 /* 8015BBC8 00158B28  7C 06 38 40 */	cmplw r6, r7
-/* 8015BBCC 00158B2C  4D 80 00 20 */	bltlr 
+/* 8015BBCC 00158B2C  4D 80 00 20 */	bltlr
 /* 8015BBD0 00158B30  7C 06 40 40 */	cmplw r6, r8
-/* 8015BBD4 00158B34  4C 80 00 20 */	bgelr 
+/* 8015BBD4 00158B34  4C 80 00 20 */	bgelr
 /* 8015BBD8 00158B38  48 00 00 10 */	b lbl_8015BBE8
 lbl_8015BBDC:
 /* 8015BBDC 00158B3C  A0 06 00 02 */	lhz r0, 2(r6)
@@ -317,7 +317,7 @@ lbl_8015BBE8:
 /* 8015BBFC 00158B5C  41 80 FF E0 */	blt lbl_8015BBDC
 /* 8015BC00 00158B60  38 05 FF FF */	addi r0, r5, -1
 /* 8015BC04 00158B64  90 03 00 E8 */	stw r0, 0xe8(r3)
-/* 8015BC08 00158B68  4E 80 00 20 */	blr 
+/* 8015BC08 00158B68  4E 80 00 20 */	blr
 
 .global AddToObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager
 AddToObjectList__17CScriptPlayerHintF9TUniqueIdR13CStateManager:
@@ -337,7 +337,7 @@ lbl_8015BC24:
 /* 8015BC38 00158B98  40 82 FF E8 */	bne lbl_8015BC20
 lbl_8015BC3C:
 /* 8015BC3C 00158B9C  7C 06 38 40 */	cmplw r6, r7
-/* 8015BC40 00158BA0  4C 82 00 20 */	bnelr 
+/* 8015BC40 00158BA0  4C 82 00 20 */	bnelr
 /* 8015BC44 00158BA4  28 07 00 00 */	cmplwi r7, 0
 /* 8015BC48 00158BA8  41 82 00 0C */	beq lbl_8015BC54
 /* 8015BC4C 00158BAC  A0 04 00 00 */	lhz r0, 0(r4)
@@ -346,7 +346,7 @@ lbl_8015BC54:
 /* 8015BC54 00158BB4  80 83 00 E8 */	lwz r4, 0xe8(r3)
 /* 8015BC58 00158BB8  38 04 00 01 */	addi r0, r4, 1
 /* 8015BC5C 00158BBC  90 03 00 E8 */	stw r0, 0xe8(r3)
-/* 8015BC60 00158BC0  4E 80 00 20 */	blr 
+/* 8015BC60 00158BC0  4E 80 00 20 */	blr
 
 .global ClearObjectList__17CScriptPlayerHintFv
 ClearObjectList__17CScriptPlayerHintFv:
@@ -375,7 +375,7 @@ lbl_8015BCAC:
 lbl_8015BCB0:
 /* 8015BCB0 00158C10  38 00 00 00 */	li r0, 0
 /* 8015BCB4 00158C14  90 03 00 E8 */	stw r0, 0xe8(r3)
-/* 8015BCB8 00158C18  4E 80 00 20 */	blr 
+/* 8015BCB8 00158C18  4E 80 00 20 */	blr
 
 .global "__ct__17CScriptPlayerHintF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbii"
 "__ct__17CScriptPlayerHintF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbii":

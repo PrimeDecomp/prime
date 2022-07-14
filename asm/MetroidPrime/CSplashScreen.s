@@ -12,7 +12,7 @@ lbl_803D9A50:
 	.4byte GetIsContinueDraw__6CIOWinCFv
 	.4byte Draw__13CSplashScreenCFv
 	.4byte PreDraw__6CIOWinCFv
-	
+
 .global lbl_803D9A6C
 lbl_803D9A6C:
 	# ROM: 0x3D6A6C
@@ -34,7 +34,7 @@ lbl_803D9A88:
 	.string16 "Progressive Scan mode."
 	.string16 "Interlace mode."
 	.balign 4
-	
+
 .section .sdata
 
 .global lbl_805A6D90
@@ -82,7 +82,7 @@ lbl_80028260:
 /* 8002826C 000251CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80028270 000251D0  7C 08 03 A6 */	mtlr r0
 /* 80028274 000251D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80028278 000251D8  4E 80 00 20 */	blr 
+/* 80028278 000251D8  4E 80 00 20 */	blr
 
 .global Draw__13CSplashScreenCFv
 Draw__13CSplashScreenCFv:
@@ -147,7 +147,7 @@ lbl_8002832C:
 /* 80028350 000252B0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80028354 000252B4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80028358 000252B8  7D 89 03 A6 */	mtctr r12
-/* 8002835C 000252BC  4E 80 04 21 */	bctrl 
+/* 8002835C 000252BC  4E 80 04 21 */	bctrl
 /* 80028360 000252C0  3C 60 80 5A */	lis r3, skIdentity4f@ha
 /* 80028364 000252C4  38 63 66 70 */	addi r3, r3, skIdentity4f@l
 /* 80028368 000252C8  48 2E 43 E5 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
@@ -162,7 +162,7 @@ lbl_8002832C:
 /* 8002838C 000252EC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80028390 000252F0  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80028394 000252F4  7D 89 03 A6 */	mtctr r12
-/* 80028398 000252F8  4E 80 04 21 */	bctrl 
+/* 80028398 000252F8  4E 80 04 21 */	bctrl
 /* 8002839C 000252FC  3B 81 00 C8 */	addi r28, r1, 0xc8
 /* 800283A0 00025300  38 9E 00 28 */	addi r4, r30, 0x28
 /* 800283A4 00025304  7F 83 E3 78 */	mr r3, r28
@@ -476,7 +476,7 @@ lbl_80028838:
 /* 80028854 000257B4  C0 42 83 B0 */	lfs f2, lbl_805AA0D0@sda21(r2)
 /* 80028858 000257B8  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 8002885C 000257BC  7D 89 03 A6 */	mtctr r12
-/* 80028860 000257C0  4E 80 04 21 */	bctrl 
+/* 80028860 000257C0  4E 80 04 21 */	bctrl
 /* 80028864 000257C4  38 60 00 01 */	li r3, 1
 /* 80028868 000257C8  38 80 00 04 */	li r4, 4
 /* 8002886C 000257CC  38 A0 00 05 */	li r5, 5
@@ -539,7 +539,7 @@ lbl_80028930:
 /* 8002894C 000258AC  80 01 05 14 */	lwz r0, 0x514(r1)
 /* 80028950 000258B0  7C 08 03 A6 */	mtlr r0
 /* 80028954 000258B4  38 21 05 10 */	addi r1, r1, 0x510
-/* 80028958 000258B8  4E 80 00 20 */	blr 
+/* 80028958 000258B8  4E 80 00 20 */	blr
 
 .global __dt__17CTextRenderBufferFv
 __dt__17CTextRenderBufferFv:
@@ -661,7 +661,7 @@ lbl_80028AD8:
 /* 80028AEC 00025A4C  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 80028AF0 00025A50  7C 08 03 A6 */	mtlr r0
 /* 80028AF4 00025A54  38 21 00 50 */	addi r1, r1, 0x50
-/* 80028AF8 00025A58  4E 80 00 20 */	blr 
+/* 80028AF8 00025A58  4E 80 00 20 */	blr
 
 .global sub_80028afc
 sub_80028afc:
@@ -701,7 +701,7 @@ lbl_80028B6C:
 /* 80028B78 00025AD8  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80028B7C 00025ADC  7C 08 03 A6 */	mtlr r0
 /* 80028B80 00025AE0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80028B84 00025AE4  4E 80 00 20 */	blr 
+/* 80028B84 00025AE4  4E 80 00 20 */	blr
 
 .global sub_80028b88
 sub_80028b88:
@@ -726,7 +726,7 @@ lbl_80028BB4:
 /* 80028BC8 00025B28  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80028BCC 00025B2C  7C 08 03 A6 */	mtlr r0
 /* 80028BD0 00025B30  38 21 00 10 */	addi r1, r1, 0x10
-/* 80028BD4 00025B34  4E 80 00 20 */	blr 
+/* 80028BD4 00025B34  4E 80 00 20 */	blr
 
 .global sub_80028bd8
 sub_80028bd8:
@@ -738,7 +738,7 @@ sub_80028bd8:
 /* 80028BEC 00025B4C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80028BF0 00025B50  7C 08 03 A6 */	mtlr r0
 /* 80028BF4 00025B54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80028BF8 00025B58  4E 80 00 20 */	blr 
+/* 80028BF8 00025B58  4E 80 00 20 */	blr
 
 .global sub_80028bfc
 sub_80028bfc:
@@ -792,7 +792,7 @@ lbl_80028C90:
 /* 80028CA4 00025C04  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80028CA8 00025C08  7C 08 03 A6 */	mtlr r0
 /* 80028CAC 00025C0C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80028CB0 00025C10  4E 80 00 20 */	blr 
+/* 80028CB0 00025C10  4E 80 00 20 */	blr
 
 .global __dt__18CTextExecuteBufferFv
 __dt__18CTextExecuteBufferFv:
@@ -824,7 +824,7 @@ lbl_80028D08:
 /* 80028D14 00025C74  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80028D18 00025C78  7C 08 03 A6 */	mtlr r0
 /* 80028D1C 00025C7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80028D20 00025C80  4E 80 00 20 */	blr 
+/* 80028D20 00025C80  4E 80 00 20 */	blr
 
 .global __dt__14CSaveableStateFv
 __dt__14CSaveableStateFv:
@@ -931,7 +931,7 @@ lbl_80028E70:
 /* 80028E7C 00025DDC  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80028E80 00025DE0  7C 08 03 A6 */	mtlr r0
 /* 80028E84 00025DE4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80028E88 00025DE8  4E 80 00 20 */	blr 
+/* 80028E88 00025DE8  4E 80 00 20 */	blr
 
 .global OnMessage__13CSplashScreenFRC20CArchitectureMessageR18CArchitectureQueue
 OnMessage__13CSplashScreenFRC20CArchitectureMessageR18CArchitectureQueue:
@@ -968,7 +968,7 @@ lbl_80028EE8:
 /* 80028EFC 00025E5C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80028F00 00025E60  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80028F04 00025E64  7D 89 03 A6 */	mtctr r12
-/* 80028F08 00025E68  4E 80 04 21 */	bctrl 
+/* 80028F08 00025E68  4E 80 04 21 */	bctrl
 /* 80028F0C 00025E6C  8B 43 00 37 */	lbz r26, 0x37(r3)
 /* 80028F10 00025E70  48 2E 06 E1 */	bl GetProgressiveMode__9CGraphicsFv
 /* 80028F14 00025E74  7C 7B 1B 78 */	mr r27, r3
@@ -1177,7 +1177,7 @@ lbl_800291E8:
 /* 800291EC 0002614C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800291F0 00026150  7C 08 03 A6 */	mtlr r0
 /* 800291F4 00026154  38 21 00 30 */	addi r1, r1, 0x30
-/* 800291F8 00026158  4E 80 00 20 */	blr 
+/* 800291F8 00026158  4E 80 00 20 */	blr
 
 .global __ct__13CSplashScreenFQ213CSplashScreen13ESplashScreen
 __ct__13CSplashScreenFQ213CSplashScreen13ESplashScreen:
@@ -1221,7 +1221,7 @@ __ct__13CSplashScreenFQ213CSplashScreen13ESplashScreen:
 /* 80029290 000261F0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80029294 000261F4  7C A5 00 2E */	lwzx r5, r5, r0
 /* 80029298 000261F8  7D 89 03 A6 */	mtctr r12
-/* 8002929C 000261FC  4E 80 04 21 */	bctrl 
+/* 8002929C 000261FC  4E 80 04 21 */	bctrl
 /* 800292A0 00026200  38 7E 00 28 */	addi r3, r30, 0x28
 /* 800292A4 00026204  38 81 00 08 */	addi r4, r1, 8
 /* 800292A8 00026208  48 31 7C 01 */	bl __ct__6CTokenFRC6CToken
@@ -1236,7 +1236,7 @@ __ct__13CSplashScreenFQ213CSplashScreen13ESplashScreen:
 /* 800292CC 0002622C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800292D0 00026230  7C 08 03 A6 */	mtlr r0
 /* 800292D4 00026234  38 21 00 30 */	addi r1, r1, 0x30
-/* 800292D8 00026238  4E 80 00 20 */	blr 
+/* 800292D8 00026238  4E 80 00 20 */	blr
 
 .global sub_800292dc
 sub_800292dc:
@@ -1282,7 +1282,7 @@ lbl_80029354:
 /* 80029368 000262C8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8002936C 000262CC  7C 08 03 A6 */	mtlr r0
 /* 80029370 000262D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80029374 000262D4  4E 80 00 20 */	blr 
+/* 80029374 000262D4  4E 80 00 20 */	blr
 
 .global sub_80029378
 sub_80029378:
@@ -1325,4 +1325,4 @@ lbl_800293E8:
 /* 800293FC 0002635C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80029400 00026360  7C 08 03 A6 */	mtlr r0
 /* 80029404 00026364  38 21 00 20 */	addi r1, r1, 0x20
-/* 80029408 00026368  4E 80 00 20 */	blr 
+/* 80029408 00026368  4E 80 00 20 */	blr

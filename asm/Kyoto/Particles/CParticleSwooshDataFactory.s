@@ -371,7 +371,7 @@ lbl_8032FE2C:
 /* 8032FE30 0032CD90  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8032FE34 0032CD94  7C 08 03 A6 */	mtlr r0
 /* 8032FE38 0032CD98  38 21 00 30 */	addi r1, r1, 0x30
-/* 8032FE3C 0032CD9C  4E 80 00 20 */	blr 
+/* 8032FE3C 0032CD9C  4E 80 00 20 */	blr
 
 .global CreateGeneratorDescription__26CParticleSwooshDataFactoryFR12CInputStreamP11CSimplePool
 CreateGeneratorDescription__26CParticleSwooshDataFactoryFR12CInputStreamP11CSimplePool:
@@ -412,7 +412,7 @@ lbl_8032FEB0:
 /* 8032FEBC 0032CE1C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8032FEC0 0032CE20  7C 08 03 A6 */	mtlr r0
 /* 8032FEC4 0032CE24  38 21 00 20 */	addi r1, r1, 0x20
-/* 8032FEC8 0032CE28  4E 80 00 20 */	blr 
+/* 8032FEC8 0032CE28  4E 80 00 20 */	blr
 
 .global GetGeneratorDesc__26CParticleSwooshDataFactoryFR12CInputStreamP11CSimplePool
 GetGeneratorDesc__26CParticleSwooshDataFactoryFR12CInputStreamP11CSimplePool:
@@ -451,7 +451,7 @@ lbl_8032FF38:
 /* 8032FF40 0032CEA0  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8032FF44 0032CEA4  7C 08 03 A6 */	mtlr r0
 /* 8032FF48 0032CEA8  38 21 00 30 */	addi r1, r1, 0x30
-/* 8032FF4C 0032CEAC  4E 80 00 20 */	blr 
+/* 8032FF4C 0032CEAC  4E 80 00 20 */	blr
 
 .global "__dt__46TObjOwnerDerivedFromIObj<18CSwooshDescription>Fv"
 "__dt__46TObjOwnerDerivedFromIObj<18CSwooshDescription>Fv":
@@ -493,7 +493,7 @@ lbl_8032FFC4:
 /* 8032FFD0 0032CF30  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8032FFD4 0032CF34  7C 08 03 A6 */	mtlr r0
 /* 8032FFD8 0032CF38  38 21 00 10 */	addi r1, r1, 0x10
-/* 8032FFDC 0032CF3C  4E 80 00 20 */	blr 
+/* 8032FFDC 0032CF3C  4E 80 00 20 */	blr
 
 .global FParticleSwooshDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FParticleSwooshDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -538,7 +538,7 @@ FParticleSwooshDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
 /* 80330078 0032CFD8  38 80 00 01 */	li r4, 1
 /* 8033007C 0032CFDC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80330080 0032CFE0  7D 89 03 A6 */	mtctr r12
-/* 80330084 0032CFE4  4E 80 04 21 */	bctrl 
+/* 80330084 0032CFE4  4E 80 04 21 */	bctrl
 lbl_80330088:
 /* 80330088 0032CFE8  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 8033008C 0032CFEC  28 00 00 00 */	cmplwi r0, 0
@@ -553,7 +553,7 @@ lbl_803300A0:
 /* 803300AC 0032D00C  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 803300B0 0032D010  7C 08 03 A6 */	mtlr r0
 /* 803300B4 0032D014  38 21 00 30 */	addi r1, r1, 0x30
-/* 803300B8 0032D018  4E 80 00 20 */	blr 
+/* 803300B8 0032D018  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__28TToken<18CSwooshDescription>FRCQ24rstl30auto_ptr<18CSwooshDescription>"
 "GetIObjObjectFor__28TToken<18CSwooshDescription>FRCQ24rstl30auto_ptr<18CSwooshDescription>":
@@ -567,7 +567,7 @@ lbl_803300A0:
 /* 803300D8 0032D038  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803300DC 0032D03C  7C 08 03 A6 */	mtlr r0
 /* 803300E0 0032D040  38 21 00 10 */	addi r1, r1, 0x10
-/* 803300E4 0032D044  4E 80 00 20 */	blr 
+/* 803300E4 0032D044  4E 80 00 20 */	blr
 
 .global sub_803300e8
 sub_803300e8:

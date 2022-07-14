@@ -37,7 +37,7 @@ lbl_805A8F00:
 
 .global Draw__20CConsoleOutputWindowCFv
 Draw__20CConsoleOutputWindowCFv:
-/* 800FE884 000FB7E4  4E 80 00 20 */	blr 
+/* 800FE884 000FB7E4  4E 80 00 20 */	blr
 
 .global Update__20CConsoleOutputWindowFf
 Update__20CConsoleOutputWindowFf:
@@ -68,7 +68,7 @@ lbl_800FE8D4:
 /* 800FE8D8 000FB838  7C 06 00 00 */	cmpw r6, r0
 /* 800FE8DC 000FB83C  41 80 FF BC */	blt lbl_800FE898
 /* 800FE8E0 000FB840  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FE8E4 000FB844  4E 80 00 20 */	blr 
+/* 800FE8E4 000FB844  4E 80 00 20 */	blr
 
 .global OnMessage__20CConsoleOutputWindowFRC20CArchitectureMessageR18CArchitectureQueue
 OnMessage__20CConsoleOutputWindowFRC20CArchitectureMessageR18CArchitectureQueue:
@@ -103,7 +103,7 @@ lbl_800FE944:
 /* 800FE948 000FB8A8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800FE94C 000FB8AC  7C 08 03 A6 */	mtlr r0
 /* 800FE950 000FB8B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FE954 000FB8B4  4E 80 00 20 */	blr 
+/* 800FE954 000FB8B4  4E 80 00 20 */	blr
 
 .global __dt__20CConsoleOutputWindowFv
 __dt__20CConsoleOutputWindowFv:
@@ -188,7 +188,7 @@ lbl_800FEA5C:
 /* 800FEA70 000FB9D0  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 800FEA74 000FB9D4  7C 08 03 A6 */	mtlr r0
 /* 800FEA78 000FB9D8  38 21 00 40 */	addi r1, r1, 0x40
-/* 800FEA7C 000FB9DC  4E 80 00 20 */	blr 
+/* 800FEA7C 000FB9DC  4E 80 00 20 */	blr
 
 .global __ct__20CConsoleOutputWindowFiff
 __ct__20CConsoleOutputWindowFiff:

@@ -235,7 +235,7 @@ lbl_8046C920:
 .global lbl_805A9070
 lbl_805A9070:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global __dt__9CJellyZapFv
@@ -264,7 +264,7 @@ lbl_801D7960:
 /* 801D796C 001D48CC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D7970 001D48D0  7C 08 03 A6 */	mtlr r0
 /* 801D7974 001D48D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D7978 001D48D8  4E 80 00 20 */	blr 
+/* 801D7978 001D48D8  4E 80 00 20 */	blr
 
 .global KnockBack__9CJellyZapFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef
 KnockBack__9CJellyZapFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTypef:
@@ -303,14 +303,14 @@ KnockBack__9CJellyZapFRC9CVector3fR13CStateManagerRC11CDamageInfo14EKnockBackTyp
 /* 801D79FC 001D495C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 801D7A00 001D4960  81 8C 02 90 */	lwz r12, 0x290(r12)
 /* 801D7A04 001D4964  7D 89 03 A6 */	mtctr r12
-/* 801D7A08 001D4968  4E 80 04 21 */	bctrl 
+/* 801D7A08 001D4968  4E 80 04 21 */	bctrl
 lbl_801D7A0C:
 /* 801D7A0C 001D496C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801D7A10 001D4970  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801D7A14 001D4974  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801D7A18 001D4978  7C 08 03 A6 */	mtlr r0
 /* 801D7A1C 001D497C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D7A20 001D4980  4E 80 00 20 */	blr 
+/* 801D7A20 001D4980  4E 80 00 20 */	blr
 
 .global ClosestToPlayer__9CJellyZapCFR13CStateManager
 ClosestToPlayer__9CJellyZapCFR13CStateManager:
@@ -428,7 +428,7 @@ lbl_801D7B94:
 /* 801D7BC8 001D4B28  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801D7BCC 001D4B2C  7C 08 03 A6 */	mtlr r0
 /* 801D7BD0 001D4B30  38 21 00 90 */	addi r1, r1, 0x90
-/* 801D7BD4 001D4B34  4E 80 00 20 */	blr 
+/* 801D7BD4 001D4B34  4E 80 00 20 */	blr
 
 .global RemoveSelfFromFishCloud__9CJellyZapFR13CStateManager
 RemoveSelfFromFishCloud__9CJellyZapFR13CStateManager:
@@ -499,7 +499,7 @@ lbl_801D7CA4:
 /* 801D7CCC 001D4C2C  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801D7CD0 001D4C30  7C 08 03 A6 */	mtlr r0
 /* 801D7CD4 001D4C34  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D7CD8 001D4C38  4E 80 00 20 */	blr 
+/* 801D7CD8 001D4C38  4E 80 00 20 */	blr
 
 .global AddSelfToFishCloud__9CJellyZapFR13CStateManagerffb
 AddSelfToFishCloud__9CJellyZapFR13CStateManagerffb:
@@ -585,7 +585,7 @@ lbl_801D7DD8:
 /* 801D7E08 001D4D68  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801D7E0C 001D4D6C  7C 08 03 A6 */	mtlr r0
 /* 801D7E10 001D4D70  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D7E14 001D4D74  4E 80 00 20 */	blr 
+/* 801D7E14 001D4D74  4E 80 00 20 */	blr
 
 .global AddRepulsor__9CJellyZapFR13CStateManager
 AddRepulsor__9CJellyZapFR13CStateManager:
@@ -599,7 +599,7 @@ AddRepulsor__9CJellyZapFR13CStateManager:
 /* 801D7E34 001D4D94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D7E38 001D4D98  7C 08 03 A6 */	mtlr r0
 /* 801D7E3C 001D4D9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D7E40 001D4DA0  4E 80 00 20 */	blr 
+/* 801D7E40 001D4DA0  4E 80 00 20 */	blr
 
 .global RemoveAllAttractors__9CJellyZapFR13CStateManager
 RemoveAllAttractors__9CJellyZapFR13CStateManager:
@@ -610,7 +610,7 @@ RemoveAllAttractors__9CJellyZapFR13CStateManager:
 /* 801D7E54 001D4DB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D7E58 001D4DB8  7C 08 03 A6 */	mtlr r0
 /* 801D7E5C 001D4DBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D7E60 001D4DC0  4E 80 00 20 */	blr 
+/* 801D7E60 001D4DC0  4E 80 00 20 */	blr
 
 .global AddAttractor__9CJellyZapFR13CStateManager
 AddAttractor__9CJellyZapFR13CStateManager:
@@ -636,7 +636,7 @@ AddAttractor__9CJellyZapFR13CStateManager:
 /* 801D7EB0 001D4E10  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D7EB4 001D4E14  7C 08 03 A6 */	mtlr r0
 /* 801D7EB8 001D4E18  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D7EBC 001D4E1C  4E 80 00 20 */	blr 
+/* 801D7EBC 001D4E1C  4E 80 00 20 */	blr
 
 .global Flinch__9CJellyZapFR13CStateManager9EStateMsgf
 Flinch__9CJellyZapFR13CStateManager9EStateMsgf:
@@ -684,7 +684,7 @@ lbl_801D7F50:
 /* 801D7F50 001D4EB0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801D7F54 001D4EB4  7C 08 03 A6 */	mtlr r0
 /* 801D7F58 001D4EB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D7F5C 001D4EBC  4E 80 00 20 */	blr 
+/* 801D7F5C 001D4EBC  4E 80 00 20 */	blr
 
 .global Attack__9CJellyZapFR13CStateManager9EStateMsgf
 Attack__9CJellyZapFR13CStateManager9EStateMsgf:
@@ -801,7 +801,7 @@ lbl_801D80F4:
 /* 801D80FC 001D505C  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 801D8100 001D5060  7C 08 03 A6 */	mtlr r0
 /* 801D8104 001D5064  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D8108 001D5068  4E 80 00 20 */	blr 
+/* 801D8108 001D5068  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__9CJellyZapCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__9CJellyZapCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
@@ -824,7 +824,7 @@ lbl_801D8140:
 /* 801D8144 001D50A4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D8148 001D50A8  7C 08 03 A6 */	mtlr r0
 /* 801D814C 001D50AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8150 001D50B0  4E 80 00 20 */	blr 
+/* 801D8150 001D50B0  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__9CJellyZapCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__9CJellyZapCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
@@ -843,7 +843,7 @@ lbl_801D8178:
 /* 801D8180 001D50E0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D8184 001D50E4  7C 08 03 A6 */	mtlr r0
 /* 801D8188 001D50E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D818C 001D50EC  4E 80 00 20 */	blr 
+/* 801D818C 001D50EC  4E 80 00 20 */	blr
 
 .global sub801d8190__9CJellyZapFv
 sub801d8190__9CJellyZapFv:
@@ -852,7 +852,7 @@ sub801d8190__9CJellyZapFv:
 /* 801D8198 001D50F8  38 04 FF FF */	addi r0, r4, -1
 /* 801D819C 001D50FC  7C 60 03 78 */	or r0, r3, r0
 /* 801D81A0 001D5100  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 801D81A4 001D5104  4E 80 00 20 */	blr 
+/* 801D81A4 001D5104  4E 80 00 20 */	blr
 
 .global Suck__9CJellyZapFR13CStateManager9EStateMsgf
 Suck__9CJellyZapFR13CStateManager9EStateMsgf:
@@ -1063,7 +1063,7 @@ lbl_801D8490:
 /* 801D84B0 001D5410  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 801D84B4 001D5414  7C 08 03 A6 */	mtlr r0
 /* 801D84B8 001D5418  38 21 00 80 */	addi r1, r1, 0x80
-/* 801D84BC 001D541C  4E 80 00 20 */	blr 
+/* 801D84BC 001D541C  4E 80 00 20 */	blr
 
 .global Active__9CJellyZapFR13CStateManager9EStateMsgf
 Active__9CJellyZapFR13CStateManager9EStateMsgf:
@@ -1162,7 +1162,7 @@ lbl_801D8610:
 /* 801D861C 001D557C  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801D8620 001D5580  7C 08 03 A6 */	mtlr r0
 /* 801D8624 001D5584  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D8628 001D5588  4E 80 00 20 */	blr 
+/* 801D8628 001D5588  4E 80 00 20 */	blr
 
 .global InActive__9CJellyZapFR13CStateManager9EStateMsgf
 InActive__9CJellyZapFR13CStateManager9EStateMsgf:
@@ -1195,7 +1195,7 @@ lbl_801D8684:
 /* 801D868C 001D55EC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D8690 001D55F0  7C 08 03 A6 */	mtlr r0
 /* 801D8694 001D55F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8698 001D55F8  4E 80 00 20 */	blr 
+/* 801D8698 001D55F8  4E 80 00 20 */	blr
 
 .global ShouldAttack__9CJellyZapFR13CStateManagerf
 ShouldAttack__9CJellyZapFR13CStateManagerf:
@@ -1204,7 +1204,7 @@ ShouldAttack__9CJellyZapFR13CStateManagerf:
 /* 801D86A4 001D5604  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801D86A8 001D5608  7C 00 00 26 */	mfcr r0
 /* 801D86AC 001D560C  54 03 17 FE */	rlwinm r3, r0, 2, 0x1f, 0x1f
-/* 801D86B0 001D5610  4E 80 00 20 */	blr 
+/* 801D86B0 001D5610  4E 80 00 20 */	blr
 
 .global ShouldSpecialAttack__9CJellyZapFR13CStateManagerf
 ShouldSpecialAttack__9CJellyZapFR13CStateManagerf:
@@ -1215,7 +1215,7 @@ ShouldSpecialAttack__9CJellyZapFR13CStateManagerf:
 /* 801D86C4 001D5624  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D86C8 001D5628  7C 08 03 A6 */	mtlr r0
 /* 801D86CC 001D562C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D86D0 001D5630  4E 80 00 20 */	blr 
+/* 801D86D0 001D5630  4E 80 00 20 */	blr
 
 .global InAttackPosition__9CJellyZapFR13CStateManagerf
 InAttackPosition__9CJellyZapFR13CStateManagerf:
@@ -1254,7 +1254,7 @@ lbl_801D86F0:
 /* 801D8750 001D56B0  54 03 0F FE */	srwi r3, r0, 0x1f
 lbl_801D8754:
 /* 801D8754 001D56B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D8758 001D56B8  4E 80 00 20 */	blr 
+/* 801D8758 001D56B8  4E 80 00 20 */	blr
 
 .global InDetectionRange__9CJellyZapFR13CStateManagerf
 InDetectionRange__9CJellyZapFR13CStateManagerf:
@@ -1273,7 +1273,7 @@ lbl_801D8784:
 /* 801D8784 001D56E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D8788 001D56E8  7C 08 03 A6 */	mtlr r0
 /* 801D878C 001D56EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8790 001D56F0  4E 80 00 20 */	blr 
+/* 801D8790 001D56F0  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__9CJellyZapFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__9CJellyZapFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -1352,7 +1352,7 @@ lbl_801D888C:
 /* 801D88A4 001D5804  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 801D88A8 001D5808  7C 08 03 A6 */	mtlr r0
 /* 801D88AC 001D580C  38 21 00 60 */	addi r1, r1, 0x60
-/* 801D88B0 001D5810  4E 80 00 20 */	blr 
+/* 801D88B0 001D5810  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__9CJellyZapF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__9CJellyZapF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1403,7 +1403,7 @@ lbl_801D8944:
 /* 801D8950 001D58B0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 801D8954 001D58B4  7C 08 03 A6 */	mtlr r0
 /* 801D8958 001D58B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D895C 001D58BC  4E 80 00 20 */	blr 
+/* 801D895C 001D58BC  4E 80 00 20 */	blr
 
 .global Think__9CJellyZapFfR13CStateManager
 Think__9CJellyZapFfR13CStateManager:
@@ -1482,7 +1482,7 @@ lbl_801D8A60:
 /* 801D8A70 001D59D0  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801D8A74 001D59D4  7C 08 03 A6 */	mtlr r0
 /* 801D8A78 001D59D8  38 21 00 40 */	addi r1, r1, 0x40
-/* 801D8A7C 001D59DC  4E 80 00 20 */	blr 
+/* 801D8A7C 001D59DC  4E 80 00 20 */	blr
 
 .global Accept__9CJellyZapFR8IVisitor
 Accept__9CJellyZapFR8IVisitor:
@@ -1495,11 +1495,11 @@ Accept__9CJellyZapFR8IVisitor:
 /* 801D8A98 001D59F8  7C 04 03 78 */	mr r4, r0
 /* 801D8A9C 001D59FC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 801D8AA0 001D5A00  7D 89 03 A6 */	mtctr r12
-/* 801D8AA4 001D5A04  4E 80 04 21 */	bctrl 
+/* 801D8AA4 001D5A04  4E 80 04 21 */	bctrl
 /* 801D8AA8 001D5A08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D8AAC 001D5A0C  7C 08 03 A6 */	mtlr r0
 /* 801D8AB0 001D5A10  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D8AB4 001D5A14  4E 80 00 20 */	blr 
+/* 801D8AB4 001D5A14  4E 80 00 20 */	blr
 
 .global "__ct__9CJellyZapF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC11CDamageInfofffffffffffRC14CPatternedInfoRC16CActorParameters"
 "__ct__9CJellyZapF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC11CDamageInfofffffffffffRC14CPatternedInfoRC16CActorParameters":

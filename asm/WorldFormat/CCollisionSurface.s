@@ -31,7 +31,7 @@ GetPlane__17CCollisionSurfaceCFv:
 /* 802A2694 0029F5F4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802A2698 0029F5F8  7C 08 03 A6 */	mtlr r0
 /* 802A269C 0029F5FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A26A0 0029F600  4E 80 00 20 */	blr 
+/* 802A26A0 0029F600  4E 80 00 20 */	blr
 
 .global GetNormal__17CCollisionSurfaceCFv
 GetNormal__17CCollisionSurfaceCFv:
@@ -67,7 +67,7 @@ GetNormal__17CCollisionSurfaceCFv:
 /* 802A2718 0029F678  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802A271C 0029F67C  7C 08 03 A6 */	mtlr r0
 /* 802A2720 0029F680  38 21 00 20 */	addi r1, r1, 0x20
-/* 802A2724 0029F684  4E 80 00 20 */	blr 
+/* 802A2724 0029F684  4E 80 00 20 */	blr
 
 .global __ct__17CCollisionSurfaceFRC9CVector3fRC9CVector3fRC9CVector3fUi
 __ct__17CCollisionSurfaceFRC9CVector3fRC9CVector3fRC9CVector3fUi:

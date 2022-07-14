@@ -115,7 +115,7 @@ lbl_80106598:
 /* 801065A4 00103504  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801065A8 00103508  7C 08 03 A6 */	mtlr r0
 /* 801065AC 0010350C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801065B0 00103510  4E 80 00 20 */	blr 
+/* 801065B0 00103510  4E 80 00 20 */	blr
 
 .global GetFramesBetweenRecalculation__16CLightParametersF26ELightRecalculationOptions
 GetFramesBetweenRecalculation__16CLightParametersF26ELightRecalculationOptions:
@@ -133,19 +133,19 @@ lbl_801065D0:
 lbl_801065DC:
 /* 801065DC 0010353C  3C 60 40 00 */	lis r3, 0x3FFFFFFF@ha
 /* 801065E0 00103540  38 63 FF FF */	addi r3, r3, 0x3FFFFFFF@l
-/* 801065E4 00103544  4E 80 00 20 */	blr 
+/* 801065E4 00103544  4E 80 00 20 */	blr
 lbl_801065E8:
 /* 801065E8 00103548  38 60 00 08 */	li r3, 8
-/* 801065EC 0010354C  4E 80 00 20 */	blr 
+/* 801065EC 0010354C  4E 80 00 20 */	blr
 lbl_801065F0:
 /* 801065F0 00103550  38 60 00 04 */	li r3, 4
-/* 801065F4 00103554  4E 80 00 20 */	blr 
+/* 801065F4 00103554  4E 80 00 20 */	blr
 lbl_801065F8:
 /* 801065F8 00103558  38 60 00 01 */	li r3, 1
-/* 801065FC 0010355C  4E 80 00 20 */	blr 
+/* 801065FC 0010355C  4E 80 00 20 */	blr
 lbl_80106600:
 /* 80106600 00103560  38 60 00 08 */	li r3, 8
-/* 80106604 00103564  4E 80 00 20 */	blr 
+/* 80106604 00103564  4E 80 00 20 */	blr
 
 .global __dt__16CActorParametersFv
 __dt__16CActorParametersFv:
@@ -167,7 +167,7 @@ lbl_80106638:
 /* 80106640 001035A0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80106644 001035A4  7C 08 03 A6 */	mtlr r0
 /* 80106648 001035A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8010664C 001035AC  4E 80 00 20 */	blr 
+/* 8010664C 001035AC  4E 80 00 20 */	blr
 
 .global __ct__16CLightParametersFv
 __ct__16CLightParametersFv:
@@ -212,7 +212,7 @@ __ct__16CLightParametersFv:
 /* 801066E8 00103648  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801066EC 0010364C  7C 08 03 A6 */	mtlr r0
 /* 801066F0 00103650  38 21 00 10 */	addi r1, r1, 0x10
-/* 801066F4 00103654  4E 80 00 20 */	blr 
+/* 801066F4 00103654  4E 80 00 20 */	blr
 
 .global __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii
 __ct__16CLightParametersFbfQ216CLightParameters19EShadowTessellationffRC6CColorbQ216CLightParameters21EWorldLightingOptionsQ216CLightParameters26ELightRecalculationOptionsRC9CVector3fii:

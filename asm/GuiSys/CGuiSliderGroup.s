@@ -21,7 +21,7 @@ lbl_803EC930:
 	.4byte OnVisible__18CGuiCompoundWidgetFv
 	.4byte OnActivate__18CGuiCompoundWidgetFb
 	.4byte GetWorkerWidget__15CGuiSliderGroupFi
-	
+
 
 .section .text, "ax"
 
@@ -80,13 +80,13 @@ lbl_802C5C38:
 /* 802C5C44 002C2BA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802C5C48 002C2BA8  7C 08 03 A6 */	mtlr r0
 /* 802C5C4C 002C2BAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5C50 002C2BB0  4E 80 00 20 */	blr 
+/* 802C5C50 002C2BB0  4E 80 00 20 */	blr
 
 .global GetWidgetTypeID__15CGuiSliderGroupCFv
 GetWidgetTypeID__15CGuiSliderGroupCFv:
 /* 802C5C54 002C2BB4  3C 60 53 4C */	lis r3, 0x534C4750@ha
 /* 802C5C58 002C2BB8  38 63 47 50 */	addi r3, r3, 0x534C4750@l
-/* 802C5C5C 002C2BBC  4E 80 00 20 */	blr 
+/* 802C5C5C 002C2BBC  4E 80 00 20 */	blr
 
 .global "SetSelectionChangedCallback__15CGuiSliderGroupFRC33TFunctor2<CP15CGuiSliderGroup,Cf>"
 "SetSelectionChangedCallback__15CGuiSliderGroupFRC33TFunctor2<CP15CGuiSliderGroup,Cf>":
@@ -102,7 +102,7 @@ GetWidgetTypeID__15CGuiSliderGroupCFv:
 /* 802C5C84 002C2BE4  80 04 00 14 */	lwz r0, 0x14(r4)
 /* 802C5C88 002C2BE8  90 A3 00 E8 */	stw r5, 0xe8(r3)
 /* 802C5C8C 002C2BEC  90 03 00 EC */	stw r0, 0xec(r3)
-/* 802C5C90 002C2BF0  4E 80 00 20 */	blr 
+/* 802C5C90 002C2BF0  4E 80 00 20 */	blr
 
 .global StartDecreasing__15CGuiSliderGroupFv
 StartDecreasing__15CGuiSliderGroupFv:
@@ -112,7 +112,7 @@ StartDecreasing__15CGuiSliderGroupFv:
 /* 802C5CA0 002C2C00  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 802C5CA4 002C2C04  98 03 00 F4 */	stb r0, 0xf4(r3)
 /* 802C5CA8 002C2C08  38 60 00 01 */	li r3, 1
-/* 802C5CAC 002C2C0C  4E 80 00 20 */	blr 
+/* 802C5CAC 002C2C0C  4E 80 00 20 */	blr
 
 .global StartIncreasing__15CGuiSliderGroupFv
 StartIncreasing__15CGuiSliderGroupFv:
@@ -123,12 +123,12 @@ StartIncreasing__15CGuiSliderGroupFv:
 /* 802C5CC0 002C2C20  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 802C5CC4 002C2C24  98 03 00 F4 */	stb r0, 0xf4(r3)
 /* 802C5CC8 002C2C28  38 60 00 01 */	li r3, 1
-/* 802C5CCC 002C2C2C  4E 80 00 20 */	blr 
+/* 802C5CCC 002C2C2C  4E 80 00 20 */	blr
 
 .global SetIncrement__15CGuiSliderGroupFf
 SetIncrement__15CGuiSliderGroupFf:
 /* 802C5CD0 002C2C30  D0 23 00 C8 */	stfs f1, 0xc8(r3)
-/* 802C5CD4 002C2C34  4E 80 00 20 */	blr 
+/* 802C5CD4 002C2C34  4E 80 00 20 */	blr
 
 .global SetMinVal__15CGuiSliderGroupFf
 SetMinVal__15CGuiSliderGroupFf:
@@ -141,7 +141,7 @@ SetMinVal__15CGuiSliderGroupFf:
 /* 802C5CF0 002C2C50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C5CF4 002C2C54  7C 08 03 A6 */	mtlr r0
 /* 802C5CF8 002C2C58  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5CFC 002C2C5C  4E 80 00 20 */	blr 
+/* 802C5CFC 002C2C5C  4E 80 00 20 */	blr
 
 .global SetMaxVal__15CGuiSliderGroupFf
 SetMaxVal__15CGuiSliderGroupFf:
@@ -154,7 +154,7 @@ SetMaxVal__15CGuiSliderGroupFf:
 /* 802C5D18 002C2C78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C5D1C 002C2C7C  7C 08 03 A6 */	mtlr r0
 /* 802C5D20 002C2C80  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C5D24 002C2C84  4E 80 00 20 */	blr 
+/* 802C5D24 002C2C84  4E 80 00 20 */	blr
 
 .global SetCurVal__15CGuiSliderGroupFf
 SetCurVal__15CGuiSliderGroupFf:
@@ -176,7 +176,7 @@ SetCurVal__15CGuiSliderGroupFf:
 /* 802C5D64 002C2CC4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C5D68 002C2CC8  7C 08 03 A6 */	mtlr r0
 /* 802C5D6C 002C2CCC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C5D70 002C2CD0  4E 80 00 20 */	blr 
+/* 802C5D70 002C2CD0  4E 80 00 20 */	blr
 
 .global Update__15CGuiSliderGroupFf
 Update__15CGuiSliderGroupFf:
@@ -385,7 +385,7 @@ lbl_802C6018:
 /* 802C6028 002C2F88  38 9F 00 E0 */	addi r4, r31, 0xe0
 /* 802C602C 002C2F8C  80 7F 00 DC */	lwz r3, 0xdc(r31)
 /* 802C6030 002C2F90  7D 89 03 A6 */	mtctr r12
-/* 802C6034 002C2F94  4E 80 04 21 */	bctrl 
+/* 802C6034 002C2F94  4E 80 04 21 */	bctrl
 lbl_802C6038:
 /* 802C6038 002C2F98  C0 1F 00 BC */	lfs f0, 0xbc(r31)
 /* 802C603C 002C2F9C  C0 5F 00 B8 */	lfs f2, 0xb8(r31)
@@ -445,7 +445,7 @@ lbl_802C6060:
 /* 802C610C 002C306C  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 802C6110 002C3070  7C 08 03 A6 */	mtlr r0
 /* 802C6114 002C3074  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802C6118 002C3078  4E 80 00 20 */	blr 
+/* 802C6118 002C3078  4E 80 00 20 */	blr
 
 .global ProcessUserInput__15CGuiSliderGroupFRC11CFinalInput
 ProcessUserInput__15CGuiSliderGroupFRC11CFinalInput:
@@ -493,7 +493,7 @@ lbl_802C61A8:
 /* 802C61A8 002C3108  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C61AC 002C310C  7C 08 03 A6 */	mtlr r0
 /* 802C61B0 002C3110  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C61B4 002C3114  4E 80 00 20 */	blr 
+/* 802C61B4 002C3114  4E 80 00 20 */	blr
 
 .global AddWorkerWidget__15CGuiSliderGroupFP10CGuiWidget
 AddWorkerWidget__15CGuiSliderGroupFP10CGuiWidget:
@@ -507,7 +507,7 @@ AddWorkerWidget__15CGuiSliderGroupFP10CGuiWidget:
 /* 802C61D4 002C3134  90 83 00 D0 */	stw r4, 0xd0(r3)
 lbl_802C61D8:
 /* 802C61D8 002C3138  38 60 00 01 */	li r3, 1
-/* 802C61DC 002C313C  4E 80 00 20 */	blr 
+/* 802C61DC 002C313C  4E 80 00 20 */	blr
 
 .global __ct__15CGuiSliderGroupFv
 __ct__15CGuiSliderGroupFv:
@@ -561,7 +561,7 @@ lbl_802C6254:
 /* 802C6294 002C31F4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C6298 002C31F8  7C 08 03 A6 */	mtlr r0
 /* 802C629C 002C31FC  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C62A0 002C3200  4E 80 00 20 */	blr 
+/* 802C62A0 002C3200  4E 80 00 20 */	blr
 
 .global GetWorkerWidget__15CGuiSliderGroupFi
 GetWorkerWidget__15CGuiSliderGroupFi:
@@ -572,10 +572,10 @@ GetWorkerWidget__15CGuiSliderGroupFi:
 /* 802C62B4 002C3214  54 80 10 3A */	slwi r0, r4, 2
 /* 802C62B8 002C3218  7C 63 02 14 */	add r3, r3, r0
 /* 802C62BC 002C321C  80 63 00 D0 */	lwz r3, 0xd0(r3)
-/* 802C62C0 002C3220  4E 80 00 20 */	blr 
+/* 802C62C0 002C3220  4E 80 00 20 */	blr
 lbl_802C62C4:
 /* 802C62C4 002C3224  38 60 00 00 */	li r3, 0
-/* 802C62C8 002C3228  4E 80 00 20 */	blr 
+/* 802C62C8 002C3228  4E 80 00 20 */	blr
 
 .global Create__15CGuiSliderGroupFP9CGuiFrameR12CInputStreamb
 Create__15CGuiSliderGroupFP9CGuiFrameR12CInputStreamb:

@@ -48,17 +48,17 @@ lbl_80138DE8:
 /* 80138DF0 00135D50  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80138DF4 00135D54  7C 08 03 A6 */	mtlr r0
 /* 80138DF8 00135D58  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138DFC 00135D5C  4E 80 00 20 */	blr 
+/* 80138DFC 00135D5C  4E 80 00 20 */	blr
 
 .global IsMoving__7CBSStepCFv
 IsMoving__7CBSStepCFv:
 /* 80138E00 00135D60  38 60 00 01 */	li r3, 1
-/* 80138E04 00135D64  4E 80 00 20 */	blr 
+/* 80138E04 00135D64  4E 80 00 20 */	blr
 
 .global CanShoot__7CBSStepCFv
 CanShoot__7CBSStepCFv:
 /* 80138E08 00135D68  38 60 00 01 */	li r3, 1
-/* 80138E0C 00135D6C  4E 80 00 20 */	blr 
+/* 80138E0C 00135D6C  4E 80 00 20 */	blr
 
 .global GetBodyStateTransition__7CBSStepFfR15CBodyController
 GetBodyStateTransition__7CBSStepFfR15CBodyController:
@@ -184,11 +184,11 @@ lbl_80138FA8:
 /* 80138FB0 00135F10  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80138FB4 00135F14  7C 08 03 A6 */	mtlr r0
 /* 80138FB8 00135F18  38 21 00 10 */	addi r1, r1, 0x10
-/* 80138FBC 00135F1C  4E 80 00 20 */	blr 
+/* 80138FBC 00135F1C  4E 80 00 20 */	blr
 
 .global Shutdown__7CBSStepFR15CBodyController
 Shutdown__7CBSStepFR15CBodyController:
-/* 80138FC0 00135F20  4E 80 00 20 */	blr 
+/* 80138FC0 00135F20  4E 80 00 20 */	blr
 
 .global UpdateBody__7CBSStepFfR15CBodyControllerR13CStateManager
 UpdateBody__7CBSStepFfR15CBodyControllerR13CStateManager:
@@ -235,7 +235,7 @@ lbl_80139044:
 /* 80139058 00135FB8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8013905C 00135FBC  7C 08 03 A6 */	mtlr r0
 /* 80139060 00135FC0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80139064 00135FC4  4E 80 00 20 */	blr 
+/* 80139064 00135FC4  4E 80 00 20 */	blr
 
 .global Start__7CBSStepFR15CBodyControllerR13CStateManager
 Start__7CBSStepFR15CBodyControllerR13CStateManager:
@@ -323,7 +323,7 @@ lbl_80139188:
 /* 80139198 001360F8  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 8013919C 001360FC  7C 08 03 A6 */	mtlr r0
 /* 801391A0 00136100  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 801391A4 00136104  4E 80 00 20 */	blr 
+/* 801391A4 00136104  4E 80 00 20 */	blr
 
 .global __ct__7CBSStepFv
 __ct__7CBSStepFv:

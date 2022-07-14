@@ -96,7 +96,7 @@ lbl_803B696C:
 lbl_803B6A60:
 /* 803B6A60 003B39C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803B6A64 003B39C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B6A68 003B39C8  4E 80 00 20 */	blr 
+/* 803B6A68 003B39C8  4E 80 00 20 */	blr
 
 .global sndAuxCallbackUpdateSettingsDelay
 sndAuxCallbackUpdateSettingsDelay:
@@ -221,7 +221,7 @@ lbl_803B6C14:
 /* 803B6C2C 003B3B8C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803B6C30 003B3B90  7C 08 03 A6 */	mtlr r0
 /* 803B6C34 003B3B94  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B6C38 003B3B98  4E 80 00 20 */	blr 
+/* 803B6C38 003B3B98  4E 80 00 20 */	blr
 
 .global sndAuxCallbackPrepareDelay
 sndAuxCallbackPrepareDelay:
@@ -234,7 +234,7 @@ sndAuxCallbackPrepareDelay:
 /* 803B6C54 003B3BB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B6C58 003B3BB8  7C 08 03 A6 */	mtlr r0
 /* 803B6C5C 003B3BBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B6C60 003B3BC0  4E 80 00 20 */	blr 
+/* 803B6C60 003B3BC0  4E 80 00 20 */	blr
 
 .global sndAuxCallbackShutdownDelay
 sndAuxCallbackShutdownDelay:
@@ -257,4 +257,4 @@ lbl_803B6C98:
 /* 803B6CA0 003B3C00  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803B6CA4 003B3C04  7C 08 03 A6 */	mtlr r0
 /* 803B6CA8 003B3C08  38 21 00 10 */	addi r1, r1, 0x10
-/* 803B6CAC 003B3C0C  4E 80 00 20 */	blr 
+/* 803B6CAC 003B3C0C  4E 80 00 20 */	blr

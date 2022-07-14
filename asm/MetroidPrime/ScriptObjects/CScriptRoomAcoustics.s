@@ -48,7 +48,7 @@ lbl_8019DD48:
 /* 8019DD54 0019ACB4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8019DD58 0019ACB8  7C 08 03 A6 */	mtlr r0
 /* 8019DD5C 0019ACBC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019DD60 0019ACC0  4E 80 00 20 */	blr 
+/* 8019DD60 0019ACC0  4E 80 00 20 */	blr
 
 .global DisableAuxCallbacks__20CScriptRoomAcousticsFv
 DisableAuxCallbacks__20CScriptRoomAcousticsFv:
@@ -63,7 +63,7 @@ DisableAuxCallbacks__20CScriptRoomAcousticsFv:
 /* 8019DD84 0019ACE4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019DD88 0019ACE8  7C 08 03 A6 */	mtlr r0
 /* 8019DD8C 0019ACEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019DD90 0019ACF0  4E 80 00 20 */	blr 
+/* 8019DD90 0019ACF0  4E 80 00 20 */	blr
 
 .global EnableAuxCallbacks__20CScriptRoomAcousticsFv
 EnableAuxCallbacks__20CScriptRoomAcousticsFv:
@@ -178,13 +178,13 @@ lbl_8019DF24:
 /* 8019DF2C 0019AE8C  83 C1 04 38 */	lwz r30, 0x438(r1)
 /* 8019DF30 0019AE90  7C 08 03 A6 */	mtlr r0
 /* 8019DF34 0019AE94  38 21 04 40 */	addi r1, r1, 0x440
-/* 8019DF38 0019AE98  4E 80 00 20 */	blr 
+/* 8019DF38 0019AE98  4E 80 00 20 */	blr
 
 .global Think__20CScriptRoomAcousticsFfR13CStateManager
 Think__20CScriptRoomAcousticsFfR13CStateManager:
 /* 8019DF3C 0019AE9C  88 03 00 30 */	lbz r0, 0x30(r3)
 /* 8019DF40 0019AEA0  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 8019DF44 0019AEA4  4E 80 00 20 */	blr 
+/* 8019DF44 0019AEA4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__20CScriptRoomAcousticsF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CScriptRoomAcousticsF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -225,7 +225,7 @@ lbl_8019DFBC:
 /* 8019DFC4 0019AF24  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8019DFC8 0019AF28  7C 08 03 A6 */	mtlr r0
 /* 8019DFCC 0019AF2C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8019DFD0 0019AF30  4E 80 00 20 */	blr 
+/* 8019DFD0 0019AF30  4E 80 00 20 */	blr
 
 .global Accept__20CScriptRoomAcousticsFR8IVisitor
 Accept__20CScriptRoomAcousticsFR8IVisitor:
@@ -238,11 +238,11 @@ Accept__20CScriptRoomAcousticsFR8IVisitor:
 /* 8019DFEC 0019AF4C  7C 04 03 78 */	mr r4, r0
 /* 8019DFF0 0019AF50  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 8019DFF4 0019AF54  7D 89 03 A6 */	mtctr r12
-/* 8019DFF8 0019AF58  4E 80 04 21 */	bctrl 
+/* 8019DFF8 0019AF58  4E 80 04 21 */	bctrl
 /* 8019DFFC 0019AF5C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019E000 0019AF60  7C 08 03 A6 */	mtlr r0
 /* 8019E004 0019AF64  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019E008 0019AF68  4E 80 00 20 */	blr 
+/* 8019E008 0019AF68  4E 80 00 20 */	blr
 
 .global "__ct__20CScriptRoomAcousticsF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbbfffffffbfffbbfffffbiiiiiiiii"
 "__ct__20CScriptRoomAcousticsF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobbbfffffffbfffbbfffffbiiiiiiiii":
@@ -383,7 +383,7 @@ Accept__20CScriptRoomAcousticsFR8IVisitor:
 /* 8019E224 0019B184  80 01 01 44 */	lwz r0, 0x144(r1)
 /* 8019E228 0019B188  7C 08 03 A6 */	mtlr r0
 /* 8019E22C 0019B18C  38 21 01 40 */	addi r1, r1, 0x140
-/* 8019E230 0019B190  4E 80 00 20 */	blr 
+/* 8019E230 0019B190  4E 80 00 20 */	blr
 
 .global __sinit_CScriptRoomAcoustics_cpp
 __sinit_CScriptRoomAcoustics_cpp:

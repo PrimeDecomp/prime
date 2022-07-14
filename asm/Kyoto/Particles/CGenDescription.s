@@ -28,7 +28,7 @@ lbl_80366E6C:
 /* 80366E88 00363DE8  38 80 00 01 */	li r4, 1
 /* 80366E8C 00363DEC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80366E90 00363DF0  7D 89 03 A6 */	mtctr r12
-/* 80366E94 00363DF4  4E 80 04 21 */	bctrl 
+/* 80366E94 00363DF4  4E 80 04 21 */	bctrl
 lbl_80366E98:
 /* 80366E98 00363DF8  3B 9C 00 01 */	addi r28, r28, 1
 /* 80366E9C 00363DFC  3B BD 00 04 */	addi r29, r29, 4
@@ -137,7 +137,7 @@ lbl_80366FF0:
 /* 80367004 00363F64  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80367008 00363F68  7C 08 03 A6 */	mtlr r0
 /* 8036700C 00363F6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80367010 00363F70  4E 80 00 20 */	blr 
+/* 80367010 00363F70  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl38single_ptr<24CSpawnSystemKeyframeData>Fv"
 "__dt__Q24rstl38single_ptr<24CSpawnSystemKeyframeData>Fv":
@@ -163,7 +163,7 @@ lbl_80367050:
 /* 8036705C 00363FBC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80367060 00363FC0  7C 08 03 A6 */	mtlr r0
 /* 80367064 00363FC4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80367068 00363FC8  4E 80 00 20 */	blr 
+/* 80367068 00363FC8  4E 80 00 20 */	blr
 
 .global __ct__15CGenDescriptionFv
 __ct__15CGenDescriptionFv:
@@ -280,9 +280,9 @@ __ct__15CGenDescriptionFv:
 /* 80367224 00364184  90 A3 01 20 */	stw r5, 0x120(r3)
 /* 80367228 00364188  90 A3 01 24 */	stw r5, 0x124(r3)
 /* 8036722C 0036418C  90 A3 01 28 */	stw r5, 0x128(r3)
-/* 80367230 00364190  4E 80 00 20 */	blr 
+/* 80367230 00364190  4E 80 00 20 */	blr
 
 .global element_from_desc__FP15CGenDescriptioni
 element_from_desc__FP15CGenDescriptioni:
 /* 80367234 00364194  7C 63 22 14 */	add r3, r3, r4
-/* 80367238 00364198  4E 80 00 20 */	blr 
+/* 80367238 00364198  4E 80 00 20 */	blr

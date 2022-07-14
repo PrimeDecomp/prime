@@ -457,12 +457,12 @@ lbl_8018F458:
 /* 8018F46C 0018C3CC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8018F470 0018C3D0  7C 08 03 A6 */	mtlr r0
 /* 8018F474 0018C3D4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8018F478 0018C3D8  4E 80 00 20 */	blr 
+/* 8018F478 0018C3D8  4E 80 00 20 */	blr
 
 .global SetAlpha__23CHudBossEnergyInterfaceFf
 SetAlpha__23CHudBossEnergyInterfaceFf:
 /* 8018F47C 0018C3DC  D0 23 00 00 */	stfs f1, 0(r3)
-/* 8018F480 0018C3E0  4E 80 00 20 */	blr 
+/* 8018F480 0018C3E0  4E 80 00 20 */	blr
 
 .global "SetBossParams__23CHudBossEnergyInterfaceFbRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"
 "SetBossParams__23CHudBossEnergyInterfaceFbRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>":
@@ -513,7 +513,7 @@ lbl_8018F510:
 /* 8018F530 0018C490  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8018F534 0018C494  7C 08 03 A6 */	mtlr r0
 /* 8018F538 0018C498  38 21 00 30 */	addi r1, r1, 0x30
-/* 8018F53C 0018C49C  4E 80 00 20 */	blr 
+/* 8018F53C 0018C49C  4E 80 00 20 */	blr
 
 .global __ct__23CHudBossEnergyInterfaceFR9CGuiFrame
 __ct__23CHudBossEnergyInterfaceFR9CGuiFrame:
@@ -572,7 +572,7 @@ __ct__23CHudBossEnergyInterfaceFR9CGuiFrame:
 /* 8018F610 0018C570  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018F614 0018C574  7C 08 03 A6 */	mtlr r0
 /* 8018F618 0018C578  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018F61C 0018C57C  4E 80 00 20 */	blr 
+/* 8018F61C 0018C57C  4E 80 00 20 */	blr
 
 .global Update__19CHudEnergyInterfaceFff
 Update__19CHudEnergyInterfaceFff:
@@ -785,7 +785,7 @@ lbl_8018F8E0:
 /* 8018F920 0018C880  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 8018F924 0018C884  7C 08 03 A6 */	mtlr r0
 /* 8018F928 0018C888  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8018F92C 0018C88C  4E 80 00 20 */	blr 
+/* 8018F92C 0018C88C  4E 80 00 20 */	blr
 
 .global SetEnergyLow__19CHudEnergyInterfaceFb
 SetEnergyLow__19CHudEnergyInterfaceFb:
@@ -868,7 +868,7 @@ lbl_8018FA34:
 /* 8018FA44 0018C9A4  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8018FA48 0018C9A8  7C 08 03 A6 */	mtlr r0
 /* 8018FA4C 0018C9AC  38 21 00 50 */	addi r1, r1, 0x50
-/* 8018FA50 0018C9B0  4E 80 00 20 */	blr 
+/* 8018FA50 0018C9B0  4E 80 00 20 */	blr
 
 .global SetFlashMagnitude__19CHudEnergyInterfaceFf
 SetFlashMagnitude__19CHudEnergyInterfaceFf:
@@ -888,7 +888,7 @@ SetFlashMagnitude__19CHudEnergyInterfaceFf:
 /* 8018FA88 0018C9E8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8018FA8C 0018C9EC  7C 08 03 A6 */	mtlr r0
 /* 8018FA90 0018C9F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 8018FA94 0018C9F4  4E 80 00 20 */	blr 
+/* 8018FA94 0018C9F4  4E 80 00 20 */	blr
 
 .global SetNumFilledEnergyTanks__19CHudEnergyInterfaceFi
 SetNumFilledEnergyTanks__19CHudEnergyInterfaceFi:
@@ -901,7 +901,7 @@ SetNumFilledEnergyTanks__19CHudEnergyInterfaceFi:
 /* 8018FAB0 0018CA10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018FAB4 0018CA14  7C 08 03 A6 */	mtlr r0
 /* 8018FAB8 0018CA18  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018FABC 0018CA1C  4E 80 00 20 */	blr 
+/* 8018FABC 0018CA1C  4E 80 00 20 */	blr
 
 .global SetNumTotalEnergyTanks__19CHudEnergyInterfaceFi
 SetNumTotalEnergyTanks__19CHudEnergyInterfaceFi:
@@ -914,7 +914,7 @@ SetNumTotalEnergyTanks__19CHudEnergyInterfaceFi:
 /* 8018FAD8 0018CA38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018FADC 0018CA3C  7C 08 03 A6 */	mtlr r0
 /* 8018FAE0 0018CA40  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018FAE4 0018CA44  4E 80 00 20 */	blr 
+/* 8018FAE4 0018CA44  4E 80 00 20 */	blr
 
 .global SetCurrEnergy__19CHudEnergyInterfaceFf
 SetCurrEnergy__19CHudEnergyInterfaceFf:
@@ -938,7 +938,7 @@ lbl_8018FB20:
 /* 8018FB24 0018CA84  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018FB28 0018CA88  7C 08 03 A6 */	mtlr r0
 /* 8018FB2C 0018CA8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8018FB30 0018CA90  4E 80 00 20 */	blr 
+/* 8018FB30 0018CA90  4E 80 00 20 */	blr
 
 .global __ct__19CHudEnergyInterfaceFR9CGuiFramefiibi
 __ct__19CHudEnergyInterfaceFR9CGuiFramefiibi:
@@ -1123,21 +1123,21 @@ lbl_8018FDDC:
 /* 8018FDE4 0018CD44  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018FDE8 0018CD48  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 8018FDEC 0018CD4C  7D 89 03 A6 */	mtctr r12
-/* 8018FDF0 0018CD50  4E 80 04 21 */	bctrl 
+/* 8018FDF0 0018CD50  4E 80 04 21 */	bctrl
 /* 8018FDF4 0018CD54  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018FDF8 0018CD58  7C 60 1B 78 */	mr r0, r3
 /* 8018FDFC 0018CD5C  38 80 00 00 */	li r4, 0
 /* 8018FE00 0018CD60  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 8018FE04 0018CD64  7C 1D 03 78 */	mr r29, r0
 /* 8018FE08 0018CD68  7D 89 03 A6 */	mtctr r12
-/* 8018FE0C 0018CD6C  4E 80 04 21 */	bctrl 
+/* 8018FE0C 0018CD6C  4E 80 04 21 */	bctrl
 /* 8018FE10 0018CD70  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8018FE14 0018CD74  7C 7F 1B 78 */	mr r31, r3
 /* 8018FE18 0018CD78  7F A3 EB 78 */	mr r3, r29
 /* 8018FE1C 0018CD7C  38 80 00 01 */	li r4, 1
 /* 8018FE20 0018CD80  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 8018FE24 0018CD84  7D 89 03 A6 */	mtctr r12
-/* 8018FE28 0018CD88  4E 80 04 21 */	bctrl 
+/* 8018FE28 0018CD88  4E 80 04 21 */	bctrl
 /* 8018FE2C 0018CD8C  28 1F 00 00 */	cmplwi r31, 0
 /* 8018FE30 0018CD90  7C 7D 1B 78 */	mr r29, r3
 /* 8018FE34 0018CD94  41 82 00 10 */	beq lbl_8018FE44
@@ -1159,7 +1159,7 @@ lbl_8018FE58:
 /* 8018FE6C 0018CDCC  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 8018FE70 0018CDD0  7C 08 03 A6 */	mtlr r0
 /* 8018FE74 0018CDD4  38 21 00 90 */	addi r1, r1, 0x90
-/* 8018FE78 0018CDD8  4E 80 00 20 */	blr 
+/* 8018FE78 0018CDD8  4E 80 00 20 */	blr
 
 .global XRayEnergyCoordFunc__19CHudEnergyInterfaceFf
 XRayEnergyCoordFunc__19CHudEnergyInterfaceFf:
@@ -1201,7 +1201,7 @@ XRayEnergyCoordFunc__19CHudEnergyInterfaceFf:
 /* 8018FF08 0018CE68  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8018FF0C 0018CE6C  7C 08 03 A6 */	mtlr r0
 /* 8018FF10 0018CE70  38 21 00 30 */	addi r1, r1, 0x30
-/* 8018FF14 0018CE74  4E 80 00 20 */	blr 
+/* 8018FF14 0018CE74  4E 80 00 20 */	blr
 
 .global ThermalEnergyCoordFunc__19CHudEnergyInterfaceFf
 ThermalEnergyCoordFunc__19CHudEnergyInterfaceFf:
@@ -1215,7 +1215,7 @@ ThermalEnergyCoordFunc__19CHudEnergyInterfaceFf:
 /* 8018FF34 0018CE94  D0 23 00 0C */	stfs f1, 0xc(r3)
 /* 8018FF38 0018CE98  D0 43 00 10 */	stfs f2, 0x10(r3)
 /* 8018FF3C 0018CE9C  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8018FF40 0018CEA0  4E 80 00 20 */	blr 
+/* 8018FF40 0018CEA0  4E 80 00 20 */	blr
 
 .global BallEnergyCoordFunc__19CHudEnergyInterfaceFf
 BallEnergyCoordFunc__19CHudEnergyInterfaceFf:
@@ -1229,7 +1229,7 @@ BallEnergyCoordFunc__19CHudEnergyInterfaceFf:
 /* 8018FF60 0018CEC0  D0 23 00 0C */	stfs f1, 0xc(r3)
 /* 8018FF64 0018CEC4  D0 43 00 10 */	stfs f2, 0x10(r3)
 /* 8018FF68 0018CEC8  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8018FF6C 0018CECC  4E 80 00 20 */	blr 
+/* 8018FF6C 0018CECC  4E 80 00 20 */	blr
 
 .global BossEnergyCoordFunc__23CHudBossEnergyInterfaceFf
 BossEnergyCoordFunc__23CHudBossEnergyInterfaceFf:
@@ -1244,7 +1244,7 @@ BossEnergyCoordFunc__23CHudBossEnergyInterfaceFf:
 /* 8018FF90 0018CEF0  D0 23 00 0C */	stfs f1, 0xc(r3)
 /* 8018FF94 0018CEF4  D0 43 00 10 */	stfs f2, 0x10(r3)
 /* 8018FF98 0018CEF8  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 8018FF9C 0018CEFC  4E 80 00 20 */	blr 
+/* 8018FF9C 0018CEFC  4E 80 00 20 */	blr
 
 .global CombatEnergyCoordFunc__19CHudEnergyInterfaceFf
 CombatEnergyCoordFunc__19CHudEnergyInterfaceFf:
@@ -1288,7 +1288,7 @@ CombatEnergyCoordFunc__19CHudEnergyInterfaceFf:
 
 .global sub_80190034
 sub_80190034:
-/* 80190034 0018CF94  4E 80 00 20 */	blr 
+/* 80190034 0018CF94  4E 80 00 20 */	blr
 
 .global __dt__21CHudFreeLookInterfaceFv
 __dt__21CHudFreeLookInterfaceFv:
@@ -1316,7 +1316,7 @@ lbl_8019007C:
 /* 80190084 0018CFE4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80190088 0018CFE8  7C 08 03 A6 */	mtlr r0
 /* 8019008C 0018CFEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80190090 0018CFF0  4E 80 00 20 */	blr 
+/* 80190090 0018CFF0  4E 80 00 20 */	blr
 
 .global Update__21CHudFreeLookInterfaceFf
 Update__21CHudFreeLookInterfaceFf:
@@ -1400,7 +1400,7 @@ lbl_80190194:
 
 .global sub_80190198
 sub_80190198:
-/* 80190198 0018D0F8  4E 80 00 20 */	blr 
+/* 80190198 0018D0F8  4E 80 00 20 */	blr
 
 .global UpdateVisibility__21CHudFreeLookInterfaceFv
 UpdateVisibility__21CHudFreeLookInterfaceFv:
@@ -1435,7 +1435,7 @@ lbl_801901D4:
 /* 80190208 0018D168  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8019020C 0018D16C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80190210 0018D170  7D 89 03 A6 */	mtctr r12
-/* 80190214 0018D174  4E 80 04 21 */	bctrl 
+/* 80190214 0018D174  4E 80 04 21 */	bctrl
 lbl_80190218:
 /* 80190218 0018D178  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8019021C 0018D17C  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -1443,7 +1443,7 @@ lbl_80190218:
 /* 80190224 0018D184  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80190228 0018D188  7C 08 03 A6 */	mtlr r0
 /* 8019022C 0018D18C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80190230 0018D190  4E 80 00 20 */	blr 
+/* 80190230 0018D190  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__21CHudFreeLookInterfaceFb
 SetIsVisibleGame__21CHudFreeLookInterfaceFb:
@@ -1457,7 +1457,7 @@ SetIsVisibleGame__21CHudFreeLookInterfaceFb:
 /* 80190250 0018D1B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80190254 0018D1B4  7C 08 03 A6 */	mtlr r0
 /* 80190258 0018D1B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019025C 0018D1BC  4E 80 00 20 */	blr 
+/* 8019025C 0018D1BC  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__21CHudFreeLookInterfaceFb
 SetIsVisibleDebug__21CHudFreeLookInterfaceFb:
@@ -1471,7 +1471,7 @@ SetIsVisibleDebug__21CHudFreeLookInterfaceFb:
 /* 8019027C 0018D1DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80190280 0018D1E0  7C 08 03 A6 */	mtlr r0
 /* 80190284 0018D1E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80190288 0018D1E8  4E 80 00 20 */	blr 
+/* 80190288 0018D1E8  4E 80 00 20 */	blr
 
 .global SetFreeLookState__21CHudFreeLookInterfaceFbbbf
 SetFreeLookState__21CHudFreeLookInterfaceFbbbf:
@@ -1609,7 +1609,7 @@ lbl_80190464:
 /* 8019048C 0018D3EC  83 C1 00 D8 */	lwz r30, 0xd8(r1)
 /* 80190490 0018D3F0  7C 08 03 A6 */	mtlr r0
 /* 80190494 0018D3F4  38 21 01 20 */	addi r1, r1, 0x120
-/* 80190498 0018D3F8  4E 80 00 20 */	blr 
+/* 80190498 0018D3F8  4E 80 00 20 */	blr
 
 .global __ct__21CHudFreeLookInterfaceFR9CGuiFrame8EHudTypebbb
 __ct__21CHudFreeLookInterfaceFR9CGuiFrame8EHudTypebbb:
@@ -1725,7 +1725,7 @@ lbl_80190540:
 /* 80190644 0018D5A4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80190648 0018D5A8  7C 08 03 A6 */	mtlr r0
 /* 8019064C 0018D5AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 80190650 0018D5B0  4E 80 00 20 */	blr 
+/* 80190650 0018D5B0  4E 80 00 20 */	blr
 
 .global Update__25CHudFreeLookInterfaceXRayFf
 Update__25CHudFreeLookInterfaceXRayFf:
@@ -1769,7 +1769,7 @@ lbl_801906D0:
 /* 801906D4 0018D634  D0 03 00 1C */	stfs f0, 0x1c(r3)
 lbl_801906D8:
 /* 801906D8 0018D638  38 21 00 10 */	addi r1, r1, 0x10
-/* 801906DC 0018D63C  4E 80 00 20 */	blr 
+/* 801906DC 0018D63C  4E 80 00 20 */	blr
 
 .global UpdateVisibility__25CHudFreeLookInterfaceXRayFv
 UpdateVisibility__25CHudFreeLookInterfaceXRayFv:
@@ -1804,7 +1804,7 @@ lbl_80190718:
 /* 8019074C 0018D6AC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 80190750 0018D6B0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80190754 0018D6B4  7D 89 03 A6 */	mtctr r12
-/* 80190758 0018D6B8  4E 80 04 21 */	bctrl 
+/* 80190758 0018D6B8  4E 80 04 21 */	bctrl
 lbl_8019075C:
 /* 8019075C 0018D6BC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80190760 0018D6C0  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -1812,7 +1812,7 @@ lbl_8019075C:
 /* 80190768 0018D6C8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8019076C 0018D6CC  7C 08 03 A6 */	mtlr r0
 /* 80190770 0018D6D0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80190774 0018D6D4  4E 80 00 20 */	blr 
+/* 80190774 0018D6D4  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__25CHudFreeLookInterfaceXRayFb
 SetIsVisibleGame__25CHudFreeLookInterfaceXRayFb:
@@ -1826,7 +1826,7 @@ SetIsVisibleGame__25CHudFreeLookInterfaceXRayFb:
 /* 80190794 0018D6F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80190798 0018D6F8  7C 08 03 A6 */	mtlr r0
 /* 8019079C 0018D6FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801907A0 0018D700  4E 80 00 20 */	blr 
+/* 801907A0 0018D700  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__25CHudFreeLookInterfaceXRayFb
 SetIsVisibleDebug__25CHudFreeLookInterfaceXRayFb:
@@ -1840,7 +1840,7 @@ SetIsVisibleDebug__25CHudFreeLookInterfaceXRayFb:
 /* 801907C0 0018D720  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801907C4 0018D724  7C 08 03 A6 */	mtlr r0
 /* 801907C8 0018D728  38 21 00 10 */	addi r1, r1, 0x10
-/* 801907CC 0018D72C  4E 80 00 20 */	blr 
+/* 801907CC 0018D72C  4E 80 00 20 */	blr
 
 .global SetFreeLookState__25CHudFreeLookInterfaceXRayFbbbf
 SetFreeLookState__25CHudFreeLookInterfaceXRayFbbbf:
@@ -1921,7 +1921,7 @@ lbl_801908D8:
 /* 801908F0 0018D850  83 C1 00 C8 */	lwz r30, 0xc8(r1)
 /* 801908F4 0018D854  7C 08 03 A6 */	mtlr r0
 /* 801908F8 0018D858  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 801908FC 0018D85C  4E 80 00 20 */	blr 
+/* 801908FC 0018D85C  4E 80 00 20 */	blr
 
 .global __ct__25CHudFreeLookInterfaceXRayFR9CGuiFramebbUi
 __ct__25CHudFreeLookInterfaceXRayFR9CGuiFramebbUi:
@@ -2014,7 +2014,7 @@ __ct__25CHudFreeLookInterfaceXRayFR9CGuiFramebbUi:
 /* 80190A58 0018D9B8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80190A5C 0018D9BC  7C 08 03 A6 */	mtlr r0
 /* 80190A60 0018D9C0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80190A64 0018D9C4  4E 80 00 20 */	blr 
+/* 80190A64 0018D9C4  4E 80 00 20 */	blr
 
 .global __dt__25CHudFreeLookInterfaceXRayFv
 __dt__25CHudFreeLookInterfaceXRayFv:
@@ -2042,7 +2042,7 @@ lbl_80190AAC:
 /* 80190AB4 0018DA14  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80190AB8 0018DA18  7C 08 03 A6 */	mtlr r0
 /* 80190ABC 0018DA1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80190AC0 0018DA20  4E 80 00 20 */	blr 
+/* 80190AC0 0018DA20  4E 80 00 20 */	blr
 
 .global Update__19CHudHelmetInterfaceFf
 Update__19CHudHelmetInterfaceFf:
@@ -2084,7 +2084,7 @@ lbl_80190B48:
 /* 80190B4C 0018DAAC  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80190B50 0018DAB0  7C 08 03 A6 */	mtlr r0
 /* 80190B54 0018DAB4  38 21 00 50 */	addi r1, r1, 0x50
-/* 80190B58 0018DAB8  4E 80 00 20 */	blr 
+/* 80190B58 0018DAB8  4E 80 00 20 */	blr
 
 .global SetHudLagOffset__19CHudHelmetInterfaceFRC9CVector3f
 SetHudLagOffset__19CHudHelmetInterfaceFRC9CVector3f:
@@ -2098,7 +2098,7 @@ SetHudLagOffset__19CHudHelmetInterfaceFRC9CVector3f:
 /* 80190B78 0018DAD8  88 03 00 3C */	lbz r0, 0x3c(r3)
 /* 80190B7C 0018DADC  50 A0 1F 38 */	rlwimi r0, r5, 3, 0x1c, 0x1c
 /* 80190B80 0018DAE0  98 03 00 3C */	stb r0, 0x3c(r3)
-/* 80190B84 0018DAE4  4E 80 00 20 */	blr 
+/* 80190B84 0018DAE4  4E 80 00 20 */	blr
 
 .global SetHudLagRotation__19CHudHelmetInterfaceFRC9CMatrix3f
 SetHudLagRotation__19CHudHelmetInterfaceFRC9CMatrix3f:
@@ -2116,7 +2116,7 @@ SetHudLagRotation__19CHudHelmetInterfaceFRC9CMatrix3f:
 /* 80190BB4 0018DB14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80190BB8 0018DB18  7C 08 03 A6 */	mtlr r0
 /* 80190BBC 0018DB1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80190BC0 0018DB20  4E 80 00 20 */	blr 
+/* 80190BC0 0018DB20  4E 80 00 20 */	blr
 
 .global AddHelmetLightValue__19CHudHelmetInterfaceFf
 AddHelmetLightValue__19CHudHelmetInterfaceFf:
@@ -2142,7 +2142,7 @@ AddHelmetLightValue__19CHudHelmetInterfaceFf:
 /* 80190C10 0018DB70  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80190C14 0018DB74  7C 08 03 A6 */	mtlr r0
 /* 80190C18 0018DB78  38 21 00 20 */	addi r1, r1, 0x20
-/* 80190C1C 0018DB7C  4E 80 00 20 */	blr 
+/* 80190C1C 0018DB7C  4E 80 00 20 */	blr
 
 .global UpdateCameraDebugSettings__19CHudHelmetInterfaceFfff
 UpdateCameraDebugSettings__19CHudHelmetInterfaceFfff:
@@ -2200,7 +2200,7 @@ UpdateCameraDebugSettings__19CHudHelmetInterfaceFfff:
 /* 80190CEC 0018DC4C  83 E1 00 9C */	lwz r31, 0x9c(r1)
 /* 80190CF0 0018DC50  7C 08 03 A6 */	mtlr r0
 /* 80190CF4 0018DC54  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80190CF8 0018DC58  4E 80 00 20 */	blr 
+/* 80190CF8 0018DC58  4E 80 00 20 */	blr
 
 .global UpdateVisibility__19CHudHelmetInterfaceFv
 UpdateVisibility__19CHudHelmetInterfaceFv:
@@ -2239,7 +2239,7 @@ lbl_80190D4C:
 /* 80190D74 0018DCD4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80190D78 0018DCD8  7C 08 03 A6 */	mtlr r0
 /* 80190D7C 0018DCDC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80190D80 0018DCE0  4E 80 00 20 */	blr 
+/* 80190D80 0018DCE0  4E 80 00 20 */	blr
 
 .global UpdateHelmetAlpha__19CHudHelmetInterfaceFv
 UpdateHelmetAlpha__19CHudHelmetInterfaceFv:
@@ -2275,7 +2275,7 @@ UpdateHelmetAlpha__19CHudHelmetInterfaceFv:
 /* 80190DF8 0018DD58  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80190DFC 0018DD5C  7C 08 03 A6 */	mtlr r0
 /* 80190E00 0018DD60  38 21 00 40 */	addi r1, r1, 0x40
-/* 80190E04 0018DD64  4E 80 00 20 */	blr 
+/* 80190E04 0018DD64  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__19CHudHelmetInterfaceFbb
 SetIsVisibleDebug__19CHudHelmetInterfaceFbb:
@@ -2292,7 +2292,7 @@ SetIsVisibleDebug__19CHudHelmetInterfaceFbb:
 /* 80190E30 0018DD90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80190E34 0018DD94  7C 08 03 A6 */	mtlr r0
 /* 80190E38 0018DD98  38 21 00 10 */	addi r1, r1, 0x10
-/* 80190E3C 0018DD9C  4E 80 00 20 */	blr 
+/* 80190E3C 0018DD9C  4E 80 00 20 */	blr
 
 .global __ct__19CHudHelmetInterfaceFR9CGuiFrame
 __ct__19CHudHelmetInterfaceFR9CGuiFrame:
@@ -2397,7 +2397,7 @@ __ct__19CHudHelmetInterfaceFR9CGuiFrame:
 /* 80190FC8 0018DF28  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80190FCC 0018DF2C  7C 08 03 A6 */	mtlr r0
 /* 80190FD0 0018DF30  38 21 00 60 */	addi r1, r1, 0x60
-/* 80190FD4 0018DF34  4E 80 00 20 */	blr 
+/* 80190FD4 0018DF34  4E 80 00 20 */	blr
 
 .global Update__20CHudMissileInterfaceFfRC13CStateManager
 Update__20CHudMissileInterfaceFfRC13CStateManager:
@@ -2970,7 +2970,7 @@ lbl_801917D4:
 /* 801917F8 0018E758  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 801917FC 0018E75C  7C 08 03 A6 */	mtlr r0
 /* 80191800 0018E760  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 80191804 0018E764  4E 80 00 20 */	blr 
+/* 80191804 0018E764  4E 80 00 20 */	blr
 
 .global UpdateVisibility__20CHudMissileInterfaceFRC13CStateManager
 UpdateVisibility__20CHudMissileInterfaceFRC13CStateManager:
@@ -3014,7 +3014,7 @@ lbl_80191884:
 /* 80191894 0018E7F4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80191898 0018E7F8  7C 08 03 A6 */	mtlr r0
 /* 8019189C 0018E7FC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801918A0 0018E800  4E 80 00 20 */	blr 
+/* 801918A0 0018E800  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__20CHudMissileInterfaceFbRC13CStateManager
 SetIsVisibleGame__20CHudMissileInterfaceFbRC13CStateManager:
@@ -3029,19 +3029,19 @@ SetIsVisibleGame__20CHudMissileInterfaceFbRC13CStateManager:
 /* 801918C4 0018E824  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801918C8 0018E828  7C 08 03 A6 */	mtlr r0
 /* 801918CC 0018E82C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801918D0 0018E830  4E 80 00 20 */	blr 
+/* 801918D0 0018E830  4E 80 00 20 */	blr
 
 .global SetIsMissilesActive__20CHudMissileInterfaceFb
 SetIsMissilesActive__20CHudMissileInterfaceFb:
 /* 801918D4 0018E834  88 03 00 58 */	lbz r0, 0x58(r3)
 /* 801918D8 0018E838  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 801918DC 0018E83C  98 03 00 58 */	stb r0, 0x58(r3)
-/* 801918E0 0018E840  4E 80 00 20 */	blr 
+/* 801918E0 0018E840  4E 80 00 20 */	blr
 
 .global SetChargeBeamFactor__20CHudMissileInterfaceFf
 SetChargeBeamFactor__20CHudMissileInterfaceFf:
 /* 801918E4 0018E844  D0 23 00 4C */	stfs f1, 0x4c(r3)
-/* 801918E8 0018E848  4E 80 00 20 */	blr 
+/* 801918E8 0018E848  4E 80 00 20 */	blr
 
 .global SetNumMissiles__20CHudMissileInterfaceFiRC13CStateManager
 SetNumMissiles__20CHudMissileInterfaceFiRC13CStateManager:
@@ -3111,12 +3111,12 @@ lbl_801919CC:
 /* 801919DC 0018E93C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801919E0 0018E940  7C 08 03 A6 */	mtlr r0
 /* 801919E4 0018E944  38 21 00 30 */	addi r1, r1, 0x30
-/* 801919E8 0018E948  4E 80 00 20 */	blr 
+/* 801919E8 0018E948  4E 80 00 20 */	blr
 
 .global SetMissileCapacity__20CHudMissileInterfaceFf
 SetMissileCapacity__20CHudMissileInterfaceFf:
 /* 801919EC 0018E94C  90 83 00 04 */	stw r4, 4(r3)
-/* 801919F0 0018E950  4E 80 00 20 */	blr 
+/* 801919F0 0018E950  4E 80 00 20 */	blr
 
 .global __ct__20CHudMissileInterfaceFR9CGuiFrameiifbUiRC13CStateManager
 __ct__20CHudMissileInterfaceFR9CGuiFrameiifbUiRC13CStateManager:
@@ -3334,7 +3334,7 @@ lbl_80191D04:
 /* 80191D30 0018EC90  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80191D34 0018EC94  7C 08 03 A6 */	mtlr r0
 /* 80191D38 0018EC98  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80191D3C 0018EC9C  4E 80 00 20 */	blr 
+/* 80191D3C 0018EC9C  4E 80 00 20 */	blr
 
 .global GetMissileInventoryStatus__20CHudMissileInterfaceFv
 GetMissileInventoryStatus__20CHudMissileInterfaceFv:
@@ -3362,7 +3362,7 @@ lbl_80191D88:
 /* 80191D88 0018ECE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80191D8C 0018ECEC  7C 08 03 A6 */	mtlr r0
 /* 80191D90 0018ECF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80191D94 0018ECF4  4E 80 00 20 */	blr 
+/* 80191D94 0018ECF4  4E 80 00 20 */	blr
 
 .global XRayMissileBarCoordFunc__20CHudMissileInterfaceFf
 XRayMissileBarCoordFunc__20CHudMissileInterfaceFf:
@@ -3404,7 +3404,7 @@ XRayMissileBarCoordFunc__20CHudMissileInterfaceFf:
 /* 80191E24 0018ED84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80191E28 0018ED88  7C 08 03 A6 */	mtlr r0
 /* 80191E2C 0018ED8C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80191E30 0018ED90  4E 80 00 20 */	blr 
+/* 80191E30 0018ED90  4E 80 00 20 */	blr
 
 .global ThermalMissileBarCoordFunc__20CHudMissileInterfaceFf
 ThermalMissileBarCoordFunc__20CHudMissileInterfaceFf:
@@ -3441,7 +3441,7 @@ lbl_80191E80:
 /* 80191EA0 0018EE00  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 80191EA4 0018EE04  D0 23 00 10 */	stfs f1, 0x10(r3)
 /* 80191EA8 0018EE08  D0 83 00 14 */	stfs f4, 0x14(r3)
-/* 80191EAC 0018EE0C  4E 80 00 20 */	blr 
+/* 80191EAC 0018EE0C  4E 80 00 20 */	blr
 
 .global CombatMissileBarCoordFunc__20CHudMissileInterfaceFf
 CombatMissileBarCoordFunc__20CHudMissileInterfaceFf:
@@ -3456,7 +3456,7 @@ CombatMissileBarCoordFunc__20CHudMissileInterfaceFf:
 /* 80191ED0 0018EE30  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 80191ED4 0018EE34  D0 43 00 10 */	stfs f2, 0x10(r3)
 /* 80191ED8 0018EE38  D0 23 00 14 */	stfs f1, 0x14(r3)
-/* 80191EDC 0018EE3C  4E 80 00 20 */	blr 
+/* 80191EDC 0018EE3C  4E 80 00 20 */	blr
 
 .global DoDrawRadarPaint__18CHudRadarInterfaceCFf
 DoDrawRadarPaint__18CHudRadarInterfaceCFf:
@@ -3516,7 +3516,7 @@ DoDrawRadarPaint__18CHudRadarInterfaceCFf:
 /* 80191FB4 0018EF14  CB C1 00 40 */	lfd f30, 0x40(r1)
 /* 80191FB8 0018EF18  7C 08 03 A6 */	mtlr r0
 /* 80191FBC 0018EF1C  38 21 00 60 */	addi r1, r1, 0x60
-/* 80191FC0 0018EF20  4E 80 00 20 */	blr 
+/* 80191FC0 0018EF20  4E 80 00 20 */	blr
 
 .global DrawRadarPaint__18CHudRadarInterfaceCFRC9CVector3fffRCQ218CHudRadarInterface20SRadarPaintDrawParms
 DrawRadarPaint__18CHudRadarInterfaceCFRC9CVector3fffRCQ218CHudRadarInterface20SRadarPaintDrawParms:
@@ -3616,7 +3616,7 @@ lbl_801920A0:
 /* 80192134 0018F094  81 83 00 00 */	lwz r12, 0(r3)
 /* 80192138 0018F098  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8019213C 0018F09C  7D 89 03 A6 */	mtctr r12
-/* 80192140 0018F0A0  4E 80 04 21 */	bctrl 
+/* 80192140 0018F0A0  4E 80 04 21 */	bctrl
 /* 80192144 0018F0A4  80 8D A1 3C */	lwz r4, gpTweakGuiColors@sda21(r13)
 /* 80192148 0018F0A8  3C 00 43 30 */	lis r0, 0x4330
 /* 8019214C 0018F0AC  C0 1F 00 74 */	lfs f0, 0x74(r31)
@@ -3653,7 +3653,7 @@ lbl_80192198:
 /* 801921C4 0018F124  83 A1 00 D4 */	lwz r29, 0xd4(r1)
 /* 801921C8 0018F128  7C 08 03 A6 */	mtlr r0
 /* 801921CC 0018F12C  38 21 01 20 */	addi r1, r1, 0x120
-/* 801921D0 0018F130  4E 80 00 20 */	blr 
+/* 801921D0 0018F130  4E 80 00 20 */	blr
 
 .global Draw__18CHudRadarInterfaceCFRC13CStateManagerf
 Draw__18CHudRadarInterfaceCFRC13CStateManagerf:
@@ -3795,7 +3795,7 @@ lbl_8019235C:
 /* 801923D0 0018F330  81 83 00 00 */	lwz r12, 0(r3)
 /* 801923D4 0018F334  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801923D8 0018F338  7D 89 03 A6 */	mtctr r12
-/* 801923DC 0018F33C  4E 80 04 21 */	bctrl 
+/* 801923DC 0018F33C  4E 80 04 21 */	bctrl
 /* 801923E0 0018F340  80 98 00 40 */	lwz r4, 0x40(r24)
 /* 801923E4 0018F344  38 61 01 00 */	addi r3, r1, 0x100
 /* 801923E8 0018F348  38 84 00 34 */	addi r4, r4, 0x34
@@ -3805,12 +3805,12 @@ lbl_8019235C:
 /* 801923F8 0018F358  81 83 00 00 */	lwz r12, 0(r3)
 /* 801923FC 0018F35C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80192400 0018F360  7D 89 03 A6 */	mtctr r12
-/* 80192404 0018F364  4E 80 04 21 */	bctrl 
+/* 80192404 0018F364  4E 80 04 21 */	bctrl
 /* 80192408 0018F368  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 8019240C 0018F36C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80192410 0018F370  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80192414 0018F374  7D 89 03 A6 */	mtctr r12
-/* 80192418 0018F378  4E 80 04 21 */	bctrl 
+/* 80192418 0018F378  4E 80 04 21 */	bctrl
 /* 8019241C 0018F37C  7F C3 F3 78 */	mr r3, r30
 /* 80192420 0018F380  38 80 00 00 */	li r4, 0
 /* 80192424 0018F384  38 A0 00 01 */	li r5, 1
@@ -3825,7 +3825,7 @@ lbl_8019235C:
 /* 80192448 0018F3A8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8019244C 0018F3AC  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80192450 0018F3B0  7D 89 03 A6 */	mtctr r12
-/* 80192454 0018F3B4  4E 80 04 21 */	bctrl 
+/* 80192454 0018F3B4  4E 80 04 21 */	bctrl
 /* 80192458 0018F3B8  80 8D A1 3C */	lwz r4, gpTweakGuiColors@sda21(r13)
 /* 8019245C 0018F3BC  3C 00 43 30 */	lis r0, 0x4330
 /* 80192460 0018F3C0  90 01 0A 00 */	stw r0, 0xa00(r1)
@@ -4027,7 +4027,7 @@ lbl_8019273C:
 /* 80192748 0018F6A8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8019274C 0018F6AC  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 80192750 0018F6B0  7D 89 03 A6 */	mtctr r12
-/* 80192754 0018F6B4  4E 80 04 21 */	bctrl 
+/* 80192754 0018F6B4  4E 80 04 21 */	bctrl
 /* 80192758 0018F6B8  80 A1 01 E8 */	lwz r5, 0x1e8(r1)
 /* 8019275C 0018F6BC  38 60 00 00 */	li r3, 0
 /* 80192760 0018F6C0  2C 05 00 00 */	cmpwi r5, 0
@@ -4082,7 +4082,7 @@ lbl_801927AC:
 /* 80192810 0018F770  80 01 0A F4 */	lwz r0, 0xaf4(r1)
 /* 80192814 0018F774  7C 08 03 A6 */	mtlr r0
 /* 80192818 0018F778  38 21 0A F0 */	addi r1, r1, 0xaf0
-/* 8019281C 0018F77C  4E 80 00 20 */	blr 
+/* 8019281C 0018F77C  4E 80 00 20 */	blr
 
 .global Update__18CHudRadarInterfaceFfRC13CStateManager
 Update__18CHudRadarInterfaceFfRC13CStateManager:
@@ -4182,7 +4182,7 @@ lbl_80192968:
 /* 8019297C 0018F8DC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80192980 0018F8E0  7C 08 03 A6 */	mtlr r0
 /* 80192984 0018F8E4  38 21 00 40 */	addi r1, r1, 0x40
-/* 80192988 0018F8E8  4E 80 00 20 */	blr 
+/* 80192988 0018F8E8  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__18CHudRadarInterfaceFb
 SetIsVisibleGame__18CHudRadarInterfaceFb:
@@ -4206,7 +4206,7 @@ lbl_801929C4:
 /* 801929CC 0018F92C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801929D0 0018F930  7C 08 03 A6 */	mtlr r0
 /* 801929D4 0018F934  38 21 00 10 */	addi r1, r1, 0x10
-/* 801929D8 0018F938  4E 80 00 20 */	blr 
+/* 801929D8 0018F938  4E 80 00 20 */	blr
 
 .global __ct__18CHudRadarInterfaceFR9CGuiFrameRC13CStateManager
 __ct__18CHudRadarInterfaceFR9CGuiFrameRC13CStateManager:
@@ -4224,7 +4224,7 @@ __ct__18CHudRadarInterfaceFR9CGuiFrameRC13CStateManager:
 /* 80192A08 0018F968  81 84 00 00 */	lwz r12, 0(r4)
 /* 80192A0C 0018F96C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80192A10 0018F970  7D 89 03 A6 */	mtctr r12
-/* 80192A14 0018F974  4E 80 04 21 */	bctrl 
+/* 80192A14 0018F974  4E 80 04 21 */	bctrl
 /* 80192A18 0018F978  7F C3 F3 78 */	mr r3, r30
 /* 80192A1C 0018F97C  38 81 00 08 */	addi r4, r1, 8
 /* 80192A20 0018F980  48 1A E4 89 */	bl __ct__6CTokenFRC6CToken
@@ -4272,7 +4272,7 @@ __ct__18CHudRadarInterfaceFR9CGuiFrameRC13CStateManager:
 /* 80192AC8 0018FA28  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80192ACC 0018FA2C  7C 08 03 A6 */	mtlr r0
 /* 80192AD0 0018FA30  38 21 00 30 */	addi r1, r1, 0x30
-/* 80192AD4 0018FA34  4E 80 00 20 */	blr 
+/* 80192AD4 0018FA34  4E 80 00 20 */	blr
 
 .global __dt__19CHudThreatInterfaceFv
 __dt__19CHudThreatInterfaceFv:
@@ -4300,7 +4300,7 @@ lbl_80192B1C:
 /* 80192B24 0018FA84  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80192B28 0018FA88  7C 08 03 A6 */	mtlr r0
 /* 80192B2C 0018FA8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80192B30 0018FA90  4E 80 00 20 */	blr 
+/* 80192B30 0018FA90  4E 80 00 20 */	blr
 
 .global Update__19CHudThreatInterfaceFf
 Update__19CHudThreatInterfaceFf:
@@ -4848,7 +4848,7 @@ lbl_801932AC:
 /* 801932E0 00190240  80 01 01 A4 */	lwz r0, 0x1a4(r1)
 /* 801932E4 00190244  7C 08 03 A6 */	mtlr r0
 /* 801932E8 00190248  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 801932EC 0019024C  4E 80 00 20 */	blr 
+/* 801932EC 0019024C  4E 80 00 20 */	blr
 
 .global UpdateVisibility__19CHudThreatInterfaceFv
 UpdateVisibility__19CHudThreatInterfaceFv:
@@ -4877,14 +4877,14 @@ lbl_80193324:
 /* 80193344 001902A4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80193348 001902A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8019334C 001902AC  7D 89 03 A6 */	mtctr r12
-/* 80193350 001902B0  4E 80 04 21 */	bctrl 
+/* 80193350 001902B0  4E 80 04 21 */	bctrl
 lbl_80193354:
 /* 80193354 001902B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80193358 001902B8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8019335C 001902BC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80193360 001902C0  7C 08 03 A6 */	mtlr r0
 /* 80193364 001902C4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80193368 001902C8  4E 80 00 20 */	blr 
+/* 80193368 001902C8  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__19CHudThreatInterfaceFb
 SetIsVisibleGame__19CHudThreatInterfaceFb:
@@ -4898,7 +4898,7 @@ SetIsVisibleGame__19CHudThreatInterfaceFb:
 /* 80193388 001902E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019338C 001902EC  7C 08 03 A6 */	mtlr r0
 /* 80193390 001902F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80193394 001902F4  4E 80 00 20 */	blr 
+/* 80193394 001902F4  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__19CHudThreatInterfaceFb
 SetIsVisibleDebug__19CHudThreatInterfaceFb:
@@ -4912,12 +4912,12 @@ SetIsVisibleDebug__19CHudThreatInterfaceFb:
 /* 801933B4 00190314  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801933B8 00190318  7C 08 03 A6 */	mtlr r0
 /* 801933BC 0019031C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801933C0 00190320  4E 80 00 20 */	blr 
+/* 801933C0 00190320  4E 80 00 20 */	blr
 
 .global SetThreatDistance__19CHudThreatInterfaceFf
 SetThreatDistance__19CHudThreatInterfaceFf:
 /* 801933C4 00190324  D0 23 00 10 */	stfs f1, 0x10(r3)
-/* 801933C8 00190328  4E 80 00 20 */	blr 
+/* 801933C8 00190328  4E 80 00 20 */	blr
 
 .global __ct__19CHudThreatInterfaceFR9CGuiFramef
 __ct__19CHudThreatInterfaceFR9CGuiFramef:
@@ -5097,7 +5097,7 @@ lbl_80193658:
 /* 8019366C 001905CC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80193670 001905D0  7C 08 03 A6 */	mtlr r0
 /* 80193674 001905D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80193678 001905D8  4E 80 00 20 */	blr 
+/* 80193678 001905D8  4E 80 00 20 */	blr
 
 .global XRayThreatBarCoordFunc__19CHudThreatInterfaceFf
 XRayThreatBarCoordFunc__19CHudThreatInterfaceFf:
@@ -5137,7 +5137,7 @@ XRayThreatBarCoordFunc__19CHudThreatInterfaceFf:
 /* 80193700 00190660  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80193704 00190664  7C 08 03 A6 */	mtlr r0
 /* 80193708 00190668  38 21 00 20 */	addi r1, r1, 0x20
-/* 8019370C 0019066C  4E 80 00 20 */	blr 
+/* 8019370C 0019066C  4E 80 00 20 */	blr
 
 .global ThermalThreatBarCoordFunc__19CHudThreatInterfaceFf
 ThermalThreatBarCoordFunc__19CHudThreatInterfaceFf:
@@ -5173,7 +5173,7 @@ lbl_8019375C:
 /* 80193778 001906D8  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 8019377C 001906DC  D0 23 00 10 */	stfs f1, 0x10(r3)
 /* 80193780 001906E0  D0 83 00 14 */	stfs f4, 0x14(r3)
-/* 80193784 001906E4  4E 80 00 20 */	blr 
+/* 80193784 001906E4  4E 80 00 20 */	blr
 
 .global CombatThreatBarCoordFunc__19CHudThreatInterfaceFf
 CombatThreatBarCoordFunc__19CHudThreatInterfaceFf:
@@ -5188,7 +5188,7 @@ CombatThreatBarCoordFunc__19CHudThreatInterfaceFf:
 /* 801937A8 00190708  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 801937AC 0019070C  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 801937B0 00190710  D0 23 00 14 */	stfs f1, 0x14(r3)
-/* 801937B4 00190714  4E 80 00 20 */	blr 
+/* 801937B4 00190714  4E 80 00 20 */	blr
 
 .global UpdateMenuWidgetTransform__17CHudVisorBeamMenuFiR10CGuiWidgetf
 UpdateMenuWidgetTransform__17CHudVisorBeamMenuFiR10CGuiWidgetf:
@@ -5339,7 +5339,7 @@ lbl_801939C0:
 /* 801939D0 00190930  83 C1 03 08 */	lwz r30, 0x308(r1)
 /* 801939D4 00190934  7C 08 03 A6 */	mtlr r0
 /* 801939D8 00190938  38 21 03 20 */	addi r1, r1, 0x320
-/* 801939DC 0019093C  4E 80 00 20 */	blr 
+/* 801939DC 0019093C  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__17CHudVisorBeamMenuFb
 SetIsVisibleGame__17CHudVisorBeamMenuFb:
@@ -5376,7 +5376,7 @@ lbl_80193A48:
 /* 80193A50 001909B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80193A54 001909B4  7C 08 03 A6 */	mtlr r0
 /* 80193A58 001909B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80193A5C 001909BC  4E 80 00 20 */	blr 
+/* 80193A5C 001909BC  4E 80 00 20 */	blr
 
 .global Update__17CHudVisorBeamMenuFfb
 Update__17CHudVisorBeamMenuFfb:
@@ -5993,7 +5993,7 @@ lbl_801942A4:
 /* 801942C8 00191228  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801942CC 0019122C  7C 08 03 A6 */	mtlr r0
 /* 801942D0 00191230  38 21 01 00 */	addi r1, r1, 0x100
-/* 801942D4 00191234  4E 80 00 20 */	blr 
+/* 801942D4 00191234  4E 80 00 20 */	blr
 
 .global UpdateHudAlpha__17CHudVisorBeamMenuFf
 UpdateHudAlpha__17CHudVisorBeamMenuFf:
@@ -6035,7 +6035,7 @@ UpdateHudAlpha__17CHudVisorBeamMenuFf:
 /* 80194364 001912C4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80194368 001912C8  7C 08 03 A6 */	mtlr r0
 /* 8019436C 001912CC  38 21 00 50 */	addi r1, r1, 0x50
-/* 80194370 001912D0  4E 80 00 20 */	blr 
+/* 80194370 001912D0  4E 80 00 20 */	blr
 
 .global "SetPlayerHas__17CHudVisorBeamMenuFRCQ24rstl20reserved_vector<b,4>"
 "SetPlayerHas__17CHudVisorBeamMenuFRCQ24rstl20reserved_vector<b,4>":
@@ -6067,12 +6067,12 @@ lbl_801943B4:
 lbl_801943D0:
 /* 801943D0 00191330  C0 23 00 68 */	lfs f1, 0x68(r3)
 /* 801943D4 00191334  FC 02 08 00 */	fcmpu cr0, f2, f1
-/* 801943D8 00191338  4C 82 00 20 */	bnelr 
+/* 801943D8 00191338  4C 82 00 20 */	bnelr
 /* 801943DC 0019133C  88 04 00 07 */	lbz r0, 7(r4)
 /* 801943E0 00191340  28 00 00 00 */	cmplwi r0, 0
-/* 801943E4 00191344  4D 82 00 20 */	beqlr 
+/* 801943E4 00191344  4D 82 00 20 */	beqlr
 /* 801943E8 00191348  D0 03 00 68 */	stfs f0, 0x68(r3)
-/* 801943EC 0019134C  4E 80 00 20 */	blr 
+/* 801943EC 0019134C  4E 80 00 20 */	blr
 
 .global SetSelection__17CHudVisorBeamMenuFiif
 SetSelection__17CHudVisorBeamMenuFiif:
@@ -6178,7 +6178,7 @@ lbl_8019454C:
 /* 80194560 001914C0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80194564 001914C4  7C 08 03 A6 */	mtlr r0
 /* 80194568 001914C8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8019456C 001914CC  4E 80 00 20 */	blr 
+/* 8019456C 001914CC  4E 80 00 20 */	blr
 
 .global "__ct__17CHudVisorBeamMenuFR9CGuiFrameQ217CHudVisorBeamMenu14EVisorBeamMenuRCQ24rstl20reserved_vector<b,4>"
 "__ct__17CHudVisorBeamMenuFR9CGuiFrameQ217CHudVisorBeamMenu14EVisorBeamMenuRCQ24rstl20reserved_vector<b,4>":
@@ -6461,7 +6461,7 @@ lbl_80194910:
 /* 8019496C 001918CC  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 80194970 001918D0  7C 08 03 A6 */	mtlr r0
 /* 80194974 001918D4  38 21 00 60 */	addi r1, r1, 0x60
-/* 80194978 001918D8  4E 80 00 20 */	blr 
+/* 80194978 001918D8  4E 80 00 20 */	blr
 
 .global __dt__24CHudDecoInterfaceThermalFv
 __dt__24CHudDecoInterfaceThermalFv:
@@ -6514,7 +6514,7 @@ lbl_80194A14:
 /* 80194A20 00191980  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80194A24 00191984  7C 08 03 A6 */	mtlr r0
 /* 80194A28 00191988  38 21 00 20 */	addi r1, r1, 0x20
-/* 80194A2C 0019198C  4E 80 00 20 */	blr 
+/* 80194A2C 0019198C  4E 80 00 20 */	blr
 
 .global UpdateCameraDebugSettings__24CHudDecoInterfaceThermalFfff
 UpdateCameraDebugSettings__24CHudDecoInterfaceThermalFfff:
@@ -6551,7 +6551,7 @@ UpdateCameraDebugSettings__24CHudDecoInterfaceThermalFfff:
 /* 80194AA8 00191A08  90 81 00 34 */	stw r4, 0x34(r1)
 /* 80194AAC 00191A0C  D0 63 00 34 */	stfs f3, 0x34(r3)
 /* 80194AB0 00191A10  38 21 00 40 */	addi r1, r1, 0x40
-/* 80194AB4 00191A14  4E 80 00 20 */	blr 
+/* 80194AB4 00191A14  4E 80 00 20 */	blr
 
 .global Update__24CHudDecoInterfaceThermalFfRC13CStateManager
 Update__24CHudDecoInterfaceThermalFfRC13CStateManager:
@@ -6697,11 +6697,11 @@ lbl_80194BE8:
 /* 80194CBC 00191C1C  83 A1 00 F4 */	lwz r29, 0xf4(r1)
 /* 80194CC0 00191C20  7C 08 03 A6 */	mtlr r0
 /* 80194CC4 00191C24  38 21 01 20 */	addi r1, r1, 0x120
-/* 80194CC8 00191C28  4E 80 00 20 */	blr 
+/* 80194CC8 00191C28  4E 80 00 20 */	blr
 
 .global SetDamageTransform__24CHudDecoInterfaceThermalFRC9CMatrix3fRC9CVector3f
 SetDamageTransform__24CHudDecoInterfaceThermalFRC9CMatrix3fRC9CVector3f:
-/* 80194CCC 00191C2C  4E 80 00 20 */	blr 
+/* 80194CCC 00191C2C  4E 80 00 20 */	blr
 
 .global SetHudOffset__24CHudDecoInterfaceThermalFRC9CVector3f
 SetHudOffset__24CHudDecoInterfaceThermalFRC9CVector3f:
@@ -6711,7 +6711,7 @@ SetHudOffset__24CHudDecoInterfaceThermalFRC9CVector3f:
 /* 80194CDC 00191C3C  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80194CE0 00191C40  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80194CE4 00191C44  D0 03 00 28 */	stfs f0, 0x28(r3)
-/* 80194CE8 00191C48  4E 80 00 20 */	blr 
+/* 80194CE8 00191C48  4E 80 00 20 */	blr
 
 .global SetReticuleTransform__24CHudDecoInterfaceThermalFRC9CMatrix3f
 SetReticuleTransform__24CHudDecoInterfaceThermalFRC9CMatrix3f:
@@ -6723,7 +6723,7 @@ SetReticuleTransform__24CHudDecoInterfaceThermalFRC9CMatrix3f:
 /* 80194D00 00191C60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80194D04 00191C64  7C 08 03 A6 */	mtlr r0
 /* 80194D08 00191C68  38 21 00 10 */	addi r1, r1, 0x10
-/* 80194D0C 00191C6C  4E 80 00 20 */	blr 
+/* 80194D0C 00191C6C  4E 80 00 20 */	blr
 
 .global SetHudRotation__24CHudDecoInterfaceThermalFRC11CQuaternion
 SetHudRotation__24CHudDecoInterfaceThermalFRC11CQuaternion:
@@ -6735,11 +6735,11 @@ SetHudRotation__24CHudDecoInterfaceThermalFRC11CQuaternion:
 /* 80194D24 00191C84  90 03 00 0C */	stw r0, 0xc(r3)
 /* 80194D28 00191C88  80 04 00 0C */	lwz r0, 0xc(r4)
 /* 80194D2C 00191C8C  90 03 00 10 */	stw r0, 0x10(r3)
-/* 80194D30 00191C90  4E 80 00 20 */	blr 
+/* 80194D30 00191C90  4E 80 00 20 */	blr
 
 .global UpdateVisibility__24CHudDecoInterfaceThermalFv
 UpdateVisibility__24CHudDecoInterfaceThermalFv:
-/* 80194D34 00191C94  4E 80 00 20 */	blr 
+/* 80194D34 00191C94  4E 80 00 20 */	blr
 
 .global UpdateHudAlpha__24CHudDecoInterfaceThermalFv
 UpdateHudAlpha__24CHudDecoInterfaceThermalFv:
@@ -6759,7 +6759,7 @@ UpdateHudAlpha__24CHudDecoInterfaceThermalFv:
 /* 80194D6C 00191CCC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80194D70 00191CD0  7C 08 03 A6 */	mtlr r0
 /* 80194D74 00191CD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80194D78 00191CD8  4E 80 00 20 */	blr 
+/* 80194D78 00191CD8  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__24CHudDecoInterfaceThermalFb
 SetIsVisibleGame__24CHudDecoInterfaceThermalFb:
@@ -6773,7 +6773,7 @@ SetIsVisibleGame__24CHudDecoInterfaceThermalFb:
 /* 80194D98 00191CF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80194D9C 00191CFC  7C 08 03 A6 */	mtlr r0
 /* 80194DA0 00191D00  38 21 00 10 */	addi r1, r1, 0x10
-/* 80194DA4 00191D04  4E 80 00 20 */	blr 
+/* 80194DA4 00191D04  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__24CHudDecoInterfaceThermalFb
 SetIsVisibleDebug__24CHudDecoInterfaceThermalFb:
@@ -6787,7 +6787,7 @@ SetIsVisibleDebug__24CHudDecoInterfaceThermalFb:
 /* 80194DC4 00191D24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80194DC8 00191D28  7C 08 03 A6 */	mtlr r0
 /* 80194DCC 00191D2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80194DD0 00191D30  4E 80 00 20 */	blr 
+/* 80194DD0 00191D30  4E 80 00 20 */	blr
 
 .global __ct__24CHudDecoInterfaceThermalFR9CGuiFrame
 __ct__24CHudDecoInterfaceThermalFR9CGuiFrame:
@@ -7048,13 +7048,13 @@ lbl_80195178:
 /* 80195198 001920F8  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8019519C 001920FC  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801951A0 00192100  7D 89 03 A6 */	mtctr r12
-/* 801951A4 00192104  4E 80 04 21 */	bctrl 
+/* 801951A4 00192104  4E 80 04 21 */	bctrl
 /* 801951A8 00192108  7F A3 EB 78 */	mr r3, r29
 /* 801951AC 0019210C  BB 61 00 AC */	lmw r27, 0xac(r1)
 /* 801951B0 00192110  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 801951B4 00192114  7C 08 03 A6 */	mtlr r0
 /* 801951B8 00192118  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 801951BC 0019211C  4E 80 00 20 */	blr 
+/* 801951BC 0019211C  4E 80 00 20 */	blr
 
 .global sub_801951c0
 sub_801951c0:
@@ -7072,7 +7072,7 @@ sub_801951c0:
 /* 801951EC 0019214C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801951F0 00192150  7C 08 03 A6 */	mtlr r0
 /* 801951F4 00192154  38 21 00 10 */	addi r1, r1, 0x10
-/* 801951F8 00192158  4E 80 00 20 */	blr 
+/* 801951F8 00192158  4E 80 00 20 */	blr
 
 .global GetMessageTextAlpha__21CHudDecoInterfaceScanCFv
 GetMessageTextAlpha__21CHudDecoInterfaceScanCFv:
@@ -7101,7 +7101,7 @@ lbl_80195240:
 /* 80195244 001921A4  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80195248 001921A8  EC 21 00 28 */	fsubs f1, f1, f0
 /* 8019524C 001921AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80195250 001921B0  4E 80 00 20 */	blr 
+/* 80195250 001921B0  4E 80 00 20 */	blr
 
 .global GetCurrScanInfo__21CHudDecoInterfaceScanCFRC13CStateManager
 GetCurrScanInfo__21CHudDecoInterfaceScanCFRC13CStateManager:
@@ -7133,7 +7133,7 @@ lbl_801952AC:
 /* 801952AC 0019220C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801952B0 00192210  7C 08 03 A6 */	mtlr r0
 /* 801952B4 00192214  38 21 00 20 */	addi r1, r1, 0x20
-/* 801952B8 00192218  4E 80 00 20 */	blr 
+/* 801952B8 00192218  4E 80 00 20 */	blr
 
 .global UpdateScanDisplay__21CHudDecoInterfaceScanFRC13CStateManagerf
 UpdateScanDisplay__21CHudDecoInterfaceScanFRC13CStateManagerf:
@@ -7488,7 +7488,7 @@ lbl_80195794:
 /* 801957C4 00192724  83 81 00 90 */	lwz r28, 0x90(r1)
 /* 801957C8 00192728  7C 08 03 A6 */	mtlr r0
 /* 801957CC 0019272C  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 801957D0 00192730  4E 80 00 20 */	blr 
+/* 801957D0 00192730  4E 80 00 20 */	blr
 
 .global UpdateCameraDebugSettings__21CHudDecoInterfaceScanFfff
 UpdateCameraDebugSettings__21CHudDecoInterfaceScanFfff:
@@ -7525,7 +7525,7 @@ UpdateCameraDebugSettings__21CHudDecoInterfaceScanFfff:
 /* 8019584C 001927AC  90 81 00 34 */	stw r4, 0x34(r1)
 /* 80195850 001927B0  D0 63 02 14 */	stfs f3, 0x214(r3)
 /* 80195854 001927B4  38 21 00 40 */	addi r1, r1, 0x40
-/* 80195858 001927B8  4E 80 00 20 */	blr 
+/* 80195858 001927B8  4E 80 00 20 */	blr
 
 .global ProcessInput__21CHudDecoInterfaceScanFRC11CFinalInput
 ProcessInput__21CHudDecoInterfaceScanFRC11CFinalInput:
@@ -7537,7 +7537,7 @@ ProcessInput__21CHudDecoInterfaceScanFRC11CFinalInput:
 /* 80195870 001927D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80195874 001927D4  7C 08 03 A6 */	mtlr r0
 /* 80195878 001927D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019587C 001927DC  4E 80 00 20 */	blr 
+/* 8019587C 001927DC  4E 80 00 20 */	blr
 
 .global Draw__21CHudDecoInterfaceScanCFv
 Draw__21CHudDecoInterfaceScanCFv:
@@ -7559,7 +7559,7 @@ lbl_801958B4:
 /* 801958B8 00192818  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801958BC 0019281C  7C 08 03 A6 */	mtlr r0
 /* 801958C0 00192820  38 21 00 10 */	addi r1, r1, 0x10
-/* 801958C4 00192824  4E 80 00 20 */	blr 
+/* 801958C4 00192824  4E 80 00 20 */	blr
 
 .global Update__21CHudDecoInterfaceScanFfRC13CStateManager
 Update__21CHudDecoInterfaceScanFfRC13CStateManager:
@@ -7749,7 +7749,7 @@ lbl_80195B58:
 /* 80195B68 00192AC8  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 80195B6C 00192ACC  7C 08 03 A6 */	mtlr r0
 /* 80195B70 00192AD0  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 80195B74 00192AD4  4E 80 00 20 */	blr 
+/* 80195B74 00192AD4  4E 80 00 20 */	blr
 
 .global InitializeFlatFrame__21CHudDecoInterfaceScanFv
 InitializeFlatFrame__21CHudDecoInterfaceScanFv:
@@ -7912,15 +7912,15 @@ InitializeFlatFrame__21CHudDecoInterfaceScanFv:
 /* 80195DE8 00192D48  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 80195DEC 00192D4C  7C 08 03 A6 */	mtlr r0
 /* 80195DF0 00192D50  38 21 00 90 */	addi r1, r1, 0x90
-/* 80195DF4 00192D54  4E 80 00 20 */	blr 
+/* 80195DF4 00192D54  4E 80 00 20 */	blr
 
 .global SetFrameColorValue__21CHudDecoInterfaceScanFf
 SetFrameColorValue__21CHudDecoInterfaceScanFf:
-/* 80195DF8 00192D58  4E 80 00 20 */	blr 
+/* 80195DF8 00192D58  4E 80 00 20 */	blr
 
 .global SetDamageTransform__21CHudDecoInterfaceScanFRC9CMatrix3fRC9CVector3f
 SetDamageTransform__21CHudDecoInterfaceScanFRC9CMatrix3fRC9CVector3f:
-/* 80195DFC 00192D5C  4E 80 00 20 */	blr 
+/* 80195DFC 00192D5C  4E 80 00 20 */	blr
 
 .global SetHudOffset__21CHudDecoInterfaceScanFRC9CVector3f
 SetHudOffset__21CHudDecoInterfaceScanFRC9CVector3f:
@@ -7930,11 +7930,11 @@ SetHudOffset__21CHudDecoInterfaceScanFRC9CVector3f:
 /* 80195E0C 00192D6C  D0 03 02 04 */	stfs f0, 0x204(r3)
 /* 80195E10 00192D70  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80195E14 00192D74  D0 03 02 08 */	stfs f0, 0x208(r3)
-/* 80195E18 00192D78  4E 80 00 20 */	blr 
+/* 80195E18 00192D78  4E 80 00 20 */	blr
 
 .global SetReticuleTransform__21CHudDecoInterfaceScanFRC9CMatrix3f
 SetReticuleTransform__21CHudDecoInterfaceScanFRC9CMatrix3f:
-/* 80195E1C 00192D7C  4E 80 00 20 */	blr 
+/* 80195E1C 00192D7C  4E 80 00 20 */	blr
 
 .global SetHudRotation__21CHudDecoInterfaceScanFRC11CQuaternion
 SetHudRotation__21CHudDecoInterfaceScanFRC11CQuaternion:
@@ -7946,11 +7946,11 @@ SetHudRotation__21CHudDecoInterfaceScanFRC11CQuaternion:
 /* 80195E34 00192D94  90 03 01 EC */	stw r0, 0x1ec(r3)
 /* 80195E38 00192D98  80 04 00 0C */	lwz r0, 0xc(r4)
 /* 80195E3C 00192D9C  90 03 01 F0 */	stw r0, 0x1f0(r3)
-/* 80195E40 00192DA0  4E 80 00 20 */	blr 
+/* 80195E40 00192DA0  4E 80 00 20 */	blr
 
 .global UpdateVisibility__21CHudDecoInterfaceScanFv
 UpdateVisibility__21CHudDecoInterfaceScanFv:
-/* 80195E44 00192DA4  4E 80 00 20 */	blr 
+/* 80195E44 00192DA4  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__21CHudDecoInterfaceScanFb
 SetIsVisibleGame__21CHudDecoInterfaceScanFb:
@@ -7964,7 +7964,7 @@ SetIsVisibleGame__21CHudDecoInterfaceScanFb:
 /* 80195E64 00192DC4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80195E68 00192DC8  7C 08 03 A6 */	mtlr r0
 /* 80195E6C 00192DCC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80195E70 00192DD0  4E 80 00 20 */	blr 
+/* 80195E70 00192DD0  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__21CHudDecoInterfaceScanFb
 SetIsVisibleDebug__21CHudDecoInterfaceScanFb:
@@ -7978,7 +7978,7 @@ SetIsVisibleDebug__21CHudDecoInterfaceScanFb:
 /* 80195E90 00192DF0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80195E94 00192DF4  7C 08 03 A6 */	mtlr r0
 /* 80195E98 00192DF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80195E9C 00192DFC  4E 80 00 20 */	blr 
+/* 80195E9C 00192DFC  4E 80 00 20 */	blr
 
 .global UpdateHudAlpha__21CHudDecoInterfaceScanFv
 UpdateHudAlpha__21CHudDecoInterfaceScanFv:
@@ -8014,7 +8014,7 @@ UpdateHudAlpha__21CHudDecoInterfaceScanFv:
 /* 80195F14 00192E74  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80195F18 00192E78  7C 08 03 A6 */	mtlr r0
 /* 80195F1C 00192E7C  38 21 00 40 */	addi r1, r1, 0x40
-/* 80195F20 00192E80  4E 80 00 20 */	blr 
+/* 80195F20 00192E80  4E 80 00 20 */	blr
 
 .global __ct__21CHudDecoInterfaceScanFR9CGuiFrame
 __ct__21CHudDecoInterfaceScanFR9CGuiFrame:
@@ -8043,7 +8043,7 @@ __ct__21CHudDecoInterfaceScanFR9CGuiFrame:
 /* 80195F7C 00192EDC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80195F80 00192EE0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80195F84 00192EE4  7D 89 03 A6 */	mtctr r12
-/* 80195F88 00192EE8  4E 80 04 21 */	bctrl 
+/* 80195F88 00192EE8  4E 80 04 21 */	bctrl
 /* 80195F8C 00192EEC  3B 9D 00 04 */	addi r28, r29, 4
 /* 80195F90 00192EF0  38 81 00 18 */	addi r4, r1, 0x18
 /* 80195F94 00192EF4  7F 83 E3 78 */	mr r3, r28
@@ -8387,7 +8387,7 @@ lbl_80196418:
 /* 801964C8 00193428  81 9D 00 00 */	lwz r12, 0(r29)
 /* 801964CC 0019342C  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801964D0 00193430  7D 89 03 A6 */	mtctr r12
-/* 801964D4 00193434  4E 80 04 21 */	bctrl 
+/* 801964D4 00193434  4E 80 04 21 */	bctrl
 /* 801964D8 00193438  80 01 02 A4 */	lwz r0, 0x2a4(r1)
 /* 801964DC 0019343C  7F A3 EB 78 */	mr r3, r29
 /* 801964E0 00193440  83 E1 02 9C */	lwz r31, 0x29c(r1)
@@ -8396,7 +8396,7 @@ lbl_80196418:
 /* 801964EC 0019344C  83 81 02 90 */	lwz r28, 0x290(r1)
 /* 801964F0 00193450  7C 08 03 A6 */	mtlr r0
 /* 801964F4 00193454  38 21 02 A0 */	addi r1, r1, 0x2a0
-/* 801964F8 00193458  4E 80 00 20 */	blr 
+/* 801964F8 00193458  4E 80 00 20 */	blr
 
 .global __dt__12CScanDisplayFv
 __dt__12CScanDisplayFv:
@@ -8535,7 +8535,7 @@ lbl_801966B0:
 /* 801966BC 0019361C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801966C0 00193620  7C 08 03 A6 */	mtlr r0
 /* 801966C4 00193624  38 21 00 10 */	addi r1, r1, 0x10
-/* 801966C8 00193628  4E 80 00 20 */	blr 
+/* 801966C8 00193628  4E 80 00 20 */	blr
 
 .global UpdateCameraDebugSettings__21CHudDecoInterfaceXrayFfff
 UpdateCameraDebugSettings__21CHudDecoInterfaceXrayFfff:
@@ -8572,7 +8572,7 @@ UpdateCameraDebugSettings__21CHudDecoInterfaceXrayFfff:
 /* 80196744 001936A4  90 81 00 34 */	stw r4, 0x34(r1)
 /* 80196748 001936A8  D0 63 00 38 */	stfs f3, 0x38(r3)
 /* 8019674C 001936AC  38 21 00 40 */	addi r1, r1, 0x40
-/* 80196750 001936B0  4E 80 00 20 */	blr 
+/* 80196750 001936B0  4E 80 00 20 */	blr
 
 .global Update__21CHudDecoInterfaceXrayFfRC13CStateManager
 Update__21CHudDecoInterfaceXrayFfRC13CStateManager:
@@ -8665,15 +8665,15 @@ lbl_801967DC:
 /* 80196894 001937F4  83 E1 00 CC */	lwz r31, 0xcc(r1)
 /* 80196898 001937F8  7C 08 03 A6 */	mtlr r0
 /* 8019689C 001937FC  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 801968A0 00193800  4E 80 00 20 */	blr 
+/* 801968A0 00193800  4E 80 00 20 */	blr
 
 .global SetFrameColorValue__21CHudDecoInterfaceXrayFf
 SetFrameColorValue__21CHudDecoInterfaceXrayFf:
-/* 801968A4 00193804  4E 80 00 20 */	blr 
+/* 801968A4 00193804  4E 80 00 20 */	blr
 
 .global SetDamageTransform__21CHudDecoInterfaceXrayFRC9CMatrix3fRC9CVector3f
 SetDamageTransform__21CHudDecoInterfaceXrayFRC9CMatrix3fRC9CVector3f:
-/* 801968A8 00193808  4E 80 00 20 */	blr 
+/* 801968A8 00193808  4E 80 00 20 */	blr
 
 .global SetHudOffset__21CHudDecoInterfaceXrayFRC9CVector3f
 SetHudOffset__21CHudDecoInterfaceXrayFRC9CVector3f:
@@ -8683,7 +8683,7 @@ SetHudOffset__21CHudDecoInterfaceXrayFRC9CVector3f:
 /* 801968B8 00193818  D0 03 00 28 */	stfs f0, 0x28(r3)
 /* 801968BC 0019381C  C0 04 00 08 */	lfs f0, 8(r4)
 /* 801968C0 00193820  D0 03 00 2C */	stfs f0, 0x2c(r3)
-/* 801968C4 00193824  4E 80 00 20 */	blr 
+/* 801968C4 00193824  4E 80 00 20 */	blr
 
 .global SetDecoRotation__21CHudDecoInterfaceXrayFf
 SetDecoRotation__21CHudDecoInterfaceXrayFf:
@@ -8713,7 +8713,7 @@ SetDecoRotation__21CHudDecoInterfaceXrayFf:
 /* 80196924 00193884  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 80196928 00193888  7C 08 03 A6 */	mtlr r0
 /* 8019692C 0019388C  38 21 00 80 */	addi r1, r1, 0x80
-/* 80196930 00193890  4E 80 00 20 */	blr 
+/* 80196930 00193890  4E 80 00 20 */	blr
 
 .global SetReticuleTransform__21CHudDecoInterfaceXrayFRC9CMatrix3f
 SetReticuleTransform__21CHudDecoInterfaceXrayFRC9CMatrix3f:
@@ -8725,7 +8725,7 @@ SetReticuleTransform__21CHudDecoInterfaceXrayFRC9CMatrix3f:
 /* 80196948 001938A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019694C 001938AC  7C 08 03 A6 */	mtlr r0
 /* 80196950 001938B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80196954 001938B4  4E 80 00 20 */	blr 
+/* 80196954 001938B4  4E 80 00 20 */	blr
 
 .global SetHudRotation__21CHudDecoInterfaceXrayFRC11CQuaternion
 SetHudRotation__21CHudDecoInterfaceXrayFRC11CQuaternion:
@@ -8737,11 +8737,11 @@ SetHudRotation__21CHudDecoInterfaceXrayFRC11CQuaternion:
 /* 8019696C 001938CC  90 03 00 10 */	stw r0, 0x10(r3)
 /* 80196970 001938D0  80 04 00 0C */	lwz r0, 0xc(r4)
 /* 80196974 001938D4  90 03 00 14 */	stw r0, 0x14(r3)
-/* 80196978 001938D8  4E 80 00 20 */	blr 
+/* 80196978 001938D8  4E 80 00 20 */	blr
 
 .global UpdateVisibility__21CHudDecoInterfaceXrayFv
 UpdateVisibility__21CHudDecoInterfaceXrayFv:
-/* 8019697C 001938DC  4E 80 00 20 */	blr 
+/* 8019697C 001938DC  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__21CHudDecoInterfaceXrayFb
 SetIsVisibleGame__21CHudDecoInterfaceXrayFb:
@@ -8755,7 +8755,7 @@ SetIsVisibleGame__21CHudDecoInterfaceXrayFb:
 /* 8019699C 001938FC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801969A0 00193900  7C 08 03 A6 */	mtlr r0
 /* 801969A4 00193904  38 21 00 10 */	addi r1, r1, 0x10
-/* 801969A8 00193908  4E 80 00 20 */	blr 
+/* 801969A8 00193908  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__21CHudDecoInterfaceXrayFb
 SetIsVisibleDebug__21CHudDecoInterfaceXrayFb:
@@ -8769,7 +8769,7 @@ SetIsVisibleDebug__21CHudDecoInterfaceXrayFb:
 /* 801969C8 00193928  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801969CC 0019392C  7C 08 03 A6 */	mtlr r0
 /* 801969D0 00193930  38 21 00 10 */	addi r1, r1, 0x10
-/* 801969D4 00193934  4E 80 00 20 */	blr 
+/* 801969D4 00193934  4E 80 00 20 */	blr
 
 .global UpdateHudAlpha__21CHudDecoInterfaceXrayFv
 UpdateHudAlpha__21CHudDecoInterfaceXrayFv:
@@ -8789,7 +8789,7 @@ UpdateHudAlpha__21CHudDecoInterfaceXrayFv:
 /* 80196A0C 0019396C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80196A10 00193970  7C 08 03 A6 */	mtlr r0
 /* 80196A14 00193974  38 21 00 10 */	addi r1, r1, 0x10
-/* 80196A18 00193978  4E 80 00 20 */	blr 
+/* 80196A18 00193978  4E 80 00 20 */	blr
 
 .global __ct__21CHudDecoInterfaceXRayFR9CGuiFrame
 __ct__21CHudDecoInterfaceXRayFR9CGuiFrame:
@@ -8996,7 +8996,7 @@ lbl_80196D1C:
 /* 80196D20 00193C80  81 9E 00 00 */	lwz r12, 0(r30)
 /* 80196D24 00193C84  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80196D28 00193C88  7D 89 03 A6 */	mtctr r12
-/* 80196D2C 00193C8C  4E 80 04 21 */	bctrl 
+/* 80196D2C 00193C8C  4E 80 04 21 */	bctrl
 /* 80196D30 00193C90  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80196D34 00193C94  7F C3 F3 78 */	mr r3, r30
 /* 80196D38 00193C98  83 E1 00 2C */	lwz r31, 0x2c(r1)
@@ -9004,7 +9004,7 @@ lbl_80196D1C:
 /* 80196D40 00193CA0  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80196D44 00193CA4  7C 08 03 A6 */	mtlr r0
 /* 80196D48 00193CA8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80196D4C 00193CAC  4E 80 00 20 */	blr 
+/* 80196D4C 00193CAC  4E 80 00 20 */	blr
 
 .global UpdateCameraDebugSettings__23CHudDecoInterfaceCombatFfff
 UpdateCameraDebugSettings__23CHudDecoInterfaceCombatFfff:
@@ -9041,7 +9041,7 @@ UpdateCameraDebugSettings__23CHudDecoInterfaceCombatFfff:
 /* 80196DC8 00193D28  90 81 00 34 */	stw r4, 0x34(r1)
 /* 80196DCC 00193D2C  D0 63 00 34 */	stfs f3, 0x34(r3)
 /* 80196DD0 00193D30  38 21 00 40 */	addi r1, r1, 0x40
-/* 80196DD4 00193D34  4E 80 00 20 */	blr 
+/* 80196DD4 00193D34  4E 80 00 20 */	blr
 
 .global Update__23CHudDecoInterfaceCombatFfRC13CStateManager
 Update__23CHudDecoInterfaceCombatFfRC13CStateManager:
@@ -9074,7 +9074,7 @@ Update__23CHudDecoInterfaceCombatFfRC13CStateManager:
 /* 80196E40 00193DA0  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80196E44 00193DA4  7C 08 03 A6 */	mtlr r0
 /* 80196E48 00193DA8  38 21 00 50 */	addi r1, r1, 0x50
-/* 80196E4C 00193DAC  4E 80 00 20 */	blr 
+/* 80196E4C 00193DAC  4E 80 00 20 */	blr
 
 .global SetFrameColorValue__23CHudDecoInterfaceCombatFf
 SetFrameColorValue__23CHudDecoInterfaceCombatFf:
@@ -9101,7 +9101,7 @@ lbl_80196E80:
 /* 80196E98 00193DF8  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80196E9C 00193DFC  7C 08 03 A6 */	mtlr r0
 /* 80196EA0 00193E00  38 21 00 20 */	addi r1, r1, 0x20
-/* 80196EA4 00193E04  4E 80 00 20 */	blr 
+/* 80196EA4 00193E04  4E 80 00 20 */	blr
 
 .global SetDamageTransform__23CHudDecoInterfaceCombatFRC9CMatrix3fRC9CVector3f
 SetDamageTransform__23CHudDecoInterfaceCombatFRC9CMatrix3fRC9CVector3f:
@@ -9139,7 +9139,7 @@ SetDamageTransform__23CHudDecoInterfaceCombatFRC9CMatrix3fRC9CVector3f:
 /* 80196F24 00193E84  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 80196F28 00193E88  7C 08 03 A6 */	mtlr r0
 /* 80196F2C 00193E8C  38 21 00 70 */	addi r1, r1, 0x70
-/* 80196F30 00193E90  4E 80 00 20 */	blr 
+/* 80196F30 00193E90  4E 80 00 20 */	blr
 
 .global SetHudOffset__23CHudDecoInterfaceCombatFRC9CVector3f
 SetHudOffset__23CHudDecoInterfaceCombatFRC9CVector3f:
@@ -9149,7 +9149,7 @@ SetHudOffset__23CHudDecoInterfaceCombatFRC9CVector3f:
 /* 80196F40 00193EA0  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80196F44 00193EA4  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80196F48 00193EA8  D0 03 00 28 */	stfs f0, 0x28(r3)
-/* 80196F4C 00193EAC  4E 80 00 20 */	blr 
+/* 80196F4C 00193EAC  4E 80 00 20 */	blr
 
 .global SetHudRotation__23CHudDecoInterfaceCombatFRC11CQuaternion
 SetHudRotation__23CHudDecoInterfaceCombatFRC11CQuaternion:
@@ -9161,7 +9161,7 @@ SetHudRotation__23CHudDecoInterfaceCombatFRC11CQuaternion:
 /* 80196F64 00193EC4  90 03 00 0C */	stw r0, 0xc(r3)
 /* 80196F68 00193EC8  80 04 00 0C */	lwz r0, 0xc(r4)
 /* 80196F6C 00193ECC  90 03 00 10 */	stw r0, 0x10(r3)
-/* 80196F70 00193ED0  4E 80 00 20 */	blr 
+/* 80196F70 00193ED0  4E 80 00 20 */	blr
 
 .global UpdateVisibility__23CHudDecoInterfaceCombatFv
 UpdateVisibility__23CHudDecoInterfaceCombatFv:
@@ -9193,7 +9193,7 @@ lbl_80196FAC:
 /* 80196FD4 00193F34  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80196FD8 00193F38  7C 08 03 A6 */	mtlr r0
 /* 80196FDC 00193F3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80196FE0 00193F40  4E 80 00 20 */	blr 
+/* 80196FE0 00193F40  4E 80 00 20 */	blr
 
 .global UpdateHudAlpha__23CHudDecoInterfaceCombatFv
 UpdateHudAlpha__23CHudDecoInterfaceCombatFv:
@@ -9213,7 +9213,7 @@ UpdateHudAlpha__23CHudDecoInterfaceCombatFv:
 /* 80197018 00193F78  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8019701C 00193F7C  7C 08 03 A6 */	mtlr r0
 /* 80197020 00193F80  38 21 00 10 */	addi r1, r1, 0x10
-/* 80197024 00193F84  4E 80 00 20 */	blr 
+/* 80197024 00193F84  4E 80 00 20 */	blr
 
 .global SetIsVisibleGame__23CHudDecoInterfaceCombatFb
 SetIsVisibleGame__23CHudDecoInterfaceCombatFb:
@@ -9227,7 +9227,7 @@ SetIsVisibleGame__23CHudDecoInterfaceCombatFb:
 /* 80197044 00193FA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80197048 00193FA8  7C 08 03 A6 */	mtlr r0
 /* 8019704C 00193FAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80197050 00193FB0  4E 80 00 20 */	blr 
+/* 80197050 00193FB0  4E 80 00 20 */	blr
 
 .global SetIsVisibleDebug__23CHudDecoInterfaceCombatFb
 SetIsVisibleDebug__23CHudDecoInterfaceCombatFb:
@@ -9241,7 +9241,7 @@ SetIsVisibleDebug__23CHudDecoInterfaceCombatFb:
 /* 80197070 00193FD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80197074 00193FD4  7C 08 03 A6 */	mtlr r0
 /* 80197078 00193FD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019707C 00193FDC  4E 80 00 20 */	blr 
+/* 8019707C 00193FDC  4E 80 00 20 */	blr
 
 .global __ct__23CHudDecoInterfaceCombatFR9CGuiFrame
 __ct__23CHudDecoInterfaceCombatFR9CGuiFrame:
@@ -9364,7 +9364,7 @@ __ct__23CHudDecoInterfaceCombatFR9CGuiFrame:
 /* 80197250 001941B0  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80197254 001941B4  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80197258 001941B8  7D 89 03 A6 */	mtctr r12
-/* 8019725C 001941BC  4E 80 04 21 */	bctrl 
+/* 8019725C 001941BC  4E 80 04 21 */	bctrl
 /* 80197260 001941C0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80197264 001941C4  7F E3 FB 78 */	mr r3, r31
 /* 80197268 001941C8  83 E1 00 4C */	lwz r31, 0x4c(r1)
@@ -9372,7 +9372,7 @@ __ct__23CHudDecoInterfaceCombatFR9CGuiFrame:
 /* 80197270 001941D0  83 A1 00 44 */	lwz r29, 0x44(r1)
 /* 80197274 001941D4  7C 08 03 A6 */	mtlr r0
 /* 80197278 001941D8  38 21 00 50 */	addi r1, r1, 0x50
-/* 8019727C 001941DC  4E 80 00 20 */	blr 
+/* 8019727C 001941DC  4E 80 00 20 */	blr
 
 .global __dt__21CHudDecoInterfaceScanFv
 __dt__21CHudDecoInterfaceScanFv:
@@ -9415,7 +9415,7 @@ lbl_801972F8:
 /* 80197304 00194264  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80197308 00194268  7C 08 03 A6 */	mtlr r0
 /* 8019730C 0019426C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80197310 00194270  4E 80 00 20 */	blr 
+/* 80197310 00194270  4E 80 00 20 */	blr
 
 .global __dt__21CHudDecoInterfaceXrayFv
 __dt__21CHudDecoInterfaceXrayFv:
@@ -9443,7 +9443,7 @@ lbl_80197358:
 /* 80197360 001942C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80197364 001942C4  7C 08 03 A6 */	mtlr r0
 /* 80197368 001942C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8019736C 001942CC  4E 80 00 20 */	blr 
+/* 8019736C 001942CC  4E 80 00 20 */	blr
 
 .global __dt__23CHudDecoInterfaceCombatFv
 __dt__23CHudDecoInterfaceCombatFv:
@@ -9471,7 +9471,7 @@ lbl_801973B4:
 /* 801973BC 0019431C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801973C0 00194320  7C 08 03 A6 */	mtlr r0
 /* 801973C4 00194324  38 21 00 10 */	addi r1, r1, 0x10
-/* 801973C8 00194328  4E 80 00 20 */	blr 
+/* 801973C8 00194328  4E 80 00 20 */	blr
 
 .global sub_801973cc
 sub_801973cc:
@@ -9543,4 +9543,4 @@ lbl_801974A8:
 /* 801974AC 0019440C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801974B0 00194410  7C 08 03 A6 */	mtlr r0
 /* 801974B4 00194414  38 21 00 30 */	addi r1, r1, 0x30
-/* 801974B8 00194418  4E 80 00 20 */	blr 
+/* 801974B8 00194418  4E 80 00 20 */	blr

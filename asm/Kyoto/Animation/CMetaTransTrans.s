@@ -40,12 +40,12 @@ lbl_802E2BD4:
 /* 802E2BDC 002DFB3C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E2BE0 002DFB40  7C 08 03 A6 */	mtlr r0
 /* 802E2BE4 002DFB44  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E2BE8 002DFB48  4E 80 00 20 */	blr 
+/* 802E2BE8 002DFB48  4E 80 00 20 */	blr
 
 .global GetType__15CMetaTransTransCFv
 GetType__15CMetaTransTransCFv:
 /* 802E2BEC 002DFB4C  38 60 00 01 */	li r3, 1
-/* 802E2BF0 002DFB50  4E 80 00 20 */	blr 
+/* 802E2BF0 002DFB50  4E 80 00 20 */	blr
 
 .global WriteTransData__15CMetaTransTransCFR13COutputStream
 WriteTransData__15CMetaTransTransCFR13COutputStream:
@@ -115,7 +115,7 @@ lbl_802E2C9C:
 /* 802E2CE8 002DFC48  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802E2CEC 002DFC4C  7C 08 03 A6 */	mtlr r0
 /* 802E2CF0 002DFC50  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E2CF4 002DFC54  4E 80 00 20 */	blr 
+/* 802E2CF4 002DFC54  4E 80 00 20 */	blr
 
 .global "VGetTransitionTree__15CMetaTransTransCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext"
 "VGetTransitionTree__15CMetaTransTransCFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC15CAnimSysContext":
@@ -174,7 +174,7 @@ lbl_802E2DB8:
 /* 802E2DBC 002DFD1C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802E2DC0 002DFD20  7C 08 03 A6 */	mtlr r0
 /* 802E2DC4 002DFD24  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E2DC8 002DFD28  4E 80 00 20 */	blr 
+/* 802E2DC8 002DFD28  4E 80 00 20 */	blr
 
 .global __ct__15CMetaTransTransFR12CInputStream
 __ct__15CMetaTransTransFR12CInputStream:

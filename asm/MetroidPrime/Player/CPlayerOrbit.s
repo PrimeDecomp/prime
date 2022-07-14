@@ -110,7 +110,7 @@ lbl_805A9018:
 .global lbl_805A901C
 lbl_805A901C:
 	.skip 0x4
-	
+
 .section .text, "ax"
 
 .global UpdateGrappleArmTransform__7CPlayerFRC9CVector3fR13CStateManagerf
@@ -318,7 +318,7 @@ lbl_80179678:
 /* 8017969C 001765FC  83 A1 01 64 */	lwz r29, 0x164(r1)
 /* 801796A0 00176600  7C 08 03 A6 */	mtlr r0
 /* 801796A4 00176604  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 801796A8 00176608  4E 80 00 20 */	blr 
+/* 801796A8 00176608  4E 80 00 20 */	blr
 
 .global ApplyGrappleForces__7CPlayerFRC11CFinalInputR13CStateManagerf
 ApplyGrappleForces__7CPlayerFRC11CFinalInputR13CStateManagerf:
@@ -1169,7 +1169,7 @@ lbl_8017A2AC:
 /* 8017A368 001772C8  80 01 03 D4 */	lwz r0, 0x3d4(r1)
 /* 8017A36C 001772CC  7C 08 03 A6 */	mtlr r0
 /* 8017A370 001772D0  38 21 03 D0 */	addi r1, r1, 0x3d0
-/* 8017A374 001772D4  4E 80 00 20 */	blr 
+/* 8017A374 001772D4  4E 80 00 20 */	blr
 
 .global ValidateFPPosition__7CPlayerF9CVector3fR13CStateManager
 ValidateFPPosition__7CPlayerF9CVector3fR13CStateManager:
@@ -1370,7 +1370,7 @@ lbl_8017A64C:
 /* 8017A658 001775B8  83 A1 08 F4 */	lwz r29, 0x8f4(r1)
 /* 8017A65C 001775BC  7C 08 03 A6 */	mtlr r0
 /* 8017A660 001775C0  38 21 09 00 */	addi r1, r1, 0x900
-/* 8017A664 001775C4  4E 80 00 20 */	blr 
+/* 8017A664 001775C4  4E 80 00 20 */	blr
 
 .global UpdateGrappleState__7CPlayerFRC11CFinalInputR13CStateManager
 UpdateGrappleState__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -1888,7 +1888,7 @@ lbl_8017ADC4:
 /* 8017ADDC 00177D3C  83 81 01 00 */	lwz r28, 0x100(r1)
 /* 8017ADE0 00177D40  7C 08 03 A6 */	mtlr r0
 /* 8017ADE4 00177D44  38 21 01 20 */	addi r1, r1, 0x120
-/* 8017ADE8 00177D48  4E 80 00 20 */	blr 
+/* 8017ADE8 00177D48  4E 80 00 20 */	blr
 
 .global ApplyGrappleJump__7CPlayerFR13CStateManager
 ApplyGrappleJump__7CPlayerFR13CStateManager:
@@ -2036,7 +2036,7 @@ lbl_8017AFF4:
 /* 8017B010 00177F70  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8017B014 00177F74  7C 08 03 A6 */	mtlr r0
 /* 8017B018 00177F78  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 8017B01C 00177F7C  4E 80 00 20 */	blr 
+/* 8017B01C 00177F7C  4E 80 00 20 */	blr
 
 .global BeginGrapple__7CPlayerFR9CVector3fR13CStateManager
 BeginGrapple__7CPlayerFR9CVector3fR13CStateManager:
@@ -2081,7 +2081,7 @@ lbl_8017B0A8:
 /* 8017B0B4 00178014  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8017B0B8 00178018  7C 08 03 A6 */	mtlr r0
 /* 8017B0BC 0017801C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8017B0C0 00178020  4E 80 00 20 */	blr 
+/* 8017B0C0 00178020  4E 80 00 20 */	blr
 
 .global BreakGrapple__7CPlayerF19EPlayerOrbitRequestR13CStateManager
 BreakGrapple__7CPlayerF19EPlayerOrbitRequestR13CStateManager:
@@ -2140,7 +2140,7 @@ lbl_8017B180:
 /* 8017B18C 001780EC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8017B190 001780F0  7C 08 03 A6 */	mtlr r0
 /* 8017B194 001780F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8017B198 001780F8  4E 80 00 20 */	blr 
+/* 8017B198 001780F8  4E 80 00 20 */	blr
 
 .global SetOrbitRequest__7CPlayerF19EPlayerOrbitRequestR13CStateManager
 SetOrbitRequest__7CPlayerF19EPlayerOrbitRequestR13CStateManager:
@@ -2193,7 +2193,7 @@ lbl_8017B240:
 /* 8017B244 001781A4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8017B248 001781A8  7C 08 03 A6 */	mtlr r0
 /* 8017B24C 001781AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8017B250 001781B0  4E 80 00 20 */	blr 
+/* 8017B250 001781B0  4E 80 00 20 */	blr
 
 .global SetOrbitRequestForTarget__7CPlayerF9TUniqueId19EPlayerOrbitRequestR13CStateManager
 SetOrbitRequestForTarget__7CPlayerF9TUniqueId19EPlayerOrbitRequestR13CStateManager:
@@ -2219,7 +2219,7 @@ lbl_8017B298:
 /* 8017B298 001781F8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8017B29C 001781FC  7C 08 03 A6 */	mtlr r0
 /* 8017B2A0 00178200  38 21 00 10 */	addi r1, r1, 0x10
-/* 8017B2A4 00178204  4E 80 00 20 */	blr 
+/* 8017B2A4 00178204  4E 80 00 20 */	blr
 
 .global InGrappleJumpCooldown__7CPlayerCFv
 InGrappleJumpCooldown__7CPlayerCFv:
@@ -2235,10 +2235,10 @@ InGrappleJumpCooldown__7CPlayerCFv:
 /* 8017B2CC 0017822C  40 82 00 0C */	bne lbl_8017B2D8
 lbl_8017B2D0:
 /* 8017B2D0 00178230  38 60 00 01 */	li r3, 1
-/* 8017B2D4 00178234  4E 80 00 20 */	blr 
+/* 8017B2D4 00178234  4E 80 00 20 */	blr
 lbl_8017B2D8:
 /* 8017B2D8 00178238  38 60 00 00 */	li r3, 0
-/* 8017B2DC 0017823C  4E 80 00 20 */	blr 
+/* 8017B2DC 0017823C  4E 80 00 20 */	blr
 
 .global PreventFallingCameraPitch__7CPlayerFv
 PreventFallingCameraPitch__7CPlayerFv:
@@ -2248,7 +2248,7 @@ PreventFallingCameraPitch__7CPlayerFv:
 /* 8017B2EC 0017824C  D0 23 02 94 */	stfs f1, 0x294(r3)
 /* 8017B2F0 00178250  D0 03 02 9C */	stfs f0, 0x29c(r3)
 /* 8017B2F4 00178254  98 03 02 A4 */	stb r0, 0x2a4(r3)
-/* 8017B2F8 00178258  4E 80 00 20 */	blr 
+/* 8017B2F8 00178258  4E 80 00 20 */	blr
 
 .global OrbitCarcass__7CPlayerFR13CStateManager
 OrbitCarcass__7CPlayerFR13CStateManager:
@@ -2267,7 +2267,7 @@ lbl_8017B328:
 /* 8017B328 00178288  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8017B32C 0017828C  7C 08 03 A6 */	mtlr r0
 /* 8017B330 00178290  38 21 00 10 */	addi r1, r1, 0x10
-/* 8017B334 00178294  4E 80 00 20 */	blr 
+/* 8017B334 00178294  4E 80 00 20 */	blr
 
 .global OrbitPoint__7CPlayerFQ27CPlayer16EPlayerOrbitTypeR13CStateManager
 OrbitPoint__7CPlayerFQ27CPlayer16EPlayerOrbitTypeR13CStateManager:
@@ -2294,7 +2294,7 @@ OrbitPoint__7CPlayerFQ27CPlayer16EPlayerOrbitTypeR13CStateManager:
 /* 8017B388 001782E8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8017B38C 001782EC  7C 08 03 A6 */	mtlr r0
 /* 8017B390 001782F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8017B394 001782F4  4E 80 00 20 */	blr 
+/* 8017B394 001782F4  4E 80 00 20 */	blr
 
 .global CalculateOrbitZBasedDistance__7CPlayerF16EPlayerOrbitType
 CalculateOrbitZBasedDistance__7CPlayerF16EPlayerOrbitType:
@@ -2332,7 +2332,7 @@ CalculateOrbitZBasedDistance__7CPlayerF16EPlayerOrbitType:
 /* 8017B414 00178374  CB E1 00 20 */	lfd f31, 0x20(r1)
 /* 8017B418 00178378  7C 08 03 A6 */	mtlr r0
 /* 8017B41C 0017837C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8017B420 00178380  4E 80 00 20 */	blr 
+/* 8017B420 00178380  4E 80 00 20 */	blr
 
 .global GetHUDOrbitTargetPosition__7CPlayerCFv
 GetHUDOrbitTargetPosition__7CPlayerCFv:
@@ -2363,7 +2363,7 @@ GetHUDOrbitTargetPosition__7CPlayerCFv:
 /* 8017B484 001783E4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8017B488 001783E8  7C 08 03 A6 */	mtlr r0
 /* 8017B48C 001783EC  38 21 00 40 */	addi r1, r1, 0x40
-/* 8017B490 001783F0  4E 80 00 20 */	blr 
+/* 8017B490 001783F0  4E 80 00 20 */	blr
 
 .global SetOrbitState__7CPlayerFQ27CPlayer17EPlayerOrbitStateR13CStateManager
 SetOrbitState__7CPlayerFQ27CPlayer17EPlayerOrbitStateR13CStateManager:
@@ -2460,7 +2460,7 @@ lbl_8017B5D4:
 /* 8017B5DC 0017853C  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 8017B5E0 00178540  7C 08 03 A6 */	mtlr r0
 /* 8017B5E4 00178544  38 21 00 40 */	addi r1, r1, 0x40
-/* 8017B5E8 00178548  4E 80 00 20 */	blr 
+/* 8017B5E8 00178548  4E 80 00 20 */	blr
 
 .global SetOrbitTargetId__7CPlayerF9TUniqueIdR13CStateManager
 SetOrbitTargetId__7CPlayerF9TUniqueIdR13CStateManager:
@@ -2541,7 +2541,7 @@ lbl_8017B700:
 /* 8017B704 00178664  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8017B708 00178668  7C 08 03 A6 */	mtlr r0
 /* 8017B70C 0017866C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8017B710 00178670  4E 80 00 20 */	blr 
+/* 8017B710 00178670  4E 80 00 20 */	blr
 
 .global UpdateOrbitPosition__7CPlayerFfR13CStateManager
 UpdateOrbitPosition__7CPlayerFfR13CStateManager:
@@ -2586,7 +2586,7 @@ lbl_8017B75C:
 /* 8017B7A4 00178704  38 61 00 18 */	addi r3, r1, 0x18
 /* 8017B7A8 00178708  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8017B7AC 0017870C  7D 89 03 A6 */	mtctr r12
-/* 8017B7B0 00178710  4E 80 04 21 */	bctrl 
+/* 8017B7B0 00178710  4E 80 04 21 */	bctrl
 /* 8017B7B4 00178714  C0 01 00 18 */	lfs f0, 0x18(r1)
 /* 8017B7B8 00178718  D0 1E 03 14 */	stfs f0, 0x314(r30)
 /* 8017B7BC 0017871C  C0 01 00 1C */	lfs f0, 0x1c(r1)
@@ -2599,7 +2599,7 @@ lbl_8017B7CC:
 /* 8017B7D4 00178734  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8017B7D8 00178738  7C 08 03 A6 */	mtlr r0
 /* 8017B7DC 0017873C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8017B7E0 00178740  4E 80 00 20 */	blr 
+/* 8017B7E0 00178740  4E 80 00 20 */	blr
 
 .global UpdateOrbitZPosition__7CPlayerFv
 UpdateOrbitZPosition__7CPlayerFv:
@@ -2640,7 +2640,7 @@ lbl_8017B858:
 /* 8017B864 001787C4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8017B868 001787C8  7C 08 03 A6 */	mtlr r0
 /* 8017B86C 001787CC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8017B870 001787D0  4E 80 00 20 */	blr 
+/* 8017B870 001787D0  4E 80 00 20 */	blr
 
 .global UpdateOrbitFixedPosition__7CPlayerFv
 UpdateOrbitFixedPosition__7CPlayerFv:
@@ -2684,7 +2684,7 @@ UpdateOrbitFixedPosition__7CPlayerFv:
 /* 8017B908 00178868  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8017B90C 0017886C  7C 08 03 A6 */	mtlr r0
 /* 8017B910 00178870  38 21 00 60 */	addi r1, r1, 0x60
-/* 8017B914 00178874  4E 80 00 20 */	blr 
+/* 8017B914 00178874  4E 80 00 20 */	blr
 
 .global SetOrbitPosition__7CPlayerFfR13CStateManager
 SetOrbitPosition__7CPlayerFfR13CStateManager:
@@ -2787,7 +2787,7 @@ lbl_8017B9E8:
 /* 8017BA90 001789F0  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8017BA94 001789F4  7C 08 03 A6 */	mtlr r0
 /* 8017BA98 001789F8  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 8017BA9C 001789FC  4E 80 00 20 */	blr 
+/* 8017BA9C 001789FC  4E 80 00 20 */	blr
 
 .global UpdateAimTarget__7CPlayerFR13CStateManager
 UpdateAimTarget__7CPlayerFR13CStateManager:
@@ -2975,21 +2975,21 @@ lbl_8017BD34:
 /* 8017BD44 00178CA4  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 8017BD48 00178CA8  7C 08 03 A6 */	mtlr r0
 /* 8017BD4C 00178CAC  38 21 00 80 */	addi r1, r1, 0x80
-/* 8017BD50 00178CB0  4E 80 00 20 */	blr 
+/* 8017BD50 00178CB0  4E 80 00 20 */	blr
 
 .global UpdateAimTargetTimer__7CPlayerFf
 UpdateAimTargetTimer__7CPlayerFf:
 /* 8017BD54 00178CB4  A0 83 03 F4 */	lhz r4, 0x3f4(r3)
 /* 8017BD58 00178CB8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8017BD5C 00178CBC  7C 04 00 40 */	cmplw r4, r0
-/* 8017BD60 00178CC0  4D 82 00 20 */	beqlr 
+/* 8017BD60 00178CC0  4D 82 00 20 */	beqlr
 /* 8017BD64 00178CC4  C0 43 04 8C */	lfs f2, 0x48c(r3)
 /* 8017BD68 00178CC8  C0 02 A2 30 */	lfs f0, lbl_805ABF50@sda21(r2)
 /* 8017BD6C 00178CCC  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 8017BD70 00178CD0  4C 81 00 20 */	blelr 
+/* 8017BD70 00178CD0  4C 81 00 20 */	blelr
 /* 8017BD74 00178CD4  EC 02 08 28 */	fsubs f0, f2, f1
 /* 8017BD78 00178CD8  D0 03 04 8C */	stfs f0, 0x48c(r3)
-/* 8017BD7C 00178CDC  4E 80 00 20 */	blr 
+/* 8017BD7C 00178CDC  4E 80 00 20 */	blr
 
 .global ValidateAimTargetId__7CPlayerF9TUniqueIdR13CStateManager
 ValidateAimTargetId__7CPlayerF9TUniqueIdR13CStateManager:
@@ -3121,7 +3121,7 @@ lbl_8017BEF8:
 /* 8017BF48 00178EA8  C0 22 A2 30 */	lfs f1, lbl_805ABF50@sda21(r2)
 /* 8017BF4C 00178EAC  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8017BF50 00178EB0  7D 89 03 A6 */	mtctr r12
-/* 8017BF54 00178EB4  4E 80 04 21 */	bctrl 
+/* 8017BF54 00178EB4  4E 80 04 21 */	bctrl
 /* 8017BF58 00178EB8  C0 41 00 44 */	lfs f2, 0x44(r1)
 /* 8017BF5C 00178EBC  7F 84 E3 78 */	mr r4, r28
 /* 8017BF60 00178EC0  C0 21 00 48 */	lfs f1, 0x48(r1)
@@ -3328,7 +3328,7 @@ lbl_8017C238:
 /* 8017C250 001791B0  83 81 08 E0 */	lwz r28, 0x8e0(r1)
 /* 8017C254 001791B4  7C 08 03 A6 */	mtlr r0
 /* 8017C258 001791B8  38 21 09 00 */	addi r1, r1, 0x900
-/* 8017C25C 001791BC  4E 80 00 20 */	blr 
+/* 8017C25C 001791BC  4E 80 00 20 */	blr
 
 .global ValidateObjectForMode__7CPlayerCF9TUniqueIdR13CStateManager
 ValidateObjectForMode__7CPlayerCF9TUniqueIdR13CStateManager:
@@ -3385,7 +3385,7 @@ lbl_8017C304:
 /* 8017C31C 0017927C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8017C320 00179280  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8017C324 00179284  7D 89 03 A6 */	mtctr r12
-/* 8017C328 00179288  4E 80 04 21 */	bctrl 
+/* 8017C328 00179288  4E 80 04 21 */	bctrl
 /* 8017C32C 0017928C  28 03 00 00 */	cmplwi r3, 0
 /* 8017C330 00179290  41 82 00 34 */	beq lbl_8017C364
 /* 8017C334 00179294  7F E3 FB 78 */	mr r3, r31
@@ -3393,7 +3393,7 @@ lbl_8017C304:
 /* 8017C33C 0017929C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8017C340 001792A0  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8017C344 001792A4  7D 89 03 A6 */	mtctr r12
-/* 8017C348 001792A8  4E 80 04 21 */	bctrl 
+/* 8017C348 001792A8  4E 80 04 21 */	bctrl
 /* 8017C34C 001792AC  C0 23 00 00 */	lfs f1, 0(r3)
 /* 8017C350 001792B0  C0 02 A2 30 */	lfs f0, lbl_805ABF50@sda21(r2)
 /* 8017C354 001792B4  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -3472,7 +3472,7 @@ lbl_8017C44C:
 /* 8017C464 001793C4  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8017C468 001793C8  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8017C46C 001793CC  7D 89 03 A6 */	mtctr r12
-/* 8017C470 001793D0  4E 80 04 21 */	bctrl 
+/* 8017C470 001793D0  4E 80 04 21 */	bctrl
 /* 8017C474 001793D4  28 03 00 00 */	cmplwi r3, 0
 /* 8017C478 001793D8  40 82 00 98 */	bne lbl_8017C510
 /* 8017C47C 001793DC  A0 1D 00 00 */	lhz r0, 0(r29)
@@ -3528,7 +3528,7 @@ lbl_8017C51C:
 /* 8017C534 00179494  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 8017C538 00179498  7C 08 03 A6 */	mtlr r0
 /* 8017C53C 0017949C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8017C540 001794A0  4E 80 00 20 */	blr 
+/* 8017C540 001794A0  4E 80 00 20 */	blr
 
 .global FindAimTargetId__7CPlayerFR13CStateManager
 FindAimTargetId__7CPlayerFR13CStateManager:
@@ -3628,7 +3628,7 @@ lbl_8017C690:
 /* 8017C6A4 00179604  83 A1 08 74 */	lwz r29, 0x874(r1)
 /* 8017C6A8 00179608  7C 08 03 A6 */	mtlr r0
 /* 8017C6AC 0017960C  38 21 08 80 */	addi r1, r1, 0x880
-/* 8017C6B0 00179610  4E 80 00 20 */	blr 
+/* 8017C6B0 00179610  4E 80 00 20 */	blr
 
 .global "CheckEnemiesAgainstOrbitZone__7CPlayerCFRCQ24rstl32reserved_vector<9TUniqueId,1024>Q27CPlayer15EPlayerZoneInfoQ27CPlayer15EPlayerZoneTypeR13CStateManager"
 "CheckEnemiesAgainstOrbitZone__7CPlayerCFRCQ24rstl32reserved_vector<9TUniqueId,1024>Q27CPlayer15EPlayerZoneInfoQ27CPlayer15EPlayerZoneTypeR13CStateManager":
@@ -3759,7 +3759,7 @@ lbl_8017C844:
 /* 8017C8A0 00179800  C0 22 A2 30 */	lfs f1, lbl_805ABF50@sda21(r2)
 /* 8017C8A4 00179804  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 8017C8A8 00179808  7D 89 03 A6 */	mtctr r12
-/* 8017C8AC 0017980C  4E 80 04 21 */	bctrl 
+/* 8017C8AC 0017980C  4E 80 04 21 */	bctrl
 /* 8017C8B0 00179810  C0 41 00 28 */	lfs f2, 0x28(r1)
 /* 8017C8B4 00179814  7E C4 B3 78 */	mr r4, r22
 /* 8017C8B8 00179818  C0 21 00 2C */	lfs f1, 0x2c(r1)
@@ -4012,7 +4012,7 @@ lbl_8017CBF8:
 /* 8017CC60 00179BC0  80 01 11 B4 */	lwz r0, 0x11b4(r1)
 /* 8017CC64 00179BC4  7C 08 03 A6 */	mtlr r0
 /* 8017CC68 00179BC8  38 21 11 B0 */	addi r1, r1, 0x11b0
-/* 8017CC6C 00179BCC  4E 80 00 20 */	blr 
+/* 8017CC6C 00179BCC  4E 80 00 20 */	blr
 
 .global FindOrbitTargetId__7CPlayerFR13CStateManager
 FindOrbitTargetId__7CPlayerFR13CStateManager:
@@ -4029,7 +4029,7 @@ FindOrbitTargetId__7CPlayerFR13CStateManager:
 /* 8017CC98 00179BF8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8017CC9C 00179BFC  7C 08 03 A6 */	mtlr r0
 /* 8017CCA0 00179C00  38 21 00 10 */	addi r1, r1, 0x10
-/* 8017CCA4 00179C04  4E 80 00 20 */	blr 
+/* 8017CCA4 00179C04  4E 80 00 20 */	blr
 
 .global UpdateOrbitableObjects__7CPlayerFR13CStateManager
 UpdateOrbitableObjects__7CPlayerFR13CStateManager:
@@ -4240,7 +4240,7 @@ lbl_8017CF98:
 /* 8017CFA4 00179F04  83 A1 08 C4 */	lwz r29, 0x8c4(r1)
 /* 8017CFA8 00179F08  7C 08 03 A6 */	mtlr r0
 /* 8017CFAC 00179F0C  38 21 08 D0 */	addi r1, r1, 0x8d0
-/* 8017CFB0 00179F10  4E 80 00 20 */	blr 
+/* 8017CFB0 00179F10  4E 80 00 20 */	blr
 
 .global "FindBestOrbitableObject__7CPlayerCFRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>Q27CPlayer15EPlayerZoneInfoR13CStateManager"
 "FindBestOrbitableObject__7CPlayerCFRCQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>Q27CPlayer15EPlayerZoneInfoR13CStateManager":
@@ -4375,7 +4375,7 @@ lbl_8017D178:
 /* 8017D1B0 0017A110  38 61 00 70 */	addi r3, r1, 0x70
 /* 8017D1B4 0017A114  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8017D1B8 0017A118  7D 89 03 A6 */	mtctr r12
-/* 8017D1BC 0017A11C  4E 80 04 21 */	bctrl 
+/* 8017D1BC 0017A11C  4E 80 04 21 */	bctrl
 /* 8017D1C0 0017A120  C0 A1 00 70 */	lfs f5, 0x70(r1)
 /* 8017D1C4 0017A124  38 61 00 94 */	addi r3, r1, 0x94
 /* 8017D1C8 0017A128  C0 81 00 74 */	lfs f4, 0x74(r1)
@@ -4925,7 +4925,7 @@ lbl_8017D8FC:
 /* 8017D994 0017A8F4  80 01 1A 74 */	lwz r0, 0x1a74(r1)
 /* 8017D998 0017A8F8  7C 08 03 A6 */	mtlr r0
 /* 8017D99C 0017A8FC  38 21 1A 70 */	addi r1, r1, 0x1a70
-/* 8017D9A0 0017A900  4E 80 00 20 */	blr 
+/* 8017D9A0 0017A900  4E 80 00 20 */	blr
 
 .global "FindOrbitableObjects__7CPlayerCFRCQ24rstl32reserved_vector<9TUniqueId,1024>RQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>Q27CPlayer15EPlayerZoneInfoQ27CPlayer15EPlayerZoneTypeR13CStateManagerb"
 "FindOrbitableObjects__7CPlayerCFRCQ24rstl32reserved_vector<9TUniqueId,1024>RQ24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>Q27CPlayer15EPlayerZoneInfoQ27CPlayer15EPlayerZoneTypeR13CStateManagerb":
@@ -4998,7 +4998,7 @@ lbl_8017DA40:
 /* 8017DAA8 0017AA08  38 61 00 28 */	addi r3, r1, 0x28
 /* 8017DAAC 0017AA0C  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8017DAB0 0017AA10  7D 89 03 A6 */	mtctr r12
-/* 8017DAB4 0017AA14  4E 80 04 21 */	bctrl 
+/* 8017DAB4 0017AA14  4E 80 04 21 */	bctrl
 /* 8017DAB8 0017AA18  C0 41 00 28 */	lfs f2, 0x28(r1)
 /* 8017DABC 0017AA1C  7F C4 F3 78 */	mr r4, r30
 /* 8017DAC0 0017AA20  C0 21 00 2C */	lfs f1, 0x2c(r1)
@@ -5139,7 +5139,7 @@ lbl_8017DC80:
 /* 8017DCBC 0017AC1C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8017DCC0 0017AC20  7C 08 03 A6 */	mtlr r0
 /* 8017DCC4 0017AC24  38 21 01 00 */	addi r1, r1, 0x100
-/* 8017DCC8 0017AC28  4E 80 00 20 */	blr 
+/* 8017DCC8 0017AC28  4E 80 00 20 */	blr
 
 .global WithinOrbitScreenBox__7CPlayerCFRC9CVector3fQ27CPlayer15EPlayerZoneInfoQ27CPlayer15EPlayerZoneType
 WithinOrbitScreenBox__7CPlayerCFRC9CVector3fQ27CPlayer15EPlayerZoneInfoQ27CPlayer15EPlayerZoneType:
@@ -5220,7 +5220,7 @@ lbl_8017DDDC:
 /* 8017DDDC 0017AD3C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8017DDE0 0017AD40  7C 08 03 A6 */	mtlr r0
 /* 8017DDE4 0017AD44  38 21 00 20 */	addi r1, r1, 0x20
-/* 8017DDE8 0017AD48  4E 80 00 20 */	blr 
+/* 8017DDE8 0017AD48  4E 80 00 20 */	blr
 
 .global WithinOrbitScreenEllipse__7CPlayerCFRC9CVector3fQ27CPlayer15EPlayerZoneInfo
 WithinOrbitScreenEllipse__7CPlayerCFRC9CVector3fQ27CPlayer15EPlayerZoneInfo:
@@ -5283,7 +5283,7 @@ lbl_8017DE0C:
 /* 8017DEC8 0017AE28  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
 lbl_8017DECC:
 /* 8017DECC 0017AE2C  38 21 00 30 */	addi r1, r1, 0x30
-/* 8017DED0 0017AE30  4E 80 00 20 */	blr 
+/* 8017DED0 0017AE30  4E 80 00 20 */	blr
 
 .global CheckOrbitDisableSourceList__7CPlayerFRC13CStateManager
 CheckOrbitDisableSourceList__7CPlayerFRC13CStateManager:
@@ -5350,7 +5350,7 @@ lbl_8017DF7C:
 /* 8017DFAC 0017AF0C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8017DFB0 0017AF10  7C 08 03 A6 */	mtlr r0
 /* 8017DFB4 0017AF14  38 21 00 20 */	addi r1, r1, 0x20
-/* 8017DFB8 0017AF18  4E 80 00 20 */	blr 
+/* 8017DFB8 0017AF18  4E 80 00 20 */	blr
 
 .global CheckOrbitDisableSourceList__7CPlayerCFv
 CheckOrbitDisableSourceList__7CPlayerCFv:
@@ -5358,7 +5358,7 @@ CheckOrbitDisableSourceList__7CPlayerCFv:
 /* 8017DFC0 0017AF20  7C 03 00 D0 */	neg r0, r3
 /* 8017DFC4 0017AF24  7C 00 1B 78 */	or r0, r0, r3
 /* 8017DFC8 0017AF28  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8017DFCC 0017AF2C  4E 80 00 20 */	blr 
+/* 8017DFCC 0017AF2C  4E 80 00 20 */	blr
 
 .global RemoveOrbitDisableSource__7CPlayerF9TUniqueId
 RemoveOrbitDisableSource__7CPlayerF9TUniqueId:
@@ -5374,9 +5374,9 @@ lbl_8017DFE8:
 /* 8017DFF0 0017AF50  7C 05 00 40 */	cmplw r5, r0
 /* 8017DFF4 0017AF54  40 82 00 4C */	bne lbl_8017E040
 /* 8017DFF8 0017AF58  7C 08 38 40 */	cmplw r8, r7
-/* 8017DFFC 0017AF5C  4D 80 00 20 */	bltlr 
+/* 8017DFFC 0017AF5C  4D 80 00 20 */	bltlr
 /* 8017E000 0017AF60  7C 08 30 40 */	cmplw r8, r6
-/* 8017E004 0017AF64  4C 80 00 20 */	bgelr 
+/* 8017E004 0017AF64  4C 80 00 20 */	bgelr
 /* 8017E008 0017AF68  7D 06 43 78 */	mr r6, r8
 /* 8017E00C 0017AF6C  48 00 00 10 */	b lbl_8017E01C
 lbl_8017E010:
@@ -5392,7 +5392,7 @@ lbl_8017E01C:
 /* 8017E030 0017AF90  41 80 FF E0 */	blt lbl_8017E010
 /* 8017E034 0017AF94  38 05 FF FF */	addi r0, r5, -1
 /* 8017E038 0017AF98  90 03 09 E4 */	stw r0, 0x9e4(r3)
-/* 8017E03C 0017AF9C  4E 80 00 20 */	blr 
+/* 8017E03C 0017AF9C  4E 80 00 20 */	blr
 lbl_8017E040:
 /* 8017E040 0017AFA0  39 08 00 02 */	addi r8, r8, 2
 lbl_8017E044:
@@ -5401,7 +5401,7 @@ lbl_8017E044:
 
 .global sub_8017e04c
 sub_8017e04c:
-/* 8017E04C 0017AFAC  4E 80 00 20 */	blr 
+/* 8017E04C 0017AFAC  4E 80 00 20 */	blr
 
 .global AddOrbitDisableSource__7CPlayerFR13CStateManager9TUniqueId
 AddOrbitDisableSource__7CPlayerFR13CStateManager9TUniqueId:
@@ -5466,17 +5466,17 @@ lbl_8017E120:
 /* 8017E128 0017B088  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8017E12C 0017B08C  7C 08 03 A6 */	mtlr r0
 /* 8017E130 0017B090  38 21 00 30 */	addi r1, r1, 0x30
-/* 8017E134 0017B094  4E 80 00 20 */	blr 
+/* 8017E134 0017B094  4E 80 00 20 */	blr
 
 .global UpdateOrbitPreventionTimer__7CPlayerFf
 UpdateOrbitPreventionTimer__7CPlayerFf:
 /* 8017E138 0017B098  C0 43 03 78 */	lfs f2, 0x378(r3)
 /* 8017E13C 0017B09C  C0 02 A2 30 */	lfs f0, lbl_805ABF50@sda21(r2)
 /* 8017E140 0017B0A0  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 8017E144 0017B0A4  4C 81 00 20 */	blelr 
+/* 8017E144 0017B0A4  4C 81 00 20 */	blelr
 /* 8017E148 0017B0A8  EC 02 08 28 */	fsubs f0, f2, f1
 /* 8017E14C 0017B0AC  D0 03 03 78 */	stfs f0, 0x378(r3)
-/* 8017E150 0017B0B0  4E 80 00 20 */	blr 
+/* 8017E150 0017B0B0  4E 80 00 20 */	blr
 
 .global UpdateOrbitModeTimer__7CPlayerFf
 UpdateOrbitModeTimer__7CPlayerFf:
@@ -5489,11 +5489,11 @@ UpdateOrbitModeTimer__7CPlayerFf:
 /* 8017E16C 0017B0CC  40 81 00 10 */	ble lbl_8017E17C
 /* 8017E170 0017B0D0  EC 02 08 28 */	fsubs f0, f2, f1
 /* 8017E174 0017B0D4  D0 03 03 2C */	stfs f0, 0x32c(r3)
-/* 8017E178 0017B0D8  4E 80 00 20 */	blr 
+/* 8017E178 0017B0D8  4E 80 00 20 */	blr
 lbl_8017E17C:
 /* 8017E17C 0017B0DC  C0 02 A2 30 */	lfs f0, lbl_805ABF50@sda21(r2)
 /* 8017E180 0017B0E0  D0 03 03 2C */	stfs f0, 0x32c(r3)
-/* 8017E184 0017B0E4  4E 80 00 20 */	blr 
+/* 8017E184 0017B0E4  4E 80 00 20 */	blr
 
 .global UpdateOrbitZone__7CPlayerFR13CStateManager
 UpdateOrbitZone__7CPlayerFR13CStateManager:
@@ -5507,7 +5507,7 @@ UpdateOrbitZone__7CPlayerFR13CStateManager:
 /* 8017E1A4 0017B104  90 83 03 34 */	stw r4, 0x334(r3)
 /* 8017E1A8 0017B108  90 83 03 38 */	stw r4, 0x338(r3)
 /* 8017E1AC 0017B10C  90 03 03 30 */	stw r0, 0x330(r3)
-/* 8017E1B0 0017B110  4E 80 00 20 */	blr 
+/* 8017E1B0 0017B110  4E 80 00 20 */	blr
 lbl_8017E1B4:
 /* 8017E1B4 0017B114  38 00 00 00 */	li r0, 0
 /* 8017E1B8 0017B118  38 80 00 02 */	li r4, 2
@@ -5515,7 +5515,7 @@ lbl_8017E1B4:
 /* 8017E1C0 0017B120  38 00 00 01 */	li r0, 1
 /* 8017E1C4 0017B124  90 83 03 38 */	stw r4, 0x338(r3)
 /* 8017E1C8 0017B128  90 03 03 30 */	stw r0, 0x330(r3)
-/* 8017E1CC 0017B12C  4E 80 00 20 */	blr 
+/* 8017E1CC 0017B12C  4E 80 00 20 */	blr
 
 .global UpdateOrbitInput__7CPlayerFRC11CFinalInputR13CStateManager
 UpdateOrbitInput__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -6006,7 +6006,7 @@ lbl_8017E8C8:
 /* 8017E8D4 0017B834  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8017E8D8 0017B838  7C 08 03 A6 */	mtlr r0
 /* 8017E8DC 0017B83C  38 21 00 90 */	addi r1, r1, 0x90
-/* 8017E8E0 0017B840  4E 80 00 20 */	blr 
+/* 8017E8E0 0017B840  4E 80 00 20 */	blr
 
 .global ActivateOrbitSource__7CPlayerFR13CStateManager
 ActivateOrbitSource__7CPlayerFR13CStateManager:
@@ -6044,7 +6044,7 @@ lbl_8017E948:
 /* 8017E948 0017B8A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8017E94C 0017B8AC  7C 08 03 A6 */	mtlr r0
 /* 8017E950 0017B8B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8017E954 0017B8B4  4E 80 00 20 */	blr 
+/* 8017E954 0017B8B4  4E 80 00 20 */	blr
 
 .global UpdateOrbitSelection__7CPlayerFRC11CFinalInputR13CStateManager
 UpdateOrbitSelection__7CPlayerFRC11CFinalInputR13CStateManager:
@@ -6144,7 +6144,7 @@ lbl_8017EAAC:
 /* 8017EABC 0017BA1C  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8017EAC0 0017BA20  7C 08 03 A6 */	mtlr r0
 /* 8017EAC4 0017BA24  38 21 00 50 */	addi r1, r1, 0x50
-/* 8017EAC8 0017BA28  4E 80 00 20 */	blr 
+/* 8017EAC8 0017BA28  4E 80 00 20 */	blr
 
 .global UpdateOrbitOrientation__7CPlayerFR13CStateManager
 UpdateOrbitOrientation__7CPlayerFR13CStateManager:
@@ -6239,7 +6239,7 @@ lbl_8017EC14:
 /* 8017EC18 0017BB78  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8017EC1C 0017BB7C  7C 08 03 A6 */	mtlr r0
 /* 8017EC20 0017BB80  38 21 00 80 */	addi r1, r1, 0x80
-/* 8017EC24 0017BB84  4E 80 00 20 */	blr 
+/* 8017EC24 0017BB84  4E 80 00 20 */	blr
 
 .global UpdateOrbitTarget__7CPlayerFR13CStateManager
 UpdateOrbitTarget__7CPlayerFR13CStateManager:
@@ -6522,7 +6522,7 @@ lbl_8017F014:
 /* 8017F024 0017BF84  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 8017F028 0017BF88  7C 08 03 A6 */	mtlr r0
 /* 8017F02C 0017BF8C  38 21 00 70 */	addi r1, r1, 0x70
-/* 8017F030 0017BF90  4E 80 00 20 */	blr 
+/* 8017F030 0017BF90  4E 80 00 20 */	blr
 
 .global GetOrbitMaxLockDistance__7CPlayerCFRC13CStateManager
 GetOrbitMaxLockDistance__7CPlayerCFRC13CStateManager:
@@ -6532,9 +6532,9 @@ GetOrbitMaxLockDistance__7CPlayerCFRC13CStateManager:
 /* 8017F040 0017BFA0  C0 24 01 A0 */	lfs f1, 0x1a0(r4)
 /* 8017F044 0017BFA4  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8017F048 0017BFA8  2C 00 00 02 */	cmpwi r0, 2
-/* 8017F04C 0017BFAC  4C 82 00 20 */	bnelr 
+/* 8017F04C 0017BFAC  4C 82 00 20 */	bnelr
 /* 8017F050 0017BFB0  C0 24 02 24 */	lfs f1, 0x224(r4)
-/* 8017F054 0017BFB4  4E 80 00 20 */	blr 
+/* 8017F054 0017BFB4  4E 80 00 20 */	blr
 
 .global GetOrbitMaxTargetDistance__7CPlayerCFRC13CStateManager
 GetOrbitMaxTargetDistance__7CPlayerCFRC13CStateManager:
@@ -6544,9 +6544,9 @@ GetOrbitMaxTargetDistance__7CPlayerCFRC13CStateManager:
 /* 8017F064 0017BFC4  C0 24 01 9C */	lfs f1, 0x19c(r4)
 /* 8017F068 0017BFC8  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8017F06C 0017BFCC  2C 00 00 02 */	cmpwi r0, 2
-/* 8017F070 0017BFD0  4C 82 00 20 */	bnelr 
+/* 8017F070 0017BFD0  4C 82 00 20 */	bnelr
 /* 8017F074 0017BFD4  C0 24 02 20 */	lfs f1, 0x220(r4)
-/* 8017F078 0017BFD8  4E 80 00 20 */	blr 
+/* 8017F078 0017BFD8  4E 80 00 20 */	blr
 
 .global ValidateOrbitTargetId__7CPlayerCF9TUniqueIdR13CStateManager
 ValidateOrbitTargetId__7CPlayerCF9TUniqueIdR13CStateManager:
@@ -6604,7 +6604,7 @@ lbl_8017F12C:
 /* 8017F138 0017C098  38 61 00 20 */	addi r3, r1, 0x20
 /* 8017F13C 0017C09C  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8017F140 0017C0A0  7D 89 03 A6 */	mtctr r12
-/* 8017F144 0017C0A4  4E 80 04 21 */	bctrl 
+/* 8017F144 0017C0A4  4E 80 04 21 */	bctrl
 /* 8017F148 0017C0A8  C3 E1 00 20 */	lfs f31, 0x20(r1)
 /* 8017F14C 0017C0AC  7F C4 F3 78 */	mr r4, r30
 /* 8017F150 0017C0B0  C3 C1 00 24 */	lfs f30, 0x24(r1)
@@ -6734,7 +6734,7 @@ lbl_8017F2F0:
 /* 8017F314 0017C274  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8017F318 0017C278  7C 08 03 A6 */	mtlr r0
 /* 8017F31C 0017C27C  38 21 00 90 */	addi r1, r1, 0x90
-/* 8017F320 0017C280  4E 80 00 20 */	blr 
+/* 8017F320 0017C280  4E 80 00 20 */	blr
 
 .global ValidateCurrentOrbitTargetId__7CPlayerFR13CStateManager
 ValidateCurrentOrbitTargetId__7CPlayerFR13CStateManager:
@@ -6874,7 +6874,7 @@ lbl_8017F4D4:
 /* 8017F514 0017C474  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8017F518 0017C478  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8017F51C 0017C47C  7D 89 03 A6 */	mtctr r12
-/* 8017F520 0017C480  4E 80 04 21 */	bctrl 
+/* 8017F520 0017C480  4E 80 04 21 */	bctrl
 /* 8017F524 0017C484  C0 21 00 8C */	lfs f1, 0x8c(r1)
 /* 8017F528 0017C488  38 61 00 AC */	addi r3, r1, 0xac
 /* 8017F52C 0017C48C  C0 01 00 BC */	lfs f0, 0xbc(r1)
@@ -7071,7 +7071,7 @@ lbl_8017F7CC:
 /* 8017F7D8 0017C738  38 61 00 64 */	addi r3, r1, 0x64
 /* 8017F7DC 0017C73C  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 8017F7E0 0017C740  7D 89 03 A6 */	mtctr r12
-/* 8017F7E4 0017C744  4E 80 04 21 */	bctrl 
+/* 8017F7E4 0017C744  4E 80 04 21 */	bctrl
 /* 8017F7E8 0017C748  C3 A1 00 64 */	lfs f29, 0x64(r1)
 /* 8017F7EC 0017C74C  7F 44 D3 78 */	mr r4, r26
 /* 8017F7F0 0017C750  C3 C1 00 68 */	lfs f30, 0x68(r1)
@@ -7150,7 +7150,7 @@ lbl_8017F8E4:
 /* 8017F900 0017C860  80 01 09 54 */	lwz r0, 0x954(r1)
 /* 8017F904 0017C864  7C 08 03 A6 */	mtlr r0
 /* 8017F908 0017C868  38 21 09 50 */	addi r1, r1, 0x950
-/* 8017F90C 0017C86C  4E 80 00 20 */	blr 
+/* 8017F90C 0017C86C  4E 80 00 20 */	blr
 
 .global ValidateOrbitTargetIdAndPointer__7CPlayerCF9TUniqueIdR13CStateManager
 ValidateOrbitTargetIdAndPointer__7CPlayerCF9TUniqueIdR13CStateManager:
@@ -7179,7 +7179,7 @@ lbl_8017F960:
 /* 8017F960 0017C8C0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8017F964 0017C8C4  7C 08 03 A6 */	mtlr r0
 /* 8017F968 0017C8C8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8017F96C 0017C8CC  4E 80 00 20 */	blr 
+/* 8017F96C 0017C8CC  4E 80 00 20 */	blr
 
 .global BuildNearListBox__FbRC12CTransform4ffff
 BuildNearListBox__FbRC12CTransform4ffff:
@@ -7210,7 +7210,7 @@ lbl_8017F9A0:
 /* 8017F9C8 0017C928  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 8017F9CC 0017C92C  7C 08 03 A6 */	mtlr r0
 /* 8017F9D0 0017C930  38 21 00 30 */	addi r1, r1, 0x30
-/* 8017F9D4 0017C934  4E 80 00 20 */	blr 
+/* 8017F9D4 0017C934  4E 80 00 20 */	blr
 
 .global __sinit_CPlayerOrbit_cpp
 __sinit_CPlayerOrbit_cpp:

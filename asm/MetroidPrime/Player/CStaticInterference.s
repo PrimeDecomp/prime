@@ -128,7 +128,7 @@ lbl_801C08FC:
 /* 801C0914 001BD874  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 801C0918 001BD878  7C 08 03 A6 */	mtlr r0
 /* 801C091C 001BD87C  38 21 00 60 */	addi r1, r1, 0x60
-/* 801C0920 001BD880  4E 80 00 20 */	blr 
+/* 801C0920 001BD880  4E 80 00 20 */	blr
 
 .global GetTotalInterference__19CStaticInterferenceCFv
 GetTotalInterference__19CStaticInterferenceCFv:
@@ -174,7 +174,7 @@ lbl_801C09A4:
 lbl_801C09A8:
 /* 801C09A8 001BD908  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801C09AC 001BD90C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801C09B0 001BD910  4E 80 00 20 */	blr 
+/* 801C09B0 001BD910  4E 80 00 20 */	blr
 
 .global sub_801c09b4
 sub_801c09b4:
@@ -214,7 +214,7 @@ lbl_801C0A28:
 /* 801C0A28 001BD988  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801C0A2C 001BD98C  7C 08 03 A6 */	mtlr r0
 /* 801C0A30 001BD990  38 21 00 20 */	addi r1, r1, 0x20
-/* 801C0A34 001BD994  4E 80 00 20 */	blr 
+/* 801C0A34 001BD994  4E 80 00 20 */	blr
 
 .global sub_801c0a38
 sub_801c0a38:
@@ -236,7 +236,7 @@ sub_801c0a38:
 /* 801C0A74 001BD9D4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801C0A78 001BD9D8  7C 08 03 A6 */	mtlr r0
 /* 801C0A7C 001BD9DC  38 21 00 20 */	addi r1, r1, 0x20
-/* 801C0A80 001BD9E0  4E 80 00 20 */	blr 
+/* 801C0A80 001BD9E0  4E 80 00 20 */	blr
 
 .global sub_801c0a84
 sub_801c0a84:
@@ -289,7 +289,7 @@ lbl_801C0B0C:
 /* 801C0B28 001BDA88  80 05 00 00 */	lwz r0, 0(r5)
 /* 801C0B2C 001BDA8C  90 03 00 00 */	stw r0, 0(r3)
 /* 801C0B30 001BDA90  38 21 00 10 */	addi r1, r1, 0x10
-/* 801C0B34 001BDA94  4E 80 00 20 */	blr 
+/* 801C0B34 001BDA94  4E 80 00 20 */	blr
 
 .global AddSource__19CStaticInterferenceF9TUniqueId
 AddSource__19CStaticInterferenceF9TUniqueId:
@@ -369,7 +369,7 @@ lbl_801C0C24:
 /* 801C0C3C 001BDB9C  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 801C0C40 001BDBA0  7C 08 03 A6 */	mtlr r0
 /* 801C0C44 001BDBA4  38 21 00 40 */	addi r1, r1, 0x40
-/* 801C0C48 001BDBA8  4E 80 00 20 */	blr 
+/* 801C0C48 001BDBA8  4E 80 00 20 */	blr
 
 .global __ct__19CStaticInterferenceFi
 __ct__19CStaticInterferenceFi:
@@ -388,7 +388,7 @@ __ct__19CStaticInterferenceFi:
 /* 801C0C7C 001BDBDC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801C0C80 001BDBE0  7C 08 03 A6 */	mtlr r0
 /* 801C0C84 001BDBE4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801C0C88 001BDBE8  4E 80 00 20 */	blr 
+/* 801C0C88 001BDBE8  4E 80 00 20 */	blr
 
 .global sub_801c0c8c
 sub_801c0c8c:

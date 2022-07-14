@@ -56,13 +56,13 @@ lbl_80051838:
 /* 80051878 0004E7D8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8005187C 0004E7DC  7C 08 03 A6 */	mtlr r0
 /* 80051880 0004E7E0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051884 0004E7E4  4E 80 00 20 */	blr 
+/* 80051884 0004E7E4  4E 80 00 20 */	blr
 
 .global GetParm__20CArchitectureMessageCFv
 GetParm__20CArchitectureMessageCFv:
 /* 80051888 0004E7E8  80 63 00 08 */	lwz r3, 8(r3)
 /* 8005188C 0004E7EC  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051890 0004E7F0  4E 80 00 20 */	blr 
+/* 80051890 0004E7F0  4E 80 00 20 */	blr
 
 .global CreateFrameBegin__7MakeMsgF14EArchMsgTargetRCi
 CreateFrameBegin__7MakeMsgF14EArchMsgTargetRCi:
@@ -118,7 +118,7 @@ lbl_80051910:
 /* 80051950 0004E8B0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80051954 0004E8B4  7C 08 03 A6 */	mtlr r0
 /* 80051958 0004E8B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8005195C 0004E8BC  4E 80 00 20 */	blr 
+/* 8005195C 0004E8BC  4E 80 00 20 */	blr
 
 .global CreateQuitGameplay__7MakeMsgF14EArchMsgTarget
 CreateQuitGameplay__7MakeMsgF14EArchMsgTarget:
@@ -170,7 +170,7 @@ lbl_800519D0:
 /* 80051A0C 0004E96C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80051A10 0004E970  7C 08 03 A6 */	mtlr r0
 /* 80051A14 0004E974  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051A18 0004E978  4E 80 00 20 */	blr 
+/* 80051A18 0004E978  4E 80 00 20 */	blr
 
 .global CreateControllerStatus__7MakeMsgF14EArchMsgTargetRCsRCb
 CreateControllerStatus__7MakeMsgF14EArchMsgTargetRCsRCb:
@@ -222,19 +222,19 @@ lbl_80051A94:
 /* 80051AC8 0004EA28  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80051ACC 0004EA2C  7C 08 03 A6 */	mtlr r0
 /* 80051AD0 0004EA30  38 21 00 30 */	addi r1, r1, 0x30
-/* 80051AD4 0004EA34  4E 80 00 20 */	blr 
+/* 80051AD4 0004EA34  4E 80 00 20 */	blr
 
 .global GetParmNewGameflowState__7MakeMsgFRC20CArchitectureMessage
 GetParmNewGameflowState__7MakeMsgFRC20CArchitectureMessage:
 /* 80051AD8 0004EA38  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051ADC 0004EA3C  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051AE0 0004EA40  4E 80 00 20 */	blr 
+/* 80051AE0 0004EA40  4E 80 00 20 */	blr
 
 .global GetParmUserInput__7MakeMsgFRC20CArchitectureMessage
 GetParmUserInput__7MakeMsgFRC20CArchitectureMessage:
 /* 80051AE4 0004EA44  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051AE8 0004EA48  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051AEC 0004EA4C  4E 80 00 20 */	blr 
+/* 80051AEC 0004EA4C  4E 80 00 20 */	blr
 
 .global CreateUserInput__7MakeMsgF14EArchMsgTargetRC11CFinalInput
 CreateUserInput__7MakeMsgF14EArchMsgTargetRC11CFinalInput:
@@ -290,13 +290,13 @@ lbl_80051B6C:
 /* 80051BAC 0004EB0C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80051BB0 0004EB10  7C 08 03 A6 */	mtlr r0
 /* 80051BB4 0004EB14  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051BB8 0004EB18  4E 80 00 20 */	blr 
+/* 80051BB8 0004EB18  4E 80 00 20 */	blr
 
 .global GetParmTimerTick__7MakeMsgFRC20CArchitectureMessage
 GetParmTimerTick__7MakeMsgFRC20CArchitectureMessage:
 /* 80051BBC 0004EB1C  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051BC0 0004EB20  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051BC4 0004EB24  4E 80 00 20 */	blr 
+/* 80051BC4 0004EB24  4E 80 00 20 */	blr
 
 .global CreateTimerTick__7MakeMsgF14EArchMsgTargetRCf
 CreateTimerTick__7MakeMsgF14EArchMsgTargetRCf:
@@ -352,19 +352,19 @@ lbl_80051C44:
 /* 80051C84 0004EBE4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80051C88 0004EBE8  7C 08 03 A6 */	mtlr r0
 /* 80051C8C 0004EBEC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80051C90 0004EBF0  4E 80 00 20 */	blr 
+/* 80051C90 0004EBF0  4E 80 00 20 */	blr
 
 .global GetParmChangeIOWinPriority__7MakeMsgFRC20CArchitectureMessage
 GetParmChangeIOWinPriority__7MakeMsgFRC20CArchitectureMessage:
 /* 80051C94 0004EBF4  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051C98 0004EBF8  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051C9C 0004EBFC  4E 80 00 20 */	blr 
+/* 80051C9C 0004EBFC  4E 80 00 20 */	blr
 
 .global GetParmCreateIOWin__7MakeMsgFRC20CArchitectureMessage
 GetParmCreateIOWin__7MakeMsgFRC20CArchitectureMessage:
 /* 80051CA0 0004EC00  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051CA4 0004EC04  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051CA8 0004EC08  4E 80 00 20 */	blr 
+/* 80051CA8 0004EC08  4E 80 00 20 */	blr
 
 .global CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin
 CreateCreateIOWin__7MakeMsgF14EArchMsgTargetRCiRCiRCP6CIOWin:
@@ -418,10 +418,10 @@ lbl_80051D2C:
 /* 80051D60 0004ECC0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80051D64 0004ECC4  7C 08 03 A6 */	mtlr r0
 /* 80051D68 0004ECC8  38 21 00 30 */	addi r1, r1, 0x30
-/* 80051D6C 0004ECCC  4E 80 00 20 */	blr 
+/* 80051D6C 0004ECCC  4E 80 00 20 */	blr
 
 .global GetParmDeleteIOWin__7MakeMsgFRC20CArchitectureMessage
 GetParmDeleteIOWin__7MakeMsgFRC20CArchitectureMessage:
 /* 80051D70 0004ECD0  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051D74 0004ECD4  80 63 00 00 */	lwz r3, 0(r3)
-/* 80051D78 0004ECD8  4E 80 00 20 */	blr 
+/* 80051D78 0004ECD8  4E 80 00 20 */	blr

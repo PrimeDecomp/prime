@@ -39,7 +39,7 @@ lbl_800DE840:
 /* 800DE850 000DB7B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DE854 000DB7B4  7C 08 03 A6 */	mtlr r0
 /* 800DE858 000DB7B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DE85C 000DB7BC  4E 80 00 20 */	blr 
+/* 800DE85C 000DB7BC  4E 80 00 20 */	blr
 
 .global "__ct<13CStateMachine>__16CFactoryFnReturnFP13CStateMachine"
 "__ct<13CStateMachine>__16CFactoryFnReturnFP13CStateMachine":
@@ -74,7 +74,7 @@ lbl_800DE840:
 /* 800DE8D0 000DB830  38 80 00 01 */	li r4, 1
 /* 800DE8D4 000DB834  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800DE8D8 000DB838  7D 89 03 A6 */	mtctr r12
-/* 800DE8DC 000DB83C  4E 80 04 21 */	bctrl 
+/* 800DE8DC 000DB83C  4E 80 04 21 */	bctrl
 lbl_800DE8E0:
 /* 800DE8E0 000DB840  38 61 00 10 */	addi r3, r1, 0x10
 /* 800DE8E4 000DB844  38 80 FF FF */	li r4, -1
@@ -84,7 +84,7 @@ lbl_800DE8E0:
 /* 800DE8F4 000DB854  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800DE8F8 000DB858  7C 08 03 A6 */	mtlr r0
 /* 800DE8FC 000DB85C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800DE900 000DB860  4E 80 00 20 */	blr 
+/* 800DE900 000DB860  4E 80 00 20 */	blr
 
 .global sub_800de904
 sub_800de904:
@@ -126,7 +126,7 @@ lbl_800DE978:
 /* 800DE984 000DB8E4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DE988 000DB8E8  7C 08 03 A6 */	mtlr r0
 /* 800DE98C 000DB8EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DE990 000DB8F0  4E 80 00 20 */	blr 
+/* 800DE990 000DB8F0  4E 80 00 20 */	blr
 
 .global sub_800de994
 sub_800de994:
@@ -191,7 +191,7 @@ lbl_800DEA54:
 /* 800DEA60 000DB9C0  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800DEA64 000DB9C4  7C 08 03 A6 */	mtlr r0
 /* 800DEA68 000DB9C8  38 21 00 30 */	addi r1, r1, 0x30
-/* 800DEA6C 000DB9CC  4E 80 00 20 */	blr 
+/* 800DEA6C 000DB9CC  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__23TToken<13CStateMachine>FRCQ24rstl25auto_ptr<13CStateMachine>"
 "GetIObjObjectFor__23TToken<13CStateMachine>FRCQ24rstl25auto_ptr<13CStateMachine>":
@@ -205,7 +205,7 @@ lbl_800DEA54:
 /* 800DEA8C 000DB9EC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800DEA90 000DB9F0  7C 08 03 A6 */	mtlr r0
 /* 800DEA94 000DB9F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEA98 000DB9F8  4E 80 00 20 */	blr 
+/* 800DEA98 000DB9F8  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__41TObjOwnerDerivedFromIObj<13CStateMachine>FRCQ24rstl25auto_ptr<13CStateMachine>"
 "GetNewDerivedObject__41TObjOwnerDerivedFromIObj<13CStateMachine>FRCQ24rstl25auto_ptr<13CStateMachine>":
@@ -248,7 +248,7 @@ lbl_800DEB0C:
 /* 800DEB28 000DBA88  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800DEB2C 000DBA8C  7C 08 03 A6 */	mtlr r0
 /* 800DEB30 000DBA90  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEB34 000DBA94  4E 80 00 20 */	blr 
+/* 800DEB34 000DBA94  4E 80 00 20 */	blr
 
 .global "__dt__Q24rstl53auto_ptr<41TObjOwnerDerivedFromIObj<13CStateMachine>>Fv"
 "__dt__Q24rstl53auto_ptr<41TObjOwnerDerivedFromIObj<13CStateMachine>>Fv":
@@ -278,4 +278,4 @@ lbl_800DEB80:
 /* 800DEB8C 000DBAEC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800DEB90 000DBAF0  7C 08 03 A6 */	mtlr r0
 /* 800DEB94 000DBAF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800DEB98 000DBAF8  4E 80 00 20 */	blr 
+/* 800DEB98 000DBAF8  4E 80 00 20 */	blr

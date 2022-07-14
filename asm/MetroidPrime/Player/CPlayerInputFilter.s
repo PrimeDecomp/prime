@@ -101,7 +101,7 @@ lbl_80296F5C:
 lbl_80296F60:
 /* 80296F60 00293EC0  38 00 00 00 */	li r0, 0
 /* 80296F64 00293EC4  90 03 02 3C */	stw r0, 0x23c(r3)
-/* 80296F68 00293EC8  4E 80 00 20 */	blr 
+/* 80296F68 00293EC8  4E 80 00 20 */	blr
 
 .global Passes__Q27CPlayer12CInputFilterFv
 Passes__Q27CPlayer12CInputFilterFv:
@@ -404,7 +404,7 @@ lbl_802973B8:
 /* 802973DC 0029433C  83 A1 01 94 */	lwz r29, 0x194(r1)
 /* 802973E0 00294340  7C 08 03 A6 */	mtlr r0
 /* 802973E4 00294344  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 802973E8 00294348  4E 80 00 20 */	blr 
+/* 802973E8 00294348  4E 80 00 20 */	blr
 
 .global "_getElementBoundsCheck<Q24rstl18reserved_vector<i>>__FRCQ24rstl18reserved_vector<i>i"
 "_getElementBoundsCheck<Q24rstl18reserved_vector<i>>__FRCQ24rstl18reserved_vector<i>i":
@@ -413,17 +413,17 @@ lbl_802973B8:
 /* 802973F4 00294354  41 80 00 10 */	blt lbl_80297404
 /* 802973F8 00294358  38 00 00 00 */	li r0, 0
 /* 802973FC 0029435C  98 03 00 04 */	stb r0, 4(r3)
-/* 80297400 00294360  4E 80 00 20 */	blr 
+/* 80297400 00294360  4E 80 00 20 */	blr
 lbl_80297404:
 /* 80297404 00294364  38 00 00 01 */	li r0, 1
 /* 80297408 00294368  28 03 00 00 */	cmplwi r3, 0
 /* 8029740C 0029436C  54 A5 10 3A */	slwi r5, r5, 2
 /* 80297410 00294370  98 03 00 04 */	stb r0, 4(r3)
 /* 80297414 00294374  7C 84 2A 14 */	add r4, r4, r5
-/* 80297418 00294378  4D 82 00 20 */	beqlr 
+/* 80297418 00294378  4D 82 00 20 */	beqlr
 /* 8029741C 0029437C  80 04 00 04 */	lwz r0, 4(r4)
 /* 80297420 00294380  90 03 00 00 */	stw r0, 0(r3)
-/* 80297424 00294384  4E 80 00 20 */	blr 
+/* 80297424 00294384  4E 80 00 20 */	blr
 
 .global "_getElementBoundsCheck<Q24rstl27reserved_vector<9CVector2f>>__FRCQ24rstl27reserved_vector<9CVector2f>i"
 "_getElementBoundsCheck<Q24rstl27reserved_vector<9CVector2f>>__FRCQ24rstl27reserved_vector<9CVector2f>i":
@@ -432,19 +432,19 @@ lbl_80297404:
 /* 80297430 00294390  41 80 00 10 */	blt lbl_80297440
 /* 80297434 00294394  38 00 00 00 */	li r0, 0
 /* 80297438 00294398  98 03 00 08 */	stb r0, 8(r3)
-/* 8029743C 0029439C  4E 80 00 20 */	blr 
+/* 8029743C 0029439C  4E 80 00 20 */	blr
 lbl_80297440:
 /* 80297440 002943A0  38 00 00 01 */	li r0, 1
 /* 80297444 002943A4  28 03 00 00 */	cmplwi r3, 0
 /* 80297448 002943A8  54 A5 18 38 */	slwi r5, r5, 3
 /* 8029744C 002943AC  98 03 00 08 */	stb r0, 8(r3)
 /* 80297450 002943B0  7C 84 2A 14 */	add r4, r4, r5
-/* 80297454 002943B4  4D 82 00 20 */	beqlr 
+/* 80297454 002943B4  4D 82 00 20 */	beqlr
 /* 80297458 002943B8  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8029745C 002943BC  D0 03 00 00 */	stfs f0, 0(r3)
 /* 80297460 002943C0  C0 04 00 08 */	lfs f0, 8(r4)
 /* 80297464 002943C4  D0 03 00 04 */	stfs f0, 4(r3)
-/* 80297468 002943C8  4E 80 00 20 */	blr 
+/* 80297468 002943C8  4E 80 00 20 */	blr
 
 .global "_getElementBoundsCheck<Q24rstl27reserved_vector<9CVector3f>>__FRCQ24rstl27reserved_vector<9CVector3f>i"
 "_getElementBoundsCheck<Q24rstl27reserved_vector<9CVector3f>>__FRCQ24rstl27reserved_vector<9CVector3f>i":
@@ -453,21 +453,21 @@ lbl_80297440:
 /* 80297474 002943D4  41 80 00 10 */	blt lbl_80297484
 /* 80297478 002943D8  38 00 00 00 */	li r0, 0
 /* 8029747C 002943DC  98 03 00 0C */	stb r0, 0xc(r3)
-/* 80297480 002943E0  4E 80 00 20 */	blr 
+/* 80297480 002943E0  4E 80 00 20 */	blr
 lbl_80297484:
 /* 80297484 002943E4  1C A5 00 0C */	mulli r5, r5, 0xc
 /* 80297488 002943E8  38 00 00 01 */	li r0, 1
 /* 8029748C 002943EC  28 03 00 00 */	cmplwi r3, 0
 /* 80297490 002943F0  98 03 00 0C */	stb r0, 0xc(r3)
 /* 80297494 002943F4  7C 84 2A 14 */	add r4, r4, r5
-/* 80297498 002943F8  4D 82 00 20 */	beqlr 
+/* 80297498 002943F8  4D 82 00 20 */	beqlr
 /* 8029749C 002943FC  C0 04 00 04 */	lfs f0, 4(r4)
 /* 802974A0 00294400  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802974A4 00294404  C0 04 00 08 */	lfs f0, 8(r4)
 /* 802974A8 00294408  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802974AC 0029440C  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 802974B0 00294410  D0 03 00 08 */	stfs f0, 8(r3)
-/* 802974B4 00294414  4E 80 00 20 */	blr 
+/* 802974B4 00294414  4E 80 00 20 */	blr
 
 .global AddSample__Q27CPlayer12CInputFilterFiRC9CVector3fRC9CVector3fRC9CVector2f
 AddSample__Q27CPlayer12CInputFilterFiRC9CVector3fRC9CVector3fRC9CVector2f:
@@ -819,7 +819,7 @@ lbl_802979B0:
 /* 802979BC 0029491C  D0 09 00 04 */	stfs f0, 4(r9)
 /* 802979C0 00294920  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802979C4 00294924  38 21 00 10 */	addi r1, r1, 0x10
-/* 802979C8 00294928  4E 80 00 20 */	blr 
+/* 802979C8 00294928  4E 80 00 20 */	blr
 
 .global __ct__Q27CPlayer12CInputFilterFv
 __ct__Q27CPlayer12CInputFilterFv:

@@ -35,37 +35,37 @@ lbl_805A9588:
 .global Orange__6CColorFv
 Orange__6CColorFv:
 /* 80349F84 00346EE4  38 6D A9 C8 */	addi r3, r13, lbl_805A9588@sda21
-/* 80349F88 00346EE8  4E 80 00 20 */	blr 
+/* 80349F88 00346EE8  4E 80 00 20 */	blr
 
 .global Yellow__6CColorFv
 Yellow__6CColorFv:
 /* 80349F8C 00346EEC  38 6D A9 C0 */	addi r3, r13, lbl_805A9580@sda21
-/* 80349F90 00346EF0  4E 80 00 20 */	blr 
+/* 80349F90 00346EF0  4E 80 00 20 */	blr
 
 .global Blue__6CColorFv
 Blue__6CColorFv:
 /* 80349F94 00346EF4  38 6D A9 BC */	addi r3, r13, lbl_805A957C@sda21
-/* 80349F98 00346EF8  4E 80 00 20 */	blr 
+/* 80349F98 00346EF8  4E 80 00 20 */	blr
 
 .global Red__6CColorFv
 Red__6CColorFv:
 /* 80349F9C 00346EFC  38 6D A9 B4 */	addi r3, r13, lbl_805A9574@sda21
-/* 80349FA0 00346F00  4E 80 00 20 */	blr 
+/* 80349FA0 00346F00  4E 80 00 20 */	blr
 
 .global Grey__6CColorFv
 Grey__6CColorFv:
 /* 80349FA4 00346F04  38 6D A9 B0 */	addi r3, r13, lbl_805A9570@sda21
-/* 80349FA8 00346F08  4E 80 00 20 */	blr 
+/* 80349FA8 00346F08  4E 80 00 20 */	blr
 
 .global White__6CColorFv
 White__6CColorFv:
 /* 80349FAC 00346F0C  38 6D A9 AC */	addi r3, r13, lbl_805A956C@sda21
-/* 80349FB0 00346F10  4E 80 00 20 */	blr 
+/* 80349FB0 00346F10  4E 80 00 20 */	blr
 
 .global Black__6CColorFv
 Black__6CColorFv:
 /* 80349FB4 00346F14  38 6D A9 A8 */	addi r3, r13, lbl_805A9568@sda21
-/* 80349FB8 00346F18  4E 80 00 20 */	blr 
+/* 80349FB8 00346F18  4E 80 00 20 */	blr
 
 .global __sinit_CColor_cpp
 __sinit_CColor_cpp:

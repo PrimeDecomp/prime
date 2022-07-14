@@ -36,9 +36,9 @@ UpdateFilePos__8CDvdFileFi:
 /* 8034F8E4 0034C844  80 83 00 14 */	lwz r4, 0x14(r3)
 /* 8034F8E8 0034C848  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 8034F8EC 0034C84C  7C 00 20 00 */	cmpw r0, r4
-/* 8034F8F0 0034C850  4C 81 00 20 */	blelr 
+/* 8034F8F0 0034C850  4C 81 00 20 */	blelr
 /* 8034F8F4 0034C854  90 83 00 10 */	stw r4, 0x10(r3)
-/* 8034F8F8 0034C858  4E 80 00 20 */	blr 
+/* 8034F8F8 0034C858  4E 80 00 20 */	blr
 
 .global CalcFileOffset__8CDvdFileFi11ESeekOrigin
 CalcFileOffset__8CDvdFileFi11ESeekOrigin:
@@ -47,28 +47,28 @@ CalcFileOffset__8CDvdFileFi11ESeekOrigin:
 /* 8034F904 0034C864  40 80 00 10 */	bge lbl_8034F914
 /* 8034F908 0034C868  2C 05 00 00 */	cmpwi r5, 0
 /* 8034F90C 0034C86C  40 80 00 14 */	bge lbl_8034F920
-/* 8034F910 0034C870  4E 80 00 20 */	blr 
+/* 8034F910 0034C870  4E 80 00 20 */	blr
 lbl_8034F914:
 /* 8034F914 0034C874  2C 05 00 03 */	cmpwi r5, 3
-/* 8034F918 0034C878  4C 80 00 20 */	bgelr 
+/* 8034F918 0034C878  4C 80 00 20 */	bgelr
 /* 8034F91C 0034C87C  48 00 00 1C */	b lbl_8034F938
 lbl_8034F920:
 /* 8034F920 0034C880  90 83 00 10 */	stw r4, 0x10(r3)
-/* 8034F924 0034C884  4E 80 00 20 */	blr 
+/* 8034F924 0034C884  4E 80 00 20 */	blr
 lbl_8034F928:
 /* 8034F928 0034C888  80 03 00 10 */	lwz r0, 0x10(r3)
 /* 8034F92C 0034C88C  7C 00 22 14 */	add r0, r0, r4
 /* 8034F930 0034C890  90 03 00 10 */	stw r0, 0x10(r3)
-/* 8034F934 0034C894  4E 80 00 20 */	blr 
+/* 8034F934 0034C894  4E 80 00 20 */	blr
 lbl_8034F938:
 /* 8034F938 0034C898  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8034F93C 0034C89C  7C 04 02 14 */	add r0, r4, r0
 /* 8034F940 0034C8A0  90 03 00 10 */	stw r0, 0x10(r3)
-/* 8034F944 0034C8A4  4E 80 00 20 */	blr 
+/* 8034F944 0034C8A4  4E 80 00 20 */	blr
 
 .global internalCallback__8CDvdFileFlP11DVDFileInfo
 internalCallback__8CDvdFileFlP11DVDFileInfo:
-/* 8034F948 0034C8A8  4E 80 00 20 */	blr 
+/* 8034F948 0034C8A8  4E 80 00 20 */	blr
 
 .global FileExists__8CDvdFileFPCc
 FileExists__8CDvdFileFPCc:
@@ -84,7 +84,7 @@ FileExists__8CDvdFileFPCc:
 /* 8034F970 0034C8D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034F974 0034C8D4  7C 08 03 A6 */	mtlr r0
 /* 8034F978 0034C8D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F97C 0034C8DC  4E 80 00 20 */	blr 
+/* 8034F97C 0034C8DC  4E 80 00 20 */	blr
 
 .global CloseFile__8CDvdFileFv
 CloseFile__8CDvdFileFv:
@@ -104,7 +104,7 @@ lbl_8034F9AC:
 /* 8034F9B0 0034C910  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034F9B4 0034C914  7C 08 03 A6 */	mtlr r0
 /* 8034F9B8 0034C918  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034F9BC 0034C91C  4E 80 00 20 */	blr 
+/* 8034F9BC 0034C91C  4E 80 00 20 */	blr
 
 .global AsyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
 AsyncSeekRead__8CDvdFileFPvUi11ESeekOrigini:
@@ -192,7 +192,7 @@ lbl_8034FAE0:
 /* 8034FAF4 0034CA54  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034FAF8 0034CA58  7C 08 03 A6 */	mtlr r0
 /* 8034FAFC 0034CA5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034FB00 0034CA60  4E 80 00 20 */	blr 
+/* 8034FB00 0034CA60  4E 80 00 20 */	blr
 
 .global SyncSeekRead__8CDvdFileFPvUi11ESeekOrigini
 SyncSeekRead__8CDvdFileFPvUi11ESeekOrigini:
@@ -255,7 +255,7 @@ lbl_8034FBC8:
 /* 8034FBD8 0034CB38  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8034FBDC 0034CB3C  7C 08 03 A6 */	mtlr r0
 /* 8034FBE0 0034CB40  38 21 00 60 */	addi r1, r1, 0x60
-/* 8034FBE4 0034CB44  4E 80 00 20 */	blr 
+/* 8034FBE4 0034CB44  4E 80 00 20 */	blr
 
 .global SyncRead__8CDvdFileFPvUi
 SyncRead__8CDvdFileFPvUi:
@@ -268,7 +268,7 @@ SyncRead__8CDvdFileFPvUi:
 /* 8034FC00 0034CB60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8034FC04 0034CB64  7C 08 03 A6 */	mtlr r0
 /* 8034FC08 0034CB68  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034FC0C 0034CB6C  4E 80 00 20 */	blr 
+/* 8034FC0C 0034CB6C  4E 80 00 20 */	blr
 
 .global __dt__8CDvdFileFv
 __dt__8CDvdFileFv:
@@ -326,7 +326,7 @@ lbl_8034FCB8:
 /* 8034FCC0 0034CC20  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8034FCC4 0034CC24  7C 08 03 A6 */	mtlr r0
 /* 8034FCC8 0034CC28  38 21 00 20 */	addi r1, r1, 0x20
-/* 8034FCCC 0034CC2C  4E 80 00 20 */	blr 
+/* 8034FCCC 0034CC2C  4E 80 00 20 */	blr
 
 .global __ct__8CDvdFileFPCc
 __ct__8CDvdFileFPCc:
@@ -378,7 +378,7 @@ lbl_8034FD6C:
 /* 8034FD7C 0034CCDC  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8034FD80 0034CCE0  7C 08 03 A6 */	mtlr r0
 /* 8034FD84 0034CCE4  38 21 00 60 */	addi r1, r1, 0x60
-/* 8034FD88 0034CCE8  4E 80 00 20 */	blr 
+/* 8034FD88 0034CCE8  4E 80 00 20 */	blr
 
 .global StallForARAMFile__8CDvdFileFv
 StallForARAMFile__8CDvdFileFv:
@@ -398,7 +398,7 @@ lbl_8034FDA8:
 /* 8034FDB8 0034CD18  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8034FDBC 0034CD1C  7C 08 03 A6 */	mtlr r0
 /* 8034FDC0 0034CD20  38 21 00 10 */	addi r1, r1, 0x10
-/* 8034FDC4 0034CD24  4E 80 00 20 */	blr 
+/* 8034FDC4 0034CD24  4E 80 00 20 */	blr
 
 .global StartARAMFileLoad__8CDvdFileFv
 StartARAMFileLoad__8CDvdFileFv:
@@ -516,7 +516,7 @@ lbl_8034FF1C:
 /* 8034FF6C 0034CECC  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8034FF70 0034CED0  7C 08 03 A6 */	mtlr r0
 /* 8034FF74 0034CED4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8034FF78 0034CED8  4E 80 00 20 */	blr 
+/* 8034FF78 0034CED8  4E 80 00 20 */	blr
 
 .global sub_8034ff7c
 sub_8034ff7c:
@@ -580,7 +580,7 @@ lbl_80350030:
 /* 80350040 0034CFA0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80350044 0034CFA4  7C 08 03 A6 */	mtlr r0
 /* 80350048 0034CFA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8035004C 0034CFAC  4E 80 00 20 */	blr 
+/* 8035004C 0034CFAC  4E 80 00 20 */	blr
 
 .global PopARAMFileLoad__8CDvdFileFv
 PopARAMFileLoad__8CDvdFileFv:
@@ -609,7 +609,7 @@ lbl_80350094:
 /* 803500A4 0034D004  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803500A8 0034D008  7C 08 03 A6 */	mtlr r0
 /* 803500AC 0034D00C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803500B0 0034D010  4E 80 00 20 */	blr 
+/* 803500B0 0034D010  4E 80 00 20 */	blr
 
 .global PushARAMFileLoad__8CDvdFileFv
 PushARAMFileLoad__8CDvdFileFv:
@@ -651,7 +651,7 @@ lbl_8035011C:
 /* 8035012C 0034D08C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80350130 0034D090  7C 08 03 A6 */	mtlr r0
 /* 80350134 0034D094  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350138 0034D098  4E 80 00 20 */	blr 
+/* 80350138 0034D098  4E 80 00 20 */	blr
 
 .global TryARAMFile__8CDvdFileFv
 TryARAMFile__8CDvdFileFv:
@@ -733,7 +733,7 @@ lbl_80350248:
 /* 8035024C 0034D1AC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80350250 0034D1B0  7C 08 03 A6 */	mtlr r0
 /* 80350254 0034D1B4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80350258 0034D1B8  4E 80 00 20 */	blr 
+/* 80350258 0034D1B8  4E 80 00 20 */	blr
 
 .global PingARAMTransfer__8CDvdFileFv
 PingARAMTransfer__8CDvdFileFv:
@@ -830,7 +830,7 @@ lbl_8035039C:
 /* 803503AC 0034D30C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 803503B0 0034D310  7C 08 03 A6 */	mtlr r0
 /* 803503B4 0034D314  38 21 00 20 */	addi r1, r1, 0x20
-/* 803503B8 0034D318  4E 80 00 20 */	blr 
+/* 803503B8 0034D318  4E 80 00 20 */	blr
 
 .global HandleDVDInterrupt__8CDvdFileFv
 HandleDVDInterrupt__8CDvdFileFv:
@@ -861,7 +861,7 @@ lbl_80350408:
 /* 80350418 0034D378  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8035041C 0034D37C  7C 08 03 A6 */	mtlr r0
 /* 80350420 0034D380  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350424 0034D384  4E 80 00 20 */	blr 
+/* 80350424 0034D384  4E 80 00 20 */	blr
 
 .global HandleARAMInterrupt__8CDvdFileFv
 HandleARAMInterrupt__8CDvdFileFv:
@@ -892,7 +892,7 @@ lbl_80350474:
 /* 80350484 0034D3E4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80350488 0034D3E8  7C 08 03 A6 */	mtlr r0
 /* 8035048C 0034D3EC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80350490 0034D3F0  4E 80 00 20 */	blr 
+/* 80350490 0034D3F0  4E 80 00 20 */	blr
 
 .global ARAMARAMXferCallback__8CDvdFileFUl
 ARAMARAMXferCallback__8CDvdFileFUl:
@@ -904,7 +904,7 @@ ARAMARAMXferCallback__8CDvdFileFUl:
 /* 803504A8 0034D408  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803504AC 0034D40C  7C 08 03 A6 */	mtlr r0
 /* 803504B0 0034D410  38 21 00 10 */	addi r1, r1, 0x10
-/* 803504B4 0034D414  4E 80 00 20 */	blr 
+/* 803504B4 0034D414  4E 80 00 20 */	blr
 
 .global DVDARAMXferCallback__8CDvdFileFlP11DVDFileInfo
 DVDARAMXferCallback__8CDvdFileFlP11DVDFileInfo:
@@ -921,7 +921,7 @@ DVDARAMXferCallback__8CDvdFileFlP11DVDFileInfo:
 /* 803504E0 0034D440  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803504E4 0034D444  7C 08 03 A6 */	mtlr r0
 /* 803504E8 0034D448  38 21 00 10 */	addi r1, r1, 0x10
-/* 803504EC 0034D44C  4E 80 00 20 */	blr 
+/* 803504EC 0034D44C  4E 80 00 20 */	blr
 
 .global DecodeARAMFile__FPCc
 DecodeARAMFile__FPCc:

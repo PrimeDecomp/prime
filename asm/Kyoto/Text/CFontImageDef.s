@@ -49,7 +49,7 @@ CalculateBaseline__13CFontImageDefFv:
 /* 803594E4 00356444  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 803594E8 00356448  7C 08 03 A6 */	mtlr r0
 /* 803594EC 0035644C  38 21 00 40 */	addi r1, r1, 0x40
-/* 803594F0 00356450  4E 80 00 20 */	blr 
+/* 803594F0 00356450  4E 80 00 20 */	blr
 
 .global IsLoaded__13CFontImageDefCFv
 IsLoaded__13CFontImageDefCFv:
@@ -65,13 +65,13 @@ lbl_80359508:
 /* 80359514 00356474  28 00 00 00 */	cmplwi r0, 0
 /* 80359518 00356478  40 82 00 0C */	bne lbl_80359524
 /* 8035951C 0035647C  38 60 00 00 */	li r3, 0
-/* 80359520 00356480  4E 80 00 20 */	blr 
+/* 80359520 00356480  4E 80 00 20 */	blr
 lbl_80359524:
 /* 80359524 00356484  38 A5 00 08 */	addi r5, r5, 8
 /* 80359528 00356488  42 00 FF E0 */	bdnz lbl_80359508
 lbl_8035952C:
 /* 8035952C 0035648C  38 60 00 01 */	li r3, 1
-/* 80359530 00356490  4E 80 00 20 */	blr 
+/* 80359530 00356490  4E 80 00 20 */	blr
 
 .global "__ct__13CFontImageDefFRCQ24rstl54vector<17TToken<8CTexture>,Q24rstl17rmemory_allocator>fRC9CVector2f"
 "__ct__13CFontImageDefFRCQ24rstl54vector<17TToken<8CTexture>,Q24rstl17rmemory_allocator>fRC9CVector2f":
@@ -151,7 +151,7 @@ lbl_80359614:
 /* 80359634 00356594  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80359638 00356598  7C 08 03 A6 */	mtlr r0
 /* 8035963C 0035659C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80359640 003565A0  4E 80 00 20 */	blr 
+/* 80359640 003565A0  4E 80 00 20 */	blr
 
 .global "__ct__13CFontImageDefFRC17TToken<8CTexture>RC9CVector2f"
 "__ct__13CFontImageDefFRC17TToken<8CTexture>RC9CVector2f":
@@ -212,4 +212,4 @@ lbl_803596E0:
 /* 80359708 00356668  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8035970C 0035666C  7C 08 03 A6 */	mtlr r0
 /* 80359710 00356670  38 21 00 20 */	addi r1, r1, 0x20
-/* 80359714 00356674  4E 80 00 20 */	blr 
+/* 80359714 00356674  4E 80 00 20 */	blr

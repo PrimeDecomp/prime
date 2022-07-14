@@ -47,12 +47,12 @@ lbl_805A88F0:
 .global HasConstantTexture__15CUVEAnimTextureFv
 HasConstantTexture__15CUVEAnimTextureFv:
 /* 80333FA8 00330F08  38 60 00 01 */	li r3, 1
-/* 80333FAC 00330F0C  4E 80 00 20 */	blr 
+/* 80333FAC 00330F0C  4E 80 00 20 */	blr
 
 .global HasConstantUV__15CUVEAnimTextureFv
 HasConstantUV__15CUVEAnimTextureFv:
 /* 80333FB0 00330F10  38 60 00 00 */	li r3, 0
-/* 80333FB4 00330F14  4E 80 00 20 */	blr 
+/* 80333FB4 00330F14  4E 80 00 20 */	blr
 
 .global GetValueTexture__15CUVEAnimTextureCFi
 GetValueTexture__15CUVEAnimTextureCFi:
@@ -74,7 +74,7 @@ GetValueTexture__15CUVEAnimTextureCFi:
 /* 80333FF4 00330F54  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80333FF8 00330F58  7C 08 03 A6 */	mtlr r0
 /* 80333FFC 00330F5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80334000 00330F60  4E 80 00 20 */	blr 
+/* 80334000 00330F60  4E 80 00 20 */	blr
 
 .global GetValueUV__15CUVEAnimTextureCFiR13SUVElementSet
 GetValueUV__15CUVEAnimTextureCFiR13SUVElementSet:
@@ -94,7 +94,7 @@ GetValueUV__15CUVEAnimTextureCFiR13SUVElementSet:
 /* 80334038 00330F98  81 83 00 00 */	lwz r12, 0(r3)
 /* 8033403C 00330F9C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80334040 00330FA0  7D 89 03 A6 */	mtctr r12
-/* 80334044 00330FA4  4E 80 04 21 */	bctrl 
+/* 80334044 00330FA4  4E 80 04 21 */	bctrl
 /* 80334048 00330FA8  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8033404C 00330FAC  3C A0 43 30 */	lis r5, 0x4330
 /* 80334050 00330FB0  80 FE 00 20 */	lwz r7, 0x20(r30)
@@ -163,7 +163,7 @@ lbl_80334108:
 /* 80334140 003310A0  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80334144 003310A4  7C 08 03 A6 */	mtlr r0
 /* 80334148 003310A8  38 21 00 40 */	addi r1, r1, 0x40
-/* 8033414C 003310AC  4E 80 00 20 */	blr 
+/* 8033414C 003310AC  4E 80 00 20 */	blr
 
 .global __dt__15CUVEAnimTextureFv
 __dt__15CUVEAnimTextureFv:
@@ -185,7 +185,7 @@ __dt__15CUVEAnimTextureFv:
 /* 8033418C 003310EC  38 80 00 01 */	li r4, 1
 /* 80334190 003310F0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80334194 003310F4  7D 89 03 A6 */	mtctr r12
-/* 80334198 003310F8  4E 80 04 21 */	bctrl 
+/* 80334198 003310F8  4E 80 04 21 */	bctrl
 lbl_8033419C:
 /* 8033419C 003310FC  34 1F 00 2C */	addic. r0, r31, 0x2c
 /* 803341A0 00331100  41 82 00 44 */	beq lbl_803341E4
@@ -238,7 +238,7 @@ lbl_80334238:
 /* 80334244 003311A4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80334248 003311A8  7C 08 03 A6 */	mtlr r0
 /* 8033424C 003311AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 80334250 003311B0  4E 80 00 20 */	blr 
+/* 80334250 003311B0  4E 80 00 20 */	blr
 
 .global "__ct__15CUVEAnimTextureF17TToken<8CTexture>P11CIntElementP11CIntElementP11CIntElementP11CIntElementP11CIntElementb"
 "__ct__15CUVEAnimTextureF17TToken<8CTexture>P11CIntElementP11CIntElementP11CIntElementP11CIntElementP11CIntElementb":
@@ -283,7 +283,7 @@ lbl_80334238:
 /* 803342EC 0033124C  81 9F 00 00 */	lwz r12, 0(r31)
 /* 803342F0 00331250  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 803342F4 00331254  7D 89 03 A6 */	mtctr r12
-/* 803342F8 00331258  4E 80 04 21 */	bctrl 
+/* 803342F8 00331258  4E 80 04 21 */	bctrl
 /* 803342FC 0033125C  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 80334300 00331260  28 1F 00 00 */	cmplwi r31, 0
 /* 80334304 00331264  90 19 00 10 */	stw r0, 0x10(r25)
@@ -293,7 +293,7 @@ lbl_80334238:
 /* 80334314 00331274  81 9F 00 00 */	lwz r12, 0(r31)
 /* 80334318 00331278  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8033431C 0033127C  7D 89 03 A6 */	mtctr r12
-/* 80334320 00331280  4E 80 04 21 */	bctrl 
+/* 80334320 00331280  4E 80 04 21 */	bctrl
 lbl_80334324:
 /* 80334324 00331284  7F C3 F3 78 */	mr r3, r30
 /* 80334328 00331288  38 A1 00 10 */	addi r5, r1, 0x10
@@ -301,7 +301,7 @@ lbl_80334324:
 /* 80334330 00331290  38 80 00 00 */	li r4, 0
 /* 80334334 00331294  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80334338 00331298  7D 89 03 A6 */	mtctr r12
-/* 8033433C 0033129C  4E 80 04 21 */	bctrl 
+/* 8033433C 0033129C  4E 80 04 21 */	bctrl
 /* 80334340 003312A0  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 80334344 003312A4  28 1E 00 00 */	cmplwi r30, 0
 /* 80334348 003312A8  90 19 00 14 */	stw r0, 0x14(r25)
@@ -311,7 +311,7 @@ lbl_80334324:
 /* 80334358 003312B8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 8033435C 003312BC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 80334360 003312C0  7D 89 03 A6 */	mtctr r12
-/* 80334364 003312C4  4E 80 04 21 */	bctrl 
+/* 80334364 003312C4  4E 80 04 21 */	bctrl
 lbl_80334368:
 /* 80334368 003312C8  7F A3 EB 78 */	mr r3, r29
 /* 8033436C 003312CC  38 A1 00 10 */	addi r5, r1, 0x10
@@ -319,7 +319,7 @@ lbl_80334368:
 /* 80334374 003312D4  38 80 00 00 */	li r4, 0
 /* 80334378 003312D8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8033437C 003312DC  7D 89 03 A6 */	mtctr r12
-/* 80334380 003312E0  4E 80 04 21 */	bctrl 
+/* 80334380 003312E0  4E 80 04 21 */	bctrl
 /* 80334384 003312E4  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 80334388 003312E8  28 1D 00 00 */	cmplwi r29, 0
 /* 8033438C 003312EC  90 19 00 18 */	stw r0, 0x18(r25)
@@ -329,7 +329,7 @@ lbl_80334368:
 /* 8033439C 003312FC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 803343A0 00331300  81 8C 00 08 */	lwz r12, 8(r12)
 /* 803343A4 00331304  7D 89 03 A6 */	mtctr r12
-/* 803343A8 00331308  4E 80 04 21 */	bctrl 
+/* 803343A8 00331308  4E 80 04 21 */	bctrl
 lbl_803343AC:
 /* 803343AC 0033130C  7F 83 E3 78 */	mr r3, r28
 /* 803343B0 00331310  38 A1 00 10 */	addi r5, r1, 0x10
@@ -337,7 +337,7 @@ lbl_803343AC:
 /* 803343B8 00331318  38 80 00 00 */	li r4, 0
 /* 803343BC 0033131C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 803343C0 00331320  7D 89 03 A6 */	mtctr r12
-/* 803343C4 00331324  4E 80 04 21 */	bctrl 
+/* 803343C4 00331324  4E 80 04 21 */	bctrl
 /* 803343C8 00331328  80 01 00 10 */	lwz r0, 0x10(r1)
 /* 803343CC 0033132C  28 1C 00 00 */	cmplwi r28, 0
 /* 803343D0 00331330  90 19 00 1C */	stw r0, 0x1c(r25)
@@ -347,7 +347,7 @@ lbl_803343AC:
 /* 803343E0 00331340  81 9C 00 00 */	lwz r12, 0(r28)
 /* 803343E4 00331344  81 8C 00 08 */	lwz r12, 8(r12)
 /* 803343E8 00331348  7D 89 03 A6 */	mtctr r12
-/* 803343EC 0033134C  4E 80 04 21 */	bctrl 
+/* 803343EC 0033134C  4E 80 04 21 */	bctrl
 lbl_803343F0:
 /* 803343F0 00331350  93 79 00 28 */	stw r27, 0x28(r25)
 /* 803343F4 00331354  38 AD 9D 28 */	addi r5, r13, lbl_805A88E8@sda21
@@ -483,7 +483,7 @@ lbl_803345C0:
 /* 803345D8 00331538  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 803345DC 0033153C  7C 08 03 A6 */	mtlr r0
 /* 803345E0 00331540  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 803345E4 00331544  4E 80 00 20 */	blr 
+/* 803345E4 00331544  4E 80 00 20 */	blr
 
 .global GetValueTexture__12CUVEConstantCFi
 GetValueTexture__12CUVEConstantCFi:
@@ -505,7 +505,7 @@ GetValueTexture__12CUVEConstantCFi:
 /* 80334624 00331584  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80334628 00331588  7C 08 03 A6 */	mtlr r0
 /* 8033462C 0033158C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80334630 00331590  4E 80 00 20 */	blr 
+/* 80334630 00331590  4E 80 00 20 */	blr
 
 .global GetValueUV__12CUVEConstantCFiR13SUVElementSet
 GetValueUV__12CUVEConstantCFiR13SUVElementSet:
@@ -515,7 +515,7 @@ GetValueUV__12CUVEConstantCFiR13SUVElementSet:
 /* 80334640 003315A0  D0 25 00 04 */	stfs f1, 4(r5)
 /* 80334644 003315A4  D0 05 00 08 */	stfs f0, 8(r5)
 /* 80334648 003315A8  D0 05 00 0C */	stfs f0, 0xc(r5)
-/* 8033464C 003315AC  4E 80 00 20 */	blr 
+/* 8033464C 003315AC  4E 80 00 20 */	blr
 
 .global __dt__12CUVEConstantFv
 __dt__12CUVEConstantFv:
@@ -560,7 +560,7 @@ lbl_803346D0:
 /* 803346DC 0033163C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803346E0 00331640  7C 08 03 A6 */	mtlr r0
 /* 803346E4 00331644  38 21 00 10 */	addi r1, r1, 0x10
-/* 803346E8 00331648  4E 80 00 20 */	blr 
+/* 803346E8 00331648  4E 80 00 20 */	blr
 
 .global "__ct__12CUVEConstantF17TToken<8CTexture>"
 "__ct__12CUVEConstantF17TToken<8CTexture>":
@@ -593,17 +593,17 @@ lbl_803346D0:
 /* 80334754 003316B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80334758 003316B8  7C 08 03 A6 */	mtlr r0
 /* 8033475C 003316BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80334760 003316C0  4E 80 00 20 */	blr 
+/* 80334760 003316C0  4E 80 00 20 */	blr
 
 .global HasConstantTexture__12CUVEConstantFv
 HasConstantTexture__12CUVEConstantFv:
 /* 80334764 003316C4  38 60 00 01 */	li r3, 1
-/* 80334768 003316C8  4E 80 00 20 */	blr 
+/* 80334768 003316C8  4E 80 00 20 */	blr
 
 .global HasConstantUV__12CUVEConstantFv
 HasConstantUV__12CUVEConstantFv:
 /* 8033476C 003316CC  38 60 00 01 */	li r3, 1
-/* 80334770 003316D0  4E 80 00 20 */	blr 
+/* 80334770 003316D0  4E 80 00 20 */	blr
 
 .global sub_80334774
 sub_80334774:

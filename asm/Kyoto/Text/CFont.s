@@ -4,7 +4,7 @@
 
 .global DrawString__5CFontCFPCcllRC6CColor
 DrawString__5CFontCFPCcllRC6CColor:
-/* 80305F98 00302EF8  4E 80 00 20 */	blr 
+/* 80305F98 00302EF8  4E 80 00 20 */	blr
 
 .global CharWidth__5CFontCFc
 CharWidth__5CFontCFc:
@@ -16,7 +16,7 @@ CharWidth__5CFontCFc:
 /* 80305FB0 00302F10  D8 01 00 08 */	stfd f0, 8(r1)
 /* 80305FB4 00302F14  80 61 00 0C */	lwz r3, 0xc(r1)
 /* 80305FB8 00302F18  38 21 00 10 */	addi r1, r1, 0x10
-/* 80305FBC 00302F1C  4E 80 00 20 */	blr 
+/* 80305FBC 00302F1C  4E 80 00 20 */	blr
 
 .global __dt__5CFontFv
 __dt__5CFontFv:
@@ -35,7 +35,7 @@ lbl_80305FE4:
 /* 80305FEC 00302F4C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80305FF0 00302F50  7C 08 03 A6 */	mtlr r0
 /* 80305FF4 00302F54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80305FF8 00302F58  4E 80 00 20 */	blr 
+/* 80305FF8 00302F58  4E 80 00 20 */	blr
 
 .global __ct__5CFontFf
 __ct__5CFontFf:
@@ -48,4 +48,4 @@ __ct__5CFontFf:
 /* 80306014 00302F74  90 03 00 00 */	stw r0, 0(r3)
 /* 80306018 00302F78  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8030601C 00302F7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80306020 00302F80  4E 80 00 20 */	blr 
+/* 80306020 00302F80  4E 80 00 20 */	blr

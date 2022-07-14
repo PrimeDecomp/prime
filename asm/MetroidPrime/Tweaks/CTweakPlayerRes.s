@@ -20,12 +20,12 @@ GetCinematicBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId:
 /* 801AC21C 001A917C  40 81 00 0C */	ble lbl_801AC228
 lbl_801AC220:
 /* 801AC220 001A9180  80 63 00 DC */	lwz r3, 0xdc(r3)
-/* 801AC224 001A9184  4E 80 00 20 */	blr 
+/* 801AC224 001A9184  4E 80 00 20 */	blr
 lbl_801AC228:
 /* 801AC228 001A9188  54 80 10 3A */	slwi r0, r4, 2
 /* 801AC22C 001A918C  7C 63 02 14 */	add r3, r3, r0
 /* 801AC230 001A9190  80 63 00 DC */	lwz r3, 0xdc(r3)
-/* 801AC234 001A9194  4E 80 00 20 */	blr 
+/* 801AC234 001A9194  4E 80 00 20 */	blr
 
 .global GetBallTransitionBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId
 GetBallTransitionBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId:
@@ -35,12 +35,12 @@ GetBallTransitionBeamResId__15CTweakPlayerResCFQ212CPlayerState7EBeamId:
 /* 801AC244 001A91A4  40 81 00 0C */	ble lbl_801AC250
 lbl_801AC248:
 /* 801AC248 001A91A8  80 63 00 C8 */	lwz r3, 0xc8(r3)
-/* 801AC24C 001A91AC  4E 80 00 20 */	blr 
+/* 801AC24C 001A91AC  4E 80 00 20 */	blr
 lbl_801AC250:
 /* 801AC250 001A91B0  54 80 10 3A */	slwi r0, r4, 2
 /* 801AC254 001A91B4  7C 63 02 14 */	add r3, r3, r0
 /* 801AC258 001A91B8  80 63 00 C8 */	lwz r3, 0xc8(r3)
-/* 801AC25C 001A91BC  4E 80 00 20 */	blr 
+/* 801AC25C 001A91BC  4E 80 00 20 */	blr
 
 .global __ct__15CTweakPlayerResFR12CInputStream
 __ct__15CTweakPlayerResFR12CInputStream:
@@ -67,7 +67,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC2B0 001A9210  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC2B4 001A9214  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC2B8 001A9218  7D 89 03 A6 */	mtctr r12
-/* 801AC2BC 001A921C  4E 80 04 21 */	bctrl 
+/* 801AC2BC 001A921C  4E 80 04 21 */	bctrl
 /* 801AC2C0 001A9220  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC2C4 001A9224  38 61 00 E4 */	addi r3, r1, 0xe4
 /* 801AC2C8 001A9228  90 1E 00 04 */	stw r0, 4(r30)
@@ -81,7 +81,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC2E8 001A9248  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC2EC 001A924C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC2F0 001A9250  7D 89 03 A6 */	mtctr r12
-/* 801AC2F4 001A9254  4E 80 04 21 */	bctrl 
+/* 801AC2F4 001A9254  4E 80 04 21 */	bctrl
 /* 801AC2F8 001A9258  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC2FC 001A925C  38 61 00 D4 */	addi r3, r1, 0xd4
 /* 801AC300 001A9260  90 1E 00 08 */	stw r0, 8(r30)
@@ -95,7 +95,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC320 001A9280  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC324 001A9284  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC328 001A9288  7D 89 03 A6 */	mtctr r12
-/* 801AC32C 001A928C  4E 80 04 21 */	bctrl 
+/* 801AC32C 001A928C  4E 80 04 21 */	bctrl
 /* 801AC330 001A9290  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC334 001A9294  38 61 00 C4 */	addi r3, r1, 0xc4
 /* 801AC338 001A9298  90 1E 00 0C */	stw r0, 0xc(r30)
@@ -109,7 +109,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC358 001A92B8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC35C 001A92BC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC360 001A92C0  7D 89 03 A6 */	mtctr r12
-/* 801AC364 001A92C4  4E 80 04 21 */	bctrl 
+/* 801AC364 001A92C4  4E 80 04 21 */	bctrl
 /* 801AC368 001A92C8  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC36C 001A92CC  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 801AC370 001A92D0  90 1E 00 10 */	stw r0, 0x10(r30)
@@ -123,7 +123,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC390 001A92F0  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC394 001A92F4  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC398 001A92F8  7D 89 03 A6 */	mtctr r12
-/* 801AC39C 001A92FC  4E 80 04 21 */	bctrl 
+/* 801AC39C 001A92FC  4E 80 04 21 */	bctrl
 /* 801AC3A0 001A9300  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC3A4 001A9304  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 801AC3A8 001A9308  90 1E 00 14 */	stw r0, 0x14(r30)
@@ -137,7 +137,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC3C8 001A9328  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC3CC 001A932C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC3D0 001A9330  7D 89 03 A6 */	mtctr r12
-/* 801AC3D4 001A9334  4E 80 04 21 */	bctrl 
+/* 801AC3D4 001A9334  4E 80 04 21 */	bctrl
 /* 801AC3D8 001A9338  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC3DC 001A933C  38 61 00 94 */	addi r3, r1, 0x94
 /* 801AC3E0 001A9340  90 1E 00 18 */	stw r0, 0x18(r30)
@@ -151,7 +151,7 @@ __ct__15CTweakPlayerResFR12CInputStream:
 /* 801AC400 001A9360  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC404 001A9364  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC408 001A9368  7D 89 03 A6 */	mtctr r12
-/* 801AC40C 001A936C  4E 80 04 21 */	bctrl 
+/* 801AC40C 001A936C  4E 80 04 21 */	bctrl
 /* 801AC410 001A9370  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC414 001A9374  38 61 00 84 */	addi r3, r1, 0x84
 /* 801AC418 001A9378  90 1E 00 1C */	stw r0, 0x1c(r30)
@@ -590,7 +590,7 @@ lbl_801AC994:
 /* 801AC9E0 001A9940  81 83 00 00 */	lwz r12, 0(r3)
 /* 801AC9E4 001A9944  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801AC9E8 001A9948  7D 89 03 A6 */	mtctr r12
-/* 801AC9EC 001A994C  4E 80 04 21 */	bctrl 
+/* 801AC9EC 001A994C  4E 80 04 21 */	bctrl
 /* 801AC9F0 001A9950  80 03 00 04 */	lwz r0, 4(r3)
 /* 801AC9F4 001A9954  3B 80 00 00 */	li r28, 0
 /* 801AC9F8 001A9958  3B A0 00 00 */	li r29, 0
@@ -605,7 +605,7 @@ lbl_801ACA00:
 /* 801ACA18 001A9978  81 83 00 00 */	lwz r12, 0(r3)
 /* 801ACA1C 001A997C  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801ACA20 001A9980  7D 89 03 A6 */	mtctr r12
-/* 801ACA24 001A9984  4E 80 04 21 */	bctrl 
+/* 801ACA24 001A9984  4E 80 04 21 */	bctrl
 /* 801ACA28 001A9988  80 83 00 04 */	lwz r4, 4(r3)
 /* 801ACA2C 001A998C  38 1D 00 C8 */	addi r0, r29, 0xc8
 /* 801ACA30 001A9990  38 61 01 04 */	addi r3, r1, 0x104
@@ -627,7 +627,7 @@ lbl_801ACA54:
 /* 801ACA6C 001A99CC  81 83 00 00 */	lwz r12, 0(r3)
 /* 801ACA70 001A99D0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801ACA74 001A99D4  7D 89 03 A6 */	mtctr r12
-/* 801ACA78 001A99D8  4E 80 04 21 */	bctrl 
+/* 801ACA78 001A99D8  4E 80 04 21 */	bctrl
 /* 801ACA7C 001A99DC  80 83 00 04 */	lwz r4, 4(r3)
 /* 801ACA80 001A99E0  38 1D 00 DC */	addi r0, r29, 0xdc
 /* 801ACA84 001A99E4  38 61 00 F4 */	addi r3, r1, 0xf4
@@ -650,7 +650,7 @@ lbl_801ACA54:
 /* 801ACAC8 001A9A28  83 81 01 80 */	lwz r28, 0x180(r1)
 /* 801ACACC 001A9A2C  7C 08 03 A6 */	mtlr r0
 /* 801ACAD0 001A9A30  38 21 01 90 */	addi r1, r1, 0x190
-/* 801ACAD4 001A9A34  4E 80 00 20 */	blr 
+/* 801ACAD4 001A9A34  4E 80 00 20 */	blr
 
 .global sub_801acad8
 sub_801acad8:
@@ -677,7 +677,7 @@ lbl_801ACB0C:
 /* 801ACB24 001A9A84  81 83 00 00 */	lwz r12, 0(r3)
 /* 801ACB28 001A9A88  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801ACB2C 001A9A8C  7D 89 03 A6 */	mtctr r12
-/* 801ACB30 001A9A90  4E 80 04 21 */	bctrl 
+/* 801ACB30 001A9A90  4E 80 04 21 */	bctrl
 /* 801ACB34 001A9A94  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 801ACB38 001A9A98  80 63 00 04 */	lwz r3, 4(r3)
 /* 801ACB3C 001A9A9C  54 00 10 3A */	slwi r0, r0, 2
@@ -742,7 +742,7 @@ lbl_801ACBF0:
 /* 801ACC08 001A9B68  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801ACC0C 001A9B6C  7C 08 03 A6 */	mtlr r0
 /* 801ACC10 001A9B70  38 21 00 40 */	addi r1, r1, 0x40
-/* 801ACC14 001A9B74  4E 80 00 20 */	blr 
+/* 801ACC14 001A9B74  4E 80 00 20 */	blr
 
 .global sub_801acc18
 sub_801acc18:
@@ -769,7 +769,7 @@ lbl_801ACC4C:
 /* 801ACC64 001A9BC4  81 83 00 00 */	lwz r12, 0(r3)
 /* 801ACC68 001A9BC8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 801ACC6C 001A9BCC  7D 89 03 A6 */	mtctr r12
-/* 801ACC70 001A9BD0  4E 80 04 21 */	bctrl 
+/* 801ACC70 001A9BD0  4E 80 04 21 */	bctrl
 /* 801ACC74 001A9BD4  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 801ACC78 001A9BD8  80 63 00 04 */	lwz r3, 4(r3)
 /* 801ACC7C 001A9BDC  54 00 10 3A */	slwi r0, r0, 2
@@ -834,7 +834,7 @@ lbl_801ACD30:
 /* 801ACD48 001A9CA8  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 801ACD4C 001A9CAC  7C 08 03 A6 */	mtlr r0
 /* 801ACD50 001A9CB0  38 21 00 60 */	addi r1, r1, 0x60
-/* 801ACD54 001A9CB4  4E 80 00 20 */	blr 
+/* 801ACD54 001A9CB4  4E 80 00 20 */	blr
 
 .global __dt__15CTweakPlayerResFv
 __dt__15CTweakPlayerResFv:
@@ -1115,7 +1115,7 @@ lbl_801AD0DC:
 /* 801AD0E4 001AA044  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801AD0E8 001AA048  7C 08 03 A6 */	mtlr r0
 /* 801AD0EC 001AA04C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801AD0F0 001AA050  4E 80 00 20 */	blr 
+/* 801AD0F0 001AA050  4E 80 00 20 */	blr
 
 .global "__dl__29TOneStatic<15CTweakPlayerRes>FPv"
 "__dl__29TOneStatic<15CTweakPlayerRes>FPv":

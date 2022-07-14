@@ -55,19 +55,19 @@ Accept__15CScriptVisorGooFR8IVisitor:
 /* 801D6FDC 001D3F3C  7C 04 03 78 */	mr r4, r0
 /* 801D6FE0 001D3F40  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801D6FE4 001D3F44  7D 89 03 A6 */	mtctr r12
-/* 801D6FE8 001D3F48  4E 80 04 21 */	bctrl 
+/* 801D6FE8 001D3F48  4E 80 04 21 */	bctrl
 /* 801D6FEC 001D3F4C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D6FF0 001D3F50  7C 08 03 A6 */	mtlr r0
 /* 801D6FF4 001D3F54  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D6FF8 001D3F58  4E 80 00 20 */	blr 
+/* 801D6FF8 001D3F58  4E 80 00 20 */	blr
 
 .global AddToRenderer__15CScriptVisorGooCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__15CScriptVisorGooCFRC14CFrustumPlanesRC13CStateManager:
-/* 801D6FFC 001D3F5C  4E 80 00 20 */	blr 
+/* 801D6FFC 001D3F5C  4E 80 00 20 */	blr
 
 .global Render__15CScriptVisorGooCFRC13CStateManager
 Render__15CScriptVisorGooCFRC13CStateManager:
-/* 801D7000 001D3F60  4E 80 00 20 */	blr 
+/* 801D7000 001D3F60  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__15CScriptVisorGooF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CScriptVisorGooF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -114,17 +114,17 @@ lbl_801D706C:
 /* 801D7098 001D3FF8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 801D709C 001D3FFC  7C 08 03 A6 */	mtlr r0
 /* 801D70A0 001D4000  38 21 00 20 */	addi r1, r1, 0x20
-/* 801D70A4 001D4004  4E 80 00 20 */	blr 
+/* 801D70A4 001D4004  4E 80 00 20 */	blr
 
 .global GetTouchBounds__15CScriptVisorGooCFv
 GetTouchBounds__15CScriptVisorGooCFv:
 /* 801D70A8 001D4008  38 00 00 00 */	li r0, 0
 /* 801D70AC 001D400C  98 03 00 18 */	stb r0, 0x18(r3)
-/* 801D70B0 001D4010  4E 80 00 20 */	blr 
+/* 801D70B0 001D4010  4E 80 00 20 */	blr
 
 .global Touch__15CScriptVisorGooFR6CActorR13CStateManager
 Touch__15CScriptVisorGooFR6CActorR13CStateManager:
-/* 801D70B4 001D4014  4E 80 00 20 */	blr 
+/* 801D70B4 001D4014  4E 80 00 20 */	blr
 
 .global Think__15CScriptVisorGooFfR13CStateManager
 Think__15CScriptVisorGooFfR13CStateManager:
@@ -468,7 +468,7 @@ lbl_801D7570:
 /* 801D7594 001D44F4  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 801D7598 001D44F8  7C 08 03 A6 */	mtlr r0
 /* 801D759C 001D44FC  38 21 01 60 */	addi r1, r1, 0x160
-/* 801D75A0 001D4500  4E 80 00 20 */	blr 
+/* 801D75A0 001D4500  4E 80 00 20 */	blr
 
 .global __dt__15CScriptVisorGooFv
 __dt__15CScriptVisorGooFv:
@@ -509,7 +509,7 @@ lbl_801D7614:
 /* 801D7620 001D4580  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D7624 001D4584  7C 08 03 A6 */	mtlr r0
 /* 801D7628 001D4588  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D762C 001D458C  4E 80 00 20 */	blr 
+/* 801D762C 001D458C  4E 80 00 20 */	blr
 
 .global "__ct__15CScriptVisorGooF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUiUiffffRC6CColoribb"
 "__ct__15CScriptVisorGooF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fUiUiffffRC6CColoribb":
@@ -590,7 +590,7 @@ lbl_801D7614:
 /* 801D7758 001D46B8  38 80 00 01 */	li r4, 1
 /* 801D775C 001D46BC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801D7760 001D46C0  7D 89 03 A6 */	mtctr r12
-/* 801D7764 001D46C4  4E 80 04 21 */	bctrl 
+/* 801D7764 001D46C4  4E 80 04 21 */	bctrl
 lbl_801D7768:
 /* 801D7768 001D46C8  3A BA 00 F0 */	addi r21, r26, 0xf0
 /* 801D776C 001D46CC  38 61 00 20 */	addi r3, r1, 0x20
@@ -611,7 +611,7 @@ lbl_801D7768:
 /* 801D77A8 001D4708  38 80 00 01 */	li r4, 1
 /* 801D77AC 001D470C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801D77B0 001D4710  7D 89 03 A6 */	mtctr r12
-/* 801D77B4 001D4714  4E 80 04 21 */	bctrl 
+/* 801D77B4 001D4714  4E 80 04 21 */	bctrl
 lbl_801D77B8:
 /* 801D77B8 001D4718  57 C3 04 3E */	clrlwi r3, r30, 0x10
 /* 801D77BC 001D471C  48 11 11 F5 */	bl TranslateSFXID__11CSfxManagerFUs
@@ -653,7 +653,7 @@ lbl_801D77F4:
 /* 801D7844 001D47A4  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D7848 001D47A8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D784C 001D47AC  7D 89 03 A6 */	mtctr r12
-/* 801D7850 001D47B0  4E 80 04 21 */	bctrl 
+/* 801D7850 001D47B0  4E 80 04 21 */	bctrl
 /* 801D7854 001D47B4  38 61 00 48 */	addi r3, r1, 0x48
 /* 801D7858 001D47B8  38 81 00 50 */	addi r4, r1, 0x50
 /* 801D785C 001D47BC  48 16 96 4D */	bl __ct__6CTokenFRC6CToken
@@ -680,7 +680,7 @@ lbl_801D7884:
 /* 801D78AC 001D480C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801D78B0 001D4810  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801D78B4 001D4814  7D 89 03 A6 */	mtctr r12
-/* 801D78B8 001D4818  4E 80 04 21 */	bctrl 
+/* 801D78B8 001D4818  4E 80 04 21 */	bctrl
 /* 801D78BC 001D481C  38 61 00 30 */	addi r3, r1, 0x30
 /* 801D78C0 001D4820  38 81 00 38 */	addi r4, r1, 0x38
 /* 801D78C4 001D4824  48 16 95 E5 */	bl __ct__6CTokenFRC6CToken

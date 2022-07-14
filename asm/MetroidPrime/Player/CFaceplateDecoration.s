@@ -64,7 +64,7 @@ lbl_80175B88:
 /* 80175BA0 00172B00  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80175BA4 00172B04  7C 08 03 A6 */	mtlr r0
 /* 80175BA8 00172B08  38 21 00 50 */	addi r1, r1, 0x50
-/* 80175BAC 00172B0C  4E 80 00 20 */	blr 
+/* 80175BAC 00172B0C  4E 80 00 20 */	blr
 
 .global Update__20CFaceplateDecorationFfRC13CStateManager
 Update__20CFaceplateDecorationFfRC13CStateManager:
@@ -104,7 +104,7 @@ lbl_80175BF4:
 /* 80175C30 00172B90  81 84 00 00 */	lwz r12, 0(r4)
 /* 80175C34 00172B94  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80175C38 00172B98  7D 89 03 A6 */	mtctr r12
-/* 80175C3C 00172B9C  4E 80 04 21 */	bctrl 
+/* 80175C3C 00172B9C  4E 80 04 21 */	bctrl
 /* 80175C40 00172BA0  38 61 00 08 */	addi r3, r1, 8
 /* 80175C44 00172BA4  38 81 00 10 */	addi r4, r1, 0x10
 /* 80175C48 00172BA8  48 1C B2 61 */	bl __ct__6CTokenFRC6CToken
@@ -141,7 +141,7 @@ lbl_80175CAC:
 /* 80175CB4 00172C14  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 80175CB8 00172C18  7C 08 03 A6 */	mtlr r0
 /* 80175CBC 00172C1C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80175CC0 00172C20  4E 80 00 20 */	blr 
+/* 80175CC0 00172C20  4E 80 00 20 */	blr
 
 .global __ct__20CFaceplateDecorationFR13CStateManager
 __ct__20CFaceplateDecorationFR13CStateManager:
@@ -149,4 +149,4 @@ __ct__20CFaceplateDecorationFR13CStateManager:
 /* 80175CC8 00172C28  90 03 00 00 */	stw r0, 0(r3)
 /* 80175CCC 00172C2C  38 00 00 00 */	li r0, 0
 /* 80175CD0 00172C30  98 03 00 0C */	stb r0, 0xc(r3)
-/* 80175CD4 00172C34  4E 80 00 20 */	blr 
+/* 80175CD4 00172C34  4E 80 00 20 */	blr

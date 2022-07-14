@@ -9,7 +9,7 @@ lbl_803D9E80:
 	.4byte 0
 	.4byte __dt__18CArchMsgParmReal32Fv
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global __dt__18CArchMsgParmReal32Fv
@@ -38,7 +38,7 @@ lbl_80051784:
 /* 8005178C 0004E6EC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80051790 0004E6F0  7C 08 03 A6 */	mtlr r0
 /* 80051794 0004E6F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80051798 0004E6F8  4E 80 00 20 */	blr 
+/* 80051798 0004E6F8  4E 80 00 20 */	blr
 
 .global __ct__18CArchMsgParmReal32Ff
 __ct__18CArchMsgParmReal32Ff:

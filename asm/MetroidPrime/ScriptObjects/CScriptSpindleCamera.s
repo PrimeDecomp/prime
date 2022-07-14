@@ -113,11 +113,11 @@ AcceptScriptMsg__20CScriptSpindleCameraF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 8023FC1C 0023CB7C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023FC20 0023CB80  7C 08 03 A6 */	mtlr r0
 /* 8023FC24 0023CB84  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023FC28 0023CB88  4E 80 00 20 */	blr 
+/* 8023FC28 0023CB88  4E 80 00 20 */	blr
 
 .global Render__20CScriptSpindleCameraCFRC13CStateManager
 Render__20CScriptSpindleCameraCFRC13CStateManager:
-/* 8023FC2C 0023CB8C  4E 80 00 20 */	blr 
+/* 8023FC2C 0023CB8C  4E 80 00 20 */	blr
 
 .global Accept__20CScriptSpindleCameraFR8IVisitor
 Accept__20CScriptSpindleCameraFR8IVisitor:
@@ -130,15 +130,15 @@ Accept__20CScriptSpindleCameraFR8IVisitor:
 /* 8023FC48 0023CBA8  7C 04 03 78 */	mr r4, r0
 /* 8023FC4C 0023CBAC  81 8C 00 E0 */	lwz r12, 0xe0(r12)
 /* 8023FC50 0023CBB0  7D 89 03 A6 */	mtctr r12
-/* 8023FC54 0023CBB4  4E 80 04 21 */	bctrl 
+/* 8023FC54 0023CBB4  4E 80 04 21 */	bctrl
 /* 8023FC58 0023CBB8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8023FC5C 0023CBBC  7C 08 03 A6 */	mtlr r0
 /* 8023FC60 0023CBC0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8023FC64 0023CBC4  4E 80 00 20 */	blr 
+/* 8023FC64 0023CBC4  4E 80 00 20 */	blr
 
 .global ProcessInput__20CScriptSpindleCameraFRC11CFinalInputR13CStateManager
 ProcessInput__20CScriptSpindleCameraFRC11CFinalInputR13CStateManager:
-/* 8023FC68 0023CBC8  4E 80 00 20 */	blr 
+/* 8023FC68 0023CBC8  4E 80 00 20 */	blr
 
 .global Think__20CScriptSpindleCameraFfR13CStateManager
 Think__20CScriptSpindleCameraFfR13CStateManager:
@@ -1459,7 +1459,7 @@ lbl_80240F44:
 /* 80240FC4 0023DF24  83 81 02 70 */	lwz r28, 0x270(r1)
 /* 80240FC8 0023DF28  7C 08 03 A6 */	mtlr r0
 /* 80240FCC 0023DF2C  38 21 03 60 */	addi r1, r1, 0x360
-/* 80240FD0 0023DF30  4E 80 00 20 */	blr 
+/* 80240FD0 0023DF30  4E 80 00 20 */	blr
 
 .global GetInVar__20CScriptSpindleCameraCFRC16SSpindleProperty
 GetInVar__20CScriptSpindleCameraCFRC16SSpindleProperty:
@@ -1467,7 +1467,7 @@ GetInVar__20CScriptSpindleCameraCFRC16SSpindleProperty:
 /* 80240FD8 0023DF38  54 00 10 3A */	slwi r0, r0, 2
 /* 80240FDC 0023DF3C  7C 63 02 14 */	add r3, r3, r0
 /* 80240FE0 0023DF40  C0 23 01 90 */	lfs f1, 0x190(r3)
-/* 80240FE4 0023DF44  4E 80 00 20 */	blr 
+/* 80240FE4 0023DF44  4E 80 00 20 */	blr
 
 .global Reset__20CScriptSpindleCameraFRC12CTransform4fR13CStateManager
 Reset__20CScriptSpindleCameraFRC12CTransform4fR13CStateManager:
@@ -1503,7 +1503,7 @@ lbl_80241028:
 /* 80241058 0023DFB8  C0 22 B8 00 */	lfs f1, lbl_805AD520@sda21(r2)
 /* 8024105C 0023DFBC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 80241060 0023DFC0  7D 89 03 A6 */	mtctr r12
-/* 80241064 0023DFC4  4E 80 04 21 */	bctrl 
+/* 80241064 0023DFC4  4E 80 04 21 */	bctrl
 /* 80241068 0023DFC8  88 1E 03 3C */	lbz r0, 0x33c(r30)
 /* 8024106C 0023DFCC  38 60 00 00 */	li r3, 0
 /* 80241070 0023DFD0  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
@@ -1514,7 +1514,7 @@ lbl_80241078:
 /* 80241080 0023DFE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80241084 0023DFE4  7C 08 03 A6 */	mtlr r0
 /* 80241088 0023DFE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024108C 0023DFEC  4E 80 00 20 */	blr 
+/* 8024108C 0023DFEC  4E 80 00 20 */	blr
 
 .global __dt__20CScriptSpindleCameraFv
 __dt__20CScriptSpindleCameraFv:
@@ -1571,7 +1571,7 @@ lbl_80241134:
 /* 80241140 0023E0A0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80241144 0023E0A4  7C 08 03 A6 */	mtlr r0
 /* 80241148 0023E0A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024114C 0023E0AC  4E 80 00 20 */	blr 
+/* 8024114C 0023E0AC  4E 80 00 20 */	blr
 
 .global __ct__20CScriptSpindleCameraF9TUniqueIdRCQ24rstl12basic_stringRC11CEntityInfoRC12CTransform4fbiffffRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABox
 __ct__20CScriptSpindleCameraF9TUniqueIdRCQ24rstl12basic_stringRC11CEntityInfoRC12CTransform4fbiffffRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABoxRC6CAABox:
@@ -1864,7 +1864,7 @@ __ct__20CScriptSpindleCameraF9TUniqueIdRCQ24rstl12basic_stringRC11CEntityInfoRC1
 /* 802415C8 0023E528  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 802415CC 0023E52C  7C 08 03 A6 */	mtlr r0
 /* 802415D0 0023E530  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 802415D4 0023E534  4E 80 00 20 */	blr 
+/* 802415D4 0023E534  4E 80 00 20 */	blr
 
 .global GetValue__16SSpindlePropertyCFf
 GetValue__16SSpindlePropertyCFf:
@@ -1939,7 +1939,7 @@ lbl_802416CC:
 /* 802416CC 0023E62C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802416D0 0023E630  7C 08 03 A6 */	mtlr r0
 /* 802416D4 0023E634  38 21 00 10 */	addi r1, r1, 0x10
-/* 802416D8 0023E638  4E 80 00 20 */	blr 
+/* 802416D8 0023E638  4E 80 00 20 */	blr
 
 .global FixupAngles__15SSpindleSegmentFv
 FixupAngles__15SSpindleSegmentFv:
@@ -1950,7 +1950,7 @@ FixupAngles__15SSpindleSegmentFv:
 /* 802416EC 0023E64C  C0 03 00 0C */	lfs f0, 0xc(r3)
 /* 802416F0 0023E650  EC 00 00 72 */	fmuls f0, f0, f1
 /* 802416F4 0023E654  D0 03 00 0C */	stfs f0, 0xc(r3)
-/* 802416F8 0023E658  4E 80 00 20 */	blr 
+/* 802416F8 0023E658  4E 80 00 20 */	blr
 
 .global LoadSpindleSegment__FR12CInputStream
 LoadSpindleSegment__FR12CInputStream:
@@ -2019,7 +2019,7 @@ lbl_802417A8:
 /* 802417EC 0023E74C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802417F0 0023E750  7C 08 03 A6 */	mtlr r0
 /* 802417F4 0023E754  38 21 00 50 */	addi r1, r1, 0x50
-/* 802417F8 0023E758  4E 80 00 20 */	blr 
+/* 802417F8 0023E758  4E 80 00 20 */	blr
 
 .global sub_802417fc
 sub_802417fc:
@@ -2029,7 +2029,7 @@ sub_802417fc:
 /* 80241808 0023E768  D0 43 00 0C */	stfs f2, 0xc(r3)
 /* 8024180C 0023E76C  D0 63 00 10 */	stfs f3, 0x10(r3)
 /* 80241810 0023E770  D0 83 00 14 */	stfs f4, 0x14(r3)
-/* 80241814 0023E774  4E 80 00 20 */	blr 
+/* 80241814 0023E774  4E 80 00 20 */	blr
 
 .global __sinit_CScriptSpindleCamera_cpp
 __sinit_CScriptSpindleCamera_cpp:

@@ -43,7 +43,7 @@ CopyNodeMinusStartTime__12CBoolPOINodeFRC12CBoolPOINodeRC13CCharAnimTime:
 /* 802F7B44 002F4AA4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 802F7B48 002F4AA8  7C 08 03 A6 */	mtlr r0
 /* 802F7B4C 002F4AAC  38 21 00 40 */	addi r1, r1, 0x40
-/* 802F7B50 002F4AB0  4E 80 00 20 */	blr 
+/* 802F7B50 002F4AB0  4E 80 00 20 */	blr
 
 .global __ct__12CBoolPOINodeFR12CInputStream
 __ct__12CBoolPOINodeFR12CInputStream:

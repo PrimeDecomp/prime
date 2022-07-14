@@ -50,7 +50,7 @@ lbl_800FE080:
 /* 800FE08C 000FAFEC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800FE090 000FAFF0  7C 08 03 A6 */	mtlr r0
 /* 800FE094 000FAFF4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FE098 000FAFF8  4E 80 00 20 */	blr 
+/* 800FE098 000FAFF8  4E 80 00 20 */	blr
 
 .global Think__20CScriptActorKeyframeFfR13CStateManager
 Think__20CScriptActorKeyframeFfR13CStateManager:
@@ -206,7 +206,7 @@ lbl_800FE2B4:
 /* 800FE2D0 000FB230  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800FE2D4 000FB234  7C 08 03 A6 */	mtlr r0
 /* 800FE2D8 000FB238  38 21 00 60 */	addi r1, r1, 0x60
-/* 800FE2DC 000FB23C  4E 80 00 20 */	blr 
+/* 800FE2DC 000FB23C  4E 80 00 20 */	blr
 
 .global UpdateEntity__20CScriptActorKeyframeF9TUniqueIdR13CStateManager
 UpdateEntity__20CScriptActorKeyframeF9TUniqueIdR13CStateManager:
@@ -394,7 +394,7 @@ lbl_800FE588:
 /* 800FE598 000FB4F8  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 800FE59C 000FB4FC  7C 08 03 A6 */	mtlr r0
 /* 800FE5A0 000FB500  38 21 00 80 */	addi r1, r1, 0x80
-/* 800FE5A4 000FB504  4E 80 00 20 */	blr 
+/* 800FE5A4 000FB504  4E 80 00 20 */	blr
 
 .global __dt__14CBCScriptedCmdFv
 __dt__14CBCScriptedCmdFv:
@@ -422,7 +422,7 @@ lbl_800FE5EC:
 /* 800FE5F4 000FB554  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800FE5F8 000FB558  7C 08 03 A6 */	mtlr r0
 /* 800FE5FC 000FB55C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FE600 000FB560  4E 80 00 20 */	blr 
+/* 800FE600 000FB560  4E 80 00 20 */	blr
 
 .global Accept__20CScriptActorKeyframeFR8IVisitor
 Accept__20CScriptActorKeyframeFR8IVisitor:
@@ -435,11 +435,11 @@ Accept__20CScriptActorKeyframeFR8IVisitor:
 /* 800FE61C 000FB57C  7C 04 03 78 */	mr r4, r0
 /* 800FE620 000FB580  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800FE624 000FB584  7D 89 03 A6 */	mtctr r12
-/* 800FE628 000FB588  4E 80 04 21 */	bctrl 
+/* 800FE628 000FB588  4E 80 04 21 */	bctrl
 /* 800FE62C 000FB58C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FE630 000FB590  7C 08 03 A6 */	mtlr r0
 /* 800FE634 000FB594  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FE638 000FB598  4E 80 00 20 */	blr 
+/* 800FE638 000FB598  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__20CScriptActorKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__20CScriptActorKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -546,7 +546,7 @@ lbl_800FE780:
 /* 800FE7A0 000FB700  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800FE7A4 000FB704  7C 08 03 A6 */	mtlr r0
 /* 800FE7A8 000FB708  38 21 00 50 */	addi r1, r1, 0x50
-/* 800FE7AC 000FB70C  4E 80 00 20 */	blr 
+/* 800FE7AC 000FB70C  4E 80 00 20 */	blr
 
 .global "__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbUib"
 "__ct__20CScriptActorKeyframeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoibfbUib":
@@ -602,4 +602,4 @@ lbl_800FE780:
 /* 800FE874 000FB7D4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800FE878 000FB7D8  7C 08 03 A6 */	mtlr r0
 /* 800FE87C 000FB7DC  38 21 00 40 */	addi r1, r1, 0x40
-/* 800FE880 000FB7E0  4E 80 00 20 */	blr 
+/* 800FE880 000FB7E0  4E 80 00 20 */	blr

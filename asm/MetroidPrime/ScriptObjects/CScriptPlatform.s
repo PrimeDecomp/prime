@@ -150,7 +150,7 @@ Render__15CScriptPlatformCFRC13CStateManager:
 /* 800B0C78 000ADBD8  C0 42 8C B0 */	lfs f2, lbl_805AA9D0@sda21(r2)
 /* 800B0C7C 000ADBDC  81 8C 00 E0 */	lwz r12, 0xe0(r12)
 /* 800B0C80 000ADBE0  7D 89 03 A6 */	mtctr r12
-/* 800B0C84 000ADBE4  4E 80 04 21 */	bctrl 
+/* 800B0C84 000ADBE4  4E 80 04 21 */	bctrl
 lbl_800B0C88:
 /* 800B0C88 000ADBE8  7F A3 EB 78 */	mr r3, r29
 /* 800B0C8C 000ADBEC  7F C4 F3 78 */	mr r4, r30
@@ -173,7 +173,7 @@ lbl_800B0CC0:
 /* 800B0CCC 000ADC2C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B0CD0 000ADC30  7C 08 03 A6 */	mtlr r0
 /* 800B0CD4 000ADC34  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B0CD8 000ADC38  4E 80 00 20 */	blr 
+/* 800B0CD8 000ADC38  4E 80 00 20 */	blr
 
 .global GetSortingBounds__15CScriptPlatformCFRC12CTransform4f
 GetSortingBounds__15CScriptPlatformCFRC12CTransform4f:
@@ -211,7 +211,7 @@ lbl_800B0D44:
 /* 800B0D50 000ADCB0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B0D54 000ADCB4  7C 08 03 A6 */	mtlr r0
 /* 800B0D58 000ADCB8  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B0D5C 000ADCBC  4E 80 00 20 */	blr 
+/* 800B0D5C 000ADCBC  4E 80 00 20 */	blr
 
 .global GetAimPosition__15CScriptPlatformCFRC13CStateManagerf
 GetAimPosition__15CScriptPlatformCFRC13CStateManagerf:
@@ -230,7 +230,7 @@ GetAimPosition__15CScriptPlatformCFRC13CStateManagerf:
 /* 800B0D90 000ADCF0  81 84 00 00 */	lwz r12, 0(r4)
 /* 800B0D94 000ADCF4  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 800B0D98 000ADCF8  7D 89 03 A6 */	mtctr r12
-/* 800B0D9C 000ADCFC  4E 80 04 21 */	bctrl 
+/* 800B0D9C 000ADCFC  4E 80 04 21 */	bctrl
 /* 800B0DA0 000ADD00  88 61 00 3C */	lbz r3, 0x3c(r1)
 /* 800B0DA4 000ADD04  38 00 00 00 */	li r0, 0
 /* 800B0DA8 000ADD08  28 03 00 00 */	cmplwi r3, 0
@@ -241,7 +241,7 @@ GetAimPosition__15CScriptPlatformCFRC13CStateManagerf:
 /* 800B0DBC 000ADD1C  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800B0DC0 000ADD20  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 800B0DC4 000ADD24  7D 89 03 A6 */	mtctr r12
-/* 800B0DC8 000ADD28  4E 80 04 21 */	bctrl 
+/* 800B0DC8 000ADD28  4E 80 04 21 */	bctrl
 /* 800B0DCC 000ADD2C  7F A3 EB 78 */	mr r3, r29
 /* 800B0DD0 000ADD30  38 81 00 08 */	addi r4, r1, 8
 /* 800B0DD4 000ADD34  48 28 68 39 */	bl GetCenterPoint__6CAABoxCFv
@@ -262,7 +262,7 @@ lbl_800B0DF8:
 /* 800B0E08 000ADD68  83 A1 00 4C */	lwz r29, 0x4c(r1)
 /* 800B0E0C 000ADD6C  7C 08 03 A6 */	mtlr r0
 /* 800B0E10 000ADD70  38 21 00 60 */	addi r1, r1, 0x60
-/* 800B0E14 000ADD74  4E 80 00 20 */	blr 
+/* 800B0E14 000ADD74  4E 80 00 20 */	blr
 
 .global GetOrbitPosition__15CScriptPlatformCFRC13CStateManager
 GetOrbitPosition__15CScriptPlatformCFRC13CStateManager:
@@ -275,12 +275,12 @@ GetOrbitPosition__15CScriptPlatformCFRC13CStateManager:
 /* 800B0E30 000ADD90  81 84 00 00 */	lwz r12, 0(r4)
 /* 800B0E34 000ADD94  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 800B0E38 000ADD98  7D 89 03 A6 */	mtctr r12
-/* 800B0E3C 000ADD9C  4E 80 04 21 */	bctrl 
+/* 800B0E3C 000ADD9C  4E 80 04 21 */	bctrl
 /* 800B0E40 000ADDA0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B0E44 000ADDA4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800B0E48 000ADDA8  7C 08 03 A6 */	mtlr r0
 /* 800B0E4C 000ADDAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B0E50 000ADDB0  4E 80 00 20 */	blr 
+/* 800B0E50 000ADDB0  4E 80 00 20 */	blr
 
 .global sub_800b0e54
 sub_800b0e54:
@@ -336,7 +336,7 @@ sub_800b0e54:
 /* 800B0F18 000ADE78  90 03 02 FC */	stw r0, 0x2fc(r3)
 /* 800B0F1C 000ADE7C  80 04 00 64 */	lwz r0, 0x64(r4)
 /* 800B0F20 000ADE80  90 03 03 00 */	stw r0, 0x300(r3)
-/* 800B0F24 000ADE84  4E 80 00 20 */	blr 
+/* 800B0F24 000ADE84  4E 80 00 20 */	blr
 
 .global PreRender__15CScriptPlatformFR13CStateManagerRC14CFrustumPlanes
 PreRender__15CScriptPlatformFR13CStateManagerRC14CFrustumPlanes:
@@ -453,7 +453,7 @@ lbl_800B10CC:
 /* 800B10D0 000AE030  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800B10D4 000AE034  7C 08 03 A6 */	mtlr r0
 /* 800B10D8 000AE038  38 21 00 40 */	addi r1, r1, 0x40
-/* 800B10DC 000AE03C  4E 80 00 20 */	blr 
+/* 800B10DC 000AE03C  4E 80 00 20 */	blr
 
 .global Move__15CScriptPlatformFR13CStateManager
 Move__15CScriptPlatformFR13CStateManager:
@@ -838,12 +838,12 @@ lbl_800B15E0:
 /* 800B168C 000AE5EC  81 9F 00 00 */	lwz r12, 0(r31)
 /* 800B1690 000AE5F0  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800B1694 000AE5F4  7D 89 03 A6 */	mtctr r12
-/* 800B1698 000AE5F8  4E 80 04 21 */	bctrl 
+/* 800B1698 000AE5F8  4E 80 04 21 */	bctrl
 /* 800B169C 000AE5FC  7F E3 FB 78 */	mr r3, r31
 /* 800B16A0 000AE600  81 9F 00 00 */	lwz r12, 0(r31)
 /* 800B16A4 000AE604  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 800B16A8 000AE608  7D 89 03 A6 */	mtctr r12
-/* 800B16AC 000AE60C  4E 80 04 21 */	bctrl 
+/* 800B16AC 000AE60C  4E 80 04 21 */	bctrl
 /* 800B16B0 000AE610  7F 26 CB 78 */	mr r6, r25
 /* 800B16B4 000AE614  38 81 00 DC */	addi r4, r1, 0xdc
 /* 800B16B8 000AE618  38 A1 01 74 */	addi r5, r1, 0x174
@@ -1239,7 +1239,7 @@ lbl_800B1BD8:
 /* 800B1BE8 000AEB48  80 01 11 B4 */	lwz r0, 0x11b4(r1)
 /* 800B1BEC 000AEB4C  7C 08 03 A6 */	mtlr r0
 /* 800B1BF0 000AEB50  38 21 11 B0 */	addi r1, r1, 0x11b0
-/* 800B1BF4 000AEB54  4E 80 00 20 */	blr 
+/* 800B1BF4 000AEB54  4E 80 00 20 */	blr
 
 .global IsSlave__15CScriptPlatformCF9TUniqueId
 IsSlave__15CScriptPlatformCF9TUniqueId:
@@ -1335,7 +1335,7 @@ lbl_800B1D34:
 /* 800B1D40 000AECA0  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 800B1D44 000AECA4  7C 08 03 A6 */	mtlr r0
 /* 800B1D48 000AECA8  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800B1D4C 000AECAC  4E 80 00 20 */	blr 
+/* 800B1D4C 000AECAC  4E 80 00 20 */	blr
 
 .global IsRider__15CScriptPlatformCF9TUniqueId
 IsRider__15CScriptPlatformCF9TUniqueId:
@@ -1386,7 +1386,7 @@ lbl_800B1DDC:
 /* 800B1DF4 000AED54  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 800B1DF8 000AED58  7C 08 03 A6 */	mtlr r0
 /* 800B1DFC 000AED5C  38 21 00 60 */	addi r1, r1, 0x60
-/* 800B1E00 000AED60  4E 80 00 20 */	blr 
+/* 800B1E00 000AED60  4E 80 00 20 */	blr
 
 .global sub_800b1e04
 sub_800b1e04:
@@ -1408,7 +1408,7 @@ sub_800b1e04:
 /* 800B1E40 000AEDA0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800B1E44 000AEDA4  7C 08 03 A6 */	mtlr r0
 /* 800B1E48 000AEDA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B1E4C 000AEDAC  4E 80 00 20 */	blr 
+/* 800B1E4C 000AEDAC  4E 80 00 20 */	blr
 
 .global sub_800b1e50
 sub_800b1e50:
@@ -1472,7 +1472,7 @@ lbl_800B1EF8:
 /* 800B1F20 000AEE80  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800B1F24 000AEE84  7C 08 03 A6 */	mtlr r0
 /* 800B1F28 000AEE88  38 21 00 30 */	addi r1, r1, 0x30
-/* 800B1F2C 000AEE8C  4E 80 00 20 */	blr 
+/* 800B1F2C 000AEE8C  4E 80 00 20 */	blr
 
 .global AddSlave__15CScriptPlatformF9TUniqueIdR13CStateManager
 AddSlave__15CScriptPlatformF9TUniqueIdR13CStateManager:
@@ -1597,11 +1597,11 @@ lbl_800B20DC:
 /* 800B20EC 000AF04C  83 81 01 30 */	lwz r28, 0x130(r1)
 /* 800B20F0 000AF050  7C 08 03 A6 */	mtlr r0
 /* 800B20F4 000AF054  38 21 01 40 */	addi r1, r1, 0x140
-/* 800B20F8 000AF058  4E 80 00 20 */	blr 
+/* 800B20F8 000AF058  4E 80 00 20 */	blr
 
 .global SplashThink__15CScriptPlatformCFRC6CAABoxRC11CFluidPlanefR13CStateManager
 SplashThink__15CScriptPlatformCFRC6CAABoxRC11CFluidPlanefR13CStateManager:
-/* 800B20FC 000AF05C  4E 80 00 20 */	blr 
+/* 800B20FC 000AF05C  4E 80 00 20 */	blr
 
 .global GetPrimitiveTransform__15CScriptPlatformCFv
 GetPrimitiveTransform__15CScriptPlatformCFv:
@@ -1638,7 +1638,7 @@ GetPrimitiveTransform__15CScriptPlatformCFv:
 /* 800B2178 000AF0D8  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 800B217C 000AF0DC  7C 08 03 A6 */	mtlr r0
 /* 800B2180 000AF0E0  38 21 00 50 */	addi r1, r1, 0x50
-/* 800B2184 000AF0E4  4E 80 00 20 */	blr 
+/* 800B2184 000AF0E4  4E 80 00 20 */	blr
 
 .global GetCollisionPrimitive__15CScriptPlatformCFv
 GetCollisionPrimitive__15CScriptPlatformCFv:
@@ -1656,7 +1656,7 @@ lbl_800B21AC:
 /* 800B21AC 000AF10C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B21B0 000AF110  7C 08 03 A6 */	mtlr r0
 /* 800B21B4 000AF114  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B21B8 000AF118  4E 80 00 20 */	blr 
+/* 800B21B8 000AF118  4E 80 00 20 */	blr
 
 .global Accept__15CScriptPlatformFR8IVisitor
 Accept__15CScriptPlatformFR8IVisitor:
@@ -1669,11 +1669,11 @@ Accept__15CScriptPlatformFR8IVisitor:
 /* 800B21D4 000AF134  7C 04 03 78 */	mr r4, r0
 /* 800B21D8 000AF138  81 8C 00 9C */	lwz r12, 0x9c(r12)
 /* 800B21DC 000AF13C  7D 89 03 A6 */	mtctr r12
-/* 800B21E0 000AF140  4E 80 04 21 */	bctrl 
+/* 800B21E0 000AF140  4E 80 04 21 */	bctrl
 /* 800B21E4 000AF144  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B21E8 000AF148  7C 08 03 A6 */	mtlr r0
 /* 800B21EC 000AF14C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B21F0 000AF150  4E 80 00 20 */	blr 
+/* 800B21F0 000AF150  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -1693,7 +1693,7 @@ AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 800B2228 000AF188  38 84 F2 AC */	addi r4, r4, lbl_803DF2AC@l
 /* 800B222C 000AF18C  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800B2230 000AF190  7C 09 03 A6 */	mtctr r0
-/* 800B2234 000AF194  4E 80 04 20 */	bctr 
+/* 800B2234 000AF194  4E 80 04 20 */	bctr
 .global lbl_800B2238
 lbl_800B2238:
 /* 800B2238 000AF198  7F E4 FB 78 */	mr r4, r31
@@ -1943,17 +1943,17 @@ lbl_800B257C:
 /* 800B259C 000AF4FC  80 01 08 A4 */	lwz r0, 0x8a4(r1)
 /* 800B25A0 000AF500  7C 08 03 A6 */	mtlr r0
 /* 800B25A4 000AF504  38 21 08 A0 */	addi r1, r1, 0x8a0
-/* 800B25A8 000AF508  4E 80 00 20 */	blr 
+/* 800B25A8 000AF508  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__15CScriptPlatformCFv
 GetDamageVulnerability__15CScriptPlatformCFv:
 /* 800B25AC 000AF50C  38 63 02 9C */	addi r3, r3, 0x29c
-/* 800B25B0 000AF510  4E 80 00 20 */	blr 
+/* 800B25B0 000AF510  4E 80 00 20 */	blr
 
 .global HealthInfo__15CScriptPlatformFR13CStateManager
 HealthInfo__15CScriptPlatformFR13CStateManager:
 /* 800B25B4 000AF514  38 63 02 94 */	addi r3, r3, 0x294
-/* 800B25B8 000AF518  4E 80 00 20 */	blr 
+/* 800B25B8 000AF518  4E 80 00 20 */	blr
 
 .global sub_800b25bc
 sub_800b25bc:
@@ -1970,14 +1970,14 @@ lbl_800B25DC:
 /* 800B25E0 000AF540  7C 03 00 40 */	cmplw r3, r0
 /* 800B25E4 000AF544  40 82 00 0C */	bne lbl_800B25F0
 /* 800B25E8 000AF548  38 60 00 01 */	li r3, 1
-/* 800B25EC 000AF54C  4E 80 00 20 */	blr 
+/* 800B25EC 000AF54C  4E 80 00 20 */	blr
 lbl_800B25F0:
 /* 800B25F0 000AF550  38 A5 00 02 */	addi r5, r5, 2
 lbl_800B25F4:
 /* 800B25F4 000AF554  7C 05 20 40 */	cmplw r5, r4
 /* 800B25F8 000AF558  40 82 FF E4 */	bne lbl_800B25DC
 /* 800B25FC 000AF55C  38 60 00 00 */	li r3, 0
-/* 800B2600 000AF560  4E 80 00 20 */	blr 
+/* 800B2600 000AF560  4E 80 00 20 */	blr
 
 .global Think__15CScriptPlatformFfR13CStateManager
 Think__15CScriptPlatformFfR13CStateManager:
@@ -2093,7 +2093,7 @@ lbl_800B2778:
 /* 800B278C 000AF6EC  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800B2790 000AF6F0  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 800B2794 000AF6F4  7D 89 03 A6 */	mtctr r12
-/* 800B2798 000AF6F8  4E 80 04 21 */	bctrl 
+/* 800B2798 000AF6F8  4E 80 04 21 */	bctrl
 /* 800B279C 000AF6FC  C0 23 00 00 */	lfs f1, 0(r3)
 /* 800B27A0 000AF700  C0 02 8C AC */	lfs f0, lbl_805AA9CC@sda21(r2)
 /* 800B27A4 000AF704  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -2114,7 +2114,7 @@ lbl_800B27D4:
 /* 800B27DC 000AF73C  83 C1 08 28 */	lwz r30, 0x828(r1)
 /* 800B27E0 000AF740  7C 08 03 A6 */	mtlr r0
 /* 800B27E4 000AF744  38 21 08 30 */	addi r1, r1, 0x830
-/* 800B27E8 000AF748  4E 80 00 20 */	blr 
+/* 800B27E8 000AF748  4E 80 00 20 */	blr
 
 .global "DragSlaves__15CScriptPlatformFR13CStateManagerRQ24rstl38bit_vector<Q24rstl17rmemory_allocator>RC9CVector3f"
 "DragSlaves__15CScriptPlatformFR13CStateManagerRQ24rstl38bit_vector<Q24rstl17rmemory_allocator>RC9CVector3f":
@@ -2200,7 +2200,7 @@ lbl_800B28F0:
 /* 800B2910 000AF870  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800B2914 000AF874  7C 08 03 A6 */	mtlr r0
 /* 800B2918 000AF878  38 21 00 50 */	addi r1, r1, 0x50
-/* 800B291C 000AF87C  4E 80 00 20 */	blr 
+/* 800B291C 000AF87C  4E 80 00 20 */	blr
 
 .global "DragSlave__15CScriptPlatformFR13CStateManagerRQ24rstl38bit_vector<Q24rstl17rmemory_allocator>P6CActorRC9CVector3f"
 "DragSlave__15CScriptPlatformFR13CStateManagerRQ24rstl38bit_vector<Q24rstl17rmemory_allocator>P6CActorRC9CVector3f":
@@ -2281,7 +2281,7 @@ lbl_800B2A30:
 /* 800B2A40 000AF9A0  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800B2A44 000AF9A4  7C 08 03 A6 */	mtlr r0
 /* 800B2A48 000AF9A8  38 21 00 60 */	addi r1, r1, 0x60
-/* 800B2A4C 000AF9AC  4E 80 00 20 */	blr 
+/* 800B2A4C 000AF9AC  4E 80 00 20 */	blr
 
 .global BuildSlaveList__15CScriptPlatformFR13CStateManager
 BuildSlaveList__15CScriptPlatformFR13CStateManager:
@@ -2438,7 +2438,7 @@ lbl_800B2C5C:
 /* 800B2C78 000AFBD8  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 800B2C7C 000AFBDC  7C 08 03 A6 */	mtlr r0
 /* 800B2C80 000AFBE0  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 800B2C84 000AFBE4  4E 80 00 20 */	blr 
+/* 800B2C84 000AFBE4  4E 80 00 20 */	blr
 
 .global PreThink__15CScriptPlatformFfR13CStateManager
 PreThink__15CScriptPlatformFfR13CStateManager:
@@ -2562,7 +2562,7 @@ lbl_800B2E28:
 /* 800B2E50 000AFDB0  38 61 00 6C */	addi r3, r1, 0x6c
 /* 800B2E54 000AFDB4  81 8C 00 88 */	lwz r12, 0x88(r12)
 /* 800B2E58 000AFDB8  7D 89 03 A6 */	mtctr r12
-/* 800B2E5C 000AFDBC  4E 80 04 21 */	bctrl 
+/* 800B2E5C 000AFDBC  4E 80 04 21 */	bctrl
 /* 800B2E60 000AFDC0  C0 01 00 6C */	lfs f0, 0x6c(r1)
 /* 800B2E64 000AFDC4  D0 1D 02 7C */	stfs f0, 0x27c(r29)
 /* 800B2E68 000AFDC8  80 61 00 70 */	lwz r3, 0x70(r1)
@@ -2668,12 +2668,12 @@ lbl_800B2FC8:
 /* 800B2FD8 000AFF38  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800B2FDC 000AFF3C  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800B2FE0 000AFF40  7D 89 03 A6 */	mtctr r12
-/* 800B2FE4 000AFF44  4E 80 04 21 */	bctrl 
+/* 800B2FE4 000AFF44  4E 80 04 21 */	bctrl
 /* 800B2FE8 000AFF48  7F A3 EB 78 */	mr r3, r29
 /* 800B2FEC 000AFF4C  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800B2FF0 000AFF50  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 800B2FF4 000AFF54  7D 89 03 A6 */	mtctr r12
-/* 800B2FF8 000AFF58  4E 80 04 21 */	bctrl 
+/* 800B2FF8 000AFF58  4E 80 04 21 */	bctrl
 /* 800B2FFC 000AFF5C  7F C6 F3 78 */	mr r6, r30
 /* 800B3000 000AFF60  38 81 00 A4 */	addi r4, r1, 0xa4
 /* 800B3004 000AFF64  38 A1 09 A0 */	addi r5, r1, 0x9a0
@@ -2804,7 +2804,7 @@ lbl_800B31B8:
 /* 800B31D4 000B0134  83 81 11 B0 */	lwz r28, 0x11b0(r1)
 /* 800B31D8 000B0138  7C 08 03 A6 */	mtlr r0
 /* 800B31DC 000B013C  38 21 11 D0 */	addi r1, r1, 0x11d0
-/* 800B31E0 000B0140  4E 80 00 20 */	blr 
+/* 800B31E0 000B0140  4E 80 00 20 */	blr
 
 .global "MoveRiders__15CScriptPlatformFR13CStateManagerfbRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>RQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>RC12CTransform4fRC12CTransform4fRC9CVector3f11CQuaternion"
 "MoveRiders__15CScriptPlatformFR13CStateManagerfbRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>RQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>RC12CTransform4fRC12CTransform4fRC9CVector3f11CQuaternion":
@@ -2904,12 +2904,12 @@ lbl_800B3274:
 /* 800B334C 000B02AC  38 61 00 D4 */	addi r3, r1, 0xd4
 /* 800B3350 000B02B0  81 8C 00 70 */	lwz r12, 0x70(r12)
 /* 800B3354 000B02B4  7D 89 03 A6 */	mtctr r12
-/* 800B3358 000B02B8  4E 80 04 21 */	bctrl 
+/* 800B3358 000B02B8  4E 80 04 21 */	bctrl
 /* 800B335C 000B02BC  7F C3 F3 78 */	mr r3, r30
 /* 800B3360 000B02C0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 800B3364 000B02C4  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 800B3368 000B02C8  7D 89 03 A6 */	mtctr r12
-/* 800B336C 000B02CC  4E 80 04 21 */	bctrl 
+/* 800B336C 000B02CC  4E 80 04 21 */	bctrl
 /* 800B3370 000B02D0  7C 64 1B 78 */	mr r4, r3
 /* 800B3374 000B02D4  7E E3 BB 78 */	mr r3, r23
 /* 800B3378 000B02D8  7E C6 B3 78 */	mr r6, r22
@@ -2997,7 +2997,7 @@ lbl_800B3490:
 /* 800B34B0 000B0410  80 01 01 34 */	lwz r0, 0x134(r1)
 /* 800B34B4 000B0414  7C 08 03 A6 */	mtlr r0
 /* 800B34B8 000B0418  38 21 01 30 */	addi r1, r1, 0x130
-/* 800B34BC 000B041C  4E 80 00 20 */	blr 
+/* 800B34BC 000B041C  4E 80 00 20 */	blr
 
 .global __ct__13CPhysicsStateFRC13CPhysicsState
 __ct__13CPhysicsStateFRC13CPhysicsState:
@@ -3057,7 +3057,7 @@ __ct__13CPhysicsStateFRC13CPhysicsState:
 /* 800B3594 000B04F4  D0 03 00 68 */	stfs f0, 0x68(r3)
 /* 800B3598 000B04F8  C0 04 00 6C */	lfs f0, 0x6c(r4)
 /* 800B359C 000B04FC  D0 03 00 6C */	stfs f0, 0x6c(r3)
-/* 800B35A0 000B0500  4E 80 00 20 */	blr 
+/* 800B35A0 000B0500  4E 80 00 20 */	blr
 
 .global "DecayRiders__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>fR13CStateManager"
 "DecayRiders__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>fR13CStateManager":
@@ -3123,7 +3123,7 @@ lbl_800B3650:
 /* 800B3684 000B05E4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800B3688 000B05E8  7C 08 03 A6 */	mtlr r0
 /* 800B368C 000B05EC  38 21 00 50 */	addi r1, r1, 0x50
-/* 800B3690 000B05F0  4E 80 00 20 */	blr 
+/* 800B3690 000B05F0  4E 80 00 20 */	blr
 
 .global "BuildNearListFromRiders__15CScriptPlatformFR13CStateManagerRCQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>"
 "BuildNearListFromRiders__15CScriptPlatformFR13CStateManagerRCQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>":
@@ -3216,7 +3216,7 @@ lbl_800B37B4:
 /* 800B37C0 000B0720  80 01 08 34 */	lwz r0, 0x834(r1)
 /* 800B37C4 000B0724  7C 08 03 A6 */	mtlr r0
 /* 800B37C8 000B0728  38 21 08 30 */	addi r1, r1, 0x830
-/* 800B37CC 000B072C  4E 80 00 20 */	blr 
+/* 800B37CC 000B072C  4E 80 00 20 */	blr
 
 .global "AddRider__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>9TUniqueIdPC13CPhysicsActorR13CStateManager"
 "AddRider__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>9TUniqueIdPC13CPhysicsActorR13CStateManager":
@@ -3355,7 +3355,7 @@ lbl_800B39B8:
 /* 800B39BC 000B091C  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 800B39C0 000B0920  7C 08 03 A6 */	mtlr r0
 /* 800B39C4 000B0924  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 800B39C8 000B0928  4E 80 00 20 */	blr 
+/* 800B39C8 000B0928  4E 80 00 20 */	blr
 
 .global GetNext__15CScriptPlatformF9TUniqueIdR13CStateManager
 GetNext__15CScriptPlatformF9TUniqueIdR13CStateManager:
@@ -3412,7 +3412,7 @@ lbl_800B3A7C:
 /* 800B3A88 000B09E8  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 800B3A8C 000B09EC  7C 08 03 A6 */	mtlr r0
 /* 800B3A90 000B09F0  38 21 00 40 */	addi r1, r1, 0x40
-/* 800B3A94 000B09F4  4E 80 00 20 */	blr 
+/* 800B3A94 000B09F4  4E 80 00 20 */	blr
 
 .global GetWaypoint__15CScriptPlatformFR13CStateManager
 GetWaypoint__15CScriptPlatformFR13CStateManager:
@@ -3450,7 +3450,7 @@ lbl_800B3B00:
 /* 800B3B04 000B0A64  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 800B3B08 000B0A68  7C 08 03 A6 */	mtlr r0
 /* 800B3B0C 000B0A6C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B3B10 000B0A70  4E 80 00 20 */	blr 
+/* 800B3B10 000B0A70  4E 80 00 20 */	blr
 
 .global GetTouchBounds__15CScriptPlatformCFv
 GetTouchBounds__15CScriptPlatformCFv:
@@ -3472,7 +3472,7 @@ GetTouchBounds__15CScriptPlatformCFv:
 /* 800B3B50 000B0AB0  38 A5 00 34 */	addi r5, r5, 0x34
 /* 800B3B54 000B0AB4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 800B3B58 000B0AB8  7D 89 03 A6 */	mtctr r12
-/* 800B3B5C 000B0ABC  4E 80 04 21 */	bctrl 
+/* 800B3B5C 000B0ABC  4E 80 04 21 */	bctrl
 /* 800B3B60 000B0AC0  38 00 00 01 */	li r0, 1
 /* 800B3B64 000B0AC4  28 1F 00 00 */	cmplwi r31, 0
 /* 800B3B68 000B0AC8  98 1F 00 18 */	stb r0, 0x18(r31)
@@ -3518,7 +3518,7 @@ lbl_800B3BF8:
 /* 800B3BFC 000B0B5C  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 800B3C00 000B0B60  7C 08 03 A6 */	mtlr r0
 /* 800B3C04 000B0B64  38 21 00 40 */	addi r1, r1, 0x40
-/* 800B3C08 000B0B68  4E 80 00 20 */	blr 
+/* 800B3C08 000B0B68  4E 80 00 20 */	blr
 
 .global __dt__15CScriptPlatformFv
 __dt__15CScriptPlatformFv:
@@ -3605,7 +3605,7 @@ lbl_800B3D10:
 /* 800B3D28 000B0C88  38 80 00 01 */	li r4, 1
 /* 800B3D2C 000B0C8C  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800B3D30 000B0C90  7D 89 03 A6 */	mtctr r12
-/* 800B3D34 000B0C94  4E 80 04 21 */	bctrl 
+/* 800B3D34 000B0C94  4E 80 04 21 */	bctrl
 lbl_800B3D38:
 /* 800B3D38 000B0C98  34 1E 03 04 */	addic. r0, r30, 0x304
 /* 800B3D3C 000B0C9C  41 82 00 30 */	beq lbl_800B3D6C
@@ -3636,7 +3636,7 @@ lbl_800B3D88:
 /* 800B3D94 000B0CF4  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 800B3D98 000B0CF8  7C 08 03 A6 */	mtlr r0
 /* 800B3D9C 000B0CFC  38 21 00 40 */	addi r1, r1, 0x40
-/* 800B3DA0 000B0D00  4E 80 00 20 */	blr 
+/* 800B3DA0 000B0D00  4E 80 00 20 */	blr
 
 .global __dt__23CCollidableOBBTreeGroupFv
 __dt__23CCollidableOBBTreeGroupFv:
@@ -3664,7 +3664,7 @@ lbl_800B3DE8:
 /* 800B3DF0 000B0D50  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800B3DF4 000B0D54  7C 08 03 A6 */	mtlr r0
 /* 800B3DF8 000B0D58  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B3DFC 000B0D5C  4E 80 00 20 */	blr 
+/* 800B3DFC 000B0D5C  4E 80 00 20 */	blr
 
 .global "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii"
 "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii":
@@ -4010,7 +4010,7 @@ lbl_800B432C:
 /* 800B433C 000B129C  38 80 00 01 */	li r4, 1
 /* 800B4340 000B12A0  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800B4344 000B12A4  7D 89 03 A6 */	mtctr r12
-/* 800B4348 000B12A8  4E 80 04 21 */	bctrl 
+/* 800B4348 000B12A8  4E 80 04 21 */	bctrl
 lbl_800B434C:
 /* 800B434C 000B12AC  91 DF 03 14 */	stw r14, 0x314(r31)
 lbl_800B4350:
@@ -4031,12 +4031,12 @@ update_fog__3CGXFUi:
 /* 800B437C 000B12DC  38 A4 53 EC */	addi r5, r4, lbl_805A53EC@l
 /* 800B4380 000B12E0  88 05 00 53 */	lbz r0, 0x53(r5)
 /* 800B4384 000B12E4  28 00 00 00 */	cmplwi r0, 0
-/* 800B4388 000B12E8  4D 82 00 20 */	beqlr 
+/* 800B4388 000B12E8  4D 82 00 20 */	beqlr
 /* 800B438C 000B12EC  A0 05 00 56 */	lhz r0, 0x56(r5)
 /* 800B4390 000B12F0  54 63 06 34 */	rlwinm r3, r3, 0, 0x18, 0x1a
 /* 800B4394 000B12F4  54 00 06 34 */	rlwinm r0, r0, 0, 0x18, 0x1a
 /* 800B4398 000B12F8  7C 00 18 40 */	cmplw r0, r3
-/* 800B439C 000B12FC  4D 82 00 20 */	beqlr 
+/* 800B439C 000B12FC  4D 82 00 20 */	beqlr
 /* 800B43A0 000B1300  28 03 00 20 */	cmplwi r3, 0x20
 /* 800B43A4 000B1304  40 82 00 28 */	bne lbl_800B43CC
 /* 800B43A8 000B1308  38 00 00 61 */	li r0, 0x61
@@ -4047,7 +4047,7 @@ update_fog__3CGXFUi:
 /* 800B43BC 000B131C  90 64 80 00 */	stw r3, 0xCC008000@l(r4)
 /* 800B43C0 000B1320  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 800B43C4 000B1324  B0 03 00 02 */	sth r0, 2(r3)
-/* 800B43C8 000B1328  4E 80 00 20 */	blr 
+/* 800B43C8 000B1328  4E 80 00 20 */	blr
 lbl_800B43CC:
 /* 800B43CC 000B132C  38 00 00 61 */	li r0, 0x61
 /* 800B43D0 000B1330  3C C0 CC 01 */	lis r6, 0xCC008000@ha
@@ -4062,7 +4062,7 @@ lbl_800B43CC:
 /* 800B43F4 000B1354  90 66 80 00 */	stw r3, 0xCC008000@l(r6)
 /* 800B43F8 000B1358  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
 /* 800B43FC 000B135C  B0 03 00 02 */	sth r0, 2(r3)
-/* 800B4400 000B1360  4E 80 00 20 */	blr 
+/* 800B4400 000B1360  4E 80 00 20 */	blr
 
 .global sub_800b4404
 sub_800b4404:
@@ -4135,4 +4135,4 @@ lbl_800B44E4:
 /* 800B44E8 000B1448  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800B44EC 000B144C  7C 08 03 A6 */	mtlr r0
 /* 800B44F0 000B1450  38 21 00 30 */	addi r1, r1, 0x30
-/* 800B44F4 000B1454  4E 80 00 20 */	blr 
+/* 800B44F4 000B1454  4E 80 00 20 */	blr

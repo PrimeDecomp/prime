@@ -91,7 +91,7 @@ lbl_80280548:
 /* 80280554 0027D4B4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80280558 0027D4B8  7C 08 03 A6 */	mtlr r0
 /* 8028055C 0027D4BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80280560 0027D4C0  4E 80 00 20 */	blr 
+/* 80280560 0027D4C0  4E 80 00 20 */	blr
 
 .global GetOrBuildMetroidPrimeExo__18CMetroidPrimeRelayFR13CStateManager
 GetOrBuildMetroidPrimeExo__18CMetroidPrimeRelayFR13CStateManager:
@@ -280,7 +280,7 @@ lbl_80280810:
 /* 80280814 0027D774  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 80280818 0027D778  7C 08 03 A6 */	mtlr r0
 /* 8028081C 0027D77C  38 21 01 50 */	addi r1, r1, 0x150
-/* 80280820 0027D780  4E 80 00 20 */	blr 
+/* 80280820 0027D780  4E 80 00 20 */	blr
 
 .global ForwardMessageToMetroidPrimeExo__18CMetroidPrimeRelayF20EScriptObjectMessageR13CStateManager
 ForwardMessageToMetroidPrimeExo__18CMetroidPrimeRelayF20EScriptObjectMessageR13CStateManager:
@@ -323,7 +323,7 @@ lbl_802808A0:
 /* 802808AC 0027D80C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802808B0 0027D810  7C 08 03 A6 */	mtlr r0
 /* 802808B4 0027D814  38 21 00 30 */	addi r1, r1, 0x30
-/* 802808B8 0027D818  4E 80 00 20 */	blr 
+/* 802808B8 0027D818  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CMetroidPrimeRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CMetroidPrimeRelayF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -357,7 +357,7 @@ lbl_80280910:
 /* 8028091C 0027D87C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80280920 0027D880  7C 08 03 A6 */	mtlr r0
 /* 80280924 0027D884  38 21 00 20 */	addi r1, r1, 0x20
-/* 80280928 0027D888  4E 80 00 20 */	blr 
+/* 80280928 0027D888  4E 80 00 20 */	blr
 
 .global Accept__18CMetroidPrimeRelay
 Accept__18CMetroidPrimeRelay:
@@ -370,11 +370,11 @@ Accept__18CMetroidPrimeRelay:
 /* 80280944 0027D8A4  7C 04 03 78 */	mr r4, r0
 /* 80280948 0027D8A8  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 8028094C 0027D8AC  7D 89 03 A6 */	mtctr r12
-/* 80280950 0027D8B0  4E 80 04 21 */	bctrl 
+/* 80280950 0027D8B0  4E 80 04 21 */	bctrl
 /* 80280954 0027D8B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80280958 0027D8B8  7C 08 03 A6 */	mtlr r0
 /* 8028095C 0027D8BC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80280960 0027D8C0  4E 80 00 20 */	blr 
+/* 80280960 0027D8C0  4E 80 00 20 */	blr
 
 .global "__ct__18CMetroidPrimeRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfoRCQ24rstl47vector<10CModelData,Q24rstl17rmemory_allocator>RCQ24rstl47vector<10CModelData,Q24rstl17rmemory_allocator>RC11CEntityInfobRC12CTransform4fRC9CVector3fRC14SPrimeExoParmsibiRC11CHealthInfoRC11CHealthInfoiiiQ24rstl44reserved_vector<23SPrimeExoRoomParameters,4>"
 "__ct__18CMetroidPrimeRelayF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC14CPatternedInfoRCQ24rstl47vector<10CModelData,Q24rstl17rmemory_allocator>RCQ24rstl47vector<10CModelData,Q24rstl17rmemory_allocator>RC11CEntityInfobRC12CTransform4fRC9CVector3fRC14SPrimeExoParmsibiRC11CHealthInfoRC11CHealthInfoiiiQ24rstl44reserved_vector<23SPrimeExoRoomParameters,4>":
@@ -491,7 +491,7 @@ lbl_80280AE0:
 /* 80280B08 0027DA68  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80280B0C 0027DA6C  7C 08 03 A6 */	mtlr r0
 /* 80280B10 0027DA70  38 21 00 80 */	addi r1, r1, 0x80
-/* 80280B14 0027DA74  4E 80 00 20 */	blr 
+/* 80280B14 0027DA74  4E 80 00 20 */	blr
 
 .global __ct__19SPrimeExoParametersFRC19SPrimeExoParameters
 __ct__19SPrimeExoParametersFRC19SPrimeExoParameters:
@@ -732,7 +732,7 @@ lbl_80280EA8:
 /* 80280EB4 0027DE14  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80280EB8 0027DE18  7C 08 03 A6 */	mtlr r0
 /* 80280EBC 0027DE1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80280EC0 0027DE20  4E 80 00 20 */	blr 
+/* 80280EC0 0027DE20  4E 80 00 20 */	blr
 
 .global sub_80280ec4
 sub_80280ec4:
@@ -752,7 +752,7 @@ sub_80280ec4:
 /* 80280EF8 0027DE58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80280EFC 0027DE5C  7C 08 03 A6 */	mtlr r0
 /* 80280F00 0027DE60  38 21 00 10 */	addi r1, r1, 0x10
-/* 80280F04 0027DE64  4E 80 00 20 */	blr 
+/* 80280F04 0027DE64  4E 80 00 20 */	blr
 
 .global sub_80280f08
 sub_80280f08:
@@ -786,7 +786,7 @@ lbl_80280F50:
 /* 80280F6C 0027DECC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80280F70 0027DED0  7C 08 03 A6 */	mtlr r0
 /* 80280F74 0027DED4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80280F78 0027DED8  4E 80 00 20 */	blr 
+/* 80280F78 0027DED8  4E 80 00 20 */	blr
 
 .global sub_80280f7c
 sub_80280f7c:
@@ -800,7 +800,7 @@ lbl_80280F94:
 /* 80280F94 0027DEF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80280F98 0027DEF8  7C 08 03 A6 */	mtlr r0
 /* 80280F9C 0027DEFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80280FA0 0027DF00  4E 80 00 20 */	blr 
+/* 80280FA0 0027DF00  4E 80 00 20 */	blr
 
 .global sub_80280fa4
 sub_80280fa4:
@@ -888,7 +888,7 @@ sub_80280fa4:
 /* 802810E8 0027E048  D0 03 00 A0 */	stfs f0, 0xa0(r3)
 /* 802810EC 0027E04C  88 04 00 A4 */	lbz r0, 0xa4(r4)
 /* 802810F0 0027E050  98 03 00 A4 */	stb r0, 0xa4(r3)
-/* 802810F4 0027E054  4E 80 00 20 */	blr 
+/* 802810F4 0027E054  4E 80 00 20 */	blr
 
 .global LoadAndBuildPrimeCameraShakeData__FR12CInputStream
 LoadAndBuildPrimeCameraShakeData__FR12CInputStream:
@@ -906,7 +906,7 @@ LoadAndBuildPrimeCameraShakeData__FR12CInputStream:
 /* 80281124 0027E084  83 E1 00 8C */	lwz r31, 0x8c(r1)
 /* 80281128 0027E088  7C 08 03 A6 */	mtlr r0
 /* 8028112C 0027E08C  38 21 00 90 */	addi r1, r1, 0x90
-/* 80281130 0027E090  4E 80 00 20 */	blr 
+/* 80281130 0027E090  4E 80 00 20 */	blr
 
 .global LoadPrimeCameraShakeData__FR12CInputStream
 LoadPrimeCameraShakeData__FR12CInputStream:
@@ -941,7 +941,7 @@ LoadPrimeCameraShakeData__FR12CInputStream:
 /* 802811A4 0027E104  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802811A8 0027E108  7C 08 03 A6 */	mtlr r0
 /* 802811AC 0027E10C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802811B0 0027E110  4E 80 00 20 */	blr 
+/* 802811B0 0027E110  4E 80 00 20 */	blr
 
 .global LoadPrimeCameraShakerComponent__FR12CInputStream
 LoadPrimeCameraShakerComponent__FR12CInputStream:
@@ -985,7 +985,7 @@ LoadPrimeCameraShakerComponent__FR12CInputStream:
 /* 80281248 0027E1A8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8028124C 0027E1AC  7C 08 03 A6 */	mtlr r0
 /* 80281250 0027E1B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80281254 0027E1B4  4E 80 00 20 */	blr 
+/* 80281254 0027E1B4  4E 80 00 20 */	blr
 
 .global LoadPrimeStruct6s__19SPrimeExoParametersFR12CInputStream
 LoadPrimeStruct6s__19SPrimeExoParametersFR12CInputStream:
@@ -1183,7 +1183,7 @@ lbl_80281518:
 /* 80281530 0027E490  83 81 02 70 */	lwz r28, 0x270(r1)
 /* 80281534 0027E494  7C 08 03 A6 */	mtlr r0
 /* 80281538 0027E498  38 21 02 80 */	addi r1, r1, 0x280
-/* 8028153C 0027E49C  4E 80 00 20 */	blr 
+/* 8028153C 0027E49C  4E 80 00 20 */	blr
 
 .global LoadPrimeStruct4s__19SPrimeExoParametersFR12CInputStream
 LoadPrimeStruct4s__19SPrimeExoParametersFR12CInputStream:
@@ -1242,7 +1242,7 @@ lbl_802815E8:
 /* 802815FC 0027E55C  83 A1 03 64 */	lwz r29, 0x364(r1)
 /* 80281600 0027E560  7C 08 03 A6 */	mtlr r0
 /* 80281604 0027E564  38 21 03 70 */	addi r1, r1, 0x370
-/* 80281608 0027E568  4E 80 00 20 */	blr 
+/* 80281608 0027E568  4E 80 00 20 */	blr
 
 .global sub_8028160c
 sub_8028160c:
@@ -1263,7 +1263,7 @@ sub_8028160c:
 /* 80281644 0027E5A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80281648 0027E5A8  7C 08 03 A6 */	mtlr r0
 /* 8028164C 0027E5AC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80281650 0027E5B0  4E 80 00 20 */	blr 
+/* 80281650 0027E5B0  4E 80 00 20 */	blr
 
 .global __ct__13SPrimeStruct4FR12CInputStream
 __ct__13SPrimeStruct4FR12CInputStream:
@@ -1296,7 +1296,7 @@ __ct__13SPrimeStruct4FR12CInputStream:
 /* 802816BC 0027E61C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802816C0 0027E620  7C 08 03 A6 */	mtlr r0
 /* 802816C4 0027E624  38 21 00 10 */	addi r1, r1, 0x10
-/* 802816C8 0027E628  4E 80 00 20 */	blr 
+/* 802816C8 0027E628  4E 80 00 20 */	blr
 
 .global __ct__13SPrimeStruct5FR12CInputStream
 __ct__13SPrimeStruct5FR12CInputStream:
@@ -1340,7 +1340,7 @@ __ct__13SPrimeStruct5FR12CInputStream:
 /* 80281760 0027E6C0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80281764 0027E6C4  7C 08 03 A6 */	mtlr r0
 /* 80281768 0027E6C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8028176C 0027E6CC  4E 80 00 20 */	blr 
+/* 8028176C 0027E6CC  4E 80 00 20 */	blr
 
 .global sub_80281770
 sub_80281770:
@@ -1351,7 +1351,7 @@ sub_80281770:
 /* 80281780 0027E6E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80281784 0027E6E4  7C 08 03 A6 */	mtlr r0
 /* 80281788 0027E6E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8028178C 0027E6EC  4E 80 00 20 */	blr 
+/* 8028178C 0027E6EC  4E 80 00 20 */	blr
 
 .global __ct__19SPrimeExoParametersFR12CInputStream
 __ct__19SPrimeExoParametersFR12CInputStream:
@@ -1709,7 +1709,7 @@ lbl_80281C84:
 /* 80281C98 0027EBF8  80 01 0A 04 */	lwz r0, 0xa04(r1)
 /* 80281C9C 0027EBFC  7C 08 03 A6 */	mtlr r0
 /* 80281CA0 0027EC00  38 21 0A 00 */	addi r1, r1, 0xa00
-/* 80281CA4 0027EC04  4E 80 00 20 */	blr 
+/* 80281CA4 0027EC04  4E 80 00 20 */	blr
 
 .global __ct__14SPrimeStruct2BFR12CInputStream
 __ct__14SPrimeStruct2BFR12CInputStream:

@@ -5,7 +5,7 @@
 .global lbl_80479510
 lbl_80479510:
 	.skip 0x48
-	
+
 .section .text, "ax"
 
 .global TriPointSqrDist__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fPfPf
@@ -379,7 +379,7 @@ lbl_802D0214:
 /* 802D0240 002CD1A0  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 802D0244 002CD1A4  7C 08 03 A6 */	mtlr r0
 /* 802D0248 002CD1A8  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 802D024C 002CD1AC  4E 80 00 20 */	blr 
+/* 802D024C 002CD1AC  4E 80 00 20 */	blr
 
 .global TriSphereIntersection__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3fR9CVector3f
 TriSphereIntersection__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRC9CVector3fR9CVector3fR9CVector3f:
@@ -511,7 +511,7 @@ lbl_802D0424:
 /* 802D0430 002CD390  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 802D0434 002CD394  7C 08 03 A6 */	mtlr r0
 /* 802D0438 002CD398  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802D043C 002CD39C  4E 80 00 20 */	blr 
+/* 802D043C 002CD39C  4E 80 00 20 */	blr
 
 .global TriSphereOverlap__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRC9CVector3f
 TriSphereOverlap__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -534,7 +534,7 @@ TriSphereOverlap__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRC9CVector3f
 /* 802D0480 002CD3E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D0484 002CD3E4  7C 08 03 A6 */	mtlr r0
 /* 802D0488 002CD3E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D048C 002CD3EC  4E 80 00 20 */	blr 
+/* 802D048C 002CD3EC  4E 80 00 20 */	blr
 
 .global MovingSphereAABox__13CollisionUtilFRC7CSphereRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f
 MovingSphereAABox__13CollisionUtilFRC7CSphereRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f:
@@ -1516,7 +1516,7 @@ lbl_802D1318:
 /* 802D131C 002CE27C  80 01 01 C4 */	lwz r0, 0x1c4(r1)
 /* 802D1320 002CE280  7C 08 03 A6 */	mtlr r0
 /* 802D1324 002CE284  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 802D1328 002CE288  4E 80 00 20 */	blr 
+/* 802D1328 002CE288  4E 80 00 20 */	blr
 
 .global LineCircleIntersection2d__13CollisionUtilFRC9CVector3fRC9CVector3fRC7CSphereiiRf
 LineCircleIntersection2d__13CollisionUtilFRC9CVector3fRC9CVector3fRC7CSphereiiRf:
@@ -1634,7 +1634,7 @@ lbl_802D14AC:
 /* 802D14D0 002CE430  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 802D14D4 002CE434  7C 08 03 A6 */	mtlr r0
 /* 802D14D8 002CE438  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802D14DC 002CE43C  4E 80 00 20 */	blr 
+/* 802D14DC 002CE43C  4E 80 00 20 */	blr
 
 .global TriBoxOverlap__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f
 TriBoxOverlap__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f:
@@ -2135,7 +2135,7 @@ lbl_802D1B30:
 /* 802D1B98 002CEAF8  E2 41 00 38 */	psq_l f18, 56(r1), 0, qr0
 /* 802D1B9C 002CEAFC  CA 41 00 30 */	lfd f18, 0x30(r1)
 /* 802D1BA0 002CEB00  38 21 01 10 */	addi r1, r1, 0x110
-/* 802D1BA4 002CEB04  4E 80 00 20 */	blr 
+/* 802D1BA4 002CEB04  4E 80 00 20 */	blr
 
 .global BoxLineTest__13CollisionUtilFRC6CAABoxRC9CVector3fRC9CVector3fRfRfRiRb
 BoxLineTest__13CollisionUtilFRC6CAABoxRC9CVector3fRC9CVector3fRfRfRiRb:
@@ -2161,7 +2161,7 @@ lbl_802D1BCC:
 /* 802D1BF0 002CEB50  40 81 00 90 */	ble lbl_802D1C80
 lbl_802D1BF4:
 /* 802D1BF4 002CEB54  38 60 00 00 */	li r3, 0
-/* 802D1BF8 002CEB58  4E 80 00 20 */	blr 
+/* 802D1BF8 002CEB58  4E 80 00 20 */	blr
 lbl_802D1BFC:
 /* 802D1BFC 002CEB5C  C0 02 C4 BC */	lfs f0, lbl_805AE1DC@sda21(r2)
 /* 802D1C00 002CEB60  FC 04 10 40 */	fcmpo cr0, f4, f2
@@ -2212,7 +2212,7 @@ lbl_802D1C80:
 /* 802D1CA4 002CEC04  4C 40 13 82 */	cror 2, 0, 2
 /* 802D1CA8 002CEC08  7C 00 00 26 */	mfcr r0
 /* 802D1CAC 002CEC0C  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
-/* 802D1CB0 002CEC10  4E 80 00 20 */	blr 
+/* 802D1CB0 002CEC10  4E 80 00 20 */	blr
 
 .global AABox_AABox_Moving__13CollisionUtilFRC6CAABoxRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f
 AABox_AABox_Moving__13CollisionUtilFRC6CAABoxRC6CAABoxRC9CVector3fRdR9CVector3fR9CVector3f:
@@ -2500,7 +2500,7 @@ lbl_802D20A0:
 /* 802D20A4 002CF004  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802D20A8 002CF008  7C 08 03 A6 */	mtlr r0
 /* 802D20AC 002CF00C  38 21 00 50 */	addi r1, r1, 0x50
-/* 802D20B0 002CF010  4E 80 00 20 */	blr 
+/* 802D20B0 002CF010  4E 80 00 20 */	blr
 
 .global AddAverageToFront__13CollisionUtilFRC18CCollisionInfoListR18CCollisionInfoList
 AddAverageToFront__13CollisionUtilFRC18CCollisionInfoListR18CCollisionInfoList:
@@ -2675,7 +2675,7 @@ lbl_802D2320:
 /* 802D2338 002CF298  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 802D233C 002CF29C  7C 08 03 A6 */	mtlr r0
 /* 802D2340 002CF2A0  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802D2344 002CF2A4  4E 80 00 20 */	blr 
+/* 802D2344 002CF2A4  4E 80 00 20 */	blr
 
 .global FilterOutBackfaces__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList
 FilterOutBackfaces__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList:
@@ -2751,7 +2751,7 @@ lbl_802D2418:
 /* 802D2448 002CF3A8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802D244C 002CF3AC  7C 08 03 A6 */	mtlr r0
 /* 802D2450 002CF3B0  38 21 00 70 */	addi r1, r1, 0x70
-/* 802D2454 002CF3B4  4E 80 00 20 */	blr 
+/* 802D2454 002CF3B4  4E 80 00 20 */	blr
 
 .global FilterByClosestNormal__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList
 FilterByClosestNormal__13CollisionUtilFRC9CVector3fRC18CCollisionInfoListR18CCollisionInfoList:
@@ -2797,7 +2797,7 @@ lbl_802D24E4:
 /* 802D24E4 002CF444  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D24E8 002CF448  7C 08 03 A6 */	mtlr r0
 /* 802D24EC 002CF44C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D24F0 002CF450  4E 80 00 20 */	blr 
+/* 802D24F0 002CF450  4E 80 00 20 */	blr
 
 .global RayTriangleIntersection_Double__13CollisionUtilFRC9CVector3fRC9CVector3fPC9CVector3fRd
 RayTriangleIntersection_Double__13CollisionUtilFRC9CVector3fRC9CVector3fPC9CVector3fRd:
@@ -2954,7 +2954,7 @@ lbl_802D270C:
 /* 802D272C 002CF68C  83 81 01 10 */	lwz r28, 0x110(r1)
 /* 802D2730 002CF690  7C 08 03 A6 */	mtlr r0
 /* 802D2734 002CF694  38 21 01 40 */	addi r1, r1, 0x140
-/* 802D2738 002CF698  4E 80 00 20 */	blr 
+/* 802D2738 002CF698  4E 80 00 20 */	blr
 
 .global RayTriangleIntersection__13CollisionUtilFRC9CVector3fRC9CVector3fPC9CVector3fRf
 RayTriangleIntersection__13CollisionUtilFRC9CVector3fRC9CVector3fPC9CVector3fRf:
@@ -3072,7 +3072,7 @@ lbl_802D28B0:
 /* 802D28D8 002CF838  E3 41 00 18 */	psq_l f26, 24(r1), 0, qr0
 /* 802D28DC 002CF83C  CB 41 00 10 */	lfd f26, 0x10(r1)
 /* 802D28E0 002CF840  38 21 00 70 */	addi r1, r1, 0x70
-/* 802D28E4 002CF844  4E 80 00 20 */	blr 
+/* 802D28E4 002CF844  4E 80 00 20 */	blr
 
 .global AABoxSphereIntersectionRadius__13CollisionUtilFRC6CAABoxRC7CSphere
 AABoxSphereIntersectionRadius__13CollisionUtilFRC6CAABoxRC7CSphere:
@@ -3103,7 +3103,7 @@ lbl_802D2908:
 /* 802D2944 002CF8A4  48 00 00 50 */	b lbl_802D2994
 lbl_802D2948:
 /* 802D2948 002CF8A8  C0 22 C4 C0 */	lfs f1, lbl_805AE1E0@sda21(r2)
-/* 802D294C 002CF8AC  4E 80 00 20 */	blr 
+/* 802D294C 002CF8AC  4E 80 00 20 */	blr
 lbl_802D2950:
 /* 802D2950 002CF8B0  C0 67 00 00 */	lfs f3, 0(r7)
 /* 802D2954 002CF8B4  FC 02 18 40 */	fcmpo cr0, f2, f3
@@ -3122,7 +3122,7 @@ lbl_802D2950:
 /* 802D2988 002CF8E8  48 00 00 0C */	b lbl_802D2994
 lbl_802D298C:
 /* 802D298C 002CF8EC  C0 22 C4 C0 */	lfs f1, lbl_805AE1E0@sda21(r2)
-/* 802D2990 002CF8F0  4E 80 00 20 */	blr 
+/* 802D2990 002CF8F0  4E 80 00 20 */	blr
 lbl_802D2994:
 /* 802D2994 002CF8F4  38 63 00 04 */	addi r3, r3, 4
 /* 802D2998 002CF8F8  38 A5 00 04 */	addi r5, r5, 4
@@ -3131,13 +3131,13 @@ lbl_802D2994:
 /* 802D29A4 002CF904  39 08 00 02 */	addi r8, r8, 2
 /* 802D29A8 002CF908  42 00 FF 60 */	bdnz lbl_802D2908
 /* 802D29AC 002CF90C  2C 09 00 00 */	cmpwi r9, 0
-/* 802D29B0 002CF910  4D 82 00 20 */	beqlr 
+/* 802D29B0 002CF910  4D 82 00 20 */	beqlr
 /* 802D29B4 002CF914  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 802D29B8 002CF918  EC 00 00 32 */	fmuls f0, f0, f0
 /* 802D29BC 002CF91C  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 802D29C0 002CF920  4C 81 00 20 */	blelr 
+/* 802D29C0 002CF920  4C 81 00 20 */	blelr
 /* 802D29C4 002CF924  C0 22 C4 C0 */	lfs f1, lbl_805AE1E0@sda21(r2)
-/* 802D29C8 002CF928  4E 80 00 20 */	blr 
+/* 802D29C8 002CF928  4E 80 00 20 */	blr
 
 .global AABoxSphereIntersection__13CollisionUtilFRC6CAABoxRC7CSphere
 AABoxSphereIntersection__13CollisionUtilFRC6CAABoxRC7CSphere:
@@ -3168,7 +3168,7 @@ lbl_802D29EC:
 /* 802D2A28 002CF988  48 00 00 50 */	b lbl_802D2A78
 lbl_802D2A2C:
 /* 802D2A2C 002CF98C  38 60 00 00 */	li r3, 0
-/* 802D2A30 002CF990  4E 80 00 20 */	blr 
+/* 802D2A30 002CF990  4E 80 00 20 */	blr
 lbl_802D2A34:
 /* 802D2A34 002CF994  C0 47 00 00 */	lfs f2, 0(r7)
 /* 802D2A38 002CF998  FC 01 10 40 */	fcmpo cr0, f1, f2
@@ -3187,7 +3187,7 @@ lbl_802D2A34:
 /* 802D2A6C 002CF9CC  48 00 00 0C */	b lbl_802D2A78
 lbl_802D2A70:
 /* 802D2A70 002CF9D0  38 60 00 00 */	li r3, 0
-/* 802D2A74 002CF9D4  4E 80 00 20 */	blr 
+/* 802D2A74 002CF9D4  4E 80 00 20 */	blr
 lbl_802D2A78:
 /* 802D2A78 002CF9D8  38 63 00 04 */	addi r3, r3, 4
 /* 802D2A7C 002CF9DC  38 A5 00 04 */	addi r5, r5, 4
@@ -3198,7 +3198,7 @@ lbl_802D2A78:
 /* 802D2A90 002CF9F0  2C 09 00 00 */	cmpwi r9, 0
 /* 802D2A94 002CF9F4  40 82 00 0C */	bne lbl_802D2AA0
 /* 802D2A98 002CF9F8  38 60 00 01 */	li r3, 1
-/* 802D2A9C 002CF9FC  4E 80 00 20 */	blr 
+/* 802D2A9C 002CF9FC  4E 80 00 20 */	blr
 lbl_802D2AA0:
 /* 802D2AA0 002CFA00  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 802D2AA4 002CFA04  EC 00 00 32 */	fmuls f0, f0, f0
@@ -3207,7 +3207,7 @@ lbl_802D2AA0:
 /* 802D2AB0 002CFA10  54 00 17 FE */	rlwinm r0, r0, 2, 0x1f, 0x1f
 /* 802D2AB4 002CFA14  7C 00 00 34 */	cntlzw r0, r0
 /* 802D2AB8 002CFA18  54 03 D9 7E */	srwi r3, r0, 5
-/* 802D2ABC 002CFA1C  4E 80 00 20 */	blr 
+/* 802D2ABC 002CFA1C  4E 80 00 20 */	blr
 
 .global AABoxAABoxIntersection__13CollisionUtilFRC6CAABoxRC13CMaterialListRC6CAABoxRC13CMaterialListR18CCollisionInfoList
 AABoxAABoxIntersection__13CollisionUtilFRC6CAABoxRC13CMaterialListRC6CAABoxRC13CMaterialListR18CCollisionInfoList:
@@ -3486,7 +3486,7 @@ lbl_802D2EA8:
 /* 802D2EAC 002CFE0C  80 01 02 24 */	lwz r0, 0x224(r1)
 /* 802D2EB0 002CFE10  7C 08 03 A6 */	mtlr r0
 /* 802D2EB4 002CFE14  38 21 02 20 */	addi r1, r1, 0x220
-/* 802D2EB8 002CFE18  4E 80 00 20 */	blr 
+/* 802D2EB8 002CFE18  4E 80 00 20 */	blr
 
 .global AABoxAABoxIntersection__13CollisionUtilFRC6CAABoxRC6CAABox
 AABoxAABoxIntersection__13CollisionUtilFRC6CAABoxRC6CAABox:
@@ -3549,10 +3549,10 @@ lbl_802D2F64:
 /* 802D2F6C 002CFECC  40 82 00 0C */	bne lbl_802D2F78
 lbl_802D2F70:
 /* 802D2F70 002CFED0  38 60 00 00 */	li r3, 0
-/* 802D2F74 002CFED4  4E 80 00 20 */	blr 
+/* 802D2F74 002CFED4  4E 80 00 20 */	blr
 lbl_802D2F78:
 /* 802D2F78 002CFED8  38 60 00 01 */	li r3, 1
-/* 802D2F7C 002CFEDC  4E 80 00 20 */	blr 
+/* 802D2F7C 002CFEDC  4E 80 00 20 */	blr
 
 .global RayAABoxIntersection__13CollisionUtilFRC5CMRayRC6CAABoxRfRf
 RayAABoxIntersection__13CollisionUtilFRC5CMRayRC6CAABoxRfRf:
@@ -3652,7 +3652,7 @@ lbl_802D30D4:
 /* 802D30D4 002D0034  38 60 00 00 */	li r3, 0
 lbl_802D30D8:
 /* 802D30D8 002D0038  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D30DC 002D003C  4E 80 00 20 */	blr 
+/* 802D30DC 002D003C  4E 80 00 20 */	blr
 
 .global RayAABoxIntersection_Double__13CollisionUtilFRC5CMRayRC6CAABoxR9CVector3fRd
 RayAABoxIntersection_Double__13CollisionUtilFRC5CMRayRC6CAABoxR9CVector3fRd:
@@ -3985,7 +3985,7 @@ lbl_802D3564:
 /* 802D3580 002D04E0  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 802D3584 002D04E4  7C 08 03 A6 */	mtlr r0
 /* 802D3588 002D04E8  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 802D358C 002D04EC  4E 80 00 20 */	blr 
+/* 802D358C 002D04EC  4E 80 00 20 */	blr
 
 .global RayAABoxIntersection__13CollisionUtilFRC5CMRayRC6CAABoxR9CVector3fRf
 RayAABoxIntersection__13CollisionUtilFRC5CMRayRC6CAABoxR9CVector3fRf:
@@ -4290,7 +4290,7 @@ lbl_802D39C0:
 /* 802D39C0 002D0920  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802D39C4 002D0924  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802D39C8 002D0928  38 21 00 40 */	addi r1, r1, 0x40
-/* 802D39CC 002D092C  4E 80 00 20 */	blr 
+/* 802D39CC 002D092C  4E 80 00 20 */	blr
 
 .global RaySphereIntersection_Double__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRd
 RaySphereIntersection_Double__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3fRd:
@@ -4373,7 +4373,7 @@ lbl_802D3AE0:
 /* 802D3AF8 002D0A58  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 802D3AFC 002D0A5C  7C 08 03 A6 */	mtlr r0
 /* 802D3B00 002D0A60  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802D3B04 002D0A64  4E 80 00 20 */	blr 
+/* 802D3B04 002D0A64  4E 80 00 20 */	blr
 
 .global RaySphereIntersection__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3ffRfR9CVector3f
 RaySphereIntersection__13CollisionUtilFRC7CSphereRC9CVector3fRC9CVector3ffRfR9CVector3f:
@@ -4485,7 +4485,7 @@ lbl_802D3C60:
 /* 802D3C90 002D0BF0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802D3C94 002D0BF4  7C 08 03 A6 */	mtlr r0
 /* 802D3C98 002D0BF8  38 21 00 60 */	addi r1, r1, 0x60
-/* 802D3C9C 002D0BFC  4E 80 00 20 */	blr 
+/* 802D3C9C 002D0BFC  4E 80 00 20 */	blr
 
 .global RayPlaneIntersection__13CollisionUtilFRC9CVector3fRC9CVector3fRC6CPlaneR9CVector3f
 RayPlaneIntersection__13CollisionUtilFRC9CVector3fRC9CVector3fRC6CPlaneR9CVector3f:
@@ -4585,7 +4585,7 @@ lbl_802D3DE0:
 /* 802D3E04 002D0D64  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802D3E08 002D0D68  7C 08 03 A6 */	mtlr r0
 /* 802D3E0C 002D0D6C  38 21 00 60 */	addi r1, r1, 0x60
-/* 802D3E10 002D0D70  4E 80 00 20 */	blr 
+/* 802D3E10 002D0D70  4E 80 00 20 */	blr
 
 .global __sinit_CollisionUtil_cpp
 __sinit_CollisionUtil_cpp:

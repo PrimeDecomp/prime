@@ -62,7 +62,7 @@ lbl_802E3154:
 /* 802E315C 002E00BC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802E3160 002E00C0  7C 08 03 A6 */	mtlr r0
 /* 802E3164 002E00C4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E3168 002E00C8  4E 80 00 20 */	blr 
+/* 802E3168 002E00C8  4E 80 00 20 */	blr
 
 .global ComputeAngularPercentErrorWeight__13CPASAnimStateCFUiRC12CPASAnimParmQ212CPASAnimParm10UParmValue
 ComputeAngularPercentErrorWeight__13CPASAnimStateCFUiRC12CPASAnimParmQ212CPASAnimParm10UParmValue:
@@ -257,7 +257,7 @@ lbl_802E3408:
 /* 802E3414 002E0374  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 802E3418 002E0378  7C 08 03 A6 */	mtlr r0
 /* 802E341C 002E037C  38 21 00 60 */	addi r1, r1, 0x60
-/* 802E3420 002E0380  4E 80 00 20 */	blr 
+/* 802E3420 002E0380  4E 80 00 20 */	blr
 
 .global ComputePercentErrorWeight__13CPASAnimStateCFUiRC12CPASAnimParmQ212CPASAnimParm10UParmValue
 ComputePercentErrorWeight__13CPASAnimStateCFUiRC12CPASAnimParmQ212CPASAnimParm10UParmValue:
@@ -442,7 +442,7 @@ lbl_802E36A8:
 /* 802E36B8 002E0618  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802E36BC 002E061C  7C 08 03 A6 */	mtlr r0
 /* 802E36C0 002E0620  38 21 00 50 */	addi r1, r1, 0x50
-/* 802E36C4 002E0624  4E 80 00 20 */	blr 
+/* 802E36C4 002E0624  4E 80 00 20 */	blr
 
 .global ComputeExactMatchWeight__13CPASAnimStateCFUiRC12CPASAnimParmQ212CPASAnimParm10UParmValue
 ComputeExactMatchWeight__13CPASAnimStateCFUiRC12CPASAnimParmQ212CPASAnimParm10UParmValue:
@@ -537,7 +537,7 @@ lbl_802E37E4:
 /* 802E37E8 002E0748  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E37EC 002E074C  7C 08 03 A6 */	mtlr r0
 /* 802E37F0 002E0750  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E37F4 002E0754  4E 80 00 20 */	blr 
+/* 802E37F4 002E0754  4E 80 00 20 */	blr
 
 .global "FindBestAnimation__13CPASAnimStateCFRCQ24rstl33reserved_vector<12CPASAnimParm,8>R9CRandom16i"
 "FindBestAnimation__13CPASAnimStateCFRCQ24rstl33reserved_vector<12CPASAnimParm,8>R9CRandom16i":
@@ -755,7 +755,7 @@ lbl_802E3AAC:
 /* 802E3ADC 002E0A3C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802E3AE0 002E0A40  7C 08 03 A6 */	mtlr r0
 /* 802E3AE4 002E0A44  38 21 00 90 */	addi r1, r1, 0x90
-/* 802E3AE8 002E0A48  4E 80 00 20 */	blr 
+/* 802E3AE8 002E0A48  4E 80 00 20 */	blr
 
 .global "insert__Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>FQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC12CPASAnimInfo"
 "insert__Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>FQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC12CPASAnimInfo":
@@ -797,7 +797,7 @@ lbl_802E3AAC:
 /* 802E3B78 002E0AD8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802E3B7C 002E0ADC  7C 08 03 A6 */	mtlr r0
 /* 802E3B80 002E0AE0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E3B84 002E0AE4  4E 80 00 20 */	blr 
+/* 802E3B84 002E0AE4  4E 80 00 20 */	blr
 
 .global "insert_into<Q24rstl39const_counting_iterator<12CPASAnimInfo>>__Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>FQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl39const_counting_iterator<12CPASAnimInfo>"
 "insert_into<Q24rstl39const_counting_iterator<12CPASAnimInfo>>__Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>FQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl39const_counting_iterator<12CPASAnimInfo>":
@@ -1128,7 +1128,7 @@ lbl_802E3FE0:
 /* 802E3FE4 002E0F44  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802E3FE8 002E0F48  7C 08 03 A6 */	mtlr r0
 /* 802E3FEC 002E0F4C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E3FF0 002E0F50  4E 80 00 20 */	blr 
+/* 802E3FF0 002E0F50  4E 80 00 20 */	blr
 
 .global GetAnimParmData__13CPASAnimStateCFiUi
 GetAnimParmData__13CPASAnimStateCFiUi:
@@ -1227,7 +1227,7 @@ lbl_802E4134:
 /* 802E4140 002E10A0  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 802E4144 002E10A4  7C 08 03 A6 */	mtlr r0
 /* 802E4148 002E10A8  38 21 00 60 */	addi r1, r1, 0x60
-/* 802E414C 002E10AC  4E 80 00 20 */	blr 
+/* 802E414C 002E10AC  4E 80 00 20 */	blr
 
 .global __ct__13CPASAnimStateFR12CInputStream
 __ct__13CPASAnimStateFR12CInputStream:
@@ -1494,7 +1494,7 @@ lbl_802E44D4:
 /* 802E44E4 002E1444  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802E44E8 002E1448  7C 08 03 A6 */	mtlr r0
 /* 802E44EC 002E144C  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802E44F0 002E1450  4E 80 00 20 */	blr 
+/* 802E44F0 002E1450  4E 80 00 20 */	blr
 
 .global __ct__13CPASAnimStateFi
 __ct__13CPASAnimStateFi:
@@ -1509,7 +1509,7 @@ __ct__13CPASAnimStateFi:
 /* 802E4514 002E1474  90 03 00 28 */	stw r0, 0x28(r3)
 /* 802E4518 002E1478  90 03 00 2C */	stw r0, 0x2c(r3)
 /* 802E451C 002E147C  90 03 00 30 */	stw r0, 0x30(r3)
-/* 802E4520 002E1480  4E 80 00 20 */	blr 
+/* 802E4520 002E1480  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,12CPASAnimInfo>__4rstlFQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC12CPASAnimInfo"
 "lower_bound<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,12CPASAnimInfo>__4rstlFQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC12CPASAnimInfo":
@@ -1563,7 +1563,7 @@ lbl_802E45C0:
 /* 802E45D4 002E1534  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802E45D8 002E1538  7C 08 03 A6 */	mtlr r0
 /* 802E45DC 002E153C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E45E0 002E1540  4E 80 00 20 */	blr 
+/* 802E45E0 002E1540  4E 80 00 20 */	blr
 
 .global "lower_bound<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,12CPASAnimInfo>__4rstlFQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC12CPASAnimInfo"
 "lower_bound<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,12CPASAnimInfo>__4rstlFQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RC12CPASAnimInfo":
@@ -1617,7 +1617,7 @@ lbl_802E4680:
 /* 802E4694 002E15F4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802E4698 002E15F8  7C 08 03 A6 */	mtlr r0
 /* 802E469C 002E15FC  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E46A0 002E1600  4E 80 00 20 */	blr 
+/* 802E46A0 002E1600  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl49vector<12CPASParmInfo,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl49vector<12CPASParmInfo,Q24rstl17rmemory_allocator>Fi":
@@ -1697,7 +1697,7 @@ lbl_802E4798:
 /* 802E47A4 002E1704  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802E47A8 002E1708  7C 08 03 A6 */	mtlr r0
 /* 802E47AC 002E170C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E47B0 002E1710  4E 80 00 20 */	blr 
+/* 802E47B0 002E1710  4E 80 00 20 */	blr
 
 .global "reserve__Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>Fi"
 "reserve__Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>Fi":
@@ -1817,7 +1817,7 @@ lbl_802E492C:
 /* 802E4938 002E1898  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802E493C 002E189C  7C 08 03 A6 */	mtlr r0
 /* 802E4940 002E18A0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802E4944 002E18A4  4E 80 00 20 */	blr 
+/* 802E4944 002E18A4  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -1831,7 +1831,7 @@ lbl_802E492C:
 /* 802E4964 002E18C4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E4968 002E18C8  7C 08 03 A6 */	mtlr r0
 /* 802E496C 002E18CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E4970 002E18D0  4E 80 00 20 */	blr 
+/* 802E4970 002E18D0  4E 80 00 20 */	blr
 
 .global "advance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i"
 "advance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>i":
@@ -1845,7 +1845,7 @@ lbl_802E492C:
 /* 802E4990 002E18F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E4994 002E18F4  7C 08 03 A6 */	mtlr r0
 /* 802E4998 002E18F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E499C 002E18FC  4E 80 00 20 */	blr 
+/* 802E499C 002E18FC  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -1853,7 +1853,7 @@ lbl_802E492C:
 /* 802E49A4 002E1904  80 83 00 00 */	lwz r4, 0(r3)
 /* 802E49A8 002E1908  7C 04 02 14 */	add r0, r4, r0
 /* 802E49AC 002E190C  90 03 00 00 */	stw r0, 0(r3)
-/* 802E49B0 002E1910  4E 80 00 20 */	blr 
+/* 802E49B0 002E1910  4E 80 00 20 */	blr
 
 .global "__advance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag"
 "__advance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>,i>__4rstlFRQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26random_access_iterator_tag":
@@ -1861,7 +1861,7 @@ lbl_802E492C:
 /* 802E49B8 002E1918  80 83 00 00 */	lwz r4, 0(r3)
 /* 802E49BC 002E191C  7C 04 02 14 */	add r0, r4, r0
 /* 802E49C0 002E1920  90 03 00 00 */	stw r0, 0(r3)
-/* 802E49C4 002E1924  4E 80 00 20 */	blr 
+/* 802E49C4 002E1924  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "distance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -1881,7 +1881,7 @@ lbl_802E492C:
 /* 802E49FC 002E195C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E4A00 002E1960  7C 08 03 A6 */	mtlr r0
 /* 802E4A04 002E1964  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E4A08 002E1968  4E 80 00 20 */	blr 
+/* 802E4A08 002E1968  4E 80 00 20 */	blr
 
 .global "distance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 "distance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
@@ -1901,7 +1901,7 @@ lbl_802E492C:
 /* 802E4A40 002E19A0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E4A44 002E19A4  7C 08 03 A6 */	mtlr r0
 /* 802E4A48 002E19A8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E4A4C 002E19AC  4E 80 00 20 */	blr 
+/* 802E4A4C 002E19AC  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_iterator_tag"
 "__distance<Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl118pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_iterator_tag":
@@ -1914,7 +1914,7 @@ lbl_802E492C:
 /* 802E4A68 002E19C8  7C 00 26 70 */	srawi r0, r0, 4
 /* 802E4A6C 002E19CC  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 802E4A70 002E19D0  7C 60 1A 14 */	add r3, r0, r3
-/* 802E4A74 002E19D4  4E 80 00 20 */	blr 
+/* 802E4A74 002E19D4  4E 80 00 20 */	blr
 
 .global "__distance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_iterator_tag"
 "__distance<Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>>__4rstlFQ24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl124const_pointer_iterator<12CPASAnimInfo,Q24rstl49vector<12CPASAnimInfo,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl26random_access_iterator_tag":

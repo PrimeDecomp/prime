@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global nextafter
 nextafter:
@@ -117,4 +117,4 @@ lbl_80394AC8:
 /* 80394AD0 00391A30  C8 21 00 08 */	lfd f1, 8(r1)
 lbl_80394AD4:
 /* 80394AD4 00391A34  38 21 00 20 */	addi r1, r1, 0x20
-/* 80394AD8 00391A38  4E 80 00 20 */	blr 
+/* 80394AD8 00391A38  4E 80 00 20 */	blr

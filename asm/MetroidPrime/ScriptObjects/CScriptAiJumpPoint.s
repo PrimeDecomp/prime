@@ -76,7 +76,7 @@ lbl_801EF244:
 /* 801EF250 001EC1B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801EF254 001EC1B4  7C 08 03 A6 */	mtlr r0
 /* 801EF258 001EC1B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 801EF25C 001EC1BC  4E 80 00 20 */	blr 
+/* 801EF25C 001EC1BC  4E 80 00 20 */	blr
 
 .global GetTouchBounds__18CScriptAiJumpPointCFv
 GetTouchBounds__18CScriptAiJumpPointCFv:
@@ -84,9 +84,9 @@ GetTouchBounds__18CScriptAiJumpPointCFv:
 /* 801EF264 001EC1C4  98 03 00 18 */	stb r0, 0x18(r3)
 /* 801EF268 001EC1C8  88 04 01 04 */	lbz r0, 0x104(r4)
 /* 801EF26C 001EC1CC  28 00 00 00 */	cmplwi r0, 0
-/* 801EF270 001EC1D0  4D 82 00 20 */	beqlr 
+/* 801EF270 001EC1D0  4D 82 00 20 */	beqlr
 /* 801EF274 001EC1D4  28 03 00 00 */	cmplwi r3, 0
-/* 801EF278 001EC1D8  4D 82 00 20 */	beqlr 
+/* 801EF278 001EC1D8  4D 82 00 20 */	beqlr
 /* 801EF27C 001EC1DC  C0 04 00 EC */	lfs f0, 0xec(r4)
 /* 801EF280 001EC1E0  D0 03 00 00 */	stfs f0, 0(r3)
 /* 801EF284 001EC1E4  C0 04 00 F0 */	lfs f0, 0xf0(r4)
@@ -99,25 +99,25 @@ GetTouchBounds__18CScriptAiJumpPointCFv:
 /* 801EF2A0 001EC200  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 801EF2A4 001EC204  C0 04 01 00 */	lfs f0, 0x100(r4)
 /* 801EF2A8 001EC208  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 801EF2AC 001EC20C  4E 80 00 20 */	blr 
+/* 801EF2AC 001EC20C  4E 80 00 20 */	blr
 
 .global Render__18CScriptAiJumpPointCFRC13CStateManager
 Render__18CScriptAiJumpPointCFRC13CStateManager:
-/* 801EF2B0 001EC210  4E 80 00 20 */	blr 
+/* 801EF2B0 001EC210  4E 80 00 20 */	blr
 
 .global AddToRenderer__18CScriptAiJumpPointCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__18CScriptAiJumpPointCFRC14CFrustumPlanesRC13CStateManager:
-/* 801EF2B4 001EC214  4E 80 00 20 */	blr 
+/* 801EF2B4 001EC214  4E 80 00 20 */	blr
 
 .global Think__18CScriptAiJumpPointFfR13CStateManager
 Think__18CScriptAiJumpPointFfR13CStateManager:
 /* 801EF2B8 001EC218  C0 43 01 10 */	lfs f2, 0x110(r3)
 /* 801EF2BC 001EC21C  C0 02 AE 40 */	lfs f0, lbl_805ACB60@sda21(r2)
 /* 801EF2C0 001EC220  FC 02 00 40 */	fcmpo cr0, f2, f0
-/* 801EF2C4 001EC224  4C 81 00 20 */	blelr 
+/* 801EF2C4 001EC224  4C 81 00 20 */	blelr
 /* 801EF2C8 001EC228  EC 02 08 28 */	fsubs f0, f2, f1
 /* 801EF2CC 001EC22C  D0 03 01 10 */	stfs f0, 0x110(r3)
-/* 801EF2D0 001EC230  4E 80 00 20 */	blr 
+/* 801EF2D0 001EC230  4E 80 00 20 */	blr
 
 .global GetInUse__18CScriptAiJumpPointCF9TUniqueId
 GetInUse__18CScriptAiJumpPointCF9TUniqueId:
@@ -142,7 +142,7 @@ lbl_801EF318:
 /* 801EF318 001EC278  38 A0 00 01 */	li r5, 1
 lbl_801EF31C:
 /* 801EF31C 001EC27C  7C A3 2B 78 */	mr r3, r5
-/* 801EF320 001EC280  4E 80 00 20 */	blr 
+/* 801EF320 001EC280  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__18CScriptAiJumpPointF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__18CScriptAiJumpPointF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -214,7 +214,7 @@ lbl_801EF408:
 /* 801EF414 001EC374  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 801EF418 001EC378  7C 08 03 A6 */	mtlr r0
 /* 801EF41C 001EC37C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801EF420 001EC380  4E 80 00 20 */	blr 
+/* 801EF420 001EC380  4E 80 00 20 */	blr
 
 .global Accept__18CScriptAiJumpPointFR8IVisitor
 Accept__18CScriptAiJumpPointFR8IVisitor:
@@ -227,11 +227,11 @@ Accept__18CScriptAiJumpPointFR8IVisitor:
 /* 801EF43C 001EC39C  7C 04 03 78 */	mr r4, r0
 /* 801EF440 001EC3A0  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 801EF444 001EC3A4  7D 89 03 A6 */	mtctr r12
-/* 801EF448 001EC3A8  4E 80 04 21 */	bctrl 
+/* 801EF448 001EC3A8  4E 80 04 21 */	bctrl
 /* 801EF44C 001EC3AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801EF450 001EC3B0  7C 08 03 A6 */	mtlr r0
 /* 801EF454 001EC3B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 801EF458 001EC3B8  4E 80 00 20 */	blr 
+/* 801EF458 001EC3B8  4E 80 00 20 */	blr
 
 .global "__ct__18CScriptAiJumpPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbf"
 "__ct__18CScriptAiJumpPointF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbf":

@@ -16,7 +16,7 @@ YearDays:
 	.4byte 0x00000111
 	.4byte 0x00000130
 	.4byte 0x0000014E
-	
+
 .global lbl_803F2320
 lbl_803F2320:
 	.4byte 0x00000000
@@ -31,7 +31,7 @@ lbl_803F2320:
 	.4byte 0x00000112
 	.4byte 0x00000131
 	.4byte 0x0000014F
-	
+
 .section .text, "ax"
 
 .global OSGetTime
@@ -41,12 +41,12 @@ OSGetTime:
 /* 803853B0 00382310  7C AD 42 E6 */	mftbu r5
 /* 803853B4 00382314  7C 03 28 00 */	cmpw r3, r5
 /* 803853B8 00382318  40 82 FF F0 */	bne OSGetTime
-/* 803853BC 0038231C  4E 80 00 20 */	blr 
+/* 803853BC 0038231C  4E 80 00 20 */	blr
 
 .global OSGetTick
 OSGetTick:
 /* 803853C0 00382320  7C 6C 42 E6 */	mftb r3, 0x10c
-/* 803853C4 00382324  4E 80 00 20 */	blr 
+/* 803853C4 00382324  4E 80 00 20 */	blr
 
 .global __OSGetSystemTime
 __OSGetSystemTime:
@@ -74,7 +74,7 @@ __OSGetSystemTime:
 /* 8038541C 0038237C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80385420 00382380  38 21 00 20 */	addi r1, r1, 0x20
 /* 80385424 00382384  7C 08 03 A6 */	mtlr r0
-/* 80385428 00382388  4E 80 00 20 */	blr 
+/* 80385428 00382388  4E 80 00 20 */	blr
 
 .global __OSTimeToSystemTime
 __OSTimeToSystemTime:
@@ -99,7 +99,7 @@ __OSTimeToSystemTime:
 /* 80385474 003823D4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80385478 003823D8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8038547C 003823DC  7C 08 03 A6 */	mtlr r0
-/* 80385480 003823E0  4E 80 00 20 */	blr 
+/* 80385480 003823E0  4E 80 00 20 */	blr
 
 .global GetDates
 GetDates:
@@ -217,7 +217,7 @@ lbl_803855F4:
 /* 80385610 00382570  7C 63 00 50 */	subf r3, r3, r0
 /* 80385614 00382574  38 03 00 01 */	addi r0, r3, 1
 /* 80385618 00382578  90 04 00 0C */	stw r0, 0xc(r4)
-/* 8038561C 0038257C  4E 80 00 20 */	blr 
+/* 8038561C 0038257C  4E 80 00 20 */	blr
 
 .global OSTicksToCalendarTime
 OSTicksToCalendarTime:
@@ -351,4 +351,4 @@ lbl_803857A0:
 /* 80385814 00382774  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 80385818 00382778  38 21 00 38 */	addi r1, r1, 0x38
 /* 8038581C 0038277C  7C 08 03 A6 */	mtlr r0
-/* 80385820 00382780  4E 80 00 20 */	blr 
+/* 80385820 00382780  4E 80 00 20 */	blr

@@ -89,7 +89,7 @@ lbl_800B7AA8:
 /* 800B7AB8 000B4A18  7F 84 E3 78 */	mr r4, r28
 /* 800B7ABC 000B4A1C  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 800B7AC0 000B4A20  7D 89 03 A6 */	mtctr r12
-/* 800B7AC4 000B4A24  4E 80 04 21 */	bctrl 
+/* 800B7AC4 000B4A24  4E 80 04 21 */	bctrl
 lbl_800B7AC8:
 /* 800B7AC8 000B4A28  7F C3 F3 78 */	mr r3, r30
 /* 800B7ACC 000B4A2C  7F A4 EB 78 */	mr r4, r29
@@ -113,7 +113,7 @@ lbl_800B7AF0:
 /* 800B7B08 000B4A68  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B7B0C 000B4A6C  7C 08 03 A6 */	mtlr r0
 /* 800B7B10 000B4A70  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B7B14 000B4A74  4E 80 00 20 */	blr 
+/* 800B7B14 000B4A74  4E 80 00 20 */	blr
 
 .global SetModulationColorAllActiveEffects__17CParticleDatabaseFRC6CColor
 SetModulationColorAllActiveEffects__17CParticleDatabaseFRC6CColor:
@@ -147,7 +147,7 @@ SetModulationColorAllActiveEffects__17CParticleDatabaseFRC6CColor:
 /* 800B7B84 000B4AE4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B7B88 000B4AE8  7C 08 03 A6 */	mtlr r0
 /* 800B7B8C 000B4AEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B7B90 000B4AF0  4E 80 00 20 */	blr 
+/* 800B7B90 000B4AF0  4E 80 00 20 */	blr
 
 .global "SuspendAllActiveEffectsForParticleDB__17CParticleDatabaseFR13CStateManagerRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>"
 "SuspendAllActiveEffectsForParticleDB__17CParticleDatabaseFR13CStateManagerRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>":
@@ -172,7 +172,7 @@ lbl_800B7BCC:
 /* 800B7BD8 000B4B38  81 83 00 00 */	lwz r12, 0(r3)
 /* 800B7BDC 000B4B3C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800B7BE0 000B4B40  7D 89 03 A6 */	mtctr r12
-/* 800B7BE4 000B4B44  4E 80 04 21 */	bctrl 
+/* 800B7BE4 000B4B44  4E 80 04 21 */	bctrl
 /* 800B7BE8 000B4B48  7F C3 F3 78 */	mr r3, r30
 /* 800B7BEC 000B4B4C  7F A4 EB 78 */	mr r4, r29
 /* 800B7BF0 000B4B50  48 28 49 F1 */	bl rbtree_traverse_forward__4rstlFPCvPv
@@ -195,7 +195,7 @@ lbl_800B7C10:
 /* 800B7C28 000B4B88  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B7C2C 000B4B8C  7C 08 03 A6 */	mtlr r0
 /* 800B7C30 000B4B90  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B7C34 000B4B94  4E 80 00 20 */	blr 
+/* 800B7C34 000B4B94  4E 80 00 20 */	blr
 
 .global SuspendAllActiveEffects__17CParticleDatabaseFR13CStateManager
 SuspendAllActiveEffects__17CParticleDatabaseFR13CStateManager:
@@ -220,7 +220,7 @@ SuspendAllActiveEffects__17CParticleDatabaseFR13CStateManager:
 /* 800B7C80 000B4BE0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B7C84 000B4BE4  7C 08 03 A6 */	mtlr r0
 /* 800B7C88 000B4BE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B7C8C 000B4BEC  4E 80 00 20 */	blr 
+/* 800B7C8C 000B4BEC  4E 80 00 20 */	blr
 
 .global DeleteAllLightsForParticleDB__17CParticleDatabaseFR13CStateManager
 DeleteAllLightsForParticleDB__17CParticleDatabaseFR13CStateManager:
@@ -244,7 +244,7 @@ lbl_800B7CC8:
 /* 800B7CD0 000B4C30  81 83 00 00 */	lwz r12, 0(r3)
 /* 800B7CD4 000B4C34  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 800B7CD8 000B4C38  7D 89 03 A6 */	mtctr r12
-/* 800B7CDC 000B4C3C  4E 80 04 21 */	bctrl 
+/* 800B7CDC 000B4C3C  4E 80 04 21 */	bctrl
 /* 800B7CE0 000B4C40  7F C3 F3 78 */	mr r3, r30
 /* 800B7CE4 000B4C44  7F A4 EB 78 */	mr r4, r29
 /* 800B7CE8 000B4C48  48 28 48 F9 */	bl rbtree_traverse_forward__4rstlFPCvPv
@@ -267,7 +267,7 @@ lbl_800B7D08:
 /* 800B7D20 000B4C80  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B7D24 000B4C84  7C 08 03 A6 */	mtlr r0
 /* 800B7D28 000B4C88  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B7D2C 000B4C8C  4E 80 00 20 */	blr 
+/* 800B7D2C 000B4C8C  4E 80 00 20 */	blr
 
 .global DeleteAllLights__17CParticleDatabaseCFR13CStateManager
 DeleteAllLights__17CParticleDatabaseCFR13CStateManager:
@@ -301,7 +301,7 @@ DeleteAllLights__17CParticleDatabaseCFR13CStateManager:
 /* 800B7D9C 000B4CFC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B7DA0 000B4D00  7C 08 03 A6 */	mtlr r0
 /* 800B7DA4 000B4D04  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B7DA8 000B4D08  4E 80 00 20 */	blr 
+/* 800B7DA8 000B4D08  4E 80 00 20 */	blr
 
 .global "RenderParticleGenMapMasked__17CParticleDatabaseFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>ii"
 "RenderParticleGenMapMasked__17CParticleDatabaseFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>ii":
@@ -326,7 +326,7 @@ lbl_800B7DDC:
 /* 800B7DF0 000B4D50  81 83 00 00 */	lwz r12, 0(r3)
 /* 800B7DF4 000B4D54  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800B7DF8 000B4D58  7D 89 03 A6 */	mtctr r12
-/* 800B7DFC 000B4D5C  4E 80 04 21 */	bctrl 
+/* 800B7DFC 000B4D5C  4E 80 04 21 */	bctrl
 lbl_800B7E00:
 /* 800B7E00 000B4D60  7F E3 FB 78 */	mr r3, r31
 /* 800B7E04 000B4D64  7F C4 F3 78 */	mr r4, r30
@@ -350,7 +350,7 @@ lbl_800B7E28:
 /* 800B7E40 000B4DA0  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B7E44 000B4DA4  7C 08 03 A6 */	mtlr r0
 /* 800B7E48 000B4DA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B7E4C 000B4DAC  4E 80 00 20 */	blr 
+/* 800B7E4C 000B4DAC  4E 80 00 20 */	blr
 
 .global "RenderParticleGenMap__17CParticleDatabaseFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>"
 "RenderParticleGenMap__17CParticleDatabaseFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>":
@@ -367,7 +367,7 @@ lbl_800B7E70:
 /* 800B7E74 000B4DD4  81 83 00 00 */	lwz r12, 0(r3)
 /* 800B7E78 000B4DD8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 800B7E7C 000B4DDC  7D 89 03 A6 */	mtctr r12
-/* 800B7E80 000B4DE0  4E 80 04 21 */	bctrl 
+/* 800B7E80 000B4DE0  4E 80 04 21 */	bctrl
 /* 800B7E84 000B4DE4  7F E3 FB 78 */	mr r3, r31
 /* 800B7E88 000B4DE8  7F C4 F3 78 */	mr r4, r30
 /* 800B7E8C 000B4DEC  48 28 47 55 */	bl rbtree_traverse_forward__4rstlFPCvPv
@@ -388,7 +388,7 @@ lbl_800B7EAC:
 /* 800B7EBC 000B4E1C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B7EC0 000B4E20  7C 08 03 A6 */	mtlr r0
 /* 800B7EC4 000B4E24  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B7EC8 000B4E28  4E 80 00 20 */	blr 
+/* 800B7EC8 000B4E28  4E 80 00 20 */	blr
 
 .global RenderSystemsToBeDrawnLastMasked__17CParticleDatabaseCFii
 RenderSystemsToBeDrawnLastMasked__17CParticleDatabaseCFii:
@@ -413,7 +413,7 @@ RenderSystemsToBeDrawnLastMasked__17CParticleDatabaseCFii:
 /* 800B7F14 000B4E74  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B7F18 000B4E78  7C 08 03 A6 */	mtlr r0
 /* 800B7F1C 000B4E7C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B7F20 000B4E80  4E 80 00 20 */	blr 
+/* 800B7F20 000B4E80  4E 80 00 20 */	blr
 
 .global RenderSystemsToBeDrawnLast__17CParticleDatabaseCFv
 RenderSystemsToBeDrawnLast__17CParticleDatabaseCFv:
@@ -430,7 +430,7 @@ RenderSystemsToBeDrawnLast__17CParticleDatabaseCFv:
 /* 800B7F4C 000B4EAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800B7F50 000B4EB0  7C 08 03 A6 */	mtlr r0
 /* 800B7F54 000B4EB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B7F58 000B4EB8  4E 80 00 20 */	blr 
+/* 800B7F58 000B4EB8  4E 80 00 20 */	blr
 
 .global RenderSystemsToBeDrawnFirstMasked__17CParticleDatabaseCFii
 RenderSystemsToBeDrawnFirstMasked__17CParticleDatabaseCFii:
@@ -455,7 +455,7 @@ RenderSystemsToBeDrawnFirstMasked__17CParticleDatabaseCFii:
 /* 800B7FA4 000B4F04  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B7FA8 000B4F08  7C 08 03 A6 */	mtlr r0
 /* 800B7FAC 000B4F0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B7FB0 000B4F10  4E 80 00 20 */	blr 
+/* 800B7FB0 000B4F10  4E 80 00 20 */	blr
 
 .global RenderSystemsToBeDrawnFirst__17CParticleDatabaseCFv
 RenderSystemsToBeDrawnFirst__17CParticleDatabaseCFv:
@@ -472,7 +472,7 @@ RenderSystemsToBeDrawnFirst__17CParticleDatabaseCFv:
 /* 800B7FDC 000B4F3C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800B7FE0 000B4F40  7C 08 03 A6 */	mtlr r0
 /* 800B7FE4 000B4F44  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B7FE8 000B4F48  4E 80 00 20 */	blr 
+/* 800B7FE8 000B4F48  4E 80 00 20 */	blr
 
 .global "AddToRendererClippedParticleGenMapMasked__17CParticleDatabaseCFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>RC14CFrustumPlanesii"
 "AddToRendererClippedParticleGenMapMasked__17CParticleDatabaseCFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>RC14CFrustumPlanesii":
@@ -497,7 +497,7 @@ lbl_800B8014:
 /* 800B8030 000B4F90  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800B8034 000B4F94  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 800B8038 000B4F98  7D 89 03 A6 */	mtctr r12
-/* 800B803C 000B4F9C  4E 80 04 21 */	bctrl 
+/* 800B803C 000B4F9C  4E 80 04 21 */	bctrl
 /* 800B8040 000B4FA0  7F 43 D3 78 */	mr r3, r26
 /* 800B8044 000B4FA4  38 81 00 08 */	addi r4, r1, 8
 /* 800B8048 000B4FA8  48 28 D1 41 */	bl "BoxInFrustumPlanes__14CFrustumPlanesCFRCQ24rstl24optional_object<6CAABox>"
@@ -512,7 +512,7 @@ lbl_800B8014:
 /* 800B806C 000B4FCC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800B8070 000B4FD0  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800B8074 000B4FD4  7D 89 03 A6 */	mtctr r12
-/* 800B8078 000B4FD8  4E 80 04 21 */	bctrl 
+/* 800B8078 000B4FD8  4E 80 04 21 */	bctrl
 lbl_800B807C:
 /* 800B807C 000B4FDC  7F E3 FB 78 */	mr r3, r31
 /* 800B8080 000B4FE0  7F C4 F3 78 */	mr r4, r30
@@ -533,7 +533,7 @@ lbl_800B80A4:
 /* 800B80B0 000B5010  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800B80B4 000B5014  7C 08 03 A6 */	mtlr r0
 /* 800B80B8 000B5018  38 21 00 40 */	addi r1, r1, 0x40
-/* 800B80BC 000B501C  4E 80 00 20 */	blr 
+/* 800B80BC 000B501C  4E 80 00 20 */	blr
 
 .global "AddToRendererClippedParticleGenMap__17CParticleDatabaseCFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>RC14CFrustumPlanes"
 "AddToRendererClippedParticleGenMap__17CParticleDatabaseCFRCQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>RC14CFrustumPlanes":
@@ -555,7 +555,7 @@ lbl_800B80EC:
 /* 800B80F8 000B5058  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800B80FC 000B505C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 800B8100 000B5060  7D 89 03 A6 */	mtctr r12
-/* 800B8104 000B5064  4E 80 04 21 */	bctrl 
+/* 800B8104 000B5064  4E 80 04 21 */	bctrl
 /* 800B8108 000B5068  7F 83 E3 78 */	mr r3, r28
 /* 800B810C 000B506C  38 81 00 08 */	addi r4, r1, 8
 /* 800B8110 000B5070  48 28 D0 79 */	bl "BoxInFrustumPlanes__14CFrustumPlanesCFRCQ24rstl24optional_object<6CAABox>"
@@ -570,7 +570,7 @@ lbl_800B80EC:
 /* 800B8134 000B5094  81 9D 00 00 */	lwz r12, 0(r29)
 /* 800B8138 000B5098  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800B813C 000B509C  7D 89 03 A6 */	mtctr r12
-/* 800B8140 000B50A0  4E 80 04 21 */	bctrl 
+/* 800B8140 000B50A0  4E 80 04 21 */	bctrl
 lbl_800B8144:
 /* 800B8144 000B50A4  7F E3 FB 78 */	mr r3, r31
 /* 800B8148 000B50A8  7F C4 F3 78 */	mr r4, r30
@@ -594,7 +594,7 @@ lbl_800B816C:
 /* 800B8184 000B50E4  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 800B8188 000B50E8  7C 08 03 A6 */	mtlr r0
 /* 800B818C 000B50EC  38 21 00 40 */	addi r1, r1, 0x40
-/* 800B8190 000B50F0  4E 80 00 20 */	blr 
+/* 800B8190 000B50F0  4E 80 00 20 */	blr
 
 .global AddToRendererClippedMasked__17CParticleDatabaseCFRC14CFrustumPlanesii
 AddToRendererClippedMasked__17CParticleDatabaseCFRC14CFrustumPlanesii:
@@ -627,7 +627,7 @@ AddToRendererClippedMasked__17CParticleDatabaseCFRC14CFrustumPlanesii:
 /* 800B81FC 000B515C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B8200 000B5160  7C 08 03 A6 */	mtlr r0
 /* 800B8204 000B5164  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B8208 000B5168  4E 80 00 20 */	blr 
+/* 800B8208 000B5168  4E 80 00 20 */	blr
 
 .global AddToRendererClipped__17CParticleDatabaseCFRC14CFrustumPlanes
 AddToRendererClipped__17CParticleDatabaseCFRC14CFrustumPlanes:
@@ -650,7 +650,7 @@ AddToRendererClipped__17CParticleDatabaseCFRC14CFrustumPlanes:
 /* 800B824C 000B51AC  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B8250 000B51B0  7C 08 03 A6 */	mtlr r0
 /* 800B8254 000B51B4  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B8258 000B51B8  4E 80 00 20 */	blr 
+/* 800B8258 000B51B8  4E 80 00 20 */	blr
 
 .global "UpdateParticleGenDB__17CParticleDatabaseFfRC17CPoseAsTransformsRC15CCharLayoutInfoRC12CTransform4fRC9CVector3fR13CStateManagerRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>b"
 "UpdateParticleGenDB__17CParticleDatabaseFfRC17CPoseAsTransformsRC15CCharLayoutInfoRC12CTransform4fRC9CVector3fR13CStateManagerRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>b":
@@ -784,14 +784,14 @@ lbl_800B842C:
 /* 800B8438 000B5398  38 97 00 44 */	addi r4, r23, 0x44
 /* 800B843C 000B539C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800B8440 000B53A0  7D 89 03 A6 */	mtctr r12
-/* 800B8444 000B53A4  4E 80 04 21 */	bctrl 
+/* 800B8444 000B53A4  4E 80 04 21 */	bctrl
 /* 800B8448 000B53A8  7E E3 BB 78 */	mr r3, r23
 /* 800B844C 000B53AC  7F C5 F3 78 */	mr r5, r30
 /* 800B8450 000B53B0  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B8454 000B53B4  38 97 00 74 */	addi r4, r23, 0x74
 /* 800B8458 000B53B8  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800B845C 000B53BC  7D 89 03 A6 */	mtctr r12
-/* 800B8460 000B53C0  4E 80 04 21 */	bctrl 
+/* 800B8460 000B53C0  4E 80 04 21 */	bctrl
 /* 800B8464 000B53C4  80 17 00 2C */	lwz r0, 0x2c(r23)
 /* 800B8468 000B53C8  54 00 04 A5 */	rlwinm. r0, r0, 0, 0x12, 0x12
 /* 800B846C 000B53CC  41 82 00 50 */	beq lbl_800B84BC
@@ -812,7 +812,7 @@ lbl_800B842C:
 /* 800B84A8 000B5408  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B84AC 000B540C  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 800B84B0 000B5410  7D 89 03 A6 */	mtctr r12
-/* 800B84B4 000B5414  4E 80 04 21 */	bctrl 
+/* 800B84B4 000B5414  4E 80 04 21 */	bctrl
 /* 800B84B8 000B5418  48 00 02 3C */	b lbl_800B86F4
 lbl_800B84BC:
 /* 800B84BC 000B541C  7E E3 BB 78 */	mr r3, r23
@@ -820,7 +820,7 @@ lbl_800B84BC:
 /* 800B84C4 000B5424  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B84C8 000B5428  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 800B84CC 000B542C  7D 89 03 A6 */	mtctr r12
-/* 800B84D0 000B5430  4E 80 04 21 */	bctrl 
+/* 800B84D0 000B5430  4E 80 04 21 */	bctrl
 /* 800B84D4 000B5434  48 00 02 20 */	b lbl_800B86F4
 lbl_800B84D8:
 /* 800B84D8 000B5438  88 17 00 40 */	lbz r0, 0x40(r23)
@@ -868,7 +868,7 @@ lbl_800B84F4:
 /* 800B857C 000B54DC  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B8580 000B54E0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 800B8584 000B54E4  7D 89 03 A6 */	mtctr r12
-/* 800B8588 000B54E8  4E 80 04 21 */	bctrl 
+/* 800B8588 000B54E8  4E 80 04 21 */	bctrl
 /* 800B858C 000B54EC  80 17 00 2C */	lwz r0, 0x2c(r23)
 /* 800B8590 000B54F0  54 00 06 F7 */	rlwinm. r0, r0, 0, 0x1b, 0x1b
 /* 800B8594 000B54F4  41 82 00 30 */	beq lbl_800B85C4
@@ -881,7 +881,7 @@ lbl_800B84F4:
 /* 800B85B0 000B5510  38 81 01 08 */	addi r4, r1, 0x108
 /* 800B85B4 000B5514  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800B85B8 000B5518  7D 89 03 A6 */	mtctr r12
-/* 800B85BC 000B551C  4E 80 04 21 */	bctrl 
+/* 800B85BC 000B551C  4E 80 04 21 */	bctrl
 /* 800B85C0 000B5520  48 00 00 C4 */	b lbl_800B8684
 lbl_800B85C4:
 /* 800B85C4 000B5524  38 61 00 D8 */	addi r3, r1, 0xd8
@@ -893,7 +893,7 @@ lbl_800B85C4:
 /* 800B85DC 000B553C  38 81 00 D8 */	addi r4, r1, 0xd8
 /* 800B85E0 000B5540  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 800B85E4 000B5544  7D 89 03 A6 */	mtctr r12
-/* 800B85E8 000B5548  4E 80 04 21 */	bctrl 
+/* 800B85E8 000B5548  4E 80 04 21 */	bctrl
 /* 800B85EC 000B554C  48 00 00 98 */	b lbl_800B8684
 lbl_800B85F0:
 /* 800B85F0 000B5550  C0 41 01 D4 */	lfs f2, 0x1d4(r1)
@@ -908,7 +908,7 @@ lbl_800B85F0:
 /* 800B8614 000B5574  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B8618 000B5578  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800B861C 000B557C  7D 89 03 A6 */	mtctr r12
-/* 800B8620 000B5580  4E 80 04 21 */	bctrl 
+/* 800B8620 000B5580  4E 80 04 21 */	bctrl
 /* 800B8624 000B5584  80 17 00 2C */	lwz r0, 0x2c(r23)
 /* 800B8628 000B5588  54 00 06 F7 */	rlwinm. r0, r0, 0, 0x1b, 0x1b
 /* 800B862C 000B558C  41 82 00 30 */	beq lbl_800B865C
@@ -921,7 +921,7 @@ lbl_800B85F0:
 /* 800B8648 000B55A8  38 81 00 A8 */	addi r4, r1, 0xa8
 /* 800B864C 000B55AC  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800B8650 000B55B0  7D 89 03 A6 */	mtctr r12
-/* 800B8654 000B55B4  4E 80 04 21 */	bctrl 
+/* 800B8654 000B55B4  4E 80 04 21 */	bctrl
 /* 800B8658 000B55B8  48 00 00 2C */	b lbl_800B8684
 lbl_800B865C:
 /* 800B865C 000B55BC  38 61 00 78 */	addi r3, r1, 0x78
@@ -933,7 +933,7 @@ lbl_800B865C:
 /* 800B8674 000B55D4  38 81 00 78 */	addi r4, r1, 0x78
 /* 800B8678 000B55D8  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 800B867C 000B55DC  7D 89 03 A6 */	mtctr r12
-/* 800B8680 000B55E0  4E 80 04 21 */	bctrl 
+/* 800B8680 000B55E0  4E 80 04 21 */	bctrl
 lbl_800B8684:
 /* 800B8684 000B55E4  80 17 00 2C */	lwz r0, 0x2c(r23)
 /* 800B8688 000B55E8  54 00 04 A5 */	rlwinm. r0, r0, 0, 0x12, 0x12
@@ -955,7 +955,7 @@ lbl_800B8684:
 /* 800B86C8 000B5628  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B86CC 000B562C  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 800B86D0 000B5630  7D 89 03 A6 */	mtctr r12
-/* 800B86D4 000B5634  4E 80 04 21 */	bctrl 
+/* 800B86D4 000B5634  4E 80 04 21 */	bctrl
 /* 800B86D8 000B5638  48 00 00 1C */	b lbl_800B86F4
 lbl_800B86DC:
 /* 800B86DC 000B563C  7E E3 BB 78 */	mr r3, r23
@@ -963,7 +963,7 @@ lbl_800B86DC:
 /* 800B86E4 000B5644  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B86E8 000B5648  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 800B86EC 000B564C  7D 89 03 A6 */	mtctr r12
-/* 800B86F0 000B5650  4E 80 04 21 */	bctrl 
+/* 800B86F0 000B5650  4E 80 04 21 */	bctrl
 lbl_800B86F4:
 /* 800B86F4 000B5654  C0 02 8D 20 */	lfs f0, lbl_805AAA40@sda21(r2)
 /* 800B86F8 000B5658  C0 37 00 0C */	lfs f1, 0xc(r23)
@@ -982,7 +982,7 @@ lbl_800B8708:
 /* 800B8728 000B5688  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B872C 000B568C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800B8730 000B5690  7D 89 03 A6 */	mtctr r12
-/* 800B8734 000B5694  4E 80 04 21 */	bctrl 
+/* 800B8734 000B5694  4E 80 04 21 */	bctrl
 /* 800B8738 000B5698  C0 17 00 20 */	lfs f0, 0x20(r23)
 /* 800B873C 000B569C  D0 17 00 3C */	stfs f0, 0x3c(r23)
 /* 800B8740 000B56A0  80 17 00 2C */	lwz r0, 0x2c(r23)
@@ -992,7 +992,7 @@ lbl_800B8708:
 /* 800B8750 000B56B0  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B8754 000B56B4  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 800B8758 000B56B8  7D 89 03 A6 */	mtctr r12
-/* 800B875C 000B56BC  4E 80 04 21 */	bctrl 
+/* 800B875C 000B56BC  4E 80 04 21 */	bctrl
 lbl_800B8760:
 /* 800B8760 000B56C0  7E E3 BB 78 */	mr r3, r23
 /* 800B8764 000B56C4  FC 20 F8 90 */	fmr f1, f31
@@ -1000,7 +1000,7 @@ lbl_800B8760:
 /* 800B876C 000B56CC  7F C4 F3 78 */	mr r4, r30
 /* 800B8770 000B56D0  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 800B8774 000B56D4  7D 89 03 A6 */	mtctr r12
-/* 800B8778 000B56D8  4E 80 04 21 */	bctrl 
+/* 800B8778 000B56D8  4E 80 04 21 */	bctrl
 /* 800B877C 000B56DC  88 17 00 24 */	lbz r0, 0x24(r23)
 /* 800B8780 000B56E0  28 00 00 00 */	cmplwi r0, 0
 /* 800B8784 000B56E4  40 82 01 04 */	bne lbl_800B8888
@@ -1008,7 +1008,7 @@ lbl_800B8760:
 /* 800B878C 000B56EC  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B8790 000B56F0  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 800B8794 000B56F4  7D 89 03 A6 */	mtctr r12
-/* 800B8798 000B56F8  4E 80 04 21 */	bctrl 
+/* 800B8798 000B56F8  4E 80 04 21 */	bctrl
 /* 800B879C 000B56FC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800B87A0 000B5700  40 82 01 C8 */	bne lbl_800B8968
 /* 800B87A4 000B5704  C0 57 00 20 */	lfs f2, 0x20(r23)
@@ -1024,7 +1024,7 @@ lbl_800B8760:
 /* 800B87CC 000B572C  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B87D0 000B5730  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 800B87D4 000B5734  7D 89 03 A6 */	mtctr r12
-/* 800B87D8 000B5738  4E 80 04 21 */	bctrl 
+/* 800B87D8 000B5738  4E 80 04 21 */	bctrl
 /* 800B87DC 000B573C  82 C1 00 28 */	lwz r22, 0x28(r1)
 /* 800B87E0 000B5740  80 61 00 2C */	lwz r3, 0x2c(r1)
 /* 800B87E4 000B5744  92 C1 00 20 */	stw r22, 0x20(r1)
@@ -1051,7 +1051,7 @@ lbl_800B8760:
 /* 800B8838 000B5798  38 80 00 01 */	li r4, 1
 /* 800B883C 000B579C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B8840 000B57A0  7D 89 03 A6 */	mtctr r12
-/* 800B8844 000B57A4  4E 80 04 21 */	bctrl 
+/* 800B8844 000B57A4  4E 80 04 21 */	bctrl
 lbl_800B8848:
 /* 800B8848 000B57A8  34 16 00 10 */	addic. r0, r22, 0x10
 /* 800B884C 000B57AC  41 82 00 0C */	beq lbl_800B8858
@@ -1076,7 +1076,7 @@ lbl_800B8888:
 /* 800B888C 000B57EC  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B8890 000B57F0  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800B8894 000B57F4  7D 89 03 A6 */	mtctr r12
-/* 800B8898 000B57F8  4E 80 04 21 */	bctrl 
+/* 800B8898 000B57F8  4E 80 04 21 */	bctrl
 /* 800B889C 000B57FC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800B88A0 000B5800  41 82 00 C8 */	beq lbl_800B8968
 /* 800B88A4 000B5804  7E E3 BB 78 */	mr r3, r23
@@ -1084,7 +1084,7 @@ lbl_800B8888:
 /* 800B88AC 000B580C  81 97 00 00 */	lwz r12, 0(r23)
 /* 800B88B0 000B5810  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 800B88B4 000B5814  7D 89 03 A6 */	mtctr r12
-/* 800B88B8 000B5818  4E 80 04 21 */	bctrl 
+/* 800B88B8 000B5818  4E 80 04 21 */	bctrl
 /* 800B88BC 000B581C  82 C1 00 28 */	lwz r22, 0x28(r1)
 /* 800B88C0 000B5820  80 61 00 2C */	lwz r3, 0x2c(r1)
 /* 800B88C4 000B5824  92 C1 00 18 */	stw r22, 0x18(r1)
@@ -1111,7 +1111,7 @@ lbl_800B8888:
 /* 800B8918 000B5878  38 80 00 01 */	li r4, 1
 /* 800B891C 000B587C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B8920 000B5880  7D 89 03 A6 */	mtctr r12
-/* 800B8924 000B5884  4E 80 04 21 */	bctrl 
+/* 800B8924 000B5884  4E 80 04 21 */	bctrl
 lbl_800B8928:
 /* 800B8928 000B5888  34 16 00 10 */	addic. r0, r22, 0x10
 /* 800B892C 000B588C  41 82 00 0C */	beq lbl_800B8938
@@ -1159,7 +1159,7 @@ lbl_800B89A8:
 /* 800B89BC 000B591C  80 01 02 C4 */	lwz r0, 0x2c4(r1)
 /* 800B89C0 000B5920  7C 08 03 A6 */	mtlr r0
 /* 800B89C4 000B5924  38 21 02 C0 */	addi r1, r1, 0x2c0
-/* 800B89C8 000B5928  4E 80 00 20 */	blr 
+/* 800B89C8 000B5928  4E 80 00 20 */	blr
 
 .global Update__17CParticleDatabaseFfRC17CPoseAsTransformsRC15CCharLayoutInfoRC12CTransform4fRC9CVector3fR13CStateManager
 Update__17CParticleDatabaseFfRC17CPoseAsTransformsRC15CCharLayoutInfoRC12CTransform4fRC9CVector3fR13CStateManager:
@@ -1256,7 +1256,7 @@ lbl_800B8B20:
 /* 800B8B28 000B5A88  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 800B8B2C 000B5A8C  7C 08 03 A6 */	mtlr r0
 /* 800B8B30 000B5A90  38 21 00 30 */	addi r1, r1, 0x30
-/* 800B8B34 000B5A94  4E 80 00 20 */	blr 
+/* 800B8B34 000B5A94  4E 80 00 20 */	blr
 
 .global GetParticleSystem__23CParticleGenInfoGenericCFv
 GetParticleSystem__23CParticleGenInfoGenericCFv:
@@ -1266,7 +1266,7 @@ GetParticleSystem__23CParticleGenInfoGenericCFv:
 /* 800B8B44 000B5AA4  80 64 00 04 */	lwz r3, 4(r4)
 /* 800B8B48 000B5AA8  38 03 00 01 */	addi r0, r3, 1
 /* 800B8B4C 000B5AAC  90 04 00 04 */	stw r0, 4(r4)
-/* 800B8B50 000B5AB0  4E 80 00 20 */	blr 
+/* 800B8B50 000B5AB0  4E 80 00 20 */	blr
 
 .global "SetCEXTValue__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>if"
 "SetCEXTValue__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>if":
@@ -1299,7 +1299,7 @@ lbl_800B8BAC:
 /* 800B8BB8 000B5B18  83 C1 00 10 */	lwz r30, 0x10(r1)
 /* 800B8BBC 000B5B1C  7C 08 03 A6 */	mtlr r0
 /* 800B8BC0 000B5B20  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B8BC4 000B5B24  4E 80 00 20 */	blr 
+/* 800B8BC4 000B5B24  4E 80 00 20 */	blr
 
 .global "SetParticleEffectState__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager"
 "SetParticleEffectState__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>bR13CStateManager":
@@ -1319,7 +1319,7 @@ lbl_800B8BAC:
 /* 800B8BFC 000B5B5C  7F C5 F3 78 */	mr r5, r30
 /* 800B8C00 000B5B60  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800B8C04 000B5B64  7D 89 03 A6 */	mtctr r12
-/* 800B8C08 000B5B68  4E 80 04 21 */	bctrl 
+/* 800B8C08 000B5B68  4E 80 04 21 */	bctrl
 /* 800B8C0C 000B5B6C  57 A0 06 3F */	clrlwi. r0, r29, 0x18
 /* 800B8C10 000B5B70  9B BF 00 24 */	stb r29, 0x24(r31)
 /* 800B8C14 000B5B74  40 82 00 24 */	bne lbl_800B8C38
@@ -1330,7 +1330,7 @@ lbl_800B8BAC:
 /* 800B8C28 000B5B88  81 9F 00 00 */	lwz r12, 0(r31)
 /* 800B8C2C 000B5B8C  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 800B8C30 000B5B90  7D 89 03 A6 */	mtctr r12
-/* 800B8C34 000B5B94  4E 80 04 21 */	bctrl 
+/* 800B8C34 000B5B94  4E 80 04 21 */	bctrl
 lbl_800B8C38:
 /* 800B8C38 000B5B98  38 00 00 01 */	li r0, 1
 /* 800B8C3C 000B5B9C  98 1F 00 40 */	stb r0, 0x40(r31)
@@ -1341,7 +1341,7 @@ lbl_800B8C40:
 /* 800B8C4C 000B5BAC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800B8C50 000B5BB0  7C 08 03 A6 */	mtlr r0
 /* 800B8C54 000B5BB4  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B8C58 000B5BB8  4E 80 00 20 */	blr 
+/* 800B8C58 000B5BB8  4E 80 00 20 */	blr
 
 .global "GetParticleEffect__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "GetParticleEffect__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1491,7 +1491,7 @@ lbl_800B8E44:
 /* 800B8E4C 000B5DAC  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 800B8E50 000B5DB0  7C 08 03 A6 */	mtlr r0
 /* 800B8E54 000B5DB4  38 21 00 70 */	addi r1, r1, 0x70
-/* 800B8E58 000B5DB8  4E 80 00 20 */	blr 
+/* 800B8E58 000B5DB8  4E 80 00 20 */	blr
 
 .global "find__Q24rstl492red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>,0,Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>FR"
 "find__Q24rstl492red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>,0,Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>FR":
@@ -1513,7 +1513,7 @@ lbl_800B8E44:
 /* 800B8E98 000B5DF8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800B8E9C 000B5DFC  7C 08 03 A6 */	mtlr r0
 /* 800B8EA0 000B5E00  38 21 00 10 */	addi r1, r1, 0x10
-/* 800B8EA4 000B5E04  4E 80 00 20 */	blr 
+/* 800B8EA4 000B5E04  4E 80 00 20 */	blr
 
 .global "find_node__Q24rstl492red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>,0,Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocat"
 "find_node__Q24rstl492red_black_tree<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>,0,Q24rstl140select1st<Q24rstl119pair<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>>>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocat":
@@ -1570,7 +1570,7 @@ lbl_800B8F44:
 /* 800B8F54 000B5EB4  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800B8F58 000B5EB8  7C 08 03 A6 */	mtlr r0
 /* 800B8F5C 000B5EBC  38 21 00 20 */	addi r1, r1, 0x20
-/* 800B8F60 000B5EC0  4E 80 00 20 */	blr 
+/* 800B8F60 000B5EC0  4E 80 00 20 */	blr
 
 .global "AddAuxiliaryParticleEffect__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>iRC22CAuxiliaryParticleDataRC9CVector3fR13CStateManager7TAreaIdi"
 "AddAuxiliaryParticleEffect__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>iRC22CAuxiliaryParticleDataRC9CVector3fR13CStateManager7TAreaIdi":
@@ -1778,7 +1778,7 @@ lbl_800B9210:
 /* 800B9250 000B61B0  38 80 00 01 */	li r4, 1
 /* 800B9254 000B61B4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9258 000B61B8  7D 89 03 A6 */	mtctr r12
-/* 800B925C 000B61BC  4E 80 04 21 */	bctrl 
+/* 800B925C 000B61BC  4E 80 04 21 */	bctrl
 lbl_800B9260:
 /* 800B9260 000B61C0  88 81 00 28 */	lbz r4, 0x28(r1)
 /* 800B9264 000B61C4  38 00 00 00 */	li r0, 0
@@ -1797,7 +1797,7 @@ lbl_800B9278:
 /* 800B9294 000B61F4  38 80 00 01 */	li r4, 1
 /* 800B9298 000B61F8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B929C 000B61FC  7D 89 03 A6 */	mtctr r12
-/* 800B92A0 000B6200  4E 80 04 21 */	bctrl 
+/* 800B92A0 000B6200  4E 80 04 21 */	bctrl
 lbl_800B92A4:
 /* 800B92A4 000B6204  7E A0 07 75 */	extsb. r0, r21
 /* 800B92A8 000B6208  41 82 00 0C */	beq lbl_800B92B4
@@ -1815,7 +1815,7 @@ lbl_800B92C4:
 /* 800B92D0 000B6230  81 83 00 00 */	lwz r12, 0(r3)
 /* 800B92D4 000B6234  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800B92D8 000B6238  7D 89 03 A6 */	mtctr r12
-/* 800B92DC 000B623C  4E 80 04 21 */	bctrl 
+/* 800B92DC 000B623C  4E 80 04 21 */	bctrl
 /* 800B92E0 000B6240  80 81 00 44 */	lwz r4, 0x44(r1)
 /* 800B92E4 000B6244  38 00 00 00 */	li r0, 0
 /* 800B92E8 000B6248  7F 83 E3 78 */	mr r3, r28
@@ -1841,7 +1841,7 @@ lbl_800B9314:
 /* 800B9330 000B6290  38 80 00 01 */	li r4, 1
 /* 800B9334 000B6294  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9338 000B6298  7D 89 03 A6 */	mtctr r12
-/* 800B933C 000B629C  4E 80 04 21 */	bctrl 
+/* 800B933C 000B629C  4E 80 04 21 */	bctrl
 /* 800B9340 000B62A0  48 00 00 38 */	b lbl_800B9378
 lbl_800B9344:
 /* 800B9344 000B62A4  88 15 00 24 */	lbz r0, 0x24(r21)
@@ -1852,7 +1852,7 @@ lbl_800B9344:
 /* 800B9358 000B62B8  38 80 00 01 */	li r4, 1
 /* 800B935C 000B62BC  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800B9360 000B62C0  7D 89 03 A6 */	mtctr r12
-/* 800B9364 000B62C4  4E 80 04 21 */	bctrl 
+/* 800B9364 000B62C4  4E 80 04 21 */	bctrl
 /* 800B9368 000B62C8  38 00 00 01 */	li r0, 1
 /* 800B936C 000B62CC  98 15 00 24 */	stb r0, 0x24(r21)
 /* 800B9370 000B62D0  98 15 00 40 */	stb r0, 0x40(r21)
@@ -1864,7 +1864,7 @@ lbl_800B9378:
 /* 800B9384 000B62E4  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 800B9388 000B62E8  7C 08 03 A6 */	mtlr r0
 /* 800B938C 000B62EC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800B9390 000B62F0  4E 80 00 20 */	blr 
+/* 800B9390 000B62F0  4E 80 00 20 */	blr
 
 .global "AddParticleEffect__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>iRC13CParticleDataRC9CVector3fR13CStateManager7TAreaIdb"
 "AddParticleEffect__17CParticleDatabaseFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>iRC13CParticleDataRC9CVector3fR13CStateManager7TAreaIdb":
@@ -2064,7 +2064,7 @@ lbl_800B9620:
 /* 800B9660 000B65C0  38 80 00 01 */	li r4, 1
 /* 800B9664 000B65C4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9668 000B65C8  7D 89 03 A6 */	mtctr r12
-/* 800B966C 000B65CC  4E 80 04 21 */	bctrl 
+/* 800B966C 000B65CC  4E 80 04 21 */	bctrl
 lbl_800B9670:
 /* 800B9670 000B65D0  88 81 00 6C */	lbz r4, 0x6c(r1)
 /* 800B9674 000B65D4  38 00 00 00 */	li r0, 0
@@ -2083,7 +2083,7 @@ lbl_800B9688:
 /* 800B96A4 000B6604  38 80 00 01 */	li r4, 1
 /* 800B96A8 000B6608  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B96AC 000B660C  7D 89 03 A6 */	mtctr r12
-/* 800B96B0 000B6610  4E 80 04 21 */	bctrl 
+/* 800B96B0 000B6610  4E 80 04 21 */	bctrl
 lbl_800B96B4:
 /* 800B96B4 000B6614  7E A0 07 75 */	extsb. r0, r21
 /* 800B96B8 000B6618  41 82 00 0C */	beq lbl_800B96C4
@@ -2234,7 +2234,7 @@ lbl_800B9884:
 /* 800B98C4 000B6824  38 80 00 01 */	li r4, 1
 /* 800B98C8 000B6828  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B98CC 000B682C  7D 89 03 A6 */	mtctr r12
-/* 800B98D0 000B6830  4E 80 04 21 */	bctrl 
+/* 800B98D0 000B6830  4E 80 04 21 */	bctrl
 lbl_800B98D4:
 /* 800B98D4 000B6834  88 81 00 54 */	lbz r4, 0x54(r1)
 /* 800B98D8 000B6838  38 00 00 00 */	li r0, 0
@@ -2253,7 +2253,7 @@ lbl_800B98EC:
 /* 800B9908 000B6868  38 80 00 01 */	li r4, 1
 /* 800B990C 000B686C  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9910 000B6870  7D 89 03 A6 */	mtctr r12
-/* 800B9914 000B6874  4E 80 04 21 */	bctrl 
+/* 800B9914 000B6874  4E 80 04 21 */	bctrl
 lbl_800B9918:
 /* 800B9918 000B6878  7E 60 07 75 */	extsb. r0, r19
 /* 800B991C 000B687C  41 82 00 0C */	beq lbl_800B9928
@@ -2407,7 +2407,7 @@ lbl_800B9AF4:
 /* 800B9B34 000B6A94  38 80 00 01 */	li r4, 1
 /* 800B9B38 000B6A98  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9B3C 000B6A9C  7D 89 03 A6 */	mtctr r12
-/* 800B9B40 000B6AA0  4E 80 04 21 */	bctrl 
+/* 800B9B40 000B6AA0  4E 80 04 21 */	bctrl
 lbl_800B9B44:
 /* 800B9B44 000B6AA4  88 81 00 3C */	lbz r4, 0x3c(r1)
 /* 800B9B48 000B6AA8  38 00 00 00 */	li r0, 0
@@ -2426,7 +2426,7 @@ lbl_800B9B5C:
 /* 800B9B78 000B6AD8  38 80 00 01 */	li r4, 1
 /* 800B9B7C 000B6ADC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9B80 000B6AE0  7D 89 03 A6 */	mtctr r12
-/* 800B9B84 000B6AE4  4E 80 04 21 */	bctrl 
+/* 800B9B84 000B6AE4  4E 80 04 21 */	bctrl
 lbl_800B9B88:
 /* 800B9B88 000B6AE8  7E A0 07 75 */	extsb. r0, r21
 /* 800B9B8C 000B6AEC  41 82 00 0C */	beq lbl_800B9B98
@@ -2447,7 +2447,7 @@ lbl_800B9BA0:
 /* 800B9BC0 000B6B20  81 83 00 00 */	lwz r12, 0(r3)
 /* 800B9BC4 000B6B24  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800B9BC8 000B6B28  7D 89 03 A6 */	mtctr r12
-/* 800B9BCC 000B6B2C  4E 80 04 21 */	bctrl 
+/* 800B9BCC 000B6B2C  4E 80 04 21 */	bctrl
 /* 800B9BD0 000B6B30  80 81 00 88 */	lwz r4, 0x88(r1)
 /* 800B9BD4 000B6B34  38 00 00 01 */	li r0, 1
 /* 800B9BD8 000B6B38  7F E3 FB 78 */	mr r3, r31
@@ -2468,7 +2468,7 @@ lbl_800B9BF4:
 /* 800B9C10 000B6B70  38 80 00 01 */	li r4, 1
 /* 800B9C14 000B6B74  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9C18 000B6B78  7D 89 03 A6 */	mtctr r12
-/* 800B9C1C 000B6B7C  4E 80 04 21 */	bctrl 
+/* 800B9C1C 000B6B7C  4E 80 04 21 */	bctrl
 /* 800B9C20 000B6B80  48 00 00 38 */	b lbl_800B9C58
 lbl_800B9C24:
 /* 800B9C24 000B6B84  88 12 00 24 */	lbz r0, 0x24(r18)
@@ -2479,7 +2479,7 @@ lbl_800B9C24:
 /* 800B9C38 000B6B98  38 80 00 01 */	li r4, 1
 /* 800B9C3C 000B6B9C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 800B9C40 000B6BA0  7D 89 03 A6 */	mtctr r12
-/* 800B9C44 000B6BA4  4E 80 04 21 */	bctrl 
+/* 800B9C44 000B6BA4  4E 80 04 21 */	bctrl
 /* 800B9C48 000B6BA8  38 00 00 01 */	li r0, 1
 /* 800B9C4C 000B6BAC  98 12 00 24 */	stb r0, 0x24(r18)
 /* 800B9C50 000B6BB0  98 12 00 40 */	stb r0, 0x40(r18)
@@ -2491,7 +2491,7 @@ lbl_800B9C58:
 /* 800B9C64 000B6BC4  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 800B9C68 000B6BC8  7C 08 03 A6 */	mtlr r0
 /* 800B9C6C 000B6BCC  38 21 01 10 */	addi r1, r1, 0x110
-/* 800B9C70 000B6BD0  4E 80 00 20 */	blr 
+/* 800B9C70 000B6BD0  4E 80 00 20 */	blr
 
 .global "InsertParticleGen__17CParticleDatabaseFbiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl28auto_ptr<16CParticleGenInfo>"
 "InsertParticleGen__17CParticleDatabaseFbiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl28auto_ptr<16CParticleGenInfo>":
@@ -2564,7 +2564,7 @@ lbl_800B9CFC:
 /* 800B9D5C 000B6CBC  38 80 00 01 */	li r4, 1
 /* 800B9D60 000B6CC0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800B9D64 000B6CC4  7D 89 03 A6 */	mtctr r12
-/* 800B9D68 000B6CC8  4E 80 04 21 */	bctrl 
+/* 800B9D68 000B6CC8  4E 80 04 21 */	bctrl
 lbl_800B9D6C:
 /* 800B9D6C 000B6CCC  38 61 00 14 */	addi r3, r1, 0x14
 /* 800B9D70 000B6CD0  48 28 3D 71 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
@@ -2579,7 +2579,7 @@ lbl_800B9D8C:
 /* 800B9D90 000B6CF0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800B9D94 000B6CF4  7C 08 03 A6 */	mtlr r0
 /* 800B9D98 000B6CF8  38 21 00 50 */	addi r1, r1, 0x50
-/* 800B9D9C 000B6CFC  4E 80 00 20 */	blr 
+/* 800B9D9C 000B6CFC  4E 80 00 20 */	blr
 
 .global CacheParticleDesc__17CParticleDatabaseFRC10SObjectTag
 CacheParticleDesc__17CParticleDatabaseFRC10SObjectTag:
@@ -2668,7 +2668,7 @@ lbl_800B9E80:
 /* 800B9EC4 000B6E24  81 84 00 00 */	lwz r12, 0(r4)
 /* 800B9EC8 000B6E28  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800B9ECC 000B6E2C  7D 89 03 A6 */	mtctr r12
-/* 800B9ED0 000B6E30  4E 80 04 21 */	bctrl 
+/* 800B9ED0 000B6E30  4E 80 04 21 */	bctrl
 /* 800B9ED4 000B6E34  7F A3 EB 78 */	mr r3, r29
 /* 800B9ED8 000B6E38  38 81 00 5C */	addi r4, r1, 0x5c
 /* 800B9EDC 000B6E3C  3B 80 00 01 */	li r28, 1
@@ -2775,7 +2775,7 @@ lbl_800B9FFC:
 /* 800BA040 000B6FA0  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BA044 000B6FA4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800BA048 000B6FA8  7D 89 03 A6 */	mtctr r12
-/* 800BA04C 000B6FAC  4E 80 04 21 */	bctrl 
+/* 800BA04C 000B6FAC  4E 80 04 21 */	bctrl
 /* 800BA050 000B6FB0  7F A3 EB 78 */	mr r3, r29
 /* 800BA054 000B6FB4  38 81 00 3C */	addi r4, r1, 0x3c
 /* 800BA058 000B6FB8  3B 80 00 01 */	li r28, 1
@@ -2882,7 +2882,7 @@ lbl_800BA178:
 /* 800BA1BC 000B711C  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BA1C0 000B7120  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800BA1C4 000B7124  7D 89 03 A6 */	mtctr r12
-/* 800BA1C8 000B7128  4E 80 04 21 */	bctrl 
+/* 800BA1C8 000B7128  4E 80 04 21 */	bctrl
 /* 800BA1CC 000B712C  7F A3 EB 78 */	mr r3, r29
 /* 800BA1D0 000B7130  38 81 00 1C */	addi r4, r1, 0x1c
 /* 800BA1D4 000B7134  3B 80 00 01 */	li r28, 1
@@ -2937,7 +2937,7 @@ lbl_800BA274:
 /* 800BA284 000B71E4  83 81 00 A0 */	lwz r28, 0xa0(r1)
 /* 800BA288 000B71E8  7C 08 03 A6 */	mtlr r0
 /* 800BA28C 000B71EC  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 800BA290 000B71F0  4E 80 00 20 */	blr 
+/* 800BA290 000B71F0  4E 80 00 20 */	blr
 
 .global CacheParticleDesc__17CParticleDatabaseFRCQ213CharacterInfo16CParticleResData
 CacheParticleDesc__17CParticleDatabaseFRCQ213CharacterInfo16CParticleResData:
@@ -3013,7 +3013,7 @@ lbl_800BA344:
 /* 800BA388 000B72E8  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BA38C 000B72EC  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800BA390 000B72F0  7D 89 03 A6 */	mtctr r12
-/* 800BA394 000B72F4  4E 80 04 21 */	bctrl 
+/* 800BA394 000B72F4  4E 80 04 21 */	bctrl
 /* 800BA398 000B72F8  7F 03 C3 78 */	mr r3, r24
 /* 800BA39C 000B72FC  38 81 00 5C */	addi r4, r1, 0x5c
 /* 800BA3A0 000B7300  3A E0 00 01 */	li r23, 1
@@ -3130,7 +3130,7 @@ lbl_800BA4E0:
 /* 800BA524 000B7484  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BA528 000B7488  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800BA52C 000B748C  7D 89 03 A6 */	mtctr r12
-/* 800BA530 000B7490  4E 80 04 21 */	bctrl 
+/* 800BA530 000B7490  4E 80 04 21 */	bctrl
 /* 800BA534 000B7494  7F 03 C3 78 */	mr r3, r24
 /* 800BA538 000B7498  38 81 00 3C */	addi r4, r1, 0x3c
 /* 800BA53C 000B749C  3A E0 00 01 */	li r23, 1
@@ -3247,7 +3247,7 @@ lbl_800BA67C:
 /* 800BA6C0 000B7620  81 84 00 00 */	lwz r12, 0(r4)
 /* 800BA6C4 000B7624  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 800BA6C8 000B7628  7D 89 03 A6 */	mtctr r12
-/* 800BA6CC 000B762C  4E 80 04 21 */	bctrl 
+/* 800BA6CC 000B762C  4E 80 04 21 */	bctrl
 /* 800BA6D0 000B7630  7F 03 C3 78 */	mr r3, r24
 /* 800BA6D4 000B7634  38 81 00 1C */	addi r4, r1, 0x1c
 /* 800BA6D8 000B7638  3A E0 00 01 */	li r23, 1
@@ -3302,7 +3302,7 @@ lbl_800BA778:
 /* 800BA784 000B76E4  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 800BA788 000B76E8  7C 08 03 A6 */	mtlr r0
 /* 800BA78C 000B76EC  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 800BA790 000B76F0  4E 80 00 20 */	blr 
+/* 800BA790 000B76F0  4E 80 00 20 */	blr
 
 .global __dt__17CParticleDatabaseFv
 __dt__17CParticleDatabaseFv:
@@ -3468,7 +3468,7 @@ lbl_800BA9B8:
 /* 800BA9C4 000B7924  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BA9C8 000B7928  7C 08 03 A6 */	mtlr r0
 /* 800BA9CC 000B792C  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BA9D0 000B7930  4E 80 00 20 */	blr 
+/* 800BA9D0 000B7930  4E 80 00 20 */	blr
 
 .global __ct__17CParticleDatabaseFv
 __ct__17CParticleDatabaseFv:
@@ -3562,7 +3562,7 @@ __ct__17CParticleDatabaseFv:
 /* 800BAB30 000B7A90  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 800BAB34 000B7A94  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 800BAB38 000B7A98  38 21 00 60 */	addi r1, r1, 0x60
-/* 800BAB3C 000B7A9C  4E 80 00 20 */	blr 
+/* 800BAB3C 000B7A9C  4E 80 00 20 */	blr
 
 .global sub_800bab40
 sub_800bab40:
@@ -3600,7 +3600,7 @@ lbl_800BAB80:
 /* 800BABB4 000B7B14  38 80 00 01 */	li r4, 1
 /* 800BABB8 000B7B18  81 8C 00 08 */	lwz r12, 8(r12)
 /* 800BABBC 000B7B1C  7D 89 03 A6 */	mtctr r12
-/* 800BABC0 000B7B20  4E 80 04 21 */	bctrl 
+/* 800BABC0 000B7B20  4E 80 04 21 */	bctrl
 lbl_800BABC4:
 /* 800BABC4 000B7B24  34 1F 00 10 */	addic. r0, r31, 0x10
 /* 800BABC8 000B7B28  41 82 00 0C */	beq lbl_800BABD4
@@ -3617,7 +3617,7 @@ lbl_800BABE4:
 /* 800BABEC 000B7B4C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BABF0 000B7B50  7C 08 03 A6 */	mtlr r0
 /* 800BABF4 000B7B54  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BABF8 000B7B58  4E 80 00 20 */	blr 
+/* 800BABF8 000B7B58  4E 80 00 20 */	blr
 
 .global "_getGraphicLightId<Q24rstl24ncrc_ptr<12CParticleGen>,30TToken<20CElectricDescription>>__FRCQ24rstl24ncrc_ptr<12CParticleGen>RC30TToken<20CElectricDescription>"
 "_getGraphicLightId<Q24rstl24ncrc_ptr<12CParticleGen>,30TToken<20CElectricDescription>>__FRCQ24rstl24ncrc_ptr<12CParticleGen>RC30TToken<20CElectricDescription>":
@@ -3631,7 +3631,7 @@ lbl_800BABE4:
 /* 800BAC18 000B7B78  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BAC1C 000B7B7C  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800BAC20 000B7B80  7D 89 03 A6 */	mtctr r12
-/* 800BAC24 000B7B84  4E 80 04 21 */	bctrl 
+/* 800BAC24 000B7B84  4E 80 04 21 */	bctrl
 /* 800BAC28 000B7B88  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800BAC2C 000B7B8C  41 82 00 10 */	beq lbl_800BAC3C
 /* 800BAC30 000B7B90  80 7F 00 00 */	lwz r3, 0(r31)
@@ -3644,7 +3644,7 @@ lbl_800BAC40:
 /* 800BAC44 000B7BA4  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800BAC48 000B7BA8  7C 08 03 A6 */	mtlr r0
 /* 800BAC4C 000B7BAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BAC50 000B7BB0  4E 80 00 20 */	blr 
+/* 800BAC50 000B7BB0  4E 80 00 20 */	blr
 
 .global "_getGraphicLightId<Q24rstl24ncrc_ptr<12CParticleGen>,25TToken<15CGenDescription>>__FRCQ24rstl24ncrc_ptr<12CParticleGen>RC25TToken<15CGenDescription>"
 "_getGraphicLightId<Q24rstl24ncrc_ptr<12CParticleGen>,25TToken<15CGenDescription>>__FRCQ24rstl24ncrc_ptr<12CParticleGen>RC25TToken<15CGenDescription>":
@@ -3658,7 +3658,7 @@ lbl_800BAC40:
 /* 800BAC70 000B7BD0  81 83 00 00 */	lwz r12, 0(r3)
 /* 800BAC74 000B7BD4  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800BAC78 000B7BD8  7D 89 03 A6 */	mtctr r12
-/* 800BAC7C 000B7BDC  4E 80 04 21 */	bctrl 
+/* 800BAC7C 000B7BDC  4E 80 04 21 */	bctrl
 /* 800BAC80 000B7BE0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800BAC84 000B7BE4  41 82 00 10 */	beq lbl_800BAC94
 /* 800BAC88 000B7BE8  80 7F 00 00 */	lwz r3, 0(r31)
@@ -3671,7 +3671,7 @@ lbl_800BAC98:
 /* 800BAC9C 000B7BFC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800BACA0 000B7C00  7C 08 03 A6 */	mtlr r0
 /* 800BACA4 000B7C04  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BACA8 000B7C08  4E 80 00 20 */	blr 
+/* 800BACA8 000B7C08  4E 80 00 20 */	blr
 
 .global sub_800bacac
 sub_800bacac:
@@ -3711,7 +3711,7 @@ lbl_800BAD18:
 /* 800BAD20 000B7C80  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BAD24 000B7C84  7C 08 03 A6 */	mtlr r0
 /* 800BAD28 000B7C88  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BAD2C 000B7C8C  4E 80 00 20 */	blr 
+/* 800BAD2C 000B7C8C  4E 80 00 20 */	blr
 
 .global sub_800bad30
 sub_800bad30:
@@ -3878,7 +3878,7 @@ lbl_800BAF80:
 /* 800BAF84 000B7EE4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800BAF88 000B7EE8  7C 08 03 A6 */	mtlr r0
 /* 800BAF8C 000B7EEC  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BAF90 000B7EF0  4E 80 00 20 */	blr 
+/* 800BAF90 000B7EF0  4E 80 00 20 */	blr
 
 .global sub_800baf94
 sub_800baf94:
@@ -3918,7 +3918,7 @@ lbl_800BB000:
 /* 800BB008 000B7F68  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BB00C 000B7F6C  7C 08 03 A6 */	mtlr r0
 /* 800BB010 000B7F70  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BB014 000B7F74  4E 80 00 20 */	blr 
+/* 800BB014 000B7F74  4E 80 00 20 */	blr
 
 .global sub_800bb018
 sub_800bb018:
@@ -4085,7 +4085,7 @@ lbl_800BB268:
 /* 800BB26C 000B81CC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800BB270 000B81D0  7C 08 03 A6 */	mtlr r0
 /* 800BB274 000B81D4  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BB278 000B81D8  4E 80 00 20 */	blr 
+/* 800BB278 000B81D8  4E 80 00 20 */	blr
 
 .global sub_800bb27c
 sub_800bb27c:
@@ -4125,7 +4125,7 @@ lbl_800BB2E8:
 /* 800BB2F0 000B8250  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BB2F4 000B8254  7C 08 03 A6 */	mtlr r0
 /* 800BB2F8 000B8258  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BB2FC 000B825C  4E 80 00 20 */	blr 
+/* 800BB2FC 000B825C  4E 80 00 20 */	blr
 
 .global sub_800bb300
 sub_800bb300:
@@ -4292,7 +4292,7 @@ lbl_800BB550:
 /* 800BB554 000B84B4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800BB558 000B84B8  7C 08 03 A6 */	mtlr r0
 /* 800BB55C 000B84BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BB560 000B84C0  4E 80 00 20 */	blr 
+/* 800BB560 000B84C0  4E 80 00 20 */	blr
 
 .global sub_800bb564
 sub_800bb564:
@@ -4466,7 +4466,7 @@ lbl_800BB7D0:
 /* 800BB7D4 000B8734  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800BB7D8 000B8738  7C 08 03 A6 */	mtlr r0
 /* 800BB7DC 000B873C  38 21 00 20 */	addi r1, r1, 0x20
-/* 800BB7E0 000B8740  4E 80 00 20 */	blr 
+/* 800BB7E0 000B8740  4E 80 00 20 */	blr
 
 .global sub_800bb7e4
 sub_800bb7e4:
@@ -4503,7 +4503,7 @@ lbl_800BB848:
 /* 800BB850 000B87B0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BB854 000B87B4  7C 08 03 A6 */	mtlr r0
 /* 800BB858 000B87B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BB85C 000B87BC  4E 80 00 20 */	blr 
+/* 800BB85C 000B87BC  4E 80 00 20 */	blr
 
 .global sub_800bb860
 sub_800bb860:
@@ -4540,7 +4540,7 @@ lbl_800BB8C4:
 /* 800BB8CC 000B882C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BB8D0 000B8830  7C 08 03 A6 */	mtlr r0
 /* 800BB8D4 000B8834  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BB8D8 000B8838  4E 80 00 20 */	blr 
+/* 800BB8D8 000B8838  4E 80 00 20 */	blr
 
 .global sub_800bb8dc
 sub_800bb8dc:
@@ -4577,4 +4577,4 @@ lbl_800BB940:
 /* 800BB948 000B88A8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800BB94C 000B88AC  7C 08 03 A6 */	mtlr r0
 /* 800BB950 000B88B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800BB954 000B88B4  4E 80 00 20 */	blr 
+/* 800BB954 000B88B4  4E 80 00 20 */	blr

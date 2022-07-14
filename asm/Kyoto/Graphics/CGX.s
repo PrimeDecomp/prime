@@ -52,12 +52,12 @@ lbl_80307C1C:
 /* 80307C30 00304B90  D0 07 00 00 */	stfs f0, 0(r7)
 lbl_80307C34:
 /* 80307C34 00304B94  28 08 00 00 */	cmplwi r8, 0
-/* 80307C38 00304B98  4D 82 00 20 */	beqlr 
+/* 80307C38 00304B98  4D 82 00 20 */	beqlr
 /* 80307C3C 00304B9C  3C 60 80 5A */	lis r3, lbl_805A53EC@ha
 /* 80307C40 00304BA0  38 63 53 EC */	addi r3, r3, lbl_805A53EC@l
 /* 80307C44 00304BA4  80 03 02 5C */	lwz r0, 0x25c(r3)
 /* 80307C48 00304BA8  90 08 00 00 */	stw r0, 0(r8)
-/* 80307C4C 00304BAC  4E 80 00 20 */	blr 
+/* 80307C4C 00304BAC  4E 80 00 20 */	blr
 
 .global SetStandardTevColorAlphaOp__3CGXF13_GXTevStageID
 SetStandardTevColorAlphaOp__3CGXF13_GXTevStageID:
@@ -100,7 +100,7 @@ lbl_80307CD4:
 /* 80307CD8 00304C38  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80307CDC 00304C3C  7C 08 03 A6 */	mtlr r0
 /* 80307CE0 00304C40  38 21 00 10 */	addi r1, r1, 0x10
-/* 80307CE4 00304C44  4E 80 00 20 */	blr 
+/* 80307CE4 00304C44  4E 80 00 20 */	blr
 
 .global SetStandardDirectTev_Compressed__3CGXF13_GXTevStageIDUiUiUiUi
 SetStandardDirectTev_Compressed__3CGXF13_GXTevStageIDUiUiUiUi:
@@ -190,7 +190,7 @@ lbl_80307E14:
 /* 80307E18 00304D78  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80307E1C 00304D7C  7C 08 03 A6 */	mtlr r0
 /* 80307E20 00304D80  38 21 00 20 */	addi r1, r1, 0x20
-/* 80307E24 00304D84  4E 80 00 20 */	blr 
+/* 80307E24 00304D84  4E 80 00 20 */	blr
 
 .global SetVtxDescv__3CGXFPC14_GXVtxDescList
 SetVtxDescv__3CGXFPC14_GXVtxDescList:
@@ -216,7 +216,7 @@ lbl_80307E58:
 /* 80307E6C 00304DCC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80307E70 00304DD0  7C 08 03 A6 */	mtlr r0
 /* 80307E74 00304DD4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80307E78 00304DD8  4E 80 00 20 */	blr 
+/* 80307E78 00304DD8  4E 80 00 20 */	blr
 
 .global SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv
 SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv:
@@ -229,7 +229,7 @@ SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv:
 /* 80307E94 00304DF4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80307E98 00304DF8  7C 08 03 A6 */	mtlr r0
 /* 80307E9C 00304DFC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80307EA0 00304E00  4E 80 00 20 */	blr 
+/* 80307EA0 00304E00  4E 80 00 20 */	blr
 
 .global SetAttrFmt__11CFluidPlaneF6GXAttr10GXAttrType
 SetAttrFmt__11CFluidPlaneF6GXAttr10GXAttrType:
@@ -255,7 +255,7 @@ lbl_80307EEC:
 /* 80307EEC 00304E4C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80307EF0 00304E50  7C 08 03 A6 */	mtlr r0
 /* 80307EF4 00304E54  38 21 00 10 */	addi r1, r1, 0x10
-/* 80307EF8 00304E58  4E 80 00 20 */	blr 
+/* 80307EF8 00304E58  4E 80 00 20 */	blr
 
 .global SetVtxDescv_Compressed__3CGXFUi
 SetVtxDescv_Compressed__3CGXFUi:
@@ -308,7 +308,7 @@ lbl_80307FA0:
 /* 80307FA8 00304F08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80307FAC 00304F0C  7C 08 03 A6 */	mtlr r0
 /* 80307FB0 00304F10  38 21 00 10 */	addi r1, r1, 0x10
-/* 80307FB4 00304F14  4E 80 00 20 */	blr 
+/* 80307FB4 00304F14  4E 80 00 20 */	blr
 
 .global SetIndTexMtxSTPointFive__3CGXF14_GXIndTexMtxIDSc
 SetIndTexMtxSTPointFive__3CGXF14_GXIndTexMtxIDSc:
@@ -322,7 +322,7 @@ SetIndTexMtxSTPointFive__3CGXF14_GXIndTexMtxIDSc:
 /* 80307FD4 00304F34  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80307FD8 00304F38  7C 08 03 A6 */	mtlr r0
 /* 80307FDC 00304F3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80307FE0 00304F40  4E 80 00 20 */	blr 
+/* 80307FE0 00304F40  4E 80 00 20 */	blr
 
 .global FlushState__3CGXFv
 FlushState__3CGXFv:
@@ -388,7 +388,7 @@ lbl_803080B4:
 /* 803080C4 00305024  83 C1 00 08 */	lwz r30, 8(r1)
 /* 803080C8 00305028  7C 08 03 A6 */	mtlr r0
 /* 803080CC 0030502C  38 21 00 10 */	addi r1, r1, 0x10
-/* 803080D0 00305030  4E 80 00 20 */	blr 
+/* 803080D0 00305030  4E 80 00 20 */	blr
 
 .global sub_803080d4
 sub_803080d4:
@@ -404,7 +404,7 @@ lbl_803080F0:
 /* 803080F4 00305054  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803080F8 00305058  7C 08 03 A6 */	mtlr r0
 /* 803080FC 0030505C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308100 00305060  4E 80 00 20 */	blr 
+/* 80308100 00305060  4E 80 00 20 */	blr
 
 .global ResetGXStates__3CGXFv
 ResetGXStates__3CGXFv:
@@ -514,7 +514,7 @@ lbl_80308254:
 /* 8030828C 003051EC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80308290 003051F0  7C 08 03 A6 */	mtlr r0
 /* 80308294 003051F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80308298 003051F8  4E 80 00 20 */	blr 
+/* 80308298 003051F8  4E 80 00 20 */	blr
 
 .global __ct__Q23CGX8SGXStateFv
 __ct__Q23CGX8SGXStateFv:
@@ -637,13 +637,13 @@ __ct__Q23CGX8SGXStateFv:
 /* 8030846C 003053CC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80308470 003053D0  7C 08 03 A6 */	mtlr r0
 /* 80308474 003053D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 80308478 003053D8  4E 80 00 20 */	blr 
+/* 80308478 003053D8  4E 80 00 20 */	blr
 
 .global __ct__Q23CGX9STexStateFv
 __ct__Q23CGX9STexStateFv:
 /* 8030847C 003053DC  38 00 00 00 */	li r0, 0
 /* 80308480 003053E0  90 03 00 00 */	stw r0, 0(r3)
-/* 80308484 003053E4  4E 80 00 20 */	blr 
+/* 80308484 003053E4  4E 80 00 20 */	blr
 
 .global __ct__Q23CGX9STevStateFv
 __ct__Q23CGX9STevStateFv:
@@ -658,7 +658,7 @@ __ct__Q23CGX9STevStateFv:
 /* 803084A8 00305408  90 83 00 14 */	stw r4, 0x14(r3)
 /* 803084AC 0030540C  98 03 00 18 */	stb r0, 0x18(r3)
 /* 803084B0 00305410  98 03 00 19 */	stb r0, 0x19(r3)
-/* 803084B4 00305414  4E 80 00 20 */	blr 
+/* 803084B4 00305414  4E 80 00 20 */	blr
 
 .global SetLineWidth__3CGXFUc12_GXTexOffset
 SetLineWidth__3CGXFUc12_GXTexOffset:
@@ -679,7 +679,7 @@ lbl_803084EC:
 /* 803084EC 0030544C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803084F0 00305450  7C 08 03 A6 */	mtlr r0
 /* 803084F4 00305454  38 21 00 10 */	addi r1, r1, 0x10
-/* 803084F8 00305458  4E 80 00 20 */	blr 
+/* 803084F8 00305458  4E 80 00 20 */	blr
 
 .global SetFog__3CGXF10_GXFogTypeffffRC8_GXColor
 SetFog__3CGXF10_GXFogTypeffffRC8_GXColor:
@@ -717,11 +717,11 @@ lbl_8030854C:
 /* 80308570 003054D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308574 003054D4  7C 08 03 A6 */	mtlr r0
 /* 80308578 003054D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030857C 003054DC  4E 80 00 20 */	blr 
+/* 8030857C 003054DC  4E 80 00 20 */	blr
 
 .global End__3CGXFv
 End__3CGXFv:
-/* 80308580 003054E0  4E 80 00 20 */	blr 
+/* 80308580 003054E0  4E 80 00 20 */	blr
 
 .global Begin__3CGXF12_GXPrimitive9_GXVtxFmtUs
 Begin__3CGXF12_GXPrimitive9_GXVtxFmtUs:
@@ -751,7 +751,7 @@ lbl_803085C0:
 /* 803085DC 0030553C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 803085E0 00305540  7C 08 03 A6 */	mtlr r0
 /* 803085E4 00305544  38 21 00 20 */	addi r1, r1, 0x20
-/* 803085E8 00305548  4E 80 00 20 */	blr 
+/* 803085E8 00305548  4E 80 00 20 */	blr
 
 .global CallDisplayList__3CGXFPCvUl
 CallDisplayList__3CGXFPCvUl:
@@ -777,7 +777,7 @@ lbl_80308620:
 /* 80308634 00305594  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80308638 00305598  7C 08 03 A6 */	mtlr r0
 /* 8030863C 0030559C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308640 003055A0  4E 80 00 20 */	blr 
+/* 80308640 003055A0  4E 80 00 20 */	blr
 
 .global SetArray__3CGXF7_GXAttrPCvUc
 SetArray__3CGXF7_GXAttrPCvUc:
@@ -801,7 +801,7 @@ lbl_80308680:
 /* 80308680 003055E0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308684 003055E4  7C 08 03 A6 */	mtlr r0
 /* 80308688 003055E8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030868C 003055EC  4E 80 00 20 */	blr 
+/* 8030868C 003055EC  4E 80 00 20 */	blr
 
 .global SetNumIndStages__3CGXFUc
 SetNumIndStages__3CGXFUc:
@@ -820,7 +820,7 @@ lbl_803086BC:
 /* 803086BC 0030561C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803086C0 00305620  7C 08 03 A6 */	mtlr r0
 /* 803086C4 00305624  38 21 00 10 */	addi r1, r1, 0x10
-/* 803086C8 00305628  4E 80 00 20 */	blr 
+/* 803086C8 00305628  4E 80 00 20 */	blr
 
 .global SetTexCoordGen__3CGXF13_GXTexCoordID13_GXTexGenType12_GXTexGenSrc9_GXTexMtxUc11_GXPTTexMtx
 SetTexCoordGen__3CGXF13_GXTexCoordID13_GXTexGenType12_GXTexGenSrc9_GXTexMtxUc11_GXPTTexMtx:
@@ -854,7 +854,7 @@ lbl_80308730:
 /* 80308734 00305694  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80308738 00305698  7C 08 03 A6 */	mtlr r0
 /* 8030873C 0030569C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308740 003056A0  4E 80 00 20 */	blr 
+/* 80308740 003056A0  4E 80 00 20 */	blr
 
 .global SetTevDirect__3CGXF13_GXTevStageID
 SetTevDirect__3CGXF13_GXTevStageID:
@@ -876,7 +876,7 @@ lbl_8030877C:
 /* 8030877C 003056DC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308780 003056E0  7C 08 03 A6 */	mtlr r0
 /* 80308784 003056E4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308788 003056E8  4E 80 00 20 */	blr 
+/* 80308788 003056E8  4E 80 00 20 */	blr
 
 .global SetTevIndirect__3CGXF13_GXTevStageID16_GXIndTexStageID15_GXIndTexFormat16_GXIndTexBiasSel14_GXIndTexMtxID13_GXIndTexWrap13_GXIndTexWrapUcUc17_GXIndTexAlphaSel
 SetTevIndirect__3CGXF13_GXTevStageID16_GXIndTexStageID15_GXIndTexFormat16_GXIndTexBiasSel14_GXIndTexMtxID13_GXIndTexWrap13_GXIndTexWrapUcUc17_GXIndTexAlphaSel:
@@ -914,7 +914,7 @@ lbl_803087FC:
 /* 80308804 00305764  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80308808 00305768  7C 08 03 A6 */	mtlr r0
 /* 8030880C 0030576C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80308810 00305770  4E 80 00 20 */	blr 
+/* 80308810 00305770  4E 80 00 20 */	blr
 
 .global SetAlphaCompare__3CGXF10_GXCompareUc10_GXAlphaOp10_GXCompareUc
 SetAlphaCompare__3CGXF10_GXCompareUc10_GXAlphaOp10_GXCompareUc:
@@ -944,7 +944,7 @@ lbl_80308868:
 /* 8030886C 003057CC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80308870 003057D0  7C 08 03 A6 */	mtlr r0
 /* 80308874 003057D4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308878 003057D8  4E 80 00 20 */	blr 
+/* 80308878 003057D8  4E 80 00 20 */	blr
 
 .global SetZMode__3CGXFb10_GXCompareb
 SetZMode__3CGXFb10_GXCompareb:
@@ -969,7 +969,7 @@ lbl_803088C0:
 /* 803088C0 00305820  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803088C4 00305824  7C 08 03 A6 */	mtlr r0
 /* 803088C8 00305828  38 21 00 10 */	addi r1, r1, 0x10
-/* 803088CC 0030582C  4E 80 00 20 */	blr 
+/* 803088CC 0030582C  4E 80 00 20 */	blr
 
 .global SetBlendMode__3CGXF12_GXBlendMode14_GXBlendFactor14_GXBlendFactor10_GXLogicOp
 SetBlendMode__3CGXF12_GXBlendMode14_GXBlendFactor14_GXBlendFactor10_GXLogicOp:
@@ -1004,7 +1004,7 @@ lbl_80308938:
 /* 8030893C 0030589C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80308940 003058A0  7C 08 03 A6 */	mtlr r0
 /* 80308944 003058A4  38 21 00 20 */	addi r1, r1, 0x20
-/* 80308948 003058A8  4E 80 00 20 */	blr 
+/* 80308948 003058A8  4E 80 00 20 */	blr
 
 .global SetTevOrder__3CGXF13_GXTevStageID13_GXTexCoordID11_GXTexMapID12_GXChannelID
 SetTevOrder__3CGXF13_GXTevStageID13_GXTexCoordID11_GXTexMapID12_GXChannelID:
@@ -1028,7 +1028,7 @@ lbl_8030898C:
 /* 8030898C 003058EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308990 003058F0  7C 08 03 A6 */	mtlr r0
 /* 80308994 003058F4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308998 003058F8  4E 80 00 20 */	blr 
+/* 80308998 003058F8  4E 80 00 20 */	blr
 
 .global SetTevKAlphaSel__3CGXF13_GXTevStageID15_GXTevKAlphaSel
 SetTevKAlphaSel__3CGXF13_GXTevStageID15_GXTevKAlphaSel:
@@ -1049,7 +1049,7 @@ lbl_803089D0:
 /* 803089D0 00305930  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803089D4 00305934  7C 08 03 A6 */	mtlr r0
 /* 803089D8 00305938  38 21 00 10 */	addi r1, r1, 0x10
-/* 803089DC 0030593C  4E 80 00 20 */	blr 
+/* 803089DC 0030593C  4E 80 00 20 */	blr
 
 .global SetTevKColorSel__3CGXF13_GXTevStageID15_GXTevKColorSel
 SetTevKColorSel__3CGXF13_GXTevStageID15_GXTevKColorSel:
@@ -1070,7 +1070,7 @@ lbl_80308A14:
 /* 80308A14 00305974  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308A18 00305978  7C 08 03 A6 */	mtlr r0
 /* 80308A1C 0030597C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308A20 00305980  4E 80 00 20 */	blr 
+/* 80308A20 00305980  4E 80 00 20 */	blr
 
 .global SetTevAlphaOp_Compressed__3CGXF13_GXTevStageIDUi
 SetTevAlphaOp_Compressed__3CGXF13_GXTevStageIDUi:
@@ -1097,7 +1097,7 @@ lbl_80308A70:
 /* 80308A70 003059D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308A74 003059D4  7C 08 03 A6 */	mtlr r0
 /* 80308A78 003059D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308A7C 003059DC  4E 80 00 20 */	blr 
+/* 80308A7C 003059DC  4E 80 00 20 */	blr
 
 .global SetTevAlphaOp__3CGXF13_GXTevStageID8_GXTevOp10_GXTevBias11_GXTevScaleUc11_GXTevRegID
 SetTevAlphaOp__3CGXF13_GXTevStageID8_GXTevOp10_GXTevBias11_GXTevScaleUc11_GXTevRegID:
@@ -1124,7 +1124,7 @@ lbl_80308ACC:
 /* 80308ACC 00305A2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308AD0 00305A30  7C 08 03 A6 */	mtlr r0
 /* 80308AD4 00305A34  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308AD8 00305A38  4E 80 00 20 */	blr 
+/* 80308AD8 00305A38  4E 80 00 20 */	blr
 
 .global SetTevColorOp_Compressed__3CGXF13_GXTevStageIDUi
 SetTevColorOp_Compressed__3CGXF13_GXTevStageIDUi:
@@ -1151,7 +1151,7 @@ lbl_80308B28:
 /* 80308B28 00305A88  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308B2C 00305A8C  7C 08 03 A6 */	mtlr r0
 /* 80308B30 00305A90  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308B34 00305A94  4E 80 00 20 */	blr 
+/* 80308B34 00305A94  4E 80 00 20 */	blr
 
 .global SetTevColorOp__3CGXF13_GXTevStageID8_GXTevOp10_GXTevBias11_GXTevScaleUc11_GXTevRegID
 SetTevColorOp__3CGXF13_GXTevStageID8_GXTevOp10_GXTevBias11_GXTevScaleUc11_GXTevRegID:
@@ -1178,7 +1178,7 @@ lbl_80308B84:
 /* 80308B84 00305AE4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308B88 00305AE8  7C 08 03 A6 */	mtlr r0
 /* 80308B8C 00305AEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308B90 00305AF0  4E 80 00 20 */	blr 
+/* 80308B90 00305AF0  4E 80 00 20 */	blr
 
 .global SetTevAlphaIn__3CGXF13_GXTevStageID14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg
 SetTevAlphaIn__3CGXF13_GXTevStageID14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg14_GXTevAlphaArg:
@@ -1204,7 +1204,7 @@ lbl_80308BDC:
 /* 80308BDC 00305B3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308BE0 00305B40  7C 08 03 A6 */	mtlr r0
 /* 80308BE4 00305B44  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308BE8 00305B48  4E 80 00 20 */	blr 
+/* 80308BE8 00305B48  4E 80 00 20 */	blr
 
 .global SetTevColorIn__3CGXF13_GXTevStageID14_GXTevColorArg14_GXTevColorArg14_GXTevColorArg14_GXTevColorArg
 SetTevColorIn__3CGXF13_GXTevStageID14_GXTevColorArg14_GXTevColorArg14_GXTevColorArg14_GXTevColorArg:
@@ -1230,7 +1230,7 @@ lbl_80308C34:
 /* 80308C34 00305B94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308C38 00305B98  7C 08 03 A6 */	mtlr r0
 /* 80308C3C 00305B9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308C40 00305BA0  4E 80 00 20 */	blr 
+/* 80308C40 00305BA0  4E 80 00 20 */	blr
 
 .global SetTevKColor__3CGXF14_GXTevKColorIDRC8_GXColor
 SetTevKColor__3CGXF14_GXTevKColorIDRC8_GXColor:
@@ -1253,7 +1253,7 @@ lbl_80308C80:
 /* 80308C80 00305BE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308C84 00305BE4  7C 08 03 A6 */	mtlr r0
 /* 80308C88 00305BE8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308C8C 00305BEC  4E 80 00 20 */	blr 
+/* 80308C8C 00305BEC  4E 80 00 20 */	blr
 
 .global SetNumTevStages__3CGXFUc
 SetNumTevStages__3CGXFUc:
@@ -1272,7 +1272,7 @@ lbl_80308CBC:
 /* 80308CBC 00305C1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308CC0 00305C20  7C 08 03 A6 */	mtlr r0
 /* 80308CC4 00305C24  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308CC8 00305C28  4E 80 00 20 */	blr 
+/* 80308CC8 00305C28  4E 80 00 20 */	blr
 
 .global SetChanCtrl__3CGXFQ23CGX10EChannelIdUc11_GXColorSrc11_GXColorSrc10_GXLightID12_GXDiffuseFn9_GXAttnFn
 SetChanCtrl__3CGXFQ23CGX10EChannelIdUc11_GXColorSrc11_GXColorSrc10_GXLightID12_GXDiffuseFn9_GXAttnFn:
@@ -1312,7 +1312,7 @@ lbl_80308CF8:
 /* 80308D4C 00305CAC  98 0A 00 4C */	stb r0, 0x4c(r10)
 /* 80308D50 00305CB0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80308D54 00305CB4  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308D58 00305CB8  4E 80 00 20 */	blr 
+/* 80308D58 00305CB8  4E 80 00 20 */	blr
 
 .global SetChanMatColor__3CGXFQ23CGX10EChannelIdRC8_GXColor
 SetChanMatColor__3CGXFQ23CGX10EChannelIdRC8_GXColor:
@@ -1336,7 +1336,7 @@ lbl_80308D9C:
 /* 80308D9C 00305CFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308DA0 00305D00  7C 08 03 A6 */	mtlr r0
 /* 80308DA4 00305D04  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308DA8 00305D08  4E 80 00 20 */	blr 
+/* 80308DA8 00305D08  4E 80 00 20 */	blr
 
 .global GetChanAmbColor__3CGXFQ23CGX10EChannelId
 GetChanAmbColor__3CGXFQ23CGX10EChannelId:
@@ -1345,7 +1345,7 @@ GetChanAmbColor__3CGXFQ23CGX10EChannelId:
 /* 80308DB4 00305D14  38 64 53 EC */	addi r3, r4, lbl_805A53EC@l
 /* 80308DB8 00305D18  7C 63 02 14 */	add r3, r3, r0
 /* 80308DBC 00305D1C  80 63 00 38 */	lwz r3, 0x38(r3)
-/* 80308DC0 00305D20  4E 80 00 20 */	blr 
+/* 80308DC0 00305D20  4E 80 00 20 */	blr
 
 .global SetChanAmbColor__3CGXFQ23CGX10EChannelIdRC8_GXColor
 SetChanAmbColor__3CGXFQ23CGX10EChannelIdRC8_GXColor:
@@ -1369,7 +1369,7 @@ lbl_80308E04:
 /* 80308E04 00305D64  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308E08 00305D68  7C 08 03 A6 */	mtlr r0
 /* 80308E0C 00305D6C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308E10 00305D70  4E 80 00 20 */	blr 
+/* 80308E10 00305D70  4E 80 00 20 */	blr
 
 .global SetNumTexGens__3CGXFUc
 SetNumTexGens__3CGXFUc:
@@ -1388,7 +1388,7 @@ lbl_80308E40:
 /* 80308E40 00305DA0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80308E44 00305DA4  7C 08 03 A6 */	mtlr r0
 /* 80308E48 00305DA8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80308E4C 00305DAC  4E 80 00 20 */	blr 
+/* 80308E4C 00305DAC  4E 80 00 20 */	blr
 
 .global SetNumChans__3CGXFUc
 SetNumChans__3CGXFUc:
@@ -1403,7 +1403,7 @@ SetNumChans__3CGXFUc:
 /* 80308E70 00305DD0  98 67 00 4E */	stb r3, 0x4e(r7)
 /* 80308E74 00305DD4  50 80 0F FE */	rlwimi r0, r4, 1, 0x1f, 0x1f
 /* 80308E78 00305DD8  98 07 00 4C */	stb r0, 0x4c(r7)
-/* 80308E7C 00305DDC  4E 80 00 20 */	blr 
+/* 80308E7C 00305DDC  4E 80 00 20 */	blr
 
 .global __sinit_CGX_cpp
 __sinit_CGX_cpp:

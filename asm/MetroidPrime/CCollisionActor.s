@@ -181,7 +181,7 @@ __dt__15CCollisionActorFv:
 /* 801A8910 001A5870  38 80 00 01 */	li r4, 1
 /* 801A8914 001A5874  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 801A8918 001A5878  7D 89 03 A6 */	mtctr r12
-/* 801A891C 001A587C  4E 80 04 21 */	bctrl 
+/* 801A891C 001A587C  4E 80 04 21 */	bctrl
 lbl_801A8920:
 /* 801A8920 001A5880  34 1E 02 80 */	addic. r0, r30, 0x280
 /* 801A8924 001A5884  41 82 00 24 */	beq lbl_801A8948
@@ -192,7 +192,7 @@ lbl_801A8920:
 /* 801A8938 001A5898  38 80 00 01 */	li r4, 1
 /* 801A893C 001A589C  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 801A8940 001A58A0  7D 89 03 A6 */	mtctr r12
-/* 801A8944 001A58A4  4E 80 04 21 */	bctrl 
+/* 801A8944 001A58A4  4E 80 04 21 */	bctrl
 lbl_801A8948:
 /* 801A8948 001A58A8  34 1E 02 7C */	addic. r0, r30, 0x27c
 /* 801A894C 001A58AC  41 82 00 24 */	beq lbl_801A8970
@@ -203,7 +203,7 @@ lbl_801A8948:
 /* 801A8960 001A58C0  38 80 00 01 */	li r4, 1
 /* 801A8964 001A58C4  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 801A8968 001A58C8  7D 89 03 A6 */	mtctr r12
-/* 801A896C 001A58CC  4E 80 04 21 */	bctrl 
+/* 801A896C 001A58CC  4E 80 04 21 */	bctrl
 lbl_801A8970:
 /* 801A8970 001A58D0  38 7E 02 78 */	addi r3, r30, 0x278
 /* 801A8974 001A58D4  38 80 FF FF */	li r4, -1
@@ -222,7 +222,7 @@ lbl_801A8998:
 /* 801A89A4 001A5904  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801A89A8 001A5908  7C 08 03 A6 */	mtlr r0
 /* 801A89AC 001A590C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801A89B0 001A5910  4E 80 00 20 */	blr 
+/* 801A89B0 001A5910  4E 80 00 20 */	blr
 
 .global sub_801a89b4
 sub_801a89b4:
@@ -248,7 +248,7 @@ lbl_801A89F0:
 /* 801A89FC 001A595C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801A8A00 001A5960  7C 08 03 A6 */	mtlr r0
 /* 801A8A04 001A5964  38 21 00 10 */	addi r1, r1, 0x10
-/* 801A8A08 001A5968  4E 80 00 20 */	blr 
+/* 801A8A08 001A5968  4E 80 00 20 */	blr
 
 .global sub_801a8a0c
 sub_801a8a0c:
@@ -326,12 +326,12 @@ lbl_801A8AF4:
 /* 801A8B08 001A5A68  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801A8B0C 001A5A6C  7C 08 03 A6 */	mtlr r0
 /* 801A8B10 001A5A70  38 21 00 40 */	addi r1, r1, 0x40
-/* 801A8B14 001A5A74  4E 80 00 20 */	blr 
+/* 801A8B14 001A5A74  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__15CCollisionActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__15CCollisionActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 801A8B18 001A5A78  80 63 03 00 */	lwz r3, 0x300(r3)
-/* 801A8B1C 001A5A7C  4E 80 00 20 */	blr 
+/* 801A8B1C 001A5A7C  4E 80 00 20 */	blr
 
 .global sub_801a8b20
 sub_801a8b20:
@@ -358,23 +358,23 @@ sub_801a8b20:
 /* 801A8B70 001A5AD0  D0 04 00 1C */	stfs f0, 0x1c(r4)
 lbl_801A8B74:
 /* 801A8B74 001A5AD4  38 21 00 20 */	addi r1, r1, 0x20
-/* 801A8B78 001A5AD8  4E 80 00 20 */	blr 
+/* 801A8B78 001A5AD8  4E 80 00 20 */	blr
 
 .global GetSphereRadius__15CCollisionActorCFv
 GetSphereRadius__15CCollisionActorCFv:
 /* 801A8B7C 001A5ADC  C0 23 02 88 */	lfs f1, 0x288(r3)
-/* 801A8B80 001A5AE0  4E 80 00 20 */	blr 
+/* 801A8B80 001A5AE0  4E 80 00 20 */	blr
 
 .global GetBoxSize__15CCollisionActorCFv
 GetBoxSize__15CCollisionActorCFv:
 /* 801A8B84 001A5AE4  38 63 02 60 */	addi r3, r3, 0x260
-/* 801A8B88 001A5AE8  4E 80 00 20 */	blr 
+/* 801A8B88 001A5AE8  4E 80 00 20 */	blr
 
 .global GetLastTouchedObject__15CCollisionActorCFv
 GetLastTouchedObject__15CCollisionActorCFv:
 /* 801A8B8C 001A5AEC  A0 04 02 FC */	lhz r0, 0x2fc(r4)
 /* 801A8B90 001A5AF0  B0 03 00 00 */	sth r0, 0(r3)
-/* 801A8B94 001A5AF4  4E 80 00 20 */	blr 
+/* 801A8B94 001A5AF4  4E 80 00 20 */	blr
 
 .global SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability:
@@ -430,7 +430,7 @@ SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability:
 /* 801A8C5C 001A5BBC  90 03 02 F4 */	stw r0, 0x2f4(r3)
 /* 801A8C60 001A5BC0  80 04 00 64 */	lwz r0, 0x64(r4)
 /* 801A8C64 001A5BC4  90 03 02 F8 */	stw r0, 0x2f8(r3)
-/* 801A8C68 001A5BC8  4E 80 00 20 */	blr 
+/* 801A8C68 001A5BC8  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__15CCollisionActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__15CCollisionActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
@@ -440,21 +440,21 @@ GetDamageVulnerability__15CCollisionActorCFRC9CVector3fRC9CVector3fRC11CDamageIn
 /* 801A8C78 001A5BD8  81 83 00 00 */	lwz r12, 0(r3)
 /* 801A8C7C 001A5BDC  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 801A8C80 001A5BE0  7D 89 03 A6 */	mtctr r12
-/* 801A8C84 001A5BE4  4E 80 04 21 */	bctrl 
+/* 801A8C84 001A5BE4  4E 80 04 21 */	bctrl
 /* 801A8C88 001A5BE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801A8C8C 001A5BEC  7C 08 03 A6 */	mtlr r0
 /* 801A8C90 001A5BF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 801A8C94 001A5BF4  4E 80 00 20 */	blr 
+/* 801A8C94 001A5BF4  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__15CCollisionActorCFv
 GetDamageVulnerability__15CCollisionActorCFv:
 /* 801A8C98 001A5BF8  38 63 02 94 */	addi r3, r3, 0x294
-/* 801A8C9C 001A5BFC  4E 80 00 20 */	blr 
+/* 801A8C9C 001A5BFC  4E 80 00 20 */	blr
 
 .global HealthInfo__15CCollisionActorFR13CStateManager
 HealthInfo__15CCollisionActorFR13CStateManager:
 /* 801A8CA0 001A5C00  38 63 02 8C */	addi r3, r3, 0x28c
-/* 801A8CA4 001A5C04  4E 80 00 20 */	blr 
+/* 801A8CA4 001A5C04  4E 80 00 20 */	blr
 
 .global OnScanStateChange__15CCollisionActorFQ26CActor10EScanStateR13CStateManager
 OnScanStateChange__15CCollisionActorFQ26CActor10EScanStateR13CStateManager:
@@ -483,7 +483,7 @@ OnScanStateChange__15CCollisionActorFQ26CActor10EScanStateR13CStateManager:
 /* 801A8D00 001A5C60  7F E5 FB 78 */	mr r5, r31
 /* 801A8D04 001A5C64  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 801A8D08 001A5C68  7D 89 03 A6 */	mtctr r12
-/* 801A8D0C 001A5C6C  4E 80 04 21 */	bctrl 
+/* 801A8D0C 001A5C6C  4E 80 04 21 */	bctrl
 lbl_801A8D10:
 /* 801A8D10 001A5C70  7F A3 EB 78 */	mr r3, r29
 /* 801A8D14 001A5C74  7F C4 F3 78 */	mr r4, r30
@@ -495,7 +495,7 @@ lbl_801A8D10:
 /* 801A8D2C 001A5C8C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 801A8D30 001A5C90  7C 08 03 A6 */	mtlr r0
 /* 801A8D34 001A5C94  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A8D38 001A5C98  4E 80 00 20 */	blr 
+/* 801A8D38 001A5C98  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__15CCollisionActorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__15CCollisionActorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -518,7 +518,7 @@ AcceptScriptMsg__15CCollisionActorF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 801A8D7C 001A5CDC  38 63 4B 9C */	addi r3, r3, lbl_803E4B9C@l
 /* 801A8D80 001A5CE0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 801A8D84 001A5CE4  7C 09 03 A6 */	mtctr r0
-/* 801A8D88 001A5CE8  4E 80 04 20 */	bctr 
+/* 801A8D88 001A5CE8  4E 80 04 20 */	bctr
 .global lbl_801A8D8C
 lbl_801A8D8C:
 /* 801A8D8C 001A5CEC  A0 1C 02 5C */	lhz r0, 0x25c(r28)
@@ -566,7 +566,7 @@ lbl_801A8DF8:
 /* 801A8E24 001A5D84  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 801A8E28 001A5D88  7C 08 03 A6 */	mtlr r0
 /* 801A8E2C 001A5D8C  38 21 00 40 */	addi r1, r1, 0x40
-/* 801A8E30 001A5D90  4E 80 00 20 */	blr 
+/* 801A8E30 001A5D90  4E 80 00 20 */	blr
 
 .global GetPrimitiveTransform__15CCollisionActorCFv
 GetPrimitiveTransform__15CCollisionActorCFv:
@@ -597,7 +597,7 @@ GetPrimitiveTransform__15CCollisionActorCFv:
 /* 801A8E94 001A5DF4  83 C1 00 68 */	lwz r30, 0x68(r1)
 /* 801A8E98 001A5DF8  7C 08 03 A6 */	mtlr r0
 /* 801A8E9C 001A5DFC  38 21 00 70 */	addi r1, r1, 0x70
-/* 801A8EA0 001A5E00  4E 80 00 20 */	blr 
+/* 801A8EA0 001A5E00  4E 80 00 20 */	blr
 
 .global sub_801a8ea4
 sub_801a8ea4:
@@ -605,15 +605,15 @@ sub_801a8ea4:
 /* 801A8EA8 001A5E08  2C 00 00 00 */	cmpwi r0, 0
 /* 801A8EAC 001A5E0C  40 82 00 0C */	bne lbl_801A8EB8
 /* 801A8EB0 001A5E10  80 63 02 7C */	lwz r3, 0x27c(r3)
-/* 801A8EB4 001A5E14  4E 80 00 20 */	blr 
+/* 801A8EB4 001A5E14  4E 80 00 20 */	blr
 lbl_801A8EB8:
 /* 801A8EB8 001A5E18  2C 00 00 01 */	cmpwi r0, 1
 /* 801A8EBC 001A5E1C  40 82 00 0C */	bne lbl_801A8EC8
 /* 801A8EC0 001A5E20  80 63 02 80 */	lwz r3, 0x280(r3)
-/* 801A8EC4 001A5E24  4E 80 00 20 */	blr 
+/* 801A8EC4 001A5E24  4E 80 00 20 */	blr
 lbl_801A8EC8:
 /* 801A8EC8 001A5E28  80 63 02 84 */	lwz r3, 0x284(r3)
-/* 801A8ECC 001A5E2C  4E 80 00 20 */	blr 
+/* 801A8ECC 001A5E2C  4E 80 00 20 */	blr
 
 .global Touch__15CCollisionActorFR6CActorR13CStateManager
 Touch__15CCollisionActorFR6CActorR13CStateManager:
@@ -636,7 +636,7 @@ Touch__15CCollisionActorFR6CActorR13CStateManager:
 /* 801A8F10 001A5E70  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801A8F14 001A5E74  7C 08 03 A6 */	mtlr r0
 /* 801A8F18 001A5E78  38 21 00 20 */	addi r1, r1, 0x20
-/* 801A8F1C 001A5E7C  4E 80 00 20 */	blr 
+/* 801A8F1C 001A5E7C  4E 80 00 20 */	blr
 
 .global GetScanObjectIndicatorPosition__15CCollisionActorCFRC13CStateManager
 GetScanObjectIndicatorPosition__15CCollisionActorCFRC13CStateManager:
@@ -702,7 +702,7 @@ lbl_801A8FE4:
 /* 801A8FF8 001A5F58  38 61 00 2C */	addi r3, r1, 0x2c
 /* 801A8FFC 001A5F5C  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 801A9000 001A5F60  7D 89 03 A6 */	mtctr r12
-/* 801A9004 001A5F64  4E 80 04 21 */	bctrl 
+/* 801A9004 001A5F64  4E 80 04 21 */	bctrl
 /* 801A9008 001A5F68  C3 A1 00 2C */	lfs f29, 0x2c(r1)
 /* 801A900C 001A5F6C  38 61 00 20 */	addi r3, r1, 0x20
 /* 801A9010 001A5F70  C0 1F 00 40 */	lfs f0, 0x40(r31)
@@ -745,7 +745,7 @@ lbl_801A8FE4:
 /* 801A90A4 001A6004  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 801A90A8 001A6008  7C 08 03 A6 */	mtlr r0
 /* 801A90AC 001A600C  38 21 00 90 */	addi r1, r1, 0x90
-/* 801A90B0 001A6010  4E 80 00 20 */	blr 
+/* 801A90B0 001A6010  4E 80 00 20 */	blr
 
 .global GetOrbitPosition__15CCollisionActorCFRC13CStateManager
 GetOrbitPosition__15CCollisionActorCFRC13CStateManager:
@@ -758,7 +758,7 @@ GetOrbitPosition__15CCollisionActorCFRC13CStateManager:
 /* 801A90CC 001A602C  81 84 00 00 */	lwz r12, 0(r4)
 /* 801A90D0 001A6030  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 801A90D4 001A6034  7D 89 03 A6 */	mtctr r12
-/* 801A90D8 001A6038  4E 80 04 21 */	bctrl 
+/* 801A90D8 001A6038  4E 80 04 21 */	bctrl
 /* 801A90DC 001A603C  7F E3 FB 78 */	mr r3, r31
 /* 801A90E0 001A6040  38 81 00 08 */	addi r4, r1, 8
 /* 801A90E4 001A6044  48 18 E5 29 */	bl GetCenterPoint__6CAABoxCFv
@@ -768,7 +768,7 @@ GetOrbitPosition__15CCollisionActorCFRC13CStateManager:
 /* 801A90F4 001A6054  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801A90F8 001A6058  7C 08 03 A6 */	mtlr r0
 /* 801A90FC 001A605C  38 21 00 30 */	addi r1, r1, 0x30
-/* 801A9100 001A6060  4E 80 00 20 */	blr 
+/* 801A9100 001A6060  4E 80 00 20 */	blr
 
 .global GetTouchBounds__15CCollisionActorCFv
 GetTouchBounds__15CCollisionActorCFv:
@@ -790,7 +790,7 @@ GetTouchBounds__15CCollisionActorCFv:
 /* 801A9140 001A60A0  81 84 00 00 */	lwz r12, 0(r4)
 /* 801A9144 001A60A4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801A9148 001A60A8  7D 89 03 A6 */	mtctr r12
-/* 801A914C 001A60AC  4E 80 04 21 */	bctrl 
+/* 801A914C 001A60AC  4E 80 04 21 */	bctrl
 /* 801A9150 001A60B0  88 01 00 80 */	lbz r0, 0x80(r1)
 /* 801A9154 001A60B4  28 00 00 00 */	cmplwi r0, 0
 /* 801A9158 001A60B8  40 82 00 48 */	bne lbl_801A91A0
@@ -835,7 +835,7 @@ lbl_801A91D4:
 /* 801A91E8 001A6148  81 84 00 00 */	lwz r12, 0(r4)
 /* 801A91EC 001A614C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801A91F0 001A6150  7D 89 03 A6 */	mtctr r12
-/* 801A91F4 001A6154  4E 80 04 21 */	bctrl 
+/* 801A91F4 001A6154  4E 80 04 21 */	bctrl
 /* 801A91F8 001A6158  88 01 00 80 */	lbz r0, 0x80(r1)
 /* 801A91FC 001A615C  28 00 00 00 */	cmplwi r0, 0
 /* 801A9200 001A6160  40 82 00 48 */	bne lbl_801A9248
@@ -878,7 +878,7 @@ lbl_801A927C:
 /* 801A9288 001A61E8  81 84 00 00 */	lwz r12, 0(r4)
 /* 801A928C 001A61EC  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801A9290 001A61F0  7D 89 03 A6 */	mtctr r12
-/* 801A9294 001A61F4  4E 80 04 21 */	bctrl 
+/* 801A9294 001A61F4  4E 80 04 21 */	bctrl
 /* 801A9298 001A61F8  88 01 00 80 */	lbz r0, 0x80(r1)
 /* 801A929C 001A61FC  28 00 00 00 */	cmplwi r0, 0
 /* 801A92A0 001A6200  40 82 00 48 */	bne lbl_801A92E8
@@ -971,7 +971,7 @@ lbl_801A93DC:
 /* 801A93EC 001A634C  83 C1 00 88 */	lwz r30, 0x88(r1)
 /* 801A93F0 001A6350  7C 08 03 A6 */	mtlr r0
 /* 801A93F4 001A6354  38 21 00 90 */	addi r1, r1, 0x90
-/* 801A93F8 001A6358  4E 80 00 20 */	blr 
+/* 801A93F8 001A6358  4E 80 00 20 */	blr
 
 .global Accept__15CCollisionActorFR8IVisitor
 Accept__15CCollisionActorFR8IVisitor:
@@ -984,11 +984,11 @@ Accept__15CCollisionActorFR8IVisitor:
 /* 801A9414 001A6374  7C 04 03 78 */	mr r4, r0
 /* 801A9418 001A6378  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 801A941C 001A637C  7D 89 03 A6 */	mtctr r12
-/* 801A9420 001A6380  4E 80 04 21 */	bctrl 
+/* 801A9420 001A6380  4E 80 04 21 */	bctrl
 /* 801A9424 001A6384  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801A9428 001A6388  7C 08 03 A6 */	mtlr r0
 /* 801A942C 001A638C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801A9430 001A6390  4E 80 00 20 */	blr 
+/* 801A9430 001A6390  4E 80 00 20 */	blr
 
 .global __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdbff
 __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdbff:
@@ -1291,7 +1291,7 @@ lbl_801A9708:
 /* 801A98C4 001A6824  80 01 01 C4 */	lwz r0, 0x1c4(r1)
 /* 801A98C8 001A6828  7C 08 03 A6 */	mtlr r0
 /* 801A98CC 001A682C  38 21 01 C0 */	addi r1, r1, 0x1c0
-/* 801A98D0 001A6830  4E 80 00 20 */	blr 
+/* 801A98D0 001A6830  4E 80 00 20 */	blr
 
 .global __ct__15CCollisionActorF9TUniqueId9TUniqueIdRC9CVector3fRC9CVector3fbf
 __ct__15CCollisionActorF9TUniqueId9TUniqueIdRC9CVector3fRC9CVector3fbf:
@@ -1607,7 +1607,7 @@ lbl_801A9BEC:
 /* 801A9D98 001A6CF8  80 01 01 D4 */	lwz r0, 0x1d4(r1)
 /* 801A9D9C 001A6CFC  7C 08 03 A6 */	mtlr r0
 /* 801A9DA0 001A6D00  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 801A9DA4 001A6D04  4E 80 00 20 */	blr 
+/* 801A9DA4 001A6D04  4E 80 00 20 */	blr
 
 .global __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf
 __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf:
@@ -1876,7 +1876,7 @@ lbl_801A9FFC:
 /* 801AA1AC 001A710C  80 01 01 94 */	lwz r0, 0x194(r1)
 /* 801AA1B0 001A7110  7C 08 03 A6 */	mtlr r0
 /* 801AA1B4 001A7114  38 21 01 90 */	addi r1, r1, 0x190
-/* 801AA1B8 001A7118  4E 80 00 20 */	blr 
+/* 801AA1B8 001A7118  4E 80 00 20 */	blr
 
 .global __sinit_CCollisionActor_cpp
 __sinit_CCollisionActor_cpp:

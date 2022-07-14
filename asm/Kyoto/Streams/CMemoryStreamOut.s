@@ -43,7 +43,7 @@ lbl_8033F2A8:
 /* 8033F2B0 0033C210  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8033F2B4 0033C214  7C 08 03 A6 */	mtlr r0
 /* 8033F2B8 0033C218  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F2BC 0033C21C  4E 80 00 20 */	blr 
+/* 8033F2BC 0033C21C  4E 80 00 20 */	blr
 
 .global __dt__16CMemoryStreamOutFv
 __dt__16CMemoryStreamOutFv:
@@ -79,7 +79,7 @@ lbl_8033F320:
 /* 8033F32C 0033C28C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8033F330 0033C290  7C 08 03 A6 */	mtlr r0
 /* 8033F334 0033C294  38 21 00 10 */	addi r1, r1, 0x10
-/* 8033F338 0033C298  4E 80 00 20 */	blr 
+/* 8033F338 0033C298  4E 80 00 20 */	blr
 
 .global __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi
 __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi:
@@ -114,4 +114,4 @@ __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi:
 /* 8033F3AC 0033C30C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8033F3B0 0033C310  7C 08 03 A6 */	mtlr r0
 /* 8033F3B4 0033C314  38 21 00 20 */	addi r1, r1, 0x20
-/* 8033F3B8 0033C318  4E 80 00 20 */	blr 
+/* 8033F3B8 0033C318  4E 80 00 20 */	blr

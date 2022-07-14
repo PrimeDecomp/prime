@@ -78,13 +78,13 @@ lbl_805A86F8:
 .global lbl_80479558
 lbl_80479558:
 	.skip 0x48
-	
+
 .section .text, "ax"
 
 .global GetTableIndex__17CCollidableSphereCFv
 GetTableIndex__17CCollidableSphereCFv:
 /* 802D3E70 002D0DD0  80 6D 9B 38 */	lwz r3, lbl_805A86F8@sda21(r13)
-/* 802D3E74 002D0DD4  4E 80 00 20 */	blr 
+/* 802D3E74 002D0DD4  4E 80 00 20 */	blr
 
 .global CollideMovingSphere__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo
 CollideMovingSphere__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo:
@@ -193,13 +193,13 @@ CollideMovingSphere__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVect
 /* 802D4010 002D0F70  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802D4014 002D0F74  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4018 002D0F78  7D 89 03 A6 */	mtctr r12
-/* 802D401C 002D0F7C  4E 80 04 21 */	bctrl 
+/* 802D401C 002D0F7C  4E 80 04 21 */	bctrl
 /* 802D4020 002D0F80  7C 7E 1B 78 */	mr r30, r3
 /* 802D4024 002D0F84  7F A3 EB 78 */	mr r3, r29
 /* 802D4028 002D0F88  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802D402C 002D0F8C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4030 002D0F90  7D 89 03 A6 */	mtctr r12
-/* 802D4034 002D0F94  4E 80 04 21 */	bctrl 
+/* 802D4034 002D0F94  4E 80 04 21 */	bctrl
 /* 802D4038 002D0F98  7C 65 1B 78 */	mr r5, r3
 /* 802D403C 002D0F9C  7F C6 F3 78 */	mr r6, r30
 /* 802D4040 002D0FA0  38 61 00 78 */	addi r3, r1, 0x78
@@ -263,7 +263,7 @@ lbl_802D410C:
 /* 802D4120 002D1080  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802D4124 002D1084  7C 08 03 A6 */	mtlr r0
 /* 802D4128 002D1088  38 21 01 10 */	addi r1, r1, 0x110
-/* 802D412C 002D108C  4E 80 00 20 */	blr 
+/* 802D412C 002D108C  4E 80 00 20 */	blr
 
 .global CollideMovingAABox__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo
 CollideMovingAABox__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVector3fRdR14CCollisionInfo:
@@ -283,7 +283,7 @@ CollideMovingAABox__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVecto
 /* 802D4164 002D10C4  7F C4 F3 78 */	mr r4, r30
 /* 802D4168 002D10C8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802D416C 002D10CC  7D 89 03 A6 */	mtctr r12
-/* 802D4170 002D10D0  4E 80 04 21 */	bctrl 
+/* 802D4170 002D10D0  4E 80 04 21 */	bctrl
 /* 802D4174 002D10D4  C0 A1 00 48 */	lfs f5, 0x48(r1)
 /* 802D4178 002D10D8  7F A4 EB 78 */	mr r4, r29
 /* 802D417C 002D10DC  C0 81 00 4C */	lfs f4, 0x4c(r1)
@@ -339,13 +339,13 @@ CollideMovingAABox__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVecto
 /* 802D4244 002D11A4  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802D4248 002D11A8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D424C 002D11AC  7D 89 03 A6 */	mtctr r12
-/* 802D4250 002D11B0  4E 80 04 21 */	bctrl 
+/* 802D4250 002D11B0  4E 80 04 21 */	bctrl
 /* 802D4254 002D11B4  7C 7E 1B 78 */	mr r30, r3
 /* 802D4258 002D11B8  7F A3 EB 78 */	mr r3, r29
 /* 802D425C 002D11BC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802D4260 002D11C0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4264 002D11C4  7D 89 03 A6 */	mtctr r12
-/* 802D4268 002D11C8  4E 80 04 21 */	bctrl 
+/* 802D4268 002D11C8  4E 80 04 21 */	bctrl
 /* 802D426C 002D11CC  7C 65 1B 78 */	mr r5, r3
 /* 802D4270 002D11D0  7F C6 F3 78 */	mr r6, r30
 /* 802D4274 002D11D4  38 61 00 78 */	addi r3, r1, 0x78
@@ -405,7 +405,7 @@ lbl_802D4340:
 /* 802D4344 002D12A4  80 01 00 F4 */	lwz r0, 0xf4(r1)
 /* 802D4348 002D12A8  7C 08 03 A6 */	mtlr r0
 /* 802D434C 002D12AC  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 802D4350 002D12B0  4E 80 00 20 */	blr 
+/* 802D4350 002D12B0  4E 80 00 20 */	blr
 
 .global Transform__17CCollidableSphereCFRC12CTransform4f
 Transform__17CCollidableSphereCFRC12CTransform4f:
@@ -435,13 +435,13 @@ Transform__17CCollidableSphereCFRC12CTransform4f:
 /* 802D43B0 002D1310  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802D43B4 002D1314  7C 08 03 A6 */	mtlr r0
 /* 802D43B8 002D1318  38 21 00 30 */	addi r1, r1, 0x30
-/* 802D43BC 002D131C  4E 80 00 20 */	blr 
+/* 802D43BC 002D131C  4E 80 00 20 */	blr
 
 .global GetPrimType__17CCollidableSphereCFv
 GetPrimType__17CCollidableSphereCFv:
 /* 802D43C0 002D1320  3C 60 53 50 */	lis r3, 0x53504852@ha
 /* 802D43C4 002D1324  38 63 48 52 */	addi r3, r3, 0x53504852@l
-/* 802D43C8 002D1328  4E 80 00 20 */	blr 
+/* 802D43C8 002D1328  4E 80 00 20 */	blr
 
 .global CalculateLocalAABox__17CCollidableSphereCFv
 CalculateLocalAABox__17CCollidableSphereCFv:
@@ -470,7 +470,7 @@ CalculateLocalAABox__17CCollidableSphereCFv:
 /* 802D4424 002D1384  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802D4428 002D1388  7C 08 03 A6 */	mtlr r0
 /* 802D442C 002D138C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D4430 002D1390  4E 80 00 20 */	blr 
+/* 802D4430 002D1390  4E 80 00 20 */	blr
 
 .global CalculateAABox__17CCollidableSphereCFRC12CTransform4f
 CalculateAABox__17CCollidableSphereCFRC12CTransform4f:
@@ -512,7 +512,7 @@ CalculateAABox__17CCollidableSphereCFRC12CTransform4f:
 /* 802D44C0 002D1420  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802D44C4 002D1424  7C 08 03 A6 */	mtlr r0
 /* 802D44C8 002D1428  38 21 00 50 */	addi r1, r1, 0x50
-/* 802D44CC 002D142C  4E 80 00 20 */	blr 
+/* 802D44CC 002D142C  4E 80 00 20 */	blr
 
 .global CastRayInternal__17CCollidableSphereCFRC25CInternalRayCastStructure
 CastRayInternal__17CCollidableSphereCFRC25CInternalRayCastStructure:
@@ -531,7 +531,7 @@ CastRayInternal__17CCollidableSphereCFRC25CInternalRayCastStructure:
 /* 802D4500 002D1460  83 E5 00 6C */	lwz r31, 0x6c(r5)
 /* 802D4504 002D1464  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4508 002D1468  7D 89 03 A6 */	mtctr r12
-/* 802D450C 002D146C  4E 80 04 21 */	bctrl 
+/* 802D450C 002D146C  4E 80 04 21 */	bctrl
 /* 802D4510 002D1470  7C 64 1B 78 */	mr r4, r3
 /* 802D4514 002D1474  7F E3 FB 78 */	mr r3, r31
 /* 802D4518 002D1478  48 00 0E 35 */	bl Passes__15CMaterialFilterCFRC13CMaterialList
@@ -625,7 +625,7 @@ lbl_802D4668:
 /* 802D466C 002D15CC  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802D4670 002D15D0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4674 002D15D4  7D 89 03 A6 */	mtctr r12
-/* 802D4678 002D15D8  4E 80 04 21 */	bctrl 
+/* 802D4678 002D15D8  4E 80 04 21 */	bctrl
 /* 802D467C 002D15DC  7C 7F 1B 78 */	mr r31, r3
 /* 802D4680 002D15E0  38 61 00 24 */	addi r3, r1, 0x24
 /* 802D4684 002D15E4  38 81 00 4C */	addi r4, r1, 0x4c
@@ -690,7 +690,7 @@ lbl_802D4758:
 /* 802D4768 002D16C8  83 81 00 70 */	lwz r28, 0x70(r1)
 /* 802D476C 002D16CC  7C 08 03 A6 */	mtlr r0
 /* 802D4770 002D16D0  38 21 00 80 */	addi r1, r1, 0x80
-/* 802D4774 002D16D4  4E 80 00 20 */	blr 
+/* 802D4774 002D16D4  4E 80 00 20 */	blr
 
 .global Sphere_Sphere_Bool__7CollideFRC27CInternalCollisionStructure
 Sphere_Sphere_Bool__7CollideFRC27CInternalCollisionStructure:
@@ -746,7 +746,7 @@ Sphere_Sphere_Bool__7CollideFRC27CInternalCollisionStructure:
 /* 802D483C 002D179C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802D4840 002D17A0  7C 08 03 A6 */	mtlr r0
 /* 802D4844 002D17A4  38 21 00 50 */	addi r1, r1, 0x50
-/* 802D4848 002D17A8  4E 80 00 20 */	blr 
+/* 802D4848 002D17A8  4E 80 00 20 */	blr
 
 .global Sphere_Sphere__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList
 Sphere_Sphere__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList:
@@ -856,13 +856,13 @@ lbl_802D499C:
 /* 802D49E0 002D1940  81 9F 00 00 */	lwz r12, 0(r31)
 /* 802D49E4 002D1944  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D49E8 002D1948  7D 89 03 A6 */	mtctr r12
-/* 802D49EC 002D194C  4E 80 04 21 */	bctrl 
+/* 802D49EC 002D194C  4E 80 04 21 */	bctrl
 /* 802D49F0 002D1950  7C 7F 1B 78 */	mr r31, r3
 /* 802D49F4 002D1954  7F C3 F3 78 */	mr r3, r30
 /* 802D49F8 002D1958  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802D49FC 002D195C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4A00 002D1960  7D 89 03 A6 */	mtctr r12
-/* 802D4A04 002D1964  4E 80 04 21 */	bctrl 
+/* 802D4A04 002D1964  4E 80 04 21 */	bctrl
 /* 802D4A08 002D1968  7C 65 1B 78 */	mr r5, r3
 /* 802D4A0C 002D196C  7F E6 FB 78 */	mr r6, r31
 /* 802D4A10 002D1970  38 61 00 78 */	addi r3, r1, 0x78
@@ -893,7 +893,7 @@ lbl_802D4A3C:
 /* 802D4A6C 002D19CC  83 81 00 E0 */	lwz r28, 0xe0(r1)
 /* 802D4A70 002D19D0  7C 08 03 A6 */	mtlr r0
 /* 802D4A74 002D19D4  38 21 01 30 */	addi r1, r1, 0x130
-/* 802D4A78 002D19D8  4E 80 00 20 */	blr 
+/* 802D4A78 002D19D8  4E 80 00 20 */	blr
 
 .global Sphere_AABox__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList
 Sphere_AABox__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList:
@@ -1064,13 +1064,13 @@ lbl_802D4C44:
 /* 802D4CF8 002D1C58  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802D4CFC 002D1C5C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4D00 002D1C60  7D 89 03 A6 */	mtctr r12
-/* 802D4D04 002D1C64  4E 80 04 21 */	bctrl 
+/* 802D4D04 002D1C64  4E 80 04 21 */	bctrl
 /* 802D4D08 002D1C68  7C 7E 1B 78 */	mr r30, r3
 /* 802D4D0C 002D1C6C  7F A3 EB 78 */	mr r3, r29
 /* 802D4D10 002D1C70  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802D4D14 002D1C74  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D4D18 002D1C78  7D 89 03 A6 */	mtctr r12
-/* 802D4D1C 002D1C7C  4E 80 04 21 */	bctrl 
+/* 802D4D1C 002D1C7C  4E 80 04 21 */	bctrl
 /* 802D4D20 002D1C80  7C 65 1B 78 */	mr r5, r3
 /* 802D4D24 002D1C84  7F C6 F3 78 */	mr r6, r30
 /* 802D4D28 002D1C88  38 61 01 30 */	addi r3, r1, 0x130
@@ -1104,7 +1104,7 @@ lbl_802D4D64:
 /* 802D4D90 002D1CF0  38 63 CB 20 */	addi r3, r3, lbl_803ECB20@l
 /* 802D4D94 002D1CF4  7C 03 00 2E */	lwzx r0, r3, r0
 /* 802D4D98 002D1CF8  7C 09 03 A6 */	mtctr r0
-/* 802D4D9C 002D1CFC  4E 80 04 20 */	bctr 
+/* 802D4D9C 002D1CFC  4E 80 04 20 */	bctr
 .global lbl_802D4DA0
 lbl_802D4DA0:
 /* 802D4DA0 002D1D00  C0 61 00 C4 */	lfs f3, 0xc4(r1)
@@ -1344,13 +1344,13 @@ lbl_802D5044:
 /* 802D5078 002D1FD8  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802D507C 002D1FDC  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D5080 002D1FE0  7D 89 03 A6 */	mtctr r12
-/* 802D5084 002D1FE4  4E 80 04 21 */	bctrl 
+/* 802D5084 002D1FE4  4E 80 04 21 */	bctrl
 /* 802D5088 002D1FE8  7C 7E 1B 78 */	mr r30, r3
 /* 802D508C 002D1FEC  7F A3 EB 78 */	mr r3, r29
 /* 802D5090 002D1FF0  81 9D 00 00 */	lwz r12, 0(r29)
 /* 802D5094 002D1FF4  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802D5098 002D1FF8  7D 89 03 A6 */	mtctr r12
-/* 802D509C 002D1FFC  4E 80 04 21 */	bctrl 
+/* 802D509C 002D1FFC  4E 80 04 21 */	bctrl
 /* 802D50A0 002D2000  7C 65 1B 78 */	mr r5, r3
 /* 802D50A4 002D2004  7F C6 F3 78 */	mr r6, r30
 /* 802D50A8 002D2008  38 61 00 D0 */	addi r3, r1, 0xd0
@@ -1375,7 +1375,7 @@ lbl_802D50CC:
 /* 802D50F0 002D2050  83 A1 01 94 */	lwz r29, 0x194(r1)
 /* 802D50F4 002D2054  7C 08 03 A6 */	mtlr r0
 /* 802D50F8 002D2058  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 802D50FC 002D205C  4E 80 00 20 */	blr 
+/* 802D50FC 002D205C  4E 80 00 20 */	blr
 
 .global Sphere_AABox_Bool__7CollideFRC27CInternalCollisionStructure
 Sphere_AABox_Bool__7CollideFRC27CInternalCollisionStructure:
@@ -1441,7 +1441,7 @@ Sphere_AABox_Bool__7CollideFRC27CInternalCollisionStructure:
 /* 802D51EC 002D214C  83 E1 00 5C */	lwz r31, 0x5c(r1)
 /* 802D51F0 002D2150  7C 08 03 A6 */	mtlr r0
 /* 802D51F4 002D2154  38 21 00 90 */	addi r1, r1, 0x90
-/* 802D51F8 002D2158  4E 80 00 20 */	blr 
+/* 802D51F8 002D2158  4E 80 00 20 */	blr
 
 .global Sphere_AABox_Bool__17CCollidableSphereFRC7CSphereRC6CAABox
 Sphere_AABox_Bool__17CCollidableSphereFRC7CSphereRC6CAABox:
@@ -1502,7 +1502,7 @@ lbl_802D52AC:
 /* 802D52BC 002D221C  54 00 17 FE */	rlwinm r0, r0, 2, 0x1f, 0x1f
 /* 802D52C0 002D2220  7C 00 00 34 */	cntlzw r0, r0
 /* 802D52C4 002D2224  54 03 D9 7E */	srwi r3, r0, 5
-/* 802D52C8 002D2228  4E 80 00 20 */	blr 
+/* 802D52C8 002D2228  4E 80 00 20 */	blr
 
 .global GetType__17CCollidableSphereFv
 GetType__17CCollidableSphereFv:
@@ -1512,12 +1512,12 @@ GetType__17CCollidableSphereFv:
 /* 802D52D8 002D2238  90 03 00 00 */	stw r0, 0(r3)
 /* 802D52DC 002D223C  38 04 6A 90 */	addi r0, r4, lbl_803D6A90@l
 /* 802D52E0 002D2240  90 03 00 04 */	stw r0, 4(r3)
-/* 802D52E4 002D2244  4E 80 00 20 */	blr 
+/* 802D52E4 002D2244  4E 80 00 20 */	blr
 
 .global SetStaticTableIndex__17CCollidableSphereFUi
 SetStaticTableIndex__17CCollidableSphereFUi:
 /* 802D52E8 002D2248  90 6D 9B 38 */	stw r3, lbl_805A86F8@sda21(r13)
-/* 802D52EC 002D224C  4E 80 00 20 */	blr 
+/* 802D52EC 002D224C  4E 80 00 20 */	blr
 
 .global __sinit_CCollidableSphere_cpp
 __sinit_CCollidableSphere_cpp:

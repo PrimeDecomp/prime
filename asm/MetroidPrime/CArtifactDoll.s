@@ -45,48 +45,48 @@ lbl_8029C898:
 /* 8029C89C 002997FC  7C 03 00 40 */	cmplw r3, r0
 /* 8029C8A0 00299800  40 82 00 0C */	bne lbl_8029C8AC
 /* 8029C8A4 00299804  7C A3 2B 78 */	mr r3, r5
-/* 8029C8A8 00299808  4E 80 00 20 */	blr 
+/* 8029C8A8 00299808  4E 80 00 20 */	blr
 lbl_8029C8AC:
 /* 8029C8AC 0029980C  84 04 00 04 */	lwzu r0, 4(r4)
 /* 8029C8B0 00299810  38 A5 00 01 */	addi r5, r5, 1
 /* 8029C8B4 00299814  7C 03 00 40 */	cmplw r3, r0
 /* 8029C8B8 00299818  40 82 00 0C */	bne lbl_8029C8C4
 /* 8029C8BC 0029981C  7C A3 2B 78 */	mr r3, r5
-/* 8029C8C0 00299820  4E 80 00 20 */	blr 
+/* 8029C8C0 00299820  4E 80 00 20 */	blr
 lbl_8029C8C4:
 /* 8029C8C4 00299824  84 04 00 04 */	lwzu r0, 4(r4)
 /* 8029C8C8 00299828  38 A5 00 01 */	addi r5, r5, 1
 /* 8029C8CC 0029982C  7C 03 00 40 */	cmplw r3, r0
 /* 8029C8D0 00299830  40 82 00 0C */	bne lbl_8029C8DC
 /* 8029C8D4 00299834  7C A3 2B 78 */	mr r3, r5
-/* 8029C8D8 00299838  4E 80 00 20 */	blr 
+/* 8029C8D8 00299838  4E 80 00 20 */	blr
 lbl_8029C8DC:
 /* 8029C8DC 0029983C  84 04 00 04 */	lwzu r0, 4(r4)
 /* 8029C8E0 00299840  38 A5 00 01 */	addi r5, r5, 1
 /* 8029C8E4 00299844  7C 03 00 40 */	cmplw r3, r0
 /* 8029C8E8 00299848  40 82 00 0C */	bne lbl_8029C8F4
 /* 8029C8EC 0029984C  7C A3 2B 78 */	mr r3, r5
-/* 8029C8F0 00299850  4E 80 00 20 */	blr 
+/* 8029C8F0 00299850  4E 80 00 20 */	blr
 lbl_8029C8F4:
 /* 8029C8F4 00299854  84 04 00 04 */	lwzu r0, 4(r4)
 /* 8029C8F8 00299858  38 A5 00 01 */	addi r5, r5, 1
 /* 8029C8FC 0029985C  7C 03 00 40 */	cmplw r3, r0
 /* 8029C900 00299860  40 82 00 0C */	bne lbl_8029C90C
 /* 8029C904 00299864  7C A3 2B 78 */	mr r3, r5
-/* 8029C908 00299868  4E 80 00 20 */	blr 
+/* 8029C908 00299868  4E 80 00 20 */	blr
 lbl_8029C90C:
 /* 8029C90C 0029986C  84 04 00 04 */	lwzu r0, 4(r4)
 /* 8029C910 00299870  38 A5 00 01 */	addi r5, r5, 1
 /* 8029C914 00299874  7C 03 00 40 */	cmplw r3, r0
 /* 8029C918 00299878  40 82 00 0C */	bne lbl_8029C924
 /* 8029C91C 0029987C  7C A3 2B 78 */	mr r3, r5
-/* 8029C920 00299880  4E 80 00 20 */	blr 
+/* 8029C920 00299880  4E 80 00 20 */	blr
 lbl_8029C924:
 /* 8029C924 00299884  38 84 00 04 */	addi r4, r4, 4
 /* 8029C928 00299888  38 A5 00 01 */	addi r5, r5, 1
 /* 8029C92C 0029988C  42 00 FF 6C */	bdnz lbl_8029C898
 /* 8029C930 00299890  38 60 FF FF */	li r3, -1
-/* 8029C934 00299894  4E 80 00 20 */	blr 
+/* 8029C934 00299894  4E 80 00 20 */	blr
 
 .global GetArtifactHeadScanFromItemType__13CArtifactDollF9EItemType
 GetArtifactHeadScanFromItemType__13CArtifactDollF9EItemType:
@@ -99,10 +99,10 @@ GetArtifactHeadScanFromItemType__13CArtifactDollF9EItemType:
 /* 8029C950 002998B0  54 00 10 3A */	slwi r0, r0, 2
 /* 8029C954 002998B4  38 63 5D 80 */	addi r3, r3, lbl_803D5D80@l
 /* 8029C958 002998B8  7C 63 00 2E */	lwzx r3, r3, r0
-/* 8029C95C 002998BC  4E 80 00 20 */	blr 
+/* 8029C95C 002998BC  4E 80 00 20 */	blr
 lbl_8029C960:
 /* 8029C960 002998C0  38 60 FF FF */	li r3, -1
-/* 8029C964 002998C4  4E 80 00 20 */	blr 
+/* 8029C964 002998C4  4E 80 00 20 */	blr
 
 .global Draw__13CArtifactDollFfRC13CStateManagerbUi
 Draw__13CArtifactDollFfRC13CStateManagerbUi:
@@ -155,7 +155,7 @@ Draw__13CArtifactDollFfRC13CStateManagerbUi:
 /* 8029CA20 00299980  EC 60 18 28 */	fsubs f3, f0, f3
 /* 8029CA24 00299984  C0 A2 C0 48 */	lfs f5, lbl_805ADD68@sda21(r2)
 /* 8029CA28 00299988  7D 89 03 A6 */	mtctr r12
-/* 8029CA2C 0029998C  4E 80 04 21 */	bctrl 
+/* 8029CA2C 0029998C  4E 80 04 21 */	bctrl
 /* 8029CA30 00299990  C0 22 C0 4C */	lfs f1, lbl_805ADD6C@sda21(r2)
 /* 8029CA34 00299994  38 61 01 A4 */	addi r3, r1, 0x1a4
 /* 8029CA38 00299998  C0 42 C0 50 */	lfs f2, lbl_805ADD70@sda21(r2)
@@ -405,7 +405,7 @@ lbl_8029CDB8:
 /* 8029CDEC 00299D4C  80 01 02 74 */	lwz r0, 0x274(r1)
 /* 8029CDF0 00299D50  7C 08 03 A6 */	mtlr r0
 /* 8029CDF4 00299D54  38 21 02 70 */	addi r1, r1, 0x270
-/* 8029CDF8 00299D58  4E 80 00 20 */	blr 
+/* 8029CDF8 00299D58  4E 80 00 20 */	blr
 
 .global UpdateArtifactHeadScan__13CArtifactDollFRC13CStateManagerf
 UpdateArtifactHeadScan__13CArtifactDollFRC13CStateManagerf:
@@ -464,7 +464,7 @@ lbl_8029CE94:
 /* 8029CEBC 00299E1C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8029CEC0 00299E20  7C 08 03 A6 */	mtlr r0
 /* 8029CEC4 00299E24  38 21 00 30 */	addi r1, r1, 0x30
-/* 8029CEC8 00299E28  4E 80 00 20 */	blr 
+/* 8029CEC8 00299E28  4E 80 00 20 */	blr
 
 .global CompleteArtifactHeadScan__13CArtifactDollFRC13CStateManager
 CompleteArtifactHeadScan__13CArtifactDollFRC13CStateManager:
@@ -477,7 +477,7 @@ CompleteArtifactHeadScan__13CArtifactDollFRC13CStateManager:
 /* 8029CEE4 00299E44  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8029CEE8 00299E48  7C 08 03 A6 */	mtlr r0
 /* 8029CEEC 00299E4C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029CEF0 00299E50  4E 80 00 20 */	blr 
+/* 8029CEF0 00299E50  4E 80 00 20 */	blr
 
 .global Update__13CArtifactDollFfRC13CStateManager
 Update__13CArtifactDollFfRC13CStateManager:
@@ -531,7 +531,7 @@ lbl_8029CF90:
 /* 8029CFA0 00299F00  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8029CFA4 00299F04  7C 08 03 A6 */	mtlr r0
 /* 8029CFA8 00299F08  38 21 00 30 */	addi r1, r1, 0x30
-/* 8029CFAC 00299F0C  4E 80 00 20 */	blr 
+/* 8029CFAC 00299F0C  4E 80 00 20 */	blr
 
 .global Touch__13CArtifactDollFv
 Touch__13CArtifactDollFv:
@@ -574,7 +574,7 @@ lbl_8029D028:
 /* 8029D034 00299F94  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8029D038 00299F98  7C 08 03 A6 */	mtlr r0
 /* 8029D03C 00299F9C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8029D040 00299FA0  4E 80 00 20 */	blr 
+/* 8029D040 00299FA0  4E 80 00 20 */	blr
 
 .global UpdateActorLights__13CArtifactDollFv
 UpdateActorLights__13CArtifactDollFv:
@@ -757,7 +757,7 @@ UpdateActorLights__13CArtifactDollFv:
 /* 8029D304 0029A264  83 C1 01 08 */	lwz r30, 0x108(r1)
 /* 8029D308 0029A268  7C 08 03 A6 */	mtlr r0
 /* 8029D30C 0029A26C  38 21 01 10 */	addi r1, r1, 0x110
-/* 8029D310 0029A270  4E 80 00 20 */	blr 
+/* 8029D310 0029A270  4E 80 00 20 */	blr
 
 .global __dt__13CArtifactDollFv
 __dt__13CArtifactDollFv:
@@ -835,7 +835,7 @@ lbl_8029D3FC:
 /* 8029D410 0029A370  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8029D414 0029A374  7C 08 03 A6 */	mtlr r0
 /* 8029D418 0029A378  38 21 00 40 */	addi r1, r1, 0x40
-/* 8029D41C 0029A37C  4E 80 00 20 */	blr 
+/* 8029D41C 0029A37C  4E 80 00 20 */	blr
 
 .global IsLoaded__13CArtifactDollCFv
 IsLoaded__13CArtifactDollCFv:
@@ -844,7 +844,7 @@ IsLoaded__13CArtifactDollCFv:
 /* 8029D428 0029A388  7C 03 00 D0 */	neg r0, r3
 /* 8029D42C 0029A38C  7C 00 1B 78 */	or r0, r0, r3
 /* 8029D430 0029A390  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 8029D434 0029A394  4E 80 00 20 */	blr 
+/* 8029D434 0029A394  4E 80 00 20 */	blr
 
 .global CheckLoadComplete__13CArtifactDollFv
 CheckLoadComplete__13CArtifactDollFv:
@@ -886,7 +886,7 @@ lbl_8029D4AC:
 /* 8029D4B0 0029A410  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8029D4B4 0029A414  7C 08 03 A6 */	mtlr r0
 /* 8029D4B8 0029A418  38 21 00 10 */	addi r1, r1, 0x10
-/* 8029D4BC 0029A41C  4E 80 00 20 */	blr 
+/* 8029D4BC 0029A41C  4E 80 00 20 */	blr
 
 .global __ct__13CArtifactDollFv
 __ct__13CArtifactDollFv:
@@ -960,7 +960,7 @@ lbl_8029D5B8:
 /* 8029D5C4 0029A524  81 84 00 00 */	lwz r12, 0(r4)
 /* 8029D5C8 0029A528  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8029D5CC 0029A52C  7D 89 03 A6 */	mtctr r12
-/* 8029D5D0 0029A530  4E 80 04 21 */	bctrl 
+/* 8029D5D0 0029A530  4E 80 04 21 */	bctrl
 /* 8029D5D4 0029A534  38 61 00 18 */	addi r3, r1, 0x18
 /* 8029D5D8 0029A538  38 81 00 10 */	addi r4, r1, 0x10
 /* 8029D5DC 0029A53C  48 0A 38 CD */	bl __ct__6CTokenFRC6CToken
@@ -1006,7 +1006,7 @@ lbl_8029D638:
 /* 8029D670 0029A5D0  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8029D674 0029A5D4  7C 08 03 A6 */	mtlr r0
 /* 8029D678 0029A5D8  38 21 00 90 */	addi r1, r1, 0x90
-/* 8029D67C 0029A5DC  4E 80 00 20 */	blr 
+/* 8029D67C 0029A5DC  4E 80 00 20 */	blr
 
 .global __sinit_CArtifactDoll_cpp
 __sinit_CArtifactDoll_cpp:

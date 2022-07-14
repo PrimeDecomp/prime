@@ -26,7 +26,7 @@ sub_802d63e0:
 /* 802D642C 002D338C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802D6430 002D3390  7C 08 03 A6 */	mtlr r0
 /* 802D6434 002D3394  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6438 002D3398  4E 80 00 20 */	blr 
+/* 802D6438 002D3398  4E 80 00 20 */	blr
 
 .global OpenWindow__10COsContextFPCciiiib
 OpenWindow__10COsContextFPCciiiib:
@@ -150,7 +150,7 @@ lbl_802D65D0:
 /* 802D65F0 002D3550  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802D65F4 002D3554  7C 08 03 A6 */	mtlr r0
 /* 802D65F8 002D3558  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D65FC 002D355C  4E 80 00 20 */	blr 
+/* 802D65FC 002D355C  4E 80 00 20 */	blr
 
 .global GetOsKeyState__10COsContextCFi
 GetOsKeyState__10COsContextCFi:
@@ -168,12 +168,12 @@ GetOsKeyState__10COsContextCFi:
 /* 802D662C 002D358C  A8 03 00 04 */	lha r0, 4(r3)
 /* 802D6630 002D3590  50 80 64 E6 */	rlwimi r0, r4, 0xc, 0x13, 0x13
 /* 802D6634 002D3594  B0 03 00 04 */	sth r0, 4(r3)
-/* 802D6638 002D3598  4E 80 00 20 */	blr 
+/* 802D6638 002D3598  4E 80 00 20 */	blr
 
 .global Update__10COsContextFv
 Update__10COsContextFv:
 /* 802D663C 002D359C  38 60 00 01 */	li r3, 1
-/* 802D6640 002D35A0  4E 80 00 20 */	blr 
+/* 802D6640 002D35A0  4E 80 00 20 */	blr
 
 .global __dt__10COsContextFv
 __dt__10COsContextFv:
@@ -192,7 +192,7 @@ lbl_802D6668:
 /* 802D6670 002D35D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802D6674 002D35D4  7C 08 03 A6 */	mtlr r0
 /* 802D6678 002D35D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D667C 002D35DC  4E 80 00 20 */	blr 
+/* 802D667C 002D35DC  4E 80 00 20 */	blr
 
 .global __ct__10COsContextFbb
 __ct__10COsContextFbb:

@@ -255,7 +255,7 @@ lbl_805AF498:
 
 .global lbl_8046E200
 lbl_8046E200:
-	.skip 0xC	
+	.skip 0xC
 .global lbl_8046E20C
 lbl_8046E20C:
 	.skip 0x1DF8
@@ -268,7 +268,7 @@ lbl_8047916C:
 .global lbl_80479178
 lbl_80479178:
 	.skip 0x320
-	
+
 .section .text, "ax"
 
 .global DrawString__13CCubeRendererFPCcii
@@ -298,7 +298,7 @@ DrawString__13CCubeRendererFPCcii:
 /* 802B5DA8 002B2D08  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802B5DAC 002B2D0C  7C 08 03 A6 */	mtlr r0
 /* 802B5DB0 002B2D10  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B5DB4 002B2D14  4E 80 00 20 */	blr 
+/* 802B5DB4 002B2D14  4E 80 00 20 */	blr
 
 .global DrawXRayOutline__13CCubeRendererFRC6CModelPCfPCf
 DrawXRayOutline__13CCubeRendererFRC6CModelPCfPCf:
@@ -424,7 +424,7 @@ lbl_802B5F50:
 /* 802B5F60 002B2EC0  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802B5F64 002B2EC4  7C 08 03 A6 */	mtlr r0
 /* 802B5F68 002B2EC8  38 21 00 70 */	addi r1, r1, 0x70
-/* 802B5F6C 002B2ECC  4E 80 00 20 */	blr 
+/* 802B5F6C 002B2ECC  4E 80 00 20 */	blr
 
 .global AllocatePhazonSuitMaskTexture__13CCubeRendererFv
 AllocatePhazonSuitMaskTexture__13CCubeRendererFv:
@@ -473,7 +473,7 @@ lbl_802B6000:
 /* 802B6010 002B2F70  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802B6014 002B2F74  7C 08 03 A6 */	mtlr r0
 /* 802B6018 002B2F78  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B601C 002B2F7C  4E 80 00 20 */	blr 
+/* 802B601C 002B2F7C  4E 80 00 20 */	blr
 
 .global "DrawPhazonSuitIndirectEffect__13CCubeRendererFRC6CColorRC23TLockedToken<8CTexture>RC6CColorffff"
 "DrawPhazonSuitIndirectEffect__13CCubeRendererFRC6CColorRC23TLockedToken<8CTexture>RC6CColorffff":
@@ -617,7 +617,7 @@ lbl_802B6200:
 /* 802B6230 002B3190  83 81 00 60 */	lwz r28, 0x60(r1)
 /* 802B6234 002B3194  7C 08 03 A6 */	mtlr r0
 /* 802B6238 002B3198  38 21 00 B0 */	addi r1, r1, 0xb0
-/* 802B623C 002B319C  4E 80 00 20 */	blr 
+/* 802B623C 002B319C  4E 80 00 20 */	blr
 
 .global ReallyDrawPhazonSuitIndirectEffect__13CCubeRendererFRC6CColorRC8CTextureRC8CTextureRC6CColor
 ReallyDrawPhazonSuitIndirectEffect__13CCubeRendererFRC6CColorRC8CTextureRC8CTextureRC6CColor:
@@ -1072,7 +1072,7 @@ lbl_802B690C:
 /* 802B6928 002B3888  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 802B692C 002B388C  7C 08 03 A6 */	mtlr r0
 /* 802B6930 002B3890  38 21 01 60 */	addi r1, r1, 0x160
-/* 802B6934 002B3894  4E 80 00 20 */	blr 
+/* 802B6934 002B3894  4E 80 00 20 */	blr
 
 .global ReallyDrawPhazonSuitEffect__13CCubeRendererFRC6CColorRC8CTexture
 ReallyDrawPhazonSuitEffect__13CCubeRendererFRC6CColorRC8CTexture:
@@ -1111,7 +1111,7 @@ ReallyDrawPhazonSuitEffect__13CCubeRendererFRC6CColorRC8CTexture:
 /* 802B69B8 002B3918  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802B69BC 002B391C  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 802B69C0 002B3920  7D 89 03 A6 */	mtctr r12
-/* 802B69C4 002B3924  4E 80 04 21 */	bctrl 
+/* 802B69C4 002B3924  4E 80 04 21 */	bctrl
 /* 802B69C8 002B3928  38 60 00 01 */	li r3, 1
 /* 802B69CC 002B392C  48 05 24 85 */	bl SetNumChans__3CGXFUc
 /* 802B69D0 002B3930  38 60 00 01 */	li r3, 1
@@ -1219,7 +1219,7 @@ ReallyDrawPhazonSuitEffect__13CCubeRendererFRC6CColorRC8CTexture:
 /* 802B6B68 002B3AC8  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802B6B6C 002B3ACC  7C 08 03 A6 */	mtlr r0
 /* 802B6B70 002B3AD0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B6B74 002B3AD4  4E 80 00 20 */	blr 
+/* 802B6B74 002B3AD4  4E 80 00 20 */	blr
 
 .global DoPhazonSuitIndirectAlphaBlur__13CCubeRendererFff
 DoPhazonSuitIndirectAlphaBlur__13CCubeRendererFff:
@@ -1260,7 +1260,7 @@ DoPhazonSuitIndirectAlphaBlur__13CCubeRendererFff:
 /* 802B6C00 002B3B60  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 802B6C04 002B3B64  38 84 66 70 */	addi r4, r4, skIdentity4f@l
 /* 802B6C08 002B3B68  7D 89 03 A6 */	mtctr r12
-/* 802B6C0C 002B3B6C  4E 80 04 21 */	bctrl 
+/* 802B6C0C 002B3B6C  4E 80 04 21 */	bctrl
 /* 802B6C10 002B3B70  38 60 00 00 */	li r3, 0
 /* 802B6C14 002B3B74  38 80 00 06 */	li r4, 6
 /* 802B6C18 002B3B78  38 A0 00 00 */	li r5, 0
@@ -1725,7 +1725,7 @@ lbl_802B7244:
 /* 802B733C 002B429C  80 01 01 14 */	lwz r0, 0x114(r1)
 /* 802B7340 002B42A0  7C 08 03 A6 */	mtlr r0
 /* 802B7344 002B42A4  38 21 01 10 */	addi r1, r1, 0x110
-/* 802B7348 002B42A8  4E 80 00 20 */	blr 
+/* 802B7348 002B42A8  4E 80 00 20 */	blr
 
 .global CopyTex__13CCubeRendererFibPv8GXTexFmtb
 CopyTex__13CCubeRendererFibPv8GXTexFmtb:
@@ -1800,7 +1800,7 @@ lbl_802B742C:
 /* 802B7444 002B43A4  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B7448 002B43A8  7C 08 03 A6 */	mtlr r0
 /* 802B744C 002B43AC  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B7450 002B43B0  4E 80 00 20 */	blr 
+/* 802B7450 002B43B0  4E 80 00 20 */	blr
 
 .global GetRenderToTexBuffer__13CCubeRendererFi
 GetRenderToTexBuffer__13CCubeRendererFi:
@@ -1809,7 +1809,7 @@ GetRenderToTexBuffer__13CCubeRendererFi:
 /* 802B745C 002B43BC  7C 03 01 D6 */	mullw r0, r3, r0
 /* 802B7460 002B43C0  54 00 E1 3E */	srwi r0, r0, 4
 /* 802B7464 002B43C4  7C 64 02 14 */	add r3, r4, r0
-/* 802B7468 002B43C8  4E 80 00 20 */	blr 
+/* 802B7468 002B43C8  4E 80 00 20 */	blr
 
 .global "DrawOverlappingWorldModelShadows__13CCubeRendererFiRQ24rstl10vector<Ui>RC6CAABoxii"
 "DrawOverlappingWorldModelShadows__13CCubeRendererFiRQ24rstl10vector<Ui>RC6CAABoxii":
@@ -1929,7 +1929,7 @@ lbl_802B75FC:
 /* 802B7600 002B4560  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802B7604 002B4564  7C 08 03 A6 */	mtlr r0
 /* 802B7608 002B4568  38 21 00 70 */	addi r1, r1, 0x70
-/* 802B760C 002B456C  4E 80 00 20 */	blr 
+/* 802B760C 002B456C  4E 80 00 20 */	blr
 
 .global "DrawOverlappingWorldModelIDs__13CCubeRendererFiRQ24rstl10vector<Ui>RC6CAABoxii"
 "DrawOverlappingWorldModelIDs__13CCubeRendererFiRQ24rstl10vector<Ui>RC6CAABoxii":
@@ -2061,7 +2061,7 @@ lbl_802B77D0:
 /* 802B77D4 002B4734  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 802B77D8 002B4738  7C 08 03 A6 */	mtlr r0
 /* 802B77DC 002B473C  38 21 00 80 */	addi r1, r1, 0x80
-/* 802B77E0 002B4740  4E 80 00 20 */	blr 
+/* 802B77E0 002B4740  4E 80 00 20 */	blr
 
 .global "FindOverlappingWorldModels__13CCubeRendererFRQ24rstl10vector<Ui>RC6CAABox"
 "FindOverlappingWorldModels__13CCubeRendererFRQ24rstl10vector<Ui>RC6CAABox":
@@ -2234,7 +2234,7 @@ lbl_802B7A24:
 /* 802B7A28 002B4988  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802B7A2C 002B498C  7C 08 03 A6 */	mtlr r0
 /* 802B7A30 002B4990  38 21 00 90 */	addi r1, r1, 0x90
-/* 802B7A34 002B4994  4E 80 00 20 */	blr 
+/* 802B7A34 002B4994  4E 80 00 20 */	blr
 
 .global "PrepareDynamicLights__13CCubeRendererFRCQ24rstl14vector<CLight>"
 "PrepareDynamicLights__13CCubeRendererFRCQ24rstl14vector<CLight>":
@@ -2372,7 +2372,7 @@ lbl_802B7C08:
 /* 802B7C18 002B4B78  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 802B7C1C 002B4B7C  7C 08 03 A6 */	mtlr r0
 /* 802B7C20 002B4B80  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802B7C24 002B4B84  4E 80 00 20 */	blr 
+/* 802B7C24 002B4B84  4E 80 00 20 */	blr
 
 .global sub_802b7c28
 sub_802b7c28:
@@ -2408,7 +2408,7 @@ lbl_802B7C64:
 /* 802B7C94 002B4BF4  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 802B7C98 002B4BF8  C0 04 00 34 */	lfs f0, 0x34(r4)
 /* 802B7C9C 002B4BFC  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 802B7CA0 002B4C00  4E 80 00 20 */	blr 
+/* 802B7CA0 002B4C00  4E 80 00 20 */	blr
 lbl_802B7CA4:
 /* 802B7CA4 002B4C04  38 84 00 08 */	addi r4, r4, 8
 /* 802B7CA8 002B4C08  39 29 00 01 */	addi r9, r9, 1
@@ -2434,7 +2434,7 @@ lbl_802B7CC0:
 /* 802B7CE8 002B4C48  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 802B7CEC 002B4C4C  C0 04 00 14 */	lfs f0, 0x14(r4)
 /* 802B7CF0 002B4C50  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 802B7CF4 002B4C54  4E 80 00 20 */	blr 
+/* 802B7CF4 002B4C54  4E 80 00 20 */	blr
 
 .global SetWorldLightFadeLevel__13CCubeRendererFf
 SetWorldLightFadeLevel__13CCubeRendererFf:
@@ -2451,7 +2451,7 @@ SetWorldLightFadeLevel__13CCubeRendererFf:
 /* 802B7D20 002B4C80  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 802B7D24 002B4C84  90 03 02 FC */	stw r0, 0x2fc(r3)
 /* 802B7D28 002B4C88  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B7D2C 002B4C8C  4E 80 00 20 */	blr 
+/* 802B7D2C 002B4C8C  4E 80 00 20 */	blr
 
 .global SetGXRegister1Color__13CCubeRendererFRC6CColor
 SetGXRegister1Color__13CCubeRendererFRC6CColor:
@@ -2466,7 +2466,7 @@ SetGXRegister1Color__13CCubeRendererFRC6CColor:
 /* 802B7D50 002B4CB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B7D54 002B4CB4  7C 08 03 A6 */	mtlr r0
 /* 802B7D58 002B4CB8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B7D5C 002B4CBC  4E 80 00 20 */	blr 
+/* 802B7D5C 002B4CBC  4E 80 00 20 */	blr
 
 .global SetThermalColdScale__13CCubeRendererFf
 SetThermalColdScale__13CCubeRendererFf:
@@ -2494,7 +2494,7 @@ SetThermalColdScale__13CCubeRendererFf:
 /* 802B7DB4 002B4D14  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802B7DB8 002B4D18  7C 08 03 A6 */	mtlr r0
 /* 802B7DBC 002B4D1C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B7DC0 002B4D20  4E 80 00 20 */	blr 
+/* 802B7DC0 002B4D20  4E 80 00 20 */	blr
 
 .global DrawAreaGeometry__13CCubeRendererFiii
 DrawAreaGeometry__13CCubeRendererFiii:
@@ -2631,7 +2631,7 @@ lbl_802B7F64:
 /* 802B7F8C 002B4EEC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802B7F90 002B4EF0  7C 08 03 A6 */	mtlr r0
 /* 802B7F94 002B4EF4  38 21 00 40 */	addi r1, r1, 0x40
-/* 802B7F98 002B4EF8  4E 80 00 20 */	blr 
+/* 802B7F98 002B4EF8  4E 80 00 20 */	blr
 
 .global DrawModelFlat__13CCubeRendererFRC6CModelRC11CModelFlagsbPCfPCf
 DrawModelFlat__13CCubeRendererFRC6CModelRC11CModelFlagsbPCfPCf:
@@ -2745,7 +2745,7 @@ lbl_802B812C:
 /* 802B8134 002B5094  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B8138 002B5098  7C 08 03 A6 */	mtlr r0
 /* 802B813C 002B509C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B8140 002B50A0  4E 80 00 20 */	blr 
+/* 802B8140 002B50A0  4E 80 00 20 */	blr
 
 .global DrawModelDisintegrate__13CCubeRendererFRC6CModelRC8CTextureRC6CColorPCfPCf
 DrawModelDisintegrate__13CCubeRendererFRC6CModelRC8CTextureRC6CColorPCfPCf:
@@ -3012,7 +3012,7 @@ DrawModelDisintegrate__13CCubeRendererFRC6CModelRC8CTextureRC6CColorPCfPCf:
 /* 802B8554 002B54B4  80 01 02 74 */	lwz r0, 0x274(r1)
 /* 802B8558 002B54B8  7C 08 03 A6 */	mtlr r0
 /* 802B855C 002B54BC  38 21 02 70 */	addi r1, r1, 0x270
-/* 802B8560 002B54C0  4E 80 00 20 */	blr 
+/* 802B8560 002B54C0  4E 80 00 20 */	blr
 
 .global DrawThermalModel__13CCubeRendererFRC6CModelRC6CColorRC6CColorPCfPCfRC11CModelFlags
 DrawThermalModel__13CCubeRendererFRC6CModelRC6CColorRC6CColorPCfPCfRC11CModelFlags:
@@ -3041,7 +3041,7 @@ DrawThermalModel__13CCubeRendererFRC6CModelRC6CColorRC6CColorPCfPCfRC11CModelFla
 /* 802B85BC 002B551C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802B85C0 002B5520  7C 08 03 A6 */	mtlr r0
 /* 802B85C4 002B5524  38 21 00 30 */	addi r1, r1, 0x30
-/* 802B85C8 002B5528  4E 80 00 20 */	blr 
+/* 802B85C8 002B5528  4E 80 00 20 */	blr
 
 .global sub_802b85cc
 sub_802b85cc:
@@ -3171,7 +3171,7 @@ lbl_802B87AC:
 /* 802B87B4 002B5714  80 01 00 C4 */	lwz r0, 0xc4(r1)
 /* 802B87B8 002B5718  7C 08 03 A6 */	mtlr r0
 /* 802B87BC 002B571C  38 21 00 C0 */	addi r1, r1, 0xc0
-/* 802B87C0 002B5720  4E 80 00 20 */	blr 
+/* 802B87C0 002B5720  4E 80 00 20 */	blr
 
 .global "__ct__Q213CCubeRenderer18CFogVolumeListItemFRC12CTransform4f6CColorRC6CAABoxPC21TLockedToken<6CModel>PC13CSkinnedModel"
 "__ct__Q213CCubeRenderer18CFogVolumeListItemFRC12CTransform4f6CColorRC6CAABoxPC21TLockedToken<6CModel>PC13CSkinnedModel":
@@ -3275,7 +3275,7 @@ lbl_802B891C:
 /* 802B8928 002B5888  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802B892C 002B588C  7C 08 03 A6 */	mtlr r0
 /* 802B8930 002B5890  38 21 00 40 */	addi r1, r1, 0x40
-/* 802B8934 002B5894  4E 80 00 20 */	blr 
+/* 802B8934 002B5894  4E 80 00 20 */	blr
 
 .global PostRenderFogs__13CCubeRendererFv
 PostRenderFogs__13CCubeRendererFv:
@@ -3351,7 +3351,7 @@ lbl_802B8A10:
 /* 802B8A24 002B5984  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802B8A28 002B5988  7C 08 03 A6 */	mtlr r0
 /* 802B8A2C 002B598C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B8A30 002B5990  4E 80 00 20 */	blr 
+/* 802B8A30 002B5990  4E 80 00 20 */	blr
 
 .global FogSorter
 FogSorter:
@@ -3395,12 +3395,12 @@ lbl_802B8AA4:
 /* 802B8AB4 002B5A14  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B8AB8 002B5A18  7C 08 03 A6 */	mtlr r0
 /* 802B8ABC 002B5A1C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B8AC0 002B5A20  4E 80 00 20 */	blr 
+/* 802B8AC0 002B5A20  4E 80 00 20 */	blr
 
 .global sub_802b8ac4
 sub_802b8ac4:
 /* 802B8AC4 002B5A24  7C 04 28 40 */	cmplw r4, r5
-/* 802B8AC8 002B5A28  4D 82 00 20 */	beqlr 
+/* 802B8AC8 002B5A28  4D 82 00 20 */	beqlr
 /* 802B8ACC 002B5A2C  80 03 00 04 */	lwz r0, 4(r3)
 /* 802B8AD0 002B5A30  7C 04 00 40 */	cmplw r4, r0
 /* 802B8AD4 002B5A34  40 82 00 0C */	bne lbl_802B8AE0
@@ -3432,11 +3432,11 @@ lbl_802B8B20:
 /* 802B8B2C 002B5A8C  91 04 00 00 */	stw r8, 0(r4)
 /* 802B8B30 002B5A90  90 A3 00 00 */	stw r5, 0(r3)
 /* 802B8B34 002B5A94  90 65 00 04 */	stw r3, 4(r5)
-/* 802B8B38 002B5A98  4E 80 00 20 */	blr 
+/* 802B8B38 002B5A98  4E 80 00 20 */	blr
 lbl_802B8B3C:
 /* 802B8B3C 002B5A9C  90 85 00 04 */	stw r4, 4(r5)
 /* 802B8B40 002B5AA0  90 A4 00 00 */	stw r5, 0(r4)
-/* 802B8B44 002B5AA4  4E 80 00 20 */	blr 
+/* 802B8B44 002B5AA4  4E 80 00 20 */	blr
 
 .global sub_802b8b48
 sub_802b8b48:
@@ -3553,7 +3553,7 @@ lbl_802B8CE0:
 /* 802B8CF8 002B5C58  83 C1 00 A8 */	lwz r30, 0xa8(r1)
 /* 802B8CFC 002B5C5C  7C 08 03 A6 */	mtlr r0
 /* 802B8D00 002B5C60  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802B8D04 002B5C64  4E 80 00 20 */	blr 
+/* 802B8D04 002B5C64  4E 80 00 20 */	blr
 
 .global DisablePVS__13CCubeRendererFv
 DisablePVS__13CCubeRendererFv:
@@ -3583,7 +3583,7 @@ lbl_802B8D58:
 /* 802B8D60 002B5CC0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802B8D64 002B5CC4  7C 08 03 A6 */	mtlr r0
 /* 802B8D68 002B5CC8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B8D6C 002B5CCC  4E 80 00 20 */	blr 
+/* 802B8D6C 002B5CCC  4E 80 00 20 */	blr
 
 .global sub_802b8d70
 sub_802b8d70:
@@ -3670,7 +3670,7 @@ lbl_802B8E88:
 /* 802B8E90 002B5DF0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802B8E94 002B5DF4  7C 08 03 A6 */	mtlr r0
 /* 802B8E98 002B5DF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802B8E9C 002B5DFC  4E 80 00 20 */	blr 
+/* 802B8E9C 002B5DFC  4E 80 00 20 */	blr
 
 .global EnablePVS__13CCubeRendererFPC10CPVSVisSeti
 EnablePVS__13CCubeRendererFPC10CPVSVisSeti:
@@ -3735,7 +3735,7 @@ lbl_802B8F68:
 /* 802B8F78 002B5ED8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802B8F7C 002B5EDC  7C 08 03 A6 */	mtlr r0
 /* 802B8F80 002B5EE0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802B8F84 002B5EE4  4E 80 00 20 */	blr 
+/* 802B8F84 002B5EE4  4E 80 00 20 */	blr
 
 .global SetThermal__13CCubeRendererFbfRC6CColor
 SetThermal__13CCubeRendererFbfRC6CColor:
@@ -3748,7 +3748,7 @@ SetThermal__13CCubeRendererFbfRC6CColor:
 /* 802B8FA0 002B5F00  90 83 02 F4 */	stw r4, 0x2f4(r3)
 /* 802B8FA4 002B5F04  98 0D A5 EC */	stb r0, lbl_805A91AC@sda21(r13)
 /* 802B8FA8 002B5F08  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
-/* 802B8FAC 002B5F0C  4E 80 00 20 */	blr 
+/* 802B8FAC 002B5F0C  4E 80 00 20 */	blr
 
 .global ReallyRenderFogVolume__13CCubeRendererFRC6CColorRC6CAABoxPC6CModelPC13CSkinnedModel
 ReallyRenderFogVolume__13CCubeRendererFRC6CColorRC6CAABoxPC6CModelPC13CSkinnedModel:
@@ -5021,7 +5021,7 @@ lbl_802BA240:
 /* 802BA284 002B71E4  80 01 04 24 */	lwz r0, 0x424(r1)
 /* 802BA288 002B71E8  7C 08 03 A6 */	mtlr r0
 /* 802BA28C 002B71EC  38 21 04 20 */	addi r1, r1, 0x420
-/* 802BA290 002B71F0  4E 80 00 20 */	blr 
+/* 802BA290 002B71F0  4E 80 00 20 */	blr
 
 .global "RenderFogVolume__13CCubeRendererFRC6CColorRC6CAABoxPC21TLockedToken<6CModel>PC13CSkinnedModel"
 "RenderFogVolume__13CCubeRendererFRC6CColorRC6CAABoxPC21TLockedToken<6CModel>PC13CSkinnedModel":
@@ -5065,7 +5065,7 @@ lbl_802BA31C:
 /* 802BA320 002B7280  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 802BA324 002B7284  7C 08 03 A6 */	mtlr r0
 /* 802BA328 002B7288  38 21 00 80 */	addi r1, r1, 0x80
-/* 802BA32C 002B728C  4E 80 00 20 */	blr 
+/* 802BA32C 002B728C  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>FRCQ213CCubeRenderer18CFogVolumeListItem"
 "push_back__Q24rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>FRCQ213CCubeRenderer18CFogVolumeListItem":
@@ -5078,7 +5078,7 @@ lbl_802BA31C:
 /* 802BA348 002B72A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BA34C 002B72AC  7C 08 03 A6 */	mtlr r0
 /* 802BA350 002B72B0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BA354 002B72B4  4E 80 00 20 */	blr 
+/* 802BA354 002B72B4  4E 80 00 20 */	blr
 
 .global "do_insert_before__Q24rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>FPQ34rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>4nodeRCQ213CCubeRenderer18CFogVolumeListItem"
 "do_insert_before__Q24rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>FPQ34rstl70list<Q213CCubeRenderer18CFogVolumeListItem,Q24rstl17rmemory_allocator>4nodeRCQ213CCubeRenderer18CFogVolumeListItem":
@@ -5110,7 +5110,7 @@ lbl_802BA394:
 /* 802BA3B8 002B7318  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BA3BC 002B731C  7C 08 03 A6 */	mtlr r0
 /* 802BA3C0 002B7320  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BA3C4 002B7324  4E 80 00 20 */	blr 
+/* 802BA3C4 002B7324  4E 80 00 20 */	blr
 
 .global __ct__Q213CCubeRenderer18CFogVolumeListItemFRCQ213CCubeRenderer18CFogVolumeListItem
 __ct__Q213CCubeRenderer18CFogVolumeListItemFRCQ213CCubeRenderer18CFogVolumeListItem:
@@ -5175,7 +5175,7 @@ lbl_802BA49C:
 /* 802BA4A4 002B7404  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802BA4A8 002B7408  7C 08 03 A6 */	mtlr r0
 /* 802BA4AC 002B740C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BA4B0 002B7410  4E 80 00 20 */	blr 
+/* 802BA4B0 002B7410  4E 80 00 20 */	blr
 
 .global DoThermalBlendHot__13CCubeRendererFv
 DoThermalBlendHot__13CCubeRendererFv:
@@ -5381,7 +5381,7 @@ DoThermalBlendHot__13CCubeRendererFv:
 /* 802BA7D0 002B7730  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 802BA7D4 002B7734  7C 08 03 A6 */	mtlr r0
 /* 802BA7D8 002B7738  38 21 00 A0 */	addi r1, r1, 0xa0
-/* 802BA7DC 002B773C  4E 80 00 20 */	blr 
+/* 802BA7DC 002B773C  4E 80 00 20 */	blr
 
 .global DoThermalBlendCold__13CCubeRendererFv
 DoThermalBlendCold__13CCubeRendererFv:
@@ -5787,7 +5787,7 @@ lbl_802BAA1C:
 /* 802BAE0C 002B7D6C  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 802BAE10 002B7D70  7C 08 03 A6 */	mtlr r0
 /* 802BAE14 002B7D74  38 21 01 00 */	addi r1, r1, 0x100
-/* 802BAE18 002B7D78  4E 80 00 20 */	blr 
+/* 802BAE18 002B7D78  4E 80 00 20 */	blr
 
 .global RenderFogVolumeModel__13CCubeRendererFRC6CAABoxPC6CModelRC12CTransform4f12CTransform4fPC13CSkinnedModel
 RenderFogVolumeModel__13CCubeRendererFRC6CAABoxPC6CModelRC12CTransform4f12CTransform4fPC13CSkinnedModel:
@@ -6056,7 +6056,7 @@ lbl_802BB19C:
 /* 802BB218 002B8178  83 A1 00 E4 */	lwz r29, 0xe4(r1)
 /* 802BB21C 002B817C  7C 08 03 A6 */	mtlr r0
 /* 802BB220 002B8180  38 21 01 D0 */	addi r1, r1, 0x1d0
-/* 802BB224 002B8184  4E 80 00 20 */	blr 
+/* 802BB224 002B8184  4E 80 00 20 */	blr
 
 .global DrawFogSlices__13CCubeRendererFPC6CPlaneiiRC9CVector3ff
 DrawFogSlices__13CCubeRendererFPC6CPlaneiiRC9CVector3ff:
@@ -6351,7 +6351,7 @@ lbl_802BB648:
 /* 802BB664 002B85C4  80 01 02 54 */	lwz r0, 0x254(r1)
 /* 802BB668 002B85C8  7C 08 03 A6 */	mtlr r0
 /* 802BB66C 002B85CC  38 21 02 50 */	addi r1, r1, 0x250
-/* 802BB670 002B85D0  4E 80 00 20 */	blr 
+/* 802BB670 002B85D0  4E 80 00 20 */	blr
 
 .global DrawFogFans__13CCubeRendererFPC6CPlaneiPC9CVector3fiii
 DrawFogFans__13CCubeRendererFPC6CPlaneiPC9CVector3fiii:
@@ -6561,7 +6561,7 @@ lbl_802BB944:
 /* 802BB948 002B88A8  80 01 01 54 */	lwz r0, 0x154(r1)
 /* 802BB94C 002B88AC  7C 08 03 A6 */	mtlr r0
 /* 802BB950 002B88B0  38 21 01 50 */	addi r1, r1, 0x150
-/* 802BB954 002B88B4  4E 80 00 20 */	blr 
+/* 802BB954 002B88B4  4E 80 00 20 */	blr
 
 .global DrawFogFan__13CCubeRendererFPC9CVector3fi
 DrawFogFan__13CCubeRendererFPC9CVector3fi:
@@ -6668,7 +6668,7 @@ lbl_802BBACC:
 /* 802BBAD4 002B8A34  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BBAD8 002B8A38  7C 08 03 A6 */	mtlr r0
 /* 802BBADC 002B8A3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BBAE0 002B8A40  4E 80 00 20 */	blr 
+/* 802BBAE0 002B8A40  4E 80 00 20 */	blr
 
 .global GetStaticWorldDataSize__13CCubeRendererFv
 GetStaticWorldDataSize__13CCubeRendererFv:
@@ -6689,7 +6689,7 @@ lbl_802BBB10:
 /* 802BBB10 002B8A70  7C 04 18 40 */	cmplw r4, r3
 /* 802BBB14 002B8A74  40 82 FF E0 */	bne lbl_802BBAF4
 /* 802BBB18 002B8A78  7C A3 2B 78 */	mr r3, r5
-/* 802BBB1C 002B8A7C  4E 80 00 20 */	blr 
+/* 802BBB1C 002B8A7C  4E 80 00 20 */	blr
 
 .global SetWorldFog__13CCubeRendererF11ERglFogModeffRC6CColor
 SetWorldFog__13CCubeRendererF11ERglFogModeffRC6CColor:
@@ -6707,7 +6707,7 @@ lbl_802BBB3C:
 /* 802BBB48 002B8AA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BBB4C 002B8AAC  7C 08 03 A6 */	mtlr r0
 /* 802BBB50 002B8AB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BBB54 002B8AB4  4E 80 00 20 */	blr 
+/* 802BBB54 002B8AB4  4E 80 00 20 */	blr
 
 .global SetWireframeFlags__13CCubeRendererFi
 SetWireframeFlags__13CCubeRendererFi:
@@ -6734,7 +6734,7 @@ SetWireframeFlags__13CCubeRendererFi:
 /* 802BBBA8 002B8B08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BBBAC 002B8B0C  7C 08 03 A6 */	mtlr r0
 /* 802BBBB0 002B8B10  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BBBB4 002B8B14  4E 80 00 20 */	blr 
+/* 802BBBB4 002B8B14  4E 80 00 20 */	blr
 
 .global _DrawSpaceWarp__13CCubeRendererFRC9CVector3ff
 _DrawSpaceWarp__13CCubeRendererFRC9CVector3ff:
@@ -7234,7 +7234,7 @@ lbl_802BC348:
 /* 802BC354 002B92B4  80 01 01 84 */	lwz r0, 0x184(r1)
 /* 802BC358 002B92B8  7C 08 03 A6 */	mtlr r0
 /* 802BC35C 002B92BC  38 21 01 80 */	addi r1, r1, 0x180
-/* 802BC360 002B92C0  4E 80 00 20 */	blr 
+/* 802BC360 002B92C0  4E 80 00 20 */	blr
 
 .global DrawSpaceWarp__13CCubeRendererFRC9CVector3ff
 DrawSpaceWarp__13CCubeRendererFRC9CVector3ff:
@@ -7251,7 +7251,7 @@ lbl_802BC388:
 /* 802BC388 002B92E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC38C 002B92EC  7C 08 03 A6 */	mtlr r0
 /* 802BC390 002B92F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC394 002B92F4  4E 80 00 20 */	blr 
+/* 802BC394 002B92F4  4E 80 00 20 */	blr
 
 .global CacheReflection__13CCubeRendererFPFPvRC9CVector3f_vPvb
 CacheReflection__13CCubeRendererFPFPvRC9CVector3f_vPvb:
@@ -7335,7 +7335,7 @@ lbl_802BC424:
 /* 802BC4C4 002B9424  38 83 67 B4 */	addi r4, r3, lbl_805A67B4@l
 /* 802BC4C8 002B9428  7F C3 F3 78 */	mr r3, r30
 /* 802BC4CC 002B942C  7D 89 03 A6 */	mtctr r12
-/* 802BC4D0 002B9430  4E 80 04 21 */	bctrl 
+/* 802BC4D0 002B9430  4E 80 04 21 */	bctrl
 /* 802BC4D4 002B9434  80 7C 01 4C */	lwz r3, 0x14c(r28)
 /* 802BC4D8 002B9438  38 80 00 00 */	li r4, 0
 /* 802BC4DC 002B943C  48 05 21 19 */	bl GetConstBitMapData__8CTextureCFi
@@ -7363,7 +7363,7 @@ lbl_802BC52C:
 /* 802BC530 002B9490  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802BC534 002B9494  7C 08 03 A6 */	mtlr r0
 /* 802BC538 002B9498  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BC53C 002B949C  4E 80 00 20 */	blr 
+/* 802BC53C 002B949C  4E 80 00 20 */	blr
 
 .global GetRealReflection__13CCubeRendererFv
 GetRealReflection__13CCubeRendererFv:
@@ -7373,10 +7373,10 @@ GetRealReflection__13CCubeRendererFv:
 /* 802BC54C 002B94AC  28 00 00 00 */	cmplwi r0, 0
 /* 802BC550 002B94B0  40 82 00 0C */	bne lbl_802BC55C
 /* 802BC554 002B94B4  38 63 00 E4 */	addi r3, r3, 0xe4
-/* 802BC558 002B94B8  4E 80 00 20 */	blr 
+/* 802BC558 002B94B8  4E 80 00 20 */	blr
 lbl_802BC55C:
 /* 802BC55C 002B94BC  7C 03 03 78 */	mr r3, r0
-/* 802BC560 002B94C0  4E 80 00 20 */	blr 
+/* 802BC560 002B94C0  4E 80 00 20 */	blr
 
 .global SetDebugOption__13CCubeRendererFQ29IRenderer12EDebugOptioni
 SetDebugOption__13CCubeRendererFQ29IRenderer12EDebugOptioni:
@@ -7388,33 +7388,33 @@ SetDebugOption__13CCubeRendererFQ29IRenderer12EDebugOptioni:
 
 .global sub_802bc578
 sub_802bc578:
-/* 802BC578 002B94D8  4E 80 00 20 */	blr 
+/* 802BC578 002B94D8  4E 80 00 20 */	blr
 lbl_802BC57C:
 /* 802BC57C 002B94DC  2C 04 00 03 */	cmpwi r4, 3
-/* 802BC580 002B94E0  4C 80 00 20 */	bgelr 
+/* 802BC580 002B94E0  4C 80 00 20 */	bgelr
 /* 802BC584 002B94E4  48 00 00 20 */	b lbl_802BC5A4
 lbl_802BC588:
 /* 802BC588 002B94E8  7C 05 00 D0 */	neg r0, r5
 /* 802BC58C 002B94EC  7C 00 2B 78 */	or r0, r0, r5
 /* 802BC590 002B94F0  54 00 0F FE */	srwi r0, r0, 0x1f
 /* 802BC594 002B94F4  98 03 00 C0 */	stb r0, 0xc0(r3)
-/* 802BC598 002B94F8  4E 80 00 20 */	blr 
+/* 802BC598 002B94F8  4E 80 00 20 */	blr
 lbl_802BC59C:
 /* 802BC59C 002B94FC  90 A3 00 C4 */	stw r5, 0xc4(r3)
-/* 802BC5A0 002B9500  4E 80 00 20 */	blr 
+/* 802BC5A0 002B9500  4E 80 00 20 */	blr
 lbl_802BC5A4:
 /* 802BC5A4 002B9504  7C 85 00 D0 */	neg r4, r5
 /* 802BC5A8 002B9508  88 03 03 18 */	lbz r0, 0x318(r3)
 /* 802BC5AC 002B950C  7C 84 2B 78 */	or r4, r4, r5
 /* 802BC5B0 002B9510  50 80 27 38 */	rlwimi r0, r4, 4, 0x1c, 0x1c
 /* 802BC5B4 002B9514  98 03 03 18 */	stb r0, 0x318(r3)
-/* 802BC5B8 002B9518  4E 80 00 20 */	blr 
+/* 802BC5B8 002B9518  4E 80 00 20 */	blr
 
 .global SetDrawableCallback__13CCubeRendererFPFPCvPCvi_vPCv
 SetDrawableCallback__13CCubeRendererFPFPCvPCvi_vPCv:
 /* 802BC5BC 002B951C  90 83 00 A8 */	stw r4, 0xa8(r3)
 /* 802BC5C0 002B9520  90 A3 00 AC */	stw r5, 0xac(r3)
-/* 802BC5C4 002B9524  4E 80 00 20 */	blr 
+/* 802BC5C4 002B9524  4E 80 00 20 */	blr
 
 .global GetFPS__13CCubeRendererFv
 GetFPS__13CCubeRendererFv:
@@ -7425,13 +7425,13 @@ GetFPS__13CCubeRendererFv:
 /* 802BC5D8 002B9538  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC5DC 002B953C  7C 08 03 A6 */	mtlr r0
 /* 802BC5E0 002B9540  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC5E4 002B9544  4E 80 00 20 */	blr 
+/* 802BC5E4 002B9544  4E 80 00 20 */	blr
 
 .global SetClippingPlanes__13CCubeRendererFRC14CFrustumPlanes
 SetClippingPlanes__13CCubeRendererFRC14CFrustumPlanes:
 /* 802BC5E8 002B9548  38 03 00 44 */	addi r0, r3, 0x44
 /* 802BC5EC 002B954C  7C 00 20 40 */	cmplw r0, r4
-/* 802BC5F0 002B9550  4D 82 00 20 */	beqlr 
+/* 802BC5F0 002B9550  4D 82 00 20 */	beqlr
 /* 802BC5F4 002B9554  80 E3 00 44 */	lwz r7, 0x44(r3)
 /* 802BC5F8 002B9558  39 03 00 48 */	addi r8, r3, 0x48
 /* 802BC5FC 002B955C  38 A0 00 00 */	li r5, 0
@@ -7483,7 +7483,7 @@ lbl_802BC694:
 /* 802BC698 002B95F8  40 82 FF CC */	bne lbl_802BC664
 /* 802BC69C 002B95FC  80 04 00 00 */	lwz r0, 0(r4)
 /* 802BC6A0 002B9600  90 03 00 44 */	stw r0, 0x44(r3)
-/* 802BC6A4 002B9604  4E 80 00 20 */	blr 
+/* 802BC6A4 002B9604  4E 80 00 20 */	blr
 
 .global SetBlendMode_AdditiveDestColor__13CCubeRendererFv
 SetBlendMode_AdditiveDestColor__13CCubeRendererFv:
@@ -7498,7 +7498,7 @@ SetBlendMode_AdditiveDestColor__13CCubeRendererFv:
 /* 802BC6C8 002B9628  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC6CC 002B962C  7C 08 03 A6 */	mtlr r0
 /* 802BC6D0 002B9630  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC6D4 002B9634  4E 80 00 20 */	blr 
+/* 802BC6D4 002B9634  4E 80 00 20 */	blr
 
 .global SetBlendMode_Replace__13CCubeRendererFv
 SetBlendMode_Replace__13CCubeRendererFv:
@@ -7513,7 +7513,7 @@ SetBlendMode_Replace__13CCubeRendererFv:
 /* 802BC6F8 002B9658  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC6FC 002B965C  7C 08 03 A6 */	mtlr r0
 /* 802BC700 002B9660  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC704 002B9664  4E 80 00 20 */	blr 
+/* 802BC704 002B9664  4E 80 00 20 */	blr
 
 .global SetBlendMode_InvertSrc__13CCubeRendererFv
 SetBlendMode_InvertSrc__13CCubeRendererFv:
@@ -7528,7 +7528,7 @@ SetBlendMode_InvertSrc__13CCubeRendererFv:
 /* 802BC728 002B9688  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC72C 002B968C  7C 08 03 A6 */	mtlr r0
 /* 802BC730 002B9690  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC734 002B9694  4E 80 00 20 */	blr 
+/* 802BC734 002B9694  4E 80 00 20 */	blr
 
 .global SetBlendMode_InvertDst__13CCubeRendererFv
 SetBlendMode_InvertDst__13CCubeRendererFv:
@@ -7543,7 +7543,7 @@ SetBlendMode_InvertDst__13CCubeRendererFv:
 /* 802BC758 002B96B8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC75C 002B96BC  7C 08 03 A6 */	mtlr r0
 /* 802BC760 002B96C0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC764 002B96C4  4E 80 00 20 */	blr 
+/* 802BC764 002B96C4  4E 80 00 20 */	blr
 
 .global SetBlendMode_ColorMultiply__13CCubeRendererFv
 SetBlendMode_ColorMultiply__13CCubeRendererFv:
@@ -7558,7 +7558,7 @@ SetBlendMode_ColorMultiply__13CCubeRendererFv:
 /* 802BC788 002B96E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC78C 002B96EC  7C 08 03 A6 */	mtlr r0
 /* 802BC790 002B96F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC794 002B96F4  4E 80 00 20 */	blr 
+/* 802BC794 002B96F4  4E 80 00 20 */	blr
 
 .global SetBlendMode_NoColorWrite__13CCubeRendererFv
 SetBlendMode_NoColorWrite__13CCubeRendererFv:
@@ -7573,7 +7573,7 @@ SetBlendMode_NoColorWrite__13CCubeRendererFv:
 /* 802BC7B8 002B9718  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC7BC 002B971C  7C 08 03 A6 */	mtlr r0
 /* 802BC7C0 002B9720  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC7C4 002B9724  4E 80 00 20 */	blr 
+/* 802BC7C4 002B9724  4E 80 00 20 */	blr
 
 .global SetBlendMode_AlphaBlended__13CCubeRendererFv
 SetBlendMode_AlphaBlended__13CCubeRendererFv:
@@ -7588,7 +7588,7 @@ SetBlendMode_AlphaBlended__13CCubeRendererFv:
 /* 802BC7E8 002B9748  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC7EC 002B974C  7C 08 03 A6 */	mtlr r0
 /* 802BC7F0 002B9750  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC7F4 002B9754  4E 80 00 20 */	blr 
+/* 802BC7F4 002B9754  4E 80 00 20 */	blr
 
 .global SetBlendMode_AdditiveAlpha__13CCubeRendererFv
 SetBlendMode_AdditiveAlpha__13CCubeRendererFv:
@@ -7603,7 +7603,7 @@ SetBlendMode_AdditiveAlpha__13CCubeRendererFv:
 /* 802BC818 002B9778  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC81C 002B977C  7C 08 03 A6 */	mtlr r0
 /* 802BC820 002B9780  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC824 002B9784  4E 80 00 20 */	blr 
+/* 802BC824 002B9784  4E 80 00 20 */	blr
 
 .global SetDepthReadWrite__13CCubeRendererFbb
 SetDepthReadWrite__13CCubeRendererFbb:
@@ -7616,7 +7616,7 @@ SetDepthReadWrite__13CCubeRendererFbb:
 /* 802BC840 002B97A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BC844 002B97A4  7C 08 03 A6 */	mtlr r0
 /* 802BC848 002B97A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BC84C 002B97AC  4E 80 00 20 */	blr 
+/* 802BC84C 002B97AC  4E 80 00 20 */	blr
 
 .global SetViewport__13CCubeRendererFiiii
 SetViewport__13CCubeRendererFiiii:
@@ -7648,7 +7648,7 @@ SetViewport__13CCubeRendererFiiii:
 /* 802BC8B4 002B9814  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802BC8B8 002B9818  7C 08 03 A6 */	mtlr r0
 /* 802BC8BC 002B981C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BC8C0 002B9820  4E 80 00 20 */	blr 
+/* 802BC8C0 002B9820  4E 80 00 20 */	blr
 
 .global SetViewportOrtho__13CCubeRendererFbff
 SetViewportOrtho__13CCubeRendererFbff:
@@ -7779,7 +7779,7 @@ lbl_802BC9E8:
 /* 802BCA94 002B99F4  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 802BCA98 002B99F8  7C 08 03 A6 */	mtlr r0
 /* 802BCA9C 002B99FC  38 21 00 80 */	addi r1, r1, 0x80
-/* 802BCAA0 002B9A00  4E 80 00 20 */	blr 
+/* 802BCAA0 002B9A00  4E 80 00 20 */	blr
 
 .global SetPerspective__13CCubeRendererFffff
 SetPerspective__13CCubeRendererFffff:
@@ -7790,7 +7790,7 @@ SetPerspective__13CCubeRendererFffff:
 /* 802BCAB4 002B9A14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCAB8 002B9A18  7C 08 03 A6 */	mtlr r0
 /* 802BCABC 002B9A1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCAC0 002B9A20  4E 80 00 20 */	blr 
+/* 802BCAC0 002B9A20  4E 80 00 20 */	blr
 
 .global SetPerspective__13CCubeRendererFfffff
 SetPerspective__13CCubeRendererFfffff:
@@ -7804,7 +7804,7 @@ SetPerspective__13CCubeRendererFfffff:
 /* 802BCAE0 002B9A40  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCAE4 002B9A44  7C 08 03 A6 */	mtlr r0
 /* 802BCAE8 002B9A48  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCAEC 002B9A4C  4E 80 00 20 */	blr 
+/* 802BCAEC 002B9A4C  4E 80 00 20 */	blr
 
 .global SetAmbientColor__13CCubeRendererFRC6CColor
 SetAmbientColor__13CCubeRendererFRC6CColor:
@@ -7816,7 +7816,7 @@ SetAmbientColor__13CCubeRendererFRC6CColor:
 /* 802BCB04 002B9A64  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCB08 002B9A68  7C 08 03 A6 */	mtlr r0
 /* 802BCB0C 002B9A6C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCB10 002B9A70  4E 80 00 20 */	blr 
+/* 802BCB10 002B9A70  4E 80 00 20 */	blr
 
 .global EndPrimitive__13CCubeRendererFv
 EndPrimitive__13CCubeRendererFv:
@@ -7835,7 +7835,7 @@ lbl_802BCB38:
 /* 802BCB40 002B9AA0  81 9E 00 00 */	lwz r12, 0(r30)
 /* 802BCB44 002B9AA4  81 8C 00 A8 */	lwz r12, 0xa8(r12)
 /* 802BCB48 002B9AA8  7D 89 03 A6 */	mtctr r12
-/* 802BCB4C 002B9AAC  4E 80 04 21 */	bctrl 
+/* 802BCB4C 002B9AAC  4E 80 04 21 */	bctrl
 lbl_802BCB50:
 /* 802BCB50 002B9AB0  80 1E 00 18 */	lwz r0, 0x18(r30)
 /* 802BCB54 002B9AB4  2C 00 00 00 */	cmpwi r0, 0
@@ -7846,7 +7846,7 @@ lbl_802BCB50:
 /* 802BCB68 002B9AC8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BCB6C 002B9ACC  7C 08 03 A6 */	mtlr r0
 /* 802BCB70 002B9AD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCB74 002B9AD4  4E 80 00 20 */	blr 
+/* 802BCB74 002B9AD4  4E 80 00 20 */	blr
 
 .global PrimNormal__13CCubeRendererFRC9CVector3f
 PrimNormal__13CCubeRendererFRC9CVector3f:
@@ -7856,7 +7856,7 @@ PrimNormal__13CCubeRendererFRC9CVector3f:
 /* 802BCB84 002B9AE4  D0 03 02 E8 */	stfs f0, 0x2e8(r3)
 /* 802BCB88 002B9AE8  C0 04 00 08 */	lfs f0, 8(r4)
 /* 802BCB8C 002B9AEC  D0 03 02 EC */	stfs f0, 0x2ec(r3)
-/* 802BCB90 002B9AF0  4E 80 00 20 */	blr 
+/* 802BCB90 002B9AF0  4E 80 00 20 */	blr
 
 .global PrimVertex__13CCubeRendererFRC9CVector3f
 PrimVertex__13CCubeRendererFRC9CVector3f:
@@ -7878,7 +7878,7 @@ PrimVertex__13CCubeRendererFRC9CVector3f:
 /* 802BCBD0 002B9B30  D0 25 80 00 */	stfs f1, 0xCC008000@l(r5)
 /* 802BCBD4 002B9B34  80 03 02 E0 */	lwz r0, 0x2e0(r3)
 /* 802BCBD8 002B9B38  90 05 80 00 */	stw r0, 0xCC008000@l(r5)
-/* 802BCBDC 002B9B3C  4E 80 00 20 */	blr 
+/* 802BCBDC 002B9B3C  4E 80 00 20 */	blr
 
 .global BeginTriangleFan__13CCubeRendererFi
 BeginTriangleFan__13CCubeRendererFi:
@@ -7891,7 +7891,7 @@ BeginTriangleFan__13CCubeRendererFi:
 /* 802BCBF8 002B9B58  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCBFC 002B9B5C  7C 08 03 A6 */	mtlr r0
 /* 802BCC00 002B9B60  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCC04 002B9B64  4E 80 00 20 */	blr 
+/* 802BCC04 002B9B64  4E 80 00 20 */	blr
 
 .global BeginTriangleStrip__13CCubeRendererFi
 BeginTriangleStrip__13CCubeRendererFi:
@@ -7904,7 +7904,7 @@ BeginTriangleStrip__13CCubeRendererFi:
 /* 802BCC20 002B9B80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCC24 002B9B84  7C 08 03 A6 */	mtlr r0
 /* 802BCC28 002B9B88  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCC2C 002B9B8C  4E 80 00 20 */	blr 
+/* 802BCC2C 002B9B8C  4E 80 00 20 */	blr
 
 .global BeginTriangles__13CCubeRendererFi
 BeginTriangles__13CCubeRendererFi:
@@ -7917,7 +7917,7 @@ BeginTriangles__13CCubeRendererFi:
 /* 802BCC48 002B9BA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCC4C 002B9BAC  7C 08 03 A6 */	mtlr r0
 /* 802BCC50 002B9BB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCC54 002B9BB4  4E 80 00 20 */	blr 
+/* 802BCC54 002B9BB4  4E 80 00 20 */	blr
 
 .global BeginLineStrip__13CCubeRendererFi
 BeginLineStrip__13CCubeRendererFi:
@@ -7930,7 +7930,7 @@ BeginLineStrip__13CCubeRendererFi:
 /* 802BCC70 002B9BD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCC74 002B9BD4  7C 08 03 A6 */	mtlr r0
 /* 802BCC78 002B9BD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCC7C 002B9BDC  4E 80 00 20 */	blr 
+/* 802BCC7C 002B9BDC  4E 80 00 20 */	blr
 
 .global BeginLines__13CCubeRendererFi
 BeginLines__13CCubeRendererFi:
@@ -7943,7 +7943,7 @@ BeginLines__13CCubeRendererFi:
 /* 802BCC98 002B9BF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCC9C 002B9BFC  7C 08 03 A6 */	mtlr r0
 /* 802BCCA0 002B9C00  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCCA4 002B9C04  4E 80 00 20 */	blr 
+/* 802BCCA4 002B9C04  4E 80 00 20 */	blr
 
 .global BeginPrimitive__13CCubeRendererFQ29IRenderer14EPrimitiveTypei
 BeginPrimitive__13CCubeRendererFQ29IRenderer14EPrimitiveTypei:
@@ -8016,13 +8016,13 @@ BeginPrimitive__13CCubeRendererFQ29IRenderer14EPrimitiveTypei:
 /* 802BCDB0 002B9D10  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802BCDB4 002B9D14  7C 08 03 A6 */	mtlr r0
 /* 802BCDB8 002B9D18  38 21 00 50 */	addi r1, r1, 0x50
-/* 802BCDBC 002B9D1C  4E 80 00 20 */	blr 
+/* 802BCDBC 002B9D1C  4E 80 00 20 */	blr
 
 .global PrimColor__13CCubeRendererFRC6CColor
 PrimColor__13CCubeRendererFRC6CColor:
 /* 802BCDC0 002B9D20  80 04 00 00 */	lwz r0, 0(r4)
 /* 802BCDC4 002B9D24  90 03 02 E0 */	stw r0, 0x2e0(r3)
-/* 802BCDC8 002B9D28  4E 80 00 20 */	blr 
+/* 802BCDC8 002B9D28  4E 80 00 20 */	blr
 
 .global PrimColor__13CCubeRendererFffff
 PrimColor__13CCubeRendererFffff:
@@ -8034,7 +8034,7 @@ PrimColor__13CCubeRendererFffff:
 /* 802BCDE0 002B9D40  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BCDE4 002B9D44  7C 08 03 A6 */	mtlr r0
 /* 802BCDE8 002B9D48  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BCDEC 002B9D4C  4E 80 00 20 */	blr 
+/* 802BCDEC 002B9D4C  4E 80 00 20 */	blr
 
 .global AllocateRenderer__8RendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory
 AllocateRenderer__8RendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory:
@@ -8078,7 +8078,7 @@ lbl_802BCE64:
 /* 802BCE7C 002B9DDC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802BCE80 002B9DE0  7C 08 03 A6 */	mtlr r0
 /* 802BCE84 002B9DE4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BCE88 002B9DE8  4E 80 00 20 */	blr 
+/* 802BCE88 002B9DE8  4E 80 00 20 */	blr
 
 .global "ActivateLightsForModel__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>RC6CAABox"
 "ActivateLightsForModel__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>RC6CAABox":
@@ -8242,7 +8242,7 @@ lbl_802BD0D0:
 /* 802BD0D4 002BA034  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802BD0D8 002BA038  7C 08 03 A6 */	mtlr r0
 /* 802BD0DC 002BA03C  38 21 00 90 */	addi r1, r1, 0x90
-/* 802BD0E0 002BA040  4E 80 00 20 */	blr 
+/* 802BD0E0 002BA040  4E 80 00 20 */	blr
 
 .global "DrawStaticGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi"
 "DrawStaticGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi":
@@ -8270,7 +8270,7 @@ lbl_802BD0D0:
 /* 802BD138 002BA098  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802BD13C 002BA09C  7C 08 03 A6 */	mtlr r0
 /* 802BD140 002BA0A0  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BD144 002BA0A4  4E 80 00 20 */	blr 
+/* 802BD144 002BA0A4  4E 80 00 20 */	blr
 
 .global "DrawSortedGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi"
 "DrawSortedGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi":
@@ -8336,7 +8336,7 @@ lbl_802BD1E0:
 /* 802BD214 002BA174  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802BD218 002BA178  7C 08 03 A6 */	mtlr r0
 /* 802BD21C 002BA17C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BD220 002BA180  4E 80 00 20 */	blr 
+/* 802BD220 002BA180  4E 80 00 20 */	blr
 
 .global "DrawUnsortedGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi"
 "DrawUnsortedGeometry__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>iUiUi":
@@ -8475,7 +8475,7 @@ lbl_802BD3D8:
 /* 802BD3F0 002BA350  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802BD3F4 002BA354  7C 08 03 A6 */	mtlr r0
 /* 802BD3F8 002BA358  38 21 00 40 */	addi r1, r1, 0x40
-/* 802BD3FC 002BA35C  4E 80 00 20 */	blr 
+/* 802BD3FC 002BA35C  4E 80 00 20 */	blr
 
 .global "HandleUnsortedModelWireframe__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>R10CCubeModel"
 "HandleUnsortedModelWireframe__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>R10CCubeModel":
@@ -8524,7 +8524,7 @@ lbl_802BD488:
 /* 802BD498 002BA3F8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802BD49C 002BA3FC  7C 08 03 A6 */	mtlr r0
 /* 802BD4A0 002BA400  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BD4A4 002BA404  4E 80 00 20 */	blr 
+/* 802BD4A4 002BA404  4E 80 00 20 */	blr
 
 .global "HandleUnsortedModel__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>R10CCubeModel"
 "HandleUnsortedModel__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>R10CCubeModel":
@@ -8566,7 +8566,7 @@ lbl_802BD51C:
 /* 802BD52C 002BA48C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802BD530 002BA490  7C 08 03 A6 */	mtlr r0
 /* 802BD534 002BA494  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BD538 002BA498  4E 80 00 20 */	blr 
+/* 802BD538 002BA498  4E 80 00 20 */	blr
 
 .global "RenderBucketItems__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
 "RenderBucketItems__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>":
@@ -8609,7 +8609,7 @@ lbl_802BD5B8:
 /* 802BD5BC 002BA51C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802BD5C0 002BA520  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802BD5C4 002BA524  7D 89 03 A6 */	mtctr r12
-/* 802BD5C8 002BA528  4E 80 04 21 */	bctrl 
+/* 802BD5C8 002BA528  4E 80 04 21 */	bctrl
 /* 802BD5CC 002BA52C  48 00 00 90 */	b lbl_802BD65C
 lbl_802BD5D0:
 /* 802BD5D0 002BA530  7C 04 B0 00 */	cmpw r4, r22
@@ -8650,7 +8650,7 @@ lbl_802BD638:
 /* 802BD64C 002BA5AC  38 A4 FF FE */	addi r5, r4, -2
 /* 802BD650 002BA5B0  80 9A 00 AC */	lwz r4, 0xac(r26)
 /* 802BD654 002BA5B4  7D 89 03 A6 */	mtctr r12
-/* 802BD658 002BA5B8  4E 80 04 21 */	bctrl 
+/* 802BD658 002BA5B8  4E 80 04 21 */	bctrl
 lbl_802BD65C:
 /* 802BD65C 002BA5BC  7E C4 B3 78 */	mr r4, r22
 /* 802BD660 002BA5C0  3B 18 00 04 */	addi r24, r24, 4
@@ -8673,11 +8673,11 @@ lbl_802BD680:
 /* 802BD69C 002BA5FC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 802BD6A0 002BA600  7C 08 03 A6 */	mtlr r0
 /* 802BD6A4 002BA604  38 21 00 40 */	addi r1, r1, 0x40
-/* 802BD6A8 002BA608  4E 80 00 20 */	blr 
+/* 802BD6A8 002BA608  4E 80 00 20 */	blr
 
 .global DrawRenderBucketsDebug__13CCubeRendererFv
 DrawRenderBucketsDebug__13CCubeRendererFv:
-/* 802BD6AC 002BA60C  4E 80 00 20 */	blr 
+/* 802BD6AC 002BA60C  4E 80 00 20 */	blr
 
 .global AddWorldSurfaces__13CCubeRendererFR10CCubeModel
 AddWorldSurfaces__13CCubeRendererFR10CCubeModel:
@@ -8741,7 +8741,7 @@ lbl_802BD77C:
 /* 802BD78C 002BA6EC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 802BD790 002BA6F0  7C 08 03 A6 */	mtlr r0
 /* 802BD794 002BA6F4  38 21 00 70 */	addi r1, r1, 0x70
-/* 802BD798 002BA6F8  4E 80 00 20 */	blr 
+/* 802BD798 002BA6F8  4E 80 00 20 */	blr
 
 .global SetupCGraphicsStates__13CCubeRendererFv
 SetupCGraphicsStates__13CCubeRendererFv:
@@ -8781,7 +8781,7 @@ SetupCGraphicsStates__13CCubeRendererFv:
 /* 802BD820 002BA780  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BD824 002BA784  7C 08 03 A6 */	mtlr r0
 /* 802BD828 002BA788  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BD82C 002BA78C  4E 80 00 20 */	blr 
+/* 802BD82C 002BA78C  4E 80 00 20 */	blr
 
 .global SetupRendererStates__13CCubeRendererFb
 SetupRendererStates__13CCubeRendererFb:
@@ -8815,7 +8815,7 @@ SetupRendererStates__13CCubeRendererFb:
 /* 802BD89C 002BA7FC  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802BD8A0 002BA800  7C 08 03 A6 */	mtlr r0
 /* 802BD8A4 002BA804  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BD8A8 002BA808  4E 80 00 20 */	blr 
+/* 802BD8A8 002BA808  4E 80 00 20 */	blr
 
 .global AddDrawable__13CCubeRendererFPCvRC9CVector3fRC6CAABoxiQ29IRenderer16EDrawableSorting
 AddDrawable__13CCubeRendererFPCvRC9CVector3fRC6CAABoxiQ29IRenderer16EDrawableSorting:
@@ -8831,7 +8831,7 @@ AddDrawable__13CCubeRendererFPCvRC9CVector3fRC6CAABoxiQ29IRenderer16EDrawableSor
 /* 802BD8D0 002BA830  7C E5 3B 78 */	mr r5, r7
 /* 802BD8D4 002BA834  80 88 00 AC */	lwz r4, 0xac(r8)
 /* 802BD8D8 002BA838  7D 89 03 A6 */	mtctr r12
-/* 802BD8DC 002BA83C  4E 80 04 21 */	bctrl 
+/* 802BD8DC 002BA83C  4E 80 04 21 */	bctrl
 /* 802BD8E0 002BA840  48 00 00 20 */	b lbl_802BD900
 lbl_802BD8E4:
 /* 802BD8E4 002BA844  7C A3 2B 78 */	mr r3, r5
@@ -8845,7 +8845,7 @@ lbl_802BD900:
 /* 802BD900 002BA860  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BD904 002BA864  7C 08 03 A6 */	mtlr r0
 /* 802BD908 002BA868  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BD90C 002BA86C  4E 80 00 20 */	blr 
+/* 802BD90C 002BA86C  4E 80 00 20 */	blr
 
 .global AddPlaneObject__13CCubeRendererFPCvRC6CAABoxRC6CPlanei
 AddPlaneObject__13CCubeRendererFPCvRC6CAABoxRC6CPlanei:
@@ -8981,7 +8981,7 @@ lbl_802BDAE8:
 /* 802BDAF4 002BAA54  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802BDAF8 002BAA58  7C 08 03 A6 */	mtlr r0
 /* 802BDAFC 002BAA5C  38 21 00 60 */	addi r1, r1, 0x60
-/* 802BDB00 002BAA60  4E 80 00 20 */	blr 
+/* 802BDB00 002BAA60  4E 80 00 20 */	blr
 
 .global sub_802bdb04
 sub_802bdb04:
@@ -9000,7 +9000,7 @@ sub_802bdb04:
 /* 802BDB34 002BAA94  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BDB38 002BAA98  7C 08 03 A6 */	mtlr r0
 /* 802BDB3C 002BAA9C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BDB40 002BAAA0  4E 80 00 20 */	blr 
+/* 802BDB40 002BAAA0  4E 80 00 20 */	blr
 
 .global AddParticleGen__13CCubeRendererFRC12CParticleGen
 AddParticleGen__13CCubeRendererFRC12CParticleGen:
@@ -9015,7 +9015,7 @@ AddParticleGen__13CCubeRendererFRC12CParticleGen:
 /* 802BDB64 002BAAC4  81 84 00 00 */	lwz r12, 0(r4)
 /* 802BDB68 002BAAC8  81 8C 00 5C */	lwz r12, 0x5c(r12)
 /* 802BDB6C 002BAACC  7D 89 03 A6 */	mtctr r12
-/* 802BDB70 002BAAD0  4E 80 04 21 */	bctrl 
+/* 802BDB70 002BAAD0  4E 80 04 21 */	bctrl
 /* 802BDB74 002BAAD4  88 01 00 38 */	lbz r0, 0x38(r1)
 /* 802BDB78 002BAAD8  28 00 00 00 */	cmplwi r0, 0
 /* 802BDB7C 002BAADC  98 01 00 54 */	stb r0, 0x54(r1)
@@ -9065,7 +9065,7 @@ lbl_802BDC14:
 /* 802BDC24 002BAB84  83 C1 00 58 */	lwz r30, 0x58(r1)
 /* 802BDC28 002BAB88  7C 08 03 A6 */	mtlr r0
 /* 802BDC2C 002BAB8C  38 21 00 60 */	addi r1, r1, 0x60
-/* 802BDC30 002BAB90  4E 80 00 20 */	blr 
+/* 802BDC30 002BAB90  4E 80 00 20 */	blr
 
 .global EndScene__13CCubeRendererFv
 EndScene__13CCubeRendererFv:
@@ -9097,7 +9097,7 @@ lbl_802BDC8C:
 /* 802BDC90 002BABF0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802BDC94 002BABF4  7C 08 03 A6 */	mtlr r0
 /* 802BDC98 002BABF8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BDC9C 002BABFC  4E 80 00 20 */	blr 
+/* 802BDC9C 002BABFC  4E 80 00 20 */	blr
 
 .global BeginScene__13CCubeRendererFv
 BeginScene__13CCubeRendererFv:
@@ -9191,7 +9191,7 @@ lbl_802BDDB4:
 /* 802BDDF4 002BAD54  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802BDDF8 002BAD58  7C 08 03 A6 */	mtlr r0
 /* 802BDDFC 002BAD5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BDE00 002BAD60  4E 80 00 20 */	blr 
+/* 802BDE00 002BAD60  4E 80 00 20 */	blr
 
 .global SetWorldViewpoint__13CCubeRendererFRC12CTransform4f
 SetWorldViewpoint__13CCubeRendererFRC12CTransform4f:
@@ -9222,7 +9222,7 @@ SetWorldViewpoint__13CCubeRendererFRC12CTransform4f:
 /* 802BDE64 002BADC4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BDE68 002BADC8  7C 08 03 A6 */	mtlr r0
 /* 802BDE6C 002BADCC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BDE70 002BADD0  4E 80 00 20 */	blr 
+/* 802BDE70 002BADD0  4E 80 00 20 */	blr
 
 .global SetModelMatrix__13CCubeRendererFRC12CTransform4f
 SetModelMatrix__13CCubeRendererFRC12CTransform4f:
@@ -9234,7 +9234,7 @@ SetModelMatrix__13CCubeRendererFRC12CTransform4f:
 /* 802BDE88 002BADE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BDE8C 002BADEC  7C 08 03 A6 */	mtlr r0
 /* 802BDE90 002BADF0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BDE94 002BADF4  4E 80 00 20 */	blr 
+/* 802BDE94 002BADF4  4E 80 00 20 */	blr
 
 .global "RemoveStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>"
 "RemoveStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>":
@@ -9258,7 +9258,7 @@ lbl_802BDED4:
 /* 802BDED8 002BAE38  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802BDEDC 002BAE3C  7C 08 03 A6 */	mtlr r0
 /* 802BDEE0 002BAE40  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BDEE4 002BAE44  4E 80 00 20 */	blr 
+/* 802BDEE4 002BAE44  4E 80 00 20 */	blr
 
 .global "FindStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>"
 "FindStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>":
@@ -9270,14 +9270,14 @@ lbl_802BDEF4:
 /* 802BDEF8 002BAE58  7C 00 28 40 */	cmplw r0, r5
 /* 802BDEFC 002BAE5C  40 82 00 0C */	bne lbl_802BDF08
 /* 802BDF00 002BAE60  90 C3 00 00 */	stw r6, 0(r3)
-/* 802BDF04 002BAE64  4E 80 00 20 */	blr 
+/* 802BDF04 002BAE64  4E 80 00 20 */	blr
 lbl_802BDF08:
 /* 802BDF08 002BAE68  80 C6 00 04 */	lwz r6, 4(r6)
 lbl_802BDF0C:
 /* 802BDF0C 002BAE6C  7C 06 20 40 */	cmplw r6, r4
 /* 802BDF10 002BAE70  40 82 FF E4 */	bne lbl_802BDEF4
 /* 802BDF14 002BAE74  90 83 00 00 */	stw r4, 0(r3)
-/* 802BDF18 002BAE78  4E 80 00 20 */	blr 
+/* 802BDF18 002BAE78  4E 80 00 20 */	blr
 
 .global "AddStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>PC12CAreaOctTreei"
 "AddStaticGeometry__13CCubeRendererFPCQ24rstl58vector<21CMetroidModelInstance,Q24rstl17rmemory_allocator>PC12CAreaOctTreei":
@@ -9448,7 +9448,7 @@ lbl_802BE17C:
 /* 802BE180 002BB0E0  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802BE184 002BB0E4  7C 08 03 A6 */	mtlr r0
 /* 802BE188 002BB0E8  38 21 00 90 */	addi r1, r1, 0x90
-/* 802BE18C 002BB0EC  4E 80 00 20 */	blr 
+/* 802BE18C 002BB0EC  4E 80 00 20 */	blr
 
 .global sub_802be190
 sub_802be190:
@@ -9461,7 +9461,7 @@ sub_802be190:
 /* 802BE1A8 002BB108  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BE1AC 002BB10C  7C 08 03 A6 */	mtlr r0
 /* 802BE1B0 002BB110  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BE1B4 002BB114  4E 80 00 20 */	blr 
+/* 802BE1B4 002BB114  4E 80 00 20 */	blr
 
 .global sub_802be1b8
 sub_802be1b8:
@@ -9493,7 +9493,7 @@ lbl_802BE1F4:
 /* 802BE218 002BB178  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BE21C 002BB17C  7C 08 03 A6 */	mtlr r0
 /* 802BE220 002BB180  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BE224 002BB184  4E 80 00 20 */	blr 
+/* 802BE224 002BB184  4E 80 00 20 */	blr
 
 .global sub_802be228
 sub_802be228:
@@ -9531,7 +9531,7 @@ lbl_802BE288:
 /* 802BE29C 002BB1FC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802BE2A0 002BB200  7C 08 03 A6 */	mtlr r0
 /* 802BE2A4 002BB204  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BE2A8 002BB208  4E 80 00 20 */	blr 
+/* 802BE2A8 002BB208  4E 80 00 20 */	blr
 
 .global sub_802be2ac
 sub_802be2ac:
@@ -9607,7 +9607,7 @@ lbl_802BE39C:
 /* 802BE3A8 002BB308  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BE3AC 002BB30C  7C 08 03 A6 */	mtlr r0
 /* 802BE3B0 002BB310  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BE3B4 002BB314  4E 80 00 20 */	blr 
+/* 802BE3B4 002BB314  4E 80 00 20 */	blr
 
 .global sub_802be3b8
 sub_802be3b8:
@@ -9657,7 +9657,7 @@ lbl_802BE448:
 /* 802BE454 002BB3B4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802BE458 002BB3B8  7C 08 03 A6 */	mtlr r0
 /* 802BE45C 002BB3BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BE460 002BB3C0  4E 80 00 20 */	blr 
+/* 802BE460 002BB3C0  4E 80 00 20 */	blr
 
 .global sub_802be464
 sub_802be464:
@@ -9687,7 +9687,7 @@ lbl_802BE4AC:
 /* 802BE4B8 002BB418  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BE4BC 002BB41C  7C 08 03 A6 */	mtlr r0
 /* 802BE4C0 002BB420  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BE4C4 002BB424  4E 80 00 20 */	blr 
+/* 802BE4C4 002BB424  4E 80 00 20 */	blr
 
 .global sub_802be4c8
 sub_802be4c8:
@@ -9740,7 +9740,7 @@ lbl_802BE558:
 /* 802BE56C 002BB4CC  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802BE570 002BB4D0  7C 08 03 A6 */	mtlr r0
 /* 802BE574 002BB4D4  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BE578 002BB4D8  4E 80 00 20 */	blr 
+/* 802BE578 002BB4D8  4E 80 00 20 */	blr
 
 .global sub_802be57c
 sub_802be57c:
@@ -9770,7 +9770,7 @@ lbl_802BE5C4:
 /* 802BE5D0 002BB530  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802BE5D4 002BB534  7C 08 03 A6 */	mtlr r0
 /* 802BE5D8 002BB538  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BE5DC 002BB53C  4E 80 00 20 */	blr 
+/* 802BE5DC 002BB53C  4E 80 00 20 */	blr
 
 .global sub_802be5e0
 sub_802be5e0:
@@ -9824,7 +9824,7 @@ lbl_802BE674:
 /* 802BE688 002BB5E8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 802BE68C 002BB5EC  7C 08 03 A6 */	mtlr r0
 /* 802BE690 002BB5F0  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BE694 002BB5F4  4E 80 00 20 */	blr 
+/* 802BE694 002BB5F4  4E 80 00 20 */	blr
 
 .global __dt__13CCubeRendererFv
 __dt__13CCubeRendererFv:
@@ -10002,7 +10002,7 @@ lbl_802BE8EC:
 /* 802BE8F8 002BB858  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802BE8FC 002BB85C  7C 08 03 A6 */	mtlr r0
 /* 802BE900 002BB860  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BE904 002BB864  4E 80 00 20 */	blr 
+/* 802BE904 002BB864  4E 80 00 20 */	blr
 
 .global sub_802be908
 sub_802be908:
@@ -10022,7 +10022,7 @@ sub_802be908:
 /* 802BE93C 002BB89C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802BE940 002BB8A0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802BE944 002BB8A4  7D 89 03 A6 */	mtctr r12
-/* 802BE948 002BB8A8  4E 80 04 21 */	bctrl 
+/* 802BE948 002BB8A8  4E 80 04 21 */	bctrl
 /* 802BE94C 002BB8AC  3B C1 00 10 */	addi r30, r1, 0x10
 /* 802BE950 002BB8B0  38 81 00 08 */	addi r4, r1, 8
 /* 802BE954 002BB8B4  7F C3 F3 78 */	mr r3, r30
@@ -10125,7 +10125,7 @@ lbl_802BEAAC:
 /* 802BEAC8 002BBA28  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 802BEACC 002BBA2C  7C 08 03 A6 */	mtlr r0
 /* 802BEAD0 002BBA30  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BEAD4 002BBA34  4E 80 00 20 */	blr 
+/* 802BEAD4 002BBA34  4E 80 00 20 */	blr
 
 .global sub_802bead8
 sub_802bead8:
@@ -10225,7 +10225,7 @@ lbl_802BEB74:
 /* 802BEC44 002BBBA4  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802BEC48 002BBBA8  7C 08 03 A6 */	mtlr r0
 /* 802BEC4C 002BBBAC  38 21 00 90 */	addi r1, r1, 0x90
-/* 802BEC50 002BBBB0  4E 80 00 20 */	blr 
+/* 802BEC50 002BBBB0  4E 80 00 20 */	blr
 
 .global sub_802bec54
 sub_802bec54:
@@ -10357,7 +10357,7 @@ lbl_802BED40:
 /* 802BEE40 002BBDA0  80 01 00 E4 */	lwz r0, 0xe4(r1)
 /* 802BEE44 002BBDA4  7C 08 03 A6 */	mtlr r0
 /* 802BEE48 002BBDA8  38 21 00 E0 */	addi r1, r1, 0xe0
-/* 802BEE4C 002BBDAC  4E 80 00 20 */	blr 
+/* 802BEE4C 002BBDAC  4E 80 00 20 */	blr
 
 .global sub_802bee50
 sub_802bee50:
@@ -10497,7 +10497,7 @@ lbl_802BEF70:
 /* 802BF050 002BBFB0  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 802BF054 002BBFB4  7C 08 03 A6 */	mtlr r0
 /* 802BF058 002BBFB8  38 21 00 D0 */	addi r1, r1, 0xd0
-/* 802BF05C 002BBFBC  4E 80 00 20 */	blr 
+/* 802BF05C 002BBFBC  4E 80 00 20 */	blr
 
 .global __ct__13CCubeRendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory
 __ct__13CCubeRendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory:
@@ -10693,7 +10693,7 @@ __ct__13CCubeRendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory:
 /* 802BF354 002BC2B4  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802BF358 002BC2B8  7C 08 03 A6 */	mtlr r0
 /* 802BF35C 002BC2BC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802BF360 002BC2C0  4E 80 00 20 */	blr 
+/* 802BF360 002BC2C0  4E 80 00 20 */	blr
 
 .global __ct__Q213CCubeRenderer13CAreaListItem
 __ct__Q213CCubeRenderer13CAreaListItem:
@@ -10714,7 +10714,7 @@ __ct__Q213CCubeRenderer13CAreaListItem:
 /* 802BF39C 002BC2FC  91 23 00 20 */	stw r9, 0x20(r3)
 /* 802BF3A0 002BC300  91 23 00 24 */	stw r9, 0x24(r3)
 /* 802BF3A4 002BC304  91 23 00 28 */	stw r9, 0x28(r3)
-/* 802BF3A8 002BC308  4E 80 00 20 */	blr 
+/* 802BF3A8 002BC308  4E 80 00 20 */	blr
 
 .global Clear__7BucketsFv
 Clear__7BucketsFv:
@@ -10865,7 +10865,7 @@ lbl_802BF56C:
 /* 802BF594 002BC4F4  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
 /* 802BF598 002BC4F8  D0 2D A6 14 */	stfs f1, lbl_805A91D4@sda21(r13)
 /* 802BF59C 002BC4FC  D0 03 00 04 */	stfs f0, 4(r3)
-/* 802BF5A0 002BC500  4E 80 00 20 */	blr 
+/* 802BF5A0 002BC500  4E 80 00 20 */	blr
 
 .global Sort__7BucketsFv
 Sort__7BucketsFv:
@@ -11264,7 +11264,7 @@ lbl_802BFAE8:
 /* 802BFB0C 002BCA6C  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 802BFB10 002BCA70  7C 08 03 A6 */	mtlr r0
 /* 802BFB14 002BCA74  38 21 00 90 */	addi r1, r1, 0x90
-/* 802BFB18 002BCA78  4E 80 00 20 */	blr 
+/* 802BFB18 002BCA78  4E 80 00 20 */	blr
 
 .global InsertPlaneObject__7BucketsFffRC6CAABoxbRC6CPlaneb13EDrawableTypePCv
 InsertPlaneObject__7BucketsFffRC6CAABoxbRC6CPlaneb13EDrawableTypePCv:
@@ -11298,7 +11298,7 @@ lbl_802BFB7C:
 /* 802BFB84 002BCAE4  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 802BFB88 002BCAE8  7C 08 03 A6 */	mtlr r0
 /* 802BFB8C 002BCAEC  38 21 00 50 */	addi r1, r1, 0x50
-/* 802BFB90 002BCAF0  4E 80 00 20 */	blr 
+/* 802BFB90 002BCAF0  4E 80 00 20 */	blr
 
 .global "push_back__Q24rstl41reserved_vector<20CDrawablePlaneObject,8>FRC20CDrawablePlaneObject"
 "push_back__Q24rstl41reserved_vector<20CDrawablePlaneObject,8>FRC20CDrawablePlaneObject":
@@ -11319,7 +11319,7 @@ lbl_802BFB7C:
 /* 802BFBCC 002BCB2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BFBD0 002BCB30  7C 08 03 A6 */	mtlr r0
 /* 802BFBD4 002BCB34  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BFBD8 002BCB38  4E 80 00 20 */	blr 
+/* 802BFBD8 002BCB38  4E 80 00 20 */	blr
 
 .global "construct<20CDrawablePlaneObject>__4rstlFPvRC20CDrawablePlaneObject"
 "construct<20CDrawablePlaneObject>__4rstlFPvRC20CDrawablePlaneObject":
@@ -11333,7 +11333,7 @@ lbl_802BFBF4:
 /* 802BFBF4 002BCB54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BFBF8 002BCB58  7C 08 03 A6 */	mtlr r0
 /* 802BFBFC 002BCB5C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802BFC00 002BCB60  4E 80 00 20 */	blr 
+/* 802BFC00 002BCB60  4E 80 00 20 */	blr
 
 .global __ct__20CDrawablePlaneObjectFRC20CDrawablePlaneObject
 __ct__20CDrawablePlaneObjectFRC20CDrawablePlaneObject:
@@ -11371,7 +11371,7 @@ __ct__20CDrawablePlaneObjectFRC20CDrawablePlaneObject:
 /* 802BFC80 002BCBE0  D0 03 00 38 */	stfs f0, 0x38(r3)
 /* 802BFC84 002BCBE4  88 04 00 3C */	lbz r0, 0x3c(r4)
 /* 802BFC88 002BCBE8  98 03 00 3C */	stb r0, 0x3c(r3)
-/* 802BFC8C 002BCBEC  4E 80 00 20 */	blr 
+/* 802BFC8C 002BCBEC  4E 80 00 20 */	blr
 
 .global __ct__20CDrawablePlaneObjectF13EDrawableTypeffRC6CAABoxbRC6CPlanebPCv
 __ct__20CDrawablePlaneObjectF13EDrawableTypeffRC6CAABoxbRC6CPlanebPCv:
@@ -11408,7 +11408,7 @@ __ct__20CDrawablePlaneObjectF13EDrawableTypeffRC6CAABoxbRC6CPlanebPCv:
 /* 802BFD08 002BCC68  88 03 00 3C */	lbz r0, 0x3c(r3)
 /* 802BFD0C 002BCC6C  51 00 36 72 */	rlwimi r0, r8, 6, 0x19, 0x19
 /* 802BFD10 002BCC70  98 03 00 3C */	stb r0, 0x3c(r3)
-/* 802BFD14 002BCC74  4E 80 00 20 */	blr 
+/* 802BFD14 002BCC74  4E 80 00 20 */	blr
 
 .global Insert__7BucketsFRC9CVector3fRC6CAABox13EDrawableTypePCvRC6CPlaneUs
 Insert__7BucketsFRC9CVector3fRC6CAABox13EDrawableTypePCvRC6CPlaneUs:
@@ -11498,7 +11498,7 @@ lbl_802BFE2C:
 /* 802BFE50 002BCDB0  7C 00 02 2C */	dcbt 0, r0
 lbl_802BFE54:
 /* 802BFE54 002BCDB4  38 21 00 30 */	addi r1, r1, 0x30
-/* 802BFE58 002BCDB8  4E 80 00 20 */	blr 
+/* 802BFE58 002BCDB8  4E 80 00 20 */	blr
 
 .global Shutdown__7BucketsFv
 Shutdown__7BucketsFv:
@@ -11507,7 +11507,7 @@ Shutdown__7BucketsFv:
 /* 802BFE64 002BCDC4  90 0D A6 10 */	stw r0, lbl_805A91D0@sda21(r13)
 /* 802BFE68 002BCDC8  90 0D A6 1C */	stw r0, lbl_805A91DC@sda21(r13)
 /* 802BFE6C 002BCDCC  90 0D A6 20 */	stw r0, lbl_805A91E0@sda21(r13)
-/* 802BFE70 002BCDD0  4E 80 00 20 */	blr 
+/* 802BFE70 002BCDD0  4E 80 00 20 */	blr
 
 .global Init__7BucketsFv
 Init__7BucketsFv:
@@ -11613,7 +11613,7 @@ lbl_802BFFB0:
 /* 802BFFC8 002BCF28  D0 2D A6 14 */	stfs f1, lbl_805A91D4@sda21(r13)
 /* 802BFFCC 002BCF2C  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802BFFD0 002BCF30  38 21 02 10 */	addi r1, r1, 0x210
-/* 802BFFD4 002BCF34  4E 80 00 20 */	blr 
+/* 802BFFD4 002BCF34  4E 80 00 20 */	blr
 
 .global "__nw__27TOneStatic<13CCubeRenderer>FUlPCcPCc"
 "__nw__27TOneStatic<13CCubeRenderer>FUlPCcPCc":
@@ -11628,7 +11628,7 @@ lbl_802BFFB0:
 /* 802BFFF8 002BCF58  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802BFFFC 002BCF5C  7C 08 03 A6 */	mtlr r0
 /* 802C0000 002BCF60  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C0004 002BCF64  4E 80 00 20 */	blr 
+/* 802C0004 002BCF64  4E 80 00 20 */	blr
 
 .global sub_802c0008
 sub_802c0008:
@@ -11642,13 +11642,13 @@ sub_802c0008:
 /* 802C0024 002BCF84  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C0028 002BCF88  7C 08 03 A6 */	mtlr r0
 /* 802C002C 002BCF8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C0030 002BCF90  4E 80 00 20 */	blr 
+/* 802C0030 002BCF90  4E 80 00 20 */	blr
 
 .global sub_802c0034
 sub_802c0034:
 /* 802C0034 002BCF94  3C 60 80 48 */	lis r3, lbl_80479178@ha
 /* 802C0038 002BCF98  38 63 91 78 */	addi r3, r3, lbl_80479178@l
-/* 802C003C 002BCF9C  4E 80 00 20 */	blr 
+/* 802C003C 002BCF9C  4E 80 00 20 */	blr
 
 .global sub_802c0040
 sub_802c0040:
@@ -11661,7 +11661,7 @@ sub_802c0040:
 /* 802C0058 002BCFB8  98 0D A6 34 */	stb r0, lbl_805A91F4@sda21(r13)
 lbl_802C005C:
 /* 802C005C 002BCFBC  38 6D A6 30 */	addi r3, r13, lbl_805A91F0@sda21
-/* 802C0060 002BCFC0  4E 80 00 20 */	blr 
+/* 802C0060 002BCFC0  4E 80 00 20 */	blr
 
 .global sub_802c0064
 sub_802c0064:
@@ -11753,7 +11753,7 @@ lbl_802C0194:
 /* 802C0198 002BD0F8  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C019C 002BD0FC  7C 08 03 A6 */	mtlr r0
 /* 802C01A0 002BD100  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C01A4 002BD104  4E 80 00 20 */	blr 
+/* 802C01A4 002BD104  4E 80 00 20 */	blr
 
 .global sub_802c01a8
 sub_802c01a8:
@@ -11859,7 +11859,7 @@ lbl_802C0300:
 /* 802C0304 002BD264  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C0308 002BD268  7C 08 03 A6 */	mtlr r0
 /* 802C030C 002BD26C  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C0310 002BD270  4E 80 00 20 */	blr 
+/* 802C0310 002BD270  4E 80 00 20 */	blr
 
 .global sub_802c0314
 sub_802c0314:
@@ -11901,7 +11901,7 @@ lbl_802C037C:
 /* 802C0398 002BD2F8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C039C 002BD2FC  7C 08 03 A6 */	mtlr r0
 /* 802C03A0 002BD300  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C03A4 002BD304  4E 80 00 20 */	blr 
+/* 802C03A4 002BD304  4E 80 00 20 */	blr
 
 .global sub_802c03a8
 sub_802c03a8:
@@ -11944,7 +11944,7 @@ lbl_802C0418:
 /* 802C042C 002BD38C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 802C0430 002BD390  7C 08 03 A6 */	mtlr r0
 /* 802C0434 002BD394  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C0438 002BD398  4E 80 00 20 */	blr 
+/* 802C0438 002BD398  4E 80 00 20 */	blr
 
 .global sub_802c043c
 sub_802c043c:
@@ -12002,7 +12002,7 @@ lbl_802C04D8:
 /* 802C04F8 002BD458  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C04FC 002BD45C  7C 08 03 A6 */	mtlr r0
 /* 802C0500 002BD460  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C0504 002BD464  4E 80 00 20 */	blr 
+/* 802C0504 002BD464  4E 80 00 20 */	blr
 
 .global sub_802c0508
 sub_802c0508:
@@ -12053,7 +12053,7 @@ lbl_802C059C:
 /* 802C05A4 002BD504  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C05A8 002BD508  7C 08 03 A6 */	mtlr r0
 /* 802C05AC 002BD50C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C05B0 002BD510  4E 80 00 20 */	blr 
+/* 802C05B0 002BD510  4E 80 00 20 */	blr
 
 .global sub_802c05b4
 sub_802c05b4:
@@ -12089,7 +12089,7 @@ lbl_802C0608:
 /* 802C0620 002BD580  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802C0624 002BD584  7C 08 03 A6 */	mtlr r0
 /* 802C0628 002BD588  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C062C 002BD58C  4E 80 00 20 */	blr 
+/* 802C062C 002BD58C  4E 80 00 20 */	blr
 
 .global sub_802c0630
 sub_802c0630:
@@ -12125,7 +12125,7 @@ lbl_802C0688:
 /* 802C0698 002BD5F8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802C069C 002BD5FC  7C 08 03 A6 */	mtlr r0
 /* 802C06A0 002BD600  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C06A4 002BD604  4E 80 00 20 */	blr 
+/* 802C06A4 002BD604  4E 80 00 20 */	blr
 
 .global sub_802c06a8
 sub_802c06a8:
@@ -12204,7 +12204,7 @@ lbl_802C079C:
 /* 802C07A0 002BD700  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802C07A4 002BD704  7C 08 03 A6 */	mtlr r0
 /* 802C07A8 002BD708  38 21 00 30 */	addi r1, r1, 0x30
-/* 802C07AC 002BD70C  4E 80 00 20 */	blr 
+/* 802C07AC 002BD70C  4E 80 00 20 */	blr
 
 .global sub_802c07b0
 sub_802c07b0:
@@ -12214,7 +12214,7 @@ sub_802c07b0:
 /* 802C07BC 002BD71C  54 00 F8 7E */	srwi r0, r0, 1
 /* 802C07C0 002BD720  7C 09 03 A6 */	mtctr r0
 /* 802C07C4 002BD724  7C 08 20 40 */	cmplw r8, r4
-/* 802C07C8 002BD728  4C 80 00 20 */	bgelr 
+/* 802C07C8 002BD728  4C 80 00 20 */	bgelr
 lbl_802C07CC:
 /* 802C07CC 002BD72C  A1 28 00 00 */	lhz r9, 0(r8)
 /* 802C07D0 002BD730  7D 0B 43 78 */	mr r11, r8
@@ -12245,7 +12245,7 @@ lbl_802C081C:
 
 .global sub_802c0828
 sub_802c0828:
-/* 802C0828 002BD788  4E 80 00 20 */	blr 
+/* 802C0828 002BD788  4E 80 00 20 */	blr
 
 .global sub_802c082c
 sub_802c082c:
@@ -12255,7 +12255,7 @@ sub_802c082c:
 /* 802C0838 002BD798  54 00 F0 BE */	srwi r0, r0, 2
 /* 802C083C 002BD79C  7C 09 03 A6 */	mtctr r0
 /* 802C0840 002BD7A0  7C 06 20 40 */	cmplw r6, r4
-/* 802C0844 002BD7A4  4C 80 00 20 */	bgelr 
+/* 802C0844 002BD7A4  4C 80 00 20 */	bgelr
 lbl_802C0848:
 /* 802C0848 002BD7A8  80 E6 00 00 */	lwz r7, 0(r6)
 /* 802C084C 002BD7AC  7C C9 33 78 */	mr r9, r6
@@ -12292,7 +12292,7 @@ lbl_802C08A8:
 
 .global sub_802c08b4
 sub_802c08b4:
-/* 802C08B4 002BD814  4E 80 00 20 */	blr 
+/* 802C08B4 002BD814  4E 80 00 20 */	blr
 
 .global sub_802c08b8
 sub_802c08b8:
@@ -12334,7 +12334,7 @@ lbl_802C092C:
 /* 802C0934 002BD894  54 00 17 FE */	rlwinm r0, r0, 2, 0x1f, 0x1f
 lbl_802C0938:
 /* 802C0938 002BD898  54 00 06 3F */	clrlwi. r0, r0, 0x18
-/* 802C093C 002BD89C  4D 82 00 20 */	beqlr 
+/* 802C093C 002BD89C  4D 82 00 20 */	beqlr
 /* 802C0940 002BD8A0  91 05 00 00 */	stw r8, 0(r5)
 /* 802C0944 002BD8A4  80 C3 00 00 */	lwz r6, 0(r3)
 /* 802C0948 002BD8A8  C0 07 00 20 */	lfs f0, 0x20(r7)
@@ -12355,10 +12355,10 @@ lbl_802C0978:
 /* 802C097C 002BD8DC  41 82 00 10 */	beq lbl_802C098C
 /* 802C0980 002BD8E0  90 C4 00 00 */	stw r6, 0(r4)
 /* 802C0984 002BD8E4  90 E3 00 00 */	stw r7, 0(r3)
-/* 802C0988 002BD8E8  4E 80 00 20 */	blr 
+/* 802C0988 002BD8E8  4E 80 00 20 */	blr
 lbl_802C098C:
 /* 802C098C 002BD8EC  90 E4 00 00 */	stw r7, 0(r4)
-/* 802C0990 002BD8F0  4E 80 00 20 */	blr 
+/* 802C0990 002BD8F0  4E 80 00 20 */	blr
 
 .global sub_802c0994
 sub_802c0994:
@@ -12388,7 +12388,7 @@ lbl_802C09CC:
 /* 802C09EC 002BD94C  C0 27 00 20 */	lfs f1, 0x20(r7)
 /* 802C09F0 002BD950  C0 08 00 20 */	lfs f0, 0x20(r8)
 /* 802C09F4 002BD954  FC 01 00 40 */	fcmpo cr0, f1, f0
-/* 802C09F8 002BD958  4C 80 00 20 */	bgelr 
+/* 802C09F8 002BD958  4C 80 00 20 */	bgelr
 /* 802C09FC 002BD95C  B1 45 00 00 */	sth r10, 0(r5)
 /* 802C0A00 002BD960  80 AD A6 1C */	lwz r5, lbl_805A91DC@sda21(r13)
 /* 802C0A04 002BD964  A1 03 00 00 */	lhz r8, 0(r3)
@@ -12402,10 +12402,10 @@ lbl_802C09CC:
 /* 802C0A24 002BD984  40 80 00 10 */	bge lbl_802C0A34
 /* 802C0A28 002BD988  B1 04 00 00 */	sth r8, 0(r4)
 /* 802C0A2C 002BD98C  B1 23 00 00 */	sth r9, 0(r3)
-/* 802C0A30 002BD990  4E 80 00 20 */	blr 
+/* 802C0A30 002BD990  4E 80 00 20 */	blr
 lbl_802C0A34:
 /* 802C0A34 002BD994  B1 24 00 00 */	sth r9, 0(r4)
-/* 802C0A38 002BD998  4E 80 00 20 */	blr 
+/* 802C0A38 002BD998  4E 80 00 20 */	blr
 
 .global __sinit_CCubeRenderer_cpp
 __sinit_CCubeRenderer_cpp:
@@ -12477,7 +12477,7 @@ __sinit_CCubeRenderer_cpp:
 /* 802C0B40 002BDAA0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802C0B44 002BDAA4  7C 08 03 A6 */	mtlr r0
 /* 802C0B48 002BDAA8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802C0B4C 002BDAAC  4E 80 00 20 */	blr 
+/* 802C0B4C 002BDAAC  4E 80 00 20 */	blr
 
 .global sub_802c0b50
 sub_802c0b50:
@@ -12522,7 +12522,7 @@ lbl_802C0BCC:
 /* 802C0BD4 002BDB34  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802C0BD8 002BDB38  7C 08 03 A6 */	mtlr r0
 /* 802C0BDC 002BDB3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802C0BE0 002BDB40  4E 80 00 20 */	blr 
+/* 802C0BE0 002BDB40  4E 80 00 20 */	blr
 
 .global "@4@AddParticleGen__13CCubeRendererFRC12CParticleGen"
 "@4@AddParticleGen__13CCubeRendererFRC12CParticleGen":

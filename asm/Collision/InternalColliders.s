@@ -73,7 +73,7 @@ AddColliders__17InternalCollidersFv:
 /* 802CE628 002CB588  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802CE62C 002CB58C  7C 08 03 A6 */	mtlr r0
 /* 802CE630 002CB590  38 21 00 10 */	addi r1, r1, 0x10
-/* 802CE634 002CB594  4E 80 00 20 */	blr 
+/* 802CE634 002CB594  4E 80 00 20 */	blr
 
 .global AddTypes__17InternalCollidersFv
 AddTypes__17InternalCollidersFv:

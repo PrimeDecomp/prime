@@ -87,7 +87,7 @@ lbl_801D6994:
 /* 801D6998 001D38F8  83 E1 00 2C */	lwz r31, 0x2c(r1)
 /* 801D699C 001D38FC  7C 08 03 A6 */	mtlr r0
 /* 801D69A0 001D3900  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D69A4 001D3904  4E 80 00 20 */	blr 
+/* 801D69A4 001D3904  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__22CScriptWorldTeleporterF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__22CScriptWorldTeleporterF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -193,7 +193,7 @@ lbl_801D6AFC:
 /* 801D6B1C 001D3A7C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801D6B20 001D3A80  7C 08 03 A6 */	mtlr r0
 /* 801D6B24 001D3A84  38 21 00 30 */	addi r1, r1, 0x30
-/* 801D6B28 001D3A88  4E 80 00 20 */	blr 
+/* 801D6B28 001D3A88  4E 80 00 20 */	blr
 
 .global Accept__22CScriptWorldTeleporterFR8IVisitor
 Accept__22CScriptWorldTeleporterFR8IVisitor:
@@ -206,11 +206,11 @@ Accept__22CScriptWorldTeleporterFR8IVisitor:
 /* 801D6B44 001D3AA4  7C 04 03 78 */	mr r4, r0
 /* 801D6B48 001D3AA8  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 801D6B4C 001D3AAC  7D 89 03 A6 */	mtctr r12
-/* 801D6B50 001D3AB0  4E 80 04 21 */	bctrl 
+/* 801D6B50 001D3AB0  4E 80 04 21 */	bctrl
 /* 801D6B54 001D3AB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D6B58 001D3AB8  7C 08 03 A6 */	mtlr r0
 /* 801D6B5C 001D3ABC  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D6B60 001D3AC0  4E 80 00 20 */	blr 
+/* 801D6B60 001D3AC0  4E 80 00 20 */	blr
 
 .global __dt__22CScriptWorldTeleporterFv
 __dt__22CScriptWorldTeleporterFv:
@@ -238,7 +238,7 @@ lbl_801D6BA8:
 /* 801D6BB4 001D3B14  83 C1 00 08 */	lwz r30, 8(r1)
 /* 801D6BB8 001D3B18  7C 08 03 A6 */	mtlr r0
 /* 801D6BBC 001D3B1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 801D6BC0 001D3B20  4E 80 00 20 */	blr 
+/* 801D6BC0 001D3B20  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fb"
 "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fb":
@@ -336,7 +336,7 @@ lbl_801D6BA8:
 /* 801D6D30 001D3C90  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 801D6D34 001D3C94  7C 08 03 A6 */	mtlr r0
 /* 801D6D38 001D3C98  38 21 00 70 */	addi r1, r1, 0x70
-/* 801D6D3C 001D3C9C  4E 80 00 20 */	blr 
+/* 801D6D3C 001D3C9C  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -423,7 +423,7 @@ lbl_801D6BA8:
 /* 801D6E80 001D3DE0  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 801D6E84 001D3DE4  7C 08 03 A6 */	mtlr r0
 /* 801D6E88 001D3DE8  38 21 00 50 */	addi r1, r1, 0x50
-/* 801D6E8C 001D3DEC  4E 80 00 20 */	blr 
+/* 801D6E8C 001D3DEC  4E 80 00 20 */	blr
 
 .global "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUi"
 "__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUi":

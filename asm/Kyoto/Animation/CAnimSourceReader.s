@@ -57,7 +57,7 @@ lbl_803ECFE4:
 	.4byte 0
 	.4byte 0
 	.4byte sub_802ee0a0
-	
+
 .section .sdata
 
 .global lbl_805A8788
@@ -323,12 +323,12 @@ lbl_802EE68C:
 /* 802EE6BC 002EB61C  83 81 01 40 */	lwz r28, 0x140(r1)
 /* 802EE6C0 002EB620  7C 08 03 A6 */	mtlr r0
 /* 802EE6C4 002EB624  38 21 01 90 */	addi r1, r1, 0x190
-/* 802EE6C8 002EB628  4E 80 00 20 */	blr 
+/* 802EE6C8 002EB628  4E 80 00 20 */	blr
 
 .global VSupportsReverseView__17CAnimSourceReaderCFv
 VSupportsReverseView__17CAnimSourceReaderCFv:
 /* 802EE6CC 002EB62C  38 60 00 01 */	li r3, 1
-/* 802EE6D0 002EB630  4E 80 00 20 */	blr 
+/* 802EE6D0 002EB630  4E 80 00 20 */	blr
 
 .global VSetPhase__17CAnimSourceReaderFf
 VSetPhase__17CAnimSourceReaderFf:
@@ -391,7 +391,7 @@ lbl_802EE7A0:
 /* 802EE7B0 002EB710  83 C1 00 38 */	lwz r30, 0x38(r1)
 /* 802EE7B4 002EB714  7C 08 03 A6 */	mtlr r0
 /* 802EE7B8 002EB718  38 21 00 50 */	addi r1, r1, 0x50
-/* 802EE7BC 002EB71C  4E 80 00 20 */	blr 
+/* 802EE7BC 002EB71C  4E 80 00 20 */	blr
 
 .global VReverseView__17CAnimSourceReaderFRC13CCharAnimTime
 VReverseView__17CAnimSourceReaderFRC13CCharAnimTime:
@@ -643,7 +643,7 @@ lbl_802EEB50:
 /* 802EEB80 002EBAE0  83 81 01 40 */	lwz r28, 0x140(r1)
 /* 802EEB84 002EBAE4  7C 08 03 A6 */	mtlr r0
 /* 802EEB88 002EBAE8  38 21 01 90 */	addi r1, r1, 0x190
-/* 802EEB8C 002EBAEC  4E 80 00 20 */	blr 
+/* 802EEB8C 002EBAEC  4E 80 00 20 */	blr
 
 .global sub_802eeb90
 sub_802eeb90:
@@ -688,7 +688,7 @@ lbl_802EEC08:
 /* 802EEC24 002EBB84  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802EEC28 002EBB88  7C 08 03 A6 */	mtlr r0
 /* 802EEC2C 002EBB8C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802EEC30 002EBB90  4E 80 00 20 */	blr 
+/* 802EEC30 002EBB90  4E 80 00 20 */	blr
 
 .global sub_802eec34
 sub_802eec34:
@@ -759,7 +759,7 @@ lbl_802EECD4:
 /* 802EED30 002EBC90  38 80 00 01 */	li r4, 1
 /* 802EED34 002EBC94  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802EED38 002EBC98  7D 89 03 A6 */	mtctr r12
-/* 802EED3C 002EBC9C  4E 80 04 21 */	bctrl 
+/* 802EED3C 002EBC9C  4E 80 04 21 */	bctrl
 lbl_802EED40:
 /* 802EED40 002EBCA0  3C 60 80 3F */	lis r3, lbl_803ECF58@ha
 /* 802EED44 002EBCA4  3A 93 00 54 */	addi r20, r19, 0x54
@@ -791,7 +791,7 @@ lbl_802EED40:
 /* 802EEDAC 002EBD0C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 802EEDB0 002EBD10  7C 08 03 A6 */	mtlr r0
 /* 802EEDB4 002EBD14  38 21 00 50 */	addi r1, r1, 0x50
-/* 802EEDB8 002EBD18  4E 80 00 20 */	blr 
+/* 802EEDB8 002EBD18  4E 80 00 20 */	blr
 
 .global sub_802eedbc
 sub_802eedbc:
@@ -972,7 +972,7 @@ lbl_802EF018:
 /* 802EF020 002EBF80  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802EF024 002EBF84  7C 08 03 A6 */	mtlr r0
 /* 802EF028 002EBF88  38 21 00 30 */	addi r1, r1, 0x30
-/* 802EF02C 002EBF8C  4E 80 00 20 */	blr 
+/* 802EF02C 002EBF8C  4E 80 00 20 */	blr
 
 .global VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
 VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime:
@@ -984,7 +984,7 @@ VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSetRC13C
 /* 802EF044 002EBFA4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF048 002EBFA8  7C 08 03 A6 */	mtlr r0
 /* 802EF04C 002EBFAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF050 002EBFB0  4E 80 00 20 */	blr 
+/* 802EF050 002EBFB0  4E 80 00 20 */	blr
 
 .global VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSet
 VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSet:
@@ -998,7 +998,7 @@ VGetSegStatementSet__17CAnimSourceReaderCFRC10CSegIdListR16CSegStatementSet:
 /* 802EF070 002EBFD0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF074 002EBFD4  7C 08 03 A6 */	mtlr r0
 /* 802EF078 002EBFD8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF07C 002EBFDC  4E 80 00 20 */	blr 
+/* 802EF07C 002EBFDC  4E 80 00 20 */	blr
 
 .global VGetRotation__17CAnimSourceReaderCFRC6CSegId
 VGetRotation__17CAnimSourceReaderCFRC6CSegId:
@@ -1015,7 +1015,7 @@ VGetRotation__17CAnimSourceReaderCFRC6CSegId:
 /* 802EF0A8 002EC008  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802EF0AC 002EC00C  7C 08 03 A6 */	mtlr r0
 /* 802EF0B0 002EC010  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF0B4 002EC014  4E 80 00 20 */	blr 
+/* 802EF0B4 002EC014  4E 80 00 20 */	blr
 
 .global VGetOffset__17CAnimSourceReaderCFRC6CSegIdRC13CCharAnimTime
 VGetOffset__17CAnimSourceReaderCFRC6CSegIdRC13CCharAnimTime:
@@ -1030,7 +1030,7 @@ VGetOffset__17CAnimSourceReaderCFRC6CSegIdRC13CCharAnimTime:
 /* 802EF0D8 002EC038  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802EF0DC 002EC03C  7C 08 03 A6 */	mtlr r0
 /* 802EF0E0 002EC040  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF0E4 002EC044  4E 80 00 20 */	blr 
+/* 802EF0E4 002EC044  4E 80 00 20 */	blr
 
 .global VGetOffset__17CAnimSourceReaderCFRC6CSegId
 VGetOffset__17CAnimSourceReaderCFRC6CSegId:
@@ -1047,7 +1047,7 @@ VGetOffset__17CAnimSourceReaderCFRC6CSegId:
 /* 802EF110 002EC070  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802EF114 002EC074  7C 08 03 A6 */	mtlr r0
 /* 802EF118 002EC078  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF11C 002EC07C  4E 80 00 20 */	blr 
+/* 802EF11C 002EC07C  4E 80 00 20 */	blr
 
 .global VHasOffset__17CAnimSourceReaderCFRC6CSegId
 VHasOffset__17CAnimSourceReaderCFRC6CSegId:
@@ -1059,7 +1059,7 @@ VHasOffset__17CAnimSourceReaderCFRC6CSegId:
 /* 802EF134 002EC094  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF138 002EC098  7C 08 03 A6 */	mtlr r0
 /* 802EF13C 002EC09C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF140 002EC0A0  4E 80 00 20 */	blr 
+/* 802EF140 002EC0A0  4E 80 00 20 */	blr
 
 .global VGetSteadyStateAnimInfo__17CAnimSourceReaderCFv
 VGetSteadyStateAnimInfo__17CAnimSourceReaderCFv:
@@ -1075,7 +1075,7 @@ VGetSteadyStateAnimInfo__17CAnimSourceReaderCFv:
 /* 802EF168 002EC0C8  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 802EF16C 002EC0CC  88 04 00 78 */	lbz r0, 0x78(r4)
 /* 802EF170 002EC0D0  98 03 00 14 */	stb r0, 0x14(r3)
-/* 802EF174 002EC0D4  4E 80 00 20 */	blr 
+/* 802EF174 002EC0D4  4E 80 00 20 */	blr
 
 .global VGetTimeRemaining__17CAnimSourceReaderCFv
 VGetTimeRemaining__17CAnimSourceReaderCFv:
@@ -1092,7 +1092,7 @@ VGetTimeRemaining__17CAnimSourceReaderCFv:
 /* 802EF1A0 002EC100  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802EF1A4 002EC104  7C 08 03 A6 */	mtlr r0
 /* 802EF1A8 002EC108  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF1AC 002EC10C  4E 80 00 20 */	blr 
+/* 802EF1AC 002EC10C  4E 80 00 20 */	blr
 
 .global VAdvanceView__17CAnimSourceReaderFRC13CCharAnimTime
 VAdvanceView__17CAnimSourceReaderFRC13CCharAnimTime:
@@ -1349,7 +1349,7 @@ lbl_802EF550:
 /* 802EF580 002EC4E0  83 81 01 30 */	lwz r28, 0x130(r1)
 /* 802EF584 002EC4E4  7C 08 03 A6 */	mtlr r0
 /* 802EF588 002EC4E8  38 21 01 80 */	addi r1, r1, 0x180
-/* 802EF58C 002EC4EC  4E 80 00 20 */	blr 
+/* 802EF58C 002EC4EC  4E 80 00 20 */	blr
 
 .global "__ct__17CAnimSourceReaderFRC32TSubAnimTypeToken<11CAnimSource>RC13CCharAnimTime"
 "__ct__17CAnimSourceReaderFRC32TSubAnimTypeToken<11CAnimSource>RC13CCharAnimTime":
@@ -1422,7 +1422,7 @@ lbl_802EF610:
 /* 802EF694 002EC5F4  38 80 00 01 */	li r4, 1
 /* 802EF698 002EC5F8  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802EF69C 002EC5FC  7D 89 03 A6 */	mtctr r12
-/* 802EF6A0 002EC600  4E 80 04 21 */	bctrl 
+/* 802EF6A0 002EC600  4E 80 04 21 */	bctrl
 lbl_802EF6A4:
 /* 802EF6A4 002EC604  3C 60 80 3F */	lis r3, lbl_803ECF58@ha
 /* 802EF6A8 002EC608  3B 7C 00 54 */	addi r27, r28, 0x54
@@ -1513,7 +1513,7 @@ lbl_802EF7D4:
 /* 802EF7E0 002EC740  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802EF7E4 002EC744  7C 08 03 A6 */	mtlr r0
 /* 802EF7E8 002EC748  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF7EC 002EC74C  4E 80 00 20 */	blr 
+/* 802EF7EC 002EC74C  4E 80 00 20 */	blr
 
 .global HasPOIData__15CAnimSourceInfoCFv
 HasPOIData__15CAnimSourceInfoCFv:
@@ -1522,7 +1522,7 @@ HasPOIData__15CAnimSourceInfoCFv:
 /* 802EF7F8 002EC758  7C 03 00 D0 */	neg r0, r3
 /* 802EF7FC 002EC75C  7C 00 1B 78 */	or r0, r0, r3
 /* 802EF800 002EC760  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 802EF804 002EC764  4E 80 00 20 */	blr 
+/* 802EF804 002EC764  4E 80 00 20 */	blr
 
 .global GetBoolPOIStream__15CAnimSourceInfoCFv
 GetBoolPOIStream__15CAnimSourceInfoCFv:
@@ -1534,7 +1534,7 @@ GetBoolPOIStream__15CAnimSourceInfoCFv:
 /* 802EF81C 002EC77C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF820 002EC780  7C 08 03 A6 */	mtlr r0
 /* 802EF824 002EC784  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF828 002EC788  4E 80 00 20 */	blr 
+/* 802EF828 002EC788  4E 80 00 20 */	blr
 
 .global GetInt32POIStream__15CAnimSourceInfoCFv
 GetInt32POIStream__15CAnimSourceInfoCFv:
@@ -1546,7 +1546,7 @@ GetInt32POIStream__15CAnimSourceInfoCFv:
 /* 802EF840 002EC7A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF844 002EC7A4  7C 08 03 A6 */	mtlr r0
 /* 802EF848 002EC7A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF84C 002EC7AC  4E 80 00 20 */	blr 
+/* 802EF84C 002EC7AC  4E 80 00 20 */	blr
 
 .global GetParticlePOIStream__15CAnimSourceInfoCFv
 GetParticlePOIStream__15CAnimSourceInfoCFv:
@@ -1558,7 +1558,7 @@ GetParticlePOIStream__15CAnimSourceInfoCFv:
 /* 802EF864 002EC7C4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF868 002EC7C8  7C 08 03 A6 */	mtlr r0
 /* 802EF86C 002EC7CC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF870 002EC7D0  4E 80 00 20 */	blr 
+/* 802EF870 002EC7D0  4E 80 00 20 */	blr
 
 .global GetSoundPOIStream__15CAnimSourceInfoCFv
 GetSoundPOIStream__15CAnimSourceInfoCFv:
@@ -1570,7 +1570,7 @@ GetSoundPOIStream__15CAnimSourceInfoCFv:
 /* 802EF888 002EC7E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802EF88C 002EC7EC  7C 08 03 A6 */	mtlr r0
 /* 802EF890 002EC7F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802EF894 002EC7F4  4E 80 00 20 */	blr 
+/* 802EF894 002EC7F4  4E 80 00 20 */	blr
 
 .global GetAnimationDuration__15CAnimSourceInfoCFv
 GetAnimationDuration__15CAnimSourceInfoCFv:

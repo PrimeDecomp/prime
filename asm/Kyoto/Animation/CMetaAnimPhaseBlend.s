@@ -90,12 +90,12 @@ lbl_802E02B0:
 /* 802E02BC 002DD21C  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802E02C0 002DD220  7C 08 03 A6 */	mtlr r0
 /* 802E02C4 002DD224  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E02C8 002DD228  4E 80 00 20 */	blr 
+/* 802E02C8 002DD228  4E 80 00 20 */	blr
 
 .global GetType__19CMetaAnimPhaseBlendCFv
 GetType__19CMetaAnimPhaseBlendCFv:
 /* 802E02CC 002DD22C  38 60 00 02 */	li r3, 2
-/* 802E02D0 002DD230  4E 80 00 20 */	blr 
+/* 802E02D0 002DD230  4E 80 00 20 */	blr
 
 .global WriteAnimData__19CMetaAnimPhaseBlendCFR13COutputStream
 WriteAnimData__19CMetaAnimPhaseBlendCFR13COutputStream:
@@ -149,7 +149,7 @@ lbl_802E0364:
 /* 802E038C 002DD2EC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802E0390 002DD2F0  7C 08 03 A6 */	mtlr r0
 /* 802E0394 002DD2F4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802E0398 002DD2F8  4E 80 00 20 */	blr 
+/* 802E0398 002DD2F8  4E 80 00 20 */	blr
 
 .global "GetUniquePrimitives__19CMetaAnimPhaseBlendCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>"
 "GetUniquePrimitives__19CMetaAnimPhaseBlendCFRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>":
@@ -165,20 +165,20 @@ lbl_802E0364:
 /* 802E03C0 002DD320  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E03C4 002DD324  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802E03C8 002DD328  7D 89 03 A6 */	mtctr r12
-/* 802E03CC 002DD32C  4E 80 04 21 */	bctrl 
+/* 802E03CC 002DD32C  4E 80 04 21 */	bctrl
 /* 802E03D0 002DD330  80 7E 00 08 */	lwz r3, 8(r30)
 /* 802E03D4 002DD334  7F E4 FB 78 */	mr r4, r31
 /* 802E03D8 002DD338  80 63 00 00 */	lwz r3, 0(r3)
 /* 802E03DC 002DD33C  81 83 00 00 */	lwz r12, 0(r3)
 /* 802E03E0 002DD340  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802E03E4 002DD344  7D 89 03 A6 */	mtctr r12
-/* 802E03E8 002DD348  4E 80 04 21 */	bctrl 
+/* 802E03E8 002DD348  4E 80 04 21 */	bctrl
 /* 802E03EC 002DD34C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802E03F0 002DD350  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802E03F4 002DD354  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802E03F8 002DD358  7C 08 03 A6 */	mtlr r0
 /* 802E03FC 002DD35C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802E0400 002DD360  4E 80 00 20 */	blr 
+/* 802E0400 002DD360  4E 80 00 20 */	blr
 
 .global VGetAnimationTree__19CMetaAnimPhaseBlendCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 VGetAnimationTree__19CMetaAnimPhaseBlendCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders:
@@ -209,7 +209,7 @@ VGetAnimationTree__19CMetaAnimPhaseBlendCFRC15CAnimSysContextRC24CMetaAnimTreeBu
 /* 802E0464 002DD3C4  38 C1 02 20 */	addi r6, r1, 0x220
 /* 802E0468 002DD3C8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E046C 002DD3CC  7D 89 03 A6 */	mtctr r12
-/* 802E0470 002DD3D0  4E 80 04 21 */	bctrl 
+/* 802E0470 002DD3D0  4E 80 04 21 */	bctrl
 /* 802E0474 002DD3D4  38 00 00 00 */	li r0, 0
 /* 802E0478 002DD3D8  98 01 02 A4 */	stb r0, 0x2a4(r1)
 /* 802E047C 002DD3DC  98 01 02 60 */	stb r0, 0x260(r1)
@@ -225,7 +225,7 @@ lbl_802E0484:
 /* 802E04A0 002DD400  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E04A4 002DD404  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E04A8 002DD408  7D 89 03 A6 */	mtctr r12
-/* 802E04AC 002DD40C  4E 80 04 21 */	bctrl 
+/* 802E04AC 002DD40C  4E 80 04 21 */	bctrl
 /* 802E04B0 002DD410  80 A1 00 0C */	lwz r5, 0xc(r1)
 /* 802E04B4 002DD414  38 61 00 0C */	addi r3, r1, 0xc
 /* 802E04B8 002DD418  90 A1 00 1C */	stw r5, 0x1c(r1)
@@ -246,7 +246,7 @@ lbl_802E0484:
 /* 802E04F4 002DD454  81 84 00 00 */	lwz r12, 0(r4)
 /* 802E04F8 002DD458  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802E04FC 002DD45C  7D 89 03 A6 */	mtctr r12
-/* 802E0500 002DD460  4E 80 04 21 */	bctrl 
+/* 802E0500 002DD460  4E 80 04 21 */	bctrl
 /* 802E0504 002DD464  80 A1 00 08 */	lwz r5, 8(r1)
 /* 802E0508 002DD468  38 61 00 08 */	addi r3, r1, 8
 /* 802E050C 002DD46C  90 A1 00 18 */	stw r5, 0x18(r1)
@@ -459,7 +459,7 @@ lbl_802E07F8:
 /* 802E0818 002DD778  83 81 02 B0 */	lwz r28, 0x2b0(r1)
 /* 802E081C 002DD77C  7C 08 03 A6 */	mtlr r0
 /* 802E0820 002DD780  38 21 02 E0 */	addi r1, r1, 0x2e0
-/* 802E0824 002DD784  4E 80 00 20 */	blr 
+/* 802E0824 002DD784  4E 80 00 20 */	blr
 
 .global "__ct__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "__ct__18CAnimTreeTimeScaleFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>fRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -528,7 +528,7 @@ lbl_802E08CC:
 /* 802E091C 002DD87C  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 802E0920 002DD880  7C 08 03 A6 */	mtlr r0
 /* 802E0924 002DD884  38 21 00 40 */	addi r1, r1, 0x40
-/* 802E0928 002DD888  4E 80 00 20 */	blr 
+/* 802E0928 002DD888  4E 80 00 20 */	blr
 
 .global __ct__19CMetaAnimPhaseBlendFR12CInputStream
 __ct__19CMetaAnimPhaseBlendFR12CInputStream:

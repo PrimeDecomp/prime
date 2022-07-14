@@ -5,14 +5,14 @@
 ARQVersionString:
 	.asciz "<< Dolphin SDK - ARQ\trelease build: Sep  5 2002 05:34:29 (0x2301) >>"
 	.balign 4
-	
+
 .section .sdata
 
 .global lbl_805A8A78
 lbl_805A8A78:
 	.4byte ARQVersionString
 	.4byte 0
-	
+
 .section .sbss
 .global lbl_805A9718
 lbl_805A9718:
@@ -119,11 +119,11 @@ lbl_8036F520:
 /* 8036F520 0036C480  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8036F524 0036C484  38 21 00 08 */	addi r1, r1, 8
 /* 8036F528 0036C488  7C 08 03 A6 */	mtlr r0
-/* 8036F52C 0036C48C  4E 80 00 20 */	blr 
+/* 8036F52C 0036C48C  4E 80 00 20 */	blr
 
 .global __ARQCallbackHack
 __ARQCallbackHack:
-/* 8036F530 0036C490  4E 80 00 20 */	blr 
+/* 8036F530 0036C490  4E 80 00 20 */	blr
 
 .global __ARQInterruptServiceRoutine
 __ARQInterruptServiceRoutine:
@@ -135,7 +135,7 @@ __ARQInterruptServiceRoutine:
 /* 8036F548 0036C4A8  41 82 00 20 */	beq lbl_8036F568
 /* 8036F54C 0036C4AC  80 6D AB 68 */	lwz r3, lbl_805A9728@sda21(r13)
 /* 8036F550 0036C4B0  7D 88 03 A6 */	mtlr r12
-/* 8036F554 0036C4B4  4E 80 00 21 */	blrl 
+/* 8036F554 0036C4B4  4E 80 00 21 */	blrl
 /* 8036F558 0036C4B8  38 00 00 00 */	li r0, 0
 /* 8036F55C 0036C4BC  90 0D AB 68 */	stw r0, lbl_805A9728@sda21(r13)
 /* 8036F560 0036C4C0  90 0D AB 70 */	stw r0, lbl_805A9730@sda21(r13)
@@ -146,7 +146,7 @@ lbl_8036F568:
 /* 8036F570 0036C4D0  41 82 00 1C */	beq lbl_8036F58C
 /* 8036F574 0036C4D4  80 6D AB 6C */	lwz r3, lbl_805A972C@sda21(r13)
 /* 8036F578 0036C4D8  7D 88 03 A6 */	mtlr r12
-/* 8036F57C 0036C4DC  4E 80 00 21 */	blrl 
+/* 8036F57C 0036C4DC  4E 80 00 21 */	blrl
 /* 8036F580 0036C4E0  38 00 00 00 */	li r0, 0
 /* 8036F584 0036C4E4  90 0D AB 6C */	stw r0, lbl_805A972C@sda21(r13)
 /* 8036F588 0036C4E8  90 0D AB 74 */	stw r0, lbl_805A9734@sda21(r13)
@@ -183,7 +183,7 @@ lbl_8036F5F0:
 /* 8036F5F0 0036C550  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8036F5F4 0036C554  38 21 00 08 */	addi r1, r1, 8
 /* 8036F5F8 0036C558  7C 08 03 A6 */	mtlr r0
-/* 8036F5FC 0036C55C  4E 80 00 20 */	blr 
+/* 8036F5FC 0036C55C  4E 80 00 20 */	blr
 
 .global ARQInit
 ARQInit:
@@ -215,7 +215,7 @@ lbl_8036F65C:
 /* 8036F660 0036C5C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8036F664 0036C5C4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8036F668 0036C5C8  7C 08 03 A6 */	mtlr r0
-/* 8036F66C 0036C5CC  4E 80 00 20 */	blr 
+/* 8036F66C 0036C5CC  4E 80 00 20 */	blr
 
 .global ARQPostRequest
 ARQPostRequest:
@@ -318,9 +318,9 @@ lbl_8036F7A8:
 /* 8036F7BC 0036C71C  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 8036F7C0 0036C720  38 21 00 38 */	addi r1, r1, 0x38
 /* 8036F7C4 0036C724  7C 08 03 A6 */	mtlr r0
-/* 8036F7C8 0036C728  4E 80 00 20 */	blr 
+/* 8036F7C8 0036C728  4E 80 00 20 */	blr
 
 .global ARQGetChunkSize
 ARQGetChunkSize:
 /* 8036F7CC 0036C72C  80 6D AB 78 */	lwz r3, __ARQChunkSize@sda21(r13)
-/* 8036F7D0 0036C730  4E 80 00 20 */	blr 
+/* 8036F7D0 0036C730  4E 80 00 20 */	blr

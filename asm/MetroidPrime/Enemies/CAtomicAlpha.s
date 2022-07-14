@@ -295,17 +295,17 @@ lbl_80244CD0:
 /* 80244CE4 00241C44  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80244CE8 00241C48  7C 08 03 A6 */	mtlr r0
 /* 80244CEC 00241C4C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80244CF0 00241C50  4E 80 00 20 */	blr 
+/* 80244CF0 00241C50  4E 80 00 20 */	blr
 
 .global sub_80244cf4
 sub_80244cf4:
 /* 80244CF4 00241C54  38 63 06 68 */	addi r3, r3, 0x668
-/* 80244CF8 00241C58  4E 80 00 20 */	blr 
+/* 80244CF8 00241C58  4E 80 00 20 */	blr
 
 .global GetSearchPath__12CAtomicAlphaFv
 GetSearchPath__12CAtomicAlphaFv:
 /* 80244CFC 00241C5C  38 63 05 80 */	addi r3, r3, 0x580
-/* 80244D00 00241C60  4E 80 00 20 */	blr 
+/* 80244D00 00241C60  4E 80 00 20 */	blr
 
 .global GetCollisionResponseType__12CAtomicAlphaCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 GetCollisionResponseType__12CAtomicAlphaCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
@@ -317,7 +317,7 @@ GetCollisionResponseType__12CAtomicAlphaCFRC9CVector3fRC9CVector3fRC11CWeaponMod
 /* 80244D18 00241C78  81 83 00 00 */	lwz r12, 0(r3)
 /* 80244D1C 00241C7C  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 80244D20 00241C80  7D 89 03 A6 */	mtctr r12
-/* 80244D24 00241C84  4E 80 04 21 */	bctrl 
+/* 80244D24 00241C84  4E 80 04 21 */	bctrl
 /* 80244D28 00241C88  7F E4 FB 78 */	mr r4, r31
 /* 80244D2C 00241C8C  38 A0 00 00 */	li r5, 0
 /* 80244D30 00241C90  4B EB D8 55 */	bl WeaponHits__20CDamageVulnerabilityCFRC11CWeaponModei
@@ -330,7 +330,7 @@ lbl_80244D44:
 /* 80244D48 00241CA8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 80244D4C 00241CAC  7C 08 03 A6 */	mtlr r0
 /* 80244D50 00241CB0  38 21 00 10 */	addi r1, r1, 0x10
-/* 80244D54 00241CB4  4E 80 00 20 */	blr 
+/* 80244D54 00241CB4  4E 80 00 20 */	blr
 
 .global Attack__12CAtomicAlphaFR13CStateManager9EStateMsgf
 Attack__12CAtomicAlphaFR13CStateManager9EStateMsgf:
@@ -398,7 +398,7 @@ lbl_80244E34:
 /* 80244E38 00241D98  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80244E3C 00241D9C  7C 08 03 A6 */	mtlr r0
 /* 80244E40 00241DA0  38 21 00 50 */	addi r1, r1, 0x50
-/* 80244E44 00241DA4  4E 80 00 20 */	blr 
+/* 80244E44 00241DA4  4E 80 00 20 */	blr
 
 .global AggressionCheck__12CAtomicAlphaFR13CStateManagerf
 AggressionCheck__12CAtomicAlphaFR13CStateManagerf:
@@ -419,10 +419,10 @@ lbl_80244E74:
 /* 80244E78 00241DD8  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80244E7C 00241DDC  40 81 00 0C */	ble lbl_80244E88
 /* 80244E80 00241DE0  38 60 00 01 */	li r3, 1
-/* 80244E84 00241DE4  4E 80 00 20 */	blr 
+/* 80244E84 00241DE4  4E 80 00 20 */	blr
 lbl_80244E88:
 /* 80244E88 00241DE8  38 60 00 00 */	li r3, 0
-/* 80244E8C 00241DEC  4E 80 00 20 */	blr 
+/* 80244E8C 00241DEC  4E 80 00 20 */	blr
 
 .global DoUserAnimEvent__12CAtomicAlphaFR13CStateManagerRC13CInt32POINode14EUserEventType
 DoUserAnimEvent__12CAtomicAlphaFR13CStateManagerRC13CInt32POINode14EUserEventType:
@@ -540,7 +540,7 @@ lbl_80245024:
 /* 8024503C 00241F9C  83 81 01 10 */	lwz r28, 0x110(r1)
 /* 80245040 00241FA0  7C 08 03 A6 */	mtlr r0
 /* 80245044 00241FA4  38 21 01 30 */	addi r1, r1, 0x130
-/* 80245048 00241FA8  4E 80 00 20 */	blr 
+/* 80245048 00241FA8  4E 80 00 20 */	blr
 
 .global Leash__12CAtomicAlphaFR13CStateManagerf
 Leash__12CAtomicAlphaFR13CStateManagerf:
@@ -569,7 +569,7 @@ Leash__12CAtomicAlphaFR13CStateManagerf:
 /* 802450A4 00242004  38 00 00 01 */	li r0, 1
 lbl_802450A8:
 /* 802450A8 00242008  7C 03 03 78 */	mr r3, r0
-/* 802450AC 0024200C  4E 80 00 20 */	blr 
+/* 802450AC 0024200C  4E 80 00 20 */	blr
 
 .global Patrol__12CAtomicAlphaFR13CStateManager9EStateMsgf
 Patrol__12CAtomicAlphaFR13CStateManager9EStateMsgf:
@@ -638,7 +638,7 @@ lbl_80245184:
 /* 80245190 002420F0  7F C4 F3 78 */	mr r4, r30
 /* 80245194 002420F4  81 8C 01 84 */	lwz r12, 0x184(r12)
 /* 80245198 002420F8  7D 89 03 A6 */	mtctr r12
-/* 8024519C 002420FC  4E 80 04 21 */	bctrl 
+/* 8024519C 002420FC  4E 80 04 21 */	bctrl
 /* 802451A0 00242100  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802451A4 00242104  41 82 00 6C */	beq lbl_80245210
 /* 802451A8 00242108  88 1D 05 68 */	lbz r0, 0x568(r29)
@@ -656,7 +656,7 @@ lbl_802451BC:
 /* 802451D4 00242134  7F C4 F3 78 */	mr r4, r30
 /* 802451D8 00242138  81 8C 01 A4 */	lwz r12, 0x1a4(r12)
 /* 802451DC 0024213C  7D 89 03 A6 */	mtctr r12
-/* 802451E0 00242140  4E 80 04 21 */	bctrl 
+/* 802451E0 00242140  4E 80 04 21 */	bctrl
 /* 802451E4 00242144  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802451E8 00242148  41 82 00 28 */	beq lbl_80245210
 /* 802451EC 0024214C  88 1D 05 68 */	lbz r0, 0x568(r29)
@@ -678,7 +678,7 @@ lbl_80245210:
 /* 80245224 00242184  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80245228 00242188  7C 08 03 A6 */	mtlr r0
 /* 8024522C 0024218C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80245230 00242190  4E 80 00 20 */	blr 
+/* 80245230 00242190  4E 80 00 20 */	blr
 
 .global AddToRenderer__12CAtomicAlphaCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__12CAtomicAlphaCFRC14CFrustumPlanesRC13CStateManager:
@@ -715,7 +715,7 @@ lbl_80245298:
 /* 802452A4 00242204  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 802452A8 00242208  7C 08 03 A6 */	mtlr r0
 /* 802452AC 0024220C  38 21 00 20 */	addi r1, r1, 0x20
-/* 802452B0 00242210  4E 80 00 20 */	blr 
+/* 802452B0 00242210  4E 80 00 20 */	blr
 
 .global Render__12CAtomicAlphaCFRC13CStateManager
 Render__12CAtomicAlphaCFRC13CStateManager:
@@ -815,7 +815,7 @@ lbl_80245404:
 /* 80245408 00242368  80 01 01 24 */	lwz r0, 0x124(r1)
 /* 8024540C 0024236C  7C 08 03 A6 */	mtlr r0
 /* 80245410 00242370  38 21 01 20 */	addi r1, r1, 0x120
-/* 80245414 00242374  4E 80 00 20 */	blr 
+/* 80245414 00242374  4E 80 00 20 */	blr
 
 .global CollidedWith__12CAtomicAlphaFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager
 CollidedWith__12CAtomicAlphaFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager:
@@ -884,7 +884,7 @@ lbl_802454E0:
 /* 80245504 00242464  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 80245508 00242468  7C 08 03 A6 */	mtlr r0
 /* 8024550C 0024246C  38 21 00 30 */	addi r1, r1, 0x30
-/* 80245510 00242470  4E 80 00 20 */	blr 
+/* 80245510 00242470  4E 80 00 20 */	blr
 
 .global Think__12CAtomicAlphaFfR13CStateManager
 Think__12CAtomicAlphaFfR13CStateManager:
@@ -923,7 +923,7 @@ lbl_8024557C:
 /* 80245588 002424E8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8024558C 002424EC  7C 08 03 A6 */	mtlr r0
 /* 80245590 002424F0  38 21 00 20 */	addi r1, r1, 0x20
-/* 80245594 002424F4  4E 80 00 20 */	blr 
+/* 80245594 002424F4  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__12CAtomicAlphaF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12CAtomicAlphaF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -983,7 +983,7 @@ lbl_8024564C:
 /* 80245658 002425B8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8024565C 002425BC  7C 08 03 A6 */	mtlr r0
 /* 80245660 002425C0  38 21 00 30 */	addi r1, r1, 0x30
-/* 80245664 002425C4  4E 80 00 20 */	blr 
+/* 80245664 002425C4  4E 80 00 20 */	blr
 
 .global Accept__12CAtomicAlphaFR8IVisitor
 Accept__12CAtomicAlphaFR8IVisitor:
@@ -996,11 +996,11 @@ Accept__12CAtomicAlphaFR8IVisitor:
 /* 80245680 002425E0  7C 04 03 78 */	mr r4, r0
 /* 80245684 002425E4  81 8C 00 4C */	lwz r12, 0x4c(r12)
 /* 80245688 002425E8  7D 89 03 A6 */	mtctr r12
-/* 8024568C 002425EC  4E 80 04 21 */	bctrl 
+/* 8024568C 002425EC  4E 80 04 21 */	bctrl
 /* 80245690 002425F0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80245694 002425F4  7C 08 03 A6 */	mtlr r0
 /* 80245698 002425F8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8024569C 002425FC  4E 80 00 20 */	blr 
+/* 8024569C 002425FC  4E 80 00 20 */	blr
 
 .global __ct__12CAtomicAlpha
 __ct__12CAtomicAlpha:

@@ -59,7 +59,7 @@ lbl_803F71A0:
 	.byte   0,  8,  0,216,  0,  9,  0,155,  0, 32,  0,153,  0,  8,  0,135
 	.byte   0,  0,  2,191,128,139,  2,223,  0,  0,  0,  0,  0,  0,  0,  0
 	.byte   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
-	
+
 lbl_803F7520:
 	.asciz "GBAKey.c"
 	.balign 4
@@ -79,7 +79,7 @@ __GBASetDelay:
 /* 803CAF30 003C7E90  80 87 00 34 */	lwz r4, 0x34(r7)
 /* 803CAF34 003C7E94  90 C7 00 34 */	stw r6, 0x34(r7)
 /* 803CAF38 003C7E98  90 A7 00 30 */	stw r5, 0x30(r7)
-/* 803CAF3C 003C7E9C  4E 80 00 20 */	blr 
+/* 803CAF3C 003C7E9C  4E 80 00 20 */	blr
 
 .global __GBADSPTaskInit
 __GBADSPTaskInit:
@@ -144,7 +144,7 @@ lbl_803CAFFC:
 /* 803CB00C 003C7F6C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 803CB010 003C7F70  38 21 00 20 */	addi r1, r1, 0x20
 /* 803CB014 003C7F74  7C 08 03 A6 */	mtlr r0
-/* 803CB018 003C7F78  4E 80 00 20 */	blr 
+/* 803CB018 003C7F78  4E 80 00 20 */	blr
 
 .global __GBADSPTaskDone
 __GBADSPTaskDone:
@@ -194,7 +194,7 @@ lbl_803CB0A8:
 /* 803CB0B4 003C8014  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 803CB0B8 003C8018  38 21 00 08 */	addi r1, r1, 8
 /* 803CB0BC 003C801C  7C 08 03 A6 */	mtlr r0
-/* 803CB0C0 003C8020  4E 80 00 20 */	blr 
+/* 803CB0C0 003C8020  4E 80 00 20 */	blr
 
 .global __GBAX02
 __GBAX02:

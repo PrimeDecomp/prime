@@ -5,7 +5,7 @@
 .global GetR2__Fv
 GetR2__Fv:
 /* 8038A0E4 00387044  7C 43 13 78 */	mr r3, r2
-/* 8038A0E8 00387048  4E 80 00 20 */	blr 
+/* 8038A0E8 00387048  4E 80 00 20 */	blr
 
 .global __fini_cpp_exceptions
 __fini_cpp_exceptions:
@@ -22,7 +22,7 @@ lbl_8038A110:
 /* 8038A110 00387070  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8038A114 00387074  7C 08 03 A6 */	mtlr r0
 /* 8038A118 00387078  38 21 00 10 */	addi r1, r1, 0x10
-/* 8038A11C 0038707C  4E 80 00 20 */	blr 
+/* 8038A11C 0038707C  4E 80 00 20 */	blr
 
 .global __init_cpp_exceptions
 __init_cpp_exceptions:
@@ -42,4 +42,4 @@ lbl_8038A150:
 /* 8038A150 003870B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8038A154 003870B4  7C 08 03 A6 */	mtlr r0
 /* 8038A158 003870B8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8038A15C 003870BC  4E 80 00 20 */	blr 
+/* 8038A15C 003870BC  4E 80 00 20 */	blr

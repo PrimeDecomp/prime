@@ -35,7 +35,7 @@ lbl_803ED508:
 .global IsCAnimTreeNode__11IAnimReaderCFv
 IsCAnimTreeNode__11IAnimReaderCFv:
 /* 802FDC7C 002FABDC  38 60 00 00 */	li r3, 0
-/* 802FDC80 002FABE0  4E 80 00 20 */	blr 
+/* 802FDC80 002FABE0  4E 80 00 20 */	blr
 
 .global GetSoundPOIList__11IAnimReaderCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
 GetSoundPOIList__11IAnimReaderCFRC13CCharAnimTimeP13CSoundPOINodeUiUii:
@@ -62,7 +62,7 @@ GetSoundPOIList__11IAnimReaderCFRC13CCharAnimTimeP13CSoundPOINodeUiUii:
 /* 802FDCD4 002FAC34  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 802FDCD8 002FAC38  7F E8 FB 78 */	mr r8, r31
 /* 802FDCDC 002FAC3C  7D 89 03 A6 */	mtctr r12
-/* 802FDCE0 002FAC40  4E 80 04 21 */	bctrl 
+/* 802FDCE0 002FAC40  4E 80 04 21 */	bctrl
 /* 802FDCE4 002FAC44  48 00 00 08 */	b lbl_802FDCEC
 lbl_802FDCE8:
 /* 802FDCE8 002FAC48  38 60 00 00 */	li r3, 0
@@ -71,7 +71,7 @@ lbl_802FDCEC:
 /* 802FDCF0 002FAC50  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FDCF4 002FAC54  7C 08 03 A6 */	mtlr r0
 /* 802FDCF8 002FAC58  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FDCFC 002FAC5C  4E 80 00 20 */	blr 
+/* 802FDCFC 002FAC5C  4E 80 00 20 */	blr
 
 .global GetParticlePOIList__11IAnimReaderCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
 GetParticlePOIList__11IAnimReaderCFRC13CCharAnimTimeP16CParticlePOINodeUiUii:
@@ -98,7 +98,7 @@ GetParticlePOIList__11IAnimReaderCFRC13CCharAnimTimeP16CParticlePOINodeUiUii:
 /* 802FDD50 002FACB0  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 802FDD54 002FACB4  7F E8 FB 78 */	mr r8, r31
 /* 802FDD58 002FACB8  7D 89 03 A6 */	mtctr r12
-/* 802FDD5C 002FACBC  4E 80 04 21 */	bctrl 
+/* 802FDD5C 002FACBC  4E 80 04 21 */	bctrl
 /* 802FDD60 002FACC0  48 00 00 08 */	b lbl_802FDD68
 lbl_802FDD64:
 /* 802FDD64 002FACC4  38 60 00 00 */	li r3, 0
@@ -107,7 +107,7 @@ lbl_802FDD68:
 /* 802FDD6C 002FACCC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FDD70 002FACD0  7C 08 03 A6 */	mtlr r0
 /* 802FDD74 002FACD4  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FDD78 002FACD8  4E 80 00 20 */	blr 
+/* 802FDD78 002FACD8  4E 80 00 20 */	blr
 
 .global GetInt32POIList__11IAnimReaderCFRC13CCharAnimTimeP13CInt32POINodeUiUii
 GetInt32POIList__11IAnimReaderCFRC13CCharAnimTimeP13CInt32POINodeUiUii:
@@ -134,7 +134,7 @@ GetInt32POIList__11IAnimReaderCFRC13CCharAnimTimeP13CInt32POINodeUiUii:
 /* 802FDDCC 002FAD2C  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 802FDDD0 002FAD30  7F E8 FB 78 */	mr r8, r31
 /* 802FDDD4 002FAD34  7D 89 03 A6 */	mtctr r12
-/* 802FDDD8 002FAD38  4E 80 04 21 */	bctrl 
+/* 802FDDD8 002FAD38  4E 80 04 21 */	bctrl
 /* 802FDDDC 002FAD3C  48 00 00 08 */	b lbl_802FDDE4
 lbl_802FDDE0:
 /* 802FDDE0 002FAD40  38 60 00 00 */	li r3, 0
@@ -143,7 +143,7 @@ lbl_802FDDE4:
 /* 802FDDE8 002FAD48  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FDDEC 002FAD4C  7C 08 03 A6 */	mtlr r0
 /* 802FDDF0 002FAD50  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FDDF4 002FAD54  4E 80 00 20 */	blr 
+/* 802FDDF4 002FAD54  4E 80 00 20 */	blr
 
 .global GetBoolPOIList__11IAnimReaderCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
 GetBoolPOIList__11IAnimReaderCFRC13CCharAnimTimeP12CBoolPOINodeUiUii:
@@ -170,7 +170,7 @@ GetBoolPOIList__11IAnimReaderCFRC13CCharAnimTimeP12CBoolPOINodeUiUii:
 /* 802FDE48 002FADA8  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 802FDE4C 002FADAC  7F E8 FB 78 */	mr r8, r31
 /* 802FDE50 002FADB0  7D 89 03 A6 */	mtctr r12
-/* 802FDE54 002FADB4  4E 80 04 21 */	bctrl 
+/* 802FDE54 002FADB4  4E 80 04 21 */	bctrl
 /* 802FDE58 002FADB8  48 00 00 08 */	b lbl_802FDE60
 lbl_802FDE5C:
 /* 802FDE5C 002FADBC  38 60 00 00 */	li r3, 0
@@ -179,7 +179,7 @@ lbl_802FDE60:
 /* 802FDE64 002FADC4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802FDE68 002FADC8  7C 08 03 A6 */	mtlr r0
 /* 802FDE6C 002FADCC  38 21 00 20 */	addi r1, r1, 0x20
-/* 802FDE70 002FADD0  4E 80 00 20 */	blr 
+/* 802FDE70 002FADD0  4E 80 00 20 */	blr
 
 .global VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
 VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime:
@@ -203,13 +203,13 @@ VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime:
 /* 802FDEB8 002FAE18  D0 03 00 1C */	stfs f0, 0x1c(r3)
 /* 802FDEBC 002FAE1C  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 802FDEC0 002FAE20  D0 03 00 20 */	stfs f0, 0x20(r3)
-/* 802FDEC4 002FAE24  4E 80 00 20 */	blr 
+/* 802FDEC4 002FAE24  4E 80 00 20 */	blr
 
 .global VSimplified__11IAnimReaderFv
 VSimplified__11IAnimReaderFv:
 /* 802FDEC8 002FAE28  38 00 00 00 */	li r0, 0
 /* 802FDECC 002FAE2C  98 03 00 08 */	stb r0, 8(r3)
-/* 802FDED0 002FAE30  4E 80 00 20 */	blr 
+/* 802FDED0 002FAE30  4E 80 00 20 */	blr
 
 .global __dt__11IAnimReaderFv
 __dt__11IAnimReaderFv:

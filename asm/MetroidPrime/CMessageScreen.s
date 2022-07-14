@@ -50,7 +50,7 @@ lbl_801EF650:
 /* 801EF650 001EC5B0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801EF654 001EC5B4  7C 08 03 A6 */	mtlr r0
 /* 801EF658 001EC5B8  38 21 00 20 */	addi r1, r1, 0x20
-/* 801EF65C 001EC5BC  4E 80 00 20 */	blr 
+/* 801EF65C 001EC5BC  4E 80 00 20 */	blr
 
 .global ProcessControllerInput__14CMessageScreenFRC11CFinalInput
 ProcessControllerInput__14CMessageScreenFRC11CFinalInput:
@@ -137,7 +137,7 @@ lbl_801EF784:
 /* 801EF794 001EC6F4  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 801EF798 001EC6F8  7C 08 03 A6 */	mtlr r0
 /* 801EF79C 001EC6FC  38 21 00 40 */	addi r1, r1, 0x40
-/* 801EF7A0 001EC700  4E 80 00 20 */	blr 
+/* 801EF7A0 001EC700  4E 80 00 20 */	blr
 
 .global Update__14CMessageScreenFf
 Update__14CMessageScreenFf:
@@ -632,7 +632,7 @@ lbl_801EFEA8:
 /* 801EFEF0 001ECE50  83 C1 01 38 */	lwz r30, 0x138(r1)
 /* 801EFEF4 001ECE54  7C 08 03 A6 */	mtlr r0
 /* 801EFEF8 001ECE58  38 21 01 A0 */	addi r1, r1, 0x1a0
-/* 801EFEFC 001ECE5C  4E 80 00 20 */	blr 
+/* 801EFEFC 001ECE5C  4E 80 00 20 */	blr
 
 .global __ct__14CMessageScreenFUif
 __ct__14CMessageScreenFUif:
@@ -655,7 +655,7 @@ __ct__14CMessageScreenFUif:
 /* 801EFF40 001ECEA0  81 84 00 00 */	lwz r12, 0(r4)
 /* 801EFF44 001ECEA4  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 801EFF48 001ECEA8  7D 89 03 A6 */	mtctr r12
-/* 801EFF4C 001ECEAC  4E 80 04 21 */	bctrl 
+/* 801EFF4C 001ECEAC  4E 80 04 21 */	bctrl
 /* 801EFF50 001ECEB0  7F E3 FB 78 */	mr r3, r31
 /* 801EFF54 001ECEB4  38 81 00 10 */	addi r4, r1, 0x10
 /* 801EFF58 001ECEB8  48 15 0F 51 */	bl __ct__6CTokenFRC6CToken
@@ -672,7 +672,7 @@ __ct__14CMessageScreenFUif:
 /* 801EFF84 001ECEE4  38 A5 00 A5 */	addi r5, r5, 0xa5
 /* 801EFF88 001ECEE8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 801EFF8C 001ECEEC  7D 89 03 A6 */	mtctr r12
-/* 801EFF90 001ECEF0  4E 80 04 21 */	bctrl 
+/* 801EFF90 001ECEF0  4E 80 04 21 */	bctrl
 /* 801EFF94 001ECEF4  3B DF 00 0C */	addi r30, r31, 0xc
 /* 801EFF98 001ECEF8  38 81 00 08 */	addi r4, r1, 8
 /* 801EFF9C 001ECEFC  7F C3 F3 78 */	mr r3, r30

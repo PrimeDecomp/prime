@@ -4,7 +4,7 @@
 .global lbl_80541250
 lbl_80541250:
 	.skip 0x48
-	
+
 .section .data
 .balign 8
 
@@ -47,7 +47,7 @@ lbl_803F170C:
     .4byte lbl_8037FF7C
     .4byte lbl_8037FF94
     .4byte lbl_80380024
-    .4byte lbl_8037FFA8 
+    .4byte lbl_8037FFA8
     .4byte lbl_8037FFC0
     .4byte lbl_80380024
     .4byte lbl_80380024
@@ -61,11 +61,15 @@ lbl_803F170C:
 .section .sdata
 .global lbl_805A8B38
 lbl_805A8B38:
-	.incbin "baserom.dol", 0x3F64D8, 0x4
+	# ROM: 0x3F64D8
+	.4byte 0x000000F8
+
 .global lbl_805A8B3C
 lbl_805A8B3C:
-	.incbin "baserom.dol", 0x3F64DC, 0x4
-	
+	# ROM: 0x3F64DC
+	.4byte 0x0A000000
+
+
 .section .text, "ax"
 
 .global OSReport
@@ -102,7 +106,7 @@ lbl_8037F9DC:
 /* 8037FA1C 0037C97C  80 01 00 7C */	lwz r0, 0x7c(r1)
 /* 8037FA20 0037C980  38 21 00 78 */	addi r1, r1, 0x78
 /* 8037FA24 0037C984  7C 08 03 A6 */	mtlr r0
-/* 8037FA28 0037C988  4E 80 00 20 */	blr 
+/* 8037FA28 0037C988  4E 80 00 20 */	blr
 
 .global OSPanic
 OSPanic:
@@ -184,7 +188,7 @@ lbl_8037FB34:
 /* 8037FB48 0037CAA8  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 8037FB4C 0037CAAC  38 21 00 90 */	addi r1, r1, 0x90
 /* 8037FB50 0037CAB0  7C 08 03 A6 */	mtlr r0
-/* 8037FB54 0037CAB4  4E 80 00 20 */	blr 
+/* 8037FB54 0037CAB4  4E 80 00 20 */	blr
 
 .global OSSetErrorHandler
 OSSetErrorHandler:
@@ -330,7 +334,7 @@ lbl_8037FD44:
 /* 8037FD60 0037CCC0  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8037FD64 0037CCC4  38 21 00 30 */	addi r1, r1, 0x30
 /* 8037FD68 0037CCC8  7C 08 03 A6 */	mtlr r0
-/* 8037FD6C 0037CCCC  4E 80 00 20 */	blr 
+/* 8037FD6C 0037CCCC  4E 80 00 20 */	blr
 
 .global __OSUnhandledException
 __OSUnhandledException:
@@ -396,7 +400,7 @@ lbl_8037FE14:
 /* 8037FE54 0037CDB4  7D 88 03 A6 */	mtlr r12
 /* 8037FE58 0037CDB8  38 DB 00 00 */	addi r6, r27, 0
 /* 8037FE5C 0037CDBC  38 60 00 10 */	li r3, 0x10
-/* 8037FE60 0037CDC0  4E 80 00 21 */	blrl 
+/* 8037FE60 0037CDC0  4E 80 00 21 */	blrl
 /* 8037FE64 0037CDC4  80 79 01 9C */	lwz r3, 0x19c(r25)
 /* 8037FE68 0037CDC8  38 00 00 00 */	li r0, 0
 /* 8037FE6C 0037CDCC  54 63 04 E2 */	rlwinm r3, r3, 0, 0x13, 0x11
@@ -432,7 +436,7 @@ lbl_8037FEAC:
 /* 8037FED8 0037CE38  7D 88 03 A6 */	mtlr r12
 /* 8037FEDC 0037CE3C  38 BA 00 00 */	addi r5, r26, 0
 /* 8037FEE0 0037CE40  38 DB 00 00 */	addi r6, r27, 0
-/* 8037FEE4 0037CE44  4E 80 00 21 */	blrl 
+/* 8037FEE4 0037CE44  4E 80 00 21 */	blrl
 /* 8037FEE8 0037CE48  48 00 47 39 */	bl OSEnableScheduler
 /* 8037FEEC 0037CE4C  48 00 4C 01 */	bl __OSReschedule
 /* 8037FEF0 0037CE50  7F 23 CB 78 */	mr r3, r25
@@ -533,4 +537,4 @@ lbl_80380024:
 /* 80380048 0037CFA8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8038004C 0037CFAC  38 21 00 40 */	addi r1, r1, 0x40
 /* 80380050 0037CFB0  7C 08 03 A6 */	mtlr r0
-/* 80380054 0037CFB4  4E 80 00 20 */	blr 
+/* 80380054 0037CFB4  4E 80 00 20 */	blr

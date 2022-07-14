@@ -35,7 +35,7 @@ lbl_803E9D80:
 	.4byte ProcessInput__20CInterpolationCameraFRC11CFinalInputR13CStateManager
 	.4byte Reset__20CInterpolationCameraFRC12CTransform4fR13CStateManager
 	.4byte 0
-	
+
 .section .text, "ax"
 
 .global AcceptScriptMsg__20CInterpolationCameraF20EScriptObjectMessage9TUniqueIdR13CStateManager
@@ -50,11 +50,11 @@ AcceptScriptMsg__20CInterpolationCameraF20EScriptObjectMessage9TUniqueIdR13CStat
 /* 80264FD8 00261F38  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80264FDC 00261F3C  7C 08 03 A6 */	mtlr r0
 /* 80264FE0 00261F40  38 21 00 10 */	addi r1, r1, 0x10
-/* 80264FE4 00261F44  4E 80 00 20 */	blr 
+/* 80264FE4 00261F44  4E 80 00 20 */	blr
 
 .global Render__20CInterpolationCameraCFRC13CStateManager
 Render__20CInterpolationCameraCFRC13CStateManager:
-/* 80264FE8 00261F48  4E 80 00 20 */	blr 
+/* 80264FE8 00261F48  4E 80 00 20 */	blr
 
 .global Accept__20CInterpolationCameraFR8IVisitor
 Accept__20CInterpolationCameraFR8IVisitor:
@@ -67,15 +67,15 @@ Accept__20CInterpolationCameraFR8IVisitor:
 /* 80265004 00261F64  7C 04 03 78 */	mr r4, r0
 /* 80265008 00261F68  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8026500C 00261F6C  7D 89 03 A6 */	mtctr r12
-/* 80265010 00261F70  4E 80 04 21 */	bctrl 
+/* 80265010 00261F70  4E 80 04 21 */	bctrl
 /* 80265014 00261F74  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80265018 00261F78  7C 08 03 A6 */	mtlr r0
 /* 8026501C 00261F7C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80265020 00261F80  4E 80 00 20 */	blr 
+/* 80265020 00261F80  4E 80 00 20 */	blr
 
 .global ProcessInput__20CInterpolationCameraFRC11CFinalInputR13CStateManager
 ProcessInput__20CInterpolationCameraFRC11CFinalInputR13CStateManager:
-/* 80265024 00261F84  4E 80 00 20 */	blr 
+/* 80265024 00261F84  4E 80 00 20 */	blr
 
 .global Think__20CInterpolationCameraFfR13CStateManager
 Think__20CInterpolationCameraFfR13CStateManager:
@@ -273,7 +273,7 @@ lbl_802652D8:
 /* 80265304 00262264  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 80265308 00262268  7C 08 03 A6 */	mtlr r0
 /* 8026530C 0026226C  38 21 00 F0 */	addi r1, r1, 0xf0
-/* 80265310 00262270  4E 80 00 20 */	blr 
+/* 80265310 00262270  4E 80 00 20 */	blr
 
 .global sub_80265314
 sub_80265314:
@@ -288,7 +288,7 @@ sub_80265314:
 /* 80265334 00262294  81 83 00 00 */	lwz r12, 0(r3)
 /* 80265338 00262298  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8026533C 0026229C  7D 89 03 A6 */	mtctr r12
-/* 80265340 002622A0  4E 80 04 21 */	bctrl 
+/* 80265340 002622A0  4E 80 04 21 */	bctrl
 /* 80265344 002622A4  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 80265348 002622A8  4B DA 55 85 */	bl ShouldBypassInterpolationCamera__14CCameraManagerCFv
 /* 8026534C 002622AC  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -304,7 +304,7 @@ lbl_80265368:
 /* 80265370 002622D0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 80265374 002622D4  7C 08 03 A6 */	mtlr r0
 /* 80265378 002622D8  38 21 00 20 */	addi r1, r1, 0x20
-/* 8026537C 002622DC  4E 80 00 20 */	blr 
+/* 8026537C 002622DC  4E 80 00 20 */	blr
 
 .global SetInterpolation__20CInterpolationCameraFRC12CTransform4fRC9CVector3ffff9TUniqueIdbR13CStateManager
 SetInterpolation__20CInterpolationCameraFRC12CTransform4fRC9CVector3ffff9TUniqueIdbR13CStateManager:
@@ -331,7 +331,7 @@ SetInterpolation__20CInterpolationCameraFRC12CTransform4fRC9CVector3ffff9TUnique
 /* 802653D0 00262330  7D 1E 43 78 */	mr r30, r8
 /* 802653D4 00262334  38 80 00 01 */	li r4, 1
 /* 802653D8 00262338  7D 89 03 A6 */	mtctr r12
-/* 802653DC 0026233C  4E 80 04 21 */	bctrl 
+/* 802653DC 0026233C  4E 80 04 21 */	bctrl
 /* 802653E0 00262340  7F 44 D3 78 */	mr r4, r26
 /* 802653E4 00262344  38 7F 00 34 */	addi r3, r31, 0x34
 /* 802653E8 00262348  48 0A D7 59 */	bl __as__12CTransform4fFRC12CTransform4f
@@ -394,7 +394,7 @@ lbl_802654AC:
 /* 802654C8 00262428  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 802654CC 0026242C  7C 08 03 A6 */	mtlr r0
 /* 802654D0 00262430  38 21 00 60 */	addi r1, r1, 0x60
-/* 802654D4 00262434  4E 80 00 20 */	blr 
+/* 802654D4 00262434  4E 80 00 20 */	blr
 
 .global InterpolateSinusoidal__20CInterpolationCameraFR12CTransform4fRC9CVector3fRC9CVector3fff
 InterpolateSinusoidal__20CInterpolationCameraFR12CTransform4fRC9CVector3fRC9CVector3fff:
@@ -659,7 +659,7 @@ lbl_80265870:
 /* 802658B0 00262810  83 81 01 30 */	lwz r28, 0x130(r1)
 /* 802658B4 00262814  7C 08 03 A6 */	mtlr r0
 /* 802658B8 00262818  38 21 01 80 */	addi r1, r1, 0x180
-/* 802658BC 0026281C  4E 80 00 20 */	blr 
+/* 802658BC 0026281C  4E 80 00 20 */	blr
 
 .global InterpolateWithDistance__20CInterpolationCameraFR12CTransform4fRC9CVector3fRC9CVector3ffffff
 InterpolateWithDistance__20CInterpolationCameraFR12CTransform4fRC9CVector3fRC9CVector3ffffff:
@@ -1017,11 +1017,11 @@ lbl_80265DC4:
 /* 80265DFC 00262D5C  80 01 02 04 */	lwz r0, 0x204(r1)
 /* 80265E00 00262D60  7C 08 03 A6 */	mtlr r0
 /* 80265E04 00262D64  38 21 02 00 */	addi r1, r1, 0x200
-/* 80265E08 00262D68  4E 80 00 20 */	blr 
+/* 80265E08 00262D68  4E 80 00 20 */	blr
 
 .global Reset__20CInterpolationCameraFRC12CTransform4fR13CStateManager
 Reset__20CInterpolationCameraFRC12CTransform4fR13CStateManager:
-/* 80265E0C 00262D6C  4E 80 00 20 */	blr 
+/* 80265E0C 00262D6C  4E 80 00 20 */	blr
 
 .global __dt__20CInterpolationCamera
 __dt__20CInterpolationCamera:
@@ -1049,7 +1049,7 @@ lbl_80265E54:
 /* 80265E60 00262DC0  83 C1 00 08 */	lwz r30, 8(r1)
 /* 80265E64 00262DC4  7C 08 03 A6 */	mtlr r0
 /* 80265E68 00262DC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 80265E6C 00262DCC  4E 80 00 20 */	blr 
+/* 80265E6C 00262DCC  4E 80 00 20 */	blr
 
 .global __ct__20CInterpolationCameraF9TUniqueIdRC12CTransform4f
 __ct__20CInterpolationCameraF9TUniqueIdRC12CTransform4f:

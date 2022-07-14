@@ -74,11 +74,11 @@ Accept__19CHUDBillboardEffectFR8IVisitor:
 /* 8012FAF0 0012CA50  7C 04 03 78 */	mr r4, r0
 /* 8012FAF4 0012CA54  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 8012FAF8 0012CA58  7D 89 03 A6 */	mtctr r12
-/* 8012FAFC 0012CA5C  4E 80 04 21 */	bctrl 
+/* 8012FAFC 0012CA5C  4E 80 04 21 */	bctrl
 /* 8012FB00 0012CA60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012FB04 0012CA64  7C 08 03 A6 */	mtlr r0
 /* 8012FB08 0012CA68  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012FB0C 0012CA6C  4E 80 00 20 */	blr 
+/* 8012FB0C 0012CA6C  4E 80 00 20 */	blr
 
 .global Think__19CHUDBillboardEffectFfR13CStateManager
 Think__19CHUDBillboardEffectFfR13CStateManager:
@@ -110,7 +110,7 @@ Think__19CHUDBillboardEffectFfR13CStateManager:
 /* 8012FB74 0012CAD4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FB78 0012CAD8  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 8012FB7C 0012CADC  7D 89 03 A6 */	mtctr r12
-/* 8012FB80 0012CAE0  4E 80 04 21 */	bctrl 
+/* 8012FB80 0012CAE0  4E 80 04 21 */	bctrl
 /* 8012FB84 0012CAE4  FF E0 08 90 */	fmr f31, f1
 /* 8012FB88 0012CAE8  83 FD 00 E8 */	lwz r31, 0xe8(r29)
 /* 8012FB8C 0012CAEC  48 00 06 D9 */	bl CalcGenRate__19CHudBillboardEffectFv
@@ -119,19 +119,19 @@ Think__19CHUDBillboardEffectFfR13CStateManager:
 /* 8012FB98 0012CAF8  7F E3 FB 78 */	mr r3, r31
 /* 8012FB9C 0012CAFC  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8012FBA0 0012CB00  7D 89 03 A6 */	mtctr r12
-/* 8012FBA4 0012CB04  4E 80 04 21 */	bctrl 
+/* 8012FBA4 0012CB04  4E 80 04 21 */	bctrl
 /* 8012FBA8 0012CB08  80 7D 00 E8 */	lwz r3, 0xe8(r29)
 /* 8012FBAC 0012CB0C  FC 20 F0 90 */	fmr f1, f30
 /* 8012FBB0 0012CB10  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FBB4 0012CB14  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8012FBB8 0012CB18  7D 89 03 A6 */	mtctr r12
-/* 8012FBBC 0012CB1C  4E 80 04 21 */	bctrl 
+/* 8012FBBC 0012CB1C  4E 80 04 21 */	bctrl
 /* 8012FBC0 0012CB20  80 7D 00 E8 */	lwz r3, 0xe8(r29)
 /* 8012FBC4 0012CB24  FC 20 F8 90 */	fmr f1, f31
 /* 8012FBC8 0012CB28  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FBCC 0012CB2C  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8012FBD0 0012CB30  7D 89 03 A6 */	mtctr r12
-/* 8012FBD4 0012CB34  4E 80 04 21 */	bctrl 
+/* 8012FBD4 0012CB34  4E 80 04 21 */	bctrl
 /* 8012FBD8 0012CB38  88 1D 01 04 */	lbz r0, 0x104(r29)
 /* 8012FBDC 0012CB3C  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
 /* 8012FBE0 0012CB40  40 82 00 3C */	bne lbl_8012FC1C
@@ -154,7 +154,7 @@ lbl_8012FC1C:
 /* 8012FC20 0012CB80  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FC24 0012CB84  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 8012FC28 0012CB88  7D 89 03 A6 */	mtctr r12
-/* 8012FC2C 0012CB8C  4E 80 04 21 */	bctrl 
+/* 8012FC2C 0012CB8C  4E 80 04 21 */	bctrl
 /* 8012FC30 0012CB90  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8012FC34 0012CB94  41 82 00 1C */	beq lbl_8012FC50
 /* 8012FC38 0012CB98  A0 1D 00 08 */	lhz r0, 8(r29)
@@ -174,16 +174,16 @@ lbl_8012FC50:
 /* 8012FC6C 0012CBCC  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8012FC70 0012CBD0  7C 08 03 A6 */	mtlr r0
 /* 8012FC74 0012CBD4  38 21 00 50 */	addi r1, r1, 0x50
-/* 8012FC78 0012CBD8  4E 80 00 20 */	blr 
+/* 8012FC78 0012CBD8  4E 80 00 20 */	blr
 
 .global SetGeneratorRate__12CParticleGenFf
 SetGeneratorRate__12CParticleGenFf:
-/* 8012FC7C 0012CBDC  4E 80 00 20 */	blr 
+/* 8012FC7C 0012CBDC  4E 80 00 20 */	blr
 
 .global GetGeneratorRate__12CParticleGenCFv
 GetGeneratorRate__12CParticleGenCFv:
 /* 8012FC80 0012CBE0  C0 22 99 3C */	lfs f1, lbl_805AB65C@sda21(r2)
-/* 8012FC84 0012CBE4  4E 80 00 20 */	blr 
+/* 8012FC84 0012CBE4  4E 80 00 20 */	blr
 
 .global Render__19CHUDBillboardEffectCFRC13CStateManager
 Render__19CHUDBillboardEffectCFRC13CStateManager:
@@ -199,12 +199,12 @@ Render__19CHUDBillboardEffectCFRC13CStateManager:
 /* 8012FCAC 0012CC0C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FCB0 0012CC10  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8012FCB4 0012CC14  7D 89 03 A6 */	mtctr r12
-/* 8012FCB8 0012CC18  4E 80 04 21 */	bctrl 
+/* 8012FCB8 0012CC18  4E 80 04 21 */	bctrl
 lbl_8012FCBC:
 /* 8012FCBC 0012CC1C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012FCC0 0012CC20  7C 08 03 A6 */	mtlr r0
 /* 8012FCC4 0012CC24  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012FCC8 0012CC28  4E 80 00 20 */	blr 
+/* 8012FCC8 0012CC28  4E 80 00 20 */	blr
 
 .global PreRender__19CHUDBillboardEffectFR13CStateManagerRC14CFrustumPlanes
 PreRender__19CHUDBillboardEffectFR13CStateManagerRC14CFrustumPlanes:
@@ -237,13 +237,13 @@ PreRender__19CHUDBillboardEffectFR13CStateManagerRC14CFrustumPlanes:
 /* 8012FD34 0012CC94  81 9F 00 00 */	lwz r12, 0(r31)
 /* 8012FD38 0012CC98  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8012FD3C 0012CC9C  7D 89 03 A6 */	mtctr r12
-/* 8012FD40 0012CCA0  4E 80 04 21 */	bctrl 
+/* 8012FD40 0012CCA0  4E 80 04 21 */	bctrl
 /* 8012FD44 0012CCA4  80 7D 00 E8 */	lwz r3, 0xe8(r29)
 /* 8012FD48 0012CCA8  38 81 00 48 */	addi r4, r1, 0x48
 /* 8012FD4C 0012CCAC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FD50 0012CCB0  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 8012FD54 0012CCB4  7D 89 03 A6 */	mtctr r12
-/* 8012FD58 0012CCB8  4E 80 04 21 */	bctrl 
+/* 8012FD58 0012CCB8  4E 80 04 21 */	bctrl
 /* 8012FD5C 0012CCBC  88 1D 01 04 */	lbz r0, 0x104(r29)
 /* 8012FD60 0012CCC0  38 60 00 01 */	li r3, 1
 /* 8012FD64 0012CCC4  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -271,7 +271,7 @@ lbl_8012FD80:
 /* 8012FDB4 0012CD14  83 A1 00 84 */	lwz r29, 0x84(r1)
 /* 8012FDB8 0012CD18  7C 08 03 A6 */	mtlr r0
 /* 8012FDBC 0012CD1C  38 21 00 90 */	addi r1, r1, 0x90
-/* 8012FDC0 0012CD20  4E 80 00 20 */	blr 
+/* 8012FDC0 0012CD20  4E 80 00 20 */	blr
 
 .global AddToRenderer__19CHUDBillboardEffectCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__19CHUDBillboardEffectCFRC14CFrustumPlanesRC13CStateManager:
@@ -289,12 +289,12 @@ AddToRenderer__19CHUDBillboardEffectCFRC14CFrustumPlanesRC13CStateManager:
 /* 8012FDF0 0012CD50  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FDF4 0012CD54  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8012FDF8 0012CD58  7D 89 03 A6 */	mtctr r12
-/* 8012FDFC 0012CD5C  4E 80 04 21 */	bctrl 
+/* 8012FDFC 0012CD5C  4E 80 04 21 */	bctrl
 lbl_8012FE00:
 /* 8012FE00 0012CD60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8012FE04 0012CD64  7C 08 03 A6 */	mtlr r0
 /* 8012FE08 0012CD68  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012FE0C 0012CD6C  4E 80 00 20 */	blr 
+/* 8012FE0C 0012CD6C  4E 80 00 20 */	blr
 
 .global __dt__19CHUDBillboardEffectFv
 __dt__19CHUDBillboardEffectFv:
@@ -316,7 +316,7 @@ __dt__19CHUDBillboardEffectFv:
 /* 8012FE4C 0012CDAC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8012FE50 0012CDB0  81 8C 00 74 */	lwz r12, 0x74(r12)
 /* 8012FE54 0012CDB4  7D 89 03 A6 */	mtctr r12
-/* 8012FE58 0012CDB8  4E 80 04 21 */	bctrl 
+/* 8012FE58 0012CDB8  4E 80 04 21 */	bctrl
 /* 8012FE5C 0012CDBC  3C 03 AF BF */	addis r0, r3, 0xafbf
 /* 8012FE60 0012CDC0  28 00 52 54 */	cmplwi r0, 0x5254
 /* 8012FE64 0012CDC4  40 82 00 20 */	bne lbl_8012FE84
@@ -337,7 +337,7 @@ lbl_8012FE84:
 /* 8012FE9C 0012CDFC  38 80 00 01 */	li r4, 1
 /* 8012FEA0 0012CE00  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8012FEA4 0012CE04  7D 89 03 A6 */	mtctr r12
-/* 8012FEA8 0012CE08  4E 80 04 21 */	bctrl 
+/* 8012FEA8 0012CE08  4E 80 04 21 */	bctrl
 lbl_8012FEAC:
 /* 8012FEAC 0012CE0C  28 1E 00 00 */	cmplwi r30, 0
 /* 8012FEB0 0012CE10  41 82 00 1C */	beq lbl_8012FECC
@@ -359,7 +359,7 @@ lbl_8012FEDC:
 /* 8012FEE8 0012CE48  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8012FEEC 0012CE4C  7C 08 03 A6 */	mtlr r0
 /* 8012FEF0 0012CE50  38 21 00 10 */	addi r1, r1, 0x10
-/* 8012FEF4 0012CE54  4E 80 00 20 */	blr 
+/* 8012FEF4 0012CE54  4E 80 00 20 */	blr
 
 .global "__ct__19CHUDBillboardEffectFRCQ24rstl44optional_object<25TToken<15CGenDescription>>RCQ24rstl49optional_object<30TToken<20CElectricDescription>>9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fRC9CVector3fRC6CColorRC9CVector3fRC9CVector3f"
 "__ct__19CHUDBillboardEffectFRCQ24rstl44optional_object<25TToken<15CGenDescription>>RCQ24rstl49optional_object<30TToken<20CElectricDescription>>9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>fRC9CVector3fRC6CColorRC9CVector3fRC9CVector3f":
@@ -491,7 +491,7 @@ lbl_801300CC:
 /* 801300DC 0012D03C  38 80 00 01 */	li r4, 1
 /* 801300E0 0012D040  81 8C 00 08 */	lwz r12, 8(r12)
 /* 801300E4 0012D044  7D 89 03 A6 */	mtctr r12
-/* 801300E8 0012D048  4E 80 04 21 */	bctrl 
+/* 801300E8 0012D048  4E 80 04 21 */	bctrl
 lbl_801300EC:
 /* 801300EC 0012D04C  7E C0 07 75 */	extsb. r0, r22
 /* 801300F0 0012D050  93 5F 00 E8 */	stw r26, 0xe8(r31)
@@ -533,7 +533,7 @@ lbl_80130164:
 /* 80130174 0012D0D4  38 80 00 01 */	li r4, 1
 /* 80130178 0012D0D8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8013017C 0012D0DC  7D 89 03 A6 */	mtctr r12
-/* 80130180 0012D0E0  4E 80 04 21 */	bctrl 
+/* 80130180 0012D0E0  4E 80 04 21 */	bctrl
 lbl_80130184:
 /* 80130184 0012D0E4  7E C0 07 75 */	extsb. r0, r22
 /* 80130188 0012D0E8  93 3F 00 E8 */	stw r25, 0xe8(r31)
@@ -550,13 +550,13 @@ lbl_8013019C:
 /* 801301B0 0012D110  81 83 00 00 */	lwz r12, 0(r3)
 /* 801301B4 0012D114  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 801301B8 0012D118  7D 89 03 A6 */	mtctr r12
-/* 801301BC 0012D11C  4E 80 04 21 */	bctrl 
+/* 801301BC 0012D11C  4E 80 04 21 */	bctrl
 /* 801301C0 0012D120  80 7F 00 E8 */	lwz r3, 0xe8(r31)
 /* 801301C4 0012D124  38 9F 00 F8 */	addi r4, r31, 0xf8
 /* 801301C8 0012D128  81 83 00 00 */	lwz r12, 0(r3)
 /* 801301CC 0012D12C  81 8C 00 28 */	lwz r12, 0x28(r12)
 /* 801301D0 0012D130  7D 89 03 A6 */	mtctr r12
-/* 801301D4 0012D134  4E 80 04 21 */	bctrl 
+/* 801301D4 0012D134  4E 80 04 21 */	bctrl
 /* 801301D8 0012D138  7F E3 FB 78 */	mr r3, r31
 /* 801301DC 0012D13C  E3 E1 00 88 */	psq_l f31, 136(r1), 0, qr0
 /* 801301E0 0012D140  CB E1 00 80 */	lfd f31, 0x80(r1)
@@ -564,7 +564,7 @@ lbl_8013019C:
 /* 801301E8 0012D148  80 01 00 94 */	lwz r0, 0x94(r1)
 /* 801301EC 0012D14C  7C 08 03 A6 */	mtlr r0
 /* 801301F0 0012D150  38 21 00 90 */	addi r1, r1, 0x90
-/* 801301F4 0012D154  4E 80 00 20 */	blr 
+/* 801301F4 0012D154  4E 80 00 20 */	blr
 
 .global GetNearClipDistance__19CHUDBillboardEffectFRC13CStateManager
 GetNearClipDistance__19CHUDBillboardEffectFRC13CStateManager:
@@ -580,7 +580,7 @@ GetNearClipDistance__19CHUDBillboardEffectFRC13CStateManager:
 /* 8013021C 0012D17C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80130220 0012D180  7C 08 03 A6 */	mtlr r0
 /* 80130224 0012D184  38 21 00 10 */	addi r1, r1, 0x10
-/* 80130228 0012D188  4E 80 00 20 */	blr 
+/* 80130228 0012D188  4E 80 00 20 */	blr
 
 .global GetScaleForPOV__19CHUDBillboardEffectFRC13CStateManager
 GetScaleForPOV__19CHUDBillboardEffectFRC13CStateManager:
@@ -598,7 +598,7 @@ GetScaleForPOV__19CHUDBillboardEffectFRC13CStateManager:
 lbl_80130258:
 /* 80130258 0012D1B8  3C 60 80 47 */	lis r3, lbl_8046C738@ha
 /* 8013025C 0012D1BC  38 63 C7 38 */	addi r3, r3, lbl_8046C738@l
-/* 80130260 0012D1C0  4E 80 00 20 */	blr 
+/* 80130260 0012D1C0  4E 80 00 20 */	blr
 
 .global CalcGenRate__19CHudBillboardEffectFv
 CalcGenRate__19CHudBillboardEffectFv:

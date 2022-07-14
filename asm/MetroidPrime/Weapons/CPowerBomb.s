@@ -190,7 +190,7 @@ lbl_8014DAA8:
 /* 8014DAD4 0014AA34  83 81 00 40 */	lwz r28, 0x40(r1)
 /* 8014DAD8 0014AA38  7C 08 03 A6 */	mtlr r0
 /* 8014DADC 0014AA3C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8014DAE0 0014AA40  4E 80 00 20 */	blr 
+/* 8014DAE0 0014AA40  4E 80 00 20 */	blr
 
 .global Accept__10CPowerBombFR8IVisitor
 Accept__10CPowerBombFR8IVisitor:
@@ -203,11 +203,11 @@ Accept__10CPowerBombFR8IVisitor:
 /* 8014DAFC 0014AA5C  7C 04 03 78 */	mr r4, r0
 /* 8014DB00 0014AA60  81 8C 00 E8 */	lwz r12, 0xe8(r12)
 /* 8014DB04 0014AA64  7D 89 03 A6 */	mtctr r12
-/* 8014DB08 0014AA68  4E 80 04 21 */	bctrl 
+/* 8014DB08 0014AA68  4E 80 04 21 */	bctrl
 /* 8014DB0C 0014AA6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014DB10 0014AA70  7C 08 03 A6 */	mtlr r0
 /* 8014DB14 0014AA74  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014DB18 0014AA78  4E 80 00 20 */	blr 
+/* 8014DB18 0014AA78  4E 80 00 20 */	blr
 
 .global Think__10CPowerBombFfR13CStateManager
 Think__10CPowerBombFfR13CStateManager:
@@ -276,7 +276,7 @@ lbl_8014DBF4:
 /* 8014DC08 0014AB68  81 83 00 00 */	lwz r12, 0(r3)
 /* 8014DC0C 0014AB6C  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 8014DC10 0014AB70  7D 89 03 A6 */	mtctr r12
-/* 8014DC14 0014AB74  4E 80 04 21 */	bctrl 
+/* 8014DC14 0014AB74  4E 80 04 21 */	bctrl
 /* 8014DC18 0014AB78  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8014DC1C 0014AB7C  41 82 00 1C */	beq lbl_8014DC38
 /* 8014DC20 0014AB80  A0 1E 00 08 */	lhz r0, 8(r30)
@@ -327,7 +327,7 @@ lbl_8014DCC0:
 /* 8014DCC8 0014AC28  81 83 00 00 */	lwz r12, 0(r3)
 /* 8014DCCC 0014AC2C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 8014DCD0 0014AC30  7D 89 03 A6 */	mtctr r12
-/* 8014DCD4 0014AC34  4E 80 04 21 */	bctrl 
+/* 8014DCD4 0014AC34  4E 80 04 21 */	bctrl
 /* 8014DCD8 0014AC38  C0 1E 01 5C */	lfs f0, 0x15c(r30)
 /* 8014DCDC 0014AC3C  EC 00 F8 2A */	fadds f0, f0, f31
 /* 8014DCE0 0014AC40  D0 1E 01 5C */	stfs f0, 0x15c(r30)
@@ -339,11 +339,11 @@ lbl_8014DCE4:
 /* 8014DCF4 0014AC54  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 8014DCF8 0014AC58  7C 08 03 A6 */	mtlr r0
 /* 8014DCFC 0014AC5C  38 21 00 40 */	addi r1, r1, 0x40
-/* 8014DD00 0014AC60  4E 80 00 20 */	blr 
+/* 8014DD00 0014AC60  4E 80 00 20 */	blr
 
 .global nullsub_228
 nullsub_228:
-/* 8014DD04 0014AC64  4E 80 00 20 */	blr 
+/* 8014DD04 0014AC64  4E 80 00 20 */	blr
 
 .global AddToRenderer__10CPowerBombCFRC14CFrustumPlanesRC13CStateManager
 AddToRenderer__10CPowerBombCFRC14CFrustumPlanesRC13CStateManager:
@@ -356,23 +356,23 @@ AddToRenderer__10CPowerBombCFRC14CFrustumPlanesRC13CStateManager:
 /* 8014DD20 0014AC80  81 83 00 00 */	lwz r12, 0(r3)
 /* 8014DD24 0014AC84  81 8C 00 34 */	lwz r12, 0x34(r12)
 /* 8014DD28 0014AC88  7D 89 03 A6 */	mtctr r12
-/* 8014DD2C 0014AC8C  4E 80 04 21 */	bctrl 
+/* 8014DD2C 0014AC8C  4E 80 04 21 */	bctrl
 /* 8014DD30 0014AC90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8014DD34 0014AC94  7C 08 03 A6 */	mtlr r0
 /* 8014DD38 0014AC98  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014DD3C 0014AC9C  4E 80 00 20 */	blr 
+/* 8014DD3C 0014AC9C  4E 80 00 20 */	blr
 
 .global GetTouchBounds__10CPowerBombCFv
 GetTouchBounds__10CPowerBombCFv:
 /* 8014DD40 0014ACA0  38 00 00 00 */	li r0, 0
 /* 8014DD44 0014ACA4  98 03 00 18 */	stb r0, 0x18(r3)
-/* 8014DD48 0014ACA8  4E 80 00 20 */	blr 
+/* 8014DD48 0014ACA8  4E 80 00 20 */	blr
 
 .global Touch__10CPowerBombFR6CActorR13CStateManager
 Touch__10CPowerBombFR6CActorR13CStateManager:
 /* 8014DD4C 0014ACAC  88 03 01 58 */	lbz r0, 0x158(r3)
 /* 8014DD50 0014ACB0  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
-/* 8014DD54 0014ACB4  4E 80 00 20 */	blr 
+/* 8014DD54 0014ACB4  4E 80 00 20 */	blr
 
 .global sub_8014dd58
 sub_8014dd58:
@@ -403,7 +403,7 @@ sub_8014dd58:
 /* 8014DDB8 0014AD18  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8014DDBC 0014AD1C  7C 08 03 A6 */	mtlr r0
 /* 8014DDC0 0014AD20  38 21 00 30 */	addi r1, r1, 0x30
-/* 8014DDC4 0014AD24  4E 80 00 20 */	blr 
+/* 8014DDC4 0014AD24  4E 80 00 20 */	blr
 
 .global __dt__10CPowerBombFv
 __dt__10CPowerBombFv:
@@ -427,7 +427,7 @@ __dt__10CPowerBombFv:
 /* 8014DE0C 0014AD6C  38 80 00 01 */	li r4, 1
 /* 8014DE10 0014AD70  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8014DE14 0014AD74  7D 89 03 A6 */	mtctr r12
-/* 8014DE18 0014AD78  4E 80 04 21 */	bctrl 
+/* 8014DE18 0014AD78  4E 80 04 21 */	bctrl
 lbl_8014DE1C:
 /* 8014DE1C 0014AD7C  7F C3 F3 78 */	mr r3, r30
 /* 8014DE20 0014AD80  38 80 00 00 */	li r4, 0
@@ -443,7 +443,7 @@ lbl_8014DE38:
 /* 8014DE44 0014ADA4  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8014DE48 0014ADA8  7C 08 03 A6 */	mtlr r0
 /* 8014DE4C 0014ADAC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8014DE50 0014ADB0  4E 80 00 20 */	blr 
+/* 8014DE50 0014ADB0  4E 80 00 20 */	blr
 
 .global "__ct__10CPowerBombF25TToken<15CGenDescription>9TUniqueId7TAreaId9TUniqueIdRC12CTransform4fRC11CDamageInfo"
 "__ct__10CPowerBombF25TToken<15CGenDescription>9TUniqueId7TAreaId9TUniqueIdRC12CTransform4fRC11CDamageInfo":
@@ -611,13 +611,13 @@ lbl_8014E0A8:
 /* 8014E0D0 0014B030  81 83 00 00 */	lwz r12, 0(r3)
 /* 8014E0D4 0014B034  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 8014E0D8 0014B038  7D 89 03 A6 */	mtctr r12
-/* 8014E0DC 0014B03C  4E 80 04 21 */	bctrl 
+/* 8014E0DC 0014B03C  4E 80 04 21 */	bctrl
 /* 8014E0E0 0014B040  7F C3 F3 78 */	mr r3, r30
 /* 8014E0E4 0014B044  BA 61 00 CC */	lmw r19, 0xcc(r1)
 /* 8014E0E8 0014B048  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 8014E0EC 0014B04C  7C 08 03 A6 */	mtlr r0
 /* 8014E0F0 0014B050  38 21 01 00 */	addi r1, r1, 0x100
-/* 8014E0F4 0014B054  4E 80 00 20 */	blr 
+/* 8014E0F4 0014B054  4E 80 00 20 */	blr
 
 .global __sinit_CPowerBomb_cpp
 __sinit_CPowerBomb_cpp:

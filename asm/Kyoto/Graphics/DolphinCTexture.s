@@ -50,7 +50,7 @@ lbl_805A9434:
 .global lbl_805A9438
 lbl_805A9438:
 	.skip 0x8
-	
+
 .section .text, "ax"
 
 .global sub_8030e10c
@@ -70,7 +70,7 @@ lbl_8030E138:
 /* 8030E138 0030B098  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030E13C 0030B09C  7C 08 03 A6 */	mtlr r0
 /* 8030E140 0030B0A0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030E144 0030B0A4  4E 80 00 20 */	blr 
+/* 8030E144 0030B0A4  4E 80 00 20 */	blr
 
 .global InvalidateTexmap__8CTextureF11_GXTexMapID
 InvalidateTexmap__8CTextureF11_GXTexMapID:
@@ -79,13 +79,13 @@ InvalidateTexmap__8CTextureF11_GXTexMapID:
 /* 8030E150 0030B0B0  38 64 FD 10 */	addi r3, r4, lbl_804BFD10@l
 /* 8030E154 0030B0B4  38 80 00 00 */	li r4, 0
 /* 8030E158 0030B0B8  7C 83 01 2E */	stwx r4, r3, r0
-/* 8030E15C 0030B0BC  4E 80 00 20 */	blr 
+/* 8030E15C 0030B0BC  4E 80 00 20 */	blr
 
 .global UncountMemory__8CTextureCFv
 UncountMemory__8CTextureCFv:
 /* 8030E160 0030B0C0  88 83 00 0A */	lbz r4, 0xa(r3)
 /* 8030E164 0030B0C4  54 80 EF FF */	rlwinm. r0, r4, 0x1d, 0x1f, 0x1f
-/* 8030E168 0030B0C8  4D 82 00 20 */	beqlr 
+/* 8030E168 0030B0C8  4D 82 00 20 */	beqlr
 /* 8030E16C 0030B0CC  38 00 00 00 */	li r0, 0
 /* 8030E170 0030B0D0  50 04 1F 38 */	rlwimi r4, r0, 3, 0x1c, 0x1c
 /* 8030E174 0030B0D4  80 0D A8 74 */	lwz r0, lbl_805A9434@sda21(r13)
@@ -93,13 +93,13 @@ UncountMemory__8CTextureCFv:
 /* 8030E17C 0030B0DC  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 8030E180 0030B0E0  7C 03 00 50 */	subf r0, r3, r0
 /* 8030E184 0030B0E4  90 0D A8 74 */	stw r0, lbl_805A9434@sda21(r13)
-/* 8030E188 0030B0E8  4E 80 00 20 */	blr 
+/* 8030E188 0030B0E8  4E 80 00 20 */	blr
 
 .global CountMemory__8CTextureCFv
 CountMemory__8CTextureCFv:
 /* 8030E18C 0030B0EC  88 A3 00 0A */	lbz r5, 0xa(r3)
 /* 8030E190 0030B0F0  54 A0 EF FF */	rlwinm. r0, r5, 0x1d, 0x1f, 0x1f
-/* 8030E194 0030B0F4  4C 82 00 20 */	bnelr 
+/* 8030E194 0030B0F4  4C 82 00 20 */	bnelr
 /* 8030E198 0030B0F8  38 00 00 01 */	li r0, 1
 /* 8030E19C 0030B0FC  80 8D A8 74 */	lwz r4, lbl_805A9434@sda21(r13)
 /* 8030E1A0 0030B100  50 05 1F 38 */	rlwimi r5, r0, 3, 0x1c, 0x1c
@@ -107,17 +107,17 @@ CountMemory__8CTextureCFv:
 /* 8030E1A8 0030B108  80 03 00 0C */	lwz r0, 0xc(r3)
 /* 8030E1AC 0030B10C  7C 04 02 14 */	add r0, r4, r0
 /* 8030E1B0 0030B110  90 0D A8 74 */	stw r0, lbl_805A9434@sda21(r13)
-/* 8030E1B4 0030B114  4E 80 00 20 */	blr 
+/* 8030E1B4 0030B114  4E 80 00 20 */	blr
 
 .global MakeSwappable__8CTextureCFv
 MakeSwappable__8CTextureCFv:
 /* 8030E1B8 0030B118  88 83 00 0A */	lbz r4, 0xa(r3)
 /* 8030E1BC 0030B11C  54 80 E7 FF */	rlwinm. r0, r4, 0x1c, 0x1f, 0x1f
-/* 8030E1C0 0030B120  4D 82 00 20 */	beqlr 
+/* 8030E1C0 0030B120  4D 82 00 20 */	beqlr
 /* 8030E1C4 0030B124  38 00 00 00 */	li r0, 0
 /* 8030E1C8 0030B128  50 04 26 F6 */	rlwimi r4, r0, 4, 0x1b, 0x1b
 /* 8030E1CC 0030B12C  98 83 00 0A */	stb r4, 0xa(r3)
-/* 8030E1D0 0030B130  4E 80 00 20 */	blr 
+/* 8030E1D0 0030B130  4E 80 00 20 */	blr
 
 .global MangleMipmap__8CTextureFi
 MangleMipmap__8CTextureFi:
@@ -394,7 +394,7 @@ lbl_8030E5C0:
 /* 8030E5C4 0030B524  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 8030E5C8 0030B528  7C 08 03 A6 */	mtlr r0
 /* 8030E5CC 0030B52C  38 21 00 50 */	addi r1, r1, 0x50
-/* 8030E5D0 0030B530  4E 80 00 20 */	blr 
+/* 8030E5D0 0030B530  4E 80 00 20 */	blr
 
 .global GetBitMapData__8CTextureFi
 GetBitMapData__8CTextureFi:
@@ -405,7 +405,7 @@ GetBitMapData__8CTextureFi:
 /* 8030E5E4 0030B544  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030E5E8 0030B548  7C 08 03 A6 */	mtlr r0
 /* 8030E5EC 0030B54C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030E5F0 0030B550  4E 80 00 20 */	blr 
+/* 8030E5F0 0030B550  4E 80 00 20 */	blr
 
 .global GetConstBitMapData__8CTextureCFi
 GetConstBitMapData__8CTextureCFi:
@@ -506,7 +506,7 @@ lbl_8030E74C:
 /* 8030E75C 0030B6BC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8030E760 0030B6C0  7C 08 03 A6 */	mtlr r0
 /* 8030E764 0030B6C4  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030E768 0030B6C8  4E 80 00 20 */	blr 
+/* 8030E768 0030B6C8  4E 80 00 20 */	blr
 
 .global FTextureFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer
 FTextureFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer:
@@ -556,7 +556,7 @@ lbl_8030E7B8:
 /* 8030E814 0030B774  38 80 00 01 */	li r4, 1
 /* 8030E818 0030B778  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030E81C 0030B77C  7D 89 03 A6 */	mtctr r12
-/* 8030E820 0030B780  4E 80 04 21 */	bctrl 
+/* 8030E820 0030B780  4E 80 04 21 */	bctrl
 lbl_8030E824:
 /* 8030E824 0030B784  88 01 00 08 */	lbz r0, 8(r1)
 /* 8030E828 0030B788  28 00 00 00 */	cmplwi r0, 0
@@ -570,7 +570,7 @@ lbl_8030E83C:
 /* 8030E844 0030B7A4  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8030E848 0030B7A8  7C 08 03 A6 */	mtlr r0
 /* 8030E84C 0030B7AC  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030E850 0030B7B0  4E 80 00 20 */	blr 
+/* 8030E850 0030B7B0  4E 80 00 20 */	blr
 
 .global "GetIObjObjectFor__17TToken<8CTexture>FRCQ24rstl19auto_ptr<8CTexture>"
 "GetIObjObjectFor__17TToken<8CTexture>FRCQ24rstl19auto_ptr<8CTexture>":
@@ -584,7 +584,7 @@ lbl_8030E83C:
 /* 8030E870 0030B7D0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030E874 0030B7D4  7C 08 03 A6 */	mtlr r0
 /* 8030E878 0030B7D8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030E87C 0030B7DC  4E 80 00 20 */	blr 
+/* 8030E87C 0030B7DC  4E 80 00 20 */	blr
 
 .global "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FRCQ24rstl19auto_ptr<8CTexture>"
 "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FRCQ24rstl19auto_ptr<8CTexture>":
@@ -627,7 +627,7 @@ lbl_8030E8F0:
 /* 8030E90C 0030B86C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8030E910 0030B870  7C 08 03 A6 */	mtlr r0
 /* 8030E914 0030B874  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030E918 0030B878  4E 80 00 20 */	blr 
+/* 8030E918 0030B878  4E 80 00 20 */	blr
 
 .global UnLock__8CTextureFv
 UnLock__8CTextureFv:
@@ -651,7 +651,7 @@ UnLock__8CTextureFv:
 /* 8030E960 0030B8C0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030E964 0030B8C4  7C 08 03 A6 */	mtlr r0
 /* 8030E968 0030B8C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030E96C 0030B8CC  4E 80 00 20 */	blr 
+/* 8030E96C 0030B8CC  4E 80 00 20 */	blr
 
 .global InitBitmapBuffers__8CTextureF12ETexelFormatssi
 InitBitmapBuffers__8CTextureF12ETexelFormatssi:
@@ -667,7 +667,7 @@ InitBitmapBuffers__8CTextureF12ETexelFormatssi:
 /* 8030E994 0030B8F4  38 63 D9 68 */	addi r3, r3, lbl_803ED968@l
 /* 8030E998 0030B8F8  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8030E99C 0030B8FC  7C 09 03 A6 */	mtctr r0
-/* 8030E9A0 0030B900  4E 80 04 20 */	bctr 
+/* 8030E9A0 0030B900  4E 80 04 20 */	bctr
 .global lbl_8030E9A4
 lbl_8030E9A4:
 /* 8030E9A4 0030B904  38 00 00 08 */	li r0, 8
@@ -783,7 +783,7 @@ lbl_8030EA94:
 /* 8030EAF4 0030BA54  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8030EAF8 0030BA58  7C 08 03 A6 */	mtlr r0
 /* 8030EAFC 0030BA5C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030EB00 0030BA60  4E 80 00 20 */	blr 
+/* 8030EB00 0030BA60  4E 80 00 20 */	blr
 
 .global TexelFormatBitsPerPixel__8CTextureF12ETexelFormat
 TexelFormatBitsPerPixel__8CTextureF12ETexelFormat:
@@ -794,26 +794,26 @@ TexelFormatBitsPerPixel__8CTextureF12ETexelFormat:
 /* 8030EB14 0030BA74  38 64 D9 94 */	addi r3, r4, lbl_803ED994@l
 /* 8030EB18 0030BA78  7C 03 00 2E */	lwzx r0, r3, r0
 /* 8030EB1C 0030BA7C  7C 09 03 A6 */	mtctr r0
-/* 8030EB20 0030BA80  4E 80 04 20 */	bctr 
+/* 8030EB20 0030BA80  4E 80 04 20 */	bctr
 .global lbl_8030EB24
 lbl_8030EB24:
 /* 8030EB24 0030BA84  38 60 00 04 */	li r3, 4
-/* 8030EB28 0030BA88  4E 80 00 20 */	blr 
+/* 8030EB28 0030BA88  4E 80 00 20 */	blr
 .global lbl_8030EB2C
 lbl_8030EB2C:
 /* 8030EB2C 0030BA8C  38 60 00 08 */	li r3, 8
-/* 8030EB30 0030BA90  4E 80 00 20 */	blr 
+/* 8030EB30 0030BA90  4E 80 00 20 */	blr
 .global lbl_8030EB34
 lbl_8030EB34:
 /* 8030EB34 0030BA94  38 60 00 10 */	li r3, 0x10
-/* 8030EB38 0030BA98  4E 80 00 20 */	blr 
+/* 8030EB38 0030BA98  4E 80 00 20 */	blr
 .global lbl_8030EB3C
 lbl_8030EB3C:
 /* 8030EB3C 0030BA9C  38 60 00 20 */	li r3, 0x20
-/* 8030EB40 0030BAA0  4E 80 00 20 */	blr 
+/* 8030EB40 0030BAA0  4E 80 00 20 */	blr
 lbl_8030EB44:
 /* 8030EB44 0030BAA4  38 60 00 00 */	li r3, 0
-/* 8030EB48 0030BAA8  4E 80 00 20 */	blr 
+/* 8030EB48 0030BAA8  4E 80 00 20 */	blr
 
 .global IsARAMTransferInProgress__8CTextureCFv
 IsARAMTransferInProgress__8CTextureCFv:
@@ -821,16 +821,16 @@ IsARAMTransferInProgress__8CTextureCFv:
 /* 8030EB50 0030BAB0  54 00 E7 FF */	rlwinm. r0, r0, 0x1c, 0x1f, 0x1f
 /* 8030EB54 0030BAB4  41 82 00 0C */	beq lbl_8030EB60
 /* 8030EB58 0030BAB8  38 60 00 00 */	li r3, 0
-/* 8030EB5C 0030BABC  4E 80 00 20 */	blr 
+/* 8030EB5C 0030BABC  4E 80 00 20 */	blr
 lbl_8030EB60:
 /* 8030EB60 0030BAC0  80 03 00 44 */	lwz r0, 0x44(r3)
 /* 8030EB64 0030BAC4  38 60 00 00 */	li r3, 0
 /* 8030EB68 0030BAC8  2C 00 00 02 */	cmpwi r0, 2
-/* 8030EB6C 0030BACC  4D 80 00 20 */	bltlr 
+/* 8030EB6C 0030BACC  4D 80 00 20 */	bltlr
 /* 8030EB70 0030BAD0  2C 00 00 05 */	cmpwi r0, 5
-/* 8030EB74 0030BAD4  4D 81 00 20 */	bgtlr 
+/* 8030EB74 0030BAD4  4D 81 00 20 */	bgtlr
 /* 8030EB78 0030BAD8  38 60 00 01 */	li r3, 1
-/* 8030EB7C 0030BADC  4E 80 00 20 */	blr 
+/* 8030EB7C 0030BADC  4E 80 00 20 */	blr
 
 .global LoadToARAM__8CTextureCFv
 LoadToARAM__8CTextureCFv:
@@ -880,7 +880,7 @@ lbl_8030EC10:
 /* 8030EC18 0030BB78  83 C1 00 08 */	lwz r30, 8(r1)
 /* 8030EC1C 0030BB7C  7C 08 03 A6 */	mtlr r0
 /* 8030EC20 0030BB80  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030EC24 0030BB84  4E 80 00 20 */	blr 
+/* 8030EC24 0030BB84  4E 80 00 20 */	blr
 
 .global LoadToMRAM__8CTextureCFv
 LoadToMRAM__8CTextureCFv:
@@ -905,7 +905,7 @@ lbl_8030EC64:
 /* 8030EC68 0030BBC8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8030EC6C 0030BBCC  7C 08 03 A6 */	mtlr r0
 /* 8030EC70 0030BBD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 8030EC74 0030BBD4  4E 80 00 20 */	blr 
+/* 8030EC74 0030BBD4  4E 80 00 20 */	blr
 
 .global TryBuildReloadedBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactory
 TryBuildReloadedBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactory:
@@ -919,7 +919,7 @@ TryBuildReloadedBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactor
 /* 8030EC94 0030BBF4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8030EC98 0030BBF8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8030EC9C 0030BBFC  7D 89 03 A6 */	mtctr r12
-/* 8030ECA0 0030BC00  4E 80 04 21 */	bctrl 
+/* 8030ECA0 0030BC00  4E 80 04 21 */	bctrl
 /* 8030ECA4 0030BC04  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8030ECA8 0030BC08  41 82 02 B0 */	beq lbl_8030EF58
 /* 8030ECAC 0030BC0C  38 00 00 02 */	li r0, 2
@@ -931,7 +931,7 @@ TryBuildReloadedBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactor
 /* 8030ECC4 0030BC24  38 80 00 01 */	li r4, 1
 /* 8030ECC8 0030BC28  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030ECCC 0030BC2C  7D 89 03 A6 */	mtctr r12
-/* 8030ECD0 0030BC30  4E 80 04 21 */	bctrl 
+/* 8030ECD0 0030BC30  4E 80 04 21 */	bctrl
 lbl_8030ECD4:
 /* 8030ECD4 0030BC34  38 00 00 00 */	li r0, 0
 /* 8030ECD8 0030BC38  3C 60 54 58 */	lis r3, 0x54585452@ha
@@ -1102,7 +1102,7 @@ lbl_8030EF14:
 /* 8030EF40 0030BEA0  38 80 00 01 */	li r4, 1
 /* 8030EF44 0030BEA4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030EF48 0030BEA8  7D 89 03 A6 */	mtctr r12
-/* 8030EF4C 0030BEAC  4E 80 04 21 */	bctrl 
+/* 8030EF4C 0030BEAC  4E 80 04 21 */	bctrl
 lbl_8030EF50:
 /* 8030EF50 0030BEB0  7F 83 E3 78 */	mr r3, r28
 /* 8030EF54 0030BEB4  48 00 00 08 */	b lbl_8030EF5C
@@ -1113,7 +1113,7 @@ lbl_8030EF5C:
 /* 8030EF60 0030BEC0  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8030EF64 0030BEC4  7C 08 03 A6 */	mtlr r0
 /* 8030EF68 0030BEC8  38 21 00 60 */	addi r1, r1, 0x60
-/* 8030EF6C 0030BECC  4E 80 00 20 */	blr 
+/* 8030EF6C 0030BECC  4E 80 00 20 */	blr
 
 .global BeginReloadBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactory
 BeginReloadBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactory:
@@ -1167,7 +1167,7 @@ BeginReloadBitmapData__Q28CTexture25CDumpedBitmapDataReloaderFR11CResFactory:
 /* 8030F02C 0030BF8C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8030F030 0030BF90  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030F034 0030BF94  7D 89 03 A6 */	mtctr r12
-/* 8030F038 0030BF98  4E 80 04 21 */	bctrl 
+/* 8030F038 0030BF98  4E 80 04 21 */	bctrl
 lbl_8030F03C:
 /* 8030F03C 0030BF9C  93 FD 00 14 */	stw r31, 0x14(r29)
 /* 8030F040 0030BFA0  38 00 00 01 */	li r0, 1
@@ -1179,7 +1179,7 @@ lbl_8030F048:
 /* 8030F054 0030BFB4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8030F058 0030BFB8  7C 08 03 A6 */	mtlr r0
 /* 8030F05C 0030BFBC  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030F060 0030BFC0  4E 80 00 20 */	blr 
+/* 8030F060 0030BFC0  4E 80 00 20 */	blr
 
 .global __ct__Q28CTexture25CDumpedBitmapDataReloaderFUiUib
 __ct__Q28CTexture25CDumpedBitmapDataReloaderFUiUib:
@@ -1191,7 +1191,7 @@ __ct__Q28CTexture25CDumpedBitmapDataReloaderFUiUib:
 /* 8030F078 0030BFD8  98 C3 00 10 */	stb r6, 0x10(r3)
 /* 8030F07C 0030BFDC  90 03 00 14 */	stw r0, 0x14(r3)
 /* 8030F080 0030BFE0  90 03 00 18 */	stw r0, 0x18(r3)
-/* 8030F084 0030BFE4  4E 80 00 20 */	blr 
+/* 8030F084 0030BFE4  4E 80 00 20 */	blr
 
 .global sub_8030f088
 sub_8030f088:
@@ -1201,9 +1201,9 @@ sub_8030f088:
 /* 8030F094 0030BFF4  80 04 00 00 */	lwz r0, 0(r4)
 /* 8030F098 0030BFF8  38 60 00 05 */	li r3, 5
 /* 8030F09C 0030BFFC  2C 00 00 00 */	cmpwi r0, 0
-/* 8030F0A0 0030C000  4C 82 00 20 */	bnelr 
+/* 8030F0A0 0030C000  4C 82 00 20 */	bnelr
 /* 8030F0A4 0030C004  38 60 00 02 */	li r3, 2
-/* 8030F0A8 0030C008  4E 80 00 20 */	blr 
+/* 8030F0A8 0030C008  4E 80 00 20 */	blr
 lbl_8030F0AC:
 /* 8030F0AC 0030C00C  80 03 00 44 */	lwz r0, 0x44(r3)
 /* 8030F0B0 0030C010  2C 00 00 02 */	cmpwi r0, 2
@@ -1220,19 +1220,19 @@ lbl_8030F0CC:
 /* 8030F0D8 0030C038  48 00 00 1C */	b lbl_8030F0F4
 lbl_8030F0DC:
 /* 8030F0DC 0030C03C  38 60 00 01 */	li r3, 1
-/* 8030F0E0 0030C040  4E 80 00 20 */	blr 
+/* 8030F0E0 0030C040  4E 80 00 20 */	blr
 lbl_8030F0E4:
 /* 8030F0E4 0030C044  38 60 00 00 */	li r3, 0
-/* 8030F0E8 0030C048  4E 80 00 20 */	blr 
+/* 8030F0E8 0030C048  4E 80 00 20 */	blr
 lbl_8030F0EC:
 /* 8030F0EC 0030C04C  38 60 00 03 */	li r3, 3
-/* 8030F0F0 0030C050  4E 80 00 20 */	blr 
+/* 8030F0F0 0030C050  4E 80 00 20 */	blr
 lbl_8030F0F4:
 /* 8030F0F4 0030C054  38 60 00 04 */	li r3, 4
-/* 8030F0F8 0030C058  4E 80 00 20 */	blr 
+/* 8030F0F8 0030C058  4E 80 00 20 */	blr
 lbl_8030F0FC:
 /* 8030F0FC 0030C05C  38 60 FF FF */	li r3, -1
-/* 8030F100 0030C060  4E 80 00 20 */	blr 
+/* 8030F100 0030C060  4E 80 00 20 */	blr
 
 .global TryReloadBitmapData__8CTextureCFR11CResFactory
 TryReloadBitmapData__8CTextureCFR11CResFactory:
@@ -1275,7 +1275,7 @@ lbl_8030F174:
 /* 8030F18C 0030C0EC  38 80 00 01 */	li r4, 1
 /* 8030F190 0030C0F0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030F194 0030C0F4  7D 89 03 A6 */	mtctr r12
-/* 8030F198 0030C0F8  4E 80 04 21 */	bctrl 
+/* 8030F198 0030C0F8  4E 80 04 21 */	bctrl
 lbl_8030F19C:
 /* 8030F19C 0030C0FC  7F C3 F3 78 */	mr r3, r30
 /* 8030F1A0 0030C100  48 00 67 91 */	bl Free__7CMemoryFPCv
@@ -1306,7 +1306,7 @@ lbl_8030F1E4:
 /* 8030F1F4 0030C154  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8030F1F8 0030C158  7C 08 03 A6 */	mtlr r0
 /* 8030F1FC 0030C15C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030F200 0030C160  4E 80 00 20 */	blr 
+/* 8030F200 0030C160  4E 80 00 20 */	blr
 
 .global UnloadBitmapData__8CTextureCFUi
 UnloadBitmapData__8CTextureCFUi:
@@ -1350,7 +1350,7 @@ lbl_8030F278:
 /* 8030F290 0030C1F0  38 80 00 01 */	li r4, 1
 /* 8030F294 0030C1F4  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030F298 0030C1F8  7D 89 03 A6 */	mtctr r12
-/* 8030F29C 0030C1FC  4E 80 04 21 */	bctrl 
+/* 8030F29C 0030C1FC  4E 80 04 21 */	bctrl
 lbl_8030F2A0:
 /* 8030F2A0 0030C200  7F C3 F3 78 */	mr r3, r30
 /* 8030F2A4 0030C204  48 00 66 8D */	bl Free__7CMemoryFPCv
@@ -1412,7 +1412,7 @@ lbl_8030F350:
 /* 8030F368 0030C2C8  38 80 00 01 */	li r4, 1
 /* 8030F36C 0030C2CC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030F370 0030C2D0  7D 89 03 A6 */	mtctr r12
-/* 8030F374 0030C2D4  4E 80 04 21 */	bctrl 
+/* 8030F374 0030C2D4  4E 80 04 21 */	bctrl
 lbl_8030F378:
 /* 8030F378 0030C2D8  7F C3 F3 78 */	mr r3, r30
 /* 8030F37C 0030C2DC  48 00 65 B5 */	bl Free__7CMemoryFPCv
@@ -1423,7 +1423,7 @@ lbl_8030F384:
 /* 8030F388 0030C2E8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8030F38C 0030C2EC  7C 08 03 A6 */	mtlr r0
 /* 8030F390 0030C2F0  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030F394 0030C2F4  4E 80 00 20 */	blr 
+/* 8030F394 0030C2F4  4E 80 00 20 */	blr
 
 .global LoadMipLevel__8CTextureCFi11_GXTexMapIDQ28CTexture10EClampMode
 LoadMipLevel__8CTextureCFi11_GXTexMapIDQ28CTexture10EClampMode:
@@ -1664,7 +1664,7 @@ lbl_8030F700:
 /* 8030F72C 0030C68C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 8030F730 0030C690  7C 08 03 A6 */	mtlr r0
 /* 8030F734 0030C694  38 21 00 40 */	addi r1, r1, 0x40
-/* 8030F738 0030C698  4E 80 00 20 */	blr 
+/* 8030F738 0030C698  4E 80 00 20 */	blr
 
 .global Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
 Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode:
@@ -1734,7 +1734,7 @@ lbl_8030F81C:
 /* 8030F820 0030C780  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8030F824 0030C784  7C 08 03 A6 */	mtlr r0
 /* 8030F828 0030C788  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030F82C 0030C78C  4E 80 00 20 */	blr 
+/* 8030F82C 0030C78C  4E 80 00 20 */	blr
 
 .global InitTextureObjects__8CTextureFv
 InitTextureObjects__8CTextureFv:
@@ -1860,7 +1860,7 @@ lbl_8030F9D4:
 /* 8030F9E8 0030C948  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8030F9EC 0030C94C  7C 08 03 A6 */	mtlr r0
 /* 8030F9F0 0030C950  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030F9F4 0030C954  4E 80 00 20 */	blr 
+/* 8030F9F4 0030C954  4E 80 00 20 */	blr
 
 .global __dt__8CTextureFv
 __dt__8CTextureFv:
@@ -1896,7 +1896,7 @@ lbl_8030FA50:
 /* 8030FA68 0030C9C8  38 80 00 01 */	li r4, 1
 /* 8030FA6C 0030C9CC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 8030FA70 0030C9D0  7D 89 03 A6 */	mtctr r12
-/* 8030FA74 0030C9D4  4E 80 04 21 */	bctrl 
+/* 8030FA74 0030C9D4  4E 80 04 21 */	bctrl
 lbl_8030FA78:
 /* 8030FA78 0030C9D8  7F E3 FB 78 */	mr r3, r31
 /* 8030FA7C 0030C9DC  48 00 5E B5 */	bl Free__7CMemoryFPCv
@@ -1919,7 +1919,7 @@ lbl_8030FAA4:
 /* 8030FAB4 0030CA14  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8030FAB8 0030CA18  7C 08 03 A6 */	mtlr r0
 /* 8030FABC 0030CA1C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030FAC0 0030CA20  4E 80 00 20 */	blr 
+/* 8030FAC0 0030CA20  4E 80 00 20 */	blr
 
 .global __ct__8CTextureFR12CInputStreamQ28CTexture11EAutoMipmapQ28CTexture9EBlackKey
 __ct__8CTextureFR12CInputStreamQ28CTexture11EAutoMipmapQ28CTexture9EBlackKey:
@@ -2155,7 +2155,7 @@ lbl_8030FE08:
 /* 8030FE1C 0030CD7C  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8030FE20 0030CD80  7C 08 03 A6 */	mtlr r0
 /* 8030FE24 0030CD84  38 21 00 30 */	addi r1, r1, 0x30
-/* 8030FE28 0030CD88  4E 80 00 20 */	blr 
+/* 8030FE28 0030CD88  4E 80 00 20 */	blr
 
 .global __ct__8CTextureF12ETexelFormatssi
 __ct__8CTextureF12ETexelFormatssi:
@@ -2220,4 +2220,4 @@ __ct__8CTextureF12ETexelFormatssi:
 /* 8030FF14 0030CE74  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8030FF18 0030CE78  7C 08 03 A6 */	mtlr r0
 /* 8030FF1C 0030CE7C  38 21 00 20 */	addi r1, r1, 0x20
-/* 8030FF20 0030CE80  4E 80 00 20 */	blr 
+/* 8030FF20 0030CE80  4E 80 00 20 */	blr

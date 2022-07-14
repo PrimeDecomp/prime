@@ -61,7 +61,7 @@ __dt__28CAnimTreeAnimReaderContainerFv:
 /* 802F1888 002EE7E8  38 80 00 01 */	li r4, 1
 /* 802F188C 002EE7EC  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F1890 002EE7F0  7D 89 03 A6 */	mtctr r12
-/* 802F1894 002EE7F4  4E 80 04 21 */	bctrl 
+/* 802F1894 002EE7F4  4E 80 04 21 */	bctrl
 lbl_802F1898:
 /* 802F1898 002EE7F8  28 1E 00 00 */	cmplwi r30, 0
 /* 802F189C 002EE7FC  41 82 00 38 */	beq lbl_802F18D4
@@ -91,17 +91,17 @@ lbl_802F18E4:
 /* 802F18F0 002EE850  83 C1 00 08 */	lwz r30, 8(r1)
 /* 802F18F4 002EE854  7C 08 03 A6 */	mtlr r0
 /* 802F18F8 002EE858  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F18FC 002EE85C  4E 80 00 20 */	blr 
+/* 802F18FC 002EE85C  4E 80 00 20 */	blr
 
 .global Depth__28CAnimTreeAnimReaderContainerCFv
 Depth__28CAnimTreeAnimReaderContainerCFv:
 /* 802F1900 002EE860  38 60 00 01 */	li r3, 1
-/* 802F1904 002EE864  4E 80 00 20 */	blr 
+/* 802F1904 002EE864  4E 80 00 20 */	blr
 
 .global VGetNumChildren__28CAnimTreeAnimReaderContainerCFv
 VGetNumChildren__28CAnimTreeAnimReaderContainerCFv:
 /* 802F1908 002EE868  38 60 00 00 */	li r3, 0
-/* 802F190C 002EE86C  4E 80 00 20 */	blr 
+/* 802F190C 002EE86C  4E 80 00 20 */	blr
 
 .global "VGetWeightedReaders__28CAnimTreeAnimReaderContainerFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 "VGetWeightedReaders__28CAnimTreeAnimReaderContainerFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>":
@@ -117,7 +117,7 @@ lbl_802F1930:
 /* 802F1930 002EE890  80 64 00 00 */	lwz r3, 0(r4)
 /* 802F1934 002EE894  38 03 00 01 */	addi r0, r3, 1
 /* 802F1938 002EE898  90 04 00 00 */	stw r0, 0(r4)
-/* 802F193C 002EE89C  4E 80 00 20 */	blr 
+/* 802F193C 002EE89C  4E 80 00 20 */	blr
 
 .global VGetBestUnblendedChild__28CAnimTreeAnimReaderContainerCFv
 VGetBestUnblendedChild__28CAnimTreeAnimReaderContainerCFv:
@@ -127,7 +127,7 @@ VGetBestUnblendedChild__28CAnimTreeAnimReaderContainerCFv:
 /* 802F194C 002EE8AC  80 64 00 04 */	lwz r3, 4(r4)
 /* 802F1950 002EE8B0  38 03 00 01 */	addi r0, r3, 1
 /* 802F1954 002EE8B4  90 04 00 04 */	stw r0, 4(r4)
-/* 802F1958 002EE8B8  4E 80 00 20 */	blr 
+/* 802F1958 002EE8B8  4E 80 00 20 */	blr
 
 .global VGetAdvancementResults__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeRC13CCharAnimTime
 VGetAdvancementResults__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeRC13CCharAnimTime:
@@ -140,12 +140,12 @@ VGetAdvancementResults__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeRC13CCh
 /* 802F1974 002EE8D4  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1978 002EE8D8  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 802F197C 002EE8DC  7D 89 03 A6 */	mtctr r12
-/* 802F1980 002EE8E0  4E 80 04 21 */	bctrl 
+/* 802F1980 002EE8E0  4E 80 04 21 */	bctrl
 /* 802F1984 002EE8E4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1988 002EE8E8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F198C 002EE8EC  7C 08 03 A6 */	mtlr r0
 /* 802F1990 002EE8F0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1994 002EE8F4  4E 80 00 20 */	blr 
+/* 802F1994 002EE8F4  4E 80 00 20 */	blr
 
 .global VSetPhase__28CAnimTreeAnimReaderContainerFf
 VSetPhase__28CAnimTreeAnimReaderContainerFf:
@@ -156,17 +156,17 @@ VSetPhase__28CAnimTreeAnimReaderContainerFf:
 /* 802F19A8 002EE908  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F19AC 002EE90C  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 802F19B0 002EE910  7D 89 03 A6 */	mtctr r12
-/* 802F19B4 002EE914  4E 80 04 21 */	bctrl 
+/* 802F19B4 002EE914  4E 80 04 21 */	bctrl
 /* 802F19B8 002EE918  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F19BC 002EE91C  7C 08 03 A6 */	mtlr r0
 /* 802F19C0 002EE920  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F19C4 002EE924  4E 80 00 20 */	blr 
+/* 802F19C4 002EE924  4E 80 00 20 */	blr
 
 .global VSimplified__28CAnimTreeAnimReaderContainerFv
 VSimplified__28CAnimTreeAnimReaderContainerFv:
 /* 802F19C8 002EE928  38 00 00 00 */	li r0, 0
 /* 802F19CC 002EE92C  98 03 00 08 */	stb r0, 8(r3)
-/* 802F19D0 002EE930  4E 80 00 20 */	blr 
+/* 802F19D0 002EE930  4E 80 00 20 */	blr
 
 .global VGetContributionOfHighestInfluence__28CAnimTreeAnimReaderContainerCFv
 VGetContributionOfHighestInfluence__28CAnimTreeAnimReaderContainerCFv:
@@ -184,13 +184,13 @@ VGetContributionOfHighestInfluence__28CAnimTreeAnimReaderContainerCFv:
 /* 802F1A00 002EE960  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1A04 002EE964  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802F1A08 002EE968  7D 89 03 A6 */	mtctr r12
-/* 802F1A0C 002EE96C  4E 80 04 21 */	bctrl 
+/* 802F1A0C 002EE96C  4E 80 04 21 */	bctrl
 /* 802F1A10 002EE970  80 9E 00 14 */	lwz r4, 0x14(r30)
 /* 802F1A14 002EE974  38 61 00 10 */	addi r3, r1, 0x10
 /* 802F1A18 002EE978  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1A1C 002EE97C  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802F1A20 002EE980  7D 89 03 A6 */	mtctr r12
-/* 802F1A24 002EE984  4E 80 04 21 */	bctrl 
+/* 802F1A24 002EE984  4E 80 04 21 */	bctrl
 /* 802F1A28 002EE988  C0 02 C6 80 */	lfs f0, lbl_805AE3A0@sda21(r2)
 /* 802F1A2C 002EE98C  38 7D 00 04 */	addi r3, r29, 4
 /* 802F1A30 002EE990  38 9E 00 04 */	addi r4, r30, 4
@@ -219,7 +219,7 @@ VGetContributionOfHighestInfluence__28CAnimTreeAnimReaderContainerCFv:
 /* 802F1A8C 002EE9EC  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 802F1A90 002EE9F0  7C 08 03 A6 */	mtlr r0
 /* 802F1A94 002EE9F4  38 21 00 40 */	addi r1, r1, 0x40
-/* 802F1A98 002EE9F8  4E 80 00 20 */	blr 
+/* 802F1A98 002EE9F8  4E 80 00 20 */	blr
 
 .global VClone__28CAnimTreeAnimReaderContainerCFv
 VClone__28CAnimTreeAnimReaderContainerCFv:
@@ -275,13 +275,13 @@ lbl_802F1B24:
 /* 802F1B5C 002EEABC  38 80 00 01 */	li r4, 1
 /* 802F1B60 002EEAC0  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802F1B64 002EEAC4  7D 89 03 A6 */	mtctr r12
-/* 802F1B68 002EEAC8  4E 80 04 21 */	bctrl 
+/* 802F1B68 002EEAC8  4E 80 04 21 */	bctrl
 lbl_802F1B6C:
 /* 802F1B6C 002EEACC  BB 61 00 1C */	lmw r27, 0x1c(r1)
 /* 802F1B70 002EEAD0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 802F1B74 002EEAD4  7C 08 03 A6 */	mtlr r0
 /* 802F1B78 002EEAD8  38 21 00 30 */	addi r1, r1, 0x30
-/* 802F1B7C 002EEADC  4E 80 00 20 */	blr 
+/* 802F1B7C 002EEADC  4E 80 00 20 */	blr
 
 .global VGetSegStatementSet__28CAnimTreeAnimReaderContainerCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime
 VGetSegStatementSet__28CAnimTreeAnimReaderContainerCFRC10CSegIdListR16CSegStatementSetRC13CCharAnimTime:
@@ -292,11 +292,11 @@ VGetSegStatementSet__28CAnimTreeAnimReaderContainerCFRC10CSegIdListR16CSegStatem
 /* 802F1B90 002EEAF0  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1B94 002EEAF4  81 8C 00 48 */	lwz r12, 0x48(r12)
 /* 802F1B98 002EEAF8  7D 89 03 A6 */	mtctr r12
-/* 802F1B9C 002EEAFC  4E 80 04 21 */	bctrl 
+/* 802F1B9C 002EEAFC  4E 80 04 21 */	bctrl
 /* 802F1BA0 002EEB00  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1BA4 002EEB04  7C 08 03 A6 */	mtlr r0
 /* 802F1BA8 002EEB08  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1BAC 002EEB0C  4E 80 00 20 */	blr 
+/* 802F1BAC 002EEB0C  4E 80 00 20 */	blr
 
 .global VGetSegStatementSet__28CAnimTreeAnimReaderContainerCFRC10CSegIdListR16CSegStatementSet
 VGetSegStatementSet__28CAnimTreeAnimReaderContainerCFRC10CSegIdListR16CSegStatementSet:
@@ -307,11 +307,11 @@ VGetSegStatementSet__28CAnimTreeAnimReaderContainerCFRC10CSegIdListR16CSegStatem
 /* 802F1BC0 002EEB20  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1BC4 002EEB24  81 8C 00 44 */	lwz r12, 0x44(r12)
 /* 802F1BC8 002EEB28  7D 89 03 A6 */	mtctr r12
-/* 802F1BCC 002EEB2C  4E 80 04 21 */	bctrl 
+/* 802F1BCC 002EEB2C  4E 80 04 21 */	bctrl
 /* 802F1BD0 002EEB30  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1BD4 002EEB34  7C 08 03 A6 */	mtlr r0
 /* 802F1BD8 002EEB38  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1BDC 002EEB3C  4E 80 00 20 */	blr 
+/* 802F1BDC 002EEB3C  4E 80 00 20 */	blr
 
 .global VGetParticlePOIState__28CAnimTreeAnimReaderContainerCFPCc
 VGetParticlePOIState__28CAnimTreeAnimReaderContainerCFPCc:
@@ -322,11 +322,11 @@ VGetParticlePOIState__28CAnimTreeAnimReaderContainerCFPCc:
 /* 802F1BF0 002EEB50  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1BF4 002EEB54  81 8C 00 40 */	lwz r12, 0x40(r12)
 /* 802F1BF8 002EEB58  7D 89 03 A6 */	mtctr r12
-/* 802F1BFC 002EEB5C  4E 80 04 21 */	bctrl 
+/* 802F1BFC 002EEB5C  4E 80 04 21 */	bctrl
 /* 802F1C00 002EEB60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1C04 002EEB64  7C 08 03 A6 */	mtlr r0
 /* 802F1C08 002EEB68  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1C0C 002EEB6C  4E 80 00 20 */	blr 
+/* 802F1C0C 002EEB6C  4E 80 00 20 */	blr
 
 .global VGetInt32POIState__28CAnimTreeAnimReaderContainerCFPCc
 VGetInt32POIState__28CAnimTreeAnimReaderContainerCFPCc:
@@ -337,11 +337,11 @@ VGetInt32POIState__28CAnimTreeAnimReaderContainerCFPCc:
 /* 802F1C20 002EEB80  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1C24 002EEB84  81 8C 00 3C */	lwz r12, 0x3c(r12)
 /* 802F1C28 002EEB88  7D 89 03 A6 */	mtctr r12
-/* 802F1C2C 002EEB8C  4E 80 04 21 */	bctrl 
+/* 802F1C2C 002EEB8C  4E 80 04 21 */	bctrl
 /* 802F1C30 002EEB90  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1C34 002EEB94  7C 08 03 A6 */	mtlr r0
 /* 802F1C38 002EEB98  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1C3C 002EEB9C  4E 80 00 20 */	blr 
+/* 802F1C3C 002EEB9C  4E 80 00 20 */	blr
 
 .global VGetBoolPOIState__28CAnimTreeAnimReaderContainerCFPCc
 VGetBoolPOIState__28CAnimTreeAnimReaderContainerCFPCc:
@@ -352,11 +352,11 @@ VGetBoolPOIState__28CAnimTreeAnimReaderContainerCFPCc:
 /* 802F1C50 002EEBB0  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1C54 002EEBB4  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 802F1C58 002EEBB8  7D 89 03 A6 */	mtctr r12
-/* 802F1C5C 002EEBBC  4E 80 04 21 */	bctrl 
+/* 802F1C5C 002EEBBC  4E 80 04 21 */	bctrl
 /* 802F1C60 002EEBC0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1C64 002EEBC4  7C 08 03 A6 */	mtlr r0
 /* 802F1C68 002EEBC8  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1C6C 002EEBCC  4E 80 00 20 */	blr 
+/* 802F1C6C 002EEBCC  4E 80 00 20 */	blr
 
 .global VGetSoundPOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP13CSoundPOINodeUiUii
 VGetSoundPOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP13CSoundPOINodeUiUii:
@@ -368,7 +368,7 @@ VGetSoundPOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP13CSoundPOIN
 /* 802F1C84 002EEBE4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1C88 002EEBE8  7C 08 03 A6 */	mtlr r0
 /* 802F1C8C 002EEBEC  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1C90 002EEBF0  4E 80 00 20 */	blr 
+/* 802F1C90 002EEBF0  4E 80 00 20 */	blr
 
 .global VGetParticlePOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP16CParticlePOINodeUiUii
 VGetParticlePOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP16CParticlePOINodeUiUii:
@@ -380,7 +380,7 @@ VGetParticlePOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP16CPartic
 /* 802F1CA8 002EEC08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1CAC 002EEC0C  7C 08 03 A6 */	mtlr r0
 /* 802F1CB0 002EEC10  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1CB4 002EEC14  4E 80 00 20 */	blr 
+/* 802F1CB4 002EEC14  4E 80 00 20 */	blr
 
 .global VGetInt32POIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP13CInt32POINodeUiUii
 VGetInt32POIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP13CInt32POINodeUiUii:
@@ -392,7 +392,7 @@ VGetInt32POIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP13CInt32POIN
 /* 802F1CCC 002EEC2C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1CD0 002EEC30  7C 08 03 A6 */	mtlr r0
 /* 802F1CD4 002EEC34  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1CD8 002EEC38  4E 80 00 20 */	blr 
+/* 802F1CD8 002EEC38  4E 80 00 20 */	blr
 
 .global VGetBoolPOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP12CBoolPOINodeUiUii
 VGetBoolPOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP12CBoolPOINodeUiUii:
@@ -404,7 +404,7 @@ VGetBoolPOIList__28CAnimTreeAnimReaderContainerCFRC13CCharAnimTimeP12CBoolPOINod
 /* 802F1CF0 002EEC50  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1CF4 002EEC54  7C 08 03 A6 */	mtlr r0
 /* 802F1CF8 002EEC58  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1CFC 002EEC5C  4E 80 00 20 */	blr 
+/* 802F1CFC 002EEC5C  4E 80 00 20 */	blr
 
 .global VGetRotation__28CAnimTreeAnimReaderContainerCFRC6CSegId
 VGetRotation__28CAnimTreeAnimReaderContainerCFRC6CSegId:
@@ -417,12 +417,12 @@ VGetRotation__28CAnimTreeAnimReaderContainerCFRC6CSegId:
 /* 802F1D18 002EEC78  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1D1C 002EEC7C  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 802F1D20 002EEC80  7D 89 03 A6 */	mtctr r12
-/* 802F1D24 002EEC84  4E 80 04 21 */	bctrl 
+/* 802F1D24 002EEC84  4E 80 04 21 */	bctrl
 /* 802F1D28 002EEC88  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1D2C 002EEC8C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F1D30 002EEC90  7C 08 03 A6 */	mtlr r0
 /* 802F1D34 002EEC94  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1D38 002EEC98  4E 80 00 20 */	blr 
+/* 802F1D38 002EEC98  4E 80 00 20 */	blr
 
 .global VGetOffset__28CAnimTreeAnimReaderContainerCFRC6CSegId
 VGetOffset__28CAnimTreeAnimReaderContainerCFRC6CSegId:
@@ -435,12 +435,12 @@ VGetOffset__28CAnimTreeAnimReaderContainerCFRC6CSegId:
 /* 802F1D54 002EECB4  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1D58 002EECB8  81 8C 00 20 */	lwz r12, 0x20(r12)
 /* 802F1D5C 002EECBC  7D 89 03 A6 */	mtctr r12
-/* 802F1D60 002EECC0  4E 80 04 21 */	bctrl 
+/* 802F1D60 002EECC0  4E 80 04 21 */	bctrl
 /* 802F1D64 002EECC4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1D68 002EECC8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F1D6C 002EECCC  7C 08 03 A6 */	mtlr r0
 /* 802F1D70 002EECD0  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1D74 002EECD4  4E 80 00 20 */	blr 
+/* 802F1D74 002EECD4  4E 80 00 20 */	blr
 
 .global VHasOffset__28CAnimTreeAnimReaderContainerCFRC6CSegId
 VHasOffset__28CAnimTreeAnimReaderContainerCFRC6CSegId:
@@ -451,11 +451,11 @@ VHasOffset__28CAnimTreeAnimReaderContainerCFRC6CSegId:
 /* 802F1D88 002EECE8  81 83 00 00 */	lwz r12, 0(r3)
 /* 802F1D8C 002EECEC  81 8C 00 1C */	lwz r12, 0x1c(r12)
 /* 802F1D90 002EECF0  7D 89 03 A6 */	mtctr r12
-/* 802F1D94 002EECF4  4E 80 04 21 */	bctrl 
+/* 802F1D94 002EECF4  4E 80 04 21 */	bctrl
 /* 802F1D98 002EECF8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1D9C 002EECFC  7C 08 03 A6 */	mtlr r0
 /* 802F1DA0 002EED00  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1DA4 002EED04  4E 80 00 20 */	blr 
+/* 802F1DA4 002EED04  4E 80 00 20 */	blr
 
 .global VGetSteadyStateAnimInfo__28CAnimTreeAnimReaderContainerCFv
 VGetSteadyStateAnimInfo__28CAnimTreeAnimReaderContainerCFv:
@@ -468,12 +468,12 @@ VGetSteadyStateAnimInfo__28CAnimTreeAnimReaderContainerCFv:
 /* 802F1DC0 002EED20  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1DC4 002EED24  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 802F1DC8 002EED28  7D 89 03 A6 */	mtctr r12
-/* 802F1DCC 002EED2C  4E 80 04 21 */	bctrl 
+/* 802F1DCC 002EED2C  4E 80 04 21 */	bctrl
 /* 802F1DD0 002EED30  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1DD4 002EED34  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F1DD8 002EED38  7C 08 03 A6 */	mtlr r0
 /* 802F1DDC 002EED3C  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1DE0 002EED40  4E 80 00 20 */	blr 
+/* 802F1DE0 002EED40  4E 80 00 20 */	blr
 
 .global VGetTimeRemaining__28CAnimTreeAnimReaderContainerCFv
 VGetTimeRemaining__28CAnimTreeAnimReaderContainerCFv:
@@ -486,12 +486,12 @@ VGetTimeRemaining__28CAnimTreeAnimReaderContainerCFv:
 /* 802F1DFC 002EED5C  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1E00 002EED60  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 802F1E04 002EED64  7D 89 03 A6 */	mtctr r12
-/* 802F1E08 002EED68  4E 80 04 21 */	bctrl 
+/* 802F1E08 002EED68  4E 80 04 21 */	bctrl
 /* 802F1E0C 002EED6C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1E10 002EED70  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F1E14 002EED74  7C 08 03 A6 */	mtlr r0
 /* 802F1E18 002EED78  38 21 00 10 */	addi r1, r1, 0x10
-/* 802F1E1C 002EED7C  4E 80 00 20 */	blr 
+/* 802F1E1C 002EED7C  4E 80 00 20 */	blr
 
 .global VAdvanceView__28CAnimTreeAnimReaderContainerFRC13CCharAnimTime
 VAdvanceView__28CAnimTreeAnimReaderContainerFRC13CCharAnimTime:
@@ -504,7 +504,7 @@ VAdvanceView__28CAnimTreeAnimReaderContainerFRC13CCharAnimTime:
 /* 802F1E38 002EED98  81 84 00 00 */	lwz r12, 0(r4)
 /* 802F1E3C 002EED9C  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802F1E40 002EEDA0  7D 89 03 A6 */	mtctr r12
-/* 802F1E44 002EEDA4  4E 80 04 21 */	bctrl 
+/* 802F1E44 002EEDA4  4E 80 04 21 */	bctrl
 /* 802F1E48 002EEDA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802F1E4C 002EEDAC  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 802F1E50 002EEDB0  7C 08 03 A6 */	mtlr r0

@@ -11,7 +11,7 @@
 /* 802D6E00 002D3D60  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D6E04 002D3D64  7C 08 03 A6 */	mtlr r0
 /* 802D6E08 002D3D68  38 21 00 10 */	addi r1, r1, 0x10
-/* 802D6E0C 002D3D6C  4E 80 00 20 */	blr 
+/* 802D6E0C 002D3D6C  4E 80 00 20 */	blr
 
 .global GetMetaAnimation__17CAnimationManagerCFUi
 GetMetaAnimation__17CAnimationManagerCFUi:
@@ -31,7 +31,7 @@ GetMetaAnimation__17CAnimationManagerCFUi:
 /* 802D6E44 002D3DA4  81 83 00 00 */	lwz r12, 0(r3)
 /* 802D6E48 002D3DA8  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802D6E4C 002D3DAC  7D 89 03 A6 */	mtctr r12
-/* 802D6E50 002D3DB0  4E 80 04 21 */	bctrl 
+/* 802D6E50 002D3DB0  4E 80 04 21 */	bctrl
 /* 802D6E54 002D3DB4  80 03 00 00 */	lwz r0, 0(r3)
 /* 802D6E58 002D3DB8  38 61 00 08 */	addi r3, r1, 8
 /* 802D6E5C 002D3DBC  38 80 00 00 */	li r4, 0
@@ -46,7 +46,7 @@ GetMetaAnimation__17CAnimationManagerCFUi:
 /* 802D6E80 002D3DE0  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 802D6E84 002D3DE4  7C 08 03 A6 */	mtlr r0
 /* 802D6E88 002D3DE8  38 21 00 20 */	addi r1, r1, 0x20
-/* 802D6E8C 002D3DEC  4E 80 00 20 */	blr 
+/* 802D6E8C 002D3DEC  4E 80 00 20 */	blr
 
 .global GetAnimationTree__17CAnimationManagerCFUiRC24CMetaAnimTreeBuildOrders
 GetAnimationTree__17CAnimationManagerCFUiRC24CMetaAnimTreeBuildOrders:
@@ -70,7 +70,7 @@ GetAnimationTree__17CAnimationManagerCFUiRC24CMetaAnimTreeBuildOrders:
 /* 802D6ED4 002D3E34  81 83 00 00 */	lwz r12, 0(r3)
 /* 802D6ED8 002D3E38  81 8C 00 08 */	lwz r12, 8(r12)
 /* 802D6EDC 002D3E3C  7D 89 03 A6 */	mtctr r12
-/* 802D6EE0 002D3E40  4E 80 04 21 */	bctrl 
+/* 802D6EE0 002D3E40  4E 80 04 21 */	bctrl
 /* 802D6EE4 002D3E44  7C 7F 1B 78 */	mr r31, r3
 /* 802D6EE8 002D3E48  38 61 00 08 */	addi r3, r1, 8
 /* 802D6EEC 002D3E4C  38 80 00 00 */	li r4, 0
@@ -83,7 +83,7 @@ GetAnimationTree__17CAnimationManagerCFUiRC24CMetaAnimTreeBuildOrders:
 /* 802D6F08 002D3E68  81 84 00 00 */	lwz r12, 0(r4)
 /* 802D6F0C 002D3E6C  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 802D6F10 002D3E70  7D 89 03 A6 */	mtctr r12
-/* 802D6F14 002D3E74  4E 80 04 21 */	bctrl 
+/* 802D6F14 002D3E74  4E 80 04 21 */	bctrl
 /* 802D6F18 002D3E78  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 802D6F1C 002D3E7C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802D6F20 002D3E80  83 C1 00 18 */	lwz r30, 0x18(r1)

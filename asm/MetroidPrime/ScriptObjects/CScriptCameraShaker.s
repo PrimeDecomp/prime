@@ -63,7 +63,7 @@ lbl_800FDE6C:
 /* 800FDE78 000FADD8  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800FDE7C 000FADDC  7C 08 03 A6 */	mtlr r0
 /* 800FDE80 000FADE0  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FDE84 000FADE4  4E 80 00 20 */	blr 
+/* 800FDE84 000FADE4  4E 80 00 20 */	blr
 
 .global Accept__19CScriptCameraShakerFR8IVisitor
 Accept__19CScriptCameraShakerFR8IVisitor:
@@ -76,11 +76,11 @@ Accept__19CScriptCameraShakerFR8IVisitor:
 /* 800FDEA0 000FAE00  7C 04 03 78 */	mr r4, r0
 /* 800FDEA4 000FAE04  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 800FDEA8 000FAE08  7D 89 03 A6 */	mtctr r12
-/* 800FDEAC 000FAE0C  4E 80 04 21 */	bctrl 
+/* 800FDEAC 000FAE0C  4E 80 04 21 */	bctrl
 /* 800FDEB0 000FAE10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800FDEB4 000FAE14  7C 08 03 A6 */	mtlr r0
 /* 800FDEB8 000FAE18  38 21 00 10 */	addi r1, r1, 0x10
-/* 800FDEBC 000FAE1C  4E 80 00 20 */	blr 
+/* 800FDEBC 000FAE1C  4E 80 00 20 */	blr
 
 .global AcceptScriptMsg__19CScriptCameraShakerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__19CScriptCameraShakerF20EScriptObjectMessage9TUniqueIdR13CStateManager:
@@ -155,7 +155,7 @@ lbl_800FDF90:
 /* 800FDFBC 000FAF1C  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800FDFC0 000FAF20  7C 08 03 A6 */	mtlr r0
 /* 800FDFC4 000FAF24  38 21 00 30 */	addi r1, r1, 0x30
-/* 800FDFC8 000FAF28  4E 80 00 20 */	blr 
+/* 800FDFC8 000FAF28  4E 80 00 20 */	blr
 
 .global "__ct__19CScriptCameraShakerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC16CCameraShakeData"
 "__ct__19CScriptCameraShakerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobRC16CCameraShakeData":

@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text, "ax" 
+.section .text, "ax"
 
 .global __kernel_sin
 __kernel_sin:
@@ -46,4 +46,4 @@ lbl_80393F90:
 /* 80393FA8 00390F08  FC 26 00 28 */	fsub f1, f6, f0
 lbl_80393FAC:
 /* 80393FAC 00390F0C  38 21 00 20 */	addi r1, r1, 0x20
-/* 80393FB0 00390F10  4E 80 00 20 */	blr 
+/* 80393FB0 00390F10  4E 80 00 20 */	blr

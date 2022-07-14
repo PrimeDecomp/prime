@@ -48,4 +48,4 @@ __ct__Q210IAllocator8SMetricsFRCQ210IAllocator8SMetrics:
 /* 800C36F0 000C0650  90 03 00 50 */	stw r0, 0x50(r3)
 /* 800C36F4 000C0654  80 04 00 54 */	lwz r0, 0x54(r4)
 /* 800C36F8 000C0658  90 03 00 54 */	stw r0, 0x54(r3)
-/* 800C36FC 000C065C  4E 80 00 20 */	blr 
+/* 800C36FC 000C065C  4E 80 00 20 */	blr

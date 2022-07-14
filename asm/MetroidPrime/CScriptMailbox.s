@@ -31,14 +31,14 @@ lbl_800E1A50:
 /* 800E1A60 000DE9C0  7C 03 00 40 */	cmplw r3, r0
 /* 800E1A64 000DE9C4  40 82 00 0C */	bne lbl_800E1A70
 /* 800E1A68 000DE9C8  38 60 00 01 */	li r3, 1
-/* 800E1A6C 000DE9CC  4E 80 00 20 */	blr 
+/* 800E1A6C 000DE9CC  4E 80 00 20 */	blr
 lbl_800E1A70:
 /* 800E1A70 000DE9D0  38 C6 00 04 */	addi r6, r6, 4
 lbl_800E1A74:
 /* 800E1A74 000DE9D4  7C 06 28 40 */	cmplw r6, r5
 /* 800E1A78 000DE9D8  40 82 FF D8 */	bne lbl_800E1A50
 /* 800E1A7C 000DE9DC  38 60 00 00 */	li r3, 0
-/* 800E1A80 000DE9E0  4E 80 00 20 */	blr 
+/* 800E1A80 000DE9E0  4E 80 00 20 */	blr
 
 .global RemoveRelay__14CScriptMailboxF9TEditorId
 RemoveRelay__14CScriptMailboxF9TEditorId:
@@ -57,9 +57,9 @@ lbl_800E1A9C:
 /* 800E1AB0 000DEA10  40 82 00 4C */	bne lbl_800E1AFC
 /* 800E1AB4 000DEA14  38 03 00 04 */	addi r0, r3, 4
 /* 800E1AB8 000DEA18  7C 07 00 40 */	cmplw r7, r0
-/* 800E1ABC 000DEA1C  4D 80 00 20 */	bltlr 
+/* 800E1ABC 000DEA1C  4D 80 00 20 */	bltlr
 /* 800E1AC0 000DEA20  7C 07 30 40 */	cmplw r7, r6
-/* 800E1AC4 000DEA24  4C 80 00 20 */	bgelr 
+/* 800E1AC4 000DEA24  4C 80 00 20 */	bgelr
 /* 800E1AC8 000DEA28  7C E5 3B 78 */	mr r5, r7
 /* 800E1ACC 000DEA2C  48 00 00 10 */	b lbl_800E1ADC
 lbl_800E1AD0:
@@ -74,13 +74,13 @@ lbl_800E1ADC:
 /* 800E1AEC 000DEA4C  41 80 FF E4 */	blt lbl_800E1AD0
 /* 800E1AF0 000DEA50  38 04 FF FF */	addi r0, r4, -1
 /* 800E1AF4 000DEA54  90 03 00 00 */	stw r0, 0(r3)
-/* 800E1AF8 000DEA58  4E 80 00 20 */	blr 
+/* 800E1AF8 000DEA58  4E 80 00 20 */	blr
 lbl_800E1AFC:
 /* 800E1AFC 000DEA5C  38 E7 00 04 */	addi r7, r7, 4
 lbl_800E1B00:
 /* 800E1B00 000DEA60  7C 07 30 40 */	cmplw r7, r6
 /* 800E1B04 000DEA64  40 82 FF 98 */	bne lbl_800E1A9C
-/* 800E1B08 000DEA68  4E 80 00 20 */	blr 
+/* 800E1B08 000DEA68  4E 80 00 20 */	blr
 
 .global AddRelay__14CScriptMailboxF9TEditorId
 AddRelay__14CScriptMailboxF9TEditorId:
@@ -96,7 +96,7 @@ lbl_800E1B24:
 /* 800E1B2C 000DEA8C  54 A5 01 BE */	clrlwi r5, r5, 6
 /* 800E1B30 000DEA90  54 00 01 BE */	clrlwi r0, r0, 6
 /* 800E1B34 000DEA94  7C 05 00 40 */	cmplw r5, r0
-/* 800E1B38 000DEA98  4D 82 00 20 */	beqlr 
+/* 800E1B38 000DEA98  4D 82 00 20 */	beqlr
 /* 800E1B3C 000DEA9C  38 E7 00 04 */	addi r7, r7, 4
 lbl_800E1B40:
 /* 800E1B40 000DEAA0  7C 07 30 40 */	cmplw r7, r6
@@ -109,7 +109,7 @@ lbl_800E1B58:
 /* 800E1B58 000DEAB8  80 83 00 00 */	lwz r4, 0(r3)
 /* 800E1B5C 000DEABC  38 04 00 01 */	addi r0, r4, 1
 /* 800E1B60 000DEAC0  90 03 00 00 */	stw r0, 0(r3)
-/* 800E1B64 000DEAC4  4E 80 00 20 */	blr 
+/* 800E1B64 000DEAC4  4E 80 00 20 */	blr
 
 .global SendMsgs__14CScriptMailboxFRC7TAreaIdR13CStateManager
 SendMsgs__14CScriptMailboxFRC7TAreaIdR13CStateManager:
@@ -204,7 +204,7 @@ lbl_800E1CA8:
 /* 800E1CAC 000DEC0C  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800E1CB0 000DEC10  7C 08 03 A6 */	mtlr r0
 /* 800E1CB4 000DEC14  38 21 00 50 */	addi r1, r1, 0x50
-/* 800E1CB8 000DEC18  4E 80 00 20 */	blr 
+/* 800E1CB8 000DEC18  4E 80 00 20 */	blr
 
 .global PutTo__14CScriptMailboxCFR13COutputStream
 PutTo__14CScriptMailboxCFR13COutputStream:
@@ -302,7 +302,7 @@ lbl_800E1DF4:
 /* 800E1DF8 000DED58  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800E1DFC 000DED5C  7C 08 03 A6 */	mtlr r0
 /* 800E1E00 000DED60  38 21 00 50 */	addi r1, r1, 0x50
-/* 800E1E04 000DED64  4E 80 00 20 */	blr 
+/* 800E1E04 000DED64  4E 80 00 20 */	blr
 
 .global __dt__14CScriptMailboxFv
 __dt__14CScriptMailboxFv:
@@ -355,7 +355,7 @@ lbl_800E1E9C:
 /* 800E1EA8 000DEE08  83 C1 00 08 */	lwz r30, 8(r1)
 /* 800E1EAC 000DEE0C  7C 08 03 A6 */	mtlr r0
 /* 800E1EB0 000DEE10  38 21 00 10 */	addi r1, r1, 0x10
-/* 800E1EB4 000DEE14  4E 80 00 20 */	blr 
+/* 800E1EB4 000DEE14  4E 80 00 20 */	blr
 
 .global __ct__14CScriptMailboxFR12CInputStreamRC10CSaveWorld
 __ct__14CScriptMailboxFR12CInputStreamRC10CSaveWorld:
@@ -465,7 +465,7 @@ lbl_800E2014:
 /* 800E201C 000DEF7C  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800E2020 000DEF80  7C 08 03 A6 */	mtlr r0
 /* 800E2024 000DEF84  38 21 00 40 */	addi r1, r1, 0x40
-/* 800E2028 000DEF88  4E 80 00 20 */	blr 
+/* 800E2028 000DEF88  4E 80 00 20 */	blr
 
 .global __ct__14CScriptMailboxFv
 __ct__14CScriptMailboxFv:

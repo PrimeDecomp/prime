@@ -3,16 +3,24 @@
 .section .sdata2
 .global lbl_805AEC00
 lbl_805AEC00:
-	.incbin "baserom.dol", 0x3FB4A0, 0x4
+	# ROM: 0x3FB4A0
+	.4byte 0x3F800000
+
 .global lbl_805AEC04
 lbl_805AEC04:
-	.incbin "baserom.dol", 0x3FB4A4, 0x4
+	# ROM: 0x3FB4A4
+	.4byte 0x40000000
+
 .global lbl_805AEC08
 lbl_805AEC08:
-	.incbin "baserom.dol", 0x3FB4A8, 0x4
+	# ROM: 0x3FB4A8
+	.4byte 0
+
 .global lbl_805AEC0C
 lbl_805AEC0C:
-	.incbin "baserom.dol", 0x3FB4AC, 0x4
+	# ROM: 0x3FB4AC
+	.4byte 0xBF800000
+
 
 .section .text, "ax"
 
@@ -56,7 +64,7 @@ C_MTXFrustum:
 /* 8037D5A8 0037A508  C0 02 CE EC */	lfs f0, lbl_805AEC0C@sda21(r2)
 /* 8037D5AC 0037A50C  D0 03 00 38 */	stfs f0, 0x38(r3)
 /* 8037D5B0 0037A510  D0 83 00 3C */	stfs f4, 0x3c(r3)
-/* 8037D5B4 0037A514  4E 80 00 20 */	blr 
+/* 8037D5B4 0037A514  4E 80 00 20 */	blr
 
 .global C_MTXOrtho
 C_MTXOrtho:
@@ -97,4 +105,4 @@ C_MTXOrtho:
 /* 8037D640 0037A5A0  D0 63 00 34 */	stfs f3, 0x34(r3)
 /* 8037D644 0037A5A4  D0 63 00 38 */	stfs f3, 0x38(r3)
 /* 8037D648 0037A5A8  D1 23 00 3C */	stfs f9, 0x3c(r3)
-/* 8037D64C 0037A5AC  4E 80 00 20 */	blr 
+/* 8037D64C 0037A5AC  4E 80 00 20 */	blr
