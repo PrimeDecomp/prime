@@ -2,8 +2,8 @@
 
 .section .data
 
-.global lbl_803EE388
-lbl_803EE388:
+.global __vt__12CInputStream
+__vt__12CInputStream:
 	# ROM: 0x3EB388
 	.4byte 0
 	.4byte 0
@@ -382,8 +382,8 @@ __dt__12CInputStreamFv:
 /* 8033F0C0 0033C020  93 C1 00 08 */	stw r30, 8(r1)
 /* 8033F0C4 0033C024  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033F0C8 0033C028  41 82 00 34 */	beq lbl_8033F0FC
-/* 8033F0CC 0033C02C  3C 60 80 3F */	lis r3, lbl_803EE388@ha
-/* 8033F0D0 0033C030  38 03 E3 88 */	addi r0, r3, lbl_803EE388@l
+/* 8033F0CC 0033C02C  3C 60 80 3F */	lis r3, __vt__12CInputStream@ha
+/* 8033F0D0 0033C030  38 03 E3 88 */	addi r0, r3, __vt__12CInputStream@l
 /* 8033F0D4 0033C034  90 1E 00 00 */	stw r0, 0(r30)
 /* 8033F0D8 0033C038  88 1E 00 14 */	lbz r0, 0x14(r30)
 /* 8033F0DC 0033C03C  28 00 00 00 */	cmplwi r0, 0
@@ -406,9 +406,9 @@ lbl_8033F0FC:
 
 .global __ct__12CInputStreamFPCvib
 __ct__12CInputStreamFPCvib:
-/* 8033F118 0033C078  3C E0 80 3F */	lis r7, lbl_803EE388@ha
+/* 8033F118 0033C078  3C E0 80 3F */	lis r7, __vt__12CInputStream@ha
 /* 8033F11C 0033C07C  38 00 00 00 */	li r0, 0
-/* 8033F120 0033C080  38 E7 E3 88 */	addi r7, r7, lbl_803EE388@l
+/* 8033F120 0033C080  38 E7 E3 88 */	addi r7, r7, __vt__12CInputStream@l
 /* 8033F124 0033C084  90 E3 00 00 */	stw r7, 0(r3)
 /* 8033F128 0033C088  90 03 00 04 */	stw r0, 4(r3)
 /* 8033F12C 0033C08C  90 A3 00 08 */	stw r5, 8(r3)
@@ -424,10 +424,10 @@ __ct__12CInputStreamFPCvib:
 __ct__12CInputStreamFi:
 /* 8033F14C 0033C0AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033F150 0033C0B0  7C 08 02 A6 */	mflr r0
-/* 8033F154 0033C0B4  3C C0 80 3F */	lis r6, lbl_803EE388@ha
+/* 8033F154 0033C0B4  3C C0 80 3F */	lis r6, __vt__12CInputStream@ha
 /* 8033F158 0033C0B8  3C A0 80 3D */	lis r5, lbl_803D7A68@ha
 /* 8033F15C 0033C0BC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8033F160 0033C0C0  38 06 E3 88 */	addi r0, r6, lbl_803EE388@l
+/* 8033F160 0033C0C0  38 06 E3 88 */	addi r0, r6, __vt__12CInputStream@l
 /* 8033F164 0033C0C4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8033F168 0033C0C8  7C 7F 1B 78 */	mr r31, r3
 /* 8033F16C 0033C0CC  7C 83 23 78 */	mr r3, r4

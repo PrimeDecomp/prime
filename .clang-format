@@ -8,3 +8,6 @@ DerivePointerAlignment: false
 PointerAlignment: Left
 AlwaysBreakTemplateDeclarations: Yes
 SpacesInAngles: Always # for C++98-compatible nested template arguments
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 0
+BreakConstructorInitializers: BeforeComma

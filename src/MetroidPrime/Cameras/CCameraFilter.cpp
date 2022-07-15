@@ -3,7 +3,7 @@
 #include "Kyoto_CWD/CGraphics.hpp"
 
 // FIXME non-matching https://decomp.me/scratch/8N81d
-void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, float lod) {
+void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, f32 lod) {
   const rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
   f32 left = vp.first.mX;
   f32 dVar5 = -((vp.second.mX - vp.first.mX) * 0.0625f * 9.f - (vp.second.mY - vp.first.mY)) * 0.5f;
@@ -20,7 +20,7 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
 
   {
     CGraphics::StreamBegin(kP_TriangleStrip);
-    float v = (float)(rand() % 4000) / 16384.f;
+    f32 v = (f32)(rand() % 4000) / 16384.f;
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(v, 1.f);
     CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, bottom + (dVar5 * lod)));
@@ -34,7 +34,7 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
   }
   {
     CGraphics::StreamBegin(kP_TriangleStrip);
-    float v = (float)(rand() % 4000) / 16384.f;
+    f32 v = (f32)(rand() % 4000) / 16384.f;
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(v, 0.f);
     CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, top));
