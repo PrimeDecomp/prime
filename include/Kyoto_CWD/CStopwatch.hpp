@@ -10,7 +10,7 @@ public:
   class CSWData {
   public:
     bool Initialize();
-    void Wait(float) const;
+    void Wait(f32) const;
 
     s64 GetTimerFreq() const { return x0_timerFreq; }
     s64 GetTimerFreqO1M() const { return x8_timerFreqO1M; }
@@ -32,7 +32,7 @@ public:
     }
     x0_startTime = mData.GetCPUCycles();
   }
-  inline float GetElapsedTime() const { return (mData.GetCPUCycles() - x0_startTime) * mData.GetTimerPeriod(); }
+  inline f32 GetElapsedTime() const { return (mData.GetCPUCycles() - x0_startTime) * mData.GetTimerPeriod(); }
   inline s64 GetElapsedMicros() const { return (mData.GetCPUCycles() - x0_startTime) / mData.GetTimerFreqO1M(); }
 
 private:

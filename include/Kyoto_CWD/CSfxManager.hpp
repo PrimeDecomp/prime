@@ -5,7 +5,7 @@
 
 class CSfxManager {
 public:
-  static void Update(float dt);
+  static void Update(f32 dt);
 };
 
 #endif
