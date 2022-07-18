@@ -19,7 +19,7 @@ typedef u32 CAssetId;
 //   bool operator==(const CAssetId& other) { return id == other.id; }
 // };
 
-#define FourCC unsigned long
+#define FourCC u32
 
 struct SObjectTag {
   FourCC type;

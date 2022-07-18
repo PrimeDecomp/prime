@@ -599,7 +599,7 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/Animation/DolphinCSkinRules.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/DolphinCVirtualBone.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCModel.o\
-	$(BUILD_DIR)/asm/Kyoto/Text/CStringTable.o\
+	$(BUILD_DIR)/src/Kyoto/Text/CStringTable.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CEmitterElement.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CEffectComponent.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleData.o\
