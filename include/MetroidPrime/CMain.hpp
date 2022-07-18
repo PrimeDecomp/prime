@@ -7,13 +7,13 @@
 
 #include "CGameArchitectureSupport.hpp"
 #include "CGameGlobalObjects.hpp"
-#include "CInputStream.hpp"
-#include "CMemorySys.hpp"
-#include "COsContext.hpp"
-#include "CStopwatch.hpp"
-#include "CTweaks.hpp"
-#include "TReservedAverage.hpp"
-#include "TGameTypes.hpp"
+#include "Kyoto/Basics/COsContext.hpp"
+#include "Kyoto/Basics/CStopwatch.hpp"
+#include "Kyoto/CMemorySys.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/TReservedAverage.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/Tweaks/CTweaks.hpp"
 
 class CMain {
 public:

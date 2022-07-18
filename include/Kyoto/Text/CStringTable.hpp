@@ -5,7 +5,7 @@
 
 #include "rstl/single_ptr.hpp"
 
-#include "CInputStream.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
 
 class CStringTable {
   s32 x0_stringCount;

@@ -1,6 +1,6 @@
-#include "Kyoto_CWD/CCameraFilterPass.hpp"
-#include "Kyoto_CWD/CCubeRenderer.hpp"
-#include "Kyoto_CWD/CGraphics.hpp"
+#include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
+#include "MetaRender/CCubeRenderer.hpp"
+#include "Kyoto/Graphics/CGraphics.hpp"
 
 // FIXME non-matching https://decomp.me/scratch/8N81d
 void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, f32 lod) {

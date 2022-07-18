@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "../Kyoto_CWD/CMemory.hpp"
+#include "Kyoto/Alloc/CMemory.hpp"
 
 namespace rstl {
 struct rmemory_allocator {

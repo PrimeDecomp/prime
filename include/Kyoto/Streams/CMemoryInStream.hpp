@@ -12,7 +12,8 @@ public:
 
   CMemoryInStream(const void* ptr, unsigned long len);
   CMemoryInStream(const void* ptr, unsigned long len, EOwnerShip ownership);
-  virtual ~CMemoryInStream() {}
+  virtual ~CMemoryInStream() override {}
+  virtual u32 Read(void* dest, u32 len) override;
 };
 
 #endif

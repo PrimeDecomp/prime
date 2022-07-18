@@ -1,10 +1,9 @@
-#include "Kyoto_CWD/CStringTable.hpp"
+#include "Kyoto/Text/CStringTable.hpp"
 
 #include "rstl/pair.hpp"
 #include "rstl/vector.hpp"
 
-#include "Kyoto_CWD/CFactoryMgr.hpp"
-#include "Kyoto_CWD/TGameTypes.hpp"
+#include "Kyoto/CFactoryMgr.hpp"
 
 static FourCC mCurrentLanguage = 'ENGL';
 

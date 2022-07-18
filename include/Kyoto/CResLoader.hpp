@@ -6,7 +6,7 @@
 #include "rstl/list.hpp"
 #include "rstl/string.hpp"
 
-#include "TGameTypes.hpp"
+#include "IObjectStore.hpp"
 
 class CPakFile;
 

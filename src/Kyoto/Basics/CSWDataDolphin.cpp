@@ -1,4 +1,4 @@
-#include "Kyoto_CWD/CStopwatch.hpp"
+#include "Kyoto/Basics/CStopwatch.hpp"
 
 #include "Dolphin/os.h"
 
