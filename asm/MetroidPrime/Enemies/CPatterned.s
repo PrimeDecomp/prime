@@ -449,7 +449,7 @@ lbl_805A6FD4:
 .global lbl_805A6FD8
 lbl_805A6FD8:
 	# ROM: 0x3F4978
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A6FDC
 lbl_805A6FDC:
@@ -508,6 +508,158 @@ lbl_805A8E38:
 .global lbl_805A8E3C
 lbl_805A8E3C:
 	.skip 0x4
+
+.section .sdata2, "a"
+
+.global lbl_805AA610
+lbl_805AA610:
+	# ROM: 0x3F6EB0
+	.4byte 0x3EA8F5C3
+
+.global lbl_805AA614
+lbl_805AA614:
+	# ROM: 0x3F6EB4
+	.4byte 0x40400000
+
+.global lbl_805AA618
+lbl_805AA618:
+	# ROM: 0x3F6EB8
+	.float 0.1
+
+.global lbl_805AA61C
+lbl_805AA61C:
+	# ROM: 0x3F6EBC
+	.4byte 0x3C010204
+
+.global lbl_805AA620
+lbl_805AA620:
+	# ROM: 0x3F6EC0
+	.4byte 0x3B808081
+
+.global lbl_805AA624
+lbl_805AA624:
+	# ROM: 0x3F6EC4
+	.float 1.0
+
+.global lbl_805AA628
+lbl_805AA628:
+	# ROM: 0x3F6EC8
+	.4byte 0
+
+.global lbl_805AA62C
+lbl_805AA62C:
+	# ROM: 0x3F6ECC
+	.float 1.5
+
+.global lbl_805AA630
+lbl_805AA630:
+	# ROM: 0x3F6ED0
+	.float 0.5
+
+.global lbl_805AA634
+lbl_805AA634:
+	# ROM: 0x3F6ED4
+	.4byte 0xBEAAAAAB
+
+.global lbl_805AA638
+lbl_805AA638:
+	# ROM: 0x3F6ED8
+	.float 0.1
+
+.global lbl_805AA63C
+lbl_805AA63C:
+	# ROM: 0x3F6EDC
+	.4byte 0x3F59999A
+
+.global lbl_805AA640
+lbl_805AA640:
+	# ROM: 0x3F6EE0
+	.float 0.9
+
+.global lbl_805AA644
+lbl_805AA644:
+	# ROM: 0x3F6EE4
+	.float 1.0E-4
+
+.global lbl_805AA648
+lbl_805AA648:
+	# ROM: 0x3F6EE8
+	.float 5.0
+
+.global lbl_805AA64C
+lbl_805AA64C:
+	# ROM: 0x3F6EEC
+	.4byte 0x3F34FDF4
+
+.global lbl_805AA650
+lbl_805AA650:
+	# ROM: 0x3F6EF0
+	.4byte 0x447A0000
+
+.global lbl_805AA654
+lbl_805AA654:
+	# ROM: 0x3F6EF4
+	.4byte 0x3F4CCCCD
+
+.global lbl_805AA658
+lbl_805AA658:
+	# ROM: 0x3F6EF8
+	.float 15.0
+
+.global lbl_805AA65C
+lbl_805AA65C:
+	# ROM: 0x3F6EFC
+	.float 0.2
+
+.global lbl_805AA660
+lbl_805AA660:
+	# ROM: 0x3F6F00
+	.4byte 0x3EA8F5C3
+
+.global lbl_805AA664
+lbl_805AA664:
+	# ROM: 0x3F6F04
+	.float 255.0
+
+.global lbl_805AA668
+lbl_805AA668:
+	# ROM: 0x3F6F08
+	.float -1.0
+
+.global lbl_805AA66C
+lbl_805AA66C:
+	# ROM: 0x3F6F0C
+	.float 0.25
+
+.global lbl_805AA670
+lbl_805AA670:
+	# ROM: 0x3F6F10
+	.4byte 0x42200000
+
+.global lbl_805AA674
+lbl_805AA674:
+	# ROM: 0x3F6F14
+	.float 0.3
+
+.global lbl_805AA678
+lbl_805AA678:
+	# ROM: 0x3F6F18
+	.float 0.7853982
+
+.global lbl_805AA67C
+lbl_805AA67C:
+	# ROM: 0x3F6F1C
+	.float 1.1920929E-7
+
+.global lbl_805AA680
+lbl_805AA680:
+	# ROM: 0x3F6F20
+	.4byte 0x3F19999A
+
+.global lbl_805AA684
+lbl_805AA684:
+	# ROM: 0x3F6F24
+	.float 0.017453292
 
 .section .text, "ax"
 
@@ -725,7 +877,7 @@ IsOnGround__10CPatternedCFv:
 
 .global GetGravityConstant__10CPatternedCFv
 GetGravityConstant__10CPatternedCFv:
-/* 80077818 00074778  C0 22 96 A0 */	lfs f1, lbl_805AB3C0@sda21(r2)
+/* 80077818 00074778  C0 22 96 A0 */	lfs f1, skGravityConstant__13CPhysicsActor@sda21(r2)
 /* 8007781C 0007477C  4E 80 00 20 */	blr
 
 .global GetProjectileInfo__10CPatternedFv

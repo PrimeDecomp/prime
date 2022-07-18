@@ -12,7 +12,7 @@ lbl_803EF840:
 	.4byte 0x01000200
 	.4byte 0x04000800
 	.4byte 0x10002000
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0xF8000004
 	.4byte 0x008700D5
 	.4byte 0x01110143

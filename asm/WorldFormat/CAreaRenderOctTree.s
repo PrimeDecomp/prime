@@ -487,3 +487,11 @@ sub_802aec48:
 /* 802AECFC 002ABC5C  7C 04 02 14 */	add r0, r4, r0
 /* 802AED00 002ABC60  90 03 00 38 */	stw r0, 0x38(r3)
 /* 802AED04 002ABC64  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADF08
+lbl_805ADF08:
+	# ROM: 0x3FA7A8
+	.float 0.5
+	.4byte 0
+

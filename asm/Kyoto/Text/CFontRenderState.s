@@ -835,3 +835,10 @@ lbl_802FF7F0:
 /* 802FF800 002FC760  7C 08 03 A6 */	mtlr r0
 /* 802FF804 002FC764  38 21 00 30 */	addi r1, r1, 0x30
 /* 802FF808 002FC768  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE458
+lbl_805AE458:
+	# ROM: 0x3FACF8
+	.double 4.503601774854144E15
+

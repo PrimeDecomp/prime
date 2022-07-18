@@ -2221,3 +2221,20 @@ __ct__8CTextureF12ETexelFormatssi:
 /* 8030FF18 0030CE78  7C 08 03 A6 */	mtlr r0
 /* 8030FF1C 0030CE7C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8030FF20 0030CE80  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE558
+lbl_805AE558:
+	# ROM: 0x3FADF8
+	.4byte 0
+
+.global lbl_805AE55C
+lbl_805AE55C:
+	# ROM: 0x3FADFC
+	.float 1.0
+
+.global lbl_805AE560
+lbl_805AE560:
+	# ROM: 0x3FAE00
+	.double 4.503601774854144E15
+

@@ -746,3 +746,21 @@ __ct__15CBSLoopReactionFv:
 /* 8013CA4C 001399AC  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8013CA50 001399B0  98 03 00 0C */	stb r0, 0xc(r3)
 /* 8013CA54 001399B4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB7C8
+lbl_805AB7C8:
+	# ROM: 0x3F8068
+	.4byte 0
+
+.global lbl_805AB7CC
+lbl_805AB7CC:
+	# ROM: 0x3F806C
+	.float 1.0
+
+.global lbl_805AB7D0
+lbl_805AB7D0:
+	# ROM: 0x3F8070
+	.float 1.1920929E-7
+	.4byte 0
+

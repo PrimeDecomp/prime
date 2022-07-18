@@ -38,6 +38,99 @@ lbl_805A8F10:
 lbl_805A8F14:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AB120
+lbl_805AB120:
+	# ROM: 0x3F79C0
+	.4byte 0xFFFFFFFF
+
+.global lbl_805AB124
+lbl_805AB124:
+	# ROM: 0x3F79C4
+	.float 0.1
+	
+.global lbl_805AB128
+lbl_805AB128:
+	# ROM: 0x3F79C8
+	.4byte 0
+
+.global lbl_805AB12C
+lbl_805AB12C:
+	# ROM: 0x3F79CC
+	.float 1.1920929E-7
+
+.global lbl_805AB130
+lbl_805AB130:
+	# ROM: 0x3F79D0
+	.float 0.1
+
+.global lbl_805AB134
+lbl_805AB134:
+	# ROM: 0x3F79D4
+	.float 0.3
+
+.global lbl_805AB138
+lbl_805AB138:
+	# ROM: 0x3F79D8
+	.4byte 0x3F19999A
+
+.global lbl_805AB13C
+lbl_805AB13C:
+	# ROM: 0x3F79DC
+	.4byte 0x3C449BA6
+
+.global lbl_805AB140
+lbl_805AB140:
+	# ROM: 0x3F79E0
+	.float 0.03
+
+.global lbl_805AB144
+lbl_805AB144:
+	# ROM: 0x3F79E4
+	.float 1.0
+
+.global lbl_805AB148
+lbl_805AB148:
+	# ROM: 0x3F79E8
+	.float 0.33333334
+
+.global lbl_805AB14C
+lbl_805AB14C:
+	# ROM: 0x3F79EC
+	.float 0.001
+
+.global lbl_805AB150
+lbl_805AB150:
+	# ROM: 0x3F79F0
+	.float 2.0
+
+.global lbl_805AB154
+lbl_805AB154:
+	# ROM: 0x3F79F4
+	.float 0.5
+
+.global lbl_805AB158
+lbl_805AB158:
+	# ROM: 0x3F79F8
+	.float 15.0
+
+.global lbl_805AB15C
+lbl_805AB15C:
+	# ROM: 0x3F79FC
+	.float 255.0
+
+.global lbl_805AB160
+lbl_805AB160:
+	# ROM: 0x3F7A00
+	.double 4.503601774854144E15
+
+.global lbl_805AB168
+lbl_805AB168:
+	# ROM: 0x3F7A08
+	.4byte 0x3B808081
+	.4byte 0
+
 .section .text, "ax"
 
 .global BuildConstantAmbientLighting__12CActorLightsFv
@@ -1214,7 +1307,7 @@ lbl_801040EC:
 /* 80104120 00101080  38 BF 00 B8 */	addi r5, r31, 0xb8
 /* 80104124 00101084  48 20 E9 C5 */	bl __ml__12CTransform4fCFRC9CVector3f
 /* 80104128 00101088  7D C3 73 78 */	mr r3, r14
-/* 8010412C 0010108C  48 1A A3 59 */	bl GetVisOctree__13CPVSVisOctreeFv
+/* 8010412C 0010108C  48 1A A3 59 */	bl GetVisOctree__11CPVSAreaSetCFUi
 /* 80104130 00101090  7C 64 1B 78 */	mr r4, r3
 /* 80104134 00101094  38 7F 01 24 */	addi r3, r31, 0x124
 /* 80104138 00101098  38 BF 00 58 */	addi r5, r31, 0x58
@@ -1255,7 +1348,7 @@ lbl_801041B0:
 /* 801041B8 00101118  38 BE 00 0C */	addi r5, r30, 0xc
 /* 801041BC 0010111C  48 20 E9 2D */	bl __ml__12CTransform4fCFRC9CVector3f
 /* 801041C0 00101120  7D C3 73 78 */	mr r3, r14
-/* 801041C4 00101124  48 1A A2 C1 */	bl GetVisOctree__13CPVSVisOctreeFv
+/* 801041C4 00101124  48 1A A2 C1 */	bl GetVisOctree__11CPVSAreaSetCFUi
 /* 801041C8 00101128  7C 64 1B 78 */	mr r4, r3
 /* 801041CC 0010112C  38 7F 01 10 */	addi r3, r31, 0x110
 /* 801041D0 00101130  38 BF 00 4C */	addi r5, r31, 0x4c
@@ -1296,7 +1389,7 @@ lbl_80104248:
 /* 80104250 001011B0  38 9D 00 3C */	addi r4, r29, 0x3c
 /* 80104254 001011B4  48 20 E8 95 */	bl __ml__12CTransform4fCFRC9CVector3f
 /* 80104258 001011B8  7D C3 73 78 */	mr r3, r14
-/* 8010425C 001011BC  48 1A A2 29 */	bl GetVisOctree__13CPVSVisOctreeFv
+/* 8010425C 001011BC  48 1A A2 29 */	bl GetVisOctree__11CPVSAreaSetCFUi
 /* 80104260 001011C0  7C 64 1B 78 */	mr r4, r3
 /* 80104264 001011C4  38 7F 00 FC */	addi r3, r31, 0xfc
 /* 80104268 001011C8  38 BF 00 40 */	addi r5, r31, 0x40

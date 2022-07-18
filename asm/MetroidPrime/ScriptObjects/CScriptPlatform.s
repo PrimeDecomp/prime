@@ -118,6 +118,70 @@ lbl_805A720C:
 	# ROM: 0x3F4BAC
 	.4byte 0x00000031
 
+.section .sdata2, "a"
+
+.global lbl_805AA9C8
+lbl_805AA9C8:
+	# ROM: 0x3F7268
+	.4byte 0
+
+.global lbl_805AA9CC
+lbl_805AA9CC:
+	# ROM: 0x3F726C
+	.4byte 0
+
+.global lbl_805AA9D0
+lbl_805AA9D0:
+	# ROM: 0x3F7270
+	.float 1.0
+
+.global lbl_805AA9D4
+lbl_805AA9D4:
+	# ROM: 0x3F7274
+	.4byte 0x3727C5AC
+
+.global lbl_805AA9D8
+lbl_805AA9D8:
+	# ROM: 0x3F7278
+	.float 0.02
+	.4byte 0
+
+.global lbl_805AA9E0
+lbl_805AA9E0:
+	# ROM: 0x3F7280
+	.4byte 0x3F947AE1
+	.float 2.0
+
+.global lbl_805AA9E8
+lbl_805AA9E8:
+	# ROM: 0x3F7288
+	.4byte 0x3D0F5C29
+
+.global lbl_805AA9EC
+lbl_805AA9EC:
+	# ROM: 0x3F728C
+	.float 0.16666667
+
+.global lbl_805AA9F0
+lbl_805AA9F0:
+	# ROM: 0x3F7290
+	.4byte 0x3FD55556
+
+.global lbl_805AA9F4
+lbl_805AA9F4:
+	# ROM: 0x3F7294
+	.4byte 0x466A6000
+
+.global lbl_805AA9F8
+lbl_805AA9F8:
+	# ROM: 0x3F7298
+	.float 0.3
+
+.global lbl_805AA9FC
+lbl_805AA9FC:
+	# ROM: 0x3F729C
+	.float 0.1
+
 .section .text, "ax"
 
 .global Render__15CScriptPlatformCFRC13CStateManager

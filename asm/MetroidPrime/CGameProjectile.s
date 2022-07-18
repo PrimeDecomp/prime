@@ -86,6 +86,90 @@ lbl_805A6DDC:
 	# ROM: 0x3F477C
 	.4byte 0x00000012
 
+.section .sdata2, "a"
+
+.global lbl_805AA120
+lbl_805AA120:
+	# ROM: 0x3F69C0
+	.float 0.1
+
+.global lbl_805AA124
+lbl_805AA124:
+	# ROM: 0x3F69C4
+	.4byte 0x43B40000
+
+.global lbl_805AA128
+lbl_805AA128:
+	# ROM: 0x3F69C8
+	.4byte 0x3E22F983
+
+.global lbl_805AA12C
+lbl_805AA12C:
+	# ROM: 0x3F69CC
+	.4byte 0x42340000
+
+.global lbl_805AA130
+lbl_805AA130:
+	# ROM: 0x3F69D0
+	.float 1.0
+
+.global lbl_805AA134
+lbl_805AA134:
+	# ROM: 0x3F69D4
+	.4byte 0
+
+.global lbl_805AA138
+lbl_805AA138:
+	# ROM: 0x3F69D8
+	.float 0.5
+
+.global lbl_805AA13C
+lbl_805AA13C:
+	# ROM: 0x3F69DC
+	.float 2.0
+
+.global lbl_805AA140
+lbl_805AA140:
+	# ROM: 0x3F69E0
+	.4byte 0x3F7D70A4
+
+.global lbl_805AA144
+lbl_805AA144:
+	# ROM: 0x3F69E4
+	.float 0.017453292
+
+.global lbl_805AA148
+lbl_805AA148:
+	# ROM: 0x3F69E8
+	.4byte 0x42160000
+
+.global lbl_805AA14C
+lbl_805AA14C:
+	# ROM: 0x3F69EC
+	.4byte 0x3F900000
+
+.global lbl_805AA150
+lbl_805AA150:
+	# ROM: 0x3F69F0
+	.float 0.25
+
+.global lbl_805AA154
+lbl_805AA154:
+	# ROM: 0x3F69F4
+	.float 0.1
+
+.global lbl_805AA158
+lbl_805AA158:
+	# ROM: 0x3F69F8
+	.float 0.03
+	.4byte 0
+
+.global lbl_805AA160
+lbl_805AA160:
+	# ROM: 0x3F6A00
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__15CGameProjectileFv

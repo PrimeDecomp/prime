@@ -52,6 +52,63 @@ lbl_805A7634:
 	# ROM: 0x3F4FD4
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global skGravityConstant__13CPhysicsActor
+skGravityConstant__13CPhysicsActor:
+	# ROM: 0x3F7C60
+	.float 24.525002
+
+.global lbl_805AB3C4
+lbl_805AB3C4:
+	# ROM: 0x3F7C64
+	.float 0.0
+
+.global lbl_805AB3C8
+lbl_805AB3C8:
+	# ROM: 0x3F7C68
+	.float 24.525002
+
+.global lbl_805AB3CC
+lbl_805AB3CC:
+	# ROM: 0x3F7C6C
+	.float 0.5
+
+.global lbl_805AB3D0
+lbl_805AB3D0:
+	# ROM: 0x3F7C70
+	.float 1.0
+
+.global lbl_805AB3D4
+lbl_805AB3D4:
+	# ROM: 0x3F7C74
+	.float 1.5
+
+.global lbl_805AB3D8
+lbl_805AB3D8:
+	# ROM: 0x3F7C78
+	.float 0.16666667
+
+.global lbl_805AB3DC
+lbl_805AB3DC:
+	# ROM: 0x3F7C7C
+	.float 0.99999976
+
+.global lbl_805AB3E0
+lbl_805AB3E0:
+	# ROM: 0x3F7C80
+	.float 2.0
+
+.global lbl_805AB3E4
+lbl_805AB3E4:
+	# ROM: 0x3F7C84
+	.float 1.0E-4
+
+.global lbl_805AB3E8
+lbl_805AB3E8:
+	# ROM: 0x3F7C88
+	.float 1000000.0
+	.4byte 0
 
 .section .text, "ax"
 

@@ -1230,3 +1230,22 @@ lbl_802F7A0C:
 /* 802F7AA8 002F4A08  7C 08 03 A6 */	mtlr r0
 /* 802F7AAC 002F4A0C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802F7AB0 002F4A10  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE3E0
+lbl_805AE3E0:
+	# ROM: 0x3FAC80
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE3E8
+lbl_805AE3E8:
+	# ROM: 0x3FAC88
+	.double 1.0
+
+.global lbl_805AE3F0
+lbl_805AE3F0:
+	# ROM: 0x3FAC90
+	.float 0.5
+	.4byte 0
+

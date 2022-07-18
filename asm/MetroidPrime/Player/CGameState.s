@@ -3324,3 +3324,32 @@ lbl_801D647C:
 /* 801D6484 001D33E4  40 82 FF 88 */	bne lbl_801D640C
 /* 801D6488 001D33E8  7C A3 2B 78 */	mr r3, r5
 /* 801D648C 001D33EC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC940
+lbl_805AC940:
+	# ROM: 0x3F91E0
+	.4byte 0x4115F8FC
+	.4byte 0
+
+.global lbl_805AC948
+lbl_805AC948:
+	# ROM: 0x3F91E8
+	.4byte 0
+
+.global lbl_805AC94C
+lbl_805AC94C:
+	# ROM: 0x3F91EC
+	.4byte 0x42C80000
+
+.global lbl_805AC950
+lbl_805AC950:
+	# ROM: 0x3F91F0
+	.double 4.503601774854144E15
+
+.global lbl_805AC958
+lbl_805AC958:
+	# ROM: 0x3F91F8
+	.4byte 0
+	.4byte 0
+

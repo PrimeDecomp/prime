@@ -65,3 +65,11 @@ lbl_803944B4:
 /* 803944B8 00391418  7C 08 03 A6 */	mtlr r0
 /* 803944BC 0039141C  38 21 00 20 */	addi r1, r1, 0x20
 /* 803944C0 00391420  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AF1B8
+lbl_805AF1B8:
+	# ROM: 0x3FBA58
+	.4byte 0
+	.4byte 0
+

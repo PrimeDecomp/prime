@@ -711,3 +711,30 @@ lbl_8025D4F4:
 /* 8025D5A8 0025A508  7C 08 03 A6 */	mtlr r0
 /* 8025D5AC 0025A50C  38 21 01 B0 */	addi r1, r1, 0x1b0
 /* 8025D5B0 0025A510  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD718
+lbl_805AD718:
+	# ROM: 0x3F9FB8
+	.4byte 0
+
+.global lbl_805AD71C
+lbl_805AD71C:
+	# ROM: 0x3F9FBC
+	.float 0.5
+
+.global lbl_805AD720
+lbl_805AD720:
+	# ROM: 0x3F9FC0
+	.float 1.0
+
+.global lbl_805AD724
+lbl_805AD724:
+	# ROM: 0x3F9FC4
+	.4byte 0x42340000
+
+.global lbl_805AD728
+lbl_805AD728:
+	# ROM: 0x3F9FC8
+	.double 4.503601774854144E15
+

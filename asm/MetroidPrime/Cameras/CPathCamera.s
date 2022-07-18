@@ -61,7 +61,7 @@ lbl_805A76BC:
 .global lbl_805A76C0
 lbl_805A76C0:
 	# ROM: 0x3F5060
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 
 .section .bss
@@ -85,6 +85,39 @@ lbl_805A8F68:
 .global lbl_805A8F6C
 lbl_805A8F6C:
 	.skip 0x4
+
+.section .sdata2, "a"
+
+.global lbl_805AB5C8
+lbl_805AB5C8:
+	# ROM: 0x3F7E68
+	.float 0.0
+
+.global lbl_805AB5CC
+lbl_805AB5CC:
+	# ROM: 0x3F7E6C
+	.float 0.017453292
+
+.global lbl_805AB5D0
+lbl_805AB5D0:
+	# ROM: 0x3F7E70
+	.float 90.0
+	.4byte 0
+
+.global lbl_805AB5D8
+lbl_805AB5D8:
+	# ROM: 0x3F7E78
+	.double 1.0
+
+.global lbl_805AB5E0
+lbl_805AB5E0:
+	# ROM: 0x3F7E80
+	.float -1.0
+
+.global lbl_805AB5E4
+lbl_805AB5E4:
+	# ROM: 0x3F7E84
+	.float 1.0
 
 .section .text, "ax"
 

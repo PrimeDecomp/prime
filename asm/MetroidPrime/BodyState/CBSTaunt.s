@@ -256,3 +256,11 @@ __ct__8CBSTauntFv:
 /* 801495C8 00146528  38 04 23 90 */	addi r0, r4, lbl_803E2390@l
 /* 801495CC 0014652C  90 03 00 00 */	stw r0, 0(r3)
 /* 801495D0 00146530  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB9F0
+lbl_805AB9F0:
+	# ROM: 0x3F8290
+	.4byte 0
+	.4byte 0
+

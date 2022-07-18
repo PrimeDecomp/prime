@@ -119,3 +119,21 @@ Interpolate__18CAdvancementDeltasFRC18CAdvancementDeltasRC18CAdvancementDeltasff
 /* 802EB6B0 002E8610  7C 08 03 A6 */	mtlr r0
 /* 802EB6B4 002E8614  38 21 00 40 */	addi r1, r1, 0x40
 /* 802EB6B8 002E8618  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE348
+lbl_805AE348:
+	# ROM: 0x3FABE8
+	.float 1.0
+
+.global lbl_805AE34C
+lbl_805AE34C:
+	# ROM: 0x3FABEC
+	.float 0.5
+
+.global lbl_805AE350
+lbl_805AE350:
+	# ROM: 0x3FABF0
+	.float 2.0
+	.4byte 0
+

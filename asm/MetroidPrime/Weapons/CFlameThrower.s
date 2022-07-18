@@ -1772,3 +1772,46 @@ __sinit_CFlameThrower_cpp:
 /* 80198DD4 00195D34  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80198DD8 00195D38  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80198DDC 00195D3C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC3C0
+lbl_805AC3C0:
+	# ROM: 0x3F8C60
+	.float 1.0
+
+.global lbl_805AC3C4
+lbl_805AC3C4:
+	# ROM: 0x3F8C64
+	.4byte 0
+
+.global lbl_805AC3C8
+lbl_805AC3C8:
+	# ROM: 0x3F8C68
+	.float 0.5
+	.4byte 0
+
+.global lbl_805AC3D0
+lbl_805AC3D0:
+	# ROM: 0x3F8C70
+	.double 4.503601774854144E15
+
+.global lbl_805AC3D8
+lbl_805AC3D8:
+	# ROM: 0x3F8C78
+	.float 4.0
+
+.global lbl_805AC3DC
+lbl_805AC3DC:
+	# ROM: 0x3F8C7C
+	.float 0.1
+
+.global lbl_805AC3E0
+lbl_805AC3E0:
+	# ROM: 0x3F8C80
+	.4byte 0x40400000
+
+.global lbl_805AC3E4
+lbl_805AC3E4:
+	# ROM: 0x3F8C84
+	.float 2.0
+

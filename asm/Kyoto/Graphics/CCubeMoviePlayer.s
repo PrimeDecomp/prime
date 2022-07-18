@@ -2689,3 +2689,53 @@ lbl_8035DAFC:
 /* 8035DB04 0035AA64  7C 08 03 A6 */	mtlr r0
 /* 8035DB08 0035AA68  38 21 00 30 */	addi r1, r1, 0x30
 /* 8035DB0C 0035AA6C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEA30
+lbl_805AEA30:
+	# ROM: 0x3FB2D0
+	.4byte 0xFFA60000
+
+.global lbl_805AEA34
+lbl_805AEA34:
+	# ROM: 0x3FB2D4
+	.4byte 0xFF8E0087
+
+.global lbl_805AEA38
+lbl_805AEA38:
+	# ROM: 0x3FB2D8
+	.4byte 0x0000E258
+
+.global lbl_805AEA3C
+lbl_805AEA3C:
+	# ROM: 0x3FB2DC
+	.4byte 0xB30000B6
+
+.global lbl_805AEA40
+lbl_805AEA40:
+	# ROM: 0x3FB2E0
+	.4byte 0xFF00FF80
+
+.global lbl_805AEA44
+lbl_805AEA44:
+	# ROM: 0x3FB2E4
+	.4byte 0
+
+.global lbl_805AEA48
+lbl_805AEA48:
+	# ROM: 0x3FB2E8
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AEA50
+lbl_805AEA50:
+	# ROM: 0x3FB2F0
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AEA58
+lbl_805AEA58:
+	# ROM: 0x3FB2F8
+	.float 0.25
+	.4byte 0
+

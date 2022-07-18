@@ -335,3 +335,26 @@ lbl_80357994:
 /* 80357998 003548F8  D0 03 00 1C */	stfs f0, 0x1c(r3)
 /* 8035799C 003548FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 803579A0 00354900  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE9E0
+lbl_805AE9E0:
+	# ROM: 0x3FB280
+	.4byte 0
+
+.global lbl_805AE9E4
+lbl_805AE9E4:
+	# ROM: 0x3FB284
+	.float 0.5
+
+.global lbl_805AE9E8
+lbl_805AE9E8:
+	# ROM: 0x3FB288
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AE9F0
+lbl_805AE9F0:
+	# ROM: 0x3FB290
+	.double 4.503601774854144E15
+

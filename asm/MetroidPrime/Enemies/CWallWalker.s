@@ -1220,3 +1220,65 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 8026946C 002663CC  7C 08 03 A6 */	mtlr r0
 /* 80269470 002663D0  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 80269474 002663D4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD818
+lbl_805AD818:
+	# ROM: 0x3FA0B8
+	.4byte 0x803D53C8
+
+.global lbl_805AD81C
+lbl_805AD81C:
+	# ROM: 0x3FA0BC
+	.float 1.0
+
+.global lbl_805AD820
+lbl_805AD820:
+	# ROM: 0x3FA0C0
+	.4byte 0x3F19999A
+
+.global lbl_805AD824
+lbl_805AD824:
+	# ROM: 0x3FA0C4
+	.4byte 0
+
+.global lbl_805AD828
+lbl_805AD828:
+	# ROM: 0x3FA0C8
+	.float 1.5
+
+.global lbl_805AD82C
+lbl_805AD82C:
+	# ROM: 0x3FA0CC
+	.float 1.0E-4
+
+.global lbl_805AD830
+lbl_805AD830:
+	# ROM: 0x3FA0D0
+	.4byte 0x3727C5AC
+
+.global lbl_805AD834
+lbl_805AD834:
+	# ROM: 0x3FA0D4
+	.float 0.01
+
+.global lbl_805AD838
+lbl_805AD838:
+	# ROM: 0x3FA0D8
+	.4byte 0x41200000
+
+.global lbl_805AD83C
+lbl_805AD83C:
+	# ROM: 0x3FA0DC
+	.4byte 0x42652EE0
+
+.global lbl_805AD840
+lbl_805AD840:
+	# ROM: 0x3FA0E0
+	.4byte 0xBF7FBE77
+
+.global lbl_805AD844
+lbl_805AD844:
+	# ROM: 0x3FA0E4
+	.float 0.017453292
+

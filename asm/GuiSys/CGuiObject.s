@@ -1011,3 +1011,15 @@ __ct__10CGuiObjectFv:
 /* 802C54D8 002C2438  7C 08 03 A6 */	mtlr r0
 /* 802C54DC 002C243C  38 21 00 10 */	addi r1, r1, 0x10
 /* 802C54E0 002C2440  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE0B8
+lbl_805AE0B8:
+	# ROM: 0x3FA958
+	.float -1.0
+
+.global lbl_805AE0BC
+lbl_805AE0BC:
+	# ROM: 0x3FA95C
+	.float 1.0
+

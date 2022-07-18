@@ -26,6 +26,32 @@ lbl_805A7334:
 	# ROM: 0x3F4CD4
 	.4byte 0x00000064
 
+.section .sdata2, "a"
+
+.global lbl_805AACC8
+lbl_805AACC8:
+	# ROM: 0x3F7568
+	.float 0.5
+
+.global lbl_805AACCC
+lbl_805AACCC:
+	# ROM: 0x3F756C
+	.4byte 0x42C80000
+
+.global lbl_805AACD0
+lbl_805AACD0:
+	# ROM: 0x3F7570
+	.float 2.0
+
+.global lbl_805AACD4
+lbl_805AACD4:
+	# ROM: 0x3F7574
+	.4byte 0x3F7D70A4
+
+.global lbl_805AACD8
+lbl_805AACD8:
+	# ROM: 0x3F7578
+	.double 4.503601774854144E15
 
 .section .text, "ax"
 

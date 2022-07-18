@@ -851,3 +851,36 @@ __ct__18CErrorOutputWindowFiff:
 /* 80269C74 00266BD4  7C 08 03 A6 */	mtlr r0
 /* 80269C78 00266BD8  38 21 00 20 */	addi r1, r1, 0x20
 /* 80269C7C 00266BDC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD848
+lbl_805AD848:
+	# ROM: 0x3FA0E8
+	.float 255.0
+
+.global lbl_805AD84C
+lbl_805AD84C:
+	# ROM: 0x3FA0EC
+	.float 1.0
+
+.global lbl_805AD850
+lbl_805AD850:
+	# ROM: 0x3FA0F0
+	.4byte 0xC5800000
+
+.global lbl_805AD854
+lbl_805AD854:
+	# ROM: 0x3FA0F4
+	.4byte 0x45800000
+
+.global lbl_805AD858
+lbl_805AD858:
+	# ROM: 0x3FA0F8
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AD860
+lbl_805AD860:
+	# ROM: 0x3FA100
+	.double 4.503601774854144E15
+

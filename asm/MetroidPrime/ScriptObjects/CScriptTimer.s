@@ -14,6 +14,14 @@ lbl_803DADD8:
 	.4byte AcceptScriptMsg__12CScriptTimerF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata2, "a"
+
+.global lbl_805AA850
+lbl_805AA850:
+	# ROM: 0x3F70F0
+	.float 0.0
+	.4byte 0
+
 .section .text, "ax"
 
 .global Accept__12CScriptTimerFR8IVisitor

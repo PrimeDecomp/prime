@@ -2113,3 +2113,39 @@ abs:
 /* 8038CE24 00389D84  7C 64 00 50 */	subf r3, r4, r0
 /* 8038CE28 00389D88  4E 80 00 20 */	blr
 .endif
+
+.section .sdata2, "a"
+.global lbl_805AEC60
+lbl_805AEC60:
+	# ROM: 0x3FB500
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AEC68
+lbl_805AEC68:
+	# ROM: 0x3FB508
+	.double 1.0
+
+.global lbl_805AEC70
+lbl_805AEC70:
+	# ROM: 0x3FB510
+	.4byte 0xBFF00000
+	.4byte 0
+
+.global lbl_805AEC78
+lbl_805AEC78:
+	# ROM: 0x3FB518
+	.4byte 0x40140000
+	.4byte 0
+
+.global lbl_805AEC80
+lbl_805AEC80:
+	# ROM: 0x3FB520
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AEC88
+lbl_805AEC88:
+	# ROM: 0x3FB528
+	.double 4.503601774854144E15
+

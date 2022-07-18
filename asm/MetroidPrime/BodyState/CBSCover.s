@@ -599,3 +599,21 @@ CanShoot__8CBSCoverCFv:
 /* 801764D0 00173430  7C 00 00 34 */	cntlzw r0, r0
 /* 801764D4 00173434  54 03 D9 7E */	srwi r3, r0, 5
 /* 801764D8 00173438  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABEC0
+lbl_805ABEC0:
+	# ROM: 0x3F8760
+	.4byte 0
+
+.global lbl_805ABEC4
+lbl_805ABEC4:
+	# ROM: 0x3F8764
+	.float 6.2831855
+
+.global lbl_805ABEC8
+lbl_805ABEC8:
+	# ROM: 0x3F8768
+	.float 1.0
+	.4byte 0
+

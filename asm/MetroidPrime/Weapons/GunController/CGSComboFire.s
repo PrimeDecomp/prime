@@ -277,3 +277,21 @@ __ct__12CGSComboFireFv:
 /* 801CD484 001CA3E4  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 801CD488 001CA3E8  98 03 00 10 */	stb r0, 0x10(r3)
 /* 801CD48C 001CA3EC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC8B0
+lbl_805AC8B0:
+	# ROM: 0x3F9150
+	.4byte 0
+
+.global lbl_805AC8B4
+lbl_805AC8B4:
+	# ROM: 0x3F9154
+	.float 1.0
+
+.global lbl_805AC8B8
+lbl_805AC8B8:
+	# ROM: 0x3F9158
+	.float 0.001
+	.4byte 0
+

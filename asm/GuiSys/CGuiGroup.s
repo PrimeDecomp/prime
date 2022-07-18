@@ -2703,3 +2703,21 @@ lbl_802C358C:
 /* 802C35AC 002C050C  7C 08 03 A6 */	mtlr r0
 /* 802C35B0 002C0510  38 21 00 50 */	addi r1, r1, 0x50
 /* 802C35B4 002C0514  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE090
+lbl_805AE090:
+	# ROM: 0x3FA930
+	.4byte 0
+
+.global lbl_805AE094
+lbl_805AE094:
+	# ROM: 0x3FA934
+	.float -1.0
+
+.global lbl_805AE098
+lbl_805AE098:
+	# ROM: 0x3FA938
+	.float 1.0
+	.4byte 0
+

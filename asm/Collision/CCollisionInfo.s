@@ -304,3 +304,11 @@ __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3
 /* 802CE514 002CB474  D0 23 00 58 */	stfs f1, 0x58(r3)
 /* 802CE518 002CB478  D0 43 00 5C */	stfs f2, 0x5c(r3)
 /* 802CE51C 002CB47C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE1B8
+lbl_805AE1B8:
+	# ROM: 0x3FAA58
+	.4byte 0
+	.4byte 0
+

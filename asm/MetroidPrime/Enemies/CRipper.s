@@ -990,3 +990,15 @@ lbl_8015C714:
 /* 8015C8D4 00159834  7C 08 03 A6 */	mtlr r0
 /* 8015C8D8 00159838  38 21 00 60 */	addi r1, r1, 0x60
 /* 8015C8DC 0015983C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABBF8
+lbl_805ABBF8:
+	# ROM: 0x3F8498
+	.4byte 0x00000008
+
+.global lbl_805ABBFC
+lbl_805ABBFC:
+	# ROM: 0x3F849C
+	.float 1.0
+

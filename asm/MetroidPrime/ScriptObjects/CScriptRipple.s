@@ -206,3 +206,11 @@ lbl_80175168:
 /* 8017519C 001720FC  7C 08 03 A6 */	mtlr r0
 /* 801751A0 00172100  38 21 00 30 */	addi r1, r1, 0x30
 /* 801751A4 00172104  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABE90
+lbl_805ABE90:
+	# ROM: 0x3F8730
+	.4byte 0
+	.4byte 0
+

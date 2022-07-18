@@ -1777,3 +1777,43 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A88C0 001A5820  7C 08 03 A6 */	mtlr r0
 /* 801A88C4 001A5824  38 21 00 30 */	addi r1, r1, 0x30
 /* 801A88C8 001A5828  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC518
+lbl_805AC518:
+	# ROM: 0x3F8DB8
+	.4byte 0
+
+.global lbl_805AC51C
+lbl_805AC51C:
+	# ROM: 0x3F8DBC
+	.float 1.1920929E-7
+
+.global lbl_805AC520
+lbl_805AC520:
+	# ROM: 0x3F8DC0
+	.float 0.5
+
+.global lbl_805AC524
+lbl_805AC524:
+	# ROM: 0x3F8DC4
+	.float 1.0
+
+.global lbl_805AC528
+lbl_805AC528:
+	# ROM: 0x3F8DC8
+	.4byte 0x3EE90000
+	.4byte 0
+
+.global lbl_805AC530
+lbl_805AC530:
+	# ROM: 0x3F8DD0
+	.float 0.001
+	.4byte 0
+
+.global lbl_805AC538
+lbl_805AC538:
+	# ROM: 0x3F8DD8
+	.4byte 0x43300000
+	.4byte 0
+

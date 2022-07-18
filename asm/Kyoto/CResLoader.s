@@ -1889,3 +1889,15 @@ lbl_8033C5BC:
 /* 8033C5D4 00339534  7C 08 03 A6 */	mtlr r0
 /* 8033C5D8 00339538  38 21 00 20 */	addi r1, r1, 0x20
 /* 8033C5DC 0033953C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE8C8
+lbl_805AE8C8:
+	# ROM: 0x3FB168
+	.4byte 0xFFFFFFFF
+
+.global lbl_805AE8CC
+lbl_805AE8CC:
+	# ROM: 0x3FB16C
+	.4byte 0xFFFFFFFF
+

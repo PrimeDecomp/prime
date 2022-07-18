@@ -1815,3 +1815,57 @@ __sinit_CFireFlea_cpp:
 /* 80143F78 00140ED8  7C 08 03 A6 */	mtlr r0
 /* 80143F7C 00140EDC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80143F80 00140EE0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB8E0
+lbl_805AB8E0:
+	# ROM: 0x3F8180
+	.float 0.5
+
+.global lbl_805AB8E4
+lbl_805AB8E4:
+	# ROM: 0x3F8184
+	.4byte 0x41C80000
+
+.global lbl_805AB8E8
+lbl_805AB8E8:
+	# ROM: 0x3F8188
+	.float 5.0
+
+.global lbl_805AB8EC
+lbl_805AB8EC:
+	# ROM: 0x3F818C
+	.float 1.0
+
+.global lbl_805AB8F0
+lbl_805AB8F0:
+	# ROM: 0x3F8190
+	.4byte 0
+
+.global lbl_805AB8F4
+lbl_805AB8F4:
+	# ROM: 0x3F8194
+	.float 2.0
+
+.global lbl_805AB8F8
+lbl_805AB8F8:
+	# ROM: 0x3F8198
+	.float 1.0E-4
+
+.global lbl_805AB8FC
+lbl_805AB8FC:
+	# ROM: 0x3F819C
+	.4byte 0x41200000
+
+.global lbl_805AB900
+lbl_805AB900:
+	# ROM: 0x3F81A0
+	.4byte 0x42480000
+	.4byte 0
+
+.global lbl_805AB908
+lbl_805AB908:
+	# ROM: 0x3F81A8
+	.4byte 0x43300000
+	.4byte 0
+

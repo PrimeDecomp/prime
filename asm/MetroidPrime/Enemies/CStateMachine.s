@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805AA6A0
+lbl_805AA6A0:
+	# ROM: 0x3F6F40
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global "GetStateIndex__13CStateMachineCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"

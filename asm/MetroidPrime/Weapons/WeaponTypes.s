@@ -771,3 +771,15 @@ lbl_8028B480:
 /* 8028B484 002883E4  7C 08 03 A6 */	mtlr r0
 /* 8028B488 002883E8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8028B48C 002883EC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADB88
+lbl_805ADB88:
+	# ROM: 0x3FA428
+	.4byte 0
+
+.global lbl_805ADB8C
+lbl_805ADB8C:
+	# ROM: 0x3FA42C
+	.float 1.0
+

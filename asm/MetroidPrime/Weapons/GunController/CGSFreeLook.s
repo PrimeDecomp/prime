@@ -278,3 +278,21 @@ __ct__11CGSFreeLookFv:
 /* 801CD094 001C9FF4  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 801CD098 001C9FF8  98 03 00 14 */	stb r0, 0x14(r3)
 /* 801CD09C 001C9FFC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC8A0
+lbl_805AC8A0:
+	# ROM: 0x3F9140
+	.4byte 0
+
+.global lbl_805AC8A4
+lbl_805AC8A4:
+	# ROM: 0x3F9144
+	.float 1.0
+
+.global lbl_805AC8A8
+lbl_805AC8A8:
+	# ROM: 0x3F9148
+	.float 0.001
+	.4byte 0
+

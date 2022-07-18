@@ -556,3 +556,15 @@ __ct__10CGunMotionFUiRC9CVector3f:
 /* 801D9724 001D6684  7C 08 03 A6 */	mtlr r0
 /* 801D9728 001D6688  38 21 00 30 */	addi r1, r1, 0x30
 /* 801D972C 001D668C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC9B8
+lbl_805AC9B8:
+	# ROM: 0x3F9258
+	.float 1.0
+
+.global lbl_805AC9BC
+lbl_805AC9BC:
+	# ROM: 0x3F925C
+	.4byte 0
+

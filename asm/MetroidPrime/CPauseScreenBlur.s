@@ -20,7 +20,7 @@ lbl_805A8398:
 .global lbl_805A839C
 lbl_805A839C:
 	# ROM: 0x3F5D3C
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .text, "ax"
 
@@ -468,3 +468,31 @@ __ct__16CPauseScreenBlurFv:
 /* 8025DBB4 0025AB14  7C 08 03 A6 */	mtlr r0
 /* 8025DBB8 0025AB18  38 21 00 20 */	addi r1, r1, 0x20
 /* 8025DBBC 0025AB1C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD730
+lbl_805AD730:
+	# ROM: 0x3F9FD0
+	.float 1.1920929E-7
+
+.global lbl_805AD734
+lbl_805AD734:
+	# ROM: 0x3F9FD4
+	.float -1.0
+
+.global lbl_805AD738
+lbl_805AD738:
+	# ROM: 0x3F9FD8
+	.4byte 0
+
+.global lbl_805AD73C
+lbl_805AD73C:
+	# ROM: 0x3F9FDC
+	.float 2.0
+
+.global lbl_805AD740
+lbl_805AD740:
+	# ROM: 0x3F9FE0
+	.float 1.0
+	.4byte 0
+

@@ -3569,3 +3569,11 @@ IsCardBusy__17CMemoryCardDriverF6EState:
 lbl_8024F164:
 /* 8024F164 0024C0C4  7C 03 03 78 */	mr r3, r0
 /* 8024F168 0024C0C8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD5D0
+lbl_805AD5D0:
+	# ROM: 0x3F9E70
+	.4byte 0x803D47CC
+	.4byte 0x803D47DB
+

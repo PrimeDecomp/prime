@@ -2358,3 +2358,21 @@ lbl_802A98D0:
 /* 802A98E0 002A6840  7C 08 03 A6 */	mtlr r0
 /* 802A98E4 002A6844  38 21 00 30 */	addi r1, r1, 0x30
 /* 802A98E8 002A6848  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADEC0
+lbl_805ADEC0:
+	# ROM: 0x3FA760
+	.float 0.5
+
+.global lbl_805ADEC4
+lbl_805ADEC4:
+	# ROM: 0x3FA764
+	.4byte 0xBF000000
+
+.global lbl_805ADEC8
+lbl_805ADEC8:
+	# ROM: 0x3FA768
+	.4byte 0
+	.4byte 0
+

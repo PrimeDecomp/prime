@@ -1130,3 +1130,11 @@ lbl_801AD0DC:
 /* 801AD114 001AA074  7C 08 03 A6 */	mtlr r0
 /* 801AD118 001AA078  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AD11C 001AA07C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC590
+lbl_805AC590:
+	# ROM: 0x3F8E30
+	.float 5.0
+	.4byte 0
+

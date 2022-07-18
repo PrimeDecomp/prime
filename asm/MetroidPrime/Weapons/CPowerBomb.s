@@ -624,3 +624,55 @@ __sinit_CPowerBomb_cpp:
 /* 8014E0F8 0014B058  38 00 FF 7F */	li r0, -129
 /* 8014E0FC 0014B05C  90 0D A3 E8 */	stw r0, lbl_805A8FA8@sda21(r13)
 /* 8014E100 0014B060  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABA80
+lbl_805ABA80:
+	# ROM: 0x3F8320
+	.4byte 0x40880000
+
+.global lbl_805ABA84
+lbl_805ABA84:
+	# ROM: 0x3F8324
+	.4byte 0
+
+.global lbl_805ABA88
+lbl_805ABA88:
+	# ROM: 0x3F8328
+	.4byte 0x40E00000
+
+.global lbl_805ABA8C
+lbl_805ABA8C:
+	# ROM: 0x3F832C
+	.float 1.0
+
+.global lbl_805ABA90
+lbl_805ABA90:
+	# ROM: 0x3F8330
+	.float 1.5
+
+.global lbl_805ABA94
+lbl_805ABA94:
+	# ROM: 0x3F8334
+	.float 2.5
+
+.global lbl_805ABA98
+lbl_805ABA98:
+	# ROM: 0x3F8338
+	.4byte 0x40700000
+
+.global lbl_805ABA9C
+lbl_805ABA9C:
+	# ROM: 0x3F833C
+	.float 0.5
+
+.global lbl_805ABAA0
+lbl_805ABAA0:
+	# ROM: 0x3F8340
+	.4byte 0x41F00000
+
+.global lbl_805ABAA4
+lbl_805ABAA4:
+	# ROM: 0x3F8344
+	.float 4.0
+

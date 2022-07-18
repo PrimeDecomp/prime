@@ -504,3 +504,21 @@ lbl_801D6BA8:
 /* 801D6FB8 001D3F18  7C 08 03 A6 */	mtlr r0
 /* 801D6FBC 001D3F1C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801D6FC0 001D3F20  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC960
+lbl_805AC960:
+	# ROM: 0x3F9200
+	.float 0.1
+
+.global lbl_805AC964
+lbl_805AC964:
+	# ROM: 0x3F9204
+	.float 8.0
+
+.global lbl_805AC968
+lbl_805AC968:
+	# ROM: 0x3F9208
+	.4byte 0
+	.4byte 0
+

@@ -767,3 +767,21 @@ __ct__6COBBoxFRC12CTransform4fRC9CVector3f:
 /* 802D5FDC 002D2F3C  7C 08 03 A6 */	mtlr r0
 /* 802D5FE0 002D2F40  38 21 00 10 */	addi r1, r1, 0x10
 /* 802D5FE4 002D2F44  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE260
+lbl_805AE260:
+	# ROM: 0x3FAB00
+	.float 1.1920929E-7
+
+.global lbl_805AE264
+lbl_805AE264:
+	# ROM: 0x3FAB04
+	.float 1.0
+
+.global lbl_805AE268
+lbl_805AE268:
+	# ROM: 0x3FAB08
+	.float -1.0
+	.4byte 0
+

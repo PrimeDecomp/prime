@@ -45,3 +45,11 @@ lbl_80313E34:
 /* 80313E58 00310DB8  7C 08 03 A6 */	mtlr r0
 /* 80313E5C 00310DBC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80313E60 00310DC0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE610
+lbl_805AE610:
+	# ROM: 0x3FAEB0
+	.4byte 0
+	.4byte 0
+

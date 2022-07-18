@@ -59,7 +59,7 @@ lbl_803DA26C:
 .global lbl_805A6E98
 lbl_805A6E98:
 	# ROM: 0x3F4838
-	.4byte 0x40A00000
+	.float 5.0
 
 .global lbl_805A6E9C
 lbl_805A6E9C:
@@ -85,6 +85,54 @@ lbl_805A6EA8:
 .global lbl_805A6EB0
 lbl_805A6EB0:
 	# ROM: 0x3F4850
+	.4byte 0
+
+.section .sdata2, "a"
+
+.global lbl_805AA420
+lbl_805AA420:
+	# ROM: 0x3F6CC0
+	.4byte 0
+
+.global lbl_805AA424
+lbl_805AA424:
+	# ROM: 0x3F6CC4
+	.4byte 0x3727C5AC
+
+.global lbl_805AA428
+lbl_805AA428:
+	# ROM: 0x3F6CC8
+	.float 1.0
+
+.global lbl_805AA42C
+lbl_805AA42C:
+	# ROM: 0x3F6CCC
+	.4byte 0x3B808081
+
+.global lbl_805AA430
+lbl_805AA430:
+	# ROM: 0x3F6CD0
+	.float 2.0
+
+.global lbl_805AA434
+lbl_805AA434:
+	# ROM: 0x3F6CD4
+	.4byte 0x45800000
+
+.global lbl_805AA438
+lbl_805AA438:
+	# ROM: 0x3F6CD8
+	.4byte 0x44800000
+
+.global lbl_805AA43C
+lbl_805AA43C:
+	# ROM: 0x3F6CDC
+	.float 0.5
+
+.global lbl_805AA440
+lbl_805AA440:
+	# ROM: 0x3F6CE0
+	.float 0.001
 	.4byte 0
 
 .section .text, "ax"
@@ -4072,7 +4120,7 @@ lbl_800611E8:
 lbl_80061218:
 /* 80061218 0005E178  80 64 00 A0 */	lwz r3, 0xa0(r4)
 /* 8006121C 0005E17C  7F E4 FB 78 */	mr r4, r31
-/* 80061220 0005E180  48 24 D1 C5 */	bl GetEntityIdByIndex__13CPVSVisOctreeFi
+/* 80061220 0005E180  48 24 D1 C5 */	bl GetEntityIdByIndex__11CPVSAreaSetCFUi
 /* 80061224 0005E184  80 1D 00 04 */	lwz r0, 4(r29)
 /* 80061228 0005E188  7F C4 F3 78 */	mr r4, r30
 /* 8006122C 0005E18C  38 A1 00 24 */	addi r5, r1, 0x24

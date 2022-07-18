@@ -1591,3 +1591,21 @@ lbl_802B3694:
 /* 802B369C 002B05FC  7C 08 03 A6 */	mtlr r0
 /* 802B36A0 002B0600  38 21 00 30 */	addi r1, r1, 0x30
 /* 802B36A4 002B0604  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADF60
+lbl_805ADF60:
+	# ROM: 0x3FA800
+	.4byte 0xFFFFFFFF
+
+.global lbl_805ADF64
+lbl_805ADF64:
+	# ROM: 0x3FA804
+	.4byte 0x42480000
+
+.global lbl_805ADF68
+lbl_805ADF68:
+	# ROM: 0x3FA808
+	.float 0.2
+	.4byte 0
+

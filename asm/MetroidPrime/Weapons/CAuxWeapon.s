@@ -1389,3 +1389,35 @@ __ct__10CAuxWeaponF9TUniqueId:
 /* 801B9C40 001B6BA0  7C 08 03 A6 */	mtlr r0
 /* 801B9C44 001B6BA4  38 21 00 30 */	addi r1, r1, 0x30
 /* 801B9C48 001B6BA8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC6D0
+lbl_805AC6D0:
+	# ROM: 0x3F8F70
+	.float 1.0
+
+.global lbl_805AC6D4
+lbl_805AC6D4:
+	# ROM: 0x3F8F74
+	.float 0.25
+
+.global lbl_805AC6D8
+lbl_805AC6D8:
+	# ROM: 0x3F8F78
+	.float 0.75
+
+.global lbl_805AC6DC
+lbl_805AC6DC:
+	# ROM: 0x3F8F7C
+	.4byte 0x42480000
+
+.global lbl_805AC6E0
+lbl_805AC6E0:
+	# ROM: 0x3F8F80
+	.float 0.5
+
+.global lbl_805AC6E4
+lbl_805AC6E4:
+	# ROM: 0x3F8F84
+	.4byte 0
+

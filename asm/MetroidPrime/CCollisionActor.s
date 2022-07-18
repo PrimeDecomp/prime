@@ -1930,3 +1930,35 @@ __sinit_CCollisionActor_cpp:
 /* 801AA278 001A71D8  7C 08 03 A6 */	mtlr r0
 /* 801AA27C 001A71DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AA280 001A71E0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC540
+lbl_805AC540:
+	# ROM: 0x3F8DE0
+	.float 0.5
+
+.global lbl_805AC544
+lbl_805AC544:
+	# ROM: 0x3F8DE4
+	.4byte 0x40400000
+
+.global lbl_805AC548
+lbl_805AC548:
+	# ROM: 0x3F8DE8
+	.float 0.3
+
+.global lbl_805AC54C
+lbl_805AC54C:
+	# ROM: 0x3F8DEC
+	.float 0.1
+
+.global lbl_805AC550
+lbl_805AC550:
+	# ROM: 0x3F8DF0
+	.4byte 0
+
+.global lbl_805AC554
+lbl_805AC554:
+	# ROM: 0x3F8DF4
+	.4byte 0xBF000000
+

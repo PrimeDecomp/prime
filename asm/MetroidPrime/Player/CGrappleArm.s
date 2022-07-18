@@ -1,5 +1,119 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805AB468
+lbl_805AB468:
+	# ROM: 0x3F7D08
+	.4byte lbl_803CF360
+
+.global lbl_805AB46C
+lbl_805AB46C:
+	# ROM: 0x3F7D0C
+	.4byte lbl_803CF36C
+
+.global lbl_805AB470
+lbl_805AB470:
+	# ROM: 0x3F7D10
+	.4byte lbl_803CF375
+
+.global lbl_805AB474
+lbl_805AB474:
+	# ROM: 0x3F7D14
+	.4byte lbl_803CF37E
+
+.global lbl_805AB478
+lbl_805AB478:
+	# ROM: 0x3F7D18
+	.4byte lbl_803CF38E
+
+.global lbl_805AB47C
+lbl_805AB47C:
+	# ROM: 0x3F7D1C
+	.4byte lbl_803CF38E
+
+.global lbl_805AB480
+lbl_805AB480:
+	# ROM: 0x3F7D20
+	.4byte lbl_803CF39B
+
+.global lbl_805AB484
+lbl_805AB484:
+	# ROM: 0x3F7D24
+	.float 0.0
+
+.global lbl_805AB488
+lbl_805AB488:
+	# ROM: 0x3F7D28
+	.float 1.0
+
+.global lbl_805AB48C
+lbl_805AB48C:
+	# ROM: 0x3F7D2C
+	.float 0.1
+
+.global lbl_805AB490
+lbl_805AB490:
+	# ROM: 0x3F7D30
+	.float 150.0
+
+.global lbl_805AB494
+lbl_805AB494:
+	# ROM: 0x3F7D34
+	.float 2.0
+
+.global lbl_805AB498
+lbl_805AB498:
+	# ROM: 0x3F7D38
+	.float 0.02
+	.4byte 0
+
+.global lbl_805AB4A0
+lbl_805AB4A0:
+	# ROM: 0x3F7D40
+	.double 4.503601774854144E15
+
+.global lbl_805AB4A8
+lbl_805AB4A8:
+	# ROM: 0x3F7D48
+	.float 4.0
+
+.global lbl_805AB4AC
+lbl_805AB4AC:
+	# ROM: 0x3F7D4C
+	.float 0.175
+
+.global lbl_805AB4B0
+lbl_805AB4B0:
+	# ROM: 0x3F7D50
+	.float 0.3
+
+.global lbl_805AB4B4
+lbl_805AB4B4:
+	# ROM: 0x3F7D54
+	.float 0.7
+
+.global lbl_805AB4B8
+lbl_805AB4B8:
+	# ROM: 0x3F7D58
+	.float 0.9
+
+.global lbl_805AB4BC
+lbl_805AB4BC:
+	# ROM: 0x3F7D5C
+	.float 0.25
+
+.global lbl_805AB4C0
+lbl_805AB4C0:
+	# ROM: 0x3F7D60
+	.float 0.125
+	.4byte 0
+
+.global lbl_805AB4C8
+lbl_805AB4C8:
+	# ROM: 0x3F7D68
+	.double 0.0
+
 .section .data
 
 .global lbl_803E06B0
@@ -40,17 +154,17 @@ lbl_805A7638:
 .global lbl_805A763C
 lbl_805A763C:
 	# ROM: 0x3F4FDC
-	.4byte 0x3E800000
+	.float 0.25
 
 .global lbl_805A7640
 lbl_805A7640:
 	# ROM: 0x3F4FE0
-	.4byte 0x3E000000
+	.float 0.125
 
 .global lbl_805A7644
 lbl_805A7644:
 	# ROM: 0x3F4FE4
-	.4byte 0x40A00000
+	.float 5.0
 
 .global lbl_805A7648
 lbl_805A7648:

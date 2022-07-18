@@ -1417,3 +1417,25 @@ __sinit_CGX_cpp:
 /* 80308E9C 00305DFC  7C 08 03 A6 */	mtlr r0
 /* 80308EA0 00305E00  38 21 00 10 */	addi r1, r1, 0x10
 /* 80308EA4 00305E04  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE4B8
+lbl_805AE4B8:
+	# ROM: 0x3FAD58
+	.4byte 0xFFFFFFFF
+
+.global lbl_805AE4BC
+lbl_805AE4BC:
+	# ROM: 0x3FAD5C
+	.4byte 0
+
+.global lbl_805AE4C0
+lbl_805AE4C0:
+	# ROM: 0x3FAD60
+	.float 1.0
+
+.global lbl_805AE4C4
+lbl_805AE4C4:
+	# ROM: 0x3FAD64
+	.float 0.1
+

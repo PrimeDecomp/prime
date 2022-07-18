@@ -418,3 +418,46 @@ __ct__19CBSProjectileAttackFv:
 /* 8014D93C 0014A89C  38 04 27 D0 */	addi r0, r4, lbl_803E27D0@l
 /* 8014D940 0014A8A0  90 03 00 00 */	stw r0, 0(r3)
 /* 8014D944 0014A8A4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABA58
+lbl_805ABA58:
+	# ROM: 0x3F82F8
+	.4byte 0
+
+.global lbl_805ABA5C
+lbl_805ABA5C:
+	# ROM: 0x3F82FC
+	.4byte 0x3E22F983
+
+.global lbl_805ABA60
+lbl_805ABA60:
+	# ROM: 0x3F8300
+	.float 6.2831855
+
+.global lbl_805ABA64
+lbl_805ABA64:
+	# ROM: 0x3F8304
+	.4byte 0x42652EE0
+
+.global lbl_805ABA68
+lbl_805ABA68:
+	# ROM: 0x3F8308
+	.4byte 0x43340000
+
+.global lbl_805ABA6C
+lbl_805ABA6C:
+	# ROM: 0x3F830C
+	.4byte 0x43B40000
+
+.global lbl_805ABA70
+lbl_805ABA70:
+	# ROM: 0x3F8310
+	.float 1.0
+	.4byte 0
+
+.global lbl_805ABA78
+lbl_805ABA78:
+	# ROM: 0x3F8318
+	.double 4.503601774854144E15
+

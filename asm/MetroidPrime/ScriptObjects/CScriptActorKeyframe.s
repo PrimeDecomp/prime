@@ -22,6 +22,18 @@ lbl_803DFE40:
 	.4byte __dt__14CBCScriptedCmdFv
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AB0C0
+lbl_805AB0C0:
+	# ROM: 0x3F7960
+	.4byte 0
+
+.global lbl_805AB0C4
+lbl_805AB0C4:
+	# ROM: 0x3F7964
+	.float 1.0
+
 .section .text, "ax"
 
 .global __dt__20CScriptActorKeyframeFv

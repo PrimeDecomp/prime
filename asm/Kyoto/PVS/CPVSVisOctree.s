@@ -157,3 +157,11 @@ lbl_80315F6C:
 /* 80315F6C 00312ECC  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80315F70 00312ED0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80315F74 00312ED4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE6F0
+lbl_805AE6F0:
+	# ROM: 0x3FAF90
+	.float 0.5
+	.4byte 0
+

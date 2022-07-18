@@ -326,3 +326,32 @@ lbl_80174EC4:
 /* 80174F08 00171E68  7C 08 03 A6 */	mtlr r0
 /* 80174F0C 00171E6C  38 21 00 70 */	addi r1, r1, 0x70
 /* 80174F10 00171E70  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABE70
+lbl_805ABE70:
+	# ROM: 0x3F8710
+	.4byte 0
+
+.global lbl_805ABE74
+lbl_805ABE74:
+	# ROM: 0x3F8714
+	.4byte 0x3FC90FDB
+
+.global lbl_805ABE78
+lbl_805ABE78:
+	# ROM: 0x3F8718
+	.float 2.0
+	.4byte 0
+
+.global lbl_805ABE80
+lbl_805ABE80:
+	# ROM: 0x3F8720
+	.double 9.999999747378752E-6
+
+.global lbl_805ABE88
+lbl_805ABE88:
+	# ROM: 0x3F8728
+	.float 1.0
+	.4byte 0
+

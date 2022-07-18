@@ -130,7 +130,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CActorLights.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CPatternedInfo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSimpleShadow.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CLightParameters.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActorParameters.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInGameGuiManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CWarWasp.o\
@@ -242,7 +241,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CIceImpact.o\
 	$(BUILD_DIR)/asm/MetroidPrime/GameObjectLists.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CAuxWeapon.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CPlayerGun.o\
+	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CGunWeapon.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptAreaAttributes.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/CWaveBuster.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CStaticInterference.o\
@@ -377,7 +376,7 @@ WORLDFORMAT :=\
 	$(BUILD_DIR)/asm/WorldFormat/COBBTree.o\
 	$(BUILD_DIR)/asm/WorldFormat/CCollidableOBBTree.o\
 	$(BUILD_DIR)/asm/WorldFormat/CCollidableOBBTreeGroup.o\
-	$(BUILD_DIR)/asm/WorldFormat/CPVSVisOctree.o\
+	$(BUILD_DIR)/asm/WorldFormat/CPVSVisAreaSet.o\
 	$(BUILD_DIR)/asm/WorldFormat/CAreaRenderOctTree.o\
 	
 WEAPONS :=\
@@ -720,7 +719,6 @@ VI_FILES :=\
 	
 MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/asm/Runtime/sdata.o\
-	$(BUILD_DIR)/asm/Runtime/sdata2.o\
 	$(BUILD_DIR)/asm/Runtime/__va_arg.o\
 	$(BUILD_DIR)/asm/Runtime/global_destructor_chain.o\
 	$(BUILD_DIR)/asm/Runtime/CPlusLibPPC.o\
@@ -869,7 +867,4 @@ DTORS_O_FILES :=\
 
 RODATA_O_FILES :=\
 	$(BUILD_DIR)/asm/rodata.o
-
-SDATA2_O_FILES :=\
-	$(BUILD_DIR)/asm/sdata2.o
 

@@ -1138,3 +1138,35 @@ __sinit_CDecal_cpp:
 /* 802B5894 002B27F4  7C 08 03 A6 */	mtlr r0
 /* 802B5898 002B27F8  38 21 00 10 */	addi r1, r1, 0x10
 /* 802B589C 002B27FC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADF70
+lbl_805ADF70:
+	# ROM: 0x3FA810
+	.float 0.017453292
+
+.global lbl_805ADF74
+lbl_805ADF74:
+	# ROM: 0x3FA814
+	.4byte 0
+
+.global lbl_805ADF78
+lbl_805ADF78:
+	# ROM: 0x3FA818
+	.float 1.0
+
+.global lbl_805ADF7C
+lbl_805ADF7C:
+	# ROM: 0x3FA81C
+	.4byte 0x3B808081
+
+.global lbl_805ADF80
+lbl_805ADF80:
+	# ROM: 0x3FA820
+	.float 0.5
+
+.global lbl_805ADF84
+lbl_805ADF84:
+	# ROM: 0x3FA824
+	.float 0.001
+

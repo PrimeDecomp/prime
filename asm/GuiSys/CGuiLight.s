@@ -579,3 +579,15 @@ lbl_802C3F24:
 /* 802C3F58 002C0EB8  7C 08 03 A6 */	mtlr r0
 /* 802C3F5C 002C0EBC  38 21 02 70 */	addi r1, r1, 0x270
 /* 802C3F60 002C0EC0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE0A0
+lbl_805AE0A0:
+	# ROM: 0x3FA940
+	.4byte 0
+
+.global lbl_805AE0A4
+lbl_805AE0A4:
+	# ROM: 0x3FA944
+	.float 1.0
+

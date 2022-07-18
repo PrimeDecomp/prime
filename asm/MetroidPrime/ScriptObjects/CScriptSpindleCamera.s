@@ -76,7 +76,7 @@ lbl_805A8288:
 .global lbl_805A828C
 lbl_805A828C:
 	# ROM: 0x3F5C2C
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .bss
 
@@ -2087,3 +2087,76 @@ __sinit_CScriptSpindleCamera_cpp:
 /* 802418E4 0023E844  7C 08 03 A6 */	mtlr r0
 /* 802418E8 0023E848  38 21 00 30 */	addi r1, r1, 0x30
 /* 802418EC 0023E84C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD4F0
+lbl_805AD4F0:
+	# ROM: 0x3F9D90
+	.4byte 0
+
+.global lbl_805AD4F4
+lbl_805AD4F4:
+	# ROM: 0x3F9D94
+	.float 1.0
+
+.global lbl_805AD4F8
+lbl_805AD4F8:
+	# ROM: 0x3F9D98
+	.double 1.0
+
+.global lbl_805AD500
+lbl_805AD500:
+	# ROM: 0x3F9DA0
+	.float -1.0
+
+.global lbl_805AD504
+lbl_805AD504:
+	# ROM: 0x3F9DA4
+	.float 6.2831855
+
+.global lbl_805AD508
+lbl_805AD508:
+	# ROM: 0x3F9DA8
+	.float 2.0
+
+.global lbl_805AD50C
+lbl_805AD50C:
+	# ROM: 0x3F9DAC
+	.float 0.5
+
+.global lbl_805AD510
+lbl_805AD510:
+	# ROM: 0x3F9DB0
+	.4byte 0x41200000
+
+.global lbl_805AD514
+lbl_805AD514:
+	# ROM: 0x3F9DB4
+	.4byte 0x3F7FFF58
+
+.global lbl_805AD518
+lbl_805AD518:
+	# ROM: 0x3F9DB8
+	.4byte 0x40400000
+
+.global lbl_805AD51C
+lbl_805AD51C:
+	# ROM: 0x3F9DBC
+	.4byte 0x3E32B8C2
+
+.global lbl_805AD520
+lbl_805AD520:
+	# ROM: 0x3F9DC0
+	.float 0.01
+
+.global lbl_805AD524
+lbl_805AD524:
+	# ROM: 0x3F9DC4
+	.4byte 0x3727C5AC
+
+.global lbl_805AD528
+lbl_805AD528:
+	# ROM: 0x3F9DC8
+	.float 0.017453292
+	.4byte 0
+

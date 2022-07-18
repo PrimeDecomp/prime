@@ -636,3 +636,21 @@ __ct__11CGBASupportFv:
 .global nullsub_130
 nullsub_130:
 /* 80248DD8 00245D38  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD598
+lbl_805AD598:
+	# ROM: 0x3F9E38
+	.4byte 0x414D5445
+
+.global lbl_805AD59C
+lbl_805AD59C:
+	# ROM: 0x3F9E3C
+	.float 4.0
+
+.global lbl_805AD5A0
+lbl_805AD5A0:
+	# ROM: 0x3F9E40
+	.4byte 0
+	.4byte 0
+

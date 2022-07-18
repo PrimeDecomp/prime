@@ -274,3 +274,15 @@ __ct__8CBSGetupFv:
 /* 801361F0 00133150  90 83 00 00 */	stw r4, 0(r3)
 /* 801361F4 00133154  90 03 00 04 */	stw r0, 4(r3)
 /* 801361F8 00133158  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB710
+lbl_805AB710:
+	# ROM: 0x3F7FB0
+	.float 1.1920929E-7
+
+.global lbl_805AB714
+lbl_805AB714:
+	# ROM: 0x3F7FB4
+	.float 1.0
+

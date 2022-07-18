@@ -125,3 +125,26 @@ SetParticleLifetime__16CParticleGlobalsFi:
 /* 8032A79C 003276FC  D0 0D A8 D4 */	stfs f0, lbl_805A9494@sda21(r13)
 /* 8032A7A0 00327700  38 21 00 10 */	addi r1, r1, 0x10
 /* 8032A7A4 00327704  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE798
+lbl_805AE798:
+	# ROM: 0x3FB038
+	.float 1.0
+
+.global lbl_805AE79C
+lbl_805AE79C:
+	# ROM: 0x3FB03C
+	.4byte 0
+
+.global lbl_805AE7A0
+lbl_805AE7A0:
+	# ROM: 0x3FB040
+	.4byte 0x42C80000
+	.4byte 0
+
+.global lbl_805AE7A8
+lbl_805AE7A8:
+	# ROM: 0x3FB048
+	.double 4.503601774854144E15
+

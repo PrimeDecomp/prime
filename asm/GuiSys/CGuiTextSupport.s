@@ -10,17 +10,17 @@ lbl_805A86C8:
 .global lbl_805A86CC
 lbl_805A86CC:
 	# ROM: 0x3F606C
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A86D0
 lbl_805A86D0:
 	# ROM: 0x3F6070
-	.4byte 0x38D1B717
+	.float 1.0E-4
 
 .global lbl_805A86D4
 lbl_805A86D4:
 	# ROM: 0x3F6074
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .sbss, "wa"
 
@@ -3086,3 +3086,52 @@ lbl_802CA5C0:
 /* 802CA5D0 002C7530  7C 08 03 A6 */	mtlr r0
 /* 802CA5D4 002C7534  38 21 00 30 */	addi r1, r1, 0x30
 /* 802CA5D8 002C7538  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE100
+lbl_805AE100:
+	# ROM: 0x3FA9A0
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AE108
+lbl_805AE108:
+	# ROM: 0x3FA9A8
+	.double 4.503601774854144E15
+
+.global lbl_805AE110
+lbl_805AE110:
+	# ROM: 0x3FA9B0
+	.float 1.0
+
+.global lbl_805AE114
+lbl_805AE114:
+	# ROM: 0x3FA9B4
+	.float 255.0
+
+.global lbl_805AE118
+lbl_805AE118:
+	# ROM: 0x3FA9B8
+	.4byte 0x408C2000
+	.4byte 0
+
+.global lbl_805AE120
+lbl_805AE120:
+	# ROM: 0x3FA9C0
+	.4byte 0x3B808081
+
+.global lbl_805AE124
+lbl_805AE124:
+	# ROM: 0x3FA9C4
+	.float -1.0
+
+.global lbl_805AE128
+lbl_805AE128:
+	# ROM: 0x3FA9C8
+	.float 0.1
+
+.global lbl_805AE12C
+lbl_805AE12C:
+	# ROM: 0x3FA9CC
+	.4byte 0x41200000
+

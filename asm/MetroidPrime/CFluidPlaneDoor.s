@@ -662,3 +662,26 @@ __ct__15CFluidPlaneDoorFUiUiUifUiQ211CFluidPlane10EFluidTypefRC14CFluidUVMotion:
 /* 8019DCF8 0019AC58  7C 08 03 A6 */	mtlr r0
 /* 8019DCFC 0019AC5C  38 21 00 30 */	addi r1, r1, 0x30
 /* 8019DD00 0019AC60  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC440
+lbl_805AC440:
+	# ROM: 0x3F8CE0
+	.float 1.0
+
+.global lbl_805AC444
+lbl_805AC444:
+	# ROM: 0x3F8CE4
+	.4byte 0
+
+.global lbl_805AC448
+lbl_805AC448:
+	# ROM: 0x3F8CE8
+	.double 4.503601774854144E15
+
+.global lbl_805AC450
+lbl_805AC450:
+	# ROM: 0x3F8CF0
+	.float 0.5
+	.4byte 0
+

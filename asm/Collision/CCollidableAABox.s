@@ -837,3 +837,27 @@ __sinit_CCollidableAABox_cpp:
 /* 802CE088 002CAFE8  D0 23 00 40 */	stfs f1, 0x40(r3)
 /* 802CE08C 002CAFEC  D0 03 00 44 */	stfs f0, 0x44(r3)
 /* 802CE090 002CAFF0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE1A0
+lbl_805AE1A0:
+	# ROM: 0x3FAA40
+	.4byte 0
+
+.global lbl_805AE1A4
+lbl_805AE1A4:
+	# ROM: 0x3FAA44
+	.float 1.0
+
+.global lbl_805AE1A8
+lbl_805AE1A8:
+	# ROM: 0x3FAA48
+	.float -1.0
+	.4byte 0
+
+.global lbl_805AE1B0
+lbl_805AE1B0:
+	# ROM: 0x3FAA50
+	.4byte 0
+	.4byte 0
+

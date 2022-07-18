@@ -278,3 +278,26 @@ lbl_8014D380:
 /* 8014D3B8 0014A318  7C 08 03 A6 */	mtlr r0
 /* 8014D3BC 0014A31C  38 21 00 90 */	addi r1, r1, 0x90
 /* 8014D3C0 0014A320  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABA40
+lbl_805ABA40:
+	# ROM: 0x3F82E0
+	.4byte 0
+
+.global lbl_805ABA44
+lbl_805ABA44:
+	# ROM: 0x3F82E4
+	.4byte 0x3727C5AC
+
+.global lbl_805ABA48
+lbl_805ABA48:
+	# ROM: 0x3F82E8
+	.float 1.0E-4
+	.4byte 0
+
+.global lbl_805ABA50
+lbl_805ABA50:
+	# ROM: 0x3F82F0
+	.double 9.999999747378752E-6
+

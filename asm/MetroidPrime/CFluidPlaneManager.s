@@ -12,6 +12,79 @@ lbl_805A76DC:
 	# ROM: 0x3F507C
 	.4byte 0x000000FF
 
+.section .sdata2, "a"
+
+.global lbl_805AB614
+lbl_805AB614:
+	# ROM: 0x3F7EB4
+	.float 9999.0
+
+.global lbl_805AB618
+lbl_805AB618:
+	# ROM: 0x3F7EB8
+	.float 0.0
+
+.global lbl_805AB61C
+lbl_805AB61C:
+	# ROM: 0x3F7EBC
+	.float 1.0
+
+.global lbl_805AB620
+lbl_805AB620:
+	# ROM: 0x3F7EC0
+	.float 1.25
+
+.global lbl_805AB624
+lbl_805AB624:
+	# ROM: 0x3F7EC4
+	.float 0.1
+
+.global lbl_805AB628
+lbl_805AB628:
+	# ROM: 0x3F7EC8
+	.float 0.25
+
+.global lbl_805AB62C
+lbl_805AB62C:
+	# ROM: 0x3F7ECC
+	.float 0.4
+
+.global lbl_805AB630
+lbl_805AB630:
+	# ROM: 0x3F7ED0
+	.float 2.5
+
+.global lbl_805AB634
+lbl_805AB634:
+	# ROM: 0x3F7ED4
+	.float 0.75
+
+.global lbl_805AB638
+lbl_805AB638:
+	# ROM: 0x3F7ED8
+	.float 4.0
+
+.global lbl_805AB63C
+lbl_805AB63C:
+	# ROM: 0x3F7EDC
+	.float 255.0
+
+.global lbl_805AB640
+lbl_805AB640:
+	# ROM: 0x3F7EE0
+	.float 0.015873017
+
+.global lbl_805AB644
+lbl_805AB644:
+	# ROM: 0x3F7EE4
+	.float 9999.0
+
+.global lbl_805AB648
+lbl_805AB648:
+	# ROM: 0x3F7EE8
+	.float 0.5
+	.4byte 0
+
 .section .text, "ax"
 
 .global SetupRippleMap__18CFluidPlaneManagerFv

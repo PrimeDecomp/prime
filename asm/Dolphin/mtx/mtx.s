@@ -6,14 +6,14 @@
 lbl_805A8B20:
 	# ROM: 0x3F64C0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 
 .section .sdata2
 .global lbl_805AEBF8
 lbl_805AEBF8:
 	# ROM: 0x3FB498
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805AEBFC
 lbl_805AEBFC:

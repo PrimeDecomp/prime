@@ -5,13 +5,12 @@
 .global lbl_805A9D7C
 lbl_805A9D7C:
 	# ROM: 0x3F661C
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A9D80
 lbl_805A9D80:
 	# ROM: 0x3F6620
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.double 4.503601774854144E15
 
 .section .text, "ax"
 

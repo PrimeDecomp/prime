@@ -3161,3 +3161,58 @@ __ct__18CCollidableOBBTreeFP8COBBTreeRC13CMaterialList:
 /* 802AC738 002A9698  7C 08 03 A6 */	mtlr r0
 /* 802AC73C 002A969C  38 21 00 10 */	addi r1, r1, 0x10
 /* 802AC740 002A96A0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADED0
+lbl_805ADED0:
+	# ROM: 0x3FA770
+	.2byte 0x00000101
+
+.global lbl_805ADED2
+lbl_805ADED2:
+	# ROM: 0x3FA772
+	.2byte 0x00000100
+
+.global lbl_805ADED4
+lbl_805ADED4:
+	# ROM: 0x3FA774
+	.4byte 0
+
+.global lbl_805ADED8
+lbl_805ADED8:
+	# ROM: 0x3FA778
+	.float 1.0
+
+.global lbl_805ADEDC
+lbl_805ADEDC:
+	# ROM: 0x3FA77C
+	.float 0.5
+
+.global lbl_805ADEE0
+lbl_805ADEE0:
+	# ROM: 0x3FA780
+	.4byte 0
+	.4byte 0
+
+.global lbl_805ADEE8
+lbl_805ADEE8:
+	# ROM: 0x3FA788
+	.float 2.0
+
+.global lbl_805ADEEC
+lbl_805ADEEC:
+	# ROM: 0x3FA78C
+	.float 4.0
+
+.global lbl_805ADEF0
+lbl_805ADEF0:
+	# ROM: 0x3FA790
+	.4byte 0x3FE00000
+	.4byte 0
+
+.global lbl_805ADEF8
+lbl_805ADEF8:
+	# ROM: 0x3FA798
+	.4byte 0x40080000
+	.4byte 0
+

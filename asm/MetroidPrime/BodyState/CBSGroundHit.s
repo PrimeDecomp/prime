@@ -417,3 +417,56 @@ __ct__12CBSGroundHitFv:
 /* 8013F2E4 0013C244  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8013F2E8 0013C248  90 03 00 0C */	stw r0, 0xc(r3)
 /* 8013F2EC 0013C24C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB848
+lbl_805AB848:
+	# ROM: 0x3F80E8
+	.4byte 0
+
+.global lbl_805AB84C
+lbl_805AB84C:
+	# ROM: 0x3F80EC
+	.4byte 0x3E22F983
+
+.global lbl_805AB850
+lbl_805AB850:
+	# ROM: 0x3F80F0
+	.float 6.2831855
+
+.global lbl_805AB854
+lbl_805AB854:
+	# ROM: 0x3F80F4
+	.4byte 0x42652EE0
+
+.global lbl_805AB858
+lbl_805AB858:
+	# ROM: 0x3F80F8
+	.float 1.0
+
+.global lbl_805AB85C
+lbl_805AB85C:
+	# ROM: 0x3F80FC
+	.float 0.017453292
+
+.global lbl_805AB860
+lbl_805AB860:
+	# ROM: 0x3F8100
+	.4byte 0x40490FDB
+
+.global lbl_805AB864
+lbl_805AB864:
+	# ROM: 0x3F8104
+	.float 0.15
+
+.global lbl_805AB868
+lbl_805AB868:
+	# ROM: 0x3F8108
+	.float 1.1920929E-7
+	.4byte 0
+
+.global lbl_805AB870
+lbl_805AB870:
+	# ROM: 0x3F8110
+	.double 4.503601774854144E15
+

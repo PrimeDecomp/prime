@@ -10,7 +10,7 @@ lbl_805A7868:
 .global lbl_805A786C
 lbl_805A786C:
 	# ROM: 0x3F520C
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .bss
 
@@ -724,3 +724,66 @@ __sinit_CSamusFaceReflection_cpp:
 /* 8015B848 001587A8  7C 08 03 A6 */	mtlr r0
 /* 8015B84C 001587AC  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 8015B850 001587B0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABBC0
+lbl_805ABBC0:
+	# ROM: 0x3F8460
+	.4byte 0x803D0340
+
+.global lbl_805ABBC4
+lbl_805ABBC4:
+	# ROM: 0x3F8464
+	.4byte 0xC1200000
+
+.global lbl_805ABBC8
+lbl_805ABBC8:
+	# ROM: 0x3F8468
+	.4byte 0x41200000
+
+.global lbl_805ABBCC
+lbl_805ABBCC:
+	# ROM: 0x3F846C
+	.float 1.0
+
+.global lbl_805ABBD0
+lbl_805ABBD0:
+	# ROM: 0x3F8470
+	.4byte 0
+
+.global lbl_805ABBD4
+lbl_805ABBD4:
+	# ROM: 0x3F8474
+	.float 0.125
+
+.global lbl_805ABBD8
+lbl_805ABBD8:
+	# ROM: 0x3F8478
+	.float 6.2831855
+
+.global lbl_805ABBDC
+lbl_805ABBDC:
+	# ROM: 0x3F847C
+	.float 0.5
+
+.global lbl_805ABBE0
+lbl_805ABBE0:
+	# ROM: 0x3F8480
+	.double 1.0
+
+.global lbl_805ABBE8
+lbl_805ABBE8:
+	# ROM: 0x3F8488
+	.float -1.0
+
+.global lbl_805ABBEC
+lbl_805ABBEC:
+	# ROM: 0x3F848C
+	.4byte 0x41900000
+
+.global lbl_805ABBF0
+lbl_805ABBF0:
+	# ROM: 0x3F8490
+	.float 0.3
+	.4byte 0
+

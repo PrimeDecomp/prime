@@ -571,3 +571,35 @@ __ct__7CABSAimFv:
 /* 801DA494 001D73F4  D0 03 00 30 */	stfs f0, 0x30(r3)
 /* 801DA498 001D73F8  D0 03 00 34 */	stfs f0, 0x34(r3)
 /* 801DA49C 001D73FC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC9D0
+lbl_805AC9D0:
+	# ROM: 0x3F9270
+	.4byte 0
+
+.global lbl_805AC9D4
+lbl_805AC9D4:
+	# ROM: 0x3F9274
+	.4byte 0x40400000
+
+.global lbl_805AC9D8
+lbl_805AC9D8:
+	# ROM: 0x3F9278
+	.4byte 0x41200000
+
+.global lbl_805AC9DC
+lbl_805AC9DC:
+	# ROM: 0x3F927C
+	.4byte 0x3F22F983
+
+.global lbl_805AC9E0
+lbl_805AC9E0:
+	# ROM: 0x3F9280
+	.float 0.25
+
+.global lbl_805AC9E4
+lbl_805AC9E4:
+	# ROM: 0x3F9284
+	.float 0.017453292
+

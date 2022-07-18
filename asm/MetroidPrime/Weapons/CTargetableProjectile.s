@@ -579,3 +579,25 @@ Accept__21CTargetableProjectileFR8IVisitor:
 /* 8013C03C 00138F9C  7C 08 03 A6 */	mtlr r0
 /* 8013C040 00138FA0  38 21 00 80 */	addi r1, r1, 0x80
 /* 8013C044 00138FA4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB7B8
+lbl_805AB7B8:
+	# ROM: 0x3F8058
+	.float 0.1
+
+.global lbl_805AB7BC
+lbl_805AB7BC:
+	# ROM: 0x3F805C
+	.float 1.0
+
+.global lbl_805AB7C0
+lbl_805AB7C0:
+	# ROM: 0x3F8060
+	.float 0.5
+
+.global lbl_805AB7C4
+lbl_805AB7C4:
+	# ROM: 0x3F8064
+	.4byte 0
+

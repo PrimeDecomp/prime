@@ -393,3 +393,11 @@ __sinit_CScriptCameraPitchVolume_cpp:
 /* 802269B0 00223910  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802269B4 00223914  D0 03 00 08 */	stfs f0, 8(r3)
 /* 802269B8 00223918  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD1D8
+lbl_805AD1D8:
+	# ROM: 0x3F9A78
+	.float 0.5
+	.4byte 0
+

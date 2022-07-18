@@ -3460,3 +3460,26 @@ __sinit_DolphinCAudioSys_cpp:
 /* 8034D4D0 0034A430  7C 08 03 A6 */	mtlr r0
 /* 8034D4D4 0034A434  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034D4D8 0034A438  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE960
+lbl_805AE960:
+	# ROM: 0x3FB200
+	.byte 0x7F
+
+.global lbl_805AE961
+lbl_805AE961:
+	# ROM: 0x3FB201
+	.byte 0x7F, 0x00, 0x00
+
+.global lbl_805AE964
+lbl_805AE964:
+	# ROM: 0x3FB204
+	.4byte DoMalloc__FUl
+
+.global lbl_805AE968
+lbl_805AE968:
+	# ROM: 0x3FB208
+	.4byte DoFree__FPv
+	.4byte 0
+

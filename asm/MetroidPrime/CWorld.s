@@ -84,6 +84,34 @@ lbl_805A8DE0:
 lbl_805A8DE4:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AA3B0
+lbl_805AA3B0:
+	# ROM: 0x3F6C50
+	.4byte 0x3F7FBE77
+
+.global lbl_805AA3B4
+lbl_805AA3B4:
+	# ROM: 0x3F6C54
+	.float 1.0
+
+.global lbl_805AA3B8
+lbl_805AA3B8:
+	# ROM: 0x3F6C58
+	.float 0.125
+
+.global lbl_805AA3BC
+lbl_805AA3BC:
+	# ROM: 0x3F6C5C
+	.4byte 0x42FE0000
+
+.global lbl_805AA3C0
+lbl_805AA3C0:
+	# ROM: 0x3F6C60
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global CyclePauseState__6CWorldFv

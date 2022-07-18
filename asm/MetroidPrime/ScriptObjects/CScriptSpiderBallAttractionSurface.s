@@ -281,3 +281,11 @@ lbl_8014AF00:
 /* 8014B0B4 00148014  7C 08 03 A6 */	mtlr r0
 /* 8014B0B8 00148018  38 21 01 70 */	addi r1, r1, 0x170
 /* 8014B0BC 0014801C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABA00
+lbl_805ABA00:
+	# ROM: 0x3F82A0
+	.float 0.5
+	.4byte 0
+

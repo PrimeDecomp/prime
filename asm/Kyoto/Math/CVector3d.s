@@ -184,3 +184,10 @@ __ct__9CVector3dFddd:
 /* 803145A4 00311504  D8 43 00 08 */	stfd f2, 8(r3)
 /* 803145A8 00311508  D8 63 00 10 */	stfd f3, 0x10(r3)
 /* 803145AC 0031150C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE628
+lbl_805AE628:
+	# ROM: 0x3FAEC8
+	.double 1.0
+

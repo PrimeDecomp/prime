@@ -580,3 +580,17 @@ lbl_802C470C:
 /* 802C472C 002C168C  7C 08 03 A6 */	mtlr r0
 /* 802C4730 002C1690  38 21 00 50 */	addi r1, r1, 0x50
 /* 802C4734 002C1694  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE0A8
+lbl_805AE0A8:
+	# ROM: 0x3FA948
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE0B0
+lbl_805AE0B0:
+	# ROM: 0x3FA950
+	.4byte 0x43300000
+	.4byte 0
+

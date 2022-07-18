@@ -1,5 +1,47 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805A9F78
+lbl_805A9F78:
+	# ROM: 0x3F6818
+	.float 1.0
+
+.global lbl_805A9F7C
+lbl_805A9F7C:
+	# ROM: 0x3F681C
+	.4byte 0
+
+.global lbl_805A9F80
+lbl_805A9F80:
+	# ROM: 0x3F6820
+	.float 2.0
+	.4byte 0
+
+.global lbl_805A9F88
+lbl_805A9F88:
+	# ROM: 0x3F6828
+	.4byte 0
+	.4byte 0
+
+.global lbl_805A9F90
+lbl_805A9F90:
+	# ROM: 0x3F6830
+	.4byte 0x3FE00000
+	.4byte 0
+
+.global lbl_805A9F98
+lbl_805A9F98:
+	# ROM: 0x3F6838
+	.4byte 0x40080000
+	.4byte 0
+
+.global lbl_805A9FA0
+lbl_805A9FA0:
+	# ROM: 0x3F6840
+	.4byte 0x3727C5AC
+	.4byte 0
+
 .section .text, "ax"
 
 .global FromQuaternion__12CEulerAnglesFRC11CQuaternion

@@ -645,3 +645,15 @@ lbl_80358230:
 /* 80358250 003551B0  7C 08 03 A6 */	mtlr r0
 /* 80358254 003551B4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80358258 003551B8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE9F8
+lbl_805AE9F8:
+	# ROM: 0x3FB298
+	.float 1.1920929E-7
+
+.global lbl_805AE9FC
+lbl_805AE9FC:
+	# ROM: 0x3FB29C
+	.4byte 0
+

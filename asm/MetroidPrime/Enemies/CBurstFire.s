@@ -319,3 +319,36 @@ lbl_801AD570:
 /* 801AD574 001AA4D4  28 06 00 00 */	cmplwi r6, 0
 /* 801AD578 001AA4D8  40 82 FF D4 */	bne lbl_801AD54C
 /* 801AD57C 001AA4DC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC598
+lbl_805AC598:
+	# ROM: 0x3F8E38
+	.float 0.2
+
+.global lbl_805AC59C
+lbl_805AC59C:
+	# ROM: 0x3F8E3C
+	.4byte 0x40680000
+
+.global lbl_805AC5A0
+lbl_805AC5A0:
+	# ROM: 0x3F8E40
+	.4byte 0xBEC90FDB
+	.4byte 0
+
+.global lbl_805AC5A8
+lbl_805AC5A8:
+	# ROM: 0x3F8E48
+	.double 4.503601774854144E15
+
+.global lbl_805AC5B0
+lbl_805AC5B0:
+	# ROM: 0x3F8E50
+	.4byte 0
+
+.global lbl_805AC5B4
+lbl_805AC5B4:
+	# ROM: 0x3F8E54
+	.float 0.5
+

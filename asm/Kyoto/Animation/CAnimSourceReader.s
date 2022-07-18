@@ -1580,3 +1580,11 @@ GetAnimationDuration__15CAnimSourceInfoCFv:
 /* 802EF8A4 002EC804  80 04 00 04 */	lwz r0, 4(r4)
 /* 802EF8A8 002EC808  90 03 00 04 */	stw r0, 4(r3)
 /* 802EF8AC 002EC80C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE398
+lbl_805AE398:
+	# ROM: 0x3FAC38
+	.4byte 0
+	.4byte 0
+

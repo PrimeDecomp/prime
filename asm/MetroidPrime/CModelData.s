@@ -6,6 +6,24 @@
 lbl_8046C538:
 	.skip 0x20
 
+.section .sdata2, "a"
+
+.global lbl_805AB368
+lbl_805AB368:
+	# ROM: 0x3F7C08
+	.float 0.0
+
+.global lbl_805AB36C
+lbl_805AB36C:
+	# ROM: 0x3F7C0C
+	.float 1.0
+
+.global lbl_805AB370
+lbl_805AB370:
+	# ROM: 0x3F7C10
+	.4byte 0x3B808081
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetNumMaterialSets__10CModelDataCFv

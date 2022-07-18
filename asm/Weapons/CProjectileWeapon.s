@@ -2586,3 +2586,71 @@ lbl_802B1124:
 GetTickPeriod__17CProjectileWeaponFv:
 /* 802B113C 002AE09C  C0 22 C1 FC */	lfs f1, lbl_805ADF1C@sda21(r2)
 /* 802B1140 002AE0A0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADF10
+lbl_805ADF10:
+	# ROM: 0x3FA7B0
+	.4byte 0
+
+.global lbl_805ADF14
+lbl_805ADF14:
+	# ROM: 0x3FA7B4
+	.float 2.0
+
+.global lbl_805ADF18
+lbl_805ADF18:
+	# ROM: 0x3FA7B8
+	.float 1.0
+
+.global lbl_805ADF1C
+lbl_805ADF1C:
+	# ROM: 0x3FA7BC
+	.4byte 0x3C888889
+
+.global lbl_805ADF20
+lbl_805ADF20:
+	# ROM: 0x3FA7C0
+	.4byte 0x3F911111
+	.4byte 0x11111111
+
+.global lbl_805ADF28
+lbl_805ADF28:
+	# ROM: 0x3FA7C8
+	.4byte 0x3EF179EC
+	.4byte 0xA0000000
+
+.global lbl_805ADF30
+lbl_805ADF30:
+	# ROM: 0x3FA7D0
+	.4byte 0
+	.4byte 0
+
+.global lbl_805ADF38
+lbl_805ADF38:
+	# ROM: 0x3FA7D8
+	.float 0.017453292
+	.4byte 0
+
+.global lbl_805ADF40
+lbl_805ADF40:
+	# ROM: 0x3FA7E0
+	.double 1.0
+
+.global lbl_805ADF48
+lbl_805ADF48:
+	# ROM: 0x3FA7E8
+	.4byte 0x3F911111
+	.4byte 0x20000000
+
+.global lbl_805ADF50
+lbl_805ADF50:
+	# ROM: 0x3FA7F0
+	.4byte 0x3EF179EC
+	.4byte 0x9CBD821E
+
+.global lbl_805ADF58
+lbl_805ADF58:
+	# ROM: 0x3FA7F8
+	.double 4.503601774854144E15
+

@@ -4794,3 +4794,64 @@ lbl_802A75CC:
 /* 802A75F0 002A4550  7C 08 03 A6 */	mtlr r0
 /* 802A75F4 002A4554  38 21 02 30 */	addi r1, r1, 0x230
 /* 802A75F8 002A4558  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADE68
+lbl_805ADE68:
+	# ROM: 0x3FA708
+	.2byte 0x00000101
+
+.global lbl_805ADE6A
+lbl_805ADE6A:
+	# ROM: 0x3FA70A
+	.2byte 0x00000100
+
+.global lbl_805ADE6C
+lbl_805ADE6C:
+	# ROM: 0x3FA70C
+	.4byte 0
+
+.global lbl_805ADE70
+lbl_805ADE70:
+	# ROM: 0x3FA710
+	.float 0.25
+	.4byte 0
+
+.global lbl_805ADE78
+lbl_805ADE78:
+	# ROM: 0x3FA718
+	.4byte 0
+	.4byte 0
+
+.global lbl_805ADE80
+lbl_805ADE80:
+	# ROM: 0x3FA720
+	.float 0.5
+
+.global lbl_805ADE84
+lbl_805ADE84:
+	# ROM: 0x3FA724
+	.float 1.0
+
+.global lbl_805ADE88
+lbl_805ADE88:
+	# ROM: 0x3FA728
+	.float 2.0
+
+.global lbl_805ADE8C
+lbl_805ADE8C:
+	# ROM: 0x3FA72C
+	.float 4.0
+
+.global lbl_805ADE90
+lbl_805ADE90:
+	# ROM: 0x3FA730
+	.4byte 0x3FE00000
+	.4byte 0
+
+.global lbl_805ADE98
+lbl_805ADE98:
+	# ROM: 0x3FA738
+	.4byte 0x40080000
+	.4byte 0
+

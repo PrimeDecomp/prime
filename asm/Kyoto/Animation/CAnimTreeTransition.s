@@ -1169,3 +1169,35 @@ lbl_802F685C:
 /* 802F69C8 002F3928  7C 08 03 A6 */	mtlr r0
 /* 802F69CC 002F392C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802F69D0 002F3930  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE3C8
+lbl_805AE3C8:
+	# ROM: 0x3FAC68
+	.float 1.0
+
+.global lbl_805AE3CC
+lbl_805AE3CC:
+	# ROM: 0x3FAC6C
+	.4byte 0
+
+.global lbl_805AE3D0
+lbl_805AE3D0:
+	# ROM: 0x3FAC70
+	.float 0.5
+
+.global lbl_805AE3D4
+lbl_805AE3D4:
+	# ROM: 0x3FAC74
+	.4byte 0x3727C5AC
+
+.global lbl_805AE3D8
+lbl_805AE3D8:
+	# ROM: 0x3FAC78
+	.4byte 0x00000001
+
+.global lbl_805AE3DC
+lbl_805AE3DC:
+	# ROM: 0x3FAC7C
+	.4byte 0x00000002
+

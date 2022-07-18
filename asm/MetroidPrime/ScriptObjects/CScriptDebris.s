@@ -60,7 +60,7 @@ lbl_805A74E0:
 .global lbl_805A74E4
 lbl_805A74E4:
 	# ROM: 0x3F4E84
-	.4byte 0x40000000
+	.float 2.0
 
 .global lbl_805A74E8
 lbl_805A74E8:
@@ -100,7 +100,7 @@ lbl_805A7500:
 .global lbl_805A7504
 lbl_805A7504:
 	# ROM: 0x3F4EA4
-	.4byte 0x40000000
+	.float 2.0
 
 .global lbl_805A7508
 lbl_805A7508:
@@ -167,6 +167,88 @@ lbl_805A7538:
 	# ROM: 0x3F4ED8
 	.4byte 0x00000023
 	.4byte 0
+
+.section .sdata2, "a"
+
+.global lbl_805AB080
+lbl_805AB080:
+	# ROM: 0x3F7920
+	.float 1.0
+
+.global lbl_805AB084
+lbl_805AB084:
+	# ROM: 0x3F7924
+	.4byte 0
+
+.global lbl_805AB088
+lbl_805AB088:
+	# ROM: 0x3F7928
+	.4byte 0x38800100
+
+.global lbl_805AB08C
+lbl_805AB08C:
+	# ROM: 0x3F792C
+	.4byte 0x42340000
+
+.global lbl_805AB090
+lbl_805AB090:
+	# ROM: 0x3F7930
+	.float 15.0
+
+.global lbl_805AB094
+lbl_805AB094:
+	# ROM: 0x3F7934
+	.4byte 0x420C0000
+
+.global lbl_805AB098
+lbl_805AB098:
+	# ROM: 0x3F7938
+	.4byte 0x43B40000
+
+.global lbl_805AB09C
+lbl_805AB09C:
+	# ROM: 0x3F793C
+	.4byte 0x3F7D70A4
+
+.global lbl_805AB0A0
+lbl_805AB0A0:
+	# ROM: 0x3F7940
+	.float 0.1
+
+.global lbl_805AB0A4
+lbl_805AB0A4:
+	# ROM: 0x3F7944
+	.float 0.5
+
+.global lbl_805AB0A8
+lbl_805AB0A8:
+	# ROM: 0x3F7948
+	.4byte 0xBF000000
+
+.global lbl_805AB0AC
+lbl_805AB0AC:
+	# ROM: 0x3F794C
+	.float 0.3
+
+.global lbl_805AB0B0
+lbl_805AB0B0:
+	# ROM: 0x3F7950
+	.4byte 0x42C80000
+
+.global lbl_805AB0B4
+lbl_805AB0B4:
+	# ROM: 0x3F7954
+	.float 5.0
+
+.global lbl_805AB0B8
+lbl_805AB0B8:
+	# ROM: 0x3F7958
+	.4byte 0x3C0EFA35
+
+.global lbl_805AB0BC
+lbl_805AB0BC:
+	# ROM: 0x3F795C
+	.float 6.2831855
 
 .section .text, "ax"
 
@@ -2587,7 +2669,7 @@ lbl_800FDC10:
 /* 800FDC2C 000FAB8C  38 80 00 00 */	li r4, 0
 /* 800FDC30 000FAB90  48 24 32 11 */	bl __dt__6CTokenFv
 lbl_800FDC34:
-/* 800FDC34 000FAB94  C0 02 96 A0 */	lfs f0, lbl_805AB3C0@sda21(r2)
+/* 800FDC34 000FAB94  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
 /* 800FDC38 000FAB98  C0 5D 00 E8 */	lfs f2, 0xe8(r29)
 /* 800FDC3C 000FAB9C  FC 20 00 50 */	fneg f1, f0
 /* 800FDC40 000FABA0  C0 02 93 64 */	lfs f0, lbl_805AB084@sda21(r2)

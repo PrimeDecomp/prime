@@ -227,3 +227,21 @@ __ct__10CABSFlinchFv:
 /* 801D9D0C 001D6C6C  D0 03 00 04 */	stfs f0, 4(r3)
 /* 801D9D10 001D6C70  90 03 00 08 */	stw r0, 8(r3)
 /* 801D9D14 001D6C74  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC9C0
+lbl_805AC9C0:
+	# ROM: 0x3F9260
+	.4byte 0
+
+.global lbl_805AC9C4
+lbl_805AC9C4:
+	# ROM: 0x3F9264
+	.4byte 0x3727C5AC
+
+.global lbl_805AC9C8
+lbl_805AC9C8:
+	# ROM: 0x3F9268
+	.float 1.0
+	.4byte 0
+

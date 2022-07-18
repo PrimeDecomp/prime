@@ -2289,3 +2289,41 @@ lbl_801CC120:
 /* 801CC120 001C9080  54 03 06 3E */	clrlwi r3, r0, 0x18
 /* 801CC124 001C9084  38 21 00 20 */	addi r1, r1, 0x20
 /* 801CC128 001C9088  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC870
+lbl_805AC870:
+	# ROM: 0x3F9110
+	.4byte 0x7F7FFFFF
+
+.global lbl_805AC874
+lbl_805AC874:
+	# ROM: 0x3F9114
+	.4byte 0x40400000
+
+.global lbl_805AC878
+lbl_805AC878:
+	# ROM: 0x3F9118
+	.4byte 0
+
+.global lbl_805AC87C
+lbl_805AC87C:
+	# ROM: 0x3F911C
+	.float 1.0E-4
+
+.global lbl_805AC880
+lbl_805AC880:
+	# ROM: 0x3F9120
+	.4byte 0
+
+.global lbl_805AC884
+lbl_805AC884:
+	# ROM: 0x3F9124
+	.float 1.0
+
+.global lbl_805AC888
+lbl_805AC888:
+	# ROM: 0x3F9128
+	.float 2.0
+	.4byte 0
+

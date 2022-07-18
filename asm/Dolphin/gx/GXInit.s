@@ -52,7 +52,7 @@ lbl_805AEB34:
 .global lbl_805AEB38
 lbl_805AEB38:
 	# ROM: 0x3FB3D8
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805AEB3C
 lbl_805AEB3C:
@@ -62,7 +62,7 @@ lbl_805AEB3C:
 .global lbl_805AEB40
 lbl_805AEB40:
 	# ROM: 0x3FB3E0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0
 
 .global lbl_805AEB48
@@ -132,11 +132,11 @@ lbl_803F062C:
 .global lbl_803F06FC
 lbl_803F06FC:
 	# ROM: 0x3ED6FC
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0xC0000000
 	.4byte 0
 

@@ -194,3 +194,15 @@ __sinit_CMatrix4f_cpp:
 /* 803109DC 0030D93C  7C 08 03 A6 */	mtlr r0
 /* 803109E0 0030D940  38 21 00 90 */	addi r1, r1, 0x90
 /* 803109E4 0030D944  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE578
+lbl_805AE578:
+	# ROM: 0x3FAE18
+	.float 1.0
+
+.global lbl_805AE57C
+lbl_805AE57C:
+	# ROM: 0x3FAE1C
+	.4byte 0
+

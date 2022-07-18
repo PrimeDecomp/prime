@@ -3387,3 +3387,157 @@ __sinit_CWaveBuster_cpp:
 /* 801C079C 001BD6FC  D0 23 00 04 */	stfs f1, 4(r3)
 /* 801C07A0 001BD700  D0 03 00 08 */	stfs f0, 8(r3)
 /* 801C07A4 001BD704  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC718
+lbl_805AC718:
+	# ROM: 0x3F8FB8
+	.float 0.5
+
+.global lbl_805AC71C
+lbl_805AC71C:
+	# ROM: 0x3F8FBC
+	.4byte 0x41C80000
+
+.global lbl_805AC720
+lbl_805AC720:
+	# ROM: 0x3F8FC0
+	.4byte 0xBF000000
+
+.global lbl_805AC724
+lbl_805AC724:
+	# ROM: 0x3F8FC4
+	.4byte 0
+
+.global lbl_805AC728
+lbl_805AC728:
+	# ROM: 0x3F8FC8
+	.4byte 0x47C35000
+
+.global lbl_805AC72C
+lbl_805AC72C:
+	# ROM: 0x3F8FCC
+	.float 1.0
+
+.global lbl_805AC730
+lbl_805AC730:
+	# ROM: 0x3F8FD0
+	.4byte 0x3D23D70A
+
+.global lbl_805AC734
+lbl_805AC734:
+	# ROM: 0x3F8FD4
+	.4byte 0x3E23D70A
+
+.global lbl_805AC738
+lbl_805AC738:
+	# ROM: 0x3F8FD8
+	.4byte 0xBD2AAB04
+
+.global lbl_805AC73C
+lbl_805AC73C:
+	# ROM: 0x3F8FDC
+	.4byte 0x3D2AAB04
+
+.global lbl_805AC740
+lbl_805AC740:
+	# ROM: 0x3F8FE0
+	.float 6.2831855
+
+.global lbl_805AC744
+lbl_805AC744:
+	# ROM: 0x3F8FE4
+	.4byte 0x3E32B8C3
+
+.global lbl_805AC748
+lbl_805AC748:
+	# ROM: 0x3F8FE8
+	.float 0.25
+
+.global lbl_805AC74C
+lbl_805AC74C:
+	# ROM: 0x3F8FEC
+	.4byte 0x42700000
+
+.global lbl_805AC750
+lbl_805AC750:
+	# ROM: 0x3F8FF0
+	.4byte 0x3FCCCCCD
+
+.global lbl_805AC754
+lbl_805AC754:
+	# ROM: 0x3F8FF4
+	.float -1.0
+
+.global lbl_805AC758
+lbl_805AC758:
+	# ROM: 0x3F8FF8
+	.float 0.125
+
+.global lbl_805AC75C
+lbl_805AC75C:
+	# ROM: 0x3F8FFC
+	.4byte 0x41A00000
+
+.global lbl_805AC760
+lbl_805AC760:
+	# ROM: 0x3F9000
+	.4byte 0x3FC90FDB
+
+.global lbl_805AC764
+lbl_805AC764:
+	# ROM: 0x3F9004
+	.4byte 0x441C4000
+
+.global lbl_805AC768
+lbl_805AC768:
+	# ROM: 0x3F9008
+	.float 0.001
+
+.global lbl_805AC76C
+lbl_805AC76C:
+	# ROM: 0x3F900C
+	.4byte 0x461C4000
+
+.global lbl_805AC770
+lbl_805AC770:
+	# ROM: 0x3F9010
+	.4byte 0x3D4CCCCD
+
+.global lbl_805AC774
+lbl_805AC774:
+	# ROM: 0x3F9014
+	.float 0.1
+
+.global lbl_805AC778
+lbl_805AC778:
+	# ROM: 0x3F9018
+	.float 1.25
+	.4byte 0
+
+.global lbl_805AC780
+lbl_805AC780:
+	# ROM: 0x3F9020
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AC788
+lbl_805AC788:
+	# ROM: 0x3F9028
+	.4byte 0xC0400000
+
+.global lbl_805AC78C
+lbl_805AC78C:
+	# ROM: 0x3F902C
+	.4byte 0xBFC00000
+
+.global lbl_805AC790
+lbl_805AC790:
+	# ROM: 0x3F9030
+	.float 2.0
+
+.global lbl_805AC794
+lbl_805AC794:
+	# ROM: 0x3F9034
+	.float 1.5
+

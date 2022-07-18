@@ -70,7 +70,7 @@ lbl_805A6DA8:
 .global lbl_805A6DAC
 lbl_805A6DAC:
 	# ROM: 0x3F474C
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A6DB0
 lbl_805A6DB0:
@@ -93,6 +93,51 @@ lbl_805A8CC8:
 .global lbl_805A8CCC
 lbl_805A8CCC:
 	.skip 0x4
+
+.section .sdata2, "a"
+
+.global lbl_805AA0F0
+lbl_805AA0F0:
+	# ROM: 0x3F6990
+	.4byte 0
+
+.global lbl_805AA0F4
+lbl_805AA0F4:
+	# ROM: 0x3F6994
+	.4byte 0x3727C5AC
+
+.global lbl_805AA0F8
+lbl_805AA0F8:
+	# ROM: 0x3F6998
+	.float 1.0
+
+.global lbl_805AA0FC
+lbl_805AA0FC:
+	# ROM: 0x3F699C
+	.4byte 0x42C80000
+
+.global lbl_805AA100
+lbl_805AA100:
+	# ROM: 0x3F69A0
+	.double 4.503601774854144E15
+
+.global lbl_805AA108
+lbl_805AA108:
+	# ROM: 0x3F69A8
+	.4byte 0x42700000
+
+.global lbl_805AA10C
+lbl_805AA10C:
+	# ROM: 0x3F69AC
+	.4byte 0x3C888889
+
+# TODO: this appears to be a constant for CAnimRes::x4_charIdx
+# could be ODR'd here, or actually live in CCharacterFactory/CAssetFactory
+.global lbl_805AA110
+lbl_805AA110:
+	# ROM: 0x3F69B0
+	.4byte 0
+	.4byte 0
 
 .section .text, "ax"
 

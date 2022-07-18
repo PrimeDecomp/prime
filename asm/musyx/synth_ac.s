@@ -5,7 +5,7 @@
 .global toneup_map
 toneup_map:
 	# ROM: 0x3F0420
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x3F879C80
 	.4byte 0x3F8FACD8
 	.4byte 0x3F9837F0
@@ -137,7 +137,7 @@ toneup_map:
 .global tonedown_tab
 tonedown_tab:
 	# ROM: 0x3F0620
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x3F71A1C0
 	.4byte 0x3F6411F0
 	.4byte 0x3F574500
@@ -149,7 +149,7 @@ tonedown_tab:
 	.4byte 0x3F1837F0
 	.4byte 0x3F0FACD0
 	.4byte 0x3F079C80
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0x3EF1A1C0
 	.4byte 0x3EE411E0
 	.4byte 0x3ED74500
@@ -161,7 +161,7 @@ tonedown_tab:
 	.4byte 0x3E9837E0
 	.4byte 0x3E8FACE0
 	.4byte 0x3E879C80
-	.4byte 0x3E800000
+	.float 0.25
 	.4byte 0x3E71A1C0
 	.4byte 0x3E641200
 	.4byte 0x3E574500
@@ -173,7 +173,7 @@ tonedown_tab:
 	.4byte 0x3E183800
 	.4byte 0x3E0FACC0
 	.4byte 0x3E079C80
-	.4byte 0x3E000000
+	.float 0.125
 	.4byte 0x3DF1A180
 	.4byte 0x3DE41200
 	.4byte 0x3DD74500

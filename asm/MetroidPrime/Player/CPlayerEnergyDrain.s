@@ -715,3 +715,11 @@ lbl_801B4EA4:
 /* 801B4F50 001B1EB0  7C 00 1E 70 */	srawi r0, r0, 3
 /* 801B4F54 001B1EB4  7C 60 01 94 */	addze r3, r0
 /* 801B4F58 001B1EB8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC660
+lbl_805AC660:
+	# ROM: 0x3F8F00
+	.4byte 0
+	.4byte 0
+

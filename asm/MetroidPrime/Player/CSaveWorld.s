@@ -2784,3 +2784,11 @@ sub_8024b374:
 /* 8024B390 002482F0  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 8024B394 002482F4  7C 60 1A 14 */	add r3, r0, r3
 /* 8024B398 002482F8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD5A8
+lbl_805AD5A8:
+	# ROM: 0x3F9E48
+	.4byte 0xFFFFFFFF
+	.4byte 0
+

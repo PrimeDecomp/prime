@@ -28,6 +28,24 @@ lbl_805A8F34:
 lbl_805A8F38:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AB378
+lbl_805AB378:
+	# ROM: 0x3F7C18
+	.float 0.75
+
+.global lbl_805AB37C
+lbl_805AB37C:
+	# ROM: 0x3F7C1C
+	.float 0.01
+
+.global lbl_805AB380
+lbl_805AB380:
+	# ROM: 0x3F7C20
+	.float 0.0
+	.4byte 0
+
 .section .text, "ax"
 
 .global AddToRenderer__13CDecalManagerFRC14CFrustumPlanesRC13CStateManager

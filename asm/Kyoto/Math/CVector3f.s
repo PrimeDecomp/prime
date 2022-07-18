@@ -477,3 +477,31 @@ __ct__9CVector3iFiii:
 /* 80314C4C 00311BAC  90 A3 00 04 */	stw r5, 4(r3)
 /* 80314C50 00311BB0  90 C3 00 08 */	stw r6, 8(r3)
 /* 80314C54 00311BB4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE630
+lbl_805AE630:
+	# ROM: 0x3FAED0
+	.4byte 0
+
+.global lbl_805AE634
+lbl_805AE634:
+	# ROM: 0x3FAED4
+	.float 1.1920929E-7
+
+.global lbl_805AE638
+lbl_805AE638:
+	# ROM: 0x3FAED8
+	.float -1.0
+
+.global lbl_805AE63C
+lbl_805AE63C:
+	# ROM: 0x3FAEDC
+	.float 1.0
+
+.global lbl_805AE640
+lbl_805AE640:
+	# ROM: 0x3FAEE0
+	.4byte 0x10FD87B5
+	.4byte 0
+

@@ -31,6 +31,49 @@ lbl_803DF7A0:
 lbl_805A8EB8:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AAC98
+lbl_805AAC98:
+	# ROM: 0x3F7538
+	.4byte 0x07090735
+
+.global lbl_805AAC9C
+lbl_805AAC9C:
+	# ROM: 0x3F753C
+	.4byte 0x40400000
+
+.global lbl_805AACA0
+lbl_805AACA0:
+	# ROM: 0x3F7540
+	.4byte 0
+
+.global lbl_805AACA4
+lbl_805AACA4:
+	# ROM: 0x3F7544
+	.4byte 0x43B40000
+
+.global lbl_805AACA8
+lbl_805AACA8:
+	# ROM: 0x3F7548
+	.float 0.017453292
+
+.global lbl_805AACAC
+lbl_805AACAC:
+	# ROM: 0x3F754C
+	.float 1.0
+
+.global lbl_805AACB0
+lbl_805AACB0:
+	# ROM: 0x3F7550
+	.double 4.503601774854144E15
+
+.global lbl_805AACB8
+lbl_805AACB8:
+	# ROM: 0x3F7558
+	.4byte 0x42F00000
+	.4byte 0
+
 .section .text, "ax"
 
 .global EnableSecondaryFx__9CWaveBeamFQ210CGunWeapon16ESecondaryFxType

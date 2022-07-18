@@ -895,3 +895,11 @@ __ct__13CCharAnimTimeFR12CInputStream:
 /* 80348E58 00345DB8  7C 08 03 A6 */	mtlr r0
 /* 80348E5C 00345DBC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80348E60 00345DC0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE940
+lbl_805AE940:
+	# ROM: 0x3FB1E0
+	.4byte 0
+	.4byte 0
+

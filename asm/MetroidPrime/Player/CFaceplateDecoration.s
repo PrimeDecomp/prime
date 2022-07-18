@@ -150,3 +150,25 @@ __ct__20CFaceplateDecorationFR13CStateManager:
 /* 80175CCC 00172C2C  38 00 00 00 */	li r0, 0
 /* 80175CD0 00172C30  98 03 00 0C */	stb r0, 0xc(r3)
 /* 80175CD4 00172C34  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABEB0
+lbl_805ABEB0:
+	# ROM: 0x3F8750
+	.4byte 0
+
+.global lbl_805ABEB4
+lbl_805ABEB4:
+	# ROM: 0x3F8754
+	.4byte 0x3727C5AC
+
+.global lbl_805ABEB8
+lbl_805ABEB8:
+	# ROM: 0x3F8758
+	.float 255.0
+
+.global lbl_805ABEBC
+lbl_805ABEBC:
+	# ROM: 0x3F875C
+	.float 1.0
+

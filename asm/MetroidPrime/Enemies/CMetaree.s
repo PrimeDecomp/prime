@@ -1211,3 +1211,21 @@ Accept__8CMetareeFR8IVisitor:
 /* 8014EF48 0014BEA8  7C 08 03 A6 */	mtlr r0
 /* 8014EF4C 0014BEAC  38 21 00 80 */	addi r1, r1, 0x80
 /* 8014EF50 0014BEB0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABAA8
+lbl_805ABAA8:
+	# ROM: 0x3F8348
+	.float 5.0
+
+.global lbl_805ABAAC
+lbl_805ABAAC:
+	# ROM: 0x3F834C
+	.4byte 0
+
+.global lbl_805ABAB0
+lbl_805ABAB0:
+	# ROM: 0x3F8350
+	.float 1.0
+	.4byte 0
+

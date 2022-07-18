@@ -2284,3 +2284,41 @@ lbl_80156954:
 /* 80156974 001538D4  7C 08 03 A6 */	mtlr r0
 /* 80156978 001538D8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8015697C 001538DC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABB48
+lbl_805ABB48:
+	# ROM: 0x3F83E8
+	.float 1.0
+
+.global lbl_805ABB4C
+lbl_805ABB4C:
+	# ROM: 0x3F83EC
+	.float 1.0
+
+.global lbl_805ABB50
+lbl_805ABB50:
+	# ROM: 0x3F83F0
+	.4byte 0
+
+.global lbl_805ABB54
+lbl_805ABB54:
+	# ROM: 0x3F83F4
+	.float 1000000.0
+
+.global lbl_805ABB58
+lbl_805ABB58:
+	# ROM: 0x3F83F8
+	.float 0.5
+
+.global lbl_805ABB5C
+lbl_805ABB5C:
+	# ROM: 0x3F83FC
+	.float 0.001
+
+.global lbl_805ABB60
+lbl_805ABB60:
+	# ROM: 0x3F8400
+	.4byte 0x40400000
+	.4byte 0
+

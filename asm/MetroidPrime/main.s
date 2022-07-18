@@ -754,7 +754,7 @@ lbl_803CBE4C:
 	.4byte s_Weapons_AGSC
 	.4byte 0x2B000000
 	.4byte s_ZZZ_AGSC
-	.4byte 0x41000000
+	.float 8.0
 
 # CMain
 .global lbl_803CBE74
@@ -901,12 +901,12 @@ lbl_805A9D20:
 .global lbl_805A9D24
 lbl_805A9D24:
 	# ROM: 0x3F65C4
-	.4byte 0x3E99999A
+	.float 0.3
 
 .global lbl_805A9D28
 lbl_805A9D28:
 	# ROM: 0x3F65C8
-	.4byte 0x3E4CCCCD
+	.float 0.2
 	.4byte 0
 
 .global lbl_805A9D30
@@ -936,7 +936,7 @@ lbl_805A9D48:
 .global lbl_805A9D50
 lbl_805A9D50:
 	# ROM: 0x3F65F0
-	.4byte 0x3F000000
+	.float 0.5
 
 .global lbl_805A9D54
 lbl_805A9D54:
@@ -962,12 +962,12 @@ lbl_805A9D60:
 .global lbl_805A9D68
 lbl_805A9D68:
 	# ROM: 0x3F6608
-	.4byte 0x40A00000
+	.float 5.0
 
 .global lbl_805A9D6C
 lbl_805A9D6C:
 	# ROM: 0x3F660C
-	.4byte 0x3F400000
+	.float 0.75
 
 .global lbl_805A9D70
 lbl_805A9D70:

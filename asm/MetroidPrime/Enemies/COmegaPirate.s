@@ -365,32 +365,32 @@ lbl_805A855C:
 .global lbl_805A8560
 lbl_805A8560:
 	# ROM: 0x3F5F00
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8564
 lbl_805A8564:
 	# ROM: 0x3F5F04
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8568
 lbl_805A8568:
 	# ROM: 0x3F5F08
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A856C
 lbl_805A856C:
 	# ROM: 0x3F5F0C
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8570
 lbl_805A8570:
 	# ROM: 0x3F5F10
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8574
 lbl_805A8574:
 	# ROM: 0x3F5F14
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8578
 lbl_805A8578:
@@ -405,7 +405,7 @@ lbl_805A8579:
 .global lbl_805A857C
 lbl_805A857C:
 	# ROM: 0x3F5F1C
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .text, "ax"
 
@@ -8467,3 +8467,207 @@ lbl_802925C4:
 /* 802925D4 0028F534  7C 08 03 A6 */	mtlr r0
 /* 802925D8 0028F538  38 21 00 30 */	addi r1, r1, 0x30
 /* 802925DC 0028F53C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADB90
+lbl_805ADB90:
+	# ROM: 0x3FA430
+	.4byte 0x803D5A74
+
+.global lbl_805ADB94
+lbl_805ADB94:
+	# ROM: 0x3FA434
+	.float 1.25
+
+.global lbl_805ADB98
+lbl_805ADB98:
+	# ROM: 0x3FA438
+	.float 1.0
+
+.global lbl_805ADB9C
+lbl_805ADB9C:
+	# ROM: 0x3FA43C
+	.float 1.0
+
+.global lbl_805ADBA0
+lbl_805ADBA0:
+	# ROM: 0x3FA440
+	.float 1.0
+
+.global lbl_805ADBA4
+lbl_805ADBA4:
+	# ROM: 0x3FA444
+	.float 0.25
+
+.global lbl_805ADBA8
+lbl_805ADBA8:
+	# ROM: 0x3FA448
+	.float 0.25
+
+.global lbl_805ADBAC
+lbl_805ADBAC:
+	# ROM: 0x3FA44C
+	.float 0.25
+
+.global lbl_805ADBB0
+lbl_805ADBB0:
+	# ROM: 0x3FA450
+	.float 1.0
+
+.global lbl_805ADBB4
+lbl_805ADBB4:
+	# ROM: 0x3FA454
+	.4byte 0x803D5A8A
+	.float 1.0
+
+.global lbl_805ADBBC
+lbl_805ADBBC:
+	# ROM: 0x3FA45C
+	.4byte 0
+
+.global lbl_805ADBC0
+lbl_805ADBC0:
+	# ROM: 0x3FA460
+	.float 1.0
+
+.global lbl_805ADBC4
+lbl_805ADBC4:
+	# ROM: 0x3FA464
+	.float 0.75
+
+.global lbl_805ADBC8
+lbl_805ADBC8:
+	# ROM: 0x3FA468
+	.float 0.25
+
+.global lbl_805ADBCC
+lbl_805ADBCC:
+	# ROM: 0x3FA46C
+	.4byte 0x420C0000
+
+.global lbl_805ADBD0
+lbl_805ADBD0:
+	# ROM: 0x3FA470
+	.4byte 0x42700000
+
+.global lbl_805ADBD4
+lbl_805ADBD4:
+	# ROM: 0x3FA474
+	.float 255.0
+
+.global lbl_805ADBD8
+lbl_805ADBD8:
+	# ROM: 0x3FA478
+	.float 0.5
+
+.global lbl_805ADBDC
+lbl_805ADBDC:
+	# ROM: 0x3FA47C
+	.4byte 0x41C642AA
+
+.global lbl_805ADBE0
+lbl_805ADBE0:
+	# ROM: 0x3FA480
+	.4byte 0x3FB33333
+
+.global lbl_805ADBE4
+lbl_805ADBE4:
+	# ROM: 0x3FA484
+	.float 1.5
+
+.global lbl_805ADBE8
+lbl_805ADBE8:
+	# ROM: 0x3FA488
+	.float 0.001
+
+.global lbl_805ADBEC
+lbl_805ADBEC:
+	# ROM: 0x3FA48C
+	.4byte 0x3BA3D70A
+
+.global lbl_805ADBF0
+lbl_805ADBF0:
+	# ROM: 0x3FA490
+	.float 0.1
+
+.global lbl_805ADBF4
+lbl_805ADBF4:
+	# ROM: 0x3FA494
+	.float 5.0
+
+.global lbl_805ADBF8
+lbl_805ADBF8:
+	# ROM: 0x3FA498
+	.4byte 0x40400000
+
+.global lbl_805ADBFC
+lbl_805ADBFC:
+	# ROM: 0x3FA49C
+	.4byte 0x41880000
+
+.global lbl_805ADC00
+lbl_805ADC00:
+	# ROM: 0x3FA4A0
+	.4byte 0x3EAA7EFA
+
+.global lbl_805ADC04
+lbl_805ADC04:
+	# ROM: 0x3FA4A4
+	.float 2.5
+
+.global lbl_805ADC08
+lbl_805ADC08:
+	# ROM: 0x3FA4A8
+	.4byte 0x447A0000
+
+.global lbl_805ADC0C
+lbl_805ADC0C:
+	# ROM: 0x3FA4AC
+	.float 0.3
+
+.global lbl_805ADC10
+lbl_805ADC10:
+	# ROM: 0x3FA4B0
+	.4byte 0x3F19999A
+
+.global lbl_805ADC14
+lbl_805ADC14:
+	# ROM: 0x3FA4B4
+	.4byte 0x41F00000
+
+.global lbl_805ADC18
+lbl_805ADC18:
+	# ROM: 0x3FA4B8
+	.float 0.2
+
+.global lbl_805ADC1C
+lbl_805ADC1C:
+	# ROM: 0x3FA4BC
+	.float 1.25
+
+.global lbl_805ADC20
+lbl_805ADC20:
+	# ROM: 0x3FA4C0
+	.float 0.7
+
+.global lbl_805ADC24
+lbl_805ADC24:
+	# ROM: 0x3FA4C4
+	.4byte 0x42C80000
+
+.global lbl_805ADC28
+lbl_805ADC28:
+	# ROM: 0x3FA4C8
+	.4byte 0x41A00000
+
+.global lbl_805ADC2C
+lbl_805ADC2C:
+	# ROM: 0x3FA4CC
+	.4byte 0x461C4000
+
+.global lbl_805ADC30
+lbl_805ADC30:
+	# ROM: 0x3FA4D0
+	.4byte 0x47C35000
+	.4byte 0
+

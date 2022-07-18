@@ -1935,3 +1935,31 @@ lbl_80250A68:
 /* 80250A70 0024D9D0  7C 08 03 A6 */	mtlr r0
 /* 80250A74 0024D9D4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80250A78 0024D9D8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD5D8
+lbl_805AD5D8:
+	# ROM: 0x3F9E78
+	.4byte 0x803D4A90
+
+.global lbl_805AD5DC
+lbl_805AD5DC:
+	# ROM: 0x3F9E7C
+	.4byte 0x803D4AA0
+
+.global lbl_805AD5E0
+lbl_805AD5E0:
+	# ROM: 0x3F9E80
+	.4byte 0x803D4AAF
+
+.global lbl_805AD5E4
+lbl_805AD5E4:
+	# ROM: 0x3F9E84
+	.4byte 0x803D4ABE
+
+.global lbl_805AD5E8
+lbl_805AD5E8:
+	# ROM: 0x3F9E88
+	.4byte 0x803D4ACE
+	.4byte 0
+

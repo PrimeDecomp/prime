@@ -176,3 +176,11 @@ lbl_80301AF0:
 /* 80301B24 002FEA84  7C 08 03 A6 */	mtlr r0
 /* 80301B28 002FEA88  38 21 00 10 */	addi r1, r1, 0x10
 /* 80301B2C 002FEA8C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE468
+lbl_805AE468:
+	# ROM: 0x3FAD08
+	.float 1.0
+	.4byte 0
+

@@ -1764,3 +1764,11 @@ lbl_8033AC9C:
 /* 8033ACA4 00337C04  7C 08 03 A6 */	mtlr r0
 /* 8033ACA8 00337C08  38 21 00 20 */	addi r1, r1, 0x20
 /* 8033ACAC 00337C0C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE8C0
+lbl_805AE8C0:
+	# ROM: 0x3FB160
+	.4byte 0x00001000
+	.4byte 0
+

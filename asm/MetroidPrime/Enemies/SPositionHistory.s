@@ -152,3 +152,11 @@ sub_802a09f8:
 /* 802A0A00 0029D960  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802A0A04 0029D964  90 03 00 04 */	stw r0, 4(r3)
 /* 802A0A08 0029D968  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADE38
+lbl_805ADE38:
+	# ROM: 0x3FA6D8
+	.4byte 0
+	.4byte 0
+

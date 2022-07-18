@@ -76,3 +76,17 @@ lbl_802D67EC:
 /* 802D6820 002D3780  7C 08 03 A6 */	mtlr r0
 /* 802D6824 002D3784  38 21 00 30 */	addi r1, r1, 0x30
 /* 802D6828 002D3788  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE290
+lbl_805AE290:
+	# ROM: 0x3FAB30
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE298
+lbl_805AE298:
+	# ROM: 0x3FAB38
+	.4byte 0x43300000
+	.4byte 0
+

@@ -85,3 +85,17 @@ __sinit_CStopwatch_cpp:
 /* 802D6348 002D32A8  7C 08 03 A6 */	mtlr r0
 /* 802D634C 002D32AC  38 21 00 10 */	addi r1, r1, 0x10
 /* 802D6350 002D32B0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE278
+lbl_805AE278:
+	# ROM: 0x3FAB18
+	.4byte 0x3F50624D
+	.4byte 0xE0000000
+
+.global lbl_805AE280
+lbl_805AE280:
+	# ROM: 0x3FAB20
+	.4byte 0
+	.4byte 0
+

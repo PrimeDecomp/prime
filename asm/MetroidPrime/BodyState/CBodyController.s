@@ -1244,3 +1244,35 @@ __ct__15CBodyControllerFR6CActorf9EBodyType:
 /* 8013AEC0 00137E20  7C 08 03 A6 */	mtlr r0
 /* 8013AEC4 00137E24  38 21 00 30 */	addi r1, r1, 0x30
 /* 8013AEC8 00137E28  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB790
+lbl_805AB790:
+	# ROM: 0x3F8030
+	.float 1.0
+
+.global lbl_805AB794
+lbl_805AB794:
+	# ROM: 0x3F8034
+	.4byte 0x42FE0000
+
+.global lbl_805AB798
+lbl_805AB798:
+	# ROM: 0x3F8038
+	.4byte 0
+
+.global lbl_805AB79C
+lbl_805AB79C:
+	# ROM: 0x3F803C
+	.4byte 0x3727C5AC
+
+.global lbl_805AB7A0
+lbl_805AB7A0:
+	# ROM: 0x3F8040
+	.4byte 0xBF7FF38C
+
+.global lbl_805AB7A4
+lbl_805AB7A4:
+	# ROM: 0x3F8044
+	.float 0.017453292
+

@@ -54,6 +54,37 @@ lbl_805A7558:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AB108
+lbl_805AB108:
+	# ROM: 0x3F79A8
+	.4byte 0
+
+.global lbl_805AB10C
+lbl_805AB10C:
+	# ROM: 0x3F79AC
+	.float 0.1
+
+.global lbl_805AB110
+lbl_805AB110:
+	# ROM: 0x3F79B0
+	.float 0.3
+
+.global lbl_805AB114
+lbl_805AB114:
+	# ROM: 0x3F79B4
+	.float 0.5
+
+.global lbl_805AB118
+lbl_805AB118:
+	# ROM: 0x3F79B8
+	.float 0.25
+
+.global lbl_805AB11C
+lbl_805AB11C:
+	# ROM: 0x3F79BC
+	.float 1.0
 
 .section .text, "ax"
 

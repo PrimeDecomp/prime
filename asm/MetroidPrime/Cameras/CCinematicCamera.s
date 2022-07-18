@@ -64,6 +64,45 @@ lbl_805A8E70:
 lbl_805A8E74:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AA858
+lbl_805AA858:
+	# ROM: 0x3F70F8
+	.float 0.25
+
+.global lbl_805AA85C
+lbl_805AA85C:
+	# ROM: 0x3F70FC
+	.float 1.0
+
+.global lbl_805AA860
+lbl_805AA860:
+	# ROM: 0x3F7100
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AA868
+lbl_805AA868:
+	# ROM: 0x3F7108
+	.double 4.503601774854144E15
+
+.global lbl_805AA870
+lbl_805AA870:
+	# ROM: 0x3F7110
+	.float 0.5
+
+.global lbl_805AA874
+lbl_805AA874:
+	# ROM: 0x3F7114
+	.float -1.0
+
+.global lbl_805AA878
+lbl_805AA878:
+	# ROM: 0x3F7118
+	.4byte 0x3A9C4000
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetMoveOutofIntoAlpha__16CCinematicCameraCFv

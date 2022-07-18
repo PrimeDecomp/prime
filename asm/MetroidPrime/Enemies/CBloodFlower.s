@@ -224,6 +224,54 @@ lbl_805A8F40:
 lbl_805A8F44:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AB398
+lbl_805AB398:
+	# ROM: 0x3F7C38
+	.4byte lbl_803CF2F0
+
+.global lbl_805AB39C
+lbl_805AB39C:
+	# ROM: 0x3F7C3C
+	.float 0.0
+
+.global lbl_805AB3A0
+lbl_805AB3A0:
+	# ROM: 0x3F7C40
+	.float 2.0
+
+.global lbl_805AB3A4
+lbl_805AB3A4:
+	# ROM: 0x3F7C44
+	.float 4.905
+
+.global lbl_805AB3A8
+lbl_805AB3A8:
+	# ROM: 0x3F7C48
+	.float 2.4525
+
+.global lbl_805AB3AC
+lbl_805AB3AC:
+	# ROM: 0x3F7C4C
+	.float 1.0
+
+.global lbl_805AB3B0
+lbl_805AB3B0:
+	# ROM: 0x3F7C50
+	.float -4.905
+
+.global lbl_805AB3B4
+lbl_805AB3B4:
+	# ROM: 0x3F7C54
+	.float 0.5
+
+.global lbl_805AB3B8
+lbl_805AB3B8:
+	# ROM: 0x3F7C58
+	.float 0.996
+	.4byte 0
+
 .section .text, "ax"
 
 .global __dt__12CBloodFlowerFv

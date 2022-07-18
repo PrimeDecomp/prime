@@ -315,3 +315,25 @@ __sinit_CVector2f_cpp:
 /* 80314240 003111A0  7C 08 03 A6 */	mtlr r0
 /* 80314244 003111A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80314248 003111A8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE618
+lbl_805AE618:
+	# ROM: 0x3FAEB8
+	.float 1.0
+
+.global lbl_805AE61C
+lbl_805AE61C:
+	# ROM: 0x3FAEBC
+	.4byte 0
+
+.global lbl_805AE620
+lbl_805AE620:
+	# ROM: 0x3FAEC0
+	.float 1.1920929E-7
+
+.global lbl_805AE624
+lbl_805AE624:
+	# ROM: 0x3FAEC4
+	.float -1.0
+

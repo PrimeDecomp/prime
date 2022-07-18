@@ -5,17 +5,17 @@
 .global lbl_803EF610
 lbl_803EF610:
 	# ROM: 0x3EC610
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 
 .global lbl_803EF640
@@ -40,12 +40,12 @@ lbl_805A8928:
 .global lbl_805A892C
 lbl_805A892C:
 	# ROM: 0x3F62CC
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8930
 lbl_805A8930:
 	# ROM: 0x3F62D0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A8934
 lbl_805A8934:
@@ -3133,3 +3133,107 @@ __sinit_CCubeMaterial_cpp:
 /* 803482A4 00345204  7C 08 03 A6 */	mtlr r0
 /* 803482A8 00345208  38 21 00 10 */	addi r1, r1, 0x10
 /* 803482AC 0034520C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE8D8
+lbl_805AE8D8:
+	# ROM: 0x3FB178
+	.4byte 0x000000FF
+
+.global lbl_805AE8DC
+lbl_805AE8DC:
+	# ROM: 0x3FB17C
+	.4byte 0xFFFFFFFF
+
+.global lbl_805AE8E0
+lbl_805AE8E0:
+	# ROM: 0x3FB180
+	.4byte 0xC0C0C0C0
+
+.global lbl_805AE8E4
+lbl_805AE8E4:
+	# ROM: 0x3FB184
+	.4byte 0x47C35000
+
+.global lbl_805AE8E8
+lbl_805AE8E8:
+	# ROM: 0x3FB188
+	.4byte 0x40860A92
+
+.global lbl_805AE8EC
+lbl_805AE8EC:
+	# ROM: 0x3FB18C
+	.4byte 0x447A0000
+
+.global lbl_805AE8F0
+lbl_805AE8F0:
+	# ROM: 0x3FB190
+	.double 1.0
+
+.global lbl_805AE8F8
+lbl_805AE8F8:
+	# ROM: 0x3FB198
+	.4byte 0x3D4CCCCD
+
+.global lbl_805AE8FC
+lbl_805AE8FC:
+	# ROM: 0x3FB19C
+	.4byte 0
+
+.global lbl_805AE900
+lbl_805AE900:
+	# ROM: 0x3FB1A0
+	.float 1.5
+
+.global lbl_805AE904
+lbl_805AE904:
+	# ROM: 0x3FB1A4
+	.4byte 0x3C75C28F
+
+.global lbl_805AE908
+lbl_805AE908:
+	# ROM: 0x3FB1A8
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE910
+lbl_805AE910:
+	# ROM: 0x3FB1B0
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AE918
+lbl_805AE918:
+	# ROM: 0x3FB1B8
+	.float 1.1920929E-7
+
+.global lbl_805AE91C
+lbl_805AE91C:
+	# ROM: 0x3FB1BC
+	.float 0.5
+
+.global lbl_805AE920
+lbl_805AE920:
+	# ROM: 0x3FB1C0
+	.float 5.0
+
+.global lbl_805AE924
+lbl_805AE924:
+	# ROM: 0x3FB1C4
+	.4byte 0x3EA5294B
+
+.global lbl_805AE928
+lbl_805AE928:
+	# ROM: 0x3FB1C8
+	.float 0.02
+
+.global lbl_805AE92C
+lbl_805AE92C:
+	# ROM: 0x3FB1CC
+	.4byte 0x3CCCCCCD
+
+.global lbl_805AE930
+lbl_805AE930:
+	# ROM: 0x3FB1D0
+	.double 4.503601774854144E15
+

@@ -819,3 +819,15 @@ lbl_802FCE7C:
 /* 802FCE9C 002F9DFC  38 04 00 01 */	addi r0, r4, 1
 /* 802FCEA0 002F9E00  98 03 00 00 */	stb r0, 0(r3)
 /* 802FCEA4 002F9E04  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE430
+lbl_805AE430:
+	# ROM: 0x3FACD0
+	.float 1.0
+
+.global lbl_805AE434
+lbl_805AE434:
+	# ROM: 0x3FACD4
+	.4byte 0
+

@@ -9,18 +9,17 @@ lbl_805AEBB8:
 .global lbl_805AEBBC
 lbl_805AEBBC:
 	# ROM: 0x3FB45C
-	.4byte 0x3F000000
+	.float 0.5
 
 .global lbl_805AEBC0
 lbl_805AEBC0:
 	# ROM: 0x3FB460
-	.4byte 0x3FF00000
-	.4byte 0
+	.double 1.0
 
 .global lbl_805AEBC8
 lbl_805AEBC8:
 	# ROM: 0x3FB468
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0
 
 .global lbl_805AEBD0
@@ -38,8 +37,7 @@ lbl_805AEBD8:
 .global lbl_805AEBE0
 lbl_805AEBE0:
 	# ROM: 0x3FB480
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.double 4.503601774854144E15
 
 
 .section .data

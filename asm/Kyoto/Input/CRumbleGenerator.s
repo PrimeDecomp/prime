@@ -362,3 +362,25 @@ __ct__16CRumbleGeneratorFv:
 /* 8036A1E8 00367148  7C 08 03 A6 */	mtlr r0
 /* 8036A1EC 0036714C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8036A1F0 00367150  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEB10
+lbl_805AEB10:
+	# ROM: 0x3FB3B0
+	.4byte 0
+
+.global lbl_805AEB14
+lbl_805AEB14:
+	# ROM: 0x3FB3B4
+	.float 1.0
+
+.global lbl_805AEB18
+lbl_805AEB18:
+	# ROM: 0x3FB3B8
+	.4byte 0x41F00000
+
+.global lbl_805AEB1C
+lbl_805AEB1C:
+	# ROM: 0x3FB3BC
+	.4byte 0x3D088889
+
