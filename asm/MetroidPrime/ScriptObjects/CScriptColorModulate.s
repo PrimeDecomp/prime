@@ -1244,3 +1244,11 @@ lbl_805ACD60:
 	.float 1.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2580
+lbl_803D2580:
+	# ROM: 0x3CF580
+	.asciz "??(??)"
+	.balign 4
+

@@ -1743,3 +1743,79 @@ sub_800926c4:
 /* 80092784 0008F6E4  7C 00 1E 70 */	srawi r0, r0, 3
 /* 80092788 0008F6E8  7C 60 01 94 */	addze r3, r0
 /* 8009278C 0008F6EC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD6C0
+lbl_803CD6C0:
+	# ROM: 0x3CA6C0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x000000FA
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000008
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x0000000E
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+
+.global lbl_803CD764
+lbl_803CD764:
+	# ROM: 0x3CA764
+	.4byte 0x00000005
+	.4byte 0x0000000A
+	.4byte 0x0000000A
+	.4byte 0x0000000A
+	.4byte 0x00000001
+
+.global lbl_803CD778
+lbl_803CD778:
+	# ROM: 0x3CA778
+	.float 0.2
+	.float 0.1
+	.float 0.2
+	.float 0.2
+	.float 1.0
+
+.global lbl_803CD78C
+lbl_803CD78C:
+	# ROM: 0x3CA78C
+	.asciz "CombatVisor"
+	.asciz "XRayVisor"
+	.byte 0x53, 0x63
+	.asciz "anVisor"
+	.asciz "ThermalVisor"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

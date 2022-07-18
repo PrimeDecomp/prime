@@ -3747,3 +3747,11 @@ lbl_80055D54:
 /* 80055D54 00052CB4  90 83 00 04 */	stw r4, 4(r3)
 /* 80055D58 00052CB8  90 C3 00 00 */	stw r6, 0(r3)
 /* 80055D5C 00052CBC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCF68
+lbl_803CCF68:
+	# ROM: 0x3C9F68
+	.asciz "??(??)"
+	.balign 4
+

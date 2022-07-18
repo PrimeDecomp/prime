@@ -498,3 +498,11 @@ lbl_805ADE10:
 	# ROM: 0x3FA6B0
 	.double 9.999999747378752E-6
 
+
+.section .rodata
+.global lbl_803D5EB0
+lbl_803D5EB0:
+	# ROM: 0x3D2EB0
+	.asciz "??(??)"
+	.balign 4
+

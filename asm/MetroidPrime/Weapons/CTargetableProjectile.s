@@ -601,3 +601,11 @@ lbl_805AB7C4:
 	# ROM: 0x3F8064
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0070
+lbl_803D0070:
+	# ROM: 0x3CD070
+	.asciz "??(??)"
+	.balign 4
+

@@ -1288,3 +1288,15 @@ lbl_805AD3E0:
 	.4byte 0x3E087FCC
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D3468
+lbl_803D3468:
+	# ROM: 0x3D0468
+	.asciz "??(??)"
+	.byte 0x53
+	.asciz "hockWaveLight_"
+	.byte 0x56
+	.asciz "isorElectricFx"
+	.balign 4
+

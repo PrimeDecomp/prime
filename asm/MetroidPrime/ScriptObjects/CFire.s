@@ -738,3 +738,13 @@ lbl_805AD728:
 	# ROM: 0x3F9FC8
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D5230
+lbl_803D5230:
+	# ROM: 0x3D2230
+	.asciz "Fire"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.4byte 0
+

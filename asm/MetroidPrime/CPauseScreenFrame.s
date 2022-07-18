@@ -3630,3 +3630,184 @@ lbl_805AD558:
 	.4byte 0x42FF0000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D43C8
+lbl_803D43C8:
+	# ROM: 0x3D13C8
+	.4byte 0x00000018
+	.4byte 0x00000019
+	.4byte 0x0000001A
+	.4byte 0x0000001B
+	.4byte 0x0000001C
+
+.global lbl_803D43DC
+lbl_803D43DC:
+	# ROM: 0x3D13DC
+	.4byte 0
+	.4byte 0x3FCCCCCD
+	.float 1.0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D43F0
+lbl_803D43F0:
+	# ROM: 0x3D13F0
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000015
+	.4byte 0
+	.float 255.0
+	.float 1.0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000016
+	.4byte 0
+	.float 255.0
+	.float 1.0
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0x00000017
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000001
+	.4byte 0x00000003
+	.4byte 0x00000018
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000001
+	.4byte 0x0000000E
+	.4byte 0x00000023
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000019
+	.4byte 0
+	.float 8.0
+	.float 1.0
+	.4byte 0
+	.4byte 0x00000005
+	.4byte 0x0000001A
+	.4byte 0xC1F00000
+	.4byte 0x41F00000
+	.float 1.0
+	.4byte 0
+	.4byte 0x00000006
+	.4byte 0x0000001B
+	.4byte 0xC1F00000
+	.4byte 0x41F00000
+	.float 1.0
+	.4byte 0
+	.4byte 0x00000007
+	.4byte 0x0000001C
+	.4byte 0xC1200000
+	.4byte 0x41200000
+	.float 1.0
+	.4byte 0
+	.4byte 0x0000000E
+	.4byte 0x00000023
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000003
+	.4byte 0x00000008
+	.4byte 0x0000001D
+	.4byte 0
+	.4byte 0x42FE0000
+	.float 1.0
+	.4byte 0
+	.4byte 0x00000009
+	.4byte 0x0000001E
+	.4byte 0
+	.4byte 0x42FE0000
+	.float 1.0
+	.4byte 0
+	.4byte 0x0000000A
+	.4byte 0x0000001F
+	.4byte 0
+	.float 2.0
+	.float 1.0
+	.4byte 0x00000002
+	.4byte 0x0000000E
+	.4byte 0x00000023
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000003
+	.4byte 0x0000000B
+	.4byte 0x00000020
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000001
+	.4byte 0x0000000C
+	.4byte 0x00000021
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000022
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000001
+	.4byte 0x0000000E
+	.4byte 0x00000023
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x00000003
+
+.global lbl_803D45B4
+lbl_803D45B4:
+	# ROM: 0x3D15B4
+	.asciz "textpane_right%d"
+	.byte 0x74, 0x61, 0x62
+	.asciz "legroup_leftmenu"
+	.byte 0x74, 0x61, 0x62
+	.asciz "legroup_rightmenu"
+	.byte 0x74, 0x61
+	.asciz "blegroup_double"
+	.asciz "tablegroup_triple"
+	.byte 0x73, 0x6C
+	.asciz "idergroup_slider"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_double0"
+	.byte 0x74, 0x65
+	.asciz "xtpane_double1"
+	.byte 0x74
+	.asciz "extpane_triple0"
+	.asciz "textpane_triple1"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_triple2"
+	.byte 0x74, 0x65
+	.asciz "xtpane_title"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_proceed"
+	.byte 0x74, 0x65
+	.asciz "xtpane_cancel"
+	.byte 0x74, 0x65
+	.asciz "xtpane_filename%d"
+	.byte 0x46, 0x52
+	.asciz "ME_OptionsFrontEnd"
+	.byte 0x53
+	.asciz "TRG_PauseScreen"
+	.asciz "??(??)"
+	.byte 0x25
+	.4byte 0x73620074
+	.asciz "ablegroup_quitgame"
+	.byte 0x74
+	.asciz "extpane_yes"
+	.asciz "textpane_no"
+	.asciz "FRME_QuitScreen"
+	.4byte 0
+

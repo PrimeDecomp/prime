@@ -1051,3 +1051,11 @@ lbl_8036CA4C:
 /* 8036CA58 003699B8  7C 08 03 A6 */	mtlr r0
 /* 8036CA5C 003699BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8036CA60 003699C0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8560
+lbl_803D8560:
+	# ROM: 0x3D5560
+	.asciz "??(??)"
+	.balign 4
+

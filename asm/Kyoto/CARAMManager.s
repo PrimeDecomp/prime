@@ -774,3 +774,11 @@ lbl_80344FAC:
 /* 80344FC0 00341F20  7C 08 03 A6 */	mtlr r0
 /* 80344FC4 00341F24  38 21 00 20 */	addi r1, r1, 0x20
 /* 80344FC8 00341F28  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7F50
+lbl_803D7F50:
+	# ROM: 0x3D4F50
+	.asciz "??(??)"
+	.balign 4
+

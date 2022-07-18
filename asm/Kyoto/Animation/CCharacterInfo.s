@@ -2158,3 +2158,11 @@ lbl_802DF4C0:
 /* 802DF4C8 002DC428  7C 08 03 A6 */	mtlr r0
 /* 802DF4CC 002DC42C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802DF4D0 002DC430  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D48
+lbl_803D6D48:
+	# ROM: 0x3D3D48
+	.asciz "??(??)"
+	.balign 4
+

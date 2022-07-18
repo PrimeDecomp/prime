@@ -1342,3 +1342,11 @@ lbl_805AE2B0:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6D28
+lbl_803D6D28:
+	# ROM: 0x3D3D28
+	.asciz "??(??)"
+	.balign 4
+

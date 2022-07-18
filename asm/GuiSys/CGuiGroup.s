@@ -2721,3 +2721,29 @@ lbl_805AE098:
 	.float 1.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6880
+lbl_803D6880:
+	# ROM: 0x3D3880
+	.asciz "??(??)"
+	.balign 4
+
+.global lbl_803D6888
+lbl_803D6888:
+	# ROM: 0x3D3888
+	.asciz "??(??)"
+	.balign 4
+
+.global lbl_803D6890
+lbl_803D6890:
+	# ROM: 0x3D3890
+	.asciz "??(??)"
+	.balign 4
+
+.global lbl_803D6898
+lbl_803D6898:
+	# ROM: 0x3D3898
+	.asciz "??(??)"
+	.balign 4
+

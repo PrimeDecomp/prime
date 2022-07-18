@@ -8496,3 +8496,88 @@ lbl_805AC65C:
 	# ROM: 0x3F8EFC
 	.4byte 0x40E00000
 
+
+.section .rodata
+.global lbl_803D14E0
+lbl_803D14E0:
+	# ROM: 0x3CE4E0
+	.4byte 0x803D1590
+	.4byte 0x803D1598
+	.4byte 0x3F19999A
+	.float 1.0
+	.4byte 0x803D1598
+	.4byte 0x803D15A0
+	.4byte 0x3F19999A
+	.float 1.0
+	.4byte 0x803D15A0
+	.4byte 0x803D15AC
+	.4byte 0x3F19999A
+	.float 1.0
+	.4byte 0x803D15BC
+	.4byte 0x803D15C4
+	.4byte 0x3F19999A
+	.float 1.0
+	.4byte 0x803D15C4
+	.4byte 0x803D15CC
+	.4byte 0x3F19999A
+	.float 1.0
+	.4byte 0x803D15CC
+	.4byte 0x803D15D8
+	.4byte 0x3F19999A
+	.float 1.0
+	.4byte 0x803D15E8
+	.float 1.5
+	.4byte 0x803D15EF
+	.float 1.5
+	.4byte 0x803D15F7
+	.float 1.5
+	.4byte 0x803D15FF
+	.float 1.5
+	.4byte 0x803D1607
+	.float 1.5
+
+.global lbl_803D1568
+lbl_803D1568:
+	# ROM: 0x3CE568
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0xFFFFFFFF
+
+.global lbl_803D157C
+lbl_803D157C:
+	# ROM: 0x3CE57C
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x00000002
+	.4byte 0xFFFFFFFF
+
+.global lbl_803D1590
+lbl_803D1590:
+	# ROM: 0x3CE590
+	.asciz "L_elbow"
+	.asciz "L_blade"
+	.asciz "L_CLAW_LCTR"
+	.asciz "L_CLAW_END_LCTR"
+	.asciz "R_elbow"
+	.asciz "R_blade"
+	.asciz "R_CLAW_LCTR"
+	.asciz "R_CLAW_END_LCTR"
+	.asciz "Head_1"
+	.byte 0x53
+	.asciz "pine_2"
+	.byte 0x53
+	.asciz "pine_4"
+	.byte 0x53
+	.asciz "pine_6"
+	.byte 0x43
+	.asciz "ollar"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.byte 0x44, 0x65, 0x61
+	.4byte 0x6400466C
+	.asciz "aahgra Renderer"
+	.4byte 0
+

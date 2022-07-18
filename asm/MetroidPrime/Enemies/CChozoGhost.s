@@ -4266,3 +4266,16 @@ lbl_805AB8DC:
 	# ROM: 0x3F817C
 	.float 0.01
 
+
+.section .rodata
+.global lbl_803D0078
+lbl_803D0078:
+	# ROM: 0x3CD078
+	.asciz "Hurled"
+	.byte 0x48
+	.asciz "ead_1"
+	.byte 0x53, 0x70
+	.asciz "eedSwoosh"
+	.balign 4
+	.4byte 0
+

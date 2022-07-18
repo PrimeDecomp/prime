@@ -3254,3 +3254,22 @@ lbl_805ACEC4:
 	# ROM: 0x3F9764
 	.4byte 0x47C34F80
 
+
+.section .rodata
+.global lbl_803D2750
+lbl_803D2750:
+	# ROM: 0x3CF750
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D2768
+lbl_803D2768:
+	# ROM: 0x3CF768
+	.asciz "??(??)"
+	.byte 0x47
+	.asciz "UN_LCTR"
+

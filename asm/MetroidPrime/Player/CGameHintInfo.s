@@ -1564,3 +1564,13 @@ lbl_805AD810:
 	# ROM: 0x3FA0B0
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D53C0
+lbl_803D53C0:
+	# ROM: 0x3D23C0
+	.asciz "??(??)"
+	.balign 4
+	.asciz "BendingAnimationHack"
+	.balign 4
+

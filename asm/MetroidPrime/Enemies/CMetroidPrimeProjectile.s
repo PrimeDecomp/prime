@@ -370,3 +370,11 @@ lbl_805ADE34:
 	# ROM: 0x3FA6D4
 	.float -1.0
 
+
+.section .rodata
+.global lbl_803D5EE8
+lbl_803D5EE8:
+	# ROM: 0x3D2EE8
+	.asciz "??(??)"
+	.balign 4
+

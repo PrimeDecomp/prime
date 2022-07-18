@@ -177,3 +177,21 @@ lbl_805AE132:
 	.byte 0xFF, 0xFF
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6948
+lbl_803D6948:
+	# ROM: 0x3D3948
+	.asciz "not found"
+	.byte 0x6B, 0x47
+	.asciz "SYS_DummyWidgetID"
+	.byte 0x6B, 0x47
+	.asciz "SYS_HeadWidgetID"
+	.byte 0x6B, 0x47, 0x53
+	.asciz "YS_DefaultCameraID"
+	.byte 0x6B
+	.asciz "GSYS_DefaultLightID"
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

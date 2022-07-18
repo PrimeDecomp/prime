@@ -947,3 +947,13 @@ lbl_8035052C:
 /* 80350534 0034D494  7C 08 03 A6 */	mtlr r0
 /* 80350538 0034D498  38 21 00 10 */	addi r1, r1, 0x10
 /* 8035053C 0034D49C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8230
+lbl_803D8230:
+	# ROM: 0x3D5230
+	.asciz "??(??)"
+	.byte 0x61
+	.asciz "ram:"
+	.balign 4
+

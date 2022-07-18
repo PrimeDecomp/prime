@@ -2322,3 +2322,58 @@ lbl_805ABB60:
 	.4byte 0x40400000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D01F8
+lbl_803D01F8:
+	# ROM: 0x3CD1F8
+	.4byte 0x803D023C
+	.float 1.5
+	.4byte 0x803D0248
+	.float 1.0
+	.4byte 0x803D024E
+	.float 1.0
+	.4byte 0x803D0254
+	.float 1.0
+	.4byte 0x803D025A
+	.float 1.0
+	.4byte 0x803D0267
+	.float 1.0
+	.4byte 0x803D027D
+	.float 1.5
+
+.global lbl_803D0230
+lbl_803D0230:
+	# ROM: 0x3CD230
+	.asciz "Arm_2"
+	.byte 0x41, 0x72
+	.4byte 0x6D5F3300
+	.asciz "Arm_4"
+	.byte 0x41, 0x72
+	.4byte 0x6D5F3500
+	.asciz "Arm_6"
+	.byte 0x41, 0x72
+	.4byte 0x6D5F3700
+	.asciz "Arm_8"
+	.byte 0x41, 0x72
+	.4byte 0x6D5F3900
+	.asciz "Arm_10"
+	.byte 0x41
+	.asciz "rm_11"
+	.byte 0x41, 0x72
+	.asciz "m_12"
+	.byte 0x41, 0x72, 0x6D
+	.asciz "_end"
+	.byte 0x73, 0x77, 0x6F
+	.asciz "osh_LCTR"
+	.byte 0x6C, 0x6F, 0x63
+	.asciz "kon_target_LCTR"
+	.4byte 0x45796500
+	.asciz "??(??)"
+	.byte 0x57
+	.asciz "ARNING: Non-uniform scale (%.2f, %.2f, %.2f) applied to Spank Weed...changing scale to (%.2f, %.2f, %.2f)\n"
+	.byte 0x53
+	.asciz "pank Weed Collision "
+	.balign 4
+	.4byte 0
+

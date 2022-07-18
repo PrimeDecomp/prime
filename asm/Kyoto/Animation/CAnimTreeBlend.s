@@ -630,3 +630,11 @@ lbl_805AE3AC:
 	# ROM: 0x3FAC4C
 	.float 1.0
 
+
+.section .rodata
+.global lbl_803D6DF8
+lbl_803D6DF8:
+	# ROM: 0x3D3DF8
+	.4byte 0x003F3F28
+	.4byte 0x3F3F2900
+

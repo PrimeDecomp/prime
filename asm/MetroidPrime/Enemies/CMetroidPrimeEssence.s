@@ -4571,3 +4571,34 @@ lbl_805ADA94:
 	# ROM: 0x3FA334
 	.float 4.0
 
+
+.section .rodata
+.global lbl_803D5880
+lbl_803D5880:
+	# ROM: 0x3D2880
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0x00000002
+
+.global lbl_803D5890
+lbl_803D5890:
+	# ROM: 0x3D2890
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+
+.global lbl_803D589C
+lbl_803D589C:
+	# ROM: 0x3D289C
+	.asciz "lockon_target_LCTR"
+	.byte 0x45
+	.4byte 0x79657300
+	.asciz "Head"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "Shockwave"
+	.byte 0x57, 0x68
+	.asciz "ole Body"
+	.balign 4
+

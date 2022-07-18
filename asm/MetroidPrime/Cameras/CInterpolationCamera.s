@@ -1229,3 +1229,11 @@ lbl_805AD7E4:
 	# ROM: 0x3FA084
 	.4byte 0x3F7FF972
 
+
+.section .rodata
+.global lbl_803D5298
+lbl_803D5298:
+	# ROM: 0x3D2298
+	.asciz "Interpolation Camera"
+	.balign 4
+

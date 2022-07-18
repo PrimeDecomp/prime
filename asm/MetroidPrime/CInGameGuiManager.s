@@ -4876,3 +4876,107 @@ lbl_8010ADA4:
 /* 8010ADB8 00107D18  7C 08 03 A6 */	mtlr r0
 /* 8010ADBC 00107D1C  38 21 00 30 */	addi r1, r1, 0x30
 /* 8010ADC0 00107D20  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CEE58
+lbl_803CEE58:
+	# ROM: 0x3CBE58
+	.4byte 0x803CEF50
+	.4byte 0x803CEF5F
+	.4byte 0x803CEF68
+	.4byte 0x803CEF74
+	.4byte 0x803CEF80
+	.4byte 0x803CEF8B
+	.4byte 0x803CEF95
+	.4byte 0x803CEFA9
+	.4byte 0x803CEFBA
+	.4byte 0x803CEFC8
+	.4byte 0x803CEFD9
+	.4byte 0x803CEFE8
+	.4byte 0x803CEFF8
+	.4byte 0x803CF007
+
+.global lbl_803CEE90
+lbl_803CEE90:
+	# ROM: 0x3CBE90
+	.4byte 0x803CF016
+	.4byte 0x803CF02E
+	.4byte 0x803CF046
+	.4byte 0x803CF060
+	.4byte 0x803CF079
+	.4byte 0x803CF097
+	.4byte 0x803CF0B5
+	.4byte 0x803CF0D5
+	.4byte 0x803CF0F4
+	.4byte 0x803CF107
+	.4byte 0x803CF120
+	.4byte 0x803CF139
+	.4byte 0x803CF159
+
+.global lbl_803CEEC4
+lbl_803CEEC4:
+	# ROM: 0x3CBEC4
+	.asciz "FaceplateDecoration"
+	.asciz "     FaceReflection"
+	.asciz "        PlayerVisor"
+	.asciz "                Hud"
+	.asciz "         AutoMapper"
+	.asciz "        PauseScreen"
+	.asciz "              Total"
+	.asciz "InGameGui_DGRP"
+	.byte 0x49
+	.asciz "ce_DGRP"
+	.asciz "Phazon_DGRP"
+	.asciz "Plasma_DGRP"
+	.asciz "Power_DGRP"
+	.byte 0x57
+	.asciz "ave_DGRP"
+	.byte 0x42, 0x61, 0x6C
+	.asciz "lTransition_DGRP"
+	.byte 0x47, 0x72, 0x61
+	.asciz "vitySuit_DGRP"
+	.byte 0x49, 0x63
+	.asciz "e_Anim_DGRP"
+	.asciz "Plasma_Anim_DGRP"
+	.byte 0x50, 0x6F, 0x77
+	.asciz "erSuit_DGRP"
+	.asciz "Power_Anim_DGRP"
+	.asciz "VariaSuit_DGRP"
+	.byte 0x57
+	.asciz "ave_Anim_DGRP"
+	.byte 0x49, 0x6E
+	.asciz "ventorySuitPower_DGRP"
+	.byte 0x49, 0x6E
+	.asciz "ventorySuitVaria_DGRP"
+	.byte 0x49, 0x6E
+	.asciz "ventorySuitGravity_DGRP"
+	.asciz "InventorySuitPhazon_DGRP"
+	.byte 0x49, 0x6E, 0x76
+	.asciz "entorySuitFusionPower_DGRP"
+	.byte 0x49
+	.asciz "nventorySuitFusionVaria_DGRP"
+	.byte 0x49, 0x6E, 0x76
+	.asciz "entorySuitFusionGravity_DGRP"
+	.byte 0x49, 0x6E, 0x76
+	.asciz "entorySuitFusionPhazon_DGRP"
+	.asciz "SamusBallANCS_DGRP"
+	.byte 0x53
+	.asciz "amusSpiderBallANCS_DGRP"
+	.asciz "PauseScreenDontDump_DGRP"
+	.byte 0x50, 0x61, 0x75
+	.asciz "seScreenDontDump_NoARAM_DGRP"
+	.byte 0x50, 0x61, 0x75
+	.asciz "seScreenTokens_DGRP"
+	.asciz "??(??)"
+	.byte 0x42
+	.asciz "aseWidget_AutoMapper"
+	.byte 0x4D, 0x6F, 0x64
+	.asciz "el_AutoMapper"
+	.byte 0x42, 0x61
+	.asciz "seWidget_Functional"
+	.asciz "PreLoadIGGM_DGRP"
+	.byte 0x54, 0x58, 0x54
+	.asciz "R_DeathDot"
+	.balign 4
+	.4byte 0
+

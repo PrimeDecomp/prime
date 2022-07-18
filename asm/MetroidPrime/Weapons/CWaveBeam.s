@@ -1074,3 +1074,17 @@ __sinit_CWaveBeam_cpp:
 /* 800E0ED4 000DDE34  C0 02 8F 98 */	lfs f0, lbl_805AACB8@sda21(r2)
 /* 800E0ED8 000DDE38  D0 0D A2 F8 */	stfs f0, lbl_805A8EB8@sda21(r13)
 /* 800E0EDC 000DDE3C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE568
+lbl_803CE568:
+	# ROM: 0x3CB568
+	.asciz "??(??)"
+	.byte 0x57
+	.asciz "aveBeam"
+	.asciz "Wave2nd_1"
+	.byte 0x57, 0x61
+	.asciz "ve2nd_2"
+	.asciz "Wave2nd_3"
+	.balign 4
+

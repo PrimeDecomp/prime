@@ -8014,3 +8014,23 @@ lbl_800647DC:
 /* 800647F4 00061754  7C 08 03 A6 */	mtlr r0
 /* 800647F8 00061758  38 21 00 20 */	addi r1, r1, 0x20
 /* 800647FC 0006175C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCF90
+lbl_803CCF90:
+	# ROM: 0x3C9F90
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803CCFAC
+lbl_803CCFAC:
+	# ROM: 0x3C9FAC
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

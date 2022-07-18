@@ -1758,3 +1758,11 @@ lbl_8006F934:
 /* 8006F948 0006C8A8  7C 08 03 A6 */	mtlr r0
 /* 8006F94C 0006C8AC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8006F950 0006C8B0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD288
+lbl_803CD288:
+	# ROM: 0x3CA288
+	.asciz "??(??)"
+	.balign 4
+

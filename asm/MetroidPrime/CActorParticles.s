@@ -4412,3 +4412,34 @@ lbl_805ACABC:
 	# ROM: 0x3F935C
 	.4byte 0x41200000
 
+
+.section .rodata
+.global lbl_803D1E98
+lbl_803D1E98:
+	# ROM: 0x3CEE98
+	.4byte 0x803D1EB0
+	.4byte 0x803D1EBE
+	.4byte 0x803D1ECE
+	.4byte 0x803D1ED9
+	.4byte 0x803D1EE8
+	.4byte 0x803D1EF8
+
+.global lbl_803D1EB0
+lbl_803D1EB0:
+	# ROM: 0x3CEEB0
+	.asciz "Effect_OnFire"
+	.byte 0x45, 0x66
+	.asciz "fect_IceBreak"
+	.byte 0x45, 0x66
+	.asciz "fect_Ash"
+	.byte 0x45, 0x66, 0x66
+	.asciz "ect_FirePop"
+	.asciz "Effect_Electric"
+	.asciz "Effect_IcePop"
+	.byte 0x5F, 0x44
+	.4byte 0x47525000
+	.asciz "??(??)"
+	.byte 0x54
+	.asciz "XTR_Ashy"
+	.balign 4
+

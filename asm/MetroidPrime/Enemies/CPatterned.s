@@ -8152,3 +8152,16 @@ __sinit_CPatterned_cpp:
 /* 8007DFE4 0007AF44  7C 08 03 A6 */	mtlr r0
 /* 8007DFE8 0007AF48  38 21 00 10 */	addi r1, r1, 0x10
 /* 8007DFEC 0007AF4C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD600
+lbl_803CD600:
+	# ROM: 0x3CA600
+	.asciz "??(??)"
+	.byte 0x6C
+	.asciz "ockon_target_LCTR"
+	.byte 0x44, 0x65
+	.4byte 0x61640053
+	.asciz "tart"
+	.balign 4
+

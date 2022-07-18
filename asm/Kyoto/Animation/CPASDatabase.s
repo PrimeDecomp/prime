@@ -961,3 +961,11 @@ lbl_802E55CC:
 /* 802E5744 002E26A4  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 802E5748 002E26A8  7C 60 1A 14 */	add r3, r0, r3
 /* 802E574C 002E26AC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6DB0
+lbl_803D6DB0:
+	# ROM: 0x3D3DB0
+	.asciz "??(??)"
+	.balign 4
+

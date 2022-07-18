@@ -3577,3 +3577,128 @@ lbl_805AD5D0:
 	.4byte 0x803D47CC
 	.4byte 0x803D47DB
 
+
+.section .rodata
+.global lbl_803D47A8
+lbl_803D47A8:
+	# ROM: 0x3D17A8
+	.asciz "Metroid Prime                   "
+	.balign 4
+
+.global lbl_803D47CC
+lbl_803D47CC:
+	# ROM: 0x3D17CC
+	.asciz "MetroidPrime A"
+	.byte 0x4D
+	.asciz "etroidPrime B"
+	.byte 0x4E, 0x6F
+	.asciz "tLoaded"
+	.asciz "Loaded"
+	.byte 0x4E
+	.asciz "oCard"
+	.byte 0x53, 0x61
+	.4byte 0x76656400
+	.asciz "Formatted"
+	.byte 0x50, 0x72
+	.asciz "obed"
+	.byte 0x4D, 0x6F, 0x75
+	.asciz "nted"
+	.byte 0x43, 0x68, 0x65
+	.asciz "ckedCard"
+	.byte 0x43, 0x72, 0x65
+	.asciz "atedInitial"
+	.asciz "CreatedCopy"
+	.asciz "WroteCopy"
+	.byte 0x44, 0x65
+	.asciz "letedOriginal"
+	.byte 0x46, 0x61
+	.asciz "iledProbe"
+	.byte 0x46, 0x61
+	.asciz "iledMount"
+	.byte 0x46, 0x61
+	.asciz "iledCheck"
+	.byte 0x46, 0x61
+	.asciz "iledDeleteCorruptedFile"
+	.asciz "FailedDeleteDuplicateFile"
+	.byte 0x46, 0x61
+	.asciz "iledLoad"
+	.byte 0x46, 0x61, 0x69
+	.asciz "ledCreateInitial"
+	.byte 0x46, 0x61, 0x69
+	.asciz "ledWriteInitial"
+	.asciz "FailedCreateCopy"
+	.byte 0x46, 0x61, 0x69
+	.asciz "ledWriteCopy"
+	.byte 0x46, 0x61, 0x69
+	.asciz "ledDeleteOriginal"
+	.byte 0x46, 0x61
+	.asciz "iledRenameCopy"
+	.byte 0x46
+	.asciz "ailedFormat"
+	.asciz "Probing"
+	.asciz "Mounting"
+	.byte 0x43, 0x68, 0x65
+	.asciz "ckingCard"
+	.byte 0x44, 0x65
+	.asciz "letingCorruptedFile"
+	.asciz "Reading"
+	.asciz "DeletingDuplicateFile"
+	.byte 0x43, 0x72
+	.asciz "eatingInitial"
+	.byte 0x57, 0x72
+	.asciz "itingInitial"
+	.byte 0x43, 0x72, 0x65
+	.asciz "atingCopy"
+	.byte 0x57, 0x72
+	.asciz "itingCopy"
+	.byte 0x44, 0x65
+	.asciz "letingOriginal"
+	.byte 0x52
+	.asciz "enamingCopy"
+	.asciz "Formatting"
+	.byte 0x4E
+	.asciz "oError"
+	.byte 0x43
+	.asciz "orruptedFile"
+	.byte 0x45, 0x6E, 0x63
+	.asciz "odingMismatch"
+	.byte 0x44, 0x61
+	.asciz "maged"
+	.byte 0x57, 0x72
+	.asciz "ongDevice"
+	.byte 0x49, 0x6E
+	.asciz "sufficientSpace"
+	.asciz "InsufficientBackupSpace"
+	.asciz "BadSectorSize"
+	.byte 0x4E, 0x6F
+	.asciz "File"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "%02d.%02d.%02d  %02d:%02d"
+	.balign 4
+
+.global lbl_803D4A90
+lbl_803D4A90:
+	# ROM: 0x3D1A90
+	.asciz "TXTR_SaveBanner"
+	.asciz "TXTR_SaveIcon0"
+	.byte 0x54
+	.asciz "XTR_SaveIcon1"
+	.byte 0x53, 0x54
+	.asciz "RG_MemoryCard"
+	.byte 0x46, 0x52
+	.asciz "ME_GenericMenu"
+	.byte 0x74
+	.asciz "extpane_message"
+	.asciz "tablegroup_choices"
+	.byte 0x74
+	.asciz "extpane_choice0"
+	.asciz "textpane_choice1"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_choice2"
+	.byte 0x74, 0x65
+	.asciz "xtpane_choice3"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+

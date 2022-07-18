@@ -960,3 +960,11 @@ lbl_805ABC78:
 	.float 0.3
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0390
+lbl_803D0390:
+	# ROM: 0x3CD390
+	.asciz "??(??)"
+	.balign 4
+

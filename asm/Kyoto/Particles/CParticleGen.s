@@ -50,3 +50,11 @@ lbl_8032A640:
 /* 8032A670 003275D0  7C 08 03 A6 */	mtlr r0
 /* 8032A674 003275D4  38 21 00 20 */	addi r1, r1, 0x20
 /* 8032A678 003275D8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7920
+lbl_803D7920:
+	# ROM: 0x3D4920
+	.asciz "??(??)"
+	.balign 4
+

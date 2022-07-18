@@ -15506,3 +15506,16 @@ lbl_8005105C:
 /* 80051078 0004DFD8  7C 08 03 A6 */	mtlr r0
 /* 8005107C 0004DFDC  38 21 00 80 */	addi r1, r1, 0x80
 /* 80051080 0004DFE0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCEE0
+lbl_803CCEE0:
+	# ROM: 0x3C9EE0
+	.asciz "??(??)"
+	.byte 0x50
+	.asciz "roj col resp"
+	.byte 0x00, 0x4F, 0x62
+	.asciz "ject list full!"
+	.asciz "DefaultShadow"
+	.balign 4
+

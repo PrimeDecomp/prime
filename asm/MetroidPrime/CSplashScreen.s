@@ -1415,3 +1415,24 @@ lbl_800293E8:
 /* 80029400 00026360  7C 08 03 A6 */	mtlr r0
 /* 80029404 00026364  38 21 00 20 */	addi r1, r1, 0x20
 /* 80029408 00026368  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCCD0
+lbl_803CCCD0:
+	# ROM: 0x3C9CD0
+	.4byte 0x803CCCDC
+	.4byte 0x803CCCEE
+	.4byte 0x803CCCFD
+
+.global lbl_803CCCDC
+lbl_803CCCDC:
+	# ROM: 0x3C9CDC
+	.asciz "TXTR_NintendoLogo"
+	.byte 0x54, 0x58
+	.asciz "TR_RetroLogo"
+	.byte 0x54, 0x58, 0x54
+	.asciz "R_DolbyLogo"
+	.asciz "??(??)"
+	.byte 0x53
+	.asciz "plashScreen"
+

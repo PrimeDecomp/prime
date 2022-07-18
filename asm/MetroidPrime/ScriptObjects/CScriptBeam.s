@@ -410,3 +410,14 @@ lbl_8027C950:
 /* 8027CB2C 00279A8C  7C 08 03 A6 */	mtlr r0
 /* 8027CB30 00279A90  38 21 01 00 */	addi r1, r1, 0x100
 /* 8027CB34 00279A94  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D5868
+lbl_803D5868:
+	# ROM: 0x3D2868
+	.asciz "??(??)"
+	.byte 0x2D
+	.asciz "Projectile"
+	.balign 4
+	.4byte 0
+

@@ -4600,3 +4600,14 @@ lbl_800BB940:
 /* 800BB94C 000B88AC  7C 08 03 A6 */	mtlr r0
 /* 800BB950 000B88B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 800BB954 000B88B4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDEA0
+lbl_803CDEA0:
+	# ROM: 0x3CAEA0
+	.asciz "??(??)"
+	.byte 0x4E
+	.asciz "OT_A_VALID_LOCATOR"
+	.balign 4
+	.4byte 0
+

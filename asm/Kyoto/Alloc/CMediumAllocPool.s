@@ -683,3 +683,11 @@ lbl_80350DF8:
 /* 80350E18 0034DD78  7C 08 03 A6 */	mtlr r0
 /* 80350E1C 0034DD7C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80350E20 0034DD80  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8240
+lbl_803D8240:
+	# ROM: 0x3D5240
+	.asciz "??(??)"
+	.balign 4
+

@@ -2855,3 +2855,127 @@ lbl_805AC114:
 	# ROM: 0x3F89B4
 	.4byte 0x3EA8F5C3
 
+
+.section .rodata
+.global lbl_803D06D0
+lbl_803D06D0:
+	# ROM: 0x3CD6D0
+	.4byte 0x803D07E4
+	.4byte 0x803D07EB
+	.float 4.0
+	.float 1.0
+	.float 4.0
+	.4byte 0x803D07EB
+	.4byte 0x803D07F3
+	.float 2.0
+	.float 1.0
+	.float 2.0
+	.4byte 0x803D07F3
+	.4byte 0x803D07FA
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D07FA
+	.4byte 0x803D0801
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D0801
+	.4byte 0x803D0808
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D080F
+	.4byte 0x803D0820
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D0820
+	.4byte 0x803D082E
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D083C
+	.4byte 0x803D084D
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D084D
+	.4byte 0x803D085B
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D0869
+	.4byte 0x803D0879
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D0879
+	.4byte 0x803D0886
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D0893
+	.4byte 0x803D08A3
+	.float 0.5
+	.float 0.5
+	.float 0.5
+	.4byte 0x803D08A3
+	.4byte 0x803D08B0
+	.float 0.5
+	.float 0.5
+	.float 0.5
+
+.global lbl_803D07D4
+lbl_803D07D4:
+	# ROM: 0x3CD7D4
+	.4byte 0x803D08BD
+	.float 1.5
+	.4byte 0x803D08C4
+	.float 1.5
+
+.global lbl_803D07E4
+lbl_803D07E4:
+	# ROM: 0x3CD7E4
+	.asciz "Pelvis"
+	.byte 0x53
+	.asciz "pine_3"
+	.byte 0x54
+	.asciz "ail_1"
+	.byte 0x54, 0x61
+	.asciz "il_2"
+	.byte 0x54, 0x61, 0x69
+	.4byte 0x6C5F3300
+	.asciz "Tail_4"
+	.byte 0x52
+	.asciz "_shoulder_front"
+	.asciz "R_elbow_front"
+	.byte 0x52, 0x5F
+	.asciz "wrist_front"
+	.asciz "L_shoulder_front"
+	.byte 0x4C, 0x5F, 0x65
+	.asciz "lbow_front"
+	.byte 0x4C
+	.asciz "_wrist_front"
+	.byte 0x52, 0x5F, 0x73
+	.asciz "houlder_back"
+	.byte 0x52, 0x5F, 0x65
+	.asciz "lbow_back"
+	.byte 0x52, 0x5F
+	.asciz "wrist_back"
+	.byte 0x4C
+	.asciz "_shoulder_back"
+	.byte 0x4C
+	.asciz "_elbow_back"
+	.asciz "L_wrist_back"
+	.byte 0x48, 0x65, 0x61
+	.4byte 0x645F3100
+	.asciz "Tail_5"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x49, 0x6E
+	.asciz "troBoss_Beam"
+	.byte 0x49, 0x6E, 0x74
+	.asciz "roBoss_Beam_Stage2"
+	.balign 4
+

@@ -5423,3 +5423,25 @@ lbl_805ABB10:
 	.4byte 0xBF000000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D01B8
+lbl_803D01B8:
+	# ROM: 0x3CD1B8
+	.4byte 0x00000014
+	.4byte 0x00000001
+	.4byte 0x00000015
+	.4byte 0x00000016
+	.4byte 0x00000017
+	.4byte 0
+
+.global lbl_803D01D0
+lbl_803D01D0:
+	# ROM: 0x3CD1D0
+	.asciz "AllowWrap"
+	.byte 0x4E, 0x6F
+	.asciz "Backward"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.4byte 0
+

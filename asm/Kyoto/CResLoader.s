@@ -1901,3 +1901,13 @@ lbl_805AE8CC:
 	# ROM: 0x3FB16C
 	.4byte 0xFFFFFFFF
 
+
+.section .rodata
+.global lbl_803D7A38
+lbl_803D7A38:
+	# ROM: 0x3D4A38
+	.asciz "??(??)"
+	.byte 0x2E
+	.4byte 0x70616B00
+	.4byte 0
+

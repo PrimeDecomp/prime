@@ -1703,3 +1703,21 @@ lbl_805AE188:
 	# ROM: 0x3FAA28
 	.double 1.0
 
+
+.section .rodata
+.global lbl_803D69C8
+lbl_803D69C8:
+	# ROM: 0x3D39C8
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D69E0
+lbl_803D69E0:
+	# ROM: 0x3D39E0
+	.asciz "??(??)"
+	.balign 4
+

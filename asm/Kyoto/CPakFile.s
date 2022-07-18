@@ -2116,3 +2116,13 @@ lbl_80368E90:
 /* 80368E98 00365DF8  41 80 FF 88 */	blt lbl_80368E20
 /* 80368E9C 00365DFC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80368EA0 00365E00  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D84E0
+lbl_803D84E0:
+	# ROM: 0x3D54E0
+	.asciz "%s: Incompatible pak file version -- Current version is %x, you're using %x"
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

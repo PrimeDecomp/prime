@@ -676,3 +676,14 @@ lbl_805ABAA4:
 	# ROM: 0x3F8344
 	.float 4.0
 
+
+.section .rodata
+.global lbl_803D01A0
+lbl_803D01A0:
+	# ROM: 0x3CD1A0
+	.asciz "PowerBomb"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.balign 4
+	.4byte 0
+

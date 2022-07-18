@@ -787,3 +787,13 @@ lbl_805ABBF0:
 	.float 0.3
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0340
+lbl_803D0340:
+	# ROM: 0x3CD340
+	.asciz "ACS_SamusFace"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.balign 4
+

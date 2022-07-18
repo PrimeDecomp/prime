@@ -367,3 +367,10 @@ __sinit_CMemory_cpp:
 /* 80315C8C 00312BEC  7C 08 03 A6 */	mtlr r0
 /* 80315C90 00312BF0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80315C94 00312BF4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7808
+lbl_803D7808:
+	# ROM: 0x3D4808
+	.asciz "Alloc failed - Size: %d"
+

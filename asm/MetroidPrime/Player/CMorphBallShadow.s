@@ -1341,3 +1341,43 @@ lbl_805ADCCC:
 	# ROM: 0x3FA56C
 	.4byte 0x3F7D70A4
 
+
+.section .rodata
+.global lbl_803D5BD0
+lbl_803D5BD0:
+	# ROM: 0x3D2BD0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D5C00
+lbl_803D5C00:
+	# ROM: 0x3D2C00
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0xBD800000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D5C30
+lbl_803D5C30:
+	# ROM: 0x3D2C30
+	.asciz "??(??)"
+	.balign 4
+

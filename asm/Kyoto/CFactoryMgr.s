@@ -1133,3 +1133,53 @@ lbl_80339494:
 /* 8033949C 003363FC  7C 08 03 A6 */	mtlr r0
 /* 803394A0 00336400  38 21 00 20 */	addi r1, r1, 0x20
 /* 803394A4 00336404  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7988
+lbl_803D7988:
+	# ROM: 0x3D4988
+	.4byte 0x434C534E
+	.4byte 0x434D444C
+	.4byte 0x43534B52
+	.4byte 0x414E494D
+	.4byte 0x43494E46
+	.4byte 0x54585452
+	.4byte 0x504C5454
+	.4byte 0x464F4E54
+	.4byte 0x414E4353
+	.4byte 0x45564E54
+	.4byte 0x4D414446
+	.4byte 0x4D4C564C
+	.4byte 0x4D524541
+	.4byte 0x4D415057
+	.4byte 0x4D415041
+	.4byte 0x53415657
+	.4byte 0x53415641
+	.4byte 0x50415254
+	.4byte 0x57505343
+	.4byte 0x53574843
+	.4byte 0x44505343
+	.4byte 0x454C5343
+	.4byte 0x43525343
+	.4byte 0x4146534D
+	.4byte 0x44434C4E
+	.4byte 0x41475343
+	.4byte 0x4154424C
+	.4byte 0x43534E47
+	.4byte 0x53545247
+	.4byte 0x5343414E
+	.4byte 0x50415448
+	.4byte 0x44475250
+	.4byte 0x484D4150
+	.4byte 0x4354574B
+	.4byte 0x46524D45
+	.4byte 0x48494E54
+	.4byte 0x4D415055
+	.4byte 0x44554D42
+
+.global lbl_803D7A20
+lbl_803D7A20:
+	# ROM: 0x3D4A20
+	.asciz "??(??)"
+	.balign 4
+

@@ -3002,3 +3002,14 @@ lbl_805AC6C8:
 	.4byte 0x3D800000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1640
+lbl_803D1640:
+	# ROM: 0x3CE640
+	.asciz "??(??)"
+	.byte 0x49
+	.asciz "cePLight_"
+	.balign 4
+	.4byte 0
+

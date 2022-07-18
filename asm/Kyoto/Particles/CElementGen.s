@@ -21943,3 +21943,91 @@ lbl_805AE790:
 	.float 0.5
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D7848
+lbl_803D7848:
+	# ROM: 0x3D4848
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D7868
+lbl_803D7868:
+	# ROM: 0x3D4868
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D7888
+lbl_803D7888:
+	# ROM: 0x3D4888
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+
+.global lbl_803D78A0
+lbl_803D78A0:
+	# ROM: 0x3D48A0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x0000000E
+	.4byte 0x00000001
+	.4byte 0x0000000F
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D78D0
+lbl_803D78D0:
+	# ROM: 0x3D48D0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D78F0
+lbl_803D78F0:
+	# ROM: 0x3D48F0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D7910
+lbl_803D7910:
+	# ROM: 0x3D4910
+	.asciz "??(??)"
+	.balign 4
+
+.global lbl_803D7918
+lbl_803D7918:
+	# ROM: 0x3D4918
+	.asciz "??(??)"
+	.balign 4
+

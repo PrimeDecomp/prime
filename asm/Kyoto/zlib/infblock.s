@@ -1242,3 +1242,39 @@ lbl_803423BC:
 /* 803423C8 0033F328  7C 08 03 A6 */	mtlr r0
 /* 803423CC 0033F32C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803423D0 0033F330  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7AA8
+lbl_803D7AA8:
+	# ROM: 0x3D4AA8
+	.4byte 0x00000010
+	.4byte 0x00000011
+	.4byte 0x00000012
+	.4byte 0
+	.4byte 0x00000008
+	.4byte 0x00000007
+	.4byte 0x00000009
+	.4byte 0x00000006
+	.4byte 0x0000000A
+	.4byte 0x00000005
+	.4byte 0x0000000B
+	.4byte 0x00000004
+	.4byte 0x0000000C
+	.4byte 0x00000003
+	.4byte 0x0000000D
+	.4byte 0x00000002
+	.4byte 0x0000000E
+	.4byte 0x00000001
+	.4byte 0x0000000F
+
+.global lbl_803D7AF4
+lbl_803D7AF4:
+	# ROM: 0x3D4AF4
+	.asciz "invalid block type"
+	.byte 0x69
+	.asciz "nvalid stored block lengths"
+	.asciz "too many length or distance symbols"
+	.asciz "invalid bit length repeat"
+	.balign 4
+	.4byte 0
+

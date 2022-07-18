@@ -1594,3 +1594,19 @@ lbl_80307BA8:
 /* 80307BB0 00304B10  7C 08 03 A6 */	mtlr r0
 /* 80307BB4 00304B14  38 21 00 30 */	addi r1, r1, 0x30
 /* 80307BB8 00304B18  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7388
+lbl_803D7388:
+	# ROM: 0x3D4388
+	.4byte 0x00000009
+	.4byte 0x00000003
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D7398
+lbl_803D7398:
+	# ROM: 0x3D4398
+	.asciz "??(??)"
+	.balign 4
+

@@ -1581,3 +1581,27 @@ lbl_805AE9B8:
 	.4byte 0x3BA3D70A
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D8248
+lbl_803D8248:
+	# ROM: 0x3D5248
+	.asciz "<NULL>"
+	.byte 0x3C
+	.asciz "SOURCE MODULE UNLOADED>"
+	.4byte 0x004D6564
+	.asciz "iumAllocMainData   "
+	.asciz " - Ignore"
+	.byte 0x4D, 0x65
+	.asciz "mHead"
+	.byte 0x4D, 0x65
+	.asciz "mTail"
+	.byte 0x53, 0x6D
+	.asciz "allAllocMainData   "
+	.asciz "SmallAllocBookKeeping"
+	.byte 0x53, 0x6D
+	.asciz "allAllocClass      "
+	.asciz "MediumAllocClass      "
+	.balign 4
+	.4byte 0
+

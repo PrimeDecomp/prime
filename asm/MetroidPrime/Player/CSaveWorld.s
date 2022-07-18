@@ -2792,3 +2792,14 @@ lbl_805AD5A8:
 	.4byte 0xFFFFFFFF
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D4780
+lbl_803D4780:
+	# ROM: 0x3D1780
+	.asciz "??(??)"
+	.byte 0x48
+	.asciz "INT_Hints"
+	.balign 4
+	.4byte 0
+

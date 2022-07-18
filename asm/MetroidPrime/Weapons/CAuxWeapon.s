@@ -1421,3 +1421,56 @@ lbl_805AC6E4:
 	# ROM: 0x3F8F84
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1658
+lbl_803D1658:
+	# ROM: 0x3CE658
+	.4byte 0x0712072D
+	.4byte 0x07370732
+	.4byte 0x07120000
+
+.global lbl_803D1664
+lbl_803D1664:
+	# ROM: 0x3CE664
+	.4byte 0x803D1678
+	.4byte 0x803D1685
+	.4byte 0x803D168E
+	.4byte 0x803D1699
+	.4byte 0x803D1678
+
+.global lbl_803D1678
+lbl_803D1678:
+	# ROM: 0x3CE678
+	.asciz "SuperMissile"
+	.byte 0x49, 0x63, 0x65
+	.asciz "Combo"
+	.byte 0x57, 0x61
+	.asciz "veBuster"
+	.byte 0x46, 0x6C, 0x61
+	.asciz "meThrower"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.byte 0x4E, 0x46, 0x54
+	.asciz "SecondarySparks"
+	.asciz "NFTSecondaryFire"
+	.byte 0x4E, 0x46, 0x54
+	.asciz "SecondarySmoke"
+	.byte 0x4E
+	.asciz "FTSwooshFire"
+	.byte 0x4E, 0x46, 0x54
+	.asciz "SwooshCenter"
+	.byte 0x4E, 0x46, 0x54
+	.asciz "MainSmoke"
+	.byte 0x4E, 0x46
+	.asciz "TMainFire"
+	.byte 0x50, 0x6C
+	.asciz "ayer_FlameThrower"
+	.byte 0x4D, 0x69
+	.asciz "ssile"
+	.byte 0x46, 0x6C
+	.asciz "ameMuzzle"
+	.byte 0x42, 0x75
+	.asciz "sterMuzzle"
+	.balign 4
+

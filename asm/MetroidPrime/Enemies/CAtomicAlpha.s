@@ -1268,3 +1268,17 @@ lbl_805AD574:
 	# ROM: 0x3F9E14
 	.4byte 0x7F7FFFFF
 
+
+.section .rodata
+.global lbl_803D4730
+lbl_803D4730:
+	# ROM: 0x3D1730
+	.asciz "bomb1_LCTR"
+	.byte 0x62
+	.asciz "omb2_LCTR"
+	.byte 0x62, 0x6F
+	.asciz "mb3_LCTR"
+	.byte 0x62, 0x6F, 0x6D
+	.asciz "b4_LCTR"
+	.4byte 0
+

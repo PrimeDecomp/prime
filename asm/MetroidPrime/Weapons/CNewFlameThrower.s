@@ -4633,3 +4633,14 @@ lbl_805AD7B4:
 	# ROM: 0x3FA054
 	.float 0.7
 
+
+.section .rodata
+.global lbl_803D5278
+lbl_803D5278:
+	# ROM: 0x3D2278
+	.asciz "??(??)"
+	.byte 0x46
+	.asciz "lamethrowerLight"
+	.balign 4
+	.4byte 0
+

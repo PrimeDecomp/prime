@@ -3541,3 +3541,38 @@ lbl_805AC794:
 	# ROM: 0x3F9034
 	.float 1.5
 
+
+.section .rodata
+.global lbl_803D19F8
+lbl_803D19F8:
+	# ROM: 0x3CE9F8
+	.4byte 0xFFFFFFFF
+	.4byte 0xFF00FFFF
+	.4byte 0xFF0000FF
+	.4byte 0x0000FFFF
+
+.global lbl_803D1A08
+lbl_803D1A08:
+	# ROM: 0x3CEA08
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D1A20
+lbl_803D1A20:
+	# ROM: 0x3CEA20
+	.asciz "WaveBuster_Light"
+	.byte 0x57, 0x61, 0x76
+	.asciz "eBuster"
+	.asciz "BusterSwoosh1"
+	.byte 0x42, 0x75
+	.asciz "sterSwoosh2"
+	.asciz "BusterSparks"
+	.byte 0x42, 0x75, 0x73
+	.asciz "terLight"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

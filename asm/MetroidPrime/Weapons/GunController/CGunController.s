@@ -858,3 +858,12 @@ lbl_805AC898:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1AA8
+lbl_803D1AA8:
+	# ROM: 0x3CEAA8
+	.asciz "Whole Body"
+	.balign 4
+	.4byte 0
+

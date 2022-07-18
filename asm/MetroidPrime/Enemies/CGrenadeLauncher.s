@@ -2483,3 +2483,19 @@ lbl_805AD3C4:
 	# ROM: 0x3F9C64
 	.float -1.0
 
+
+.section .rodata
+.global lbl_803D3410
+lbl_803D3410:
+	# ROM: 0x3D0410
+	.asciz "grenade_LCTR"
+	.byte 0x6C, 0x6F, 0x63
+	.asciz "kon_target_LCTR"
+	.asciz "??(??)"
+	.byte 0x47
+	.asciz "renade Launcher Explode Fx"
+	.byte 0x42
+	.asciz "ouncy Grenade"
+	.balign 4
+	.4byte 0
+

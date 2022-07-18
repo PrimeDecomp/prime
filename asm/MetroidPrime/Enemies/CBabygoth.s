@@ -8409,3 +8409,40 @@ lbl_805AD188:
 	.float 0.2
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D31A8
+lbl_803D31A8:
+	# ROM: 0x3D01A8
+	.4byte 0x803D31D0
+	.4byte 0x3F99999A
+	.4byte 0x803D31D7
+	.4byte 0x3F99999A
+	.4byte 0x803D31DE
+	.4byte 0x3FD9999A
+	.4byte 0x803D31EC
+	.4byte 0x3F99999A
+	.4byte 0x803D31F3
+	.float 0.9
+
+.global lbl_803D31D0
+lbl_803D31D0:
+	# ROM: 0x3D01D0
+	.asciz "L_knee"
+	.byte 0x52
+	.asciz "_knee"
+	.byte 0x4C, 0x43
+	.asciz "TR_SHEMOUTH"
+	.asciz "Pelvis"
+	.byte 0x62
+	.asciz "utt_LCTR"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "Babygoth Shell Crack Fx"
+	.asciz "GetUp"
+	.byte 0x49, 0x63
+	.asciz "eSheegoth_Flame"
+	.asciz "Head_1"
+	.byte 0x46
+	.asciz "lameThrower"
+

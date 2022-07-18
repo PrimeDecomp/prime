@@ -1593,3 +1593,18 @@ lbl_805AD1C4:
 	# ROM: 0x3F9A64
 	.4byte 0x40490FDB
 
+
+.section .rodata
+.global lbl_803D3248
+lbl_803D3248:
+	# ROM: 0x3D0248
+	.asciz "Laser_LCTR"
+	.byte 0x57
+	.asciz "hole Body"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.byte 0x45, 0x79, 0x65
+	.asciz "Ball_Beam"
+	.byte 0x45, 0x79
+	.4byte 0x65000000
+

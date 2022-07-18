@@ -1108,3 +1108,35 @@ __sinit_CMapArea_cpp:
 /* 8008103C 0007DF9C  D0 43 00 1C */	stfs f2, 0x1c(r3)
 /* 80081040 0007DFA0  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 80081044 0007DFA4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD630
+lbl_803CD630:
+	# ROM: 0x3CA630
+	.4byte 0x00000009
+	.4byte 0x00000002
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803CD640
+lbl_803CD640:
+	# ROM: 0x3CA640
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x01010102
+	.4byte 0x01020201
+	.4byte 0x01020201
+	.4byte 0x02010102
+	.4byte 0x01020201
+	.4byte 0x02010202
+	.4byte 0x02020000
+
+.global lbl_803CD66C
+lbl_803CD66C:
+	# ROM: 0x3CA66C
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

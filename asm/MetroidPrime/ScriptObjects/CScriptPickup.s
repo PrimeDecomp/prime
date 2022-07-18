@@ -1114,3 +1114,19 @@ lbl_800C3410:
 /* 800C343C 000C039C  7C 08 03 A6 */	mtlr r0
 /* 800C3440 000C03A0  38 21 01 20 */	addi r1, r1, 0x120
 /* 800C3444 000C03A4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE020
+lbl_803CE020:
+	# ROM: 0x3CB020
+	.asciz "??(??)"
+	.byte 0x45
+	.asciz "xplosion - Pickup Effect"
+	.byte 0x53, 0x54, 0x52
+	.asciz "G_AllPickupsFound_2"
+	.asciz "STRG_AllPickupsFound_1"
+	.balign 4
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+

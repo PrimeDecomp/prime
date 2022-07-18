@@ -10558,3 +10558,31 @@ lbl_805ABD80:
 	.4byte 0x3DA3D70A
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0398
+lbl_803D0398:
+	# ROM: 0x3CD398
+	.asciz "Beacon_LCTR"
+	.asciz "R_GUN_TOP_LCTR"
+	.byte 0x4C
+	.asciz "_GUN_TOP_LCTR"
+	.byte 0x53, 0x68
+	.asciz "ield_LCTR"
+	.byte 0x44, 0x65
+	.4byte 0x6164003F
+	.asciz "?(??)"
+	.byte 0x57, 0x68
+	.asciz "ole Body"
+	.byte 0x53, 0x6B, 0x65
+	.asciz "leton_Root"
+	.byte 0x44
+	.asciz "roneVisorFlare"
+	.byte 0x4C
+	.asciz "aserLight"
+	.byte 0x4C, 0x61
+	.asciz "serScanner"
+	.byte 0x44
+	.asciz "roneLaser"
+	.balign 4
+

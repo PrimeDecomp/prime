@@ -849,3 +849,30 @@ lbl_805ACBC8:
 	# ROM: 0x3F9468
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D1F48
+lbl_803D1F48:
+	# ROM: 0x3CEF48
+	.asciz "textpane_message"
+	.byte 0x62, 0x61, 0x73
+	.asciz "ewidget_top"
+	.asciz "basewidget_center"
+	.byte 0x62, 0x61
+	.asciz "sewidget_bottom"
+	.asciz "model_abutton"
+	.byte 0x6D, 0x6F
+	.asciz "del_top"
+	.asciz "model_bottom"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_center"
+	.byte 0x6D, 0x6F
+	.asciz "del_bg"
+	.byte 0x6D
+	.asciz "odel_videoband"
+	.byte 0x62
+	.asciz "asewidget_centerdeco"
+	.byte 0x46, 0x52, 0x4D
+	.asciz "E_MsgScreen"
+	.4byte 0
+

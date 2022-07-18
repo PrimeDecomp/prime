@@ -4080,3 +4080,43 @@ lbl_805AD470:
 	.4byte 0x3FC90FDB
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D42E8
+lbl_803D42E8:
+	# ROM: 0x3D12E8
+	.4byte 0x803D4338
+	.float 0.75
+	.4byte 0x803D433F
+	.float 0.75
+	.4byte 0x803D4346
+	.float 0.75
+	.4byte 0x803D434D
+	.float 0.75
+	.4byte 0x803D4354
+	.float 0.75
+
+.global lbl_803D4310
+lbl_803D4310:
+	# ROM: 0x3D1310
+	.asciz "LCTR_MAGMOUTH"
+	.byte 0x68, 0x65
+	.4byte 0x61640054
+	.asciz "op_LCTR"
+	.asciz "Bottom_LCTR"
+	.asciz "spine1"
+	.byte 0x73
+	.asciz "pine3"
+	.byte 0x73, 0x70
+	.asciz "ine5"
+	.byte 0x73, 0x70, 0x69
+	.4byte 0x6E653700
+	.asciz "spine9"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x4D, 0x61
+	.asciz "gdolite_Flame"
+	.byte 0x46, 0x6C
+	.asciz "ameThrower"
+	.balign 4
+

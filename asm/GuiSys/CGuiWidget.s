@@ -729,3 +729,12 @@ __ct__Q210CGuiWidget15CGuiWidgetParmsFP9CGuiFramebssbbbRC6CColorQ210CGuiWidget18
 /* 802CAF68 002C7EC8  90 03 00 10 */	stw r0, 0x10(r3)
 /* 802CAF6C 002C7ECC  90 A3 00 14 */	stw r5, 0x14(r3)
 /* 802CAF70 002C7ED0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D68F8
+lbl_803D68F8:
+	# ROM: 0x3D38F8
+	.asciz "Warning: Discarding useless worker id.  Parent is not a compound widget."
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

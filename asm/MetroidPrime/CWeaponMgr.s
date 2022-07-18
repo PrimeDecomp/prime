@@ -694,3 +694,11 @@ lbl_800C25DC:
 /* 800C25E4 000BF544  7C 08 03 A6 */	mtlr r0
 /* 800C25E8 000BF548  38 21 00 20 */	addi r1, r1, 0x20
 /* 800C25EC 000BF54C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE018
+lbl_803CE018:
+	# ROM: 0x3CB018
+	.asciz "??(??)"
+	.balign 4
+

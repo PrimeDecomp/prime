@@ -178,3 +178,11 @@ __ct__18CMetaTransMetaAnimFR12CInputStream:
 /* 802E2210 002DF170  7C 08 03 A6 */	mtlr r0
 /* 802E2214 002DF174  38 21 00 20 */	addi r1, r1, 0x20
 /* 802E2218 002DF178  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D90
+lbl_803D6D90:
+	# ROM: 0x3D3D90
+	.asciz "??(??)"
+	.balign 4
+

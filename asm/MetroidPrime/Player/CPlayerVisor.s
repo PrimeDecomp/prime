@@ -3439,3 +3439,29 @@ lbl_80114C18:
 /* 80114C3C 00111B9C  7C 08 03 A6 */	mtlr r0
 /* 80114C40 00111BA0  38 21 00 80 */	addi r1, r1, 0x80
 /* 80114C44 00111BA4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF210
+lbl_803CF210:
+	# ROM: 0x3CC210
+	.asciz "CMDL_ScanFrameCorner"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_ScanFrameCenterSide"
+	.byte 0x43, 0x4D
+	.asciz "DL_ScanFrameCenterTop"
+	.byte 0x43, 0x4D
+	.asciz "DL_ScanFrameStretchSide"
+	.asciz "CMDL_ScanFrameStretchTop"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_NewScanPane"
+	.byte 0x43, 0x4D
+	.asciz "DL_ScanShield"
+	.byte 0x43, 0x4D
+	.asciz "DL_ScanIconNoncritical"
+	.byte 0x43
+	.asciz "MDL_ScanIconCritical"
+	.byte 0x54, 0x58, 0x54
+	.asciz "R_XRayPalette"
+	.balign 4
+	.4byte 0
+

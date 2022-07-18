@@ -4584,3 +4584,221 @@ __sinit_CAi_cpp:
 /* 800A5330 000A2290  B9 C1 02 78 */	lmw r14, 0x278(r1)
 /* 800A5334 000A2294  38 21 02 C0 */	addi r1, r1, 0x2c0
 /* 800A5338 000A2298  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD968
+lbl_803CD968:
+	# ROM: 0x3CA968
+	.asciz "Patrol"
+	.byte 0x46
+	.asciz "ollowPattern"
+	.byte 0x44, 0x65, 0x61
+	.4byte 0x64005061
+	.asciz "thFind"
+	.byte 0x53
+	.asciz "tart"
+	.byte 0x53, 0x65, 0x6C
+	.asciz "ectTarget"
+	.byte 0x54, 0x61
+	.asciz "rgetPatrol"
+	.byte 0x54
+	.asciz "argetPlayer"
+	.asciz "TargetCover"
+	.asciz "Halt"
+	.byte 0x57, 0x61, 0x6C
+	.4byte 0x6B005275
+	.4byte 0x6E004765
+	.asciz "nerate"
+	.byte 0x44
+	.asciz "eactivate"
+	.byte 0x41, 0x74
+	.asciz "tack"
+	.byte 0x4C, 0x6F, 0x6F
+	.asciz "pedAttack"
+	.byte 0x4A, 0x75
+	.asciz "mpBack"
+	.byte 0x44
+	.asciz "oubleSnap"
+	.byte 0x53, 0x68
+	.asciz "uffle"
+	.byte 0x54, 0x75
+	.asciz "rnAround"
+	.byte 0x53, 0x6B, 0x69
+	.4byte 0x64004163
+	.asciz "tive"
+	.byte 0x49, 0x6E, 0x41
+	.asciz "ctive"
+	.byte 0x43, 0x6F
+	.asciz "verAttack"
+	.byte 0x43, 0x72
+	.asciz "ouch"
+	.byte 0x46, 0x61, 0x64
+	.4byte 0x65496E00
+	.asciz "FadeOut"
+	.asciz "GetUp"
+	.byte 0x54, 0x61
+	.4byte 0x756E7400
+	.asciz "Suck"
+	.byte 0x46, 0x6C, 0x65
+	.4byte 0x65004C75
+	.4byte 0x726B0050
+	.asciz "rojectileAttack"
+	.asciz "Flinch"
+	.byte 0x48
+	.asciz "urled"
+	.byte 0x54, 0x65
+	.asciz "legraphAttack"
+	.byte 0x4A, 0x75
+	.4byte 0x6D700045
+	.asciz "xplode"
+	.byte 0x44
+	.asciz "odge"
+	.byte 0x52, 0x65, 0x74
+	.asciz "reat"
+	.byte 0x43, 0x6F, 0x76
+	.4byte 0x65720041
+	.asciz "pproach"
+	.asciz "WallHang"
+	.byte 0x57, 0x61, 0x6C
+	.asciz "lDetach"
+	.asciz "Enraged"
+	.asciz "SpecialAttack"
+	.byte 0x47, 0x72
+	.asciz "owth"
+	.byte 0x46, 0x61, 0x69
+	.4byte 0x6E74004C
+	.4byte 0x616E6400
+	.asciz "Bounce"
+	.byte 0x50
+	.asciz "athFindEx"
+	.byte 0x44, 0x69
+	.4byte 0x7A7A7900
+	.asciz "CallForBackup"
+	.byte 0x42, 0x75
+	.asciz "lbAttack"
+	.byte 0x50, 0x6F, 0x64
+	.asciz "Attack"
+	.byte 0x49
+	.asciz "nAttackPosition"
+	.asciz "Leash"
+	.byte 0x4F, 0x66
+	.asciz "fLine"
+	.byte 0x41, 0x74
+	.asciz "tacked"
+	.byte 0x50
+	.asciz "athShagged"
+	.byte 0x50
+	.asciz "athOver"
+	.asciz "PathFound"
+	.byte 0x54, 0x6F
+	.asciz "oClose"
+	.byte 0x49
+	.asciz "nRange"
+	.byte 0x49
+	.asciz "nMaxRange"
+	.byte 0x49, 0x6E
+	.asciz "DetectionRange"
+	.byte 0x53
+	.asciz "potPlayer"
+	.byte 0x50, 0x6C
+	.asciz "ayerSpot"
+	.byte 0x50, 0x61, 0x74
+	.asciz "ternOver"
+	.byte 0x50, 0x61, 0x74
+	.asciz "ternShagged"
+	.asciz "HasAttackPattern"
+	.byte 0x48, 0x61, 0x73
+	.asciz "PatrolPath"
+	.byte 0x48
+	.asciz "asRetreatPattern"
+	.byte 0x44, 0x65, 0x6C
+	.4byte 0x61790052
+	.asciz "andomDelay"
+	.byte 0x46
+	.asciz "ixedDelay"
+	.byte 0x44, 0x65
+	.asciz "fault"
+	.byte 0x41, 0x6E
+	.asciz "imOver"
+	.byte 0x53
+	.asciz "houldAttack"
+	.asciz "ShouldDoubleSnap"
+	.byte 0x49, 0x6E, 0x50
+	.asciz "osition"
+	.asciz "ShouldTurn"
+	.byte 0x48
+	.asciz "itSomething"
+	.asciz "ShouldJumpBack"
+	.byte 0x53
+	.asciz "tuck"
+	.byte 0x4E, 0x6F, 0x50
+	.asciz "athNodes"
+	.byte 0x4C, 0x61, 0x6E
+	.4byte 0x64656400
+	.asciz "HearShot"
+	.byte 0x48, 0x65, 0x61
+	.asciz "rPlayer"
+	.asciz "CoverCheck"
+	.byte 0x43
+	.asciz "overFind"
+	.byte 0x43, 0x6F, 0x76
+	.asciz "erBlown"
+	.asciz "CoverNearlyBlown"
+	.byte 0x43, 0x6F, 0x76
+	.asciz "eringFire"
+	.byte 0x47, 0x6F
+	.4byte 0x74557000
+	.asciz "LineOfSight"
+	.asciz "AggressionCheck"
+	.asciz "AttackOver"
+	.byte 0x53
+	.asciz "houldTaunt"
+	.byte 0x49
+	.asciz "nside"
+	.byte 0x53, 0x68
+	.asciz "ouldFire"
+	.byte 0x53, 0x68, 0x6F
+	.asciz "uldFlinch"
+	.byte 0x50, 0x61
+	.asciz "trolPathOver"
+	.byte 0x53, 0x68, 0x6F
+	.asciz "uldDodge"
+	.byte 0x53, 0x68, 0x6F
+	.asciz "uldRetreat"
+	.byte 0x53
+	.asciz "houldCrouch"
+	.asciz "ShouldMove"
+	.byte 0x53
+	.asciz "hotAt"
+	.byte 0x48, 0x61
+	.asciz "sTargetingPoint"
+	.asciz "ShouldWallHang"
+	.byte 0x53
+	.asciz "etAIStage"
+	.byte 0x41, 0x49
+	.asciz "Stage"
+	.byte 0x53, 0x74
+	.asciz "artAttack"
+	.byte 0x42, 0x72
+	.asciz "eakAttack"
+	.byte 0x53, 0x68
+	.asciz "ouldStrafe"
+	.byte 0x53
+	.asciz "houldSpecialAttack"
+	.byte 0x4C
+	.asciz "ostInterest"
+	.asciz "CodeTrigger"
+	.asciz "BounceFind"
+	.byte 0x52
+	.asciz "andom"
+	.byte 0x46, 0x69
+	.asciz "xedRandom"
+	.byte 0x49, 0x73
+	.asciz "Dizzy"
+	.byte 0x53, 0x68
+	.asciz "ouldCallForBackup"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.balign 4
+	.4byte 0
+

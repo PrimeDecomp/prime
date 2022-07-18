@@ -122,3 +122,11 @@ lbl_802F3CB8:
 /* 802F3D10 002F0C70  7C 08 03 A6 */	mtlr r0
 /* 802F3D14 002F0C74  38 21 00 10 */	addi r1, r1, 0x10
 /* 802F3D18 002F0C78  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6E00
+lbl_803D6E00:
+	# ROM: 0x3D3E00
+	.asciz "??(??)"
+	.balign 4
+

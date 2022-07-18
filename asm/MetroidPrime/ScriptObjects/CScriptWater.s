@@ -3651,3 +3651,21 @@ lbl_80101EE0:
 /* 80101EF4 000FEE54  7C 08 03 A6 */	mtlr r0
 /* 80101EF8 000FEE58  38 21 00 20 */	addi r1, r1, 0x20
 /* 80101EFC 000FEE5C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CEE20
+lbl_803CEE20:
+	# ROM: 0x3CBE20
+	.float 1.0
+	.4byte 0x40400000
+	.4byte 0x3F35C28F
+	.4byte 0x3F9851EC
+	.4byte 0x3F35C28F
+	.float 1.0
+
+.global lbl_803CEE38
+lbl_803CEE38:
+	# ROM: 0x3CBE38
+	.asciz "??(??)"
+	.balign 4
+

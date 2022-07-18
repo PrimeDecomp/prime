@@ -1962,3 +1962,13 @@ lbl_805AC554:
 	# ROM: 0x3F8DF4
 	.4byte 0xBF000000
 
+
+.section .rodata
+.global lbl_803D14A0
+lbl_803D14A0:
+	# ROM: 0x3CE4A0
+	.asciz "CollisionActor"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+

@@ -1228,3 +1228,11 @@ lbl_802C75A4:
 /* 802C75B8 002C4518  7C 08 03 A6 */	mtlr r0
 /* 802C75BC 002C451C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802C75C0 002C4520  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D68D0
+lbl_803D68D0:
+	# ROM: 0x3D38D0
+	.asciz "??(??)"
+	.balign 4
+

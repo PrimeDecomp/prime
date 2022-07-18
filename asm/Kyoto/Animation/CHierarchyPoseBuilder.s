@@ -831,3 +831,11 @@ lbl_805AE434:
 	# ROM: 0x3FACD4
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6E40
+lbl_803D6E40:
+	# ROM: 0x3D3E40
+	.asciz "??(??)"
+	.balign 4
+

@@ -2005,3 +2005,44 @@ lbl_805ACE04:
 	# ROM: 0x3F96A4
 	.float 0.5
 
+
+.section .rodata
+.global lbl_803D26B4
+lbl_803D26B4:
+	# ROM: 0x3CF6B4
+	.4byte 0x00000013
+	.4byte 0x0000003C
+	.4byte 0x0000004F
+	.4byte 0x00000014
+	.4byte 0x0000003D
+	.4byte 0x00000050
+	.4byte 0x00000015
+	.4byte 0x0000003E
+	.4byte 0x00000051
+	.4byte 0x00000016
+	.4byte 0x0000003F
+	.4byte 0x0000005C
+	.4byte 0x00000017
+	.4byte 0x00000040
+	.4byte 0x0000005D
+
+.global lbl_803D26F0
+lbl_803D26F0:
+	# ROM: 0x3CF6F0
+	.4byte 0x00000005
+	.4byte 0x803D25D0
+	.4byte 0x00000005
+	.4byte 0x803D260C
+	.4byte 0x00000005
+	.4byte 0x803D2648
+	.4byte 0x00000004
+	.4byte 0x803D2684
+	.4byte 0x00000005
+	.4byte 0x803D26B4
+
+.global lbl_803D2718
+lbl_803D2718:
+	# ROM: 0x3CF718
+	.asciz "??(??)"
+	.balign 4
+

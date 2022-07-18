@@ -504,3 +504,11 @@ lbl_805AE088:
 	# ROM: 0x3FA928
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D6878
+lbl_803D6878:
+	# ROM: 0x3D3878
+	.asciz "??(??)"
+	.balign 4
+

@@ -1432,3 +1432,16 @@ lbl_805AD60C:
 	# ROM: 0x3F9EAC
 	.4byte 0x41200000
 
+
+.section .rodata
+.global lbl_803D4B50
+lbl_803D4B50:
+	# ROM: 0x3D1B50
+	.asciz "bomb2_LCTR"
+	.byte 0x62
+	.asciz "omb3_LCTR"
+	.byte 0x62, 0x6F
+	.asciz "mb4_LCTR"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

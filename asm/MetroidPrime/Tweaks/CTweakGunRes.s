@@ -667,3 +667,23 @@ lbl_800BC268:
 /* 800BC2A4 000B9204  7C 08 03 A6 */	mtlr r0
 /* 800BC2A8 000B9208  38 21 00 10 */	addi r1, r1, 0x10
 /* 800BC2AC 000B920C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDEC0
+lbl_803CDEC0:
+	# ROM: 0x3CAEC0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803CDED4
+lbl_803CDED4:
+	# ROM: 0x3CAED4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+

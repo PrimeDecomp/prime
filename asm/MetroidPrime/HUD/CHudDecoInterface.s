@@ -10122,3 +10122,313 @@ lbl_805AC3B8:
 	.4byte 0x40400000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0948
+lbl_803D0948:
+	# ROM: 0x3CD948
+	.asciz "basewidget_energystuff"
+	.balign 4
+	.asciz "textpane_energydigits"
+	.balign 4
+	.asciz "meter_energytanks"
+	.balign 4
+	.asciz "textpane_energywarning"
+	.balign 4
+	.asciz "energybart01_energybar"
+	.balign 4
+	.asciz "basewidget_energydeco0"
+	.balign 4
+
+.global lbl_803D09D4
+lbl_803D09D4:
+	# ROM: 0x3CD9D4
+	.asciz "basewidget_bossenergystuff"
+	.balign 4
+
+.global lbl_803D09F0
+lbl_803D09F0:
+	# ROM: 0x3CD9F0
+	.asciz "energybart01_bossbar"
+	.balign 4
+	.4byte 0x8018FFA0  ;# ptr
+	.4byte 0x8018FFA0  ;# ptr
+	.4byte 0x8018FE7C  ;# ptr
+	.4byte 0x8018FF18  ;# ptr
+	.4byte 0x8018FF44  ;# ptr
+	.float 0.2
+	.float 0.2
+	.float 0.1
+	.float 0.2
+	.float 1.0
+
+.global lbl_803D0A30
+lbl_803D0A30:
+	# ROM: 0x3CDA30
+	.asciz "textpane_boss"
+	.byte 0x25, 0x30
+	.4byte 0x32640000
+	.4byte 0
+
+.global lbl_803D0A48
+lbl_803D0A48:
+	# ROM: 0x3CDA48
+	.asciz "basewidget_freelook"
+	.asciz "model_freelookleft"
+	.balign 4
+	.asciz "model_freelookright"
+	.asciz "basewidget_freelookleft"
+	.asciz "model_shieldleft"
+	.balign 4
+	.asciz "model_freetickaleft"
+	.asciz "model_freetickbleft"
+	.asciz "textpane_freelookleftdigits"
+	.asciz "basewidget_freelookleftdeco0"
+	.balign 4
+	.asciz "basewidget_freelookright"
+	.balign 4
+	.asciz "model_shieldright"
+	.balign 4
+	.asciz "model_freetickaright"
+	.balign 4
+	.asciz "model_freetickbright"
+	.balign 4
+	.asciz "textpane_freelookrightdigits"
+	.balign 4
+	.asciz "basewidget_freelookrightdeco0"
+	.balign 4
+
+.global lbl_803D0BB4
+lbl_803D0BB4:
+	# ROM: 0x3CDBB4
+	.asciz "basewidget_outlinesb"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_shield"
+	.balign 4
+
+.global lbl_803D0BD8
+lbl_803D0BD8:
+	# ROM: 0x3CDBD8
+	.asciz "BaseWidget_Pivot"
+	.balign 4
+	.asciz "BaseWidget_Helmet"
+	.balign 4
+	.asciz "BaseWidget_Glow"
+	.asciz "BaseWidget_HelmetLight"
+	.balign 4
+
+.global lbl_803D0C28
+lbl_803D0C28:
+	# ROM: 0x3CDC28
+	.asciz "basewidget_missileicon"
+	.balign 4
+	.asciz "textpane_missiledigits"
+	.balign 4
+	.asciz "energybart01_missilebar"
+	.asciz "textpane_missilewarning"
+	.asciz "model_missilearrowup"
+	.balign 4
+	.asciz "model_missilearrowdown"
+	.balign 4
+	.asciz "basewidget_missileicon"
+	.balign 4
+	.asciz "basewidget_missilestuff"
+	.asciz "meter_mistop"
+	.balign 4
+	.asciz "meter_misbot"
+	.balign 4
+
+.global lbl_803D0D08
+lbl_803D0D08:
+	# ROM: 0x3CDD08
+	.4byte 0x40C1999A
+	.4byte 0
+	.4byte 0
+	.4byte 0x41066666
+	.4byte 0
+	.4byte 0x80191EB0  ;# ptr
+	.4byte 0
+	.4byte 0x80191D98  ;# ptr
+	.4byte 0x80191E34  ;# ptr
+	.4byte 0
+
+.global lbl_803D0D30
+lbl_803D0D30:
+	# ROM: 0x3CDD30
+	.4byte 0x25336400
+	.4byte 0
+
+.global lbl_803D0D38
+lbl_803D0D38:
+	# ROM: 0x3CDD38
+	.asciz "BaseWidget_RadarStuff"
+	.balign 4
+
+.global lbl_803D0D50
+lbl_803D0D50:
+	# ROM: 0x3CDD50
+	.asciz "TXTR_RadarPaint"
+
+.global lbl_803D0D60
+lbl_803D0D60:
+	# ROM: 0x3CDD60
+	.asciz "basewidget_threatstuff"
+	.balign 4
+	.asciz "basewidget_threaticon"
+	.balign 4
+	.asciz "model_threatarrowup"
+	.asciz "model_threatarrowdown"
+	.balign 4
+	.asciz "textpane_threatwarning"
+	.balign 4
+	.asciz "energybart01_threatbar"
+	.balign 4
+	.asciz "textpane_threatdigits"
+	.balign 4
+
+.global lbl_803D0E04
+lbl_803D0E04:
+	# ROM: 0x3CDE04
+	.4byte 0x40C1999A
+	.4byte 0
+	.4byte 0
+	.4byte 0x41066666
+	.4byte 0
+	.4byte 0x80193788  ;# ptr
+	.4byte 0
+	.4byte 0x8019367C  ;# ptr
+	.4byte 0x80193710  ;# ptr
+	.4byte 0
+
+.global lbl_803D0E2C
+lbl_803D0E2C:
+	# ROM: 0x3CDE2C
+	.asciz "%01.1f"
+	.balign 4
+	.4byte 0
+
+.global lbl_803D0E38
+lbl_803D0E38:
+	# ROM: 0x3CDE38
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0x00000001
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+
+.global lbl_803D0E58
+lbl_803D0E58:
+	# ROM: 0x3CDE58
+	.asciz "BaseWidget_VisorMenu"
+	.byte 0x42, 0x61, 0x73
+	.asciz "eWidget_BeamMenu"
+	.byte 0x54, 0x65, 0x78
+	.asciz "tPane_VisorMenu"
+	.asciz "TextPane_BeamMenu"
+	.byte 0x62, 0x61
+	.asciz "sewidget_visormenutitle"
+	.asciz "basewidget_beammenutitle"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_visor"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_beam"
+	.4byte 0x6C6F7A00
+	.asciz "icon"
+	.byte 0x67, 0x68, 0x6F
+	.4byte 0x73740025
+	.4byte 0x73257300
+	.asciz "%s%s%c"
+	.balign 4
+	.4byte 0
+
+.global lbl_803D0F10
+lbl_803D0F10:
+	# ROM: 0x3CDF10
+	.asciz "basewidget_deco"
+	.asciz "basewidget_tickdeco0"
+	.balign 4
+
+.global lbl_803D0F38
+lbl_803D0F38:
+	# ROM: 0x3CDF38
+	.asciz "basewidget_pivot"
+	.balign 4
+	.asciz "basewidget_frame"
+	.balign 4
+
+.global lbl_803D0F60
+lbl_803D0F60:
+	# ROM: 0x3CDF60
+	.asciz "basewidget_seeker"
+	.balign 4
+	.asciz "basewidget_leftside"
+	.asciz "basewidget_leftguages"
+	.balign 4
+	.asciz "basewidget_databankl"
+	.balign 4
+	.asciz "basewidget_rightside"
+	.balign 4
+	.asciz "basewidget_rightguages"
+	.balign 4
+	.asciz "basewidget_databankr"
+	.balign 4
+	.asciz "basewidget_leftsidedeco"
+	.asciz "basewidget_rightsidedeco"
+	.balign 4
+	.asciz "textpane_scanning"
+	.balign 4
+	.asciz "energybart01_scanbar"
+	.balign 4
+	.asciz "basewidget_scanguage"
+	.balign 4
+	.asciz "basewidget_textgroup"
+	.balign 4
+	.asciz "textpane_message"
+	.balign 4
+	.asciz "textpane_scrollmessage"
+	.balign 4
+	.asciz "model_xmark"
+	.asciz "model_abutton"
+	.balign 4
+	.asciz "model_dash"
+	.balign 4
+
+.global lbl_803D10E4
+lbl_803D10E4:
+	# ROM: 0x3CE0E4
+	.asciz "basewidget_reticle"
+	.byte 0x6D
+	.asciz "odel_retflash"
+	.byte 0x62, 0x61
+	.asciz "sewidget_lock"
+	.byte 0x62, 0x61
+	.asciz "sewidget_lockon"
+	.asciz "basewidget_deco"
+	.asciz "basewidget_oultlinesa"
+	.byte 0x6D, 0x6F
+	.asciz "del_threaticon"
+	.byte 0x6D
+	.asciz "odel_missileicon"
+	.byte 0x46, 0x52, 0x4D
+	.asciz "E_ScanHudFlat"
+	.byte 0x62, 0x61
+	.asciz "sewidget_rotate"
+	.asciz "basewidget_energydeco"
+	.byte 0x6D, 0x6F
+	.asciz "del_frame"
+	.byte 0x6D, 0x6F
+	.asciz "del_frame1"
+	.byte 0x6D
+	.asciz "odel_frame2"
+	.asciz "model_frame3"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_misslieslider"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_threatslider"
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

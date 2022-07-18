@@ -1256,3 +1256,14 @@ lbl_80090A7C:
 /* 80090B48 0008DAA8  7C 08 03 A6 */	mtlr r0
 /* 80090B4C 0008DAAC  38 21 01 30 */	addi r1, r1, 0x130
 /* 80090B50 0008DAB0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD6A8
+lbl_803CD6A8:
+	# ROM: 0x3CA6A8
+	.asciz "??(??)"
+	.byte 0x42
+	.asciz "ombPLight_"
+	.byte 0x42
+	.4byte 0x6F6D6200
+

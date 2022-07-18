@@ -405,3 +405,11 @@ sub_8036cf1c:
 /* 8036CF34 00369E94  90 03 00 14 */	stw r0, 0x14(r3)
 /* 8036CF38 00369E98  4E 80 00 20 */	blr
 
+
+.section .rodata
+.global lbl_803D8568
+lbl_803D8568:
+	# ROM: 0x3D5568
+	.asciz "??(??)"
+	.balign 4
+

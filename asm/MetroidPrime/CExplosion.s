@@ -870,3 +870,13 @@ lbl_8005AC20:
 /* 8005ACC4 00057C24  7C 08 03 A6 */	mtlr r0
 /* 8005ACC8 00057C28  38 21 00 80 */	addi r1, r1, 0x80
 /* 8005ACCC 00057C2C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCF78
+lbl_803CCF78:
+	# ROM: 0x3C9F78
+	.asciz "??(??)"
+	.byte 0x45
+	.asciz "xplodePLight_"
+	.balign 4
+

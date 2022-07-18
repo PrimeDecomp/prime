@@ -143,3 +143,11 @@ lbl_802E1FC0:
 /* 802E1FD0 002DEF30  7C 08 03 A6 */	mtlr r0
 /* 802E1FD4 002DEF34  38 21 00 20 */	addi r1, r1, 0x20
 /* 802E1FD8 002DEF38  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D88
+lbl_803D6D88:
+	# ROM: 0x3D3D88
+	.asciz "??(??)"
+	.balign 4
+

@@ -873,3 +873,11 @@ lbl_80333F7C:
 /* 80333F9C 00330EFC  7C 08 03 A6 */	mtlr r0
 /* 80333FA0 00330F00  38 21 00 20 */	addi r1, r1, 0x20
 /* 80333FA4 00330F04  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7978
+lbl_803D7978:
+	# ROM: 0x3D4978
+	.asciz "??(??)"
+	.balign 4
+

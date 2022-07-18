@@ -2409,3 +2409,14 @@ lbl_805AC588:
 	# ROM: 0x3F8E28
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D14B8
+lbl_803D14B8:
+	# ROM: 0x3CE4B8
+	.asciz "GUN_LCTR"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "PhazonIndirectTexture"
+	.balign 4
+

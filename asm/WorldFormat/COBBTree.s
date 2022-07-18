@@ -2376,3 +2376,59 @@ lbl_805ADEC8:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6038
+lbl_803D6038:
+	# ROM: 0x3D3038
+	.4byte 0x02000000
+	.4byte 0x00020000
+	.4byte 0x00000200
+	.4byte 0x00020000
+	.4byte 0x02020000
+	.4byte 0x00010001
+	.4byte 0x00010001
+	.4byte 0x00010001
+	.4byte 0x00040001
+	.4byte 0x00010005
+	.4byte 0x00050004
+	.4byte 0x00040000
+	.4byte 0x00000001
+	.4byte 0x00070002
+	.4byte 0x00020006
+	.4byte 0x00060007
+	.4byte 0x00070003
+	.4byte 0x00030002
+	.4byte 0x00060000
+	.4byte 0x00040006
+	.4byte 0x00020000
+	.4byte 0x00050003
+	.4byte 0x00070005
+	.4byte 0x00010003
+	.4byte 0x00060005
+	.4byte 0x00000003
+	.4byte 0x00000001
+	.4byte 0x00020000
+	.4byte 0x00030004
+	.4byte 0x00050006
+	.4byte 0x00070005
+	.4byte 0x00080009
+	.4byte 0x000A0003
+	.4byte 0x000B000A
+	.4byte 0x0006000C
+	.4byte 0x000D0008
+	.4byte 0x000E000D
+	.4byte 0x0001000F
+	.4byte 0x0010000E
+	.4byte 0x00070010
+	.4byte 0x000B0002
+	.4byte 0x0011000F
+	.4byte 0x00040011
+	.4byte 0x000C0009
+
+.global lbl_803D60E8
+lbl_803D60E8:
+	# ROM: 0x3D30E8
+	.asciz "??(??)"
+	.balign 4
+

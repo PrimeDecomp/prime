@@ -980,3 +980,21 @@ lbl_805ADDC8:
 	# ROM: 0x3FA668
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D5E50
+lbl_803D5E50:
+	# ROM: 0x3D2E50
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+

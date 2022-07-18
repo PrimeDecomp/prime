@@ -1020,3 +1020,11 @@ lbl_80340CB0:
 /* 80340CB8 0033DC18  7C 08 03 A6 */	mtlr r0
 /* 80340CBC 0033DC1C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80340CC0 0033DC20  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7A98
+lbl_803D7A98:
+	# ROM: 0x3D4A98
+	.asciz "??(??)"
+	.balign 4
+

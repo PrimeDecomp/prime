@@ -8133,3 +8133,98 @@ lbl_805AD344:
 	# ROM: 0x3F9BE4
 	.float 0.017453292
 
+
+.section .rodata
+.global lbl_803D3278
+lbl_803D3278:
+	# ROM: 0x3D0278
+	.4byte 0x803D3310
+	.4byte 0x803D331B
+	.float 1.0
+	.float 1.5
+	.4byte 0x803D331B
+	.4byte 0x803D3323
+	.float 0.9
+	.4byte 0x3FA66666
+	.4byte 0x803D332B
+	.4byte 0x803D3332
+	.float 0.9
+	.4byte 0x3FA66666
+
+.global lbl_803D32A8
+lbl_803D32A8:
+	# ROM: 0x3D02A8
+	.4byte 0x803D333A
+	.4byte 0x803D3345
+	.float 1.0
+	.float 1.5
+	.4byte 0x803D3345
+	.4byte 0x803D334D
+	.float 0.9
+	.4byte 0x3FA66666
+	.4byte 0x803D3355
+	.4byte 0x803D335C
+	.float 0.9
+	.4byte 0x3FA66666
+	.4byte 0x803D3364
+	.4byte 0x3F99999A
+	.4byte 0x803D336B
+	.float 1.5
+	.4byte 0x803D3377
+	.float 1.5
+	.4byte 0x803D3383
+	.float 1.5
+	.4byte 0x803D338B
+	.4byte 0x3F99999A
+	.4byte 0x803D3392
+	.4byte 0x3F4CCCCD
+	.4byte 0x803D3399
+	.4byte 0x3F4CCCCD
+
+.global lbl_803D3310
+lbl_803D3310:
+	# ROM: 0x3D0310
+	.asciz "L_shoulder"
+	.byte 0x4C
+	.asciz "_elbow"
+	.byte 0x4C
+	.asciz "_wrist"
+	.byte 0x4C
+	.asciz "_knee"
+	.byte 0x4C, 0x5F
+	.asciz "ankle"
+	.byte 0x52, 0x5F
+	.asciz "shoulder"
+	.byte 0x52, 0x5F, 0x65
+	.asciz "lbow"
+	.byte 0x52, 0x5F, 0x77
+	.asciz "rist"
+	.byte 0x52, 0x5F, 0x6B
+	.4byte 0x6E656500
+	.asciz "R_ankle"
+	.asciz "Head_1"
+	.byte 0x4C
+	.asciz "_Palm_LCTR"
+	.byte 0x52
+	.asciz "_Palm_LCTR"
+	.byte 0x53
+	.asciz "pine_1"
+	.byte 0x43
+	.asciz "ollar"
+	.byte 0x4C, 0x5F
+	.asciz "ball"
+	.byte 0x52, 0x5F, 0x62
+	.4byte 0x616C6C00
+	.asciz "grenadeLauncher_LCTR"
+	.byte 0x6C, 0x6F, 0x63
+	.asciz "kon_target_LCTR"
+	.asciz "??(??)"
+	.byte 0x41
+	.asciz "bsorb energy Fx"
+	.asciz "Grenade Launcher"
+	.byte 0x53, 0x68, 0x69
+	.4byte 0x656C6400
+	.asciz "Shock Wave"
+	.balign 4
+	.4byte 0
+

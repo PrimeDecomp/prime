@@ -137,3 +137,11 @@ __ct__12CPreFrontEndFv:
 /* 8029E638 0029B598  7C 08 03 A6 */	mtlr r0
 /* 8029E63C 0029B59C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8029E640 0029B5A0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D5E80
+lbl_803D5E80:
+	# ROM: 0x3D2E80
+	.asciz "Pre front-end window"
+	.balign 4
+

@@ -2782,3 +2782,11 @@ lbl_800FDD64:
 /* 800FDDD4 000FAD34  7C 08 03 A6 */	mtlr r0
 /* 800FDDD8 000FAD38  38 21 00 70 */	addi r1, r1, 0x70
 /* 800FDDDC 000FAD3C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CEDF8
+lbl_803CEDF8:
+	# ROM: 0x3CBDF8
+	.asciz "??(??)"
+	.balign 4
+

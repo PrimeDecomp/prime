@@ -175,3 +175,11 @@ lbl_802E0224:
 /* 802E0234 002DD194  7C 08 03 A6 */	mtlr r0
 /* 802E0238 002DD198  38 21 00 20 */	addi r1, r1, 0x20
 /* 802E023C 002DD19C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D60
+lbl_803D6D60:
+	# ROM: 0x3D3D60
+	.asciz "??(??)"
+	.balign 4
+

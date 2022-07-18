@@ -306,3 +306,19 @@ lbl_803568F4:
 /* 80356900 00353860  7C 08 03 A6 */	mtlr r0
 /* 80356904 00353864  38 21 00 40 */	addi r1, r1, 0x40
 /* 80356908 00353868  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8310
+lbl_803D8310:
+	# ROM: 0x3D5310
+	.4byte 0x0049006E
+	.4byte 0x00760061
+	.4byte 0x006C0069
+	.4byte 0x00640000
+
+.global lbl_803D8320
+lbl_803D8320:
+	# ROM: 0x3D5320
+	.asciz "??(??)"
+	.balign 4
+

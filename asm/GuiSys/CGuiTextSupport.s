@@ -3135,3 +3135,13 @@ lbl_805AE12C:
 	# ROM: 0x3FA9CC
 	.4byte 0x41200000
 
+
+.section .rodata
+.global lbl_803D68E0
+lbl_803D68E0:
+	# ROM: 0x3D38E0
+	.asciz "??(??)"
+	.byte 0x26
+	.asciz "font=%8.8X;"
+	.4byte 0
+

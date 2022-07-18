@@ -2381,3 +2381,13 @@ lbl_8008FAC4:
 /* 8008FAE4 0008CA44  7C 08 03 A6 */	mtlr r0
 /* 8008FAE8 0008CA48  38 21 00 10 */	addi r1, r1, 0x10
 /* 8008FAEC 0008CA4C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD690
+lbl_803CD690:
+	# ROM: 0x3CA690
+	.asciz "??(??)"
+	.byte 0x45
+	.asciz "ffectPLight_"
+	.balign 4
+

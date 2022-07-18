@@ -1914,3 +1914,11 @@ lbl_80364F3C:
 /* 80364F48 00361EA8  7C 08 03 A6 */	mtlr r0
 /* 80364F4C 00361EAC  7D 41 53 78 */	mr r1, r10
 /* 80364F50 00361EB0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8400
+lbl_803D8400:
+	# ROM: 0x3D5400
+	.4byte 0
+	.4byte 0
+

@@ -5850,3 +5850,35 @@ lbl_805AE830:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D7928
+lbl_803D7928:
+	# ROM: 0x3D4928
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D7948
+lbl_803D7948:
+	# ROM: 0x3D4948
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D7968
+lbl_803D7968:
+	# ROM: 0x3D4968
+	.asciz "??(??)"
+	.balign 4
+

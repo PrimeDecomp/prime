@@ -884,3 +884,11 @@ lbl_805AD860:
 	# ROM: 0x3FA100
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D53E0
+lbl_803D53E0:
+	# ROM: 0x3D23E0
+	.asciz "Error output window"
+	.4byte 0
+

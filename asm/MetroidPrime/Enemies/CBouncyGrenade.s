@@ -1459,3 +1459,11 @@ lbl_805AD36C:
 	# ROM: 0x3F9C0C
 	.float 0.1
 
+
+.section .rodata
+.global lbl_803D3408
+lbl_803D3408:
+	# ROM: 0x3D0408
+	.asciz "??(??)"
+	.balign 4
+

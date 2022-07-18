@@ -1309,3 +1309,21 @@ lbl_805AD8A8:
 	.float 255.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D53F8
+lbl_803D53F8:
+	# ROM: 0x3D23F8
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D5410
+lbl_803D5410:
+	# ROM: 0x3D2410
+	.asciz "??(??)"
+	.balign 4
+

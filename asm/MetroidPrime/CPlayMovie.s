@@ -3421,3 +3421,66 @@ lbl_800281E0:
 /* 800281F8 00025158  7C 08 03 A6 */	mtlr r0
 /* 800281FC 0002515C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80028200 00025160  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCB18
+lbl_803CCB18:
+	# ROM: 0x3C9B18
+	.4byte 0x803CCB50
+	.4byte 0x803CCB62
+	.4byte 0x803CCB62
+	.4byte 0x803CCB79
+	.4byte 0x803CCB8C
+	.4byte 0x803CCBA4
+	.4byte 0x803CCBBB
+	.4byte 0x803CCBD3
+
+.global lbl_803CCB38
+lbl_803CCB38:
+	# ROM: 0x3C9B38
+	.4byte 0x803CCBE6
+	.4byte 0x803CCBFE
+	.4byte 0x803CCC15
+	.4byte 0x803CCC2B
+	.4byte 0x803CCC44
+	.4byte 0x803CCC5C
+
+.global lbl_803CCB50
+lbl_803CCB50:
+	# ROM: 0x3C9B50
+	.asciz "Video/wingame.thp"
+	.byte 0x56, 0x69
+	.asciz "deo/wingame_best.thp"
+	.byte 0x56, 0x69, 0x64
+	.asciz "eo/losegame.thp"
+	.asciz "Video/05_tallonText.thp"
+	.asciz "Video/AfterCredits.thp"
+	.byte 0x56
+	.asciz "ideo/SpecialEnding.thp"
+	.byte 0x56
+	.asciz "ideo/creditBG.thp"
+	.byte 0x56, 0x69
+	.asciz "deo/win_bad_begin.thp"
+	.byte 0x56, 0x69
+	.asciz "deo/win_bad_loop.thp"
+	.byte 0x56, 0x69, 0x64
+	.asciz "eo/win_bad_end.thp"
+	.byte 0x56
+	.asciz "ideo/win_good_begin.thp"
+	.asciz "Video/win_good_loop.thp"
+	.asciz "Video/win_good_end.thp"
+	.byte 0x41
+	.asciz "udio/ending3.rsf"
+	.byte 0x41, 0x75, 0x64
+	.asciz "io/samusjak.rsf"
+	.asciz "AutoSave"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "Credits"
+	.asciz " %d%%\n"
+	.byte 0x20
+	.asciz "%02d:%02d\n"
+	.byte 0x50
+	.asciz "layMovie"
+	.balign 4
+

@@ -1903,3 +1903,25 @@ lbl_805AEA2C:
 	# ROM: 0x3FB2CC
 	.float 0.5
 
+
+.section .rodata
+.global lbl_803D8350
+lbl_803D8350:
+	# ROM: 0x3D5350
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D8368
+lbl_803D8368:
+	# ROM: 0x3D5368
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+

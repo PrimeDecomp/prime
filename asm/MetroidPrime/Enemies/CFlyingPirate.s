@@ -14751,3 +14751,325 @@ lbl_805ACD48:
 	.float -1.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2070
+lbl_803D2070:
+	# ROM: 0x3CF070
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0x0000000A
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000014
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000014
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0x0000000D
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000019
+	.4byte 0x0000000F
+	.4byte 0x00000010
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000019
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000005
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x0000000A
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x0000000A
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0x0000000D
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000028
+	.4byte 0x0000000F
+	.4byte 0x00000010
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000023
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x0000001E
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0x00000004
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000014
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000004
+	.4byte 0x00000003
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000014
+	.4byte 0x00000005
+	.4byte 0x00000004
+	.4byte 0x00000003
+	.4byte 0x0000000D
+	.4byte 0x0000000C
+	.4byte 0x0000000B
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x0000001E
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x0000000A
+	.4byte 0x00000006
+	.4byte 0x00000005
+	.4byte 0x00000004
+	.4byte 0x0000000E
+	.4byte 0x0000000D
+	.4byte 0x0000000C
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000014
+	.4byte 0x0000000E
+	.4byte 0x0000000D
+	.4byte 0x0000000C
+	.4byte 0x0000000B
+	.4byte 0x0000000A
+	.4byte 0x00000009
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000014
+	.4byte 0x0000000E
+	.4byte 0x0000000F
+	.4byte 0x00000010
+	.4byte 0x0000000B
+	.4byte 0x0000000A
+	.4byte 0x00000009
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0x00000032
+	.4byte 0x0000000B
+	.4byte 0x0000000A
+	.4byte 0x00000009
+	.4byte 0x00000008
+	.4byte 0x00000007
+	.4byte 0x00000006
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.float 0.1
+	.4byte 0x3D4CCCCD
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D2440
+lbl_803D2440:
+	# ROM: 0x3CF440
+	.float 0.45
+	.float 0.52
+	.float 0.35
+	.float 0.1
+	.float 0.15
+	.float 0.35
+	.float 0.1
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.35
+
+.global lbl_803D247C
+lbl_803D247C:
+	# ROM: 0x3CF47C
+	.asciz "Explode"
+	.asciz "??(??)"
+	.balign 4
+	.asciz "GetUpNow"
+	.byte 0x48, 0x65, 0x61
+	.4byte 0x645F3100
+	.asciz "L_gun_LCTR"
+	.byte 0x4C
+	.asciz "_Missile_LCTR"
+	.byte 0x52, 0x5F
+	.asciz "Missile_LCTR"
+	.byte 0x53, 0x6B, 0x65
+	.asciz "leton_Root"
+	.byte 0x4A
+	.asciz "etPack"
+	.byte 0x53
+	.asciz "cubaGear"
+	.byte 0x53, 0x63, 0x75
+	.asciz "baBubbles"
+	.byte 0x53, 0x70
+	.asciz "arks"
+	.byte 0x4C, 0x61, 0x6E
+	.asciz "dingSmoke"
+	.byte 0x45, 0x79
+	.4byte 0x65730043
+	.asciz "ollar"
+	.byte 0x52, 0x5F
+	.asciz "shoulder"
+	.byte 0x52, 0x5F, 0x65
+	.asciz "lbow"
+	.byte 0x52, 0x5F, 0x77
+	.asciz "rist"
+	.byte 0x4C, 0x5F, 0x73
+	.asciz "houlder"
+	.asciz "L_elbow"
+	.asciz "L_wrist"
+	.asciz "R_hip"
+	.byte 0x52, 0x5F
+	.asciz "knee"
+	.byte 0x52, 0x5F, 0x61
+	.asciz "nkle"
+	.byte 0x4C, 0x5F, 0x68
+	.4byte 0x6970004C
+	.asciz "_knee"
+	.byte 0x4C, 0x5F
+	.asciz "ankle"
+	.byte 0x72, 0x6F
+	.asciz "cket_LCTR"
+	.balign 4
+

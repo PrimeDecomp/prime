@@ -2803,3 +2803,14 @@ lbl_805ACC38:
 	.4byte 0xC47A0000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2050
+lbl_803D2050:
+	# ROM: 0x3CF050
+	.asciz "??(??)"
+	.byte 0x49
+	.asciz "ceAttackProjectile"
+	.balign 4
+	.4byte 0
+

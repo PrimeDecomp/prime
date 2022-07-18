@@ -773,3 +773,13 @@ lbl_805AD620:
 	.float 0.001
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D4B78
+lbl_803D4B78:
+	# ROM: 0x3D1B78
+	.asciz "ElectricBeamProjectile"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+

@@ -1709,3 +1709,22 @@ lbl_80344400:
 /* 80344400 00341360  B9 C1 00 D8 */	lmw r14, 0xd8(r1)
 /* 80344404 00341364  38 21 01 20 */	addi r1, r1, 0x120
 /* 80344408 00341368  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7E68
+lbl_803D7E68:
+	# ROM: 0x3D4E68
+	.asciz "oversubscribed literal/length tree"
+	.byte 0x69
+	.asciz "ncomplete literal/length tree"
+	.byte 0x6F, 0x76
+	.asciz "ersubscribed distance tree"
+	.byte 0x69
+	.asciz "ncomplete distance tree"
+	.asciz "empty distance tree with lengths"
+	.byte 0x6F, 0x76, 0x65
+	.asciz "rsubscribed dynamic bit lengths tree"
+	.byte 0x69, 0x6E, 0x63
+	.asciz "omplete dynamic bit lengths tree"
+	.balign 4
+

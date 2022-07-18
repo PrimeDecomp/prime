@@ -201,3 +201,11 @@ lbl_803042E0:
 /* 803042F0 00301250  7C 08 03 A6 */	mtlr r0
 /* 803042F4 00301254  38 21 00 10 */	addi r1, r1, 0x10
 /* 803042F8 00301258  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6E98
+lbl_803D6E98:
+	# ROM: 0x3D3E98
+	.asciz "??(??)"
+	.balign 4
+

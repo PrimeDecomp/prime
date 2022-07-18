@@ -3551,3 +3551,11 @@ lbl_805AB6BC:
 	# ROM: 0x3F7F5C
 	.4byte 0x3727C5AC
 
+
+.section .rodata
+.global lbl_803D0058
+lbl_803D0058:
+	# ROM: 0x3CD058
+	.asciz "??(??)"
+	.balign 4
+

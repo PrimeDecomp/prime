@@ -687,3 +687,15 @@ lbl_805AD4EC:
 	# ROM: 0x3F9D8C
 	.float 1.0
 
+
+.section .rodata
+.global lbl_803D43A0
+lbl_803D43A0:
+	# ROM: 0x3D13A0
+	.asciz "??(??)"
+	.byte 0x43
+	.asciz "ontraption_Flame"
+	.byte 0x46, 0x6C, 0x61
+	.asciz "meThrower"
+	.balign 4
+

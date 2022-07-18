@@ -2039,3 +2039,11 @@ lbl_805AE390:
 	.4byte 0x3727C5AC
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6DD8
+lbl_803D6DD8:
+	# ROM: 0x3D3DD8
+	.asciz "??(??)"
+	.balign 4
+

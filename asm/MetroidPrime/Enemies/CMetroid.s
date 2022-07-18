@@ -10157,3 +10157,89 @@ lbl_805ABE28:
 	.asciz "?fff"
 	.balign 4
 
+
+.section .rodata
+.global lbl_803D04D8
+lbl_803D04D8:
+	# ROM: 0x3CD4D8
+	.4byte 0x803D0550
+	.4byte 0x803D0557
+	.4byte 0x803D055F
+	.4byte 0x803D0567
+	.4byte 0x803D056D
+	.4byte 0x803D0574
+	.4byte 0x803D057F
+	.4byte 0x803D058D
+	.4byte 0x803D0595
+	.4byte 0x803D059C
+	.4byte 0x803D05A4
+	.4byte 0x803D05AC
+	.4byte 0x803D05B2
+	.4byte 0x803D05B9
+	.4byte 0x803D05C4
+	.4byte 0x803D05D2
+	.4byte 0x803D05DA
+
+.global lbl_803D051C
+lbl_803D051C:
+	# ROM: 0x3CD51C
+	.float 90.0
+	.4byte 0x433E0000
+	.float 150.0
+	.float 90.0
+	.4byte 0x42C80000
+
+.global lbl_803D0530
+lbl_803D0530:
+	# ROM: 0x3CD530
+	.float 90.0
+	.4byte 0x43070000
+	.4byte 0x42340000
+	.4byte 0x43340000
+	.4byte 0
+	.4byte 0x43610000
+	.4byte 0x439D8000
+	.4byte 0x43870000
+
+.global lbl_803D0550
+lbl_803D0550:
+	# ROM: 0x3CD550
+	.asciz "Head_1"
+	.byte 0x4C
+	.asciz "_ankle"
+	.byte 0x4C
+	.asciz "_elbow"
+	.byte 0x4C
+	.asciz "_hip"
+	.byte 0x4C, 0x5F, 0x6B
+	.4byte 0x6E656500
+	.asciz "L_shoulder"
+	.byte 0x4C
+	.asciz "_varias2_SDK"
+	.byte 0x4C, 0x5F, 0x77
+	.asciz "rist"
+	.byte 0x50, 0x65, 0x6C
+	.4byte 0x76697300
+	.asciz "R_ankle"
+	.asciz "R_elbow"
+	.asciz "R_hip"
+	.byte 0x52, 0x5F
+	.asciz "knee"
+	.byte 0x52, 0x5F, 0x73
+	.asciz "houlder"
+	.asciz "R_varias2_SDK"
+	.byte 0x53, 0x70
+	.asciz "ine_1"
+	.byte 0x53, 0x70
+	.asciz "ine_2"
+	.byte 0x6C, 0x6F
+	.asciz "ckon_target_LCTR"
+	.byte 0x53, 0x6B, 0x65
+	.asciz "leton_Root"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x53, 0x70
+	.asciz "awned Metroid"
+	.balign 4
+	.4byte 0
+

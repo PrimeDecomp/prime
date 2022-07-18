@@ -208,3 +208,11 @@ sub_802ae630:
 /* 802AE6B8 002AB618  C0 04 00 40 */	lfs f0, 0x40(r4)
 /* 802AE6BC 002AB61C  D0 03 00 40 */	stfs f0, 0x40(r3)
 /* 802AE6C0 002AB620  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6110
+lbl_803D6110:
+	# ROM: 0x3D3110
+	.asciz "??(??)"
+	.balign 4
+

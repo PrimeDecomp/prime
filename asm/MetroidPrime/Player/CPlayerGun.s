@@ -10986,3 +10986,76 @@ __sinit_CPlayerGun_cpp:
 /* 80043DD4 00040D34  7C 08 03 A6 */	mtlr r0
 /* 80043DD8 00040D38  38 21 00 50 */	addi r1, r1, 0x50
 /* 80043DDC 00040D3C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCE38
+lbl_803CCE38:
+	# ROM: 0x3C9E38
+	.4byte 0xBA83126F
+	.4byte 0
+	.float 0.001
+
+.global lbl_803CCE44
+lbl_803CCE44:
+	# ROM: 0x3C9E44
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000001
+
+.global lbl_803CCE54
+lbl_803CCE54:
+	# ROM: 0x3C9E54
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+
+.global lbl_803CCE64
+lbl_803CCE64:
+	# ROM: 0x3C9E64
+	.4byte 0x0000000B
+	.4byte 0x0000000E
+	.4byte 0x0000001C
+	.4byte 0x00000008
+
+.global lbl_803CCE74
+lbl_803CCE74:
+	# ROM: 0x3C9E74
+	.4byte 0x00000013
+	.4byte 0x00000014
+	.4byte 0x00000015
+	.4byte 0x00000016
+
+.global lbl_803CCE84
+lbl_803CCE84:
+	# ROM: 0x3C9E84
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0
+
+.global lbl_803CCE98
+lbl_803CCE98:
+	# ROM: 0x3C9E98
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803CCEB0
+lbl_803CCEB0:
+	# ROM: 0x3C9EB0
+	.asciz "GBSE_SDK"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "GunLite"
+	.asciz "elbow"
+	.byte 0x57, 0x68
+	.asciz "ole Body"
+	.balign 4
+	.4byte 0
+

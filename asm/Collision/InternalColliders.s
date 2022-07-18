@@ -96,3 +96,14 @@ AddTypes__17InternalCollidersFv:
 /* 802CE678 002CB5D8  7C 08 03 A6 */	mtlr r0
 /* 802CE67C 002CB5DC  38 21 00 20 */	addi r1, r1, 0x20
 /* 802CE680 002CB5E0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6A20
+lbl_803D6A20:
+	# ROM: 0x3D3A20
+	.asciz "CCollidableAABox"
+	.byte 0x43, 0x43, 0x6F
+	.asciz "llidableSphere"
+	.balign 4
+	.4byte 0
+

@@ -3272,3 +3272,11 @@ lbl_805AE410:
 	# ROM: 0x3FACB0
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D6E30
+lbl_803D6E30:
+	# ROM: 0x3D3E30
+	.asciz "??(??)"
+	.balign 4
+

@@ -1386,3 +1386,11 @@ lbl_803538D8:
 /* 803538E8 00350848  7C 08 03 A6 */	mtlr r0
 /* 803538EC 0035084C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803538F0 00350850  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D82F8
+lbl_803D82F8:
+	# ROM: 0x3D52F8
+	.asciz "??(??)"
+	.balign 4
+

@@ -611,3 +611,11 @@ lbl_80330158:
 /* 80330178 0032D0D8  7C 08 03 A6 */	mtlr r0
 /* 8033017C 0032D0DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80330180 0032D0E0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7970
+lbl_803D7970:
+	# ROM: 0x3D4970
+	.asciz "??(??)"
+	.balign 4
+

@@ -279,3 +279,11 @@ lbl_800DEB80:
 /* 800DEB90 000DBAF0  7C 08 03 A6 */	mtlr r0
 /* 800DEB94 000DBAF4  38 21 00 10 */	addi r1, r1, 0x10
 /* 800DEB98 000DBAF8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE528
+lbl_803CE528:
+	# ROM: 0x3CB528
+	.asciz "??(??)"
+	.balign 4
+

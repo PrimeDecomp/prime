@@ -8671,3 +8671,108 @@ lbl_805ADC30:
 	.4byte 0x47C35000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D5998
+lbl_803D5998:
+	# ROM: 0x3D2998
+	.4byte 0x803D5A9D
+	.4byte 0x803D5AA5
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5AAC
+	.4byte 0x803D5AB4
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5ABC
+	.4byte 0x803D5AC4
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5ACC
+	.4byte 0x803D5AAC
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5AD3
+	.4byte 0x803D5ABC
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5ADA
+	.4byte 0x803D5AE2
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5AEA
+	.4byte 0x803D5AF2
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5AE2
+	.4byte 0x803D5AFA
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5AF2
+	.4byte 0x803D5B04
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.4byte 0x803D5AFA
+	.4byte 0x803D5B0E
+	.float 2.0
+	.float 2.0
+	.float 2.0
+	.4byte 0x803D5B04
+	.4byte 0x803D5B1C
+	.float 2.0
+	.float 2.0
+	.float 2.0
+
+.global lbl_803D5A74
+lbl_803D5A74:
+	# ROM: 0x3D2A74
+	.asciz "grenadeLauncher2_LCTR"
+	.byte 0x6C, 0x6F
+	.asciz "ckon_target_LCTR"
+	.byte 0x53, 0x70, 0x69
+	.asciz "ne_2"
+	.byte 0x43, 0x6F, 0x6C
+	.4byte 0x6C617200
+	.asciz "R_ankle"
+	.asciz "R_toe_1"
+	.asciz "L_ankle"
+	.asciz "L_toe_1"
+	.asciz "R_knee"
+	.byte 0x4C
+	.asciz "_knee"
+	.byte 0x52, 0x5F
+	.asciz "elbow"
+	.byte 0x52, 0x5F
+	.asciz "wrist"
+	.byte 0x4C, 0x5F
+	.asciz "elbow"
+	.byte 0x4C, 0x5F
+	.asciz "wrist"
+	.byte 0x52, 0x5F
+	.asciz "index_1"
+	.asciz "L_index_1"
+	.byte 0x52, 0x5F
+	.asciz "index_3_SDK"
+	.asciz "L_index_3_SDK"
+	.byte 0x4F, 0x6D
+	.asciz "ega Pirate Flash"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "Omega_Pirate_OBB_"
+	.byte 0x4A, 0x75
+	.asciz "mpBack"
+	.balign 4
+	.asciz "root"
+	.byte 0x54, 0x68, 0x65
+	.asciz "rmal_Spot_2"
+	.4byte 0
+

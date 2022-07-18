@@ -1948,3 +1948,35 @@ lbl_800371A0:
 /* 800371D8 00034138  3C 60 80 46 */	lis r3, lbl_8045C208@ha
 /* 800371DC 0003413C  38 63 C2 08 */	addi r3, r3, lbl_8045C208@l
 /* 800371E0 00034140  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCD88
+lbl_803CCD88:
+	# ROM: 0x3C9D88
+	.asciz "GunRes"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x50, 0x6C
+	.asciz "ayerRes"
+	.asciz "Particle"
+	.byte 0x50, 0x6C, 0x61
+	.4byte 0x79657200
+	.asciz "CameraBob"
+	.byte 0x42, 0x61
+	.4byte 0x6C6C0050
+	.asciz "layerGun"
+	.byte 0x54, 0x61, 0x72
+	.asciz "geting"
+	.byte 0x47
+	.4byte 0x616D6500
+	.asciz "GuiColors"
+	.byte 0x41, 0x75
+	.asciz "toMapper"
+	.byte 0x47, 0x75, 0x69
+	.4byte 0x00506C61
+	.asciz "yerControls"
+	.asciz "PlayerControls2"
+	.asciz "SlideShow"
+	.balign 4
+	.4byte 0
+

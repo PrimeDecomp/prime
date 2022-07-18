@@ -7250,3 +7250,15 @@ lbl_80110F54:
 /* 80110F80 0010DEE0  7C 08 03 A6 */	mtlr r0
 /* 80110F84 0010DEE4  38 21 00 70 */	addi r1, r1, 0x70
 /* 80110F88 0010DEE8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF1D8
+lbl_803CF1D8:
+	# ROM: 0x3CC1D8
+	.float 0.4
+	.4byte 0x3F19999A
+	.float 1.0
+	.asciz "LCTR_WARTAIL"
+	.balign 4
+	.4byte 0
+

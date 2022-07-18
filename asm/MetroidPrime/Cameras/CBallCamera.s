@@ -14457,3 +14457,14 @@ __sinit_CBallCamera_cpp:
 /* 8008DA64 0008A9C4  7C 08 03 A6 */	mtlr r0
 /* 8008DA68 0008A9C8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8008DA6C 0008A9CC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD678
+lbl_803CD678:
+	# ROM: 0x3CA678
+	.asciz "??(??)"
+	.byte 0x42
+	.asciz "all Camera"
+	.balign 4
+	.4byte 0
+

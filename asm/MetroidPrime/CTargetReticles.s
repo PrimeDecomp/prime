@@ -6526,3 +6526,47 @@ __sinit_CTargetReticles_cpp:
 /* 800C1D1C 000BEC7C  7C 08 03 A6 */	mtlr r0
 /* 800C1D20 000BEC80  38 21 00 20 */	addi r1, r1, 0x20
 /* 800C1D24 000BEC84  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDEE8
+lbl_803CDEE8:
+	# ROM: 0x3CAEE8
+	.asciz "CMDL_Crosshairs"
+	.asciz "CMDL_OrbitZone"
+	.balign 4
+	.asciz "CMDL_Seeker"
+	.asciz "CMDL_LockConfirm"
+	.balign 4
+	.asciz "CMDL_TargetFlower"
+	.balign 4
+	.asciz "CMDL_MissileBracket"
+	.asciz "CMDL_ChargeGauge"
+	.balign 4
+	.asciz "CMDL_ChargeTickFirst"
+	.balign 4
+	.asciz "CMDL_BeamSquare"
+	.asciz "CMDL_InnerBeamIcon"
+	.balign 4
+	.asciz "CMDL_LockFire"
+	.balign 4
+	.asciz "CMDL_LockDagger0"
+	.balign 4
+	.asciz "CMDL_Grapple"
+	.balign 4
+	.asciz "CMDL_XRayRetRing"
+	.balign 4
+	.asciz "CMDL_ThermalRet"
+
+.global lbl_803CDFF8
+lbl_803CDFF8:
+	# ROM: 0x3CAFF8
+	.asciz "CMDL_OrbitPoint"
+
+.global lbl_803CE008
+lbl_803CE008:
+	# ROM: 0x3CB008
+	.asciz "%s%d"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.4byte 0
+
