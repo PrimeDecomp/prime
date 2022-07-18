@@ -14,18 +14,18 @@ public:
   CInputStream(size_t len);
   CInputStream(const void* ptr, size_t len, bool owned);
   virtual ~CInputStream();
-  virtual u32 Read(void* dest, u32 len);
+  virtual u32 Read(void* dest, u32 len) = 0;
 
-  s32 ReadLong();
-  u8 ReadChar();
-  u32 ReadBytes(void* dest, unsigned long len);
-  u32 ReadBits(s32 len);
   f32 ReadFloat();
-  s64 ReadLongLong();
-  s16 ReadShort();
+  u64 ReadLongLong();
+  u32 ReadLong();
+  u16 ReadShort();
   bool ReadBool();
-
+  u8 ReadChar();
+  u32 ReadBits(u32 len);
+  u32 ReadBytes(void* dest, unsigned long len);
   void Get(void* dest, unsigned long len);
+
   template < typename T >
   inline T Get() {
     return cinput_stream_helper(TType< T >(), *this);

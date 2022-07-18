@@ -119,8 +119,8 @@ ReadChar__12CInputStreamFv:
 /* 8033ED30 0033BC90  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033ED34 0033BC94  4E 80 00 20 */	blr
 
-.global ReadBits__12CInputStreamFi
-ReadBits__12CInputStreamFi:
+.global ReadBits__12CInputStreamFUi
+ReadBits__12CInputStreamFUi:
 /* 8033ED38 0033BC98  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8033ED3C 0033BC9C  7C 08 02 A6 */	mflr r0
 /* 8033ED40 0033BCA0  90 01 00 24 */	stw r0, 0x24(r1)
