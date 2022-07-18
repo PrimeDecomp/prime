@@ -4,63 +4,83 @@
 
 #include "Kyoto_CWD/CMemory.hpp"
 
-// TODO move into functions
-static u8 lbl_805A94F0;
-static s16 lbl_805A94F2;
-static s32 lbl_805A94F4;
-static s64 lbl_805A94F8;
-static f32 lbl_805A9500;
+static u8 c;
+static u16 s;
+static u32 l;
+static u64 ll;
+static f32 f;
 
 f32 CInputStream::ReadFloat() {
-  Get(&lbl_805A9500, sizeof(f32));
-  return lbl_805A9500;
+  Get(&f, sizeof(f32));
+  return f;
 }
 
-s64 CInputStream::ReadLongLong() {
-  Get(&lbl_805A94F8, sizeof(s64));
-  return lbl_805A94F8;
+u64 CInputStream::ReadLongLong() {
+  Get(&ll, sizeof(u64));
+  return ll;
 }
 
-s32 CInputStream::ReadLong() {
-  Get(&lbl_805A94F4, sizeof(s32));
-  return lbl_805A94F4;
+u32 CInputStream::ReadLong() {
+  Get(&l, sizeof(u32));
+  return l;
 }
 
-s16 CInputStream::ReadShort() {
-  Get(&lbl_805A94F2, sizeof(s16));
-  return lbl_805A94F2;
+u16 CInputStream::ReadShort() {
+  Get(&s, sizeof(u16));
+  return s;
 }
 
 bool CInputStream::ReadBool() { return static_cast< bool >(ReadChar()); }
 
 u8 CInputStream::ReadChar() {
-  Get(&lbl_805A94F0, sizeof(u8));
-  return lbl_805A94F0;
+  Get(&c, sizeof(u8));
+  return c;
 }
 
-// TODO https://decomp.me/scratch/nzMPg
-u32 CInputStream::ReadBits(s32 bitCount) {
-  u32 ret = 0;
-  u32 bitOffset = x20_bitOffset;
-  if (bitOffset < bitCount) {
-    u32 shiftAmt = bitCount - bitOffset;
-    const u32 mask = bitOffset == 32 ? 0xffffffff : (1 << bitOffset) - 1;
-    const u32 bitWord = x1c_bitWord;
-    x20_bitOffset = 0;
-    const u32 len = (shiftAmt / 8) + static_cast< unsigned int >((shiftAmt % 8) != 0);
-    Get(&x1c_bitWord, len);
-    const u32 mask2 = shiftAmt == 32 ? 0xffffffff : (1 << shiftAmt) - 1;
-    u32 tmp = x20_bitOffset;
-    x20_bitOffset = len * 8;
-    ret = ((mask & (bitWord >> (32 - bitOffset))) << shiftAmt) | ((mask2 & (x1c_bitWord >> (32 - shiftAmt))) << tmp);
-    x20_bitOffset -= shiftAmt;
-    x1c_bitWord <<= u64(shiftAmt);
-  } else {
-    u32 baseVal2 = (bitCount == 0x20 ? 0xffffffff : (1 << bitCount) - 1);
+static inline u32 BitsToBytes(u32 bits) { return (bits / 8) + ((bits % 8) ? 1 : 0); }
+
+u32 CInputStream::ReadBits(u32 bitCount) {
+  if (x20_bitOffset >= bitCount) {
+    u32 mask = 0xffffffff;
+    u32 bwShift = 32 - bitCount;
+    if (bitCount != 0x20) {
+      mask = (1 << bitCount) - 1;
+    }
+    u32 ret = mask & (x1c_bitWord >> bwShift);
+
     x20_bitOffset -= bitCount;
-    ret = baseVal2 & (x1c_bitWord >> (32 - bitCount));
-    x1c_bitWord <<= u64(bitCount);
+    x1c_bitWord <<= bitCount;
+    return ret;
   }
+
+  u32 shiftAmt = bitCount - x20_bitOffset;
+
+  u32 ret = 0;
+  {
+    u32 mask = 0xffffffff;
+    u32 bwShift = 32 - x20_bitOffset;
+    if (x20_bitOffset != 0x20) {
+      mask = (1 << x20_bitOffset) - 1;
+    }
+    ret = (mask & (x1c_bitWord >> bwShift)) << shiftAmt;
+  }
+
+  u32 len = BitsToBytes(shiftAmt);
+  x20_bitOffset = 0;
+  Get(&x1c_bitWord, len);
+
+  {
+    u32 mask = 0xffffffff;
+    u32 bwShift = 32 - shiftAmt;
+    if (shiftAmt != 0x20) {
+      mask = (1 << shiftAmt) - 1;
+    }
+    ret |= ((mask & (x1c_bitWord >> bwShift)) << x20_bitOffset);
+  }
+
+  x20_bitOffset = len * 8;
+  x20_bitOffset -= shiftAmt;
+  x1c_bitWord <<= shiftAmt;
   return ret;
 }
 

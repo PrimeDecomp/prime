@@ -3000,7 +3000,7 @@ lbl_80005180:
 /* 800051CC 0000212C  48 33 A0 01 */	bl __ct__15CMemoryInStreamFPCvUl
 /* 800051D0 00002130  38 61 00 60 */	addi r3, r1, 0x60
 /* 800051D4 00002134  38 80 00 01 */	li r4, 1
-/* 800051D8 00002138  48 33 9B 61 */	bl ReadBits__12CInputStreamFi
+/* 800051D8 00002138  48 33 9B 61 */	bl ReadBits__12CInputStreamFUi
 /* 800051DC 0000213C  38 61 00 84 */	addi r3, r1, 0x84
 /* 800051E0 00002140  38 81 00 60 */	addi r4, r1, 0x60
 /* 800051E4 00002144  48 20 A2 C1 */	bl __ct__12CGameOptionsFR12CInputStream
@@ -3016,7 +3016,7 @@ lbl_80005180:
 /* 8000520C 0000216C  48 20 9E F1 */	bl EnsureOptions__12CGameOptionsFv
 /* 80005210 00002170  38 61 00 60 */	addi r3, r1, 0x60
 /* 80005214 00002174  38 80 00 01 */	li r4, 1
-/* 80005218 00002178  48 33 9B 21 */	bl ReadBits__12CInputStreamFi
+/* 80005218 00002178  48 33 9B 21 */	bl ReadBits__12CInputStreamFUi
 /* 8000521C 0000217C  7C 03 00 D0 */	neg r0, r3
 /* 80005220 00002180  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 80005224 00002184  7C 00 1B 78 */	or r0, r0, r3
@@ -6563,7 +6563,7 @@ sub_800083e4:
 /* 8000840C 0000536C  48 33 6D C1 */	bl __ct__15CMemoryInStreamFPCvUl
 /* 80008410 00005370  38 61 00 08 */	addi r3, r1, 8
 /* 80008414 00005374  38 80 00 01 */	li r4, 1
-/* 80008418 00005378  48 33 69 21 */	bl ReadBits__12CInputStreamFi
+/* 80008418 00005378  48 33 69 21 */	bl ReadBits__12CInputStreamFUi
 /* 8000841C 0000537C  7C 03 00 D0 */	neg r0, r3
 /* 80008420 00005380  3C 80 80 3F */	lis r4, __vt__15CMemoryInStream@ha
 /* 80008424 00005384  7C 00 1B 78 */	or r0, r0, r3

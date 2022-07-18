@@ -560,7 +560,7 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/rstl/rstl_map.o\
 	$(BUILD_DIR)/asm/Kyoto/rstl/rstl_strings.o\
 	$(BUILD_DIR)/asm/Kyoto/rstl/RstlExtras.o\
-	$(BUILD_DIR)/asm/Kyoto/Streams/CInputStream.o\
+	$(BUILD_DIR)/src/Kyoto/Streams/CInputStream.o\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CMemoryInStream.o\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CMemoryStreamOut.o\
 	$(BUILD_DIR)/asm/Kyoto/Streams/COutputStream.o\

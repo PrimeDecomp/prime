@@ -372,7 +372,7 @@ __ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld:
 /* 80234454 002313B4  90 1C 00 18 */	stw r0, 0x18(r28)
 /* 80234458 002313B8  90 1C 00 1C */	stw r0, 0x1c(r28)
 /* 8023445C 002313BC  90 1C 00 20 */	stw r0, 0x20(r28)
-/* 80234460 002313C0  48 10 A8 D9 */	bl ReadBits__12CInputStreamFi
+/* 80234460 002313C0  48 10 A8 D9 */	bl ReadBits__12CInputStreamFUi
 /* 80234464 002313C4  7C 7F 1B 78 */	mr r31, r3
 /* 80234468 002313C8  38 7C 00 14 */	addi r3, r28, 0x14
 /* 8023446C 002313CC  57 E4 D8 08 */	slwi r4, r31, 0x1b
@@ -392,7 +392,7 @@ __ct__16CWorldLayerStateFR16CBitStreamReaderRC10CSaveWorld:
 lbl_802344A4:
 /* 802344A4 00231404  7F A3 EB 78 */	mr r3, r29
 /* 802344A8 00231408  38 80 00 01 */	li r4, 1
-/* 802344AC 0023140C  48 10 A8 8D */	bl ReadBits__12CInputStreamFi
+/* 802344AC 0023140C  48 10 A8 8D */	bl ReadBits__12CInputStreamFUi
 /* 802344B0 00231410  80 9C 00 10 */	lwz r4, 0x10(r28)
 /* 802344B4 00231414  7C 03 00 D0 */	neg r0, r3
 /* 802344B8 00231418  7C 05 1B 78 */	or r5, r0, r3
