@@ -67,6 +67,7 @@ ifeq ($(WINDOWS),1)
   WINE    :=
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as.exe
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp.exe -P
+  PYTHON  := py
 else
   WIBO   := $(shell command -v wibo 2> /dev/null)
   ifdef WIBO
@@ -78,12 +79,12 @@ else
   DEPENDS   := $(DEPENDS:.d=.d.unix)
   AS        := $(DEVKITPPC)/bin/powerpc-eabi-as
   CPP       := $(DEVKITPPC)/bin/powerpc-eabi-cpp -P
+  PYTHON    := python3
 endif
 CC      =  $(WINE) tools/mwcc_compiler/$(MWCC_VERSION)/mwcceppc.exe
 LD      := $(WINE) tools/mwcc_compiler/$(MWLD_VERSION)/mwldeppc.exe
 ELF2DOL := tools/elf2dol
 SHA1SUM := shasum -a 1
-PYTHON  := python3
 
 TRANSFORM_DEP := tools/transform-dep.py
 FRANK := tools/franklite.py
