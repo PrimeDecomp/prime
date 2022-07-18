@@ -3587,3 +3587,60 @@ lbl_801204D4:
 /* 8012050C 0011D46C  7C 08 03 A6 */	mtlr r0
 /* 80120510 0011D470  38 21 01 40 */	addi r1, r1, 0x140
 /* 80120514 0011D474  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF320
+lbl_803CF320:
+	# ROM: 0x3CC320
+	.4byte 0x803CF3A2
+	.4byte 0x803CF3B1
+	.4byte 0x803CF3C2
+	.4byte 0x803CF3D1
+	.4byte 0x803CF3E1
+	.4byte 0x803CF3F1
+	.4byte 0x803CF402
+	.4byte 0x803CF413
+
+.global lbl_803CF340
+lbl_803CF340:
+	# ROM: 0x3CC340
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+
+.global lbl_803CF360
+lbl_803CF360:
+	# ROM: 0x3CC360
+	.asciz "GrappleGear"
+.global lbl_803CF36C
+lbl_803CF36C:
+	.asciz "GrapNoz1"
+.global lbl_803CF375
+lbl_803CF375:
+	.asciz "GrapNoz2"
+.global lbl_803CF37E
+lbl_803CF37E:
+	.asciz "grapLocator_SDK"
+.global lbl_803CF38E
+lbl_803CF38E:
+	.asciz "gNozLoc1_SDK"
+.global lbl_803CF39B
+lbl_803CF39B:
+	.asciz "LGBeam"
+	.asciz "PowerSuit_DGRP"
+	.asciz "GravitySuit_DGRP"
+	.asciz "VariaSuit_DGRP"
+	.asciz "PhazonSuit_DGRP"
+	.asciz "FusionSuit_DGRP"
+	.asciz "FusionSuitG_DGRP"
+	.asciz "FusionSuitV_DGRP"
+	.asciz "FusionSuitP_DGRP"
+	.asciz "??(??)"
+	.asciz "Whole Body"
+	.balign 4
+

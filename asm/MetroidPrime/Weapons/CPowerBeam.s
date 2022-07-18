@@ -763,3 +763,15 @@ __ct__10CPowerBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800E00A4 000DD004  7C 08 03 A6 */	mtlr r0
 /* 800E00A8 000DD008  38 21 00 30 */	addi r1, r1, 0x30
 /* 800E00AC 000DD00C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE548
+lbl_803CE548:
+	# ROM: 0x3CB548
+	.asciz "??(??)"
+	.byte 0x53
+	.asciz "hotSmoke"
+	.byte 0x50, 0x6F, 0x77
+	.asciz "er2nd_1"
+	.4byte 0
+

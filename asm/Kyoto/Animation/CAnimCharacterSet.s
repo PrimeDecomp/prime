@@ -477,3 +477,11 @@ __ct__17CAnimCharacterSetFR12CInputStream:
 /* 802D86F0 002D5650  7C 08 03 A6 */	mtlr r0
 /* 802D86F4 002D5654  38 21 00 10 */	addi r1, r1, 0x10
 /* 802D86F8 002D5658  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D30
+lbl_803D6D30:
+	# ROM: 0x3D3D30
+	.asciz "??(??)"
+	.balign 4
+

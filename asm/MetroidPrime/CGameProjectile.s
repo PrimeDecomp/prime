@@ -3718,3 +3718,14 @@ lbl_8003A6E0:
 /* 8003A798 000376F8  7C 08 03 A6 */	mtlr r0
 /* 8003A79C 000376FC  38 21 01 30 */	addi r1, r1, 0x130
 /* 8003A7A0 00037700  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCE20
+lbl_803CCE20:
+	# ROM: 0x3C9E20
+	.asciz "??(??)"
+	.byte 0x56
+	.asciz "isorAcid"
+	.balign 4
+	.4byte 0
+

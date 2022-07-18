@@ -2072,3 +2072,11 @@ __sinit_DolphinCMemoryCardSys_cpp:
 /* 8034EFA8 0034BF08  7C 08 03 A6 */	mtlr r0
 /* 8034EFAC 0034BF0C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034EFB0 0034BF10  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8220
+lbl_803D8220:
+	# ROM: 0x3D5220
+	.asciz "??(??)"
+	.balign 4
+

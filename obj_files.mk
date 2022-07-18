@@ -864,7 +864,3 @@ CTORS_O_FILES :=\
 
 DTORS_O_FILES :=\
 	$(BUILD_DIR)/asm/dtors.o
-
-RODATA_O_FILES :=\
-	$(BUILD_DIR)/asm/rodata.o
-

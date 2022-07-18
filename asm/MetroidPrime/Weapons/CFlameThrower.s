@@ -1815,3 +1815,14 @@ lbl_805AC3E4:
 	# ROM: 0x3F8C84
 	.float 2.0
 
+
+.section .rodata
+.global lbl_803D1210
+lbl_803D1210:
+	# ROM: 0x3CE210
+	.asciz "??(??)"
+	.byte 0x46
+	.asciz "lameThrower_Light"
+	.balign 4
+	.4byte 0
+

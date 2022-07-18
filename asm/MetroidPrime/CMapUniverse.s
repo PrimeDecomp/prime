@@ -1930,3 +1930,11 @@ lbl_805ACD90:
 	.4byte 0x44C80000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2588
+lbl_803D2588:
+	# ROM: 0x3CF588
+	.asciz "??(??)"
+	.balign 4
+

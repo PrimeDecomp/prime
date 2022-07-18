@@ -7031,3 +7031,15 @@ lbl_805AC840:
 	.4byte 0xBE99999A
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1A80
+lbl_803D1A80:
+	# ROM: 0x3CEA80
+	.asciz "Pelvis"
+	.byte 0x4C
+	.asciz "_Claw_1"
+	.asciz "R_Claw_1"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

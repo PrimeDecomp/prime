@@ -1761,3 +1761,14 @@ __ct__14SPrimeStruct2BFR12CInputStream:
 /* 80281D5C 0027ECBC  7C 08 03 A6 */	mtlr r0
 /* 80281D60 0027ECC0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80281D64 0027ECC4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D58D8
+lbl_803D58D8:
+	# ROM: 0x3D28D8
+	.asciz "??(??)"
+	.byte 0x4D
+	.asciz "etroid Prime! (Stage 1)"
+	.asciz "Metroid Prime"
+	.balign 4
+

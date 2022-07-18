@@ -1171,3 +1171,11 @@ lbl_802B212C:
 /* 802B214C 002AF0AC  7C 08 03 A6 */	mtlr r0
 /* 802B2150 002AF0B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 802B2154 002AF0B4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6190
+lbl_803D6190:
+	# ROM: 0x3D3190
+	.asciz "??(??)"
+	.balign 4
+

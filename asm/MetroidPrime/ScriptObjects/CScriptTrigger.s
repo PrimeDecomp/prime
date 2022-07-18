@@ -1483,3 +1483,11 @@ lbl_8007704C:
 /* 80077060 00073FC0  7C 08 03 A6 */	mtlr r0
 /* 80077064 00073FC4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80077068 00073FC8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD5F8
+lbl_803CD5F8:
+	# ROM: 0x3CA5F8
+	.asciz "??(??)"
+	.balign 4
+

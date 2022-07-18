@@ -723,3 +723,11 @@ lbl_8035E8AC:
 /* 8035E8CC 0035B82C  7C 08 03 A6 */	mtlr r0
 /* 8035E8D0 0035B830  38 21 00 10 */	addi r1, r1, 0x10
 /* 8035E8D4 0035B834  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D83E0
+lbl_803D83E0:
+	# ROM: 0x3D53E0
+	.asciz "??(??)"
+	.balign 4
+

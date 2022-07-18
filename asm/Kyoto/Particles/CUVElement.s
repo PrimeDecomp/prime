@@ -698,3 +698,11 @@ lbl_805AE86C:
 	# ROM: 0x3FB10C
 	.float 1.0
 
+
+.section .rodata
+.global lbl_803D7980
+lbl_803D7980:
+	# ROM: 0x3D4980
+	.asciz "??(??)"
+	.balign 4
+

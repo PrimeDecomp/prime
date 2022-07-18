@@ -10231,3 +10231,68 @@ lbl_8009E3C8:
 /* 8009E3DC 0009B33C  7C 08 03 A6 */	mtlr r0
 /* 8009E3E0 0009B340  38 21 00 20 */	addi r1, r1, 0x20
 /* 8009E3E4 0009B344  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD7D8
+lbl_803CD7D8:
+	# ROM: 0x3CA7D8
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803CD7EC
+lbl_803CD7EC:
+	# ROM: 0x3CA7EC
+	.4byte 0x00260069
+	.4byte 0x006D0061
+	.4byte 0x00670065
+	.4byte 0x003D0000
+
+.global lbl_803CD7FC
+lbl_803CD7FC:
+	# ROM: 0x3CA7FC
+	.4byte 0x00260069
+	.4byte 0x006D0061
+	.4byte 0x00670065
+	.4byte 0x003D0000
+
+.global lbl_803CD80C
+lbl_803CD80C:
+	# ROM: 0x3CA80C
+	.asciz "FRME_MapScreen"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x74, 0x65
+	.asciz "xtpane_left"
+	.asciz "textpane_yicon"
+	.byte 0x74
+	.asciz "extpane_hint"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_instructions"
+	.byte 0x74
+	.asciz "extpane_instructions1"
+	.byte 0x74, 0x65
+	.asciz "xtpane_instructions2"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_mapLegend"
+	.asciz "basewidget_leftPane"
+	.asciz "basewidget_yButtonPane"
+	.byte 0x62
+	.asciz "asewidget_bottomPane"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_areaname"
+	.byte 0x74
+	.asciz "extpane_right1"
+	.byte 0x25
+	.asciz "8.8X"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_right"
+	.asciz "SI,0.6,1.0,%8.8X"
+	.byte 0x4D, 0x41, 0x50
+	.asciz "U_MapUniverse"
+	.byte 0x43, 0x4D
+	.asciz "DL_MiniMapSamus"
+	.asciz "TXTR_HintBeacon"
+

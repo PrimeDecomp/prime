@@ -1287,3 +1287,11 @@ IsConstant__12CRealElementCFv:
 IsFastConstant__14CVectorElementCFv:
 /* 802B4820 002B1780  38 60 00 00 */	li r3, 0
 /* 802B4824 002B1784  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6548
+lbl_803D6548:
+	# ROM: 0x3D3548
+	.asciz "??(??)"
+	.balign 4
+

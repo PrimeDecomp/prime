@@ -784,3 +784,13 @@ lbl_805ACE3C:
 	# ROM: 0x3F96DC
 	.float 0.001
 
+
+.section .rodata
+.global lbl_803D2738
+lbl_803D2738:
+	# ROM: 0x3CF738
+	.asciz "??(??)"
+	.byte 0x46
+	.asciz "laahgra Plants"
+	.balign 4
+

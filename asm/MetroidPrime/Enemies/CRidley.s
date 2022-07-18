@@ -11591,3 +11591,310 @@ lbl_805AD708:
 	# ROM: 0x3F9FA8
 	.float 0.7853982
 
+
+.section .rodata
+.global lbl_803D4B98
+lbl_803D4B98:
+	# ROM: 0x3D1B98
+	.4byte 0x803D4D5C
+	.4byte 0x803D4D63
+	.4byte 0x3F28F5C3
+	.4byte 0x803D4D63
+	.4byte 0x803D4D6A
+	.4byte 0x3F28F5C3
+	.4byte 0x803D4D6A
+	.4byte 0x803D4D71
+	.4byte 0x3F28F5C3
+	.4byte 0x803D4D71
+	.4byte 0x803D4D78
+	.4byte 0x3F28F5C3
+
+.global lbl_803D4BC8
+lbl_803D4BC8:
+	# ROM: 0x3D1BC8
+	.4byte 0x803D4D7F
+	.4byte 0x3F19999A
+	.4byte 0x803D4D8D
+	.4byte 0x3F19999A
+	.4byte 0x803D4D95
+	.float 0.3
+	.4byte 0x803D4DA6
+	.4byte 0x3F19999A
+	.4byte 0x803D4DAD
+	.float 0.5
+	.4byte 0x803D4DB5
+	.float 0.5
+	.4byte 0x803D4DBD
+	.4byte 0x3F19999A
+	.4byte 0x803D4DC5
+	.4byte 0x3F19999A
+	.4byte 0x803D4DCD
+	.float 0.4
+	.4byte 0x803D4DD7
+	.float 0.4
+
+.global lbl_803D4C18
+lbl_803D4C18:
+	# ROM: 0x3D1C18
+	.4byte 0x00000004
+	.4byte 0x00000006
+	.4byte 0x42480000
+	.4byte 0x42480000
+	.4byte 0
+	.4byte 0x42040000
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000006
+	.4byte 0x41A00000
+	.4byte 0x41A00000
+	.4byte 0x42700000
+	.4byte 0x42480000
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000006
+	.4byte 0x42200000
+	.4byte 0x42200000
+	.4byte 0x41A00000
+	.4byte 0x42480000
+	.4byte 0x42480000
+	.4byte 0x00000002
+	.4byte 0x01000000
+	.4byte 0x00000003
+	.4byte 0x00000005
+	.4byte 0x41200000
+	.float 15.0
+	.4byte 0x42960000
+	.4byte 0x42C80000
+	.4byte 0x41C80000
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000003
+	.4byte 0x00000005
+	.4byte 0x41F00000
+	.4byte 0x41F00000
+	.4byte 0x42200000
+	.4byte 0x42480000
+	.4byte 0x42480000
+	.4byte 0x00000002
+	.4byte 0x01000000
+
+.global lbl_803D4CCC
+lbl_803D4CCC:
+	# ROM: 0x3D1CCC
+	.4byte 0
+	.4byte 0x41A00000
+	.4byte 0x42200000
+	.4byte 0
+	.4byte 0
+	.4byte 0x42200000
+	.4byte 0
+	.4byte 0
+	.4byte 0x428C0000
+	.4byte 0
+	.4byte 0
+	.4byte 0x41F00000
+	.4byte 0
+	.4byte 0x42700000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x42200000
+	.4byte 0
+	.4byte 0x42200000
+	.4byte 0x41F00000
+	.4byte 0
+	.4byte 0
+	.4byte 0x41F00000
+	.4byte 0
+	.4byte 0
+	.4byte 0x42480000
+	.4byte 0
+	.4byte 0
+	.4byte 0x42480000
+	.4byte 0
+	.4byte 0x42200000
+	.4byte 0x42700000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D4D5C
+lbl_803D4D5C:
+	# ROM: 0x3D1D5C
+	.asciz "Tail_1"
+	.byte 0x54
+	.asciz "ail_3"
+	.byte 0x54, 0x61
+	.asciz "il_5"
+	.byte 0x54, 0x61, 0x69
+	.4byte 0x6C5F3700
+	.asciz "Tail_9"
+	.byte 0x53
+	.asciz "keleton_Root"
+	.byte 0x53, 0x70, 0x69
+	.asciz "ne_2"
+	.byte 0x62, 0x72, 0x65
+	.asciz "astPlate_LCTR"
+	.byte 0x48, 0x65
+	.asciz "ad_1"
+	.byte 0x4C, 0x5F, 0x77
+	.asciz "rist"
+	.byte 0x52, 0x5F, 0x77
+	.asciz "rist"
+	.byte 0x4C, 0x5F, 0x61
+	.asciz "nkle"
+	.byte 0x52, 0x5F, 0x61
+	.asciz "nkle"
+	.byte 0x4C, 0x5F, 0x70
+	.asciz "inky_1"
+	.byte 0x52
+	.asciz "_pinky_1"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.4byte 0x00202D20
+	.asciz "Collision Actor "
+	.byte 0x6D, 0x6F, 0x75
+	.asciz "th_LCTR"
+	.asciz "WingSmokeSmall1"
+	.asciz "WingSmokeSmall2"
+	.asciz "WingSmokeSmall3"
+	.asciz "WingSmokeSmall4"
+	.asciz "WingSmokeSmall5"
+	.asciz "WingSmokeSmall6"
+	.asciz "WingSmokeSmall7"
+	.asciz "WingSmokeSmall8"
+	.asciz "WingFire1"
+	.byte 0x57, 0x69
+	.asciz "ngFire2"
+	.asciz "WingFire3"
+	.byte 0x57, 0x69
+	.asciz "ngFire4"
+	.asciz "WingFire5"
+	.byte 0x57, 0x69
+	.asciz "ngFire6"
+	.asciz "WingFire7"
+	.byte 0x57, 0x69
+	.asciz "ngFire8"
+	.asciz "WingSparks1"
+	.asciz "WingSparks2"
+	.asciz "WingSparks3"
+	.asciz "WingSparks4"
+	.asciz "WingSparks5"
+	.asciz "WingSparks6"
+	.asciz "WingSparks7"
+	.asciz "WingSparks8"
+	.asciz "L_wingBone1_1"
+	.byte 0x4C, 0x5F
+	.asciz "wingBone1_2"
+	.asciz "L_wingBone2_1"
+	.byte 0x4C, 0x5F
+	.asciz "wingBone2_2"
+	.asciz "L_wingBone3_1"
+	.byte 0x4C, 0x5F
+	.asciz "wingBone3_2"
+	.asciz "L_wingFlesh1_1"
+	.byte 0x4C
+	.asciz "_wingFlesh1_2"
+	.byte 0x4C, 0x5F
+	.asciz "wingFlesh2_1"
+	.byte 0x4C, 0x5F, 0x77
+	.asciz "ingFlesh2_2"
+	.asciz "L_wingFlesh3_1"
+	.byte 0x4C
+	.asciz "_wingFlesh3_2"
+	.byte 0x52, 0x5F
+	.asciz "wingBone1_1"
+	.asciz "R_wingBone1_2"
+	.byte 0x52, 0x5F
+	.asciz "wingBone2_1"
+	.asciz "R_wingBone2_2"
+	.byte 0x52, 0x5F
+	.asciz "wingBone3_1"
+	.asciz "R_wingBone3_2"
+	.byte 0x52, 0x5F
+	.asciz "wingFlesh1_1"
+	.byte 0x52, 0x5F, 0x77
+	.asciz "ingFlesh1_2"
+	.asciz "R_wingFlesh2_1"
+	.byte 0x52
+	.asciz "_wingFlesh2_2"
+	.byte 0x52, 0x5F
+	.asciz "wingFlesh3_1"
+	.byte 0x52, 0x5F, 0x77
+	.asciz "ingFlesh3_2"
+	.asciz "L_wingtip_1_LCTR"
+	.byte 0x4C, 0x5F, 0x77
+	.asciz "ingtip_2_LCTR"
+	.byte 0x4C, 0x5F
+	.asciz "wingtip_3_LCTR"
+	.byte 0x52
+	.asciz "_wingtip_1_LCTR"
+	.asciz "R_wingtip_2_LCTR"
+	.byte 0x52, 0x5F, 0x77
+	.asciz "ingtip_3_LCTR"
+	.balign 4
+	.4byte 0
+
+.global lbl_803D5100
+lbl_803D5100:
+	# ROM: 0x3D2100
+	.asciz "GasJet01"
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet02"
+	.byte 0x47, 0x61
+	.asciz "sJet03"
+	.byte 0x47
+	.asciz "asJet04"
+	.asciz "GasJet05"
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet06"
+	.byte 0x47, 0x61
+	.asciz "sJet07"
+	.byte 0x47
+	.asciz "asJet08"
+	.asciz "GasJet09"
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet10"
+	.byte 0x47, 0x61
+	.asciz "sJet11"
+	.byte 0x47
+	.asciz "asJet12"
+	.asciz "GasJet13"
+	.byte 0x47, 0x61, 0x73
+	.asciz "Jet14"
+	.byte 0x47, 0x61
+	.asciz "s_01_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_02_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_03_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_04_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_05_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_06_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_07_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_08_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_09_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_10_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_11_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_12_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_13_LCTR"
+	.byte 0x47, 0x61
+	.asciz "s_14_LCTR"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.balign 4
+

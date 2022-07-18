@@ -1481,3 +1481,11 @@ lbl_805AE700:
 	# ROM: 0x3FAFA0
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D7840
+lbl_803D7840:
+	# ROM: 0x3D4840
+	.asciz "??(??)"
+	.balign 4
+

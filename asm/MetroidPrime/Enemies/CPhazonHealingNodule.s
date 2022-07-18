@@ -1248,3 +1248,14 @@ lbl_805ADCB0:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D5BB0
+lbl_803D5BB0:
+	# ROM: 0x3D2BB0
+	.asciz "Electricity_LCTR"
+	.byte 0x50, 0x61, 0x74
+	.4byte 0x726F6C00
+	.asciz "??(??)"
+	.balign 4
+

@@ -2246,3 +2246,16 @@ lbl_805ABA3C:
 	# ROM: 0x3F82DC
 	.4byte 0xBE99999A
 
+
+.section .rodata
+.global lbl_803D0170
+lbl_803D0170:
+	# ROM: 0x3CD170
+	.asciz "MOUTH_LCTR_SDK"
+	.byte 0x53
+	.asciz "AMUS_POS_LCTR_SDK"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.balign 4
+	.4byte 0
+

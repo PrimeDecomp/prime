@@ -2384,3 +2384,13 @@ lbl_805ADB84:
 	# ROM: 0x3FA424
 	.float 1.0
 
+
+.section .rodata
+.global lbl_803D5980
+lbl_803D5980:
+	# ROM: 0x3D2980
+	.asciz "DUMB_MazeSeeds"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+

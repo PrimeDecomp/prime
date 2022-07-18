@@ -3159,3 +3159,15 @@ lbl_80095674:
 /* 80095684 000925E4  7C 08 03 A6 */	mtlr r0
 /* 80095688 000925E8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8009568C 000925EC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD7C0
+lbl_803CD7C0:
+	# ROM: 0x3CA7C0
+	.asciz "L_eye"
+	.byte 0x52, 0x5F
+	.4byte 0x65796500
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

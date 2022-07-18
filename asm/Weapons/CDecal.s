@@ -1170,3 +1170,17 @@ lbl_805ADF84:
 	# ROM: 0x3FA824
 	.float 0.001
 
+
+.section .rodata
+.global lbl_803D6550
+lbl_803D6550:
+	# ROM: 0x3D3550
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+

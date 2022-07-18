@@ -1994,3 +1994,17 @@ lbl_8011A440:
 /* 8011A454 001173B4  7C 08 03 A6 */	mtlr r0
 /* 8011A458 001173B8  38 21 01 70 */	addi r1, r1, 0x170
 /* 8011A45C 001173BC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF2F0
+lbl_803CF2F0:
+	# ROM: 0x3CC2F0
+	.asciz "LCTR_FLOFLOWER"
+	.byte 0x46
+	.asciz "ire1"
+	.byte 0x46, 0x69, 0x72
+	.4byte 0x65320046
+	.asciz "ire3"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

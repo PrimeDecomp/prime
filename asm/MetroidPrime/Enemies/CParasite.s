@@ -5133,3 +5133,12 @@ lbl_805ABBBC:
 	# ROM: 0x3F845C
 	.float 2.5
 
+
+.section .rodata
+.global lbl_803D0330
+lbl_803D0330:
+	# ROM: 0x3CD330
+	.asciz "Ice_LCTR"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+

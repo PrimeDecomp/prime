@@ -544,3 +544,11 @@ __ct__16CActorParametersFv:
 /* 80106B20 00103A80  7C 08 03 A6 */	mtlr r0
 /* 80106B24 00103A84  38 21 00 60 */	addi r1, r1, 0x60
 /* 80106B28 00103A88  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CEE50
+lbl_803CEE50:
+	# ROM: 0x3CBE50
+	.asciz "??(??)"
+	.balign 4
+

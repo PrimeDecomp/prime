@@ -560,3 +560,11 @@ lbl_805AE0F8:
 	.4byte 0x43300000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D68D8
+lbl_803D68D8:
+	# ROM: 0x3D38D8
+	.asciz "??(??)"
+	.balign 4
+

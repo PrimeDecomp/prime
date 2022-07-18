@@ -6658,3 +6658,16 @@ lbl_805AC020:
 	.float 0.5
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0690
+lbl_803D0690:
+	# ROM: 0x3CD690
+	.asciz "CCollidableSphere"
+	.byte 0x43, 0x43
+	.asciz "ollidableOBBTreeGroup"
+	.byte 0x43, 0x43
+	.asciz "ollidableAABox"
+	.balign 4
+	.4byte 0
+

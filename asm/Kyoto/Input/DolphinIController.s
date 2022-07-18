@@ -78,3 +78,11 @@ __ct__11IControllerFv:
 /* 8034F054 0034BFB4  38 04 F6 80 */	addi r0, r4, lbl_803EF680@l
 /* 8034F058 0034BFB8  90 03 00 00 */	stw r0, 0(r3)
 /* 8034F05C 0034BFBC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8228
+lbl_803D8228:
+	# ROM: 0x3D5228
+	.asciz "??(??)"
+	.balign 4
+

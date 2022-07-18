@@ -931,3 +931,11 @@ lbl_800B51AC:
 /* 800B51BC 000B211C  7C 08 03 A6 */	mtlr r0
 /* 800B51C0 000B2120  38 21 00 30 */	addi r1, r1, 0x30
 /* 800B51C4 000B2124  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDE78
+lbl_803CDE78:
+	# ROM: 0x3CAE78
+	.asciz "??(??)"
+	.balign 4
+

@@ -184,3 +184,11 @@ lbl_805AE468:
 	.float 1.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6E88
+lbl_803D6E88:
+	# ROM: 0x3D3E88
+	.asciz "??(??)"
+	.balign 4
+

@@ -2922,3 +2922,13 @@ lbl_801057EC:
 lbl_80105820:
 /* 80105820 00102780  38 21 00 40 */	addi r1, r1, 0x40
 /* 80105824 00102784  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CEE40
+lbl_803CEE40:
+	# ROM: 0x3CBE40
+	.float -1.0
+	.float -1.0
+	.float -1.0
+	.float -1.0
+

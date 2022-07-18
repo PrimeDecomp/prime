@@ -997,3 +997,11 @@ lbl_80111C34:
 /* 80111CC0 0010EC20  7C 08 03 A6 */	mtlr r0
 /* 80111CC4 0010EC24  38 21 00 20 */	addi r1, r1, 0x20
 /* 80111CC8 0010EC28  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF1F8
+lbl_803CF1F8:
+	# ROM: 0x3CC1F8
+	.asciz "??(??)"
+	.balign 4
+

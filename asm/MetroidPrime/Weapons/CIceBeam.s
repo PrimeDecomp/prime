@@ -843,3 +843,17 @@ __ct__8CIceBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800E1A2C 000DE98C  7C 08 03 A6 */	mtlr r0
 /* 800E1A30 000DE990  38 21 00 30 */	addi r1, r1, 0x30
 /* 800E1A34 000DE994  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE598
+lbl_803CE598:
+	# ROM: 0x3CB598
+	.asciz "??(??)"
+	.byte 0x49
+	.asciz "ceSmoke"
+	.asciz "Ice2nd_1"
+	.byte 0x49, 0x63, 0x65
+	.asciz "2nd_2"
+	.balign 4
+	.4byte 0
+

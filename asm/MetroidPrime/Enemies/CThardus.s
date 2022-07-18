@@ -10996,3 +10996,142 @@ lbl_805ACA98:
 	.4byte 0x41F00000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1BA0
+lbl_803D1BA0:
+	# ROM: 0x3CEBA0
+	.4byte 0x803D1CBF
+	.4byte 0x803D1CC6
+	.4byte 0x803D1CD0
+	.4byte 0x803D1CD8
+	.4byte 0x803D1CDE
+	.4byte 0x803D1CF3
+	.4byte 0x803D1CB8
+
+.global lbl_803D1BBC
+lbl_803D1BBC:
+	# ROM: 0x3CEBBC
+	.4byte 0x803D1CBF
+	.4byte 0x803D1D04
+	.4byte 0x803D1D1B
+	.4byte 0x803D1D32
+	.4byte 0x803D1D48
+	.4byte 0x803D1D63
+	.4byte 0x803D1D7E
+
+.global lbl_803D1BD8
+lbl_803D1BD8:
+	# ROM: 0x3CEBD8
+	.4byte 0x803D1D92
+	.4byte 0
+	.4byte 0x41300000
+	.4byte 0
+	.4byte 0x803D1D92
+	.4byte 0
+	.4byte 0x41100000
+	.4byte 0
+	.4byte 0x803D1D92
+	.4byte 0
+	.4byte 0x40E00000
+	.4byte 0
+	.4byte 0x803D1D92
+	.4byte 0xC0400000
+	.4byte 0x41100000
+	.4byte 0
+	.4byte 0x803D1D92
+	.float 4.0
+	.4byte 0x40E00000
+	.4byte 0
+	.4byte 0x803D1D92
+	.4byte 0xC0800000
+	.float 8.0
+	.4byte 0
+	.4byte 0x803D1CBF
+	.float 1.0
+	.4byte 0x803D1D04
+	.float 1.5
+	.4byte 0x803D1D1B
+	.float 1.5
+	.4byte 0x803D1D32
+	.float 1.0
+	.4byte 0x803D1D48
+	.float 2.5
+	.4byte 0x803D1D63
+	.float 1.5
+	.4byte 0x803D1D7E
+	.float 1.5
+	.4byte 0x803D1D93
+	.float 0.75
+	.4byte 0x803D1DAD
+	.float 0.75
+	.4byte 0x803D1DC7
+	.float 0.75
+	.4byte 0x803D1DDC
+	.4byte 0x40100000
+	.4byte 0x803D1DF2
+	.float 2.0
+	.4byte 0x803D1E08
+	.4byte 0x40400000
+	.4byte 0x40400000
+	.float 1.0
+	.4byte 0x803D1E1E
+	.4byte 0x40400000
+	.float 2.0
+	.4byte 0x40400000
+
+.global lbl_803D1CB8
+lbl_803D1CB8:
+	# ROM: 0x3CECB8
+	.asciz "Neck_1"
+	.byte 0x52
+	.asciz "_knee"
+	.byte 0x52, 0x5F
+	.asciz "forearm"
+	.asciz "L_elbow"
+	.asciz "L_hip"
+	.byte 0x52, 0x5F
+	.asciz "collar_BigRock_SDK"
+	.byte 0x63
+	.asciz "ollar_rock4_SDK"
+	.asciz "R_Elbow_Collision_LCTR"
+	.byte 0x4C
+	.asciz "_Elbow_Collision_LCTR"
+	.byte 0x4C, 0x5F
+	.asciz "Knee_Collision_LCTR"
+	.asciz "R_Back_Rock_Collision_LCTR"
+	.byte 0x4C
+	.asciz "_Back_Rock_Collision_LCTR"
+	.byte 0x48, 0x65
+	.asciz "ad_Collision_LCTR"
+	.byte 0x00, 0x52
+	.asciz "_Shoulder_Collision_LCTR"
+	.byte 0x4C, 0x5F, 0x53
+	.asciz "houlder_Collision_LCTR"
+	.byte 0x53
+	.asciz "pine_Collision_LCTR"
+	.asciz "R_Hand_Collision_LCTR"
+	.byte 0x4C, 0x5F
+	.asciz "Hand_Collision_LCTR"
+	.asciz "R_Foot_Collision_LCTR"
+	.byte 0x4C, 0x5F
+	.asciz "Foot_Collision_LCTR"
+	.asciz "center_LCTR"
+	.asciz "ROCK_EFFECT"
+	.4byte 0x2D005375
+	.4byte 0x636B0044
+	.asciz "oubleSnap"
+	.byte 0x46, 0x6C
+	.asciz "inch"
+	.byte 0x46, 0x61, 0x69
+	.4byte 0x6E74003F
+	.asciz "?(??)"
+	.byte 0x4C, 0x5F
+	.asciz "wrist"
+	.byte 0x52, 0x5F
+	.asciz "ankle"
+	.byte 0x54, 0x68
+	.asciz "ermal_Spot_2"
+	.balign 4
+	.4byte 0
+

@@ -247,3 +247,11 @@ __ct__6CTokenFP16CObjectReference:
 /* 80340FF8 0033DF58  38 04 00 01 */	addi r0, r4, 1
 /* 80340FFC 0033DF5C  B0 05 00 00 */	sth r0, 0(r5)
 /* 80341000 0033DF60  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7AA0
+lbl_803D7AA0:
+	# ROM: 0x3D4AA0
+	.asciz "??(??)"
+	.balign 4
+

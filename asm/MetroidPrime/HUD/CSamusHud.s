@@ -10672,3 +10672,85 @@ __sinit_CSamusHud_cpp:
 /* 8006D800 0006A760  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8006D804 0006A764  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8006D808 0006A768  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCFB8
+lbl_803CCFB8:
+	# ROM: 0x3C9FB8
+	.asciz "FRME_BaseHud"
+	.balign 4
+
+.global lbl_803CCFC8
+lbl_803CCFC8:
+	# ROM: 0x3C9FC8
+	.asciz "FRME_Helmet"
+	.asciz "FRME_CombatHud"
+	.balign 4
+	.asciz "FRME_XRayHudNew"
+	.asciz "FRME_ScanHud"
+	.balign 4
+	.asciz "FRME_ThermalHud"
+	.asciz "FRME_BallHud"
+	.balign 4
+
+.global lbl_803CD024
+lbl_803CD024:
+	# ROM: 0x3CA024
+	.asciz "basewidget_pivot"
+	.balign 4
+	.asciz "Model_AutoMapper"
+	.balign 4
+	.asciz "textpane_counter"
+	.balign 4
+	.asciz "model_videoband"
+	.asciz "textpane_message"
+	.balign 4
+	.4byte 0x803CD0C0
+	.4byte 0x803CD0D4
+	.4byte 0x803CD0E8
+	.4byte 0x803CD0FC
+	.4byte 0x803CD110
+	.4byte 0x803CD124
+	.4byte 0x803CD138
+	.4byte 0x803CD14C
+	.4byte 0x803CD160
+	.4byte 0x803CD174
+	.4byte 0x803CD188
+	.4byte 0x803CD19C
+	.4byte 0x803CD1B0
+	.4byte 0x803CD1C4
+	.4byte 0x803CD1D8
+
+.global lbl_803CD0C0
+lbl_803CD0C0:
+	# ROM: 0x3CA0C0
+	.asciz "              Radar"
+	.asciz "                Lag"
+	.asciz "             Lights"
+	.asciz "          Targeting"
+	.asciz "             Damage"
+	.asciz "          FrameGlue"
+	.asciz "          BaseFrame"
+	.asciz "        EnergyGroup"
+	.asciz "        ThreatGroup"
+	.asciz "       MissileGroup"
+	.asciz "      FreeLookGroup"
+	.asciz "        HelmetGroup"
+	.asciz "          DecoGroup"
+	.asciz "           CamDebug"
+	.asciz "              Total"
+	.asciz "%02d:%02d:%02d"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x44, 0x61
+	.asciz "mageSpotLight"
+	.byte 0x42, 0x61
+	.asciz "seWidget_Pivot"
+	.byte 0x62
+	.asciz "asewidget_message"
+	.byte 0x6D, 0x6F
+	.asciz "del_abutton"
+	.asciz "%s%d"
+	.balign 4
+	.4byte 0
+

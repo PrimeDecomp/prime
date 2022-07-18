@@ -495,3 +495,11 @@ __ct__14CMetaAnimBlendFR12CInputStream:
 /* 802DFFD0 002DCF30  7C 08 03 A6 */	mtlr r0
 /* 802DFFD4 002DCF34  38 21 00 20 */	addi r1, r1, 0x20
 /* 802DFFD8 002DCF38  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D58
+lbl_803D6D58:
+	# ROM: 0x3D3D58
+	.asciz "??(??)"
+	.balign 4
+

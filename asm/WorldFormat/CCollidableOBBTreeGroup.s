@@ -2037,3 +2037,12 @@ lbl_805ADF04:
 	# ROM: 0x3FA7A4
 	.float 1.0
 
+
+.section .rodata
+.global lbl_803D60F0
+lbl_803D60F0:
+	# ROM: 0x3D30F0
+	.asciz "CCollidableOBBTreeGroup"
+	.asciz "??(??)"
+	.balign 4
+

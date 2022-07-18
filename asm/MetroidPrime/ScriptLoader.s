@@ -23674,3 +23674,87 @@ lbl_800DAA04:
 /* 800DAA24 000D7984  7C 08 03 A6 */	mtlr r0
 /* 800DAA28 000D7988  38 21 00 20 */	addi r1, r1, 0x20
 /* 800DAA2C 000D798C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE07C
+lbl_803CE07C:
+	# ROM: 0x3CB07C
+	.asciz "Atomic Alpha"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "PhazonHealingNodule"
+	.asciz "Omega Pirate"
+	.byte 0x42, 0x75, 0x72
+	.asciz "rower"
+	.byte 0x53, 0x65
+	.asciz "edling"
+	.byte 0x54
+	.asciz "ryclops"
+	.asciz "Puffer"
+	.byte 0x52
+	.asciz "idley"
+	.byte 0x49, 0x63
+	.asciz "eZoomer"
+	.asciz "Atomic Beta"
+	.4byte 0x00476565
+	.4byte 0x6D657200
+	.asciz "Oculus"
+	.byte 0x4D
+	.asciz "agdolite"
+	.byte 0x45, 0x6C, 0x69
+	.asciz "te Pirate"
+	.byte 0x45, 0x79
+	.asciz "eball"
+	.byte 0x42, 0x61
+	.asciz "bygoth"
+	.byte 0x54
+	.asciz "hardus Rock Projectile"
+	.byte 0x46
+	.asciz "laahgra Tenticle"
+	.byte 0x54, 0x68, 0x61
+	.asciz "rdus"
+	.byte 0x4A, 0x65, 0x6C
+	.asciz "lyZap"
+	.byte 0x44, 0x72
+	.4byte 0x6F6E6500
+	.asciz "Ice Sheegoth"
+	.byte 0x4D, 0x65, 0x74
+	.asciz "roid"
+	.byte 0x52, 0x69, 0x70
+	.4byte 0x70657200
+	.asciz "Parasite"
+	.byte 0x46, 0x6C, 0x61
+	.asciz "ahgra"
+	.byte 0x4E, 0x65
+	.asciz "wIntroBoss"
+	.byte 0x4D
+	.asciz "etaree"
+	.byte 0x53
+	.asciz "pankWeed"
+	.byte 0x46, 0x69, 0x72
+	.asciz "eFlea"
+	.byte 0x47, 0x61
+	.asciz "mma Puddle Toad"
+	.asciz "Puddle Spore"
+	.byte 0x43, 0x68, 0x6F
+	.asciz "zo Ghost"
+	.byte 0x46, 0x6C, 0x69
+	.asciz "ckerBat"
+	.asciz "Blood Flower"
+	.byte 0x46, 0x6C, 0x79
+	.asciz "ingPirate"
+	.byte 0x53, 0x70
+	.asciz "ace Pirate"
+	.byte 0x53
+	.asciz "pace pirate <"
+	.byte 0x3E, 0x20
+	.asciz "has AnimationInformation property with invalid character selected.\n"
+	.asciz "ERROR: Actor/Ai keyframe '"
+	.byte 0x27
+	.asciz " not loaded because it has no valid animation selected.\n"
+	.byte 0x57, 0x61, 0x72
+	.asciz "wasp"
+	.byte 0x42, 0x65, 0x65
+	.4byte 0x746C6500
+	.4byte 0
+

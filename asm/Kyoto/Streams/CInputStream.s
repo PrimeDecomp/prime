@@ -452,3 +452,11 @@ __ct__12CInputStreamFi:
 /* 8033F1B8 0033C118  7C 08 03 A6 */	mtlr r0
 /* 8033F1BC 0033C11C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033F1C0 0033C120  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7A68
+lbl_803D7A68:
+	# ROM: 0x3D4A68
+	.asciz "??(??)"
+	.balign 4
+

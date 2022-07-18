@@ -180,3 +180,11 @@ __ct__21CScriptAreaAttributesF9TUniqueIdRC11CEntityInfob10EEnvFxTypeffffi11EPhaz
 /* 801BD690 001BA5F0  7C 08 03 A6 */	mtlr r0
 /* 801BD694 001BA5F4  38 21 00 60 */	addi r1, r1, 0x60
 /* 801BD698 001BA5F8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D19F0
+lbl_803D19F0:
+	# ROM: 0x3CE9F0
+	.4byte 0
+	.4byte 0
+

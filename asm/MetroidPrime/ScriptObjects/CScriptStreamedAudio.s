@@ -803,3 +803,15 @@ lbl_805ACED8:
 	.4byte 0x42FE0000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2778
+lbl_803D2778:
+	# ROM: 0x3CF778
+	.asciz "L.dsp"
+	.byte 0x52, 0x2E
+	.4byte 0x64737000
+	.4byte 0x7377002E
+	.4byte 0x64737000
+	.4byte 0
+

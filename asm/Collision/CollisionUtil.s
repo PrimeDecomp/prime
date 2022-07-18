@@ -4738,3 +4738,33 @@ lbl_805AE240:
 	.4byte 0x3F800347
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6A50
+lbl_803D6A50:
+	# ROM: 0x3D3A50
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+
+.global lbl_803D6A5C
+lbl_803D6A5C:
+	# ROM: 0x3D3A5C
+	.float -1.0
+	.float -1.0
+	.float -1.0
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0
+
+.global lbl_803D6A78
+lbl_803D6A78:
+	# ROM: 0x3D3A78
+	.4byte 0xBFF00000
+	.4byte 0
+	.4byte 0xBFF00000
+	.4byte 0
+	.4byte 0xBFF00000
+	.4byte 0
+

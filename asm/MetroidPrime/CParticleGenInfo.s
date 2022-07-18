@@ -276,3 +276,13 @@ lbl_800B7A5C:
 /* 800B7A64 000B49C4  7C 08 03 A6 */	mtlr r0
 /* 800B7A68 000B49C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 800B7A6C 000B49CC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDE88
+lbl_803CDE88:
+	# ROM: 0x3CAE88
+	.asciz "??(??)"
+	.byte 0x50
+	.asciz "articleLight"
+	.balign 4
+

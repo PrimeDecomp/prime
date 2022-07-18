@@ -3466,3 +3466,11 @@ lbl_8003479C:
 /* 80034840 000317A0  7C 00 1E 70 */	srawi r0, r0, 3
 /* 80034844 000317A4  7C 60 01 94 */	addze r3, r0
 /* 80034848 000317A8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCD78
+lbl_803CCD78:
+	# ROM: 0x3C9D78
+	.asciz "??(??)"
+	.balign 4
+

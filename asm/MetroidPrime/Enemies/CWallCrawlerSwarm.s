@@ -8929,3 +8929,22 @@ lbl_805ACB5C:
 	# ROM: 0x3F93FC
 	.4byte 0xBF7FF38C
 
+
+.section .rodata
+.global lbl_803D1F20
+lbl_803D1F20:
+	# ROM: 0x3CEF20
+	.4byte 0x00000008
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D1F30
+lbl_803D1F30:
+	# ROM: 0x3CEF30
+	.asciz "Whole Body"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+	.4byte 0
+

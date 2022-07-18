@@ -3237,3 +3237,129 @@ lbl_805AE930:
 	# ROM: 0x3FB1D0
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D7F58
+lbl_803D7F58:
+	# ROM: 0x3D4F58
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D8048
+lbl_803D8048:
+	# ROM: 0x3D5048
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D8078
+lbl_803D8078:
+	# ROM: 0x3D5078
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D80A8
+lbl_803D80A8:
+	# ROM: 0x3D50A8
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+

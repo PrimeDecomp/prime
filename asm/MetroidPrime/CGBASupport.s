@@ -654,3 +654,13 @@ lbl_805AD5A0:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D4768
+lbl_803D4768:
+	# ROM: 0x3D1768
+	.asciz "client_pad.bin"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+

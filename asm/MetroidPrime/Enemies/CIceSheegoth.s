@@ -10292,3 +10292,78 @@ lbl_805AC514:
 	# ROM: 0x3F8DB4
 	.float 0.017453292
 
+
+.section .rodata
+.global lbl_803D1360
+lbl_803D1360:
+	# ROM: 0x3CE360
+	.4byte 0x803D13D8
+	.4byte 0x803D13DE
+	.float 0.4
+	.float 0.75
+	.4byte 0x803D13E5
+	.4byte 0x803D13ED
+	.float 0.4
+	.float 0.75
+	.4byte 0x803D13F5
+	.4byte 0x803D13FB
+	.float 0.4
+	.float 0.75
+	.4byte 0x803D1402
+	.4byte 0x803D140A
+	.float 0.4
+	.float 0.75
+	.4byte 0x803D1412
+	.4byte 0x3F0CCCCD
+	.4byte 0x803D141F
+	.4byte 0x3F8CCCCD
+	.4byte 0x803D1426
+	.4byte 0x3F8CCCCD
+	.4byte 0x803D1434
+	.float 0.7
+	.4byte 0x803D143E
+	.4byte 0x3F99999A
+	.4byte 0x803D144E
+	.4byte 0x3F19999A
+	.4byte 0x803D1459
+	.4byte 0x3F19999A
+
+.global lbl_803D13D8
+lbl_803D13D8:
+	# ROM: 0x3CE3D8
+	.asciz "L_hip"
+	.byte 0x4C, 0x5F
+	.asciz "knee"
+	.byte 0x4C, 0x5F, 0x61
+	.asciz "nkle"
+	.byte 0x4C, 0x5F, 0x54
+	.asciz "oe_3"
+	.byte 0x52, 0x5F, 0x68
+	.4byte 0x69700052
+	.asciz "_knee"
+	.byte 0x52, 0x5F
+	.asciz "ankle"
+	.byte 0x52, 0x5F
+	.asciz "Toe_3"
+	.byte 0x4A, 0x61
+	.asciz "w_end_LCTR"
+	.byte 0x50
+	.asciz "elvis"
+	.byte 0x4C, 0x43
+	.asciz "TR_SHEMOUTH"
+	.asciz "butt_LCTR"
+	.byte 0x49, 0x63
+	.asciz "e_Shards_LCTR"
+	.byte 0x47, 0x69
+	.asciz "llL_LCTR"
+	.byte 0x47, 0x69, 0x6C
+	.asciz "lR_LCTR"
+	.asciz "??(??)"
+	.byte 0x49
+	.asciz "ceSheegoth_Flame"
+	.byte 0x48, 0x65, 0x61
+	.4byte 0x645F3100
+	.asciz "FlameThrower"
+	.balign 4
+	.4byte 0
+

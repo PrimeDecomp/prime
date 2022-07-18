@@ -1146,3 +1146,11 @@ lbl_800B6990:
 /* 800B69B0 000B3910  7C 08 03 A6 */	mtlr r0
 /* 800B69B4 000B3914  38 21 00 20 */	addi r1, r1, 0x20
 /* 800B69B8 000B3918  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDE80
+lbl_803CDE80:
+	# ROM: 0x3CAE80
+	.asciz "??(??)"
+	.balign 4
+

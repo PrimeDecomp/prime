@@ -1512,3 +1512,11 @@ lbl_803564D4:
 /* 803564F4 00353454  7C 08 03 A6 */	mtlr r0
 /* 803564F8 00353458  38 21 00 20 */	addi r1, r1, 0x20
 /* 803564FC 0035345C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8308
+lbl_803D8308:
+	# ROM: 0x3D5308
+	.asciz "??(??)"
+	.balign 4
+

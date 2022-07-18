@@ -4159,3 +4159,101 @@ lbl_800742FC:
 /* 80074304 00071264  4C 82 00 20 */	bnelr
 /* 80074308 00071268  38 60 00 02 */	li r3, 2
 /* 8007430C 0007126C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD2B8
+lbl_803CD2B8:
+	# ROM: 0x3CA2B8
+	.4byte 0x00260069
+	.4byte 0x006D0061
+	.4byte 0x00670065
+	.4byte 0x003D0000
+
+.global lbl_803CD2C8
+lbl_803CD2C8:
+	# ROM: 0x3CA2C8
+	.4byte 0x00260069
+	.4byte 0x006D0061
+	.4byte 0x00670065
+	.4byte 0x003D0000
+
+.global lbl_803CD2D8
+lbl_803CD2D8:
+	# ROM: 0x3CA2D8
+	.asciz "basewidget_pivot"
+	.byte 0x62, 0x61, 0x73
+	.asciz "ewidget_bgframe"
+	.asciz "basewidget_leftside"
+	.asciz "basewidget_leftlog"
+	.byte 0x74
+	.asciz "ablegroup_leftlog"
+	.byte 0x62, 0x61
+	.asciz "sewidget_leftguages"
+	.asciz "model_lefthighlight"
+	.asciz "basewidget_rightside"
+	.byte 0x62, 0x61, 0x73
+	.asciz "ewidget_rightlog"
+	.byte 0x74, 0x61, 0x62
+	.asciz "legroup_rightlog"
+	.byte 0x62, 0x61, 0x73
+	.asciz "ewidget_rightguages"
+	.asciz "model_righthighlight"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_textarrowtop"
+	.asciz "model_textarrowbottom"
+	.byte 0x6D, 0x6F
+	.asciz "del_scrollleftup"
+	.byte 0x6D, 0x6F, 0x64
+	.asciz "el_scrollleftdown"
+	.byte 0x6D, 0x6F
+	.asciz "del_scrollrightup"
+	.byte 0x6D, 0x6F
+	.asciz "del_scrollrightdown"
+	.asciz "textpane_title"
+	.byte 0x74
+	.asciz "extpane_body"
+	.byte 0x62, 0x61, 0x73
+	.asciz "ewidget_yicon"
+	.byte 0x6D, 0x6F
+	.asciz "del_textalpha"
+	.byte 0x74, 0x65
+	.asciz "xtpane_yicon"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_ytext"
+	.asciz "%8.8X"
+	.byte 0x73, 0x6C
+	.asciz "idergroup_slider"
+	.byte 0x74, 0x61, 0x62
+	.asciz "legroup_double"
+	.byte 0x74
+	.asciz "ablegroup_triple"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_title%d"
+	.byte 0x6D, 0x6F
+	.asciz "del_title%d"
+	.asciz "model_righttitledeco%d"
+	.byte 0x74
+	.asciz "extpane_category%d"
+	.byte 0x6D
+	.asciz "odel_category%d"
+	.asciz "??(??)"
+	.byte 0x74
+	.asciz "extpane_l1"
+	.byte 0x74
+	.asciz "extpane_r"
+	.byte 0x74, 0x65
+	.asciz "xtpane_a"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_b"
+	.asciz "textpane_return"
+	.asciz "textpane_next"
+	.byte 0x74, 0x65
+	.asciz "xtpane_back"
+	.asciz "basewidget_deco"
+	.asciz "STRG_PauseScreen"
+	.byte 0x46, 0x52, 0x4D
+	.asciz "E_PauseScreenInstructions"
+	.byte 0x46, 0x52
+	.asciz "ME_PauseScreen"
+	.balign 4
+

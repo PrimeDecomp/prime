@@ -2976,3 +2976,36 @@ lbl_805ABF4C:
 	# ROM: 0x3F87EC
 	.4byte 0x3D000000
 
+
+.section .rodata
+.global lbl_803D0630
+lbl_803D0630:
+	# ROM: 0x3CD630
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D0650
+lbl_803D0650:
+	# ROM: 0x3CD650
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D0668
+lbl_803D0668:
+	# ROM: 0x3CD668
+	.asciz "??(??)"
+	.byte 0x50
+	.asciz "lasmaElectricFx"
+	.asciz "PlasmaVisorFx"
+	.balign 4
+

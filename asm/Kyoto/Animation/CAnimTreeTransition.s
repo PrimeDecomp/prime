@@ -1201,3 +1201,13 @@ lbl_805AE3DC:
 	# ROM: 0x3FAC7C
 	.4byte 0x00000002
 
+
+.section .rodata
+.global lbl_803D6E10
+lbl_803D6E10:
+	# ROM: 0x3D3E10
+	.4byte 0x003F3F28
+	.4byte 0x3F3F2900
+	.asciz "Loop"
+	.balign 4
+

@@ -4052,3 +4052,159 @@ lbl_805AC710:
 	.4byte 0x42700000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1750
+lbl_803D1750:
+	# ROM: 0x3CE750
+	.4byte 0x803D1828
+	.4byte 0x803D1834
+	.4byte 0x803D1840
+	.4byte 0x803D184A
+	.4byte 0x803D1828
+	.4byte 0x803D1854
+	.4byte 0x803D185F
+	.4byte 0x803D186C
+	.4byte 0x803D1879
+	.4byte 0x803D1886
+
+.global lbl_803D1778
+lbl_803D1778:
+	# ROM: 0x3CE778
+	.4byte 0x803D1892
+	.4byte 0x803D189E
+	.4byte 0x803D18A7
+	.4byte 0x803D189E
+	.4byte 0x803D18B1
+	.4byte 0x803D189E
+	.4byte 0x803D18BC
+	.4byte 0x803D189E
+	.4byte 0x803D18A7
+	.4byte 0x803D189E
+
+.global lbl_803D17A0
+lbl_803D17A0:
+	# ROM: 0x3CE7A0
+	.4byte 0x803D18C9
+	.4byte 0x803D18D3
+	.4byte 0x803D18DB
+	.4byte 0x803D18E4
+	.4byte 0x803D18EF
+
+.global lbl_803D17B4
+lbl_803D17B4:
+	# ROM: 0x3CE7B4
+	.4byte 0x803D18FA
+	.4byte 0x803D190A
+	.4byte 0x803D1918
+	.4byte 0x803D1927
+	.4byte 0x803D1938
+
+.global lbl_803D17C8
+lbl_803D17C8:
+	# ROM: 0x3CE7C8
+	.4byte 0x803D1949
+	.4byte 0x803D1954
+	.4byte 0x803D195D
+	.4byte 0x803D1967
+	.4byte 0x803D1973
+
+.global lbl_803D17DC
+lbl_803D17DC:
+	# ROM: 0x3CE7DC
+	.4byte 0x803D197F
+	.4byte 0x803D1988
+	.4byte 0x803D1993
+	.4byte 0x803D199C
+	.4byte 0x803D19A6
+	.4byte 0x803D19B0
+	.4byte 0x803D19BB
+	.4byte 0x803D19C6
+
+.global lbl_803D17FC
+lbl_803D17FC:
+	# ROM: 0x3CE7FC
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0x00000009
+	.4byte 0x0000000A
+
+.global lbl_803D1828
+lbl_803D1828:
+	# ROM: 0x3CE828
+	.asciz "PowerMuzzle"
+	.asciz "PowerCharge"
+	.asciz "IceMuzzle"
+	.byte 0x49, 0x63
+	.asciz "eCharge"
+	.asciz "WaveCharge"
+	.byte 0x50
+	.asciz "lasmaMuzzle"
+	.asciz "PlasmaCharge"
+	.byte 0x50, 0x68, 0x61
+	.asciz "zonMuzzle"
+	.byte 0x45, 0x6D
+	.asciz "ptyMuzzle"
+	.byte 0x70, 0x6F
+	.asciz "werFrozen"
+	.byte 0x49, 0x63
+	.asciz "e2nd_2"
+	.byte 0x69
+	.asciz "ceFrozen"
+	.byte 0x77, 0x61, 0x76
+	.asciz "eFrozen"
+	.asciz "plasmaFrozen"
+	.byte 0x50, 0x6F, 0x77
+	.asciz "erXfer"
+	.byte 0x49
+	.asciz "ceXfer"
+	.byte 0x57
+	.asciz "aveXfer"
+	.asciz "PlasmaXfer"
+	.byte 0x50
+	.asciz "hazonXfer"
+	.byte 0x50, 0x6F
+	.asciz "wer_Anim_DGRP"
+	.byte 0x49, 0x63
+	.asciz "e_Anim_DGRP"
+	.asciz "Wave_Anim_DGRP"
+	.byte 0x50
+	.asciz "lasma_Anim_DGRP"
+	.asciz "Phazon_Anim_DGRP"
+	.byte 0x50, 0x6F, 0x77
+	.asciz "er_DGRP"
+	.asciz "Ice_DGRP"
+	.byte 0x57, 0x61, 0x76
+	.asciz "e_DGRP"
+	.byte 0x50
+	.asciz "lasma_DGRP"
+	.byte 0x50
+	.asciz "hazon_DGRP"
+	.byte 0x50
+	.asciz "owerArm"
+	.asciz "GravityArm"
+	.byte 0x56
+	.asciz "ariaArm"
+	.asciz "PhazonArm"
+	.byte 0x46, 0x75
+	.asciz "sionArm"
+	.asciz "FusionArmG"
+	.byte 0x46
+	.asciz "usionArmV"
+	.byte 0x46, 0x75
+	.asciz "sionArmP"
+	.byte 0x4C, 0x42, 0x45
+	.4byte 0x414D0065
+	.asciz "lbow"
+	.byte 0x3F, 0x3F, 0x28
+	.4byte 0x3F3F2900
+	.asciz "Whole Body"
+	.balign 4
+

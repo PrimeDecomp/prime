@@ -2238,3 +2238,19 @@ lbl_805AE560:
 	# ROM: 0x3FAE00
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D73F0
+lbl_803D73F0:
+	# ROM: 0x3D43F0
+	.4byte 0x000000FF
+	.4byte 0x0000FF00
+	.4byte 0x00FF0000
+	.4byte 0x0000FFFF
+
+.global lbl_803D7400
+lbl_803D7400:
+	# ROM: 0x3D4400
+	.asciz "??(??)"
+	.balign 4
+

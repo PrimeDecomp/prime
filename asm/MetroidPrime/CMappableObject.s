@@ -1167,3 +1167,33 @@ __sinit_CMappableObject_cpp:
 /* 800E9564 000E64C4  D0 23 00 58 */	stfs f1, 0x58(r3)
 /* 800E9568 000E64C8  D0 43 00 5C */	stfs f2, 0x5c(r3)
 /* 800E956C 000E64CC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE5F0
+lbl_803CE5F0:
+	# ROM: 0x3CB5F0
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x06040200
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0x03010705
+	.4byte 0
+	.float -1.0
+	.float 1.0
+	.4byte 0x01000504
+	.4byte 0
+	.float 1.0
+	.float 1.0
+	.4byte 0x07060302
+	.float -1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0x03020100
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0x05040706
+

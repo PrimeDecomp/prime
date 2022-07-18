@@ -1276,3 +1276,12 @@ lbl_805AB7A4:
 	# ROM: 0x3F8044
 	.float 0.017453292
 
+
+.section .rodata
+.global lbl_803D0060
+lbl_803D0060:
+	# ROM: 0x3CD060
+	.asciz "Whole Body"
+	.balign 4
+	.4byte 0
+

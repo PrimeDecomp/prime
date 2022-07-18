@@ -4607,3 +4607,114 @@ __sinit_CSamusDoll_cpp:
 /* 800DE7F0 000DB750  D0 23 00 04 */	stfs f1, 4(r3)
 /* 800DE7F4 000DB754  D0 03 00 08 */	stfs f0, 8(r3)
 /* 800DE7F8 000DB758  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE2D8
+lbl_803CE2D8:
+	# ROM: 0x3CB2D8
+	.4byte 0
+	.4byte 0x00000006
+	.4byte 0x00000002
+	.4byte 0x0000000A
+	.4byte 0x00000010
+	.4byte 0x00000018
+	.4byte 0x00000014
+	.4byte 0x0000001C
+
+.global lbl_803CE2F8
+lbl_803CE2F8:
+	# ROM: 0x3CB2F8
+	.4byte 0x0000000E
+	.4byte 0x0000000F
+	.4byte 0x00000008
+	.4byte 0x00000009
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x0000000C
+	.4byte 0x0000000D
+	.4byte 0x00000012
+	.4byte 0x00000013
+	.4byte 0x0000001A
+	.4byte 0x0000001B
+	.4byte 0x00000016
+	.4byte 0x00000017
+	.4byte 0x0000001E
+	.4byte 0x0000001F
+
+.global lbl_803CE338
+lbl_803CE338:
+	# ROM: 0x3CB338
+	.4byte 0x00000001
+	.4byte 0x00000007
+	.4byte 0x00000003
+	.4byte 0x0000000B
+	.4byte 0x00000011
+	.4byte 0x00000019
+	.4byte 0x00000015
+	.4byte 0x0000001D
+	.4byte 0x803CE3AC
+	.4byte 0x803CE3BE
+	.4byte 0x803CE3CE
+	.4byte 0x803CE3DF
+	.4byte 0x803CE3AC
+	.4byte 0x803CE3F2
+	.4byte 0x803CE400
+	.4byte 0x803CE3F2
+	.4byte 0x803CE415
+	.4byte 0x803CE429
+	.4byte 0x803CE429
+	.4byte 0x803CE429
+	.4byte 0x803CE429
+	.4byte 0x803CE43D
+	.4byte 0x803CE43D
+	.4byte 0x803CE43D
+	.4byte 0x803CE43D
+	.4byte 0x803CE43D
+	.4byte 0x803CE44F
+	.4byte 0x803CE461
+	.4byte 0x803CE475
+
+.global lbl_803CE3AC
+lbl_803CE3AC:
+	# ROM: 0x3CB3AC
+	.asciz "CMDL_InvPowerBeam"
+	.byte 0x43, 0x4D
+	.asciz "DL_InvIceBeam"
+	.byte 0x43, 0x4D
+	.asciz "DL_InvWaveBeam"
+	.byte 0x43
+	.asciz "MDL_InvPlasmaBeam"
+	.byte 0x43, 0x4D
+	.asciz "DL_InvVisor"
+	.asciz "CMDL_InvGravityVisor"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvPhazonVisor"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvFusionVisor"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvPowerFins"
+	.byte 0x43
+	.asciz "MDL_InvVariaFins"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvGravityFins"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvPhazonFins"
+	.asciz "CMDL_InvGrappleBeam"
+	.asciz "GUN_LCTR"
+	.byte 0x47, 0x52, 0x41
+	.asciz "PPLE_LCTR"
+	.byte 0x56, 0x49
+	.asciz "SOR_LCTR"
+	.byte 0x53, 0x61, 0x6D
+	.asciz "usBallANCS"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x50, 0x68
+	.asciz "azonIndirectTexture"
+	.asciz "ANCS_ItemScreenSamus"
+	.byte 0x42, 0x61, 0x6C
+	.asciz "lInnerGlow"
+	.byte 0x4D
+	.asciz "orphBallTransitionFlash"
+	.4byte 0
+

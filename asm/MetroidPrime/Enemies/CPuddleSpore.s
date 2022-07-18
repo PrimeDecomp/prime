@@ -3139,3 +3139,33 @@ lbl_805AB9EC:
 	# ROM: 0x3F828C
 	.float 1000000.0
 
+
+.section .rodata
+.global lbl_803D00A0
+lbl_803D00A0:
+	# ROM: 0x3CD0A0
+	.asciz "Glow_1_LCTR"
+	.asciz "Glow_2_LCTR"
+	.asciz "Glow_3_LCTR"
+	.asciz "Glow_4_LCTR"
+	.asciz "Glow_5_LCTR"
+	.asciz "Glow_6_LCTR"
+	.asciz "Glow_7_LCTR"
+	.asciz "Glow_8_LCTR"
+	.asciz "Glow_9_LCTR"
+	.asciz "Glow_10_LCTR"
+	.byte 0x47, 0x6C, 0x6F
+	.asciz "w_11_LCTR"
+	.byte 0x47, 0x6C
+	.asciz "ow_12_LCTR"
+	.byte 0x47
+	.asciz "low_13_LCTR"
+	.asciz "Glow_14_LCTR"
+	.byte 0x47, 0x6C, 0x6F
+	.asciz "w_15_LCTR"
+	.byte 0x47, 0x6C
+	.asciz "ow_16_LCTR"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+

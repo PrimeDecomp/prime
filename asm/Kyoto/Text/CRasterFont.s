@@ -1824,3 +1824,21 @@ lbl_805AE460:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6E68
+lbl_803D6E68:
+	# ROM: 0x3D3E68
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D6E80
+lbl_803D6E80:
+	# ROM: 0x3D3E80
+	.asciz "??(??)"
+	.balign 4
+

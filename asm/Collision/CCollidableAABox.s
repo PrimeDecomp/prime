@@ -861,3 +861,12 @@ lbl_805AE1B0:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D69E8
+lbl_803D69E8:
+	# ROM: 0x3D39E8
+	.asciz "CCollidableAABox"
+	.balign 4
+	.4byte 0
+

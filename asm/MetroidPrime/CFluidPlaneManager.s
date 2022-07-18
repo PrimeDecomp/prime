@@ -585,3 +585,13 @@ Clear__Q218CFluidPlaneManager13CFluidProfileFv:
 /* 8012F768 0012C6C8  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8012F76C 0012C6CC  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8012F770 0012C6D0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D0038
+lbl_803D0038:
+	# ROM: 0x3CD038
+	.asciz "??(??)"
+	.byte 0x53
+	.asciz "plash"
+	.balign 4
+

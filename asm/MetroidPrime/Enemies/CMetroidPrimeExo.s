@@ -13628,3 +13628,252 @@ lbl_805ADA1C:
 	# ROM: 0x3FA2BC
 	.4byte 0x42960000
 
+
+.section .rodata
+.global lbl_803D5428
+lbl_803D5428:
+	# ROM: 0x3D2428
+	.4byte 0x40400000
+	.4byte 0x40E00000
+	.float 15.0
+
+.global lbl_803D5434
+lbl_803D5434:
+	# ROM: 0x3D2434
+	.4byte 0x45174000
+	.4byte 0x44DC0000
+	.4byte 0x445C0000
+	.4byte 0
+
+.global lbl_803D5444
+lbl_803D5444:
+	# ROM: 0x3D2444
+	.4byte 0x803D5644
+	.4byte 0x803D564F
+	.4byte 0x803D5660
+	.4byte 0x803D5670
+
+.global lbl_803D5454
+lbl_803D5454:
+	# ROM: 0x3D2454
+	.4byte 0x803D56BB
+	.4byte 0x803D56C3
+	.4byte 0x803D5634
+	.4byte 0x803D56CB
+	.4byte 0x803D56D3
+	.4byte 0x803D563C
+
+.global lbl_803D546C
+lbl_803D546C:
+	# ROM: 0x3D246C
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+
+.global lbl_803D5478
+lbl_803D5478:
+	# ROM: 0x3D2478
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000007
+	.4byte 0x00000005
+	.4byte 0x00000012
+	.4byte 0x00000012
+	.4byte 0x00000012
+	.4byte 0x00000012
+	.4byte 0x00000012
+	.4byte 0x00000012
+	.4byte 0x00000012
+	.4byte 0x00000007
+	.4byte 0x00000005
+	.4byte 0x00000007
+	.4byte 0x00000011
+	.4byte 0x00000012
+	.4byte 0x00000009
+	.4byte 0x00000002
+	.4byte 0x0000000B
+
+.global lbl_803D54C8
+lbl_803D54C8:
+	# ROM: 0x3D24C8
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000008
+	.4byte 0x00000008
+	.4byte 0x00000008
+	.4byte 0x0000000B
+	.4byte 0x0000000B
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0x00000007
+	.4byte 0x00000007
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0x00000001
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x00000002
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D5570
+lbl_803D5570:
+	# ROM: 0x3D2570
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x00000008
+	.4byte 0x00000008
+	.4byte 0x00000008
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+
+.global lbl_803D5618
+lbl_803D5618:
+	# ROM: 0x3D2618
+	.asciz "driller_LCTR1"
+	.byte 0x64, 0x72
+	.asciz "iller_LCTR2"
+	.asciz "L_eye_3"
+	.asciz "R_eye_3"
+	.asciz "Flame_Head"
+	.byte 0x46
+	.asciz "lame_HeadLockOn"
+	.asciz "Flame_Lshoulder"
+	.asciz "Flame_Rshoulder"
+	.asciz "Head_LockON_SDK"
+	.asciz "Jaw_1"
+	.byte 0x43, 0x5F
+	.asciz "bottomtooth"
+	.asciz "B_headup_additive_body"
+	.byte 0x4C
+	.asciz "_eye_1"
+	.byte 0x4C
+	.asciz "_eye_2"
+	.byte 0x52
+	.asciz "_eye_1"
+	.byte 0x52
+	.asciz "_eye_2"
+	.byte 0x53
+	.asciz "phere_LCTR"
+	.byte 0x53
+	.asciz "keleton_Root"
+	.byte 0x52, 0x5F, 0x73
+	.asciz "houlder"
+	.asciz "R_elbow"
+	.asciz "R_wrist"
+	.asciz "R_hand_LCTR"
+	.asciz "R_leg_LCTR"
+	.byte 0x52
+	.asciz "_front_1"
+	.byte 0x52, 0x5F, 0x66
+	.asciz "ront_2"
+	.byte 0x52
+	.asciz "_front_3"
+	.byte 0x46, 0x5F, 0x52
+	.asciz "_leg_LCTR"
+	.byte 0x52, 0x5F
+	.asciz "stinger_1"
+	.byte 0x52, 0x5F
+	.asciz "stinger_2"
+	.byte 0x52, 0x5F
+	.asciz "spike_LCTR"
+	.byte 0x4C
+	.asciz "_shoulder"
+	.byte 0x4C, 0x5F
+	.asciz "elbow"
+	.byte 0x4C, 0x5F
+	.asciz "wrist"
+	.byte 0x4C, 0x5F
+	.asciz "hand_LCTR"
+	.byte 0x4C, 0x5F
+	.asciz "leg_LCTR"
+	.byte 0x4C, 0x5F, 0x66
+	.asciz "ront_1"
+	.byte 0x4C
+	.asciz "_front_2"
+	.byte 0x4C, 0x5F, 0x66
+	.asciz "ront_3"
+	.byte 0x46
+	.asciz "_L_leg_LCTR"
+	.asciz "L_stinger_1"
+	.asciz "L_stinger_2"
+	.asciz "L_spike_LCTR"
+	.byte 0x42, 0x5F, 0x73
+	.asciz "houlder"
+	.asciz "B_elbow"
+	.asciz "B_wrist"
+	.asciz "B_leg_LCTR"
+	.byte 0x48
+	.asciz "ead_LCTR"
+	.byte 0x48, 0x6F, 0x72
+	.asciz "n_LCTR"
+	.byte 0x48
+	.4byte 0x65616400
+	.asciz "??(??)"
+	.balign 4
+	.asciz "ColorChange"
+	.asciz "Eyes"
+	.byte 0x45, 0x66, 0x66
+	.asciz "ect_Electric"
+	.balign 4
+	.4byte 0
+

@@ -392,3 +392,14 @@ lbl_80343350:
 /* 80343350 003402B0  BB 01 00 10 */	lmw r24, 0x10(r1)
 /* 80343354 003402B4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80343358 003402B8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7BA0
+lbl_803D7BA0:
+	# ROM: 0x3D4BA0
+	.asciz "invalid distance code"
+	.byte 0x69, 0x6E
+	.asciz "valid literal/length code"
+	.balign 4
+	.4byte 0
+

@@ -495,3 +495,41 @@ lbl_805ADF08:
 	.float 0.5
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6118
+lbl_803D6118:
+	# ROM: 0x3D3118
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000008
+
+.global lbl_803D6138
+lbl_803D6138:
+	# ROM: 0x3D3138
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000001
+

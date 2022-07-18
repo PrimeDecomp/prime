@@ -5742,3 +5742,17 @@ lbl_805AE554:
 	# ROM: 0x3FADF4
 	.4byte 0x42C80000
 
+
+.section .rodata
+.global lbl_803D73C8
+lbl_803D73C8:
+	# ROM: 0x3D43C8
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+

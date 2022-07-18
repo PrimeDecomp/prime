@@ -587,3 +587,11 @@ lbl_805AC1B0:
 	.float 1.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0940
+lbl_803D0940:
+	# ROM: 0x3CD940
+	.asciz "??(??)"
+	.balign 4
+

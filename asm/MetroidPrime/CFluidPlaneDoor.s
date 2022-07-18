@@ -685,3 +685,33 @@ lbl_805AC450:
 	.float 0.5
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1300
+lbl_803D1300:
+	# ROM: 0x3CE300
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+

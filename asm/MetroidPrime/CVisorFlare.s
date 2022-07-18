@@ -1042,3 +1042,15 @@ lbl_805ACE28:
 	.float 4.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2720
+lbl_803D2720:
+	# ROM: 0x3CF720
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+

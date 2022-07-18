@@ -1912,3 +1912,11 @@ lbl_805AD8EC:
 	# ROM: 0x3FA18C
 	.4byte 0x43B40000
 
+
+.section .rodata
+.global lbl_803D5420
+lbl_803D5420:
+	# ROM: 0x3D2420
+	.asciz "??(??)"
+	.balign 4
+

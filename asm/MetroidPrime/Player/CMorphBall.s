@@ -15138,3 +15138,296 @@ lbl_800FA60C:
 /* 800FA618 000F7578  7C 08 03 A6 */	mtlr r0
 /* 800FA61C 000F757C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800FA620 000F7580  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE910
+lbl_803CE910:
+	# ROM: 0x3CB910
+	.4byte 0x803CEBF4
+	.4byte 0
+	.4byte 0x803CEBF4
+	.4byte 0
+	.4byte 0x803CEBF4
+	.4byte 0x00000001
+	.4byte 0x803CEBF4
+	.4byte 0
+	.4byte 0x803CEC02
+	.4byte 0
+	.4byte 0x803CEC02
+	.4byte 0x00000002
+	.4byte 0x803CEC02
+	.4byte 0x00000001
+	.4byte 0x803CEC02
+	.4byte 0x00000003
+	.4byte 0x803CEC16
+	.4byte 0
+	.4byte 0x803CEC16
+	.4byte 0
+	.4byte 0x803CEC16
+	.4byte 0x00000001
+	.4byte 0x803CEC16
+	.4byte 0
+	.4byte 0x803CEC2B
+	.4byte 0
+	.4byte 0x803CEC2B
+	.4byte 0x00000002
+	.4byte 0x803CEC2B
+	.4byte 0x00000001
+	.4byte 0x803CEC2B
+	.4byte 0x00000003
+	.4byte 0x803CEC46
+	.4byte 0
+	.4byte 0x803CEC46
+	.4byte 0
+	.4byte 0x803CEC46
+	.4byte 0x00000001
+	.4byte 0x803CEC46
+	.4byte 0x00000002
+	.4byte 0x803CEC2B
+	.4byte 0
+	.4byte 0x803CEC2B
+	.4byte 0x00000002
+	.4byte 0x803CEC2B
+	.4byte 0x00000001
+	.4byte 0x803CEC2B
+	.4byte 0x00000003
+
+.global lbl_803CE9D0
+lbl_803CE9D0:
+	# ROM: 0x3CB9D0
+	.4byte 0x803CEC61
+	.4byte 0
+	.4byte 0x803CEC61
+	.4byte 0
+	.4byte 0x803CEC61
+	.4byte 0x00000001
+	.4byte 0x803CEC75
+	.4byte 0
+	.4byte 0x803CEC02
+	.4byte 0
+	.4byte 0x803CEC02
+	.4byte 0x00000002
+	.4byte 0x803CEC02
+	.4byte 0x00000001
+	.4byte 0x803CEC02
+	.4byte 0x00000003
+
+.global lbl_803CEA10
+lbl_803CEA10:
+	# ROM: 0x3CBA10
+	.4byte 0x803CEC89
+	.4byte 0
+	.4byte 0x803CEC89
+	.4byte 0
+	.4byte 0x803CEC89
+	.4byte 0x00000001
+	.4byte 0x803CECA2
+	.4byte 0
+	.4byte 0x803CEC89
+	.4byte 0
+	.4byte 0x803CEC89
+	.4byte 0
+	.4byte 0x803CEC89
+	.4byte 0x00000001
+	.4byte 0x803CECA2
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+	.4byte 0x803CECBB
+	.4byte 0
+
+.global lbl_803CEA90
+lbl_803CEA90:
+	# ROM: 0x3CBA90
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000002
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000007
+	.4byte 0x00000006
+	.4byte 0x00000008
+
+.global lbl_803CEAB0
+lbl_803CEAB0:
+	# ROM: 0x3CBAB0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0x00000005
+	.4byte 0x00000007
+	.4byte 0x00000006
+	.4byte 0x00000008
+
+.global lbl_803CEAD0
+lbl_803CEAD0:
+	# ROM: 0x3CBAD0
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFD519FF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFF00
+
+.global lbl_803CEAEC
+lbl_803CEAEC:
+	# ROM: 0x3CBAEC
+	.4byte 0xC27E1066
+	.4byte 0xC4FF60FF
+	.4byte 0x903333FF
+	.4byte 0xFF202000
+	.4byte 0x9DB6D3F1
+	.4byte 0x00A686D8
+	.4byte 0xFB982100
+
+.global lbl_803CEB08
+lbl_803CEB08:
+	# ROM: 0x3CBB08
+	.4byte 0xC27E1066
+	.4byte 0xC4FF6CFF
+	.4byte 0x613333FF
+	.4byte 0xFF202000
+	.4byte 0x9DB6D3F1
+	.4byte 0x00A686D8
+	.4byte 0xFB982100
+	.4byte 0xC28F1770
+	.4byte 0xD4FF6AFF
+	.4byte 0x8A3D4DFF
+	.4byte 0xC0000000
+	.4byte 0xBEDCDFFF
+	.4byte 0x00C49EFF
+	.4byte 0xFF9A2200
+	.4byte 0xFFE600FF
+	.4byte 0xE600FFE6
+	.4byte 0x00FFE600
+	.4byte 0xFF8020FF
+	.4byte 0xE600FFE6
+	.4byte 0x00FFE600
+	.4byte 0xFFE60000
+	.4byte 0xFFCC00FF
+	.4byte 0xCC00FFCC
+	.4byte 0x00FFCC00
+	.4byte 0xFFD519FF
+	.4byte 0xCC00FFCC
+	.4byte 0x00FFCC00
+	.4byte 0xFFCC0000
+
+.global lbl_803CEB78
+lbl_803CEB78:
+	# ROM: 0x3CBB78
+	.4byte 0xC27E1066
+	.4byte 0xC4FF60FF
+	.4byte 0x903333FF
+	.4byte 0xFF808000
+	.4byte 0x9DB6D3F1
+	.4byte 0x006033FF
+	.4byte 0xFB982100
+
+.global lbl_803CEB94
+lbl_803CEB94:
+	# ROM: 0x3CBB94
+	.4byte 0xFFFF05DE
+	.4byte 0x05DD062F
+	.4byte 0x0786FFFF
+	.4byte 0x05DC060B
+	.4byte 0x05C8088A
+	.4byte 0x06980787
+	.4byte 0x0630FFFF
+	.4byte 0x062805DD
+	.4byte 0x05DD05C8
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x05FE0628
+
+.global lbl_803CEBC4
+lbl_803CEBC4:
+	# ROM: 0x3CBBC4
+	.4byte 0xFFFF05C3
+	.4byte 0x05E0062C
+	.4byte 0x065BFFFF
+	.4byte 0x05DA0609
+	.4byte 0x05C00697
+	.4byte 0x0697065C
+	.4byte 0x062DFFFF
+	.4byte 0x062705E0
+	.4byte 0x05E005C0
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0x05FD0627
+
+.global lbl_803CEBF4
+lbl_803CEBF4:
+	# ROM: 0x3CBBF4
+	.asciz "SamusBallANCS"
+	.byte 0x53, 0x61
+	.asciz "musFusionBallANCS"
+	.byte 0x53, 0x61
+	.asciz "musBallLowPolyCMDL"
+	.byte 0x53
+	.asciz "amusBallFusionLowPolyCMDL"
+	.byte 0x53, 0x61
+	.asciz "musSpiderBallLowPolyCMDL"
+	.byte 0x53, 0x61, 0x6D
+	.asciz "usSpiderBallANCS"
+	.byte 0x53, 0x61, 0x6D
+	.asciz "usPhazonBallANCS"
+	.byte 0x53, 0x61, 0x6D
+	.asciz "usSpiderBallGlassCMDL"
+	.byte 0x53, 0x61
+	.asciz "musPhazonBallGlassCMDL"
+	.byte 0x53
+	.asciz "amusBallFrozenCMDL"
+	.balign 4
+	.asciz "??(??)"
+	.byte 0x54
+	.asciz "XTR_BallFade"
+	.byte 0x44, 0x69, 0x72
+	.asciz "tWake"
+	.byte 0x50, 0x68
+	.asciz "azonWake"
+	.byte 0x50, 0x68, 0x61
+	.asciz "zonWakeOrange"
+	.byte 0x4C, 0x61
+	.asciz "vaWake"
+	.byte 0x53
+	.asciz "nowWake"
+	.asciz "MudWake"
+	.asciz "SandWake"
+	.byte 0x52, 0x61, 0x69
+	.asciz "nWake"
+	.byte 0x5F, 0x44
+	.4byte 0x47525000
+	.asciz "BallLight"
+	.byte 0x53, 0x6C
+	.asciz "owBlueTailSwoosh"
+	.byte 0x53, 0x6C, 0x6F
+	.asciz "wBlueTailSwoosh2"
+	.byte 0x4A, 0x61, 0x67
+	.asciz "gyTrail"
+	.asciz "WallSpark"
+	.byte 0x42, 0x61
+	.asciz "llInnerGlow"
+	.asciz "SpiderBallMagnetEffect"
+	.byte 0x42
+	.asciz "oostBallGlow"
+	.byte 0x53, 0x70, 0x69
+	.asciz "derElectric"
+	.asciz "MorphBallTransitionFlash"
+	.byte 0x45, 0x66, 0x66
+	.asciz "ect_MorphBallIceBreak"
+	.balign 4
+

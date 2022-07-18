@@ -332,3 +332,14 @@ lbl_805ACBEC:
 	# ROM: 0x3F948C
 	.float 0.001
 
+
+.section .rodata
+.global lbl_803D2038
+lbl_803D2038:
+	# ROM: 0x3CF038
+	.asciz "Whole Body"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+	.4byte 0
+

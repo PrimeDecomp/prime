@@ -346,3 +346,13 @@ lbl_800FEC54:
 /* 800FEC88 000FBBE8  7C 08 03 A6 */	mtlr r0
 /* 800FEC8C 000FBBEC  38 21 00 70 */	addi r1, r1, 0x70
 /* 800FEC90 000FBBF0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CEE00
+lbl_803CEE00:
+	# ROM: 0x3CBE00
+	.asciz "ConsoleOutputWindow"
+	.4byte 0x003F3F28
+	.4byte 0x3F3F2900
+	.4byte 0
+

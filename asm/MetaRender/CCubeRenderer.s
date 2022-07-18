@@ -12784,3 +12784,268 @@ lbl_805AE078:
 	.4byte 0x3CA72F05
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6570
+lbl_803D6570:
+	# ROM: 0x3D3570
+	.float -1.0
+	.float -1.0
+	.float -1.0
+	.float -1.0
+
+.global lbl_803D6580
+lbl_803D6580:
+	# ROM: 0x3D3580
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000A
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D65A0
+lbl_803D65A0:
+	# ROM: 0x3D35A0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D65B8
+lbl_803D65B8:
+	# ROM: 0x3D35B8
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x0000000E
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D65FC
+lbl_803D65FC:
+	# ROM: 0x3D35FC
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000001
+
+.global lbl_803D6614
+lbl_803D6614:
+	# ROM: 0x3D3614
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D6624
+lbl_803D6624:
+	# ROM: 0x3D3624
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D663C
+lbl_803D663C:
+	# ROM: 0x3D363C
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D6654
+lbl_803D6654:
+	# ROM: 0x3D3654
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000007
+	.4byte 0x00000007
+	.4byte 0x00000006
+	.4byte 0x00000006
+	.4byte 0x00000004
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000001
+	.4byte 0x00000005
+	.4byte 0x00000003
+	.4byte 0x00000007
+	.4byte 0x00000002
+	.4byte 0x00000006
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D6704
+lbl_803D6704:
+	# ROM: 0x3D3704
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D6734
+lbl_803D6734:
+	# ROM: 0x3D3734
+	.float 1.0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D6764
+lbl_803D6764:
+	# ROM: 0x3D3764
+	.float 1.0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+
+.global lbl_803D6794
+lbl_803D6794:
+	# ROM: 0x3D3794
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D67B4
+lbl_803D67B4:
+	# ROM: 0x3D37B4
+	.float -1.0
+	.float -1.0
+	.float 1.0
+	.float -1.0
+	.float -1.0
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.float -1.0
+	.float 0.0
+	.float 1.0
+	.float 0.0
+	.float 0.0
+	.float 1.0
+	.float 0.0
+	.float -1.0
+
+.global lbl_803D67F4
+lbl_803D67F4:
+	# ROM: 0x3D37F4
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D6814
+lbl_803D6814:
+	# ROM: 0x3D3814
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D682C
+lbl_803D682C:
+	# ROM: 0x3D382C
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x0000000E
+	.4byte 0x00000001
+	.4byte 0x0000000F
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D685C
+lbl_803D685C:
+	# ROM: 0x3D385C
+	.asciz "??(??)"
+	.byte 0x54
+	.asciz "XTR_ThermoPalette"
+	.balign 4
+

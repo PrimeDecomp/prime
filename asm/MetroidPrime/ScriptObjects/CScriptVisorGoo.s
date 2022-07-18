@@ -748,3 +748,12 @@ lbl_805AC98C:
 	# ROM: 0x3F922C
 	.float 0.01
 
+
+.section .rodata
+.global lbl_803D1B90
+lbl_803D1B90:
+	# ROM: 0x3CEB90
+	.asciz "??(??)"
+	.byte 0x56
+	.asciz "isorGoo"
+

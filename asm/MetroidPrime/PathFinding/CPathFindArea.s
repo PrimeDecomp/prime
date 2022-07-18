@@ -2327,3 +2327,11 @@ lbl_805AC888:
 	.float 2.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1AA0
+lbl_803D1AA0:
+	# ROM: 0x3CEAA0
+	.asciz "??(??)"
+	.balign 4
+

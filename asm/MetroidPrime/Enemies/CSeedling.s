@@ -1431,3 +1431,45 @@ lbl_805AD7F4:
 	# ROM: 0x3FA094
 	.float 2.0
 
+
+.section .rodata
+.global lbl_803D52B0
+lbl_803D52B0:
+	# ROM: 0x3D22B0
+	.4byte 0x803D52E0
+	.4byte 0x803D52F2
+	.4byte 0x803D5304
+	.4byte 0x803D5316
+	.4byte 0x803D5328
+	.4byte 0x803D533A
+	.4byte 0x803D534C
+	.4byte 0x803D535E
+	.4byte 0x803D5370
+	.4byte 0x803D5382
+	.4byte 0x803D5394
+	.4byte 0x803D53A6
+
+.global lbl_803D52E0
+lbl_803D52E0:
+	# ROM: 0x3D22E0
+	.asciz "A_spike1_LCTR_SDK"
+	.byte 0x41, 0x5F
+	.asciz "spike2_LCTR_SDK"
+	.asciz "A_spike3_LCTR_SDK"
+	.byte 0x41, 0x5F
+	.asciz "spike4_LCTR_SDK"
+	.asciz "A_spike5_LCTR_SDK"
+	.byte 0x41, 0x5F
+	.asciz "spike6_LCTR_SDK"
+	.asciz "B_spike1_LCTR_SDK"
+	.byte 0x42, 0x5F
+	.asciz "spike2_LCTR_SDK"
+	.asciz "B_spike3_LCTR_SDK"
+	.byte 0x42, 0x5F
+	.asciz "spike4_LCTR_SDK"
+	.asciz "B_spike5_LCTR_SDK"
+	.byte 0x42, 0x5F
+	.asciz "spike6_LCTR_SDK"
+	.asciz "??(??)"
+	.balign 4
+

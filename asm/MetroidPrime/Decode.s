@@ -425,3 +425,23 @@ GetParmDeleteIOWin__7MakeMsgFRC20CArchitectureMessage:
 /* 80051D70 0004ECD0  80 63 00 08 */	lwz r3, 8(r3)
 /* 80051D74 0004ECD4  80 63 00 00 */	lwz r3, 0(r3)
 /* 80051D78 0004ECD8  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCF20
+lbl_803CCF20:
+	# ROM: 0x3C9F20
+	.asciz "??(??)"
+	.balign 4
+
+.global lbl_803CCF28
+lbl_803CCF28:
+	# ROM: 0x3C9F28
+	.asciz "Msg[%3d] %s"
+	.asciz "-------------------------"
+	.byte 0x44, 0x72
+	.asciz "aw[%3d] %s"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+	.4byte 0
+

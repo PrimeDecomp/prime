@@ -160,3 +160,11 @@ sub_802c65a0:
 /* 802C65DC 002C353C  7C 08 03 A6 */	mtlr r0
 /* 802C65E0 002C3540  38 21 00 10 */	addi r1, r1, 0x10
 /* 802C65E4 002C3544  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D68C8
+lbl_803D68C8:
+	# ROM: 0x3D38C8
+	.asciz "??(??)"
+	.balign 4
+

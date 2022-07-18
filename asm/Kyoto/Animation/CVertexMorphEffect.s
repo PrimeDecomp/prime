@@ -358,3 +358,11 @@ lbl_805AE9F0:
 	# ROM: 0x3FB290
 	.double 4.503601774854144E15
 
+
+.section .rodata
+.global lbl_803D8328
+lbl_803D8328:
+	# ROM: 0x3D5328
+	.asciz "??(??)"
+	.balign 4
+

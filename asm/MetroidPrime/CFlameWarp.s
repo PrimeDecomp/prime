@@ -938,3 +938,11 @@ lbl_805AC684:
 	# ROM: 0x3F8F24
 	.float 0.001
 
+
+.section .rodata
+.global lbl_803D1638
+lbl_803D1638:
+	# ROM: 0x3CE638
+	.asciz "??(??)"
+	.balign 4
+

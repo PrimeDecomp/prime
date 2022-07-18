@@ -213,3 +213,11 @@ __ct__15CMetaTransTransFR12CInputStream:
 /* 802E2E4C 002DFDAC  7C 08 03 A6 */	mtlr r0
 /* 802E2E50 002DFDB0  38 21 00 20 */	addi r1, r1, 0x20
 /* 802E2E54 002DFDB4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6DA0
+lbl_803D6DA0:
+	# ROM: 0x3D3DA0
+	.asciz "??(??)"
+	.balign 4
+

@@ -3483,3 +3483,13 @@ lbl_805AE968:
 	.4byte DoFree__FPv
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D8210
+lbl_803D8210:
+	# ROM: 0x3D5210
+	.asciz "??(??)"
+	.byte 0x4E
+	.4byte 0x554C4C00
+	.4byte 0
+

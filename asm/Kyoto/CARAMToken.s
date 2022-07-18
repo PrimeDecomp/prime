@@ -618,3 +618,11 @@ __ct__10CARAMTokenFv:
 /* 80358B58 00355AB8  7C 08 03 A6 */	mtlr r0
 /* 80358B5C 00355ABC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80358B60 00355AC0  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8338
+lbl_803D8338:
+	# ROM: 0x3D5338
+	.asciz "??(??)"
+	.balign 4
+

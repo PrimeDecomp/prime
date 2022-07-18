@@ -1025,3 +1025,23 @@ lbl_80070A54:
 /* 80070A8C 0006D9EC  7C 08 03 A6 */	mtlr r0
 /* 80070A90 0006D9F0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80070A94 0006D9F4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD290
+lbl_803CD290:
+	# ROM: 0x3CA290
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803CD2A4
+lbl_803CD2A4:
+	# ROM: 0x3CA2A4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+

@@ -115,3 +115,11 @@ __ct__14CAudioStateWinFv:
 /* 80111E14 0010ED74  7C 08 03 A6 */	mtlr r0
 /* 80111E18 0010ED78  38 21 00 20 */	addi r1, r1, 0x20
 /* 80111E1C 0010ED7C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF200
+lbl_803CF200:
+	# ROM: 0x3CC200
+	.asciz "CAudioStateWin"
+	.balign 4
+

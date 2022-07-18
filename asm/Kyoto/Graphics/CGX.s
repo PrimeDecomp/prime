@@ -1439,3 +1439,23 @@ lbl_805AE4C4:
 	# ROM: 0x3FAD64
 	.float 0.1
 
+
+.section .rodata
+.global lbl_803D73A0
+lbl_803D73A0:
+	# ROM: 0x3D43A0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+
+.global lbl_803D73B8
+lbl_803D73B8:
+	# ROM: 0x3D43B8
+	.4byte 0x00000009
+	.4byte 0x00000003
+	.4byte 0x000000FF
+	.4byte 0
+

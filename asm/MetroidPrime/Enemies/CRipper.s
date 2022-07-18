@@ -1002,3 +1002,15 @@ lbl_805ABBFC:
 	# ROM: 0x3F849C
 	.float 1.0
 
+
+.section .rodata
+.global lbl_803D0358
+lbl_803D0358:
+	# ROM: 0x3CD358
+	.asciz "??(??)"
+	.byte 0x52
+	.asciz "ipper Controlled Platform"
+	.byte 0x52, 0x69
+	.asciz "pperGrapplePoint"
+	.balign 4
+

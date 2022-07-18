@@ -357,3 +357,11 @@ __ct__16CDependencyGroupFR12CInputStream:
 /* 803653EC 0036234C  7C 08 03 A6 */	mtlr r0
 /* 803653F0 00362350  38 21 00 10 */	addi r1, r1, 0x10
 /* 803653F4 00362354  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8408
+lbl_803D8408:
+	# ROM: 0x3D5408
+	.asciz "??(??)"
+	.balign 4
+

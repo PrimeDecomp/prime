@@ -496,3 +496,15 @@ lbl_805AD740:
 	.float 1.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D5240
+lbl_803D5240:
+	# ROM: 0x3D2240
+	.asciz "TXTR_MapLightQuarter"
+	.balign 4
+	.asciz "ballGrab_locator"
+	.byte 0x53, 0x6B, 0x65
+	.asciz "leton_Root"
+	.balign 4
+

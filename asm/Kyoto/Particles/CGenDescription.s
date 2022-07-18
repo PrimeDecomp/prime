@@ -286,3 +286,59 @@ __ct__15CGenDescriptionFv:
 element_from_desc__FP15CGenDescriptioni:
 /* 80367234 00364194  7C 63 22 14 */	add r3, r3, r4
 /* 80367238 00364198  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D8418
+lbl_803D8418:
+	# ROM: 0x3D5418
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000008
+	.4byte 0x0000000C
+	.4byte 0x00000010
+	.4byte 0x00000014
+	.4byte 0x00000018
+	.4byte 0x0000001C
+	.4byte 0x00000020
+	.4byte 0x00000024
+	.4byte 0x00000028
+	.4byte 0x0000002C
+	.4byte 0x00000034
+	.4byte 0x00000038
+	.4byte 0x0000003C
+	.4byte 0x00000040
+	.4byte 0x00000044
+	.4byte 0x00000058
+	.4byte 0x0000005C
+	.4byte 0x00000060
+	.4byte 0x00000064
+	.4byte 0x00000068
+	.4byte 0x0000006C
+	.4byte 0x00000070
+	.4byte 0x00000074
+	.4byte 0x00000088
+	.4byte 0x0000008C
+	.4byte 0x000000A0
+	.4byte 0x000000B4
+	.4byte 0x000000B8
+	.4byte 0x000000D0
+	.4byte 0x000000D4
+	.4byte 0x000000E4
+	.4byte 0x000000E8
+	.4byte 0x000000EC
+	.4byte 0x000000F0
+	.4byte 0x000000F4
+	.4byte 0x000000F8
+	.4byte 0x000000FC
+	.4byte 0x00000100
+	.4byte 0x00000104
+	.4byte 0x00000108
+	.4byte 0x0000010C
+	.4byte 0x00000110
+	.4byte 0x00000114
+	.4byte 0x00000118
+	.4byte 0x0000011C
+	.4byte 0x00000120
+	.4byte 0x00000124
+	.4byte 0x00000128
+

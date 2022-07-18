@@ -1121,3 +1121,59 @@ lbl_805ADDAC:
 	# ROM: 0x3FA64C
 	.float 0.1
 
+
+.section .rodata
+.global lbl_803D5D50
+lbl_803D5D50:
+	# ROM: 0x3D2D50
+	.4byte 0x803D5DB0
+	.4byte 0x803D5DBC
+	.4byte 0x803D5DC8
+	.4byte 0x803D5DD4
+	.4byte 0x803D5DE0
+	.4byte 0x803D5DEC
+	.4byte 0x803D5DF8
+	.4byte 0x803D5E04
+	.4byte 0x803D5E10
+	.4byte 0x803D5E1C
+	.4byte 0x803D5E29
+	.4byte 0x803D5E36
+
+.global lbl_803D5D80
+lbl_803D5D80:
+	# ROM: 0x3D2D80
+	.4byte 0x32C9DDCE
+	.4byte 0xB45DAF60
+	.4byte 0x7F017CC5
+	.4byte 0x62044C7D
+	.4byte 0xA9589FD8
+	.4byte 0x2FCCED76
+	.4byte 0xE4903ED3
+	.4byte 0x15C68C06
+	.4byte 0xDE9A5FA3
+	.4byte 0xFBBE9D9A
+	.4byte 0x30E24E3F
+	.4byte 0xB6763C91
+
+.global lbl_803D5DB0
+lbl_803D5DB0:
+	# ROM: 0x3D2DB0
+	.asciz "CMDL_Piece1"
+	.asciz "CMDL_Piece2"
+	.asciz "CMDL_Piece3"
+	.asciz "CMDL_Piece4"
+	.asciz "CMDL_Piece5"
+	.asciz "CMDL_Piece6"
+	.asciz "CMDL_Piece7"
+	.asciz "CMDL_Piece8"
+	.asciz "CMDL_Piece9"
+	.asciz "CMDL_Piece10"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_Piece11"
+	.byte 0x43, 0x4D
+	.asciz "DL_Piece12"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+	.4byte 0
+

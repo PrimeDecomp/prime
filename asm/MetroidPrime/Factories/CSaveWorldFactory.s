@@ -1080,3 +1080,11 @@ lbl_8026BBD4:
 /* 8026BBE4 00268B44  7C 08 03 A6 */	mtlr r0
 /* 8026BBE8 00268B48  38 21 00 30 */	addi r1, r1, 0x30
 /* 8026BBEC 00268B4C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D5418
+lbl_803D5418:
+	# ROM: 0x3D2418
+	.asciz "??(??)"
+	.balign 4
+

@@ -4200,3 +4200,11 @@ lbl_800B44E4:
 /* 800B44EC 000B144C  7C 08 03 A6 */	mtlr r0
 /* 800B44F0 000B1450  38 21 00 30 */	addi r1, r1, 0x30
 /* 800B44F4 000B1454  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CDE70
+lbl_803CDE70:
+	# ROM: 0x3CAE70
+	.asciz "??(??)"
+	.balign 4
+

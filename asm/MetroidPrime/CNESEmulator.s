@@ -1400,3 +1400,27 @@ lbl_805ADCA8:
 	.float 0.4
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D5B80
+lbl_803D5B80:
+	# ROM: 0x3D2B80
+	.asciz "NESemuP.rel"
+
+.global lbl_803D5B8C
+lbl_803D5B8C:
+	# ROM: 0x3D2B8C
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D5BA4
+lbl_803D5BA4:
+	# ROM: 0x3D2BA4
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+

@@ -911,3 +911,14 @@ lbl_800DF688:
 /* 800DF68C 000DC5EC  7C 08 03 A6 */	mtlr r0
 /* 800DF690 000DC5F0  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 800DF694 000DC5F4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE530
+lbl_803CE530:
+	# ROM: 0x3CB530
+	.asciz "??(??)"
+	.byte 0x50
+	.asciz "lasma2nd_1"
+	.balign 4
+	.4byte 0
+

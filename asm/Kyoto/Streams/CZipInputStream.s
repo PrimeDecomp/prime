@@ -169,3 +169,13 @@ lbl_8033F8E4:
 /* 8033F9E0 0033C940  7C 08 03 A6 */	mtlr r0
 /* 8033F9E4 0033C944  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033F9E8 0033C948  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7A78
+lbl_803D7A78:
+	# ROM: 0x3D4A78
+	.asciz "??(??)"
+	.byte 0x31
+	.asciz ".1.3"
+	.balign 4
+

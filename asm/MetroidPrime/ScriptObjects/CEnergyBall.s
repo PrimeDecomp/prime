@@ -1402,3 +1402,15 @@ lbl_805ADE28:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D5EB8
+lbl_803D5EB8:
+	# ROM: 0x3D2EB8
+	.asciz "??(??)"
+	.byte 0x50
+	.asciz "lasmaElectricFx"
+	.asciz "PlasmaVisorFx"
+	.byte 0x53, 0x75
+	.asciz "sDamage"
+

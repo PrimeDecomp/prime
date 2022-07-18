@@ -446,3 +446,11 @@ lbl_80034DEC:
 /* 80034DF8 00031D58  7C 08 03 A6 */	mtlr r0
 /* 80034DFC 00031D5C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80034E00 00031D60  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCD80
+lbl_803CCD80:
+	# ROM: 0x3C9D80
+	.asciz "??(??)"
+	.balign 4
+

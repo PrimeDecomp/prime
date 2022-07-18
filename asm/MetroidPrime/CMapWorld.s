@@ -4616,3 +4616,11 @@ lbl_800A25DC:
 /* 800A25E8 0009F548  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 800A25EC 0009F54C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800A25F0 0009F550  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD960
+lbl_803CD960:
+	# ROM: 0x3CA960
+	.asciz "??(??)"
+	.balign 4
+

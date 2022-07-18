@@ -503,3 +503,57 @@ lbl_805ABD88:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D0430
+lbl_803D0430:
+	# ROM: 0x3CD430
+	.asciz "imagepane_pane"
+	.balign 4
+
+.global lbl_803D0440
+lbl_803D0440:
+	# ROM: 0x3CD440
+	.4byte 0x803D0490
+	.4byte 0x803D0492
+	.4byte 0x803D0494
+	.4byte 0x803D0496
+	.4byte 0x803D0498
+	.4byte 0x803D049B
+	.4byte 0x803D049E
+	.4byte 0x803D04A1
+	.4byte 0x803D04A5
+	.4byte 0x803D04A9
+	.4byte 0x803D04AE
+	.4byte 0x803D04B0
+	.4byte 0x803D04B2
+	.4byte 0x803D04B4
+	.4byte 0x803D04B6
+	.4byte 0x803D04B9
+	.4byte 0x803D04BC
+	.4byte 0x803D04BF
+	.4byte 0x803D04C3
+	.4byte 0x803D04C7
+
+.global lbl_803D0490
+lbl_803D0490:
+	# ROM: 0x3CD490
+	.4byte 0x30003100
+	.4byte 0x32003300
+	.4byte 0x30310031
+	.4byte 0x32003233
+	.4byte 0x00303132
+	.4byte 0x00313233
+	.4byte 0x00303132
+	.4byte 0x33003400
+	.4byte 0x35003600
+	.4byte 0x37003435
+	.4byte 0x00353600
+	.4byte 0x36370034
+	.4byte 0x35360035
+	.4byte 0x36370034
+	.4byte 0x35363700
+	.asciz "??(??)"
+	.byte 0x25
+	.4byte 0x73257300
+

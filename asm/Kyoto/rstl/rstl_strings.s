@@ -1741,3 +1741,11 @@ lbl_8033E410:
 /* 8033E424 0033B384  B0 6D A9 1E */	sth r3, lbl_805A94DE@sda21(r13)
 /* 8033E428 0033B388  98 0D A9 23 */	stb r0, lbl_805A94E3@sda21(r13)
 /* 8033E42C 0033B38C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7A48
+lbl_803D7A48:
+	# ROM: 0x3D4A48
+	.asciz "??(??)"
+	.balign 4
+

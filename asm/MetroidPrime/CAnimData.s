@@ -9662,3 +9662,17 @@ __sinit_CAnimData_cpp:
 /* 80031A20 0002E980  7C 08 03 A6 */	mtlr r0
 /* 80031A24 0002E984  38 21 00 10 */	addi r1, r1, 0x10
 /* 80031A28 0002E988  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCD20
+lbl_803CCD20:
+	# ROM: 0x3C9D20
+	.asciz "??(??)"
+	.balign 4
+	.asciz "root"
+	.byte 0x43, 0x68, 0x61
+	.asciz "racter "
+	.asciz " has invalid initial animation, so defaulting to first.\n"
+	.balign 4
+	.4byte 0
+

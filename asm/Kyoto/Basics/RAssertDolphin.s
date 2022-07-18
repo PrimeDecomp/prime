@@ -401,3 +401,41 @@ lbl_805AE2A8:
 	.4byte 0x02010408
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6AB8
+lbl_803D6AB8:
+	# ROM: 0x3D3AB8
+	.asciz "Unhandled exception %d - Production\n"
+	.byte 0x25, 0x73, 0x0A
+	.4byte 0x002D2D2D
+	.asciz "---------------------- Context 0x%08x -------------------------\n"
+	.byte 0x72, 0x25, 0x2D
+	.asciz "2d  = 0x%08x (%14d)  r%-2d  = 0x%08x (%14d)\n"
+	.byte 0x4C, 0x52, 0x20
+	.asciz "  = 0x%08x                   CR   = 0x%08x\n"
+	.asciz "SRR0 = 0x%08x                   SRR1 = 0x%08x\n"
+	.byte 0x44
+	.asciz "SISR= 0x%08x                   DAR  = 0x%08x\n"
+	.byte 0x20, 0x2D
+	.asciz " Production\n"
+	.byte 0x45, 0x78, 0x63
+	.asciz "eption %d - Production\n"
+	.asciz "IP: 0x%8.8x  Mem: 0x%8.8x"
+	.byte 0x20, 0x2D
+	.4byte 0x20256400
+	.4byte 0x0A0A000A
+	.asciz "Address:      Back Chain    LR Save\n"
+	.byte 0x30, 0x78, 0x25
+	.asciz "08x:   0x%08x    0x%08x\n"
+	.byte 0x30, 0x78, 0x25
+	.asciz "08x: 0x%08x 0x%08x\n"
+	.asciz "0x%08x:   BAD PTR\n"
+	.byte 0x30
+	.asciz "x%08x: BAD PTR\n"
+	.asciz "\nInstruction at 0x%x (read from SRR0) attempted to access invalid address 0x%x (read from DAR)\n"
+	.4byte 0x2573000A
+	.4byte 0x00307825
+	.asciz "08x: 0x%08x 0x%08x"
+	.balign 4
+

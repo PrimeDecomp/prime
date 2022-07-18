@@ -1296,3 +1296,19 @@ lbl_805AC178:
 	.4byte 0xBDC00000
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D08F8
+lbl_803D08F8:
+	# ROM: 0x3CD8F8
+	.asciz "PhazonVeins"
+	.asciz "PhazonVeins_2"
+	.byte 0x70, 0x68
+	.asciz "azonScale_LCTR_SDK"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x50, 0x68
+	.asciz "azon2nd_1"
+	.balign 4
+	.4byte 0
+

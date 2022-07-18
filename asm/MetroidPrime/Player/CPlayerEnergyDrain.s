@@ -723,3 +723,11 @@ lbl_805AC660:
 	.4byte 0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1630
+lbl_803D1630:
+	# ROM: 0x3CE630
+	.asciz "??(??)"
+	.balign 4
+

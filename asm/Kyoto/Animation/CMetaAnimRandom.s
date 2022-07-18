@@ -547,3 +547,11 @@ lbl_802E165C:
 /* 802E1664 002DE5C4  7C 08 03 A6 */	mtlr r0
 /* 802E1668 002DE5C8  38 21 00 30 */	addi r1, r1, 0x30
 /* 802E166C 002DE5CC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6D78
+lbl_803D6D78:
+	# ROM: 0x3D3D78
+	.asciz "??(??)"
+	.balign 4
+

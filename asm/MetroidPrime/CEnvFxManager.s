@@ -4508,3 +4508,76 @@ lbl_805AD028:
 	.4byte 0x7F7FFFFF
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2790
+lbl_803D2790:
+	# ROM: 0x3CF790
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x41200000
+	.4byte 0
+
+.global lbl_803D27B0
+lbl_803D27B0:
+	# ROM: 0x3CF7B0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D27C8
+lbl_803D27C8:
+	# ROM: 0x3CF7C8
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D27E0
+lbl_803D27E0:
+	# ROM: 0x3CF7E0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0xC1200000
+	.4byte 0
+
+.global lbl_803D2800
+lbl_803D2800:
+	# ROM: 0x3CF800
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000B
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+
+.global lbl_803D2818
+lbl_803D2818:
+	# ROM: 0x3CF818
+	.asciz "DUMB_SnowForces"
+	.asciz "??(??)"
+	.byte 0x56
+	.asciz "isorRainSplashes"
+	.byte 0x54, 0x58, 0x54
+	.asciz "R_EnvGradient"
+	.byte 0x50, 0x41
+	.asciz "RT_EnvRainSplash"
+	.byte 0x54, 0x58, 0x54
+	.asciz "R_SnowFlake"
+	.asciz "TXTR_UnderwaterFlake"
+	.balign 4
+	.4byte 0
+

@@ -541,3 +541,15 @@ lbl_805ADE64:
 	# ROM: 0x3FA704
 	.float 0.5
 
+
+.section .rodata
+.global lbl_803D6020
+lbl_803D6020:
+	# ROM: 0x3D3020
+	.asciz "??(??)"
+	.balign 4
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+

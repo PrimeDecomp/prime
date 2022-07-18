@@ -700,3 +700,12 @@ lbl_8006E128:
 /* 8006E130 0006B090  7C 08 03 A6 */	mtlr r0
 /* 8006E134 0006B094  38 21 00 30 */	addi r1, r1, 0x30
 /* 8006E138 0006B098  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD250
+lbl_803CD250:
+	# ROM: 0x3CA250
+	.asciz "??(??)"
+	.byte 0x4D
+	.asciz "eta-animation name unavailable in Release mode."
+

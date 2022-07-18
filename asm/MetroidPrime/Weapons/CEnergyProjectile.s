@@ -2145,3 +2145,20 @@ lbl_805AD060:
 	.float 0.5
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D2890
+lbl_803D2890:
+	# ROM: 0x3CF890
+	.asciz "ProjectileLight_GameProjectile"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x50, 0x72
+	.asciz "ojectile collision response"
+	.asciz "IceSpread1"
+	.byte 0x49
+	.asciz "ce spread explosion"
+	.asciz "GameProjectile"
+	.balign 4
+	.4byte 0
+

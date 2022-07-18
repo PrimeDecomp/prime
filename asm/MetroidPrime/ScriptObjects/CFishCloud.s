@@ -6281,3 +6281,14 @@ lbl_805AC938:
 	.4byte 0x3E124925
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1B70
+lbl_803D1B70:
+	# ROM: 0x3CEB70
+	.asciz "??(??)"
+	.byte 0x57
+	.asciz "hole Body"
+	.balign 4
+	.4byte 0
+

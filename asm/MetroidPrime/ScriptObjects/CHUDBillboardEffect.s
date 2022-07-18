@@ -685,3 +685,11 @@ lbl_801302E0:
 /* 801302E8 0012D248  EC 21 00 28 */	fsubs f1, f1, f0
 /* 801302EC 0012D24C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801302F0 0012D250  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D0048
+lbl_803D0048:
+	# ROM: 0x3CD048
+	.asciz "??(??)"
+	.balign 4
+

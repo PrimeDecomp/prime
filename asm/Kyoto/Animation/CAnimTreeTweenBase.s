@@ -1249,3 +1249,11 @@ lbl_805AE3F0:
 	.float 0.5
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D6E20
+lbl_803D6E20:
+	# ROM: 0x3D3E20
+	.asciz "??(??)"
+	.balign 4
+

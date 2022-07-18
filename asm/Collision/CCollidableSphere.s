@@ -1572,3 +1572,12 @@ lbl_805AE25C:
 	# ROM: 0x3FAAFC
 	.float -1.0
 
+
+.section .rodata
+.global lbl_803D6A90
+lbl_803D6A90:
+	# ROM: 0x3D3A90
+	.asciz "CCollidableSphere"
+	.balign 4
+	.4byte 0
+

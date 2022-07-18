@@ -197,3 +197,11 @@ __ct__16CGraphicsPaletteF14EPaletteFormati:
 /* 8030E100 0030B060  7C 08 03 A6 */	mtlr r0
 /* 8030E104 0030B064  38 21 00 20 */	addi r1, r1, 0x20
 /* 8030E108 0030B068  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D73E8
+lbl_803D73E8:
+	# ROM: 0x3D43E8
+	.asciz "??(??)"
+	.balign 4
+

@@ -2739,3 +2739,37 @@ lbl_805AEA58:
 	.float 0.25
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D8380
+lbl_803D8380:
+	# ROM: 0x3D5380
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte 0xFFFFFFFF
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+	.float 0.125
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.25
+	.4byte 0
+
+.global lbl_803D83D8
+lbl_803D83D8:
+	# ROM: 0x3D53D8
+	.asciz "??(??)"
+	.balign 4
+

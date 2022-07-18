@@ -586,3 +586,11 @@ lbl_805AE2C8:
 	# ROM: 0x3FAB68
 	.float -1.0
 
+
+.section .rodata
+.global lbl_803D6D68
+lbl_803D6D68:
+	# ROM: 0x3D3D68
+	.asciz "??(??)"
+	.balign 4
+

@@ -915,3 +915,11 @@ lbl_802EC684:
 /* 802EC6F8 002E9658  7C 08 03 A6 */	mtlr r0
 /* 802EC6FC 002E965C  38 21 00 10 */	addi r1, r1, 0x10
 /* 802EC700 002E9660  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6DD0
+lbl_803D6DD0:
+	# ROM: 0x3D3DD0
+	.asciz "??(??)"
+	.balign 4
+

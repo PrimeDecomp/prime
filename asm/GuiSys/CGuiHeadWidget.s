@@ -135,3 +135,11 @@ GetWidgetTypeID__14CGuiHeadWidgetCFv:
 /* 802C3734 002C0694  3C 60 48 57 */	lis r3, 0x48574947@ha
 /* 802C3738 002C0698  38 63 49 47 */	addi r3, r3, 0x48574947@l
 /* 802C373C 002C069C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D68A0
+lbl_803D68A0:
+	# ROM: 0x3D38A0
+	.asciz "??(??)"
+	.balign 4
+

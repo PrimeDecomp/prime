@@ -2340,3 +2340,11 @@ lbl_802F1824:
 /* 802F182C 002EE78C  7C 08 03 A6 */	mtlr r0
 /* 802F1830 002EE790  38 21 00 30 */	addi r1, r1, 0x30
 /* 802F1834 002EE794  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D6DE8
+lbl_803D6DE8:
+	# ROM: 0x3D3DE8
+	.4byte 0x003F3F28
+	.4byte 0x3F3F2900
+

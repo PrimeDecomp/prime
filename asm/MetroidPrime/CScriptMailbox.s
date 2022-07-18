@@ -484,3 +484,11 @@ __ct__14CScriptMailboxFv:
 /* 800E205C 000DEFBC  7C 08 03 A6 */	mtlr r0
 /* 800E2060 000DEFC0  38 21 00 10 */	addi r1, r1, 0x10
 /* 800E2064 000DEFC4  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE5C0
+lbl_803CE5C0:
+	# ROM: 0x3CB5C0
+	.asciz "??(??)"
+	.balign 4
+

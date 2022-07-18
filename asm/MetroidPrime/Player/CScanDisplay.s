@@ -2450,3 +2450,11 @@ lbl_805ABE6C:
 	# ROM: 0x3F870C
 	.4byte 0x42700000
 
+
+.section .rodata
+.global lbl_803D0620
+lbl_803D0620:
+	# ROM: 0x3CD620
+	.asciz "TXTR_DataDot"
+	.balign 4
+

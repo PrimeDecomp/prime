@@ -5599,3 +5599,50 @@ lbl_805ADD50:
 	.float 255.0
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D5C38
+lbl_803D5C38:
+	# ROM: 0x3D2C38
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803D5C48
+lbl_803D5C48:
+	# ROM: 0x3D2C48
+	.asciz "slideshow"
+	.byte 0x47, 0x61
+	.asciz "llery"
+	.byte 0x47, 0x61
+	.asciz "lleryAssets_DGRP"
+	.byte 0x54, 0x58, 0x54
+	.asciz "R_GalleryTag"
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_GalleryBorder"
+	.asciz "Audio/frontend_1.rsf"
+	.byte 0x53, 0x54, 0x52
+	.asciz "G_SlideShow_Unlock1_"
+	.byte 0x53, 0x54, 0x52
+	.asciz "G_SlideShow_Unlock2_"
+	.byte 0x25, 0x64, 0x2F
+	.4byte 0x25640025
+	.asciz "sSI,0.6,1.0,%8.8X%s"
+	.4byte 0x20202000
+	.asciz "%s%8.8X%s"
+	.byte 0x20, 0x00
+	.4byte 0x20200025
+	.asciz "sSI,1.0,1.0,%8.8X%s"
+	.asciz "??(??)"
+	.byte 0x31
+	.4byte 0x00320025
+	.asciz "s%02d_DGRP"
+	.byte 0x25
+	.asciz "s%02d"
+	.byte 0x25, 0x73
+	.asciz "_%02d_%03d"
+	.byte 0x53
+	.asciz "lideShow"
+	.balign 4
+

@@ -523,3 +523,13 @@ lbl_805ADE04:
 	# ROM: 0x3FA6A4
 	.float 0.1
 
+
+.section .rodata
+.global lbl_803D5E98
+lbl_803D5E98:
+	# ROM: 0x3D2E98
+	.asciz "CMDL_GameCube"
+	.byte 0x3F, 0x3F
+	.asciz "(??)"
+	.balign 4
+

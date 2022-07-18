@@ -4996,3 +4996,11 @@ __sinit_CWorld_cpp:
 /* 80059F14 00056E74  90 0D A2 18 */	stw r0, lbl_805A8DD8@sda21(r13)
 /* 80059F18 00056E78  90 0D A2 1C */	stw r0, lbl_805A8DDC@sda21(r13)
 /* 80059F1C 00056E7C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CCF70
+lbl_803CCF70:
+	# ROM: 0x3C9F70
+	.4byte 0x003F3F28
+	.4byte 0x3F3F2900
+

@@ -414,3 +414,11 @@ lbl_8011D4A0:
 /* 8011D4A8 0011A408  40 82 FF 68 */	bne lbl_8011D410
 /* 8011D4AC 0011A40C  7C A3 2B 78 */	mr r3, r5
 /* 8011D4B0 0011A410  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CF318
+lbl_803CF318:
+	# ROM: 0x3CC318
+	.asciz "??(??)"
+	.balign 4
+

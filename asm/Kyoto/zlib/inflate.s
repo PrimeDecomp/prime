@@ -636,3 +636,150 @@ lbl_80343BAC:
 /* 80343BB4 00340B14  7C 08 03 A6 */	mtlr r0
 /* 80343BB8 00340B18  38 21 00 10 */	addi r1, r1, 0x10
 /* 80343BBC 00340B1C  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7BD8
+lbl_803D7BD8:
+	# ROM: 0x3D4BD8
+	.asciz "unknown compression method"
+	.byte 0x69
+	.asciz "nvalid window size"
+	.byte 0x69
+	.asciz "ncorrect header check"
+	.byte 0x6E, 0x65
+	.asciz "ed dictionary"
+	.byte 0x69, 0x6E
+	.asciz "correct data check"
+	.byte 0x31
+	.asciz ".1.3"
+	.balign 4
+	.4byte 0
+
+.global lbl_803D7C50
+lbl_803D7C50:
+	# ROM: 0x3D4C50
+	.asciz " inflate 1.1.3 Copyright 1995-1998 Mark Adler "
+	.balign 4
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0x00000009
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000D
+	.4byte 0x0000000F
+	.4byte 0x00000011
+	.4byte 0x00000013
+	.4byte 0x00000017
+	.4byte 0x0000001B
+	.4byte 0x0000001F
+	.4byte 0x00000023
+	.4byte 0x0000002B
+	.4byte 0x00000033
+	.4byte 0x0000003B
+	.4byte 0x00000043
+	.4byte 0x00000053
+	.4byte 0x00000063
+	.4byte 0x00000073
+	.4byte 0x00000083
+	.4byte 0x000000A3
+	.4byte 0x000000C3
+	.4byte 0x000000E3
+	.4byte 0x00000102
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0
+	.4byte 0x00000070
+	.4byte 0x00000070
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000007
+	.4byte 0x00000009
+	.4byte 0x0000000D
+	.4byte 0x00000011
+	.4byte 0x00000019
+	.4byte 0x00000021
+	.4byte 0x00000031
+	.4byte 0x00000041
+	.4byte 0x00000061
+	.4byte 0x00000081
+	.4byte 0x000000C1
+	.4byte 0x00000101
+	.4byte 0x00000181
+	.4byte 0x00000201
+	.4byte 0x00000301
+	.4byte 0x00000401
+	.4byte 0x00000601
+	.4byte 0x00000801
+	.4byte 0x00000C01
+	.4byte 0x00001001
+	.4byte 0x00001801
+	.4byte 0x00002001
+	.4byte 0x00003001
+	.4byte 0x00004001
+	.4byte 0x00006001
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0x00000008
+	.4byte 0x00000009
+	.4byte 0x00000009
+	.4byte 0x0000000A
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0x0000000C
+	.4byte 0x0000000D
+	.4byte 0x0000000D
+

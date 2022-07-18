@@ -301,3 +301,11 @@ lbl_8033F77C:
 /* 8033F7A0 0033C700  7C 08 03 A6 */	mtlr r0
 /* 8033F7A4 0033C704  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033F7A8 0033C708  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D7A70
+lbl_803D7A70:
+	# ROM: 0x3D4A70
+	.asciz "??(??)"
+	.balign 4
+

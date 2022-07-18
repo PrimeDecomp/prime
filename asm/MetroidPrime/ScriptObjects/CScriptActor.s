@@ -987,3 +987,12 @@ lbl_80075C1C:
 /* 80075C54 00072BB4  7C 08 03 A6 */	mtlr r0
 /* 80075C58 00072BB8  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 80075C5C 00072BBC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD5E8
+lbl_803CD5E8:
+	# ROM: 0x3CA5E8
+	.asciz "Whole Body"
+	.balign 4
+	.4byte 0
+

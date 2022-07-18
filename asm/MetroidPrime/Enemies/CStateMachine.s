@@ -853,3 +853,11 @@ lbl_80080174:
 /* 80080184 0007D0E4  7C 08 03 A6 */	mtlr r0
 /* 80080188 0007D0E8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8008018C 0007D0EC  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CD628
+lbl_803CD628:
+	# ROM: 0x3CA628
+	.asciz "??(??)"
+	.balign 4
+

@@ -790,3 +790,12 @@ lbl_805AD5C8:
 	.float 0.1
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D4798
+lbl_803D4798:
+	# ROM: 0x3D1798
+	.asciz "Whole Body"
+	.balign 4
+	.4byte 0
+

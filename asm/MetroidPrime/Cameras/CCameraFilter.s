@@ -3415,3 +3415,112 @@ __sinit_CCameraFilter_cpp:
 /* 800ED7E0 000EA740  7C 08 03 A6 */	mtlr r0
 /* 800ED7E4 000EA744  38 21 00 10 */	addi r1, r1, 0x10
 /* 800ED7E8 000EA748  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803CE650
+lbl_803CE650:
+	# ROM: 0x3CB650
+	.4byte 0x803CE738
+	.4byte 0x803CE744
+	.4byte 0x803CE750
+	.4byte 0x803CE75C
+	.4byte 0x803CE768
+	.4byte 0x803CE774
+	.4byte 0x803CE780
+	.4byte 0x803CE78C
+	.4byte 0x803CE798
+	.4byte 0x803CE7A4
+	.4byte 0x803CE7C5
+	.4byte 0x803CE7E6
+	.4byte 0x803CE807
+	.4byte 0x803CE828
+	.4byte 0x803CE849
+	.4byte 0x803CE86A
+	.4byte 0x803CE88B
+	.4byte 0x803CE8AC
+	.4byte 0x803CE8CD
+	.4byte 0x803CE8D6
+	.4byte 0x803CE8DF
+	.4byte 0x803CE8E8
+
+.global lbl_803CE6A8
+lbl_803CE6A8:
+	# ROM: 0x3CB6A8
+	.4byte 0x803CE8F1
+	.4byte 0x803CE8F1
+	.4byte 0x803CE8F1
+	.4byte 0x803CE8F2
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000001
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000009
+	.4byte 0x00000001
+	.4byte 0x0000000D
+	.4byte 0x00000001
+	.4byte 0x000000FF
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+
+.global lbl_803CE738
+lbl_803CE738:
+	# ROM: 0x3CB738
+	.asciz "PassThru   "
+	.asciz "Multiply   "
+	.asciz "Invert     "
+	.asciz "Add        "
+	.asciz "Subtract   "
+	.asciz "Blend      "
+	.asciz "WideScreen "
+	.asciz "SceneAdd   "
+	.asciz "NoColor    "
+	.asciz "FullScreen                      "
+	.byte 0x46, 0x75, 0x6C
+	.asciz "lScreenHalvesLeftRight       "
+	.byte 0x46, 0x75
+	.asciz "llScreenHalvesTopBottom       "
+	.byte 0x46
+	.asciz "ullScreenQuarters              "
+	.asciz "CinemaBars                      "
+	.byte 0x53, 0x63, 0x61
+	.asciz "nLinesEven                   "
+	.byte 0x53, 0x63
+	.asciz "anLinesOdd                    "
+	.byte 0x52
+	.asciz "andomStatic                    "
+	.asciz "CookieCutterDepthRandomStatic   "
+	.byte 0x4E, 0x6F, 0x42
+	.asciz "lur  "
+	.byte 0x4C, 0x6F
+	.asciz "Blur  "
+	.byte 0x48
+	.asciz "iBlur  "
+	.asciz "XRay    "
+	.byte 0x00, 0x54, 0x58
+	.asciz "TR_XRayPalette"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
+	.4byte 0
+

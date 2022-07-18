@@ -1410,3 +1410,59 @@ lbl_8021D428:
 /* 8021D430 0021A390  7C 08 03 A6 */	mtlr r0
 /* 8021D434 0021A394  38 21 00 30 */	addi r1, r1, 0x30
 /* 8021D438 0021A398  4E 80 00 20 */	blr
+
+.section .rodata
+.global lbl_803D3038
+lbl_803D3038:
+	# ROM: 0x3D0038
+	.asciz "String"
+	.byte 0x49
+	.4byte 0x6E740052
+	.4byte 0x65616C00
+	.asciz "Bool"
+	.byte 0x41, 0x75, 0x64
+	.4byte 0x696F003F
+	.asciz "?(??)"
+	.byte 0x4D, 0x69
+	.asciz "diObject"
+	.byte 0x57, 0x6F, 0x72
+	.asciz "ld %8.8x"
+	.byte 0x41, 0x72, 0x65
+	.asciz "a %8.8x MusicObject: %s"
+	.asciz "World %8.8x Area %8.8x MidiObject: %s"
+	.byte 0x57, 0x6F
+	.asciz "rldDefault: %8.8x"
+	.byte 0x2E, 0x61
+	.4byte 0x64700041
+	.asciz "udio/"
+	.byte 0x4D, 0x49
+	.asciz "DI: "
+	.byte 0x54, 0x77, 0x65
+	.asciz "akFile\n"
+	.asciz "Version %d\n"
+	.asciz "Value Count: %d\n"
+	.byte 0x5F, 0x5F, 0x42
+	.asciz "AD_TOKEN__"
+	.byte 0x56
+	.asciz "alue\n{\n   Name: %s\n   Type: %s\n   Value: %s\n}\n"
+	.byte 0x54
+	.asciz "weakFile"
+	.byte 0x56, 0x65, 0x72
+	.asciz "sion %d"
+	.asciz "Value Count: %d"
+	.4byte 0x00547275
+	.4byte 0x65003B00
+	.4byte 0x25640025
+	.4byte 0x66004661
+	.4byte 0x6C736500
+	.asciz "%f;%f;%f;%s;%d"
+	.byte 0x56
+	.asciz "alue"
+	.byte 0x7B, 0x00, 0x4E
+	.asciz "ame:"
+	.byte 0x54, 0x79, 0x70
+	.4byte 0x653A0056
+	.asciz "alue:"
+	.byte 0x20, 0x09
+	.4byte 0x0A0D2200
+

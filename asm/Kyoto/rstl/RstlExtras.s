@@ -608,3 +608,15 @@ lbl_8033EC10:
 /* 8033EC20 0033BB80  38 21 00 10 */	addi r1, r1, 0x10
 /* 8033EC24 0033BB84  4E 80 00 20 */	blr
 
+
+.section .rodata
+.global lbl_803D7A50
+lbl_803D7A50:
+	# ROM: 0x3D4A50
+	.asciz "??(??)"
+	.byte 0x25
+	.asciz "%.%df"
+	.byte 0x30, 0x00
+	.4byte 0x2D000000
+	.4byte 0
+

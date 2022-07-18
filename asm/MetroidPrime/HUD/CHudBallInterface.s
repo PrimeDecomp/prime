@@ -415,3 +415,27 @@ lbl_805AC8C8:
 	.float 0.01
 	.4byte 0
 
+
+.section .rodata
+.global lbl_803D1AD8
+lbl_803D1AD8:
+	# ROM: 0x3CEAD8
+	.asciz "basewidget_bombstuff"
+	.balign 4
+	.asciz "textpane_bombdigits"
+	.asciz "group_bombcount"
+	.asciz "model_bomb_text"
+	.asciz "model_bombicon"
+	.balign 4
+	.asciz "basewidget_energydeco"
+	.balign 4
+	.asciz "basewidget_bombdeco"
+
+.global lbl_803D1B60
+lbl_803D1B60:
+	# ROM: 0x3CEB60
+	.asciz "%02d"
+	.byte 0x25, 0x73, 0x25
+	.4byte 0x64000000
+	.4byte 0
+
