@@ -5,7 +5,15 @@
 
 #include "rstl/rc_ptr.hpp"
 
-#include "TGameTypes.hpp"
+typedef u32 CAssetId;
+typedef u32 FourCC;
+
+struct SObjectTag {
+  FourCC type;
+  CAssetId id;
+
+  SObjectTag(const SObjectTag& other) : type(other.type), id(other.id) {}
+};
 
 class IObjectStore;
 class IObj;

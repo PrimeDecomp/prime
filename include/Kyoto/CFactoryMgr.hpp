@@ -5,7 +5,7 @@
 
 #include "CToken.hpp"
 #include "IObjectStore.hpp"
-#include "TGameTypes.hpp"
+#include "Streams/CInputStream.hpp"
 
 class CFactoryMgr {
 public:

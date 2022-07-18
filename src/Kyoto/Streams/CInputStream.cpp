@@ -1,8 +1,8 @@
-#include "Kyoto_CWD/CInputStream.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
 
 #include "string.h"
 
-#include "Kyoto_CWD/CMemory.hpp"
+#include "Kyoto/Alloc/CMemory.hpp"
 
 static u8 c;
 static u16 s;

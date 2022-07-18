@@ -8,7 +8,7 @@
 
 #include "CDvdFile.hpp"
 #include "CResLoader.hpp"
-#include "TGameTypes.hpp"
+#include "IObjectStore.hpp"
 
 class CPakFile : CDvdFile {
 public:

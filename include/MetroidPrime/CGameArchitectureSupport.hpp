@@ -4,9 +4,9 @@
 #include "types.h"
 
 #include "CIOWinManager.hpp"
-#include "COsContext.hpp"
-#include "CStopwatch.hpp"
-#include "TOneStatic.hpp"
+#include "Kyoto/Basics/COsContext.hpp"
+#include "Kyoto/Basics/CStopwatch.hpp"
+#include "Kyoto/TOneStatic.hpp"
 
 class CGameArchitectureSupport : public TOneStatic< CGameArchitectureSupport > {
 public:

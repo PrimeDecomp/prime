@@ -8,13 +8,12 @@
 #include "rstl/vector.hpp"
 
 #include "CGameOptions.hpp"
-#include "CGameState.hpp"
 #include "CHintOptions.hpp"
 #include "CPlayerState.hpp"
 #include "CSystemOptions.hpp"
 #include "CWorldState.hpp"
 #include "CWorldTransManager.hpp"
-#include "TGameTypes.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 class CGameState {
 public:

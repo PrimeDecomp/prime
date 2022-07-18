@@ -7,8 +7,8 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
-#include "CInputStream.hpp"
-#include "TGameTypes.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 class CGameOptions {
 public:

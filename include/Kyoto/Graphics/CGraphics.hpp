@@ -3,6 +3,9 @@
 
 #include "types.h"
 
+#include "Kyoto/Math/CColor.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+
 #include "CTevCombiners.hpp"
 
 enum ERglTevStage {

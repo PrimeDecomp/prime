@@ -3,10 +3,11 @@
 
 #include "types.h"
 
-#include "TGameTypes.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
+
+#include "MetroidPrime/TGameTypes.hpp"
 
 class CSystemOptions {
 public:
