@@ -42,6 +42,24 @@ lbl_805A7620:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AB388
+lbl_805AB388:
+	# ROM: 0x3F7C28
+	.float 0.5
+
+.global lbl_805AB38C
+lbl_805AB38C:
+	# ROM: 0x3F7C2C
+	.4byte 0
+
+.global lbl_805AB390
+lbl_805AB390:
+	# ROM: 0x3F7C30
+	.float 1.0
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetTouchBounds__25CScriptSpiderBallWaypointCFv

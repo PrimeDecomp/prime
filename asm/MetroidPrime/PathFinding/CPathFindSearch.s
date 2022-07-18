@@ -2560,3 +2560,31 @@ __ct__11CPFOpenListFv:
 /* 801C8E9C 001C5DFC  7C 08 03 A6 */	mtlr r0
 /* 801C8EA0 001C5E00  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C8EA4 001C5E04  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC848
+lbl_805AC848:
+	# ROM: 0x3F90E8
+	.float 0.3
+
+.global lbl_805AC84C
+lbl_805AC84C:
+	# ROM: 0x3F90EC
+	.4byte 0
+
+.global lbl_805AC850
+lbl_805AC850:
+	# ROM: 0x3F90F0
+	.float 1.0E-4
+
+.global lbl_805AC854
+lbl_805AC854:
+	# ROM: 0x3F90F4
+	.float 0.5
+
+.global lbl_805AC858
+lbl_805AC858:
+	# ROM: 0x3F90F8
+	.4byte 0x41200000
+	.4byte 0
+

@@ -187,3 +187,15 @@ sub_8029c858:
 /* 8029C878 002997D8  7C 08 03 A6 */	mtlr r0
 /* 8029C87C 002997DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8029C880 002997E0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADD58
+lbl_805ADD58:
+	# ROM: 0x3FA5F8
+	.4byte 0
+
+.global lbl_805ADD5C
+lbl_805ADD5C:
+	# ROM: 0x3FA5FC
+	.float 0.001
+

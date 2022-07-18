@@ -82,6 +82,58 @@ lbl_805A74D0:
 	.4byte 0x00000038
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AB058
+lbl_805AB058:
+	# ROM: 0x3F78F8
+	.4byte 0
+
+.global lbl_805AB05C
+lbl_805AB05C:
+	# ROM: 0x3F78FC
+	.4byte 0x3727C5AC
+
+.global lbl_805AB060
+lbl_805AB060:
+	# ROM: 0x3F7900
+	.float 0.75
+
+.global lbl_805AB064
+lbl_805AB064:
+	# ROM: 0x3F7904
+	.float 0.2
+
+.global lbl_805AB068
+lbl_805AB068:
+	# ROM: 0x3F7908
+	.float 1.0
+
+.global lbl_805AB06C
+lbl_805AB06C:
+	# ROM: 0x3F790C
+	.float 0.5
+
+.global lbl_805AB070
+lbl_805AB070:
+	# ROM: 0x3F7910
+	.4byte 0x40C00000
+
+.global lbl_805AB074
+lbl_805AB074:
+	# ROM: 0x3F7914
+	.4byte 0xBFC90FDB
+
+.global lbl_805AB078
+lbl_805AB078:
+	# ROM: 0x3F7918
+	.4byte 0x3FC90FDB
+
+.global lbl_805AB07C
+lbl_805AB07C:
+	# ROM: 0x3F791C
+	.4byte 0x40490FDB
+
 .section .text, "ax"
 
 .global Accept__24CScriptDamageableTriggerFR8IVisitor

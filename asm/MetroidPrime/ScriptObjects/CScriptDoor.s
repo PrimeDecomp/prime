@@ -2,7 +2,6 @@
 
 .section .data
 
-
 .global lbl_803DAA78
 lbl_803DAA78:
 	# ROM: 0x3D7A78
@@ -124,6 +123,34 @@ lbl_805A8E40:
 .global lbl_805A8E44
 lbl_805A8E44:
 	.skip 0x4
+
+.section .sdata2, "a"
+
+.global lbl_805AA688
+lbl_805AA688:
+	# ROM: 0x3F6F28
+	.4byte 0
+
+.global lbl_805AA68C
+lbl_805AA68C:
+	# ROM: 0x3F6F2C
+	.4byte 0x3D4CCCCD
+
+.global lbl_805AA690
+lbl_805AA690:
+	# ROM: 0x3F6F30
+	.float 1.0
+
+.global lbl_805AA694
+lbl_805AA694:
+	# ROM: 0x3F6F34
+	.float 0.3
+
+.global lbl_805AA698
+lbl_805AA698:
+	# ROM: 0x3F6F38
+	.float 0.1
+	.4byte 0
 
 .section .text, "ax"
 

@@ -4,7 +4,7 @@
 .global lbl_805AEBE8
 lbl_805AEBE8:
 	# ROM: 0x3FB488
-	.4byte 0x3F000000
+	.float 0.5
 
 .global lbl_805AEBEC
 lbl_805AEBEC:

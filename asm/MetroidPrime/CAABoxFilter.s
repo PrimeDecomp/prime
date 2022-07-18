@@ -130,3 +130,11 @@ lbl_801859E0:
 /* 80185A04 00182964  7C 08 03 A6 */	mtlr r0
 /* 80185A08 00182968  38 21 0C 30 */	addi r1, r1, 0xc30
 /* 80185A0C 0018296C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC028
+lbl_805AC028:
+	# ROM: 0x3F88C8
+	.4byte 0x461C4000
+	.4byte 0
+

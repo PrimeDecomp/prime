@@ -41,6 +41,13 @@ lbl_805A7298:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AAB40
+lbl_805AAB40:
+	# ROM: 0x3F73E0
+	.float 0
+	.4byte 0
 
 .section .text, "ax"
 

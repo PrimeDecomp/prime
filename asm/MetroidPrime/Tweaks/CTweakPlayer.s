@@ -27,6 +27,18 @@ lbl_805A8CD0:
 lbl_805A8CD4:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AA118
+lbl_805AA118:
+	# ROM: 0x3F69B8
+	.4byte 0
+
+.global lbl_805AA11C
+lbl_805AA11C:
+	# ROM: 0x3F69BC
+	.float 0.017453292
+
 .section .text, "ax"
 
 .global __ct__12CTweakPlayerFR12CInputStream

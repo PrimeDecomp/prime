@@ -882,3 +882,20 @@ __ct__7CPuffer:
 /* 8025CC18 00259B78  7C 08 03 A6 */	mtlr r0
 /* 8025CC1C 00259B7C  38 21 00 80 */	addi r1, r1, 0x80
 /* 8025CC20 00259B80  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD70C
+lbl_805AD70C:
+	# ROM: 0x3F9FAC
+	.float 1.0
+
+.global lbl_805AD710
+lbl_805AD710:
+	# ROM: 0x3F9FB0
+	.float 0.5
+
+.global lbl_805AD714
+lbl_805AD714:
+	# ROM: 0x3F9FB4
+	.float -1.0
+

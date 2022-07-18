@@ -758,3 +758,27 @@ __ct__26CStandardMultiFormatHeaderFR12CInputStream:
 /* 802FC34C 002F92AC  7C 08 03 A6 */	mtlr r0
 /* 802FC350 002F92B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 802FC354 002F92B4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE418
+lbl_805AE418:
+	# ROM: 0x3FACB8
+	.4byte 0
+
+.global lbl_805AE41C
+lbl_805AE41C:
+	# ROM: 0x3FACBC
+	.4byte 0x3727C5AC
+
+.global lbl_805AE420
+lbl_805AE420:
+	# ROM: 0x3FACC0
+	.4byte 0x3D000000
+	.4byte 0
+
+.global lbl_805AE428
+lbl_805AE428:
+	# ROM: 0x3FACC8
+	.4byte 0x43300000
+	.4byte 0
+

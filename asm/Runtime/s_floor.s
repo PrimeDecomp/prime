@@ -98,3 +98,17 @@ lbl_803945F8:
 lbl_80394604:
 /* 80394604 00391564  38 21 00 10 */	addi r1, r1, 0x10
 /* 80394608 00391568  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AF1C0
+lbl_805AF1C0:
+	# ROM: 0x3FBA60
+	.4byte 0x7E37E43C
+	.4byte 0x8800759C
+
+.global lbl_805AF1C8
+lbl_805AF1C8:
+	# ROM: 0x3FBA68
+	.4byte 0
+	.4byte 0
+

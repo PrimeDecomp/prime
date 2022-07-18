@@ -1296,3 +1296,25 @@ __ct__13CPFRegionDataFv:
 /* 801CA160 001C70C0  90 03 00 28 */	stw r0, 0x28(r3)
 /* 801CA164 001C70C4  90 03 00 2C */	stw r0, 0x2c(r3)
 /* 801CA168 001C70C8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC860
+lbl_805AC860:
+	# ROM: 0x3F9100
+	.float 0.5
+
+.global lbl_805AC864
+lbl_805AC864:
+	# ROM: 0x3F9104
+	.float 1.1920929E-7
+
+.global lbl_805AC868
+lbl_805AC868:
+	# ROM: 0x3F9108
+	.float 1.0
+
+.global lbl_805AC86C
+lbl_805AC86C:
+	# ROM: 0x3F910C
+	.4byte 0
+

@@ -46,7 +46,7 @@ lbl_805A8718:
 .global lbl_805A871C
 lbl_805A871C:
 	# ROM: 0x3F60BC
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .text, "ax"
 
@@ -579,3 +579,10 @@ __ct__19CMetaAnimPhaseBlendFR12CInputStream:
 /* 802E09DC 002DD93C  7C 08 03 A6 */	mtlr r0
 /* 802E09E0 002DD940  38 21 00 20 */	addi r1, r1, 0x20
 /* 802E09E4 002DD944  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE2C8
+lbl_805AE2C8:
+	# ROM: 0x3FAB68
+	.float -1.0
+

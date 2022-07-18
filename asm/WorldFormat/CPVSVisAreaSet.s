@@ -2,8 +2,9 @@
 
 .section .text, "ax"
 
-.global GetEntityIdByIndex__13CPVSVisOctreeFi
-GetEntityIdByIndex__13CPVSVisOctreeFi:
+# may be i instead of Ui?
+.global GetEntityIdByIndex__11CPVSAreaSetCFUi
+GetEntityIdByIndex__11CPVSAreaSetCFUi:
 /* 802AE3E4 002AB344  80 63 00 18 */	lwz r3, 0x18(r3)
 /* 802AE3E8 002AB348  54 80 10 3A */	slwi r0, r4, 2
 /* 802AE3EC 002AB34C  7C 63 00 2E */	lwzx r3, r3, r0
@@ -50,8 +51,8 @@ lbl_802AE474:
 /* 802AE47C 002AB3DC  38 21 00 20 */	addi r1, r1, 0x20
 /* 802AE480 002AB3E0  4E 80 00 20 */	blr
 
-.global GetVisOctree__13CPVSVisOctreeFv
-GetVisOctree__13CPVSVisOctreeFv:
+.global GetVisOctree__11CPVSAreaSetCFUi
+GetVisOctree__11CPVSAreaSetCFUi:
 /* 802AE484 002AB3E4  38 63 00 20 */	addi r3, r3, 0x20
 /* 802AE488 002AB3E8  4E 80 00 20 */	blr
 

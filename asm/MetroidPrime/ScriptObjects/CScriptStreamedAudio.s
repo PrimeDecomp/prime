@@ -795,3 +795,11 @@ sub_8020c844:
 /* 8020C848 002097A8  80 04 00 04 */	lwz r0, 4(r4)
 /* 8020C84C 002097AC  7C 63 00 50 */	subf r3, r3, r0
 /* 8020C850 002097B0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ACED8
+lbl_805ACED8:
+	# ROM: 0x3F9778
+	.4byte 0x42FE0000
+	.4byte 0
+

@@ -510,3 +510,11 @@ VAdvanceView__28CAnimTreeAnimReaderContainerFRC13CCharAnimTime:
 /* 802F1E50 002EEDB0  7C 08 03 A6 */	mtlr r0
 /* 802F1E54 002EEDB4  38 21 00 10 */	addi r1, r1, 0x10
 /* 802F1E58 002EEDB8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE3A0
+lbl_805AE3A0:
+	# ROM: 0x3FAC40
+	.float 1.0
+	.4byte 0
+

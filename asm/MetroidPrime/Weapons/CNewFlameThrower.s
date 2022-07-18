@@ -44,7 +44,7 @@ lbl_805A83C8:
 .global lbl_805A83CC
 lbl_805A83CC:
 	# ROM: 0x3F5D6C
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A83D0
 lbl_805A83D0:
@@ -74,7 +74,7 @@ lbl_805A83E0:
 .global lbl_805A83E4
 lbl_805A83E4:
 	# ROM: 0x3F5D84
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A83E8
 lbl_805A83E8:
@@ -4571,3 +4571,65 @@ __sinit_CNewFlameThrower_cpp:
 /* 80264FB0 00261F10  7C 08 03 A6 */	mtlr r0
 /* 80264FB4 00261F14  38 21 00 20 */	addi r1, r1, 0x20
 /* 80264FB8 00261F18  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD788
+lbl_805AD788:
+	# ROM: 0x3FA028
+	.float 1.0
+
+.global lbl_805AD78C
+lbl_805AD78C:
+	# ROM: 0x3FA02C
+	.4byte 0
+
+.global lbl_805AD790
+lbl_805AD790:
+	# ROM: 0x3FA030
+	.float 0.1
+
+.global lbl_805AD794
+lbl_805AD794:
+	# ROM: 0x3FA034
+	.float 0.75
+
+.global lbl_805AD798
+lbl_805AD798:
+	# ROM: 0x3FA038
+	.4byte 0x40400000
+
+.global lbl_805AD79C
+lbl_805AD79C:
+	# ROM: 0x3FA03C
+	.float 0.5
+
+.global lbl_805AD7A0
+lbl_805AD7A0:
+	# ROM: 0x3FA040
+	.4byte 0x3C888889
+
+.global lbl_805AD7A4
+lbl_805AD7A4:
+	# ROM: 0x3FA044
+	.float 4.0
+
+.global lbl_805AD7A8
+lbl_805AD7A8:
+	# ROM: 0x3FA048
+	.4byte 0x3F266666
+
+.global lbl_805AD7AC
+lbl_805AD7AC:
+	# ROM: 0x3FA04C
+	.float 2.0
+
+.global lbl_805AD7B0
+lbl_805AD7B0:
+	# ROM: 0x3FA050
+	.4byte 0x41F00000
+
+.global lbl_805AD7B4
+lbl_805AD7B4:
+	# ROM: 0x3FA054
+	.float 0.7
+

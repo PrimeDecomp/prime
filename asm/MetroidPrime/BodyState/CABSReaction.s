@@ -389,3 +389,21 @@ __ct__12CABSReactionFv:
 /* 801F1A5C 001EE9BC  90 83 00 0C */	stw r4, 0xc(r3)
 /* 801F1A60 001EE9C0  98 03 00 10 */	stb r0, 0x10(r3)
 /* 801F1A64 001EE9C4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ACBF0
+lbl_805ACBF0:
+	# ROM: 0x3F9490
+	.4byte 0
+
+.global lbl_805ACBF4
+lbl_805ACBF4:
+	# ROM: 0x3F9494
+	.4byte 0x3727C5AC
+
+.global lbl_805ACBF8
+lbl_805ACBF8:
+	# ROM: 0x3F9498
+	.float 1.0
+	.4byte 0
+

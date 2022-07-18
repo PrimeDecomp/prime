@@ -109,8 +109,8 @@ lbl_803D8AC0:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x40000000
-	.4byte 0x40000000
+	.float 2.0
+	.float 2.0
 
 .global lbl_803D8B48
 lbl_803D8B48:

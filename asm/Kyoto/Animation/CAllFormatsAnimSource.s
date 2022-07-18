@@ -496,3 +496,11 @@ __ct__16CAnimFormatUnionFR12CInputStreamR12IObjectStore:
 /* 802FE5C8 002FB528  7C 08 03 A6 */	mtlr r0
 /* 802FE5CC 002FB52C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802FE5D0 002FB530  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE450
+lbl_805AE450:
+	# ROM: 0x3FACF0
+	.4byte 0
+	.4byte 0
+

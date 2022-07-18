@@ -2372,3 +2372,15 @@ sub_8028a918:
 /* 8028A9C0 00287920  50 80 3E 30 */	rlwimi r0, r4, 7, 0x18, 0x18
 /* 8028A9C4 00287924  98 03 00 00 */	stb r0, 0(r3)
 /* 8028A9C8 00287928  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADB80
+lbl_805ADB80:
+	# ROM: 0x3FA420
+	.4byte 0
+
+.global lbl_805ADB84
+lbl_805ADB84:
+	# ROM: 0x3FA424
+	.float 1.0
+

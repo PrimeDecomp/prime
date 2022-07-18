@@ -72,3 +72,11 @@ __sinit_CloseEnough_cpp:
 /* 8030FFEC 0030CF4C  7C 08 03 A6 */	mtlr r0
 /* 8030FFF0 0030CF50  38 21 00 10 */	addi r1, r1, 0x10
 /* 8030FFF4 0030CF54  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE568
+lbl_805AE568:
+	# ROM: 0x3FAE08
+	.4byte 0
+	.4byte 0
+

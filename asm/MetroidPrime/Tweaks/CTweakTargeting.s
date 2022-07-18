@@ -20,6 +20,24 @@ lbl_805A8EA8:
 lbl_805A8EAC:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AAA18
+lbl_805AAA18:
+	# ROM: 0x3F72B8
+	.float -1.0
+
+.global lbl_805AAA1C
+lbl_805AAA1C:
+	# ROM: 0x3F72BC
+	.float 6.2831855
+
+.global lbl_805AAA20
+lbl_805AAA20:
+	# ROM: 0x3F72C0
+	.4byte 0x3B360B61
+	.4byte 0
+
 .section .text, "ax"
 
 .global __ct__15CTweakTargetingFR12CInputStream

@@ -24,6 +24,24 @@ lbl_803DF758:
 	.4byte IsLoaded__10CPowerBeamCFv
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AAC88
+lbl_805AAC88:
+	# ROM: 0x3F7528
+	.4byte 0x06EA06E7
+
+.global lbl_805AAC8C
+lbl_805AAC8C:
+	# ROM: 0x3F752C
+	.float 2.0
+
+.global lbl_805AAC90
+lbl_805AAC90:
+	# ROM: 0x3F7530
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global EnableSecondaryFx__10CPowerBeamFQ210CGunWeapon16ESecondaryFxType

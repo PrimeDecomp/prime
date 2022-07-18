@@ -197,7 +197,7 @@ lbl_803EE2E0:
 .global lbl_805A88F8
 lbl_805A88F8:
 	# ROM: 0x3F6298
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 
 .section .text, "ax"
@@ -2996,3 +2996,52 @@ lbl_80336FA4:
 IsFastConstant__15CVEFastConstantCF:
 /* 80336FBC 00333F1C  38 60 00 01 */	li r3, 1
 /* 80336FC0 00333F20  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE870
+lbl_805AE870:
+	# ROM: 0x3FB110
+	.4byte 0x3B808081
+
+.global lbl_805AE874
+lbl_805AE874:
+	# ROM: 0x3FB114
+	.4byte 0
+
+.global lbl_805AE878
+lbl_805AE878:
+	# ROM: 0x3FB118
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE880
+lbl_805AE880:
+	# ROM: 0x3FB120
+	.double 4.503601774854144E15
+
+.global lbl_805AE888
+lbl_805AE888:
+	# ROM: 0x3FB128
+	.float 0.017453292
+
+.global lbl_805AE88C
+lbl_805AE88C:
+	# ROM: 0x3FB12C
+	.4byte 0x43B40000
+
+.global lbl_805AE890
+lbl_805AE890:
+	# ROM: 0x3FB130
+	.4byte 0x3F4CCCCD
+
+.global lbl_805AE894
+lbl_805AE894:
+	# ROM: 0x3FB134
+	.float 0.5
+
+.global lbl_805AE898
+lbl_805AE898:
+	# ROM: 0x3FB138
+	.float 2.0
+	.4byte 0
+

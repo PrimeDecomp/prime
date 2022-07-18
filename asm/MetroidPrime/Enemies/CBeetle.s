@@ -287,6 +287,118 @@ lbl_805A8EC8:
 lbl_805A8ECC:
 	.skip 0x4
 
+.section .sdata2, "a"
+
+.global lbl_805AACE0
+lbl_805AACE0:
+	# ROM: 0x3F7580
+	.4byte 0x803CE5D0
+
+.global lbl_805AACE4
+lbl_805AACE4:
+	# ROM: 0x3F7584
+	.4byte 0x803CE5DE
+
+.global lbl_805AACE8
+lbl_805AACE8:
+	# ROM: 0x3F7588
+	.4byte 0x803CE5DE
+
+.global lbl_805AACEC
+lbl_805AACEC:
+	# ROM: 0x3F758C
+	.float 4.0
+
+.global lbl_805AACF0
+lbl_805AACF0:
+	# ROM: 0x3F7590
+	.float 0.5
+
+.global lbl_805AACF4
+lbl_805AACF4:
+	# ROM: 0x3F7594
+	.4byte 0x42990000
+
+.global lbl_805AACF8
+lbl_805AACF8:
+	# ROM: 0x3F7598
+	.float 255.0
+
+.global lbl_805AACFC
+lbl_805AACFC:
+	# ROM: 0x3F759C
+	.4byte 0x42C80000
+
+.global lbl_805AAD00
+lbl_805AAD00:
+	# ROM: 0x3F75A0
+	.float 2.0
+
+.global lbl_805AAD04
+lbl_805AAD04:
+	# ROM: 0x3F75A4
+	.4byte 0
+
+.global lbl_805AAD08
+lbl_805AAD08:
+	# ROM: 0x3F75A8
+	.float 1.0
+
+.global lbl_805AAD0C
+lbl_805AAD0C:
+	# ROM: 0x3F75AC
+	.4byte 0x41200000
+
+.global lbl_805AAD10
+lbl_805AAD10:
+	# ROM: 0x3F75B0
+	.4byte 0xBF000000
+
+.global lbl_805AAD14
+lbl_805AAD14:
+	# ROM: 0x3F75B4
+	.float 1.5
+
+.global lbl_805AAD18
+lbl_805AAD18:
+	# ROM: 0x3F75B8
+	.float 0.1
+
+.global lbl_805AAD1C
+lbl_805AAD1C:
+	# ROM: 0x3F75BC
+	.4byte 0x40400000
+
+.global lbl_805AAD20
+lbl_805AAD20:
+	# ROM: 0x3F75C0
+	.float 5.0
+
+.global lbl_805AAD24
+lbl_805AAD24:
+	# ROM: 0x3F75C4
+	.float 0.75
+
+.global lbl_805AAD28
+lbl_805AAD28:
+	# ROM: 0x3F75C8
+	.float 1.1920929E-7
+
+.global lbl_805AAD2C
+lbl_805AAD2C:
+	# ROM: 0x3F75CC
+	.4byte 0x3F060A92
+
+.global lbl_805AAD30
+lbl_805AAD30:
+	# ROM: 0x3F75D0
+	.4byte 0x3F7AE148
+
+.global lbl_805AAD34
+lbl_805AAD34:
+	# ROM: 0x3F75D4
+	.4byte 0x7F7FFFFF
+
 .section .text, "ax"
 
 .global GetSearchPath__7CBeetleFv
@@ -312,7 +424,7 @@ IsListening__7CBeetleCFv:
 .global GetGravityConstant__7CBeetleCFv
 GetGravityConstant__7CBeetleCFv:
 /* 800E2EFC 000DFE5C  C0 22 8F CC */	lfs f1, lbl_805AACEC@sda21(r2)
-/* 800E2F00 000DFE60  C0 02 96 A0 */	lfs f0, lbl_805AB3C0@sda21(r2)
+/* 800E2F00 000DFE60  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
 /* 800E2F04 000DFE64  EC 21 00 32 */	fmuls f1, f1, f0
 /* 800E2F08 000DFE68  4E 80 00 20 */	blr
 

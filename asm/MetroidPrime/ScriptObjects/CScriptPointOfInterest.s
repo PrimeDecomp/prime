@@ -298,3 +298,11 @@ lbl_8015ED18:
 /* 8015EE44 0015BDA4  7C 08 03 A6 */	mtlr r0
 /* 8015EE48 0015BDA8  38 21 01 70 */	addi r1, r1, 0x170
 /* 8015EE4C 0015BDAC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABC80
+lbl_805ABC80:
+	# ROM: 0x3F8520
+	.4byte 0
+	.4byte 0
+

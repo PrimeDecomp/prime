@@ -26,6 +26,23 @@ lbl_803DF498:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AAA30
+lbl_805AAA30:
+	# ROM: 0x3F72D0
+	.float 0.0
+
+.global lbl_805AAA34
+lbl_805AAA34:
+	# ROM: 0x3F72D4
+	.float 0.016666668
+
+.global lbl_805AAA38
+lbl_805AAA38:
+	# ROM: 0x3F72D8
+	.double 4.503601774854144E15
+
 .section .text, "ax"
 
 .global __dt__16CParticleGenInfoFv

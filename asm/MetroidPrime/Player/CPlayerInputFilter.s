@@ -829,3 +829,31 @@ __ct__Q27CPlayer12CInputFilterFv:
 /* 802979D8 00294938  90 03 01 48 */	stw r0, 0x148(r3)
 /* 802979DC 0029493C  90 03 02 3C */	stw r0, 0x23c(r3)
 /* 802979E0 00294940  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADCD0
+lbl_805ADCD0:
+	# ROM: 0x3FA570
+	.4byte 0
+
+.global lbl_805ADCD4
+lbl_805ADCD4:
+	# ROM: 0x3FA574
+	.float 1.1920929E-7
+
+.global lbl_805ADCD8
+lbl_805ADCD8:
+	# ROM: 0x3FA578
+	.4byte 0x3D088889
+
+.global lbl_805ADCDC
+lbl_805ADCDC:
+	# ROM: 0x3FA57C
+	.float 0.01
+
+.global lbl_805ADCE0
+lbl_805ADCE0:
+	# ROM: 0x3FA580
+	.float 1.5
+	.4byte 0
+

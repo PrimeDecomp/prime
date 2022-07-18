@@ -42,6 +42,14 @@ lbl_805A76E0:
 	.4byte 0x00000029
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AB650
+lbl_805AB650:
+	# ROM: 0x3F7EF0
+	.float 0.5
+	.4byte 0
+
 .section .text, "ax"
 
 .global Accept__19CScriptGrapplePointFR8IVisitor

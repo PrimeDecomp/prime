@@ -716,3 +716,21 @@ __ct__13CBSLoopAttackFv:
 /* 8013B870 001387D0  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 8013B874 001387D4  98 03 00 0C */	stb r0, 0xc(r3)
 /* 8013B878 001387D8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB7A8
+lbl_805AB7A8:
+	# ROM: 0x3F8048
+	.4byte 0
+
+.global lbl_805AB7AC
+lbl_805AB7AC:
+	# ROM: 0x3F804C
+	.float 1.1920929E-7
+
+.global lbl_805AB7B0
+lbl_805AB7B0:
+	# ROM: 0x3F8050
+	.float 1.0
+	.4byte 0
+

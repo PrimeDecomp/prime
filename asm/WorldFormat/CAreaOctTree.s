@@ -529,3 +529,15 @@ lbl_802A308C:
 /* 802A3090 0029FFF0  7C 08 03 A6 */	mtlr r0
 /* 802A3094 0029FFF4  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 802A3098 0029FFF8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADE60
+lbl_805ADE60:
+	# ROM: 0x3FA700
+	.4byte 0
+
+.global lbl_805ADE64
+lbl_805ADE64:
+	# ROM: 0x3FA704
+	.float 0.5
+

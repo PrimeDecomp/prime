@@ -1659,3 +1659,51 @@ __ct__11CBSWallHangFv:
 /* 8018EBA8 0018BB08  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 8018EBAC 0018BB0C  98 03 00 18 */	stb r0, 0x18(r3)
 /* 8018EBB0 0018BB10  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC188
+lbl_805AC188:
+	# ROM: 0x3F8A28
+	.4byte 0x41200000
+
+.global lbl_805AC18C
+lbl_805AC18C:
+	# ROM: 0x3F8A2C
+	.float 1.0
+
+.global lbl_805AC190
+lbl_805AC190:
+	# ROM: 0x3F8A30
+	.4byte 0
+
+.global lbl_805AC194
+lbl_805AC194:
+	# ROM: 0x3F8A34
+	.float 2.0
+
+.global lbl_805AC198
+lbl_805AC198:
+	# ROM: 0x3F8A38
+	.4byte 0xBF000000
+
+.global lbl_805AC19C
+lbl_805AC19C:
+	# ROM: 0x3F8A3C
+	.float 0.5
+
+.global lbl_805AC1A0
+lbl_805AC1A0:
+	# ROM: 0x3F8A40
+	.float 15.0
+
+.global lbl_805AC1A4
+lbl_805AC1A4:
+	# ROM: 0x3F8A44
+	.float 5.0
+
+.global lbl_805AC1A8
+lbl_805AC1A8:
+	# ROM: 0x3F8A48
+	.4byte 0xC1700000
+	.4byte 0
+

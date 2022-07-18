@@ -320,3 +320,15 @@ __ct__9CGSFidgetFv:
 /* 801F1534 001EE494  90 03 00 14 */	stw r0, 0x14(r3)
 /* 801F1538 001EE498  90 03 00 18 */	stw r0, 0x18(r3)
 /* 801F153C 001EE49C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ACBE8
+lbl_805ACBE8:
+	# ROM: 0x3F9488
+	.float 1.0
+
+.global lbl_805ACBEC
+lbl_805ACBEC:
+	# ROM: 0x3F948C
+	.float 0.001
+

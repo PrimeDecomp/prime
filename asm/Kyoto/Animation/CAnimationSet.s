@@ -1334,3 +1334,11 @@ lbl_802D809C:
 /* 802D80B0 002D5010  38 21 00 30 */	addi r1, r1, 0x30
 /* 802D80B4 002D5014  4E 80 00 20 */	blr
 
+
+.section .sdata2, "a"
+.global lbl_805AE2B0
+lbl_805AE2B0:
+	# ROM: 0x3FAB50
+	.4byte 0
+	.4byte 0
+

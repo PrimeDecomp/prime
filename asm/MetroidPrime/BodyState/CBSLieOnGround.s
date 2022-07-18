@@ -277,3 +277,15 @@ __ct__14CBSLieOnGroundFRC6CActor:
 /* 80136B44 00133AA4  7C 08 03 A6 */	mtlr r0
 /* 80136B48 00133AA8  38 21 00 10 */	addi r1, r1, 0x10
 /* 80136B4C 00133AAC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB748
+lbl_805AB748:
+	# ROM: 0x3F7FE8
+	.4byte 0
+
+.global lbl_805AB74C
+lbl_805AB74C:
+	# ROM: 0x3F7FEC
+	.float 1.0
+

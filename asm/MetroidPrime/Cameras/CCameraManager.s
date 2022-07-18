@@ -14,24 +14,23 @@ lbl_803D8EA8:
 .global lbl_805A9D88
 lbl_805A9D88:
 	# ROM: 0x3F6628
-	.4byte 0x3FF00000
-	.4byte 0
+	.double 1.0
 
 .global lbl_805A9D90
 lbl_805A9D90:
 	# ROM: 0x3F6630
-	.4byte 0xBF800000
+	.float -1.0
 
 .global lbl_805A9D94
 lbl_805A9D94:
 	# ROM: 0x3F6634
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A9D98
 lbl_805A9D98:
 	# ROM: 0x3F6638
 	.4byte 0x3FE0C152
-	.4byte 0x40000000
+	.float 2.0
 
 .global lbl_805A9DA0
 lbl_805A9DA0:
@@ -41,7 +40,7 @@ lbl_805A9DA0:
 .global lbl_805A9DA4
 lbl_805A9DA4:
 	# ROM: 0x3F6644
-	.4byte 0x3F000000
+	.float 0.5
 
 .global lbl_805A9DA8
 lbl_805A9DA8:
@@ -56,7 +55,7 @@ lbl_805A9DAC:
 .global lbl_805A9DB0
 lbl_805A9DB0:
 	# ROM: 0x3F6650
-	.4byte 0x40800000
+	.float 4.0
 
 .global lbl_805A9DB4
 lbl_805A9DB4:
@@ -72,8 +71,7 @@ lbl_805A9DB8:
 .global lbl_805A9DC0
 lbl_805A9DC0:
 	# ROM: 0x3F6660
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.double 4.503601774854144E15
 
 .section .sdata
 .global lbl_805A6BD0
@@ -89,7 +87,7 @@ lbl_805A6BD4:
 .global lbl_805A6BD8
 lbl_805A6BD8:
 	# ROM: 0x3F4578
-	.4byte 0x3E4CCCCD
+	.float 0.2
 
 .global lbl_805A6BDC
 lbl_805A6BDC:

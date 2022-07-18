@@ -1472,3 +1472,31 @@ __sinit_CAABox_cpp:
 /* 803385C0 00335520  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 803385C4 00335524  D0 03 00 14 */	stfs f0, 0x14(r3)
 /* 803385C8 00335528  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE8A8
+lbl_805AE8A8:
+	# ROM: 0x3FB148
+	.4byte 0
+
+.global lbl_805AE8AC
+lbl_805AE8AC:
+	# ROM: 0x3FB14C
+	.float 0.5
+
+.global lbl_805AE8B0
+lbl_805AE8B0:
+	# ROM: 0x3FB150
+	.float 1.1920929E-7
+
+.global lbl_805AE8B4
+lbl_805AE8B4:
+	# ROM: 0x3FB154
+	.4byte 0x7F7FFFFF
+
+.global lbl_805AE8B8
+lbl_805AE8B8:
+	# ROM: 0x3FB158
+	.4byte 0xFF7FFFFF
+	.4byte 0
+

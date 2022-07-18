@@ -17,6 +17,18 @@ lbl_803DF438:
 lbl_805A8EB0:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AAA28
+lbl_805AAA28:
+	# ROM: 0x3F72C8
+	.float 0.4
+
+.global lbl_805AAA2C
+lbl_805AAA2C:
+	# ROM: 0x3F72CC
+	.float 255.0
+
 .section .text, "ax"
 
 .global __ct__16CTweakAutoMapperFR12CInputStream

@@ -397,3 +397,21 @@ lbl_801CD9F4:
 /* 801CDA20 001CA980  7C 08 03 A6 */	mtlr r0
 /* 801CDA24 001CA984  38 21 00 70 */	addi r1, r1, 0x70
 /* 801CDA28 001CA988  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC8C0
+lbl_805AC8C0:
+	# ROM: 0x3F9160
+	.float 0.5
+
+.global lbl_805AC8C4
+lbl_805AC8C4:
+	# ROM: 0x3F9164
+	.4byte 0x43E00000
+
+.global lbl_805AC8C8
+lbl_805AC8C8:
+	# ROM: 0x3F9168
+	.float 0.01
+	.4byte 0
+

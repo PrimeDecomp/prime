@@ -398,3 +398,56 @@ __ct__7CBSFallFv:
 /* 80135E7C 00132DDC  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80135E80 00132DE0  90 03 00 0C */	stw r0, 0xc(r3)
 /* 80135E84 00132DE4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB6E0
+lbl_805AB6E0:
+	# ROM: 0x3F7F80
+	.4byte 0
+
+.global lbl_805AB6E4
+lbl_805AB6E4:
+	# ROM: 0x3F7F84
+	.4byte 0x3E22F983
+
+.global lbl_805AB6E8
+lbl_805AB6E8:
+	# ROM: 0x3F7F88
+	.float 6.2831855
+
+.global lbl_805AB6EC
+lbl_805AB6EC:
+	# ROM: 0x3F7F8C
+	.4byte 0x42652EE0
+
+.global lbl_805AB6F0
+lbl_805AB6F0:
+	# ROM: 0x3F7F90
+	.float 1.0
+
+.global lbl_805AB6F4
+lbl_805AB6F4:
+	# ROM: 0x3F7F94
+	.float 0.017453292
+
+.global lbl_805AB6F8
+lbl_805AB6F8:
+	# ROM: 0x3F7F98
+	.4byte 0x40490FDB
+
+.global lbl_805AB6FC
+lbl_805AB6FC:
+	# ROM: 0x3F7F9C
+	.float 0.15
+
+.global lbl_805AB700
+lbl_805AB700:
+	# ROM: 0x3F7FA0
+	.float 1.1920929E-7
+	.4byte 0
+
+.global lbl_805AB708
+lbl_805AB708:
+	# ROM: 0x3F7FA8
+	.double 4.503601774854144E15
+

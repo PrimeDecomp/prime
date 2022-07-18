@@ -495,3 +495,11 @@ GetImagePaneName__16CPauseScreenBaseFUi:
 /* 80169FAC 00166F0C  7C 08 03 A6 */	mtlr r0
 /* 80169FB0 00166F10  38 21 00 10 */	addi r1, r1, 0x10
 /* 80169FB4 00166F14  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABD88
+lbl_805ABD88:
+	# ROM: 0x3F8628
+	.4byte 0
+	.4byte 0
+

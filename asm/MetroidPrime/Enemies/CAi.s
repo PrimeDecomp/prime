@@ -1073,6 +1073,58 @@ lbl_805A8E84:
 lbl_805A8E88:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AA978
+lbl_805AA978:
+	# ROM: 0x3F7218
+	.4byte 0x46EA6000
+
+.global lbl_805AA97C
+lbl_805AA97C:
+	# ROM: 0x3F721C
+	.float 0.2
+
+.global lbl_805AA980
+lbl_805AA980:
+	# ROM: 0x3F7220
+	.float 0.5
+
+.global lbl_805AA984
+lbl_805AA984:
+	# ROM: 0x3F7224
+	.4byte 0x43FA0000
+
+.global lbl_805AA988
+lbl_805AA988:
+	# ROM: 0x3F7228
+	.float 0.1
+
+.global lbl_805AA98C
+lbl_805AA98C:
+	# ROM: 0x3F722C
+	.float 0.4
+
+.global lbl_805AA990
+lbl_805AA990:
+	# ROM: 0x3F7230
+	.4byte 0x46E67800
+
+.global lbl_805AA994
+lbl_805AA994:
+	# ROM: 0x3F7234
+	.float 0.7
+
+.global lbl_805AA998
+lbl_805AA998:
+	# ROM: 0x3F7238
+	.4byte 0
+
+.global lbl_805AA99C
+lbl_805AA99C:
+	# ROM: 0x3F723C
+	.float 1.0
+
 .section .text, "ax"
 
 .global ShouldCallForBackup__3CAiFR13CStateManagerf

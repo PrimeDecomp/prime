@@ -49,3 +49,15 @@ __ct__5CFontFf:
 /* 80306018 00302F78  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8030601C 00302F7C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80306020 00302F80  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE490
+lbl_805AE490:
+	# ROM: 0x3FAD30
+	.float 15.0
+
+.global lbl_805AE494
+lbl_805AE494:
+	# ROM: 0x3FAD34
+	.4byte 0x41800000
+

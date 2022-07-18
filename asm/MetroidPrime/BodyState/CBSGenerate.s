@@ -312,3 +312,15 @@ __ct__11CBSGenerateFv:
 /* 80146AA0 00143A00  38 04 20 40 */	addi r0, r4, lbl_803E2040@l
 /* 80146AA4 00143A04  90 03 00 00 */	stw r0, 0(r3)
 /* 80146AA8 00143A08  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB9A0
+lbl_805AB9A0:
+	# ROM: 0x3F8240
+	.4byte 0
+
+.global lbl_805AB9A4
+lbl_805AB9A4:
+	# ROM: 0x3F8244
+	.float 1.0
+

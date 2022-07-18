@@ -24,6 +24,49 @@ lbl_805A7010:
 lbl_8046C3E0:
 	.skip 0x28
 
+.section .sdata2, "a"
+
+.global lbl_805AA6A8
+lbl_805AA6A8:
+	# ROM: 0x3F6F48
+	.4byte 0x3B808081
+
+.global lbl_805AA6AC
+lbl_805AA6AC:
+	# ROM: 0x3F6F4C
+	.4byte 0
+
+.global lbl_805AA6B0
+lbl_805AA6B0:
+	# ROM: 0x3F6F50
+	.float 1.0
+
+.global lbl_805AA6B4
+lbl_805AA6B4:
+	# ROM: 0x3F6F54
+	.float 0.5
+
+.global lbl_805AA6B8
+lbl_805AA6B8:
+	# ROM: 0x3F6F58
+	.double 4.503601774854144E15
+
+.global lbl_805AA6C0
+lbl_805AA6C0:
+	# ROM: 0x3F6F60
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AA6C8
+lbl_805AA6C8:
+	# ROM: 0x3F6F68
+	.4byte 0x43480000
+
+.global lbl_805AA6CC
+lbl_805AA6CC:
+	# ROM: 0x3F6F6C
+	.4byte 0xC3480000
+
 .section .text, "ax"
 
 .global FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer

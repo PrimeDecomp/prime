@@ -527,3 +527,15 @@ sub_803456b0:
 /* 80345740 003426A0  7C 08 03 A6 */	mtlr r0
 /* 80345744 003426A4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80345748 003426A8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE8D0
+lbl_805AE8D0:
+	# ROM: 0x3FB170
+	.4byte 0
+
+.global lbl_805AE8D4
+lbl_805AE8D4:
+	# ROM: 0x3FB174
+	.float 0.5
+

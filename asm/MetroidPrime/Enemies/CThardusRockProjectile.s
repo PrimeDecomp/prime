@@ -2885,3 +2885,87 @@ Accept__22CThardusRockProjectileFR8IVisitor:
 /* 80205D28 00202C88  7C 08 03 A6 */	mtlr r0
 /* 80205D2C 00202C8C  38 21 00 70 */	addi r1, r1, 0x70
 /* 80205D30 00202C90  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ACD98
+lbl_805ACD98:
+	# ROM: 0x3F9638
+	.4byte 0x803D2590
+	.float 1.5
+
+.global lbl_805ACDA0
+lbl_805ACDA0:
+	# ROM: 0x3F9640
+	.float 0.75
+
+.global lbl_805ACDA4
+lbl_805ACDA4:
+	# ROM: 0x3F9644
+	.4byte 0x42FA0000
+
+.global lbl_805ACDA8
+lbl_805ACDA8:
+	# ROM: 0x3F9648
+	.float 1.0
+
+.global lbl_805ACDAC
+lbl_805ACDAC:
+	# ROM: 0x3F964C
+	.4byte 0x41200000
+
+.global lbl_805ACDB0
+lbl_805ACDB0:
+	# ROM: 0x3F9650
+	.float 0.5
+
+.global lbl_805ACDB4
+lbl_805ACDB4:
+	# ROM: 0x3F9654
+	.float 0.1
+
+.global lbl_805ACDB8
+lbl_805ACDB8:
+	# ROM: 0x3F9658
+	.4byte 0x447A0000
+
+.global lbl_805ACDBC
+lbl_805ACDBC:
+	# ROM: 0x3F965C
+	.float 2.0
+
+.global lbl_805ACDC0
+lbl_805ACDC0:
+	# ROM: 0x3F9660
+	.4byte 0
+
+.global lbl_805ACDC4
+lbl_805ACDC4:
+	# ROM: 0x3F9664
+	.float 0.001
+
+.global lbl_805ACDC8
+lbl_805ACDC8:
+	# ROM: 0x3F9668
+	.4byte 0x42C80000
+
+.global lbl_805ACDCC
+lbl_805ACDCC:
+	# ROM: 0x3F966C
+	.float 0.25
+
+.global lbl_805ACDD0
+lbl_805ACDD0:
+	# ROM: 0x3F9670
+	.4byte 0x42480000
+
+.global lbl_805ACDD4
+lbl_805ACDD4:
+	# ROM: 0x3F9674
+	.float 0.7
+
+.global lbl_805ACDD8
+lbl_805ACDD8:
+	# ROM: 0x3F9678
+	.asciz "?&ff"
+	.balign 4
+

@@ -730,3 +730,11 @@ lbl_80355104:
 /* 80355114 00352074  7C 08 03 A6 */	mtlr r0
 /* 80355118 00352078  38 21 00 40 */	addi r1, r1, 0x40
 /* 8035511C 0035207C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE9C0
+lbl_805AE9C0:
+	# ROM: 0x3FB260
+	.4byte 0
+	.4byte 0
+

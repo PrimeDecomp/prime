@@ -618,3 +618,15 @@ lbl_802F269C:
 /* 802F26AC 002EF60C  7C 08 03 A6 */	mtlr r0
 /* 802F26B0 002EF610  38 21 00 50 */	addi r1, r1, 0x50
 /* 802F26B4 002EF614  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE3A8
+lbl_805AE3A8:
+	# ROM: 0x3FAC48
+	.float 0.5
+
+.global lbl_805AE3AC
+lbl_805AE3AC:
+	# ROM: 0x3FAC4C
+	.float 1.0
+

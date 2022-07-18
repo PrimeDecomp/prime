@@ -164,3 +164,16 @@ __ct__14CGuiWidgetIdDBFv:
 /* 802CB1A4 002C8104  7C 08 03 A6 */	mtlr r0
 /* 802CB1A8 002C8108  38 21 00 50 */	addi r1, r1, 0x50
 /* 802CB1AC 002C810C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE130
+lbl_805AE130:
+	# ROM: 0x3FA9D0
+	.2byte 0x00000000
+
+.global lbl_805AE132
+lbl_805AE132:
+	# ROM: 0x3FA9D2
+	.byte 0xFF, 0xFF
+	.4byte 0
+

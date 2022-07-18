@@ -12,3 +12,15 @@ __sinit_CGuiWidgetDrawParms_cpp:
 /* 802CB1C4 002C8124  D0 03 00 08 */	stfs f0, 8(r3)
 /* 802CB1C8 002C8128  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 802CB1CC 002C812C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE138
+lbl_805AE138:
+	# ROM: 0x3FA9D8
+	.float 1.0
+
+.global lbl_805AE13C
+lbl_805AE13C:
+	# ROM: 0x3FA9DC
+	.4byte 0
+

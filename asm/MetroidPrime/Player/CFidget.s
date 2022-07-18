@@ -352,3 +352,55 @@ __ct__7CFidgetFv:
 /* 80154BFC 00151B5C  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
 /* 80154C00 00151B60  98 03 00 34 */	stb r0, 0x34(r3)
 /* 80154C04 00151B64  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABB20
+lbl_805ABB20:
+	# ROM: 0x3F83C0
+	.4byte 0
+
+.global lbl_805ABB24
+lbl_805ABB24:
+	# ROM: 0x3F83C4
+	.4byte 0x40C00000
+
+.global lbl_805ABB28
+lbl_805ABB28:
+	# ROM: 0x3F83C8
+	.float 1.0
+
+.global lbl_805ABB2C
+lbl_805ABB2C:
+	# ROM: 0x3F83CC
+	.4byte 0x41300000
+
+.global lbl_805ABB30
+lbl_805ABB30:
+	# ROM: 0x3F83D0
+	.4byte 0x41A80000
+
+.global lbl_805ABB34
+lbl_805ABB34:
+	# ROM: 0x3F83D4
+	.4byte 0x41200000
+
+.global lbl_805ABB38
+lbl_805ABB38:
+	# ROM: 0x3F83D8
+	.4byte 0x41A00000
+
+.global lbl_805ABB3C
+lbl_805ABB3C:
+	# ROM: 0x3F83DC
+	.4byte 0x41E80000
+
+.global lbl_805ABB40
+lbl_805ABB40:
+	# ROM: 0x3F83E0
+	.4byte 0x41F00000
+
+.global lbl_805ABB44
+lbl_805ABB44:
+	# ROM: 0x3F83E4
+	.4byte 0x42D20000
+

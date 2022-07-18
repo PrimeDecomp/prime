@@ -173,3 +173,16 @@ lbl_803126BC:
 /* 803126D4 0030F634  7C 08 03 A6 */	mtlr r0
 /* 803126D8 0030F638  38 21 00 10 */	addi r1, r1, 0x10
 /* 803126DC 0030F63C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE5E0
+lbl_805AE5E0:
+	# ROM: 0x3FAE80
+	.4byte 0x37800080
+	.4byte 0
+
+.global lbl_805AE5E8
+lbl_805AE5E8:
+	# ROM: 0x3FAE88
+	.double 4.503601774854144E15
+

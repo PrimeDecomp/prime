@@ -42,6 +42,19 @@ lbl_805A6F98:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AA600
+lbl_805AA600:
+	# ROM: 0x3F6EA0
+	.4byte 0x3F7D70A4
+	.4byte 0
+
+.global lbl_805AA608
+lbl_805AA608:
+	# ROM: 0x3F6EA8
+	.double 4.503601774854144E15
+
 .section .text, "ax"
 
 .global Accept__15CScriptWaypointFR8IVisitor

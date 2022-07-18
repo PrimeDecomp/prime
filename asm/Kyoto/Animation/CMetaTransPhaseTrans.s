@@ -32,7 +32,7 @@ lbl_805A8730:
 .global lbl_805A8734
 lbl_805A8734:
 	# ROM: 0x3F60D4
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .text, "ax"
 
@@ -650,3 +650,20 @@ __ct__20CMetaTransPhaseTransFR12CInputStream:
 /* 802E2B00 002DFA60  7C 08 03 A6 */	mtlr r0
 /* 802E2B04 002DFA64  38 21 00 20 */	addi r1, r1, 0x20
 /* 802E2B08 002DFA68  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE2CC
+lbl_805AE2CC:
+	# ROM: 0x3FAB6C
+	.4byte 0
+
+.global lbl_805AE2D0
+lbl_805AE2D0:
+	# ROM: 0x3FAB70
+	.float 1.0
+
+.global lbl_805AE2D4
+lbl_805AE2D4:
+	# ROM: 0x3FAB74
+	.4byte 0
+

@@ -498,3 +498,15 @@ __sinit_CMatrix3f_cpp:
 /* 80310714 0030D674  7C 08 03 A6 */	mtlr r0
 /* 80310718 0030D678  38 21 00 30 */	addi r1, r1, 0x30
 /* 8031071C 0030D67C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE570
+lbl_805AE570:
+	# ROM: 0x3FAE10
+	.4byte 0
+
+.global lbl_805AE574
+lbl_805AE574:
+	# ROM: 0x3FAE14
+	.float 1.0
+

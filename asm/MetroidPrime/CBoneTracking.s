@@ -630,3 +630,31 @@ Update__13CBoneTrackingFf:
 /* 80175AB4 00172A14  7C 08 03 A6 */	mtlr r0
 /* 80175AB8 00172A18  38 21 00 40 */	addi r1, r1, 0x40
 /* 80175ABC 00172A1C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABE98
+lbl_805ABE98:
+	# ROM: 0x3F8738
+	.4byte 0
+
+.global lbl_805ABE9C
+lbl_805ABE9C:
+	# ROM: 0x3F873C
+	.float 1.0
+
+.global lbl_805ABEA0
+lbl_805ABEA0:
+	# ROM: 0x3F8740
+	.4byte 0x3727C5AC
+
+.global lbl_805ABEA4
+lbl_805ABEA4:
+	# ROM: 0x3F8744
+	.float 6.2831855
+
+.global lbl_805ABEA8
+lbl_805ABEA8:
+	# ROM: 0x3F8748
+	.float 0.5
+	.4byte 0
+

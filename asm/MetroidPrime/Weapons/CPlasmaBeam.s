@@ -39,6 +39,78 @@ lbl_805A7320:
 lbl_8046C488:
 	.skip 0x10
 
+.section .sdata2, "a"
+
+.global lbl_805AAC50
+lbl_805AAC50:
+	# ROM: 0x3F74F0
+	.4byte 0x070B0730
+
+.global lbl_805AAC54
+lbl_805AAC54:
+	# ROM: 0x3F74F4
+	.float 2.0
+
+.global lbl_805AAC58
+lbl_805AAC58:
+	# ROM: 0x3F74F8
+	.float 1.0
+
+.global lbl_805AAC5C
+lbl_805AAC5C:
+	# ROM: 0x3F74FC
+	.float 0.01
+
+.global lbl_805AAC60
+lbl_805AAC60:
+	# ROM: 0x3F7500
+	.4byte 0x3EA8F5C3
+
+.global lbl_805AAC64
+lbl_805AAC64:
+	# ROM: 0x3F7504
+	.4byte 0x3F266666
+
+.global lbl_805AAC68
+lbl_805AAC68:
+	# ROM: 0x3F7508
+	.float 8.0
+
+.global lbl_805AAC6C
+lbl_805AAC6C:
+	# ROM: 0x3F750C
+	.float 0.7
+
+.global lbl_805AAC70
+lbl_805AAC70:
+	# ROM: 0x3F7510
+	.4byte 0
+
+.global lbl_805AAC74
+lbl_805AAC74:
+	# ROM: 0x3F7514
+	.float 0.5
+
+.global lbl_805AAC78
+lbl_805AAC78:
+	# ROM: 0x3F7518
+	.float 0.2
+
+.global lbl_805AAC7C
+lbl_805AAC7C:
+	# ROM: 0x3F751C
+	.4byte 0x3F4CCCCD
+
+.global lbl_805AAC80
+lbl_805AAC80:
+	# ROM: 0x3F7520
+	.float 0.125
+
+.global lbl_805AAC84
+lbl_805AAC84:
+	# ROM: 0x3F7524
+	.float 0.25
+
 .section .text, "ax"
 
 .global SetWorldLighting__11CPlasmaBeamFR13CStateManager7TAreaIdff

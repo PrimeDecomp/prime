@@ -193,17 +193,17 @@ lbl_803E16CC:
 .global lbl_805A7718
 lbl_805A7718:
 	# ROM: 0x3F50B8
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A771C
 lbl_805A771C:
 	# ROM: 0x3F50BC
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A7720
 lbl_805A7720:
 	# ROM: 0x3F50C0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A7724
 lbl_805A7724:
@@ -223,7 +223,7 @@ lbl_805A772C:
 .global lbl_805A7730
 lbl_805A7730:
 	# ROM: 0x3F50D0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A7734
 lbl_805A7734:
@@ -233,7 +233,7 @@ lbl_805A7734:
 .global lbl_805A7738
 lbl_805A7738:
 	# ROM: 0x3F50D8
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 
 .section .sbss
@@ -2753,3 +2753,55 @@ __sinit_CBSFlyerLocomotion_cpp:
 /* 80138D98 00135CF8  C0 02 9A 54 */	lfs f0, lbl_805AB774@sda21(r2)
 /* 80138D9C 00135CFC  D0 0D A3 C0 */	stfs f0, lbl_805A8F80@sda21(r13)
 /* 80138DA0 00135D00  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB750
+lbl_805AB750:
+	# ROM: 0x3F7FF0
+	.float 0.5
+
+.global lbl_805AB754
+lbl_805AB754:
+	# ROM: 0x3F7FF4
+	.4byte 0
+
+.global lbl_805AB758
+lbl_805AB758:
+	# ROM: 0x3F7FF8
+	.float 1.0
+
+.global lbl_805AB75C
+lbl_805AB75C:
+	# ROM: 0x3F7FFC
+	.4byte 0x3FC90FDB
+
+.global lbl_805AB760
+lbl_805AB760:
+	# ROM: 0x3F8000
+	.float 1.1920929E-7
+
+.global lbl_805AB764
+lbl_805AB764:
+	# ROM: 0x3F8004
+	.float 0.01
+
+.global lbl_805AB768
+lbl_805AB768:
+	# ROM: 0x3F8008
+	.float 0.4
+
+.global lbl_805AB76C
+lbl_805AB76C:
+	# ROM: 0x3F800C
+	.float 1.0E-4
+
+.global lbl_805AB770
+lbl_805AB770:
+	# ROM: 0x3F8010
+	.float 0.2
+
+.global lbl_805AB774
+lbl_805AB774:
+	# ROM: 0x3F8014
+	.4byte 0x3E32B8C2
+

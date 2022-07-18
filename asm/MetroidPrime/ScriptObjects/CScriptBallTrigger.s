@@ -479,3 +479,25 @@ calculate_ball_aabox__Fv:
 /* 80176B20 00173A80  7C 08 03 A6 */	mtlr r0
 /* 80176B24 00173A84  38 21 00 20 */	addi r1, r1, 0x20
 /* 80176B28 00173A88  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABED0
+lbl_805ABED0:
+	# ROM: 0x3F8770
+	.4byte 0
+
+.global lbl_805ABED4
+lbl_805ABED4:
+	# ROM: 0x3F8774
+	.float 0.017453292
+
+.global lbl_805ABED8
+lbl_805ABED8:
+	# ROM: 0x3F8778
+	.float 1.0
+
+.global lbl_805ABEDC
+lbl_805ABEDC:
+	# ROM: 0x3F877C
+	.4byte 0x3EA8F5C3
+

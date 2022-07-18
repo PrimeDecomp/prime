@@ -73,6 +73,59 @@ lbl_8046C520:
 lbl_805A8F08:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AB0D8
+lbl_805AB0D8:
+	# ROM: 0x3F7978
+	.float 0.01
+
+.global lbl_805AB0DC
+lbl_805AB0DC:
+	# ROM: 0x3F797C
+	.4byte 0
+
+.global lbl_805AB0E0
+lbl_805AB0E0:
+	# ROM: 0x3F7980
+	.float -1.0
+
+.global lbl_805AB0E4
+lbl_805AB0E4:
+	# ROM: 0x3F7984
+	.float 2.0
+
+.global lbl_805AB0E8
+lbl_805AB0E8:
+	# ROM: 0x3F7988
+	.double 4.503601774854144E15
+
+.global lbl_805AB0F0
+lbl_805AB0F0:
+	# ROM: 0x3F7990
+	.float 1.0
+
+.global lbl_805AB0F4
+lbl_805AB0F4:
+	# ROM: 0x3F7994
+	.4byte 0x3727C5AC
+
+.global lbl_805AB0F8
+lbl_805AB0F8:
+	# ROM: 0x3F7998
+	.4byte 0x40400000
+
+.global lbl_805AB0FC
+lbl_805AB0FC:
+	# ROM: 0x3F799C
+	.float 0.5
+
+.global lbl_805AB100
+lbl_805AB100:
+	# ROM: 0x3F79A0
+	.4byte 0xBF000000
+	.4byte 0
+
 .section .text, "ax"
 
 .global GetPatchRenderFlags__12CScriptWaterCFii

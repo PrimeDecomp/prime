@@ -1580,3 +1580,32 @@ __sinit_CTransform4f_cpp:
 /* 80313DC4 00310D24  D0 23 00 28 */	stfs f1, 0x28(r3)
 /* 80313DC8 00310D28  D0 03 00 2C */	stfs f0, 0x2c(r3)
 /* 80313DCC 00310D2C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE5F0
+lbl_805AE5F0:
+	# ROM: 0x3FAE90
+	.float 1.0
+
+.global lbl_805AE5F4
+lbl_805AE5F4:
+	# ROM: 0x3FAE94
+	.4byte 0
+
+.global lbl_805AE5F8
+lbl_805AE5F8:
+	# ROM: 0x3FAE98
+	.float 1.1920929E-7
+	.4byte 0
+
+.global lbl_805AE600
+lbl_805AE600:
+	# ROM: 0x3FAEA0
+	.double 1.0
+
+.global lbl_805AE608
+lbl_805AE608:
+	# ROM: 0x3FAEA8
+	.float -1.0
+	.4byte 0
+

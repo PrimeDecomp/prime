@@ -30,7 +30,7 @@ lbl_805A7710:
 .global lbl_805A7714
 lbl_805A7714:
 	# ROM: 0x3F50B4
-	.4byte 0x3F800000
+	.float 1.0
 
 .section .text, "ax"
 
@@ -636,3 +636,21 @@ __ct__9CBSAttackFv:
 /* 80135640 001325A0  D0 03 00 34 */	stfs f0, 0x34(r3)
 /* 80135644 001325A4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80135648 001325A8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB6C0
+lbl_805AB6C0:
+	# ROM: 0x3F7F60
+	.4byte 0
+
+.global lbl_805AB6C4
+lbl_805AB6C4:
+	# ROM: 0x3F7F64
+	.float 1.0
+
+.global lbl_805AB6C8
+lbl_805AB6C8:
+	# ROM: 0x3F7F68
+	.float -1.0
+	.4byte 0
+

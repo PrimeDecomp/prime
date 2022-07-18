@@ -865,3 +865,25 @@ __ct__7CBSTurnFv:
 /* 80139D34 00136C94  7C 08 03 A6 */	mtlr r0
 /* 80139D38 00136C98  38 21 00 10 */	addi r1, r1, 0x10
 /* 80139D3C 00136C9C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB780
+lbl_805AB780:
+	# ROM: 0x3F8020
+	.4byte 0
+
+.global lbl_805AB784
+lbl_805AB784:
+	# ROM: 0x3F8024
+	.float 1.0
+
+.global lbl_805AB788
+lbl_805AB788:
+	# ROM: 0x3F8028
+	.4byte 0x42652EE0
+
+.global lbl_805AB78C
+lbl_805AB78C:
+	# ROM: 0x3F802C
+	.float 0.017453292
+

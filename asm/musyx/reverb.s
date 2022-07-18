@@ -9,12 +9,12 @@ lbl_805AF3F0:
 .global lbl_805AF3F4
 lbl_805AF3F4:
 	# ROM: 0x3FBC94
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805AF3F8
 lbl_805AF3F8:
 	# ROM: 0x3FBC98
-	.4byte 0x3C23D70A
+	.float 0.01
 
 .global lbl_805AF3FC
 lbl_805AF3FC:
@@ -24,7 +24,7 @@ lbl_805AF3FC:
 .global lbl_805AF400
 lbl_805AF400:
 	# ROM: 0x3FBCA0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 
 .global lbl_805AF404
 lbl_805AF404:
@@ -50,14 +50,12 @@ lbl_805AF414:
 .global lbl_805AF418
 lbl_805AF418:
 	# ROM: 0x3FBCB8
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.double 4.503601774854144E15
 
 .global lbl_805AF420
 lbl_805AF420:
 	# ROM: 0x3FBCC0
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.double 4.503601774854144E15
 
 .global lbl_805AF428
 lbl_805AF428:
@@ -67,12 +65,12 @@ lbl_805AF428:
 .global lbl_805AF42C
 lbl_805AF42C:
 	# ROM: 0x3FBCCC
-	.4byte 0x3E99999A
+	.float 0.3
 
 .global lbl_805AF430
 lbl_805AF430:
 	# ROM: 0x3FBCD0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 
 

@@ -24,6 +24,14 @@ lbl_803DF7E8:
 	.4byte IsLoaded__8CIceBeamCFv
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AACC0
+lbl_805AACC0:
+	# ROM: 0x3F7560
+	.4byte 0x070506F0
+	.4byte 0
+
 .section .text, "ax"
 
 .global EnableFx__8CIceBeamFb

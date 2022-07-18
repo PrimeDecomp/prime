@@ -25,7 +25,25 @@ lbl_803DA384:
 .global lbl_805A6F58
 lbl_805A6F58:
 	# ROM: 0x3F48F8
-	.4byte 0x3DCCCCCD
+	.float 0.1
+	.4byte 0
+
+.section .sdata2, "a"
+
+.global lbl_805AA538
+lbl_805AA538:
+	# ROM: 0x3F6DD8
+	.float 1.0
+
+.global lbl_805AA53C
+lbl_805AA53C:
+	# ROM: 0x3F6DDC
+	.float 0.017453292
+
+.global lbl_805AA540
+lbl_805AA540:
+	# ROM: 0x3F6DE0
+	.4byte 0
 	.4byte 0
 
 .section .text, "ax"

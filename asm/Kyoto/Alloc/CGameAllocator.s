@@ -1573,3 +1573,11 @@ __ct__14CGameAllocatorFv:
 GetMemInfoFromBlockPtr__14CGameAllocatorCFPCv:
 /* 80352660 0034F5C0  38 64 FF E0 */	addi r3, r4, -32
 /* 80352664 0034F5C4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE9B8
+lbl_805AE9B8:
+	# ROM: 0x3FB258
+	.4byte 0x3BA3D70A
+	.4byte 0
+

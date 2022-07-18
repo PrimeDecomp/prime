@@ -10,7 +10,7 @@ lbl_805A8810:
 .global lbl_805A8814
 lbl_805A8814:
 	# ROM: 0x3F61B4
-	.4byte 0x3E4CCCCD
+	.float 0.2
 
 .global lbl_805A8818
 lbl_805A8818:
@@ -20,7 +20,7 @@ lbl_805A8818:
 .global lbl_805A881C
 lbl_805A881C:
 	# ROM: 0x3F61BC
-	.4byte 0x3E4CCCCD
+	.float 0.2
 
 .section .text, "ax"
 
@@ -480,3 +480,45 @@ __sinit_CLight_cpp:
 /* 80306624 00303584  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80306628 00303588  D0 23 00 08 */	stfs f1, 8(r3)
 /* 8030662C 0030358C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE498
+lbl_805AE498:
+	# ROM: 0x3FAD38
+	.float 1.1920929E-7
+
+.global lbl_805AE49C
+lbl_805AE49C:
+	# ROM: 0x3FAD3C
+	.4byte 0x3B808081
+
+.global lbl_805AE4A0
+lbl_805AE4A0:
+	# ROM: 0x3FAD40
+	.float 1.0
+
+.global lbl_805AE4A4
+lbl_805AE4A4:
+	# ROM: 0x3FAD44
+	.float -1.0
+
+.global lbl_805AE4A8
+lbl_805AE4A8:
+	# ROM: 0x3FAD48
+	.4byte 0
+
+.global lbl_805AE4AC
+lbl_805AE4AC:
+	# ROM: 0x3FAD4C
+	.float 1.1920929E-7
+
+.global lbl_805AE4B0
+lbl_805AE4B0:
+	# ROM: 0x3FAD50
+	.4byte 0x7C1071DB
+
+.global lbl_805AE4B4
+lbl_805AE4B4:
+	# ROM: 0x3FAD54
+	.4byte 0x43340000
+

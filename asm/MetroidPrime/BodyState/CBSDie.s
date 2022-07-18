@@ -241,3 +241,25 @@ __ct__6CBSDieFv:
 /* 8013592C 0013288C  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80135930 00132890  98 03 00 08 */	stb r0, 8(r3)
 /* 80135934 00132894  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB6D0
+lbl_805AB6D0:
+	# ROM: 0x3F7F70
+	.4byte 0
+
+.global lbl_805AB6D4
+lbl_805AB6D4:
+	# ROM: 0x3F7F74
+	.float 1.0
+
+.global lbl_805AB6D8
+lbl_805AB6D8:
+	# ROM: 0x3F7F78
+	.4byte 0x40400000
+
+.global lbl_805AB6DC
+lbl_805AB6DC:
+	# ROM: 0x3F7F7C
+	.float 4.0
+

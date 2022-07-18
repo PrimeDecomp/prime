@@ -1168,3 +1168,131 @@ __ct__11CPhazonBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 8018D258 0018A1B8  7C 08 03 A6 */	mtlr r0
 /* 8018D25C 0018A1BC  38 21 00 90 */	addi r1, r1, 0x90
 /* 8018D260 0018A1C0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC118
+lbl_805AC118:
+	# ROM: 0x3F89B8
+	.4byte 0x070D06E7
+
+.global lbl_805AC11C
+lbl_805AC11C:
+	# ROM: 0x3F89BC
+	.4byte 0x803D08F8
+
+.global lbl_805AC120
+lbl_805AC120:
+	# ROM: 0x3F89C0
+	.4byte 0x803D0904
+
+.global lbl_805AC124
+lbl_805AC124:
+	# ROM: 0x3F89C4
+	.4byte 0x803D0912
+
+.global lbl_805AC128
+lbl_805AC128:
+	# ROM: 0x3F89C8
+	.float 4.0
+
+.global lbl_805AC12C
+lbl_805AC12C:
+	# ROM: 0x3F89CC
+	.float 1.0
+
+.global lbl_805AC130
+lbl_805AC130:
+	# ROM: 0x3F89D0
+	.4byte 0x3E2AAB8A
+
+.global lbl_805AC134
+lbl_805AC134:
+	# ROM: 0x3F89D4
+	.float 0.9
+
+.global lbl_805AC138
+lbl_805AC138:
+	# ROM: 0x3F89D8
+	.float 0.75
+
+.global lbl_805AC13C
+lbl_805AC13C:
+	# ROM: 0x3F89DC
+	.float 0.4
+
+.global lbl_805AC140
+lbl_805AC140:
+	# ROM: 0x3F89E0
+	.float 0.5
+
+.global lbl_805AC144
+lbl_805AC144:
+	# ROM: 0x3F89E4
+	.4byte 0x3EAAAB8A
+
+.global lbl_805AC148
+lbl_805AC148:
+	# ROM: 0x3F89E8
+	.4byte 0
+
+.global lbl_805AC14C
+lbl_805AC14C:
+	# ROM: 0x3F89EC
+	.float 0.3
+
+.global lbl_805AC150
+lbl_805AC150:
+	# ROM: 0x3F89F0
+	.4byte 0x3F19999A
+
+.global lbl_805AC154
+lbl_805AC154:
+	# ROM: 0x3F89F4
+	.4byte 0x3E162A5E
+
+.global lbl_805AC158
+lbl_805AC158:
+	# ROM: 0x3F89F8
+	.4byte 0x3F256D1A
+
+.global lbl_805AC15C
+lbl_805AC15C:
+	# ROM: 0x3F89FC
+	.4byte 0x3E18ACF3
+
+.global lbl_805AC160
+lbl_805AC160:
+	# ROM: 0x3F8A00
+	.4byte 0xBE162A5E
+
+.global lbl_805AC164
+lbl_805AC164:
+	# ROM: 0x3F8A04
+	.4byte 0xBE18ACF3
+
+.global lbl_805AC168
+lbl_805AC168:
+	# ROM: 0x3F8A08
+	.4byte 0x3D800000
+
+.global lbl_805AC16C
+lbl_805AC16C:
+	# ROM: 0x3F8A0C
+	.4byte 0xBE800000
+
+.global lbl_805AC170
+lbl_805AC170:
+	# ROM: 0x3F8A10
+	.4byte 0x3DC00000
+
+.global lbl_805AC174
+lbl_805AC174:
+	# ROM: 0x3F8A14
+	.4byte 0xBD800000
+
+.global lbl_805AC178
+lbl_805AC178:
+	# ROM: 0x3F8A18
+	.4byte 0xBDC00000
+	.4byte 0
+

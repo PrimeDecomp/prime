@@ -2851,3 +2851,128 @@ __sinit_CPlasmaProjectile_cpp:
 /* 80179380 001762E0  C0 02 A1 E8 */	lfs f0, lbl_805ABF08@sda21(r2)
 /* 80179384 001762E4  D0 0D A4 38 */	stfs f0, lbl_805A8FF8@sda21(r13)
 /* 80179388 001762E8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABEE0
+lbl_805ABEE0:
+	# ROM: 0x3F8780
+	.4byte 0
+
+.global lbl_805ABEE4
+lbl_805ABEE4:
+	# ROM: 0x3F8784
+	.float 255.0
+
+.global lbl_805ABEE8
+lbl_805ABEE8:
+	# ROM: 0x3F8788
+	.float 0.125
+	.4byte 0
+
+.global lbl_805ABEF0
+lbl_805ABEF0:
+	# ROM: 0x3F8790
+	.double 4.503601774854144E15
+
+.global lbl_805ABEF8
+lbl_805ABEF8:
+	# ROM: 0x3F8798
+	.float 2.0
+
+.global lbl_805ABEFC
+lbl_805ABEFC:
+	# ROM: 0x3F879C
+	.float 0.1
+
+.global lbl_805ABF00
+lbl_805ABF00:
+	# ROM: 0x3F87A0
+	.float 6.2831855
+
+.global lbl_805ABF04
+lbl_805ABF04:
+	# ROM: 0x3F87A4
+	.4byte 0x3D800000
+
+.global lbl_805ABF08
+lbl_805ABF08:
+	# ROM: 0x3F87A8
+	.float 0.5
+	.4byte 0
+
+.global lbl_805ABF10
+lbl_805ABF10:
+	# ROM: 0x3F87B0
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805ABF18
+lbl_805ABF18:
+	# ROM: 0x3F87B8
+	.float 0.25
+
+.global lbl_805ABF1C
+lbl_805ABF1C:
+	# ROM: 0x3F87BC
+	.float 1.0
+
+.global lbl_805ABF20
+lbl_805ABF20:
+	# ROM: 0x3F87C0
+	.float 0.3
+
+.global lbl_805ABF24
+lbl_805ABF24:
+	# ROM: 0x3F87C4
+	.float 0.017453292
+
+.global lbl_805ABF28
+lbl_805ABF28:
+	# ROM: 0x3F87C8
+	.float 1.25
+
+.global lbl_805ABF2C
+lbl_805ABF2C:
+	# ROM: 0x3F87CC
+	.float 0.001
+
+.global lbl_805ABF30
+lbl_805ABF30:
+	# ROM: 0x3F87D0
+	.4byte 0x44340000
+
+.global lbl_805ABF34
+lbl_805ABF34:
+	# ROM: 0x3F87D4
+	.4byte 0x43B40000
+
+.global lbl_805ABF38
+lbl_805ABF38:
+	# ROM: 0x3F87D8
+	.float 5.0
+
+.global lbl_805ABF3C
+lbl_805ABF3C:
+	# ROM: 0x3F87DC
+	.4byte 0x40400000
+
+.global lbl_805ABF40
+lbl_805ABF40:
+	# ROM: 0x3F87E0
+	.float 0.2
+
+.global lbl_805ABF44
+lbl_805ABF44:
+	# ROM: 0x3F87E4
+	.float 0.75
+
+.global lbl_805ABF48
+lbl_805ABF48:
+	# ROM: 0x3F87E8
+	.4byte 0xC0800000
+
+.global lbl_805ABF4C
+lbl_805ABF4C:
+	# ROM: 0x3F87EC
+	.4byte 0x3D000000
+

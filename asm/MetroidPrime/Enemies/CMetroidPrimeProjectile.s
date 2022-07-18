@@ -358,3 +358,15 @@ Accept__23CMetroidPrimeProjectileFR8IVisitor:
 /* 802A07E4 0029D744  7C 08 03 A6 */	mtlr r0
 /* 802A07E8 0029D748  38 21 00 60 */	addi r1, r1, 0x60
 /* 802A07EC 0029D74C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADE30
+lbl_805ADE30:
+	# ROM: 0x3FA6D0
+	.float 1.0
+
+.global lbl_805ADE34
+lbl_805ADE34:
+	# ROM: 0x3FA6D4
+	.float -1.0
+

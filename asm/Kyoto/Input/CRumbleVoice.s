@@ -700,3 +700,25 @@ lbl_80369BB4:
 /* 80369BCC 00366B2C  7C 08 03 A6 */	mtlr r0
 /* 80369BD0 00366B30  38 21 00 50 */	addi r1, r1, 0x50
 /* 80369BD4 00366B34  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEAF8
+lbl_805AEAF8:
+	# ROM: 0x3FB398
+	.float 2.0
+
+.global lbl_805AEAFC
+lbl_805AEAFC:
+	# ROM: 0x3FB39C
+	.4byte 0x3D088889
+
+.global lbl_805AEB00
+lbl_805AEB00:
+	# ROM: 0x3FB3A0
+	.4byte 0
+
+.global lbl_805AEB04
+lbl_805AEB04:
+	# ROM: 0x3FB3A4
+	.float 1.0
+

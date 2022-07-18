@@ -383,3 +383,21 @@ lbl_802D6D70:
 /* 802D6D78 002D3CD8  7C 08 03 A6 */	mtlr r0
 /* 802D6D7C 002D3CDC  38 21 00 70 */	addi r1, r1, 0x70
 /* 802D6D80 002D3CE0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE2A0
+lbl_805AE2A0:
+	# ROM: 0x3FAB40
+	.4byte 0x80000000
+
+.global lbl_805AE2A4
+lbl_805AE2A4:
+	# ROM: 0x3FAB44
+	.4byte 0xFFFFFF00
+
+.global lbl_805AE2A8
+lbl_805AE2A8:
+	# ROM: 0x3FAB48
+	.4byte 0x02010408
+	.4byte 0
+

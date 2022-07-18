@@ -1921,3 +1921,45 @@ _close_enough__Ffff:
 /* 802A2628 0029F588  7C 00 00 26 */	mfcr r0
 /* 802A262C 0029F58C  54 03 1F FE */	rlwinm r3, r0, 3, 0x1f, 0x1f
 /* 802A2630 0029F590  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADE40
+lbl_805ADE40:
+	# ROM: 0x3FA6E0
+	.float 1.0
+
+.global lbl_805ADE44
+lbl_805ADE44:
+	# ROM: 0x3FA6E4
+	.4byte 0
+
+.global lbl_805ADE48
+lbl_805ADE48:
+	# ROM: 0x3FA6E8
+	.4byte 0x3F7FFF38
+
+.global lbl_805ADE4C
+lbl_805ADE4C:
+	# ROM: 0x3FA6EC
+	.4byte 0x3F800064
+
+.global lbl_805ADE50
+lbl_805ADE50:
+	# ROM: 0x3FA6F0
+	.4byte 0x35A00000
+
+.global lbl_805ADE54
+lbl_805ADE54:
+	# ROM: 0x3FA6F4
+	.float 1.0E-4
+
+.global lbl_805ADE58
+lbl_805ADE58:
+	# ROM: 0x3FA6F8
+	.4byte 0xFF7FFFFF
+
+.global lbl_805ADE5C
+lbl_805ADE5C:
+	# ROM: 0x3FA6FC
+	.4byte 0x7F7FFFFF
+

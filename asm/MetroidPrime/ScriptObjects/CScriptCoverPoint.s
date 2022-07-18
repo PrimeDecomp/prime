@@ -42,6 +42,28 @@ lbl_805A76A8:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AB5B8
+lbl_805AB5B8:
+	# ROM: 0x3F7E58
+	.float 0.0
+
+.global lbl_805AB5BC
+lbl_805AB5BC:
+	# ROM: 0x3F7E5C
+	.float 1.0
+
+.global lbl_805AB5C0
+lbl_805AB5C0:
+	# ROM: 0x3F7E60
+	.float 8.0
+
+.global lbl_805AB5C4
+lbl_805AB5C4:
+	# ROM: 0x3F7E64
+	.4byte 0x3C0EFA35
+
 .section .text, "ax"
 
 .global __dt__17CScriptCoverPointFv

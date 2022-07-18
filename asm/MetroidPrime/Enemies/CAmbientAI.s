@@ -752,3 +752,41 @@ __ct__10CAmbientAI:
 /* 8024C284 002491E4  7C 08 03 A6 */	mtlr r0
 /* 8024C288 002491E8  38 21 00 C0 */	addi r1, r1, 0xc0
 /* 8024C28C 002491EC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD5B0
+lbl_805AD5B0:
+	# ROM: 0x3F9E50
+	.float 1.0
+
+.global lbl_805AD5B4
+lbl_805AD5B4:
+	# ROM: 0x3F9E54
+	.float 1.1920929E-7
+
+.global lbl_805AD5B8
+lbl_805AD5B8:
+	# ROM: 0x3F9E58
+	.4byte 0
+
+.global lbl_805AD5BC
+lbl_805AD5BC:
+	# ROM: 0x3F9E5C
+	.4byte 0x3F4CCCCD
+
+.global lbl_805AD5C0
+lbl_805AD5C0:
+	# ROM: 0x3F9E60
+	.float 0.4
+
+.global lbl_805AD5C4
+lbl_805AD5C4:
+	# ROM: 0x3F9E64
+	.float 0.3
+
+.global lbl_805AD5C8
+lbl_805AD5C8:
+	# ROM: 0x3F9E68
+	.float 0.1
+	.4byte 0
+

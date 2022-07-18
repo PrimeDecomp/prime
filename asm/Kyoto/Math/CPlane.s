@@ -105,3 +105,15 @@ __ct__6CPlaneFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 8033717C 003340DC  7C 08 03 A6 */	mtlr r0
 /* 80337180 003340E0  38 21 00 40 */	addi r1, r1, 0x40
 /* 80337184 003340E4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE8A0
+lbl_805AE8A0:
+	# ROM: 0x3FB140
+	.4byte 0
+
+.global lbl_805AE8A4
+lbl_805AE8A4:
+	# ROM: 0x3FB144
+	.float 1.0
+

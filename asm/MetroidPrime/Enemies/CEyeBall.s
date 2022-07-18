@@ -1530,3 +1530,66 @@ Accept__8CEyeBallFR8IVisitor:
 /* 802258DC 0022283C  7C 08 03 A6 */	mtlr r0
 /* 802258E0 00222840  38 21 00 90 */	addi r1, r1, 0x90
 /* 802258E4 00222844  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD190
+lbl_805AD190:
+	# ROM: 0x3F9A30
+	.4byte 0
+
+.global lbl_805AD194
+lbl_805AD194:
+	# ROM: 0x3F9A34
+	.4byte 0x42480000
+
+.global lbl_805AD198
+lbl_805AD198:
+	# ROM: 0x3F9A38
+	.float 0.1
+	.4byte 0
+
+.global lbl_805AD1A0
+lbl_805AD1A0:
+	# ROM: 0x3F9A40
+	.double 9.999999747378752E-6
+
+.global lbl_805AD1A8
+lbl_805AD1A8:
+	# ROM: 0x3F9A48
+	.float 0.7853982
+
+.global lbl_805AD1AC
+lbl_805AD1AC:
+	# ROM: 0x3F9A4C
+	.float 0.5
+
+.global lbl_805AD1B0
+lbl_805AD1B0:
+	# ROM: 0x3F9A50
+	.float 1.0
+
+.global lbl_805AD1B4
+lbl_805AD1B4:
+	# ROM: 0x3F9A54
+	.4byte 0x3D4CCCCD
+
+.global lbl_805AD1B8
+lbl_805AD1B8:
+	# ROM: 0x3F9A58
+	.float 2.0
+
+.global lbl_805AD1BC
+lbl_805AD1BC:
+	# ROM: 0x3F9A5C
+	.4byte 0x41A00000
+
+.global lbl_805AD1C0
+lbl_805AD1C0:
+	# ROM: 0x3F9A60
+	.float 150.0
+
+.global lbl_805AD1C4
+lbl_805AD1C4:
+	# ROM: 0x3F9A64
+	.4byte 0x40490FDB
+

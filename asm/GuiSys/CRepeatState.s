@@ -39,3 +39,21 @@ sub_802cd4bc:
 /* 802CD4BC 002CA41C  C0 02 C4 70 */	lfs f0, lbl_805AE190@sda21(r2)
 /* 802CD4C0 002CA420  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802CD4C4 002CA424  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE190
+lbl_805AE190:
+	# ROM: 0x3FAA30
+	.4byte 0
+
+.global lbl_805AE194
+lbl_805AE194:
+	# ROM: 0x3FAA34
+	.4byte 0x3F19999A
+
+.global lbl_805AE198
+lbl_805AE198:
+	# ROM: 0x3FAA38
+	.4byte 0x3D4CCCCD
+	.4byte 0
+

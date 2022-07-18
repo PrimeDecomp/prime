@@ -22,6 +22,14 @@ lbl_805A7360:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AAD38
+lbl_805AAD38:
+	# ROM: 0x3F75D8
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global Accept__14CScriptHUDMemoFR8IVisitor

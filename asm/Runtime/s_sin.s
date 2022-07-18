@@ -66,3 +66,11 @@ lbl_80394BA4:
 /* 80394BA8 00391B08  7C 08 03 A6 */	mtlr r0
 /* 80394BAC 00391B0C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80394BB0 00391B10  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AF200
+lbl_805AF200:
+	# ROM: 0x3FBAA0
+	.4byte 0
+	.4byte 0
+

@@ -47,3 +47,47 @@ lbl_80393F90:
 lbl_80393FAC:
 /* 80393FAC 00390F0C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80393FB0 00390F10  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AF120
+lbl_805AF120:
+	# ROM: 0x3FB9C0
+	.4byte 0x3F811111
+	.4byte 0x1110F8A6
+
+.global lbl_805AF128
+lbl_805AF128:
+	# ROM: 0x3FB9C8
+	.4byte 0xBF2A01A0
+	.4byte 0x19C161D5
+
+.global lbl_805AF130
+lbl_805AF130:
+	# ROM: 0x3FB9D0
+	.4byte 0x3EC71DE3
+	.4byte 0x57B1FE7D
+
+.global lbl_805AF138
+lbl_805AF138:
+	# ROM: 0x3FB9D8
+	.4byte 0xBE5AE5E6
+	.4byte 0x8A2B9CEB
+
+.global lbl_805AF140
+lbl_805AF140:
+	# ROM: 0x3FB9E0
+	.4byte 0x3DE5D93A
+	.4byte 0x5ACFD57C
+
+.global lbl_805AF148
+lbl_805AF148:
+	# ROM: 0x3FB9E8
+	.4byte 0xBFC55555
+	.4byte 0x55555549
+
+.global lbl_805AF150
+lbl_805AF150:
+	# ROM: 0x3FB9F0
+	.4byte 0x3FE00000
+	.4byte 0
+

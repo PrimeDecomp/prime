@@ -101,12 +101,12 @@ lbl_803ECEE4:
 .global lbl_805A8768
 lbl_805A8768:
 	# ROM: 0x3F6108
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A876C
 lbl_805A876C:
 	# ROM: 0x3F610C
-	.4byte 0x3DCCCCCD
+	.float 0.1
 
 .global lbl_805A8770
 lbl_805A8770:
@@ -121,7 +121,7 @@ lbl_805A8774:
 .global lbl_805A8778
 lbl_805A8778:
 	# ROM: 0x3F6118
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A877C
 lbl_805A877C:
@@ -4580,3 +4580,55 @@ __ct__Q211CSfxManager11CSfxChannelFv:
 /* 802EB4F0 002E8450  90 03 00 48 */	stw r0, 0x48(r3)
 /* 802EB4F4 002E8454  38 21 00 50 */	addi r1, r1, 0x50
 /* 802EB4F8 002E8458  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE320
+lbl_805AE320:
+	# ROM: 0x3FABC0
+	.4byte 0xFFFFFFFF
+
+.global lbl_805AE324
+lbl_805AE324:
+	# ROM: 0x3FABC4
+	.4byte 0
+
+.global lbl_805AE328
+lbl_805AE328:
+	# ROM: 0x3FABC8
+	.4byte 0x42FE0000
+
+.global lbl_805AE32C
+lbl_805AE32C:
+	# ROM: 0x3FABCC
+	.float 1.0
+
+.global lbl_805AE330
+lbl_805AE330:
+	# ROM: 0x3FABD0
+	.float 2.0
+
+.global lbl_805AE334
+lbl_805AE334:
+	# ROM: 0x3FABD4
+	.float 150.0
+
+.global lbl_805AE338
+lbl_805AE338:
+	# ROM: 0x3FABD8
+	.float 0.1
+
+.global lbl_805AE33C
+lbl_805AE33C:
+	# ROM: 0x3FABDC
+	.float 0.25
+
+.global lbl_805AE340
+lbl_805AE340:
+	# ROM: 0x3FABE0
+	.float 0.5
+
+.global lbl_805AE344
+lbl_805AE344:
+	# ROM: 0x3FABE4
+	.float 15.0
+

@@ -331,3 +331,21 @@ __ct__15CProjectileInfoFUiRC11CDamageInfo:
 /* 8021C158 002190B8  7C 08 03 A6 */	mtlr r0
 /* 8021C15C 002190BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 8021C160 002190C0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD100
+lbl_805AD100:
+	# ROM: 0x3F99A0
+	.4byte 0
+
+.global lbl_805AD104
+lbl_805AD104:
+	# ROM: 0x3F99A4
+	.float 1.5
+
+.global lbl_805AD108
+lbl_805AD108:
+	# ROM: 0x3F99A8
+	.4byte 0x472FC800
+	.4byte 0
+

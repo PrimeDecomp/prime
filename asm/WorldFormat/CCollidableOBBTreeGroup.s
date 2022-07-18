@@ -2025,3 +2025,15 @@ lbl_802AE3C8:
 /* 802AE3D8 002AB338  7C 08 03 A6 */	mtlr r0
 /* 802AE3DC 002AB33C  38 21 00 30 */	addi r1, r1, 0x30
 /* 802AE3E0 002AB340  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADF00
+lbl_805ADF00:
+	# ROM: 0x3FA7A0
+	.4byte 0
+
+.global lbl_805ADF04
+lbl_805ADF04:
+	# ROM: 0x3FA7A4
+	.float 1.0
+

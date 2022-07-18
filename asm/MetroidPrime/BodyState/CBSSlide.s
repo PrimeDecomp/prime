@@ -352,3 +352,50 @@ __ct__8CBSSlideFv:
 /* 80144400 00141360  90 03 00 00 */	stw r0, 0(r3)
 /* 80144404 00141364  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80144408 00141368  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB910
+lbl_805AB910:
+	# ROM: 0x3F81B0
+	.4byte 0
+
+.global lbl_805AB914
+lbl_805AB914:
+	# ROM: 0x3F81B4
+	.4byte 0x42652EE0
+
+.global lbl_805AB918
+lbl_805AB918:
+	# ROM: 0x3F81B8
+	.float 1.0
+
+.global lbl_805AB91C
+lbl_805AB91C:
+	# ROM: 0x3F81BC
+	.float 1.1920929E-7
+
+.global lbl_805AB920
+lbl_805AB920:
+	# ROM: 0x3F81C0
+	.float 0.017453292
+
+.global lbl_805AB924
+lbl_805AB924:
+	# ROM: 0x3F81C4
+	.4byte 0x3E22F983
+
+.global lbl_805AB928
+lbl_805AB928:
+	# ROM: 0x3F81C8
+	.float 6.2831855
+
+.global lbl_805AB92C
+lbl_805AB92C:
+	# ROM: 0x3F81CC
+	.4byte 0x40490FDB
+
+.global lbl_805AB930
+lbl_805AB930:
+	# ROM: 0x3F81D0
+	.double 4.503601774854144E15
+

@@ -104,3 +104,11 @@ lbl_8038D870:
 lbl_8038D874:
 /* 8038D874 0038A7D4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8038D878 0038A7D8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEC90
+lbl_805AEC90:
+	# ROM: 0x3FB530
+	.4byte 0x0000C0E0
+	.4byte 0
+

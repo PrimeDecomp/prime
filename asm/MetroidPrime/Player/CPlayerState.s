@@ -62,6 +62,53 @@ lbl_805A7158:
 	.4byte 0
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AA828
+lbl_805AA828:
+	# ROM: 0x3F70C8
+	.4byte 0x3FE66666
+
+.global lbl_805AA82C
+lbl_805AA82C:
+	# ROM: 0x3F70CC
+	.4byte 0x42C80000
+
+.global lbl_805AA830
+lbl_805AA830:
+	# ROM: 0x3F70D0
+	.4byte 0x42C60000
+
+.global lbl_805AA834
+lbl_805AA834:
+	# ROM: 0x3F70D4
+	.float 0.2
+
+.global lbl_805AA838
+lbl_805AA838:
+	# ROM: 0x3F70D8
+	.float 0.2
+
+.global lbl_805AA83C
+lbl_805AA83C:
+	# ROM: 0x3F70DC
+	.4byte 0
+
+.global lbl_805AA840
+lbl_805AA840:
+	# ROM: 0x3F70E0
+	.double 4.503601774854144E15
+
+.global lbl_805AA848
+lbl_805AA848:
+	# ROM: 0x3F70E8
+	.float 1.0
+
+.global lbl_805AA84C
+lbl_805AA84C:
+	# ROM: 0x3F70EC
+	.4byte 0x42480000
+
 .section .text, "ax"
 
 .global GetMissileComboChargeFactor__12CPlayerStateFv

@@ -491,3 +491,16 @@ __ct__9CAuiMeterFRCQ210CGuiWidget15CGuiWidgetParmsbii:
 /* 802C11DC 002BE13C  7C 08 03 A6 */	mtlr r0
 /* 802C11E0 002BE140  38 21 00 20 */	addi r1, r1, 0x20
 /* 802C11E4 002BE144  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE080
+lbl_805AE080:
+	# ROM: 0x3FA920
+	.float 0.5
+	.4byte 0
+
+.global lbl_805AE088
+lbl_805AE088:
+	# ROM: 0x3FA928
+	.double 4.503601774854144E15
+

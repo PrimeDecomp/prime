@@ -652,3 +652,82 @@ __ct__15CControllerAxisFv:
 /* 8034F8C4 0034C824  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8034F8C8 0034C828  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8034F8CC 0034C82C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE970
+lbl_805AE970:
+	# ROM: 0x3FB210
+	.float -1.0
+
+.global lbl_805AE974
+lbl_805AE974:
+	# ROM: 0x3FB214
+	.float 1.0
+
+.global lbl_805AE978
+lbl_805AE978:
+	# ROM: 0x3FB218
+	.float -1.0
+
+.global lbl_805AE97C
+lbl_805AE97C:
+	# ROM: 0x3FB21C
+	.float 1.0
+
+.global lbl_805AE980
+lbl_805AE980:
+	# ROM: 0x3FB220
+	.4byte 0x554E4B4E
+
+.global lbl_805AE984
+lbl_805AE984:
+	# ROM: 0x3FB224
+	.4byte 0x53544E44
+
+.global lbl_805AE988
+lbl_805AE988:
+	# ROM: 0x3FB228
+	.4byte 0x4742415F
+
+.global lbl_805AE98C
+lbl_805AE98C:
+	# ROM: 0x3FB22C
+	.4byte 0x57415645
+
+.global lbl_805AE990
+lbl_805AE990:
+	# ROM: 0x3FB230
+	.4byte 0x42900000
+
+.global lbl_805AE994
+lbl_805AE994:
+	# ROM: 0x3FB234
+	.4byte 0x426C0000
+
+.global lbl_805AE998
+lbl_805AE998:
+	# ROM: 0x3FB238
+	.4byte 0
+
+.global lbl_805AE99C
+lbl_805AE99C:
+	# ROM: 0x3FB23C
+	.4byte 0x3BDA740E
+
+.global lbl_805AE9A0
+lbl_805AE9A0:
+	# ROM: 0x3FB240
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AE9A8
+lbl_805AE9A8:
+	# ROM: 0x3FB248
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE9B0
+lbl_805AE9B0:
+	# ROM: 0x3FB250
+	.double 4.503601774854144E15
+

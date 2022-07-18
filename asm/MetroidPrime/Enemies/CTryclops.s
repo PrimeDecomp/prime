@@ -1548,7 +1548,7 @@ sub_8025ece4:
 /* 8025ED8C 0025BCEC  48 0B 37 51 */	bl Float__9CRandom16Fv
 /* 8025ED90 0025BCF0  C0 62 BA 44 */	lfs f3, lbl_805AD764@sda21(r2)
 /* 8025ED94 0025BCF4  C0 02 BA 4C */	lfs f0, lbl_805AD76C@sda21(r2)
-/* 8025ED98 0025BCF8  C0 42 96 A0 */	lfs f2, lbl_805AB3C0@sda21(r2)
+/* 8025ED98 0025BCF8  C0 42 96 A0 */	lfs f2, skGravityConstant__13CPhysicsActor@sda21(r2)
 /* 8025ED9C 0025BCFC  EC 23 00 7A */	fmadds f1, f3, f1, f0
 /* 8025EDA0 0025BD00  C0 02 BA 34 */	lfs f0, lbl_805AD754@sda21(r2)
 /* 8025EDA4 0025BD04  FC 80 10 50 */	fneg f4, f2
@@ -3966,3 +3966,85 @@ __sinit_CTryclops_cpp:
 /* 80261074 0025DFD4  7C 08 03 A6 */	mtlr r0
 /* 80261078 0025DFD8  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 8026107C 0025DFDC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD748
+lbl_805AD748:
+	# ROM: 0x3F9FE8
+	.4byte 0x803D5258
+
+.global lbl_805AD74C
+lbl_805AD74C:
+	# ROM: 0x3F9FEC
+	.4byte 0x803D5269
+
+.global lbl_805AD750
+lbl_805AD750:
+	# ROM: 0x3F9FF0
+	.4byte 0x40400000
+
+.global lbl_805AD754
+lbl_805AD754:
+	# ROM: 0x3F9FF4
+	.4byte 0
+
+.global lbl_805AD758
+lbl_805AD758:
+	# ROM: 0x3F9FF8
+	.float 8.0
+
+.global lbl_805AD75C
+lbl_805AD75C:
+	# ROM: 0x3F9FFC
+	.float 1.0
+
+.global lbl_805AD760
+lbl_805AD760:
+	# ROM: 0x3FA000
+	.float 1.5
+
+.global lbl_805AD764
+lbl_805AD764:
+	# ROM: 0x3FA004
+	.float 5.0
+
+.global lbl_805AD768
+lbl_805AD768:
+	# ROM: 0x3FA008
+	.4byte 0x3F7FF2E5
+
+.global lbl_805AD76C
+lbl_805AD76C:
+	# ROM: 0x3FA00C
+	.4byte 0x41A00000
+
+.global lbl_805AD770
+lbl_805AD770:
+	# ROM: 0x3FA010
+	.4byte 0xBF000000
+
+.global lbl_805AD774
+lbl_805AD774:
+	# ROM: 0x3FA014
+	.float 2.0
+
+.global lbl_805AD778
+lbl_805AD778:
+	# ROM: 0x3FA018
+	.float 4.0
+
+.global lbl_805AD77C
+lbl_805AD77C:
+	# ROM: 0x3FA01C
+	.float 0.017453292
+
+.global lbl_805AD780
+lbl_805AD780:
+	# ROM: 0x3FA020
+	.float 0.5
+
+.global lbl_805AD784
+lbl_805AD784:
+	# ROM: 0x3FA024
+	.4byte 0xBE99999A
+

@@ -2571,3 +2571,15 @@ CopyNodeMinusStartTime__13CSoundPOINodeFRC13CSoundPOINodeRC13CCharAnimTime:
 /* 802DAB28 002D7A88  7C 08 03 A6 */	mtlr r0
 /* 802DAB2C 002D7A8C  38 21 00 40 */	addi r1, r1, 0x40
 /* 802DAB30 002D7A90  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE2B8
+lbl_805AE2B8:
+	# ROM: 0x3FAB58
+	.4byte 0
+
+.global lbl_805AE2BC
+lbl_805AE2BC:
+	# ROM: 0x3FAB5C
+	.4byte 0x3727C5AC
+

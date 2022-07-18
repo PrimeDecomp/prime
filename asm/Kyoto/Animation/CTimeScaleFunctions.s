@@ -428,3 +428,26 @@ VTimeScaleIntegral__27CConstantAnimationTimeScaleCFRCfRCf:
 GetType__27CConstantAnimationTimeScaleCFv:
 /* 802FDC74 002FABD4  38 60 00 00 */	li r3, 0
 /* 802FDC78 002FABD8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE438
+lbl_805AE438:
+	# ROM: 0x3FACD8
+	.float 2.0
+
+.global lbl_805AE43C
+lbl_805AE43C:
+	# ROM: 0x3FACDC
+	.float 0.5
+
+.global lbl_805AE440
+lbl_805AE440:
+	# ROM: 0x3FACE0
+	.double 9.999999747378752E-6
+
+.global lbl_805AE448
+lbl_805AE448:
+	# ROM: 0x3FACE8
+	.float -1.0
+	.4byte 0
+

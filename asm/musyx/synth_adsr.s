@@ -4,7 +4,7 @@
 .global lbl_805AF2C8
 lbl_805AF2C8:
 	# ROM: 0x3FBB68
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0
 
 .global lbl_805AF2D0
@@ -20,8 +20,7 @@ lbl_805AF2D4:
 .global lbl_805AF2D8
 lbl_805AF2D8:
 	# ROM: 0x3FBB78
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.double 4.503601774854144E15
 
 .global lbl_805AF2E0
 lbl_805AF2E0:

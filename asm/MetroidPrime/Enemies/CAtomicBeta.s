@@ -1390,3 +1390,45 @@ __ct__11CAtomicBeta:
 /* 80251BA4 0024EB04  7C 08 03 A6 */	mtlr r0
 /* 80251BA8 0024EB08  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 80251BAC 0024EB0C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD5F0
+lbl_805AD5F0:
+	# ROM: 0x3F9E90
+	.4byte 0
+
+.global lbl_805AD5F4
+lbl_805AD5F4:
+	# ROM: 0x3F9E94
+	.4byte 0x3727C5AC
+
+.global lbl_805AD5F8
+lbl_805AD5F8:
+	# ROM: 0x3F9E98
+	.float 0.1
+
+.global lbl_805AD5FC
+lbl_805AD5FC:
+	# ROM: 0x3F9E9C
+	.float 1.0
+
+.global lbl_805AD600
+lbl_805AD600:
+	# ROM: 0x3F9EA0
+	.float 0.5
+
+.global lbl_805AD604
+lbl_805AD604:
+	# ROM: 0x3F9EA4
+	.float -1.0
+
+.global lbl_805AD608
+lbl_805AD608:
+	# ROM: 0x3F9EA8
+	.4byte 0x42480000
+
+.global lbl_805AD60C
+lbl_805AD60C:
+	# ROM: 0x3F9EAC
+	.4byte 0x41200000
+

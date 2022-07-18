@@ -124,3 +124,11 @@ __ct__5CMRayFRC9CVector3fRC9CVector3fff:
 /* 802D61A4 002D3104  D0 43 00 30 */	stfs f2, 0x30(r3)
 /* 802D61A8 002D3108  D0 23 00 34 */	stfs f1, 0x34(r3)
 /* 802D61AC 002D310C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE270
+lbl_805AE270:
+	# ROM: 0x3FAB10
+	.float 1.0
+	.4byte 0
+

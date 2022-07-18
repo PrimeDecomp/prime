@@ -1236,3 +1236,27 @@ lbl_80391260:
 /* 80391268 0038E1C8  7C 08 03 A6 */	mtlr r0
 /* 8039126C 0038E1CC  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 80391270 0038E1D0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AECA0
+lbl_805AECA0:
+	# ROM: 0x3FB540
+	.4byte 0x4E414E28
+
+.global lbl_805AECA4
+lbl_805AECA4:
+	# ROM: 0x3FB544
+	.4byte 0
+
+.global lbl_805AECA8
+lbl_805AECA8:
+	# ROM: 0x3FB548
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AECB0
+lbl_805AECB0:
+	# ROM: 0x3FB550
+	.4byte 0
+	.4byte 0
+

@@ -60,6 +60,24 @@ lbl_805A8E00:
 lbl_805A8E04:
 	.skip 0xC
 
+.section .sdata2, "a"
+
+.global lbl_805AA5F0
+lbl_805AA5F0:
+	# ROM: 0x3F6E90
+	.4byte 0
+
+.global lbl_805AA5F4
+lbl_805AA5F4:
+	# ROM: 0x3F6E94
+	.float 1.0
+
+.global lbl_805AA5F8
+lbl_805AA5F8:
+	# ROM: 0x3F6E98
+	.4byte 0x41200000
+	.4byte 0
+
 .section .text, "ax"
 
 .global InhabitantRejected__14CScriptTriggerFR6CActorR13CStateManager

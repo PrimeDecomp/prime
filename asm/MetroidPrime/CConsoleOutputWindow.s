@@ -33,6 +33,19 @@ lbl_805A7544:
 lbl_805A8F00:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AB0C8
+lbl_805AB0C8:
+	# ROM: 0x3F7968
+	.4byte 0x441E0000
+	.4byte 0
+
+.global lbl_805AB0D0
+lbl_805AB0D0:
+	# ROM: 0x3F7970
+	.double 4.503601774854144E15
+
 .section .text, "ax"
 
 .global Draw__20CConsoleOutputWindowCFv

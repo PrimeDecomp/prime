@@ -2008,3 +2008,34 @@ lbl_802EE2D4:
 /* 802EE2EC 002EB24C  7C 08 03 A6 */	mtlr r0
 /* 802EE2F0 002EB250  38 21 00 30 */	addi r1, r1, 0x30
 /* 802EE2F4 002EB254  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE370
+lbl_805AE370:
+	# ROM: 0x3FAC10
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AE378
+lbl_805AE378:
+	# ROM: 0x3FAC18
+	.double 9.999999747378752E-6
+
+.global lbl_805AE380
+lbl_805AE380:
+	# ROM: 0x3FAC20
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE388
+lbl_805AE388:
+	# ROM: 0x3FAC28
+	.4byte 0x43300000
+	.4byte 0
+
+.global lbl_805AE390
+lbl_805AE390:
+	# ROM: 0x3FAC30
+	.4byte 0x3727C5AC
+	.4byte 0
+

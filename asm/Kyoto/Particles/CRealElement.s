@@ -4115,3 +4115,42 @@ IsConstant__16CREInitialRandomCF:
 IsConstant__11CREConstantCFv:
 /* 80333460 003303C0  38 60 00 01 */	li r3, 1
 /* 80333464 003303C4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE838
+lbl_805AE838:
+	# ROM: 0x3FB0D8
+	.float 1.0
+	.4byte 0
+
+.global lbl_805AE840
+lbl_805AE840:
+	# ROM: 0x3FB0E0
+	.double 4.503601774854144E15
+
+.global lbl_805AE848
+lbl_805AE848:
+	# ROM: 0x3FB0E8
+	.4byte 0x3B808081
+
+.global lbl_805AE84C
+lbl_805AE84C:
+	# ROM: 0x3FB0EC
+	.4byte 0
+
+.global lbl_805AE850
+lbl_805AE850:
+	# ROM: 0x3FB0F0
+	.4byte 0x3727C5AC
+
+.global lbl_805AE854
+lbl_805AE854:
+	# ROM: 0x3FB0F4
+	.4byte 0x42C80000
+
+.global lbl_805AE858
+lbl_805AE858:
+	# ROM: 0x3FB0F8
+	.float 0.017453292
+	.4byte 0
+

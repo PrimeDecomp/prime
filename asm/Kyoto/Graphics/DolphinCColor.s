@@ -342,3 +342,25 @@ __ct__6CColorFR12CInputStream:
 /* 803634D4 00360434  7C 08 03 A6 */	mtlr r0
 /* 803634D8 00360438  38 21 00 30 */	addi r1, r1, 0x30
 /* 803634DC 0036043C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEAC0
+lbl_805AEAC0:
+	# ROM: 0x3FB360
+	.4byte 0x43800000
+
+.global lbl_805AEAC4
+lbl_805AEAC4:
+	# ROM: 0x3FB364
+	.float 1.0
+
+.global lbl_805AEAC8
+lbl_805AEAC8:
+	# ROM: 0x3FB368
+	.4byte 0x3B808081
+
+.global lbl_805AEACC
+lbl_805AEACC:
+	# ROM: 0x3FB36C
+	.float 255.0
+

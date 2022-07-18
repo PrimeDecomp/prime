@@ -10,6 +10,38 @@ lbl_803DAD30:
 	.4byte __dt__10CTweakBallFv
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AA810
+lbl_805AA810:
+	# ROM: 0x3F70B0
+	.4byte 0
+
+.global lbl_805AA814
+lbl_805AA814:
+	# ROM: 0x3F70B4
+	.float 0.017453292
+
+.global lbl_805AA818
+lbl_805AA818:
+	# ROM: 0x3F70B8
+	.4byte 0x461C4000
+
+.global lbl_805AA81C
+lbl_805AA81C:
+	# ROM: 0x3F70BC
+	.4byte 0x447A0000
+
+.global lbl_805AA820
+lbl_805AA820:
+	# ROM: 0x3F70C0
+	.4byte 0x44FA0000
+
+.global lbl_805AA824
+lbl_805AA824:
+	# ROM: 0x3F70C4
+	.4byte 0x471C4000
+
 .section .text, "ax"
 
 .global __ct__10CTweakBallFR12CInputStream

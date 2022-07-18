@@ -9,7 +9,7 @@ lbl_805AF2F0:
 .global lbl_805AF2F4
 lbl_805AF2F4:
 	# ROM: 0x3FBB94
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805AF2F8
 lbl_805AF2F8:
@@ -32,13 +32,12 @@ lbl_805AF308:
 .global lbl_805AF310
 lbl_805AF310:
 	# ROM: 0x3FBBB0
-	.4byte 0x3FF00000
-	.4byte 0
+	.double 1.0
 
 .global lbl_805AF318
 lbl_805AF318:
 	# ROM: 0x3FBBB8
-	.4byte 0x40000000
+	.float 2.0
 
 .global lbl_805AF31C
 lbl_805AF31C:
@@ -184,18 +183,18 @@ musyx_vol_tab:
 	.4byte 0x3F71EBEA
 	.4byte 0x3F768BF4
 	.4byte 0x3F7B3DF3
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 pan_tab:
 	.4byte 0
 	.4byte 0x3F3538EF
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 pan_tab_dpl2:
 	.4byte 0x3F133333
 	.4byte 0x3F3538EF
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0
 
 

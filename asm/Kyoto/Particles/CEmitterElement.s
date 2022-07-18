@@ -735,3 +735,26 @@ __ct__16CEESimpleEmitterFP14CVectorElementP14CVectorElement:
 /* 8035730C 0035426C  90 83 00 04 */	stw r4, 4(r3)
 /* 80357310 00354270  90 A3 00 08 */	stw r5, 8(r3)
 /* 80357314 00354274  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE9C8
+lbl_805AE9C8:
+	# ROM: 0x3FB268
+	.float 0.5
+
+.global lbl_805AE9CC
+lbl_805AE9CC:
+	# ROM: 0x3FB26C
+	.float 0.017453292
+
+.global lbl_805AE9D0
+lbl_805AE9D0:
+	# ROM: 0x3FB270
+	.float 0.01
+	.4byte 0
+
+.global lbl_805AE9D8
+lbl_805AE9D8:
+	# ROM: 0x3FB278
+	.double 4.503601774854144E15
+

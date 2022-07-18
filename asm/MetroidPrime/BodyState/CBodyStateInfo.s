@@ -3539,3 +3539,15 @@ lbl_80134DC0:
 /* 80134DC8 00131D28  7C 08 03 A6 */	mtlr r0
 /* 80134DCC 00131D2C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80134DD0 00131D30  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB6B8
+lbl_805AB6B8:
+	# ROM: 0x3F7F58
+	.4byte 0
+
+.global lbl_805AB6BC
+lbl_805AB6BC:
+	# ROM: 0x3F7F5C
+	.4byte 0x3727C5AC
+

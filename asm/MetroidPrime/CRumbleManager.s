@@ -164,3 +164,21 @@ __ct__14CRumbleManagerFv:
 /* 8022E314 0022B274  7C 08 03 A6 */	mtlr r0
 /* 8022E318 0022B278  38 21 00 10 */	addi r1, r1, 0x10
 /* 8022E31C 0022B27C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD348
+lbl_805AD348:
+	# ROM: 0x3F9BE8
+	.4byte 0
+
+.global lbl_805AD34C
+lbl_805AD34C:
+	# ROM: 0x3F9BEC
+	.4byte 0x3727C5AC
+
+.global lbl_805AD350
+lbl_805AD350:
+	# ROM: 0x3F9BF0
+	.float 1.0
+	.4byte 0
+

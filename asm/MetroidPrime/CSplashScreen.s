@@ -1,5 +1,94 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805AA0A0
+lbl_805AA0A0:
+	# ROM: 0x3F6940
+	.float 1.0
+
+.global lbl_805AA0A4
+lbl_805AA0A4:
+	# ROM: 0x3F6944
+	.float 1.5
+
+.global lbl_805AA0A8
+lbl_805AA0A8:
+	# ROM: 0x3F6948
+	.float 0.5
+
+.global lbl_805AA0AC
+lbl_805AA0AC:
+	# ROM: 0x3F694C
+	.float 255.0
+
+.global lbl_805AA0B0
+lbl_805AA0B0:
+	# ROM: 0x3F6950
+	.4byte 0xC1200000
+
+.global lbl_805AA0B4
+lbl_805AA0B4:
+	# ROM: 0x3F6954
+	.4byte 0x44228000
+
+.global lbl_805AA0B8
+lbl_805AA0B8:
+	# ROM: 0x3F6958
+	.4byte 0xC0B00000
+
+.global lbl_805AA0BC
+lbl_805AA0BC:
+	# ROM: 0x3F695C
+	.4byte 0x43F24000
+
+.global lbl_805AA0C0
+lbl_805AA0C0:
+	# ROM: 0x3F6960
+	.float -1.0
+
+.global lbl_805AA0C4
+lbl_805AA0C4:
+	# ROM: 0x3F6964
+	.4byte 0
+
+.global lbl_805AA0C8
+lbl_805AA0C8:
+	# ROM: 0x3F6968
+	.4byte 0x42C00000
+
+.global lbl_805AA0CC
+lbl_805AA0CC:
+	# ROM: 0x3F696C
+	.4byte 0xC5800000
+
+.global lbl_805AA0D0
+lbl_805AA0D0:
+	# ROM: 0x3F6970
+	.4byte 0x45800000
+	.4byte 0
+
+.global lbl_805AA0D8
+lbl_805AA0D8:
+	# ROM: 0x3F6978
+	.double 4.503601774854144E15
+
+.global lbl_805AA0E0
+lbl_805AA0E0:
+	# ROM: 0x3F6980
+	.4byte 0x41200000
+
+.global lbl_805AA0E4
+lbl_805AA0E4:
+	# ROM: 0x3F6984
+	.float 5.0
+
+.global lbl_805AA0E8
+lbl_805AA0E8:
+	# ROM: 0x3F6988
+	.float 2.0
+	.4byte 0
+
 .section .data
 
 .global lbl_803D9A50

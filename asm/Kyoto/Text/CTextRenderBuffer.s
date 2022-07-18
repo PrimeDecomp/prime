@@ -1886,3 +1886,20 @@ __ct__17CTextRenderBufferFQ217CTextRenderBuffer5EMode:
 /* 8035B5D0 00358530  90 A3 00 50 */	stw r5, 0x50(r3)
 /* 8035B5D4 00358534  90 A3 02 54 */	stw r5, 0x254(r3)
 /* 8035B5D8 00358538  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEA20
+lbl_805AEA20:
+	# ROM: 0x3FB2C0
+	.double 4.503601774854144E15
+
+.global lbl_805AEA28
+lbl_805AEA28:
+	# ROM: 0x3FB2C8
+	.4byte 0
+
+.global lbl_805AEA2C
+lbl_805AEA2C:
+	# ROM: 0x3FB2CC
+	.float 0.5
+

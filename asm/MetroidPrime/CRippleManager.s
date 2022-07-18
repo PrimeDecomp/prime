@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805AB460
+lbl_805AB460:
+	# ROM: 0x3F7D00
+	.float 0.0
+	.4byte 0
+
 .section .text, "ax"
 
 .global AddRipple__14CRippleManagerFRC7CRipple

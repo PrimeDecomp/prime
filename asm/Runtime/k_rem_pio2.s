@@ -13,7 +13,7 @@ lbl_803D8918:
 lbl_803D8928:
 	# ROM: 0x3D5928
 	.4byte 0x3FF921FB
-	.4byte 0x40000000
+	.float 2.0
 	.asciz ">tD-"
 	.balign 4
 	.4byte 0x3CF84698
@@ -1040,3 +1040,51 @@ lbl_80393EF4:
 /* 80393F08 00390E68  7C 08 03 A6 */	mtlr r0
 /* 80393F0C 00390E6C  38 21 02 D0 */	addi r1, r1, 0x2d0
 /* 80393F10 00390E70  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AF0E0
+lbl_805AF0E0:
+	# ROM: 0x3FB980
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AF0E8
+lbl_805AF0E8:
+	# ROM: 0x3FB988
+	.4byte 0x3E700000
+	.4byte 0
+
+.global lbl_805AF0F0
+lbl_805AF0F0:
+	# ROM: 0x3FB990
+	.float 15.0
+	.4byte 0
+
+.global lbl_805AF0F8
+lbl_805AF0F8:
+	# ROM: 0x3FB998
+	.float 2.5
+	.4byte 0
+
+.global lbl_805AF100
+lbl_805AF100:
+	# ROM: 0x3FB9A0
+	.float 1.5
+	.4byte 0
+
+.global lbl_805AF108
+lbl_805AF108:
+	# ROM: 0x3FB9A8
+	.4byte 0x3FE00000
+	.4byte 0
+
+.global lbl_805AF110
+lbl_805AF110:
+	# ROM: 0x3FB9B0
+	.double 1.0
+
+.global lbl_805AF118
+lbl_805AF118:
+	# ROM: 0x3FB9B8
+	.double 4.503601774854144E15
+

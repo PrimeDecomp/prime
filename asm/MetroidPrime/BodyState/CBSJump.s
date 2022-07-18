@@ -1196,3 +1196,41 @@ __ct__7CBSJumpFv:
 /* 801466A8 00143608  50 80 1F 38 */	rlwimi r0, r4, 3, 0x1c, 0x1c
 /* 801466AC 0014360C  98 03 00 30 */	stb r0, 0x30(r3)
 /* 801466B0 00143610  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB980
+lbl_805AB980:
+	# ROM: 0x3F8220
+	.float 0.5
+
+.global lbl_805AB984
+lbl_805AB984:
+	# ROM: 0x3F8224
+	.4byte 0x3FB4FDF4
+
+.global lbl_805AB988
+lbl_805AB988:
+	# ROM: 0x3F8228
+	.4byte 0x40400000
+
+.global lbl_805AB98C
+lbl_805AB98C:
+	# ROM: 0x3F822C
+	.4byte 0
+
+.global lbl_805AB990
+lbl_805AB990:
+	# ROM: 0x3F8230
+	.4byte 0xC0000000
+
+.global lbl_805AB994
+lbl_805AB994:
+	# ROM: 0x3F8234
+	.4byte 0x42C60000
+
+.global lbl_805AB998
+lbl_805AB998:
+	# ROM: 0x3F8238
+	.float 1.0
+	.4byte 0
+

@@ -40,6 +40,39 @@ lbl_803DA450:
 	.4byte GetWeight__13CPhysicsActorCFv
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AA5D0
+lbl_805AA5D0:
+	# ROM: 0x3F6E70
+	.float 1.0
+
+.global lbl_805AA5D4
+lbl_805AA5D4:
+	# ROM: 0x3F6E74
+	.float 1.1920929E-7
+
+.global lbl_805AA5D8
+lbl_805AA5D8:
+	# ROM: 0x3F6E78
+	.float 0.0
+
+.global lbl_805AA5DC
+lbl_805AA5DC:
+	# ROM: 0x3F6E7C
+	.float 0.3
+
+.global lbl_805AA5E0
+lbl_805AA5E0:
+	# ROM: 0x3F6E80
+	.float 0.1
+	.4byte 0
+
+.global lbl_805AA5E8
+lbl_805AA5E8:
+	# ROM: 0x3F6E88
+	.double 9.999999747378752E-6
+
 .section .text, "ax"
 
 .global GetSortingBounds__12CScriptActorCFRC12CTransform4f

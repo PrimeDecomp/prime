@@ -840,3 +840,21 @@ __ct__14CGunControllerFR10CModelData:
 /* 801CCC9C 001C9BFC  7C 08 03 A6 */	mtlr r0
 /* 801CCCA0 001C9C00  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CCCA4 001C9C04  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC890
+lbl_805AC890:
+	# ROM: 0x3F9130
+	.float 1.0
+
+.global lbl_805AC894
+lbl_805AC894:
+	# ROM: 0x3F9134
+	.float 0.001
+
+.global lbl_805AC898
+lbl_805AC898:
+	# ROM: 0x3F9138
+	.4byte 0
+	.4byte 0
+

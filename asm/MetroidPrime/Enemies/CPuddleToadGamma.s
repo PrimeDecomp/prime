@@ -1507,7 +1507,7 @@ lbl_8014C5CC:
 /* 8014C5FC 0014955C  48 1C 5E E1 */	bl Float__9CRandom16Fv
 /* 8014C600 00149560  C0 62 9D 04 */	lfs f3, lbl_805ABA24@sda21(r2)
 /* 8014C604 00149564  C0 02 9D 00 */	lfs f0, lbl_805ABA20@sda21(r2)
-/* 8014C608 00149568  C0 42 96 A0 */	lfs f2, lbl_805AB3C0@sda21(r2)
+/* 8014C608 00149568  C0 42 96 A0 */	lfs f2, skGravityConstant__13CPhysicsActor@sda21(r2)
 /* 8014C60C 0014956C  EC 23 00 7A */	fmadds f1, f3, f1, f0
 /* 8014C610 00149570  C0 02 9C F0 */	lfs f0, lbl_805ABA10@sda21(r2)
 /* 8014C614 00149574  FC 80 10 50 */	fneg f4, f2
@@ -2184,3 +2184,65 @@ __sinit_CPuddleToadGamma_cpp:
 /* 8014CFF0 00149F50  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8014CFF4 00149F54  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8014CFF8 00149F58  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABA10
+lbl_805ABA10:
+	# ROM: 0x3F82B0
+	.4byte 0
+
+.global lbl_805ABA14
+lbl_805ABA14:
+	# ROM: 0x3F82B4
+	.4byte 0x42C80000
+
+.global lbl_805ABA18
+lbl_805ABA18:
+	# ROM: 0x3F82B8
+	.float 2.0
+
+.global lbl_805ABA1C
+lbl_805ABA1C:
+	# ROM: 0x3F82BC
+	.float 1.0
+
+.global lbl_805ABA20
+lbl_805ABA20:
+	# ROM: 0x3F82C0
+	.4byte 0x41A00000
+
+.global lbl_805ABA24
+lbl_805ABA24:
+	# ROM: 0x3F82C4
+	.float 5.0
+
+.global lbl_805ABA28
+lbl_805ABA28:
+	# ROM: 0x3F82C8
+	.float 4.0
+
+.global lbl_805ABA2C
+lbl_805ABA2C:
+	# ROM: 0x3F82CC
+	.4byte 0x40400000
+
+.global lbl_805ABA30
+lbl_805ABA30:
+	# ROM: 0x3F82D0
+	.float 0.017453292
+
+.global lbl_805ABA34
+lbl_805ABA34:
+	# ROM: 0x3F82D4
+	.float 0.5
+
+.global lbl_805ABA38
+lbl_805ABA38:
+	# ROM: 0x3F82D8
+	.float 0.1
+
+.global lbl_805ABA3C
+lbl_805ABA3C:
+	# ROM: 0x3F82DC
+	.4byte 0xBE99999A
+

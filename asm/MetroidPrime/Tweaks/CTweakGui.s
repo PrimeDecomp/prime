@@ -10,6 +10,79 @@ lbl_803DA440:
 	.4byte __dt__9CTweakGuiFv
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AA590
+lbl_805AA590:
+	# ROM: 0x3F6E30
+	.float 0.02
+
+.global lbl_805AA594
+lbl_805AA594:
+	# ROM: 0x3F6E34
+	.4byte 0x3BE56042
+
+.global lbl_805AA598
+lbl_805AA598:
+	# ROM: 0x3F6E38
+	.float 1.0
+
+.global lbl_805AA59C
+lbl_805AA59C:
+	# ROM: 0x3F6E3C
+	.4byte 0x3D4CCCCD
+
+.global lbl_805AA5A0
+lbl_805AA5A0:
+	# ROM: 0x3F6E40
+	.4byte 0x3BA3D70A
+
+.global lbl_805AA5A4
+lbl_805AA5A4:
+	# ROM: 0x3F6E44
+	.float 0.2
+
+.global lbl_805AA5A8
+lbl_805AA5A8:
+	# ROM: 0x3F6E48
+	.4byte 0x3C75C28F
+
+.global lbl_805AA5AC
+lbl_805AA5AC:
+	# ROM: 0x3F6E4C
+	.float 6.2831855
+
+.global lbl_805AA5B0
+lbl_805AA5B0:
+	# ROM: 0x3F6E50
+	.4byte 0x3B360B61
+
+.global lbl_805AA5B4
+lbl_805AA5B4:
+	# ROM: 0x3F6E54
+	.float 0.25
+
+.global lbl_805AA5B8
+lbl_805AA5B8:
+	# ROM: 0x3F6E58
+	.4byte 0x3AB78034
+
+.global lbl_805AA5BC
+lbl_805AA5BC:
+	# ROM: 0x3F6E5C
+	.4byte 0x385C3372
+
+.global lbl_805AA5C0
+lbl_805AA5C0:
+	# ROM: 0x3F6E60
+	.float 2.0
+	.4byte 0
+
+.global lbl_805AA5C8
+lbl_805AA5C8:
+	# ROM: 0x3F6E68
+	.double 4.503601774854144E15
+
 .section .text, "ax"
 
 .global FaceReflectionOrthoHeightDebugValueToActualValue__9CTweakGuiFf

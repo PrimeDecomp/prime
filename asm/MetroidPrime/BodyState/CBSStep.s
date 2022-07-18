@@ -334,3 +334,11 @@ __ct__7CBSStepFv:
 /* 801391B8 00136118  38 04 17 18 */	addi r0, r4, lbl_803E1718@l
 /* 801391BC 0013611C  90 03 00 00 */	stw r0, 0(r3)
 /* 801391C0 00136120  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB778
+lbl_805AB778:
+	# ROM: 0x3F8018
+	.4byte 0
+	.4byte 0
+

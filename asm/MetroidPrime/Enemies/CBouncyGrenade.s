@@ -1278,7 +1278,7 @@ __ct__14CBouncyGrenade:
 /* 8022F440 0022C3A0  48 00 01 5D */	bl sub_8022f59c
 /* 8022F444 0022C3A4  90 77 02 AC */	stw r3, 0x2ac(r23)
 /* 8022F448 0022C3A8  38 A0 00 00 */	li r5, 0
-/* 8022F44C 0022C3AC  C0 02 96 A0 */	lfs f0, lbl_805AB3C0@sda21(r2)
+/* 8022F44C 0022C3AC  C0 02 96 A0 */	lfs f0, skGravityConstant__13CPhysicsActor@sda21(r2)
 /* 8022F450 0022C3B0  7E E3 BB 78 */	mr r3, r23
 /* 8022F454 0022C3B4  D3 F7 02 B0 */	stfs f31, 0x2b0(r23)
 /* 8022F458 0022C3B8  38 81 00 28 */	addi r4, r1, 0x28
@@ -1427,3 +1427,35 @@ lbl_8022F664:
 /* 8022F680 0022C5E0  7C 08 03 A6 */	mtlr r0
 /* 8022F684 0022C5E4  38 21 00 40 */	addi r1, r1, 0x40
 /* 8022F688 0022C5E8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD358
+lbl_805AD358:
+	# ROM: 0x3F9BF8
+	.float 1.0
+
+.global lbl_805AD35C
+lbl_805AD35C:
+	# ROM: 0x3F9BFC
+	.4byte 0
+
+.global lbl_805AD360
+lbl_805AD360:
+	# ROM: 0x3F9C00
+	.4byte 0x42960000
+
+.global lbl_805AD364
+lbl_805AD364:
+	# ROM: 0x3F9C04
+	.float 0.3
+
+.global lbl_805AD368
+lbl_805AD368:
+	# ROM: 0x3F9C08
+	.float 0.5
+
+.global lbl_805AD36C
+lbl_805AD36C:
+	# ROM: 0x3F9C0C
+	.float 0.1
+

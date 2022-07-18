@@ -2077,3 +2077,71 @@ __sinit_CEnergyProjectile_cpp:
 /* 80215884 002127E4  90 0D A4 F8 */	stw r0, lbl_805A90B8@sda21(r13)
 /* 80215888 002127E8  90 6D A4 FC */	stw r3, lbl_805A90BC@sda21(r13)
 /* 8021588C 002127EC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD030
+lbl_805AD030:
+	# ROM: 0x3F98D0
+	.4byte 0
+
+.global lbl_805AD034
+lbl_805AD034:
+	# ROM: 0x3F98D4
+	.4byte 0x42480000
+
+.global lbl_805AD038
+lbl_805AD038:
+	# ROM: 0x3F98D8
+	.float 0.2
+
+.global lbl_805AD03C
+lbl_805AD03C:
+	# ROM: 0x3F98DC
+	.4byte 0x42340000
+
+.global lbl_805AD040
+lbl_805AD040:
+	# ROM: 0x3F98E0
+	.float 1.0
+
+.global lbl_805AD044
+lbl_805AD044:
+	# ROM: 0x3F98E4
+	.float 0.75
+
+.global lbl_805AD048
+lbl_805AD048:
+	# ROM: 0x3F98E8
+	.4byte 0x42960000
+
+.global lbl_805AD04C
+lbl_805AD04C:
+	# ROM: 0x3F98EC
+	.float 0.01
+
+.global lbl_805AD050
+lbl_805AD050:
+	# ROM: 0x3F98F0
+	.float 6.2831855
+
+.global lbl_805AD054
+lbl_805AD054:
+	# ROM: 0x3F98F4
+	.float 4.0
+
+.global lbl_805AD058
+lbl_805AD058:
+	# ROM: 0x3F98F8
+	.float 0.25
+
+.global lbl_805AD05C
+lbl_805AD05C:
+	# ROM: 0x3F98FC
+	.4byte 0x3F4CCCCD
+
+.global lbl_805AD060
+lbl_805AD060:
+	# ROM: 0x3F9900
+	.float 0.5
+	.4byte 0
+

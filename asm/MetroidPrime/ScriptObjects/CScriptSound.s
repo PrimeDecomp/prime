@@ -118,6 +118,49 @@ lbl_805A8EA0:
 lbl_805A8EA1:
 	.skip 0x7
 
+.section .sdata2, "a"
+
+.global lbl_805AA9A0
+lbl_805AA9A0:
+	# ROM: 0x3F7240
+	.float 1.0
+
+.global lbl_805AA9A4
+lbl_805AA9A4:
+	# ROM: 0x3F7244
+	.4byte 0
+
+.global lbl_805AA9A8
+lbl_805AA9A8:
+	# ROM: 0x3F7248
+	.4byte 0x40400000
+
+.global lbl_805AA9AC
+lbl_805AA9AC:
+	# ROM: 0x3F724C
+	.4byte 0x3F147AE1
+
+.global lbl_805AA9B0
+lbl_805AA9B0:
+	# ROM: 0x3F7250
+	.4byte 0x3ED70A3E
+	.4byte 0
+
+.global lbl_805AA9B8
+lbl_805AA9B8:
+	# ROM: 0x3F7258
+	.double 4.503601774854144E15
+
+.global lbl_805AA9C0
+lbl_805AA9C0:
+	# ROM: 0x3F7260
+	.float 0.25
+
+.global lbl_805AA9C4
+lbl_805AA9C4:
+	# ROM: 0x3F7264
+	.float 0.5
+
 .section .text, "ax"
 
 .global GetOccludedVolumeAmount__12CScriptSoundFRC9CVector3fRC13CStateManager

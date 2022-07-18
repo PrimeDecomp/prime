@@ -14,6 +14,19 @@ lbl_803DF328:
 	.4byte AcceptScriptMsg__16CScriptGeneratorF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata2, "a"
+
+.global lbl_805AAA00
+lbl_805AAA00:
+	# ROM: 0x3F72A0
+	.float 0.99
+	.4byte 0
+
+.global lbl_805AAA08
+lbl_805AAA08:
+	# ROM: 0x3F72A8
+	.double 4.503601774854144E15
+
 .section .text, "ax"
 
 .global Accept__16CScriptGeneratorFR8IVisitor

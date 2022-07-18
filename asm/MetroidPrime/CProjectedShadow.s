@@ -5,7 +5,7 @@
 .global lbl_805A85E0
 lbl_805A85E0:
 	# ROM: 0x3F5F80
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 
 .section .sbss2, "", @nobits
@@ -943,3 +943,40 @@ __ct__16CProjectedShadowFv:
 /* 8029E498 0029B3F8  7C 08 03 A6 */	mtlr r0
 /* 8029E49C 0029B3FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8029E4A0 0029B400  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADDB0
+lbl_805ADDB0:
+	# ROM: 0x3FA650
+	.4byte 0xFFFFFFFF
+
+.global lbl_805ADDB4
+lbl_805ADDB4:
+	# ROM: 0x3FA654
+	.float 255.0
+
+.global lbl_805ADDB8
+lbl_805ADDB8:
+	# ROM: 0x3FA658
+	.float 1.0
+
+.global lbl_805ADDBC
+lbl_805ADDBC:
+	# ROM: 0x3FA65C
+	.4byte 0
+
+.global lbl_805ADDC0
+lbl_805ADDC0:
+	# ROM: 0x3FA660
+	.float 0.5
+
+.global lbl_805ADDC4
+lbl_805ADDC4:
+	# ROM: 0x3FA664
+	.float 1.1920929E-7
+
+.global lbl_805ADDC8
+lbl_805ADDC8:
+	# ROM: 0x3FA668
+	.double 4.503601774854144E15
+

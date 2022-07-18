@@ -3227,3 +3227,11 @@ lbl_802DD870:
 /* 802DD890 002DA7F0  7C 08 03 A6 */	mtlr r0
 /* 802DD894 002DA7F4  38 21 00 20 */	addi r1, r1, 0x20
 /* 802DD898 002DA7F8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE2C0
+lbl_805AE2C0:
+	# ROM: 0x3FAB60
+	.4byte 0
+	.4byte 0
+

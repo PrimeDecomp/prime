@@ -579,3 +579,11 @@ lbl_8018F18C:
 /* 8018F358 0018C2B8  7C 08 03 A6 */	mtlr r0
 /* 8018F35C 0018C2BC  38 21 01 B0 */	addi r1, r1, 0x1b0
 /* 8018F360 0018C2C0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC1B0
+lbl_805AC1B0:
+	# ROM: 0x3F8A50
+	.float 1.0
+	.4byte 0
+

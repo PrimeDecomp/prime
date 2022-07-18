@@ -150,7 +150,7 @@ lbl_803CCE38:
 	# ROM: 0x3C9E38
 	.4byte 0xBA83126F
 	.4byte 0
-	.4byte 0x3A83126F
+	.float 0.001
 
 .global lbl_803CCE44
 lbl_803CCE44:
@@ -639,11 +639,11 @@ lbl_803CD764:
 .global lbl_803CD778
 lbl_803CD778:
 	# ROM: 0x3CA778
-	.4byte 0x3E4CCCCD
-	.4byte 0x3DCCCCCD
-	.4byte 0x3E4CCCCD
-	.4byte 0x3E4CCCCD
-	.4byte 0x3F800000
+	.float 0.2
+	.float 0.1
+	.float 0.2
+	.float 0.2
+	.float 1.0
 
 .global lbl_803CD78C
 lbl_803CD78C:
@@ -1328,25 +1328,25 @@ lbl_803CE5F0:
 	# ROM: 0x3CB5F0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x06040200
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x03010705
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x3F800000
+	.float -1.0
+	.float 1.0
 	.4byte 0x01000504
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x07060302
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0x03020100
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0x05040706
@@ -1408,12 +1408,12 @@ lbl_803CE6A8:
 	.4byte 0x00000001
 	.4byte 0x000000FF
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 
@@ -1766,12 +1766,12 @@ lbl_803CEE00:
 .global lbl_803CEE20
 lbl_803CEE20:
 	# ROM: 0x3CBE20
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x40400000
 	.4byte 0x3F35C28F
 	.4byte 0x3F9851EC
 	.4byte 0x3F35C28F
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803CEE38
 lbl_803CEE38:
@@ -1782,10 +1782,10 @@ lbl_803CEE38:
 .global lbl_803CEE40
 lbl_803CEE40:
 	# ROM: 0x3CBE40
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0xBF800000
+	.float -1.0
+	.float -1.0
+	.float -1.0
+	.float -1.0
 
 .global lbl_803CEE50
 lbl_803CEE50:
@@ -1898,9 +1898,9 @@ lbl_803CEEC4:
 .global lbl_803CF1D8
 lbl_803CF1D8:
 	# ROM: 0x3CC1D8
-	.4byte 0x3ECCCCCD
+	.float 0.4
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.asciz "LCTR_WARTAIL"
 	.balign 4
 	.4byte 0
@@ -1987,53 +1987,50 @@ lbl_803CF340:
 lbl_803CF360:
 	# ROM: 0x3CC360
 	.asciz "GrappleGear"
+.global lbl_803CF36C
+lbl_803CF36C:
 	.asciz "GrapNoz1"
-	.byte 0x47, 0x72, 0x61
-	.asciz "pNoz2"
-	.byte 0x67, 0x72
-	.asciz "apLocator_SDK"
-	.byte 0x67, 0x4E
-	.asciz "ozLoc1_SDK"
-	.byte 0x4C
-	.asciz "GBeam"
-	.byte 0x50, 0x6F
-	.asciz "werSuit_DGRP"
-	.byte 0x47, 0x72, 0x61
-	.asciz "vitySuit_DGRP"
-	.byte 0x56, 0x61
-	.asciz "riaSuit_DGRP"
-	.byte 0x50, 0x68, 0x61
-	.asciz "zonSuit_DGRP"
-	.byte 0x46, 0x75, 0x73
-	.asciz "ionSuit_DGRP"
-	.byte 0x46, 0x75, 0x73
-	.asciz "ionSuitG_DGRP"
-	.byte 0x46, 0x75
-	.asciz "sionSuitV_DGRP"
-	.byte 0x46
-	.asciz "usionSuitP_DGRP"
+.global lbl_803CF375
+lbl_803CF375:
+	.asciz "GrapNoz2"
+.global lbl_803CF37E
+lbl_803CF37E:
+	.asciz "grapLocator_SDK"
+.global lbl_803CF38E
+lbl_803CF38E:
+	.asciz "gNozLoc1_SDK"
+.global lbl_803CF39B
+lbl_803CF39B:
+	.asciz "LGBeam"
+	.asciz "PowerSuit_DGRP"
+	.asciz "GravitySuit_DGRP"
+	.asciz "VariaSuit_DGRP"
+	.asciz "PhazonSuit_DGRP"
+	.asciz "FusionSuit_DGRP"
+	.asciz "FusionSuitG_DGRP"
+	.asciz "FusionSuitV_DGRP"
+	.asciz "FusionSuitP_DGRP"
 	.asciz "??(??)"
-	.byte 0x57
-	.asciz "hole Body"
+	.asciz "Whole Body"
 	.balign 4
 
 .global lbl_803CF438
 lbl_803CF438:
 	# ROM: 0x3CC438
-	.4byte 0x3EE66666
-	.4byte 0x3F051EB8
-	.4byte 0x3EB33333
-	.4byte 0x3DCCCCCD
-	.4byte 0x3E19999A
-	.4byte 0x3EB33333
-	.4byte 0x3DCCCCCD
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
+	.float 0.45
+	.float 0.52
+	.float 0.35
+	.float 0.1
+	.float 0.15
+	.float 0.35
+	.float 0.1
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
 	.4byte 0x00000014
 	.4byte 0x00000003
 	.4byte 0x00000004
@@ -2043,7 +2040,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000002
@@ -2054,7 +2051,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000006
@@ -2065,7 +2062,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000001
@@ -2076,7 +2073,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000007
@@ -2087,7 +2084,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2109,7 +2106,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000001
@@ -2120,7 +2117,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000007
@@ -2131,7 +2128,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000003
@@ -2142,7 +2139,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000006
@@ -2153,7 +2150,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000002
@@ -2164,7 +2161,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2186,7 +2183,7 @@ lbl_803CF438:
 	.4byte 0x00000006
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000028
 	.4byte 0x00000007
@@ -2197,7 +2194,7 @@ lbl_803CF438:
 	.4byte 0x00000002
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000002
@@ -2208,7 +2205,7 @@ lbl_803CF438:
 	.4byte 0x00000003
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000006
@@ -2219,7 +2216,7 @@ lbl_803CF438:
 	.4byte 0x00000005
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2241,7 +2238,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000028
 	.4byte 0x00000005
@@ -2252,7 +2249,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000028
 	.4byte 0x00000001
@@ -2263,7 +2260,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2285,7 +2282,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000003
@@ -2296,7 +2293,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000019
 	.4byte 0x00000007
@@ -2307,7 +2304,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000019
 	.4byte 0x00000002
@@ -2318,7 +2315,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000007
@@ -2329,7 +2326,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2351,7 +2348,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000023
 	.4byte 0x00000009
@@ -2362,7 +2359,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000010
@@ -2373,7 +2370,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2395,7 +2392,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x0000000D
@@ -2406,7 +2403,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000009
@@ -2417,7 +2414,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x0000000E
@@ -2428,7 +2425,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000009
@@ -2439,7 +2436,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2461,7 +2458,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001A
 	.4byte 0x00000010
@@ -2472,7 +2469,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000010
 	.4byte 0x00000009
@@ -2483,7 +2480,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000010
 	.4byte 0x0000000E
@@ -2494,7 +2491,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000008
 	.4byte 0x0000000A
@@ -2505,7 +2502,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000008
 	.4byte 0x00000006
@@ -2516,7 +2513,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2538,7 +2535,7 @@ lbl_803CF438:
 	.4byte 0x0000000B
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000028
 	.4byte 0x00000009
@@ -2549,7 +2546,7 @@ lbl_803CF438:
 	.4byte 0x00000007
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000008
@@ -2560,7 +2557,7 @@ lbl_803CF438:
 	.4byte 0x0000000C
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x0000000F
@@ -2571,7 +2568,7 @@ lbl_803CF438:
 	.4byte 0x00000009
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2593,7 +2590,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000028
 	.4byte 0x00000009
@@ -2604,7 +2601,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000010
@@ -2615,7 +2612,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2637,7 +2634,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x0000000D
@@ -2648,7 +2645,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000009
@@ -2659,7 +2656,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x0000000E
@@ -2670,7 +2667,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000010
@@ -2681,7 +2678,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2703,7 +2700,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000023
 	.4byte 0x00000009
@@ -2714,7 +2711,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000010
@@ -2725,7 +2722,7 @@ lbl_803CF438:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -2924,19 +2921,19 @@ lbl_803D01F0:
 lbl_803D01F8:
 	# ROM: 0x3CD1F8
 	.4byte 0x803D023C
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D0248
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D024E
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D0254
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D025A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D0267
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D027D
-	.4byte 0x3FC00000
+	.float 1.5
 
 .global lbl_803D0230
 lbl_803D0230:
@@ -3112,16 +3109,16 @@ lbl_803D04D8:
 .global lbl_803D051C
 lbl_803D051C:
 	# ROM: 0x3CD51C
-	.4byte 0x42B40000
+	.float 90.0
 	.4byte 0x433E0000
-	.4byte 0x43160000
-	.4byte 0x42B40000
+	.float 150.0
+	.float 90.0
 	.4byte 0x42C80000
 
 .global lbl_803D0530
 lbl_803D0530:
 	# ROM: 0x3CD530
-	.4byte 0x42B40000
+	.float 90.0
 	.4byte 0x43070000
 	.4byte 0x42340000
 	.4byte 0x43340000
@@ -3225,77 +3222,77 @@ lbl_803D06D0:
 	# ROM: 0x3CD6D0
 	.4byte 0x803D07E4
 	.4byte 0x803D07EB
-	.4byte 0x40800000
-	.4byte 0x3F800000
-	.4byte 0x40800000
+	.float 4.0
+	.float 1.0
+	.float 4.0
 	.4byte 0x803D07EB
 	.4byte 0x803D07F3
-	.4byte 0x40000000
-	.4byte 0x3F800000
-	.4byte 0x40000000
+	.float 2.0
+	.float 1.0
+	.float 2.0
 	.4byte 0x803D07F3
 	.4byte 0x803D07FA
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D07FA
 	.4byte 0x803D0801
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D0801
 	.4byte 0x803D0808
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D080F
 	.4byte 0x803D0820
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D0820
 	.4byte 0x803D082E
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D083C
 	.4byte 0x803D084D
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D084D
 	.4byte 0x803D085B
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D0869
 	.4byte 0x803D0879
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D0879
 	.4byte 0x803D0886
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D0893
 	.4byte 0x803D08A3
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 	.4byte 0x803D08A3
 	.4byte 0x803D08B0
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
+	.float 0.5
 
 .global lbl_803D07D4
 lbl_803D07D4:
 	# ROM: 0x3CD7D4
 	.4byte 0x803D08BD
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D08C4
-	.4byte 0x3FC00000
+	.float 1.5
 
 .global lbl_803D07E4
 lbl_803D07E4:
@@ -3394,11 +3391,11 @@ lbl_803D09F0:
 	.4byte 0x8018FE7C  ;# ptr
 	.4byte 0x8018FF18  ;# ptr
 	.4byte 0x8018FF44  ;# ptr
-	.4byte 0x3E4CCCCD
-	.4byte 0x3E4CCCCD
-	.4byte 0x3DCCCCCD
-	.4byte 0x3E4CCCCD
-	.4byte 0x3F800000
+	.float 0.2
+	.float 0.2
+	.float 0.1
+	.float 0.2
+	.float 1.0
 
 .global lbl_803D0A30
 lbl_803D0A30:
@@ -3772,20 +3769,20 @@ lbl_803D1360:
 	# ROM: 0x3CE360
 	.4byte 0x803D13D8
 	.4byte 0x803D13DE
-	.4byte 0x3ECCCCCD
-	.4byte 0x3F400000
+	.float 0.4
+	.float 0.75
 	.4byte 0x803D13E5
 	.4byte 0x803D13ED
-	.4byte 0x3ECCCCCD
-	.4byte 0x3F400000
+	.float 0.4
+	.float 0.75
 	.4byte 0x803D13F5
 	.4byte 0x803D13FB
-	.4byte 0x3ECCCCCD
-	.4byte 0x3F400000
+	.float 0.4
+	.float 0.75
 	.4byte 0x803D1402
 	.4byte 0x803D140A
-	.4byte 0x3ECCCCCD
-	.4byte 0x3F400000
+	.float 0.4
+	.float 0.75
 	.4byte 0x803D1412
 	.4byte 0x3F0CCCCD
 	.4byte 0x803D141F
@@ -3793,7 +3790,7 @@ lbl_803D1360:
 	.4byte 0x803D1426
 	.4byte 0x3F8CCCCD
 	.4byte 0x803D1434
-	.4byte 0x3F333333
+	.float 0.7
 	.4byte 0x803D143E
 	.4byte 0x3F99999A
 	.4byte 0x803D144E
@@ -3869,37 +3866,37 @@ lbl_803D14E0:
 	.4byte 0x803D1590
 	.4byte 0x803D1598
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D1598
 	.4byte 0x803D15A0
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D15A0
 	.4byte 0x803D15AC
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D15BC
 	.4byte 0x803D15C4
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D15C4
 	.4byte 0x803D15CC
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D15CC
 	.4byte 0x803D15D8
 	.4byte 0x3F19999A
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D15E8
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D15EF
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D15F7
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D15FF
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D1607
-	.4byte 0x3FC00000
+	.float 1.5
 
 .global lbl_803D1568
 lbl_803D1568:
@@ -4340,44 +4337,44 @@ lbl_803D1BD8:
 	.4byte 0x41100000
 	.4byte 0
 	.4byte 0x803D1D92
-	.4byte 0x40800000
+	.float 4.0
 	.4byte 0x40E00000
 	.4byte 0
 	.4byte 0x803D1D92
 	.4byte 0xC0800000
-	.4byte 0x41000000
+	.float 8.0
 	.4byte 0
 	.4byte 0x803D1CBF
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D1D04
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D1D1B
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D1D32
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D1D48
-	.4byte 0x40200000
+	.float 2.5
 	.4byte 0x803D1D63
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D1D7E
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D1D93
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D1DAD
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D1DC7
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D1DDC
 	.4byte 0x40100000
 	.4byte 0x803D1DF2
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0x803D1E08
 	.4byte 0x40400000
 	.4byte 0x40400000
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0x803D1E1E
 	.4byte 0x40400000
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0x40400000
 
 .global lbl_803D1CB8
@@ -4510,7 +4507,7 @@ lbl_803D1F48:
 lbl_803D2000:
 	# ROM: 0x3CF000
 	.4byte 0x803D2018
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0x803D201E
 	.4byte 0x3F99999A
 	.4byte 0x803D2025
@@ -4560,7 +4557,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000002
@@ -4571,7 +4568,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x0000000A
@@ -4582,7 +4579,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000019
 	.4byte 0x0000000F
@@ -4593,7 +4590,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000019
 	.4byte 0x00000005
@@ -4604,7 +4601,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -4626,7 +4623,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000002
@@ -4637,7 +4634,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x0000000A
@@ -4648,7 +4645,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000028
 	.4byte 0x0000000F
@@ -4659,7 +4656,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000023
 	.4byte 0x00000005
@@ -4670,7 +4667,7 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -4692,7 +4689,7 @@ lbl_803D2070:
 	.4byte 0x00000004
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000002
@@ -4703,7 +4700,7 @@ lbl_803D2070:
 	.4byte 0x00000003
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000005
@@ -4714,7 +4711,7 @@ lbl_803D2070:
 	.4byte 0x0000000B
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000001
@@ -4725,7 +4722,7 @@ lbl_803D2070:
 	.4byte 0x00000006
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -4747,7 +4744,7 @@ lbl_803D2070:
 	.4byte 0x0000000C
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x0000000E
@@ -4758,7 +4755,7 @@ lbl_803D2070:
 	.4byte 0x00000009
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x0000000E
@@ -4769,7 +4766,7 @@ lbl_803D2070:
 	.4byte 0x00000009
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000032
 	.4byte 0x0000000B
@@ -4780,7 +4777,7 @@ lbl_803D2070:
 	.4byte 0x00000006
 	.4byte 0xFFFFFFFF
 	.4byte 0
-	.4byte 0x3DCCCCCD
+	.float 0.1
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -4797,21 +4794,21 @@ lbl_803D2070:
 .global lbl_803D2440
 lbl_803D2440:
 	# ROM: 0x3CF440
-	.4byte 0x3EE66666
-	.4byte 0x3F051EB8
-	.4byte 0x3EB33333
-	.4byte 0x3DCCCCCD
-	.4byte 0x3E19999A
-	.4byte 0x3EB33333
-	.4byte 0x3DCCCCCD
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3E19999A
-	.4byte 0x3EB33333
+	.float 0.45
+	.float 0.52
+	.float 0.35
+	.float 0.1
+	.float 0.15
+	.float 0.35
+	.float 0.1
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.15
+	.float 0.35
 
 .global lbl_803D247C
 lbl_803D247C:
@@ -5140,7 +5137,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000003
 	.4byte 0x00000007
@@ -5151,7 +5148,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000004
 	.4byte 0x00000003
@@ -5162,7 +5159,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000003C
 	.4byte 0x00000010
@@ -5173,7 +5170,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000004
@@ -5184,7 +5181,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -5206,7 +5203,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000002
@@ -5217,7 +5214,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000003
@@ -5228,7 +5225,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000005
 	.4byte 0x00000010
@@ -5239,7 +5236,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000005
 	.4byte 0x00000008
@@ -5250,7 +5247,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -5272,7 +5269,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000005
 	.4byte 0x00000009
@@ -5283,7 +5280,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000002
@@ -5294,7 +5291,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x00000005
@@ -5305,7 +5302,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x0000000A
@@ -5316,7 +5313,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000F
 	.4byte 0x0000000E
@@ -5327,7 +5324,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000002
@@ -5338,7 +5335,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -5360,7 +5357,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000008
@@ -5371,7 +5368,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x0000000D
@@ -5382,7 +5379,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000002
@@ -5393,7 +5390,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000003
@@ -5404,7 +5401,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -5426,7 +5423,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x0000000F
@@ -5437,7 +5434,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000009
@@ -5448,7 +5445,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000023
 	.4byte 0x0000000F
@@ -5459,7 +5456,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000023
 	.4byte 0x00000009
@@ -5470,7 +5467,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -5492,7 +5489,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000001E
 	.4byte 0x00000001
@@ -5503,7 +5500,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000010
@@ -5514,7 +5511,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000008
@@ -5525,7 +5522,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x0000000A
 	.4byte 0x00000001
@@ -5536,7 +5533,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0x00000014
 	.4byte 0x00000008
@@ -5547,7 +5544,7 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E19999A
+	.float 0.15
 	.4byte 0x3D4CCCCD
 	.4byte 0
 	.4byte 0
@@ -5641,7 +5638,7 @@ lbl_803D31A8:
 	.4byte 0x803D31EC
 	.4byte 0x3F99999A
 	.4byte 0x803D31F3
-	.4byte 0x3F666666
+	.float 0.9
 
 .global lbl_803D31D0
 lbl_803D31D0:
@@ -5682,15 +5679,15 @@ lbl_803D3278:
 	# ROM: 0x3D0278
 	.4byte 0x803D3310
 	.4byte 0x803D331B
-	.4byte 0x3F800000
-	.4byte 0x3FC00000
+	.float 1.0
+	.float 1.5
 	.4byte 0x803D331B
 	.4byte 0x803D3323
-	.4byte 0x3F666666
+	.float 0.9
 	.4byte 0x3FA66666
 	.4byte 0x803D332B
 	.4byte 0x803D3332
-	.4byte 0x3F666666
+	.float 0.9
 	.4byte 0x3FA66666
 
 .global lbl_803D32A8
@@ -5698,24 +5695,24 @@ lbl_803D32A8:
 	# ROM: 0x3D02A8
 	.4byte 0x803D333A
 	.4byte 0x803D3345
-	.4byte 0x3F800000
-	.4byte 0x3FC00000
+	.float 1.0
+	.float 1.5
 	.4byte 0x803D3345
 	.4byte 0x803D334D
-	.4byte 0x3F666666
+	.float 0.9
 	.4byte 0x3FA66666
 	.4byte 0x803D3355
 	.4byte 0x803D335C
-	.4byte 0x3F666666
+	.float 0.9
 	.4byte 0x3FA66666
 	.4byte 0x803D3364
 	.4byte 0x3F99999A
 	.4byte 0x803D336B
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D3377
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D3383
-	.4byte 0x3FC00000
+	.float 1.5
 	.4byte 0x803D338B
 	.4byte 0x3F99999A
 	.4byte 0x803D3392
@@ -5814,27 +5811,27 @@ lbl_803D34A0:
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
@@ -5842,15 +5839,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
@@ -5858,15 +5855,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -5874,63 +5871,63 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000003
 	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
+	.float 2.0
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000003
 	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000002
 	.4byte 0
@@ -5938,143 +5935,143 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0
-	.4byte 0x00000001
-	.4byte 0x40B00000
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40B00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x40B00000
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x41080000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40900000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000006
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000006
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000006
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000006
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000006
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000006
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000006
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000006
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -6082,51 +6079,51 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000006
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
@@ -6134,27 +6131,11 @@ lbl_803D34A0:
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0
-	.4byte 0x00000004
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
@@ -6162,15 +6143,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
@@ -6178,63 +6159,79 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000007
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
+	.float 2.0
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000002
 	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
+	.float 2.0
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
+	.float 2.0
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
-	.4byte 0x40000000
+	.float 2.0
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000003
 	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float 4.0
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000002
 	.4byte 0
@@ -6242,19 +6239,19 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
@@ -6262,59 +6259,59 @@ lbl_803D34A0:
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40B00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40B00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x41080000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x41080000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40900000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40900000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000008
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
@@ -6322,15 +6319,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000008
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000008
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
@@ -6338,15 +6335,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000008
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
@@ -6354,15 +6351,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000007
 	.4byte 0
@@ -6370,15 +6367,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -6386,51 +6383,51 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000009
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000009
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000004
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
@@ -6438,27 +6435,11 @@ lbl_803D34A0:
 	.4byte 0x00000002
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x00000004
-	.4byte 0x00000007
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -6466,15 +6447,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000002
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0
+	.4byte 0
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -6482,107 +6463,115 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000001
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
+	.float -1.0
 	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
 	.4byte 0
 	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000002
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0x00000001
-	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0xBF800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000002
-	.4byte 0x40000000
-	.4byte 0
-	.4byte 0
-	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
-	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
+	.4byte 0
+	.4byte 0
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0
-	.4byte 0x00000003
-	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000002
-	.4byte 0x40800000
-	.4byte 0xBF800000
-	.4byte 0x00000003
-	.4byte 0x00000002
-	.4byte 0x40800000
 	.4byte 0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
+	.4byte 0x00000001
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.float 2.0
+	.float -1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.4byte 0x00000002
+	.float 2.0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.float 2.0
+	.float -1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.float 2.0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000002
+	.float 4.0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000002
+	.float 4.0
+	.float -1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0x00000002
+	.float 4.0
+	.4byte 0
+	.4byte 0x00000003
+	.4byte 0x00000002
+	.float 4.0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000002
+	.float 4.0
+	.float -1.0
+	.4byte 0x00000003
+	.4byte 0x00000002
+	.float 4.0
+	.4byte 0
+	.4byte 0x00000004
+	.4byte 0x00000007
+	.4byte 0
+	.float -1.0
+	.4byte 0
+	.4byte 0x00000001
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
-	.4byte 0x00000004
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x00000001
-	.4byte 0x40900000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
@@ -6590,35 +6579,43 @@ lbl_803D34A0:
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x40900000
-	.4byte 0xBF800000
+	.float -1.0
+	.4byte 0x00000004
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x40900000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000001
-	.4byte 0x40200000
-	.4byte 0xBF800000
+	.float 2.5
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
@@ -6626,15 +6623,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
@@ -6642,15 +6639,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0x00000003
 	.4byte 0x40C00000
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000008
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x40C00000
@@ -6658,15 +6655,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000007
 	.4byte 0
@@ -6674,15 +6671,15 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -6690,39 +6687,39 @@ lbl_803D34A0:
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000009
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000009
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000004
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000003
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0x00000004
 	.4byte 0x00000007
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 
 .global lbl_803D42E0
 lbl_803D42E0:
@@ -6734,15 +6731,15 @@ lbl_803D42E0:
 lbl_803D42E8:
 	# ROM: 0x3D12E8
 	.4byte 0x803D4338
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D433F
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D4346
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D434D
-	.4byte 0x3F400000
+	.float 0.75
 	.4byte 0x803D4354
-	.4byte 0x3F400000
+	.float 0.75
 
 .global lbl_803D4310
 lbl_803D4310:
@@ -6807,9 +6804,9 @@ lbl_803D43DC:
 	# ROM: 0x3D13DC
 	.4byte 0
 	.4byte 0x3FCCCCCD
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D43F0
 lbl_803D43F0:
@@ -6822,110 +6819,110 @@ lbl_803D43F0:
 	.4byte 0
 	.4byte 0x00000015
 	.4byte 0
-	.4byte 0x437F0000
-	.4byte 0x3F800000
+	.float 255.0
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000016
 	.4byte 0
-	.4byte 0x437F0000
-	.4byte 0x3F800000
+	.float 255.0
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000002
 	.4byte 0x00000017
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000001
 	.4byte 0x00000003
 	.4byte 0x00000018
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000001
 	.4byte 0x0000000E
 	.4byte 0x00000023
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000003
 	.4byte 0x00000004
 	.4byte 0x00000019
 	.4byte 0
-	.4byte 0x41000000
-	.4byte 0x3F800000
+	.float 8.0
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000005
 	.4byte 0x0000001A
 	.4byte 0xC1F00000
 	.4byte 0x41F00000
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000006
 	.4byte 0x0000001B
 	.4byte 0xC1F00000
 	.4byte 0x41F00000
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000007
 	.4byte 0x0000001C
 	.4byte 0xC1200000
 	.4byte 0x41200000
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x0000000E
 	.4byte 0x00000023
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000003
 	.4byte 0x00000008
 	.4byte 0x0000001D
 	.4byte 0
 	.4byte 0x42FE0000
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x00000009
 	.4byte 0x0000001E
 	.4byte 0
 	.4byte 0x42FE0000
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0x0000000A
 	.4byte 0x0000001F
 	.4byte 0
-	.4byte 0x40000000
-	.4byte 0x3F800000
+	.float 2.0
+	.float 1.0
 	.4byte 0x00000002
 	.4byte 0x0000000E
 	.4byte 0x00000023
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000003
 	.4byte 0x0000000B
 	.4byte 0x00000020
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000001
 	.4byte 0x0000000C
 	.4byte 0x00000021
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000001
 	.4byte 0x0000000D
 	.4byte 0x00000022
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000001
 	.4byte 0x0000000E
 	.4byte 0x00000023
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0x00000003
 
 .global lbl_803D45B4
@@ -7180,21 +7177,21 @@ lbl_803D4BC8:
 	.4byte 0x803D4D8D
 	.4byte 0x3F19999A
 	.4byte 0x803D4D95
-	.4byte 0x3E99999A
+	.float 0.3
 	.4byte 0x803D4DA6
 	.4byte 0x3F19999A
 	.4byte 0x803D4DAD
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0x803D4DB5
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0x803D4DBD
 	.4byte 0x3F19999A
 	.4byte 0x803D4DC5
 	.4byte 0x3F19999A
 	.4byte 0x803D4DCD
-	.4byte 0x3ECCCCCD
+	.float 0.4
 	.4byte 0x803D4DD7
-	.4byte 0x3ECCCCCD
+	.float 0.4
 
 .global lbl_803D4C18
 lbl_803D4C18:
@@ -7229,7 +7226,7 @@ lbl_803D4C18:
 	.4byte 0x00000003
 	.4byte 0x00000005
 	.4byte 0x41200000
-	.4byte 0x41700000
+	.float 15.0
 	.4byte 0x42960000
 	.4byte 0x42C80000
 	.4byte 0x41C80000
@@ -7581,7 +7578,7 @@ lbl_803D5428:
 	# ROM: 0x3D2428
 	.4byte 0x40400000
 	.4byte 0x40E00000
-	.4byte 0x41700000
+	.float 15.0
 
 .global lbl_803D5434
 lbl_803D5434:
@@ -7876,10 +7873,10 @@ lbl_803D5908:
 	.4byte 0x413CCCCD
 	.4byte 0x413CCCCD
 	.4byte 0x413CCCCD
-	.4byte 0x40A00000
+	.float 5.0
 	.4byte 0x40C00000
-	.4byte 0x40A00000
-	.4byte 0x40A00000
+	.float 5.0
+	.float 5.0
 	.4byte 0x40C00000
 	.4byte 0x413CCCCD
 	.4byte 0x41F00000
@@ -7892,10 +7889,10 @@ lbl_803D5908:
 	.4byte 0x413CCCCD
 	.4byte 0x413CCCCD
 	.4byte 0x413CCCCD
-	.4byte 0x40A00000
+	.float 5.0
 	.4byte 0x40C00000
-	.4byte 0x40A00000
-	.4byte 0x40A00000
+	.float 5.0
+	.float 5.0
 	.4byte 0x40C00000
 
 .global lbl_803D5968
@@ -7920,59 +7917,59 @@ lbl_803D5998:
 	# ROM: 0x3D2998
 	.4byte 0x803D5A9D
 	.4byte 0x803D5AA5
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5AAC
 	.4byte 0x803D5AB4
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5ABC
 	.4byte 0x803D5AC4
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5ACC
 	.4byte 0x803D5AAC
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5AD3
 	.4byte 0x803D5ABC
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5ADA
 	.4byte 0x803D5AE2
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5AEA
 	.4byte 0x803D5AF2
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5AE2
 	.4byte 0x803D5AFA
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5AF2
 	.4byte 0x803D5B04
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
+	.float 1.0
 	.4byte 0x803D5AFA
 	.4byte 0x803D5B0E
-	.4byte 0x40000000
-	.4byte 0x40000000
-	.4byte 0x40000000
+	.float 2.0
+	.float 2.0
+	.float 2.0
 	.4byte 0x803D5B04
 	.4byte 0x803D5B1C
-	.4byte 0x40000000
-	.4byte 0x40000000
-	.4byte 0x40000000
+	.float 2.0
+	.float 2.0
+	.float 2.0
 
 .global lbl_803D5A74
 lbl_803D5A74:
@@ -8058,18 +8055,18 @@ lbl_803D5BB0:
 .global lbl_803D5BD0
 lbl_803D5BD0:
 	# ROM: 0x3D2BD0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D5C00
 lbl_803D5C00:
@@ -8077,15 +8074,15 @@ lbl_803D5C00:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0xBD800000
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D5C30
 lbl_803D5C30:
@@ -8195,18 +8192,18 @@ lbl_803D5DB0:
 .global lbl_803D5E50
 lbl_803D5E50:
 	# ROM: 0x3D2E50
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D5E80
 lbl_803D5E80:
@@ -8734,10 +8731,10 @@ lbl_803D6550:
 .global lbl_803D6570
 lbl_803D6570:
 	# ROM: 0x3D3570
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0xBF800000
+	.float -1.0
+	.float -1.0
+	.float -1.0
+	.float -1.0
 
 .global lbl_803D6580
 lbl_803D6580:
@@ -8871,50 +8868,50 @@ lbl_803D6654:
 .global lbl_803D6704
 lbl_803D6704:
 	# ROM: 0x3D3704
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D6734
 lbl_803D6734:
 	# ROM: 0x3D3734
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D6764
 lbl_803D6764:
 	# ROM: 0x3D3764
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1.0
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D6794
 lbl_803D6794:
@@ -8931,22 +8928,22 @@ lbl_803D6794:
 .global lbl_803D67B4
 lbl_803D67B4:
 	# ROM: 0x3D37B4
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0x3F800000
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0xBF800000
-	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0xBF800000
+	.float -1.0
+	.float -1.0
+	.float 1.0
+	.float -1.0
+	.float -1.0
+	.float 1.0
+	.float 1.0
+	.float 1.0
+	.float -1.0
+	.float 0.0
+	.float 1.0
+	.float 0.0
+	.float 0.0
+	.float 1.0
+	.float 0.0
+	.float -1.0
 
 .global lbl_803D67F4
 lbl_803D67F4:
@@ -9166,9 +9163,9 @@ lbl_803D6A50:
 .global lbl_803D6A5C
 lbl_803D6A5C:
 	# ROM: 0x3D3A5C
-	.4byte 0xBF800000
-	.4byte 0xBF800000
-	.4byte 0xBF800000
+	.float -1.0
+	.float -1.0
+	.float -1.0
 	.4byte 0x00000002
 	.4byte 0x00000002
 	.4byte 0x00000002
@@ -9839,11 +9836,11 @@ lbl_803D7398:
 .global lbl_803D73A0
 lbl_803D73A0:
 	# ROM: 0x3D43A0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 
 .global lbl_803D73B8
@@ -10196,11 +10193,11 @@ lbl_803D7868:
 .global lbl_803D7888
 lbl_803D7888:
 	# ROM: 0x3D4888
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 
 .global lbl_803D78A0
@@ -10651,29 +10648,18 @@ lbl_803D7F50:
 .global lbl_803D7F58
 lbl_803D7F58:
 	# ROM: 0x3D4F58
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
-	.4byte 0x3F000000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
+	.float 0.5
+	.float 0.5
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -10684,21 +10670,7 @@ lbl_803D7F58:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F000000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F000000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -10710,7 +10682,32 @@ lbl_803D7F58:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 0.5
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.float 1.0
 
 .global lbl_803D8048
 lbl_803D8048:
@@ -10726,23 +10723,23 @@ lbl_803D8048:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D8078
 lbl_803D8078:
 	# ROM: 0x3D5078
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F000000
-	.4byte 0x3F000000
+	.float 0.5
+	.float 0.5
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D80A8
 lbl_803D80A8:
@@ -10758,7 +10755,7 @@ lbl_803D80A8:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -10770,7 +10767,7 @@ lbl_803D80A8:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_803D8108
 lbl_803D8108:
@@ -11001,13 +10998,13 @@ lbl_803D8380:
 	.4byte 0x00000001
 	.4byte 0x000000FF
 	.4byte 0
-	.4byte 0x3E000000
+	.float 0.125
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x3E800000
+	.float 0.25
 	.4byte 0
 
 .global lbl_803D83D8

@@ -675,3 +675,15 @@ lbl_8023FBDC:
 /* 8023FBF4 0023CB54  7C 08 03 A6 */	mtlr r0
 /* 8023FBF8 0023CB58  38 21 00 20 */	addi r1, r1, 0x20
 /* 8023FBFC 0023CB5C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD4E8
+lbl_805AD4E8:
+	# ROM: 0x3F9D88
+	.float 0.5
+
+.global lbl_805AD4EC
+lbl_805AD4EC:
+	# ROM: 0x3F9D8C
+	.float 1.0
+

@@ -7,14 +7,14 @@ lbl_803E81A0:
 	# ROM: 0x3E51A0
 	.4byte 0x803D431E
 	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3E19999A
-	.4byte 0x3F000000
+	.float 1.0
+	.float 0.15
+	.float 0.5
 	.4byte 0x803D431E
 	.4byte 0
-	.4byte 0x3F400000
-	.4byte 0x3E19999A
-	.4byte 0x3E800000
+	.float 0.75
+	.float 0.15
+	.float 0.25
 
 .global lbl_803E81C8
 lbl_803E81C8:
@@ -4012,3 +4012,71 @@ __sinit_CMagdolite_cpp:
 /* 80237B58 00234AB8  90 83 00 04 */	stw r4, 4(r3)
 /* 80237B5C 00234ABC  90 03 00 18 */	stw r0, 0x18(r3)
 /* 80237B60 00234AC0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD440
+lbl_805AD440:
+	# ROM: 0x3F9CE0
+	.4byte 0
+
+.global lbl_805AD444
+lbl_805AD444:
+	# ROM: 0x3F9CE4
+	.4byte 0x40133333
+
+.global lbl_805AD448
+lbl_805AD448:
+	# ROM: 0x3F9CE8
+	.4byte 0x40400000
+
+.global lbl_805AD44C
+lbl_805AD44C:
+	# ROM: 0x3F9CEC
+	.4byte 0x7F7FFFFF
+
+.global lbl_805AD450
+lbl_805AD450:
+	# ROM: 0x3F9CF0
+	.4byte 0x3727C5AC
+
+.global lbl_805AD454
+lbl_805AD454:
+	# ROM: 0x3F9CF4
+	.float 1.0
+
+.global lbl_805AD458
+lbl_805AD458:
+	# ROM: 0x3F9CF8
+	.float 2.0
+
+.global lbl_805AD45C
+lbl_805AD45C:
+	# ROM: 0x3F9CFC
+	.float -1.0
+
+.global lbl_805AD460
+lbl_805AD460:
+	# ROM: 0x3F9D00
+	.4byte 0x42652EE0
+
+.global lbl_805AD464
+lbl_805AD464:
+	# ROM: 0x3F9D04
+	.float 0.017453292
+
+.global lbl_805AD468
+lbl_805AD468:
+	# ROM: 0x3F9D08
+	.4byte 0x43480000
+
+.global lbl_805AD46C
+lbl_805AD46C:
+	# ROM: 0x3F9D0C
+	.float 0.5
+
+.global lbl_805AD470
+lbl_805AD470:
+	# ROM: 0x3F9D10
+	.4byte 0x3FC90FDB
+	.4byte 0
+

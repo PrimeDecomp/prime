@@ -286,3 +286,10 @@ CalculateHeight__13CFontImageDefFv:
 /* 80359AE0 00356A40  7C 08 03 A6 */	mtlr r0
 /* 80359AE4 00356A44  38 21 00 50 */	addi r1, r1, 0x50
 /* 80359AE8 00356A48  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEA18
+lbl_805AEA18:
+	# ROM: 0x3FB2B8
+	.double 4.503601774854144E15
+

@@ -216,7 +216,7 @@ lbl_805A7D88:
 .global lbl_805A7D8C
 lbl_805A7D8C:
 	# ROM: 0x3F572C
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_805A7D90
 lbl_805A7D90:
@@ -1646,3 +1646,55 @@ Accept__9CJellyZapFR8IVisitor:
 /* 801D8CE8 001D5C48  7C 08 03 A6 */	mtlr r0
 /* 801D8CEC 001D5C4C  38 21 01 00 */	addi r1, r1, 0x100
 /* 801D8CF0 001D5C50  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC990
+lbl_805AC990:
+	# ROM: 0x3F9230
+	.4byte 0
+
+.global lbl_805AC994
+lbl_805AC994:
+	# ROM: 0x3F9234
+	.4byte 0x3727C5AC
+
+.global lbl_805AC998
+lbl_805AC998:
+	# ROM: 0x3F9238
+	.float 2.0
+
+.global lbl_805AC99C
+lbl_805AC99C:
+	# ROM: 0x3F923C
+	.4byte 0x40400000
+
+.global lbl_805AC9A0
+lbl_805AC9A0:
+	# ROM: 0x3F9240
+	.float 1.0
+
+.global lbl_805AC9A4
+lbl_805AC9A4:
+	# ROM: 0x3F9244
+	.float 0.5
+
+.global lbl_805AC9A8
+lbl_805AC9A8:
+	# ROM: 0x3F9248
+	.float 0.1
+
+.global lbl_805AC9AC
+lbl_805AC9AC:
+	# ROM: 0x3F924C
+	.float 5.0
+
+.global lbl_805AC9B0
+lbl_805AC9B0:
+	# ROM: 0x3F9250
+	.float 0.3
+
+.global lbl_805AC9B4
+lbl_805AC9B4:
+	# ROM: 0x3F9254
+	.float 0.75
+

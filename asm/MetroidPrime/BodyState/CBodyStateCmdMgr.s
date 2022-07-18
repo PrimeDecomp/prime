@@ -1148,3 +1148,25 @@ lbl_80132424:
 /* 80132430 0012F390  7C 08 03 A6 */	mtlr r0
 /* 80132434 0012F394  38 21 00 10 */	addi r1, r1, 0x10
 /* 80132438 0012F398  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB6A8
+lbl_805AB6A8:
+	# ROM: 0x3F7F48
+	.4byte 0
+
+.global lbl_805AB6AC
+lbl_805AB6AC:
+	# ROM: 0x3F7F4C
+	.float 1.1920929E-7
+
+.global lbl_805AB6B0
+lbl_805AB6B0:
+	# ROM: 0x3F7F50
+	.float 1.0
+
+.global lbl_805AB6B4
+lbl_805AB6B4:
+	# ROM: 0x3F7F54
+	.float 1.0E-4
+

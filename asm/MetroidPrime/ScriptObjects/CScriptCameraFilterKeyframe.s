@@ -14,6 +14,14 @@ lbl_803DFC80:
 	.4byte AcceptScriptMsg__27CScriptCameraFilterKeyframeF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__7CEntityFb
 
+.section .sdata2, "a"
+
+.global lbl_805AADE8
+lbl_805AADE8:
+	# ROM: 0x3F7688
+	.4byte 0
+	.4byte 0
+
 .section .text, "ax"
 
 .global Accept__27CScriptCameraFilterKeyframeFR8IVisitor

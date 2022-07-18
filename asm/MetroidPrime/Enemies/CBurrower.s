@@ -1880,3 +1880,35 @@ __sinit_CBurrower_cpp:
 /* 802712A0 0026E200  7C 08 03 A6 */	mtlr r0
 /* 802712A4 0026E204  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 802712A8 0026E208  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD8D8
+lbl_805AD8D8:
+	# ROM: 0x3FA178
+	.float 1.0
+
+.global lbl_805AD8DC
+lbl_805AD8DC:
+	# ROM: 0x3FA17C
+	.4byte 0
+
+.global lbl_805AD8E0
+lbl_805AD8E0:
+	# ROM: 0x3FA180
+	.4byte 0x3E400000
+
+.global lbl_805AD8E4
+lbl_805AD8E4:
+	# ROM: 0x3FA184
+	.4byte 0x3F7FD220
+
+.global lbl_805AD8E8
+lbl_805AD8E8:
+	# ROM: 0x3FA188
+	.float 0.017453292
+
+.global lbl_805AD8EC
+lbl_805AD8EC:
+	# ROM: 0x3FA18C
+	.4byte 0x43B40000
+

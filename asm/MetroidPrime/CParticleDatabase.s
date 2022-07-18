@@ -63,6 +63,28 @@ lbl_805A722B:
 	.byte 0x01
 	.4byte 0
 
+.section .sdata2, "a"
+
+.global lbl_805AAA40
+lbl_805AAA40:
+	# ROM: 0x3F72E0
+	.4byte 0
+
+.global lbl_805AAA44
+lbl_805AAA44:
+	# ROM: 0x3F72E4
+	.4byte 0x4B189680
+
+.global lbl_805AAA48
+lbl_805AAA48:
+	# ROM: 0x3F72E8
+	.float 5.0
+
+.global lbl_805AAA4C
+lbl_805AAA4C:
+	# ROM: 0x3F72EC
+	.float 1.0
+
 .section .text, "ax"
 
 .global "SetModulationColorAllActiveEffectsForParticleDB__17CParticleDatabaseFRC6CColorRQ24rstl236map<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>,Q24rstl28auto_ptr<16CParticleGenInfo>,Q24rstl81less<Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>>,Q24rstl17rmemory_allocator>"

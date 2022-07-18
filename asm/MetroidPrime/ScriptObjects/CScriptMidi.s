@@ -358,3 +358,21 @@ Accept__11CScriptMidiFR8IVisitor:
 /* 8020BE10 00208D70  7C 08 03 A6 */	mtlr r0
 /* 8020BE14 00208D74  38 21 00 40 */	addi r1, r1, 0x40
 /* 8020BE18 00208D78  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ACEC8
+lbl_805ACEC8:
+	# ROM: 0x3F9768
+	.4byte 0x447A0000
+
+.global lbl_805ACECC
+lbl_805ACECC:
+	# ROM: 0x3F976C
+	.4byte 0x42FE0000
+
+.global lbl_805ACED0
+lbl_805ACED0:
+	# ROM: 0x3F9770
+	.4byte 0
+	.4byte 0
+

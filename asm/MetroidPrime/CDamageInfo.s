@@ -1,5 +1,23 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805AAB20
+lbl_805AAB20:
+	# ROM: 0x3F73C0
+	.4byte 0x42700000
+
+.global lbl_805AAB24
+lbl_805AAB24:
+	# ROM: 0x3F73C4
+	.4byte 0
+
+.global lbl_805AAB28
+lbl_805AAB28:
+	# ROM: 0x3F73C8
+	.float 2.0
+	.4byte 0
+
 .section .text, "ax"
 
 .global __ct__11CDamageInfoFRC11CDamageInfof

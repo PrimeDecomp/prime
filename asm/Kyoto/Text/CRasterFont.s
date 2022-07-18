@@ -1816,3 +1816,11 @@ lbl_8030181C:
 /* 80301830 002FE790  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 80301834 002FE794  38 21 00 40 */	addi r1, r1, 0x40
 /* 80301838 002FE798  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE460
+lbl_805AE460:
+	# ROM: 0x3FAD00
+	.4byte 0
+	.4byte 0
+

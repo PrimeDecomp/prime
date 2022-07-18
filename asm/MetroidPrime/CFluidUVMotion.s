@@ -1,5 +1,53 @@
 .include "macros.inc"
 
+.section .sdata2, "a"
+
+.global lbl_805AB438
+lbl_805AB438:
+	# ROM: 0x3F7CD8
+	.float 0.0
+
+.global lbl_805AB43C
+lbl_805AB43C:
+	# ROM: 0x3F7CDC
+	.float 6.2831855
+
+.global lbl_805AB440
+lbl_805AB440:
+	# ROM: 0x3F7CE0
+	.float 1.0
+
+.global lbl_805AB444
+lbl_805AB444:
+	# ROM: 0x3F7CE4
+	.float 0.16666667
+
+.global lbl_805AB448
+lbl_805AB448:
+	# ROM: 0x3F7CE8
+	.float 5.0
+
+.global lbl_805AB44C
+lbl_805AB44C:
+	# ROM: 0x3F7CEC
+	.float 0.2
+
+.global lbl_805AB450
+lbl_805AB450:
+	# ROM: 0x3F7CF0
+	.float 0.001
+
+.global lbl_805AB454
+lbl_805AB454:
+	# ROM: 0x3F7CF4
+	.float 0.33333334
+
+.global lbl_805AB458
+lbl_805AB458:
+	# ROM: 0x3F7CF8
+	.float 0.7853982
+	.4byte 0
+
 .section .text, "ax"
 
 .global CalculateFluidTextureOffset__14CFluidUVMotionCFfPA2_f

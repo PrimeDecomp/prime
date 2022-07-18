@@ -1548,3 +1548,15 @@ __ct__Q22SL5SNodeFv:
 /* 8014ABD8 00147B38  B0 03 00 28 */	sth r0, 0x28(r3)
 /* 8014ABDC 00147B3C  98 A3 00 2A */	stb r5, 0x2a(r3)
 /* 8014ABE0 00147B40  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AB9F8
+lbl_805AB9F8:
+	# ROM: 0x3F8298
+	.4byte 0x45FA0000
+
+.global lbl_805AB9FC
+lbl_805AB9FC:
+	# ROM: 0x3F829C
+	.4byte 0
+

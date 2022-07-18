@@ -12,6 +12,48 @@ lbl_805A757C:
 	# ROM: 0x3F4F1C
 	.4byte 0x00000031
 
+.section .sdata2, "a"
+
+.global lbl_805AB170
+lbl_805AB170:
+	# ROM: 0x3F7A10
+	.float 255.0
+
+.global lbl_805AB174
+lbl_805AB174:
+	# ROM: 0x3F7A14
+	.float 0.0
+
+.global lbl_805AB178
+lbl_805AB178:
+	# ROM: 0x3F7A18
+	.float 1.0
+
+.global lbl_805AB17C
+lbl_805AB17C:
+	# ROM: 0x3F7A1C
+	.float 0.5
+
+.global lbl_805AB180
+lbl_805AB180:
+	# ROM: 0x3F7A20
+	.float -1.0
+
+.global lbl_805AB184
+lbl_805AB184:
+	# ROM: 0x3F7A24
+	.float 0.1
+
+.global lbl_805AB188
+lbl_805AB188:
+	# ROM: 0x3F7A28
+	.double 0.5
+
+.global lbl_805AB190
+lbl_805AB190:
+	# ROM: 0x3F7A30
+	.double 3.0
+
 .section .text, "ax"
 
 .global Valid__13CSimpleShadowCFv

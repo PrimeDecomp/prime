@@ -2646,3 +2646,10 @@ lbl_80304038:
 /* 80304058 00300FB8  7C 08 03 A6 */	mtlr r0
 /* 8030405C 00300FBC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80304060 00300FC0  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE470
+lbl_805AE470:
+	# ROM: 0x3FAD10
+	.double 4.503601774854144E15
+

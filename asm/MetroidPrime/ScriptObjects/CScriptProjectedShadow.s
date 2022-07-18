@@ -481,3 +481,20 @@ lbl_8029F2B0:
 /* 8029F30C 0029C26C  7C 08 03 A6 */	mtlr r0
 /* 8029F310 0029C270  38 21 01 40 */	addi r1, r1, 0x140
 /* 8029F314 0029C274  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ADE08
+lbl_805ADE08:
+	# ROM: 0x3FA6A8
+	.4byte 0
+
+.global lbl_805ADE0C
+lbl_805ADE0C:
+	# ROM: 0x3FA6AC
+	.float 1.0
+
+.global lbl_805ADE10
+lbl_805ADE10:
+	# ROM: 0x3FA6B0
+	.double 9.999999747378752E-6
+

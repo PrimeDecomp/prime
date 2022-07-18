@@ -221,3 +221,11 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D4B0 0018A410  7C 08 03 A6 */	mtlr r0
 /* 8018D4B4 0018A414  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 8018D4B8 0018A418  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AC180
+lbl_805AC180:
+	# ROM: 0x3F8A20
+	.4byte 0
+	.4byte 0
+

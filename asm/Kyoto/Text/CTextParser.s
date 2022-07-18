@@ -1648,3 +1648,22 @@ lbl_8030598C:
 /* 80305994 003028F4  7C 08 03 A6 */	mtlr r0
 /* 80305998 003028F8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8030599C 003028FC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE478
+lbl_805AE478:
+	# ROM: 0x3FAD18
+	.4byte 0x42C80000
+	.4byte 0
+
+.global lbl_805AE480
+lbl_805AE480:
+	# ROM: 0x3FAD20
+	.double 4.503601774854144E15
+
+.global lbl_805AE488
+lbl_805AE488:
+	# ROM: 0x3FAD28
+	.float 1.0
+	.4byte 0
+

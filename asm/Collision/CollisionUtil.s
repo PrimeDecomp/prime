@@ -4612,3 +4612,129 @@ __sinit_CollisionUtil_cpp:
 /* 802D3E64 002D0DC4  D0 23 00 40 */	stfs f1, 0x40(r3)
 /* 802D3E68 002D0DC8  D0 03 00 44 */	stfs f0, 0x44(r3)
 /* 802D3E6C 002D0DCC  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE1C0
+lbl_805AE1C0:
+	# ROM: 0x3FAA60
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AE1C8
+lbl_805AE1C8:
+	# ROM: 0x3FAA68
+	.double 1.0
+
+.global lbl_805AE1D0
+lbl_805AE1D0:
+	# ROM: 0x3FAA70
+	.float 2.0
+	.4byte 0
+
+.global lbl_805AE1D8
+lbl_805AE1D8:
+	# ROM: 0x3FAA78
+	.4byte 0
+
+.global lbl_805AE1DC
+lbl_805AE1DC:
+	# ROM: 0x3FAA7C
+	.float 1.0
+
+.global lbl_805AE1E0
+lbl_805AE1E0:
+	# ROM: 0x3FAA80
+	.float -1.0
+
+.global lbl_805AE1E4
+lbl_805AE1E4:
+	# ROM: 0x3FAA84
+	.4byte 0x501502F9
+
+.global lbl_805AE1E8
+lbl_805AE1E8:
+	# ROM: 0x3FAA88
+	.float 1.1920929E-7
+
+.global lbl_805AE1EC
+lbl_805AE1EC:
+	# ROM: 0x3FAA8C
+	.4byte 0xC97423F0
+
+.global lbl_805AE1F0
+lbl_805AE1F0:
+	# ROM: 0x3FAA90
+	.4byte 0x497423F0
+	.4byte 0
+
+.global lbl_805AE1F8
+lbl_805AE1F8:
+	# ROM: 0x3FAA98
+	.4byte 0xC7EFFFFF
+	.4byte 0xE0000000
+
+.global lbl_805AE200
+lbl_805AE200:
+	# ROM: 0x3FAAA0
+	.4byte 0x47EFFFFF
+	.4byte 0xE0000000
+
+.global lbl_805AE208
+lbl_805AE208:
+	# ROM: 0x3FAAA8
+	.double 4.503601774854144E15
+
+.global lbl_805AE210
+lbl_805AE210:
+	# ROM: 0x3FAAB0
+	.float 0.001
+
+.global lbl_805AE214
+lbl_805AE214:
+	# ROM: 0x3FAAB4
+	.4byte 0xBF8CCCCD
+
+.global lbl_805AE218
+lbl_805AE218:
+	# ROM: 0x3FAAB8
+	.float 0.25
+	.4byte 0
+
+.global lbl_805AE220
+lbl_805AE220:
+	# ROM: 0x3FAAC0
+	.4byte 0x35A00000
+
+.global lbl_805AE224
+lbl_805AE224:
+	# ROM: 0x3FAAC4
+	.4byte 0x3727C5AC
+
+.global lbl_805AE228
+lbl_805AE228:
+	# ROM: 0x3FAAC8
+	.4byte 0x40100000
+	.4byte 0
+
+.global lbl_805AE230
+lbl_805AE230:
+	# ROM: 0x3FAAD0
+	.4byte 0x3FE00000
+	.4byte 0
+
+.global lbl_805AE238
+lbl_805AE238:
+	# ROM: 0x3FAAD8
+	.float 0.01
+
+.global lbl_805AE23C
+lbl_805AE23C:
+	# ROM: 0x3FAADC
+	.4byte 0x80000000
+
+.global lbl_805AE240
+lbl_805AE240:
+	# ROM: 0x3FAAE0
+	.4byte 0x3F800347
+	.4byte 0
+

@@ -43,3 +43,11 @@ lbl_8039466C:
 lbl_80394690:
 /* 80394690 003915F0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80394694 003915F4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AF1D0
+lbl_805AF1D0:
+	# ROM: 0x3FBA70
+	.4byte 0x43500000
+	.4byte 0
+

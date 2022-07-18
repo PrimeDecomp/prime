@@ -1544,3 +1544,31 @@ __sinit_CCollidableSphere_cpp:
 /* 802D5340 002D22A0  D0 23 00 40 */	stfs f1, 0x40(r3)
 /* 802D5344 002D22A4  D0 03 00 44 */	stfs f0, 0x44(r3)
 /* 802D5348 002D22A8  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AE248
+lbl_805AE248:
+	# ROM: 0x3FAAE8
+	.4byte 0
+	.4byte 0
+
+.global lbl_805AE250
+lbl_805AE250:
+	# ROM: 0x3FAAF0
+	.4byte 0
+
+.global lbl_805AE254
+lbl_805AE254:
+	# ROM: 0x3FAAF4
+	.float 1.0
+
+.global lbl_805AE258
+lbl_805AE258:
+	# ROM: 0x3FAAF8
+	.float 0.01
+
+.global lbl_805AE25C
+lbl_805AE25C:
+	# ROM: 0x3FAAFC
+	.float -1.0
+

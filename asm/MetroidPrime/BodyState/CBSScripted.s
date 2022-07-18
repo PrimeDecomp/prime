@@ -272,3 +272,15 @@ __ct__11CBSScriptedFv:
 /* 8014B414 00148374  98 03 00 04 */	stb r0, 4(r3)
 /* 8014B418 00148378  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8014B41C 0014837C  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABA08
+lbl_805ABA08:
+	# ROM: 0x3F82A8
+	.4byte 0
+
+.global lbl_805ABA0C
+lbl_805ABA0C:
+	# ROM: 0x3F82AC
+	.float 1.0
+

@@ -959,3 +959,15 @@ lbl_80154754:
 /* 8015475C 001516BC  7C 08 03 A6 */	mtlr r0
 /* 80154760 001516C0  38 21 00 30 */	addi r1, r1, 0x30
 /* 80154764 001516C4  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805ABB18
+lbl_805ABB18:
+	# ROM: 0x3F83B8
+	.4byte 0
+
+.global lbl_805ABB1C
+lbl_805ABB1C:
+	# ROM: 0x3F83BC
+	.float 0.017453292
+

@@ -74,7 +74,7 @@ MakeStatus:
 	.4byte SPEC2_MakeStatus
 
 CmdReadOrigin:
-	.4byte 0x41000000
+	.float 8.0
 
 .global CmdCalibrate
 CmdCalibrate:

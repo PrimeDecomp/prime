@@ -2947,3 +2947,11 @@ lbl_8038FCE8:
 /* 8038FCF8 0038CC58  7C 08 03 A6 */	mtlr r0
 /* 8038FCFC 0038CC5C  38 21 00 30 */	addi r1, r1, 0x30
 /* 8038FD00 0038CC60  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AEC98
+lbl_805AEC98:
+	# ROM: 0x3FB538
+	.4byte 0
+	.4byte 0
+

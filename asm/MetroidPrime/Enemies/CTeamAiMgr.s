@@ -4124,3 +4124,25 @@ lbl_8023B4BC:
 /* 8023B4D0 00238430  7C 08 03 A6 */	mtlr r0
 /* 8023B4D4 00238434  38 21 00 50 */	addi r1, r1, 0x50
 /* 8023B4D8 00238438  4E 80 00 20 */	blr
+
+.section .sdata2, "a"
+.global lbl_805AD478
+lbl_805AD478:
+	# ROM: 0x3F9D18
+	.4byte 0x00000008
+
+.global lbl_805AD47C
+lbl_805AD47C:
+	# ROM: 0x3F9D1C
+	.4byte 0x40900000
+
+.global lbl_805AD480
+lbl_805AD480:
+	# ROM: 0x3F9D20
+	.float 1.5
+
+.global lbl_805AD484
+lbl_805AD484:
+	# ROM: 0x3F9D24
+	.4byte 0
+

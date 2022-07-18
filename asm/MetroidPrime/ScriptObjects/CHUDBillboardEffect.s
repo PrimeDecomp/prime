@@ -61,6 +61,49 @@ lbl_805A8F74:
 lbl_805A8F78:
 	.skip 0x8
 
+.section .sdata2, "a"
+
+.global lbl_805AB658
+lbl_805AB658:
+	# ROM: 0x3F7EF8
+	.4byte 0x41F00000
+
+.global lbl_805AB65C
+lbl_805AB65C:
+	# ROM: 0x3F7EFC
+	.float 1.0
+
+.global lbl_805AB660
+lbl_805AB660:
+	# ROM: 0x3F7F00
+	.4byte 0
+
+.global lbl_805AB664
+lbl_805AB664:
+	# ROM: 0x3F7F04
+	.float 0.01
+
+.global lbl_805AB668
+lbl_805AB668:
+	# ROM: 0x3F7F08
+	.4byte 0x3E1EB852
+
+.global lbl_805AB66C
+lbl_805AB66C:
+	# ROM: 0x3F7F0C
+	.float 0.2
+
+.global lbl_805AB670
+lbl_805AB670:
+	# ROM: 0x3F7F10
+	.float 0.1
+	.4byte 0
+
+.global lbl_805AB678
+lbl_805AB678:
+	# ROM: 0x3F7F18
+	.double 4.503601774854144E15
+
 .section .text, "ax"
 
 .global Accept__19CHUDBillboardEffectFR8IVisitor
