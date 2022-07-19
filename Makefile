@@ -8,8 +8,8 @@ endif
 # If 0, tells the console to chill out. (Quiets the make process.)
 VERBOSE ?= 0
 
-# If MAPGENFLAG set to 1, tells LDFLAGS to generate a mapfile, which makes linking take several minutes.
-MAPGENFLAG ?= 1
+# If GENERATE_MAP set to 1, tells LDFLAGS to generate a mapfile, which makes linking take several minutes.
+GENERATE_MAP ?= 1
 
 ifeq ($(VERBOSE),0)
   QUIET := @
@@ -37,7 +37,7 @@ ELF     := $(DOL:.dol=.elf)
 MAP     := $(BUILD_DIR)/MetroidPrime.MAP
 
 
-ifeq ($(MAPGENFLAG),1)
+ifeq ($(GENERATE_MAP),1)
   MAPGEN := -map $(MAP)
 endif
 
