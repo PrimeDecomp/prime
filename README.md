@@ -39,6 +39,8 @@ macOS:
 Linux:
 ------
 - Install wine from your package manager.
+  - Faster alternative: [WiBo](https://github.com/decompals/WiBo), a minimal 32-bit Windows binary wrapper.  
+    Ensure the binary is in `PATH`.
 - Install [devkitPro](https://devkitpro.org/wiki/devkitPro_pacman).
 - Run the following:
   ```
