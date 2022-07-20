@@ -1,13 +1,13 @@
 #ifndef _CMEMORYINSTREAM_HPP
 #define _CMEMORYINSTREAM_HPP
 
-#include "CInputStream.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
 
 class CMemoryInStream : public CInputStream {
 public:
   enum EOwnerShip {
-    NotOwned,
-    Owned,
+    kOS_NotOwned,
+    kOS_Owned,
   };
 
   CMemoryInStream(const void* ptr, unsigned long len);
