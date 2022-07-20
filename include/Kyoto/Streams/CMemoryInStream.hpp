@@ -6,8 +6,8 @@
 class CMemoryInStream : public CInputStream {
 public:
   enum EOwnerShip {
-    kOS_NotOwned,
     kOS_Owned,
+    kOS_NotOwned,
   };
 
   CMemoryInStream(const void* ptr, unsigned long len);

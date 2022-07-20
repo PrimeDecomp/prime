@@ -8,4 +8,4 @@ CMemoryInStream::CMemoryInStream(const void* ptr, unsigned long len)
 : CInputStream(ptr, len, false) {}
 
 CMemoryInStream::CMemoryInStream(const void* ptr, unsigned long len, EOwnerShip ownership) 
-: CInputStream(ptr, len, ownership == kOS_NotOwned) {}
+: CInputStream(ptr, len, ownership == kOS_Owned) {}
