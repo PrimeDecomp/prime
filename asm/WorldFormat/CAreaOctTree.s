@@ -158,7 +158,7 @@ MakeFromMemory__12CAreaOctTreeFPvUiPP12CAreaOctTreePb:
 /* 802A2B4C 0029FAAC  7C 05 03 78 */	mr r5, r0
 /* 802A2B50 0029FAB0  38 61 00 40 */	addi r3, r1, 0x40
 /* 802A2B54 0029FAB4  38 C0 00 01 */	li r6, 1
-/* 802A2B58 0029FAB8  48 09 C6 B5 */	bl __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip
+/* 802A2B58 0029FAB8  48 09 C6 B5 */	bl __ct__15CMemoryInStreamFPCvUlQ215CMemoryInStream10EOwnerShip
 /* 802A2B5C 0029FABC  38 61 00 40 */	addi r3, r1, 0x40
 /* 802A2B60 0029FAC0  48 09 C1 25 */	bl ReadLong__12CInputStreamFv
 /* 802A2B64 0029FAC4  38 61 00 40 */	addi r3, r1, 0x40

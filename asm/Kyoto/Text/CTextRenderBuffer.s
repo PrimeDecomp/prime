@@ -31,7 +31,7 @@ AccumulateTextBounds__17CTextRenderBufferFv:
 /* 80359B2C 00356A8C  38 61 00 50 */	addi r3, r1, 0x50
 /* 80359B30 00356A90  80 BB 00 44 */	lwz r5, 0x44(r27)
 /* 80359B34 00356A94  38 C0 00 01 */	li r6, 1
-/* 80359B38 00356A98  4B FE 56 D5 */	bl __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip
+/* 80359B38 00356A98  4B FE 56 D5 */	bl __ct__15CMemoryInStreamFPCvUlQ215CMemoryInStream10EOwnerShip
 /* 80359B3C 00356A9C  3B A1 00 44 */	addi r29, r1, 0x44
 /* 80359B40 00356AA0  3B 81 00 4C */	addi r28, r1, 0x4c
 /* 80359B44 00356AA4  48 00 03 18 */	b lbl_80359E5C
@@ -727,7 +727,7 @@ Render__17CTextRenderBufferCFRC6CColorf:
 /* 8035A500 00357460  38 C0 00 01 */	li r6, 1
 /* 8035A504 00357464  80 98 00 40 */	lwz r4, 0x40(r24)
 /* 8035A508 00357468  80 B8 00 44 */	lwz r5, 0x44(r24)
-/* 8035A50C 0035746C  4B FE 4D 01 */	bl __ct__15CMemoryInStreamFPvUlQ215CMemoryInStream10EOwnerShip
+/* 8035A50C 0035746C  4B FE 4D 01 */	bl __ct__15CMemoryInStreamFPCvUlQ215CMemoryInStream10EOwnerShip
 /* 8035A510 00357470  3B 78 00 54 */	addi r27, r24, 0x54
 /* 8035A514 00357474  48 00 06 60 */	b lbl_8035AB74
 lbl_8035A518:
