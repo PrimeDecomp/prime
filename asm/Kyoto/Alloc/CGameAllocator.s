@@ -1531,9 +1531,9 @@ lbl_803525B0:
 
 .global __ct__14CGameAllocatorFv
 __ct__14CGameAllocatorFv:
-/* 803525CC 0034F52C  3C A0 80 3F */	lis r5, lbl_803ED9C0@ha
+/* 803525CC 0034F52C  3C A0 80 3F */	lis r5, __vt__10IAllocator@ha
 /* 803525D0 0034F530  3C 80 80 3F */	lis r4, lbl_803EF6D8@ha
-/* 803525D4 0034F534  38 A5 D9 C0 */	addi r5, r5, lbl_803ED9C0@l
+/* 803525D4 0034F534  38 A5 D9 C0 */	addi r5, r5, __vt__10IAllocator@l
 /* 803525D8 0034F538  38 00 00 00 */	li r0, 0
 /* 803525DC 0034F53C  90 A3 00 00 */	stw r5, 0(r3)
 /* 803525E0 0034F540  38 84 F6 D8 */	addi r4, r4, lbl_803EF6D8@l
