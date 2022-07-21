@@ -2,8 +2,8 @@
 
 .section .data
 
-.global lbl_803ED9C0
-lbl_803ED9C0:
+.global __vt__10IAllocator
+__vt__10IAllocator:
 	# ROM: 0x3EA9C0
 	.4byte 0
 	.4byte 0
@@ -32,9 +32,9 @@ __dt__10IAllocatorFv:
 /* 80315CA4 00312C04  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80315CA8 00312C08  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80315CAC 00312C0C  41 82 00 1C */	beq lbl_80315CC8
-/* 80315CB0 00312C10  3C A0 80 3F */	lis r5, lbl_803ED9C0@ha
+/* 80315CB0 00312C10  3C A0 80 3F */	lis r5, __vt__10IAllocator@ha
 /* 80315CB4 00312C14  7C 80 07 35 */	extsh. r0, r4
-/* 80315CB8 00312C18  38 05 D9 C0 */	addi r0, r5, lbl_803ED9C0@l
+/* 80315CB8 00312C18  38 05 D9 C0 */	addi r0, r5, __vt__10IAllocator@l
 /* 80315CBC 00312C1C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80315CC0 00312C20  40 81 00 08 */	ble lbl_80315CC8
 /* 80315CC4 00312C24  4B FF FC 6D */	bl Free__7CMemoryFPCv

@@ -537,7 +537,7 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/CCrc32.o\
 	$(BUILD_DIR)/asm/Kyoto/Alloc/CCircularBuffer.o\
 	$(BUILD_DIR)/asm/Kyoto/Alloc/CMemory.o\
-	$(BUILD_DIR)/asm/Kyoto/Alloc/IAllocator.o\
+	$(BUILD_DIR)/src/Kyoto/Alloc/IAllocator.o\
 	$(BUILD_DIR)/asm/Kyoto/PVS/CPVSVisOctree.o\
 	$(BUILD_DIR)/asm/Kyoto/PVS/CPVSVisSet.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CColorElement.o\
