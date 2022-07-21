@@ -9,3 +9,5 @@ tools/elf2dol
 tools/elf2rel
 tools/mwcc_compiler/*
 !tools/mwcc_compiler/.gitkeep
+*.bat
+include/lmgr326b.dll
