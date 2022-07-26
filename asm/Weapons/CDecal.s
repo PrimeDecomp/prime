@@ -2,11 +2,11 @@
 
 .section .sbss, "wa"
 
-.global lbl_805A91A8
-lbl_805A91A8:
+.global sDecalRandom__6CDecal
+sDecalRandom__6CDecal:
 	.skip 0x4
-.global lbl_805A91AC
-lbl_805A91AC:
+.global sMoveRedToAlphaBuffer__6CDecal
+sMoveRedToAlphaBuffer__6CDecal:
 	.skip 0x4
 
 .section .text, "ax"
@@ -46,7 +46,7 @@ lbl_802B487C:
 Render__6CDecalCFv:
 /* 802B488C 002B17EC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802B4890 002B17F0  7C 08 02 A6 */	mflr r0
-/* 802B4894 002B17F4  38 8D A5 E8 */	addi r4, r13, lbl_805A91A8@sda21
+/* 802B4894 002B17F4  38 8D A5 E8 */	addi r4, r13, sDecalRandom__6CDecal@sda21
 /* 802B4898 002B17F8  90 01 00 24 */	stw r0, 0x24(r1)
 /* 802B489C 002B17FC  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802B48A0 002B1800  93 C1 00 18 */	stw r30, 0x18(r1)
@@ -530,7 +530,7 @@ lbl_802B4F5C:
 /* 802B4FAC 002B1F0C  38 C0 00 07 */	li r6, 7
 /* 802B4FB0 002B1F10  38 E0 00 00 */	li r7, 0
 /* 802B4FB4 002B1F14  48 05 6A 75 */	bl SetAlphaCompare__9CGraphicsF13ERglAlphaFuncUc11ERglAlphaOp13ERglAlphaFuncUc
-/* 802B4FB8 002B1F18  88 0D A5 EC */	lbz r0, lbl_805A91AC@sda21(r13)
+/* 802B4FB8 002B1F18  88 0D A5 EC */	lbz r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
 /* 802B4FBC 002B1F1C  3B E0 00 00 */	li r31, 0
 /* 802B4FC0 002B1F20  7F E3 FB 78 */	mr r3, r31
 /* 802B4FC4 002B1F24  28 00 00 00 */	cmplwi r0, 0
@@ -860,7 +860,7 @@ lbl_802B5408:
 /* 802B5494 002B23F4  38 A3 66 A0 */	addi r5, r3, skZero3f@l
 /* 802B5498 002B23F8  90 DF 00 40 */	stw r6, 0x40(r31)
 /* 802B549C 002B23FC  38 61 00 10 */	addi r3, r1, 0x10
-/* 802B54A0 002B2400  38 8D A5 E8 */	addi r4, r13, lbl_805A91A8@sda21
+/* 802B54A0 002B2400  38 8D A5 E8 */	addi r4, r13, sDecalRandom__6CDecal@sda21
 /* 802B54A4 002B2404  D0 1F 00 44 */	stfs f0, 0x44(r31)
 /* 802B54A8 002B2408  88 1F 00 48 */	lbz r0, 0x48(r31)
 /* 802B54AC 002B240C  50 E0 3E 30 */	rlwimi r0, r7, 7, 0x18, 0x18
@@ -1118,7 +1118,7 @@ SetGlobalSeed__6CDecalFUs:
 /* 802B5850 002B27B0  7C 08 02 A6 */	mflr r0
 /* 802B5854 002B27B4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802B5858 002B27B8  7C 60 1B 78 */	mr r0, r3
-/* 802B585C 002B27BC  38 6D A5 E8 */	addi r3, r13, lbl_805A91A8@sda21
+/* 802B585C 002B27BC  38 6D A5 E8 */	addi r3, r13, sDecalRandom__6CDecal@sda21
 /* 802B5860 002B27C0  54 04 04 3E */	clrlwi r4, r0, 0x10
 /* 802B5864 002B27C4  48 05 CD 81 */	bl SetSeed__9CRandom16FUi
 /* 802B5868 002B27C8  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -1130,7 +1130,7 @@ SetGlobalSeed__6CDecalFUs:
 __sinit_CDecal_cpp:
 /* 802B5878 002B27D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802B587C 002B27DC  7C 08 02 A6 */	mflr r0
-/* 802B5880 002B27E0  38 6D A5 E8 */	addi r3, r13, lbl_805A91A8@sda21
+/* 802B5880 002B27E0  38 6D A5 E8 */	addi r3, r13, sDecalRandom__6CDecal@sda21
 /* 802B5884 002B27E4  38 80 00 63 */	li r4, 0x63
 /* 802B5888 002B27E8  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802B588C 002B27EC  48 05 CD 61 */	bl __ct__9CRandom16FUi

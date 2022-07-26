@@ -10,8 +10,8 @@ lbl_803EC528:
 	.4byte __dt__22CDefaultWeaponRendererFv
 	.4byte AddParticleGen__22CDefaultWeaponRendererFRC12CParticleGen
 
-.global lbl_803EC538
-lbl_803EC538:
+.global __vt__15IWeaponRenderer
+__vt__15IWeaponRenderer:
 	# ROM: 0x3E9538
 	.4byte 0
 	.4byte 0
@@ -24,7 +24,7 @@ lbl_803EC538:
 .global sWeaponRenderer__15IWeaponRenderer
 sWeaponRenderer__15IWeaponRenderer:
 	# ROM: 0x3F5FF0
-	.4byte lbl_805A91A0
+	.4byte sDefaultRenderer
 	.4byte 0
 
 .section .bss
@@ -35,8 +35,8 @@ lbl_8046E1F0:
 
 .section .sbss, "wa"
 
-.global lbl_805A91A0
-lbl_805A91A0:
+.global sDefaultRenderer
+sDefaultRenderer:
 	.skip 0x8
 
 .section .text, "ax"
@@ -45,18 +45,18 @@ lbl_805A91A0:
 __sinit_IWeaponRenderer_cpp:
 /* 802B36A8 002B0608  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802B36AC 002B060C  7C 08 02 A6 */	mflr r0
-/* 802B36B0 002B0610  3C 80 80 3F */	lis r4, lbl_803EC538@ha
+/* 802B36B0 002B0610  3C 80 80 3F */	lis r4, __vt__15IWeaponRenderer@ha
 /* 802B36B4 002B0614  3C 60 80 3F */	lis r3, lbl_803EC528@ha
 /* 802B36B8 002B0618  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802B36BC 002B061C  38 04 C5 38 */	addi r0, r4, lbl_803EC538@l
+/* 802B36BC 002B061C  38 04 C5 38 */	addi r0, r4, __vt__15IWeaponRenderer@l
 /* 802B36C0 002B0620  3C 80 80 2B */	lis r4, __dt__22CDefaultWeaponRendererFv@ha
-/* 802B36C4 002B0624  90 0D A5 E0 */	stw r0, lbl_805A91A0@sda21(r13)
+/* 802B36C4 002B0624  90 0D A5 E0 */	stw r0, sDefaultRenderer@sda21(r13)
 /* 802B36C8 002B0628  38 03 C5 28 */	addi r0, r3, lbl_803EC528@l
 /* 802B36CC 002B062C  3C 60 80 47 */	lis r3, lbl_8046E1F0@ha
 /* 802B36D0 002B0630  38 84 37 24 */	addi r4, r4, __dt__22CDefaultWeaponRendererFv@l
-/* 802B36D4 002B0634  90 0D A5 E0 */	stw r0, lbl_805A91A0@sda21(r13)
+/* 802B36D4 002B0634  90 0D A5 E0 */	stw r0, sDefaultRenderer@sda21(r13)
 /* 802B36D8 002B0638  38 A3 E1 F0 */	addi r5, r3, lbl_8046E1F0@l
-/* 802B36DC 002B063C  38 6D A5 E0 */	addi r3, r13, lbl_805A91A0@sda21
+/* 802B36DC 002B063C  38 6D A5 E0 */	addi r3, r13, sDefaultRenderer@sda21
 /* 802B36E0 002B0640  48 0D 5F AD */	bl __register_global_object
 /* 802B36E4 002B0644  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B36E8 002B0648  7C 08 03 A6 */	mtlr r0
@@ -90,8 +90,8 @@ __dt__22CDefaultWeaponRendererFv:
 /* 802B3740 002B06A0  38 03 C5 28 */	addi r0, r3, lbl_803EC528@l
 /* 802B3744 002B06A4  90 1F 00 00 */	stw r0, 0(r31)
 /* 802B3748 002B06A8  41 82 00 10 */	beq lbl_802B3758
-/* 802B374C 002B06AC  3C 60 80 3F */	lis r3, lbl_803EC538@ha
-/* 802B3750 002B06B0  38 03 C5 38 */	addi r0, r3, lbl_803EC538@l
+/* 802B374C 002B06AC  3C 60 80 3F */	lis r3, __vt__15IWeaponRenderer@ha
+/* 802B3750 002B06B0  38 03 C5 38 */	addi r0, r3, __vt__15IWeaponRenderer@l
 /* 802B3754 002B06B4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802B3758:
 /* 802B3758 002B06B8  7C 80 07 35 */	extsh. r0, r4

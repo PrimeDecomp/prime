@@ -3746,7 +3746,7 @@ SetThermal__13CCubeRendererFbfRC6CColor:
 /* 802B8F98 002B5EF8  D0 23 02 F0 */	stfs f1, 0x2f0(r3)
 /* 802B8F9C 002B5EFC  80 85 00 00 */	lwz r4, 0(r5)
 /* 802B8FA0 002B5F00  90 83 02 F4 */	stw r4, 0x2f4(r3)
-/* 802B8FA4 002B5F04  98 0D A5 EC */	stb r0, lbl_805A91AC@sda21(r13)
+/* 802B8FA4 002B5F04  98 0D A5 EC */	stb r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
 /* 802B8FA8 002B5F08  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
 /* 802B8FAC 002B5F0C  4E 80 00 20 */	blr
 
@@ -5376,7 +5376,7 @@ DoThermalBlendHot__13CCubeRendererFv:
 /* 802BA7BC 002B771C  48 05 1F 91 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 802BA7C0 002B7720  38 00 00 00 */	li r0, 0
 /* 802BA7C4 002B7724  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
-/* 802BA7C8 002B7728  98 0D A5 EC */	stb r0, lbl_805A91AC@sda21(r13)
+/* 802BA7C8 002B7728  98 0D A5 EC */	stb r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
 /* 802BA7CC 002B772C  BB 41 00 88 */	lmw r26, 0x88(r1)
 /* 802BA7D0 002B7730  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 802BA7D4 002B7734  7C 08 03 A6 */	mtlr r0
@@ -5780,7 +5780,7 @@ lbl_802BAA1C:
 /* 802BADF0 002B7D50  48 05 19 5D */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 802BADF4 002B7D54  38 00 00 01 */	li r0, 1
 /* 802BADF8 002B7D58  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
-/* 802BADFC 002B7D5C  98 0D A5 EC */	stb r0, lbl_805A91AC@sda21(r13)
+/* 802BADFC 002B7D5C  98 0D A5 EC */	stb r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
 /* 802BAE00 002B7D60  E3 E1 00 F8 */	psq_l f31, 248(r1), 0, qr0
 /* 802BAE04 002B7D64  CB E1 00 F0 */	lfd f31, 0xf0(r1)
 /* 802BAE08 002B7D68  BB 41 00 D8 */	lmw r26, 0xd8(r1)
@@ -9981,8 +9981,8 @@ lbl_802BE89C:
 /* 802BE8B0 002BB810  48 04 77 11 */	bl __dt__5CFontFv
 /* 802BE8B4 002BB814  34 1E 00 04 */	addic. r0, r30, 4
 /* 802BE8B8 002BB818  41 82 00 10 */	beq lbl_802BE8C8
-/* 802BE8BC 002BB81C  3C 60 80 3F */	lis r3, lbl_803EC538@ha
-/* 802BE8C0 002BB820  38 03 C5 38 */	addi r0, r3, lbl_803EC538@l
+/* 802BE8BC 002BB81C  3C 60 80 3F */	lis r3, __vt__15IWeaponRenderer@ha
+/* 802BE8C0 002BB820  38 03 C5 38 */	addi r0, r3, __vt__15IWeaponRenderer@l
 /* 802BE8C4 002BB824  90 1E 00 04 */	stw r0, 4(r30)
 lbl_802BE8C8:
 /* 802BE8C8 002BB828  28 1E 00 00 */	cmplwi r30, 0
@@ -10509,9 +10509,9 @@ __ct__13CCubeRendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory:
 /* 802BF074 002BBFD4  38 05 8D 90 */	addi r0, r5, lbl_803D8D90@l
 /* 802BF078 002BBFD8  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802BF07C 002BBFDC  7C 7F 1B 78 */	mr r31, r3
-/* 802BF080 002BBFE0  3C 60 80 3F */	lis r3, lbl_803EC538@ha
+/* 802BF080 002BBFE0  3C 60 80 3F */	lis r3, __vt__15IWeaponRenderer@ha
 /* 802BF084 002BBFE4  90 1F 00 00 */	stw r0, 0(r31)
-/* 802BF088 002BBFE8  38 03 C5 38 */	addi r0, r3, lbl_803EC538@l
+/* 802BF088 002BBFE8  38 03 C5 38 */	addi r0, r3, __vt__15IWeaponRenderer@l
 /* 802BF08C 002BBFEC  3C 60 80 3F */	lis r3, lbl_803EC5D8@ha
 /* 802BF090 002BBFF0  90 1F 00 04 */	stw r0, 4(r31)
 /* 802BF094 002BBFF4  38 A3 C5 D8 */	addi r5, r3, lbl_803EC5D8@l
