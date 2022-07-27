@@ -783,7 +783,7 @@ MSL_PPCEABI_BARE_H :=\
 MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/seq.o\
 	$(BUILD_DIR)/asm/musyx/synth.o\
-	$(BUILD_DIR)/asm/musyx/seq_api.o\
+	$(BUILD_DIR)/src/musyx/seq_api.o\
 	$(BUILD_DIR)/asm/musyx/snd_synthapi.o\
 	$(BUILD_DIR)/asm/musyx/stream.o\
 	$(BUILD_DIR)/asm/musyx/synthdata.o\
