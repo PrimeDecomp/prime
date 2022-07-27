@@ -62,6 +62,10 @@ typedef void* unkptr;
 #endif
 #endif
 
+#ifndef ATTRIBUTE_ALIGN
+#define ATTRIBUTE_ALIGN(num) __attribute__ ((aligned (num)))
+#endif
+
 // where should these go?
 void srand(int);
 int rand();

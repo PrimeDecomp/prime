@@ -103,6 +103,7 @@ ifeq ($(VERBOSE),0)
 LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults -w off
 endif
 CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -use_lmw_stmw on -enum int -inline auto -MMD $(INCLUDES)
+CFLAGS_MUSYX = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS = $(CFLAGS_1.2) -gccinc
 
 ifeq ($(VERBOSE),0)
@@ -118,6 +119,7 @@ $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/dsp/dsp.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/dsp/dsp.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/musyx/snd_service.o: CFLAGS := $(CFLAGS_MUSYX)
 
 #-------------------------------------------------------------------------------
 # Recipes

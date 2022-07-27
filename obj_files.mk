@@ -800,12 +800,12 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/src/musyx/snd_init.o\
 	$(BUILD_DIR)/asm/musyx/snd_math.o\
 	$(BUILD_DIR)/asm/musyx/snd_midictrl.o\
-	$(BUILD_DIR)/asm/musyx/snd_service.o\
+	$(BUILD_DIR)/src/musyx/snd_service.o\
 	$(BUILD_DIR)/asm/musyx/hardware.o\
 	$(BUILD_DIR)/asm/musyx/hw_aramdma.o\
 	$(BUILD_DIR)/src/musyx/dsp_import.o\
 	$(BUILD_DIR)/asm/musyx/hw_dolphin.o\
-	$(BUILD_DIR)/asm/musyx/hw_memory.o\
+	$(BUILD_DIR)/src/musyx/hw_memory.o\
 	$(BUILD_DIR)/asm/musyx/creverb_fx.o\
 	$(BUILD_DIR)/asm/musyx/creverb.o\
 	$(BUILD_DIR)/asm/musyx/reverb_fx.o\

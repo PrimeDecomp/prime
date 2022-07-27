@@ -15,6 +15,11 @@ typedef struct _SynthInfo {
   u8 studios;
 } SynthInfo;
 
+typedef struct _SND_HOOKS {
+  void *(*malloc)(u32 len);
+  void (*free)(void *addr);
+} SND_HOOKS;
+                
 #ifdef __cplusplus
 }
 #endif

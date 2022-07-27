@@ -61,8 +61,8 @@ lbl_805A8BE0:
 	.balign 4
 
 .section .rodata
-.global lbl_803D8BD0
-lbl_803D8BD0:
+.global itdOffTab
+itdOffTab:
 	# ROM: 0x3D5BD0
 	.4byte 0
 	.4byte 0
@@ -917,9 +917,9 @@ lbl_803B39F8:
 /* 803B39F8 003B0958  80 1F 00 F0 */	lwz r0, 0xf0(r31)
 /* 803B39FC 003B095C  54 00 00 01 */	rlwinm. r0, r0, 0, 0, 0
 /* 803B3A00 003B0960  41 82 00 30 */	beq lbl_803B3A30
-/* 803B3A04 003B0964  3C 60 80 3E */	lis r3, lbl_803D8BD0@ha
+/* 803B3A04 003B0964  3C 60 80 3E */	lis r3, itdOffTab@ha
 /* 803B3A08 003B0968  57 C0 8D FC */	rlwinm r0, r30, 0x11, 0x17, 0x1e
-/* 803B3A0C 003B096C  38 83 8B D0 */	addi r4, r3, lbl_803D8BD0@l
+/* 803B3A0C 003B096C  38 83 8B D0 */	addi r4, r3, itdOffTab@l
 /* 803B3A10 003B0970  7C 64 02 2E */	lhzx r3, r4, r0
 /* 803B3A14 003B0974  7C 04 02 2E */	lhzx r0, r4, r0
 /* 803B3A18 003B0978  B0 7F 00 D0 */	sth r3, 0xd0(r31)

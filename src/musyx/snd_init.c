@@ -1,4 +1,3 @@
-#include "musyx/musyx.h"
 #include "musyx/musyx_priv.h"
 
 #ifdef __cplusplus
