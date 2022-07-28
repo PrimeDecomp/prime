@@ -104,7 +104,7 @@ LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults -w off
 endif
 CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -use_lmw_stmw on -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS_MUSYX = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
-CFLAGS = $(CFLAGS_1.2) -gccinc
+CFLAGS = $(CFLAGS_1.2) -gccinc -inline deferred,noauto
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
@@ -113,13 +113,23 @@ endif
 
 $(BUILD_DIR)/src/os/__start.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/os/__start.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/MetroTRK/mslsupp.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/MetroTRK/mslsupp.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/Dolphin/os/OSReset.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/Dolphin/os/OSReset.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/dsp/dsp.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/dsp/dsp.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/musyx/seq_api.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/synth_dbtab.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/snd_service.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/snd_init.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/dsp_import.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/hw_memory.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/reverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
 
 #-------------------------------------------------------------------------------
 # Recipes

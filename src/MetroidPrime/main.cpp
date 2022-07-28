@@ -97,7 +97,7 @@ void CMain::RefreshGameState() {
   x128_gameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
   {
-    CMemoryInStream stream(backupBuf.data(), backupBuf.size(), CMemoryInStream::Owned);
+    CMemoryInStream stream(backupBuf.data(), backupBuf.size(), CMemoryInStream::kOS_Owned);
     x128_gameGlobalObjects->GameState() = new CGameState(stream, saveIdx);
   }
   gpGameState = x128_gameGlobalObjects->GameState().get();

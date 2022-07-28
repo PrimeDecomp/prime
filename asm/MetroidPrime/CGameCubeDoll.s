@@ -529,7 +529,6 @@ lbl_805ADE04:
 lbl_803D5E98:
 	# ROM: 0x3D2E98
 	.asciz "CMDL_GameCube"
-	.byte 0x3F, 0x3F
-	.asciz "(??)"
+	.asciz "??(??)"
 	.balign 4
 
