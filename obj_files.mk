@@ -810,7 +810,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/creverb.o\
 	$(BUILD_DIR)/src/musyx/reverb_fx.o\
 	$(BUILD_DIR)/asm/musyx/reverb.o\
-	$(BUILD_DIR)/asm/musyx/delay_fx.o\
+	$(BUILD_DIR)/src/musyx/delay_fx.o\
 	$(BUILD_DIR)/asm/musyx/chorus_fx.o
 	
 DTK_FILES :=\
