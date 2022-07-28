@@ -130,6 +130,8 @@ $(BUILD_DIR)/src/musyx/snd_init.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/dsp_import.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/hw_memory.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/reverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/delay_fx.o: CFLAGS := $(CFLAGS_MUSYX)
+
 
 #-------------------------------------------------------------------------------
 # Recipes

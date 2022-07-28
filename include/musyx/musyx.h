@@ -4,7 +4,7 @@
 #include "types.h"
 
 #ifndef bool8
-typedef char bool8;
+typedef unsigned char bool8;
 #endif
 
 #ifdef __cplusplus
@@ -25,6 +25,9 @@ typedef struct _SND_HOOKS {
 } SND_HOOKS;
 
 #define SND_AUX_NUMPARAMETERS 4
+
+#define SND_AUX_REASON_BUFFERUPDATE 0
+#define SND_AUX_REASON_PARAMETERUPDATE 1
 
 typedef struct SND_AUX_INFO {
   union SND_AUX_DATA {
@@ -72,6 +75,31 @@ typedef struct SND_AUX_REVERBHI {
   f32 preDelay;
   f32 crosstalk;
 } SND_AUX_REVERBHI;
+
+void sndAuxCallbackReverbHI(u8 reason, SND_AUX_INFO* info, void* user);
+bool8 sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI *rev);
+bool8 sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev);
+
+typedef struct SND_AUX_DELAY {
+  u32 currentSize[3];
+  u32 currentPos[3];
+  u32 currentFeedback[3];
+  u32 currentOutput[3];
+
+  s32* left;
+  s32* right;
+  s32* sur;
+
+  u32 delay[3];    // Delay buffer length in ms per channel
+  u32 feedback[3]; // Feedback volume in % per channel
+  u32 output[3];   // Output volume in % per channel
+} SND_AUX_DELAY;
+
+
+void sndAuxCallbackDelay(u8 reason,SND_AUX_INFO *info, void *user);
+bool8 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY *delay);
+bool8 sndAuxCallbackPrepareDelay(SND_AUX_DELAY *rev);
+bool8 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* rev);
 
 #ifdef __cplusplus
 }
