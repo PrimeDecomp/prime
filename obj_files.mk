@@ -806,7 +806,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/src/musyx/dsp_import.o\
 	$(BUILD_DIR)/asm/musyx/hw_dolphin.o\
 	$(BUILD_DIR)/src/musyx/hw_memory.o\
-	$(BUILD_DIR)/asm/musyx/creverb_fx.o\
+	$(BUILD_DIR)/src/musyx/creverb_fx.o\
 	$(BUILD_DIR)/asm/musyx/creverb.o\
 	$(BUILD_DIR)/src/musyx/reverb_fx.o\
 	$(BUILD_DIR)/asm/musyx/reverb.o\

@@ -77,8 +77,8 @@ typedef struct SND_AUX_REVERBHI {
 } SND_AUX_REVERBHI;
 
 void sndAuxCallbackReverbHI(u8 reason, SND_AUX_INFO* info, void* user);
-bool8 sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI *rev);
-bool8 sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev);
+s32 sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI* rev);
+s32 sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev);
 
 typedef struct SND_AUX_DELAY {
   u32 currentSize[3];
@@ -95,12 +95,48 @@ typedef struct SND_AUX_DELAY {
   u32 output[3];   // Output volume in % per channel
 } SND_AUX_DELAY;
 
+void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user);
+s32 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay);
+s32 sndAuxCallbackPrepareDelay(SND_AUX_DELAY* rev);
+s32 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* rev);
+s32 sndAuxCallbackUpdateSettingsReverbHI(SND_AUX_REVERBHI *rev);
 
-void sndAuxCallbackDelay(u8 reason,SND_AUX_INFO *info, void *user);
-bool8 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY *delay);
-bool8 sndAuxCallbackPrepareDelay(SND_AUX_DELAY *rev);
-bool8 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* rev);
+typedef struct _SND_REVSTD_DELAYLINE {
+  s32 inPoint;
+  s32 outPoint;
+  s32 length;
+  f32* inputs;
+  f32 lastOutput;
+} _SND_REVSTD_DELAYLINE;
 
+typedef struct _SND_REVSTD_WORK {
+  _SND_REVSTD_DELAYLINE AP[6];
+  _SND_REVSTD_DELAYLINE C[6];
+  f32 allPassCoeff;
+  f32 combCoef[6];
+  f32 lpLastout[3];
+  f32 level;
+  f32 damping;
+  s32 preDelayTime;
+  f32* preDelayLine[3];
+  f32* preDelayPtr[3];
+} _SND_REVSTD_WORK;
+
+typedef struct SND_AUX_REVERBSTD {
+  _SND_REVSTD_WORK rv;
+  bool8 tempDisableFX;
+
+  f32 coloration;
+  f32 mix;
+  f32 time;
+  f32 damping;
+  f32 preDelay;
+} SND_AUX_REVERBSTD;
+
+void sndAuxCallbackReverbSTD(u8 reason,SND_AUX_INFO *info,void *user);
+s32 sndAuxCallbackPrepareReverbSTD(SND_AUX_REVERBSTD *rev);
+s32 sndAuxCallbackShutdownReverbSTD(SND_AUX_REVERBSTD *rev);
+s32 sndAuxCallbackUpdateSettingsReverbSTD(SND_AUX_REVERBSTD *rev);
 #ifdef __cplusplus
 }
 #endif

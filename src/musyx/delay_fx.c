@@ -24,7 +24,7 @@ void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
   s32* surPtr;
   SND_AUX_DELAY* delay;
   switch (reason) {
-  case 0:
+  case SND_AUX_REASON_BUFFERUPDATE:
     delay = (SND_AUX_DELAY*)user;
     leftOffset = delay->left + (delay->currentPos[0] * 160);
     leftPtr = info->data.bufferUpdate.left;
@@ -52,14 +52,14 @@ void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
     delay->currentPos[0] = (delay->currentPos[0] + 1) % delay->currentSize[0];
     delay->currentPos[1] = (delay->currentPos[1] + 1) % delay->currentSize[1];
     delay->currentPos[2] = (delay->currentPos[2] + 1) % delay->currentSize[2];
-  case 1: break;
+  case SND_AUX_REASON_PARAMETERUPDATE: break;
   default:
     // ASSERT_MSG(FALSE);
     break;
   }
 }
 
-bool8 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
+s32 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
   s32 i;
   s32* left;
   s32* right;
@@ -99,12 +99,12 @@ bool8 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
   return 1;
 }
 
-bool8 sndAuxCallbackPrepareDelay(SND_AUX_DELAY* delay) {
+s32 sndAuxCallbackPrepareDelay(SND_AUX_DELAY* delay) {
   delay->left = NULL;
   return sndAuxCallbackUpdateSettingsDelay(delay);
 }
 
-bool8 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* delay) {
+s32 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* delay) {
   if (delay->left != NULL) {
     salFree(delay->left);
     salFree(delay->right);
