@@ -2,13 +2,6 @@
 
 #include "Dolphin/os.h"
 
-bool CStopwatch::CSWData::Initialize() {
-  x0_timerFreq = OS_TIMER_CLOCK;
-  x8_timerFreqO1M = x0_timerFreq / 1000000ll;
-  x10_timerPeriod = 1.f / static_cast<f32>(x0_timerFreq);
-  return true;
-}
-
 void CStopwatch::CSWData::Wait(f32 v) const {
   OSTime duration = OSSecondsToTicks(v);
   OSTime end = OSGetTime() + duration;
@@ -18,4 +11,11 @@ void CStopwatch::CSWData::Wait(f32 v) const {
     current = OSGetTime();
     diff = current - end;
   } while (diff < 0);
+}
+
+bool CStopwatch::CSWData::Initialize() {
+  x0_timerFreq = OS_TIMER_CLOCK;
+  x8_timerFreqO1M = x0_timerFreq / 1000000ll;
+  x10_timerPeriod = 1.f / static_cast<f32>(x0_timerFreq);
+  return true;
 }

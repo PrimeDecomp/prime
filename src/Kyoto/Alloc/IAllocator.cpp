@@ -2,16 +2,10 @@
 
 #include "Kyoto/Basics/COsContext.hpp"
 
-
-IAllocator::~IAllocator() {
-    
-}
-
-IAllocator::SMetrics::SMetrics(u32 heapSize, u32 unk1, u32 unk2, u32 unk3, u32 unk4, u32 heapSize2, u32 unk5, u32 unk6,
-                               u32 unk7, u32 unk8, u32 unk9, u32 smallAllocNumAllocs, u32 smallAllocAllocatedSize,
-                               u32 smallAllocRemainingSize, u32 mediumAllocNumAllocs, u32 mediumAllocAllocatedSize,
-                               u32 mediumAllocBlocksAvailable, u32 unk10, u32 unk11, u32 unk12,
-                               u32 mediumAllocTotalAllocated, u32 fakeStatics)
+IAllocator::SMetrics::SMetrics(u32 heapSize, u32 unk1, u32 unk2, u32 unk3, u32 unk4, u32 heapSize2, u32 unk5, u32 unk6, u32 unk7, u32 unk8,
+                               u32 unk9, u32 smallAllocNumAllocs, u32 smallAllocAllocatedSize, u32 smallAllocRemainingSize,
+                               u32 mediumAllocNumAllocs, u32 mediumAllocAllocatedSize, u32 mediumAllocBlocksAvailable, u32 unk10, u32 unk11,
+                               u32 unk12, u32 mediumAllocTotalAllocated, u32 fakeStatics)
 : x0_heapSize(heapSize)
 , x4_(unk1)
 , x8_(unk2)
@@ -34,3 +28,5 @@ IAllocator::SMetrics::SMetrics(u32 heapSize, u32 unk1, u32 unk2, u32 unk3, u32 u
 , x4c_(unk12)
 , x50_mediumTotalAllocated(mediumAllocTotalAllocated)
 , x54_fakeStatics(fakeStatics) {}
+
+IAllocator::~IAllocator() {}

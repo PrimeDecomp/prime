@@ -4,37 +4,97 @@
 
 #include "Kyoto/Alloc/CMemory.hpp"
 
-static u8 c;
-static u16 s;
-static u32 l;
-static u64 ll;
-static f32 f;
+CInputStream::CInputStream(size_t len)
+: x4_blockOffset(0)
+, x8_blockLen(0)
+, xc_len(len)
+, x10_ptr(new u8[len])
+, x14_owned(true)
+, x18_readPosition(0)
+, x1c_bitWord(0)
+, x20_bitOffset(0) {}
 
-f32 CInputStream::ReadFloat() {
-  Get(&f, sizeof(f32));
-  return f;
+CInputStream::CInputStream(const void* ptr, size_t len, bool owned)
+: x4_blockOffset(0)
+, x8_blockLen(len)
+, xc_len(len)
+, x10_ptr(const_cast< u8* >(reinterpret_cast< const u8* >(ptr)))
+, x14_owned(owned)
+, x18_readPosition(0)
+, x1c_bitWord(0)
+, x20_bitOffset(0) {}
+
+CInputStream::~CInputStream() {
+  if (x14_owned) {
+    delete x10_ptr;
+  }
 }
 
-u64 CInputStream::ReadLongLong() {
-  Get(&ll, sizeof(u64));
-  return ll;
+bool CInputStream::InternalReadNext() {
+  x8_blockLen = Read(x10_ptr, xc_len);
+  x4_blockOffset = 0;
+  return x8_blockLen != 0;
 }
 
-u32 CInputStream::ReadLong() {
-  Get(&l, sizeof(u32));
-  return l;
+bool CInputStream::GrabAnotherBlock() { return InternalReadNext(); }
+
+void CInputStream::Get(void* dest, unsigned long len) {
+  u32 remain = len;
+  u32 readCount = 0;
+  x20_bitOffset = 0;
+
+  while (remain != 0) {
+    u32 blockLen = x8_blockLen - x4_blockOffset;
+    blockLen = remain < blockLen ? remain : blockLen;
+
+    if (blockLen != 0) {
+      memcpy(reinterpret_cast< u8* >(dest) + readCount, x10_ptr + x4_blockOffset, blockLen);
+      remain -= blockLen;
+      readCount += blockLen;
+      x4_blockOffset += blockLen;
+    } else if (remain > 256) {
+      u32 readLen = Read(reinterpret_cast< u8* >(dest) + readCount, remain);
+      remain -= readLen;
+      readCount += readLen;
+    } else {
+      GrabAnotherBlock();
+    }
+  }
+
+  x18_readPosition += readCount;
 }
 
-u16 CInputStream::ReadShort() {
-  Get(&s, sizeof(u16));
-  return s;
-}
+u32 CInputStream::ReadBytes(void* dest, unsigned long len) {
+  if (len == 0) {
+    return 0;
+  }
 
-bool CInputStream::ReadBool() { return static_cast< bool >(ReadChar()); }
+  if (x4_blockOffset == x8_blockLen) {
+    GrabAnotherBlock();
+  }
 
-u8 CInputStream::ReadChar() {
-  Get(&c, sizeof(u8));
-  return c;
+  u32 curLen = len;
+  u32 curReadLen = 0;
+
+  while (curReadLen < len) {
+    u32 remain = x8_blockLen - x4_blockOffset;
+    if (remain == 0) {
+      if (InternalReadNext()) {
+        continue;
+      } else {
+        return curReadLen;
+      }
+    }
+
+    u32 sz = curLen < remain ? curLen : remain;
+    memcpy(reinterpret_cast< u8* >(dest) + curReadLen, x10_ptr + x4_blockOffset, sz);
+    curReadLen += sz;
+    curLen -= sz;
+    x4_blockOffset += sz;
+  }
+
+  x18_readPosition += curReadLen;
+  return curReadLen;
 }
 
 static inline u32 BitsToBytes(u32 bits) { return (bits / 8) + ((bits % 8) ? 1 : 0); }
@@ -84,95 +144,34 @@ u32 CInputStream::ReadBits(u32 bitCount) {
   return ret;
 }
 
-u32 CInputStream::ReadBytes(void* dest, unsigned long len) {
-  if (len == 0) {
-    return 0;
-  }
-
-  if (x4_blockOffset == x8_blockLen) {
-    GrabAnotherBlock();
-  }
-
-  u32 curLen = len;
-  u32 curReadLen = 0;
-
-  while (curReadLen < len) {
-    u32 remain = x8_blockLen - x4_blockOffset;
-    if (remain == 0) {
-      if (InternalReadNext()) {
-        continue;
-      } else {
-        return curReadLen;
-      }
-    }
-
-    u32 sz = curLen < remain ? curLen : remain;
-    memcpy(reinterpret_cast< u8* >(dest) + curReadLen, x10_ptr + x4_blockOffset, sz);
-    curReadLen += sz;
-    curLen -= sz;
-    x4_blockOffset += sz;
-  }
-
-  x18_readPosition += curReadLen;
-  return curReadLen;
+u8 CInputStream::ReadChar() {
+  static u8 c;
+  Get(&c, sizeof(u8));
+  return c;
 }
 
-void CInputStream::Get(void* dest, unsigned long len) {
-  u32 remain = len;
-  u32 readCount = 0;
-  x20_bitOffset = 0;
+bool CInputStream::ReadBool() { return static_cast< bool >(ReadChar()); }
 
-  while (remain != 0) {
-    u32 blockLen = x8_blockLen - x4_blockOffset;
-    blockLen = remain < blockLen ? remain : blockLen;
-
-    if (blockLen != 0) {
-      memcpy(reinterpret_cast< u8* >(dest) + readCount, x10_ptr + x4_blockOffset, blockLen);
-      remain -= blockLen;
-      readCount += blockLen;
-      x4_blockOffset += blockLen;
-    } else if (remain > 256) {
-      u32 readLen = Read(reinterpret_cast< u8* >(dest) + readCount, remain);
-      remain -= readLen;
-      readCount += readLen;
-    } else {
-      GrabAnotherBlock();
-    }
-  }
-
-  x18_readPosition += readCount;
+u16 CInputStream::ReadShort() {
+  static u16 s;
+  Get(&s, sizeof(u16));
+  return s;
 }
 
-bool CInputStream::GrabAnotherBlock() { return InternalReadNext(); }
-
-bool CInputStream::InternalReadNext() {
-  x8_blockLen = Read(x10_ptr, xc_len);
-  x4_blockOffset = 0;
-  return x8_blockLen != 0;
+u32 CInputStream::ReadLong() {
+  static u32 l;
+  Get(&l, sizeof(u32));
+  return l;
 }
 
-CInputStream::~CInputStream() {
-  if (x14_owned) {
-    delete x10_ptr;
-  }
+u64 CInputStream::ReadLongLong() {
+  static u64 ll;
+  Get(&ll, sizeof(u64));
+  return ll;
 }
 
-CInputStream::CInputStream(const void* ptr, size_t len, bool owned)
-: x4_blockOffset(0)
-, x8_blockLen(len)
-, xc_len(len)
-, x10_ptr(const_cast< u8* >(reinterpret_cast< const u8* >(ptr)))
-, x14_owned(owned)
-, x18_readPosition(0)
-, x1c_bitWord(0)
-, x20_bitOffset(0) {}
-
-CInputStream::CInputStream(size_t len)
-: x4_blockOffset(0)
-, x8_blockLen(0)
-, xc_len(len)
-, x10_ptr(new u8[len])
-, x14_owned(true)
-, x18_readPosition(0)
-, x1c_bitWord(0)
-, x20_bitOffset(0) {}
+f32 CInputStream::ReadFloat() {
+  static f32 f;
+  Get(&f, sizeof(f32));
+  return f;
+}

@@ -3,7 +3,7 @@
 #include "Kyoto/Particles/CParticleGen.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 
-//CDefaultRenderer sDefaultRenderer = CDefaultRenderer();
+static CDefaultRenderer sDefaultRenderer = CDefaultRenderer();
 IWeaponRenderer* IWeaponRenderer::sWeaponRenderer = &sDefaultRenderer;
 
 

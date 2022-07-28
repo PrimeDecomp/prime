@@ -3,6 +3,7 @@
 
 class CParticleGen;
 class IWeaponRenderer {
+public:
     virtual ~IWeaponRenderer() {}
     virtual void AddParticleGen(const CParticleGen& gen) = 0;
     
@@ -17,7 +18,5 @@ public:
     ~CDefaultRenderer();
     void AddParticleGen(const CParticleGen& gen);
 };
-
-static CDefaultRenderer sDefaultRenderer = CDefaultRenderer();;
 
 #endif //__IWEAPONRENDERER_HPP__
