@@ -571,13 +571,14 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
 	$(BUILD_DIR)/asm/Kyoto/CToken.o\
 	$(BUILD_DIR)/asm/Kyoto/IObj.o\
-	$(BUILD_DIR)/asm/Kyoto/zlib/adler32.o\
+	$(BUILD_DIR)/src/Kyoto/zlib/adler32.o\
 	$(BUILD_DIR)/asm/Kyoto/zlib/infblock.o\
 	$(BUILD_DIR)/asm/Kyoto/zlib/infcodes.o\
 	$(BUILD_DIR)/asm/Kyoto/zlib/inffast.o\
 	$(BUILD_DIR)/asm/Kyoto/zlib/inflate.o\
 	$(BUILD_DIR)/asm/Kyoto/zlib/inftrees.o\
 	$(BUILD_DIR)/asm/Kyoto/zlib/infutil.o\
+	$(BUILD_DIR)/src/Kyoto/zlib/zutil.o\
 	$(BUILD_DIR)/asm/Kyoto/CARAMManager.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CFrustumPlanes.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CCubeMaterial.o\
