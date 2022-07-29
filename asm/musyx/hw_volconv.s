@@ -186,13 +186,13 @@ musyx_vol_tab:
 	.float 1.0
 	.float 1.0
 pan_tab:
-	.4byte 0
-	.4byte 0x3F3538EF
+	.float 0
+	.float 0.7079
 	.float 1.0
 	.float 1.0
 pan_tab_dpl2:
-	.4byte 0x3F133333
-	.4byte 0x3F3538EF
+	.float 0.575
+	.float 0.7079
 	.float 1.0
 	.float 1.0
 	.4byte 0

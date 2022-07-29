@@ -669,8 +669,8 @@ lbl_80341BAC:
 /* 80341BB8 0033EB18  90 1E 00 00 */	stw r0, 0(r30)
 .global lbl_80341BBC
 lbl_80341BBC:
-/* 80341BBC 0033EB1C  3C 60 80 3F */	lis r3, lbl_803EF5C8@ha
-/* 80341BC0 0033EB20  38 63 F5 C8 */	addi r3, r3, lbl_803EF5C8@l
+/* 80341BBC 0033EB1C  3C 60 80 3F */	lis r3, inflate_mask@ha
+/* 80341BC0 0033EB20  38 63 F5 C8 */	addi r3, r3, inflate_mask@l
 /* 80341BC4 0033EB24  48 00 02 78 */	b lbl_80341E3C
 lbl_80341BC8:
 /* 80341BC8 0033EB28  80 DE 00 10 */	lwz r6, 0x10(r30)
@@ -777,11 +777,11 @@ lbl_80341D20:
 /* 80341D34 0033EC94  7F 9C 33 78 */	or r28, r28, r6
 /* 80341D38 0033EC98  42 00 FF 9C */	bdnz lbl_80341CD4
 lbl_80341D3C:
-/* 80341D3C 0033EC9C  3C C0 80 3F */	lis r6, lbl_803EF5C8@ha
+/* 80341D3C 0033EC9C  3C C0 80 3F */	lis r6, inflate_mask@ha
 /* 80341D40 0033ECA0  7F 6B D8 50 */	subf r27, r11, r27
 /* 80341D44 0033ECA4  55 48 10 3A */	slwi r8, r10, 2
 /* 80341D48 0033ECA8  7F 9C 5C 30 */	srw r28, r28, r11
-/* 80341D4C 0033ECAC  38 E6 F5 C8 */	addi r7, r6, lbl_803EF5C8@l
+/* 80341D4C 0033ECAC  38 E6 F5 C8 */	addi r7, r6, inflate_mask@l
 /* 80341D50 0033ECB0  54 86 06 FE */	clrlwi r6, r4, 0x1b
 /* 80341D54 0033ECB4  7C E7 40 2E */	lwzx r7, r7, r8
 /* 80341D58 0033ECB8  54 84 DE FE */	rlwinm r4, r4, 0x1b, 0x1b, 0x1f
@@ -1271,8 +1271,7 @@ lbl_803D7AA8:
 lbl_803D7AF4:
 	# ROM: 0x3D4AF4
 	.asciz "invalid block type"
-	.byte 0x69
-	.asciz "nvalid stored block lengths"
+	.asciz "invalid stored block lengths"
 	.asciz "too many length or distance symbols"
 	.asciz "invalid bit length repeat"
 	.balign 4

@@ -2,8 +2,8 @@
 
 .section .data
 
-.global lbl_803EE4C8
-lbl_803EE4C8:
+.global fixed_tl
+fixed_tl:
 	# ROM: 0x3EB4C8
 	.4byte 0x60070000
 	.4byte 0x00000100
@@ -1030,8 +1030,8 @@ lbl_803EE4C8:
 	.4byte 0x00090000
 	.4byte 0x000000FF
 
-.global lbl_803EF4C8
-lbl_803EF4C8:
+.global fixed_td
+fixed_td:
 	# ROM: 0x3EC4C8
 	.4byte 0x50050000
 	.4byte 0x00000001
@@ -1100,13 +1100,13 @@ lbl_803EF4C8:
 
 .section .sdata
 
-.global lbl_805A8918
-lbl_805A8918:
+.global fixed_bl
+fixed_bl:
 	# ROM: 0x3F62B8
 	.4byte 0x00000009
 
-.global lbl_805A891C
-lbl_805A891C:
+.global fixed_bd
+fixed_bd:
 	# ROM: 0x3F62BC
 	.4byte 0x00000005
 
@@ -1114,14 +1114,14 @@ lbl_805A891C:
 
 .global inflate_trees_fixed
 inflate_trees_fixed:
-/* 80343BC0 00340B20  80 0D 9D 58 */	lwz r0, lbl_805A8918@sda21(r13)
-/* 80343BC4 00340B24  3D 00 80 3F */	lis r8, lbl_803EE4C8@ha
-/* 80343BC8 00340B28  3C E0 80 3F */	lis r7, lbl_803EF4C8@ha
+/* 80343BC0 00340B20  80 0D 9D 58 */	lwz r0, fixed_bl@sda21(r13)
+/* 80343BC4 00340B24  3D 00 80 3F */	lis r8, fixed_tl@ha
+/* 80343BC8 00340B28  3C E0 80 3F */	lis r7, fixed_td@ha
 /* 80343BCC 00340B2C  90 03 00 00 */	stw r0, 0(r3)
-/* 80343BD0 00340B30  39 08 E4 C8 */	addi r8, r8, lbl_803EE4C8@l
-/* 80343BD4 00340B34  38 07 F4 C8 */	addi r0, r7, lbl_803EF4C8@l
+/* 80343BD0 00340B30  39 08 E4 C8 */	addi r8, r8, fixed_tl@l
+/* 80343BD4 00340B34  38 07 F4 C8 */	addi r0, r7, fixed_td@l
 /* 80343BD8 00340B38  38 60 00 00 */	li r3, 0
-/* 80343BDC 00340B3C  80 ED 9D 5C */	lwz r7, lbl_805A891C@sda21(r13)
+/* 80343BDC 00340B3C  80 ED 9D 5C */	lwz r7, fixed_bd@sda21(r13)
 /* 80343BE0 00340B40  90 E4 00 00 */	stw r7, 0(r4)
 /* 80343BE4 00340B44  91 05 00 00 */	stw r8, 0(r5)
 /* 80343BE8 00340B48  90 06 00 00 */	stw r0, 0(r6)
@@ -1131,7 +1131,7 @@ inflate_trees_fixed:
 inflate_trees_dynamic:
 /* 80343BF0 00340B50  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80343BF4 00340B54  7C 08 02 A6 */	mflr r0
-/* 80343BF8 00340B58  3D 60 80 3D */	lis r11, lbl_803D7C50@ha
+/* 80343BF8 00340B58  3D 60 80 3D */	lis r11, inflate_copyright@ha
 /* 80343BFC 00340B5C  90 01 00 54 */	stw r0, 0x54(r1)
 /* 80343C00 00340B60  38 00 00 00 */	li r0, 0
 /* 80343C04 00340B64  BE A1 00 24 */	stmw r21, 0x24(r1)
@@ -1144,7 +1144,7 @@ inflate_trees_dynamic:
 /* 80343C20 00340B80  7D 18 43 78 */	mr r24, r8
 /* 80343C24 00340B84  7D 36 4B 78 */	mr r22, r9
 /* 80343C28 00340B88  7D 57 53 78 */	mr r23, r10
-/* 80343C2C 00340B8C  3B 2B 7C 50 */	addi r25, r11, lbl_803D7C50@l
+/* 80343C2C 00340B8C  3B 2B 7C 50 */	addi r25, r11, inflate_copyright@l
 /* 80343C30 00340B90  38 80 01 20 */	li r4, 0x120
 /* 80343C34 00340B94  38 A0 00 04 */	li r5, 4
 /* 80343C38 00340B98  90 01 00 10 */	stw r0, 0x10(r1)
@@ -1165,8 +1165,8 @@ lbl_80343C5C:
 /* 80343C70 00340BD0  7E A9 AB 78 */	mr r9, r21
 /* 80343C74 00340BD4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80343C78 00340BD8  7E EA BB 78 */	mr r10, r23
-/* 80343C7C 00340BDC  38 D9 00 30 */	addi r6, r25, 0x30
-/* 80343C80 00340BE0  38 F9 00 AC */	addi r7, r25, 0xac
+/* 80343C7C 00340BDC  38 D9 00 30 */	addi r6, r25, cplens - inflate_copyright
+/* 80343C80 00340BE0  38 F9 00 AC */	addi r7, r25, cplext - inflate_copyright
 /* 80343C84 00340BE4  38 A0 01 01 */	li r5, 0x101
 /* 80343C88 00340BE8  48 00 02 51 */	bl huft_build
 /* 80343C8C 00340BEC  7C 78 1B 79 */	or. r24, r3, r3
@@ -1207,8 +1207,8 @@ lbl_80343CF0:
 /* 80343D08 00340C68  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80343D0C 00340C6C  7E EA BB 78 */	mr r10, r23
 /* 80343D10 00340C70  7C 7C 02 14 */	add r3, r28, r0
-/* 80343D14 00340C74  38 D9 01 28 */	addi r6, r25, 0x128
-/* 80343D18 00340C78  38 F9 01 A0 */	addi r7, r25, 0x1a0
+/* 80343D14 00340C74  38 D9 01 28 */	addi r6, r25, cpdist - inflate_copyright
+/* 80343D18 00340C78  38 F9 01 A0 */	addi r7, r25, cpdext - inflate_copyright
 /* 80343D1C 00340C7C  38 A0 00 00 */	li r5, 0
 /* 80343D20 00340C80  48 00 01 B9 */	bl huft_build
 /* 80343D24 00340C84  7C 79 1B 79 */	or. r25, r3, r3
@@ -1711,6 +1711,138 @@ lbl_80344400:
 /* 80344408 00341368  4E 80 00 20 */	blr
 
 .section .rodata
+
+inflate_copyright:
+	# ROM: 0x3D4C50
+	.asciz " inflate 1.1.3 Copyright 1995-1998 Mark Adler "
+	.balign 4
+cplens:
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0x00000009
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000D
+	.4byte 0x0000000F
+	.4byte 0x00000011
+	.4byte 0x00000013
+	.4byte 0x00000017
+	.4byte 0x0000001B
+	.4byte 0x0000001F
+	.4byte 0x00000023
+	.4byte 0x0000002B
+	.4byte 0x00000033
+	.4byte 0x0000003B
+	.4byte 0x00000043
+	.4byte 0x00000053
+	.4byte 0x00000063
+	.4byte 0x00000073
+	.4byte 0x00000083
+	.4byte 0x000000A3
+	.4byte 0x000000C3
+	.4byte 0x000000E3
+	.4byte 0x00000102
+	.4byte 0
+	.4byte 0
+cplext:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0
+	.4byte 0x00000070
+	.4byte 0x00000070
+cpdist:
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000007
+	.4byte 0x00000009
+	.4byte 0x0000000D
+	.4byte 0x00000011
+	.4byte 0x00000019
+	.4byte 0x00000021
+	.4byte 0x00000031
+	.4byte 0x00000041
+	.4byte 0x00000061
+	.4byte 0x00000081
+	.4byte 0x000000C1
+	.4byte 0x00000101
+	.4byte 0x00000181
+	.4byte 0x00000201
+	.4byte 0x00000301
+	.4byte 0x00000401
+	.4byte 0x00000601
+	.4byte 0x00000801
+	.4byte 0x00000C01
+	.4byte 0x00001001
+	.4byte 0x00001801
+	.4byte 0x00002001
+	.4byte 0x00003001
+	.4byte 0x00004001
+	.4byte 0x00006001
+cpdext:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000001
+	.4byte 0x00000002
+	.4byte 0x00000002
+	.4byte 0x00000003
+	.4byte 0x00000003
+	.4byte 0x00000004
+	.4byte 0x00000004
+	.4byte 0x00000005
+	.4byte 0x00000005
+	.4byte 0x00000006
+	.4byte 0x00000006
+	.4byte 0x00000007
+	.4byte 0x00000007
+	.4byte 0x00000008
+	.4byte 0x00000008
+	.4byte 0x00000009
+	.4byte 0x00000009
+	.4byte 0x0000000A
+	.4byte 0x0000000A
+	.4byte 0x0000000B
+	.4byte 0x0000000B
+	.4byte 0x0000000C
+	.4byte 0x0000000C
+	.4byte 0x0000000D
+	.4byte 0x0000000D
+	
 .global lbl_803D7E68
 lbl_803D7E68:
 	# ROM: 0x3D4E68
