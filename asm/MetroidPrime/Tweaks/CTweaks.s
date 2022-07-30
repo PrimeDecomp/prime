@@ -1954,27 +1954,19 @@ lbl_800371A0:
 lbl_803CCD88:
 	# ROM: 0x3C9D88
 	.asciz "GunRes"
-	.byte 0x3F
-	.asciz "?(??)"
-	.byte 0x50, 0x6C
-	.asciz "ayerRes"
+	.asciz "??(??)"
+	.asciz "PlayerRes"
 	.asciz "Particle"
-	.byte 0x50, 0x6C, 0x61
-	.4byte 0x79657200
+	.asciz "Player"
 	.asciz "CameraBob"
-	.byte 0x42, 0x61
-	.4byte 0x6C6C0050
-	.asciz "layerGun"
-	.byte 0x54, 0x61, 0x72
-	.asciz "geting"
-	.byte 0x47
-	.4byte 0x616D6500
+	.asciz "Ball"
+	.asciz "PlayerGun"
+	.asciz "Targeting"
+	.asciz "Game"
 	.asciz "GuiColors"
-	.byte 0x41, 0x75
-	.asciz "toMapper"
-	.byte 0x47, 0x75, 0x69
-	.4byte 0x00506C61
-	.asciz "yerControls"
+	.asciz "AutoMapper"
+	.asciz "Gui"
+	.asciz "PlayerControls"
 	.asciz "PlayerControls2"
 	.asciz "SlideShow"
 	.balign 4
