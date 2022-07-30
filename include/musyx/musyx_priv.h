@@ -29,6 +29,13 @@ void sndConvertTicks(u32* out, u32 seconds);
 u32 sndConvert2Ms(u32 time);
 
 extern SND_HOOKS salHooks;
+
+/* Math */
+void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out);
+float salNormalizeVector(SND_FVECTOR* vec);
+void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* b);
+void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
+
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 .include "macros.inc"
 
 .section .sbss
-lbl_805A9740:
+__DBInterface:
 	.skip 0x4
-lbl_805A9744:
+DBVerbose:
 	.skip 0x4
 
 
@@ -19,12 +19,12 @@ DBInit:
 /* 8036F8CC 0036C82C  3C 80 80 00 */	lis r4, 0x80000040@ha
 /* 8036F8D0 0036C830  38 04 00 40 */	addi r0, r4, 0x80000040@l
 /* 8036F8D4 0036C834  3C 60 80 37 */	lis r3, __DBExceptionDestination@ha
-/* 8036F8D8 0036C838  90 0D AB 80 */	stw r0, lbl_805A9740@sda21(r13)
+/* 8036F8D8 0036C838  90 0D AB 80 */	stw r0, __DBInterface@sda21(r13)
 /* 8036F8DC 0036C83C  38 63 F9 3C */	addi r3, r3, __DBExceptionDestination@l
 /* 8036F8E0 0036C840  3C 03 80 00 */	addis r0, r3, 0x8000
 /* 8036F8E4 0036C844  90 04 00 48 */	stw r0, 0x48(r4)
 /* 8036F8E8 0036C848  38 00 00 01 */	li r0, 1
-/* 8036F8EC 0036C84C  90 0D AB 84 */	stw r0, lbl_805A9744@sda21(r13)
+/* 8036F8EC 0036C84C  90 0D AB 84 */	stw r0, DBVerbose@sda21(r13)
 /* 8036F8F0 0036C850  4E 80 00 20 */	blr
 
 .global __DBExceptionDestinationAux
@@ -57,7 +57,7 @@ __DBExceptionDestination:
 
 .global __DBIsExceptionMarked
 __DBIsExceptionMarked:
-/* 8036F94C 0036C8AC  80 8D AB 80 */	lwz r4, lbl_805A9740@sda21(r13)
+/* 8036F94C 0036C8AC  80 8D AB 80 */	lwz r4, __DBInterface@sda21(r13)
 /* 8036F950 0036C8B0  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 8036F954 0036C8B4  38 60 00 01 */	li r3, 1
 /* 8036F958 0036C8B8  80 84 00 04 */	lwz r4, 4(r4)
