@@ -2,11 +2,11 @@
 
 .section .sbss, "wa"
 
-.global lbl_805A9450
-lbl_805A9450:
+.global gRandomNumber__9CRandom16
+gRandomNumber__9CRandom16:
 	.skip 0x4
-.global lbl_805A9454
-lbl_805A9454:
+.global gCurrentGlobalRandom__13CGlobalRandom
+gCurrentGlobalRandom__13CGlobalRandom:
 	.skip 0x4
 
 .section .text, "ax"
@@ -101,12 +101,12 @@ __ct__9CRandom16FUi:
 
 .global _SetRandomNumber__9CRandom16FP9CRandom16
 _SetRandomNumber__9CRandom16FP9CRandom16:
-/* 803125F4 0030F554  90 6D A8 90 */	stw r3, lbl_805A9450@sda21(r13)
+/* 803125F4 0030F554  90 6D A8 90 */	stw r3, gRandomNumber__9CRandom16@sda21(r13)
 /* 803125F8 0030F558  4E 80 00 20 */	blr
 
 .global GetRandomNumber__9CRandom16Fv
 GetRandomNumber__9CRandom16Fv:
-/* 803125FC 0030F55C  80 6D A8 90 */	lwz r3, lbl_805A9450@sda21(r13)
+/* 803125FC 0030F55C  80 6D A8 90 */	lwz r3, gRandomNumber__9CRandom16@sda21(r13)
 /* 80312600 0030F560  4E 80 00 20 */	blr
 
 .global __dt__13CGlobalRandomFv
@@ -121,11 +121,11 @@ __dt__13CGlobalRandomFv:
 /* 80312620 0030F580  41 82 00 44 */	beq lbl_80312664
 /* 80312624 0030F584  80 7E 00 08 */	lwz r3, 8(r30)
 /* 80312628 0030F588  28 03 00 00 */	cmplwi r3, 0
-/* 8031262C 0030F58C  90 6D A8 94 */	stw r3, lbl_805A9454@sda21(r13)
+/* 8031262C 0030F58C  90 6D A8 94 */	stw r3, gCurrentGlobalRandom__13CGlobalRandom@sda21(r13)
 /* 80312630 0030F590  41 82 00 1C */	beq lbl_8031264C
 /* 80312634 0030F594  38 00 00 01 */	li r0, 1
 /* 80312638 0030F598  98 03 00 04 */	stb r0, 4(r3)
-/* 8031263C 0030F59C  80 6D A8 94 */	lwz r3, lbl_805A9454@sda21(r13)
+/* 8031263C 0030F59C  80 6D A8 94 */	lwz r3, gCurrentGlobalRandom__13CGlobalRandom@sda21(r13)
 /* 80312640 0030F5A0  80 63 00 00 */	lwz r3, 0(r3)
 /* 80312644 0030F5A4  4B FF FF B1 */	bl _SetRandomNumber__9CRandom16FP9CRandom16
 /* 80312648 0030F5A8  48 00 00 0C */	b lbl_80312654
@@ -156,7 +156,7 @@ __ct__13CGlobalRandomFR9CRandom16:
 /* 80312694 0030F5F4  7C 7F 1B 78 */	mr r31, r3
 /* 80312698 0030F5F8  90 83 00 00 */	stw r4, 0(r3)
 /* 8031269C 0030F5FC  98 03 00 04 */	stb r0, 4(r3)
-/* 803126A0 0030F600  80 0D A8 94 */	lwz r0, lbl_805A9454@sda21(r13)
+/* 803126A0 0030F600  80 0D A8 94 */	lwz r0, gCurrentGlobalRandom__13CGlobalRandom@sda21(r13)
 /* 803126A4 0030F604  90 03 00 08 */	stw r0, 8(r3)
 /* 803126A8 0030F608  80 63 00 08 */	lwz r3, 8(r3)
 /* 803126AC 0030F60C  28 03 00 00 */	cmplwi r3, 0
@@ -164,7 +164,7 @@ __ct__13CGlobalRandomFR9CRandom16:
 /* 803126B4 0030F614  38 00 00 00 */	li r0, 0
 /* 803126B8 0030F618  98 03 00 04 */	stb r0, 4(r3)
 lbl_803126BC:
-/* 803126BC 0030F61C  93 ED A8 94 */	stw r31, lbl_805A9454@sda21(r13)
+/* 803126BC 0030F61C  93 ED A8 94 */	stw r31, gCurrentGlobalRandom__13CGlobalRandom@sda21(r13)
 /* 803126C0 0030F620  80 7F 00 00 */	lwz r3, 0(r31)
 /* 803126C4 0030F624  4B FF FF 31 */	bl _SetRandomNumber__9CRandom16FP9CRandom16
 /* 803126C8 0030F628  80 01 00 14 */	lwz r0, 0x14(r1)
