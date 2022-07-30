@@ -111,7 +111,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpawnPoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptRandomRelay.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBeetle.o\
-	$(BUILD_DIR)/asm/MetroidPrime/HUD/CHUDMemoParms.o\
+	$(BUILD_DIR)/src/MetroidPrime/HUD/CHUDMemoParms.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptHUDMemo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMappableObject.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerCameraBob.o\

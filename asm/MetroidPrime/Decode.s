@@ -438,10 +438,8 @@ lbl_803CCF28:
 	# ROM: 0x3C9F28
 	.asciz "Msg[%3d] %s"
 	.asciz "-------------------------"
-	.byte 0x44, 0x72
-	.asciz "aw[%3d] %s"
-	.byte 0x3F
-	.asciz "?(??)"
+	.asciz "Draw[%3d] %s"
+	.asciz "??(??)"
 	.balign 4
 	.4byte 0
 
