@@ -99,7 +99,7 @@ void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user);
 s32 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay);
 s32 sndAuxCallbackPrepareDelay(SND_AUX_DELAY* rev);
 s32 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* rev);
-s32 sndAuxCallbackUpdateSettingsReverbHI(SND_AUX_REVERBHI *rev);
+s32 sndAuxCallbackUpdateSettingsReverbHI(SND_AUX_REVERBHI* rev);
 
 typedef struct _SND_REVSTD_DELAYLINE {
   s32 inPoint;
@@ -133,10 +133,22 @@ typedef struct SND_AUX_REVERBSTD {
   f32 preDelay;
 } SND_AUX_REVERBSTD;
 
-void sndAuxCallbackReverbSTD(u8 reason,SND_AUX_INFO *info,void *user);
-s32 sndAuxCallbackPrepareReverbSTD(SND_AUX_REVERBSTD *rev);
-s32 sndAuxCallbackShutdownReverbSTD(SND_AUX_REVERBSTD *rev);
-s32 sndAuxCallbackUpdateSettingsReverbSTD(SND_AUX_REVERBSTD *rev);
+void sndAuxCallbackReverbSTD(u8 reason, SND_AUX_INFO* info, void* user);
+s32 sndAuxCallbackPrepareReverbSTD(SND_AUX_REVERBSTD* rev);
+s32 sndAuxCallbackShutdownReverbSTD(SND_AUX_REVERBSTD* rev);
+s32 sndAuxCallbackUpdateSettingsReverbSTD(SND_AUX_REVERBSTD* rev);
+
+typedef struct SND_FVECTOR {
+  f32 x;
+  f32 y;
+  f32 z;
+} SND_FVECTOR;
+
+typedef struct SND_FMATRIX {
+  f32 m[3][3];
+  f32 t[3];
+} SND_FMATRIX;
+
 #ifdef __cplusplus
 }
 #endif

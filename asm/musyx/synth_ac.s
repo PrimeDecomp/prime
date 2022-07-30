@@ -2,8 +2,8 @@
 
 .section .data
 
-.global toneup_map
-toneup_map:
+.global toneup_tab
+toneup_tab:
 	# ROM: 0x3F0420
 	.float 1.0
 	.4byte 0x3F879C80
@@ -332,9 +332,9 @@ lbl_803A914C:
 /* 803A917C 003A60DC  EC 20 08 28 */	fsubs f1, f0, f1
 /* 803A9180 003A60E0  40 80 00 1C */	bge lbl_803A919C
 /* 803A9184 003A60E4  7C 06 28 50 */	subf r0, r6, r5
-/* 803A9188 003A60E8  3C 60 80 3F */	lis r3, toneup_map@ha
+/* 803A9188 003A60E8  3C 60 80 3F */	lis r3, toneup_tab@ha
 /* 803A918C 003A60EC  54 00 10 3A */	slwi r0, r0, 2
-/* 803A9190 003A60F0  38 63 34 20 */	addi r3, r3, toneup_map@l
+/* 803A9190 003A60F0  38 63 34 20 */	addi r3, r3, toneup_tab@l
 /* 803A9194 003A60F4  7C 03 04 2E */	lfsx f0, r3, r0
 /* 803A9198 003A60F8  48 00 00 18 */	b lbl_803A91B0
 lbl_803A919C:

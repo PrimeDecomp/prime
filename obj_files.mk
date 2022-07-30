@@ -649,7 +649,7 @@ DB_FILES :=\
 	
 DSP_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp.o\
-	$(BUILD_DIR)/asm/Dolphin/dsp/dsp_debug.o\
+	$(BUILD_DIR)/src/Dolphin/dsp/dsp_debug.o\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp_task.o
 	
 DVD_FILES :=\

@@ -123,6 +123,7 @@ $(BUILD_DIR)/src/Dolphin/os/OSReset.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/os/OSReset.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/dsp/dsp.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/dsp/dsp.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/Dolphin/dsp/dsp_debug.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/musyx/seq_api.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/synth_dbtab.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/snd_service.o: CFLAGS := $(CFLAGS_MUSYX)
