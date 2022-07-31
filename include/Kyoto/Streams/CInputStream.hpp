@@ -7,7 +7,7 @@ class CInputStream;
 template < typename T >
 struct TType {};
 template < typename T >
-inline T cinput_stream_helper(TType< T > type, CInputStream& in);
+inline T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
 class CInputStream {
 public:
@@ -27,8 +27,8 @@ public:
   void Get(void* dest, unsigned long len);
 
   template < typename T >
-  inline T Get() {
-    return cinput_stream_helper(TType< T >(), *this);
+  inline T Get(const TType<T>& type) {
+    return cinput_stream_helper(type, *this);
   }
 
 private:
@@ -46,25 +46,29 @@ private:
 };
 
 template <>
-inline s32 cinput_stream_helper(TType< s32 > type, CInputStream& in) {
+inline s32 cinput_stream_helper(const TType< s32 >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>
-inline u32 cinput_stream_helper(TType< u32 > type, CInputStream& in) {
+inline u32 cinput_stream_helper(const TType< u32 >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>
-inline unsigned long cinput_stream_helper(TType< unsigned long > type, CInputStream& in) {
+inline unsigned long cinput_stream_helper(const TType< unsigned long >& type, CInputStream& in) {
   return in.ReadLong();
+}
+template <>
+inline float cinput_stream_helper(const TType< float >& type, CInputStream& in) {
+  return in.ReadFloat();
 }
 
 // rstl
 #include "rstl/pair.hpp"
 template < typename L, typename R >
-inline rstl::pair< L, R > cinput_stream_helper(TType< rstl::pair< L, R > > type, CInputStream& in) {
+inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >& type, CInputStream& in) {
   rstl::pair< L, R > result;
-  result.first = in.Get< L >();
-  result.second = in.Get< R >();
+  result.first = in.Get(TType< L >());
+  result.second = in.Get(TType< R >());
   return result;
 }
 
