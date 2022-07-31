@@ -11,11 +11,11 @@ static const wchar_t skInvalidString[] = L"Invalid";
 CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) {
   in.ReadLong();
   in.ReadLong();
-  size_t langCount = in.Get< size_t >();
-  x0_stringCount = in.Get< u32 >();
+  size_t langCount = in.Get(TType< size_t >());
+  x0_stringCount = in.Get(TType< u32 >());
   rstl::vector< rstl::pair< FourCC, u32 > > langOffsets(langCount);
   for (size_t i = 0; i < langCount; ++i) {
-    langOffsets.push_back(in.Get< rstl::pair< FourCC, u32 > >());
+    langOffsets.push_back(in.Get(TType< rstl::pair< FourCC, u32 > >()));
   }
 
   size_t offset = langOffsets.front().second;
@@ -29,7 +29,7 @@ CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) 
     in.ReadChar();
   }
 
-  u32 dataLen = in.Get< u32 >();
+  u32 dataLen = in.Get(TType< u32 >());
   x4_data = new u8[dataLen];
   in.ReadBytes(x4_data.get(), dataLen);
 }
