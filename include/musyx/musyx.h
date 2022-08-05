@@ -12,7 +12,8 @@ extern "C" {
 #endif
 
 typedef struct _SynthInfo {
-  u8 unk[0x210];
+  u32 freq;
+  u8 unk[0x20c];
   u8 voices;
   u8 music;
   u8 sfx;

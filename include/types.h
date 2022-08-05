@@ -36,6 +36,7 @@ typedef u32 uintptr_t;
 
 typedef s16  __OSInterrupt;
 typedef s64 OSTime;
+typedef u32 OSTick;
 
 // Pointer to unknown, to be determined at a later date.
 typedef void* unkptr;

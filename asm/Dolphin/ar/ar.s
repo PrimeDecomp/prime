@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global ARVersionString
 ARVersionString:
 	.asciz "<< Dolphin SDK - AR\trelease build: Sep  5 2002 05:34:27 (0x2301) >>"
