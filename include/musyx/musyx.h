@@ -1,6 +1,10 @@
 #ifndef MUSYX_H
 #define MUSYX_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;
@@ -55,10 +59,6 @@ typedef struct SND_SEQVOLDEF {
   u8 track;
   u8 volGroup;
 } SND_SEQVOLDEF;
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 typedef struct SND_HOOKS {
   void* (*malloc)(u32 len);
