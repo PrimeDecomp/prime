@@ -7,19 +7,32 @@
 extern "C" {
 #endif
 
-// #ifndef ADDRESS
-// #define ADDRESS(v) __attribute__((address((v))))
-// #endif
-// const u32 __OSBusClock ADDRESS(0x800000f8);
-// const u32 __OSCoreClock ADDRESS(0x800000fc);
-// #define OS_BUS_CLOCK __OSBusClock
-// #define OS_CORE_CLOCK __OSCoreClock
+// Upper words of the masks, since UIMM is only 16 bits
+#define OS_CACHED_REGION_PREFIX         0x8000
+#define OS_UNCACHED_REGION_PREFIX       0xC000
+#define OS_PHYSICAL_MASK                0x3FFF
 
-#define OS_BUS_CLOCK *((const u32*)0x800000f8)
-#define OS_CORE_CLOCK *((const u32*)0x800000fc)
-#define OS_TIMER_CLOCK (OS_BUS_CLOCK / 4)
+#define OS_BASE_CACHED                  (OS_CACHED_REGION_PREFIX << 16)
+#define OS_BASE_UNCACHED                (OS_UNCACHED_REGION_PREFIX << 16)
 
-#define OSSecondsToTicks(v) ((v)*OS_TIMER_CLOCK)
+#define AT_ADDRESS(xyz) : (xyz)
+u32 __OSBusClock    AT_ADDRESS(OS_BASE_CACHED | 0x00F8);    // sync with OSLoMem.h
+u32 __OSCoreClock   AT_ADDRESS(OS_BASE_CACHED | 0x00FC);    // sync with OSLoMem.h
+#define OS_BUS_CLOCK        __OSBusClock
+#define OS_CORE_CLOCK       __OSCoreClock
+#define OS_TIMER_CLOCK      (OS_BUS_CLOCK/4)
+
+#define OSTicksToCycles( ticks )        (((ticks) * ((OS_CORE_CLOCK * 2) / OS_TIMER_CLOCK)) / 2)
+#define OSTicksToSeconds( ticks )       ((ticks) / OS_TIMER_CLOCK)
+#define OSTicksToMilliseconds( ticks )  ((ticks) / (OS_TIMER_CLOCK / 1000))
+#define OSTicksToMicroseconds( ticks )  (((ticks) * 8) / (OS_TIMER_CLOCK / 125000))
+#define OSTicksToNanoseconds( ticks )   (((ticks) * 8000) / (OS_TIMER_CLOCK / 125000))
+#define OSSecondsToTicks( sec )         ((sec)  * OS_TIMER_CLOCK)
+#define OSMillisecondsToTicks( msec )   ((msec) * (OS_TIMER_CLOCK / 1000))
+#define OSMicrosecondsToTicks( usec )   (((usec) * (OS_TIMER_CLOCK / 125000)) / 8)
+#define OSNanosecondsToTicks( nsec )    (((nsec) * (OS_TIMER_CLOCK / 125000)) / 8000)
+
+#define OSDiffTick(tick1, tick0)        ((s32) (tick1) - (s32) (tick0))
 
 
 typedef struct OSContext {

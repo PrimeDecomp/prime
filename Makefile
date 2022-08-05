@@ -102,9 +102,10 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults -w off
 endif
-CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -fp_contract on -str reuse,pool,readonly -O4,p -maxerrors 1 -use_lmw_stmw on -enum int -inline auto -MMD $(INCLUDES)
+CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS_MUSYX = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
-CFLAGS = $(CFLAGS_1.2) -gccinc -inline deferred,noauto
+CFLAGS = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto
+CFLAGS_1.2 += -str reuse
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
@@ -117,6 +118,8 @@ $(BUILD_DIR)/src/MetroTRK/mslsupp.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/MetroTRK/mslsupp.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/PPCArch.o: CFLAGS := $(CFLAGS_1.2)
+$(BUILD_DIR)/src/Dolphin/ai.o: MWCC_VERSION := 1.2.5
+$(BUILD_DIR)/src/Dolphin/ai.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: MWCC_VERSION := 1.2.5
 $(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: CFLAGS := $(CFLAGS_1.2)
 $(BUILD_DIR)/src/Dolphin/os/OSReset.o: MWCC_VERSION := 1.2.5
@@ -133,6 +136,7 @@ $(BUILD_DIR)/src/musyx/hw_memory.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/reverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/delay_fx.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/creverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/musyx/synth_ac.o: CFLAGS := $(CFLAGS_MUSYX)
 
 
 #-------------------------------------------------------------------------------
