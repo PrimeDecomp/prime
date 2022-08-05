@@ -17,7 +17,7 @@
   
 
 
-extern s32 ReverbHICreate(_SND_REVHI_WORK* rev, f32 coloration, f32 time, f32 mix, f32 damping, f32 preDelay, f32 crosstalk);
+extern bool ReverbHICreate(_SND_REVHI_WORK* rev, f32 coloration, f32 time, f32 mix, f32 damping, f32 preDelay, f32 crosstalk);
 extern void ReverbHIFree(_SND_REVHI_WORK* rev);
 
 void sndAuxCallbackReverbHI(u8 reason, SND_AUX_INFO* info, void* user) {
@@ -36,16 +36,17 @@ void sndAuxCallbackReverbHI(u8 reason, SND_AUX_INFO* info, void* user) {
     }
 }
 
-s32 sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI *rev) {
+bool sndAuxCallbackPrepareReverbHI(SND_AUX_REVERBHI *rev) {
     rev->tempDisableFX = 0;
     return ReverbHICreate(&rev->rv, rev->coloration, rev->time, rev->mix, rev->damping, rev->preDelay, rev->crosstalk);
 }
 
-s32 sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev) {
+bool sndAuxCallbackShutdownReverbHI(SND_AUX_REVERBHI* rev) {
     ReverbHIFree(&rev->rv);
-    return 1;
+    return TRUE;
 }
 
-s32 sndAuxCallbackUpdateSettingsReverbHI(SND_AUX_REVERBHI *rev) {
+bool sndAuxCallbackUpdateSettingsReverbHI(SND_AUX_REVERBHI *rev) {
     /* not in MP */
+    return FALSE;
 }
