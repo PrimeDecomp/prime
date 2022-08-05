@@ -9,7 +9,7 @@ extern s8 sndActive;
 extern s8 synthIdleWaitActive;
 extern SynthInfo synthInfo;
 
-inline s32 DoInit(u32 rate, u32 aramSize, u8 voices, u32 flags) {
+inline bool DoInit(u32 rate, u32 aramSize, u8 voices, u32 flags) {
   dataInitStack();
   dataInit(0, aramSize);
   seqInit();
@@ -20,10 +20,10 @@ inline s32 DoInit(u32 rate, u32 aramSize, u8 voices, u32 flags) {
   s3dInit(flags);
   sndActive = 1;
 
-  return 0;
+  return FALSE;
 }
 
-s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, s32 flags, s32 aramSize) {
+bool sndInit(u8 voices, u8 music, u8 sfx, u8 studios, s32 flags, s32 aramSize) {
   s32 rate;
   s32 ret;
 

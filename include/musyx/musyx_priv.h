@@ -6,6 +6,16 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+typedef struct _SynthInfo {
+  u32 freq;
+  u8 unk[0x20c];
+  u8 voices;
+  u8 music;
+  u8 sfx;
+  u8 studios;
+} SynthInfo;
+
 typedef s32 (*SND_COMPARE)(u16*, u8*);
 
 void dataInit(u32, s32);       /* extern */

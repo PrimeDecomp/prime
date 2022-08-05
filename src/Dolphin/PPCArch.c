@@ -166,9 +166,23 @@ asm void PPCSync (void)
  * Address:	........
  * Size:	000034
  */
-void PPCEieio(void)
-{
-	// UNUSED FUNCTION
+asm void PPCEieio(void) {
+    nofralloc
+    mfmsr       r5
+    rlwinm      r6, r5, 0, 0x11, 0xf
+    mtmsr       r6
+    mfspr       r3, hid0
+    ori         r4, r3, 8
+    mtspr       hid0, r4
+    isync
+    eieio
+    isync
+
+    mtspr       hid0, r3
+    mtmsr       r5
+    isync
+
+    blr
 }
 
 /*
@@ -196,9 +210,11 @@ _spin:
  * Address:	........
  * Size:	000008
  */
-void PPCMfmmcr0(void)
+asm void PPCMfmmcr0(void)
 {
-	// UNUSED FUNCTION
+	nofralloc
+	mfspr r3, MMCR0
+	blr
 }
 
 /*
@@ -219,10 +235,11 @@ asm void PPCMtmmcr0 (register u32 newMmcr0)
  * Address:	........
  * Size:	000008
  */
-void PPCMfmmcr1(void)
+asm void PPCMfmmcr1(void)
 {
-	// UNUSED FUNCTION
-}
+    nofralloc
+    mfspr       r3, MMCR1
+    blr}
 
 /*
  * --INFO--
@@ -242,9 +259,11 @@ asm void PPCMtmmcr1 (register u32 newMmcr1)
  * Address:	........
  * Size:	000008
  */
-void PPCMfpmc1(void)
+asm void PPCMfpmc1(void)
 {
-	// UNUSED FUNCTION
+    nofralloc
+    mfspr       r3, PMC1
+    blr
 }
 
 /*
@@ -265,9 +284,11 @@ asm void PPCMtpmc1 (register u32 newPmc1)
  * Address:	........
  * Size:	000008
  */
-void PPCMfpmc2(void)
+asm void PPCMfpmc2(void)
 {
-	// UNUSED FUNCTION
+    nofralloc
+    mfspr       r3, PMC2
+    blr
 }
 
 /*
@@ -288,10 +309,11 @@ asm void PPCMtpmc2 (register u32 newPmc2)
  * Address:	........
  * Size:	000008
  */
-void PPCMfpmc3(void)
+asm void PPCMfpmc3(void)
 {
-	// UNUSED FUNCTION
-}
+    nofralloc
+    mfspr       r3, PMC2
+    blr}
 
 /*
  * --INFO--
@@ -311,9 +333,11 @@ asm void PPCMtpmc3 (register u32 newPmc3)
  * Address:	........
  * Size:	000008
  */
-void PPCMfpmc4(void)
+asm void PPCMfpmc4(void)
 {
-	// UNUSED FUNCTION
+    nofralloc
+    mfspr       r3, PMC4
+    blr
 }
 
 /*
@@ -334,19 +358,22 @@ asm void PPCMtpmc4 (register u32 newPmc4)
  * Address:	........
  * Size:	000008
  */
-void PPCMfsia(void)
+asm void PPCMfsia(void)
 {
-	// UNUSED FUNCTION
-}
+    nofralloc
+    mfspr       r3, SIA
+    blr}
 
 /*
  * --INFO--
  * Address:	........
  * Size:	000008
  */
-void PPCMtsia(void)
+asm void PPCMtsia(register u32 newSia)
 {
-	// UNUSED FUNCTION
+    nofralloc
+    mtspr       SIA, newSia
+    blr
 }
 
 /*
@@ -441,9 +468,11 @@ asm void PPCMtwpar ( register u32 newwpar )
  * Address:	........
  * Size:	000008
  */
-void PPCMfdmaU(void)
+asm void PPCMfdmaU(void)
 {
-	// UNUSED FUNCTION
+    nofralloc
+    mfspr       r3, DMA_U
+    blr
 }
 
 /*
@@ -451,9 +480,11 @@ void PPCMfdmaU(void)
  * Address:	........
  * Size:	000008
  */
-void PPCMfdmaL(void)
+asm void PPCMfdmaL(void)
 {
-	// UNUSED FUNCTION
+    nofralloc
+    mfspr       r3, DMA_L
+    blr
 }
 
 /*

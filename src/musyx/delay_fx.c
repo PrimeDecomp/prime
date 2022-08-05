@@ -59,7 +59,7 @@ void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
   }
 }
 
-s32 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
+bool sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
   s32 i;
   s32* left;
   s32* right;
@@ -96,19 +96,19 @@ s32 sndAuxCallbackUpdateSettingsDelay(SND_AUX_DELAY* delay) {
     *sur = 0;
     ++sur;
   }
-  return 1;
+  return TRUE;
 }
 
-s32 sndAuxCallbackPrepareDelay(SND_AUX_DELAY* delay) {
+bool sndAuxCallbackPrepareDelay(SND_AUX_DELAY* delay) {
   delay->left = NULL;
   return sndAuxCallbackUpdateSettingsDelay(delay);
 }
 
-s32 sndAuxCallbackShutdownDelay(SND_AUX_DELAY* delay) {
+bool sndAuxCallbackShutdownDelay(SND_AUX_DELAY* delay) {
   if (delay->left != NULL) {
     salFree(delay->left);
     salFree(delay->right);
     salFree(delay->sur);
   }
-  return 1;
+  return TRUE;
 }

@@ -23,8 +23,8 @@ void __AICallbackStackSwitch(register AIDCallback cb);
 void __AI_SRC_INIT(void);
 
 AIDCallback AIRegisterDMACallback(AIDCallback callback) {
-  AIDCallback ret;
   s32 oldInts;
+  AIDCallback ret;
 
   ret = __AID_Callback;
   oldInts = OSDisableInterrupts();
