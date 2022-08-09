@@ -5,8 +5,8 @@
 
 #include "rstl/list.hpp"
 
-#include "CFactoryMgr.hpp"
-#include "CResLoader.hpp"
+#include "Kyoto/CFactoryMgr.hpp"
+#include "Kyoto/CResLoader.hpp"
 
 class CResFactory {
 public:

@@ -5,13 +5,13 @@
 
 #include "rstl/reserved_vector.hpp"
 
-#include "CGameArchitectureSupport.hpp"
-#include "CGameGlobalObjects.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
 #include "Kyoto/CMemorySys.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/TReservedAverage.hpp"
+#include "MetroidPrime/CGameArchitectureSupport.hpp"
+#include "MetroidPrime/CGameGlobalObjects.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
 

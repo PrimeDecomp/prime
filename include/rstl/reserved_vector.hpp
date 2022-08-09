@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "construct.hpp"
-#include "pointer_iterator.hpp"
+#include "rstl/construct.hpp"
+#include "rstl/pointer_iterator.hpp"
 
 namespace rstl {
 template < typename T, size_t N >

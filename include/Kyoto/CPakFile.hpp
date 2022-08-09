@@ -6,9 +6,9 @@
 #include "rstl/auto_ptr.hpp"
 #include "rstl/string.hpp"
 
-#include "CDvdFile.hpp"
-#include "CResLoader.hpp"
-#include "IObjectStore.hpp"
+#include "Kyoto/CDvdFile.hpp"
+#include "Kyoto/CResLoader.hpp"
+#include "Kyoto/IObjectStore.hpp"
 
 class CPakFile : CDvdFile {
 public:

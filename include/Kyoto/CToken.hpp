@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-#include "rstl/auto_ptr.hpp"
+#include "Kyoto/IObjectStore.hpp"
 
-#include "IObjectStore.hpp"
+#include "rstl/auto_ptr.hpp"
 
 class CToken {
 public:

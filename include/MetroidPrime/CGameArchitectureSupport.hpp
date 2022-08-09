@@ -3,10 +3,10 @@
 
 #include "types.h"
 
-#include "CIOWinManager.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
 #include "Kyoto/TOneStatic.hpp"
+#include "MetroidPrime/CIOWinManager.hpp"
 
 class CGameArchitectureSupport : public TOneStatic< CGameArchitectureSupport > {
 public:

@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-#include "CToken.hpp"
-#include "IObjectStore.hpp"
-#include "Streams/CInputStream.hpp"
+#include "Kyoto/CToken.hpp"
+#include "Kyoto/IObjectStore.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
 
 class CFactoryMgr {
 public:

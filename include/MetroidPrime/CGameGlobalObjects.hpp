@@ -6,9 +6,6 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/single_ptr.hpp"
 
-#include "CInGameTweakManager.hpp"
-#include "Enemies/CAiFuncMap.hpp"
-#include "Factories/CCharacterFactoryBuilder.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/CMemoryCardSys.hpp"
 #include "Kyoto/CMemorySys.hpp"
@@ -18,7 +15,10 @@
 #include "Kyoto/Graphics/CGraphicsSys.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/TOneStatic.hpp"
-#include "Player/CGameState.hpp"
+#include "MetroidPrime/CInGameTweakManager.hpp"
+#include "MetroidPrime/Enemies/CAiFuncMap.hpp"
+#include "MetroidPrime/Factories/CCharacterFactoryBuilder.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
 
 class CGameGlobalObjects : public TOneStatic< CGameGlobalObjects > {
 public:
