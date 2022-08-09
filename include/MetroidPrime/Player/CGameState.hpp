@@ -7,12 +7,12 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
-#include "CGameOptions.hpp"
-#include "CHintOptions.hpp"
-#include "CPlayerState.hpp"
-#include "CSystemOptions.hpp"
-#include "CWorldState.hpp"
-#include "CWorldTransManager.hpp"
+#include "MetroidPrime/Player/CGameOptions.hpp"
+#include "MetroidPrime/Player/CHintOptions.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/Player/CSystemOptions.hpp"
+#include "MetroidPrime/Player/CWorldState.hpp"
+#include "MetroidPrime/Player/CWorldTransManager.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 class CGameState {

@@ -5,7 +5,7 @@
 
 #include "rstl/map.hpp"
 
-#include "IObjectStore.hpp"
+#include "Kyoto/IObjectStore.hpp"
 
 class CSimplePool {
 public:

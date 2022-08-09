@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "CVector3f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 class CTransform4f {
 public:

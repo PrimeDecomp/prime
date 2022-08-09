@@ -58,7 +58,7 @@ DEPENDS += $(MAKECMDGOALS:.o=.d)
 # Tools
 #-------------------------------------------------------------------------------
 
-MWCC_VERSION := 2.7
+MWCC_VERSION := 1.3.2
 MWLD_VERSION := 2.6
 
 # Programs

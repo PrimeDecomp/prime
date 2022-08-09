@@ -6,7 +6,7 @@
 #include "rstl/list.hpp"
 #include "rstl/string.hpp"
 
-#include "IObjectStore.hpp"
+#include "Kyoto/IObjectStore.hpp"
 
 class CPakFile;
 

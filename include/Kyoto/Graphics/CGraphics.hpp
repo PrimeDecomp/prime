@@ -6,7 +6,7 @@
 #include "Kyoto/Math/CColor.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "CTevCombiners.hpp"
+#include "Kyoto/Graphics/CTevCombiners.hpp"
 
 enum ERglTevStage {
   kTS_Stage0,

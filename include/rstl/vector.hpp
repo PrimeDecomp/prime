@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "pointer_iterator.hpp"
-#include "rmemory_allocator.hpp"
+#include "rstl/pointer_iterator.hpp"
+#include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
 template < typename T, typename Alloc = rmemory_allocator >
@@ -27,7 +27,7 @@ public:
   vector(const vector& other) {
     x4_count = other.x4_count;
     x8_capacity = other.x8_capacity;
-    if (x4_count == 0 && x8_capacity == 0) {
+    if (other.x4_count == 0 && other.x8_capacity == 0) {
       xc_items = NULL;
     } else {
       size_t sz = x8_capacity * sizeof(T);

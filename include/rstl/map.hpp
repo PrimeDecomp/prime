@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "rmemory_allocator.hpp"
+#include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
 template < typename K, typename V, typename Alloc = rmemory_allocator >
