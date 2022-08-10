@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E5758
 lbl_803E5758:
@@ -65,6 +66,7 @@ lbl_803E57C4:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7D48
 lbl_805A7D48:
@@ -6163,6 +6165,7 @@ lbl_801D378C:
 /* 801D3840 001D07A0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC8D0
 lbl_805AC8D0:
 	# ROM: 0x3F9170
@@ -6283,6 +6286,7 @@ lbl_805AC938:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1B70
 lbl_803D1B70:
 	# ROM: 0x3CEB70

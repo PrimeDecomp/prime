@@ -1,12 +1,14 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global lbl_804797A0
 lbl_804797A0:
 	.skip 0x400
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9248
 lbl_805A9248:
@@ -385,6 +387,7 @@ lbl_802D6D70:
 /* 802D6D80 002D3CE0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE2A0
 lbl_805AE2A0:
 	# ROM: 0x3FAB40
@@ -403,6 +406,7 @@ lbl_805AE2A8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6AB8
 lbl_803D6AB8:
 	# ROM: 0x3D3AB8

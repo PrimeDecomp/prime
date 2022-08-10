@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CChozoGhost_cpp
 
 .section .data
+.balign 8
 
 
 .global lbl_803E18E8
@@ -264,6 +265,7 @@ lbl_803E1BE4:
 	.4byte lbl_80141DAC
 
 .section .sdata
+.balign 8
 
 
 .global lbl_805A7758
@@ -313,6 +315,7 @@ lbl_805A7778:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C748
 lbl_8046C748:
@@ -4140,6 +4143,7 @@ __sinit_CChozoGhost_cpp:
 /* 80142930 0013F890  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB878
 lbl_805AB878:
 	# ROM: 0x3F8118
@@ -4272,6 +4276,7 @@ lbl_805AB8DC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0078
 lbl_803D0078:
 	# ROM: 0x3CD078

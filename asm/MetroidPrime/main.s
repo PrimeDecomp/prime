@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global sGraphicsFifo
 sGraphicsFifo:
@@ -18,6 +19,7 @@ lbl_80457798:
 	.skip 0x160
 
 .section .data, "wa"
+.balign 8
 .global lbl_803D8D60
 lbl_803D8D60:
 	# ROM: 0x3D5D60
@@ -48,6 +50,7 @@ lbl_803D8D84:
 
 
 .section .rodata, "a"
+.balign 8
 # CGameGlobalObjects
 .global lbl_803CB3A0
 lbl_803CB3A0:
@@ -798,6 +801,7 @@ s_ZZZ_AGSC:
 
 
 .section .sdata, "wa"
+.balign 8
 .global lbl_805A6BC0
 lbl_805A6BC0:
 	# ROM: 0x3F4560
@@ -821,6 +825,7 @@ lbl_805A6BCC:
 
 
 .section .sbss, "wa"
+.balign 8
 .balign 4
 .global gpResourceFactory
 gpResourceFactory:
@@ -893,6 +898,7 @@ lbl_805A8C74:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805A9D20
 lbl_805A9D20:
 	# ROM: 0x3F65C0
@@ -979,6 +985,16 @@ lbl_805A9D70:
 lbl_805A9D78:
 	# ROM: 0x3F6618
 	.4byte 0x41200000
+
+.global lbl_805A9D7C
+lbl_805A9D7C:
+	# ROM: 0x3F661C
+	.float 1.0
+
+.global lbl_805A9D80
+lbl_805A9D80:
+	# ROM: 0x3F6620
+	.double 4.503601774854144E15
 
 .section .text, "ax"
 

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC548
 lbl_803EC548:
@@ -1289,6 +1290,7 @@ IsFastConstant__14CVectorElementCFv:
 /* 802B4824 002B1784  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6548
 lbl_803D6548:
 	# ROM: 0x3D3548

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CCollidableAABox_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803ECAD0
 lbl_803ECAD0:
@@ -21,6 +22,7 @@ lbl_803ECAD0:
 	.4byte CastRayInternal__16CCollidableAABoxCFRC25CInternalRayCastStructure
 
 .section .sdata
+.balign 8
 
 .global sTableIndex__16CCollidableAABox
 sTableIndex__16CCollidableAABox:
@@ -29,6 +31,7 @@ sTableIndex__16CCollidableAABox:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_80479498
 lbl_80479498:
@@ -843,6 +846,7 @@ __sinit_CCollidableAABox_cpp:
 /* 802CE090 002CAFF0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE1A0
 lbl_805AE1A0:
 	# ROM: 0x3FAA40
@@ -867,6 +871,7 @@ lbl_805AE1B0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D69E8
 lbl_803D69E8:
 	# ROM: 0x3D39E8

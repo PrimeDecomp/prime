@@ -49,6 +49,7 @@ lbl_80393FAC:
 /* 80393FB0 00390F10  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AF120
 lbl_805AF120:
 	# ROM: 0x3FB9C0

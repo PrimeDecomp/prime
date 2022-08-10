@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DF428
 lbl_803DF428:
@@ -11,6 +12,7 @@ lbl_803DF428:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CTweakTargeting
 .global lbl_805A8EA8
@@ -21,6 +23,7 @@ lbl_805A8EAC:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAA18
 lbl_805AAA18:
@@ -1148,6 +1151,7 @@ lbl_800B6990:
 /* 800B69B8 000B3918  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CDE80
 lbl_803CDE80:
 	# ROM: 0x3CAE80

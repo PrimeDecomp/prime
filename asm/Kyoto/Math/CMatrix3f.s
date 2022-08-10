@@ -504,6 +504,7 @@ __sinit_CMatrix3f_cpp:
 /* 8031071C 0030D67C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE570
 lbl_805AE570:
 	# ROM: 0x3FAE10

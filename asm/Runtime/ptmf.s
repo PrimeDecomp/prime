@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .rodata
+.balign 8
 
 .global lbl_803D8598
 lbl_803D8598:

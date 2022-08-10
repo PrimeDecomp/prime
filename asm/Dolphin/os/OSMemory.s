@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 lbl_803F22E0:
 	.4byte OnReset
 	.4byte 0x7f

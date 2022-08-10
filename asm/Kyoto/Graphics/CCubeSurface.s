@@ -48,6 +48,7 @@ __sinit_CCubeSurface_cpp:
 /* 80348330 00345290  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE938
 lbl_805AE938:
 	# ROM: 0x3FB1D8

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlayerOrbit_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7A08
 lbl_805A7A08:
@@ -77,6 +78,7 @@ lbl_805A7A3C:
 	.4byte 0x00000013
 
 .section .bss
+.balign 8
 
 .global lbl_8046C8C0
 lbl_8046C8C0:
@@ -89,6 +91,7 @@ lbl_8046C8F0:
 	.skip 0x18
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9000
 lbl_805A9000:
@@ -7327,6 +7330,7 @@ __sinit_CPlayerOrbit_cpp:
 /* 8017FB80 0017CAE0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABF50
 lbl_805ABF50:
 	# ROM: 0x3F87F0

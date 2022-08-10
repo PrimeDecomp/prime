@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CloseEnough_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9440
 lbl_805A9440:
@@ -78,6 +79,7 @@ __sinit_CloseEnough_cpp:
 /* 8030FFF4 0030CF54  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE568
 lbl_805AE568:
 	# ROM: 0x3FAE08

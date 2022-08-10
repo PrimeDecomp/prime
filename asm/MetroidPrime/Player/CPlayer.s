@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlayer_cpp
 
 .section .data
+.balign 8
 .global lbl_803D96E8
 lbl_803D96E8:
 	# ROM: 0x3D66E8
@@ -96,6 +97,7 @@ lbl_803D97E4:
 	.4byte 0
 
 .section .bss
+.balign 8
 .global lbl_80457908
 lbl_80457908:
 	.skip 0xC0
@@ -119,6 +121,7 @@ lbl_80458350:
 	.skip 0x1E58
 
 .section .rodata
+.balign 8
 .global skPlayerLandSfxSoft__7CPlayer
 skPlayerLandSfxSoft__7CPlayer:
 	.2byte 0xFFFF, 0x05E4, 0x05D2, 0x0621
@@ -167,6 +170,7 @@ lbl_803CC4F8:
 	.balign 4
 
 .section .sbss
+.balign 8
 
 # CPlayer
 .global lbl_805A8C78
@@ -221,6 +225,7 @@ lbl_805A8CA8:
 	.skip 0x8
 
 .section .sdata
+.balign 8
 .global lbl_805A6C48
 lbl_805A6C48:
 	# ROM: 0x3F45E8
@@ -402,6 +407,7 @@ lbl_805A6CD4:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805A9E00
 lbl_805A9E00:

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CEulerAngles_cpp
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805A9F78
 lbl_805A9F78:

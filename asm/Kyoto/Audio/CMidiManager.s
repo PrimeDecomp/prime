@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMidiManager_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EF788
 lbl_803EF788:
@@ -685,6 +686,7 @@ lbl_80359424:
 /* 80359438 00356398  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8340
 lbl_803D8340:
 	# ROM: 0x3D5340

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CLight_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8810
 lbl_805A8810:
@@ -486,6 +487,7 @@ __sinit_CLight_cpp:
 /* 8030662C 0030358C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE498
 lbl_805AE498:
 	# ROM: 0x3FAD38

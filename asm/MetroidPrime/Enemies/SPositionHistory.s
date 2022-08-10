@@ -154,6 +154,7 @@ sub_802a09f8:
 /* 802A0A08 0029D968  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADE38
 lbl_805ADE38:
 	# ROM: 0x3FA6D8

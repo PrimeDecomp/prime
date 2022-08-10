@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_TGameTypes_cpp
 
 .section .sbss
+.balign 8
 
 # TGameTypes
 .global kInvalidEditorId

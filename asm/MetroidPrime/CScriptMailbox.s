@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7328
 lbl_805A7328:
@@ -486,6 +487,7 @@ __ct__14CScriptMailboxFv:
 /* 800E2064 000DEFC4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE5C0
 lbl_803CE5C0:
 	# ROM: 0x3CB5C0

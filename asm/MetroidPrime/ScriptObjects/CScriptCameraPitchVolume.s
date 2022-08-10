@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CScriptCameraPitchVolume_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E7A70
 lbl_803E7A70:
@@ -39,6 +40,7 @@ lbl_803E7A70:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8120
 lbl_805A8120:
@@ -399,6 +401,7 @@ __sinit_CScriptCameraPitchVolume_cpp:
 /* 802269B8 00223918  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD1D8
 lbl_805AD1D8:
 	# ROM: 0x3F9A78

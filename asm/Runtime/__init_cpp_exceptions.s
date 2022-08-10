@@ -59,6 +59,7 @@ __fini_cpp_exceptions_reference:
 	.4byte __fini_cpp_exceptions
 
 .section .sdata, "wa"
+.balign 8
 fragmentID:
 	.4byte 0xFFFFFFFE
 	.4byte 0

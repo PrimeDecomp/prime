@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .sdata2
+.balign 8
 .global i2fMagic
 i2fMagic:
 	.double 4.503601774854144E15
 
 .section .data, "wa"
+.balign 8
 
 .global rsmpTab12khz
 rsmpTab12khz:

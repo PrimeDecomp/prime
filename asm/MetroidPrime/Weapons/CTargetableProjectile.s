@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 
 .global lbl_803E1800
@@ -38,6 +39,7 @@ lbl_803E1800:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CTargetableProjectile
 .global lbl_805A8F88
@@ -581,6 +583,7 @@ Accept__21CTargetableProjectileFR8IVisitor:
 /* 8013C044 00138FA4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB7B8
 lbl_805AB7B8:
 	# ROM: 0x3F8058
@@ -603,6 +606,7 @@ lbl_805AB7C4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0070
 lbl_803D0070:
 	# ROM: 0x3CD070

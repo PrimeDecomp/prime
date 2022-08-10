@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CQuaternion_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_804BFD30
 lbl_804BFD30:
@@ -17,6 +18,7 @@ lbl_804BFD48:
 	.skip 0x10
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8850
 lbl_805A8850:
@@ -49,6 +51,7 @@ lbl_805A8864:
 	.float -1.0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9448
 lbl_805A9448:
@@ -1947,6 +1950,7 @@ __sinit_CQuaternion_cpp:
 /* 803124D8 0030F438  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE580
 lbl_805AE580:
 	# ROM: 0x3FAE20

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED578
 lbl_803ED578:
@@ -25,6 +26,7 @@ lbl_803ED594:
 	.4byte GetMediaType__15CRealDvdRequestCFv
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9330
 lbl_805A9330:

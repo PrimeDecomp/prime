@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EF748
 lbl_803EF748:
@@ -737,6 +738,7 @@ __ct__16CEESimpleEmitterFP14CVectorElementP14CVectorElement:
 /* 80357314 00354274  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE9C8
 lbl_805AE9C8:
 	# ROM: 0x3FB268

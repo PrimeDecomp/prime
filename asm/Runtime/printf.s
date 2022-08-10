@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .rodata
+.balign 8
 .global lbl_803D86C0
 lbl_803D86C0:
 	# ROM: 0x3D56C0
@@ -17,6 +18,7 @@ lbl_803D86C0:
 
 
 .section .data, "wa"
+.balign 8
 # TODO: Move these where they actually belong
 .global lbl_803F2778
 lbl_803F2778:
@@ -2949,6 +2951,7 @@ lbl_8038FCE8:
 /* 8038FD00 0038CC60  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEC98
 lbl_805AEC98:
 	# ROM: 0x3FB538

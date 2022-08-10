@@ -333,6 +333,7 @@ __ct__15CProjectileInfoFUiRC11CDamageInfo:
 /* 8021C160 002190C0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD100
 lbl_805AD100:
 	# ROM: 0x3F99A0

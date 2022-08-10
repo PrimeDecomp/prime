@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EF798
 lbl_803EF798:
@@ -288,6 +289,7 @@ CalculateHeight__13CFontImageDefFv:
 /* 80359AE8 00356A48  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEA18
 lbl_805AEA18:
 	# ROM: 0x3FB2B8

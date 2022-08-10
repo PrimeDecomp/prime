@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CAnimData_cpp
 
 .section .data
+.balign 8
 # These belong in Kyoto/Animation/C*POINode
 # Thanks to ODR they wound up here
 
@@ -45,6 +46,7 @@ lbl_803D9B98:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6D98
 lbl_805A6D98:
@@ -83,12 +85,14 @@ lbl_805A6DB0:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8045B140
 lbl_8045B140:
 	.skip 0x40
 
 .section .sbss
+.balign 8
 
 # CAnimData
 .global lbl_805A8CC8
@@ -99,6 +103,7 @@ lbl_805A8CCC:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA0F0
 lbl_805AA0F0:
@@ -9668,6 +9673,7 @@ __sinit_CAnimData_cpp:
 /* 80031A28 0002E988  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCD20
 lbl_803CCD20:
 	# ROM: 0x3C9D20

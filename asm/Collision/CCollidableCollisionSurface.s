@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A86F0
 lbl_805A86F0:
@@ -26,6 +27,7 @@ SetStaticTableIndex__27CCollidableCollisionSurfaceFUi:
 /* 802CE0B4 002CB014  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6A00
 lbl_803D6A00:
 	# ROM: 0x3D3A00

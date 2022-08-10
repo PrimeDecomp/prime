@@ -1,12 +1,14 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global ARQVersionString
 ARQVersionString:
 	.asciz "<< Dolphin SDK - ARQ\trelease build: Sep  5 2002 05:34:29 (0x2301) >>"
 	.balign 4
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8A78
 lbl_805A8A78:
@@ -14,6 +16,7 @@ lbl_805A8A78:
 	.4byte 0
 
 .section .sbss
+.balign 8
 .global lbl_805A9718
 lbl_805A9718:
 	.skip 0x4

@@ -3143,6 +3143,7 @@ __sinit_CCubeMaterial_cpp:
 /* 803482AC 0034520C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE8D8
 lbl_805AE8D8:
 	# ROM: 0x3FB178
@@ -3247,6 +3248,7 @@ lbl_805AE930:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7F58
 lbl_803D7F58:
 	# ROM: 0x3D4F58

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8A20
 lbl_805A8A20:
@@ -344,6 +345,7 @@ __ct__6CColorFR12CInputStream:
 /* 803634DC 0036043C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEAC0
 lbl_805AEAC0:
 	# ROM: 0x3FB360

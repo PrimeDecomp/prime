@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7748
 lbl_805A7748:
@@ -2451,6 +2452,7 @@ __ct__18CSteeringBehaviorsFv:
 /* 8013ED58 0013BCB8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB7D8
 lbl_805AB7D8:
 	# ROM: 0x3F8078

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CControlMapper_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803D8EB8
 lbl_803D8EB8:
@@ -521,11 +522,13 @@ lbl_803D9600:
 	.4byte 0
 
 .section .bss
+.balign 8
 .global lbl_804578F8
 lbl_804578F8:
 	.skip 0x10
 
 .section .rodata
+.balign 8
 .global lbl_803CC030
 lbl_803CC030:
 	# ROM: 0x3C9030
@@ -617,6 +620,7 @@ lbl_803CC030:
 
 
 .section .sdata
+.balign 8
 .global lbl_805A6BF0
 lbl_805A6BF0:
 	# ROM: 0x3F4590
@@ -624,6 +628,7 @@ lbl_805A6BF0:
 	.4byte 0
 
 .section .sdata2
+.balign 8
 
 .global lbl_805A9DC8
 lbl_805A9DC8:

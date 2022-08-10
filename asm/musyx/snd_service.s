@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data, "wa"
+.balign 8
 
 .global sndSintab
 sndSintab:
@@ -71,6 +72,7 @@ sndSintab:
 .skip 8
 
 .section .sdata, "wa"
+.balign 8
 .global last_rnd
 last_rnd:
 	.4byte 1

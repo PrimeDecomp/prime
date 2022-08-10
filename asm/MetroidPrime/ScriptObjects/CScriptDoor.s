@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DAA78
 lbl_803DAA78:
@@ -77,6 +78,7 @@ lbl_803DAAFC:
 	.4byte lbl_8007E8B8
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6FF0
 lbl_805A6FF0:
@@ -115,6 +117,7 @@ lbl_805A7008:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CScriptDoor
 .global lbl_805A8E40
@@ -125,6 +128,7 @@ lbl_805A8E44:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA688
 lbl_805AA688:

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMapArea_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DAB80
 lbl_803DAB80:
@@ -15,6 +16,7 @@ lbl_803DAB80:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7010
 lbl_805A7010:
@@ -23,12 +25,14 @@ lbl_805A7010:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C3E0
 lbl_8046C3E0:
 	.skip 0x28
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA6A8
 lbl_805AA6A8:
@@ -1114,6 +1118,7 @@ __sinit_CMapArea_cpp:
 /* 80081044 0007DFA4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD630
 lbl_803CD630:
 	# ROM: 0x3CA630

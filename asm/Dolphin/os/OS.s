@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global DriveInfo
 DriveInfo:
 	.skip 0x50
 
 .section .sbss
+.balign 8
 .global BootInfo
 BootInfo:
 	.skip 0x4
@@ -38,6 +40,7 @@ __OSStartTime:
 	.skip 0x8
 
 .section .data
+.balign 8
 .global lbl_803F0DA0
 lbl_803F0DA0:
 	.asciz "<< Dolphin SDK - OS\trelease build: Sep  5 2002 05:32:39 (0x2301) >>"
@@ -96,6 +99,7 @@ __OSExceptionLocations:
 	.balign 4
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8B28
 lbl_805A8B28:

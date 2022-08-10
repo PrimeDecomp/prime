@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CStreamAudioManager_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8A30
 lbl_805A8A30:
@@ -38,6 +39,7 @@ lbl_805A8A41:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9680
 lbl_805A9680:
@@ -1448,6 +1450,7 @@ sub_80366710:
 /* 80366744 003636A4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEAD0
 lbl_805AEAD0:
 	# ROM: 0x3FB370
@@ -1491,6 +1494,7 @@ lbl_805AEAF4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8410
 lbl_803D8410:
 	# ROM: 0x3D5410

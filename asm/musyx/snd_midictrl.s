@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 inpGlobalMIDIDirtyFlags:
 	.skip 0x200
 midi_ctrl:
@@ -17,6 +18,7 @@ fx_lastNote:
 	.skip 0x40
 
 .section .data, "wa"
+.balign 8
 
 .global lbl_803F41E8
 lbl_803F41E8:
@@ -74,6 +76,7 @@ lbl_803F4250:
 .skip 4
 
 .section .rodata
+.balign 8
 .global lbl_803D8AC0
 lbl_803D8AC0:
 	# ROM: 0x3D5AC0

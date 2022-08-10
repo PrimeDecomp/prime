@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 lbl_803DA360:
 	# ROM: 0x3D7360
@@ -21,6 +22,7 @@ lbl_803DA384:
 	.4byte __dt__15CTweakPlayerGunFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6F58
 lbl_805A6F58:
@@ -29,6 +31,7 @@ lbl_805A6F58:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA538
 lbl_805AA538:
@@ -1027,6 +1030,7 @@ lbl_80070A54:
 /* 80070A94 0006D9F4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD290
 lbl_803CD290:
 	# ROM: 0x3CA290

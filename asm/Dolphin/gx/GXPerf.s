@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 lbl_803F0CB0:
 	# ROM: 0x3EDCB0
 	.4byte 0x8037CD4C

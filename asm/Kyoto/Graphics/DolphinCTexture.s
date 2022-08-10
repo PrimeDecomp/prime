@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED968
 lbl_803ED968:
@@ -34,12 +35,14 @@ lbl_803ED994:
 
 
 .section .bss
+.balign 8
 
 .global lbl_804BFD10
 lbl_804BFD10:
 	.skip 0x20
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9430
 lbl_805A9430:
@@ -2223,6 +2226,7 @@ __ct__8CTextureF12ETexelFormatssi:
 /* 8030FF20 0030CE80  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE558
 lbl_805AE558:
 	# ROM: 0x3FADF8
@@ -2240,6 +2244,7 @@ lbl_805AE560:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D73F0
 lbl_803D73F0:
 	# ROM: 0x3D43F0

@@ -364,6 +364,7 @@ __ct__16CRumbleGeneratorFv:
 /* 8036A1F0 00367150  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEB10
 lbl_805AEB10:
 	# ROM: 0x3FB3B0
@@ -386,6 +387,7 @@ lbl_805AEB1C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8548
 lbl_803D8548:
 	# ROM: 0x3D5548

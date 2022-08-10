@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CIceSheegoth_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E4728
 lbl_803E4728:
@@ -271,6 +272,7 @@ lbl_803E4A54:
 	.4byte lbl_801A56F4
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7BB8
 lbl_805A7BB8:
@@ -10061,6 +10063,7 @@ __sinit_CIceSheegoth_cpp:
 /* 801A6EBC 001A3E1C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC458
 lbl_805AC458:
 	# ROM: 0x3F8CF8
@@ -10298,6 +10301,7 @@ lbl_805AC514:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1360
 lbl_803D1360:
 	# ROM: 0x3CE360

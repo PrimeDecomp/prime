@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EE368
 lbl_803EE368:
@@ -13,23 +14,6 @@ lbl_803EE368:
 	.4byte CancelBuild__11CResFactoryFRC10SObjectTag
 	.4byte CanBuild__11CResFactoryFRC10SObjectTag
 	.4byte GetResourceIdByName__11CResFactoryCFPCc
-
-.section .sdata
-
-.global lbl_805A890C
-lbl_805A890C:
-	# ROM: 0x3F62AC
-	.byte 0x01
-
-.global lbl_805A890D
-lbl_805A890D:
-	# ROM: 0x3F62AD
-	.byte 0x00
-
-.global lbl_805A890E
-lbl_805A890E:
-	# ROM: 0x3F62AE
-	.2byte 0x00000100
 
 .section .text, "ax"
 
@@ -1766,6 +1750,7 @@ lbl_8033AC9C:
 /* 8033ACAC 00337C0C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE8C0
 lbl_805AE8C0:
 	# ROM: 0x3FB160
@@ -1774,6 +1759,7 @@ lbl_805AE8C0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7A28
 lbl_803D7A28:
 	# ROM: 0x3D4A28

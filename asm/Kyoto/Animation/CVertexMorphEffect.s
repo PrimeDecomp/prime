@@ -337,6 +337,7 @@ lbl_80357994:
 /* 803579A0 00354900  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE9E0
 lbl_805AE9E0:
 	# ROM: 0x3FB280
@@ -360,6 +361,7 @@ lbl_805AE9F0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8328
 lbl_803D8328:
 	# ROM: 0x3D5328

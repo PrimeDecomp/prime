@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CEnergyProjectile_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E7158
 lbl_803E7158:
@@ -41,6 +42,7 @@ lbl_803E7158:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A90B8
 lbl_805A90B8:
@@ -2083,6 +2085,7 @@ __sinit_CEnergyProjectile_cpp:
 /* 8021588C 002127EC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD030
 lbl_805AD030:
 	# ROM: 0x3F98D0
@@ -2151,6 +2154,7 @@ lbl_805AD060:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D2890
 lbl_803D2890:
 	# ROM: 0x3CF890

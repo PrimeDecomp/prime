@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CScriptGunTurret_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E71D0
 lbl_803E71D0:
@@ -119,6 +120,7 @@ lbl_803E72A4:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A80A0
 lbl_805A80A0:
@@ -191,6 +193,7 @@ lbl_805A80D4:
 	.4byte 0x00000014
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A90C0
 lbl_805A90C0:
@@ -7088,6 +7091,7 @@ __sinit_CScriptGunTurret_cpp:
 /* 8021BC94 00218BF4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD068
 lbl_805AD068:
 	# ROM: 0x3F9908
@@ -7260,6 +7264,7 @@ lbl_805AD0F8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D2908
 lbl_803D2908:
 	# ROM: 0x3CF908

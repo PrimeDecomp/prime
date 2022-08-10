@@ -134,6 +134,7 @@ PutTo__10CPrimitiveCFR13COutputStream:
 /* 802E5924 002E2884  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE300
 lbl_805AE300:
 	# ROM: 0x3FABA0

@@ -5,12 +5,14 @@ lbl_ctor:
 .4byte __sinit_RstlExtras_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_804BFF30
 lbl_804BFF30:
 	.skip 0x10
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A94E8
 lbl_805A94E8:
@@ -614,6 +616,7 @@ lbl_8033EC10:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7A50
 lbl_803D7A50:
 	# ROM: 0x3D4A50

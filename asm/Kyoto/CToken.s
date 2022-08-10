@@ -249,6 +249,7 @@ __ct__6CTokenFP16CObjectReference:
 /* 80341000 0033DF60  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7AA0
 lbl_803D7AA0:
 	# ROM: 0x3D4AA0

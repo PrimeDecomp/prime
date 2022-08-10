@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_DolphinCGraphics_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803ED910
 lbl_803ED910:
@@ -41,6 +42,12 @@ lbl_803ED948:
 	.4byte lbl_8030AD80
 
 .section .sdata
+.balign 8
+
+.global lbl_805A8828
+lbl_805A8828:
+	# ROM: 0x3F61C8
+	.4byte 0x805A564C
 
 .global lbl_805A882C
 lbl_805A882C:
@@ -98,6 +105,7 @@ lbl_805A884C:
 	.float 2.0
 
 .section .bss
+.balign 8
 
 .global lbl_80479CC0
 lbl_80479CC0:
@@ -107,6 +115,7 @@ lbl_804BFCC0:
 	.skip 0x50
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9368
 lbl_805A9368:
@@ -5569,6 +5578,7 @@ __ct__14CGXLightParamsFv:
 /* 8030DE58 0030ADB8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE4C8
 lbl_805AE4C8:
 	# ROM: 0x3FAD68
@@ -5748,6 +5758,7 @@ lbl_805AE554:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D73C8
 lbl_803D73C8:
 	# ROM: 0x3D43C8

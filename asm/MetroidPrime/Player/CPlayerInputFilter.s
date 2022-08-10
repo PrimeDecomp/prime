@@ -831,6 +831,7 @@ __ct__Q27CPlayer12CInputFilterFv:
 /* 802979E0 00294940  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADCD0
 lbl_805ADCD0:
 	# ROM: 0x3FA570

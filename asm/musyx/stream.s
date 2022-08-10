@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global streamInfo
 streamInfo:
 	.skip 0x1900
 
 .section .sbss
+.balign 8
 .balign 4
 nextPublicID:
 	.skip 0x4
@@ -15,6 +17,7 @@ streamCallCnt:
 	.skip 0x3
 
 .section .sdata2
+.balign 8
 .global lbl_805AF270
 lbl_805AF270:
 	# ROM: 0x3FBB10

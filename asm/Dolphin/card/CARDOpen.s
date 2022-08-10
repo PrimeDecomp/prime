@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 lbl_80569C78:
 	.skip 0x20
 

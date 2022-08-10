@@ -78,6 +78,7 @@ lbl_802D67EC:
 /* 802D6828 002D3788  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE290
 lbl_805AE290:
 	# ROM: 0x3FAB30

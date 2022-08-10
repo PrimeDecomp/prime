@@ -39,6 +39,7 @@ __destroy_global_chain_reference:
 	.4byte __destroy_global_chain
 
 .section .sbss
+.balign 8
 .balign 4
 __global_destructor_chain:
 	.skip 0x8

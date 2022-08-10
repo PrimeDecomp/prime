@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED4D0
 lbl_803ED4D0:
@@ -430,6 +431,7 @@ GetType__27CConstantAnimationTimeScaleCFv:
 /* 802FDC78 002FABD8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE438
 lbl_805AE438:
 	# ROM: 0x3FACD8
@@ -453,6 +455,7 @@ lbl_805AE448:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E50
 lbl_803D6E50:
 	# ROM: 0x3D3E50

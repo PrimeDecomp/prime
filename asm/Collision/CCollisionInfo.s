@@ -306,6 +306,7 @@ __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3
 /* 802CE51C 002CB47C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE1B8
 lbl_805AE1B8:
 	# ROM: 0x3FAA58

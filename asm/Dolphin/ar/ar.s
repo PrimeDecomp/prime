@@ -8,12 +8,14 @@ ARVersionString:
 	.4byte 0
 
 .section .sdata
+.balign 8
 .global lbl_805A8A70
 lbl_805A8A70:
 	.4byte ARVersionString
 	.4byte 0
 
 .section .sbss
+.balign 8
 .global lbl_805A96F8
 lbl_805A96F8:
 	.skip 0x4

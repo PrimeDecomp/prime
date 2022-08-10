@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9318
 lbl_805A9318:

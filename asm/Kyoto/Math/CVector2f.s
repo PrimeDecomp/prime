@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CVector2f_cpp
 
 .section .sbss, "wa"
+.balign 8
 # skZero2f
 .global lbl_805A9458
 lbl_805A9458:
@@ -321,6 +322,7 @@ __sinit_CVector2f_cpp:
 /* 80314248 003111A8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE618
 lbl_805AE618:
 	# ROM: 0x3FAEB8

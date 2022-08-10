@@ -1,4 +1,5 @@
 .section .sdata
+.balign 8
 
 # TODO: Split this
 

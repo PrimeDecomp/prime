@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECCF0
 lbl_803ECCF0:
@@ -27,6 +28,7 @@ lbl_803ECD10:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8710
 lbl_805A8710:
@@ -581,13 +583,20 @@ __ct__19CMetaAnimPhaseBlendFR12CInputStream:
 /* 802E09E4 002DD944  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE2C8
 lbl_805AE2C8:
 	# ROM: 0x3FAB68
 	.float -1.0
 
+.global lbl_805AE2CC
+lbl_805AE2CC:
+	# ROM: 0x3FAB6C
+	.4byte 0
+
 
 .section .rodata
+.balign 8
 .global lbl_803D6D68
 lbl_803D6D68:
 	# ROM: 0x3D3D68

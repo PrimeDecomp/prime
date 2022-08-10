@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7560
 lbl_805A7560:
@@ -29,6 +30,7 @@ lbl_805A7570:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CActorLights
 .global lbl_805A8F10
@@ -39,6 +41,7 @@ lbl_805A8F14:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB120
 lbl_805AB120:
@@ -2924,6 +2927,7 @@ lbl_80105820:
 /* 80105824 00102784  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CEE40
 lbl_803CEE40:
 	# ROM: 0x3CBE40

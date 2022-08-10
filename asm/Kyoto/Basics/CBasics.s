@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global lbl_804795A0
 lbl_804795A0:

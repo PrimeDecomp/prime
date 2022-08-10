@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global lbl_80569E98
 lbl_80569E98:
 	.skip 0xC8
 
 .section .sdata, "wa"
+.balign 8
 
 .global lbl_805A8C10
 lbl_805A8C10:

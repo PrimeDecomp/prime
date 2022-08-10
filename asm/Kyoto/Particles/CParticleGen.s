@@ -52,6 +52,7 @@ lbl_8032A640:
 /* 8032A678 003275D8  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7920
 lbl_803D7920:
 	# ROM: 0x3D4920

@@ -1586,6 +1586,7 @@ __sinit_CTransform4f_cpp:
 /* 80313DCC 00310D2C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE5F0
 lbl_805AE5F0:
 	# ROM: 0x3FAE90

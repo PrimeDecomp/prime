@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DFBF0
 lbl_803DFBF0:
@@ -15,6 +16,7 @@ lbl_803DFBF0:
 	.4byte SetActive__7CEntityFb
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7360
 lbl_805A7360:
@@ -23,6 +25,7 @@ lbl_805A7360:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAD38
 lbl_805AAD38:

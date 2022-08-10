@@ -641,6 +641,7 @@ __sinit_RumbleFxTable_cpp:
 /* 80227394 002242F4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD1E0
 lbl_805AD1E0:
 	# ROM: 0x3F9A80

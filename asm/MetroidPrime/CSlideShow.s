@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CSlideShow_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EBFB8
 lbl_803EBFB8:
@@ -33,6 +34,7 @@ lbl_803EBFD4:
 	.4byte lbl_8029C018
 
 .section .sbss2, "", @nobits
+.balign 8
 # CSlideShow
 .global lbl_805AF478
 lbl_805AF478:
@@ -42,6 +44,7 @@ lbl_805AF47C:
 	.skip 0x4
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8590
 lbl_805A8590:
@@ -120,6 +123,7 @@ lbl_805A85C8:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9168
 lbl_805A9168:
@@ -5485,6 +5489,7 @@ __sinit_CSlideShow_cpp:
 /* 8029C5F4 00299554  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADCE8
 lbl_805ADCE8:
 	# ROM: 0x3FA588
@@ -5605,6 +5610,7 @@ lbl_805ADD50:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5C38
 lbl_803D5C38:
 	# ROM: 0x3D2C38

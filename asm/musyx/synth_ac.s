@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global toneup_tab
 toneup_tab:
@@ -267,6 +268,7 @@ tonedown_tab:
 	.4byte 0x3A2AC000
 
 .section .sdata2
+.balign 8
 .global lbl_805AF2B0
 lbl_805AF2B0:
 	# ROM: 0x3FBB50

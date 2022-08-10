@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECDD8
 lbl_803ECDD8:
@@ -215,6 +216,7 @@ __ct__15CMetaTransTransFR12CInputStream:
 /* 802E2E54 002DFDB4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6DA0
 lbl_803D6DA0:
 	# ROM: 0x3D3DA0

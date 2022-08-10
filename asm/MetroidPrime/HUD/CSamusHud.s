@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CSamusHud_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DA298
 lbl_803DA298:
@@ -57,6 +58,12 @@ lbl_803DA304:
 	.4byte __dt__19IHudThreatInterfaceFv
 
 .section .sdata
+.balign 8
+
+.global lbl_805A6EB0
+lbl_805A6EB0:
+	# ROM: 0x3F4850
+	.4byte 0
 
 .global lbl_805A6EB4
 lbl_805A6EB4:
@@ -260,12 +267,14 @@ lbl_805A6F50:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C3C8
 lbl_8046C3C8:
 	.skip 0x18
 
 .section .sbss
+.balign 8
 
 # CSamusHud
 .global lbl_805A8DE8
@@ -273,6 +282,7 @@ lbl_805A8DE8:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA448
 lbl_805AA448:
@@ -10678,6 +10688,7 @@ __sinit_CSamusHud_cpp:
 /* 8006D808 0006A768  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCFB8
 lbl_803CCFB8:
 	# ROM: 0x3C9FB8

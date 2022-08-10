@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 .global lbl_805A8B30
 lbl_805A8B30:
 	# ROM: 0x3F64D0
@@ -9,6 +10,7 @@ lbl_805A8B30:
 
 
 .section .sbss
+.balign 8
 .global lbl_805A98B8
 lbl_805A98B8:
 	.skip 0x8

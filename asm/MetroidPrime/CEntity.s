@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CEntity_cpp
 
 .section .data
+.balign 8
 
 .global __vt__7CEntity
 __vt__7CEntity:
@@ -19,6 +20,7 @@ __vt__7CEntity:
 	.4byte SetActive__7CEntityFb
 
 .section .bss
+.balign 8
 
 .global lbl_8046C3B8
 lbl_8046C3B8:
@@ -422,6 +424,7 @@ __sinit_CEntity_cpp:
 /* 800515C4 0004E524  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCF18
 lbl_803CCF18:
 	# ROM: 0x3C9F18

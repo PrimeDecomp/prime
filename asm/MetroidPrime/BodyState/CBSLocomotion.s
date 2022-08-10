@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CBSFlyerLocomotion_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E14C0
 lbl_803E14C0:
@@ -193,6 +194,7 @@ lbl_803E16CC:
 	.4byte GetBodyStateTransition__13CBSLocomotionFfR15CBodyController
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7718
 lbl_805A7718:
@@ -241,6 +243,7 @@ lbl_805A7738:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CBSFlyerLocomotion
 .global lbl_805A8F80
@@ -2759,6 +2762,7 @@ __sinit_CBSFlyerLocomotion_cpp:
 /* 80138DA0 00135D00  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB750
 lbl_805AB750:
 	# ROM: 0x3F7FF0

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global lbl_804BFF10
 lbl_804BFF10:
@@ -10,6 +11,7 @@ lbl_804BFF1C:
 	.skip 0x14
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A94C0
 lbl_805A94C0:
@@ -875,6 +877,7 @@ lbl_80333F7C:
 /* 80333FA4 00330F04  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7978
 lbl_803D7978:
 	# ROM: 0x3D4978

@@ -1,12 +1,14 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 lbl_80541FF0:
 	.skip 0x10
 lbl_80542000:
 	.skip 0x40
 
 .section .sbss
+.balign 8
 
 .balign 4
 
@@ -42,6 +44,7 @@ __PADSpec:
 	.skip 0x4
 
 .section .data, "wa"
+.balign 8
 PAD_VERSION_STR:
 	.asciz "<< Dolphin SDK - PAD\trelease build: Sep  5 2002 05:34:02 (0x2301) >>"
 
@@ -54,6 +57,7 @@ lbl_803F2398:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 __PADVersion:
 	.4byte PAD_VERSION_STR

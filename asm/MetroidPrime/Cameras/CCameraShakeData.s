@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CCameraShakeData_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7888
 lbl_805A7888:
@@ -37,6 +38,7 @@ lbl_805A789C:
 	.float 1.0
 
 .section .bss
+.balign 8
 .global lbl_8046C7D0
 lbl_8046C7D0:
 	.skip 0x78
@@ -1555,6 +1557,7 @@ lbl_8015DE74:
 /* 8015DE84 0015ADE4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABC00
 lbl_805ABC00:
 	# ROM: 0x3F84A0

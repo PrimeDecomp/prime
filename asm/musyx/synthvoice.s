@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global vidList
 vidList:
 	.skip 0xF00
@@ -15,6 +16,7 @@ vs:
 	.skip 0x950
 
 .section .sbss
+.balign 8
 .balign 4
 .global vidFree
 vidFree:

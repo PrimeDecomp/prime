@@ -166,6 +166,7 @@ __ct__14CGuiWidgetIdDBFv:
 /* 802CB1AC 002C810C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE130
 lbl_805AE130:
 	# ROM: 0x3FA9D0
@@ -179,6 +180,7 @@ lbl_805AE132:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6948
 lbl_803D6948:
 	# ROM: 0x3D3948

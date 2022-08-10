@@ -7,12 +7,14 @@ lbl_ctor:
 .4byte __sinit_CGuiFeeHelper_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A91F8
 lbl_805A91F8:
 	.skip 0x8
 
 .section .data
+.balign 8
 
 .global lbl_803EC738
 lbl_803EC738:
@@ -2709,6 +2711,7 @@ lbl_802C358C:
 /* 802C35B4 002C0514  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE090
 lbl_805AE090:
 	# ROM: 0x3FA930
@@ -2727,6 +2730,7 @@ lbl_805AE098:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6880
 lbl_803D6880:
 	# ROM: 0x3D3880

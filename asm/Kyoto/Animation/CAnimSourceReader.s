@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECF58
 lbl_803ECF58:
@@ -59,6 +60,7 @@ lbl_803ECFE4:
 	.4byte sub_802ee0a0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8788
 lbl_805A8788:
@@ -1582,6 +1584,7 @@ GetAnimationDuration__15CAnimSourceInfoCFv:
 /* 802EF8AC 002EC80C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE398
 lbl_805AE398:
 	# ROM: 0x3FAC38
@@ -1590,6 +1593,7 @@ lbl_805AE398:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6DE0
 lbl_803D6DE0:
 	# ROM: 0x3D3DE0

@@ -1,12 +1,14 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 lbl_80542040:
 	.skip 0xF0
 lbl_80542130:
 	.skip 0x58
 
 .section .data, "wa"
+.balign 8
 .global lbl_803F23A8
 lbl_803F23A8:
 	# ROM: 0x3EF3A8
@@ -178,6 +180,7 @@ lbl_803F275C:
 
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8B78
 lbl_805A8B78:
@@ -193,6 +196,7 @@ lbl_805A8B7C:
 
 
 .section .sbss, "wa"
+.balign 8
 .balign 4
 lbl_805A9958:
 	.skip 0x4

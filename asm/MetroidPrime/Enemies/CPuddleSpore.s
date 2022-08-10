@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 
 .global lbl_803E2078
@@ -214,6 +215,7 @@ lbl_803E20C4:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A77A0
 lbl_805A77A0:
@@ -3049,6 +3051,7 @@ lbl_80149288:
 /* 801492AC 0014620C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB9A8
 lbl_805AB9A8:
 	# ROM: 0x3F8248
@@ -3141,6 +3144,7 @@ lbl_805AB9EC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D00A0
 lbl_803D00A0:
 	# ROM: 0x3CD0A0

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_DolphinCAudioSys_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8998
 lbl_805A8998:
@@ -72,12 +73,14 @@ lbl_805A89A7:
 	.byte 0x01
 
 .section .bss
+.balign 8
 
 .global lbl_804BFF90
 lbl_804BFF90:
 	.skip 0x10
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9590
 lbl_805A9590:
@@ -3466,6 +3469,7 @@ __sinit_DolphinCAudioSys_cpp:
 /* 8034D4D8 0034A438  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE960
 lbl_805AE960:
 	# ROM: 0x3FB200
@@ -3489,6 +3493,7 @@ lbl_805AE968:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8210
 lbl_803D8210:
 	# ROM: 0x3D5210

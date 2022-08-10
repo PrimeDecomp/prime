@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_DolphinCMemoryCardSys_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A89A8
 lbl_805A89A8:
@@ -28,6 +29,7 @@ lbl_805A89AB:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_804BFFA0
 lbl_804BFFA0:
@@ -37,6 +39,7 @@ lbl_804BFFAC:
 	.skip 0x14
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A95C0
 lbl_805A95C0:
@@ -2078,6 +2081,7 @@ __sinit_DolphinCMemoryCardSys_cpp:
 /* 8034EFB0 0034BF10  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8220
 lbl_803D8220:
 	# ROM: 0x3D5220

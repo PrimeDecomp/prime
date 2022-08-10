@@ -279,6 +279,7 @@ __ct__12CGSComboFireFv:
 /* 801CD48C 001CA3EC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC8B0
 lbl_805AC8B0:
 	# ROM: 0x3F9150
@@ -297,6 +298,7 @@ lbl_805AC8B8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1AC8
 lbl_803D1AC8:
 	# ROM: 0x3CEAC8

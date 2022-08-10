@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CSamusDoll_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A72C8
 lbl_805A72C8:
@@ -117,6 +118,7 @@ lbl_805A731C:
 	.float 1.0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C470
 lbl_8046C470:
@@ -126,6 +128,7 @@ lbl_8046C47C:
 	.skip 0xC
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AABA0
 lbl_805AABA0:
@@ -4613,6 +4616,7 @@ __sinit_CSamusDoll_cpp:
 /* 800DE7F8 000DB758  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE2D8
 lbl_803CE2D8:
 	# ROM: 0x3CB2D8
@@ -4682,43 +4686,24 @@ lbl_803CE338:
 lbl_803CE3AC:
 	# ROM: 0x3CB3AC
 	.asciz "CMDL_InvPowerBeam"
-	.byte 0x43, 0x4D
-	.asciz "DL_InvIceBeam"
-	.byte 0x43, 0x4D
-	.asciz "DL_InvWaveBeam"
-	.byte 0x43
-	.asciz "MDL_InvPlasmaBeam"
-	.byte 0x43, 0x4D
-	.asciz "DL_InvVisor"
+	.asciz "CMDL_InvIceBeam"
+	.asciz "CMDL_InvWaveBeam"
+	.asciz "CMDL_InvPlasmaBeam"
+	.asciz "CMDL_InvVisor"
 	.asciz "CMDL_InvGravityVisor"
-	.byte 0x43, 0x4D, 0x44
-	.asciz "L_InvPhazonVisor"
-	.byte 0x43, 0x4D, 0x44
-	.asciz "L_InvFusionVisor"
-	.byte 0x43, 0x4D, 0x44
-	.asciz "L_InvPowerFins"
-	.byte 0x43
-	.asciz "MDL_InvVariaFins"
-	.byte 0x43, 0x4D, 0x44
-	.asciz "L_InvGravityFins"
-	.byte 0x43, 0x4D, 0x44
-	.asciz "L_InvPhazonFins"
+	.asciz "CMDL_InvPhazonVisor"
+	.asciz "CMDL_InvFusionVisor"
+	.asciz "CMDL_InvPowerFins"
+	.asciz "CMDL_InvVariaFins"
+	.asciz "CMDL_InvGravityFins"
+	.asciz "CMDL_InvPhazonFins"
 	.asciz "CMDL_InvGrappleBeam"
 	.asciz "GUN_LCTR"
-	.byte 0x47, 0x52, 0x41
-	.asciz "PPLE_LCTR"
-	.byte 0x56, 0x49
-	.asciz "SOR_LCTR"
-	.byte 0x53, 0x61, 0x6D
-	.asciz "usBallANCS"
-	.byte 0x3F
-	.asciz "?(??)"
-	.byte 0x50, 0x68
-	.asciz "azonIndirectTexture"
+	.asciz "GRAPPLE_LCTR"
+	.asciz "VISOR_LCTR"
+	.asciz "SamusBallANCS"
+	.asciz "??(??)"
+	.asciz "PhazonIndirectTexture"
 	.asciz "ANCS_ItemScreenSamus"
-	.byte 0x42, 0x61, 0x6C
-	.asciz "lInnerGlow"
-	.byte 0x4D
-	.asciz "orphBallTransitionFlash"
-	.4byte 0
-
+	.asciz "BallInnerGlow"
+	.asciz "MorphBallTransitionFlash"

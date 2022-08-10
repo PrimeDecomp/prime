@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DF128
 lbl_803DF128:
@@ -73,6 +74,7 @@ lbl_803DF194:
 	.4byte lbl_800B0510
 
 .section .sdata
+.balign 8
 
 .global lbl_805A71E0
 lbl_805A71E0:
@@ -91,12 +93,14 @@ lbl_805A71E8:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C438
 lbl_8046C438:
 	.skip 0x18
 
 .section .sbss
+.balign 8
 
 # CScriptSound
 .global lbl_805A8E90
@@ -119,6 +123,7 @@ lbl_805A8EA1:
 	.skip 0x7
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA9A0
 lbl_805AA9A0:

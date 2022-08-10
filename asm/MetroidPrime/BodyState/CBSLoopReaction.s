@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E1878
 lbl_803E1878:
@@ -748,6 +749,7 @@ __ct__15CBSLoopReactionFv:
 /* 8013CA54 001399B4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB7C8
 lbl_805AB7C8:
 	# ROM: 0x3F8068

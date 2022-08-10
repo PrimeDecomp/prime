@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E2008
 lbl_803E2008:
@@ -1198,6 +1199,7 @@ __ct__7CBSJumpFv:
 /* 801466B0 00143610  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB980
 lbl_805AB980:
 	# ROM: 0x3F8220

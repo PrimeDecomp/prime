@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E02A8
 lbl_803E02A8:
@@ -117,6 +118,7 @@ __ct__14CAudioStateWinFv:
 /* 80111E1C 0010ED7C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CF200
 lbl_803CF200:
 	# ROM: 0x3CC200

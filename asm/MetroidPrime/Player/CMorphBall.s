@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMorphBall_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A73E8
 lbl_805A73E8:
@@ -253,6 +254,7 @@ lbl_805A74A8:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C4F8
 lbl_8046C4F8:
@@ -262,6 +264,7 @@ lbl_8046C504:
 	.skip 0x1C
 
 .section .sbss
+.balign 8
 
 # CMorphBall
 .global lbl_805A8EE8
@@ -284,6 +287,7 @@ lbl_805A8EFC:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAE70
 lbl_805AAE70:
@@ -15144,6 +15148,7 @@ lbl_800FA60C:
 /* 800FA620 000F7580  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE910
 lbl_803CE910:
 	# ROM: 0x3CB910

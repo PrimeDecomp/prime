@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global "tmp_em$388"
 "tmp_em$388":
 	.skip 0x50
@@ -15,6 +16,7 @@ startListNum:
 	.skip 0x700
 
 .section .sbss
+.balign 8
 .balign 4
 .global runListNum
 runListNum:
@@ -54,6 +56,7 @@ s3dCallCnt:
 	.skip 0x4
 
 .section .sdata2
+.balign 8
 .global lbl_805AF328
 lbl_805AF328:
 	# ROM: 0x3FBBC8

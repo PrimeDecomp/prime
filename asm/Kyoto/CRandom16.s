@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
+.balign 8
 
 .global gRandomNumber__9CRandom16
 gRandomNumber__9CRandom16:
@@ -175,6 +176,7 @@ lbl_803126BC:
 /* 803126DC 0030F63C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE5E0
 lbl_805AE5E0:
 	# ROM: 0x3FAE80

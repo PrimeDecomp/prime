@@ -186,6 +186,7 @@ __ct__9CVector3dFddd:
 /* 803145AC 0031150C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE628
 lbl_805AE628:
 	# ROM: 0x3FAEC8

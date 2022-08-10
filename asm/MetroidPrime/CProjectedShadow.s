@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A85E0
 lbl_805A85E0:
@@ -9,6 +10,7 @@ lbl_805A85E0:
 	.4byte 0
 
 .section .sbss2, "", @nobits
+.balign 8
 # CProjectedShadow
 .global lbl_805AF480
 lbl_805AF480:
@@ -945,6 +947,7 @@ __ct__16CProjectedShadowFv:
 /* 8029E4A0 0029B400  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADDB0
 lbl_805ADDB0:
 	# ROM: 0x3FA650
@@ -982,6 +985,7 @@ lbl_805ADDC8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5E50
 lbl_803D5E50:
 	# ROM: 0x3D2E50

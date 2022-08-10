@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EDA00
 lbl_803EDA00:
@@ -67,6 +68,7 @@ lbl_803EDA70:
 	.4byte GetValue__11CCEConstantCFiR6CColor
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8870
 lbl_805A8870:
@@ -1470,6 +1472,7 @@ lbl_80317610:
 /* 80317628 00314588  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE6F8
 lbl_805AE6F8:
 	# ROM: 0x3FAF98
@@ -1483,6 +1486,7 @@ lbl_805AE700:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7840
 lbl_803D7840:
 	# ROM: 0x3D4840

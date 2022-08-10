@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata2
+.balign 8
 .global lbl_805AF398
 lbl_805AF398:
 	# ROM: 0x3FBC38
@@ -25,6 +26,7 @@ lbl_805AF3A8:
 
 
 .section .sbss
+.balign 8
 .balign 4
 .global salTimeOffset
 salTimeOffset:
@@ -46,6 +48,7 @@ salFrame:
 	.skip 0x1
 
 .section .sdata, "wa"
+.balign 8
 .global lbl_805A8BD8
 lbl_805A8BD8:
 	.2byte 0
@@ -61,6 +64,7 @@ lbl_805A8BE0:
 	.balign 4
 
 .section .rodata
+.balign 8
 .global itdOffTab
 itdOffTab:
 	# ROM: 0x3D5BD0

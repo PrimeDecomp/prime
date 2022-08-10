@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 .global lbl_805A9868
 lbl_805A9868:
 	.skip 0x4

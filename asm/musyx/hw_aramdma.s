@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 aramQueueLo:
 	.skip 0x284
 aramQueueHi:
@@ -9,6 +10,7 @@ aramStreamBuffers:
 	.skip 0x408
 
 .section .sbss, "wa"
+.balign 8
 .balign 4
 .global aramIdleStreamBuffers
 aramIdleStreamBuffers:

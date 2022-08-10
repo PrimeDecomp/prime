@@ -152,6 +152,7 @@ __ct__20CFaceplateDecorationFR13CStateManager:
 /* 80175CD4 00172C34  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABEB0
 lbl_805ABEB0:
 	# ROM: 0x3F8750

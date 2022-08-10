@@ -177,6 +177,7 @@ lbl_802E0224:
 /* 802E023C 002DD19C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6D60
 lbl_803D6D60:
 	# ROM: 0x3D3D60

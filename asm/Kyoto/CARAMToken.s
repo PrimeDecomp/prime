@@ -620,6 +620,7 @@ __ct__10CARAMTokenFv:
 /* 80358B60 00355AC0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8338
 lbl_803D8338:
 	# ROM: 0x3D5338

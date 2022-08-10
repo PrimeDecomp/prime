@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data, "wa"
+.balign 8
 
 .global lbl_803F6E60
 lbl_803F6E60:
@@ -25,6 +26,7 @@ lbl_803F6E80:
 	.4byte 0x00000200
 
 .section .sdata, "wa"
+.balign 8
 .global lbl_805A8C00
 lbl_805A8C00:
 	.2byte 0xFFFF

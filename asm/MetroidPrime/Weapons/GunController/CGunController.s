@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E5728
 lbl_803E5728:
@@ -842,6 +843,7 @@ __ct__14CGunControllerFR10CModelData:
 /* 801CCCA4 001C9C04  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC890
 lbl_805AC890:
 	# ROM: 0x3F9130
@@ -860,6 +862,7 @@ lbl_805AC898:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1AA8
 lbl_803D1AA8:
 	# ROM: 0x3CEAA8

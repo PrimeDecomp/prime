@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CDecalManager_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_8046C558
 lbl_8046C558:
@@ -14,6 +15,7 @@ lbl_8046C564:
 	.skip 0xC
 
 .section .sbss
+.balign 8
 
 # CDecalManager
 .global lbl_805A8F28
@@ -33,6 +35,7 @@ lbl_805A8F38:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB378
 lbl_805AB378:

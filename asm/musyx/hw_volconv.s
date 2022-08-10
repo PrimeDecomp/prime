@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata2
+.balign 8
 .global lbl_805AF2F0
 lbl_805AF2F0:
 	# ROM: 0x3FBB90
@@ -52,6 +53,7 @@ lbl_805AF320:
 
 
 .section .data, "wa"
+.balign 8
 
 .global musyx_vol_tab
 musyx_vol_tab:

@@ -632,6 +632,7 @@ Update__13CBoneTrackingFf:
 /* 80175ABC 00172A1C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABE98
 lbl_805ABE98:
 	# ROM: 0x3F8738

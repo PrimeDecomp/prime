@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC808
 lbl_803EC808:
@@ -137,6 +138,7 @@ GetWidgetTypeID__14CGuiHeadWidgetCFv:
 /* 802C373C 002C069C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D68A0
 lbl_803D68A0:
 	# ROM: 0x3D38A0

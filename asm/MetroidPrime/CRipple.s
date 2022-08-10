@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 
 # CRipple
 .global lbl_805A8F58
@@ -11,6 +12,7 @@ lbl_805A8F5C:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB3F0
 lbl_805AB3F0:

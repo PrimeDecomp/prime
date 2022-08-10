@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E7048
 lbl_803E7048:
@@ -360,6 +361,7 @@ Accept__11CScriptMidiFR8IVisitor:
 /* 8020BE18 00208D78  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACEC8
 lbl_805ACEC8:
 	# ROM: 0x3F9768

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC010
 lbl_803EC010:
@@ -139,6 +140,7 @@ __ct__12CPreFrontEndFv:
 /* 8029E640 0029B5A0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D5E80
 lbl_803D5E80:
 	# ROM: 0x3D2E80

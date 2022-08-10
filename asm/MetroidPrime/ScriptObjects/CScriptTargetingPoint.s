@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E4330
 lbl_803E4330:
@@ -35,6 +36,7 @@ lbl_803E4330:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7AA8
 lbl_805A7AA8:
@@ -223,6 +225,7 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D4B8 0018A418  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC180
 lbl_805AC180:
 	# ROM: 0x3F8A20

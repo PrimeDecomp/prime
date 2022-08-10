@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlayerCameraBob_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7378
 lbl_805A7378:
@@ -127,6 +128,7 @@ lbl_805A73D4:
 	.float 1.0
 
 .section .sbss
+.balign 8
 
 # CPlayerCameraBob
 .global lbl_805A8ED0
@@ -140,6 +142,7 @@ lbl_805A8ED8:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAD98
 lbl_805AAD98:

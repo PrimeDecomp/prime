@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7830
 lbl_805A7830:
@@ -354,6 +355,7 @@ __ct__7CFidgetFv:
 /* 80154C04 00151B64  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABB20
 lbl_805ABB20:
 	# ROM: 0x3F83C0

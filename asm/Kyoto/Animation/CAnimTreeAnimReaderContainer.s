@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED068
 lbl_803ED068:
@@ -512,6 +513,7 @@ VAdvanceView__28CAnimTreeAnimReaderContainerFRC13CCharAnimTime:
 /* 802F1E58 002EEDB8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE3A0
 lbl_805AE3A0:
 	# ROM: 0x3FAC40
@@ -520,6 +522,7 @@ lbl_805AE3A0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6DF0
 lbl_803D6DF0:
 	# ROM: 0x3D3DF0

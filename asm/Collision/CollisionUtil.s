@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CollisionUtil_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_80479510
 lbl_80479510:
@@ -4618,6 +4619,7 @@ __sinit_CollisionUtil_cpp:
 /* 802D3E6C 002D0DCC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE1C0
 lbl_805AE1C0:
 	# ROM: 0x3FAA60
@@ -4744,6 +4746,7 @@ lbl_805AE240:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6A50
 lbl_803D6A50:
 	# ROM: 0x3D3A50

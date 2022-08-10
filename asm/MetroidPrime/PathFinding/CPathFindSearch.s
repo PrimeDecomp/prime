@@ -2562,6 +2562,7 @@ __ct__11CPFOpenListFv:
 /* 801C8EA4 001C5E04  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC848
 lbl_805AC848:
 	# ROM: 0x3F90E8

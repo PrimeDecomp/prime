@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata2
+.balign 8
 .global lbl_805AF230
 lbl_805AF230:
 	# ROM: 0x3FBAD0
@@ -70,6 +71,7 @@ lbl_805AF26C:
 
 
 .section .bss
+.balign 8
 .global synthTicksPerSecond
 synthTicksPerSecond:
 	.skip 0x240
@@ -111,6 +113,7 @@ inpAuxA:
 	.skip 0x484
 
 .section .sbss
+.balign 8
 .balign 4
 .global sndActive
 sndActive:

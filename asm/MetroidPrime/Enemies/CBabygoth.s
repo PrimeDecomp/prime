@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CBabygoth_cpp
 
 .section .data
+.balign 8
 
 
 .global lbl_803E7350
@@ -272,6 +273,7 @@ lbl_803E767C:
 	.4byte lbl_80223268
 
 .section .sdata
+.balign 8
 
 .global lbl_805A80D8
 lbl_805A80D8:
@@ -8266,6 +8268,7 @@ __sinit_CBabygoth_cpp:
 /* 8022468C 002215EC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD110
 lbl_805AD110:
 	# ROM: 0x3F99B0
@@ -8415,6 +8418,7 @@ lbl_805AD188:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D31A8
 lbl_803D31A8:
 	# ROM: 0x3D01A8

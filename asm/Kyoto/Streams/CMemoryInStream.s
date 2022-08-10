@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global __vt__15CMemoryInStream
 __vt__15CMemoryInStream:

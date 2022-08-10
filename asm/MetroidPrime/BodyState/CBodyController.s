@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7740
 lbl_805A7740:
@@ -1246,6 +1247,7 @@ __ct__15CBodyControllerFR6CActorf9EBodyType:
 /* 8013AEC8 00137E28  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB790
 lbl_805AB790:
 	# ROM: 0x3F8030
@@ -1278,6 +1280,7 @@ lbl_805AB7A4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0060
 lbl_803D0060:
 	# ROM: 0x3CD060

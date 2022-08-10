@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data, "wa"
+.balign 8
 
 lbl_803F71A0:
 	.byte   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0

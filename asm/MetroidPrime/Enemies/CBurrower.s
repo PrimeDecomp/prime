@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CBurrower_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EA790
 lbl_803EA790:
@@ -1886,6 +1887,7 @@ __sinit_CBurrower_cpp:
 /* 802712A8 0026E208  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD8D8
 lbl_805AD8D8:
 	# ROM: 0x3FA178
@@ -1918,6 +1920,7 @@ lbl_805AD8EC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5420
 lbl_803D5420:
 	# ROM: 0x3D2420

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9490
 lbl_805A9490:
@@ -127,6 +128,7 @@ SetParticleLifetime__16CParticleGlobalsFi:
 /* 8032A7A4 00327704  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE798
 lbl_805AE798:
 	# ROM: 0x3FB038

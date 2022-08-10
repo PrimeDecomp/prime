@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E0338
 lbl_803E0338:
@@ -207,6 +208,7 @@ lbl_803E061C:
 	.4byte __dt__17CBCAdditiveAimCmd
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7628
 lbl_805A7628:
@@ -215,6 +217,7 @@ lbl_805A7628:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CBloodFlower
 .global lbl_805A8F40
@@ -225,6 +228,7 @@ lbl_805A8F44:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB398
 lbl_805AB398:
@@ -1996,6 +2000,7 @@ lbl_8011A440:
 /* 8011A45C 001173BC  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CF2F0
 lbl_803CF2F0:
 	# ROM: 0x3CC2F0

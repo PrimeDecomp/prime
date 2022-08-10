@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .rodata
+.balign 8
 .global lbl_803CCAA0
 lbl_803CCAA0:
 	# ROM: 0x3C9AA0

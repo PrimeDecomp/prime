@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E2438
 lbl_803E2438:
@@ -35,6 +36,7 @@ lbl_803E2438:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A77B0
 lbl_805A77B0:
@@ -283,6 +285,7 @@ lbl_8014AF00:
 /* 8014B0BC 0014801C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABA00
 lbl_805ABA00:
 	# ROM: 0x3F82A0

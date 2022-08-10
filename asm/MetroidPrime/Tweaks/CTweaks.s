@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global lbl_8045B180
 lbl_8045B180:
@@ -40,6 +41,7 @@ lbl_8045C208:
 	.skip 0x310
 
 .section .sbss
+.balign 8
 
 # CTweaks
 .global gpTweakPlayer
@@ -1950,6 +1952,7 @@ lbl_800371A0:
 /* 800371E0 00034140  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCD88
 lbl_803CCD88:
 	# ROM: 0x3C9D88

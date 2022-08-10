@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E5930
 lbl_803E5930:
@@ -207,6 +208,7 @@ lbl_803E5954:
 	.4byte GetDeathExplosionParticle__10CPatternedCFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7D88
 lbl_805A7D88:
@@ -225,12 +227,14 @@ lbl_805A7D90:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C920
 lbl_8046C920:
 	.skip 0x18
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9070
 lbl_805A9070:
@@ -1648,6 +1652,7 @@ Accept__9CJellyZapFR8IVisitor:
 /* 801D8CF0 001D5C50  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC990
 lbl_805AC990:
 	# ROM: 0x3F9230

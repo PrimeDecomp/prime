@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7E30
 lbl_805A7E30:
@@ -728,6 +729,7 @@ __ct__14CMessageScreenFUif:
 /* 801F0064 001ECFC4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACB68
 lbl_805ACB68:
 	# ROM: 0x3F9408
@@ -851,6 +853,7 @@ lbl_805ACBC8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1F48
 lbl_803D1F48:
 	# ROM: 0x3CEF48

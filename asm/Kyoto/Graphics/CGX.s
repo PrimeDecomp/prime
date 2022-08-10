@@ -5,12 +5,14 @@ lbl_ctor:
 .4byte __sinit_CGX_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_80479BD0
 lbl_80479BD0:
 	.skip 0xF0
 
 .section .sbss2, "", @nobits
+.balign 8
 # CGX
 .global lbl_805AF4A0
 lbl_805AF4A0:
@@ -1423,6 +1425,7 @@ __sinit_CGX_cpp:
 /* 80308EA4 00305E04  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE4B8
 lbl_805AE4B8:
 	# ROM: 0x3FAD58
@@ -1445,6 +1448,7 @@ lbl_805AE4C4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D73A0
 lbl_803D73A0:
 	# ROM: 0x3D43A0

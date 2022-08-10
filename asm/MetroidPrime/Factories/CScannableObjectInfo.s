@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E3AC8
 lbl_803E3AC8:
@@ -497,6 +498,7 @@ GetImagePaneName__16CPauseScreenBaseFUi:
 /* 80169FB4 00166F14  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABD88
 lbl_805ABD88:
 	# ROM: 0x3F8628
@@ -505,6 +507,7 @@ lbl_805ABD88:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0430
 lbl_803D0430:
 	# ROM: 0x3CD430

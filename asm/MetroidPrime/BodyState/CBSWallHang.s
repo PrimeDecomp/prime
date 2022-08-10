@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E43A0
 lbl_803E43A0:
@@ -1661,6 +1662,7 @@ __ct__11CBSWallHangFv:
 /* 8018EBB0 0018BB10  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC188
 lbl_805AC188:
 	# ROM: 0x3F8A28

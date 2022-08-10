@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss2, "", @nobits
+.balign 8
 # CMorphBallShadow
 .global lbl_805AF470
 lbl_805AF470:
@@ -1311,6 +1312,7 @@ lbl_80296E04:
 /* 80296E20 00293D80  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADCB8
 lbl_805ADCB8:
 	# ROM: 0x3FA558
@@ -1343,6 +1345,7 @@ lbl_805ADCCC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5BD0
 lbl_803D5BD0:
 	# ROM: 0x3D2BD0

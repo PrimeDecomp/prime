@@ -159,6 +159,7 @@ lbl_80315F6C:
 /* 80315F74 00312ED4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE6F0
 lbl_805AE6F0:
 	# ROM: 0x3FAF90
@@ -167,6 +168,7 @@ lbl_805AE6F0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7820
 lbl_803D7820:
 	# ROM: 0x3D4820

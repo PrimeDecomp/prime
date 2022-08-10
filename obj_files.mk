@@ -10,7 +10,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/main.o\
 	$(BUILD_DIR)/asm/MetroidPrime/text_80008894_80009144.o\
 	$(BUILD_DIR)/asm/MetroidPrime/IRenderer.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CArchitectureMessage.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CControlMapper.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CFirstPersonCamera.o\
@@ -22,8 +21,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CInputGenerator.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMainFlow.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMFGame.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CAutoSave.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CPlayMovie.o\
+	$(BUILD_DIR)/asm/MetroidPrime/CCredits.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSplashScreen.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInstruction.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CAnimData.o\
@@ -98,7 +96,6 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CMemoryDrawEnum.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDock.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptCameraHint.o\
-	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraHint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptLoader.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CSamusDoll.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Factories/CStateMachineFactory.o\
@@ -566,8 +563,6 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/Streams/COutputStream.o\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CZipInputStream.o\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CZipSupport.o\
-	$(BUILD_DIR)/asm/Kyoto/CFactoryStore.o\
-	$(BUILD_DIR)/asm/Kyoto/CObjectReference.o\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
 	$(BUILD_DIR)/asm/Kyoto/CToken.o\
 	$(BUILD_DIR)/asm/Kyoto/IObj.o\

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CSamusFaceReflection_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7868
 lbl_805A7868:
@@ -17,6 +18,7 @@ lbl_805A786C:
 	.float 1.0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C7A0
 lbl_8046C7A0:
@@ -730,6 +732,7 @@ __sinit_CSamusFaceReflection_cpp:
 /* 8015B850 001587B0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABBC0
 lbl_805ABBC0:
 	# ROM: 0x3F8460
@@ -793,6 +796,7 @@ lbl_805ABBF0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0340
 lbl_803D0340:
 	# ROM: 0x3CD340

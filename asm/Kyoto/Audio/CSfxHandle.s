@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A92B8
 lbl_805A92B8:
@@ -19,6 +20,7 @@ __ct__10CSfxHandleFUi:
 /* 802E7884 002E47E4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE318
 lbl_805AE318:
 	# ROM: 0x3FABB8

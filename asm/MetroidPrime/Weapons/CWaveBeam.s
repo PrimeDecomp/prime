@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CWaveBeam_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DF7A0
 lbl_803DF7A0:
@@ -29,6 +30,7 @@ lbl_803DF7A0:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CWaveBeam
 .global lbl_805A8EB8
@@ -36,6 +38,7 @@ lbl_805A8EB8:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAC98
 lbl_805AAC98:
@@ -1080,6 +1083,7 @@ __sinit_CWaveBeam_cpp:
 /* 800E0EDC 000DDE3C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE568
 lbl_803CE568:
 	# ROM: 0x3CB568

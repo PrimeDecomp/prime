@@ -837,6 +837,7 @@ lbl_802FF7F0:
 /* 802FF808 002FC768  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE458
 lbl_805AE458:
 	# ROM: 0x3FACF8
@@ -844,6 +845,7 @@ lbl_805AE458:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E60
 lbl_803D6E60:
 	# ROM: 0x3D3E60

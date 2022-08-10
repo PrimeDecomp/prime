@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlasmaProjectile_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E3F00
 lbl_803E3F00:
@@ -43,6 +44,7 @@ lbl_803E3F00:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 .global lbl_805A8FF8
 lbl_805A8FF8:
@@ -2857,6 +2859,7 @@ __sinit_CPlasmaProjectile_cpp:
 /* 80179388 001762E8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABEE0
 lbl_805ABEE0:
 	# ROM: 0x3F8780
@@ -2982,6 +2985,7 @@ lbl_805ABF4C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0630
 lbl_803D0630:
 	# ROM: 0x3CD630

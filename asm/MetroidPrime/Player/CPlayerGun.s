@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlayerGun_cpp
 
 .section .data
+.balign 8
 .global lbl_803D9D50
 lbl_803D9D50:
 	# ROM: 0x3D6D50
@@ -78,6 +79,7 @@ lbl_803D9E04:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6DE0
 lbl_805A6DE0:
@@ -144,6 +146,7 @@ lbl_805A6E18:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8045C518
 lbl_8045C518:
@@ -153,6 +156,7 @@ lbl_8045C530:
 	.skip 0x20
 
 .section .sbss
+.balign 8
 
 # CPlayerGun
 .global lbl_805A8D70
@@ -178,6 +182,7 @@ lbl_805A8D8C:
 	.skip 0xC
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA168
 lbl_805AA168:
@@ -10992,6 +10997,7 @@ __sinit_CPlayerGun_cpp:
 /* 80043DDC 00040D3C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCE38
 lbl_803CCE38:
 	# ROM: 0x3C9E38

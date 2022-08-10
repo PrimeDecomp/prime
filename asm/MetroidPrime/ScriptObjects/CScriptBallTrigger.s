@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E3E80
 lbl_803E3E80:
@@ -481,6 +482,7 @@ calculate_ball_aabox__Fv:
 /* 80176B28 00173A88  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABED0
 lbl_805ABED0:
 	# ROM: 0x3F8770

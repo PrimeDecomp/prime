@@ -107,6 +107,7 @@ __ct__6CPlaneFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 80337184 003340E4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE8A0
 lbl_805AE8A0:
 	# ROM: 0x3FB140

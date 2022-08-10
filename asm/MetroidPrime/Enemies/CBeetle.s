@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DF890
 lbl_803DF890:
@@ -227,6 +228,7 @@ lbl_803DFB5C:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7338
 lbl_805A7338:
@@ -275,6 +277,7 @@ lbl_805A7358:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CBeetleFR
 .global lbl_805A8EC0
@@ -288,6 +291,7 @@ lbl_805A8ECC:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AACE0
 lbl_805AACE0:

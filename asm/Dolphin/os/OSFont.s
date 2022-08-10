@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 .global lbl_805A8B48
 lbl_805A8B48:
 	# ROM: 0x3F64E8
@@ -9,6 +10,7 @@ lbl_805A8B48:
 
 
 .section .sbss
+.balign 8
 lbl_805A98C0:
 	.skip 0x4
 lbl_805A98C4:
@@ -736,6 +738,7 @@ Zenkaku2Code:
 	.4byte 0x00000000
 
 .section .sdata2
+.balign 8
 .global lbl_805AEC48
 lbl_805AEC48:
 	# ROM: 0x3FB4E8

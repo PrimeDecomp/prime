@@ -5,12 +5,14 @@ lbl_ctor:
 .4byte __sinit_CModelData_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_8046C538
 lbl_8046C538:
 	.skip 0x20
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB368
 lbl_805AB368:

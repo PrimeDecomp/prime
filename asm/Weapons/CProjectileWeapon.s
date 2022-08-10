@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC4C8
 lbl_803EC4C8:
@@ -27,6 +28,7 @@ lbl_803EC4E8:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8648
 lbl_805A8648:
@@ -2588,6 +2590,7 @@ GetTickPeriod__17CProjectileWeaponFv:
 /* 802B1140 002AE0A0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADF10
 lbl_805ADF10:
 	# ROM: 0x3FA7B0
@@ -2656,6 +2659,7 @@ lbl_805ADF58:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6188
 lbl_803D6188:
 	# ROM: 0x3D3188

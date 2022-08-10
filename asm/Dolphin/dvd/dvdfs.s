@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 .global lbl_805A97B0
 lbl_805A97B0:
 	.skip 0x4
@@ -21,6 +22,7 @@ lbl_805A97C4:
 	.skip 0x4
 
 .section .sdata
+.balign 8
 .global lbl_805A8A90
 lbl_805A8A90:
 	# ROM: 0x3F6430

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E27D0
 lbl_803E27D0:
@@ -420,6 +421,7 @@ __ct__19CBSProjectileAttackFv:
 /* 8014D944 0014A8A4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABA58
 lbl_805ABA58:
 	# ROM: 0x3F82F8

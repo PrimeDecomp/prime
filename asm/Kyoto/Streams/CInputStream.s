@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global __vt__12CInputStream
 __vt__12CInputStream:
@@ -11,6 +12,7 @@ __vt__12CInputStream:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A94F0
 lbl_805A94F0:
@@ -454,6 +456,7 @@ __ct__12CInputStreamFi:
 /* 8033F1C0 0033C120  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7A68
 lbl_803D7A68:
 	# ROM: 0x3D4A68

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CStaticAudioPlayer_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A96A0
 lbl_805A96A0:
@@ -1057,6 +1058,7 @@ lbl_8036CA4C:
 /* 8036CA60 003699C0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8560
 lbl_803D8560:
 	# ROM: 0x3D5560

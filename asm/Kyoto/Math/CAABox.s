@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CAABox_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EE318
 lbl_803EE318:
@@ -35,6 +36,7 @@ lbl_803EE338:
 	.4byte lbl_80338220
 
 .section .sbss2, "", @nobits
+.balign 8
 # CAABox
 .global lbl_805AF4A8
 lbl_805AF4A8:
@@ -1478,6 +1480,7 @@ __sinit_CAABox_cpp:
 /* 803385C8 00335528  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE8A8
 lbl_805AE8A8:
 	# ROM: 0x3FB148

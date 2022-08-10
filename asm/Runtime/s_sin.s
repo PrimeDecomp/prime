@@ -68,6 +68,7 @@ lbl_80394BA4:
 /* 80394BB0 00391B10  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AF200
 lbl_805AF200:
 	# ROM: 0x3FBAA0
