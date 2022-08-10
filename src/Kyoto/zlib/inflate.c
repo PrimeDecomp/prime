@@ -78,12 +78,12 @@ z_streamp z;
 }
 
 
-int ZEXPORT inflateInit2_(z, w, version, stream_size)
+int ZEXPORT inflateInit2_(z, version, stream_size)
 z_streamp z;
-int w;
 const char *version;
 int stream_size;
 {
+  int w = 15; // Hardcoded window size
   if (version == Z_NULL || version[0] != ZLIB_VERSION[0] ||
       stream_size != sizeof(z_stream))
       return Z_VERSION_ERROR;
@@ -140,7 +140,7 @@ z_streamp z;
 const char *version;
 int stream_size;
 {
-  return inflateInit2_(z, DEF_WBITS, version, stream_size);
+  return inflateInit2_(z, version, stream_size);
 }
 
 
