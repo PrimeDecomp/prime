@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_rstl_strings_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
@@ -1747,6 +1748,7 @@ lbl_8033E410:
 /* 8033E42C 0033B38C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7A48
 lbl_803D7A48:
 	# ROM: 0x3D4A48

@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global lbl_80541298
 lbl_80541298:
 	.skip 0x2E8
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8B40
 lbl_805A8B40:
@@ -15,6 +17,7 @@ lbl_805A8B40:
 
 
 .section .sdata2
+.balign 8
 
 .global lbl_805AEC18
 lbl_805AEC18:

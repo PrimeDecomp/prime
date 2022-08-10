@@ -427,6 +427,7 @@ GetParmDeleteIOWin__7MakeMsgFRC20CArchitectureMessage:
 /* 80051D78 0004ECD8  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCF20
 lbl_803CCF20:
 	# ROM: 0x3C9F20

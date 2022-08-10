@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global fixed_tl
 fixed_tl:
@@ -1099,6 +1100,7 @@ fixed_td:
 	.4byte 0x00006001
 
 .section .sdata
+.balign 8
 
 .global fixed_bl
 fixed_bl:
@@ -1711,6 +1713,7 @@ lbl_80344400:
 /* 80344408 00341368  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 
 inflate_copyright:
 	# ROM: 0x3D4C50

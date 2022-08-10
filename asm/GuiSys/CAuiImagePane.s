@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECA90
 lbl_803ECA90:
@@ -23,6 +24,7 @@ lbl_803ECA90:
 	.4byte WriteData__13CAuiImagePaneCFR13COutputStreamb
 
 .section .sdata
+.balign 8
 
 .global lbl_805A86E0
 lbl_805A86E0:
@@ -1667,6 +1669,7 @@ lbl_802CD42C:
 /* 802CD450 002CA3B0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE168
 lbl_805AE168:
 	# ROM: 0x3FAA08
@@ -1705,6 +1708,7 @@ lbl_805AE188:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D69C8
 lbl_803D69C8:
 	# ROM: 0x3D39C8

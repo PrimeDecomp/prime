@@ -310,6 +310,7 @@ lbl_802DF8BC:
 /* 802DF8E4 002DC844  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6D50
 lbl_803D6D50:
 	# ROM: 0x3D3D50

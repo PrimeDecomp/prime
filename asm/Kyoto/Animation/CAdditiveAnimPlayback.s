@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A89F8
 lbl_805A89F8:
@@ -324,6 +325,7 @@ lbl_8035DEE0:
 /* 8035DEE8 0035AE48  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEA60
 lbl_805AEA60:
 	# ROM: 0x3FB300

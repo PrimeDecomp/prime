@@ -33,6 +33,7 @@ Alloc__11CZipSupportFPvUiUi:
 /* 8033FA44 0033C9A4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7A88
 lbl_803D7A88:
 	# ROM: 0x3D4A88

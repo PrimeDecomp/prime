@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CTryclops_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E9A10
 lbl_803E9A10:
@@ -219,6 +220,7 @@ lbl_803E9A40:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A83A0
 lbl_805A83A0:
@@ -271,12 +273,14 @@ lbl_805A83C4:
 	.4byte 0x00000013
 
 .section .bss
+.balign 8
 
 .global lbl_8046DC90
 lbl_8046DC90:
 	.skip 0x18
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9120
 lbl_805A9120:
@@ -3972,6 +3976,7 @@ __sinit_CTryclops_cpp:
 /* 8026107C 0025DFDC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD748
 lbl_805AD748:
 	# ROM: 0x3F9FE8

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E6308
 lbl_803E6308:
@@ -47,6 +48,7 @@ lbl_803E6374:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7DF8
 lbl_805A7DF8:
@@ -105,6 +107,7 @@ lbl_805A7E20:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9080
 lbl_805A9080:
@@ -135,6 +138,7 @@ lbl_805A90A0:
 	.skip 0x8
 
 .section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
+.balign 8
 # CWallCrawlerSwarm
 .global lbl_805AF468
 lbl_805AF468:
@@ -144,6 +148,7 @@ lbl_805AF46C:
 	.skip 0x4
 
 .section .bss
+.balign 8
 
 .global lbl_8046C938
 lbl_8046C938:
@@ -8743,6 +8748,7 @@ lbl_801EF1D0:
 /* 801EF1E8 001EC148  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACAC0
 lbl_805ACAC0:
 	# ROM: 0x3F9360
@@ -8931,6 +8937,7 @@ lbl_805ACB5C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1F20
 lbl_803D1F20:
 	# ROM: 0x3CEF20

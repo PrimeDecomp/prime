@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED320
 lbl_803ED320:
@@ -39,6 +40,7 @@ lbl_803ED320:
 	.4byte VGetBlendingWeight__19CAnimTreeTransitionCFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A87C8
 lbl_805A87C8:
@@ -1171,6 +1173,7 @@ lbl_802F685C:
 /* 802F69D0 002F3930  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE3C8
 lbl_805AE3C8:
 	# ROM: 0x3FAC68
@@ -1203,6 +1206,7 @@ lbl_805AE3DC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E10
 lbl_803D6E10:
 	# ROM: 0x3D3E10

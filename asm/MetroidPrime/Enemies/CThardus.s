@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CThardus_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E5CE0
 lbl_803E5CE0:
@@ -417,6 +418,7 @@ lbl_803E6074:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7DA8
 lbl_805A7DA8:
@@ -499,6 +501,7 @@ lbl_805A7DE4:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9078
 lbl_805A9078:
@@ -10778,6 +10781,7 @@ __sinit_CThardus_cpp:
 /* 801E38A0 001E0800  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC9E8
 lbl_805AC9E8:
 	# ROM: 0x3F9288
@@ -11002,6 +11006,7 @@ lbl_805ACA98:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1BA0
 lbl_803D1BA0:
 	# ROM: 0x3CEBA0

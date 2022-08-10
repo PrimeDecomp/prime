@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .balign 4
 
 .global lbl_8056A0A0
@@ -11,12 +12,14 @@ __GBA:
 	.skip 0x400
 
 .section .sbss, "wa"
+.balign 8
 .balign 4
 .global __GBAReset
 __GBAReset:
 	.skip 0x4
 
 .section .data, "wa"
+.balign 8
 
 lbl_803F7160:
     .4byte OnReset

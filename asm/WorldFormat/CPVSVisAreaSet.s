@@ -210,6 +210,7 @@ sub_802ae630:
 /* 802AE6C0 002AB620  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6110
 lbl_803D6110:
 	# ROM: 0x3D3110

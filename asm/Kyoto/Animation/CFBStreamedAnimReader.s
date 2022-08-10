@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 
 .global lbl_803ED430
@@ -46,6 +47,7 @@ lbl_803ED494:
 	.4byte "__dt__41TAnimSourceInfo<22CFBStreamedCompression>Fv"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A87D8
 lbl_805A87D8:
@@ -3241,6 +3243,7 @@ lbl_802FB870:
 /* 802FB920 002F8880  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE3F8
 lbl_805AE3F8:
 	# ROM: 0x3FAC98
@@ -3274,6 +3277,7 @@ lbl_805AE410:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E30
 lbl_803D6E30:
 	# ROM: 0x3D3E30

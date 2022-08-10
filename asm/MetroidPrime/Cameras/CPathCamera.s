@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPathCamera_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E0C68
 lbl_803E0C68:
@@ -41,6 +42,7 @@ lbl_803E0C68:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A76B0
 lbl_805A76B0:
@@ -69,12 +71,14 @@ lbl_805A76C0:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C720
 lbl_8046C720:
 	.skip 0x18
 
 .section .sbss
+.balign 8
 
 # CPathCamera
 .global lbl_805A8F60
@@ -91,6 +95,7 @@ lbl_805A8F6C:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB5C8
 lbl_805AB5C8:

@@ -98,6 +98,7 @@ AddTypes__17InternalCollidersFv:
 /* 802CE680 002CB5E0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6A20
 lbl_803D6A20:
 	# ROM: 0x3D3A20

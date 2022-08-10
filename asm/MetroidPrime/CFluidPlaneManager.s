@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A76D8
 lbl_805A76D8:
@@ -13,6 +14,12 @@ lbl_805A76DC:
 	.4byte 0x000000FF
 
 .section .sdata2, "a"
+.balign 8
+
+.global lbl_805AB610
+lbl_805AB610:
+	# ROM: 0x3F7EB0
+	.4byte 0x01000000
 
 .global lbl_805AB614
 lbl_805AB614:
@@ -587,6 +594,7 @@ Clear__Q218CFluidPlaneManager13CFluidProfileFv:
 /* 8012F770 0012C6D0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D0038
 lbl_803D0038:
 	# ROM: 0x3CD038

@@ -280,6 +280,7 @@ __ct__11CGSFreeLookFv:
 /* 801CD09C 001C9FFC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC8A0
 lbl_805AC8A0:
 	# ROM: 0x3F9140
@@ -298,6 +299,7 @@ lbl_805AC8A8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1AB8
 lbl_803D1AB8:
 	# ROM: 0x3CEAB8

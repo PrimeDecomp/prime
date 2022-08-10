@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 .balign 4
 .global lbl_805A99D0
 lbl_805A99D0:

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CFlaahgra_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E4D08
 lbl_803E4D08:
@@ -331,6 +332,7 @@ lbl_803E5154:
 	.4byte Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseTypesR13CStateManagerRC20CDamageVulnerability9TUniqueId
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7C40
 lbl_805A7C40:
@@ -433,6 +435,7 @@ lbl_805A7C8C:
 	.4byte 0x00000021
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9058
 lbl_805A9058:
@@ -8303,6 +8306,7 @@ __sinit_CFlaahgra_cpp:
 /* 801B45C8 001B1528  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC5B8
 lbl_805AC5B8:
 	# ROM: 0x3F8E58
@@ -8502,6 +8506,7 @@ lbl_805AC65C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D14E0
 lbl_803D14E0:
 	# ROM: 0x3CE4E0

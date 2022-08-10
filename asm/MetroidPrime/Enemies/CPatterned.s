@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPatterned_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DA5C8
 lbl_803DA5C8:
@@ -379,6 +380,7 @@ lbl_803DAA68:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6FA0
 lbl_805A6FA0:
@@ -481,6 +483,7 @@ lbl_805A6FEC:
 	.4byte 0x00000021
 
 .section .sbss
+.balign 8
 # CPatterned
 .global lbl_805A8E10
 lbl_805A8E10:
@@ -514,6 +517,7 @@ lbl_805A8E3C:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA610
 lbl_805AA610:
@@ -8158,6 +8162,7 @@ __sinit_CPatterned_cpp:
 /* 8007DFEC 0007AF4C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD600
 lbl_803CD600:
 	# ROM: 0x3CA600

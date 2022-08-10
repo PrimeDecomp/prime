@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EF7B8
 lbl_803EF7B8:
@@ -37,6 +38,7 @@ lbl_803EF7B8:
 	.4byte Get4CharId__17CParticleElectricFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8A10
 lbl_805A8A10:
@@ -5171,6 +5173,7 @@ lbl_80363058:
 /* 80363068 0035FFC8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEA68
 lbl_805AEA68:
 	# ROM: 0x3FB308
@@ -5262,6 +5265,7 @@ lbl_805AEAB8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D83E8
 lbl_803D83E8:
 	# ROM: 0x3D53E8

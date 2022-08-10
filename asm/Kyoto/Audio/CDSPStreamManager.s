@@ -5,12 +5,10 @@ lbl_ctor:
 .4byte __sinit_CDSPStreamManager_cpp
 
 .section .bss
+.balign 8
 
 #TODO: Figure out what's going on with these, they're referenced in various locations
 
-.global lbl_80540004
-lbl_80540004:
-	.skip 0xC
 .global lbl_80540010
 lbl_80540010:
 	.skip 0x10
@@ -40,6 +38,7 @@ lbl_80540A2C:
 	.skip 0x14
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9678
 lbl_805A9678:
@@ -1920,6 +1919,7 @@ lbl_80364F3C:
 /* 80364F50 00361EB0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8400
 lbl_803D8400:
 	# ROM: 0x3D5400

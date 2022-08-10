@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_DolphinCSkinnedModel_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EF718
 lbl_803EF718:
@@ -15,6 +16,7 @@ lbl_803EF718:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_804BFFC0
 lbl_804BFFC0:
@@ -25,8 +27,12 @@ lbl_8053FFCC:
 .global lbl_8053FFF4
 lbl_8053FFF4:
 	.skip 0x10
+.global lbl_80540004
+lbl_80540004:
+	.skip 0xC
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A95F0
 lbl_805A95F0:
@@ -1392,6 +1398,7 @@ lbl_803538D8:
 /* 803538F0 00350850  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D82F8
 lbl_803D82F8:
 	# ROM: 0x3D52F8

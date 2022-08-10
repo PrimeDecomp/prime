@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlasmaBeam_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DF710
 lbl_803DF710:
@@ -29,6 +30,7 @@ lbl_803DF710:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7320
 lbl_805A7320:
@@ -38,12 +40,14 @@ lbl_805A7320:
 
 
 .section .bss
+.balign 8
 
 .global lbl_8046C488
 lbl_8046C488:
 	.skip 0x10
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAC50
 lbl_805AAC50:
@@ -917,6 +921,7 @@ lbl_800DF688:
 /* 800DF694 000DC5F4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE530
 lbl_803CE530:
 	# ROM: 0x3CB530

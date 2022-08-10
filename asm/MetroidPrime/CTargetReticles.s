@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CTargetReticles_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7230
 lbl_805A7230:
@@ -97,12 +98,14 @@ lbl_805A7274:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C450
 lbl_8046C450:
 	.skip 0x20
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAA50
 lbl_805AAA50:
@@ -6532,6 +6535,7 @@ __sinit_CTargetReticles_cpp:
 /* 800C1D24 000BEC84  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CDEE8
 lbl_803CDEE8:
 	# ROM: 0x3CAEE8

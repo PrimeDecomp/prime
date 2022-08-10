@@ -1298,6 +1298,7 @@ __ct__13CPFRegionDataFv:
 /* 801CA168 001C70C8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC860
 lbl_805AC860:
 	# ROM: 0x3F9100

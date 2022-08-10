@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMetroidPrimeExo_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EAA90
 lbl_803EAA90:
@@ -523,6 +524,7 @@ lbl_803EB0FC:
 	.4byte GetWeight__13CPhysicsActorCFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8410
 lbl_805A8410:
@@ -705,12 +707,14 @@ lbl_805A849C:
 	.float 1.0
 
 .section .bss
+.balign 8
 
 .global lbl_8046E0C0
 lbl_8046E0C0:
 	.skip 0x18
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9140
 lbl_805A9140:
@@ -13269,6 +13273,7 @@ __sinit_CMetroidPrimeExo_cpp:
 /* 8027C5C8 00279528  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD8F0
 lbl_805AD8F0:
 	# ROM: 0x3FA190
@@ -13634,6 +13639,7 @@ lbl_805ADA1C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5428
 lbl_803D5428:
 	# ROM: 0x3D2428

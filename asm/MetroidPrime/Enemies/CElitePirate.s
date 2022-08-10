@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CElitePirate_cpp
 
 .section .data
+.balign 8
 
 
 .global lbl_803E7AE0
@@ -272,6 +273,7 @@ lbl_803E7E20:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8128
 lbl_805A8128:
@@ -7967,6 +7969,7 @@ __sinit_CElitePirate_cpp:
 /* 8022E0F0 0022B050  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD2C0
 lbl_805AD2C0:
 	# ROM: 0x3F9B60
@@ -8139,6 +8142,7 @@ lbl_805AD344:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D3278
 lbl_803D3278:
 	# ROM: 0x3D0278

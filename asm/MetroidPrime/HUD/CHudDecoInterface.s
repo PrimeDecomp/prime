@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E4470
 lbl_803E4470:
@@ -121,6 +122,7 @@ lbl_803E4594:
 	.4byte __dt__23CHudDecoInterfaceCombatFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7AB8
 lbl_805A7AB8:
@@ -9546,6 +9548,7 @@ lbl_801974A8:
 /* 801974B8 00194418  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC1B8
 lbl_805AC1B8:
 	# ROM: 0x3F8A58
@@ -10124,6 +10127,7 @@ lbl_805AC3B8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0948
 lbl_803D0948:
 	# ROM: 0x3CD948

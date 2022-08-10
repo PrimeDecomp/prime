@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED568
 lbl_803ED568:
@@ -498,6 +499,7 @@ __ct__16CAnimFormatUnionFR12CInputStreamR12IObjectStore:
 /* 802FE5D0 002FB530  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE450
 lbl_805AE450:
 	# ROM: 0x3FACF0
@@ -506,6 +508,7 @@ lbl_805AE450:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E58
 lbl_803D6E58:
 	# ROM: 0x3D3E58

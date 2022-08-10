@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global Header
 Header:
 	.skip 0x20
 
 .section .sbss
+.balign 8
 SaveStart:
 	.skip 0x4
 SaveEnd:

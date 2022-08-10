@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global dataKeymapTab
 dataKeymapTab:
 	.skip 0x800
@@ -33,6 +34,7 @@ dataMacSubTabmem:
 	.skip 0xC
 
 .section .sbss
+.balign 8
 .balign 4
 "result$494":
 	.skip 0x4

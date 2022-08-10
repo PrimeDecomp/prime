@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global AIVersion
 AIVersion:
@@ -8,12 +9,14 @@ AIVersion:
 	.4byte 0
 
 .section .sdata
+.balign 8
 .global lbl_805A8A68
 lbl_805A8A68:
 	.4byte AIVersion
 	.4byte 0
 
 .section .sbss
+.balign 8
 __AIS_Callback:
 	.skip 0x4
 __AID_Callback:

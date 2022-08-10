@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC390
 lbl_803EC390:
@@ -360,6 +361,7 @@ Accept__23CMetroidPrimeProjectileFR8IVisitor:
 /* 802A07EC 0029D74C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADE30
 lbl_805ADE30:
 	# ROM: 0x3FA6D0
@@ -372,6 +374,7 @@ lbl_805ADE34:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5EE8
 lbl_803D5EE8:
 	# ROM: 0x3D2EE8

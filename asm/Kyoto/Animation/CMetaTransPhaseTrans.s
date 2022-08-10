@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECDA8
 lbl_803ECDA8:
@@ -13,6 +14,7 @@ lbl_803ECDA8:
 	.4byte WriteTransData__20CMetaTransPhaseTransCFR13COutputStream
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8728
 lbl_805A8728:
@@ -652,10 +654,7 @@ __ct__20CMetaTransPhaseTransFR12CInputStream:
 /* 802E2B08 002DFA68  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
-.global lbl_805AE2CC
-lbl_805AE2CC:
-	# ROM: 0x3FAB6C
-	.4byte 0
+.balign 8
 
 .global lbl_805AE2D0
 lbl_805AE2D0:
@@ -669,6 +668,7 @@ lbl_805AE2D4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6D98
 lbl_803D6D98:
 	# ROM: 0x3D3D98

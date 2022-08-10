@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DF7E8
 lbl_803DF7E8:
@@ -25,6 +26,7 @@ lbl_803DF7E8:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AACC0
 lbl_805AACC0:
@@ -845,6 +847,7 @@ __ct__8CIceBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 800E1A34 000DE994  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE598
 lbl_803CE598:
 	# ROM: 0x3CB598

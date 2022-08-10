@@ -1,11 +1,14 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 lbl_80540C18:
 	.skip 0x40
 lbl_80540C58:
 	.skip 0x30
+
 .section .sbss
+.balign 8
 lbl_805A9828:
 	.skip 0x4
 lbl_805A982C:
@@ -14,6 +17,7 @@ lbl_805A9830:
 	.skip 0x8
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8AB8
 lbl_805A8AB8:
@@ -43,7 +47,6 @@ lbl_803F0578:
 	.asciz "  Disk # ...... %d\n"
 	.asciz "  Game ver .... %d\n"
 	.asciz "  Streaming ... %s\n"
-	.asciz "<< Dolphin SDK - GX\trelease build: Sep  5 2002 05:33:28 (0x2301) >>"
 
 
 .section .text, "ax"

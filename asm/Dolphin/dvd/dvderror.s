@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global lbl_803F0100
 lbl_803F0100:
 	# ROM: 0x3ED100

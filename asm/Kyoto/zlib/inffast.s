@@ -394,6 +394,7 @@ lbl_80343350:
 /* 80343358 003402B8  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7BA0
 lbl_803D7BA0:
 	# ROM: 0x3D4BA0

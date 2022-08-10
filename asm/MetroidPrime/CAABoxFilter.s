@@ -132,6 +132,7 @@ lbl_801859E0:
 /* 80185A0C 0018296C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC028
 lbl_805AC028:
 	# ROM: 0x3F88C8

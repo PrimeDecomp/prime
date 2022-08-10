@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global "newsmp$473"
 "newsmp$473":
 	.skip 0x20
 
 .section .sbss
+.balign 8
 "cstep$1643":
 	.skip 0x8
 macRealTime:
@@ -18,6 +20,7 @@ DebugMacroSteps:
 	.skip 0x8
 
 .section .data, "wa"
+.balign 8
 "kf$395":
 	# ROM: 0x3EFFD8
 	.4byte 0x100010F3
@@ -314,6 +317,7 @@ midi2TimeTab:
 	.4byte lbl_803A6AF4
 
 .section .sdata2
+.balign 8
 .global lbl_805AF288
 lbl_805AF288:
 	# ROM: 0x3FBB28

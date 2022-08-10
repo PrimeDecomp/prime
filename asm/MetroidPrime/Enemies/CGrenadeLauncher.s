@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CGrenadeLauncher_cpp
 
 .section .data
+.balign 8
 .global lbl_803E7F58
 lbl_803E7F58:
 	# ROM: 0x3E4F58
@@ -76,6 +77,7 @@ lbl_803E7FDC:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A81A8
 lbl_805A81A8:
@@ -154,6 +156,7 @@ lbl_805A81E0:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 .global lbl_805A90E8
 lbl_805A90E8:
 	.skip 0x4
@@ -2381,6 +2384,7 @@ __sinit_CGrenadeLauncher_cpp:
 /* 80231670 0022E5D0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD370
 lbl_805AD370:
 	# ROM: 0x3F9C10
@@ -2489,6 +2493,7 @@ lbl_805AD3C4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D3410
 lbl_803D3410:
 	# ROM: 0x3D0410

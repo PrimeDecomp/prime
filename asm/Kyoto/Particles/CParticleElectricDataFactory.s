@@ -725,6 +725,7 @@ lbl_8035E8AC:
 /* 8035E8D4 0035B834  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D83E0
 lbl_803D83E0:
 	# ROM: 0x3D53E0

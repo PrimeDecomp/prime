@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9200
 lbl_805A9200:
@@ -162,6 +163,7 @@ sub_802c65a0:
 /* 802C65E4 002C3544  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D68C8
 lbl_803D68C8:
 	# ROM: 0x3D38C8

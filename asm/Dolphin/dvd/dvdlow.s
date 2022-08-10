@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8A88
 lbl_805A8A88:
@@ -10,6 +11,7 @@ lbl_805A8A88:
 
 
 .section .bss
+.balign 8
 
 lbl_80540A80:
 	.skip 0x68
@@ -17,6 +19,7 @@ lbl_80540AE8:
 	.skip 0x78
 
 .section .sbss
+.balign 8
 
 .global lbl_805A9768
 lbl_805A9768:

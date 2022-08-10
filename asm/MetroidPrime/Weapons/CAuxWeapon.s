@@ -1391,6 +1391,7 @@ __ct__10CAuxWeaponF9TUniqueId:
 /* 801B9C48 001B6BA8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC6D0
 lbl_805AC6D0:
 	# ROM: 0x3F8F70
@@ -1423,6 +1424,7 @@ lbl_805AC6E4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1658
 lbl_803D1658:
 	# ROM: 0x3CE658

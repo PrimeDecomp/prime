@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CCubeRenderer_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A91B0
 lbl_805A91B0:
@@ -53,6 +54,7 @@ lbl_805A91F4:
 	.skip 0x4
 
 .section .data
+.balign 8
 
 .global lbl_803EC5D8
 lbl_803EC5D8:
@@ -131,6 +133,7 @@ lbl_803EC5D8:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8658
 lbl_805A8658:
@@ -243,6 +246,7 @@ lbl_805A86AC:
 	.4byte 0
 
 .section .sbss2, "", @nobits
+.balign 8
 
 # CCubeRenderer
 .global lbl_805AF490
@@ -256,6 +260,7 @@ lbl_805AF498:
 	.skip 0x8
 
 .section .bss
+.balign 8
 
 .global lbl_8046E200
 lbl_8046E200:
@@ -12539,6 +12544,7 @@ lbl_802C0BCC:
 /* 802C0BF0 002BDB50  4B FF DA A8 */	b __dt__13CCubeRendererFv
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADF88
 lbl_805ADF88:
 	# ROM: 0x3FA828
@@ -12790,6 +12796,7 @@ lbl_805AE078:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6570
 lbl_803D6570:
 	# ROM: 0x3D3570

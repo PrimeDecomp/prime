@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global lbl_803E6758
 lbl_803E6758:
 	# ROM: 0x3E3758
@@ -391,6 +392,7 @@ __ct__12CABSReactionFv:
 /* 801F1A64 001EE9C4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACBF0
 lbl_805ACBF0:
 	# ROM: 0x3F9490

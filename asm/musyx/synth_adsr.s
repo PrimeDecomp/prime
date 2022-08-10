@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata2
+.balign 8
 .global lbl_805AF2C8
 lbl_805AF2C8:
 	# ROM: 0x3FBB68

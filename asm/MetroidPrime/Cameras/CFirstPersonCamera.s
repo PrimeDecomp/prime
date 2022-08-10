@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global lbl_803D9660
 lbl_803D9660:
 	# ROM: 0x3D6660
@@ -36,12 +37,14 @@ lbl_803D9660:
 	.4byte 0
 
 .section .rodata
+.balign 8
 .global lbl_803CC420
 lbl_803CC420:
 	.asciz "First Person Camera"
 	.4byte 0
 
 .section .sdata
+.balign 8
 .global lbl_805A6BF8
 lbl_805A6BF8:
 	# ROM: 0x3F4598
@@ -143,6 +146,7 @@ lbl_805A6C44:
 	.float 1.0
 
 .section .sdata2
+.balign 8
 
 .global lbl_805A9DD0
 lbl_805A9DD0:

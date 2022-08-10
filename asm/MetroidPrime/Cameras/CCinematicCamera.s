@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DADF8
 lbl_803DADF8:
@@ -37,6 +38,7 @@ lbl_803DADF8:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7160
 lbl_805A7160:
@@ -49,6 +51,7 @@ lbl_805A7164:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CCinematicCamera
 .global lbl_805A8E68
@@ -65,6 +68,7 @@ lbl_805A8E74:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA858
 lbl_805AA858:
@@ -3161,6 +3165,7 @@ lbl_80095674:
 /* 8009568C 000925EC  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD7C0
 lbl_803CD7C0:
 	# ROM: 0x3CA7C0

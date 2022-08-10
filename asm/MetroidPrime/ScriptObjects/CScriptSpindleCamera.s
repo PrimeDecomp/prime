@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CScriptSpindleCamera_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E8670
 lbl_803E8670:
@@ -41,6 +42,7 @@ lbl_803E8670:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8270
 lbl_805A8270:
@@ -83,12 +85,14 @@ lbl_805A828C:
 	.float 1.0
 
 .section .bss
+.balign 8
 
 .global lbl_8046D390
 lbl_8046D390:
 	.skip 0x18
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A90F8
 lbl_805A90F8:
@@ -2093,6 +2097,7 @@ __sinit_CScriptSpindleCamera_cpp:
 /* 802418EC 0023E84C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD4F0
 lbl_805AD4F0:
 	# ROM: 0x3F9D90

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global lbl_8045C550
 lbl_8045C550:
@@ -22,6 +23,7 @@ lbl_8046B97C:
 	.skip 0xA3C
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6E20
 lbl_805A6E20:
@@ -129,6 +131,7 @@ lbl_805A6E64:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CStateManager
 .global lbl_805A8D98
@@ -183,6 +186,7 @@ lbl_805A8DD4:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA260
 lbl_805AA260:
@@ -444,6 +448,11 @@ lbl_805AA344:
 lbl_805AA348:
 	# ROM: 0x3F6BE8
 	.4byte 0x43480000
+
+.global lbl_805AA34C
+lbl_805AA34C:
+	# ROM: 0x3F6BEC
+	.4byte 0x3F7D70A4
 
 .section .text, "ax"
 
@@ -15508,6 +15517,7 @@ lbl_8005105C:
 /* 80051080 0004DFE0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCEE0
 lbl_803CCEE0:
 	# ROM: 0x3C9EE0

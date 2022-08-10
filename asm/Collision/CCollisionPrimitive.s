@@ -5,12 +5,14 @@ lbl_ctor:
 .4byte __sinit_CCollisionPrimitive_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_804794E0
 lbl_804794E0:
 	.skip 0x30
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9210
 lbl_805A9210:
@@ -1642,6 +1644,7 @@ lbl_802CFBE8:
 /* 802CFC04 002CCB64  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6A48
 lbl_803D6A48:
 	# ROM: 0x3D3A48

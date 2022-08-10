@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803D9CE0
 lbl_803D9CE0:
@@ -35,6 +36,7 @@ lbl_803D9CE0:
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6DB8
 lbl_805A6DB8:
@@ -87,6 +89,7 @@ lbl_805A6DDC:
 	.4byte 0x00000012
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA120
 lbl_805AA120:
@@ -3720,6 +3723,7 @@ lbl_8003A6E0:
 /* 8003A7A0 00037700  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCE20
 lbl_803CCE20:
 	# ROM: 0x3C9E20

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 __DBInterface:
 	.skip 0x4
 DBVerbose:
@@ -8,6 +9,7 @@ DBVerbose:
 
 
 .section .data
+.balign 8
 .global lbl_803EF9B8
 lbl_803EF9B8:
 	.asciz "DBExceptionDestination\n"

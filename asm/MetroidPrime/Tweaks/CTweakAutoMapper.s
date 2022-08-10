@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DF438
 lbl_803DF438:
@@ -11,6 +12,7 @@ lbl_803DF438:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CGameArea or CMApWorld
 .global lbl_805A8EB0
@@ -18,6 +20,7 @@ lbl_805A8EB0:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAA28
 lbl_805AAA28:

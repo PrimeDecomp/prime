@@ -760,6 +760,7 @@ __ct__26CStandardMultiFormatHeaderFR12CInputStream:
 /* 802FC354 002F92B4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE418
 lbl_805AE418:
 	# ROM: 0x3FACB8
@@ -784,6 +785,7 @@ lbl_805AE428:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E38
 lbl_803D6E38:
 	# ROM: 0x3D3E38

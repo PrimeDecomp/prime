@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CParasite_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E2FF8
 lbl_803E2FF8:
@@ -199,6 +200,7 @@ lbl_803E3004:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CParasite
 .global lbl_805A8FB0
@@ -239,6 +241,7 @@ lbl_805A8FD8:
 	.skip 0x8
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7850
 lbl_805A7850:
@@ -267,6 +270,7 @@ lbl_805A7860:
 	.4byte 0
 
 .section .bss
+.balign 8
 .global lbl_8046C770
 lbl_8046C770:
 	.skip 0x18
@@ -5031,6 +5035,7 @@ __sinit_CParasite_cpp:
 /* 8015ADC0 00157D20  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABB68
 lbl_805ABB68:
 	# ROM: 0x3F8408
@@ -5139,6 +5144,7 @@ lbl_805ABBBC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0330
 lbl_803D0330:
 	# ROM: 0x3CD330

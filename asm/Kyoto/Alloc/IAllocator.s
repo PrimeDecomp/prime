@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global __vt__10IAllocator
 __vt__10IAllocator:

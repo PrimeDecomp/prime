@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPuddleToadGamma_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E24E0
 lbl_803E24E0:
@@ -191,6 +192,7 @@ lbl_803E24E0:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A77B8
 lbl_805A77B8:
@@ -233,12 +235,14 @@ lbl_805A77D4:
 	.4byte 0x00000024
 
 .section .bss
+.balign 8
 
 .global lbl_8046C758
 lbl_8046C758:
 	.skip 0x18
 
 .section .sbss
+.balign 8
 
 # CPuddleToadGamma
 .global lbl_805A8FA0
@@ -2190,6 +2194,7 @@ __sinit_CPuddleToadGamma_cpp:
 /* 8014CFF8 00149F58  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABA10
 lbl_805ABA10:
 	# ROM: 0x3F82B0
@@ -2252,6 +2257,7 @@ lbl_805ABA3C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0170
 lbl_803D0170:
 	# ROM: 0x3CD170

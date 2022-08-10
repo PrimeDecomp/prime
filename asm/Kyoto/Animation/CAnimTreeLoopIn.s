@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECBE0
 lbl_803ECBE0:
@@ -2573,6 +2574,7 @@ CopyNodeMinusStartTime__13CSoundPOINodeFRC13CSoundPOINodeRC13CCharAnimTime:
 /* 802DAB30 002D7A90  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE2B8
 lbl_805AE2B8:
 	# ROM: 0x3FAB58
@@ -2585,6 +2587,7 @@ lbl_805AE2BC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6D38
 lbl_803D6D38:
 	# ROM: 0x3D3D38

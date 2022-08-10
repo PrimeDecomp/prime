@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E0D70
 lbl_803E0D70:
@@ -35,6 +36,7 @@ lbl_803E0D70:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A76E8
 lbl_805A76E8:
@@ -43,12 +45,14 @@ lbl_805A76E8:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C738
 lbl_8046C738:
 	.skip 0x10
 
 .section .sbss
+.balign 8
 
 # CHudBillboardEffect
 .global lbl_805A8F70
@@ -62,6 +66,7 @@ lbl_805A8F78:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB658
 lbl_805AB658:
@@ -687,6 +692,7 @@ lbl_801302E0:
 /* 801302F0 0012D250  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D0048
 lbl_803D0048:
 	# ROM: 0x3CD048

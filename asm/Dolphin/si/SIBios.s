@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global Packet
 Packet:
 	.skip 0x80
@@ -22,6 +23,7 @@ lbl_80569E38:
 
 
 .section .data, "wa"
+.balign 8
 
 .global lbl_803F6EA0
 lbl_803F6EA0:
@@ -68,12 +70,14 @@ Type:
 
 
 .section .sdata, "wa"
+.balign 8
 .global __SIVersion
 __SIVersion:
 	.4byte lbl_803F6EA0
 	.skip 4
 
 .section .sbss, "wa"
+.balign 8
 .balign 4
 .global lbl_805A9BD0
 lbl_805A9BD0:

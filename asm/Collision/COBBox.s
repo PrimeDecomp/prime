@@ -769,6 +769,7 @@ __ct__6COBBoxFRC12CTransform4fRC9CVector3f:
 /* 802D5FE4 002D2F44  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE260
 lbl_805AE260:
 	# ROM: 0x3FAB00

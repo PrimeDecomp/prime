@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global lbl_80569F60
 lbl_80569F60:
 	.skip 0x118
@@ -9,6 +10,7 @@ __THPMCUBuffer:
 	.skip 0x28
 
 .section .rodata, "a" # 0x803CB3A0 - 0x803D8D60
+.balign 8
 __THPJpegNaturalOrder: # local object
 	.4byte 0x00010810
 	.4byte 0x0902030A
@@ -42,6 +44,7 @@ __THPAANScaleFactor: # local object
 
 
 .section .sdata2, "wa"
+.balign 8
 .global lbl_805AF440
 lbl_805AF440:
 	.double 4.503599627370496E15
@@ -63,6 +66,7 @@ lbl_805AF458:
 	.float 1024.0
 
 .section .sbss, "wa"
+.balign 8
 .balign 32
 Ydchuff:
 	.skip 4
@@ -108,11 +112,13 @@ __THPInitFlag:
 	.skip 4
 
 .section .data, "wa"
+.balign 8
 THPVersionStr:
 	.asciz "<< Dolphin SDK - THP\trelease build: Aug 27 2002 20:42:01 >>"
 	.skip 4
 
 .section .sdata, "wa"
+.balign 8
 THPVersion:
 	.4byte THPVersionStr
 

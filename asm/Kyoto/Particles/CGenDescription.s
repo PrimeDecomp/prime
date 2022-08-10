@@ -288,6 +288,7 @@ element_from_desc__FP15CGenDescriptioni:
 /* 80367238 00364198  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8418
 lbl_803D8418:
 	# ROM: 0x3D5418

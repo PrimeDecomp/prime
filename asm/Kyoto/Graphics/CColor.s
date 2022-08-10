@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CColor_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9568
 lbl_805A9568:

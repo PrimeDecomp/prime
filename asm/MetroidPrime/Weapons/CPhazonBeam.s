@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E42E8
 lbl_803E42E8:
@@ -1170,6 +1171,7 @@ __ct__11CPhazonBeamFUi11EWeaponType9TUniqueId14EMaterialTypesRC9CVector3f:
 /* 8018D260 0018A1C0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC118
 lbl_805AC118:
 	# ROM: 0x3F89B8
@@ -1298,6 +1300,7 @@ lbl_805AC178:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D08F8
 lbl_803D08F8:
 	# ROM: 0x3CD8F8

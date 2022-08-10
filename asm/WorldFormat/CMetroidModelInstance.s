@@ -123,6 +123,7 @@ nullsub_30:
 /* 802A291C 0029F87C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6018
 lbl_803D6018:
 	# ROM: 0x3D3018

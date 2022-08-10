@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CCameraFilter_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DFCC0
 lbl_803DFCC0:
@@ -33,6 +34,7 @@ lbl_803DFCE4:
 	.4byte lbl_800EC234
 
 .section .sdata
+.balign 8
 
 .global lbl_805A73D8
 lbl_805A73D8:
@@ -51,6 +53,7 @@ lbl_805A73E0:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CCameraFilter
 .global lbl_805A8EE0
@@ -58,6 +61,7 @@ lbl_805A8EE0:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AADF0
 lbl_805AADF0:
@@ -3421,6 +3425,7 @@ __sinit_CCameraFilter_cpp:
 /* 800ED7E8 000EA748  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE650
 lbl_803CE650:
 	# ROM: 0x3CB650

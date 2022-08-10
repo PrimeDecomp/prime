@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EF6A0
 lbl_803EF6A0:
@@ -654,6 +655,7 @@ __ct__15CControllerAxisFv:
 /* 8034F8CC 0034C82C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE970
 lbl_805AE970:
 	# ROM: 0x3FB210

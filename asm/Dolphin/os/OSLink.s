@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global lbl_803F2290
 lbl_803F2290:
 	.asciz "OSLink: unknown relocation type %3d\n"

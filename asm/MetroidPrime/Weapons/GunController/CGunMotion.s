@@ -558,6 +558,7 @@ __ct__10CGunMotionFUiRC9CVector3f:
 /* 801D972C 001D668C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC9B8
 lbl_805AC9B8:
 	# ROM: 0x3F9258

@@ -1412,6 +1412,7 @@ lbl_8021D428:
 /* 8021D438 0021A398  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D3038
 lbl_803D3038:
 	# ROM: 0x3D0038

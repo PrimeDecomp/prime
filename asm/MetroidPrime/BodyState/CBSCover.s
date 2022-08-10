@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E3E48
 lbl_803E3E48:
@@ -601,6 +602,7 @@ CanShoot__8CBSCoverCFv:
 /* 801764D8 00173438  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABEC0
 lbl_805ABEC0:
 	# ROM: 0x3F8760

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CScriptRoomAcoustics_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E4708
 lbl_803E4708:
@@ -19,6 +20,7 @@ lbl_803E4708:
 	.4byte SetActive__7CEntityFb
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9048
 lbl_805A9048:

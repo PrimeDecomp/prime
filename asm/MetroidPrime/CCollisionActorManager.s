@@ -1779,6 +1779,7 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A88C8 001A5828  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC518
 lbl_805AC518:
 	# ROM: 0x3F8DB8
@@ -1819,6 +1820,7 @@ lbl_805AC538:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1498
 lbl_803D1498:
 	# ROM: 0x3CE498

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CFireFlea_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E1C88
 lbl_803E1C88:
@@ -203,6 +204,7 @@ lbl_803E1F54:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7780
 lbl_805A7780:
@@ -241,6 +243,7 @@ lbl_805A7798:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CFireFlea
 .global lbl_805A8F90
@@ -1821,6 +1824,7 @@ __sinit_CFireFlea_cpp:
 /* 80143F80 00140EE0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB8E0
 lbl_805AB8E0:
 	# ROM: 0x3F8180
@@ -1875,6 +1879,7 @@ lbl_805AB908:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D0098
 lbl_803D0098:
 	# ROM: 0x3CD098

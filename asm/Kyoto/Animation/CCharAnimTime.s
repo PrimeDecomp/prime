@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8938
 lbl_805A8938:
@@ -897,6 +898,7 @@ __ct__13CCharAnimTimeFR12CInputStream:
 /* 80348E60 00345DC0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE940
 lbl_805AE940:
 	# ROM: 0x3FB1E0

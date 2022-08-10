@@ -41,6 +41,7 @@ sub_802cd4bc:
 /* 802CD4C4 002CA424  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE190
 lbl_805AE190:
 	# ROM: 0x3FAA30

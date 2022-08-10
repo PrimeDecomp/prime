@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9428
 lbl_805A9428:
@@ -199,6 +200,7 @@ __ct__16CGraphicsPaletteF14EPaletteFormati:
 /* 8030E108 0030B068  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D73E8
 lbl_803D73E8:
 	# ROM: 0x3D43E8

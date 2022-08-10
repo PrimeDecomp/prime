@@ -62,6 +62,7 @@ lbl_80315658:
 /* 8031565C 003125BC  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global gkCRC32Table
 gkCRC32Table:
 	# ROM: 0x3D4408

@@ -7,6 +7,7 @@ lbl_ctor:
 .4byte __sinit_CElementGen_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EDA80
 lbl_803EDA80:
@@ -341,6 +342,7 @@ lbl_803EDD08:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A88B0
 lbl_805A88B0:
@@ -377,6 +379,7 @@ lbl_805A88D0:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_804BFE28
 lbl_804BFE28:
@@ -395,6 +398,7 @@ lbl_804BFF00:
 	.skip 0x10
 
 .section .sbss, "wa"
+.balign 8
 # TODO this probably isn't split properly
 .global lbl_805A9470
 lbl_805A9470:
@@ -21806,6 +21810,7 @@ lbl_8032A5B0:
 /* 8032A5CC 0032752C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE708
 lbl_805AE708:
 	# ROM: 0x3FAFA8
@@ -21949,6 +21954,7 @@ lbl_805AE790:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7848
 lbl_803D7848:
 	# ROM: 0x3D4848

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC6F8
 lbl_803EC6F8:
@@ -23,6 +24,7 @@ lbl_803EC6F8:
 	.4byte GetWorkerWidget__9CAuiMeterFi
 
 .section .sdata
+.balign 8
 
 .global lbl_805A86B0
 lbl_805A86B0:
@@ -493,6 +495,7 @@ __ct__9CAuiMeterFRCQ210CGuiWidget15CGuiWidgetParmsbii:
 /* 802C11E4 002BE144  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE080
 lbl_805AE080:
 	# ROM: 0x3FA920
@@ -506,6 +509,7 @@ lbl_805AE088:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6878
 lbl_803D6878:
 	# ROM: 0x3D3878

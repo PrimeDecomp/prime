@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 ResetFunctionQueue:
 	.skip 0x8
 

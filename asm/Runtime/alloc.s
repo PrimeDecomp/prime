@@ -1,10 +1,12 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 "protopool$192":
 	.skip 0x338
 
 .section .rodata
+.balign 8
 .global lbl_803D85C0
 lbl_803D85C0:
 	# ROM: 0x3D55C0
@@ -17,6 +19,7 @@ lbl_803D85C0:
 
 
 .section .sbss
+.balign 8
 .balign 4
 .global lbl_805A99C8
 lbl_805A99C8:

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CNewFlameThrower_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E9D10
 lbl_803E9D10:
@@ -39,6 +40,7 @@ lbl_803E9D10:
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 
 .section .sdata
+.balign 8
 
 .global lbl_805A83C8
 lbl_805A83C8:
@@ -97,6 +99,7 @@ lbl_805A83F0:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046DCA8
 lbl_8046DCA8:
@@ -4577,6 +4580,7 @@ __sinit_CNewFlameThrower_cpp:
 /* 80264FB8 00261F18  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD788
 lbl_805AD788:
 	# ROM: 0x3FA028
@@ -4639,6 +4643,7 @@ lbl_805AD7B4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5278
 lbl_803D5278:
 	# ROM: 0x3D2278

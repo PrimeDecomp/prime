@@ -18,6 +18,7 @@ __sinit_CGuiWidgetDrawParms_cpp:
 /* 802CB1CC 002C812C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE138
 lbl_805AE138:
 	# ROM: 0x3FA9D8

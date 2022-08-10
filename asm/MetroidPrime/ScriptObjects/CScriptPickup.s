@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DF4F8
 lbl_803DF4F8:
@@ -41,6 +42,7 @@ lbl_803DF4F8:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7280
 lbl_805A7280:
@@ -53,6 +55,7 @@ lbl_805A7284:
 	.float 2.0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAAE8
 lbl_805AAAE8:
@@ -1116,6 +1119,7 @@ lbl_800C3410:
 /* 800C3444 000C03A4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE020
 lbl_803CE020:
 	# ROM: 0x3CB020
@@ -1126,7 +1130,4 @@ lbl_803CE020:
 	.asciz "G_AllPickupsFound_2"
 	.asciz "STRG_AllPickupsFound_1"
 	.balign 4
-	.4byte 0
-	.4byte 0x00000001
-	.4byte 0x00000002
 

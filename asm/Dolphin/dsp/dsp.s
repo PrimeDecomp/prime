@@ -1,17 +1,20 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 .global __DSPVersion
 __DSPVersion:
 	.4byte __DSPVersionString
 	.balign 8
 
 .section .sbss
+.balign 8
 .global __DSP_init_flag
 __DSP_init_flag:
 	.skip 0x8
 
 .section .data
+.balign 8
 __DSPVersionString:
 	.asciz "<< Dolphin SDK - DSP\trelease build: Sep  5 2002 05:35:13 (0x2301) >>"
 	.balign 4

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC428
 lbl_803EC428:
@@ -11,6 +12,7 @@ lbl_803EC428:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9180
 lbl_805A9180:
@@ -29,6 +31,7 @@ lbl_805A9190:
 	.skip 0x8
 
 .section .sbss2, "", @nobits
+.balign 8
 # CMovingAABoxComponent
 .global lbl_805AF488
 lbl_805AF488:
@@ -4796,6 +4799,7 @@ lbl_802A75CC:
 /* 802A75F8 002A4558  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADE68
 lbl_805ADE68:
 	# ROM: 0x3FA708

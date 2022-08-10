@@ -1218,6 +1218,7 @@ OpenFiles__10SDSPStreamFPCc:
 /* 8036B2B4 00368214  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8558
 lbl_803D8558:
 	# ROM: 0x3D5558

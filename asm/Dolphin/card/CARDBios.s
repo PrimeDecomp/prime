@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global __CARDBlock
 __CARDBlock:
 	.skip 0x220
 
 .section .data, "wa"
+.balign 8
 lbl_803F6C90:
 	.asciz "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>"
 	.balign 4
@@ -18,6 +20,7 @@ lbl_803F6CD8:
 .skip 32
 
 .section .sdata, "wa"
+.balign 8
 
 .global lbl_805A8BF0
 lbl_805A8BF0:
@@ -25,6 +28,7 @@ lbl_805A8BF0:
 	.skip 4
 
 .section .sbss, "wa"
+.balign 8
 .balign 4
 .global __CARDEncode
 __CARDEncode:

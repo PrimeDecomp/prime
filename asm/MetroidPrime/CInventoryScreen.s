@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E6EB0
 lbl_803E6EB0:
@@ -90,6 +91,7 @@ lbl_803E6FC4:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7F40
 lbl_805A7F40:
@@ -1955,6 +1957,7 @@ lbl_802075C8:
 /* 802075F8 00204558  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACDE0
 lbl_805ACDE0:
 	# ROM: 0x3F9680
@@ -2007,6 +2010,67 @@ lbl_805ACE04:
 
 
 .section .rodata
+.balign 8
+.global lbl_803D25D0
+lbl_803D25D0:
+	.4byte 0
+	.4byte 0x00000024
+	.4byte 0x00000046
+	.4byte 0x00000001
+	.4byte 0x00000025
+	.4byte 0x00000048
+	.4byte 0x00000002
+	.4byte 0x00000026
+	.4byte 0x0000004A
+	.4byte 0x00000003
+	.4byte 0x00000027
+	.4byte 0x0000004C
+	.4byte 0x00000004
+	.4byte 0x00000028
+	.4byte 0x0000004E
+	.4byte 0x00000005
+	.4byte 0x0000002E
+	.4byte 0x00000057
+	.4byte 0x00000006
+	.4byte 0x0000002F
+	.4byte 0x00000058
+	.4byte 0x00000007
+	.4byte 0x00000030
+	.4byte 0x00000059
+	.4byte 0x00000008
+	.4byte 0x00000031
+	.4byte 0x0000005A
+	.4byte 0x00000009
+	.4byte 0x00000032
+	.4byte 0x0000005B
+	.4byte 0x0000000A
+	.4byte 0x00000033
+	.4byte 0x00000052
+	.4byte 0x0000000B
+	.4byte 0x00000034
+	.4byte 0x00000053
+	.4byte 0x0000000C
+	.4byte 0x00000035
+	.4byte 0x00000054
+	.4byte 0x0000000D
+	.4byte 0x00000036
+	.4byte 0x00000055
+	.4byte 0x0000000E
+	.4byte 0x00000037
+	.4byte 0x00000056
+	.4byte 0x0000000F
+	.4byte 0x00000038
+	.4byte 0x00000042
+	.4byte 0x00000010
+	.4byte 0x00000039
+	.4byte 0x00000043
+	.4byte 0x00000011
+	.4byte 0x0000003A
+	.4byte 0x00000044
+	.4byte 0x00000012
+	.4byte 0x0000003B
+	.4byte 0x00000045
+
 .global lbl_803D26B4
 lbl_803D26B4:
 	# ROM: 0x3CF6B4

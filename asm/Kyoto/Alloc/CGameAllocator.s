@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EF6D8
 lbl_803EF6D8:
@@ -23,6 +24,7 @@ lbl_803EF6D8:
 	.4byte GetMetrics__14CGameAllocatorCFv
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A95D8
 lbl_805A95D8:
@@ -1575,6 +1577,7 @@ GetMemInfoFromBlockPtr__14CGameAllocatorCFPCv:
 /* 80352664 0034F5C4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE9B8
 lbl_805AE9B8:
 	# ROM: 0x3FB258
@@ -1583,6 +1586,7 @@ lbl_805AE9B8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8248
 lbl_803D8248:
 	# ROM: 0x3D5248

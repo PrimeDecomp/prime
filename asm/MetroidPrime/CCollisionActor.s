@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CCollisionActor_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E4B18
 lbl_803E4B18:
@@ -65,6 +66,7 @@ lbl_803E4B9C:
 	.4byte lbl_801A8D8C
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7BF0
 lbl_805A7BF0:
@@ -153,6 +155,7 @@ lbl_805A7C30:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9050
 lbl_805A9050:
@@ -1936,6 +1939,7 @@ __sinit_CCollisionActor_cpp:
 /* 801AA280 001A71E0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC540
 lbl_805AC540:
 	# ROM: 0x3F8DE0
@@ -1968,6 +1972,7 @@ lbl_805AC554:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D14A0
 lbl_803D14A0:
 	# ROM: 0x3CE4A0

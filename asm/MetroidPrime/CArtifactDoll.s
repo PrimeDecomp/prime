@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CArtifactDoll_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A85D0
 lbl_805A85D0:
@@ -27,6 +28,7 @@ lbl_805A85DC:
 	.float 1.0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9170
 lbl_805A9170:
@@ -1034,6 +1036,7 @@ __sinit_CArtifactDoll_cpp:
 /* 8029D6C4 0029A624  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADD60
 lbl_805ADD60:
 	# ROM: 0x3FA600
@@ -1127,6 +1130,7 @@ lbl_805ADDAC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5D50
 lbl_803D5D50:
 	# ROM: 0x3D2D50

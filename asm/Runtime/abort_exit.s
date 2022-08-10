@@ -1,10 +1,12 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 lbl_80542198:
 	.skip 0x100
 
 .section .sbss
+.balign 8
 .balign 4
 .global lbl_805A99B8
 lbl_805A99B8:

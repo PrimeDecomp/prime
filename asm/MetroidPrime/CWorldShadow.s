@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss
+.balign 8
 
 # CWorldShadow
 .global lbl_805A8F18
@@ -17,6 +18,7 @@ lbl_805A8F24:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB290
 lbl_805AB290:
@@ -999,6 +1001,7 @@ lbl_80111C34:
 /* 80111CC8 0010EC28  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CF1F8
 lbl_803CF1F8:
 	# ROM: 0x3CC1F8

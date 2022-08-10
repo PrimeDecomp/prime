@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E46C8
 lbl_803E46C8:
@@ -15,6 +16,7 @@ lbl_803E46C8:
 	.4byte "Render__14CFluidPlaneCPUCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7B98
 lbl_805A7B98:
@@ -43,6 +45,7 @@ lbl_805A7BA8:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9040
 lbl_805A9040:
@@ -52,6 +55,7 @@ lbl_805A9041:
 	.skip 0x7
 
 .section .sbss2, "", @nobits  # 0x805AF460 - 0x805AF4C7
+.balign 8
 # CFluidPlaneCPU
 .global lbl_805AF460
 lbl_805AF460:
@@ -4088,6 +4092,7 @@ lbl_8019D310:
 /* 8019D39C 0019A2FC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC3F8
 lbl_805AC3F8:
 	# ROM: 0x3F8C98
@@ -4158,6 +4163,7 @@ lbl_805AC43C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1230
 lbl_803D1230:
 	# ROM: 0x3CE230

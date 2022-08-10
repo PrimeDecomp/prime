@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CWaveBuster_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E5318
 lbl_803E5318:
@@ -39,6 +40,7 @@ lbl_803E5318:
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7CC0
 lbl_805A7CC0:
@@ -67,6 +69,7 @@ lbl_805A7CD0:
 	.4byte 0
 
 .section .bss
+.balign 8
 .global lbl_8046C908
 lbl_8046C908:
 	.skip 0xC
@@ -3393,6 +3396,7 @@ __sinit_CWaveBuster_cpp:
 /* 801C07A4 001BD704  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC718
 lbl_805AC718:
 	# ROM: 0x3F8FB8
@@ -3547,6 +3551,7 @@ lbl_805AC794:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D19F8
 lbl_803D19F8:
 	# ROM: 0x3CE9F8

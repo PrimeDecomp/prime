@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CWorld_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803D9FC0
 lbl_803D9FC0:
@@ -73,6 +74,7 @@ lbl_803DA04C:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CWorld
 .global lbl_805A8DD8
@@ -89,6 +91,7 @@ lbl_805A8DE4:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA3B0
 lbl_805AA3B0:
@@ -5002,6 +5005,7 @@ __sinit_CWorld_cpp:
 /* 80059F1C 00056E7C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CCF70
 lbl_803CCF70:
 	# ROM: 0x3C9F70

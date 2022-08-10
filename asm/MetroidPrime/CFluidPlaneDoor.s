@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E46E8
 lbl_803E46E8:
@@ -15,6 +16,7 @@ lbl_803E46E8:
 	.4byte Render__15CFluidPlaneDoorCFRC13CStateManagerRC6CAABoxRC14CFrustumPlanesRC14CRippleManagerRC9CVector3f
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7BB0
 lbl_805A7BB0:
@@ -664,6 +666,7 @@ __ct__15CFluidPlaneDoorFUiUiUifUiQ211CFluidPlane10EFluidTypefRC14CFluidUVMotion:
 /* 8019DD00 0019AC60  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC440
 lbl_805AC440:
 	# ROM: 0x3F8CE0
@@ -687,6 +690,7 @@ lbl_805AC450:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1300
 lbl_803D1300:
 	# ROM: 0x3CE300

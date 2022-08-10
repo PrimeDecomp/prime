@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB438
 lbl_805AB438:

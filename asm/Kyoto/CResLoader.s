@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sbss2, "", @nobits
+.balign 8
 # CResLoader
 .global lbl_805AF4B0
 lbl_805AF4B0:
@@ -1891,6 +1892,7 @@ lbl_8033C5BC:
 /* 8033C5DC 0033953C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE8C8
 lbl_805AE8C8:
 	# ROM: 0x3FB168
@@ -1903,6 +1905,7 @@ lbl_805AE8CC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D7A38
 lbl_803D7A38:
 	# ROM: 0x3D4A38

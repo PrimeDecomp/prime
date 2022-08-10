@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CFlameThrower_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E45D8
 lbl_803E45D8:
@@ -1778,6 +1779,7 @@ __sinit_CFlameThrower_cpp:
 /* 80198DDC 00195D3C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AC3C0
 lbl_805AC3C0:
 	# ROM: 0x3F8C60
@@ -1821,6 +1823,7 @@ lbl_805AC3E4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D1210
 lbl_803D1210:
 	# ROM: 0x3CE210

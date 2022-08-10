@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPowerBomb_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E2808
 lbl_803E2808:
@@ -39,6 +40,7 @@ lbl_803E2808:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A77D8
 lbl_805A77D8:
@@ -77,6 +79,7 @@ lbl_805A77F0:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CPowerBomb
 .global lbl_805A8FA8
@@ -630,6 +633,7 @@ __sinit_CPowerBomb_cpp:
 /* 8014E100 0014B060  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABA80
 lbl_805ABA80:
 	# ROM: 0x3F8320
@@ -682,6 +686,7 @@ lbl_805ABAA4:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D01A0
 lbl_803D01A0:
 	# ROM: 0x3CD1A0

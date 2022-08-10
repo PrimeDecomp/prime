@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E0CE0
 lbl_803E0CE0:
@@ -15,6 +16,7 @@ lbl_803E0CE0:
 	.4byte "Render__11CFluidPlaneCFRC13CStateManagerRC6CAABoxRC12CTransform4fRC12CTransform4fbRC14CFrustumPlanesRCQ24rstl33optional_object<14CRippleManager>9TUniqueIdPCbiiRC9CVector3f"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A76C8
 lbl_805A76C8:
@@ -33,6 +35,7 @@ lbl_805A76D0:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB5E8
 lbl_805AB5E8:
@@ -89,11 +92,6 @@ lbl_805AB60A:
 lbl_805AB60C:
 	# ROM: 0x3F7EAC
 	.4byte 0x00000001
-
-.global lbl_805AB610
-lbl_805AB610:
-	# ROM: 0x3F7EB0
-	.4byte 0x01000000
 
 .section .text, "ax"
 

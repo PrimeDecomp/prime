@@ -166,6 +166,7 @@ __ct__14CRumbleManagerFv:
 /* 8022E31C 0022B27C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD348
 lbl_805AD348:
 	# ROM: 0x3F9BE8

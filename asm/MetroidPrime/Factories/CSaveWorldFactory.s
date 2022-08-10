@@ -1082,6 +1082,7 @@ lbl_8026BBD4:
 /* 8026BBEC 00268B4C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D5418
 lbl_803D5418:
 	# ROM: 0x3D2418

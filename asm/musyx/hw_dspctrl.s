@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global gs
 gs:
 	.skip 0x600
@@ -11,6 +12,7 @@ dspStudio:
 	.skip 0x100
 
 .section .sbss
+.balign 8
 .balign 4
 .global dspARAMZeroBuffer
 dspARAMZeroBuffer:
@@ -59,6 +61,7 @@ salMessageCallback:
 	.skip 0x8
 
 .section .data, "wa"
+.balign 8
 
 .global dspSRCCycles
 dspSRCCycles:
@@ -76,6 +79,7 @@ dspSRCCycles:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8A68
 lbl_803D8A68:
 	# ROM: 0x3D5A68

@@ -47,6 +47,7 @@ lbl_80313E34:
 /* 80313E60 00310DC0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE610
 lbl_805AE610:
 	# ROM: 0x3FAEB0

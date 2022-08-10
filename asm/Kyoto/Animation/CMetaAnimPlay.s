@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECD30
 lbl_803ECD30:
@@ -15,6 +16,7 @@ lbl_803ECD30:
 	.4byte VGetAnimationTree__13CMetaAnimPlayCFRC15CAnimSysContextRC24CMetaAnimTreeBuildOrders
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8720
 lbl_805A8720:
@@ -411,6 +413,7 @@ lbl_802E0F1C:
 /* 802E0F2C 002DDE8C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D6D70
 lbl_803D6D70:
 	# ROM: 0x3D3D70

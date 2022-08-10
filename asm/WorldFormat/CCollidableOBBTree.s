@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC438
 lbl_803EC438:
@@ -25,6 +26,7 @@ lbl_803EC448:
 	.4byte CastRayInternal__18CCollidableOBBTreeCFRC25CInternalRayCastStructure
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8630
 lbl_805A8630:
@@ -3163,6 +3165,7 @@ __ct__18CCollidableOBBTreeFP8COBBTreeRC13CMaterialList:
 /* 802AC740 002A96A0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADED0
 lbl_805ADED0:
 	# ROM: 0x3FA770

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CSfxManager_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803ECE10
 lbl_803ECE10:
@@ -101,6 +102,7 @@ lbl_803ECEE4:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8768
 lbl_805A8768:
@@ -133,12 +135,14 @@ lbl_805A877C:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_80479BA0
 lbl_80479BA0:
 	.skip 0x30
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A92C0
 lbl_805A92C0:
@@ -4586,6 +4590,7 @@ __ct__Q211CSfxManager11CSfxChannelFv:
 /* 802EB4F8 002E8458  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE320
 lbl_805AE320:
 	# ROM: 0x3FABC0
@@ -4638,6 +4643,7 @@ lbl_805AE344:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6DC8
 lbl_803D6DC8:
 	# ROM: 0x3D3DC8

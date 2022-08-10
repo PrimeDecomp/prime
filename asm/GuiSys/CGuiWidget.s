@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ECA10
 lbl_803ECA10:
@@ -731,6 +732,7 @@ __ct__Q210CGuiWidget15CGuiWidgetParmsFP9CGuiFramebssbbbRC6CColorQ210CGuiWidget18
 /* 802CAF70 002C7ED0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D68F8
 lbl_803D68F8:
 	# ROM: 0x3D38F8

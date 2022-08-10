@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_IWeaponRenderer_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EC528
 lbl_803EC528:
@@ -24,6 +25,7 @@ __vt__15IWeaponRenderer:
 
 
 .section .sdata
+.balign 8
 
 .global sWeaponRenderer__15IWeaponRenderer
 sWeaponRenderer__15IWeaponRenderer:
@@ -32,12 +34,14 @@ sWeaponRenderer__15IWeaponRenderer:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046E1F0
 lbl_8046E1F0:
 	.skip 0x10
 
 .section .sbss, "wa"
+.balign 8
 
 .global sDefaultRenderer
 sDefaultRenderer:

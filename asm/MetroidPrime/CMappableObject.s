@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMappableObject_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DFC10
 lbl_803DFC10:
@@ -43,6 +44,7 @@ lbl_803DFC3C:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7368
 lbl_805A7368:
@@ -65,12 +67,14 @@ lbl_805A7374:
 	.float 1.0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C498
 lbl_8046C498:
 	.skip 0x60
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAD40
 lbl_805AAD40:
@@ -1173,6 +1177,7 @@ __sinit_CMappableObject_cpp:
 /* 800E956C 000E64CC  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CE5F0
 lbl_803CE5F0:
 	# ROM: 0x3CB5F0

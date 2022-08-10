@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMemory_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_804BFD58
 lbl_804BFD58:
@@ -14,6 +15,7 @@ lbl_804BFD64:
 	.skip 0xC4
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8868
 lbl_805A8868:
@@ -22,6 +24,7 @@ lbl_805A8868:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9460
 lbl_805A9460:
@@ -373,6 +376,7 @@ __sinit_CMemory_cpp:
 /* 80315C94 00312BF4  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D7808
 lbl_803D7808:
 	# ROM: 0x3D4808

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EC8C8
 lbl_803EC8C8:
@@ -1013,6 +1014,7 @@ __ct__10CGuiObjectFv:
 /* 802C54E0 002C2440  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE0B8
 lbl_805AE0B8:
 	# ROM: 0x3FA958

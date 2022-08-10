@@ -121,6 +121,7 @@ Interpolate__18CAdvancementDeltasFRC18CAdvancementDeltasRC18CAdvancementDeltasff
 /* 802EB6B8 002E8618  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE348
 lbl_805AE348:
 	# ROM: 0x3FABE8

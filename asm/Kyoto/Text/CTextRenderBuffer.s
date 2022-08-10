@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A89E0
 lbl_805A89E0:
@@ -1888,6 +1889,7 @@ __ct__17CTextRenderBufferFQ217CTextRenderBuffer5EMode:
 /* 8035B5D8 00358538  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AEA20
 lbl_805AEA20:
 	# ROM: 0x3FB2C0
@@ -1905,6 +1907,7 @@ lbl_805AEA2C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8350
 lbl_803D8350:
 	# ROM: 0x3D5350

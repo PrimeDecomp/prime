@@ -322,6 +322,7 @@ __ct__9CGSFidgetFv:
 /* 801F153C 001EE49C  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACBE8
 lbl_805ACBE8:
 	# ROM: 0x3F9488
@@ -334,6 +335,7 @@ lbl_805ACBEC:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D2038
 lbl_803D2038:
 	# ROM: 0x3CF038

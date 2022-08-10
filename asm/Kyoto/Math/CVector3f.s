@@ -483,6 +483,7 @@ __ct__9CVector3iFiii:
 /* 80314C54 00311BB4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE630
 lbl_805AE630:
 	# ROM: 0x3FAED0

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E0BF8
 lbl_803E0BF8:
@@ -35,6 +36,7 @@ lbl_803E0BF8:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A76A8
 lbl_805A76A8:
@@ -43,6 +45,7 @@ lbl_805A76A8:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB5B8
 lbl_805AB5B8:

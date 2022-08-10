@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 .global lbl_803E5CC0
 lbl_803E5CC0:
 	# ROM: 0x3E2CC0

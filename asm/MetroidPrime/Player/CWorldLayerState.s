@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CScriptLayerManager_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8200
 lbl_805A8200:
@@ -14,6 +15,7 @@ lbl_805A8200:
 
 
 .section .bss
+.balign 8
 
 .global lbl_8046D340
 lbl_8046D340:

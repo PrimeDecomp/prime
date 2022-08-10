@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E1370
 lbl_803E1370:
@@ -21,6 +22,7 @@ lbl_803E1370:
 	.4byte Shutdown__9CBSAttackFR15CBodyController
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7710
 lbl_805A7710:
@@ -638,6 +640,7 @@ __ct__9CBSAttackFv:
 /* 80135648 001325A8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AB6C0
 lbl_805AB6C0:
 	# ROM: 0x3F7F60

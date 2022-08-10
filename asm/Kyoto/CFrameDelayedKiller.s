@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CFrameDelayedKiller_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_80540A40
 lbl_80540A40:
@@ -14,6 +15,7 @@ lbl_80540A4C:
 	.skip 0x34
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A96B0
 lbl_805A96B0:
@@ -411,6 +413,7 @@ sub_8036cf1c:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D8568
 lbl_803D8568:
 	# ROM: 0x3D5568

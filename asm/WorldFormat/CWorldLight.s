@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CWorldLight_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8610
 lbl_805A8610:
@@ -279,6 +280,7 @@ __sinit_CWorldLight_cpp:
 /* 802A7970 002A48D0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADEA0
 lbl_805ADEA0:
 	# ROM: 0x3FA740

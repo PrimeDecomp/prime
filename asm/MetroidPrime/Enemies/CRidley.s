@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CRidley_cpp
 
 .section .data
+.balign 8
 
 
 .global lbl_803E9198
@@ -422,6 +423,7 @@ lbl_803E9688:
 	.4byte 0x803D521A
 
 .section .sdata
+.balign 8
 
 .global lbl_805A82F0
 lbl_805A82F0:
@@ -600,6 +602,7 @@ lbl_805A8378:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046D3A8
 lbl_8046D3A8:
@@ -11138,187 +11141,8 @@ __sinit_CRidley_cpp:
 /* 8025BF9C 00258EFC  38 21 07 00 */	addi r1, r1, 0x700
 /* 8025BFA0 00258F00  4E 80 00 20 */	blr
 
-.global sub_8025bfa4
-sub_8025bfa4:
-/* 8025BFA4 00258F04  94 21 FE F0 */	stwu r1, -0x110(r1)
-/* 8025BFA8 00258F08  7C 08 02 A6 */	mflr r0
-/* 8025BFAC 00258F0C  90 01 01 14 */	stw r0, 0x114(r1)
-/* 8025BFB0 00258F10  DB E1 01 00 */	stfd f31, 0x100(r1)
-/* 8025BFB4 00258F14  F3 E1 01 08 */	psq_st f31, 264(r1), 0, qr0
-/* 8025BFB8 00258F18  DB C1 00 F0 */	stfd f30, 0xf0(r1)
-/* 8025BFBC 00258F1C  F3 C1 00 F8 */	psq_st f30, 248(r1), 0, qr0
-/* 8025BFC0 00258F20  DB A1 00 E0 */	stfd f29, 0xe0(r1)
-/* 8025BFC4 00258F24  F3 A1 00 E8 */	psq_st f29, 232(r1), 0, qr0
-/* 8025BFC8 00258F28  DB 81 00 D0 */	stfd f28, 0xd0(r1)
-/* 8025BFCC 00258F2C  F3 81 00 D8 */	psq_st f28, 216(r1), 0, qr0
-/* 8025BFD0 00258F30  DB 61 00 C0 */	stfd f27, 0xc0(r1)
-/* 8025BFD4 00258F34  F3 61 00 C8 */	psq_st f27, 200(r1), 0, qr0
-/* 8025BFD8 00258F38  DB 41 00 B0 */	stfd f26, 0xb0(r1)
-/* 8025BFDC 00258F3C  F3 41 00 B8 */	psq_st f26, 184(r1), 0, qr0
-/* 8025BFE0 00258F40  BF 21 00 94 */	stmw r25, 0x94(r1)
-/* 8025BFE4 00258F44  7C 7D 1B 78 */	mr r29, r3
-/* 8025BFE8 00258F48  7C 9E 23 78 */	mr r30, r4
-/* 8025BFEC 00258F4C  80 63 04 50 */	lwz r3, 0x450(r3)
-/* 8025BFF0 00258F50  C0 03 00 04 */	lfs f0, 4(r3)
-/* 8025BFF4 00258F54  D0 01 00 50 */	stfs f0, 0x50(r1)
-/* 8025BFF8 00258F58  C0 03 00 08 */	lfs f0, 8(r3)
-/* 8025BFFC 00258F5C  D0 01 00 54 */	stfs f0, 0x54(r1)
-/* 8025C000 00258F60  C0 03 00 0C */	lfs f0, 0xc(r3)
-/* 8025C004 00258F64  D0 01 00 58 */	stfs f0, 0x58(r1)
-/* 8025C008 00258F68  80 1D 05 D4 */	lwz r0, 0x5d4(r29)
-/* 8025C00C 00258F6C  2C 00 00 00 */	cmpwi r0, 0
-/* 8025C010 00258F70  40 82 00 7C */	bne lbl_8025C08C
-/* 8025C014 00258F74  3C 60 80 3F */	lis r3, lbl_803E9688@ha
-/* 8025C018 00258F78  3B 9D 05 D8 */	addi r28, r29, 0x5d8
-/* 8025C01C 00258F7C  3B E3 96 88 */	addi r31, r3, lbl_803E9688@l
-/* 8025C020 00258F80  3B 40 00 00 */	li r26, 0
-lbl_8025C024:
-/* 8025C024 00258F84  80 9F 00 00 */	lwz r4, 0(r31)
-/* 8025C028 00258F88  38 61 00 40 */	addi r3, r1, 0x40
-/* 8025C02C 00258F8C  4B DA 8C 8D */	bl string_l__4rstlFPCc
-/* 8025C030 00258F90  7F A4 EB 78 */	mr r4, r29
-/* 8025C034 00258F94  38 61 00 5C */	addi r3, r1, 0x5c
-/* 8025C038 00258F98  38 A1 00 40 */	addi r5, r1, 0x40
-/* 8025C03C 00258F9C  4B DF 6E 95 */	bl "GetScaledLocatorTransform__6CActorCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8025C040 00258FA0  80 1D 05 D4 */	lwz r0, 0x5d4(r29)
-/* 8025C044 00258FA4  C0 41 00 80 */	lfs f2, 0x80(r1)
-/* 8025C048 00258FA8  1C 00 00 0C */	mulli r0, r0, 0xc
-/* 8025C04C 00258FAC  C0 21 00 70 */	lfs f1, 0x70(r1)
-/* 8025C050 00258FB0  C0 01 00 60 */	lfs f0, 0x60(r1)
-/* 8025C054 00258FB4  7C 7C 02 15 */	add. r3, r28, r0
-/* 8025C058 00258FB8  41 82 00 10 */	beq lbl_8025C068
-/* 8025C05C 00258FBC  D0 03 00 00 */	stfs f0, 0(r3)
-/* 8025C060 00258FC0  D0 23 00 04 */	stfs f1, 4(r3)
-/* 8025C064 00258FC4  D0 43 00 08 */	stfs f2, 8(r3)
-lbl_8025C068:
-/* 8025C068 00258FC8  80 9D 05 D4 */	lwz r4, 0x5d4(r29)
-/* 8025C06C 00258FCC  38 61 00 40 */	addi r3, r1, 0x40
-/* 8025C070 00258FD0  38 04 00 01 */	addi r0, r4, 1
-/* 8025C074 00258FD4  90 1D 05 D4 */	stw r0, 0x5d4(r29)
-/* 8025C078 00258FD8  48 0E 1A 69 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 8025C07C 00258FDC  3B 5A 00 01 */	addi r26, r26, 1
-/* 8025C080 00258FE0  3B FF 00 04 */	addi r31, r31, 4
-/* 8025C084 00258FE4  2C 1A 00 0E */	cmpwi r26, 0xe
-/* 8025C088 00258FE8  41 80 FF 9C */	blt lbl_8025C024
-lbl_8025C08C:
-/* 8025C08C 00258FEC  38 61 00 50 */	addi r3, r1, 0x50
-/* 8025C090 00258FF0  48 0B 86 69 */	bl CanBeNormalized__9CVector3fCFv
-/* 8025C094 00258FF4  54 60 06 3F */	clrlwi. r0, r3, 0x18
-/* 8025C098 00258FF8  41 82 00 FC */	beq lbl_8025C194
-/* 8025C09C 00258FFC  38 61 00 34 */	addi r3, r1, 0x34
-/* 8025C0A0 00259000  38 81 00 50 */	addi r4, r1, 0x50
-/* 8025C0A4 00259004  48 0B 87 AD */	bl AsNormalized__9CVector3fCFv
-/* 8025C0A8 00259008  C0 41 00 34 */	lfs f2, 0x34(r1)
-/* 8025C0AC 0025900C  3C 60 80 3F */	lis r3, lbl_803E9650@ha
-/* 8025C0B0 00259010  C0 21 00 38 */	lfs f1, 0x38(r1)
-/* 8025C0B4 00259014  3B 63 96 50 */	addi r27, r3, lbl_803E9650@l
-/* 8025C0B8 00259018  C0 01 00 3C */	lfs f0, 0x3c(r1)
-/* 8025C0BC 0025901C  FF E0 10 50 */	fneg f31, f2
-/* 8025C0C0 00259020  FF C0 08 50 */	fneg f30, f1
-/* 8025C0C4 00259024  3B 9D 05 D8 */	addi r28, r29, 0x5d8
-/* 8025C0C8 00259028  FF A0 00 50 */	fneg f29, f0
-/* 8025C0CC 0025902C  3B E0 00 00 */	li r31, 0
-lbl_8025C0D0:
-/* 8025C0D0 00259030  7F 85 E3 78 */	mr r5, r28
-/* 8025C0D4 00259034  38 61 00 28 */	addi r3, r1, 0x28
-/* 8025C0D8 00259038  38 9D 00 34 */	addi r4, r29, 0x34
-/* 8025C0DC 0025903C  48 0B 69 A5 */	bl Rotate__12CTransform4fCFRC9CVector3f
-/* 8025C0E0 00259040  C3 81 00 28 */	lfs f28, 0x28(r1)
-/* 8025C0E4 00259044  C3 61 00 2C */	lfs f27, 0x2c(r1)
-/* 8025C0E8 00259048  C3 41 00 30 */	lfs f26, 0x30(r1)
-/* 8025C0EC 0025904C  C0 22 B9 E8 */	lfs f1, lbl_805AD708@sda21(r2)
-/* 8025C0F0 00259050  48 0B 8C 55 */	bl FastCosR__5CMathFf
-/* 8025C0F4 00259054  EC 1E 06 F2 */	fmuls f0, f30, f27
-/* 8025C0F8 00259058  EC 1F 07 3A */	fmadds f0, f31, f28, f0
-/* 8025C0FC 0025905C  EC 1D 06 BA */	fmadds f0, f29, f26, f0
-/* 8025C100 00259060  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8025C104 00259064  7C 80 00 26 */	mfcr r4
-/* 8025C108 00259068  38 00 00 01 */	li r0, 1
-/* 8025C10C 0025906C  80 7D 05 D0 */	lwz r3, 0x5d0(r29)
-/* 8025C110 00259070  7C 1A F8 30 */	slw r26, r0, r31
-/* 8025C114 00259074  54 99 17 FE */	rlwinm r25, r4, 2, 0x1f, 0x1f
-/* 8025C118 00259078  7C 63 D0 38 */	and r3, r3, r26
-/* 8025C11C 0025907C  7C 03 00 D0 */	neg r0, r3
-/* 8025C120 00259080  7C 00 1B 78 */	or r0, r0, r3
-/* 8025C124 00259084  54 00 0F FE */	srwi r0, r0, 0x1f
-/* 8025C128 00259088  7C 00 C8 40 */	cmplw r0, r25
-/* 8025C12C 0025908C  41 82 00 30 */	beq lbl_8025C15C
-/* 8025C130 00259090  80 9B 00 00 */	lwz r4, 0(r27)
-/* 8025C134 00259094  38 61 00 18 */	addi r3, r1, 0x18
-/* 8025C138 00259098  4B DA 8B 81 */	bl string_l__4rstlFPCc
-/* 8025C13C 0025909C  80 7D 00 64 */	lwz r3, 0x64(r29)
-/* 8025C140 002590A0  7F 25 CB 78 */	mr r5, r25
-/* 8025C144 002590A4  7F C6 F3 78 */	mr r6, r30
-/* 8025C148 002590A8  38 81 00 18 */	addi r4, r1, 0x18
-/* 8025C14C 002590AC  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8025C150 002590B0  4B DC EC 71 */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
-/* 8025C154 002590B4  38 61 00 18 */	addi r3, r1, 0x18
-/* 8025C158 002590B8  48 0E 19 89 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-lbl_8025C15C:
-/* 8025C15C 002590BC  28 19 00 00 */	cmplwi r25, 0
-/* 8025C160 002590C0  41 82 00 10 */	beq lbl_8025C170
-/* 8025C164 002590C4  80 1D 05 D0 */	lwz r0, 0x5d0(r29)
-/* 8025C168 002590C8  7C 00 D3 78 */	or r0, r0, r26
-/* 8025C16C 002590CC  48 00 00 0C */	b lbl_8025C178
-lbl_8025C170:
-/* 8025C170 002590D0  80 7D 05 D0 */	lwz r3, 0x5d0(r29)
-/* 8025C174 002590D4  7C 60 D0 78 */	andc r0, r3, r26
-lbl_8025C178:
-/* 8025C178 002590D8  3B FF 00 01 */	addi r31, r31, 1
-/* 8025C17C 002590DC  90 1D 05 D0 */	stw r0, 0x5d0(r29)
-/* 8025C180 002590E0  2C 1F 00 0E */	cmpwi r31, 0xe
-/* 8025C184 002590E4  3B 9C 00 0C */	addi r28, r28, 0xc
-/* 8025C188 002590E8  3B 7B 00 04 */	addi r27, r27, 4
-/* 8025C18C 002590EC  41 80 FF 44 */	blt lbl_8025C0D0
-/* 8025C190 002590F0  48 00 00 68 */	b lbl_8025C1F8
-lbl_8025C194:
-/* 8025C194 002590F4  3C 60 80 3F */	lis r3, lbl_803E9650@ha
-/* 8025C198 002590F8  3B 20 00 00 */	li r25, 0
-/* 8025C19C 002590FC  3B 63 96 50 */	addi r27, r3, lbl_803E9650@l
-/* 8025C1A0 00259100  3B E0 00 01 */	li r31, 1
-lbl_8025C1A4:
-/* 8025C1A4 00259104  80 7D 05 D0 */	lwz r3, 0x5d0(r29)
-/* 8025C1A8 00259108  7F E0 C8 30 */	slw r0, r31, r25
-/* 8025C1AC 0025910C  7C 60 00 39 */	and. r0, r3, r0
-/* 8025C1B0 00259110  41 82 00 30 */	beq lbl_8025C1E0
-/* 8025C1B4 00259114  80 9B 00 00 */	lwz r4, 0(r27)
-/* 8025C1B8 00259118  38 61 00 08 */	addi r3, r1, 8
-/* 8025C1BC 0025911C  4B DA 8A FD */	bl string_l__4rstlFPCc
-/* 8025C1C0 00259120  80 7D 00 64 */	lwz r3, 0x64(r29)
-/* 8025C1C4 00259124  7F C6 F3 78 */	mr r6, r30
-/* 8025C1C8 00259128  38 81 00 08 */	addi r4, r1, 8
-/* 8025C1CC 0025912C  38 A0 00 00 */	li r5, 0
-/* 8025C1D0 00259130  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8025C1D4 00259134  4B DC EB ED */	bl SetParticleEffectState__9CAnimDataFQ24rstl6stringbR13CStateManager
-/* 8025C1D8 00259138  38 61 00 08 */	addi r3, r1, 8
-/* 8025C1DC 0025913C  48 0E 19 05 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-lbl_8025C1E0:
-/* 8025C1E0 00259140  3B 39 00 01 */	addi r25, r25, 1
-/* 8025C1E4 00259144  3B 7B 00 04 */	addi r27, r27, 4
-/* 8025C1E8 00259148  2C 19 00 0E */	cmpwi r25, 0xe
-/* 8025C1EC 0025914C  41 80 FF B8 */	blt lbl_8025C1A4
-/* 8025C1F0 00259150  38 00 00 00 */	li r0, 0
-/* 8025C1F4 00259154  90 1D 05 D0 */	stw r0, 0x5d0(r29)
-lbl_8025C1F8:
-/* 8025C1F8 00259158  E3 E1 01 08 */	psq_l f31, 264(r1), 0, qr0
-/* 8025C1FC 0025915C  CB E1 01 00 */	lfd f31, 0x100(r1)
-/* 8025C200 00259160  E3 C1 00 F8 */	psq_l f30, 248(r1), 0, qr0
-/* 8025C204 00259164  CB C1 00 F0 */	lfd f30, 0xf0(r1)
-/* 8025C208 00259168  E3 A1 00 E8 */	psq_l f29, 232(r1), 0, qr0
-/* 8025C20C 0025916C  CB A1 00 E0 */	lfd f29, 0xe0(r1)
-/* 8025C210 00259170  E3 81 00 D8 */	psq_l f28, 216(r1), 0, qr0
-/* 8025C214 00259174  CB 81 00 D0 */	lfd f28, 0xd0(r1)
-/* 8025C218 00259178  E3 61 00 C8 */	psq_l f27, 200(r1), 0, qr0
-/* 8025C21C 0025917C  CB 61 00 C0 */	lfd f27, 0xc0(r1)
-/* 8025C220 00259180  E3 41 00 B8 */	psq_l f26, 184(r1), 0, qr0
-/* 8025C224 00259184  CB 41 00 B0 */	lfd f26, 0xb0(r1)
-/* 8025C228 00259188  BB 21 00 94 */	lmw r25, 0x94(r1)
-/* 8025C22C 0025918C  80 01 01 14 */	lwz r0, 0x114(r1)
-/* 8025C230 00259190  7C 08 03 A6 */	mtlr r0
-/* 8025C234 00259194  38 21 01 10 */	addi r1, r1, 0x110
-/* 8025C238 00259198  4E 80 00 20 */	blr
-
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD628
 lbl_805AD628:
 	# ROM: 0x3F9EC8
@@ -11590,13 +11414,9 @@ lbl_805AD700:
 	.4byte 0xBF32B8C2
 	.4byte 0
 
-.global lbl_805AD708
-lbl_805AD708:
-	# ROM: 0x3F9FA8
-	.float 0.7853982
-
 
 .section .rodata
+.balign 8
 .global lbl_803D4B98
 lbl_803D4B98:
 	# ROM: 0x3D1B98

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMetroidPrimeEssence_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803EB1F0
 lbl_803EB1F0:
@@ -321,6 +322,7 @@ lbl_803EB58C:
 	.4byte lbl_80280078
 
 .section .sdata
+.balign 8
 
 .global lbl_805A84A0
 lbl_805A84A0:
@@ -4434,6 +4436,7 @@ __sinit_CMetroidPrimeEssence_cpp:
 /* 8028045C 0027D3BC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADA20
 lbl_805ADA20:
 	# ROM: 0x3FA2C0
@@ -4577,6 +4580,7 @@ lbl_805ADA94:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5880
 lbl_803D5880:
 	# ROM: 0x3D2880

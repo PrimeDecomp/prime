@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EA0F0
 lbl_803EA0F0:
@@ -1222,6 +1223,7 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 80269474 002663D4  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD818
 lbl_805AD818:
 	# ROM: 0x3FA0B8

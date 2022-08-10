@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E0628
 lbl_803E0628:
@@ -41,6 +42,7 @@ lbl_803E0628:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7630
 lbl_805A7630:
@@ -53,6 +55,7 @@ lbl_805A7634:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global skGravityConstant__13CPhysicsActor
 skGravityConstant__13CPhysicsActor:

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CCollidableSphere_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803ECAF8
 lbl_803ECAF8:
@@ -69,6 +70,7 @@ lbl_803ECB20:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A86F8
 lbl_805A86F8:
@@ -78,6 +80,7 @@ lbl_805A86F8:
 
 
 .section .bss
+.balign 8
 
 .global lbl_80479558
 lbl_80479558:
@@ -1550,6 +1553,7 @@ __sinit_CCollidableSphere_cpp:
 /* 802D5348 002D22A8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE248
 lbl_805AE248:
 	# ROM: 0x3FAAE8
@@ -1578,6 +1582,7 @@ lbl_805AE25C:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6A90
 lbl_803D6A90:
 	# ROM: 0x3D3A90

@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DFE70
 lbl_803DFE70:
@@ -39,6 +40,7 @@ lbl_803DFE70:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7548
 lbl_805A7548:
@@ -61,12 +63,14 @@ lbl_805A7554:
 	.4byte 0x00000007
 
 .section .bss
+.balign 8
 
 .global lbl_8046C520
 lbl_8046C520:
 	.skip 0x18
 
 .section .sbss
+.balign 8
 
 # CScriptWater
 .global lbl_805A8F08
@@ -74,6 +78,7 @@ lbl_805A8F08:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB0D8
 lbl_805AB0D8:
@@ -3653,6 +3658,7 @@ lbl_80101EE0:
 /* 80101EFC 000FEE5C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CEE20
 lbl_803CEE20:
 	# ROM: 0x3CBE20

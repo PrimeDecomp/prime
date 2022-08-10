@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CSpacePirate_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E0700
 lbl_803E0700:
@@ -409,6 +410,7 @@ lbl_803E0BE0:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7650
 lbl_805A7650:
@@ -522,6 +524,7 @@ lbl_805A76A0:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C570
 lbl_8046C570:
@@ -531,6 +534,7 @@ lbl_8046C618:
 	.skip 0x108
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AB4D0
 lbl_805AB4D0:
@@ -15058,6 +15062,7 @@ __sinit_CSpacePirate_cpp:
 /* 8012D304 0012A264  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CF438
 lbl_803CF438:
 	# ROM: 0x3CC438

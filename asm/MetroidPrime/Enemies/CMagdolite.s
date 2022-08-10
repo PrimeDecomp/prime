@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CMagdolite_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E81A0
 lbl_803E81A0:
@@ -297,6 +298,7 @@ lbl_803E850C:
 	.4byte lbl_80236D28
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8208
 lbl_805A8208:
@@ -4018,6 +4020,7 @@ __sinit_CMagdolite_cpp:
 /* 80237B60 00234AC0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD440
 lbl_805AD440:
 	# ROM: 0x3F9CE0
@@ -4086,6 +4089,7 @@ lbl_805AD470:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D42E8
 lbl_803D42E8:
 	# ROM: 0x3D12E8

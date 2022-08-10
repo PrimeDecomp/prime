@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E8708
 lbl_803E8708:
@@ -131,6 +132,7 @@ lbl_803E8864:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A8290
 lbl_805A8290:
@@ -3587,6 +3589,7 @@ __ct__15CQuitGameScreenF9EQuitType:
 /* 80244BA4 00241B04  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD530
 lbl_805AD530:
 	# ROM: 0x3F9DD0
@@ -3632,6 +3635,7 @@ lbl_805AD558:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D43C8
 lbl_803D43C8:
 	# ROM: 0x3D13C8

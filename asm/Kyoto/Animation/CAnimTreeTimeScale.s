@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803ED2B0
 lbl_803ED2B0:
@@ -35,6 +36,7 @@ lbl_803ED2B0:
 	.4byte "VGetWeightedReaders__20CAnimTreeSingleChildFfRQ24rstl48reserved_vector<Q24rstl22pair<f,P11IAnimReader>>"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A87B8
 lbl_805A87B8:
@@ -1767,6 +1769,7 @@ lbl_802F5954:
 /* 802F59A4 002F2904  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE3C0
 lbl_805AE3C0:
 	# ROM: 0x3FAC60
@@ -1775,6 +1778,7 @@ lbl_805AE3C0:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6E08
 lbl_803D6E08:
 	# ROM: 0x3D3E08

@@ -21,6 +21,7 @@ lbl_804BFF40:
 	.skip 0x10
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9520
 lbl_805A9520:

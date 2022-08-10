@@ -18,6 +18,7 @@ lbl_803EFA50:
 	.asciz "__DSP_add_task() : Added task    : 0x%08X\n"
 
 .section .sbss
+.balign 8
 
 .global __DSP_rude_task_pending
 __DSP_rude_task_pending:

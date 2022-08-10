@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DA4D8
 lbl_803DA4D8:
@@ -39,6 +40,7 @@ lbl_803DA4D8:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6F90
 lbl_805A6F90:
@@ -51,6 +53,7 @@ lbl_805A6F94:
 	.4byte 0x00000022
 
 .section .sbss
+.balign 8
 
 # CScriptTrigger
 .global lbl_805A8E00
@@ -61,6 +64,7 @@ lbl_805A8E04:
 	.skip 0xC
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA5F0
 lbl_805AA5F0:
@@ -1485,6 +1489,7 @@ lbl_8007704C:
 /* 80077068 00073FC8  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD5F8
 lbl_803CD5F8:
 	# ROM: 0x3CA5F8

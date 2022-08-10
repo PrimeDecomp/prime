@@ -5,12 +5,14 @@ lbl_ctor:
 .4byte __sinit_CMFGame_cpp
 
 .section .bss
+.balign 8
 
 .global lbl_8045A1A8
 lbl_8045A1A8:
 	.skip 0xF98
 
 .section .data
+.balign 8
 .global lbl_803D9988
 lbl_803D9988:
 	# ROM: 0x3D6988
@@ -54,6 +56,7 @@ lbl_803D99D4:
 	.4byte PreDraw__6CIOWinCFv
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6D48
 lbl_805A6D48:
@@ -72,6 +75,7 @@ lbl_805A6D50:
 	.4byte 0
 
 .section .rodata
+.balign 8
 .global lbl_803CCAB8
 lbl_803CCAB8:
 	.asciz "aram:TestAnim"
@@ -86,6 +90,7 @@ lbl_803CCAD4:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CMFGame
 .global lbl_805A8CB8
@@ -101,6 +106,7 @@ lbl_805A8CC4:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA020
 lbl_805AA020:

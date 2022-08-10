@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803DA340
 lbl_803DA340:
@@ -11,6 +12,7 @@ lbl_803DA340:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CTransitionDatabaseGame
 .global lbl_805A8DF0
@@ -1760,6 +1762,7 @@ lbl_8006F934:
 /* 8006F950 0006C8B0  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD288
 lbl_803CD288:
 	# ROM: 0x3CA288

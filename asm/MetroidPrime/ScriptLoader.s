@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .sdata
+.balign 8
 
 .global lbl_805A72A0
 lbl_805A72A0:
@@ -49,6 +50,7 @@ lbl_805A72C0:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AAB48
 lbl_805AAB48:
@@ -23676,85 +23678,58 @@ lbl_800DAA04:
 /* 800DAA2C 000D798C  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
+.global lbl_803CE070
+lbl_803CE070:
+	.4byte 0
+	.4byte 0x00000001
+	.4byte 0x00000002
 .global lbl_803CE07C
 lbl_803CE07C:
 	# ROM: 0x3CB07C
 	.asciz "Atomic Alpha"
-	.byte 0x3F, 0x3F, 0x28
-	.4byte 0x3F3F2900
+	.asciz "??(??)"
 	.asciz "PhazonHealingNodule"
 	.asciz "Omega Pirate"
-	.byte 0x42, 0x75, 0x72
-	.asciz "rower"
-	.byte 0x53, 0x65
-	.asciz "edling"
-	.byte 0x54
-	.asciz "ryclops"
+	.asciz "Burrower"
+	.asciz "Seedling"
+	.asciz "Tryclops"
 	.asciz "Puffer"
-	.byte 0x52
-	.asciz "idley"
-	.byte 0x49, 0x63
-	.asciz "eZoomer"
+	.asciz "Ridley"
+	.asciz "IceZoomer"
 	.asciz "Atomic Beta"
-	.4byte 0x00476565
-	.4byte 0x6D657200
+	.asciz ""
+	.asciz "Geemer"
 	.asciz "Oculus"
-	.byte 0x4D
-	.asciz "agdolite"
-	.byte 0x45, 0x6C, 0x69
-	.asciz "te Pirate"
-	.byte 0x45, 0x79
-	.asciz "eball"
-	.byte 0x42, 0x61
-	.asciz "bygoth"
-	.byte 0x54
-	.asciz "hardus Rock Projectile"
-	.byte 0x46
-	.asciz "laahgra Tenticle"
-	.byte 0x54, 0x68, 0x61
-	.asciz "rdus"
-	.byte 0x4A, 0x65, 0x6C
-	.asciz "lyZap"
-	.byte 0x44, 0x72
-	.4byte 0x6F6E6500
+	.asciz "Magdolite"
+	.asciz "Elite Pirate"
+	.asciz "Eyeball"
+	.asciz "Babygoth"
+	.asciz "Thardus Rock Projectile"
+	.asciz "Flaahgra Tenticle"
+	.asciz "Thardus"
+	.asciz "JellyZap"
+	.asciz "Drone"
 	.asciz "Ice Sheegoth"
-	.byte 0x4D, 0x65, 0x74
-	.asciz "roid"
-	.byte 0x52, 0x69, 0x70
-	.4byte 0x70657200
+	.asciz "Metroid"
+	.asciz "Ripper"
 	.asciz "Parasite"
-	.byte 0x46, 0x6C, 0x61
-	.asciz "ahgra"
-	.byte 0x4E, 0x65
-	.asciz "wIntroBoss"
-	.byte 0x4D
-	.asciz "etaree"
-	.byte 0x53
-	.asciz "pankWeed"
-	.byte 0x46, 0x69, 0x72
-	.asciz "eFlea"
-	.byte 0x47, 0x61
-	.asciz "mma Puddle Toad"
+	.asciz "Flaahgra"
+	.asciz "NewIntroBoss"
+	.asciz "Metaree"
+	.asciz "SpankWeed"
+	.asciz "FireFlea"
+	.asciz "Gamma Puddle Toad"
 	.asciz "Puddle Spore"
-	.byte 0x43, 0x68, 0x6F
-	.asciz "zo Ghost"
-	.byte 0x46, 0x6C, 0x69
-	.asciz "ckerBat"
+	.asciz "Chozo Ghost"
+	.asciz "FlickerBat"
 	.asciz "Blood Flower"
-	.byte 0x46, 0x6C, 0x79
-	.asciz "ingPirate"
-	.byte 0x53, 0x70
-	.asciz "ace Pirate"
-	.byte 0x53
-	.asciz "pace pirate <"
-	.byte 0x3E, 0x20
-	.asciz "has AnimationInformation property with invalid character selected.\n"
+	.asciz "FlyingPirate"
+	.asciz "Space Pirate"
+	.asciz "Space pirate <"
+	.asciz "> has AnimationInformation property with invalid character selected.\n"
 	.asciz "ERROR: Actor/Ai keyframe '"
-	.byte 0x27
-	.asciz " not loaded because it has no valid animation selected.\n"
-	.byte 0x57, 0x61, 0x72
-	.asciz "wasp"
-	.byte 0x42, 0x65, 0x65
-	.4byte 0x746C6500
-	.4byte 0
-
+	.asciz "' not loaded because it has no valid animation selected.\n"
+	.asciz "Warwasp"
+	.asciz "Beetle"
+	.balign 4

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CAi_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DAF58
 lbl_803DAF58:
@@ -1041,6 +1042,7 @@ lbl_803DBCCC:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A71D0
 lbl_805A71D0:
@@ -1059,6 +1061,7 @@ lbl_805A71D8:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # CAi + CAiFuncMap
 .global lbl_805A8E78
@@ -1078,6 +1081,7 @@ lbl_805A8E88:
 	.skip 0x8
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA978
 lbl_805AA978:
@@ -4590,6 +4594,7 @@ __sinit_CAi_cpp:
 /* 800A5338 000A2298  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD968
 lbl_803CD968:
 	# ROM: 0x3CA968

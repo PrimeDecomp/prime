@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CDecal_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global sDecalRandom__6CDecal
 sDecalRandom__6CDecal:
@@ -1144,6 +1145,7 @@ __sinit_CDecal_cpp:
 /* 802B589C 002B27FC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADF70
 lbl_805ADF70:
 	# ROM: 0x3FA810
@@ -1176,6 +1178,7 @@ lbl_805ADF84:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D6550
 lbl_803D6550:
 	# ROM: 0x3D3550

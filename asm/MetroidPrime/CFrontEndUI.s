@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CFrontEndUI_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803D9810
 lbl_803D9810:
@@ -97,6 +98,7 @@ lbl_803D9900:
 	.4byte 0
 
 .section .rodata
+.balign 8
 .global lbl_803CC540
 lbl_803CC540:
 	# ROM: 0x3C9540
@@ -288,12 +290,14 @@ lbl_803CC644:
 
 
 .section .sbss
+.balign 8
 # CFrontEndUI
 .global lbl_805A8CB0
 lbl_805A8CB0:
 	.skip 0x8
 
 .section .sdata
+.balign 8
 
 .global lbl_805A6CD8
 lbl_805A6CD8:
@@ -370,6 +374,7 @@ lbl_805A6D0C:
 	.4byte 0
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805A9FA8
 lbl_805A9FA8:

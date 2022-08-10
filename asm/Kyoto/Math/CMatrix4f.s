@@ -200,6 +200,7 @@ __sinit_CMatrix4f_cpp:
 /* 803109E4 0030D944  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE578
 lbl_805AE578:
 	# ROM: 0x3FAE18

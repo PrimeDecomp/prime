@@ -1,11 +1,13 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 
 .global lbl_80540C88
 lbl_80540C88:
 	.skip 0x578
 .section .sbss
+.balign 8
 .global lbl_805A9838
 lbl_805A9838:
 	.skip 0x4
@@ -20,6 +22,7 @@ lbl_805A9844:
 	.skip 0x4
 
 .section .sdata
+.balign 8
 .global lbl_805A8AC8
 lbl_805A8AC8:
 	# ROM: 0x3F6468
@@ -28,6 +31,7 @@ lbl_805A8AC8:
 
 
 .section .sdata2
+.balign 8
 
 .global lbl_805AEB28
 lbl_805AEB28:
@@ -73,6 +77,12 @@ lbl_805AEB48:
 
 
 .section .data
+.balign 8
+
+.global lbl_803F05E8
+lbl_803F05E8:
+	.asciz "<< Dolphin SDK - GX\trelease build: Sep  5 2002 05:33:28 (0x2301) >>"
+
 .global lbl_803F062C
 lbl_803F062C:
 	# ROM: 0x3ED62C

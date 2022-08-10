@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CBallCamera_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803DAB90
 lbl_803DAB90:
@@ -61,6 +62,7 @@ lbl_803DAC28:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A7018
 lbl_805A7018:
@@ -373,12 +375,14 @@ lbl_805A710C:
 	.4byte 0x00000015
 
 .section .bss
+.balign 8
 
 .global lbl_8046C408
 lbl_8046C408:
 	.skip 0x18
 
 .section .sbss
+.balign 8
 
 # CBallCamera
 .global lbl_805A8E48
@@ -395,6 +399,7 @@ lbl_805A8E54:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA6D0
 lbl_805AA6D0:
@@ -14463,6 +14468,7 @@ __sinit_CBallCamera_cpp:
 /* 8008DA6C 0008A9CC  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803CD678
 lbl_803CD678:
 	# ROM: 0x3CA678

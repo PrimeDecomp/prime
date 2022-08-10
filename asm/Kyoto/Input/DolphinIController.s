@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803EF680
 lbl_803EF680:
@@ -15,6 +16,7 @@ lbl_803EF680:
 	.4byte 0
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A95C8
 lbl_805A95C8:
@@ -80,6 +82,7 @@ __ct__11IControllerFv:
 /* 8034F05C 0034BFBC  4E 80 00 20 */	blr
 
 .section .rodata
+.balign 8
 .global lbl_803D8228
 lbl_803D8228:
 	# ROM: 0x3D5228

@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CStopwatch_cpp
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9238
 lbl_805A9238:
@@ -91,6 +92,7 @@ __sinit_CStopwatch_cpp:
 /* 802D6350 002D32B0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AE278
 lbl_805AE278:
 	# ROM: 0x3FAB18

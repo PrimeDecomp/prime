@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CFlyingPirate_cpp
 
 .section .data
+.balign 8
 
 .global lbl_803E67E8
 lbl_803E67E8:
@@ -297,6 +298,7 @@ lbl_803E6B98:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 
 .global lbl_805A7E80
@@ -452,6 +454,7 @@ lbl_805A7EF8:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046C950
 lbl_8046C950:
@@ -14419,6 +14422,7 @@ __sinit_CFlyingPirate_cpp:
 /* 80200BD4 001FDB34  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ACC40
 lbl_805ACC40:
 	# ROM: 0x3F94E0
@@ -14757,6 +14761,7 @@ lbl_805ACD48:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D2070
 lbl_803D2070:
 	# ROM: 0x3CF070

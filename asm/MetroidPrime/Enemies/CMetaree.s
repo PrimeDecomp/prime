@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803E2878
 lbl_803E2878:
@@ -187,6 +188,7 @@ lbl_803E2878:
 	.4byte 0
 
 .section .sdata
+.balign 8
 
 .global lbl_805A77F8
 lbl_805A77F8:
@@ -1213,6 +1215,7 @@ Accept__8CMetareeFR8IVisitor:
 /* 8014EF50 0014BEB0  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ABAA8
 lbl_805ABAA8:
 	# ROM: 0x3F8348

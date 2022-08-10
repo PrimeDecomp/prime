@@ -5,6 +5,7 @@ lbl_ctor:
 .4byte __sinit_CPlayerDynamics_cpp
 
 .section .sdata
+.balign 8
 
 .global lbl_805A84E8
 lbl_805A84E8:
@@ -103,12 +104,14 @@ lbl_805A8530:
 	.4byte 0
 
 .section .bss
+.balign 8
 
 .global lbl_8046E0D8
 lbl_8046E0D8:
 	.skip 0x18
 
 .section .sbss, "wa"
+.balign 8
 
 .global lbl_805A9150
 lbl_805A9150:
@@ -7606,6 +7609,7 @@ __sinit_CPlayerDynamics_cpp:
 /* 802887C4 00285724  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805ADA98
 lbl_805ADA98:
 	# ROM: 0x3FA338
@@ -7860,6 +7864,7 @@ lbl_805ADB78:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D5908
 lbl_803D5908:
 	# ROM: 0x3D2908

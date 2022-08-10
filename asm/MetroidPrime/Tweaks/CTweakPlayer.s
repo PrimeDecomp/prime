@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .data
+.balign 8
 
 .global lbl_803D9CB8
 lbl_803D9CB8:
@@ -18,6 +19,7 @@ lbl_803D9CC4:
 	.4byte 0
 
 .section .sbss
+.balign 8
 
 # TOneStatic<CTweakPlayer>
 .global lbl_805A8CD0
@@ -28,6 +30,7 @@ lbl_805A8CD4:
 	.skip 0x4
 
 .section .sdata2, "a"
+.balign 8
 
 .global lbl_805AA118
 lbl_805AA118:

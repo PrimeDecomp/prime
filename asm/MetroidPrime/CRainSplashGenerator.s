@@ -1223,6 +1223,7 @@ lbl_8026AD34:
 /* 8026AD5C 00267CBC  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
 .global lbl_805AD868
 lbl_805AD868:
 	# ROM: 0x3FA108
@@ -1311,6 +1312,7 @@ lbl_805AD8A8:
 
 
 .section .rodata
+.balign 8
 .global lbl_803D53F8
 lbl_803D53F8:
 	# ROM: 0x3D23F8

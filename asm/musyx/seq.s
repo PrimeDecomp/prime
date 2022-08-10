@@ -1,6 +1,7 @@
 .include "macros.inc"
 
 .section .bss
+.balign 8
 .global seqNote
 seqNote:
 	.skip 0x1400
@@ -12,6 +13,7 @@ seqMIDIPriority:
 	.skip 0x100
 
 .section .sbss
+.balign 8
 seq_next_id:
 	.skip 0x4
 curFadeOutState:
@@ -30,6 +32,7 @@ seqActiveRoot:
 	.skip 0x4
 
 .section .sdata2
+.balign 8
 .global lbl_805AF210
 lbl_805AF210:
 	# ROM: 0x3FBAB0
@@ -60,6 +63,7 @@ lbl_805AF228:
 
 
 .section .data, "wa"
+.balign 8
 
 .global lbl_803F2F88
 lbl_803F2F88:
