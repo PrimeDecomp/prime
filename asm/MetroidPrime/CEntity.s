@@ -1,9 +1,13 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CEntity_cpp
+
 .section .data
 
-.global lbl_803D9E30
-lbl_803D9E30:
+.global __vt__7CEntity
+__vt__7CEntity:
 	# ROM: 0x3D6E30
 	.4byte 0
 	.4byte 0
@@ -185,9 +189,9 @@ __dt__7CEntityFv:
 /* 80051288 0004E1E8  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8005128C 0004E1EC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80051290 0004E1F0  41 82 00 78 */	beq lbl_80051308
-/* 80051294 0004E1F4  3C 60 80 3E */	lis r3, lbl_803D9E30@ha
+/* 80051294 0004E1F4  3C 60 80 3E */	lis r3, __vt__7CEntity@ha
 /* 80051298 0004E1F8  34 1E 00 20 */	addic. r0, r30, 0x20
-/* 8005129C 0004E1FC  38 03 9E 30 */	addi r0, r3, lbl_803D9E30@l
+/* 8005129C 0004E1FC  38 03 9E 30 */	addi r0, r3, __vt__7CEntity@l
 /* 800512A0 0004E200  90 1E 00 00 */	stw r0, 0(r30)
 /* 800512A4 0004E204  41 82 00 44 */	beq lbl_800512E8
 /* 800512A8 0004E208  80 1E 00 24 */	lwz r0, 0x24(r30)
@@ -231,9 +235,9 @@ lbl_80051308:
 "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 80051324 0004E284  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80051328 0004E288  7C 08 02 A6 */	mflr r0
-/* 8005132C 0004E28C  3D 00 80 3E */	lis r8, lbl_803D9E30@ha
+/* 8005132C 0004E28C  3D 00 80 3E */	lis r8, __vt__7CEntity@ha
 /* 80051330 0004E290  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80051334 0004E294  38 08 9E 30 */	addi r0, r8, lbl_803D9E30@l
+/* 80051334 0004E294  38 08 9E 30 */	addi r0, r8, __vt__7CEntity@l
 /* 80051338 0004E298  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8005133C 0004E29C  7C DF 33 78 */	mr r31, r6
 /* 80051340 0004E2A0  93 C1 00 18 */	stw r30, 0x18(r1)

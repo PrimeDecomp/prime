@@ -709,8 +709,7 @@ OS_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/os/OSThread.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSTime.o\
 	$(BUILD_DIR)/asm/os/__ppc_eabi_init_text.o
-	
-	
+
 PAD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/pad/PadClamp.o\
 	$(BUILD_DIR)/asm/Dolphin/pad/pad.o
@@ -719,7 +718,6 @@ VI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/vi.o
 	
 MSL_PPCEABI_BARE_H :=\
-	$(BUILD_DIR)/asm/Runtime/sdata.o\
 	$(BUILD_DIR)/asm/Runtime/__va_arg.o\
 	$(BUILD_DIR)/asm/Runtime/global_destructor_chain.o\
 	$(BUILD_DIR)/asm/Runtime/CPlusLibPPC.o\
@@ -727,6 +725,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/asm/Runtime/ptmf.o\
 	$(BUILD_DIR)/asm/Runtime/runtime.o\
 	$(BUILD_DIR)/asm/Runtime/__init_cpp_exceptions.o\
+	$(BUILD_DIR)/asm/Runtime/sdata.o\
 	$(BUILD_DIR)/asm/Runtime/Gecko_ExceptionPPC.o\
 	$(BUILD_DIR)/asm/Runtime/abort_exit.o\
 	$(BUILD_DIR)/asm/Runtime/alloc.o\
@@ -853,15 +852,6 @@ GBA_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAWrite.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o
-	
-EXTAB_O_FILES :=\
-	$(BUILD_DIR)/asm/extab.o
-
-EXTABINDEX_O_FILES :=\
-	$(BUILD_DIR)/asm/extabindex.o
-
-CTORS_O_FILES :=\
-	$(BUILD_DIR)/asm/ctors.o
 
 DTORS_O_FILES :=\
 	$(BUILD_DIR)/asm/dtors.o

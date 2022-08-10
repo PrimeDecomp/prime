@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CPlayerGun_cpp
+
 .section .data
 .global lbl_803D9D50
 lbl_803D9D50:

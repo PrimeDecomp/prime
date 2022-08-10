@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_DolphinCMemoryCardSys_cpp
+
 .section .sdata
 
 .global lbl_805A89A8

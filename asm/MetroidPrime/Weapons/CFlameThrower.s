@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CFlameThrower_cpp
+
 .section .data
 
 .global lbl_803E45D8

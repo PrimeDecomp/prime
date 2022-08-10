@@ -31,8 +31,8 @@ exit:
 /* 8038A1DC 0038713C  2C 00 00 00 */	cmpwi r0, 0
 /* 8038A1E0 00387140  40 82 00 4C */	bne lbl_8038A22C
 /* 8038A1E4 00387144  4B FF F4 61 */	bl __destroy_global_chain
-/* 8038A1E8 00387148  3C 60 80 3D */	lis r3, __destroy_global_chain_reference@ha
-/* 8038A1EC 0038714C  38 03 B3 80 */	addi r0, r3, __destroy_global_chain_reference@l
+/* 8038A1E8 00387148  3C 60 80 3D */	lis r3, _dtors@ha
+/* 8038A1EC 0038714C  38 03 B3 80 */	addi r0, r3, _dtors@l
 /* 8038A1F0 00387150  7C 1F 03 78 */	mr r31, r0
 /* 8038A1F4 00387154  48 00 00 10 */	b lbl_8038A204
 lbl_8038A1F8:

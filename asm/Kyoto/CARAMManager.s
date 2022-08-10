@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CARAMManager_cpp
+
 .section .sdata
 .balign 8
 

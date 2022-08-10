@@ -8,8 +8,9 @@ SECTIONS
     GROUP:
     {
         .init ALIGN(0x20):{}
-        .extab ALIGN(0x20):{}
-        .extabindex ALIGN(0x20):{}
+        /* TODO: should be extab and extabindex */
+        extab_ ALIGN(0x20):{}
+        extabindex_ ALIGN(0x20):{}
         .text ALIGN(0x20):{}
         .ctors ALIGN(0x20):{}
         .dtors ALIGN(0x20):{}
@@ -34,10 +35,7 @@ SECTIONS
 
 FORCEFILES 
 {
-    ctors.o
-    dtors.o
-    extab.o
-    extabindex.o
+    __init_cpp_exceptions.o
     uart_console_io.o
     mslsupp.o
     CBallFilter.o
@@ -66,4 +64,6 @@ FORCEFILES
     CFactoryStore.o
     CFontImageDef.o
     CImageInstruction.o
+    RumbleFxTable.o
+    CGuiWidgetDrawParms.o
 }

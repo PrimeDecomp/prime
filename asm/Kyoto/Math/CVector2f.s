@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CVector2f_cpp
+
 .section .sbss, "wa"
 # skZero2f
 .global lbl_805A9458

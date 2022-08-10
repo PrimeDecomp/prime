@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CFireFlea_cpp
+
 .section .data
 
 .global lbl_803E1C88

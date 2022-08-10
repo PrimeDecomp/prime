@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CModelData_cpp
+
 .section .bss
 
 .global lbl_8046C538

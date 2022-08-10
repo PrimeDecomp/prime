@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CMatrix4f_cpp
+
 .section .text, "ax"
 
 .global MultiplyGetW__9CMatrix4fCFRC9CVector3f

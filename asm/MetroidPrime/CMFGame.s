@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CMFGame_cpp
+
 .section .bss
 
 .global lbl_8045A1A8

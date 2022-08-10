@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_RstlExtras_cpp
+
 .section .bss
 
 .global lbl_804BFF30

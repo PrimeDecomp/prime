@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CCollisionPrimitive_cpp
+
 .section .bss
 
 .global lbl_804794E0

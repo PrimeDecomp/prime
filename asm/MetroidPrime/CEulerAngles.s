@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CEulerAngles_cpp
+
 .section .sdata2, "a"
 
 .global lbl_805A9F78

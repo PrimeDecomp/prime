@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CFlaahgra_cpp
+
 .section .data
 
 .global lbl_803E4D08

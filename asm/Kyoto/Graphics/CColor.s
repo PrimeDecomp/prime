@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CColor_cpp
+
 .section .sbss, "wa"
 
 .global lbl_805A9568

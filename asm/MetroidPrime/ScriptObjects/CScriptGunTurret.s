@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CScriptGunTurret_cpp
+
 .section .data
 
 .global lbl_803E71D0
