@@ -17,7 +17,6 @@ startListNum:
 
 .section .sbss
 .balign 8
-.balign 4
 .global runListNum
 runListNum:
 	.skip 0x1

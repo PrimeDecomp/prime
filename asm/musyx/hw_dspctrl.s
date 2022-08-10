@@ -13,7 +13,6 @@ dspStudio:
 
 .section .sbss
 .balign 8
-.balign 4
 .global dspARAMZeroBuffer
 dspARAMZeroBuffer:
 	.skip 0x4

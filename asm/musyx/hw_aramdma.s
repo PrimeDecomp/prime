@@ -11,7 +11,6 @@ aramStreamBuffers:
 
 .section .sbss, "wa"
 .balign 8
-.balign 4
 .global aramIdleStreamBuffers
 aramIdleStreamBuffers:
 	.skip 0x4

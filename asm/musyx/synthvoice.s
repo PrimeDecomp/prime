@@ -17,7 +17,6 @@ vs:
 
 .section .sbss
 .balign 8
-.balign 4
 .global vidFree
 vidFree:
 	.skip 0x4

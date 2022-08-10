@@ -10,8 +10,6 @@ lbl_80542000:
 .section .sbss
 .balign 8
 
-.balign 4
-
 Initialized:
 	.skip 0x4
 

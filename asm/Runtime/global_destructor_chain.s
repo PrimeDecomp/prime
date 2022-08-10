@@ -40,6 +40,5 @@ __destroy_global_chain_reference:
 
 .section .sbss
 .balign 8
-.balign 4
 __global_destructor_chain:
 	.skip 0x8

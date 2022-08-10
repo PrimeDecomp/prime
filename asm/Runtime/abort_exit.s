@@ -7,7 +7,6 @@ lbl_80542198:
 
 .section .sbss
 .balign 8
-.balign 4
 .global lbl_805A99B8
 lbl_805A99B8:
 	.skip 0x4

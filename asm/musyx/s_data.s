@@ -2,7 +2,6 @@
 
 .section .sbss
 .balign 8
-.balign 4
 .global sp
 sp:
 	.skip 0x8

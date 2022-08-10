@@ -35,7 +35,6 @@ dataMacSubTabmem:
 
 .section .sbss
 .balign 8
-.balign 4
 "result$494":
 	.skip 0x4
 "result$768":
