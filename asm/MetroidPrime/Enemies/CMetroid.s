@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CMetroid_cpp
+
 .section .data
 
 .global lbl_803E3AD8

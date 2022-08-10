@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CVector3f_cpp
+
 .section .text, "ax"
 
 .global IsEqu__9CVector3fCFRC9CVector3ff

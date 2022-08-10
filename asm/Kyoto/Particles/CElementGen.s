@@ -2,6 +2,10 @@
 
 #TODO: Resplit, this has CIntElement, CModVectorElement and CParticleDataFactory in it, that can't be right
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CElementGen_cpp
+
 .section .data
 
 .global lbl_803EDA80

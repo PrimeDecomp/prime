@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CCubeSurface_cpp
+
 .section .text, "ax"
 
 .global GetBounds__12CCubeSurfaceCFv

@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CCameraShakeData_cpp
+
 .section .sdata
 
 .global lbl_805A7888

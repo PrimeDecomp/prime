@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CAxisAngle_cpp
+
 .section .text, "ax"
 
 .global __pl__FRC10CAxisAngleRC10CAxisAngle

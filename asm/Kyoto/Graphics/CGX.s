@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CGX_cpp
+
 .section .bss
 
 .global lbl_80479BD0

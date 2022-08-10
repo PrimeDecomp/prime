@@ -43,13 +43,13 @@ endif
 
 include obj_files.mk
 
-O_FILES := $(INIT_O_FILES) $(EXTAB_O_FILES) $(EXTABINDEX_O_FILES) $(METROTRK_FILES) \
+O_FILES := $(INIT_O_FILES) $(METROTRK_FILES) \
 	   $(METROIDPRIME) $(WORLDFORMAT) $(WEAPONS) $(METARENDER) $(GUISYS) $(COLLISION) \
 	   $(KYOTO) $(AI_FILES) \
 	   $(AR_FILES) $(BASE_FILES) $(DB_FILES) $(DSP_FILES) $(DVD_FILES) $(GX_FILES) $(MTX_FILES) \
 	   $(OS_FILES) $(PAD_FILES) $(VI_FILES) $(MSL_PPCEABI_BARE_H) $(MUSYX_FILES) \
 	   $(DTK_FILES) $(CARD_FILES) $(SI_FILES) $(EXI_FILES) $(THP_FILES) \
-	   $(GBA_FILES) $(CTORS_O_FILES) $(DTORS_O_FILES)
+	   $(GBA_FILES) $(DTORS_O_FILES)
 DEPENDS := $(O_FILES:.o=.d)
 # If a specific .o file is passed as a target, also process its deps
 DEPENDS += $(MAKECMDGOALS:.o=.d)

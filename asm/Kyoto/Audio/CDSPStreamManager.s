@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CDSPStreamManager_cpp
+
 .section .bss
 
 #TODO: Figure out what's going on with these, they're referenced in various locations

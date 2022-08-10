@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CAnimData_cpp
+
 .section .data
 # These belong in Kyoto/Animation/C*POINode
 # Thanks to ODR they wound up here

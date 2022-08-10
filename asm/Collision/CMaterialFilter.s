@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.section .ctors, "wa"
+lbl_ctor:
+.4byte __sinit_CMaterialFilter_cpp
+
 .section .text, "ax"
 
 .global Passes__15CMaterialFilterCFRC13CMaterialList

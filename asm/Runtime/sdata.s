@@ -1,11 +1,6 @@
 .section .sdata
 
 # TODO: Split this
-.global lbl_805A8B88
-lbl_805A8B88:
-	# ROM: 0x3F6528
-	.4byte 0xFFFFFFFE
-	.4byte 0
 
 .global lbl_805A8B90
 lbl_805A8B90:
