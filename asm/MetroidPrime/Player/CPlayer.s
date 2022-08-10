@@ -12358,9 +12358,9 @@ __ct__7CPlayerF9TUniqueIdRC12CTransform4fRC6CAABoxUi9CVector3fffffRC13CMaterialL
 /* 8001A2A4 00017204  38 8A 00 3F */	addi r4, r10, 0x3f
 /* 8001A2A8 00017208  4B FE AA 11 */	bl string_l__4rstlFPCc
 /* 8001A2AC 0001720C  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 8001A2B0 00017210  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8001A2B0 00017210  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8001A2B4 00017214  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
-/* 8001A2B8 00017218  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8001A2B8 00017218  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8001A2BC 0001721C  90 81 00 30 */	stw r4, 0x30(r1)
 /* 8001A2C0 00017220  38 61 00 94 */	addi r3, r1, 0x94
 /* 8001A2C4 00017224  38 81 00 34 */	addi r4, r1, 0x34

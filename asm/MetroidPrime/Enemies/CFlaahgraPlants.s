@@ -566,9 +566,9 @@ lbl_80208AB8:
 /* 80208B1C 00205A7C  38 A0 FF FF */	li r5, -1
 /* 80208B20 00205A80  48 13 56 75 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FPCciRCQ24rstl17rmemory_allocator"
 /* 80208B24 00205A84  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 80208B28 00205A88  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80208B28 00205A88  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80208B2C 00205A8C  80 17 00 00 */	lwz r0, 0(r23)
-/* 80208B30 00205A90  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80208B30 00205A90  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80208B34 00205A94  90 81 00 2C */	stw r4, 0x2c(r1)
 /* 80208B38 00205A98  38 61 00 7C */	addi r3, r1, 0x7c
 /* 80208B3C 00205A9C  38 81 00 30 */	addi r4, r1, 0x30

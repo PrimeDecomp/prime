@@ -625,8 +625,8 @@ sub_8021d7e0:
 /* 8021D858 0021A7B8  D0 01 00 60 */	stfs f0, 0x60(r1)
 /* 8021D85C 0021A7BC  4B DE 74 5D */	bl string_l__4rstlFPCc
 /* 8021D860 0021A7C0  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8021D864 0021A7C4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8021D868 0021A7C8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8021D864 0021A7C4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 8021D868 0021A7C8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8021D86C 0021A7CC  38 81 00 34 */	addi r4, r1, 0x34
 /* 8021D870 0021A7D0  90 01 00 38 */	stw r0, 0x38(r1)
 /* 8021D874 0021A7D4  38 61 00 64 */	addi r3, r1, 0x64

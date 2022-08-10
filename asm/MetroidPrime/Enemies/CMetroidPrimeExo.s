@@ -4145,8 +4145,8 @@ sub_802740fc:
 /* 80274144 002710A4  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80274148 002710A8  41 82 00 70 */	beq lbl_802741B8
 /* 8027414C 002710AC  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 80274150 002710B0  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 80274154 002710B4  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80274150 002710B0  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 80274154 002710B4  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80274158 002710B8  38 81 00 24 */	addi r4, r1, 0x24
 /* 8027415C 002710BC  90 01 00 28 */	stw r0, 0x28(r1)
 /* 80274160 002710C0  38 61 00 3C */	addi r3, r1, 0x3c

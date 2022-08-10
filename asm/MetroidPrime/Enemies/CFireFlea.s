@@ -1699,7 +1699,7 @@ lbl_80143D98:
 "__ct__Q29CFireFlea18CDeathCameraEffectF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 80143DB8 00140D18  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80143DBC 00140D1C  7C 08 02 A6 */	mflr r0
-/* 80143DC0 00140D20  3C E0 80 57 */	lis r7, lbl_8056D410@ha
+/* 80143DC0 00140D20  3C E0 80 57 */	lis r7, NullConnectionList__7CEntity@ha
 /* 80143DC4 00140D24  90 01 00 54 */	stw r0, 0x54(r1)
 /* 80143DC8 00140D28  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 80143DCC 00140D2C  7C 7F 1B 78 */	mr r31, r3
@@ -1711,7 +1711,7 @@ lbl_80143D98:
 /* 80143DE4 00140D44  7C 9D 23 78 */	mr r29, r4
 /* 80143DE8 00140D48  38 81 00 20 */	addi r4, r1, 0x20
 /* 80143DEC 00140D4C  80 05 00 00 */	lwz r0, 0(r5)
-/* 80143DF0 00140D50  38 A7 D4 10 */	addi r5, r7, lbl_8056D410@l
+/* 80143DF0 00140D50  38 A7 D4 10 */	addi r5, r7, NullConnectionList__7CEntity@l
 /* 80143DF4 00140D54  81 0D A3 88 */	lwz r8, kInvalidEditorId@sda21(r13)
 /* 80143DF8 00140D58  90 01 00 20 */	stw r0, 0x20(r1)
 /* 80143DFC 00140D5C  91 01 00 1C */	stw r8, 0x1c(r1)

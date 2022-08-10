@@ -898,9 +898,9 @@ lbl_802017D8:
 /* 80201820 001FE780  7C 7B 1B 79 */	or. r27, r3, r3
 /* 80201824 001FE784  41 82 00 B8 */	beq lbl_802018DC
 /* 80201828 001FE788  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 8020182C 001FE78C  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8020182C 001FE78C  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80201830 001FE790  80 01 00 58 */	lwz r0, 0x58(r1)
-/* 80201834 001FE794  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80201834 001FE794  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80201838 001FE798  90 81 00 44 */	stw r4, 0x44(r1)
 /* 8020183C 001FE79C  38 61 00 6C */	addi r3, r1, 0x6c
 /* 80201840 001FE7A0  38 81 00 40 */	addi r4, r1, 0x40
@@ -1047,9 +1047,9 @@ lbl_80201A08:
 /* 80201A50 001FE9B0  7C 7B 1B 79 */	or. r27, r3, r3
 /* 80201A54 001FE9B4  41 82 00 B8 */	beq lbl_80201B0C
 /* 80201A58 001FE9B8  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 80201A5C 001FE9BC  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80201A5C 001FE9BC  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80201A60 001FE9C0  80 01 00 58 */	lwz r0, 0x58(r1)
-/* 80201A64 001FE9C4  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80201A64 001FE9C4  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80201A68 001FE9C8  90 81 00 44 */	stw r4, 0x44(r1)
 /* 80201A6C 001FE9CC  38 61 00 6C */	addi r3, r1, 0x6c
 /* 80201A70 001FE9D0  38 81 00 40 */	addi r4, r1, 0x40

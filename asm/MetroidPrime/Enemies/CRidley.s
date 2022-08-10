@@ -3692,8 +3692,8 @@ lbl_80254FE0:
 /* 80255134 00252094  D0 01 00 68 */	stfs f0, 0x68(r1)
 /* 80255138 00252098  4B DA FB 81 */	bl string_l__4rstlFPCc
 /* 8025513C 0025209C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 80255140 002520A0  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 80255144 002520A4  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80255140 002520A0  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 80255144 002520A4  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80255148 002520A8  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8025514C 002520AC  90 01 00 30 */	stw r0, 0x30(r1)
 /* 80255150 002520B0  38 61 00 B4 */	addi r3, r1, 0xb4

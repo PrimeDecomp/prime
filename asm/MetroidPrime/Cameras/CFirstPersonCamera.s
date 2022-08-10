@@ -1998,9 +1998,9 @@ __ct__18CFirstPersonCameraFRC9TUniqueIdRC12CTransform4f9TUniqueIdfffff:
 /* 8000FB58 0000CAB8  38 61 00 30 */	addi r3, r1, 0x30
 /* 8000FB5C 0000CABC  4B FF 51 5D */	bl string_l__4rstlFPCc
 /* 8000FB60 0000CAC0  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 8000FB64 0000CAC4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8000FB64 0000CAC4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8000FB68 0000CAC8  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
-/* 8000FB6C 0000CACC  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8000FB6C 0000CACC  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8000FB70 0000CAD0  90 81 00 28 */	stw r4, 0x28(r1)
 /* 8000FB74 0000CAD4  38 61 00 40 */	addi r3, r1, 0x40
 /* 8000FB78 0000CAD8  38 81 00 2C */	addi r4, r1, 0x2c

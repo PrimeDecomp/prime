@@ -2291,9 +2291,9 @@ lbl_80205314:
 /* 80205468 002023C8  7D 89 03 A6 */	mtctr r12
 /* 8020546C 002023CC  4E 80 04 21 */	bctrl
 /* 80205470 002023D0  80 DF 05 88 */	lwz r6, 0x588(r31)
-/* 80205474 002023D4  3C 80 80 57 */	lis r4, lbl_8056D410@ha
+/* 80205474 002023D4  3C 80 80 57 */	lis r4, NullConnectionList__7CEntity@ha
 /* 80205478 002023D8  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8020547C 002023DC  38 A4 D4 10 */	addi r5, r4, lbl_8056D410@l
+/* 8020547C 002023DC  38 A4 D4 10 */	addi r5, r4, NullConnectionList__7CEntity@l
 /* 80205480 002023E0  7C 72 1B 78 */	mr r18, r3
 /* 80205484 002023E4  7E 26 EA 14 */	add r17, r6, r29
 /* 80205488 002023E8  90 01 00 9C */	stw r0, 0x9c(r1)

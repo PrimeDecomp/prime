@@ -285,8 +285,8 @@ lbl_800C2790:
 /* 800C2804 000BF764  90 01 00 64 */	stw r0, 0x64(r1)
 /* 800C2808 000BF768  4B F8 A8 D5 */	bl AllocateUniqueId__13CStateManagerFv
 /* 800C280C 000BF76C  A0 81 00 18 */	lhz r4, 0x18(r1)
-/* 800C2810 000BF770  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 800C2814 000BF774  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 800C2810 000BF770  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 800C2814 000BF774  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 800C2818 000BF778  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 800C281C 000BF77C  B0 81 00 1C */	sth r4, 0x1c(r1)
 /* 800C2820 000BF780  38 61 00 84 */	addi r3, r1, 0x84

@@ -284,9 +284,9 @@ AddPlatform__7CRipperFR13CStateManager:
 /* 8015BEC8 00158E28  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8015BECC 00158E2C  41 82 00 A4 */	beq lbl_8015BF70
 /* 8015BED0 00158E30  38 00 00 00 */	li r0, 0
-/* 8015BED4 00158E34  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8015BED4 00158E34  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8015BED8 00158E38  98 01 00 58 */	stb r0, 0x58(r1)
-/* 8015BEDC 00158E3C  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8015BEDC 00158E3C  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8015BEE0 00158E40  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 8015BEE4 00158E44  38 61 00 5C */	addi r3, r1, 0x5c
 /* 8015BEE8 00158E48  88 FD 00 30 */	lbz r7, 0x30(r29)
@@ -479,8 +479,8 @@ AddGrapplePoint__7CRipperFR13CStateManager:
 /* 8015C188 001590E8  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8015C18C 001590EC  41 82 00 78 */	beq lbl_8015C204
 /* 8015C190 001590F0  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8015C194 001590F4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8015C198 001590F8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8015C194 001590F4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 8015C198 001590F8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8015C19C 001590FC  38 81 00 24 */	addi r4, r1, 0x24
 /* 8015C1A0 00159100  90 01 00 28 */	stw r0, 0x28(r1)
 /* 8015C1A4 00159104  38 61 00 3C */	addi r3, r1, 0x3c

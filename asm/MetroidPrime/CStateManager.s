@@ -807,9 +807,9 @@ lbl_8004420C:
 /* 80044288 000411E8  38 84 00 07 */	addi r4, r4, 7
 /* 8004428C 000411EC  4B FC 0A 2D */	bl string_l__4rstlFPCc
 /* 80044290 000411F0  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 80044294 000411F4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80044294 000411F4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80044298 000411F8  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
-/* 8004429C 000411FC  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8004429C 000411FC  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 800442A0 00041200  90 81 00 34 */	stw r4, 0x34(r1)
 /* 800442A4 00041204  38 61 00 7C */	addi r3, r1, 0x7c
 /* 800442A8 00041208  38 81 00 30 */	addi r4, r1, 0x30

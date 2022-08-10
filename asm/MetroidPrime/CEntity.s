@@ -406,11 +406,11 @@ lbl_80051558:
 __sinit_CEntity_cpp:
 /* 80051580 0004E4E0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80051584 0004E4E4  7C 08 02 A6 */	mflr r0
-/* 80051588 0004E4E8  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80051588 0004E4E8  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8005158C 0004E4EC  3C 80 80 05 */	lis r4, "__dt__Q24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>Fv"@ha
 /* 80051590 0004E4F0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80051594 0004E4F4  3C A0 80 47 */	lis r5, lbl_8046C3B8@ha
-/* 80051598 0004E4F8  38 63 D4 10 */	addi r3, r3, lbl_8056D410@l
+/* 80051598 0004E4F8  38 63 D4 10 */	addi r3, r3, NullConnectionList__7CEntity@l
 /* 8005159C 0004E4FC  38 00 00 00 */	li r0, 0
 /* 800515A0 0004E500  90 03 00 04 */	stw r0, 4(r3)
 /* 800515A4 0004E504  38 84 86 F8 */	addi r4, r4, "__dt__Q24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>Fv"@l

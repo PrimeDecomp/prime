@@ -1075,9 +1075,9 @@ __ct__20CInterpolationCameraF9TUniqueIdRC12CTransform4f:
 /* 80265EB8 00262E18  7C 04 03 78 */	mr r4, r0
 /* 80265EBC 00262E1C  4B D9 ED FD */	bl string_l__4rstlFPCc
 /* 80265EC0 00262E20  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 80265EC4 00262E24  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80265EC4 00262E24  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80265EC8 00262E28  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
-/* 80265ECC 00262E2C  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80265ECC 00262E2C  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80265ED0 00262E30  90 81 00 28 */	stw r4, 0x28(r1)
 /* 80265ED4 00262E34  38 61 00 40 */	addi r3, r1, 0x40
 /* 80265ED8 00262E38  38 81 00 2C */	addi r4, r1, 0x2c

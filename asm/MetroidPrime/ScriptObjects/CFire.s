@@ -499,9 +499,9 @@ __ct__5CFire:
 /* 8025D26C 0025A1CC  38 A0 FF FF */	li r5, -1
 /* 8025D270 0025A1D0  48 0E 0F 25 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FPCciRCQ24rstl17rmemory_allocator"
 /* 8025D274 0025A1D4  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 8025D278 0025A1D8  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8025D278 0025A1D8  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8025D27C 0025A1DC  80 11 00 00 */	lwz r0, 0(r17)
-/* 8025D280 0025A1E0  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8025D280 0025A1E0  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8025D284 0025A1E4  90 81 00 2C */	stw r4, 0x2c(r1)
 /* 8025D288 0025A1E8  38 61 00 64 */	addi r3, r1, 0x64
 /* 8025D28C 0025A1EC  38 81 00 30 */	addi r4, r1, 0x30

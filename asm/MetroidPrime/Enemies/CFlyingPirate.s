@@ -9328,8 +9328,8 @@ Explode__13CFlyingPirateFR13CStateManager:
 /* 801FBFF4 001F8F54  D0 01 00 60 */	stfs f0, 0x60(r1)
 /* 801FBFF8 001F8F58  4B E0 8C C1 */	bl string_l__4rstlFPCc
 /* 801FBFFC 001F8F5C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 801FC000 001F8F60  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 801FC004 001F8F64  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801FC000 001F8F60  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 801FC004 001F8F64  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801FC008 001F8F68  38 81 00 34 */	addi r4, r1, 0x34
 /* 801FC00C 001F8F6C  90 01 00 38 */	stw r0, 0x38(r1)
 /* 801FC010 001F8F70  38 61 00 80 */	addi r3, r1, 0x80

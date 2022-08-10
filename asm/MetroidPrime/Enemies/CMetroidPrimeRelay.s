@@ -158,9 +158,9 @@ lbl_802805D8:
 /* 80280644 0027D5A4  90 E1 00 CC */	stw r7, 0xcc(r1)
 /* 80280648 0027D5A8  4B E9 65 0D */	bl __ct__10CModelDataFRC8CAnimRes
 /* 8028064C 0027D5AC  80 1D 00 04 */	lwz r0, 4(r29)
-/* 80280650 0027D5B0  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80280650 0027D5B0  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80280654 0027D5B4  80 CD A3 88 */	lwz r6, kInvalidEditorId@sda21(r13)
-/* 80280658 0027D5B8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80280658 0027D5B8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8028065C 0027D5BC  90 01 00 7C */	stw r0, 0x7c(r1)
 /* 80280660 0027D5C0  38 61 00 9C */	addi r3, r1, 0x9c
 /* 80280664 0027D5C4  38 81 00 80 */	addi r4, r1, 0x80

@@ -8140,8 +8140,8 @@ lbl_801E119C:
 /* 801E12E4 001DE244  39 40 00 01 */	li r10, 1
 /* 801E12E8 001DE248  4B F2 55 E1 */	bl sub_801068c8
 /* 801E12EC 001DE24C  C0 02 AC DC */	lfs f0, lbl_805AC9FC@sda21(r2)
-/* 801E12F0 001DE250  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 801E12F4 001DE254  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801E12F0 001DE250  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 801E12F4 001DE254  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801E12F8 001DE258  D3 E1 01 60 */	stfs f31, 0x160(r1)
 /* 801E12FC 001DE25C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 801E1300 001DE260  38 61 02 38 */	addi r3, r1, 0x238
