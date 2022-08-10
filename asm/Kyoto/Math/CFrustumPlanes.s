@@ -529,6 +529,8 @@ sub_803456b0:
 /* 80345748 003426A8  4E 80 00 20 */	blr
 
 .section .sdata2, "a"
+.balign 8
+
 .global lbl_805AE8D0
 lbl_805AE8D0:
 	# ROM: 0x3FB170

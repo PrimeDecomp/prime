@@ -105,6 +105,7 @@ endif
 CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS_MUSYX = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto
+CFLAGS_ZLIB = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto
 CFLAGS_1.2 += -str reuse
 
 ifeq ($(VERBOSE),0)
@@ -137,6 +138,14 @@ $(BUILD_DIR)/src/musyx/reverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/delay_fx.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/creverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
 $(BUILD_DIR)/src/musyx/synth_ac.o: CFLAGS := $(CFLAGS_MUSYX)
+$(BUILD_DIR)/src/Kyoto/zlib/adler32.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/infblock.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/infcodes.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/inffast.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/inflate.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/inftrees.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/infutil.o: CFLAGS := $(CFLAGS_ZLIB)
+$(BUILD_DIR)/src/Kyoto/zlib/zutil.o: CFLAGS := $(CFLAGS_ZLIB)
 
 
 #-------------------------------------------------------------------------------
