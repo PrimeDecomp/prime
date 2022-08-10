@@ -1158,9 +1158,9 @@ sub_8027d52c:
 /* 8027D5DC 0027A53C  7C 7C 1B 79 */	or. r28, r3, r3
 /* 8027D5E0 0027A540  41 82 00 A4 */	beq lbl_8027D684
 /* 8027D5E4 0027A544  A0 FB 00 08 */	lhz r7, 8(r27)
-/* 8027D5E8 0027A548  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8027D5E8 0027A548  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8027D5EC 0027A54C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8027D5F0 0027A550  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8027D5F0 0027A550  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8027D5F4 0027A554  B0 E1 00 14 */	sth r7, 0x14(r1)
 /* 8027D5F8 0027A558  38 61 00 44 */	addi r3, r1, 0x44
 /* 8027D5FC 0027A55C  38 81 00 2C */	addi r4, r1, 0x2c

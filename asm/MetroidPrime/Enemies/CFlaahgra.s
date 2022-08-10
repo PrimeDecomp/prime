@@ -6608,8 +6608,8 @@ lbl_801B2CE4:
 /* 801B2D38 001AFC98  7C 7B 1B 79 */	or. r27, r3, r3
 /* 801B2D3C 001AFC9C  41 82 00 80 */	beq lbl_801B2DBC
 /* 801B2D40 001AFCA0  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 801B2D44 001AFCA4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 801B2D48 001AFCA8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801B2D44 001AFCA4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 801B2D48 001AFCA8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801B2D4C 001AFCAC  38 81 00 70 */	addi r4, r1, 0x70
 /* 801B2D50 001AFCB0  90 01 00 74 */	stw r0, 0x74(r1)
 /* 801B2D54 001AFCB4  38 61 01 14 */	addi r3, r1, 0x114

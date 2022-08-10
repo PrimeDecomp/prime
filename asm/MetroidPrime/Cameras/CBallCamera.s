@@ -13761,9 +13761,9 @@ __ct__11CBallCameraF9TUniqueId9TUniqueIdRC12CTransform4fffff:
 /* 8008CFC4 00089F24  38 87 00 07 */	addi r4, r7, 7
 /* 8008CFC8 00089F28  4B F7 7C F1 */	bl string_l__4rstlFPCc
 /* 8008CFCC 00089F2C  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 8008CFD0 00089F30  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8008CFD0 00089F30  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8008CFD4 00089F34  80 0D A3 90 */	lwz r0, kInvalidAreaId@sda21(r13)
-/* 8008CFD8 00089F38  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8008CFD8 00089F38  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8008CFDC 00089F3C  90 81 00 28 */	stw r4, 0x28(r1)
 /* 8008CFE0 00089F40  38 61 00 40 */	addi r3, r1, 0x40
 /* 8008CFE4 00089F44  38 81 00 2C */	addi r4, r1, 0x2c

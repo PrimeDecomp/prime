@@ -332,9 +332,9 @@ lbl_8012F390:
 /* 8012F3F4 0012C354  D3 E1 00 68 */	stfs f31, 0x68(r1)
 /* 8012F3F8 0012C358  4B ED 58 C1 */	bl string_l__4rstlFPCc
 /* 8012F3FC 0012C35C  80 1C 00 04 */	lwz r0, 4(r28)
-/* 8012F400 0012C360  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8012F400 0012C360  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8012F404 0012C364  80 CD A3 88 */	lwz r6, kInvalidEditorId@sda21(r13)
-/* 8012F408 0012C368  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8012F408 0012C368  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8012F40C 0012C36C  90 01 00 30 */	stw r0, 0x30(r1)
 /* 8012F410 0012C370  38 61 00 6C */	addi r3, r1, 0x6c
 /* 8012F414 0012C374  38 81 00 34 */	addi r4, r1, 0x34

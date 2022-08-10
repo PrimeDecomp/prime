@@ -505,8 +505,8 @@ lbl_8029F694:
 /* 8029F6CC 0029C62C  38 84 00 26 */	addi r4, r4, 0x26
 /* 8029F6D0 0029C630  4B D6 55 E9 */	bl string_l__4rstlFPCc
 /* 8029F6D4 0029C634  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8029F6D8 0029C638  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8029F6DC 0029C63C  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8029F6D8 0029C638  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 8029F6DC 0029C63C  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8029F6E0 0029C640  38 81 00 34 */	addi r4, r1, 0x34
 /* 8029F6E4 0029C644  90 01 00 38 */	stw r0, 0x38(r1)
 /* 8029F6E8 0029C648  38 61 00 C8 */	addi r3, r1, 0xc8

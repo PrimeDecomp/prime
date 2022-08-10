@@ -4736,9 +4736,9 @@ GenerateIceDeathExplosion__10CPatternedFR13CStateManager:
 /* 8007AEA4 00077E04  90 01 00 3C */	stw r0, 0x3c(r1)
 /* 8007AEA8 00077E08  4B FD 22 35 */	bl AllocateUniqueId__13CStateManagerFv
 /* 8007AEAC 00077E0C  80 FA 00 04 */	lwz r7, 4(r26)
-/* 8007AEB0 00077E10  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8007AEB0 00077E10  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8007AEB4 00077E14  A0 81 00 10 */	lhz r4, 0x10(r1)
-/* 8007AEB8 00077E18  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8007AEB8 00077E18  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8007AEBC 00077E1C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 8007AEC0 00077E20  38 61 00 74 */	addi r3, r1, 0x74
 /* 8007AEC4 00077E24  B0 81 00 14 */	sth r4, 0x14(r1)
@@ -4891,9 +4891,9 @@ lbl_8007B020:
 /* 8007B0E4 00078044  90 01 00 84 */	stw r0, 0x84(r1)
 /* 8007B0E8 00078048  4B FD 1F F5 */	bl AllocateUniqueId__13CStateManagerFv
 /* 8007B0EC 0007804C  80 FC 00 04 */	lwz r7, 4(r28)
-/* 8007B0F0 00078050  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8007B0F0 00078050  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8007B0F4 00078054  A0 81 00 18 */	lhz r4, 0x18(r1)
-/* 8007B0F8 00078058  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8007B0F8 00078058  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8007B0FC 0007805C  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 8007B100 00078060  38 61 00 D4 */	addi r3, r1, 0xd4
 /* 8007B104 00078064  B0 81 00 1C */	sth r4, 0x1c(r1)
@@ -4997,9 +4997,9 @@ lbl_8007B214:
 /* 8007B270 000781D0  90 01 00 5C */	stw r0, 0x5c(r1)
 /* 8007B274 000781D4  4B FD 1E 69 */	bl AllocateUniqueId__13CStateManagerFv
 /* 8007B278 000781D8  80 FC 00 04 */	lwz r7, 4(r28)
-/* 8007B27C 000781DC  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8007B27C 000781DC  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8007B280 000781E0  A0 81 00 10 */	lhz r4, 0x10(r1)
-/* 8007B284 000781E4  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8007B284 000781E4  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8007B288 000781E8  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
 /* 8007B28C 000781EC  38 61 00 BC */	addi r3, r1, 0xbc
 /* 8007B290 000781F0  B0 81 00 14 */	sth r4, 0x14(r1)

@@ -1637,8 +1637,8 @@ lbl_802151D8:
 /* 8021520C 0021216C  38 84 00 26 */	addi r4, r4, 0x26
 /* 80215210 00212170  4B DE FA A9 */	bl string_l__4rstlFPCc
 /* 80215214 00212174  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 80215218 00212178  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8021521C 0021217C  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80215218 00212178  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 8021521C 0021217C  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80215220 00212180  38 81 00 58 */	addi r4, r1, 0x58
 /* 80215224 00212184  90 01 00 5C */	stw r0, 0x5c(r1)
 /* 80215228 00212188  38 61 01 40 */	addi r3, r1, 0x140

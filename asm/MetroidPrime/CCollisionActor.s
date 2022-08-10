@@ -1024,9 +1024,9 @@ __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdbff:
 /* 801A948C 001A63EC  38 61 00 40 */	addi r3, r1, 0x40
 /* 801A9490 001A63F0  4B E5 B8 29 */	bl string_l__4rstlFPCc
 /* 801A9494 001A63F4  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 801A9498 001A63F8  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 801A9498 001A63F8  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 801A949C 001A63FC  80 1A 00 00 */	lwz r0, 0(r26)
-/* 801A94A0 001A6400  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801A94A0 001A6400  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801A94A4 001A6404  90 81 00 2C */	stw r4, 0x2c(r1)
 /* 801A94A8 001A6408  38 61 00 68 */	addi r3, r1, 0x68
 /* 801A94AC 001A640C  38 81 00 30 */	addi r4, r1, 0x30
@@ -1321,9 +1321,9 @@ __ct__15CCollisionActorF9TUniqueId9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9914 001A6874  38 61 00 58 */	addi r3, r1, 0x58
 /* 801A9918 001A6878  4B E5 B3 A1 */	bl string_l__4rstlFPCc
 /* 801A991C 001A687C  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 801A9920 001A6880  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 801A9920 001A6880  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 801A9924 001A6884  80 19 00 00 */	lwz r0, 0(r25)
-/* 801A9928 001A6888  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801A9928 001A6888  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801A992C 001A688C  90 81 00 2C */	stw r4, 0x2c(r1)
 /* 801A9930 001A6890  38 61 00 98 */	addi r3, r1, 0x98
 /* 801A9934 001A6894  38 81 00 30 */	addi r4, r1, 0x30
@@ -1638,9 +1638,9 @@ __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9DEC 001A6D4C  38 61 00 34 */	addi r3, r1, 0x34
 /* 801A9DF0 001A6D50  4B E5 AE C9 */	bl string_l__4rstlFPCc
 /* 801A9DF4 001A6D54  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 801A9DF8 001A6D58  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 801A9DF8 001A6D58  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 801A9DFC 001A6D5C  80 18 00 00 */	lwz r0, 0(r24)
-/* 801A9E00 001A6D60  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801A9E00 001A6D60  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801A9E04 001A6D64  90 81 00 2C */	stw r4, 0x2c(r1)
 /* 801A9E08 001A6D68  38 61 00 60 */	addi r3, r1, 0x60
 /* 801A9E0C 001A6D6C  38 81 00 30 */	addi r4, r1, 0x30

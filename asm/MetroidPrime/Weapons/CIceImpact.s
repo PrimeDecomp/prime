@@ -2224,10 +2224,10 @@ lbl_801B7A38:
 /* 801B7A80 001B49E0  38 61 00 8C */	addi r3, r1, 0x8c
 /* 801B7A84 001B49E4  38 81 00 20 */	addi r4, r1, 0x20
 /* 801B7A88 001B49E8  80 06 00 00 */	lwz r0, 0(r6)
-/* 801B7A8C 001B49EC  3C C0 80 57 */	lis r6, lbl_8056D410@ha
+/* 801B7A8C 001B49EC  3C C0 80 57 */	lis r6, NullConnectionList__7CEntity@ha
 /* 801B7A90 001B49F0  81 6D A3 88 */	lwz r11, kInvalidEditorId@sda21(r13)
 /* 801B7A94 001B49F4  90 01 00 20 */	stw r0, 0x20(r1)
-/* 801B7A98 001B49F8  38 06 D4 10 */	addi r0, r6, lbl_8056D410@l
+/* 801B7A98 001B49F8  38 06 D4 10 */	addi r0, r6, NullConnectionList__7CEntity@l
 /* 801B7A9C 001B49FC  7C 05 03 78 */	mr r5, r0
 /* 801B7AA0 001B4A00  38 C1 00 1C */	addi r6, r1, 0x1c
 /* 801B7AA4 001B4A04  91 61 00 1C */	stw r11, 0x1c(r1)

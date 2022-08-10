@@ -2302,9 +2302,9 @@ lbl_801F39D4:
 /* 801F3A68 001F09C8  38 8B 00 07 */	addi r4, r11, 7
 /* 801F3A6C 001F09CC  4B E1 12 4D */	bl string_l__4rstlFPCc
 /* 801F3A70 001F09D0  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 801F3A74 001F09D4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 801F3A74 001F09D4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 801F3A78 001F09D8  80 11 00 00 */	lwz r0, 0(r17)
-/* 801F3A7C 001F09DC  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 801F3A7C 001F09DC  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 801F3A80 001F09E0  90 81 00 28 */	stw r4, 0x28(r1)
 /* 801F3A84 001F09E4  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 801F3A88 001F09E8  38 81 00 2C */	addi r4, r1, 0x2c

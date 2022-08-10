@@ -418,11 +418,11 @@ lbl_8012FEDC:
 /* 8012FF08 0012CE68  F3 E1 00 88 */	psq_st f31, 136(r1), 0, qr0
 /* 8012FF0C 0012CE6C  BE C1 00 58 */	stmw r22, 0x58(r1)
 /* 8012FF10 0012CE70  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8012FF14 0012CE74  3D 60 80 57 */	lis r11, lbl_8056D410@ha
+/* 8012FF14 0012CE74  3D 60 80 57 */	lis r11, NullConnectionList__7CEntity@ha
 /* 8012FF18 0012CE78  81 8D A3 90 */	lwz r12, kInvalidAreaId@sda21(r13)
 /* 8012FF1C 0012CE7C  FF E0 08 90 */	fmr f31, f1
 /* 8012FF20 0012CE80  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8012FF24 0012CE84  38 0B D4 10 */	addi r0, r11, lbl_8056D410@l
+/* 8012FF24 0012CE84  38 0B D4 10 */	addi r0, r11, NullConnectionList__7CEntity@l
 /* 8012FF28 0012CE88  7C 7F 1B 78 */	mr r31, r3
 /* 8012FF2C 0012CE8C  7C 99 23 78 */	mr r25, r4
 /* 8012FF30 0012CE90  7C BA 2B 78 */	mr r26, r5

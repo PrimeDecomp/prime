@@ -271,8 +271,8 @@ sub_8022f770:
 /* 8022F7F0 0022C750  D0 01 00 50 */	stfs f0, 0x50(r1)
 /* 8022F7F4 0022C754  4B DD 54 C5 */	bl string_l__4rstlFPCc
 /* 8022F7F8 0022C758  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8022F7FC 0022C75C  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 8022F800 0022C760  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8022F7FC 0022C75C  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 8022F800 0022C760  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8022F804 0022C764  38 81 00 30 */	addi r4, r1, 0x30
 /* 8022F808 0022C768  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8022F80C 0022C76C  38 61 00 54 */	addi r3, r1, 0x54
@@ -1000,8 +1000,8 @@ lbl_802301CC:
 /* 802302A8 0022D208  D0 01 00 AC */	stfs f0, 0xac(r1)
 /* 802302AC 0022D20C  4B EE 6A B1 */	bl __ct__10CModelDataFRC10CStaticRes
 /* 802302B0 0022D210  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 802302B4 0022D214  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 802302B8 0022D218  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 802302B4 0022D214  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 802302B8 0022D218  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 802302BC 0022D21C  38 81 00 30 */	addi r4, r1, 0x30
 /* 802302C0 0022D220  90 01 00 34 */	stw r0, 0x34(r1)
 /* 802302C4 0022D224  38 61 01 5C */	addi r3, r1, 0x15c

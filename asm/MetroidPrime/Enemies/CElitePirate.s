@@ -1392,8 +1392,8 @@ sub_802281d8:
 /* 80228258 002251B8  D0 01 00 5C */	stfs f0, 0x5c(r1)
 /* 8022825C 002251BC  4B DD CA 5D */	bl string_l__4rstlFPCc
 /* 80228260 002251C0  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 80228264 002251C4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 80228268 002251C8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80228264 002251C4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 80228268 002251C8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8022826C 002251CC  38 81 00 30 */	addi r4, r1, 0x30
 /* 80228270 002251D0  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80228274 002251D4  38 61 00 60 */	addi r3, r1, 0x60
@@ -2078,8 +2078,8 @@ sub_80228aac:
 /* 80228C38 00225B98  7C 7B 1B 79 */	or. r27, r3, r3
 /* 80228C3C 00225B9C  41 82 00 D8 */	beq lbl_80228D14
 /* 80228C40 00225BA0  A0 DD 00 08 */	lhz r6, 8(r29)
-/* 80228C44 00225BA4  3C 60 80 57 */	lis r3, lbl_8056D410@ha
-/* 80228C48 00225BA8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80228C44 00225BA4  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
+/* 80228C48 00225BA8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80228C4C 00225BAC  C0 02 B5 F4 */	lfs f0, lbl_805AD314@sda21(r2)
 /* 80228C50 00225BB0  B0 C1 00 20 */	sth r6, 0x20(r1)
 /* 80228C54 00225BB4  38 61 00 74 */	addi r3, r1, 0x74
@@ -6079,9 +6079,9 @@ lbl_8022C5C8:
 /* 8022C5C8 00229528  C3 A2 B6 14 */	lfs f29, lbl_805AD334@sda21(r2)
 lbl_8022C5CC:
 /* 8022C5CC 0022952C  A0 FC 00 08 */	lhz r7, 8(r28)
-/* 8022C5D0 00229530  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 8022C5D0 00229530  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8022C5D4 00229534  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
-/* 8022C5D8 00229538  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 8022C5D8 00229538  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8022C5DC 0022953C  B0 E1 00 18 */	sth r7, 0x18(r1)
 /* 8022C5E0 00229540  38 61 00 78 */	addi r3, r1, 0x78
 /* 8022C5E4 00229544  38 81 00 40 */	addi r4, r1, 0x40

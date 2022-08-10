@@ -368,7 +368,7 @@ lbl_80102278:
 "__ct__7CWeaponF9TUniqueIdb9TUniqueId11EWeaponTypeRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC12CTransform4fRC15CMaterialFilterRC13CMaterialListRC11CDamageInfoiRC10CModelData":
 /* 80102294 000FF1F4  94 21 FE B0 */	stwu r1, -0x150(r1)
 /* 80102298 000FF1F8  7C 08 02 A6 */	mflr r0
-/* 8010229C 000FF1FC  3D 60 80 57 */	lis r11, lbl_8056D410@ha
+/* 8010229C 000FF1FC  3D 60 80 57 */	lis r11, NullConnectionList__7CEntity@ha
 /* 801022A0 000FF200  90 01 01 54 */	stw r0, 0x154(r1)
 /* 801022A4 000FF204  BE 81 01 20 */	stmw r20, 0x120(r1)
 /* 801022A8 000FF208  7C 79 1B 78 */	mr r25, r3
@@ -387,7 +387,7 @@ lbl_80102278:
 /* 801022DC 000FF23C  38 81 00 2C */	addi r4, r1, 0x2c
 /* 801022E0 000FF240  38 C1 00 28 */	addi r6, r1, 0x28
 /* 801022E4 000FF244  80 05 00 00 */	lwz r0, 0(r5)
-/* 801022E8 000FF248  38 AB D4 10 */	addi r5, r11, lbl_8056D410@l
+/* 801022E8 000FF248  38 AB D4 10 */	addi r5, r11, NullConnectionList__7CEntity@l
 /* 801022EC 000FF24C  81 8D A3 88 */	lwz r12, kInvalidEditorId@sda21(r13)
 /* 801022F0 000FF250  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 801022F4 000FF254  91 81 00 28 */	stw r12, 0x28(r1)

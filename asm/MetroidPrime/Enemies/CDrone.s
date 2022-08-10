@@ -8450,9 +8450,9 @@ sub_801660a4:
 /* 8016616C 001630CC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80166170 001630D0  41 82 00 B4 */	beq lbl_80166224
 /* 80166174 001630D4  C0 41 00 D0 */	lfs f2, 0xd0(r1)
-/* 80166178 001630D8  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80166178 001630D8  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 8016617C 001630DC  C0 21 00 E0 */	lfs f1, 0xe0(r1)
-/* 80166180 001630E0  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80166180 001630E0  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 80166184 001630E4  C0 01 00 F0 */	lfs f0, 0xf0(r1)
 /* 80166188 001630E8  38 61 00 7C */	addi r3, r1, 0x7c
 /* 8016618C 001630EC  80 0D A3 88 */	lwz r0, kInvalidEditorId@sda21(r13)
@@ -10072,9 +10072,9 @@ __ct__11CDroneLaserF9TUniqueIdRC12CTransform4fUi:
 /* 80167934 00164894  38 88 00 83 */	addi r4, r8, 0x83
 /* 80167938 00164898  4B E9 D3 81 */	bl string_l__4rstlFPCc
 /* 8016793C 0016489C  80 8D A3 88 */	lwz r4, kInvalidEditorId@sda21(r13)
-/* 80167940 001648A0  3C 60 80 57 */	lis r3, lbl_8056D410@ha
+/* 80167940 001648A0  3C 60 80 57 */	lis r3, NullConnectionList__7CEntity@ha
 /* 80167944 001648A4  80 1B 00 00 */	lwz r0, 0(r27)
-/* 80167948 001648A8  38 A3 D4 10 */	addi r5, r3, lbl_8056D410@l
+/* 80167948 001648A8  38 A3 D4 10 */	addi r5, r3, NullConnectionList__7CEntity@l
 /* 8016794C 001648AC  90 81 00 28 */	stw r4, 0x28(r1)
 /* 80167950 001648B0  38 61 00 60 */	addi r3, r1, 0x60
 /* 80167954 001648B4  38 81 00 2C */	addi r4, r1, 0x2c
