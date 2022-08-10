@@ -29,7 +29,6 @@ lbl_805A8BF0:
 
 .section .sbss, "wa"
 .balign 8
-.balign 4
 .global __CARDEncode
 __CARDEncode:
 	.skip 0x8

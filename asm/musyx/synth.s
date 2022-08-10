@@ -114,7 +114,6 @@ inpAuxA:
 
 .section .sbss
 .balign 8
-.balign 4
 .global sndActive
 sndActive:
 	.skip 0x1

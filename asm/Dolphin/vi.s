@@ -197,7 +197,6 @@ lbl_805A8B7C:
 
 .section .sbss, "wa"
 .balign 8
-.balign 4
 lbl_805A9958:
 	.skip 0x4
 lbl_805A995C:

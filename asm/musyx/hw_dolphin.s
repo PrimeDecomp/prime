@@ -9,7 +9,6 @@ dram_image:
 
 .section .sbss, "wa"
 .balign 8
-.balign 4
 .global oldState
 oldState:
 	.skip 0x4

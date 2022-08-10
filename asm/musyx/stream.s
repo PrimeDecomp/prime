@@ -8,7 +8,6 @@ streamInfo:
 
 .section .sbss
 .balign 8
-.balign 4
 nextPublicID:
 	.skip 0x4
 streamCallDelay:

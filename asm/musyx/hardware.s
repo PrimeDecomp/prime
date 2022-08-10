@@ -27,7 +27,6 @@ lbl_805AF3A8:
 
 .section .sbss
 .balign 8
-.balign 4
 .global salTimeOffset
 salTimeOffset:
 	.skip 0x4

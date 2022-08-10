@@ -2,7 +2,6 @@
 
 .section .bss
 .balign 8
-.balign 4
 
 .global lbl_8056A0A0
 lbl_8056A0A0:
@@ -13,7 +12,6 @@ __GBA:
 
 .section .sbss, "wa"
 .balign 8
-.balign 4
 .global __GBAReset
 __GBAReset:
 	.skip 0x4
