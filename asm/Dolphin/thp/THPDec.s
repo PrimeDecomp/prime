@@ -67,7 +67,6 @@ lbl_805AF458:
 
 .section .sbss, "wa"
 .balign 8
-.balign 32
 Ydchuff:
 	.skip 4
 .balign 32
