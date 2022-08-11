@@ -3,9 +3,7 @@
 .section .bss
 .balign 8
 
-.global lbl_8046E0F0
-lbl_8046E0F0:
-	.skip 0x100
+.lcomm lbl_8046E0F0, 0x100, 4
 
 .section .sbss, "wa"
 .balign 8

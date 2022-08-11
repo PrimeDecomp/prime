@@ -120,12 +120,8 @@ lbl_805A731C:
 .section .bss
 .balign 8
 
-.global lbl_8046C470
-lbl_8046C470:
-	.skip 0xC
-.global lbl_8046C47C
-lbl_8046C47C:
-	.skip 0xC
+.lcomm lbl_8046C470, 0xC, 4
+.lcomm lbl_8046C47C, 0xC, 4
 
 .section .sdata2, "a"
 .balign 8

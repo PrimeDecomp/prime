@@ -22,9 +22,7 @@ __vt__7CEntity:
 .section .bss
 .balign 8
 
-.global lbl_8046C3B8
-lbl_8046C3B8:
-	.skip 0x10
+.lcomm lbl_8046C3B8, 0x10, 4
 
 .section .text, "ax"
 

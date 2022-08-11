@@ -7,9 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-.global lbl_8046C538
-lbl_8046C538:
-	.skip 0x20
+.lcomm lbl_8046C538, 0x20, 4
 
 .section .sdata2, "a"
 .balign 8

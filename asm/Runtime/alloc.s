@@ -2,8 +2,7 @@
 
 .section .bss
 .balign 8
-"protopool$192":
-	.skip 0x338
+.lcomm "protopool$192", 0x338, 4
 
 .section .rodata
 .balign 8

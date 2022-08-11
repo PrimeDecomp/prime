@@ -87,9 +87,7 @@ lbl_805A6DB0:
 .section .bss
 .balign 8
 
-.global lbl_8045B140
-lbl_8045B140:
-	.skip 0x40
+.lcomm lbl_8045B140, 0x40, 4
 
 .section .sbss
 .balign 8

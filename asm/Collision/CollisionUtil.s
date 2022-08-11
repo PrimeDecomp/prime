@@ -7,9 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-.global lbl_80479510
-lbl_80479510:
-	.skip 0x48
+.lcomm lbl_80479510, 0x48, 4
 
 .section .text, "ax"
 

@@ -3,42 +3,18 @@
 .section .bss
 .balign 8
 
-.global lbl_8045B180
-lbl_8045B180:
-	.skip 0x5C
-.global lbl_8045B1DC
-lbl_8045B1DC:
-	.skip 0xF4
-.global lbl_8045B2D0
-lbl_8045B2D0:
-	.skip 0xC8
-.global lbl_8045B398
-lbl_8045B398:
-	.skip 0x120
-.global lbl_8045B4B8
-lbl_8045B4B8:
-	.skip 0x228
-.global lbl_8045B6E0
-lbl_8045B6E0:
-	.skip 0x254
-.global lbl_8045B934
-lbl_8045B934:
-	.skip 0x368
-.global lbl_8045BC9C
-lbl_8045BC9C:
-	.skip 0x298
-.global lbl_8045BF34
-lbl_8045BF34:
-	.skip 0x34
-.global lbl_8045BF68
-lbl_8045BF68:
-	.skip 0x68
-.global lbl_8045BFD0
-lbl_8045BFD0:
-	.skip 0x238
-.global lbl_8045C208
-lbl_8045C208:
-	.skip 0x310
+.lcomm lbl_8045B180, 0x5C, 4
+.lcomm lbl_8045B1DC, 0xF4, 4
+.lcomm lbl_8045B2D0, 0xC8, 4
+.lcomm lbl_8045B398, 0x120, 4
+.lcomm lbl_8045B4B8, 0x228, 4
+.lcomm lbl_8045B6E0, 0x254, 4
+.lcomm lbl_8045B934, 0x368, 4
+.lcomm lbl_8045BC9C, 0x298, 4
+.lcomm lbl_8045BF34, 0x34, 4
+.lcomm lbl_8045BF68, 0x68, 4
+.lcomm lbl_8045BFD0, 0x238, 4
+.lcomm lbl_8045C208, 0x310, 4
 
 .section .sbss
 .balign 8

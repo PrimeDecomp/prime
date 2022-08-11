@@ -75,9 +75,7 @@ lbl_805A89A7:
 .section .bss
 .balign 8
 
-.global lbl_804BFF90
-lbl_804BFF90:
-	.skip 0x10
+.lcomm lbl_804BFF90, 0x10, 4
 
 .section .sbss, "wa"
 .balign 8

@@ -70,12 +70,8 @@ lbl_805A7CD0:
 
 .section .bss
 .balign 8
-.global lbl_8046C908
-lbl_8046C908:
-	.skip 0xC
-.global lbl_8046C914
-lbl_8046C914:
-	.skip 0xC
+.lcomm lbl_8046C908, 0xC, 4
+.lcomm lbl_8046C914, 0xC, 4
 
 .section .text, "ax"
 

@@ -98,27 +98,13 @@ lbl_803D97E4:
 
 .section .bss
 .balign 8
-.global lbl_80457908
-lbl_80457908:
-	.skip 0xC0
-.global lbl_804579C8
-lbl_804579C8:
-	.skip 0x20
-.global lbl_804579E8
-lbl_804579E8:
-	.skip 0x10
-.global lbl_804579F8
-lbl_804579F8:
-	.skip 0x18
-.global lbl_80457A10
-lbl_80457A10:
-	.skip 0x838
-.global lbl_80458248
-lbl_80458248:
-	.skip 0x108
-.global lbl_80458350
-lbl_80458350:
-	.skip 0x1E58
+.lcomm lbl_80457908, 0xC0, 4
+.lcomm lbl_804579C8, 0x20, 4
+.lcomm lbl_804579E8, 0x10, 4
+.lcomm lbl_804579F8, 0x18, 4
+.lcomm lbl_80457A10, 0x838, 4
+.lcomm lbl_80458248, 0x108, 4
+.lcomm lbl_80458350, 0x1E58, 4
 
 .section .rodata
 .balign 8

@@ -480,21 +480,11 @@ lbl_805A7944:
 .section .bss
 .balign 8
 
-.global lbl_8046C848
-lbl_8046C848:
-	.skip 0x18
-.global lbl_8046C860
-lbl_8046C860:
-	.skip 0x18
-.global lbl_8046C878
-lbl_8046C878:
-	.skip 0x18
-.global lbl_8046C890
-lbl_8046C890:
-	.skip 0x18
-.global lbl_8046C8A8
-lbl_8046C8A8:
-	.skip 0x18
+.lcomm lbl_8046C848, 0x18, 4
+.lcomm lbl_8046C860, 0x18, 4
+.lcomm lbl_8046C878, 0x18, 4
+.lcomm lbl_8046C890, 0x18, 4
+.lcomm lbl_8046C8A8, 0x18, 4
 
 .section .sbss
 .balign 8

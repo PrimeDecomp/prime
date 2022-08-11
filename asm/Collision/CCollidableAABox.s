@@ -33,9 +33,7 @@ sTableIndex__16CCollidableAABox:
 .section .bss
 .balign 8
 
-.global lbl_80479498
-lbl_80479498:
-	.skip 0x48
+.lcomm lbl_80479498, 0x48, 4
 
 .section .text, "ax"
 

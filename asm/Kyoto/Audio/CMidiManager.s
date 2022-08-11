@@ -4,6 +4,11 @@
 lbl_ctor:
 .4byte __sinit_CMidiManager_cpp
 
+.section .bss
+.balign 8
+
+.lcomm lbl_80540010, 0x10, 4
+
 .section .data
 .balign 8
 

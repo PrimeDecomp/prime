@@ -100,9 +100,7 @@ lbl_805A7274:
 .section .bss
 .balign 8
 
-.global lbl_8046C450
-lbl_8046C450:
-	.skip 0x20
+.lcomm lbl_8046C450, 0x20, 4
 
 .section .sdata2, "a"
 .balign 8

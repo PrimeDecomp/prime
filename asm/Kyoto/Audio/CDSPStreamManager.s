@@ -7,35 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-#TODO: Figure out what's going on with these, they're referenced in various locations
-
-.global lbl_80540010
-lbl_80540010:
-	.skip 0x10
-.global lbl_80540020
-lbl_80540020:
-	.skip 0x500
-.global lbl_80540520
-lbl_80540520:
-	.skip 0x30
-.global lbl_80540550
-lbl_80540550:
-	.skip 0x30
-.global lbl_80540580
-lbl_80540580:
-	.skip 0x64
-.global lbl_805405E4
-lbl_805405E4:
-	.skip 0x5C
-.global lbl_80540640
-lbl_80540640:
-	.skip 0x3E0
-.global lbl_80540A20
-lbl_80540A20:
-	.skip 0xC
-.global lbl_80540A2C
-lbl_80540A2C:
-	.skip 0x14
+.lcomm lbl_80540520, 0x30, 4
 
 .section .sbss, "wa"
 .balign 8

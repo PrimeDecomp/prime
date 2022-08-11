@@ -80,15 +80,9 @@ lbl_805A7A3C:
 .section .bss
 .balign 8
 
-.global lbl_8046C8C0
-lbl_8046C8C0:
-	.skip 0x18
-.global lbl_8046C8D8
-lbl_8046C8D8:
-	.skip 0x18
-.global lbl_8046C8F0
-lbl_8046C8F0:
-	.skip 0x18
+.lcomm lbl_8046C8C0, 0x18, 4
+.lcomm lbl_8046C8D8, 0x18, 4
+.lcomm lbl_8046C8F0, 0x18, 4
 
 .section .sbss, "wa"
 .balign 8

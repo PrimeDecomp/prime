@@ -3,9 +3,7 @@
 .section .bss
 .balign 8
 
-.global lbl_804795A0
-lbl_804795A0:
-	.skip 0x200
+.lcomm lbl_804795A0, 0x200, 4
 
 .section .text, "ax"
 

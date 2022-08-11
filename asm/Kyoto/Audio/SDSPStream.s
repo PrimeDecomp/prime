@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .bss
+.balign 8
+
+.lcomm lbl_80540640, 0x3E0, 4
+
 .section .text, "ax"
 
 .global ReadCompleted__10SDSPStreamFiP11DVDFileInfo

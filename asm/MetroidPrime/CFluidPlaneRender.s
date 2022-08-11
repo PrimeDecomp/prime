@@ -16,9 +16,7 @@ lbl_805A840C:
 .section .bss
 .balign 8
 
-.global lbl_8046DCC0
-lbl_8046DCC0:
-	.skip 0x400
+.lcomm lbl_8046DCC0, 0x400, 4
 
 .section .sbss, "wa"
 .balign 8
