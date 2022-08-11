@@ -3,6 +3,7 @@
 
 CRandom16* CRandom16::gRandomNumber = nullptr;
 CGlobalRandom* CGlobalRandom::gCurrentGlobalRandom = nullptr;
+
 CGlobalRandom::CGlobalRandom(CRandom16& rnd) : mRandom(rnd) {
   mIsFirst = true;
   mPrev = gCurrentGlobalRandom;
@@ -25,6 +26,7 @@ CGlobalRandom::~CGlobalRandom() {
 }
 
 CRandom16* CRandom16::GetRandomNumber() { return gRandomNumber; }
+
 void CRandom16::_SetRandomNumber(CRandom16* rnd) { gRandomNumber = rnd; }
 
 CRandom16::CRandom16(u32 seed) : mSeed(seed) {}

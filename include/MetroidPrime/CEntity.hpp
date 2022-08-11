@@ -17,10 +17,14 @@ public:
   virtual void Accept(IVisitor& visitor) = 0;
   virtual void PreThink(float dt, CStateManager& mgr);
   virtual void Think(float dt, CStateManager& mgr);
-  virtual void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId, CStateManager& stateMgr);
+  virtual void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
   virtual void SetActive(bool active);
 
   CEntity(TUniqueId id, const CEntityInfo& info, bool active, const rstl::string& name);
+
+  void SendScriptMsgs(EScriptObjectState state, CStateManager& mgr, EScriptObjectMessage msg);
+  TUniqueId GetUniqueId() const { return x8_uid; }
+  TAreaId GetAreaId() const;
 
   static rstl::vector<SConnection> NullConnectionList;
 
@@ -33,7 +37,7 @@ protected:
   bool x30_24_active : 1;
   bool x30_25_inGraveyard : 1;
   bool x30_26_scriptingBlocked : 1;
-  bool x30_27_inUse : 1;
+  bool x30_27_notInArea : 1;
 };
 
 #endif
