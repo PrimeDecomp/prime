@@ -581,7 +581,7 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CCharAnimTime.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CSegIdList.o\
 	$(BUILD_DIR)/asm/Kyoto/CFinalInput.o\
-	$(BUILD_DIR)/asm/Kyoto/Graphics/CColor.o\
+	$(BUILD_DIR)/src/Kyoto/Graphics/CColor.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/DolphinCAudioGroupSet.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/DolphinCAudioSys.o\
 	$(BUILD_DIR)/asm/Kyoto/DolphinCMemoryCardSys.o\
