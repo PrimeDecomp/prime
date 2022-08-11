@@ -3,6 +3,9 @@
 
 #include "types.h"
 
-class CStateManager {};
+class CStateManager {
+public:
+  void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg, EScriptObjectState state);
+};
 
 #endif
