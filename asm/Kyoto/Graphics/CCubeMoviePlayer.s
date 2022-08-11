@@ -24,6 +24,11 @@ lbl_805A89F0:
 	.4byte 0x7F000000
 	.4byte 0
 
+.section .bss
+.balign 8
+
+.lcomm lbl_80540020, 0x500, 4
+
 .section .sbss, "wa"
 .balign 8
 

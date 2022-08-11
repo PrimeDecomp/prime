@@ -7,9 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-.global lbl_804794E0
-lbl_804794E0:
-	.skip 0x30
+.lcomm lbl_804794E0, 0x30, 4
 
 .section .sbss, "wa"
 .balign 8

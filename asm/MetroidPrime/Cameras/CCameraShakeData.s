@@ -39,9 +39,7 @@ lbl_805A789C:
 
 .section .bss
 .balign 8
-.global lbl_8046C7D0
-lbl_8046C7D0:
-	.skip 0x78
+.lcomm lbl_8046C7D0, 0x78, 4
 
 .section .text, "ax"
 

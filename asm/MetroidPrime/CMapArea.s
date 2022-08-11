@@ -27,9 +27,7 @@ lbl_805A7010:
 .section .bss
 .balign 8
 
-.global lbl_8046C3E0
-lbl_8046C3E0:
-	.skip 0x28
+.lcomm lbl_8046C3E0, 0x28, 4
 
 .section .sdata2, "a"
 .balign 8

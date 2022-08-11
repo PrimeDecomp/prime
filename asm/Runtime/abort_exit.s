@@ -2,8 +2,7 @@
 
 .section .bss
 .balign 8
-lbl_80542198:
-	.skip 0x100
+.lcomm lbl_80542198, 0x100, 4
 
 .section .sbss
 .balign 8

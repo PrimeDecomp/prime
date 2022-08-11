@@ -4,6 +4,11 @@
 lbl_ctor:
 .4byte __sinit_CStaticAudioPlayer_cpp
 
+.section .bss
+.balign 8
+.lcomm lbl_80540A20, 0xC, 4
+.lcomm lbl_80540A2C, 0x14, 4
+
 .section .sbss, "wa"
 .balign 8
 
@@ -812,11 +817,11 @@ sub_8036c704:
 /* 8036C714 00369674  7C 7F 1B 78 */	mr r31, r3
 /* 8036C718 00369678  48 01 4F 49 */	bl OSDisableInterrupts
 /* 8036C71C 0036967C  7C 03 00 D0 */	neg r0, r3
-/* 8036C720 00369680  3C 80 80 54 */	lis r4, lbl_80540004@ha
+/* 8036C720 00369680  3C 80 80 54 */	lis r4, lbl_80540A2C@ha
 /* 8036C724 00369684  7C 03 1B 78 */	or r3, r0, r3
-/* 8036C728 00369688  84 04 0A 2C */	lwzu r0, 0xa2c(r4)
+/* 8036C728 00369688  84 04 0A 2C */	lwzu r0, lbl_80540A2C@l(r4)
 /* 8036C72C 0036968C  54 63 0F FE */	srwi r3, r3, 0x1f
-/* 8036C730 00369690  38 C4 00 04 */	addi r6, r4, lbl_80540004@l
+/* 8036C730 00369690  38 C4 00 04 */	addi r6, r4, 0x4
 /* 8036C734 00369694  54 00 10 3A */	slwi r0, r0, 2
 /* 8036C738 00369698  98 61 00 08 */	stb r3, 8(r1)
 /* 8036C73C 0036969C  7C C5 33 78 */	mr r5, r6
@@ -875,11 +880,11 @@ RunDMACallback__18CStaticAudioPlayerFv:
 /* 8036C7EC 0036974C  7C 7F 1B 78 */	mr r31, r3
 /* 8036C7F0 00369750  48 01 4E 71 */	bl OSDisableInterrupts
 /* 8036C7F4 00369754  7C 03 00 D0 */	neg r0, r3
-/* 8036C7F8 00369758  3C 80 80 54 */	lis r4, lbl_80540004@ha
+/* 8036C7F8 00369758  3C 80 80 54 */	lis r4, lbl_80540A2C@ha
 /* 8036C7FC 0036975C  7C 03 1B 78 */	or r3, r0, r3
-/* 8036C800 00369760  84 04 0A 2C */	lwzu r0, 0xa2c(r4)
+/* 8036C800 00369760  84 04 0A 2C */	lwzu r0, lbl_80540A2C@l(r4)
 /* 8036C804 00369764  54 63 0F FE */	srwi r3, r3, 0x1f
-/* 8036C808 00369768  38 84 00 04 */	addi r4, r4, lbl_80540004@l
+/* 8036C808 00369768  38 84 00 04 */	addi r4, r4, 0x4
 /* 8036C80C 0036976C  54 00 10 3A */	slwi r0, r0, 2
 /* 8036C810 00369770  98 61 00 08 */	stb r3, 8(r1)
 /* 8036C814 00369774  7C 64 02 14 */	add r3, r4, r0

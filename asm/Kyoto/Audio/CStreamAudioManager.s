@@ -38,6 +38,13 @@ lbl_805A8A41:
 	.byte 0x01, 0x00, 0x00
 	.4byte 0
 
+.section .bss
+.balign 8
+
+.lcomm lbl_80540550, 0x30, 4
+.lcomm lbl_80540580, 0x64, 4
+.lcomm lbl_805405E4, 0x5C, 4
+
 .section .sbss, "wa"
 .balign 8
 

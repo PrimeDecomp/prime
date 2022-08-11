@@ -18,18 +18,10 @@ lbl_803EF718:
 .section .bss
 .balign 8
 
-.global lbl_804BFFC0
-lbl_804BFFC0:
-	.skip 0x8000C
-.global lbl_8053FFCC
-lbl_8053FFCC:
-	.skip 0x28
-.global lbl_8053FFF4
-lbl_8053FFF4:
-	.skip 0x10
-.global lbl_80540004
-lbl_80540004:
-	.skip 0xC
+.lcomm lbl_804BFFC0, 0x8000C, 4
+.lcomm lbl_8053FFCC, 0x28, 4
+.lcomm lbl_8053FFF4, 0x10, 4
+.lcomm lbl_80540004, 0xC, 4
 
 .section .sbss, "wa"
 .balign 8

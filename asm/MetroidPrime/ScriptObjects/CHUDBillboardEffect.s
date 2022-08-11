@@ -47,9 +47,7 @@ lbl_805A76E8:
 .section .bss
 .balign 8
 
-.global lbl_8046C738
-lbl_8046C738:
-	.skip 0x10
+.lcomm lbl_8046C738, 0x10, 4
 
 .section .sbss
 .balign 8

@@ -526,12 +526,8 @@ lbl_805A76A0:
 .section .bss
 .balign 8
 
-.global lbl_8046C570
-lbl_8046C570:
-	.skip 0xA8
-.global lbl_8046C618
-lbl_8046C618:
-	.skip 0x108
+.lcomm lbl_8046C570, 0xA8, 4
+.lcomm lbl_8046C618, 0x108, 4
 
 .section .sdata2, "a"
 .balign 8

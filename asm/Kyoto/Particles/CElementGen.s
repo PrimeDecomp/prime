@@ -381,21 +381,11 @@ lbl_805A88D0:
 .section .bss
 .balign 8
 
-.global lbl_804BFE28
-lbl_804BFE28:
-	.skip 0x20
-.global lbl_804BFE48
-lbl_804BFE48:
-	.skip 0x20
-.global lbl_804BFE68
-lbl_804BFE68:
-	.skip 0x4C
-.global lbl_804BFEB4
-lbl_804BFEB4:
-	.skip 0x4C
-.global lbl_804BFF00
-lbl_804BFF00:
-	.skip 0x10
+.lcomm lbl_804BFE28, 0x20, 4
+.lcomm lbl_804BFE48, 0x20, 4
+.lcomm lbl_804BFE68, 0x4C, 4
+.lcomm lbl_804BFEB4, 0x4C, 4
+.lcomm lbl_804BFF00, 0x10, 4
 
 .section .sbss, "wa"
 .balign 8

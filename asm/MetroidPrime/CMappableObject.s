@@ -69,9 +69,7 @@ lbl_805A7374:
 .section .bss
 .balign 8
 
-.global lbl_8046C498
-lbl_8046C498:
-	.skip 0x60
+.lcomm lbl_8046C498, 0x60, 4
 
 .section .sdata2, "a"
 .balign 8

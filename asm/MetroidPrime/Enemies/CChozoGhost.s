@@ -317,9 +317,7 @@ lbl_805A7778:
 .section .bss
 .balign 8
 
-.global lbl_8046C748
-lbl_8046C748:
-	.skip 0x10
+.lcomm lbl_8046C748, 0x10, 4
 
 .section .text, "ax"
 

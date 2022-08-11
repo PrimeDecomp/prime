@@ -523,9 +523,7 @@ lbl_803D9600:
 
 .section .bss
 .balign 8
-.global lbl_804578F8
-lbl_804578F8:
-	.skip 0x10
+.lcomm lbl_804578F8, 0x10, 4
 
 .section .rodata
 .balign 8

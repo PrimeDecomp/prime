@@ -95,9 +95,7 @@ lbl_805A71E8:
 .section .bss
 .balign 8
 
-.global lbl_8046C438
-lbl_8046C438:
-	.skip 0x18
+.lcomm lbl_8046C438, 0x18, 4
 
 .section .sbss
 .balign 8

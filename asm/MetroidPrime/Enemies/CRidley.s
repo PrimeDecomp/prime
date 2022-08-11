@@ -604,18 +604,10 @@ lbl_805A8378:
 .section .bss
 .balign 8
 
-.global lbl_8046D3A8
-lbl_8046D3A8:
-	.skip 0x150
-.global lbl_8046D4F8
-lbl_8046D4F8:
-	.skip 0x2E8
-.global lbl_8046D7E0
-lbl_8046D7E0:
-	.skip 0x1E0
-.global lbl_8046D9C0
-lbl_8046D9C0:
-	.skip 0x2D0
+.lcomm lbl_8046D3A8, 0x150, 4
+.lcomm lbl_8046D4F8, 0x2E8, 4
+.lcomm lbl_8046D7E0, 0x1E0, 4
+.lcomm lbl_8046D9C0, 0x2D0, 4
 
 .section .text, "ax"
 

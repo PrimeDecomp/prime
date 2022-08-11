@@ -3,20 +3,12 @@
 .section .bss
 .balign 8
 
-.global sGraphicsFifo
-sGraphicsFifo:
-	.skip 0x60000
+.lcomm sGraphicsFifo, 0x60000, 4
 
-.global sMainSpace
-sMainSpace:
-	.skip 0x168
+.lcomm sMainSpace, 0x168, 4
 
-.global lbl_804576C8
-lbl_804576C8:
-	.skip 0xD0
-.global lbl_80457798
-lbl_80457798:
-	.skip 0x160
+.lcomm lbl_804576C8, 0xD0, 4
+.lcomm lbl_80457798, 0x160, 4
 
 .section .data, "wa"
 .balign 8

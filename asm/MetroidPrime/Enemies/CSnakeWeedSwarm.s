@@ -71,12 +71,8 @@ lbl_805A8244:
 .section .bss
 .balign 8
 
-.global lbl_8046D360
-lbl_8046D360:
-	.skip 0x18
-.global lbl_8046D378
-lbl_8046D378:
-	.skip 0x18
+.lcomm lbl_8046D360, 0x18, 4
+.lcomm lbl_8046D378, 0x18, 4
 
 .section .sbss, "wa"
 .balign 8
