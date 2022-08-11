@@ -14,6 +14,8 @@ const CColor& CColor::Black() { return sBlackColor; }
 const CColor& CColor::White() { return sWhiteColor; }
 const CColor& CColor::Grey()  { return sGreyColor; }
 const CColor& CColor::Red() { return sRedColor; }
+const CColor& CColor::Green() { return sGreenColor; }
 const CColor& CColor::Blue() { return sBlueColor; }
 const CColor& CColor::Yellow() { return sYellowColor; }
+const CColor& CColor::Purple() { return sPurpleColor; }
 const CColor& CColor::Orange() { return sOrangeColor; }
