@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_80572140, 0x2A0, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_RumbleFxTable_cpp

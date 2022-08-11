@@ -39,6 +39,11 @@ lbl_803E45D8:
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 
+.section .bss
+.balign 8
+
+.comm lbl_8057200C, 0xC, 4
+
 .section .text, "ax"
 
 .global __dt__13CFlameThrowerFv

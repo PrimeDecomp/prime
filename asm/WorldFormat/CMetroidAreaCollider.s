@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.comm lbl_80572BAC, 0x19000, 4
+.comm lbl_8058BBAC, 0xC000, 4
+.comm lbl_80597BAC, 0x8000, 4
+
 .section .data
 .balign 8
 

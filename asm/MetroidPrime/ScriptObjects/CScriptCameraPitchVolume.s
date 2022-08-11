@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_80572134, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CScriptCameraPitchVolume_cpp

@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_805726FC, 0x4B0, 4
+
 .section .data
 .balign 8
 

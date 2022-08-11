@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_8057206C, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CThardus_cpp

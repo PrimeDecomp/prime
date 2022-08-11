@@ -318,6 +318,8 @@ lbl_805A7778:
 .balign 8
 
 .lcomm lbl_8046C748, 0x10, 4
+# TODO: alignment bug, currently in CFluidPlaneManager
+.comm lbl_805719CC, 0x10, 4
 
 .section .text, "ax"
 

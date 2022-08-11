@@ -1,5 +1,8 @@
 .include "macros.inc"
 
+.comm lbl_8059FBAC, 0x18, 4
+.comm lbl_8059FBC4, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CWorldLight_cpp

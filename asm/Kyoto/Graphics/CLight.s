@@ -1,5 +1,8 @@
 .include "macros.inc"
 
+.comm kDefaultPosition__6CLight, 0x18, 4
+.comm kDefaultDirection__6CLight, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CLight_cpp

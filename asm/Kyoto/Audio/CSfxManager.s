@@ -138,6 +138,18 @@ lbl_805A877C:
 .balign 8
 
 .lcomm lbl_80479BA0, 0x30, 4
+.comm lbl_8059FD48, 0x2BC, 4
+.comm lbl_805A0004, 0x2B5C, 4
+.comm lbl_805A2B60, 0x1604, 4
+.comm lbl_805A4164, 0xA04, 4
+.comm lbl_805A4B68, 0x1E0, 4
+.comm lbl_805A4D48, 0x9C, 4
+.comm lbl_805A4DE4, 0x154, 4
+.comm lbl_805A4F38, 0x60, 4
+.comm lbl_805A4F98, 0x1E0, 4
+.comm lbl_805A5178, 0x9C, 4
+.comm lbl_805A5214, 0x154, 4
+.comm lbl_805A5368, 0x60, 4
 
 .section .sbss, "wa"
 .balign 8

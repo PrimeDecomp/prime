@@ -375,6 +375,15 @@ lbl_805A79D8:
 	.float 1.0
 	.4byte 0
 
+.section .bss
+.balign 8
+
+.comm lbl_80571C64, 0x208, 4
+.comm lbl_80571E6C, 0x68, 4
+.comm lbl_80571ED4, 0x68, 4
+.comm lbl_80571F3C, 0x68, 4
+.comm lbl_80571FA4, 0x68, 4
+
 .section .sbss
 .balign 8
 

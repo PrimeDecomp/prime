@@ -43,6 +43,7 @@ lbl_805A7320:
 .balign 8
 
 .lcomm lbl_8046C488, 0x10, 4
+.comm lbl_8056D420, 0xD4, 4
 
 .section .sdata2, "a"
 .balign 8

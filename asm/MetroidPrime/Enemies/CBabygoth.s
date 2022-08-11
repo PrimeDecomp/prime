@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_80572128, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CBabygoth_cpp

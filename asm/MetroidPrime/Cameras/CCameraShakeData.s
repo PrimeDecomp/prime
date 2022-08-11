@@ -40,6 +40,8 @@ lbl_805A789C:
 .section .bss
 .balign 8
 .lcomm lbl_8046C7D0, 0x78, 4
+.comm lbl_805719E8, 0x1A8, 4
+.comm lbl_80571B90, 0xD4, 4
 
 .section .text, "ax"
 

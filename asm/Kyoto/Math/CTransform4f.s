@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm skIdentity4f, 0x30, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CTransform4f_cpp

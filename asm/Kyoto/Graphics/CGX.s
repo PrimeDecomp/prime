@@ -8,6 +8,7 @@ lbl_ctor:
 .balign 8
 
 .lcomm lbl_80479BD0, 0xF0, 4
+.comm lbl_805A53EC, 0x260, 4
 
 .section .sbss2, "", @nobits
 .balign 8

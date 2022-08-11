@@ -7,6 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
+.comm lbl_805A6828, 0x38, 4
 .lcomm lbl_80540010, 0x10, 4
 
 .section .data

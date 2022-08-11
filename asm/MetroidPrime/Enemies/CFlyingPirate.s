@@ -458,6 +458,12 @@ lbl_805A7EF8:
 
 .lcomm lbl_8046C950, 0xFC, 4
 .lcomm lbl_8046CA4C, 0xF4, 4
+.comm lbl_80572078, 0x60, 4
+.comm lbl_805720D8, 0x10, 4
+.comm lbl_805720E8, 0x10, 4
+.comm lbl_805720F8, 0x10, 4
+.comm lbl_80572108, 0x10, 4
+.comm lbl_80572118, 0x10, 4
 
 .section .text, "ax"
 

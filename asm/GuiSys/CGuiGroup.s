@@ -2,6 +2,14 @@
 
 #TODO: Split this up properly (need to split CGuiCamera and CGuiCompoundWidget)
 
+.comm lbl_8059FBD0, 0xA8, 4
+.comm lbl_8059FC78, 0x18, 4
+.comm lbl_8059FC90, 0x18, 4
+.comm lbl_8059FCA8, 0x18, 4
+.comm lbl_8059FCC0, 0x18, 4
+.comm lbl_8059FCD8, 0x18, 4
+.comm lbl_8059FCF0, 0x18, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CGuiFeeHelper_cpp

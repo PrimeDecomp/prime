@@ -4,6 +4,11 @@
 lbl_ctor:
 .4byte __sinit_CAxisAngle_cpp
 
+.section .bss, "wa"
+.balign 8
+
+.comm lbl_8056A5E8, 0xC, 4
+
 .section .text, "ax"
 
 .global __pl__FRC10CAxisAngleRC10CAxisAngle

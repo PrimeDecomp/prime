@@ -847,6 +847,3 @@ GBA_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAWrite.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o
-
-DTORS_O_FILES :=\
-	$(BUILD_DIR)/asm/dtors.o

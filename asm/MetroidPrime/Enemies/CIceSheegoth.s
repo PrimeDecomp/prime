@@ -271,6 +271,11 @@ lbl_803E4A54:
 	.4byte lbl_801A570C
 	.4byte lbl_801A56F4
 
+.section .bss
+.balign 8
+
+.comm lbl_80572018, 0xC, 4
+
 .section .sdata
 .balign 8
 
