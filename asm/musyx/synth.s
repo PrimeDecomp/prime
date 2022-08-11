@@ -120,8 +120,8 @@ sndActive:
 .global synthJobTableIndex
 synthJobTableIndex:
 	.skip 0x3
-.global synthAuxBMidiSet
-synthAuxBMidiSet:
+.global synthAuxBMIDISet
+synthAuxBMIDISet:
 	.skip 0x8
 .global synthAuxBMIDI
 synthAuxBMIDI:
@@ -2582,7 +2582,7 @@ lbl_8039AEEC:
 /* 8039AF00 00397E60  3B 6D AE 64 */	addi r27, r13, synthAuxAMIDI@sda21
 /* 8039AF04 00397E64  3B 8D AE 5C */	addi r28, r13, synthAuxAMIDISet@sda21
 /* 8039AF08 00397E68  3B ED AE 54 */	addi r31, r13, synthAuxBMIDI@sda21
-/* 8039AF0C 00397E6C  3B 0D AE 4C */	addi r24, r13, synthAuxBMidiSet@sda21
+/* 8039AF0C 00397E6C  3B 0D AE 4C */	addi r24, r13, synthAuxBMIDISet@sda21
 lbl_8039AF10:
 /* 8039AF10 00397E70  88 1B 00 00 */	lbz r0, 0(r27)
 /* 8039AF14 00397E74  28 00 00 FF */	cmplwi r0, 0xff

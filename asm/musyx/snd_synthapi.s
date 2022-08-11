@@ -330,7 +330,7 @@ lbl_8039C5E4:
 /* 8039C608 00399568  4B FF 87 29 */	bl seqGetPrivateId
 /* 8039C60C 0039956C  3C A0 80 55 */	lis r5, synthAuxBCallback@ha
 /* 8039C610 00399570  3C 80 80 55 */	lis r4, synthAuxBUser@ha
-/* 8039C614 00399574  38 CD AE 4C */	addi r6, r13, synthAuxBMidiSet@sda21
+/* 8039C614 00399574  38 CD AE 4C */	addi r6, r13, synthAuxBMIDISet@sda21
 /* 8039C618 00399578  57 00 10 3A */	slwi r0, r24, 2
 /* 8039C61C 0039957C  38 A5 0A 84 */	addi r5, r5, synthAuxBCallback@l
 /* 8039C620 00399580  38 84 0A 64 */	addi r4, r4, synthAuxBUser@l

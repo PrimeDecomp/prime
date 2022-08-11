@@ -38,6 +38,9 @@ void sndConvertMs(u32* time);
 void sndConvertTicks(u32* out, u32 seconds);
 u32 sndConvert2Ms(u32 time);
 
+void hwDeactivateStudio(u8);
+u32 hwIsActive(s32);
+
 extern SND_HOOKS salHooks;
 
 /* Math */
@@ -46,6 +49,11 @@ float salNormalizeVector(SND_FVECTOR* vec);
 void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* b);
 void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
 
+
+/* hardware */
+/* TODO: Figure out what `unk` is */
+bool hwAddInput(u8 studio, void* unk);
+bool hwRemoveInput(u8 studio, void* unk);
 #ifdef __cplusplus
 }
 #endif

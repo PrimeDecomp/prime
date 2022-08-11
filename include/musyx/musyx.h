@@ -76,6 +76,29 @@ typedef struct SND_FMATRIX {
   f32 t[3];
 } SND_FMATRIX;
 
+s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize);
+void sndQuit(void);
+
+bool sndIsInstalled();
+bool sndIsIdle();
+SND_PLAYBACKINFO* sndGetPlayBackInfo();
+
+void sndSetMaxVoices(u8 music, u8 sfx);
+
+#define SND_USERMUSIC_VOLGROUPS 0xFA
+#define SND_USERFX_VOLGROUPS 0xFB
+#define SND_USERALL_VOLGROUPS 0xFC
+#define SND_MUSIC_VOLGROUPS 0xFD
+#define SND_FX_VOLGROUPS 0xFE
+#define SND_ALL_VOLGROUPS 0xFF
+
+#define SND_MAX_USER_VOLGROUP 20
+
+void sndVolume(u8 volume, u16 time, u8 volGroup);
+void sndMasterVolume(u8 volume, u16 time, u8 music, u8 fx);
+void sndOutputMode(SND_OUTPUTMODE mode);
+void sndSilence();
+
 #define SND_AUX_NUMPARAMETERS 4
 
 #define SND_AUX_REASON_BUFFERUPDATE 0
@@ -204,14 +227,14 @@ typedef struct SND_PARAMETER_INFO {
 
 } SND_PARAMETER_INFO;
 
-#define sndFXStart(fid,vol,pan)	sndFXStartEx(fid,vol,pan,SND_STUDIO_DEFAULT)
-SND_VOICEID sndFXStartEx(SND_FXID fid,u8 vol,u8 pan,u8 studio);
-SND_VOICEID sndFXStartPara(SND_FXID fid,u8 vol,u8 pan,u8 studio,u8 numPara,...);
-SND_VOICEID sndFXStartParaInfo(SND_FXID fid,u8 vol,u8 pan,u8 studio,SND_PARAMETER_INFO *paraInfo);
+#define sndFXStart(fid, vol, pan) sndFXStartEx(fid, vol, pan, SND_STUDIO_DEFAULT)
+SND_VOICEID sndFXStartEx(SND_FXID fid, u8 vol, u8 pan, u8 studio);
+SND_VOICEID sndFXStartPara(SND_FXID fid, u8 vol, u8 pan, u8 studio, u8 numPara, ...);
+SND_VOICEID sndFXStartParaInfo(SND_FXID fid, u8 vol, u8 pan, u8 studio, SND_PARAMETER_INFO* paraInfo);
 SND_VOICEID sndFXCheck(SND_VOICEID vid);
 bool sndFXKeyOff(SND_VOICEID vid);
-bool sndFXCtrl(SND_VOICEID vid,u8 ctrl,u8 value);
-bool sndFXCtrl14(SND_VOICEID vid,u8 ctrl,u16 value);
+bool sndFXCtrl(SND_VOICEID vid, u8 ctrl, u8 value);
+bool sndFXCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 
 #ifdef __cplusplus
 }
