@@ -12,7 +12,7 @@ class CParticleGen {
 public:
     virtual ~CParticleGen() = 0;
     virtual void Update(double) = 0;
-    virtual void Render() = 0;
+    virtual void Render() const = 0;
     virtual void SetOrientation(const CTransform4f& orientation) = 0;
     virtual void SetTranslation(const CVector3f& translation) = 0;
     virtual void SetGlobalOrientation(const CTransform4f& orientation) = 0;
