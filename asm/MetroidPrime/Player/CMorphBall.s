@@ -258,6 +258,7 @@ lbl_805A74A8:
 
 .lcomm lbl_8046C4F8, 0xC, 4
 .lcomm lbl_8046C504, 0x1C, 4
+.comm lbl_8056D4F4, 0x84, 4
 
 .section .sbss
 .balign 8

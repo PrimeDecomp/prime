@@ -524,6 +524,7 @@ lbl_803D9600:
 .section .bss
 .balign 8
 .lcomm lbl_804578F8, 0x10, 4
+.comm lbl_8056A5A0, 0x48, 4
 
 .section .rodata
 .balign 8

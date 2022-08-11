@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_805A680C, 0x1C, 4
+
 .section .text, "ax"
 
 .global GetMRAMSafe__10CARAMTokenFv

@@ -1,5 +1,14 @@
 .include "macros.inc"
 
+.comm skZero3f, 0xC, 4
+.comm lbl_805A66AC, 0x48, 4 # unreferenced, what's this?
+.comm lbl_805A66F4, 0xC, 4
+.comm lbl_805A6700, 0xC, 4
+.comm lbl_805A670C, 0xC, 4
+.comm lbl_805A6718, 0xC, 4
+.comm lbl_805A6724, 0xC, 4
+.comm lbl_805A6730, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CVector3f_cpp

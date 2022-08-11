@@ -1,5 +1,8 @@
 .include "macros.inc"
 
+.comm lbl_805A6754, 0x30, 4
+.comm lbl_805A6784, 0x18, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CAABox_cpp

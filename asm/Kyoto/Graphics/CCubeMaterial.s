@@ -61,6 +61,7 @@ lbl_805A8934:
 .section .bss
 .balign 8
 
+.comm lbl_805A67B4, 0xC, 4
 .lcomm lbl_804BFF50, 0xC, 4
 .lcomm lbl_804BFF5C, 0x34, 4
 

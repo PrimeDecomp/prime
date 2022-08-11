@@ -1,5 +1,8 @@
 .include "macros.inc"
 
+.comm lbl_80572048, 0x18, 4
+.comm lbl_80572060, 0xC, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CMetroidBeta_cpp

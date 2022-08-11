@@ -16,6 +16,7 @@ lbl_805A8920:
 .section .bss
 .balign 8
 
+.comm lbl_805A679C, 0x18, 4
 .lcomm lbl_804BFF40, 0x10, 4
 
 .section .sbss, "wa"

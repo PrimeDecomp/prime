@@ -238,6 +238,7 @@ lbl_805A77D4:
 .balign 8
 
 .lcomm lbl_8046C758, 0x18, 4
+.comm lbl_805719DC, 0xC, 4
 
 .section .sbss
 .balign 8

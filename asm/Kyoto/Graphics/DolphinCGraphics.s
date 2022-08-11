@@ -109,6 +109,31 @@ lbl_805A884C:
 
 .lcomm lbl_80479CC0, 0x46000, 4
 .lcomm lbl_804BFCC0, 0x50, 4
+.comm lbl_805A5698, 0x7D8, 4
+.comm lbl_805A5E70, 0x4C, 4
+.comm lbl_805A5EBC, 0x4C, 4
+.comm lbl_805A5F08, 0x4C, 4
+.comm lbl_805A5F54, 0x4C, 4
+.comm lbl_805A5FA0, 0x4C, 4
+.comm lbl_805A5FEC, 0x4C, 4
+.comm lbl_805A6038, 0x4C, 4
+.comm lbl_805A6084, 0x4C, 4
+.comm lbl_805A60D0, 0xA0, 4
+.comm lbl_805A6170, 0x30, 4
+.comm lbl_805A61A0, 0xC, 4
+.comm lbl_805A61AC, 0xC, 4
+.comm lbl_805A61B8, 0x1C, 4
+.comm lbl_805A61D4, 0x30, 4
+.comm lbl_805A6204, 0x30, 4
+.comm lbl_805A6234, 0xC, 4
+.comm lbl_805A6240, 0x200, 4
+.comm lbl_805A6440, 0x80, 4
+.comm lbl_805A64C0, 0x40, 4
+.comm lbl_805A6500, 0x3C, 4
+.comm lbl_805A653C, 0x30, 4
+.comm lbl_805A656C, 0x30, 4
+.comm lbl_805A659C, 0x30, 4
+.comm lbl_805A65CC, 0x30, 4
 
 .section .sbss, "wa"
 .balign 8

@@ -9,6 +9,8 @@ lbl_ctor:
 
 .lcomm lbl_8046C558, 0xC, 4
 .lcomm lbl_8046C564, 0xC, 4
+.comm lbl_8056D850, 0x1F08, 4
+.comm lbl_8056F758, 0x104, 4
 
 .section .sbss
 .balign 8

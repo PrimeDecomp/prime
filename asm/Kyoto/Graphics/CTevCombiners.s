@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_805A564C, 0x4C, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CTevCombiners_cpp

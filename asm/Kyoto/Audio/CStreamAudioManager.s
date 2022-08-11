@@ -41,6 +41,11 @@ lbl_805A8A41:
 .section .bss
 .balign 8
 
+.comm lbl_805A6B60, 0x30, 4
+.comm lbl_805A6B90, 0x10, 4
+.comm lbl_805A6BA0, 0x4, 4
+.comm lbl_805A6BA4, 0x4, 4
+.comm lbl_805A6BA8, 0x8, 4
 .lcomm lbl_80540550, 0x30, 4
 .lcomm lbl_80540580, 0x64, 4
 .lcomm lbl_805405E4, 0x5C, 4

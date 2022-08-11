@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm mData__10CStopwatch, 0x18, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CStopwatch_cpp

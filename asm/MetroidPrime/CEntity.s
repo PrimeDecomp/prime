@@ -23,6 +23,7 @@ __vt__7CEntity:
 .balign 8
 
 .lcomm lbl_8046C3B8, 0x10, 4
+.comm NullConnectionList__7CEntity, 0x10, 4
 
 .section .text, "ax"
 

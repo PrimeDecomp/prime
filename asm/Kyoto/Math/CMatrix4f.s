@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_805A6620, 0x40, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CMatrix4f_cpp

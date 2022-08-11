@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_8059FD18, 0x18, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CMaterialFilter_cpp

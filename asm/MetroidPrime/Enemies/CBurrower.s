@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_80572694, 0x68, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CBurrower_cpp

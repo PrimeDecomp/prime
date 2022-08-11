@@ -1,5 +1,9 @@
 .include "macros.inc"
 
+.comm lbl_805A67C0, 0xC, 4
+# TODO: DolphinCAudioSys, linker alignment bug
+.comm lbl_805A67CC, 0x10, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CCubeSurface_cpp

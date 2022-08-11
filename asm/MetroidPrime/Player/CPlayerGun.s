@@ -150,6 +150,7 @@ lbl_805A6E18:
 
 .lcomm lbl_8045C518, 0x18, 4
 .lcomm lbl_8045C530, 0x20, 4
+.comm lbl_8056D404, 0xC, 4
 
 .section .sbss
 .balign 8

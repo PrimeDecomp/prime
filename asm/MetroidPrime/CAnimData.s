@@ -88,6 +88,11 @@ lbl_805A6DB0:
 .balign 8
 
 .lcomm lbl_8045B140, 0x40, 4
+.comm lbl_8056A600, 0x17F4, 4
+.comm lbl_8056BDF4, 0x4C4, 4
+.comm lbl_8056C2B8, 0x734, 4
+.comm lbl_8056C9EC, 0x554, 4
+.comm lbl_8056CF40, 0x4C4, 4
 
 .section .sbss
 .balign 8

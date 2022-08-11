@@ -4,6 +4,11 @@
 lbl_ctor:
 .4byte __sinit_CEulerAngles_cpp
 
+.section .bss, "wa"
+.balign 8
+
+.comm lbl_8056A5F4, 0xC, 4
+
 .section .sdata2, "a"
 .balign 8
 

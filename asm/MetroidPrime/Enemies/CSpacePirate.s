@@ -528,6 +528,9 @@ lbl_805A76A0:
 
 .lcomm lbl_8046C570, 0xA8, 4
 .lcomm lbl_8046C618, 0x108, 4
+.comm lbl_8056F85C, 0x38, 4
+.comm lbl_8056F894, 0x10, 4
+.comm lbl_8056F8A4, 0x10, 4
 
 .section .sdata2, "a"
 .balign 8

@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.comm lbl_8059FD08, 0x10, 4
+
 .section .ctors, "wa"
 lbl_ctor:
 .4byte __sinit_CGuiWidgetDrawParms_cpp
