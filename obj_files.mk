@@ -380,7 +380,7 @@ WEAPONS :=\
 	$(BUILD_DIR)/asm/Weapons/CProjectileWeapon.o\
 	$(BUILD_DIR)/asm/Weapons/CProjectileWeaponDataFactory.o\
 	$(BUILD_DIR)/asm/Weapons/CCollisionResponseData.o\
-	$(BUILD_DIR)/asm/Weapons/IWeaponRenderer.o\
+	$(BUILD_DIR)/src/Weapons/IWeaponRenderer.o\
 	$(BUILD_DIR)/asm/Weapons/CDecalDataFactory.o\
 	$(BUILD_DIR)/asm/Weapons/CDecal.o\
 	$(BUILD_DIR)/asm/Weapons/CWeaponDescription.o\
