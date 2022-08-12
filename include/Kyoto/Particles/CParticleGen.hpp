@@ -3,8 +3,8 @@
 
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
-#include "Kyoto/Math/CColor.hpp"
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
 
 class CWarp;

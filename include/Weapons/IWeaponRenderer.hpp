@@ -6,16 +6,18 @@
 
 class IWeaponRenderer {
 public:
-    virtual ~IWeaponRenderer() {};
+    virtual ~IWeaponRenderer()=0;
     virtual void AddParticleGen(const CParticleGen& gen) = 0;
     static void SetRenderer(IWeaponRenderer* renderer) { sWeaponRenderer = renderer; }
 private:
     static IWeaponRenderer* sWeaponRenderer;
 };
 
+inline IWeaponRenderer::~IWeaponRenderer() {}
+
 class CDefaultWeaponRenderer : public IWeaponRenderer {
 public:
-    virtual ~CDefaultWeaponRenderer() {};
+    ~CDefaultWeaponRenderer() {}
     void AddParticleGen(const CParticleGen& gen) { gen.Render(); }
 };
 
