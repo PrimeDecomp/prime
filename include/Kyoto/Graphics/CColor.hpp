@@ -3,12 +3,40 @@
 
 #include "types.h"
 
+#include "Kyoto/Basics/CCast.hpp"
+
 #pragma cpp_extensions on
 
+class CInputStream;
 class CColor {
 public:
+  CColor() {}
   CColor(u32 col) : mRgba(col) {}
-  CColor(f32 r, f32 g, f32 b, f32 a = 1.f) : mR(r * 255.f), mG(g * 255.f), mB(b * 255.f), mA(a * 255.f) {}
+  CColor(CInputStream& in);
+  CColor(f32 r, f32 g, f32 b, f32 a = 1.f);
+  CColor(u8 r, u8 g, u8 b, u8 a = 255) {
+    mR = r;
+    mG = g;
+    mB = b;
+    mA = a;
+  }
+
+  void Set(float r, float g, float b, float a);
+  void Get(float& r, float& g, float& b, float& a) const;
+  void Get(float& r, float& g, float& b) const;
+  static CColor Lerp(const CColor& a, const CColor& b, float t);
+  static u32 Lerp(u32 a, u32 b, float t);
+  static CColor Modulate(const CColor& a, const CColor& b);
+  static CColor Add(const CColor& a, const CColor& b);
+  f32 GetRed() const { return CCast::ToReal32(mR) * (1/255.f); }
+  f32 GetGreen() const { return CCast::ToReal32(mG) * (1/255.f); }
+  f32 GetBlue() const { return CCast::ToReal32(mB) * (1/255.f); }
+  f32 GetAlpha() const { return CCast::ToReal32(mA) * (1/255.f); }
+  u8 GetRedu8() const { return mR; }
+  u8 GetGreenu8() const { return mG; }
+  u8 GetBlueu8() const { return mB; }
+  u8 GetAlphau8() const { return mA; }
+  u16 ToRGB5A3() const;
 
   static const CColor& Black();
   static const CColor& White();
