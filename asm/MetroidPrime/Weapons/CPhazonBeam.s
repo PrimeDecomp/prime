@@ -896,8 +896,8 @@ PreRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f:
 /* 8018CE60 00189DC0  38 61 00 38 */	addi r3, r1, 0x38
 /* 8018CE64 00189DC4  48 17 F8 E9 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 8018CE68 00189DC8  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 8018CE6C 00189DCC  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 8018CE70 00189DD0  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8018CE6C 00189DCC  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 8018CE70 00189DD0  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8018CE74 00189DD4  81 83 00 00 */	lwz r12, 0(r3)
 /* 8018CE78 00189DD8  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 8018CE7C 00189DDC  7D 89 03 A6 */	mtctr r12

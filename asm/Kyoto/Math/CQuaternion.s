@@ -823,9 +823,9 @@ lbl_80311488:
 /* 803114B0 0030E410  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 803114B4 0030E414  40 80 00 2C */	bge lbl_803114E0
 /* 803114B8 0030E418  C0 02 C8 A0 */	lfs f0, lbl_805AE5C0@sda21(r2)
-/* 803114BC 0030E41C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 803114BC 0030E41C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 803114C0 0030E420  D0 1E 00 00 */	stfs f0, 0(r30)
-/* 803114C4 0030E424  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 803114C4 0030E424  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 803114C8 0030E428  D0 1E 00 04 */	stfs f0, 4(r30)
 /* 803114CC 0030E42C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 803114D0 0030E430  D0 1E 00 08 */	stfs f0, 8(r30)

@@ -155,10 +155,10 @@ sub_8011d110:
 Init__14CRippleManagerFi:
 /* 8011D114 0011A074  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 8011D118 0011A078  7C 08 02 A6 */	mflr r0
-/* 8011D11C 0011A07C  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 8011D11C 0011A07C  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 8011D120 0011A080  C0 22 97 40 */	lfs f1, lbl_805AB460@sda21(r2)
 /* 8011D124 0011A084  90 01 00 64 */	stw r0, 0x64(r1)
-/* 8011D128 0011A088  38 A5 66 A0 */	addi r5, r5, skZero3f@l
+/* 8011D128 0011A088  38 A5 66 A0 */	addi r5, r5, sZeroVector__9CVector3f@l
 /* 8011D12C 0011A08C  93 E1 00 5C */	stw r31, 0x5c(r1)
 /* 8011D130 0011A090  7C 9F 23 78 */	mr r31, r4
 /* 8011D134 0011A094  38 81 00 08 */	addi r4, r1, 8

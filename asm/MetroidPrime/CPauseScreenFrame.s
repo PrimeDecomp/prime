@@ -232,9 +232,9 @@ Draw__21SOptionsFrontEndFrameFv:
 /* 80241BF8 0023EB58  88 03 01 34 */	lbz r0, 0x134(r3)
 /* 80241BFC 0023EB5C  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 80241C00 0023EB60  41 82 00 38 */	beq lbl_80241C38
-/* 80241C04 0023EB64  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80241C04 0023EB64  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80241C08 0023EB68  C0 63 00 00 */	lfs f3, 0(r3)
-/* 80241C0C 0023EB6C  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 80241C0C 0023EB6C  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 80241C10 0023EB70  7C C3 33 78 */	mr r3, r6
 /* 80241C14 0023EB74  C0 45 00 00 */	lfs f2, 0(r5)
 /* 80241C18 0023EB78  38 81 00 08 */	addi r4, r1, 8

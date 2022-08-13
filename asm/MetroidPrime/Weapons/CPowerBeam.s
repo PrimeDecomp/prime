@@ -557,8 +557,8 @@ PreRenderGunFx__10CPowerBeamFRC13CStateManagerRC12CTransform4f:
 /* 800DFDA8 000DCD08  38 61 00 38 */	addi r3, r1, 0x38
 /* 800DFDAC 000DCD0C  48 22 C9 A1 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 800DFDB0 000DCD10  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 800DFDB4 000DCD14  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 800DFDB8 000DCD18  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 800DFDB4 000DCD14  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 800DFDB8 000DCD18  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 800DFDBC 000DCD1C  81 83 00 00 */	lwz r12, 0(r3)
 /* 800DFDC0 000DCD20  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800DFDC4 000DCD24  7D 89 03 A6 */	mtctr r12

@@ -239,8 +239,8 @@ lbl_80130320:
 /* 80130370 0012D2D0  D0 41 00 28 */	stfs f2, 0x28(r1)
 /* 80130374 0012D2D4  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 80130378 0012D2D8  48 1E 44 D9 */	bl AsNormalized__9CVector3fCFv
-/* 8013037C 0012D2DC  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80130380 0012D2E0  C4 63 66 A0 */	lfsu f3, skZero3f@l(r3)
+/* 8013037C 0012D2DC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80130380 0012D2E0  C4 63 66 A0 */	lfsu f3, sZeroVector__9CVector3f@l(r3)
 /* 80130384 0012D2E4  C0 C1 00 08 */	lfs f6, 8(r1)
 /* 80130388 0012D2E8  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8013038C 0012D2EC  C0 A1 00 0C */	lfs f5, 0xc(r1)
@@ -710,9 +710,9 @@ Touch__11CFlickerBatFR6CActorR13CStateManager:
 /* 80130A00 0012D960  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 80130A04 0012D964  7D 89 03 A6 */	mtctr r12
 /* 80130A08 0012D968  4E 80 04 21 */	bctrl
-/* 80130A0C 0012D96C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80130A0C 0012D96C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80130A10 0012D970  7F C3 F3 78 */	mr r3, r30
-/* 80130A14 0012D974  39 24 66 A0 */	addi r9, r4, skZero3f@l
+/* 80130A14 0012D974  39 24 66 A0 */	addi r9, r4, sZeroVector__9CVector3f@l
 /* 80130A18 0012D978  38 A1 00 14 */	addi r5, r1, 0x14
 /* 80130A1C 0012D97C  38 81 00 1C */	addi r4, r1, 0x1c
 /* 80130A20 0012D980  38 C1 00 0C */	addi r6, r1, 0xc

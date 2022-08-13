@@ -185,12 +185,12 @@ lbl_802FDE60:
 .global VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime
 VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime:
 /* 802FDE74 002FADD4  C0 05 00 00 */	lfs f0, 0(r5)
-/* 802FDE78 002FADD8  3C C0 80 5A */	lis r6, skZero3f@ha
+/* 802FDE78 002FADD8  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 802FDE7C 002FADDC  3C 80 80 5A */	lis r4, lbl_805A6660@ha
 /* 802FDE80 002FADE0  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802FDE84 002FADE4  80 05 00 04 */	lwz r0, 4(r5)
 /* 802FDE88 002FADE8  90 03 00 04 */	stw r0, 4(r3)
-/* 802FDE8C 002FADEC  C4 06 66 A0 */	lfsu f0, skZero3f@l(r6)
+/* 802FDE8C 002FADEC  C4 06 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r6)
 /* 802FDE90 002FADF0  D0 03 00 08 */	stfs f0, 8(r3)
 /* 802FDE94 002FADF4  C0 06 00 04 */	lfs f0, 4(r6)
 /* 802FDE98 002FADF8  D0 03 00 0C */	stfs f0, 0xc(r3)

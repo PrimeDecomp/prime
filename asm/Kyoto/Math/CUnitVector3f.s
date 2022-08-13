@@ -30,8 +30,8 @@ lbl_80313E14:
 /* 80313E24 00310D84  38 81 00 08 */	addi r4, r1, 8
 /* 80313E28 00310D88  48 00 00 0C */	b lbl_80313E34
 lbl_80313E2C:
-/* 80313E2C 00310D8C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80313E30 00310D90  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80313E2C 00310D8C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80313E30 00310D90  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 lbl_80313E34:
 /* 80313E34 00310D94  C0 04 00 00 */	lfs f0, 0(r4)
 /* 80313E38 00310D98  7F E3 FB 78 */	mr r3, r31

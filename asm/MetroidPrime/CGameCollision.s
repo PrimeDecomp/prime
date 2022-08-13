@@ -246,9 +246,9 @@ sub_8017fb84:
 /* 8017FD94 0017CCF4  39 20 FF FF */	li r9, -1
 /* 8017FD98 0017CCF8  39 00 00 00 */	li r8, 0
 /* 8017FD9C 0017CCFC  38 00 00 02 */	li r0, 2
-/* 8017FDA0 0017CD00  3C A0 80 5A */	lis r5, skIdentity4f@ha
+/* 8017FDA0 0017CD00  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
 /* 8017FDA4 0017CD04  90 81 00 EC */	stw r4, 0xec(r1)
-/* 8017FDA8 0017CD08  38 C5 66 70 */	addi r6, r5, skIdentity4f@l
+/* 8017FDA8 0017CD08  38 C5 66 70 */	addi r6, r5, sIdentity__12CTransform4f@l
 /* 8017FDAC 0017CD0C  38 81 01 A8 */	addi r4, r1, 0x1a8
 /* 8017FDB0 0017CD10  38 A1 00 F8 */	addi r5, r1, 0xf8
 /* 8017FDB4 0017CD14  90 61 00 E8 */	stw r3, 0xe8(r1)
@@ -316,11 +316,11 @@ lbl_8017FE8C:
 /* 8017FE8C 0017CDEC  6F 40 80 00 */	xoris r0, r26, 0x8000
 /* 8017FE90 0017CDF0  3F E0 43 30 */	lis r31, 0x4330
 /* 8017FE94 0017CDF4  90 01 1C F4 */	stw r0, 0x1cf4(r1)
-/* 8017FE98 0017CDF8  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8017FE9C 0017CDFC  38 83 66 A0 */	addi r4, r3, skZero3f@l
-/* 8017FEA0 0017CE00  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8017FE98 0017CDF8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8017FE9C 0017CDFC  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
+/* 8017FEA0 0017CE00  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8017FEA4 0017CE04  93 E1 1C F0 */	stw r31, 0x1cf0(r1)
-/* 8017FEA8 0017CE08  3A E3 66 70 */	addi r23, r3, skIdentity4f@l
+/* 8017FEA8 0017CE08  3A E3 66 70 */	addi r23, r3, sIdentity__12CTransform4f@l
 /* 8017FEAC 0017CE0C  CB C2 A2 B8 */	lfd f30, lbl_805ABFD8@sda21(r2)
 /* 8017FEB0 0017CE10  3B 60 00 00 */	li r27, 0
 /* 8017FEB4 0017CE14  C8 01 1C F0 */	lfd f0, 0x1cf0(r1)
@@ -738,9 +738,9 @@ lbl_801803AC:
 /* 801804CC 0017D42C  38 81 00 40 */	addi r4, r1, 0x40
 /* 801804D0 0017D430  48 1B 71 3D */	bl GetCenterPoint__6CAABoxCFv
 /* 801804D4 0017D434  C0 41 00 28 */	lfs f2, 0x28(r1)
-/* 801804D8 0017D438  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801804D8 0017D438  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801804DC 0017D43C  C0 21 00 2C */	lfs f1, 0x2c(r1)
-/* 801804E0 0017D440  3B C3 66 A0 */	addi r30, r3, skZero3f@l
+/* 801804E0 0017D440  3B C3 66 A0 */	addi r30, r3, sZeroVector__9CVector3f@l
 /* 801804E4 0017D444  C0 01 00 30 */	lfs f0, 0x30(r1)
 /* 801804E8 0017D448  3B A0 00 02 */	li r29, 2
 /* 801804EC 0017D44C  D0 41 00 34 */	stfs f2, 0x34(r1)
@@ -1042,11 +1042,11 @@ lbl_80180810:
 /* 80180898 0017D7F8  DB E1 02 A0 */	stfd f31, 0x2a0(r1)
 /* 8018089C 0017D7FC  F3 E1 02 A8 */	psq_st f31, 680(r1), 0, qr0
 /* 801808A0 0017D800  BF 21 02 84 */	stmw r25, 0x284(r1)
-/* 801808A4 0017D804  3D 20 80 5A */	lis r9, skZero3f@ha
+/* 801808A4 0017D804  3D 20 80 5A */	lis r9, sZeroVector__9CVector3f@ha
 /* 801808A8 0017D808  FF E0 08 90 */	fmr f31, f1
 /* 801808AC 0017D80C  7C BD 2B 78 */	mr r29, r5
 /* 801808B0 0017D810  7C 7B 1B 78 */	mr r27, r3
-/* 801808B4 0017D814  38 09 66 A0 */	addi r0, r9, skZero3f@l
+/* 801808B4 0017D814  38 09 66 A0 */	addi r0, r9, sZeroVector__9CVector3f@l
 /* 801808B8 0017D818  7C 9C 23 78 */	mr r28, r4
 /* 801808BC 0017D81C  7C DE 33 78 */	mr r30, r6
 /* 801808C0 0017D820  7C FF 3B 78 */	mr r31, r7
@@ -1904,9 +1904,9 @@ lbl_8018151C:
 /* 80181590 0017E4F0  7C 64 1B 78 */	mr r4, r3
 /* 80181594 0017E4F4  38 61 00 30 */	addi r3, r1, 0x30
 /* 80181598 0017E4F8  4B F2 B1 4D */	bl "__ct__27TCastToPtr<13CPhysicsActor>FP7CEntity"
-/* 8018159C 0017E4FC  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8018159C 0017E4FC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801815A0 0017E500  82 C3 00 04 */	lwz r22, 4(r3)
-/* 801815A4 0017E504  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801815A4 0017E504  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801815A8 0017E508  7F C3 F3 78 */	mr r3, r30
 /* 801815AC 0017E50C  4B F9 94 8D */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 801815B0 0017E510  38 00 00 00 */	li r0, 0
@@ -2119,9 +2119,9 @@ lbl_8018189C:
 /* 801818B4 0017E814  FF E0 D8 90 */	fmr f31, f27
 /* 801818B8 0017E818  D0 01 00 2C */	stfs f0, 0x2c(r1)
 /* 801818BC 0017E81C  4B F9 99 65 */	bl ClearImpulses__13CPhysicsActorFv
-/* 801818C0 0017E820  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801818C0 0017E820  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801818C4 0017E824  7F C3 F3 78 */	mr r3, r30
-/* 801818C8 0017E828  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801818C8 0017E828  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801818CC 0017E82C  4B F9 91 6D */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 lbl_801818D0:
 /* 801818D0 0017E830  C0 01 00 2C */	lfs f0, 0x2c(r1)
@@ -2221,9 +2221,9 @@ lbl_801819F4:
 lbl_80181A30:
 /* 80181A30 0017E990  7F C3 F3 78 */	mr r3, r30
 /* 80181A34 0017E994  4B F9 98 81 */	bl ClearForcesAndTorques__13CPhysicsActorFv
-/* 80181A38 0017E998  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80181A38 0017E998  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80181A3C 0017E99C  7F C3 F3 78 */	mr r3, r30
-/* 80181A40 0017E9A0  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80181A40 0017E9A0  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80181A44 0017E9A4  4B F9 8F F5 */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 80181A48 0017E9A8  38 60 00 00 */	li r3, 0
 /* 80181A4C 0017E9AC  4B F3 2A AD */	bl IsUser__Fi
@@ -2883,13 +2883,13 @@ lbl_80182370:
 /* 801823B4 0017F314  4B F9 9F E5 */	bl ApplyImpulseWR__13CPhysicsActorFRC9CVector3fRC10CAxisAngle
 /* 801823B8 0017F318  48 00 00 24 */	b lbl_801823DC
 lbl_801823BC:
-/* 801823BC 0017F31C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801823BC 0017F31C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801823C0 0017F320  7F C3 F3 78 */	mr r3, r30
-/* 801823C4 0017F324  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801823C4 0017F324  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801823C8 0017F328  4B F9 88 D9 */	bl SetVelocityWR__13CPhysicsActorFRC9CVector3f
-/* 801823CC 0017F32C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801823CC 0017F32C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801823D0 0017F330  7F E3 FB 78 */	mr r3, r31
-/* 801823D4 0017F334  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801823D4 0017F334  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801823D8 0017F338  4B F9 88 C9 */	bl SetVelocityWR__13CPhysicsActorFRC9CVector3f
 lbl_801823DC:
 /* 801823DC 0017F33C  7F C3 F3 78 */	mr r3, r30

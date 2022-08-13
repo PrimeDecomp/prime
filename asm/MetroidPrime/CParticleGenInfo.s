@@ -217,8 +217,8 @@ lbl_800B7904:
 /* 800B7984 000B48E4  D0 1B 00 0C */	stfs f0, 0xc(r27)
 /* 800B7988 000B48E8  48 28 67 D9 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 800B798C 000B48EC  C0 22 8D 10 */	lfs f1, lbl_805AAA30@sda21(r2)
-/* 800B7990 000B48F0  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 800B7994 000B48F4  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 800B7990 000B48F0  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800B7994 000B48F4  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 800B7998 000B48F8  38 00 00 00 */	li r0, 0
 /* 800B799C 000B48FC  D0 3B 00 20 */	stfs f1, 0x20(r27)
 /* 800B79A0 000B4900  38 7B 00 44 */	addi r3, r27, 0x44

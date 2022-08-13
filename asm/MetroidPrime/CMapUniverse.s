@@ -289,7 +289,7 @@ lbl_802020A8:
 /* 802020A8 001FF008  80 A3 00 00 */	lwz r5, 0(r3)
 /* 802020AC 001FF00C  38 80 00 FF */	li r4, 0xff
 /* 802020B0 001FF010  38 00 00 00 */	li r0, 0
-/* 802020B4 001FF014  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802020B4 001FF014  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802020B8 001FF018  90 BE 00 54 */	stw r5, 0x54(r30)
 /* 802020BC 001FF01C  28 1F 00 00 */	cmplwi r31, 0
 /* 802020C0 001FF020  98 9E 00 58 */	stb r4, 0x58(r30)
@@ -304,7 +304,7 @@ lbl_802020A8:
 /* 802020E4 001FF044  98 1E 00 61 */	stb r0, 0x61(r30)
 /* 802020E8 001FF048  98 9E 00 62 */	stb r4, 0x62(r30)
 /* 802020EC 001FF04C  98 9E 00 63 */	stb r4, 0x63(r30)
-/* 802020F0 001FF050  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 802020F0 001FF050  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 802020F4 001FF054  D0 1E 00 64 */	stfs f0, 0x64(r30)
 /* 802020F8 001FF058  C0 03 00 04 */	lfs f0, 4(r3)
 /* 802020FC 001FF05C  D0 1E 00 68 */	stfs f0, 0x68(r30)
@@ -1107,9 +1107,9 @@ __ct__12CMapUniverseFR12CInputStream:
 /* 80202C4C 001FFBAC  38 80 FF FF */	li r4, -1
 /* 80202C50 001FFBB0  48 13 E1 F1 */	bl __dt__6CTokenFv
 /* 80202C54 001FFBB4  38 00 00 00 */	li r0, 0
-/* 80202C58 001FFBB8  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80202C58 001FFBB8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80202C5C 001FFBBC  90 1C 00 14 */	stw r0, 0x14(r28)
-/* 80202C60 001FFBC0  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80202C60 001FFBC0  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80202C64 001FFBC4  C0 02 B0 70 */	lfs f0, lbl_805ACD90@sda21(r2)
 /* 80202C68 001FFBC8  7F A3 EB 78 */	mr r3, r29
 /* 80202C6C 001FFBCC  90 1C 00 18 */	stw r0, 0x18(r28)

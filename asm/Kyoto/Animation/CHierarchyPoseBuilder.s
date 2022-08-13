@@ -442,13 +442,13 @@ BuildNoScale__21CHierarchyPoseBuilderFR17CPoseAsTransforms:
 /* 802FC93C 002F989C  88 01 00 08 */	lbz r0, 8(r1)
 /* 802FC940 002F98A0  3C A0 80 5A */	lis r5, lbl_805A6660@ha
 /* 802FC944 002F98A4  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
-/* 802FC948 002F98A8  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802FC948 002F98A8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802FC94C 002F98AC  54 00 08 3C */	slwi r0, r0, 1
 /* 802FC950 002F98B0  38 E5 66 60 */	addi r7, r5, lbl_805A6660@l
 /* 802FC954 002F98B4  7C BE 02 14 */	add r5, r30, r0
 /* 802FC958 002F98B8  39 04 65 FC */	addi r8, r4, lbl_805A65FC@l
 /* 802FC95C 002F98BC  88 05 00 41 */	lbz r0, 0x41(r5)
-/* 802FC960 002F98C0  39 23 66 A0 */	addi r9, r3, skZero3f@l
+/* 802FC960 002F98C0  39 23 66 A0 */	addi r9, r3, sZeroVector__9CVector3f@l
 /* 802FC964 002F98C4  80 BE 01 08 */	lwz r5, 0x108(r30)
 /* 802FC968 002F98C8  7F C3 F3 78 */	mr r3, r30
 /* 802FC96C 002F98CC  54 00 2C F4 */	rlwinm r0, r0, 5, 0x13, 0x1a

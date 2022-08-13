@@ -586,15 +586,15 @@ lbl_8029D028:
 UpdateActorLights__13CArtifactDollFv:
 /* 8029D044 00299FA4  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 8029D048 00299FA8  7C 08 02 A6 */	mflr r0
-/* 8029D04C 00299FAC  3C 80 80 5A */	lis r4, lbl_805A6718@ha
-/* 8029D050 00299FB0  3C C0 80 5A */	lis r6, lbl_805A6700@ha
+/* 8029D04C 00299FAC  3C 80 80 5A */	lis r4, sRightVector__9CVector3f@ha
+/* 8029D050 00299FB0  3C C0 80 5A */	lis r6, sDownVector__9CVector3f@ha
 /* 8029D054 00299FB4  90 01 01 14 */	stw r0, 0x114(r1)
-/* 8029D058 00299FB8  38 A4 67 18 */	addi r5, r4, lbl_805A6718@l
+/* 8029D058 00299FB8  38 A4 67 18 */	addi r5, r4, sRightVector__9CVector3f@l
 /* 8029D05C 00299FBC  C0 62 C0 54 */	lfs f3, lbl_805ADD74@sda21(r2)
-/* 8029D060 00299FC0  3C 80 80 5A */	lis r4, lbl_805A6724@ha
+/* 8029D060 00299FC0  3C 80 80 5A */	lis r4, sForwardVector__9CVector3f@ha
 /* 8029D064 00299FC4  93 E1 01 0C */	stw r31, 0x10c(r1)
-/* 8029D068 00299FC8  3B E4 67 24 */	addi r31, r4, lbl_805A6724@l
-/* 8029D06C 00299FCC  38 C6 67 00 */	addi r6, r6, lbl_805A6700@l
+/* 8029D068 00299FC8  3B E4 67 24 */	addi r31, r4, sForwardVector__9CVector3f@l
+/* 8029D06C 00299FCC  38 C6 67 00 */	addi r6, r6, sDownVector__9CVector3f@l
 /* 8029D070 00299FD0  C0 C2 C0 8C */	lfs f6, lbl_805ADDAC@sda21(r2)
 /* 8029D074 00299FD4  93 C1 01 08 */	stw r30, 0x108(r1)
 /* 8029D078 00299FD8  7C 7E 1B 78 */	mr r30, r3
@@ -635,9 +635,9 @@ UpdateActorLights__13CArtifactDollFv:
 /* 8029D104 0029A064  D0 81 00 4C */	stfs f4, 0x4c(r1)
 /* 8029D108 0029A068  48 07 77 49 */	bl AsNormalized__9CVector3fCFv
 /* 8029D10C 0029A06C  38 00 00 FF */	li r0, 0xff
-/* 8029D110 0029A070  3C 60 80 5A */	lis r3, lbl_805A6724@ha
+/* 8029D110 0029A070  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
 /* 8029D114 0029A074  98 01 00 10 */	stb r0, 0x10(r1)
-/* 8029D118 0029A078  38 83 67 24 */	addi r4, r3, lbl_805A6724@l
+/* 8029D118 0029A078  38 83 67 24 */	addi r4, r3, sForwardVector__9CVector3f@l
 /* 8029D11C 0029A07C  38 61 00 AC */	addi r3, r1, 0xac
 /* 8029D120 0029A080  38 A1 00 10 */	addi r5, r1, 0x10
 /* 8029D124 0029A084  98 01 00 11 */	stb r0, 0x11(r1)
@@ -645,9 +645,9 @@ UpdateActorLights__13CArtifactDollFv:
 /* 8029D12C 0029A08C  98 01 00 13 */	stb r0, 0x13(r1)
 /* 8029D130 0029A090  48 06 93 3D */	bl BuildDirectional__6CLightFRC9CVector3fRC6CColor
 /* 8029D134 0029A094  81 5E 00 1C */	lwz r10, 0x1c(r30)
-/* 8029D138 0029A098  3C 60 80 5A */	lis r3, lbl_805A6724@ha
+/* 8029D138 0029A098  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
 /* 8029D13C 0029A09C  80 81 00 AC */	lwz r4, 0xac(r1)
-/* 8029D140 0029A0A0  38 C3 67 24 */	addi r6, r3, lbl_805A6724@l
+/* 8029D140 0029A0A0  38 C3 67 24 */	addi r6, r3, sForwardVector__9CVector3f@l
 /* 8029D144 0029A0A4  81 01 00 B0 */	lwz r8, 0xb0(r1)
 /* 8029D148 0029A0A8  38 E0 00 00 */	li r7, 0
 /* 8029D14C 0029A0AC  38 00 00 FF */	li r0, 0xff
@@ -907,8 +907,8 @@ __ct__13CArtifactDollFv:
 /* 8029D4E0 0029A440  93 C1 00 88 */	stw r30, 0x88(r1)
 /* 8029D4E4 0029A444  93 A1 00 84 */	stw r29, 0x84(r1)
 /* 8029D4E8 0029A448  90 C3 00 04 */	stw r6, 4(r3)
-/* 8029D4EC 0029A44C  3C 60 80 5A */	lis r3, lbl_805A6724@ha
-/* 8029D4F0 0029A450  38 83 67 24 */	addi r4, r3, lbl_805A6724@l
+/* 8029D4EC 0029A44C  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
+/* 8029D4F0 0029A450  38 83 67 24 */	addi r4, r3, sForwardVector__9CVector3f@l
 /* 8029D4F4 0029A454  90 DF 00 08 */	stw r6, 8(r31)
 /* 8029D4F8 0029A458  38 61 00 2C */	addi r3, r1, 0x2c
 /* 8029D4FC 0029A45C  90 DF 00 0C */	stw r6, 0xc(r31)
@@ -927,9 +927,9 @@ __ct__13CArtifactDollFv:
 /* 8029D530 0029A490  48 07 83 3D */	bl __nw__FUlPCcPCc
 /* 8029D534 0029A494  7C 60 1B 79 */	or. r0, r3, r3
 /* 8029D538 0029A498  41 82 00 4C */	beq lbl_8029D584
-/* 8029D53C 0029A49C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8029D53C 0029A49C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8029D540 0029A4A0  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
-/* 8029D544 0029A4A4  38 E4 66 A0 */	addi r7, r4, skZero3f@l
+/* 8029D544 0029A4A4  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 8029D548 0029A4A8  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8029D54C 0029A4AC  81 07 00 00 */	lwz r8, 0(r7)
 /* 8029D550 0029A4B0  38 80 00 08 */	li r4, 8

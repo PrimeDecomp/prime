@@ -564,10 +564,10 @@ CollisionOccured__17CProjectileWeaponF29EWeaponCollisionResponseTypesbbRC9CVecto
 /* 802AF444 002AC3A4  38 61 00 34 */	addi r3, r1, 0x34
 /* 802AF448 002AC3A8  38 81 00 64 */	addi r4, r1, 0x64
 /* 802AF44C 002AC3AC  48 06 54 05 */	bl AsNormalized__9CVector3fCFv
-/* 802AF450 002AC3B0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802AF454 002AC3B4  3C A0 80 5A */	lis r5, lbl_805A66F4@ha
-/* 802AF458 002AC3B8  38 83 66 A0 */	addi r4, r3, skZero3f@l
-/* 802AF45C 002AC3BC  38 C5 66 F4 */	addi r6, r5, lbl_805A66F4@l
+/* 802AF450 002AC3B0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802AF454 002AC3B4  3C A0 80 5A */	lis r5, sUpVector__9CVector3f@ha
+/* 802AF458 002AC3B8  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
+/* 802AF45C 002AC3BC  38 C5 66 F4 */	addi r6, r5, sUpVector__9CVector3f@l
 /* 802AF460 002AC3C0  38 61 00 D0 */	addi r3, r1, 0xd0
 /* 802AF464 002AC3C4  38 A1 00 34 */	addi r5, r1, 0x34
 /* 802AF468 002AC3C8  48 06 46 A9 */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
@@ -580,9 +580,9 @@ lbl_802AF47C:
 /* 802AF480 002AC3E0  38 61 00 A0 */	addi r3, r1, 0xa0
 /* 802AF484 002AC3E4  48 00 11 55 */	bl GetTransform__17CProjectileWeaponFv
 /* 802AF488 002AC3E8  C0 A1 00 B4 */	lfs f5, 0xb4(r1)
-/* 802AF48C 002AC3EC  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802AF48C 002AC3EC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802AF490 002AC3F0  C0 FB 00 04 */	lfs f7, 4(r27)
-/* 802AF494 002AC3F4  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 802AF494 002AC3F4  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 802AF498 002AC3F8  C0 81 00 A4 */	lfs f4, 0xa4(r1)
 /* 802AF49C 002AC3FC  7F 66 DB 78 */	mr r6, r27
 /* 802AF4A0 002AC400  EC 07 01 72 */	fmuls f0, f7, f5
@@ -907,9 +907,9 @@ Render__17CProjectileWeaponCFv:
 /* 802AF924 002AC884  48 06 30 2D */	bl __ml__12CTransform4fCFRC12CTransform4f
 /* 802AF928 002AC888  38 61 00 C4 */	addi r3, r1, 0xc4
 /* 802AF92C 002AC88C  48 05 CC B5 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
-/* 802AF930 002AC890  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802AF930 002AC890  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802AF934 002AC894  38 61 02 14 */	addi r3, r1, 0x214
-/* 802AF938 002AC898  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 802AF938 002AC898  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 802AF93C 002AC89C  38 BF 00 C8 */	addi r5, r31, 0xc8
 /* 802AF940 002AC8A0  48 05 6B 65 */	bl BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor
 /* 802AF944 002AC8A4  38 61 02 64 */	addi r3, r1, 0x264
@@ -2114,19 +2114,19 @@ lbl_802B09D0:
 /* 802B0A50 002AD9B0  7F A4 EB 78 */	mr r4, r29
 /* 802B0A54 002AD9B4  38 7F 00 14 */	addi r3, r31, 0x14
 /* 802B0A58 002AD9B8  48 06 21 1D */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 802B0A5C 002AD9BC  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 802B0A5C 002AD9BC  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 802B0A60 002AD9C0  38 7F 00 44 */	addi r3, r31, 0x44
-/* 802B0A64 002AD9C4  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 802B0A64 002AD9C4  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 802B0A68 002AD9C8  48 06 21 0D */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802B0A6C 002AD9CC  C0 3B 00 00 */	lfs f1, 0(r27)
-/* 802B0A70 002AD9D0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802B0A70 002AD9D0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802B0A74 002AD9D4  C0 02 C1 F8 */	lfs f0, lbl_805ADF18@sda21(r2)
 /* 802B0A78 002AD9D8  D0 3F 00 74 */	stfs f1, 0x74(r31)
 /* 802B0A7C 002AD9DC  C0 3B 00 04 */	lfs f1, 4(r27)
 /* 802B0A80 002AD9E0  D0 3F 00 78 */	stfs f1, 0x78(r31)
 /* 802B0A84 002AD9E4  C0 3B 00 08 */	lfs f1, 8(r27)
 /* 802B0A88 002AD9E8  D0 3F 00 7C */	stfs f1, 0x7c(r31)
-/* 802B0A8C 002AD9EC  C4 23 66 A0 */	lfsu f1, skZero3f@l(r3)
+/* 802B0A8C 002AD9EC  C4 23 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r3)
 /* 802B0A90 002AD9F0  D0 3F 00 80 */	stfs f1, 0x80(r31)
 /* 802B0A94 002AD9F4  C0 23 00 04 */	lfs f1, 4(r3)
 /* 802B0A98 002AD9F8  D0 3F 00 84 */	stfs f1, 0x84(r31)
@@ -2448,9 +2448,9 @@ lbl_802B0F34:
 /* 802B0F38 002ADE98  80 03 00 00 */	lwz r0, 0(r3)
 /* 802B0F3C 002ADE9C  28 00 00 00 */	cmplwi r0, 0
 /* 802B0F40 002ADEA0  41 82 00 A8 */	beq lbl_802B0FE8
-/* 802B0F44 002ADEA4  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 802B0F44 002ADEA4  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 802B0F48 002ADEA8  38 61 00 54 */	addi r3, r1, 0x54
-/* 802B0F4C 002ADEAC  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 802B0F4C 002ADEAC  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 802B0F50 002ADEB0  48 06 1C 25 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802B0F54 002ADEB4  C0 02 C1 F0 */	lfs f0, lbl_805ADF10@sda21(r2)
 /* 802B0F58 002ADEB8  38 A1 00 3C */	addi r5, r1, 0x3c
@@ -2490,9 +2490,9 @@ lbl_802B0F34:
 /* 802B0FE0 002ADF40  4B FF F5 21 */	bl SetRelativeOrientation__17CProjectileWeaponFRC12CTransform4f
 /* 802B0FE4 002ADF44  48 00 00 14 */	b lbl_802B0FF8
 lbl_802B0FE8:
-/* 802B0FE8 002ADF48  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 802B0FE8 002ADF48  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 802B0FEC 002ADF4C  7F E3 FB 78 */	mr r3, r31
-/* 802B0FF0 002ADF50  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 802B0FF0 002ADF50  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 802B0FF4 002ADF54  4B FF F5 0D */	bl SetRelativeOrientation__17CProjectileWeaponFRC12CTransform4f
 lbl_802B0FF8:
 /* 802B0FF8 002ADF58  80 7F 00 0C */	lwz r3, 0xc(r31)

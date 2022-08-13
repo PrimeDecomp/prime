@@ -1,13 +1,13 @@
 .include "macros.inc"
 
-.comm skZero3f, 0xC, 4
+.comm sZeroVector__9CVector3f, 0xC, 4
 .comm lbl_805A66AC, 0x48, 4 # unreferenced, what's this?
-.comm lbl_805A66F4, 0xC, 4
-.comm lbl_805A6700, 0xC, 4
-.comm lbl_805A670C, 0xC, 4
-.comm lbl_805A6718, 0xC, 4
-.comm lbl_805A6724, 0xC, 4
-.comm lbl_805A6730, 0xC, 4
+.comm sUpVector__9CVector3f, 0xC, 4
+.comm sDownVector__9CVector3f, 0xC, 4
+.comm sLeftVector__9CVector3f, 0xC, 4
+.comm sRightVector__9CVector3f, 0xC, 4
+.comm sForwardVector__9CVector3f, 0xC, 4
+.comm sBackVector__9CVector3f, 0xC, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -452,22 +452,22 @@ __ct__9CVector3fFR12CInputStream:
 .global __sinit_CVector3f_cpp
 __sinit_CVector3f_cpp:
 /* 80314BC8 00311B28  C0 42 C9 10 */	lfs f2, lbl_805AE630@sda21(r2)
-/* 80314BCC 00311B2C  3D 20 80 5A */	lis r9, skZero3f@ha
+/* 80314BCC 00311B2C  3D 20 80 5A */	lis r9, sZeroVector__9CVector3f@ha
 /* 80314BD0 00311B30  C0 02 C9 18 */	lfs f0, lbl_805AE638@sda21(r2)
-/* 80314BD4 00311B34  3D 00 80 5A */	lis r8, lbl_805A66F4@ha
-/* 80314BD8 00311B38  D4 49 66 A0 */	stfsu f2, skZero3f@l(r9)
-/* 80314BDC 00311B3C  3C E0 80 5A */	lis r7, lbl_805A6700@ha
-/* 80314BE0 00311B40  3C C0 80 5A */	lis r6, lbl_805A670C@ha
-/* 80314BE4 00311B44  3C 80 80 5A */	lis r4, lbl_805A6724@ha
-/* 80314BE8 00311B48  D4 47 67 00 */	stfsu f2, lbl_805A6700@l(r7)
-/* 80314BEC 00311B4C  3C 60 80 5A */	lis r3, lbl_805A6730@ha
+/* 80314BD4 00311B34  3D 00 80 5A */	lis r8, sUpVector__9CVector3f@ha
+/* 80314BD8 00311B38  D4 49 66 A0 */	stfsu f2, sZeroVector__9CVector3f@l(r9)
+/* 80314BDC 00311B3C  3C E0 80 5A */	lis r7, sDownVector__9CVector3f@ha
+/* 80314BE0 00311B40  3C C0 80 5A */	lis r6, sLeftVector__9CVector3f@ha
+/* 80314BE4 00311B44  3C 80 80 5A */	lis r4, sForwardVector__9CVector3f@ha
+/* 80314BE8 00311B48  D4 47 67 00 */	stfsu f2, sDownVector__9CVector3f@l(r7)
+/* 80314BEC 00311B4C  3C 60 80 5A */	lis r3, sBackVector__9CVector3f@ha
 /* 80314BF0 00311B50  C0 22 C9 1C */	lfs f1, lbl_805AE63C@sda21(r2)
-/* 80314BF4 00311B54  3C A0 80 5A */	lis r5, lbl_805A6718@ha
-/* 80314BF8 00311B58  D4 48 66 F4 */	stfsu f2, lbl_805A66F4@l(r8)
-/* 80314BFC 00311B5C  D4 06 67 0C */	stfsu f0, lbl_805A670C@l(r6)
-/* 80314C00 00311B60  D4 25 67 18 */	stfsu f1, lbl_805A6718@l(r5)
-/* 80314C04 00311B64  D4 44 67 24 */	stfsu f2, lbl_805A6724@l(r4)
-/* 80314C08 00311B68  D4 43 67 30 */	stfsu f2, lbl_805A6730@l(r3)
+/* 80314BF4 00311B54  3C A0 80 5A */	lis r5, sRightVector__9CVector3f@ha
+/* 80314BF8 00311B58  D4 48 66 F4 */	stfsu f2, sUpVector__9CVector3f@l(r8)
+/* 80314BFC 00311B5C  D4 06 67 0C */	stfsu f0, sLeftVector__9CVector3f@l(r6)
+/* 80314C00 00311B60  D4 25 67 18 */	stfsu f1, sRightVector__9CVector3f@l(r5)
+/* 80314C04 00311B64  D4 44 67 24 */	stfsu f2, sForwardVector__9CVector3f@l(r4)
+/* 80314C08 00311B68  D4 43 67 30 */	stfsu f2, sBackVector__9CVector3f@l(r3)
 /* 80314C0C 00311B6C  D0 49 00 04 */	stfs f2, 4(r9)
 /* 80314C10 00311B70  D0 49 00 08 */	stfs f2, 8(r9)
 /* 80314C14 00311B74  D0 48 00 04 */	stfs f2, 4(r8)

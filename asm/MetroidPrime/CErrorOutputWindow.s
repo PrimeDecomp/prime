@@ -467,11 +467,11 @@ lbl_80269730:
 /* 80269730 00266690  83 A1 00 40 */	lwz r29, 0x40(r1)
 /* 80269734 00266694  3C 00 43 30 */	lis r0, 0x4330
 /* 80269738 00266698  90 01 03 E8 */	stw r0, 0x3e8(r1)
-/* 8026973C 0026669C  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8026973C 0026669C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80269740 002666A0  6F A0 80 00 */	xoris r0, r29, 0x8000
 /* 80269744 002666A4  C8 22 BB 40 */	lfd f1, lbl_805AD860@sda21(r2)
 /* 80269748 002666A8  90 01 03 EC */	stw r0, 0x3ec(r1)
-/* 8026974C 002666AC  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 8026974C 002666AC  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 80269750 002666B0  C8 01 03 E8 */	lfd f0, 0x3e8(r1)
 /* 80269754 002666B4  EF E0 08 28 */	fsubs f31, f0, f1
 /* 80269758 002666B8  48 0A 2F F5 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
@@ -519,17 +519,17 @@ lbl_80269730:
 /* 80269800 00266760  6F E3 80 00 */	xoris r3, r31, 0x8000
 /* 80269804 00266764  3C 00 43 30 */	lis r0, 0x4330
 /* 80269808 00266768  90 61 04 0C */	stw r3, 0x40c(r1)
-/* 8026980C 0026676C  3C 80 80 5A */	lis r4, lbl_805A6718@ha
+/* 8026980C 0026676C  3C 80 80 5A */	lis r4, sRightVector__9CVector3f@ha
 /* 80269810 00266770  C0 42 BB 38 */	lfs f2, lbl_805AD858@sda21(r2)
-/* 80269814 00266774  3C A0 80 5A */	lis r5, lbl_805A6724@ha
+/* 80269814 00266774  3C A0 80 5A */	lis r5, sForwardVector__9CVector3f@ha
 /* 80269818 00266778  90 01 04 08 */	stw r0, 0x408(r1)
-/* 8026981C 0026677C  3C 60 80 5A */	lis r3, lbl_805A6700@ha
+/* 8026981C 0026677C  3C 60 80 5A */	lis r3, sDownVector__9CVector3f@ha
 /* 80269820 00266780  C8 22 BB 40 */	lfd f1, lbl_805AD860@sda21(r2)
-/* 80269824 00266784  38 C3 67 00 */	addi r6, r3, lbl_805A6700@l
+/* 80269824 00266784  38 C3 67 00 */	addi r6, r3, sDownVector__9CVector3f@l
 /* 80269828 00266788  C8 01 04 08 */	lfd f0, 0x408(r1)
-/* 8026982C 0026678C  38 84 67 18 */	addi r4, r4, lbl_805A6718@l
+/* 8026982C 0026678C  38 84 67 18 */	addi r4, r4, sRightVector__9CVector3f@l
 /* 80269830 00266790  D0 41 00 20 */	stfs f2, 0x20(r1)
-/* 80269834 00266794  38 A5 67 24 */	addi r5, r5, lbl_805A6724@l
+/* 80269834 00266794  38 A5 67 24 */	addi r5, r5, sForwardVector__9CVector3f@l
 /* 80269838 00266798  EC 00 08 28 */	fsubs f0, f0, f1
 /* 8026983C 0026679C  38 61 00 54 */	addi r3, r1, 0x54
 /* 80269840 002667A0  D0 41 00 24 */	stfs f2, 0x24(r1)

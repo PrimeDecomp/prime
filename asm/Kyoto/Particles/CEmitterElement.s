@@ -53,9 +53,9 @@ GetValue__14CVEAngleSphereCFiR9CVector3fR9CVector3f:
 /* 80356934 00353894  93 C1 00 58 */	stw r30, 0x58(r1)
 /* 80356938 00353898  93 A1 00 54 */	stw r29, 0x54(r1)
 /* 8035693C 0035389C  93 81 00 50 */	stw r28, 0x50(r1)
-/* 80356940 003538A0  3C E0 80 5A */	lis r7, skZero3f@ha
+/* 80356940 003538A0  3C E0 80 5A */	lis r7, sZeroVector__9CVector3f@ha
 /* 80356944 003538A4  7C 7C 1B 78 */	mr r28, r3
-/* 80356948 003538A8  38 67 66 A0 */	addi r3, r7, skZero3f@l
+/* 80356948 003538A8  38 67 66 A0 */	addi r3, r7, sZeroVector__9CVector3f@l
 /* 8035694C 003538AC  7C BE 2B 78 */	mr r30, r5
 /* 80356950 003538B0  C0 43 00 00 */	lfs f2, 0(r3)
 /* 80356954 003538B4  7C 9D 23 78 */	mr r29, r4
@@ -374,9 +374,9 @@ GetValue__9CVESphereCFiR9CVector3fR9CVector3f:
 /* 80356DDC 00353D3C  93 C1 00 88 */	stw r30, 0x88(r1)
 /* 80356DE0 00353D40  93 A1 00 84 */	stw r29, 0x84(r1)
 /* 80356DE4 00353D44  93 81 00 80 */	stw r28, 0x80(r1)
-/* 80356DE8 00353D48  3C E0 80 5A */	lis r7, skZero3f@ha
+/* 80356DE8 00353D48  3C E0 80 5A */	lis r7, sZeroVector__9CVector3f@ha
 /* 80356DEC 00353D4C  7C 7C 1B 78 */	mr r28, r3
-/* 80356DF0 00353D50  38 67 66 A0 */	addi r3, r7, skZero3f@l
+/* 80356DF0 00353D50  38 67 66 A0 */	addi r3, r7, sZeroVector__9CVector3f@l
 /* 80356DF4 00353D54  7C BE 2B 78 */	mr r30, r5
 /* 80356DF8 00353D58  C0 43 00 00 */	lfs f2, 0(r3)
 /* 80356DFC 00353D5C  7C 9D 23 78 */	mr r29, r4
@@ -650,8 +650,8 @@ GetValue__16CEESimpleEmitterCFiR9CVector3fR9CVector3f:
 /* 803571E4 00354144  4E 80 04 21 */	bctrl
 /* 803571E8 00354148  48 00 00 20 */	b lbl_80357208
 lbl_803571EC:
-/* 803571EC 0035414C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 803571F0 00354150  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 803571EC 0035414C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 803571F0 00354150  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 803571F4 00354154  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 803571F8 00354158  C0 03 00 04 */	lfs f0, 4(r3)
 /* 803571FC 0035415C  D0 1F 00 04 */	stfs f0, 4(r31)

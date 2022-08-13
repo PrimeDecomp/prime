@@ -1466,8 +1466,8 @@ CalculateLocalAABox__8COBBTreeCFv:
 /* 802A8CC4 002A5C24  80 84 00 88 */	lwz r4, 0x88(r4)
 /* 802A8CC8 002A5C28  28 04 00 00 */	cmplwi r4, 0
 /* 802A8CCC 002A5C2C  41 82 00 14 */	beq lbl_802A8CE0
-/* 802A8CD0 002A5C30  3C A0 80 5A */	lis r5, skIdentity4f@ha
-/* 802A8CD4 002A5C34  38 A5 66 70 */	addi r5, r5, skIdentity4f@l
+/* 802A8CD0 002A5C30  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
+/* 802A8CD4 002A5C34  38 A5 66 70 */	addi r5, r5, sIdentity__12CTransform4f@l
 /* 802A8CD8 002A5C38  48 02 D1 01 */	bl CalculateAABox__6COBBoxCFRC12CTransform4f
 /* 802A8CDC 002A5C3C  48 00 00 20 */	b lbl_802A8CFC
 lbl_802A8CE0:

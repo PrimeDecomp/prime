@@ -6489,9 +6489,9 @@ __ct__19SNewFileSelectFrameFv:
 /* 80020E68 0001DDC8  38 7E 00 58 */	addi r3, r30, 0x58
 /* 80020E6C 0001DDCC  48 00 20 09 */	bl __ct__12SGuiTextPairFv
 /* 80020E70 0001DDD0  38 00 00 00 */	li r0, 0
-/* 80020E74 0001DDD4  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80020E74 0001DDD4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80020E78 0001DDD8  90 1E 00 60 */	stw r0, 0x60(r30)
-/* 80020E7C 0001DDDC  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80020E7C 0001DDDC  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80020E80 0001DDE0  C0 02 82 9C */	lfs f0, lbl_805A9FBC@sda21(r2)
 /* 80020E84 0001DDE4  7F E3 FB 78 */	mr r3, r31
 /* 80020E88 0001DDE8  90 1E 00 64 */	stw r0, 0x64(r30)

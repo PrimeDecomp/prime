@@ -548,9 +548,9 @@ lbl_80265700:
 /* 80265700 00262660  D3 DC 01 DC */	stfs f30, 0x1dc(r28)
 lbl_80265704:
 /* 80265704 00262664  C0 21 00 90 */	lfs f1, 0x90(r1)
-/* 80265708 00262668  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80265708 00262668  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8026570C 0026266C  C0 01 00 84 */	lfs f0, 0x84(r1)
-/* 80265710 00262670  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 80265710 00262670  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 80265714 00262674  C0 61 00 94 */	lfs f3, 0x94(r1)
 /* 80265718 00262678  38 61 00 C8 */	addi r3, r1, 0xc8
 /* 8026571C 0026267C  EC 81 00 2A */	fadds f4, f1, f0
@@ -605,9 +605,9 @@ lbl_80265704:
 /* 802657E0 00262740  D0 01 00 70 */	stfs f0, 0x70(r1)
 /* 802657E4 00262744  48 0A BA 81 */	bl Transform__11CQuaternionCFRC9CVector3f
 /* 802657E8 00262748  C0 21 00 90 */	lfs f1, 0x90(r1)
-/* 802657EC 0026274C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 802657EC 0026274C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 802657F0 00262750  C0 01 00 1C */	lfs f0, 0x1c(r1)
-/* 802657F4 00262754  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 802657F4 00262754  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 802657F8 00262758  C0 61 00 94 */	lfs f3, 0x94(r1)
 /* 802657FC 0026275C  38 61 00 98 */	addi r3, r1, 0x98
 /* 80265800 00262760  EC 81 00 2A */	fadds f4, f1, f0
@@ -897,9 +897,9 @@ lbl_80265BFC:
 /* 80265C30 00262B90  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80265C34 00262B94  41 82 01 34 */	beq lbl_80265D68
 /* 80265C38 00262B98  C0 21 00 84 */	lfs f1, 0x84(r1)
-/* 80265C3C 00262B9C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80265C3C 00262B9C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80265C40 00262BA0  C0 01 00 6C */	lfs f0, 0x6c(r1)
-/* 80265C44 00262BA4  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 80265C44 00262BA4  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 80265C48 00262BA8  C0 61 00 88 */	lfs f3, 0x88(r1)
 /* 80265C4C 00262BAC  38 61 01 28 */	addi r3, r1, 0x128
 /* 80265C50 00262BB0  EC 81 00 2A */	fadds f4, f1, f0
@@ -1133,18 +1133,18 @@ lbl_80265F8C:
 /* 80265F94 00262EF4  3C 80 80 3F */	lis r4, lbl_803E9D80@ha
 /* 80265F98 00262EF8  C0 02 BA 9C */	lfs f0, lbl_805AD7BC@sda21(r2)
 /* 80265F9C 00262EFC  38 04 9D 80 */	addi r0, r4, lbl_803E9D80@l
-/* 80265FA0 00262F00  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 80265FA0 00262F00  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80265FA4 00262F04  90 1F 00 00 */	stw r0, 0(r31)
-/* 80265FA8 00262F08  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 80265FA8 00262F08  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 80265FAC 00262F0C  38 7F 01 94 */	addi r3, r31, 0x194
 /* 80265FB0 00262F10  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80265FB4 00262F14  B0 1F 01 88 */	sth r0, 0x188(r31)
 /* 80265FB8 00262F18  D0 1F 01 8C */	stfs f0, 0x18c(r31)
 /* 80265FBC 00262F1C  D0 1F 01 90 */	stfs f0, 0x190(r31)
 /* 80265FC0 00262F20  48 0A CB B5 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80265FC4 00262F24  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80265FC4 00262F24  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80265FC8 00262F28  C0 22 BA 9C */	lfs f1, lbl_805AD7BC@sda21(r2)
-/* 80265FCC 00262F2C  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 80265FCC 00262F2C  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 80265FD0 00262F30  38 80 00 00 */	li r4, 0
 /* 80265FD4 00262F34  C0 45 00 00 */	lfs f2, 0(r5)
 /* 80265FD8 00262F38  7F E3 FB 78 */	mr r3, r31

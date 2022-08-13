@@ -58,7 +58,7 @@ __ct__10CTweakBallFR12CInputStream:
 /* 80090B70 0008DAD0  C0 22 8A F0 */	lfs f1, lbl_805AA810@sda21(r2)
 /* 80090B74 0008DAD4  93 E1 00 3C */	stw r31, 0x3c(r1)
 /* 80090B78 0008DAD8  7C 7F 1B 78 */	mr r31, r3
-/* 80090B7C 0008DADC  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80090B7C 0008DADC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80090B80 0008DAE0  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 80090B84 0008DAE4  3B C0 00 00 */	li r30, 0
 /* 80090B88 0008DAE8  93 A1 00 34 */	stw r29, 0x34(r1)
@@ -67,7 +67,7 @@ __ct__10CTweakBallFR12CInputStream:
 /* 80090B94 0008DAF4  7C 9C 23 78 */	mr r28, r4
 /* 80090B98 0008DAF8  90 DF 00 00 */	stw r6, 0(r31)
 /* 80090B9C 0008DAFC  90 1F 00 00 */	stw r0, 0(r31)
-/* 80090BA0 0008DB00  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 80090BA0 0008DB00  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 80090BA4 0008DB04  D0 1F 00 78 */	stfs f0, 0x78(r31)
 /* 80090BA8 0008DB08  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80090BAC 0008DB0C  D0 1F 00 7C */	stfs f0, 0x7c(r31)

@@ -182,8 +182,8 @@ lbl_80117DE0:
 /* 80117DF8 00114D58  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80117DFC 00114D5C  7C 03 00 40 */	cmplw r3, r0
 /* 80117E00 00114D60  40 82 FF B4 */	bne lbl_80117DB4
-/* 80117E04 00114D64  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80117E08 00114D68  C4 43 66 A0 */	lfsu f2, skZero3f@l(r3)
+/* 80117E04 00114D64  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80117E08 00114D68  C4 43 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r3)
 /* 80117E0C 00114D6C  EE D5 05 72 */	fmuls f22, f21, f21
 /* 80117E10 00114D70  C3 3F 00 40 */	lfs f25, 0x40(r31)
 /* 80117E14 00114D74  C3 1F 00 50 */	lfs f24, 0x50(r31)

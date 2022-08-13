@@ -414,10 +414,10 @@ lbl_8023F79C:
 /* 8023F838 0023C798  B0 01 00 2C */	sth r0, 0x2c(r1)
 /* 8023F83C 0023C79C  4B DC 54 7D */	bl string_l__4rstlFPCc
 /* 8023F840 0023C7A0  38 01 00 2C */	addi r0, r1, 0x2c
-/* 8023F844 0023C7A4  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8023F844 0023C7A4  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8023F848 0023C7A8  90 01 00 08 */	stw r0, 8(r1)
 /* 8023F84C 0023C7AC  38 01 00 48 */	addi r0, r1, 0x48
-/* 8023F850 0023C7B0  39 03 66 70 */	addi r8, r3, skIdentity4f@l
+/* 8023F850 0023C7B0  39 03 66 70 */	addi r8, r3, sIdentity__12CTransform4f@l
 /* 8023F854 0023C7B4  38 61 00 34 */	addi r3, r1, 0x34
 /* 8023F858 0023C7B8  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8023F85C 0023C7BC  38 A0 00 00 */	li r5, 0

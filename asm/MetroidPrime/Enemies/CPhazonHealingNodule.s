@@ -289,10 +289,10 @@ KnockBack__20CPhazonHealingNoduleFRC9CVector3fR13CStateManagerRC11CDamageInfo14E
 sub_80294dfc:
 /* 80294DFC 00291D5C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80294E00 00291D60  7C 08 02 A6 */	mflr r0
-/* 80294E04 00291D64  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 80294E04 00291D64  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80294E08 00291D68  38 C0 00 0E */	li r6, 0xe
 /* 80294E0C 00291D6C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80294E10 00291D70  38 A5 66 A0 */	addi r5, r5, skZero3f@l
+/* 80294E10 00291D70  38 A5 66 A0 */	addi r5, r5, sZeroVector__9CVector3f@l
 /* 80294E14 00291D74  81 83 00 00 */	lwz r12, 0(r3)
 /* 80294E18 00291D78  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 80294E1C 00291D7C  7D 89 03 A6 */	mtctr r12
@@ -306,10 +306,10 @@ sub_80294dfc:
 sub_80294e34:
 /* 80294E34 00291D94  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80294E38 00291D98  7C 08 02 A6 */	mflr r0
-/* 80294E3C 00291D9C  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 80294E3C 00291D9C  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80294E40 00291DA0  38 C0 00 0E */	li r6, 0xe
 /* 80294E44 00291DA4  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80294E48 00291DA8  38 A5 66 A0 */	addi r5, r5, skZero3f@l
+/* 80294E48 00291DA8  38 A5 66 A0 */	addi r5, r5, sZeroVector__9CVector3f@l
 /* 80294E4C 00291DAC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80294E50 00291DB0  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 80294E54 00291DB4  7D 89 03 A6 */	mtctr r12
@@ -323,10 +323,10 @@ sub_80294e34:
 sub_80294e6c:
 /* 80294E6C 00291DCC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80294E70 00291DD0  7C 08 02 A6 */	mflr r0
-/* 80294E74 00291DD4  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 80294E74 00291DD4  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80294E78 00291DD8  38 C0 00 0E */	li r6, 0xe
 /* 80294E7C 00291DDC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80294E80 00291DE0  38 A5 66 A0 */	addi r5, r5, skZero3f@l
+/* 80294E80 00291DE0  38 A5 66 A0 */	addi r5, r5, sZeroVector__9CVector3f@l
 /* 80294E84 00291DE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80294E88 00291DE8  81 8C 00 84 */	lwz r12, 0x84(r12)
 /* 80294E8C 00291DEC  7D 89 03 A6 */	mtctr r12

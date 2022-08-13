@@ -158,8 +158,8 @@ __ct__14CPatternedInfoFR12CInputStreamUi:
 /* 80105A74 001029D4  48 20 F1 19 */	bl __ct__9CVector3fFR12CInputStream
 /* 80105A78 001029D8  48 00 00 0C */	b lbl_80105A84
 lbl_80105A7C:
-/* 80105A7C 001029DC  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80105A80 001029E0  38 63 66 A0 */	addi r3, r3, skZero3f@l
+/* 80105A7C 001029DC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80105A80 001029E0  38 63 66 A0 */	addi r3, r3, sZeroVector__9CVector3f@l
 lbl_80105A84:
 /* 80105A84 001029E4  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80105A88 001029E8  28 1F 00 25 */	cmplwi r31, 0x25

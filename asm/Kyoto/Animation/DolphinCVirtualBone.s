@@ -444,9 +444,9 @@ lbl_80354C18:
 /* 80354D3C 00351C9C  4B FB DE 05 */	bl __as__12CTransform4fFRC12CTransform4f
 /* 80354D40 00351CA0  48 00 00 14 */	b lbl_80354D54
 lbl_80354D44:
-/* 80354D44 00351CA4  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 80354D44 00351CA4  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 80354D48 00351CA8  38 7D 00 20 */	addi r3, r29, 0x20
-/* 80354D4C 00351CAC  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 80354D4C 00351CAC  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80354D50 00351CB0  4B FB DD F1 */	bl __as__12CTransform4fFRC12CTransform4f
 lbl_80354D54:
 /* 80354D54 00351CB4  E3 E1 00 B8 */	psq_l f31, 184(r1), 0, qr0
@@ -590,9 +590,9 @@ lbl_80354F2C:
 /* 80354F30 00351E90  7F C3 F3 78 */	mr r3, r30
 /* 80354F34 00351E94  90 01 00 08 */	stw r0, 8(r1)
 /* 80354F38 00351E98  4B FE 9D 4D */	bl ReadLong__12CInputStreamFv
-/* 80354F3C 00351E9C  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 80354F3C 00351E9C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 80354F40 00351EA0  90 7F 00 1C */	stw r3, 0x1c(r31)
-/* 80354F44 00351EA4  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 80354F44 00351EA4  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80354F48 00351EA8  38 7F 00 20 */	addi r3, r31, 0x20
 /* 80354F4C 00351EAC  4B FB DC 29 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80354F50 00351EB0  3C 80 80 5A */	lis r4, lbl_805A65FC@ha

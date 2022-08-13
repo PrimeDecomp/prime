@@ -250,9 +250,9 @@ lbl_802CD7AC:
 lbl_802CD7C0:
 /* 802CD7C0 002CA720  C0 62 C4 88 */	lfs f3, lbl_805AE1A8@sda21(r2)
 lbl_802CD7C4:
-/* 802CD7C4 002CA724  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802CD7C4 002CA724  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802CD7C8 002CA728  80 A1 00 0C */	lwz r5, 0xc(r1)
-/* 802CD7CC 002CA72C  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 802CD7CC 002CA72C  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 802CD7D0 002CA730  38 61 00 48 */	addi r3, r1, 0x48
 /* 802CD7D4 002CA734  C0 44 00 00 */	lfs f2, 0(r4)
 /* 802CD7D8 002CA738  54 A0 10 3A */	slwi r0, r5, 2
@@ -386,9 +386,9 @@ CollideMovingSphere__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVecto
 /* 802CD9C0 002CA920  D0 01 00 8C */	stfs f0, 0x8c(r1)
 /* 802CD9C4 002CA924  48 00 69 91 */	bl Transform__17CCollidableSphereCFRC12CTransform4f
 /* 802CD9C8 002CA928  C0 C1 00 28 */	lfs f6, 0x28(r1)
-/* 802CD9CC 002CA92C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802CD9CC 002CA92C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802CD9D0 002CA930  C0 A1 00 2C */	lfs f5, 0x2c(r1)
-/* 802CD9D4 002CA934  39 03 66 A0 */	addi r8, r3, skZero3f@l
+/* 802CD9D4 002CA934  39 03 66 A0 */	addi r8, r3, sZeroVector__9CVector3f@l
 /* 802CD9D8 002CA938  C0 81 00 30 */	lfs f4, 0x30(r1)
 /* 802CD9DC 002CA93C  38 61 00 50 */	addi r3, r1, 0x50
 /* 802CD9E0 002CA940  C0 61 00 34 */	lfs f3, 0x34(r1)
@@ -558,9 +558,9 @@ CollideMovingAABox__16CCollidableAABoxFRC27CInternalCollisionStructureRC9CVector
 /* 802CDC5C 002CABBC  D0 21 00 8C */	stfs f1, 0x8c(r1)
 /* 802CDC60 002CABC0  D0 01 00 90 */	stfs f0, 0x90(r1)
 /* 802CDC64 002CABC4  4B FF F8 79 */	bl Transform__16CCollidableAABoxCFRC12CTransform4f
-/* 802CDC68 002CABC8  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802CDC68 002CABC8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802CDC6C 002CABCC  C0 A1 00 34 */	lfs f5, 0x34(r1)
-/* 802CDC70 002CABD0  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 802CDC70 002CABD0  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 802CDC74 002CABD4  C0 81 00 38 */	lfs f4, 0x38(r1)
 /* 802CDC78 002CABD8  C0 C4 00 00 */	lfs f6, 0(r4)
 /* 802CDC7C 002CABDC  7F 65 DB 78 */	mr r5, r27

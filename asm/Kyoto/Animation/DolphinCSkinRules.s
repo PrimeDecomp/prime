@@ -643,8 +643,8 @@ lbl_8035407C:
 /* 803540A0 00351000  7F 44 D2 14 */	add r26, r4, r26
 /* 803540A4 00351004  48 00 00 0C */	b lbl_803540B0
 lbl_803540A8:
-/* 803540A8 00351008  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 803540AC 0035100C  3B 43 66 A0 */	addi r26, r3, skZero3f@l
+/* 803540A8 00351008  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 803540AC 0035100C  3B 43 66 A0 */	addi r26, r3, sZeroVector__9CVector3f@l
 lbl_803540B0:
 /* 803540B0 00351010  7F 83 E3 78 */	mr r3, r28
 /* 803540B4 00351014  38 81 00 08 */	addi r4, r1, 8

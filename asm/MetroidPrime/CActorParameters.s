@@ -231,11 +231,11 @@ __ct__16CLightParametersFv:
 /* 80106688 001035E8  D0 1F 00 14 */	stfs f0, 0x14(r31)
 /* 8010668C 001035EC  48 24 39 21 */	bl White__6CColorFv
 /* 80106690 001035F0  80 03 00 00 */	lwz r0, 0(r3)
-/* 80106694 001035F4  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80106694 001035F4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80106698 001035F8  38 C0 00 00 */	li r6, 0
 /* 8010669C 001035FC  38 A0 00 01 */	li r5, 1
 /* 801066A0 00103600  90 1F 00 18 */	stw r0, 0x18(r31)
-/* 801066A4 00103604  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801066A4 00103604  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 801066A8 00103608  38 00 00 04 */	li r0, 4
 /* 801066AC 0010360C  7F E3 FB 78 */	mr r3, r31
 /* 801066B0 00103610  98 DF 00 1C */	stb r6, 0x1c(r31)

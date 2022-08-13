@@ -209,11 +209,11 @@ UpdateSfxEmitters__6CActorFv:
 /* 80052C54 0004FBB4  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80052C58 0004FBB8  BF 41 00 18 */	stmw r26, 0x18(r1)
 /* 80052C5C 0004FBBC  7C 7A 1B 78 */	mr r26, r3
-/* 80052C60 0004FBC0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80052C60 0004FBC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80052C64 0004FBC4  3B 60 00 00 */	li r27, 0
 /* 80052C68 0004FBC8  3B BA 00 DC */	addi r29, r26, 0xdc
 /* 80052C6C 0004FBCC  3B E0 00 00 */	li r31, 0
-/* 80052C70 0004FBD0  3B C3 66 A0 */	addi r30, r3, skZero3f@l
+/* 80052C70 0004FBD0  3B C3 66 A0 */	addi r30, r3, sZeroVector__9CVector3f@l
 /* 80052C74 0004FBD4  83 9A 00 D8 */	lwz r28, 0xd8(r26)
 /* 80052C78 0004FBD8  48 00 00 40 */	b lbl_80052CB8
 lbl_80052C7C:
@@ -477,9 +477,9 @@ lbl_80052FCC:
 /* 80052FF0 0004FF50  60 A5 00 08 */	ori r5, r5, 8
 lbl_80052FF4:
 /* 80052FF4 0004FF54  C0 02 86 3C */	lfs f0, lbl_805AA35C@sda21(r2)
-/* 80052FF8 0004FF58  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80052FF8 0004FF58  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80052FFC 0004FF5C  38 80 00 00 */	li r4, 0
-/* 80053000 0004FF60  C4 43 66 A0 */	lfsu f2, skZero3f@l(r3)
+/* 80053000 0004FF60  C4 43 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r3)
 /* 80053004 0004FF64  B0 81 00 64 */	sth r4, 0x64(r1)
 /* 80053008 0004FF68  3B A1 00 4C */	addi r29, r1, 0x4c
 /* 8005300C 0004FF6C  88 02 CC 41 */	lbz r0, lbl_805AE961@sda21(r2)
@@ -734,9 +734,9 @@ SetVolume__6CActorFUc:
 /* 80053394 000502F4  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80053398 000502F8  41 82 00 38 */	beq lbl_800533D0
 /* 8005339C 000502FC  C0 5E 00 60 */	lfs f2, 0x60(r30)
-/* 800533A0 00050300  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 800533A0 00050300  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 800533A4 00050304  C0 3E 00 50 */	lfs f1, 0x50(r30)
-/* 800533A8 00050308  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 800533A8 00050308  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 800533AC 0005030C  C0 1E 00 40 */	lfs f0, 0x40(r30)
 /* 800533B0 00050310  7F E6 FB 78 */	mr r6, r31
 /* 800533B4 00050314  38 61 00 08 */	addi r3, r1, 8
@@ -1180,9 +1180,9 @@ SetCalculateLighting__6CActorFb:
 /* 8005395C 000508BC  48 2C 1F 11 */	bl __nw__FUlPCcPCc
 /* 80053960 000508C0  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80053964 000508C4  41 82 00 4C */	beq lbl_800539B0
-/* 80053968 000508C8  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80053968 000508C8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8005396C 000508CC  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
-/* 80053970 000508D0  38 E4 66 A0 */	addi r7, r4, skZero3f@l
+/* 80053970 000508D0  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 80053974 000508D4  38 A1 00 08 */	addi r5, r1, 8
 /* 80053978 000508D8  81 07 00 00 */	lwz r8, 0(r7)
 /* 8005397C 000508DC  38 80 00 08 */	li r4, 8

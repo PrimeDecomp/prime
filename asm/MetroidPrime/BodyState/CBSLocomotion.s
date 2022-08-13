@@ -1595,10 +1595,10 @@ lbl_80137DA8:
 IsStrafing__18CBSBiPedLocomotionCFR15CBodyController:
 /* 80137DD4 00134D34  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80137DD8 00134D38  7C 08 02 A6 */	mflr r0
-/* 80137DDC 00134D3C  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 80137DDC 00134D3C  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80137DE0 00134D40  38 64 00 04 */	addi r3, r4, 4
 /* 80137DE4 00134D44  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80137DE8 00134D48  38 85 66 A0 */	addi r4, r5, skZero3f@l
+/* 80137DE8 00134D48  38 85 66 A0 */	addi r4, r5, sZeroVector__9CVector3f@l
 /* 80137DEC 00134D4C  C0 22 9A 4C */	lfs f1, lbl_805AB76C@sda21(r2)
 /* 80137DF0 00134D50  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80137DF4 00134D54  3B E0 00 00 */	li r31, 0
@@ -1607,9 +1607,9 @@ IsStrafing__18CBSBiPedLocomotionCFR15CBodyController:
 /* 80137E00 00134D60  48 1D 81 65 */	bl close_enough__FRC9CVector3fRC9CVector3ff
 /* 80137E04 00134D64  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80137E08 00134D68  40 82 00 24 */	bne lbl_80137E2C
-/* 80137E0C 00134D6C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80137E0C 00134D6C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80137E10 00134D70  C0 22 9A 4C */	lfs f1, lbl_805AB76C@sda21(r2)
-/* 80137E14 00134D74  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80137E14 00134D74  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80137E18 00134D78  7F C3 F3 78 */	mr r3, r30
 /* 80137E1C 00134D7C  48 1D 81 49 */	bl close_enough__FRC9CVector3fRC9CVector3ff
 /* 80137E20 00134D80  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -2395,10 +2395,10 @@ ApplyLocomotionPhysics__13CBSLocomotionFfR15CBodyController:
 /* 801388A8 00135808  28 1F 00 00 */	cmplwi r31, 0
 /* 801388AC 0013580C  41 82 02 1C */	beq lbl_80138AC8
 /* 801388B0 00135810  3B DC 00 04 */	addi r30, r28, 4
-/* 801388B4 00135814  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801388B4 00135814  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801388B8 00135818  3B BE 00 0C */	addi r29, r30, 0xc
 /* 801388BC 0013581C  C0 22 9A 4C */	lfs f1, lbl_805AB76C@sda21(r2)
-/* 801388C0 00135820  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801388C0 00135820  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 801388C4 00135824  7F A3 EB 78 */	mr r3, r29
 /* 801388C8 00135828  48 1D 76 9D */	bl close_enough__FRC9CVector3fRC9CVector3ff
 /* 801388CC 0013582C  54 60 06 3F */	clrlwi. r0, r3, 0x18

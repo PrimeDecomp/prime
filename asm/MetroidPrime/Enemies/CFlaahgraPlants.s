@@ -137,8 +137,8 @@ lbl_80208454:
 /* 802084EC 0020544C  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802084F0 00205450  41 82 00 4C */	beq lbl_8020853C
 /* 802084F4 00205454  A0 1D 00 08 */	lhz r0, 8(r29)
-/* 802084F8 00205458  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 802084FC 0020545C  39 04 66 A0 */	addi r8, r4, skZero3f@l
+/* 802084F8 00205458  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 802084FC 0020545C  39 04 66 A0 */	addi r8, r4, sZeroVector__9CVector3f@l
 /* 80208500 00205460  C0 22 B1 1C */	lfs f1, lbl_805ACE3C@sda21(r2)
 /* 80208504 00205464  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80208508 00205468  38 81 00 0C */	addi r4, r1, 0xc
@@ -382,9 +382,9 @@ Touch__15CFlaahgraPlantsFR6CActorR13CStateManager:
 /* 8020886C 002057CC  41 82 01 A4 */	beq lbl_80208A10
 /* 80208870 002057D0  38 61 00 60 */	addi r3, r1, 0x60
 /* 80208874 002057D4  4B F1 20 B9 */	bl GetBoundingBox__13CPhysicsActorCFv
-/* 80208878 002057D8  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 80208878 002057D8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8020887C 002057DC  38 61 00 AC */	addi r3, r1, 0xac
-/* 80208880 002057E0  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 80208880 002057E0  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 80208884 002057E4  38 81 00 60 */	addi r4, r1, 0x60
 /* 80208888 002057E8  48 0C D4 95 */	bl FromAABox__6COBBoxFRC6CAABoxRC12CTransform4f
 /* 8020888C 002057EC  38 61 00 E8 */	addi r3, r1, 0xe8
@@ -712,8 +712,8 @@ lbl_80208C98:
 /* 80208D50 00205CB0  7D 89 03 A6 */	mtctr r12
 /* 80208D54 00205CB4  4E 80 04 21 */	bctrl
 /* 80208D58 00205CB8  80 98 00 EC */	lwz r4, 0xec(r24)
-/* 80208D5C 00205CBC  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 80208D60 00205CC0  38 A3 66 70 */	addi r5, r3, skIdentity4f@l
+/* 80208D5C 00205CBC  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 80208D60 00205CC0  38 A3 66 70 */	addi r5, r3, sIdentity__12CTransform4f@l
 /* 80208D64 00205CC4  38 60 00 01 */	li r3, 1
 /* 80208D68 00205CC8  88 04 02 6D */	lbz r0, 0x26d(r4)
 /* 80208D6C 00205CCC  50 60 2E B4 */	rlwimi r0, r3, 5, 0x1a, 0x1a

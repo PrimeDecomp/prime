@@ -472,9 +472,9 @@ lbl_800E8B8C:
 /* 800E8B94 000E5AF4  40 80 00 CC */	bge lbl_800E8C60
 /* 800E8B98 000E5AF8  48 00 00 84 */	b lbl_800E8C1C
 lbl_800E8B9C:
-/* 800E8B9C 000E5AFC  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 800E8B9C 000E5AFC  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 800E8BA0 000E5B00  38 84 00 10 */	addi r4, r4, 0x10
-/* 800E8BA4 000E5B04  38 A5 66 A0 */	addi r5, r5, skZero3f@l
+/* 800E8BA4 000E5B04  38 A5 66 A0 */	addi r5, r5, sZeroVector__9CVector3f@l
 /* 800E8BA8 000E5B08  48 22 9F 41 */	bl __ml__12CTransform4fCFRC9CVector3f
 /* 800E8BAC 000E5B0C  48 00 00 D0 */	b lbl_800E8C7C
 lbl_800E8BB0:
@@ -527,8 +527,8 @@ lbl_800E8C40:
 /* 800E8C58 000E5BB8  48 22 9E 91 */	bl __ml__12CTransform4fCFRC9CVector3f
 /* 800E8C5C 000E5BBC  48 00 00 20 */	b lbl_800E8C7C
 lbl_800E8C60:
-/* 800E8C60 000E5BC0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 800E8C64 000E5BC4  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 800E8C60 000E5BC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 800E8C64 000E5BC4  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 800E8C68 000E5BC8  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 800E8C6C 000E5BCC  C0 03 00 04 */	lfs f0, 4(r3)
 /* 800E8C70 000E5BD0  D0 1F 00 04 */	stfs f0, 4(r31)
@@ -1143,8 +1143,8 @@ ReadAutomapperTweaks__15CMappableObjectFRC16CTweakAutoMapper:
 
 .global __sinit_CMappableObject_cpp
 __sinit_CMappableObject_cpp:
-/* 800E94F8 000E6458  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 800E94FC 000E645C  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
+/* 800E94F8 000E6458  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 800E94FC 000E645C  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
 /* 800E9500 000E6460  3C 60 80 47 */	lis r3, lbl_8046C498@ha
 /* 800E9504 000E6464  D4 03 C4 98 */	stfsu f0, lbl_8046C498@l(r3)
 /* 800E9508 000E6468  C0 24 00 04 */	lfs f1, 4(r4)
