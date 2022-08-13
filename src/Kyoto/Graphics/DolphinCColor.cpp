@@ -44,7 +44,6 @@ CColor CColor::Lerp(const CColor& a, const CColor& b, float t) {
                 omt * a.GetAlpha() + t * b.GetAlpha());
 }
 
-/* non-matching https://decomp.me/scratch/WGIlL */
 u32 CColor::Lerp(u32 a, u32 b, float t) {
   u32 alpha = t * 256.f;
 
