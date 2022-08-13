@@ -3,8 +3,14 @@
 
 #include "types.h"
 
-#include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/CActorModelParticles.hpp"
+#include "MetroidPrime/CEnvFxManager.hpp"
+#include "MetroidPrime/CFluidPlaneManager.hpp"
+#include "MetroidPrime/CRumbleManager.hpp"
+#include "MetroidPrime/CSortedLists.hpp"
+#include "MetroidPrime/CWeaponMgr.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/reserved_vector.hpp"
 

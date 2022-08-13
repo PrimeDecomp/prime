@@ -13,6 +13,7 @@
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/TToken.hpp"
 
 #include "rstl/pair.hpp"
@@ -26,7 +27,11 @@ class CScannableObjectInfo;
 class CSimpleShadow;
 
 // TODO move
-struct SAdvancementDeltas {};
+struct SAdvancementDeltas {
+  CVector3f x0_posDelta;
+  CQuaternion xc_rotDelta;
+};
+CHECK_SIZEOF(SAdvancementDeltas, 0x1c)
 
 class CActor : public CEntity {
 public:

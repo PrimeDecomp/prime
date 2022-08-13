@@ -6,7 +6,10 @@
 #include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
-template < typename K, typename V, typename Alloc = rmemory_allocator >
+template < typename T >
+struct less {};
+
+template < typename K, typename V, typename Cmp = less< K >, typename Alloc = rmemory_allocator >
 class map {
   u8 pad[0x10];
 };
