@@ -11214,9 +11214,9 @@ DetectCollision__11CBallCameraFRC9CVector3fRC9CVector3ffRfR13CStateManager:
 /* 8008AAC8 00087A28  D0 41 00 58 */	stfs f2, 0x58(r1)
 /* 8008AACC 00087A2C  D0 21 00 5C */	stfs f1, 0x5c(r1)
 /* 8008AAD0 00087A30  40 81 05 EC */	ble lbl_8008B0BC
-/* 8008AAD4 00087A34  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 8008AAD4 00087A34  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 8008AAD8 00087A38  C0 02 89 E0 */	lfs f0, lbl_805AA700@sda21(r2)
-/* 8008AADC 00087A3C  38 A3 67 54 */	addi r5, r3, lbl_805A6754@l
+/* 8008AADC 00087A3C  38 A3 67 54 */	addi r5, r3, mskInvertedBox__6CAABox@l
 /* 8008AAE0 00087A40  7F 64 DB 78 */	mr r4, r27
 /* 8008AAE4 00087A44  C0 A5 00 00 */	lfs f5, 0(r5)
 /* 8008AAE8 00087A48  EF C0 07 72 */	fmuls f30, f0, f29
@@ -11791,11 +11791,11 @@ lbl_8008B228:
 "CalculateCollidersBoundingBox__11CBallCameraCFRCQ24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>RC13CStateManager":
 /* 8008B31C 0008827C  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8008B320 00088280  7C 08 02 A6 */	mflr r0
-/* 8008B324 00088284  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 8008B324 00088284  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 8008B328 00088288  90 01 00 54 */	stw r0, 0x54(r1)
 /* 8008B32C 0008828C  BF 61 00 3C */	stmw r27, 0x3c(r1)
 /* 8008B330 00088290  7C 7B 1B 78 */	mr r27, r3
-/* 8008B334 00088294  38 64 67 54 */	addi r3, r4, lbl_805A6754@l
+/* 8008B334 00088294  38 64 67 54 */	addi r3, r4, mskInvertedBox__6CAABox@l
 /* 8008B338 00088298  7C BC 2B 78 */	mr r28, r5
 /* 8008B33C 0008829C  7C DD 33 78 */	mr r29, r6
 /* 8008B340 000882A0  3B C0 00 00 */	li r30, 0

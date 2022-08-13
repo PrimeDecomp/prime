@@ -915,9 +915,9 @@ GetDesiredMiniMapCameraDistance__11CAutoMapperCFRC13CStateManager:
 /* 80095E14 00092D74  81 8C 00 18 */	lwz r12, 0x18(r12)
 /* 80095E18 00092D78  7D 89 03 A6 */	mtctr r12
 /* 80095E1C 00092D7C  4E 80 04 21 */	bctrl
-/* 80095E20 00092D80  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 80095E20 00092D80  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 80095E24 00092D84  80 1D 00 A0 */	lwz r0, 0xa0(r29)
-/* 80095E28 00092D88  38 A4 67 54 */	addi r5, r4, lbl_805A6754@l
+/* 80095E28 00092D88  38 A4 67 54 */	addi r5, r4, mskInvertedBox__6CAABox@l
 /* 80095E2C 00092D8C  7C 7E 1B 78 */	mr r30, r3
 /* 80095E30 00092D90  C0 A5 00 00 */	lfs f5, 0(r5)
 /* 80095E34 00092D94  38 81 00 38 */	addi r4, r1, 0x38

@@ -10,17 +10,19 @@ namespace rstl {
 template < typename T, size_t N >
 class reserved_vector {
   size_t x0_count;
-  T x4_items[N];
+  u8 x4_data[N * sizeof(T)];
 
 public:
   typedef pointer_iterator< T, reserved_vector< T, N >, void > iterator;
   typedef const_pointer_iterator< T, reserved_vector< T, N >, void > const_iterator;
 
-  inline iterator begin() { return iterator(x4_items); }
-  inline const_iterator begin() const { return const_iterator(x4_items); }
-  inline iterator end() { return iterator(x4_items + x0_count); }
-  inline const_iterator end() const { return const_iterator(x4_items + x0_count); }
+  inline iterator begin() { return iterator(data()); }
+  inline const_iterator begin() const { return const_iterator(data()); }
+  inline iterator end() { return iterator(data() + x0_count); }
+  inline const_iterator end() const { return const_iterator(data() + x0_count); }
 
+  reserved_vector() : x0_count(0) {}
+  reserved_vector(const T& value) : x0_count(N) { rstl::uninitialized_fill_n(data(), N, value); }
   reserved_vector(const reserved_vector& other) {
     x0_count = other.size();
     rstl::uninitialized_copy_n(data(), other.data(), size());
@@ -35,14 +37,12 @@ public:
   }
   void clear() {
     for (size_t i = 0; i < x0_count; ++i) {
-      rstl::destroy(&x4_items[i]);
+      rstl::destroy(&data()[i]);
     }
     x0_count = 0;
   }
 
-  ~reserved_vector() {
-    clear();
-  }
+  ~reserved_vector() { clear(); }
 
   void push_back(const T& in) {
     if (x0_count < N) {
@@ -52,14 +52,14 @@ public:
     }
   }
 
-  inline T* data() { return x4_items; }
-  inline const T* data() const { return x4_items; }
+  inline T* data() { return reinterpret_cast< T* >(x4_data); }
+  inline const T* data() const { return reinterpret_cast< const T* >(x4_data); }
   inline size_t size() const { return x0_count; }
   inline size_t capacity() const { return N; }
-  inline T& front() { return x4_items[0]; }
-  inline const T& front() const { return x4_items[0]; }
-  inline T& back() { return x4_items[x0_count - 1]; }
-  inline const T& back() const { return x4_items[x0_count - 1]; }
+  inline T& front() { return data()[0]; }
+  inline const T& front() const { return data()[0]; }
+  inline T& back() { return data()[x0_count - 1]; }
+  inline const T& back() const { return data()[x0_count - 1]; }
   inline T& operator[](size_t idx) { return data()[idx]; }
   inline const T& operator[](size_t idx) const { return data()[idx]; }
 };

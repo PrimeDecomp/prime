@@ -7,8 +7,10 @@
 
 class CColor {
 public:
+  CColor() {}
   CColor(u32 col) : mRgba(col) {}
-  CColor(f32 r, f32 g, f32 b, f32 a = 1.f) : mR(r * 255.f), mG(g * 255.f), mB(b * 255.f), mA(a * 255.f) {}
+  CColor(f32 r, f32 g, f32 b, f32 a = 1.f);
+  // : mR(r * 255.f), mG(g * 255.f), mB(b * 255.f), mA(a * 255.f) {}
 
   static const CColor& Black();
   static const CColor& White();

@@ -47,9 +47,9 @@ GetBounds__17CProjectileWeaponCFv:
 /* 802AED18 002ABC78  3B E0 00 00 */	li r31, 0
 /* 802AED1C 002ABC7C  93 C1 01 48 */	stw r30, 0x148(r1)
 /* 802AED20 002ABC80  7C 9E 23 78 */	mr r30, r4
-/* 802AED24 002ABC84  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 802AED24 002ABC84  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 802AED28 002ABC88  93 A1 01 44 */	stw r29, 0x144(r1)
-/* 802AED2C 002ABC8C  38 A4 67 54 */	addi r5, r4, lbl_805A6754@l
+/* 802AED2C 002ABC8C  38 A4 67 54 */	addi r5, r4, mskInvertedBox__6CAABox@l
 /* 802AED30 002ABC90  7C 7D 1B 78 */	mr r29, r3
 /* 802AED34 002ABC94  80 9E 00 FC */	lwz r4, 0xfc(r30)
 /* 802AED38 002ABC98  C0 A5 00 00 */	lfs f5, 0(r5)

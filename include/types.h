@@ -2,6 +2,8 @@
 #define __TYPES_H__
 
 #ifdef __cplusplus
+#include "static_assert.hpp"
+
 extern "C" {
 #endif
 

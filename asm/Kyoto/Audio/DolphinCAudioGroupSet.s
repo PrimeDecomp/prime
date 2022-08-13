@@ -174,8 +174,8 @@ lbl_8034A248:
 lbl_8034A250:
 /* 8034A250 003471B0  28 1D 00 00 */	cmplwi r29, 0
 /* 8034A254 003471B4  41 82 00 20 */	beq lbl_8034A274
-/* 8034A258 003471B8  3C 60 80 3E */	lis r3, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
-/* 8034A25C 003471BC  38 03 8D 78 */	addi r0, r3, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 8034A258 003471B8  3C 60 80 3E */	lis r3, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
+/* 8034A25C 003471BC  38 03 8D 78 */	addi r0, r3, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 8034A260 003471C0  90 1D 00 00 */	stw r0, 0(r29)
 /* 8034A264 003471C4  41 82 00 10 */	beq lbl_8034A274
 /* 8034A268 003471C8  3C 60 80 3E */	lis r3, __vt__4IObj@ha
@@ -228,11 +228,11 @@ sub_8034a2d0:
 /* 8034A304 00347264  28 03 00 00 */	cmplwi r3, 0
 /* 8034A308 00347268  41 82 00 38 */	beq lbl_8034A340
 /* 8034A30C 0034726C  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 8034A310 00347270  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 8034A310 00347270  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 8034A314 00347274  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 8034A318 00347278  3C 80 80 3F */	lis r4, lbl_803EF670@ha
 /* 8034A31C 0034727C  90 03 00 00 */	stw r0, 0(r3)
-/* 8034A320 00347280  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 8034A320 00347280  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 8034A324 00347284  38 A0 00 00 */	li r5, 0
 /* 8034A328 00347288  38 04 F6 70 */	addi r0, r4, lbl_803EF670@l
 /* 8034A32C 0034728C  90 C3 00 00 */	stw r6, 0(r3)

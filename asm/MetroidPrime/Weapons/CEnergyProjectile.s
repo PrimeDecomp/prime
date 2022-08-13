@@ -187,7 +187,7 @@ PlayImpactSound__17CEnergyProjectileFRC9CVector3f29EWeaponCollisionResponseTypes
 /* 80213CC4 00210C24  48 09 B4 9D */	bl GetAudibleFallOff__17CProjectileWeaponCFv
 /* 80213CC8 00210C28  C0 82 B3 10 */	lfs f4, lbl_805AD030@sda21(r2)
 /* 80213CCC 00210C2C  38 C0 00 00 */	li r6, 0
-/* 80213CD0 00210C30  88 A2 CC 40 */	lbz r5, lbl_805AE960@sda21(r2)
+/* 80213CD0 00210C30  88 A2 CC 40 */	lbz r5, kMaxVolume__9CAudioSys@sda21(r2)
 /* 80213CD4 00210C34  38 E0 00 01 */	li r7, 1
 /* 80213CD8 00210C38  88 02 CC 41 */	lbz r0, lbl_805AE961@sda21(r2)
 /* 80213CDC 00210C3C  38 80 00 14 */	li r4, 0x14

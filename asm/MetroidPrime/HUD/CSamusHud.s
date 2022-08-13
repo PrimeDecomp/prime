@@ -8452,9 +8452,9 @@ lbl_8006B7D0:
 /* 8006B80C 0006876C  90 61 01 00 */	stw r3, 0x100(r1)
 /* 8006B810 00068770  90 01 01 04 */	stw r0, 0x104(r1)
 lbl_8006B814:
-/* 8006B814 00068774  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 8006B814 00068774  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 8006B818 00068778  80 AD A1 38 */	lwz r5, gpTweakGui@sda21(r13)
-/* 8006B81C 0006877C  38 C3 67 54 */	addi r6, r3, lbl_805A6754@l
+/* 8006B81C 0006877C  38 C3 67 54 */	addi r6, r3, mskInvertedBox__6CAABox@l
 /* 8006B820 00068780  38 61 00 BC */	addi r3, r1, 0xbc
 /* 8006B824 00068784  C0 A6 00 00 */	lfs f5, 0(r6)
 /* 8006B828 00068788  38 81 00 28 */	addi r4, r1, 0x28

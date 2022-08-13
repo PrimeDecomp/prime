@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "Kyoto/CToken.hpp"
+#include "Kyoto/TToken.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
@@ -21,7 +21,7 @@ public:
   // : obj(TToken< T >::GetIObjObjectFor(ptr).release()) {}
 
 private:
-  rstl::auto_ptr< TObjOwnerDerivedFromIObjUntyped > obj;
+  rstl::auto_ptr< CObjOwnerDerivedFromIObjUntyped > obj;
 };
 
 CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer& xfer);

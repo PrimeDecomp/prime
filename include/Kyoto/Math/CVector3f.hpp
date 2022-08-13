@@ -5,6 +5,7 @@
 
 class CVector3f {
 public:
+  CVector3f() : mX(0.f), mY(0.f), mZ(0.f) {}
   explicit CVector3f(f32 x, f32 y, f32 z) : mX(x), mY(y), mZ(z) {}
 
   f32 GetX() const { return mX; }

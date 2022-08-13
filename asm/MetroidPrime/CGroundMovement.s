@@ -3567,8 +3567,8 @@ lbl_80188B8C:
 /* 80188C28 00185B88  38 81 00 54 */	addi r4, r1, 0x54
 /* 80188C2C 00185B8C  4B F9 1E 0D */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 80188C30 00185B90  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 80188C34 00185B94  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 80188C38 00185B98  38 A3 67 54 */	addi r5, r3, lbl_805A6754@l
+/* 80188C34 00185B94  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 80188C38 00185B98  38 A3 67 54 */	addi r5, r3, mskInvertedBox__6CAABox@l
 /* 80188C3C 00185B9C  7F 04 C3 78 */	mr r4, r24
 /* 80188C40 00185BA0  B0 1D 00 00 */	sth r0, 0(r29)
 /* 80188C44 00185BA4  38 61 00 C0 */	addi r3, r1, 0xc0
@@ -3818,8 +3818,8 @@ lbl_80188F54:
 /* 80188FC0 00185F20  7C F8 3B 78 */	mr r24, r7
 /* 80188FC4 00185F24  7D 19 43 78 */	mr r25, r8
 /* 80188FC8 00185F28  40 81 02 A8 */	ble lbl_80189270
-/* 80188FCC 00185F2C  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 80188FD0 00185F30  C4 C3 67 54 */	lfsu f6, lbl_805A6754@l(r3)
+/* 80188FCC 00185F2C  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 80188FD0 00185F30  C4 C3 67 54 */	lfsu f6, mskInvertedBox__6CAABox@l(r3)
 /* 80188FD4 00185F34  C0 02 A3 18 */	lfs f0, lbl_805AC038@sda21(r2)
 /* 80188FD8 00185F38  3B 7F 00 04 */	addi r27, r31, 4
 /* 80188FDC 00185F3C  C0 A3 00 04 */	lfs f5, 4(r3)
