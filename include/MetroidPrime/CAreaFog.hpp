@@ -24,7 +24,6 @@ private:
   unkptr x30_;
   f32 x34_colorDelta;
 };
-
 CHECK_SIZEOF(CAreaFog, 0x38)
 
 #endif
