@@ -416,8 +416,8 @@ Think__7CPufferFfR13CStateManager:
 /* 8025C298 002591F8  7C 00 18 40 */	cmplw r0, r3
 /* 8025C29C 002591FC  41 82 00 48 */	beq lbl_8025C2E4
 /* 8025C2A0 00259200  B0 7E 05 CC */	sth r3, 0x5cc(r30)
-/* 8025C2A4 00259204  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8025C2A8 00259208  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8025C2A4 00259204  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8025C2A8 00259208  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8025C2AC 0025920C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
 /* 8025C2B0 00259210  C0 5E 00 60 */	lfs f2, 0x60(r30)
 /* 8025C2B4 00259214  38 61 00 08 */	addi r3, r1, 8
@@ -1015,8 +1015,8 @@ __ct__7CPuffer:
 /* 8025CB54 00259AB4  98 17 05 98 */	stb r0, 0x598(r23)
 /* 8025CB58 00259AB8  48 08 BE 59 */	bl TranslateSFXID__11CSfxManagerFUs
 /* 8025CB5C 00259ABC  B0 77 05 9A */	sth r3, 0x59a(r23)
-/* 8025CB60 00259AC0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8025CB64 00259AC4  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8025CB60 00259AC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8025CB64 00259AC4  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8025CB68 00259AC8  38 00 00 00 */	li r0, 0
 /* 8025CB6C 00259ACC  80 DF 00 00 */	lwz r6, 0(r31)
 /* 8025CB70 00259AD0  7E E3 BB 78 */	mr r3, r23

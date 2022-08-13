@@ -619,8 +619,8 @@ __ct__10CAmbientAI:
 /* 8024C06C 00248FCC  4B DC F4 C9 */	bl Identity__10CAxisAngleFv
 /* 8024C070 00248FD0  7C 7F 1B 78 */	mr r31, r3
 /* 8024C074 00248FD4  4B DC F4 C1 */	bl Identity__10CAxisAngleFv
-/* 8024C078 00248FD8  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8024C07C 00248FDC  C4 64 66 A0 */	lfsu f3, skZero3f@l(r4)
+/* 8024C078 00248FD8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8024C07C 00248FDC  C4 64 66 A0 */	lfsu f3, sZeroVector__9CVector3f@l(r4)
 /* 8024C080 00248FE0  A1 71 00 00 */	lhz r11, 0(r17)
 /* 8024C084 00248FE4  38 01 00 1C */	addi r0, r1, 0x1c
 /* 8024C088 00248FE8  C0 84 00 04 */	lfs f4, 4(r4)

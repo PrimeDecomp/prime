@@ -1167,9 +1167,9 @@ lbl_801C9F48:
 /* 801C9F94 001C6EF4  FC 00 18 40 */	fcmpo cr0, f0, f3
 /* 801C9F98 001C6EF8  4C 41 13 82 */	cror 2, 1, 2
 /* 801C9F9C 001C6EFC  40 82 00 50 */	bne lbl_801C9FEC
-/* 801C9FA0 001C6F00  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 801C9FA0 001C6F00  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 801C9FA4 001C6F04  C1 5D 00 14 */	lfs f10, 0x14(r29)
-/* 801C9FA8 001C6F08  38 63 66 F4 */	addi r3, r3, lbl_805A66F4@l
+/* 801C9FA8 001C6F08  38 63 66 F4 */	addi r3, r3, sUpVector__9CVector3f@l
 /* 801C9FAC 001C6F0C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 801C9FB0 001C6F10  C0 43 00 00 */	lfs f2, 0(r3)
 /* 801C9FB4 001C6F14  EC 2A 00 32 */	fmuls f1, f10, f0
@@ -1201,14 +1201,14 @@ __ct__9CPFRegionFv:
 /* 801CA00C 001C6F6C  38 00 00 00 */	li r0, 0
 /* 801CA010 001C6F70  C0 02 AB 4C */	lfs f0, lbl_805AC86C@sda21(r2)
 /* 801CA014 001C6F74  90 03 00 00 */	stw r0, 0(r3)
-/* 801CA018 001C6F78  3C A0 80 5A */	lis r5, skZero3f@ha
-/* 801CA01C 001C6F7C  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 801CA018 001C6F78  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
+/* 801CA01C 001C6F7C  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 801CA020 001C6F80  90 03 00 04 */	stw r0, 4(r3)
 /* 801CA024 001C6F84  90 03 00 08 */	stw r0, 8(r3)
 /* 801CA028 001C6F88  90 03 00 0C */	stw r0, 0xc(r3)
 /* 801CA02C 001C6F8C  90 03 00 10 */	stw r0, 0x10(r3)
 /* 801CA030 001C6F90  D0 03 00 14 */	stfs f0, 0x14(r3)
-/* 801CA034 001C6F94  C4 05 66 A0 */	lfsu f0, skZero3f@l(r5)
+/* 801CA034 001C6F94  C4 05 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r5)
 /* 801CA038 001C6F98  D0 03 00 18 */	stfs f0, 0x18(r3)
 /* 801CA03C 001C6F9C  C0 05 00 04 */	lfs f0, 4(r5)
 /* 801CA040 001C6FA0  D0 03 00 1C */	stfs f0, 0x1c(r3)
@@ -1221,7 +1221,7 @@ __ct__9CPFRegionFv:
 /* 801CA05C 001C6FBC  D0 03 00 2C */	stfs f0, 0x2c(r3)
 /* 801CA060 001C6FC0  C0 05 00 08 */	lfs f0, 8(r5)
 /* 801CA064 001C6FC4  D0 03 00 30 */	stfs f0, 0x30(r3)
-/* 801CA068 001C6FC8  C4 04 67 54 */	lfsu f0, lbl_805A6754@l(r4)
+/* 801CA068 001C6FC8  C4 04 67 54 */	lfsu f0, mskInvertedBox__6CAABox@l(r4)
 /* 801CA06C 001C6FCC  D0 03 00 34 */	stfs f0, 0x34(r3)
 /* 801CA070 001C6FD0  C0 04 00 04 */	lfs f0, 4(r4)
 /* 801CA074 001C6FD4  D0 03 00 38 */	stfs f0, 0x38(r3)
@@ -1276,8 +1276,8 @@ lbl_801CA0E8:
 .global __ct__13CPFRegionDataFv
 __ct__13CPFRegionDataFv:
 /* 801CA118 001C7078  C0 22 AB 4C */	lfs f1, lbl_805AC86C@sda21(r2)
-/* 801CA11C 001C707C  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 801CA120 001C7080  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 801CA11C 001C707C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 801CA120 001C7080  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 801CA124 001C7084  38 80 FF FF */	li r4, -1
 /* 801CA128 001C7088  D0 23 00 00 */	stfs f1, 0(r3)
 /* 801CA12C 001C708C  38 00 00 00 */	li r0, 0

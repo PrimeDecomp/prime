@@ -274,13 +274,13 @@ lbl_801D6BA8:
 /* 801D6C34 001D3B94  38 81 00 08 */	addi r4, r1, 8
 /* 801D6C38 001D3B98  4B E7 A6 ED */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 801D6C3C 001D3B9C  3C 80 80 3E */	lis r4, lbl_803E58A0@ha
-/* 801D6C40 001D3BA0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801D6C40 001D3BA0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801D6C44 001D3BA4  38 04 58 A0 */	addi r0, r4, lbl_803E58A0@l
 /* 801D6C48 001D3BA8  38 A0 00 02 */	li r5, 2
 /* 801D6C4C 001D3BAC  90 17 00 00 */	stw r0, 0(r23)
 /* 801D6C50 001D3BB0  38 C0 00 00 */	li r6, 0
 /* 801D6C54 001D3BB4  38 00 FF FF */	li r0, -1
-/* 801D6C58 001D3BB8  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801D6C58 001D3BB8  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 801D6C5C 001D3BBC  93 17 00 34 */	stw r24, 0x34(r23)
 /* 801D6C60 001D3BC0  57 43 04 3E */	clrlwi r3, r26, 0x10
 /* 801D6C64 001D3BC4  93 37 00 38 */	stw r25, 0x38(r23)
@@ -446,13 +446,13 @@ lbl_801D6BA8:
 /* 801D6ECC 001D3E2C  38 81 00 08 */	addi r4, r1, 8
 /* 801D6ED0 001D3E30  4B E7 A4 55 */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 801D6ED4 001D3E34  3C 80 80 3E */	lis r4, lbl_803E58A0@ha
-/* 801D6ED8 001D3E38  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801D6ED8 001D3E38  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801D6EDC 001D3E3C  38 04 58 A0 */	addi r0, r4, lbl_803E58A0@l
 /* 801D6EE0 001D3E40  38 E0 00 00 */	li r7, 0
 /* 801D6EE4 001D3E44  90 1D 00 00 */	stw r0, 0(r29)
 /* 801D6EE8 001D3E48  38 A0 FF FF */	li r5, -1
 /* 801D6EEC 001D3E4C  C0 42 AC 40 */	lfs f2, lbl_805AC960@sda21(r2)
-/* 801D6EF0 001D3E50  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801D6EF0 001D3E50  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 801D6EF4 001D3E54  93 DD 00 34 */	stw r30, 0x34(r29)
 /* 801D6EF8 001D3E58  7F A3 EB 78 */	mr r3, r29
 /* 801D6EFC 001D3E5C  C0 22 AC 44 */	lfs f1, lbl_805AC964@sda21(r2)

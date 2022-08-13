@@ -709,9 +709,9 @@ __ct__14CDummyGameAreaFR12CInputStreamii:
 /* 8005E3F8 0005B358  7C DF 33 78 */	mr r31, r6
 /* 8005E3FC 0005B35C  90 1D 00 00 */	stw r0, 0(r29)
 /* 8005E400 0005B360  38 03 A2 08 */	addi r0, r3, lbl_803DA208@l
-/* 8005E404 0005B364  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8005E404 0005B364  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8005E408 0005B368  90 1D 00 00 */	stw r0, 0(r29)
-/* 8005E40C 0005B36C  38 03 66 70 */	addi r0, r3, skIdentity4f@l
+/* 8005E40C 0005B36C  38 03 66 70 */	addi r0, r3, sIdentity__12CTransform4f@l
 /* 8005E410 0005B370  7C 04 03 78 */	mr r4, r0
 /* 8005E414 0005B374  38 7D 00 14 */	addi r3, r29, 0x14
 /* 8005E418 0005B378  90 BD 00 04 */	stw r5, 4(r29)

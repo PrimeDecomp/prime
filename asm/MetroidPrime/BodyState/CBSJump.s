@@ -602,8 +602,8 @@ lbl_80145E04:
 /* 80145E18 00142D78  41 82 00 28 */	beq lbl_80145E40
 /* 80145E1C 00142D7C  7F 63 DB 78 */	mr r3, r27
 /* 80145E20 00142D80  4B FD 55 59 */	bl Stop__13CPhysicsActorFv
-/* 80145E24 00142D84  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80145E28 00142D88  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 80145E24 00142D84  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80145E28 00142D88  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 80145E2C 00142D8C  D0 1B 01 50 */	stfs f0, 0x150(r27)
 /* 80145E30 00142D90  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80145E34 00142D94  D0 1B 01 54 */	stfs f0, 0x154(r27)
@@ -998,8 +998,8 @@ Start__7CBSJumpFR15CBodyControllerR13CStateManager:
 /* 801463E0 00143340  54 A0 D7 FF */	rlwinm. r0, r5, 0x1a, 0x1f, 0x1f
 /* 801463E4 00143344  41 82 00 90 */	beq lbl_80146474
 /* 801463E8 00143348  80 DE 00 00 */	lwz r6, 0(r30)
-/* 801463EC 0014334C  3C 80 80 5A */	lis r4, lbl_805A66F4@ha
-/* 801463F0 00143350  38 84 66 F4 */	addi r4, r4, lbl_805A66F4@l
+/* 801463EC 0014334C  3C 80 80 5A */	lis r4, sUpVector__9CVector3f@ha
+/* 801463F0 00143350  38 84 66 F4 */	addi r4, r4, sUpVector__9CVector3f@l
 /* 801463F4 00143354  C0 5D 00 0C */	lfs f2, 0xc(r29)
 /* 801463F8 00143358  C0 26 00 40 */	lfs f1, 0x40(r6)
 /* 801463FC 0014335C  C0 1D 00 24 */	lfs f0, 0x24(r29)
@@ -1155,10 +1155,10 @@ __ct__7CBSJumpFv:
 /* 80146600 00143560  3C C0 80 3E */	lis r6, lbl_803E1318@ha
 /* 80146604 00143564  3C A0 80 3E */	lis r5, lbl_803E2008@ha
 /* 80146608 00143568  38 06 13 18 */	addi r0, r6, lbl_803E1318@l
-/* 8014660C 0014356C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8014660C 0014356C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80146610 00143570  90 03 00 00 */	stw r0, 0(r3)
 /* 80146614 00143574  38 C5 20 08 */	addi r6, r5, lbl_803E2008@l
-/* 80146618 00143578  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 80146618 00143578  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 8014661C 0014357C  38 00 FF FF */	li r0, -1
 /* 80146620 00143580  90 C3 00 00 */	stw r6, 0(r3)
 /* 80146624 00143584  38 80 00 00 */	li r4, 0

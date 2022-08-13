@@ -249,10 +249,10 @@ Render__24CScriptDamageableTriggerCFRC13CStateManager:
 /* 800FA7AC 000F770C  38 BE 01 E4 */	addi r5, r30, 0x1e4
 /* 800FA7B0 000F7710  48 21 81 A1 */	bl __ml__12CTransform4fCFRC12CTransform4f
 /* 800FA7B4 000F7714  38 01 00 20 */	addi r0, r1, 0x20
-/* 800FA7B8 000F7718  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 800FA7B8 000F7718  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 800FA7BC 000F771C  90 01 00 08 */	stw r0, 8(r1)
 /* 800FA7C0 000F7720  39 00 00 00 */	li r8, 0
-/* 800FA7C4 000F7724  38 E3 66 70 */	addi r7, r3, skIdentity4f@l
+/* 800FA7C4 000F7724  38 E3 66 70 */	addi r7, r3, sIdentity__12CTransform4f@l
 /* 800FA7C8 000F7728  38 01 00 24 */	addi r0, r1, 0x24
 /* 800FA7CC 000F772C  91 01 00 0C */	stw r8, 0xc(r1)
 /* 800FA7D0 000F7730  38 7E 02 54 */	addi r3, r30, 0x254
@@ -1210,8 +1210,8 @@ lbl_800FB468:
 /* 800FB52C 000F848C  D0 61 00 54 */	stfs f3, 0x54(r1)
 /* 800FB530 000F8490  48 23 CF D9 */	bl __ct__6CAABoxFRC9CVector3fRC9CVector3f
 /* 800FB534 000F8494  C0 3C 00 00 */	lfs f1, 0(r28)
-/* 800FB538 000F8498  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 800FB53C 000F849C  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 800FB538 000F8498  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800FB53C 000F849C  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 800FB540 000F84A0  C0 02 93 48 */	lfs f0, lbl_805AB068@sda21(r2)
 /* 800FB544 000F84A4  D0 3F 01 64 */	stfs f1, 0x164(r31)
 /* 800FB548 000F84A8  38 7F 01 E4 */	addi r3, r31, 0x1e4
@@ -1276,9 +1276,9 @@ lbl_800FB468:
 /* 800FB634 000F8594  92 BF 01 DC */	stw r21, 0x1dc(r31)
 /* 800FB638 000F8598  D0 1F 01 E0 */	stfs f0, 0x1e0(r31)
 /* 800FB63C 000F859C  48 21 75 39 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 800FB640 000F85A0  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 800FB640 000F85A0  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 800FB644 000F85A4  38 7F 02 14 */	addi r3, r31, 0x214
-/* 800FB648 000F85A8  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 800FB648 000F85A8  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 800FB64C 000F85AC  48 21 75 29 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 800FB650 000F85B0  C0 42 93 38 */	lfs f2, lbl_805AB058@sda21(r2)
 /* 800FB654 000F85B4  38 61 01 A8 */	addi r3, r1, 0x1a8
@@ -1413,9 +1413,9 @@ lbl_800FB838:
 /* 800FB838 000F8798  54 60 06 F7 */	rlwinm. r0, r3, 0, 0x1b, 0x1b
 /* 800FB83C 000F879C  41 82 00 2C */	beq lbl_800FB868
 /* 800FB840 000F87A0  C0 3F 01 60 */	lfs f1, 0x160(r31)
-/* 800FB844 000F87A4  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 800FB844 000F87A4  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 800FB848 000F87A8  C0 02 93 38 */	lfs f0, lbl_805AB058@sda21(r2)
-/* 800FB84C 000F87AC  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 800FB84C 000F87AC  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 800FB850 000F87B0  38 7F 01 E4 */	addi r3, r31, 0x1e4
 /* 800FB854 000F87B4  D0 1F 02 44 */	stfs f0, 0x244(r31)
 /* 800FB858 000F87B8  D0 1F 02 48 */	stfs f0, 0x248(r31)

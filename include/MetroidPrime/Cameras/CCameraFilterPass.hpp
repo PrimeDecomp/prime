@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "Kyoto/Math/CColor.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
 
 #include "CTexture.hpp"
 

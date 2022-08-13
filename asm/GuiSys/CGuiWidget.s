@@ -81,9 +81,9 @@ ReapplyXform__10CGuiWidgetFv:
 /* 802CA670 002C75D0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802CA674 002C75D4  7C 7F 1B 78 */	mr r31, r3
 /* 802CA678 002C75D8  4B FF AA C9 */	bl RotateReset__10CGuiObjectFv
-/* 802CA67C 002C75DC  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802CA67C 002C75DC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802CA680 002C75E0  7F E3 FB 78 */	mr r3, r31
-/* 802CA684 002C75E4  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 802CA684 002C75E4  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 802CA688 002C75E8  4B FF AB 41 */	bl SetLocalPosition__10CGuiObjectFRC9CVector3f
 /* 802CA68C 002C75EC  7F E3 FB 78 */	mr r3, r31
 /* 802CA690 002C75F0  38 9F 00 74 */	addi r4, r31, 0x74
@@ -517,11 +517,11 @@ __ct__10CGuiWidgetFRCQ210CGuiWidget15CGuiWidgetParms:
 /* 802CAC3C 002C7B9C  7C 7E 1B 78 */	mr r30, r3
 /* 802CAC40 002C7BA0  4B FF A8 3D */	bl __ct__10CGuiObjectFv
 /* 802CAC44 002C7BA4  3C 60 80 3F */	lis r3, lbl_803ECA10@ha
-/* 802CAC48 002C7BA8  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 802CAC48 002C7BA8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 802CAC4C 002C7BAC  38 03 CA 10 */	addi r0, r3, lbl_803ECA10@l
 /* 802CAC50 002C7BB0  90 1E 00 00 */	stw r0, 0(r30)
 /* 802CAC54 002C7BB4  38 7E 00 74 */	addi r3, r30, 0x74
-/* 802CAC58 002C7BB8  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 802CAC58 002C7BB8  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 802CAC5C 002C7BBC  A8 1F 00 06 */	lha r0, 6(r31)
 /* 802CAC60 002C7BC0  B0 1E 00 70 */	sth r0, 0x70(r30)
 /* 802CAC64 002C7BC4  A8 1F 00 08 */	lha r0, 8(r31)

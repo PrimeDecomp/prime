@@ -474,12 +474,12 @@ lbl_800EAC40:
 /* 800EACF4 000E7C54  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EACF8 000E7C58  7D 89 03 A6 */	mtctr r12
 /* 800EACFC 000E7C5C  4E 80 04 21 */	bctrl
-/* 800EAD00 000E7C60  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 800EAD04 000E7C64  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 800EAD00 000E7C60  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800EAD04 000E7C64  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 800EAD08 000E7C68  48 22 1A 45 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 800EAD0C 000E7C6C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 800EAD10 000E7C70  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 800EAD14 000E7C74  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 800EAD10 000E7C70  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 800EAD14 000E7C74  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 800EAD18 000E7C78  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EAD1C 000E7C7C  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800EAD20 000E7C80  7D 89 03 A6 */	mtctr r12
@@ -2258,8 +2258,8 @@ DrawWideScreen__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800EC6D0 000E9630  7D 89 03 A6 */	mtctr r12
 /* 800EC6D4 000E9634  4E 80 04 21 */	bctrl
 /* 800EC6D8 000E9638  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 800EC6DC 000E963C  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 800EC6E0 000E9640  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 800EC6DC 000E963C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 800EC6E0 000E9640  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 800EC6E4 000E9644  81 83 00 00 */	lwz r12, 0(r3)
 /* 800EC6E8 000E9648  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800EC6EC 000E964C  7D 89 03 A6 */	mtctr r12
@@ -2514,8 +2514,8 @@ DrawScanLines__17CCameraFilterPassFRC6CColorb:
 /* 800ECAAC 000E9A0C  7D 89 03 A6 */	mtctr r12
 /* 800ECAB0 000E9A10  4E 80 04 21 */	bctrl
 /* 800ECAB4 000E9A14  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 800ECAB8 000E9A18  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 800ECABC 000E9A1C  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 800ECAB8 000E9A18  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 800ECABC 000E9A1C  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 800ECAC0 000E9A20  81 83 00 00 */	lwz r12, 0(r3)
 /* 800ECAC4 000E9A24  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 800ECAC8 000E9A28  7D 89 03 A6 */	mtctr r12

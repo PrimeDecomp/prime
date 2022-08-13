@@ -306,9 +306,9 @@ CollideMovingAABox__17CCollidableSphereFRC27CInternalCollisionStructureRC9CVecto
 /* 802D41AC 002D110C  D0 01 00 74 */	stfs f0, 0x74(r1)
 /* 802D41B0 002D1110  48 00 01 A5 */	bl Transform__17CCollidableSphereCFRC12CTransform4f
 /* 802D41B4 002D1114  C0 61 00 10 */	lfs f3, 0x10(r1)
-/* 802D41B8 002D1118  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802D41B8 002D1118  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802D41BC 002D111C  C0 41 00 14 */	lfs f2, 0x14(r1)
-/* 802D41C0 002D1120  39 23 66 A0 */	addi r9, r3, skZero3f@l
+/* 802D41C0 002D1120  39 23 66 A0 */	addi r9, r3, sZeroVector__9CVector3f@l
 /* 802D41C4 002D1124  C0 21 00 18 */	lfs f1, 0x18(r1)
 /* 802D41C8 002D1128  7F 65 DB 78 */	mr r5, r27
 /* 802D41CC 002D112C  C0 01 00 1C */	lfs f0, 0x1c(r1)
@@ -838,8 +838,8 @@ Sphere_Sphere__7CollideFRC27CInternalCollisionStructureR18CCollisionInfoList:
 /* 802D498C 002D18EC  D0 21 00 10 */	stfs f1, 0x10(r1)
 /* 802D4990 002D18F0  48 00 00 0C */	b lbl_802D499C
 lbl_802D4994:
-/* 802D4994 002D18F4  3C 60 80 5A */	lis r3, lbl_805A6718@ha
-/* 802D4998 002D18F8  38 83 67 18 */	addi r4, r3, lbl_805A6718@l
+/* 802D4994 002D18F4  3C 60 80 5A */	lis r3, sRightVector__9CVector3f@ha
+/* 802D4998 002D18F8  38 83 67 18 */	addi r4, r3, sRightVector__9CVector3f@l
 lbl_802D499C:
 /* 802D499C 002D18FC  C0 04 00 00 */	lfs f0, 0(r4)
 /* 802D49A0 002D1900  7F E3 FB 78 */	mr r3, r31
@@ -1095,8 +1095,8 @@ lbl_802D4D50:
 /* 802D4D5C 002D1CBC  38 60 00 00 */	li r3, 0
 /* 802D4D60 002D1CC0  48 00 03 6C */	b lbl_802D50CC
 lbl_802D4D64:
-/* 802D4D64 002D1CC4  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802D4D68 002D1CC8  C4 83 66 A0 */	lfsu f4, skZero3f@l(r3)
+/* 802D4D64 002D1CC4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802D4D68 002D1CC8  C4 83 66 A0 */	lfsu f4, sZeroVector__9CVector3f@l(r3)
 /* 802D4D6C 002D1CCC  28 08 00 2A */	cmplwi r8, 0x2a
 /* 802D4D70 002D1CD0  C0 63 00 04 */	lfs f3, 4(r3)
 /* 802D4D74 002D1CD4  C0 43 00 08 */	lfs f2, 8(r3)

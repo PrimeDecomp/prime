@@ -196,9 +196,9 @@ lbl_802266B0:
 /* 802266B8 00223618  98 61 00 28 */	stb r3, 0x28(r1)
 /* 802266BC 0022361C  28 00 00 00 */	cmplwi r0, 0
 /* 802266C0 00223620  41 82 00 54 */	beq lbl_80226714
-/* 802266C4 00223624  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 802266C4 00223624  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 802266C8 00223628  38 61 00 48 */	addi r3, r1, 0x48
-/* 802266CC 0022362C  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 802266CC 0022362C  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 802266D0 00223630  38 81 00 2C */	addi r4, r1, 0x2c
 /* 802266D4 00223634  48 0A F6 49 */	bl FromAABox__6COBBoxFRC6CAABoxRC12CTransform4f
 /* 802266D8 00223638  38 61 00 84 */	addi r3, r1, 0x84
@@ -231,10 +231,10 @@ lbl_8022671C:
 GetTouchBounds__24CScriptCameraPitchVolumeCFv:
 /* 80226734 00223694  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80226738 00223698  7C 08 02 A6 */	mflr r0
-/* 8022673C 0022369C  3C A0 80 5A */	lis r5, skIdentity4f@ha
+/* 8022673C 0022369C  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
 /* 80226740 002236A0  38 84 00 E8 */	addi r4, r4, 0xe8
 /* 80226744 002236A4  90 01 00 34 */	stw r0, 0x34(r1)
-/* 80226748 002236A8  38 A5 66 70 */	addi r5, r5, skIdentity4f@l
+/* 80226748 002236A8  38 A5 66 70 */	addi r5, r5, sIdentity__12CTransform4f@l
 /* 8022674C 002236AC  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 80226750 002236B0  7C 7F 1B 78 */	mr r31, r3
 /* 80226754 002236B4  38 61 00 08 */	addi r3, r1, 8

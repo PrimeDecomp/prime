@@ -1925,9 +1925,9 @@ lbl_80038CB0:
 /* 80038D40 00035CA0  D0 01 02 4C */	stfs f0, 0x24c(r1)
 /* 80038D44 00035CA4  90 E1 01 68 */	stw r7, 0x168(r1)
 /* 80038D48 00035CA8  48 29 D3 25 */	bl __ct__5CMRayFRC9CVector3fRC9CVector3ff
-/* 80038D4C 00035CAC  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 80038D4C 00035CAC  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80038D50 00035CB0  D3 C1 03 20 */	stfs f30, 0x320(r1)
-/* 80038D54 00035CB4  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 80038D54 00035CB4  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 80038D58 00035CB8  7F C3 F3 78 */	mr r3, r30
 /* 80038D5C 00035CBC  48 2D 9E 19 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80038D60 00035CC0  3C 60 80 5A */	lis r3, lbl_8059FD18@ha

@@ -308,7 +308,7 @@ __ct__7CVECTVCFP13CColorElement:
 GetValue__11CVESubtractCFiR9CVector3f:
 /* 803349D8 00331938  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803349DC 0033193C  7C 08 02 A6 */	mflr r0
-/* 803349E0 00331940  3C C0 80 5A */	lis r6, skZero3f@ha
+/* 803349E0 00331940  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 803349E4 00331944  90 01 00 34 */	stw r0, 0x34(r1)
 /* 803349E8 00331948  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 803349EC 0033194C  7C BF 2B 78 */	mr r31, r5
@@ -317,7 +317,7 @@ GetValue__11CVESubtractCFiR9CVector3f:
 /* 803349F8 00331958  7C 9E 23 78 */	mr r30, r4
 /* 803349FC 0033195C  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 80334A00 00331960  7C 7D 1B 78 */	mr r29, r3
-/* 80334A04 00331964  38 66 66 A0 */	addi r3, r6, skZero3f@l
+/* 80334A04 00331964  38 66 66 A0 */	addi r3, r6, sZeroVector__9CVector3f@l
 /* 80334A08 00331968  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80334A0C 0033196C  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80334A10 00331970  C0 43 00 08 */	lfs f2, 8(r3)
@@ -1084,7 +1084,7 @@ __ct__8CVEPulseFP11CIntElementP11CIntElementP14CVectorElementP14CVectorElement:
 GetValue__11CVEMultiplyCFiR9CVector3f:
 /* 80335488 003323E8  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8033548C 003323EC  7C 08 02 A6 */	mflr r0
-/* 80335490 003323F0  3C C0 80 5A */	lis r6, skZero3f@ha
+/* 80335490 003323F0  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 80335494 003323F4  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80335498 003323F8  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 8033549C 003323FC  7C BF 2B 78 */	mr r31, r5
@@ -1093,7 +1093,7 @@ GetValue__11CVEMultiplyCFiR9CVector3f:
 /* 803354A8 00332408  7C 9E 23 78 */	mr r30, r4
 /* 803354AC 0033240C  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 803354B0 00332410  7C 7D 1B 78 */	mr r29, r3
-/* 803354B4 00332414  38 66 66 A0 */	addi r3, r6, skZero3f@l
+/* 803354B4 00332414  38 66 66 A0 */	addi r3, r6, sZeroVector__9CVector3f@l
 /* 803354B8 00332418  C0 03 00 00 */	lfs f0, 0(r3)
 /* 803354BC 0033241C  C0 23 00 04 */	lfs f1, 4(r3)
 /* 803354C0 00332420  C0 43 00 08 */	lfs f2, 8(r3)
@@ -1210,7 +1210,7 @@ __ct__11CVEMultiplyFP14CVectorElementP14CVectorElement:
 GetValue__6CVEAddCFiR9CVector3f:
 /* 8033564C 003325AC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80335650 003325B0  7C 08 02 A6 */	mflr r0
-/* 80335654 003325B4  3C C0 80 5A */	lis r6, skZero3f@ha
+/* 80335654 003325B4  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 80335658 003325B8  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8033565C 003325BC  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 80335660 003325C0  7C BF 2B 78 */	mr r31, r5
@@ -1219,7 +1219,7 @@ GetValue__6CVEAddCFiR9CVector3f:
 /* 8033566C 003325CC  7C 9E 23 78 */	mr r30, r4
 /* 80335670 003325D0  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 80335674 003325D4  7C 7D 1B 78 */	mr r29, r3
-/* 80335678 003325D8  38 66 66 A0 */	addi r3, r6, skZero3f@l
+/* 80335678 003325D8  38 66 66 A0 */	addi r3, r6, sZeroVector__9CVector3f@l
 /* 8033567C 003325DC  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80335680 003325E0  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80335684 003325E4  C0 43 00 08 */	lfs f2, 8(r3)
@@ -1521,10 +1521,10 @@ __ct__16CVECircleClusterFP14CVectorElementP14CVectorElementP11CIntElementP12CRea
 /* 80335AC8 00332A28  3D 00 80 3F */	lis r8, lbl_803EE268@ha
 /* 80335ACC 00332A2C  90 1F 00 00 */	stw r0, 0(r31)
 /* 80335AD0 00332A30  38 08 E2 68 */	addi r0, r8, lbl_803EE268@l
-/* 80335AD4 00332A34  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80335AD4 00332A34  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80335AD8 00332A38  7C DE 33 78 */	mr r30, r6
 /* 80335ADC 00332A3C  90 1F 00 00 */	stw r0, 0(r31)
-/* 80335AE0 00332A40  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 80335AE0 00332A40  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80335AE4 00332A44  C0 02 CB 54 */	lfs f0, lbl_805AE874@sda21(r2)
 /* 80335AE8 00332A48  7F C3 F3 78 */	mr r3, r30
 /* 80335AEC 00332A4C  90 9F 00 04 */	stw r4, 4(r31)
@@ -1590,8 +1590,8 @@ __ct__16CVECircleClusterFP14CVectorElementP14CVectorElementP11CIntElementP12CRea
 /* 80335BDC 00332B3C  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 80335BE0 00332B40  48 00 00 20 */	b lbl_80335C00
 lbl_80335BE4:
-/* 80335BE4 00332B44  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
-/* 80335BE8 00332B48  C4 43 66 F4 */	lfsu f2, lbl_805A66F4@l(r3)
+/* 80335BE4 00332B44  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
+/* 80335BE8 00332B48  C4 43 66 F4 */	lfsu f2, sUpVector__9CVector3f@l(r3)
 /* 80335BEC 00332B4C  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80335BF0 00332B50  C0 03 00 08 */	lfs f0, 8(r3)
 /* 80335BF4 00332B54  D0 41 00 18 */	stfs f2, 0x18(r1)
@@ -2008,8 +2008,8 @@ __ct__9CVECircleFP14CVectorElementP14CVectorElementP12CRealElementP12CRealElemen
 /* 803361D0 00333130  38 03 E2 90 */	addi r0, r3, lbl_803EE290@l
 /* 803361D4 00333134  38 A1 00 14 */	addi r5, r1, 0x14
 /* 803361D8 00333138  90 1E 00 00 */	stw r0, 0(r30)
-/* 803361DC 0033313C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 803361E0 00333140  39 23 66 A0 */	addi r9, r3, skZero3f@l
+/* 803361DC 0033313C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 803361E0 00333140  39 23 66 A0 */	addi r9, r3, sZeroVector__9CVector3f@l
 /* 803361E4 00333144  90 9E 00 04 */	stw r4, 4(r30)
 /* 803361E8 00333148  7F E3 FB 78 */	mr r3, r31
 /* 803361EC 0033314C  38 80 00 00 */	li r4, 0
@@ -2489,7 +2489,7 @@ __ct__7CVEConeFP14CVectorElementP12CRealElement:
 /* 803368C8 00333828  3C 60 80 3F */	lis r3, lbl_803EC594@ha
 /* 803368CC 0033382C  90 1F 00 00 */	stw r0, 0(r31)
 /* 803368D0 00333830  38 03 C5 94 */	addi r0, r3, lbl_803EC594@l
-/* 803368D4 00333834  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 803368D4 00333834  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 803368D8 00333838  7F E7 FB 78 */	mr r7, r31
 /* 803368DC 0033383C  90 1F 00 00 */	stw r0, 0(r31)
 /* 803368E0 00333840  38 06 E2 B8 */	addi r0, r6, lbl_803EE2B8@l
@@ -2498,7 +2498,7 @@ __ct__7CVEConeFP14CVectorElementP12CRealElement:
 /* 803368EC 0033384C  38 80 00 00 */	li r4, 0
 /* 803368F0 00333850  90 BF 00 08 */	stw r5, 8(r31)
 /* 803368F4 00333854  38 A1 00 14 */	addi r5, r1, 0x14
-/* 803368F8 00333858  C4 23 66 A0 */	lfsu f1, skZero3f@l(r3)
+/* 803368F8 00333858  C4 23 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r3)
 /* 803368FC 0033385C  D0 3F 00 0C */	stfs f1, 0xc(r31)
 /* 80336900 00333860  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80336904 00333864  D0 3F 00 10 */	stfs f1, 0x10(r31)

@@ -420,9 +420,9 @@ lbl_8025DC90:
 /* 8025DDA0 0025AD00  38 81 01 B0 */	addi r4, r1, 0x1b0
 /* 8025DDA4 0025AD04  38 C1 00 48 */	addi r6, r1, 0x48
 /* 8025DDA8 0025AD08  4B DE E9 55 */	bl "BuildColliderList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CActorRC6CAABox"
-/* 8025DDAC 0025AD0C  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8025DDAC 0025AD0C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8025DDB0 0025AD10  7F 63 DB 78 */	mr r3, r27
-/* 8025DDB4 0025AD14  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 8025DDB4 0025AD14  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 8025DDB8 0025AD18  38 C1 00 98 */	addi r6, r1, 0x98
 /* 8025DDBC 0025AD1C  38 81 00 78 */	addi r4, r1, 0x78
 /* 8025DDC0 0025AD20  4B F2 55 E1 */	bl DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
@@ -502,9 +502,9 @@ lbl_8025DE54:
 /* 8025DED0 0025AE30  48 0B 4C A5 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8025DED4 0025AE34  38 81 00 78 */	addi r4, r1, 0x78
 /* 8025DED8 0025AE38  38 01 00 98 */	addi r0, r1, 0x98
-/* 8025DEDC 0025AE3C  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8025DEDC 0025AE3C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8025DEE0 0025AE40  90 81 01 18 */	stw r4, 0x118(r1)
-/* 8025DEE4 0025AE44  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 8025DEE4 0025AE44  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 8025DEE8 0025AE48  90 01 01 1C */	stw r0, 0x11c(r1)
 /* 8025DEEC 0025AE4C  7F C3 F3 78 */	mr r3, r30
 /* 8025DEF0 0025AE50  48 0B 4C 85 */	bl __ct__12CTransform4fFRC12CTransform4f
@@ -801,8 +801,8 @@ sub_8025e2e0:
 /* 8025E2F8 0025B258  93 A1 00 54 */	stw r29, 0x54(r1)
 /* 8025E2FC 0025B25C  93 81 00 50 */	stw r28, 0x50(r1)
 /* 8025E300 0025B260  83 A4 08 38 */	lwz r29, 0x838(r4)
-/* 8025E304 0025B264  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8025E308 0025B268  3B C4 66 A0 */	addi r30, r4, skZero3f@l
+/* 8025E304 0025B264  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8025E308 0025B268  3B C4 66 A0 */	addi r30, r4, sZeroVector__9CVector3f@l
 /* 8025E30C 0025B26C  AB 9D 20 08 */	lha r28, 0x2008(r29)
 /* 8025E310 0025B270  48 00 01 04 */	b lbl_8025E414
 lbl_8025E314:
@@ -849,11 +849,11 @@ lbl_8025E3AC:
 lbl_8025E3B0:
 /* 8025E3B0 0025B310  54 00 06 3F */	clrlwi. r0, r0, 0x18
 /* 8025E3B4 0025B314  41 82 00 44 */	beq lbl_8025E3F8
-/* 8025E3B8 0025B318  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8025E3B8 0025B318  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8025E3BC 0025B31C  C0 5E 00 04 */	lfs f2, 4(r30)
 /* 8025E3C0 0025B320  C0 3E 00 08 */	lfs f1, 8(r30)
 /* 8025E3C4 0025B324  38 81 00 28 */	addi r4, r1, 0x28
-/* 8025E3C8 0025B328  C0 63 66 A0 */	lfs f3, skZero3f@l(r3)
+/* 8025E3C8 0025B328  C0 63 66 A0 */	lfs f3, sZeroVector__9CVector3f@l(r3)
 /* 8025E3CC 0025B32C  C0 02 BA 3C */	lfs f0, lbl_805AD75C@sda21(r2)
 /* 8025E3D0 0025B330  D0 C1 00 28 */	stfs f6, 0x28(r1)
 /* 8025E3D4 0025B334  D0 81 00 2C */	stfs f4, 0x2c(r1)
@@ -1715,9 +1715,9 @@ sub_8025ee28:
 /* 8025EFF8 0025BF58  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 8025EFFC 0025BF5C  7D 89 03 A6 */	mtctr r12
 /* 8025F000 0025BF60  4E 80 04 21 */	bctrl
-/* 8025F004 0025BF64  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8025F004 0025BF64  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8025F008 0025BF68  7F A3 EB 78 */	mr r3, r29
-/* 8025F00C 0025BF6C  39 24 66 A0 */	addi r9, r4, skZero3f@l
+/* 8025F00C 0025BF6C  39 24 66 A0 */	addi r9, r4, sZeroVector__9CVector3f@l
 /* 8025F010 0025BF70  38 A1 00 14 */	addi r5, r1, 0x14
 /* 8025F014 0025BF74  38 81 00 1C */	addi r4, r1, 0x1c
 /* 8025F018 0025BF78  38 C1 00 0C */	addi r6, r1, 0xc
@@ -2192,8 +2192,8 @@ sub_8025f648:
 /* 8025F6C4 0025C624  38 61 00 08 */	addi r3, r1, 8
 /* 8025F6C8 0025C628  38 81 00 14 */	addi r4, r1, 0x14
 /* 8025F6CC 0025C62C  48 0B 51 85 */	bl AsNormalized__9CVector3fCFv
-/* 8025F6D0 0025C630  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8025F6D4 0025C634  C4 C3 66 A0 */	lfsu f6, skZero3f@l(r3)
+/* 8025F6D0 0025C630  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8025F6D4 0025C634  C4 C3 66 A0 */	lfsu f6, sZeroVector__9CVector3f@l(r3)
 /* 8025F6D8 0025C638  C0 61 00 08 */	lfs f3, 8(r1)
 /* 8025F6DC 0025C63C  38 81 00 20 */	addi r4, r1, 0x20
 /* 8025F6E0 0025C640  C0 41 00 0C */	lfs f2, 0xc(r1)
@@ -3822,9 +3822,9 @@ __ct__9CTryclops:
 /* 80260E20 0025DD80  38 A0 00 01 */	li r5, 1
 /* 80260E24 0025DD84  80 DE 01 0C */	lwz r6, 0x10c(r30)
 /* 80260E28 0025DD88  4B F6 7F 6D */	bl __ct__15CPathFindSearchFP7CPFAreaUiff
-/* 80260E2C 0025DD8C  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 80260E2C 0025DD8C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 80260E30 0025DD90  38 7F 06 4C */	addi r3, r31, 0x64c
-/* 80260E34 0025DD94  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 80260E34 0025DD94  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80260E38 0025DD98  48 0B 1D 3D */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80260E3C 0025DD9C  C0 02 BA 60 */	lfs f0, lbl_805AD780@sda21(r2)
 /* 80260E40 0025DDA0  C0 22 BA 5C */	lfs f1, lbl_805AD77C@sda21(r2)

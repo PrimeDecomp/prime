@@ -415,8 +415,8 @@ FireBeam__8CEyeballFR13CStateManagerRC12CTransform4f:
 /* 80224900 00221860  C0 82 B4 74 */	lfs f4, lbl_805AD194@sda21(r2)
 /* 80224904 00221864  39 20 00 14 */	li r9, 0x14
 /* 80224908 00221868  C0 62 B4 78 */	lfs f3, lbl_805AD198@sda21(r2)
-/* 8022490C 0022186C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80224910 00221870  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8022490C 0022186C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80224910 00221870  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80224914 00221874  88 02 CC 41 */	lbz r0, lbl_805AE961@sda21(r2)
 /* 80224918 00221878  D0 A1 00 10 */	stfs f5, 0x10(r1)
 /* 8022491C 0022187C  38 61 00 0C */	addi r3, r1, 0xc
@@ -1347,10 +1347,10 @@ CreateBeam__8CEyeballFR13CStateManager:
 /* 80225618 00222578  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 8022561C 0022257C  4B DD F6 9D */	bl string_l__4rstlFPCc
 /* 80225620 00222580  38 01 00 20 */	addi r0, r1, 0x20
-/* 80225624 00222584  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 80225624 00222584  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80225628 00222588  90 01 00 08 */	stw r0, 8(r1)
 /* 8022562C 0022258C  38 01 00 34 */	addi r0, r1, 0x34
-/* 80225630 00222590  39 03 66 70 */	addi r8, r3, skIdentity4f@l
+/* 80225630 00222590  39 03 66 70 */	addi r8, r3, sIdentity__12CTransform4f@l
 /* 80225634 00222594  38 61 00 28 */	addi r3, r1, 0x28
 /* 80225638 00222598  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8022563C 0022259C  38 A1 00 50 */	addi r5, r1, 0x50
@@ -1476,9 +1476,9 @@ Accept__8CEyeBallFR8IVisitor:
 /* 802257F8 00222758  4B F5 01 C1 */	bl "__ct__13CBoneTrackingFRC9CAnimDataRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffb"
 /* 802257FC 0022275C  38 61 00 24 */	addi r3, r1, 0x24
 /* 80225800 00222760  48 11 82 E1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 80225804 00222764  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80225804 00222764  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80225808 00222768  7E 84 A3 78 */	mr r4, r20
-/* 8022580C 0022276C  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8022580C 0022276C  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80225810 00222770  7E A5 AB 78 */	mr r5, r21
 /* 80225814 00222774  C0 06 00 00 */	lfs f0, 0(r6)
 /* 80225818 00222778  38 73 05 B4 */	addi r3, r19, 0x5b4

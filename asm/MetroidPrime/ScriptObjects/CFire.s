@@ -382,8 +382,8 @@ Touch__5CFireFR6CActorR13CStateManager:
 /* 8025D0C0 0025A020  39 40 00 00 */	li r10, 0
 /* 8025D0C4 0025A024  38 00 00 03 */	li r0, 3
 /* 8025D0C8 0025A028  90 81 00 24 */	stw r4, 0x24(r1)
-/* 8025D0CC 0025A02C  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8025D0D0 0025A030  39 24 66 A0 */	addi r9, r4, skZero3f@l
+/* 8025D0CC 0025A02C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8025D0D0 0025A030  39 24 66 A0 */	addi r9, r4, sZeroVector__9CVector3f@l
 /* 8025D0D4 0025A034  38 A1 00 14 */	addi r5, r1, 0x14
 /* 8025D0D8 0025A038  90 61 00 20 */	stw r3, 0x20(r1)
 /* 8025D0DC 0025A03C  38 81 00 1C */	addi r4, r1, 0x1c

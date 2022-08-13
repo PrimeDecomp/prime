@@ -394,9 +394,9 @@ lbl_80176910:
 /* 801769D8 00173938  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 801769DC 0017393C  48 00 00 FD */	bl calculate_ball_aabox__Fv
 /* 801769E0 00173940  38 00 10 00 */	li r0, 0x1000
-/* 801769E4 00173944  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801769E4 00173944  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801769E8 00173948  90 01 00 08 */	stw r0, 8(r1)
-/* 801769EC 0017394C  39 43 66 A0 */	addi r10, r3, skZero3f@l
+/* 801769EC 0017394C  39 43 66 A0 */	addi r10, r3, sZeroVector__9CVector3f@l
 /* 801769F0 00173950  38 00 00 00 */	li r0, 0
 /* 801769F4 00173954  7F A3 EB 78 */	mr r3, r29
 /* 801769F8 00173958  93 81 00 0C */	stw r28, 0xc(r1)
@@ -410,11 +410,11 @@ lbl_80176910:
 /* 80176A18 00173978  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80176A1C 0017397C  4B F0 03 3D */	bl "__ct__14CScriptTriggerF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC9CVector3fRC6CAABoxRC11CDamageInfoRC9CVector3fUibbb"
 /* 80176A20 00173980  3C 80 80 3E */	lis r4, lbl_803E3E80@ha
-/* 80176A24 00173984  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80176A24 00173984  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80176A28 00173988  38 04 3E 80 */	addi r0, r4, lbl_803E3E80@l
 /* 80176A2C 0017398C  38 80 00 00 */	li r4, 0
 /* 80176A30 00173990  90 1D 00 00 */	stw r0, 0(r29)
-/* 80176A34 00173994  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 80176A34 00173994  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 80176A38 00173998  7F C3 F3 78 */	mr r3, r30
 /* 80176A3C 0017399C  D3 BD 01 50 */	stfs f29, 0x150(r29)
 /* 80176A40 001739A0  D3 DD 01 54 */	stfs f30, 0x154(r29)

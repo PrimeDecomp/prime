@@ -371,8 +371,8 @@ lbl_80244DA0:
 /* 80244DCC 00241D2C  D0 21 00 24 */	stfs f1, 0x24(r1)
 /* 80244DD0 00241D30  D0 01 00 28 */	stfs f0, 0x28(r1)
 /* 80244DD4 00241D34  4B EF 9E 4D */	bl Seek__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3f
-/* 80244DD8 00241D38  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80244DDC 00241D3C  C4 63 66 A0 */	lfsu f3, skZero3f@l(r3)
+/* 80244DD8 00241D38  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80244DDC 00241D3C  C4 63 66 A0 */	lfsu f3, sZeroVector__9CVector3f@l(r3)
 /* 80244DE0 00241D40  C0 C1 00 08 */	lfs f6, 8(r1)
 /* 80244DE4 00241D44  38 81 00 2C */	addi r4, r1, 0x2c
 /* 80244DE8 00241D48  C0 A1 00 0C */	lfs f5, 0xc(r1)
@@ -453,14 +453,14 @@ lbl_80244ED4:
 /* 80244EE4 00241E44  38 61 00 D4 */	addi r3, r1, 0xd4
 /* 80244EE8 00241E48  38 81 00 74 */	addi r4, r1, 0x74
 /* 80244EEC 00241E4C  48 0C DC 89 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80244EF0 00241E50  3C 60 80 5A */	lis r3, lbl_805A6700@ha
+/* 80244EF0 00241E50  3C 60 80 5A */	lis r3, sDownVector__9CVector3f@ha
 /* 80244EF4 00241E54  C0 A1 01 00 */	lfs f5, 0x100(r1)
-/* 80244EF8 00241E58  38 83 67 00 */	addi r4, r3, lbl_805A6700@l
+/* 80244EF8 00241E58  38 83 67 00 */	addi r4, r3, sDownVector__9CVector3f@l
 /* 80244EFC 00241E5C  C0 81 00 E0 */	lfs f4, 0xe0(r1)
 /* 80244F00 00241E60  C0 61 00 F0 */	lfs f3, 0xf0(r1)
-/* 80244F04 00241E64  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80244F04 00241E64  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80244F08 00241E68  C0 44 00 04 */	lfs f2, 4(r4)
-/* 80244F0C 00241E6C  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 80244F0C 00241E6C  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 80244F10 00241E70  C0 24 00 08 */	lfs f1, 8(r4)
 /* 80244F14 00241E74  38 61 00 44 */	addi r3, r1, 0x44
 /* 80244F18 00241E78  C0 04 00 00 */	lfs f0, 0(r4)

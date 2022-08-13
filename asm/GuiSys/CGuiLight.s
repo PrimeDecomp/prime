@@ -46,9 +46,9 @@ BuildLight__9CGuiLightCFv:
 /* 802C3774 002C06D4  7C 7E 1B 78 */	mr r30, r3
 /* 802C3778 002C06D8  38 61 00 08 */	addi r3, r1, 8
 /* 802C377C 002C06DC  48 09 FC 71 */	bl __ct__6CColorFffff
-/* 802C3780 002C06E0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802C3780 002C06E0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802C3784 002C06E4  7C 65 1B 78 */	mr r5, r3
-/* 802C3788 002C06E8  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 802C3788 002C06E8  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 802C378C 002C06EC  38 61 01 74 */	addi r3, r1, 0x174
 /* 802C3790 002C06F0  48 04 2D 15 */	bl BuildLocalAmbient__6CLightFRC9CVector3fRC6CColor
 /* 802C3794 002C06F4  38 61 01 C4 */	addi r3, r1, 0x1c4
@@ -477,9 +477,9 @@ lbl_802C3DCC:
 lbl_802C3DD8:
 /* 802C3DD8 002C0D38  7F E3 FB 78 */	mr r3, r31
 /* 802C3DDC 002C0D3C  48 07 AE 4D */	bl ReadFloat__12CInputStreamFv
-/* 802C3DE0 002C0D40  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802C3DE0 002C0D40  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802C3DE4 002C0D44  38 61 00 DC */	addi r3, r1, 0xdc
-/* 802C3DE8 002C0D48  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 802C3DE8 002C0D48  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 802C3DEC 002C0D4C  38 C1 00 08 */	addi r6, r1, 8
 /* 802C3DF0 002C0D50  7C 85 23 78 */	mr r5, r4
 /* 802C3DF4 002C0D54  48 04 26 09 */	bl BuildSpot__6CLightFRC9CVector3fRC9CVector3fRC6CColorf
@@ -512,9 +512,9 @@ lbl_802C3E5C:
 /* 802C3E5C 002C0DBC  7C 1B 03 78 */	mr r27, r0
 /* 802C3E60 002C0DC0  48 00 00 C4 */	b lbl_802C3F24
 lbl_802C3E64:
-/* 802C3E64 002C0DC4  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802C3E64 002C0DC4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802C3E68 002C0DC8  38 61 00 8C */	addi r3, r1, 0x8c
-/* 802C3E6C 002C0DCC  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 802C3E6C 002C0DCC  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 802C3E70 002C0DD0  38 A1 00 08 */	addi r5, r1, 8
 /* 802C3E74 002C0DD4  48 04 25 C1 */	bl BuildPoint__6CLightFRC9CVector3fRC6CColor
 /* 802C3E78 002C0DD8  38 61 01 7C */	addi r3, r1, 0x17c
@@ -541,9 +541,9 @@ lbl_802C3EC8:
 /* 802C3EC8 002C0E28  7C 1B 03 78 */	mr r27, r0
 /* 802C3ECC 002C0E2C  48 00 00 58 */	b lbl_802C3F24
 lbl_802C3ED0:
-/* 802C3ED0 002C0E30  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802C3ED0 002C0E30  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802C3ED4 002C0E34  38 61 00 3C */	addi r3, r1, 0x3c
-/* 802C3ED8 002C0E38  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 802C3ED8 002C0E38  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 802C3EDC 002C0E3C  38 A1 00 08 */	addi r5, r1, 8
 /* 802C3EE0 002C0E40  48 04 25 8D */	bl BuildDirectional__6CLightFRC9CVector3fRC6CColor
 /* 802C3EE4 002C0E44  38 61 01 2C */	addi r3, r1, 0x12c

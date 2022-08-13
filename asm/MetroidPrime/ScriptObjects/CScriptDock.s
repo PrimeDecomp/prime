@@ -1102,8 +1102,8 @@ lbl_800C4410:
 /* 800C4478 000C13D8  4B F5 70 BD */	bl Identity__10CAxisAngleFv
 /* 800C447C 000C13DC  7C 75 1B 78 */	mr r21, r3
 /* 800C4480 000C13E0  4B F5 70 B5 */	bl Identity__10CAxisAngleFv
-/* 800C4484 000C13E4  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 800C4488 000C13E8  C5 04 66 A0 */	lfsu f8, skZero3f@l(r4)
+/* 800C4484 000C13E4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 800C4488 000C13E8  C5 04 66 A0 */	lfsu f8, sZeroVector__9CVector3f@l(r4)
 /* 800C448C 000C13EC  C0 42 8E 14 */	lfs f2, lbl_805AAB34@sda21(r2)
 /* 800C4490 000C13F0  38 00 00 00 */	li r0, 0
 /* 800C4494 000C13F4  C1 24 00 04 */	lfs f9, 4(r4)

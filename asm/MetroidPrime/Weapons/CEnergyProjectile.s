@@ -187,7 +187,7 @@ PlayImpactSound__17CEnergyProjectileFRC9CVector3f29EWeaponCollisionResponseTypes
 /* 80213CC4 00210C24  48 09 B4 9D */	bl GetAudibleFallOff__17CProjectileWeaponCFv
 /* 80213CC8 00210C28  C0 82 B3 10 */	lfs f4, lbl_805AD030@sda21(r2)
 /* 80213CCC 00210C2C  38 C0 00 00 */	li r6, 0
-/* 80213CD0 00210C30  88 A2 CC 40 */	lbz r5, lbl_805AE960@sda21(r2)
+/* 80213CD0 00210C30  88 A2 CC 40 */	lbz r5, kMaxVolume__9CAudioSys@sda21(r2)
 /* 80213CD4 00210C34  38 E0 00 01 */	li r7, 1
 /* 80213CD8 00210C38  88 02 CC 41 */	lbz r0, lbl_805AE961@sda21(r2)
 /* 80213CDC 00210C3C  38 80 00 14 */	li r4, 0x14
@@ -877,12 +877,12 @@ lbl_802146E0:
 /* 802146FC 0021165C  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 80214700 00211660  41 82 00 58 */	beq lbl_80214758
 /* 80214704 00211664  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 80214708 00211668  3C A0 80 5A */	lis r5, lbl_805A66F4@ha
+/* 80214708 00211668  3C A0 80 5A */	lis r5, sUpVector__9CVector3f@ha
 /* 8021470C 0021166C  3C 80 80 57 */	lis r4, lbl_8056D578@ha
 /* 80214710 00211670  7F A3 EB 78 */	mr r3, r29
 /* 80214714 00211674  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80214718 00211678  39 04 D5 78 */	addi r8, r4, lbl_8056D578@l
-/* 8021471C 0021167C  38 A5 66 F4 */	addi r5, r5, lbl_805A66F4@l
+/* 8021471C 0021167C  38 A5 66 F4 */	addi r5, r5, sUpVector__9CVector3f@l
 /* 80214720 00211680  7F C7 F3 78 */	mr r7, r30
 /* 80214724 00211684  C0 5D 00 60 */	lfs f2, 0x60(r29)
 /* 80214728 00211688  38 81 00 64 */	addi r4, r1, 0x64
@@ -1232,7 +1232,7 @@ Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseT
 /* 80214C18 00211B78  C0 62 B3 2C */	lfs f3, lbl_805AD04C@sda21(r2)
 /* 80214C1C 00211B7C  7C 96 23 78 */	mr r22, r4
 /* 80214C20 00211B80  C0 45 00 04 */	lfs f2, 4(r5)
-/* 80214C24 00211B84  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80214C24 00211B84  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80214C28 00211B88  C0 25 00 08 */	lfs f1, 8(r5)
 /* 80214C2C 00211B8C  7C 7F 1B 78 */	mr r31, r3
 /* 80214C30 00211B90  C0 05 00 00 */	lfs f0, 0(r5)
@@ -1244,7 +1244,7 @@ Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseT
 /* 80214C48 00211BA8  EC A5 10 2A */	fadds f5, f5, f2
 /* 80214C4C 00211BAC  C0 76 00 00 */	lfs f3, 0(r22)
 /* 80214C50 00211BB0  EC 84 08 2A */	fadds f4, f4, f1
-/* 80214C54 00211BB4  C4 44 66 A0 */	lfsu f2, skZero3f@l(r4)
+/* 80214C54 00211BB4  C4 44 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r4)
 /* 80214C58 00211BB8  EC 63 00 2A */	fadds f3, f3, f0
 /* 80214C5C 00211BBC  7D 15 43 78 */	mr r21, r8
 /* 80214C60 00211BC0  C0 24 00 04 */	lfs f1, 4(r4)
@@ -1464,11 +1464,11 @@ lbl_80214F78:
 /* 80214F80 00211EE0  98 61 00 C8 */	stb r3, 0xc8(r1)
 /* 80214F84 00211EE4  28 00 00 00 */	cmplwi r0, 0
 /* 80214F88 00211EE8  41 82 06 1C */	beq lbl_802155A4
-/* 80214F8C 00211EEC  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 80214F90 00211EF0  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
-/* 80214F94 00211EF4  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 80214F8C 00211EEC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 80214F90 00211EF0  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
+/* 80214F94 00211EF4  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 80214F98 00211EF8  7E E5 BB 78 */	mr r5, r23
-/* 80214F9C 00211EFC  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80214F9C 00211EFC  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80214FA0 00211F00  38 61 01 88 */	addi r3, r1, 0x188
 /* 80214FA4 00211F04  48 0F EB 6D */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
 /* 80214FA8 00211F08  38 61 01 B8 */	addi r3, r1, 0x1b8

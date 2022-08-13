@@ -133,8 +133,8 @@ GetCameraBobMagnitude__14CCameraManagerCFv:
 /* 80009154 000060B4  DB E1 00 10 */	stfd f31, 0x10(r1)
 /* 80009158 000060B8  F3 E1 00 18 */	psq_st f31, 24(r1), 0, qr0
 /* 8000915C 000060BC  80 83 00 7C */	lwz r4, 0x7c(r3)
-/* 80009160 000060C0  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
-/* 80009164 000060C4  38 63 66 F4 */	addi r3, r3, lbl_805A66F4@l
+/* 80009160 000060C0  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
+/* 80009164 000060C4  38 63 66 F4 */	addi r3, r3, sUpVector__9CVector3f@l
 /* 80009168 000060C8  C8 02 80 68 */	lfd f0, lbl_805A9D88@sda21(r2)
 /* 8000916C 000060CC  C0 44 00 48 */	lfs f2, 0x48(r4)
 /* 80009170 000060D0  C0 23 00 04 */	lfs f1, 4(r3)
@@ -1314,9 +1314,9 @@ lbl_8000A188:
 /* 8000A1A4 00007104  54 80 06 B5 */	rlwinm. r0, r4, 0, 0x1a, 0x1a
 /* 8000A1A8 00007108  41 82 00 48 */	beq lbl_8000A1F0
 /* 8000A1AC 0000710C  80 9E 00 80 */	lwz r4, 0x80(r30)
-/* 8000A1B0 00007110  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 8000A1B0 00007110  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8000A1B4 00007114  C0 58 00 60 */	lfs f2, 0x60(r24)
-/* 8000A1B8 00007118  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 8000A1B8 00007118  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 8000A1BC 0000711C  C0 38 00 50 */	lfs f1, 0x50(r24)
 /* 8000A1C0 00007120  38 A4 01 D8 */	addi r5, r4, 0x1d8
 /* 8000A1C4 00007124  C0 18 00 40 */	lfs f0, 0x40(r24)
@@ -1984,9 +1984,9 @@ lbl_8000AAD4:
 /* 8000AB08 00007A68  80 81 01 0C */	lwz r4, 0x10c(r1)
 /* 8000AB0C 00007A6C  41 82 00 58 */	beq lbl_8000AB64
 /* 8000AB10 00007A70  C0 5D 00 C4 */	lfs f2, 0xc4(r29)
-/* 8000AB14 00007A74  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8000AB14 00007A74  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8000AB18 00007A78  C0 3D 00 C8 */	lfs f1, 0xc8(r29)
-/* 8000AB1C 00007A7C  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8000AB1C 00007A7C  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8000AB20 00007A80  C0 1D 00 CC */	lfs f0, 0xcc(r29)
 /* 8000AB24 00007A84  54 87 06 3E */	clrlwi r7, r4, 0x18
 /* 8000AB28 00007A88  D0 41 00 24 */	stfs f2, 0x24(r1)
@@ -2959,9 +2959,9 @@ UpdateRumble__14CCameraManagerFfR13CStateManager:
 /* 8000B884 000087E4  DB E1 00 30 */	stfd f31, 0x30(r1)
 /* 8000B888 000087E8  F3 E1 00 38 */	psq_st f31, 56(r1), 0, qr0
 /* 8000B88C 000087EC  BF 61 00 1C */	stmw r27, 0x1c(r1)
-/* 8000B890 000087F0  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 8000B890 000087F0  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 8000B894 000087F4  7C 7D 1B 78 */	mr r29, r3
-/* 8000B898 000087F8  3B E5 66 A0 */	addi r31, r5, skZero3f@l
+/* 8000B898 000087F8  3B E5 66 A0 */	addi r31, r5, sZeroVector__9CVector3f@l
 /* 8000B89C 000087FC  FF E0 08 90 */	fmr f31, f1
 /* 8000B8A0 00008800  C0 1F 00 00 */	lfs f0, 0(r31)
 /* 8000B8A4 00008804  7C 9E 23 78 */	mr r30, r4
@@ -3053,8 +3053,8 @@ lbl_8000B9D0:
 /* 8000B9E4 00008944  4B FF EF 1D */	bl IsInCinematicCamera__14CCameraManagerCFv
 /* 8000B9E8 00008948  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8000B9EC 0000894C  40 82 00 20 */	bne lbl_8000BA0C
-/* 8000B9F0 00008950  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8000B9F4 00008954  C0 03 66 A0 */	lfs f0, skZero3f@l(r3)
+/* 8000B9F0 00008950  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8000B9F4 00008954  C0 03 66 A0 */	lfs f0, sZeroVector__9CVector3f@l(r3)
 /* 8000B9F8 00008958  D0 1D 00 30 */	stfs f0, 0x30(r29)
 /* 8000B9FC 0000895C  C0 1F 00 04 */	lfs f0, 4(r31)
 /* 8000BA00 00008960  D0 1D 00 34 */	stfs f0, 0x34(r29)
@@ -3082,9 +3082,9 @@ UpdateSfxListener__14CCameraManagerFR13CStateManager:
 /* 8000BA48 000089A8  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8000BA4C 000089AC  48 30 71 29 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8000BA50 000089B0  C1 01 00 64 */	lfs f8, 0x64(r1)
-/* 8000BA54 000089B4  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8000BA54 000089B4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8000BA58 000089B8  C0 E1 00 74 */	lfs f7, 0x74(r1)
-/* 8000BA5C 000089BC  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8000BA5C 000089BC  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8000BA60 000089C0  C0 C1 00 84 */	lfs f6, 0x84(r1)
 /* 8000BA64 000089C4  38 61 00 20 */	addi r3, r1, 0x20
 /* 8000BA68 000089C8  C0 A1 00 60 */	lfs f5, 0x60(r1)
@@ -3096,7 +3096,7 @@ UpdateSfxListener__14CCameraManagerFR13CStateManager:
 /* 8000BA80 000089E0  C0 21 00 78 */	lfs f1, 0x78(r1)
 /* 8000BA84 000089E4  C0 01 00 88 */	lfs f0, 0x88(r1)
 /* 8000BA88 000089E8  D1 01 00 08 */	stfs f8, 8(r1)
-/* 8000BA8C 000089EC  88 E2 CC 40 */	lbz r7, lbl_805AE960@sda21(r2)
+/* 8000BA8C 000089EC  88 E2 CC 40 */	lbz r7, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8000BA90 000089F0  D0 E1 00 0C */	stfs f7, 0xc(r1)
 /* 8000BA94 000089F4  D0 C1 00 10 */	stfs f6, 0x10(r1)
 /* 8000BA98 000089F8  D0 A1 00 14 */	stfs f5, 0x14(r1)
@@ -3398,10 +3398,10 @@ CreateStandardCameras__14CCameraManagerFR13CStateManager:
 /* 8000BE88 00008DE8  93 C1 00 88 */	stw r30, 0x88(r1)
 /* 8000BE8C 00008DEC  93 A1 00 84 */	stw r29, 0x84(r1)
 /* 8000BE90 00008DF0  7C 9F 23 78 */	mr r31, r4
-/* 8000BE94 00008DF4  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8000BE94 00008DF4  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8000BE98 00008DF8  80 BF 08 4C */	lwz r5, 0x84c(r31)
 /* 8000BE9C 00008DFC  7C 7E 1B 78 */	mr r30, r3
-/* 8000BEA0 00008E00  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8000BEA0 00008E00  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8000BEA4 00008E04  38 61 00 44 */	addi r3, r1, 0x44
 /* 8000BEA8 00008E08  A0 05 00 08 */	lhz r0, 8(r5)
 /* 8000BEAC 00008E0C  B0 01 00 34 */	sth r0, 0x34(r1)
@@ -3572,9 +3572,9 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C0EC 0000904C  90 01 00 44 */	stw r0, 0x44(r1)
 /* 8000C0F0 00009050  93 E1 00 3C */	stw r31, 0x3c(r1)
 /* 8000C0F4 00009054  7C 7F 1B 78 */	mr r31, r3
-/* 8000C0F8 00009058  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8000C0F8 00009058  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8000C0FC 0000905C  A0 04 00 00 */	lhz r0, 0(r4)
-/* 8000C100 00009060  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8000C100 00009060  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8000C104 00009064  38 7F 00 3C */	addi r3, r31, 0x3c
 /* 8000C108 00009068  B0 1F 00 00 */	sth r0, 0(r31)
 /* 8000C10C 0000906C  38 1F 00 20 */	addi r0, r31, 0x20
@@ -3595,9 +3595,9 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C148 000090A8  D0 1F 00 38 */	stfs f0, 0x38(r31)
 /* 8000C14C 000090AC  48 05 30 59 */	bl __ct__Q29CGameArea8CAreaFogFv
 /* 8000C150 000090B0  39 60 00 00 */	li r11, 0
-/* 8000C154 000090B4  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8000C154 000090B4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8000C158 000090B8  91 7F 00 74 */	stw r11, 0x74(r31)
-/* 8000C15C 000090BC  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8000C15C 000090BC  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8000C160 000090C0  C0 22 80 94 */	lfs f1, lbl_805A9DB4@sda21(r2)
 /* 8000C164 000090C4  39 40 FF FF */	li r10, -1
 /* 8000C168 000090C8  A0 6D A3 8C */	lhz r3, kInvalidUniqueId@sda21(r13)
@@ -3613,7 +3613,7 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C190 000090F0  38 E1 00 08 */	addi r7, r1, 8
 /* 8000C194 000090F4  91 7F 00 80 */	stw r11, 0x80(r31)
 /* 8000C198 000090F8  38 60 00 01 */	li r3, 1
-/* 8000C19C 000090FC  89 22 CC 40 */	lbz r9, lbl_805AE960@sda21(r2)
+/* 8000C19C 000090FC  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8000C1A0 00009100  39 00 00 01 */	li r8, 1
 /* 8000C1A4 00009104  91 7F 00 84 */	stw r11, 0x84(r31)
 /* 8000C1A8 00009108  91 7F 00 88 */	stw r11, 0x88(r31)

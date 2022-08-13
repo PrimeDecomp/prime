@@ -367,11 +367,11 @@ lbl_80251FB4:
 /* 8025200C 0024EF6C  7C 00 1B 78 */	or r0, r0, r3
 /* 80252010 0024EF70  54 1E 0F FF */	rlwinm. r30, r0, 1, 0x1f, 0x1f
 /* 80252014 0024EF74  41 82 00 A0 */	beq lbl_802520B4
-/* 80252018 0024EF78  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8025201C 0024EF7C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
-/* 80252020 0024EF80  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 80252018 0024EF78  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8025201C 0024EF7C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
+/* 80252020 0024EF80  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 80252024 0024EF84  83 BF 04 78 */	lwz r29, 0x478(r31)
-/* 80252028 0024EF88  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80252028 0024EF88  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 8025202C 0024EF8C  38 61 00 38 */	addi r3, r1, 0x38
 /* 80252030 0024EF90  38 BF 03 0C */	addi r5, r31, 0x30c
 /* 80252034 0024EF94  48 0C 1A DD */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f

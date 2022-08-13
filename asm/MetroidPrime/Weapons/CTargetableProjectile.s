@@ -157,9 +157,9 @@ ResolveCollisionWithActor__21CTargetableProjectileFRC14CRayCastResultR6CActorR13
 /* 8013B9E0 00138940  7D 89 03 A6 */	mtctr r12
 /* 8013B9E4 00138944  4E 80 04 21 */	bctrl
 /* 8013B9E8 00138948  C0 41 00 14 */	lfs f2, 0x14(r1)
-/* 8013B9EC 0013894C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 8013B9EC 0013894C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8013B9F0 00138950  C0 21 00 18 */	lfs f1, 0x18(r1)
-/* 8013B9F4 00138954  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 8013B9F4 00138954  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 8013B9F8 00138958  C0 01 00 1C */	lfs f0, 0x1c(r1)
 /* 8013B9FC 0013895C  38 61 00 2C */	addi r3, r1, 0x2c
 /* 8013BA00 00138960  D0 41 00 20 */	stfs f2, 0x20(r1)
@@ -400,9 +400,9 @@ Think__21CTargetableProjectileFfR13CStateManager:
 /* 8013BD90 00138CF0  83 3C 00 F0 */	lwz r25, 0xf0(r28)
 /* 8013BD94 00138CF4  7D 89 03 A6 */	mtctr r12
 /* 8013BD98 00138CF8  4E 80 04 21 */	bctrl
-/* 8013BD9C 00138CFC  3C 80 80 5A */	lis r4, lbl_805A66F4@ha
+/* 8013BD9C 00138CFC  3C 80 80 5A */	lis r4, sUpVector__9CVector3f@ha
 /* 8013BDA0 00138D00  38 61 00 B4 */	addi r3, r1, 0xb4
-/* 8013BDA4 00138D04  38 C4 66 F4 */	addi r6, r4, lbl_805A66F4@l
+/* 8013BDA4 00138D04  38 C4 66 F4 */	addi r6, r4, sUpVector__9CVector3f@l
 /* 8013BDA8 00138D08  38 A1 00 A8 */	addi r5, r1, 0xa8
 /* 8013BDAC 00138D0C  38 81 00 74 */	addi r4, r1, 0x74
 /* 8013BDB0 00138D10  48 1D 7D 61 */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f

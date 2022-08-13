@@ -643,9 +643,9 @@ lbl_800C2D40:
 /* 800C2D40 000BFCA0  88 7E 02 8C */	lbz r3, 0x28c(r30)
 /* 800C2D44 000BFCA4  54 60 D7 FF */	rlwinm. r0, r3, 0x1a, 0x1f, 0x1f
 /* 800C2D48 000BFCA8  41 82 01 54 */	beq lbl_800C2E9C
-/* 800C2D4C 000BFCAC  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 800C2D4C 000BFCAC  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 800C2D50 000BFCB0  80 9F 08 4C */	lwz r4, 0x84c(r31)
-/* 800C2D54 000BFCB4  38 63 66 F4 */	addi r3, r3, lbl_805A66F4@l
+/* 800C2D54 000BFCB4  38 63 66 F4 */	addi r3, r3, sUpVector__9CVector3f@l
 /* 800C2D58 000BFCB8  C0 A2 8D D8 */	lfs f5, lbl_805AAAF8@sda21(r2)
 /* 800C2D5C 000BFCBC  C0 43 00 04 */	lfs f2, 4(r3)
 /* 800C2D60 000BFCC0  C0 23 00 08 */	lfs f1, 8(r3)
@@ -716,12 +716,12 @@ lbl_800C2E48:
 /* 800C2E54 000BFDB4  88 1E 02 8C */	lbz r0, 0x28c(r30)
 /* 800C2E58 000BFDB8  38 80 00 00 */	li r4, 0
 /* 800C2E5C 000BFDBC  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a
-/* 800C2E60 000BFDC0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 800C2E60 000BFDC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 800C2E64 000BFDC4  98 1E 02 8C */	stb r0, 0x28c(r30)
 /* 800C2E68 000BFDC8  88 1E 02 8C */	lbz r0, 0x28c(r30)
 /* 800C2E6C 000BFDCC  50 80 36 72 */	rlwimi r0, r4, 6, 0x19, 0x19
 /* 800C2E70 000BFDD0  98 1E 02 8C */	stb r0, 0x28c(r30)
-/* 800C2E74 000BFDD4  C4 43 66 A0 */	lfsu f2, skZero3f@l(r3)
+/* 800C2E74 000BFDD4  C4 43 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r3)
 /* 800C2E78 000BFDD8  C0 23 00 04 */	lfs f1, 4(r3)
 /* 800C2E7C 000BFDDC  C0 03 00 08 */	lfs f0, 8(r3)
 /* 800C2E80 000BFDE0  D0 41 00 54 */	stfs f2, 0x54(r1)
@@ -929,8 +929,8 @@ lbl_800C30D8:
 /* 800C3168 000C00C8  4B F5 83 CD */	bl Identity__10CAxisAngleFv
 /* 800C316C 000C00CC  7C 7F 1B 78 */	mr r31, r3
 /* 800C3170 000C00D0  4B F5 83 C5 */	bl Identity__10CAxisAngleFv
-/* 800C3174 000C00D4  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 800C3178 000C00D8  C4 84 66 A0 */	lfsu f4, skZero3f@l(r4)
+/* 800C3174 000C00D4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 800C3178 000C00D8  C4 84 66 A0 */	lfsu f4, sZeroVector__9CVector3f@l(r4)
 /* 800C317C 000C00DC  C0 02 8D D0 */	lfs f0, lbl_805AAAF0@sda21(r2)
 /* 800C3180 000C00E0  39 80 00 00 */	li r12, 0
 /* 800C3184 000C00E4  C0 A4 00 04 */	lfs f5, 4(r4)

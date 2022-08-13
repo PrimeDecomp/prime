@@ -196,8 +196,8 @@ Recover__9CBSHurledFR13CStateManagerR15CBodyControllerQ23pas12EHurledState:
 /* 80144638 00141598  80 83 00 04 */	lwz r4, 4(r3)
 /* 8014463C 0014159C  28 04 00 00 */	cmplwi r4, 0
 /* 80144640 001415A0  41 82 00 20 */	beq lbl_80144660
-/* 80144644 001415A4  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80144648 001415A8  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 80144644 001415A4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80144648 001415A8  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 8014464C 001415AC  D0 04 01 50 */	stfs f0, 0x150(r4)
 /* 80144650 001415B0  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80144654 001415B4  D0 04 01 54 */	stfs f0, 0x154(r4)
@@ -781,8 +781,8 @@ lbl_80144E44:
 /* 80144E8C 00141DEC  7D 89 03 A6 */	mtctr r12
 /* 80144E90 00141DF0  4E 80 04 21 */	bctrl
 /* 80144E94 00141DF4  C0 02 9C 2C */	lfs f0, lbl_805AB94C@sda21(r2)
-/* 80144E98 00141DF8  3C 60 80 5A */	lis r3, lbl_805A6700@ha
-/* 80144E9C 00141DFC  38 A3 67 00 */	addi r5, r3, lbl_805A6700@l
+/* 80144E98 00141DF8  3C 60 80 5A */	lis r3, sDownVector__9CVector3f@ha
+/* 80144E9C 00141DFC  38 A3 67 00 */	addi r5, r3, sDownVector__9CVector3f@l
 /* 80144EA0 00141E00  7F 83 E3 78 */	mr r3, r28
 /* 80144EA4 00141E04  EC 80 07 F2 */	fmuls f4, f0, f31
 /* 80144EA8 00141E08  C0 65 00 00 */	lfs f3, 0(r5)
@@ -1110,9 +1110,9 @@ lbl_801451EC:
 /* 8014535C 001422BC  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80145360 001422C0  38 C0 00 28 */	li r6, 0x28
 /* 80145364 001422C4  4B EF EB 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
-/* 80145368 001422C8  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80145368 001422C8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8014536C 001422CC  C0 22 9C 24 */	lfs f1, lbl_805AB944@sda21(r2)
-/* 80145370 001422D0  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80145370 001422D0  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80145374 001422D4  38 7F 00 14 */	addi r3, r31, 0x14
 /* 80145378 001422D8  48 1C AB ED */	bl close_enough__FRC9CVector3fRC9CVector3ff
 /* 8014537C 001422DC  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -1278,10 +1278,10 @@ __ct__9CBSHurledFv:
 /* 801455AC 0014250C  C0 22 9C 28 */	lfs f1, lbl_805AB948@sda21(r2)
 /* 801455B0 00142510  90 03 00 00 */	stw r0, 0(r3)
 /* 801455B4 00142514  38 C5 1F B0 */	addi r6, r5, lbl_803E1FB0@l
-/* 801455B8 00142518  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801455B8 00142518  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801455BC 0014251C  38 00 FF FF */	li r0, -1
 /* 801455C0 00142520  90 C3 00 00 */	stw r6, 0(r3)
-/* 801455C4 00142524  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 801455C4 00142524  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 801455C8 00142528  38 80 00 00 */	li r4, 0
 /* 801455CC 0014252C  90 03 00 04 */	stw r0, 4(r3)
 /* 801455D0 00142530  D0 23 00 08 */	stfs f1, 8(r3)

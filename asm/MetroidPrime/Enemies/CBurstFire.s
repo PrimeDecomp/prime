@@ -95,8 +95,8 @@ GetError__10CBurstFireCFff:
 /* 801AD24C 001AA1AC  F3 61 00 28 */	psq_st f27, 40(r1), 0, qr0
 /* 801AD250 001AA1B0  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 801AD254 001AA1B4  88 A4 00 14 */	lbz r5, 0x14(r4)
-/* 801AD258 001AA1B8  3C C0 80 5A */	lis r6, skZero3f@ha
-/* 801AD25C 001AA1BC  C7 E6 66 A0 */	lfsu f31, skZero3f@l(r6)
+/* 801AD258 001AA1B8  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
+/* 801AD25C 001AA1BC  C7 E6 66 A0 */	lfsu f31, sZeroVector__9CVector3f@l(r6)
 /* 801AD260 001AA1C0  FF 60 08 90 */	fmr f27, f1
 /* 801AD264 001AA1C4  54 A0 CF FF */	rlwinm. r0, r5, 0x19, 0x1f, 0x1f
 /* 801AD268 001AA1C8  FF 80 10 90 */	fmr f28, f2

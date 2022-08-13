@@ -356,9 +356,9 @@ lbl_802972B0:
 /* 80297328 00294288  38 61 01 28 */	addi r3, r1, 0x128
 /* 8029732C 0029428C  38 81 01 40 */	addi r4, r1, 0x140
 /* 80297330 00294290  48 0A 11 D9 */	bl __ct__6CAABoxFRC9CVector3fRC9CVector3f
-/* 80297334 00294294  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80297334 00294294  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80297338 00294298  38 61 01 28 */	addi r3, r1, 0x128
-/* 8029733C 0029429C  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 8029733C 0029429C  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80297340 002942A0  48 0A 07 C9 */	bl AccumulateBounds__6CAABoxFRC9CVector3f
 /* 80297344 002942A4  C0 21 01 34 */	lfs f1, 0x134(r1)
 /* 80297348 002942A8  38 61 00 2C */	addi r3, r1, 0x2c

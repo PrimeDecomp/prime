@@ -3127,15 +3127,15 @@ LoadProjectileData__10CGunWeaponFR13CStateManager:
 /* 801BC804 001B9764  38 81 00 0C */	addi r4, r1, 0xc
 /* 801BC808 001B9768  48 15 5E 79 */	bl __ct__13CGlobalRandomFR9CRandom16
 /* 801BC80C 001B976C  3B 16 01 D4 */	addi r24, r22, 0x1d4
-/* 801BC810 001B9770  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 801BC814 001B9774  3C 60 80 5A */	lis r3, lbl_805A6724@ha
+/* 801BC810 001B9770  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 801BC814 001B9774  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
 /* 801BC818 001B9778  C3 E2 A9 DC */	lfs f31, lbl_805AC6FC@sda21(r2)
 /* 801BC81C 001B977C  7F 1B C3 78 */	mr r27, r24
 /* 801BC820 001B9780  3B 96 01 48 */	addi r28, r22, 0x148
-/* 801BC824 001B9784  3B C4 66 A0 */	addi r30, r4, skZero3f@l
+/* 801BC824 001B9784  3B C4 66 A0 */	addi r30, r4, sZeroVector__9CVector3f@l
 /* 801BC828 001B9788  3B 56 01 F8 */	addi r26, r22, 0x1f8
 /* 801BC82C 001B978C  3B 36 01 F0 */	addi r25, r22, 0x1f0
-/* 801BC830 001B9790  3B E3 67 24 */	addi r31, r3, lbl_805A6724@l
+/* 801BC830 001B9790  3B E3 67 24 */	addi r31, r3, sForwardVector__9CVector3f@l
 /* 801BC834 001B9794  3A E0 00 00 */	li r23, 0
 lbl_801BC838:
 /* 801BC838 001B9798  83 BC 00 08 */	lwz r29, 8(r28)
@@ -3214,8 +3214,8 @@ lbl_801BC90C:
 /* 801BC948 001B98A8  D0 1B 00 08 */	stfs f0, 8(r27)
 /* 801BC94C 001B98AC  48 00 00 20 */	b lbl_801BC96C
 lbl_801BC950:
-/* 801BC950 001B98B0  3C 60 80 5A */	lis r3, lbl_805A6724@ha
-/* 801BC954 001B98B4  C0 03 67 24 */	lfs f0, lbl_805A6724@l(r3)
+/* 801BC950 001B98B0  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
+/* 801BC954 001B98B4  C0 03 67 24 */	lfs f0, sForwardVector__9CVector3f@l(r3)
 /* 801BC958 001B98B8  D0 1B 00 00 */	stfs f0, 0(r27)
 /* 801BC95C 001B98BC  C0 1F 00 04 */	lfs f0, 4(r31)
 /* 801BC960 001B98C0  D0 1B 00 04 */	stfs f0, 4(r27)

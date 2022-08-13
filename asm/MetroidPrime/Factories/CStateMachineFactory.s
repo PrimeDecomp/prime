@@ -108,8 +108,8 @@ sub_800de904:
 lbl_800DE944:
 /* 800DE944 000DB8A4  28 1E 00 00 */	cmplwi r30, 0
 /* 800DE948 000DB8A8  41 82 00 20 */	beq lbl_800DE968
-/* 800DE94C 000DB8AC  3C 60 80 3E */	lis r3, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
-/* 800DE950 000DB8B0  38 03 8D 78 */	addi r0, r3, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 800DE94C 000DB8AC  3C 60 80 3E */	lis r3, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
+/* 800DE950 000DB8B0  38 03 8D 78 */	addi r0, r3, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 800DE954 000DB8B4  90 1E 00 00 */	stw r0, 0(r30)
 /* 800DE958 000DB8B8  41 82 00 10 */	beq lbl_800DE968
 /* 800DE95C 000DB8BC  3C 60 80 3E */	lis r3, __vt__4IObj@ha
@@ -226,11 +226,11 @@ lbl_800DEA54:
 /* 800DEAD0 000DBA30  28 03 00 00 */	cmplwi r3, 0
 /* 800DEAD4 000DBA34  41 82 00 38 */	beq lbl_800DEB0C
 /* 800DEAD8 000DBA38  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 800DEADC 000DBA3C  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 800DEADC 000DBA3C  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 800DEAE0 000DBA40  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 800DEAE4 000DBA44  3C 80 80 3E */	lis r4, lbl_803DF700@ha
 /* 800DEAE8 000DBA48  90 03 00 00 */	stw r0, 0(r3)
-/* 800DEAEC 000DBA4C  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 800DEAEC 000DBA4C  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 800DEAF0 000DBA50  38 A0 00 00 */	li r5, 0
 /* 800DEAF4 000DBA54  38 04 F7 00 */	addi r0, r4, lbl_803DF700@l
 /* 800DEAF8 000DBA58  90 C3 00 00 */	stw r6, 0(r3)

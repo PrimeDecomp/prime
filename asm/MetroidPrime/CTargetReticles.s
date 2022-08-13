@@ -761,7 +761,7 @@ __ct__17COrbitPointMarkerFv:
 /* 800BC974 000B98D4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800BC978 000B98D8  7C 08 02 A6 */	mflr r0
 /* 800BC97C 000B98DC  C0 22 8D 30 */	lfs f1, lbl_805AAA50@sda21(r2)
-/* 800BC980 000B98E0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 800BC980 000B98E0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800BC984 000B98E4  90 01 00 24 */	stw r0, 0x24(r1)
 /* 800BC988 000B98E8  38 00 00 00 */	li r0, 0
 /* 800BC98C 000B98EC  93 E1 00 1C */	stw r31, 0x1c(r1)
@@ -777,7 +777,7 @@ __ct__17COrbitPointMarkerFv:
 /* 800BC9B4 000B9914  38 61 00 08 */	addi r3, r1, 8
 /* 800BC9B8 000B9918  D0 3E 00 08 */	stfs f1, 8(r30)
 /* 800BC9BC 000B991C  D0 3E 00 0C */	stfs f1, 0xc(r30)
-/* 800BC9C0 000B9920  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
+/* 800BC9C0 000B9920  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
 /* 800BC9C4 000B9924  D0 1E 00 10 */	stfs f0, 0x10(r30)
 /* 800BC9C8 000B9928  C0 04 00 04 */	lfs f0, 4(r4)
 /* 800BC9CC 000B992C  D0 1E 00 14 */	stfs f0, 0x14(r30)
@@ -2573,13 +2573,13 @@ lbl_800BE39C:
 /* 800BE3CC 000BB32C  C0 1F 01 60 */	lfs f0, 0x160(r31)
 /* 800BE3D0 000BB330  FC 01 00 00 */	fcmpu cr0, f1, f0
 /* 800BE3D4 000BB334  40 82 01 AC */	bne lbl_800BE580
-/* 800BE3D8 000BB338  3C 60 80 5A */	lis r3, lbl_805A6718@ha
-/* 800BE3DC 000BB33C  3C 80 80 5A */	lis r4, lbl_805A6724@ha
-/* 800BE3E0 000BB340  38 E3 67 18 */	addi r7, r3, lbl_805A6718@l
-/* 800BE3E4 000BB344  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
-/* 800BE3E8 000BB348  38 C4 67 24 */	addi r6, r4, lbl_805A6724@l
+/* 800BE3D8 000BB338  3C 60 80 5A */	lis r3, sRightVector__9CVector3f@ha
+/* 800BE3DC 000BB33C  3C 80 80 5A */	lis r4, sForwardVector__9CVector3f@ha
+/* 800BE3E0 000BB340  38 E3 67 18 */	addi r7, r3, sRightVector__9CVector3f@l
+/* 800BE3E4 000BB344  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
+/* 800BE3E8 000BB348  38 C4 67 24 */	addi r6, r4, sForwardVector__9CVector3f@l
 /* 800BE3EC 000BB34C  C1 07 00 00 */	lfs f8, 0(r7)
-/* 800BE3F0 000BB350  38 A3 66 F4 */	addi r5, r3, lbl_805A66F4@l
+/* 800BE3F0 000BB350  38 A3 66 F4 */	addi r5, r3, sUpVector__9CVector3f@l
 /* 800BE3F4 000BB354  C0 E7 00 04 */	lfs f7, 4(r7)
 /* 800BE3F8 000BB358  C0 C7 00 08 */	lfs f6, 8(r7)
 /* 800BE3FC 000BB35C  3C 80 38 E4 */	lis r4, 0x38E38E39@ha
@@ -6507,10 +6507,10 @@ lbl_800C1CAC:
 __sinit_CTargetReticles_cpp:
 /* 800C1CC0 000BEC20  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800C1CC4 000BEC24  7C 08 02 A6 */	mflr r0
-/* 800C1CC8 000BEC28  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 800C1CC8 000BEC28  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 800C1CCC 000BEC2C  C0 22 8D 38 */	lfs f1, lbl_805AAA58@sda21(r2)
 /* 800C1CD0 000BEC30  90 01 00 24 */	stw r0, 0x24(r1)
-/* 800C1CD4 000BEC34  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 800C1CD4 000BEC34  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 800C1CD8 000BEC38  3C 60 80 47 */	lis r3, lbl_8046C450@ha
 /* 800C1CDC 000BEC3C  FC 60 08 90 */	fmr f3, f1
 /* 800C1CE0 000BEC40  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)

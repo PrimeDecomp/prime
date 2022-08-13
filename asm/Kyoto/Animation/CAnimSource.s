@@ -629,8 +629,8 @@ lbl_802ECF18:
 /* 802ECFE4 002E9F44  D0 3D 00 08 */	stfs f1, 8(r29)
 /* 802ECFE8 002E9F48  48 00 00 20 */	b lbl_802ED008
 lbl_802ECFEC:
-/* 802ECFEC 002E9F4C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802ECFF0 002E9F50  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 802ECFEC 002E9F4C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802ECFF0 002E9F50  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 802ECFF4 002E9F54  D0 1D 00 00 */	stfs f0, 0(r29)
 /* 802ECFF8 002E9F58  C0 03 00 04 */	lfs f0, 4(r3)
 /* 802ECFFC 002E9F5C  D0 1D 00 04 */	stfs f0, 4(r29)

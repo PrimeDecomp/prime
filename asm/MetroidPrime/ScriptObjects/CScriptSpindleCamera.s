@@ -1399,9 +1399,9 @@ lbl_80240EAC:
 /* 80240EC0 0023DE20  38 81 01 B4 */	addi r4, r1, 0x1b4
 /* 80240EC4 0023DE24  48 0D 39 8D */	bl AsNormalized__9CVector3fCFv
 /* 80240EC8 0023DE28  C0 21 02 04 */	lfs f1, 0x204(r1)
-/* 80240ECC 0023DE2C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80240ECC 0023DE2C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80240ED0 0023DE30  C0 01 00 3C */	lfs f0, 0x3c(r1)
-/* 80240ED4 0023DE34  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 80240ED4 0023DE34  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 80240ED8 0023DE38  C0 61 02 08 */	lfs f3, 0x208(r1)
 /* 80240EDC 0023DE3C  38 61 02 3C */	addi r3, r1, 0x23c
 /* 80240EE0 0023DE40  EC 81 00 2A */	fadds f4, f1, f0

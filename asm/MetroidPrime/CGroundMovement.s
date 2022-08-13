@@ -124,8 +124,8 @@ lbl_805A903C:
 /* 80185A9C 001829FC  38 7C 00 3C */	addi r3, r28, 0x3c
 /* 80185AA0 00182A00  48 00 00 0C */	b lbl_80185AAC
 lbl_80185AA4:
-/* 80185AA4 00182A04  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80185AA8 00182A08  38 63 66 A0 */	addi r3, r3, skZero3f@l
+/* 80185AA4 00182A04  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80185AA8 00182A08  38 63 66 A0 */	addi r3, r3, sZeroVector__9CVector3f@l
 lbl_80185AAC:
 /* 80185AAC 00182A0C  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80185AB0 00182A10  3A 41 02 28 */	addi r18, r1, 0x228
@@ -430,8 +430,8 @@ lbl_80185E88:
 /* 80185F14 00182E74  38 61 00 58 */	addi r3, r1, 0x58
 /* 80185F18 00182E78  48 00 00 0C */	b lbl_80185F24
 lbl_80185F1C:
-/* 80185F1C 00182E7C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80185F20 00182E80  38 63 66 A0 */	addi r3, r3, skZero3f@l
+/* 80185F1C 00182E7C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80185F20 00182E80  38 63 66 A0 */	addi r3, r3, sZeroVector__9CVector3f@l
 lbl_80185F24:
 /* 80185F24 00182E84  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80185F28 00182E88  56 C0 06 3F */	clrlwi. r0, r22, 0x18
@@ -2926,9 +2926,9 @@ lbl_80188278:
 /* 801882F0 00185250  4B F2 C2 09 */	bl IsUser__Fi
 /* 801882F4 00185254  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801882F8 00185258  41 82 00 20 */	beq lbl_80188318
-/* 801882FC 0018525C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801882FC 0018525C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80188300 00185260  7F C3 F3 78 */	mr r3, r30
-/* 80188304 00185264  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80188304 00185264  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80188308 00185268  4B F9 27 31 */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 8018830C 0018526C  7F C3 F3 78 */	mr r3, r30
 /* 80188310 00185270  38 81 02 0C */	addi r4, r1, 0x20c
@@ -3083,13 +3083,13 @@ lbl_80188530:
 /* 80188534 00185494  D0 01 00 20 */	stfs f0, 0x20(r1)
 lbl_80188538:
 /* 80188538 00185498  FF A0 F8 90 */	fmr f29, f31
-/* 8018853C 0018549C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8018853C 0018549C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80188540 001854A0  C3 C2 A3 18 */	lfs f30, lbl_805AC038@sda21(r2)
 /* 80188544 001854A4  3A 01 01 00 */	addi r16, r1, 0x100
 /* 80188548 001854A8  3A 21 02 A4 */	addi r17, r1, 0x2a4
 /* 8018854C 001854AC  3B 21 02 80 */	addi r25, r1, 0x280
 /* 80188550 001854B0  3B 01 02 78 */	addi r24, r1, 0x278
-/* 80188554 001854B4  3B 63 66 A0 */	addi r27, r3, skZero3f@l
+/* 80188554 001854B4  3B 63 66 A0 */	addi r27, r3, sZeroVector__9CVector3f@l
 /* 80188558 001854B8  38 00 00 01 */	li r0, 1
 /* 8018855C 001854BC  48 00 05 40 */	b lbl_80188A9C
 lbl_80188560:
@@ -3412,8 +3412,8 @@ lbl_801889E8:
 /* 801889EC 0018594C  38 81 01 D8 */	addi r4, r1, 0x1d8
 /* 801889F0 00185950  4B F9 2B 25 */	bl AddMotionState__13CPhysicsActorFRC12CMotionState
 /* 801889F4 00185954  C0 01 00 28 */	lfs f0, 0x28(r1)
-/* 801889F8 00185958  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 801889FC 0018595C  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801889F8 00185958  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 801889FC 0018595C  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80188A00 00185960  EC 00 F8 28 */	fsubs f0, f0, f31
 /* 80188A04 00185964  7F C3 F3 78 */	mr r3, r30
 /* 80188A08 00185968  FF E0 E8 90 */	fmr f31, f29
@@ -3477,9 +3477,9 @@ lbl_80188A9C:
 /* 80188AE8 00185A48  38 C0 00 1A */	li r6, 0x1a
 /* 80188AEC 00185A4C  4B EB B3 E5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
 lbl_80188AF0:
-/* 80188AF0 00185A50  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80188AF0 00185A50  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80188AF4 00185A54  7F C3 F3 78 */	mr r3, r30
-/* 80188AF8 00185A58  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80188AF8 00185A58  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80188AFC 00185A5C  4B F9 1F 3D */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 80188B00 00185A60  38 60 00 00 */	li r3, 0
 /* 80188B04 00185A64  4B F2 B9 F5 */	bl IsUser__Fi
@@ -3567,8 +3567,8 @@ lbl_80188B8C:
 /* 80188C28 00185B88  38 81 00 54 */	addi r4, r1, 0x54
 /* 80188C2C 00185B8C  4B F9 1E 0D */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 80188C30 00185B90  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 80188C34 00185B94  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 80188C38 00185B98  38 A3 67 54 */	addi r5, r3, lbl_805A6754@l
+/* 80188C34 00185B94  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 80188C38 00185B98  38 A3 67 54 */	addi r5, r3, mskInvertedBox__6CAABox@l
 /* 80188C3C 00185B9C  7F 04 C3 78 */	mr r4, r24
 /* 80188C40 00185BA0  B0 1D 00 00 */	sth r0, 0(r29)
 /* 80188C44 00185BA4  38 61 00 C0 */	addi r3, r1, 0xc0
@@ -3690,9 +3690,9 @@ lbl_80188D60:
 /* 80188E04 00185D64  D0 61 00 34 */	stfs f3, 0x34(r1)
 /* 80188E08 00185D68  D0 41 00 38 */	stfs f2, 0x38(r1)
 /* 80188E0C 00185D6C  4B EC A0 81 */	bl SetTranslation__6CActorFRC9CVector3f
-/* 80188E10 00185D70  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80188E10 00185D70  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80188E14 00185D74  7F 03 C3 78 */	mr r3, r24
-/* 80188E18 00185D78  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80188E18 00185D78  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80188E1C 00185D7C  4B F9 1C 1D */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 lbl_80188E20:
 /* 80188E20 00185D80  3A 80 00 00 */	li r20, 0
@@ -3818,8 +3818,8 @@ lbl_80188F54:
 /* 80188FC0 00185F20  7C F8 3B 78 */	mr r24, r7
 /* 80188FC4 00185F24  7D 19 43 78 */	mr r25, r8
 /* 80188FC8 00185F28  40 81 02 A8 */	ble lbl_80189270
-/* 80188FCC 00185F2C  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 80188FD0 00185F30  C4 C3 67 54 */	lfsu f6, lbl_805A6754@l(r3)
+/* 80188FCC 00185F2C  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 80188FD0 00185F30  C4 C3 67 54 */	lfsu f6, mskInvertedBox__6CAABox@l(r3)
 /* 80188FD4 00185F34  C0 02 A3 18 */	lfs f0, lbl_805AC038@sda21(r2)
 /* 80188FD8 00185F38  3B 7F 00 04 */	addi r27, r31, 4
 /* 80188FDC 00185F3C  C0 A3 00 04 */	lfs f5, 4(r3)
@@ -3964,9 +3964,9 @@ lbl_80189148:
 /* 801891EC 0018614C  D0 61 00 1C */	stfs f3, 0x1c(r1)
 /* 801891F0 00186150  D0 41 00 20 */	stfs f2, 0x20(r1)
 /* 801891F4 00186154  4B EC 9C 99 */	bl SetTranslation__6CActorFRC9CVector3f
-/* 801891F8 00186158  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801891F8 00186158  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801891FC 0018615C  7F C3 F3 78 */	mr r3, r30
-/* 80189200 00186160  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80189200 00186160  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80189204 00186164  4B F9 18 35 */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 80189208 00186168  3B 40 00 00 */	li r26, 0
 /* 8018920C 0018616C  3B 80 00 00 */	li r28, 0
@@ -4534,9 +4534,9 @@ lbl_80189A38:
 lbl_80189A48:
 /* 80189A48 001869A8  7F A3 EB 78 */	mr r3, r29
 /* 80189A4C 001869AC  4B F9 18 69 */	bl ClearForcesAndTorques__13CPhysicsActorFv
-/* 80189A50 001869B0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80189A50 001869B0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80189A54 001869B4  7F A3 EB 78 */	mr r3, r29
-/* 80189A58 001869B8  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80189A58 001869B8  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80189A5C 001869BC  4B F9 0F DD */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 /* 80189A60 001869C0  80 7D 00 68 */	lwz r3, 0x68(r29)
 /* 80189A64 001869C4  38 00 00 01 */	li r0, 1
@@ -4756,8 +4756,8 @@ lbl_80189CF0:
 /* 80189D58 00186CB8  D0 21 00 30 */	stfs f1, 0x30(r1)
 /* 80189D5C 00186CBC  D0 01 00 34 */	stfs f0, 0x34(r1)
 /* 80189D60 00186CC0  4B F9 0F B9 */	bl SetVelocityOR__13CPhysicsActorFRC9CVector3f
-/* 80189D64 00186CC4  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80189D68 00186CC8  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 80189D64 00186CC4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80189D68 00186CC8  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 80189D6C 00186CCC  D0 1B 01 50 */	stfs f0, 0x150(r27)
 /* 80189D70 00186CD0  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80189D74 00186CD4  D0 1B 01 54 */	stfs f0, 0x154(r27)

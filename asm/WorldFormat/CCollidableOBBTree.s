@@ -490,9 +490,9 @@ LineIntersectsTree__18CCollidableOBBTreeCFRC5CMRayRC15CMaterialFilterfRC12CTrans
 /* 802A9F40 002A6EA0  D0 21 00 18 */	stfs f1, 0x18(r1)
 /* 802A9F44 002A6EA4  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 802A9F48 002A6EA8  48 06 A9 B1 */	bl Normalize__9CVector3fFv
-/* 802A9F4C 002A6EAC  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802A9F4C 002A6EAC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802A9F50 002A6EB0  38 00 00 00 */	li r0, 0
-/* 802A9F54 002A6EB4  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 802A9F54 002A6EB4  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 802A9F58 002A6EB8  C0 61 00 18 */	lfs f3, 0x18(r1)
 /* 802A9F5C 002A6EBC  C0 04 00 04 */	lfs f0, 4(r4)
 /* 802A9F60 002A6EC0  7F 83 E3 78 */	mr r3, r28
@@ -1768,9 +1768,9 @@ AABoxCollideWithLeafMoving__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTr
 /* 802AB29C 002A81FC  DB A1 02 90 */	stfd f29, 0x290(r1)
 /* 802AB2A0 002A8200  F3 A1 02 98 */	psq_st f29, 664(r1), 0, qr0
 /* 802AB2A4 002A8204  BD C1 02 48 */	stmw r14, 0x248(r1)
-/* 802AB2A8 002A8208  3D 60 80 5A */	lis r11, skZero3f@ha
+/* 802AB2A8 002A8208  3D 60 80 5A */	lis r11, sZeroVector__9CVector3f@ha
 /* 802AB2AC 002A820C  7D 32 4B 78 */	mr r18, r9
-/* 802AB2B0 002A8210  39 2B 66 A0 */	addi r9, r11, skZero3f@l
+/* 802AB2B0 002A8210  39 2B 66 A0 */	addi r9, r11, sZeroVector__9CVector3f@l
 /* 802AB2B4 002A8214  C0 12 06 E8 */	lfs f0, 0x6e8(r18)
 /* 802AB2B8 002A8218  C0 29 00 00 */	lfs f1, 0(r9)
 /* 802AB2BC 002A821C  7C 6F 1B 78 */	mr r15, r3
@@ -2650,11 +2650,11 @@ lbl_802ABFB0:
 SphereCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList:
 /* 802ABFC4 002A8F24  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 802ABFC8 002A8F28  7C 08 02 A6 */	mflr r0
-/* 802ABFCC 002A8F2C  3D 40 80 5A */	lis r10, skZero3f@ha
+/* 802ABFCC 002A8F2C  3D 40 80 5A */	lis r10, sZeroVector__9CVector3f@ha
 /* 802ABFD0 002A8F30  90 01 01 14 */	stw r0, 0x114(r1)
 /* 802ABFD4 002A8F34  BE 61 00 DC */	stmw r19, 0xdc(r1)
 /* 802ABFD8 002A8F38  7C 94 23 78 */	mr r20, r4
-/* 802ABFDC 002A8F3C  38 8A 66 A0 */	addi r4, r10, skZero3f@l
+/* 802ABFDC 002A8F3C  38 8A 66 A0 */	addi r4, r10, sZeroVector__9CVector3f@l
 /* 802ABFE0 002A8F40  3B 81 00 5C */	addi r28, r1, 0x5c
 /* 802ABFE4 002A8F44  3B A1 00 68 */	addi r29, r1, 0x68
 /* 802ABFE8 002A8F48  7C 73 1B 78 */	mr r19, r3
@@ -2852,7 +2852,7 @@ AABoxCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransfor
 /* 802AC2B4 002A9214  38 61 00 2C */	addi r3, r1, 0x2c
 /* 802AC2B8 002A9218  48 08 B3 55 */	bl GetCenterPoint__6CAABoxCFv
 /* 802AC2BC 002A921C  C0 79 00 10 */	lfs f3, 0x10(r25)
-/* 802AC2C0 002A9220  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 802AC2C0 002A9220  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 802AC2C4 002A9224  C0 59 00 04 */	lfs f2, 4(r25)
 /* 802AC2C8 002A9228  3B 61 00 AC */	addi r27, r1, 0xac
 /* 802AC2CC 002A922C  C0 39 00 14 */	lfs f1, 0x14(r25)
@@ -2860,7 +2860,7 @@ AABoxCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransfor
 /* 802AC2D4 002A9234  C0 19 00 08 */	lfs f0, 8(r25)
 /* 802AC2D8 002A9238  EC 63 10 28 */	fsubs f3, f3, f2
 /* 802AC2DC 002A923C  C0 82 C1 BC */	lfs f4, lbl_805ADEDC@sda21(r2)
-/* 802AC2E0 002A9240  3B E3 67 54 */	addi r31, r3, lbl_805A6754@l
+/* 802AC2E0 002A9240  3B E3 67 54 */	addi r31, r3, mskInvertedBox__6CAABox@l
 /* 802AC2E4 002A9244  EC 41 00 28 */	fsubs f2, f1, f0
 /* 802AC2E8 002A9248  C0 39 00 0C */	lfs f1, 0xc(r25)
 /* 802AC2EC 002A924C  C0 19 00 00 */	lfs f0, 0(r25)
@@ -2933,9 +2933,9 @@ lbl_802AC338:
 /* 802AC3F4 002A9354  48 02 50 ED */	bl TriBoxOverlap__13CollisionUtilFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f
 /* 802AC3F8 002A9358  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802AC3FC 002A935C  41 82 00 D0 */	beq lbl_802AC4CC
-/* 802AC400 002A9360  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 802AC400 002A9360  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 802AC404 002A9364  80 92 00 1C */	lwz r4, 0x1c(r18)
-/* 802AC408 002A9368  C0 A3 67 54 */	lfs f5, lbl_805A6754@l(r3)
+/* 802AC408 002A9368  C0 A3 67 54 */	lfs f5, mskInvertedBox__6CAABox@l(r3)
 /* 802AC40C 002A936C  7E E3 BB 78 */	mr r3, r23
 /* 802AC410 002A9370  38 04 00 01 */	addi r0, r4, 1
 /* 802AC414 002A9374  C0 9F 00 04 */	lfs f4, 4(r31)
@@ -3120,9 +3120,9 @@ CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f:
 /* 802AC698 002A95F8  38 81 00 20 */	addi r4, r1, 0x20
 /* 802AC69C 002A95FC  48 06 64 D9 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802AC6A0 002A9600  C0 41 00 50 */	lfs f2, 0x50(r1)
-/* 802AC6A4 002A9604  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 802AC6A4 002A9604  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802AC6A8 002A9608  C0 21 00 54 */	lfs f1, 0x54(r1)
-/* 802AC6AC 002A960C  38 A3 66 70 */	addi r5, r3, skIdentity4f@l
+/* 802AC6AC 002A960C  38 A3 66 70 */	addi r5, r3, sIdentity__12CTransform4f@l
 /* 802AC6B0 002A9610  C0 01 00 58 */	lfs f0, 0x58(r1)
 /* 802AC6B4 002A9614  7F C3 F3 78 */	mr r3, r30
 /* 802AC6B8 002A9618  D0 41 00 8C */	stfs f2, 0x8c(r1)

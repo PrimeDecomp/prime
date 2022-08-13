@@ -518,8 +518,8 @@ lbl_8013F51C:
 lbl_8013F5A0:
 /* 8013F5A0 0013C500  7F E3 FB 78 */	mr r3, r31
 /* 8013F5A4 0013C504  4B FD BD D5 */	bl Stop__13CPhysicsActorFv
-/* 8013F5A8 0013C508  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8013F5AC 0013C50C  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 8013F5A8 0013C508  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8013F5AC 0013C50C  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 8013F5B0 0013C510  D0 1F 01 50 */	stfs f0, 0x150(r31)
 /* 8013F5B4 0013C514  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8013F5B8 0013C518  D0 1F 01 54 */	stfs f0, 0x154(r31)
@@ -575,9 +575,9 @@ lbl_8013F634:
 /* 8013F668 0013C5C8  7D 89 03 A6 */	mtctr r12
 /* 8013F66C 0013C5CC  4E 80 04 21 */	bctrl
 /* 8013F670 0013C5D0  C0 A1 00 54 */	lfs f5, 0x54(r1)
-/* 8013F674 0013C5D4  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 8013F674 0013C5D4  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8013F678 0013C5D8  C0 81 00 58 */	lfs f4, 0x58(r1)
-/* 8013F67C 0013C5DC  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 8013F67C 0013C5DC  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 8013F680 0013C5E0  C0 61 00 5C */	lfs f3, 0x5c(r1)
 /* 8013F684 0013C5E4  38 61 00 6C */	addi r3, r1, 0x6c
 /* 8013F688 0013C5E8  C0 41 01 08 */	lfs f2, 0x108(r1)
@@ -686,8 +686,8 @@ lbl_8013F80C:
 /* 8013F810 0013C770  54 00 FF FF */	rlwinm. r0, r0, 0x1f, 0x1f, 0x1f
 /* 8013F814 0013C774  41 82 00 4C */	beq lbl_8013F860
 /* 8013F818 0013C778  C0 02 9B 68 */	lfs f0, lbl_805AB888@sda21(r2)
-/* 8013F81C 0013C77C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8013F820 0013C780  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8013F81C 0013C77C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8013F820 0013C780  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8013F824 0013C784  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
 /* 8013F828 0013C788  D0 1C 03 E8 */	stfs f0, 0x3e8(r28)
 /* 8013F82C 0013C78C  38 61 00 14 */	addi r3, r1, 0x14
@@ -723,8 +723,8 @@ lbl_8013F898:
 /* 8013F89C 0013C7FC  54 00 F7 FF */	rlwinm. r0, r0, 0x1e, 0x1f, 0x1f
 /* 8013F8A0 0013C800  41 82 00 4C */	beq lbl_8013F8EC
 /* 8013F8A4 0013C804  C0 02 9B 6C */	lfs f0, lbl_805AB88C@sda21(r2)
-/* 8013F8A8 0013C808  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8013F8AC 0013C80C  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8013F8A8 0013C808  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8013F8AC 0013C80C  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8013F8B0 0013C810  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
 /* 8013F8B4 0013C814  D0 1C 03 E8 */	stfs f0, 0x3e8(r28)
 /* 8013F8B8 0013C818  38 61 00 10 */	addi r3, r1, 0x10
@@ -824,8 +824,8 @@ lbl_8013F9C0:
 /* 8013FA00 0013C960  48 00 00 24 */	b lbl_8013FA24
 lbl_8013FA04:
 /* 8013FA04 0013C964  4B FD B9 75 */	bl Stop__13CPhysicsActorFv
-/* 8013FA08 0013C968  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8013FA0C 0013C96C  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 8013FA08 0013C968  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8013FA0C 0013C96C  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 8013FA10 0013C970  D0 1F 01 50 */	stfs f0, 0x150(r31)
 /* 8013FA14 0013C974  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8013FA18 0013C978  D0 1F 01 54 */	stfs f0, 0x154(r31)
@@ -1021,13 +1021,13 @@ lbl_8013FC50:
 /* 8013FC84 0013CBE4  38 A0 00 00 */	li r5, 0
 /* 8013FC88 0013CBE8  38 00 00 01 */	li r0, 1
 /* 8013FC8C 0013CBEC  90 81 00 2C */	stw r4, 0x2c(r1)
-/* 8013FC90 0013CBF0  3C 80 80 5A */	lis r4, lbl_805A66F4@ha
-/* 8013FC94 0013CBF4  38 E4 66 F4 */	addi r7, r4, lbl_805A66F4@l
+/* 8013FC90 0013CBF0  3C 80 80 5A */	lis r4, sUpVector__9CVector3f@ha
+/* 8013FC94 0013CBF4  38 E4 66 F4 */	addi r7, r4, sUpVector__9CVector3f@l
 /* 8013FC98 0013CBF8  C0 22 9B 68 */	lfs f1, lbl_805AB888@sda21(r2)
 /* 8013FC9C 0013CBFC  90 61 00 28 */	stw r3, 0x28(r1)
-/* 8013FCA0 0013CC00  3C 80 80 5A */	lis r4, lbl_805A6700@ha
+/* 8013FCA0 0013CC00  3C 80 80 5A */	lis r4, sDownVector__9CVector3f@ha
 /* 8013FCA4 0013CC04  C0 A7 00 04 */	lfs f5, 4(r7)
-/* 8013FCA8 0013CC08  38 C4 67 00 */	addi r6, r4, lbl_805A6700@l
+/* 8013FCA8 0013CC08  38 C4 67 00 */	addi r6, r4, sDownVector__9CVector3f@l
 /* 8013FCAC 0013CC0C  90 A1 00 34 */	stw r5, 0x34(r1)
 /* 8013FCB0 0013CC10  7F C4 F3 78 */	mr r4, r30
 /* 8013FCB4 0013CC14  C0 67 00 08 */	lfs f3, 8(r7)
@@ -1058,9 +1058,9 @@ lbl_8013FC50:
 /* 8013FD18 0013CC78  88 1F 06 64 */	lbz r0, 0x664(r31)
 /* 8013FD1C 0013CC7C  38 60 00 01 */	li r3, 1
 /* 8013FD20 0013CC80  50 60 26 F6 */	rlwimi r0, r3, 4, 0x1b, 0x1b
-/* 8013FD24 0013CC84  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8013FD24 0013CC84  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8013FD28 0013CC88  98 1F 06 64 */	stb r0, 0x664(r31)
-/* 8013FD2C 0013CC8C  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8013FD2C 0013CC8C  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8013FD30 0013CC90  C0 02 9B 5C */	lfs f0, lbl_805AB87C@sda21(r2)
 /* 8013FD34 0013CC94  7F E3 FB 78 */	mr r3, r31
 /* 8013FD38 0013CC98  C0 25 00 00 */	lfs f1, 0(r5)
@@ -1117,8 +1117,8 @@ lbl_8013FDF4:
 /* 8013FDF8 0013CD58  38 60 00 01 */	li r3, 1
 /* 8013FDFC 0013CD5C  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
 /* 8013FE00 0013CD60  98 1F 03 28 */	stb r0, 0x328(r31)
-/* 8013FE04 0013CD64  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8013FE08 0013CD68  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 8013FE04 0013CD64  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8013FE08 0013CD68  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 8013FE0C 0013CD6C  D0 1F 01 50 */	stfs f0, 0x150(r31)
 /* 8013FE10 0013CD70  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8013FE14 0013CD74  D0 1F 01 54 */	stfs f0, 0x154(r31)
@@ -1407,9 +1407,9 @@ lbl_801401D8:
 /* 801401E8 0013D148  38 60 00 00 */	li r3, 0
 /* 801401EC 0013D14C  38 80 00 01 */	li r4, 1
 /* 801401F0 0013D150  48 24 9D 05 */	bl __shl2i
-/* 801401F4 0013D154  3C A0 80 5A */	lis r5, lbl_805A66F4@ha
+/* 801401F4 0013D154  3C A0 80 5A */	lis r5, sUpVector__9CVector3f@ha
 /* 801401F8 0013D158  39 00 00 00 */	li r8, 0
-/* 801401FC 0013D15C  38 C5 66 F4 */	addi r6, r5, lbl_805A66F4@l
+/* 801401FC 0013D15C  38 C5 66 F4 */	addi r6, r5, sUpVector__9CVector3f@l
 /* 80140200 0013D160  38 00 00 01 */	li r0, 1
 /* 80140204 0013D164  C0 82 9B 80 */	lfs f4, lbl_805AB8A0@sda21(r2)
 /* 80140208 0013D168  38 A1 00 44 */	addi r5, r1, 0x44
@@ -1454,8 +1454,8 @@ lbl_801401D8:
 /* 801402A4 0013D204  38 A0 00 00 */	li r5, 0
 /* 801402A8 0013D208  48 0F 3B 1D */	bl SetAvailableState__20CKnockBackControllerFib
 lbl_801402AC:
-/* 801402AC 0013D20C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 801402B0 0013D210  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 801402AC 0013D20C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 801402B0 0013D210  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 801402B4 0013D214  D0 1E 01 50 */	stfs f0, 0x150(r30)
 /* 801402B8 0013D218  C0 03 00 04 */	lfs f0, 4(r3)
 /* 801402BC 0013D21C  D0 1E 01 54 */	stfs f0, 0x154(r30)
@@ -1609,8 +1609,8 @@ lbl_801404B4:
 /* 801404BC 0013D41C  38 9F 06 88 */	addi r4, r31, 0x688
 /* 801404C0 0013D420  38 DF 02 E0 */	addi r6, r31, 0x2e0
 /* 801404C4 0013D424  4B FF E7 5D */	bl Seek__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector3f
-/* 801404C8 0013D428  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 801404CC 0013D42C  C4 63 66 A0 */	lfsu f3, skZero3f@l(r3)
+/* 801404C8 0013D428  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 801404CC 0013D42C  C4 63 66 A0 */	lfsu f3, sZeroVector__9CVector3f@l(r3)
 /* 801404D0 0013D430  C0 C1 00 2C */	lfs f6, 0x2c(r1)
 /* 801404D4 0013D434  38 81 00 38 */	addi r4, r1, 0x38
 /* 801404D8 0013D438  C0 A1 00 30 */	lfs f5, 0x30(r1)
@@ -1901,8 +1901,8 @@ lbl_801408D4:
 /* 80140904 0013D864  39 00 00 00 */	li r8, 0
 /* 80140908 0013D868  38 00 00 01 */	li r0, 1
 /* 8014090C 0013D86C  90 81 00 54 */	stw r4, 0x54(r1)
-/* 80140910 0013D870  3C 80 80 5A */	lis r4, lbl_805A6700@ha
-/* 80140914 0013D874  38 C4 67 00 */	addi r6, r4, lbl_805A6700@l
+/* 80140910 0013D870  3C 80 80 5A */	lis r4, sDownVector__9CVector3f@ha
+/* 80140914 0013D874  38 C4 67 00 */	addi r6, r4, sDownVector__9CVector3f@l
 /* 80140918 0013D878  C0 22 9B 88 */	lfs f1, lbl_805AB8A8@sda21(r2)
 /* 8014091C 0013D87C  90 61 00 50 */	stw r3, 0x50(r1)
 /* 80140920 0013D880  7F E4 FB 78 */	mr r4, r31
@@ -1945,9 +1945,9 @@ lbl_80140990:
 /* 801409AC 0013D90C  C0 3E 05 6C */	lfs f1, 0x56c(r30)
 /* 801409B0 0013D910  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801409B4 0013D914  40 81 01 3C */	ble lbl_80140AF0
-/* 801409B8 0013D918  3C 60 80 5A */	lis r3, lbl_805A6700@ha
+/* 801409B8 0013D918  3C 60 80 5A */	lis r3, sDownVector__9CVector3f@ha
 /* 801409BC 0013D91C  D0 3E 06 C8 */	stfs f1, 0x6c8(r30)
-/* 801409C0 0013D920  38 A3 67 00 */	addi r5, r3, lbl_805A6700@l
+/* 801409C0 0013D920  38 A3 67 00 */	addi r5, r3, sDownVector__9CVector3f@l
 /* 801409C4 0013D924  7F E4 FB 78 */	mr r4, r31
 /* 801409C8 0013D928  7F C3 F3 78 */	mr r3, r30
 /* 801409CC 0013D92C  48 00 03 49 */	bl sub_80140d14
@@ -2072,9 +2072,9 @@ lbl_80140B50:
 /* 80140B80 0013DAE0  C0 3E 05 6C */	lfs f1, 0x56c(r30)
 /* 80140B84 0013DAE4  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80140B88 0013DAE8  40 81 00 58 */	ble lbl_80140BE0
-/* 80140B8C 0013DAEC  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80140B8C 0013DAEC  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80140B90 0013DAF0  D0 3E 06 C8 */	stfs f1, 0x6c8(r30)
-/* 80140B94 0013DAF4  38 A3 66 F4 */	addi r5, r3, lbl_805A66F4@l
+/* 80140B94 0013DAF4  38 A3 66 F4 */	addi r5, r3, sUpVector__9CVector3f@l
 /* 80140B98 0013DAF8  7F E4 FB 78 */	mr r4, r31
 /* 80140B9C 0013DAFC  7F C3 F3 78 */	mr r3, r30
 /* 80140BA0 0013DB00  48 00 01 75 */	bl sub_80140d14
@@ -2163,8 +2163,8 @@ lbl_80140CB8:
 /* 80140CBC 0013DC1C  7F E5 FB 78 */	mr r5, r31
 /* 80140CC0 0013DC20  38 80 00 13 */	li r4, 0x13
 /* 80140CC4 0013DC24  4B F1 32 BD */	bl RemoveMaterial__6CActorF14EMaterialTypesR13CStateManager
-/* 80140CC8 0013DC28  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 80140CCC 0013DC2C  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
+/* 80140CC8 0013DC28  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 80140CCC 0013DC2C  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
 /* 80140CD0 0013DC30  38 60 00 01 */	li r3, 1
 /* 80140CD4 0013DC34  D0 1E 01 50 */	stfs f0, 0x150(r30)
 /* 80140CD8 0013DC38  C0 04 00 04 */	lfs f0, 4(r4)
@@ -2687,9 +2687,9 @@ lbl_801413B8:
 /* 80141470 0013E3D0  48 24 8A 85 */	bl __shl2i
 /* 80141474 0013E3D4  39 00 00 00 */	li r8, 0
 /* 80141478 0013E3D8  38 00 00 01 */	li r0, 1
-/* 8014147C 0013E3DC  3C A0 80 5A */	lis r5, lbl_805A6700@ha
+/* 8014147C 0013E3DC  3C A0 80 5A */	lis r5, sDownVector__9CVector3f@ha
 /* 80141480 0013E3E0  90 81 00 94 */	stw r4, 0x94(r1)
-/* 80141484 0013E3E4  38 C5 67 00 */	addi r6, r5, lbl_805A6700@l
+/* 80141484 0013E3E4  38 C5 67 00 */	addi r6, r5, sDownVector__9CVector3f@l
 /* 80141488 0013E3E8  C0 22 9B 90 */	lfs f1, lbl_805AB8B0@sda21(r2)
 /* 8014148C 0013E3EC  90 61 00 90 */	stw r3, 0x90(r1)
 /* 80141490 0013E3F0  7F 84 E3 78 */	mr r4, r28
@@ -3255,9 +3255,9 @@ Touch__11CChozoGhostFR6CActorR13CStateManager:
 /* 80141C64 0013EBC4  81 8C 02 B0 */	lwz r12, 0x2b0(r12)
 /* 80141C68 0013EBC8  7D 89 03 A6 */	mtctr r12
 /* 80141C6C 0013EBCC  4E 80 04 21 */	bctrl
-/* 80141C70 0013EBD0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80141C70 0013EBD0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80141C74 0013EBD4  7F C3 F3 78 */	mr r3, r30
-/* 80141C78 0013EBD8  39 24 66 A0 */	addi r9, r4, skZero3f@l
+/* 80141C78 0013EBD8  39 24 66 A0 */	addi r9, r4, sZeroVector__9CVector3f@l
 /* 80141C7C 0013EBDC  38 A1 00 14 */	addi r5, r1, 0x14
 /* 80141C80 0013EBE0  38 81 00 1C */	addi r4, r1, 0x1c
 /* 80141C84 0013EBE4  38 C1 00 0C */	addi r6, r1, 0xc
@@ -3617,9 +3617,9 @@ lbl_80142160:
 /* 801421A8 0013F108  38 61 01 24 */	addi r3, r1, 0x124
 /* 801421AC 0013F10C  48 1F B9 35 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 801421B0 0013F110  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 801421B4 0013F114  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801421B4 0013F114  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801421B8 0013F118  C0 02 9B 5C */	lfs f0, lbl_805AB87C@sda21(r2)
-/* 801421BC 0013F11C  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801421BC 0013F11C  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 801421C0 0013F120  B0 18 06 C4 */	sth r0, 0x6c4(r24)
 /* 801421C4 0013F124  38 00 00 01 */	li r0, 1
 /* 801421C8 0013F128  38 78 05 78 */	addi r3, r24, 0x578

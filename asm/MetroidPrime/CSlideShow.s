@@ -691,8 +691,8 @@ sub_802981c4:
 /* 8029821C 0029517C  C0 42 C0 08 */	lfs f2, lbl_805ADD28@sda21(r2)
 /* 80298220 00295180  7D 89 03 A6 */	mtctr r12
 /* 80298224 00295184  4E 80 04 21 */	bctrl
-/* 80298228 00295188  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 8029822C 0029518C  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 80298228 00295188  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 8029822C 0029518C  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 80298230 00295190  48 07 45 1D */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 80298234 00295194  80 7F 00 38 */	lwz r3, 0x38(r31)
 /* 80298238 00295198  48 0A 8B D5 */	bl GetObj__6CTokenFv
@@ -4915,8 +4915,8 @@ lbl_8029BE04:
 /* 8029BE78 00298DD8  C8 01 00 78 */	lfd f0, 0x78(r1)
 /* 8029BE7C 00298DDC  EC 80 20 28 */	fsubs f4, f0, f4
 /* 8029BE80 00298DE0  48 07 06 D5 */	bl SetOrtho__9CGraphicsFffffff
-/* 8029BE84 00298DE4  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 8029BE88 00298DE8  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 8029BE84 00298DE4  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 8029BE88 00298DE8  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 8029BE8C 00298DEC  48 07 08 C1 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 8029BE90 00298DF0  7F A4 EB 78 */	mr r4, r29
 /* 8029BE94 00298DF4  38 61 00 2C */	addi r3, r1, 0x2c
@@ -4941,8 +4941,8 @@ lbl_8029BE04:
 /* 8029BEE0 00298E40  C0 22 BF F0 */	lfs f1, lbl_805ADD10@sda21(r2)
 /* 8029BEE4 00298E44  FC 40 08 90 */	fmr f2, f1
 /* 8029BEE8 00298E48  48 06 F5 7D */	bl StreamTexcoord__9CGraphicsFff
-/* 8029BEEC 00298E4C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8029BEF0 00298E50  38 63 66 A0 */	addi r3, r3, skZero3f@l
+/* 8029BEEC 00298E4C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8029BEF0 00298E50  38 63 66 A0 */	addi r3, r3, sZeroVector__9CVector3f@l
 /* 8029BEF4 00298E54  48 06 F6 CD */	bl StreamVertex__9CGraphicsFRC9CVector3f
 /* 8029BEF8 00298E58  C0 22 C0 14 */	lfs f1, lbl_805ADD34@sda21(r2)
 /* 8029BEFC 00298E5C  C0 42 BF F0 */	lfs f2, lbl_805ADD10@sda21(r2)

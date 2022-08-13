@@ -453,8 +453,8 @@ lbl_802F5F28:
 /* 802F5F48 002F2EA8  50 60 2E 74 */	rlwimi r0, r3, 5, 0x19, 0x1a
 /* 802F5F4C 002F2EAC  98 1E 00 20 */	stb r0, 0x20(r30)
 lbl_802F5F50:
-/* 802F5F50 002F2EB0  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 802F5F54 002F2EB4  C4 24 66 A0 */	lfsu f1, skZero3f@l(r4)
+/* 802F5F50 002F2EB0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 802F5F54 002F2EB4  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
 /* 802F5F58 002F2EB8  3C 60 80 5A */	lis r3, lbl_805A6660@ha
 /* 802F5F5C 002F2EBC  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
 /* 802F5F60 002F2EC0  80 0D 9C 08 */	lwz r0, lbl_805A87C8@sda21(r13)
@@ -542,8 +542,8 @@ lbl_802F6094:
 /* 802F609C 002F2FFC  38 BE 00 2C */	addi r5, r30, 0x2c
 /* 802F60A0 002F3000  48 05 26 C5 */	bl __mi__13CCharAnimTimeCFRC13CCharAnimTime
 /* 802F60A4 002F3004  C0 01 00 18 */	lfs f0, 0x18(r1)
-/* 802F60A8 002F3008  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802F60AC 002F300C  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 802F60A8 002F3008  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802F60AC 002F300C  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 802F60B0 002F3010  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 802F60B4 002F3014  3C 60 80 5A */	lis r3, lbl_805A6660@ha
 /* 802F60B8 002F3018  D0 01 00 40 */	stfs f0, 0x40(r1)
@@ -699,8 +699,8 @@ AdvanceViewForTransitionalPeriod__19CAnimTreeTransitionFRC13CCharAnimTime:
 /* 802F62FC 002F325C  48 05 20 B5 */	bl EqualsZero__13CCharAnimTimeCFv
 /* 802F6300 002F3260  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802F6304 002F3264  41 82 00 5C */	beq lbl_802F6360
-/* 802F6308 002F3268  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 802F630C 002F326C  C4 24 66 A0 */	lfsu f1, skZero3f@l(r4)
+/* 802F6308 002F3268  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 802F630C 002F326C  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
 /* 802F6310 002F3270  3C 60 80 5A */	lis r3, lbl_805A6660@ha
 /* 802F6314 002F3274  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
 /* 802F6318 002F3278  80 0D 9C 08 */	lwz r0, lbl_805A87C8@sda21(r13)
