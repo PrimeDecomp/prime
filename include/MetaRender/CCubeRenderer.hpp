@@ -4,7 +4,7 @@
 #include "gx_enum.h"
 #include "types.h"
 
-#include "Kyoto/Math/CColor.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "rstl/pair.hpp"

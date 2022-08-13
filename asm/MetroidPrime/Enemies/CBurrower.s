@@ -506,9 +506,9 @@ lbl_8026FE60:
 /* 8026FEF0 0026CE50  39 00 00 01 */	li r8, 1
 /* 8026FEF4 0026CE54  4B FA BF F9 */	bl PredictInterceptPos__15CProjectileInfoFRC9CVector3fRC9CVector3fRC7CPlayerbf
 /* 8026FEF8 0026CE58  C0 41 00 1C */	lfs f2, 0x1c(r1)
-/* 8026FEFC 0026CE5C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 8026FEFC 0026CE5C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8026FF00 0026CE60  C0 21 00 20 */	lfs f1, 0x20(r1)
-/* 8026FF04 0026CE64  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 8026FF04 0026CE64  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 8026FF08 0026CE68  C0 01 00 24 */	lfs f0, 0x24(r1)
 /* 8026FF0C 0026CE6C  38 61 00 58 */	addi r3, r1, 0x58
 /* 8026FF10 0026CE70  D0 41 00 34 */	stfs f2, 0x34(r1)
@@ -1085,8 +1085,8 @@ lbl_80270658:
 /* 80270710 0026D670  38 80 00 01 */	li r4, 1
 /* 80270714 0026D674  48 0A C1 AD */	bl ForceParticleCreation__11CElementGenFi
 /* 80270718 0026D678  80 7F 06 74 */	lwz r3, 0x674(r31)
-/* 8027071C 0026D67C  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 80270720 0026D680  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8027071C 0026D67C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 80270720 0026D680  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80270724 0026D684  81 83 00 00 */	lwz r12, 0(r3)
 /* 80270728 0026D688  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8027072C 0026D68C  7D 89 03 A6 */	mtctr r12

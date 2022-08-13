@@ -78,8 +78,8 @@ lbl_8029D724:
 /* 8029D790 0029A6F0  C0 1E 00 98 */	lfs f0, 0x98(r30)
 /* 8029D794 0029A6F4  EF E1 00 32 */	fmuls f31, f1, f0
 /* 8029D798 0029A6F8  F3 E1 A0 09 */	psq_st f31, 9(r1), 1, qr2
-/* 8029D79C 0029A6FC  3C 60 80 5A */	lis r3, lbl_805A6700@ha
-/* 8029D7A0 0029A700  38 83 67 00 */	addi r4, r3, lbl_805A6700@l
+/* 8029D79C 0029A6FC  3C 60 80 5A */	lis r3, sDownVector__9CVector3f@ha
+/* 8029D7A0 0029A700  38 83 67 00 */	addi r4, r3, sDownVector__9CVector3f@l
 /* 8029D7A4 0029A704  38 A1 00 1C */	addi r5, r1, 0x1c
 /* 8029D7A8 0029A708  88 01 00 09 */	lbz r0, 9(r1)
 /* 8029D7AC 0029A70C  38 61 02 48 */	addi r3, r1, 0x248
@@ -343,8 +343,8 @@ lbl_8029DB80:
 /* 8029DB98 0029AAF8  38 80 00 1E */	li r4, 0x1e
 /* 8029DB9C 0029AAFC  38 A0 00 00 */	li r5, 0
 /* 8029DBA0 0029AB00  48 0D E8 F1 */	bl GXLoadTexMtxImm
-/* 8029DBA4 0029AB04  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 8029DBA8 0029AB08  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 8029DBA4 0029AB04  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 8029DBA8 0029AB08  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 8029DBAC 0029AB0C  48 06 EA 35 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
 /* 8029DBB0 0029AB10  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 8029DBB4 0029AB14  38 81 00 68 */	addi r4, r1, 0x68
@@ -530,17 +530,17 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029DE54 0029ADB4  88 03 00 00 */	lbz r0, 0(r3)
 /* 8029DE58 0029ADB8  3C 80 80 3F */	lis r4, lbl_803ED910@ha
 /* 8029DE5C 0029ADBC  3B 84 D9 10 */	addi r28, r4, lbl_803ED910@l
-/* 8029DE60 0029ADC0  3C A0 80 5A */	lis r5, lbl_805A6700@ha
+/* 8029DE60 0029ADC0  3C A0 80 5A */	lis r5, sDownVector__9CVector3f@ha
 /* 8029DE64 0029ADC4  98 01 00 58 */	stb r0, 0x58(r1)
-/* 8029DE68 0029ADC8  3C 80 80 5A */	lis r4, lbl_805A6718@ha
+/* 8029DE68 0029ADC8  3C 80 80 5A */	lis r4, sRightVector__9CVector3f@ha
 /* 8029DE6C 0029ADCC  81 9C 00 00 */	lwz r12, 0(r28)
-/* 8029DE70 0029ADD0  3C C0 80 5A */	lis r6, lbl_805A6724@ha
+/* 8029DE70 0029ADD0  3C C0 80 5A */	lis r6, sForwardVector__9CVector3f@ha
 /* 8029DE74 0029ADD4  C0 03 00 04 */	lfs f0, 4(r3)
-/* 8029DE78 0029ADD8  38 84 67 18 */	addi r4, r4, lbl_805A6718@l
+/* 8029DE78 0029ADD8  38 84 67 18 */	addi r4, r4, sRightVector__9CVector3f@l
 /* 8029DE7C 0029ADDC  81 7C 00 04 */	lwz r11, 4(r28)
-/* 8029DE80 0029ADE0  38 A5 67 00 */	addi r5, r5, lbl_805A6700@l
+/* 8029DE80 0029ADE0  38 A5 67 00 */	addi r5, r5, sDownVector__9CVector3f@l
 /* 8029DE84 0029ADE4  D0 01 00 5C */	stfs f0, 0x5c(r1)
-/* 8029DE88 0029ADE8  38 C6 67 24 */	addi r6, r6, lbl_805A6724@l
+/* 8029DE88 0029ADE8  38 C6 67 24 */	addi r6, r6, sForwardVector__9CVector3f@l
 /* 8029DE8C 0029ADEC  81 5C 00 08 */	lwz r10, 8(r28)
 /* 8029DE90 0029ADF0  38 E1 00 1C */	addi r7, r1, 0x1c
 /* 8029DE94 0029ADF4  C0 03 00 08 */	lfs f0, 8(r3)
@@ -908,12 +908,12 @@ __ct__16CProjectedShadowFv:
 /* 8029E404 0029B364  93 C1 00 08 */	stw r30, 8(r1)
 /* 8029E408 0029B368  7C 7E 1B 78 */	mr r30, r3
 /* 8029E40C 0029B36C  48 07 1A 21 */	bl __ct__8CTextureF12ETexelFormatssi
-/* 8029E410 0029B370  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 8029E410 0029B370  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 8029E414 0029B374  38 00 00 00 */	li r0, 0
-/* 8029E418 0029B378  38 A4 67 54 */	addi r5, r4, lbl_805A6754@l
-/* 8029E41C 0029B37C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8029E418 0029B378  38 A4 67 54 */	addi r5, r4, mskInvertedBox__6CAABox@l
+/* 8029E41C 0029B37C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8029E420 0029B380  C0 05 00 00 */	lfs f0, 0(r5)
-/* 8029E424 0029B384  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8029E424 0029B384  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8029E428 0029B388  C0 42 C0 98 */	lfs f2, lbl_805ADDB8@sda21(r2)
 /* 8029E42C 0029B38C  7F C3 F3 78 */	mr r3, r30
 /* 8029E430 0029B390  D0 1E 00 68 */	stfs f0, 0x68(r30)

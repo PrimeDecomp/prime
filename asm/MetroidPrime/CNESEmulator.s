@@ -168,14 +168,14 @@ lbl_80293C38:
 /* 80293CE8 00290C48  38 E0 00 00 */	li r7, 0
 /* 80293CEC 00290C4C  48 07 7D 3D */	bl SetAlphaCompare__9CGraphicsF13ERglAlphaFuncUc11ERglAlphaOp13ERglAlphaFuncUc
 /* 80293CF0 00290C50  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 80293CF4 00290C54  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 80293CF8 00290C58  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 80293CF4 00290C54  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 80293CF8 00290C58  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80293CFC 00290C5C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80293D00 00290C60  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80293D04 00290C64  7D 89 03 A6 */	mtctr r12
 /* 80293D08 00290C68  4E 80 04 21 */	bctrl
-/* 80293D0C 00290C6C  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 80293D10 00290C70  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 80293D0C 00290C6C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 80293D10 00290C70  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 80293D14 00290C74  48 07 8A 39 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 80293D18 00290C78  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80293D1C 00290C7C  81 83 00 00 */	lwz r12, 0(r3)
@@ -333,8 +333,8 @@ sub_80293e2c:
 /* 80293F6C 00290ECC  D0 E1 00 20 */	stfs f7, 0x20(r1)
 /* 80293F70 00290ED0  EC 80 20 28 */	fsubs f4, f0, f4
 /* 80293F74 00290ED4  48 07 85 E1 */	bl SetOrtho__9CGraphicsFffffff
-/* 80293F78 00290ED8  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 80293F7C 00290EDC  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 80293F78 00290ED8  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 80293F7C 00290EDC  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 80293F80 00290EE0  48 07 86 61 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
 /* 80293F84 00290EE4  7C BF C8 50 */	subf r5, r31, r25
 /* 80293F88 00290EE8  3C 80 43 30 */	lis r4, 0x4330

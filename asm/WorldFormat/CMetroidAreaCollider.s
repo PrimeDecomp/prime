@@ -197,9 +197,9 @@ lbl_802A32A8:
 /* 802A32B0 002A0210  42 00 FF 2C */	bdnz lbl_802A31DC
 /* 802A32B4 002A0214  28 1F 00 01 */	cmplwi r31, 1
 /* 802A32B8 002A0218  40 82 00 AC */	bne lbl_802A3364
-/* 802A32BC 002A021C  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 802A32BC 002A021C  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 802A32C0 002A0220  7F A4 EB 78 */	mr r4, r29
-/* 802A32C4 002A0224  38 C3 67 54 */	addi r6, r3, lbl_805A6754@l
+/* 802A32C4 002A0224  38 C3 67 54 */	addi r6, r3, mskInvertedBox__6CAABox@l
 /* 802A32C8 002A0228  38 61 00 34 */	addi r3, r1, 0x34
 /* 802A32CC 002A022C  80 A6 00 00 */	lwz r5, 0(r6)
 /* 802A32D0 002A0230  80 06 00 04 */	lwz r0, 4(r6)
@@ -1243,9 +1243,9 @@ MovingAABoxCollisionCheck_TriVertexBox__20CMetroidAreaColliderFRC9CVector3fRC6CA
 /* 802A4164 002A10C4  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 802A4168 002A10C8  D0 41 00 14 */	stfs f2, 0x14(r1)
 /* 802A416C 002A10CC  48 03 1F 01 */	bl __ct__5CMRayFRC9CVector3fRC9CVector3ff
-/* 802A4170 002A10D0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802A4170 002A10D0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802A4174 002A10D4  7F 64 DB 78 */	mr r4, r27
-/* 802A4178 002A10D8  38 E3 66 A0 */	addi r7, r3, skZero3f@l
+/* 802A4178 002A10D8  38 E3 66 A0 */	addi r7, r3, sZeroVector__9CVector3f@l
 /* 802A417C 002A10DC  38 61 00 28 */	addi r3, r1, 0x28
 /* 802A4180 002A10E0  C0 47 00 00 */	lfs f2, 0(r7)
 /* 802A4184 002A10E4  38 A1 00 1C */	addi r5, r1, 0x1c
@@ -1360,13 +1360,13 @@ MovingAABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaColli
 /* 802A4328 002A1288  38 81 00 DC */	addi r4, r1, 0xdc
 /* 802A432C 002A128C  48 09 32 E1 */	bl GetCenterPoint__6CAABoxCFv
 /* 802A4330 002A1290  C0 61 00 EC */	lfs f3, 0xec(r1)
-/* 802A4334 002A1294  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802A4334 002A1294  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802A4338 002A1298  C0 41 00 E0 */	lfs f2, 0xe0(r1)
 /* 802A433C 002A129C  3B 00 00 00 */	li r24, 0
 /* 802A4340 002A12A0  C0 21 00 F0 */	lfs f1, 0xf0(r1)
 /* 802A4344 002A12A4  C0 01 00 E4 */	lfs f0, 0xe4(r1)
 /* 802A4348 002A12A8  EC 63 10 28 */	fsubs f3, f3, f2
-/* 802A434C 002A12AC  C4 E3 66 A0 */	lfsu f7, skZero3f@l(r3)
+/* 802A434C 002A12AC  C4 E3 66 A0 */	lfsu f7, sZeroVector__9CVector3f@l(r3)
 /* 802A4350 002A12B0  EC 41 00 28 */	fsubs f2, f1, f0
 /* 802A4354 002A12B4  C0 82 C1 60 */	lfs f4, lbl_805ADE80@sda21(r2)
 /* 802A4358 002A12B8  C1 03 00 04 */	lfs f8, 4(r3)
@@ -3301,8 +3301,8 @@ SphereCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16
 /* 802A6054 002A2FB4  7C FE 3B 78 */	mr r30, r7
 /* 802A6058 002A2FB8  7D 1F 43 78 */	mr r31, r8
 /* 802A605C 002A2FBC  48 00 0F E5 */	bl ResetInternalCounters__20CMetroidAreaColliderFv
-/* 802A6060 002A2FC0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802A6064 002A2FC4  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 802A6060 002A2FC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802A6064 002A2FC4  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 802A6068 002A2FC8  3A FA 00 08 */	addi r23, r26, 8
 /* 802A606C 002A2FCC  3A A0 00 00 */	li r21, 0
 /* 802A6070 002A2FD0  C0 23 00 04 */	lfs f1, 4(r3)
@@ -3404,11 +3404,11 @@ lbl_802A61A8:
 SphereCollisionCheck_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeR16CSphereAreaCache:
 /* 802A61CC 002A312C  94 21 FE D0 */	stwu r1, -0x130(r1)
 /* 802A61D0 002A3130  7C 08 02 A6 */	mflr r0
-/* 802A61D4 002A3134  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 802A61D4 002A3134  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 802A61D8 002A3138  90 01 01 34 */	stw r0, 0x134(r1)
 /* 802A61DC 002A313C  BE A1 01 04 */	stmw r21, 0x104(r1)
 /* 802A61E0 002A3140  7C 76 1B 78 */	mr r22, r3
-/* 802A61E4 002A3144  38 65 66 A0 */	addi r3, r5, skZero3f@l
+/* 802A61E4 002A3144  38 65 66 A0 */	addi r3, r5, sZeroVector__9CVector3f@l
 /* 802A61E8 002A3148  7C 97 23 78 */	mr r23, r4
 /* 802A61EC 002A314C  3B 60 00 00 */	li r27, 0
 /* 802A61F0 002A3150  3B 40 00 00 */	li r26, 0
@@ -4053,11 +4053,11 @@ AABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16C
 /* 802A6B44 002A3AA4  38 61 00 34 */	addi r3, r1, 0x34
 /* 802A6B48 002A3AA8  48 09 0A C5 */	bl GetCenterPoint__6CAABoxCFv
 /* 802A6B4C 002A3AAC  C0 7C 00 10 */	lfs f3, 0x10(r28)
-/* 802A6B50 002A3AB0  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 802A6B50 002A3AB0  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 802A6B54 002A3AB4  C0 5C 00 04 */	lfs f2, 4(r28)
 /* 802A6B58 002A3AB8  3A FB 00 08 */	addi r23, r27, 8
 /* 802A6B5C 002A3ABC  C0 3C 00 14 */	lfs f1, 0x14(r28)
-/* 802A6B60 002A3AC0  3B 23 67 54 */	addi r25, r3, lbl_805A6754@l
+/* 802A6B60 002A3AC0  3B 23 67 54 */	addi r25, r3, mskInvertedBox__6CAABox@l
 /* 802A6B64 002A3AC4  C0 1C 00 08 */	lfs f0, 8(r28)
 /* 802A6B68 002A3AC8  EC 63 10 28 */	fsubs f3, f3, f2
 /* 802A6B6C 002A3ACC  C0 82 C1 60 */	lfs f4, lbl_805ADE80@sda21(r2)
@@ -4134,9 +4134,9 @@ lbl_802A6C2C:
 /* 802A6C7C 002A3BDC  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 802A6C80 002A3BE0  28 00 00 01 */	cmplwi r0, 1
 /* 802A6C84 002A3BE4  40 82 00 C4 */	bne lbl_802A6D48
-/* 802A6C88 002A3BE8  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 802A6C88 002A3BE8  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 802A6C8C 002A3BEC  C0 99 00 04 */	lfs f4, 4(r25)
-/* 802A6C90 002A3BF0  C0 A3 67 54 */	lfs f5, lbl_805A6754@l(r3)
+/* 802A6C90 002A3BF0  C0 A3 67 54 */	lfs f5, mskInvertedBox__6CAABox@l(r3)
 /* 802A6C94 002A3BF4  7E 24 8B 78 */	mr r4, r17
 /* 802A6C98 002A3BF8  C0 79 00 08 */	lfs f3, 8(r25)
 /* 802A6C9C 002A3BFC  38 61 01 08 */	addi r3, r1, 0x108
@@ -4281,11 +4281,11 @@ lbl_802A6E90:
 /* 802A6E94 002A3DF4  38 61 00 08 */	addi r3, r1, 8
 /* 802A6E98 002A3DF8  4B FF BE A5 */	bl GetTriangleArray__Q212CAreaOctTree4NodeCFv
 /* 802A6E9C 002A3DFC  83 81 00 08 */	lwz r28, 8(r1)
-/* 802A6EA0 002A3E00  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 802A6EA0 002A3E00  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 802A6EA4 002A3E04  3C 60 80 59 */	lis r3, lbl_80597BAC@ha
 /* 802A6EA8 002A3E08  83 B7 00 1C */	lwz r29, 0x1c(r23)
 /* 802A6EAC 002A3E0C  A3 5C 00 18 */	lhz r26, 0x18(r28)
-/* 802A6EB0 002A3E10  3B C4 67 54 */	addi r30, r4, lbl_805A6754@l
+/* 802A6EB0 002A3E10  3B C4 67 54 */	addi r30, r4, mskInvertedBox__6CAABox@l
 /* 802A6EB4 002A3E14  83 35 00 08 */	lwz r25, 8(r21)
 /* 802A6EB8 002A3E18  3B E3 7B AC */	addi r31, r3, lbl_80597BAC@l
 /* 802A6EBC 002A3E1C  83 15 00 04 */	lwz r24, 4(r21)
@@ -4329,9 +4329,9 @@ lbl_802A6EFC:
 /* 802A6F4C 002A3EAC  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 802A6F50 002A3EB0  28 00 00 01 */	cmplwi r0, 1
 /* 802A6F54 002A3EB4  40 82 00 C4 */	bne lbl_802A7018
-/* 802A6F58 002A3EB8  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 802A6F58 002A3EB8  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 802A6F5C 002A3EBC  C0 9E 00 04 */	lfs f4, 4(r30)
-/* 802A6F60 002A3EC0  C0 A3 67 54 */	lfs f5, lbl_805A6754@l(r3)
+/* 802A6F60 002A3EC0  C0 A3 67 54 */	lfs f5, mskInvertedBox__6CAABox@l(r3)
 /* 802A6F64 002A3EC4  7F 03 C3 78 */	mr r3, r24
 /* 802A6F68 002A3EC8  C0 7E 00 08 */	lfs f3, 8(r30)
 /* 802A6F6C 002A3ECC  7E C4 B3 78 */	mr r4, r22

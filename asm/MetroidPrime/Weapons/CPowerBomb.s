@@ -123,9 +123,9 @@ lbl_8014D98C:
 /* 8014D9BC 0014A91C  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8014D9C0 0014A920  41 82 00 70 */	beq lbl_8014DA30
 /* 8014D9C4 0014A924  C0 5C 00 60 */	lfs f2, 0x60(r28)
-/* 8014D9C8 0014A928  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8014D9C8 0014A928  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8014D9CC 0014A92C  C0 3C 00 50 */	lfs f1, 0x50(r28)
-/* 8014D9D0 0014A930  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 8014D9D0 0014A930  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8014D9D4 0014A934  C0 1C 00 40 */	lfs f0, 0x40(r28)
 /* 8014D9D8 0014A938  38 61 00 24 */	addi r3, r1, 0x24
 /* 8014D9DC 0014A93C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)

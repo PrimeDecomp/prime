@@ -141,8 +141,8 @@ __ct__10CAxisAngleFRC9CVector3f:
 
 .global __sinit_CAxisAngle_cpp
 __sinit_CAxisAngle_cpp:
-/* 8001B5A0 00018500  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8001B5A4 00018504  C4 44 66 A0 */	lfsu f2, skZero3f@l(r4)
+/* 8001B5A0 00018500  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8001B5A4 00018504  C4 44 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r4)
 /* 8001B5A8 00018508  3C 60 80 57 */	lis r3, lbl_8056A5E8@ha
 /* 8001B5AC 0001850C  C0 24 00 04 */	lfs f1, 4(r4)
 /* 8001B5B0 00018510  D4 43 A5 E8 */	stfsu f2, lbl_8056A5E8@l(r3)

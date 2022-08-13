@@ -359,8 +359,8 @@ lbl_8000E2F4:
 
 .global SkipCinematic__18CFirstPersonCameraFv
 SkipCinematic__18CFirstPersonCameraFv:
-/* 8000E318 0000B278  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8000E31C 0000B27C  C4 24 66 A0 */	lfsu f1, skZero3f@l(r4)
+/* 8000E318 0000B278  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8000E31C 0000B27C  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
 /* 8000E320 0000B280  C0 02 80 B0 */	lfs f0, lbl_805A9DD0@sda21(r2)
 /* 8000E324 0000B284  D0 23 01 C8 */	stfs f1, 0x1c8(r3)
 /* 8000E328 0000B288  C0 24 00 04 */	lfs f1, 4(r4)
@@ -451,9 +451,9 @@ UpdateTransform__18CFirstPersonCameraFR13CStateManagerf:
 /* 8000E44C 0000B3AC  83 C3 00 04 */	lwz r30, 4(r3)
 /* 8000E450 0000B3B0  28 1E 00 00 */	cmplwi r30, 0
 /* 8000E454 0000B3B4  40 82 00 40 */	bne lbl_8000E494
-/* 8000E458 0000B3B8  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8000E458 0000B3B8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8000E45C 0000B3BC  38 7F 00 34 */	addi r3, r31, 0x34
-/* 8000E460 0000B3C0  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8000E460 0000B3C0  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8000E464 0000B3C4  48 30 46 DD */	bl __as__12CTransform4fFRC12CTransform4f
 /* 8000E468 0000B3C8  88 1F 00 E4 */	lbz r0, 0xe4(r31)
 /* 8000E46C 0000B3CC  38 60 00 01 */	li r3, 1
@@ -553,8 +553,8 @@ lbl_8000E574:
 /* 8000E5D4 0000B534  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 8000E5D8 0000B538  41 82 00 30 */	beq lbl_8000E608
 /* 8000E5DC 0000B53C  C0 02 80 B0 */	lfs f0, lbl_805A9DD0@sda21(r2)
-/* 8000E5E0 0000B540  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 8000E5E4 0000B544  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8000E5E0 0000B540  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 8000E5E4 0000B544  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8000E5E8 0000B548  C0 22 80 CC */	lfs f1, lbl_805A9DEC@sda21(r2)
 /* 8000E5EC 0000B54C  D0 01 04 40 */	stfs f0, 0x440(r1)
 /* 8000E5F0 0000B550  38 61 04 40 */	addi r3, r1, 0x440
@@ -630,9 +630,9 @@ lbl_8000E694:
 /* 8000E700 0000B660  EF DE 08 2A */	fadds f30, f30, f1
 /* 8000E704 0000B664  EF BD 00 2A */	fadds f29, f29, f0
 /* 8000E708 0000B668  48 0D B4 25 */	bl ResetCameraBobTime__16CPlayerCameraBobFv
-/* 8000E70C 0000B66C  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8000E70C 0000B66C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8000E710 0000B670  38 7C 00 2C */	addi r3, r28, 0x2c
-/* 8000E714 0000B674  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8000E714 0000B674  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8000E718 0000B678  48 30 44 29 */	bl __as__12CTransform4fFRC12CTransform4f
 lbl_8000E71C:
 /* 8000E71C 0000B67C  80 1E 03 04 */	lwz r0, 0x304(r30)
@@ -1662,9 +1662,9 @@ lbl_8000F618:
 /* 8000F67C 0000C5DC  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000F680 0000C5E0  40 81 00 20 */	ble lbl_8000F6A0
 lbl_8000F684:
-/* 8000F684 0000C5E4  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8000F684 0000C5E4  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8000F688 0000C5E8  38 61 08 18 */	addi r3, r1, 0x818
-/* 8000F68C 0000C5EC  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8000F68C 0000C5EC  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8000F690 0000C5F0  48 30 34 B1 */	bl __as__12CTransform4fFRC12CTransform4f
 /* 8000F694 0000C5F4  38 7C 00 2C */	addi r3, r28, 0x2c
 /* 8000F698 0000C5F8  38 81 08 18 */	addi r4, r1, 0x818
@@ -2058,7 +2058,7 @@ lbl_8000FC14:
 /* 8000FC3C 0000CB9C  48 30 2F 39 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8000FC40 0000CBA0  C0 22 80 B0 */	lfs f1, lbl_805A9DD0@sda21(r2)
 /* 8000FC44 0000CBA4  38 A0 00 00 */	li r5, 0
-/* 8000FC48 0000CBA8  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8000FC48 0000CBA8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8000FC4C 0000CBAC  7F C3 F3 78 */	mr r3, r30
 /* 8000FC50 0000CBB0  D0 3E 01 C0 */	stfs f1, 0x1c0(r30)
 /* 8000FC54 0000CBB4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -2066,7 +2066,7 @@ lbl_8000FC14:
 /* 8000FC5C 0000CBBC  88 1E 01 C6 */	lbz r0, 0x1c6(r30)
 /* 8000FC60 0000CBC0  50 A0 3E 30 */	rlwimi r0, r5, 7, 0x18, 0x18
 /* 8000FC64 0000CBC4  98 1E 01 C6 */	stb r0, 0x1c6(r30)
-/* 8000FC68 0000CBC8  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
+/* 8000FC68 0000CBC8  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
 /* 8000FC6C 0000CBCC  D0 1E 01 C8 */	stfs f0, 0x1c8(r30)
 /* 8000FC70 0000CBD0  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8000FC74 0000CBD4  D0 1E 01 CC */	stfs f0, 0x1cc(r30)

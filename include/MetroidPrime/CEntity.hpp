@@ -40,4 +40,6 @@ protected:
   bool x30_27_notInArea : 1;
 };
 
+CHECK_SIZEOF(CEntity, 0x34)
+
 #endif

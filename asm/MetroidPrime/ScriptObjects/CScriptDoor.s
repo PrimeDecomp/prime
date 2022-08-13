@@ -1473,8 +1473,8 @@ lbl_8007F208:
 /* 8007F26C 0007C1CC  4B F9 C2 C9 */	bl Identity__10CAxisAngleFv
 /* 8007F270 0007C1D0  7C 71 1B 78 */	mr r17, r3
 /* 8007F274 0007C1D4  4B F9 C2 C1 */	bl Identity__10CAxisAngleFv
-/* 8007F278 0007C1D8  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8007F27C 0007C1DC  C4 44 66 A0 */	lfsu f2, skZero3f@l(r4)
+/* 8007F278 0007C1D8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8007F27C 0007C1DC  C4 44 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r4)
 /* 8007F280 0007C1E0  C0 02 89 70 */	lfs f0, lbl_805AA690@sda21(r2)
 /* 8007F284 0007C1E4  28 1C 00 00 */	cmplwi r28, 0
 /* 8007F288 0007C1E8  C0 64 00 04 */	lfs f3, 4(r4)

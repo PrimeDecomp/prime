@@ -72,6 +72,13 @@ inline void uninitialized_copy_n(D* dest, S* src, size_t count) {
   }
   // destroy(src, src + count); ??
 }
+
+template < typename D, typename S >
+inline void uninitialized_fill_n(D dest, int count, const S& value) {
+  for (int i = 0; i < count; ++dest, ++i) {
+    construct(dest, value);
+  }
+}
 } // namespace rstl
 
 #endif

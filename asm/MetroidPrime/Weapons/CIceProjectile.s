@@ -292,9 +292,9 @@ lbl_801F1C6C:
 /* 801F1D54 001EECB4  D0 21 00 4C */	stfs f1, 0x4c(r1)
 /* 801F1D58 001EECB8  D0 01 00 50 */	stfs f0, 0x50(r1)
 /* 801F1D5C 001EECBC  48 12 2A F5 */	bl AsNormalized__9CVector3fCFv
-/* 801F1D60 001EECC0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801F1D60 001EECC0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801F1D64 001EECC4  38 61 00 60 */	addi r3, r1, 0x60
-/* 801F1D68 001EECC8  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801F1D68 001EECC8  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801F1D6C 001EECCC  38 A1 00 24 */	addi r5, r1, 0x24
 /* 801F1D70 001EECD0  38 C1 00 48 */	addi r6, r1, 0x48
 /* 801F1D74 001EECD4  48 12 1D 9D */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
@@ -340,8 +340,8 @@ lbl_801F1C6C:
 /* 801F1E14 001EED74  38 80 00 01 */	li r4, 1
 /* 801F1E18 001EED78  48 12 AA A9 */	bl ForceParticleCreation__11CElementGenFi
 /* 801F1E1C 001EED7C  80 7F 00 04 */	lwz r3, 4(r31)
-/* 801F1E20 001EED80  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 801F1E24 001EED84  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 801F1E20 001EED80  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 801F1E24 001EED84  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 801F1E28 001EED88  81 83 00 00 */	lwz r12, 0(r3)
 /* 801F1E2C 001EED8C  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801F1E30 001EED90  7D 89 03 A6 */	mtctr r12
@@ -2090,8 +2090,8 @@ Touch__20CIceAttackProjectileFR6CActorR13CStateManager:
 /* 801F3770 001F06D0  39 40 00 00 */	li r10, 0
 /* 801F3774 001F06D4  38 00 00 03 */	li r0, 3
 /* 801F3778 001F06D8  90 81 00 24 */	stw r4, 0x24(r1)
-/* 801F377C 001F06DC  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 801F3780 001F06E0  39 24 66 A0 */	addi r9, r4, skZero3f@l
+/* 801F377C 001F06DC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 801F3780 001F06E0  39 24 66 A0 */	addi r9, r4, sZeroVector__9CVector3f@l
 /* 801F3784 001F06E4  38 A1 00 14 */	addi r5, r1, 0x14
 /* 801F3788 001F06E8  90 61 00 20 */	stw r3, 0x20(r1)
 /* 801F378C 001F06EC  38 81 00 1C */	addi r4, r1, 0x1c

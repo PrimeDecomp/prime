@@ -2243,9 +2243,9 @@ lbl_800112F8:
 /* 800113E0 0000E340  38 81 01 B8 */	addi r4, r1, 0x1b8
 /* 800113E4 0000E344  38 C1 00 78 */	addi r6, r1, 0x78
 /* 800113E8 0000E348  48 03 B3 15 */	bl "BuildColliderList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CActorRC6CAABox"
-/* 800113EC 0000E34C  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 800113EC 0000E34C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 800113F0 0000E350  7F E3 FB 78 */	mr r3, r31
-/* 800113F4 0000E354  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 800113F4 0000E354  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 800113F8 0000E358  38 C1 01 00 */	addi r6, r1, 0x100
 /* 800113FC 0000E35C  38 81 00 E0 */	addi r4, r1, 0xe0
 /* 80011400 0000E360  48 17 1F A1 */	bl DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
@@ -2291,9 +2291,9 @@ lbl_80011428:
 /* 80011498 0000E3F8  48 30 16 DD */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8001149C 0000E3FC  38 81 00 E0 */	addi r4, r1, 0xe0
 /* 800114A0 0000E400  38 01 01 00 */	addi r0, r1, 0x100
-/* 800114A4 0000E404  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 800114A4 0000E404  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 800114A8 0000E408  90 81 01 80 */	stw r4, 0x180(r1)
-/* 800114AC 0000E40C  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 800114AC 0000E40C  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 800114B0 0000E410  90 01 01 84 */	stw r0, 0x184(r1)
 /* 800114B4 0000E414  7F 83 E3 78 */	mr r3, r28
 /* 800114B8 0000E418  48 30 16 BD */	bl __ct__12CTransform4fFRC12CTransform4f
@@ -2406,10 +2406,10 @@ lbl_800115CC:
 /* 80011638 0000E598  39 00 00 00 */	li r8, 0
 /* 8001163C 0000E59C  38 00 00 03 */	li r0, 3
 /* 80011640 0000E5A0  90 81 00 64 */	stw r4, 0x64(r1)
-/* 80011644 0000E5A4  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 80011644 0000E5A4  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80011648 0000E5A8  38 81 00 18 */	addi r4, r1, 0x18
 /* 8001164C 0000E5AC  90 61 00 60 */	stw r3, 0x60(r1)
-/* 80011650 0000E5B0  39 25 66 A0 */	addi r9, r5, skZero3f@l
+/* 80011650 0000E5B0  39 25 66 A0 */	addi r9, r5, sZeroVector__9CVector3f@l
 /* 80011654 0000E5B4  7F E3 FB 78 */	mr r3, r31
 /* 80011658 0000E5B8  38 A1 00 14 */	addi r5, r1, 0x14
 /* 8001165C 0000E5BC  91 01 00 6C */	stw r8, 0x6c(r1)
@@ -2947,9 +2947,9 @@ GetDamageVulnerability__7CPlayerCFv:
 /* 80011D50 0000ECB0  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80011D54 0000ECB4  7C 08 02 A6 */	mflr r0
 /* 80011D58 0000ECB8  39 00 00 00 */	li r8, 0
-/* 80011D5C 0000ECBC  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80011D5C 0000ECBC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80011D60 0000ECC0  90 01 00 34 */	stw r0, 0x34(r1)
-/* 80011D64 0000ECC4  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80011D64 0000ECC4  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80011D68 0000ECC8  88 A1 00 0C */	lbz r5, 0xc(r1)
 /* 80011D6C 0000ECCC  51 05 3E 30 */	rlwimi r5, r8, 7, 0x18, 0x18
 /* 80011D70 0000ECD0  C0 02 81 0C */	lfs f0, lbl_805A9E2C@sda21(r2)
@@ -2961,8 +2961,8 @@ GetDamageVulnerability__7CPlayerCFv:
 /* 80011D88 0000ECE8  91 01 00 10 */	stw r8, 0x10(r1)
 /* 80011D8C 0000ECEC  51 07 2E B4 */	rlwimi r7, r8, 5, 0x1a, 0x1a
 /* 80011D90 0000ECF0  98 A1 00 0C */	stb r5, 0xc(r1)
-/* 80011D94 0000ECF4  3C A0 80 5A */	lis r5, lbl_805A66F4@ha
-/* 80011D98 0000ECF8  38 A5 66 F4 */	addi r5, r5, lbl_805A66F4@l
+/* 80011D94 0000ECF4  3C A0 80 5A */	lis r5, sUpVector__9CVector3f@ha
+/* 80011D98 0000ECF8  38 A5 66 F4 */	addi r5, r5, sUpVector__9CVector3f@l
 /* 80011D9C 0000ECFC  98 C1 00 0C */	stb r6, 0xc(r1)
 /* 80011DA0 0000ED00  38 C1 00 10 */	addi r6, r1, 0x10
 /* 80011DA4 0000ED04  98 E1 00 14 */	stb r7, 0x14(r1)
@@ -3996,14 +3996,14 @@ lbl_80012B20:
 /* 80012C0C 0000FB6C  48 03 9A F1 */	bl "BuildColliderList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC6CActorRC6CAABox"
 /* 80012C10 0000FB70  7F 23 CB 78 */	mr r3, r25
 /* 80012C14 0000FB74  48 10 7D AD */	bl GetBaseBoundingBox__13CPhysicsActorCFv
-/* 80012C18 0000FB78  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80012C18 0000FB78  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80012C1C 0000FB7C  C0 79 00 60 */	lfs f3, 0x60(r25)
-/* 80012C20 0000FB80  38 E4 66 A0 */	addi r7, r4, skZero3f@l
+/* 80012C20 0000FB80  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 80012C24 0000FB84  C0 59 00 50 */	lfs f2, 0x50(r25)
 /* 80012C28 0000FB88  C0 39 00 40 */	lfs f1, 0x40(r25)
 /* 80012C2C 0000FB8C  3C C0 80 3F */	lis r6, lbl_803ECAD0@ha
 /* 80012C30 0000FB90  C0 07 00 00 */	lfs f0, 0(r7)
-/* 80012C34 0000FB94  3C A0 80 5A */	lis r5, skIdentity4f@ha
+/* 80012C34 0000FB94  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
 /* 80012C38 0000FB98  3C 80 80 3E */	lis r4, lbl_803D97E4@ha
 /* 80012C3C 0000FB9C  FF 80 10 18 */	frsp f28, f2
 /* 80012C40 0000FBA0  D0 1F 00 00 */	stfs f0, 0(r31)
@@ -4015,7 +4015,7 @@ lbl_80012B20:
 /* 80012C58 0000FBB8  7C 7A 1B 78 */	mr r26, r3
 /* 80012C5C 0000FBBC  3B 66 CA D0 */	addi r27, r6, lbl_803ECAD0@l
 /* 80012C60 0000FBC0  D0 1F 00 04 */	stfs f0, 4(r31)
-/* 80012C64 0000FBC4  3B 85 66 70 */	addi r28, r5, skIdentity4f@l
+/* 80012C64 0000FBC4  3B 85 66 70 */	addi r28, r5, sIdentity__12CTransform4f@l
 /* 80012C68 0000FBC8  3B A4 97 E4 */	addi r29, r4, lbl_803D97E4@l
 /* 80012C6C 0000FBCC  3B 20 00 00 */	li r25, 0
 /* 80012C70 0000FBD0  C0 07 00 08 */	lfs f0, 8(r7)
@@ -6295,9 +6295,9 @@ lbl_80014C30:
 /* 80014C64 00011BC4  4B FF C5 29 */	bl ApplySubmergedPitchBend__7CPlayerFR10CSfxHandle
 /* 80014C68 00011BC8  48 00 00 D4 */	b lbl_80014D3C
 lbl_80014C6C:
-/* 80014C6C 00011BCC  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80014C6C 00011BCC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80014C70 00011BD0  7F C3 F3 78 */	mr r3, r30
-/* 80014C74 00011BD4  38 C4 66 A0 */	addi r6, r4, skZero3f@l
+/* 80014C74 00011BD4  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
 /* 80014C78 00011BD8  7F E4 FB 78 */	mr r4, r31
 /* 80014C7C 00011BDC  C0 46 00 00 */	lfs f2, 0(r6)
 /* 80014C80 00011BE0  38 A1 00 24 */	addi r5, r1, 0x24
@@ -7892,14 +7892,14 @@ lbl_80016310:
 /* 80016364 000132C4  38 61 00 30 */	addi r3, r1, 0x30
 /* 80016368 000132C8  38 81 00 24 */	addi r4, r1, 0x24
 /* 8001636C 000132CC  48 2F DA 65 */	bl __ct__13CUnitVector3fFRC9CVector3f
-/* 80016370 000132D0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80016370 000132D0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80016374 000132D4  7C 7B 1B 78 */	mr r27, r3
-/* 80016378 000132D8  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80016378 000132D8  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 8001637C 000132DC  38 61 00 3C */	addi r3, r1, 0x3c
 /* 80016380 000132E0  48 2F DA 51 */	bl __ct__13CUnitVector3fFRC9CVector3f
-/* 80016384 000132E4  3C 80 80 5A */	lis r4, lbl_805A66F4@ha
+/* 80016384 000132E4  3C 80 80 5A */	lis r4, sUpVector__9CVector3f@ha
 /* 80016388 000132E8  7F 65 DB 78 */	mr r5, r27
-/* 8001638C 000132EC  38 C4 66 F4 */	addi r6, r4, lbl_805A66F4@l
+/* 8001638C 000132EC  38 C4 66 F4 */	addi r6, r4, sUpVector__9CVector3f@l
 /* 80016390 000132F0  7C 64 1B 78 */	mr r4, r3
 /* 80016394 000132F4  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 80016398 000132F8  48 2F D7 79 */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
@@ -7918,9 +7918,9 @@ lbl_80016310:
 /* 800163CC 0001332C  98 1D 00 E4 */	stb r0, 0xe4(r29)
 /* 800163D0 00013330  48 00 00 3C */	b lbl_8001640C
 lbl_800163D4:
-/* 800163D4 00013334  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 800163D4 00013334  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 800163D8 00013338  38 7D 00 34 */	addi r3, r29, 0x34
-/* 800163DC 0001333C  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 800163DC 0001333C  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 800163E0 00013340  48 2F C7 61 */	bl __as__12CTransform4fFRC12CTransform4f
 /* 800163E4 00013344  88 1D 00 E4 */	lbz r0, 0xe4(r29)
 /* 800163E8 00013348  38 60 00 01 */	li r3, 1
@@ -8025,10 +8025,10 @@ PreThink__7CPlayerFfR13CStateManager:
 /* 80016540 000134A0  38 00 00 00 */	li r0, 0
 /* 80016544 000134A4  C0 02 81 0C */	lfs f0, lbl_805A9E2C@sda21(r2)
 /* 80016548 000134A8  98 03 05 58 */	stb r0, 0x558(r3)
-/* 8001654C 000134AC  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8001654C 000134AC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80016550 000134B0  D0 03 05 5C */	stfs f0, 0x55c(r3)
 /* 80016554 000134B4  D0 03 05 60 */	stfs f0, 0x560(r3)
-/* 80016558 000134B8  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
+/* 80016558 000134B8  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
 /* 8001655C 000134BC  D0 03 05 64 */	stfs f0, 0x564(r3)
 /* 80016560 000134C0  C0 04 00 04 */	lfs f0, 4(r4)
 /* 80016564 000134C4  D0 03 05 68 */	stfs f0, 0x568(r3)
@@ -9166,9 +9166,9 @@ lbl_8001751C:
 /* 80017548 000144A8  40 80 00 08 */	bge lbl_80017550
 /* 8001754C 000144AC  48 00 01 08 */	b lbl_80017654
 lbl_80017550:
-/* 80017550 000144B0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80017550 000144B0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80017554 000144B4  7F C3 F3 78 */	mr r3, r30
-/* 80017558 000144B8  38 C4 66 A0 */	addi r6, r4, skZero3f@l
+/* 80017558 000144B8  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
 /* 8001755C 000144BC  7F E4 FB 78 */	mr r4, r31
 /* 80017560 000144C0  C0 46 00 00 */	lfs f2, 0(r6)
 /* 80017564 000144C4  38 A1 00 14 */	addi r5, r1, 0x14
@@ -9270,9 +9270,9 @@ SetSpawnedMorphBallState__7CPlayerFQ27CPlayer21EPlayerMorphBallStateR13CStateMan
 /* 800176D0 00014630  40 80 00 08 */	bge lbl_800176D8
 /* 800176D4 00014634  48 00 00 F8 */	b lbl_800177CC
 lbl_800176D8:
-/* 800176D8 00014638  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 800176D8 00014638  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800176DC 0001463C  7F E3 FB 78 */	mr r3, r31
-/* 800176E0 00014640  38 C4 66 A0 */	addi r6, r4, skZero3f@l
+/* 800176E0 00014640  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
 /* 800176E4 00014644  7F C4 F3 78 */	mr r4, r30
 /* 800176E8 00014648  C0 46 00 00 */	lfs f2, 0(r6)
 /* 800176EC 0001464C  38 A1 00 14 */	addi r5, r1, 0x14
@@ -11008,8 +11008,8 @@ UpdateArmAndGunTransforms__7CPlayerFfR13CStateManager:
 /* 80018F7C 00015EDC  F3 81 00 78 */	psq_st f28, 120(r1), 0, qr0
 /* 80018F80 00015EE0  93 E1 00 6C */	stw r31, 0x6c(r1)
 /* 80018F84 00015EE4  93 C1 00 68 */	stw r30, 0x68(r1)
-/* 80018F88 00015EE8  3C A0 80 5A */	lis r5, skZero3f@ha
-/* 80018F8C 00015EEC  C4 45 66 A0 */	lfsu f2, skZero3f@l(r5)
+/* 80018F88 00015EE8  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
+/* 80018F8C 00015EEC  C4 45 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r5)
 /* 80018F90 00015EF0  FF 80 08 90 */	fmr f28, f1
 /* 80018F94 00015EF4  7C 7E 1B 78 */	mr r30, r3
 /* 80018F98 00015EF8  C0 25 00 04 */	lfs f1, 4(r5)
@@ -11628,13 +11628,13 @@ lbl_80019848:
 /* 800198A0 00016800  D0 21 00 54 */	stfs f1, 0x54(r1)
 /* 800198A4 00016804  48 2F 91 DD */	bl Rotate__12CTransform4fCFRC9CVector3f
 /* 800198A8 00016808  C0 41 00 18 */	lfs f2, 0x18(r1)
-/* 800198AC 0001680C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 800198AC 0001680C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800198B0 00016810  C0 21 00 1C */	lfs f1, 0x1c(r1)
-/* 800198B4 00016814  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 800198B4 00016814  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 800198B8 00016818  C0 01 00 20 */	lfs f0, 0x20(r1)
-/* 800198BC 0001681C  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 800198BC 0001681C  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 800198C0 00016820  D0 41 00 54 */	stfs f2, 0x54(r1)
-/* 800198C4 00016824  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 800198C4 00016824  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 800198C8 00016828  38 61 00 60 */	addi r3, r1, 0x60
 /* 800198CC 0001682C  38 A1 00 54 */	addi r5, r1, 0x54
 /* 800198D0 00016830  D0 21 00 58 */	stfs f1, 0x58(r1)
@@ -11769,9 +11769,9 @@ UpdateAimTargetPrediction__7CPlayerFRC12CTransform4fR13CStateManager:
 /* 80019AC4 00016A24  C0 02 81 40 */	lfs f0, lbl_805A9E60@sda21(r2)
 /* 80019AC8 00016A28  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80019ACC 00016A2C  40 80 00 18 */	bge lbl_80019AE4
-/* 80019AD0 00016A30  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80019AD0 00016A30  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80019AD4 00016A34  38 7F 04 04 */	addi r3, r31, 0x404
-/* 80019AD8 00016A38  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80019AD8 00016A38  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80019ADC 00016A3C  48 00 01 6D */	bl sub_80019c48
 /* 80019AE0 00016A40  48 00 00 20 */	b lbl_80019B00
 lbl_80019AE4:
@@ -12365,9 +12365,9 @@ __ct__7CPlayerF9TUniqueIdRC12CTransform4fRC6CAABoxUi9CVector3fffffRC13CMaterialL
 /* 8001A2F8 00017258  48 00 12 3D */	bl Identity__10CAxisAngleFv
 /* 8001A2FC 0001725C  7C 77 1B 78 */	mr r23, r3
 /* 8001A300 00017260  48 00 12 35 */	bl Identity__10CAxisAngleFv
-/* 8001A304 00017264  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8001A304 00017264  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8001A308 00017268  A1 98 00 00 */	lhz r12, 0(r24)
-/* 8001A30C 0001726C  3B A4 66 A0 */	addi r29, r4, skZero3f@l
+/* 8001A30C 0001726C  3B A4 66 A0 */	addi r29, r4, sZeroVector__9CVector3f@l
 /* 8001A310 00017270  39 61 01 10 */	addi r11, r1, 0x110
 /* 8001A314 00017274  C0 7D 00 00 */	lfs f3, 0(r29)
 /* 8001A318 00017278  FC 20 E8 90 */	fmr f1, f29
@@ -12515,13 +12515,13 @@ lbl_8001A404:
 /* 8001A544 000174A4  91 1F 03 6C */	stw r8, 0x36c(r31)
 /* 8001A548 000174A8  91 1F 03 70 */	stw r8, 0x370(r31)
 /* 8001A54C 000174AC  99 1F 03 74 */	stb r8, 0x374(r31)
-/* 8001A550 000174B0  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8001A550 000174B0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8001A554 000174B4  3C 60 80 3D */	lis r3, lbl_803CC4F8@ha
 /* 8001A558 000174B8  C0 42 82 44 */	lfs f2, lbl_805A9F64@sda21(r2)
 /* 8001A55C 000174BC  D0 9F 03 78 */	stfs f4, 0x378(r31)
 /* 8001A560 000174C0  38 63 C4 F8 */	addi r3, r3, lbl_803CC4F8@l
 /* 8001A564 000174C4  C0 22 81 68 */	lfs f1, lbl_805A9E88@sda21(r2)
-/* 8001A568 000174C8  38 C4 66 A0 */	addi r6, r4, skZero3f@l
+/* 8001A568 000174C8  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
 /* 8001A56C 000174CC  99 1F 03 7C */	stb r8, 0x37c(r31)
 /* 8001A570 000174D0  38 83 00 1D */	addi r4, r3, 0x1d
 /* 8001A574 000174D4  C0 02 81 B4 */	lfs f0, lbl_805A9ED4@sda21(r2)
@@ -12605,12 +12605,12 @@ lbl_8001A660:
 lbl_8001A6A8:
 /* 8001A6A8 00017608  90 1F 04 A0 */	stw r0, 0x4a0(r31)
 /* 8001A6AC 0001760C  39 00 00 00 */	li r8, 0
-/* 8001A6B0 00017610  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8001A6B0 00017610  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8001A6B4 00017614  3C 60 80 3D */	lis r3, lbl_803CC4F8@ha
 /* 8001A6B8 00017618  91 1F 04 A4 */	stw r8, 0x4a4(r31)
 /* 8001A6BC 0001761C  38 63 C4 F8 */	addi r3, r3, lbl_803CC4F8@l
 /* 8001A6C0 00017620  C0 42 81 0C */	lfs f2, lbl_805A9E2C@sda21(r2)
-/* 8001A6C4 00017624  38 E4 66 A0 */	addi r7, r4, skZero3f@l
+/* 8001A6C4 00017624  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 8001A6C8 00017628  38 C0 FF FF */	li r6, -1
 /* 8001A6CC 0001762C  C0 02 81 00 */	lfs f0, lbl_805A9E20@sda21(r2)
 /* 8001A6D0 00017630  D0 5F 04 F8 */	stfs f2, 0x4f8(r31)
@@ -12714,9 +12714,9 @@ lbl_8001A854:
 /* 8001A854 000177B4  92 FF 07 6C */	stw r23, 0x76c(r31)
 /* 8001A858 000177B8  38 00 00 00 */	li r0, 0
 /* 8001A85C 000177BC  C0 22 81 0C */	lfs f1, lbl_805A9E2C@sda21(r2)
-/* 8001A860 000177C0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8001A860 000177C0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8001A864 000177C4  90 1F 07 70 */	stw r0, 0x770(r31)
-/* 8001A868 000177C8  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8001A868 000177C8  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8001A86C 000177CC  FC 40 08 90 */	fmr f2, f1
 /* 8001A870 000177D0  38 7F 07 A0 */	addi r3, r31, 0x7a0
 /* 8001A874 000177D4  D0 3F 07 74 */	stfs f1, 0x774(r31)
@@ -12737,9 +12737,9 @@ lbl_8001A854:
 /* 8001A8B0 00017810  D0 1F 07 9C */	stfs f0, 0x79c(r31)
 /* 8001A8B4 00017814  4B FF D4 01 */	bl __ct__Q27CPlayer11CVisorSteamFv
 /* 8001A8B8 00017818  38 00 FF FF */	li r0, -1
-/* 8001A8BC 0001781C  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8001A8BC 0001781C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8001A8C0 00017820  90 1F 07 CC */	stw r0, 0x7cc(r31)
-/* 8001A8C4 00017824  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 8001A8C4 00017824  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 8001A8C8 00017828  80 C2 83 F0 */	lwz r6, lbl_805AA110@sda21(r2)
 /* 8001A8CC 0001782C  38 A0 00 01 */	li r5, 1
 /* 8001A8D0 00017830  93 7F 07 D0 */	stw r27, 0x7d0(r31)
@@ -12978,9 +12978,9 @@ lbl_8001ABA8:
 /* 8001AC64 00017BC4  48 2F 7E DD */	bl __as__12CTransform4fFRC12CTransform4f
 /* 8001AC68 00017BC8  7F E3 FB 78 */	mr r3, r31
 /* 8001AC6C 00017BCC  48 26 80 1D */	bl InitializeBallTransition__7CPlayerFv
-/* 8001AC70 00017BD0  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8001AC70 00017BD0  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8001AC74 00017BD4  80 9F 00 64 */	lwz r4, 0x64(r31)
-/* 8001AC78 00017BD8  38 A3 66 70 */	addi r5, r3, skIdentity4f@l
+/* 8001AC78 00017BD8  38 A3 66 70 */	addi r5, r3, sIdentity__12CTransform4f@l
 /* 8001AC7C 00017BDC  38 61 00 60 */	addi r3, r1, 0x60
 /* 8001AC80 00017BE0  48 0F AB 35 */	bl GetBounds__10CModelDataCFRC12CTransform4f
 /* 8001AC84 00017BE4  C0 21 00 74 */	lfs f1, 0x74(r1)

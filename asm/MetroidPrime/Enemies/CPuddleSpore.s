@@ -900,9 +900,9 @@ UpdateBoundingState__12CPuddleSporeFRC6CAABoxR13CStateManager:
 /* 801473EC 0014434C  C0 9C 00 08 */	lfs f4, 8(r28)
 /* 801473F0 00144350  3C A0 80 3E */	lis r5, lbl_803D97E4@ha
 /* 801473F4 00144354  C0 7C 00 0C */	lfs f3, 0xc(r28)
-/* 801473F8 00144358  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801473F8 00144358  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801473FC 0014435C  C0 5C 00 10 */	lfs f2, 0x10(r28)
-/* 80147400 00144360  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80147400 00144360  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80147404 00144364  C0 3C 00 14 */	lfs f1, 0x14(r28)
 /* 80147408 00144368  38 05 97 E4 */	addi r0, r5, lbl_803D97E4@l
 /* 8014740C 0014436C  91 01 00 90 */	stw r8, 0x90(r1)

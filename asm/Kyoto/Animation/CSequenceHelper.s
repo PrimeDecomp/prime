@@ -60,8 +60,8 @@ ComputeSequenceFundamentals__15CSequenceHelperCFv:
 /* 802E5A00 002E2960  80 AD 9B 90 */	lwz r5, lbl_805A8750@sda21(r13)
 /* 802E5A04 002E2964  7C 9C 23 78 */	mr r28, r4
 /* 802E5A08 002E2968  C0 0D 9B 94 */	lfs f0, lbl_805A8754@sda21(r13)
-/* 802E5A0C 002E296C  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 802E5A10 002E2970  C7 E4 66 A0 */	lfsu f31, skZero3f@l(r4)
+/* 802E5A0C 002E296C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 802E5A10 002E2970  C7 E4 66 A0 */	lfsu f31, sZeroVector__9CVector3f@l(r4)
 /* 802E5A14 002E2974  2C 1E 00 00 */	cmpwi r30, 0
 /* 802E5A18 002E2978  90 A1 00 D8 */	stw r5, 0xd8(r1)
 /* 802E5A1C 002E297C  7C 6F 1B 78 */	mr r15, r3

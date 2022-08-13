@@ -2298,7 +2298,7 @@ __ct__16CPauseScreenBaseFRC13CStateManagerRC9CGuiFrameRC12CStringTable:
 /* 80072860 0006F7C0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80072864 0006F7C4  39 08 A3 CC */	addi r8, r8, lbl_803DA3CC@l
 /* 80072868 0006F7C8  38 00 FF FF */	li r0, -1
-/* 8007286C 0006F7CC  3C E0 80 5A */	lis r7, skZero3f@ha
+/* 8007286C 0006F7CC  3C E0 80 5A */	lis r7, sZeroVector__9CVector3f@ha
 /* 80072870 0006F7D0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80072874 0006F7D4  7C 7F 1B 78 */	mr r31, r3
 /* 80072878 0006F7D8  91 03 00 00 */	stw r8, 0(r3)
@@ -2310,7 +2310,7 @@ __ct__16CPauseScreenBaseFRC13CStateManagerRC9CGuiFrameRC12CStringTable:
 /* 80072890 0006F7F0  D0 23 00 14 */	stfs f1, 0x14(r3)
 /* 80072894 0006F7F4  91 03 00 18 */	stw r8, 0x18(r3)
 /* 80072898 0006F7F8  91 03 00 1C */	stw r8, 0x1c(r3)
-/* 8007289C 0006F7FC  C4 07 66 A0 */	lfsu f0, skZero3f@l(r7)
+/* 8007289C 0006F7FC  C4 07 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r7)
 /* 800728A0 0006F800  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 800728A4 0006F804  C0 07 00 04 */	lfs f0, 4(r7)
 /* 800728A8 0006F808  D0 03 00 24 */	stfs f0, 0x24(r3)

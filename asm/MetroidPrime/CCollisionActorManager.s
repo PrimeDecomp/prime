@@ -1285,9 +1285,9 @@ lbl_801A80D0:
 /* 801A8190 001A50F0  D0 01 01 98 */	stfs f0, 0x198(r1)
 /* 801A8194 001A50F4  D0 41 01 A0 */	stfs f2, 0x1a0(r1)
 lbl_801A8198:
-/* 801A8198 001A50F8  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801A8198 001A50F8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801A819C 001A50FC  38 61 01 C8 */	addi r3, r1, 0x1c8
-/* 801A81A0 001A5100  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801A81A0 001A5100  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801A81A4 001A5104  38 A1 01 8C */	addi r5, r1, 0x18c
 /* 801A81A8 001A5108  38 C1 01 98 */	addi r6, r1, 0x198
 /* 801A81AC 001A510C  48 16 B9 65 */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
@@ -1588,10 +1588,10 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A85F0 001A5550  7C 7F 1B 78 */	mr r31, r3
 /* 801A85F4 001A5554  89 45 00 00 */	lbz r10, 0(r5)
 /* 801A85F8 001A5558  38 00 00 03 */	li r0, 3
-/* 801A85FC 001A555C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801A85FC 001A555C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801A8600 001A5560  FF E0 08 90 */	fmr f31, f1
 /* 801A8604 001A5564  90 1F 00 00 */	stw r0, 0(r31)
-/* 801A8608 001A5568  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 801A8608 001A5568  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 801A860C 001A556C  C0 02 A7 F8 */	lfs f0, lbl_805AC518@sda21(r2)
 /* 801A8610 001A5570  7D 04 43 78 */	mr r4, r8
 /* 801A8614 001A5574  90 FF 00 04 */	stw r7, 4(r31)
@@ -1640,10 +1640,10 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A86B4 001A5614  7C 7F 1B 78 */	mr r31, r3
 /* 801A86B8 001A5618  90 03 00 00 */	stw r0, 0(r3)
 /* 801A86BC 001A561C  38 00 00 00 */	li r0, 0
-/* 801A86C0 001A5620  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801A86C0 001A5620  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801A86C4 001A5624  FF E0 08 90 */	fmr f31, f1
 /* 801A86C8 001A5628  90 1F 00 04 */	stw r0, 4(r31)
-/* 801A86CC 001A562C  38 E3 66 A0 */	addi r7, r3, skZero3f@l
+/* 801A86CC 001A562C  38 E3 66 A0 */	addi r7, r3, sZeroVector__9CVector3f@l
 /* 801A86D0 001A5630  C0 02 A7 F8 */	lfs f0, lbl_805AC518@sda21(r2)
 /* 801A86D4 001A5634  7C C4 33 78 */	mr r4, r6
 /* 801A86D8 001A5638  99 1F 00 08 */	stb r8, 8(r31)
@@ -1690,10 +1690,10 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A8770 001A56D0  7C 7F 1B 78 */	mr r31, r3
 /* 801A8774 001A56D4  89 25 00 00 */	lbz r9, 0(r5)
 /* 801A8778 001A56D8  38 00 00 01 */	li r0, 1
-/* 801A877C 001A56DC  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801A877C 001A56DC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801A8780 001A56E0  FF E0 18 90 */	fmr f31, f3
 /* 801A8784 001A56E4  90 1F 00 00 */	stw r0, 0(r31)
-/* 801A8788 001A56E8  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 801A8788 001A56E8  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 801A878C 001A56EC  7C E4 3B 78 */	mr r4, r7
 /* 801A8790 001A56F0  38 7F 00 2C */	addi r3, r31, 0x2c
 /* 801A8794 001A56F4  90 DF 00 04 */	stw r6, 4(r31)
@@ -1740,8 +1740,8 @@ ScaleAllBounds__26CJointCollisionDescriptionFRC9CVector3f:
 /* 801A882C 001A578C  38 00 00 00 */	li r0, 0
 /* 801A8830 001A5790  7C 7F 1B 78 */	mr r31, r3
 /* 801A8834 001A5794  90 03 00 00 */	stw r0, 0(r3)
-/* 801A8838 001A5798  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 801A883C 001A579C  38 C3 66 A0 */	addi r6, r3, skZero3f@l
+/* 801A8838 001A5798  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 801A883C 001A579C  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 801A8840 001A57A0  FF E0 10 90 */	fmr f31, f2
 /* 801A8844 001A57A4  90 1F 00 04 */	stw r0, 4(r31)
 /* 801A8848 001A57A8  7C A4 2B 78 */	mr r4, r5

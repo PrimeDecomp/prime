@@ -699,11 +699,11 @@ lbl_8035E7F4:
 /* 8035E870 0035B7D0  28 03 00 00 */	cmplwi r3, 0
 /* 8035E874 0035B7D4  41 82 00 38 */	beq lbl_8035E8AC
 /* 8035E878 0035B7D8  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 8035E87C 0035B7DC  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 8035E87C 0035B7DC  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 8035E880 0035B7E0  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 8035E884 0035B7E4  3C 80 80 3E */	lis r4, lbl_803DACA4@ha
 /* 8035E888 0035B7E8  90 03 00 00 */	stw r0, 0(r3)
-/* 8035E88C 0035B7EC  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 8035E88C 0035B7EC  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 8035E890 0035B7F0  38 A0 00 00 */	li r5, 0
 /* 8035E894 0035B7F4  38 04 AC A4 */	addi r0, r4, lbl_803DACA4@l
 /* 8035E898 0035B7F8  90 C3 00 00 */	stw r6, 0(r3)

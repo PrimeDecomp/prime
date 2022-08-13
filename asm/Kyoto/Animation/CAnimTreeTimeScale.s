@@ -1655,8 +1655,8 @@ lbl_802F57B8:
 /* 802F57E4 002F2744  38 61 00 38 */	addi r3, r1, 0x38
 /* 802F57E8 002F2748  48 05 36 05 */	bl __ct__13CCharAnimTimeFf
 /* 802F57EC 002F274C  C0 01 00 38 */	lfs f0, 0x38(r1)
-/* 802F57F0 002F2750  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802F57F4 002F2754  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 802F57F0 002F2750  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802F57F4 002F2754  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 802F57F8 002F2758  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 802F57FC 002F275C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
 /* 802F5800 002F2760  D0 01 00 88 */	stfs f0, 0x88(r1)

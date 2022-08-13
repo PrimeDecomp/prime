@@ -113,8 +113,8 @@ lbl_80201DF4:
 lbl_80201E50:
 /* 80201E50 001FEDB0  28 1E 00 00 */	cmplwi r30, 0
 /* 80201E54 001FEDB4  41 82 00 20 */	beq lbl_80201E74
-/* 80201E58 001FEDB8  3C 60 80 3E */	lis r3, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
-/* 80201E5C 001FEDBC  38 03 8D 78 */	addi r0, r3, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 80201E58 001FEDB8  3C 60 80 3E */	lis r3, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
+/* 80201E5C 001FEDBC  38 03 8D 78 */	addi r0, r3, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 80201E60 001FEDC0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80201E64 001FEDC4  41 82 00 10 */	beq lbl_80201E74
 /* 80201E68 001FEDC8  3C 60 80 3E */	lis r3, __vt__4IObj@ha
@@ -166,11 +166,11 @@ lbl_80201E84:
 /* 80201F00 001FEE60  28 03 00 00 */	cmplwi r3, 0
 /* 80201F04 001FEE64  41 82 00 38 */	beq lbl_80201F3C
 /* 80201F08 001FEE68  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 80201F0C 001FEE6C  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 80201F0C 001FEE6C  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 80201F10 001FEE70  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 80201F14 001FEE74  3C 80 80 3E */	lis r4, lbl_803E6BD0@ha
 /* 80201F18 001FEE78  90 03 00 00 */	stw r0, 0(r3)
-/* 80201F1C 001FEE7C  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 80201F1C 001FEE7C  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 80201F20 001FEE80  38 A0 00 00 */	li r5, 0
 /* 80201F24 001FEE84  38 04 6B D0 */	addi r0, r4, lbl_803E6BD0@l
 /* 80201F28 001FEE88  90 C3 00 00 */	stw r6, 0(r3)
@@ -289,7 +289,7 @@ lbl_802020A8:
 /* 802020A8 001FF008  80 A3 00 00 */	lwz r5, 0(r3)
 /* 802020AC 001FF00C  38 80 00 FF */	li r4, 0xff
 /* 802020B0 001FF010  38 00 00 00 */	li r0, 0
-/* 802020B4 001FF014  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802020B4 001FF014  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802020B8 001FF018  90 BE 00 54 */	stw r5, 0x54(r30)
 /* 802020BC 001FF01C  28 1F 00 00 */	cmplwi r31, 0
 /* 802020C0 001FF020  98 9E 00 58 */	stb r4, 0x58(r30)
@@ -304,7 +304,7 @@ lbl_802020A8:
 /* 802020E4 001FF044  98 1E 00 61 */	stb r0, 0x61(r30)
 /* 802020E8 001FF048  98 9E 00 62 */	stb r4, 0x62(r30)
 /* 802020EC 001FF04C  98 9E 00 63 */	stb r4, 0x63(r30)
-/* 802020F0 001FF050  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 802020F0 001FF050  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 802020F4 001FF054  D0 1E 00 64 */	stfs f0, 0x64(r30)
 /* 802020F8 001FF058  C0 03 00 04 */	lfs f0, 4(r3)
 /* 802020FC 001FF05C  D0 1E 00 68 */	stfs f0, 0x68(r30)
@@ -1107,9 +1107,9 @@ __ct__12CMapUniverseFR12CInputStream:
 /* 80202C4C 001FFBAC  38 80 FF FF */	li r4, -1
 /* 80202C50 001FFBB0  48 13 E1 F1 */	bl __dt__6CTokenFv
 /* 80202C54 001FFBB4  38 00 00 00 */	li r0, 0
-/* 80202C58 001FFBB8  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80202C58 001FFBB8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80202C5C 001FFBBC  90 1C 00 14 */	stw r0, 0x14(r28)
-/* 80202C60 001FFBC0  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80202C60 001FFBC0  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80202C64 001FFBC4  C0 02 B0 70 */	lfs f0, lbl_805ACD90@sda21(r2)
 /* 80202C68 001FFBC8  7F A3 EB 78 */	mr r3, r29
 /* 80202C6C 001FFBCC  90 1C 00 18 */	stw r0, 0x18(r28)

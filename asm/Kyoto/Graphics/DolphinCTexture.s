@@ -605,11 +605,11 @@ lbl_8030E83C:
 /* 8030E8B4 0030B814  28 03 00 00 */	cmplwi r3, 0
 /* 8030E8B8 0030B818  41 82 00 38 */	beq lbl_8030E8F0
 /* 8030E8BC 0030B81C  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 8030E8C0 0030B820  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 8030E8C0 0030B820  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 8030E8C4 0030B824  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 8030E8C8 0030B828  3C 80 80 3E */	lis r4, lbl_803D8D84@ha
 /* 8030E8CC 0030B82C  90 03 00 00 */	stw r0, 0(r3)
-/* 8030E8D0 0030B830  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 8030E8D0 0030B830  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 8030E8D4 0030B834  38 A0 00 00 */	li r5, 0
 /* 8030E8D8 0030B838  38 04 8D 84 */	addi r0, r4, lbl_803D8D84@l
 /* 8030E8DC 0030B83C  90 C3 00 00 */	stw r6, 0(r3)

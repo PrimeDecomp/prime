@@ -1304,9 +1304,9 @@ lbl_802A01C8:
 /* 802A0220 0029D180  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 802A0224 0029D184  B0 01 00 1C */	sth r0, 0x1c(r1)
 /* 802A0228 0029D188  4B E2 32 21 */	bl __ct__11CDamageInfoFRC11CDamageInfof
-/* 802A022C 0029D18C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 802A022C 0029D18C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802A0230 0029D190  7F E3 FB 78 */	mr r3, r31
-/* 802A0234 0029D194  39 24 66 A0 */	addi r9, r4, skZero3f@l
+/* 802A0234 0029D194  39 24 66 A0 */	addi r9, r4, sZeroVector__9CVector3f@l
 /* 802A0238 0029D198  38 A1 00 14 */	addi r5, r1, 0x14
 /* 802A023C 0029D19C  38 81 00 1C */	addi r4, r1, 0x1c
 /* 802A0240 0029D1A0  38 C1 00 0C */	addi r6, r1, 0xc

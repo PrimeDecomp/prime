@@ -211,11 +211,11 @@ lbl_801B5C64:
 lbl_801B5D7C:
 /* 801B5D7C 001B2CDC  C0 16 01 04 */	lfs f0, 0x104(r22)
 /* 801B5D80 001B2CE0  3C 00 43 30 */	lis r0, 0x4330
-/* 801B5D84 001B2CE4  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801B5D84 001B2CE4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801B5D88 001B2CE8  90 01 01 18 */	stw r0, 0x118(r1)
 /* 801B5D8C 001B2CEC  EC 00 08 2A */	fadds f0, f0, f1
 /* 801B5D90 001B2CF0  C8 22 A9 78 */	lfd f1, lbl_805AC698@sda21(r2)
-/* 801B5D94 001B2CF4  3B E3 66 A0 */	addi r31, r3, skZero3f@l
+/* 801B5D94 001B2CF4  3B E3 66 A0 */	addi r31, r3, sZeroVector__9CVector3f@l
 /* 801B5D98 001B2CF8  3B A0 00 00 */	li r29, 0
 /* 801B5D9C 001B2CFC  D0 16 01 04 */	stfs f0, 0x104(r22)
 /* 801B5DA0 001B2D00  C0 56 01 04 */	lfs f2, 0x104(r22)
@@ -290,11 +290,11 @@ lbl_801B5DCC:
 /* 801B5EB0 001B2E10  38 E0 00 01 */	li r7, 1
 /* 801B5EB4 001B2E14  80 C1 00 08 */	lwz r6, 8(r1)
 /* 801B5EB8 001B2E18  48 00 23 85 */	bl SetValue__11CMarkerGridFUiUiUiUi
-/* 801B5EBC 001B2E1C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801B5EBC 001B2E1C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801B5EC0 001B2E20  C0 3F 00 04 */	lfs f1, 4(r31)
 /* 801B5EC4 001B2E24  C0 1F 00 08 */	lfs f0, 8(r31)
 /* 801B5EC8 001B2E28  38 80 00 00 */	li r4, 0
-/* 801B5ECC 001B2E2C  C0 43 66 A0 */	lfs f2, skZero3f@l(r3)
+/* 801B5ECC 001B2E2C  C0 43 66 A0 */	lfs f2, sZeroVector__9CVector3f@l(r3)
 /* 801B5ED0 001B2E30  38 A0 00 02 */	li r5, 2
 /* 801B5ED4 001B2E34  D0 21 00 90 */	stfs f1, 0x90(r1)
 /* 801B5ED8 001B2E38  D0 41 00 8C */	stfs f2, 0x8c(r1)
@@ -449,9 +449,9 @@ lbl_801B6064:
 /* 801B6118 001B3078  EC 02 00 7A */	fmadds f0, f2, f1, f0
 /* 801B611C 001B307C  D0 01 00 88 */	stfs f0, 0x88(r1)
 /* 801B6120 001B3080  48 15 E7 31 */	bl AsNormalized__9CVector3fCFv
-/* 801B6124 001B3084  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801B6124 001B3084  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801B6128 001B3088  38 61 00 B0 */	addi r3, r1, 0xb0
-/* 801B612C 001B308C  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 801B612C 001B308C  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 801B6130 001B3090  38 A1 00 14 */	addi r5, r1, 0x14
 /* 801B6134 001B3094  38 C1 00 8C */	addi r6, r1, 0x8c
 /* 801B6138 001B3098  48 15 D9 D9 */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
@@ -1371,10 +1371,10 @@ lbl_801B6CC0:
 /* 801B6E70 001B3DD0  39 00 00 00 */	li r8, 0
 /* 801B6E74 001B3DD4  39 40 00 03 */	li r10, 3
 /* 801B6E78 001B3DD8  90 81 00 84 */	stw r4, 0x84(r1)
-/* 801B6E7C 001B3DDC  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 801B6E7C 001B3DDC  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 801B6E80 001B3DE0  38 81 00 2C */	addi r4, r1, 0x2c
 /* 801B6E84 001B3DE4  90 61 00 80 */	stw r3, 0x80(r1)
-/* 801B6E88 001B3DE8  39 25 66 A0 */	addi r9, r5, skZero3f@l
+/* 801B6E88 001B3DE8  39 25 66 A0 */	addi r9, r5, sZeroVector__9CVector3f@l
 /* 801B6E8C 001B3DEC  7F E3 FB 78 */	mr r3, r31
 /* 801B6E90 001B3DF0  38 A1 00 24 */	addi r5, r1, 0x24
 /* 801B6E94 001B3DF4  91 01 00 8C */	stw r8, 0x8c(r1)
@@ -1416,10 +1416,10 @@ lbl_801B6ECC:
 /* 801B6F20 001B3E80  39 00 00 00 */	li r8, 0
 /* 801B6F24 001B3E84  39 40 00 03 */	li r10, 3
 /* 801B6F28 001B3E88  90 81 00 6C */	stw r4, 0x6c(r1)
-/* 801B6F2C 001B3E8C  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 801B6F2C 001B3E8C  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 801B6F30 001B3E90  38 81 00 18 */	addi r4, r1, 0x18
 /* 801B6F34 001B3E94  90 61 00 68 */	stw r3, 0x68(r1)
-/* 801B6F38 001B3E98  39 25 66 A0 */	addi r9, r5, skZero3f@l
+/* 801B6F38 001B3E98  39 25 66 A0 */	addi r9, r5, sZeroVector__9CVector3f@l
 /* 801B6F3C 001B3E9C  7F E3 FB 78 */	mr r3, r31
 /* 801B6F40 001B3EA0  38 A1 00 10 */	addi r5, r1, 0x10
 /* 801B6F44 001B3EA4  91 01 00 74 */	stw r8, 0x74(r1)
@@ -1851,8 +1851,8 @@ lbl_801B754C:
 /* 801B7554 001B44B4  41 80 FE 50 */	blt lbl_801B73A4
 lbl_801B7558:
 /* 801B7558 001B44B8  80 7A 00 E8 */	lwz r3, 0xe8(r26)
-/* 801B755C 001B44BC  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 801B7560 001B44C0  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 801B755C 001B44BC  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 801B7560 001B44C0  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 801B7564 001B44C4  81 83 00 00 */	lwz r12, 0(r3)
 /* 801B7568 001B44C8  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 801B756C 001B44CC  7D 89 03 A6 */	mtctr r12

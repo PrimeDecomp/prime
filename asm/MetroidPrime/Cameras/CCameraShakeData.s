@@ -309,9 +309,9 @@ lbl_8015CCA0:
 /* 8015CCAC 00159C0C  38 80 00 01 */	li r4, 1
 /* 8015CCB0 00159C10  48 00 05 A1 */	bl __ct__22CCameraShakerComponentFiRC17SCameraShakePointRC17SCameraShakePoint
 /* 8015CCB4 00159C14  FC 20 E8 90 */	fmr f1, f29
-/* 8015CCB8 00159C18  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8015CCB8 00159C18  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8015CCBC 00159C1C  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015CCC0 00159C20  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8015CCC0 00159C20  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8015CCC4 00159C24  7F C3 F3 78 */	mr r3, r30
 /* 8015CCC8 00159C28  38 C1 01 4C */	addi r6, r1, 0x14c
 /* 8015CCCC 00159C2C  38 E1 01 10 */	addi r7, r1, 0x110
@@ -1080,9 +1080,9 @@ BuildLandingCameraShake__16CCameraShakeDataFff:
 /* 8015D7A0 0015A700  38 61 00 68 */	addi r3, r1, 0x68
 /* 8015D7A4 0015A704  4B FF F9 8D */	bl __ct__22CCameraShakerComponentFv
 /* 8015D7A8 0015A708  FC 20 F0 90 */	fmr f1, f30
-/* 8015D7AC 0015A70C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8015D7AC 0015A70C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8015D7B0 0015A710  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015D7B4 0015A714  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8015D7B4 0015A714  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8015D7B8 0015A718  7F E3 FB 78 */	mr r3, r31
 /* 8015D7BC 0015A71C  38 C1 00 E0 */	addi r6, r1, 0xe0
 /* 8015D7C0 0015A720  38 E1 00 68 */	addi r7, r1, 0x68
@@ -1154,9 +1154,9 @@ __ct__16CCameraShakeDataFff:
 /* 8015D8B0 0015A810  38 61 00 38 */	addi r3, r1, 0x38
 /* 8015D8B4 0015A814  4B FF F8 7D */	bl __ct__22CCameraShakerComponentFv
 /* 8015D8B8 0015A818  FC 20 F8 90 */	fmr f1, f31
-/* 8015D8BC 0015A81C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8015D8BC 0015A81C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8015D8C0 0015A820  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015D8C4 0015A824  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8015D8C4 0015A824  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8015D8C8 0015A828  7F E3 FB 78 */	mr r3, r31
 /* 8015D8CC 0015A82C  38 C1 00 74 */	addi r6, r1, 0x74
 /* 8015D8D0 0015A830  38 E1 00 38 */	addi r7, r1, 0x38
@@ -1226,9 +1226,9 @@ BuildPatternedExplodeShakeData__16CCameraShakeDataFff:
 /* 8015D9B8 0015A918  38 61 00 38 */	addi r3, r1, 0x38
 /* 8015D9BC 0015A91C  4B FF F7 75 */	bl __ct__22CCameraShakerComponentFv
 /* 8015D9C0 0015A920  FC 20 F8 90 */	fmr f1, f31
-/* 8015D9C4 0015A924  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8015D9C4 0015A924  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8015D9C8 0015A928  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015D9CC 0015A92C  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8015D9CC 0015A92C  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8015D9D0 0015A930  7F E3 FB 78 */	mr r3, r31
 /* 8015D9D4 0015A934  38 C1 00 B0 */	addi r6, r1, 0xb0
 /* 8015D9D8 0015A938  38 E1 00 74 */	addi r7, r1, 0x74
@@ -1321,9 +1321,9 @@ BuildPhazonCameraShakeData__16CCameraShakeDataFff:
 /* 8015DB1C 0015AA7C  38 61 00 68 */	addi r3, r1, 0x68
 /* 8015DB20 0015AA80  4B FF F6 11 */	bl __ct__22CCameraShakerComponentFv
 /* 8015DB24 0015AA84  FC 20 E8 90 */	fmr f1, f29
-/* 8015DB28 0015AA88  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8015DB28 0015AA88  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8015DB2C 0015AA8C  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015DB30 0015AA90  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8015DB30 0015AA90  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8015DB34 0015AA94  7F E3 FB 78 */	mr r3, r31
 /* 8015DB38 0015AA98  38 C1 00 E0 */	addi r6, r1, 0xe0
 /* 8015DB3C 0015AA9C  38 E1 00 68 */	addi r7, r1, 0x68
@@ -1395,9 +1395,9 @@ BuildProjectileCameraShake__16CCameraShakeDataFff:
 /* 8015DC2C 0015AB8C  38 61 00 38 */	addi r3, r1, 0x38
 /* 8015DC30 0015AB90  4B FF F5 01 */	bl __ct__22CCameraShakerComponentFv
 /* 8015DC34 0015AB94  FC 20 F8 90 */	fmr f1, f31
-/* 8015DC38 0015AB98  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8015DC38 0015AB98  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8015DC3C 0015AB9C  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
-/* 8015DC40 0015ABA0  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 8015DC40 0015ABA0  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 8015DC44 0015ABA4  7F E3 FB 78 */	mr r3, r31
 /* 8015DC48 0015ABA8  38 C1 00 B0 */	addi r6, r1, 0xb0
 /* 8015DC4C 0015ABAC  38 E1 00 74 */	addi r7, r1, 0x74
@@ -1476,8 +1476,8 @@ __sinit_CCameraShakeData_cpp:
 /* 8015DD58 0015ACB8  38 61 00 BC */	addi r3, r1, 0xbc
 /* 8015DD5C 0015ACBC  4B FF F3 D5 */	bl __ct__22CCameraShakerComponentFv
 /* 8015DD60 0015ACC0  3C 60 80 57 */	lis r3, lbl_805719E8@ha
-/* 8015DD64 0015ACC4  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8015DD68 0015ACC8  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 8015DD64 0015ACC4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8015DD68 0015ACC8  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 8015DD6C 0015ACCC  C0 22 9F 18 */	lfs f1, lbl_805ABC38@sda21(r2)
 /* 8015DD70 0015ACD0  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
 /* 8015DD74 0015ACD4  38 63 19 E8 */	addi r3, r3, lbl_805719E8@l
@@ -1518,8 +1518,8 @@ lbl_8015DDD8:
 /* 8015DDF4 0015AD54  38 61 00 08 */	addi r3, r1, 8
 /* 8015DDF8 0015AD58  4B FF F3 39 */	bl __ct__22CCameraShakerComponentFv
 /* 8015DDFC 0015AD5C  3C 60 80 57 */	lis r3, lbl_80571B90@ha
-/* 8015DE00 0015AD60  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8015DE04 0015AD64  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 8015DE00 0015AD60  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8015DE04 0015AD64  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 8015DE08 0015AD68  C0 22 9F 18 */	lfs f1, lbl_805ABC38@sda21(r2)
 /* 8015DE0C 0015AD6C  C0 42 9E F4 */	lfs f2, lbl_805ABC14@sda21(r2)
 /* 8015DE10 0015AD70  38 63 1B 90 */	addi r3, r3, lbl_80571B90@l

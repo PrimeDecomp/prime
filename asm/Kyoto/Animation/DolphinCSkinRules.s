@@ -411,8 +411,8 @@ lbl_80353D2C:
 lbl_80353D84:
 /* 80353D84 00350CE4  28 1E 00 00 */	cmplwi r30, 0
 /* 80353D88 00350CE8  41 82 00 20 */	beq lbl_80353DA8
-/* 80353D8C 00350CEC  3C 60 80 3E */	lis r3, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
-/* 80353D90 00350CF0  38 03 8D 78 */	addi r0, r3, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 80353D8C 00350CEC  3C 60 80 3E */	lis r3, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
+/* 80353D90 00350CF0  38 03 8D 78 */	addi r0, r3, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 80353D94 00350CF4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80353D98 00350CF8  41 82 00 10 */	beq lbl_80353DA8
 /* 80353D9C 00350CFC  3C 60 80 3E */	lis r3, __vt__4IObj@ha
@@ -464,11 +464,11 @@ lbl_80353DB8:
 /* 80353E34 00350D94  28 03 00 00 */	cmplwi r3, 0
 /* 80353E38 00350D98  41 82 00 38 */	beq lbl_80353E70
 /* 80353E3C 00350D9C  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 80353E40 00350DA0  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 80353E40 00350DA0  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 80353E44 00350DA4  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 80353E48 00350DA8  3C 80 80 3F */	lis r4, lbl_803EF728@ha
 /* 80353E4C 00350DAC  90 03 00 00 */	stw r0, 0(r3)
-/* 80353E50 00350DB0  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 80353E50 00350DB0  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 80353E54 00350DB4  38 A0 00 00 */	li r5, 0
 /* 80353E58 00350DB8  38 04 F7 28 */	addi r0, r4, lbl_803EF728@l
 /* 80353E5C 00350DBC  90 C3 00 00 */	stw r6, 0(r3)
@@ -643,8 +643,8 @@ lbl_8035407C:
 /* 803540A0 00351000  7F 44 D2 14 */	add r26, r4, r26
 /* 803540A4 00351004  48 00 00 0C */	b lbl_803540B0
 lbl_803540A8:
-/* 803540A8 00351008  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 803540AC 0035100C  3B 43 66 A0 */	addi r26, r3, skZero3f@l
+/* 803540A8 00351008  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 803540AC 0035100C  3B 43 66 A0 */	addi r26, r3, sZeroVector__9CVector3f@l
 lbl_803540B0:
 /* 803540B0 00351010  7F 83 E3 78 */	mr r3, r28
 /* 803540B4 00351014  38 81 00 08 */	addi r4, r1, 8

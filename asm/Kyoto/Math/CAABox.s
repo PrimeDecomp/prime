@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm lbl_805A6754, 0x30, 4
+.comm mskInvertedBox__6CAABox, 0x30, 4
 .comm lbl_805A6784, 0x18, 4
 
 .section .ctors, "wa"
@@ -421,16 +421,16 @@ Invalid__6CAABoxCFv:
 /* 803376C4 00334624  38 60 00 01 */	li r3, 1
 /* 803376C8 00334628  48 00 00 48 */	b lbl_80337710
 lbl_803376CC:
-/* 803376CC 0033462C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 803376CC 0033462C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 803376D0 00334630  C0 22 CB 90 */	lfs f1, lbl_805AE8B0@sda21(r2)
-/* 803376D4 00334634  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 803376D4 00334634  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 803376D8 00334638  7F E3 FB 78 */	mr r3, r31
 /* 803376DC 0033463C  4B FD CE D5 */	bl IsEqu__9CVector3fCFRC9CVector3ff
 /* 803376E0 00334640  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 803376E4 00334644  41 82 00 28 */	beq lbl_8033770C
-/* 803376E8 00334648  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 803376E8 00334648  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 803376EC 0033464C  C0 22 CB 90 */	lfs f1, lbl_805AE8B0@sda21(r2)
-/* 803376F0 00334650  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 803376F0 00334650  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 803376F4 00334654  38 7F 00 0C */	addi r3, r31, 0xc
 /* 803376F8 00334658  4B FD CE B9 */	bl IsEqu__9CVector3fCFRC9CVector3ff
 /* 803376FC 0033465C  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -450,13 +450,13 @@ lbl_80337710:
 GetBooleanIntersection__6CAABoxCFRC6CAABox:
 /* 80337724 00334684  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80337728 00334688  7C 08 02 A6 */	mflr r0
-/* 8033772C 0033468C  3C C0 80 5A */	lis r6, skZero3f@ha
+/* 8033772C 0033468C  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 80337730 00334690  7C A7 2B 78 */	mr r7, r5
 /* 80337734 00334694  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80337738 00334698  38 00 00 03 */	li r0, 3
 /* 8033773C 0033469C  7C 88 23 78 */	mr r8, r4
 /* 80337740 003346A0  39 41 00 14 */	addi r10, r1, 0x14
-/* 80337744 003346A4  C4 06 66 A0 */	lfsu f0, skZero3f@l(r6)
+/* 80337744 003346A4  C4 06 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r6)
 /* 80337748 003346A8  39 61 00 08 */	addi r11, r1, 8
 /* 8033774C 003346AC  39 20 00 00 */	li r9, 0
 /* 80337750 003346B0  C0 26 00 04 */	lfs f1, 4(r6)
@@ -588,9 +588,9 @@ lbl_803378EC:
 GetTransformedAABox__6CAABoxCFRC12CTransform4f:
 /* 803378FC 0033485C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80337900 00334860  7C 08 02 A6 */	mflr r0
-/* 80337904 00334864  3C C0 80 5A */	lis r6, skIdentity4f@ha
+/* 80337904 00334864  3C C0 80 5A */	lis r6, sIdentity__12CTransform4f@ha
 /* 80337908 00334868  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8033790C 0033486C  38 06 66 70 */	addi r0, r6, skIdentity4f@l
+/* 8033790C 0033486C  38 06 66 70 */	addi r0, r6, sIdentity__12CTransform4f@l
 /* 80337910 00334870  7C 05 00 40 */	cmplw r5, r0
 /* 80337914 00334874  40 82 00 38 */	bne lbl_8033794C
 /* 80337918 00334878  C0 04 00 00 */	lfs f0, 0(r4)
@@ -1464,10 +1464,10 @@ __ct__6CAABoxFR12CInputStream:
 .global __sinit_CAABox_cpp
 __sinit_CAABox_cpp:
 /* 80338584 003354E4  C0 42 CB 94 */	lfs f2, lbl_805AE8B4@sda21(r2)
-/* 80338588 003354E8  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 80338588 003354E8  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 8033858C 003354EC  C0 02 CB 88 */	lfs f0, lbl_805AE8A8@sda21(r2)
 /* 80338590 003354F0  3C 60 80 5A */	lis r3, lbl_805A6784@ha
-/* 80338594 003354F4  D4 44 67 54 */	stfsu f2, lbl_805A6754@l(r4)
+/* 80338594 003354F4  D4 44 67 54 */	stfsu f2, mskInvertedBox__6CAABox@l(r4)
 /* 80338598 003354F8  C0 22 CB 98 */	lfs f1, lbl_805AE8B8@sda21(r2)
 /* 8033859C 003354FC  D4 03 67 84 */	stfsu f0, lbl_805A6784@l(r3)
 /* 803385A0 00335500  D0 44 00 04 */	stfs f2, 4(r4)

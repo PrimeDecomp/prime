@@ -110,8 +110,8 @@ FixInPlace__11CBSWallHangFR15CBodyController:
 /* 8018D594 0018A4F4  80 63 00 04 */	lwz r3, 4(r3)
 /* 8018D598 0018A4F8  28 03 00 00 */	cmplwi r3, 0
 /* 8018D59C 0018A4FC  41 82 00 24 */	beq lbl_8018D5C0
-/* 8018D5A0 0018A500  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8018D5A4 0018A504  C4 04 66 A0 */	lfsu f0, skZero3f@l(r4)
+/* 8018D5A0 0018A500  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8018D5A4 0018A504  C4 04 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r4)
 /* 8018D5A8 0018A508  D0 03 00 FC */	stfs f0, 0xfc(r3)
 /* 8018D5AC 0018A50C  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8018D5B0 0018A510  D0 03 01 00 */	stfs f0, 0x100(r3)
@@ -383,13 +383,13 @@ lbl_8018D910:
 /* 8018D994 0018A8F4  91 61 00 D8 */	stw r11, 0xd8(r1)
 /* 8018D998 0018A8F8  90 01 00 DC */	stw r0, 0xdc(r1)
 /* 8018D99C 0018A8FC  4B FA CF 81 */	bl SetCurrentAnimation__15CBodyControllerFRC18CAnimPlaybackParmsbb
-/* 8018D9A0 0018A900  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8018D9A0 0018A900  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8018D9A4 0018A904  7F E3 FB 78 */	mr r3, r31
-/* 8018D9A8 0018A908  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 8018D9A8 0018A908  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 8018D9AC 0018A90C  4B F8 D2 F5 */	bl SetVelocityWR__13CPhysicsActorFRC9CVector3f
-/* 8018D9B0 0018A910  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8018D9B0 0018A910  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8018D9B4 0018A914  7F C3 F3 78 */	mr r3, r30
-/* 8018D9B8 0018A918  38 E4 66 A0 */	addi r7, r4, skZero3f@l
+/* 8018D9B8 0018A918  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 8018D9BC 0018A91C  7F E4 FB 78 */	mr r4, r31
 /* 8018D9C0 0018A920  C0 07 00 00 */	lfs f0, 0(r7)
 /* 8018D9C4 0018A924  38 A1 00 10 */	addi r5, r1, 0x10
@@ -1637,10 +1637,10 @@ __ct__11CBSWallHangFv:
 /* 8018EB4C 0018BAAC  3C C0 80 3E */	lis r6, lbl_803E1318@ha
 /* 8018EB50 0018BAB0  3C A0 80 3E */	lis r5, lbl_803E43A0@ha
 /* 8018EB54 0018BAB4  38 06 13 18 */	addi r0, r6, lbl_803E1318@l
-/* 8018EB58 0018BAB8  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 8018EB58 0018BAB8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8018EB5C 0018BABC  90 03 00 00 */	stw r0, 0(r3)
 /* 8018EB60 0018BAC0  38 C5 43 A0 */	addi r6, r5, lbl_803E43A0@l
-/* 8018EB64 0018BAC4  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 8018EB64 0018BAC4  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 8018EB68 0018BAC8  38 00 FF FF */	li r0, -1
 /* 8018EB6C 0018BACC  90 C3 00 00 */	stw r6, 0(r3)
 /* 8018EB70 0018BAD0  38 80 00 00 */	li r4, 0

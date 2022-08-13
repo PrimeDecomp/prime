@@ -16,9 +16,9 @@ sub_802a07f0:
 /* 802A0814 0029D774  DB 81 00 40 */	stfd f28, 0x40(r1)
 /* 802A0818 0029D778  F3 81 00 48 */	psq_st f28, 72(r1), 0, qr0
 /* 802A081C 0029D77C  BF 61 00 2C */	stmw r27, 0x2c(r1)
-/* 802A0820 0029D780  3C E0 80 5A */	lis r7, skZero3f@ha
+/* 802A0820 0029D780  3C E0 80 5A */	lis r7, sZeroVector__9CVector3f@ha
 /* 802A0824 0029D784  7C 9C 23 78 */	mr r28, r4
-/* 802A0828 0029D788  38 87 66 A0 */	addi r4, r7, skZero3f@l
+/* 802A0828 0029D788  38 87 66 A0 */	addi r4, r7, sZeroVector__9CVector3f@l
 /* 802A082C 0029D78C  C3 82 C1 18 */	lfs f28, lbl_805ADE38@sda21(r2)
 /* 802A0830 0029D790  C3 E4 00 00 */	lfs f31, 0(r4)
 /* 802A0834 0029D794  7C 7B 1B 78 */	mr r27, r3

@@ -197,8 +197,8 @@ __ct__14CCollisionInfoFRC6CAABoxRC13CMaterialListRC13CMaterialListRC9CVector3fRC
 .global __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3fRC9CVector3f
 __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3fRC9CVector3f:
 /* 802CE37C 002CB2DC  C0 04 00 00 */	lfs f0, 0(r4)
-/* 802CE380 002CB2E0  3D 20 80 5A */	lis r9, skZero3f@ha
-/* 802CE384 002CB2E4  39 49 66 A0 */	addi r10, r9, skZero3f@l
+/* 802CE380 002CB2E0  3D 20 80 5A */	lis r9, sZeroVector__9CVector3f@ha
+/* 802CE384 002CB2E4  39 49 66 A0 */	addi r10, r9, sZeroVector__9CVector3f@l
 /* 802CE388 002CB2E8  39 20 00 01 */	li r9, 1
 /* 802CE38C 002CB2EC  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802CE390 002CB2F0  38 00 00 00 */	li r0, 0
@@ -251,8 +251,8 @@ __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3
 .global __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3f
 __ct__14CCollisionInfoFRC9CVector3fRC13CMaterialListRC13CMaterialListRC9CVector3f:
 /* 802CE448 002CB3A8  C0 04 00 00 */	lfs f0, 0(r4)
-/* 802CE44C 002CB3AC  3D 00 80 5A */	lis r8, skZero3f@ha
-/* 802CE450 002CB3B0  39 28 66 A0 */	addi r9, r8, skZero3f@l
+/* 802CE44C 002CB3AC  3D 00 80 5A */	lis r8, sZeroVector__9CVector3f@ha
+/* 802CE450 002CB3B0  39 28 66 A0 */	addi r9, r8, sZeroVector__9CVector3f@l
 /* 802CE454 002CB3B4  39 00 00 01 */	li r8, 1
 /* 802CE458 002CB3B8  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802CE45C 002CB3BC  38 00 00 00 */	li r0, 0

@@ -130,11 +130,11 @@ lbl_80356618:
 /* 80356694 003535F4  28 03 00 00 */	cmplwi r3, 0
 /* 80356698 003535F8  41 82 00 38 */	beq lbl_803566D0
 /* 8035669C 003535FC  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 803566A0 00353600  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 803566A0 00353600  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 803566A4 00353604  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 803566A8 00353608  3C 80 80 3E */	lis r4, "__vt__40TObjOwnerDerivedFromIObj<12CStringTable>"@ha
 /* 803566AC 0035360C  90 03 00 00 */	stw r0, 0(r3)
-/* 803566B0 00353610  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 803566B0 00353610  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 803566B4 00353614  38 A0 00 00 */	li r5, 0
 /* 803566B8 00353618  38 04 9A 0C */	addi r0, r4, "__vt__40TObjOwnerDerivedFromIObj<12CStringTable>"@l
 /* 803566BC 0035361C  90 C3 00 00 */	stw r6, 0(r3)

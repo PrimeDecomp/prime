@@ -21,6 +21,7 @@ struct TAreaId {
   bool operator==(const TAreaId& other) const { return value == other.value; }
   bool operator!=(const TAreaId& other) const { return value != other.value; }
 };
+CHECK_SIZEOF(TAreaId, 0x4)
 
 struct TEditorId {
   u32 value;
@@ -32,6 +33,7 @@ struct TEditorId {
   bool operator==(const TEditorId& other) const { return value == other.value; }
   bool operator!=(const TEditorId& other) const { return value != other.value; }
 };
+CHECK_SIZEOF(TEditorId, 0x4)
 
 struct TUniqueId {
   union {
@@ -49,5 +51,9 @@ struct TUniqueId {
   bool operator==(const TUniqueId& other) const { return value == other.value; }
   bool operator!=(const TUniqueId& other) const { return value != other.value; }
 };
+CHECK_SIZEOF(TUniqueId, 0x2)
+
+typedef u16 TSfxId;
+static TSfxId InvalidSfxId = 0xFFFFu;
 
 #endif
