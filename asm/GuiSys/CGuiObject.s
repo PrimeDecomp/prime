@@ -509,9 +509,9 @@ lbl_802C4DAC:
 lbl_802C4DB4:
 /* 802C4DB4 002C1D14  54 A0 06 3F */	clrlwi. r0, r5, 0x18
 /* 802C4DB8 002C1D18  41 82 02 3C */	beq lbl_802C4FF4
-/* 802C4DBC 002C1D1C  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 802C4DBC 002C1D1C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802C4DC0 002C1D20  83 FE 00 64 */	lwz r31, 0x64(r30)
-/* 802C4DC4 002C1D24  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 802C4DC4 002C1D24  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 802C4DC8 002C1D28  38 61 01 58 */	addi r3, r1, 0x158
 /* 802C4DCC 002C1D2C  48 04 DD A9 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802C4DD0 002C1D30  C0 62 C3 98 */	lfs f3, lbl_805AE0B8@sda21(r2)
@@ -758,9 +758,9 @@ RotateReset__10CGuiObjectFv:
 /* 802C5160 002C20C0  F3 A1 00 18 */	psq_st f29, 24(r1), 0, qr0
 /* 802C5164 002C20C4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C5168 002C20C8  7C 7F 1B 78 */	mr r31, r3
-/* 802C516C 002C20CC  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 802C516C 002C20CC  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802C5170 002C20D0  C3 BF 00 30 */	lfs f29, 0x30(r31)
-/* 802C5174 002C20D4  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 802C5174 002C20D4  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 802C5178 002C20D8  C3 DF 00 20 */	lfs f30, 0x20(r31)
 /* 802C517C 002C20DC  38 7F 00 04 */	addi r3, r31, 4
 /* 802C5180 002C20E0  C3 FF 00 10 */	lfs f31, 0x10(r31)
@@ -993,14 +993,14 @@ __ct__10CGuiObjectFv:
 /* 802C548C 002C23EC  38 04 C8 C8 */	addi r0, r4, lbl_803EC8C8@l
 /* 802C5490 002C23F0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802C5494 002C23F4  7C 7F 1B 78 */	mr r31, r3
-/* 802C5498 002C23F8  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 802C5498 002C23F8  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802C549C 002C23FC  90 1F 00 00 */	stw r0, 0(r31)
-/* 802C54A0 002C2400  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 802C54A0 002C2400  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 802C54A4 002C2404  38 7F 00 04 */	addi r3, r31, 4
 /* 802C54A8 002C2408  48 04 D6 CD */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 802C54AC 002C240C  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 802C54AC 002C240C  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 802C54B0 002C2410  38 7F 00 34 */	addi r3, r31, 0x34
-/* 802C54B4 002C2414  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 802C54B4 002C2414  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 802C54B8 002C2418  48 04 D6 BD */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802C54BC 002C241C  38 00 00 00 */	li r0, 0
 /* 802C54C0 002C2420  7F E3 FB 78 */	mr r3, r31

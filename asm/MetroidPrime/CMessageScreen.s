@@ -34,9 +34,9 @@ Draw__14CMessageScreenCFv:
 /* 801EF610 001EC570  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 801EF614 001EC574  28 00 00 00 */	cmplwi r0, 0
 /* 801EF618 001EC578  41 82 00 38 */	beq lbl_801EF650
-/* 801EF61C 001EC57C  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 801EF61C 001EC57C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801EF620 001EC580  C0 63 00 70 */	lfs f3, 0x70(r3)
-/* 801EF624 001EC584  38 A4 66 A0 */	addi r5, r4, skZero3f@l
+/* 801EF624 001EC584  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 801EF628 001EC588  7C 03 03 78 */	mr r3, r0
 /* 801EF62C 001EC58C  C0 45 00 00 */	lfs f2, 0(r5)
 /* 801EF630 001EC590  38 81 00 08 */	addi r4, r1, 8
@@ -684,9 +684,9 @@ __ct__14CMessageScreenFUif:
 /* 801EFFB0 001ECF10  38 80 FF FF */	li r4, -1
 /* 801EFFB4 001ECF14  48 15 0E 8D */	bl __dt__6CTokenFv
 /* 801EFFB8 001ECF18  38 A0 00 00 */	li r5, 0
-/* 801EFFBC 001ECF1C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801EFFBC 001ECF1C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801EFFC0 001ECF20  90 BF 00 18 */	stw r5, 0x18(r31)
-/* 801EFFC4 001ECF24  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 801EFFC4 001ECF24  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 801EFFC8 001ECF28  C0 22 AE 8C */	lfs f1, lbl_805ACBAC@sda21(r2)
 /* 801EFFCC 001ECF2C  7F C3 F3 78 */	mr r3, r30
 /* 801EFFD0 001ECF30  C0 44 00 00 */	lfs f2, 0(r4)

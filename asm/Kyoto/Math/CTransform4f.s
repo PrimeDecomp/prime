@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm skIdentity4f, 0x30, 4
+.comm sIdentity__12CTransform4f, 0x30, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -1373,9 +1373,9 @@ lbl_80313A38:
 /* 80313A98 003109F8  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 80313A9C 003109FC  48 00 03 35 */	bl __ct__13CUnitVector3fFRC9CVector3f
 /* 80313AA0 00310A00  C0 61 00 24 */	lfs f3, 0x24(r1)
-/* 80313AA4 00310A04  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 80313AA4 00310A04  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80313AA8 00310A08  C0 BF 00 00 */	lfs f5, 0(r31)
-/* 80313AAC 00310A0C  38 E3 66 A0 */	addi r7, r3, skZero3f@l
+/* 80313AAC 00310A0C  38 E3 66 A0 */	addi r7, r3, sZeroVector__9CVector3f@l
 /* 80313AB0 00310A10  C0 81 00 28 */	lfs f4, 0x28(r1)
 /* 80313AB4 00310A14  7F C3 F3 78 */	mr r3, r30
 /* 80313AB8 00310A18  C0 3F 00 04 */	lfs f1, 4(r31)
@@ -1571,9 +1571,9 @@ lbl_80313CE8:
 .global __sinit_CTransform4f_cpp
 __sinit_CTransform4f_cpp:
 /* 80313D90 00310CF0  C0 22 C8 D0 */	lfs f1, lbl_805AE5F0@sda21(r2)
-/* 80313D94 00310CF4  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 80313D94 00310CF4  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80313D98 00310CF8  C0 02 C8 D4 */	lfs f0, lbl_805AE5F4@sda21(r2)
-/* 80313D9C 00310CFC  D4 23 66 70 */	stfsu f1, skIdentity4f@l(r3)
+/* 80313D9C 00310CFC  D4 23 66 70 */	stfsu f1, sIdentity__12CTransform4f@l(r3)
 /* 80313DA0 00310D00  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80313DA4 00310D04  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80313DA8 00310D08  D0 03 00 0C */	stfs f0, 0xc(r3)

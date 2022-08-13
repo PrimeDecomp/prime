@@ -272,8 +272,8 @@ GetAreaPostTranslate__8CMapAreaFRC6IWorld7TAreaId:
 /* 80080444 0007D3A4  7C 60 1A 14 */	add r3, r0, r3
 /* 80080448 0007D3A8  48 00 00 0C */	b lbl_80080454
 lbl_8008044C:
-/* 8008044C 0007D3AC  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80080450 0007D3B0  38 63 66 A0 */	addi r3, r3, skZero3f@l
+/* 8008044C 0007D3AC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80080450 0007D3B0  38 63 66 A0 */	addi r3, r3, sZeroVector__9CVector3f@l
 lbl_80080454:
 /* 80080454 0007D3B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80080458 0007D3B8  83 E1 00 0C */	lwz r31, 0xc(r1)

@@ -346,14 +346,14 @@ lbl_801CA5C8:
 .global "FindClosestReachablePoint__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUi"
 "FindClosestReachablePoint__7CPFAreaFRQ24rstl30reserved_vector<P9CPFRegion,4>RC9CVector3fUi":
 /* 801CA5E4 001C7544  94 21 FF C0 */	stwu r1, -0x40(r1)
-/* 801CA5E8 001C7548  3D 20 80 5A */	lis r9, skZero3f@ha
+/* 801CA5E8 001C7548  3D 20 80 5A */	lis r9, sZeroVector__9CVector3f@ha
 /* 801CA5EC 001C754C  C1 62 AB 50 */	lfs f11, lbl_805AC870@sda21(r2)
 /* 801CA5F0 001C7550  54 E0 07 7A */	rlwinm r0, r7, 0, 0x1d, 0x1d
 /* 801CA5F4 001C7554  BF 21 00 24 */	stmw r25, 0x24(r1)
 /* 801CA5F8 001C7558  54 EC 07 BC */	rlwinm r12, r7, 0, 0x1e, 0x1e
 /* 801CA5FC 001C755C  3B E0 00 00 */	li r31, 0
 /* 801CA600 001C7560  39 60 00 00 */	li r11, 0
-/* 801CA604 001C7564  C5 09 66 A0 */	lfsu f8, skZero3f@l(r9)
+/* 801CA604 001C7564  C5 09 66 A0 */	lfsu f8, sZeroVector__9CVector3f@l(r9)
 /* 801CA608 001C7568  C1 29 00 04 */	lfs f9, 4(r9)
 /* 801CA60C 001C756C  C1 49 00 08 */	lfs f10, 8(r9)
 /* 801CA610 001C7570  48 00 01 68 */	b lbl_801CA778
@@ -784,10 +784,10 @@ lbl_801CABA4:
 /* 801CAC00 001C7B60  BF 01 00 50 */	stmw r24, 0x50(r1)
 /* 801CAC04 001C7B64  C0 02 AB 50 */	lfs f0, lbl_805AC870@sda21(r2)
 /* 801CAC08 001C7B68  7C 7F 1B 78 */	mr r31, r3
-/* 801CAC0C 001C7B6C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 801CAC0C 001C7B6C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801CAC10 001C7B70  38 00 00 00 */	li r0, 0
 /* 801CAC14 001C7B74  D0 1F 00 00 */	stfs f0, 0(r31)
-/* 801CAC18 001C7B78  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 801CAC18 001C7B78  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 801CAC1C 001C7B7C  7C 98 23 78 */	mr r24, r4
 /* 801CAC20 001C7B80  38 7F 00 78 */	addi r3, r31, 0x78
 /* 801CAC24 001C7B84  C0 05 00 00 */	lfs f0, 0(r5)
@@ -826,9 +826,9 @@ lbl_801CABA4:
 /* 801CACA8 001C7C08  90 1F 00 74 */	stw r0, 0x74(r31)
 /* 801CACAC 001C7C0C  4B FF E1 1D */	bl __ct__11CPFOpenListFv
 /* 801CACB0 001C7C10  38 A0 00 00 */	li r5, 0
-/* 801CACB4 001C7C14  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 801CACB4 001C7C14  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 801CACB8 001C7C18  98 B8 00 00 */	stb r5, 0(r24)
-/* 801CACBC 001C7C1C  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 801CACBC 001C7C1C  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 801CACC0 001C7C20  38 7F 01 88 */	addi r3, r31, 0x188
 /* 801CACC4 001C7C24  80 18 00 04 */	lwz r0, 4(r24)
 /* 801CACC8 001C7C28  90 1F 01 3C */	stw r0, 0x13c(r31)

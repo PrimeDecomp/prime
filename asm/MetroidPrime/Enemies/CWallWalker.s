@@ -508,9 +508,9 @@ PreThink__11CWallWalkerFfR13CStateManager:
 /* 80268A0C 0026596C  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 80268A10 00265970  4B DE A4 7D */	bl SetTranslation__6CActorFRC9CVector3f
 lbl_80268A14:
-/* 80268A14 00265974  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80268A14 00265974  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80268A18 00265978  7F E3 FB 78 */	mr r3, r31
-/* 80268A1C 0026597C  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 80268A1C 0026597C  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 80268A20 00265980  4B EB 20 19 */	bl MoveCollisionPrimitive__13CPhysicsActorFRC9CVector3f
 lbl_80268A24:
 /* 80268A24 00265984  E3 E1 00 D8 */	psq_l f31, 216(r1), 0, qr0
@@ -1131,20 +1131,20 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 80269304 00266264  8B E1 00 F7 */	lbz r31, 0xf7(r1)
 /* 80269308 00266268  4B E1 41 49 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
 /* 8026930C 0026626C  3C 60 80 3F */	lis r3, lbl_803EA0F0@ha
-/* 80269310 00266270  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 80269310 00266270  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80269314 00266274  38 03 A0 F0 */	addi r0, r3, lbl_803EA0F0@l
-/* 80269318 00266278  3C A0 80 5A */	lis r5, lbl_805A6718@ha
-/* 8026931C 0026627C  3C 60 80 5A */	lis r3, lbl_805A6724@ha
+/* 80269318 00266278  3C A0 80 5A */	lis r5, sRightVector__9CVector3f@ha
+/* 8026931C 0026627C  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
 /* 80269320 00266280  90 1C 00 00 */	stw r0, 0(r28)
-/* 80269324 00266284  38 C3 67 24 */	addi r6, r3, lbl_805A6724@l
-/* 80269328 00266288  38 84 66 A0 */	addi r4, r4, skZero3f@l
-/* 8026932C 0026628C  38 A5 67 18 */	addi r5, r5, lbl_805A6718@l
+/* 80269324 00266284  38 C3 67 24 */	addi r6, r3, sForwardVector__9CVector3f@l
+/* 80269328 00266288  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
+/* 8026932C 0026628C  38 A5 67 18 */	addi r5, r5, sRightVector__9CVector3f@l
 /* 80269330 00266290  38 7C 05 68 */	addi r3, r28, 0x568
 /* 80269334 00266294  38 E0 FF FF */	li r7, -1
 /* 80269338 00266298  48 03 93 F1 */	bl __ct__17CCollisionSurfaceFRC9CVector3fRC9CVector3fRC9CVector3fUi
-/* 8026933C 0026629C  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8026933C 0026629C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80269340 002662A0  3B 7C 05 90 */	addi r27, r28, 0x590
-/* 80269344 002662A4  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 80269344 002662A4  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 80269348 002662A8  C3 9D 00 C4 */	lfs f28, 0xc4(r29)
 /* 8026934C 002662AC  C3 E5 00 00 */	lfs f31, 0(r5)
 /* 80269350 002662B0  38 9C 00 68 */	addi r4, r28, 0x68

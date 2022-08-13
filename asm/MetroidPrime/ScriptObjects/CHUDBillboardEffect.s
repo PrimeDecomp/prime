@@ -438,8 +438,8 @@ lbl_8012FEDC:
 /* 8012FF60 0012CEC0  38 C1 00 1C */	addi r6, r1, 0x1c
 /* 8012FF64 0012CEC4  4B F2 15 21 */	bl "__ct__11CEntityInfoF7TAreaIdRCQ24rstl48vector<11SConnection,Q24rstl17rmemory_allocator>9TEditorId"
 /* 8012FF68 0012CEC8  A0 16 00 00 */	lhz r0, 0(r22)
-/* 8012FF6C 0012CECC  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 8012FF70 0012CED0  39 03 66 70 */	addi r8, r3, skIdentity4f@l
+/* 8012FF6C 0012CECC  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 8012FF70 0012CED0  39 03 66 70 */	addi r8, r3, sIdentity__12CTransform4f@l
 /* 8012FF74 0012CED4  7E E6 BB 78 */	mr r6, r23
 /* 8012FF78 0012CED8  B0 01 00 08 */	sth r0, 8(r1)
 /* 8012FF7C 0012CEDC  7F E3 FB 78 */	mr r3, r31

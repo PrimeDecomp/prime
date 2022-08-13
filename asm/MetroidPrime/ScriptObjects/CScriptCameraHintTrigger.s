@@ -198,9 +198,9 @@ lbl_8024B5B0:
 /* 8024B5B8 00248518  98 61 00 28 */	stb r3, 0x28(r1)
 /* 8024B5BC 0024851C  28 00 00 00 */	cmplwi r0, 0
 /* 8024B5C0 00248520  41 82 00 54 */	beq lbl_8024B614
-/* 8024B5C4 00248524  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8024B5C4 00248524  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8024B5C8 00248528  38 61 00 48 */	addi r3, r1, 0x48
-/* 8024B5CC 0024852C  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 8024B5CC 0024852C  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 8024B5D0 00248530  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8024B5D4 00248534  48 08 A7 49 */	bl FromAABox__6COBBoxFRC6CAABoxRC12CTransform4f
 /* 8024B5D8 00248538  38 61 00 84 */	addi r3, r1, 0x84
@@ -233,10 +233,10 @@ lbl_8024B61C:
 GetTouchBounds__24CScriptCameraHintTriggerCFv:
 /* 8024B634 00248594  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8024B638 00248598  7C 08 02 A6 */	mflr r0
-/* 8024B63C 0024859C  3C A0 80 5A */	lis r5, skIdentity4f@ha
+/* 8024B63C 0024859C  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
 /* 8024B640 002485A0  38 84 00 E8 */	addi r4, r4, 0xe8
 /* 8024B644 002485A4  90 01 00 34 */	stw r0, 0x34(r1)
-/* 8024B648 002485A8  38 A5 66 70 */	addi r5, r5, skIdentity4f@l
+/* 8024B648 002485A8  38 A5 66 70 */	addi r5, r5, sIdentity__12CTransform4f@l
 /* 8024B64C 002485AC  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 8024B650 002485B0  7C 7F 1B 78 */	mr r31, r3
 /* 8024B654 002485B4  38 61 00 08 */	addi r3, r1, 8

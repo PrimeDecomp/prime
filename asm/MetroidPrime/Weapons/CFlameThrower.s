@@ -239,7 +239,7 @@ DoCollisionCheck__13CFlameThrowerFR9TUniqueIdRC6CAABoxR13CStateManager:
 /* 80197774 001946D4  6C 03 80 00 */	xoris r3, r0, 0x8000
 /* 80197778 001946D8  3C 00 43 30 */	lis r0, 0x4330
 /* 8019777C 001946DC  90 61 0B 14 */	stw r3, 0xb14(r1)
-/* 80197780 001946E0  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80197780 001946E0  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80197784 001946E4  C0 7F 03 E0 */	lfs f3, 0x3e0(r31)
 /* 80197788 001946E8  3B 01 02 D4 */	addi r24, r1, 0x2d4
 /* 8019778C 001946EC  90 01 0B 10 */	stw r0, 0xb10(r1)
@@ -253,7 +253,7 @@ DoCollisionCheck__13CFlameThrowerFR9TUniqueIdRC6CAABoxR13CStateManager:
 /* 801977AC 0019470C  C3 E2 A6 A8 */	lfs f31, lbl_805AC3C8@sda21(r2)
 /* 801977B0 00194710  3A E1 01 C4 */	addi r23, r1, 0x1c4
 /* 801977B4 00194714  EC 00 08 28 */	fsubs f0, f0, f1
-/* 801977B8 00194718  3B A3 66 F4 */	addi r29, r3, lbl_805A66F4@l
+/* 801977B8 00194718  3B A3 66 F4 */	addi r29, r3, sUpVector__9CVector3f@l
 /* 801977BC 0019471C  3A C0 00 01 */	li r22, 1
 /* 801977C0 00194720  EC 02 00 24 */	fdivs f0, f2, f0
 /* 801977C4 00194724  EF DF 00 32 */	fmuls f30, f31, f0
@@ -482,9 +482,9 @@ lbl_80197A00:
 /* 80197B24 00194A84  D0 41 00 34 */	stfs f2, 0x34(r1)
 /* 80197B28 00194A88  D0 61 00 38 */	stfs f3, 0x38(r1)
 /* 80197B2C 00194A8C  48 13 E5 41 */	bl __ct__5CMRayFRC9CVector3fRC9CVector3ff
-/* 80197B30 00194A90  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 80197B30 00194A90  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80197B34 00194A94  D3 81 02 D0 */	stfs f28, 0x2d0(r1)
-/* 80197B38 00194A98  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 80197B38 00194A98  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 80197B3C 00194A9C  7F 03 C3 78 */	mr r3, r24
 /* 80197B40 00194AA0  48 17 B0 35 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80197B44 00194AA4  3C 60 80 5A */	lis r3, lbl_8059FD18@ha

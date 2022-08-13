@@ -1085,12 +1085,12 @@ lbl_80209B80:
 /* 80209C5C 00206BBC  C8 01 00 18 */	lfd f0, 0x18(r1)
 /* 80209C60 00206BC0  EC 80 20 28 */	fsubs f4, f0, f4
 /* 80209C64 00206BC4  48 10 28 F1 */	bl SetOrtho__9CGraphicsFffffff
-/* 80209C68 00206BC8  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 80209C6C 00206BCC  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 80209C68 00206BC8  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 80209C6C 00206BCC  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 80209C70 00206BD0  48 10 2A DD */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 80209C74 00206BD4  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 80209C78 00206BD8  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 80209C7C 00206BDC  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 80209C78 00206BD8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 80209C7C 00206BDC  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80209C80 00206BE0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80209C84 00206BE4  81 8C 00 30 */	lwz r12, 0x30(r12)
 /* 80209C88 00206BE8  7D 89 03 A6 */	mtctr r12
@@ -1588,9 +1588,9 @@ lbl_8020A3C0:
 /* 8020A3E8 00207348  FC 80 08 90 */	fmr f4, f1
 /* 8020A3EC 0020734C  B0 01 00 1E */	sth r0, 0x1e(r1)
 /* 8020A3F0 00207350  48 15 8F FD */	bl __ct__6CColorFffff
-/* 8020A3F4 00207354  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8020A3F4 00207354  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8020A3F8 00207358  38 7F 00 B4 */	addi r3, r31, 0xb4
-/* 8020A3FC 0020735C  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 8020A3FC 0020735C  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 8020A400 00207360  38 C1 01 08 */	addi r6, r1, 0x108
 /* 8020A404 00207364  38 E1 00 1C */	addi r7, r1, 0x1c
 /* 8020A408 00207368  38 80 00 00 */	li r4, 0
@@ -1607,8 +1607,8 @@ lbl_8020A410:
 lbl_8020A430:
 /* 8020A430 00207390  54 80 06 3F */	clrlwi. r0, r4, 0x18
 /* 8020A434 00207394  40 82 00 D8 */	bne lbl_8020A50C
-/* 8020A438 00207398  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 8020A43C 0020739C  38 04 66 70 */	addi r0, r4, skIdentity4f@l
+/* 8020A438 00207398  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 8020A43C 0020739C  38 04 66 70 */	addi r0, r4, sIdentity__12CTransform4f@l
 /* 8020A440 002073A0  7C 1E 03 78 */	mr r30, r0
 /* 8020A444 002073A4  4B E2 25 C1 */	bl PreRender__9CAnimDataFv
 /* 8020A448 002073A8  C0 22 B1 30 */	lfs f1, lbl_805ACE50@sda21(r2)
@@ -1622,9 +1622,9 @@ lbl_8020A430:
 /* 8020A468 002073C8  FC 80 08 90 */	fmr f4, f1
 /* 8020A46C 002073CC  B0 01 00 16 */	sth r0, 0x16(r1)
 /* 8020A470 002073D0  48 15 8F 7D */	bl __ct__6CColorFffff
-/* 8020A474 002073D4  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8020A474 002073D4  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8020A478 002073D8  38 7F 00 1C */	addi r3, r31, 0x1c
-/* 8020A47C 002073DC  38 A4 66 70 */	addi r5, r4, skIdentity4f@l
+/* 8020A47C 002073DC  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 8020A480 002073E0  38 C1 01 08 */	addi r6, r1, 0x108
 /* 8020A484 002073E4  38 E1 00 14 */	addi r7, r1, 0x14
 /* 8020A488 002073E8  38 80 00 00 */	li r4, 0
@@ -1708,9 +1708,9 @@ lbl_8020A588:
 /* 8020A5A4 00207504  D0 01 00 3C */	stfs f0, 0x3c(r1)
 /* 8020A5A8 00207508  D0 21 00 40 */	stfs f1, 0x40(r1)
 /* 8020A5AC 0020750C  48 13 FA 01 */	bl White__6CColorFv
-/* 8020A5B0 00207510  3C 80 80 5A */	lis r4, lbl_805A6730@ha
+/* 8020A5B0 00207510  3C 80 80 5A */	lis r4, sBackVector__9CVector3f@ha
 /* 8020A5B4 00207514  C0 22 B1 78 */	lfs f1, lbl_805ACE98@sda21(r2)
-/* 8020A5B8 00207518  38 A4 67 30 */	addi r5, r4, lbl_805A6730@l
+/* 8020A5B8 00207518  38 A4 67 30 */	addi r5, r4, sBackVector__9CVector3f@l
 /* 8020A5BC 0020751C  7C 66 1B 78 */	mr r6, r3
 /* 8020A5C0 00207520  38 61 00 44 */	addi r3, r1, 0x44
 /* 8020A5C4 00207524  38 81 00 38 */	addi r4, r1, 0x38
@@ -2838,9 +2838,9 @@ sub_8020b4e4:
 /* 8020B5A8 00208508  38 80 FF FF */	li r4, -1
 /* 8020B5AC 0020850C  4B F0 B4 A1 */	bl __dt__10CModelDataFv
 /* 8020B5B0 00208510  38 00 00 00 */	li r0, 0
-/* 8020B5B4 00208514  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 8020B5B4 00208514  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8020B5B8 00208518  98 1F 01 54 */	stb r0, 0x154(r31)
-/* 8020B5BC 0020851C  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 8020B5BC 0020851C  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 8020B5C0 00208520  38 7F 01 70 */	addi r3, r31, 0x170
 /* 8020B5C4 00208524  98 1F 01 60 */	stb r0, 0x160(r31)
 /* 8020B5C8 00208528  98 1F 01 6C */	stb r0, 0x16c(r31)

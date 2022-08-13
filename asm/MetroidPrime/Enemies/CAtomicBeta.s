@@ -303,11 +303,11 @@ Touch__11CAtomicBetaFR6CActorR13CStateManager:
 /* 80250BD4 0024DB34  FC 00 08 00 */	fcmpu cr0, f0, f1
 /* 80250BD8 0024DB38  40 82 00 34 */	bne lbl_80250C0C
 /* 80250BDC 0024DB3C  81 9C 00 00 */	lwz r12, 0(r28)
-/* 80250BE0 0024DB40  3C 80 80 5A */	lis r4, lbl_805A6724@ha
+/* 80250BE0 0024DB40  3C 80 80 5A */	lis r4, sForwardVector__9CVector3f@ha
 /* 80250BE4 0024DB44  FC 20 00 90 */	fmr f1, f0
 /* 80250BE8 0024DB48  7F 83 E3 78 */	mr r3, r28
 /* 80250BEC 0024DB4C  81 8C 00 88 */	lwz r12, 0x88(r12)
-/* 80250BF0 0024DB50  38 84 67 24 */	addi r4, r4, lbl_805A6724@l
+/* 80250BF0 0024DB50  38 84 67 24 */	addi r4, r4, sForwardVector__9CVector3f@l
 /* 80250BF4 0024DB54  7F C5 F3 78 */	mr r5, r30
 /* 80250BF8 0024DB58  38 DF 01 2C */	addi r6, r31, 0x12c
 /* 80250BFC 0024DB5C  38 E0 00 01 */	li r7, 1
@@ -411,8 +411,8 @@ sub_80250d1c:
 /* 80250D34 0024DC94  28 00 00 00 */	cmplwi r0, 0
 /* 80250D38 0024DC98  40 82 00 40 */	bne lbl_80250D78
 /* 80250D3C 0024DC9C  80 83 00 04 */	lwz r4, 4(r3)
-/* 80250D40 0024DCA0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80250D44 0024DCA4  38 03 66 A0 */	addi r0, r3, skZero3f@l
+/* 80250D40 0024DCA0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80250D44 0024DCA4  38 03 66 A0 */	addi r0, r3, sZeroVector__9CVector3f@l
 /* 80250D48 0024DCA8  A9 42 C5 FA */	lha r10, lbl_805AE31A@sda21(r2)
 /* 80250D4C 0024DCAC  90 81 00 08 */	stw r4, 8(r1)
 /* 80250D50 0024DCB0  7C A4 2B 78 */	mr r4, r5
@@ -427,8 +427,8 @@ sub_80250d1c:
 /* 80250D74 0024DCD4  48 00 00 24 */	b lbl_80250D98
 lbl_80250D78:
 /* 80250D78 0024DCD8  80 1F 00 00 */	lwz r0, 0(r31)
-/* 80250D7C 0024DCDC  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80250D80 0024DCE0  38 A3 66 A0 */	addi r5, r3, skZero3f@l
+/* 80250D7C 0024DCDC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80250D80 0024DCE0  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 80250D84 0024DCE4  7C C4 33 78 */	mr r4, r6
 /* 80250D88 0024DCE8  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80250D8C 0024DCEC  7C E6 3B 78 */	mr r6, r7
@@ -656,9 +656,9 @@ lbl_80251068:
 /* 802510D0 0024E030  38 61 00 44 */	addi r3, r1, 0x44
 /* 802510D4 0024E034  48 0E CA 0D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 802510D8 0024E038  C0 61 01 84 */	lfs f3, 0x184(r1)
-/* 802510DC 0024E03C  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 802510DC 0024E03C  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 802510E0 0024E040  C0 41 01 94 */	lfs f2, 0x194(r1)
-/* 802510E4 0024E044  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 802510E4 0024E044  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 802510E8 0024E048  C0 21 01 A4 */	lfs f1, 0x1a4(r1)
 /* 802510EC 0024E04C  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 802510F0 0024E050  C0 81 01 9C */	lfs f4, 0x19c(r1)
@@ -810,10 +810,10 @@ sub_802512d8:
 /* 802512FC 0024E25C  7C 03 00 40 */	cmplw r3, r0
 /* 80251300 0024E260  41 82 01 80 */	beq lbl_80251480
 /* 80251304 0024E264  3C 80 80 3F */	lis r4, lbl_803E8E40@ha
-/* 80251308 0024E268  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 80251308 0024E268  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8025130C 0024E26C  3B C4 8E 40 */	addi r30, r4, lbl_803E8E40@l
 /* 80251310 0024E270  3B B8 05 6C */	addi r29, r24, 0x56c
-/* 80251314 0024E274  3B E3 66 F4 */	addi r31, r3, lbl_805A66F4@l
+/* 80251314 0024E274  3B E3 66 F4 */	addi r31, r3, sUpVector__9CVector3f@l
 /* 80251318 0024E278  3B 80 00 00 */	li r28, 0
 lbl_8025131C:
 /* 8025131C 0024E27C  80 9E 00 00 */	lwz r4, 0(r30)
@@ -969,8 +969,8 @@ lbl_80251538:
 /* 80251554 0024E4B4  7C 64 1B 79 */	or. r4, r3, r3
 /* 80251558 0024E4B8  41 82 00 64 */	beq lbl_802515BC
 /* 8025155C 0024E4BC  A0 BC 00 08 */	lhz r5, 8(r28)
-/* 80251560 0024E4C0  3C 80 80 5A */	lis r4, skIdentity4f@ha
-/* 80251564 0024E4C4  38 E4 66 70 */	addi r7, r4, skIdentity4f@l
+/* 80251560 0024E4C0  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
+/* 80251564 0024E4C4  38 E4 66 70 */	addi r7, r4, sIdentity__12CTransform4f@l
 /* 80251568 0024E4C8  A3 61 00 28 */	lhz r27, 0x28(r1)
 /* 8025156C 0024E4CC  B0 A1 00 20 */	sth r5, 0x20(r1)
 /* 80251570 0024E4D0  39 81 00 30 */	addi r12, r1, 0x30

@@ -388,7 +388,7 @@ Freeze__15CBodyControllerFfff:
 /* 8013A280 001371E0  80 9F 00 00 */	lwz r4, 0(r31)
 /* 8013A284 001371E4  4B F7 24 CD */	bl "__ct__27TCastToPtr<13CPhysicsActor>FR7CEntity"
 /* 8013A288 001371E8  80 83 00 04 */	lwz r4, 4(r3)
-/* 8013A28C 001371EC  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8013A28C 001371EC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8013A290 001371F0  C0 02 9A 78 */	lfs f0, lbl_805AB798@sda21(r2)
 /* 8013A294 001371F4  C0 24 00 FC */	lfs f1, 0xfc(r4)
 /* 8013A298 001371F8  D0 3F 03 14 */	stfs f1, 0x314(r31)
@@ -396,7 +396,7 @@ Freeze__15CBodyControllerFfff:
 /* 8013A2A0 00137200  D0 3F 03 18 */	stfs f1, 0x318(r31)
 /* 8013A2A4 00137204  C0 24 01 04 */	lfs f1, 0x104(r4)
 /* 8013A2A8 00137208  D0 3F 03 1C */	stfs f1, 0x31c(r31)
-/* 8013A2AC 0013720C  C4 23 66 A0 */	lfsu f1, skZero3f@l(r3)
+/* 8013A2AC 0013720C  C4 23 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r3)
 /* 8013A2B0 00137210  D0 24 00 FC */	stfs f1, 0xfc(r4)
 /* 8013A2B4 00137214  C0 23 00 04 */	lfs f1, 4(r3)
 /* 8013A2B8 00137218  D0 24 01 00 */	stfs f1, 0x100(r4)
@@ -1184,7 +1184,7 @@ __ct__15CBodyControllerFR6CActorf9EBodyType:
 /* 8013ADCC 00137D2C  38 7D 02 A4 */	addi r3, r29, 0x2a4
 /* 8013ADD0 00137D30  4B FF 95 B5 */	bl __ct__14CBodyStateInfoFR6CActor9EBodyType
 /* 8013ADD4 00137D34  3C 80 80 5A */	lis r4, lbl_805A6660@ha
-/* 8013ADD8 00137D38  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8013ADD8 00137D38  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8013ADDC 00137D3C  38 E4 66 60 */	addi r7, r4, lbl_805A6660@l
 /* 8013ADE0 00137D40  38 C0 00 01 */	li r6, 1
 /* 8013ADE4 00137D44  C0 07 00 00 */	lfs f0, 0(r7)
@@ -1192,7 +1192,7 @@ __ct__15CBodyControllerFR6CActorf9EBodyType:
 /* 8013ADEC 00137D4C  38 00 FF FF */	li r0, -1
 /* 8013ADF0 00137D50  C0 22 9A 78 */	lfs f1, lbl_805AB798@sda21(r2)
 /* 8013ADF4 00137D54  D0 1D 02 DC */	stfs f0, 0x2dc(r29)
-/* 8013ADF8 00137D58  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8013ADF8 00137D58  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8013ADFC 00137D5C  7F A3 EB 78 */	mr r3, r29
 /* 8013AE00 00137D60  C0 07 00 04 */	lfs f0, 4(r7)
 /* 8013AE04 00137D64  D0 1D 02 E0 */	stfs f0, 0x2e0(r29)

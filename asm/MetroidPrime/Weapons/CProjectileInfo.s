@@ -12,9 +12,9 @@ PredictInterceptPos__15CProjectileInfoFRC9CVector3fRC9CVector3fRC7CPlayerbff:
 /* 8021BCAC 00218C0C  DB C1 00 80 */	stfd f30, 0x80(r1)
 /* 8021BCB0 00218C10  F3 C1 00 88 */	psq_st f30, 136(r1), 0, qr0
 /* 8021BCB4 00218C14  BF 61 00 6C */	stmw r27, 0x6c(r1)
-/* 8021BCB8 00218C18  3D 00 80 5A */	lis r8, skZero3f@ha
+/* 8021BCB8 00218C18  3D 00 80 5A */	lis r8, sZeroVector__9CVector3f@ha
 /* 8021BCBC 00218C1C  7C 7E 1B 78 */	mr r30, r3
-/* 8021BCC0 00218C20  38 68 66 A0 */	addi r3, r8, skZero3f@l
+/* 8021BCC0 00218C20  38 68 66 A0 */	addi r3, r8, sZeroVector__9CVector3f@l
 /* 8021BCC4 00218C24  FF C0 08 90 */	fmr f30, f1
 /* 8021BCC8 00218C28  C0 63 00 00 */	lfs f3, 0(r3)
 /* 8021BCCC 00218C2C  FF E0 10 90 */	fmr f31, f2
@@ -207,8 +207,8 @@ GetProjectileSpeed__15CProjectileInfoCFv:
 /* 8021BF84 00218EE4  80 03 00 04 */	lwz r0, 4(r3)
 /* 8021BF88 00218EE8  28 00 00 00 */	cmplwi r0, 0
 /* 8021BF8C 00218EEC  41 82 00 5C */	beq lbl_8021BFE8
-/* 8021BF90 00218EF0  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 8021BF94 00218EF4  C4 44 66 A0 */	lfsu f2, skZero3f@l(r4)
+/* 8021BF90 00218EF0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 8021BF94 00218EF4  C4 44 66 A0 */	lfsu f2, sZeroVector__9CVector3f@l(r4)
 /* 8021BF98 00218EF8  38 61 00 08 */	addi r3, r1, 8
 /* 8021BF9C 00218EFC  C0 24 00 04 */	lfs f1, 4(r4)
 /* 8021BFA0 00218F00  C0 04 00 08 */	lfs f0, 8(r4)

@@ -778,8 +778,8 @@ lbl_80075890:
 /* 80075924 00072884  4B FA 5C 11 */	bl Identity__10CAxisAngleFv
 /* 80075928 00072888  7C 7F 1B 78 */	mr r31, r3
 /* 8007592C 0007288C  4B FA 5C 09 */	bl Identity__10CAxisAngleFv
-/* 80075930 00072890  3C 80 80 5A */	lis r4, skZero3f@ha
-/* 80075934 00072894  C4 64 66 A0 */	lfsu f3, skZero3f@l(r4)
+/* 80075930 00072890  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
+/* 80075934 00072894  C4 64 66 A0 */	lfsu f3, sZeroVector__9CVector3f@l(r4)
 /* 80075938 00072898  A1 70 00 00 */	lhz r11, 0(r16)
 /* 8007593C 0007289C  38 01 00 1C */	addi r0, r1, 0x1c
 /* 80075940 000728A0  C0 84 00 04 */	lfs f4, 4(r4)

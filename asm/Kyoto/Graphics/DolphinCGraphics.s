@@ -3939,9 +3939,9 @@ SetIdentityModelMatrix__9CGraphicsFv:
 /* 8030C5A8 00309508  28 00 00 00 */	cmplwi r0, 0
 /* 8030C5AC 0030950C  40 82 00 24 */	bne lbl_8030C5D0
 /* 8030C5B0 00309510  3C 60 80 5A */	lis r3, lbl_805A6204@ha
-/* 8030C5B4 00309514  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8030C5B4 00309514  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8030C5B8 00309518  38 63 62 04 */	addi r3, r3, lbl_805A6204@l
-/* 8030C5BC 0030951C  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8030C5BC 0030951C  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8030C5C0 00309520  48 00 65 81 */	bl __as__12CTransform4fFRC12CTransform4f
 /* 8030C5C4 00309524  38 00 00 01 */	li r0, 1
 /* 8030C5C8 00309528  98 0D 9C 80 */	stb r0, lbl_805A8840@sda21(r13)
@@ -3956,9 +3956,9 @@ lbl_8030C5D0:
 SetModelMatrix__9CGraphicsFRC12CTransform4f:
 /* 8030C5E0 00309540  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8030C5E4 00309544  7C 08 02 A6 */	mflr r0
-/* 8030C5E8 00309548  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8030C5E8 00309548  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8030C5EC 0030954C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8030C5F0 00309550  38 04 66 70 */	addi r0, r4, skIdentity4f@l
+/* 8030C5F0 00309550  38 04 66 70 */	addi r0, r4, sIdentity__12CTransform4f@l
 /* 8030C5F4 00309554  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8030C5F8 00309558  7C 7F 1B 78 */	mr r31, r3
 /* 8030C5FC 0030955C  7C 1F 00 40 */	cmplw r31, r0
@@ -4019,17 +4019,17 @@ SetIdentityViewPointMatrix__9CGraphicsFv:
 /* 8030C6C4 00309624  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8030C6C8 00309628  7C 08 02 A6 */	mflr r0
 /* 8030C6CC 0030962C  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
-/* 8030C6D0 00309630  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8030C6D0 00309630  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8030C6D4 00309634  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8030C6D8 00309638  38 63 61 D4 */	addi r3, r3, lbl_805A61D4@l
-/* 8030C6DC 0030963C  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8030C6DC 0030963C  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8030C6E0 00309640  48 00 64 61 */	bl __as__12CTransform4fFRC12CTransform4f
 /* 8030C6E4 00309644  3C 60 80 5A */	lis r3, lbl_805A653C@ha
 /* 8030C6E8 00309648  38 63 65 3C */	addi r3, r3, lbl_805A653C@l
 /* 8030C6EC 0030964C  48 07 09 55 */	bl PSMTXIdentity
-/* 8030C6F0 00309650  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 8030C6F0 00309650  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8030C6F4 00309654  3C A0 80 5A */	lis r5, lbl_805A653C@ha
-/* 8030C6F8 00309658  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8030C6F8 00309658  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 8030C6FC 0030965C  C0 A2 C7 F0 */	lfs f5, lbl_805AE510@sda21(r2)
 /* 8030C700 00309660  C0 44 00 00 */	lfs f2, 0(r4)
 /* 8030C704 00309664  38 A5 65 3C */	addi r5, r5, lbl_805A653C@l
@@ -5551,11 +5551,11 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030DDA4 0030AD04  C0 42 C8 10 */	lfs f2, lbl_805AE530@sda21(r2)
 /* 8030DDA8 0030AD08  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
 /* 8030DDAC 0030AD0C  9C 05 61 B8 */	stbu r0, lbl_805A61B8@l(r5)
-/* 8030DDB0 0030AD10  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8030DDB0 0030AD10  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8030DDB4 0030AD14  C0 22 C8 14 */	lfs f1, lbl_805AE534@sda21(r2)
 /* 8030DDB8 0030AD18  38 63 61 D4 */	addi r3, r3, lbl_805A61D4@l
 /* 8030DDBC 0030AD1C  D4 66 61 AC */	stfsu f3, lbl_805A61AC@l(r6)
-/* 8030DDC0 0030AD20  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8030DDC0 0030AD20  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8030DDC4 0030AD24  C0 02 C8 34 */	lfs f0, lbl_805AE554@sda21(r2)
 /* 8030DDC8 0030AD28  D0 67 00 04 */	stfs f3, 4(r7)
 /* 8030DDCC 0030AD2C  D0 67 00 08 */	stfs f3, 8(r7)
@@ -5569,9 +5569,9 @@ __sinit_DolphinCGraphics_cpp:
 /* 8030DDEC 0030AD4C  D0 05 00 18 */	stfs f0, 0x18(r5)
 /* 8030DDF0 0030AD50  48 00 4D 85 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8030DDF4 0030AD54  3C 60 80 5A */	lis r3, lbl_805A6204@ha
-/* 8030DDF8 0030AD58  3C 80 80 5A */	lis r4, skIdentity4f@ha
+/* 8030DDF8 0030AD58  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8030DDFC 0030AD5C  38 63 62 04 */	addi r3, r3, lbl_805A6204@l
-/* 8030DE00 0030AD60  38 84 66 70 */	addi r4, r4, skIdentity4f@l
+/* 8030DE00 0030AD60  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8030DE04 0030AD64  48 00 4D 71 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8030DE08 0030AD68  48 03 C1 AD */	bl Black__6CColorFv
 /* 8030DE0C 0030AD6C  80 03 00 00 */	lwz r0, 0(r3)

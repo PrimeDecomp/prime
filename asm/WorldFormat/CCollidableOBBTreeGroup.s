@@ -1105,9 +1105,9 @@ lbl_802AD69C:
 /* 802AD6F4 002AA654  38 61 01 10 */	addi r3, r1, 0x110
 /* 802AD6F8 002AA658  38 81 00 A8 */	addi r4, r1, 0xa8
 /* 802AD6FC 002AA65C  48 02 89 71 */	bl __ct__5CMRayFRC9CVector3fRC9CVector3ff
-/* 802AD700 002AA660  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 802AD700 002AA660  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802AD704 002AA664  D3 E1 01 48 */	stfs f31, 0x148(r1)
-/* 802AD708 002AA668  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 802AD708 002AA668  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 802AD70C 002AA66C  7F A3 EB 78 */	mr r3, r29
 /* 802AD710 002AA670  48 06 54 65 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802AD714 002AA674  92 C1 01 7C */	stw r22, 0x17c(r1)

@@ -490,9 +490,9 @@ LineIntersectsTree__18CCollidableOBBTreeCFRC5CMRayRC15CMaterialFilterfRC12CTrans
 /* 802A9F40 002A6EA0  D0 21 00 18 */	stfs f1, 0x18(r1)
 /* 802A9F44 002A6EA4  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 802A9F48 002A6EA8  48 06 A9 B1 */	bl Normalize__9CVector3fFv
-/* 802A9F4C 002A6EAC  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802A9F4C 002A6EAC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802A9F50 002A6EB0  38 00 00 00 */	li r0, 0
-/* 802A9F54 002A6EB4  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 802A9F54 002A6EB4  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 802A9F58 002A6EB8  C0 61 00 18 */	lfs f3, 0x18(r1)
 /* 802A9F5C 002A6EBC  C0 04 00 04 */	lfs f0, 4(r4)
 /* 802A9F60 002A6EC0  7F 83 E3 78 */	mr r3, r28
@@ -1768,9 +1768,9 @@ AABoxCollideWithLeafMoving__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTr
 /* 802AB29C 002A81FC  DB A1 02 90 */	stfd f29, 0x290(r1)
 /* 802AB2A0 002A8200  F3 A1 02 98 */	psq_st f29, 664(r1), 0, qr0
 /* 802AB2A4 002A8204  BD C1 02 48 */	stmw r14, 0x248(r1)
-/* 802AB2A8 002A8208  3D 60 80 5A */	lis r11, skZero3f@ha
+/* 802AB2A8 002A8208  3D 60 80 5A */	lis r11, sZeroVector__9CVector3f@ha
 /* 802AB2AC 002A820C  7D 32 4B 78 */	mr r18, r9
-/* 802AB2B0 002A8210  39 2B 66 A0 */	addi r9, r11, skZero3f@l
+/* 802AB2B0 002A8210  39 2B 66 A0 */	addi r9, r11, sZeroVector__9CVector3f@l
 /* 802AB2B4 002A8214  C0 12 06 E8 */	lfs f0, 0x6e8(r18)
 /* 802AB2B8 002A8218  C0 29 00 00 */	lfs f1, 0(r9)
 /* 802AB2BC 002A821C  7C 6F 1B 78 */	mr r15, r3
@@ -2650,11 +2650,11 @@ lbl_802ABFB0:
 SphereCollideWithLeaf__18CCollidableOBBTreeCFRCQ28COBBTree9CLeafDataRC12CTransform4fRC7CSphereRC13CMaterialListRC15CMaterialFilterR18CCollisionInfoList:
 /* 802ABFC4 002A8F24  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 802ABFC8 002A8F28  7C 08 02 A6 */	mflr r0
-/* 802ABFCC 002A8F2C  3D 40 80 5A */	lis r10, skZero3f@ha
+/* 802ABFCC 002A8F2C  3D 40 80 5A */	lis r10, sZeroVector__9CVector3f@ha
 /* 802ABFD0 002A8F30  90 01 01 14 */	stw r0, 0x114(r1)
 /* 802ABFD4 002A8F34  BE 61 00 DC */	stmw r19, 0xdc(r1)
 /* 802ABFD8 002A8F38  7C 94 23 78 */	mr r20, r4
-/* 802ABFDC 002A8F3C  38 8A 66 A0 */	addi r4, r10, skZero3f@l
+/* 802ABFDC 002A8F3C  38 8A 66 A0 */	addi r4, r10, sZeroVector__9CVector3f@l
 /* 802ABFE0 002A8F40  3B 81 00 5C */	addi r28, r1, 0x5c
 /* 802ABFE4 002A8F44  3B A1 00 68 */	addi r29, r1, 0x68
 /* 802ABFE8 002A8F48  7C 73 1B 78 */	mr r19, r3
@@ -3120,9 +3120,9 @@ CalculateAABox__18CCollidableOBBTreeCFRC12CTransform4f:
 /* 802AC698 002A95F8  38 81 00 20 */	addi r4, r1, 0x20
 /* 802AC69C 002A95FC  48 06 64 D9 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802AC6A0 002A9600  C0 41 00 50 */	lfs f2, 0x50(r1)
-/* 802AC6A4 002A9604  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 802AC6A4 002A9604  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802AC6A8 002A9608  C0 21 00 54 */	lfs f1, 0x54(r1)
-/* 802AC6AC 002A960C  38 A3 66 70 */	addi r5, r3, skIdentity4f@l
+/* 802AC6AC 002A960C  38 A3 66 70 */	addi r5, r3, sIdentity__12CTransform4f@l
 /* 802AC6B0 002A9610  C0 01 00 58 */	lfs f0, 0x58(r1)
 /* 802AC6B4 002A9614  7F C3 F3 78 */	mr r3, r30
 /* 802AC6B8 002A9618  D0 41 00 8C */	stfs f2, 0x8c(r1)

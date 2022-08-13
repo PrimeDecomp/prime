@@ -2101,9 +2101,9 @@ lbl_800A2DE4:
 /* 800A2E68 0009FDC8  4B F7 86 CD */	bl Identity__10CAxisAngleFv
 /* 800A2E6C 0009FDCC  7C 7D 1B 78 */	mr r29, r3
 /* 800A2E70 0009FDD0  4B F7 86 C5 */	bl Identity__10CAxisAngleFv
-/* 800A2E74 0009FDD4  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 800A2E74 0009FDD4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800A2E78 0009FDD8  80 AD 86 10 */	lwz r5, lbl_805A71D0@sda21(r13)
-/* 800A2E7C 0009FDDC  38 C4 66 A0 */	addi r6, r4, skZero3f@l
+/* 800A2E7C 0009FDDC  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
 /* 800A2E80 0009FDE0  C0 26 00 00 */	lfs f1, 0(r6)
 /* 800A2E84 0009FDE4  38 80 00 01 */	li r4, 1
 /* 800A2E88 0009FDE8  C0 46 00 04 */	lfs f2, 4(r6)

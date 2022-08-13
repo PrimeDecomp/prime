@@ -338,8 +338,8 @@ __ct__14CFrustumPlanesFRC12CTransform4ffffbf:
 /* 80345474 003423D4  D0 03 00 0C */	stfs f0, 0xc(r3)
 lbl_80345478:
 /* 80345478 003423D8  80 DC 00 00 */	lwz r6, 0(r28)
-/* 8034547C 003423DC  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80345480 003423E0  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 8034547C 003423DC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80345480 003423E0  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80345484 003423E4  7F E5 FB 78 */	mr r5, r31
 /* 80345488 003423E8  38 06 00 01 */	addi r0, r6, 1
 /* 8034548C 003423EC  38 61 00 2C */	addi r3, r1, 0x2c
@@ -363,8 +363,8 @@ lbl_80345478:
 /* 803454D4 00342434  D0 03 00 0C */	stfs f0, 0xc(r3)
 lbl_803454D8:
 /* 803454D8 00342438  80 BC 00 00 */	lwz r5, 0(r28)
-/* 803454DC 0034243C  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 803454E0 00342440  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 803454DC 0034243C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 803454E0 00342440  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 803454E4 00342444  3B 61 00 B0 */	addi r27, r1, 0xb0
 /* 803454E8 00342448  38 05 00 01 */	addi r0, r5, 1
 /* 803454EC 0034244C  7F C6 F3 78 */	mr r6, r30
@@ -389,8 +389,8 @@ lbl_803454D8:
 /* 80345538 00342498  D0 03 00 0C */	stfs f0, 0xc(r3)
 lbl_8034553C:
 /* 8034553C 0034249C  80 BC 00 00 */	lwz r5, 0(r28)
-/* 80345540 003424A0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 80345544 003424A4  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 80345540 003424A0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 80345544 003424A4  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80345548 003424A8  7F 66 DB 78 */	mr r6, r27
 /* 8034554C 003424AC  38 05 00 01 */	addi r0, r5, 1
 /* 80345550 003424B0  38 61 00 14 */	addi r3, r1, 0x14
@@ -414,8 +414,8 @@ lbl_8034553C:
 /* 80345598 003424F8  D0 03 00 0C */	stfs f0, 0xc(r3)
 lbl_8034559C:
 /* 8034559C 003424FC  80 DC 00 00 */	lwz r6, 0(r28)
-/* 803455A0 00342500  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 803455A4 00342504  38 83 66 A0 */	addi r4, r3, skZero3f@l
+/* 803455A0 00342500  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 803455A4 00342504  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 803455A8 00342508  7F C5 F3 78 */	mr r5, r30
 /* 803455AC 0034250C  38 06 00 01 */	addi r0, r6, 1
 /* 803455B0 00342510  7F E6 FB 78 */	mr r6, r31

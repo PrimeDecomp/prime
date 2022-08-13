@@ -1243,9 +1243,9 @@ MovingAABoxCollisionCheck_TriVertexBox__20CMetroidAreaColliderFRC9CVector3fRC6CA
 /* 802A4164 002A10C4  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 802A4168 002A10C8  D0 41 00 14 */	stfs f2, 0x14(r1)
 /* 802A416C 002A10CC  48 03 1F 01 */	bl __ct__5CMRayFRC9CVector3fRC9CVector3ff
-/* 802A4170 002A10D0  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802A4170 002A10D0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802A4174 002A10D4  7F 64 DB 78 */	mr r4, r27
-/* 802A4178 002A10D8  38 E3 66 A0 */	addi r7, r3, skZero3f@l
+/* 802A4178 002A10D8  38 E3 66 A0 */	addi r7, r3, sZeroVector__9CVector3f@l
 /* 802A417C 002A10DC  38 61 00 28 */	addi r3, r1, 0x28
 /* 802A4180 002A10E0  C0 47 00 00 */	lfs f2, 0(r7)
 /* 802A4184 002A10E4  38 A1 00 1C */	addi r5, r1, 0x1c
@@ -1360,13 +1360,13 @@ MovingAABoxCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaColli
 /* 802A4328 002A1288  38 81 00 DC */	addi r4, r1, 0xdc
 /* 802A432C 002A128C  48 09 32 E1 */	bl GetCenterPoint__6CAABoxCFv
 /* 802A4330 002A1290  C0 61 00 EC */	lfs f3, 0xec(r1)
-/* 802A4334 002A1294  3C 60 80 5A */	lis r3, skZero3f@ha
+/* 802A4334 002A1294  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802A4338 002A1298  C0 41 00 E0 */	lfs f2, 0xe0(r1)
 /* 802A433C 002A129C  3B 00 00 00 */	li r24, 0
 /* 802A4340 002A12A0  C0 21 00 F0 */	lfs f1, 0xf0(r1)
 /* 802A4344 002A12A4  C0 01 00 E4 */	lfs f0, 0xe4(r1)
 /* 802A4348 002A12A8  EC 63 10 28 */	fsubs f3, f3, f2
-/* 802A434C 002A12AC  C4 E3 66 A0 */	lfsu f7, skZero3f@l(r3)
+/* 802A434C 002A12AC  C4 E3 66 A0 */	lfsu f7, sZeroVector__9CVector3f@l(r3)
 /* 802A4350 002A12B0  EC 41 00 28 */	fsubs f2, f1, f0
 /* 802A4354 002A12B4  C0 82 C1 60 */	lfs f4, lbl_805ADE80@sda21(r2)
 /* 802A4358 002A12B8  C1 03 00 04 */	lfs f8, 4(r3)
@@ -3301,8 +3301,8 @@ SphereCollisionCheck_Cached__20CMetroidAreaColliderFRCQ220CMetroidAreaCollider16
 /* 802A6054 002A2FB4  7C FE 3B 78 */	mr r30, r7
 /* 802A6058 002A2FB8  7D 1F 43 78 */	mr r31, r8
 /* 802A605C 002A2FBC  48 00 0F E5 */	bl ResetInternalCounters__20CMetroidAreaColliderFv
-/* 802A6060 002A2FC0  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 802A6064 002A2FC4  C4 03 66 A0 */	lfsu f0, skZero3f@l(r3)
+/* 802A6060 002A2FC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 802A6064 002A2FC4  C4 03 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r3)
 /* 802A6068 002A2FC8  3A FA 00 08 */	addi r23, r26, 8
 /* 802A606C 002A2FCC  3A A0 00 00 */	li r21, 0
 /* 802A6070 002A2FD0  C0 23 00 04 */	lfs f1, 4(r3)
@@ -3404,11 +3404,11 @@ lbl_802A61A8:
 SphereCollisionCheck_Internal__20CMetroidAreaColliderFRCQ212CAreaOctTree4NodeR16CSphereAreaCache:
 /* 802A61CC 002A312C  94 21 FE D0 */	stwu r1, -0x130(r1)
 /* 802A61D0 002A3130  7C 08 02 A6 */	mflr r0
-/* 802A61D4 002A3134  3C A0 80 5A */	lis r5, skZero3f@ha
+/* 802A61D4 002A3134  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 802A61D8 002A3138  90 01 01 34 */	stw r0, 0x134(r1)
 /* 802A61DC 002A313C  BE A1 01 04 */	stmw r21, 0x104(r1)
 /* 802A61E0 002A3140  7C 76 1B 78 */	mr r22, r3
-/* 802A61E4 002A3144  38 65 66 A0 */	addi r3, r5, skZero3f@l
+/* 802A61E4 002A3144  38 65 66 A0 */	addi r3, r5, sZeroVector__9CVector3f@l
 /* 802A61E8 002A3148  7C 97 23 78 */	mr r23, r4
 /* 802A61EC 002A314C  3B 60 00 00 */	li r27, 0
 /* 802A61F0 002A3150  3B 40 00 00 */	li r26, 0

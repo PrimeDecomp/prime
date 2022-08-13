@@ -248,8 +248,8 @@ __ct__17CHudBallInterfaceFR9CGuiFrameiiibb:
 /* 801CD7E4 001CA744  7C 94 23 78 */	mr r20, r4
 /* 801CD7E8 001CA748  7D 17 43 78 */	mr r23, r8
 /* 801CD7EC 001CA74C  90 03 00 14 */	stw r0, 0x14(r3)
-/* 801CD7F0 001CA750  3C 60 80 5A */	lis r3, skZero3f@ha
-/* 801CD7F4 001CA754  39 23 66 A0 */	addi r9, r3, skZero3f@l
+/* 801CD7F0 001CA750  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
+/* 801CD7F4 001CA754  39 23 66 A0 */	addi r9, r3, sZeroVector__9CVector3f@l
 /* 801CD7F8 001CA758  90 13 00 24 */	stw r0, 0x24(r19)
 /* 801CD7FC 001CA75C  3C 60 80 3D */	lis r3, lbl_803D1AD8@ha
 /* 801CD800 001CA760  3B C3 1A D8 */	addi r30, r3, lbl_803D1AD8@l

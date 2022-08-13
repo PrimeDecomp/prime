@@ -330,9 +330,9 @@ UpdateViewWander__16CPlayerCameraBobFfR13CStateManager:
 /* 800E96F0 000E6650  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 800E96F4 000E6654  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 800E96F8 000E6658  48 22 A1 B1 */	bl RotateY__12CTransform4fFRC9CRelAngle
-/* 800E96FC 000E665C  3C 80 80 5A */	lis r4, lbl_805A66F4@ha
+/* 800E96FC 000E665C  3C 80 80 5A */	lis r4, sUpVector__9CVector3f@ha
 /* 800E9700 000E6660  38 61 00 6C */	addi r3, r1, 0x6c
-/* 800E9704 000E6664  38 C4 66 F4 */	addi r6, r4, lbl_805A66F4@l
+/* 800E9704 000E6664  38 C4 66 F4 */	addi r6, r4, sUpVector__9CVector3f@l
 /* 800E9708 000E6668  38 A1 00 30 */	addi r5, r1, 0x30
 /* 800E970C 000E666C  38 81 00 18 */	addi r4, r1, 0x18
 /* 800E9710 000E6670  48 22 A4 01 */	bl LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
@@ -1039,13 +1039,13 @@ lbl_800EA0C4:
 /* 800EA0E4 000E7044  D0 1E 00 14 */	stfs f0, 0x14(r30)
 /* 800EA0E8 000E7048  4B FF F4 91 */	bl UpdateViewWander__16CPlayerCameraBobFfR13CStateManager
 /* 800EA0EC 000E704C  C0 5E 00 78 */	lfs f2, 0x78(r30)
-/* 800EA0F0 000E7050  3C 80 80 5A */	lis r4, skZero3f@ha
+/* 800EA0F0 000E7050  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800EA0F4 000E7054  C0 22 90 78 */	lfs f1, lbl_805AAD98@sda21(r2)
-/* 800EA0F8 000E7058  3C 60 80 5A */	lis r3, lbl_805A66F4@ha
+/* 800EA0F8 000E7058  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 800EA0FC 000E705C  C0 0D 88 00 */	lfs f0, lbl_805A73C0@sda21(r13)
-/* 800EA100 000E7060  38 C3 66 F4 */	addi r6, r3, lbl_805A66F4@l
+/* 800EA100 000E7060  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 800EA104 000E7064  D0 21 00 08 */	stfs f1, 8(r1)
-/* 800EA108 000E7068  38 84 66 A0 */	addi r4, r4, skZero3f@l
+/* 800EA108 000E7068  38 84 66 A0 */	addi r4, r4, sZeroVector__9CVector3f@l
 /* 800EA10C 000E706C  38 61 00 14 */	addi r3, r1, 0x14
 /* 800EA110 000E7070  38 A1 00 08 */	addi r5, r1, 8
 /* 800EA114 000E7074  D0 01 00 0C */	stfs f0, 0xc(r1)
@@ -1141,9 +1141,9 @@ __ct__16CPlayerCameraBobFQ216CPlayerCameraBob14ECameraBobTypeRC9CVector2ff:
 /* 800EA264 000E71C4  38 00 00 00 */	li r0, 0
 /* 800EA268 000E71C8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 800EA26C 000E71CC  7C 7F 1B 78 */	mr r31, r3
-/* 800EA270 000E71D0  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 800EA270 000E71D0  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 800EA274 000E71D4  90 9F 00 00 */	stw r4, 0(r31)
-/* 800EA278 000E71D8  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 800EA278 000E71D8  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 800EA27C 000E71DC  38 7F 00 2C */	addi r3, r31, 0x2c
 /* 800EA280 000E71E0  C0 45 00 00 */	lfs f2, 0(r5)
 /* 800EA284 000E71E4  D0 5F 00 04 */	stfs f2, 4(r31)
@@ -1160,8 +1160,8 @@ __ct__16CPlayerCameraBobFQ216CPlayerCameraBob14ECameraBobTypeRC9CVector2ff:
 /* 800EA2B0 000E7210  98 1F 00 29 */	stb r0, 0x29(r31)
 /* 800EA2B4 000E7214  48 22 88 C1 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 800EA2B8 000E7218  C0 02 90 78 */	lfs f0, lbl_805AAD98@sda21(r2)
-/* 800EA2BC 000E721C  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 800EA2C0 000E7220  38 83 66 70 */	addi r4, r3, skIdentity4f@l
+/* 800EA2BC 000E721C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800EA2C0 000E7220  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 800EA2C4 000E7224  38 00 00 00 */	li r0, 0
 /* 800EA2C8 000E7228  D0 1F 00 5C */	stfs f0, 0x5c(r31)
 /* 800EA2CC 000E722C  38 7F 00 D0 */	addi r3, r31, 0xd0

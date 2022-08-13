@@ -4077,14 +4077,14 @@ GetResourceIdByName__11CResFactoryCFPCc:
 AddPaksAndFactories__18CGameGlobalObjectsFv:
 /* 800060B4 00003014  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 800060B8 00003018  7C 08 02 A6 */	mflr r0
-/* 800060BC 0000301C  3C 60 80 5A */	lis r3, skIdentity4f@ha
+/* 800060BC 0000301C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 800060C0 00003020  90 01 00 C4 */	stw r0, 0xc4(r1)
-/* 800060C4 00003024  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 800060C4 00003024  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 800060C8 00003028  93 E1 00 BC */	stw r31, 0xbc(r1)
 /* 800060CC 0000302C  83 ED A0 60 */	lwz r31, gpResourceFactory@sda21(r13)
 /* 800060D0 00003030  48 30 66 7D */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
-/* 800060D4 00003034  3C 60 80 5A */	lis r3, skIdentity4f@ha
-/* 800060D8 00003038  38 63 66 70 */	addi r3, r3, skIdentity4f@l
+/* 800060D4 00003034  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800060D8 00003038  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 800060DC 0000303C  48 30 65 05 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
 /* 800060E0 00003040  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
 /* 800060E4 00003044  38 61 00 88 */	addi r3, r1, 0x88

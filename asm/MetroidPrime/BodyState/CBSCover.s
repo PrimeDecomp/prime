@@ -473,8 +473,8 @@ Start__8CBSCoverFR15CBodyControllerR13CStateManager:
 /* 80176304 00173264  38 E0 FF FF */	li r7, -1
 /* 80176308 00173268  48 16 ED 59 */	bl FindBestAnimation__12CPASDatabaseCFRC16CPASAnimParmDataR9CRandom16i
 /* 8017630C 0017326C  80 9F 00 00 */	lwz r4, 0(r31)
-/* 80176310 00173270  3C 60 80 5A */	lis r3, lbl_805A6724@ha
-/* 80176314 00173274  38 E3 67 24 */	addi r7, r3, lbl_805A6724@l
+/* 80176310 00173270  3C 60 80 5A */	lis r3, sForwardVector__9CVector3f@ha
+/* 80176314 00173274  38 E3 67 24 */	addi r7, r3, sForwardVector__9CVector3f@l
 /* 80176318 00173278  C0 62 A1 A4 */	lfs f3, lbl_805ABEC4@sda21(r2)
 /* 8017631C 0017327C  81 04 00 64 */	lwz r8, 0x64(r4)
 /* 80176320 00173280  38 61 00 74 */	addi r3, r1, 0x74
