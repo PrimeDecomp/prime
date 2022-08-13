@@ -611,7 +611,7 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CAdditiveAnimPlayback.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleElectricDataFactory.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleElectric.o\
-	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCColor.o\
+	$(BUILD_DIR)/src/Kyoto/Graphics/DolphinCColor.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CDSPStreamManager.o\
 	$(BUILD_DIR)/asm/Kyoto/CDependencyGroup.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CStreamAudioManager.o\
