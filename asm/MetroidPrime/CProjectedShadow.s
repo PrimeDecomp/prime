@@ -908,9 +908,9 @@ __ct__16CProjectedShadowFv:
 /* 8029E404 0029B364  93 C1 00 08 */	stw r30, 8(r1)
 /* 8029E408 0029B368  7C 7E 1B 78 */	mr r30, r3
 /* 8029E40C 0029B36C  48 07 1A 21 */	bl __ct__8CTextureF12ETexelFormatssi
-/* 8029E410 0029B370  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 8029E410 0029B370  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 8029E414 0029B374  38 00 00 00 */	li r0, 0
-/* 8029E418 0029B378  38 A4 67 54 */	addi r5, r4, lbl_805A6754@l
+/* 8029E418 0029B378  38 A4 67 54 */	addi r5, r4, mskInvertedBox__6CAABox@l
 /* 8029E41C 0029B37C  3C 60 80 5A */	lis r3, skZero3f@ha
 /* 8029E420 0029B380  C0 05 00 00 */	lfs f0, 0(r5)
 /* 8029E424 0029B384  38 83 66 A0 */	addi r4, r3, skZero3f@l

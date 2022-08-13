@@ -9116,7 +9116,7 @@ Accept__7CRidleyFR8IVisitor:
 /* 8025A070 00256FD0  D0 DF 0A B4 */	stfs f6, 0xab4(r31)
 /* 8025A074 00256FD4  38 A3 25 34 */	addi r5, r3, lbl_80572534@l
 /* 8025A078 00256FD8  C0 02 B9 CC */	lfs f0, lbl_805AD6EC@sda21(r2)
-/* 8025A07C 00256FDC  3C C0 80 5A */	lis r6, lbl_805A6754@ha
+/* 8025A07C 00256FDC  3C C0 80 5A */	lis r6, mskInvertedBox__6CAABox@ha
 /* 8025A080 00256FE0  C0 22 B9 78 */	lfs f1, lbl_805AD698@sda21(r2)
 /* 8025A084 00256FE4  38 80 00 02 */	li r4, 2
 /* 8025A088 00256FE8  D0 1F 0A B8 */	stfs f0, 0xab8(r31)
@@ -9127,7 +9127,7 @@ Accept__7CRidleyFR8IVisitor:
 /* 8025A09C 00256FFC  C0 42 B9 D0 */	lfs f2, lbl_805AD6F0@sda21(r2)
 /* 8025A0A0 00257000  D0 1F 0A C0 */	stfs f0, 0xac0(r31)
 /* 8025A0A4 00257004  C0 02 B9 D4 */	lfs f0, lbl_805AD6F4@sda21(r2)
-/* 8025A0A8 00257008  C4 66 67 54 */	lfsu f3, lbl_805A6754@l(r6)
+/* 8025A0A8 00257008  C4 66 67 54 */	lfsu f3, mskInvertedBox__6CAABox@l(r6)
 /* 8025A0AC 0025700C  C0 22 B9 18 */	lfs f1, lbl_805AD638@sda21(r2)
 /* 8025A0B0 00257010  D0 7F 0A C4 */	stfs f3, 0xac4(r31)
 /* 8025A0B4 00257014  C0 66 00 04 */	lfs f3, 4(r6)

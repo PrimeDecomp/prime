@@ -683,9 +683,9 @@ CheckTransitionLineOfSight__11CBallCameraFRC9CVector3fRC9CVector3fRffR13CStateMa
 /* 8023EF28 0023BE88  D0 41 00 50 */	stfs f2, 0x50(r1)
 /* 8023EF2C 0023BE8C  D0 21 00 54 */	stfs f1, 0x54(r1)
 /* 8023EF30 0023BE90  40 81 03 B0 */	ble lbl_8023F2E0
-/* 8023EF34 0023BE94  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 8023EF34 0023BE94  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 8023EF38 0023BE98  C0 02 B7 C4 */	lfs f0, lbl_805AD4E4@sda21(r2)
-/* 8023EF3C 0023BE9C  38 A3 67 54 */	addi r5, r3, lbl_805A6754@l
+/* 8023EF3C 0023BE9C  38 A3 67 54 */	addi r5, r3, mskInvertedBox__6CAABox@l
 /* 8023EF40 0023BEA0  7F 84 E3 78 */	mr r4, r28
 /* 8023EF44 0023BEA4  C0 A5 00 00 */	lfs f5, 0(r5)
 /* 8023EF48 0023BEA8  EF C0 07 72 */	fmuls f30, f0, f29

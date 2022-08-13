@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803D9EB0
-lbl_803D9EB0:
+.global __vt__6CActor
+__vt__6CActor:
 	# ROM: 0x3D6EB0
 	.4byte 0
 	.4byte 0
@@ -3303,8 +3303,8 @@ __dt__6CActorFv:
 /* 80055708 00052668  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8005570C 0005266C  7C 7D 1B 79 */	or. r29, r3, r3
 /* 80055710 00052670  41 82 00 F0 */	beq lbl_80055800
-/* 80055714 00052674  3C 80 80 3E */	lis r4, lbl_803D9EB0@ha
-/* 80055718 00052678  38 04 9E B0 */	addi r0, r4, lbl_803D9EB0@l
+/* 80055714 00052674  3C 80 80 3E */	lis r4, __vt__6CActor@ha
+/* 80055718 00052678  38 04 9E B0 */	addi r0, r4, __vt__6CActor@l
 /* 8005571C 0005267C  90 1D 00 00 */	stw r0, 0(r29)
 /* 80055720 00052680  4B FF FB 25 */	bl RemoveEmitter__6CActorFv
 /* 80055724 00052684  34 1D 00 D8 */	addic. r0, r29, 0xd8
@@ -3403,9 +3403,9 @@ lbl_80055800:
 /* 80055860 000527C0  B0 01 00 08 */	sth r0, 8(r1)
 /* 80055864 000527C4  38 81 00 08 */	addi r4, r1, 8
 /* 80055868 000527C8  4B FF BA BD */	bl "__ct__7CEntityF9TUniqueIdRC11CEntityInfobRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8005586C 000527CC  3C 60 80 3E */	lis r3, lbl_803D9EB0@ha
+/* 8005586C 000527CC  3C 60 80 3E */	lis r3, __vt__6CActor@ha
 /* 80055870 000527D0  7F 24 CB 78 */	mr r4, r25
-/* 80055874 000527D4  38 03 9E B0 */	addi r0, r3, lbl_803D9EB0@l
+/* 80055874 000527D4  38 03 9E B0 */	addi r0, r3, __vt__6CActor@l
 /* 80055878 000527D8  38 7F 00 34 */	addi r3, r31, 0x34
 /* 8005587C 000527DC  90 1F 00 00 */	stw r0, 0(r31)
 /* 80055880 000527E0  48 2B D2 F5 */	bl __ct__12CTransform4fFRC12CTransform4f
@@ -3493,14 +3493,14 @@ lbl_800559AC:
 /* 800559AC 0005290C  38 A0 00 00 */	li r5, 0
 /* 800559B0 00052910  C0 22 86 30 */	lfs f1, lbl_805AA350@sda21(r2)
 /* 800559B4 00052914  90 BF 00 94 */	stw r5, 0x94(r31)
-/* 800559B8 00052918  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 800559B8 00052918  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 800559BC 0005291C  FC 40 08 90 */	fmr f2, f1
 /* 800559C0 00052920  38 00 00 03 */	li r0, 3
 /* 800559C4 00052924  90 BF 00 98 */	stw r5, 0x98(r31)
 /* 800559C8 00052928  FC 60 08 90 */	fmr f3, f1
 /* 800559CC 0005292C  FC 80 08 90 */	fmr f4, f1
 /* 800559D0 00052930  38 61 00 20 */	addi r3, r1, 0x20
-/* 800559D4 00052934  C4 04 67 54 */	lfsu f0, lbl_805A6754@l(r4)
+/* 800559D4 00052934  C4 04 67 54 */	lfsu f0, mskInvertedBox__6CAABox@l(r4)
 /* 800559D8 00052938  D0 1F 00 9C */	stfs f0, 0x9c(r31)
 /* 800559DC 0005293C  C0 04 00 04 */	lfs f0, 4(r4)
 /* 800559E0 00052940  D0 1F 00 A0 */	stfs f0, 0xa0(r31)
@@ -3522,7 +3522,7 @@ lbl_800559AC:
 /* 80055A20 00052980  38 A0 FF FF */	li r5, -1
 /* 80055A24 00052984  98 1F 00 B4 */	stb r0, 0xb4(r31)
 /* 80055A28 00052988  35 1F 00 DC */	addic. r8, r31, 0xdc
-/* 80055A2C 0005298C  88 82 CC 40 */	lbz r4, lbl_805AE960@sda21(r2)
+/* 80055A2C 0005298C  88 82 CC 40 */	lbz r4, kMaxVolume__9CAudioSys@sda21(r2)
 /* 80055A30 00052990  38 60 00 02 */	li r3, 2
 /* 80055A34 00052994  88 E1 00 1D */	lbz r7, 0x1d(r1)
 /* 80055A38 00052998  38 00 00 00 */	li r0, 0

@@ -33,7 +33,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CGameProjectile.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerGun.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CStateManager.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CEntity.o\
+	$(BUILD_DIR)/src/MetroidPrime/CEntity.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmInt32.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmInt32Int32VoidPtr.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmNull.o\

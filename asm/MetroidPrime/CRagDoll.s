@@ -1167,9 +1167,9 @@ SatisfyWorldConstraints__8CRagDollFR13CStateManageri:
 /* 8020D80C 0020A76C  DB 61 24 C0 */	stfd f27, 0x24c0(r1)
 /* 8020D810 0020A770  13 61 00 0E */	psq_stx f27, r1, r0, 0, qr0
 /* 8020D814 0020A774  BF 01 24 A0 */	stmw r24, 0x24a0(r1)
-/* 8020D818 0020A778  3C C0 80 5A */	lis r6, lbl_805A6754@ha
+/* 8020D818 0020A778  3C C0 80 5A */	lis r6, mskInvertedBox__6CAABox@ha
 /* 8020D81C 0020A77C  7C 7D 1B 78 */	mr r29, r3
-/* 8020D820 0020A780  38 66 67 54 */	addi r3, r6, lbl_805A6754@l
+/* 8020D820 0020A780  38 66 67 54 */	addi r3, r6, mskInvertedBox__6CAABox@l
 /* 8020D824 0020A784  7C 9E 23 78 */	mr r30, r4
 /* 8020D828 0020A788  C0 A3 00 00 */	lfs f5, 0(r3)
 /* 8020D82C 0020A78C  7C BF 2B 78 */	mr r31, r5

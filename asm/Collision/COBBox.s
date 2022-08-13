@@ -638,8 +638,8 @@ CalculateAABox__6COBBoxCFRC12CTransform4f:
 /* 802D5E0C 002D2D6C  38 81 00 50 */	addi r4, r1, 0x50
 /* 802D5E10 002D2D70  48 03 CD 65 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802D5E14 002D2D74  C0 82 C5 44 */	lfs f4, lbl_805AE264@sda21(r2)
-/* 802D5E18 002D2D78  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 802D5E1C 002D2D7C  C4 E3 67 54 */	lfsu f7, lbl_805A6754@l(r3)
+/* 802D5E18 002D2D78  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 802D5E1C 002D2D7C  C4 E3 67 54 */	lfsu f7, mskInvertedBox__6CAABox@l(r3)
 /* 802D5E20 002D2D80  3B E0 00 00 */	li r31, 0
 /* 802D5E24 002D2D84  C0 3E 00 34 */	lfs f1, 0x34(r30)
 /* 802D5E28 002D2D88  C0 7E 00 38 */	lfs f3, 0x38(r30)

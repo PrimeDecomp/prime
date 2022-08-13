@@ -1138,8 +1138,8 @@ lbl_80296B1C:
 /* 80296BC0 00293B20  38 7C 00 A8 */	addi r3, r28, 0xa8
 /* 80296BC4 00293B24  48 0A A2 E5 */	bl __ct__6CTokenFRC6CToken
 /* 80296BC8 00293B28  93 BC 00 B0 */	stw r29, 0xb0(r28)
-/* 80296BCC 00293B2C  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 80296BD0 00293B30  38 83 67 54 */	addi r4, r3, lbl_805A6754@l
+/* 80296BCC 00293B2C  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 80296BD0 00293B30  38 83 67 54 */	addi r4, r3, mskInvertedBox__6CAABox@l
 /* 80296BD4 00293B34  38 00 00 00 */	li r0, 0
 /* 80296BD8 00293B38  93 DC 00 B4 */	stw r30, 0xb4(r28)
 /* 80296BDC 00293B3C  38 7C 00 A8 */	addi r3, r28, 0xa8

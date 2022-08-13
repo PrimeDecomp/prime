@@ -762,9 +762,9 @@ BuildParticleSystemBounds__11CElementGenFv:
 /* 80317A38 00314998  DB A1 01 50 */	stfd f29, 0x150(r1)
 /* 80317A3C 0031499C  F3 A1 01 58 */	psq_st f29, 344(r1), 0, qr0
 /* 80317A40 003149A0  BF 41 01 38 */	stmw r26, 0x138(r1)
-/* 80317A44 003149A4  3C 80 80 5A */	lis r4, lbl_805A6754@ha
+/* 80317A44 003149A4  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 80317A48 003149A8  7C 7C 1B 78 */	mr r28, r3
-/* 80317A4C 003149AC  3B E4 67 54 */	addi r31, r4, lbl_805A6754@l
+/* 80317A4C 003149AC  3B E4 67 54 */	addi r31, r4, mskInvertedBox__6CAABox@l
 /* 80317A50 003149B0  3B C1 00 C4 */	addi r30, r1, 0xc4
 /* 80317A54 003149B4  C0 BF 00 00 */	lfs f5, 0(r31)
 /* 80317A58 003149B8  3B A0 00 00 */	li r29, 0
@@ -915,8 +915,8 @@ lbl_80317B30:
 /* 80317C8C 00314BEC  90 1C 03 04 */	stw r0, 0x304(r28)
 /* 80317C90 00314BF0  48 00 00 3C */	b lbl_80317CCC
 lbl_80317C94:
-/* 80317C94 00314BF4  3C 60 80 5A */	lis r3, lbl_805A6754@ha
-/* 80317C98 00314BF8  38 83 67 54 */	addi r4, r3, lbl_805A6754@l
+/* 80317C94 00314BF4  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
+/* 80317C98 00314BF8  38 83 67 54 */	addi r4, r3, mskInvertedBox__6CAABox@l
 /* 80317C9C 00314BFC  80 64 00 00 */	lwz r3, 0(r4)
 /* 80317CA0 00314C00  80 04 00 04 */	lwz r0, 4(r4)
 /* 80317CA4 00314C04  90 7C 02 F0 */	stw r3, 0x2f0(r28)
@@ -9230,7 +9230,7 @@ lbl_8031F3C0:
 /* 8031F628 0031C588  38 00 00 00 */	li r0, 0
 /* 8031F62C 0031C58C  3C 80 80 5A */	lis r4, skZero3f@ha
 /* 8031F630 0031C590  90 1F 02 94 */	stw r0, 0x294(r31)
-/* 8031F634 0031C594  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 8031F634 0031C594  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 8031F638 0031C598  C0 22 C9 E8 */	lfs f1, lbl_805AE708@sda21(r2)
 /* 8031F63C 0031C59C  90 1F 02 98 */	stw r0, 0x298(r31)
 /* 8031F640 0031C5A0  90 1F 02 9C */	stw r0, 0x29c(r31)
@@ -9261,7 +9261,7 @@ lbl_8031F3C0:
 /* 8031F6A4 0031C604  C0 1E 00 08 */	lfs f0, 8(r30)
 /* 8031F6A8 0031C608  D0 1F 02 E8 */	stfs f0, 0x2e8(r31)
 /* 8031F6AC 0031C60C  D0 3F 02 EC */	stfs f1, 0x2ec(r31)
-/* 8031F6B0 0031C610  C4 03 67 54 */	lfsu f0, lbl_805A6754@l(r3)
+/* 8031F6B0 0031C610  C4 03 67 54 */	lfsu f0, mskInvertedBox__6CAABox@l(r3)
 /* 8031F6B4 0031C614  D0 1F 02 F0 */	stfs f0, 0x2f0(r31)
 /* 8031F6B8 0031C618  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8031F6BC 0031C61C  D0 1F 02 F4 */	stfs f0, 0x2f4(r31)
@@ -21464,11 +21464,11 @@ lbl_8032A0D0:
 /* 8032A14C 003270AC  28 03 00 00 */	cmplwi r3, 0
 /* 8032A150 003270B0  41 82 00 38 */	beq lbl_8032A188
 /* 8032A154 003270B4  3C 80 80 3E */	lis r4, __vt__4IObj@ha
-/* 8032A158 003270B8  3C A0 80 3E */	lis r5, __vt__31TObjOwnerDerivedFromIObjUntyped@ha
+/* 8032A158 003270B8  3C A0 80 3E */	lis r5, __vt__31CObjOwnerDerivedFromIObjUntyped@ha
 /* 8032A15C 003270BC  38 04 8D 6C */	addi r0, r4, __vt__4IObj@l
 /* 8032A160 003270C0  3C 80 80 3E */	lis r4, lbl_803DACB0@ha
 /* 8032A164 003270C4  90 03 00 00 */	stw r0, 0(r3)
-/* 8032A168 003270C8  38 C5 8D 78 */	addi r6, r5, __vt__31TObjOwnerDerivedFromIObjUntyped@l
+/* 8032A168 003270C8  38 C5 8D 78 */	addi r6, r5, __vt__31CObjOwnerDerivedFromIObjUntyped@l
 /* 8032A16C 003270CC  38 A0 00 00 */	li r5, 0
 /* 8032A170 003270D0  38 04 AC B0 */	addi r0, r4, lbl_803DACB0@l
 /* 8032A174 003270D4  90 C3 00 00 */	stw r6, 0(r3)

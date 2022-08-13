@@ -43,6 +43,7 @@ const wchar_t* CStringTable::GetString(s32 idx) const {
 }
 
 template <>
-CFactoryFnReturn::CFactoryFnReturn(CStringTable* ptr) : obj(TToken< CStringTable >::GetIObjObjectFor(ptr).release()) {}
+CFactoryFnReturn::CFactoryFnReturn(CStringTable* ptr)
+: obj(TToken< CStringTable >::GetIObjObjectFor(rstl::auto_ptr< CStringTable >(ptr)).release()) {}
 
 CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer& xfer) { return new CStringTable(in); }

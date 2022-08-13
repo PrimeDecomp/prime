@@ -5934,14 +5934,14 @@ lbl_80163CCC:
 /* 80163CF0 00160C50  48 1A EE 85 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80163CF4 00160C54  38 61 00 D4 */	addi r3, r1, 0xd4
 /* 80163CF8 00160C58  48 1D 9D E9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 80163CFC 00160C5C  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 80163CFC 00160C5C  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 80163D00 00160C60  C3 E2 9F 7C */	lfs f31, lbl_805ABC9C@sda21(r2)
 /* 80163D04 00160C64  3B 9E 08 1C */	addi r28, r30, 0x81c
 /* 80163D08 00160C68  3A FE 08 28 */	addi r23, r30, 0x828
 /* 80163D0C 00160C6C  3B 7E 08 00 */	addi r27, r30, 0x800
 /* 80163D10 00160C70  3B 5E 07 E4 */	addi r26, r30, 0x7e4
 /* 80163D14 00160C74  3B 3E 07 DC */	addi r25, r30, 0x7dc
-/* 80163D18 00160C78  3B A3 67 54 */	addi r29, r3, lbl_805A6754@l
+/* 80163D18 00160C78  3B A3 67 54 */	addi r29, r3, mskInvertedBox__6CAABox@l
 /* 80163D1C 00160C7C  3A C1 01 DC */	addi r22, r1, 0x1dc
 /* 80163D20 00160C80  3A A1 01 E8 */	addi r21, r1, 0x1e8
 /* 80163D24 00160C84  3B 00 00 00 */	li r24, 0
@@ -5981,9 +5981,9 @@ lbl_80163D2C:
 /* 80163DA8 00160D08  D0 41 00 C4 */	stfs f2, 0xc4(r1)
 /* 80163DAC 00160D0C  D0 01 00 BC */	stfs f0, 0xbc(r1)
 /* 80163DB0 00160D10  48 1B 0A A1 */	bl AsNormalized__9CVector3fCFv
-/* 80163DB4 00160D14  3C 60 80 5A */	lis r3, lbl_805A6754@ha
+/* 80163DB4 00160D14  3C 60 80 5A */	lis r3, mskInvertedBox__6CAABox@ha
 /* 80163DB8 00160D18  C1 21 00 C8 */	lfs f9, 0xc8(r1)
-/* 80163DBC 00160D1C  38 A3 67 54 */	addi r5, r3, lbl_805A6754@l
+/* 80163DBC 00160D1C  38 A3 67 54 */	addi r5, r3, mskInvertedBox__6CAABox@l
 /* 80163DC0 00160D20  C1 01 00 CC */	lfs f8, 0xcc(r1)
 /* 80163DC4 00160D24  C0 E1 00 D0 */	lfs f7, 0xd0(r1)
 /* 80163DC8 00160D28  38 61 01 60 */	addi r3, r1, 0x160
@@ -9654,8 +9654,8 @@ CalculateRenderBounds__11CDroneLaserFv:
 /* 80167334 00164294  DB E1 00 90 */	stfd f31, 0x90(r1)
 /* 80167338 00164298  F3 E1 00 98 */	psq_st f31, 152(r1), 0, qr0
 /* 8016733C 0016429C  93 E1 00 8C */	stw r31, 0x8c(r1)
-/* 80167340 001642A0  3C 80 80 5A */	lis r4, lbl_805A6754@ha
-/* 80167344 001642A4  C4 A4 67 54 */	lfsu f5, lbl_805A6754@l(r4)
+/* 80167340 001642A0  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
+/* 80167344 001642A4  C4 A4 67 54 */	lfsu f5, mskInvertedBox__6CAABox@l(r4)
 /* 80167348 001642A8  7C 7F 1B 78 */	mr r31, r3
 /* 8016734C 001642AC  38 61 00 5C */	addi r3, r1, 0x5c
 /* 80167350 001642B0  C0 84 00 04 */	lfs f4, 4(r4)
