@@ -9,7 +9,7 @@ endif
 VERBOSE ?= 0
 
 # If GENERATE_MAP set to 1, tells LDFLAGS to generate a mapfile, which makes linking take several minutes.
-GENERATE_MAP ?= 1
+GENERATE_MAP ?= 0
 
 ifeq ($(VERBOSE),0)
   QUIET := @
