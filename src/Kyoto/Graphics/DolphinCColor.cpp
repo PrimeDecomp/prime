@@ -46,14 +46,26 @@ CColor CColor::Lerp(const CColor& a, const CColor& b, float t) {
 
 /* non-matching https://decomp.me/scratch/WGIlL */
 u32 CColor::Lerp(u32 a, u32 b, float t) {
-  u32 t256 = t * 256.f;
-  u32 uVar3 = a & 0x00FF00FF;
-  u32 uVar4 = b & 0x00FF00FF;
-  u32 uVar1 = (a >> 8) & 0x00FF00FF;
-  u32 uVar2 = (b >> 8) & 0x00FF00FF;
-  u32 new_var = (t256 * (uVar2 - uVar1)) >> 8;
-  u32 new_var2 = (t256 * (uVar4 - uVar3)) >> 8;
-  return ((new_var2 + uVar3) & 0x00FF00FF) | (((new_var + uVar1) * 256) & 0xFF00FF00);
+  u32 alpha = t * 256.f;
+
+  u32 dstrb = a & 0xff00ff;
+  u32 dstag = a >> 8 & 0xff00ff;
+
+  u32 srcrb = b & 0xff00ff;
+  u32 srcag = b >> 8 & 0xff00ff;
+
+  u32 drb = srcrb - dstrb;
+  u32 dag = srcag - dstag;
+
+  drb *= alpha;
+  dag *= alpha;
+  drb >>= 8;
+  dag >>= 8;
+
+  const u32 rb = (drb + dstrb) & 0x00ff00ff;
+  const u32 ag = (dag + dstag) << 8 & 0xff00ff00;
+
+  return rb | ag;
 }
 
 CColor CColor::Modulate(const CColor& a, const CColor& b) {
