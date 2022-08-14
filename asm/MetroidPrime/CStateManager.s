@@ -868,7 +868,7 @@ lbl_80044370:
 /* 80044394 000412F4  48 26 E0 5D */	bl GetAudibleFallOff__22CCollisionResponseDataCFv
 /* 80044398 000412F8  C0 82 85 68 */	lfs f4, lbl_805AA288@sda21(r2)
 /* 8004439C 000412FC  38 C0 00 00 */	li r6, 0
-/* 800443A0 00041300  88 A2 CC 40 */	lbz r5, kkMaxVolume__9CAudioSys@sda21(r2)
+/* 800443A0 00041300  88 A2 CC 40 */	lbz r5, kMaxVolume__9CAudioSys@sda21(r2)
 /* 800443A4 00041304  38 E0 00 01 */	li r7, 1
 /* 800443A8 00041308  88 02 CC 41 */	lbz r0, lbl_805AE961@sda21(r2)
 /* 800443AC 0004130C  38 80 00 14 */	li r4, 0x14

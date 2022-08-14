@@ -2320,7 +2320,7 @@ lbl_8003C198:
 /* 8003C1B8 00039118  40 82 00 44 */	bne lbl_8003C1FC
 lbl_8003C1BC:
 /* 8003C1BC 0003911C  38 01 00 24 */	addi r0, r1, 0x24
-/* 8003C1C0 00039120  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
+/* 8003C1C0 00039120  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8003C1C4 00039124  90 01 00 08 */	stw r0, 8(r1)
 /* 8003C1C8 00039128  38 7E 06 70 */	addi r3, r30, 0x670
 /* 8003C1CC 0003912C  38 9E 03 28 */	addi r4, r30, 0x328
@@ -2384,7 +2384,7 @@ lbl_8003C284:
 /* 8003C298 000391F8  38 9E 03 28 */	addi r4, r30, 0x328
 /* 8003C29C 000391FC  93 A1 00 0C */	stw r29, 0xc(r1)
 /* 8003C2A0 00039200  39 41 00 18 */	addi r10, r1, 0x18
-/* 8003C2A4 00039204  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
+/* 8003C2A4 00039204  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8003C2A8 00039208  38 A0 00 00 */	li r5, 0
 /* 8003C2AC 0003920C  93 E1 00 10 */	stw r31, 0x10(r1)
 /* 8003C2B0 00039210  39 00 00 14 */	li r8, 0x14
