@@ -1267,9 +1267,9 @@ DoUserAnimEvents__11CGrappleArmFR13CStateManager:
 /* 8011E3A0 0011B300  83 A5 00 04 */	lwz r29, 4(r5)
 /* 8011E3A4 0011B304  4B EE D7 75 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
 /* 8011E3A8 0011B308  C0 BE 02 4C */	lfs f5, 0x24c(r30)
-/* 8011E3AC 0011B30C  3C 80 80 57 */	lis r4, lbl_8056C9EC@ha
+/* 8011E3AC 0011B30C  3C 80 80 57 */	lis r4, mSoundPOINodes__9CAnimData@ha
 /* 8011E3B0 0011B310  C0 9E 02 3C */	lfs f4, 0x23c(r30)
-/* 8011E3B4 0011B314  38 84 C9 EC */	addi r4, r4, lbl_8056C9EC@l
+/* 8011E3B4 0011B314  38 84 C9 EC */	addi r4, r4, mSoundPOINodes__9CAnimData@l
 /* 8011E3B8 0011B318  C0 7E 02 2C */	lfs f3, 0x22c(r30)
 /* 8011E3BC 0011B31C  3B 84 00 04 */	addi r28, r4, 4
 /* 8011E3C0 0011B320  D0 61 00 24 */	stfs f3, 0x24(r1)
@@ -1303,7 +1303,7 @@ lbl_8011E408:
 /* 8011E42C 0011B38C  40 82 00 44 */	bne lbl_8011E470
 lbl_8011E430:
 /* 8011E430 0011B390  38 01 00 24 */	addi r0, r1, 0x24
-/* 8011E434 0011B394  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
+/* 8011E434 0011B394  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
 /* 8011E438 0011B398  90 01 00 08 */	stw r0, 8(r1)
 /* 8011E43C 0011B39C  38 7E 03 4C */	addi r3, r30, 0x34c
 /* 8011E440 0011B3A0  38 9E 03 AC */	addi r4, r30, 0x3ac
@@ -1326,8 +1326,8 @@ lbl_8011E478:
 /* 8011E47C 0011B3DC  41 80 FF 8C */	blt lbl_8011E408
 lbl_8011E480:
 /* 8011E480 0011B3E0  80 9E 00 10 */	lwz r4, 0x10(r30)
-/* 8011E484 0011B3E4  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
-/* 8011E488 0011B3E8  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8011E484 0011B3E4  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
+/* 8011E488 0011B3E8  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8011E48C 0011B3EC  83 44 02 10 */	lwz r26, 0x210(r4)
 /* 8011E490 0011B3F0  3B 83 00 04 */	addi r28, r3, 4
 /* 8011E494 0011B3F4  2C 1A 00 00 */	cmpwi r26, 0
@@ -1368,7 +1368,7 @@ lbl_8011E4FC:
 /* 8011E510 0011B470  38 9E 03 AC */	addi r4, r30, 0x3ac
 /* 8011E514 0011B474  93 A1 00 0C */	stw r29, 0xc(r1)
 /* 8011E518 0011B478  39 41 00 18 */	addi r10, r1, 0x18
-/* 8011E51C 0011B47C  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
+/* 8011E51C 0011B47C  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
 /* 8011E520 0011B480  38 A0 00 00 */	li r5, 0
 /* 8011E524 0011B484  93 E1 00 10 */	stw r31, 0x10(r1)
 /* 8011E528 0011B488  39 00 00 14 */	li r8, 0x14

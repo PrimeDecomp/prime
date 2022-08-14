@@ -22,7 +22,7 @@ class CStateManager;
 
 class CCameraManager {
 public:
-  CGameCamera* GetCurrentCamera(CStateManager& mgr);
+  CGameCamera* GetCurrentCamera(CStateManager& mgr) const;
 
 private:
   TUniqueId x0_curCameraId;

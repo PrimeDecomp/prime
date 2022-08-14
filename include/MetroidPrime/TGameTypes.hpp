@@ -56,4 +56,9 @@ CHECK_SIZEOF(TUniqueId, 0x2)
 typedef u16 TSfxId;
 static TSfxId InvalidSfxId = 0xFFFFu;
 
+class CSegId {
+private:
+  u8 x0_id;
+};
+
 #endif

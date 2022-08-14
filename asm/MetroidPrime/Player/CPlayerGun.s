@@ -2286,9 +2286,9 @@ DoUserAnimEvents__10CPlayerGunFfR13CStateManager:
 /* 8003C134 00039094  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 8003C138 00039098  4B FC F9 E1 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
 /* 8003C13C 0003909C  C0 BE 04 14 */	lfs f5, 0x414(r30)
-/* 8003C140 000390A0  3C 80 80 57 */	lis r4, lbl_8056C9EC@ha
+/* 8003C140 000390A0  3C 80 80 57 */	lis r4, mSoundPOINodes__9CAnimData@ha
 /* 8003C144 000390A4  C0 9E 04 04 */	lfs f4, 0x404(r30)
-/* 8003C148 000390A8  38 84 C9 EC */	addi r4, r4, lbl_8056C9EC@l
+/* 8003C148 000390A8  38 84 C9 EC */	addi r4, r4, mSoundPOINodes__9CAnimData@l
 /* 8003C14C 000390AC  C0 7E 03 F4 */	lfs f3, 0x3f4(r30)
 /* 8003C150 000390B0  3B 64 00 04 */	addi r27, r4, 4
 /* 8003C154 000390B4  D0 61 00 24 */	stfs f3, 0x24(r1)
@@ -2320,7 +2320,7 @@ lbl_8003C198:
 /* 8003C1B8 00039118  40 82 00 44 */	bne lbl_8003C1FC
 lbl_8003C1BC:
 /* 8003C1BC 0003911C  38 01 00 24 */	addi r0, r1, 0x24
-/* 8003C1C0 00039120  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
+/* 8003C1C0 00039120  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
 /* 8003C1C4 00039124  90 01 00 08 */	stw r0, 8(r1)
 /* 8003C1C8 00039128  38 7E 06 70 */	addi r3, r30, 0x670
 /* 8003C1CC 0003912C  38 9E 03 28 */	addi r4, r30, 0x328
@@ -2343,8 +2343,8 @@ lbl_8003C204:
 /* 8003C208 00039168  41 80 FF 90 */	blt lbl_8003C198
 lbl_8003C20C:
 /* 8003C20C 0003916C  83 3C 02 10 */	lwz r25, 0x210(r28)
-/* 8003C210 00039170  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
-/* 8003C214 00039174  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8003C210 00039170  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
+/* 8003C214 00039174  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8003C218 00039178  2C 19 00 00 */	cmpwi r25, 0
 /* 8003C21C 0003917C  3B 63 00 04 */	addi r27, r3, 4
 /* 8003C220 00039180  40 81 00 B4 */	ble lbl_8003C2D4
@@ -2384,7 +2384,7 @@ lbl_8003C284:
 /* 8003C298 000391F8  38 9E 03 28 */	addi r4, r30, 0x328
 /* 8003C29C 000391FC  93 A1 00 0C */	stw r29, 0xc(r1)
 /* 8003C2A0 00039200  39 41 00 18 */	addi r10, r1, 0x18
-/* 8003C2A4 00039204  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
+/* 8003C2A4 00039204  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
 /* 8003C2A8 00039208  38 A0 00 00 */	li r5, 0
 /* 8003C2AC 0003920C  93 E1 00 10 */	stw r31, 0x10(r1)
 /* 8003C2B0 00039210  39 00 00 14 */	li r8, 0x14

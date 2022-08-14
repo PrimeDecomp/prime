@@ -20,6 +20,11 @@ public:
   T* get() { return x0_refData->x0_ptr; }
   T* operator->() { return get(); }
 };
+
+template < typename T >
+class ncrc_ptr : public rc_ptr< T > {
+  // TODO
+};
 } // namespace rstl
 
 #endif

@@ -17,6 +17,14 @@
 class CAnimData;
 class CModel;
 
+// TODO move
+#include "Kyoto/Math/CQuaternion.hpp"
+struct SAdvancementDeltas {
+  CVector3f x0_posDelta;
+  CQuaternion xc_rotDelta;
+};
+CHECK_SIZEOF(SAdvancementDeltas, 0x1c)
+
 class CModelData {
 public:
   bool IsStaticModel() const { return xc_animData.get() == nullptr && !x1c_normalModel; }
@@ -30,7 +38,7 @@ public:
   SAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
 
-  rstl::auto_ptr< CAnimData >& GetAnimData() { return xc_animData; }
+  CAnimData* GetAnimationData() const { return xc_animData.get(); }
 
   void SetXRayModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetInfraModel(const rstl::pair< CAssetId, CAssetId >& assets);

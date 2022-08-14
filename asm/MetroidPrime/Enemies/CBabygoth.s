@@ -692,7 +692,7 @@ lbl_8021D938:
 /* 8021D948 0021A8A8  4B E2 F3 AD */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
 /* 8021D94C 0021A8AC  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 8021D950 0021A8B0  41 82 00 2C */	beq lbl_8021D97C
-/* 8021D954 0021A8B4  88 A2 CC 40 */	lbz r5, kMaxVolume__9CAudioSys@sda21(r2)
+/* 8021D954 0021A8B4  88 A2 CC 40 */	lbz r5, kkMaxVolume__9CAudioSys@sda21(r2)
 /* 8021D958 0021A8B8  7F A4 EB 78 */	mr r4, r29
 /* 8021D95C 0021A8BC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
 /* 8021D960 0021A8C0  38 61 00 2C */	addi r3, r1, 0x2c

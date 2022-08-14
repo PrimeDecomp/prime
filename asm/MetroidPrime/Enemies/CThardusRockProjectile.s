@@ -660,7 +660,7 @@ lbl_80203C9C:
 /* 80203CE4 00200C44  93 C1 00 08 */	stw r30, 8(r1)
 /* 80203CE8 00200C48  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80203CEC 00200C4C  80 9D 05 D8 */	lwz r4, 0x5d8(r29)
-/* 80203CF0 00200C50  4B E4 F2 41 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 80203CF0 00200C50  4B E4 F2 41 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 80203CF4 00200C54  88 1D 05 DD */	lbz r0, 0x5dd(r29)
 /* 80203CF8 00200C58  28 00 00 00 */	cmplwi r0, 0
 /* 80203CFC 00200C5C  41 82 00 2C */	beq lbl_80203D28
@@ -1970,7 +1970,7 @@ lbl_80204EF0:
 /* 80204FB8 00201F18  D0 81 00 2C */	stfs f4, 0x2c(r1)
 /* 80204FBC 00201F1C  93 E1 00 08 */	stw r31, 8(r1)
 /* 80204FC0 00201F20  90 01 00 0C */	stw r0, 0xc(r1)
-/* 80204FC4 00201F24  4B E4 DF 6D */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 80204FC4 00201F24  4B E4 DF 6D */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 lbl_80204FC8:
 /* 80204FC8 00201F28  80 1E 05 74 */	lwz r0, 0x574(r30)
 /* 80204FCC 00201F2C  2C 00 00 01 */	cmpwi r0, 1
@@ -2589,7 +2589,7 @@ lbl_80205874:
 /* 802058BC 0020281C  93 C1 00 08 */	stw r30, 8(r1)
 /* 802058C0 00202820  90 01 00 0C */	stw r0, 0xc(r1)
 /* 802058C4 00202824  80 9F 05 D4 */	lwz r4, 0x5d4(r31)
-/* 802058C8 00202828  4B E4 D6 69 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 802058C8 00202828  4B E4 D6 69 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 802058CC 0020282C  48 00 02 40 */	b lbl_80205B0C
 lbl_802058D0:
 /* 802058D0 00202830  A0 12 00 00 */	lhz r0, 0(r18)

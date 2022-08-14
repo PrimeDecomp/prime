@@ -31,6 +31,9 @@ public:
   TCachedToken() {}
   TCachedToken(const CToken& token) : TToken(token), x8_item(nullptr) {}
 
+  // TODO
+  operator const TToken< T >&() const;
+
 private:
   T* x8_item;
 };
@@ -40,6 +43,9 @@ class TLockedToken : public TCachedToken< T > {
 public:
   TLockedToken() {}
   TLockedToken(const CToken& token) : TCachedToken(token) { Lock(); }
+
+  // TODO
+  operator const TToken< T >&() const;
 };
 
 #endif

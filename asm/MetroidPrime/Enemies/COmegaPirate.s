@@ -4215,7 +4215,7 @@ lbl_8028E914:
 /* 8028E990 0028B8F0  D0 A1 00 24 */	stfs f5, 0x24(r1)
 /* 8028E994 0028B8F4  93 E1 00 08 */	stw r31, 8(r1)
 /* 8028E998 0028B8F8  90 01 00 0C */	stw r0, 0xc(r1)
-/* 8028E99C 0028B8FC  4B DC 45 95 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 8028E99C 0028B8FC  4B DC 45 95 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 8028E9A0 0028B900  48 00 01 44 */	b lbl_8028EAE4
 lbl_8028E9A4:
 /* 8028E9A4 0028B904  80 1E 0B 68 */	lwz r0, 0xb68(r30)
@@ -4300,7 +4300,7 @@ lbl_8028EA70:
 /* 8028EAD4 0028BA34  D0 81 00 18 */	stfs f4, 0x18(r1)
 /* 8028EAD8 0028BA38  93 E1 00 08 */	stw r31, 8(r1)
 /* 8028EADC 0028BA3C  90 01 00 0C */	stw r0, 0xc(r1)
-/* 8028EAE0 0028BA40  4B DC 44 51 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 8028EAE0 0028BA40  4B DC 44 51 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 lbl_8028EAE4:
 /* 8028EAE4 0028BA44  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8028EAE8 0028BA48  83 E1 00 2C */	lwz r31, 0x2c(r1)

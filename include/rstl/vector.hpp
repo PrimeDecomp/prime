@@ -107,7 +107,7 @@ void vector< T, Alloc >::reserve(size_t size) {
   x8_capacity = size;
 }
 
-typedef vector<void> unk_vector;
+typedef vector< void > unk_vector;
 CHECK_SIZEOF(unk_vector, 0x10)
 } // namespace rstl
 
