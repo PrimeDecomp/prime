@@ -5,7 +5,7 @@
 
 class CAudioSys {
 public:
-  static const u8 kkMaxVolume;
+  static const u8 kMaxVolume;
 };
 
 #endif

@@ -3522,7 +3522,7 @@ lbl_800559AC:
 /* 80055A20 00052980  38 A0 FF FF */	li r5, -1
 /* 80055A24 00052984  98 1F 00 B4 */	stb r0, 0xb4(r31)
 /* 80055A28 00052988  35 1F 00 DC */	addic. r8, r31, 0xdc
-/* 80055A2C 0005298C  88 82 CC 40 */	lbz r4, kkMaxVolume__9CAudioSys@sda21(r2)
+/* 80055A2C 0005298C  88 82 CC 40 */	lbz r4, kMaxVolume__9CAudioSys@sda21(r2)
 /* 80055A30 00052990  38 60 00 02 */	li r3, 2
 /* 80055A34 00052994  88 E1 00 1D */	lbz r7, 0x1d(r1)
 /* 80055A38 00052998  38 00 00 00 */	li r0, 0

@@ -3096,7 +3096,7 @@ UpdateSfxListener__14CCameraManagerFR13CStateManager:
 /* 8000BA80 000089E0  C0 21 00 78 */	lfs f1, 0x78(r1)
 /* 8000BA84 000089E4  C0 01 00 88 */	lfs f0, 0x88(r1)
 /* 8000BA88 000089E8  D1 01 00 08 */	stfs f8, 8(r1)
-/* 8000BA8C 000089EC  88 E2 CC 40 */	lbz r7, kkMaxVolume__9CAudioSys@sda21(r2)
+/* 8000BA8C 000089EC  88 E2 CC 40 */	lbz r7, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8000BA90 000089F0  D0 E1 00 0C */	stfs f7, 0xc(r1)
 /* 8000BA94 000089F4  D0 C1 00 10 */	stfs f6, 0x10(r1)
 /* 8000BA98 000089F8  D0 A1 00 14 */	stfs f5, 0x14(r1)
@@ -3613,7 +3613,7 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C190 000090F0  38 E1 00 08 */	addi r7, r1, 8
 /* 8000C194 000090F4  91 7F 00 80 */	stw r11, 0x80(r31)
 /* 8000C198 000090F8  38 60 00 01 */	li r3, 1
-/* 8000C19C 000090FC  89 22 CC 40 */	lbz r9, kkMaxVolume__9CAudioSys@sda21(r2)
+/* 8000C19C 000090FC  89 22 CC 40 */	lbz r9, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8000C1A0 00009100  39 00 00 01 */	li r8, 1
 /* 8000C1A4 00009104  91 7F 00 84 */	stw r11, 0x84(r31)
 /* 8000C1A8 00009108  91 7F 00 88 */	stw r11, 0x88(r31)

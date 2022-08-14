@@ -39,7 +39,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , xc8_drawnToken(-1)
 , xcc_addedToken(-1)
 , xd0_damageMag(params.GetThermalMag())
-, xd4_maxVol(CAudioSys::kkMaxVolume)
+, xd4_maxVol(CAudioSys::kMaxVolume)
 , xd8_nonLoopingSfxHandles(CSfxHandle(0))
 , xe4_24_nextNonLoopingSfxHandle(0)
 , xe4_27_notInSortedLists(true)
