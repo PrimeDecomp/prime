@@ -15,6 +15,7 @@ public:
   T* get() { return x0_ptr; }
   const T* get() const { return x0_ptr; }
   T* operator->() { return x0_ptr; }
+  const T* operator->() const { return x0_ptr; }
   void operator=(T* ptr) {
     delete x0_ptr;
     x0_ptr = ptr;

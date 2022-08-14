@@ -14,6 +14,8 @@ public:
   explicit CVector3f(f32 x, f32 y, f32 z) : mX(x), mY(y), mZ(z) {}
   CVector3f(const CVector2f& v, f32 z) : mX(v.GetX()), mY(v.GetY()), mZ(z) {}
 
+  CVector3f(const CVector3f& other) : mX(other.mX), mY(other.mY), mZ(other.mZ) {}
+
   CVector3f(CInputStream& in);
   void PutTo(COutputStream& out) const;
 

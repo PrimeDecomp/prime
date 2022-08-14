@@ -4,6 +4,9 @@
 #include "types.h"
 
 class CQuaternion {
+public:
+  CQuaternion(f32 w, f32 x, f32 y, f32 z) : w(w), x(x), y(y), z(z) {}
+
 private:
   f32 w;
   f32 x;

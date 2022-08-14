@@ -1,7 +1,11 @@
 #include "MetroidPrime/CActor.hpp"
+
 #include "MetroidPrime/CActorLights.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CModelData.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Cameras/CGameCamera.hpp"
 
 #include "Kyoto/Audio/CAudioSys.hpp"
 
@@ -35,7 +39,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , xc8_drawnToken(-1)
 , xcc_addedToken(-1)
 , xd0_damageMag(params.GetThermalMag())
-, xd4_maxVol(CAudioSys::kMaxVolume)
+, xd4_maxVol(CAudioSys::kkMaxVolume)
 , xd8_nonLoopingSfxHandles(CSfxHandle(0))
 , xe4_24_nextNonLoopingSfxHandle(0)
 , xe4_27_notInSortedLists(true)
@@ -88,7 +92,58 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
   SAdvancementDeltas result = x64_modelData->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
   x64_modelData->AdvanceParticles(GetTransform(), dt, mgr);
   UpdateSfxEmitters();
-  if (x64_modelData && x64_modelData->GetAnimData().get() != nullptr) {
+  if (HasAnimation()) {
+    u16 maxVol = xd4_maxVol;
+    s32 aid = x4_areaId.Value();
+
+    const CGameCamera* camera = mgr.GetCameraManager().GetCurrentCamera(mgr);
+    const CVector3f origin = GetTranslation();
+    const CVector3f toCamera = camera->GetTranslation() - origin;
+
+    s32 soundNodeCount = 0;
+    const CSoundPOINode* soundNode = HasAnimation() ? x64_modelData->GetAnimationData()->GetSoundPOIList(soundNodeCount) : nullptr;
+    if (soundNodeCount > 0 && soundNode != nullptr) {
+      for (s32 i = 0; i < soundNodeCount; ++soundNode, ++i) {
+        s32 charIdx = soundNode->GetCharacterIndex();
+        if (soundNode->GetPoiType() != POITYPE_SOUND)
+          continue;
+        if (GetMuted())
+          continue;
+        if (charIdx != -1 && x64_modelData->GetAnimationData()->GetCharacterIndex() != charIdx)
+          continue;
+        // if (soundNode->GetPoiType() == POITYPE_SOUND && !GetMuted() && (charIdx == -1 ||
+        // x64_modelData->GetAnimationData()->GetCharacterIndex() == charIdx))
+        ProcessSoundEvent(soundNode->GetSoundId(), soundNode->GetWeight(), soundNode->GetFlags(), soundNode->GetFallOff(),
+                          soundNode->GetMaxDistance(), 20, maxVol, toCamera, origin, aid, mgr, true);
+      }
+    }
+
+    s32 intNodeCount = 0;
+    const CInt32POINode* intNode = HasAnimation() ? x64_modelData->GetAnimationData()->GetInt32POIList(intNodeCount) : nullptr;
+    if (intNodeCount > 0 && intNode != nullptr) {
+      for (s32 i = 0; i < intNodeCount; ++intNode, ++i) {
+        s32 charIdx = intNode->GetCharacterIndex();
+        if (soundNode->GetPoiType() == POITYPE_SOUNDINT32 && !GetMuted() &&
+            (charIdx == -1 || x64_modelData->GetAnimationData()->GetCharacterIndex() == charIdx)) {
+          ProcessSoundEvent(intNode->GetValue(), intNode->GetWeight(), intNode->GetFlags(), 0.1f, 150.f, 20, maxVol, toCamera, origin, aid,
+                            mgr, true);
+        } else if (soundNode->GetPoiType() == POITYPE_USEREVENT) {
+          DoUserAnimEvent(mgr, *intNode, static_cast< EUserEventType >(intNode->GetValue()), dt);
+        }
+      }
+    }
+
+    s32 particleNodeCount = 0;
+    const CParticlePOINode* particleNode =
+        HasAnimation() ? x64_modelData->GetAnimationData()->GetParticlePOIList(particleNodeCount) : nullptr;
+    if (particleNodeCount > 0 && particleNode != nullptr) {
+      for (s32 i = 0; i < particleNodeCount; ++particleNode, ++i) {
+        s32 charIdx = soundNode->GetCharacterIndex();
+        if (charIdx != -1 && x64_modelData->GetAnimationData()->GetCharacterIndex() != charIdx)
+          continue;
+        x64_modelData->GetAnimationData()->SetParticleEffectState(particleNode->GetString(), true, mgr);
+      }
+    }
   }
   return result;
 }

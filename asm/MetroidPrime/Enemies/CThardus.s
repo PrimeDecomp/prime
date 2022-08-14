@@ -1193,7 +1193,7 @@ lbl_801DAFD4:
 /* 801DB038 001D7F98  90 01 00 0C */	stw r0, 0xc(r1)
 /* 801DB03C 001D7F9C  80 9C 07 60 */	lwz r4, 0x760(r28)
 /* 801DB040 001D7FA0  81 5D 08 CC */	lwz r10, 0x8cc(r29)
-/* 801DB044 001D7FA4  4B E7 7E ED */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 801DB044 001D7FA4  4B E7 7E ED */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 lbl_801DB048:
 /* 801DB048 001D7FA8  E3 E1 00 78 */	psq_l f31, 120(r1), 0, qr0
 /* 801DB04C 001D7FAC  CB E1 00 70 */	lfd f31, 0x70(r1)
@@ -3615,7 +3615,7 @@ lbl_801DD1E4:
 /* 801DD214 001DA174  81 5B 08 CC */	lwz r10, 0x8cc(r27)
 /* 801DD218 001DA178  38 C0 00 14 */	li r6, 0x14
 /* 801DD21C 001DA17C  38 E0 00 7F */	li r7, 0x7f
-/* 801DD220 001DA180  4B E7 5D 11 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 801DD220 001DA180  4B E7 5D 11 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 801DD224 001DA184  7F 43 D3 78 */	mr r3, r26
 /* 801DD228 001DA188  4B FF F0 A1 */	bl sub_801dc2c8
 /* 801DD22C 001DA18C  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -9093,7 +9093,7 @@ lbl_801E207C:
 /* 801E20B8 001DF018  38 A0 00 00 */	li r5, 0
 /* 801E20BC 001DF01C  38 C0 00 14 */	li r6, 0x14
 /* 801E20C0 001DF020  38 E0 00 7F */	li r7, 0x7f
-/* 801E20C4 001DF024  4B E7 0E 6D */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 801E20C4 001DF024  4B E7 0E 6D */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 801E20C8 001DF028  48 00 01 08 */	b lbl_801E21D0
 lbl_801E20CC:
 /* 801E20CC 001DF02C  93 C1 00 08 */	stw r30, 8(r1)
@@ -9111,7 +9111,7 @@ lbl_801E20CC:
 /* 801E20FC 001DF05C  81 5E 08 CC */	lwz r10, 0x8cc(r30)
 /* 801E2100 001DF060  38 C0 00 14 */	li r6, 0x14
 /* 801E2104 001DF064  38 E0 00 7F */	li r7, 0x7f
-/* 801E2108 001DF068  4B E7 0E 29 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 801E2108 001DF068  4B E7 0E 29 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 801E210C 001DF06C  48 00 00 C4 */	b lbl_801E21D0
 .global lbl_801E2110
 lbl_801E2110:

@@ -28,7 +28,7 @@ public:
   //   other.x0_has = false;
   // }
   T* get() { return x4_item; }
-  const T* get() const { return x4_item; }
+  /* const*/ T* get() const { return x4_item; }
   T* operator->() { return get(); }
   const T* operator->() const { return get(); }
   T* release() const {

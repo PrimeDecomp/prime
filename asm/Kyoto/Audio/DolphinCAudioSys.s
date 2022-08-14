@@ -3471,8 +3471,8 @@ __sinit_DolphinCAudioSys_cpp:
 
 .section .sdata2, "a"
 .balign 8
-.global kMaxVolume__9CAudioSys
-kMaxVolume__9CAudioSys:
+.global kkMaxVolume__9CAudioSys
+kkMaxVolume__9CAudioSys:
 	# ROM: 0x3FB200
 	.byte 0x7F
 

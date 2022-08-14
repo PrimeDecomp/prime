@@ -167,9 +167,9 @@ UpdateEffects__17CWallCrawlerSwarmFR13CStateManagerR9CAnimData:
 /* 801E7578 001E44D8  F3 A1 00 88 */	psq_st f29, 136(r1), 0, qr0
 /* 801E757C 001E44DC  BE E1 00 5C */	stmw r23, 0x5c(r1)
 /* 801E7580 001E44E0  7C B9 2B 78 */	mr r25, r5
-/* 801E7584 001E44E4  3C A0 80 57 */	lis r5, lbl_8056C9EC@ha
+/* 801E7584 001E44E4  3C A0 80 57 */	lis r5, mSoundPOINodes__9CAnimData@ha
 /* 801E7588 001E44E8  83 79 02 18 */	lwz r27, 0x218(r25)
-/* 801E758C 001E44EC  38 A5 C9 EC */	addi r5, r5, lbl_8056C9EC@l
+/* 801E758C 001E44EC  38 A5 C9 EC */	addi r5, r5, mSoundPOINodes__9CAnimData@l
 /* 801E7590 001E44F0  90 C1 00 08 */	stw r6, 8(r1)
 /* 801E7594 001E44F4  7C 77 1B 78 */	mr r23, r3
 /* 801E7598 001E44F8  2C 1B 00 00 */	cmpwi r27, 0

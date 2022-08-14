@@ -422,8 +422,8 @@ SetTranslation__6CActorFRC9CVector3f:
 /* 80052F28 0004FE88  38 21 00 10 */	addi r1, r1, 0x10
 /* 80052F2C 0004FE8C  4E 80 00 20 */	blr
 
-.global ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
-ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager:
+.global ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
+ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb:
 /* 80052F30 0004FE90  94 21 FF 20 */	stwu r1, -0xe0(r1)
 /* 80052F34 0004FE94  7C 08 02 A6 */	mflr r0
 /* 80052F38 0004FE98  90 01 00 E4 */	stw r0, 0xe4(r1)
@@ -3082,8 +3082,8 @@ lbl_80055400:
 /* 80055400 00052360  54 80 06 3F */	clrlwi. r0, r4, 0x18
 /* 80055404 00052364  41 82 00 1C */	beq lbl_80055420
 /* 80055408 00052368  80 83 00 10 */	lwz r4, 0x10(r3)
-/* 8005540C 0005236C  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
-/* 80055410 00052370  38 63 C9 EC */	addi r3, r3, lbl_8056C9EC@l
+/* 8005540C 0005236C  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
+/* 80055410 00052370  38 63 C9 EC */	addi r3, r3, mSoundPOINodes__9CAnimData@l
 /* 80055414 00052374  83 A4 02 18 */	lwz r29, 0x218(r4)
 /* 80055418 00052378  3B 23 00 04 */	addi r25, r3, 4
 /* 8005541C 0005237C  48 00 00 08 */	b lbl_80055424
@@ -3126,7 +3126,7 @@ lbl_80055474:
 /* 800554A0 00052400  80 B9 00 34 */	lwz r5, 0x34(r25)
 /* 800554A4 00052404  C0 59 00 3C */	lfs f2, 0x3c(r25)
 /* 800554A8 00052408  C0 79 00 40 */	lfs f3, 0x40(r25)
-/* 800554AC 0005240C  4B FF DA 85 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 800554AC 0005240C  4B FF DA 85 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 lbl_800554B0:
 /* 800554B0 00052410  3B 39 00 44 */	addi r25, r25, 0x44
 /* 800554B4 00052414  3B 18 00 01 */	addi r24, r24, 1
@@ -3147,8 +3147,8 @@ lbl_800554E4:
 /* 800554E4 00052444  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800554E8 00052448  41 82 00 1C */	beq lbl_80055504
 /* 800554EC 0005244C  80 84 00 10 */	lwz r4, 0x10(r4)
-/* 800554F0 00052450  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
-/* 800554F4 00052454  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 800554F0 00052450  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
+/* 800554F4 00052454  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 800554F8 00052458  83 A4 02 10 */	lwz r29, 0x210(r4)
 /* 800554FC 0005245C  3B 23 00 04 */	addi r25, r3, 4
 /* 80055500 00052460  48 00 00 08 */	b lbl_80055508
@@ -3191,7 +3191,7 @@ lbl_80055558:
 /* 80055584 000524E4  39 21 00 24 */	addi r9, r1, 0x24
 /* 80055588 000524E8  80 B9 00 34 */	lwz r5, 0x34(r25)
 /* 8005558C 000524EC  38 C0 00 14 */	li r6, 0x14
-/* 80055590 000524F0  4B FF D9 A1 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManager
+/* 80055590 000524F0  4B FF D9 A1 */	bl ProcessSoundEvent__6CActorFififfUcUcRC9CVector3fRC9CVector3fiR13CStateManagerb
 /* 80055594 000524F4  48 00 00 30 */	b lbl_800555C4
 lbl_80055598:
 /* 80055598 000524F8  2C 05 00 06 */	cmpwi r5, 6
@@ -3225,8 +3225,8 @@ lbl_800555F8:
 /* 800555F8 00052558  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800555FC 0005255C  41 82 00 1C */	beq lbl_80055618
 /* 80055600 00052560  80 84 00 10 */	lwz r4, 0x10(r4)
-/* 80055604 00052564  3C 60 80 57 */	lis r3, lbl_8056C2B8@ha
-/* 80055608 00052568  38 63 C2 B8 */	addi r3, r3, lbl_8056C2B8@l
+/* 80055604 00052564  3C 60 80 57 */	lis r3, mParticlePOINodes__9CAnimData@ha
+/* 80055608 00052568  38 63 C2 B8 */	addi r3, r3, mParticlePOINodes__9CAnimData@l
 /* 8005560C 0005256C  83 04 02 14 */	lwz r24, 0x214(r4)
 /* 80055610 00052570  3B 23 00 04 */	addi r25, r3, 4
 /* 80055614 00052574  48 00 00 08 */	b lbl_8005561C
@@ -3522,7 +3522,7 @@ lbl_800559AC:
 /* 80055A20 00052980  38 A0 FF FF */	li r5, -1
 /* 80055A24 00052984  98 1F 00 B4 */	stb r0, 0xb4(r31)
 /* 80055A28 00052988  35 1F 00 DC */	addic. r8, r31, 0xdc
-/* 80055A2C 0005298C  88 82 CC 40 */	lbz r4, kMaxVolume__9CAudioSys@sda21(r2)
+/* 80055A2C 0005298C  88 82 CC 40 */	lbz r4, kkMaxVolume__9CAudioSys@sda21(r2)
 /* 80055A30 00052990  38 60 00 02 */	li r3, 2
 /* 80055A34 00052994  88 E1 00 1D */	lbz r7, 0x1d(r1)
 /* 80055A38 00052998  38 00 00 00 */	li r0, 0

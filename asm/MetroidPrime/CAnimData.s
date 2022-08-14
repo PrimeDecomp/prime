@@ -88,11 +88,11 @@ lbl_805A6DB0:
 .balign 8
 
 .lcomm lbl_8045B140, 0x40, 4
-.comm lbl_8056A600, 0x17F4, 4
-.comm lbl_8056BDF4, 0x4C4, 4
-.comm lbl_8056C2B8, 0x734, 4
-.comm lbl_8056C9EC, 0x554, 4
-.comm lbl_8056CF40, 0x4C4, 4
+.comm mBoolPOINodes__9CAnimData, 0x17F4, 4
+.comm mInt32POINodes__9CAnimData, 0x4C4, 4
+.comm mParticlePOINodes__9CAnimData, 0x734, 4
+.comm mSoundPOINodes__9CAnimData, 0x554, 4
+.comm sInt32TransientCache, 0x4C4, 4
 
 .section .sbss
 .balign 8
@@ -238,17 +238,17 @@ AdvanceAdditiveAnims__9CAnimDataFf:
 /* 800295A8 00026508  39 05 66 60 */	addi r8, r5, lbl_805A6660@l
 /* 800295AC 0002650C  7C 9D 23 78 */	mr r29, r4
 /* 800295B0 00026510  C0 88 00 00 */	lfs f4, 0(r8)
-/* 800295B4 00026514  3C E0 80 57 */	lis r7, lbl_8056BDF4@ha
+/* 800295B4 00026514  3C E0 80 57 */	lis r7, mInt32POINodes__9CAnimData@ha
 /* 800295B8 00026518  C0 68 00 04 */	lfs f3, 4(r8)
-/* 800295BC 0002651C  3C C0 80 57 */	lis r6, lbl_8056A600@ha
+/* 800295BC 0002651C  3C C0 80 57 */	lis r6, mBoolPOINodes__9CAnimData@ha
 /* 800295C0 00026520  C0 48 00 08 */	lfs f2, 8(r8)
-/* 800295C4 00026524  3C A0 80 57 */	lis r5, lbl_8056C2B8@ha
+/* 800295C4 00026524  3C A0 80 57 */	lis r5, mParticlePOINodes__9CAnimData@ha
 /* 800295C8 00026528  C0 08 00 0C */	lfs f0, 0xc(r8)
-/* 800295CC 0002652C  3C 80 80 57 */	lis r4, lbl_8056C9EC@ha
-/* 800295D0 00026530  38 E7 BD F4 */	addi r7, r7, lbl_8056BDF4@l
-/* 800295D4 00026534  38 C6 A6 00 */	addi r6, r6, lbl_8056A600@l
-/* 800295D8 00026538  38 A5 C2 B8 */	addi r5, r5, lbl_8056C2B8@l
-/* 800295DC 0002653C  38 84 C9 EC */	addi r4, r4, lbl_8056C9EC@l
+/* 800295CC 0002652C  3C 80 80 57 */	lis r4, mSoundPOINodes__9CAnimData@ha
+/* 800295D0 00026530  38 E7 BD F4 */	addi r7, r7, mInt32POINodes__9CAnimData@l
+/* 800295D4 00026534  38 C6 A6 00 */	addi r6, r6, mBoolPOINodes__9CAnimData@l
+/* 800295D8 00026538  38 A5 C2 B8 */	addi r5, r5, mParticlePOINodes__9CAnimData@l
+/* 800295DC 0002653C  38 84 C9 EC */	addi r4, r4, mSoundPOINodes__9CAnimData@l
 /* 800295E0 00026540  D0 81 00 80 */	stfs f4, 0x80(r1)
 /* 800295E4 00026544  FF 80 08 90 */	fmr f28, f1
 /* 800295E8 00026548  FF C0 F8 90 */	fmr f30, f31
@@ -2456,9 +2456,9 @@ SetRandomPlaybackRate__9CAnimDataFR9CRandom16:
 /* 8002B488 000283E8  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8002B48C 000283EC  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8002B490 000283F0  7C 7F 1B 78 */	mr r31, r3
-/* 8002B494 000283F4  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002B494 000283F4  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002B498 000283F8  80 1F 02 10 */	lwz r0, 0x210(r31)
-/* 8002B49C 000283FC  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8002B49C 000283FC  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8002B4A0 00028400  7C 9D 23 78 */	mr r29, r4
 /* 8002B4A4 00028404  38 63 00 04 */	addi r3, r3, 4
 /* 8002B4A8 00028408  7C 09 03 A6 */	mtctr r0
@@ -2578,9 +2578,9 @@ lbl_8002B554:
 /* 8002B654 000285B4  41 82 02 30 */	beq lbl_8002B884
 /* 8002B658 000285B8  48 00 31 C9 */	bl ResetPOILists__9CAnimDataFv
 /* 8002B65C 000285BC  C0 0D 81 EC */	lfs f0, lbl_805A6DAC@sda21(r13)
-/* 8002B660 000285C0  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002B660 000285C0  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002B664 000285C4  80 0D 81 E8 */	lwz r0, lbl_805A6DA8@sda21(r13)
-/* 8002B668 000285C8  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8002B668 000285C8  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8002B66C 000285CC  D0 01 00 58 */	stfs f0, 0x58(r1)
 /* 8002B670 000285D0  3A 83 00 04 */	addi r20, r3, 4
 /* 8002B674 000285D4  80 7F 00 00 */	lwz r3, 0(r31)
@@ -2747,9 +2747,9 @@ lbl_8002B884:
 /* 8002B8EC 0002884C  7F A3 EB 78 */	mr r3, r29
 /* 8002B8F0 00028850  48 00 2F 31 */	bl ResetPOILists__9CAnimDataFv
 /* 8002B8F4 00028854  C0 0D 81 EC */	lfs f0, lbl_805A6DAC@sda21(r13)
-/* 8002B8F8 00028858  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002B8F8 00028858  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002B8FC 0002885C  80 0D 81 E8 */	lwz r0, lbl_805A6DA8@sda21(r13)
-/* 8002B900 00028860  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8002B900 00028860  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8002B904 00028864  D0 01 00 38 */	stfs f0, 0x38(r1)
 /* 8002B908 00028868  3B 03 00 04 */	addi r24, r3, 4
 /* 8002B90C 0002886C  80 7F 00 00 */	lwz r3, 0(r31)
@@ -3013,9 +3013,9 @@ lbl_8002BC9C:
 /* 8002BCEC 00028C4C  7F A3 EB 78 */	mr r3, r29
 /* 8002BCF0 00028C50  48 00 2B 31 */	bl ResetPOILists__9CAnimDataFv
 /* 8002BCF4 00028C54  C0 0D 81 EC */	lfs f0, lbl_805A6DAC@sda21(r13)
-/* 8002BCF8 00028C58  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002BCF8 00028C58  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002BCFC 00028C5C  80 0D 81 E8 */	lwz r0, lbl_805A6DA8@sda21(r13)
-/* 8002BD00 00028C60  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8002BD00 00028C60  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8002BD04 00028C64  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 8002BD08 00028C68  3B 03 00 04 */	addi r24, r3, 4
 /* 8002BD0C 00028C6C  80 7F 00 00 */	lwz r3, 0(r31)
@@ -4558,14 +4558,14 @@ lbl_8002D310:
 /* 8002D330 0002A290  88 1A 02 20 */	lbz r0, 0x220(r26)
 /* 8002D334 0002A294  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 8002D338 0002A298  41 82 01 2C */	beq lbl_8002D464
-/* 8002D33C 0002A29C  3C C0 80 57 */	lis r6, lbl_8056BDF4@ha
-/* 8002D340 0002A2A0  3C A0 80 57 */	lis r5, lbl_8056A600@ha
-/* 8002D344 0002A2A4  3C 80 80 57 */	lis r4, lbl_8056C2B8@ha
-/* 8002D348 0002A2A8  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
-/* 8002D34C 0002A2AC  38 C6 BD F4 */	addi r6, r6, lbl_8056BDF4@l
-/* 8002D350 0002A2B0  38 A5 A6 00 */	addi r5, r5, lbl_8056A600@l
-/* 8002D354 0002A2B4  38 84 C2 B8 */	addi r4, r4, lbl_8056C2B8@l
-/* 8002D358 0002A2B8  38 63 C9 EC */	addi r3, r3, lbl_8056C9EC@l
+/* 8002D33C 0002A29C  3C C0 80 57 */	lis r6, mInt32POINodes__9CAnimData@ha
+/* 8002D340 0002A2A0  3C A0 80 57 */	lis r5, mBoolPOINodes__9CAnimData@ha
+/* 8002D344 0002A2A4  3C 80 80 57 */	lis r4, mParticlePOINodes__9CAnimData@ha
+/* 8002D348 0002A2A8  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
+/* 8002D34C 0002A2AC  38 C6 BD F4 */	addi r6, r6, mInt32POINodes__9CAnimData@l
+/* 8002D350 0002A2B0  38 A5 A6 00 */	addi r5, r5, mBoolPOINodes__9CAnimData@l
+/* 8002D354 0002A2B4  38 84 C2 B8 */	addi r4, r4, mParticlePOINodes__9CAnimData@l
+/* 8002D358 0002A2B8  38 63 C9 EC */	addi r3, r3, mSoundPOINodes__9CAnimData@l
 /* 8002D35C 0002A2BC  C3 82 83 D0 */	lfs f28, lbl_805AA0F0@sda21(r2)
 /* 8002D360 0002A2C0  3B E6 00 04 */	addi r31, r6, 4
 /* 8002D364 0002A2C4  C3 62 83 D4 */	lfs f27, lbl_805AA0F4@sda21(r2)
@@ -4642,14 +4642,14 @@ lbl_8002D464:
 /* 8002D474 0002A3D4  81 8C 00 14 */	lwz r12, 0x14(r12)
 /* 8002D478 0002A3D8  7D 89 03 A6 */	mtctr r12
 /* 8002D47C 0002A3DC  4E 80 04 21 */	bctrl
-/* 8002D480 0002A3E0  3C C0 80 57 */	lis r6, lbl_8056BDF4@ha
-/* 8002D484 0002A3E4  3C A0 80 57 */	lis r5, lbl_8056A600@ha
-/* 8002D488 0002A3E8  3C 80 80 57 */	lis r4, lbl_8056C2B8@ha
-/* 8002D48C 0002A3EC  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
-/* 8002D490 0002A3F0  38 E6 BD F4 */	addi r7, r6, lbl_8056BDF4@l
-/* 8002D494 0002A3F4  38 C5 A6 00 */	addi r6, r5, lbl_8056A600@l
-/* 8002D498 0002A3F8  38 A4 C2 B8 */	addi r5, r4, lbl_8056C2B8@l
-/* 8002D49C 0002A3FC  38 83 C9 EC */	addi r4, r3, lbl_8056C9EC@l
+/* 8002D480 0002A3E0  3C C0 80 57 */	lis r6, mInt32POINodes__9CAnimData@ha
+/* 8002D484 0002A3E4  3C A0 80 57 */	lis r5, mBoolPOINodes__9CAnimData@ha
+/* 8002D488 0002A3E8  3C 80 80 57 */	lis r4, mParticlePOINodes__9CAnimData@ha
+/* 8002D48C 0002A3EC  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
+/* 8002D490 0002A3F0  38 E6 BD F4 */	addi r7, r6, mInt32POINodes__9CAnimData@l
+/* 8002D494 0002A3F4  38 C5 A6 00 */	addi r6, r5, mBoolPOINodes__9CAnimData@l
+/* 8002D498 0002A3F8  38 A4 C2 B8 */	addi r5, r4, mParticlePOINodes__9CAnimData@l
+/* 8002D49C 0002A3FC  38 83 C9 EC */	addi r4, r3, mSoundPOINodes__9CAnimData@l
 /* 8002D4A0 0002A400  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8002D4A4 0002A404  C3 41 00 20 */	lfs f26, 0x20(r1)
 /* 8002D4A8 0002A408  C3 62 83 D0 */	lfs f27, lbl_805AA0F0@sda21(r2)
@@ -4867,9 +4867,9 @@ Advance__9CAnimDataFfRC9CVector3fR13CStateManagerb:
 /* 8002D7C8 0002A728  38 79 01 20 */	addi r3, r25, 0x120
 /* 8002D7CC 0002A72C  48 08 A4 6D */	bl SuspendAllActiveEffects__17CParticleDatabaseFR13CStateManager
 lbl_8002D7D0:
-/* 8002D7D0 0002A730  3C 60 80 57 */	lis r3, lbl_8056C2B8@ha
+/* 8002D7D0 0002A730  3C 60 80 57 */	lis r3, mParticlePOINodes__9CAnimData@ha
 /* 8002D7D4 0002A734  83 D9 02 14 */	lwz r30, 0x214(r25)
-/* 8002D7D8 0002A738  38 63 C2 B8 */	addi r3, r3, lbl_8056C2B8@l
+/* 8002D7D8 0002A738  38 63 C2 B8 */	addi r3, r3, mParticlePOINodes__9CAnimData@l
 /* 8002D7DC 0002A73C  3B A0 00 00 */	li r29, 0
 /* 8002D7E0 0002A740  3B E3 00 04 */	addi r31, r3, 4
 /* 8002D7E4 0002A744  48 00 00 58 */	b lbl_8002D83C
@@ -5147,8 +5147,8 @@ lbl_8002DBC4:
 /* 8002DBD4 0002AB34  41 82 00 E4 */	beq lbl_8002DCB8
 lbl_8002DBD8:
 /* 8002DBD8 0002AB38  80 1A 02 10 */	lwz r0, 0x210(r26)
-/* 8002DBDC 0002AB3C  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
-/* 8002DBE0 0002AB40  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8002DBDC 0002AB3C  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
+/* 8002DBE0 0002AB40  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8002DBE4 0002AB44  2C 00 00 00 */	cmpwi r0, 0
 /* 8002DBE8 0002AB48  38 A3 00 04 */	addi r5, r3, 4
 /* 8002DBEC 0002AB4C  40 81 00 CC */	ble lbl_8002DCB8
@@ -5533,10 +5533,10 @@ lbl_8002E138:
 FreeCache__9CAnimDataFv:
 /* 8002E168 0002B0C8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8002E16C 0002B0CC  7C 08 02 A6 */	mflr r0
-/* 8002E170 0002B0D0  3C 60 80 57 */	lis r3, lbl_8056CF40@ha
+/* 8002E170 0002B0D0  3C 60 80 57 */	lis r3, sInt32TransientCache@ha
 /* 8002E174 0002B0D4  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8002E178 0002B0D8  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 8002E17C 0002B0DC  3B E3 CF 40 */	addi r31, r3, lbl_8056CF40@l
+/* 8002E17C 0002B0DC  3B E3 CF 40 */	addi r31, r3, sInt32TransientCache@l
 /* 8002E180 0002B0E0  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8002E184 0002B0E4  3B C0 00 00 */	li r30, 0
 /* 8002E188 0002B0E8  93 A1 00 14 */	stw r29, 0x14(r1)
@@ -5556,9 +5556,9 @@ lbl_8002E1B4:
 /* 8002E1B8 0002B118  7C 1E 00 00 */	cmpw r30, r0
 /* 8002E1BC 0002B11C  41 80 FF D8 */	blt lbl_8002E194
 /* 8002E1C0 0002B120  38 00 00 00 */	li r0, 0
-/* 8002E1C4 0002B124  3C 60 80 57 */	lis r3, lbl_8056CF40@ha
+/* 8002E1C4 0002B124  3C 60 80 57 */	lis r3, sInt32TransientCache@ha
 /* 8002E1C8 0002B128  90 0D A1 0C */	stw r0, lbl_805A8CCC@sda21(r13)
-/* 8002E1CC 0002B12C  90 03 CF 40 */	stw r0, lbl_8056CF40@l(r3)
+/* 8002E1CC 0002B12C  90 03 CF 40 */	stw r0, sInt32TransientCache@l(r3)
 /* 8002E1D0 0002B130  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 8002E1D4 0002B134  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8002E1D8 0002B138  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -5571,11 +5571,11 @@ lbl_8002E1B4:
 InitializeCache__9CAnimDataFv:
 /* 8002E1EC 0002B14C  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 8002E1F0 0002B150  7C 08 02 A6 */	mflr r0
-/* 8002E1F4 0002B154  3C 60 80 57 */	lis r3, lbl_8056CF40@ha
+/* 8002E1F4 0002B154  3C 60 80 57 */	lis r3, sInt32TransientCache@ha
 /* 8002E1F8 0002B158  90 01 00 A4 */	stw r0, 0xa4(r1)
 /* 8002E1FC 0002B15C  93 E1 00 9C */	stw r31, 0x9c(r1)
 /* 8002E200 0002B160  93 C1 00 98 */	stw r30, 0x98(r1)
-/* 8002E204 0002B164  3B C3 CF 40 */	addi r30, r3, lbl_8056CF40@l
+/* 8002E204 0002B164  3B C3 CF 40 */	addi r30, r3, sInt32TransientCache@l
 /* 8002E208 0002B168  3B FE 00 04 */	addi r31, r30, 4
 /* 8002E20C 0002B16C  93 A1 00 94 */	stw r29, 0x94(r1)
 /* 8002E210 0002B170  3B A0 00 00 */	li r29, 0
@@ -5595,9 +5595,9 @@ lbl_8002E240:
 /* 8002E240 0002B1A0  80 1E 00 00 */	lwz r0, 0(r30)
 /* 8002E244 0002B1A4  7C 1D 00 00 */	cmpw r29, r0
 /* 8002E248 0002B1A8  41 80 FF D8 */	blt lbl_8002E220
-/* 8002E24C 0002B1AC  3C 80 80 57 */	lis r4, lbl_8056CF40@ha
+/* 8002E24C 0002B1AC  3C 80 80 57 */	lis r4, sInt32TransientCache@ha
 /* 8002E250 0002B1B0  3C 60 80 3D */	lis r3, lbl_803CCD20@ha
-/* 8002E254 0002B1B4  38 A4 CF 40 */	addi r5, r4, lbl_8056CF40@l
+/* 8002E254 0002B1B4  38 A4 CF 40 */	addi r5, r4, sInt32TransientCache@l
 /* 8002E258 0002B1B8  38 00 00 00 */	li r0, 0
 /* 8002E25C 0002B1BC  38 83 CD 20 */	addi r4, r3, lbl_803CCD20@l
 /* 8002E260 0002B1C0  90 05 00 00 */	stw r0, 0(r5)
@@ -5626,9 +5626,9 @@ lbl_8002E240:
 /* 8002E2BC 0002B21C  39 20 FF FF */	li r9, -1
 /* 8002E2C0 0002B220  39 40 00 00 */	li r10, 0
 /* 8002E2C4 0002B224  4B FF D0 C9 */	bl "__ct__13CInt32POINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiiiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8002E2C8 0002B228  3C 60 80 57 */	lis r3, lbl_8056CF40@ha
+/* 8002E2C8 0002B228  3C 60 80 57 */	lis r3, sInt32TransientCache@ha
 /* 8002E2CC 0002B22C  38 A1 00 38 */	addi r5, r1, 0x38
-/* 8002E2D0 0002B230  38 63 CF 40 */	addi r3, r3, lbl_8056CF40@l
+/* 8002E2D0 0002B230  38 63 CF 40 */	addi r3, r3, sInt32TransientCache@l
 /* 8002E2D4 0002B234  38 80 00 10 */	li r4, 0x10
 /* 8002E2D8 0002B238  48 00 00 69 */	bl "uninitialized_fill_n<P13CInt32POINode,13CInt32POINode>__4rstlFP13CInt32POINodeiRC13CInt32POINode"
 /* 8002E2DC 0002B23C  3C 80 80 3E */	lis r4, lbl_803D9B98@ha
@@ -6289,9 +6289,9 @@ __dt__9CAnimDataFv:
 /* 8002EBE0 0002BB40  34 03 FF FF */	addic. r0, r3, -1
 /* 8002EBE4 0002BB44  90 0D A1 08 */	stw r0, lbl_805A8CC8@sda21(r13)
 /* 8002EBE8 0002BB48  40 82 01 34 */	bne lbl_8002ED1C
-/* 8002EBEC 0002BB4C  3C 60 80 57 */	lis r3, lbl_8056A600@ha
+/* 8002EBEC 0002BB4C  3C 60 80 57 */	lis r3, mBoolPOINodes__9CAnimData@ha
 /* 8002EBF0 0002BB50  3B 80 00 00 */	li r28, 0
-/* 8002EBF4 0002BB54  3B A3 A6 00 */	addi r29, r3, lbl_8056A600@l
+/* 8002EBF4 0002BB54  3B A3 A6 00 */	addi r29, r3, mBoolPOINodes__9CAnimData@l
 /* 8002EBF8 0002BB58  3B 7D 00 04 */	addi r27, r29, 4
 /* 8002EBFC 0002BB5C  48 00 00 24 */	b lbl_8002EC20
 lbl_8002EC00:
@@ -6307,12 +6307,12 @@ lbl_8002EC20:
 /* 8002EC20 0002BB80  80 1D 00 00 */	lwz r0, 0(r29)
 /* 8002EC24 0002BB84  7C 1C 00 00 */	cmpw r28, r0
 /* 8002EC28 0002BB88  41 80 FF D8 */	blt lbl_8002EC00
-/* 8002EC2C 0002BB8C  3C 60 80 57 */	lis r3, lbl_8056A600@ha
+/* 8002EC2C 0002BB8C  3C 60 80 57 */	lis r3, mBoolPOINodes__9CAnimData@ha
 /* 8002EC30 0002BB90  3B 80 00 00 */	li r28, 0
-/* 8002EC34 0002BB94  38 83 A6 00 */	addi r4, r3, lbl_8056A600@l
-/* 8002EC38 0002BB98  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002EC34 0002BB94  38 83 A6 00 */	addi r4, r3, mBoolPOINodes__9CAnimData@l
+/* 8002EC38 0002BB98  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002EC3C 0002BB9C  93 84 00 00 */	stw r28, 0(r4)
-/* 8002EC40 0002BBA0  3B A3 BD F4 */	addi r29, r3, lbl_8056BDF4@l
+/* 8002EC40 0002BBA0  3B A3 BD F4 */	addi r29, r3, mInt32POINodes__9CAnimData@l
 /* 8002EC44 0002BBA4  3B 7D 00 04 */	addi r27, r29, 4
 /* 8002EC48 0002BBA8  48 00 00 24 */	b lbl_8002EC6C
 lbl_8002EC4C:
@@ -6328,12 +6328,12 @@ lbl_8002EC6C:
 /* 8002EC6C 0002BBCC  80 1D 00 00 */	lwz r0, 0(r29)
 /* 8002EC70 0002BBD0  7C 1C 00 00 */	cmpw r28, r0
 /* 8002EC74 0002BBD4  41 80 FF D8 */	blt lbl_8002EC4C
-/* 8002EC78 0002BBD8  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002EC78 0002BBD8  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002EC7C 0002BBDC  3B 80 00 00 */	li r28, 0
-/* 8002EC80 0002BBE0  38 83 BD F4 */	addi r4, r3, lbl_8056BDF4@l
-/* 8002EC84 0002BBE4  3C 60 80 57 */	lis r3, lbl_8056C2B8@ha
+/* 8002EC80 0002BBE0  38 83 BD F4 */	addi r4, r3, mInt32POINodes__9CAnimData@l
+/* 8002EC84 0002BBE4  3C 60 80 57 */	lis r3, mParticlePOINodes__9CAnimData@ha
 /* 8002EC88 0002BBE8  93 84 00 00 */	stw r28, 0(r4)
-/* 8002EC8C 0002BBEC  3B A3 C2 B8 */	addi r29, r3, lbl_8056C2B8@l
+/* 8002EC8C 0002BBEC  3B A3 C2 B8 */	addi r29, r3, mParticlePOINodes__9CAnimData@l
 /* 8002EC90 0002BBF0  3B 7D 00 04 */	addi r27, r29, 4
 /* 8002EC94 0002BBF4  48 00 00 24 */	b lbl_8002ECB8
 lbl_8002EC98:
@@ -6349,12 +6349,12 @@ lbl_8002ECB8:
 /* 8002ECB8 0002BC18  80 1D 00 00 */	lwz r0, 0(r29)
 /* 8002ECBC 0002BC1C  7C 1C 00 00 */	cmpw r28, r0
 /* 8002ECC0 0002BC20  41 80 FF D8 */	blt lbl_8002EC98
-/* 8002ECC4 0002BC24  3C 60 80 57 */	lis r3, lbl_8056C2B8@ha
+/* 8002ECC4 0002BC24  3C 60 80 57 */	lis r3, mParticlePOINodes__9CAnimData@ha
 /* 8002ECC8 0002BC28  3B 80 00 00 */	li r28, 0
-/* 8002ECCC 0002BC2C  38 83 C2 B8 */	addi r4, r3, lbl_8056C2B8@l
-/* 8002ECD0 0002BC30  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
+/* 8002ECCC 0002BC2C  38 83 C2 B8 */	addi r4, r3, mParticlePOINodes__9CAnimData@l
+/* 8002ECD0 0002BC30  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
 /* 8002ECD4 0002BC34  93 84 00 00 */	stw r28, 0(r4)
-/* 8002ECD8 0002BC38  3B A3 C9 EC */	addi r29, r3, lbl_8056C9EC@l
+/* 8002ECD8 0002BC38  3B A3 C9 EC */	addi r29, r3, mSoundPOINodes__9CAnimData@l
 /* 8002ECDC 0002BC3C  3B 7D 00 04 */	addi r27, r29, 4
 /* 8002ECE0 0002BC40  48 00 00 24 */	b lbl_8002ED04
 lbl_8002ECE4:
@@ -6370,9 +6370,9 @@ lbl_8002ED04:
 /* 8002ED04 0002BC64  80 1D 00 00 */	lwz r0, 0(r29)
 /* 8002ED08 0002BC68  7C 1C 00 00 */	cmpw r28, r0
 /* 8002ED0C 0002BC6C  41 80 FF D8 */	blt lbl_8002ECE4
-/* 8002ED10 0002BC70  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
+/* 8002ED10 0002BC70  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
 /* 8002ED14 0002BC74  38 00 00 00 */	li r0, 0
-/* 8002ED18 0002BC78  90 03 C9 EC */	stw r0, lbl_8056C9EC@l(r3)
+/* 8002ED18 0002BC78  90 03 C9 EC */	stw r0, mSoundPOINodes__9CAnimData@l(r3)
 lbl_8002ED1C:
 /* 8002ED1C 0002BC7C  34 1E 04 34 */	addic. r0, r30, 0x434
 /* 8002ED20 0002BC80  41 82 00 50 */	beq lbl_8002ED70
@@ -7465,8 +7465,8 @@ lbl_8002F9A8:
 /* 8002FC0C 0002CB6C  39 20 FF FF */	li r9, -1
 /* 8002FC10 0002CB70  39 40 00 00 */	li r10, 0
 /* 8002FC14 0002CB74  48 00 08 71 */	bl "__ct__12CBoolPOINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiib"
-/* 8002FC18 0002CB78  3C 60 80 57 */	lis r3, lbl_8056A600@ha
-/* 8002FC1C 0002CB7C  38 63 A6 00 */	addi r3, r3, lbl_8056A600@l
+/* 8002FC18 0002CB78  3C 60 80 57 */	lis r3, mBoolPOINodes__9CAnimData@ha
+/* 8002FC1C 0002CB7C  38 63 A6 00 */	addi r3, r3, mBoolPOINodes__9CAnimData@l
 /* 8002FC20 0002CB80  80 83 00 00 */	lwz r4, 0(r3)
 /* 8002FC24 0002CB84  2C 04 00 08 */	cmpwi r4, 8
 /* 8002FC28 0002CB88  40 80 00 B8 */	bge lbl_8002FCE0
@@ -7515,9 +7515,9 @@ lbl_8002FCC4:
 lbl_8002FCCC:
 /* 8002FCCC 0002CC2C  7C 1C D0 00 */	cmpw r28, r26
 /* 8002FCD0 0002CC30  41 80 FF 78 */	blt lbl_8002FC48
-/* 8002FCD4 0002CC34  3C 60 80 57 */	lis r3, lbl_8056A600@ha
+/* 8002FCD4 0002CC34  3C 60 80 57 */	lis r3, mBoolPOINodes__9CAnimData@ha
 /* 8002FCD8 0002CC38  38 00 00 08 */	li r0, 8
-/* 8002FCDC 0002CC3C  90 03 A6 00 */	stw r0, lbl_8056A600@l(r3)
+/* 8002FCDC 0002CC3C  90 03 A6 00 */	stw r0, mBoolPOINodes__9CAnimData@l(r3)
 lbl_8002FCE0:
 /* 8002FCE0 0002CC40  3C 60 80 3E */	lis r3, lbl_803D9B68@ha
 /* 8002FCE4 0002CC44  3C 80 80 3E */	lis r4, lbl_803D9B8C@ha
@@ -7558,9 +7558,9 @@ lbl_8002FD04:
 /* 8002FD6C 0002CCCC  39 20 FF FF */	li r9, -1
 /* 8002FD70 0002CCD0  39 40 00 00 */	li r10, 0
 /* 8002FD74 0002CCD4  4B FF B6 19 */	bl "__ct__13CInt32POINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiiiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8002FD78 0002CCD8  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 8002FD78 0002CCD8  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 8002FD7C 0002CCDC  38 A1 02 50 */	addi r5, r1, 0x250
-/* 8002FD80 0002CCE0  38 63 BD F4 */	addi r3, r3, lbl_8056BDF4@l
+/* 8002FD80 0002CCE0  38 63 BD F4 */	addi r3, r3, mInt32POINodes__9CAnimData@l
 /* 8002FD84 0002CCE4  38 80 00 10 */	li r4, 0x10
 /* 8002FD88 0002CCE8  4B FF E5 B9 */	bl "uninitialized_fill_n<P13CInt32POINode,13CInt32POINode>__4rstlFP13CInt32POINodeiRC13CInt32POINode"
 /* 8002FD8C 0002CCEC  3C 80 80 3E */	lis r4, lbl_803D9B98@ha
@@ -7618,9 +7618,9 @@ lbl_8002FDBC:
 /* 8002FE54 0002CDB4  39 20 FF FF */	li r9, -1
 /* 8002FE58 0002CDB8  39 40 00 00 */	li r10, 0
 /* 8002FE5C 0002CDBC  48 00 05 AD */	bl sub_80030408
-/* 8002FE60 0002CDC0  3C 60 80 57 */	lis r3, lbl_8056C2B8@ha
+/* 8002FE60 0002CDC0  3C 60 80 57 */	lis r3, mParticlePOINodes__9CAnimData@ha
 /* 8002FE64 0002CDC4  38 A1 01 F4 */	addi r5, r1, 0x1f4
-/* 8002FE68 0002CDC8  38 63 C2 B8 */	addi r3, r3, lbl_8056C2B8@l
+/* 8002FE68 0002CDC8  38 63 C2 B8 */	addi r3, r3, mParticlePOINodes__9CAnimData@l
 /* 8002FE6C 0002CDCC  38 80 00 14 */	li r4, 0x14
 /* 8002FE70 0002CDD0  48 00 04 4D */	bl sub_800302bc
 /* 8002FE74 0002CDD4  3C 60 80 3E */	lis r3, lbl_803D9B74@ha
@@ -7672,9 +7672,9 @@ lbl_8002FEBC:
 /* 8002FF20 0002CE80  39 20 FF FF */	li r9, -1
 /* 8002FF24 0002CE84  39 40 00 00 */	li r10, 0
 /* 8002FF28 0002CE88  48 00 03 29 */	bl "__ct__13CSoundPOINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiiiff"
-/* 8002FF2C 0002CE8C  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
+/* 8002FF2C 0002CE8C  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
 /* 8002FF30 0002CE90  38 A1 01 B0 */	addi r5, r1, 0x1b0
-/* 8002FF34 0002CE94  38 63 C9 EC */	addi r3, r3, lbl_8056C9EC@l
+/* 8002FF34 0002CE94  38 63 C9 EC */	addi r3, r3, mSoundPOINodes__9CAnimData@l
 /* 8002FF38 0002CE98  38 80 00 14 */	li r4, 0x14
 /* 8002FF3C 0002CE9C  48 00 02 21 */	bl sub_8003015c
 /* 8002FF40 0002CEA0  3C 60 80 3E */	lis r3, lbl_803D9B80@ha
@@ -9634,38 +9634,38 @@ __sinit_CAnimData_cpp:
 /* 80031980 0002E8E0  3C A0 80 46 */	lis r5, lbl_8045B140@ha
 /* 80031984 0002E8E4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80031988 0002E8E8  38 00 00 00 */	li r0, 0
-/* 8003198C 0002E8EC  3C 60 80 57 */	lis r3, lbl_8056A600@ha
+/* 8003198C 0002E8EC  3C 60 80 57 */	lis r3, mBoolPOINodes__9CAnimData@ha
 /* 80031990 0002E8F0  38 84 1C 00 */	addi r4, r4, "__dt__Q24rstl33reserved_vector<12CBoolPOINode,8>Fv"@l
 /* 80031994 0002E8F4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80031998 0002E8F8  3B E5 B1 40 */	addi r31, r5, lbl_8045B140@l
 /* 8003199C 0002E8FC  38 BF 00 00 */	addi r5, r31, 0
-/* 800319A0 0002E900  94 03 A6 00 */	stwu r0, lbl_8056A600@l(r3)
+/* 800319A0 0002E900  94 03 A6 00 */	stwu r0, mBoolPOINodes__9CAnimData@l(r3)
 /* 800319A4 0002E904  48 35 7C E9 */	bl __register_global_object
 /* 800319A8 0002E908  38 00 00 00 */	li r0, 0
-/* 800319AC 0002E90C  3C 60 80 57 */	lis r3, lbl_8056BDF4@ha
+/* 800319AC 0002E90C  3C 60 80 57 */	lis r3, mInt32POINodes__9CAnimData@ha
 /* 800319B0 0002E910  3C 80 80 03 */	lis r4, "__dt__Q24rstl35reserved_vector<13CInt32POINode,16>Fv"@ha
-/* 800319B4 0002E914  94 03 BD F4 */	stwu r0, lbl_8056BDF4@l(r3)
+/* 800319B4 0002E914  94 03 BD F4 */	stwu r0, mInt32POINodes__9CAnimData@l(r3)
 /* 800319B8 0002E918  38 84 1B 64 */	addi r4, r4, "__dt__Q24rstl35reserved_vector<13CInt32POINode,16>Fv"@l
 /* 800319BC 0002E91C  38 BF 00 0C */	addi r5, r31, 0xc
 /* 800319C0 0002E920  48 35 7C CD */	bl __register_global_object
 /* 800319C4 0002E924  38 00 00 00 */	li r0, 0
-/* 800319C8 0002E928  3C 60 80 57 */	lis r3, lbl_8056C2B8@ha
+/* 800319C8 0002E928  3C 60 80 57 */	lis r3, mParticlePOINodes__9CAnimData@ha
 /* 800319CC 0002E92C  3C 80 80 03 */	lis r4, "__dt__Q24rstl38reserved_vector<16CParticlePOINode,20>Fv"@ha
-/* 800319D0 0002E930  94 03 C2 B8 */	stwu r0, lbl_8056C2B8@l(r3)
+/* 800319D0 0002E930  94 03 C2 B8 */	stwu r0, mParticlePOINodes__9CAnimData@l(r3)
 /* 800319D4 0002E934  38 84 1A C8 */	addi r4, r4, "__dt__Q24rstl38reserved_vector<16CParticlePOINode,20>Fv"@l
 /* 800319D8 0002E938  38 BF 00 18 */	addi r5, r31, 0x18
 /* 800319DC 0002E93C  48 35 7C B1 */	bl __register_global_object
 /* 800319E0 0002E940  38 00 00 00 */	li r0, 0
-/* 800319E4 0002E944  3C 60 80 57 */	lis r3, lbl_8056C9EC@ha
+/* 800319E4 0002E944  3C 60 80 57 */	lis r3, mSoundPOINodes__9CAnimData@ha
 /* 800319E8 0002E948  3C 80 80 03 */	lis r4, "__dt__Q24rstl35reserved_vector<13CSoundPOINode,20>Fv"@ha
-/* 800319EC 0002E94C  94 03 C9 EC */	stwu r0, lbl_8056C9EC@l(r3)
+/* 800319EC 0002E94C  94 03 C9 EC */	stwu r0, mSoundPOINodes__9CAnimData@l(r3)
 /* 800319F0 0002E950  38 84 1A 2C */	addi r4, r4, "__dt__Q24rstl35reserved_vector<13CSoundPOINode,20>Fv"@l
 /* 800319F4 0002E954  38 BF 00 24 */	addi r5, r31, 0x24
 /* 800319F8 0002E958  48 35 7C 95 */	bl __register_global_object
 /* 800319FC 0002E95C  38 00 00 00 */	li r0, 0
-/* 80031A00 0002E960  3C 60 80 57 */	lis r3, lbl_8056CF40@ha
+/* 80031A00 0002E960  3C 60 80 57 */	lis r3, sInt32TransientCache@ha
 /* 80031A04 0002E964  3C 80 80 03 */	lis r4, "__dt__Q24rstl35reserved_vector<13CInt32POINode,16>Fv"@ha
-/* 80031A08 0002E968  94 03 CF 40 */	stwu r0, lbl_8056CF40@l(r3)
+/* 80031A08 0002E968  94 03 CF 40 */	stwu r0, sInt32TransientCache@l(r3)
 /* 80031A0C 0002E96C  38 84 1B 64 */	addi r4, r4, "__dt__Q24rstl35reserved_vector<13CInt32POINode,16>Fv"@l
 /* 80031A10 0002E970  38 BF 00 30 */	addi r5, r31, 0x30
 /* 80031A14 0002E974  48 35 7C 79 */	bl __register_global_object
