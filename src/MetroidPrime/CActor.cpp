@@ -8,6 +8,7 @@
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 
 #include "Kyoto/Audio/CAudioSys.hpp"
+#include "Kyoto/Audio/CSfxManager.hpp"
 
 static CMaterialList MakeActorMaterialList(const CMaterialList& in, const CActorParameters& params) {
   CMaterialList ret = in;
@@ -87,10 +88,10 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 
 CActor::~CActor() { RemoveEmitter(); }
 
-// TODO nonmatching
+// TODO nonmatching https://decomp.me/scratch/hQjHM
 SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool advTree) {
-  SAdvancementDeltas result = x64_modelData->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
-  x64_modelData->AdvanceParticles(GetTransform(), dt, mgr);
+  SAdvancementDeltas result = GetModelData()->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
+  GetModelData()->AdvanceParticles(GetTransform(), dt, mgr);
   UpdateSfxEmitters();
   if (HasAnimation()) {
     u16 maxVol = xd4_maxVol;
@@ -101,49 +102,93 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
     const CVector3f toCamera = camera->GetTranslation() - origin;
 
     s32 soundNodeCount = 0;
-    const CSoundPOINode* soundNode = HasAnimation() ? x64_modelData->GetAnimationData()->GetSoundPOIList(soundNodeCount) : nullptr;
+    const CSoundPOINode* soundNode;
+    if (HasAnimation()) {
+      soundNode = GetAnimationData()->GetSoundPOIList(soundNodeCount);
+    } else {
+      soundNode = nullptr;
+    }
     if (soundNodeCount > 0 && soundNode != nullptr) {
       for (s32 i = 0; i < soundNodeCount; ++soundNode, ++i) {
         s32 charIdx = soundNode->GetCharacterIndex();
-        if (soundNode->GetPoiType() != POITYPE_SOUND)
+        if (soundNode->GetPoiType() != kPT_Sound || GetMuted())
           continue;
-        if (GetMuted())
+        if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
           continue;
-        if (charIdx != -1 && x64_modelData->GetAnimationData()->GetCharacterIndex() != charIdx)
-          continue;
-        // if (soundNode->GetPoiType() == POITYPE_SOUND && !GetMuted() && (charIdx == -1 ||
-        // x64_modelData->GetAnimationData()->GetCharacterIndex() == charIdx))
+        // if (soundNode->GetPoiType() == kPT_Sound && !GetMuted() && (charIdx == -1 || GetAnimationData()->GetCharacterIndex() == charIdx))
         ProcessSoundEvent(soundNode->GetSoundId(), soundNode->GetWeight(), soundNode->GetFlags(), soundNode->GetFallOff(),
                           soundNode->GetMaxDistance(), 20, maxVol, toCamera, origin, aid, mgr, true);
       }
     }
 
     s32 intNodeCount = 0;
-    const CInt32POINode* intNode = HasAnimation() ? x64_modelData->GetAnimationData()->GetInt32POIList(intNodeCount) : nullptr;
+    const CInt32POINode* intNode;
+    if (HasAnimation()) {
+      intNode = GetAnimationData()->GetInt32POIList(intNodeCount);
+    } else {
+      intNode = nullptr;
+    }
     if (intNodeCount > 0 && intNode != nullptr) {
       for (s32 i = 0; i < intNodeCount; ++intNode, ++i) {
         s32 charIdx = intNode->GetCharacterIndex();
-        if (soundNode->GetPoiType() == POITYPE_SOUNDINT32 && !GetMuted() &&
-            (charIdx == -1 || x64_modelData->GetAnimationData()->GetCharacterIndex() == charIdx)) {
+        if (intNode->GetPoiType() == kPT_SoundInt32 && !GetMuted() &&
+            (charIdx == -1 || GetAnimationData()->GetCharacterIndex() == charIdx)) {
           ProcessSoundEvent(intNode->GetValue(), intNode->GetWeight(), intNode->GetFlags(), 0.1f, 150.f, 20, maxVol, toCamera, origin, aid,
                             mgr, true);
-        } else if (soundNode->GetPoiType() == POITYPE_USEREVENT) {
+        } else if (intNode->GetPoiType() == kPT_UserEvent) {
           DoUserAnimEvent(mgr, *intNode, static_cast< EUserEventType >(intNode->GetValue()), dt);
         }
       }
     }
 
     s32 particleNodeCount = 0;
-    const CParticlePOINode* particleNode =
-        HasAnimation() ? x64_modelData->GetAnimationData()->GetParticlePOIList(particleNodeCount) : nullptr;
+    const CParticlePOINode* particleNode;
+    if (HasAnimation()) {
+      particleNode = GetAnimationData()->GetParticlePOIList(particleNodeCount);
+    } else {
+      particleNode = nullptr;
+    }
     if (particleNodeCount > 0 && particleNode != nullptr) {
       for (s32 i = 0; i < particleNodeCount; ++particleNode, ++i) {
-        s32 charIdx = soundNode->GetCharacterIndex();
-        if (charIdx != -1 && x64_modelData->GetAnimationData()->GetCharacterIndex() != charIdx)
+        s32 charIdx = particleNode->GetCharacterIndex();
+        if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
           continue;
-        x64_modelData->GetAnimationData()->SetParticleEffectState(particleNode->GetString(), true, mgr);
+        AnimationData()->SetParticleEffectState(particleNode->GetString(), true, mgr);
       }
     }
   }
   return result;
+}
+
+void CActor::RemoveEmitter() {
+  CSfxHandle handle = x8c_loopingSfxHandle;
+  if (handle) {
+    CSfxManager::RemoveEmitter(handle);
+    x88_sfxId = -1;
+    x8c_loopingSfxHandle = 0;
+  }
+}
+
+void CActor::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type, float dt) {
+  if (type == kUE_LoopedSoundStop) {
+    RemoveEmitter();
+  }
+}
+
+f32 CActor::GetAverageAnimVelocity(s32 anim) { return HasAnimation() ? GetAnimationData()->GetAverageVelocity(anim) : 0.f; }
+
+void CActor::CalculateRenderBounds() {
+  if (HasModelData()) {
+    x9c_renderBounds = GetModelData()->GetBounds(GetTransform());
+  } else {
+    const CVector3f origin = GetTranslation();
+    x9c_renderBounds = CAABox(origin, origin);
+  }
+}
+
+void CActor::SetModelData(const CModelData& modelData) { x64_modelData = modelData.IsNull() ? nullptr : new CModelData(modelData); }
+
+// Unreferenced
+extern "C" {
+void sub_8005502c() {}
 }

@@ -6,14 +6,15 @@
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/Graphics/CColor.hpp"
-#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/optional_object.hpp"
 #include "rstl/pair.hpp"
 
+class CAABox;
 class CAnimData;
 class CModel;
 
@@ -27,11 +28,13 @@ CHECK_SIZEOF(SAdvancementDeltas, 0x1c)
 
 class CModelData {
 public:
+  // TODO these probably aren't real
   bool IsStaticModel() const { return xc_animData.get() == nullptr && !x1c_normalModel; }
+  bool HasNormalModel() const { return x1c_normalModel; }
 
-  CModelData() {
-    // TODO
-  }
+  CModelData();
+  // __ct__10CModelDataFRC8CAnimRes
+  // __ct__10CModelDataFRC10CStaticRes
   CModelData(const CModelData& other);
   ~CModelData();
 
@@ -39,6 +42,10 @@ public:
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
 
   CAnimData* GetAnimationData() const { return xc_animData.get(); }
+  CAABox GetBounds(const CTransform4f& xf) const;
+  CAABox GetBounds() const;
+
+  bool IsNull() const { return xc_animData.get() == nullptr && !x1c_normalModel; }
 
   void SetXRayModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetInfraModel(const rstl::pair< CAssetId, CAssetId >& assets);

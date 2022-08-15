@@ -101,13 +101,34 @@ inline bool operator!=(const CVector3f& lhs, const CVector3f& rhs) {
   return lhs.GetX() != rhs.GetX() || lhs.GetY() != rhs.GetY() || lhs.GetZ() != rhs.GetZ();
 }
 inline CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs) {
-  return CVector3f(lhs.GetX() - rhs.GetX(), lhs.GetY() - rhs.GetY(), lhs.GetZ() - rhs.GetZ());
+  f32 x = lhs.GetX() - rhs.GetX();
+  f32 y = lhs.GetY() - rhs.GetY();
+  f32 z = lhs.GetZ() - rhs.GetZ();
+  return CVector3f(x, y, z);
 }
 inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
-  return CVector3f(lhs.GetX() + rhs.GetX(), lhs.GetY() + rhs.GetY(), lhs.GetZ() + rhs.GetZ());
+  f32 x = lhs.GetX() + rhs.GetX();
+  f32 y = lhs.GetY() + rhs.GetY();
+  f32 z = lhs.GetZ() + rhs.GetZ();
+  return CVector3f(x, y, z);
 }
-inline CVector3f operator*(const CVector3f& vec, f32 f) { return CVector3f(vec.GetX() * f, vec.GetY() * f, vec.GetZ() * f); }
-inline CVector3f operator/(const CVector3f& vec, f32 f) { return CVector3f(vec.GetX() / f, vec.GetY() / f, vec.GetZ() / f); }
-inline CVector3f operator-(const CVector3f& vec) { return CVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ()); }
+inline CVector3f operator*(const CVector3f& vec, f32 f) {
+  f32 x = vec.GetX() * f;
+  f32 y = vec.GetY() * f;
+  f32 z = vec.GetZ() * f;
+  return CVector3f(x, y, z);
+}
+inline CVector3f operator/(const CVector3f& vec, f32 f) {
+  f32 x = vec.GetX() / f;
+  f32 y = vec.GetY() / f;
+  f32 z = vec.GetZ() / f;
+  return CVector3f(x, y, z);
+}
+inline CVector3f operator-(const CVector3f& vec) {
+  f32 x = -vec.GetX();
+  f32 y = -vec.GetY();
+  f32 z = -vec.GetZ();
+  return CVector3f(x, y, z);
+}
 
 #endif // __CVECTOR3F_HPP__

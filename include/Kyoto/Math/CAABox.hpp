@@ -8,6 +8,7 @@ public:
   CAABox() {
     // TODO
   }
+  CAABox(const CVector3f& min, const CVector3f& max);// : min(min), max(max) {}
 
   static CAABox mskInvertedBox;
   static CAABox mskNullBox;

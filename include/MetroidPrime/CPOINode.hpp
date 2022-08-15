@@ -8,21 +8,23 @@
 
 #include "rstl/string.hpp"
 
-#define POITYPE_LOOP 0
-#define POITYPE_EMPTYBOOL 1
-#define POITYPE_EMPTYINT32 2
-#define POITYPE_SOUNDINT32 4
-#define POITYPE_PARTICLE 5
-#define POITYPE_USEREVENT 6
-#define POITYPE_RANDRATE 7
-#define POITYPE_SOUND 8
+enum EPOIType {
+  kPT_Loop = 0,
+  kPT_EmptyBool = 1,
+  kPT_EmptyInt32 = 2,
+  kPT_SoundInt32 = 4,
+  kPT_Particle = 5,
+  kPT_UserEvent = 6,
+  kPT_RandRate = 7,
+  kPT_Sound = 8,
+};
 
 class CPOINode {
 public:
   virtual ~CPOINode();
 
   const rstl::string& GetString() const { return x8_name; }
-  s32 GetPoiType() const { return x18_type; }
+  EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
   const CCharAnimTime& GetTime() const { return x1c_time; }
   f32 GetWeight() const { return x2c_weight; }
   s32 GetCharacterIndex() const { return x30_charIdx; }
@@ -31,7 +33,7 @@ public:
 protected:
   u16 x4_;
   rstl::string x8_name;
-  s16 x18_type;
+  u16 x18_type;
   CCharAnimTime x1c_time;
   s32 x24_index;
   bool x28_unique;

@@ -32,7 +32,7 @@ lbl_803DAC38:
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 	.4byte GetSortingBounds__13CScriptEffectCFRC12CTransform4f
-	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 
 .global lbl_803DACA4
 lbl_803DACA4:

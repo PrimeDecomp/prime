@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-#include "MetroidPrime/CSfxHandle.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
+#include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CVector3f.hpp"

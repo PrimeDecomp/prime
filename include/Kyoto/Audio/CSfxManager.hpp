@@ -3,9 +3,12 @@
 
 #include "types.h"
 
+#include "Kyoto/Audio/CSfxHandle.hpp"
+
 class CSfxManager {
 public:
   static void Update(f32 dt);
+  static void RemoveEmitter(CSfxHandle handle);
 };
 
 #endif
