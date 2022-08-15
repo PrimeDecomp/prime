@@ -36,20 +36,21 @@ public:
   }
 
   s32 GetCharacterIndex() const { return x204_charIdx; }
+  f32 GetAverageVelocity(s32 idx) const;
 
-  const CBoolPOINode* GetBoolPOIList(s32& count) {
+  const CBoolPOINode* GetBoolPOIList(s32& count) const {
     count = x20c_passedBoolCount;
     return mBoolPOINodes.data();
   }
-  const CInt32POINode* GetInt32POIList(s32& count) {
+  const CInt32POINode* GetInt32POIList(s32& count) const {
     count = x210_passedIntCount;
     return mInt32POINodes.data();
   }
-  const CParticlePOINode* GetParticlePOIList(s32& count) {
+  const CParticlePOINode* GetParticlePOIList(s32& count) const {
     count = x214_passedParticleCount;
     return mParticlePOINodes.data();
   }
-  const CSoundPOINode* GetSoundPOIList(s32& count) {
+  const CSoundPOINode* GetSoundPOIList(s32& count) const {
     count = x218_passedSoundCount;
     return mSoundPOINodes.data();
   }
@@ -171,10 +172,10 @@ private:
   f32 x200_speedScale;
   s32 x204_charIdx;
   s32 x208_defaultAnim;
-  u32 x20c_passedBoolCount;
-  u32 x210_passedIntCount;
-  u32 x214_passedParticleCount;
-  u32 x218_passedSoundCount;
+  s32 x20c_passedBoolCount;
+  s32 x210_passedIntCount;
+  s32 x214_passedParticleCount;
+  s32 x218_passedSoundCount;
   s32 x21c_particleLightIdx;
   bool x220_24_animating : 1;
   bool x220_25_loop : 1;

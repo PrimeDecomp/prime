@@ -32,7 +32,7 @@ __vt__6CActor:
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
 	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
-	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
+	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 
 .global lbl_803D9F1C
 lbl_803D9F1C:
@@ -2946,8 +2946,8 @@ lbl_8005520C:
 /* 80055214 00052174  38 21 00 10 */	addi r1, r1, 0x10
 /* 80055218 00052178  4E 80 00 20 */	blr
 
-.global DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType
-DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventType:
+.global DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
+DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef:
 /* 8005521C 0005217C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80055220 00052180  7C 08 02 A6 */	mflr r0
 /* 80055224 00052184  2C 06 00 02 */	cmpwi r6, 2

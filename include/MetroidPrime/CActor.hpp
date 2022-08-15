@@ -9,8 +9,8 @@
 #include "MetroidPrime/CEntity.hpp"
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/CModelFlags.hpp"
-#include "MetroidPrime/CSfxHandle.hpp"
 
+#include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -189,11 +189,6 @@ enum EUserEventType {
   kUE_EffectOff = 34,
 };
 
-// class CBoolPOINode;
-// class CInt32POINode;
-// class CParticlePOINode;
-// class CSoundPOINode;
-
 class CActor : public CEntity {
 public:
   enum EThermalFlags {
@@ -235,7 +230,7 @@ public:
   virtual void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
   virtual void OnScanStateChanged(EScanState, CStateManager&);
   virtual CAABox GetSortingBounds(const CStateManager&) const;
-  virtual void DoUserAnimEvent(CStateManager&, const CInt32POINode&, EUserEventType, float dt);
+  virtual void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type, float dt);
 
   SAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
 
@@ -244,24 +239,17 @@ public:
 
   void UpdateSfxEmitters();
   void RemoveEmitter();
+  void SetModelData(const CModelData& modelData);
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   bool GetMuted() const { return xe5_26_muted; }
   bool HasAnimation() const { return x64_modelData && x64_modelData->GetAnimationData(); }
-
-  // const CBoolPOINode* GetBoolPOIList(s32& count) {
-  //   return HasAnimation() ? x64_modelData->GetAnimationData()->GetBoolPOIList(count) : nullptr;
-  // }
-  // const CInt32POINode* GetInt32POIList(s32& count) {
-  //   return HasAnimation() ? x64_modelData->GetAnimationData()->GetInt32POIList(count) : nullptr;
-  // }
-  // const CParticlePOINode* GetParticlePOIList(s32& count) {
-  //   return HasAnimation() ? x64_modelData->GetAnimationData()->GetParticlePOIList(count) : nullptr;
-  // }
-  // const CSoundPOINode* GetSoundPOIList(s32& count) {
-  //   return HasAnimation() ? x64_modelData->GetAnimationData()->GetSoundPOIList(count) : nullptr;
-  // }
+  bool HasModelData() const { return x64_modelData && (x64_modelData->GetAnimationData() || x64_modelData->HasNormalModel()); }
+  CModelData* GetModelData() const { return x64_modelData.get(); }
+  CAnimData* AnimationData() { return GetModelData()->GetAnimationData(); }
+  const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
+  f32 GetAverageAnimVelocity(s32 anim);
 
 protected:
   CTransform4f x34_transform;
