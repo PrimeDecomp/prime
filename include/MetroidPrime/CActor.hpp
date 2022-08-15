@@ -246,8 +246,9 @@ public:
   bool GetMuted() const { return xe5_26_muted; }
   bool HasAnimation() const { return x64_modelData && x64_modelData->GetAnimationData(); }
   bool HasModelData() const { return x64_modelData && (x64_modelData->GetAnimationData() || x64_modelData->HasNormalModel()); }
-  CModelData* GetModelData() const { return x64_modelData.get(); }
-  CAnimData* AnimationData() { return GetModelData()->GetAnimationData(); }
+  CModelData* ModelData() { return x64_modelData.get(); }
+  const CModelData* GetModelData() const { return x64_modelData.get(); }
+  CAnimData* AnimationData() { return ModelData()->AnimationData(); }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
   f32 GetAverageAnimVelocity(s32 anim);
 

@@ -41,7 +41,8 @@ public:
   SAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
 
-  CAnimData* GetAnimationData() const { return xc_animData.get(); }
+  const CAnimData* GetAnimationData() const { return xc_animData.get(); }
+  CAnimData* AnimationData() { return xc_animData.get(); }
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
 

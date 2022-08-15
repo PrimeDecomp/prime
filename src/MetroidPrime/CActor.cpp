@@ -88,10 +88,9 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 
 CActor::~CActor() { RemoveEmitter(); }
 
-// TODO nonmatching https://decomp.me/scratch/hQjHM
 SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool advTree) {
-  SAdvancementDeltas result = GetModelData()->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
-  GetModelData()->AdvanceParticles(GetTransform(), dt, mgr);
+  SAdvancementDeltas result = ModelData()->AdvanceAnimation(dt, mgr, GetAreaId(), advTree);
+  ModelData()->AdvanceParticles(GetTransform(), dt, mgr);
   UpdateSfxEmitters();
   if (HasAnimation()) {
     u16 maxVol = xd4_maxVol;
@@ -101,8 +100,11 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
     const CVector3f origin = GetTranslation();
     const CVector3f toCamera = camera->GetTranslation() - origin;
 
+    const CInt32POINode* intNode = nullptr;
+    const CSoundPOINode* soundNode = nullptr;
+    const CParticlePOINode* particleNode = nullptr;
+      
     s32 soundNodeCount = 0;
-    const CSoundPOINode* soundNode;
     if (HasAnimation()) {
       soundNode = GetAnimationData()->GetSoundPOIList(soundNodeCount);
     } else {
@@ -115,14 +117,12 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
           continue;
         if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
           continue;
-        // if (soundNode->GetPoiType() == kPT_Sound && !GetMuted() && (charIdx == -1 || GetAnimationData()->GetCharacterIndex() == charIdx))
         ProcessSoundEvent(soundNode->GetSoundId(), soundNode->GetWeight(), soundNode->GetFlags(), soundNode->GetFallOff(),
                           soundNode->GetMaxDistance(), 20, maxVol, toCamera, origin, aid, mgr, true);
       }
     }
 
     s32 intNodeCount = 0;
-    const CInt32POINode* intNode;
     if (HasAnimation()) {
       intNode = GetAnimationData()->GetInt32POIList(intNodeCount);
     } else {
@@ -142,7 +142,6 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
     }
 
     s32 particleNodeCount = 0;
-    const CParticlePOINode* particleNode;
     if (HasAnimation()) {
       particleNode = GetAnimationData()->GetParticlePOIList(particleNodeCount);
     } else {
