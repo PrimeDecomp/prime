@@ -231,7 +231,7 @@ IsQualified__16CListeningAiListFRC7CEntity:
 /* 801B86B8 001B5618  38 61 00 08 */	addi r3, r1, 8
 /* 801B86BC 001B561C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 801B86C0 001B5620  3B E0 00 00 */	li r31, 0
-/* 801B86C4 001B5624  4B EF 44 05 */	bl "__ct__16TCastToPtr<10CPatterned>FR7CEntity"
+/* 801B86C4 001B5624  4B EF 44 05 */	bl "__ct__24TCastToPtr<10CPatterned>FR7CEntity"
 /* 801B86C8 001B5628  80 63 00 04 */	lwz r3, 4(r3)
 /* 801B86CC 001B562C  28 03 00 00 */	cmplwi r3, 0
 /* 801B86D0 001B5630  41 82 00 20 */	beq lbl_801B86F0

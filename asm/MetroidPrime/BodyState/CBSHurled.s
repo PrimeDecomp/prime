@@ -509,7 +509,7 @@ ShouldStartStrikeWall__9CBSHurledCFR15CBodyController:
 /* 80144AB0 00141A10  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80144AB4 00141A14  3B E0 00 00 */	li r31, 0
 /* 80144AB8 00141A18  80 84 00 00 */	lwz r4, 0(r4)
-/* 80144ABC 00141A1C  4B F6 7F A1 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80144ABC 00141A1C  4B F6 7F A1 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 80144AC0 00141A20  80 63 00 04 */	lwz r3, 4(r3)
 /* 80144AC4 00141A24  88 03 03 28 */	lbz r0, 0x328(r3)
 /* 80144AC8 00141A28  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
@@ -544,7 +544,7 @@ ShouldStartLand__9CBSHurledCFfR15CBodyController:
 /* 80144B2C 00141A8C  80 84 00 00 */	lwz r4, 0(r4)
 /* 80144B30 00141A90  38 61 00 08 */	addi r3, r1, 8
 /* 80144B34 00141A94  3B E0 00 01 */	li r31, 1
-/* 80144B38 00141A98  4B F6 7F 25 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80144B38 00141A98  4B F6 7F 25 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 80144B3C 00141A9C  83 C3 00 04 */	lwz r30, 4(r3)
 /* 80144B40 00141AA0  28 1E 00 00 */	cmplwi r30, 0
 /* 80144B44 00141AA4  41 82 00 BC */	beq lbl_80144C00
@@ -771,7 +771,7 @@ lbl_80144E44:
 /* 80144E64 00141DC4  4B FF F8 79 */	bl PlayStrikeWallAnimation__9CBSHurledFR15CBodyControllerR13CStateManager
 /* 80144E68 00141DC8  80 9D 00 00 */	lwz r4, 0(r29)
 /* 80144E6C 00141DCC  38 61 00 5C */	addi r3, r1, 0x5c
-/* 80144E70 00141DD0  4B F6 7B ED */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80144E70 00141DD0  4B F6 7B ED */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 80144E74 00141DD4  83 83 00 04 */	lwz r28, 4(r3)
 /* 80144E78 00141DD8  28 1C 00 00 */	cmplwi r28, 0
 /* 80144E7C 00141DDC  41 82 02 90 */	beq lbl_8014510C

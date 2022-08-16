@@ -106,7 +106,7 @@ FixInPlace__11CBSWallHangFR15CBodyController:
 /* 8018D584 0018A4E4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8018D588 0018A4E8  38 61 00 08 */	addi r3, r1, 8
 /* 8018D58C 0018A4EC  80 84 00 00 */	lwz r4, 0(r4)
-/* 8018D590 0018A4F0  4B F1 F4 CD */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 8018D590 0018A4F0  4B F1 F4 CD */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8018D594 0018A4F4  80 63 00 04 */	lwz r3, 4(r3)
 /* 8018D598 0018A4F8  28 03 00 00 */	cmplwi r3, 0
 /* 8018D59C 0018A4FC  41 82 00 24 */	beq lbl_8018D5C0
@@ -136,7 +136,7 @@ CheckForLand__11CBSWallHangFR15CBodyControllerR13CStateManager:
 /* 8018D5EC 0018A54C  38 61 00 54 */	addi r3, r1, 0x54
 /* 8018D5F0 0018A550  3B C0 00 00 */	li r30, 0
 /* 8018D5F4 0018A554  80 84 00 00 */	lwz r4, 0(r4)
-/* 8018D5F8 0018A558  4B F1 F4 65 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 8018D5F8 0018A558  4B F1 F4 65 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8018D5FC 0018A55C  83 E3 00 04 */	lwz r31, 4(r3)
 /* 8018D600 0018A560  28 1F 00 00 */	cmplwi r31, 0
 /* 8018D604 0018A564  41 82 01 38 */	beq lbl_8018D73C
@@ -242,7 +242,7 @@ CheckForWall__11CBSWallHangFR15CBodyControllerR13CStateManager:
 /* 8018D770 0018A6D0  38 61 00 68 */	addi r3, r1, 0x68
 /* 8018D774 0018A6D4  3B 60 00 00 */	li r27, 0
 /* 8018D778 0018A6D8  80 84 00 00 */	lwz r4, 0(r4)
-/* 8018D77C 0018A6DC  4B F1 F2 E1 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 8018D77C 0018A6DC  4B F1 F2 E1 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8018D780 0018A6E0  83 E3 00 04 */	lwz r31, 4(r3)
 /* 8018D784 0018A6E4  28 1F 00 00 */	cmplwi r31, 0
 /* 8018D788 0018A6E8  41 82 02 C4 */	beq lbl_8018DA4C

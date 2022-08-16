@@ -76,7 +76,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CMapWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CAi.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/PatternedCastTo.o\
-	$(BUILD_DIR)/asm/MetroidPrime/TCastTo.o\
+	$(BUILD_DIR)/src/MetroidPrime/TCastTo.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSound.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPlatform.o\
 	$(BUILD_DIR)/src/MetroidPrime/UserNames.o\
