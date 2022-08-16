@@ -3620,8 +3620,8 @@ lbl_80159894:
 /* 8015992C 0015688C  D0 01 00 70 */	stfs f0, 0x70(r1)
 /* 80159930 00156890  48 1B AF 21 */	bl AsNormalized__9CVector3fCFv
 /* 80159934 00156894  FC 20 F0 90 */	fmr f1, f30
-/* 80159938 00156898  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
-/* 8015993C 0015689C  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 80159938 00156898  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
+/* 8015993C 0015689C  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 80159940 001568A0  7F C4 F3 78 */	mr r4, r30
 /* 80159944 001568A4  38 61 01 28 */	addi r3, r1, 0x128
 /* 80159948 001568A8  38 A1 00 94 */	addi r5, r1, 0x94

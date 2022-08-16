@@ -1,7 +1,7 @@
 .include "macros.inc"
 
 .comm mskInvertedBox__6CAABox, 0x30, 4
-.comm lbl_805A6784, 0x18, 4
+.comm mskNullBox__6CAABox, 0x18, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -1466,10 +1466,10 @@ __sinit_CAABox_cpp:
 /* 80338584 003354E4  C0 42 CB 94 */	lfs f2, lbl_805AE8B4@sda21(r2)
 /* 80338588 003354E8  3C 80 80 5A */	lis r4, mskInvertedBox__6CAABox@ha
 /* 8033858C 003354EC  C0 02 CB 88 */	lfs f0, lbl_805AE8A8@sda21(r2)
-/* 80338590 003354F0  3C 60 80 5A */	lis r3, lbl_805A6784@ha
+/* 80338590 003354F0  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
 /* 80338594 003354F4  D4 44 67 54 */	stfsu f2, mskInvertedBox__6CAABox@l(r4)
 /* 80338598 003354F8  C0 22 CB 98 */	lfs f1, lbl_805AE8B8@sda21(r2)
-/* 8033859C 003354FC  D4 03 67 84 */	stfsu f0, lbl_805A6784@l(r3)
+/* 8033859C 003354FC  D4 03 67 84 */	stfsu f0, mskNullBox__6CAABox@l(r3)
 /* 803385A0 00335500  D0 44 00 04 */	stfs f2, 4(r4)
 /* 803385A4 00335504  D0 44 00 08 */	stfs f2, 8(r4)
 /* 803385A8 00335508  D0 24 00 0C */	stfs f1, 0xc(r4)

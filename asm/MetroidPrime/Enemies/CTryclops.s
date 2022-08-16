@@ -330,9 +330,9 @@ sub_8025dbd0:
 /* 8025DC3C 0025AB9C  D0 41 00 44 */	stfs f2, 0x44(r1)
 /* 8025DC40 0025ABA0  48 0D FE A1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8025DC44 0025ABA4  C0 5A 00 58 */	lfs f2, 0x58(r26)
-/* 8025DC48 0025ABA8  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 8025DC48 0025ABA8  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 8025DC4C 0025ABAC  C0 3A 00 48 */	lfs f1, 0x48(r26)
-/* 8025DC50 0025ABB0  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 8025DC50 0025ABB0  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 8025DC54 0025ABB4  C0 1A 00 38 */	lfs f0, 0x38(r26)
 /* 8025DC58 0025ABB8  7F 64 DB 78 */	mr r4, r27
 /* 8025DC5C 0025ABBC  D0 21 00 24 */	stfs f1, 0x24(r1)
@@ -493,9 +493,9 @@ lbl_8025DE54:
 /* 8025DEAC 0025AE0C  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8025DEB0 0025AE10  7D 89 03 A6 */	mtctr r12
 /* 8025DEB4 0025AE14  4E 80 04 21 */	bctrl
-/* 8025DEB8 0025AE18  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 8025DEB8 0025AE18  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 8025DEBC 0025AE1C  90 61 00 E0 */	stw r3, 0xe0(r1)
-/* 8025DEC0 0025AE20  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 8025DEC0 0025AE20  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 8025DEC4 0025AE24  7F E3 FB 78 */	mr r3, r31
 /* 8025DEC8 0025AE28  90 01 00 E4 */	stw r0, 0xe4(r1)
 /* 8025DECC 0025AE2C  38 81 00 B0 */	addi r4, r1, 0xb0

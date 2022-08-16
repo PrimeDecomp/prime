@@ -7082,11 +7082,11 @@ lbl_80110BE0:
 /* 80110CE8 0010DC48  48 0B 80 AD */	bl __ct__15CPathFindSearchFP7CPFAreaUiff
 /* 80110CEC 0010DC4C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80110CF0 0010DC50  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 80110CF4 0010DC54  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 80110CF4 0010DC54  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 80110CF8 0010DC58  C0 02 94 F0 */	lfs f0, lbl_805AB210@sda21(r2)
 /* 80110CFC 0010DC5C  B0 18 06 74 */	sth r0, 0x674(r24)
 /* 80110D00 0010DC60  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
-/* 80110D04 0010DC64  38 C3 66 60 */	addi r6, r3, lbl_805A6660@l
+/* 80110D04 0010DC64  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
 /* 80110D08 0010DC68  7F 84 E3 78 */	mr r4, r28
 /* 80110D0C 0010DC6C  C0 27 00 00 */	lfs f1, 0(r7)
 /* 80110D10 0010DC70  7F A5 EB 78 */	mr r5, r29

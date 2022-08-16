@@ -6742,9 +6742,9 @@ lbl_801DFD94:
 /* 801DFE80 001DCDE0  B0 01 00 28 */	sth r0, 0x28(r1)
 /* 801DFE84 001DCDE4  B0 01 00 2C */	sth r0, 0x2c(r1)
 /* 801DFE88 001DCDE8  48 13 49 C9 */	bl AsNormalized__9CVector3fCFv
-/* 801DFE8C 001DCDEC  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 801DFE8C 001DCDEC  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 801DFE90 001DCDF0  7F 63 DB 78 */	mr r3, r27
-/* 801DFE94 001DCDF4  39 04 FD 18 */	addi r8, r4, lbl_8059FD18@l
+/* 801DFE94 001DCDF4  39 04 FD 18 */	addi r8, r4, skPassEverything__15CMaterialFilter@l
 /* 801DFE98 001DCDF8  38 A1 00 24 */	addi r5, r1, 0x24
 /* 801DFE9C 001DCDFC  38 81 00 2C */	addi r4, r1, 0x2c
 /* 801DFEA0 001DCE00  38 C1 00 1C */	addi r6, r1, 0x1c
@@ -7346,9 +7346,9 @@ lbl_801E0710:
 /* 801E074C 001DD6AC  D0 41 01 74 */	stfs f2, 0x174(r1)
 /* 801E0750 001DD6B0  48 12 FB 45 */	bl __ml__9CMatrix3fCFRC9CVector3f
 /* 801E0754 001DD6B4  C0 7E 00 50 */	lfs f3, 0x50(r30)
-/* 801E0758 001DD6B8  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 801E0758 001DD6B8  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 801E075C 001DD6BC  C0 41 01 84 */	lfs f2, 0x184(r1)
-/* 801E0760 001DD6C0  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 801E0760 001DD6C0  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 801E0764 001DD6C4  C0 3E 00 60 */	lfs f1, 0x60(r30)
 /* 801E0768 001DD6C8  7F E4 FB 78 */	mr r4, r31
 /* 801E076C 001DD6CC  EC A3 10 2A */	fadds f5, f3, f2

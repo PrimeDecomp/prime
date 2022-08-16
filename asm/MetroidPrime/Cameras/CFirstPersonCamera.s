@@ -819,9 +819,9 @@ lbl_8000E9C4:
 /* 8000E9D4 0000B934  38 61 04 4C */	addi r3, r1, 0x44c
 /* 8000E9D8 0000B938  48 30 5F 21 */	bl Normalize__9CVector3fFv
 lbl_8000E9DC:
-/* 8000E9DC 0000B93C  3C 80 80 5A */	lis r4, lbl_805A6660@ha
+/* 8000E9DC 0000B93C  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
 /* 8000E9E0 0000B940  38 61 08 48 */	addi r3, r1, 0x848
-/* 8000E9E4 0000B944  38 A4 66 60 */	addi r5, r4, lbl_805A6660@l
+/* 8000E9E4 0000B944  38 A4 66 60 */	addi r5, r4, sNoRotation__11CQuaternion@l
 /* 8000E9E8 0000B948  38 9F 01 90 */	addi r4, r31, 0x190
 /* 8000E9EC 0000B94C  C0 65 00 00 */	lfs f3, 0(r5)
 /* 8000E9F0 0000B950  C0 45 00 04 */	lfs f2, 4(r5)

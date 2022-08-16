@@ -119,8 +119,8 @@ VGetAdvancementResults__21CFBStreamedAnimReaderCFRC13CCharAnimTimeRC13CCharAnimT
 /* 802F8DE0 002F5D40  41 82 00 58 */	beq lbl_802F8E38
 /* 802F8DE4 002F5D44  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802F8DE8 002F5D48  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
-/* 802F8DEC 002F5D4C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F8DF0 002F5D50  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
+/* 802F8DEC 002F5D4C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F8DF0 002F5D50  C4 83 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r3)
 /* 802F8DF4 002F5D54  C0 1E 00 00 */	lfs f0, 0(r30)
 /* 802F8DF8 002F5D58  C0 44 00 04 */	lfs f2, 4(r4)
 /* 802F8DFC 002F5D5C  C0 64 00 08 */	lfs f3, 8(r4)
@@ -145,8 +145,8 @@ lbl_802F8E38:
 /* 802F8E44 002F5DA4  41 82 00 5C */	beq lbl_802F8EA0
 /* 802F8E48 002F5DA8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802F8E4C 002F5DAC  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
-/* 802F8E50 002F5DB0  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F8E54 002F5DB4  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
+/* 802F8E50 002F5DB0  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F8E54 002F5DB4  C4 83 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r3)
 /* 802F8E58 002F5DB8  80 0D 9C 18 */	lwz r0, lbl_805A87D8@sda21(r13)
 /* 802F8E5C 002F5DBC  C0 44 00 04 */	lfs f2, 4(r4)
 /* 802F8E60 002F5DC0  C0 64 00 08 */	lfs f3, 8(r4)
@@ -431,8 +431,8 @@ sub_802f91f8:
 /* 802F9250 002F61B0  3C 1F 00 01 */	addis r0, r31, 1
 /* 802F9254 002F61B4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 802F9258 002F61B8  40 82 00 30 */	bne lbl_802F9288
-/* 802F925C 002F61BC  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F9260 002F61C0  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 802F925C 002F61BC  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F9260 002F61C0  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 802F9264 002F61C4  C0 04 00 00 */	lfs f0, 0(r4)
 /* 802F9268 002F61C8  D0 1E 00 00 */	stfs f0, 0(r30)
 /* 802F926C 002F61CC  80 64 00 04 */	lwz r3, 4(r4)
@@ -985,11 +985,11 @@ VAdvanceView__21CFBStreamedAnimReaderFRC13CCharAnimTime:
 /* 802F99D4 002F6934  38 00 00 00 */	li r0, 0
 /* 802F99D8 002F6938  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802F99DC 002F693C  90 1D 00 14 */	stw r0, 0x14(r29)
-/* 802F99E0 002F6940  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802F99E0 002F6940  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802F99E4 002F6944  90 1D 00 18 */	stw r0, 0x18(r29)
 /* 802F99E8 002F6948  90 1D 00 1C */	stw r0, 0x1c(r29)
 /* 802F99EC 002F694C  90 1D 00 20 */	stw r0, 0x20(r29)
-/* 802F99F0 002F6950  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
+/* 802F99F0 002F6950  C4 83 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r3)
 /* 802F99F4 002F6954  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
 /* 802F99F8 002F6958  C0 A3 00 04 */	lfs f5, 4(r3)
 /* 802F99FC 002F695C  C0 44 00 04 */	lfs f2, 4(r4)
@@ -1015,8 +1015,8 @@ lbl_802F9A3C:
 /* 802F9A48 002F69A8  41 82 00 5C */	beq lbl_802F9AA4
 /* 802F9A4C 002F69AC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802F9A50 002F69B0  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
-/* 802F9A54 002F69B4  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F9A58 002F69B8  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
+/* 802F9A54 002F69B4  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F9A58 002F69B8  C4 83 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r3)
 /* 802F9A5C 002F69BC  80 0D 9C 18 */	lwz r0, lbl_805A87D8@sda21(r13)
 /* 802F9A60 002F69C0  C0 44 00 04 */	lfs f2, 4(r4)
 /* 802F9A64 002F69C4  C0 64 00 08 */	lfs f3, 8(r4)
@@ -1279,8 +1279,8 @@ lbl_802F9DD4:
 VReverseView__21CFBStreamedAnimReaderFRC13CCharAnimTime:
 /* 802F9DFC 002F6D5C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802F9E00 002F6D60  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
-/* 802F9E04 002F6D64  3C 80 80 5A */	lis r4, lbl_805A6660@ha
-/* 802F9E08 002F6D68  C4 84 66 60 */	lfsu f4, lbl_805A6660@l(r4)
+/* 802F9E04 002F6D64  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
+/* 802F9E08 002F6D68  C4 84 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r4)
 /* 802F9E0C 002F6D6C  C4 25 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r5)
 /* 802F9E10 002F6D70  80 0D 9C 18 */	lwz r0, lbl_805A87D8@sda21(r13)
 /* 802F9E14 002F6D74  C0 45 00 04 */	lfs f2, 4(r5)
@@ -1332,8 +1332,8 @@ VGetRotation__21CFBStreamedAnimReaderCFRC6CSegId:
 /* 802F9EB4 002F6E14  3C 03 00 01 */	addis r0, r3, 1
 /* 802F9EB8 002F6E18  28 00 FF FF */	cmplwi r0, 0xffff
 /* 802F9EBC 002F6E1C  40 82 00 2C */	bne lbl_802F9EE8
-/* 802F9EC0 002F6E20  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F9EC4 002F6E24  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 802F9EC0 002F6E20  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F9EC4 002F6E24  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 802F9EC8 002F6E28  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 802F9ECC 002F6E2C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 802F9ED0 002F6E30  D0 1F 00 04 */	stfs f0, 4(r31)

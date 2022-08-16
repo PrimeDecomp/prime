@@ -3806,7 +3806,7 @@ __ct__6CWorldFR12IObjectStoreR11CResFactoryUi:
 /* 80058EDC 00055E3C  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 80058EE0 00055E40  7C BF 2B 78 */	mr r31, r5
 /* 80058EE4 00055E44  38 E0 00 01 */	li r7, 1
-/* 80058EE8 00055E48  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 80058EE8 00055E48  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 80058EEC 00055E4C  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 80058EF0 00055E50  7C 7E 1B 78 */	mr r30, r3
 /* 80058EF4 00055E54  3C 60 4D 4C */	lis r3, 0x4D4C564C@ha
@@ -3914,7 +3914,7 @@ __ct__Q26CWorld15CSoundGroupDataFiUi:
 /* 8005907C 00055FDC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80059080 00055FE0  7C 08 02 A6 */	mflr r0
 /* 80059084 00055FE4  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80059088 00055FE8  38 0D A9 18 */	addi r0, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 80059088 00055FE8  38 0D A9 18 */	addi r0, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8005908C 00055FEC  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80059090 00055FF0  7C BF 2B 78 */	mr r31, r5
 /* 80059094 00055FF4  38 A0 00 00 */	li r5, 0

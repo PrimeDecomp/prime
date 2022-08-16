@@ -1319,8 +1319,8 @@ lbl_8026212C:
 /* 8026217C 0025F0DC  C0 A1 00 44 */	lfs f5, 0x44(r1)
 /* 80262180 0025F0E0  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
 /* 80262184 0025F0E4  C0 81 00 48 */	lfs f4, 0x48(r1)
-/* 80262188 0025F0E8  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
-/* 8026218C 0025F0EC  38 03 FD 18 */	addi r0, r3, lbl_8059FD18@l
+/* 80262188 0025F0E8  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
+/* 8026218C 0025F0EC  38 03 FD 18 */	addi r0, r3, skPassEverything__15CMaterialFilter@l
 /* 80262190 0025F0F0  C0 61 00 4C */	lfs f3, 0x4c(r1)
 /* 80262194 0025F0F4  C0 41 00 50 */	lfs f2, 0x50(r1)
 /* 80262198 0025F0F8  38 C4 CA D0 */	addi r6, r4, lbl_803ECAD0@l

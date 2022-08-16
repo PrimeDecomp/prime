@@ -122,7 +122,7 @@ lbl_802F1930:
 
 .global VGetBestUnblendedChild__28CAnimTreeAnimReaderContainerCFv
 VGetBestUnblendedChild__28CAnimTreeAnimReaderContainerCFv:
-/* 802F1940 002EE8A0  38 0D A9 28 */	addi r0, r13, lbl_805A94E8@sda21
+/* 802F1940 002EE8A0  38 0D A9 28 */	addi r0, r13, sNull__Q24rstl8CRefData@sda21
 /* 802F1944 002EE8A4  90 03 00 00 */	stw r0, 0(r3)
 /* 802F1948 002EE8A8  80 83 00 00 */	lwz r4, 0(r3)
 /* 802F194C 002EE8AC  80 64 00 04 */	lwz r3, 4(r4)

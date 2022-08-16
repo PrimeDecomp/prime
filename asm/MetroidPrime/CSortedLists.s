@@ -1530,10 +1530,10 @@ __ct__Q22SL5SNodeFP6CActorRC6CAABox:
 .global __ct__Q22SL5SNodeFv
 __ct__Q22SL5SNodeFv:
 /* 8014AB98 00147AF8  38 A0 00 00 */	li r5, 0
-/* 8014AB9C 00147AFC  3C 80 80 5A */	lis r4, lbl_805A6784@ha
+/* 8014AB9C 00147AFC  3C 80 80 5A */	lis r4, mskNullBox__6CAABox@ha
 /* 8014ABA0 00147B00  90 A3 00 00 */	stw r5, 0(r3)
 /* 8014ABA4 00147B04  38 00 FF FF */	li r0, -1
-/* 8014ABA8 00147B08  C4 04 67 84 */	lfsu f0, lbl_805A6784@l(r4)
+/* 8014ABA8 00147B08  C4 04 67 84 */	lfsu f0, mskNullBox__6CAABox@l(r4)
 /* 8014ABAC 00147B0C  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8014ABB0 00147B10  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8014ABB4 00147B14  D0 03 00 08 */	stfs f0, 8(r3)

@@ -89,9 +89,9 @@ lbl_802FC41C:
 /* 802FC41C 002F937C  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 802FC420 002F9380  28 00 00 02 */	cmplwi r0, 2
 /* 802FC424 002F9384  40 82 FF C0 */	bne lbl_802FC3E4
-/* 802FC428 002F9388  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802FC428 002F9388  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802FC42C 002F938C  C3 A2 C7 14 */	lfs f29, lbl_805AE434@sda21(r2)
-/* 802FC430 002F9390  38 A3 66 60 */	addi r5, r3, lbl_805A6660@l
+/* 802FC430 002F9390  38 A3 66 60 */	addi r5, r3, sNoRotation__11CQuaternion@l
 /* 802FC434 002F9394  C0 65 00 00 */	lfs f3, 0(r5)
 /* 802FC438 002F9398  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
 /* 802FC43C 002F939C  C0 45 00 04 */	lfs f2, 4(r5)
@@ -440,11 +440,11 @@ BuildNoScale__21CHierarchyPoseBuilderFR17CPoseAsTransforms:
 /* 802FC934 002F9894  98 01 00 08 */	stb r0, 8(r1)
 /* 802FC938 002F9898  48 06 C5 6D */	bl Clear__17CPoseAsTransformsFv
 /* 802FC93C 002F989C  88 01 00 08 */	lbz r0, 8(r1)
-/* 802FC940 002F98A0  3C A0 80 5A */	lis r5, lbl_805A6660@ha
+/* 802FC940 002F98A0  3C A0 80 5A */	lis r5, sNoRotation__11CQuaternion@ha
 /* 802FC944 002F98A4  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
 /* 802FC948 002F98A8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802FC94C 002F98AC  54 00 08 3C */	slwi r0, r0, 1
-/* 802FC950 002F98B0  38 E5 66 60 */	addi r7, r5, lbl_805A6660@l
+/* 802FC950 002F98B0  38 E5 66 60 */	addi r7, r5, sNoRotation__11CQuaternion@l
 /* 802FC954 002F98B4  7C BE 02 14 */	add r5, r30, r0
 /* 802FC958 002F98B8  39 04 65 FC */	addi r8, r4, lbl_805A65FC@l
 /* 802FC95C 002F98BC  88 05 00 41 */	lbz r0, 0x41(r5)
@@ -520,9 +520,9 @@ lbl_802FCA58:
 /* 802FCA5C 002F99BC  7F C5 F3 78 */	mr r5, r30
 /* 802FCA60 002F99C0  38 61 00 18 */	addi r3, r1, 0x18
 /* 802FCA64 002F99C4  4B E2 EF 3D */	bl GetFromParentUnrotated__15CCharLayoutInfoCFRC6CSegId
-/* 802FCA68 002F99C8  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802FCA68 002F99C8  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802FCA6C 002F99CC  38 00 00 00 */	li r0, 0
-/* 802FCA70 002F99D0  38 C3 66 60 */	addi r6, r3, lbl_805A6660@l
+/* 802FCA70 002F99D0  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
 /* 802FCA74 002F99D4  C0 41 00 18 */	lfs f2, 0x18(r1)
 /* 802FCA78 002F99D8  C0 C6 00 00 */	lfs f6, 0(r6)
 /* 802FCA7C 002F99DC  7F C4 F3 78 */	mr r4, r30
@@ -554,8 +554,8 @@ lbl_802FCAC8:
 /* 802FCAE0 002F9A40  38 61 00 0C */	addi r3, r1, 0xc
 /* 802FCAE4 002F9A44  4B E2 EE BD */	bl GetFromParentUnrotated__15CCharLayoutInfoCFRC6CSegId
 /* 802FCAE8 002F9A48  88 01 00 08 */	lbz r0, 8(r1)
-/* 802FCAEC 002F9A4C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802FCAF0 002F9A50  38 C3 66 60 */	addi r6, r3, lbl_805A6660@l
+/* 802FCAEC 002F9A4C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802FCAF0 002F9A50  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
 /* 802FCAF4 002F9A54  81 3C 01 08 */	lwz r9, 0x108(r28)
 /* 802FCAF8 002F9A58  54 03 08 3C */	slwi r3, r0, 1
 /* 802FCAFC 002F9A5C  88 FE 00 00 */	lbz r7, 0(r30)

@@ -59,7 +59,7 @@ lbl_802EC784:
 /* 802EC784 002E96E4  EC 22 07 72 */	fmuls f1, f2, f29
 /* 802EC788 002E96E8  48 00 13 71 */	bl clamp_zero_to_one__Ff
 /* 802EC78C 002E96EC  80 97 00 10 */	lwz r4, 0x10(r23)
-/* 802EC790 002E96F0  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802EC790 002E96F0  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802EC794 002E96F4  FF C0 08 90 */	fmr f30, f1
 /* 802EC798 002E96F8  C0 02 C6 60 */	lfs f0, lbl_805AE380@sda21(r2)
 /* 802EC79C 002E96FC  38 84 FF FF */	addi r4, r4, -1
@@ -69,7 +69,7 @@ lbl_802EC784:
 /* 802EC7AC 002E970C  7C 9E 20 50 */	subf r4, r30, r4
 /* 802EC7B0 002E9710  EF E0 F0 28 */	fsubs f31, f0, f30
 /* 802EC7B4 002E9714  7C A4 20 F8 */	nor r4, r5, r4
-/* 802EC7B8 002E9718  3B E3 66 60 */	addi r31, r3, lbl_805A6660@l
+/* 802EC7B8 002E9718  3B E3 66 60 */	addi r31, r3, sNoRotation__11CQuaternion@l
 /* 802EC7BC 002E971C  7C 83 FE 70 */	srawi r3, r4, 0x1f
 /* 802EC7C0 002E9720  3B 61 00 08 */	addi r27, r1, 8
 /* 802EC7C4 002E9724  7C 1D 18 78 */	andc r29, r0, r3
@@ -289,10 +289,10 @@ lbl_802EC9D8:
 /* 802ECB10 002E9A70  90 07 00 1C */	stw r0, 0x1c(r7)
 /* 802ECB14 002E9A74  48 00 00 34 */	b lbl_802ECB48
 lbl_802ECB18:
-/* 802ECB18 002E9A78  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802ECB18 002E9A78  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802ECB1C 002E9A7C  80 99 00 04 */	lwz r4, 4(r25)
 /* 802ECB20 002E9A80  54 00 28 34 */	slwi r0, r0, 5
-/* 802ECB24 002E9A84  C0 03 66 60 */	lfs f0, lbl_805A6660@l(r3)
+/* 802ECB24 002E9A84  C0 03 66 60 */	lfs f0, sNoRotation__11CQuaternion@l(r3)
 /* 802ECB28 002E9A88  7C 84 02 14 */	add r4, r4, r0
 /* 802ECB2C 002E9A8C  D0 04 00 00 */	stfs f0, 0(r4)
 /* 802ECB30 002E9A90  80 7F 00 04 */	lwz r3, 4(r31)
@@ -512,8 +512,8 @@ lbl_802ECDC0:
 /* 802ECE28 002E9D88  4B FF E9 71 */	bl Slerp__14CAnimMathUtilsFRC11CQuaternionRC11CQuaternionf
 /* 802ECE2C 002E9D8C  48 00 00 28 */	b lbl_802ECE54
 lbl_802ECE30:
-/* 802ECE30 002E9D90  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802ECE34 002E9D94  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 802ECE30 002E9D90  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802ECE34 002E9D94  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 802ECE38 002E9D98  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 802ECE3C 002E9D9C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 802ECE40 002E9DA0  D0 1F 00 04 */	stfs f0, 4(r31)

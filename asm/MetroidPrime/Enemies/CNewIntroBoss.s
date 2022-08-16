@@ -2528,7 +2528,7 @@ ProjectileInfo__13CNewIntroBossFv:
 /* 8018BF74 00188ED4  48 09 01 35 */	bl __ct__15CProjectileInfoFUiRC11CDamageInfo
 /* 8018BF78 00188ED8  A0 8D A3 8C */	lhz r4, kInvalidUniqueId@sda21(r13)
 /* 8018BF7C 00188EDC  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 8018BF80 00188EE0  38 CD A9 18 */	addi r6, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8018BF80 00188EE0  38 CD A9 18 */	addi r6, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8018BF84 00188EE4  38 00 00 00 */	li r0, 0
 /* 8018BF88 00188EE8  B0 98 05 D4 */	sth r4, 0x5d4(r24)
 /* 8018BF8C 00188EEC  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l

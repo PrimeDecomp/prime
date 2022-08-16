@@ -4259,9 +4259,9 @@ lbl_801EB080:
 /* 801EB0C8 001E8028  4B F2 AA 6D */	bl AdvanceAnimation__10CModelDataFfR13CStateManager7TAreaIdb
 /* 801EB0CC 001E802C  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 801EB0D0 001E8030  C4 06 66 A0 */	lfsu f0, sZeroVector__9CVector3f@l(r6)
-/* 801EB0D4 001E8034  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 801EB0D4 001E8034  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 801EB0D8 001E8038  80 A2 D7 48 */	lwz r5, lbl_805AF468@sda21(r2)
-/* 801EB0DC 001E803C  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 801EB0DC 001E803C  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 801EB0E0 001E8040  C0 26 00 04 */	lfs f1, 4(r6)
 /* 801EB0E4 001E8044  C0 64 00 00 */	lfs f3, 0(r4)
 /* 801EB0E8 001E8048  39 00 00 00 */	li r8, 0

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803DF220
-lbl_803DF220:
+.global __vt__15CScriptPlatform
+__vt__15CScriptPlatform:
 	# ROM: 0x3DC220
 	.4byte 0
 	.4byte 0
@@ -601,8 +601,8 @@ lbl_800B11FC:
 /* 800B1200 000AE160  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800B1204 000AE164  7C 03 00 40 */	cmplw r3, r0
 /* 800B1208 000AE168  40 82 00 2C */	bne lbl_800B1234
-/* 800B120C 000AE16C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 800B1210 000AE170  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 800B120C 000AE16C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 800B1210 000AE170  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 800B1214 000AE174  D0 1E 00 00 */	stfs f0, 0(r30)
 /* 800B1218 000AE178  C0 03 00 04 */	lfs f0, 4(r3)
 /* 800B121C 000AE17C  D0 1E 00 04 */	stfs f0, 4(r30)
@@ -1288,9 +1288,9 @@ lbl_800B1B9C:
 /* 800B1BA8 000AEB08  40 82 F6 A0 */	bne lbl_800B1248
 lbl_800B1BAC:
 /* 800B1BAC 000AEB0C  A0 01 00 54 */	lhz r0, 0x54(r1)
-/* 800B1BB0 000AEB10  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 800B1BB0 000AEB10  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 800B1BB4 000AEB14  B0 1F 02 5A */	sth r0, 0x25a(r31)
-/* 800B1BB8 000AEB18  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 800B1BB8 000AEB18  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 800B1BBC 000AEB1C  D0 1E 00 00 */	stfs f0, 0(r30)
 /* 800B1BC0 000AEB20  C0 03 00 04 */	lfs f0, 4(r3)
 /* 800B1BC4 000AEB24  D0 1E 00 04 */	stfs f0, 4(r30)
@@ -3597,9 +3597,9 @@ __dt__15CScriptPlatformFv:
 /* 800B3C20 000B0B80  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 800B3C24 000B0B84  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800B3C28 000B0B88  41 82 01 60 */	beq lbl_800B3D88
-/* 800B3C2C 000B0B8C  3C 60 80 3E */	lis r3, lbl_803DF220@ha
+/* 800B3C2C 000B0B8C  3C 60 80 3E */	lis r3, __vt__15CScriptPlatform@ha
 /* 800B3C30 000B0B90  34 1E 03 38 */	addic. r0, r30, 0x338
-/* 800B3C34 000B0B94  38 03 F2 20 */	addi r0, r3, lbl_803DF220@l
+/* 800B3C34 000B0B94  38 03 F2 20 */	addi r0, r3, __vt__15CScriptPlatform@l
 /* 800B3C38 000B0B98  90 1E 00 00 */	stw r0, 0(r30)
 /* 800B3C3C 000B0B9C  41 82 00 44 */	beq lbl_800B3C80
 /* 800B3C40 000B0BA0  80 1E 03 3C */	lwz r0, 0x33c(r30)
@@ -3849,12 +3849,12 @@ lbl_800B3DE8:
 /* 800B3FBC 000B0F1C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 800B3FC0 000B0F20  92 81 00 10 */	stw r20, 0x10(r1)
 /* 800B3FC4 000B0F24  48 06 84 ED */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
-/* 800B3FC8 000B0F28  3C 60 80 3E */	lis r3, lbl_803DF220@ha
+/* 800B3FC8 000B0F28  3C 60 80 3E */	lis r3, __vt__15CScriptPlatform@ha
 /* 800B3FCC 000B0F2C  C0 02 8C AC */	lfs f0, lbl_805AA9CC@sda21(r2)
-/* 800B3FD0 000B0F30  38 03 F2 20 */	addi r0, r3, lbl_803DF220@l
+/* 800B3FD0 000B0F30  38 03 F2 20 */	addi r0, r3, __vt__15CScriptPlatform@l
 /* 800B3FD4 000B0F34  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 800B3FD8 000B0F38  90 1F 00 00 */	stw r0, 0(r31)
-/* 800B3FDC 000B0F3C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 800B3FDC 000B0F3C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 800B3FE0 000B0F40  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 800B3FE4 000B0F44  B0 1F 02 58 */	sth r0, 0x258(r31)
 /* 800B3FE8 000B0F48  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -3872,7 +3872,7 @@ lbl_800B3DE8:
 /* 800B4018 000B0F78  D0 1F 02 74 */	stfs f0, 0x274(r31)
 /* 800B401C 000B0F7C  C0 1A 00 08 */	lfs f0, 8(r26)
 /* 800B4020 000B0F80  D0 1F 02 78 */	stfs f0, 0x278(r31)
-/* 800B4024 000B0F84  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 800B4024 000B0F84  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 800B4028 000B0F88  D0 1F 02 7C */	stfs f0, 0x27c(r31)
 /* 800B402C 000B0F8C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 800B4030 000B0F90  D0 1F 02 80 */	stfs f0, 0x280(r31)

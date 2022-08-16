@@ -257,9 +257,9 @@ lbl_8029D928:
 /* 8029DA4C 0029A9AC  D0 21 00 34 */	stfs f1, 0x34(r1)
 /* 8029DA50 0029A9B0  48 09 AA B9 */	bl __ct__6CAABoxFRC9CVector3fRC9CVector3f
 /* 8029DA54 0029A9B4  38 00 00 00 */	li r0, 0
-/* 8029DA58 0029A9B8  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 8029DA58 0029A9B8  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 8029DA5C 0029A9BC  90 01 02 E8 */	stw r0, 0x2e8(r1)
-/* 8029DA60 0029A9C0  38 C3 FD 18 */	addi r6, r3, lbl_8059FD18@l
+/* 8029DA60 0029A9C0  38 C3 FD 18 */	addi r6, r3, skPassEverything__15CMaterialFilter@l
 /* 8029DA64 0029A9C4  7F E3 FB 78 */	mr r3, r31
 /* 8029DA68 0029A9C8  38 81 02 E8 */	addi r4, r1, 0x2e8
 /* 8029DA6C 0029A9CC  38 A1 00 68 */	addi r5, r1, 0x68

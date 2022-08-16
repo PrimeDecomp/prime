@@ -573,8 +573,8 @@ Update__13CBoneTrackingFf:
 /* 801759D0 00172930  F3 C1 00 28 */	psq_st f30, 40(r1), 0, qr0
 /* 801759D4 00172934  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 801759D8 00172938  93 C1 00 18 */	stw r30, 0x18(r1)
-/* 801759DC 0017293C  3C E0 80 5A */	lis r7, lbl_805A6660@ha
-/* 801759E0 00172940  C4 67 66 60 */	lfsu f3, lbl_805A6660@l(r7)
+/* 801759DC 0017293C  3C E0 80 5A */	lis r7, sNoRotation__11CQuaternion@ha
+/* 801759E0 00172940  C4 67 66 60 */	lfsu f3, sNoRotation__11CQuaternion@l(r7)
 /* 801759E4 00172944  FF C0 08 90 */	fmr f30, f1
 /* 801759E8 00172948  7C 7F 1B 78 */	mr r31, r3
 /* 801759EC 0017294C  D0 63 00 00 */	stfs f3, 0(r3)

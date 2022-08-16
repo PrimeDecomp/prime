@@ -7,8 +7,8 @@ lbl_ctor:
 .section .sbss, "wa"
 .balign 8
 
-.global "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-"_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
+.global "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 	.skip 0x2
 .global lbl_805A94DA
 lbl_805A94DA:
@@ -1569,7 +1569,7 @@ lbl_8033E124:
 /* 8033E1BC 0033B11C  88 1E 00 00 */	lbz r0, 0(r30)
 /* 8033E1C0 0033B120  7C 00 07 75 */	extsb. r0, r0
 /* 8033E1C4 0033B124  40 82 00 1C */	bne lbl_8033E1E0
-/* 8033E1C8 0033B128  38 8D A9 18 */	addi r4, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8033E1C8 0033B128  38 8D A9 18 */	addi r4, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033E1CC 0033B12C  38 00 00 00 */	li r0, 0
 /* 8033E1D0 0033B130  90 9D 00 00 */	stw r4, 0(r29)
 /* 8033E1D4 0033B134  90 1D 00 08 */	stw r0, 8(r29)
@@ -1661,7 +1661,7 @@ lbl_8033E2DC:
 /* 8033E2F8 0033B258  94 21 FB D0 */	stwu r1, -0x430(r1)
 /* 8033E2FC 0033B25C  7C 08 02 A6 */	mflr r0
 /* 8033E300 0033B260  90 01 04 34 */	stw r0, 0x434(r1)
-/* 8033E304 0033B264  38 0D A9 18 */	addi r0, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8033E304 0033B264  38 0D A9 18 */	addi r0, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033E308 0033B268  BF 61 04 1C */	stmw r27, 0x41c(r1)
 /* 8033E30C 0033B26C  7C 7B 1B 78 */	mr r27, r3
 /* 8033E310 0033B270  7C 9C 23 78 */	mr r28, r4
@@ -1719,7 +1719,7 @@ __sinit_rstl_strings_cpp:
 /* 8033E3C4 0033B324  40 82 00 14 */	bne lbl_8033E3D8
 /* 8033E3C8 0033B328  38 60 00 00 */	li r3, 0
 /* 8033E3CC 0033B32C  38 00 00 01 */	li r0, 1
-/* 8033E3D0 0033B330  98 6D A9 18 */	stb r3, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21(r13)
+/* 8033E3D0 0033B330  98 6D A9 18 */	stb r3, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21(r13)
 /* 8033E3D4 0033B334  98 0D A9 20 */	stb r0, lbl_805A94E0@sda21(r13)
 lbl_8033E3D8:
 /* 8033E3D8 0033B338  88 0D A9 21 */	lbz r0, lbl_805A94E1@sda21(r13)

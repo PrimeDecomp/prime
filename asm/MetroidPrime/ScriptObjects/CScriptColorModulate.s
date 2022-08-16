@@ -879,7 +879,7 @@ lbl_802017CC:
 lbl_802017D8:
 /* 802017D8 001FE738  80 63 00 00 */	lwz r3, 0(r3)
 /* 802017DC 001FE73C  38 00 00 00 */	li r0, 0
-/* 802017E0 001FE740  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 802017E0 001FE740  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 802017E4 001FE744  7F C4 F3 78 */	mr r4, r30
 /* 802017E8 001FE748  90 61 00 58 */	stw r3, 0x58(r1)
 /* 802017EC 001FE74C  38 61 00 24 */	addi r3, r1, 0x24
@@ -1028,7 +1028,7 @@ lbl_802019FC:
 lbl_80201A08:
 /* 80201A08 001FE968  80 63 00 00 */	lwz r3, 0(r3)
 /* 80201A0C 001FE96C  38 00 00 00 */	li r0, 0
-/* 80201A10 001FE970  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 80201A10 001FE970  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 80201A14 001FE974  7F C4 F3 78 */	mr r4, r30
 /* 80201A18 001FE978  90 61 00 58 */	stw r3, 0x58(r1)
 /* 80201A1C 001FE97C  38 61 00 24 */	addi r3, r1, 0x24

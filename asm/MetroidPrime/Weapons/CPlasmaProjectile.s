@@ -511,7 +511,7 @@ CreatePlasmaLights__17CPlasmaProjectileFUiRC6CLightR13CStateManager:
 /* 80177174 001740D4  3B E3 06 68 */	addi r31, r3, lbl_803D0668@l
 lbl_80177178:
 /* 80177178 001740D8  38 00 00 00 */	li r0, 0
-/* 8017717C 001740DC  38 6D A9 18 */	addi r3, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8017717C 001740DC  38 6D A9 18 */	addi r3, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 80177180 001740E0  90 61 00 2C */	stw r3, 0x2c(r1)
 /* 80177184 001740E4  7F A4 EB 78 */	mr r4, r29
 /* 80177188 001740E8  38 61 00 1C */	addi r3, r1, 0x1c

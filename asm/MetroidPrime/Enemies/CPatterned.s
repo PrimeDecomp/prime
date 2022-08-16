@@ -3128,9 +3128,9 @@ lbl_8007977C:
 /* 8007977C 000766DC  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 80079780 000766E0  41 82 00 7C */	beq lbl_800797FC
 /* 80079784 000766E4  C0 5F 01 40 */	lfs f2, 0x140(r31)
-/* 80079788 000766E8  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80079788 000766E8  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 8007978C 000766EC  C0 3F 01 3C */	lfs f1, 0x13c(r31)
-/* 80079790 000766F0  39 03 FD 18 */	addi r8, r3, lbl_8059FD18@l
+/* 80079790 000766F0  39 03 FD 18 */	addi r8, r3, skPassEverything__15CMaterialFilter@l
 /* 80079794 000766F4  C0 1F 01 38 */	lfs f0, 0x138(r31)
 /* 80079798 000766F8  FC 40 10 50 */	fneg f2, f2
 /* 8007979C 000766FC  FC 20 08 50 */	fneg f1, f1
@@ -7718,11 +7718,11 @@ lbl_8007D494:
 /* 8007D968 0007A8C8  48 2E 5A 85 */	bl __ct__6CColorFffff
 /* 8007D96C 0007A8CC  80 AD A2 50 */	lwz r5, lbl_805A8E10@sda21(r13)
 /* 8007D970 0007A8D0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 8007D974 0007A8D4  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 8007D974 0007A8D4  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 8007D978 0007A8D8  38 00 00 00 */	li r0, 0
 /* 8007D97C 0007A8DC  90 BF 04 30 */	stw r5, 0x430(r31)
 /* 8007D980 0007A8E0  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
-/* 8007D984 0007A8E4  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 8007D984 0007A8E4  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 8007D988 0007A8E8  38 7F 04 5C */	addi r3, r31, 0x45c
 /* 8007D98C 0007A8EC  C0 05 00 00 */	lfs f0, 0(r5)
 /* 8007D990 0007A8F0  D0 1F 04 34 */	stfs f0, 0x434(r31)

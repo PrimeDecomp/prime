@@ -1095,8 +1095,8 @@ sub_801434fc:
 /* 80143530 00140490  C0 63 00 60 */	lfs f3, 0x60(r3)
 /* 80143534 00140494  C0 43 00 50 */	lfs f2, 0x50(r3)
 /* 80143538 00140498  C0 03 00 40 */	lfs f0, 0x40(r3)
-/* 8014353C 0014049C  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
-/* 80143540 001404A0  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 8014353C 0014049C  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
+/* 80143540 001404A0  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 80143544 001404A4  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80143548 001404A8  7F A3 EB 78 */	mr r3, r29
 /* 8014354C 001404AC  D0 01 00 18 */	stfs f0, 0x18(r1)

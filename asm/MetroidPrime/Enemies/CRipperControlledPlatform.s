@@ -295,8 +295,8 @@ lbl_80232B48:
 /* 80232B4C 0022FAAC  90 01 08 78 */	stw r0, 0x878(r1)
 /* 80232B50 0022FAB0  48 00 00 28 */	b lbl_80232B78
 lbl_80232B54:
-/* 80232B54 0022FAB4  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80232B58 0022FAB8  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 80232B54 0022FAB4  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80232B58 0022FAB8  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 80232B5C 0022FABC  D0 1A 00 00 */	stfs f0, 0(r26)
 /* 80232B60 0022FAC0  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80232B64 0022FAC4  D0 1A 00 04 */	stfs f0, 4(r26)

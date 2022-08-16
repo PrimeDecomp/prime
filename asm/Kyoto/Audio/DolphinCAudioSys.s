@@ -1,7 +1,7 @@
 .include "macros.inc"
 
 # TODO: currently in CCubeSurface, linker alignment bug
-# .comm lbl_805A67CC, 0x10, 4
+# .comm mpDefaultInvalidString__9CAudioSys, 0x10, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -812,7 +812,7 @@ lbl_8034AF90:
 /* 8034B078 00347FD8  80 06 00 04 */	lwz r0, 4(r6)
 /* 8034B07C 00347FDC  2C 00 00 00 */	cmpwi r0, 0
 /* 8034B080 00347FE0  41 81 00 20 */	bgt lbl_8034B0A0
-/* 8034B084 00347FE4  38 0D A9 28 */	addi r0, r13, lbl_805A94E8@sda21
+/* 8034B084 00347FE4  38 0D A9 28 */	addi r0, r13, sNull__Q24rstl8CRefData@sda21
 /* 8034B088 00347FE8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8034B08C 00347FEC  80 9F 00 00 */	lwz r4, 0(r31)
 /* 8034B090 00347FF0  80 64 00 04 */	lwz r3, 4(r4)
@@ -847,7 +847,7 @@ lbl_8034B0DC:
 /* 8034B0F8 00348058  90 04 00 04 */	stw r0, 4(r4)
 /* 8034B0FC 0034805C  48 00 00 1C */	b lbl_8034B118
 lbl_8034B100:
-/* 8034B100 00348060  38 0D A9 28 */	addi r0, r13, lbl_805A94E8@sda21
+/* 8034B100 00348060  38 0D A9 28 */	addi r0, r13, sNull__Q24rstl8CRefData@sda21
 /* 8034B104 00348064  90 1F 00 00 */	stw r0, 0(r31)
 /* 8034B108 00348068  80 9F 00 00 */	lwz r4, 0(r31)
 /* 8034B10C 0034806C  80 64 00 04 */	lwz r3, 4(r4)
@@ -1276,7 +1276,7 @@ lbl_8034B62C:
 /* 8034B688 003485E8  80 06 00 04 */	lwz r0, 4(r6)
 /* 8034B68C 003485EC  2C 00 00 00 */	cmpwi r0, 0
 /* 8034B690 003485F0  41 81 00 20 */	bgt lbl_8034B6B0
-/* 8034B694 003485F4  38 0D A9 28 */	addi r0, r13, lbl_805A94E8@sda21
+/* 8034B694 003485F4  38 0D A9 28 */	addi r0, r13, sNull__Q24rstl8CRefData@sda21
 /* 8034B698 003485F8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8034B69C 003485FC  80 9F 00 00 */	lwz r4, 0(r31)
 /* 8034B6A0 00348600  80 64 00 04 */	lwz r3, 4(r4)
@@ -1311,7 +1311,7 @@ lbl_8034B6EC:
 /* 8034B708 00348668  90 04 00 04 */	stw r0, 4(r4)
 /* 8034B70C 0034866C  48 00 00 1C */	b lbl_8034B728
 lbl_8034B710:
-/* 8034B710 00348670  38 0D A9 28 */	addi r0, r13, lbl_805A94E8@sda21
+/* 8034B710 00348670  38 0D A9 28 */	addi r0, r13, sNull__Q24rstl8CRefData@sda21
 /* 8034B714 00348674  90 1F 00 00 */	stw r0, 0(r31)
 /* 8034B718 00348678  80 9F 00 00 */	lwz r4, 0(r31)
 /* 8034B71C 0034867C  80 64 00 04 */	lwz r3, 4(r4)
@@ -1453,8 +1453,8 @@ lbl_8034B8D0:
 /* 8034B8D8 00348838  38 65 00 14 */	addi r3, r5, 0x14
 /* 8034B8DC 0034883C  48 00 00 0C */	b lbl_8034B8E8
 lbl_8034B8E0:
-/* 8034B8E0 00348840  3C 60 80 5A */	lis r3, lbl_805A67CC@ha
-/* 8034B8E4 00348844  38 63 67 CC */	addi r3, r3, lbl_805A67CC@l
+/* 8034B8E0 00348840  3C 60 80 5A */	lis r3, mpDefaultInvalidString__9CAudioSys@ha
+/* 8034B8E4 00348844  38 63 67 CC */	addi r3, r3, mpDefaultInvalidString__9CAudioSys@l
 lbl_8034B8E8:
 /* 8034B8E8 00348848  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034B8EC 0034884C  4E 80 00 20 */	blr
@@ -3453,9 +3453,9 @@ __sinit_DolphinCAudioSys_cpp:
 /* 8034D494 0034A3F4  38 61 00 08 */	addi r3, r1, 8
 /* 8034D498 0034A3F8  38 84 00 07 */	addi r4, r4, 7
 /* 8034D49C 0034A3FC  4B CB 78 1D */	bl string_l__4rstlFPCc
-/* 8034D4A0 0034A400  3C 60 80 5A */	lis r3, lbl_805A67CC@ha
+/* 8034D4A0 0034A400  3C 60 80 5A */	lis r3, mpDefaultInvalidString__9CAudioSys@ha
 /* 8034D4A4 0034A404  38 81 00 08 */	addi r4, r1, 8
-/* 8034D4A8 0034A408  38 63 67 CC */	addi r3, r3, lbl_805A67CC@l
+/* 8034D4A8 0034A408  38 63 67 CC */	addi r3, r3, mpDefaultInvalidString__9CAudioSys@l
 /* 8034D4AC 0034A40C  4B FF 0C B5 */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8034D4B0 0034A410  3C 80 80 00 */	lis r4, sub_80004a9c@ha
 /* 8034D4B4 0034A414  3C A0 80 4C */	lis r5, lbl_804BFF90@ha

@@ -1930,9 +1930,9 @@ lbl_80038CB0:
 /* 80038D54 00035CB4  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 80038D58 00035CB8  7F C3 F3 78 */	mr r3, r30
 /* 80038D5C 00035CBC  48 2D 9E 19 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80038D60 00035CC0  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80038D60 00035CC0  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80038D64 00035CC4  81 81 02 28 */	lwz r12, 0x228(r1)
-/* 80038D68 00035CC8  38 03 FD 18 */	addi r0, r3, lbl_8059FD18@l
+/* 80038D68 00035CC8  38 03 FD 18 */	addi r0, r3, skPassEverything__15CMaterialFilter@l
 /* 80038D6C 00035CCC  38 61 01 38 */	addi r3, r1, 0x138
 /* 80038D70 00035CD0  90 01 03 54 */	stw r0, 0x354(r1)
 /* 80038D74 00035CD4  38 81 02 28 */	addi r4, r1, 0x228

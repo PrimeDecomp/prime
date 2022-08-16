@@ -299,7 +299,7 @@ __ct__15CAudioGrpSetLocFR12CInputStream:
 /* 8034A3F8 00347358  7C 08 02 A6 */	mflr r0
 /* 8034A3FC 0034735C  38 C0 00 00 */	li r6, 0
 /* 8034A400 00347360  90 01 00 94 */	stw r0, 0x94(r1)
-/* 8034A404 00347364  38 0D A9 18 */	addi r0, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8034A404 00347364  38 0D A9 18 */	addi r0, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8034A408 00347368  BE E1 00 6C */	stmw r23, 0x6c(r1)
 /* 8034A40C 0034736C  7C 78 1B 78 */	mr r24, r3
 /* 8034A410 00347370  7C 9A 23 78 */	mr r26, r4

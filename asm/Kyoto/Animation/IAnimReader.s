@@ -186,7 +186,7 @@ lbl_802FDE60:
 VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime:
 /* 802FDE74 002FADD4  C0 05 00 00 */	lfs f0, 0(r5)
 /* 802FDE78 002FADD8  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
-/* 802FDE7C 002FADDC  3C 80 80 5A */	lis r4, lbl_805A6660@ha
+/* 802FDE7C 002FADDC  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
 /* 802FDE80 002FADE0  D0 03 00 00 */	stfs f0, 0(r3)
 /* 802FDE84 002FADE4  80 05 00 04 */	lwz r0, 4(r5)
 /* 802FDE88 002FADE8  90 03 00 04 */	stw r0, 4(r3)
@@ -196,7 +196,7 @@ VGetAdvancementResults__11IAnimReaderCFRC13CCharAnimTimeRC13CCharAnimTime:
 /* 802FDE98 002FADF8  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 802FDE9C 002FADFC  C0 06 00 08 */	lfs f0, 8(r6)
 /* 802FDEA0 002FAE00  D0 03 00 10 */	stfs f0, 0x10(r3)
-/* 802FDEA4 002FAE04  C4 04 66 60 */	lfsu f0, lbl_805A6660@l(r4)
+/* 802FDEA4 002FAE04  C4 04 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r4)
 /* 802FDEA8 002FAE08  D0 03 00 14 */	stfs f0, 0x14(r3)
 /* 802FDEAC 002FAE0C  C0 04 00 04 */	lfs f0, 4(r4)
 /* 802FDEB0 002FAE10  D0 03 00 18 */	stfs f0, 0x18(r3)

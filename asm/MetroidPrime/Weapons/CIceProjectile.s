@@ -192,9 +192,9 @@ Update__Q220CIceAttackProjectile12CTrailObjectFfR13CStateManagerPC13CPhysicsActo
 /* 801F1BC8 001EEB28  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 801F1BCC 001EEB2C  7D 89 03 A6 */	mtctr r12
 /* 801F1BD0 001EEB30  4E 80 04 21 */	bctrl
-/* 801F1BD4 001EEB34  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 801F1BD4 001EEB34  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 801F1BD8 001EEB38  90 61 00 F0 */	stw r3, 0xf0(r1)
-/* 801F1BDC 001EEB3C  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 801F1BDC 001EEB3C  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 801F1BE0 001EEB40  38 61 00 F8 */	addi r3, r1, 0xf8
 /* 801F1BE4 001EEB44  90 01 00 F4 */	stw r0, 0xf4(r1)
 /* 801F1BE8 001EEB48  38 81 00 C0 */	addi r4, r1, 0xc0
@@ -210,9 +210,9 @@ Update__Q220CIceAttackProjectile12CTrailObjectFfR13CStateManagerPC13CPhysicsActo
 /* 801F1C10 001EEB70  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 801F1C14 001EEB74  7D 89 03 A6 */	mtctr r12
 /* 801F1C18 001EEB78  4E 80 04 21 */	bctrl
-/* 801F1C1C 001EEB7C  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 801F1C1C 001EEB7C  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 801F1C20 001EEB80  90 61 01 58 */	stw r3, 0x158(r1)
-/* 801F1C24 001EEB84  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 801F1C24 001EEB84  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 801F1C28 001EEB88  38 61 01 60 */	addi r3, r1, 0x160
 /* 801F1C2C 001EEB8C  90 01 01 5C */	stw r0, 0x15c(r1)
 /* 801F1C30 001EEB90  38 81 01 28 */	addi r4, r1, 0x128

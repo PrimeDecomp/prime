@@ -1085,9 +1085,9 @@ Update__15CBodyControllerFfR13CStateManager:
 /* 8013AC60 00137BC0  48 20 2E 81 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8013AC64 00137BC4  38 7F 00 04 */	addi r3, r31, 4
 /* 8013AC68 00137BC8  4B FF 68 E1 */	bl BlendSteeringCmds__16CBodyStateCmdMgrFv
-/* 8013AC6C 00137BCC  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 8013AC6C 00137BCC  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 8013AC70 00137BD0  FC 20 F8 90 */	fmr f1, f31
-/* 8013AC74 00137BD4  38 C3 66 60 */	addi r6, r3, lbl_805A6660@l
+/* 8013AC74 00137BD4  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
 /* 8013AC78 00137BD8  7F E3 FB 78 */	mr r3, r31
 /* 8013AC7C 00137BDC  C0 06 00 00 */	lfs f0, 0(r6)
 /* 8013AC80 00137BE0  7F C4 F3 78 */	mr r4, r30
@@ -1183,9 +1183,9 @@ __ct__15CBodyControllerFR6CActorf9EBodyType:
 /* 8013ADC8 00137D28  7F E5 FB 78 */	mr r5, r31
 /* 8013ADCC 00137D2C  38 7D 02 A4 */	addi r3, r29, 0x2a4
 /* 8013ADD0 00137D30  4B FF 95 B5 */	bl __ct__14CBodyStateInfoFR6CActor9EBodyType
-/* 8013ADD4 00137D34  3C 80 80 5A */	lis r4, lbl_805A6660@ha
+/* 8013ADD4 00137D34  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
 /* 8013ADD8 00137D38  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 8013ADDC 00137D3C  38 E4 66 60 */	addi r7, r4, lbl_805A6660@l
+/* 8013ADDC 00137D3C  38 E4 66 60 */	addi r7, r4, sNoRotation__11CQuaternion@l
 /* 8013ADE0 00137D40  38 C0 00 01 */	li r6, 1
 /* 8013ADE4 00137D44  C0 07 00 00 */	lfs f0, 0(r7)
 /* 8013ADE8 00137D48  38 A0 00 00 */	li r5, 0

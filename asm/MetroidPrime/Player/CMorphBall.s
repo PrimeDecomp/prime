@@ -3884,11 +3884,11 @@ lbl_800F01D8:
 /* 800F0354 000ED2B4  C0 61 00 F0 */	lfs f3, 0xf0(r1)
 /* 800F0358 000ED2B8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 800F035C 000ED2BC  C0 41 00 F4 */	lfs f2, 0xf4(r1)
-/* 800F0360 000ED2C0  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 800F0360 000ED2C0  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 800F0364 000ED2C4  C0 21 00 F8 */	lfs f1, 0xf8(r1)
 /* 800F0368 000ED2C8  38 A4 66 70 */	addi r5, r4, sIdentity__12CTransform4f@l
 /* 800F036C 000ED2CC  C0 01 00 FC */	lfs f0, 0xfc(r1)
-/* 800F0370 000ED2D0  38 C3 FD 18 */	addi r6, r3, lbl_8059FD18@l
+/* 800F0370 000ED2D0  38 C3 FD 18 */	addi r6, r3, skPassEverything__15CMaterialFilter@l
 /* 800F0374 000ED2D4  90 01 01 30 */	stw r0, 0x130(r1)
 /* 800F0378 000ED2D8  7F E3 FB 78 */	mr r3, r31
 /* 800F037C 000ED2DC  38 81 01 30 */	addi r4, r1, 0x130
@@ -5283,9 +5283,9 @@ lbl_800F1724:
 /* 800F1770 000EE6D0  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 800F1774 000EE6D4  7D 89 03 A6 */	mtctr r12
 /* 800F1778 000EE6D8  4E 80 04 21 */	bctrl
-/* 800F177C 000EE6DC  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 800F177C 000EE6DC  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 800F1780 000EE6E0  90 61 00 88 */	stw r3, 0x88(r1)
-/* 800F1784 000EE6E4  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 800F1784 000EE6E4  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 800F1788 000EE6E8  7F 83 E3 78 */	mr r3, r28
 /* 800F178C 000EE6EC  90 01 00 8C */	stw r0, 0x8c(r1)
 /* 800F1790 000EE6F0  38 81 00 58 */	addi r4, r1, 0x58
@@ -11853,9 +11853,9 @@ FindClosestSpiderBallWaypoint__10CMorphBallCFR13CStateManagerRC9CVector3fR9CVect
 /* 800F769C 000F45FC  D0 61 00 AC */	stfs f3, 0xac(r1)
 /* 800F76A0 000F4600  D0 41 00 B0 */	stfs f2, 0xb0(r1)
 /* 800F76A4 000F4604  48 24 0E 65 */	bl __ct__6CAABoxFRC9CVector3fRC9CVector3f
-/* 800F76A8 000F4608  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 800F76A8 000F4608  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 800F76AC 000F460C  7F 83 E3 78 */	mr r3, r28
-/* 800F76B0 000F4610  38 C4 FD 18 */	addi r6, r4, lbl_8059FD18@l
+/* 800F76B0 000F4610  38 C4 FD 18 */	addi r6, r4, skPassEverything__15CMaterialFilter@l
 /* 800F76B4 000F4614  38 A1 01 18 */	addi r5, r1, 0x118
 /* 800F76B8 000F4618  38 81 02 80 */	addi r4, r1, 0x280
 /* 800F76BC 000F461C  38 E0 00 00 */	li r7, 0
@@ -14669,13 +14669,13 @@ lbl_800F9F18:
 /* 800F9F70 000F6ED0  7C 60 1B 78 */	mr r0, r3
 lbl_800F9F74:
 /* 800F9F74 000F6ED4  90 1F 1C 1C */	stw r0, 0x1c1c(r31)
-/* 800F9F78 000F6ED8  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 800F9F78 000F6ED8  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 800F9F7C 000F6EDC  C0 42 91 50 */	lfs f2, lbl_805AAE70@sda21(r2)
 /* 800F9F80 000F6EE0  38 00 00 00 */	li r0, 0
 /* 800F9F84 000F6EE4  C0 22 92 58 */	lfs f1, lbl_805AAF78@sda21(r2)
 /* 800F9F88 000F6EE8  38 DF 1C 3C */	addi r6, r31, 0x1c3c
 /* 800F9F8C 000F6EEC  D0 5F 1C 20 */	stfs f2, 0x1c20(r31)
-/* 800F9F90 000F6EF0  38 63 66 60 */	addi r3, r3, lbl_805A6660@l
+/* 800F9F90 000F6EF0  38 63 66 60 */	addi r3, r3, sNoRotation__11CQuaternion@l
 /* 800F9F94 000F6EF4  C0 02 91 5C */	lfs f0, lbl_805AAE7C@sda21(r2)
 /* 800F9F98 000F6EF8  D0 3F 1C 24 */	stfs f1, 0x1c24(r31)
 /* 800F9F9C 000F6EFC  D0 1F 1C 28 */	stfs f0, 0x1c28(r31)

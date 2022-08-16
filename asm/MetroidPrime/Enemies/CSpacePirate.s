@@ -12692,11 +12692,11 @@ __ct__8CIkChainFv:
 /* 8012AF9C 00127EFC  38 00 00 FF */	li r0, 0xff
 /* 8012AFA0 00127F00  3C C0 80 5A */	lis r6, sForwardVector__9CVector3f@ha
 /* 8012AFA4 00127F04  98 03 00 00 */	stb r0, 0(r3)
-/* 8012AFA8 00127F08  3C A0 80 5A */	lis r5, lbl_805A6660@ha
+/* 8012AFA8 00127F08  3C A0 80 5A */	lis r5, sNoRotation__11CQuaternion@ha
 /* 8012AFAC 00127F0C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8012AFB0 00127F10  38 E6 67 24 */	addi r7, r6, sForwardVector__9CVector3f@l
 /* 8012AFB4 00127F14  98 03 00 01 */	stb r0, 1(r3)
-/* 8012AFB8 00127F18  38 C5 66 60 */	addi r6, r5, lbl_805A6660@l
+/* 8012AFB8 00127F18  38 C5 66 60 */	addi r6, r5, sNoRotation__11CQuaternion@l
 /* 8012AFBC 00127F1C  C0 22 97 D8 */	lfs f1, lbl_805AB4F8@sda21(r2)
 /* 8012AFC0 00127F20  38 A4 66 A0 */	addi r5, r4, sZeroVector__9CVector3f@l
 /* 8012AFC4 00127F24  98 03 00 02 */	stb r0, 2(r3)
@@ -12880,8 +12880,8 @@ PreRender__14CPirateRagDollFRC9CVector3fR10CModelData:
 /* 8012B264 001281C4  41 82 07 28 */	beq lbl_8012B98C
 lbl_8012B268:
 /* 8012B268 001281C8  83 FD 00 10 */	lwz r31, 0x10(r29)
-/* 8012B26C 001281CC  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 8012B270 001281D0  38 63 66 60 */	addi r3, r3, lbl_805A6660@l
+/* 8012B26C 001281CC  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 8012B270 001281D0  38 63 66 60 */	addi r3, r3, sNoRotation__11CQuaternion@l
 /* 8012B274 001281D4  80 9F 00 D4 */	lwz r4, 0xd4(r31)
 /* 8012B278 001281D8  3B DF 02 FC */	addi r30, r31, 0x2fc
 /* 8012B27C 001281DC  3B 9E 00 40 */	addi r28, r30, 0x40
@@ -12901,11 +12901,11 @@ lbl_8012B288:
 /* 8012B2B0 00128210  2C 00 00 01 */	cmpwi r0, 1
 /* 8012B2B4 00128214  40 81 00 3C */	ble lbl_8012B2F0
 /* 8012B2B8 00128218  38 07 00 01 */	addi r0, r7, 1
-/* 8012B2BC 0012821C  3C C0 80 5A */	lis r6, lbl_805A6660@ha
+/* 8012B2BC 0012821C  3C C0 80 5A */	lis r6, sNoRotation__11CQuaternion@ha
 /* 8012B2C0 00128220  7C 1C 00 AE */	lbzx r0, r28, r0
 /* 8012B2C4 00128224  80 FE 01 08 */	lwz r7, 0x108(r30)
 /* 8012B2C8 00128228  54 00 2C F4 */	rlwinm r0, r0, 5, 0x13, 0x1a
-/* 8012B2CC 0012822C  C0 06 66 60 */	lfs f0, lbl_805A6660@l(r6)
+/* 8012B2CC 0012822C  C0 06 66 60 */	lfs f0, sNoRotation__11CQuaternion@l(r6)
 /* 8012B2D0 00128230  7C E7 02 14 */	add r7, r7, r0
 /* 8012B2D4 00128234  D0 07 00 04 */	stfs f0, 4(r7)
 /* 8012B2D8 00128238  80 C3 00 04 */	lwz r6, 4(r3)
