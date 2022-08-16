@@ -83,6 +83,14 @@ dataItem = "missiles"   # data flavor item
 ###############################################
 
 if __name__ == "__main__":
+    # HACK: Check asm or src in obj_file.mk
+    # to avoid counting .comm/.lcomm as decompiled
+    asm_objs = []
+    with open('obj_files.mk', 'r') as file:
+        for line in file:
+            if "asm/" in line:
+                asm_objs.append(line.strip().rsplit('/', 1)[-1].rstrip('\\'))
+
     # Sum up DOL section sizes
     dol_handle = open(DOL_PATH, "rb")
 
@@ -170,7 +178,7 @@ if __name__ == "__main__":
             # Has the object file changed?
             last_object = cur_object
             cur_object = match_obj.group("Object").strip()
-            if last_object != cur_object: continue
+            if last_object != cur_object or cur_object in asm_objs: continue
             # Is the symbol a file-wide section?
             symb = match_obj.group("Symbol")
             if (symb.startswith("*fill*")) or (symb.startswith(".") and symb[1:] in TEXT_SECTIONS or symb[1:] in DATA_SECTIONS): continue
