@@ -2421,7 +2421,7 @@ lbl_8000B0D0:
 /* 8000B128 00008088  48 04 14 4D */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8000B12C 0000808C  7C 64 1B 78 */	mr r4, r3
 /* 8000B130 00008090  38 61 00 30 */	addi r3, r1, 0x30
-/* 8000B134 00008094  48 0A 19 29 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 8000B134 00008094  48 0A 19 29 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8000B138 00008098  83 83 00 04 */	lwz r28, 4(r3)
 /* 8000B13C 0000809C  7F A3 EB 78 */	mr r3, r29
 /* 8000B140 000080A0  A0 1B 00 EC */	lhz r0, 0xec(r27)

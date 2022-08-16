@@ -110,7 +110,7 @@ lbl_803DC04C:
 	.4byte "Visit__18TCastToPtr<5CBomb>FR13CScriptPickup"
 	.4byte "Visit__18TCastToPtr<5CBomb>FR15CScriptPlatform"
 	.4byte "Visit__18TCastToPtr<5CBomb>FR17CScriptPlayerHint"
-	.4byte "Visit__18TCastToPtr<5CBomb>FR22CScriptPointOfinterest"
+	.4byte "Visit__18TCastToPtr<5CBomb>FR22CScriptPointOfInterest"
 	.4byte "Visit__18TCastToPtr<5CBomb>FR20CScriptRoomAcoustics"
 	.4byte "Visit__18TCastToPtr<5CBomb>FR12CScriptSound"
 	.4byte "Visit__18TCastToPtr<5CBomb>FR17CScriptSpawnPoint"
@@ -173,7 +173,7 @@ lbl_803DC138:
 	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR13CScriptPickup"
 	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR15CScriptPlatform"
 	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR17CScriptPlayerHint"
-	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR22CScriptPointOfinterest"
+	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR22CScriptPointOfInterest"
 	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR20CScriptRoomAcoustics"
 	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR12CScriptSound"
 	.4byte "Visit__30TCastToPtr<16CCinematicCamera>FR17CScriptSpawnPoint"
@@ -236,7 +236,7 @@ lbl_803DC224:
 	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR13CScriptPickup"
 	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR15CScriptPlatform"
 	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR17CScriptPlayerHint"
-	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR22CScriptPointOfinterest"
+	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR22CScriptPointOfInterest"
 	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR20CScriptRoomAcoustics"
 	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR12CScriptSound"
 	.4byte "Visit__29TCastToPtr<15CCollisionActor>FR17CScriptSpawnPoint"
@@ -299,7 +299,7 @@ lbl_803DC310:
 	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR13CScriptPickup"
 	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR15CScriptPlatform"
 	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR17CScriptPlayerHint"
-	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR22CScriptPointOfinterest"
+	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR22CScriptPointOfInterest"
 	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR20CScriptRoomAcoustics"
 	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR12CScriptSound"
 	.4byte "Visit__30TCastToPtr<16CDestroyableRock>FR17CScriptSpawnPoint"
@@ -362,7 +362,7 @@ lbl_803DC3FC:
 	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CEnergyProjectile>FR17CScriptSpawnPoint"
@@ -425,7 +425,7 @@ lbl_803DC4E8:
 	.4byte "Visit__20TCastToPtr<7CEntity>FR13CScriptPickup"
 	.4byte "Visit__20TCastToPtr<7CEntity>FR15CScriptPlatform"
 	.4byte "Visit__20TCastToPtr<7CEntity>FR17CScriptPlayerHint"
-	.4byte "Visit__20TCastToPtr<7CEntity>FR22CScriptPointOfinterest"
+	.4byte "Visit__20TCastToPtr<7CEntity>FR22CScriptPointOfInterest"
 	.4byte "Visit__20TCastToPtr<7CEntity>FR20CScriptRoomAcoustics"
 	.4byte "Visit__20TCastToPtr<7CEntity>FR12CScriptSound"
 	.4byte "Visit__20TCastToPtr<7CEntity>FR17CScriptSpawnPoint"
@@ -488,7 +488,7 @@ lbl_803DC5D4:
 	.4byte "Visit__24TCastToPtr<10CExplosion>FR13CScriptPickup"
 	.4byte "Visit__24TCastToPtr<10CExplosion>FR15CScriptPlatform"
 	.4byte "Visit__24TCastToPtr<10CExplosion>FR17CScriptPlayerHint"
-	.4byte "Visit__24TCastToPtr<10CExplosion>FR22CScriptPointOfinterest"
+	.4byte "Visit__24TCastToPtr<10CExplosion>FR22CScriptPointOfInterest"
 	.4byte "Visit__24TCastToPtr<10CExplosion>FR20CScriptRoomAcoustics"
 	.4byte "Visit__24TCastToPtr<10CExplosion>FR12CScriptSound"
 	.4byte "Visit__24TCastToPtr<10CExplosion>FR17CScriptSpawnPoint"
@@ -551,7 +551,7 @@ lbl_803DC6C0:
 	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR13CScriptPickup"
 	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR15CScriptPlatform"
 	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR17CScriptPlayerHint"
-	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR22CScriptPointOfinterest"
+	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR22CScriptPointOfInterest"
 	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR20CScriptRoomAcoustics"
 	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR12CScriptSound"
 	.4byte "Visit__32TCastToPtr<18CFirstPersonCamera>FR17CScriptSpawnPoint"
@@ -614,7 +614,7 @@ lbl_803DC7AC:
 	.4byte "Visit__24TCastToPtr<10CFishCloud>FR13CScriptPickup"
 	.4byte "Visit__24TCastToPtr<10CFishCloud>FR15CScriptPlatform"
 	.4byte "Visit__24TCastToPtr<10CFishCloud>FR17CScriptPlayerHint"
-	.4byte "Visit__24TCastToPtr<10CFishCloud>FR22CScriptPointOfinterest"
+	.4byte "Visit__24TCastToPtr<10CFishCloud>FR22CScriptPointOfInterest"
 	.4byte "Visit__24TCastToPtr<10CFishCloud>FR20CScriptRoomAcoustics"
 	.4byte "Visit__24TCastToPtr<10CFishCloud>FR12CScriptSound"
 	.4byte "Visit__24TCastToPtr<10CFishCloud>FR17CScriptSpawnPoint"
@@ -677,7 +677,7 @@ lbl_803DC898:
 	.4byte "Visit__25TCastToPtr<11CGameCamera>FR13CScriptPickup"
 	.4byte "Visit__25TCastToPtr<11CGameCamera>FR15CScriptPlatform"
 	.4byte "Visit__25TCastToPtr<11CGameCamera>FR17CScriptPlayerHint"
-	.4byte "Visit__25TCastToPtr<11CGameCamera>FR22CScriptPointOfinterest"
+	.4byte "Visit__25TCastToPtr<11CGameCamera>FR22CScriptPointOfInterest"
 	.4byte "Visit__25TCastToPtr<11CGameCamera>FR20CScriptRoomAcoustics"
 	.4byte "Visit__25TCastToPtr<11CGameCamera>FR12CScriptSound"
 	.4byte "Visit__25TCastToPtr<11CGameCamera>FR17CScriptSpawnPoint"
@@ -740,7 +740,7 @@ lbl_803DC984:
 	.4byte "Visit__24TCastToPtr<10CGameLight>FR13CScriptPickup"
 	.4byte "Visit__24TCastToPtr<10CGameLight>FR15CScriptPlatform"
 	.4byte "Visit__24TCastToPtr<10CGameLight>FR17CScriptPlayerHint"
-	.4byte "Visit__24TCastToPtr<10CGameLight>FR22CScriptPointOfinterest"
+	.4byte "Visit__24TCastToPtr<10CGameLight>FR22CScriptPointOfInterest"
 	.4byte "Visit__24TCastToPtr<10CGameLight>FR20CScriptRoomAcoustics"
 	.4byte "Visit__24TCastToPtr<10CGameLight>FR12CScriptSound"
 	.4byte "Visit__24TCastToPtr<10CGameLight>FR17CScriptSpawnPoint"
@@ -803,7 +803,7 @@ lbl_803DCA70:
 	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR13CScriptPickup"
 	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR15CScriptPlatform"
 	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR17CScriptPlayerHint"
-	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR22CScriptPointOfinterest"
+	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR22CScriptPointOfInterest"
 	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR20CScriptRoomAcoustics"
 	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR12CScriptSound"
 	.4byte "Visit__29TCastToPtr<15CGameProjectile>FR17CScriptSpawnPoint"
@@ -866,7 +866,7 @@ lbl_803DCB5C:
 	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR13CScriptPickup"
 	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR15CScriptPlatform"
 	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR17CScriptPlayerHint"
-	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR22CScriptPointOfinterest"
+	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR22CScriptPointOfInterest"
 	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR20CScriptRoomAcoustics"
 	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR12CScriptSound"
 	.4byte "Visit__33TCastToPtr<19CHUDBillboardEffect>FR17CScriptSpawnPoint"
@@ -929,7 +929,7 @@ lbl_803DCC48:
 	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR13CScriptPickup"
 	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR15CScriptPlatform"
 	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR17CScriptPlayerHint"
-	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR22CScriptPointOfinterest"
+	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR22CScriptPointOfInterest"
 	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR20CScriptRoomAcoustics"
 	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR12CScriptSound"
 	.4byte "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR17CScriptSpawnPoint"
@@ -992,7 +992,7 @@ lbl_803DCD34:
 	.4byte "Visit__25TCastToPtr<11CPathCamera>FR13CScriptPickup"
 	.4byte "Visit__25TCastToPtr<11CPathCamera>FR15CScriptPlatform"
 	.4byte "Visit__25TCastToPtr<11CPathCamera>FR17CScriptPlayerHint"
-	.4byte "Visit__25TCastToPtr<11CPathCamera>FR22CScriptPointOfinterest"
+	.4byte "Visit__25TCastToPtr<11CPathCamera>FR22CScriptPointOfInterest"
 	.4byte "Visit__25TCastToPtr<11CPathCamera>FR20CScriptRoomAcoustics"
 	.4byte "Visit__25TCastToPtr<11CPathCamera>FR12CScriptSound"
 	.4byte "Visit__25TCastToPtr<11CPathCamera>FR17CScriptSpawnPoint"
@@ -1055,7 +1055,7 @@ lbl_803DCE20:
 	.4byte "Visit__16TCastToPtr<3CAi>FR13CScriptPickup"
 	.4byte "Visit__16TCastToPtr<3CAi>FR15CScriptPlatform"
 	.4byte "Visit__16TCastToPtr<3CAi>FR17CScriptPlayerHint"
-	.4byte "Visit__16TCastToPtr<3CAi>FR22CScriptPointOfinterest"
+	.4byte "Visit__16TCastToPtr<3CAi>FR22CScriptPointOfInterest"
 	.4byte "Visit__16TCastToPtr<3CAi>FR20CScriptRoomAcoustics"
 	.4byte "Visit__16TCastToPtr<3CAi>FR12CScriptSound"
 	.4byte "Visit__16TCastToPtr<3CAi>FR17CScriptSpawnPoint"
@@ -1118,7 +1118,7 @@ lbl_803DCF0C:
 	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR13CScriptPickup"
 	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR15CScriptPlatform"
 	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR17CScriptPlayerHint"
-	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR22CScriptPointOfinterest"
+	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR22CScriptPointOfInterest"
 	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR20CScriptRoomAcoustics"
 	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR12CScriptSound"
 	.4byte "Visit__27TCastToPtr<13CPhysicsActor>FR17CScriptSpawnPoint"
@@ -1181,7 +1181,7 @@ lbl_803DCFF8:
 	.4byte "Visit__20TCastToPtr<7CPlayer>FR13CScriptPickup"
 	.4byte "Visit__20TCastToPtr<7CPlayer>FR15CScriptPlatform"
 	.4byte "Visit__20TCastToPtr<7CPlayer>FR17CScriptPlayerHint"
-	.4byte "Visit__20TCastToPtr<7CPlayer>FR22CScriptPointOfinterest"
+	.4byte "Visit__20TCastToPtr<7CPlayer>FR22CScriptPointOfInterest"
 	.4byte "Visit__20TCastToPtr<7CPlayer>FR20CScriptRoomAcoustics"
 	.4byte "Visit__20TCastToPtr<7CPlayer>FR12CScriptSound"
 	.4byte "Visit__20TCastToPtr<7CPlayer>FR17CScriptSpawnPoint"
@@ -1244,7 +1244,7 @@ lbl_803DD0E4:
 	.4byte "Visit__22TCastToPtr<9CRepulsor>FR13CScriptPickup"
 	.4byte "Visit__22TCastToPtr<9CRepulsor>FR15CScriptPlatform"
 	.4byte "Visit__22TCastToPtr<9CRepulsor>FR17CScriptPlayerHint"
-	.4byte "Visit__22TCastToPtr<9CRepulsor>FR22CScriptPointOfinterest"
+	.4byte "Visit__22TCastToPtr<9CRepulsor>FR22CScriptPointOfInterest"
 	.4byte "Visit__22TCastToPtr<9CRepulsor>FR20CScriptRoomAcoustics"
 	.4byte "Visit__22TCastToPtr<9CRepulsor>FR12CScriptSound"
 	.4byte "Visit__22TCastToPtr<9CRepulsor>FR17CScriptSpawnPoint"
@@ -1307,7 +1307,7 @@ lbl_803DD1D0:
 	.4byte "Visit__26TCastToPtr<12CScriptActor>FR13CScriptPickup"
 	.4byte "Visit__26TCastToPtr<12CScriptActor>FR15CScriptPlatform"
 	.4byte "Visit__26TCastToPtr<12CScriptActor>FR17CScriptPlayerHint"
-	.4byte "Visit__26TCastToPtr<12CScriptActor>FR22CScriptPointOfinterest"
+	.4byte "Visit__26TCastToPtr<12CScriptActor>FR22CScriptPointOfInterest"
 	.4byte "Visit__26TCastToPtr<12CScriptActor>FR20CScriptRoomAcoustics"
 	.4byte "Visit__26TCastToPtr<12CScriptActor>FR12CScriptSound"
 	.4byte "Visit__26TCastToPtr<12CScriptActor>FR17CScriptSpawnPoint"
@@ -1370,7 +1370,7 @@ lbl_803DD2BC:
 	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR13CScriptPickup"
 	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR15CScriptPlatform"
 	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR17CScriptPlayerHint"
-	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR22CScriptPointOfinterest"
+	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR22CScriptPointOfInterest"
 	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR20CScriptRoomAcoustics"
 	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR12CScriptSound"
 	.4byte "Visit__34TCastToPtr<20CScriptActorKeyframe>FR17CScriptSpawnPoint"
@@ -1433,7 +1433,7 @@ lbl_803DD3A8:
 	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR13CScriptPickup"
 	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR15CScriptPlatform"
 	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR17CScriptPlayerHint"
-	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR12CScriptSound"
 	.4byte "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR17CScriptSpawnPoint"
@@ -1496,7 +1496,7 @@ lbl_803DD494:
 	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CScriptCameraHint>FR17CScriptSpawnPoint"
@@ -1559,7 +1559,7 @@ lbl_803DD580:
 	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR13CScriptPickup"
 	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR15CScriptPlatform"
 	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR17CScriptPlayerHint"
-	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR22CScriptPointOfinterest"
+	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR22CScriptPointOfInterest"
 	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR20CScriptRoomAcoustics"
 	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR12CScriptSound"
 	.4byte "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR17CScriptSpawnPoint"
@@ -1622,7 +1622,7 @@ lbl_803DD66C:
 	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR13CScriptPickup"
 	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR15CScriptPlatform"
 	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR17CScriptPlayerHint"
-	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR12CScriptSound"
 	.4byte "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR17CScriptSpawnPoint"
@@ -1685,7 +1685,7 @@ lbl_803DD758:
 	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CScriptCoverPoint>FR17CScriptSpawnPoint"
@@ -1748,7 +1748,7 @@ lbl_803DD844:
 	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR13CScriptPickup"
 	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR15CScriptPlatform"
 	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR17CScriptPlayerHint"
-	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR22CScriptPointOfinterest"
+	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR22CScriptPointOfInterest"
 	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR20CScriptRoomAcoustics"
 	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR12CScriptSound"
 	.4byte "Visit__32TCastToPtr<18CScriptDistanceFog>FR17CScriptSpawnPoint"
@@ -1811,7 +1811,7 @@ lbl_803DD930:
 	.4byte "Visit__25TCastToPtr<11CScriptDock>FR13CScriptPickup"
 	.4byte "Visit__25TCastToPtr<11CScriptDock>FR15CScriptPlatform"
 	.4byte "Visit__25TCastToPtr<11CScriptDock>FR17CScriptPlayerHint"
-	.4byte "Visit__25TCastToPtr<11CScriptDock>FR22CScriptPointOfinterest"
+	.4byte "Visit__25TCastToPtr<11CScriptDock>FR22CScriptPointOfInterest"
 	.4byte "Visit__25TCastToPtr<11CScriptDock>FR20CScriptRoomAcoustics"
 	.4byte "Visit__25TCastToPtr<11CScriptDock>FR12CScriptSound"
 	.4byte "Visit__25TCastToPtr<11CScriptDock>FR17CScriptSpawnPoint"
@@ -1874,7 +1874,7 @@ lbl_803DDA1C:
 	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR13CScriptPickup"
 	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR15CScriptPlatform"
 	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR17CScriptPlayerHint"
-	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR22CScriptPointOfinterest"
+	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR22CScriptPointOfInterest"
 	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR20CScriptRoomAcoustics"
 	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR12CScriptSound"
 	.4byte "Visit__25TCastToPtr<11CScriptDoor>FR17CScriptSpawnPoint"
@@ -1937,7 +1937,7 @@ lbl_803DDB08:
 	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR13CScriptPickup"
 	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR15CScriptPlatform"
 	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR17CScriptPlayerHint"
-	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR22CScriptPointOfinterest"
+	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR22CScriptPointOfInterest"
 	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR20CScriptRoomAcoustics"
 	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR12CScriptSound"
 	.4byte "Visit__27TCastToPtr<13CScriptEffect>FR17CScriptSpawnPoint"
@@ -2000,7 +2000,7 @@ lbl_803DDBF4:
 	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR13CScriptPickup"
 	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR15CScriptPlatform"
 	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR17CScriptPlayerHint"
-	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR12CScriptSound"
 	.4byte "Visit__33TCastToPtr<19CScriptGrapplePoint>FR17CScriptSpawnPoint"
@@ -2063,7 +2063,7 @@ lbl_803DDCE0:
 	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR13CScriptPickup"
 	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR15CScriptPlatform"
 	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR17CScriptPlayerHint"
-	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR22CScriptPointOfinterest"
+	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR22CScriptPointOfInterest"
 	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR20CScriptRoomAcoustics"
 	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR12CScriptSound"
 	.4byte "Visit__30TCastToPtr<16CScriptGunTurret>FR17CScriptSpawnPoint"
@@ -2126,7 +2126,7 @@ lbl_803DDDCC:
 	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR13CScriptPickup"
 	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR15CScriptPlatform"
 	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR17CScriptPlayerHint"
-	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR22CScriptPointOfinterest"
+	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR22CScriptPointOfInterest"
 	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR20CScriptRoomAcoustics"
 	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR12CScriptSound"
 	.4byte "Visit__29TCastToPtr<15CScriptMazeNode>FR17CScriptSpawnPoint"
@@ -2189,7 +2189,7 @@ lbl_803DDEB8:
 	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR13CScriptPickup"
 	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR15CScriptPlatform"
 	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR17CScriptPlayerHint"
-	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR22CScriptPointOfinterest"
+	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR22CScriptPointOfInterest"
 	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR20CScriptRoomAcoustics"
 	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR12CScriptSound"
 	.4byte "Visit__27TCastToPtr<13CScriptPickup>FR17CScriptSpawnPoint"
@@ -2252,7 +2252,7 @@ lbl_803DDFA4:
 	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR13CScriptPickup"
 	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR15CScriptPlatform"
 	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR17CScriptPlayerHint"
-	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR22CScriptPointOfinterest"
+	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR22CScriptPointOfInterest"
 	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR20CScriptRoomAcoustics"
 	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR12CScriptSound"
 	.4byte "Visit__29TCastToPtr<15CScriptPlatform>FR17CScriptSpawnPoint"
@@ -2315,7 +2315,7 @@ lbl_803DE090:
 	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CScriptPlayerHint>FR17CScriptSpawnPoint"
@@ -2378,7 +2378,7 @@ lbl_803DE17C:
 	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR13CScriptPickup"
 	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR15CScriptPlatform"
 	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR17CScriptPlayerHint"
-	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR22CScriptPointOfinterest"
+	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR22CScriptPointOfInterest"
 	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR20CScriptRoomAcoustics"
 	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR12CScriptSound"
 	.4byte "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR17CScriptSpawnPoint"
@@ -2441,7 +2441,7 @@ lbl_803DE268:
 	.4byte "Visit__26TCastToPtr<12CScriptSound>FR13CScriptPickup"
 	.4byte "Visit__26TCastToPtr<12CScriptSound>FR15CScriptPlatform"
 	.4byte "Visit__26TCastToPtr<12CScriptSound>FR17CScriptPlayerHint"
-	.4byte "Visit__26TCastToPtr<12CScriptSound>FR22CScriptPointOfinterest"
+	.4byte "Visit__26TCastToPtr<12CScriptSound>FR22CScriptPointOfInterest"
 	.4byte "Visit__26TCastToPtr<12CScriptSound>FR20CScriptRoomAcoustics"
 	.4byte "Visit__26TCastToPtr<12CScriptSound>FR12CScriptSound"
 	.4byte "Visit__26TCastToPtr<12CScriptSound>FR17CScriptSpawnPoint"
@@ -2504,7 +2504,7 @@ lbl_803DE354:
 	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CScriptSpawnPoint>FR17CScriptSpawnPoint"
@@ -2567,7 +2567,7 @@ lbl_803DE440:
 	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR13CScriptPickup"
 	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR15CScriptPlatform"
 	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR17CScriptPlayerHint"
-	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR22CScriptPointOfinterest"
+	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR22CScriptPointOfInterest"
 	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR20CScriptRoomAcoustics"
 	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR12CScriptSound"
 	.4byte "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR17CScriptSpawnPoint"
@@ -2630,7 +2630,7 @@ lbl_803DE52C:
 	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR13CScriptPickup"
 	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR15CScriptPlatform"
 	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR17CScriptPlayerHint"
-	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR12CScriptSound"
 	.4byte "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR17CScriptSpawnPoint"
@@ -2756,7 +2756,7 @@ lbl_803DE704:
 	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR13CScriptPickup"
 	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR15CScriptPlatform"
 	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR17CScriptPlayerHint"
-	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR22CScriptPointOfinterest"
+	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR22CScriptPointOfInterest"
 	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR20CScriptRoomAcoustics"
 	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR12CScriptSound"
 	.4byte "Visit__24TCastToPtr<10CTeamAiMgr>FR17CScriptSpawnPoint"
@@ -2819,7 +2819,7 @@ lbl_803DE7F0:
 	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR13CScriptPickup"
 	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR15CScriptPlatform"
 	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR17CScriptPlayerHint"
-	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR22CScriptPointOfinterest"
+	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR22CScriptPointOfInterest"
 	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR20CScriptRoomAcoustics"
 	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR12CScriptSound"
 	.4byte "Visit__26TCastToPtr<12CScriptTimer>FR17CScriptSpawnPoint"
@@ -2882,7 +2882,7 @@ lbl_803DE8DC:
 	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR13CScriptPickup"
 	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR15CScriptPlatform"
 	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR17CScriptPlayerHint"
-	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR22CScriptPointOfinterest"
+	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR22CScriptPointOfInterest"
 	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR20CScriptRoomAcoustics"
 	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR12CScriptSound"
 	.4byte "Visit__28TCastToPtr<14CScriptTrigger>FR17CScriptSpawnPoint"
@@ -2945,7 +2945,7 @@ lbl_803DE9C8:
 	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CScriptVisorFlare>FR17CScriptSpawnPoint"
@@ -3008,7 +3008,7 @@ lbl_803DEAB4:
 	.4byte "Visit__26TCastToPtr<12CScriptWater>FR13CScriptPickup"
 	.4byte "Visit__26TCastToPtr<12CScriptWater>FR15CScriptPlatform"
 	.4byte "Visit__26TCastToPtr<12CScriptWater>FR17CScriptPlayerHint"
-	.4byte "Visit__26TCastToPtr<12CScriptWater>FR22CScriptPointOfinterest"
+	.4byte "Visit__26TCastToPtr<12CScriptWater>FR22CScriptPointOfInterest"
 	.4byte "Visit__26TCastToPtr<12CScriptWater>FR20CScriptRoomAcoustics"
 	.4byte "Visit__26TCastToPtr<12CScriptWater>FR12CScriptSound"
 	.4byte "Visit__26TCastToPtr<12CScriptWater>FR17CScriptSpawnPoint"
@@ -3071,7 +3071,7 @@ lbl_803DEBA0:
 	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR13CScriptPickup"
 	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR15CScriptPlatform"
 	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR17CScriptPlayerHint"
-	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR22CScriptPointOfinterest"
+	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR22CScriptPointOfInterest"
 	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR20CScriptRoomAcoustics"
 	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR12CScriptSound"
 	.4byte "Visit__29TCastToPtr<15CScriptWaypoint>FR17CScriptSpawnPoint"
@@ -3134,7 +3134,7 @@ lbl_803DEC8C:
 	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR13CScriptPickup"
 	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR15CScriptPlatform"
 	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR17CScriptPlayerHint"
-	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR22CScriptPointOfinterest"
+	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR22CScriptPointOfInterest"
 	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR20CScriptRoomAcoustics"
 	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR12CScriptSound"
 	.4byte "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR17CScriptSpawnPoint"
@@ -3197,7 +3197,7 @@ lbl_803DED78:
 	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR13CScriptPickup"
 	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR15CScriptPlatform"
 	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR17CScriptPlayerHint"
-	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR22CScriptPointOfinterest"
+	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR22CScriptPointOfInterest"
 	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR20CScriptRoomAcoustics"
 	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR12CScriptSound"
 	.4byte "Visit__34TCastToPtr<20CScriptSpindleCamera>FR17CScriptSpawnPoint"
@@ -3260,7 +3260,7 @@ lbl_803DEE64:
 	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR13CScriptPickup"
 	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR15CScriptPlatform"
 	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR17CScriptPlayerHint"
-	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR22CScriptPointOfinterest"
+	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR22CScriptPointOfInterest"
 	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR20CScriptRoomAcoustics"
 	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR12CScriptSound"
 	.4byte "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR17CScriptSpawnPoint"
@@ -3323,7 +3323,7 @@ lbl_803DEF50:
 	.4byte "Visit__20TCastToPtr<7CWeapon>FR13CScriptPickup"
 	.4byte "Visit__20TCastToPtr<7CWeapon>FR15CScriptPlatform"
 	.4byte "Visit__20TCastToPtr<7CWeapon>FR17CScriptPlayerHint"
-	.4byte "Visit__20TCastToPtr<7CWeapon>FR22CScriptPointOfinterest"
+	.4byte "Visit__20TCastToPtr<7CWeapon>FR22CScriptPointOfInterest"
 	.4byte "Visit__20TCastToPtr<7CWeapon>FR20CScriptRoomAcoustics"
 	.4byte "Visit__20TCastToPtr<7CWeapon>FR12CScriptSound"
 	.4byte "Visit__20TCastToPtr<7CWeapon>FR17CScriptSpawnPoint"
@@ -3508,8 +3508,8 @@ lbl_803DF03C:
 /* 800A56BC 000A261C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A56C0 000A2620  4E 80 00 20 */	blr
 
-.global "Visit__20TCastToPtr<7CWeapon>FR22CScriptPointOfinterest"
-"Visit__20TCastToPtr<7CWeapon>FR22CScriptPointOfinterest":
+.global "Visit__20TCastToPtr<7CWeapon>FR22CScriptPointOfInterest"
+"Visit__20TCastToPtr<7CWeapon>FR22CScriptPointOfInterest":
 /* 800A56C4 000A2624  38 00 00 00 */	li r0, 0
 /* 800A56C8 000A2628  90 03 00 04 */	stw r0, 4(r3)
 /* 800A56CC 000A262C  4E 80 00 20 */	blr
@@ -3905,8 +3905,8 @@ lbl_800A58EC:
 /* 800A5A28 000A2988  90 03 00 04 */	stw r0, 4(r3)
 /* 800A5A2C 000A298C  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CWallCrawlerSwarm>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CWallCrawlerSwarm>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CWallCrawlerSwarm>FR22CScriptPointOfInterest":
 /* 800A5A30 000A2990  38 00 00 00 */	li r0, 0
 /* 800A5A34 000A2994  90 03 00 04 */	stw r0, 4(r3)
 /* 800A5A38 000A2998  4E 80 00 20 */	blr
@@ -4277,8 +4277,8 @@ lbl_800A5C64:
 /* 800A5D3C 000A2C9C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A5D40 000A2CA0  4E 80 00 20 */	blr
 
-.global "Visit__34TCastToPtr<20CScriptSpindleCamera>FR22CScriptPointOfinterest"
-"Visit__34TCastToPtr<20CScriptSpindleCamera>FR22CScriptPointOfinterest":
+.global "Visit__34TCastToPtr<20CScriptSpindleCamera>FR22CScriptPointOfInterest"
+"Visit__34TCastToPtr<20CScriptSpindleCamera>FR22CScriptPointOfInterest":
 /* 800A5D44 000A2CA4  38 00 00 00 */	li r0, 0
 /* 800A5D48 000A2CA8  90 03 00 04 */	stw r0, 4(r3)
 /* 800A5D4C 000A2CAC  4E 80 00 20 */	blr
@@ -4649,8 +4649,8 @@ lbl_800A5F78:
 /* 800A6050 000A2FB0  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6054 000A2FB4  4E 80 00 20 */	blr
 
-.global "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR22CScriptPointOfinterest"
-"Visit__29TCastToPtr<15CSnakeWeedSwarm>FR22CScriptPointOfinterest":
+.global "Visit__29TCastToPtr<15CSnakeWeedSwarm>FR22CScriptPointOfInterest"
+"Visit__29TCastToPtr<15CSnakeWeedSwarm>FR22CScriptPointOfInterest":
 /* 800A6058 000A2FB8  38 00 00 00 */	li r0, 0
 /* 800A605C 000A2FBC  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6060 000A2FC0  4E 80 00 20 */	blr
@@ -5021,8 +5021,8 @@ lbl_800A628C:
 /* 800A6364 000A32C4  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6368 000A32C8  4E 80 00 20 */	blr
 
-.global "Visit__29TCastToPtr<15CScriptWaypoint>FR22CScriptPointOfinterest"
-"Visit__29TCastToPtr<15CScriptWaypoint>FR22CScriptPointOfinterest":
+.global "Visit__29TCastToPtr<15CScriptWaypoint>FR22CScriptPointOfInterest"
+"Visit__29TCastToPtr<15CScriptWaypoint>FR22CScriptPointOfInterest":
 /* 800A636C 000A32CC  38 00 00 00 */	li r0, 0
 /* 800A6370 000A32D0  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6374 000A32D4  4E 80 00 20 */	blr
@@ -5393,8 +5393,8 @@ lbl_800A65A0:
 /* 800A6678 000A35D8  90 03 00 04 */	stw r0, 4(r3)
 /* 800A667C 000A35DC  4E 80 00 20 */	blr
 
-.global "Visit__26TCastToPtr<12CScriptWater>FR22CScriptPointOfinterest"
-"Visit__26TCastToPtr<12CScriptWater>FR22CScriptPointOfinterest":
+.global "Visit__26TCastToPtr<12CScriptWater>FR22CScriptPointOfInterest"
+"Visit__26TCastToPtr<12CScriptWater>FR22CScriptPointOfInterest":
 /* 800A6680 000A35E0  38 00 00 00 */	li r0, 0
 /* 800A6684 000A35E4  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6688 000A35E8  4E 80 00 20 */	blr
@@ -5793,8 +5793,8 @@ lbl_800A68B4:
 /* 800A69F0 000A3950  90 03 00 04 */	stw r0, 4(r3)
 /* 800A69F4 000A3954  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CScriptVisorFlare>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CScriptVisorFlare>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CScriptVisorFlare>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CScriptVisorFlare>FR22CScriptPointOfInterest":
 /* 800A69F8 000A3958  38 00 00 00 */	li r0, 0
 /* 800A69FC 000A395C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6A00 000A3960  4E 80 00 20 */	blr
@@ -6164,8 +6164,8 @@ lbl_800A6C2C:
 /* 800A6D00 000A3C60  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6D04 000A3C64  4E 80 00 20 */	blr
 
-.global "Visit__28TCastToPtr<14CScriptTrigger>FR22CScriptPointOfinterest"
-"Visit__28TCastToPtr<14CScriptTrigger>FR22CScriptPointOfinterest":
+.global "Visit__28TCastToPtr<14CScriptTrigger>FR22CScriptPointOfInterest"
+"Visit__28TCastToPtr<14CScriptTrigger>FR22CScriptPointOfInterest":
 /* 800A6D08 000A3C68  38 00 00 00 */	li r0, 0
 /* 800A6D0C 000A3C6C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A6D10 000A3C70  4E 80 00 20 */	blr
@@ -6564,8 +6564,8 @@ lbl_800A6F3C:
 /* 800A7078 000A3FD8  90 03 00 04 */	stw r0, 4(r3)
 /* 800A707C 000A3FDC  4E 80 00 20 */	blr
 
-.global "Visit__26TCastToPtr<12CScriptTimer>FR22CScriptPointOfinterest"
-"Visit__26TCastToPtr<12CScriptTimer>FR22CScriptPointOfinterest":
+.global "Visit__26TCastToPtr<12CScriptTimer>FR22CScriptPointOfInterest"
+"Visit__26TCastToPtr<12CScriptTimer>FR22CScriptPointOfInterest":
 /* 800A7080 000A3FE0  38 00 00 00 */	li r0, 0
 /* 800A7084 000A3FE4  90 03 00 04 */	stw r0, 4(r3)
 /* 800A7088 000A3FE8  4E 80 00 20 */	blr
@@ -6936,8 +6936,8 @@ lbl_800A72B4:
 /* 800A738C 000A42EC  90 03 00 04 */	stw r0, 4(r3)
 /* 800A7390 000A42F0  4E 80 00 20 */	blr
 
-.global "Visit__24TCastToPtr<10CTeamAiMgr>FR22CScriptPointOfinterest"
-"Visit__24TCastToPtr<10CTeamAiMgr>FR22CScriptPointOfinterest":
+.global "Visit__24TCastToPtr<10CTeamAiMgr>FR22CScriptPointOfInterest"
+"Visit__24TCastToPtr<10CTeamAiMgr>FR22CScriptPointOfInterest":
 /* 800A7394 000A42F4  38 00 00 00 */	li r0, 0
 /* 800A7398 000A42F8  90 03 00 04 */	stw r0, 4(r3)
 /* 800A739C 000A42FC  4E 80 00 20 */	blr
@@ -7680,8 +7680,8 @@ lbl_800A78DC:
 /* 800A79B4 000A4914  90 03 00 04 */	stw r0, 4(r3)
 /* 800A79B8 000A4918  4E 80 00 20 */	blr
 
-.global "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR22CScriptPointOfinterest"
-"Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR22CScriptPointOfinterest":
+.global "Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR22CScriptPointOfInterest"
+"Visit__39TCastToPtr<25CScriptSpiderBallWaypoint>FR22CScriptPointOfInterest":
 /* 800A79BC 000A491C  38 00 00 00 */	li r0, 0
 /* 800A79C0 000A4920  90 03 00 04 */	stw r0, 4(r3)
 /* 800A79C4 000A4924  4E 80 00 20 */	blr
@@ -8052,8 +8052,8 @@ lbl_800A7BF0:
 /* 800A7CC8 000A4C28  90 03 00 04 */	stw r0, 4(r3)
 /* 800A7CCC 000A4C2C  4E 80 00 20 */	blr
 
-.global "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR22CScriptPointOfinterest"
-"Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR22CScriptPointOfinterest":
+.global "Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR22CScriptPointOfInterest"
+"Visit__48TCastToPtr<34CScriptSpiderBallAttractionSurface>FR22CScriptPointOfInterest":
 /* 800A7CD0 000A4C30  38 00 00 00 */	li r0, 0
 /* 800A7CD4 000A4C34  90 03 00 04 */	stw r0, 4(r3)
 /* 800A7CD8 000A4C38  4E 80 00 20 */	blr
@@ -8424,8 +8424,8 @@ lbl_800A7F04:
 /* 800A7FDC 000A4F3C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A7FE0 000A4F40  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CScriptSpawnPoint>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CScriptSpawnPoint>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CScriptSpawnPoint>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CScriptSpawnPoint>FR22CScriptPointOfInterest":
 /* 800A7FE4 000A4F44  38 00 00 00 */	li r0, 0
 /* 800A7FE8 000A4F48  90 03 00 04 */	stw r0, 4(r3)
 /* 800A7FEC 000A4F4C  4E 80 00 20 */	blr
@@ -8796,8 +8796,8 @@ lbl_800A8218:
 /* 800A82F0 000A5250  90 03 00 04 */	stw r0, 4(r3)
 /* 800A82F4 000A5254  4E 80 00 20 */	blr
 
-.global "Visit__26TCastToPtr<12CScriptSound>FR22CScriptPointOfinterest"
-"Visit__26TCastToPtr<12CScriptSound>FR22CScriptPointOfinterest":
+.global "Visit__26TCastToPtr<12CScriptSound>FR22CScriptPointOfInterest"
+"Visit__26TCastToPtr<12CScriptSound>FR22CScriptPointOfInterest":
 /* 800A82F8 000A5258  38 00 00 00 */	li r0, 0
 /* 800A82FC 000A525C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8300 000A5260  4E 80 00 20 */	blr
@@ -9168,8 +9168,8 @@ lbl_800A852C:
 /* 800A8604 000A5564  90 83 00 04 */	stw r4, 4(r3)
 /* 800A8608 000A5568  4E 80 00 20 */	blr
 
-.global "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR22CScriptPointOfinterest"
-"Visit__34TCastToPtr<20CScriptRoomAcoustics>FR22CScriptPointOfinterest":
+.global "Visit__34TCastToPtr<20CScriptRoomAcoustics>FR22CScriptPointOfInterest"
+"Visit__34TCastToPtr<20CScriptRoomAcoustics>FR22CScriptPointOfInterest":
 /* 800A860C 000A556C  38 00 00 00 */	li r0, 0
 /* 800A8610 000A5570  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8614 000A5574  4E 80 00 20 */	blr
@@ -9541,8 +9541,8 @@ lbl_800A8840:
 /* 800A891C 000A587C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8920 000A5880  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CScriptPlayerHint>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CScriptPlayerHint>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CScriptPlayerHint>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CScriptPlayerHint>FR22CScriptPointOfInterest":
 /* 800A8924 000A5884  38 00 00 00 */	li r0, 0
 /* 800A8928 000A5888  90 03 00 04 */	stw r0, 4(r3)
 /* 800A892C 000A588C  4E 80 00 20 */	blr
@@ -9913,8 +9913,8 @@ lbl_800A8B54:
 /* 800A8C30 000A5B90  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8C34 000A5B94  4E 80 00 20 */	blr
 
-.global "Visit__29TCastToPtr<15CScriptPlatform>FR22CScriptPointOfinterest"
-"Visit__29TCastToPtr<15CScriptPlatform>FR22CScriptPointOfinterest":
+.global "Visit__29TCastToPtr<15CScriptPlatform>FR22CScriptPointOfInterest"
+"Visit__29TCastToPtr<15CScriptPlatform>FR22CScriptPointOfInterest":
 /* 800A8C38 000A5B98  38 00 00 00 */	li r0, 0
 /* 800A8C3C 000A5B9C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8C40 000A5BA0  4E 80 00 20 */	blr
@@ -10313,8 +10313,8 @@ lbl_800A8E68:
 /* 800A8FA8 000A5F08  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8FAC 000A5F0C  4E 80 00 20 */	blr
 
-.global "Visit__27TCastToPtr<13CScriptPickup>FR22CScriptPointOfinterest"
-"Visit__27TCastToPtr<13CScriptPickup>FR22CScriptPointOfinterest":
+.global "Visit__27TCastToPtr<13CScriptPickup>FR22CScriptPointOfInterest"
+"Visit__27TCastToPtr<13CScriptPickup>FR22CScriptPointOfInterest":
 /* 800A8FB0 000A5F10  38 00 00 00 */	li r0, 0
 /* 800A8FB4 000A5F14  90 03 00 04 */	stw r0, 4(r3)
 /* 800A8FB8 000A5F18  4E 80 00 20 */	blr
@@ -10685,8 +10685,8 @@ lbl_800A91E0:
 /* 800A92BC 000A621C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A92C0 000A6220  4E 80 00 20 */	blr
 
-.global "Visit__29TCastToPtr<15CScriptMazeNode>FR22CScriptPointOfinterest"
-"Visit__29TCastToPtr<15CScriptMazeNode>FR22CScriptPointOfinterest":
+.global "Visit__29TCastToPtr<15CScriptMazeNode>FR22CScriptPointOfInterest"
+"Visit__29TCastToPtr<15CScriptMazeNode>FR22CScriptPointOfInterest":
 /* 800A92C4 000A6224  38 00 00 00 */	li r0, 0
 /* 800A92C8 000A6228  90 03 00 04 */	stw r0, 4(r3)
 /* 800A92CC 000A622C  4E 80 00 20 */	blr
@@ -11057,8 +11057,8 @@ lbl_800A94F4:
 /* 800A95D0 000A6530  90 03 00 04 */	stw r0, 4(r3)
 /* 800A95D4 000A6534  4E 80 00 20 */	blr
 
-.global "Visit__30TCastToPtr<16CScriptGunTurret>FR22CScriptPointOfinterest"
-"Visit__30TCastToPtr<16CScriptGunTurret>FR22CScriptPointOfinterest":
+.global "Visit__30TCastToPtr<16CScriptGunTurret>FR22CScriptPointOfInterest"
+"Visit__30TCastToPtr<16CScriptGunTurret>FR22CScriptPointOfInterest":
 /* 800A95D8 000A6538  38 00 00 00 */	li r0, 0
 /* 800A95DC 000A653C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A95E0 000A6540  4E 80 00 20 */	blr
@@ -11429,8 +11429,8 @@ lbl_800A9808:
 /* 800A98E4 000A6844  90 03 00 04 */	stw r0, 4(r3)
 /* 800A98E8 000A6848  4E 80 00 20 */	blr
 
-.global "Visit__33TCastToPtr<19CScriptGrapplePoint>FR22CScriptPointOfinterest"
-"Visit__33TCastToPtr<19CScriptGrapplePoint>FR22CScriptPointOfinterest":
+.global "Visit__33TCastToPtr<19CScriptGrapplePoint>FR22CScriptPointOfInterest"
+"Visit__33TCastToPtr<19CScriptGrapplePoint>FR22CScriptPointOfInterest":
 /* 800A98EC 000A684C  38 00 00 00 */	li r0, 0
 /* 800A98F0 000A6850  90 03 00 04 */	stw r0, 4(r3)
 /* 800A98F4 000A6854  4E 80 00 20 */	blr
@@ -11801,8 +11801,8 @@ lbl_800A9B1C:
 /* 800A9BF8 000A6B58  90 03 00 04 */	stw r0, 4(r3)
 /* 800A9BFC 000A6B5C  4E 80 00 20 */	blr
 
-.global "Visit__27TCastToPtr<13CScriptEffect>FR22CScriptPointOfinterest"
-"Visit__27TCastToPtr<13CScriptEffect>FR22CScriptPointOfinterest":
+.global "Visit__27TCastToPtr<13CScriptEffect>FR22CScriptPointOfInterest"
+"Visit__27TCastToPtr<13CScriptEffect>FR22CScriptPointOfInterest":
 /* 800A9C00 000A6B60  38 00 00 00 */	li r0, 0
 /* 800A9C04 000A6B64  90 03 00 04 */	stw r0, 4(r3)
 /* 800A9C08 000A6B68  4E 80 00 20 */	blr
@@ -12173,8 +12173,8 @@ lbl_800A9E30:
 /* 800A9F0C 000A6E6C  90 03 00 04 */	stw r0, 4(r3)
 /* 800A9F10 000A6E70  4E 80 00 20 */	blr
 
-.global "Visit__25TCastToPtr<11CScriptDoor>FR22CScriptPointOfinterest"
-"Visit__25TCastToPtr<11CScriptDoor>FR22CScriptPointOfinterest":
+.global "Visit__25TCastToPtr<11CScriptDoor>FR22CScriptPointOfInterest"
+"Visit__25TCastToPtr<11CScriptDoor>FR22CScriptPointOfInterest":
 /* 800A9F14 000A6E74  38 00 00 00 */	li r0, 0
 /* 800A9F18 000A6E78  90 03 00 04 */	stw r0, 4(r3)
 /* 800A9F1C 000A6E7C  4E 80 00 20 */	blr
@@ -12545,8 +12545,8 @@ lbl_800AA144:
 /* 800AA220 000A7180  90 03 00 04 */	stw r0, 4(r3)
 /* 800AA224 000A7184  4E 80 00 20 */	blr
 
-.global "Visit__25TCastToPtr<11CScriptDock>FR22CScriptPointOfinterest"
-"Visit__25TCastToPtr<11CScriptDock>FR22CScriptPointOfinterest":
+.global "Visit__25TCastToPtr<11CScriptDock>FR22CScriptPointOfInterest"
+"Visit__25TCastToPtr<11CScriptDock>FR22CScriptPointOfInterest":
 /* 800AA228 000A7188  38 00 00 00 */	li r0, 0
 /* 800AA22C 000A718C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AA230 000A7190  4E 80 00 20 */	blr
@@ -12917,8 +12917,8 @@ lbl_800AA458:
 /* 800AA534 000A7494  90 03 00 04 */	stw r0, 4(r3)
 /* 800AA538 000A7498  4E 80 00 20 */	blr
 
-.global "Visit__32TCastToPtr<18CScriptDistanceFog>FR22CScriptPointOfinterest"
-"Visit__32TCastToPtr<18CScriptDistanceFog>FR22CScriptPointOfinterest":
+.global "Visit__32TCastToPtr<18CScriptDistanceFog>FR22CScriptPointOfInterest"
+"Visit__32TCastToPtr<18CScriptDistanceFog>FR22CScriptPointOfInterest":
 /* 800AA53C 000A749C  38 00 00 00 */	li r0, 0
 /* 800AA540 000A74A0  90 03 00 04 */	stw r0, 4(r3)
 /* 800AA544 000A74A4  4E 80 00 20 */	blr
@@ -13289,8 +13289,8 @@ lbl_800AA76C:
 /* 800AA848 000A77A8  90 03 00 04 */	stw r0, 4(r3)
 /* 800AA84C 000A77AC  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CScriptCoverPoint>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CScriptCoverPoint>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CScriptCoverPoint>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CScriptCoverPoint>FR22CScriptPointOfInterest":
 /* 800AA850 000A77B0  38 00 00 00 */	li r0, 0
 /* 800AA854 000A77B4  90 03 00 04 */	stw r0, 4(r3)
 /* 800AA858 000A77B8  4E 80 00 20 */	blr
@@ -13689,8 +13689,8 @@ lbl_800AAA80:
 /* 800AABC0 000A7B20  90 03 00 04 */	stw r0, 4(r3)
 /* 800AABC4 000A7B24  4E 80 00 20 */	blr
 
-.global "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR22CScriptPointOfinterest"
-"Visit__35TCastToPtr<21CScriptCameraWaypoint>FR22CScriptPointOfinterest":
+.global "Visit__35TCastToPtr<21CScriptCameraWaypoint>FR22CScriptPointOfInterest"
+"Visit__35TCastToPtr<21CScriptCameraWaypoint>FR22CScriptPointOfInterest":
 /* 800AABC8 000A7B28  38 00 00 00 */	li r0, 0
 /* 800AABCC 000A7B2C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AABD0 000A7B30  4E 80 00 20 */	blr
@@ -14061,8 +14061,8 @@ lbl_800AADF8:
 /* 800AAED4 000A7E34  90 03 00 04 */	stw r0, 4(r3)
 /* 800AAED8 000A7E38  4E 80 00 20 */	blr
 
-.global "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR22CScriptPointOfinterest"
-"Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR22CScriptPointOfinterest":
+.global "Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR22CScriptPointOfInterest"
+"Visit__38TCastToPtr<24CScriptCameraPitchVolume>FR22CScriptPointOfInterest":
 /* 800AAEDC 000A7E3C  38 00 00 00 */	li r0, 0
 /* 800AAEE0 000A7E40  90 03 00 04 */	stw r0, 4(r3)
 /* 800AAEE4 000A7E44  4E 80 00 20 */	blr
@@ -14433,8 +14433,8 @@ lbl_800AB10C:
 /* 800AB1E8 000A8148  90 03 00 04 */	stw r0, 4(r3)
 /* 800AB1EC 000A814C  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CScriptCameraHint>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CScriptCameraHint>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CScriptCameraHint>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CScriptCameraHint>FR22CScriptPointOfInterest":
 /* 800AB1F0 000A8150  38 00 00 00 */	li r0, 0
 /* 800AB1F4 000A8154  90 03 00 04 */	stw r0, 4(r3)
 /* 800AB1F8 000A8158  4E 80 00 20 */	blr
@@ -14805,8 +14805,8 @@ lbl_800AB420:
 /* 800AB4FC 000A845C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AB500 000A8460  4E 80 00 20 */	blr
 
-.global "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR22CScriptPointOfinterest"
-"Visit__32TCastToPtr<18CScriptAiJumpPoint>FR22CScriptPointOfinterest":
+.global "Visit__32TCastToPtr<18CScriptAiJumpPoint>FR22CScriptPointOfInterest"
+"Visit__32TCastToPtr<18CScriptAiJumpPoint>FR22CScriptPointOfInterest":
 /* 800AB504 000A8464  38 00 00 00 */	li r0, 0
 /* 800AB508 000A8468  90 03 00 04 */	stw r0, 4(r3)
 /* 800AB50C 000A846C  4E 80 00 20 */	blr
@@ -15205,8 +15205,8 @@ lbl_800AB734:
 /* 800AB874 000A87D4  90 03 00 04 */	stw r0, 4(r3)
 /* 800AB878 000A87D8  4E 80 00 20 */	blr
 
-.global "Visit__34TCastToPtr<20CScriptActorKeyframe>FR22CScriptPointOfinterest"
-"Visit__34TCastToPtr<20CScriptActorKeyframe>FR22CScriptPointOfinterest":
+.global "Visit__34TCastToPtr<20CScriptActorKeyframe>FR22CScriptPointOfInterest"
+"Visit__34TCastToPtr<20CScriptActorKeyframe>FR22CScriptPointOfInterest":
 /* 800AB87C 000A87DC  38 00 00 00 */	li r0, 0
 /* 800AB880 000A87E0  90 03 00 04 */	stw r0, 4(r3)
 /* 800AB884 000A87E4  4E 80 00 20 */	blr
@@ -15577,8 +15577,8 @@ lbl_800ABAAC:
 /* 800ABB88 000A8AE8  90 03 00 04 */	stw r0, 4(r3)
 /* 800ABB8C 000A8AEC  4E 80 00 20 */	blr
 
-.global "Visit__26TCastToPtr<12CScriptActor>FR22CScriptPointOfinterest"
-"Visit__26TCastToPtr<12CScriptActor>FR22CScriptPointOfinterest":
+.global "Visit__26TCastToPtr<12CScriptActor>FR22CScriptPointOfInterest"
+"Visit__26TCastToPtr<12CScriptActor>FR22CScriptPointOfInterest":
 /* 800ABB90 000A8AF0  38 00 00 00 */	li r0, 0
 /* 800ABB94 000A8AF4  90 03 00 04 */	stw r0, 4(r3)
 /* 800ABB98 000A8AF8  4E 80 00 20 */	blr
@@ -15949,8 +15949,8 @@ lbl_800ABDC0:
 /* 800ABE9C 000A8DFC  90 03 00 04 */	stw r0, 4(r3)
 /* 800ABEA0 000A8E00  4E 80 00 20 */	blr
 
-.global "Visit__22TCastToPtr<9CRepulsor>FR22CScriptPointOfinterest"
-"Visit__22TCastToPtr<9CRepulsor>FR22CScriptPointOfinterest":
+.global "Visit__22TCastToPtr<9CRepulsor>FR22CScriptPointOfInterest"
+"Visit__22TCastToPtr<9CRepulsor>FR22CScriptPointOfInterest":
 /* 800ABEA4 000A8E04  38 00 00 00 */	li r0, 0
 /* 800ABEA8 000A8E08  90 03 00 04 */	stw r0, 4(r3)
 /* 800ABEAC 000A8E0C  4E 80 00 20 */	blr
@@ -16321,8 +16321,8 @@ lbl_800AC0D4:
 /* 800AC1B0 000A9110  90 03 00 04 */	stw r0, 4(r3)
 /* 800AC1B4 000A9114  4E 80 00 20 */	blr
 
-.global "Visit__20TCastToPtr<7CPlayer>FR22CScriptPointOfinterest"
-"Visit__20TCastToPtr<7CPlayer>FR22CScriptPointOfinterest":
+.global "Visit__20TCastToPtr<7CPlayer>FR22CScriptPointOfInterest"
+"Visit__20TCastToPtr<7CPlayer>FR22CScriptPointOfInterest":
 /* 800AC1B8 000A9118  38 00 00 00 */	li r0, 0
 /* 800AC1BC 000A911C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AC1C0 000A9120  4E 80 00 20 */	blr
@@ -16721,8 +16721,8 @@ lbl_800AC3E8:
 /* 800AC528 000A9488  90 03 00 04 */	stw r0, 4(r3)
 /* 800AC52C 000A948C  4E 80 00 20 */	blr
 
-.global "Visit__27TCastToPtr<13CPhysicsActor>FR22CScriptPointOfinterest"
-"Visit__27TCastToPtr<13CPhysicsActor>FR22CScriptPointOfinterest":
+.global "Visit__27TCastToPtr<13CPhysicsActor>FR22CScriptPointOfInterest"
+"Visit__27TCastToPtr<13CPhysicsActor>FR22CScriptPointOfInterest":
 /* 800AC530 000A9490  38 00 00 00 */	li r0, 0
 /* 800AC534 000A9494  90 03 00 04 */	stw r0, 4(r3)
 /* 800AC538 000A9498  4E 80 00 20 */	blr
@@ -17111,8 +17111,8 @@ lbl_800AC738:
 /* 800AC878 000A97D8  90 03 00 04 */	stw r0, 4(r3)
 /* 800AC87C 000A97DC  4E 80 00 20 */	blr
 
-.global "Visit__16TCastToPtr<3CAi>FR22CScriptPointOfinterest"
-"Visit__16TCastToPtr<3CAi>FR22CScriptPointOfinterest":
+.global "Visit__16TCastToPtr<3CAi>FR22CScriptPointOfInterest"
+"Visit__16TCastToPtr<3CAi>FR22CScriptPointOfInterest":
 /* 800AC880 000A97E0  38 00 00 00 */	li r0, 0
 /* 800AC884 000A97E4  90 03 00 04 */	stw r0, 4(r3)
 /* 800AC888 000A97E8  4E 80 00 20 */	blr
@@ -17350,8 +17350,8 @@ lbl_800AC738:
 /* 800ACA54 000A99B4  90 03 00 04 */	stw r0, 4(r3)
 /* 800ACA58 000A99B8  4E 80 00 20 */	blr
 
-.global "__ct__16TCastToPtr<3CAi>FP7CEntity"
-"__ct__16TCastToPtr<3CAi>FP7CEntity":
+.global "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
+"__ct__24TCastToPtr<10CPatterned>FP7CEntity":
 /* 800ACA5C 000A99BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800ACA60 000A99C0  7C 08 02 A6 */	mflr r0
 /* 800ACA64 000A99C4  3C C0 80 3E */	lis r6, lbl_803DF03C@ha
@@ -17381,8 +17381,8 @@ lbl_800ACAB0:
 /* 800ACAC0 000A9A20  38 21 00 10 */	addi r1, r1, 0x10
 /* 800ACAC4 000A9A24  4E 80 00 20 */	blr
 
-.global "__ct__16TCastToPtr<10CPatterned>FR7CEntity"
-"__ct__16TCastToPtr<10CPatterned>FR7CEntity":
+.global "__ct__24TCastToPtr<10CPatterned>FR7CEntity"
+"__ct__24TCastToPtr<10CPatterned>FR7CEntity":
 /* 800ACAC8 000A9A28  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800ACACC 000A9A2C  7C 08 02 A6 */	mflr r0
 /* 800ACAD0 000A9A30  3C A0 80 3E */	lis r5, lbl_803DCE20@ha
@@ -17511,8 +17511,8 @@ lbl_800ACAB0:
 /* 800ACBF0 000A9B50  90 03 00 04 */	stw r0, 4(r3)
 /* 800ACBF4 000A9B54  4E 80 00 20 */	blr
 
-.global "Visit__25TCastToPtr<11CPathCamera>FR22CScriptPointOfinterest"
-"Visit__25TCastToPtr<11CPathCamera>FR22CScriptPointOfinterest":
+.global "Visit__25TCastToPtr<11CPathCamera>FR22CScriptPointOfInterest"
+"Visit__25TCastToPtr<11CPathCamera>FR22CScriptPointOfInterest":
 /* 800ACBF8 000A9B58  38 00 00 00 */	li r0, 0
 /* 800ACBFC 000A9B5C  90 03 00 04 */	stw r0, 4(r3)
 /* 800ACC00 000A9B60  4E 80 00 20 */	blr
@@ -17883,8 +17883,8 @@ lbl_800ACE28:
 /* 800ACF04 000A9E64  90 03 00 04 */	stw r0, 4(r3)
 /* 800ACF08 000A9E68  4E 80 00 20 */	blr
 
-.global "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR22CScriptPointOfinterest"
-"Visit__32TCastToPtr<18CMetroidPrimeRelay>FR22CScriptPointOfinterest":
+.global "Visit__32TCastToPtr<18CMetroidPrimeRelay>FR22CScriptPointOfInterest"
+"Visit__32TCastToPtr<18CMetroidPrimeRelay>FR22CScriptPointOfInterest":
 /* 800ACF0C 000A9E6C  38 00 00 00 */	li r0, 0
 /* 800ACF10 000A9E70  90 03 00 04 */	stw r0, 4(r3)
 /* 800ACF14 000A9E74  4E 80 00 20 */	blr
@@ -18255,8 +18255,8 @@ lbl_800AD13C:
 /* 800AD218 000AA178  90 03 00 04 */	stw r0, 4(r3)
 /* 800AD21C 000AA17C  4E 80 00 20 */	blr
 
-.global "Visit__33TCastToPtr<19CHUDBillboardEffect>FR22CScriptPointOfinterest"
-"Visit__33TCastToPtr<19CHUDBillboardEffect>FR22CScriptPointOfinterest":
+.global "Visit__33TCastToPtr<19CHUDBillboardEffect>FR22CScriptPointOfInterest"
+"Visit__33TCastToPtr<19CHUDBillboardEffect>FR22CScriptPointOfInterest":
 /* 800AD220 000AA180  38 00 00 00 */	li r0, 0
 /* 800AD224 000AA184  90 03 00 04 */	stw r0, 4(r3)
 /* 800AD228 000AA188  4E 80 00 20 */	blr
@@ -18627,8 +18627,8 @@ lbl_800AD450:
 /* 800AD52C 000AA48C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AD530 000AA490  4E 80 00 20 */	blr
 
-.global "Visit__29TCastToPtr<15CGameProjectile>FR22CScriptPointOfinterest"
-"Visit__29TCastToPtr<15CGameProjectile>FR22CScriptPointOfinterest":
+.global "Visit__29TCastToPtr<15CGameProjectile>FR22CScriptPointOfInterest"
+"Visit__29TCastToPtr<15CGameProjectile>FR22CScriptPointOfInterest":
 /* 800AD534 000AA494  38 00 00 00 */	li r0, 0
 /* 800AD538 000AA498  90 03 00 04 */	stw r0, 4(r3)
 /* 800AD53C 000AA49C  4E 80 00 20 */	blr
@@ -19026,8 +19026,8 @@ lbl_800AD760:
 /* 800AD8A0 000AA800  90 03 00 04 */	stw r0, 4(r3)
 /* 800AD8A4 000AA804  4E 80 00 20 */	blr
 
-.global "Visit__24TCastToPtr<10CGameLight>FR22CScriptPointOfinterest"
-"Visit__24TCastToPtr<10CGameLight>FR22CScriptPointOfinterest":
+.global "Visit__24TCastToPtr<10CGameLight>FR22CScriptPointOfInterest"
+"Visit__24TCastToPtr<10CGameLight>FR22CScriptPointOfInterest":
 /* 800AD8A8 000AA808  38 00 00 00 */	li r0, 0
 /* 800AD8AC 000AA80C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AD8B0 000AA810  4E 80 00 20 */	blr
@@ -19425,8 +19425,8 @@ lbl_800ADAD8:
 /* 800ADC14 000AAB74  90 03 00 04 */	stw r0, 4(r3)
 /* 800ADC18 000AAB78  4E 80 00 20 */	blr
 
-.global "Visit__25TCastToPtr<11CGameCamera>FR22CScriptPointOfinterest"
-"Visit__25TCastToPtr<11CGameCamera>FR22CScriptPointOfinterest":
+.global "Visit__25TCastToPtr<11CGameCamera>FR22CScriptPointOfInterest"
+"Visit__25TCastToPtr<11CGameCamera>FR22CScriptPointOfInterest":
 /* 800ADC1C 000AAB7C  38 00 00 00 */	li r0, 0
 /* 800ADC20 000AAB80  90 03 00 04 */	stw r0, 4(r3)
 /* 800ADC24 000AAB84  4E 80 00 20 */	blr
@@ -19821,8 +19821,8 @@ lbl_800ADE3C:
 /* 800ADF7C 000AAEDC  90 03 00 04 */	stw r0, 4(r3)
 /* 800ADF80 000AAEE0  4E 80 00 20 */	blr
 
-.global "Visit__24TCastToPtr<10CFishCloud>FR22CScriptPointOfinterest"
-"Visit__24TCastToPtr<10CFishCloud>FR22CScriptPointOfinterest":
+.global "Visit__24TCastToPtr<10CFishCloud>FR22CScriptPointOfInterest"
+"Visit__24TCastToPtr<10CFishCloud>FR22CScriptPointOfInterest":
 /* 800ADF84 000AAEE4  38 00 00 00 */	li r0, 0
 /* 800ADF88 000AAEE8  90 03 00 04 */	stw r0, 4(r3)
 /* 800ADF8C 000AAEEC  4E 80 00 20 */	blr
@@ -20193,8 +20193,8 @@ lbl_800AE1B4:
 /* 800AE290 000AB1F0  90 03 00 04 */	stw r0, 4(r3)
 /* 800AE294 000AB1F4  4E 80 00 20 */	blr
 
-.global "Visit__32TCastToPtr<18CFirstPersonCamera>FR22CScriptPointOfinterest"
-"Visit__32TCastToPtr<18CFirstPersonCamera>FR22CScriptPointOfinterest":
+.global "Visit__32TCastToPtr<18CFirstPersonCamera>FR22CScriptPointOfInterest"
+"Visit__32TCastToPtr<18CFirstPersonCamera>FR22CScriptPointOfInterest":
 /* 800AE298 000AB1F8  38 00 00 00 */	li r0, 0
 /* 800AE29C 000AB1FC  90 03 00 04 */	stw r0, 4(r3)
 /* 800AE2A0 000AB200  4E 80 00 20 */	blr
@@ -20562,8 +20562,8 @@ lbl_800AE1B4:
 /* 800AE59C 000AB4FC  90 03 00 04 */	stw r0, 4(r3)
 /* 800AE5A0 000AB500  4E 80 00 20 */	blr
 
-.global "Visit__24TCastToPtr<10CExplosion>FR22CScriptPointOfinterest"
-"Visit__24TCastToPtr<10CExplosion>FR22CScriptPointOfinterest":
+.global "Visit__24TCastToPtr<10CExplosion>FR22CScriptPointOfInterest"
+"Visit__24TCastToPtr<10CExplosion>FR22CScriptPointOfInterest":
 /* 800AE5A4 000AB504  38 00 00 00 */	li r0, 0
 /* 800AE5A8 000AB508  90 03 00 04 */	stw r0, 4(r3)
 /* 800AE5AC 000AB50C  4E 80 00 20 */	blr
@@ -20917,8 +20917,8 @@ lbl_800AE7D4:
 /* 800AE86C 000AB7CC  90 83 00 04 */	stw r4, 4(r3)
 /* 800AE870 000AB7D0  4E 80 00 20 */	blr
 
-.global "Visit__20TCastToPtr<7CEntity>FR22CScriptPointOfinterest"
-"Visit__20TCastToPtr<7CEntity>FR22CScriptPointOfinterest":
+.global "Visit__20TCastToPtr<7CEntity>FR22CScriptPointOfInterest"
+"Visit__20TCastToPtr<7CEntity>FR22CScriptPointOfInterest":
 /* 800AE874 000AB7D4  90 83 00 04 */	stw r4, 4(r3)
 /* 800AE878 000AB7D8  4E 80 00 20 */	blr
 
@@ -21250,8 +21250,8 @@ lbl_800AEA08:
 /* 800AEAE4 000ABA44  90 03 00 04 */	stw r0, 4(r3)
 /* 800AEAE8 000ABA48  4E 80 00 20 */	blr
 
-.global "Visit__31TCastToPtr<17CEnergyProjectile>FR22CScriptPointOfinterest"
-"Visit__31TCastToPtr<17CEnergyProjectile>FR22CScriptPointOfinterest":
+.global "Visit__31TCastToPtr<17CEnergyProjectile>FR22CScriptPointOfInterest"
+"Visit__31TCastToPtr<17CEnergyProjectile>FR22CScriptPointOfInterest":
 /* 800AEAEC 000ABA4C  38 00 00 00 */	li r0, 0
 /* 800AEAF0 000ABA50  90 03 00 04 */	stw r0, 4(r3)
 /* 800AEAF4 000ABA54  4E 80 00 20 */	blr
@@ -21650,8 +21650,8 @@ lbl_800AED1C:
 /* 800AEE5C 000ABDBC  90 03 00 04 */	stw r0, 4(r3)
 /* 800AEE60 000ABDC0  4E 80 00 20 */	blr
 
-.global "Visit__30TCastToPtr<16CDestroyableRock>FR22CScriptPointOfinterest"
-"Visit__30TCastToPtr<16CDestroyableRock>FR22CScriptPointOfinterest":
+.global "Visit__30TCastToPtr<16CDestroyableRock>FR22CScriptPointOfInterest"
+"Visit__30TCastToPtr<16CDestroyableRock>FR22CScriptPointOfInterest":
 /* 800AEE64 000ABDC4  38 00 00 00 */	li r0, 0
 /* 800AEE68 000ABDC8  90 03 00 04 */	stw r0, 4(r3)
 /* 800AEE6C 000ABDCC  4E 80 00 20 */	blr
@@ -21889,8 +21889,8 @@ lbl_800AED1C:
 /* 800AF038 000ABF98  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF03C 000ABF9C  4E 80 00 20 */	blr
 
-.global "__ct__30TCastToPtr<16CDestroyableRock>FP7CEntity"
-"__ct__30TCastToPtr<16CDestroyableRock>FP7CEntity":
+.global "__ct__30TCastToPtr<16CDestroyableRock>FR7CEntity"
+"__ct__30TCastToPtr<16CDestroyableRock>FR7CEntity":
 /* 800AF040 000ABFA0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800AF044 000ABFA4  7C 08 02 A6 */	mflr r0
 /* 800AF048 000ABFA8  3C A0 80 3E */	lis r5, lbl_803DC310@ha
@@ -22019,8 +22019,8 @@ lbl_800AED1C:
 /* 800AF168 000AC0C8  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF16C 000AC0CC  4E 80 00 20 */	blr
 
-.global "Visit__29TCastToPtr<15CCollisionActor>FR22CScriptPointOfinterest"
-"Visit__29TCastToPtr<15CCollisionActor>FR22CScriptPointOfinterest":
+.global "Visit__29TCastToPtr<15CCollisionActor>FR22CScriptPointOfInterest"
+"Visit__29TCastToPtr<15CCollisionActor>FR22CScriptPointOfInterest":
 /* 800AF170 000AC0D0  38 00 00 00 */	li r0, 0
 /* 800AF174 000AC0D4  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF178 000AC0D8  4E 80 00 20 */	blr
@@ -22419,8 +22419,8 @@ lbl_800AF3A0:
 /* 800AF4E0 000AC440  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF4E4 000AC444  4E 80 00 20 */	blr
 
-.global "Visit__30TCastToPtr<16CCinematicCamera>FR22CScriptPointOfinterest"
-"Visit__30TCastToPtr<16CCinematicCamera>FR22CScriptPointOfinterest":
+.global "Visit__30TCastToPtr<16CCinematicCamera>FR22CScriptPointOfInterest"
+"Visit__30TCastToPtr<16CCinematicCamera>FR22CScriptPointOfInterest":
 /* 800AF4E8 000AC448  38 00 00 00 */	li r0, 0
 /* 800AF4EC 000AC44C  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF4F0 000AC450  4E 80 00 20 */	blr
@@ -22819,8 +22819,8 @@ lbl_800AF718:
 /* 800AF858 000AC7B8  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF85C 000AC7BC  4E 80 00 20 */	blr
 
-.global "Visit__18TCastToPtr<5CBomb>FR22CScriptPointOfinterest"
-"Visit__18TCastToPtr<5CBomb>FR22CScriptPointOfinterest":
+.global "Visit__18TCastToPtr<5CBomb>FR22CScriptPointOfInterest"
+"Visit__18TCastToPtr<5CBomb>FR22CScriptPointOfInterest":
 /* 800AF860 000AC7C0  38 00 00 00 */	li r0, 0
 /* 800AF864 000AC7C4  90 03 00 04 */	stw r0, 4(r3)
 /* 800AF868 000AC7C8  4E 80 00 20 */	blr

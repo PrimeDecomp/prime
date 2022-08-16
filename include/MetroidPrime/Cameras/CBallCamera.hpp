@@ -1,7 +1,9 @@
 #ifndef __CBALLCAMERA_HPP__
 #define __CBALLCAMERA_HPP__
 
-class CBallCamera {
+#include "MetroidPrime/Cameras/CGameCamera.hpp"
+
+class CBallCamera : public CGameCamera {
 public:
   enum EBallCameraState {
     kBCS_Default,
@@ -27,6 +29,10 @@ public:
     kSS_Nav,
     kSS_Arc,
   };
+
+  ~CBallCamera() override;
+  void Accept(IVisitor& visitor) override;
+  // TODO
 };
 
 #endif // __CBALLCAMERA_HPP__

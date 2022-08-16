@@ -2483,7 +2483,7 @@ SetOrbitTargetId__7CPlayerF9TUniqueIdR13CStateManager:
 /* 8017B628 00178588  4B ED 0F 7D */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 8017B62C 0017858C  7C 64 1B 78 */	mr r4, r3
 /* 8017B630 00178590  38 61 00 2C */	addi r3, r1, 0x2c
-/* 8017B634 00178594  4B F3 14 29 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 8017B634 00178594  4B F3 14 29 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8017B638 00178598  83 63 00 04 */	lwz r27, 4(r3)
 /* 8017B63C 0017859C  7F E3 FB 78 */	mr r3, r31
 /* 8017B640 001785A0  A0 1E 00 00 */	lhz r0, 0(r30)

@@ -526,7 +526,7 @@ PreRender__13CBoneTrackingFRC13CStateManagerR9CAnimDataRC12CTransform4fRC9CVecto
 /* 80175934 00172894  7C FD 3B 78 */	mr r29, r7
 /* 80175938 00172898  38 61 00 08 */	addi r3, r1, 8
 /* 8017593C 0017289C  80 88 00 00 */	lwz r4, 0(r8)
-/* 80175940 001728A0  4B F3 71 89 */	bl "__ct__16TCastToPtr<10CPatterned>FR7CEntity"
+/* 80175940 001728A0  4B F3 71 89 */	bl "__ct__24TCastToPtr<10CPatterned>FR7CEntity"
 /* 80175944 001728A4  83 C3 00 04 */	lwz r30, 4(r3)
 /* 80175948 001728A8  38 7F 02 A4 */	addi r3, r31, 0x2a4
 /* 8017594C 001728AC  3B E0 00 00 */	li r31, 0

@@ -238,7 +238,7 @@ CastPatternedCharacter__FQ210CPatterned10ECharacterP7CEntity:
 /* 800A55B8 000A2518  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 800A55BC 000A251C  7C 7F 1B 78 */	mr r31, r3
 /* 800A55C0 000A2520  38 61 00 08 */	addi r3, r1, 8
-/* 800A55C4 000A2524  48 00 74 99 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 800A55C4 000A2524  48 00 74 99 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 800A55C8 000A2528  80 63 00 04 */	lwz r3, 4(r3)
 /* 800A55CC 000A252C  28 03 00 00 */	cmplwi r3, 0
 /* 800A55D0 000A2530  41 82 00 14 */	beq lbl_800A55E4

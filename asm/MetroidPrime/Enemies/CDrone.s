@@ -6219,7 +6219,7 @@ lbl_80164138:
 /* 80164158 001610B8  4B EE 84 1D */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8016415C 001610BC  7C 64 1B 78 */	mr r4, r3
 /* 80164160 001610C0  38 61 00 3C */	addi r3, r1, 0x3c
-/* 80164164 001610C4  4B F4 88 F9 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80164164 001610C4  4B F4 88 F9 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 80164168 001610C8  80 03 00 04 */	lwz r0, 4(r3)
 /* 8016416C 001610CC  28 00 00 00 */	cmplwi r0, 0
 /* 80164170 001610D0  41 82 00 54 */	beq lbl_801641C4

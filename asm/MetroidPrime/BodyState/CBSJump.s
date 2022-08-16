@@ -127,7 +127,7 @@ CheckForWallJump__7CBSJumpFR15CBodyControllerR13CStateManager:
 /* 80145754 001426B4  40 82 01 C4 */	bne lbl_80145918
 /* 80145758 001426B8  80 9C 00 00 */	lwz r4, 0(r28)
 /* 8014575C 001426BC  38 61 00 54 */	addi r3, r1, 0x54
-/* 80145760 001426C0  4B F6 72 FD */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80145760 001426C0  4B F6 72 FD */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 80145764 001426C4  83 E3 00 04 */	lwz r31, 4(r3)
 /* 80145768 001426C8  28 1F 00 00 */	cmplwi r31, 0
 /* 8014576C 001426CC  41 82 01 AC */	beq lbl_80145918
@@ -267,7 +267,7 @@ CheckForLand__7CBSJumpFR15CBodyControllerR13CStateManager:
 /* 8014595C 001428BC  7C 7C 1B 78 */	mr r28, r3
 /* 80145960 001428C0  38 61 00 54 */	addi r3, r1, 0x54
 /* 80145964 001428C4  80 84 00 00 */	lwz r4, 0(r4)
-/* 80145968 001428C8  4B F6 70 F5 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80145968 001428C8  4B F6 70 F5 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8014596C 001428CC  83 E3 00 04 */	lwz r31, 4(r3)
 /* 80145970 001428D0  28 1F 00 00 */	cmplwi r31, 0
 /* 80145974 001428D4  41 82 01 38 */	beq lbl_80145AAC
@@ -663,7 +663,7 @@ lbl_80145E40:
 /* 80145F08 00142E68  38 61 00 14 */	addi r3, r1, 0x14
 /* 80145F0C 00142E6C  98 1C 00 30 */	stb r0, 0x30(r28)
 /* 80145F10 00142E70  80 9D 00 00 */	lwz r4, 0(r29)
-/* 80145F14 00142E74  4B F6 6B 49 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80145F14 00142E74  4B F6 6B 49 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 80145F18 00142E78  83 63 00 04 */	lwz r27, 4(r3)
 /* 80145F1C 00142E7C  28 1B 00 00 */	cmplwi r27, 0
 /* 80145F20 00142E80  41 82 00 70 */	beq lbl_80145F90

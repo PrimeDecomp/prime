@@ -646,7 +646,7 @@ lbl_8022771C:
 /* 8022772C 0022468C  4B E2 4E 79 */	bl GetObjectById__13CStateManagerCF9TUniqueId
 /* 80227730 00224690  7C 64 1B 78 */	mr r4, r3
 /* 80227734 00224694  38 61 00 0C */	addi r3, r1, 0xc
-/* 80227738 00224698  4B E8 53 25 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 80227738 00224698  4B E8 53 25 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 8022773C 0022469C  80 83 00 04 */	lwz r4, 4(r3)
 /* 80227740 002246A0  28 04 00 00 */	cmplwi r4, 0
 /* 80227744 002246A4  41 82 00 60 */	beq lbl_802277A4

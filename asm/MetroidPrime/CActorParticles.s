@@ -4322,7 +4322,7 @@ IsMediumOrLarge__FRCActor:
 /* 801E7480 001E43E0  7C 64 1B 78 */	mr r4, r3
 /* 801E7484 001E43E4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801E7488 001E43E8  38 61 00 08 */	addi r3, r1, 8
-/* 801E748C 001E43EC  4B EC 55 D1 */	bl "__ct__16TCastToPtr<3CAi>FP7CEntity"
+/* 801E748C 001E43EC  4B EC 55 D1 */	bl "__ct__24TCastToPtr<10CPatterned>FP7CEntity"
 /* 801E7490 001E43F0  80 63 00 04 */	lwz r3, 4(r3)
 /* 801E7494 001E43F4  28 03 00 00 */	cmplwi r3, 0
 /* 801E7498 001E43F8  41 82 00 18 */	beq lbl_801E74B0

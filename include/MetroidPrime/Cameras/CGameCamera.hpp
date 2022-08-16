@@ -5,10 +5,15 @@
 
 #include "MetroidPrime/CActor.hpp"
 
-#include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CMatrix4f.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
 
 class CGameCamera : public CActor {
+public:
+  ~CGameCamera() override;
+  void Accept(IVisitor& visitor) override;
+  // TODO
+
 private:
   TUniqueId xe8_watchedObject;
   mutable CMatrix4f xec_perspectiveMatrix;
