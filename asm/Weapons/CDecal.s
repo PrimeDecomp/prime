@@ -623,9 +623,9 @@ lbl_802B50E0:
 /* 802B50F4 002B2054  48 05 A6 49 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
 /* 802B50F8 002B2058  38 61 00 10 */	addi r3, r1, 0x10
 /* 802B50FC 002B205C  48 08 BD 11 */	bl GetObj__6CTokenFv
-/* 802B5100 002B2060  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 802B5100 002B2060  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 802B5104 002B2064  38 60 00 00 */	li r3, 0
-/* 802B5108 002B2068  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 802B5108 002B2068  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 802B510C 002B206C  48 05 51 AD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802B5110 002B2070  80 7E 00 14 */	lwz r3, 0x14(r30)
 /* 802B5114 002B2074  38 A1 00 24 */	addi r5, r1, 0x24
@@ -664,7 +664,7 @@ lbl_802B50E0:
 /* 802B5198 002B20F8  48 0C 66 99 */	bl GXSetTevSwapMode
 /* 802B519C 002B20FC  48 00 00 10 */	b lbl_802B51AC
 lbl_802B51A0:
-/* 802B51A0 002B2100  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802B51A0 002B2100  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802B51A4 002B2104  38 60 00 01 */	li r3, 1
 /* 802B51A8 002B2108  48 05 51 11 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_802B51AC:
@@ -673,10 +673,10 @@ lbl_802B51AC:
 /* 802B51B4 002B2114  48 08 BC 8D */	bl __dt__6CTokenFv
 /* 802B51B8 002B2118  48 00 00 1C */	b lbl_802B51D4
 lbl_802B51BC:
-/* 802B51BC 002B211C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802B51BC 002B211C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802B51C0 002B2120  38 60 00 00 */	li r3, 0
 /* 802B51C4 002B2124  48 05 50 F5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 802B51C8 002B2128  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802B51C8 002B2128  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802B51CC 002B212C  38 60 00 01 */	li r3, 1
 /* 802B51D0 002B2130  48 05 50 E9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_802B51D4:

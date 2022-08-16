@@ -136,9 +136,9 @@ Draw__13CArtifactDollFfRC13CStateManagerbUi:
 /* 8029C9BC 0029991C  48 00 0A 65 */	bl IsLoaded__13CArtifactDollCFv
 /* 8029C9C0 00299920  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8029C9C4 00299924  41 82 03 F4 */	beq lbl_8029CDB8
-/* 8029C9C8 00299928  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8029C9C8 00299928  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8029C9CC 0029992C  3C 80 43 30 */	lis r4, 0x4330
-/* 8029C9D0 00299930  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 8029C9D0 00299930  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 8029C9D4 00299934  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 8029C9D8 00299938  80 A6 00 08 */	lwz r5, 8(r6)
 /* 8029C9DC 0029993C  80 06 00 0C */	lwz r0, 0xc(r6)

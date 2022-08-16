@@ -27,15 +27,14 @@ public:
   //   x4_item = other.x4_item;
   //   other.x0_has = false;
   // }
-  T* get() { return x4_item; }
-  /* const*/ T* get() const { return x4_item; }
-  T* operator->() { return get(); }
-  const T* operator->() const { return get(); }
+  T* get() const { return x4_item; }
+  T* operator->() const { return x4_item; }
+  T& operator*() const { return *x4_item; }
   T* release() const {
     x0_has = false;
     return x4_item;
   }
-  operator bool() const { return x0_has; }
+  bool null() const { return x4_item == nullptr; }
 };
 } // namespace rstl
 

@@ -978,9 +978,9 @@ DrawEnabled__18CWorldTransManagerCFv:
 /* 80209AB8 00206A18  4B E0 26 11 */	bl DefaultNearPlane__14CCameraManagerFv
 /* 80209ABC 00206A1C  FF C0 08 90 */	fmr f30, f1
 /* 80209AC0 00206A20  4B E0 26 01 */	bl DefaultFarPlane__14CCameraManagerFv
-/* 80209AC4 00206A24  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80209AC4 00206A24  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 80209AC8 00206A28  3C 80 43 30 */	lis r4, 0x4330
-/* 80209ACC 00206A2C  3B C3 D9 10 */	addi r30, r3, lbl_803ED910@l
+/* 80209ACC 00206A2C  3B C3 D9 10 */	addi r30, r3, mViewport__9CGraphics@l
 /* 80209AD0 00206A30  FC 00 08 90 */	fmr f0, f1
 /* 80209AD4 00206A34  80 7E 00 08 */	lwz r3, 8(r30)
 /* 80209AD8 00206A38  FC 20 F8 90 */	fmr f1, f31
@@ -1036,9 +1036,9 @@ lbl_80209B80:
 /* 80209B98 00206AF8  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 80209B9C 00206AFC  4B E0 27 19 */	bl "Clamp<f>__5CMathFRCfRCfRCf"
 /* 80209BA0 00206B00  C0 23 00 00 */	lfs f1, 0(r3)
-/* 80209BA4 00206B04  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80209BA4 00206B04  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 80209BA8 00206B08  C0 02 B1 30 */	lfs f0, lbl_805ACE50@sda21(r2)
-/* 80209BAC 00206B0C  38 A3 D9 10 */	addi r5, r3, lbl_803ED910@l
+/* 80209BAC 00206B0C  38 A3 D9 10 */	addi r5, r3, mViewport__9CGraphics@l
 /* 80209BB0 00206B10  80 9D 00 04 */	lwz r4, 4(r29)
 /* 80209BB4 00206B14  7F A3 EB 78 */	mr r3, r29
 /* 80209BB8 00206B18  EF C0 08 28 */	fsubs f30, f0, f1

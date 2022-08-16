@@ -15,9 +15,9 @@ Draw__13CGameCubeDollFf:
 /* 8029E664 0029B5C4  48 00 04 D5 */	bl IsLoaded__13CGameCubeDollCFv
 /* 8029E668 0029B5C8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8029E66C 0029B5CC  41 82 01 44 */	beq lbl_8029E7B0
-/* 8029E670 0029B5D0  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8029E670 0029B5D0  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8029E674 0029B5D4  3C 80 43 30 */	lis r4, 0x4330
-/* 8029E678 0029B5D8  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 8029E678 0029B5D8  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 8029E67C 0029B5DC  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 8029E680 0029B5E0  80 A6 00 08 */	lwz r5, 8(r6)
 /* 8029E684 0029B5E4  80 06 00 0C */	lwz r0, 0xc(r6)

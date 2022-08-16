@@ -9,6 +9,16 @@
 #include "Kyoto/Math/CVector2f.hpp"
 #include "rstl/pair.hpp"
 
+class IRenderer {
+public:
+  enum EDrawableSorting {
+    kDS_SortedCallback,
+    kDS_UnsortedCallback,
+  };
+
+  // TODO vtable
+};
+
 class CCubeRenderer {
 public:
   virtual ~CCubeRenderer();
@@ -26,7 +36,7 @@ public:
   virtual void AddParticleGen1();
   virtual void AddParticleGen2();
   virtual void AddPlaneObject();
-  virtual void AddDrawable();
+  virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, s32 mode, IRenderer::EDrawableSorting sorting);
   virtual void SetDrawableCallback();
   virtual void SetWorldViewpoint();
   virtual void SetPerspective1();

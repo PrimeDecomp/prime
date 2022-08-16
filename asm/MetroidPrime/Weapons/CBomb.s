@@ -824,9 +824,9 @@ AddToRenderer__5CBombCFRC14CFrustumPlanesRC13CStateManager:
 /* 800904D4 0008D434  D0 21 00 24 */	stfs f1, 0x24(r1)
 /* 800904D8 0008D438  D0 01 00 28 */	stfs f0, 0x28(r1)
 /* 800904DC 0008D43C  48 2A 80 2D */	bl __ct__6CAABoxFRC9CVector3fRC9CVector3f
-/* 800904E0 0008D440  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 800904E0 0008D440  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 800904E4 0008D444  38 61 00 08 */	addi r3, r1, 8
-/* 800904E8 0008D448  38 C4 61 D4 */	addi r6, r4, lbl_805A61D4@l
+/* 800904E8 0008D448  38 C4 61 D4 */	addi r6, r4, mViewMatrix__9CGraphics@l
 /* 800904EC 0008D44C  38 81 00 44 */	addi r4, r1, 0x44
 /* 800904F0 0008D450  C0 46 00 04 */	lfs f2, 4(r6)
 /* 800904F4 0008D454  38 A1 00 38 */	addi r5, r1, 0x38

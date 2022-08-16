@@ -4141,9 +4141,9 @@ lbl_80006184:
 /* 800061A8 00003108  48 26 3A 19 */	bl __ct__18CErrorOutputWindowFiff
 /* 800061AC 0000310C  38 60 00 01 */	li r3, 1
 /* 800061B0 00003110  48 30 32 F9 */	bl SetIsBeginSceneClearFb__9CGraphicsFb
-/* 800061B4 00003114  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 800061B4 00003114  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 800061B8 00003118  38 60 00 00 */	li r3, 0
-/* 800061BC 0000311C  38 C4 D9 10 */	addi r6, r4, lbl_803ED910@l
+/* 800061BC 0000311C  38 C4 D9 10 */	addi r6, r4, mViewport__9CGraphics@l
 /* 800061C0 00003120  38 80 00 00 */	li r4, 0
 /* 800061C4 00003124  80 A6 00 08 */	lwz r5, 8(r6)
 /* 800061C8 00003128  80 C6 00 0C */	lwz r6, 0xc(r6)

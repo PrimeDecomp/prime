@@ -20,7 +20,7 @@ public:
     delete x0_ptr;
     x0_ptr = ptr;
   }
-  operator bool() const { return x0_ptr != nullptr; }
+  bool null() const { return x0_ptr == nullptr; }
   T& operator*() { return *x0_ptr; }
   const T& operator*() const { return *x0_ptr; }
 };

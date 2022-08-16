@@ -1,14 +1,22 @@
 #include "MetroidPrime/CActor.hpp"
 
+#include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CActorLights.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CAnimData.hpp"
+#include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/CModelData.hpp"
+#include "MetroidPrime/CSimpleShadow.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
 
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Math/CFrustumPlanes.hpp"
 
 static CMaterialList MakeActorMaterialList(const CMaterialList& in, const CActorParameters& params) {
   CMaterialList ret = in;
@@ -25,12 +33,12 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
                const CModelData& mData, const CMaterialList& list, const CActorParameters& params, TUniqueId nextDrawNode)
 : CEntity(uid, info, active, name)
 , x34_transform(xf)
-, x64_modelData(mData.IsStaticModel() ? nullptr : new CModelData(mData))
+, x64_modelData(mData.IsNull() ? nullptr : new CModelData(mData))
 , x68_material(MakeActorMaterialList(list, params))
 , x70_materialFilter(CMaterialFilter::MakeIncludeExclude(CMaterialList().Union(SolidMaterial), CMaterialList(0)))
 , x88_sfxId(InvalidSfxId)
 , x8c_loopingSfxHandle(0)
-, x90_actorLights(mData.IsStaticModel() ? nullptr : params.GetLighting().MakeActorLights().release())
+, x90_actorLights(mData.IsNull() ? nullptr : params.GetLighting().MakeActorLights().release())
 , x9c_renderBounds(CAABox::mskInvertedBox)
 , xb4_drawFlags(CModelFlags::Normal())
 , xbc_time(0.f)
@@ -66,7 +74,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , xe7_29_drawEnabled(active)
 , xe7_30_doTargetDistanceTest(true)
 , xe7_31_targetable(true) {
-  if (x64_modelData) {
+  if (!x64_modelData.null()) {
     if (params.GetXRay().first != 0) {
       x64_modelData->SetXRayModel(params.GetXRay());
     }
@@ -96,14 +104,14 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
     u16 maxVol = xd4_maxVol;
     s32 aid = x4_areaId.Value();
 
-    const CGameCamera* camera = mgr.GetCameraManager().GetCurrentCamera(mgr);
+    const CGameCamera* camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
     const CVector3f origin = GetTranslation();
     const CVector3f toCamera = camera->GetTranslation() - origin;
 
-    const CInt32POINode* intNode = nullptr;
-    const CSoundPOINode* soundNode = nullptr;
-    const CParticlePOINode* particleNode = nullptr;
-      
+    const CInt32POINode* intNode;
+    const CSoundPOINode* soundNode;
+    const CParticlePOINode* particleNode;
+
     s32 soundNodeCount = 0;
     if (HasAnimation()) {
       soundNode = GetAnimationData()->GetSoundPOIList(soundNodeCount);
@@ -160,8 +168,7 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
 }
 
 void CActor::RemoveEmitter() {
-  CSfxHandle handle = x8c_loopingSfxHandle;
-  if (handle) {
+  if (CSfxHandle handle = x8c_loopingSfxHandle) {
     CSfxManager::RemoveEmitter(handle);
     x88_sfxId = -1;
     x8c_loopingSfxHandle = 0;
@@ -178,10 +185,10 @@ f32 CActor::GetAverageAnimVelocity(s32 anim) { return HasAnimation() ? GetAnimat
 
 void CActor::CalculateRenderBounds() {
   if (HasModelData()) {
-    x9c_renderBounds = GetModelData()->GetBounds(GetTransform());
+    SetRenderBounds(GetModelData()->GetBounds(GetTransform()));
   } else {
     const CVector3f origin = GetTranslation();
-    x9c_renderBounds = CAABox(origin, origin);
+    SetRenderBounds(CAABox(origin, origin));
   }
 }
 
@@ -190,4 +197,103 @@ void CActor::SetModelData(const CModelData& modelData) { x64_modelData = modelDa
 // Unreferenced
 extern "C" {
 void sub_8005502c() {}
+}
+
+// TODO nonmatching
+void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
+  if (HasModelData()) {
+    SetPreRenderClipped(!planes.BoxInFrustumPlanes(x9c_renderBounds));
+    if (!GetPreRenderClipped()) {
+      bool lightsDirty = false;
+      if (GetPreRenderHasMoved()) {
+        SetPreRenderHasMoved(false);
+        SetShadowDirty(true);
+        lightsDirty = true;
+      } else if (xe7_28_worldLightingDirty) {
+        lightsDirty = true;
+      } else if (HasActorLights() && GetActorLights()->GetNeedsRelight()) {
+        lightsDirty = true;
+      }
+
+      if (GetShadowDirty() && GetDrawShadow() && HasShadow()) {
+        Shadow()->Calculate(GetModelData()->GetBounds(), GetTransform(), mgr);
+        SetShadowDirty(false);
+      }
+
+      if (GetCalculateLighting()) {
+        CAABox bounds = GetModelData()->GetBounds(GetTransform());
+        if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_Thermal) {
+          ActorLights()->BuildConstantAmbientLighting();
+        } else {
+          if (lightsDirty) {
+            TAreaId aid = x4_areaId;
+            if (aid != kInvalidAreaId && mgr.GetWorld()->IsAreaValid(aid) &&
+                ActorLights()->BuildAreaLightList(mgr, *mgr.GetWorld()->GetArea(aid), bounds)) {
+              xe7_28_worldLightingDirty = false;
+            }
+          }
+          ActorLights()->BuildDynamicLightList(mgr, bounds);
+        }
+      }
+
+      if (GetModelData()->HasAnimation()) {
+        AnimationData()->PreRender();
+      }
+    } else {
+      if (GetPreRenderHasMoved()) {
+        SetPreRenderHasMoved(false);
+        SetShadowDirty(true);
+      }
+      if (GetShadowDirty() && GetDrawShadow() && HasShadow()) {
+        if (planes.BoxInFrustumPlanes(GetShadow()->GetMaxShadowBox(GetModelData()->GetBounds(GetTransform()))) == true) {
+          Shadow()->Calculate(GetModelData()->GetBounds(), GetTransform(), mgr);
+          SetShadowDirty(false);
+        }
+      }
+    }
+  }
+}
+
+void CActor::AddToRenderer(const CFrustumPlanes& planes, const CStateManager& mgr) const {
+  if (HasModelData()) {
+    if (GetRenderParticleDatabaseInside()) {
+      GetModelData()->RenderParticles(planes);
+    }
+
+    if (!GetPreRenderClipped()) {
+      if (CanRenderUnsorted(mgr)) {
+        Render(mgr);
+      } else {
+        EnsureRendered(mgr);
+      }
+    }
+
+    if (mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_XRay &&
+        mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_Thermal && GetDrawShadow() && GetShadow()->Valid() &&
+        planes.BoxInFrustumPlanes(GetShadow()->GetBounds()) == true) {
+      gpRender->AddDrawable(GetShadow(), GetShadow()->GetTransform().GetTranslation(), GetShadow()->GetBounds(), 1,
+                            IRenderer::kDS_SortedCallback);
+    }
+  }
+}
+
+void CActor::EnsureRendered(const CStateManager& mgr, const CVector3f& pos, const CAABox& bounds) const {
+  if (GetModelData()) {
+    const CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
+    GetModelData()->RenderUnsortedParts(which, GetTransform(), GetActorLights(), GetModelFlags());
+  }
+  mgr.AddDrawableActor(*this, pos, bounds);
+}
+
+void CActor::EnsureRendered(const CStateManager& mgr) const {
+  const CAABox bounds = GetSortingBounds(mgr);
+  const CVector3f viewForward = CGraphics::GetViewMatrix().GetForward();
+  const CVector3f pos = bounds.ClosestPointAlongVector(viewForward);
+  EnsureRendered(mgr, pos, bounds);
+}
+
+void CActor::DrawTouchBounds() const {}
+
+bool CActor::CanRenderUnsorted(const CStateManager& mgr) const {
+  // if (GetModelData()->IsNull() && )
 }

@@ -361,9 +361,9 @@ lbl_800BC34C:
 /* 800BC3C0 000B9320  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 800BC3C4 000B9324  7D 89 03 A6 */	mtctr r12
 /* 800BC3C8 000B9328  4E 80 04 21 */	bctrl
-/* 800BC3CC 000B932C  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 800BC3CC 000B932C  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 800BC3D0 000B9330  3C 80 43 30 */	lis r4, 0x4330
-/* 800BC3D4 000B9334  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 800BC3D4 000B9334  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 800BC3D8 000B9338  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800BC3DC 000B933C  80 A6 00 08 */	lwz r5, 8(r6)
 /* 800BC3E0 000B9340  80 06 00 0C */	lwz r0, 0xc(r6)
@@ -978,9 +978,9 @@ Draw__17CTargetingManagerCFRC13CStateManager:
 /* 800BCC74 000B9BD4  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 800BCC78 000B9BD8  7D 89 03 A6 */	mtctr r12
 /* 800BCC7C 000B9BDC  4E 80 04 21 */	bctrl
-/* 800BCC80 000B9BE0  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 800BCC80 000B9BE0  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 800BCC84 000B9BE4  3C 80 43 30 */	lis r4, 0x4330
-/* 800BCC88 000B9BE8  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 800BCC88 000B9BE8  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 800BCC8C 000B9BEC  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 800BCC90 000B9BF0  80 A6 00 08 */	lwz r5, 8(r6)
 /* 800BCC94 000B9BF4  80 06 00 0C */	lwz r0, 0xc(r6)
@@ -1273,9 +1273,9 @@ CalculateClampedScale__22CCompoundTargetReticleF9CVector3ffffRC13CStateManager:
 /* 800BD0A8 000BA008  38 61 00 2C */	addi r3, r1, 0x2c
 /* 800BD0AC 000BA00C  38 A1 00 20 */	addi r5, r1, 0x20
 /* 800BD0B0 000BA010  48 25 36 A1 */	bl MultiplyOneOverW__9CMatrix4fCFRC9CVector3f
-/* 800BD0B4 000BA014  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 800BD0B4 000BA014  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 800BD0B8 000BA018  3C 00 43 30 */	lis r0, 0x4330
-/* 800BD0BC 000BA01C  38 63 D9 10 */	addi r3, r3, lbl_803ED910@l
+/* 800BD0BC 000BA01C  38 63 D9 10 */	addi r3, r3, mViewport__9CGraphics@l
 /* 800BD0C0 000BA020  C0 01 00 2C */	lfs f0, 0x2c(r1)
 /* 800BD0C4 000BA024  80 83 00 08 */	lwz r4, 8(r3)
 /* 800BD0C8 000BA028  38 61 00 08 */	addi r3, r1, 8

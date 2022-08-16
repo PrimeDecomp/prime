@@ -10413,8 +10413,8 @@ sub_801e32a0:
 /* 801E3328 001E0288  38 A0 00 01 */	li r5, 1
 /* 801E332C 001E028C  48 12 C4 11 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
 /* 801E3330 001E0290  C0 02 AD 78 */	lfs f0, lbl_805ACA98@sda21(r2)
-/* 801E3334 001E0294  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
-/* 801E3338 001E0298  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 801E3334 001E0294  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
+/* 801E3338 001E0298  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 801E333C 001E029C  C3 3F 09 2C */	lfs f25, 0x92c(r31)
 /* 801E3340 001E02A0  EC 80 05 32 */	fmuls f4, f0, f20
 /* 801E3344 001E02A4  C0 24 00 00 */	lfs f1, 0(r4)
@@ -10439,11 +10439,11 @@ sub_801e32a0:
 /* 801E3390 001E02F0  38 A0 00 01 */	li r5, 1
 /* 801E3394 001E02F4  38 C0 00 00 */	li r6, 0
 /* 801E3398 001E02F8  48 12 86 B9 */	bl SetBlendMode__9CGraphicsF13ERglBlendMode15ERglBlendFactor15ERglBlendFactor11ERglLogicOp
-/* 801E339C 001E02FC  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 801E339C 001E02FC  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 801E33A0 001E0300  38 60 00 00 */	li r3, 0
-/* 801E33A4 001E0304  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 801E33A4 001E0304  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 801E33A8 001E0308  48 12 6F 11 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 801E33AC 001E030C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 801E33AC 001E030C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 801E33B0 001E0310  38 60 00 01 */	li r3, 1
 /* 801E33B4 001E0314  48 12 6F 05 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 801E33B8 001E0318  38 60 00 00 */	li r3, 0

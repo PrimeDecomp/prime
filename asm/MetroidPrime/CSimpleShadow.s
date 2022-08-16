@@ -239,11 +239,11 @@ Render__13CSimpleShadowCFPC8CTexture:
 /* 80105D6C 00102CCC  38 80 00 00 */	li r4, 0
 /* 80105D70 00102CD0  38 A0 00 01 */	li r5, 1
 /* 80105D74 00102CD4  48 20 99 C9 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
-/* 80105D78 00102CD8  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 80105D78 00102CD8  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80105D7C 00102CDC  38 60 00 00 */	li r3, 0
-/* 80105D80 00102CE0  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80105D80 00102CE0  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80105D84 00102CE4  48 20 45 35 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80105D88 00102CE8  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80105D88 00102CE8  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80105D8C 00102CEC  38 60 00 01 */	li r3, 1
 /* 80105D90 00102CF0  48 20 45 29 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80105D94 00102CF4  38 60 00 07 */	li r3, 7

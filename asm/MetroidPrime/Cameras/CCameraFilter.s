@@ -231,7 +231,7 @@ AllocatePersistentFbTexture__15CCameraBlurPassFv:
 /* 800EA974 000E78D4  7C 7F 1B 78 */	mr r31, r3
 /* 800EA978 000E78D8  38 60 01 40 */	li r3, 0x140
 /* 800EA97C 000E78DC  48 28 F2 C5 */	bl GXGetTexBufferSize
-/* 800EA980 000E78E0  80 0D A8 28 */	lwz r0, lbl_805A93E8@sda21(r13)
+/* 800EA980 000E78E0  80 0D A8 28 */	lwz r0, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 800EA984 000E78E4  90 1F 00 30 */	stw r0, 0x30(r31)
 /* 800EA988 000E78E8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800EA98C 000E78EC  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -243,11 +243,11 @@ AllocatePersistentFbTexture__15CCameraBlurPassFv:
 GetFbCopy__15CCameraBlurPassCF9_GXTexFmtPUc:
 /* 800EA99C 000E78FC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800EA9A0 000E7900  7C 08 02 A6 */	mflr r0
-/* 800EA9A4 000E7904  3C C0 80 3F */	lis r6, lbl_803ED910@ha
+/* 800EA9A4 000E7904  3C C0 80 3F */	lis r6, mViewport__9CGraphics@ha
 /* 800EA9A8 000E7908  90 01 00 24 */	stw r0, 0x24(r1)
 /* 800EA9AC 000E790C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 800EA9B0 000E7910  7C BF 2B 78 */	mr r31, r5
-/* 800EA9B4 000E7914  38 A6 D9 10 */	addi r5, r6, lbl_803ED910@l
+/* 800EA9B4 000E7914  38 A6 D9 10 */	addi r5, r6, mViewport__9CGraphics@l
 /* 800EA9B8 000E7918  38 C0 01 C0 */	li r6, 0x1c0
 /* 800EA9BC 000E791C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 800EA9C0 000E7920  7C 9E 23 78 */	mr r30, r4
@@ -362,7 +362,7 @@ Draw__15CCameraBlurPassCFv:
 /* 800EAB58 000E7AB8  83 D8 00 30 */	lwz r30, 0x30(r24)
 /* 800EAB5C 000E7ABC  48 00 00 08 */	b lbl_800EAB64
 lbl_800EAB60:
-/* 800EAB60 000E7AC0  83 CD A8 28 */	lwz r30, lbl_805A93E8@sda21(r13)
+/* 800EAB60 000E7AC0  83 CD A8 28 */	lwz r30, mpSpareBuffer__9CGraphics@sda21(r13)
 lbl_800EAB64:
 /* 800EAB64 000E7AC4  2C 04 00 03 */	cmpwi r4, 3
 /* 800EAB68 000E7AC8  3B 60 02 80 */	li r27, 0x280
@@ -426,9 +426,9 @@ lbl_800EAC28:
 /* 800EAC38 000E7B98  57 44 04 3E */	clrlwi r4, r26, 0x10
 /* 800EAC3C 000E7B9C  48 21 F3 E5 */	bl LoadDolphinSpareTexture__9CGraphicsFii9_GXTexFmtPv11_GXTexMapID
 lbl_800EAC40:
-/* 800EAC40 000E7BA0  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 800EAC40 000E7BA0  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 800EAC44 000E7BA4  3C A0 43 30 */	lis r5, 0x4330
-/* 800EAC48 000E7BA8  38 E3 D9 10 */	addi r7, r3, lbl_803ED910@l
+/* 800EAC48 000E7BA8  38 E3 D9 10 */	addi r7, r3, mViewport__9CGraphics@l
 /* 800EAC4C 000E7BAC  90 A1 00 88 */	stw r5, 0x88(r1)
 /* 800EAC50 000E7BB0  80 07 00 08 */	lwz r0, 8(r7)
 /* 800EAC54 000E7BB4  80 87 00 0C */	lwz r4, 0xc(r7)
@@ -2054,11 +2054,11 @@ DrawRandomStatic__17CCameraFilterPassFRC6CColorfb:
 /* 800EC3B8 000E9318  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EC3BC 000E931C  7D 89 03 A6 */	mtctr r12
 /* 800EC3C0 000E9320  4E 80 04 21 */	bctrl
-/* 800EC3C4 000E9324  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 800EC3C4 000E9324  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 800EC3C8 000E9328  38 60 00 00 */	li r3, 0
-/* 800EC3CC 000E932C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 800EC3CC 000E932C  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 800EC3D0 000E9330  48 21 DE E9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 800EC3D4 000E9334  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 800EC3D4 000E9334  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 800EC3D8 000E9338  38 60 00 01 */	li r3, 1
 /* 800EC3DC 000E933C  48 21 DE DD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 800EC3E0 000E9340  C3 E1 00 50 */	lfs f31, 0x50(r1)
@@ -2093,11 +2093,11 @@ lbl_800EC440:
 /* 800EC450 000E93B0  81 8C 00 60 */	lwz r12, 0x60(r12)
 /* 800EC454 000E93B4  7D 89 03 A6 */	mtctr r12
 /* 800EC458 000E93B8  4E 80 04 21 */	bctrl
-/* 800EC45C 000E93BC  3C 80 80 5A */	lis r4, lbl_805A6038@ha
+/* 800EC45C 000E93BC  3C 80 80 5A */	lis r4, kEnvModulateColor__9CGraphics@ha
 /* 800EC460 000E93C0  38 60 00 00 */	li r3, 0
-/* 800EC464 000E93C4  38 84 60 38 */	addi r4, r4, lbl_805A6038@l
+/* 800EC464 000E93C4  38 84 60 38 */	addi r4, r4, kEnvModulateColor__9CGraphics@l
 /* 800EC468 000E93C8  48 21 DE 51 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 800EC46C 000E93CC  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 800EC46C 000E93CC  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 800EC470 000E93D0  38 60 00 01 */	li r3, 1
 /* 800EC474 000E93D4  48 21 DE 45 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 800EC478 000E93D8  C3 81 00 50 */	lfs f28, 0x50(r1)
@@ -2271,11 +2271,11 @@ DrawWideScreen__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800EC704 000E9664  38 A0 00 01 */	li r5, 1
 /* 800EC708 000E9668  48 22 30 35 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
 lbl_800EC70C:
-/* 800EC70C 000E966C  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 800EC70C 000E966C  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 800EC710 000E9670  38 60 00 00 */	li r3, 0
-/* 800EC714 000E9674  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 800EC714 000E9674  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 800EC718 000E9678  48 21 DB A1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 800EC71C 000E967C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 800EC71C 000E967C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 800EC720 000E9680  38 60 00 01 */	li r3, 1
 /* 800EC724 000E9684  48 21 DB 95 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 800EC728 000E9688  38 60 00 98 */	li r3, 0x98
@@ -2652,9 +2652,9 @@ DrawFullScreenTexturedQuadQuarters__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECCB8 000E9C18  7D 89 03 A6 */	mtctr r12
 /* 800ECCBC 000E9C1C  4E 80 04 21 */	bctrl
 /* 800ECCC0 000E9C20  C0 61 00 38 */	lfs f3, 0x38(r1)
-/* 800ECCC4 000E9C24  3C 60 80 5A */	lis r3, lbl_805A5EBC@ha
+/* 800ECCC4 000E9C24  3C 60 80 5A */	lis r3, kEnvModulate__9CGraphics@ha
 /* 800ECCC8 000E9C28  C0 41 00 3C */	lfs f2, 0x3c(r1)
-/* 800ECCCC 000E9C2C  38 83 5E BC */	addi r4, r3, lbl_805A5EBC@l
+/* 800ECCCC 000E9C2C  38 83 5E BC */	addi r4, r3, kEnvModulate__9CGraphics@l
 /* 800ECCD0 000E9C30  C0 21 00 40 */	lfs f1, 0x40(r1)
 /* 800ECCD4 000E9C34  38 60 00 00 */	li r3, 0
 /* 800ECCD8 000E9C38  C0 01 00 44 */	lfs f0, 0x44(r1)
@@ -2663,7 +2663,7 @@ DrawFullScreenTexturedQuadQuarters__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECCE4 000E9C44  D0 21 00 50 */	stfs f1, 0x50(r1)
 /* 800ECCE8 000E9C48  D0 01 00 54 */	stfs f0, 0x54(r1)
 /* 800ECCEC 000E9C4C  48 21 D5 CD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 800ECCF0 000E9C50  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 800ECCF0 000E9C50  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 800ECCF4 000E9C54  38 60 00 01 */	li r3, 1
 /* 800ECCF8 000E9C58  48 21 D5 C1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 800ECCFC 000E9C5C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -2815,11 +2815,11 @@ DrawFullScreenTexturedQuad__17CCameraFilterPassFRC6CColorPC8CTexturef:
 /* 800ECF20 000E9E80  38 A0 00 01 */	li r5, 1
 /* 800ECF24 000E9E84  48 22 28 19 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
 lbl_800ECF28:
-/* 800ECF28 000E9E88  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 800ECF28 000E9E88  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 800ECF2C 000E9E8C  38 60 00 00 */	li r3, 0
-/* 800ECF30 000E9E90  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 800ECF30 000E9E90  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 800ECF34 000E9E94  48 21 D3 85 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 800ECF38 000E9E98  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 800ECF38 000E9E98  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 800ECF3C 000E9E9C  38 60 00 01 */	li r3, 1
 /* 800ECF40 000E9EA0  48 21 D3 79 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 800ECF44 000E9EA4  38 60 00 98 */	li r3, 0x98

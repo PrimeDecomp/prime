@@ -599,16 +599,16 @@ lbl_802963B0:
 /* 802963B0 00293310  7F E3 FB 78 */	mr r3, r31
 /* 802963B4 00293314  7F A4 EB 78 */	mr r4, r29
 /* 802963B8 00293318  4B FF F8 05 */	bl GatherAreas__16CMorphBallShadowFR13CStateManager
-/* 802963BC 0029331C  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 802963BC 0029331C  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 802963C0 00293320  38 61 01 A0 */	addi r3, r1, 0x1a0
-/* 802963C4 00293324  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 802963C4 00293324  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 802963C8 00293328  48 07 C7 AD */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 802963CC 0029332C  C3 ED A7 E0 */	lfs f31, lbl_805A93A0@sda21(r13)
-/* 802963D0 00293330  C3 CD 9C 78 */	lfs f30, lbl_805A8838@sda21(r13)
+/* 802963CC 0029332C  C3 ED A7 E0 */	lfs f31, mDepthNear__9CGraphics@sda21(r13)
+/* 802963D0 00293330  C3 CD 9C 78 */	lfs f30, mDepthFar__9CGraphics@sda21(r13)
 /* 802963D4 00293334  48 07 3A 89 */	bl GetProjectionState__9CGraphicsFv
 /* 802963D8 00293338  88 03 00 00 */	lbz r0, 0(r3)
-/* 802963DC 0029333C  3C 80 80 3F */	lis r4, lbl_803ED910@ha
-/* 802963E0 00293340  3A C4 D9 10 */	addi r22, r4, lbl_803ED910@l
+/* 802963DC 0029333C  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 802963E0 00293340  3A C4 D9 10 */	addi r22, r4, mViewport__9CGraphics@l
 /* 802963E4 00293344  3C A0 80 5A */	lis r5, sDownVector__9CVector3f@ha
 /* 802963E8 00293348  98 01 00 94 */	stb r0, 0x94(r1)
 /* 802963EC 0029334C  3C 80 80 5A */	lis r4, sRightVector__9CVector3f@ha
@@ -688,8 +688,8 @@ lbl_802963B0:
 /* 80296514 00293474  EC C0 E8 2A */	fadds f6, f0, f29
 /* 80296518 00293478  48 07 60 3D */	bl SetOrtho__9CGraphicsFffffff
 /* 8029651C 0029347C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 80296520 00293480  3C 80 80 5A */	lis r4, lbl_805A6500@ha
-/* 80296524 00293484  38 A4 65 00 */	addi r5, r4, lbl_805A6500@l
+/* 80296520 00293480  3C 80 80 5A */	lis r4, mRenderModeObj__9CGraphics@ha
+/* 80296524 00293484  38 A4 65 00 */	addi r5, r4, mRenderModeObj__9CGraphics@l
 /* 80296528 00293488  80 FF 00 B4 */	lwz r7, 0xb4(r31)
 /* 8029652C 0029348C  81 83 00 00 */	lwz r12, 0(r3)
 /* 80296530 00293490  38 80 00 00 */	li r4, 0
@@ -735,10 +735,10 @@ lbl_802963B0:
 /* 802965D0 00293530  38 A0 00 00 */	li r5, 0
 /* 802965D4 00293534  38 C0 00 00 */	li r6, 0
 /* 802965D8 00293538  48 07 54 79 */	bl SetBlendMode__9CGraphicsF13ERglBlendMode15ERglBlendFactor15ERglBlendFactor11ERglLogicOp
-/* 802965DC 0029353C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802965DC 0029353C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802965E0 00293540  38 60 00 00 */	li r3, 0
 /* 802965E4 00293544  48 07 3C D5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 802965E8 00293548  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802965E8 00293548  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802965EC 0029354C  38 60 00 01 */	li r3, 1
 /* 802965F0 00293550  48 07 3C C9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802965F4 00293554  38 60 00 00 */	li r3, 0

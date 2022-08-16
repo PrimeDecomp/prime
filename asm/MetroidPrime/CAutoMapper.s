@@ -1251,9 +1251,9 @@ GetMapAreaMiniMapDrawDepth__11CAutoMapperFv:
 GetMapScreenViewportSize__11CAutoMapperFv:
 /* 800962BC 0009321C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800962C0 00093220  7C 08 02 A6 */	mflr r0
-/* 800962C4 00093224  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 800962C4 00093224  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 800962C8 00093228  90 01 00 14 */	stw r0, 0x14(r1)
-/* 800962CC 0009322C  38 A4 D9 10 */	addi r5, r4, lbl_803ED910@l
+/* 800962CC 0009322C  38 A4 D9 10 */	addi r5, r4, mViewport__9CGraphics@l
 /* 800962D0 00093230  80 85 00 08 */	lwz r4, 8(r5)
 /* 800962D4 00093234  80 A5 00 0C */	lwz r5, 0xc(r5)
 /* 800962D8 00093238  48 27 E0 75 */	bl __ct__9CVector2iFii
@@ -1267,9 +1267,9 @@ GetMiniMapViewportSize__11CAutoMapperFv:
 /* 800962EC 0009324C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 800962F0 00093250  7C 08 02 A6 */	mflr r0
 /* 800962F4 00093254  3C 80 43 30 */	lis r4, 0x4330
-/* 800962F8 00093258  3C A0 80 3F */	lis r5, lbl_803ED910@ha
+/* 800962F8 00093258  3C A0 80 3F */	lis r5, mViewport__9CGraphics@ha
 /* 800962FC 0009325C  90 01 00 34 */	stw r0, 0x34(r1)
-/* 80096300 00093260  38 C5 D9 10 */	addi r6, r5, lbl_803ED910@l
+/* 80096300 00093260  38 C5 D9 10 */	addi r6, r5, mViewport__9CGraphics@l
 /* 80096304 00093264  C8 A2 8B 88 */	lfd f5, lbl_805AA8A8@sda21(r2)
 /* 80096308 00093268  80 A6 00 08 */	lwz r5, 8(r6)
 /* 8009630C 0009326C  80 06 00 0C */	lwz r0, 0xc(r6)
@@ -5232,9 +5232,9 @@ lbl_80099CBC:
 /* 80099CBC 00096C1C  C0 02 8B A8 */	lfs f0, lbl_805AA8C8@sda21(r2)
 /* 80099CC0 00096C20  FC 19 00 40 */	fcmpo cr0, f25, f0
 /* 80099CC4 00096C24  40 81 01 68 */	ble lbl_80099E2C
-/* 80099CC8 00096C28  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 80099CC8 00096C28  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80099CCC 00096C2C  38 60 00 00 */	li r3, 0
-/* 80099CD0 00096C30  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80099CD0 00096C30  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80099CD4 00096C34  48 27 05 E5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80099CD8 00096C38  80 7F 00 44 */	lwz r3, 0x44(r31)
 /* 80099CDC 00096C3C  38 80 00 00 */	li r4, 0

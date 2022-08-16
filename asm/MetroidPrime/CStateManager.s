@@ -2187,9 +2187,9 @@ DrawReflection__13CStateManagerFRC9CVector3f:
 /* 800455C0 00042520  38 61 00 FC */	addi r3, r1, 0xfc
 /* 800455C4 00042524  38 81 00 9C */	addi r4, r1, 0x9c
 /* 800455C8 00042528  48 2C D5 AD */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 800455CC 0004252C  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 800455CC 0004252C  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 800455D0 00042530  38 61 00 CC */	addi r3, r1, 0xcc
-/* 800455D4 00042534  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 800455D4 00042534  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 800455D8 00042538  48 2C D5 9D */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 800455DC 0004253C  38 61 00 FC */	addi r3, r1, 0xfc
 /* 800455E0 00042540  48 2C 71 6D */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
@@ -2200,9 +2200,9 @@ DrawReflection__13CStateManagerFRC9CVector3f:
 /* 800455F4 00042554  48 2C 48 69 */	bl GetProjectionState__9CGraphicsFv
 /* 800455F8 00042558  88 03 00 00 */	lbz r0, 0(r3)
 /* 800455FC 0004255C  3C 80 43 30 */	lis r4, 0x4330
-/* 80045600 00042560  3C A0 80 3F */	lis r5, lbl_803ED910@ha
+/* 80045600 00042560  3C A0 80 3F */	lis r5, mViewport__9CGraphics@ha
 /* 80045604 00042564  90 81 01 30 */	stw r4, 0x130(r1)
-/* 80045608 00042568  38 C5 D9 10 */	addi r6, r5, lbl_803ED910@l
+/* 80045608 00042568  38 C5 D9 10 */	addi r6, r5, mViewport__9CGraphics@l
 /* 8004560C 0004256C  C8 22 85 A8 */	lfd f1, lbl_805AA2C8@sda21(r2)
 /* 80045610 00042570  98 01 00 68 */	stb r0, 0x68(r1)
 /* 80045614 00042574  80 A6 00 08 */	lwz r5, 8(r6)
@@ -2829,9 +2829,9 @@ ResetViewAfterDraw__13CStateManagerCFRCQ29CGraphics9CViewportRC12CTransform4f:
 /* 80045EA4 00042E04  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 80045EA8 00042E08  7D 89 03 A6 */	mtctr r12
 /* 80045EAC 00042E0C  4E 80 04 21 */	bctrl
-/* 80045EB0 00042E10  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80045EB0 00042E10  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 80045EB4 00042E14  3C 80 43 30 */	lis r4, 0x4330
-/* 80045EB8 00042E18  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 80045EB8 00042E18  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 80045EBC 00042E1C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80045EC0 00042E20  80 A6 00 08 */	lwz r5, 8(r6)
 /* 80045EC4 00042E24  80 06 00 0C */	lwz r0, 0xc(r6)
@@ -2895,9 +2895,9 @@ DrawWorld__13CStateManagerCFv:
 /* 80045F90 00042EF0  38 61 00 90 */	addi r3, r1, 0x90
 /* 80045F94 00042EF4  38 90 0F 14 */	addi r4, r16, 0xf14
 /* 80045F98 00042EF8  48 31 23 3D */	bl __ct__13CTimeProviderFRCf
-/* 80045F9C 00042EFC  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80045F9C 00042EFC  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 80045FA0 00042F00  7E 04 83 78 */	mr r4, r16
-/* 80045FA4 00042F04  39 63 D9 10 */	addi r11, r3, lbl_803ED910@l
+/* 80045FA4 00042F04  39 63 D9 10 */	addi r11, r3, mViewport__9CGraphics@l
 /* 80045FA8 00042F08  38 61 01 54 */	addi r3, r1, 0x154
 /* 80045FAC 00042F0C  81 4B 00 00 */	lwz r10, 0(r11)
 /* 80045FB0 00042F10  38 A1 00 B0 */	addi r5, r1, 0xb0
@@ -2960,9 +2960,9 @@ lbl_8004607C:
 /* 8004607C 00042FDC  42 00 00 00 */	bdnz lbl_8004607C
 lbl_80046080:
 /* 80046080 00042FE0  38 00 00 00 */	li r0, 0
-/* 80046084 00042FE4  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 80046084 00042FE4  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80046088 00042FE8  90 01 01 54 */	stw r0, 0x154(r1)
-/* 8004608C 00042FEC  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 8004608C 00042FEC  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 80046090 00042FF0  38 61 01 24 */	addi r3, r1, 0x124
 /* 80046094 00042FF4  48 2C CA E1 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80046098 00042FF8  7E 04 83 78 */	mr r4, r16
@@ -4518,9 +4518,9 @@ GetVisSetForArea__13CStateManagerCF7TAreaId7TAreaId:
 /* 80047674 000445D4  38 60 00 00 */	li r3, 0
 /* 80047678 000445D8  48 00 03 14 */	b lbl_8004798C
 lbl_8004767C:
-/* 8004767C 000445DC  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 8004767C 000445DC  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80047680 000445E0  80 1D 00 00 */	lwz r0, 0(r29)
-/* 80047684 000445E4  38 63 61 D4 */	addi r3, r3, lbl_805A61D4@l
+/* 80047684 000445E4  38 63 61 D4 */	addi r3, r3, mViewMatrix__9CGraphics@l
 /* 80047688 000445E8  3B E0 00 00 */	li r31, 0
 /* 8004768C 000445EC  C3 A3 00 2C */	lfs f29, 0x2c(r3)
 /* 80047690 000445F0  7C 00 28 00 */	cmpw r0, r5

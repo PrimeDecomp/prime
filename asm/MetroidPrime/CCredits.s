@@ -768,8 +768,8 @@ lbl_8002589C:
 /* 800258A0 00022800  48 00 06 54 */	b lbl_80025EF4
 lbl_800258A4:
 /* 800258A4 00022804  80 1F 00 44 */	lwz r0, 0x44(r31)
-/* 800258A8 00022808  3C 60 80 3F */	lis r3, lbl_803ED910@ha
-/* 800258AC 0002280C  38 83 D9 10 */	addi r4, r3, lbl_803ED910@l
+/* 800258A8 00022808  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
+/* 800258AC 0002280C  38 83 D9 10 */	addi r4, r3, mViewport__9CGraphics@l
 /* 800258B0 00022810  80 64 00 08 */	lwz r3, 8(r4)
 /* 800258B4 00022814  2C 00 00 00 */	cmpwi r0, 0
 /* 800258B8 00022818  83 64 00 0C */	lwz r27, 0xc(r4)
@@ -1819,9 +1819,9 @@ sub_80026770:
 /* 800267A8 00023708  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800267AC 0002370C  41 81 01 60 */	bgt lbl_8002690C
 lbl_800267B0:
-/* 800267B0 00023710  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 800267B0 00023710  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 800267B4 00023714  3C 60 43 30 */	lis r3, 0x4330
-/* 800267B8 00023718  38 84 D9 10 */	addi r4, r4, lbl_803ED910@l
+/* 800267B8 00023718  38 84 D9 10 */	addi r4, r4, mViewport__9CGraphics@l
 /* 800267BC 0002371C  80 1F 00 58 */	lwz r0, 0x58(r31)
 /* 800267C0 00023720  83 C4 00 0C */	lwz r30, 0xc(r4)
 /* 800267C4 00023724  90 61 00 38 */	stw r3, 0x38(r1)
@@ -2015,8 +2015,8 @@ lbl_80026A60:
 /* 80026A64 000239C4  48 00 0B 18 */	b lbl_8002757C
 lbl_80026A68:
 /* 80026A68 000239C8  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
-/* 80026A6C 000239CC  3C 80 80 3F */	lis r4, lbl_803ED910@ha
-/* 80026A70 000239D0  38 A4 D9 10 */	addi r5, r4, lbl_803ED910@l
+/* 80026A6C 000239CC  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 80026A70 000239D0  38 A4 D9 10 */	addi r5, r4, mViewport__9CGraphics@l
 /* 80026A74 000239D4  80 8D A1 38 */	lwz r4, gpTweakGui@sda21(r13)
 /* 80026A78 000239D8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80026A7C 000239DC  83 A5 00 08 */	lwz r29, 8(r5)

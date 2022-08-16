@@ -283,8 +283,8 @@ lbl_80345990:
 /* 8034599C 003428FC  48 00 04 90 */	b lbl_80345E2C
 lbl_803459A0:
 /* 803459A0 00342900  3C A0 80 4C */	lis r5, lbl_804BFF50@ha
-/* 803459A4 00342904  3C 60 80 5A */	lis r3, lbl_805A6204@ha
-/* 803459A8 00342908  38 83 62 04 */	addi r4, r3, lbl_805A6204@l
+/* 803459A4 00342904  3C 60 80 5A */	lis r3, mModelMatrix__9CGraphics@ha
+/* 803459A8 00342908  38 83 62 04 */	addi r4, r3, mModelMatrix__9CGraphics@l
 /* 803459AC 0034290C  3B E5 FF 50 */	addi r31, r5, lbl_804BFF50@l
 /* 803459B0 00342910  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 803459B4 00342914  C0 3F 00 00 */	lfs f1, 0(r31)
@@ -460,15 +460,15 @@ lbl_80345BE0:
 /* 80345C4C 00342BAC  48 00 01 E0 */	b lbl_80345E2C
 lbl_80345C50:
 /* 80345C50 00342BB0  EC 01 F8 28 */	fsubs f0, f1, f31
-/* 80345C54 00342BB4  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
-/* 80345C58 00342BB8  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 80345C54 00342BB4  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
+/* 80345C58 00342BB8  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 80345C5C 00342BBC  38 61 00 88 */	addi r3, r1, 0x88
 /* 80345C60 00342BC0  EC 00 08 24 */	fdivs f0, f0, f1
 /* 80345C64 00342BC4  D0 0D A9 90 */	stfs f0, lbl_805A9550@sda21(r13)
 /* 80345C68 00342BC8  4B FC D0 35 */	bl GetQuickInverse__12CTransform4fCFv
-/* 80345C6C 00342BCC  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 80345C6C 00342BCC  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80345C70 00342BD0  38 61 00 B8 */	addi r3, r1, 0xb8
-/* 80345C74 00342BD4  38 A4 62 04 */	addi r5, r4, lbl_805A6204@l
+/* 80345C74 00342BD4  38 A4 62 04 */	addi r5, r4, mModelMatrix__9CGraphics@l
 /* 80345C78 00342BD8  38 81 00 88 */	addi r4, r1, 0x88
 /* 80345C7C 00342BDC  4B FC CC D5 */	bl __ml__12CTransform4fCFRC12CTransform4f
 /* 80345C80 00342BE0  38 61 01 18 */	addi r3, r1, 0x118
@@ -1299,7 +1299,7 @@ lbl_80346810:
 /* 8034682C 0034378C  38 00 00 00 */	li r0, 0
 lbl_80346830:
 /* 80346830 00343790  54 05 07 FE */	clrlwi r5, r0, 0x1f
-/* 80346834 00343794  88 6D A8 16 */	lbz r3, lbl_805A93D6@sda21(r13)
+/* 80346834 00343794  88 6D A8 16 */	lbz r3, mLightActive__9CGraphics@sda21(r13)
 /* 80346838 00343798  88 0D A9 A0 */	lbz r0, lbl_805A9560@sda21(r13)
 /* 8034683C 0034379C  51 25 1D 78 */	rlwimi r5, r9, 3, 0x15, 0x1c
 /* 80346840 003437A0  3C 80 80 5A */	lis r4, lbl_805A53EC@ha
@@ -1397,7 +1397,7 @@ lbl_8034696C:
 lbl_80346998:
 /* 80346998 003438F8  28 1E 00 01 */	cmplwi r30, 1
 /* 8034699C 003438FC  41 80 00 A8 */	blt lbl_80346A44
-/* 803469A0 00343900  88 8D A8 16 */	lbz r4, lbl_805A93D6@sda21(r13)
+/* 803469A0 00343900  88 8D A8 16 */	lbz r4, mLightActive__9CGraphics@sda21(r13)
 /* 803469A4 00343904  3C 60 80 5A */	lis r3, lbl_805A53EC@ha
 /* 803469A8 00343908  39 03 53 EC */	addi r8, r3, lbl_805A53EC@l
 /* 803469AC 0034390C  57 E7 00 3C */	rlwinm r7, r31, 0, 0, 0x1e
@@ -2569,13 +2569,13 @@ HandleAnimatedUV__FPCUi9_GXTexMtx11_GXPTTexMtx:
 /* 80347A58 003449B8  4E 80 04 20 */	bctr
 .global lbl_80347A5C
 lbl_80347A5C:
-/* 80347A5C 003449BC  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80347A5C 003449BC  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 80347A60 003449C0  38 61 00 CC */	addi r3, r1, 0xcc
-/* 80347A64 003449C4  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 80347A64 003449C4  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 80347A68 003449C8  4B FC B2 35 */	bl GetQuickInverse__12CTransform4fCFv
-/* 80347A6C 003449CC  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 80347A6C 003449CC  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80347A70 003449D0  38 61 00 FC */	addi r3, r1, 0xfc
-/* 80347A74 003449D4  38 A4 62 04 */	addi r5, r4, lbl_805A6204@l
+/* 80347A74 003449D4  38 A4 62 04 */	addi r5, r4, mModelMatrix__9CGraphics@l
 /* 80347A78 003449D8  38 81 00 CC */	addi r4, r1, 0xcc
 /* 80347A7C 003449DC  4B FC B4 B5 */	bl MultiplyIgnoreTranslation__12CTransform4fCFRC12CTransform4f
 /* 80347A80 003449E0  38 61 02 4C */	addi r3, r1, 0x24c
@@ -2601,13 +2601,13 @@ lbl_80347A5C:
 /* 80347AD0 00344A30  48 00 05 14 */	b lbl_80347FE4
 .global lbl_80347AD4
 lbl_80347AD4:
-/* 80347AD4 00344A34  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80347AD4 00344A34  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 80347AD8 00344A38  38 61 00 6C */	addi r3, r1, 0x6c
-/* 80347ADC 00344A3C  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 80347ADC 00344A3C  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 80347AE0 00344A40  4B FC B1 BD */	bl GetQuickInverse__12CTransform4fCFv
-/* 80347AE4 00344A44  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 80347AE4 00344A44  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80347AE8 00344A48  38 61 00 9C */	addi r3, r1, 0x9c
-/* 80347AEC 00344A4C  38 A4 62 04 */	addi r5, r4, lbl_805A6204@l
+/* 80347AEC 00344A4C  38 A4 62 04 */	addi r5, r4, mModelMatrix__9CGraphics@l
 /* 80347AF0 00344A50  38 81 00 6C */	addi r4, r1, 0x6c
 /* 80347AF4 00344A54  4B FC AE 5D */	bl __ml__12CTransform4fCFRC12CTransform4f
 /* 80347AF8 00344A58  38 61 02 1C */	addi r3, r1, 0x21c
@@ -2753,9 +2753,9 @@ lbl_80347CF0:
 /* 80347D08 00344C68  48 00 02 DC */	b lbl_80347FE4
 .global lbl_80347D0C
 lbl_80347D0C:
-/* 80347D0C 00344C6C  3C 60 80 5A */	lis r3, lbl_805A6204@ha
+/* 80347D0C 00344C6C  3C 60 80 5A */	lis r3, mModelMatrix__9CGraphics@ha
 /* 80347D10 00344C70  83 9F 00 60 */	lwz r28, 0x60(r31)
-/* 80347D14 00344C74  3B 63 62 04 */	addi r27, r3, lbl_805A6204@l
+/* 80347D14 00344C74  3B 63 62 04 */	addi r27, r3, mModelMatrix__9CGraphics@l
 /* 80347D18 00344C78  83 BF 00 64 */	lwz r29, 0x64(r31)
 /* 80347D1C 00344C7C  C0 42 CB D8 */	lfs f2, lbl_805AE8F8@sda21(r2)
 /* 80347D20 00344C80  38 61 01 BC */	addi r3, r1, 0x1bc
@@ -2839,21 +2839,21 @@ lbl_80347D0C:
 /* 80347E58 00344DB8  48 00 01 8C */	b lbl_80347FE4
 .global lbl_80347E5C
 lbl_80347E5C:
-/* 80347E5C 00344DBC  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80347E5C 00344DBC  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 80347E60 00344DC0  38 61 00 0C */	addi r3, r1, 0xc
-/* 80347E64 00344DC4  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 80347E64 00344DC4  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 80347E68 00344DC8  4B FC AE 35 */	bl GetQuickInverse__12CTransform4fCFv
-/* 80347E6C 00344DCC  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 80347E6C 00344DCC  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80347E70 00344DD0  38 61 00 3C */	addi r3, r1, 0x3c
-/* 80347E74 00344DD4  38 A4 62 04 */	addi r5, r4, lbl_805A6204@l
+/* 80347E74 00344DD4  38 A4 62 04 */	addi r5, r4, mModelMatrix__9CGraphics@l
 /* 80347E78 00344DD8  38 81 00 0C */	addi r4, r1, 0xc
 /* 80347E7C 00344DDC  4B FC B0 B5 */	bl MultiplyIgnoreTranslation__12CTransform4fCFRC12CTransform4f
 /* 80347E80 00344DE0  38 61 01 5C */	addi r3, r1, 0x15c
 /* 80347E84 00344DE4  38 81 00 3C */	addi r4, r1, 0x3c
 /* 80347E88 00344DE8  4B FC AC ED */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80347E8C 00344DEC  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 80347E8C 00344DEC  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80347E90 00344DF0  3C C0 43 30 */	lis r6, 0x4330
-/* 80347E94 00344DF4  38 A3 61 D4 */	addi r5, r3, lbl_805A61D4@l
+/* 80347E94 00344DF4  38 A3 61 D4 */	addi r5, r3, mViewMatrix__9CGraphics@l
 /* 80347E98 00344DF8  81 1F 00 C0 */	lwz r8, 0xc0(r31)
 /* 80347E9C 00344DFC  C0 25 00 0C */	lfs f1, 0xc(r5)
 /* 80347EA0 00344E00  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha

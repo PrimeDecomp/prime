@@ -443,10 +443,10 @@ DoDraw__20CRainSplashGeneratorCFRC12CTransform4f:
 /* 8026A2A4 00267204  38 80 00 03 */	li r4, 3
 /* 8026A2A8 00267208  38 A0 00 00 */	li r5, 0
 /* 8026A2AC 0026720C  48 09 E5 D1 */	bl SetZMode__3CGXFb10_GXCompareb
-/* 8026A2B0 00267210  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8026A2B0 00267210  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8026A2B4 00267214  38 60 00 00 */	li r3, 0
 /* 8026A2B8 00267218  48 0A 00 01 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8026A2BC 0026721C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8026A2BC 0026721C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8026A2C0 00267220  38 60 00 01 */	li r3, 1
 /* 8026A2C4 00267224  48 09 FF F5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8026A2C8 00267228  7F A3 EB 78 */	mr r3, r29

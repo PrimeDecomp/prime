@@ -845,8 +845,8 @@ lbl_8028BAA0:
 /* 8028BAB0 00288A10  48 07 FF A1 */	bl SetBlendMode__9CGraphicsF13ERglBlendMode15ERglBlendFactor15ERglBlendFactor11ERglLogicOp
 lbl_8028BAB4:
 /* 8028BAB4 00288A14  C0 1E 00 FC */	lfs f0, 0xfc(r30)
-/* 8028BAB8 00288A18  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
-/* 8028BABC 00288A1C  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 8028BAB8 00288A18  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
+/* 8028BABC 00288A1C  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 8028BAC0 00288A20  C2 FE 00 60 */	lfs f23, 0x60(r30)
 /* 8028BAC4 00288A24  EC 94 00 32 */	fmuls f4, f20, f0
 /* 8028BAC8 00288A28  C0 24 00 00 */	lfs f1, 0(r4)
@@ -868,12 +868,12 @@ lbl_8028BAB4:
 /* 8028BB08 00288A68  C3 3E 00 40 */	lfs f25, 0x40(r30)
 /* 8028BB0C 00288A6C  48 08 0A D5 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
 /* 8028BB10 00288A70  48 0B E4 9D */	bl White__6CColorFv
-/* 8028BB14 00288A74  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8028BB14 00288A74  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 8028BB18 00288A78  83 E3 00 00 */	lwz r31, 0(r3)
-/* 8028BB1C 00288A7C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 8028BB1C 00288A7C  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 8028BB20 00288A80  38 60 00 00 */	li r3, 0
 /* 8028BB24 00288A84  48 07 E7 95 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8028BB28 00288A88  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8028BB28 00288A88  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8028BB2C 00288A8C  38 60 00 01 */	li r3, 1
 /* 8028BB30 00288A90  48 07 E7 89 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8028BB34 00288A94  38 60 00 00 */	li r3, 0

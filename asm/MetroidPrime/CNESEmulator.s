@@ -211,13 +211,13 @@ lbl_80293C38:
 /* 80293D94 00290CF4  38 61 00 08 */	addi r3, r1, 8
 /* 80293D98 00290CF8  38 80 00 00 */	li r4, 0
 /* 80293D9C 00290CFC  48 0E 66 F9 */	bl GXLoadTexObj
-/* 80293DA0 00290D00  3C 60 80 3F */	lis r3, lbl_803ED910@ha
-/* 80293DA4 00290D04  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
-/* 80293DA8 00290D08  38 A3 D9 10 */	addi r5, r3, lbl_803ED910@l
+/* 80293DA0 00290D00  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
+/* 80293DA4 00290D04  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
+/* 80293DA8 00290D08  38 A3 D9 10 */	addi r5, r3, mViewport__9CGraphics@l
 /* 80293DAC 00290D0C  83 C5 00 00 */	lwz r30, 0(r5)
 /* 80293DB0 00290D10  38 60 00 00 */	li r3, 0
 /* 80293DB4 00290D14  83 A5 00 04 */	lwz r29, 4(r5)
-/* 80293DB8 00290D18  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80293DB8 00290D18  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80293DBC 00290D1C  83 85 00 08 */	lwz r28, 8(r5)
 /* 80293DC0 00290D20  83 65 00 0C */	lwz r27, 0xc(r5)
 /* 80293DC4 00290D24  48 07 64 F5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
@@ -258,9 +258,9 @@ sub_80293e2c:
 /* 80293E40 00290DA0  DB C1 00 A0 */	stfd f30, 0xa0(r1)
 /* 80293E44 00290DA4  F3 C1 00 A8 */	psq_st f30, 168(r1), 0, qr0
 /* 80293E48 00290DA8  BF 21 00 84 */	stmw r25, 0x84(r1)
-/* 80293E4C 00290DAC  3D 00 80 3F */	lis r8, lbl_803ED910@ha
+/* 80293E4C 00290DAC  3D 00 80 3F */	lis r8, mViewport__9CGraphics@ha
 /* 80293E50 00290DB0  7C 79 1B 78 */	mr r25, r3
-/* 80293E54 00290DB4  39 48 D9 10 */	addi r10, r8, lbl_803ED910@l
+/* 80293E54 00290DB4  39 48 D9 10 */	addi r10, r8, mViewport__9CGraphics@l
 /* 80293E58 00290DB8  7C 9A 23 78 */	mr r26, r4
 /* 80293E5C 00290DBC  81 2A 00 00 */	lwz r9, 0(r10)
 /* 80293E60 00290DC0  7C BB 2B 78 */	mr r27, r5

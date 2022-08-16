@@ -550,7 +550,7 @@ DrawFrame__12CMoviePlayerFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 8035BC38 00358B98  88 1B 00 F4 */	lbz r0, 0xf4(r27)
 /* 8035BC3C 00358B9C  1C A3 00 28 */	mulli r5, r3, 0x28
 /* 8035BC40 00358BA0  80 DB 00 8C */	lwz r6, 0x8c(r27)
-/* 8035BC44 00358BA4  8B 2D A8 14 */	lbz r25, lbl_805A93D4@sda21(r13)
+/* 8035BC44 00358BA4  8B 2D A8 14 */	lbz r25, mLastFrameUsedAbove__9CGraphics@sda21(r13)
 /* 8035BC48 00358BA8  54 04 D7 FE */	rlwinm r4, r0, 0x1a, 0x1f, 0x1f
 /* 8035BC4C 00358BAC  7F 23 CB 78 */	mr r3, r25
 /* 8035BC50 00358BB0  7F 46 2A 14 */	add r26, r6, r5

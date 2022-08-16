@@ -1853,9 +1853,9 @@ Render__15CGuiTextSupportFv:
 /* 802C9550 002C64B0  93 E1 00 AC */	stw r31, 0xac(r1)
 /* 802C9554 002C64B4  7C 7F 1B 78 */	mr r31, r3
 /* 802C9558 002C64B8  4B FF F5 D5 */	bl CheckAndRebuildRenderBuffer__15CGuiTextSupportFv
-/* 802C955C 002C64BC  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 802C955C 002C64BC  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 802C9560 002C64C0  38 61 00 74 */	addi r3, r1, 0x74
-/* 802C9564 002C64C4  38 84 62 04 */	addi r4, r4, lbl_805A6204@l
+/* 802C9564 002C64C4  38 84 62 04 */	addi r4, r4, mModelMatrix__9CGraphics@l
 /* 802C9568 002C64C8  48 04 96 0D */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802C956C 002C64CC  C0 22 C3 F0 */	lfs f1, lbl_805AE110@sda21(r2)
 /* 802C9570 002C64D0  38 61 00 14 */	addi r3, r1, 0x14

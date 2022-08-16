@@ -17,8 +17,10 @@ class rc_ptr {
 
 public:
   ~rc_ptr();
-  T* get() { return x0_refData->x0_ptr; }
-  T* operator->() { return get(); }
+  T* GetPtr() const { return x0_refData->x0_ptr; }
+  // TODO ReleaseData__Q24rstl20rc_ptr
+  T* operator->() const { return GetPtr(); }
+  T& operator*() const { return *GetPtr(); }
 };
 
 template < typename T >

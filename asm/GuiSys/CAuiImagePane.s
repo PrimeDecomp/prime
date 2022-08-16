@@ -471,11 +471,11 @@ lbl_802CC2F0:
 lbl_802CC2F4:
 /* 802CC2F4 002C9254  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 802CC2F8 002C9258  41 82 00 DC */	beq lbl_802CC3D4
-/* 802CC2FC 002C925C  3C 80 80 5A */	lis r4, lbl_805A5FEC@ha
+/* 802CC2FC 002C925C  3C 80 80 5A */	lis r4, kEnvModulateAlpha__9CGraphics@ha
 /* 802CC300 002C9260  38 60 00 00 */	li r3, 0
-/* 802CC304 002C9264  38 84 5F EC */	addi r4, r4, lbl_805A5FEC@l
+/* 802CC304 002C9264  38 84 5F EC */	addi r4, r4, kEnvModulateAlpha__9CGraphics@l
 /* 802CC308 002C9268  48 03 DF B1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 802CC30C 002C926C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802CC30C 002C926C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802CC310 002C9270  38 60 00 01 */	li r3, 1
 /* 802CC314 002C9274  48 03 DF A5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802CC318 002C9278  7F A3 EB 78 */	mr r3, r29
@@ -544,11 +544,11 @@ lbl_802CC3F8:
 /* 802CC3F8 002C9358  2C 03 00 01 */	cmpwi r3, 1
 /* 802CC3FC 002C935C  40 82 00 8C */	bne lbl_802CC488
 lbl_802CC400:
-/* 802CC400 002C9360  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 802CC400 002C9360  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 802CC404 002C9364  38 60 00 00 */	li r3, 0
-/* 802CC408 002C9368  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 802CC408 002C9368  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 802CC40C 002C936C  48 03 DE AD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 802CC410 002C9370  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802CC410 002C9370  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802CC414 002C9374  38 60 00 01 */	li r3, 1
 /* 802CC418 002C9378  48 03 DE A1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802CC41C 002C937C  7F A3 EB 78 */	mr r3, r29

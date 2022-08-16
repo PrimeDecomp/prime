@@ -3817,9 +3817,9 @@ lbl_8019235C:
 /* 80192420 0018F380  38 80 00 00 */	li r4, 0
 /* 80192424 0018F384  38 A0 00 01 */	li r5, 1
 /* 80192428 0018F388  48 17 D3 15 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
-/* 8019242C 0018F38C  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8019242C 0018F38C  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80192430 0018F390  38 60 00 00 */	li r3, 0
-/* 80192434 0018F394  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80192434 0018F394  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80192438 0018F398  48 17 7E 81 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8019243C 0018F39C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80192440 0018F3A0  38 80 00 00 */	li r4, 0

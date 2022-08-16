@@ -2376,9 +2376,9 @@ EnsureRendered__6CActorCFRC13CStateManager:
 /* 800549F8 00051958  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 800549FC 0005195C  7D 89 03 A6 */	mtctr r12
 /* 80054A00 00051960  4E 80 04 21 */	bctrl
-/* 80054A04 00051964  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 80054A04 00051964  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80054A08 00051968  C1 01 00 2C */	lfs f8, 0x2c(r1)
-/* 80054A0C 0005196C  38 C3 61 D4 */	addi r6, r3, lbl_805A61D4@l
+/* 80054A0C 0005196C  38 C3 61 D4 */	addi r6, r3, mViewMatrix__9CGraphics@l
 /* 80054A10 00051970  C0 E1 00 30 */	lfs f7, 0x30(r1)
 /* 80054A14 00051974  C0 C1 00 34 */	lfs f6, 0x34(r1)
 /* 80054A18 00051978  38 61 00 08 */	addi r3, r1, 8
@@ -2410,7 +2410,7 @@ EnsureRendered__6CActorCFRC13CStateManager:
 /* 80054A80 000519E0  38 C1 00 44 */	addi r6, r1, 0x44
 /* 80054A84 000519E4  D0 21 00 18 */	stfs f1, 0x18(r1)
 /* 80054A88 000519E8  D0 01 00 1C */	stfs f0, 0x1c(r1)
-/* 80054A8C 000519EC  48 00 00 1D */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
+/* 80054A8C 000519EC  48 00 00 1D */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
 /* 80054A90 000519F0  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 80054A94 000519F4  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 80054A98 000519F8  83 C1 00 68 */	lwz r30, 0x68(r1)
@@ -2418,8 +2418,8 @@ EnsureRendered__6CActorCFRC13CStateManager:
 /* 80054AA0 00051A00  38 21 00 70 */	addi r1, r1, 0x70
 /* 80054AA4 00051A04  4E 80 00 20 */	blr
 
-.global EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
-EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f:
+.global EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
+EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox:
 /* 80054AA8 00051A08  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80054AAC 00051A0C  7C 08 02 A6 */	mflr r0
 /* 80054AB0 00051A10  90 01 00 24 */	stw r0, 0x24(r1)

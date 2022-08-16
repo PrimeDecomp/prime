@@ -8650,9 +8650,9 @@ lbl_80041B64:
 /* 80041C14 0003EB74  D0 61 04 20 */	stfs f3, 0x420(r1)
 /* 80041C18 0003EB78  D0 01 04 30 */	stfs f0, 0x430(r1)
 lbl_80041C1C:
-/* 80041C1C 0003EB7C  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 80041C1C 0003EB7C  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80041C20 0003EB80  82 DC 06 98 */	lwz r22, 0x698(r28)
-/* 80041C24 0003EB84  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 80041C24 0003EB84  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 80041C28 0003EB88  38 61 03 B4 */	addi r3, r1, 0x3b4
 /* 80041C2C 0003EB8C  48 2D 0F 49 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80041C30 0003EB90  38 61 01 D4 */	addi r3, r1, 0x1d4
@@ -8954,9 +8954,9 @@ lbl_80042074:
 /* 80042088 0003EFE8  80 7C 08 2C */	lwz r3, 0x82c(r28)
 /* 8004208C 0003EFEC  48 0C EF 0D */	bl DisableModelProjectedShadow__12CWorldShadowCFv
 lbl_80042090:
-/* 80042090 0003EFF0  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80042090 0003EFF0  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 80042094 0003EFF4  38 61 02 F4 */	addi r3, r1, 0x2f4
-/* 80042098 0003EFF8  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 80042098 0003EFF8  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 8004209C 0003EFFC  48 2D 0A D9 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 800420A0 0003F000  38 61 00 54 */	addi r3, r1, 0x54
 /* 800420A4 0003F004  38 81 04 14 */	addi r4, r1, 0x414
@@ -9245,8 +9245,8 @@ DrawScreenTex__Ff:
 /* 80042494 0003F3F4  DB E1 00 90 */	stfd f31, 0x90(r1)
 /* 80042498 0003F3F8  F3 E1 00 98 */	psq_st f31, 152(r1), 0, qr0
 /* 8004249C 0003F3FC  FF E0 08 90 */	fmr f31, f1
-/* 800424A0 0003F400  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
-/* 800424A4 0003F404  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 800424A0 0003F400  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
+/* 800424A4 0003F404  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 800424A8 0003F408  38 61 00 3C */	addi r3, r1, 0x3c
 /* 800424AC 0003F40C  48 2D 06 C9 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 800424B0 0003F410  48 2C 79 AD */	bl GetProjectionState__9CGraphicsFv
@@ -9417,7 +9417,7 @@ CopyScreenTex__Fv:
 /* 80042738 0003F698  38 A0 00 06 */	li r5, 6
 /* 8004273C 0003F69C  38 C0 00 00 */	li r6, 0
 /* 80042740 0003F6A0  48 33 67 41 */	bl GXSetTexCopyDst
-/* 80042744 0003F6A4  80 6D A8 28 */	lwz r3, lbl_805A93E8@sda21(r13)
+/* 80042744 0003F6A4  80 6D A8 28 */	lwz r3, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 80042748 0003F6A8  38 80 00 00 */	li r4, 0
 /* 8004274C 0003F6AC  48 33 6D E9 */	bl GXCopyTex
 /* 80042750 0003F6B0  48 33 5E 15 */	bl GXPixModeSync

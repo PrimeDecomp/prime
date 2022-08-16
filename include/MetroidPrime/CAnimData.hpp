@@ -31,6 +31,7 @@ public:
     kAD_Backward,
   };
 
+  void PreRender();
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr) {
     x120_particleDB.SetParticleEffectState(name, active, mgr);
   }

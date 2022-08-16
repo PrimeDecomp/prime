@@ -3110,7 +3110,7 @@ AddToRenderer__16CNewFlameThrowerCFRC14CFrustumPlanesRC13CStateManager:
 /* 80263B14 00260A74  7F E4 FB 78 */	mr r4, r31
 /* 80263B18 00260A78  38 A1 00 08 */	addi r5, r1, 8
 /* 80263B1C 00260A7C  38 C1 00 14 */	addi r6, r1, 0x14
-/* 80263B20 00260A80  4B DF 0F 89 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
+/* 80263B20 00260A80  4B DF 0F 89 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
 /* 80263B24 00260A84  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80263B28 00260A88  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80263B2C 00260A8C  83 C1 00 38 */	lwz r30, 0x38(r1)

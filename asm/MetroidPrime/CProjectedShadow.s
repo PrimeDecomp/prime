@@ -520,16 +520,16 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029DE2C 0029AD8C  D3 D7 00 94 */	stfs f30, 0x94(r23)
 /* 8029DE30 0029AD90  98 17 00 80 */	stb r0, 0x80(r23)
 /* 8029DE34 0029AD94  48 00 03 E1 */	bl sub_8029e214
-/* 8029DE38 0029AD98  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 8029DE38 0029AD98  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 8029DE3C 0029AD9C  38 61 01 34 */	addi r3, r1, 0x134
-/* 8029DE40 0029ADA0  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 8029DE40 0029ADA0  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 8029DE44 0029ADA4  48 07 4D 31 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 8029DE48 0029ADA8  C3 ED A7 E0 */	lfs f31, lbl_805A93A0@sda21(r13)
-/* 8029DE4C 0029ADAC  C3 CD 9C 78 */	lfs f30, lbl_805A8838@sda21(r13)
+/* 8029DE48 0029ADA8  C3 ED A7 E0 */	lfs f31, mDepthNear__9CGraphics@sda21(r13)
+/* 8029DE4C 0029ADAC  C3 CD 9C 78 */	lfs f30, mDepthFar__9CGraphics@sda21(r13)
 /* 8029DE50 0029ADB0  48 06 C0 0D */	bl GetProjectionState__9CGraphicsFv
 /* 8029DE54 0029ADB4  88 03 00 00 */	lbz r0, 0(r3)
-/* 8029DE58 0029ADB8  3C 80 80 3F */	lis r4, lbl_803ED910@ha
-/* 8029DE5C 0029ADBC  3B 84 D9 10 */	addi r28, r4, lbl_803ED910@l
+/* 8029DE58 0029ADB8  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 8029DE5C 0029ADBC  3B 84 D9 10 */	addi r28, r4, mViewport__9CGraphics@l
 /* 8029DE60 0029ADC0  3C A0 80 5A */	lis r5, sDownVector__9CVector3f@ha
 /* 8029DE64 0029ADC4  98 01 00 58 */	stb r0, 0x58(r1)
 /* 8029DE68 0029ADC8  3C 80 80 5A */	lis r4, sRightVector__9CVector3f@ha
@@ -608,8 +608,8 @@ RenderShadowBuffer__16CProjectedShadowFR13CStateManagerRC10CModelDataRC12CTransf
 /* 8029DF8C 0029AEEC  FC 80 18 50 */	fneg f4, f3
 /* 8029DF90 0029AEF0  48 06 E5 C5 */	bl SetOrtho__9CGraphicsFffffff
 /* 8029DF94 0029AEF4  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
-/* 8029DF98 0029AEF8  3C 80 80 5A */	lis r4, lbl_805A6500@ha
-/* 8029DF9C 0029AEFC  38 84 65 00 */	addi r4, r4, lbl_805A6500@l
+/* 8029DF98 0029AEF8  3C 80 80 5A */	lis r4, mRenderModeObj__9CGraphics@ha
+/* 8029DF9C 0029AEFC  38 84 65 00 */	addi r4, r4, mRenderModeObj__9CGraphics@l
 /* 8029DFA0 0029AF00  7F A6 EB 78 */	mr r6, r29
 /* 8029DFA4 0029AF04  81 83 00 00 */	lwz r12, 0(r3)
 /* 8029DFA8 0029AF08  7F 87 E3 78 */	mr r7, r28

@@ -1218,9 +1218,9 @@ lbl_80318054:
 /* 803180B4 00315014  38 80 00 00 */	li r4, 0
 /* 803180B8 00315018  38 A0 00 01 */	li r5, 1
 /* 803180BC 0031501C  4B FF 76 81 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
-/* 803180C0 00315020  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 803180C0 00315020  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 803180C4 00315024  38 60 00 00 */	li r3, 0
-/* 803180C8 00315028  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 803180C8 00315028  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 803180CC 0031502C  4B FF 21 ED */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 803180D0 00315030  56 80 06 3F */	clrlwi. r0, r20, 0x18
 /* 803180D4 00315034  41 82 00 D8 */	beq lbl_803181AC
@@ -1278,7 +1278,7 @@ lbl_80318054:
 /* 803181A4 00315104  4B FF 0C 71 */	bl SetNumTexGens__3CGXFUc
 /* 803181A8 00315108  48 00 00 10 */	b lbl_803181B8
 lbl_803181AC:
-/* 803181AC 0031510C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 803181AC 0031510C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 803181B0 00315110  38 60 00 01 */	li r3, 1
 /* 803181B4 00315114  4B FF 21 05 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_803181B8:
@@ -1304,10 +1304,10 @@ lbl_803181B8:
 /* 80318204 00315164  48 02 8C 3D */	bl __dt__6CTokenFv
 /* 80318208 00315168  48 00 00 1C */	b lbl_80318224
 lbl_8031820C:
-/* 8031820C 0031516C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8031820C 0031516C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80318210 00315170  38 60 00 00 */	li r3, 0
 /* 80318214 00315174  4B FF 20 A5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80318218 00315178  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80318218 00315178  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8031821C 0031517C  38 60 00 01 */	li r3, 1
 /* 80318220 00315180  4B FF 20 99 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_80318224:
@@ -1925,9 +1925,9 @@ RenderLines__11CElementGenFv:
 /* 80318B4C 00315AAC  7C A0 03 78 */	or r0, r5, r0
 /* 80318B50 00315AB0  54 1E 0F FE */	srwi r30, r0, 0x1f
 /* 80318B54 00315AB4  4B FF 9B 2D */	bl __ct__13CGlobalRandomFR9CRandom16
-/* 80318B58 00315AB8  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80318B58 00315AB8  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 80318B5C 00315ABC  38 61 02 34 */	addi r3, r1, 0x234
-/* 80318B60 00315AC0  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 80318B60 00315AC0  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 80318B64 00315AC4  4B FF A0 11 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80318B68 00315AC8  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80318B6C 00315ACC  38 61 01 A4 */	addi r3, r1, 0x1a4
@@ -2042,9 +2042,9 @@ lbl_80318CBC:
 /* 80318D14 00315C74  38 80 00 00 */	li r4, 0
 /* 80318D18 00315C78  38 A0 00 01 */	li r5, 1
 /* 80318D1C 00315C7C  4B FF 6A 21 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
-/* 80318D20 00315C80  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 80318D20 00315C80  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80318D24 00315C84  38 60 00 00 */	li r3, 0
-/* 80318D28 00315C88  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80318D28 00315C88  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80318D2C 00315C8C  4B FF 15 8D */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80318D30 00315C90  28 1E 00 00 */	cmplwi r30, 0
 /* 80318D34 00315C94  41 82 01 18 */	beq lbl_80318E4C
@@ -2119,7 +2119,7 @@ lbl_80318E38:
 /* 80318E44 00315DA4  4B FF 14 75 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80318E48 00315DA8  48 00 00 10 */	b lbl_80318E58
 lbl_80318E4C:
-/* 80318E4C 00315DAC  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80318E4C 00315DAC  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80318E50 00315DB0  38 60 00 01 */	li r3, 1
 /* 80318E54 00315DB4  4B FF 14 65 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_80318E58:
@@ -2147,10 +2147,10 @@ lbl_80318E58:
 /* 80318EAC 00315E0C  48 02 7F 95 */	bl __dt__6CTokenFv
 /* 80318EB0 00315E10  48 00 00 1C */	b lbl_80318ECC
 lbl_80318EB4:
-/* 80318EB4 00315E14  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80318EB4 00315E14  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80318EB8 00315E18  38 60 00 00 */	li r3, 0
 /* 80318EBC 00315E1C  4B FF 13 FD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80318EC0 00315E20  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80318EC0 00315E20  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80318EC4 00315E24  38 60 00 01 */	li r3, 1
 /* 80318EC8 00315E28  4B FF 13 F1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_80318ECC:
@@ -2454,9 +2454,9 @@ RenderParticlesIndirectTexture__11CElementGenFv:
 /* 8031932C 0031628C  F2 C1 03 18 */	psq_st f22, 792(r1), 0, qr0
 /* 80319330 00316290  BD C1 02 C8 */	stmw r14, 0x2c8(r1)
 /* 80319334 00316294  7C 3F 0B 78 */	mr r31, r1
-/* 80319338 00316298  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80319338 00316298  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 8031933C 0031629C  7C 7E 1B 78 */	mr r30, r3
-/* 80319340 003162A0  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 80319340 003162A0  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 80319344 003162A4  38 7F 02 8C */	addi r3, r31, 0x28c
 /* 80319348 003162A8  4B FF 98 2D */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8031934C 003162AC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
@@ -3035,7 +3035,7 @@ lbl_80319B98:
 /* 80319C00 00316B60  C3 7F 01 34 */	lfs f27, 0x134(r31)
 /* 80319C04 00316B64  C3 5F 01 38 */	lfs f26, 0x138(r31)
 /* 80319C08 00316B68  41 82 01 8C */	beq lbl_80319D94
-/* 80319C0C 00316B6C  81 ED A8 28 */	lwz r15, lbl_805A93E8@sda21(r13)
+/* 80319C0C 00316B6C  81 ED A8 28 */	lwz r15, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 80319C10 00316B70  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 80319C14 00316B74  54 04 04 3E */	clrlwi r4, r0, 0x10
 /* 80319C18 00316B78  54 A5 04 3E */	clrlwi r5, r5, 0x10
@@ -3046,7 +3046,7 @@ lbl_80319B98:
 /* 80319C2C 00316B8C  38 A0 00 04 */	li r5, 4
 /* 80319C30 00316B90  38 C0 00 00 */	li r6, 0
 /* 80319C34 00316B94  48 05 F2 4D */	bl GXSetTexCopyDst
-/* 80319C38 00316B98  83 0D A8 24 */	lwz r24, lbl_805A93E4@sda21(r13)
+/* 80319C38 00316B98  83 0D A8 24 */	lwz r24, mSpareBufferSize__9CGraphics@sda21(r13)
 /* 80319C3C 00316B9C  56 C3 04 3E */	clrlwi r3, r22, 0x10
 /* 80319C40 00316BA0  56 E4 04 3E */	clrlwi r4, r23, 0x10
 /* 80319C44 00316BA4  38 A0 00 04 */	li r5, 4
@@ -3195,9 +3195,9 @@ sub_80319e3c:
 /* 80319E6C 00316DCC  F3 61 01 78 */	psq_st f27, 376(r1), 0, qr0
 /* 80319E70 00316DD0  BE 01 01 30 */	stmw r16, 0x130(r1)
 /* 80319E74 00316DD4  7C 3F 0B 78 */	mr r31, r1
-/* 80319E78 00316DD8  3C A0 80 5A */	lis r5, lbl_805A61D4@ha
+/* 80319E78 00316DD8  3C A0 80 5A */	lis r5, mViewMatrix__9CGraphics@ha
 /* 80319E7C 00316DDC  7C 7E 1B 78 */	mr r30, r3
-/* 80319E80 00316DE0  38 05 61 D4 */	addi r0, r5, lbl_805A61D4@l
+/* 80319E80 00316DE0  38 05 61 D4 */	addi r0, r5, mViewMatrix__9CGraphics@l
 /* 80319E84 00316DE4  7C 93 23 78 */	mr r19, r4
 /* 80319E88 00316DE8  7C 04 03 78 */	mr r4, r0
 /* 80319E8C 00316DEC  38 7F 00 F4 */	addi r3, r31, 0xf4
@@ -3233,11 +3233,11 @@ sub_80319e3c:
 /* 80319F04 00316E64  38 C0 00 07 */	li r6, 7
 /* 80319F08 00316E68  38 E0 00 00 */	li r7, 0
 /* 80319F0C 00316E6C  4B FF 1B 1D */	bl SetAlphaCompare__9CGraphicsF13ERglAlphaFuncUc11ERglAlphaOp13ERglAlphaFuncUc
-/* 80319F10 00316E70  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 80319F10 00316E70  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80319F14 00316E74  38 60 00 00 */	li r3, 0
-/* 80319F18 00316E78  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80319F18 00316E78  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80319F1C 00316E7C  4B FF 03 9D */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80319F20 00316E80  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80319F20 00316E80  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80319F24 00316E84  38 60 00 01 */	li r3, 1
 /* 80319F28 00316E88  4B FF 03 91 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80319F2C 00316E8C  8B AD A8 B8 */	lbz r29, lbl_805A9478@sda21(r13)
@@ -3736,8 +3736,8 @@ lbl_8031A688:
 /* 8031A688 003175E8  38 60 00 00 */	li r3, 0
 /* 8031A68C 003175EC  4B FF 13 E5 */	bl SetCullMode__9CGraphicsF12ERglCullMode
 /* 8031A690 003175F0  80 DE 03 38 */	lwz r6, 0x338(r30)
-/* 8031A694 003175F4  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
-/* 8031A698 003175F8  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 8031A694 003175F4  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
+/* 8031A698 003175F8  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 8031A69C 003175FC  20 A6 FF FF */	subfic r5, r6, -1
 /* 8031A6A0 00317600  38 06 00 01 */	addi r0, r6, 1
 /* 8031A6A4 00317604  7C A0 03 78 */	or r0, r5, r0
@@ -3877,9 +3877,9 @@ lbl_8031A858:
 /* 8031A8B0 00317810  38 80 00 00 */	li r4, 0
 /* 8031A8B4 00317814  38 A0 00 01 */	li r5, 1
 /* 8031A8B8 00317818  4B FF 4E 85 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
-/* 8031A8BC 0031781C  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8031A8BC 0031781C  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 8031A8C0 00317820  38 60 00 00 */	li r3, 0
-/* 8031A8C4 00317824  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 8031A8C4 00317824  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 8031A8C8 00317828  4B FE F9 F1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8031A8CC 0031782C  28 14 00 00 */	cmplwi r20, 0
 /* 8031A8D0 00317830  41 82 01 18 */	beq lbl_8031A9E8
@@ -3954,7 +3954,7 @@ lbl_8031A9D4:
 /* 8031A9E0 00317940  4B FE F8 D9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8031A9E4 00317944  48 00 00 10 */	b lbl_8031A9F4
 lbl_8031A9E8:
-/* 8031A9E8 00317948  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8031A9E8 00317948  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8031A9EC 0031794C  38 60 00 01 */	li r3, 1
 /* 8031A9F0 00317950  4B FE F8 C9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_8031A9F4:
@@ -3982,10 +3982,10 @@ lbl_8031A9F4:
 /* 8031AA48 003179A8  48 02 63 F9 */	bl __dt__6CTokenFv
 /* 8031AA4C 003179AC  48 00 00 1C */	b lbl_8031AA68
 lbl_8031AA50:
-/* 8031AA50 003179B0  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8031AA50 003179B0  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8031AA54 003179B4  38 60 00 00 */	li r3, 0
 /* 8031AA58 003179B8  4B FE F8 61 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8031AA5C 003179BC  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8031AA5C 003179BC  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8031AA60 003179C0  38 60 00 01 */	li r3, 1
 /* 8031AA64 003179C4  4B FE F8 55 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_8031AA68:
@@ -5802,7 +5802,7 @@ Render__11CElementGenFv:
 /* 8031C564 003194C4  7C 7D 1B 78 */	mr r29, r3
 /* 8031C568 003194C8  93 81 00 20 */	stw r28, 0x20(r1)
 /* 8031C56C 003194CC  48 06 8E 3D */	bl OSGetTime
-/* 8031C570 003194D0  88 0D A8 16 */	lbz r0, lbl_805A93D6@sda21(r13)
+/* 8031C570 003194D0  88 0D A8 16 */	lbz r0, mLightActive__9CGraphics@sda21(r13)
 /* 8031C574 003194D4  7C 9E 23 78 */	mr r30, r4
 /* 8031C578 003194D8  7C 7F 1B 78 */	mr r31, r3
 /* 8031C57C 003194DC  98 1D 02 74 */	stb r0, 0x274(r29)

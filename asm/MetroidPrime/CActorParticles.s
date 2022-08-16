@@ -426,9 +426,9 @@ lbl_801E3E04:
 Render__20CActorModelParticlesCFRC6CActor:
 /* 801E3E24 001E0D84  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 801E3E28 001E0D88  7C 08 02 A6 */	mflr r0
-/* 801E3E2C 001E0D8C  3C C0 80 5A */	lis r6, lbl_805A6204@ha
+/* 801E3E2C 001E0D8C  3C C0 80 5A */	lis r6, mModelMatrix__9CGraphics@ha
 /* 801E3E30 001E0D90  90 01 00 64 */	stw r0, 0x64(r1)
-/* 801E3E34 001E0D94  38 06 62 04 */	addi r0, r6, lbl_805A6204@l
+/* 801E3E34 001E0D94  38 06 62 04 */	addi r0, r6, mModelMatrix__9CGraphics@l
 /* 801E3E38 001E0D98  BF 41 00 48 */	stmw r26, 0x48(r1)
 /* 801E3E3C 001E0D9C  7C 7A 1B 78 */	mr r26, r3
 /* 801E3E40 001E0DA0  7C 9D 23 78 */	mr r29, r4

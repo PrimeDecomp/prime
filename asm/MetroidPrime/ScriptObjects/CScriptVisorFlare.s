@@ -96,7 +96,7 @@ AddToRenderer__17CScriptVisorFlareCFRC14CFrustumPlanesRC13CStateManager:
 /* 801D6538 001D3498  7F E4 FB 78 */	mr r4, r31
 /* 801D653C 001D349C  38 A1 00 08 */	addi r5, r1, 8
 /* 801D6540 001D34A0  38 C1 00 14 */	addi r6, r1, 0x14
-/* 801D6544 001D34A4  4B E7 E5 65 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
+/* 801D6544 001D34A4  4B E7 E5 65 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
 lbl_801D6548:
 /* 801D6548 001D34A8  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801D654C 001D34AC  83 E1 00 3C */	lwz r31, 0x3c(r1)

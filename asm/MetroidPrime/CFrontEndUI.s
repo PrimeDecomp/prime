@@ -1248,13 +1248,13 @@ lbl_8001C3DC:
 /* 8001C3EC 0001934C  83 9F 00 40 */	lwz r28, 0x40(r31)
 /* 8001C3F0 00019350  28 1C 00 00 */	cmplwi r28, 0
 /* 8001C3F4 00019354  41 82 00 B0 */	beq lbl_8001C4A4
-/* 8001C3F8 00019358  3C 60 80 5A */	lis r3, lbl_805A5EBC@ha
+/* 8001C3F8 00019358  3C 60 80 5A */	lis r3, kEnvModulate__9CGraphics@ha
 /* 8001C3FC 0001935C  AB DC 00 04 */	lha r30, 4(r28)
-/* 8001C400 00019360  38 83 5E BC */	addi r4, r3, lbl_805A5EBC@l
+/* 8001C400 00019360  38 83 5E BC */	addi r4, r3, kEnvModulate__9CGraphics@l
 /* 8001C404 00019364  AB BC 00 06 */	lha r29, 6(r28)
 /* 8001C408 00019368  38 60 00 00 */	li r3, 0
 /* 8001C40C 0001936C  48 2E DE AD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8001C410 00019370  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8001C410 00019370  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8001C414 00019374  38 60 00 01 */	li r3, 1
 /* 8001C418 00019378  48 2E DE A1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8001C41C 0001937C  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)

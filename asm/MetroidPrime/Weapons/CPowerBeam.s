@@ -538,9 +538,9 @@ lbl_800DFD34:
 PreRenderGunFx__10CPowerBeamFRC13CStateManagerRC12CTransform4f:
 /* 800DFD60 000DCCC0  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 800DFD64 000DCCC4  7C 08 02 A6 */	mflr r0
-/* 800DFD68 000DCCC8  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 800DFD68 000DCCC8  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 800DFD6C 000DCCCC  90 01 00 A4 */	stw r0, 0xa4(r1)
-/* 800DFD70 000DCCD0  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 800DFD70 000DCCD0  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 800DFD74 000DCCD4  93 E1 00 9C */	stw r31, 0x9c(r1)
 /* 800DFD78 000DCCD8  7C BF 2B 78 */	mr r31, r5
 /* 800DFD7C 000DCCDC  93 C1 00 98 */	stw r30, 0x98(r1)
