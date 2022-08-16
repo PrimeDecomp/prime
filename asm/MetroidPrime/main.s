@@ -2929,7 +2929,7 @@ lbl_8000505C:
 /* 800050A0 00002000  7F A3 EB 78 */	mr r3, r29
 /* 800050A4 00002004  4B FF FA 49 */	bl AddWorldPaks__5CMainFv
 /* 800050A8 00002008  38 00 00 00 */	li r0, 0
-/* 800050AC 0000200C  38 8D A9 18 */	addi r4, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 800050AC 0000200C  38 8D A9 18 */	addi r4, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 800050B0 00002010  3C 60 80 3D */	lis r3, lbl_803CBE74@ha
 /* 800050B4 00002014  90 81 00 50 */	stw r4, 0x50(r1)
 /* 800050B8 00002018  38 83 BE 74 */	addi r4, r3, lbl_803CBE74@l

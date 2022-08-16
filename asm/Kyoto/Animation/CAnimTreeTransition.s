@@ -455,8 +455,8 @@ lbl_802F5F28:
 lbl_802F5F50:
 /* 802F5F50 002F2EB0  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802F5F54 002F2EB4  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
-/* 802F5F58 002F2EB8  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F5F5C 002F2EBC  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
+/* 802F5F58 002F2EB8  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F5F5C 002F2EBC  C4 83 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r3)
 /* 802F5F60 002F2EC0  80 0D 9C 08 */	lwz r0, lbl_805A87C8@sda21(r13)
 /* 802F5F64 002F2EC4  C0 44 00 04 */	lfs f2, 4(r4)
 /* 802F5F68 002F2EC8  C0 64 00 08 */	lfs f3, 8(r4)
@@ -545,9 +545,9 @@ lbl_802F6094:
 /* 802F60A8 002F3008  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802F60AC 002F300C  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 802F60B0 002F3010  80 01 00 1C */	lwz r0, 0x1c(r1)
-/* 802F60B4 002F3014  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802F60B4 002F3014  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802F60B8 002F3018  D0 01 00 40 */	stfs f0, 0x40(r1)
-/* 802F60BC 002F301C  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 802F60BC 002F301C  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 802F60C0 002F3020  C3 E5 00 00 */	lfs f31, 0(r5)
 /* 802F60C4 002F3024  90 01 00 44 */	stw r0, 0x44(r1)
 /* 802F60C8 002F3028  38 61 00 10 */	addi r3, r1, 0x10
@@ -701,8 +701,8 @@ AdvanceViewForTransitionalPeriod__19CAnimTreeTransitionFRC13CCharAnimTime:
 /* 802F6304 002F3264  41 82 00 5C */	beq lbl_802F6360
 /* 802F6308 002F3268  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802F630C 002F326C  C4 24 66 A0 */	lfsu f1, sZeroVector__9CVector3f@l(r4)
-/* 802F6310 002F3270  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802F6314 002F3274  C4 83 66 60 */	lfsu f4, lbl_805A6660@l(r3)
+/* 802F6310 002F3270  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802F6314 002F3274  C4 83 66 60 */	lfsu f4, sNoRotation__11CQuaternion@l(r3)
 /* 802F6318 002F3278  80 0D 9C 08 */	lwz r0, lbl_805A87C8@sda21(r13)
 /* 802F631C 002F327C  C0 44 00 04 */	lfs f2, 4(r4)
 /* 802F6320 002F3280  C0 64 00 08 */	lfs f3, 8(r4)

@@ -2479,8 +2479,8 @@ lbl_80116E3C:
 __sinit_CModelData_cpp:
 /* 80116E7C 00113DDC  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80116E80 00113DE0  C4 C5 66 A0 */	lfsu f6, sZeroVector__9CVector3f@l(r5)
-/* 80116E84 00113DE4  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80116E88 00113DE8  C4 63 66 60 */	lfsu f3, lbl_805A6660@l(r3)
+/* 80116E84 00113DE4  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80116E88 00113DE8  C4 63 66 60 */	lfsu f3, sNoRotation__11CQuaternion@l(r3)
 /* 80116E8C 00113DEC  3C 80 80 47 */	lis r4, lbl_8046C538@ha
 /* 80116E90 00113DF0  D4 C4 C5 38 */	stfsu f6, lbl_8046C538@l(r4)
 /* 80116E94 00113DF4  C0 A5 00 04 */	lfs f5, 4(r5)

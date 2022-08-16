@@ -2301,8 +2301,8 @@ sub_8016bb6c:
 /* 8016BB7C 00168ADC  F3 E1 00 C8 */	psq_st f31, 200(r1), 0, qr0
 /* 8016BB80 00168AE0  93 E1 00 BC */	stw r31, 0xbc(r1)
 /* 8016BB84 00168AE4  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
-/* 8016BB88 00168AE8  3C A0 80 5A */	lis r5, lbl_805A6660@ha
-/* 8016BB8C 00168AEC  38 E5 66 60 */	addi r7, r5, lbl_805A6660@l
+/* 8016BB88 00168AE8  3C A0 80 5A */	lis r5, sNoRotation__11CQuaternion@ha
+/* 8016BB8C 00168AEC  38 E5 66 60 */	addi r7, r5, sNoRotation__11CQuaternion@l
 /* 8016BB90 00168AF0  FF E0 08 90 */	fmr f31, f1
 /* 8016BB94 00168AF4  38 A6 66 A0 */	addi r5, r6, sZeroVector__9CVector3f@l
 /* 8016BB98 00168AF8  C0 67 00 00 */	lfs f3, 0(r7)

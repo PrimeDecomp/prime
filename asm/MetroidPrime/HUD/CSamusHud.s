@@ -1053,8 +1053,8 @@ lbl_80064F14:
 /* 80064F30 00061E90  7D 89 03 A6 */	mtctr r12
 /* 80064F34 00061E94  4E 80 04 21 */	bctrl
 /* 80064F38 00061E98  80 7E 02 9C */	lwz r3, 0x29c(r30)
-/* 80064F3C 00061E9C  3C 80 80 5A */	lis r4, lbl_805A6660@ha
-/* 80064F40 00061EA0  38 84 66 60 */	addi r4, r4, lbl_805A6660@l
+/* 80064F3C 00061E9C  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
+/* 80064F40 00061EA0  38 84 66 60 */	addi r4, r4, sNoRotation__11CQuaternion@l
 /* 80064F44 00061EA4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80064F48 00061EA8  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80064F4C 00061EAC  7D 89 03 A6 */	mtctr r12
@@ -1082,8 +1082,8 @@ lbl_80064F70:
 /* 80064FA0 00061F00  7F E3 FB 78 */	mr r3, r31
 /* 80064FA4 00061F04  48 26 56 C1 */	bl ReapplyXform__10CGuiWidgetFv
 /* 80064FA8 00061F08  80 BE 02 74 */	lwz r5, 0x274(r30)
-/* 80064FAC 00061F0C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80064FB0 00061F10  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 80064FAC 00061F0C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80064FB0 00061F10  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 80064FB4 00061F14  38 DE 03 10 */	addi r6, r30, 0x310
 /* 80064FB8 00061F18  83 E5 00 14 */	lwz r31, 0x14(r5)
 /* 80064FBC 00061F1C  38 61 01 58 */	addi r3, r1, 0x158
@@ -1092,8 +1092,8 @@ lbl_80064F70:
 /* 80064FC8 00061F28  7F E3 FB 78 */	mr r3, r31
 /* 80064FCC 00061F2C  38 81 01 58 */	addi r4, r1, 0x158
 /* 80064FD0 00061F30  48 25 F7 69 */	bl SetO2WTransform__10CGuiObjectFRC12CTransform4f
-/* 80064FD4 00061F34  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80064FD8 00061F38  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 80064FD4 00061F34  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80064FD8 00061F38  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 80064FDC 00061F3C  C0 04 00 00 */	lfs f0, 0(r4)
 /* 80064FE0 00061F40  D0 1E 00 08 */	stfs f0, 8(r30)
 /* 80064FE4 00061F44  80 64 00 04 */	lwz r3, 4(r4)
@@ -7547,7 +7547,7 @@ __ct__9CSamusHudFRC13CStateManager:
 /* 8006AAC4 00067A24  88 1F 02 E0 */	lbz r0, 0x2e0(r31)
 /* 8006AAC8 00067A28  50 60 26 F6 */	rlwimi r0, r3, 4, 0x1b, 0x1b
 /* 8006AACC 00067A2C  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
-/* 8006AAD0 00067A30  3C 80 80 5A */	lis r4, lbl_805A6660@ha
+/* 8006AAD0 00067A30  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
 /* 8006AAD4 00067A34  98 1F 02 E0 */	stb r0, 0x2e0(r31)
 /* 8006AAD8 00067A38  38 00 00 00 */	li r0, 0
 /* 8006AADC 00067A3C  3C 60 80 3D */	lis r3, lbl_803CD0C0@ha
@@ -7555,7 +7555,7 @@ __ct__9CSamusHudFRC13CStateManager:
 /* 8006AAE4 00067A44  90 1F 02 E4 */	stw r0, 0x2e4(r31)
 /* 8006AAE8 00067A48  38 63 D0 C0 */	addi r3, r3, lbl_803CD0C0@l
 /* 8006AAEC 00067A4C  3B 85 66 A0 */	addi r28, r5, sZeroVector__9CVector3f@l
-/* 8006AAF0 00067A50  3B A4 66 60 */	addi r29, r4, lbl_805A6660@l
+/* 8006AAF0 00067A50  3B A4 66 60 */	addi r29, r4, sNoRotation__11CQuaternion@l
 /* 8006AAF4 00067A54  90 1F 02 E8 */	stw r0, 0x2e8(r31)
 /* 8006AAF8 00067A58  38 83 01 3B */	addi r4, r3, 0x13b
 /* 8006AAFC 00067A5C  38 60 02 E0 */	li r3, 0x2e0
@@ -7701,9 +7701,9 @@ lbl_8006AC90:
 /* 8006AD1C 00067C7C  C0 1C 00 08 */	lfs f0, 8(r28)
 /* 8006AD20 00067C80  D0 1F 04 24 */	stfs f0, 0x424(r31)
 /* 8006AD24 00067C84  48 2A 53 01 */	bl __ct__9CMatrix3fFRC9CMatrix3f
-/* 8006AD28 00067C88  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 8006AD28 00067C88  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 8006AD2C 00067C8C  C0 02 87 34 */	lfs f0, lbl_805AA454@sda21(r2)
-/* 8006AD30 00067C90  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 8006AD30 00067C90  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 8006AD34 00067C94  3B 60 00 00 */	li r27, 0
 /* 8006AD38 00067C98  C0 24 00 00 */	lfs f1, 0(r4)
 /* 8006AD3C 00067C9C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
@@ -8386,8 +8386,8 @@ UpdateThreatAssessment__9CSamusHudFfRC13CStateManager:
 /* 8006B708 00068668  38 C0 00 01 */	li r6, 1
 /* 8006B70C 0006866C  38 00 00 00 */	li r0, 0
 /* 8006B710 00068670  90 61 01 08 */	stw r3, 0x108(r1)
-/* 8006B714 00068674  3C 60 80 5A */	lis r3, lbl_805A6784@ha
-/* 8006B718 00068678  38 A3 67 84 */	addi r5, r3, lbl_805A6784@l
+/* 8006B714 00068674  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
+/* 8006B718 00068678  38 A3 67 84 */	addi r5, r3, mskNullBox__6CAABox@l
 /* 8006B71C 0006867C  80 FD 08 4C */	lwz r7, 0x84c(r29)
 /* 8006B720 00068680  90 81 01 0C */	stw r4, 0x10c(r1)
 /* 8006B724 00068684  38 61 00 50 */	addi r3, r1, 0x50

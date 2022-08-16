@@ -7,10 +7,10 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-.comm lbl_805A6660, 0x10, 4
-.lcomm lbl_804BFD30, 0xC, 4
-.lcomm lbl_804BFD3C, 0xC, 4
-.lcomm lbl_804BFD48, 0x10, 4
+.comm sNoRotation__11CQuaternion, 0x10, 4
+.lcomm XAxis, 0xC, 4
+.lcomm YAxis, 0xC, 4
+.lcomm ZAxis, 0x10, 4
 
 .section .sdata
 .balign 8
@@ -560,10 +560,10 @@ lbl_803110D4:
 ZRotation__11CQuaternionFRC9CRelAngle:
 /* 803110F8 0030E058  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803110FC 0030E05C  7C 08 02 A6 */	mflr r0
-/* 80311100 0030E060  3C C0 80 4C */	lis r6, lbl_804BFD48@ha
+/* 80311100 0030E060  3C C0 80 4C */	lis r6, ZAxis@ha
 /* 80311104 0030E064  7C 85 23 78 */	mr r5, r4
 /* 80311108 0030E068  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8031110C 0030E06C  38 86 FD 48 */	addi r4, r6, lbl_804BFD48@l
+/* 8031110C 0030E06C  38 86 FD 48 */	addi r4, r6, ZAxis@l
 /* 80311110 0030E070  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80311114 0030E074  7C 7F 1B 78 */	mr r31, r3
 /* 80311118 0030E078  48 00 01 DD */	bl AxisAngle__11CQuaternionFRC13CUnitVector3fRC9CRelAngle
@@ -577,10 +577,10 @@ ZRotation__11CQuaternionFRC9CRelAngle:
 YRotation__11CQuaternionFRC9CRelAngle:
 /* 80311130 0030E090  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80311134 0030E094  7C 08 02 A6 */	mflr r0
-/* 80311138 0030E098  3C C0 80 4C */	lis r6, lbl_804BFD3C@ha
+/* 80311138 0030E098  3C C0 80 4C */	lis r6, YAxis@ha
 /* 8031113C 0030E09C  7C 85 23 78 */	mr r5, r4
 /* 80311140 0030E0A0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80311144 0030E0A4  38 86 FD 3C */	addi r4, r6, lbl_804BFD3C@l
+/* 80311144 0030E0A4  38 86 FD 3C */	addi r4, r6, YAxis@l
 /* 80311148 0030E0A8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8031114C 0030E0AC  7C 7F 1B 78 */	mr r31, r3
 /* 80311150 0030E0B0  48 00 01 A5 */	bl AxisAngle__11CQuaternionFRC13CUnitVector3fRC9CRelAngle
@@ -594,10 +594,10 @@ YRotation__11CQuaternionFRC9CRelAngle:
 XRotation__11CQuaternionFRC9CRelAngle:
 /* 80311168 0030E0C8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8031116C 0030E0CC  7C 08 02 A6 */	mflr r0
-/* 80311170 0030E0D0  3C C0 80 4C */	lis r6, lbl_804BFD30@ha
+/* 80311170 0030E0D0  3C C0 80 4C */	lis r6, XAxis@ha
 /* 80311174 0030E0D4  7C 85 23 78 */	mr r5, r4
 /* 80311178 0030E0D8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8031117C 0030E0DC  38 86 FD 30 */	addi r4, r6, lbl_804BFD30@l
+/* 8031117C 0030E0DC  38 86 FD 30 */	addi r4, r6, XAxis@l
 /* 80311180 0030E0E0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80311184 0030E0E4  7C 7F 1B 78 */	mr r31, r3
 /* 80311188 0030E0E8  48 00 01 6D */	bl AxisAngle__11CQuaternionFRC13CUnitVector3fRC9CRelAngle
@@ -974,7 +974,7 @@ LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle:
 /* 803116CC 0030E62C  7C 9E 23 78 */	mr r30, r4
 /* 803116D0 0030E630  C1 04 00 00 */	lfs f8, 0(r4)
 /* 803116D4 0030E634  C0 FE 00 04 */	lfs f7, 4(r30)
-/* 803116D8 0030E638  3C 80 80 5A */	lis r4, lbl_805A6660@ha
+/* 803116D8 0030E638  3C 80 80 5A */	lis r4, sNoRotation__11CQuaternion@ha
 /* 803116DC 0030E63C  C1 65 00 00 */	lfs f11, 0(r5)
 /* 803116E0 0030E640  EC 68 02 32 */	fmuls f3, f8, f8
 /* 803116E4 0030E644  C1 45 00 04 */	lfs f10, 4(r5)
@@ -985,7 +985,7 @@ LookAt__11CQuaternionFRC13CUnitVector3fRC13CUnitVector3fRC9CRelAngle:
 /* 803116F8 0030E658  EC 85 01 72 */	fmuls f4, f5, f5
 /* 803116FC 0030E65C  C1 25 00 08 */	lfs f9, 8(r5)
 /* 80311700 0030E660  EC 43 10 2A */	fadds f2, f3, f2
-/* 80311704 0030E664  C5 84 66 60 */	lfsu f12, lbl_805A6660@l(r4)
+/* 80311704 0030E664  C5 84 66 60 */	lfsu f12, sNoRotation__11CQuaternion@l(r4)
 /* 80311708 0030E668  EC 21 00 2A */	fadds f1, f1, f0
 /* 8031170C 0030E66C  D1 21 00 DC */	stfs f9, 0xdc(r1)
 /* 80311710 0030E670  ED 24 10 2A */	fadds f9, f4, f2
@@ -1325,8 +1325,8 @@ lbl_80311B70:
 /* 80311BD8 0030EB38  EC 2B 0A BA */	fmadds f1, f11, f10, f1
 /* 80311BDC 0030EB3C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80311BE0 0030EB40  40 81 00 2C */	ble lbl_80311C0C
-/* 80311BE4 0030EB44  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80311BE8 0030EB48  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 80311BE4 0030EB44  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80311BE8 0030EB48  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 80311BEC 0030EB4C  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 80311BF0 0030EB50  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80311BF4 0030EB54  D0 1F 00 04 */	stfs f0, 4(r31)
@@ -1353,8 +1353,8 @@ lbl_80311C0C:
 /* 80311C44 0030EBA4  D0 1F 00 0C */	stfs f0, 0xc(r31)
 /* 80311C48 0030EBA8  48 00 00 9C */	b lbl_80311CE4
 lbl_80311C4C:
-/* 80311C4C 0030EBAC  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80311C50 0030EBB0  C4 03 66 60 */	lfsu f0, lbl_805A6660@l(r3)
+/* 80311C4C 0030EBAC  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80311C50 0030EBB0  C4 03 66 60 */	lfsu f0, sNoRotation__11CQuaternion@l(r3)
 /* 80311C54 0030EBB4  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 80311C58 0030EBB8  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80311C5C 0030EBBC  D0 1F 00 04 */	stfs f0, 4(r31)
@@ -1920,11 +1920,11 @@ __ct__11CQuaternionFR12CInputStream:
 
 .global __sinit_CQuaternion_cpp
 __sinit_CQuaternion_cpp:
-/* 80312480 0030F3E0  3C 80 80 4C */	lis r4, lbl_804BFD30@ha
-/* 80312484 0030F3E4  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 80312488 0030F3E8  38 E4 FD 30 */	addi r7, r4, lbl_804BFD30@l
+/* 80312480 0030F3E0  3C 80 80 4C */	lis r4, XAxis@ha
+/* 80312484 0030F3E4  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 80312488 0030F3E8  38 E4 FD 30 */	addi r7, r4, XAxis@l
 /* 8031248C 0030F3EC  C0 02 C8 78 */	lfs f0, lbl_805AE598@sda21(r2)
-/* 80312490 0030F3F0  38 C3 66 60 */	addi r6, r3, lbl_805A6660@l
+/* 80312490 0030F3F0  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
 /* 80312494 0030F3F4  C0 22 C8 74 */	lfs f1, lbl_805AE594@sda21(r2)
 /* 80312498 0030F3F8  38 A7 00 00 */	addi r5, r7, 0
 /* 8031249C 0030F3FC  38 87 00 0C */	addi r4, r7, 0xc

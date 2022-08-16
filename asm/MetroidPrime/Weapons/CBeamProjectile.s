@@ -639,9 +639,9 @@ lbl_80199618:
 /* 80199664 001965C4  C0 05 00 08 */	lfs f0, 8(r5)
 /* 80199668 001965C8  D0 1A 03 20 */	stfs f0, 0x320(r26)
 /* 8019966C 001965CC  48 17 95 09 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80199670 001965D0  3C 60 80 5A */	lis r3, lbl_805A6784@ha
+/* 80199670 001965D0  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
 /* 80199674 001965D4  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
-/* 80199678 001965D8  38 A3 67 84 */	addi r5, r3, lbl_805A6784@l
+/* 80199678 001965D8  38 A3 67 84 */	addi r5, r3, mskNullBox__6CAABox@l
 /* 8019967C 001965DC  38 60 00 0A */	li r3, 0xa
 /* 80199680 001965E0  C0 05 00 00 */	lfs f0, 0(r5)
 /* 80199684 001965E4  38 00 00 02 */	li r0, 2

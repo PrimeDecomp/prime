@@ -950,7 +950,7 @@ lbl_801D4468:
 /* 801D4470 001D13D0  4B FF F5 69 */	bl StateForWorld__10CGameStateFUi
 /* 801D4474 001D13D4  48 00 08 C1 */	bl GetLayerState__11CWorldStateFv
 /* 801D4478 001D13D8  81 03 00 00 */	lwz r8, 0(r3)
-/* 801D447C 001D13DC  38 ED A9 28 */	addi r7, r13, lbl_805A94E8@sda21
+/* 801D447C 001D13DC  38 ED A9 28 */	addi r7, r13, sNull__Q24rstl8CRefData@sda21
 /* 801D4480 001D13E0  38 9E 00 20 */	addi r4, r30, 0x20
 /* 801D4484 001D13E4  38 A1 00 0C */	addi r5, r1, 0xc
 /* 801D4488 001D13E8  91 01 00 10 */	stw r8, 0x10(r1)

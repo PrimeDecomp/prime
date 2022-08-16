@@ -700,9 +700,9 @@ lbl_802963B0:
 /* 80296544 002934A4  7D 89 03 A6 */	mtctr r12
 /* 80296548 002934A8  4E 80 04 21 */	bctrl
 /* 8029654C 002934AC  38 00 00 00 */	li r0, 0
-/* 80296550 002934B0  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80296550 002934B0  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80296554 002934B4  90 01 01 D0 */	stw r0, 0x1d0(r1)
-/* 80296558 002934B8  38 C3 FD 18 */	addi r6, r3, lbl_8059FD18@l
+/* 80296558 002934B8  38 C3 FD 18 */	addi r6, r3, skPassEverything__15CMaterialFilter@l
 /* 8029655C 002934BC  7F A3 EB 78 */	mr r3, r29
 /* 80296560 002934C0  7F C5 F3 78 */	mr r5, r30
 /* 80296564 002934C4  7F 87 E3 78 */	mr r7, r28

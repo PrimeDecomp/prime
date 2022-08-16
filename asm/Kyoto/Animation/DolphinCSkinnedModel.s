@@ -18,9 +18,9 @@ lbl_803EF718:
 .section .bss
 .balign 8
 
-.lcomm lbl_804BFFC0, 0x8000C, 4
-.lcomm lbl_8053FFCC, 0x28, 4
-.lcomm lbl_8053FFF4, 0x10, 4
+.lcomm sStaticSkinningData__8Skinning, 0x8000C, 4
+.lcomm sSkinningBuffer__8Skinning, 0x28, 4
+.lcomm sAllocations__8Skinning, 0x10, 4
 .lcomm lbl_80540004, 0xC, 4
 
 .section .sbss, "wa"
@@ -234,9 +234,9 @@ lbl_803528AC:
 /* 803528D4 0034F834  38 63 00 20 */	addi r3, r3, 0x20
 /* 803528D8 0034F838  7C 7D 1A 14 */	add r3, r29, r3
 /* 803528DC 0034F83C  48 00 01 11 */	bl EnsureAllocation__13CSkinnedModelFi
-/* 803528E0 0034F840  3C 80 80 4C */	lis r4, lbl_804BFFC0@ha
+/* 803528E0 0034F840  3C 80 80 4C */	lis r4, sStaticSkinningData__8Skinning@ha
 /* 803528E4 0034F844  7C 7E 1B 78 */	mr r30, r3
-/* 803528E8 0034F848  38 04 FF C0 */	addi r0, r4, lbl_804BFFC0@l
+/* 803528E8 0034F848  38 04 FF C0 */	addi r0, r4, sStaticSkinningData__8Skinning@l
 /* 803528EC 0034F84C  7C 1E 00 40 */	cmplw r30, r0
 /* 803528F0 0034F850  40 82 00 08 */	bne lbl_803528F8
 /* 803528F4 0034F854  48 02 56 91 */	bl GXInvalidateVtxCache
@@ -316,10 +316,10 @@ EnsureAllocation__13CSkinnedModelFi:
 /* 803529F0 0034F950  7C 08 02 A6 */	mflr r0
 /* 803529F4 0034F954  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803529F8 0034F958  38 03 00 1F */	addi r0, r3, 0x1f
-/* 803529FC 0034F95C  3C 60 80 54 */	lis r3, lbl_8053FFCC@ha
+/* 803529FC 0034F95C  3C 60 80 54 */	lis r3, sSkinningBuffer__8Skinning@ha
 /* 80352A00 0034F960  BF 41 00 08 */	stmw r26, 8(r1)
 /* 80352A04 0034F964  54 1C 00 34 */	rlwinm r28, r0, 0, 0, 0x1a
-/* 80352A08 0034F968  38 63 FF CC */	addi r3, r3, lbl_8053FFCC@l
+/* 80352A08 0034F968  38 63 FF CC */	addi r3, r3, sSkinningBuffer__8Skinning@l
 /* 80352A0C 0034F96C  7F 84 E3 78 */	mr r4, r28
 /* 80352A10 0034F970  4B FC 2C E9 */	bl Alloc__15CCircularBufferFi
 /* 80352A14 0034F974  7C 7E 1B 79 */	or. r30, r3, r3
@@ -327,18 +327,18 @@ EnsureAllocation__13CSkinnedModelFi:
 /* 80352A1C 0034F97C  88 0D AA 41 */	lbz r0, lbl_805A9601@sda21(r13)
 /* 80352A20 0034F980  28 00 00 00 */	cmplwi r0, 0
 /* 80352A24 0034F984  40 82 00 18 */	bne lbl_80352A3C
-/* 80352A28 0034F988  3C 60 80 54 */	lis r3, lbl_8053FFCC@ha
-/* 80352A2C 0034F98C  38 63 FF CC */	addi r3, r3, lbl_8053FFCC@l
+/* 80352A28 0034F988  3C 60 80 54 */	lis r3, sSkinningBuffer__8Skinning@ha
+/* 80352A2C 0034F98C  38 63 FF CC */	addi r3, r3, sSkinningBuffer__8Skinning@l
 /* 80352A30 0034F990  4B FC 2C 31 */	bl GetAllocatedAmount__15CCircularBufferCFv
 /* 80352A34 0034F994  38 00 00 01 */	li r0, 1
 /* 80352A38 0034F998  98 0D AA 41 */	stb r0, lbl_805A9601@sda21(r13)
 lbl_80352A3C:
 /* 80352A3C 0034F99C  48 03 29 85 */	bl OSGetTick
-/* 80352A40 0034F9A0  3C A0 80 54 */	lis r5, lbl_8053FFF4@ha
-/* 80352A44 0034F9A4  3C 80 80 54 */	lis r4, lbl_8053FFCC@ha
+/* 80352A40 0034F9A0  3C A0 80 54 */	lis r5, sAllocations__8Skinning@ha
+/* 80352A44 0034F9A4  3C 80 80 54 */	lis r4, sSkinningBuffer__8Skinning@ha
 /* 80352A48 0034F9A8  7C 7D 1B 78 */	mr r29, r3
-/* 80352A4C 0034F9AC  3B E5 FF F4 */	addi r31, r5, lbl_8053FFF4@l
-/* 80352A50 0034F9B0  3B 64 FF CC */	addi r27, r4, lbl_8053FFCC@l
+/* 80352A4C 0034F9AC  3B E5 FF F4 */	addi r31, r5, sAllocations__8Skinning@l
+/* 80352A50 0034F9B0  3B 64 FF CC */	addi r27, r4, sSkinningBuffer__8Skinning@l
 /* 80352A54 0034F9B4  48 00 00 84 */	b lbl_80352AD8
 lbl_80352A58:
 /* 80352A58 0034F9B8  48 00 01 19 */	bl TickAllocations__13CSkinnedModelFv
@@ -403,8 +403,8 @@ lbl_80352B24:
 /* 80352B30 0034FA90  90 7F 00 04 */	stw r3, 4(r31)
 lbl_80352B34:
 /* 80352B34 0034FA94  80 C3 00 00 */	lwz r6, 0(r3)
-/* 80352B38 0034FA98  3C 80 80 54 */	lis r4, lbl_8053FFF4@ha
-/* 80352B3C 0034FA9C  38 A4 FF F4 */	addi r5, r4, lbl_8053FFF4@l
+/* 80352B38 0034FA98  3C 80 80 54 */	lis r4, sAllocations__8Skinning@ha
+/* 80352B3C 0034FA9C  38 A4 FF F4 */	addi r5, r4, sAllocations__8Skinning@l
 /* 80352B40 0034FAA0  90 66 00 04 */	stw r3, 4(r6)
 /* 80352B44 0034FAA4  80 83 00 04 */	lwz r4, 4(r3)
 /* 80352B48 0034FAA8  90 64 00 00 */	stw r3, 0(r4)
@@ -433,10 +433,10 @@ TickAllocations__13CSkinnedModelFv:
 /* 80352B98 0034FAF8  40 81 00 08 */	ble lbl_80352BA0
 /* 80352B9C 0034FAFC  3F BD FF FF */	addis r29, r29, 0xffff
 lbl_80352BA0:
-/* 80352BA0 0034FB00  3C 80 80 54 */	lis r4, lbl_8053FFF4@ha
-/* 80352BA4 0034FB04  3C 60 80 54 */	lis r3, lbl_8053FFCC@ha
-/* 80352BA8 0034FB08  3B C4 FF F4 */	addi r30, r4, lbl_8053FFF4@l
-/* 80352BAC 0034FB0C  3B E3 FF CC */	addi r31, r3, lbl_8053FFCC@l
+/* 80352BA0 0034FB00  3C 80 80 54 */	lis r4, sAllocations__8Skinning@ha
+/* 80352BA4 0034FB04  3C 60 80 54 */	lis r3, sSkinningBuffer__8Skinning@ha
+/* 80352BA8 0034FB08  3B C4 FF F4 */	addi r30, r4, sAllocations__8Skinning@l
+/* 80352BAC 0034FB0C  3B E3 FF CC */	addi r31, r3, sSkinningBuffer__8Skinning@l
 /* 80352BB0 0034FB10  48 00 00 40 */	b lbl_80352BF0
 lbl_80352BB4:
 /* 80352BB4 0034FB14  80 BE 00 04 */	lwz r5, 4(r30)
@@ -1113,8 +1113,8 @@ sub_8035350c:
 /* 80353524 00350484  34 03 FF FF */	addic. r0, r3, -1
 /* 80353528 00350488  90 0D AA 3C */	stw r0, lbl_805A95FC@sda21(r13)
 /* 8035352C 0035048C  40 82 00 68 */	bne lbl_80353594
-/* 80353530 00350490  3C 60 80 54 */	lis r3, lbl_8053FFCC@ha
-/* 80353534 00350494  3B C3 FF CC */	addi r30, r3, lbl_8053FFCC@l
+/* 80353530 00350490  3C 60 80 54 */	lis r3, sSkinningBuffer__8Skinning@ha
+/* 80353534 00350494  3B C3 FF CC */	addi r30, r3, sSkinningBuffer__8Skinning@l
 /* 80353538 00350498  88 1E 00 18 */	lbz r0, 0x18(r30)
 /* 8035353C 0035049C  28 00 00 00 */	cmplwi r0, 0
 /* 80353540 003504A0  41 82 00 24 */	beq lbl_80353564
@@ -1127,9 +1127,9 @@ sub_8035350c:
 /* 8035355C 003504BC  80 7E 00 04 */	lwz r3, 4(r30)
 /* 80353560 003504C0  4B FC 23 D1 */	bl Free__7CMemoryFPCv
 lbl_80353564:
-/* 80353564 003504C4  3C 60 80 54 */	lis r3, lbl_8053FFF4@ha
+/* 80353564 003504C4  3C 60 80 54 */	lis r3, sAllocations__8Skinning@ha
 /* 80353568 003504C8  38 00 00 00 */	li r0, 0
-/* 8035356C 003504CC  3B E3 FF F4 */	addi r31, r3, lbl_8053FFF4@l
+/* 8035356C 003504CC  3B E3 FF F4 */	addi r31, r3, sAllocations__8Skinning@l
 /* 80353570 003504D0  98 1E 00 18 */	stb r0, 0x18(r30)
 /* 80353574 003504D4  83 DF 00 08 */	lwz r30, 8(r31)
 /* 80353578 003504D8  80 9F 00 04 */	lwz r4, 4(r31)
@@ -1173,14 +1173,14 @@ lbl_803535F0:
 /* 803535F0 00350550  80 0D AA 3C */	lwz r0, lbl_805A95FC@sda21(r13)
 /* 803535F4 00350554  2C 00 00 00 */	cmpwi r0, 0
 /* 803535F8 00350558  40 82 00 E8 */	bne lbl_803536E0
-/* 803535FC 0035055C  3C 80 80 4C */	lis r4, lbl_804BFFC0@ha
+/* 803535FC 0035055C  3C 80 80 4C */	lis r4, sStaticSkinningData__8Skinning@ha
 /* 80353600 00350560  38 61 00 08 */	addi r3, r1, 8
-/* 80353604 00350564  38 84 FF C0 */	addi r4, r4, lbl_804BFFC0@l
+/* 80353604 00350564  38 84 FF C0 */	addi r4, r4, sStaticSkinningData__8Skinning@l
 /* 80353608 00350568  3C A0 00 08 */	lis r5, 8
 /* 8035360C 0035056C  38 C0 00 01 */	li r6, 1
 /* 80353610 00350570  4B FC 21 CD */	bl __ct__15CCircularBufferFPviQ215CCircularBuffer10EOwnership
-/* 80353614 00350574  3C 60 80 54 */	lis r3, lbl_8053FFCC@ha
-/* 80353618 00350578  3B E3 FF CC */	addi r31, r3, lbl_8053FFCC@l
+/* 80353614 00350574  3C 60 80 54 */	lis r3, sSkinningBuffer__8Skinning@ha
+/* 80353618 00350578  3B E3 FF CC */	addi r31, r3, sSkinningBuffer__8Skinning@l
 /* 8035361C 0035057C  88 1F 00 18 */	lbz r0, 0x18(r31)
 /* 80353620 00350580  28 00 00 00 */	cmplwi r0, 0
 /* 80353624 00350584  40 82 00 50 */	bne lbl_80353674
@@ -1285,10 +1285,10 @@ lbl_80353754:
 __sinit_DolphinCSkinnedModel_cpp:
 /* 8035377C 003506DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80353780 003506E0  7C 08 02 A6 */	mflr r0
-/* 80353784 003506E4  3C 80 80 4C */	lis r4, lbl_804BFFC0@ha
+/* 80353784 003506E4  3C 80 80 4C */	lis r4, sStaticSkinningData__8Skinning@ha
 /* 80353788 003506E8  3C 60 80 35 */	lis r3, "__dt__Q24rstl34optional_object<15CCircularBuffer>Fv"@ha
 /* 8035378C 003506EC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80353790 003506F0  38 84 FF C0 */	addi r4, r4, lbl_804BFFC0@l
+/* 80353790 003506F0  38 84 FF C0 */	addi r4, r4, sStaticSkinningData__8Skinning@l
 /* 80353794 003506F4  38 00 00 00 */	li r0, 0
 /* 80353798 003506F8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8035379C 003506FC  3F E4 00 08 */	addis r31, r4, 8

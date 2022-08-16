@@ -61,48 +61,48 @@ lbl_805A8934:
 .section .bss
 .balign 8
 
-.comm lbl_805A67B4, 0xC, 4
-.lcomm lbl_804BFF50, 0xC, 4
-.lcomm lbl_804BFF5C, 0x34, 4
+.comm sViewingFrom__13CCubeMaterial, 0xC, 4
+.lcomm sPlayerPosition, 0xC, 4
+.lcomm sTextureProjectionTransform, 0x34, 4
 
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9540
-lbl_805A9540:
+.global sMaterialCachedState
+sMaterialCachedState:
 	.skip 0x4
-.global lbl_805A9544
-lbl_805A9544:
+.global sLastModelCached__13CCubeMaterial
+sLastModelCached__13CCubeMaterial:
 	.skip 0x4
-.global lbl_805A9548
-lbl_805A9548:
+.global sRenderingModel__13CCubeMaterial
+sRenderingModel__13CCubeMaterial:
 	.skip 0x4
-.global lbl_805A954C
-lbl_805A954C:
+.global sLastMaterialCached
+sLastMaterialCached:
 	.skip 0x4
-.global lbl_805A9550
-lbl_805A9550:
+.global sReflectionAlpha
+sReflectionAlpha:
 	.skip 0x4
-.global lbl_805A9554
-lbl_805A9554:
+.global sLastTime
+sLastTime:
 	.skip 0x4
-.global lbl_805A9558
-lbl_805A9558:
+.global sbRenderModelBlack
+sbRenderModelBlack:
 	.skip 0x1
 .global lbl_805A9559
 lbl_805A9559:
 	.skip 0x1
-.global lbl_805A955A
-lbl_805A955A:
+.global sbRenderModelShadow
+sbRenderModelShadow:
 	.skip 0x2
-.global lbl_805A955C
-lbl_805A955C:
+.global spShadowTexture
+spShadowTexture:
 	.skip 0x4
-.global lbl_805A9560
-lbl_805A9560:
+.global sChannel0DisableLightMask
+sChannel0DisableLightMask:
 	.skip 0x1
-.global lbl_805A9561
-lbl_805A9561:
+.global sChannel1EnableLightMask
+sChannel1EnableLightMask:
 	.skip 0x7
 
 .section .text, "ax"
@@ -128,27 +128,27 @@ lbl_8034577C:
 .global DisableShadowMaps__10CCubeModelFv
 DisableShadowMaps__10CCubeModelFv:
 /* 80345784 003426E4  38 00 00 00 */	li r0, 0
-/* 80345788 003426E8  98 0D A9 9A */	stb r0, lbl_805A955A@sda21(r13)
+/* 80345788 003426E8  98 0D A9 9A */	stb r0, sbRenderModelShadow@sda21(r13)
 /* 8034578C 003426EC  4E 80 00 20 */	blr
 
 .global EnableShadowMaps__10CCubeModelFPC8CTextureRC12CTransform4fUcUc
 EnableShadowMaps__10CCubeModelFPC8CTextureRC12CTransform4fUcUc:
 /* 80345790 003426F0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80345794 003426F4  7C 08 02 A6 */	mflr r0
-/* 80345798 003426F8  3C E0 80 4C */	lis r7, lbl_804BFF5C@ha
+/* 80345798 003426F8  3C E0 80 4C */	lis r7, sTextureProjectionTransform@ha
 /* 8034579C 003426FC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803457A0 00342700  38 00 00 01 */	li r0, 1
 /* 803457A4 00342704  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803457A8 00342708  7C DF 33 78 */	mr r31, r6
 /* 803457AC 0034270C  93 C1 00 08 */	stw r30, 8(r1)
 /* 803457B0 00342710  7C BE 2B 78 */	mr r30, r5
-/* 803457B4 00342714  98 0D A9 9A */	stb r0, lbl_805A955A@sda21(r13)
-/* 803457B8 00342718  38 07 FF 5C */	addi r0, r7, lbl_804BFF5C@l
-/* 803457BC 0034271C  90 6D A9 9C */	stw r3, lbl_805A955C@sda21(r13)
+/* 803457B4 00342714  98 0D A9 9A */	stb r0, sbRenderModelShadow@sda21(r13)
+/* 803457B8 00342718  38 07 FF 5C */	addi r0, r7, sTextureProjectionTransform@l
+/* 803457BC 0034271C  90 6D A9 9C */	stw r3, spShadowTexture@sda21(r13)
 /* 803457C0 00342720  7C 03 03 78 */	mr r3, r0
 /* 803457C4 00342724  4B FC D3 7D */	bl __as__12CTransform4fFRC12CTransform4f
-/* 803457C8 00342728  9B CD A9 A0 */	stb r30, lbl_805A9560@sda21(r13)
-/* 803457CC 0034272C  9B ED A9 A1 */	stb r31, lbl_805A9561@sda21(r13)
+/* 803457C8 00342728  9B CD A9 A0 */	stb r30, sChannel0DisableLightMask@sda21(r13)
+/* 803457CC 0034272C  9B ED A9 A1 */	stb r31, sChannel1EnableLightMask@sda21(r13)
 /* 803457D0 00342730  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 803457D4 00342734  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803457D8 00342738  83 C1 00 08 */	lwz r30, 8(r1)
@@ -159,7 +159,7 @@ EnableShadowMaps__10CCubeModelFPC8CTextureRC12CTransform4fUcUc:
 .global SetRenderModelBlack__10CCubeModelFb
 SetRenderModelBlack__10CCubeModelFb:
 /* 803457E8 00342748  38 00 00 00 */	li r0, 0
-/* 803457EC 0034274C  98 6D A9 98 */	stb r3, lbl_805A9558@sda21(r13)
+/* 803457EC 0034274C  98 6D A9 98 */	stb r3, sbRenderModelBlack@sda21(r13)
 /* 803457F0 00342750  98 0D A9 99 */	stb r0, lbl_805A9559@sda21(r13)
 /* 803457F4 00342754  4E 80 00 20 */	blr
 
@@ -167,13 +167,13 @@ SetRenderModelBlack__10CCubeModelFb:
 SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch:
 /* 803457F8 00342758  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803457FC 0034275C  7C 08 02 A6 */	mflr r0
-/* 80345800 00342760  3C 80 80 4C */	lis r4, lbl_804BFF50@ha
+/* 80345800 00342760  3C 80 80 4C */	lis r4, sPlayerPosition@ha
 /* 80345804 00342764  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80345808 00342768  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8034580C 0034276C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80345810 00342770  C0 43 00 00 */	lfs f2, 0(r3)
 /* 80345814 00342774  C0 23 00 04 */	lfs f1, 4(r3)
-/* 80345818 00342778  D4 44 FF 50 */	stfsu f2, lbl_804BFF50@l(r4)
+/* 80345818 00342778  D4 44 FF 50 */	stfsu f2, sPlayerPosition@l(r4)
 /* 8034581C 0034277C  C0 03 00 08 */	lfs f0, 8(r3)
 /* 80345820 00342780  D0 24 00 04 */	stfs f1, 4(r4)
 /* 80345824 00342784  D0 04 00 08 */	stfs f0, 8(r4)
@@ -209,11 +209,11 @@ SetNewPlayerPositionAndTime__10CCubeModelFRC9CVector3fRC10CStopwatch:
 /* 8034589C 003427FC  C0 02 CB DC */	lfs f0, lbl_805AE8FC@sda21(r2)
 /* 803458A0 00342800  EC 43 10 24 */	fdivs f2, f3, f2
 /* 803458A4 00342804  EC 22 00 7A */	fmadds f1, f2, f1, f0
-/* 803458A8 00342808  D0 4D A9 94 */	stfs f2, lbl_805A9554@sda21(r13)
+/* 803458A8 00342808  D0 4D A9 94 */	stfs f2, sLastTime@sda21(r13)
 /* 803458AC 0034280C  48 04 F2 31 */	bl sin
 /* 803458B0 00342810  C0 02 CB D8 */	lfs f0, lbl_805AE8F8@sda21(r2)
 /* 803458B4 00342814  C8 82 CB D0 */	lfd f4, lbl_805AE8F0@sda21(r2)
-/* 803458B8 00342818  C0 4D A9 94 */	lfs f2, lbl_805A9554@sda21(r13)
+/* 803458B8 00342818  C0 4D A9 94 */	lfs f2, sLastTime@sda21(r13)
 /* 803458BC 0034281C  FC 60 20 7C */	fnmsub f3, f0, f1, f4
 /* 803458C0 00342820  C0 22 CB E0 */	lfs f1, lbl_805AE900@sda21(r2)
 /* 803458C4 00342824  C0 02 CB E8 */	lfs f0, lbl_805AE908@sda21(r2)
@@ -243,8 +243,8 @@ ResetCachedMaterials__13CCubeMaterialFv:
 /* 80345918 00342878  48 00 00 29 */	bl KillCachedViewDepState__13CCubeMaterialFv
 /* 8034591C 0034287C  38 60 00 00 */	li r3, 0
 /* 80345920 00342880  38 00 FF FF */	li r0, -1
-/* 80345924 00342884  90 6D A9 88 */	stw r3, lbl_805A9548@sda21(r13)
-/* 80345928 00342888  90 6D A9 8C */	stw r3, lbl_805A954C@sda21(r13)
+/* 80345924 00342884  90 6D A9 88 */	stw r3, sRenderingModel__13CCubeMaterial@sda21(r13)
+/* 80345928 00342888  90 6D A9 8C */	stw r3, sLastMaterialCached@sda21(r13)
 /* 8034592C 0034288C  90 0D 9D 68 */	stw r0, lbl_805A8928@sda21(r13)
 /* 80345930 00342890  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80345934 00342894  7C 08 03 A6 */	mtlr r0
@@ -254,7 +254,7 @@ ResetCachedMaterials__13CCubeMaterialFv:
 .global KillCachedViewDepState__13CCubeMaterialFv
 KillCachedViewDepState__13CCubeMaterialFv:
 /* 80345940 003428A0  38 00 00 00 */	li r0, 0
-/* 80345944 003428A4  90 0D A9 84 */	stw r0, lbl_805A9544@sda21(r13)
+/* 80345944 003428A4  90 0D A9 84 */	stw r0, sLastModelCached__13CCubeMaterial@sda21(r13)
 /* 80345948 003428A8  4E 80 00 20 */	blr
 
 .global EnsureViewDepStateCached__13CCubeMaterialFPC12CCubeSurface
@@ -272,20 +272,20 @@ EnsureViewDepStateCached__13CCubeMaterialFPC12CCubeSurface:
 /* 80345974 003428D4  93 C1 01 48 */	stw r30, 0x148(r1)
 /* 80345978 003428D8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8034597C 003428DC  40 82 00 14 */	bne lbl_80345990
-/* 80345980 003428E0  80 6D A9 84 */	lwz r3, lbl_805A9544@sda21(r13)
-/* 80345984 003428E4  80 0D A9 88 */	lwz r0, lbl_805A9548@sda21(r13)
+/* 80345980 003428E0  80 6D A9 84 */	lwz r3, sLastModelCached__13CCubeMaterial@sda21(r13)
+/* 80345984 003428E4  80 0D A9 88 */	lwz r0, sRenderingModel__13CCubeMaterial@sda21(r13)
 /* 80345988 003428E8  7C 03 00 40 */	cmplw r3, r0
 /* 8034598C 003428EC  41 82 04 A0 */	beq lbl_80345E2C
 lbl_80345990:
-/* 80345990 003428F0  80 0D A9 88 */	lwz r0, lbl_805A9548@sda21(r13)
+/* 80345990 003428F0  80 0D A9 88 */	lwz r0, sRenderingModel__13CCubeMaterial@sda21(r13)
 /* 80345994 003428F4  28 00 00 00 */	cmplwi r0, 0
 /* 80345998 003428F8  40 82 00 08 */	bne lbl_803459A0
 /* 8034599C 003428FC  48 00 04 90 */	b lbl_80345E2C
 lbl_803459A0:
-/* 803459A0 00342900  3C A0 80 4C */	lis r5, lbl_804BFF50@ha
+/* 803459A0 00342900  3C A0 80 4C */	lis r5, sPlayerPosition@ha
 /* 803459A4 00342904  3C 60 80 5A */	lis r3, mModelMatrix__9CGraphics@ha
 /* 803459A8 00342908  38 83 62 04 */	addi r4, r3, mModelMatrix__9CGraphics@l
-/* 803459AC 0034290C  3B E5 FF 50 */	addi r31, r5, lbl_804BFF50@l
+/* 803459AC 0034290C  3B E5 FF 50 */	addi r31, r5, sPlayerPosition@l
 /* 803459B0 00342910  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 803459B4 00342914  C0 3F 00 00 */	lfs f1, 0(r31)
 /* 803459B8 00342918  38 61 00 3C */	addi r3, r1, 0x3c
@@ -307,21 +307,21 @@ lbl_803459A0:
 /* 803459F8 00342958  28 1E 00 00 */	cmplwi r30, 0
 /* 803459FC 0034295C  C0 81 00 40 */	lfs f4, 0x40(r1)
 /* 80345A00 00342960  C0 61 00 44 */	lfs f3, 0x44(r1)
-/* 80345A04 00342964  80 8D A9 88 */	lwz r4, lbl_805A9548@sda21(r13)
+/* 80345A04 00342964  80 8D A9 88 */	lwz r4, sRenderingModel__13CCubeMaterial@sda21(r13)
 /* 80345A08 00342968  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80345A0C 0034296C  C0 03 00 08 */	lfs f0, 8(r3)
 /* 80345A10 00342970  D0 A1 00 7C */	stfs f5, 0x7c(r1)
 /* 80345A14 00342974  C3 E2 CB DC */	lfs f31, lbl_805AE8FC@sda21(r2)
 /* 80345A18 00342978  D0 81 00 80 */	stfs f4, 0x80(r1)
 /* 80345A1C 0034297C  D0 61 00 84 */	stfs f3, 0x84(r1)
-/* 80345A20 00342980  90 8D A9 84 */	stw r4, lbl_805A9544@sda21(r13)
+/* 80345A20 00342980  90 8D A9 84 */	stw r4, sLastModelCached__13CCubeMaterial@sda21(r13)
 /* 80345A24 00342984  D0 41 00 70 */	stfs f2, 0x70(r1)
 /* 80345A28 00342988  D0 21 00 74 */	stfs f1, 0x74(r1)
 /* 80345A2C 0034298C  D0 01 00 78 */	stfs f0, 0x78(r1)
 /* 80345A30 00342990  41 82 00 7C */	beq lbl_80345AAC
 /* 80345A34 00342994  38 00 00 02 */	li r0, 2
 /* 80345A38 00342998  80 7E 00 00 */	lwz r3, 0(r30)
-/* 80345A3C 0034299C  90 0D A9 80 */	stw r0, lbl_805A9540@sda21(r13)
+/* 80345A3C 0034299C  90 0D A9 80 */	stw r0, sMaterialCachedState@sda21(r13)
 /* 80345A40 003429A0  C0 C3 00 24 */	lfs f6, 0x24(r3)
 /* 80345A44 003429A4  C0 23 00 04 */	lfs f1, 4(r3)
 /* 80345A48 003429A8  EC 06 01 32 */	fmuls f0, f6, f4
@@ -352,7 +352,7 @@ lbl_803459A0:
 lbl_80345AAC:
 /* 80345AAC 00342A0C  38 00 00 01 */	li r0, 1
 /* 80345AB0 00342A10  3B C4 00 20 */	addi r30, r4, 0x20
-/* 80345AB4 00342A14  90 0D A9 80 */	stw r0, lbl_805A9540@sda21(r13)
+/* 80345AB4 00342A14  90 0D A9 80 */	stw r0, sMaterialCachedState@sda21(r13)
 /* 80345AB8 00342A18  7F C4 F3 78 */	mr r4, r30
 /* 80345ABC 00342A1C  38 61 00 30 */	addi r3, r1, 0x30
 /* 80345AC0 00342A20  4B FF 1B 4D */	bl GetCenterPoint__6CAABoxCFv
@@ -378,15 +378,15 @@ lbl_80345B08:
 /* 80345B0C 00342A6C  88 85 03 18 */	lbz r4, 0x318(r5)
 /* 80345B10 00342A70  54 80 CF FF */	rlwinm. r0, r4, 0x19, 0x1f, 0x1f
 /* 80345B14 00342A74  41 82 00 A4 */	beq lbl_80345BB8
-/* 80345B18 00342A78  3C 80 80 5A */	lis r4, lbl_805A67B4@ha
-/* 80345B1C 00342A7C  3C 60 80 4C */	lis r3, lbl_804BFF50@ha
-/* 80345B20 00342A80  38 84 67 B4 */	addi r4, r4, lbl_805A67B4@l
+/* 80345B18 00342A78  3C 80 80 5A */	lis r4, sViewingFrom__13CCubeMaterial@ha
+/* 80345B1C 00342A7C  3C 60 80 4C */	lis r3, sPlayerPosition@ha
+/* 80345B20 00342A80  38 84 67 B4 */	addi r4, r4, sViewingFrom__13CCubeMaterial@l
 /* 80345B24 00342A84  C0 3F 00 04 */	lfs f1, 4(r31)
 /* 80345B28 00342A88  C0 04 00 04 */	lfs f0, 4(r4)
 /* 80345B2C 00342A8C  C1 41 00 74 */	lfs f10, 0x74(r1)
 /* 80345B30 00342A90  EC 80 08 28 */	fsubs f4, f0, f1
 /* 80345B34 00342A94  C0 04 00 00 */	lfs f0, 0(r4)
-/* 80345B38 00342A98  C0 43 FF 50 */	lfs f2, lbl_804BFF50@l(r3)
+/* 80345B38 00342A98  C0 43 FF 50 */	lfs f2, sPlayerPosition@l(r3)
 /* 80345B3C 00342A9C  EC CA 08 28 */	fsubs f6, f10, f1
 /* 80345B40 00342AA0  C1 21 00 70 */	lfs f9, 0x70(r1)
 /* 80345B44 00342AA4  EC 20 10 28 */	fsubs f1, f0, f2
@@ -420,10 +420,10 @@ lbl_80345B08:
 /* 80345BB4 00342B14  48 00 00 2C */	b lbl_80345BE0
 lbl_80345BB8:
 /* 80345BB8 00342B18  C0 41 00 70 */	lfs f2, 0x70(r1)
-/* 80345BBC 00342B1C  3C 60 80 5A */	lis r3, lbl_805A67B4@ha
+/* 80345BBC 00342B1C  3C 60 80 5A */	lis r3, sViewingFrom__13CCubeMaterial@ha
 /* 80345BC0 00342B20  38 00 00 01 */	li r0, 1
 /* 80345BC4 00342B24  C0 21 00 74 */	lfs f1, 0x74(r1)
-/* 80345BC8 00342B28  D4 43 67 B4 */	stfsu f2, lbl_805A67B4@l(r3)
+/* 80345BC8 00342B28  D4 43 67 B4 */	stfsu f2, sViewingFrom__13CCubeMaterial@l(r3)
 /* 80345BCC 00342B2C  50 04 3E 30 */	rlwimi r4, r0, 7, 0x18, 0x18
 /* 80345BD0 00342B30  C0 01 00 78 */	lfs f0, 0x78(r1)
 /* 80345BD4 00342B34  D0 23 00 04 */	stfs f1, 4(r3)
@@ -456,7 +456,7 @@ lbl_80345BE0:
 /* 80345C3C 00342B9C  4C 41 13 82 */	cror 2, 1, 2
 /* 80345C40 00342BA0  40 82 00 10 */	bne lbl_80345C50
 /* 80345C44 00342BA4  C0 02 CB DC */	lfs f0, lbl_805AE8FC@sda21(r2)
-/* 80345C48 00342BA8  D0 0D A9 90 */	stfs f0, lbl_805A9550@sda21(r13)
+/* 80345C48 00342BA8  D0 0D A9 90 */	stfs f0, sReflectionAlpha@sda21(r13)
 /* 80345C4C 00342BAC  48 00 01 E0 */	b lbl_80345E2C
 lbl_80345C50:
 /* 80345C50 00342BB0  EC 01 F8 28 */	fsubs f0, f1, f31
@@ -464,7 +464,7 @@ lbl_80345C50:
 /* 80345C58 00342BB8  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 80345C5C 00342BBC  38 61 00 88 */	addi r3, r1, 0x88
 /* 80345C60 00342BC0  EC 00 08 24 */	fdivs f0, f0, f1
-/* 80345C64 00342BC4  D0 0D A9 90 */	stfs f0, lbl_805A9550@sda21(r13)
+/* 80345C64 00342BC4  D0 0D A9 90 */	stfs f0, sReflectionAlpha@sda21(r13)
 /* 80345C68 00342BC8  4B FC D0 35 */	bl GetQuickInverse__12CTransform4fCFv
 /* 80345C6C 00342BCC  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80345C70 00342BD0  38 61 00 B8 */	addi r3, r1, 0xb8
@@ -603,11 +603,11 @@ SetCurrent__13CCubeMaterialCFRC11CModelFlagsRC12CCubeSurfaceRC10CCubeModel:
 /* 80345E6C 00342DCC  7C 72 1B 78 */	mr r18, r3
 /* 80345E70 00342DD0  7C 9E 23 78 */	mr r30, r4
 /* 80345E74 00342DD4  7C D5 33 78 */	mr r21, r6
-/* 80345E78 00342DD8  80 0D A9 8C */	lwz r0, lbl_805A954C@sda21(r13)
+/* 80345E78 00342DD8  80 0D A9 8C */	lwz r0, sLastMaterialCached@sda21(r13)
 /* 80345E7C 00342DDC  80 E3 00 00 */	lwz r7, 0(r3)
 /* 80345E80 00342DE0  7C 07 00 40 */	cmplw r7, r0
 /* 80345E84 00342DE4  40 82 00 38 */	bne lbl_80345EBC
-/* 80345E88 00342DE8  80 0D A9 80 */	lwz r0, lbl_805A9540@sda21(r13)
+/* 80345E88 00342DE8  80 0D A9 80 */	lwz r0, sMaterialCachedState@sda21(r13)
 /* 80345E8C 00342DEC  2C 00 00 02 */	cmpwi r0, 2
 /* 80345E90 00342DF0  41 82 00 2C */	beq lbl_80345EBC
 /* 80345E94 00342DF4  40 80 07 28 */	bge lbl_803465BC
@@ -615,14 +615,14 @@ SetCurrent__13CCubeMaterialCFRC11CModelFlagsRC12CCubeSurfaceRC10CCubeModel:
 /* 80345E9C 00342DFC  40 80 00 08 */	bge lbl_80345EA4
 /* 80345EA0 00342E00  48 00 07 1C */	b lbl_803465BC
 lbl_80345EA4:
-/* 80345EA4 00342E04  80 6D A9 84 */	lwz r3, lbl_805A9544@sda21(r13)
-/* 80345EA8 00342E08  80 0D A9 88 */	lwz r0, lbl_805A9548@sda21(r13)
+/* 80345EA4 00342E04  80 6D A9 84 */	lwz r3, sLastModelCached__13CCubeMaterial@sda21(r13)
+/* 80345EA8 00342E08  80 0D A9 88 */	lwz r0, sRenderingModel__13CCubeMaterial@sda21(r13)
 /* 80345EAC 00342E0C  7C 03 00 40 */	cmplw r3, r0
 /* 80345EB0 00342E10  40 82 00 0C */	bne lbl_80345EBC
 /* 80345EB4 00342E14  48 00 07 08 */	b lbl_803465BC
 /* 80345EB8 00342E18  48 00 07 04 */	b lbl_803465BC
 lbl_80345EBC:
-/* 80345EBC 00342E1C  88 0D A9 98 */	lbz r0, lbl_805A9558@sda21(r13)
+/* 80345EBC 00342E1C  88 0D A9 98 */	lbz r0, sbRenderModelBlack@sda21(r13)
 /* 80345EC0 00342E20  28 00 00 00 */	cmplwi r0, 0
 /* 80345EC4 00342E24  41 82 00 10 */	beq lbl_80345ED4
 /* 80345EC8 00342E28  7E 43 93 78 */	mr r3, r18
@@ -640,8 +640,8 @@ lbl_80345ED4:
 /* 80345EF4 00342E54  54 19 0F FF */	rlwinm. r25, r0, 1, 0x1f, 0x1f
 /* 80345EF8 00342E58  41 82 00 24 */	beq lbl_80345F1C
 /* 80345EFC 00342E5C  56 60 05 EF */	rlwinm. r0, r19, 0, 0x17, 0x17
-/* 80345F00 00342E60  90 ED A9 8C */	stw r7, lbl_805A954C@sda21(r13)
-/* 80345F04 00342E64  92 AD A9 88 */	stw r21, lbl_805A9548@sda21(r13)
+/* 80345F00 00342E60  90 ED A9 8C */	stw r7, sLastMaterialCached@sda21(r13)
+/* 80345F04 00342E64  92 AD A9 88 */	stw r21, sRenderingModel__13CCubeMaterial@sda21(r13)
 /* 80345F08 00342E68  41 82 00 0C */	beq lbl_80345F14
 /* 80345F0C 00342E6C  7C A3 2B 78 */	mr r3, r5
 /* 80345F10 00342E70  48 00 00 08 */	b lbl_80345F18
@@ -653,8 +653,8 @@ lbl_80345F1C:
 /* 80345F1C 00342E7C  A0 1E 00 02 */	lhz r0, 2(r30)
 /* 80345F20 00342E80  80 72 00 00 */	lwz r3, 0(r18)
 /* 80345F24 00342E84  54 00 07 7B */	rlwinm. r0, r0, 0, 0x1d, 0x1d
-/* 80345F28 00342E88  92 AD A9 88 */	stw r21, lbl_805A9548@sda21(r13)
-/* 80345F2C 00342E8C  90 6D A9 8C */	stw r3, lbl_805A954C@sda21(r13)
+/* 80345F28 00342E88  92 AD A9 88 */	stw r21, sRenderingModel__13CCubeMaterial@sda21(r13)
+/* 80345F2C 00342E8C  90 6D A9 8C */	stw r3, sLastMaterialCached@sda21(r13)
 /* 80345F30 00342E90  40 82 00 5C */	bne lbl_80345F8C
 /* 80345F34 00342E94  80 61 00 3C */	lwz r3, 0x3c(r1)
 /* 80345F38 00342E98  3A 80 00 00 */	li r20, 0
@@ -694,7 +694,7 @@ lbl_80345FA0:
 /* 80345FB0 00342F10  41 82 00 18 */	beq lbl_80345FC8
 /* 80345FB4 00342F14  7C 00 18 00 */	cmpw r0, r3
 /* 80345FB8 00342F18  40 82 00 10 */	bne lbl_80345FC8
-/* 80345FBC 00342F1C  80 0D A9 80 */	lwz r0, lbl_805A9540@sda21(r13)
+/* 80345FBC 00342F1C  80 0D A9 80 */	lwz r0, sMaterialCachedState@sda21(r13)
 /* 80345FC0 00342F20  2C 00 00 00 */	cmpwi r0, 0
 /* 80345FC4 00342F24  41 82 05 F8 */	beq lbl_803465BC
 lbl_80345FC8:
@@ -797,7 +797,7 @@ lbl_80346108:
 /* 80346128 00343088  7C 05 02 14 */	add r0, r5, r0
 /* 8034612C 0034308C  90 01 00 3C */	stw r0, 0x3c(r1)
 /* 80346130 00343090  48 00 06 5D */	bl HandleColorChannels__FUiUi
-/* 80346134 00343094  88 0D A9 9A */	lbz r0, lbl_805A955A@sda21(r13)
+/* 80346134 00343094  88 0D A9 9A */	lbz r0, sbRenderModelShadow@sda21(r13)
 /* 80346138 00343098  7C 78 1B 78 */	mr r24, r3
 /* 8034613C 0034309C  3A 80 00 00 */	li r20, 0
 /* 80346140 003430A0  28 00 00 00 */	cmplwi r0, 0
@@ -846,7 +846,7 @@ lbl_803461E0:
 /* 803461E4 00343144  7E 83 A3 78 */	mr r3, r20
 /* 803461E8 00343148  80 A1 00 28 */	lwz r5, 0x28(r1)
 /* 803461EC 0034314C  80 04 00 0C */	lwz r0, 0xc(r4)
-/* 803461F0 00343150  88 CD A9 9A */	lbz r6, lbl_805A955A@sda21(r13)
+/* 803461F0 00343150  88 CD A9 9A */	lbz r6, sbRenderModelShadow@sda21(r13)
 /* 803461F4 00343154  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 803461F8 00343158  48 00 1E 29 */	bl HandleTev__FiPCUiPCUib
 /* 803461FC 0034315C  80 61 00 24 */	lwz r3, 0x24(r1)
@@ -861,7 +861,7 @@ lbl_80346214:
 /* 8034621C 0034317C  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80346220 00343180  48 00 00 70 */	b lbl_80346290
 lbl_80346224:
-/* 80346224 00343184  88 0D A9 9A */	lbz r0, lbl_805A955A@sda21(r13)
+/* 80346224 00343184  88 0D A9 9A */	lbz r0, sbRenderModelShadow@sda21(r13)
 /* 80346228 00343188  7E 63 9B 78 */	mr r3, r19
 /* 8034622C 0034318C  80 81 00 3C */	lwz r4, 0x3c(r1)
 /* 80346230 00343190  38 C0 00 00 */	li r6, 0
@@ -1017,7 +1017,7 @@ lbl_80346420:
 lbl_80346448:
 /* 80346448 003433A8  28 19 00 00 */	cmplwi r25, 0
 /* 8034644C 003433AC  41 82 00 C4 */	beq lbl_80346510
-/* 80346450 003433B0  C0 2D A9 90 */	lfs f1, lbl_805A9550@sda21(r13)
+/* 80346450 003433B0  C0 2D A9 90 */	lfs f1, sReflectionAlpha@sda21(r13)
 /* 80346454 003433B4  C0 02 CB DC */	lfs f0, lbl_805AE8FC@sda21(r2)
 /* 80346458 003433B8  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8034645C 003433BC  40 81 00 94 */	ble lbl_803464F0
@@ -1069,7 +1069,7 @@ lbl_803464F0:
 /* 80346508 00343468  38 03 00 01 */	addi r0, r3, 1
 /* 8034650C 0034346C  90 01 00 34 */	stw r0, 0x34(r1)
 lbl_80346510:
-/* 80346510 00343470  88 0D A9 9A */	lbz r0, lbl_805A955A@sda21(r13)
+/* 80346510 00343470  88 0D A9 9A */	lbz r0, sbRenderModelShadow@sda21(r13)
 /* 80346514 00343474  28 00 00 00 */	cmplwi r0, 0
 /* 80346518 00343478  41 82 00 14 */	beq lbl_8034652C
 /* 8034651C 0034347C  7F E3 FB 78 */	mr r3, r31
@@ -1262,7 +1262,7 @@ HandleColorChannels__FUiUi:
 /* 803467A0 00343700  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 803467A4 00343704  7C 7E 1B 78 */	mr r30, r3
 /* 803467A8 00343708  93 A1 00 34 */	stw r29, 0x34(r1)
-/* 803467AC 0034370C  88 0D A9 9A */	lbz r0, lbl_805A955A@sda21(r13)
+/* 803467AC 0034370C  88 0D A9 9A */	lbz r0, sbRenderModelShadow@sda21(r13)
 /* 803467B0 00343710  28 00 00 00 */	cmplwi r0, 0
 /* 803467B4 00343714  41 82 01 5C */	beq lbl_80346910
 /* 803467B8 00343718  28 1E 00 00 */	cmplwi r30, 0
@@ -1289,7 +1289,7 @@ lbl_803467EC:
 /* 80346808 00343768  90 A1 00 20 */	stw r5, 0x20(r1)
 /* 8034680C 0034376C  48 03 32 31 */	bl GXSetChanMatColor
 lbl_80346810:
-/* 80346810 00343770  89 2D A9 A1 */	lbz r9, lbl_805A9561@sda21(r13)
+/* 80346810 00343770  89 2D A9 A1 */	lbz r9, sChannel1EnableLightMask@sda21(r13)
 /* 80346814 00343774  3C 60 80 5A */	lis r3, lbl_805A53EC@ha
 /* 80346818 00343778  38 E3 53 EC */	addi r7, r3, lbl_805A53EC@l
 /* 8034681C 0034377C  38 00 00 01 */	li r0, 1
@@ -1300,7 +1300,7 @@ lbl_80346810:
 lbl_80346830:
 /* 80346830 00343790  54 05 07 FE */	clrlwi r5, r0, 0x1f
 /* 80346834 00343794  88 6D A8 16 */	lbz r3, mLightActive__9CGraphics@sda21(r13)
-/* 80346838 00343798  88 0D A9 A0 */	lbz r0, lbl_805A9560@sda21(r13)
+/* 80346838 00343798  88 0D A9 A0 */	lbz r0, sChannel0DisableLightMask@sda21(r13)
 /* 8034683C 0034379C  51 25 1D 78 */	rlwimi r5, r9, 3, 0x15, 0x1c
 /* 80346840 003437A0  3C 80 80 5A */	lis r4, lbl_805A53EC@ha
 /* 80346844 003437A4  60 A5 30 00 */	ori r5, r5, 0x3000
@@ -1769,7 +1769,7 @@ lbl_80346ED4:
 lbl_80346EDC:
 /* 80346EDC 00343E3C  3B C0 00 0E */	li r30, 0xe
 lbl_80346EE0:
-/* 80346EE0 00343E40  C0 2D A9 90 */	lfs f1, lbl_805A9550@sda21(r13)
+/* 80346EE0 00343E40  C0 2D A9 90 */	lfs f1, sReflectionAlpha@sda21(r13)
 /* 80346EE4 00343E44  38 80 00 FF */	li r4, 0xff
 /* 80346EE8 00343E48  38 00 00 00 */	li r0, 0
 /* 80346EEC 00343E4C  98 81 00 0C */	stb r4, 0xc(r1)
@@ -2007,14 +2007,14 @@ DoModelShadow__FUiUi:
 /* 8034723C 0034419C  7C 9E 23 78 */	mr r30, r4
 /* 80347240 003441A0  7C 1D 03 78 */	mr r29, r0
 /* 80347244 003441A4  7C 04 03 78 */	mr r4, r0
-/* 80347248 003441A8  80 6D A9 9C */	lwz r3, lbl_805A955C@sda21(r13)
+/* 80347248 003441A8  80 6D A9 9C */	lwz r3, spShadowTexture@sda21(r13)
 /* 8034724C 003441AC  4B FC 84 F1 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
 /* 80347250 003441B0  3C 60 80 3E */	lis r3, lbl_803D8048@ha
-/* 80347254 003441B4  3C 80 80 4C */	lis r4, lbl_804BFF5C@ha
+/* 80347254 003441B4  3C 80 80 4C */	lis r4, sTextureProjectionTransform@ha
 /* 80347258 003441B8  3B 03 80 48 */	addi r24, r3, lbl_803D8048@l
 /* 8034725C 003441BC  38 61 00 08 */	addi r3, r1, 8
 /* 80347260 003441C0  83 38 00 00 */	lwz r25, 0(r24)
-/* 80347264 003441C4  38 C4 FF 5C */	addi r6, r4, lbl_804BFF5C@l
+/* 80347264 003441C4  38 C4 FF 5C */	addi r6, r4, sTextureProjectionTransform@l
 /* 80347268 003441C8  83 58 00 04 */	lwz r26, 4(r24)
 /* 8034726C 003441CC  38 80 00 2D */	li r4, 0x2d
 /* 80347270 003441D0  83 78 00 08 */	lwz r27, 8(r24)
@@ -3119,16 +3119,16 @@ lbl_8034823C:
 __sinit_CCubeMaterial_cpp:
 /* 8034825C 003451BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80348260 003451C0  7C 08 02 A6 */	mflr r0
-/* 80348264 003451C4  3C 60 80 4C */	lis r3, lbl_804BFF5C@ha
+/* 80348264 003451C4  3C 60 80 4C */	lis r3, sTextureProjectionTransform@ha
 /* 80348268 003451C8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8034826C 003451CC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80348270 003451D0  3C C0 80 4C */	lis r6, lbl_804BFF50@ha
+/* 80348270 003451D0  3C C0 80 4C */	lis r6, sPlayerPosition@ha
 /* 80348274 003451D4  C0 02 CB DC */	lfs f0, lbl_805AE8FC@sda21(r2)
-/* 80348278 003451D8  3C A0 80 5A */	lis r5, lbl_805A67B4@ha
-/* 8034827C 003451DC  38 63 FF 5C */	addi r3, r3, lbl_804BFF5C@l
+/* 80348278 003451D8  3C A0 80 5A */	lis r5, sViewingFrom__13CCubeMaterial@ha
+/* 8034827C 003451DC  38 63 FF 5C */	addi r3, r3, sTextureProjectionTransform@l
 /* 80348280 003451E0  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
-/* 80348284 003451E4  D4 06 FF 50 */	stfsu f0, lbl_804BFF50@l(r6)
-/* 80348288 003451E8  D4 05 67 B4 */	stfsu f0, lbl_805A67B4@l(r5)
+/* 80348284 003451E4  D4 06 FF 50 */	stfsu f0, sPlayerPosition@l(r6)
+/* 80348288 003451E8  D4 05 67 B4 */	stfsu f0, sViewingFrom__13CCubeMaterial@l(r5)
 /* 8034828C 003451EC  D0 06 00 04 */	stfs f0, 4(r6)
 /* 80348290 003451F0  D0 06 00 08 */	stfs f0, 8(r6)
 /* 80348294 003451F4  D0 05 00 04 */	stfs f0, 4(r5)

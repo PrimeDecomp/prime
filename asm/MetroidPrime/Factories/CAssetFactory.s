@@ -108,7 +108,7 @@ GetFactory__24CCharacterFactoryBuilderFRC8CAnimRes:
 
 .global Null__15CVParamTransferFv
 Null__15CVParamTransferFv:
-/* 80034954 000318B4  38 0D A9 28 */	addi r0, r13, lbl_805A94E8@sda21
+/* 80034954 000318B4  38 0D A9 28 */	addi r0, r13, sNull__Q24rstl8CRefData@sda21
 /* 80034958 000318B8  90 03 00 00 */	stw r0, 0(r3)
 /* 8003495C 000318BC  80 83 00 00 */	lwz r4, 0(r3)
 /* 80034960 000318C0  80 64 00 04 */	lwz r3, 4(r4)

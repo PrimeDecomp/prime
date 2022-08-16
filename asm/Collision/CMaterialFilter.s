@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm lbl_8059FD18, 0x18, 4
+.comm skPassEverything__15CMaterialFilter, 0x18, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -95,9 +95,9 @@ lbl_802D5464:
 
 .global __sinit_CMaterialFilter_cpp
 __sinit_CMaterialFilter_cpp:
-/* 802D546C 002D23CC  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 802D546C 002D23CC  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 802D5470 002D23D0  38 80 FF FF */	li r4, -1
-/* 802D5474 002D23D4  38 63 FD 18 */	addi r3, r3, lbl_8059FD18@l
+/* 802D5474 002D23D4  38 63 FD 18 */	addi r3, r3, skPassEverything__15CMaterialFilter@l
 /* 802D5478 002D23D8  38 00 00 00 */	li r0, 0
 /* 802D547C 002D23DC  90 83 00 04 */	stw r4, 4(r3)
 /* 802D5480 002D23E0  90 03 00 00 */	stw r0, 0(r3)

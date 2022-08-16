@@ -26,7 +26,7 @@ __ct__15CTweakSlideShowFR12CInputStream:
 /* 8029C618 00299578  7C 9F 23 78 */	mr r31, r4
 /* 8029C61C 0029957C  93 C1 00 48 */	stw r30, 0x48(r1)
 /* 8029C620 00299580  7C 7E 1B 78 */	mr r30, r3
-/* 8029C624 00299584  38 6D A9 18 */	addi r3, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8029C624 00299584  38 6D A9 18 */	addi r3, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8029C628 00299588  90 1E 00 00 */	stw r0, 0(r30)
 /* 8029C62C 0029958C  38 00 00 00 */	li r0, 0
 /* 8029C630 00299590  90 BE 00 00 */	stw r5, 0(r30)

@@ -1049,7 +1049,7 @@ __ct__13CCardFileInfoFRCQ24rstl6string:
 /* 8034E21C 0034B17C  90 03 00 00 */	stw r0, 0(r3)
 /* 8034E220 0034B180  38 7E 00 18 */	addi r3, r30, 0x18
 /* 8034E224 0034B184  4B FE FF 3D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
-/* 8034E228 0034B188  38 0D A9 18 */	addi r0, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8034E228 0034B188  38 0D A9 18 */	addi r0, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8034E22C 0034B18C  38 80 00 00 */	li r4, 0
 /* 8034E230 0034B190  90 1E 00 28 */	stw r0, 0x28(r30)
 /* 8034E234 0034B194  38 00 FF FF */	li r0, -1

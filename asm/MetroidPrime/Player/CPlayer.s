@@ -2282,9 +2282,9 @@ lbl_80011428:
 /* 80011474 0000E3D4  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80011478 0000E3D8  7D 89 03 A6 */	mtctr r12
 /* 8001147C 0000E3DC  4E 80 04 21 */	bctrl
-/* 80011480 0000E3E0  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 80011480 0000E3E0  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 80011484 0000E3E4  90 61 01 48 */	stw r3, 0x148(r1)
-/* 80011488 0000E3E8  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 80011488 0000E3E8  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 8001148C 0000E3EC  7F A3 EB 78 */	mr r3, r29
 /* 80011490 0000E3F0  90 01 01 4C */	stw r0, 0x14c(r1)
 /* 80011494 0000E3F4  38 81 01 18 */	addi r4, r1, 0x118
@@ -13503,9 +13503,9 @@ __sinit_CPlayer_cpp:
 /* 8001B364 000182C4  90 05 00 2C */	stw r0, 0x2c(r5)
 /* 8001B368 000182C8  90 05 00 28 */	stw r0, 0x28(r5)
 /* 8001B36C 000182CC  48 2B 2E 1D */	bl __ct__14CCollisionInfoFQ214CCollisionInfo8EInvalid
-/* 8001B370 000182D0  3C 60 80 5A */	lis r3, lbl_805A6784@ha
+/* 8001B370 000182D0  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
 /* 8001B374 000182D4  81 4D 80 8C */	lwz r10, lbl_805A6C4C@sda21(r13)
-/* 8001B378 000182D8  39 83 67 84 */	addi r12, r3, lbl_805A6784@l
+/* 8001B378 000182D8  39 83 67 84 */	addi r12, r3, mskNullBox__6CAABox@l
 /* 8001B37C 000182DC  81 2D 80 90 */	lwz r9, lbl_805A6C50@sda21(r13)
 /* 8001B380 000182E0  C0 AC 00 00 */	lfs f5, 0(r12)
 /* 8001B384 000182E4  39 1F 00 C0 */	addi r8, r31, 0xc0

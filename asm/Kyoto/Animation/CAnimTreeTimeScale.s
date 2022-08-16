@@ -1658,9 +1658,9 @@ lbl_802F57B8:
 /* 802F57F0 002F2750  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802F57F4 002F2754  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 802F57F8 002F2758  80 01 00 3C */	lwz r0, 0x3c(r1)
-/* 802F57FC 002F275C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802F57FC 002F275C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802F5800 002F2760  D0 01 00 88 */	stfs f0, 0x88(r1)
-/* 802F5804 002F2764  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 802F5804 002F2764  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 802F5808 002F2768  C3 E5 00 00 */	lfs f31, 0(r5)
 /* 802F580C 002F276C  90 01 00 8C */	stw r0, 0x8c(r1)
 /* 802F5810 002F2770  38 61 00 30 */	addi r3, r1, 0x30

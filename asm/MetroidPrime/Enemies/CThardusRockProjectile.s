@@ -629,9 +629,9 @@ sub_80203a94:
 /* 80203C6C 00200BCC  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80203C70 00200BD0  B0 01 00 24 */	sth r0, 0x24(r1)
 /* 80203C74 00200BD4  48 11 0B DD */	bl AsNormalized__9CVector3fCFv
-/* 80203C78 00200BD8  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 80203C78 00200BD8  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 80203C7C 00200BDC  7F C3 F3 78 */	mr r3, r30
-/* 80203C80 00200BE0  39 04 FD 18 */	addi r8, r4, lbl_8059FD18@l
+/* 80203C80 00200BE0  39 04 FD 18 */	addi r8, r4, skPassEverything__15CMaterialFilter@l
 /* 80203C84 00200BE4  38 A1 00 1C */	addi r5, r1, 0x1c
 /* 80203C88 00200BE8  38 81 00 24 */	addi r4, r1, 0x24
 /* 80203C8C 00200BEC  38 C1 00 14 */	addi r6, r1, 0x14

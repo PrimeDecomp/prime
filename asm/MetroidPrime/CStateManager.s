@@ -7228,9 +7228,9 @@ lbl_80049CC0:
 /* 80049CDC 00046C3C  40 80 00 D4 */	bge lbl_80049DB0
 /* 80049CE0 00046C40  FF E0 08 50 */	fneg f31, f1
 /* 80049CE4 00046C44  C0 02 85 A0 */	lfs f0, lbl_805AA2C0@sda21(r2)
-/* 80049CE8 00046C48  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80049CE8 00046C48  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80049CEC 00046C4C  D0 41 00 4C */	stfs f2, 0x4c(r1)
-/* 80049CF0 00046C50  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 80049CF0 00046C50  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 80049CF4 00046C54  7F C4 F3 78 */	mr r4, r30
 /* 80049CF8 00046C58  FC 20 F8 90 */	fmr f1, f31
 /* 80049CFC 00046C5C  D0 41 00 50 */	stfs f2, 0x50(r1)
@@ -8614,8 +8614,8 @@ lbl_8004B00C:
 /* 8004B064 00047FC4  90 01 00 38 */	stw r0, 0x38(r1)
 /* 8004B068 00047FC8  48 00 00 0C */	b lbl_8004B074
 lbl_8004B06C:
-/* 8004B06C 00047FCC  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
-/* 8004B070 00047FD0  39 23 FD 18 */	addi r9, r3, lbl_8059FD18@l
+/* 8004B06C 00047FCC  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
+/* 8004B070 00047FD0  39 23 FD 18 */	addi r9, r3, skPassEverything__15CMaterialFilter@l
 lbl_8004B074:
 /* 8004B074 00047FD4  80 09 00 00 */	lwz r0, 0(r9)
 /* 8004B078 00047FD8  7F 23 CB 78 */	mr r3, r25

@@ -756,7 +756,7 @@ sub_8027cfd4:
 /* 8027D010 00279F70  FC 20 08 50 */	fneg f1, f1
 /* 8027D014 00279F74  3B 60 00 01 */	li r27, 1
 /* 8027D018 00279F78  FC 00 00 50 */	fneg f0, f0
-/* 8027D01C 00279F7C  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 8027D01C 00279F7C  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 8027D020 00279F80  D0 41 00 50 */	stfs f2, 0x50(r1)
 /* 8027D024 00279F84  1C 1F 00 0C */	mulli r0, r31, 0xc
 /* 8027D028 00279F88  D0 01 00 48 */	stfs f0, 0x48(r1)
@@ -765,7 +765,7 @@ sub_8027cfd4:
 /* 8027D034 00279F94  D0 21 00 4C */	stfs f1, 0x4c(r1)
 /* 8027D038 00279F98  7F 7E F8 30 */	slw r30, r27, r31
 /* 8027D03C 00279F9C  7F 39 02 14 */	add r25, r25, r0
-/* 8027D040 00279FA0  3B 83 FD 18 */	addi r28, r3, lbl_8059FD18@l
+/* 8027D040 00279FA0  3B 83 FD 18 */	addi r28, r3, skPassEverything__15CMaterialFilter@l
 /* 8027D044 00279FA4  C0 7A 00 20 */	lfs f3, 0x20(r26)
 /* 8027D048 00279FA8  C0 5A 00 10 */	lfs f2, 0x10(r26)
 /* 8027D04C 00279FAC  C0 3A 00 00 */	lfs f1, 0(r26)
@@ -1241,11 +1241,11 @@ sub_8027d704:
 /* 8027D704 0027A664  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8027D708 0027A668  7C 08 02 A6 */	mflr r0
 /* 8027D70C 0027A66C  3C E0 80 5A */	lis r7, sUpVector__9CVector3f@ha
-/* 8027D710 0027A670  3C C0 80 5A */	lis r6, lbl_8059FD18@ha
+/* 8027D710 0027A670  3C C0 80 5A */	lis r6, skPassEverything__15CMaterialFilter@ha
 /* 8027D714 0027A674  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8027D718 0027A678  39 07 66 F4 */	addi r8, r7, sUpVector__9CVector3f@l
 /* 8027D71C 0027A67C  7C A0 2B 78 */	mr r0, r5
-/* 8027D720 0027A680  38 E6 FD 18 */	addi r7, r6, lbl_8059FD18@l
+/* 8027D720 0027A680  38 E6 FD 18 */	addi r7, r6, skPassEverything__15CMaterialFilter@l
 /* 8027D724 0027A684  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 8027D728 0027A688  7C 7F 1B 78 */	mr r31, r3
 /* 8027D72C 0027A68C  38 A1 00 14 */	addi r5, r1, 0x14

@@ -13976,9 +13976,9 @@ lbl_8008D080:
 /* 8008D31C 0008A27C  C0 02 89 E0 */	lfs f0, lbl_805AA700@sda21(r2)
 /* 8008D320 0008A280  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8008D324 0008A284  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
-/* 8008D328 0008A288  3C 60 80 5A */	lis r3, lbl_805A6784@ha
+/* 8008D328 0008A288  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
 /* 8008D32C 0008A28C  EC 20 00 72 */	fmuls f1, f0, f1
-/* 8008D330 0008A290  38 A3 67 84 */	addi r5, r3, lbl_805A6784@l
+/* 8008D330 0008A290  38 A3 67 84 */	addi r5, r3, mskNullBox__6CAABox@l
 /* 8008D334 0008A294  C0 62 89 B0 */	lfs f3, lbl_805AA6D0@sda21(r2)
 /* 8008D338 0008A298  38 00 00 00 */	li r0, 0
 /* 8008D33C 0008A29C  C0 42 89 B8 */	lfs f2, lbl_805AA6D8@sda21(r2)

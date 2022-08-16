@@ -367,9 +367,9 @@ lbl_802F2BCC:
 /* 802F2BE8 002EFB48  38 A1 00 18 */	addi r5, r1, 0x18
 lbl_802F2BEC:
 /* 802F2BEC 002EFB4C  C0 05 00 00 */	lfs f0, 0(r5)
-/* 802F2BF0 002EFB50  3C 60 80 5A */	lis r3, lbl_805A6660@ha
+/* 802F2BF0 002EFB50  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 802F2BF4 002EFB54  C3 E2 C6 94 */	lfs f31, lbl_805AE3B4@sda21(r2)
-/* 802F2BF8 002EFB58  38 83 66 60 */	addi r4, r3, lbl_805A6660@l
+/* 802F2BF8 002EFB58  38 83 66 60 */	addi r4, r3, sNoRotation__11CQuaternion@l
 /* 802F2BFC 002EFB5C  D0 01 00 38 */	stfs f0, 0x38(r1)
 /* 802F2C00 002EFB60  7F E3 FB 78 */	mr r3, r31
 /* 802F2C04 002EFB64  C0 24 00 00 */	lfs f1, 0(r4)

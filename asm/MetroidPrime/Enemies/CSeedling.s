@@ -939,8 +939,8 @@ lbl_802669D0:
 /* 80266A68 002639C8  D0 01 00 40 */	stfs f0, 0x40(r1)
 /* 80266A6C 002639CC  48 0A DD E5 */	bl AsNormalized__9CVector3fCFv
 /* 80266A70 002639D0  FC 20 F0 90 */	fmr f1, f30
-/* 80266A74 002639D4  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
-/* 80266A78 002639D8  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 80266A74 002639D4  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
+/* 80266A78 002639D8  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 80266A7C 002639DC  7F E4 FB 78 */	mr r4, r31
 /* 80266A80 002639E0  38 61 00 70 */	addi r3, r1, 0x70
 /* 80266A84 002639E4  38 A1 00 64 */	addi r5, r1, 0x64
@@ -1359,8 +1359,8 @@ lbl_8026705C:
 /* 80267068 00263FC8  80 9D 00 00 */	lwz r4, 0(r29)
 /* 8026706C 00263FCC  4B FB 50 3D */	bl __ct__15CProjectileInfoFUiRC11CDamageInfo
 /* 80267070 00263FD0  80 1F 00 00 */	lwz r0, 0(r31)
-/* 80267074 00263FD4  3C 60 80 5A */	lis r3, lbl_805A6784@ha
-/* 80267078 00263FD8  38 C3 67 84 */	addi r6, r3, lbl_805A6784@l
+/* 80267074 00263FD4  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
+/* 80267078 00263FD8  38 C3 67 84 */	addi r6, r3, mskNullBox__6CAABox@l
 /* 8026707C 00263FDC  C0 02 BA C8 */	lfs f0, lbl_805AD7E8@sda21(r2)
 /* 80267080 00263FE0  90 1A 06 E8 */	stw r0, 0x6e8(r26)
 /* 80267084 00263FE4  38 A0 00 01 */	li r5, 1

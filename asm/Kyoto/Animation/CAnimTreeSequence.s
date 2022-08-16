@@ -664,8 +664,8 @@ VAdvanceView__17CAnimTreeSequenceFRC13CCharAnimTime:
 /* 802DB39C 002D82FC  7C BD 2B 78 */	mr r29, r5
 /* 802DB3A0 002D8300  38 61 00 68 */	addi r3, r1, 0x68
 /* 802DB3A4 002D8304  48 06 DA 49 */	bl __ct__13CCharAnimTimeFf
-/* 802DB3A8 002D8308  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 802DB3AC 002D830C  C4 63 66 60 */	lfsu f3, lbl_805A6660@l(r3)
+/* 802DB3A8 002D8308  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 802DB3AC 002D830C  C4 63 66 60 */	lfsu f3, sNoRotation__11CQuaternion@l(r3)
 /* 802DB3B0 002D8310  C3 E2 C5 A0 */	lfs f31, lbl_805AE2C0@sda21(r2)
 /* 802DB3B4 002D8314  C0 43 00 04 */	lfs f2, 4(r3)
 /* 802DB3B8 002D8318  C0 23 00 08 */	lfs f1, 8(r3)

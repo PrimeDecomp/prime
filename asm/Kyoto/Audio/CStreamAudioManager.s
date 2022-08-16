@@ -484,7 +484,7 @@ lbl_80365950:
 /* 803659A4 00362904  48 00 00 38 */	b lbl_803659DC
 lbl_803659A8:
 /* 803659A8 00362908  38 00 00 00 */	li r0, 0
-/* 803659AC 0036290C  38 8D A9 18 */	addi r4, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 803659AC 0036290C  38 8D A9 18 */	addi r4, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 803659B0 00362910  3C 60 80 5A */	lis r3, lbl_805A6B60@ha
 /* 803659B4 00362914  90 81 00 08 */	stw r4, 8(r1)
 /* 803659B8 00362918  38 63 6B 60 */	addi r3, r3, lbl_805A6B60@l
@@ -1362,7 +1362,7 @@ __sinit_CStreamAudioManager_cpp:
 /* 803665CC 0036352C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803665D0 00363530  7C 08 02 A6 */	mflr r0
 /* 803665D4 00363534  3C 80 80 00 */	lis r4, sub_80004a9c@ha
-/* 803665D8 00363538  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 803665D8 00363538  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 803665DC 0036353C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803665E0 00363540  3C 60 80 5A */	lis r3, lbl_805A6B60@ha
 /* 803665E4 00363544  3C C0 80 54 */	lis r6, lbl_80540550@ha
@@ -1375,7 +1375,7 @@ __sinit_CStreamAudioManager_cpp:
 /* 80366600 00363560  90 03 00 04 */	stw r0, 4(r3)
 /* 80366604 00363564  90 03 00 08 */	stw r0, 8(r3)
 /* 80366608 00363568  48 02 30 85 */	bl __register_global_object
-/* 8036660C 0036356C  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8036660C 0036356C  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 80366610 00363570  3C 60 80 5A */	lis r3, lbl_805A6B90@ha
 /* 80366614 00363574  94 A3 6B 90 */	stwu r5, lbl_805A6B90@l(r3)
 /* 80366618 00363578  38 00 00 00 */	li r0, 0
@@ -1385,7 +1385,7 @@ __sinit_CStreamAudioManager_cpp:
 /* 80366628 00363588  38 84 4A 9C */	addi r4, r4, sub_80004a9c@l
 /* 8036662C 0036358C  90 03 00 08 */	stw r0, 8(r3)
 /* 80366630 00363590  48 02 30 5D */	bl __register_global_object
-/* 80366634 00363594  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 80366634 00363594  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 80366638 00363598  3C 60 80 5A */	lis r3, lbl_805A6BA0@ha
 /* 8036663C 0036359C  94 A3 6B A0 */	stwu r5, lbl_805A6BA0@l(r3)
 /* 80366640 003635A0  38 00 00 00 */	li r0, 0

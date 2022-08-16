@@ -947,9 +947,9 @@ lbl_801806F0:
 /* 80180734 0017D694  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80180738 0017D698  41 82 00 A8 */	beq lbl_801807E0
 /* 8018073C 0017D69C  C0 41 00 38 */	lfs f2, 0x38(r1)
-/* 80180740 0017D6A0  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80180740 0017D6A0  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80180744 0017D6A4  C0 21 00 3C */	lfs f1, 0x3c(r1)
-/* 80180748 0017D6A8  38 E3 FD 18 */	addi r7, r3, lbl_8059FD18@l
+/* 80180748 0017D6A8  38 E3 FD 18 */	addi r7, r3, skPassEverything__15CMaterialFilter@l
 /* 8018074C 0017D6AC  C0 01 00 34 */	lfs f0, 0x34(r1)
 /* 80180750 0017D6B0  EC 42 C8 2A */	fadds f2, f2, f25
 /* 80180754 0017D6B4  EC 21 C0 2A */	fadds f1, f1, f24
@@ -4818,16 +4818,16 @@ lbl_80183ED8:
 /* 80183F24 00180E84  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80183F28 00180E88  7D 89 03 A6 */	mtctr r12
 /* 80183F2C 00180E8C  4E 80 04 21 */	bctrl
-/* 80183F30 00180E90  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 80183F30 00180E90  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 80183F34 00180E94  90 61 00 44 */	stw r3, 0x44(r1)
-/* 80183F38 00180E98  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 80183F38 00180E98  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 80183F3C 00180E9C  7F E3 FB 78 */	mr r3, r31
 /* 80183F40 00180EA0  90 01 00 48 */	stw r0, 0x48(r1)
 /* 80183F44 00180EA4  38 81 00 14 */	addi r4, r1, 0x14
 /* 80183F48 00180EA8  48 18 EC 2D */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80183F4C 00180EAC  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80183F4C 00180EAC  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80183F50 00180EB0  92 E1 00 7C */	stw r23, 0x7c(r1)
-/* 80183F54 00180EB4  38 03 FD 18 */	addi r0, r3, lbl_8059FD18@l
+/* 80183F54 00180EB4  38 03 FD 18 */	addi r0, r3, skPassEverything__15CMaterialFilter@l
 /* 80183F58 00180EB8  7F C3 F3 78 */	mr r3, r30
 /* 80183F5C 00180EBC  90 01 00 80 */	stw r0, 0x80(r1)
 /* 80183F60 00180EC0  7F 04 C3 78 */	mr r4, r24
@@ -4898,16 +4898,16 @@ lbl_80183FFC:
 /* 80184048 00180FA8  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 8018404C 00180FAC  7D 89 03 A6 */	mtctr r12
 /* 80184050 00180FB0  4E 80 04 21 */	bctrl
-/* 80184054 00180FB4  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 80184054 00180FB4  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 80184058 00180FB8  90 61 00 44 */	stw r3, 0x44(r1)
-/* 8018405C 00180FBC  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 8018405C 00180FBC  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 80184060 00180FC0  7F E3 FB 78 */	mr r3, r31
 /* 80184064 00180FC4  90 01 00 48 */	stw r0, 0x48(r1)
 /* 80184068 00180FC8  38 81 00 14 */	addi r4, r1, 0x14
 /* 8018406C 00180FCC  48 18 EB 09 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80184070 00180FD0  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80184070 00180FD0  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80184074 00180FD4  93 21 00 7C */	stw r25, 0x7c(r1)
-/* 80184078 00180FD8  38 03 FD 18 */	addi r0, r3, lbl_8059FD18@l
+/* 80184078 00180FD8  38 03 FD 18 */	addi r0, r3, skPassEverything__15CMaterialFilter@l
 /* 8018407C 00180FDC  7F C3 F3 78 */	mr r3, r30
 /* 80184080 00180FE0  90 01 00 80 */	stw r0, 0x80(r1)
 /* 80184084 00180FE4  7F 44 D3 78 */	mr r4, r26
@@ -4983,16 +4983,16 @@ lbl_80184120:
 /* 80184180 001810E0  81 8C 00 6C */	lwz r12, 0x6c(r12)
 /* 80184184 001810E4  7D 89 03 A6 */	mtctr r12
 /* 80184188 001810E8  4E 80 04 21 */	bctrl
-/* 8018418C 001810EC  3C 80 80 5A */	lis r4, lbl_8059FD18@ha
+/* 8018418C 001810EC  3C 80 80 5A */	lis r4, skPassEverything__15CMaterialFilter@ha
 /* 80184190 001810F0  90 61 00 50 */	stw r3, 0x50(r1)
-/* 80184194 001810F4  38 04 FD 18 */	addi r0, r4, lbl_8059FD18@l
+/* 80184194 001810F4  38 04 FD 18 */	addi r0, r4, skPassEverything__15CMaterialFilter@l
 /* 80184198 001810F8  7F E3 FB 78 */	mr r3, r31
 /* 8018419C 001810FC  90 01 00 54 */	stw r0, 0x54(r1)
 /* 801841A0 00181100  38 81 00 20 */	addi r4, r1, 0x20
 /* 801841A4 00181104  48 18 E9 D1 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 801841A8 00181108  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 801841A8 00181108  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 801841AC 0018110C  92 61 00 88 */	stw r19, 0x88(r1)
-/* 801841B0 00181110  38 03 FD 18 */	addi r0, r3, lbl_8059FD18@l
+/* 801841B0 00181110  38 03 FD 18 */	addi r0, r3, skPassEverything__15CMaterialFilter@l
 /* 801841B4 00181114  7F C3 F3 78 */	mr r3, r30
 /* 801841B8 00181118  90 01 00 8C */	stw r0, 0x8c(r1)
 /* 801841BC 0018111C  7E 84 A3 78 */	mr r4, r20

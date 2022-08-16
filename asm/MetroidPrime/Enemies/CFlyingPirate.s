@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803E67E8
-lbl_803E67E8:
+.global skBursts__13CFlyingPirate
+skBursts__13CFlyingPirate:
 	# ROM: 0x3E37E8
 	.4byte 0x803D2078
 	.4byte 0x803D2180
@@ -72,8 +72,8 @@ lbl_803E6850:
 	.4byte 0xFFFFFFFF
 	.4byte TryProjectileAttack__10CPatternedFR13CStateManageri
 
-.global lbl_803E685C
-lbl_803E685C:
+.global __vt__13CFlyingPirate
+__vt__13CFlyingPirate:
 	# ROM: 0x3E385C
 	.4byte 0
 	.4byte 0
@@ -287,8 +287,8 @@ lbl_803E6B28:
 	.4byte lbl_801FE378
 	.4byte lbl_801FE158
 
-.global lbl_803E6B98
-lbl_803E6B98:
+.global __vt__20CFlyingPirateRagDoll
+__vt__20CFlyingPirateRagDoll:
 	# ROM: 0x3E3B98
 	.4byte 0
 	.4byte 0
@@ -3930,9 +3930,9 @@ __dt__13CFlyingPirateFv:
 /* 801F7204 001F4164  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 801F7208 001F4168  93 81 00 10 */	stw r28, 0x10(r1)
 /* 801F720C 001F416C  41 82 02 34 */	beq lbl_801F7440
-/* 801F7210 001F4170  3C 60 80 3E */	lis r3, lbl_803E685C@ha
+/* 801F7210 001F4170  3C 60 80 3E */	lis r3, __vt__13CFlyingPirate@ha
 /* 801F7214 001F4174  34 1E 08 9C */	addic. r0, r30, 0x89c
-/* 801F7218 001F4178  38 03 68 5C */	addi r0, r3, lbl_803E685C@l
+/* 801F7218 001F4178  38 03 68 5C */	addi r0, r3, __vt__13CFlyingPirate@l
 /* 801F721C 001F417C  90 1E 00 00 */	stw r0, 0(r30)
 /* 801F7220 001F4180  41 82 00 10 */	beq lbl_801F7230
 /* 801F7224 001F4184  80 7E 08 9C */	lwz r3, 0x89c(r30)
@@ -11841,9 +11841,9 @@ Accept__13CFlyingPirateFR8IVisitor:
 /* 801FE450 001FB3B0  7D 89 63 78 */	mr r9, r12
 /* 801FE454 001FB3B4  91 61 00 1C */	stw r11, 0x1c(r1)
 /* 801FE458 001FB3B8  4B E7 EF F9 */	bl "__ct__10CPatternedFUi9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Q210CPatterned11EFlavorTypeRC11CEntityInfoRC12CTransform4fRC10CModelDataRC14CPatternedInfoQ210CPatterned13EMovementTypeQ210CPatterned13EColliderType9EBodyTypeRC16CActorParametersUi"
-/* 801FE45C 001FB3BC  3C 60 80 3E */	lis r3, lbl_803E685C@ha
+/* 801FE45C 001FB3BC  3C 60 80 3E */	lis r3, __vt__13CFlyingPirate@ha
 /* 801FE460 001FB3C0  7F 24 CB 78 */	mr r4, r25
-/* 801FE464 001FB3C4  38 03 68 5C */	addi r0, r3, lbl_803E685C@l
+/* 801FE464 001FB3C4  38 03 68 5C */	addi r0, r3, __vt__13CFlyingPirate@l
 /* 801FE468 001FB3C8  7F 05 C3 78 */	mr r5, r24
 /* 801FE46C 001FB3CC  90 1A 00 00 */	stw r0, 0(r26)
 /* 801FE470 001FB3D0  38 7A 05 68 */	addi r3, r26, 0x568
@@ -11954,8 +11954,8 @@ Accept__13CFlyingPirateFR8IVisitor:
 /* 801FE614 001FB574  38 61 01 18 */	addi r3, r1, 0x118
 /* 801FE618 001FB578  48 13 F4 C9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 801FE61C 001FB57C  C0 02 AF 60 */	lfs f0, lbl_805ACC80@sda21(r2)
-/* 801FE620 001FB580  3C 60 80 3E */	lis r3, lbl_803E67E8@ha
-/* 801FE624 001FB584  38 83 67 E8 */	addi r4, r3, lbl_803E67E8@l
+/* 801FE620 001FB580  3C 60 80 3E */	lis r3, skBursts__13CFlyingPirate@ha
+/* 801FE624 001FB584  38 83 67 E8 */	addi r4, r3, skBursts__13CFlyingPirate@l
 /* 801FE628 001FB588  38 00 00 FF */	li r0, 0xff
 /* 801FE62C 001FB58C  D0 1A 07 D8 */	stfs f0, 0x7d8(r26)
 /* 801FE630 001FB590  38 60 00 00 */	li r3, 0
@@ -12562,8 +12562,8 @@ PreRender__20CFlyingPirateRagDollFRC9CVector3fR10CModelData:
 /* 801FEF30 001FBE90  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 801FEF34 001FBE94  40 82 06 68 */	bne lbl_801FF59C
 /* 801FEF38 001FBE98  83 FD 00 10 */	lwz r31, 0x10(r29)
-/* 801FEF3C 001FBE9C  3C 60 80 5A */	lis r3, lbl_805A6660@ha
-/* 801FEF40 001FBEA0  38 63 66 60 */	addi r3, r3, lbl_805A6660@l
+/* 801FEF3C 001FBE9C  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
+/* 801FEF40 001FBEA0  38 63 66 60 */	addi r3, r3, sNoRotation__11CQuaternion@l
 /* 801FEF44 001FBEA4  80 9F 00 D4 */	lwz r4, 0xd4(r31)
 /* 801FEF48 001FBEA8  3B DF 02 FC */	addi r30, r31, 0x2fc
 /* 801FEF4C 001FBEAC  3B 9E 00 40 */	addi r28, r30, 0x40
@@ -12583,11 +12583,11 @@ lbl_801FEF58:
 /* 801FEF80 001FBEE0  2C 00 00 01 */	cmpwi r0, 1
 /* 801FEF84 001FBEE4  40 81 00 3C */	ble lbl_801FEFC0
 /* 801FEF88 001FBEE8  38 07 00 01 */	addi r0, r7, 1
-/* 801FEF8C 001FBEEC  3C C0 80 5A */	lis r6, lbl_805A6660@ha
+/* 801FEF8C 001FBEEC  3C C0 80 5A */	lis r6, sNoRotation__11CQuaternion@ha
 /* 801FEF90 001FBEF0  7C 1C 00 AE */	lbzx r0, r28, r0
 /* 801FEF94 001FBEF4  80 FE 01 08 */	lwz r7, 0x108(r30)
 /* 801FEF98 001FBEF8  54 00 2C F4 */	rlwinm r0, r0, 5, 0x13, 0x1a
-/* 801FEF9C 001FBEFC  C0 06 66 60 */	lfs f0, lbl_805A6660@l(r6)
+/* 801FEF9C 001FBEFC  C0 06 66 60 */	lfs f0, sNoRotation__11CQuaternion@l(r6)
 /* 801FEFA0 001FBF00  7C E7 02 14 */	add r7, r7, r0
 /* 801FEFA4 001FBF04  D0 07 00 04 */	stfs f0, 4(r7)
 /* 801FEFA8 001FBF08  80 C3 00 04 */	lwz r6, 4(r3)
@@ -13602,9 +13602,9 @@ __dt__20CFlyingPirateRagDollFv:
 /* 801FFF1C 001FCE7C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 801FFF20 001FCE80  7C 7E 1B 79 */	or. r30, r3, r3
 /* 801FFF24 001FCE84  41 82 00 3C */	beq lbl_801FFF60
-/* 801FFF28 001FCE88  3C 80 80 3E */	lis r4, lbl_803E6B98@ha
+/* 801FFF28 001FCE88  3C 80 80 3E */	lis r4, __vt__20CFlyingPirateRagDoll@ha
 /* 801FFF2C 001FCE8C  38 61 00 08 */	addi r3, r1, 8
-/* 801FFF30 001FCE90  38 04 6B 98 */	addi r0, r4, lbl_803E6B98@l
+/* 801FFF30 001FCE90  38 04 6B 98 */	addi r0, r4, __vt__20CFlyingPirateRagDoll@l
 /* 801FFF34 001FCE94  90 1E 00 00 */	stw r0, 0(r30)
 /* 801FFF38 001FCE98  80 1E 00 A0 */	lwz r0, 0xa0(r30)
 /* 801FFF3C 001FCE9C  90 01 00 08 */	stw r0, 8(r1)
@@ -13654,9 +13654,9 @@ __ct__20CFlyingPirateRagDollFR13CStateManagerP13CFlyingPiratefUsUs:
 /* 801FFFDC 001FCF3C  7F A3 EB 78 */	mr r3, r29
 /* 801FFFE0 001FCF40  38 80 00 00 */	li r4, 0
 /* 801FFFE4 001FCF44  48 00 E8 ED */	bl __ct__8CRagDollFfffUi
-/* 801FFFE8 001FCF48  3C 60 80 3E */	lis r3, lbl_803E6B98@ha
+/* 801FFFE8 001FCF48  3C 60 80 3E */	lis r3, __vt__20CFlyingPirateRagDoll@ha
 /* 801FFFEC 001FCF4C  3C 80 80 5A */	lis r4, sUpVector__9CVector3f@ha
-/* 801FFFF0 001FCF50  38 03 6B 98 */	addi r0, r3, lbl_803E6B98@l
+/* 801FFFF0 001FCF50  38 03 6B 98 */	addi r0, r3, __vt__20CFlyingPirateRagDoll@l
 /* 801FFFF4 001FCF54  C0 42 AF 60 */	lfs f2, lbl_805ACC80@sda21(r2)
 /* 801FFFF8 001FCF58  90 1D 00 00 */	stw r0, 0(r29)
 /* 801FFFFC 001FCF5C  39 24 66 F4 */	addi r9, r4, sUpVector__9CVector3f@l

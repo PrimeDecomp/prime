@@ -1885,8 +1885,8 @@ GetBounds__10CGunWeaponCFRC12CTransform4f:
 /* 801BB678 001B85D8  4B F5 A1 3D */	bl GetBounds__10CModelDataCFRC12CTransform4f
 /* 801BB67C 001B85DC  48 00 00 38 */	b lbl_801BB6B4
 lbl_801BB680:
-/* 801BB680 001B85E0  3C 60 80 5A */	lis r3, lbl_805A6784@ha
-/* 801BB684 001B85E4  C4 03 67 84 */	lfsu f0, lbl_805A6784@l(r3)
+/* 801BB680 001B85E0  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
+/* 801BB684 001B85E4  C4 03 67 84 */	lfsu f0, mskNullBox__6CAABox@l(r3)
 /* 801BB688 001B85E8  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 801BB68C 001B85EC  C0 03 00 04 */	lfs f0, 4(r3)
 /* 801BB690 001B85F0  D0 1F 00 04 */	stfs f0, 4(r31)
@@ -1919,8 +1919,8 @@ GetBounds__10CGunWeaponCFv:
 /* 801BB6EC 001B864C  4B F5 9E D9 */	bl GetBounds__10CModelDataCFv
 /* 801BB6F0 001B8650  48 00 00 38 */	b lbl_801BB728
 lbl_801BB6F4:
-/* 801BB6F4 001B8654  3C 60 80 5A */	lis r3, lbl_805A6784@ha
-/* 801BB6F8 001B8658  C4 03 67 84 */	lfsu f0, lbl_805A6784@l(r3)
+/* 801BB6F4 001B8654  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
+/* 801BB6F8 001B8658  C4 03 67 84 */	lfsu f0, mskNullBox__6CAABox@l(r3)
 /* 801BB6FC 001B865C  D0 1F 00 00 */	stfs f0, 0(r31)
 /* 801BB700 001B8660  C0 03 00 04 */	lfs f0, 4(r3)
 /* 801BB704 001B8664  D0 1F 00 04 */	stfs f0, 4(r31)

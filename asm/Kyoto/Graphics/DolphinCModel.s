@@ -23,20 +23,20 @@ lbl_803EF738:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9638
-lbl_805A9638:
+.global sTotalMemory__6CModel
+sTotalMemory__6CModel:
 	.skip 0x4
-.global lbl_805A963C
-lbl_805A963C:
+.global sThisFrameList__6CModel
+sThisFrameList__6CModel:
 	.skip 0x4
-.global lbl_805A9640
-lbl_805A9640:
+.global sOneFrameList__6CModel
+sOneFrameList__6CModel:
 	.skip 0x4
-.global lbl_805A9644
-lbl_805A9644:
+.global sTwoFrameList__6CModel
+sTwoFrameList__6CModel:
 	.skip 0x4
-.global lbl_805A9648
-lbl_805A9648:
+.global sFrameCounter
+sFrameCounter:
 	.skip 0x8
 
 .section .text, "ax"
@@ -235,13 +235,13 @@ FrameDone__6CModelFv:
 /* 8035539C 003522FC  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 803553A0 00352300  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 803553A4 00352304  93 81 00 10 */	stw r28, 0x10(r1)
-/* 803553A8 00352308  80 6D AA 88 */	lwz r3, lbl_805A9648@sda21(r13)
+/* 803553A8 00352308  80 6D AA 88 */	lwz r3, sFrameCounter@sda21(r13)
 /* 803553AC 0035230C  88 0D 9E 10 */	lbz r0, lbl_805A89D0@sda21(r13)
 /* 803553B0 00352310  38 63 00 01 */	addi r3, r3, 1
 /* 803553B4 00352314  28 00 00 00 */	cmplwi r0, 0
-/* 803553B8 00352318  90 6D AA 88 */	stw r3, lbl_805A9648@sda21(r13)
+/* 803553B8 00352318  90 6D AA 88 */	stw r3, sFrameCounter@sda21(r13)
 /* 803553BC 0035231C  41 82 00 84 */	beq lbl_80355440
-/* 803553C0 00352320  83 AD AA 84 */	lwz r29, lbl_805A9644@sda21(r13)
+/* 803553C0 00352320  83 AD AA 84 */	lwz r29, sTwoFrameList__6CModel@sda21(r13)
 /* 803553C4 00352324  3B E0 00 00 */	li r31, 0
 /* 803553C8 00352328  48 00 00 58 */	b lbl_80355420
 lbl_803553CC:
@@ -271,12 +271,12 @@ lbl_803553F4:
 lbl_80355420:
 /* 80355420 00352380  28 1D 00 00 */	cmplwi r29, 0
 /* 80355424 00352384  40 82 FF A8 */	bne lbl_803553CC
-/* 80355428 00352388  80 8D AA 80 */	lwz r4, lbl_805A9640@sda21(r13)
+/* 80355428 00352388  80 8D AA 80 */	lwz r4, sOneFrameList__6CModel@sda21(r13)
 /* 8035542C 0035238C  38 00 00 00 */	li r0, 0
-/* 80355430 00352390  80 6D AA 7C */	lwz r3, lbl_805A963C@sda21(r13)
-/* 80355434 00352394  90 8D AA 84 */	stw r4, lbl_805A9644@sda21(r13)
-/* 80355438 00352398  90 6D AA 80 */	stw r3, lbl_805A9640@sda21(r13)
-/* 8035543C 0035239C  90 0D AA 7C */	stw r0, lbl_805A963C@sda21(r13)
+/* 80355430 00352390  80 6D AA 7C */	lwz r3, sThisFrameList__6CModel@sda21(r13)
+/* 80355434 00352394  90 8D AA 84 */	stw r4, sTwoFrameList__6CModel@sda21(r13)
+/* 80355438 00352398  90 6D AA 80 */	stw r3, sOneFrameList__6CModel@sda21(r13)
+/* 8035543C 0035239C  90 0D AA 7C */	stw r0, sThisFrameList__6CModel@sda21(r13)
 lbl_80355440:
 /* 80355440 003523A0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80355444 003523A4  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -328,25 +328,25 @@ RemoveFromList__6CModelCFv:
 /* 803554DC 0035243C  90 04 00 34 */	stw r0, 0x34(r4)
 /* 803554E0 00352440  48 00 00 48 */	b lbl_80355528
 lbl_803554E4:
-/* 803554E4 00352444  80 0D AA 7C */	lwz r0, lbl_805A963C@sda21(r13)
+/* 803554E4 00352444  80 0D AA 7C */	lwz r0, sThisFrameList__6CModel@sda21(r13)
 /* 803554E8 00352448  7C 03 00 40 */	cmplw r3, r0
 /* 803554EC 0035244C  40 82 00 10 */	bne lbl_803554FC
 /* 803554F0 00352450  80 03 00 34 */	lwz r0, 0x34(r3)
-/* 803554F4 00352454  90 0D AA 7C */	stw r0, lbl_805A963C@sda21(r13)
+/* 803554F4 00352454  90 0D AA 7C */	stw r0, sThisFrameList__6CModel@sda21(r13)
 /* 803554F8 00352458  48 00 00 30 */	b lbl_80355528
 lbl_803554FC:
-/* 803554FC 0035245C  80 0D AA 80 */	lwz r0, lbl_805A9640@sda21(r13)
+/* 803554FC 0035245C  80 0D AA 80 */	lwz r0, sOneFrameList__6CModel@sda21(r13)
 /* 80355500 00352460  7C 03 00 40 */	cmplw r3, r0
 /* 80355504 00352464  40 82 00 10 */	bne lbl_80355514
 /* 80355508 00352468  80 03 00 34 */	lwz r0, 0x34(r3)
-/* 8035550C 0035246C  90 0D AA 80 */	stw r0, lbl_805A9640@sda21(r13)
+/* 8035550C 0035246C  90 0D AA 80 */	stw r0, sOneFrameList__6CModel@sda21(r13)
 /* 80355510 00352470  48 00 00 18 */	b lbl_80355528
 lbl_80355514:
-/* 80355514 00352474  80 0D AA 84 */	lwz r0, lbl_805A9644@sda21(r13)
+/* 80355514 00352474  80 0D AA 84 */	lwz r0, sTwoFrameList__6CModel@sda21(r13)
 /* 80355518 00352478  7C 03 00 40 */	cmplw r3, r0
 /* 8035551C 0035247C  40 82 00 0C */	bne lbl_80355528
 /* 80355520 00352480  80 03 00 34 */	lwz r0, 0x34(r3)
-/* 80355524 00352484  90 0D AA 84 */	stw r0, lbl_805A9644@sda21(r13)
+/* 80355524 00352484  90 0D AA 84 */	stw r0, sTwoFrameList__6CModel@sda21(r13)
 lbl_80355528:
 /* 80355528 00352488  80 83 00 34 */	lwz r4, 0x34(r3)
 /* 8035552C 0035248C  28 04 00 00 */	cmplwi r4, 0
@@ -367,19 +367,19 @@ MoveToThisFrameList__6CModelCFv:
 /* 80355558 003524B8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8035555C 003524BC  7C 7F 1B 78 */	mr r31, r3
 /* 80355560 003524C0  4B FF FB C1 */	bl UpdateLastFrame__6CModelFv
-/* 80355564 003524C4  80 0D AA 7C */	lwz r0, lbl_805A963C@sda21(r13)
+/* 80355564 003524C4  80 0D AA 7C */	lwz r0, sThisFrameList__6CModel@sda21(r13)
 /* 80355568 003524C8  7C 00 F8 40 */	cmplw r0, r31
 /* 8035556C 003524CC  41 82 00 28 */	beq lbl_80355594
 /* 80355570 003524D0  7F E3 FB 78 */	mr r3, r31
 /* 80355574 003524D4  4B FF FF 59 */	bl RemoveFromList__6CModelCFv
-/* 80355578 003524D8  80 0D AA 7C */	lwz r0, lbl_805A963C@sda21(r13)
+/* 80355578 003524D8  80 0D AA 7C */	lwz r0, sThisFrameList__6CModel@sda21(r13)
 /* 8035557C 003524DC  28 00 00 00 */	cmplwi r0, 0
 /* 80355580 003524E0  41 82 00 10 */	beq lbl_80355590
 /* 80355584 003524E4  90 1F 00 34 */	stw r0, 0x34(r31)
 /* 80355588 003524E8  80 7F 00 34 */	lwz r3, 0x34(r31)
 /* 8035558C 003524EC  93 E3 00 30 */	stw r31, 0x30(r3)
 lbl_80355590:
-/* 80355590 003524F0  93 ED AA 7C */	stw r31, lbl_805A963C@sda21(r13)
+/* 80355590 003524F0  93 ED AA 7C */	stw r31, sThisFrameList__6CModel@sda21(r13)
 lbl_80355594:
 /* 80355594 003524F4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80355598 003524F8  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -687,7 +687,7 @@ lbl_80355990:
 /* 8035599C 003528FC  A8 7C 00 2E */	lha r3, 0x2e(r28)
 /* 803559A0 00352900  7C 60 07 35 */	extsh. r0, r3
 /* 803559A4 00352904  41 82 00 84 */	beq lbl_80355A28
-/* 803559A8 00352908  80 0D AA 88 */	lwz r0, lbl_805A9648@sda21(r13)
+/* 803559A8 00352908  80 0D AA 88 */	lwz r0, sFrameCounter@sda21(r13)
 /* 803559AC 0035290C  7C 03 00 40 */	cmplw r3, r0
 /* 803559B0 00352910  41 81 00 78 */	bgt lbl_80355A28
 /* 803559B4 00352914  3B C0 00 00 */	li r30, 0
@@ -720,7 +720,7 @@ lbl_803559F4:
 /* 80355A10 00352970  80 1C 00 1C */	lwz r0, 0x1c(r28)
 /* 80355A14 00352974  2C 00 00 01 */	cmpwi r0, 1
 /* 80355A18 00352978  40 81 00 10 */	ble lbl_80355A28
-/* 80355A1C 0035297C  80 6D AA 88 */	lwz r3, lbl_805A9648@sda21(r13)
+/* 80355A1C 0035297C  80 6D AA 88 */	lwz r3, sFrameCounter@sda21(r13)
 /* 80355A20 00352980  38 03 00 02 */	addi r0, r3, 2
 /* 80355A24 00352984  B0 1C 00 2E */	sth r0, 0x2e(r28)
 lbl_80355A28:
@@ -891,9 +891,9 @@ __dt__6CModelFv:
 /* 80355C6C 00352BCC  41 82 00 E4 */	beq lbl_80355D50
 /* 80355C70 00352BD0  4B FF F8 5D */	bl RemoveFromList__6CModelCFv
 /* 80355C74 00352BD4  80 7E 00 04 */	lwz r3, 4(r30)
-/* 80355C78 00352BD8  80 0D AA 78 */	lwz r0, lbl_805A9638@sda21(r13)
+/* 80355C78 00352BD8  80 0D AA 78 */	lwz r0, sTotalMemory__6CModel@sda21(r13)
 /* 80355C7C 00352BDC  7C 03 00 50 */	subf r0, r3, r0
-/* 80355C80 00352BE0  90 0D AA 78 */	stw r0, lbl_805A9638@sda21(r13)
+/* 80355C80 00352BE0  90 0D AA 78 */	stw r0, sTotalMemory__6CModel@sda21(r13)
 /* 80355C84 00352BE4  4B FB 3B 79 */	bl GetFrameCounter__9CGraphicsFv
 /* 80355C88 00352BE8  80 9E 00 38 */	lwz r4, 0x38(r30)
 /* 80355C8C 00352BEC  7C 04 18 40 */	cmplw r4, r3
@@ -1088,7 +1088,7 @@ lbl_80355EA4:
 /* 80355F10 00352E70  B0 83 00 2C */	sth r4, 0x2c(r3)
 /* 80355F14 00352E74  B0 83 00 2E */	sth r4, 0x2e(r3)
 /* 80355F18 00352E78  90 83 00 30 */	stw r4, 0x30(r3)
-/* 80355F1C 00352E7C  80 0D AA 7C */	lwz r0, lbl_805A963C@sda21(r13)
+/* 80355F1C 00352E7C  80 0D AA 7C */	lwz r0, sThisFrameList__6CModel@sda21(r13)
 /* 80355F20 00352E80  90 03 00 34 */	stw r0, 0x34(r3)
 /* 80355F24 00352E84  4B FB 38 D9 */	bl GetFrameCounter__9CGraphicsFv
 /* 80355F28 00352E88  38 03 FF FE */	addi r0, r3, -2
@@ -1254,7 +1254,7 @@ lbl_8035617C:
 /* 8035617C 003530DC  80 7E 00 28 */	lwz r3, 0x28(r30)
 /* 80356180 003530E0  4B FB F7 B1 */	bl Free__7CMemoryFPCv
 /* 80356184 003530E4  92 9E 00 28 */	stw r20, 0x28(r30)
-/* 80356188 003530E8  93 CD AA 7C */	stw r30, lbl_805A963C@sda21(r13)
+/* 80356188 003530E8  93 CD AA 7C */	stw r30, sThisFrameList__6CModel@sda21(r13)
 /* 8035618C 003530EC  80 7E 00 34 */	lwz r3, 0x34(r30)
 /* 80356190 003530F0  28 03 00 00 */	cmplwi r3, 0
 /* 80356194 003530F4  41 82 00 08 */	beq lbl_8035619C
@@ -1266,10 +1266,10 @@ lbl_8035619C:
 /* 803561A8 00353108  54 00 10 3A */	slwi r0, r0, 2
 /* 803561AC 0035310C  7C 03 02 14 */	add r0, r3, r0
 /* 803561B0 00353110  90 1E 00 04 */	stw r0, 4(r30)
-/* 803561B4 00353114  80 6D AA 78 */	lwz r3, lbl_805A9638@sda21(r13)
+/* 803561B4 00353114  80 6D AA 78 */	lwz r3, sTotalMemory__6CModel@sda21(r13)
 /* 803561B8 00353118  80 1E 00 04 */	lwz r0, 4(r30)
 /* 803561BC 0035311C  7C 03 02 14 */	add r0, r3, r0
-/* 803561C0 00353120  90 0D AA 78 */	stw r0, lbl_805A9638@sda21(r13)
+/* 803561C0 00353120  90 0D AA 78 */	stw r0, sTotalMemory__6CModel@sda21(r13)
 /* 803561C4 00353124  80 7E 00 00 */	lwz r3, 0(r30)
 /* 803561C8 00353128  48 02 88 E9 */	bl DCFlushRange
 /* 803561CC 0035312C  7F C3 F3 78 */	mr r3, r30

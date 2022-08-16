@@ -1,8 +1,8 @@
 .include "macros.inc"
 
-.comm lbl_805A67C0, 0xC, 4
+.comm skDefaultNormal__12CCubeSurface, 0xC, 4
 # TODO: DolphinCAudioSys, linker alignment bug
-.comm lbl_805A67CC, 0x10, 4
+.comm mpDefaultInvalidString__9CAudioSys, 0x10, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -44,9 +44,9 @@ lbl_80348308:
 .global __sinit_CCubeSurface_cpp
 __sinit_CCubeSurface_cpp:
 /* 80348318 00345278  C0 22 CC 18 */	lfs f1, lbl_805AE938@sda21(r2)
-/* 8034831C 0034527C  3C 60 80 5A */	lis r3, lbl_805A67C0@ha
+/* 8034831C 0034527C  3C 60 80 5A */	lis r3, skDefaultNormal__12CCubeSurface@ha
 /* 80348320 00345280  C0 02 CC 1C */	lfs f0, lbl_805AE93C@sda21(r2)
-/* 80348324 00345284  D4 23 67 C0 */	stfsu f1, lbl_805A67C0@l(r3)
+/* 80348324 00345284  D4 23 67 C0 */	stfsu f1, skDefaultNormal__12CCubeSurface@l(r3)
 /* 80348328 00345288  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8034832C 0034528C  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80348330 00345290  4E 80 00 20 */	blr

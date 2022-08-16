@@ -208,9 +208,9 @@ DoCollisionCheck__13CFlameThrowerFR9TUniqueIdRC6CAABoxR13CStateManager:
 /* 801976F8 00194658  C0 62 A6 A4 */	lfs f3, lbl_805AC3C4@sda21(r2)
 /* 801976FC 0019465C  38 00 00 00 */	li r0, 0
 /* 80197700 00194660  C0 41 00 0C */	lfs f2, 0xc(r1)
-/* 80197704 00194664  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80197704 00194664  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80197708 00194668  C0 21 00 10 */	lfs f1, 0x10(r1)
-/* 8019770C 0019466C  38 C3 FD 18 */	addi r6, r3, lbl_8059FD18@l
+/* 8019770C 0019466C  38 C3 FD 18 */	addi r6, r3, skPassEverything__15CMaterialFilter@l
 /* 80197710 00194670  C0 01 00 14 */	lfs f0, 0x14(r1)
 /* 80197714 00194674  7E 63 9B 78 */	mr r3, r19
 /* 80197718 00194678  D0 61 02 68 */	stfs f3, 0x268(r1)
@@ -487,9 +487,9 @@ lbl_80197A00:
 /* 80197B38 00194A98  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
 /* 80197B3C 00194A9C  7F 03 C3 78 */	mr r3, r24
 /* 80197B40 00194AA0  48 17 B0 35 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80197B44 00194AA4  3C 60 80 5A */	lis r3, lbl_8059FD18@ha
+/* 80197B44 00194AA4  3C 60 80 5A */	lis r3, skPassEverything__15CMaterialFilter@ha
 /* 80197B48 00194AA8  81 81 01 98 */	lwz r12, 0x198(r1)
-/* 80197B4C 00194AAC  38 03 FD 18 */	addi r0, r3, lbl_8059FD18@l
+/* 80197B4C 00194AAC  38 03 FD 18 */	addi r0, r3, skPassEverything__15CMaterialFilter@l
 /* 80197B50 00194AB0  38 61 00 D8 */	addi r3, r1, 0xd8
 /* 80197B54 00194AB4  90 01 03 04 */	stw r0, 0x304(r1)
 /* 80197B58 00194AB8  38 81 01 98 */	addi r4, r1, 0x198
@@ -964,9 +964,9 @@ Reset__13CFlameThrowerFR13CStateManagerb:
 /* 8019820C 0019516C  88 1E 04 00 */	lbz r0, 0x400(r30)
 /* 80198210 00195170  38 C0 00 00 */	li r6, 0
 /* 80198214 00195174  50 C0 36 72 */	rlwimi r0, r6, 6, 0x19, 0x19
-/* 80198218 00195178  3C 60 80 5A */	lis r3, lbl_805A6784@ha
+/* 80198218 00195178  3C 60 80 5A */	lis r3, mskNullBox__6CAABox@ha
 /* 8019821C 0019517C  98 1E 04 00 */	stb r0, 0x400(r30)
-/* 80198220 00195180  38 A3 67 84 */	addi r5, r3, lbl_805A6784@l
+/* 80198220 00195180  38 A3 67 84 */	addi r5, r3, mskNullBox__6CAABox@l
 /* 80198224 00195184  C0 02 A6 A4 */	lfs f0, lbl_805AC3C4@sda21(r2)
 /* 80198228 00195188  38 80 00 00 */	li r4, 0
 /* 8019822C 0019518C  90 DE 03 F0 */	stw r6, 0x3f0(r30)
@@ -1658,8 +1658,8 @@ lbl_80198BE4:
 /* 80198BF8 00195B58  38 7A 02 E8 */	addi r3, r26, 0x2e8
 /* 80198BFC 00195B5C  90 1A 00 00 */	stw r0, 0(r26)
 /* 80198C00 00195B60  48 17 9F 75 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80198C04 00195B64  3C 80 80 5A */	lis r4, lbl_805A6784@ha
-/* 80198C08 00195B68  C4 24 67 84 */	lfsu f1, lbl_805A6784@l(r4)
+/* 80198C04 00195B64  3C 80 80 5A */	lis r4, mskNullBox__6CAABox@ha
+/* 80198C08 00195B68  C4 24 67 84 */	lfsu f1, mskNullBox__6CAABox@l(r4)
 /* 80198C0C 00195B6C  3C 60 50 41 */	lis r3, 0x50415254@ha
 /* 80198C10 00195B70  C0 02 A6 A4 */	lfs f0, lbl_805AC3C4@sda21(r2)
 /* 80198C14 00195B74  D0 3A 03 18 */	stfs f1, 0x318(r26)

@@ -12,8 +12,8 @@ lbl_ctor:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A94E8
-lbl_805A94E8:
+.global sNull__Q24rstl8CRefData
+sNull__Q24rstl8CRefData:
 	.skip 0x8
 
 .section .text, "ax"
@@ -186,7 +186,7 @@ lbl_8033E644:
 ReadString__13CStringExtrasFR12CInputStream:
 /* 8033E658 0033B5B8  94 21 FD D0 */	stwu r1, -0x230(r1)
 /* 8033E65C 0033B5BC  7C 08 02 A6 */	mflr r0
-/* 8033E660 0033B5C0  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8033E660 0033B5C0  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033E664 0033B5C4  90 01 02 34 */	stw r0, 0x234(r1)
 /* 8033E668 0033B5C8  38 00 00 00 */	li r0, 0
 /* 8033E66C 0033B5CC  93 E1 02 2C */	stw r31, 0x22c(r1)
@@ -289,7 +289,7 @@ lbl_8033E78C:
 "ConvertToANSI__13CStringExtrasFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>":
 /* 8033E7C8 0033B728  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8033E7CC 0033B72C  7C 08 02 A6 */	mflr r0
-/* 8033E7D0 0033B730  38 AD A9 18 */	addi r5, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8033E7D0 0033B730  38 AD A9 18 */	addi r5, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033E7D4 0033B734  90 01 00 44 */	stw r0, 0x44(r1)
 /* 8033E7D8 0033B738  38 00 00 00 */	li r0, 0
 /* 8033E7DC 0033B73C  93 E1 00 3C */	stw r31, 0x3c(r1)
@@ -385,7 +385,7 @@ lbl_8033E924:
 /* 8033E924 0033B884  2C 08 00 00 */	cmpwi r8, 0
 /* 8033E928 0033B888  41 81 FF C8 */	bgt lbl_8033E8F0
 /* 8033E92C 0033B88C  38 00 00 00 */	li r0, 0
-/* 8033E930 0033B890  38 6D A9 18 */	addi r3, r13, "_EmptyString__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
+/* 8033E930 0033B890  38 6D A9 18 */	addi r3, r13, "mNull__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"@sda21
 /* 8033E934 0033B894  2C 04 00 00 */	cmpwi r4, 0
 /* 8033E938 0033B898  90 61 00 08 */	stw r3, 8(r1)
 /* 8033E93C 0033B89C  90 01 00 0C */	stw r0, 0xc(r1)
@@ -580,13 +580,13 @@ __sinit_RstlExtras_cpp:
 /* 8033EBB0 0033BB10  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033EBB4 0033BB14  38 E0 00 00 */	li r7, 0
 /* 8033EBB8 0033BB18  38 05 FF FF */	addi r0, r5, 0x00FFFFFF@l
-/* 8033EBBC 0033BB1C  38 CD A9 28 */	addi r6, r13, lbl_805A94E8@sda21
+/* 8033EBBC 0033BB1C  38 CD A9 28 */	addi r6, r13, sNull__Q24rstl8CRefData@sda21
 /* 8033EBC0 0033BB20  3C 60 80 4C */	lis r3, lbl_804BFF30@ha
-/* 8033EBC4 0033BB24  90 ED A9 28 */	stw r7, lbl_805A94E8@sda21(r13)
+/* 8033EBC4 0033BB24  90 ED A9 28 */	stw r7, sNull__Q24rstl8CRefData@sda21(r13)
 /* 8033EBC8 0033BB28  38 A3 FF 30 */	addi r5, r3, lbl_804BFF30@l
 /* 8033EBCC 0033BB2C  38 84 EB EC */	addi r4, r4, __ct__Q24rstl8CRefDataFPCPvi@l
 /* 8033EBD0 0033BB30  90 06 00 04 */	stw r0, 4(r6)
-/* 8033EBD4 0033BB34  38 6D A9 28 */	addi r3, r13, lbl_805A94E8@sda21
+/* 8033EBD4 0033BB34  38 6D A9 28 */	addi r3, r13, sNull__Q24rstl8CRefData@sda21
 /* 8033EBD8 0033BB38  48 04 AA B5 */	bl __register_global_object
 /* 8033EBDC 0033BB3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8033EBE0 0033BB40  7C 08 03 A6 */	mtlr r0

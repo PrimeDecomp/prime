@@ -677,7 +677,7 @@ __ct__13CMFGameLoaderFv:
 /* 800241CC 0002112C  38 61 00 0C */	addi r3, r1, 0xc
 /* 800241D0 00021130  48 31 99 11 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800241D4 00021134  3C 60 80 3E */	lis r3, lbl_803D9998@ha
-/* 800241D8 00021138  38 CD A9 28 */	addi r6, r13, lbl_805A94E8@sda21
+/* 800241D8 00021138  38 CD A9 28 */	addi r6, r13, sNull__Q24rstl8CRefData@sda21
 /* 800241DC 0002113C  38 03 99 98 */	addi r0, r3, lbl_803D9998@l
 /* 800241E0 00021140  38 80 00 00 */	li r4, 0
 /* 800241E4 00021144  90 1F 00 00 */	stw r0, 0(r31)
