@@ -2513,9 +2513,9 @@ lbl_8011F540:
 /* 8011F570 0011C4D0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 8011F574 0011C4D4  7D 89 03 A6 */	mtctr r12
 /* 8011F578 0011C4D8  4E 80 04 21 */	bctrl
-/* 8011F57C 0011C4DC  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 8011F57C 0011C4DC  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 8011F580 0011C4E0  38 61 00 C8 */	addi r3, r1, 0xc8
-/* 8011F584 0011C4E4  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 8011F584 0011C4E4  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 8011F588 0011C4E8  48 1F 35 ED */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8011F58C 0011C4EC  38 61 00 08 */	addi r3, r1, 8
 /* 8011F590 0011C4F0  38 81 00 F8 */	addi r4, r1, 0xf8

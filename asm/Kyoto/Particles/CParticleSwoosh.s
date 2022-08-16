@@ -3094,9 +3094,9 @@ Render2SidedNoSplineNoGaps__15CParticleSwooshFv:
 /* 8032D3F8 0032A358  38 61 01 F4 */	addi r3, r1, 0x1f4
 /* 8032D3FC 0032A35C  38 81 01 94 */	addi r4, r1, 0x194
 /* 8032D400 0032A360  4B FE 57 75 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 8032D404 0032A364  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 8032D404 0032A364  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 8032D408 0032A368  38 61 00 D4 */	addi r3, r1, 0xd4
-/* 8032D40C 0032A36C  38 A4 61 D4 */	addi r5, r4, lbl_805A61D4@l
+/* 8032D40C 0032A36C  38 A4 61 D4 */	addi r5, r4, mViewMatrix__9CGraphics@l
 /* 8032D410 0032A370  38 81 01 F4 */	addi r4, r1, 0x1f4
 /* 8032D414 0032A374  4B FE 55 3D */	bl __ml__12CTransform4fCFRC12CTransform4f
 /* 8032D418 0032A378  38 61 01 C4 */	addi r3, r1, 0x1c4
@@ -3838,17 +3838,17 @@ lbl_8032DEE0:
 /* 8032DF10 0032AE70  EC 02 00 24 */	fdivs f0, f2, f0
 /* 8032DF14 0032AE74  D0 1D 01 E8 */	stfs f0, 0x1e8(r29)
 lbl_8032DF18:
-/* 8032DF18 0032AE78  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8032DF18 0032AE78  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 8032DF1C 0032AE7C  38 60 00 00 */	li r3, 0
-/* 8032DF20 0032AE80  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 8032DF20 0032AE80  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 8032DF24 0032AE84  4B FD C3 95 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8032DF28 0032AE88  48 00 00 10 */	b lbl_8032DF38
 lbl_8032DF2C:
-/* 8032DF2C 0032AE8C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8032DF2C 0032AE8C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8032DF30 0032AE90  38 60 00 00 */	li r3, 0
 /* 8032DF34 0032AE94  4B FD C3 85 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_8032DF38:
-/* 8032DF38 0032AE98  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8032DF38 0032AE98  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8032DF3C 0032AE9C  38 60 00 01 */	li r3, 1
 /* 8032DF40 0032AEA0  4B FD C3 79 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8032DF44 0032AEA4  80 1D 01 B8 */	lwz r0, 0x1b8(r29)

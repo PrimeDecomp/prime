@@ -28,7 +28,7 @@ class CSimpleShadow;
 
 class CDamageInfo;
 class CDamageVulnerability;
-class CFrustum;
+class CFrustumPlanes;
 class CHealthInfo;
 class CScriptWater;
 class CWeaponMode;
@@ -211,9 +211,9 @@ public:
          const CMaterialList& list, const CActorParameters& params, TUniqueId nextDrawNode);
   ~CActor();
 
-  virtual void PreRender(CStateManager&, const CFrustum&);
-  virtual void AddToRenderer(const CFrustum&, CStateManager&);
-  virtual void Render(CStateManager&);
+  virtual void PreRender(CStateManager&, const CFrustumPlanes&);
+  virtual void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
+  virtual void Render(const CStateManager&) const;
   virtual bool CanRenderUnsorted(const CStateManager&) const;
   virtual void CalculateRenderBounds();
   virtual CHealthInfo* HealthInfo(CStateManager&);
@@ -240,17 +240,67 @@ public:
   void UpdateSfxEmitters();
   void RemoveEmitter();
   void SetModelData(const CModelData& modelData);
+  f32 GetAverageAnimVelocity(s32 anim);
+  void EnsureRendered(const CStateManager& mgr) const;
+  void EnsureRendered(const CStateManager& mgr, const CVector3f& pos, const CAABox& bounds) const;
+  void DrawTouchBounds() const;
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
-  bool GetMuted() const { return xe5_26_muted; }
-  bool HasAnimation() const { return x64_modelData && x64_modelData->GetAnimationData(); }
-  bool HasModelData() const { return x64_modelData && (x64_modelData->GetAnimationData() || x64_modelData->HasNormalModel()); }
+
+  bool HasModelData() const { return GetModelData() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel()); }
   CModelData* ModelData() { return x64_modelData.get(); }
   const CModelData* GetModelData() const { return x64_modelData.get(); }
+
+  bool HasAnimation() const { return GetModelData() && GetModelData()->HasAnimation(); }
   CAnimData* AnimationData() { return ModelData()->AnimationData(); }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
-  f32 GetAverageAnimVelocity(s32 anim);
+
+  bool HasShadow() const { return !x94_simpleShadow.null(); }
+  CSimpleShadow* Shadow() { return x94_simpleShadow.get(); }
+  const CSimpleShadow* GetShadow() const { return x94_simpleShadow.get(); }
+
+  bool HasActorLights() const { return !x90_actorLights.null(); }
+  CActorLights* ActorLights() { return x90_actorLights.get(); }
+  const CActorLights* GetActorLights() const { return x90_actorLights.get(); }
+
+  const CModelFlags& GetModelFlags() const { return xb4_drawFlags; }
+  void SetModelFlags(const CModelFlags& flags) { xb4_drawFlags = flags; }
+
+  bool GetTransformDirty() const { return xe4_27_notInSortedLists; }
+  bool GetTransformDirtySpare() const { return xe4_28_transformDirty; }
+  bool GetPreRenderHasMoved() const { return xe4_29_actorLightsDirty; }
+  bool GetPreRenderClipped() const { return xe4_30_outOfFrustum; }
+  bool GetCalculateLighting() const { return xe4_31_calculateLighting && HasActorLights(); }
+  bool GetDrawShadow() const { return xe5_24_shadowEnabled; }
+  bool GetShadowDirty() const { return xe5_25_shadowDirty; }
+  bool GetMuted() const { return xe5_26_muted; }
+  bool GetRenderParticleDatabaseInside() const { return xe6_29_renderParticleDBInside; }
+
+  void SetTransformDirty(bool b) { xe4_27_notInSortedLists = b; }
+  void SetTransformDirtySpare(bool b) { xe4_28_transformDirty = b; }
+  void SetPreRenderHasMoved(bool b) { xe4_29_actorLightsDirty = b; }
+  void SetPreRenderClipped(bool b) { xe4_30_outOfFrustum = b; }
+  void SetCalculateLighting(bool b) { xe4_31_calculateLighting = b; }
+  void SetDrawShadow(bool b) { xe5_24_shadowEnabled = b; }
+  void SetShadowDirty(bool b) { xe5_25_shadowDirty = b; }
+  void SetMuted(bool b) { xe5_26_muted = b; }
+  void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
+
+  const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
+  void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }
+
+  // 000c0ec8 00001c 801711a8  4 GetUseInSortedLists__6CActorCFv 	CActor.o
+  // 000c0ee4 000014 801711c4  4 SetUseInSortedLists__6CActorFb 	CActor.o
+  // 000c0ef8 00001c 801711d8  4 GetCallTouch__6CActorCFv 	CActor.o
+  // 000c0f14 000014 801711f4  4 SetCallTouch__6CActorFb 	CActor.o
+  // GetOrbitDistanceCheck__6CActorCFv
+  // GetCalculateLighting__6CActorCFv
+  // GetDrawShadow__6CActorCFv
+  // GetRenderBoundsCached__6CActorCFv
+  // GetRenderParticleDatabaseInside__6CActorCFv
+
+  // HasModelParticles__6CActorCFv
 
 protected:
   CTransform4f x34_transform;

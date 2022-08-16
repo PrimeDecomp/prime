@@ -15,8 +15,11 @@
 #include "rstl/pair.hpp"
 
 class CAABox;
+class CActorLights;
 class CAnimData;
+class CFrustumPlanes;
 class CModel;
+class CModelFlags;
 
 // TODO move
 #include "Kyoto/Math/CQuaternion.hpp"
@@ -28,8 +31,14 @@ CHECK_SIZEOF(SAdvancementDeltas, 0x1c)
 
 class CModelData {
 public:
+  enum EWhichModel {
+    kWM_Normal,
+    kWM_XRay,
+    kWM_Thermal,
+    kWM_ThermalHot,
+  };
+
   // TODO these probably aren't real
-  bool IsStaticModel() const { return xc_animData.get() == nullptr && !x1c_normalModel; }
   bool HasNormalModel() const { return x1c_normalModel; }
 
   CModelData();
@@ -40,18 +49,23 @@ public:
 
   SAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
+  void RenderParticles(const CFrustumPlanes& planes) const;
+  void RenderUnsortedParts(EWhichModel which, const CTransform4f& xf, const CActorLights* lights, const CModelFlags& flags) const;
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
   CAnimData* AnimationData() { return xc_animData.get(); }
   CAABox GetBounds(const CTransform4f& xf) const;
   CAABox GetBounds() const;
 
-  bool IsNull() const { return xc_animData.get() == nullptr && !x1c_normalModel; }
+  bool HasAnimation() const { return !xc_animData.null(); }
+  bool IsNull() const { return xc_animData.null() && !x1c_normalModel; }
 
   void SetXRayModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetInfraModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetAmbientColor(const CColor& color) { x18_ambientColor = color; }
   void SetSortThermal(bool b) { x14_25_sortThermal = b; }
+
+  static EWhichModel GetRenderingModel(const CStateManager& mgr);
 
 private:
   CVector3f x0_scale;

@@ -1993,10 +1993,10 @@ lbl_801F35E8:
 AddToRenderer__20CIceAttackProjectileCFRC14CFrustumPlanesRC13CStateManager:
 /* 801F3610 001F0570  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801F3614 001F0574  7C 08 02 A6 */	mflr r0
-/* 801F3618 001F0578  3C C0 80 5A */	lis r6, lbl_805A61D4@ha
+/* 801F3618 001F0578  3C C0 80 5A */	lis r6, mViewMatrix__9CGraphics@ha
 /* 801F361C 001F057C  7C 64 1B 78 */	mr r4, r3
 /* 801F3620 001F0580  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801F3624 001F0584  38 C6 61 D4 */	addi r6, r6, lbl_805A61D4@l
+/* 801F3624 001F0584  38 C6 61 D4 */	addi r6, r6, mViewMatrix__9CGraphics@l
 /* 801F3628 001F0588  7C A3 2B 78 */	mr r3, r5
 /* 801F362C 001F058C  C0 62 AF 18 */	lfs f3, lbl_805ACC38@sda21(r2)
 /* 801F3630 001F0590  C0 46 00 04 */	lfs f2, 4(r6)

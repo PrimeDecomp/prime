@@ -1,6 +1,7 @@
 .include "macros.inc"
 
-.comm lbl_805A564C, 0x4C, 4
+# Moved from kEnvPassthru__9CGraphics in retail
+.comm kEnvPassthru__13CTevCombiners, 0x4C, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -38,11 +39,11 @@ lbl_805A9360:
 ResetStates__13CTevCombinersFv:
 /* 80308EA8 00305E08  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80308EAC 00305E0C  7C 08 02 A6 */	mflr r0
-/* 80308EB0 00305E10  3C 60 80 5A */	lis r3, lbl_805A564C@ha
+/* 80308EB0 00305E10  3C 60 80 5A */	lis r3, kEnvPassthru__13CTevCombiners@ha
 /* 80308EB4 00305E14  38 AD 9C 60 */	addi r5, r13, lbl_805A8820@sda21
 /* 80308EB8 00305E18  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80308EBC 00305E1C  38 00 00 00 */	li r0, 0
-/* 80308EC0 00305E20  38 63 56 4C */	addi r3, r3, lbl_805A564C@l
+/* 80308EC0 00305E20  38 63 56 4C */	addi r3, r3, kEnvPassthru__13CTevCombiners@l
 /* 80308EC4 00305E24  38 80 00 00 */	li r4, 0
 /* 80308EC8 00305E28  98 0D 9C 60 */	stb r0, lbl_805A8820@sda21(r13)
 /* 80308ECC 00305E2C  98 05 00 01 */	stb r0, 1(r5)
@@ -123,9 +124,9 @@ SetPassCombiners__13CTevCombinersFiRCQ213CTevCombiners8CTevPass:
 SetupPass__13CTevCombinersFiRCQ213CTevCombiners8CTevPass:
 /* 80308FD8 00305F38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80308FDC 00305F3C  7C 08 02 A6 */	mflr r0
-/* 80308FE0 00305F40  3C A0 80 5A */	lis r5, lbl_805A564C@ha
+/* 80308FE0 00305F40  3C A0 80 5A */	lis r5, kEnvPassthru__13CTevCombiners@ha
 /* 80308FE4 00305F44  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80308FE8 00305F48  38 05 56 4C */	addi r0, r5, lbl_805A564C@l
+/* 80308FE8 00305F48  38 05 56 4C */	addi r0, r5, kEnvPassthru__13CTevCombiners@l
 /* 80308FEC 00305F4C  7C 04 00 40 */	cmplw r4, r0
 /* 80308FF0 00305F50  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80308FF4 00305F54  7C 7F 1B 78 */	mr r31, r3
@@ -151,9 +152,9 @@ lbl_80309020:
 DeletePass__13CTevCombinersFi:
 /* 80309034 00305F94  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80309038 00305F98  7C 08 02 A6 */	mflr r0
-/* 8030903C 00305F9C  3C 80 80 5A */	lis r4, lbl_805A564C@ha
+/* 8030903C 00305F9C  3C 80 80 5A */	lis r4, kEnvPassthru__13CTevCombiners@ha
 /* 80309040 00305FA0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80309044 00305FA4  38 84 56 4C */	addi r4, r4, lbl_805A564C@l
+/* 80309044 00305FA4  38 84 56 4C */	addi r4, r4, kEnvPassthru__13CTevCombiners@l
 /* 80309048 00305FA8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8030904C 00305FAC  7C 7F 1B 78 */	mr r31, r3
 /* 80309050 00305FB0  4B FF FF 59 */	bl SetPassCombiners__13CTevCombinersFiRCQ213CTevCombiners8CTevPass
@@ -283,9 +284,9 @@ __sinit_CTevCombiners_cpp:
 /* 80309200 00306160  38 80 00 0F */	li r4, 0xf
 /* 80309204 00306164  4B FF FF 21 */	bl __ct__Q213CTevCombiners8ColorVarFQ213CTevCombiners9EColorSrc
 /* 80309208 00306168  80 A1 00 24 */	lwz r5, 0x24(r1)
-/* 8030920C 0030616C  3C 60 80 5A */	lis r3, lbl_805A564C@ha
+/* 8030920C 0030616C  3C 60 80 5A */	lis r3, kEnvPassthru__13CTevCombiners@ha
 /* 80309210 00306170  81 21 00 20 */	lwz r9, 0x20(r1)
-/* 80309214 00306174  38 63 56 4C */	addi r3, r3, lbl_805A564C@l
+/* 80309214 00306174  38 63 56 4C */	addi r3, r3, kEnvPassthru__13CTevCombiners@l
 /* 80309218 00306178  81 01 00 1C */	lwz r8, 0x1c(r1)
 /* 8030921C 0030617C  38 81 00 38 */	addi r4, r1, 0x38
 /* 80309220 00306180  80 01 00 18 */	lwz r0, 0x18(r1)

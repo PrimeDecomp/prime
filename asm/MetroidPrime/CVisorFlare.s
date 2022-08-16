@@ -174,11 +174,11 @@ lbl_802077E0:
 /* 802077EC 0020474C  7D 89 03 A6 */	mtctr r12
 /* 802077F0 00204750  4E 80 04 21 */	bctrl
 lbl_802077F4:
-/* 802077F4 00204754  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 802077F4 00204754  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 802077F8 00204758  38 60 00 00 */	li r3, 0
-/* 802077FC 0020475C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 802077FC 0020475C  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80207800 00204760  48 10 2A B9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80207804 00204764  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80207804 00204764  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80207808 00204768  38 60 00 01 */	li r3, 1
 /* 8020780C 0020476C  48 10 2A AD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_80207810:
@@ -419,9 +419,9 @@ lbl_80207B60:
 /* 80207B84 00204AE4  7F E4 FB 78 */	mr r4, r31
 /* 80207B88 00204AE8  4B E0 3F 91 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
 /* 80207B8C 00204AEC  7C 7D 1B 78 */	mr r29, r3
-/* 80207B90 00204AF0  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 80207B90 00204AF0  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80207B94 00204AF4  C0 BD 00 60 */	lfs f5, 0x60(r29)
-/* 80207B98 00204AF8  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 80207B98 00204AF8  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 80207B9C 00204AFC  C0 9D 00 50 */	lfs f4, 0x50(r29)
 /* 80207BA0 00204B00  38 61 01 30 */	addi r3, r1, 0x130
 /* 80207BA4 00204B04  C0 7D 00 40 */	lfs f3, 0x40(r29)

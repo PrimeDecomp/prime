@@ -862,10 +862,10 @@ RenderMotionBlur__17CPlasmaProjectileCFv:
 /* 80177684 001745E4  38 A0 00 FF */	li r5, 0xff
 /* 80177688 001745E8  38 C0 00 04 */	li r6, 4
 /* 8017768C 001745EC  48 19 12 C1 */	bl SetTevOrder__3CGXF13_GXTevStageID13_GXTexCoordID11_GXTexMapID12_GXChannelID
-/* 80177690 001745F0  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80177690 001745F0  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80177694 001745F4  38 60 00 00 */	li r3, 0
 /* 80177698 001745F8  48 19 2C 21 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8017769C 001745FC  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8017769C 001745FC  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 801776A0 00174600  38 60 00 01 */	li r3, 1
 /* 801776A4 00174604  48 19 2C 15 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 801776A8 00174608  38 60 00 98 */	li r3, 0x98
@@ -1187,9 +1187,9 @@ lbl_80177B10:
 /* 80177B44 00174AA4  38 A0 00 00 */	li r5, 0
 /* 80177B48 00174AA8  38 C0 00 04 */	li r6, 4
 /* 80177B4C 00174AAC  48 19 0E 01 */	bl SetTevOrder__3CGXF13_GXTevStageID13_GXTexCoordID11_GXTexMapID12_GXChannelID
-/* 80177B50 00174AB0  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 80177B50 00174AB0  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80177B54 00174AB4  38 60 00 00 */	li r3, 0
-/* 80177B58 00174AB8  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80177B58 00174AB8  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80177B5C 00174ABC  48 19 27 5D */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80177B60 00174AC0  7F C3 F3 78 */	mr r3, r30
 /* 80177B64 00174AC4  38 80 00 00 */	li r4, 0
@@ -1204,11 +1204,11 @@ lbl_80177B74:
 /* 80177B84 00174AE4  38 A0 00 FF */	li r5, 0xff
 /* 80177B88 00174AE8  38 C0 00 04 */	li r6, 4
 /* 80177B8C 00174AEC  48 19 0D C1 */	bl SetTevOrder__3CGXF13_GXTevStageID13_GXTexCoordID11_GXTexMapID12_GXChannelID
-/* 80177B90 00174AF0  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80177B90 00174AF0  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80177B94 00174AF4  38 60 00 00 */	li r3, 0
 /* 80177B98 00174AF8  48 19 27 21 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 lbl_80177B9C:
-/* 80177B9C 00174AFC  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 80177B9C 00174AFC  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80177BA0 00174B00  38 60 00 01 */	li r3, 1
 /* 80177BA4 00174B04  48 19 27 15 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80177BA8 00174B08  83 DA 00 00 */	lwz r30, 0(r26)
@@ -1661,7 +1661,7 @@ lbl_80178204:
 /* 8017823C 0017519C  7F E4 FB 78 */	mr r4, r31
 /* 80178240 001751A0  38 A1 00 08 */	addi r5, r1, 8
 /* 80178244 001751A4  38 C1 00 14 */	addi r6, r1, 0x14
-/* 80178248 001751A8  4B ED C8 61 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
+/* 80178248 001751A8  4B ED C8 61 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
 /* 8017824C 001751AC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80178250 001751B0  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 80178254 001751B4  83 C1 00 38 */	lwz r30, 0x38(r1)

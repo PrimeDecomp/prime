@@ -3152,9 +3152,9 @@ lbl_8017BEF8:
 /* 8017BFC0 00178F20  80 9E 08 70 */	lwz r4, 0x870(r30)
 /* 8017BFC4 00178F24  80 84 00 7C */	lwz r4, 0x7c(r4)
 /* 8017BFC8 00178F28  4B EE 18 C9 */	bl ConvertToScreenSpace__11CGameCameraCFRC9CVector3f
-/* 8017BFCC 00178F2C  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8017BFCC 00178F2C  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8017BFD0 00178F30  3C A0 43 30 */	lis r5, 0x4330
-/* 8017BFD4 00178F34  38 83 D9 10 */	addi r4, r3, lbl_803ED910@l
+/* 8017BFD4 00178F34  38 83 D9 10 */	addi r4, r3, mViewport__9CGraphics@l
 /* 8017BFD8 00178F38  C1 01 00 2C */	lfs f8, 0x2c(r1)
 /* 8017BFDC 00178F3C  80 04 00 08 */	lwz r0, 8(r4)
 /* 8017BFE0 00178F40  7F 83 E3 78 */	mr r3, r28
@@ -3677,9 +3677,9 @@ lbl_8017C690:
 /* 8017C758 001796B8  D0 81 00 68 */	stfs f4, 0x68(r1)
 /* 8017C75C 001796BC  D0 A1 00 6C */	stfs f5, 0x6c(r1)
 /* 8017C760 001796C0  48 19 81 99 */	bl Normalize__9CVector3fFv
-/* 8017C764 001796C4  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8017C764 001796C4  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8017C768 001796C8  3C E0 43 30 */	lis r7, 0x4330
-/* 8017C76C 001796CC  3B 43 D9 10 */	addi r26, r3, lbl_803ED910@l
+/* 8017C76C 001796CC  3B 43 D9 10 */	addi r26, r3, mViewport__9CGraphics@l
 /* 8017C770 001796D0  C3 E2 A2 80 */	lfs f31, lbl_805ABFA0@sda21(r2)
 /* 8017C774 001796D4  80 BA 00 08 */	lwz r5, 8(r26)
 /* 8017C778 001796D8  57 A3 10 3A */	slwi r3, r29, 2
@@ -4300,9 +4300,9 @@ lbl_8017CF98:
 /* 8017D084 00179FE4  D0 81 00 B0 */	stfs f4, 0xb0(r1)
 /* 8017D088 00179FE8  D0 A1 00 B4 */	stfs f5, 0xb4(r1)
 /* 8017D08C 00179FEC  48 19 78 6D */	bl Normalize__9CVector3fFv
-/* 8017D090 00179FF0  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8017D090 00179FF0  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8017D094 00179FF4  3C E0 43 30 */	lis r7, 0x4330
-/* 8017D098 00179FF8  38 63 D9 10 */	addi r3, r3, lbl_803ED910@l
+/* 8017D098 00179FF8  38 63 D9 10 */	addi r3, r3, mViewport__9CGraphics@l
 /* 8017D09C 00179FFC  C3 A2 A2 80 */	lfs f29, lbl_805ABFA0@sda21(r2)
 /* 8017D0A0 0017A000  80 A3 00 08 */	lwz r5, 8(r3)
 /* 8017D0A4 0017A004  56 A6 10 3A */	slwi r6, r21, 2
@@ -4964,10 +4964,10 @@ lbl_8017D8FC:
 /* 8017DA20 0017A980  C3 A1 00 3C */	lfs f29, 0x3c(r1)
 /* 8017DA24 0017A984  48 19 6E D5 */	bl Normalize__9CVector3fFv
 /* 8017DA28 0017A988  80 99 08 70 */	lwz r4, 0x870(r25)
-/* 8017DA2C 0017A98C  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8017DA2C 0017A98C  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8017DA30 0017A990  3B B5 00 04 */	addi r29, r21, 4
 /* 8017DA34 0017A994  83 C4 00 7C */	lwz r30, 0x7c(r4)
-/* 8017DA38 0017A998  3B E3 D9 10 */	addi r31, r3, lbl_803ED910@l
+/* 8017DA38 0017A998  3B E3 D9 10 */	addi r31, r3, mViewport__9CGraphics@l
 /* 8017DA3C 0017A99C  48 00 02 44 */	b lbl_8017DC80
 lbl_8017DA40:
 /* 8017DA40 0017A9A0  A0 1D 00 00 */	lhz r0, 0(r29)

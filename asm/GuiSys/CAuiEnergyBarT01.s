@@ -222,11 +222,11 @@ lbl_802CB440:
 lbl_802CB450:
 /* 802CB450 002C83B0  FC 1B E0 00 */	fcmpu cr0, f27, f28
 /* 802CB454 002C83B4  41 82 01 84 */	beq lbl_802CB5D8
-/* 802CB458 002C83B8  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 802CB458 002C83B8  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 802CB45C 002C83BC  38 60 00 00 */	li r3, 0
-/* 802CB460 002C83C0  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 802CB460 002C83C0  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 802CB464 002C83C4  48 03 EE 55 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 802CB468 002C83C8  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802CB468 002C83C8  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802CB46C 002C83CC  38 60 00 01 */	li r3, 1
 /* 802CB470 002C83D0  48 03 EE 49 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802CB474 002C83D4  7F C3 F3 78 */	mr r3, r30

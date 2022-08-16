@@ -306,8 +306,8 @@ lbl_80297C4C:
 /* 80297C50 00294BB0  41 82 00 FC */	beq lbl_80297D4C
 /* 80297C54 00294BB4  48 0A 91 B9 */	bl GetObj__6CTokenFv
 /* 80297C58 00294BB8  80 83 00 04 */	lwz r4, 4(r3)
-/* 80297C5C 00294BBC  3C 60 80 3F */	lis r3, lbl_803ED910@ha
-/* 80297C60 00294BC0  38 A3 D9 10 */	addi r5, r3, lbl_803ED910@l
+/* 80297C5C 00294BBC  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
+/* 80297C60 00294BC0  38 A3 D9 10 */	addi r5, r3, mViewport__9CGraphics@l
 /* 80297C64 00294BC4  3C E0 43 30 */	lis r7, 0x4330
 /* 80297C68 00294BC8  A8 04 00 04 */	lha r0, 4(r4)
 /* 80297C6C 00294BCC  38 6D A5 A8 */	addi r3, r13, lbl_805A9168@sda21
@@ -412,9 +412,9 @@ lbl_80297DDC:
 /* 80297DDC 00294D3C  54 A0 06 3F */	clrlwi. r0, r5, 0x18
 /* 80297DE0 00294D40  41 82 03 98 */	beq lbl_80298178
 /* 80297DE4 00294D44  48 0A 90 29 */	bl GetObj__6CTokenFv
-/* 80297DE8 00294D48  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 80297DE8 00294D48  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 80297DEC 00294D4C  3C C0 43 30 */	lis r6, 0x4330
-/* 80297DF0 00294D50  38 A4 D9 10 */	addi r5, r4, lbl_803ED910@l
+/* 80297DF0 00294D50  38 A4 D9 10 */	addi r5, r4, mViewport__9CGraphics@l
 /* 80297DF4 00294D54  81 03 00 04 */	lwz r8, 4(r3)
 /* 80297DF8 00294D58  83 A5 00 08 */	lwz r29, 8(r5)
 /* 80297DFC 00294D5C  7F E4 FB 78 */	mr r4, r31
@@ -679,8 +679,8 @@ sub_802981c4:
 /* 802981EC 0029514C  28 00 00 00 */	cmplwi r0, 0
 /* 802981F0 00295150  41 82 02 5C */	beq lbl_8029844C
 /* 802981F4 00295154  80 8D A0 68 */	lwz r4, gpRender@sda21(r13)
-/* 802981F8 00295158  3C 60 80 3F */	lis r3, lbl_803ED910@ha
-/* 802981FC 0029515C  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 802981F8 00295158  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
+/* 802981FC 0029515C  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 80298200 00295160  38 61 00 34 */	addi r3, r1, 0x34
 /* 80298204 00295164  81 84 00 00 */	lwz r12, 0(r4)
 /* 80298208 00295168  38 A0 00 01 */	li r5, 1
@@ -851,8 +851,8 @@ sub_80298470:
 /* 8029848C 002953EC  28 00 00 00 */	cmplwi r0, 0
 /* 80298490 002953F0  41 82 00 B4 */	beq lbl_80298544
 /* 80298494 002953F4  80 8D A0 68 */	lwz r4, gpRender@sda21(r13)
-/* 80298498 002953F8  3C 60 80 3F */	lis r3, lbl_803ED910@ha
-/* 8029849C 002953FC  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 80298498 002953F8  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
+/* 8029849C 002953FC  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 802984A0 00295400  38 61 00 08 */	addi r3, r1, 8
 /* 802984A4 00295404  81 84 00 00 */	lwz r12, 0(r4)
 /* 802984A8 00295408  38 A0 00 00 */	li r5, 0
@@ -1026,8 +1026,8 @@ sub_802986e0:
 /* 80298714 00295674  28 00 00 00 */	cmplwi r0, 0
 /* 80298718 00295678  41 82 01 AC */	beq lbl_802988C4
 /* 8029871C 0029567C  80 6D A1 50 */	lwz r3, gpTweakSlideShow@sda21(r13)
-/* 80298720 00295680  3C 80 80 3F */	lis r4, lbl_803ED910@ha
-/* 80298724 00295684  38 A4 D9 10 */	addi r5, r4, lbl_803ED910@l
+/* 80298720 00295680  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 80298724 00295684  38 A4 D9 10 */	addi r5, r4, mViewport__9CGraphics@l
 /* 80298728 00295688  C0 1F 00 58 */	lfs f0, 0x58(r31)
 /* 8029872C 0029568C  C0 23 00 50 */	lfs f1, 0x50(r3)
 /* 80298730 00295690  38 81 00 14 */	addi r4, r1, 0x14
@@ -1891,9 +1891,9 @@ lbl_802993A4:
 sub_802993c8:
 /* 802993C8 00296328  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802993CC 0029632C  7C 08 02 A6 */	mflr r0
-/* 802993D0 00296330  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 802993D0 00296330  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 802993D4 00296334  90 01 00 24 */	stw r0, 0x24(r1)
-/* 802993D8 00296338  38 84 D9 10 */	addi r4, r4, lbl_803ED910@l
+/* 802993D8 00296338  38 84 D9 10 */	addi r4, r4, mViewport__9CGraphics@l
 /* 802993DC 0029633C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802993E0 00296340  80 63 00 38 */	lwz r3, 0x38(r3)
 /* 802993E4 00296344  83 E4 00 08 */	lwz r31, 8(r4)
@@ -4581,9 +4581,9 @@ __ct__10CSlideShowFv:
 /* 8029B984 002988E4  38 84 00 04 */	addi r4, r4, 4
 /* 8029B988 002988E8  48 09 FB D5 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
 /* 8029B98C 002988EC  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
-/* 8029B990 002988F0  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 8029B990 002988F0  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 8029B994 002988F4  80 AD A1 50 */	lwz r5, gpTweakSlideShow@sda21(r13)
-/* 8029B998 002988F8  38 84 D9 10 */	addi r4, r4, lbl_803ED910@l
+/* 8029B998 002988F8  38 84 D9 10 */	addi r4, r4, mViewport__9CGraphics@l
 /* 8029B99C 002988FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 8029B9A0 00298900  3B 65 00 24 */	addi r27, r5, 0x24
 /* 8029B9A4 00298904  3B 45 00 28 */	addi r26, r5, 0x28
@@ -4923,11 +4923,11 @@ lbl_8029BE04:
 /* 8029BE98 00298DF8  48 07 72 A9 */	bl Translate__12CTransform4fFRC9CVector3f
 /* 8029BE9C 00298DFC  38 61 00 2C */	addi r3, r1, 0x2c
 /* 8029BEA0 00298E00  48 07 07 41 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
-/* 8029BEA4 00298E04  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8029BEA4 00298E04  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 8029BEA8 00298E08  38 60 00 00 */	li r3, 0
-/* 8029BEAC 00298E0C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 8029BEAC 00298E0C  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 8029BEB0 00298E10  48 06 E4 09 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8029BEB4 00298E14  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8029BEB4 00298E14  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 8029BEB8 00298E18  38 60 00 01 */	li r3, 1
 /* 8029BEBC 00298E1C  48 06 E3 FD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8029BEC0 00298E20  7F E3 FB 78 */	mr r3, r31

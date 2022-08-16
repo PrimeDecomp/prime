@@ -214,9 +214,9 @@ Draw__12CScanDisplayCFv:
 /* 80172CB8 0016FC18  81 8C 00 64 */	lwz r12, 0x64(r12)
 /* 80172CBC 0016FC1C  7D 89 03 A6 */	mtctr r12
 /* 80172CC0 0016FC20  4E 80 04 21 */	bctrl
-/* 80172CC4 0016FC24  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 80172CC4 0016FC24  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80172CC8 0016FC28  38 60 00 00 */	li r3, 0
-/* 80172CCC 0016FC2C  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80172CCC 0016FC2C  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80172CD0 0016FC30  48 19 75 E9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80172CD4 0016FC34  7F C3 F3 78 */	mr r3, r30
 /* 80172CD8 0016FC38  38 80 00 00 */	li r4, 0
@@ -964,10 +964,10 @@ lbl_8017377C:
 /* 80173784 001706E4  2C 19 00 04 */	cmpwi r25, 4
 /* 80173788 001706E8  3B BD 00 08 */	addi r29, r29, 8
 /* 8017378C 001706EC  41 80 FE 20 */	blt lbl_801735AC
-/* 80173790 001706F0  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80173790 001706F0  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 80173794 001706F4  7F 5C D3 78 */	mr r28, r26
 /* 80173798 001706F8  3B 00 00 00 */	li r24, 0
-/* 8017379C 001706FC  3B A3 D9 10 */	addi r29, r3, lbl_803ED910@l
+/* 8017379C 001706FC  3B A3 D9 10 */	addi r29, r3, mViewport__9CGraphics@l
 lbl_801737A0:
 /* 801737A0 00170700  80 1B 00 00 */	lwz r0, 0(r27)
 /* 801737A4 00170704  2C 00 00 03 */	cmpwi r0, 3

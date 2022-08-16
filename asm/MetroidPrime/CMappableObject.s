@@ -833,9 +833,9 @@ lbl_800E9044:
 /* 800E90A0 000E6000  38 80 00 00 */	li r4, 0
 /* 800E90A4 000E6004  38 A0 00 01 */	li r5, 1
 /* 800E90A8 000E6008  48 22 66 95 */	bl Load__8CTextureCF11_GXTexMapIDQ28CTexture10EClampMode
-/* 800E90AC 000E600C  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 800E90AC 000E600C  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 800E90B0 000E6010  38 60 00 00 */	li r3, 0
-/* 800E90B4 000E6014  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 800E90B4 000E6014  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 800E90B8 000E6018  48 22 12 01 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 800E90BC 000E601C  38 60 00 98 */	li r3, 0x98
 /* 800E90C0 000E6020  48 22 25 A9 */	bl StreamBegin__9CGraphicsF13ERglPrimitive

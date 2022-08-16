@@ -2212,16 +2212,16 @@ lbl_801087CC:
 /* 80108810 00105770  81 8C 00 68 */	lwz r12, 0x68(r12)
 /* 80108814 00105774  7D 89 03 A6 */	mtctr r12
 /* 80108818 00105778  4E 80 04 21 */	bctrl
-/* 8010881C 0010577C  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8010881C 0010577C  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80108820 00105780  38 60 00 00 */	li r3, 0
-/* 80108824 00105784  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80108824 00105784  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80108828 00105788  48 20 1A 91 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8010882C 0010578C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8010882C 0010578C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80108830 00105790  38 60 00 01 */	li r3, 1
 /* 80108834 00105794  48 20 1A 85 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80108838 00105798  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80108838 00105798  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8010883C 0010579C  83 BF 01 C8 */	lwz r29, 0x1c8(r31)
-/* 80108840 001057A0  38 E3 D9 10 */	addi r7, r3, lbl_803ED910@l
+/* 80108840 001057A0  38 E3 D9 10 */	addi r7, r3, mViewport__9CGraphics@l
 /* 80108844 001057A4  83 9F 01 CC */	lwz r28, 0x1cc(r31)
 /* 80108848 001057A8  80 67 00 08 */	lwz r3, 8(r7)
 /* 8010884C 001057AC  80 07 00 0C */	lwz r0, 0xc(r7)
@@ -2676,9 +2676,9 @@ lbl_80108DE8:
 /* 80108EBC 00105E1C  38 AD 89 F8 */	addi r5, r13, lbl_805A75B8@sda21
 /* 80108EC0 00105E20  D0 01 00 18 */	stfs f0, 0x18(r1)
 /* 80108EC4 00105E24  4B F0 33 F1 */	bl "Clamp<f>__5CMathFRCfRCfRCf"
-/* 80108EC8 00105E28  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 80108EC8 00105E28  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 80108ECC 00105E2C  C0 23 00 00 */	lfs f1, 0(r3)
-/* 80108ED0 00105E30  38 84 D9 10 */	addi r4, r4, lbl_803ED910@l
+/* 80108ED0 00105E30  38 84 D9 10 */	addi r4, r4, mViewport__9CGraphics@l
 /* 80108ED4 00105E34  C0 02 94 90 */	lfs f0, lbl_805AB1B0@sda21(r2)
 /* 80108ED8 00105E38  83 44 00 08 */	lwz r26, 8(r4)
 /* 80108EDC 00105E3C  83 A4 00 0C */	lwz r29, 0xc(r4)
@@ -2687,7 +2687,7 @@ lbl_80108DE8:
 /* 80108EE8 00105E48  57 45 04 3E */	clrlwi r5, r26, 0x10
 /* 80108EEC 00105E4C  80 04 00 04 */	lwz r0, 4(r4)
 /* 80108EF0 00105E50  57 A6 04 3E */	clrlwi r6, r29, 0x10
-/* 80108EF4 00105E54  83 2D A8 28 */	lwz r25, lbl_805A93E8@sda21(r13)
+/* 80108EF4 00105E54  83 2D A8 28 */	lwz r25, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 80108EF8 00105E58  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 80108EFC 00105E5C  54 04 04 3E */	clrlwi r4, r0, 0x10
 /* 80108F00 00105E60  48 26 FE B5 */	bl GXSetTexCopySrc
@@ -2730,11 +2730,11 @@ lbl_80108DE8:
 /* 80108F94 00105EF4  6F A3 80 00 */	xoris r3, r29, 0x8000
 /* 80108F98 00105EF8  6F 40 80 00 */	xoris r0, r26, 0x8000
 /* 80108F9C 00105EFC  90 61 01 1C */	stw r3, 0x11c(r1)
-/* 80108FA0 00105F00  3C 60 80 5A */	lis r3, lbl_805A5EBC@ha
+/* 80108FA0 00105F00  3C 60 80 5A */	lis r3, kEnvModulate__9CGraphics@ha
 /* 80108FA4 00105F04  90 A1 01 18 */	stw r5, 0x118(r1)
 /* 80108FA8 00105F08  EC 1F 00 32 */	fmuls f0, f31, f0
 /* 80108FAC 00105F0C  C8 82 94 B8 */	lfd f4, lbl_805AB1D8@sda21(r2)
-/* 80108FB0 00105F10  38 83 5E BC */	addi r4, r3, lbl_805A5EBC@l
+/* 80108FB0 00105F10  38 83 5E BC */	addi r4, r3, kEnvModulate__9CGraphics@l
 /* 80108FB4 00105F14  C8 21 01 18 */	lfd f1, 0x118(r1)
 /* 80108FB8 00105F18  38 60 00 00 */	li r3, 0
 /* 80108FBC 00105F1C  EC 5F 00 32 */	fmuls f2, f31, f0
@@ -2757,7 +2757,7 @@ lbl_80108DE8:
 /* 80109000 00105F60  EF 06 00 32 */	fmuls f24, f6, f0
 /* 80109004 00105F64  FF 20 C0 50 */	fneg f25, f24
 /* 80109008 00105F68  48 20 12 B1 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8010900C 00105F6C  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8010900C 00105F6C  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80109010 00105F70  38 60 00 01 */	li r3, 1
 /* 80109014 00105F74  48 20 12 A5 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80109018 00105F78  38 60 00 98 */	li r3, 0x98

@@ -732,7 +732,7 @@ SetScreenBrightness__12CGameOptionsFib:
 /* 8020F0D4 0020C034  41 82 00 10 */	beq lbl_8020F0E4
 /* 8020F0D8 0020C038  7F C3 F3 78 */	mr r3, r30
 /* 8020F0DC 0020C03C  4B FF FF 79 */	bl TuneScreenBrightness__12CGameOptionsFv
-/* 8020F0E0 0020C040  D0 2D 9C 84 */	stfs f1, lbl_805A8844@sda21(r13)
+/* 8020F0E0 0020C040  D0 2D 9C 84 */	stfs f1, mBrightness__9CGraphics@sda21(r13)
 lbl_8020F0E4:
 /* 8020F0E4 0020C044  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8020F0E8 0020C048  83 E1 00 1C */	lwz r31, 0x1c(r1)

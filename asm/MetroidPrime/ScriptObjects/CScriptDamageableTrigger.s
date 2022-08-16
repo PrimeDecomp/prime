@@ -399,7 +399,7 @@ AddToRenderer__24CScriptDamageableTriggerCFRC14CFrustumPlanesRC13CStateManager:
 /* 800FA9B0 000F7910  7F E4 FB 78 */	mr r4, r31
 /* 800FA9B4 000F7914  38 A1 00 08 */	addi r5, r1, 8
 /* 800FA9B8 000F7918  38 C1 00 14 */	addi r6, r1, 0x14
-/* 800FA9BC 000F791C  4B F5 A0 ED */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
+/* 800FA9BC 000F791C  4B F5 A0 ED */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
 lbl_800FA9C0:
 /* 800FA9C0 000F7920  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 800FA9C4 000F7924  83 E1 00 3C */	lwz r31, 0x3c(r1)

@@ -1236,10 +1236,10 @@ Draw__10CSamusDollFRC13CStateManagerf:
 /* 800DB708 000D8668  4B F3 0B AD */	bl "Clamp<f>__5CMathFRCfRCfRCf"
 /* 800DB70C 000D866C  C0 1F 00 C4 */	lfs f0, 0xc4(r31)
 /* 800DB710 000D8670  3C 80 43 30 */	lis r4, 0x4330
-/* 800DB714 000D8674  3C A0 80 3F */	lis r5, lbl_803ED910@ha
+/* 800DB714 000D8674  3C A0 80 3F */	lis r5, mViewport__9CGraphics@ha
 /* 800DB718 000D8678  C3 43 00 00 */	lfs f26, 0(r3)
 /* 800DB71C 000D867C  FC 00 02 10 */	fabs f0, f0
-/* 800DB720 000D8680  38 A5 D9 10 */	addi r5, r5, lbl_803ED910@l
+/* 800DB720 000D8680  38 A5 D9 10 */	addi r5, r5, mViewport__9CGraphics@l
 /* 800DB724 000D8684  80 65 00 08 */	lwz r3, 8(r5)
 /* 800DB728 000D8688  80 05 00 0C */	lwz r0, 0xc(r5)
 /* 800DB72C 000D868C  FC 00 00 18 */	frsp f0, f0

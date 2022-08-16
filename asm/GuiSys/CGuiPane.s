@@ -219,7 +219,7 @@ Draw__8CGuiPaneCFRC19CGuiWidgetDrawParms:
 /* 802C577C 002C26DC  4E 80 04 21 */	bctrl
 /* 802C5780 002C26E0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 802C5784 002C26E4  41 82 00 74 */	beq lbl_802C57F8
-/* 802C5788 002C26E8  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 802C5788 002C26E8  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 802C578C 002C26EC  38 60 00 00 */	li r3, 0
 /* 802C5790 002C26F0  48 04 4B 29 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802C5794 002C26F4  88 7E 00 AB */	lbz r3, 0xab(r30)

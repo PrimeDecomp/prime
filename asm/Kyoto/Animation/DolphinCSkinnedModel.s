@@ -701,9 +701,9 @@ DoDrawCallback__13CSkinnedModelF14FCustomDrawCPv:
 /* 80352F48 0034FEA8  88 03 00 39 */	lbz r0, 0x39(r3)
 /* 80352F4C 0034FEAC  28 00 00 00 */	cmplwi r0, 0
 /* 80352F50 0034FEB0  41 82 00 68 */	beq lbl_80352FB8
-/* 80352F54 0034FEB4  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 80352F54 0034FEB4  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80352F58 0034FEB8  38 61 00 38 */	addi r3, r1, 0x38
-/* 80352F5C 0034FEBC  38 84 62 04 */	addi r4, r4, lbl_805A6204@l
+/* 80352F5C 0034FEBC  38 84 62 04 */	addi r4, r4, mModelMatrix__9CGraphics@l
 /* 80352F60 0034FEC0  4B FB FC 15 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 80352F64 0034FEC4  80 BF 00 18 */	lwz r5, 0x18(r31)
 /* 80352F68 0034FEC8  38 61 00 08 */	addi r3, r1, 8
@@ -785,9 +785,9 @@ sub_80353064:
 /* 80353080 0034FFE0  88 03 00 39 */	lbz r0, 0x39(r3)
 /* 80353084 0034FFE4  28 00 00 00 */	cmplwi r0, 0
 /* 80353088 0034FFE8  41 82 00 4C */	beq lbl_803530D4
-/* 8035308C 0034FFEC  3C 80 80 5A */	lis r4, lbl_805A6204@ha
+/* 8035308C 0034FFEC  3C 80 80 5A */	lis r4, mModelMatrix__9CGraphics@ha
 /* 80353090 0034FFF0  38 61 00 38 */	addi r3, r1, 0x38
-/* 80353094 0034FFF4  38 84 62 04 */	addi r4, r4, lbl_805A6204@l
+/* 80353094 0034FFF4  38 84 62 04 */	addi r4, r4, mModelMatrix__9CGraphics@l
 /* 80353098 0034FFF8  4B FB FA DD */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8035309C 0034FFFC  80 BE 00 18 */	lwz r5, 0x18(r30)
 /* 803530A0 00350000  38 61 00 08 */	addi r3, r1, 8

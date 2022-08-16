@@ -1308,10 +1308,10 @@ lbl_801BE84C:
 /* 801BE8EC 001BB84C  38 A0 00 FF */	li r5, 0xff
 /* 801BE8F0 001BB850  38 C0 00 04 */	li r6, 4
 /* 801BE8F4 001BB854  48 14 A0 59 */	bl SetTevOrder__3CGXF13_GXTevStageID13_GXTexCoordID11_GXTexMapID12_GXChannelID
-/* 801BE8F8 001BB858  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 801BE8F8 001BB858  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 801BE8FC 001BB85C  38 60 00 00 */	li r3, 0
 /* 801BE900 001BB860  48 14 B9 B9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 801BE904 001BB864  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 801BE904 001BB864  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 801BE908 001BB868  38 60 00 01 */	li r3, 1
 /* 801BE90C 001BB86C  48 14 B9 AD */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 801BE910 001BB870  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -1674,7 +1674,7 @@ sub_801bee04:
 /* 801BEE54 001BBDB4  7F E4 FB 78 */	mr r4, r31
 /* 801BEE58 001BBDB8  38 A1 00 08 */	addi r5, r1, 8
 /* 801BEE5C 001BBDBC  38 C1 00 14 */	addi r6, r1, 0x14
-/* 801BEE60 001BBDC0  4B E9 5C 49 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3f
+/* 801BEE60 001BBDC0  4B E9 5C 49 */	bl EnsureRendered__6CActorCFRC13CStateManagerRC9CVector3fRC6CAABox
 /* 801BEE64 001BBDC4  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 801BEE68 001BBDC8  83 E1 00 3C */	lwz r31, 0x3c(r1)
 /* 801BEE6C 001BBDCC  83 C1 00 38 */	lwz r30, 0x38(r1)

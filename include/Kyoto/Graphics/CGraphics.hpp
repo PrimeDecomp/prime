@@ -5,6 +5,7 @@
 
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
 
 #include "Kyoto/Graphics/CTevCombiners.hpp"
 
@@ -49,6 +50,11 @@ public:
   static void StreamTexcoord(f32 u, f32 v);
   static void StreamVertex(const CVector3f& vtx);
   static void StreamEnd();
+
+  static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
+
+private:
+  static CTransform4f mViewMatrix;
 };
 
 #endif

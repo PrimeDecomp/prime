@@ -129,9 +129,9 @@ RenderCleanup__14CFluidPlaneCPUCFv:
 /* 80199988 001968E8  38 60 00 00 */	li r3, 0
 /* 8019998C 001968EC  48 16 ED 05 */	bl SetNumIndStages__3CGXFUc
 /* 80199990 001968F0  48 16 E4 ED */	bl SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv
-/* 80199994 001968F4  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 80199994 001968F4  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 80199998 001968F8  38 61 00 08 */	addi r3, r1, 8
-/* 8019999C 001968FC  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 8019999C 001968FC  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 801999A0 00196900  48 17 92 A1 */	bl GetRotation__12CTransform4fCFv
 /* 801999A4 00196904  38 61 00 38 */	addi r3, r1, 0x38
 /* 801999A8 00196908  38 81 00 08 */	addi r4, r1, 8
@@ -176,7 +176,7 @@ RenderCleanup__14CFluidPlaneCPUCFv:
 /* 80199A44 001969A4  48 16 F2 89 */	bl SetChanCtrl__3CGXFQ23CGX10EChannelIdUc11_GXColorSrc11_GXColorSrc10_GXLightID12_GXDiffuseFn9_GXAttnFn
 /* 80199A48 001969A8  38 60 00 01 */	li r3, 1
 /* 80199A4C 001969AC  48 16 F4 05 */	bl SetNumChans__3CGXFUc
-/* 80199A50 001969B0  88 6D A8 16 */	lbz r3, lbl_805A93D6@sda21(r13)
+/* 80199A50 001969B0  88 6D A8 16 */	lbz r3, mLightActive__9CGraphics@sda21(r13)
 /* 80199A54 001969B4  48 17 2E 7D */	bl SetLightState__9CGraphicsFUc
 lbl_80199A58:
 /* 80199A58 001969B8  80 01 00 D4 */	lwz r0, 0xd4(r1)
@@ -977,7 +977,7 @@ lbl_8019A4F0:
 lbl_8019A5F4:
 /* 8019A5F4 00197554  38 60 00 02 */	li r3, 2
 /* 8019A5F8 00197558  48 16 E8 59 */	bl SetNumChans__3CGXFUc
-/* 8019A5FC 0019755C  88 ED A8 16 */	lbz r7, lbl_805A93D6@sda21(r13)
+/* 8019A5FC 0019755C  88 ED A8 16 */	lbz r7, mLightActive__9CGraphics@sda21(r13)
 /* 8019A600 00197560  38 60 00 01 */	li r3, 1
 /* 8019A604 00197564  38 80 00 01 */	li r4, 1
 /* 8019A608 00197568  38 A0 00 00 */	li r5, 0
@@ -985,7 +985,7 @@ lbl_8019A5F4:
 /* 8019A610 00197570  39 00 00 02 */	li r8, 2
 /* 8019A614 00197574  39 20 00 01 */	li r9, 1
 /* 8019A618 00197578  48 16 E6 B5 */	bl SetChanCtrl__3CGXFQ23CGX10EChannelIdUc11_GXColorSrc11_GXColorSrc10_GXLightID12_GXDiffuseFn9_GXAttnFn
-/* 8019A61C 0019757C  88 0D A8 16 */	lbz r0, lbl_805A93D6@sda21(r13)
+/* 8019A61C 0019757C  88 0D A8 16 */	lbz r0, mLightActive__9CGraphics@sda21(r13)
 /* 8019A620 00197580  38 81 00 38 */	addi r4, r1, 0x38
 /* 8019A624 00197584  38 60 00 01 */	li r3, 1
 /* 8019A628 00197588  28 00 00 00 */	cmplwi r0, 0
@@ -1207,9 +1207,9 @@ lbl_8019A79C:
 /* 8019A958 001978B8  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 8019A95C 001978BC  39 E0 00 27 */	li r15, 0x27
 /* 8019A960 001978C0  41 82 00 B4 */	beq lbl_8019AA14
-/* 8019A964 001978C4  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 8019A964 001978C4  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 8019A968 001978C8  C3 B2 00 FC */	lfs f29, 0xfc(r18)
-/* 8019A96C 001978CC  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 8019A96C 001978CC  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 8019A970 001978D0  38 61 01 90 */	addi r3, r1, 0x190
 /* 8019A974 001978D4  48 17 82 CD */	bl GetRotation__12CTransform4fCFv
 /* 8019A978 001978D8  38 61 01 C0 */	addi r3, r1, 0x1c0
@@ -1635,9 +1635,9 @@ lbl_8019AFA8:
 /* 8019AFC4 00197F24  D0 01 00 5C */	stfs f0, 0x5c(r1)
 /* 8019AFC8 00197F28  48 17 7A 5D */	bl TransposeRotate__12CTransform4fCFRC9CVector3f
 /* 8019AFCC 00197F2C  C0 22 A6 E0 */	lfs f1, lbl_805AC400@sda21(r2)
-/* 8019AFD0 00197F30  3C 60 80 5A */	lis r3, lbl_805A61D4@ha
+/* 8019AFD0 00197F30  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 8019AFD4 00197F34  C0 02 A6 DC */	lfs f0, lbl_805AC3FC@sda21(r2)
-/* 8019AFD8 00197F38  38 83 61 D4 */	addi r4, r3, lbl_805A61D4@l
+/* 8019AFD8 00197F38  38 83 61 D4 */	addi r4, r3, mViewMatrix__9CGraphics@l
 /* 8019AFDC 00197F3C  D0 21 00 3C */	stfs f1, 0x3c(r1)
 /* 8019AFE0 00197F40  38 61 01 60 */	addi r3, r1, 0x160
 /* 8019AFE4 00197F44  C3 A1 00 60 */	lfs f29, 0x60(r1)

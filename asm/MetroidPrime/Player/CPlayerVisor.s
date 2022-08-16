@@ -403,9 +403,9 @@ lbl_80111FC4:
 /* 801120BC 0010F01C  81 8C 00 58 */	lwz r12, 0x58(r12)
 /* 801120C0 0010F020  7D 89 03 A6 */	mtctr r12
 /* 801120C4 0010F024  4E 80 04 21 */	bctrl
-/* 801120C8 0010F028  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 801120C8 0010F028  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 801120CC 0010F02C  3C 80 43 30 */	lis r4, 0x4330
-/* 801120D0 0010F030  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 801120D0 0010F030  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 801120D4 0010F034  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 801120D8 0010F038  80 A6 00 08 */	lwz r5, 8(r6)
 /* 801120DC 0010F03C  80 06 00 0C */	lwz r0, 0xc(r6)
@@ -708,12 +708,12 @@ UpdateScanObjectIndicators__12CPlayerVisorFRC13CStateManagerf:
 /* 80112528 0010F488  FF C0 08 90 */	fmr f30, f1
 /* 8011252C 0010F48C  C0 02 96 08 */	lfs f0, lbl_805AB328@sda21(r2)
 /* 80112530 0010F490  7C 7A 1B 78 */	mr r26, r3
-/* 80112534 0010F494  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 80112534 0010F494  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 80112538 0010F498  3B 9A 01 40 */	addi r28, r26, 0x140
 /* 8011253C 0010F49C  7C 9B 23 78 */	mr r27, r4
 /* 80112540 0010F4A0  EF E0 07 B2 */	fmuls f31, f0, f30
 /* 80112544 0010F4A4  7F 9E E3 78 */	mr r30, r28
-/* 80112548 0010F4A8  3B E3 D9 10 */	addi r31, r3, lbl_803ED910@l
+/* 80112548 0010F4A8  3B E3 D9 10 */	addi r31, r3, mViewport__9CGraphics@l
 /* 8011254C 0010F4AC  3B A0 00 00 */	li r29, 0
 /* 80112550 0010F4B0  48 00 02 00 */	b lbl_80112750
 lbl_80112554:
@@ -1556,9 +1556,9 @@ DrawScanEffect__12CPlayerVisorCFRC13CStateManagerPC17CTargetingManager:
 /* 8011311C 0011007C  C0 42 95 F0 */	lfs f2, lbl_805AB310@sda21(r2)
 /* 80113120 00110080  48 1F 72 C1 */	bl SetDepthRange__9CGraphicsFff
 lbl_80113124:
-/* 80113124 00110084  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 80113124 00110084  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 80113128 00110088  80 7D 08 B8 */	lwz r3, 0x8b8(r29)
-/* 8011312C 0011008C  38 A4 D9 10 */	addi r5, r4, lbl_803ED910@l
+/* 8011312C 0011008C  38 A4 D9 10 */	addi r5, r4, mViewport__9CGraphics@l
 /* 80113130 00110090  80 85 00 08 */	lwz r4, 8(r5)
 /* 80113134 00110094  80 05 00 0C */	lwz r0, 0xc(r5)
 /* 80113138 00110098  90 81 00 30 */	stw r4, 0x30(r1)
@@ -1652,7 +1652,7 @@ lbl_801131B0:
 /* 80113280 001101E0  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 80113284 001101E4  54 04 04 3E */	clrlwi r4, r0, 0x10
 /* 80113288 001101E8  48 26 5B 2D */	bl GXSetTexCopySrc
-/* 8011328C 001101EC  83 CD A8 28 */	lwz r30, lbl_805A93E8@sda21(r13)
+/* 8011328C 001101EC  83 CD A8 28 */	lwz r30, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 80113290 001101F0  57 A3 04 3E */	clrlwi r3, r29, 0x10
 /* 80113294 001101F4  57 64 04 3E */	clrlwi r4, r27, 0x10
 /* 80113298 001101F8  38 A0 00 04 */	li r5, 4

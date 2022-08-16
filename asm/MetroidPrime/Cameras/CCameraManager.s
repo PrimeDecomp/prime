@@ -3656,9 +3656,9 @@ __ct__14CCameraManagerF9TUniqueId:
 /* 8000C23C 0000919C  D0 A1 00 18 */	stfs f5, 0x18(r1)
 /* 8000C240 000091A0  D0 A1 00 1C */	stfs f5, 0x1c(r1)
 /* 8000C244 000091A4  48 2D E1 F5 */	bl AddListener__11CSfxManagerFQ211CSfxManager12ESfxChannelsRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ffffUiUc
-/* 8000C248 000091A8  3C 60 80 3F */	lis r3, lbl_803ED910@ha
+/* 8000C248 000091A8  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
 /* 8000C24C 000091AC  3C 80 43 30 */	lis r4, 0x4330
-/* 8000C250 000091B0  38 C3 D9 10 */	addi r6, r3, lbl_803ED910@l
+/* 8000C250 000091B0  38 C3 D9 10 */	addi r6, r3, mViewport__9CGraphics@l
 /* 8000C254 000091B4  90 81 00 20 */	stw r4, 0x20(r1)
 /* 8000C258 000091B8  80 A6 00 08 */	lwz r5, 8(r6)
 /* 8000C25C 000091BC  7F E3 FB 78 */	mr r3, r31

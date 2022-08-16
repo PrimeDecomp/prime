@@ -243,11 +243,11 @@ lbl_8002832C:
 /* 80028360 000252C0  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 80028364 000252C4  38 63 66 70 */	addi r3, r3, sIdentity__12CTransform4f@l
 /* 80028368 000252C8  48 2E 43 E5 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
-/* 8002836C 000252CC  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 8002836C 000252CC  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 80028370 000252D0  38 60 00 00 */	li r3, 0
-/* 80028374 000252D4  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 80028374 000252D4  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 80028378 000252D8  48 2E 1F 41 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 8002837C 000252DC  80 8D 9C 68 */	lwz r4, lbl_805A8828@sda21(r13)
+/* 8002837C 000252DC  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80028380 000252E0  38 60 00 01 */	li r3, 1
 /* 80028384 000252E4  48 2E 1F 35 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80028388 000252E8  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
@@ -396,9 +396,9 @@ lbl_80028404:
 /* 800285C0 00025520  48 2E 34 B1 */	bl SetCullMode__9CGraphicsF12ERglCullMode
 /* 800285C4 00025524  48 00 00 28 */	b lbl_800285EC
 lbl_800285C8:
-/* 800285C8 00025528  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 800285C8 00025528  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 800285CC 0002552C  7F A3 EB 78 */	mr r3, r29
-/* 800285D0 00025530  38 E4 D9 10 */	addi r7, r4, lbl_803ED910@l
+/* 800285D0 00025530  38 E4 D9 10 */	addi r7, r4, mViewport__9CGraphics@l
 /* 800285D4 00025534  39 01 00 20 */	addi r8, r1, 0x20
 /* 800285D8 00025538  80 87 00 00 */	lwz r4, 0(r7)
 /* 800285DC 0002553C  80 A7 00 04 */	lwz r5, 4(r7)
@@ -406,9 +406,9 @@ lbl_800285C8:
 /* 800285E4 00025544  80 E7 00 0C */	lwz r7, 0xc(r7)
 /* 800285E8 00025548  48 2E 31 75 */	bl Render2D__9CGraphicsFRC8CTextureiiiiRC6CColor
 lbl_800285EC:
-/* 800285EC 0002554C  3C 80 80 3F */	lis r4, lbl_803ED910@ha
+/* 800285EC 0002554C  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
 /* 800285F0 00025550  38 61 01 4C */	addi r3, r1, 0x14c
-/* 800285F4 00025554  39 24 D9 10 */	addi r9, r4, lbl_803ED910@l
+/* 800285F4 00025554  39 24 D9 10 */	addi r9, r4, mViewport__9CGraphics@l
 /* 800285F8 00025558  81 09 00 00 */	lwz r8, 0(r9)
 /* 800285FC 0002555C  80 E9 00 04 */	lwz r7, 4(r9)
 /* 80028600 00025560  80 C9 00 08 */	lwz r6, 8(r9)

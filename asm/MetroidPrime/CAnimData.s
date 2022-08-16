@@ -5736,7 +5736,7 @@ DrawSkinnedModel__9CAnimDataCFRC13CSkinnedModelRC11CModelFlags:
 /* 8002E444 0002B3A4  7C BF 2B 78 */	mr r31, r5
 /* 8002E448 0002B3A8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8002E44C 0002B3AC  7C 9E 23 78 */	mr r30, r4
-/* 8002E450 0002B3B0  88 ED A8 16 */	lbz r7, lbl_805A93D6@sda21(r13)
+/* 8002E450 0002B3B0  88 ED A8 16 */	lbz r7, mLightActive__9CGraphics@sda21(r13)
 /* 8002E454 0002B3B4  28 07 00 00 */	cmplwi r7, 0
 /* 8002E458 0002B3B8  41 82 00 08 */	beq lbl_8002E460
 /* 8002E45C 0002B3BC  39 20 00 01 */	li r9, 1

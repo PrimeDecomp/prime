@@ -608,7 +608,7 @@ lbl_8018CA34:
 /* 8018CA34 00189994  57 60 06 3F */	clrlwi. r0, r27, 0x18
 /* 8018CA38 00189998  83 4D A0 68 */	lwz r26, gpRender@sda21(r13)
 /* 8018CA3C 0018999C  41 82 00 2C */	beq lbl_8018CA68
-/* 8018CA40 001899A0  80 CD A8 28 */	lwz r6, lbl_805A93E8@sda21(r13)
+/* 8018CA40 001899A0  80 CD A8 28 */	lwz r6, mpSpareBuffer__9CGraphics@sda21(r13)
 /* 8018CA44 001899A4  7F 43 D3 78 */	mr r3, r26
 /* 8018CA48 001899A8  38 80 00 01 */	li r4, 1
 /* 8018CA4C 001899AC  38 A0 00 01 */	li r5, 1
@@ -882,9 +882,9 @@ PreRenderGunFx__11CPhazonBeamFRC13CStateManagerRC12CTransform4f:
 /* 8018CE28 00189D88  48 00 00 8D */	bl IsFiring__11CPhazonBeamCFRC13CStateManager
 /* 8018CE2C 00189D8C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8018CE30 00189D90  41 82 00 68 */	beq lbl_8018CE98
-/* 8018CE34 00189D94  3C 80 80 5A */	lis r4, lbl_805A61D4@ha
+/* 8018CE34 00189D94  3C 80 80 5A */	lis r4, mViewMatrix__9CGraphics@ha
 /* 8018CE38 00189D98  38 61 00 68 */	addi r3, r1, 0x68
-/* 8018CE3C 00189D9C  38 84 61 D4 */	addi r4, r4, lbl_805A61D4@l
+/* 8018CE3C 00189D9C  38 84 61 D4 */	addi r4, r4, mViewMatrix__9CGraphics@l
 /* 8018CE40 00189DA0  48 18 5D 35 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8018CE44 00189DA4  7F E4 FB 78 */	mr r4, r31
 /* 8018CE48 00189DA8  38 61 00 08 */	addi r3, r1, 8

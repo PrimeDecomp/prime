@@ -1179,7 +1179,7 @@ SetSkinningArraysCurrent__10CCubeModelCFPCfPCf:
 /* 803075EC 0030454C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 803075F0 00304550  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 803075F4 00304554  7C 7F 1B 78 */	mr r31, r3
-/* 803075F8 00304558  38 6D A7 B8 */	addi r3, r13, lbl_805A9378@sda21
+/* 803075F8 00304558  38 6D A7 B8 */	addi r3, r13, sRenderState__9CGraphics@sda21
 /* 803075FC 0030455C  80 DF 00 10 */	lwz r6, 0x10(r31)
 /* 80307600 00304560  48 00 1D 69 */	bl SetVtxState__Q29CGraphics12CRenderStateFPCfPCfPCUi
 /* 80307604 00304564  7F E3 FB 78 */	mr r3, r31

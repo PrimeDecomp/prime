@@ -1690,9 +1690,9 @@ Draw__9CGuiFrameCFRC19CGuiWidgetDrawParms:
 /* 802C2780 002BF6E0  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 802C2784 002BF6E4  7D 89 03 A6 */	mtctr r12
 /* 802C2788 002BF6E8  4E 80 04 21 */	bctrl
-/* 802C278C 002BF6EC  3C 80 80 5A */	lis r4, lbl_805A5EBC@ha
+/* 802C278C 002BF6EC  3C 80 80 5A */	lis r4, kEnvModulate__9CGraphics@ha
 /* 802C2790 002BF6F0  38 60 00 00 */	li r3, 0
-/* 802C2794 002BF6F4  38 84 5E BC */	addi r4, r4, lbl_805A5EBC@l
+/* 802C2794 002BF6F4  38 84 5E BC */	addi r4, r4, kEnvModulate__9CGraphics@l
 /* 802C2798 002BF6F8  48 04 7B 21 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 802C279C 002BF6FC  38 60 00 01 */	li r3, 1
 /* 802C27A0 002BF700  38 80 00 04 */	li r4, 4
