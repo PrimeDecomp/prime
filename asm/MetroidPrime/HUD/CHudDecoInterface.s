@@ -10155,11 +10155,11 @@ lbl_803D09F0:
 	# ROM: 0x3CD9F0
 	.asciz "energybart01_bossbar"
 	.balign 4
-	.4byte 0x8018FFA0  ;# ptr
-	.4byte 0x8018FFA0  ;# ptr
-	.4byte 0x8018FE7C  ;# ptr
-	.4byte 0x8018FF18  ;# ptr
-	.4byte 0x8018FF44  ;# ptr
+	.4byte CombatEnergyCoordFunc__19CHudEnergyInterfaceFf
+	.4byte CombatEnergyCoordFunc__19CHudEnergyInterfaceFf
+	.4byte XRayEnergyCoordFunc__19CHudEnergyInterfaceFf
+	.4byte ThermalEnergyCoordFunc__19CHudEnergyInterfaceFf
+	.4byte BallEnergyCoordFunc__19CHudEnergyInterfaceFf
 	.float 0.2
 	.float 0.2
 	.float 0.1
@@ -10250,10 +10250,10 @@ lbl_803D0D08:
 	.4byte 0
 	.4byte 0x41066666
 	.4byte 0
-	.4byte 0x80191EB0  ;# ptr
+	.4byte CombatMissileBarCoordFunc__20CHudMissileInterfaceFf
 	.4byte 0
-	.4byte 0x80191D98  ;# ptr
-	.4byte 0x80191E34  ;# ptr
+	.4byte XRayMissileBarCoordFunc__20CHudMissileInterfaceFf
+	.4byte ThermalMissileBarCoordFunc__20CHudMissileInterfaceFf
 	.4byte 0
 
 .global lbl_803D0D30
@@ -10298,10 +10298,10 @@ lbl_803D0E04:
 	.4byte 0
 	.4byte 0x41066666
 	.4byte 0
-	.4byte 0x80193788  ;# ptr
+	.4byte CombatThreatBarCoordFunc__19CHudThreatInterfaceFf
 	.4byte 0
-	.4byte 0x8019367C  ;# ptr
-	.4byte 0x80193710  ;# ptr
+	.4byte XRayThreatBarCoordFunc__19CHudThreatInterfaceFf
+	.4byte ThermalThreatBarCoordFunc__19CHudThreatInterfaceFf
 	.4byte 0
 
 .global lbl_803D0E2C
@@ -10325,22 +10325,73 @@ lbl_803D0E38:
 
 .global lbl_803D0E58
 lbl_803D0E58:
+
 	# ROM: 0x3CDE58
 	.asciz "BaseWidget_VisorMenu"
+
+.global lbl_803D0E6D
+lbl_803D0E6D:
+
+	# ROM: 0x3CDE6D
 	.byte 0x42, 0x61, 0x73
 	.asciz "eWidget_BeamMenu"
+
+.global lbl_803D0E81
+lbl_803D0E81:
+
+	# ROM: 0x3CDE81
 	.byte 0x54, 0x65, 0x78
 	.asciz "tPane_VisorMenu"
+
+.global lbl_803D0E94
+lbl_803D0E94:
+
+	# ROM: 0x3CDE94
 	.asciz "TextPane_BeamMenu"
+
+.global lbl_803D0EA6
+lbl_803D0EA6:
+
+	# ROM: 0x3CDEA6
 	.byte 0x62, 0x61
 	.asciz "sewidget_visormenutitle"
+
+.global lbl_803D0EC0
+lbl_803D0EC0:
+
+	# ROM: 0x3CDEC0
 	.asciz "basewidget_beammenutitle"
+
+.global lbl_803D0ED9
+lbl_803D0ED9:
+
+	# ROM: 0x3CDED9
 	.byte 0x6D, 0x6F, 0x64
 	.asciz "el_visor"
+
+.global lbl_803D0EE5
+lbl_803D0EE5:
+
+	# ROM: 0x3CDEE5
 	.byte 0x6D, 0x6F, 0x64
 	.asciz "el_beam"
+
+.global lbl_803D0EF0
+lbl_803D0EF0:
+
+	# ROM: 0x3CDEF0
 	.4byte 0x6C6F7A00
+
+.global lbl_803D0EF4
+lbl_803D0EF4:
+
+	# ROM: 0x3CDEF4
 	.asciz "icon"
+
+.global lbl_803D0EF9
+lbl_803D0EF9:
+
+	# ROM: 0x3CDEF9
 	.byte 0x67, 0x68, 0x6F
 	.4byte 0x73740025
 	.4byte 0x73257300

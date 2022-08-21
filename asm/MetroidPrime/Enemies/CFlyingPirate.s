@@ -10,10 +10,10 @@ lbl_ctor:
 .global skBursts__13CFlyingPirate
 skBursts__13CFlyingPirate:
 	# ROM: 0x3E37E8
-	.4byte 0x803D2078
-	.4byte 0x803D2180
-	.4byte 0x803D2288
-	.4byte 0x803D2364
+	.4byte lbl_803D2078
+	.4byte lbl_803D2180
+	.4byte lbl_803D2288
+	.4byte lbl_803D2364
 	.4byte 0
 
 .global lbl_803E67FC
@@ -14769,6 +14769,11 @@ lbl_803D2070:
 	# ROM: 0x3CF070
 	.asciz "??(??)"
 	.balign 4
+
+.global lbl_803D2078
+lbl_803D2078:
+
+	# ROM: 0x3CF078
 	.4byte 0x0000000A
 	.4byte 0x00000003
 	.4byte 0x00000004
@@ -14835,6 +14840,11 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2180
+lbl_803D2180:
+
+	# ROM: 0x3CF180
 	.4byte 0x00000005
 	.4byte 0x00000003
 	.4byte 0x00000004
@@ -14901,6 +14911,11 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2288
+lbl_803D2288:
+
+	# ROM: 0x3CF288
 	.4byte 0x0000001E
 	.4byte 0x00000003
 	.4byte 0x00000004
@@ -14956,6 +14971,11 @@ lbl_803D2070:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2364
+lbl_803D2364:
+
+	# ROM: 0x3CF364
 	.4byte 0x0000000A
 	.4byte 0x00000006
 	.4byte 0x00000005

@@ -601,12 +601,22 @@ lbl_800E2EC0:
 .balign 8
 .global lbl_803CE5C8
 lbl_803CE5C8:
+
 	# ROM: 0x3CB5C8
 	.asciz "??(??)"
 	.balign 4
+
+.global lbl_803CE5D0
+lbl_803CE5D0:
+
+	# ROM: 0x3CB5D0
 	.asciz "LCTR_GARMOUTH"
+
+.global lbl_803CE5DE
+lbl_803CE5DE:
+
+	# ROM: 0x3CB5DE
 	.byte 0x54, 0x61
 	.asciz "rget_Tail"
 	.balign 4
 	.4byte 0
-

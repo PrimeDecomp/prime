@@ -6865,23 +6865,23 @@ lbl_805AC7A0:
 .global lbl_805AC7A4
 lbl_805AC7A4:
 	# ROM: 0x3F9044
-	.4byte 0x803D1A80
+	.4byte lbl_803D1A80
 	.float 1.5
 
 .global lbl_805AC7AC
 lbl_805AC7AC:
 	# ROM: 0x3F904C
-	.4byte 0x803D1A87
+	.4byte lbl_803D1A87
 
 .global lbl_805AC7B0
 lbl_805AC7B0:
 	# ROM: 0x3F9050
-	.4byte 0x803D1A90
+	.4byte lbl_803D1A90
 
 .global lbl_805AC7B4
 lbl_805AC7B4:
 	# ROM: 0x3F9054
-	.4byte 0x803D1A80
+	.4byte lbl_803D1A80
 
 .global lbl_805AC7B8
 lbl_805AC7B8:
@@ -7047,10 +7047,21 @@ lbl_805AC840:
 .balign 8
 .global lbl_803D1A80
 lbl_803D1A80:
+
 	# ROM: 0x3CEA80
 	.asciz "Pelvis"
+
+.global lbl_803D1A87
+lbl_803D1A87:
+
+	# ROM: 0x3CEA87
 	.byte 0x4C
 	.asciz "_Claw_1"
+
+.global lbl_803D1A90
+lbl_803D1A90:
+
+	# ROM: 0x3CEA90
 	.asciz "R_Claw_1"
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900

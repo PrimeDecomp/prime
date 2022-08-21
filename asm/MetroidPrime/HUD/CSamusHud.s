@@ -458,7 +458,7 @@ lbl_805AA4D8:
 .global lbl_805AA4E0
 lbl_805AA4E0:
 	# ROM: 0x3F6D80
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AA4E4
 lbl_805AA4E4:
@@ -10719,39 +10719,110 @@ lbl_803CD024:
 	.asciz "model_videoband"
 	.asciz "textpane_message"
 	.balign 4
-	.4byte 0x803CD0C0
-	.4byte 0x803CD0D4
-	.4byte 0x803CD0E8
-	.4byte 0x803CD0FC
-	.4byte 0x803CD110
-	.4byte 0x803CD124
-	.4byte 0x803CD138
-	.4byte 0x803CD14C
-	.4byte 0x803CD160
-	.4byte 0x803CD174
-	.4byte 0x803CD188
-	.4byte 0x803CD19C
-	.4byte 0x803CD1B0
-	.4byte 0x803CD1C4
-	.4byte 0x803CD1D8
+	.4byte lbl_803CD0C0
+	.4byte lbl_803CD0D4
+	.4byte lbl_803CD0E8
+	.4byte lbl_803CD0FC
+	.4byte lbl_803CD110
+	.4byte lbl_803CD124
+	.4byte lbl_803CD138
+	.4byte lbl_803CD14C
+	.4byte lbl_803CD160
+	.4byte lbl_803CD174
+	.4byte lbl_803CD188
+	.4byte lbl_803CD19C
+	.4byte lbl_803CD1B0
+	.4byte lbl_803CD1C4
+	.4byte lbl_803CD1D8
 
 .global lbl_803CD0C0
 lbl_803CD0C0:
+
 	# ROM: 0x3CA0C0
 	.asciz "              Radar"
+
+.global lbl_803CD0D4
+lbl_803CD0D4:
+
+	# ROM: 0x3CA0D4
 	.asciz "                Lag"
+
+.global lbl_803CD0E8
+lbl_803CD0E8:
+
+	# ROM: 0x3CA0E8
 	.asciz "             Lights"
+
+.global lbl_803CD0FC
+lbl_803CD0FC:
+
+	# ROM: 0x3CA0FC
 	.asciz "          Targeting"
+
+.global lbl_803CD110
+lbl_803CD110:
+
+	# ROM: 0x3CA110
 	.asciz "             Damage"
+
+.global lbl_803CD124
+lbl_803CD124:
+
+	# ROM: 0x3CA124
 	.asciz "          FrameGlue"
+
+.global lbl_803CD138
+lbl_803CD138:
+
+	# ROM: 0x3CA138
 	.asciz "          BaseFrame"
+
+.global lbl_803CD14C
+lbl_803CD14C:
+
+	# ROM: 0x3CA14C
 	.asciz "        EnergyGroup"
+
+.global lbl_803CD160
+lbl_803CD160:
+
+	# ROM: 0x3CA160
 	.asciz "        ThreatGroup"
+
+.global lbl_803CD174
+lbl_803CD174:
+
+	# ROM: 0x3CA174
 	.asciz "       MissileGroup"
+
+.global lbl_803CD188
+lbl_803CD188:
+
+	# ROM: 0x3CA188
 	.asciz "      FreeLookGroup"
+
+.global lbl_803CD19C
+lbl_803CD19C:
+
+	# ROM: 0x3CA19C
 	.asciz "        HelmetGroup"
+
+.global lbl_803CD1B0
+lbl_803CD1B0:
+
+	# ROM: 0x3CA1B0
 	.asciz "          DecoGroup"
+
+.global lbl_803CD1C4
+lbl_803CD1C4:
+
+	# ROM: 0x3CA1C4
 	.asciz "           CamDebug"
+
+.global lbl_803CD1D8
+lbl_803CD1D8:
+
+	# ROM: 0x3CA1D8
 	.asciz "              Total"
 	.asciz "%02d:%02d:%02d"
 	.byte 0x3F

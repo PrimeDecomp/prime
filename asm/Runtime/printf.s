@@ -38,7 +38,7 @@ lbl_803F2778:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x80003648  ;# ptr
+	.4byte 0x80003648
 	.4byte 0x8039127C
 	.4byte 0x80391274
 	.4byte 0
@@ -58,7 +58,7 @@ lbl_803F2778:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x80003648  ;# ptr
+	.4byte 0x80003648
 	.4byte 0x8039127C
 	.4byte 0x80391274
 	.4byte 0
@@ -78,7 +78,7 @@ lbl_803F2778:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0x80003648  ;# ptr
+	.4byte 0x80003648
 	.4byte 0x8039127C
 	.4byte 0x80391274
 	.4byte 0
@@ -582,7 +582,6 @@ lbl_803F2F40:
 
 
 .section .text, "ax"
-.if 1
 /* TODO: Move __stdio_atexit to its own file (misc_io),
  * it's here to work around a bug with CW
  */
@@ -592,7 +591,6 @@ __stdio_atexit:
 /* 8038DCD0 0038AC30  38 03 B1 18 */	addi r0, r3, __close_all@l
 /* 8038DCD4 0038AC34  90 0D AE 00 */	stw r0, lbl_805A99C0@sda21(r13)
 /* 8038DCD8 0038AC38  4E 80 00 20 */	blr
-.endif
 
 .global sprintf
 sprintf:

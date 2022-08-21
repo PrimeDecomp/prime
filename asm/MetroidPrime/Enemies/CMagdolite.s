@@ -10,12 +10,12 @@ lbl_ctor:
 .global lbl_803E81A0
 lbl_803E81A0:
 	# ROM: 0x3E51A0
-	.4byte 0x803D431E
+	.4byte lbl_803D431E
 	.4byte 0
 	.float 1.0
 	.float 0.15
 	.float 0.5
-	.4byte 0x803D431E
+	.4byte lbl_803D431E
 	.4byte 0
 	.float 0.75
 	.float 0.15
@@ -308,27 +308,27 @@ lbl_805A8208:
 .global lbl_805A820C
 lbl_805A820C:
 	# ROM: 0x3F5BAC
-	.4byte 0x803D4310
+	.4byte lbl_803D4310
 
 .global lbl_805A8210
 lbl_805A8210:
 	# ROM: 0x3F5BB0
-	.4byte 0x803D431E
+	.4byte lbl_803D431E
 
 .global lbl_805A8214
 lbl_805A8214:
 	# ROM: 0x3F5BB4
-	.4byte 0x803D431E
+	.4byte lbl_803D431E
 
 .global lbl_805A8218
 lbl_805A8218:
 	# ROM: 0x3F5BB8
-	.4byte 0x803D4323
+	.4byte lbl_803D4323
 
 .global lbl_805A821C
 lbl_805A821C:
 	# ROM: 0x3F5BBC
-	.4byte 0x803D432C
+	.4byte lbl_803D432C
 
 .global lbl_805A8220
 lbl_805A8220:
@@ -4093,32 +4093,74 @@ lbl_805AD470:
 .global lbl_803D42E8
 lbl_803D42E8:
 	# ROM: 0x3D12E8
-	.4byte 0x803D4338
+	.4byte lbl_803D4338
 	.float 0.75
-	.4byte 0x803D433F
+	.4byte lbl_803D433F
 	.float 0.75
-	.4byte 0x803D4346
+	.4byte lbl_803D4346
 	.float 0.75
-	.4byte 0x803D434D
+	.4byte lbl_803D434D
 	.float 0.75
-	.4byte 0x803D4354
+	.4byte lbl_803D4354
 	.float 0.75
 
 .global lbl_803D4310
 lbl_803D4310:
+
 	# ROM: 0x3D1310
 	.asciz "LCTR_MAGMOUTH"
+
+.global lbl_803D431E
+lbl_803D431E:
+
+	# ROM: 0x3D131E
 	.byte 0x68, 0x65
-	.4byte 0x61640054
+	.byte 0x61, 0x64, 0x00
+
+.global lbl_803D4323
+lbl_803D4323:
+
+	# ROM: 0x3D1323
+	.byte 0x54
 	.asciz "op_LCTR"
+
+.global lbl_803D432C
+lbl_803D432C:
+
+	# ROM: 0x3D132C
 	.asciz "Bottom_LCTR"
+
+.global lbl_803D4338
+lbl_803D4338:
+
+	# ROM: 0x3D1338
 	.asciz "spine1"
+
+.global lbl_803D433F
+lbl_803D433F:
+
+	# ROM: 0x3D133F
 	.byte 0x73
 	.asciz "pine3"
+
+.global lbl_803D4346
+lbl_803D4346:
+
+	# ROM: 0x3D1346
 	.byte 0x73, 0x70
 	.asciz "ine5"
+
+.global lbl_803D434D
+lbl_803D434D:
+
+	# ROM: 0x3D134D
 	.byte 0x73, 0x70, 0x69
 	.4byte 0x6E653700
+
+.global lbl_803D4354
+lbl_803D4354:
+
+	# ROM: 0x3D1354
 	.asciz "spine9"
 	.byte 0x3F
 	.asciz "?(??)"

@@ -4597,217 +4597,837 @@ __sinit_CAi_cpp:
 .balign 8
 .global lbl_803CD968
 lbl_803CD968:
+
 	# ROM: 0x3CA968
 	.asciz "Patrol"
+
+.global lbl_803CD96F
+lbl_803CD96F:
+
+	# ROM: 0x3CA96F
 	.byte 0x46
 	.asciz "ollowPattern"
+
+.global lbl_803CD97D
+lbl_803CD97D:
+
+	# ROM: 0x3CA97D
 	.byte 0x44, 0x65, 0x61
-	.4byte 0x64005061
+	.byte 0x64, 0x00
+
+.global lbl_803CD982
+lbl_803CD982:
+
+	# ROM: 0x3CA982
+	.byte 0x50, 0x61
 	.asciz "thFind"
+
+.global lbl_803CD98B
+lbl_803CD98B:
+
+	# ROM: 0x3CA98B
 	.byte 0x53
 	.asciz "tart"
+
+.global lbl_803CD991
+lbl_803CD991:
+
+	# ROM: 0x3CA991
 	.byte 0x53, 0x65, 0x6C
 	.asciz "ectTarget"
+
+.global lbl_803CD99E
+lbl_803CD99E:
+
+	# ROM: 0x3CA99E
 	.byte 0x54, 0x61
 	.asciz "rgetPatrol"
+
+.global lbl_803CD9AB
+lbl_803CD9AB:
+
+	# ROM: 0x3CA9AB
 	.byte 0x54
 	.asciz "argetPlayer"
+
+.global lbl_803CD9B8
+lbl_803CD9B8:
+
+	# ROM: 0x3CA9B8
 	.asciz "TargetCover"
+
+.global lbl_803CD9C4
+lbl_803CD9C4:
+
+	# ROM: 0x3CA9C4
 	.asciz "Halt"
+
+.global lbl_803CD9C9
+lbl_803CD9C9:
+
+	# ROM: 0x3CA9C9
 	.byte 0x57, 0x61, 0x6C
-	.4byte 0x6B005275
-	.4byte 0x6E004765
+	.byte 0x6B, 0x00
+
+.global lbl_803CD9CE
+lbl_803CD9CE:
+
+	# ROM: 0x3CA9CE
+	.byte 0x52, 0x75
+	.byte 0x6E, 0x00
+
+.global lbl_803CD9D2
+lbl_803CD9D2:
+
+	# ROM: 0x3CA9D2
+	.byte 0x47, 0x65
 	.asciz "nerate"
+
+.global lbl_803CD9DB
+lbl_803CD9DB:
+
+	# ROM: 0x3CA9DB
 	.byte 0x44
 	.asciz "eactivate"
+
+.global lbl_803CD9E6
+lbl_803CD9E6:
+
+	# ROM: 0x3CA9E6
 	.byte 0x41, 0x74
 	.asciz "tack"
+
+.global lbl_803CD9ED
+lbl_803CD9ED:
+
+	# ROM: 0x3CA9ED
 	.byte 0x4C, 0x6F, 0x6F
 	.asciz "pedAttack"
+
+.global lbl_803CD9FA
+lbl_803CD9FA:
+
+	# ROM: 0x3CA9FA
 	.byte 0x4A, 0x75
 	.asciz "mpBack"
+
+.global lbl_803CDA03
+lbl_803CDA03:
+
+	# ROM: 0x3CAA03
 	.byte 0x44
 	.asciz "oubleSnap"
+
+.global lbl_803CDA0E
+lbl_803CDA0E:
+
+	# ROM: 0x3CAA0E
 	.byte 0x53, 0x68
 	.asciz "uffle"
+
+.global lbl_803CDA16
+lbl_803CDA16:
+
+	# ROM: 0x3CAA16
 	.byte 0x54, 0x75
 	.asciz "rnAround"
+
+.global lbl_803CDA21
+lbl_803CDA21:
+
+	# ROM: 0x3CAA21
 	.byte 0x53, 0x6B, 0x69
-	.4byte 0x64004163
+	.byte 0x64, 0x00
+
+.global lbl_803CDA26
+lbl_803CDA26:
+
+	# ROM: 0x3CAA26
+	.byte 0x41, 0x63
 	.asciz "tive"
+
+.global lbl_803CDA2D
+lbl_803CDA2D:
+
+	# ROM: 0x3CAA2D
 	.byte 0x49, 0x6E, 0x41
 	.asciz "ctive"
+
+.global lbl_803CDA36
+lbl_803CDA36:
+
+	# ROM: 0x3CAA36
 	.byte 0x43, 0x6F
 	.asciz "verAttack"
+
+.global lbl_803CDA42
+lbl_803CDA42:
+
+	# ROM: 0x3CAA42
 	.byte 0x43, 0x72
 	.asciz "ouch"
+
+.global lbl_803CDA49
+lbl_803CDA49:
+
+	# ROM: 0x3CAA49
 	.byte 0x46, 0x61, 0x64
 	.4byte 0x65496E00
+
+.global lbl_803CDA50
+lbl_803CDA50:
+
+	# ROM: 0x3CAA50
 	.asciz "FadeOut"
+
+.global lbl_803CDA58
+lbl_803CDA58:
+
+	# ROM: 0x3CAA58
 	.asciz "GetUp"
+
+.global lbl_803CDA5E
+lbl_803CDA5E:
+
+	# ROM: 0x3CAA5E
 	.byte 0x54, 0x61
 	.4byte 0x756E7400
+
+.global lbl_803CDA64
+lbl_803CDA64:
+
+	# ROM: 0x3CAA64
 	.asciz "Suck"
+
+.global lbl_803CDA69
+lbl_803CDA69:
+
+	# ROM: 0x3CAA69
 	.byte 0x46, 0x6C, 0x65
-	.4byte 0x65004C75
-	.4byte 0x726B0050
+	.byte 0x65, 0x00
+
+.global lbl_803CDA6E
+lbl_803CDA6E:
+
+	# ROM: 0x3CAA6E
+	.byte 0x4C, 0x75
+	.byte 0x72, 0x6B, 0x00
+
+.global lbl_803CDA73
+lbl_803CDA73:
+
+	# ROM: 0x3CAA73
+	.byte 0x50
 	.asciz "rojectileAttack"
+
+.global lbl_803CDA84
+lbl_803CDA84:
+
+	# ROM: 0x3CAA84
 	.asciz "Flinch"
+
+.global lbl_803CDA8B
+lbl_803CDA8B:
+
+	# ROM: 0x3CAA8B
 	.byte 0x48
 	.asciz "urled"
+
+.global lbl_803CDA92
+lbl_803CDA92:
+
+	# ROM: 0x3CAA92
 	.byte 0x54, 0x65
 	.asciz "legraphAttack"
+
+.global lbl_803CDAA2
+lbl_803CDAA2:
+
+	# ROM: 0x3CAAA2
 	.byte 0x4A, 0x75
-	.4byte 0x6D700045
+	.byte 0x6D, 0x70, 0x00
+
+.global lbl_803CDAA7
+lbl_803CDAA7:
+
+	# ROM: 0x3CAAA7
+	.byte 0x45
 	.asciz "xplode"
+
+.global lbl_803CDAAF
+lbl_803CDAAF:
+
+	# ROM: 0x3CAAAF
 	.byte 0x44
 	.asciz "odge"
+
+.global lbl_803CDAB5
+lbl_803CDAB5:
+
+	# ROM: 0x3CAAB5
 	.byte 0x52, 0x65, 0x74
 	.asciz "reat"
+
+.global lbl_803CDABD
+lbl_803CDABD:
+
+	# ROM: 0x3CAABD
 	.byte 0x43, 0x6F, 0x76
-	.4byte 0x65720041
+	.byte 0x65, 0x72, 0x00
+
+.global lbl_803CDAC3
+lbl_803CDAC3:
+
+	# ROM: 0x3CAAC3
+	.byte 0x41
 	.asciz "pproach"
+
+.global lbl_803CDACC
+lbl_803CDACC:
+
+	# ROM: 0x3CAACC
 	.asciz "WallHang"
+
+.global lbl_803CDAD5
+lbl_803CDAD5:
+
+	# ROM: 0x3CAAD5
 	.byte 0x57, 0x61, 0x6C
 	.asciz "lDetach"
+
+.global lbl_803CDAE0
+lbl_803CDAE0:
+
+	# ROM: 0x3CAAE0
 	.asciz "Enraged"
+
+.global lbl_803CDAE8
+lbl_803CDAE8:
+
+	# ROM: 0x3CAAE8
 	.asciz "SpecialAttack"
+
+.global lbl_803CDAF6
+lbl_803CDAF6:
+
+	# ROM: 0x3CAAF6
 	.byte 0x47, 0x72
 	.asciz "owth"
+
+.global lbl_803CDAFD
+lbl_803CDAFD:
+
+	# ROM: 0x3CAAFD
 	.byte 0x46, 0x61, 0x69
-	.4byte 0x6E74004C
+	.byte 0x6E, 0x74, 0x00
+
+.global lbl_803CDB03
+lbl_803CDB03:
+
+	# ROM: 0x3CAB03
+	.byte 0x4C
 	.4byte 0x616E6400
+
+.global lbl_803CDB08
+lbl_803CDB08:
+
+	# ROM: 0x3CAB08
 	.asciz "Bounce"
+
+.global lbl_803CDB0F
+lbl_803CDB0F:
+
+	# ROM: 0x3CAB0F
 	.byte 0x50
 	.asciz "athFindEx"
+
+.global lbl_803CDB1A
+lbl_803CDB1A:
+
+	# ROM: 0x3CAB1A
 	.byte 0x44, 0x69
 	.4byte 0x7A7A7900
+
+.global lbl_803CDB20
+lbl_803CDB20:
+
+	# ROM: 0x3CAB20
 	.asciz "CallForBackup"
+
+.global lbl_803CDB2E
+lbl_803CDB2E:
+
+	# ROM: 0x3CAB2E
 	.byte 0x42, 0x75
 	.asciz "lbAttack"
+
+.global lbl_803CDB39
+lbl_803CDB39:
+
+	# ROM: 0x3CAB39
 	.byte 0x50, 0x6F, 0x64
 	.asciz "Attack"
+
+.global lbl_803CDB43
+lbl_803CDB43:
+
+	# ROM: 0x3CAB43
 	.byte 0x49
 	.asciz "nAttackPosition"
+
+.global lbl_803CDB54
+lbl_803CDB54:
+
+	# ROM: 0x3CAB54
 	.asciz "Leash"
+
+.global lbl_803CDB5A
+lbl_803CDB5A:
+
+	# ROM: 0x3CAB5A
 	.byte 0x4F, 0x66
 	.asciz "fLine"
+
+.global lbl_803CDB62
+lbl_803CDB62:
+
+	# ROM: 0x3CAB62
 	.byte 0x41, 0x74
 	.asciz "tacked"
+
+.global lbl_803CDB6B
+lbl_803CDB6B:
+
+	# ROM: 0x3CAB6B
 	.byte 0x50
 	.asciz "athShagged"
+
+.global lbl_803CDB77
+lbl_803CDB77:
+
+	# ROM: 0x3CAB77
 	.byte 0x50
 	.asciz "athOver"
+
+.global lbl_803CDB80
+lbl_803CDB80:
+
+	# ROM: 0x3CAB80
 	.asciz "PathFound"
+
+.global lbl_803CDB8A
+lbl_803CDB8A:
+
+	# ROM: 0x3CAB8A
 	.byte 0x54, 0x6F
 	.asciz "oClose"
+
+.global lbl_803CDB93
+lbl_803CDB93:
+
+	# ROM: 0x3CAB93
 	.byte 0x49
 	.asciz "nRange"
+
+.global lbl_803CDB9B
+lbl_803CDB9B:
+
+	# ROM: 0x3CAB9B
 	.byte 0x49
 	.asciz "nMaxRange"
+
+.global lbl_803CDBA6
+lbl_803CDBA6:
+
+	# ROM: 0x3CABA6
 	.byte 0x49, 0x6E
 	.asciz "DetectionRange"
+
+.global lbl_803CDBB7
+lbl_803CDBB7:
+
+	# ROM: 0x3CABB7
 	.byte 0x53
 	.asciz "potPlayer"
+
+.global lbl_803CDBC2
+lbl_803CDBC2:
+
+	# ROM: 0x3CABC2
 	.byte 0x50, 0x6C
 	.asciz "ayerSpot"
+
+.global lbl_803CDBCD
+lbl_803CDBCD:
+
+	# ROM: 0x3CABCD
 	.byte 0x50, 0x61, 0x74
 	.asciz "ternOver"
+
+.global lbl_803CDBD9
+lbl_803CDBD9:
+
+	# ROM: 0x3CABD9
 	.byte 0x50, 0x61, 0x74
 	.asciz "ternShagged"
+
+.global lbl_803CDBE8
+lbl_803CDBE8:
+
+	# ROM: 0x3CABE8
 	.asciz "HasAttackPattern"
+
+.global lbl_803CDBF9
+lbl_803CDBF9:
+
+	# ROM: 0x3CABF9
 	.byte 0x48, 0x61, 0x73
 	.asciz "PatrolPath"
+
+.global lbl_803CDC07
+lbl_803CDC07:
+
+	# ROM: 0x3CAC07
 	.byte 0x48
 	.asciz "asRetreatPattern"
+
+.global lbl_803CDC19
+lbl_803CDC19:
+
+	# ROM: 0x3CAC19
 	.byte 0x44, 0x65, 0x6C
-	.4byte 0x61790052
+	.byte 0x61, 0x79, 0x00
+
+.global lbl_803CDC1F
+lbl_803CDC1F:
+
+	# ROM: 0x3CAC1F
+	.byte 0x52
 	.asciz "andomDelay"
+
+.global lbl_803CDC2B
+lbl_803CDC2B:
+
+	# ROM: 0x3CAC2B
 	.byte 0x46
 	.asciz "ixedDelay"
+
+.global lbl_803CDC36
+lbl_803CDC36:
+
+	# ROM: 0x3CAC36
 	.byte 0x44, 0x65
 	.asciz "fault"
+
+.global lbl_803CDC3E
+lbl_803CDC3E:
+
+	# ROM: 0x3CAC3E
 	.byte 0x41, 0x6E
 	.asciz "imOver"
+
+.global lbl_803CDC47
+lbl_803CDC47:
+
+	# ROM: 0x3CAC47
 	.byte 0x53
 	.asciz "houldAttack"
+
+.global lbl_803CDC54
+lbl_803CDC54:
+
+	# ROM: 0x3CAC54
 	.asciz "ShouldDoubleSnap"
+
+.global lbl_803CDC65
+lbl_803CDC65:
+
+	# ROM: 0x3CAC65
 	.byte 0x49, 0x6E, 0x50
 	.asciz "osition"
+
+.global lbl_803CDC70
+lbl_803CDC70:
+
+	# ROM: 0x3CAC70
 	.asciz "ShouldTurn"
+
+.global lbl_803CDC7B
+lbl_803CDC7B:
+
+	# ROM: 0x3CAC7B
 	.byte 0x48
 	.asciz "itSomething"
+
+.global lbl_803CDC88
+lbl_803CDC88:
+
+	# ROM: 0x3CAC88
 	.asciz "ShouldJumpBack"
+
+.global lbl_803CDC97
+lbl_803CDC97:
+
+	# ROM: 0x3CAC97
 	.byte 0x53
 	.asciz "tuck"
+
+.global lbl_803CDC9D
+lbl_803CDC9D:
+
+	# ROM: 0x3CAC9D
 	.byte 0x4E, 0x6F, 0x50
 	.asciz "athNodes"
+
+.global lbl_803CDCA9
+lbl_803CDCA9:
+
+	# ROM: 0x3CACA9
 	.byte 0x4C, 0x61, 0x6E
 	.4byte 0x64656400
+
+.global lbl_803CDCB0
+lbl_803CDCB0:
+
+	# ROM: 0x3CACB0
 	.asciz "HearShot"
+
+.global lbl_803CDCB9
+lbl_803CDCB9:
+
+	# ROM: 0x3CACB9
 	.byte 0x48, 0x65, 0x61
 	.asciz "rPlayer"
+
+.global lbl_803CDCC4
+lbl_803CDCC4:
+
+	# ROM: 0x3CACC4
 	.asciz "CoverCheck"
+
+.global lbl_803CDCCF
+lbl_803CDCCF:
+
+	# ROM: 0x3CACCF
 	.byte 0x43
 	.asciz "overFind"
+
+.global lbl_803CDCD9
+lbl_803CDCD9:
+
+	# ROM: 0x3CACD9
 	.byte 0x43, 0x6F, 0x76
 	.asciz "erBlown"
+
+.global lbl_803CDCE4
+lbl_803CDCE4:
+
+	# ROM: 0x3CACE4
 	.asciz "CoverNearlyBlown"
+
+.global lbl_803CDCF5
+lbl_803CDCF5:
+
+	# ROM: 0x3CACF5
 	.byte 0x43, 0x6F, 0x76
 	.asciz "eringFire"
+
+.global lbl_803CDD02
+lbl_803CDD02:
+
+	# ROM: 0x3CAD02
 	.byte 0x47, 0x6F
 	.4byte 0x74557000
+
+.global lbl_803CDD08
+lbl_803CDD08:
+
+	# ROM: 0x3CAD08
 	.asciz "LineOfSight"
+
+.global lbl_803CDD14
+lbl_803CDD14:
+
+	# ROM: 0x3CAD14
 	.asciz "AggressionCheck"
+
+.global lbl_803CDD24
+lbl_803CDD24:
+
+	# ROM: 0x3CAD24
 	.asciz "AttackOver"
+
+.global lbl_803CDD2F
+lbl_803CDD2F:
+
+	# ROM: 0x3CAD2F
 	.byte 0x53
 	.asciz "houldTaunt"
+
+.global lbl_803CDD3B
+lbl_803CDD3B:
+
+	# ROM: 0x3CAD3B
 	.byte 0x49
 	.asciz "nside"
+
+.global lbl_803CDD42
+lbl_803CDD42:
+
+	# ROM: 0x3CAD42
 	.byte 0x53, 0x68
 	.asciz "ouldFire"
+
+.global lbl_803CDD4D
+lbl_803CDD4D:
+
+	# ROM: 0x3CAD4D
 	.byte 0x53, 0x68, 0x6F
 	.asciz "uldFlinch"
+
+.global lbl_803CDD5A
+lbl_803CDD5A:
+
+	# ROM: 0x3CAD5A
 	.byte 0x50, 0x61
 	.asciz "trolPathOver"
+
+.global lbl_803CDD69
+lbl_803CDD69:
+
+	# ROM: 0x3CAD69
 	.byte 0x53, 0x68, 0x6F
 	.asciz "uldDodge"
+
+.global lbl_803CDD75
+lbl_803CDD75:
+
+	# ROM: 0x3CAD75
 	.byte 0x53, 0x68, 0x6F
 	.asciz "uldRetreat"
+
+.global lbl_803CDD83
+lbl_803CDD83:
+
+	# ROM: 0x3CAD83
 	.byte 0x53
 	.asciz "houldCrouch"
+
+.global lbl_803CDD90
+lbl_803CDD90:
+
+	# ROM: 0x3CAD90
 	.asciz "ShouldMove"
+
+.global lbl_803CDD9B
+lbl_803CDD9B:
+
+	# ROM: 0x3CAD9B
 	.byte 0x53
 	.asciz "hotAt"
+
+.global lbl_803CDDA2
+lbl_803CDDA2:
+
+	# ROM: 0x3CADA2
 	.byte 0x48, 0x61
 	.asciz "sTargetingPoint"
+
+.global lbl_803CDDB4
+lbl_803CDDB4:
+
+	# ROM: 0x3CADB4
 	.asciz "ShouldWallHang"
+
+.global lbl_803CDDC3
+lbl_803CDDC3:
+
+	# ROM: 0x3CADC3
 	.byte 0x53
 	.asciz "etAIStage"
+
+.global lbl_803CDDCE
+lbl_803CDDCE:
+
+	# ROM: 0x3CADCE
 	.byte 0x41, 0x49
 	.asciz "Stage"
+
+.global lbl_803CDDD6
+lbl_803CDDD6:
+
+	# ROM: 0x3CADD6
 	.byte 0x53, 0x74
 	.asciz "artAttack"
+
+.global lbl_803CDDE2
+lbl_803CDDE2:
+
+	# ROM: 0x3CADE2
 	.byte 0x42, 0x72
 	.asciz "eakAttack"
+
+.global lbl_803CDDEE
+lbl_803CDDEE:
+
+	# ROM: 0x3CADEE
 	.byte 0x53, 0x68
 	.asciz "ouldStrafe"
+
+.global lbl_803CDDFB
+lbl_803CDDFB:
+
+	# ROM: 0x3CADFB
 	.byte 0x53
 	.asciz "houldSpecialAttack"
+
+.global lbl_803CDE0F
+lbl_803CDE0F:
+
+	# ROM: 0x3CAE0F
 	.byte 0x4C
 	.asciz "ostInterest"
+
+.global lbl_803CDE1C
+lbl_803CDE1C:
+
+	# ROM: 0x3CAE1C
 	.asciz "CodeTrigger"
+
+.global lbl_803CDE28
+lbl_803CDE28:
+
+	# ROM: 0x3CAE28
 	.asciz "BounceFind"
+
+.global lbl_803CDE33
+lbl_803CDE33:
+
+	# ROM: 0x3CAE33
 	.byte 0x52
 	.asciz "andom"
+
+.global lbl_803CDE3A
+lbl_803CDE3A:
+
+	# ROM: 0x3CAE3A
 	.byte 0x46, 0x69
 	.asciz "xedRandom"
+
+.global lbl_803CDE46
+lbl_803CDE46:
+
+	# ROM: 0x3CAE46
 	.byte 0x49, 0x73
 	.asciz "Dizzy"
+
+.global lbl_803CDE4E
+lbl_803CDE4E:
+
+	# ROM: 0x3CAE4E
 	.byte 0x53, 0x68
 	.asciz "ouldCallForBackup"
 	.byte 0x3F, 0x3F
 	.asciz "(??)"
 	.balign 4
 	.4byte 0
-

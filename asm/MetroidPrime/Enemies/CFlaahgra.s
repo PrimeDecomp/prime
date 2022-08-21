@@ -8513,39 +8513,39 @@ lbl_805AC65C:
 .global lbl_803D14E0
 lbl_803D14E0:
 	# ROM: 0x3CE4E0
-	.4byte 0x803D1590
-	.4byte 0x803D1598
-	.4byte 0x3F19999A
+	.4byte lbl_803D1590
+	.4byte lbl_803D1598
+	.float 0.6
 	.float 1.0
-	.4byte 0x803D1598
-	.4byte 0x803D15A0
-	.4byte 0x3F19999A
+	.4byte lbl_803D1598
+	.4byte lbl_803D15A0
+	.float 0.6
 	.float 1.0
-	.4byte 0x803D15A0
-	.4byte 0x803D15AC
-	.4byte 0x3F19999A
+	.4byte lbl_803D15A0
+	.4byte lbl_803D15AC
+	.float 0.6
 	.float 1.0
-	.4byte 0x803D15BC
-	.4byte 0x803D15C4
-	.4byte 0x3F19999A
+	.4byte lbl_803D15BC
+	.4byte lbl_803D15C4
+	.float 0.6
 	.float 1.0
-	.4byte 0x803D15C4
-	.4byte 0x803D15CC
-	.4byte 0x3F19999A
+	.4byte lbl_803D15C4
+	.4byte lbl_803D15CC
+	.float 0.6
 	.float 1.0
-	.4byte 0x803D15CC
-	.4byte 0x803D15D8
-	.4byte 0x3F19999A
+	.4byte lbl_803D15CC
+	.4byte lbl_803D15D8
+	.float 0.6
 	.float 1.0
-	.4byte 0x803D15E8
+	.4byte lbl_803D15E8
 	.float 1.5
-	.4byte 0x803D15EF
+	.4byte lbl_803D15EF
 	.float 1.5
-	.4byte 0x803D15F7
+	.4byte lbl_803D15F7
 	.float 1.5
-	.4byte 0x803D15FF
+	.4byte lbl_803D15FF
 	.float 1.5
-	.4byte 0x803D1607
+	.4byte lbl_803D1607
 	.float 1.5
 
 .global lbl_803D1568
@@ -8568,22 +8568,83 @@ lbl_803D157C:
 
 .global lbl_803D1590
 lbl_803D1590:
+
 	# ROM: 0x3CE590
 	.asciz "L_elbow"
+
+.global lbl_803D1598
+lbl_803D1598:
+
+	# ROM: 0x3CE598
 	.asciz "L_blade"
+
+.global lbl_803D15A0
+lbl_803D15A0:
+
+	# ROM: 0x3CE5A0
 	.asciz "L_CLAW_LCTR"
+
+.global lbl_803D15AC
+lbl_803D15AC:
+
+	# ROM: 0x3CE5AC
 	.asciz "L_CLAW_END_LCTR"
+
+.global lbl_803D15BC
+lbl_803D15BC:
+
+	# ROM: 0x3CE5BC
 	.asciz "R_elbow"
+
+.global lbl_803D15C4
+lbl_803D15C4:
+
+	# ROM: 0x3CE5C4
 	.asciz "R_blade"
+
+.global lbl_803D15CC
+lbl_803D15CC:
+
+	# ROM: 0x3CE5CC
 	.asciz "R_CLAW_LCTR"
+
+.global lbl_803D15D8
+lbl_803D15D8:
+
+	# ROM: 0x3CE5D8
 	.asciz "R_CLAW_END_LCTR"
+
+.global lbl_803D15E8
+lbl_803D15E8:
+
+	# ROM: 0x3CE5E8
 	.asciz "Head_1"
+
+.global lbl_803D15EF
+lbl_803D15EF:
+
+	# ROM: 0x3CE5EF
 	.byte 0x53
 	.asciz "pine_2"
+
+.global lbl_803D15F7
+lbl_803D15F7:
+
+	# ROM: 0x3CE5F7
 	.byte 0x53
 	.asciz "pine_4"
+
+.global lbl_803D15FF
+lbl_803D15FF:
+
+	# ROM: 0x3CE5FF
 	.byte 0x53
 	.asciz "pine_6"
+
+.global lbl_803D1607
+lbl_803D1607:
+
+	# ROM: 0x3CE607
 	.byte 0x43
 	.asciz "ollar"
 	.byte 0x3F, 0x3F

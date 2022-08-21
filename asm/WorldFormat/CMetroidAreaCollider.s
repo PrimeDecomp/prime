@@ -34,6 +34,16 @@ lbl_805A918C:
 lbl_805A9190:
 	.skip 0x8
 
+.section .rodata
+.balign 8
+
+.global lbl_803D6028
+lbl_803D6028:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .sbss2, "", @nobits
 .balign 8
 # CMovingAABoxComponent
@@ -58,7 +68,7 @@ __ct__Q220CMetroidAreaCollider22CMovingAABoxComponentsFRC6CAABoxRC9CVector3f:
 /* 802A30B8 002A0018  7C BE 2B 78 */	mr r30, r5
 /* 802A30BC 002A001C  93 43 00 00 */	stw r26, 0(r3)
 /* 802A30C0 002A0020  7C 7C 1B 78 */	mr r28, r3
-/* 802A30C4 002A0024  3C 60 80 3D */	lis r3, lbl_803D0004@ha
+/* 802A30C4 002A0024  3C 60 80 3D */	lis r3, lbl_803D6028@ha
 /* 802A30C8 002A0028  7C 9D 23 78 */	mr r29, r4
 /* 802A30CC 002A002C  93 5C 06 C4 */	stw r26, 0x6c4(r28)
 /* 802A30D0 002A0030  7F DB F3 78 */	mr r27, r30
@@ -77,9 +87,9 @@ __ct__Q220CMetroidAreaCollider22CMovingAABoxComponentsFRC6CAABoxRC9CVector3f:
 /* 802A3104 002A0064  D0 1C 06 F8 */	stfs f0, 0x6f8(r28)
 /* 802A3108 002A0068  C0 04 00 14 */	lfs f0, 0x14(r4)
 /* 802A310C 002A006C  D0 1C 06 FC */	stfs f0, 0x6fc(r28)
-/* 802A3110 002A0070  84 C3 60 28 */	lwzu r6, 0x6028(r3)
+/* 802A3110 002A0070  84 C3 60 28 */	lwzu r6, lbl_803D6028@l(r3)
 /* 802A3114 002A0074  80 02 D7 6C */	lwz r0, lbl_805AF48C@sda21(r2)
-/* 802A3118 002A0078  80 A3 00 04 */	lwz r5, lbl_803D0004@l(r3)
+/* 802A3118 002A0078  80 A3 00 04 */	lwz r5, 4(r3)
 /* 802A311C 002A007C  80 83 00 08 */	lwz r4, 8(r3)
 /* 802A3120 002A0080  80 62 D7 68 */	lwz r3, lbl_805AF488@sda21(r2)
 /* 802A3124 002A0084  90 C1 00 40 */	stw r6, 0x40(r1)

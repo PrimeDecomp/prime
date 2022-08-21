@@ -4544,11 +4544,11 @@ lbl_802EB408:
 .global __ct__Q211CSfxManager11CSfxChannelFv
 __ct__Q211CSfxManager11CSfxChannelFv:
 /* 802EB420 002E8380  94 21 FF B0 */	stwu r1, -0x50(r1)
-/* 802EB424 002E8384  3C 80 80 5A */	lis r4, lbl_805A0004@ha
+/* 802EB424 002E8384  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 802EB428 002E8388  C0 02 C6 04 */	lfs f0, lbl_805AE324@sda21(r2)
 /* 802EB42C 002E838C  38 00 00 00 */	li r0, 0
-/* 802EB430 002E8390  84 C4 66 A0 */	lwzu r6, 0x66a0(r4)
-/* 802EB434 002E8394  80 A4 00 04 */	lwz r5, lbl_805A0004@l(r4)
+/* 802EB430 002E8390  84 C4 66 A0 */	lwzu r6, sZeroVector__9CVector3f@l(r4)
+/* 802EB434 002E8394  80 A4 00 04 */	lwz r5, 4(r4)
 /* 802EB438 002E8398  90 C1 00 38 */	stw r6, 0x38(r1)
 /* 802EB43C 002E839C  80 84 00 08 */	lwz r4, 8(r4)
 /* 802EB440 002E83A0  90 A1 00 3C */	stw r5, 0x3c(r1)

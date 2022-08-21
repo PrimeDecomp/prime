@@ -7260,8 +7260,13 @@ lbl_80110F54:
 lbl_803CF1D8:
 	# ROM: 0x3CC1D8
 	.float 0.4
-	.4byte 0x3F19999A
+	.float 0.6
 	.float 1.0
+
+.global lbl_803CF1E4
+lbl_803CF1E4:
+
+	# ROM: 0x3CC1E4
 	.asciz "LCTR_WARTAIL"
 	.balign 4
 	.4byte 0

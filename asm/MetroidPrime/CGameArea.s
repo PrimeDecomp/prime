@@ -1418,8 +1418,8 @@ Update__Q29CGameArea8CAreaFogFf:
 /* 8005ED48 0005BCA8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8005ED4C 0005BCAC  40 82 01 AC */	bne lbl_8005EEF8
 lbl_8005ED50:
-/* 8005ED50 0005BCB0  3C 60 80 3D */	lis r3, lbl_803D0004@ha
-/* 8005ED54 0005BCB4  84 03 CF 98 */	lwzu r0, -0x3068(r3)
+/* 8005ED50 0005BCB0  3C 60 80 3D */	lis r3, lbl_803CCF98@ha
+/* 8005ED54 0005BCB4  84 03 CF 98 */	lwzu r0, lbl_803CCF98@l(r3)
 /* 8005ED58 0005BCB8  C0 5F 00 34 */	lfs f2, 0x34(r31)
 /* 8005ED5C 0005BCBC  38 E1 00 5C */	addi r7, r1, 0x5c
 /* 8005ED60 0005BCC0  C0 3F 00 14 */	lfs f1, 0x14(r31)
@@ -1428,7 +1428,7 @@ lbl_8005ED50:
 /* 8005ED6C 0005BCCC  ED 82 07 F2 */	fmuls f12, f2, f31
 /* 8005ED70 0005BCD0  90 01 00 20 */	stw r0, 0x20(r1)
 /* 8005ED74 0005BCD4  ED 7F 00 72 */	fmuls f11, f31, f1
-/* 8005ED78 0005BCD8  80 C3 00 04 */	lwz r6, lbl_803D0004@l(r3)
+/* 8005ED78 0005BCD8  80 C3 00 04 */	lwz r6, 4(r3)
 /* 8005ED7C 0005BCDC  ED 5F 00 32 */	fmuls f10, f31, f0
 /* 8005ED80 0005BCE0  80 A3 00 08 */	lwz r5, 8(r3)
 /* 8005ED84 0005BCE4  80 83 00 0C */	lwz r4, 0xc(r3)
@@ -8020,6 +8020,10 @@ lbl_803CCF90:
 	# ROM: 0x3C9F90
 	.asciz "??(??)"
 	.balign 4
+
+.global lbl_803CCF98
+lbl_803CCF98:
+	# ROM: 0x3C9F98
 	.4byte 0
 	.4byte 0
 	.4byte 0

@@ -3578,8 +3578,8 @@ lbl_8024F164:
 .global lbl_805AD5D0
 lbl_805AD5D0:
 	# ROM: 0x3F9E70
-	.4byte 0x803D47CC
-	.4byte 0x803D47DB
+	.4byte lbl_803D47CC
+	.4byte lbl_803D47DB
 
 
 .section .rodata
@@ -3594,6 +3594,11 @@ lbl_803D47A8:
 lbl_803D47CC:
 	# ROM: 0x3D17CC
 	.asciz "MetroidPrime A"
+
+.global lbl_803D47DB
+lbl_803D47DB:
+
+	# ROM: 0x3D17DB
 	.byte 0x4D
 	.asciz "etroidPrime B"
 	.byte 0x4E, 0x6F
@@ -3680,30 +3685,5 @@ lbl_803D47CC:
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900
 	.asciz "%02d.%02d.%02d  %02d:%02d"
-	.balign 4
-
-.global lbl_803D4A90
-lbl_803D4A90:
-	# ROM: 0x3D1A90
-	.asciz "TXTR_SaveBanner"
-	.asciz "TXTR_SaveIcon0"
-	.byte 0x54
-	.asciz "XTR_SaveIcon1"
-	.byte 0x53, 0x54
-	.asciz "RG_MemoryCard"
-	.byte 0x46, 0x52
-	.asciz "ME_GenericMenu"
-	.byte 0x74
-	.asciz "extpane_message"
-	.asciz "tablegroup_choices"
-	.byte 0x74
-	.asciz "extpane_choice0"
-	.asciz "textpane_choice1"
-	.byte 0x74, 0x65, 0x78
-	.asciz "tpane_choice2"
-	.byte 0x74, 0x65
-	.asciz "xtpane_choice3"
-	.byte 0x3F
-	.asciz "?(??)"
 	.balign 4
 

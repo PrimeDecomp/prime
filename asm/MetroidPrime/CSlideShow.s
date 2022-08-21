@@ -4843,8 +4843,8 @@ sub_8029bd24:
 /* 8029BD60 00298CC0  48 0A 50 AD */	bl GetObj__6CTokenFv
 /* 8029BD64 00298CC4  83 E3 00 04 */	lwz r31, 4(r3)
 /* 8029BD68 00298CC8  3C 80 43 30 */	lis r4, 0x4330
-/* 8029BD6C 00298CCC  3C 60 80 3F */	lis r3, lbl_803F0004@ha
-/* 8029BD70 00298CD0  87 83 D9 10 */	lwzu r28, -0x26f0(r3)
+/* 8029BD6C 00298CCC  3C 60 80 3F */	lis r3, mViewport__9CGraphics@ha
+/* 8029BD70 00298CD0  87 83 D9 10 */	lwzu r28, mViewport__9CGraphics@l(r3)
 /* 8029BD74 00298CD4  A8 BF 00 04 */	lha r5, 4(r31)
 /* 8029BD78 00298CD8  28 17 00 00 */	cmplwi r23, 0
 /* 8029BD7C 00298CDC  A8 1F 00 06 */	lha r0, 6(r31)
@@ -4853,7 +4853,7 @@ sub_8029bd24:
 /* 8029BD88 00298CE8  6C 00 80 00 */	xoris r0, r0, 0x8000
 /* 8029BD8C 00298CEC  C8 42 BF F8 */	lfd f2, lbl_805ADD18@sda21(r2)
 /* 8029BD90 00298CF0  90 A1 00 64 */	stw r5, 0x64(r1)
-/* 8029BD94 00298CF4  83 63 00 04 */	lwz r27, lbl_803F0004@l(r3)
+/* 8029BD94 00298CF4  83 63 00 04 */	lwz r27, 4(r3)
 /* 8029BD98 00298CF8  C8 21 00 60 */	lfd f1, 0x60(r1)
 /* 8029BD9C 00298CFC  90 81 00 68 */	stw r4, 0x68(r1)
 /* 8029BDA0 00298D00  EF E1 10 28 */	fsubs f31, f1, f2
@@ -5493,27 +5493,27 @@ __sinit_CSlideShow_cpp:
 .global lbl_805ADCE8
 lbl_805ADCE8:
 	# ROM: 0x3FA588
-	.4byte 0x803D5C52
+	.4byte lbl_803D5C52
 
 .global lbl_805ADCEC
 lbl_805ADCEC:
 	# ROM: 0x3FA58C
-	.4byte 0x803D5C5A
+	.4byte lbl_803D5C5A
 
 .global lbl_805ADCF0
 lbl_805ADCF0:
 	# ROM: 0x3FA590
-	.4byte 0x803D5C6D
+	.4byte lbl_803D5C6D
 
 .global lbl_805ADCF4
 lbl_805ADCF4:
 	# ROM: 0x3FA594
-	.4byte 0x803D5C7D
+	.4byte lbl_803D5C7D
 
 .global lbl_805ADCF8
 lbl_805ADCF8:
 	# ROM: 0x3FA598
-	.4byte 0x803D5C90
+	.4byte lbl_803D5C90
 
 .global lbl_805ADCFC
 lbl_805ADCFC:
@@ -5528,8 +5528,8 @@ lbl_805ADD04:
 .global lbl_805ADD08
 lbl_805ADD08:
 	# ROM: 0x3FA5A8
-	.4byte 0x803D5CA5
-	.4byte 0x803D5CBD
+	.4byte lbl_803D5CA5
+	.4byte lbl_803D5CBD
 
 .global lbl_805ADD10
 lbl_805ADD10:
@@ -5621,19 +5621,55 @@ lbl_803D5C38:
 
 .global lbl_803D5C48
 lbl_803D5C48:
+
 	# ROM: 0x3D2C48
 	.asciz "slideshow"
+
+.global lbl_803D5C52
+lbl_803D5C52:
+
+	# ROM: 0x3D2C52
 	.byte 0x47, 0x61
 	.asciz "llery"
+
+.global lbl_803D5C5A
+lbl_803D5C5A:
+
+	# ROM: 0x3D2C5A
 	.byte 0x47, 0x61
 	.asciz "lleryAssets_DGRP"
+
+.global lbl_803D5C6D
+lbl_803D5C6D:
+
+	# ROM: 0x3D2C6D
 	.byte 0x54, 0x58, 0x54
 	.asciz "R_GalleryTag"
+
+.global lbl_803D5C7D
+lbl_803D5C7D:
+
+	# ROM: 0x3D2C7D
 	.byte 0x43, 0x4D, 0x44
 	.asciz "L_GalleryBorder"
+
+.global lbl_803D5C90
+lbl_803D5C90:
+
+	# ROM: 0x3D2C90
 	.asciz "Audio/frontend_1.rsf"
+
+.global lbl_803D5CA5
+lbl_803D5CA5:
+
+	# ROM: 0x3D2CA5
 	.byte 0x53, 0x54, 0x52
 	.asciz "G_SlideShow_Unlock1_"
+
+.global lbl_803D5CBD
+lbl_803D5CBD:
+
+	# ROM: 0x3D2CBD
 	.byte 0x53, 0x54, 0x52
 	.asciz "G_SlideShow_Unlock2_"
 	.byte 0x25, 0x64, 0x2F

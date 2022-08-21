@@ -202,12 +202,12 @@ lbl_805A77B8:
 .global lbl_805A77BC
 lbl_805A77BC:
 	# ROM: 0x3F515C
-	.4byte 0x803D0170
+	.4byte lbl_803D0170
 
 .global lbl_805A77C0
 lbl_805A77C0:
 	# ROM: 0x3F5160
-	.4byte 0x803D017F
+	.4byte lbl_803D017F
 
 .global lbl_805A77C4
 lbl_805A77C4:
@@ -2259,8 +2259,14 @@ lbl_805ABA3C:
 .balign 8
 .global lbl_803D0170
 lbl_803D0170:
+
 	# ROM: 0x3CD170
 	.asciz "MOUTH_LCTR_SDK"
+
+.global lbl_803D017F
+lbl_803D017F:
+
+	# ROM: 0x3CD17F
 	.byte 0x53
 	.asciz "AMUS_POS_LCTR_SDK"
 	.byte 0x3F, 0x3F

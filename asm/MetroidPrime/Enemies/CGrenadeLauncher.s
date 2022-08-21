@@ -2394,12 +2394,12 @@ lbl_805AD370:
 .global lbl_805AD378
 lbl_805AD378:
 	# ROM: 0x3F9C18
-	.4byte 0x803D3410
+	.4byte lbl_803D3410
 
 .global lbl_805AD37C
 lbl_805AD37C:
 	# ROM: 0x3F9C1C
-	.4byte 0x803D341D
+	.4byte lbl_803D341D
 
 .global lbl_805AD380
 lbl_805AD380:
@@ -2496,8 +2496,14 @@ lbl_805AD3C4:
 .balign 8
 .global lbl_803D3410
 lbl_803D3410:
+
 	# ROM: 0x3D0410
 	.asciz "grenade_LCTR"
+
+.global lbl_803D341D
+lbl_803D341D:
+
+	# ROM: 0x3D041D
 	.byte 0x6C, 0x6F, 0x63
 	.asciz "kon_target_LCTR"
 	.asciz "??(??)"

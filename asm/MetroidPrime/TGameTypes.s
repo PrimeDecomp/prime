@@ -44,7 +44,7 @@ __ct__9TEditorIdFR12CInputStream:
 __sinit_TGameTypes_cpp:
 /* 8011A498 001173F8  3C 60 00 01 */	lis r3, 1
 /* 8011A49C 001173FC  38 80 FF FF */	li r4, -1
-/* 8011A4A0 00117400  38 03 FF FF */	subi r0, r3, 1
+/* 8011A4A0 00117400  38 03 FF FF */	addi r0, r3, -0x1
 /* 8011A4A4 00117404  90 8D A3 88 */	stw r4, kInvalidEditorId@sda21(r13)
 /* 8011A4A8 00117408  B0 0D A3 8C */	sth r0, kInvalidUniqueId@sda21(r13)
 /* 8011A4AC 0011740C  90 8D A3 90 */	stw r4, kInvalidAreaId@sda21(r13)

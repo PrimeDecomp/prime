@@ -3980,12 +3980,12 @@ __sinit_CTryclops_cpp:
 .global lbl_805AD748
 lbl_805AD748:
 	# ROM: 0x3F9FE8
-	.4byte 0x803D5258
+	.4byte lbl_803D5258
 
 .global lbl_805AD74C
 lbl_805AD74C:
 	# ROM: 0x3F9FEC
-	.4byte 0x803D5269
+	.4byte lbl_803D5269
 
 .global lbl_805AD750
 lbl_805AD750:
@@ -4057,3 +4057,19 @@ lbl_805AD784:
 	# ROM: 0x3FA024
 	.4byte 0xBE99999A
 
+.section .rodata
+.balign 8
+
+.global lbl_803D5258
+lbl_803D5258:
+
+	# ROM: 0x3D2258
+	.asciz "ballGrab_locator"
+
+.global lbl_803D5269
+lbl_803D5269:
+
+	# ROM: 0x3D2269
+	.byte 0x53, 0x6B, 0x65
+	.asciz "leton_Root"
+	.balign 4

@@ -1572,9 +1572,8 @@ lbl_805AD810:
 .balign 8
 .global lbl_803D53C0
 lbl_803D53C0:
+
 	# ROM: 0x3D23C0
 	.asciz "??(??)"
-	.balign 4
-	.asciz "BendingAnimationHack"
 	.balign 4
 

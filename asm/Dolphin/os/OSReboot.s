@@ -18,7 +18,7 @@ Prepared:
 .section .text, "ax"
 
 Run:
-/* 80382E28 0037FD88  7C 00 04 AC */	sync 0
+/* 80382E28 0037FD88  7C 00 04 AC */	sync
 /* 80382E2C 0037FD8C  4C 00 01 2C */	isync
 /* 80382E30 0037FD90  7C 68 03 A6 */	mtlr r3
 /* 80382E34 0037FD94  4E 80 00 20 */	blr

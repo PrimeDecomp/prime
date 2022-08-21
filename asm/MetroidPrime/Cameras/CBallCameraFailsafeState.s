@@ -979,7 +979,7 @@ lbl_805AD4CC:
 .global lbl_805AD4D0
 lbl_805AD4D0:
 	# ROM: 0x3F9D70
-	.4byte 0x3F19999A
+	.float 0.6
 	.4byte 0
 
 .global lbl_805AD4D8

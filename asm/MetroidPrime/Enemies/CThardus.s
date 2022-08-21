@@ -10787,7 +10787,7 @@ __sinit_CThardus_cpp:
 .global lbl_805AC9E8
 lbl_805AC9E8:
 	# ROM: 0x3F9288
-	.4byte 0x803D1CB8
+	.4byte lbl_803D1CB8
 
 .global lbl_805AC9EC
 lbl_805AC9EC:
@@ -11012,119 +11012,221 @@ lbl_805ACA98:
 .global lbl_803D1BA0
 lbl_803D1BA0:
 	# ROM: 0x3CEBA0
-	.4byte 0x803D1CBF
-	.4byte 0x803D1CC6
-	.4byte 0x803D1CD0
-	.4byte 0x803D1CD8
-	.4byte 0x803D1CDE
-	.4byte 0x803D1CF3
-	.4byte 0x803D1CB8
+	.4byte lbl_803D1CBF
+	.4byte lbl_803D1CC6
+	.4byte lbl_803D1CD0
+	.4byte lbl_803D1CD8
+	.4byte lbl_803D1CDE
+	.4byte lbl_803D1CF3
+	.4byte lbl_803D1CB8
 
 .global lbl_803D1BBC
 lbl_803D1BBC:
 	# ROM: 0x3CEBBC
-	.4byte 0x803D1CBF
-	.4byte 0x803D1D04
-	.4byte 0x803D1D1B
-	.4byte 0x803D1D32
-	.4byte 0x803D1D48
-	.4byte 0x803D1D63
-	.4byte 0x803D1D7E
+	.4byte lbl_803D1CBF
+	.4byte lbl_803D1D04
+	.4byte lbl_803D1D1B
+	.4byte lbl_803D1D32
+	.4byte lbl_803D1D48
+	.4byte lbl_803D1D63
+	.4byte lbl_803D1D7E
 
 .global lbl_803D1BD8
 lbl_803D1BD8:
 	# ROM: 0x3CEBD8
-	.4byte 0x803D1D92
+	.4byte lbl_803D1D92
 	.4byte 0
 	.4byte 0x41300000
 	.4byte 0
-	.4byte 0x803D1D92
+	.4byte lbl_803D1D92
 	.4byte 0
 	.4byte 0x41100000
 	.4byte 0
-	.4byte 0x803D1D92
+	.4byte lbl_803D1D92
 	.4byte 0
 	.4byte 0x40E00000
 	.4byte 0
-	.4byte 0x803D1D92
+	.4byte lbl_803D1D92
 	.4byte 0xC0400000
 	.4byte 0x41100000
 	.4byte 0
-	.4byte 0x803D1D92
+	.4byte lbl_803D1D92
 	.float 4.0
 	.4byte 0x40E00000
 	.4byte 0
-	.4byte 0x803D1D92
+	.4byte lbl_803D1D92
 	.4byte 0xC0800000
 	.float 8.0
 	.4byte 0
-	.4byte 0x803D1CBF
+	.4byte lbl_803D1CBF
 	.float 1.0
-	.4byte 0x803D1D04
+	.4byte lbl_803D1D04
 	.float 1.5
-	.4byte 0x803D1D1B
+	.4byte lbl_803D1D1B
 	.float 1.5
-	.4byte 0x803D1D32
+	.4byte lbl_803D1D32
 	.float 1.0
-	.4byte 0x803D1D48
+	.4byte lbl_803D1D48
 	.float 2.5
-	.4byte 0x803D1D63
+	.4byte lbl_803D1D63
 	.float 1.5
-	.4byte 0x803D1D7E
+	.4byte lbl_803D1D7E
 	.float 1.5
-	.4byte 0x803D1D93
+	.4byte lbl_803D1D93
 	.float 0.75
-	.4byte 0x803D1DAD
+	.4byte lbl_803D1DAD
 	.float 0.75
-	.4byte 0x803D1DC7
+	.4byte lbl_803D1DC7
 	.float 0.75
-	.4byte 0x803D1DDC
+	.4byte lbl_803D1DDC
 	.4byte 0x40100000
-	.4byte 0x803D1DF2
+	.4byte lbl_803D1DF2
 	.float 2.0
-	.4byte 0x803D1E08
+	.4byte lbl_803D1E08
 	.4byte 0x40400000
 	.4byte 0x40400000
 	.float 1.0
-	.4byte 0x803D1E1E
+	.4byte lbl_803D1E1E
 	.4byte 0x40400000
 	.float 2.0
 	.4byte 0x40400000
 
 .global lbl_803D1CB8
 lbl_803D1CB8:
+
 	# ROM: 0x3CECB8
 	.asciz "Neck_1"
+
+.global lbl_803D1CBF
+lbl_803D1CBF:
+
+	# ROM: 0x3CECBF
 	.byte 0x52
 	.asciz "_knee"
+
+.global lbl_803D1CC6
+lbl_803D1CC6:
+
+	# ROM: 0x3CECC6
 	.byte 0x52, 0x5F
 	.asciz "forearm"
+
+.global lbl_803D1CD0
+lbl_803D1CD0:
+
+	# ROM: 0x3CECD0
 	.asciz "L_elbow"
+
+.global lbl_803D1CD8
+lbl_803D1CD8:
+
+	# ROM: 0x3CECD8
 	.asciz "L_hip"
+
+.global lbl_803D1CDE
+lbl_803D1CDE:
+
+	# ROM: 0x3CECDE
 	.byte 0x52, 0x5F
 	.asciz "collar_BigRock_SDK"
+
+.global lbl_803D1CF3
+lbl_803D1CF3:
+
+	# ROM: 0x3CECF3
 	.byte 0x63
 	.asciz "ollar_rock4_SDK"
+
+.global lbl_803D1D04
+lbl_803D1D04:
+
+	# ROM: 0x3CED04
 	.asciz "R_Elbow_Collision_LCTR"
+
+.global lbl_803D1D1B
+lbl_803D1D1B:
+
+	# ROM: 0x3CED1B
 	.byte 0x4C
 	.asciz "_Elbow_Collision_LCTR"
+
+.global lbl_803D1D32
+lbl_803D1D32:
+
+	# ROM: 0x3CED32
 	.byte 0x4C, 0x5F
 	.asciz "Knee_Collision_LCTR"
+
+.global lbl_803D1D48
+lbl_803D1D48:
+
+	# ROM: 0x3CED48
 	.asciz "R_Back_Rock_Collision_LCTR"
+
+.global lbl_803D1D63
+lbl_803D1D63:
+
+	# ROM: 0x3CED63
 	.byte 0x4C
 	.asciz "_Back_Rock_Collision_LCTR"
+
+.global lbl_803D1D7E
+lbl_803D1D7E:
+
+	# ROM: 0x3CED7E
 	.byte 0x48, 0x65
 	.asciz "ad_Collision_LCTR"
-	.byte 0x00, 0x52
+
+.global lbl_803D1D92
+lbl_803D1D92:
+
+	# ROM: 0x3CED92
+	.byte 0x00
+
+.global lbl_803D1D93
+lbl_803D1D93:
+
+	# ROM: 0x3CED93
+	.byte 0x52
 	.asciz "_Shoulder_Collision_LCTR"
+
+.global lbl_803D1DAD
+lbl_803D1DAD:
+
+	# ROM: 0x3CEDAD
 	.byte 0x4C, 0x5F, 0x53
 	.asciz "houlder_Collision_LCTR"
+
+.global lbl_803D1DC7
+lbl_803D1DC7:
+
+	# ROM: 0x3CEDC7
 	.byte 0x53
 	.asciz "pine_Collision_LCTR"
+
+.global lbl_803D1DDC
+lbl_803D1DDC:
+
+	# ROM: 0x3CEDDC
 	.asciz "R_Hand_Collision_LCTR"
+
+.global lbl_803D1DF2
+lbl_803D1DF2:
+
+	# ROM: 0x3CEDF2
 	.byte 0x4C, 0x5F
 	.asciz "Hand_Collision_LCTR"
+
+.global lbl_803D1E08
+lbl_803D1E08:
+
+	# ROM: 0x3CEE08
 	.asciz "R_Foot_Collision_LCTR"
+
+.global lbl_803D1E1E
+lbl_803D1E1E:
+
+	# ROM: 0x3CEE1E
 	.byte 0x4C, 0x5F
 	.asciz "Foot_Collision_LCTR"
 	.asciz "center_LCTR"

@@ -1936,26 +1936,75 @@ lbl_80250A68:
 .global lbl_805AD5D8
 lbl_805AD5D8:
 	# ROM: 0x3F9E78
-	.4byte 0x803D4A90
+	.4byte lbl_803D4A90
 
 .global lbl_805AD5DC
 lbl_805AD5DC:
 	# ROM: 0x3F9E7C
-	.4byte 0x803D4AA0
+	.4byte lbl_803D4AA0
 
 .global lbl_805AD5E0
 lbl_805AD5E0:
 	# ROM: 0x3F9E80
-	.4byte 0x803D4AAF
+	.4byte lbl_803D4AAF
 
 .global lbl_805AD5E4
 lbl_805AD5E4:
 	# ROM: 0x3F9E84
-	.4byte 0x803D4ABE
+	.4byte lbl_803D4ABE
 
 .global lbl_805AD5E8
 lbl_805AD5E8:
 	# ROM: 0x3F9E88
-	.4byte 0x803D4ACE
+	.4byte lbl_803D4ACE
 	.4byte 0
+
+.section .rodata
+.balign 8
+
+.global lbl_803D4A90
+lbl_803D4A90:
+
+	# ROM: 0x3D1A90
+	.asciz "TXTR_SaveBanner"
+
+.global lbl_803D4AA0
+lbl_803D4AA0:
+
+	# ROM: 0x3D1AA0
+	.asciz "TXTR_SaveIcon0"
+
+.global lbl_803D4AAF
+lbl_803D4AAF:
+
+	# ROM: 0x3D1AAF
+	.byte 0x54
+	.asciz "XTR_SaveIcon1"
+
+.global lbl_803D4ABE
+lbl_803D4ABE:
+
+	# ROM: 0x3D1ABE
+	.byte 0x53, 0x54
+	.asciz "RG_MemoryCard"
+
+.global lbl_803D4ACE
+lbl_803D4ACE:
+
+	# ROM: 0x3D1ACE
+	.byte 0x46, 0x52
+	.asciz "ME_GenericMenu"
+	.byte 0x74
+	.asciz "extpane_message"
+	.asciz "tablegroup_choices"
+	.byte 0x74
+	.asciz "extpane_choice0"
+	.asciz "textpane_choice1"
+	.byte 0x74, 0x65, 0x78
+	.asciz "tpane_choice2"
+	.byte 0x74, 0x65
+	.asciz "xtpane_choice3"
+	.byte 0x3F
+	.asciz "?(??)"
+	.balign 4
 

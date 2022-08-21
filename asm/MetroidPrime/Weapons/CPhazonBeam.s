@@ -1180,17 +1180,17 @@ lbl_805AC118:
 .global lbl_805AC11C
 lbl_805AC11C:
 	# ROM: 0x3F89BC
-	.4byte 0x803D08F8
+	.4byte lbl_803D08F8
 
 .global lbl_805AC120
 lbl_805AC120:
 	# ROM: 0x3F89C0
-	.4byte 0x803D0904
+	.4byte lbl_803D0904
 
 .global lbl_805AC124
 lbl_805AC124:
 	# ROM: 0x3F89C4
-	.4byte 0x803D0912
+	.4byte lbl_803D0912
 
 .global lbl_805AC128
 lbl_805AC128:
@@ -1245,7 +1245,7 @@ lbl_805AC14C:
 .global lbl_805AC150
 lbl_805AC150:
 	# ROM: 0x3F89F0
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AC154
 lbl_805AC154:
@@ -1303,9 +1303,20 @@ lbl_805AC178:
 .balign 8
 .global lbl_803D08F8
 lbl_803D08F8:
+
 	# ROM: 0x3CD8F8
 	.asciz "PhazonVeins"
+
+.global lbl_803D0904
+lbl_803D0904:
+
+	# ROM: 0x3CD904
 	.asciz "PhazonVeins_2"
+
+.global lbl_803D0912
+lbl_803D0912:
+
+	# ROM: 0x3CD912
 	.byte 0x70, 0x68
 	.asciz "azonScale_LCTR_SDK"
 	.byte 0x3F

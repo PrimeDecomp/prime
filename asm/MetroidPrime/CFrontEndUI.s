@@ -101,31 +101,43 @@ lbl_803D9900:
 .balign 8
 .global lbl_803CC540
 lbl_803CC540:
+
 	# ROM: 0x3C9540
-	.4byte 0x803CC644
+	.4byte lbl_803CC644
 	.4byte 0
-	.4byte 0x803CC65D
+	.4byte lbl_803CC65D
 	.4byte 0x01000000
-	.4byte 0x803CC674
+	.4byte lbl_803CC674
 	.4byte 0
-	.4byte 0x803CC694
+	.4byte lbl_803CC694
 	.4byte 0x01000000
-	.4byte 0x803CC6B0
+	.4byte lbl_803CC6B0
 	.4byte 0
-	.4byte 0x803CC6D3
+	.4byte lbl_803CC6D3
 	.4byte 0
-	.4byte 0x803CC6EF
+	.4byte lbl_803CC6EF
 	.4byte 0x01000000
-	.4byte 0x803CC704
+	.4byte lbl_803CC704
 	.4byte 0
-	.4byte 0x803CC704
+	.4byte lbl_803CC704
 	.4byte 0
-	.asciz "!#$MetroidBuildInfo!#$Build v1.088 10/29/2002 2:21:25"
+
+.global MetroidBuildInfo
+MetroidBuildInfo:
+	.4byte 0x2123244D
+	.4byte 0x6574726F
+	.4byte 0x69644275
+	.4byte 0x696C6449
+	.4byte 0x6E666F21
+	.byte 0x23, 0x24
+	.byte 0x42, 0x75
+	.asciz "ild v1.088 10/29/2002 2:21:25"
 	.byte 0x50, 0x41
 	.4byte 0x44000000
 
 .global lbl_803CC5C4
 lbl_803CC5C4:
+
 	# ROM: 0x3C95C4
 	.4byte 0x04420449
 	.4byte 0x044A044B
@@ -133,6 +145,7 @@ lbl_803CC5C4:
 
 .global lbl_803CC5D0
 lbl_803CC5D0:
+
 	# ROM: 0x3C95D0
 	.4byte 0x044E044F
 	.4byte 0x04500451
@@ -140,6 +153,7 @@ lbl_803CC5D0:
 
 .global lbl_803CC5DC
 lbl_803CC5DC:
+
 	# ROM: 0x3C95DC
 	.4byte 0x40866666
 	.4byte 0x40C33333
@@ -147,6 +161,7 @@ lbl_803CC5DC:
 
 .global lbl_803CC5E8
 lbl_803CC5E8:
+
 	# ROM: 0x3C95E8
 	.4byte 0x3EE147AD
 	.4byte 0x40AD1EB9
@@ -154,6 +169,7 @@ lbl_803CC5E8:
 
 .global lbl_803CC5F4
 lbl_803CC5F4:
+
 	# ROM: 0x3C95F4
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -168,6 +184,7 @@ lbl_803CC5F4:
 
 .global lbl_803CC61C
 lbl_803CC61C:
+
 	# ROM: 0x3C961C
 	.4byte 0x00000009
 	.4byte 0x00000009
@@ -182,21 +199,72 @@ lbl_803CC61C:
 
 .global lbl_803CC644
 lbl_803CC644:
+
 	# ROM: 0x3C9644
 	.asciz "Video/00_first_start.thp"
+
+.global lbl_803CC65D
+lbl_803CC65D:
+
+	# ROM: 0x3C965D
 	.byte 0x56, 0x69, 0x64
 	.asciz "eo/01_startloop.thp"
+
+.global lbl_803CC674
+lbl_803CC674:
+
+	# ROM: 0x3C9674
 	.asciz "Video/02_start_fileselect_A.thp"
+
+.global lbl_803CC694
+lbl_803CC694:
+
+	# ROM: 0x3C9694
 	.asciz "Video/03_fileselectloop.thp"
+
+.global lbl_803CC6B0
+lbl_803CC6B0:
+
+	# ROM: 0x3C96B0
 	.asciz "Video/04_fileselect_playgame_A.thp"
+
+.global lbl_803CC6D3
+lbl_803CC6D3:
+
+	# ROM: 0x3C96D3
 	.byte 0x56
 	.asciz "ideo/06_fileselect_GBA.thp"
+
+.global lbl_803CC6EF
+lbl_803CC6EF:
+
+	# ROM: 0x3C96EF
 	.byte 0x56
 	.asciz "ideo/07_GBAloop.thp"
+
+.global lbl_803CC704
+lbl_803CC704:
+
+	# ROM: 0x3C9704
 	.asciz "Video/08_GBA_fileselect.thp"
+
+.global lbl_803CC720
+lbl_803CC720:
+
+	# ROM: 0x3C9720
 	.asciz "Audio/frontend_1.rsf"
+
+.global lbl_803CC735
+lbl_803CC735:
+
+	# ROM: 0x3C9735
 	.byte 0x41, 0x75, 0x64
 	.asciz "io/frontend_2.rsf"
+
+.global lbl_803CC74A
+lbl_803CC74A:
+
+	# ROM: 0x3C974A
 	.byte 0x46, 0x72
 	.asciz "ontEnd_AGSC"
 	.asciz "??(??)"
@@ -1119,10 +1187,10 @@ lbl_8001C1CC:
 /* 8001C204 00019164  7D 89 03 A6 */	mtctr r12
 /* 8001C208 00019168  4E 80 04 21 */	bctrl
 /* 8001C20C 0001916C  80 7F 00 CC */	lwz r3, 0xcc(r31)
-/* 8001C210 00019170  3C 80 80 3F */	lis r4, lbl_803F0004@ha
-/* 8001C214 00019174  87 84 D9 10 */	lwzu r28, -0x26f0(r4)
+/* 8001C210 00019170  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 8001C214 00019174  87 84 D9 10 */	lwzu r28, mViewport__9CGraphics@l(r4)
 /* 8001C218 00019178  28 03 00 00 */	cmplwi r3, 0
-/* 8001C21C 0001917C  83 A4 00 04 */	lwz r29, lbl_803F0004@l(r4)
+/* 8001C21C 0001917C  83 A4 00 04 */	lwz r29, 4(r4)
 /* 8001C220 00019180  83 64 00 08 */	lwz r27, 8(r4)
 /* 8001C224 00019184  83 44 00 0C */	lwz r26, 0xc(r4)
 /* 8001C228 00019188  41 82 01 2C */	beq lbl_8001C354

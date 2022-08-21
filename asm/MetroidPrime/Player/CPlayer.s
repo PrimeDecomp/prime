@@ -438,7 +438,7 @@ lbl_805A9E10:
 .global lbl_805A9E14
 lbl_805A9E14:
 	# ROM: 0x3F66B4
-	.4byte 0x803CC4F8
+	.4byte lbl_803CC4F8
 
 .global lbl_805A9E18
 lbl_805A9E18:
@@ -846,7 +846,7 @@ lbl_805A9F68:
 .global lbl_805A9F6C
 lbl_805A9F6C:
 	# ROM: 0x3F680C
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805A9F70
 lbl_805A9F70:

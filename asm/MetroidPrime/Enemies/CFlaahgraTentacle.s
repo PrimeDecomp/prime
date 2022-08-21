@@ -1432,7 +1432,7 @@ lbl_801F0FA0:
 .global lbl_805ACBD0
 lbl_805ACBD0:
 	# ROM: 0x3F9470
-	.4byte 0x803D2025
+	.4byte lbl_803D2025
 
 .global lbl_805ACBD4
 lbl_805ACBD4:
@@ -1461,19 +1461,30 @@ lbl_805ACBE0:
 .global lbl_803D2000
 lbl_803D2000:
 	# ROM: 0x3CF000
-	.4byte 0x803D2018
+	.4byte lbl_803D2018
 	.float 2.0
-	.4byte 0x803D201E
+	.4byte lbl_803D201E
 	.4byte 0x3F99999A
-	.4byte 0x803D2025
+	.4byte lbl_803D2025
 	.4byte 0x3F99999A
 
 .global lbl_803D2018
 lbl_803D2018:
+
 	# ROM: 0x3CF018
 	.asciz "Arm_8"
+
+.global lbl_803D201E
+lbl_803D201E:
+
+	# ROM: 0x3CF01E
 	.byte 0x41, 0x72
 	.asciz "m_10"
+
+.global lbl_803D2025
+lbl_803D2025:
+
+	# ROM: 0x3CF025
 	.byte 0x41, 0x72, 0x6D
 	.4byte 0x5F313200
 	.asciz "??(??)"

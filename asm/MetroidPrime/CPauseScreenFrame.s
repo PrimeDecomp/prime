@@ -21,13 +21,13 @@ lbl_803E8714:
 lbl_803E8720:
 	# ROM: 0x3E5720
 	.4byte 0x00000005
-	.4byte 0x803D4404
+	.4byte lbl_803D4404
 	.4byte 0x00000005
-	.4byte 0x803D447C
+	.4byte lbl_803D447C
 	.4byte 0x00000004
-	.4byte 0x803D44F4
+	.4byte lbl_803D44F4
 	.4byte 0x00000004
-	.4byte 0x803D4554
+	.4byte lbl_803D4554
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -3662,6 +3662,11 @@ lbl_803D43F0:
 	.4byte 0x00000001
 	.4byte 0x00000001
 	.4byte 0
+
+.global lbl_803D4404
+lbl_803D4404:
+
+	# ROM: 0x3D1404
 	.4byte 0
 	.4byte 0x00000015
 	.4byte 0
@@ -3692,6 +3697,11 @@ lbl_803D43F0:
 	.float 1.0
 	.float 1.0
 	.4byte 0x00000003
+
+.global lbl_803D447C
+lbl_803D447C:
+
+	# ROM: 0x3D147C
 	.4byte 0x00000004
 	.4byte 0x00000019
 	.4byte 0
@@ -3722,6 +3732,11 @@ lbl_803D43F0:
 	.float 1.0
 	.float 1.0
 	.4byte 0x00000003
+
+.global lbl_803D44F4
+lbl_803D44F4:
+
+	# ROM: 0x3D14F4
 	.4byte 0x00000008
 	.4byte 0x0000001D
 	.4byte 0
@@ -3746,6 +3761,11 @@ lbl_803D43F0:
 	.float 1.0
 	.float 1.0
 	.4byte 0x00000003
+
+.global lbl_803D4554
+lbl_803D4554:
+
+	# ROM: 0x3D1554
 	.4byte 0x0000000B
 	.4byte 0x00000020
 	.4byte 0

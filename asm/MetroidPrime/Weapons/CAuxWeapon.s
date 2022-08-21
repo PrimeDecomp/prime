@@ -1435,20 +1435,36 @@ lbl_803D1658:
 .global lbl_803D1664
 lbl_803D1664:
 	# ROM: 0x3CE664
-	.4byte 0x803D1678
-	.4byte 0x803D1685
-	.4byte 0x803D168E
-	.4byte 0x803D1699
-	.4byte 0x803D1678
+	.4byte lbl_803D1678
+	.4byte lbl_803D1685
+	.4byte lbl_803D168E
+	.4byte lbl_803D1699
+	.4byte lbl_803D1678
 
 .global lbl_803D1678
 lbl_803D1678:
+
 	# ROM: 0x3CE678
 	.asciz "SuperMissile"
+
+.global lbl_803D1685
+lbl_803D1685:
+
+	# ROM: 0x3CE685
 	.byte 0x49, 0x63, 0x65
 	.asciz "Combo"
+
+.global lbl_803D168E
+lbl_803D168E:
+
+	# ROM: 0x3CE68E
 	.byte 0x57, 0x61
 	.asciz "veBuster"
+
+.global lbl_803D1699
+lbl_803D1699:
+
+	# ROM: 0x3CE699
 	.byte 0x46, 0x6C, 0x61
 	.asciz "meThrower"
 	.byte 0x3F, 0x3F

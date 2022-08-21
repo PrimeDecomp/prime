@@ -41,6 +41,7 @@ lbl_803F1430:
 .balign 4
 	.asciz "\nLast interrupt (%d): SRR0 = 0x%08x  TB = 0x%016llx\n"
 .balign 4
+
 .global lbl_803F170C
 lbl_803F170C:
     .4byte lbl_80380024
@@ -59,6 +60,7 @@ lbl_803F170C:
     .4byte lbl_80380024
     .4byte lbl_80380024
     .4byte lbl_8037FFD8
+
 .section .sdata
 .balign 8
 .global lbl_805A8B38

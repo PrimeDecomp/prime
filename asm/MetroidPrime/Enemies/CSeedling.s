@@ -1440,38 +1440,94 @@ lbl_805AD7F4:
 .global lbl_803D52B0
 lbl_803D52B0:
 	# ROM: 0x3D22B0
-	.4byte 0x803D52E0
-	.4byte 0x803D52F2
-	.4byte 0x803D5304
-	.4byte 0x803D5316
-	.4byte 0x803D5328
-	.4byte 0x803D533A
-	.4byte 0x803D534C
-	.4byte 0x803D535E
-	.4byte 0x803D5370
-	.4byte 0x803D5382
-	.4byte 0x803D5394
-	.4byte 0x803D53A6
+	.4byte lbl_803D52E0
+	.4byte lbl_803D52F2
+	.4byte lbl_803D5304
+	.4byte lbl_803D5316
+	.4byte lbl_803D5328
+	.4byte lbl_803D533A
+	.4byte lbl_803D534C
+	.4byte lbl_803D535E
+	.4byte lbl_803D5370
+	.4byte lbl_803D5382
+	.4byte lbl_803D5394
+	.4byte lbl_803D53A6
 
 .global lbl_803D52E0
 lbl_803D52E0:
+
 	# ROM: 0x3D22E0
 	.asciz "A_spike1_LCTR_SDK"
+
+.global lbl_803D52F2
+lbl_803D52F2:
+
+	# ROM: 0x3D22F2
 	.byte 0x41, 0x5F
 	.asciz "spike2_LCTR_SDK"
+
+.global lbl_803D5304
+lbl_803D5304:
+
+	# ROM: 0x3D2304
 	.asciz "A_spike3_LCTR_SDK"
+
+.global lbl_803D5316
+lbl_803D5316:
+
+	# ROM: 0x3D2316
 	.byte 0x41, 0x5F
 	.asciz "spike4_LCTR_SDK"
+
+.global lbl_803D5328
+lbl_803D5328:
+
+	# ROM: 0x3D2328
 	.asciz "A_spike5_LCTR_SDK"
+
+.global lbl_803D533A
+lbl_803D533A:
+
+	# ROM: 0x3D233A
 	.byte 0x41, 0x5F
 	.asciz "spike6_LCTR_SDK"
+
+.global lbl_803D534C
+lbl_803D534C:
+
+	# ROM: 0x3D234C
 	.asciz "B_spike1_LCTR_SDK"
+
+.global lbl_803D535E
+lbl_803D535E:
+
+	# ROM: 0x3D235E
 	.byte 0x42, 0x5F
 	.asciz "spike2_LCTR_SDK"
+
+.global lbl_803D5370
+lbl_803D5370:
+
+	# ROM: 0x3D2370
 	.asciz "B_spike3_LCTR_SDK"
+
+.global lbl_803D5382
+lbl_803D5382:
+
+	# ROM: 0x3D2382
 	.byte 0x42, 0x5F
 	.asciz "spike4_LCTR_SDK"
+
+.global lbl_803D5394
+lbl_803D5394:
+
+	# ROM: 0x3D2394
 	.asciz "B_spike5_LCTR_SDK"
+
+.global lbl_803D53A6
+lbl_803D53A6:
+
+	# ROM: 0x3D23A6
 	.byte 0x42, 0x5F
 	.asciz "spike6_LCTR_SDK"
 	.asciz "??(??)"

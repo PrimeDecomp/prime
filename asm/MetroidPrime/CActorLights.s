@@ -76,7 +76,7 @@ lbl_805AB134:
 .global lbl_805AB138
 lbl_805AB138:
 	# ROM: 0x3F79D8
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AB13C
 lbl_805AB13C:

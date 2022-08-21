@@ -1961,7 +1961,7 @@ lbl_802075C8:
 .global lbl_805ACDE0
 lbl_805ACDE0:
 	# ROM: 0x3F9680
-	.4byte 0x803E6FC4
+	.4byte lbl_803E6FC4
 
 .global lbl_805ACDE4
 lbl_805ACDE4:
@@ -2028,6 +2028,11 @@ lbl_803D25D0:
 	.4byte 0x00000004
 	.4byte 0x00000028
 	.4byte 0x0000004E
+
+.global lbl_803D260C
+lbl_803D260C:
+
+	# ROM: 0x3CF60C
 	.4byte 0x00000005
 	.4byte 0x0000002E
 	.4byte 0x00000057
@@ -2043,6 +2048,11 @@ lbl_803D25D0:
 	.4byte 0x00000009
 	.4byte 0x00000032
 	.4byte 0x0000005B
+
+.global lbl_803D2648
+lbl_803D2648:
+
+	# ROM: 0x3CF648
 	.4byte 0x0000000A
 	.4byte 0x00000033
 	.4byte 0x00000052
@@ -2058,6 +2068,11 @@ lbl_803D25D0:
 	.4byte 0x0000000E
 	.4byte 0x00000037
 	.4byte 0x00000056
+
+.global lbl_803D2684
+lbl_803D2684:
+
+	# ROM: 0x3CF684
 	.4byte 0x0000000F
 	.4byte 0x00000038
 	.4byte 0x00000042
@@ -2094,15 +2109,15 @@ lbl_803D26B4:
 lbl_803D26F0:
 	# ROM: 0x3CF6F0
 	.4byte 0x00000005
-	.4byte 0x803D25D0
+	.4byte lbl_803D25D0
 	.4byte 0x00000005
-	.4byte 0x803D260C
+	.4byte lbl_803D260C
 	.4byte 0x00000005
-	.4byte 0x803D2648
+	.4byte lbl_803D2648
 	.4byte 0x00000004
-	.4byte 0x803D2684
+	.4byte lbl_803D2684
 	.4byte 0x00000005
-	.4byte 0x803D26B4
+	.4byte lbl_803D26B4
 
 .global lbl_803D2718
 lbl_803D2718:

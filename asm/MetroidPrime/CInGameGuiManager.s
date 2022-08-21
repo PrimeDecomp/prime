@@ -4884,40 +4884,41 @@ lbl_8010ADA4:
 .global lbl_803CEE58
 lbl_803CEE58:
 	# ROM: 0x3CBE58
-	.4byte 0x803CEF50
-	.4byte 0x803CEF5F
-	.4byte 0x803CEF68
-	.4byte 0x803CEF74
-	.4byte 0x803CEF80
-	.4byte 0x803CEF8B
-	.4byte 0x803CEF95
-	.4byte 0x803CEFA9
-	.4byte 0x803CEFBA
-	.4byte 0x803CEFC8
-	.4byte 0x803CEFD9
-	.4byte 0x803CEFE8
-	.4byte 0x803CEFF8
-	.4byte 0x803CF007
+	.4byte lbl_803CEF50
+	.4byte lbl_803CEF5F
+	.4byte lbl_803CEF68
+	.4byte lbl_803CEF74
+	.4byte lbl_803CEF80
+	.4byte lbl_803CEF8B
+	.4byte lbl_803CEF95
+	.4byte lbl_803CEFA9
+	.4byte lbl_803CEFBA
+	.4byte lbl_803CEFC8
+	.4byte lbl_803CEFD9
+	.4byte lbl_803CEFE8
+	.4byte lbl_803CEFF8
+	.4byte lbl_803CF007
 
 .global lbl_803CEE90
 lbl_803CEE90:
 	# ROM: 0x3CBE90
-	.4byte 0x803CF016
-	.4byte 0x803CF02E
-	.4byte 0x803CF046
-	.4byte 0x803CF060
-	.4byte 0x803CF079
-	.4byte 0x803CF097
-	.4byte 0x803CF0B5
-	.4byte 0x803CF0D5
-	.4byte 0x803CF0F4
-	.4byte 0x803CF107
-	.4byte 0x803CF120
-	.4byte 0x803CF139
-	.4byte 0x803CF159
+	.4byte lbl_803CF016
+	.4byte lbl_803CF02E
+	.4byte lbl_803CF046
+	.4byte lbl_803CF060
+	.4byte lbl_803CF079
+	.4byte lbl_803CF097
+	.4byte lbl_803CF0B5
+	.4byte lbl_803CF0D5
+	.4byte lbl_803CF0F4
+	.4byte lbl_803CF107
+	.4byte lbl_803CF120
+	.4byte lbl_803CF139
+	.4byte lbl_803CF159
 
 .global lbl_803CEEC4
 lbl_803CEEC4:
+
 	# ROM: 0x3CBEC4
 	.asciz "FaceplateDecoration"
 	.asciz "     FaceReflection"
@@ -4926,48 +4927,175 @@ lbl_803CEEC4:
 	.asciz "         AutoMapper"
 	.asciz "        PauseScreen"
 	.asciz "              Total"
+
+.global lbl_803CEF50
+lbl_803CEF50:
+
+	# ROM: 0x3CBF50
 	.asciz "InGameGui_DGRP"
-	.byte 0x49
-	.asciz "ce_DGRP"
+
+.global lbl_803CEF5F
+lbl_803CEF5F:
+
+	# ROM: 0x3CBF5F
+	.asciz "Ice_DGRP"
+
+.global lbl_803CEF68
+lbl_803CEF68:
+
+	# ROM: 0x3CBF68
 	.asciz "Phazon_DGRP"
+
+.global lbl_803CEF74
+lbl_803CEF74:
+
+	# ROM: 0x3CBF74
 	.asciz "Plasma_DGRP"
+
+.global lbl_803CEF80
+lbl_803CEF80:
+
+	# ROM: 0x3CBF80
 	.asciz "Power_DGRP"
-	.byte 0x57
-	.asciz "ave_DGRP"
-	.byte 0x42, 0x61, 0x6C
-	.asciz "lTransition_DGRP"
-	.byte 0x47, 0x72, 0x61
-	.asciz "vitySuit_DGRP"
-	.byte 0x49, 0x63
-	.asciz "e_Anim_DGRP"
+
+.global lbl_803CEF8B
+lbl_803CEF8B:
+
+	# ROM: 0x3CBF8B
+	.asciz "Wave_DGRP"
+
+.global lbl_803CEF95
+lbl_803CEF95:
+
+	# ROM: 0x3CBF95
+	.asciz "BallTransition_DGRP"
+
+.global lbl_803CEFA9
+lbl_803CEFA9:
+
+	# ROM: 0x3CBFA9
+	.asciz "GravitySuit_DGRP"
+
+.global lbl_803CEFBA
+lbl_803CEFBA:
+
+	# ROM: 0x3CBFBA
+	.asciz "Ice_Anim_DGRP"
+
+.global lbl_803CEFC8
+lbl_803CEFC8:
+
+	# ROM: 0x3CBFC8
 	.asciz "Plasma_Anim_DGRP"
-	.byte 0x50, 0x6F, 0x77
-	.asciz "erSuit_DGRP"
+
+.global lbl_803CEFD9
+lbl_803CEFD9:
+
+	# ROM: 0x3CBFD9
+	.asciz "PowerSuit_DGRP"
+
+.global lbl_803CEFE8
+lbl_803CEFE8:
+
+	# ROM: 0x3CBFE8
 	.asciz "Power_Anim_DGRP"
+
+.global lbl_803CEFF8
+lbl_803CEFF8:
+
+	# ROM: 0x3CBFF8
 	.asciz "VariaSuit_DGRP"
-	.byte 0x57
-	.asciz "ave_Anim_DGRP"
-	.byte 0x49, 0x6E
-	.asciz "ventorySuitPower_DGRP"
+
+.global lbl_803CF007
+lbl_803CF007:
+
+	# ROM: 0x3CC007
+	.asciz "Wave_Anim_DGRP"
+
+.global lbl_803CF016
+lbl_803CF016:
+
+	# ROM: 0x3CC016
+	.asciz "InventorySuitPower_DGRP"
+
+.global lbl_803CF02E
+lbl_803CF02E:
+
+	# ROM: 0x3CC02E
 	.byte 0x49, 0x6E
 	.asciz "ventorySuitVaria_DGRP"
+
+.global lbl_803CF046
+lbl_803CF046:
+
+	# ROM: 0x3CC046
 	.byte 0x49, 0x6E
 	.asciz "ventorySuitGravity_DGRP"
+
+.global lbl_803CF060
+lbl_803CF060:
+
+	# ROM: 0x3CC060
 	.asciz "InventorySuitPhazon_DGRP"
+
+.global lbl_803CF079
+lbl_803CF079:
+
+	# ROM: 0x3CC079
 	.byte 0x49, 0x6E, 0x76
 	.asciz "entorySuitFusionPower_DGRP"
+
+.global lbl_803CF097
+lbl_803CF097:
+
+	# ROM: 0x3CC097
 	.byte 0x49
 	.asciz "nventorySuitFusionVaria_DGRP"
+
+.global lbl_803CF0B5
+lbl_803CF0B5:
+
+	# ROM: 0x3CC0B5
 	.byte 0x49, 0x6E, 0x76
 	.asciz "entorySuitFusionGravity_DGRP"
+
+.global lbl_803CF0D5
+lbl_803CF0D5:
+
+	# ROM: 0x3CC0D5
 	.byte 0x49, 0x6E, 0x76
 	.asciz "entorySuitFusionPhazon_DGRP"
+
+.global lbl_803CF0F4
+lbl_803CF0F4:
+
+	# ROM: 0x3CC0F4
 	.asciz "SamusBallANCS_DGRP"
+
+.global lbl_803CF107
+lbl_803CF107:
+
+	# ROM: 0x3CC107
 	.byte 0x53
 	.asciz "amusSpiderBallANCS_DGRP"
+
+.global lbl_803CF120
+lbl_803CF120:
+
+	# ROM: 0x3CC120
 	.asciz "PauseScreenDontDump_DGRP"
+
+.global lbl_803CF139
+lbl_803CF139:
+
+	# ROM: 0x3CC139
 	.byte 0x50, 0x61, 0x75
 	.asciz "seScreenDontDump_NoARAM_DGRP"
+
+.global lbl_803CF159
+lbl_803CF159:
+
+	# ROM: 0x3CC159
 	.byte 0x50, 0x61, 0x75
 	.asciz "seScreenTokens_DGRP"
 	.asciz "??(??)"
@@ -4982,4 +5110,3 @@ lbl_803CEEC4:
 	.asciz "R_DeathDot"
 	.balign 4
 	.4byte 0
-

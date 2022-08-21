@@ -51,11 +51,11 @@ lbl_802D62A8:
 InitGlobalTimer__10CStopwatchFv:
 /* 802D62B8 002D3218  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802D62BC 002D321C  7C 08 02 A6 */	mflr r0
-/* 802D62C0 002D3220  3C 60 80 5A */	lis r3, lbl_805A0004@ha
+/* 802D62C0 002D3220  3C 60 80 5A */	lis r3, mData__10CStopwatch@ha
 /* 802D62C4 002D3224  38 80 00 00 */	li r4, 0
 /* 802D62C8 002D3228  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802D62CC 002D322C  84 03 FD 30 */	lwzu r0, -0x2d0(r3)
-/* 802D62D0 002D3230  80 A3 00 04 */	lwz r5, lbl_805A0004@l(r3)
+/* 802D62CC 002D322C  84 03 FD 30 */	lwzu r0, mData__10CStopwatch@l(r3)
+/* 802D62D0 002D3230  80 A3 00 04 */	lwz r5, 4(r3)
 /* 802D62D4 002D3234  7C 00 22 78 */	xor r0, r0, r4
 /* 802D62D8 002D3238  7C A4 22 78 */	xor r4, r5, r4
 /* 802D62DC 002D323C  7C 80 03 79 */	or. r0, r4, r0

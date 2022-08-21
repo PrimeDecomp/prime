@@ -2003,13 +2003,29 @@ lbl_8011A440:
 .balign 8
 .global lbl_803CF2F0
 lbl_803CF2F0:
+
 	# ROM: 0x3CC2F0
 	.asciz "LCTR_FLOFLOWER"
+
+.global lbl_803CF2FF
+lbl_803CF2FF:
+
+	# ROM: 0x3CC2FF
 	.byte 0x46
 	.asciz "ire1"
+
+.global lbl_803CF305
+lbl_803CF305:
+
+	# ROM: 0x3CC305
 	.byte 0x46, 0x69, 0x72
-	.4byte 0x65320046
+	.byte 0x65, 0x32, 0x00
+
+.global lbl_803CF30B
+lbl_803CF30B:
+
+	# ROM: 0x3CC30B
+	.byte 0x46
 	.asciz "ire3"
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900
-

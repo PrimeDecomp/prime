@@ -10,12 +10,12 @@ lbl_ctor:
 .global lbl_803E71D0
 lbl_803E71D0:
 	# ROM: 0x3E41D0
-	.4byte 0x803D293C
-	.4byte 0x803D2A44
-	.4byte 0x803D2B4C
-	.4byte 0x803D2CAC
-	.4byte 0x803D2DB4
-	.4byte 0x803D2EBC
+	.4byte lbl_803D293C
+	.4byte lbl_803D2A44
+	.4byte lbl_803D2B4C
+	.4byte lbl_803D2CAC
+	.4byte lbl_803D2DB4
+	.4byte lbl_803D2EBC
 	.4byte 0
 
 .global lbl_803E71EC
@@ -7105,17 +7105,17 @@ lbl_805AD06C:
 .global lbl_805AD070
 lbl_805AD070:
 	# ROM: 0x3F9910
-	.4byte 0x803D2FF0
+	.4byte lbl_803D2FF0
 
 .global lbl_805AD074
 lbl_805AD074:
 	# ROM: 0x3F9914
-	.4byte 0x803D2FF8
+	.4byte lbl_803D2FF8
 
 .global lbl_805AD078
 lbl_805AD078:
 	# ROM: 0x3F9918
-	.4byte 0x803D3003
+	.4byte lbl_803D3003
 
 .global lbl_805AD07C
 lbl_805AD07C:
@@ -7130,7 +7130,7 @@ lbl_805AD080:
 .global lbl_805AD084
 lbl_805AD084:
 	# ROM: 0x3F9924
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AD088
 lbl_805AD088:
@@ -7281,6 +7281,11 @@ lbl_803D2908:
 	.4byte 0x00000001
 	.4byte 0x00000001
 	.4byte 0x00000001
+
+.global lbl_803D293C
+lbl_803D293C:
+
+	# ROM: 0x3CF93C
 	.4byte 0x00000003
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -7347,6 +7352,11 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2A44
+lbl_803D2A44:
+
+	# ROM: 0x3CFA44
 	.4byte 0x0000001E
 	.4byte 0x00000004
 	.4byte 0x00000005
@@ -7413,6 +7423,11 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2B4C
+lbl_803D2B4C:
+
+	# ROM: 0x3CFB4C
 	.4byte 0x00000005
 	.4byte 0x00000010
 	.4byte 0x00000001
@@ -7501,6 +7516,11 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2CAC
+lbl_803D2CAC:
+
+	# ROM: 0x3CFCAC
 	.4byte 0x00000014
 	.4byte 0x00000010
 	.4byte 0x0000000F
@@ -7567,6 +7587,11 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2DB4
+lbl_803D2DB4:
+
+	# ROM: 0x3CFDB4
 	.4byte 0x0000000A
 	.4byte 0x0000000E
 	.4byte 0x00000004
@@ -7633,6 +7658,11 @@ lbl_803D2908:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+
+.global lbl_803D2EBC
+lbl_803D2EBC:
+
+	# ROM: 0x3CFEBC
 	.4byte 0x0000000A
 	.4byte 0x0000000E
 	.4byte 0x0000000D
@@ -7713,9 +7743,20 @@ lbl_803D2908:
 
 .global lbl_803D2FF0
 lbl_803D2FF0:
+
 	# ROM: 0x3CFFF0
 	.asciz "Gun_SDK"
+
+.global lbl_803D2FF8
+lbl_803D2FF8:
+
+	# ROM: 0x3CFFF8
 	.asciz "Blast_LCTR"
+
+.global lbl_803D3003
+lbl_803D3003:
+
+	# ROM: 0x3D0003
 	.byte 0x6C
 	.asciz "ight_LCTR"
 	.byte 0x6C, 0x6F

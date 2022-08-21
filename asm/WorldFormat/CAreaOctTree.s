@@ -551,8 +551,3 @@ lbl_803D6020:
 	# ROM: 0x3D3020
 	.asciz "??(??)"
 	.balign 4
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-

@@ -295,17 +295,17 @@ lbl_805A78B0:
 .global lbl_805A78B4
 lbl_805A78B4:
 	# ROM: 0x3F5254
-	.4byte 0x803D0398
+	.4byte lbl_803D0398
 
 .global lbl_805A78B8
 lbl_805A78B8:
 	# ROM: 0x3F5258
-	.4byte 0x803D03A4
+	.4byte lbl_803D03A4
 
 .global lbl_805A78BC
 lbl_805A78BC:
 	# ROM: 0x3F525C
-	.4byte 0x803D03B3
+	.4byte lbl_803D03B3
 
 .global lbl_805A78C0
 lbl_805A78C0:
@@ -10558,9 +10558,20 @@ lbl_805ABD80:
 .balign 8
 .global lbl_803D0398
 lbl_803D0398:
+
 	# ROM: 0x3CD398
 	.asciz "Beacon_LCTR"
+
+.global lbl_803D03A4
+lbl_803D03A4:
+
+	# ROM: 0x3CD3A4
 	.asciz "R_GUN_TOP_LCTR"
+
+.global lbl_803D03B3
+lbl_803D03B3:
+
+	# ROM: 0x3CD3B3
 	.byte 0x4C
 	.asciz "_GUN_TOP_LCTR"
 	.byte 0x53, 0x68

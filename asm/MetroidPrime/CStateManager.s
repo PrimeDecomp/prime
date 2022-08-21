@@ -399,7 +399,7 @@ lbl_805AA320:
 .global lbl_805AA324
 lbl_805AA324:
 	# ROM: 0x3F6BC4
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AA328
 lbl_805AA328:

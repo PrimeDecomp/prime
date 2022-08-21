@@ -4656,50 +4656,144 @@ lbl_803CE338:
 	.4byte 0x00000019
 	.4byte 0x00000015
 	.4byte 0x0000001D
-	.4byte 0x803CE3AC
-	.4byte 0x803CE3BE
-	.4byte 0x803CE3CE
-	.4byte 0x803CE3DF
-	.4byte 0x803CE3AC
-	.4byte 0x803CE3F2
-	.4byte 0x803CE400
-	.4byte 0x803CE3F2
-	.4byte 0x803CE415
-	.4byte 0x803CE429
-	.4byte 0x803CE429
-	.4byte 0x803CE429
-	.4byte 0x803CE429
-	.4byte 0x803CE43D
-	.4byte 0x803CE43D
-	.4byte 0x803CE43D
-	.4byte 0x803CE43D
-	.4byte 0x803CE43D
-	.4byte 0x803CE44F
-	.4byte 0x803CE461
-	.4byte 0x803CE475
+	.4byte lbl_803CE3AC
+	.4byte lbl_803CE3BE
+	.4byte lbl_803CE3CE
+	.4byte lbl_803CE3DF
+	.4byte lbl_803CE3AC
+	.4byte lbl_803CE3F2
+	.4byte lbl_803CE400
+	.4byte lbl_803CE3F2
+	.4byte lbl_803CE415
+	.4byte lbl_803CE429
+	.4byte lbl_803CE429
+	.4byte lbl_803CE429
+	.4byte lbl_803CE429
+	.4byte lbl_803CE43D
+	.4byte lbl_803CE43D
+	.4byte lbl_803CE43D
+	.4byte lbl_803CE43D
+	.4byte lbl_803CE43D
+	.4byte lbl_803CE44F
+	.4byte lbl_803CE461
+	.4byte lbl_803CE475
 
 .global lbl_803CE3AC
 lbl_803CE3AC:
+
 	# ROM: 0x3CB3AC
 	.asciz "CMDL_InvPowerBeam"
-	.asciz "CMDL_InvIceBeam"
-	.asciz "CMDL_InvWaveBeam"
-	.asciz "CMDL_InvPlasmaBeam"
-	.asciz "CMDL_InvVisor"
+
+.global lbl_803CE3BE
+lbl_803CE3BE:
+
+	# ROM: 0x3CB3BE
+	.byte 0x43, 0x4D
+	.asciz "DL_InvIceBeam"
+
+.global lbl_803CE3CE
+lbl_803CE3CE:
+
+	# ROM: 0x3CB3CE
+	.byte 0x43, 0x4D
+	.asciz "DL_InvWaveBeam"
+
+.global lbl_803CE3DF
+lbl_803CE3DF:
+
+	# ROM: 0x3CB3DF
+	.byte 0x43
+	.asciz "MDL_InvPlasmaBeam"
+
+.global lbl_803CE3F2
+lbl_803CE3F2:
+
+	# ROM: 0x3CB3F2
+	.byte 0x43, 0x4D
+	.asciz "DL_InvVisor"
+
+.global lbl_803CE400
+lbl_803CE400:
+
+	# ROM: 0x3CB400
 	.asciz "CMDL_InvGravityVisor"
-	.asciz "CMDL_InvPhazonVisor"
-	.asciz "CMDL_InvFusionVisor"
-	.asciz "CMDL_InvPowerFins"
-	.asciz "CMDL_InvVariaFins"
-	.asciz "CMDL_InvGravityFins"
-	.asciz "CMDL_InvPhazonFins"
+
+.global lbl_803CE415
+lbl_803CE415:
+
+	# ROM: 0x3CB415
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvPhazonVisor"
+
+.global lbl_803CE429
+lbl_803CE429:
+
+	# ROM: 0x3CB429
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvFusionVisor"
+
+.global lbl_803CE43D
+lbl_803CE43D:
+
+	# ROM: 0x3CB43D
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvPowerFins"
+
+.global lbl_803CE44F
+lbl_803CE44F:
+
+	# ROM: 0x3CB44F
+	.byte 0x43
+	.asciz "MDL_InvVariaFins"
+
+.global lbl_803CE461
+lbl_803CE461:
+
+	# ROM: 0x3CB461
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvGravityFins"
+
+.global lbl_803CE475
+lbl_803CE475:
+
+	# ROM: 0x3CB475
+	.byte 0x43, 0x4D, 0x44
+	.asciz "L_InvPhazonFins"
+
+.global lbl_803CE488
+lbl_803CE488:
+
+	# ROM: 0x3CB488
 	.asciz "CMDL_InvGrappleBeam"
+
+.global lbl_803CE49C
+lbl_803CE49C:
+
+	# ROM: 0x3CB49C
 	.asciz "GUN_LCTR"
-	.asciz "GRAPPLE_LCTR"
-	.asciz "VISOR_LCTR"
-	.asciz "SamusBallANCS"
-	.asciz "??(??)"
-	.asciz "PhazonIndirectTexture"
+
+.global lbl_803CE4A5
+lbl_803CE4A5:
+
+	# ROM: 0x3CB4A5
+	.byte 0x47, 0x52, 0x41
+	.asciz "PPLE_LCTR"
+
+.global lbl_803CE4B2
+lbl_803CE4B2:
+
+	# ROM: 0x3CB4B2
+	.byte 0x56, 0x49
+	.asciz "SOR_LCTR"
+	.byte 0x53, 0x61, 0x6D
+	.asciz "usBallANCS"
+	.byte 0x3F
+	.asciz "?(??)"
+	.byte 0x50, 0x68
+	.asciz "azonIndirectTexture"
 	.asciz "ANCS_ItemScreenSamus"
-	.asciz "BallInnerGlow"
-	.asciz "MorphBallTransitionFlash"
+	.byte 0x42, 0x61, 0x6C
+	.asciz "lInnerGlow"
+	.byte 0x4D
+	.asciz "orphBallTransitionFlash"
+	.4byte 0

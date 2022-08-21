@@ -517,44 +517,154 @@ lbl_803D0430:
 .global lbl_803D0440
 lbl_803D0440:
 	# ROM: 0x3CD440
-	.4byte 0x803D0490
-	.4byte 0x803D0492
-	.4byte 0x803D0494
-	.4byte 0x803D0496
-	.4byte 0x803D0498
-	.4byte 0x803D049B
-	.4byte 0x803D049E
-	.4byte 0x803D04A1
-	.4byte 0x803D04A5
-	.4byte 0x803D04A9
-	.4byte 0x803D04AE
-	.4byte 0x803D04B0
-	.4byte 0x803D04B2
-	.4byte 0x803D04B4
-	.4byte 0x803D04B6
-	.4byte 0x803D04B9
-	.4byte 0x803D04BC
-	.4byte 0x803D04BF
-	.4byte 0x803D04C3
-	.4byte 0x803D04C7
+	.4byte lbl_803D0490
+	.4byte lbl_803D0492
+	.4byte lbl_803D0494
+	.4byte lbl_803D0496
+	.4byte lbl_803D0498
+	.4byte lbl_803D049B
+	.4byte lbl_803D049E
+	.4byte lbl_803D04A1
+	.4byte lbl_803D04A5
+	.4byte lbl_803D04A9
+	.4byte lbl_803D04AE
+	.4byte lbl_803D04B0
+	.4byte lbl_803D04B2
+	.4byte lbl_803D04B4
+	.4byte lbl_803D04B6
+	.4byte lbl_803D04B9
+	.4byte lbl_803D04BC
+	.4byte lbl_803D04BF
+	.4byte lbl_803D04C3
+	.4byte lbl_803D04C7
 
 .global lbl_803D0490
 lbl_803D0490:
+
 	# ROM: 0x3CD490
-	.4byte 0x30003100
-	.4byte 0x32003300
-	.4byte 0x30310031
-	.4byte 0x32003233
-	.4byte 0x00303132
-	.4byte 0x00313233
-	.4byte 0x00303132
-	.4byte 0x33003400
-	.4byte 0x35003600
-	.4byte 0x37003435
-	.4byte 0x00353600
-	.4byte 0x36370034
-	.4byte 0x35360035
-	.4byte 0x36370034
+	.2byte 0x3000
+
+.global lbl_803D0492
+lbl_803D0492:
+
+	# ROM: 0x3CD492
+	.2byte 0x3100
+
+.global lbl_803D0494
+lbl_803D0494:
+
+	# ROM: 0x3CD494
+	.2byte 0x3200
+
+.global lbl_803D0496
+lbl_803D0496:
+
+	# ROM: 0x3CD496
+	.2byte 0x3300
+
+.global lbl_803D0498
+lbl_803D0498:
+
+	# ROM: 0x3CD498
+	.byte 0x30, 0x31, 0x00
+
+.global lbl_803D049B
+lbl_803D049B:
+
+	# ROM: 0x3CD49B
+	.byte 0x31
+	.byte 0x32, 0x00
+
+.global lbl_803D049E
+lbl_803D049E:
+
+	# ROM: 0x3CD49E
+	.byte 0x32, 0x33
+	.byte 0x00
+
+.global lbl_803D04A1
+lbl_803D04A1:
+
+	# ROM: 0x3CD4A1
+	.byte 0x30, 0x31, 0x32
+	.byte 0x00
+
+.global lbl_803D04A5
+lbl_803D04A5:
+
+	# ROM: 0x3CD4A5
+	.byte 0x31, 0x32, 0x33
+	.byte 0x00
+
+.global lbl_803D04A9
+lbl_803D04A9:
+
+	# ROM: 0x3CD4A9
+	.byte 0x30, 0x31, 0x32
+	.byte 0x33, 0x00
+
+.global lbl_803D04AE
+lbl_803D04AE:
+
+	# ROM: 0x3CD4AE
+	.2byte 0x3400
+
+.global lbl_803D04B0
+lbl_803D04B0:
+
+	# ROM: 0x3CD4B0
+	.2byte 0x3500
+
+.global lbl_803D04B2
+lbl_803D04B2:
+
+	# ROM: 0x3CD4B2
+	.2byte 0x3600
+
+.global lbl_803D04B4
+lbl_803D04B4:
+
+	# ROM: 0x3CD4B4
+	.2byte 0x3700
+
+.global lbl_803D04B6
+lbl_803D04B6:
+
+	# ROM: 0x3CD4B6
+	.byte 0x34, 0x35
+	.byte 0x00
+
+.global lbl_803D04B9
+lbl_803D04B9:
+
+	# ROM: 0x3CD4B9
+	.byte 0x35, 0x36, 0x00
+
+.global lbl_803D04BC
+lbl_803D04BC:
+
+	# ROM: 0x3CD4BC
+	.byte 0x36, 0x37, 0x00
+
+.global lbl_803D04BF
+lbl_803D04BF:
+
+	# ROM: 0x3CD4BF
+	.byte 0x34
+	.byte 0x35, 0x36, 0x00
+
+.global lbl_803D04C3
+lbl_803D04C3:
+
+	# ROM: 0x3CD4C3
+	.byte 0x35
+	.byte 0x36, 0x37, 0x00
+
+.global lbl_803D04C7
+lbl_803D04C7:
+
+	# ROM: 0x3CD4C7
+	.byte 0x34
 	.4byte 0x35363700
 	.asciz "??(??)"
 	.byte 0x25

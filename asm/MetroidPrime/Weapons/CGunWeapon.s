@@ -4010,12 +4010,12 @@ lbl_801BD440:
 .global lbl_805AC6E8
 lbl_805AC6E8:
 	# ROM: 0x3F8F88
-	.4byte 0x803D19D1
+	.4byte lbl_803D19D1
 
 .global lbl_805AC6EC
 lbl_805AC6EC:
 	# ROM: 0x3F8F8C
-	.4byte 0x803D19D7
+	.4byte lbl_803D19D7
 
 .global lbl_805AC6F0
 lbl_805AC6F0:
@@ -4060,69 +4060,69 @@ lbl_805AC710:
 .global lbl_803D1750
 lbl_803D1750:
 	# ROM: 0x3CE750
-	.4byte 0x803D1828
-	.4byte 0x803D1834
-	.4byte 0x803D1840
-	.4byte 0x803D184A
-	.4byte 0x803D1828
-	.4byte 0x803D1854
-	.4byte 0x803D185F
-	.4byte 0x803D186C
-	.4byte 0x803D1879
-	.4byte 0x803D1886
+	.4byte lbl_803D1828
+	.4byte lbl_803D1834
+	.4byte lbl_803D1840
+	.4byte lbl_803D184A
+	.4byte lbl_803D1828
+	.4byte lbl_803D1854
+	.4byte lbl_803D185F
+	.4byte lbl_803D186C
+	.4byte lbl_803D1879
+	.4byte lbl_803D1886
 
 .global lbl_803D1778
 lbl_803D1778:
 	# ROM: 0x3CE778
-	.4byte 0x803D1892
-	.4byte 0x803D189E
-	.4byte 0x803D18A7
-	.4byte 0x803D189E
-	.4byte 0x803D18B1
-	.4byte 0x803D189E
-	.4byte 0x803D18BC
-	.4byte 0x803D189E
-	.4byte 0x803D18A7
-	.4byte 0x803D189E
+	.4byte lbl_803D1892
+	.4byte lbl_803D189E
+	.4byte lbl_803D18A7
+	.4byte lbl_803D189E
+	.4byte lbl_803D18B1
+	.4byte lbl_803D189E
+	.4byte lbl_803D18BC
+	.4byte lbl_803D189E
+	.4byte lbl_803D18A7
+	.4byte lbl_803D189E
 
 .global lbl_803D17A0
 lbl_803D17A0:
 	# ROM: 0x3CE7A0
-	.4byte 0x803D18C9
-	.4byte 0x803D18D3
-	.4byte 0x803D18DB
-	.4byte 0x803D18E4
-	.4byte 0x803D18EF
+	.4byte lbl_803D18C9
+	.4byte lbl_803D18D3
+	.4byte lbl_803D18DB
+	.4byte lbl_803D18E4
+	.4byte lbl_803D18EF
 
 .global lbl_803D17B4
 lbl_803D17B4:
 	# ROM: 0x3CE7B4
-	.4byte 0x803D18FA
-	.4byte 0x803D190A
-	.4byte 0x803D1918
-	.4byte 0x803D1927
-	.4byte 0x803D1938
+	.4byte lbl_803D18FA
+	.4byte lbl_803D190A
+	.4byte lbl_803D1918
+	.4byte lbl_803D1927
+	.4byte lbl_803D1938
 
 .global lbl_803D17C8
 lbl_803D17C8:
 	# ROM: 0x3CE7C8
-	.4byte 0x803D1949
-	.4byte 0x803D1954
-	.4byte 0x803D195D
-	.4byte 0x803D1967
-	.4byte 0x803D1973
+	.4byte lbl_803D1949
+	.4byte lbl_803D1954
+	.4byte lbl_803D195D
+	.4byte lbl_803D1967
+	.4byte lbl_803D1973
 
 .global lbl_803D17DC
 lbl_803D17DC:
 	# ROM: 0x3CE7DC
-	.4byte 0x803D197F
-	.4byte 0x803D1988
-	.4byte 0x803D1993
-	.4byte 0x803D199C
-	.4byte 0x803D19A6
-	.4byte 0x803D19B0
-	.4byte 0x803D19BB
-	.4byte 0x803D19C6
+	.4byte lbl_803D197F
+	.4byte lbl_803D1988
+	.4byte lbl_803D1993
+	.4byte lbl_803D199C
+	.4byte lbl_803D19A6
+	.4byte lbl_803D19B0
+	.4byte lbl_803D19BB
+	.4byte lbl_803D19C6
 
 .global lbl_803D17FC
 lbl_803D17FC:
@@ -4141,70 +4141,262 @@ lbl_803D17FC:
 
 .global lbl_803D1828
 lbl_803D1828:
+
 	# ROM: 0x3CE828
 	.asciz "PowerMuzzle"
+
+.global lbl_803D1834
+lbl_803D1834:
+
+	# ROM: 0x3CE834
 	.asciz "PowerCharge"
+
+.global lbl_803D1840
+lbl_803D1840:
+
+	# ROM: 0x3CE840
 	.asciz "IceMuzzle"
+
+.global lbl_803D184A
+lbl_803D184A:
+
+	# ROM: 0x3CE84A
 	.byte 0x49, 0x63
 	.asciz "eCharge"
+
+.global lbl_803D1854
+lbl_803D1854:
+
+	# ROM: 0x3CE854
 	.asciz "WaveCharge"
+
+.global lbl_803D185F
+lbl_803D185F:
+
+	# ROM: 0x3CE85F
 	.byte 0x50
 	.asciz "lasmaMuzzle"
+
+.global lbl_803D186C
+lbl_803D186C:
+
+	# ROM: 0x3CE86C
 	.asciz "PlasmaCharge"
+
+.global lbl_803D1879
+lbl_803D1879:
+
+	# ROM: 0x3CE879
 	.byte 0x50, 0x68, 0x61
 	.asciz "zonMuzzle"
+
+.global lbl_803D1886
+lbl_803D1886:
+
+	# ROM: 0x3CE886
 	.byte 0x45, 0x6D
 	.asciz "ptyMuzzle"
+
+.global lbl_803D1892
+lbl_803D1892:
+
+	# ROM: 0x3CE892
 	.byte 0x70, 0x6F
 	.asciz "werFrozen"
+
+.global lbl_803D189E
+lbl_803D189E:
+
+	# ROM: 0x3CE89E
 	.byte 0x49, 0x63
 	.asciz "e2nd_2"
+
+.global lbl_803D18A7
+lbl_803D18A7:
+
+	# ROM: 0x3CE8A7
 	.byte 0x69
 	.asciz "ceFrozen"
+
+.global lbl_803D18B1
+lbl_803D18B1:
+
+	# ROM: 0x3CE8B1
 	.byte 0x77, 0x61, 0x76
 	.asciz "eFrozen"
+
+.global lbl_803D18BC
+lbl_803D18BC:
+
+	# ROM: 0x3CE8BC
 	.asciz "plasmaFrozen"
+
+.global lbl_803D18C9
+lbl_803D18C9:
+
+	# ROM: 0x3CE8C9
 	.byte 0x50, 0x6F, 0x77
 	.asciz "erXfer"
+
+.global lbl_803D18D3
+lbl_803D18D3:
+
+	# ROM: 0x3CE8D3
 	.byte 0x49
 	.asciz "ceXfer"
+
+.global lbl_803D18DB
+lbl_803D18DB:
+
+	# ROM: 0x3CE8DB
 	.byte 0x57
 	.asciz "aveXfer"
+
+.global lbl_803D18E4
+lbl_803D18E4:
+
+	# ROM: 0x3CE8E4
 	.asciz "PlasmaXfer"
+
+.global lbl_803D18EF
+lbl_803D18EF:
+
+	# ROM: 0x3CE8EF
 	.byte 0x50
 	.asciz "hazonXfer"
+
+.global lbl_803D18FA
+lbl_803D18FA:
+
+	# ROM: 0x3CE8FA
 	.byte 0x50, 0x6F
 	.asciz "wer_Anim_DGRP"
+
+.global lbl_803D190A
+lbl_803D190A:
+
+	# ROM: 0x3CE90A
 	.byte 0x49, 0x63
 	.asciz "e_Anim_DGRP"
+
+.global lbl_803D1918
+lbl_803D1918:
+
+	# ROM: 0x3CE918
 	.asciz "Wave_Anim_DGRP"
+
+.global lbl_803D1927
+lbl_803D1927:
+
+	# ROM: 0x3CE927
 	.byte 0x50
 	.asciz "lasma_Anim_DGRP"
+
+.global lbl_803D1938
+lbl_803D1938:
+
+	# ROM: 0x3CE938
 	.asciz "Phazon_Anim_DGRP"
+
+.global lbl_803D1949
+lbl_803D1949:
+
+	# ROM: 0x3CE949
 	.byte 0x50, 0x6F, 0x77
 	.asciz "er_DGRP"
+
+.global lbl_803D1954
+lbl_803D1954:
+
+	# ROM: 0x3CE954
 	.asciz "Ice_DGRP"
+
+.global lbl_803D195D
+lbl_803D195D:
+
+	# ROM: 0x3CE95D
 	.byte 0x57, 0x61, 0x76
 	.asciz "e_DGRP"
+
+.global lbl_803D1967
+lbl_803D1967:
+
+	# ROM: 0x3CE967
 	.byte 0x50
 	.asciz "lasma_DGRP"
+
+.global lbl_803D1973
+lbl_803D1973:
+
+	# ROM: 0x3CE973
 	.byte 0x50
 	.asciz "hazon_DGRP"
+
+.global lbl_803D197F
+lbl_803D197F:
+
+	# ROM: 0x3CE97F
 	.byte 0x50
 	.asciz "owerArm"
+
+.global lbl_803D1988
+lbl_803D1988:
+
+	# ROM: 0x3CE988
 	.asciz "GravityArm"
+
+.global lbl_803D1993
+lbl_803D1993:
+
+	# ROM: 0x3CE993
 	.byte 0x56
 	.asciz "ariaArm"
+
+.global lbl_803D199C
+lbl_803D199C:
+
+	# ROM: 0x3CE99C
 	.asciz "PhazonArm"
+
+.global lbl_803D19A6
+lbl_803D19A6:
+
+	# ROM: 0x3CE9A6
 	.byte 0x46, 0x75
 	.asciz "sionArm"
+
+.global lbl_803D19B0
+lbl_803D19B0:
+
+	# ROM: 0x3CE9B0
 	.asciz "FusionArmG"
+
+.global lbl_803D19BB
+lbl_803D19BB:
+
+	# ROM: 0x3CE9BB
 	.byte 0x46
 	.asciz "usionArmV"
+
+.global lbl_803D19C6
+lbl_803D19C6:
+
+	# ROM: 0x3CE9C6
 	.byte 0x46, 0x75
 	.asciz "sionArmP"
+
+.global lbl_803D19D1
+lbl_803D19D1:
+
+	# ROM: 0x3CE9D1
 	.byte 0x4C, 0x42, 0x45
-	.4byte 0x414D0065
+	.byte 0x41, 0x4D, 0x00
+
+.global lbl_803D19D7
+lbl_803D19D7:
+
+	# ROM: 0x3CE9D7
+	.byte 0x65
 	.asciz "lbow"
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900

@@ -4420,24 +4420,50 @@ lbl_805ACABC:
 .global lbl_803D1E98
 lbl_803D1E98:
 	# ROM: 0x3CEE98
-	.4byte 0x803D1EB0
-	.4byte 0x803D1EBE
-	.4byte 0x803D1ECE
-	.4byte 0x803D1ED9
-	.4byte 0x803D1EE8
-	.4byte 0x803D1EF8
+	.4byte lbl_803D1EB0
+	.4byte lbl_803D1EBE
+	.4byte lbl_803D1ECE
+	.4byte lbl_803D1ED9
+	.4byte lbl_803D1EE8
+	.4byte lbl_803D1EF8
 
 .global lbl_803D1EB0
 lbl_803D1EB0:
+
 	# ROM: 0x3CEEB0
 	.asciz "Effect_OnFire"
+
+.global lbl_803D1EBE
+lbl_803D1EBE:
+
+	# ROM: 0x3CEEBE
 	.byte 0x45, 0x66
 	.asciz "fect_IceBreak"
+
+.global lbl_803D1ECE
+lbl_803D1ECE:
+
+	# ROM: 0x3CEECE
 	.byte 0x45, 0x66
 	.asciz "fect_Ash"
+
+.global lbl_803D1ED9
+lbl_803D1ED9:
+
+	# ROM: 0x3CEED9
 	.byte 0x45, 0x66, 0x66
 	.asciz "ect_FirePop"
+
+.global lbl_803D1EE8
+lbl_803D1EE8:
+
+	# ROM: 0x3CEEE8
 	.asciz "Effect_Electric"
+
+.global lbl_803D1EF8
+lbl_803D1EF8:
+
+	# ROM: 0x3CEEF8
 	.asciz "Effect_IcePop"
 	.byte 0x5F, 0x44
 	.4byte 0x47525000
