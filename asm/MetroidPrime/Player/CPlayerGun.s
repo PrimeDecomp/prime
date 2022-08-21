@@ -184,7 +184,7 @@ lbl_805A8D8C:
 .global lbl_805AA168
 lbl_805AA168:
 	# ROM: 0x3F6A08
-	.4byte 0x803CCEB0
+	.4byte lbl_803CCEB0
 
 .global lbl_805AA16C
 lbl_805AA16C:

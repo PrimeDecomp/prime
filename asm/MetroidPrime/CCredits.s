@@ -6,12 +6,12 @@
 .global lbl_805AA030
 lbl_805AA030:
 	# ROM: 0x3F68D0
-	.4byte 0x803CCC73
+	.4byte lbl_803CCC73
 
 .global lbl_805AA034
 lbl_805AA034:
 	# ROM: 0x3F68D4
-	.4byte 0x803CCC85
+	.4byte lbl_803CCC85
 
 .global lbl_805AA038
 lbl_805AA038:

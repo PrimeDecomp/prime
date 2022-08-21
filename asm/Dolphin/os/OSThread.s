@@ -20,7 +20,7 @@ lbl_805A9928:
 .global lbl_805A8B50
 lbl_805A8B50:
 	# ROM: 0x3F64F0
-	.4byte 0x80384468
+	.4byte DefaultSwitchThreadCallback
 	.4byte 0
 
 

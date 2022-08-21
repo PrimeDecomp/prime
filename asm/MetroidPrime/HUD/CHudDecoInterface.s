@@ -9960,45 +9960,45 @@ lbl_805AC31C:
 .global lbl_805AC320
 lbl_805AC320:
 	# ROM: 0x3F8BC0
-	.4byte 0x803D0E58
-	.4byte 0x803D0E6D
+	.4byte lbl_803D0E58
+	.4byte lbl_803D0E6D
 
 .global lbl_805AC328
 lbl_805AC328:
 	# ROM: 0x3F8BC8
-	.4byte 0x803D0E81
-	.4byte 0x803D0E94
+	.4byte lbl_803D0E81
+	.4byte lbl_803D0E94
 
 .global lbl_805AC330
 lbl_805AC330:
 	# ROM: 0x3F8BD0
-	.4byte 0x803D0EA6
-	.4byte 0x803D0EC0
+	.4byte lbl_803D0EA6
+	.4byte lbl_803D0EC0
 
 .global lbl_805AC338
 lbl_805AC338:
 	# ROM: 0x3F8BD8
-	.4byte 0x803D0ED9
+	.4byte lbl_803D0ED9
 
 .global lbl_805AC33C
 lbl_805AC33C:
 	# ROM: 0x3F8BDC
-	.4byte 0x803D0EE5
+	.4byte lbl_803D0EE5
 
 .global lbl_805AC340
 lbl_805AC340:
 	# ROM: 0x3F8BE0
-	.4byte 0x803D0EF0
+	.4byte lbl_803D0EF0
 
 .global lbl_805AC344
 lbl_805AC344:
 	# ROM: 0x3F8BE4
-	.4byte 0x803D0EF4
+	.4byte lbl_803D0EF4
 
 .global lbl_805AC348
 lbl_805AC348:
 	# ROM: 0x3F8BE8
-	.4byte 0x803D0EF9
+	.4byte lbl_803D0EF9
 
 .global lbl_805AC34C
 lbl_805AC34C:

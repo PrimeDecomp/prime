@@ -28,9 +28,9 @@ asm void __flush_cache(register void* address, register unsigned int size) {
   add r4, r4, r3
 
 loop:    
-  dcbst 0, r5
+  dcbst r0, r5
   sync
-  icbi 0, r5
+  icbi r0, r5
   addic r5, r5, 8
   subic. r4, r4, 8    
   bge loop

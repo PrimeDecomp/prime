@@ -33,23 +33,6 @@ lbl_803F6FB8:
 	.asciz "SISetSamplingRate: unknown TV format. Use default."
 	.balign 4
 	.4byte 0
-	.asciz "<< Dolphin SDK - EXI\trelease build: Sep  5 2002 05:33:04 (0x2301) >>"
-	.balign 4
-	.asciz "Memory Card 59"
-	.balign 4
-	.asciz "Memory Card 123"
-	.asciz "Memory Card 251"
-	.asciz "Memory Card 507"
-	.asciz "USB Adapter"
-	.asciz "Net Card"
-	.balign 4
-	.asciz "Artist Ether"
-	.balign 4
-	.asciz "Stream Hanger"
-	.balign 4
-	.asciz "IS Viewer"
-	.balign 4
-	.4byte 0
 
 
 .section .text, "ax"

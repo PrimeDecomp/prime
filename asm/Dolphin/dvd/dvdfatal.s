@@ -5,12 +5,12 @@
 .global lbl_805A8AB0
 lbl_805A8AB0:
 	# ROM: 0x3F6450
-	.4byte 0x803F0148
+	.4byte lbl_803F0148
 
 .global lbl_805A8AB4
 lbl_805A8AB4:
 	# ROM: 0x3F6454
-	.4byte 0x803F01B8
+	.4byte lbl_803F01B8
 
 
 .section .sbss
@@ -36,12 +36,12 @@ lbl_805AEB24:
 .balign 8
 lbl_803D8570:
 	# ROM: 0x3D5570
-	.4byte 0x803F0238
-	.4byte 0x803F02B8
-	.4byte 0x803F0354
-	.4byte 0x803F03E4
-	.4byte 0x803F046C
-	.4byte 0x803F04EC
+	.4byte lbl_803F0238
+	.4byte lbl_803F02B8
+	.4byte lbl_803F0354
+	.4byte lbl_803F03E4
+	.4byte lbl_803F046C
+	.4byte lbl_803F04EC
 
 
 .section .text, "ax"

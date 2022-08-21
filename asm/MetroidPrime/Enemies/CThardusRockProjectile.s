@@ -2893,7 +2893,7 @@ Accept__22CThardusRockProjectileFR8IVisitor:
 .global lbl_805ACD98
 lbl_805ACD98:
 	# ROM: 0x3F9638
-	.4byte 0x803D2590
+	.4byte lbl_803D2590
 	.float 1.5
 
 .global lbl_805ACDA0

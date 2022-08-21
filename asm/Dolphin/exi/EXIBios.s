@@ -1,5 +1,26 @@
 .include "macros.inc"
 
+.section .data, "wa"
+.balign 8
+lbl_803F7050:
+	.asciz "<< Dolphin SDK - EXI\trelease build: Sep  5 2002 05:33:04 (0x2301) >>"
+	.balign 4
+	.asciz "Memory Card 59"
+	.balign 4
+	.asciz "Memory Card 123"
+	.asciz "Memory Card 251"
+	.asciz "Memory Card 507"
+	.asciz "USB Adapter"
+	.asciz "Net Card"
+	.balign 4
+	.asciz "Artist Ether"
+	.balign 4
+	.asciz "Stream Hanger"
+	.balign 4
+	.asciz "IS Viewer"
+	.balign 4
+	.4byte 0
+
 .section .bss
 .balign 8
 .global lbl_80569E98
@@ -12,7 +33,7 @@ lbl_80569E98:
 .global lbl_805A8C10
 lbl_805A8C10:
 	# ROM: 0x3F65B0
-	.4byte 0x803F7050
+	.4byte lbl_803F7050
 	.4byte 0
 
 

@@ -5035,7 +5035,7 @@ __sinit_CParasite_cpp:
 .global lbl_805ABB68
 lbl_805ABB68:
 	# ROM: 0x3F8408
-	.4byte 0x803D0330
+	.4byte lbl_803D0330
 	.float 0.4
 
 .global lbl_805ABB70
