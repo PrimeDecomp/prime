@@ -430,7 +430,7 @@ lbl_805AAEE0:
 .global lbl_805AAEE4
 lbl_805AAEE4:
 	# ROM: 0x3F7784
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AAEE8
 lbl_805AAEE8:
@@ -15148,110 +15148,113 @@ lbl_800FA60C:
 .balign 8
 .global lbl_803CE910
 lbl_803CE910:
+
 	# ROM: 0x3CB910
-	.4byte 0x803CEBF4
+	.4byte lbl_803CEBF4
 	.4byte 0
-	.4byte 0x803CEBF4
+	.4byte lbl_803CEBF4
 	.4byte 0
-	.4byte 0x803CEBF4
+	.4byte lbl_803CEBF4
 	.4byte 0x00000001
-	.4byte 0x803CEBF4
+	.4byte lbl_803CEBF4
 	.4byte 0
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0x00000002
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0x00000001
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0x00000003
-	.4byte 0x803CEC16
+	.4byte lbl_803CEC16
 	.4byte 0
-	.4byte 0x803CEC16
+	.4byte lbl_803CEC16
 	.4byte 0
-	.4byte 0x803CEC16
+	.4byte lbl_803CEC16
 	.4byte 0x00000001
-	.4byte 0x803CEC16
+	.4byte lbl_803CEC16
 	.4byte 0
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0x00000002
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0x00000001
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0x00000003
-	.4byte 0x803CEC46
+	.4byte lbl_803CEC46
 	.4byte 0
-	.4byte 0x803CEC46
+	.4byte lbl_803CEC46
 	.4byte 0
-	.4byte 0x803CEC46
+	.4byte lbl_803CEC46
 	.4byte 0x00000001
-	.4byte 0x803CEC46
+	.4byte lbl_803CEC46
 	.4byte 0x00000002
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0x00000002
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0x00000001
-	.4byte 0x803CEC2B
+	.4byte lbl_803CEC2B
 	.4byte 0x00000003
 
 .global lbl_803CE9D0
 lbl_803CE9D0:
+
 	# ROM: 0x3CB9D0
-	.4byte 0x803CEC61
+	.4byte lbl_803CEC61
 	.4byte 0
-	.4byte 0x803CEC61
+	.4byte lbl_803CEC61
 	.4byte 0
-	.4byte 0x803CEC61
+	.4byte lbl_803CEC61
 	.4byte 0x00000001
-	.4byte 0x803CEC75
+	.4byte lbl_803CEC75
 	.4byte 0
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0x00000002
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0x00000001
-	.4byte 0x803CEC02
+	.4byte lbl_803CEC02
 	.4byte 0x00000003
 
 .global lbl_803CEA10
 lbl_803CEA10:
+
 	# ROM: 0x3CBA10
-	.4byte 0x803CEC89
+	.4byte lbl_803CEC89
 	.4byte 0
-	.4byte 0x803CEC89
+	.4byte lbl_803CEC89
 	.4byte 0
-	.4byte 0x803CEC89
+	.4byte lbl_803CEC89
 	.4byte 0x00000001
-	.4byte 0x803CECA2
+	.4byte lbl_803CECA2
 	.4byte 0
-	.4byte 0x803CEC89
+	.4byte lbl_803CEC89
 	.4byte 0
-	.4byte 0x803CEC89
+	.4byte lbl_803CEC89
 	.4byte 0
-	.4byte 0x803CEC89
+	.4byte lbl_803CEC89
 	.4byte 0x00000001
-	.4byte 0x803CECA2
+	.4byte lbl_803CECA2
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
-	.4byte 0x803CECBB
+	.4byte lbl_803CECBB
 	.4byte 0
 
 .global lbl_803CEA90
@@ -15377,24 +15380,70 @@ lbl_803CEBC4:
 
 .global lbl_803CEBF4
 lbl_803CEBF4:
+
 	# ROM: 0x3CBBF4
 	.asciz "SamusBallANCS"
+
+.global lbl_803CEC02
+lbl_803CEC02:
+
+	# ROM: 0x3CBC02
 	.byte 0x53, 0x61
 	.asciz "musFusionBallANCS"
+
+.global lbl_803CEC16
+lbl_803CEC16:
+
+	# ROM: 0x3CBC16
 	.byte 0x53, 0x61
 	.asciz "musBallLowPolyCMDL"
+
+.global lbl_803CEC2B
+lbl_803CEC2B:
+
+	# ROM: 0x3CBC2B
 	.byte 0x53
 	.asciz "amusBallFusionLowPolyCMDL"
+
+.global lbl_803CEC46
+lbl_803CEC46:
+
+	# ROM: 0x3CBC46
 	.byte 0x53, 0x61
 	.asciz "musSpiderBallLowPolyCMDL"
+
+.global lbl_803CEC61
+lbl_803CEC61:
+
+	# ROM: 0x3CBC61
 	.byte 0x53, 0x61, 0x6D
 	.asciz "usSpiderBallANCS"
+
+.global lbl_803CEC75
+lbl_803CEC75:
+
+	# ROM: 0x3CBC75
 	.byte 0x53, 0x61, 0x6D
 	.asciz "usPhazonBallANCS"
+
+.global lbl_803CEC89
+lbl_803CEC89:
+
+	# ROM: 0x3CBC89
 	.byte 0x53, 0x61, 0x6D
 	.asciz "usSpiderBallGlassCMDL"
+
+.global lbl_803CECA2
+lbl_803CECA2:
+
+	# ROM: 0x3CBCA2
 	.byte 0x53, 0x61
 	.asciz "musPhazonBallGlassCMDL"
+
+.global lbl_803CECBB
+lbl_803CECBB:
+
+	# ROM: 0x3CBCBB
 	.byte 0x53
 	.asciz "amusBallFrozenCMDL"
 	.balign 4
@@ -15436,4 +15485,3 @@ lbl_803CEBF4:
 	.byte 0x45, 0x66, 0x66
 	.asciz "ect_MorphBallIceBreak"
 	.balign 4
-

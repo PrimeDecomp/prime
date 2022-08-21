@@ -3596,14 +3596,14 @@ lbl_801204D4:
 .global lbl_803CF320
 lbl_803CF320:
 	# ROM: 0x3CC320
-	.4byte 0x803CF3A2
-	.4byte 0x803CF3B1
-	.4byte 0x803CF3C2
-	.4byte 0x803CF3D1
-	.4byte 0x803CF3E1
-	.4byte 0x803CF3F1
-	.4byte 0x803CF402
-	.4byte 0x803CF413
+	.4byte lbl_803CF3A2
+	.4byte lbl_803CF3B1
+	.4byte lbl_803CF3C2
+	.4byte lbl_803CF3D1
+	.4byte lbl_803CF3E1
+	.4byte lbl_803CF3F1
+	.4byte lbl_803CF402
+	.4byte lbl_803CF413
 
 .global lbl_803CF340
 lbl_803CF340:
@@ -3636,13 +3636,29 @@ lbl_803CF38E:
 .global lbl_803CF39B
 lbl_803CF39B:
 	.asciz "LGBeam"
+.global lbl_803CF3A2
+lbl_803CF3A2:
 	.asciz "PowerSuit_DGRP"
+.global lbl_803CF3B1
+lbl_803CF3B1:
 	.asciz "GravitySuit_DGRP"
+.global lbl_803CF3C2
+lbl_803CF3C2:
 	.asciz "VariaSuit_DGRP"
+.global lbl_803CF3D1
+lbl_803CF3D1:
 	.asciz "PhazonSuit_DGRP"
+.global lbl_803CF3E1
+lbl_803CF3E1:
 	.asciz "FusionSuit_DGRP"
+.global lbl_803CF3F1
+lbl_803CF3F1:
 	.asciz "FusionSuitG_DGRP"
+.global lbl_803CF402
+lbl_803CF402:
 	.asciz "FusionSuitV_DGRP"
+.global lbl_803CF413
+lbl_803CF413:
 	.asciz "FusionSuitP_DGRP"
 	.asciz "??(??)"
 	.asciz "Whole Body"

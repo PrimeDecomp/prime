@@ -8279,17 +8279,17 @@ lbl_805AD110:
 .global lbl_805AD114
 lbl_805AD114:
 	# ROM: 0x3F99B4
-	.4byte 0x803D31DE
+	.4byte lbl_803D31DE
 
 .global lbl_805AD118
 lbl_805AD118:
 	# ROM: 0x3F99B8
-	.4byte 0x803D31EC
+	.4byte lbl_803D31EC
 
 .global lbl_805AD11C
 lbl_805AD11C:
 	# ROM: 0x3F99BC
-	.4byte 0x803D31F3
+	.4byte lbl_803D31F3
 
 .global lbl_805AD120
 lbl_805AD120:
@@ -8344,7 +8344,7 @@ lbl_805AD144:
 .global lbl_805AD148
 lbl_805AD148:
 	# ROM: 0x3F99E8
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AD14C
 lbl_805AD14C:
@@ -8424,26 +8424,47 @@ lbl_805AD188:
 .global lbl_803D31A8
 lbl_803D31A8:
 	# ROM: 0x3D01A8
-	.4byte 0x803D31D0
+	.4byte lbl_803D31D0
 	.4byte 0x3F99999A
-	.4byte 0x803D31D7
+	.4byte lbl_803D31D7
 	.4byte 0x3F99999A
-	.4byte 0x803D31DE
+	.4byte lbl_803D31DE
 	.4byte 0x3FD9999A
-	.4byte 0x803D31EC
+	.4byte lbl_803D31EC
 	.4byte 0x3F99999A
-	.4byte 0x803D31F3
+	.4byte lbl_803D31F3
 	.float 0.9
 
 .global lbl_803D31D0
 lbl_803D31D0:
+
 	# ROM: 0x3D01D0
 	.asciz "L_knee"
+
+.global lbl_803D31D7
+lbl_803D31D7:
+
+	# ROM: 0x3D01D7
 	.byte 0x52
 	.asciz "_knee"
+
+.global lbl_803D31DE
+lbl_803D31DE:
+
+	# ROM: 0x3D01DE
 	.byte 0x4C, 0x43
 	.asciz "TR_SHEMOUTH"
+
+.global lbl_803D31EC
+lbl_803D31EC:
+
+	# ROM: 0x3D01EC
 	.asciz "Pelvis"
+
+.global lbl_803D31F3
+lbl_803D31F3:
+
+	# ROM: 0x3D01F3
 	.byte 0x62
 	.asciz "utt_LCTR"
 	.byte 0x3F, 0x3F, 0x28

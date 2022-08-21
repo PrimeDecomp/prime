@@ -2864,68 +2864,68 @@ lbl_805AC114:
 .global lbl_803D06D0
 lbl_803D06D0:
 	# ROM: 0x3CD6D0
-	.4byte 0x803D07E4
-	.4byte 0x803D07EB
+	.4byte lbl_803D07E4
+	.4byte lbl_803D07EB
 	.float 4.0
 	.float 1.0
 	.float 4.0
-	.4byte 0x803D07EB
-	.4byte 0x803D07F3
+	.4byte lbl_803D07EB
+	.4byte lbl_803D07F3
 	.float 2.0
 	.float 1.0
 	.float 2.0
-	.4byte 0x803D07F3
-	.4byte 0x803D07FA
+	.4byte lbl_803D07F3
+	.4byte lbl_803D07FA
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D07FA
-	.4byte 0x803D0801
+	.4byte lbl_803D07FA
+	.4byte lbl_803D0801
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D0801
-	.4byte 0x803D0808
+	.4byte lbl_803D0801
+	.4byte lbl_803D0808
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D080F
-	.4byte 0x803D0820
+	.4byte lbl_803D080F
+	.4byte lbl_803D0820
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D0820
-	.4byte 0x803D082E
+	.4byte lbl_803D0820
+	.4byte lbl_803D082E
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D083C
-	.4byte 0x803D084D
+	.4byte lbl_803D083C
+	.4byte lbl_803D084D
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D084D
-	.4byte 0x803D085B
+	.4byte lbl_803D084D
+	.4byte lbl_803D085B
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D0869
-	.4byte 0x803D0879
+	.4byte lbl_803D0869
+	.4byte lbl_803D0879
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D0879
-	.4byte 0x803D0886
+	.4byte lbl_803D0879
+	.4byte lbl_803D0886
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D0893
-	.4byte 0x803D08A3
+	.4byte lbl_803D0893
+	.4byte lbl_803D08A3
 	.float 0.5
 	.float 0.5
 	.float 0.5
-	.4byte 0x803D08A3
-	.4byte 0x803D08B0
+	.4byte lbl_803D08A3
+	.4byte lbl_803D08B0
 	.float 0.5
 	.float 0.5
 	.float 0.5
@@ -2933,47 +2933,145 @@ lbl_803D06D0:
 .global lbl_803D07D4
 lbl_803D07D4:
 	# ROM: 0x3CD7D4
-	.4byte 0x803D08BD
+	.4byte lbl_803D08BD
 	.float 1.5
-	.4byte 0x803D08C4
+	.4byte lbl_803D08C4
 	.float 1.5
 
 .global lbl_803D07E4
 lbl_803D07E4:
+
 	# ROM: 0x3CD7E4
 	.asciz "Pelvis"
+
+.global lbl_803D07EB
+lbl_803D07EB:
+
+	# ROM: 0x3CD7EB
 	.byte 0x53
 	.asciz "pine_3"
+
+.global lbl_803D07F3
+lbl_803D07F3:
+
+	# ROM: 0x3CD7F3
 	.byte 0x54
 	.asciz "ail_1"
+
+.global lbl_803D07FA
+lbl_803D07FA:
+
+	# ROM: 0x3CD7FA
 	.byte 0x54, 0x61
 	.asciz "il_2"
+
+.global lbl_803D0801
+lbl_803D0801:
+
+	# ROM: 0x3CD801
 	.byte 0x54, 0x61, 0x69
 	.4byte 0x6C5F3300
+
+.global lbl_803D0808
+lbl_803D0808:
+
+	# ROM: 0x3CD808
 	.asciz "Tail_4"
+
+.global lbl_803D080F
+lbl_803D080F:
+
+	# ROM: 0x3CD80F
 	.byte 0x52
 	.asciz "_shoulder_front"
+
+.global lbl_803D0820
+lbl_803D0820:
+
+	# ROM: 0x3CD820
 	.asciz "R_elbow_front"
+
+.global lbl_803D082E
+lbl_803D082E:
+
+	# ROM: 0x3CD82E
 	.byte 0x52, 0x5F
 	.asciz "wrist_front"
+
+.global lbl_803D083C
+lbl_803D083C:
+
+	# ROM: 0x3CD83C
 	.asciz "L_shoulder_front"
+
+.global lbl_803D084D
+lbl_803D084D:
+
+	# ROM: 0x3CD84D
 	.byte 0x4C, 0x5F, 0x65
 	.asciz "lbow_front"
+
+.global lbl_803D085B
+lbl_803D085B:
+
+	# ROM: 0x3CD85B
 	.byte 0x4C
 	.asciz "_wrist_front"
+
+.global lbl_803D0869
+lbl_803D0869:
+
+	# ROM: 0x3CD869
 	.byte 0x52, 0x5F, 0x73
 	.asciz "houlder_back"
+
+.global lbl_803D0879
+lbl_803D0879:
+
+	# ROM: 0x3CD879
 	.byte 0x52, 0x5F, 0x65
 	.asciz "lbow_back"
+
+.global lbl_803D0886
+lbl_803D0886:
+
+	# ROM: 0x3CD886
 	.byte 0x52, 0x5F
 	.asciz "wrist_back"
+
+.global lbl_803D0893
+lbl_803D0893:
+
+	# ROM: 0x3CD893
 	.byte 0x4C
 	.asciz "_shoulder_back"
+
+.global lbl_803D08A3
+lbl_803D08A3:
+
+	# ROM: 0x3CD8A3
 	.byte 0x4C
 	.asciz "_elbow_back"
-	.asciz "L_wrist_back"
+
+.global lbl_803D08B0
+lbl_803D08B0:
+
+	# ROM: 0x3CD8B0
+	.4byte 0x4C5F7772
+	.4byte 0x6973745F
+	.asciz "back"
+
+.global lbl_803D08BD
+lbl_803D08BD:
+
+	# ROM: 0x3CD8BD
 	.byte 0x48, 0x65, 0x61
 	.4byte 0x645F3100
+
+.global lbl_803D08C4
+lbl_803D08C4:
+
+	# ROM: 0x3CD8C4
 	.asciz "Tail_5"
 	.byte 0x3F
 	.asciz "?(??)"

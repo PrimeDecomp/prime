@@ -31,7 +31,18 @@ lbl_803D85D8:
 	.4byte 0x00313238
 	.4byte 0x00323536
 	.4byte 0
-	.4byte 0x2E000043
+
+.global lbl_803D86B8
+lbl_803D86B8:
+
+	# ROM: 0x3D56B8
+	.2byte 0x2E00
+
+.global lbl_803D86BA
+lbl_803D86BA:
+
+	# ROM: 0x3D56BA
+	.byte 0x00, 0x43
 	.4byte 0
 
 
@@ -2106,14 +2117,12 @@ lbl_8038CE14:
 /* 8038CE14 00389D74  7C 83 23 78 */	mr r3, r4
 /* 8038CE18 00389D78  4E 80 00 20 */	blr
 
-.if 1
 .global abs
 abs:
 /* 8038CE1C 00389D7C  7C 64 FE 70 */	srawi r4, r3, 0x1f
 /* 8038CE20 00389D80  7C 80 1A 78 */	xor r0, r4, r3
 /* 8038CE24 00389D84  7C 64 00 50 */	subf r3, r4, r0
 /* 8038CE28 00389D88  4E 80 00 20 */	blr
-.endif
 
 .section .sdata2, "a"
 .balign 8

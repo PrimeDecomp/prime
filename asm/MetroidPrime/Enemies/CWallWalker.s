@@ -1227,7 +1227,7 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 .global lbl_805AD818
 lbl_805AD818:
 	# ROM: 0x3FA0B8
-	.4byte 0x803D53C8
+	.4byte lbl_803D53C8
 
 .global lbl_805AD81C
 lbl_805AD81C:
@@ -1237,7 +1237,7 @@ lbl_805AD81C:
 .global lbl_805AD820
 lbl_805AD820:
 	# ROM: 0x3FA0C0
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AD824
 lbl_805AD824:
@@ -1284,3 +1284,12 @@ lbl_805AD844:
 	# ROM: 0x3FA0E4
 	.float 0.017453292
 
+.section .rodata
+.balign 8
+
+.global lbl_803D53C8
+lbl_803D53C8:
+
+	# ROM: 0x3D23C8
+	.asciz "BendingAnimationHack"
+	.balign 4

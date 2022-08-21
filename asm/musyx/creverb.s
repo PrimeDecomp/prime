@@ -62,7 +62,7 @@ lbl_805AF3E0:
 .global lbl_805AF3E4
 lbl_805AF3E4:
 	# ROM: 0x3FBC84
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AF3E8
 lbl_805AF3E8:

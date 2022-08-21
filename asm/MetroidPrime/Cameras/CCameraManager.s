@@ -375,7 +375,6 @@ lbl_8000949C:
 lbl_800094A8:
 /* 800094A8 00006408  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800094AC 0000640C  83 E1 00 1C */	lwz r31, 0x1c(r1)
-.global lbl_800094B0
 lbl_800094B0:
 /* 800094B0 00006410  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 800094B4 00006414  7C 08 03 A6 */	mtlr r0
@@ -1826,9 +1825,6 @@ IsInFirstPersonCamera__14CCameraManagerCFv:
 /* 8000A8F0 00007850  7C 03 00 50 */	subf r0, r3, r0
 /* 8000A8F4 00007854  7C 00 00 34 */	cntlzw r0, r0
 /* 8000A8F8 00007858  54 03 D9 7E */	srwi r3, r0, 5
-
-.global sub_8000a8fc
-sub_8000a8fc:
 /* 8000A8FC 0000785C  4E 80 00 20 */	blr
 
 .global IsInCinematicCamera__14CCameraManagerCFv
@@ -2357,9 +2353,6 @@ lbl_8000B020:
 /* 8000B048 00007FA8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8000B04C 00007FAC  7C 08 03 A6 */	mtlr r0
 /* 8000B050 00007FB0  38 21 00 30 */	addi r1, r1, 0x30
-
-.global sub_8000b054
-sub_8000b054:
 /* 8000B054 00007FB4  4E 80 00 20 */	blr
 
 .global EnterCinematic__14CCameraManagerFR13CStateManager

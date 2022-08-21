@@ -2330,44 +2330,81 @@ lbl_805ABB60:
 .balign 8
 .global lbl_803D01F8
 lbl_803D01F8:
+
 	# ROM: 0x3CD1F8
-	.4byte 0x803D023C
-	.float 1.5
-	.4byte 0x803D0248
-	.float 1.0
-	.4byte 0x803D024E
-	.float 1.0
-	.4byte 0x803D0254
-	.float 1.0
-	.4byte 0x803D025A
-	.float 1.0
-	.4byte 0x803D0267
-	.float 1.0
-	.4byte 0x803D027D
-	.float 1.5
+	.4byte lbl_803D023C
+	.4byte 0x3FC00000
+	.4byte lbl_803D0248
+	.4byte 0x3F800000
+	.4byte lbl_803D024E
+	.4byte 0x3F800000
+	.4byte lbl_803D0254
+	.4byte 0x3F800000
+	.4byte lbl_803D025A
+	.4byte 0x3F800000
+	.4byte lbl_803D0267
+	.4byte 0x3F800000
+	.4byte lbl_803D027D
+	.4byte 0x3FC00000
 
 .global lbl_803D0230
 lbl_803D0230:
+
 	# ROM: 0x3CD230
 	.asciz "Arm_2"
 	.byte 0x41, 0x72
 	.4byte 0x6D5F3300
+
+.global lbl_803D023C
+lbl_803D023C:
+
+	# ROM: 0x3CD23C
 	.asciz "Arm_4"
 	.byte 0x41, 0x72
 	.4byte 0x6D5F3500
+
+.global lbl_803D0248
+lbl_803D0248:
+
+	# ROM: 0x3CD248
 	.asciz "Arm_6"
+
+.global lbl_803D024E
+lbl_803D024E:
+
+	# ROM: 0x3CD24E
 	.byte 0x41, 0x72
 	.4byte 0x6D5F3700
+
+.global lbl_803D0254
+lbl_803D0254:
+
+	# ROM: 0x3CD254
 	.asciz "Arm_8"
+
+.global lbl_803D025A
+lbl_803D025A:
+
+	# ROM: 0x3CD25A
 	.byte 0x41, 0x72
 	.4byte 0x6D5F3900
 	.asciz "Arm_10"
+
+.global lbl_803D0267
+lbl_803D0267:
+
+	# ROM: 0x3CD267
 	.byte 0x41
 	.asciz "rm_11"
 	.byte 0x41, 0x72
 	.asciz "m_12"
 	.byte 0x41, 0x72, 0x6D
 	.asciz "_end"
+
+.global lbl_803D027D
+lbl_803D027D:
+
+	# ROM: 0x3CD27D
 	.byte 0x73, 0x77, 0x6F
 	.asciz "osh_LCTR"
 	.byte 0x6C, 0x6F, 0x63

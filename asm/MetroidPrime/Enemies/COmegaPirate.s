@@ -7040,7 +7040,6 @@ lbl_802911D0:
 /* 802911D0 0028E130  7C 1D C0 40 */	cmplw r29, r24
 /* 802911D4 0028E134  41 80 F9 80 */	blt lbl_80290B54
 /* 802911D8 0028E138  48 00 05 88 */	b lbl_80291760
-.global lbl_802911DC
 lbl_802911DC:
 /* 802911DC 0028E13C  A0 14 00 00 */	lhz r0, 0(r20)
 /* 802911E0 0028E140  38 A1 00 48 */	addi r5, r1, 0x48
@@ -7128,7 +7127,6 @@ lbl_80291218:
 /* 80291324 0028E284  C0 1F 04 24 */	lfs f0, 0x424(r31)
 /* 80291328 0028E288  D0 1F 04 20 */	stfs f0, 0x420(r31)
 /* 8029132C 0028E28C  48 00 04 34 */	b lbl_80291760
-.global lbl_80291330
 lbl_80291330:
 /* 80291330 0028E290  A0 14 00 00 */	lhz r0, 0(r20)
 /* 80291334 0028E294  A0 7F 09 90 */	lhz r3, 0x990(r31)
@@ -7194,7 +7192,6 @@ lbl_802913E0:
 /* 80291420 0028E380  90 1F 0A 7C */	stw r0, 0xa7c(r31)
 /* 80291424 0028E384  D0 1F 0A 84 */	stfs f0, 0xa84(r31)
 /* 80291428 0028E388  48 00 03 38 */	b lbl_80291760
-.global lbl_8029142C
 lbl_8029142C:
 /* 8029142C 0028E38C  A0 14 00 00 */	lhz r0, 0(r20)
 /* 80291430 0028E390  7F C3 F3 78 */	mr r3, r30
@@ -7243,28 +7240,23 @@ lbl_802914D0:
 /* 802914D8 0028E438  38 80 00 01 */	li r4, 1
 /* 802914DC 0028E43C  4B F9 60 C1 */	bl sub_8022759c
 /* 802914E0 0028E440  48 00 02 80 */	b lbl_80291760
-.global lbl_802914E4
 lbl_802914E4:
 /* 802914E4 0028E444  38 00 00 01 */	li r0, 1
 /* 802914E8 0028E448  98 1F 09 EC */	stb r0, 0x9ec(r31)
 /* 802914EC 0028E44C  48 00 02 74 */	b lbl_80291760
-.global lbl_802914F0
 lbl_802914F0:
 /* 802914F0 0028E450  7F C5 F3 78 */	mr r5, r30
 /* 802914F4 0028E454  38 80 00 01 */	li r4, 1
 /* 802914F8 0028E458  4B F9 60 A5 */	bl sub_8022759c
 /* 802914FC 0028E45C  48 00 02 64 */	b lbl_80291760
-.global lbl_80291500
 lbl_80291500:
 /* 80291500 0028E460  38 00 00 01 */	li r0, 1
 /* 80291504 0028E464  98 1F 0A 3C */	stb r0, 0xa3c(r31)
 /* 80291508 0028E468  48 00 02 58 */	b lbl_80291760
-.global lbl_8029150C
 lbl_8029150C:
 /* 8029150C 0028E46C  7F C4 F3 78 */	mr r4, r30
 /* 80291510 0028E470  4B FF A0 09 */	bl sub_8028b518
 /* 80291514 0028E474  48 00 02 4C */	b lbl_80291760
-.global lbl_80291518
 lbl_80291518:
 /* 80291518 0028E478  C0 02 BE A0 */	lfs f0, lbl_805ADBC0@sda21(r2)
 /* 8029151C 0028E47C  D0 1F 03 B4 */	stfs f0, 0x3b4(r31)
@@ -7314,7 +7306,6 @@ lbl_80291518:
 /* 802915CC 0028E52C  90 72 01 08 */	stw r3, 0x108(r18)
 /* 802915D0 0028E530  90 01 01 3C */	stw r0, 0x13c(r1)
 /* 802915D4 0028E534  48 00 01 8C */	b lbl_80291760
-.global lbl_802915D8
 lbl_802915D8:
 /* 802915D8 0028E538  C0 02 BE A0 */	lfs f0, lbl_805ADBC0@sda21(r2)
 /* 802915DC 0028E53C  D0 1F 03 B4 */	stfs f0, 0x3b4(r31)
@@ -7364,12 +7355,10 @@ lbl_802915D8:
 /* 8029168C 0028E5EC  90 72 01 08 */	stw r3, 0x108(r18)
 /* 80291690 0028E5F0  90 01 01 24 */	stw r0, 0x124(r1)
 /* 80291694 0028E5F4  48 00 00 CC */	b lbl_80291760
-.global lbl_80291698
 lbl_80291698:
 /* 80291698 0028E5F8  38 00 00 01 */	li r0, 1
 /* 8029169C 0028E5FC  98 1F 0B 78 */	stb r0, 0xb78(r31)
 /* 802916A0 0028E600  48 00 00 C0 */	b lbl_80291760
-.global lbl_802916A4
 lbl_802916A4:
 /* 802916A4 0028E604  80 9F 0B 88 */	lwz r4, 0xb88(r31)
 /* 802916A8 0028E608  88 64 00 03 */	lbz r3, 3(r4)
@@ -7383,7 +7372,6 @@ lbl_802916C0:
 lbl_802916C4:
 /* 802916C4 0028E624  98 04 00 03 */	stb r0, 3(r4)
 /* 802916C8 0028E628  48 00 00 98 */	b lbl_80291760
-.global lbl_802916CC
 lbl_802916CC:
 /* 802916CC 0028E62C  80 9F 0B 88 */	lwz r4, 0xb88(r31)
 /* 802916D0 0028E630  88 64 00 02 */	lbz r3, 2(r4)
@@ -7397,7 +7385,6 @@ lbl_802916E8:
 lbl_802916EC:
 /* 802916EC 0028E64C  98 04 00 02 */	stb r0, 2(r4)
 /* 802916F0 0028E650  48 00 00 70 */	b lbl_80291760
-.global lbl_802916F4
 lbl_802916F4:
 /* 802916F4 0028E654  80 9F 0B 88 */	lwz r4, 0xb88(r31)
 /* 802916F8 0028E658  88 64 00 01 */	lbz r3, 1(r4)
@@ -7411,7 +7398,6 @@ lbl_80291710:
 lbl_80291714:
 /* 80291714 0028E674  98 04 00 01 */	stb r0, 1(r4)
 /* 80291718 0028E678  48 00 00 48 */	b lbl_80291760
-.global lbl_8029171C
 lbl_8029171C:
 /* 8029171C 0028E67C  80 9F 0B 88 */	lwz r4, 0xb88(r31)
 /* 80291720 0028E680  88 64 00 00 */	lbz r3, 0(r4)
@@ -7425,7 +7411,6 @@ lbl_80291738:
 lbl_8029173C:
 /* 8029173C 0028E69C  98 04 00 00 */	stb r0, 0(r4)
 /* 80291740 0028E6A0  48 00 00 20 */	b lbl_80291760
-.global lbl_80291744
 lbl_80291744:
 /* 80291744 0028E6A4  A0 14 00 00 */	lhz r0, 0(r20)
 /* 80291748 0028E6A8  7F E3 FB 78 */	mr r3, r31
@@ -7709,8 +7694,8 @@ lbl_8029186C:
 /* 80291B64 0028EAC4  98 1F 0A DE */	stb r0, 0xade(r31)
 /* 80291B68 0028EAC8  98 9F 0A DF */	stb r4, 0xadf(r31)
 /* 80291B6C 0028EACC  98 9F 0A E0 */	stb r4, 0xae0(r31)
-/* 80291B70 0028EAD0  84 A3 D5 78 */	lwzu r5, -0x2a88(r3)
-/* 80291B74 0028EAD4  80 83 00 04 */	lwz r4, lbl_80570004@l(r3)
+/* 80291B70 0028EAD0  84 A3 D5 78 */	lwzu r5, lbl_8056D578@l(r3)
+/* 80291B74 0028EAD4  80 83 00 04 */	lwz r4, 4(r3)
 /* 80291B78 0028EAD8  90 BF 0A E4 */	stw r5, 0xae4(r31)
 /* 80291B7C 0028EADC  90 9F 0A E8 */	stw r4, 0xae8(r31)
 /* 80291B80 0028EAE0  80 A3 00 08 */	lwz r5, 8(r3)
@@ -8475,7 +8460,7 @@ lbl_802925C4:
 .global lbl_805ADB90
 lbl_805ADB90:
 	# ROM: 0x3FA430
-	.4byte 0x803D5A74
+	.4byte lbl_803D5A74
 
 .global lbl_805ADB94
 lbl_805ADB94:
@@ -8520,7 +8505,7 @@ lbl_805ADBB0:
 .global lbl_805ADBB4
 lbl_805ADBB4:
 	# ROM: 0x3FA454
-	.4byte 0x803D5A8A
+	.4byte lbl_803D5A8A
 	.float 1.0
 
 .global lbl_805ADBBC
@@ -8631,7 +8616,7 @@ lbl_805ADC0C:
 .global lbl_805ADC10
 lbl_805ADC10:
 	# ROM: 0x3FA4B0
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805ADC14
 lbl_805ADC14:
@@ -8680,92 +8665,178 @@ lbl_805ADC30:
 .global lbl_803D5998
 lbl_803D5998:
 	# ROM: 0x3D2998
-	.4byte 0x803D5A9D
-	.4byte 0x803D5AA5
+	.4byte lbl_803D5A9D
+	.4byte lbl_803D5AA5
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5AAC
-	.4byte 0x803D5AB4
+	.4byte lbl_803D5AAC
+	.4byte lbl_803D5AB4
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5ABC
-	.4byte 0x803D5AC4
+	.4byte lbl_803D5ABC
+	.4byte lbl_803D5AC4
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5ACC
-	.4byte 0x803D5AAC
+	.4byte lbl_803D5ACC
+	.4byte lbl_803D5AAC
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5AD3
-	.4byte 0x803D5ABC
+	.4byte lbl_803D5AD3
+	.4byte lbl_803D5ABC
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5ADA
-	.4byte 0x803D5AE2
+	.4byte lbl_803D5ADA
+	.4byte lbl_803D5AE2
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5AEA
-	.4byte 0x803D5AF2
+	.4byte lbl_803D5AEA
+	.4byte lbl_803D5AF2
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5AE2
-	.4byte 0x803D5AFA
+	.4byte lbl_803D5AE2
+	.4byte lbl_803D5AFA
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5AF2
-	.4byte 0x803D5B04
+	.4byte lbl_803D5AF2
+	.4byte lbl_803D5B04
 	.float 1.0
 	.float 1.0
 	.float 1.0
-	.4byte 0x803D5AFA
-	.4byte 0x803D5B0E
+	.4byte lbl_803D5AFA
+	.4byte lbl_803D5B0E
 	.float 2.0
 	.float 2.0
 	.float 2.0
-	.4byte 0x803D5B04
-	.4byte 0x803D5B1C
+	.4byte lbl_803D5B04
+	.4byte lbl_803D5B1C
 	.float 2.0
 	.float 2.0
 	.float 2.0
 
 .global lbl_803D5A74
 lbl_803D5A74:
+
 	# ROM: 0x3D2A74
 	.asciz "grenadeLauncher2_LCTR"
+
+.global lbl_803D5A8A
+lbl_803D5A8A:
+
+	# ROM: 0x3D2A8A
 	.byte 0x6C, 0x6F
 	.asciz "ckon_target_LCTR"
+
+.global lbl_803D5A9D
+lbl_803D5A9D:
+
+	# ROM: 0x3D2A9D
 	.byte 0x53, 0x70, 0x69
 	.asciz "ne_2"
+
+.global lbl_803D5AA5
+lbl_803D5AA5:
+
+	# ROM: 0x3D2AA5
 	.byte 0x43, 0x6F, 0x6C
 	.4byte 0x6C617200
+
+.global lbl_803D5AAC
+lbl_803D5AAC:
+
+	# ROM: 0x3D2AAC
 	.asciz "R_ankle"
+
+.global lbl_803D5AB4
+lbl_803D5AB4:
+
+	# ROM: 0x3D2AB4
 	.asciz "R_toe_1"
+
+.global lbl_803D5ABC
+lbl_803D5ABC:
+
+	# ROM: 0x3D2ABC
 	.asciz "L_ankle"
+
+.global lbl_803D5AC4
+lbl_803D5AC4:
+
+	# ROM: 0x3D2AC4
 	.asciz "L_toe_1"
+
+.global lbl_803D5ACC
+lbl_803D5ACC:
+
+	# ROM: 0x3D2ACC
 	.asciz "R_knee"
+
+.global lbl_803D5AD3
+lbl_803D5AD3:
+
+	# ROM: 0x3D2AD3
 	.byte 0x4C
 	.asciz "_knee"
+
+.global lbl_803D5ADA
+lbl_803D5ADA:
+
+	# ROM: 0x3D2ADA
 	.byte 0x52, 0x5F
 	.asciz "elbow"
+
+.global lbl_803D5AE2
+lbl_803D5AE2:
+
+	# ROM: 0x3D2AE2
 	.byte 0x52, 0x5F
 	.asciz "wrist"
+
+.global lbl_803D5AEA
+lbl_803D5AEA:
+
+	# ROM: 0x3D2AEA
 	.byte 0x4C, 0x5F
 	.asciz "elbow"
+
+.global lbl_803D5AF2
+lbl_803D5AF2:
+
+	# ROM: 0x3D2AF2
 	.byte 0x4C, 0x5F
 	.asciz "wrist"
+
+.global lbl_803D5AFA
+lbl_803D5AFA:
+
+	# ROM: 0x3D2AFA
 	.byte 0x52, 0x5F
 	.asciz "index_1"
+
+.global lbl_803D5B04
+lbl_803D5B04:
+
+	# ROM: 0x3D2B04
 	.asciz "L_index_1"
+
+.global lbl_803D5B0E
+lbl_803D5B0E:
+
+	# ROM: 0x3D2B0E
 	.byte 0x52, 0x5F
 	.asciz "index_3_SDK"
+
+.global lbl_803D5B1C
+lbl_803D5B1C:
+
+	# ROM: 0x3D2B1C
 	.asciz "L_index_3_SDK"
 	.byte 0x4F, 0x6D
 	.asciz "ega Pirate Flash"

@@ -50,7 +50,7 @@ lbl_805AE190:
 .global lbl_805AE194
 lbl_805AE194:
 	# ROM: 0x3FAA34
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AE198
 lbl_805AE198:

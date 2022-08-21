@@ -2944,7 +2944,7 @@ lbl_801E9D54:
 HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9DC0 001E6D20  94 21 FC F0 */	stwu r1, -0x310(r1)
 /* 801E9DC4 001E6D24  7C 08 02 A6 */	mflr r0
-/* 801E9DC8 001E6D28  3C C0 80 5A */	lis r6, lbl_805A0004@ha
+/* 801E9DC8 001E6D28  3C C0 80 5A */	lis r6, sZeroVector__9CVector3f@ha
 /* 801E9DCC 001E6D2C  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
 /* 801E9DD0 001E6D30  90 01 03 14 */	stw r0, 0x314(r1)
 /* 801E9DD4 001E6D34  39 00 00 00 */	li r8, 0
@@ -2958,8 +2958,8 @@ HardwareLight__17CWallCrawlerSwarmCFRC13CStateManagerRC6CAABox:
 /* 801E9DF4 001E6D54  93 A1 03 04 */	stw r29, 0x304(r1)
 /* 801E9DF8 001E6D58  7C 7D 1B 78 */	mr r29, r3
 /* 801E9DFC 001E6D5C  38 61 00 1C */	addi r3, r1, 0x1c
-/* 801E9E00 001E6D60  84 86 66 A0 */	lwzu r4, 0x66a0(r6)
-/* 801E9E04 001E6D64  80 E6 00 04 */	lwz r7, lbl_805A0004@l(r6)
+/* 801E9E00 001E6D60  84 86 66 A0 */	lwzu r4, sZeroVector__9CVector3f@l(r6)
+/* 801E9E04 001E6D64  80 E6 00 04 */	lwz r7, 4(r6)
 /* 801E9E08 001E6D68  80 06 00 08 */	lwz r0, 8(r6)
 /* 801E9E0C 001E6D6C  38 C0 00 04 */	li r6, 4
 /* 801E9E10 001E6D70  90 81 00 10 */	stw r4, 0x10(r1)
@@ -8851,7 +8851,7 @@ lbl_805ACB18:
 .global lbl_805ACB1C
 lbl_805ACB1C:
 	# ROM: 0x3F93BC
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805ACB20
 lbl_805ACB20:

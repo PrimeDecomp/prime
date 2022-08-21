@@ -56,8 +56,6 @@ lbl_803EFC90:
 	.asciz "DVDPrepareStream(): Specified length (0x%x) is not a multiple of 32768(32*1024)"
 	.asciz "DVDPrepareStream(): The area specified (offset(0x%x), length(0x%x)) is out of the file"
 	.balign 4
-	.asciz "<< Dolphin SDK - DVD\trelease build: Sep  5 2002 05:34:06 (0x2301) >>"
-	.balign 4
 
 
 .section .text, "ax"
@@ -730,8 +728,4 @@ lbl_80371B90:
 /* 80371B94 0036EAF4  38 21 00 08 */	addi r1, r1, 8
 /* 80371B98 0036EAF8  7C 08 03 A6 */	mtlr r0
 /* 80371B9C 0036EAFC  4E 80 00 20 */	blr
-
-.global nullsub_62
-nullsub_62:
-/* 80371BA0 0036EB00  4E 80 00 20 */	blr
 

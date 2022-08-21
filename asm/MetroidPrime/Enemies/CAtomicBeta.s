@@ -6,9 +6,9 @@
 .global lbl_803E8E40
 lbl_803E8E40:
 	# ROM: 0x3E5E40
-	.4byte 0x803D4B50
-	.4byte 0x803D4B5B
-	.4byte 0x803D4B66
+	.4byte lbl_803D4B50
+	.4byte lbl_803D4B5B
+	.4byte lbl_803D4B66
 
 .global lbl_803E8E4C
 lbl_803E8E4C:
@@ -1447,10 +1447,21 @@ lbl_805AD60C:
 .balign 8
 .global lbl_803D4B50
 lbl_803D4B50:
+
 	# ROM: 0x3D1B50
 	.asciz "bomb2_LCTR"
+
+.global lbl_803D4B5B
+lbl_803D4B5B:
+
+	# ROM: 0x3D1B5B
 	.byte 0x62
 	.asciz "omb3_LCTR"
+
+.global lbl_803D4B66
+lbl_803D4B66:
+
+	# ROM: 0x3D1B66
 	.byte 0x62, 0x6F
 	.asciz "mb4_LCTR"
 	.byte 0x3F, 0x3F, 0x28

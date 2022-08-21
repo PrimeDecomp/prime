@@ -2913,13 +2913,13 @@ lbl_802297FC:
 sub_80229818:
 /* 80229818 00226778  94 21 FF 00 */	stwu r1, -0x100(r1)
 /* 8022981C 0022677C  7C 08 02 A6 */	mflr r0
-/* 80229820 00226780  3C A0 80 57 */	lis r5, lbl_80570004@ha
+/* 80229820 00226780  3C A0 80 57 */	lis r5, lbl_8056D780@ha
 /* 80229824 00226784  90 01 01 04 */	stw r0, 0x104(r1)
 /* 80229828 00226788  BD C1 00 B8 */	stmw r14, 0xb8(r1)
 /* 8022982C 0022678C  7C 9F 23 78 */	mr r31, r4
 /* 80229830 00226790  7C 7E 1B 78 */	mr r30, r3
-/* 80229834 00226794  85 E5 D7 80 */	lwzu r15, -0x2880(r5)
-/* 80229838 00226798  82 05 00 04 */	lwz r16, lbl_80570004@l(r5)
+/* 80229834 00226794  85 E5 D7 80 */	lwzu r15, lbl_8056D780@l(r5)
+/* 80229838 00226798  82 05 00 04 */	lwz r16, 4(r5)
 /* 8022983C 0022679C  82 25 00 08 */	lwz r17, 8(r5)
 /* 80229840 002267A0  82 45 00 0C */	lwz r18, 0xc(r5)
 /* 80229844 002267A4  82 65 00 10 */	lwz r19, 0x10(r5)
@@ -7981,27 +7981,27 @@ lbl_805AD2C0:
 .global lbl_805AD2C4
 lbl_805AD2C4:
 	# ROM: 0x3F9B64
-	.4byte 0x803D3364
+	.4byte lbl_803D3364
 
 .global lbl_805AD2C8
 lbl_805AD2C8:
 	# ROM: 0x3F9B68
-	.4byte 0x803D33A0
+	.4byte lbl_803D33A0
 
 .global lbl_805AD2CC
 lbl_805AD2CC:
 	# ROM: 0x3F9B6C
-	.4byte 0x803D3377
+	.4byte lbl_803D3377
 
 .global lbl_805AD2D0
 lbl_805AD2D0:
 	# ROM: 0x3F9B70
-	.4byte 0x803D336B
+	.4byte lbl_803D336B
 
 .global lbl_805AD2D4
 lbl_805AD2D4:
 	# ROM: 0x3F9B74
-	.4byte 0x803D33B5
+	.4byte lbl_803D33B5
 
 .global lbl_805AD2D8
 lbl_805AD2D8:
@@ -8061,7 +8061,7 @@ lbl_805AD300:
 .global lbl_805AD304
 lbl_805AD304:
 	# ROM: 0x3F9BA4
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AD308
 lbl_805AD308:
@@ -8149,84 +8149,175 @@ lbl_805AD344:
 .global lbl_803D3278
 lbl_803D3278:
 	# ROM: 0x3D0278
-	.4byte 0x803D3310
-	.4byte 0x803D331B
+	.4byte lbl_803D3310
+	.4byte lbl_803D331B
 	.float 1.0
 	.float 1.5
-	.4byte 0x803D331B
-	.4byte 0x803D3323
+	.4byte lbl_803D331B
+	.4byte lbl_803D3323
 	.float 0.9
 	.4byte 0x3FA66666
-	.4byte 0x803D332B
-	.4byte 0x803D3332
+	.4byte lbl_803D332B
+	.4byte lbl_803D3332
 	.float 0.9
 	.4byte 0x3FA66666
 
 .global lbl_803D32A8
 lbl_803D32A8:
 	# ROM: 0x3D02A8
-	.4byte 0x803D333A
-	.4byte 0x803D3345
+	.4byte lbl_803D333A
+	.4byte lbl_803D3345
 	.float 1.0
 	.float 1.5
-	.4byte 0x803D3345
-	.4byte 0x803D334D
+	.4byte lbl_803D3345
+	.4byte lbl_803D334D
 	.float 0.9
 	.4byte 0x3FA66666
-	.4byte 0x803D3355
-	.4byte 0x803D335C
+	.4byte lbl_803D3355
+	.4byte lbl_803D335C
 	.float 0.9
 	.4byte 0x3FA66666
-	.4byte 0x803D3364
+	.4byte lbl_803D3364
 	.4byte 0x3F99999A
-	.4byte 0x803D336B
+	.4byte lbl_803D336B
 	.float 1.5
-	.4byte 0x803D3377
+	.4byte lbl_803D3377
 	.float 1.5
-	.4byte 0x803D3383
+	.4byte lbl_803D3383
 	.float 1.5
-	.4byte 0x803D338B
+	.4byte lbl_803D338B
 	.4byte 0x3F99999A
-	.4byte 0x803D3392
+	.4byte lbl_803D3392
 	.4byte 0x3F4CCCCD
-	.4byte 0x803D3399
+	.4byte lbl_803D3399
 	.4byte 0x3F4CCCCD
 
 .global lbl_803D3310
 lbl_803D3310:
+
 	# ROM: 0x3D0310
 	.asciz "L_shoulder"
+
+.global lbl_803D331B
+lbl_803D331B:
+
+	# ROM: 0x3D031B
 	.byte 0x4C
 	.asciz "_elbow"
+
+.global lbl_803D3323
+lbl_803D3323:
+
+	# ROM: 0x3D0323
 	.byte 0x4C
 	.asciz "_wrist"
+
+.global lbl_803D332B
+lbl_803D332B:
+
+	# ROM: 0x3D032B
 	.byte 0x4C
 	.asciz "_knee"
+
+.global lbl_803D3332
+lbl_803D3332:
+
+	# ROM: 0x3D0332
 	.byte 0x4C, 0x5F
 	.asciz "ankle"
+
+.global lbl_803D333A
+lbl_803D333A:
+
+	# ROM: 0x3D033A
 	.byte 0x52, 0x5F
 	.asciz "shoulder"
+
+.global lbl_803D3345
+lbl_803D3345:
+
+	# ROM: 0x3D0345
 	.byte 0x52, 0x5F, 0x65
 	.asciz "lbow"
+
+.global lbl_803D334D
+lbl_803D334D:
+
+	# ROM: 0x3D034D
 	.byte 0x52, 0x5F, 0x77
 	.asciz "rist"
+
+.global lbl_803D3355
+lbl_803D3355:
+
+	# ROM: 0x3D0355
 	.byte 0x52, 0x5F, 0x6B
 	.4byte 0x6E656500
+
+.global lbl_803D335C
+lbl_803D335C:
+
+	# ROM: 0x3D035C
 	.asciz "R_ankle"
+
+.global lbl_803D3364
+lbl_803D3364:
+
+	# ROM: 0x3D0364
 	.asciz "Head_1"
+
+.global lbl_803D336B
+lbl_803D336B:
+
+	# ROM: 0x3D036B
 	.byte 0x4C
 	.asciz "_Palm_LCTR"
+
+.global lbl_803D3377
+lbl_803D3377:
+
+	# ROM: 0x3D0377
 	.byte 0x52
 	.asciz "_Palm_LCTR"
+
+.global lbl_803D3383
+lbl_803D3383:
+
+	# ROM: 0x3D0383
 	.byte 0x53
 	.asciz "pine_1"
+
+.global lbl_803D338B
+lbl_803D338B:
+
+	# ROM: 0x3D038B
 	.byte 0x43
 	.asciz "ollar"
+
+.global lbl_803D3392
+lbl_803D3392:
+
+	# ROM: 0x3D0392
 	.byte 0x4C, 0x5F
 	.asciz "ball"
+
+.global lbl_803D3399
+lbl_803D3399:
+
+	# ROM: 0x3D0399
 	.byte 0x52, 0x5F, 0x62
 	.4byte 0x616C6C00
+
+.global lbl_803D33A0
+lbl_803D33A0:
+
+	# ROM: 0x3D03A0
 	.asciz "grenadeLauncher_LCTR"
+
+.global lbl_803D33B5
+lbl_803D33B5:
+
+	# ROM: 0x3D03B5
 	.byte 0x6C, 0x6F, 0x63
 	.asciz "kon_target_LCTR"
 	.asciz "??(??)"

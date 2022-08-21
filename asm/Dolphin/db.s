@@ -38,7 +38,7 @@ __DBExceptionDestinationAux:
 /* 8036F904 0036C864  4C C6 31 82 */	crclr 6
 /* 8036F908 0036C868  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 8036F90C 0036C86C  93 E1 00 14 */	stw r31, 0x14(r1)
-/* 8036F910 0036C870  80 80 00 C0 */	lwz r4, 0xc0(0)
+/* 8036F910 0036C870  80 80 00 C0 */	lwz r4, 0xc0(r0)
 /* 8036F914 0036C874  3F E4 80 00 */	addis r31, r4, 0x8000
 /* 8036F918 0036C878  48 01 00 95 */	bl OSReport
 /* 8036F91C 0036C87C  7F E3 FB 78 */	mr r3, r31

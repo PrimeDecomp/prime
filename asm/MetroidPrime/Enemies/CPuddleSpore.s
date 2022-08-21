@@ -7,22 +7,22 @@
 .global lbl_803E2078
 lbl_803E2078:
 	# ROM: 0x3DF078
-	.4byte 0x803D00A0
-	.4byte 0x803D00AC
-	.4byte 0x803D00B8
-	.4byte 0x803D00C4
-	.4byte 0x803D00D0
-	.4byte 0x803D00DC
-	.4byte 0x803D00E8
-	.4byte 0x803D00F4
-	.4byte 0x803D0100
-	.4byte 0x803D010C
-	.4byte 0x803D0119
-	.4byte 0x803D0126
-	.4byte 0x803D0133
-	.4byte 0x803D0140
-	.4byte 0x803D014D
-	.4byte 0x803D015A
+	.4byte lbl_803D00A0
+	.4byte lbl_803D00AC
+	.4byte lbl_803D00B8
+	.4byte lbl_803D00C4
+	.4byte lbl_803D00D0
+	.4byte lbl_803D00DC
+	.4byte lbl_803D00E8
+	.4byte lbl_803D00F4
+	.4byte lbl_803D0100
+	.4byte lbl_803D010C
+	.4byte lbl_803D0119
+	.4byte lbl_803D0126
+	.4byte lbl_803D0133
+	.4byte lbl_803D0140
+	.4byte lbl_803D014D
+	.4byte lbl_803D015A
 
 .global lbl_803E20B8
 lbl_803E20B8:
@@ -3147,26 +3147,102 @@ lbl_805AB9EC:
 .balign 8
 .global lbl_803D00A0
 lbl_803D00A0:
+
 	# ROM: 0x3CD0A0
 	.asciz "Glow_1_LCTR"
+
+.global lbl_803D00AC
+lbl_803D00AC:
+
+	# ROM: 0x3CD0AC
 	.asciz "Glow_2_LCTR"
+
+.global lbl_803D00B8
+lbl_803D00B8:
+
+	# ROM: 0x3CD0B8
 	.asciz "Glow_3_LCTR"
+
+.global lbl_803D00C4
+lbl_803D00C4:
+
+	# ROM: 0x3CD0C4
 	.asciz "Glow_4_LCTR"
+
+.global lbl_803D00D0
+lbl_803D00D0:
+
+	# ROM: 0x3CD0D0
 	.asciz "Glow_5_LCTR"
+
+.global lbl_803D00DC
+lbl_803D00DC:
+
+	# ROM: 0x3CD0DC
 	.asciz "Glow_6_LCTR"
+
+.global lbl_803D00E8
+lbl_803D00E8:
+
+	# ROM: 0x3CD0E8
 	.asciz "Glow_7_LCTR"
+
+.global lbl_803D00F4
+lbl_803D00F4:
+
+	# ROM: 0x3CD0F4
 	.asciz "Glow_8_LCTR"
+
+.global lbl_803D0100
+lbl_803D0100:
+
+	# ROM: 0x3CD100
 	.asciz "Glow_9_LCTR"
+
+.global lbl_803D010C
+lbl_803D010C:
+
+	# ROM: 0x3CD10C
 	.asciz "Glow_10_LCTR"
+
+.global lbl_803D0119
+lbl_803D0119:
+
+	# ROM: 0x3CD119
 	.byte 0x47, 0x6C, 0x6F
 	.asciz "w_11_LCTR"
+
+.global lbl_803D0126
+lbl_803D0126:
+
+	# ROM: 0x3CD126
 	.byte 0x47, 0x6C
 	.asciz "ow_12_LCTR"
+
+.global lbl_803D0133
+lbl_803D0133:
+
+	# ROM: 0x3CD133
 	.byte 0x47
 	.asciz "low_13_LCTR"
+
+.global lbl_803D0140
+lbl_803D0140:
+
+	# ROM: 0x3CD140
 	.asciz "Glow_14_LCTR"
+
+.global lbl_803D014D
+lbl_803D014D:
+
+	# ROM: 0x3CD14D
 	.byte 0x47, 0x6C, 0x6F
 	.asciz "w_15_LCTR"
+
+.global lbl_803D015A
+lbl_803D015A:
+
+	# ROM: 0x3CD15A
 	.byte 0x47, 0x6C
 	.asciz "ow_16_LCTR"
 	.byte 0x3F

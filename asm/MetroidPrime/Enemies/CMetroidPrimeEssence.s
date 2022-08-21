@@ -4440,17 +4440,17 @@ __sinit_CMetroidPrimeEssence_cpp:
 .global lbl_805ADA20
 lbl_805ADA20:
 	# ROM: 0x3FA2C0
-	.4byte 0x803D589C
+	.4byte lbl_803D589C
 
 .global lbl_805ADA24
 lbl_805ADA24:
 	# ROM: 0x3FA2C4
-	.4byte 0x803D58AF
+	.4byte lbl_803D58AF
 
 .global lbl_805ADA28
 lbl_805ADA28:
 	# ROM: 0x3FA2C8
-	.4byte 0x803D58B4
+	.4byte lbl_803D58B4
 
 .global lbl_805ADA2C
 lbl_805ADA2C:
@@ -4598,10 +4598,21 @@ lbl_803D5890:
 
 .global lbl_803D589C
 lbl_803D589C:
+
 	# ROM: 0x3D289C
 	.asciz "lockon_target_LCTR"
+
+.global lbl_803D58AF
+lbl_803D58AF:
+
+	# ROM: 0x3D28AF
 	.byte 0x45
 	.4byte 0x79657300
+
+.global lbl_803D58B4
+lbl_803D58B4:
+
+	# ROM: 0x3D28B4
 	.asciz "Head"
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900

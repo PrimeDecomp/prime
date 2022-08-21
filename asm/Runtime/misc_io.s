@@ -2,7 +2,7 @@
 
 .section .text, "ax"
 
-/* THIS DOESN'T WORK???? */
+# THIS DOESN'T WORK????
 # .global __stdio_atexit
 # __stdio_atexit:
 # /* 8038DCCC 0038AC2C  3C 60 80 39 */	lis r3, __close_all@ha

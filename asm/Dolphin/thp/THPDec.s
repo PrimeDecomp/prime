@@ -6596,7 +6596,7 @@ __THPHuffDecodeDCTCompY: #local func
 /* 803C7C60 003C4BC0  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803C7C64 003C4BC4  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 803C7C68 003C4BC8  93 A1 00 14 */	stw r29, 0x14(r1)
-/* 803C7C6C 003C4BCC  7C 00 27 EC */	dcbz 0, r4
+/* 803C7C6C 003C4BCC  7C 00 27 EC */	dcbz r0, r4
 /* 803C7C70 003C4BD0  81 8D B0 40 */	lwz r12, Ydchuff@sda21(r13)
 /* 803C7C74 003C4BD4  81 63 06 A4 */	lwz r11, 0x6a4(r3)
 /* 803C7C78 003C4BD8  39 2C 00 20 */	addi r9, r12, 0x20
@@ -7060,7 +7060,7 @@ __THPHuffDecodeDCTCompU: # local func
 /* 803C82D8 003C5238  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 803C82DC 003C523C  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 803C82E0 003C5240  93 C1 00 10 */	stw r30, 0x10(r1)
-/* 803C82E4 003C5244  7C 00 27 EC */	dcbz 0, r4
+/* 803C82E4 003C5244  7C 00 27 EC */	dcbz r0, r4
 /* 803C82E8 003C5248  81 8D B0 60 */	lwz r12, Udchuff@sda21(r13)
 /* 803C82EC 003C524C  81 63 06 A4 */	lwz r11, 0x6a4(r3)
 /* 803C82F0 003C5250  39 2C 00 20 */	addi r9, r12, 0x20
@@ -7537,7 +7537,7 @@ __THPHuffDecodeDCTCompV: # local func
 /* 803C8980 003C58E0  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 803C8984 003C58E4  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 803C8988 003C58E8  93 C1 00 10 */	stw r30, 0x10(r1)
-/* 803C898C 003C58EC  7C 00 27 EC */	dcbz 0, r4
+/* 803C898C 003C58EC  7C 00 27 EC */	dcbz r0, r4
 /* 803C8990 003C58F0  81 8D B0 80 */	lwz r12, Vdchuff@sda21(r13)
 /* 803C8994 003C58F4  81 63 06 A4 */	lwz r11, 0x6a4(r3)
 /* 803C8998 003C58F8  39 2C 00 20 */	addi r9, r12, 0x20

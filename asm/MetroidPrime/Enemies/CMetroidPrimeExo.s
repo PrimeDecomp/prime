@@ -10,9 +10,9 @@ lbl_ctor:
 .global lbl_803EAA90
 lbl_803EAA90:
 	# ROM: 0x3E7A90
-	.4byte 0x803D56DB
+	.4byte lbl_803D56DB
 	.float 1.5
-	.4byte 0x803D56E7
+	.4byte lbl_803D56E7
 	.4byte 0x40133333
 	.4byte 0
 	.4byte 0x3F6B851F
@@ -20,116 +20,116 @@ lbl_803EAA90:
 .global lbl_803EAAA8
 lbl_803EAAA8:
 	# ROM: 0x3E7AA8
-	.4byte 0x803D56F5
-	.4byte 0x803D5700
-	.4byte 0x3F19999A
-	.4byte 0x3F19999A
-	.4byte 0x3F19999A
-	.4byte 0x803D5700
-	.4byte 0x803D5708
+	.4byte lbl_803D56F5
+	.4byte lbl_803D5700
+	.float 0.6
+	.float 0.6
+	.float 0.6
+	.4byte lbl_803D5700
+	.4byte lbl_803D5708
 	.float 0.3
 	.float 0.3
 	.float 0.3
-	.4byte 0x803D5708
-	.4byte 0x803D5710
+	.4byte lbl_803D5708
+	.4byte lbl_803D5710
 	.float 0.3
 	.float 0.3
 	.float 0.3
-	.4byte 0x803D5710
-	.4byte 0x803D571C
+	.4byte lbl_803D5710
+	.4byte lbl_803D571C
 	.float 0.4
 	.4byte 0x3F99999A
 	.float 0.4
-	.4byte 0x803D5727
-	.4byte 0x803D5731
+	.4byte lbl_803D5727
+	.4byte lbl_803D5731
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D5731
-	.4byte 0x803D573B
+	.4byte lbl_803D5731
+	.4byte lbl_803D573B
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D573B
-	.4byte 0x803D5745
+	.4byte lbl_803D573B
+	.4byte lbl_803D5745
 	.float 0.2
 	.float 0.2
 	.float 0.7
-	.4byte 0x803D5752
-	.4byte 0x803D575E
+	.4byte lbl_803D5752
+	.4byte lbl_803D575E
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D575E
-	.4byte 0x803D576A
+	.4byte lbl_803D575E
+	.4byte lbl_803D576A
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D5777
-	.4byte 0x803D5782
-	.4byte 0x3F19999A
-	.4byte 0x3F19999A
-	.4byte 0x3F19999A
-	.4byte 0x803D5782
-	.4byte 0x803D578A
+	.4byte lbl_803D5777
+	.4byte lbl_803D5782
+	.float 0.6
+	.float 0.6
+	.float 0.6
+	.4byte lbl_803D5782
+	.4byte lbl_803D578A
 	.float 0.3
 	.float 0.3
 	.float 0.3
-	.4byte 0x803D578A
-	.4byte 0x803D5792
+	.4byte lbl_803D578A
+	.4byte lbl_803D5792
 	.float 0.3
 	.float 0.3
 	.float 0.3
-	.4byte 0x803D5792
-	.4byte 0x803D579E
+	.4byte lbl_803D5792
+	.4byte lbl_803D579E
 	.float 0.4
 	.4byte 0x3F99999A
 	.float 0.4
-	.4byte 0x803D57A9
-	.4byte 0x803D57B3
+	.4byte lbl_803D57A9
+	.4byte lbl_803D57B3
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D57B3
-	.4byte 0x803D57BD
+	.4byte lbl_803D57B3
+	.4byte lbl_803D57BD
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D57BD
-	.4byte 0x803D57C7
+	.4byte lbl_803D57BD
+	.4byte lbl_803D57C7
 	.float 0.2
 	.float 0.2
 	.float 0.7
-	.4byte 0x803D57D4
-	.4byte 0x803D57E0
+	.4byte lbl_803D57D4
+	.4byte lbl_803D57E0
 	.float 0.4
 	.float 0.4
 	.float 0.4
-	.4byte 0x803D57E0
-	.4byte 0x803D57EC
+	.4byte lbl_803D57E0
+	.4byte lbl_803D57EC
 	.float 0.2
 	.float 0.2
 	.float 0.2
-	.4byte 0x803D57F9
-	.4byte 0x803D5804
+	.4byte lbl_803D57F9
+	.4byte lbl_803D5804
 	.4byte 0x3F4CCCCD
 	.4byte 0x3F4CCCCD
 	.4byte 0x3F4CCCCD
-	.4byte 0x803D5804
-	.4byte 0x803D580C
+	.4byte lbl_803D5804
+	.4byte lbl_803D580C
 	.float 0.7
 	.float 0.7
 	.float 0.7
-	.4byte 0x803D580C
-	.4byte 0x803D5814
-	.4byte 0x3F19999A
+	.4byte lbl_803D580C
+	.4byte lbl_803D5814
+	.float 0.6
 	.float 0.1
-	.4byte 0x3F19999A
-	.4byte 0x803D581F
-	.4byte 0x803D5829
+	.float 0.6
+	.4byte lbl_803D581F
+	.4byte lbl_803D5829
 	.4byte 0x3F4CCCCD
 	.float 0.1
-	.4byte 0x3F19999A
+	.float 0.6
 	.4byte 0
 	.4byte 0
 	.float 2.0
@@ -139,26 +139,26 @@ lbl_803EAAA8:
 .global lbl_803EAC74
 lbl_803EAC74:
 	# ROM: 0x3E7C74
-	.4byte 0x803D5731
-	.4byte 0x803D57B3
-	.4byte 0x803D5727
-	.4byte 0x803D57A9
+	.4byte lbl_803D5731
+	.4byte lbl_803D57B3
+	.4byte lbl_803D5727
+	.4byte lbl_803D57A9
 	.4byte 0
 	.4byte 0
-	.4byte 0x803D5700
-	.4byte 0x803D5782
+	.4byte lbl_803D5700
+	.4byte lbl_803D5782
 	.4byte 0
 	.4byte 0
-	.4byte 0x803D5833
-	.4byte 0x803D581F
+	.4byte lbl_803D5833
+	.4byte lbl_803D581F
 	.4byte 0
 	.4byte 0
-	.4byte 0x803D56F5
-	.4byte 0x803D5777
-	.4byte 0x803D575E
-	.4byte 0x803D57E0
-	.4byte 0x803D576A
-	.4byte 0x803D57EC
+	.4byte lbl_803D56F5
+	.4byte lbl_803D5777
+	.4byte lbl_803D575E
+	.4byte lbl_803D57E0
+	.4byte lbl_803D576A
+	.4byte lbl_803D57EC
 
 .global lbl_803EACC4
 lbl_803EACC4:
@@ -13280,34 +13280,34 @@ lbl_805AD8F0:
 .global lbl_805AD8F4
 lbl_805AD8F4:
 	# ROM: 0x3FA194
-	.4byte 0x803D5618
-	.4byte 0x803D5626
+	.4byte lbl_803D5618
+	.4byte lbl_803D5626
 
 .global lbl_805AD8FC
 lbl_805AD8FC:
 	# ROM: 0x3FA19C
-	.4byte 0x803D5634
-	.4byte 0x803D563C
+	.4byte lbl_803D5634
+	.4byte lbl_803D563C
 
 .global lbl_805AD904
 lbl_805AD904:
 	# ROM: 0x3FA1A4
-	.4byte 0x803D5680
+	.4byte lbl_803D5680
 
 .global lbl_805AD908
 lbl_805AD908:
 	# ROM: 0x3FA1A8
-	.4byte 0x803D5690
+	.4byte lbl_803D5690
 
 .global lbl_805AD90C
 lbl_805AD90C:
 	# ROM: 0x3FA1AC
-	.4byte 0x803D5696
+	.4byte lbl_803D5696
 
 .global lbl_805AD910
 lbl_805AD910:
 	# ROM: 0x3FA1B0
-	.4byte 0x803D56A4
+	.4byte lbl_803D56A4
 
 .global lbl_805AD914
 lbl_805AD914:
@@ -13327,7 +13327,7 @@ lbl_805AD91C:
 .global lbl_805AD920
 lbl_805AD920:
 	# ROM: 0x3FA1C0
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AD924
 lbl_805AD924:
@@ -13656,20 +13656,20 @@ lbl_803D5434:
 .global lbl_803D5444
 lbl_803D5444:
 	# ROM: 0x3D2444
-	.4byte 0x803D5644
-	.4byte 0x803D564F
-	.4byte 0x803D5660
-	.4byte 0x803D5670
+	.4byte lbl_803D5644
+	.4byte lbl_803D564F
+	.4byte lbl_803D5660
+	.4byte lbl_803D5670
 
 .global lbl_803D5454
 lbl_803D5454:
 	# ROM: 0x3D2454
-	.4byte 0x803D56BB
-	.4byte 0x803D56C3
-	.4byte 0x803D5634
-	.4byte 0x803D56CB
-	.4byte 0x803D56D3
-	.4byte 0x803D563C
+	.4byte lbl_803D56BB
+	.4byte lbl_803D56C3
+	.4byte lbl_803D5634
+	.4byte lbl_803D56CB
+	.4byte lbl_803D56D3
+	.4byte lbl_803D563C
 
 .global lbl_803D546C
 lbl_803D546C:
@@ -13796,84 +13796,325 @@ lbl_803D5570:
 
 .global lbl_803D5618
 lbl_803D5618:
+
 	# ROM: 0x3D2618
 	.asciz "driller_LCTR1"
+
+.global lbl_803D5626
+lbl_803D5626:
+
+	# ROM: 0x3D2626
 	.byte 0x64, 0x72
 	.asciz "iller_LCTR2"
+
+.global lbl_803D5634
+lbl_803D5634:
+
+	# ROM: 0x3D2634
 	.asciz "L_eye_3"
+
+.global lbl_803D563C
+lbl_803D563C:
+
+	# ROM: 0x3D263C
 	.asciz "R_eye_3"
+
+.global lbl_803D5644
+lbl_803D5644:
+
+	# ROM: 0x3D2644
 	.asciz "Flame_Head"
+
+.global lbl_803D564F
+lbl_803D564F:
+
+	# ROM: 0x3D264F
 	.byte 0x46
 	.asciz "lame_HeadLockOn"
+
+.global lbl_803D5660
+lbl_803D5660:
+
+	# ROM: 0x3D2660
 	.asciz "Flame_Lshoulder"
+
+.global lbl_803D5670
+lbl_803D5670:
+
+	# ROM: 0x3D2670
 	.asciz "Flame_Rshoulder"
+
+.global lbl_803D5680
+lbl_803D5680:
+
+	# ROM: 0x3D2680
 	.asciz "Head_LockON_SDK"
+
+.global lbl_803D5690
+lbl_803D5690:
+
+	# ROM: 0x3D2690
 	.asciz "Jaw_1"
+
+.global lbl_803D5696
+lbl_803D5696:
+
+	# ROM: 0x3D2696
 	.byte 0x43, 0x5F
 	.asciz "bottomtooth"
+
+.global lbl_803D56A4
+lbl_803D56A4:
+
+	# ROM: 0x3D26A4
 	.asciz "B_headup_additive_body"
+
+.global lbl_803D56BB
+lbl_803D56BB:
+
+	# ROM: 0x3D26BB
 	.byte 0x4C
 	.asciz "_eye_1"
+
+.global lbl_803D56C3
+lbl_803D56C3:
+
+	# ROM: 0x3D26C3
 	.byte 0x4C
 	.asciz "_eye_2"
+
+.global lbl_803D56CB
+lbl_803D56CB:
+
+	# ROM: 0x3D26CB
 	.byte 0x52
 	.asciz "_eye_1"
+
+.global lbl_803D56D3
+lbl_803D56D3:
+
+	# ROM: 0x3D26D3
 	.byte 0x52
 	.asciz "_eye_2"
+
+.global lbl_803D56DB
+lbl_803D56DB:
+
+	# ROM: 0x3D26DB
 	.byte 0x53
 	.asciz "phere_LCTR"
+
+.global lbl_803D56E7
+lbl_803D56E7:
+
+	# ROM: 0x3D26E7
 	.byte 0x53
 	.asciz "keleton_Root"
+
+.global lbl_803D56F5
+lbl_803D56F5:
+
+	# ROM: 0x3D26F5
 	.byte 0x52, 0x5F, 0x73
 	.asciz "houlder"
+
+.global lbl_803D5700
+lbl_803D5700:
+
+	# ROM: 0x3D2700
 	.asciz "R_elbow"
+
+.global lbl_803D5708
+lbl_803D5708:
+
+	# ROM: 0x3D2708
 	.asciz "R_wrist"
+
+.global lbl_803D5710
+lbl_803D5710:
+
+	# ROM: 0x3D2710
 	.asciz "R_hand_LCTR"
+
+.global lbl_803D571C
+lbl_803D571C:
+
+	# ROM: 0x3D271C
 	.asciz "R_leg_LCTR"
+
+.global lbl_803D5727
+lbl_803D5727:
+
+	# ROM: 0x3D2727
 	.byte 0x52
 	.asciz "_front_1"
+
+.global lbl_803D5731
+lbl_803D5731:
+
+	# ROM: 0x3D2731
 	.byte 0x52, 0x5F, 0x66
 	.asciz "ront_2"
+
+.global lbl_803D573B
+lbl_803D573B:
+
+	# ROM: 0x3D273B
 	.byte 0x52
 	.asciz "_front_3"
+
+.global lbl_803D5745
+lbl_803D5745:
+
+	# ROM: 0x3D2745
 	.byte 0x46, 0x5F, 0x52
 	.asciz "_leg_LCTR"
+
+.global lbl_803D5752
+lbl_803D5752:
+
+	# ROM: 0x3D2752
 	.byte 0x52, 0x5F
 	.asciz "stinger_1"
+
+.global lbl_803D575E
+lbl_803D575E:
+
+	# ROM: 0x3D275E
 	.byte 0x52, 0x5F
 	.asciz "stinger_2"
+
+.global lbl_803D576A
+lbl_803D576A:
+
+	# ROM: 0x3D276A
 	.byte 0x52, 0x5F
 	.asciz "spike_LCTR"
+
+.global lbl_803D5777
+lbl_803D5777:
+
+	# ROM: 0x3D2777
 	.byte 0x4C
 	.asciz "_shoulder"
+
+.global lbl_803D5782
+lbl_803D5782:
+
+	# ROM: 0x3D2782
 	.byte 0x4C, 0x5F
 	.asciz "elbow"
+
+.global lbl_803D578A
+lbl_803D578A:
+
+	# ROM: 0x3D278A
 	.byte 0x4C, 0x5F
 	.asciz "wrist"
+
+.global lbl_803D5792
+lbl_803D5792:
+
+	# ROM: 0x3D2792
 	.byte 0x4C, 0x5F
 	.asciz "hand_LCTR"
+
+.global lbl_803D579E
+lbl_803D579E:
+
+	# ROM: 0x3D279E
 	.byte 0x4C, 0x5F
 	.asciz "leg_LCTR"
+
+.global lbl_803D57A9
+lbl_803D57A9:
+
+	# ROM: 0x3D27A9
 	.byte 0x4C, 0x5F, 0x66
 	.asciz "ront_1"
+
+.global lbl_803D57B3
+lbl_803D57B3:
+
+	# ROM: 0x3D27B3
 	.byte 0x4C
 	.asciz "_front_2"
+
+.global lbl_803D57BD
+lbl_803D57BD:
+
+	# ROM: 0x3D27BD
 	.byte 0x4C, 0x5F, 0x66
 	.asciz "ront_3"
+
+.global lbl_803D57C7
+lbl_803D57C7:
+
+	# ROM: 0x3D27C7
 	.byte 0x46
 	.asciz "_L_leg_LCTR"
+
+.global lbl_803D57D4
+lbl_803D57D4:
+
+	# ROM: 0x3D27D4
 	.asciz "L_stinger_1"
+
+.global lbl_803D57E0
+lbl_803D57E0:
+
+	# ROM: 0x3D27E0
 	.asciz "L_stinger_2"
+
+.global lbl_803D57EC
+lbl_803D57EC:
+
+	# ROM: 0x3D27EC
 	.asciz "L_spike_LCTR"
+
+.global lbl_803D57F9
+lbl_803D57F9:
+
+	# ROM: 0x3D27F9
 	.byte 0x42, 0x5F, 0x73
 	.asciz "houlder"
+
+.global lbl_803D5804
+lbl_803D5804:
+
+	# ROM: 0x3D2804
 	.asciz "B_elbow"
+
+.global lbl_803D580C
+lbl_803D580C:
+
+	# ROM: 0x3D280C
 	.asciz "B_wrist"
+
+.global lbl_803D5814
+lbl_803D5814:
+
+	# ROM: 0x3D2814
 	.asciz "B_leg_LCTR"
+
+.global lbl_803D581F
+lbl_803D581F:
+
+	# ROM: 0x3D281F
 	.byte 0x48
 	.asciz "ead_LCTR"
+
+.global lbl_803D5829
+lbl_803D5829:
+
+	# ROM: 0x3D2829
 	.byte 0x48, 0x6F, 0x72
 	.asciz "n_LCTR"
+
+.global lbl_803D5833
+lbl_803D5833:
+
+	# ROM: 0x3D2833
 	.byte 0x48
 	.4byte 0x65616400
 	.asciz "??(??)"

@@ -127,7 +127,7 @@ lbl_805A6E08:
 .global lbl_805A6E0C
 lbl_805A6E0C:
 	# ROM: 0x3F47AC
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805A6E10
 lbl_805A6E10:
@@ -443,7 +443,7 @@ lbl_805AA244:
 .global lbl_805AA248
 lbl_805AA248:
 	# ROM: 0x3F6AE8
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AA24C
 lbl_805AA24C:
@@ -9252,11 +9252,11 @@ DrawScreenTex__Ff:
 /* 800424B0 0003F410  48 2C 79 AD */	bl GetProjectionState__9CGraphicsFv
 /* 800424B4 0003F414  88 03 00 00 */	lbz r0, 0(r3)
 /* 800424B8 0003F418  3C C0 43 30 */	lis r6, 0x4330
-/* 800424BC 0003F41C  3C 80 80 3F */	lis r4, lbl_803F0008@ha
-/* 800424C0 0003F420  85 04 D9 10 */	lwzu r8, -0x26f0(r4)
+/* 800424BC 0003F41C  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 800424C0 0003F420  85 04 D9 10 */	lwzu r8, mViewport__9CGraphics@l(r4)
 /* 800424C4 0003F424  98 01 00 20 */	stb r0, 0x20(r1)
 /* 800424C8 0003F428  6D 07 80 00 */	xoris r7, r8, 0x8000
-/* 800424CC 0003F42C  80 A4 00 08 */	lwz r5, lbl_803F0008@l(r4)
+/* 800424CC 0003F42C  80 A4 00 08 */	lwz r5, 8(r4)
 /* 800424D0 0003F430  C0 03 00 04 */	lfs f0, 4(r3)
 /* 800424D4 0003F434  81 24 00 04 */	lwz r9, 4(r4)
 /* 800424D8 0003F438  7C A8 2A 14 */	add r5, r8, r5
@@ -10197,7 +10197,7 @@ lbl_800431B0:
 __ct__10CPlayerGunF9TUniqueId:
 /* 800431C8 00040128  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 800431CC 0004012C  7C 08 02 A6 */	mflr r0
-/* 800431D0 00040130  3C A0 80 5A */	lis r5, lbl_805A0004@ha
+/* 800431D0 00040130  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 800431D4 00040134  3C C0 80 3E */	lis r6, lbl_803D9D50@ha
 /* 800431D8 00040138  90 01 00 A4 */	stw r0, 0xa4(r1)
 /* 800431DC 0004013C  39 00 00 00 */	li r8, 0
@@ -10209,9 +10209,9 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 800431F4 00040154  7C 7F 1B 78 */	mr r31, r3
 /* 800431F8 00040158  38 C0 00 04 */	li r6, 4
 /* 800431FC 0004015C  39 40 00 00 */	li r10, 0
-/* 80043200 00040160  84 85 66 A0 */	lwzu r4, 0x66a0(r5)
-/* 80043204 00040164  80 E5 00 04 */	lwz r7, lbl_805A0004@l(r5)
-/* 80043208 00040168  80 05 00 08 */	lwz r0, 8(r5)
+/* 80043200 00040160  84 85 66 A0 */	lwzu r4, sZeroVector__9CVector3f@l(r5)
+/* 80043204 00040164  80 E5 00 04 */	lwz r7, 0x4(r5)
+/* 80043208 00040168  80 05 00 08 */	lwz r0, 0x8(r5)
 /* 8004320C 0004016C  38 A1 00 58 */	addi r5, r1, 0x58
 /* 80043210 00040170  90 81 00 58 */	stw r4, 0x58(r1)
 /* 80043214 00040174  38 80 00 08 */	li r4, 8

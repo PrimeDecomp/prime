@@ -3429,36 +3429,36 @@ __sinit_CCameraFilter_cpp:
 .global lbl_803CE650
 lbl_803CE650:
 	# ROM: 0x3CB650
-	.4byte 0x803CE738
-	.4byte 0x803CE744
-	.4byte 0x803CE750
-	.4byte 0x803CE75C
-	.4byte 0x803CE768
-	.4byte 0x803CE774
-	.4byte 0x803CE780
-	.4byte 0x803CE78C
-	.4byte 0x803CE798
-	.4byte 0x803CE7A4
-	.4byte 0x803CE7C5
-	.4byte 0x803CE7E6
-	.4byte 0x803CE807
-	.4byte 0x803CE828
-	.4byte 0x803CE849
-	.4byte 0x803CE86A
-	.4byte 0x803CE88B
-	.4byte 0x803CE8AC
-	.4byte 0x803CE8CD
-	.4byte 0x803CE8D6
-	.4byte 0x803CE8DF
-	.4byte 0x803CE8E8
+	.4byte lbl_803CE738
+	.4byte lbl_803CE744
+	.4byte lbl_803CE750
+	.4byte lbl_803CE75C
+	.4byte lbl_803CE768
+	.4byte lbl_803CE774
+	.4byte lbl_803CE780
+	.4byte lbl_803CE78C
+	.4byte lbl_803CE798
+	.4byte lbl_803CE7A4
+	.4byte lbl_803CE7C5
+	.4byte lbl_803CE7E6
+	.4byte lbl_803CE807
+	.4byte lbl_803CE828
+	.4byte lbl_803CE849
+	.4byte lbl_803CE86A
+	.4byte lbl_803CE88B
+	.4byte lbl_803CE8AC
+	.4byte lbl_803CE8CD
+	.4byte lbl_803CE8D6
+	.4byte lbl_803CE8DF
+	.4byte lbl_803CE8E8
 
 .global lbl_803CE6A8
 lbl_803CE6A8:
 	# ROM: 0x3CB6A8
-	.4byte 0x803CE8F1
-	.4byte 0x803CE8F1
-	.4byte 0x803CE8F1
-	.4byte 0x803CE8F2
+	.4byte lbl_803CE8F1
+	.4byte lbl_803CE8F1
+	.4byte lbl_803CE8F1
+	.4byte lbl_803CE8F2
 	.4byte 0x00000004
 	.4byte 0x00000004
 	.4byte 0x00000004
@@ -3494,42 +3494,147 @@ lbl_803CE6A8:
 
 .global lbl_803CE738
 lbl_803CE738:
+
 	# ROM: 0x3CB738
 	.asciz "PassThru   "
+
+.global lbl_803CE744
+lbl_803CE744:
+
+	# ROM: 0x3CB744
 	.asciz "Multiply   "
+
+.global lbl_803CE750
+lbl_803CE750:
+
+	# ROM: 0x3CB750
 	.asciz "Invert     "
+
+.global lbl_803CE75C
+lbl_803CE75C:
+
+	# ROM: 0x3CB75C
 	.asciz "Add        "
+
+.global lbl_803CE768
+lbl_803CE768:
+
+	# ROM: 0x3CB768
 	.asciz "Subtract   "
+
+.global lbl_803CE774
+lbl_803CE774:
+
+	# ROM: 0x3CB774
 	.asciz "Blend      "
+
+.global lbl_803CE780
+lbl_803CE780:
+
+	# ROM: 0x3CB780
 	.asciz "WideScreen "
+
+.global lbl_803CE78C
+lbl_803CE78C:
+
+	# ROM: 0x3CB78C
 	.asciz "SceneAdd   "
+
+.global lbl_803CE798
+lbl_803CE798:
+
+	# ROM: 0x3CB798
 	.asciz "NoColor    "
+
+.global lbl_803CE7A4
+lbl_803CE7A4:
+
+	# ROM: 0x3CB7A4
 	.asciz "FullScreen                      "
-	.byte 0x46, 0x75, 0x6C
-	.asciz "lScreenHalvesLeftRight       "
-	.byte 0x46, 0x75
-	.asciz "llScreenHalvesTopBottom       "
-	.byte 0x46
-	.asciz "ullScreenQuarters              "
+
+.global lbl_803CE7C5
+lbl_803CE7C5:
+
+	# ROM: 0x3CB7C5
+	.asciz "FullScreenHalvesLeftRight       "
+
+.global lbl_803CE7E6
+lbl_803CE7E6:
+
+	# ROM: 0x3CB7E6
+	.asciz "FullScreenHalvesTopBottom       "
+
+.global lbl_803CE807
+lbl_803CE807:
+
+	# ROM: 0x3CB807
+	.asciz "FullScreenQuarters              "
+
+.global lbl_803CE828
+lbl_803CE828:
+
+	# ROM: 0x3CB828
 	.asciz "CinemaBars                      "
-	.byte 0x53, 0x63, 0x61
-	.asciz "nLinesEven                   "
-	.byte 0x53, 0x63
-	.asciz "anLinesOdd                    "
-	.byte 0x52
-	.asciz "andomStatic                    "
+
+.global lbl_803CE849
+lbl_803CE849:
+
+	# ROM: 0x3CB849
+	.asciz "ScanLinesEven                   "
+
+.global lbl_803CE86A
+lbl_803CE86A:
+
+	# ROM: 0x3CB86A
+	.asciz "ScanLinesOdd                    "
+
+.global lbl_803CE88B
+lbl_803CE88B:
+
+	# ROM: 0x3CB88B
+	.asciz "RandomStatic                    "
+
+.global lbl_803CE8AC
+lbl_803CE8AC:
+
+	# ROM: 0x3CB8AC
 	.asciz "CookieCutterDepthRandomStatic   "
-	.byte 0x4E, 0x6F, 0x42
-	.asciz "lur  "
-	.byte 0x4C, 0x6F
-	.asciz "Blur  "
-	.byte 0x48
-	.asciz "iBlur  "
+
+.global lbl_803CE8CD
+lbl_803CE8CD:
+
+	# ROM: 0x3CB8CD
+	.asciz "NoBlur  "
+
+.global lbl_803CE8D6
+lbl_803CE8D6:
+
+	# ROM: 0x3CB8D6
+	.asciz "LoBlur  "
+
+.global lbl_803CE8DF
+lbl_803CE8DF:
+
+	# ROM: 0x3CB8DF
+	.asciz "HiBlur  "
+
+.global lbl_803CE8E8
+lbl_803CE8E8:
+
+	# ROM: 0x3CB8E8
 	.asciz "XRay    "
-	.byte 0x00, 0x54, 0x58
-	.asciz "TR_XRayPalette"
-	.byte 0x3F
-	.asciz "?(??)"
+
+.global lbl_803CE8F1
+lbl_803CE8F1:
+
+	# ROM: 0x3CB8F1
+	.asciz ""
+
+.global lbl_803CE8F2
+lbl_803CE8F2:
+
+	# ROM: 0x3CB8F2
+	.asciz "TXTR_XRayPalette"
+	.asciz "??(??)"
 	.balign 4
 	.4byte 0
-

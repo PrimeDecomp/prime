@@ -1423,20 +1423,31 @@ lbl_800293E8:
 .balign 8
 .global lbl_803CCCD0
 lbl_803CCCD0:
+
 	# ROM: 0x3C9CD0
-	.4byte 0x803CCCDC
-	.4byte 0x803CCCEE
-	.4byte 0x803CCCFD
+	.4byte lbl_803CCCDC
+	.4byte lbl_803CCCEE
+	.4byte lbl_803CCCFD
 
 .global lbl_803CCCDC
 lbl_803CCCDC:
+
 	# ROM: 0x3C9CDC
 	.asciz "TXTR_NintendoLogo"
+
+.global lbl_803CCCEE
+lbl_803CCCEE:
+
+	# ROM: 0x3C9CEE
 	.byte 0x54, 0x58
 	.asciz "TR_RetroLogo"
+
+.global lbl_803CCCFD
+lbl_803CCCFD:
+
+	# ROM: 0x3C9CFD
 	.byte 0x54, 0x58, 0x54
 	.asciz "R_DolbyLogo"
 	.asciz "??(??)"
 	.byte 0x53
 	.asciz "plashScreen"
-

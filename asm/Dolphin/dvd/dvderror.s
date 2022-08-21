@@ -23,6 +23,11 @@ lbl_803F0100:
 	.4byte 0x00040800
 	.4byte 0x00100007
 	.4byte 0
+
+.global lbl_803F0148
+lbl_803F0148:
+
+	# ROM: 0x3ED148
 	.4byte 0x0A0A0A83
 	.4byte 0x47838981
 	.4byte 0x5B82AA94
@@ -51,8 +56,18 @@ lbl_803F0100:
 	.4byte 0xAD82BE82
 	.4byte 0xB382A281
 	.4byte 0x42000000
+
+.global lbl_803F01B8
+lbl_803F01B8:
+
+	# ROM: 0x3ED1B8
 	.asciz "\n\n\nAn error has occurred.\nTurn the power off and refer to the\nNintendo GameCube Instruction Booklet\nfor further instructions."
 	.balign 4
+
+.global lbl_803F0238
+lbl_803F0238:
+
+	# ROM: 0x3ED238
 	.4byte 0x0A0A0A41
 	.4byte 0x6E206572
 	.4byte 0x726F7220
@@ -75,8 +90,18 @@ lbl_803F0100:
 	.4byte 0x75626599
 	.asciz " Instruction Booklet\nfor further instructions."
 	.balign 4
+
+.global lbl_803F02B8
+lbl_803F02B8:
+
+	# ROM: 0x3ED2B8
 	.asciz "\n\n\nEin Fehler ist aufgetreten.\nBitte schalten Sie den NINTENDO GAMECUBE\naus und lesen Sie die Bedienungsanleitung,\num weitere Informationen zu erhalten."
 	.balign 4
+
+.global lbl_803F0354
+lbl_803F0354:
+
+	# ROM: 0x3ED354
 	.4byte 0x0A0A0A55
 	.4byte 0x6E652065
 	.4byte 0x72726575
@@ -93,6 +118,11 @@ lbl_803F0100:
 	.4byte 0xE966E972
 	.asciz "ez-vous au\nmanuel d'instructions NINTENDO GAMECUBE\npour de plus amples informations."
 	.balign 4
+
+.global lbl_803F03E4
+lbl_803F03E4:
+
+	# ROM: 0x3ED3E4
 	.4byte 0x0A0A0A53
 	.4byte 0x65206861
 	.4byte 0x2070726F
@@ -127,9 +157,19 @@ lbl_803F0100:
 	.4byte 0x666F726D
 	.4byte 0x616369F3
 	.4byte 0x6E2E0000
+
+.global lbl_803F046C
+lbl_803F046C:
+
+	# ROM: 0x3ED46C
 	.4byte 0x0A0A0A53
 	.4byte 0x6920E820
 	.asciz "verificato un errore.\nSpegni (OFF) e controlla il manuale\nd'istruzioni del NINTENDO GAMECUBE\nper ulteriori indicazioni."
+
+.global lbl_803F04EC
+lbl_803F04EC:
+
+	# ROM: 0x3ED4EC
 	.asciz "\n\n\nEr is een fout opgetreden.\nZet de NINTENDO GAMECUBE uit en\nraadpleeg de handleiding van de\nNintendo GameCube voor nadere\ninstructies."
 	.balign 4
 

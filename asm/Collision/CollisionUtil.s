@@ -3669,13 +3669,13 @@ RayAABoxIntersection_Double__13CollisionUtilFRC5CMRayRC6CAABoxR9CVector3fRd:
 /* 802D30FC 002D005C  DB A1 00 C0 */	stfd f29, 0xc0(r1)
 /* 802D3100 002D0060  F3 A1 00 C8 */	psq_st f29, 200(r1), 0, qr0
 /* 802D3104 002D0064  BF 61 00 AC */	stmw r27, 0xac(r1)
-/* 802D3108 002D0068  3C E0 80 3D */	lis r7, lbl_803D0004@ha
+/* 802D3108 002D0068  3C E0 80 3D */	lis r7, lbl_803D6A68@ha
 /* 802D310C 002D006C  7C 7B 1B 78 */	mr r27, r3
-/* 802D3110 002D0070  84 67 6A 68 */	lwzu r3, 0x6a68(r7)
+/* 802D3110 002D0070  84 67 6A 68 */	lwzu r3, lbl_803D6A68@l(r7)
 /* 802D3114 002D0074  7C BE 2B 78 */	mr r30, r5
 /* 802D3118 002D0078  7C 9C 23 78 */	mr r28, r4
 /* 802D311C 002D007C  7C DF 33 78 */	mr r31, r6
-/* 802D3120 002D0080  80 A7 00 04 */	lwz r5, lbl_803D0004@l(r7)
+/* 802D3120 002D0080  80 A7 00 04 */	lwz r5, 4(r7)
 /* 802D3124 002D0084  7F 64 DB 78 */	mr r4, r27
 /* 802D3128 002D0088  80 07 00 08 */	lwz r0, 8(r7)
 /* 802D312C 002D008C  3B A0 00 01 */	li r29, 1
@@ -4758,6 +4758,9 @@ lbl_803D6A5C:
 	.float -1.0
 	.float -1.0
 	.float -1.0
+
+.global lbl_803D6A68
+lbl_803D6A68:
 	.4byte 0x00000002
 	.4byte 0x00000002
 	.4byte 0x00000002

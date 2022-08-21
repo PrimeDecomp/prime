@@ -1,7 +1,6 @@
 .include "macros.inc"
 
-.section .data
-.balign 8
+.section .text
 
 .global zcfree
 zcfree:

@@ -1451,7 +1451,7 @@ lbl_8020A1B8:
 DrawAllModels__18CWorldTransManagerCFv:
 /* 8020A1D4 00207134  94 21 FC 10 */	stwu r1, -0x3f0(r1)
 /* 8020A1D8 00207138  7C 08 02 A6 */	mflr r0
-/* 8020A1DC 0020713C  3C 80 80 5A */	lis r4, lbl_805A0004@ha
+/* 8020A1DC 0020713C  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 8020A1E0 00207140  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
 /* 8020A1E4 00207144  90 01 03 F4 */	stw r0, 0x3f4(r1)
 /* 8020A1E8 00207148  38 A1 00 3C */	addi r5, r1, 0x3c
@@ -1461,10 +1461,10 @@ DrawAllModels__18CWorldTransManagerCFv:
 /* 8020A1F8 00207158  39 40 00 00 */	li r10, 0
 /* 8020A1FC 0020715C  93 C1 03 E8 */	stw r30, 0x3e8(r1)
 /* 8020A200 00207160  7C 7E 1B 78 */	mr r30, r3
-/* 8020A204 00207164  84 C4 66 A0 */	lwzu r6, 0x66a0(r4)
+/* 8020A204 00207164  84 C4 66 A0 */	lwzu r6, sZeroVector__9CVector3f@l(r4)
 /* 8020A208 00207168  83 E3 00 04 */	lwz r31, 4(r3)
 /* 8020A20C 0020716C  38 61 01 08 */	addi r3, r1, 0x108
-/* 8020A210 00207170  81 04 00 04 */	lwz r8, lbl_805A0004@l(r4)
+/* 8020A210 00207170  81 04 00 04 */	lwz r8, 4(r4)
 /* 8020A214 00207174  80 04 00 08 */	lwz r0, 8(r4)
 /* 8020A218 00207178  38 80 00 00 */	li r4, 0
 /* 8020A21C 0020717C  90 C1 00 3C */	stw r6, 0x3c(r1)

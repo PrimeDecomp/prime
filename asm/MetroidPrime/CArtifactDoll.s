@@ -1134,18 +1134,18 @@ lbl_805ADDAC:
 .global lbl_803D5D50
 lbl_803D5D50:
 	# ROM: 0x3D2D50
-	.4byte 0x803D5DB0
-	.4byte 0x803D5DBC
-	.4byte 0x803D5DC8
-	.4byte 0x803D5DD4
-	.4byte 0x803D5DE0
-	.4byte 0x803D5DEC
-	.4byte 0x803D5DF8
-	.4byte 0x803D5E04
-	.4byte 0x803D5E10
-	.4byte 0x803D5E1C
-	.4byte 0x803D5E29
-	.4byte 0x803D5E36
+	.4byte lbl_803D5DB0
+	.4byte lbl_803D5DBC
+	.4byte lbl_803D5DC8
+	.4byte lbl_803D5DD4
+	.4byte lbl_803D5DE0
+	.4byte lbl_803D5DEC
+	.4byte lbl_803D5DF8
+	.4byte lbl_803D5E04
+	.4byte lbl_803D5E10
+	.4byte lbl_803D5E1C
+	.4byte lbl_803D5E29
+	.4byte lbl_803D5E36
 
 .global lbl_803D5D80
 lbl_803D5D80:
@@ -1165,19 +1165,75 @@ lbl_803D5D80:
 
 .global lbl_803D5DB0
 lbl_803D5DB0:
+
 	# ROM: 0x3D2DB0
 	.asciz "CMDL_Piece1"
+
+.global lbl_803D5DBC
+lbl_803D5DBC:
+
+	# ROM: 0x3D2DBC
 	.asciz "CMDL_Piece2"
+
+.global lbl_803D5DC8
+lbl_803D5DC8:
+
+	# ROM: 0x3D2DC8
 	.asciz "CMDL_Piece3"
+
+.global lbl_803D5DD4
+lbl_803D5DD4:
+
+	# ROM: 0x3D2DD4
 	.asciz "CMDL_Piece4"
+
+.global lbl_803D5DE0
+lbl_803D5DE0:
+
+	# ROM: 0x3D2DE0
 	.asciz "CMDL_Piece5"
+
+.global lbl_803D5DEC
+lbl_803D5DEC:
+
+	# ROM: 0x3D2DEC
 	.asciz "CMDL_Piece6"
+
+.global lbl_803D5DF8
+lbl_803D5DF8:
+
+	# ROM: 0x3D2DF8
 	.asciz "CMDL_Piece7"
+
+.global lbl_803D5E04
+lbl_803D5E04:
+
+	# ROM: 0x3D2E04
 	.asciz "CMDL_Piece8"
+
+.global lbl_803D5E10
+lbl_803D5E10:
+
+	# ROM: 0x3D2E10
 	.asciz "CMDL_Piece9"
+
+.global lbl_803D5E1C
+lbl_803D5E1C:
+
+	# ROM: 0x3D2E1C
 	.asciz "CMDL_Piece10"
+
+.global lbl_803D5E29
+lbl_803D5E29:
+
+	# ROM: 0x3D2E29
 	.byte 0x43, 0x4D, 0x44
 	.asciz "L_Piece11"
+
+.global lbl_803D5E36
+lbl_803D5E36:
+
+	# ROM: 0x3D2E36
 	.byte 0x43, 0x4D
 	.asciz "DL_Piece12"
 	.byte 0x3F

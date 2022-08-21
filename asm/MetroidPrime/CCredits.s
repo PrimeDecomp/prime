@@ -3494,10 +3494,10 @@ lbl_80027F6C:
 /* 80027FA0 00024F00  81 8C 00 54 */	lwz r12, 0x54(r12)
 /* 80027FA4 00024F04  7D 89 03 A6 */	mtctr r12
 /* 80027FA8 00024F08  4E 80 04 21 */	bctrl
-/* 80027FAC 00024F0C  3C 80 80 3F */	lis r4, lbl_803F0004@ha
-/* 80027FB0 00024F10  87 A4 D9 10 */	lwzu r29, -0x26f0(r4)
+/* 80027FAC 00024F0C  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 80027FB0 00024F10  87 A4 D9 10 */	lwzu r29, mViewport__9CGraphics@l(r4)
 /* 80027FB4 00024F14  7F E3 FB 78 */	mr r3, r31
-/* 80027FB8 00024F18  83 84 00 04 */	lwz r28, lbl_803F0004@l(r4)
+/* 80027FB8 00024F18  83 84 00 04 */	lwz r28, 4(r4)
 /* 80027FBC 00024F1C  83 64 00 08 */	lwz r27, 8(r4)
 /* 80027FC0 00024F20  83 44 00 0C */	lwz r26, 0xc(r4)
 /* 80027FC4 00024F24  48 33 36 61 */	bl sub_8035b624
@@ -3667,52 +3667,125 @@ lbl_800281E0:
 .balign 8
 .global lbl_803CCB18
 lbl_803CCB18:
+
 	# ROM: 0x3C9B18
-	.4byte 0x803CCB50
-	.4byte 0x803CCB62
-	.4byte 0x803CCB62
-	.4byte 0x803CCB79
-	.4byte 0x803CCB8C
-	.4byte 0x803CCBA4
-	.4byte 0x803CCBBB
-	.4byte 0x803CCBD3
+	.4byte lbl_803CCB50
+	.4byte lbl_803CCB62
+	.4byte lbl_803CCB62
+	.4byte lbl_803CCB79
+	.4byte lbl_803CCB8C
+	.4byte lbl_803CCBA4
+	.4byte lbl_803CCBBB
+	.4byte lbl_803CCBD3
 
 .global lbl_803CCB38
 lbl_803CCB38:
+
 	# ROM: 0x3C9B38
-	.4byte 0x803CCBE6
-	.4byte 0x803CCBFE
-	.4byte 0x803CCC15
-	.4byte 0x803CCC2B
-	.4byte 0x803CCC44
-	.4byte 0x803CCC5C
+	.4byte lbl_803CCBE6
+	.4byte lbl_803CCBFE
+	.4byte lbl_803CCC15
+	.4byte lbl_803CCC2B
+	.4byte lbl_803CCC44
+	.4byte lbl_803CCC5C
 
 .global lbl_803CCB50
 lbl_803CCB50:
+
 	# ROM: 0x3C9B50
 	.asciz "Video/wingame.thp"
+
+.global lbl_803CCB62
+lbl_803CCB62:
+
+	# ROM: 0x3C9B62
 	.byte 0x56, 0x69
 	.asciz "deo/wingame_best.thp"
+
+.global lbl_803CCB79
+lbl_803CCB79:
+
+	# ROM: 0x3C9B79
 	.byte 0x56, 0x69, 0x64
 	.asciz "eo/losegame.thp"
+
+.global lbl_803CCB8C
+lbl_803CCB8C:
+
+	# ROM: 0x3C9B8C
 	.asciz "Video/05_tallonText.thp"
+
+.global lbl_803CCBA4
+lbl_803CCBA4:
+
+	# ROM: 0x3C9BA4
 	.asciz "Video/AfterCredits.thp"
+
+.global lbl_803CCBBB
+lbl_803CCBBB:
+
+	# ROM: 0x3C9BBB
 	.byte 0x56
 	.asciz "ideo/SpecialEnding.thp"
+
+.global lbl_803CCBD3
+lbl_803CCBD3:
+
+	# ROM: 0x3C9BD3
 	.byte 0x56
 	.asciz "ideo/creditBG.thp"
+
+.global lbl_803CCBE6
+lbl_803CCBE6:
+
+	# ROM: 0x3C9BE6
 	.byte 0x56, 0x69
 	.asciz "deo/win_bad_begin.thp"
+
+.global lbl_803CCBFE
+lbl_803CCBFE:
+
+	# ROM: 0x3C9BFE
 	.byte 0x56, 0x69
 	.asciz "deo/win_bad_loop.thp"
+
+.global lbl_803CCC15
+lbl_803CCC15:
+
+	# ROM: 0x3C9C15
 	.byte 0x56, 0x69, 0x64
 	.asciz "eo/win_bad_end.thp"
+
+.global lbl_803CCC2B
+lbl_803CCC2B:
+
+	# ROM: 0x3C9C2B
 	.byte 0x56
 	.asciz "ideo/win_good_begin.thp"
+
+.global lbl_803CCC44
+lbl_803CCC44:
+
+	# ROM: 0x3C9C44
 	.asciz "Video/win_good_loop.thp"
+
+.global lbl_803CCC5C
+lbl_803CCC5C:
+
+	# ROM: 0x3C9C5C
 	.asciz "Video/win_good_end.thp"
+
+.global lbl_803CCC73
+lbl_803CCC73:
+
+	# ROM: 0x3C9C73
 	.byte 0x41
 	.asciz "udio/ending3.rsf"
+
+.global lbl_803CCC85
+lbl_803CCC85:
+
+	# ROM: 0x3C9C85
 	.byte 0x41, 0x75, 0x64
 	.asciz "io/samusjak.rsf"
 	.asciz "AutoSave"

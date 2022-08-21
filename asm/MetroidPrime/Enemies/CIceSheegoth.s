@@ -10077,27 +10077,27 @@ lbl_805AC458:
 .global lbl_805AC45C
 lbl_805AC45C:
 	# ROM: 0x3F8CFC
-	.4byte 0x803D143E
+	.4byte lbl_803D143E
 
 .global lbl_805AC460
 lbl_805AC460:
 	# ROM: 0x3F8D00
-	.4byte 0x803D1426
+	.4byte lbl_803D1426
 
 .global lbl_805AC464
 lbl_805AC464:
 	# ROM: 0x3F8D04
-	.4byte 0x803D1412
+	.4byte lbl_803D1412
 
 .global lbl_805AC468
 lbl_805AC468:
 	# ROM: 0x3F8D08
-	.4byte 0x803D144E
+	.4byte lbl_803D144E
 
 .global lbl_805AC46C
 lbl_805AC46C:
 	# ROM: 0x3F8D0C
-	.4byte 0x803D1459
+	.4byte lbl_803D1459
 
 .global lbl_805AC470
 lbl_805AC470:
@@ -10112,7 +10112,7 @@ lbl_805AC474:
 .global lbl_805AC478
 lbl_805AC478:
 	# ROM: 0x3F8D18
-	.4byte 0x3F19999A
+	.float 0.6
 
 .global lbl_805AC47C
 lbl_805AC47C:
@@ -10310,65 +10310,137 @@ lbl_805AC514:
 .global lbl_803D1360
 lbl_803D1360:
 	# ROM: 0x3CE360
-	.4byte 0x803D13D8
-	.4byte 0x803D13DE
+	.4byte lbl_803D13D8
+	.4byte lbl_803D13DE
 	.float 0.4
 	.float 0.75
-	.4byte 0x803D13E5
-	.4byte 0x803D13ED
+	.4byte lbl_803D13E5
+	.4byte lbl_803D13ED
 	.float 0.4
 	.float 0.75
-	.4byte 0x803D13F5
-	.4byte 0x803D13FB
+	.4byte lbl_803D13F5
+	.4byte lbl_803D13FB
 	.float 0.4
 	.float 0.75
-	.4byte 0x803D1402
-	.4byte 0x803D140A
+	.4byte lbl_803D1402
+	.4byte lbl_803D140A
 	.float 0.4
 	.float 0.75
-	.4byte 0x803D1412
+	.4byte lbl_803D1412
 	.4byte 0x3F0CCCCD
-	.4byte 0x803D141F
+	.4byte lbl_803D141F
 	.4byte 0x3F8CCCCD
-	.4byte 0x803D1426
+	.4byte lbl_803D1426
 	.4byte 0x3F8CCCCD
-	.4byte 0x803D1434
+	.4byte lbl_803D1434
 	.float 0.7
-	.4byte 0x803D143E
+	.4byte lbl_803D143E
 	.4byte 0x3F99999A
-	.4byte 0x803D144E
-	.4byte 0x3F19999A
-	.4byte 0x803D1459
-	.4byte 0x3F19999A
+	.4byte lbl_803D144E
+	.float 0.6
+	.4byte lbl_803D1459
+	.float 0.6
 
 .global lbl_803D13D8
 lbl_803D13D8:
+
 	# ROM: 0x3CE3D8
 	.asciz "L_hip"
+
+.global lbl_803D13DE
+lbl_803D13DE:
+
+	# ROM: 0x3CE3DE
 	.byte 0x4C, 0x5F
 	.asciz "knee"
+
+.global lbl_803D13E5
+lbl_803D13E5:
+
+	# ROM: 0x3CE3E5
 	.byte 0x4C, 0x5F, 0x61
 	.asciz "nkle"
+
+.global lbl_803D13ED
+lbl_803D13ED:
+
+	# ROM: 0x3CE3ED
 	.byte 0x4C, 0x5F, 0x54
 	.asciz "oe_3"
+
+.global lbl_803D13F5
+lbl_803D13F5:
+
+	# ROM: 0x3CE3F5
 	.byte 0x52, 0x5F, 0x68
-	.4byte 0x69700052
+	.byte 0x69, 0x70, 0x00
+
+.global lbl_803D13FB
+lbl_803D13FB:
+
+	# ROM: 0x3CE3FB
+	.byte 0x52
 	.asciz "_knee"
+
+.global lbl_803D1402
+lbl_803D1402:
+
+	# ROM: 0x3CE402
 	.byte 0x52, 0x5F
 	.asciz "ankle"
+
+.global lbl_803D140A
+lbl_803D140A:
+
+	# ROM: 0x3CE40A
 	.byte 0x52, 0x5F
 	.asciz "Toe_3"
+
+.global lbl_803D1412
+lbl_803D1412:
+
+	# ROM: 0x3CE412
 	.byte 0x4A, 0x61
 	.asciz "w_end_LCTR"
+
+.global lbl_803D141F
+lbl_803D141F:
+
+	# ROM: 0x3CE41F
 	.byte 0x50
 	.asciz "elvis"
+
+.global lbl_803D1426
+lbl_803D1426:
+
+	# ROM: 0x3CE426
 	.byte 0x4C, 0x43
 	.asciz "TR_SHEMOUTH"
+
+.global lbl_803D1434
+lbl_803D1434:
+
+	# ROM: 0x3CE434
 	.asciz "butt_LCTR"
+
+.global lbl_803D143E
+lbl_803D143E:
+
+	# ROM: 0x3CE43E
 	.byte 0x49, 0x63
 	.asciz "e_Shards_LCTR"
+
+.global lbl_803D144E
+lbl_803D144E:
+
+	# ROM: 0x3CE44E
 	.byte 0x47, 0x69
 	.asciz "llL_LCTR"
+
+.global lbl_803D1459
+lbl_803D1459:
+
+	# ROM: 0x3CE459
 	.byte 0x47, 0x69, 0x6C
 	.asciz "lR_LCTR"
 	.asciz "??(??)"

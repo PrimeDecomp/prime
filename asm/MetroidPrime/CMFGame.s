@@ -85,6 +85,7 @@ lbl_803CCAD4:
 	.asciz "CMFGameLoader"
 	.asciz "STRG_IntroLevelLoad"
 	.asciz "CMFGame"
+	.balign 4
 	.4byte 0
 
 .section .sbss

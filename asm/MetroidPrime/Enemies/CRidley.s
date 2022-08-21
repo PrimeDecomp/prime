@@ -389,38 +389,38 @@ lbl_803E95A4:
 .global lbl_803E9650
 lbl_803E9650:
 	# ROM: 0x3E6650
-	.4byte 0x803D5100
-	.4byte 0x803D5109
-	.4byte 0x803D5112
-	.4byte 0x803D511B
-	.4byte 0x803D5124
-	.4byte 0x803D512D
-	.4byte 0x803D5136
-	.4byte 0x803D513F
-	.4byte 0x803D5148
-	.4byte 0x803D5151
-	.4byte 0x803D515A
-	.4byte 0x803D5163
-	.4byte 0x803D516C
-	.4byte 0x803D5175
+	.4byte lbl_803D5100
+	.4byte lbl_803D5109
+	.4byte lbl_803D5112
+	.4byte lbl_803D511B
+	.4byte lbl_803D5124
+	.4byte lbl_803D512D
+	.4byte lbl_803D5136
+	.4byte lbl_803D513F
+	.4byte lbl_803D5148
+	.4byte lbl_803D5151
+	.4byte lbl_803D515A
+	.4byte lbl_803D5163
+	.4byte lbl_803D516C
+	.4byte lbl_803D5175
 
 .global lbl_803E9688
 lbl_803E9688:
 	# ROM: 0x3E6688
-	.4byte 0x803D517E
-	.4byte 0x803D518A
-	.4byte 0x803D5196
-	.4byte 0x803D51A2
-	.4byte 0x803D51AE
-	.4byte 0x803D51BA
-	.4byte 0x803D51C6
-	.4byte 0x803D51D2
-	.4byte 0x803D51DE
-	.4byte 0x803D51EA
-	.4byte 0x803D51F6
-	.4byte 0x803D5202
-	.4byte 0x803D520E
-	.4byte 0x803D521A
+	.4byte lbl_803D517E
+	.4byte lbl_803D518A
+	.4byte lbl_803D5196
+	.4byte lbl_803D51A2
+	.4byte lbl_803D51AE
+	.4byte lbl_803D51BA
+	.4byte lbl_803D51C6
+	.4byte lbl_803D51D2
+	.4byte lbl_803D51DE
+	.4byte lbl_803D51EA
+	.4byte lbl_803D51F6
+	.4byte lbl_803D5202
+	.4byte lbl_803D520E
+	.4byte lbl_803D521A
 
 .section .sdata
 .balign 8
@@ -11418,41 +11418,41 @@ lbl_805AD700:
 .global lbl_803D4B98
 lbl_803D4B98:
 	# ROM: 0x3D1B98
-	.4byte 0x803D4D5C
-	.4byte 0x803D4D63
+	.4byte lbl_803D4D5C
+	.4byte lbl_803D4D63
 	.4byte 0x3F28F5C3
-	.4byte 0x803D4D63
-	.4byte 0x803D4D6A
+	.4byte lbl_803D4D63
+	.4byte lbl_803D4D6A
 	.4byte 0x3F28F5C3
-	.4byte 0x803D4D6A
-	.4byte 0x803D4D71
+	.4byte lbl_803D4D6A
+	.4byte lbl_803D4D71
 	.4byte 0x3F28F5C3
-	.4byte 0x803D4D71
-	.4byte 0x803D4D78
+	.4byte lbl_803D4D71
+	.4byte lbl_803D4D78
 	.4byte 0x3F28F5C3
 
 .global lbl_803D4BC8
 lbl_803D4BC8:
 	# ROM: 0x3D1BC8
-	.4byte 0x803D4D7F
-	.4byte 0x3F19999A
-	.4byte 0x803D4D8D
-	.4byte 0x3F19999A
-	.4byte 0x803D4D95
+	.4byte lbl_803D4D7F
+	.float 0.6
+	.4byte lbl_803D4D8D
+	.float 0.6
+	.4byte lbl_803D4D95
 	.float 0.3
-	.4byte 0x803D4DA6
-	.4byte 0x3F19999A
-	.4byte 0x803D4DAD
+	.4byte lbl_803D4DA6
+	.float 0.6
+	.4byte lbl_803D4DAD
 	.float 0.5
-	.4byte 0x803D4DB5
+	.4byte lbl_803D4DB5
 	.float 0.5
-	.4byte 0x803D4DBD
-	.4byte 0x3F19999A
-	.4byte 0x803D4DC5
-	.4byte 0x3F19999A
-	.4byte 0x803D4DCD
+	.4byte lbl_803D4DBD
+	.float 0.6
+	.4byte lbl_803D4DC5
+	.float 0.6
+	.4byte lbl_803D4DCD
 	.float 0.4
-	.4byte 0x803D4DD7
+	.4byte lbl_803D4DD7
 	.float 0.4
 
 .global lbl_803D4C18
@@ -11546,33 +11546,104 @@ lbl_803D4CCC:
 
 .global lbl_803D4D5C
 lbl_803D4D5C:
+
 	# ROM: 0x3D1D5C
 	.asciz "Tail_1"
+
+.global lbl_803D4D63
+lbl_803D4D63:
+
+	# ROM: 0x3D1D63
 	.byte 0x54
 	.asciz "ail_3"
+
+.global lbl_803D4D6A
+lbl_803D4D6A:
+
+	# ROM: 0x3D1D6A
 	.byte 0x54, 0x61
 	.asciz "il_5"
+
+.global lbl_803D4D71
+lbl_803D4D71:
+
+	# ROM: 0x3D1D71
 	.byte 0x54, 0x61, 0x69
 	.4byte 0x6C5F3700
+
+.global lbl_803D4D78
+lbl_803D4D78:
+
+	# ROM: 0x3D1D78
 	.asciz "Tail_9"
+
+.global lbl_803D4D7F
+lbl_803D4D7F:
+
+	# ROM: 0x3D1D7F
 	.byte 0x53
 	.asciz "keleton_Root"
+
+.global lbl_803D4D8D
+lbl_803D4D8D:
+
+	# ROM: 0x3D1D8D
 	.byte 0x53, 0x70, 0x69
 	.asciz "ne_2"
+
+.global lbl_803D4D95
+lbl_803D4D95:
+
+	# ROM: 0x3D1D95
 	.byte 0x62, 0x72, 0x65
 	.asciz "astPlate_LCTR"
+
+.global lbl_803D4DA6
+lbl_803D4DA6:
+
+	# ROM: 0x3D1DA6
 	.byte 0x48, 0x65
 	.asciz "ad_1"
+
+.global lbl_803D4DAD
+lbl_803D4DAD:
+
+	# ROM: 0x3D1DAD
 	.byte 0x4C, 0x5F, 0x77
 	.asciz "rist"
+
+.global lbl_803D4DB5
+lbl_803D4DB5:
+
+	# ROM: 0x3D1DB5
 	.byte 0x52, 0x5F, 0x77
 	.asciz "rist"
+
+.global lbl_803D4DBD
+lbl_803D4DBD:
+
+	# ROM: 0x3D1DBD
 	.byte 0x4C, 0x5F, 0x61
 	.asciz "nkle"
+
+.global lbl_803D4DC5
+lbl_803D4DC5:
+
+	# ROM: 0x3D1DC5
 	.byte 0x52, 0x5F, 0x61
 	.asciz "nkle"
+
+.global lbl_803D4DCD
+lbl_803D4DCD:
+
+	# ROM: 0x3D1DCD
 	.byte 0x4C, 0x5F, 0x70
 	.asciz "inky_1"
+
+.global lbl_803D4DD7
+lbl_803D4DD7:
+
+	# ROM: 0x3D1DD7
 	.byte 0x52
 	.asciz "_pinky_1"
 	.byte 0x3F, 0x3F, 0x28
@@ -11663,57 +11734,193 @@ lbl_803D4D5C:
 
 .global lbl_803D5100
 lbl_803D5100:
+
 	# ROM: 0x3D2100
 	.asciz "GasJet01"
+
+.global lbl_803D5109
+lbl_803D5109:
+
+	# ROM: 0x3D2109
 	.byte 0x47, 0x61, 0x73
 	.asciz "Jet02"
+
+.global lbl_803D5112
+lbl_803D5112:
+
+	# ROM: 0x3D2112
 	.byte 0x47, 0x61
 	.asciz "sJet03"
+
+.global lbl_803D511B
+lbl_803D511B:
+
+	# ROM: 0x3D211B
 	.byte 0x47
 	.asciz "asJet04"
+
+.global lbl_803D5124
+lbl_803D5124:
+
+	# ROM: 0x3D2124
 	.asciz "GasJet05"
+
+.global lbl_803D512D
+lbl_803D512D:
+
+	# ROM: 0x3D212D
 	.byte 0x47, 0x61, 0x73
 	.asciz "Jet06"
+
+.global lbl_803D5136
+lbl_803D5136:
+
+	# ROM: 0x3D2136
 	.byte 0x47, 0x61
 	.asciz "sJet07"
+
+.global lbl_803D513F
+lbl_803D513F:
+
+	# ROM: 0x3D213F
 	.byte 0x47
 	.asciz "asJet08"
+
+.global lbl_803D5148
+lbl_803D5148:
+
+	# ROM: 0x3D2148
 	.asciz "GasJet09"
+
+.global lbl_803D5151
+lbl_803D5151:
+
+	# ROM: 0x3D2151
 	.byte 0x47, 0x61, 0x73
 	.asciz "Jet10"
+
+.global lbl_803D515A
+lbl_803D515A:
+
+	# ROM: 0x3D215A
 	.byte 0x47, 0x61
 	.asciz "sJet11"
+
+.global lbl_803D5163
+lbl_803D5163:
+
+	# ROM: 0x3D2163
 	.byte 0x47
 	.asciz "asJet12"
+
+.global lbl_803D516C
+lbl_803D516C:
+
+	# ROM: 0x3D216C
 	.asciz "GasJet13"
+
+.global lbl_803D5175
+lbl_803D5175:
+
+	# ROM: 0x3D2175
 	.byte 0x47, 0x61, 0x73
 	.asciz "Jet14"
+
+.global lbl_803D517E
+lbl_803D517E:
+
+	# ROM: 0x3D217E
 	.byte 0x47, 0x61
 	.asciz "s_01_LCTR"
+
+.global lbl_803D518A
+lbl_803D518A:
+
+	# ROM: 0x3D218A
 	.byte 0x47, 0x61
 	.asciz "s_02_LCTR"
+
+.global lbl_803D5196
+lbl_803D5196:
+
+	# ROM: 0x3D2196
 	.byte 0x47, 0x61
 	.asciz "s_03_LCTR"
+
+.global lbl_803D51A2
+lbl_803D51A2:
+
+	# ROM: 0x3D21A2
 	.byte 0x47, 0x61
 	.asciz "s_04_LCTR"
+
+.global lbl_803D51AE
+lbl_803D51AE:
+
+	# ROM: 0x3D21AE
 	.byte 0x47, 0x61
 	.asciz "s_05_LCTR"
+
+.global lbl_803D51BA
+lbl_803D51BA:
+
+	# ROM: 0x3D21BA
 	.byte 0x47, 0x61
 	.asciz "s_06_LCTR"
+
+.global lbl_803D51C6
+lbl_803D51C6:
+
+	# ROM: 0x3D21C6
 	.byte 0x47, 0x61
 	.asciz "s_07_LCTR"
+
+.global lbl_803D51D2
+lbl_803D51D2:
+
+	# ROM: 0x3D21D2
 	.byte 0x47, 0x61
 	.asciz "s_08_LCTR"
+
+.global lbl_803D51DE
+lbl_803D51DE:
+
+	# ROM: 0x3D21DE
 	.byte 0x47, 0x61
 	.asciz "s_09_LCTR"
+
+.global lbl_803D51EA
+lbl_803D51EA:
+
+	# ROM: 0x3D21EA
 	.byte 0x47, 0x61
 	.asciz "s_10_LCTR"
+
+.global lbl_803D51F6
+lbl_803D51F6:
+
+	# ROM: 0x3D21F6
 	.byte 0x47, 0x61
 	.asciz "s_11_LCTR"
+
+.global lbl_803D5202
+lbl_803D5202:
+
+	# ROM: 0x3D2202
 	.byte 0x47, 0x61
 	.asciz "s_12_LCTR"
+
+.global lbl_803D520E
+lbl_803D520E:
+
+	# ROM: 0x3D220E
 	.byte 0x47, 0x61
 	.asciz "s_13_LCTR"
+
+.global lbl_803D521A
+lbl_803D521A:
+
+	# ROM: 0x3D221A
 	.byte 0x47, 0x61
 	.asciz "s_14_LCTR"
 	.byte 0x3F, 0x3F

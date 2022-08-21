@@ -10180,23 +10180,23 @@ lbl_805ABE28:
 .global lbl_803D04D8
 lbl_803D04D8:
 	# ROM: 0x3CD4D8
-	.4byte 0x803D0550
-	.4byte 0x803D0557
-	.4byte 0x803D055F
-	.4byte 0x803D0567
-	.4byte 0x803D056D
-	.4byte 0x803D0574
-	.4byte 0x803D057F
-	.4byte 0x803D058D
-	.4byte 0x803D0595
-	.4byte 0x803D059C
-	.4byte 0x803D05A4
-	.4byte 0x803D05AC
-	.4byte 0x803D05B2
-	.4byte 0x803D05B9
-	.4byte 0x803D05C4
-	.4byte 0x803D05D2
-	.4byte 0x803D05DA
+	.4byte lbl_803D0550
+	.4byte lbl_803D0557
+	.4byte lbl_803D055F
+	.4byte lbl_803D0567
+	.4byte lbl_803D056D
+	.4byte lbl_803D0574
+	.4byte lbl_803D057F
+	.4byte lbl_803D058D
+	.4byte lbl_803D0595
+	.4byte lbl_803D059C
+	.4byte lbl_803D05A4
+	.4byte lbl_803D05AC
+	.4byte lbl_803D05B2
+	.4byte lbl_803D05B9
+	.4byte lbl_803D05C4
+	.4byte lbl_803D05D2
+	.4byte lbl_803D05DA
 
 .global lbl_803D051C
 lbl_803D051C:
@@ -10221,37 +10221,128 @@ lbl_803D0530:
 
 .global lbl_803D0550
 lbl_803D0550:
+
 	# ROM: 0x3CD550
 	.asciz "Head_1"
+
+.global lbl_803D0557
+lbl_803D0557:
+
+	# ROM: 0x3CD557
 	.byte 0x4C
 	.asciz "_ankle"
+
+.global lbl_803D055F
+lbl_803D055F:
+
+	# ROM: 0x3CD55F
 	.byte 0x4C
 	.asciz "_elbow"
+
+.global lbl_803D0567
+lbl_803D0567:
+
+	# ROM: 0x3CD567
 	.byte 0x4C
 	.asciz "_hip"
+
+.global lbl_803D056D
+lbl_803D056D:
+
+	# ROM: 0x3CD56D
 	.byte 0x4C, 0x5F, 0x6B
 	.4byte 0x6E656500
+
+.global lbl_803D0574
+lbl_803D0574:
+
+	# ROM: 0x3CD574
 	.asciz "L_shoulder"
+
+.global lbl_803D057F
+lbl_803D057F:
+
+	# ROM: 0x3CD57F
 	.byte 0x4C
 	.asciz "_varias2_SDK"
+
+.global lbl_803D058D
+lbl_803D058D:
+
+	# ROM: 0x3CD58D
 	.byte 0x4C, 0x5F, 0x77
 	.asciz "rist"
+
+.global lbl_803D0595
+lbl_803D0595:
+
+	# ROM: 0x3CD595
 	.byte 0x50, 0x65, 0x6C
 	.4byte 0x76697300
+
+.global lbl_803D059C
+lbl_803D059C:
+
+	# ROM: 0x3CD59C
 	.asciz "R_ankle"
+
+.global lbl_803D05A4
+lbl_803D05A4:
+
+	# ROM: 0x3CD5A4
 	.asciz "R_elbow"
+
+.global lbl_803D05AC
+lbl_803D05AC:
+
+	# ROM: 0x3CD5AC
 	.asciz "R_hip"
+
+.global lbl_803D05B2
+lbl_803D05B2:
+
+	# ROM: 0x3CD5B2
 	.byte 0x52, 0x5F
 	.asciz "knee"
+
+.global lbl_803D05B9
+lbl_803D05B9:
+
+	# ROM: 0x3CD5B9
 	.byte 0x52, 0x5F, 0x73
 	.asciz "houlder"
+
+.global lbl_803D05C4
+lbl_803D05C4:
+
+	# ROM: 0x3CD5C4
 	.asciz "R_varias2_SDK"
+
+.global lbl_803D05D2
+lbl_803D05D2:
+
+	# ROM: 0x3CD5D2
 	.byte 0x53, 0x70
 	.asciz "ine_1"
+
+.global lbl_803D05DA
+lbl_803D05DA:
+
+	# ROM: 0x3CD5DA
 	.byte 0x53, 0x70
 	.asciz "ine_2"
+
+.global lbl_803D05E2
+lbl_803D05E2:
+
+	# ROM: 0x3CD5E2
 	.byte 0x6C, 0x6F
 	.asciz "ckon_target_LCTR"
+
+.global lbl_803D05F5
+lbl_803D05F5:
+
+	# ROM: 0x3CD5F5
 	.byte 0x53, 0x6B, 0x65
 	.asciz "leton_Root"
 	.byte 0x3F
