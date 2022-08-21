@@ -9986,17 +9986,17 @@ lbl_805ABD90:
 .global lbl_805ABD94
 lbl_805ABD94:
 	# ROM: 0x3F8634
-	.4byte 0x803D05E2
+	.4byte lbl_803D05E2
 
 .global lbl_805ABD98
 lbl_805ABD98:
 	# ROM: 0x3F8638
-	.4byte 0x803D0550
+	.4byte lbl_803D0550
 
 .global lbl_805ABD9C
 lbl_805ABD9C:
 	# ROM: 0x3F863C
-	.4byte 0x803D05F5
+	.4byte lbl_803D05F5
 
 .global lbl_805ABDA0
 lbl_805ABDA0:

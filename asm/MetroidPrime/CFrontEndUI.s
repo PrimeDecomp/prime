@@ -124,16 +124,12 @@ lbl_803CC540:
 
 .global MetroidBuildInfo
 MetroidBuildInfo:
-	.4byte 0x2123244D
-	.4byte 0x6574726F
-	.4byte 0x69644275
-	.4byte 0x696C6449
-	.4byte 0x6E666F21
-	.byte 0x23, 0x24
-	.byte 0x42, 0x75
-	.asciz "ild v1.088 10/29/2002 2:21:25"
-	.byte 0x50, 0x41
-	.4byte 0x44000000
+	.ascii "!#$MetroidBuildInfo!#$"
+.global BuildString
+BuildString:
+	.asciz "Build v1.088 10/29/2002 2:21:25"
+	.asciz "PAD"
+	.balign 4
 
 .global lbl_803CC5C4
 lbl_803CC5C4:
@@ -447,22 +443,22 @@ lbl_805A6D0C:
 .global lbl_805A9FA8
 lbl_805A9FA8:
 	# ROM: 0x3F6848
-	.4byte 0x803CC59E
+	.4byte BuildString
 
 .global lbl_805A9FAC
 lbl_805A9FAC:
 	# ROM: 0x3F684C
-	.4byte 0x803CC720
+	.4byte lbl_803CC720
 
 .global lbl_805A9FB0
 lbl_805A9FB0:
 	# ROM: 0x3F6850
-	.4byte 0x803CC735
+	.4byte lbl_803CC735
 
 .global lbl_805A9FB4
 lbl_805A9FB4:
 	# ROM: 0x3F6854
-	.4byte 0x803CC74A
+	.4byte lbl_803CC74A
 
 .global lbl_805A9FB8
 lbl_805A9FB8:

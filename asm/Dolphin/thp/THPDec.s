@@ -9,9 +9,9 @@ lbl_80569F60:
 __THPMCUBuffer:
 	.skip 0x28
 
-.section .rodata, "a" # 0x803CB3A0 - 0x803D8D60
+.section .rodata, "a"
 .balign 8
-__THPJpegNaturalOrder: # local object
+__THPJpegNaturalOrder:
 	.4byte 0x00010810
 	.4byte 0x0902030A
 	.4byte 0x11182019
@@ -32,7 +32,7 @@ __THPJpegNaturalOrder: # local object
 	.4byte 0x3F3F3F3F
 	.4byte 0x3F3F3F3F
 	.4byte 0x3F3F3F3F
-__THPAANScaleFactor: # local object
+__THPAANScaleFactor:
 	.double 1.0
 	.double 1.3870398998260498
 	.double 1.3065630197525024
@@ -292,7 +292,7 @@ lbl_803C1D90:
 /* 803C1D9C 003BECFC  7C 08 03 A6 */	mtlr r0
 /* 803C1DA0 003BED00  4E 80 00 20 */	blr
 
-__THPSetupBuffers: # local func
+__THPSetupBuffers:
 /* 803C1DA4 003BED04  80 8D B1 4C */	lwz r4, __THPWorkArea@sda21(r13)
 /* 803C1DA8 003BED08  3C 60 80 57 */	lis r3, __THPMCUBuffer@ha
 /* 803C1DAC 003BED0C  38 A3 A0 78 */	addi r5, r3, __THPMCUBuffer@l
@@ -311,7 +311,7 @@ __THPSetupBuffers: # local func
 /* 803C1DE0 003BED40  90 05 00 14 */	stw r0, 0x14(r5)
 /* 803C1DE4 003BED44  4E 80 00 20 */	blr
 
-__THPReadFrameHeader: # local func
+__THPReadFrameHeader:
 /* 803C1DE8 003BED48  80 8D B1 50 */	lwz r4, __THPInfo@sda21(r13)
 /* 803C1DEC 003BED4C  80 64 06 9C */	lwz r3, 0x69c(r4)
 /* 803C1DF0 003BED50  38 03 00 02 */	addi r0, r3, 2
@@ -399,7 +399,7 @@ lbl_803C1F10:
 /* 803C1F1C 003BEE7C  38 60 00 00 */	li r3, 0
 /* 803C1F20 003BEE80  4E 80 00 20 */	blr
 
-__THPReadScaneHeader: # local func
+__THPReadScaneHeader:
 /* 803C1F24 003BEE84  80 8D B1 50 */	lwz r4, __THPInfo@sda21(r13)
 /* 803C1F28 003BEE88  80 64 06 9C */	lwz r3, 0x69c(r4)
 /* 803C1F2C 003BEE8C  38 03 00 02 */	addi r0, r3, 2
@@ -6591,7 +6591,7 @@ lbl_803C7BA0:
 /* 803C7C54 003C4BB4  7C 08 03 A6 */	mtlr r0
 /* 803C7C58 003C4BB8  4E 80 00 20 */	blr
 
-__THPHuffDecodeDCTCompY: #local func
+__THPHuffDecodeDCTCompY:
 /* 803C7C5C 003C4BBC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803C7C60 003C4BC0  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 803C7C64 003C4BC4  93 C1 00 18 */	stw r30, 0x18(r1)
@@ -7056,7 +7056,7 @@ lbl_803C82BC:
 /* 803C82D0 003C5230  38 21 00 20 */	addi r1, r1, 0x20
 /* 803C82D4 003C5234  4E 80 00 20 */	blr
 
-__THPHuffDecodeDCTCompU: # local func
+__THPHuffDecodeDCTCompU:
 /* 803C82D8 003C5238  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 803C82DC 003C523C  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 803C82E0 003C5240  93 C1 00 10 */	stw r30, 0x10(r1)
@@ -7533,7 +7533,7 @@ lbl_803C8970:
 /* 803C8978 003C58D8  38 21 00 18 */	addi r1, r1, 0x18
 /* 803C897C 003C58DC  4E 80 00 20 */	blr
 
-__THPHuffDecodeDCTCompV: # local func
+__THPHuffDecodeDCTCompV:
 /* 803C8980 003C58E0  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 803C8984 003C58E4  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 803C8988 003C58E8  93 C1 00 10 */	stw r30, 0x10(r1)

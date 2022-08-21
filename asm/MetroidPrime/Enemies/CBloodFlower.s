@@ -6,9 +6,9 @@
 .global lbl_803E0338
 lbl_803E0338:
 	# ROM: 0x3DD338
-	.4byte 0x803CF2FF
-	.4byte 0x803CF305
-	.4byte 0x803CF30B
+	.4byte lbl_803CF2FF
+	.4byte lbl_803CF305
+	.4byte lbl_803CF30B
 
 .global lbl_803E0344
 lbl_803E0344:

@@ -734,7 +734,7 @@ __sinit_CSamusFaceReflection_cpp:
 .global lbl_805ABBC0
 lbl_805ABBC0:
 	# ROM: 0x3F8460
-	.4byte 0x803D0340
+	.4byte lbl_803D0340
 
 .global lbl_805ABBC4
 lbl_805ABBC4:

@@ -2350,7 +2350,7 @@ lbl_801AC1DC:
 .global lbl_805AC558
 lbl_805AC558:
 	# ROM: 0x3F8DF8
-	.4byte 0x803D14B8
+	.4byte lbl_803D14B8
 
 .global lbl_805AC55C
 lbl_805AC55C:

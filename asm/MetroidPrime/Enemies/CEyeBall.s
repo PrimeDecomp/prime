@@ -225,7 +225,7 @@ lbl_803E7A18:
 .global lbl_805A80F8
 lbl_805A80F8:
 	# ROM: 0x3F5A98
-	.4byte 0x803D3248
+	.4byte lbl_803D3248
 	.4byte 0
 
 .section .sbss, "wa"

@@ -129,22 +129,22 @@ lbl_805A731C:
 .global lbl_805AABA0
 lbl_805AABA0:
 	# ROM: 0x3F7440
-	.4byte 0x803CE488
+	.4byte lbl_803CE488
 
 .global lbl_805AABA4
 lbl_805AABA4:
 	# ROM: 0x3F7444
-	.4byte 0x803CE49C
+	.4byte lbl_803CE49C
 
 .global lbl_805AABA8
 lbl_805AABA8:
 	# ROM: 0x3F7448
-	.4byte 0x803CE4A5
+	.4byte lbl_803CE4A5
 
 .global lbl_805AABAC
 lbl_805AABAC:
 	# ROM: 0x3F744C
-	.4byte 0x803CE4B2
+	.4byte lbl_803CE4B2
 
 .global lbl_805AABB0
 lbl_805AABB0:

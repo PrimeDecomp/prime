@@ -773,8 +773,8 @@ lbl_803B49E0:
 /* 803B49FC 003B195C  90 0D AF A4 */	stw r0, aramStream@sda21(r13)
 /* 803B4A00 003B1960  4E 80 00 20 */	blr
 
-.global  aramAllocateStreamBuffer
- aramAllocateStreamBuffer:
+.global aramAllocateStreamBuffer
+aramAllocateStreamBuffer:
 /* 803B4A04 003B1964  38 03 00 1F */	addi r0, r3, 0x1f
 /* 803B4A08 003B1968  80 6D AF 94 */	lwz r3, aramFreeStreamBuffers@sda21(r13)
 /* 803B4A0C 003B196C  54 07 00 34 */	rlwinm r7, r0, 0, 0, 0x1a

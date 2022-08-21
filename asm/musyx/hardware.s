@@ -1127,7 +1127,7 @@ hwInitStream:
 /* 803B3CA4 003B0C04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803B3CA8 003B0C08  7C 08 02 A6 */	mflr r0
 /* 803B3CAC 003B0C0C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803B3CB0 003B0C10  48 00 0D 55 */	bl  aramAllocateStreamBuffer
+/* 803B3CB0 003B0C10  48 00 0D 55 */	bl aramAllocateStreamBuffer
 /* 803B3CB4 003B0C14  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803B3CB8 003B0C18  7C 08 03 A6 */	mtlr r0
 /* 803B3CBC 003B0C1C  38 21 00 10 */	addi r1, r1, 0x10
