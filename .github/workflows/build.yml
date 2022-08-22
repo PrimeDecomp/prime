@@ -11,6 +11,7 @@ jobs:
     env:
       WINEPREFIX: ${{github.workspace}}/.wine
     strategy:
+      fail-fast: false
       matrix:
         version: [0, 1]
     steps:
