@@ -127,7 +127,11 @@ MetroidBuildInfo:
 	.ascii "!#$MetroidBuildInfo!#$"
 .global BuildString
 BuildString:
+.if version == 1
+	.asciz "Build v1.093 11/5/2002 19:50:01"
+.else
 	.asciz "Build v1.088 10/29/2002 2:21:25"
+.endif
 	.asciz "PAD"
 	.balign 4
 

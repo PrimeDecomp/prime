@@ -10,6 +10,9 @@ jobs:
     container: devkitpro/devkitppc:latest
     env:
       WINEPREFIX: ${{github.workspace}}/.wine
+    strategy:
+      matrix:
+        version: [0, 1]
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -32,7 +35,7 @@ jobs:
         cmake -B build
         cmake --build build
     - name: Build
-      run: make -j$(nproc) WINE=./tools/WiBo/build/wibo GENERATE_MAP=1
+      run: make -j$(nproc) WINE=./tools/WiBo/build/wibo GENERATE_MAP=1 VERSION=${{matrix.version}}
     - name: Upload map
       uses: actions/upload-artifact@v2
       with:
