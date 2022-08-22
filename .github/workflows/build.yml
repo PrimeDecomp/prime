@@ -40,5 +40,5 @@ jobs:
     - name: Upload map
       uses: actions/upload-artifact@v2
       with:
-        name: MetroidPrime.MAP
-        path: build/mp1.0/MetroidPrime.MAP
+        name: MetroidPrime-${{matrix.version}}.MAP
+        path: build/*/MetroidPrime.MAP

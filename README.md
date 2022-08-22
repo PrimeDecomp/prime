@@ -1,12 +1,13 @@
 Metroid Prime
 =============
 
-A decompilation of Metroid Prime (USA v0-00).
+A decompilation of Metroid Prime.
 
-This repository builds the following DOL:
+This repository builds the following DOLs:
 
 ```
-949c5ed7368aef547e0b0db1c3678f466e2afbff  build/mp1.0/main.dol
+949c5ed7368aef547e0b0db1c3678f466e2afbff  build/mp1.0/main.dol (USA 0-00)
+860141f9671fc141ce8f55448643f713bc64b349  build/mp1.1/main.dol (USA 0-01)
 ```
 
 Dependencies
