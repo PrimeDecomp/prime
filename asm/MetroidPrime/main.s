@@ -3803,6 +3803,241 @@ lbl_80005CE0:
 /* 80005CF4 00002C54  38 21 00 10 */	addi r1, r1, 0x10
 /* 80005CF8 00002C58  4E 80 00 20 */	blr
 
+.if version == 1
+
+.global CheckReset__5CMainFv
+CheckReset__5CMainFv:
+/* 80005CFC 00002C5C  94 21 FE B0 */	stwu r1, -0x150(r1)
+/* 80005D00 00002C60  7C 08 02 A6 */	mflr r0
+/* 80005D04 00002C64  90 01 01 54 */	stw r0, 0x154(r1)
+/* 80005D08 00002C68  93 E1 01 4C */	stw r31, 0x14c(r1)
+/* 80005D0C 00002C6C  93 C1 01 48 */	stw r30, 0x148(r1)
+/* 80005D10 00002C70  7C 7E 1B 78 */	mr r30, r3
+/* 80005D14 00002C74  48 37 DA 59 */	bl OSGetResetButtonState
+/* 80005D18 00002C78  7C 7F 1B 78 */	mr r31, r3
+/* 80005D1C 00002C7C  80 6D A0 7C */	lwz r3, gpController@sda21(r13)
+/* 80005D20 00002C80  38 80 00 00 */	li r4, 0x0
+/* 80005D24 00002C84  81 83 00 00 */	lwz r12, 0x0(r3)
+/* 80005D28 00002C88  81 8C 00 14 */	lwz r12, 0x14(r12)
+/* 80005D2C 00002C8C  7D 89 03 A6 */	mtctr r12
+/* 80005D30 00002C90  4E 80 04 21 */	bctrl 
+/* 80005D34 00002C94  88 03 00 37 */	lbz r0, 0x37(r3)
+/* 80005D38 00002C98  28 00 00 00 */	cmplwi r0, 0x0
+/* 80005D3C 00002C9C  41 82 00 60 */	beq lbl_80005D9C
+/* 80005D40 00002CA0  88 03 00 3A */	lbz r0, 0x3a(r3)
+/* 80005D44 00002CA4  28 00 00 00 */	cmplwi r0, 0x0
+/* 80005D48 00002CA8  41 82 00 54 */	beq lbl_80005D9C
+/* 80005D4C 00002CAC  88 03 00 40 */	lbz r0, 0x40(r3)
+/* 80005D50 00002CB0  28 00 00 00 */	cmplwi r0, 0x0
+/* 80005D54 00002CB4  41 82 00 48 */	beq lbl_80005D9C
+/* 80005D58 00002CB8  C0 1E 01 24 */	lfs f0, 0x124(r30)
+/* 80005D5C 00002CBC  C0 42 80 30 */	lfs f2, lbl_805A9D50@sda21(r2)
+/* 80005D60 00002CC0  FC 00 10 40 */	fcmpo cr0, f0, f2
+/* 80005D64 00002CC4  4C 41 13 82 */	cror 2, 1, 2
+/* 80005D68 00002CC8  40 82 00 58 */	bne lbl_80005DC0
+/* 80005D6C 00002CCC  C0 3E 01 20 */	lfs f1, 0x120(r30)
+/* 80005D70 00002CD0  C0 02 80 00 */	lfs f0, lbl_805A9D20@sda21(r2)
+/* 80005D74 00002CD4  EC 01 00 2A */	fadds f0, f1, f0
+/* 80005D78 00002CD8  D0 1E 01 20 */	stfs f0, 0x120(r30)
+/* 80005D7C 00002CDC  C0 1E 01 20 */	lfs f0, 0x120(r30)
+/* 80005D80 00002CE0  FC 00 10 40 */	fcmpo cr0, f0, f2
+/* 80005D84 00002CE4  40 81 00 3C */	ble lbl_80005DC0
+/* 80005D88 00002CE8  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80005D8C 00002CEC  38 60 00 01 */	li r3, 0x1
+/* 80005D90 00002CF0  50 60 26 F6 */	rlwimi r0, r3, 4, 27, 27
+/* 80005D94 00002CF4  98 1E 01 60 */	stb r0, 0x160(r30)
+/* 80005D98 00002CF8  48 00 00 28 */	b lbl_80005DC0
+lbl_80005D9C:
+/* 80005D9C 00002CFC  C0 3E 01 24 */	lfs f1, 0x124(r30)
+/* 80005DA0 00002D00  C0 02 80 30 */	lfs f0, lbl_805A9D50@sda21(r2)
+/* 80005DA4 00002D04  FC 01 00 40 */	fcmpo cr0, f1, f0
+/* 80005DA8 00002D08  40 80 00 10 */	bge lbl_80005DB8
+/* 80005DAC 00002D0C  C0 02 80 00 */	lfs f0, lbl_805A9D20@sda21(r2)
+/* 80005DB0 00002D10  EC 01 00 2A */	fadds f0, f1, f0
+/* 80005DB4 00002D14  D0 1E 01 24 */	stfs f0, 0x124(r30)
+lbl_80005DB8:
+/* 80005DB8 00002D18  C0 02 80 34 */	lfs f0, lbl_805A9D54@sda21(r2)
+/* 80005DBC 00002D1C  D0 1E 01 20 */	stfs f0, 0x120(r30)
+lbl_80005DC0:
+/* 80005DC0 00002D20  2C 1F 00 00 */	cmpwi r31, 0x0
+/* 80005DC4 00002D24  40 82 00 1C */	bne lbl_80005DE0
+/* 80005DC8 00002D28  88 7E 01 60 */	lbz r3, 0x160(r30)
+/* 80005DCC 00002D2C  54 60 E7 FF */	rlwinm. r0, r3, 28, 31, 31
+/* 80005DD0 00002D30  41 82 00 10 */	beq lbl_80005DE0
+/* 80005DD4 00002D34  38 00 00 01 */	li r0, 0x1
+/* 80005DD8 00002D38  50 03 17 7A */	rlwimi r3, r0, 2, 29, 29
+/* 80005DDC 00002D3C  98 7E 01 60 */	stb r3, 0x160(r30)
+lbl_80005DE0:
+/* 80005DE0 00002D40  88 7E 01 60 */	lbz r3, 0x160(r30)
+/* 80005DE4 00002D44  54 60 07 FF */	clrlwi. r0, r3, 31
+/* 80005DE8 00002D48  40 82 02 38 */	bne lbl_80006020
+/* 80005DEC 00002D4C  54 60 F7 FF */	rlwinm. r0, r3, 30, 31, 31
+/* 80005DF0 00002D50  40 82 00 14 */	bne lbl_80005E04
+/* 80005DF4 00002D54  54 60 EF FF */	rlwinm. r0, r3, 29, 31, 31
+/* 80005DF8 00002D58  40 82 00 0C */	bne lbl_80005E04
+/* 80005DFC 00002D5C  54 60 FF FF */	rlwinm. r0, r3, 31, 31, 31
+/* 80005E00 00002D60  41 82 02 20 */	beq lbl_80006020
+lbl_80005E04:
+/* 80005E04 00002D64  80 7E 01 64 */	lwz r3, 0x164(r30)
+/* 80005E08 00002D68  28 03 00 00 */	cmplwi r3, 0x0
+/* 80005E0C 00002D6C  41 82 00 24 */	beq lbl_80005E30
+/* 80005E10 00002D70  88 03 00 C8 */	lbz r0, 0xc8(r3)
+/* 80005E14 00002D74  28 00 00 00 */	cmplwi r0, 0x0
+/* 80005E18 00002D78  41 82 00 18 */	beq lbl_80005E30
+/* 80005E1C 00002D7C  38 63 00 A0 */	addi r3, r3, 0xa0
+/* 80005E20 00002D80  48 37 87 B1 */	bl OSCancelAlarm
+/* 80005E24 00002D84  80 7E 01 64 */	lwz r3, 0x164(r30)
+/* 80005E28 00002D88  38 00 00 00 */	li r0, 0x0
+/* 80005E2C 00002D8C  98 03 00 C8 */	stb r0, 0xc8(r3)
+lbl_80005E30:
+/* 80005E30 00002D90  48 37 28 91 */	bl GXDrawDone
+/* 80005E34 00002D94  48 37 27 15 */	bl sub_8037836c
+/* 80005E38 00002D98  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80005E3C 00002D9C  54 00 FF FF */	rlwinm. r0, r0, 31, 31, 31
+/* 80005E40 00002DA0  40 82 00 2C */	bne lbl_80005E6C
+/* 80005E44 00002DA4  38 61 00 38 */	addi r3, r1, 0x38
+/* 80005E48 00002DA8  48 20 9A 05 */	bl __ct__12CGameOptionsFv
+/* 80005E4C 00002DAC  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
+/* 80005E50 00002DB0  38 81 00 38 */	addi r4, r1, 0x38
+/* 80005E54 00002DB4  38 63 01 7C */	addi r3, r3, 0x17c
+/* 80005E58 00002DB8  4B FF D9 49 */	bl __as__12CGameOptionsFRC12CGameOptions
+/* 80005E5C 00002DBC  38 61 00 38 */	addi r3, r1, 0x38
+/* 80005E60 00002DC0  38 80 FF FF */	li r4, -0x1
+/* 80005E64 00002DC4  4B FF E1 21 */	bl __dt__12CGameOptionsFv
+/* 80005E68 00002DC8  48 00 00 4C */	b lbl_80005EB4
+lbl_80005E6C:
+/* 80005E6C 00002DCC  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
+/* 80005E70 00002DD0  38 80 00 04 */	li r4, 0x4
+/* 80005E74 00002DD4  38 A0 00 00 */	li r5, 0x0
+/* 80005E78 00002DD8  3B E3 01 7C */	addi r31, r3, 0x17c
+/* 80005E7C 00002DDC  7F E3 FB 78 */	mr r3, r31
+/* 80005E80 00002DE0  48 20 92 95 */	bl SetScreenBrightness__12CGameOptionsFib
+/* 80005E84 00002DE4  7F E3 FB 78 */	mr r3, r31
+/* 80005E88 00002DE8  38 80 00 00 */	li r4, 0x0
+/* 80005E8C 00002DEC  38 A0 00 00 */	li r5, 0x0
+/* 80005E90 00002DF0  48 20 91 C9 */	bl SetScreenPositionX__12CGameOptionsFib
+/* 80005E94 00002DF4  7F E3 FB 78 */	mr r3, r31
+/* 80005E98 00002DF8  38 80 00 00 */	li r4, 0x0
+/* 80005E9C 00002DFC  38 A0 00 00 */	li r5, 0x0
+/* 80005EA0 00002E00  48 20 91 41 */	bl SetScreenPositionY__12CGameOptionsFib
+/* 80005EA4 00002E04  7F E3 FB 78 */	mr r3, r31
+/* 80005EA8 00002E08  38 80 00 00 */	li r4, 0x0
+/* 80005EAC 00002E0C  38 A0 00 00 */	li r5, 0x0
+/* 80005EB0 00002E10  48 20 90 B9 */	bl SetScreenStretch__12CGameOptionsFib
+lbl_80005EB4:
+/* 80005EB4 00002E14  80 8D A0 90 */	lwz r4, lbl_805A8C50@sda21(r13)
+/* 80005EB8 00002E18  38 61 00 B4 */	addi r3, r1, 0xb4
+/* 80005EBC 00002E1C  38 A0 00 80 */	li r5, 0x80
+/* 80005EC0 00002E20  38 C0 00 01 */	li r6, 0x1
+/* 80005EC4 00002E24  38 E0 10 00 */	li r7, 0x1000
+/* 80005EC8 00002E28  48 33 95 55 */	bl __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi
+/* 80005ECC 00002E2C  48 30 38 05 */	bl GetProgressiveMode__9CGraphicsFv
+/* 80005ED0 00002E30  54 64 06 3E */	clrlwi r4, r3, 24
+/* 80005ED4 00002E34  38 61 00 B4 */	addi r3, r1, 0xb4
+/* 80005ED8 00002E38  7C 04 00 D0 */	neg r0, r4
+/* 80005EDC 00002E3C  38 A0 00 01 */	li r5, 0x1
+/* 80005EE0 00002E40  7C 00 23 78 */	or r0, r0, r4
+/* 80005EE4 00002E44  54 04 0F FE */	srwi r4, r0, 31
+/* 80005EE8 00002E48  48 33 95 B5 */	bl WriteBits__13COutputStreamFii
+/* 80005EEC 00002E4C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
+/* 80005EF0 00002E50  38 81 00 B4 */	addi r4, r1, 0xb4
+/* 80005EF4 00002E54  38 63 01 7C */	addi r3, r3, 0x17c
+/* 80005EF8 00002E58  48 20 94 19 */	bl PutTo__12CGameOptionsFR16CMemoryStreamOut
+/* 80005EFC 00002E5C  88 8D 80 00 */	lbz r4, lbl_805A6BC0@sda21(r13)
+/* 80005F00 00002E60  38 61 00 B4 */	addi r3, r1, 0xb4
+/* 80005F04 00002E64  38 A0 00 01 */	li r5, 0x1
+/* 80005F08 00002E68  7C 04 00 D0 */	neg r0, r4
+/* 80005F0C 00002E6C  7C 00 23 78 */	or r0, r0, r4
+/* 80005F10 00002E70  54 04 0F FE */	srwi r4, r0, 31
+/* 80005F14 00002E74  48 33 95 89 */	bl WriteBits__13COutputStreamFii
+/* 80005F18 00002E78  38 61 00 B4 */	addi r3, r1, 0xb4
+/* 80005F1C 00002E7C  48 33 97 39 */	bl Flush__13COutputStreamFv
+/* 80005F20 00002E80  38 61 00 B4 */	addi r3, r1, 0xb4
+/* 80005F24 00002E84  38 80 FF FF */	li r4, -0x1
+/* 80005F28 00002E88  48 33 94 79 */	bl __dt__16CMemoryStreamOutFv
+/* 80005F2C 00002E8C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
+/* 80005F30 00002E90  38 63 01 7C */	addi r3, r3, 0x17c
+/* 80005F34 00002E94  48 20 92 45 */	bl EnsureOptions__12CGameOptionsFv
+/* 80005F38 00002E98  80 6D A0 90 */	lwz r3, lbl_805A8C50@sda21(r13)
+/* 80005F3C 00002E9C  38 80 00 80 */	li r4, 0x80
+/* 80005F40 00002EA0  48 37 8D 4D */	bl DCFlushRange
+/* 80005F44 00002EA4  80 6D A0 90 */	lwz r3, lbl_805A8C50@sda21(r13)
+/* 80005F48 00002EA8  38 83 00 80 */	addi r4, r3, 0x80
+/* 80005F4C 00002EAC  48 37 D2 9D */	bl OSSetSaveRegion
+/* 80005F50 00002EB0  38 60 00 01 */	li r3, 0x1
+/* 80005F54 00002EB4  48 38 35 35 */	bl VISetBlack
+/* 80005F58 00002EB8  48 38 33 95 */	bl VIFlush
+/* 80005F5C 00002EBC  48 38 23 0D */	bl VIWaitForRetrace
+/* 80005F60 00002EC0  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80005F64 00002EC4  54 00 EF FF */	rlwinm. r0, r0, 29, 31, 31
+/* 80005F68 00002EC8  41 82 00 18 */	beq lbl_80005F80
+/* 80005F6C 00002ECC  38 60 00 01 */	li r3, 0x1
+/* 80005F70 00002ED0  38 80 00 00 */	li r4, 0x0
+/* 80005F74 00002ED4  38 A0 00 01 */	li r5, 0x1
+/* 80005F78 00002ED8  48 37 D4 59 */	bl OSResetSystem
+/* 80005F7C 00002EDC  48 00 00 68 */	b lbl_80005FE4
+lbl_80005F80:
+/* 80005F80 00002EE0  48 36 E9 15 */	bl DVDCheckDisk
+/* 80005F84 00002EE4  2C 03 00 00 */	cmpwi r3, 0x0
+/* 80005F88 00002EE8  41 82 00 4C */	beq lbl_80005FD4
+/* 80005F8C 00002EEC  48 36 E7 9D */	bl sub_8037454c
+/* 80005F90 00002EF0  38 61 00 08 */	addi r3, r1, 0x8
+/* 80005F94 00002EF4  48 36 DF 3D */	bl sub_80373cf4
+/* 80005F98 00002EF8  88 0D A9 D0 */	lbz r0, lbl_805A9590@sda21(r13)
+/* 80005F9C 00002EFC  28 00 00 00 */	cmplwi r0, 0x0
+/* 80005FA0 00002F00  41 82 00 08 */	beq lbl_80005FA8
+/* 80005FA4 00002F04  48 34 54 39 */	bl TrkFlushTracks__9CAudioSysFv
+lbl_80005FA8:
+/* 80005FA8 00002F08  38 60 00 00 */	li r3, 0x0
+/* 80005FAC 00002F0C  48 36 72 ED */	bl AISetStreamPlayState
+/* 80005FB0 00002F10  88 0D A9 D0 */	lbz r0, lbl_805A9590@sda21(r13)
+/* 80005FB4 00002F14  28 00 00 00 */	cmplwi r0, 0x0
+/* 80005FB8 00002F18  41 82 00 08 */	beq lbl_80005FC0
+/* 80005FBC 00002F1C  48 3A AE F9 */	bl sndQuit
+lbl_80005FC0:
+/* 80005FC0 00002F20  38 60 00 00 */	li r3, 0x0
+/* 80005FC4 00002F24  38 80 00 00 */	li r4, 0x0
+/* 80005FC8 00002F28  38 A0 00 00 */	li r5, 0x0
+/* 80005FCC 00002F2C  48 37 D4 05 */	bl OSResetSystem
+/* 80005FD0 00002F30  48 00 00 14 */	b lbl_80005FE4
+lbl_80005FD4:
+/* 80005FD4 00002F34  38 60 00 01 */	li r3, 0x1
+/* 80005FD8 00002F38  38 80 00 00 */	li r4, 0x0
+/* 80005FDC 00002F3C  38 A0 00 00 */	li r5, 0x0
+/* 80005FE0 00002F40  48 37 D3 F1 */	bl OSResetSystem
+lbl_80005FE4:
+/* 80005FE4 00002F44  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80005FE8 00002F48  38 80 00 00 */	li r4, 0x0
+/* 80005FEC 00002F4C  50 80 26 F6 */	rlwimi r0, r4, 4, 27, 27
+/* 80005FF0 00002F50  38 60 00 01 */	li r3, 0x1
+/* 80005FF4 00002F54  98 1E 01 60 */	stb r0, 0x160(r30)
+/* 80005FF8 00002F58  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80005FFC 00002F5C  50 80 17 7A */	rlwimi r0, r4, 2, 29, 29
+/* 80006000 00002F60  98 1E 01 60 */	stb r0, 0x160(r30)
+/* 80006004 00002F64  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80006008 00002F68  50 80 0F BC */	rlwimi r0, r4, 1, 30, 30
+/* 8000600C 00002F6C  98 1E 01 60 */	stb r0, 0x160(r30)
+/* 80006010 00002F70  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80006014 00002F74  50 80 1F 38 */	rlwimi r0, r4, 3, 28, 28
+/* 80006018 00002F78  98 1E 01 60 */	stb r0, 0x160(r30)
+/* 8000601C 00002F7C  48 00 00 1C */	b lbl_80006038
+lbl_80006020:
+/* 80006020 00002F80  7C 7F 00 D0 */	neg r3, r31
+/* 80006024 00002F84  88 1E 01 60 */	lbz r0, 0x160(r30)
+/* 80006028 00002F88  7C 64 FB 78 */	or r4, r3, r31
+/* 8000602C 00002F8C  50 80 2E F6 */	rlwimi r0, r4, 5, 27, 27
+/* 80006030 00002F90  38 60 00 00 */	li r3, 0x0
+/* 80006034 00002F94  98 1E 01 60 */	stb r0, 0x160(r30)
+lbl_80006038:
+/* 80006038 00002F98  80 01 01 54 */	lwz r0, 0x154(r1)
+/* 8000603C 00002F9C  83 E1 01 4C */	lwz r31, 0x14c(r1)
+/* 80006040 00002FA0  83 C1 01 48 */	lwz r30, 0x148(r1)
+/* 80006044 00002FA4  7C 08 03 A6 */	mtlr r0
+/* 80006048 00002FA8  38 21 01 50 */	addi r1, r1, 0x150
+/* 8000604C 00002FAC  4E 80 00 20 */	blr 
+
+.else
+
 .global CheckReset__5CMainFv
 CheckReset__5CMainFv:
 /* 80005CFC 00002C5C  94 21 FE B0 */	stwu r1, -0x150(r1)
@@ -4025,6 +4260,8 @@ lbl_8000601C:
 /* 8000602C 00002F8C  38 21 01 50 */	addi r1, r1, 0x150
 /* 80006030 00002F90  4E 80 00 20 */	blr
 
+.endif
+
 .global CheckTerminate__5CMainFv
 CheckTerminate__5CMainFv:
 /* 80006034 00002F94  38 60 00 00 */	li r3, 0
@@ -4072,6 +4309,370 @@ GetResourceIdByName__11CResFactoryCFPCc:
 /* 800060A8 00003008  7C 08 03 A6 */	mtlr r0
 /* 800060AC 0000300C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800060B0 00003010  4E 80 00 20 */	blr
+
+.if version == 1
+
+.global AddPaksAndFactories__18CGameGlobalObjectsFv
+AddPaksAndFactories__18CGameGlobalObjectsFv:
+/* 800060D0 00003030  94 21 FF 30 */	stwu r1, -0xd0(r1)
+/* 800060D4 00003034  7C 08 02 A6 */	mflr r0
+/* 800060D8 00003038  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800060DC 0000303C  90 01 00 D4 */	stw r0, 0xd4(r1)
+/* 800060E0 00003040  38 63 68 50 */	addi r3, r3, sIdentity__12CTransform4f@l
+/* 800060E4 00003044  93 E1 00 CC */	stw r31, 0xcc(r1)
+/* 800060E8 00003048  93 C1 00 C8 */	stw r30, 0xc8(r1)
+/* 800060EC 0000304C  7C 9E 23 78 */	mr r30, r4
+/* 800060F0 00003050  83 ED A0 60 */	lwz r31, gpResourceFactory@sda21(r13)
+/* 800060F4 00003054  48 30 67 39 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
+/* 800060F8 00003058  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
+/* 800060FC 0000305C  38 63 68 50 */	addi r3, r3, sIdentity__12CTransform4f@l
+/* 80006100 00003060  48 30 65 C1 */	bl SetModelMatrix__9CGraphicsFRC12CTransform4f
+/* 80006104 00003064  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 80006108 00003068  38 61 00 8C */	addi r3, r1, 0x8c
+/* 8000610C 0000306C  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 80006110 00003070  38 84 00 A7 */	addi r4, r4, 0xa7
+/* 80006114 00003074  4B FF EB A5 */	bl string_l__4rstlFPCc
+/* 80006118 00003078  38 7F 00 04 */	addi r3, r31, 0x4
+/* 8000611C 0000307C  38 81 00 8C */	addi r4, r1, 0x8c
+/* 80006120 00003080  38 A0 00 00 */	li r5, 0x0
+/* 80006124 00003084  38 C0 00 00 */	li r6, 0x0
+/* 80006128 00003088  48 33 55 15 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 8000612C 0000308C  38 61 00 8C */	addi r3, r1, 0x8c
+/* 80006130 00003090  48 33 7A 91 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 80006134 00003094  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 80006138 00003098  38 61 00 7C */	addi r3, r1, 0x7c
+/* 8000613C 0000309C  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 80006140 000030A0  38 84 00 B3 */	addi r4, r4, 0xb3
+/* 80006144 000030A4  4B FF EB 75 */	bl string_l__4rstlFPCc
+/* 80006148 000030A8  38 7F 00 04 */	addi r3, r31, 0x4
+/* 8000614C 000030AC  38 81 00 7C */	addi r4, r1, 0x7c
+/* 80006150 000030B0  38 A0 00 00 */	li r5, 0x0
+/* 80006154 000030B4  38 C0 00 00 */	li r6, 0x0
+/* 80006158 000030B8  48 33 54 E5 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 8000615C 000030BC  38 61 00 7C */	addi r3, r1, 0x7c
+/* 80006160 000030C0  48 33 7A 61 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 80006164 000030C4  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 80006168 000030C8  38 61 00 6C */	addi r3, r1, 0x6c
+/* 8000616C 000030CC  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 80006170 000030D0  38 84 00 BA */	addi r4, r4, 0xba
+/* 80006174 000030D4  4B FF EB 45 */	bl string_l__4rstlFPCc
+/* 80006178 000030D8  38 7F 00 04 */	addi r3, r31, 0x4
+/* 8000617C 000030DC  38 81 00 6C */	addi r4, r1, 0x6c
+/* 80006180 000030E0  38 A0 00 00 */	li r5, 0x0
+/* 80006184 000030E4  38 C0 00 00 */	li r6, 0x0
+/* 80006188 000030E8  48 33 54 B5 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 8000618C 000030EC  38 61 00 6C */	addi r3, r1, 0x6c
+/* 80006190 000030F0  48 33 7A 31 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 80006194 000030F4  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 80006198 000030F8  38 61 00 5C */	addi r3, r1, 0x5c
+/* 8000619C 000030FC  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 800061A0 00003100  38 84 00 C3 */	addi r4, r4, 0xc3
+/* 800061A4 00003104  4B FF EB 15 */	bl string_l__4rstlFPCc
+/* 800061A8 00003108  38 7F 00 04 */	addi r3, r31, 0x4
+/* 800061AC 0000310C  38 81 00 5C */	addi r4, r1, 0x5c
+/* 800061B0 00003110  38 A0 00 00 */	li r5, 0x0
+/* 800061B4 00003114  38 C0 00 00 */	li r6, 0x0
+/* 800061B8 00003118  48 33 54 85 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 800061BC 0000311C  38 61 00 5C */	addi r3, r1, 0x5c
+/* 800061C0 00003120  48 33 7A 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 800061C4 00003124  38 61 00 9C */	addi r3, r1, 0x9c
+/* 800061C8 00003128  38 80 00 01 */	li r4, 0x1
+/* 800061CC 0000312C  48 26 3A 71 */	bl __ct__18CErrorOutputWindowFiff
+/* 800061D0 00003130  38 60 00 01 */	li r3, 0x1
+/* 800061D4 00003134  48 30 33 B5 */	bl SetIsBeginSceneClearFb__9CGraphicsFb
+/* 800061D8 00003138  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
+/* 800061DC 0000313C  38 60 00 00 */	li r3, 0x0
+/* 800061E0 00003140  38 C4 DA F0 */	addi r6, r4, mViewport__9CGraphics@l
+/* 800061E4 00003144  38 80 00 00 */	li r4, 0x0
+/* 800061E8 00003148  80 A6 00 08 */	lwz r5, 0x8(r6)
+/* 800061EC 0000314C  80 C6 00 0C */	lwz r6, 0xc(r6)
+/* 800061F0 00003150  48 30 5F 81 */	bl SetViewport__9CGraphicsFiiii
+/* 800061F4 00003154  7F C3 F3 78 */	mr r3, r30
+/* 800061F8 00003158  48 34 8E 9D */	bl Create__11IControllerFRC10COsContext
+/* 800061FC 0000315C  90 61 00 08 */	stw r3, 0x8(r1)
+/* 80006200 00003160  90 6D A0 7C */	stw r3, gpController@sda21(r13)
+/* 80006204 00003164  48 00 00 44 */	b lbl_80006248
+lbl_80006208:
+/* 80006208 00003168  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
+/* 8000620C 0000316C  38 63 00 04 */	addi r3, r3, 0x4
+/* 80006210 00003170  48 33 5C 91 */	bl AsyncIdlePakLoading__10CResLoaderFv
+/* 80006214 00003174  38 61 00 9C */	addi r3, r1, 0x9c
+/* 80006218 00003178  48 26 33 09 */	bl sub_802694a4
+/* 8000621C 0000317C  48 30 5D 69 */	bl BeginScene__9CGraphicsFv
+/* 80006220 00003180  38 61 00 9C */	addi r3, r1, 0x9c
+/* 80006224 00003184  48 26 32 D1 */	bl sub_80269478
+/* 80006228 00003188  48 30 59 79 */	bl EndScene__9CGraphicsFv
+/* 8000622C 0000318C  80 61 00 08 */	lwz r3, 0x8(r1)
+/* 80006230 00003190  81 83 00 00 */	lwz r12, 0x0(r3)
+/* 80006234 00003194  81 8C 00 0C */	lwz r12, 0xc(r12)
+/* 80006238 00003198  7D 89 03 A6 */	mtctr r12
+/* 8000623C 0000319C  4E 80 04 21 */	bctrl 
+/* 80006240 000031A0  80 6D A0 78 */	lwz r3, gpMain@sda21(r13)
+/* 80006244 000031A4  4B FF FA B9 */	bl CheckReset__5CMainFv
+lbl_80006248:
+/* 80006248 000031A8  38 7F 00 04 */	addi r3, r31, 0x4
+/* 8000624C 000031AC  48 33 5C 45 */	bl AreAllPaksLoaded__10CResLoaderCFv
+/* 80006250 000031B0  54 60 06 3F */	clrlwi. r0, r3, 24
+/* 80006254 000031B4  41 82 FF B4 */	beq lbl_80006208
+/* 80006258 000031B8  38 00 00 00 */	li r0, 0x0
+/* 8000625C 000031BC  3C 60 80 3D */	lis r3, lbl_803CBE74@ha
+/* 80006260 000031C0  38 83 C0 54 */	addi r4, r3, lbl_803CBE74@l
+/* 80006264 000031C4  90 0D A0 7C */	stw r0, gpController@sda21(r13)
+/* 80006268 000031C8  38 61 00 4C */	addi r3, r1, 0x4c
+/* 8000626C 000031CC  38 84 00 D1 */	addi r4, r4, 0xd1
+/* 80006270 000031D0  4B FF EA 49 */	bl string_l__4rstlFPCc
+/* 80006274 000031D4  38 7F 00 04 */	addi r3, r31, 0x4
+/* 80006278 000031D8  38 81 00 4C */	addi r4, r1, 0x4c
+/* 8000627C 000031DC  38 A0 00 01 */	li r5, 0x1
+/* 80006280 000031E0  38 C0 00 00 */	li r6, 0x0
+/* 80006284 000031E4  48 33 53 B9 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 80006288 000031E8  38 61 00 4C */	addi r3, r1, 0x4c
+/* 8000628C 000031EC  48 33 79 35 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 80006290 000031F0  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 80006294 000031F4  38 61 00 3C */	addi r3, r1, 0x3c
+/* 80006298 000031F8  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 8000629C 000031FC  38 84 00 DF */	addi r4, r4, 0xdf
+/* 800062A0 00003200  4B FF EA 19 */	bl string_l__4rstlFPCc
+/* 800062A4 00003204  38 7F 00 04 */	addi r3, r31, 0x4
+/* 800062A8 00003208  38 81 00 3C */	addi r4, r1, 0x3c
+/* 800062AC 0000320C  38 A0 00 01 */	li r5, 0x1
+/* 800062B0 00003210  38 C0 00 00 */	li r6, 0x0
+/* 800062B4 00003214  48 33 53 89 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 800062B8 00003218  38 61 00 3C */	addi r3, r1, 0x3c
+/* 800062BC 0000321C  48 33 79 05 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 800062C0 00003220  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 800062C4 00003224  38 61 00 2C */	addi r3, r1, 0x2c
+/* 800062C8 00003228  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 800062CC 0000322C  38 84 00 ED */	addi r4, r4, 0xed
+/* 800062D0 00003230  4B FF E9 E9 */	bl string_l__4rstlFPCc
+/* 800062D4 00003234  38 7F 00 04 */	addi r3, r31, 0x4
+/* 800062D8 00003238  38 81 00 2C */	addi r4, r1, 0x2c
+/* 800062DC 0000323C  38 A0 00 01 */	li r5, 0x1
+/* 800062E0 00003240  38 C0 00 00 */	li r6, 0x0
+/* 800062E4 00003244  48 33 53 59 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 800062E8 00003248  38 61 00 2C */	addi r3, r1, 0x2c
+/* 800062EC 0000324C  48 33 78 D5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 800062F0 00003250  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 800062F4 00003254  38 61 00 1C */	addi r3, r1, 0x1c
+/* 800062F8 00003258  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 800062FC 0000325C  38 84 00 FB */	addi r4, r4, 0xfb
+/* 80006300 00003260  4B FF E9 B9 */	bl string_l__4rstlFPCc
+/* 80006304 00003264  38 7F 00 04 */	addi r3, r31, 0x4
+/* 80006308 00003268  38 81 00 1C */	addi r4, r1, 0x1c
+/* 8000630C 0000326C  38 A0 00 00 */	li r5, 0x0
+/* 80006310 00003270  38 C0 00 00 */	li r6, 0x0
+/* 80006314 00003274  48 33 53 29 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 80006318 00003278  38 61 00 1C */	addi r3, r1, 0x1c
+/* 8000631C 0000327C  48 33 78 A5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 80006320 00003280  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
+/* 80006324 00003284  38 61 00 0C */	addi r3, r1, 0xc
+/* 80006328 00003288  38 84 C0 54 */	addi r4, r4, lbl_803CBE74@l
+/* 8000632C 0000328C  38 84 01 09 */	addi r4, r4, 0x109
+/* 80006330 00003290  4B FF E9 89 */	bl string_l__4rstlFPCc
+/* 80006334 00003294  38 7F 00 04 */	addi r3, r31, 0x4
+/* 80006338 00003298  38 81 00 0C */	addi r4, r1, 0xc
+/* 8000633C 0000329C  38 A0 00 00 */	li r5, 0x0
+/* 80006340 000032A0  38 C0 00 00 */	li r6, 0x0
+/* 80006344 000032A4  48 33 52 F9 */	bl "AddPakFileAsync__10CResLoaderFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>b"
+/* 80006348 000032A8  38 61 00 0C */	addi r3, r1, 0xc
+/* 8000634C 000032AC  48 33 78 75 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
+/* 80006350 000032B0  3C 60 80 35 */	lis r3, FStringTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006354 000032B4  3C 80 53 54 */	lis r4, 0x5354
+/* 80006358 000032B8  38 A3 66 04 */	addi r5, r3, FStringTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000635C 000032BC  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006360 000032C0  38 84 52 47 */	addi r4, r4, 0x5247
+/* 80006364 000032C4  48 33 2B 1D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006368 000032C8  3C 60 80 35 */	lis r3, "FModelFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@ha
+/* 8000636C 000032CC  3C 80 43 4D */	lis r4, 0x434d
+/* 80006370 000032D0  38 A3 57 E0 */	addi r5, r3, "FModelFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@l
+/* 80006374 000032D4  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006378 000032D8  38 84 44 4C */	addi r4, r4, 0x444c
+/* 8000637C 000032DC  48 33 2A 45 */	bl "AddFactory__11CFactoryMgrFUiPFRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer_C16CFactoryFnReturn"
+/* 80006380 000032E0  3C 60 80 31 */	lis r3, FTextureFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006384 000032E4  3C 80 54 58 */	lis r4, 0x5458
+/* 80006388 000032E8  38 A3 E8 4C */	addi r5, r3, FTextureFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000638C 000032EC  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006390 000032F0  38 84 54 52 */	addi r4, r4, 0x5452
+/* 80006394 000032F4  48 33 2A ED */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006398 000032F8  3C 60 80 35 */	lis r3, FSkinRulesFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 8000639C 000032FC  3C 80 43 53 */	lis r4, 0x4353
+/* 800063A0 00003300  38 A3 3D 68 */	addi r5, r3, FSkinRulesFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800063A4 00003304  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800063A8 00003308  38 84 4B 52 */	addi r4, r4, 0x4b52
+/* 800063AC 0000330C  48 33 2A D5 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800063B0 00003310  3C 60 80 30 */	lis r3, AnimSourceFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800063B4 00003314  3C 80 41 4E */	lis r4, 0x414e
+/* 800063B8 00003318  38 A3 E2 78 */	addi r5, r3, AnimSourceFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800063BC 0000331C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800063C0 00003320  38 84 49 4D */	addi r4, r4, 0x494d
+/* 800063C4 00003324  48 33 2A BD */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800063C8 00003328  3C 60 80 30 */	lis r3, FCharLayoutInfo__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800063CC 0000332C  3C 80 43 49 */	lis r4, 0x4349
+/* 800063D0 00003330  38 A3 82 6C */	addi r5, r3, FCharLayoutInfo__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800063D4 00003334  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800063D8 00003338  38 84 4E 46 */	addi r4, r4, 0x4e46
+/* 800063DC 0000333C  48 33 2A A5 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800063E0 00003340  3C 60 80 2E */	lis r3, FAnimCharacterSet__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800063E4 00003344  3C 80 41 4E */	lis r4, 0x414e
+/* 800063E8 00003348  38 A3 81 98 */	addi r5, r3, FAnimCharacterSet__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800063EC 0000334C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800063F0 00003350  38 84 43 53 */	addi r4, r4, 0x4353
+/* 800063F4 00003354  48 33 2A 8D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800063F8 00003358  3C 60 80 2B */	lis r3, FCollisionResponseDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800063FC 0000335C  3C 80 43 52 */	lis r4, 0x4352
+/* 80006400 00003360  38 A3 22 04 */	addi r5, r3, FCollisionResponseDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006404 00003364  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006408 00003368  38 84 53 43 */	addi r4, r4, 0x5343
+/* 8000640C 0000336C  48 33 2A 75 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006410 00003370  3C 60 80 33 */	lis r3, FParticleSwooshDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006414 00003374  3C 80 53 57 */	lis r4, 0x5357
+/* 80006418 00003378  38 A3 00 C0 */	addi r5, r3, FParticleSwooshDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000641C 0000337C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006420 00003380  38 84 48 43 */	addi r4, r4, 0x4843
+/* 80006424 00003384  48 33 2A 5D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006428 00003388  3C 60 80 33 */	lis r3, FParticleFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 8000642C 0000338C  3C 80 50 41 */	lis r4, 0x5041
+/* 80006430 00003390  38 A3 A0 EC */	addi r5, r3, FParticleFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006434 00003394  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006438 00003398  38 84 52 54 */	addi r4, r4, 0x5254
+/* 8000643C 0000339C  48 33 2A 45 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006440 000033A0  3C 60 80 36 */	lis r3, FParticleElectricDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006444 000033A4  3C 80 45 4C */	lis r4, 0x454c
+/* 80006448 000033A8  38 A3 E9 10 */	addi r5, r3, FParticleElectricDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000644C 000033AC  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006450 000033B0  38 84 53 43 */	addi r4, r4, 0x5343
+/* 80006454 000033B4  48 33 2A 2D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006458 000033B8  3C 60 80 2B */	lis r3, FProjectileWeaponDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 8000645C 000033BC  3C 80 57 50 */	lis r4, 0x5750
+/* 80006460 000033C0  38 A3 20 60 */	addi r5, r3, FProjectileWeaponDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006464 000033C4  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006468 000033C8  38 84 53 43 */	addi r4, r4, 0x5343
+/* 8000646C 000033CC  48 33 2A 15 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006470 000033D0  3C 60 80 2C */	lis r3, RGuiFrameFactoryInGame__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006474 000033D4  3C 80 46 52 */	lis r4, 0x4652
+/* 80006478 000033D8  38 A3 1E A0 */	addi r5, r3, RGuiFrameFactoryInGame__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000647C 000033DC  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006480 000033E0  38 84 4D 45 */	addi r4, r4, 0x4d45
+/* 80006484 000033E4  48 33 29 FD */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006488 000033E8  3C 60 80 30 */	lis r3, FRasterFontFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 8000648C 000033EC  3C 80 46 4F */	lis r4, 0x464f
+/* 80006490 000033F0  38 A3 01 60 */	addi r5, r3, FRasterFontFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006494 000033F4  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006498 000033F8  38 84 4E 54 */	addi r4, r4, 0x4e54
+/* 8000649C 000033FC  48 33 29 E5 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800064A0 00003400  3C 60 80 17 */	lis r3, FScannableObjectInfoFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800064A4 00003404  3C 80 53 43 */	lis r4, 0x5343
+/* 800064A8 00003408  38 A3 99 98 */	addi r5, r3, FScannableObjectInfoFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800064AC 0000340C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800064B0 00003410  38 84 41 4E */	addi r4, r4, 0x414e
+/* 800064B4 00003414  48 33 29 CD */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800064B8 00003418  3C 60 80 2F */	lis r3, AnimPOIDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800064BC 0000341C  3C 80 45 56 */	lis r4, 0x4556
+/* 800064C0 00003420  38 A3 BB D0 */	addi r5, r3, AnimPOIDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800064C4 00003424  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800064C8 00003428  38 84 4E 54 */	addi r4, r4, 0x4e54
+/* 800064CC 0000342C  48 33 29 B5 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800064D0 00003430  3C 60 80 0E */	lis r3, FAiFiniteStateMachineFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800064D4 00003434  3C 80 41 46 */	lis r4, 0x4146
+/* 800064D8 00003438  38 A3 E8 78 */	addi r5, r3, FAiFiniteStateMachineFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800064DC 0000343C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800064E0 00003440  38 84 53 4D */	addi r4, r4, 0x534d
+/* 800064E4 00003444  48 33 29 9D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800064E8 00003448  3C 60 80 35 */	lis r3, FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800064EC 0000344C  3C 80 41 47 */	lis r4, 0x4147
+/* 800064F0 00003450  38 A3 A1 04 */	addi r5, r3, FAudioGroupSetLocDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800064F4 00003454  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800064F8 00003458  38 84 53 43 */	addi r4, r4, 0x5343
+/* 800064FC 0000345C  48 33 28 C5 */	bl "AddFactory__11CFactoryMgrFUiPFRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer_C16CFactoryFnReturn"
+/* 80006500 00003460  3C 60 80 2B */	lis r3, FCollidableOBBTreeGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006504 00003464  3C 80 44 43 */	lis r4, 0x4443
+/* 80006508 00003468  38 A3 DF 9C */	addi r5, r3, FCollidableOBBTreeGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000650C 0000346C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006510 00003470  38 84 4C 4E */	addi r4, r4, 0x4c4e
+/* 80006514 00003474  48 33 29 6D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006518 00003478  3C 60 80 2B */	lis r3, FDecalDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 8000651C 0000347C  3C 80 44 50 */	lis r4, 0x4450
+/* 80006520 00003480  38 A3 46 8C */	addi r5, r3, FDecalDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006524 00003484  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006528 00003488  38 84 53 43 */	addi r4, r4, 0x5343
+/* 8000652C 0000348C  48 33 29 55 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006530 00003490  3C 60 80 2E */	lis r3, FAudioTranslationTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006534 00003494  3C 80 41 54 */	lis r4, 0x4154
+/* 80006538 00003498  38 A3 79 C4 */	addi r5, r3, FAudioTranslationTableFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000653C 0000349C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006540 000034A0  38 84 42 4C */	addi r4, r4, 0x424c
+/* 80006544 000034A4  48 33 29 3D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006548 000034A8  3C 60 80 1D */	lis r3, "FPathFindAreaFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@ha
+/* 8000654C 000034AC  3C 80 50 41 */	lis r4, 0x5041
+/* 80006550 000034B0  38 A3 A1 E8 */	addi r5, r3, "FPathFindAreaFactory__FRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer"@l
+/* 80006554 000034B4  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006558 000034B8  38 84 54 48 */	addi r4, r4, 0x5448
+/* 8000655C 000034BC  48 33 28 65 */	bl "AddFactory__11CFactoryMgrFUiPFRC10SObjectTagRCQ24rstl12auto_ptr<Uc>iRC15CVParamTransfer_C16CFactoryFnReturn"
+/* 80006560 000034C0  3C 60 80 0A */	lis r3, FMapWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006564 000034C4  3C 80 4D 41 */	lis r4, 0x4d41
+/* 80006568 000034C8  38 A3 F4 70 */	addi r5, r3, FMapWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000656C 000034CC  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006570 000034D0  38 84 50 57 */	addi r4, r4, 0x5057
+/* 80006574 000034D4  48 33 29 0D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006578 000034D8  3C 60 80 08 */	lis r3, FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 8000657C 000034DC  3C 80 4D 41 */	lis r4, 0x4d41
+/* 80006580 000034E0  38 A3 02 0C */	addi r5, r3, FMapAreaFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 80006584 000034E4  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006588 000034E8  38 84 50 41 */	addi r4, r4, 0x5041
+/* 8000658C 000034EC  48 33 28 F5 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006590 000034F0  3C 60 80 20 */	lis r3, FMapUniverseFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 80006594 000034F4  3C 80 4D 41 */	lis r4, 0x4d41
+/* 80006598 000034F8  38 A3 1D 8C */	addi r5, r3, FMapUniverseFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 8000659C 000034FC  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800065A0 00003500  38 84 50 55 */	addi r4, r4, 0x5055
+/* 800065A4 00003504  48 33 28 DD */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800065A8 00003508  3C 60 80 36 */	lis r3, FMidiDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800065AC 0000350C  3C 80 43 53 */	lis r4, 0x4353
+/* 800065B0 00003510  38 A3 8C 68 */	addi r5, r3, FMidiDataFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800065B4 00003514  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800065B8 00003518  38 84 4E 47 */	addi r4, r4, 0x4e47
+/* 800065BC 0000351C  48 33 28 C5 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800065C0 00003520  3C 60 80 36 */	lis r3, FDependencyGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800065C4 00003524  3C 80 44 47 */	lis r4, 0x4447
+/* 800065C8 00003528  38 A3 51 30 */	addi r5, r3, FDependencyGroupFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800065CC 0000352C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800065D0 00003530  38 84 52 50 */	addi r4, r4, 0x5250
+/* 800065D4 00003534  48 33 28 AD */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800065D8 00003538  3C 60 80 27 */	lis r3, FSaveWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800065DC 0000353C  3C 80 53 41 */	lis r4, 0x5341
+/* 800065E0 00003540  38 A3 AD DC */	addi r5, r3, FSaveWorldFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800065E4 00003544  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 800065E8 00003548  38 84 56 57 */	addi r4, r4, 0x5657
+/* 800065EC 0000354C  48 33 28 95 */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 800065F0 00003550  3C 60 80 26 */	lis r3, FHintFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@ha
+/* 800065F4 00003554  3C 80 48 49 */	lis r4, 0x4849
+/* 800065F8 00003558  38 A3 71 C0 */	addi r5, r3, FHintFactory__FRC10SObjectTagR12CInputStreamRC15CVParamTransfer@l
+/* 800065FC 0000355C  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80006600 00003560  38 84 4E 54 */	addi r4, r4, 0x4e54
+/* 80006604 00003564  48 33 28 7D */	bl AddFactory__11CFactoryMgrFUiPFRC10SObjectTagR12CInputStreamRC15CVParamTransfer_C16CFactoryFnReturn
+/* 80006608 00003568  80 61 00 08 */	lwz r3, 0x8(r1)
+/* 8000660C 0000356C  28 03 00 00 */	cmplwi r3, 0x0
+/* 80006610 00003570  41 82 00 18 */	beq lbl_80006628
+/* 80006614 00003574  81 83 00 00 */	lwz r12, 0x0(r3)
+/* 80006618 00003578  38 80 00 01 */	li r4, 0x1
+/* 8000661C 0000357C  81 8C 00 08 */	lwz r12, 0x8(r12)
+/* 80006620 00003580  7D 89 03 A6 */	mtctr r12
+/* 80006624 00003584  4E 80 04 21 */	bctrl 
+lbl_80006628:
+/* 80006628 00003588  3C 80 80 3F */	lis r4, lbl_803EA3C0@ha
+/* 8000662C 0000358C  38 61 00 9C */	addi r3, r1, 0x9c
+/* 80006630 00003590  38 04 A5 A0 */	addi r0, r4, lbl_803EA3C0@l
+/* 80006634 00003594  38 80 00 00 */	li r4, 0x0
+/* 80006638 00003598  90 01 00 9C */	stw r0, 0x9c(r1)
+/* 8000663C 0000359C  48 04 C5 E5 */	bl __dt__6CIOWinFv
+/* 80006640 000035A0  80 01 00 D4 */	lwz r0, 0xd4(r1)
+/* 80006644 000035A4  83 E1 00 CC */	lwz r31, 0xcc(r1)
+/* 80006648 000035A8  83 C1 00 C8 */	lwz r30, 0xc8(r1)
+/* 8000664C 000035AC  7C 08 03 A6 */	mtlr r0
+/* 80006650 000035B0  38 21 00 D0 */	addi r1, r1, 0xd0
+/* 80006654 000035B4  4E 80 00 20 */	blr 
+
+.else
 
 .global AddPaksAndFactories__18CGameGlobalObjectsFv
 AddPaksAndFactories__18CGameGlobalObjectsFv:
@@ -4407,6 +5008,8 @@ lbl_800061F8:
 /* 800065D0 00003530  7C 08 03 A6 */	mtlr r0
 /* 800065D4 00003534  38 21 00 C0 */	addi r1, r1, 0xc0
 /* 800065D8 00003538  4E 80 00 20 */	blr
+
+.endif
 
 .global __dt__18CErrorOutputWindowFv
 __dt__18CErrorOutputWindowFv:

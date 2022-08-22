@@ -68,9 +68,28 @@ lbl_8034F938:
 /* 8034F940 0034C8A0  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8034F944 0034C8A4  4E 80 00 20 */	blr
 
+.if version == 1
+
+.global internalCallback__8CDvdFileFlP11DVDFileInfo
+internalCallback__8CDvdFileFlP11DVDFileInfo:
+/* 8034FA28 0034C988  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8034FA2C 0034C98C  7C 08 02 A6 */	mflr r0
+/* 8034FA30 0034C990  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8034FA34 0034C994  80 64 00 18 */	lwz r3, 0x18(r4)
+/* 8034FA38 0034C998  80 84 00 14 */	lwz r4, 0x14(r4)
+/* 8034FA3C 0034C99C  48 02 F2 25 */	bl DCInvalidateRange
+/* 8034FA40 0034C9A0  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8034FA44 0034C9A4  7C 08 03 A6 */	mtlr r0
+/* 8034FA48 0034C9A8  38 21 00 10 */	addi r1, r1, 0x10
+/* 8034FA4C 0034C9AC  4E 80 00 20 */	blr
+
+.else
+
 .global internalCallback__8CDvdFileFlP11DVDFileInfo
 internalCallback__8CDvdFileFlP11DVDFileInfo:
 /* 8034F948 0034C8A8  4E 80 00 20 */	blr
+
+.endif
 
 .global FileExists__8CDvdFileFPCc
 FileExists__8CDvdFileFPCc:
