@@ -22,6 +22,11 @@ endif
 NAME := mp1
 VERSION ?= 0
 
+VERSION_NUM := $(VERSION)
+ifeq ($(VERSION),kor)
+	VERSION_NUM := 2
+endif
+
 BUILD_DIR := build/$(NAME).$(VERSION)
 
 # Inputs
@@ -93,7 +98,7 @@ FRANK := tools/franklite.py
 INCLUDES := -i include/
 ASM_INCLUDES := -I include/
 
-ASFLAGS := -mgekko $(ASM_INCLUDES) --defsym version=$(VERSION)
+ASFLAGS := -mgekko $(ASM_INCLUDES) --defsym version=$(VERSION_NUM)
 ifeq ($(VERBOSE),1)
 # this set of LDFLAGS outputs warnings.
 LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults
@@ -104,8 +109,8 @@ LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults -w off
 endif
 CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
 CFLAGS_MUSYX = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
-CFLAGS = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto -common on
-CFLAGS_ZLIB = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto
+CFLAGS = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -nosyspath -inline deferred,noauto -common on
+CFLAGS_ZLIB = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -nosyspath -inline deferred,auto
 CFLAGS_1.2 += -str reuse
 
 ifeq ($(VERBOSE),0)

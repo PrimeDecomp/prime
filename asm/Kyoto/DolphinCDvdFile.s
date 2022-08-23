@@ -68,7 +68,7 @@ lbl_8034F938:
 /* 8034F940 0034C8A0  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8034F944 0034C8A4  4E 80 00 20 */	blr
 
-.if version == 1
+.if version >= 1
 
 .global internalCallback__8CDvdFileFlP11DVDFileInfo
 internalCallback__8CDvdFileFlP11DVDFileInfo:

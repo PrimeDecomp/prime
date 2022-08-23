@@ -3803,7 +3803,7 @@ lbl_80005CE0:
 /* 80005CF4 00002C54  38 21 00 10 */	addi r1, r1, 0x10
 /* 80005CF8 00002C58  4E 80 00 20 */	blr
 
-.if version == 1
+.if version >= 1
 
 .global CheckReset__5CMainFv
 CheckReset__5CMainFv:
@@ -4310,7 +4310,7 @@ GetResourceIdByName__11CResFactoryCFPCc:
 /* 800060AC 0000300C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800060B0 00003010  4E 80 00 20 */	blr
 
-.if version == 1
+.if version >= 1
 
 .global AddPaksAndFactories__18CGameGlobalObjectsFv
 AddPaksAndFactories__18CGameGlobalObjectsFv:
@@ -7247,8 +7247,10 @@ main:
 /* 80008518 00005478  7C 9E 23 78 */	mr r30, r4
 /* 8000851C 0000547C  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 80008520 00005480  7C 7D 1B 78 */	mr r29, r3
+.if version < 2
 /* 80008524 00005484  38 60 00 01 */	li r3, 1
 /* 80008528 00005488  48 36 C8 A5 */	bl DVDSetAutoFatalMessaging
+.endif
 /* 8000852C 0000548C  48 2C E3 D1 */	bl SetErrorHandlers
 /* 80008530 00005490  3C 60 80 45 */	lis r3, sMainSpace@ha
 /* 80008534 00005494  37 E3 75 60 */	addic. r31, r3, sMainSpace@l

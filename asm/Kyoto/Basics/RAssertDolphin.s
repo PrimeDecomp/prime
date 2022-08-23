@@ -99,7 +99,7 @@ SetErrorHandlers:
 /* 802D6950 002D38B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 802D6954 002D38B4  4E 80 00 20 */	blr
 
-.if version == 1
+.if version >= 1
 
 .global ErrorHandler
 ErrorHandler:

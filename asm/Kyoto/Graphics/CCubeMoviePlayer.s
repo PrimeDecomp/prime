@@ -624,7 +624,7 @@ lbl_8035BD4C:
 /* 8035BD58 00358CB8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8035BD5C 00358CBC  4E 80 00 20 */	blr
 
-.if version == 1
+.if version >= 1
 
 .global Update__12CMoviePlayerFf
 Update__12CMoviePlayerFf:
