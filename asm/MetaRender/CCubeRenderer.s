@@ -7,57 +7,61 @@ lbl_ctor:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A91B0
-lbl_805A91B0:
+.global sRenderer__13CCubeRenderer
+sRenderer__13CCubeRenderer:
 	.skip 0x4
-.global lbl_805A91B4
-lbl_805A91B4:
+.global skNormalFlag
+skNormalFlag:
 	.skip 0x8
-.global lbl_805A91BC
-lbl_805A91BC:
+.global skNormalFlagNoUpdate
+skNormalFlagNoUpdate:
 	.skip 0x8
-.global lbl_805A91C4
-lbl_805A91C4:
+.global skWorstMinMaxDistance__7Buckets
+skWorstMinMaxDistance__7Buckets:
 	.skip 0x8
-.global lbl_805A91CC
-lbl_805A91CC:
+.global sData__7Buckets
+sData__7Buckets:
 	.skip 0x4
-.global lbl_805A91D0
-lbl_805A91D0:
+.global sBuckets__7Buckets
+sBuckets__7Buckets:
 	.skip 0x4
-.global lbl_805A91D4
-lbl_805A91D4:
+.global sMinMaxDistance__7Buckets
+sMinMaxDistance__7Buckets:
 	.skip 0x8
-.global lbl_805A91DC
-lbl_805A91DC:
+.global sPlaneObjectData__7Buckets
+sPlaneObjectData__7Buckets:
 	.skip 0x4
-.global lbl_805A91E0
-lbl_805A91E0:
+.global sPlaneObjectBucket__7Buckets
+sPlaneObjectBucket__7Buckets:
 	.skip 0x4
-.global lbl_805A91E4
-lbl_805A91E4:
-	.skip 0x4
-.global lbl_805A91E8
-lbl_805A91E8:
+.global "@4756"
+"@4756":
 	.skip 0x1
-.global lbl_805A91E9
-lbl_805A91E9:
-	.skip 0x3
-.global lbl_805A91EC
-lbl_805A91EC:
+.balign 4
+.global "@4808"
+"@4808":
+	.skip 0x1
+.global "init$6480"
+"init$6480":
+	.skip 0x1
+.balign 4
+.global "@8522"
+"@8522":
+	.skip 0x1
+.balign 4
+.global "sReferenceCount$9005"
+"sReferenceCount$9005":
 	.skip 0x4
-.global lbl_805A91F0
-lbl_805A91F0:
-	.skip 0x4
-.global lbl_805A91F4
-lbl_805A91F4:
-	.skip 0x4
+.global "init$9006"
+"init$9006":
+	.skip 0x1
+.balign 4
 
 .section .data
 .balign 8
 
-.global lbl_803EC5D8
-lbl_803EC5D8:
+.global __vt__13CCubeRenderer
+__vt__13CCubeRenderer:
 	# ROM: 0x3E95D8
 	.4byte 0
 	.4byte 0
@@ -262,14 +266,14 @@ lbl_805AF498:
 .section .bss
 .balign 8
 
-.lcomm lbl_8046E200, 0xC, 4
-.lcomm lbl_8046E20C, 0x68, 4
-.lcomm lbl_8046E274, 0x4808, 4
-.lcomm lbl_80472A7C, 0x64D0, 4
-.lcomm lbl_80478F4C, 0x208, 4
-.lcomm lbl_80479154, 0x18, 4
-.lcomm lbl_8047916C, 0xC, 4
-.lcomm lbl_80479178, 0x320, 4
+.lcomm "@4370", 0xC, 4
+.lcomm sBucketIndex__7Buckets, 0x68, 4
+.lcomm "sDataHolder$4374", 0x4808, 4
+.lcomm "sBucketsHolder$4375", 0x64D0, 4
+.lcomm "sPlaneObjectDataHolder$4376", 0x208, 4
+.lcomm "sPlaneObjectBucketHolder$4377", 0x18, 4
+.lcomm "sOptimalPlane$6479", 0xC, 4
+.lcomm "sAllocSpace$9000", 0x320, 4
 
 .section .text, "ax"
 
@@ -2583,7 +2587,7 @@ lbl_802B7E9C:
 lbl_802B7EE4:
 /* 802B7EE4 002B4E44  7F C3 F3 78 */	mr r3, r30
 /* 802B7EE8 002B4E48  38 81 00 0C */	addi r4, r1, 0xc
-/* 802B7EEC 002B4E4C  38 AD A5 F4 */	addi r5, r13, lbl_805A91B4@sda21
+/* 802B7EEC 002B4E4C  38 AD A5 F4 */	addi r5, r13, skNormalFlag@sda21
 /* 802B7EF0 002B4E50  48 04 F5 55 */	bl DrawSurface__10CCubeModelCFRC12CCubeSurfaceRC11CModelFlags
 /* 802B7EF4 002B4E54  80 61 00 0C */	lwz r3, 0xc(r1)
 /* 802B7EF8 002B4E58  80 03 00 18 */	lwz r0, 0x18(r3)
@@ -2598,7 +2602,7 @@ lbl_802B7F00:
 lbl_802B7F18:
 /* 802B7F18 002B4E78  7F C3 F3 78 */	mr r3, r30
 /* 802B7F1C 002B4E7C  38 81 00 08 */	addi r4, r1, 8
-/* 802B7F20 002B4E80  38 AD A5 F4 */	addi r5, r13, lbl_805A91B4@sda21
+/* 802B7F20 002B4E80  38 AD A5 F4 */	addi r5, r13, skNormalFlag@sda21
 /* 802B7F24 002B4E84  48 04 F5 21 */	bl DrawSurface__10CCubeModelCFRC12CCubeSurfaceRC11CModelFlags
 /* 802B7F28 002B4E88  80 61 00 08 */	lwz r3, 8(r1)
 /* 802B7F2C 002B4E8C  80 03 00 18 */	lwz r0, 0x18(r3)
@@ -3309,7 +3313,7 @@ lbl_802B8984:
 lbl_802B8990:
 /* 802B8990 002B58F0  7C 04 F0 40 */	cmplw r4, r30
 /* 802B8994 002B58F4  40 82 FF F0 */	bne lbl_802B8984
-/* 802B8998 002B58F8  88 0D A6 2C */	lbz r0, lbl_805A91EC@sda21(r13)
+/* 802B8998 002B58F8  88 0D A6 2C */	lbz r0, "@8522"@sda21(r13)
 /* 802B899C 002B58FC  38 7D 02 AC */	addi r3, r29, 0x2ac
 /* 802B89A0 002B5900  38 81 00 08 */	addi r4, r1, 8
 /* 802B89A4 002B5904  98 01 00 08 */	stb r0, 8(r1)
@@ -8553,7 +8557,7 @@ lbl_802BD488:
 lbl_802BD4F8:
 /* 802BD4F8 002BA458  7F C3 F3 78 */	mr r3, r30
 /* 802BD4FC 002BA45C  38 81 00 08 */	addi r4, r1, 8
-/* 802BD500 002BA460  38 AD A5 F4 */	addi r5, r13, lbl_805A91B4@sda21
+/* 802BD500 002BA460  38 AD A5 F4 */	addi r5, r13, skNormalFlag@sda21
 /* 802BD504 002BA464  48 04 9F 41 */	bl DrawSurface__10CCubeModelCFRC12CCubeSurfaceRC11CModelFlags
 /* 802BD508 002BA468  80 61 00 08 */	lwz r3, 8(r1)
 /* 802BD50C 002BA46C  80 03 00 18 */	lwz r0, 0x18(r3)
@@ -8574,16 +8578,16 @@ lbl_802BD51C:
 "RenderBucketItems__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>":
 /* 802BD53C 002BA49C  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 802BD540 002BA4A0  7C 08 02 A6 */	mflr r0
-/* 802BD544 002BA4A4  3C A0 80 47 */	lis r5, lbl_8046E20C@ha
+/* 802BD544 002BA4A4  3C A0 80 47 */	lis r5, sBucketIndex__7Buckets@ha
 /* 802BD548 002BA4A8  90 01 00 44 */	stw r0, 0x44(r1)
 /* 802BD54C 002BA4AC  BE C1 00 18 */	stmw r22, 0x18(r1)
-/* 802BD550 002BA4B0  3B E5 E2 0C */	addi r31, r5, lbl_8046E20C@l
+/* 802BD550 002BA4B0  3B E5 E2 0C */	addi r31, r5, sBucketIndex__7Buckets@l
 /* 802BD554 002BA4B4  7C 9B 23 78 */	mr r27, r4
 /* 802BD558 002BA4B8  7C 7A 1B 78 */	mr r26, r3
 /* 802BD55C 002BA4BC  38 80 FF FF */	li r4, -1
 /* 802BD560 002BA4C0  3B 9F 00 04 */	addi r28, r31, 4
 /* 802BD564 002BA4C4  3B A0 00 00 */	li r29, 0
-/* 802BD568 002BA4C8  83 CD A6 10 */	lwz r30, lbl_805A91D0@sda21(r13)
+/* 802BD568 002BA4C8  83 CD A6 10 */	lwz r30, sBuckets__7Buckets@sda21(r13)
 /* 802BD56C 002BA4CC  48 00 01 14 */	b lbl_802BD680
 lbl_802BD570:
 /* 802BD570 002BA4D0  A0 1C 00 00 */	lhz r0, 0(r28)
@@ -8636,7 +8640,7 @@ lbl_802BD5E8:
 lbl_802BD618:
 /* 802BD618 002BA578  7E E3 BB 78 */	mr r3, r23
 /* 802BD61C 002BA57C  38 81 00 08 */	addi r4, r1, 8
-/* 802BD620 002BA580  38 AD A5 FC */	addi r5, r13, lbl_805A91BC@sda21
+/* 802BD620 002BA580  38 AD A5 FC */	addi r5, r13, skNormalFlagNoUpdate@sda21
 /* 802BD624 002BA584  48 04 9E 21 */	bl DrawSurface__10CCubeModelCFRC12CCubeSurfaceRC11CModelFlags
 /* 802BD628 002BA588  48 00 00 34 */	b lbl_802BD65C
 lbl_802BD62C:
@@ -8857,7 +8861,7 @@ AddPlaneObject__13CCubeRendererFPCvRC6CAABoxRC6CPlanei:
 /* 802BD91C 002BA87C  DB E1 00 50 */	stfd f31, 0x50(r1)
 /* 802BD920 002BA880  F3 E1 00 58 */	psq_st f31, 88(r1), 0, qr0
 /* 802BD924 002BA884  BF 61 00 3C */	stmw r27, 0x3c(r1)
-/* 802BD928 002BA888  88 0D A6 29 */	lbz r0, lbl_805A91E9@sda21(r13)
+/* 802BD928 002BA888  88 0D A6 29 */	lbz r0, "init$6480"@sda21(r13)
 /* 802BD92C 002BA88C  7C 7B 1B 78 */	mr r27, r3
 /* 802BD930 002BA890  7C 9C 23 78 */	mr r28, r4
 /* 802BD934 002BA894  7C BD 2B 78 */	mr r29, r5
@@ -8866,13 +8870,13 @@ AddPlaneObject__13CCubeRendererFPCvRC6CAABoxRC6CPlanei:
 /* 802BD940 002BA8A0  7C FF 3B 78 */	mr r31, r7
 /* 802BD944 002BA8A4  40 82 00 24 */	bne lbl_802BD968
 /* 802BD948 002BA8A8  C0 22 C2 74 */	lfs f1, lbl_805ADF94@sda21(r2)
-/* 802BD94C 002BA8AC  3C 60 80 48 */	lis r3, lbl_8047916C@ha
+/* 802BD94C 002BA8AC  3C 60 80 48 */	lis r3, "sOptimalPlane$6479"@ha
 /* 802BD950 002BA8B0  38 00 00 01 */	li r0, 1
 /* 802BD954 002BA8B4  C0 02 C2 70 */	lfs f0, lbl_805ADF90@sda21(r2)
-/* 802BD958 002BA8B8  D4 23 91 6C */	stfsu f1, lbl_8047916C@l(r3)
+/* 802BD958 002BA8B8  D4 23 91 6C */	stfsu f1, "sOptimalPlane$6479"@l(r3)
 /* 802BD95C 002BA8BC  D0 23 00 04 */	stfs f1, 4(r3)
 /* 802BD960 002BA8C0  D0 03 00 08 */	stfs f0, 8(r3)
-/* 802BD964 002BA8C4  98 0D A6 29 */	stb r0, lbl_805A91E9@sda21(r13)
+/* 802BD964 002BA8C4  98 0D A6 29 */	stb r0, "init$6480"@sda21(r13)
 lbl_802BD968:
 /* 802BD968 002BA8C8  7F A4 EB 78 */	mr r4, r29
 /* 802BD96C 002BA8CC  38 61 00 20 */	addi r3, r1, 0x20
@@ -8910,9 +8914,9 @@ lbl_802BD968:
 /* 802BD9EC 002BA94C  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 802BD9F0 002BA950  41 80 00 F8 */	blt lbl_802BDAE8
 lbl_802BD9F4:
-/* 802BD9F4 002BA954  3C 60 80 48 */	lis r3, lbl_8047916C@ha
+/* 802BD9F4 002BA954  3C 60 80 48 */	lis r3, "sOptimalPlane$6479"@ha
 /* 802BD9F8 002BA958  C0 FE 00 00 */	lfs f7, 0(r30)
-/* 802BD9FC 002BA95C  C4 03 91 6C */	lfsu f0, lbl_8047916C@l(r3)
+/* 802BD9FC 002BA95C  C4 03 91 6C */	lfsu f0, "sOptimalPlane$6479"@l(r3)
 /* 802BDA00 002BA960  38 00 00 00 */	li r0, 0
 /* 802BDA04 002BA964  FC 07 00 00 */	fcmpu cr0, f7, f0
 /* 802BDA08 002BA968  40 82 00 28 */	bne lbl_802BDA30
@@ -9838,13 +9842,13 @@ __dt__13CCubeRendererFv:
 /* 802BE6AC 002BB60C  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 802BE6B0 002BB610  7C 7E 1B 79 */	or. r30, r3, r3
 /* 802BE6B4 002BB614  41 82 02 38 */	beq lbl_802BE8EC
-/* 802BE6B8 002BB618  3C 60 80 3F */	lis r3, lbl_803EC5D8@ha
+/* 802BE6B8 002BB618  3C 60 80 3F */	lis r3, __vt__13CCubeRenderer@ha
 /* 802BE6BC 002BB61C  38 00 00 00 */	li r0, 0
-/* 802BE6C0 002BB620  38 63 C5 D8 */	addi r3, r3, lbl_803EC5D8@l
+/* 802BE6C0 002BB620  38 63 C5 D8 */	addi r3, r3, __vt__13CCubeRenderer@l
 /* 802BE6C4 002BB624  90 7E 00 00 */	stw r3, 0(r30)
 /* 802BE6C8 002BB628  38 63 01 0C */	addi r3, r3, 0x10c
 /* 802BE6CC 002BB62C  90 7E 00 04 */	stw r3, 4(r30)
-/* 802BE6D0 002BB630  90 0D A5 F0 */	stw r0, lbl_805A91B0@sda21(r13)
+/* 802BE6D0 002BB630  90 0D A5 F0 */	stw r0, sRenderer__13CCubeRenderer@sda21(r13)
 /* 802BE6D4 002BB634  48 00 17 89 */	bl Shutdown__7BucketsFv
 /* 802BE6D8 002BB638  48 09 40 49 */	bl sub_80352720
 /* 802BE6DC 002BB63C  80 7E 03 14 */	lwz r3, 0x314(r30)
@@ -10514,9 +10518,9 @@ __ct__13CCubeRendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory:
 /* 802BF080 002BBFE0  3C 60 80 3F */	lis r3, __vt__15IWeaponRenderer@ha
 /* 802BF084 002BBFE4  90 1F 00 00 */	stw r0, 0(r31)
 /* 802BF088 002BBFE8  38 03 C5 38 */	addi r0, r3, __vt__15IWeaponRenderer@l
-/* 802BF08C 002BBFEC  3C 60 80 3F */	lis r3, lbl_803EC5D8@ha
+/* 802BF08C 002BBFEC  3C 60 80 3F */	lis r3, __vt__13CCubeRenderer@ha
 /* 802BF090 002BBFF0  90 1F 00 04 */	stw r0, 4(r31)
-/* 802BF094 002BBFF4  38 A3 C5 D8 */	addi r5, r3, lbl_803EC5D8@l
+/* 802BF094 002BBFF4  38 A3 C5 D8 */	addi r5, r3, __vt__13CCubeRenderer@l
 /* 802BF098 002BBFF8  38 05 01 0C */	addi r0, r5, 0x10c
 /* 802BF09C 002BBFFC  38 7F 00 10 */	addi r3, r31, 0x10
 /* 802BF0A0 002BC000  90 BF 00 00 */	stw r5, 0(r31)
@@ -10687,7 +10691,7 @@ __ct__13CCubeRendererFR12IObjectStoreR10COsContextR10CMemorySysR11CResFactory:
 /* 802BF334 002BC294  4B FF F7 A5 */	bl sub_802bead8
 /* 802BF338 002BC298  7F E3 FB 78 */	mr r3, r31
 /* 802BF33C 002BC29C  4B FF F5 CD */	bl sub_802be908
-/* 802BF340 002BC2A0  93 ED A5 F0 */	stw r31, lbl_805A91B0@sda21(r13)
+/* 802BF340 002BC2A0  93 ED A5 F0 */	stw r31, sRenderer__13CCubeRenderer@sda21(r13)
 /* 802BF344 002BC2A4  48 00 0B 31 */	bl Init__7BucketsFv
 /* 802BF348 002BC2A8  48 09 33 F9 */	bl sub_80352740
 /* 802BF34C 002BC2AC  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -10720,7 +10724,7 @@ __ct__Q213CCubeRenderer13CAreaListItem:
 
 .global Clear__7BucketsFv
 Clear__7BucketsFv:
-/* 802BF3AC 002BC30C  80 CD A6 0C */	lwz r6, lbl_805A91CC@sda21(r13)
+/* 802BF3AC 002BC30C  80 CD A6 0C */	lwz r6, sData__7Buckets@sda21(r13)
 /* 802BF3B0 002BC310  38 60 00 00 */	li r3, 0
 /* 802BF3B4 002BC314  80 A6 00 00 */	lwz r5, 0(r6)
 /* 802BF3B8 002BC318  2C 05 00 00 */	cmpwi r5, 0
@@ -10745,9 +10749,9 @@ lbl_802BF3F8:
 /* 802BF3F8 002BC358  42 00 00 00 */	bdnz lbl_802BF3F8
 lbl_802BF3FC:
 /* 802BF3FC 002BC35C  38 80 00 00 */	li r4, 0
-/* 802BF400 002BC360  3C 60 80 47 */	lis r3, lbl_8046E20C@ha
+/* 802BF400 002BC360  3C 60 80 47 */	lis r3, sBucketIndex__7Buckets@ha
 /* 802BF404 002BC364  90 86 00 00 */	stw r4, 0(r6)
-/* 802BF408 002BC368  80 A3 E2 0C */	lwz r5, lbl_8046E20C@l(r3)
+/* 802BF408 002BC368  80 A3 E2 0C */	lwz r5, sBucketIndex__7Buckets@l(r3)
 /* 802BF40C 002BC36C  2C 05 00 00 */	cmpwi r5, 0
 /* 802BF410 002BC370  40 81 00 40 */	ble lbl_802BF450
 /* 802BF414 002BC374  2C 05 00 08 */	cmpwi r5, 8
@@ -10769,10 +10773,10 @@ lbl_802BF43C:
 lbl_802BF44C:
 /* 802BF44C 002BC3AC  42 00 00 00 */	bdnz lbl_802BF44C
 lbl_802BF450:
-/* 802BF450 002BC3B0  3C 60 80 47 */	lis r3, lbl_8046E20C@ha
+/* 802BF450 002BC3B0  3C 60 80 47 */	lis r3, sBucketIndex__7Buckets@ha
 /* 802BF454 002BC3B4  38 80 00 00 */	li r4, 0
-/* 802BF458 002BC3B8  80 CD A6 1C */	lwz r6, lbl_805A91DC@sda21(r13)
-/* 802BF45C 002BC3BC  90 83 E2 0C */	stw r4, lbl_8046E20C@l(r3)
+/* 802BF458 002BC3B8  80 CD A6 1C */	lwz r6, sPlaneObjectData__7Buckets@sda21(r13)
+/* 802BF45C 002BC3BC  90 83 E2 0C */	stw r4, sBucketIndex__7Buckets@l(r3)
 /* 802BF460 002BC3C0  80 A6 00 00 */	lwz r5, 0(r6)
 /* 802BF464 002BC3C4  2C 05 00 00 */	cmpwi r5, 0
 /* 802BF468 002BC3C8  40 81 00 40 */	ble lbl_802BF4A8
@@ -10797,7 +10801,7 @@ lbl_802BF4A4:
 lbl_802BF4A8:
 /* 802BF4A8 002BC408  38 60 00 00 */	li r3, 0
 /* 802BF4AC 002BC40C  90 66 00 00 */	stw r3, 0(r6)
-/* 802BF4B0 002BC410  80 CD A6 20 */	lwz r6, lbl_805A91E0@sda21(r13)
+/* 802BF4B0 002BC410  80 CD A6 20 */	lwz r6, sPlaneObjectBucket__7Buckets@sda21(r13)
 /* 802BF4B4 002BC414  80 A6 00 00 */	lwz r5, 0(r6)
 /* 802BF4B8 002BC418  2C 05 00 00 */	cmpwi r5, 0
 /* 802BF4BC 002BC41C  40 81 00 40 */	ble lbl_802BF4FC
@@ -10822,7 +10826,7 @@ lbl_802BF4F8:
 lbl_802BF4FC:
 /* 802BF4FC 002BC45C  38 00 00 00 */	li r0, 0
 /* 802BF500 002BC460  90 06 00 00 */	stw r0, 0(r6)
-/* 802BF504 002BC464  80 6D A6 10 */	lwz r3, lbl_805A91D0@sda21(r13)
+/* 802BF504 002BC464  80 6D A6 10 */	lwz r3, sBuckets__7Buckets@sda21(r13)
 /* 802BF508 002BC468  38 C3 00 04 */	addi r6, r3, 4
 /* 802BF50C 002BC46C  48 00 00 60 */	b lbl_802BF56C
 lbl_802BF510:
@@ -10854,18 +10858,18 @@ lbl_802BF560:
 /* 802BF564 002BC4C4  90 06 00 00 */	stw r0, 0(r6)
 /* 802BF568 002BC4C8  38 C6 02 04 */	addi r6, r6, 0x204
 lbl_802BF56C:
-/* 802BF56C 002BC4CC  80 6D A6 10 */	lwz r3, lbl_805A91D0@sda21(r13)
+/* 802BF56C 002BC4CC  80 6D A6 10 */	lwz r3, sBuckets__7Buckets@sda21(r13)
 /* 802BF570 002BC4D0  80 03 00 00 */	lwz r0, 0(r3)
 /* 802BF574 002BC4D4  1C 00 02 04 */	mulli r0, r0, 0x204
 /* 802BF578 002BC4D8  7C 63 02 14 */	add r3, r3, r0
 /* 802BF57C 002BC4DC  38 63 00 04 */	addi r3, r3, 4
 /* 802BF580 002BC4E0  7C 06 18 40 */	cmplw r6, r3
 /* 802BF584 002BC4E4  40 82 FF 8C */	bne lbl_802BF510
-/* 802BF588 002BC4E8  38 6D A6 04 */	addi r3, r13, lbl_805A91C4@sda21
-/* 802BF58C 002BC4EC  C0 2D A6 04 */	lfs f1, lbl_805A91C4@sda21(r13)
+/* 802BF588 002BC4E8  38 6D A6 04 */	addi r3, r13, skWorstMinMaxDistance__7Buckets@sda21
+/* 802BF58C 002BC4EC  C0 2D A6 04 */	lfs f1, skWorstMinMaxDistance__7Buckets@sda21(r13)
 /* 802BF590 002BC4F0  C0 03 00 04 */	lfs f0, 4(r3)
-/* 802BF594 002BC4F4  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
-/* 802BF598 002BC4F8  D0 2D A6 14 */	stfs f1, lbl_805A91D4@sda21(r13)
+/* 802BF594 002BC4F4  38 6D A6 14 */	addi r3, r13, sMinMaxDistance__7Buckets@sda21
+/* 802BF598 002BC4F8  D0 2D A6 14 */	stfs f1, sMinMaxDistance__7Buckets@sda21(r13)
 /* 802BF59C 002BC4FC  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802BF5A0 002BC500  4E 80 00 20 */	blr
 
@@ -10881,8 +10885,8 @@ Sort__7BucketsFv:
 /* 802BF5C0 002BC520  DB A1 00 60 */	stfd f29, 0x60(r1)
 /* 802BF5C4 002BC524  F3 A1 00 68 */	psq_st f29, 104(r1), 0, qr0
 /* 802BF5C8 002BC528  BF 01 00 40 */	stmw r24, 0x40(r1)
-/* 802BF5CC 002BC52C  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
-/* 802BF5D0 002BC530  C0 4D A6 14 */	lfs f2, lbl_805A91D4@sda21(r13)
+/* 802BF5CC 002BC52C  38 6D A6 14 */	addi r3, r13, sMinMaxDistance__7Buckets@sda21
+/* 802BF5D0 002BC530  C0 4D A6 14 */	lfs f2, sMinMaxDistance__7Buckets@sda21(r13)
 /* 802BF5D4 002BC534  C0 23 00 04 */	lfs f1, 4(r3)
 /* 802BF5D8 002BC538  C0 0D 9A A0 */	lfs f0, lbl_805A8660@sda21(r13)
 /* 802BF5DC 002BC53C  FF E0 10 50 */	fneg f31, f2
@@ -10898,14 +10902,14 @@ lbl_802BF5FC:
 /* 802BF5FC 002BC55C  C3 A3 00 00 */	lfs f29, 0(r3)
 /* 802BF600 002BC560  38 C0 00 00 */	li r6, 0
 /* 802BF604 002BC564  C0 02 C3 58 */	lfs f0, lbl_805AE078@sda21(r2)
-/* 802BF608 002BC568  80 6D A6 1C */	lwz r3, lbl_805A91DC@sda21(r13)
+/* 802BF608 002BC568  80 6D A6 1C */	lwz r3, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802BF60C 002BC56C  EC 00 07 72 */	fmuls f0, f0, f29
 /* 802BF610 002BC570  C0 22 C2 70 */	lfs f1, lbl_805ADF90@sda21(r2)
 /* 802BF614 002BC574  38 E3 00 04 */	addi r7, r3, 4
 /* 802BF618 002BC578  EF C1 00 24 */	fdivs f30, f1, f0
 /* 802BF61C 002BC57C  48 00 00 40 */	b lbl_802BF65C
 lbl_802BF620:
-/* 802BF620 002BC580  80 AD A6 20 */	lwz r5, lbl_805A91E0@sda21(r13)
+/* 802BF620 002BC580  80 AD A6 20 */	lwz r5, sPlaneObjectBucket__7Buckets@sda21(r13)
 /* 802BF624 002BC584  80 05 00 00 */	lwz r0, 0(r5)
 /* 802BF628 002BC588  2C 00 00 08 */	cmpwi r0, 8
 /* 802BF62C 002BC58C  40 80 00 28 */	bge lbl_802BF654
@@ -10923,19 +10927,19 @@ lbl_802BF654:
 /* 802BF654 002BC5B4  38 E7 00 40 */	addi r7, r7, 0x40
 /* 802BF658 002BC5B8  38 C6 00 01 */	addi r6, r6, 1
 lbl_802BF65C:
-/* 802BF65C 002BC5BC  80 6D A6 1C */	lwz r3, lbl_805A91DC@sda21(r13)
+/* 802BF65C 002BC5BC  80 6D A6 1C */	lwz r3, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802BF660 002BC5C0  80 03 00 00 */	lwz r0, 0(r3)
 /* 802BF664 002BC5C4  54 00 30 32 */	slwi r0, r0, 6
 /* 802BF668 002BC5C8  7C 63 02 14 */	add r3, r3, r0
 /* 802BF66C 002BC5CC  38 63 00 04 */	addi r3, r3, 4
 /* 802BF670 002BC5D0  7C 07 18 40 */	cmplw r7, r3
 /* 802BF674 002BC5D4  40 82 FF AC */	bne lbl_802BF620
-/* 802BF678 002BC5D8  83 CD A6 20 */	lwz r30, lbl_805A91E0@sda21(r13)
+/* 802BF678 002BC5D8  83 CD A6 20 */	lwz r30, sPlaneObjectBucket__7Buckets@sda21(r13)
 /* 802BF67C 002BC5DC  3B E0 00 32 */	li r31, 0x32
 /* 802BF680 002BC5E0  80 1E 00 00 */	lwz r0, 0(r30)
 /* 802BF684 002BC5E4  2C 00 00 00 */	cmpwi r0, 0
 /* 802BF688 002BC5E8  41 82 00 B0 */	beq lbl_802BF738
-/* 802BF68C 002BC5EC  88 0D A6 24 */	lbz r0, lbl_805A91E4@sda21(r13)
+/* 802BF68C 002BC5EC  88 0D A6 24 */	lbz r0, "@4756"@sda21(r13)
 /* 802BF690 002BC5F0  38 7E 00 04 */	addi r3, r30, 4
 /* 802BF694 002BC5F4  38 A1 00 0C */	addi r5, r1, 0xc
 /* 802BF698 002BC5F8  98 01 00 0C */	stb r0, 0xc(r1)
@@ -10967,7 +10971,7 @@ lbl_802BF6FC:
 /* 802BF6FC 002BC65C  38 65 00 01 */	addi r3, r5, 1
 /* 802BF700 002BC660  A0 06 00 00 */	lhz r0, 0(r6)
 /* 802BF704 002BC664  7C 9F 19 D6 */	mullw r4, r31, r3
-/* 802BF708 002BC668  80 6D A6 1C */	lwz r3, lbl_805A91DC@sda21(r13)
+/* 802BF708 002BC668  80 6D A6 1C */	lwz r3, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802BF70C 002BC66C  54 00 30 32 */	slwi r0, r0, 6
 /* 802BF710 002BC670  38 C6 00 02 */	addi r6, r6, 2
 /* 802BF714 002BC674  7C 63 02 14 */	add r3, r3, r0
@@ -10981,9 +10985,9 @@ lbl_802BF720:
 /* 802BF730 002BC690  7C 06 00 40 */	cmplw r6, r0
 /* 802BF734 002BC694  40 82 FF C8 */	bne lbl_802BF6FC
 lbl_802BF738:
-/* 802BF738 002BC698  80 6D A6 0C */	lwz r3, lbl_805A91CC@sda21(r13)
-/* 802BF73C 002BC69C  83 AD A6 20 */	lwz r29, lbl_805A91E0@sda21(r13)
-/* 802BF740 002BC6A0  83 8D A6 1C */	lwz r28, lbl_805A91DC@sda21(r13)
+/* 802BF738 002BC698  80 6D A6 0C */	lwz r3, sData__7Buckets@sda21(r13)
+/* 802BF73C 002BC69C  83 AD A6 20 */	lwz r29, sPlaneObjectBucket__7Buckets@sda21(r13)
+/* 802BF740 002BC6A0  83 8D A6 1C */	lwz r28, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802BF744 002BC6A4  3B C3 00 04 */	addi r30, r3, 4
 /* 802BF748 002BC6A8  48 00 02 8C */	b lbl_802BF9D4
 lbl_802BF74C:
@@ -11160,7 +11164,7 @@ lbl_802BF98C:
 /* 802BF994 002BC8F4  3B 60 00 31 */	li r27, 0x31
 lbl_802BF998:
 /* 802BF998 002BC8F8  1C 1B 02 04 */	mulli r0, r27, 0x204
-/* 802BF99C 002BC8FC  80 6D A6 10 */	lwz r3, lbl_805A91D0@sda21(r13)
+/* 802BF99C 002BC8FC  80 6D A6 10 */	lwz r3, sBuckets__7Buckets@sda21(r13)
 /* 802BF9A0 002BC900  7C 83 02 14 */	add r4, r3, r0
 /* 802BF9A4 002BC904  84 04 00 04 */	lwzu r0, 4(r4)
 /* 802BF9A8 002BC908  2C 00 00 80 */	cmpwi r0, 0x80
@@ -11177,16 +11181,16 @@ lbl_802BF9C4:
 lbl_802BF9D0:
 /* 802BF9D0 002BC930  3B DE 00 24 */	addi r30, r30, 0x24
 lbl_802BF9D4:
-/* 802BF9D4 002BC934  80 6D A6 0C */	lwz r3, lbl_805A91CC@sda21(r13)
+/* 802BF9D4 002BC934  80 6D A6 0C */	lwz r3, sData__7Buckets@sda21(r13)
 /* 802BF9D8 002BC938  80 03 00 00 */	lwz r0, 0(r3)
 /* 802BF9DC 002BC93C  1C 00 00 24 */	mulli r0, r0, 0x24
 /* 802BF9E0 002BC940  7C 63 02 14 */	add r3, r3, r0
 /* 802BF9E4 002BC944  38 63 00 04 */	addi r3, r3, 4
 /* 802BF9E8 002BC948  7C 1E 18 40 */	cmplw r30, r3
 /* 802BF9EC 002BC94C  40 82 FD 60 */	bne lbl_802BF74C
-/* 802BF9F0 002BC950  80 8D A6 10 */	lwz r4, lbl_805A91D0@sda21(r13)
-/* 802BF9F4 002BC954  3C 60 80 47 */	lis r3, lbl_8046E20C@ha
-/* 802BF9F8 002BC958  3B 63 E2 0C */	addi r27, r3, lbl_8046E20C@l
+/* 802BF9F0 002BC950  80 8D A6 10 */	lwz r4, sBuckets__7Buckets@sda21(r13)
+/* 802BF9F4 002BC954  3C 60 80 47 */	lis r3, sBucketIndex__7Buckets@ha
+/* 802BF9F8 002BC958  3B 63 E2 0C */	addi r27, r3, sBucketIndex__7Buckets@l
 /* 802BF9FC 002BC95C  80 64 00 00 */	lwz r3, 0(r4)
 /* 802BFA00 002BC960  3B DB 00 04 */	addi r30, r27, 4
 /* 802BFA04 002BC964  3B 43 FF FF */	addi r26, r3, -1
@@ -11195,7 +11199,7 @@ lbl_802BF9D4:
 lbl_802BFA10:
 /* 802BFA10 002BC970  80 1B 00 00 */	lwz r0, 0(r27)
 /* 802BFA14 002BC974  57 44 04 3E */	clrlwi r4, r26, 0x10
-/* 802BFA18 002BC978  80 6D A6 10 */	lwz r3, lbl_805A91D0@sda21(r13)
+/* 802BFA18 002BC978  80 6D A6 10 */	lwz r3, sBuckets__7Buckets@sda21(r13)
 /* 802BFA1C 002BC97C  54 00 08 3C */	slwi r0, r0, 1
 /* 802BFA20 002BC980  7C BE 02 15 */	add. r5, r30, r0
 /* 802BFA24 002BC984  7C C3 FA 14 */	add r6, r3, r31
@@ -11209,7 +11213,7 @@ lbl_802BFA34:
 /* 802BFA40 002BC9A0  80 06 00 00 */	lwz r0, 0(r6)
 /* 802BFA44 002BC9A4  2C 00 00 00 */	cmpwi r0, 0
 /* 802BFA48 002BC9A8  41 82 00 28 */	beq lbl_802BFA70
-/* 802BFA4C 002BC9AC  88 0D A6 28 */	lbz r0, lbl_805A91E8@sda21(r13)
+/* 802BFA4C 002BC9AC  88 0D A6 28 */	lbz r0, "@4808"@sda21(r13)
 /* 802BFA50 002BC9B0  38 66 00 04 */	addi r3, r6, 4
 /* 802BFA54 002BC9B4  38 A1 00 08 */	addi r5, r1, 8
 /* 802BFA58 002BC9B8  98 01 00 08 */	stb r0, 8(r1)
@@ -11232,7 +11236,7 @@ lbl_802BFA78:
 /* 802BFA94 002BC9F4  48 00 00 54 */	b lbl_802BFAE8
 lbl_802BFA98:
 /* 802BFA98 002BC9F8  A0 07 00 00 */	lhz r0, 0(r7)
-/* 802BFA9C 002BC9FC  80 6D A6 10 */	lwz r3, lbl_805A91D0@sda21(r13)
+/* 802BFA9C 002BC9FC  80 6D A6 10 */	lwz r3, sBuckets__7Buckets@sda21(r13)
 /* 802BFAA0 002BCA00  54 00 30 32 */	slwi r0, r0, 6
 /* 802BFAA4 002BCA04  7C 9C 02 14 */	add r4, r28, r0
 /* 802BFAA8 002BCA08  A0 04 00 28 */	lhz r0, 0x28(r4)
@@ -11279,7 +11283,7 @@ InsertPlaneObject__7BucketsFffRC6CAABoxbRC6CPlaneb13EDrawableTypePCv:
 /* 802BFB34 002BCA94  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 802BFB38 002BCA98  93 C1 00 48 */	stw r30, 0x48(r1)
 /* 802BFB3C 002BCA9C  7C 9E 23 78 */	mr r30, r4
-/* 802BFB40 002BCAA0  81 4D A6 1C */	lwz r10, lbl_805A91DC@sda21(r13)
+/* 802BFB40 002BCAA0  81 4D A6 1C */	lwz r10, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802BFB44 002BCAA4  80 0A 00 00 */	lwz r0, 0(r10)
 /* 802BFB48 002BCAA8  7D 5F 53 78 */	mr r31, r10
 /* 802BFB4C 002BCAAC  2C 00 00 08 */	cmpwi r0, 8
@@ -11415,7 +11419,7 @@ __ct__20CDrawablePlaneObjectF13EDrawableTypeffRC6CAABoxbRC6CPlanebPCv:
 .global Insert__7BucketsFRC9CVector3fRC6CAABox13EDrawableTypePCvRC6CPlaneUs
 Insert__7BucketsFRC9CVector3fRC6CAABox13EDrawableTypePCvRC6CPlaneUs:
 /* 802BFD18 002BCC78  94 21 FF D0 */	stwu r1, -0x30(r1)
-/* 802BFD1C 002BCC7C  81 4D A6 0C */	lwz r10, lbl_805A91CC@sda21(r13)
+/* 802BFD1C 002BCC7C  81 4D A6 0C */	lwz r10, sData__7Buckets@sda21(r13)
 /* 802BFD20 002BCC80  80 0A 00 00 */	lwz r0, 0(r10)
 /* 802BFD24 002BCC84  2C 00 02 00 */	cmpwi r0, 0x200
 /* 802BFD28 002BCC88  41 82 01 2C */	beq lbl_802BFE54
@@ -11467,20 +11471,20 @@ lbl_802BFDDC:
 /* 802BFDDC 002BCD3C  80 6A 00 00 */	lwz r3, 0(r10)
 /* 802BFDE0 002BCD40  38 03 00 01 */	addi r0, r3, 1
 /* 802BFDE4 002BCD44  90 0A 00 00 */	stw r0, 0(r10)
-/* 802BFDE8 002BCD48  C0 2D A6 14 */	lfs f1, lbl_805A91D4@sda21(r13)
+/* 802BFDE8 002BCD48  C0 2D A6 14 */	lfs f1, sMinMaxDistance__7Buckets@sda21(r13)
 /* 802BFDEC 002BCD4C  C0 01 00 08 */	lfs f0, 8(r1)
 /* 802BFDF0 002BCD50  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 802BFDF4 002BCD54  40 80 00 0C */	bge lbl_802BFE00
-/* 802BFDF8 002BCD58  38 8D A6 14 */	addi r4, r13, lbl_805A91D4@sda21
+/* 802BFDF8 002BCD58  38 8D A6 14 */	addi r4, r13, sMinMaxDistance__7Buckets@sda21
 /* 802BFDFC 002BCD5C  48 00 00 08 */	b lbl_802BFE04
 lbl_802BFE00:
 /* 802BFE00 002BCD60  38 81 00 08 */	addi r4, r1, 8
 lbl_802BFE04:
-/* 802BFE04 002BCD64  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
+/* 802BFE04 002BCD64  38 6D A6 14 */	addi r3, r13, sMinMaxDistance__7Buckets@sda21
 /* 802BFE08 002BCD68  C0 44 00 00 */	lfs f2, 0(r4)
 /* 802BFE0C 002BCD6C  C0 21 00 08 */	lfs f1, 8(r1)
 /* 802BFE10 002BCD70  C0 03 00 04 */	lfs f0, 4(r3)
-/* 802BFE14 002BCD74  D0 4D A6 14 */	stfs f2, lbl_805A91D4@sda21(r13)
+/* 802BFE14 002BCD74  D0 4D A6 14 */	stfs f2, sMinMaxDistance__7Buckets@sda21(r13)
 /* 802BFE18 002BCD78  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 802BFE1C 002BCD7C  40 80 00 0C */	bge lbl_802BFE28
 /* 802BFE20 002BCD80  38 63 00 04 */	addi r3, r3, 4
@@ -11489,7 +11493,7 @@ lbl_802BFE28:
 /* 802BFE28 002BCD88  38 61 00 08 */	addi r3, r1, 8
 lbl_802BFE2C:
 /* 802BFE2C 002BCD8C  C0 03 00 00 */	lfs f0, 0(r3)
-/* 802BFE30 002BCD90  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
+/* 802BFE30 002BCD90  38 6D A6 14 */	addi r3, r13, sMinMaxDistance__7Buckets@sda21
 /* 802BFE34 002BCD94  38 8A 00 04 */	addi r4, r10, 4
 /* 802BFE38 002BCD98  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802BFE3C 002BCD9C  80 6A 00 00 */	lwz r3, 0(r10)
@@ -11505,45 +11509,45 @@ lbl_802BFE54:
 .global Shutdown__7BucketsFv
 Shutdown__7BucketsFv:
 /* 802BFE5C 002BCDBC  38 00 00 00 */	li r0, 0
-/* 802BFE60 002BCDC0  90 0D A6 0C */	stw r0, lbl_805A91CC@sda21(r13)
-/* 802BFE64 002BCDC4  90 0D A6 10 */	stw r0, lbl_805A91D0@sda21(r13)
-/* 802BFE68 002BCDC8  90 0D A6 1C */	stw r0, lbl_805A91DC@sda21(r13)
-/* 802BFE6C 002BCDCC  90 0D A6 20 */	stw r0, lbl_805A91E0@sda21(r13)
+/* 802BFE60 002BCDC0  90 0D A6 0C */	stw r0, sData__7Buckets@sda21(r13)
+/* 802BFE64 002BCDC4  90 0D A6 10 */	stw r0, sBuckets__7Buckets@sda21(r13)
+/* 802BFE68 002BCDC8  90 0D A6 1C */	stw r0, sPlaneObjectData__7Buckets@sda21(r13)
+/* 802BFE6C 002BCDCC  90 0D A6 20 */	stw r0, sPlaneObjectBucket__7Buckets@sda21(r13)
 /* 802BFE70 002BCDD0  4E 80 00 20 */	blr
 
 .global Init__7BucketsFv
 Init__7BucketsFv:
-/* 802BFE74 002BCDD4  3C 60 80 47 */	lis r3, lbl_8046E274@ha
+/* 802BFE74 002BCDD4  3C 60 80 47 */	lis r3, "sDataHolder$4374"@ha
 /* 802BFE78 002BCDD8  94 21 FD F0 */	stwu r1, -0x210(r1)
-/* 802BFE7C 002BCDDC  34 83 E2 74 */	addic. r4, r3, lbl_8046E274@l
+/* 802BFE7C 002BCDDC  34 83 E2 74 */	addic. r4, r3, "sDataHolder$4374"@l
 /* 802BFE80 002BCDE0  41 82 00 0C */	beq lbl_802BFE8C
 /* 802BFE84 002BCDE4  38 00 00 00 */	li r0, 0
 /* 802BFE88 002BCDE8  90 04 00 00 */	stw r0, 0(r4)
 lbl_802BFE8C:
-/* 802BFE8C 002BCDEC  3C 60 80 47 */	lis r3, lbl_80472A7C@ha
-/* 802BFE90 002BCDF0  90 8D A6 0C */	stw r4, lbl_805A91CC@sda21(r13)
-/* 802BFE94 002BCDF4  34 83 2A 7C */	addic. r4, r3, lbl_80472A7C@l
+/* 802BFE8C 002BCDEC  3C 60 80 47 */	lis r3, "sBucketsHolder$4375"@ha
+/* 802BFE90 002BCDF0  90 8D A6 0C */	stw r4, sData__7Buckets@sda21(r13)
+/* 802BFE94 002BCDF4  34 83 2A 7C */	addic. r4, r3, "sBucketsHolder$4375"@l
 /* 802BFE98 002BCDF8  41 82 00 0C */	beq lbl_802BFEA4
 /* 802BFE9C 002BCDFC  38 00 00 00 */	li r0, 0
 /* 802BFEA0 002BCE00  90 04 00 00 */	stw r0, 0(r4)
 lbl_802BFEA4:
-/* 802BFEA4 002BCE04  3C 60 80 48 */	lis r3, lbl_80478F4C@ha
-/* 802BFEA8 002BCE08  90 8D A6 10 */	stw r4, lbl_805A91D0@sda21(r13)
-/* 802BFEAC 002BCE0C  34 83 8F 4C */	addic. r4, r3, lbl_80478F4C@l
+/* 802BFEA4 002BCE04  3C 60 80 48 */	lis r3, "sPlaneObjectDataHolder$4376"@ha
+/* 802BFEA8 002BCE08  90 8D A6 10 */	stw r4, sBuckets__7Buckets@sda21(r13)
+/* 802BFEAC 002BCE0C  34 83 8F 4C */	addic. r4, r3, "sPlaneObjectDataHolder$4376"@l
 /* 802BFEB0 002BCE10  41 82 00 0C */	beq lbl_802BFEBC
 /* 802BFEB4 002BCE14  38 00 00 00 */	li r0, 0
 /* 802BFEB8 002BCE18  90 04 00 00 */	stw r0, 0(r4)
 lbl_802BFEBC:
-/* 802BFEBC 002BCE1C  3C 60 80 48 */	lis r3, lbl_80479154@ha
-/* 802BFEC0 002BCE20  90 8D A6 1C */	stw r4, lbl_805A91DC@sda21(r13)
-/* 802BFEC4 002BCE24  34 63 91 54 */	addic. r3, r3, lbl_80479154@l
+/* 802BFEBC 002BCE1C  3C 60 80 48 */	lis r3, "sPlaneObjectBucketHolder$4377"@ha
+/* 802BFEC0 002BCE20  90 8D A6 1C */	stw r4, sPlaneObjectData__7Buckets@sda21(r13)
+/* 802BFEC4 002BCE24  34 63 91 54 */	addic. r3, r3, "sPlaneObjectBucketHolder$4377"@l
 /* 802BFEC8 002BCE28  41 82 00 0C */	beq lbl_802BFED4
 /* 802BFECC 002BCE2C  38 00 00 00 */	li r0, 0
 /* 802BFED0 002BCE30  90 03 00 00 */	stw r0, 0(r3)
 lbl_802BFED4:
-/* 802BFED4 002BCE34  90 6D A6 20 */	stw r3, lbl_805A91E0@sda21(r13)
+/* 802BFED4 002BCE34  90 6D A6 20 */	stw r3, sPlaneObjectBucket__7Buckets@sda21(r13)
 /* 802BFED8 002BCE38  38 80 00 00 */	li r4, 0
-/* 802BFEDC 002BCE3C  81 4D A6 10 */	lwz r10, lbl_805A91D0@sda21(r13)
+/* 802BFEDC 002BCE3C  81 4D A6 10 */	lwz r10, sBuckets__7Buckets@sda21(r13)
 /* 802BFEE0 002BCE40  90 81 00 08 */	stw r4, 8(r1)
 /* 802BFEE4 002BCE44  80 6A 00 00 */	lwz r3, 0(r10)
 /* 802BFEE8 002BCE48  2C 03 00 32 */	cmpwi r3, 0x32
@@ -11606,13 +11610,13 @@ lbl_802BFF9C:
 lbl_802BFFAC:
 /* 802BFFAC 002BCF0C  42 00 00 00 */	bdnz lbl_802BFFAC
 lbl_802BFFB0:
-/* 802BFFB0 002BCF10  38 6D A6 04 */	addi r3, r13, lbl_805A91C4@sda21
-/* 802BFFB4 002BCF14  C0 2D A6 04 */	lfs f1, lbl_805A91C4@sda21(r13)
+/* 802BFFB0 002BCF10  38 6D A6 04 */	addi r3, r13, skWorstMinMaxDistance__7Buckets@sda21
+/* 802BFFB4 002BCF14  C0 2D A6 04 */	lfs f1, skWorstMinMaxDistance__7Buckets@sda21(r13)
 /* 802BFFB8 002BCF18  C0 03 00 04 */	lfs f0, 4(r3)
 /* 802BFFBC 002BCF1C  38 00 00 00 */	li r0, 0
-/* 802BFFC0 002BCF20  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
+/* 802BFFC0 002BCF20  38 6D A6 14 */	addi r3, r13, sMinMaxDistance__7Buckets@sda21
 /* 802BFFC4 002BCF24  90 01 00 08 */	stw r0, 8(r1)
-/* 802BFFC8 002BCF28  D0 2D A6 14 */	stfs f1, lbl_805A91D4@sda21(r13)
+/* 802BFFC8 002BCF28  D0 2D A6 14 */	stfs f1, sMinMaxDistance__7Buckets@sda21(r13)
 /* 802BFFCC 002BCF2C  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802BFFD0 002BCF30  38 21 02 10 */	addi r1, r1, 0x210
 /* 802BFFD4 002BCF34  4E 80 00 20 */	blr
@@ -11648,21 +11652,21 @@ sub_802c0008:
 
 .global sub_802c0034
 sub_802c0034:
-/* 802C0034 002BCF94  3C 60 80 48 */	lis r3, lbl_80479178@ha
-/* 802C0038 002BCF98  38 63 91 78 */	addi r3, r3, lbl_80479178@l
+/* 802C0034 002BCF94  3C 60 80 48 */	lis r3, "sAllocSpace$9000"@ha
+/* 802C0038 002BCF98  38 63 91 78 */	addi r3, r3, "sAllocSpace$9000"@l
 /* 802C003C 002BCF9C  4E 80 00 20 */	blr
 
 .global sub_802c0040
 sub_802c0040:
-/* 802C0040 002BCFA0  88 0D A6 34 */	lbz r0, lbl_805A91F4@sda21(r13)
+/* 802C0040 002BCFA0  88 0D A6 34 */	lbz r0, "init$9006"@sda21(r13)
 /* 802C0044 002BCFA4  7C 00 07 75 */	extsb. r0, r0
 /* 802C0048 002BCFA8  40 82 00 14 */	bne lbl_802C005C
 /* 802C004C 002BCFAC  38 60 00 00 */	li r3, 0
 /* 802C0050 002BCFB0  38 00 00 01 */	li r0, 1
-/* 802C0054 002BCFB4  90 6D A6 30 */	stw r3, lbl_805A91F0@sda21(r13)
-/* 802C0058 002BCFB8  98 0D A6 34 */	stb r0, lbl_805A91F4@sda21(r13)
+/* 802C0054 002BCFB4  90 6D A6 30 */	stw r3, "sReferenceCount$9005"@sda21(r13)
+/* 802C0058 002BCFB8  98 0D A6 34 */	stb r0, "init$9006"@sda21(r13)
 lbl_802C005C:
-/* 802C005C 002BCFBC  38 6D A6 30 */	addi r3, r13, lbl_805A91F0@sda21
+/* 802C005C 002BCFBC  38 6D A6 30 */	addi r3, r13, "sReferenceCount$9005"@sda21
 /* 802C0060 002BCFC0  4E 80 00 20 */	blr
 
 .global sub_802c0064
@@ -11705,7 +11709,7 @@ lbl_802C00B4:
 /* 802C00EC 002BD04C  3B FF FF FE */	addi r31, r31, -2
 /* 802C00F0 002BD050  54 04 32 B2 */	rlwinm r4, r0, 6, 0xa, 0x19
 lbl_802C00F4:
-/* 802C00F4 002BD054  80 6D A6 1C */	lwz r3, lbl_805A91DC@sda21(r13)
+/* 802C00F4 002BD054  80 6D A6 1C */	lwz r3, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802C00F8 002BD058  38 A3 00 04 */	addi r5, r3, 4
 /* 802C00FC 002BD05C  7C C5 22 14 */	add r6, r5, r4
 /* 802C0100 002BD060  48 00 00 08 */	b lbl_802C0108
@@ -12230,7 +12234,7 @@ lbl_802C07E0:
 lbl_802C07EC:
 /* 802C07EC 002BD74C  7C 03 58 40 */	cmplw r3, r11
 /* 802C07F0 002BD750  40 80 00 2C */	bge lbl_802C081C
-/* 802C07F4 002BD754  80 8D A6 1C */	lwz r4, lbl_805A91DC@sda21(r13)
+/* 802C07F4 002BD754  80 8D A6 1C */	lwz r4, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802C07F8 002BD758  A0 EA 00 00 */	lhz r7, 0(r10)
 /* 802C07FC 002BD75C  38 A4 00 04 */	addi r5, r4, 4
 /* 802C0800 002BD760  54 E0 32 B2 */	rlwinm r0, r7, 6, 0xa, 0x19
@@ -12364,7 +12368,7 @@ lbl_802C098C:
 
 .global sub_802c0994
 sub_802c0994:
-/* 802C0994 002BD8F4  80 CD A6 1C */	lwz r6, lbl_805A91DC@sda21(r13)
+/* 802C0994 002BD8F4  80 CD A6 1C */	lwz r6, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802C0998 002BD8F8  A1 24 00 00 */	lhz r9, 0(r4)
 /* 802C099C 002BD8FC  A1 03 00 00 */	lhz r8, 0(r3)
 /* 802C09A0 002BD900  38 E6 00 04 */	addi r7, r6, 4
@@ -12379,7 +12383,7 @@ sub_802c0994:
 /* 802C09C4 002BD924  B1 23 00 00 */	sth r9, 0(r3)
 /* 802C09C8 002BD928  B1 04 00 00 */	sth r8, 0(r4)
 lbl_802C09CC:
-/* 802C09CC 002BD92C  80 CD A6 1C */	lwz r6, lbl_805A91DC@sda21(r13)
+/* 802C09CC 002BD92C  80 CD A6 1C */	lwz r6, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802C09D0 002BD930  A1 25 00 00 */	lhz r9, 0(r5)
 /* 802C09D4 002BD934  A1 44 00 00 */	lhz r10, 0(r4)
 /* 802C09D8 002BD938  39 06 00 04 */	addi r8, r6, 4
@@ -12392,7 +12396,7 @@ lbl_802C09CC:
 /* 802C09F4 002BD954  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 802C09F8 002BD958  4C 80 00 20 */	bgelr
 /* 802C09FC 002BD95C  B1 45 00 00 */	sth r10, 0(r5)
-/* 802C0A00 002BD960  80 AD A6 1C */	lwz r5, lbl_805A91DC@sda21(r13)
+/* 802C0A00 002BD960  80 AD A6 1C */	lwz r5, sPlaneObjectData__7Buckets@sda21(r13)
 /* 802C0A04 002BD964  A1 03 00 00 */	lhz r8, 0(r3)
 /* 802C0A08 002BD968  38 E5 00 04 */	addi r7, r5, 4
 /* 802C0A0C 002BD96C  55 00 32 B2 */	rlwinm r0, r8, 6, 0xa, 0x19
@@ -12431,13 +12435,13 @@ __sinit_CCubeRenderer_cpp:
 /* 802C0A80 002BD9E0  89 21 00 10 */	lbz r9, 0x10(r1)
 /* 802C0A84 002BD9E4  38 00 00 03 */	li r0, 3
 /* 802C0A88 002BD9E8  89 01 00 11 */	lbz r8, 0x11(r1)
-/* 802C0A8C 002BD9EC  38 ED A5 F4 */	addi r7, r13, lbl_805A91B4@sda21
+/* 802C0A8C 002BD9EC  38 ED A5 F4 */	addi r7, r13, skNormalFlag@sda21
 /* 802C0A90 002BD9F0  A0 C1 00 12 */	lhz r6, 0x12(r1)
 /* 802C0A94 002BD9F4  FC 40 08 90 */	fmr f2, f1
 /* 802C0A98 002BD9F8  80 A1 00 14 */	lwz r5, 0x14(r1)
 /* 802C0A9C 002BD9FC  FC 60 08 90 */	fmr f3, f1
 /* 802C0AA0 002BDA00  FC 80 08 90 */	fmr f4, f1
-/* 802C0AA4 002BDA04  99 2D A5 F4 */	stb r9, lbl_805A91B4@sda21(r13)
+/* 802C0AA4 002BDA04  99 2D A5 F4 */	stb r9, skNormalFlag@sda21(r13)
 /* 802C0AA8 002BDA08  38 61 00 0C */	addi r3, r1, 0xc
 /* 802C0AAC 002BDA0C  99 07 00 01 */	stb r8, 1(r7)
 /* 802C0AB0 002BDA10  B0 C7 00 02 */	sth r6, 2(r7)
@@ -12449,31 +12453,31 @@ __sinit_CCubeRenderer_cpp:
 /* 802C0AC8 002BDA28  A0 01 00 0A */	lhz r0, 0xa(r1)
 /* 802C0ACC 002BDA2C  3C 80 80 2C */	lis r4, sub_802c0b50@ha
 /* 802C0AD0 002BDA30  89 41 00 08 */	lbz r10, 8(r1)
-/* 802C0AD4 002BDA34  3C A0 80 47 */	lis r5, lbl_8046E200@ha
+/* 802C0AD4 002BDA34  3C A0 80 47 */	lis r5, "@4370"@ha
 /* 802C0AD8 002BDA38  54 00 00 3A */	rlwinm r0, r0, 0, 0, 0x1d
 /* 802C0ADC 002BDA3C  C0 2D 9A 98 */	lfs f1, lbl_805A8658@sda21(r13)
 /* 802C0AE0 002BDA40  60 07 00 01 */	ori r7, r0, 1
-/* 802C0AE4 002BDA44  39 0D A5 FC */	addi r8, r13, lbl_805A91BC@sda21
+/* 802C0AE4 002BDA44  39 0D A5 FC */	addi r8, r13, skNormalFlagNoUpdate@sda21
 /* 802C0AE8 002BDA48  89 21 00 09 */	lbz r9, 9(r1)
 /* 802C0AEC 002BDA4C  38 00 00 00 */	li r0, 0
 /* 802C0AF0 002BDA50  80 C1 00 0C */	lwz r6, 0xc(r1)
-/* 802C0AF4 002BDA54  3C 60 80 47 */	lis r3, lbl_8046E20C@ha
+/* 802C0AF4 002BDA54  3C 60 80 47 */	lis r3, sBucketIndex__7Buckets@ha
 /* 802C0AF8 002BDA58  C0 0D 9A 9C */	lfs f0, lbl_805A865C@sda21(r13)
-/* 802C0AFC 002BDA5C  3B ED A6 04 */	addi r31, r13, lbl_805A91C4@sda21
-/* 802C0B00 002BDA60  99 4D A5 FC */	stb r10, lbl_805A91BC@sda21(r13)
+/* 802C0AFC 002BDA5C  3B ED A6 04 */	addi r31, r13, skWorstMinMaxDistance__7Buckets@sda21
+/* 802C0B00 002BDA60  99 4D A5 FC */	stb r10, skNormalFlagNoUpdate@sda21(r13)
 /* 802C0B04 002BDA64  38 84 0B 50 */	addi r4, r4, sub_802c0b50@l
-/* 802C0B08 002BDA68  38 A5 E2 00 */	addi r5, r5, lbl_8046E200@l
+/* 802C0B08 002BDA68  38 A5 E2 00 */	addi r5, r5, "@4370"@l
 /* 802C0B0C 002BDA6C  99 28 00 01 */	stb r9, 1(r8)
 /* 802C0B10 002BDA70  B0 E8 00 02 */	sth r7, 2(r8)
 /* 802C0B14 002BDA74  90 C8 00 04 */	stw r6, 4(r8)
-/* 802C0B18 002BDA78  D0 2D A6 04 */	stfs f1, lbl_805A91C4@sda21(r13)
+/* 802C0B18 002BDA78  D0 2D A6 04 */	stfs f1, skWorstMinMaxDistance__7Buckets@sda21(r13)
 /* 802C0B1C 002BDA7C  D0 1F 00 04 */	stfs f0, 4(r31)
-/* 802C0B20 002BDA80  94 03 E2 0C */	stwu r0, lbl_8046E20C@l(r3)
+/* 802C0B20 002BDA80  94 03 E2 0C */	stwu r0, sBucketIndex__7Buckets@l(r3)
 /* 802C0B24 002BDA84  48 0C 8B 69 */	bl __register_global_object
-/* 802C0B28 002BDA88  C0 2D A6 04 */	lfs f1, lbl_805A91C4@sda21(r13)
-/* 802C0B2C 002BDA8C  38 6D A6 14 */	addi r3, r13, lbl_805A91D4@sda21
+/* 802C0B28 002BDA88  C0 2D A6 04 */	lfs f1, skWorstMinMaxDistance__7Buckets@sda21(r13)
+/* 802C0B2C 002BDA8C  38 6D A6 14 */	addi r3, r13, sMinMaxDistance__7Buckets@sda21
 /* 802C0B30 002BDA90  C0 1F 00 04 */	lfs f0, 4(r31)
-/* 802C0B34 002BDA94  D0 2D A6 14 */	stfs f1, lbl_805A91D4@sda21(r13)
+/* 802C0B34 002BDA94  D0 2D A6 14 */	stfs f1, sMinMaxDistance__7Buckets@sda21(r13)
 /* 802C0B38 002BDA98  D0 03 00 04 */	stfs f0, 4(r3)
 /* 802C0B3C 002BDA9C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 802C0B40 002BDAA0  80 01 00 24 */	lwz r0, 0x24(r1)

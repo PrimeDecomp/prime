@@ -24,6 +24,8 @@ lbl_803F0100:
 	.4byte 0x00100007
 	.4byte 0
 
+.if version < 2
+
 .global lbl_803F0148
 lbl_803F0148:
 
@@ -173,6 +175,7 @@ lbl_803F04EC:
 	.asciz "\n\n\nEr is een fout opgetreden.\nZet de NINTENDO GAMECUBE uit en\nraadpleeg de handleiding van de\nNintendo GameCube voor nadere\ninstructies."
 	.balign 4
 
+.endif
 
 .section .text, "ax"
 

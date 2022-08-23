@@ -735,6 +735,8 @@ lbl_80384230:
 /* 80384240 003811A0  7C 08 03 A6 */	mtlr r0
 /* 80384244 003811A4  4E 80 00 20 */	blr
 
+.if version < 2
+
 .global OSGetLanguage
 OSGetLanguage:
 /* 80384248 003811A8  7C 08 02 A6 */	mflr r0
@@ -766,6 +768,8 @@ lbl_8038428C:
 /* 803842A8 00381208  38 21 00 18 */	addi r1, r1, 0x18
 /* 803842AC 0038120C  7C 08 03 A6 */	mtlr r0
 /* 803842B0 00381210  4E 80 00 20 */	blr
+
+.endif
 
 .global OSGetWirelessID
 OSGetWirelessID:

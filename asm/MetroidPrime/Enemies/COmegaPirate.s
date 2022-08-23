@@ -6404,7 +6404,7 @@ lbl_80290894:
 /* 802908A8 0028D808  38 21 00 20 */	addi r1, r1, 0x20
 /* 802908AC 0028D80C  4E 80 00 20 */	blr
 
-.if version == 1
+.if version >= 1
 
 .global AcceptScriptMsg__12COmegaPirateF20EScriptObjectMessage9TUniqueIdR13CStateManager
 AcceptScriptMsg__12COmegaPirateF20EScriptObjectMessage9TUniqueIdR13CStateManager:

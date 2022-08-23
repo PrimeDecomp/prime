@@ -8,6 +8,7 @@ This repository builds the following DOLs:
 ```
 949c5ed7368aef547e0b0db1c3678f466e2afbff  build/mp1.0/main.dol (USA 0-00)
 860141f9671fc141ce8f55448643f713bc64b349  build/mp1.1/main.dol (USA 0-01)
+52316d2a71c0d18c84f054fd6f1e58bdd7bf0ded  build/mp1.kor/main.dol (KOR)
 ```
 
 Dependencies

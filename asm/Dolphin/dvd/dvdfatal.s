@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if version < 2
+
 .section .sdata
 .balign 8
 .global lbl_805A8AB0
@@ -11,13 +13,6 @@ lbl_805A8AB0:
 lbl_805A8AB4:
 	# ROM: 0x3F6454
 	.4byte lbl_803F01B8
-
-
-.section .sbss
-.balign 8
-.global lbl_805A9820
-lbl_805A9820:
-	.skip 0x8
 
 .section .sdata2
 .balign 8
@@ -43,8 +38,17 @@ lbl_803D8570:
 	.4byte lbl_803F046C
 	.4byte lbl_803F04EC
 
+.endif
+
+.section .sbss
+.balign 8
+.global lbl_805A9820
+lbl_805A9820:
+	.skip 0x8
 
 .section .text, "ax"
+
+.if version < 2
 
 .global ShowMessage
 ShowMessage:
@@ -121,6 +125,8 @@ lbl_80374E18:
 /* 80374E30 00371D90  38 21 00 18 */	addi r1, r1, 0x18
 /* 80374E34 00371D94  7C 08 03 A6 */	mtlr r0
 /* 80374E38 00371D98  4E 80 00 20 */	blr
+
+.endif
 
 .global __DVDPrintFatalMessage
 __DVDPrintFatalMessage:
