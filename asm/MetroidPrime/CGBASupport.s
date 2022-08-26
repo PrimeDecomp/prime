@@ -38,7 +38,7 @@ lbl_805A9110:
 
 .section .text, "ax"
 
-.if version == 2
+.if version >= 2
 
 .global PollResponse__11CGBASupportFv
 PollResponse__11CGBASupportFv:

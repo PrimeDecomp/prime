@@ -144,12 +144,12 @@ lbl_8001B704:
 lbl_8001B710:
 /* 8001B710 00018670  FC 04 48 00 */	fcmpu cr0, f4, f9
 /* 8001B714 00018674  41 82 00 10 */	beq lbl_8001B724
-/* 8001B718 00018678  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 8001B71C 0001867C  C1 23 8B A0 */	lfs f9, lbl_805A8BA0@l(r3)
+/* 8001B718 00018678  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 8001B71C 0001867C  C1 23 8B A0 */	lfs f9, __float_nan@l(r3)
 /* 8001B720 00018680  48 00 00 0C */	b lbl_8001B72C
 lbl_8001B724:
-/* 8001B724 00018684  3C 60 80 5B */	lis r3, lbl_805A8BA4@ha
-/* 8001B728 00018688  C1 23 8B A4 */	lfs f9, lbl_805A8BA4@l(r3)
+/* 8001B724 00018684  3C 60 80 5B */	lis r3, __float_huge@ha
+/* 8001B728 00018688  C1 23 8B A4 */	lfs f9, __float_huge@l(r3)
 lbl_8001B72C:
 /* 8001B72C 0001868C  FF 80 48 18 */	frsp f28, f9
 /* 8001B730 00018690  C0 A2 82 5C */	lfs f5, lbl_805A9F7C@sda21(r2)
@@ -257,12 +257,12 @@ lbl_8001B8A4:
 lbl_8001B8B0:
 /* 8001B8B0 00018810  FC 04 08 00 */	fcmpu cr0, f4, f1
 /* 8001B8B4 00018814  41 82 00 10 */	beq lbl_8001B8C4
-/* 8001B8B8 00018818  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 8001B8BC 0001881C  C0 23 8B A0 */	lfs f1, lbl_805A8BA0@l(r3)
+/* 8001B8B8 00018818  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 8001B8BC 0001881C  C0 23 8B A0 */	lfs f1, __float_nan@l(r3)
 /* 8001B8C0 00018820  48 00 00 0C */	b lbl_8001B8CC
 lbl_8001B8C4:
-/* 8001B8C4 00018824  3C 60 80 5B */	lis r3, lbl_805A8BA4@ha
-/* 8001B8C8 00018828  C0 23 8B A4 */	lfs f1, lbl_805A8BA4@l(r3)
+/* 8001B8C4 00018824  3C 60 80 5B */	lis r3, __float_huge@ha
+/* 8001B8C8 00018828  C0 23 8B A4 */	lfs f1, __float_huge@l(r3)
 lbl_8001B8CC:
 /* 8001B8CC 0001882C  FF E0 08 18 */	frsp f31, f1
 /* 8001B8D0 00018830  C0 22 82 5C */	lfs f1, lbl_805A9F7C@sda21(r2)

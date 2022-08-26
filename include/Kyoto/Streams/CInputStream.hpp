@@ -11,8 +11,8 @@ inline T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
 class CInputStream {
 public:
-  CInputStream(size_t len);
-  CInputStream(const void* ptr, size_t len, bool owned);
+  CInputStream(s32 len);
+  CInputStream(const void* ptr, s32 len, bool owned);
   virtual ~CInputStream();
   virtual u32 Read(void* dest, u32 len) = 0;
 

@@ -11,15 +11,15 @@ static const wchar_t skInvalidString[] = L"Invalid";
 CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) {
   in.ReadLong();
   in.ReadLong();
-  size_t langCount = in.Get(TType< size_t >());
+  s32 langCount = in.Get(TType< s32 >());
   x0_stringCount = in.Get(TType< u32 >());
   rstl::vector< rstl::pair< FourCC, u32 > > langOffsets(langCount);
-  for (size_t i = 0; i < langCount; ++i) {
+  for (s32 i = 0; i < langCount; ++i) {
     langOffsets.push_back(in.Get(TType< rstl::pair< FourCC, u32 > >()));
   }
 
-  size_t offset = langOffsets.front().second;
-  for (size_t i = 0; i < langCount; ++i) {
+  s32 offset = langOffsets.front().second;
+  for (s32 i = 0; i < langCount; ++i) {
     if (langOffsets[i].first == mCurrentLanguage) {
       offset = langOffsets[i].second;
       break;

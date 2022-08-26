@@ -1261,12 +1261,12 @@ lbl_802AAB00:
 lbl_802AAB0C:
 /* 802AAB0C 002A7A6C  FC 09 38 00 */	fcmpu cr0, f9, f7
 /* 802AAB10 002A7A70  41 82 00 10 */	beq lbl_802AAB20
-/* 802AAB14 002A7A74  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 802AAB18 002A7A78  C0 E3 8B A0 */	lfs f7, lbl_805A8BA0@l(r3)
+/* 802AAB14 002A7A74  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 802AAB18 002A7A78  C0 E3 8B A0 */	lfs f7, __float_nan@l(r3)
 /* 802AAB1C 002A7A7C  48 00 00 0C */	b lbl_802AAB28
 lbl_802AAB20:
-/* 802AAB20 002A7A80  3C 60 80 5B */	lis r3, lbl_805A8BA4@ha
-/* 802AAB24 002A7A84  C0 E3 8B A4 */	lfs f7, lbl_805A8BA4@l(r3)
+/* 802AAB20 002A7A80  3C 60 80 5B */	lis r3, __float_huge@ha
+/* 802AAB24 002A7A84  C0 E3 8B A4 */	lfs f7, __float_huge@l(r3)
 lbl_802AAB28:
 /* 802AAB28 002A7A88  FC 60 00 50 */	fneg f3, f0
 /* 802AAB2C 002A7A8C  C8 02 C1 C0 */	lfd f0, lbl_805ADEE0@sda21(r2)

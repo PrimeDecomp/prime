@@ -66,8 +66,8 @@ inline void uninitialized_copy_2(S* begin, D* out, S* end) {
 }
 
 template < typename S, typename D >
-inline void uninitialized_copy_n(D* dest, S* src, size_t count) {
-  for (size_t i = 0; i < count; ++dest, ++i, ++src) {
+inline void uninitialized_copy_n(D* dest, S* src, int count) {
+  for (int i = 0; i < count; ++dest, ++i, ++src) {
     construct(dest, *src);
   }
   // destroy(src, src + count); ??

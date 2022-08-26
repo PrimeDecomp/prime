@@ -27,7 +27,7 @@ public:
   static CVParamTransfer Null();
 
 private:
-  rstl::rc_ptr< void > x0_;
+  rstl::rc_ptr< unkptr > x0_;
 };
 class CObjectReference {
 public:

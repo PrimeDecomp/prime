@@ -30,19 +30,19 @@ public:
 template < typename T, typename Vec, typename Alloc >
 class pointer_iterator : public const_pointer_iterator< T, Vec, Alloc > {
 public:
-  pointer_iterator() : const_pointer_iterator(nullptr) {}
-  pointer_iterator(T* begin) : const_pointer_iterator(begin) {}
+  pointer_iterator() : const_pointer_iterator< T, Vec, Alloc >(nullptr) {}
+  pointer_iterator(T* begin) : const_pointer_iterator< T, Vec, Alloc >(begin) {}
   void operator=(const T& other) {
-    if (CheckValid()) {
+    if (this->CheckValid()) {
       *get_pointer() = other;
     }
   }
-  T* get_pointer() const { return const_cast< T* >(current); }
+  T* get_pointer() const { return const_cast< T* >(this->current); }
   // T* operator*() const { if (CheckValid()) return get_pointer(); else return
   // nullptr; }
   T* operator->() const { return get_pointer(); }
   void destroy() const {
-    if (CheckValid()) {
+    if (this->CheckValid()) {
       rstl::destroy(get_pointer());
     }
   }

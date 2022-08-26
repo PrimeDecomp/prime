@@ -23,8 +23,8 @@ lbl_80391404:
 /* 80391404 0038E364  C8 22 CF A0 */	lfd f1, lbl_805AECC0@sda21(r2)
 /* 80391408 0038E368  48 00 02 C8 */	b lbl_803916D0
 lbl_8039140C:
-/* 8039140C 0038E36C  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 80391410 0038E370  C0 23 8B A0 */	lfs f1, lbl_805A8BA0@l(r3)
+/* 8039140C 0038E36C  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 80391410 0038E370  C0 23 8B A0 */	lfs f1, __float_nan@l(r3)
 /* 80391414 0038E374  48 00 02 BC */	b lbl_803916D0
 lbl_80391418:
 /* 80391418 0038E378  3C 00 3F E0 */	lis r0, 0x3fe0
@@ -122,12 +122,12 @@ lbl_80391570:
 lbl_8039157C:
 /* 8039157C 0038E4DC  FC 01 58 00 */	fcmpu cr0, f1, f11
 /* 80391580 0038E4E0  41 82 00 10 */	beq lbl_80391590
-/* 80391584 0038E4E4  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 80391588 0038E4E8  C1 63 8B A0 */	lfs f11, lbl_805A8BA0@l(r3)
+/* 80391584 0038E4E4  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 80391588 0038E4E8  C1 63 8B A0 */	lfs f11, __float_nan@l(r3)
 /* 8039158C 0038E4EC  48 00 00 0C */	b lbl_80391598
 lbl_80391590:
-/* 80391590 0038E4F0  3C 60 80 5B */	lis r3, lbl_805A8BA4@ha
-/* 80391594 0038E4F4  C1 63 8B A4 */	lfs f11, lbl_805A8BA4@l(r3)
+/* 80391590 0038E4F0  3C 60 80 5B */	lis r3, __float_huge@ha
+/* 80391594 0038E4F4  C1 63 8B A4 */	lfs f11, __float_huge@l(r3)
 lbl_80391598:
 /* 80391598 0038E4F8  FC 45 30 24 */	fdiv f2, f5, f6
 /* 8039159C 0038E4FC  C8 22 CF B0 */	lfd f1, lbl_805AECD0@sda21(r2)
@@ -172,12 +172,12 @@ lbl_80391624:
 lbl_80391630:
 /* 80391630 0038E590  FC 00 48 00 */	fcmpu cr0, f0, f9
 /* 80391634 0038E594  41 82 00 10 */	beq lbl_80391644
-/* 80391638 0038E598  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 8039163C 0038E59C  C1 23 8B A0 */	lfs f9, lbl_805A8BA0@l(r3)
+/* 80391638 0038E598  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 8039163C 0038E59C  C1 23 8B A0 */	lfs f9, __float_nan@l(r3)
 /* 80391640 0038E5A0  48 00 00 0C */	b lbl_8039164C
 lbl_80391644:
-/* 80391644 0038E5A4  3C 60 80 5B */	lis r3, lbl_805A8BA4@ha
-/* 80391648 0038E5A8  C1 23 8B A4 */	lfs f9, lbl_805A8BA4@l(r3)
+/* 80391644 0038E5A4  3C 60 80 5B */	lis r3, __float_huge@ha
+/* 80391648 0038E5A8  C1 23 8B A4 */	lfs f9, __float_huge@l(r3)
 lbl_8039164C:
 /* 8039164C 0038E5AC  C8 42 CF E0 */	lfd f2, lbl_805AED00@sda21(r2)
 /* 80391650 0038E5B0  38 00 00 00 */	li r0, 0

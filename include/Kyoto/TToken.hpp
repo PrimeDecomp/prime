@@ -29,7 +29,7 @@ template < typename T >
 class TCachedToken : public TToken< T > {
 public:
   TCachedToken() {}
-  TCachedToken(const CToken& token) : TToken(token), x8_item(nullptr) {}
+  TCachedToken(const CToken& token) : TToken< T >(token), x8_item(nullptr) {}
 
   // TODO
   operator const TToken< T >&() const;
@@ -42,7 +42,7 @@ template < typename T >
 class TLockedToken : public TCachedToken< T > {
 public:
   TLockedToken() {}
-  TLockedToken(const CToken& token) : TCachedToken(token) { Lock(); }
+  TLockedToken(const CToken& token) : TCachedToken< T >(token) { this->Lock(); }
 
   // TODO
   operator const TToken< T >&() const;
