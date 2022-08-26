@@ -1923,6 +1923,8 @@ lbl_803D8368:
 	# ROM: 0x3D5368
 	.asciz "??(??)"
 	.balign 4
+
+# what's going on here?
 .if version < 2
 	.4byte 0
 	.4byte 0

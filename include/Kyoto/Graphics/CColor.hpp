@@ -5,7 +5,9 @@
 
 #include "Kyoto/Basics/CCast.hpp"
 
+#ifdef __MWERKS__
 #pragma cpp_extensions on
+#endif
 
 class CInputStream;
 class CColor {

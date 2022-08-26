@@ -423,7 +423,7 @@ COLLISION :=\
 	$(BUILD_DIR)/asm/Collision/COBBox.o\
 	$(BUILD_DIR)/asm/Collision/CMRay.o\
 
-KYOTO :=\
+KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Basics/CBasics.o\
 	$(BUILD_DIR)/asm/Kyoto/Basics/CStopwatch.o\
 	$(BUILD_DIR)/asm/Kyoto/Basics/CBasicsDolphin.o\
@@ -565,7 +565,9 @@ KYOTO :=\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CZipSupport.o\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
 	$(BUILD_DIR)/asm/Kyoto/CToken.o\
-	$(BUILD_DIR)/asm/Kyoto/IObj.o\
+	$(BUILD_DIR)/asm/Kyoto/IObj.o
+
+ZLIB_FILES :=\
 	$(BUILD_DIR)/src/Kyoto/zlib/adler32.o\
 	$(BUILD_DIR)/src/Kyoto/zlib/infblock.o\
 	$(BUILD_DIR)/src/Kyoto/zlib/infcodes.o\
@@ -573,7 +575,9 @@ KYOTO :=\
 	$(BUILD_DIR)/src/Kyoto/zlib/inflate.o\
 	$(BUILD_DIR)/src/Kyoto/zlib/inftrees.o\
 	$(BUILD_DIR)/src/Kyoto/zlib/infutil.o\
-	$(BUILD_DIR)/src/Kyoto/zlib/zutil.o\
+	$(BUILD_DIR)/src/Kyoto/zlib/zutil.o
+
+KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/CARAMManager.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CFrustumPlanes.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CCubeMaterial.o\
@@ -720,60 +724,63 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/asm/Runtime/ptmf.o\
 	$(BUILD_DIR)/asm/Runtime/runtime.o\
 	$(BUILD_DIR)/asm/Runtime/__init_cpp_exceptions.o\
-	$(BUILD_DIR)/asm/Runtime/sdata.o\
 	$(BUILD_DIR)/asm/Runtime/Gecko_ExceptionPPC.o\
-	$(BUILD_DIR)/asm/Runtime/abort_exit.o\
+	$(BUILD_DIR)/src/Runtime/abort_exit.o\
 	$(BUILD_DIR)/asm/Runtime/alloc.o\
 	$(BUILD_DIR)/asm/Runtime/ansi_files.o\
 	$(BUILD_DIR)/asm/Runtime/ansi_fp.o\
 	$(BUILD_DIR)/asm/Runtime/arith.o\
 	$(BUILD_DIR)/asm/Runtime/buffer_io.o\
-	$(BUILD_DIR)/asm/Runtime/ctype.o\
+	$(BUILD_DIR)/src/Runtime/ctype.o\
+	$(BUILD_DIR)/src/Runtime/locale.o\
 	$(BUILD_DIR)/asm/Runtime/direct_io.o\
 	$(BUILD_DIR)/asm/Runtime/file_io.o\
 	$(BUILD_DIR)/asm/Runtime/FILE_POS.o\
 	$(BUILD_DIR)/asm/Runtime/mbstring.o\
-	$(BUILD_DIR)/asm/Runtime/mem.o\
-	$(BUILD_DIR)/asm/Runtime/mem_funcs.o\
-	$(BUILD_DIR)/asm/Runtime/misc_io.o\
+	$(BUILD_DIR)/src/Runtime/mem.o\
+	$(BUILD_DIR)/src/Runtime/mem_funcs.o\
+	$(BUILD_DIR)/src/Runtime/misc_io.o\
 	$(BUILD_DIR)/asm/Runtime/printf.o\
 	$(BUILD_DIR)/asm/Runtime/qsort.o\
-	$(BUILD_DIR)/asm/Runtime/rand.o\
+	$(BUILD_DIR)/src/Runtime/rand.o\
 	$(BUILD_DIR)/asm/Runtime/sscanf.o\
 	$(BUILD_DIR)/asm/Runtime/string.o\
+	$(BUILD_DIR)/asm/Runtime/float.o\
 	$(BUILD_DIR)/asm/Runtime/strtold.o\
 	$(BUILD_DIR)/asm/Runtime/uart_console_io.o\
-	$(BUILD_DIR)/asm/Runtime/widechar_io.o\
-	$(BUILD_DIR)/asm/Runtime/e_acos.o\
-	$(BUILD_DIR)/asm/Runtime/e_asin.o\
-	$(BUILD_DIR)/asm/Runtime/e_atan2.o\
+	$(BUILD_DIR)/src/Runtime/wchar_io.o
+
+MSL_COMMON_MATH :=\
+	$(BUILD_DIR)/src/Runtime/e_acos.o\
+	$(BUILD_DIR)/src/Runtime/e_asin.o\
+	$(BUILD_DIR)/src/Runtime/e_atan2.o\
 	$(BUILD_DIR)/asm/Runtime/e_exp.o\
-	$(BUILD_DIR)/asm/Runtime/e_fmod.o\
-	$(BUILD_DIR)/asm/Runtime/e_log.o\
+	$(BUILD_DIR)/src/Runtime/e_fmod.o\
+	$(BUILD_DIR)/src/Runtime/e_log.o\
 	$(BUILD_DIR)/asm/Runtime/e_pow.o\
-	$(BUILD_DIR)/asm/Runtime/e_rem_pio2.o\
-	$(BUILD_DIR)/asm/Runtime/k_cos.o\
+	$(BUILD_DIR)/src/Runtime/e_rem_pio2.o\
+	$(BUILD_DIR)/src/Runtime/k_cos.o\
 	$(BUILD_DIR)/asm/Runtime/k_rem_pio2.o\
-	$(BUILD_DIR)/asm/Runtime/k_sin.o\
-	$(BUILD_DIR)/asm/Runtime/k_tan.o\
+	$(BUILD_DIR)/src/Runtime/k_sin.o\
+	$(BUILD_DIR)/src/Runtime/k_tan.o\
 	$(BUILD_DIR)/asm/Runtime/s_atan.o\
-	$(BUILD_DIR)/asm/Runtime/s_copysign.o\
-	$(BUILD_DIR)/asm/Runtime/s_cos.o\
-	$(BUILD_DIR)/asm/Runtime/s_floor.o\
-	$(BUILD_DIR)/asm/Runtime/s_frexp.o\
-	$(BUILD_DIR)/asm/Runtime/s_ldexp.o\
-	$(BUILD_DIR)/asm/Runtime/s_modf.o\
-	$(BUILD_DIR)/asm/Runtime/s_nextafter.o\
-	$(BUILD_DIR)/asm/Runtime/s_sin.o\
-	$(BUILD_DIR)/asm/Runtime/s_tan.o\
-	$(BUILD_DIR)/asm/Runtime/s_acos.o\
-	$(BUILD_DIR)/asm/Runtime/s_asin.o\
-	$(BUILD_DIR)/asm/Runtime/s_atan2.o\
-	$(BUILD_DIR)/asm/Runtime/s_exp.o\
-	$(BUILD_DIR)/asm/Runtime/s_fmod.o\
-	$(BUILD_DIR)/asm/Runtime/s_log.o\
-	$(BUILD_DIR)/asm/Runtime/s_pow.o\
-	$(BUILD_DIR)/asm/Runtime/s_cosf.o\
+	$(BUILD_DIR)/src/Runtime/s_copysign.o\
+	$(BUILD_DIR)/src/Runtime/s_cos.o\
+	$(BUILD_DIR)/src/Runtime/s_floor.o\
+	$(BUILD_DIR)/src/Runtime/s_frexp.o\
+	$(BUILD_DIR)/src/Runtime/s_ldexp.o\
+	$(BUILD_DIR)/src/Runtime/s_modf.o\
+	$(BUILD_DIR)/src/Runtime/s_nextafter.o\
+	$(BUILD_DIR)/src/Runtime/s_sin.o\
+	$(BUILD_DIR)/src/Runtime/s_tan.o\
+	$(BUILD_DIR)/src/Runtime/w_acos.o\
+	$(BUILD_DIR)/src/Runtime/w_asin.o\
+	$(BUILD_DIR)/src/Runtime/w_atan2.o\
+	$(BUILD_DIR)/src/Runtime/w_exp.o\
+	$(BUILD_DIR)/src/Runtime/w_fmod.o\
+	$(BUILD_DIR)/src/Runtime/w_log.o\
+	$(BUILD_DIR)/src/Runtime/w_pow.o\
+	$(BUILD_DIR)/src/Runtime/math_ppc.o\
 	
 MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/seq.o\

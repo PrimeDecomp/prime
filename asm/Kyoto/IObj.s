@@ -24,8 +24,8 @@ Type2Text__10SObjectTagFUi:
 /* 80341010 0033DF70  38 00 FF FF */	li r0, -1
 /* 80341014 0033DF74  48 00 00 10 */	b lbl_80341024
 lbl_80341018:
-/* 80341018 0033DF78  3C 80 80 3F */	lis r4, lbl_803F2C20@ha
-/* 8034101C 0033DF7C  38 84 2C 20 */	addi r4, r4, lbl_803F2C20@l
+/* 80341018 0033DF78  3C 80 80 3F */	lis r4, __upper_map@ha
+/* 8034101C 0033DF7C  38 84 2C 20 */	addi r4, r4, __upper_map@l
 /* 80341020 0033DF80  7C 04 00 AE */	lbzx r0, r4, r0
 lbl_80341024:
 /* 80341024 0033DF84  54 65 86 3E */	rlwinm r5, r3, 0x10, 0x18, 0x1f
@@ -35,8 +35,8 @@ lbl_80341024:
 /* 80341034 0033DF94  38 00 FF FF */	li r0, -1
 /* 80341038 0033DF98  48 00 00 10 */	b lbl_80341048
 lbl_8034103C:
-/* 8034103C 0033DF9C  3C 80 80 3F */	lis r4, lbl_803F2C20@ha
-/* 80341040 0033DFA0  38 84 2C 20 */	addi r4, r4, lbl_803F2C20@l
+/* 8034103C 0033DF9C  3C 80 80 3F */	lis r4, __upper_map@ha
+/* 80341040 0033DFA0  38 84 2C 20 */	addi r4, r4, __upper_map@l
 /* 80341044 0033DFA4  7C 04 28 AE */	lbzx r0, r4, r5
 lbl_80341048:
 /* 80341048 0033DFA8  54 65 C6 3E */	rlwinm r5, r3, 0x18, 0x18, 0x1f
@@ -47,8 +47,8 @@ lbl_80341048:
 /* 8034105C 0033DFBC  38 00 FF FF */	li r0, -1
 /* 80341060 0033DFC0  48 00 00 10 */	b lbl_80341070
 lbl_80341064:
-/* 80341064 0033DFC4  3C 80 80 3F */	lis r4, lbl_803F2C20@ha
-/* 80341068 0033DFC8  38 84 2C 20 */	addi r4, r4, lbl_803F2C20@l
+/* 80341064 0033DFC4  3C 80 80 3F */	lis r4, __upper_map@ha
+/* 80341068 0033DFC8  38 84 2C 20 */	addi r4, r4, __upper_map@l
 /* 8034106C 0033DFCC  7C 04 28 AE */	lbzx r0, r4, r5
 lbl_80341070:
 /* 80341070 0033DFD0  54 64 06 3E */	clrlwi r4, r3, 0x18
@@ -59,15 +59,15 @@ lbl_80341070:
 /* 80341084 0033DFE4  38 60 FF FF */	li r3, -1
 /* 80341088 0033DFE8  48 00 00 10 */	b lbl_80341098
 lbl_8034108C:
-/* 8034108C 0033DFEC  3C 60 80 3F */	lis r3, lbl_803F2C20@ha
-/* 80341090 0033DFF0  38 63 2C 20 */	addi r3, r3, lbl_803F2C20@l
+/* 8034108C 0033DFEC  3C 60 80 3F */	lis r3, __upper_map@ha
+/* 80341090 0033DFF0  38 63 2C 20 */	addi r3, r3, __upper_map@l
 /* 80341094 0033DFF4  7C 63 20 AE */	lbzx r3, r3, r4
 lbl_80341098:
 /* 80341098 0033DFF8  38 AD A9 58 */	addi r5, r13, lbl_805A9518@sda21
 /* 8034109C 0033DFFC  38 00 00 00 */	li r0, 0
 /* 803410A0 0033E000  98 65 00 03 */	stb r3, 3(r5)
-/* 803410A4 0033E004  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
-/* 803410A8 0033E008  38 83 2A 20 */	addi r4, r3, lbl_803F2A20@l
+/* 803410A4 0033E004  3C 60 80 3F */	lis r3, __ctype_map@ha
+/* 803410A8 0033E008  38 83 2A 20 */	addi r4, r3, __ctype_map@l
 /* 803410AC 0033E00C  98 05 00 04 */	stb r0, 4(r5)
 /* 803410B0 0033E010  38 00 00 2D */	li r0, 0x2d
 /* 803410B4 0033E014  88 6D A9 58 */	lbz r3, lbl_805A9518@sda21(r13)

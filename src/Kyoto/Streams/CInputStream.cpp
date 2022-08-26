@@ -4,7 +4,7 @@
 
 #include "Kyoto/Alloc/CMemory.hpp"
 
-CInputStream::CInputStream(size_t len)
+CInputStream::CInputStream(s32 len)
 : x4_blockOffset(0)
 , x8_blockLen(0)
 , xc_len(len)
@@ -14,7 +14,7 @@ CInputStream::CInputStream(size_t len)
 , x1c_bitWord(0)
 , x20_bitOffset(0) {}
 
-CInputStream::CInputStream(const void* ptr, size_t len, bool owned)
+CInputStream::CInputStream(const void* ptr, s32 len, bool owned)
 : x4_blockOffset(0)
 , x8_blockLen(len)
 , xc_len(len)

@@ -99,11 +99,11 @@ private:
 
 template < typename T >
 const T* TCastToConstPtr(const CEntity* p) {
-  return TCastToPtr(const_cast< CEntity* >(p));
+  return TCastToPtr< T >(const_cast< CEntity* >(p));
 }
 template < typename T >
 const T* TCastToConstPtr(const CEntity& p) {
-  return TCastToPtr(const_cast< CEntity* >(&p));
+  return TCastToPtr< T >(const_cast< CEntity* >(&p));
 }
 
 #endif

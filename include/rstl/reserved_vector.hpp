@@ -7,9 +7,9 @@
 #include "rstl/pointer_iterator.hpp"
 
 namespace rstl {
-template < typename T, size_t N >
+template < typename T, s32 N >
 class reserved_vector {
-  size_t x0_count;
+  s32 x0_count;
   u8 x4_data[N * sizeof(T)];
 
 public:
@@ -36,7 +36,7 @@ public:
     return *this;
   }
   void clear() {
-    for (size_t i = 0; i < x0_count; ++i) {
+    for (s32 i = 0; i < x0_count; ++i) {
       rstl::destroy(&data()[i]);
     }
     x0_count = 0;
@@ -54,14 +54,14 @@ public:
 
   inline T* data() { return reinterpret_cast< T* >(x4_data); }
   inline const T* data() const { return reinterpret_cast< const T* >(x4_data); }
-  inline size_t size() const { return x0_count; }
-  inline size_t capacity() const { return N; }
+  inline s32 size() const { return x0_count; }
+  inline s32 capacity() const { return N; }
   inline T& front() { return data()[0]; }
   inline const T& front() const { return data()[0]; }
   inline T& back() { return data()[x0_count - 1]; }
   inline const T& back() const { return data()[x0_count - 1]; }
-  inline T& operator[](size_t idx) { return data()[idx]; }
-  inline const T& operator[](size_t idx) const { return data()[idx]; }
+  inline T& operator[](s32 idx) { return data()[idx]; }
+  inline const T& operator[](s32 idx) const { return data()[idx]; }
 };
 } // namespace rstl
 

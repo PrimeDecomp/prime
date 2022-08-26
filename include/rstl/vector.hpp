@@ -10,8 +10,8 @@ namespace rstl {
 template < typename T, typename Alloc = rmemory_allocator >
 class vector {
   Alloc x0_allocator;
-  size_t x4_count;
-  size_t x8_capacity;
+  s32 x4_count;
+  s32 x8_capacity;
   T* xc_items;
 
 public:
@@ -23,14 +23,14 @@ public:
   inline iterator end() { return iterator(xc_items + x4_count); }
   inline const_iterator end() const { return const_iterator(xc_items + x4_count); }
   inline vector() : x4_count(0), x8_capacity(0), xc_items(NULL) {}
-  inline vector(size_t count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
+  inline vector(s32 count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
   vector(const vector& other) {
     x4_count = other.x4_count;
     x8_capacity = other.x8_capacity;
     if (other.x4_count == 0 && other.x8_capacity == 0) {
       xc_items = NULL;
     } else {
-      size_t sz = x8_capacity * sizeof(T);
+      s32 sz = x8_capacity * sizeof(T);
       if (sz == 0) {
         xc_items = NULL;
       } else {
@@ -44,7 +44,7 @@ public:
     x0_allocator.deallocate(xc_items);
   }
 
-  void reserve(size_t size);
+  void reserve(s32 size);
 
   void push_back(const T& in) {
     if (x4_count >= x8_capacity) {
@@ -79,21 +79,21 @@ public:
 
   inline T* data() { return xc_items; }
   inline const T* data() const { return xc_items; }
-  inline size_t size() const { return x4_count; }
-  inline size_t capacity() const { return x8_capacity; }
+  inline s32 size() const { return x4_count; }
+  inline s32 capacity() const { return x8_capacity; }
   inline T& front() { return xc_items[0]; }
   inline const T& front() const { return xc_items[0]; }
   inline T& back() { return xc_items[x4_count - 1]; }
   inline const T& back() const { return xc_items[x4_count - 1]; }
-  inline T& operator[](size_t idx) { return xc_items[idx]; }
-  inline const T& operator[](size_t idx) const { return xc_items[idx]; }
+  inline T& operator[](s32 idx) { return xc_items[idx]; }
+  inline const T& operator[](s32 idx) const { return xc_items[idx]; }
 };
 
 template < typename T, typename Alloc >
-void vector< T, Alloc >::reserve(size_t size) {
+void vector< T, Alloc >::reserve(s32 size) {
   if (size <= x8_capacity)
     return;
-  size_t sz = size * sizeof(T);
+  s32 sz = size * sizeof(T);
   T* newData;
   if (sz == 0) {
     newData = nullptr;

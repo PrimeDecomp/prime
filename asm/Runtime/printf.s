@@ -19,425 +19,8 @@ lbl_803D86C0:
 
 .section .data, "wa"
 .balign 8
-# TODO: Move these where they actually belong
-.global lbl_803F2778
-lbl_803F2778:
-	# ROM: 0x3EF778
-	.4byte 0
-	.4byte 0x0A800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte stdin_buff
-	.4byte 0x00000100
-	.4byte stdin_buff
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte __read_console
-	.4byte __write_console
-	.4byte __close_console
-	.4byte 0
-	.4byte lbl_803F27C8
 
-.global lbl_803F27C8
-lbl_803F27C8:
 
-	# ROM: 0x3EF7C8
-	.4byte 0x00000001
-	.4byte 0x12800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte stdout_buff
-	.4byte 0x00000100
-	.4byte stdout_buff
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte __read_console
-	.4byte __write_console
-	.4byte __close_console
-	.4byte 0
-	.4byte lbl_803F2818
-
-.global lbl_803F2818
-lbl_803F2818:
-
-	# ROM: 0x3EF818
-	.4byte 0x00000002
-	.4byte 0x10800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte stderr_buff
-	.4byte 0x00000100
-	.4byte stderr_buff
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte __read_console
-	.4byte __write_console
-	.4byte __close_console
-	.4byte 0
-	.4byte lbl_803F2868
-
-.global lbl_803F2868
-lbl_803F2868:
-
-	# ROM: 0x3EF868
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-
-.global lbl_803F28B8
-lbl_803F28B8:
-	# ROM: 0x3EF8B8
-	.4byte 0x40240000
-	.4byte 0
-	.4byte 0x40590000
-	.4byte 0
-	.4byte 0x408F4000
-	.4byte 0
-	.4byte 0x40C38800
-	.4byte 0
-	.4byte 0x40F86A00
-	.4byte 0
-	.4byte 0x412E8480
-	.4byte 0
-	.4byte 0x416312D0
-	.4byte 0
-	.4byte 0x4197D784
-	.4byte 0
-
-.global lbl_803F28F8
-lbl_803F28F8:
-	# ROM: 0x3EF8F8
-	.4byte lbl_8038C62C
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C644
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C65C
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C674
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C824
-	.4byte lbl_8038C68C
-	.4byte lbl_8038C6A4
-	.4byte lbl_8038C6BC
-	.4byte lbl_8038C6D4
-	.4byte lbl_8038C6EC
-	.4byte lbl_8038C704
-	.4byte lbl_8038C71C
-	.4byte lbl_8038C734
-	.4byte lbl_8038C74C
-	.4byte lbl_8038C764
-	.4byte lbl_8038C77C
-	.4byte lbl_8038C794
-	.4byte lbl_8038C7AC
-	.4byte lbl_8038C7C4
-	.4byte lbl_8038C7DC
-	.4byte lbl_8038C7F4
-	.4byte lbl_8038C80C
-	.4byte 0
-
-.global lbl_803F2A20
-lbl_803F2A20:
-	# ROM: 0x3EFA20
-	.4byte 0x01010101
-	.4byte 0x01010101
-	.4byte 0x01020202
-	.4byte 0x02020101
-	.4byte 0x01010101
-	.4byte 0x01010101
-	.4byte 0x01010101
-	.4byte 0x01010101
-	.4byte 0x04080808
-	.4byte 0x08080808
-	.4byte 0x08080808
-	.4byte 0x08080808
-	.4byte 0x30303030
-	.4byte 0x30303030
-	.4byte 0x30300808
-	.4byte 0x08080808
-	.4byte 0x08A0A0A0
-	.4byte 0xA0A0A080
-	.4byte 0x80808080
-	.4byte 0x80808080
-	.4byte 0x80808080
-	.4byte 0x80808080
-	.4byte 0x80808008
-	.4byte 0x08080808
-	.4byte 0x08606060
-	.4byte 0x60606040
-	.4byte 0x40404040
-	.4byte 0x40404040
-	.4byte 0x40404040
-	.4byte 0x40404040
-	.4byte 0x40404008
-	.4byte 0x08080801
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-
-.global lbl_803F2B20
-lbl_803F2B20:
-	# ROM: 0x3EFB20
-	.4byte 0x00010203
-	.4byte 0x04050607
-	.4byte 0x08090A0B
-	.4byte 0x0C0D0E0F
-	.4byte 0x10111213
-	.4byte 0x14151617
-	.4byte 0x18191A1B
-	.4byte 0x1C1D1E1F
-	.4byte 0x20212223
-	.4byte 0x24252627
-	.4byte 0x28292A2B
-	.4byte 0x2C2D2E2F
-	.4byte 0x30313233
-	.4byte 0x34353637
-	.4byte 0x38393A3B
-	.4byte 0x3C3D3E3F
-	.4byte 0x40616263
-	.4byte 0x64656667
-	.4byte 0x68696A6B
-	.4byte 0x6C6D6E6F
-	.4byte 0x70717273
-	.4byte 0x74757677
-	.4byte 0x78797A5B
-	.4byte 0x5C5D5E5F
-	.4byte 0x60616263
-	.4byte 0x64656667
-	.4byte 0x68696A6B
-	.4byte 0x6C6D6E6F
-	.4byte 0x70717273
-	.4byte 0x74757677
-	.4byte 0x78797A7B
-	.4byte 0x7C7D7E7F
-	.4byte 0x80818283
-	.4byte 0x84858687
-	.4byte 0x88898A8B
-	.4byte 0x8C8D8E8F
-	.4byte 0x90919293
-	.4byte 0x94959697
-	.4byte 0x98999A9B
-	.4byte 0x9C9D9E9F
-	.4byte 0xA0A1A2A3
-	.4byte 0xA4A5A6A7
-	.4byte 0xA8A9AAAB
-	.4byte 0xACADAEAF
-	.4byte 0xB0B1B2B3
-	.4byte 0xB4B5B6B7
-	.4byte 0xB8B9BABB
-	.4byte 0xBCBDBEBF
-	.4byte 0xC0C1C2C3
-	.4byte 0xC4C5C6C7
-	.4byte 0xC8C9CACB
-	.4byte 0xCCCDCECF
-	.4byte 0xD0D1D2D3
-	.4byte 0xD4D5D6D7
-	.4byte 0xD8D9DADB
-	.4byte 0xDCDDDEDF
-	.4byte 0xE0E1E2E3
-	.4byte 0xE4E5E6E7
-	.4byte 0xE8E9EAEB
-	.4byte 0xECEDEEEF
-	.4byte 0xF0F1F2F3
-	.4byte 0xF4F5F6F7
-	.4byte 0xF8F9FAFB
-	.4byte 0xFCFDFEFF
-
-.global lbl_803F2C20
-lbl_803F2C20:
-	# ROM: 0x3EFC20
-	.4byte 0x00010203
-	.4byte 0x04050607
-	.4byte 0x08090A0B
-	.4byte 0x0C0D0E0F
-	.4byte 0x10111213
-	.4byte 0x14151617
-	.4byte 0x18191A1B
-	.4byte 0x1C1D1E1F
-	.4byte 0x20212223
-	.4byte 0x24252627
-	.4byte 0x28292A2B
-	.4byte 0x2C2D2E2F
-	.4byte 0x30313233
-	.4byte 0x34353637
-	.4byte 0x38393A3B
-	.4byte 0x3C3D3E3F
-	.4byte 0x40414243
-	.4byte 0x44454647
-	.4byte 0x48494A4B
-	.4byte 0x4C4D4E4F
-	.4byte 0x50515253
-	.4byte 0x54555657
-	.4byte 0x58595A5B
-	.4byte 0x5C5D5E5F
-	.4byte 0x60414243
-	.4byte 0x44454647
-	.4byte 0x48494A4B
-	.4byte 0x4C4D4E4F
-	.4byte 0x50515253
-	.4byte 0x54555657
-	.4byte 0x58595A7B
-	.4byte 0x7C7D7E7F
-	.4byte 0x80818283
-	.4byte 0x84858687
-	.4byte 0x88898A8B
-	.4byte 0x8C8D8E8F
-	.4byte 0x90919293
-	.4byte 0x94959697
-	.4byte 0x98999A9B
-	.4byte 0x9C9D9E9F
-	.4byte 0xA0A1A2A3
-	.4byte 0xA4A5A6A7
-	.4byte 0xA8A9AAAB
-	.4byte 0xACADAEAF
-	.4byte 0xB0B1B2B3
-	.4byte 0xB4B5B6B7
-	.4byte 0xB8B9BABB
-	.4byte 0xBCBDBEBF
-	.4byte 0xC0C1C2C3
-	.4byte 0xC4C5C6C7
-	.4byte 0xC8C9CACB
-	.4byte 0xCCCDCECF
-	.4byte 0xD0D1D2D3
-	.4byte 0xD4D5D6D7
-	.4byte 0xD8D9DADB
-	.4byte 0xDCDDDEDF
-	.4byte 0xE0E1E2E3
-	.4byte 0xE4E5E6E7
-	.4byte 0xE8E9EAEB
-	.4byte 0xECEDEEEF
-	.4byte 0xF0F1F2F3
-	.4byte 0xF4F5F6F7
-	.4byte 0xF8F9FAFB
-	.4byte 0xFCFDFEFF
-
-.global lbl_803F2D20
-lbl_803F2D20:
-	# ROM: 0x3EFD20
-	.4byte lbl_803D86B8
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte lbl_803D86BA
-	.4byte 0x7F7F7F7F
-	.4byte 0x7F7F7F00
-	.4byte lbl_803D86BA
-	.4byte 0x7F7F7F7F
-	.4byte 0x7F7F7F00
 
 .global lbl_803F2D58
 lbl_803F2D58:
@@ -595,16 +178,15 @@ lbl_803F2F40:
 	.4byte lbl_8038F8E0
 	.4byte 0
 
+.section .sdata, "wa"
+.balign 8
+.global lbl_805A8B90
+lbl_805A8B90:
+	# ROM: 0x3F6530
+	.4byte 0
+	.4byte 0
 
 .section .text, "ax"
-# TODO: Move __stdio_atexit to its own file (misc_io),
-# it's here to work around a bug with CW
-.global __stdio_atexit
-__stdio_atexit:
-/* 8038DCCC 0038AC2C  3C 60 80 39 */	lis r3, __close_all@ha
-/* 8038DCD0 0038AC30  38 03 B1 18 */	addi r0, r3, __close_all@l
-/* 8038DCD4 0038AC34  90 0D AE 00 */	stw r0, lbl_805A99C0@sda21(r13)
-/* 8038DCD8 0038AC38  4E 80 00 20 */	blr
 
 .global sprintf
 sprintf:
@@ -1463,9 +1045,9 @@ lbl_8038E884:
 /* 8038E884 0038B7E4  C8 02 CF 78 */	lfd f0, lbl_805AEC98@sda21(r2)
 /* 8038E888 0038B7E8  FC 1F 00 40 */	fcmpo cr0, f31, f0
 /* 8038E88C 0038B7EC  40 80 00 50 */	bge lbl_8038E8DC
-/* 8038E890 0038B7F0  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
+/* 8038E890 0038B7F0  3C 60 80 3F */	lis r3, __ctype_map@ha
 /* 8038E894 0038B7F4  88 1D 00 05 */	lbz r0, 5(r29)
-/* 8038E898 0038B7F8  38 63 2A 20 */	addi r3, r3, lbl_803F2A20@l
+/* 8038E898 0038B7F8  38 63 2A 20 */	addi r3, r3, __ctype_map@l
 /* 8038E89C 0038B7FC  3B 9C FF FB */	addi r28, r28, -5
 /* 8038E8A0 0038B800  7C 03 00 AE */	lbzx r0, r3, r0
 /* 8038E8A4 0038B804  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
@@ -1484,9 +1066,9 @@ lbl_8038E8C4:
 /* 8038E8D4 0038B834  48 00 18 35 */	bl strcpy
 /* 8038E8D8 0038B838  48 00 00 4C */	b lbl_8038E924
 lbl_8038E8DC:
-/* 8038E8DC 0038B83C  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
+/* 8038E8DC 0038B83C  3C 60 80 3F */	lis r3, __ctype_map@ha
 /* 8038E8E0 0038B840  88 1D 00 05 */	lbz r0, 5(r29)
-/* 8038E8E4 0038B844  38 63 2A 20 */	addi r3, r3, lbl_803F2A20@l
+/* 8038E8E4 0038B844  38 63 2A 20 */	addi r3, r3, __ctype_map@l
 /* 8038E8E8 0038B848  3B 9C FF FC */	addi r28, r28, -4
 /* 8038E8EC 0038B84C  7C 03 00 AE */	lbzx r0, r3, r0
 /* 8038E8F0 0038B850  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
@@ -1510,9 +1092,9 @@ lbl_8038E92C:
 /* 8038E92C 0038B88C  88 01 00 0C */	lbz r0, 0xc(r1)
 /* 8038E930 0038B890  7C 00 07 75 */	extsb. r0, r0
 /* 8038E934 0038B894  41 82 00 50 */	beq lbl_8038E984
-/* 8038E938 0038B898  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
+/* 8038E938 0038B898  3C 60 80 3F */	lis r3, __ctype_map@ha
 /* 8038E93C 0038B89C  88 1D 00 05 */	lbz r0, 5(r29)
-/* 8038E940 0038B8A0  38 63 2A 20 */	addi r3, r3, lbl_803F2A20@l
+/* 8038E940 0038B8A0  38 63 2A 20 */	addi r3, r3, __ctype_map@l
 /* 8038E944 0038B8A4  3B 9C FF FB */	addi r28, r28, -5
 /* 8038E948 0038B8A8  7C 03 00 AE */	lbzx r0, r3, r0
 /* 8038E94C 0038B8AC  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
@@ -1531,9 +1113,9 @@ lbl_8038E96C:
 /* 8038E97C 0038B8DC  48 00 17 8D */	bl strcpy
 /* 8038E980 0038B8E0  48 00 00 4C */	b lbl_8038E9CC
 lbl_8038E984:
-/* 8038E984 0038B8E4  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
+/* 8038E984 0038B8E4  3C 60 80 3F */	lis r3, __ctype_map@ha
 /* 8038E988 0038B8E8  88 1D 00 05 */	lbz r0, 5(r29)
-/* 8038E98C 0038B8EC  38 63 2A 20 */	addi r3, r3, lbl_803F2A20@l
+/* 8038E98C 0038B8EC  38 63 2A 20 */	addi r3, r3, __ctype_map@l
 /* 8038E990 0038B8F0  3B 9C FF FC */	addi r28, r28, -4
 /* 8038E994 0038B8F4  7C 03 00 AE */	lbzx r0, r3, r0
 /* 8038E998 0038B8F8  54 00 06 31 */	rlwinm. r0, r0, 0, 0x18, 0x18
@@ -2706,8 +2288,8 @@ lbl_8038F944:
 /* 8038F948 0038C8A8  7C C6 07 74 */	extsb r6, r6
 /* 8038F94C 0038C8AC  48 00 00 3C */	b lbl_8038F988
 lbl_8038F950:
-/* 8038F950 0038C8B0  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
-/* 8038F954 0038C8B4  38 63 2A 20 */	addi r3, r3, lbl_803F2A20@l
+/* 8038F950 0038C8B0  3C 60 80 3F */	lis r3, __ctype_map@ha
+/* 8038F954 0038C8B4  38 63 2A 20 */	addi r3, r3, __ctype_map@l
 /* 8038F958 0038C8B8  48 00 00 20 */	b lbl_8038F978
 lbl_8038F95C:
 /* 8038F95C 0038C8BC  80 01 00 10 */	lwz r0, 0x10(r1)
@@ -2760,8 +2342,8 @@ lbl_8038FA04:
 /* 8038FA08 0038C968  7C C6 07 74 */	extsb r6, r6
 /* 8038FA0C 0038C96C  48 00 00 3C */	b lbl_8038FA48
 lbl_8038FA10:
-/* 8038FA10 0038C970  3C 60 80 3F */	lis r3, lbl_803F2A20@ha
-/* 8038FA14 0038C974  38 63 2A 20 */	addi r3, r3, lbl_803F2A20@l
+/* 8038FA10 0038C970  3C 60 80 3F */	lis r3, __ctype_map@ha
+/* 8038FA14 0038C974  38 63 2A 20 */	addi r3, r3, __ctype_map@l
 /* 8038FA18 0038C978  48 00 00 20 */	b lbl_8038FA38
 lbl_8038FA1C:
 /* 8038FA1C 0038C97C  80 01 00 14 */	lwz r0, 0x14(r1)

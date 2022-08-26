@@ -7,7 +7,10 @@ import re
 script_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, ".."))
 src_dir = os.path.join(root_dir, "src")
-include_dir = os.path.join(root_dir, "include")
+include_dirs = [
+  os.path.join(root_dir, "include"),
+  os.path.join(root_dir, "libc"),
+]
 
 include_pattern = re.compile(r'^#include\s*[<"](.+?)[>"]$')
 guard_pattern = re.compile(r'^#ifndef\s+(.*)$')
@@ -16,11 +19,12 @@ defines = set()
 
 def import_h_file(in_file, r_path) -> str:
     rel_path = os.path.join(root_dir, r_path, in_file)
-    inc_path = os.path.join(include_dir, in_file)
     if os.path.exists(rel_path):
       return import_c_file(rel_path)
-    elif os.path.exists(inc_path):
-      return import_c_file(inc_path)
+    for include_dir in include_dirs:
+      inc_path = os.path.join(include_dir, in_file)
+      if os.path.exists(inc_path):
+        return import_c_file(inc_path)
     else:
       print("Failed to locate", in_file)
       exit(1)

@@ -1,5 +1,12 @@
 .include "macros.inc"
 
+.section .sdata, "wa"
+.balign 8
+.global lbl_805A8B98
+lbl_805A8B98:
+	# ROM: 0x3F6538
+	.4byte 0x00000001
+
 .section .text, "ax"
 
 .global srand

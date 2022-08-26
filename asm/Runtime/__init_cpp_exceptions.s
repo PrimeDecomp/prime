@@ -33,9 +33,9 @@ __init_cpp_exceptions:
 /* 8038A130 00387090  2C 00 FF FE */	cmpwi r0, -2
 /* 8038A134 00387094  40 82 00 1C */	bne lbl_8038A150
 /* 8038A138 00387098  4B FF FF AD */	bl GetR2__Fv
-/* 8038A13C 0038709C  3C A0 80 00 */	lis r5, lbl_80003604@ha
+/* 8038A13C 0038709C  3C A0 80 00 */	lis r5, _eti_init_info_@ha
 /* 8038A140 003870A0  7C 64 1B 78 */	mr r4, r3
-/* 8038A144 003870A4  38 65 36 04 */	addi r3, r5, lbl_80003604@l
+/* 8038A144 003870A4  38 65 36 04 */	addi r3, r5, _eti_init_info_@l
 /* 8038A148 003870A8  48 00 00 4D */	bl __register_fragment
 /* 8038A14C 003870AC  90 6D 9F C8 */	stw r3, fragmentID@sda21(r13)
 lbl_8038A150:
@@ -62,4 +62,3 @@ __fini_cpp_exceptions_reference:
 .balign 8
 fragmentID:
 	.4byte 0xFFFFFFFE
-	.4byte 0

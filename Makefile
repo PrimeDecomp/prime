@@ -50,9 +50,9 @@ include obj_files.mk
 
 O_FILES := $(INIT_O_FILES) $(METROTRK_FILES) \
 	   $(METROIDPRIME) $(WORLDFORMAT) $(WEAPONS) $(METARENDER) $(GUISYS) $(COLLISION) \
-	   $(KYOTO) $(AI_FILES) \
+	   $(KYOTO_1) $(ZLIB_FILES) $(KYOTO_2) $(AI_FILES) \
 	   $(AR_FILES) $(BASE_FILES) $(DB_FILES) $(DSP_FILES) $(DVD_FILES) $(GX_FILES) $(MTX_FILES) \
-	   $(OS_FILES) $(PAD_FILES) $(VI_FILES) $(MSL_PPCEABI_BARE_H) $(MUSYX_FILES) \
+	   $(OS_FILES) $(PAD_FILES) $(VI_FILES) $(MSL_PPCEABI_BARE_H) $(MSL_COMMON_MATH) $(MUSYX_FILES) \
 	   $(DTK_FILES) $(CARD_FILES) $(SI_FILES) $(EXI_FILES) $(THP_FILES) \
 	   $(GBA_FILES)
 DEPENDS := $(O_FILES:.o=.d)
@@ -95,8 +95,12 @@ TRANSFORM_DEP := tools/transform-dep.py
 FRANK := tools/franklite.py
 
 # Options
-INCLUDES := -i include/
+INCLUDES := -i include/ -i libc/
 ASM_INCLUDES := -I include/
+
+# DotKuribo/llvm-project
+CLANG_CC ?= clang-kuribo
+CLANG_CFLAGS := --target=ppc32-kuribo -mcpu=750 -nostdlib -fno-exceptions -fno-rtti -O3 -Wall -Wno-trigraphs -Wno-inline-new-delete -Wno-unused-private-field -fpermissive -std=gnu++11 $(ASM_INCLUDES)
 
 ASFLAGS := -mgekko $(ASM_INCLUDES) --defsym version=$(VERSION_NUM)
 ifeq ($(VERBOSE),1)
@@ -107,50 +111,32 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults -w off
 endif
-CFLAGS_1.2 = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
-CFLAGS_MUSYX = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp fmadd -str reuse,pool,readonly -O4,p -maxerrors 1 -enum int -inline auto -MMD $(INCLUDES)
-CFLAGS = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -nosyspath -inline deferred,noauto -common on
-CFLAGS_ZLIB = $(CFLAGS_1.2) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -nosyspath -inline deferred,auto
-CFLAGS_1.2 += -str reuse
+CFLAGS_BASE = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD $(INCLUDES)
+CFLAGS = $(CFLAGS_BASE) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto -common on
+CFLAGS_RUNTIME = $(CFLAGS_BASE) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto
+CFLAGS_MUSYX = $(CFLAGS_BASE) -str reuse,pool,readonly
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
 ASFLAGS += -W
 endif
 
-$(BUILD_DIR)/src/os/__start.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/os/__start.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/MetroTRK/mslsupp.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/MetroTRK/mslsupp.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/Dolphin/PPCArch.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/Dolphin/PPCArch.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/Dolphin/ai.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/Dolphin/ai.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/Dolphin/os/OSAudioSystem.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/Dolphin/os/OSReset.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/Dolphin/os/OSReset.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/Dolphin/dsp/dsp.o: MWCC_VERSION := 1.2.5
-$(BUILD_DIR)/src/Dolphin/dsp/dsp.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/Dolphin/dsp/dsp_debug.o: CFLAGS := $(CFLAGS_1.2)
-$(BUILD_DIR)/src/musyx/seq_api.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/synth_dbtab.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/snd_service.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/snd_init.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/dsp_import.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/hw_memory.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/reverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/delay_fx.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/creverb_fx.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/musyx/synth_ac.o: CFLAGS := $(CFLAGS_MUSYX)
-$(BUILD_DIR)/src/Kyoto/zlib/adler32.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/infblock.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/infcodes.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/inffast.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/inflate.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/inftrees.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/infutil.o: CFLAGS := $(CFLAGS_ZLIB)
-$(BUILD_DIR)/src/Kyoto/zlib/zutil.o: CFLAGS := $(CFLAGS_ZLIB)
+$(INIT_O_FILES): MWCC_VERSION := 1.2.5
+$(INIT_O_FILES): CFLAGS := $(CFLAGS_BASE)
+$(METROTRK_FILES): MWCC_VERSION := 1.2.5
+$(METROTRK_FILES): CFLAGS := $(CFLAGS_BASE)
+$(BASE_FILES): MWCC_VERSION := 1.2.5
+$(BASE_FILES): CFLAGS := $(CFLAGS_BASE)
+$(AI_FILES): MWCC_VERSION := 1.2.5
+$(AI_FILES): CFLAGS := $(CFLAGS_BASE)
+$(OS_FILES): MWCC_VERSION := 1.2.5
+$(OS_FILES): CFLAGS := $(CFLAGS_BASE)
+$(DSP_FILES): MWCC_VERSION := 1.2.5
+$(DSP_FILES): CFLAGS := $(CFLAGS_BASE)
+$(MUSYX_FILES): CFLAGS := $(CFLAGS_MUSYX)
+$(ZLIB_FILES): CFLAGS := $(CFLAGS_RUNTIME)
+$(MSL_PPCEABI_BARE_H): CFLAGS := $(CFLAGS_RUNTIME)
+$(MSL_COMMON_MATH): CFLAGS := $(CFLAGS_RUNTIME)
 
 
 #-------------------------------------------------------------------------------
@@ -199,8 +185,12 @@ $(ELF): $(O_FILES) $(LDSCRIPT)
 -include $(DEPENDS)
 
 $(BUILD_DIR)/%.o: %.s
-	@echo Assembling $<
+	@echo "Assembling" $<
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
+
+$(BUILD_DIR)/%.clang.o: %.cpp
+	@echo "Clang     " $<
+	$(QUIET) $(CLANG_CC) $(CLANG_CFLAGS) -c -o $@ $<
 
 $(BUILD_DIR)/%.ep.o: $(BUILD_DIR)/%.o
 	@echo Frank is fixing $<

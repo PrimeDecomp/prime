@@ -2553,12 +2553,12 @@ lbl_802A5520:
 lbl_802A552C:
 /* 802A552C 002A248C  FC 09 38 00 */	fcmpu cr0, f9, f7
 /* 802A5530 002A2490  41 82 00 10 */	beq lbl_802A5540
-/* 802A5534 002A2494  3C 60 80 5B */	lis r3, lbl_805A8BA0@ha
-/* 802A5538 002A2498  C0 E3 8B A0 */	lfs f7, lbl_805A8BA0@l(r3)
+/* 802A5534 002A2494  3C 60 80 5B */	lis r3, __float_nan@ha
+/* 802A5538 002A2498  C0 E3 8B A0 */	lfs f7, __float_nan@l(r3)
 /* 802A553C 002A249C  48 00 00 0C */	b lbl_802A5548
 lbl_802A5540:
-/* 802A5540 002A24A0  3C 60 80 5B */	lis r3, lbl_805A8BA4@ha
-/* 802A5544 002A24A4  C0 E3 8B A4 */	lfs f7, lbl_805A8BA4@l(r3)
+/* 802A5540 002A24A0  3C 60 80 5B */	lis r3, __float_huge@ha
+/* 802A5544 002A24A4  C0 E3 8B A4 */	lfs f7, __float_huge@l(r3)
 lbl_802A5548:
 /* 802A5548 002A24A8  FC 60 00 50 */	fneg f3, f0
 /* 802A554C 002A24AC  C8 02 C1 58 */	lfd f0, lbl_805ADE78@sda21(r2)

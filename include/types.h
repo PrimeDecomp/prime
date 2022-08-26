@@ -33,9 +33,6 @@ typedef double f64;
 typedef volatile float vf32;
 typedef volatile double vf64;
 
-typedef s32 size_t;
-typedef u32 uintptr_t;
-
 typedef s16  __OSInterrupt;
 typedef s64 OSTime;
 typedef u32 OSTick;

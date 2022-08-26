@@ -5,6 +5,7 @@
 #include "Dolphin/os/OSFastCast.h"
 
 namespace CCast {
+#ifdef __MWERKS__
 inline u8 ToUint8(register f32 in) {
   u8 a;
   register u8* ptr = &a;
@@ -24,6 +25,14 @@ inline f32 ToReal32(register const u8& in) {
   }
   return r;
 }
+#else
+inline u8 ToUint8(f32 in) {
+  return static_cast<u8>(in);
+}
+inline f32 ToReal32(u8 in) {
+  return static_cast<f32>(in);
+}
+#endif
 } // namespace CCast
 
 #endif

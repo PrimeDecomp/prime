@@ -193,11 +193,11 @@ lbl_extabindex:
 	.4byte 0x000000B8
 	.4byte __partial_array_destructor_extab
 
-.global lbl_80003604
-lbl_80003604:
+.global _eti_init_info_
+_eti_init_info_:
 	# ROM: 0x3C8184
 	.4byte lbl_extabindex
-	.4byte lbl_80003604
+	.4byte _eti_init_info_
 	.4byte __destroy_arr
 	.4byte 0x00000228
 	.4byte 0
