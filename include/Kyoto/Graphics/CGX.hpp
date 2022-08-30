@@ -14,8 +14,8 @@ public:
     u32 xc_alphaOps;
     u32 x10_indFlags;
     u32 x14_tevOrderFlags;
-    u32 x18_kColorSel;
-    u32 x19_kAlphaSel;
+    u8 x18_kColorSel;
+    u8 x19_kAlphaSel;
 
     STevState();
   };
@@ -83,6 +83,11 @@ public:
                           GXAttnFn attnFn);
   static void SetTevKColor(GXTevKColorID id, const GXColor& color);
   static void SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c, GXTevColorArg d);
+  static void SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c, GXTevAlphaArg d);
+  static void SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
+  static void SetTevColorOp_Compressed(GXTevStageID stageId, u32 flags);
+  static void SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
+  static void SetTevAlphaOp_Compressed(GXTevStageID stageId, u32 flags);
 
   static GXColor GetChanAmbColor(EChannelId channel);
 
@@ -92,9 +97,7 @@ public:
   static inline void CopyGXColor(GXColor& dst, const GXColor& src) {
     *reinterpret_cast< u32* >(&dst) = *reinterpret_cast< const u32* >(&src);
   }
-  static inline u32 MaskAndShiftLeft(u32 a, u32 b, u32 s) {
-    return (a & b) << s;
-  }
+  static inline u32 MaskAndShiftLeft(u32 a, u32 b, u32 s) { return (a & b) << s; }
 
 private:
   static SGXState sGXState;
