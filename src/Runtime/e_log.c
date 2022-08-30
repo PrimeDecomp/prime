@@ -89,8 +89,8 @@ double x;
 #endif
 {
   double hfsq, f, s, z, R, w, t1, t2, dk;
-  _INT32 k, hx, i, j; /*- cc 020130 -*/
-  _UINT32 lx;         /*- cc 020130 -*/
+  _INT32 k, hx, i, j;
+  _UINT32 lx;
 
   hx = __HI(x); /* high word of x */
   lx = __LO(x); /* low  word of x */

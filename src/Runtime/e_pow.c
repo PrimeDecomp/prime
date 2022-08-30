@@ -111,9 +111,9 @@ double x, y;
 {
   double z, ax, z_h, z_l, p_h, p_l;
   double y1, t1, t2, r, s, t, u, v, w;
-  _INT32 i, j, k, yisint, n; /*- cc 020130 -*/
-  _INT32 hx, hy, ix, iy;     /*- cc 020130 -*/
-  _UINT32 lx, ly;            /*- cc 020130 -*/
+  _INT32 i, j, k, yisint, n;
+  _INT32 hx, hy, ix, iy;
+  _UINT32 lx, ly;
 
   hx = __HI(x);
   lx = __LO(x);

@@ -17,7 +17,7 @@ static const double two54 = 1.80143985094819840000e+16, /* 0x43500000, 0x0000000
     big = 1.0e+300, tiny = 1.0e-300;
 
 double ldexp(double x, int n) {
-  _INT32 k, hx, lx; /*- cc 020130 -*/
+  _INT32 k, hx, lx;
   if (!isfinite(x) || x == 0.0)
     return x;
 

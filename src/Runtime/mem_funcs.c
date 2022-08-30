@@ -1,6 +1,6 @@
 #include "mem_funcs.h"
 
-// #pragma ANSI_strict off
+#pragma ANSI_strict off
 
 #define cps ((unsigned char*)src)
 #define cpd ((unsigned char*)dst)
@@ -51,8 +51,11 @@ void __copy_longs_aligned(void* dst, const void* src, unsigned long n) {
   cps = ((unsigned char*)(lps + 1)) - 1;
   cpd = ((unsigned char*)(lpd + 1)) - 1;
 
-  // TODO longlong required to match?
+#ifdef PRIME1
   n &= 3ULL;
+#else
+  n &= 3;
+#endif
 
   if (n)
     do
@@ -99,8 +102,11 @@ void __copy_longs_rev_aligned(void* dst, const void* src, unsigned long n) {
       *--lpd = *--lps;
     while (--i);
 
-  // TODO longlong required to match?
+#ifdef PRIME1
   n &= 3ULL;
+#else
+  n &= 3;
+#endif
 
   if (n)
     do
@@ -156,8 +162,11 @@ void __copy_longs_unaligned(void* dst, const void* src, unsigned long n) {
   cps = ((unsigned char*)(lps + 1)) - 1;
   cpd = ((unsigned char*)(lpd + 1)) - 1;
 
-  // TODO longlong required to match?
+#ifdef PRIME1
   n &= 3ULL;
+#else
+  n &= 3;
+#endif
 
   if (n) {
     cps -= 4 - src_offset;
@@ -209,8 +218,11 @@ void __copy_longs_rev_unaligned(void* dst, const void* src, unsigned long n) {
     *--lpd = (v2 << left_shift) | (v1 >> right_shift);
   }
 
-  // TODO longlong required to match?
+#ifdef PRIME1
   n &= 3ULL;
+#else
+  n &= 3;
+#endif
 
   if (n) {
     cps += src_offset;

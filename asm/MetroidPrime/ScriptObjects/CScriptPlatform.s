@@ -4094,8 +4094,8 @@ lbl_800B4350:
 
 .global update_fog__3CGXFUi
 update_fog__3CGXFUi:
-/* 800B4378 000B12D8  3C 80 80 5A */	lis r4, lbl_805A53EC@ha
-/* 800B437C 000B12DC  38 A4 53 EC */	addi r5, r4, lbl_805A53EC@l
+/* 800B4378 000B12D8  3C 80 80 5A */	lis r4, sGXState__3CGX@ha
+/* 800B437C 000B12DC  38 A4 53 EC */	addi r5, r4, sGXState__3CGX@l
 /* 800B4380 000B12E0  88 05 00 53 */	lbz r0, 0x53(r5)
 /* 800B4384 000B12E4  28 00 00 00 */	cmplwi r0, 0
 /* 800B4388 000B12E8  4D 82 00 20 */	beqlr

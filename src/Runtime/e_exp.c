@@ -114,8 +114,8 @@ double x;
 #endif
 {
   double y, hi, lo, c, t;
-  _INT32 k, xsb; /*- cc 020130 -*/
-  _UINT32 hx;    /*- cc 020130 -*/
+  _INT32 k, xsb;
+  _UINT32 hx;
 
   hx = __HI(x);         /* high word of x */
   xsb = (hx >> 31) & 1; /* sign bit of x */

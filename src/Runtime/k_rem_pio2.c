@@ -128,9 +128,9 @@
 #include "fdlibm.h"
 
 #ifdef __STDC__
-static const _INT32 init_jk[] = {2, 3, 4, 6}; /* initial value for jk */ /*- cc 020130 -*/
+static const _INT32 init_jk[] = {2, 3, 4, 6}; /* initial value for jk */
 #else
-static _INT32 init_jk[] = {2, 3, 4, 6}; /*- cc 020130 -*/
+static _INT32 init_jk[] = {2, 3, 4, 6};
 #endif
 
 #ifdef __STDC__
@@ -158,15 +158,15 @@ static double
     twon24 = 5.96046447753906250000e-08;           /* 0x3E700000, 0x00000000 */
 
 #ifdef __STDC__
-_INT32 __kernel_rem_pio2(double* x, double* y, _INT32 e0, _INT32 nx, _INT32 prec, const _INT32* ipio2) /*- cc 020130 -*/
+_INT32 __kernel_rem_pio2(double* x, double* y, _INT32 e0, _INT32 nx, _INT32 prec, const _INT32* ipio2)
 #else
-_INT32 __kernel_rem_pio2(x, y, e0, nx, prec, ipio2) /*- cc 020130 -*/
+_INT32 __kernel_rem_pio2(x, y, e0, nx, prec, ipio2)
 double x[], y[];
 _INT32 e0, nx, prec;
-_INT32 ipio2[]; /*- cc 020130 -*/
+_INT32 ipio2[];
 #endif
 {
-  _INT32 jz, jx, jv, jp, jk, carry, n, iq[20], i, j, k, m, q0, ih; /*- cc 020130 -*/
+  _INT32 jz, jx, jv, jp, jk, carry, n, iq[20], i, j, k, m, q0, ih;
   double z, fw, f[20], fq[20], q[20];
 
   /* initialize jk*/
@@ -197,15 +197,15 @@ _INT32 ipio2[]; /*- cc 020130 -*/
 recompute:
   /* distill q[] into iq[] reversingly */
   for (i = 0, j = jz, z = q[jz]; j > 0; i++, j--) {
-    fw = (double)((_INT32)(twon24 * z)); /*- cc 020130 -*/
-    iq[i] = (_INT32)(z - two24 * fw);    /*- cc 020130 -*/
+    fw = (double)((_INT32)(twon24 * z));
+    iq[i] = (_INT32)(z - two24 * fw);
     z = q[j - 1] + fw;
   }
 
   /* compute n */
   z = scalbn(z, q0);           /* actual value of z */
   z -= 8.0 * floor(z * 0.125); /* trim off integer >= 8 */
-  n = (_INT32)z;               /*- cc 020130 -*/
+  n = (_INT32)z;
   z -= (double)n;
   ih = 0;
   if (q0 > 0) { /* need iq[jz-1] to determine n */
@@ -279,13 +279,13 @@ recompute:
   } else { /* break z into 24-bit if necessary */
     z = scalbn(z, -q0);
     if (z >= two24) {
-      fw = (double)((_INT32)(twon24 * z)); /*- cc 020130 -*/
-      iq[jz] = (_INT32)(z - two24 * fw);   /*- cc 020130 -*/
+      fw = (double)((_INT32)(twon24 * z));
+      iq[jz] = (_INT32)(z - two24 * fw);
       jz += 1;
       q0 += 24;
-      iq[jz] = (_INT32)fw; /*- cc 020130 -*/
+      iq[jz] = (_INT32)fw;
     } else
-      iq[jz] = (_INT32)z; /*- cc 020130 -*/
+      iq[jz] = (_INT32)z;
   }
 
   /* convert integer "bit" chunk to floating-point value */

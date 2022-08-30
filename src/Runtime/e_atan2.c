@@ -59,8 +59,8 @@ double y, x;
 #endif
 {
   double z;
-  _INT32 k, m, hx, hy, ix, iy; /*- cc 020130 -*/
-  _UINT32 lx, ly;              /*- cc 020130 -*/
+  _INT32 k, m, hx, hy, ix, iy;
+  _UINT32 lx, ly;
 
   hx = __HI(x);
   ix = hx & 0x7fffffff;

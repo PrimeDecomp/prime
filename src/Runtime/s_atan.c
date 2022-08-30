@@ -89,7 +89,7 @@ double x;
 #endif
 {
   double w, s1, s2, z;
-  _INT32 ix, hx, id; /*- cc 020130 -*/
+  _INT32 ix, hx, id;
 
   hx = __HI(x);
   ix = hx & 0x7fffffff;

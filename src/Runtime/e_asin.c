@@ -71,7 +71,7 @@ double x;
 #endif
 {
   double t, w, p, q, c, r, s;
-  _INT32 hx, ix; /*- cc 020130 -*/
+  _INT32 hx, ix;
   hx = __HI(x);
   ix = hx & 0x7fffffff;
   if (ix >= 0x3ff00000) { /* |x|>= 1 */

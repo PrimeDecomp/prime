@@ -73,15 +73,15 @@ static double
     pio2_3t = 8.47842766036889956997e-32; /* 0x397B839A, 0x252049C1 */
 
 #ifdef __STDC__
-_INT32 __ieee754_rem_pio2(double x, double* y) /*- cc 020130 -*/
+_INT32 __ieee754_rem_pio2(double x, double* y)
 #else
-_INT32 __ieee754_rem_pio2(x, y) /*- cc 020130 -*/
+_INT32 __ieee754_rem_pio2(x, y)
 double x, y[];
 #endif
 {
   double z, w, t, r, fn;
   double tx[3];
-  _INT32 e0, i, j, nx, n, ix, hx; /*- cc 020130 -*/
+  _INT32 e0, i, j, nx, n, ix, hx;
 
   hx = __HI(x); /* high word of x */
   ix = hx & 0x7fffffff;
@@ -118,7 +118,7 @@ double x, y[];
   }
   if (ix <= 0x413921fb) { /* |x| ~<= 2^19*(pi/2), medium size */
     t = fabs(x);
-    n = (_INT32)(t * invpio2 + half); /*- cc 020130 -*/
+    n = (_INT32)(t * invpio2 + half);
     fn = (double)n;
     r = t - fn * pio2_1;
     w = fn * pio2_1t; /* 1st round good to 85 bit */
@@ -164,7 +164,7 @@ double x, y[];
   e0 = (ix >> 20) - 1046; /* e0 = ilogb(z)-23; */
   __HI(z) = ix - (e0 << 20);
   for (i = 0; i < 2; i++) {
-    tx[i] = (double)((_INT32)(z)); /*- cc 020130 -*/
+    tx[i] = (double)((_INT32)(z));
     z = (z - tx[i]) * two24;
   }
   tx[2] = z;

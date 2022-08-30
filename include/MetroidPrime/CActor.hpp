@@ -8,10 +8,10 @@
 
 #include "MetroidPrime/CEntity.hpp"
 #include "MetroidPrime/CModelData.hpp"
-#include "MetroidPrime/CModelFlags.hpp"
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/TToken.hpp"
