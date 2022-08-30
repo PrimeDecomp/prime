@@ -1171,8 +1171,8 @@ GXSetTlutRegionCallback:
 /* 8037A8A8 00377808  7C 03 03 78 */	mr r3, r0
 /* 8037A8AC 0037780C  4E 80 00 20 */	blr
 
-.global GXSetTexCoordCylWrap
-GXSetTexCoordCylWrap:
+.global GXSetTexCoordScaleManually
+GXSetTexCoordScaleManually:
 /* 8037A8B0 00377810  81 02 CE 08 */	lwz r8, lbl_805AEB28@sda21(r2)
 /* 8037A8B4 00377814  38 00 00 01 */	li r0, 1
 /* 8037A8B8 00377818  54 84 06 3F */	clrlwi. r4, r4, 0x18

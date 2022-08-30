@@ -1,8 +1,9 @@
 #ifndef _CCUBERENDERER_HPP
 #define _CCUBERENDERER_HPP
 
-#include "gx_enum.h"
 #include "types.h"
+
+#include <dolphin/gx/GXEnum.h>
 
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"

@@ -7,7 +7,7 @@ lbl_ctor:
 .section .bss
 .balign 8
 
-.lcomm lbl_80479BD0, 0xF0, 4
+.lcomm sVtxDescList, 0xF0, 4
 .comm sGXState__3CGX, 0x260, 4
 
 .section .sbss2, "", @nobits
@@ -275,9 +275,9 @@ SetVtxDescv_Compressed__3CGXFUi:
 /* 80307F1C 00304E7C  80 BE 00 48 */	lwz r5, 0x48(r30)
 /* 80307F20 00304E80  7C 1F 28 40 */	cmplw r31, r5
 /* 80307F24 00304E84  41 82 00 7C */	beq lbl_80307FA0
-/* 80307F28 00304E88  3C 60 80 48 */	lis r3, lbl_80479BD0@ha
+/* 80307F28 00304E88  3C 60 80 48 */	lis r3, sVtxDescList@ha
 /* 80307F2C 00304E8C  38 00 00 0B */	li r0, 0xb
-/* 80307F30 00304E90  38 63 9B D0 */	addi r3, r3, lbl_80479BD0@l
+/* 80307F30 00304E90  38 63 9B D0 */	addi r3, r3, sVtxDescList@l
 /* 80307F34 00304E94  39 00 00 00 */	li r8, 0
 /* 80307F38 00304E98  7C 67 1B 78 */	mr r7, r3
 /* 80307F3C 00304E9C  38 C0 00 00 */	li r6, 0
@@ -300,10 +300,10 @@ lbl_80307F74:
 /* 80307F78 00304ED8  39 08 00 01 */	addi r8, r8, 1
 /* 80307F7C 00304EDC  42 00 FF CC */	bdnz lbl_80307F48
 /* 80307F80 00304EE0  38 00 00 FF */	li r0, 0xff
-/* 80307F84 00304EE4  3C 60 80 48 */	lis r3, lbl_80479BD0@ha
+/* 80307F84 00304EE4  3C 60 80 48 */	lis r3, sVtxDescList@ha
 /* 80307F88 00304EE8  90 07 00 00 */	stw r0, 0(r7)
 /* 80307F8C 00304EEC  38 00 00 00 */	li r0, 0
-/* 80307F90 00304EF0  38 63 9B D0 */	addi r3, r3, lbl_80479BD0@l
+/* 80307F90 00304EF0  38 63 9B D0 */	addi r3, r3, sVtxDescList@l
 /* 80307F94 00304EF4  90 07 00 04 */	stw r0, 4(r7)
 /* 80307F98 00304EF8  48 06 F2 D1 */	bl GXSetVtxDescv
 /* 80307F9C 00304EFC  93 FE 00 48 */	stw r31, 0x48(r30)
@@ -395,8 +395,8 @@ lbl_803080B4:
 /* 803080CC 0030502C  38 21 00 10 */	addi r1, r1, 0x10
 /* 803080D0 00305030  4E 80 00 20 */	blr
 
-.global sub_803080d4
-sub_803080d4:
+.global ResetGXStatesFull__3CGXFv
+ResetGXStatesFull__3CGXFv:
 /* 803080D4 00305034  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 803080D8 00305038  7C 08 02 A6 */	mflr r0
 /* 803080DC 0030503C  3C 60 80 5A */	lis r3, sGXState__3CGX@ha
@@ -506,7 +506,7 @@ lbl_80308254:
 /* 80308258 003051B8  38 80 00 00 */	li r4, 0
 /* 8030825C 003051BC  38 A0 00 00 */	li r5, 0
 /* 80308260 003051C0  38 C0 00 00 */	li r6, 0
-/* 80308264 003051C4  48 07 26 4D */	bl GXSetTexCoordCylWrap
+/* 80308264 003051C4  48 07 26 4D */	bl GXSetTexCoordScaleManually
 /* 80308268 003051C8  3B DE 00 01 */	addi r30, r30, 1
 /* 8030826C 003051CC  2C 1E 00 08 */	cmpwi r30, 8
 /* 80308270 003051D0  41 80 FF E4 */	blt lbl_80308254

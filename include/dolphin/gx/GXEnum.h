@@ -122,6 +122,8 @@ typedef enum _GXAttr {
   GX_VA_NULL = 0xFF,
 } GXAttr;
 
+#define GX_MAX_VTXDESCLIST_SZ (GX_VA_MAX_ATTR + 1)
+
 typedef enum _GXAttrType {
   GX_NONE,
   GX_DIRECT,

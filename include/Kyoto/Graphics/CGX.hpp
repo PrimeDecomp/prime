@@ -4,6 +4,11 @@
 #include "types.h"
 
 #include "dolphin/gx.h"
+#include <stddef.h>
+
+#ifdef __MWERKS__
+#pragma cpp_extensions on
+#endif
 
 class CGX {
 public:
@@ -33,24 +38,29 @@ public:
     f32 xc_fogFarZ;
     GXColor x10_fogColor;
 
-    SFogParams(); /* {
-       x0_fogStartZ = 0.f;
-       x4_fogEndZ = 1.f;
-       x8_fogNearZ = 0.1f;
-       xc_fogFarZ = 1.f;
-     }*/
+    SFogParams() : x0_fogStartZ(0.f), x4_fogEndZ(1.f), x8_fogNearZ(0.1f), xc_fogFarZ(1.f) {
+      x10_fogColor.a = 0;
+      x10_fogColor.b = 0;
+      x10_fogColor.g = 0;
+      x10_fogColor.r = 0;
+    }
   };
 
   struct SGXState {
-    void* x0_arrayPtrs[12];
+    const void* x0_arrayPtrs[12];
     u16 x30_prevChanCtrls[2];
     u16 x34_chanCtrls[2];
     GXColor x38_chanAmbColors[2];
     GXColor x40_chanMatColors[2];
     u32 x48_descList;
-    u8 x4c_ : 5;
-    u8 x4c_dirtyChanCtrl : 2;
-    u8 x4c_numChansDirty : 1;
+    union {
+      u8 x4c_flags;
+      struct {
+        u8 x4c_unk : 5;
+        u8 x4c_dirtyChanCtrl : 2;
+        u8 x4c_numChansDirty : 1;
+      };
+    };
     u8 x4d_prevNumChans;
     u8 x4e_numChans;
     u8 x4f_numTexGens;
@@ -77,6 +87,7 @@ public:
   static void SetNumChans(u8 num);
   static void SetNumTexGens(u8 num);
   static void SetNumTevStages(u8 num);
+  static void SetNumIndStages(u8 num);
   static void SetChanAmbColor(EChannelId channel, const GXColor& color);
   static void SetChanMatColor(EChannelId channel, const GXColor& color);
   static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc, GXLightID lights, GXDiffuseFn diffFn,
@@ -88,6 +99,28 @@ public:
   static void SetTevColorOp_Compressed(GXTevStageID stageId, u32 flags);
   static void SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
   static void SetTevAlphaOp_Compressed(GXTevStageID stageId, u32 flags);
+  static void SetTevKColorSel(GXTevStageID stageId, GXTevKColorSel sel);
+  static void SetTevKAlphaSel(GXTevStageID stageId, GXTevKAlphaSel sel);
+  static void SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap, GXChannelID color);
+  static void SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac, GXLogicOp op);
+  static void SetZMode(bool compareEnable, GXCompare func, bool updateEnable);
+  static void SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1);
+  static void SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt, GXIndTexBiasSel biasSel,
+                             GXIndTexMtxID mtxSel, GXIndTexWrap wrapS, GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
+                             GXIndTexAlphaSel alphaSel);
+  static void SetTevDirect(GXTevStageID stageId);
+  static void SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx, GXBool normalize, GXPTTexMtx postMtx);
+  static void SetArray(GXAttr attr, const void* data, u8 stride);
+  static void SetFog(GXFogType type, f32 startZ, f32 endZ, f32 nearZ, f32 farZ, const GXColor& color);
+  static void SetLineWidth(u8 width, GXTexOffset offset);
+  static void SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp);
+  static void SetVtxDescv_Compressed(u32 flags);
+
+  static void CallDisplayList(const void* ptr, size_t size);
+  static void Begin(GXPrimitive prim, GXVtxFmt fmt, u16 numVtx);
+  static void End();
+  static void ResetGXStates();
+  static void ResetGXStatesFull(); // name?
 
   static GXColor GetChanAmbColor(EChannelId channel);
 
@@ -97,9 +130,13 @@ public:
   static inline void CopyGXColor(GXColor& dst, const GXColor& src) {
     *reinterpret_cast< u32* >(&dst) = *reinterpret_cast< const u32* >(&src);
   }
-  static inline u32 MaskAndShiftLeft(u32 a, u32 b, u32 s) { return (a & b) << s; }
+  static inline u32 MaskAndShiftLeft(u32 v, u32 m, u32 s) { return (v & m) << s; }
+  static inline u32 ShiftRightAndMask(u32 v, u32 m, u32 s) { return (v >> s) & m; }
 
 private:
+  static void FlushState();
+  static void update_fog(u32 flags);
+
   static SGXState sGXState;
 };
 
