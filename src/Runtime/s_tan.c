@@ -50,7 +50,7 @@ double x;
 #endif
 {
   double y[2], z = 0.0;
-  _INT32 n, ix; /*- cc 020130 -*/
+  _INT32 n, ix;
 
   /* High word of x. */
   ix = __HI(x);

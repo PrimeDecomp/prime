@@ -71,20 +71,20 @@ static double
 };
 
 #ifdef __STDC__
-double __kernel_tan(double x, double y, _INT32 iy) /*- cc 020130 -*/
+double __kernel_tan(double x, double y, _INT32 iy)
 #else
 double __kernel_tan(x, y, iy)
 double x, y;
-_INT32 iy; /*- cc 020130 -*/
+_INT32 iy;
 #endif
 {
   double z, r, v, w, s;
-  _INT32 ix, hx;        /*- cc 020130 -*/
+  _INT32 ix, hx;
   hx = __HI(x);         /* high word of x */
   ix = hx & 0x7fffffff; /* high word of |x| */
   if (ix < 0x3e300000)  /* x < 2**-28 */
   {
-    if ((_INT32)x == 0) { /* generate inexact */ /*- cc 020130 -*/
+    if ((_INT32)x == 0) { /* generate inexact */
       if (((ix | __LO(x)) | (iy + 1)) == 0)
         return one / fabs(x);
       else

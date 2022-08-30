@@ -89,7 +89,7 @@ public:
   CTransform4f& operator*(const CVector3f& vec);
 
   static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&, const CVector3f&);
-  static CTransform4f sIdentity;
+  static const CTransform4f& Identity() { return sIdentity; }
 
 private:
   CVector3f m0;
@@ -98,6 +98,8 @@ private:
   f32 posY;
   CVector3f m2;
   f32 posZ;
+
+  static CTransform4f sIdentity;
 };
 
 inline bool operator==(const CTransform4f& lhs, const CTransform4f& rhs);

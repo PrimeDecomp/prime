@@ -12,10 +12,10 @@ typedef unsigned short u16;
 typedef unsigned int u32;
 typedef unsigned long long u64;
 
-typedef char s8;
-typedef short s16;
-typedef int s32;
-typedef long long s64;
+typedef signed char s8;
+typedef signed short s16;
+typedef signed int s32;
+typedef signed long long s64;
 
 typedef volatile u8 vu8;
 typedef volatile u16 vu16;
@@ -50,16 +50,12 @@ typedef void* unkptr;
 #define override
 #endif
 
-#ifndef BOOL
-#ifdef __cplusplus
-#define BOOL bool
-#define TRUE true
-#define FALSE false
-#else
-#define BOOL u8
+typedef int BOOL;
+#ifndef TRUE
 #define TRUE 1
-#define FALSE 0
 #endif
+#ifndef FALSE
+#define FALSE 0
 #endif
 
 #ifndef ATTRIBUTE_ALIGN

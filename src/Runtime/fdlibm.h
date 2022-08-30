@@ -17,11 +17,11 @@
 #define _IEEE_LIBM
 
 #if __option(little_endian)
-#define __HIp(x) *(1 + (_INT32*)x) /*- cc 020130 -*/
-#define __LOp(x) *(_INT32*)x       /*- cc 020130 -*/
+#define __HIp(x) *(1 + (_INT32*)x)
+#define __LOp(x) *(_INT32*)x
 #else
-#define __HIp(x) *(_INT32*)x       /*- cc 020130 -*/
-#define __LOp(x) *(1 + (_INT32*)x) /*- cc 020130 -*/
+#define __HIp(x) *(_INT32*)x
+#define __LOp(x) *(1 + (_INT32*)x)
 #endif
 
 #ifdef __STDC__

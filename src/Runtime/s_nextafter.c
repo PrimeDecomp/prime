@@ -26,8 +26,8 @@ double nextafter(x, y)
 double x, y;
 #endif
 {
-  _INT32 hx, hy, ix, iy; /*- cc 020130 -*/
-  _UINT32 lx, ly;        /*- cc 020130 -*/
+  _INT32 hx, hy, ix, iy;
+  _UINT32 lx, ly;
 
   hx = __HI(x);         /* high word of x */
   lx = __LO(x);         /* low  word of x */

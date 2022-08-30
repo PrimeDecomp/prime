@@ -37,8 +37,8 @@ double __ieee754_fmod(x, y)
 double x, y;
 #endif
 {
-  _INT32 n, hx, hy, hz, ix, iy, sx, i; /*- cc 020130 -*/
-  _UINT32 lx, ly, lz;                  /*- cc 020130 -*/
+  _INT32 n, hx, hy, hz, ix, iy, sx, i;
+  _UINT32 lx, ly, lz;
 
   hx = __HI(x);         /* high word of x */
   lx = __LO(x);         /* low  word of x */
@@ -56,7 +56,7 @@ double x, y;
     if ((hx < hy) || (lx < ly))
       return x; /* |x|<|y| return x */
     if (lx == ly)
-      return Zero[(_UINT32)sx >> 31]; /* |x|=|y| return x*0*/ /*- cc 020130 -*/
+      return Zero[(_UINT32)sx >> 31]; /* |x|=|y| return x*0*/
   }
 
   /* determine ix = ilogb(x) */
@@ -121,7 +121,7 @@ double x, y;
       lx = lx + lx;
     } else {
       if ((hz | lz) == 0)               /* return sign(x)*0 */
-        return Zero[(_UINT32)sx >> 31]; /*- cc 020130 -*/
+        return Zero[(_UINT32)sx >> 31];
       hx = hz + hz + (lz >> 31);
       lx = lz + lz;
     }
@@ -137,7 +137,7 @@ double x, y;
 
   /* convert back to floating value and restore the sign */
   if ((hx | lx) == 0)               /* return sign(x)*0 */
-    return Zero[(_UINT32)sx >> 31]; /*- cc 020130 -*/
+    return Zero[(_UINT32)sx >> 31];
   while (hx < 0x00100000) {         /* normalize x */
     hx = hx + hx + (lx >> 31);
     lx = lx + lx;
@@ -150,7 +150,7 @@ double x, y;
   } else { /* subnormal output */
     n = -1022 - iy;
     if (n <= 20) {
-      lx = (lx >> n) | ((_UINT32)hx << (32 - n)); /*- cc 020130 -*/
+      lx = (lx >> n) | ((_UINT32)hx << (32 - n));
       hx >>= n;
     } else if (n <= 31) {
       lx = (hx << (32 - n)) | (lx >> n);

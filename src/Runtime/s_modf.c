@@ -35,8 +35,8 @@ double modf(x, iptr)
 double x, *iptr;
 #endif
 {
-  _INT32 i0, i1, j0;                 /*- cc 020130 -*/
-  _UINT32 i;                         /*- cc 020130 -*/
+  _INT32 i0, i1, j0;
+  _UINT32 i;
   i0 = __HI(x);                      /* high x */
   i1 = __LO(x);                      /* low  x */
   j0 = ((i0 >> 20) & 0x7ff) - 0x3ff; /* exponent of x */
@@ -64,7 +64,7 @@ double x, *iptr;
     __LO(x) = 0; /* return +-0 */
     return x;
   } else {                                    /* fraction part in low x */
-    i = ((_UINT32)(0xffffffff)) >> (j0 - 20); /*- cc 020130 -*/
+    i = ((_UINT32)(0xffffffff)) >> (j0 - 20);
     if ((i1 & i) == 0) {                      /* x is integral */
       *iptr = x;
       __HI(x) &= 0x80000000;
