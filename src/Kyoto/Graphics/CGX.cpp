@@ -59,15 +59,48 @@ void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
   }
 }
 
-// TODO non-matching
 void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c, GXTevColorArg d) {
-  u32 ma = MaskAndShiftLeft(a, 0x1F, 0);
-  u32 mb = MaskAndShiftLeft(b, 0x1F, 5);
-  u32 mc = MaskAndShiftLeft(c, 0x1F, 10);
-  u32 md = MaskAndShiftLeft(d, 0x1F, 15);
-  u32 flags = ma | mb | mc | md;
-  if (flags != sGXState.x68_tevStates[stageId].x0_colorInArgs) {
-    sGXState.x68_tevStates[stageId].x0_colorInArgs = flags;
+  u32 flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) | MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+  STevState& state = sGXState.x68_tevStates[stageId];
+  if (flags != state.x0_colorInArgs) {
+    state.x0_colorInArgs = flags;
     GXSetTevColorIn(stageId, a, b, c, d);
   }
+}
+
+void CGX::SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c, GXTevAlphaArg d) {
+  u32 flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) | MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+  STevState& state = sGXState.x68_tevStates[stageId];
+  if (flags != state.x4_alphaInArgs) {
+    state.x4_alphaInArgs = flags;
+    GXSetTevAlphaIn(stageId, a, b, c, d);
+  }
+}
+
+void CGX::SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg) {
+  u32 flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) | MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
+              MaskAndShiftLeft(outReg, 3, 9);
+  STevState& state = sGXState.x68_tevStates[stageId];
+  if (flags != state.x8_colorOps) {
+    state.x8_colorOps = flags;
+    GXSetTevColorOp(stageId, op, bias, scale, clamp, outReg);
+  }
+}
+
+void CGX::SetTevColorOp_Compressed(GXTevStageID stageId, u32 flags) {
+  // TODO
+}
+
+void CGX::SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg) {
+  u32 flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) | MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
+              MaskAndShiftLeft(outReg, 3, 9);
+  STevState& state = sGXState.x68_tevStates[stageId];
+  if (flags != state.xc_alphaOps) {
+    state.xc_alphaOps = flags;
+    GXSetTevAlphaOp(stageId, op, bias, scale, clamp, outReg);
+  }
+}
+
+void CGX::SetTevAlphaOp_Compressed(GXTevStageID stageId, u32 flags) {
+  // TODO
 }

@@ -27,7 +27,7 @@ def import_h_file(in_file, r_path) -> str:
         return import_c_file(inc_path)
     else:
       print("Failed to locate", in_file)
-      exit(1)
+      return ""
 
 def import_c_file(in_file) -> str:
     in_file = os.path.relpath(in_file, root_dir)
