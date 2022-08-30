@@ -1,8 +1,9 @@
 #ifndef _CTEXTURE_HPP
 #define _CTEXTURE_HPP
 
-#include "gx_enum.h"
 #include "types.h"
+
+#include <dolphin/gx/GXEnum.h>
 
 class CTexture {
 public:
@@ -13,6 +14,8 @@ public:
   };
 
   void Load(GXTexMapID texMapId, EClampMode clampMode) const;
+
+  static void InvalidateTexmap(GXTexMapID id);
 };
 
 #endif

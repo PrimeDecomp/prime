@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "gx_struct.h"
+#include <dolphin/gx/GXStruct.h>
 
 class COsContext {
 public:

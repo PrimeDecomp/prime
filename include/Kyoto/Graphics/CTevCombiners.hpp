@@ -1,8 +1,9 @@
 #ifndef _CTEVCOMBINERS_HPP
 #define _CTEVCOMBINERS_HPP
 
-#include "gx_enum.h"
 #include "types.h"
+
+#include <dolphin/gx/GXEnum.h>
 
 class CTevCombiners {
 public:
