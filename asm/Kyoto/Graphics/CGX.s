@@ -19,8 +19,8 @@ lbl_805AF4A0:
 
 .section .text, "ax"
 
-.global sub_80307bbc
-sub_80307bbc:
+.global GetFog__3CGXFP10_GXFogTypePfPfPfPfP8_GXColor
+GetFog__3CGXFP10_GXFogTypePfPfPfPfP8_GXColor:
 /* 80307BBC 00304B1C  28 03 00 00 */	cmplwi r3, 0
 /* 80307BC0 00304B20  41 82 00 14 */	beq lbl_80307BD4
 /* 80307BC4 00304B24  3D 20 80 5A */	lis r9, sGXState__3CGX@ha
@@ -223,8 +223,8 @@ lbl_80307E58:
 /* 80307E74 00304DD4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80307E78 00304DD8  4E 80 00 20 */	blr
 
-.global SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv
-SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv:
+.global ResetVtxDescv__3CGXFv
+ResetVtxDescv__3CGXFv:
 /* 80307E7C 00304DDC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80307E80 00304DE0  7C 08 02 A6 */	mflr r0
 /* 80307E84 00304DE4  3C 60 80 3D */	lis r3, lbl_803D73B8@ha
@@ -236,8 +236,8 @@ SetIndexedPositionVtxFmt__14CFluidPlaneCPUFv:
 /* 80307E9C 00304DFC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80307EA0 00304E00  4E 80 00 20 */	blr
 
-.global SetAttrFmt__11CFluidPlaneF6GXAttr10GXAttrType
-SetAttrFmt__11CFluidPlaneF6GXAttr10GXAttrType:
+.global SetVtxDesc__3CGXF7_GXAttr11_GXAttrType
+SetVtxDesc__3CGXF7_GXAttr11_GXAttrType:
 /* 80307EA4 00304E04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80307EA8 00304E08  7C 08 02 A6 */	mflr r0
 /* 80307EAC 00304E0C  3C A0 80 5A */	lis r5, sGXState__3CGX@ha
