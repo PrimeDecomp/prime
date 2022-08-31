@@ -115,6 +115,11 @@ public:
   static void SetLineWidth(u8 width, GXTexOffset offset);
   static void SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp);
   static void SetVtxDescv_Compressed(u32 flags);
+  static void SetVtxDesc(GXAttr attr, GXAttrType type); // name?
+  static void ResetVtxDescv();                          // name?
+  static void SetVtxDescv(const GXVtxDescList* list);
+  static void SetStandardDirectTev_Compressed(GXTevStageID stageId, u32 colorArgs, u32 alphaArgs, u32 colorOps, u32 alphaOps);
+  static void SetStandardTevColorAlphaOp(GXTevStageID stageId);
 
   static void CallDisplayList(const void* ptr, size_t size);
   static void Begin(GXPrimitive prim, GXVtxFmt fmt, u16 numVtx);
@@ -123,6 +128,7 @@ public:
   static void ResetGXStatesFull(); // name?
 
   static GXColor GetChanAmbColor(EChannelId channel);
+  static void GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ, GXColor* fogColor);
 
   static inline bool CompareGXColors(const GXColor& lhs, const GXColor& rhs) {
     return *reinterpret_cast< const u32* >(&lhs) == *reinterpret_cast< const u32* >(&rhs);

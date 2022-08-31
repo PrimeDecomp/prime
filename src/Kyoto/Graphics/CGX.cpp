@@ -36,19 +36,18 @@ void CGX::SetChanMatColor(EChannelId channel, const GXColor& color) {
   }
 }
 
-// TODO non-matching
+// TODO https://decomp.me/scratch/09nam
 void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc, GXLightID lights, GXDiffuseFn diffFn,
                       GXAttnFn attnFn) {
-  u16 flags = (lights == GX_LIGHT_NULL ? 0 : enable) & 1 | (ambSrc & 1) << 1 | (matSrc & 1) << 2 | (lights & 0xFF) << 3 |
-              (diffFn & 3) << 11 | (attnFn & 3) << 13;
+  u16 prevFlags = sGXState.x30_prevChanCtrls[channel];
+  u32 flags = enable;
+  if (lights == GX_LIGHT_NULL) {
+    flags = 0;
+  }
+  flags = MaskAndShiftLeft(flags, 1, 0) | MaskAndShiftLeft(ambSrc, 1, 1) | MaskAndShiftLeft(matSrc, 1, 2) |
+          MaskAndShiftLeft(lights, 0xFF, 3) | MaskAndShiftLeft(diffFn, 3, 11) | MaskAndShiftLeft(attnFn, 3, 13);
   sGXState.x34_chanCtrls[channel] = flags;
-  // sGXState.x4c_dirtyChanCtrl = (((sGXState.x34_chanCtrls[channel] != sGXState.x30_prevChanCtrls[channel]) & 1) << channel) &
-  //                              (sGXState.x4c_dirtyChanCtrl & ~(1 << channel));
-  // if (channel == Channel0) {
-  //   sGXState.x4c_dirtyChanCtrl0 = (sGXState.x34_chanCtrls[channel] != sGXState.x30_prevChanCtrls[channel]);
-  // } else {
-  //   sGXState.x4c_dirtyChanCtrl1 = (sGXState.x34_chanCtrls[channel] != sGXState.x30_prevChanCtrls[channel]);
-  // }
+  sGXState.x4c_flags = ((flags != prevFlags) << (channel + 1)) | (sGXState.x4c_flags & ~(1 << (channel + 1)));
 }
 
 void CGX::SetNumTevStages(u8 num) {
@@ -58,6 +57,7 @@ void CGX::SetNumTevStages(u8 num) {
   }
 }
 
+// TODO https://decomp.me/scratch/V2iVD
 void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
   if (!CompareGXColors(sGXState.x58_kColors[id], color)) {
     CopyGXColor(sGXState.x58_kColors[id], color);
@@ -148,6 +148,7 @@ void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID te
   }
 }
 
+// TODO https://decomp.me/scratch/YWJTk
 void CGX::SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac, GXLogicOp op) {
   u16 flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) | MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
   if (flags != sGXState.x56_blendMode) {
@@ -394,4 +395,93 @@ void CGX::SetVtxDescv_Compressed(u32 flags) {
   list->type = GX_NONE;
   GXSetVtxDescv(sVtxDescList);
   sGXState.x48_descList = flags;
+}
+
+void CGX::SetVtxDesc(GXAttr attr, GXAttrType type) {
+  u32 lshift = (attr - GX_VA_POS) * 2;
+  u32 rshift = 3 << lshift;
+  u32 flags = type << lshift;
+  if (flags != (sGXState.x48_descList & rshift)) {
+    sGXState.x48_descList = flags | (sGXState.x48_descList & ~rshift);
+    GXSetVtxDesc(attr, type);
+  }
+}
+
+void CGX::ResetVtxDescv() {
+  static const GXVtxDescList vtxDescList[2] = {
+      {GX_VA_POS, GX_INDEX16},
+      {GX_VA_NULL, GX_NONE},
+  };
+  SetVtxDescv(vtxDescList);
+}
+
+void CGX::SetVtxDescv(const GXVtxDescList* list) {
+  u32 flags = 0;
+  for (; list->attr != GX_VA_NULL; ++list) {
+    flags |= (list->type & 3) << (list->attr - GX_VA_POS) * 2;
+  }
+  SetVtxDescv_Compressed(flags);
+}
+
+void CGX::SetStandardDirectTev_Compressed(GXTevStageID stageId, u32 colorArgs, u32 alphaArgs, u32 colorOps, u32 alphaOps) {
+  STevState& state = sGXState.x68_tevStates[stageId];
+  if (state.x10_indFlags != 0) {
+    state.x10_indFlags = 0;
+    GXSetTevDirect(stageId);
+  }
+  if (state.x0_colorInArgs != colorArgs) {
+    state.x0_colorInArgs = colorArgs;
+    GXSetTevColorIn(stageId, static_cast< GXTevColorArg >(ShiftRightAndMask(colorArgs, 31, 0)),
+                    static_cast< GXTevColorArg >(ShiftRightAndMask(colorArgs, 31, 5)),
+                    static_cast< GXTevColorArg >(ShiftRightAndMask(colorArgs, 31, 10)),
+                    static_cast< GXTevColorArg >(ShiftRightAndMask(colorArgs, 31, 15)));
+  }
+  if (state.x4_alphaInArgs != alphaArgs) {
+    state.x4_alphaInArgs = alphaArgs;
+    GXSetTevAlphaIn(stageId, static_cast< GXTevAlphaArg >(ShiftRightAndMask(alphaArgs, 31, 0)),
+                    static_cast< GXTevAlphaArg >(ShiftRightAndMask(alphaArgs, 31, 5)),
+                    static_cast< GXTevAlphaArg >(ShiftRightAndMask(alphaArgs, 31, 10)),
+                    static_cast< GXTevAlphaArg >(ShiftRightAndMask(alphaArgs, 31, 15)));
+  }
+  if (colorOps != alphaOps || (colorOps & 0x1FF) != 0x100) {
+    SetTevColorOp_Compressed(stageId, colorOps);
+    SetTevAlphaOp_Compressed(stageId, alphaOps);
+  } else if (colorOps != state.x8_colorOps || colorOps != state.xc_alphaOps) {
+    state.xc_alphaOps = colorOps;
+    state.x8_colorOps = colorOps;
+    GXTevRegID outReg = static_cast< GXTevRegID >(ShiftRightAndMask(colorOps, 3, 9));
+    GXSetTevColorOp(stageId, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, outReg);
+    GXSetTevAlphaOp(stageId, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, outReg);
+  }
+}
+
+void CGX::SetStandardTevColorAlphaOp(GXTevStageID stageId) {
+  STevState& state = sGXState.x68_tevStates[stageId];
+  if (state.x8_colorOps != 0x100 || state.xc_alphaOps != 0x100) {
+    state.xc_alphaOps = 0x100;
+    state.x8_colorOps = 0x100;
+    GXSetTevColorOp(stageId, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
+    GXSetTevAlphaOp(stageId, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true, GX_TEVPREV);
+  }
+}
+
+void CGX::GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ, GXColor* fogColor) {
+  if (fogType != nullptr) {
+    *fogType = static_cast< GXFogType >(sGXState.x53_fogType);
+  }
+  if (fogStartZ != nullptr) {
+    *fogStartZ = sGXState.x24c_fogParams.x0_fogStartZ;
+  }
+  if (fogEndZ != nullptr) {
+    *fogEndZ = sGXState.x24c_fogParams.x4_fogEndZ;
+  }
+  if (fogNearZ != nullptr) {
+    *fogNearZ = sGXState.x24c_fogParams.x8_fogNearZ;
+  }
+  if (fogFarZ != nullptr) {
+    *fogFarZ = sGXState.x24c_fogParams.xc_fogFarZ;
+  }
+  if (fogColor != nullptr) {
+    CopyGXColor(*fogColor, sGXState.x24c_fogParams.x10_fogColor);
+  }
 }
