@@ -3,12 +3,9 @@
 
 #include "types.h"
 
-#include "dolphin/gx.h"
 #include <stddef.h>
 
-#ifdef __MWERKS__
-#pragma cpp_extensions on
-#endif
+#include "dolphin/gx.h"
 
 class CGX {
 public:
@@ -54,12 +51,12 @@ public:
     GXColor x40_chanMatColors[2];
     u32 x48_descList;
     union {
-      u8 x4c_flags;
+      u8 x4c_chanFlags;
       struct {
-        u8 x4c_unk : 5;
-        u8 x4c_dirtyChanCtrl : 2;
-        u8 x4c_numChansDirty : 1;
-      };
+        u8 unused : 5;
+        u8 chansDirty : 2;
+        u8 numDirty : 1;
+      } x4c_flags;
     };
     u8 x4d_prevNumChans;
     u8 x4e_numChans;
@@ -142,6 +139,12 @@ public:
 private:
   static void FlushState();
   static void update_fog(u32 flags);
+  static void apply_fog() {
+    static const GXColor black = {0, 0, 0, 0};
+    GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ, sGXState.x24c_fogParams.x4_fogEndZ,
+             sGXState.x24c_fogParams.x8_fogNearZ, sGXState.x24c_fogParams.xc_fogFarZ,
+             (sGXState.x56_blendMode & 0xE0) == 0x20 ? black : sGXState.x24c_fogParams.x10_fogColor);
+  }
 
   static SGXState sGXState;
 };

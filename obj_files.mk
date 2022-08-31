@@ -514,7 +514,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Text/CFont.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CLight.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CCubeModel.o\
-	$(BUILD_DIR)/asm/Kyoto/Graphics/CGX.o\
+	$(BUILD_DIR)/src/Kyoto/Graphics/CGX.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CTevCombiners.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCGraphics.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCPalette.o\

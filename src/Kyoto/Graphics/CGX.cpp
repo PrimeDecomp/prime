@@ -6,11 +6,11 @@
 
 CGX::SGXState CGX::sGXState;
 
-static GXVtxDescList sVtxDescList[GX_MAX_VTXDESCLIST_SZ];
+static GXVtxDescList sVtxDescList[30];
 
 void CGX::SetNumChans(u8 num) {
   sGXState.x4e_numChans = num;
-  sGXState.x4c_numChansDirty = sGXState.x4e_numChans != sGXState.x4d_prevNumChans;
+  sGXState.x4c_flags.numDirty = sGXState.x4e_numChans != sGXState.x4d_prevNumChans;
 }
 
 void CGX::SetNumTexGens(u8 num) {
@@ -36,18 +36,17 @@ void CGX::SetChanMatColor(EChannelId channel, const GXColor& color) {
   }
 }
 
-// TODO https://decomp.me/scratch/09nam
 void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc, GXLightID lights, GXDiffuseFn diffFn,
                       GXAttnFn attnFn) {
+  u16& state = sGXState.x34_chanCtrls[channel];
   u16 prevFlags = sGXState.x30_prevChanCtrls[channel];
-  u32 flags = enable;
   if (lights == GX_LIGHT_NULL) {
-    flags = 0;
+    enable = GX_FALSE;
   }
-  flags = MaskAndShiftLeft(flags, 1, 0) | MaskAndShiftLeft(ambSrc, 1, 1) | MaskAndShiftLeft(matSrc, 1, 2) |
-          MaskAndShiftLeft(lights, 0xFF, 3) | MaskAndShiftLeft(diffFn, 3, 11) | MaskAndShiftLeft(attnFn, 3, 13);
-  sGXState.x34_chanCtrls[channel] = flags;
-  sGXState.x4c_flags = ((flags != prevFlags) << (channel + 1)) | (sGXState.x4c_flags & ~(1 << (channel + 1)));
+  u32 flags = MaskAndShiftLeft(enable, 1, 0) | MaskAndShiftLeft(ambSrc, 1, 1) | MaskAndShiftLeft(matSrc, 1, 2) |
+              MaskAndShiftLeft(lights, 0xFF, 3) | MaskAndShiftLeft(diffFn, 3, 11) | MaskAndShiftLeft(attnFn, 3, 13);
+  state = flags;
+  sGXState.x4c_chanFlags = ((flags != prevFlags) << (channel + 1)) | (sGXState.x4c_chanFlags & ~(1 << (channel + 1)));
 }
 
 void CGX::SetNumTevStages(u8 num) {
@@ -57,7 +56,6 @@ void CGX::SetNumTevStages(u8 num) {
   }
 }
 
-// TODO https://decomp.me/scratch/V2iVD
 void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
   if (!CompareGXColors(sGXState.x58_kColors[id], color)) {
     CopyGXColor(sGXState.x58_kColors[id], color);
@@ -148,9 +146,8 @@ void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID te
   }
 }
 
-// TODO https://decomp.me/scratch/YWJTk
 void CGX::SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac, GXLogicOp op) {
-  u16 flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) | MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
+  u32 flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) | MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
   if (flags != sGXState.x56_blendMode) {
     update_fog(flags);
     sGXState.x56_blendMode = flags;
@@ -230,14 +227,14 @@ void CGX::SetArray(GXAttr attr, const void* data, u8 stride) {
 }
 
 void CGX::CallDisplayList(const void* ptr, size_t size) {
-  if (sGXState.x4c_flags != 0) {
+  if (sGXState.x4c_chanFlags != 0) {
     FlushState();
   }
   GXCallDisplayList(ptr, size);
 }
 
 void CGX::Begin(GXPrimitive prim, GXVtxFmt fmt, u16 numVtx) {
-  if (sGXState.x4c_flags != 0) {
+  if (sGXState.x4c_chanFlags != 0) {
     FlushState();
   }
   GXBegin(prim, fmt, numVtx);
@@ -252,9 +249,7 @@ void CGX::SetFog(GXFogType type, f32 startZ, f32 endZ, f32 nearZ, f32 farZ, cons
   sGXState.x24c_fogParams.x8_fogNearZ = nearZ;
   sGXState.x24c_fogParams.xc_fogFarZ = farZ;
   CopyGXColor(sGXState.x24c_fogParams.x10_fogColor, color);
-  GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ, sGXState.x24c_fogParams.x4_fogEndZ,
-           sGXState.x24c_fogParams.x8_fogNearZ, sGXState.x24c_fogParams.xc_fogFarZ,
-           (sGXState.x56_blendMode & 0xE0) == 0x20 ? GXColor() : sGXState.x24c_fogParams.x10_fogColor);
+  apply_fog();
 }
 
 void CGX::SetLineWidth(u8 width, GXTexOffset offset) {
@@ -340,11 +335,11 @@ void CGX::ResetGXStatesFull() {
 }
 
 void CGX::FlushState() {
-  if (sGXState.x4c_numChansDirty) {
+  if (sGXState.x4c_chanFlags & 1) {
     GXSetNumChans(sGXState.x4e_numChans);
     sGXState.x4d_prevNumChans = sGXState.x4e_numChans;
   }
-  if (sGXState.x4c_flags & 2) {
+  if (sGXState.x4c_chanFlags & 2) {
     u16 flags = sGXState.x34_chanCtrls[0];
     GXBool enable = ShiftRightAndMask(flags, 1, 0);
     GXColorSrc ambSrc = static_cast< GXColorSrc >(ShiftRightAndMask(flags, 1, 1));
@@ -355,7 +350,7 @@ void CGX::FlushState() {
     GXSetChanCtrl(GX_COLOR0, enable, ambSrc, matSrc, lightMask, diffFn, attnFn);
     sGXState.x30_prevChanCtrls[0] = sGXState.x34_chanCtrls[0];
   }
-  if (sGXState.x4c_flags & 4) {
+  if (sGXState.x4c_chanFlags & 4) {
     u16 flags = sGXState.x34_chanCtrls[1];
     GXBool enable = ShiftRightAndMask(flags, 1, 0);
     GXColorSrc ambSrc = static_cast< GXColorSrc >(ShiftRightAndMask(flags, 1, 1));
@@ -366,7 +361,7 @@ void CGX::FlushState() {
     GXSetChanCtrl(GX_COLOR1, enable, ambSrc, matSrc, lightMask, diffFn, attnFn);
     sGXState.x30_prevChanCtrls[1] = sGXState.x34_chanCtrls[1];
   }
-  sGXState.x4c_flags = 0;
+  sGXState.x4c_chanFlags = 0;
 }
 
 void CGX::SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp) {
