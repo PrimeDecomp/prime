@@ -704,7 +704,7 @@ SetFog__3CGXF10_GXFogTypeffffRC8_GXColor:
 /* 80308530 00305490  D0 85 02 58 */	stfs f4, 0x258(r5)
 /* 80308534 00305494  90 85 02 5C */	stw r4, 0x25c(r5)
 /* 80308538 00305498  40 82 00 10 */	bne lbl_80308548
-/* 8030853C 0030549C  80 02 8C A8 */	lwz r0, lbl_805AA9C8@sda21(r2)
+/* 8030853C 0030549C  80 02 8C A8 */	lwz r0, black$localstatic3$apply_fog__3CGXFv@sda21(r2)
 /* 80308540 003054A0  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80308544 003054A4  48 00 00 08 */	b lbl_8030854C
 lbl_80308548:

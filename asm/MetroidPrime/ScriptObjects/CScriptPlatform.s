@@ -123,8 +123,8 @@ lbl_805A720C:
 .section .sdata2, "a"
 .balign 8
 
-.global lbl_805AA9C8
-lbl_805AA9C8:
+.global black$localstatic3$apply_fog__3CGXFv
+black$localstatic3$apply_fog__3CGXFv:
 	# ROM: 0x3F7268
 	.4byte 0
 
