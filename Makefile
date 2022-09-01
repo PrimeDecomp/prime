@@ -11,6 +11,9 @@ VERBOSE ?= 0
 # If GENERATE_MAP set to 1, tells LDFLAGS to generate a mapfile, which makes linking take several minutes.
 GENERATE_MAP ?= 0
 
+# Enable non-matching code & various fixes
+NONMATCHING ?= 0
+
 ifeq ($(VERBOSE),0)
   QUIET := @
 endif
@@ -111,7 +114,7 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp fmadd -nodefaults -w off
 endif
-DEFINES = -DPRIME1 -DVERSION=$(VERSION_NUM)
+DEFINES = -DPRIME1 -DVERSION=$(VERSION_NUM) -DNONMATCHING=$(NONMATCHING)
 CFLAGS_BASE = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD $(DEFINES) $(INCLUDES)
 CFLAGS = $(CFLAGS_BASE) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto -common on
 CFLAGS_RUNTIME = $(CFLAGS_BASE) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto

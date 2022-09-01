@@ -1,11 +1,14 @@
 #ifndef _DOLPHIN_OS_H
 #define _DOLPHIN_OS_H
 
-#include "types.h"
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+// TODO OSInerrupt.h
+typedef s16  __OSInterrupt;
 
 // Upper words of the masks, since UIMM is only 16 bits
 #define OS_CACHED_REGION_PREFIX         0x8000
@@ -20,6 +23,8 @@ extern "C" {
 #else
 #define AT_ADDRESS
 #endif
+typedef s64 OSTime;
+typedef u32 OSTick;
 u32 __OSBusClock    AT_ADDRESS(OS_BASE_CACHED | 0x00F8);    // sync with OSLoMem.h
 u32 __OSCoreClock   AT_ADDRESS(OS_BASE_CACHED | 0x00FC);    // sync with OSLoMem.h
 #define OS_BUS_CLOCK        __OSBusClock
