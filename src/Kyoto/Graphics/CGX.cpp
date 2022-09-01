@@ -6,7 +6,12 @@
 
 CGX::SGXState CGX::sGXState;
 
+#if NONMATCHING
+// Doesn't need to be so big
+static GXVtxDescList sVtxDescList[12];
+#else
 static GXVtxDescList sVtxDescList[30];
+#endif
 
 void CGX::SetNumChans(u8 num) {
   sGXState.x4e_numChans = num;
@@ -198,7 +203,7 @@ void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src
   STexState& state = sGXState.x228_texStates[dstCoord];
   u32 vm = (mtx - GX_TEXMTX0) / 3;
   u32 vp = postMtx - GX_PTTEXMTX0;
-#ifdef NONMATCHING
+#if NONMATCHING
   // Similarly to GXTexMtx, this should also be divided by 3
   vp /= 3;
 #endif
@@ -442,6 +447,7 @@ void CGX::SetStandardDirectTev_Compressed(GXTevStageID stageId, u32 colorArgs, u
     SetTevColorOp_Compressed(stageId, colorOps);
     SetTevAlphaOp_Compressed(stageId, alphaOps);
   } else if (colorOps != state.x8_colorOps || colorOps != state.xc_alphaOps) {
+    // Fast path for GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, true
     state.xc_alphaOps = colorOps;
     state.x8_colorOps = colorOps;
     GXTevRegID outReg = static_cast< GXTevRegID >(ShiftRightAndMask(colorOps, 3, 9));

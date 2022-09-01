@@ -296,4 +296,5 @@ void CActor::DrawTouchBounds() const {}
 
 bool CActor::CanRenderUnsorted(const CStateManager& mgr) const {
   // if (GetModelData()->IsNull() && )
+  return false;
 }
