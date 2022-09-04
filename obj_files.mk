@@ -791,7 +791,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/synthdata.o\
 	$(BUILD_DIR)/asm/musyx/synthmacros.o\
 	$(BUILD_DIR)/asm/musyx/synthvoice.o\
-	$(BUILD_DIR)/asm/musyx/synth_ac.o\
+	$(BUILD_DIR)/src/musyx/synth_ac.o\
 	$(BUILD_DIR)/asm/musyx/synth_adsr.o\
 	$(BUILD_DIR)/asm/musyx/synth_vsamples.o\
 	$(BUILD_DIR)/src/musyx/synth_dbtab.o\
