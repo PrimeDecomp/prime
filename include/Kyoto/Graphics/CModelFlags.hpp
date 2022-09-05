@@ -63,7 +63,7 @@ public:
   static CModelFlags ColorModulate(const CColor& color);
 
 private:
-  u8 x0_blendMode;
+  s8 x0_blendMode;
   u8 x1_matSetIdx;
   u16 x2_flags;
   CColor x4_color;

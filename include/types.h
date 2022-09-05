@@ -12,6 +12,8 @@ extern "C" {
 // Pointer to unknown, to be determined at a later date.
 typedef void* unkptr;
 
+#define SBig(x) x
+
 #ifdef __cplusplus
 }
 #endif

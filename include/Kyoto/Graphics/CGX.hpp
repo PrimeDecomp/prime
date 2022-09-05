@@ -5,7 +5,8 @@
 
 #include <stddef.h>
 
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
+#include <dolphin/mtx.h>
 
 class CGX {
 public:
@@ -123,6 +124,10 @@ public:
   static void End();
   static void ResetGXStates();
   static void ResetGXStatesFull(); // name?
+
+  static inline void LoadTexMtxImm(const f32 mtx[][4], unsigned long id, GXTexMtxType type) {
+    GXLoadTexMtxImm(const_cast<MtxPtr>(mtx), id, type);
+  }
 
   static GXColor GetChanAmbColor(EChannelId channel);
   static void GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ, GXColor* fogColor);

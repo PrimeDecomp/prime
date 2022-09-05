@@ -5,6 +5,8 @@
 
 #include "Kyoto/Basics/CCast.hpp"
 
+#include <dolphin/gx/GXStruct.h>
+
 #ifdef __MWERKS__
 #pragma cpp_extensions on
 #endif
@@ -39,6 +41,7 @@ public:
   u8 GetBlueu8() const { return mB; }
   u8 GetAlphau8() const { return mA; }
   u16 ToRGB5A3() const;
+  GXColor ToGX(u32);
 
   static const CColor& Black();
   static const CColor& White();
@@ -71,5 +74,9 @@ private:
   static const CColor sPurpleColor;
   static const CColor sOrangeColor;
 };
+
+#ifdef __MWERKS__
+#pragma cpp_extensions off
+#endif
 
 #endif // __CCOLOR_HPP__
