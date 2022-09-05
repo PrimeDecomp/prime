@@ -52,9 +52,13 @@ public:
   static void StreamEnd();
 
   static const CTransform4f& GetViewMatrix() { return mViewMatrix; }
+  static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
+
+  static float GetSecondsMod900();
 
 private:
   static CTransform4f mViewMatrix;
+  static CTransform4f mModelMatrix;
 };
 
 #endif

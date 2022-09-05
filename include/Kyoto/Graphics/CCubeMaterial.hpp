@@ -11,7 +11,7 @@ extern CVector3f sPlayerPosition;
 class CCubeMaterial {
 public:
 private:
-  void SetupBlendMode(u32 blendFactors, const CModelFlags& flags, bool alphaTest);
+  static void SetupBlendMode(u32 blendFactors, const CModelFlags& flags, bool alphaTest);
 
   static CVector3f sViewingFrom;
 };

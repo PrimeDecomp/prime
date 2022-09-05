@@ -8,6 +8,10 @@
 class CInputStream;
 class COutputStream;
 
+enum EDimX { kDX };
+enum EDimY { kDY };
+enum EDimZ { kDZ };
+
 class CVector3f {
 public:
   CVector3f() : mX(0.f), mY(0.f), mZ(0.f) {}
@@ -37,8 +41,15 @@ public:
   // IsEqu__9CVector3fCFRC9CVector3ff
   // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
 
+  f32& operator[](EDimX dim) { return mX; }
+  f32& operator[](EDimY dim) { return mY; }
+  f32& operator[](EDimZ dim) { return mZ; }
+  f32 operator[](EDimX) const { return mX; }
+  f32 operator[](EDimY) const { return mY; }
+  f32 operator[](EDimZ) const { return mZ; }
+
   f32& operator[](s32 i) { return *(&mX + i); }
-  f32 operator[](s32 i) const { return *(&mX + i); }
+  // f32 operator[](s32 i) const { return *(&mX + i); }
   bool IsNonZero() const { return mX != 0.f || mY != 0.f || mZ != 0.f; }
 
   void DropZ() { mZ = 0.f; }

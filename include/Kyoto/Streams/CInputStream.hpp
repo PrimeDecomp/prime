@@ -54,7 +54,7 @@ inline u32 cinput_stream_helper(const TType< u32 >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>
-inline unsigned long cinput_stream_helper(const TType< unsigned long >& type, CInputStream& in) {
+inline unsigned int cinput_stream_helper(const TType< unsigned int >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>
