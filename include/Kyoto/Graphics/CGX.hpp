@@ -11,12 +11,12 @@
 class CGX {
 public:
   struct STevState {
-    u32 x0_colorInArgs;
-    u32 x4_alphaInArgs;
-    u32 x8_colorOps;
-    u32 xc_alphaOps;
-    u32 x10_indFlags;
-    u32 x14_tevOrderFlags;
+    uint x0_colorInArgs;
+    uint x4_alphaInArgs;
+    uint x8_colorOps;
+    uint xc_alphaOps;
+    uint x10_indFlags;
+    uint x14_tevOrderFlags;
     u8 x18_kColorSel;
     u8 x19_kAlphaSel;
 
@@ -24,7 +24,7 @@ public:
   };
 
   struct STexState {
-    u32 x0_coordGen;
+    uint x0_coordGen;
 
     STexState();
   };
@@ -50,7 +50,7 @@ public:
     u16 x34_chanCtrls[2];
     GXColor x38_chanAmbColors[2];
     GXColor x40_chanMatColors[2];
-    u32 x48_descList;
+    uint x48_descList;
     union {
       u8 x4c_chanFlags;
       struct {
@@ -71,7 +71,7 @@ public:
     GXColor x58_kColors[4];
     STevState x68_tevStates[16];
     STexState x228_texStates[8];
-    u32 x248_alphaCompare;
+    uint x248_alphaCompare;
     SFogParams x24c_fogParams;
 
     SGXState();
@@ -94,9 +94,9 @@ public:
   static void SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c, GXTevColorArg d);
   static void SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c, GXTevAlphaArg d);
   static void SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
-  static void SetTevColorOp_Compressed(GXTevStageID stageId, u32 flags);
+  static void SetTevColorOp_Compressed(GXTevStageID stageId, uint flags);
   static void SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
-  static void SetTevAlphaOp_Compressed(GXTevStageID stageId, u32 flags);
+  static void SetTevAlphaOp_Compressed(GXTevStageID stageId, uint flags);
   static void SetTevKColorSel(GXTevStageID stageId, GXTevKColorSel sel);
   static void SetTevKAlphaSel(GXTevStageID stageId, GXTevKAlphaSel sel);
   static void SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap, GXChannelID color);
@@ -112,11 +112,11 @@ public:
   static void SetFog(GXFogType type, f32 startZ, f32 endZ, f32 nearZ, f32 farZ, const GXColor& color);
   static void SetLineWidth(u8 width, GXTexOffset offset);
   static void SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp);
-  static void SetVtxDescv_Compressed(u32 flags);
+  static void SetVtxDescv_Compressed(uint flags);
   static void SetVtxDesc(GXAttr attr, GXAttrType type); // name?
   static void ResetVtxDescv();                          // name?
   static void SetVtxDescv(const GXVtxDescList* list);
-  static void SetStandardDirectTev_Compressed(GXTevStageID stageId, u32 colorArgs, u32 alphaArgs, u32 colorOps, u32 alphaOps);
+  static void SetStandardDirectTev_Compressed(GXTevStageID stageId, uint colorArgs, uint alphaArgs, uint colorOps, uint alphaOps);
   static void SetStandardTevColorAlphaOp(GXTevStageID stageId);
 
   static void CallDisplayList(const void* ptr, size_t size);
@@ -133,17 +133,17 @@ public:
   static void GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ, GXColor* fogColor);
 
   static inline bool CompareGXColors(const GXColor& lhs, const GXColor& rhs) {
-    return *reinterpret_cast< const u32* >(&lhs) == *reinterpret_cast< const u32* >(&rhs);
+    return *reinterpret_cast< const uint* >(&lhs) == *reinterpret_cast< const uint* >(&rhs);
   }
   static inline void CopyGXColor(GXColor& dst, const GXColor& src) {
-    *reinterpret_cast< u32* >(&dst) = *reinterpret_cast< const u32* >(&src);
+    *reinterpret_cast< uint* >(&dst) = *reinterpret_cast< const uint* >(&src);
   }
-  static inline u32 MaskAndShiftLeft(u32 v, u32 m, u32 s) { return (v & m) << s; }
-  static inline u32 ShiftRightAndMask(u32 v, u32 m, u32 s) { return (v >> s) & m; }
+  static inline uint MaskAndShiftLeft(uint v, uint m, uint s) { return (v & m) << s; }
+  static inline uint ShiftRightAndMask(uint v, uint m, uint s) { return (v >> s) & m; }
 
 private:
   static void FlushState();
-  static void update_fog(u32 flags);
+  static void update_fog(uint flags);
   static void apply_fog() {
     static const GXColor black = {0, 0, 0, 0};
     GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ, sGXState.x24c_fogParams.x4_fogEndZ,

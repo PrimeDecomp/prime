@@ -8,7 +8,7 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 
 class CStringTable {
-  s32 x0_stringCount;
+  int x0_stringCount;
   rstl::single_ptr< u8 > x4_data;
 
 public:

@@ -8,7 +8,7 @@ public:
   ~CGraphicsSys();
 
 private:
-  u32 pad;
+  uint pad;
 };
 
 #endif

@@ -12,20 +12,20 @@ class CResFactory {
 public:
   virtual ~CResFactory() {}
 
-  void AsyncIdle(u32 time);
+  void AsyncIdle(uint time);
 
   CResLoader& GetResLoader() { return x4_resLoader; }
 
 private:
   CResLoader x4_resLoader;
   CFactoryMgr x5c_factoryMgr;
-  u32 x94_;
-  u32 x98_;
-  u32 x9c_;
-  u32 xa0_;
-  u32 xa4_;
-  u32 xa8_;
-  u32 xac_;
+  uint x94_;
+  uint x98_;
+  uint x9c_;
+  uint xa0_;
+  uint xa4_;
+  uint xa8_;
+  uint xac_;
   rstl::list< void > xb0_;
 };
 

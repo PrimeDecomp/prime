@@ -47,8 +47,8 @@ public:
     kPT_Enum = 4,
   };
   union UParmValue {
-    s32 m_int;
-    u32 m_uint;
+    int m_int;
+    uint m_uint;
     f32 m_float;
     bool m_bool;
   };
@@ -77,7 +77,7 @@ private:
 
 class CPASAnimInfo {
 private:
-  u32 x0_id;
+  uint x0_id;
   rstl::reserved_vector< CPASAnimParm::UParmValue, 8 > x4_parms;
 };
 
@@ -86,7 +86,7 @@ private:
   pas::EAnimationState x0_id;
   rstl::vector< CPASParmInfo > x4_parms;
   rstl::vector< CPASAnimInfo > x14_anims;
-  rstl::vector< s32 > x24_selectionCache;
+  rstl::vector< int > x24_selectionCache;
 };
 CHECK_SIZEOF(CPASAnimState, 0x34)
 

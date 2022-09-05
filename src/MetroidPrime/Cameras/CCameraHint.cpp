@@ -1,7 +1,7 @@
 #include "MetroidPrime/Cameras/CCameraHint.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 
-CCameraHint::CCameraHint(u32 overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, float minDist, float maxDist, float backwardsDist,
+CCameraHint::CCameraHint(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, float minDist, float maxDist, float backwardsDist,
                          CVector3f* lookAtOffset, CVector3f* chaseLookAtOffset, CVector3f* ballToCam, float fov, float attitudeRange,
                          float azimuthRange, float anglePerSecond, float clampVelRange, float clampRotRange, float elevation,
                          float InterpolationTime, float clampVelTime, float controlInterpDur)

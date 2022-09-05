@@ -26,15 +26,15 @@ public:
   : x0_blendMode(trans), x1_matSetIdx(0), x2_flags(kF_DepthCompare | kF_DepthUpdate), x4_color(rgba, rgba, rgba, rgba) {}
   CModelFlags(ETrans trans, CColor color)
   : x0_blendMode(trans), x1_matSetIdx(0), x2_flags(kF_DepthCompare | kF_DepthUpdate), x4_color(color) {}
-  CModelFlags(const CModelFlags& flags, u32 otherFlags)
+  CModelFlags(const CModelFlags& flags, uint otherFlags)
   : x0_blendMode(flags.x0_blendMode), x1_matSetIdx(flags.x1_matSetIdx), x2_flags(otherFlags), x4_color(flags.x4_color) {}
-  CModelFlags(const CModelFlags& flags, bool b /* TODO what's this? */, s32 shaderSet)
+  CModelFlags(const CModelFlags& flags, bool b /* TODO what's this? */, int shaderSet)
   : x0_blendMode(flags.x0_blendMode), x1_matSetIdx(shaderSet), x2_flags(flags.x2_flags), x4_color(flags.x4_color) {}
 
-  CModelFlags UseShaderSet(s32 matSet) { return CModelFlags(*this, false, matSet); }
+  CModelFlags UseShaderSet(int matSet) { return CModelFlags(*this, false, matSet); }
   CModelFlags DontLoadTextures() { return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock); }
   CModelFlags DepthCompareUpdate(bool compare, bool update) {
-    u32 flags = GetOtherFlags();
+    uint flags = GetOtherFlags();
     if (compare) {
       flags |= kF_DepthCompare;
     } else {
@@ -50,8 +50,8 @@ public:
   CModelFlags DepthBackwards() { return CModelFlags(*this, GetOtherFlags() | kF_DepthGreater); }
 
   ETrans GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
-  s32 GetShaderSet() const { return x1_matSetIdx; }
-  u32 GetOtherFlags() const { return x2_flags; }
+  int GetShaderSet() const { return x1_matSetIdx; }
+  uint GetOtherFlags() const { return x2_flags; }
   CColor GetColor() const { return x4_color; }
 
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }

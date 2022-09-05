@@ -9,7 +9,7 @@ public:
   void RegisterTweaks();
 
 private:
-  u32 x0_unk;
+  uint x0_unk;
 };
 
 #endif

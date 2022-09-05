@@ -234,13 +234,13 @@ public:
 
   SAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
 
-  void ProcessSoundEvent(s32 sfxId, f32 weight, s32 flags, f32 fallOff, f32 maxDist, u8 minVol, u8 maxVol, const CVector3f& toListener,
-                         const CVector3f& position, s32 aid, CStateManager& mgr, bool translateId);
+  void ProcessSoundEvent(int sfxId, f32 weight, int flags, f32 fallOff, f32 maxDist, u8 minVol, u8 maxVol, const CVector3f& toListener,
+                         const CVector3f& position, int aid, CStateManager& mgr, bool translateId);
 
   void UpdateSfxEmitters();
   void RemoveEmitter();
   void SetModelData(const CModelData& modelData);
-  f32 GetAverageAnimVelocity(s32 anim);
+  f32 GetAverageAnimVelocity(int anim);
   void EnsureRendered(const CStateManager& mgr) const;
   void EnsureRendered(const CStateManager& mgr, const CVector3f& pos, const CAABox& bounds) const;
   void DrawTouchBounds() const;
@@ -315,38 +315,38 @@ protected:
   CAABox x9c_renderBounds;
   CModelFlags xb4_drawFlags;
   f32 xbc_time;
-  u32 xc0_pitchBend;
+  uint xc0_pitchBend;
   TUniqueId xc4_fluidId;
   TUniqueId xc6_nextDrawNode;
-  s32 xc8_drawnToken;
-  s32 xcc_addedToken;
+  int xc8_drawnToken;
+  int xcc_addedToken;
   f32 xd0_damageMag;
   u8 xd4_maxVol;
   rstl::reserved_vector< CSfxHandle, 2 > xd8_nonLoopingSfxHandles;
-  u32 xe4_24_nextNonLoopingSfxHandle : 3;
-  u32 xe4_27_notInSortedLists : 1;
-  u32 xe4_28_transformDirty : 1;
-  u32 xe4_29_actorLightsDirty : 1;
-  u32 xe4_30_outOfFrustum : 1;
-  u32 xe4_31_calculateLighting : 1;
-  u32 xe5_24_shadowEnabled : 1;
-  u32 xe5_25_shadowDirty : 1;
-  u32 xe5_26_muted : 1;
-  u32 xe5_27_useInSortedLists : 1;
-  u32 xe5_28_callTouch : 1;
-  u32 xe5_29_globalTimeProvider : 1;
-  u32 xe5_30_renderUnsorted : 1;
-  u32 xe5_31_pointGeneratorParticles : 1;
-  u32 xe6_24_fluidCounter : 3;
+  uint xe4_24_nextNonLoopingSfxHandle : 3;
+  uint xe4_27_notInSortedLists : 1;
+  uint xe4_28_transformDirty : 1;
+  uint xe4_29_actorLightsDirty : 1;
+  uint xe4_30_outOfFrustum : 1;
+  uint xe4_31_calculateLighting : 1;
+  uint xe5_24_shadowEnabled : 1;
+  uint xe5_25_shadowDirty : 1;
+  uint xe5_26_muted : 1;
+  uint xe5_27_useInSortedLists : 1;
+  uint xe5_28_callTouch : 1;
+  uint xe5_29_globalTimeProvider : 1;
+  uint xe5_30_renderUnsorted : 1;
+  uint xe5_31_pointGeneratorParticles : 1;
+  uint xe6_24_fluidCounter : 3;
   EThermalFlags xe6_27_thermalVisorFlags : 2;
-  u32 xe6_29_renderParticleDBInside : 1;
-  u32 xe6_30_enablePitchBend : 1;
-  u32 xe6_31_targetableVisorFlags : 4;
-  u32 xe7_27_enableRender : 1;
-  u32 xe7_28_worldLightingDirty : 1;
-  u32 xe7_29_drawEnabled : 1;
-  u32 xe7_30_doTargetDistanceTest : 1;
-  u32 xe7_31_targetable : 1;
+  uint xe6_29_renderParticleDBInside : 1;
+  uint xe6_30_enablePitchBend : 1;
+  uint xe6_31_targetableVisorFlags : 4;
+  uint xe7_27_enableRender : 1;
+  uint xe7_28_worldLightingDirty : 1;
+  uint xe7_29_drawEnabled : 1;
+  uint xe7_30_doTargetDistanceTest : 1;
+  uint xe7_31_targetable : 1;
 };
 CHECK_SIZEOF(CActor, 0xe8)
 

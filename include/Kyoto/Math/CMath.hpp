@@ -8,7 +8,7 @@ public:
   static f32 FastCosR(f32 v);
   static f32 FastSinR(f32 v);
   static inline f32 FastFmod(f32 x, f32 y) {
-    s32 v = static_cast<s32>(x * (1.f / y));
+    int v = static_cast<int>(x * (1.f / y));
     return x - v * y;
   }
 };

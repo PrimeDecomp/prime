@@ -20,12 +20,12 @@ public:
   virtual ~IGameArea();
   virtual const CTransform4f& IGetTM() const = 0;
   virtual CAssetId IGetStringTableAssetId() const = 0;
-  virtual u32 IGetNumAttachedAreas() const = 0;
+  virtual uint IGetNumAttachedAreas() const = 0;
   virtual TAreaId IGetAttachedAreaId(int) const = 0;
   virtual bool IIsActive() const = 0;
   virtual CAssetId IGetAreaAssetId() const = 0;
-  virtual s32 IGetAreaSaveId() const = 0;
-  virtual rstl::pair< rstl::auto_ptr< u8 >, s32 > IGetScriptingMemoryAlways() const = 0;
+  virtual int IGetAreaSaveId() const = 0;
+  virtual rstl::pair< rstl::auto_ptr< u8 >, int > IGetScriptingMemoryAlways() const = 0;
 };
 
 class Dock;
@@ -37,12 +37,12 @@ public:
   ~CGameArea();
   const CTransform4f& IGetTM() const override;
   CAssetId IGetStringTableAssetId() const override;
-  u32 IGetNumAttachedAreas() const override;
+  uint IGetNumAttachedAreas() const override;
   TAreaId IGetAttachedAreaId(int) const override;
   bool IIsActive() const override;
   CAssetId IGetAreaAssetId() const override;
-  s32 IGetAreaSaveId() const override;
-  rstl::pair< rstl::auto_ptr< u8 >, s32 > IGetScriptingMemoryAlways() const override;
+  int IGetAreaSaveId() const override;
+  rstl::pair< rstl::auto_ptr< u8 >, int > IGetScriptingMemoryAlways() const override;
 
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
@@ -61,14 +61,14 @@ private:
   CTransform4f x3c_invTransform;
   CAABox x6c_aabb;
   CAssetId x84_mrea;
-  s32 x88_areaId;
+  int x88_areaId;
   rstl::vector< u16 > x8c_attachedAreaIndices;
   rstl::vector< SObjectTag > x9c_deps1;
   rstl::vector< SObjectTag > xac_deps2;
-  rstl::vector< u32 > xbc_layerDepOffsets;
+  rstl::vector< uint > xbc_layerDepOffsets;
   rstl::vector< Dock > xcc_docks;
   rstl::vector< CToken > xdc_tokens;
-  u32 xec_totalResourcesSize;
+  uint xec_totalResourcesSize;
   bool xf0_24_postConstructed : 1;
   bool xf0_25_active : 1;
   bool xf0_26_tokensReady : 1;

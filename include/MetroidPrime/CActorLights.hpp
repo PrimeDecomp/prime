@@ -31,8 +31,8 @@ private:
   f32 x30_angleC;
   f32 x34_angleL;
   f32 x38_angleQ;
-  u32 x3c_priority;
-  u32 x40_lightId;
+  uint x3c_priority;
+  uint x40_lightId;
   mutable f32 x44_cachedRadius;
   mutable f32 x48_cachedIntensity;
   mutable bool x4c_24_intensityDirty : 1;
@@ -69,19 +69,19 @@ private:
   bool x299_25_useBrightLightLag : 1;
   bool x299_26_ambientOnly : 1;
   bool x29a_findNearestDynamicLights;
-  s32 x29c_shadowLightArrIdx;
-  s32 x2a0_shadowLightIdx;
-  u32 x2a4_lastUpdateFrame;
-  u32 x2a8_areaUpdateFramePeriod;
+  int x29c_shadowLightArrIdx;
+  int x2a0_shadowLightIdx;
+  uint x2a4_lastUpdateFrame;
+  uint x2a8_areaUpdateFramePeriod;
   CVector3f x2ac_actorPosBias;
-  s32 x2b8_maxAreaLights;
-  s32 x2bc_maxDynamicLights;
+  int x2b8_maxAreaLights;
+  int x2bc_maxDynamicLights;
   CVector3f x2c0_lastActorPos;
   f32 x2cc_actorPositionDeltaUpdateThreshold;
   f32 x2d0_shadowDynamicRangeThreshold;
   f32 x2d4_worldLightingLevel;
-  s32 x2d8_brightLightIdx;
-  u32 x2dc_brightLightLag;
+  int x2d8_brightLightIdx;
+  uint x2dc_brightLightLag;
 };
 CHECK_SIZEOF(CActorLights, 0x2e0)
 

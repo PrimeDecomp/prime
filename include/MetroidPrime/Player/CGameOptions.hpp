@@ -19,15 +19,15 @@ public:
 
 private:
   rstl::reserved_vector< bool, 64 > x0_;
-  s32 x44_soundMode; // CAudioSys::ESurroundModes
-  u32 x48_screenBrightness;
-  s32 x4c_screenXOffset;
-  s32 x50_screenYOffset;
-  s32 x54_screenStretch;
-  u32 x58_sfxVol;
-  u32 x5c_musicVol;
-  u32 x60_hudAlpha;
-  u32 x64_helmetAlpha;
+  int x44_soundMode; // CAudioSys::ESurroundModes
+  uint x48_screenBrightness;
+  int x4c_screenXOffset;
+  int x50_screenYOffset;
+  int x54_screenStretch;
+  uint x58_sfxVol;
+  uint x5c_musicVol;
+  uint x60_hudAlpha;
+  uint x64_helmetAlpha;
   bool x68_24_hudLag : 1;
   bool x68_25_invertY : 1;
   bool x68_26_rumble : 1;

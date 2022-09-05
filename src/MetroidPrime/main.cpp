@@ -111,7 +111,7 @@ void CMain::RefreshGameState() {
 // 8000487C
 void CMain::EnsureWorldPaksReady(void) {
   CResLoader& resLoader = gpResourceFactory->GetResLoader();
-  for (s32 i = 0; i < resLoader.GetPakCount(); ++i) {
+  for (int i = 0; i < resLoader.GetPakCount(); ++i) {
     CPakFile& file = resLoader.GetPakFile(i);
     if (file.IsWorldPak()) {
       file.EnsureWorldPakReady();
@@ -132,9 +132,9 @@ void CMain::AddWorldPaks() {
 }
 
 // 80004CE8
-void CMain::AsyncIdle(u32 time) {
+void CMain::AsyncIdle(uint time) {
   if (time < 500) {
-    u32 total = 0;
+    uint total = 0;
     for (int i = 0; i < x130_frameTimes.capacity(); ++i) {
       total += x130_frameTimes[i];
     }
@@ -233,7 +233,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
         x104_.AddValue(t2 / dt);
         x11c_ = x104_.GetAverage().data();
 
-        u32 idleMicros;
+        uint idleMicros;
         f64 idleTime = (dt - (t1 + t2)) - 0.00075;
         if (idleTime > 0)
           idleMicros = idleTime * 1000000;

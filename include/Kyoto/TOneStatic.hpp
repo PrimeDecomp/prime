@@ -18,8 +18,8 @@ private:
     static u8 sAllocSpace[sizeof(T)];
     return &sAllocSpace;
   }
-  static u32& ReferenceCount() {
-    static u32 sReferenceCount = 0;
+  static uint& ReferenceCount() {
+    static uint sReferenceCount = 0;
     return sReferenceCount;
   }
 };

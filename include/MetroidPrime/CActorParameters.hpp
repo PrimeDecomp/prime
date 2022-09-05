@@ -41,7 +41,7 @@ public:
 
   const CColor& GetAmbientColor() const { return x18_noLightsAmbient; }
   bool ShouldMakeLights() const { return x1c_makeLights; }
-  s32 GetMaxAreaLights() const { return x3c_maxAreaLights; }
+  int GetMaxAreaLights() const { return x3c_maxAreaLights; }
 
   rstl::auto_ptr< CActorLights > MakeActorLights() const;
 
@@ -56,10 +56,10 @@ private:
   bool x1d_ambientChannelOverflow;
   EWorldLightingOptions x20_worldLightingOptions;
   ELightRecalculationOptions x24_lightRecalcOpts;
-  s32 x28_layerIdx;
+  int x28_layerIdx;
   CVector3f x2c_actorPosBias;
-  s32 x38_maxDynamicLights;
-  s32 x3c_maxAreaLights;
+  int x38_maxDynamicLights;
+  int x3c_maxAreaLights;
 };
 CHECK_SIZEOF(CLightParameters, 0x40)
 
@@ -90,9 +90,9 @@ public:
   static CVisorParameters None();
 
 private:
-  u32 x0_mask : 4;
-  u32 x0_4_b1 : 1;
-  u32 x0_5_scanPassthrough : 1;
+  uint x0_mask : 4;
+  uint x0_4_b1 : 1;
+  uint x0_5_scanPassthrough : 1;
 };
 CHECK_SIZEOF(CVisorParameters, 0x4)
 

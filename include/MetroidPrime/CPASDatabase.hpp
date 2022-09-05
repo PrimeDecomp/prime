@@ -10,7 +10,7 @@
 class CPASDatabase {
 private:
   rstl::vector< CPASAnimState > x0_states;
-  s32 x10_defaultState;
+  int x10_defaultState;
 };
 CHECK_SIZEOF(CPASDatabase, 0x14)
 

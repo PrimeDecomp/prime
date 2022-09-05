@@ -12,7 +12,7 @@ private:
   rstl::string x18_boneName;
   f32 x28_scale;
   CParticleData::EParentedMode x2c_parentedMode;
-  u32 x30_flags;
+  uint x30_flags;
 };
 
 #endif

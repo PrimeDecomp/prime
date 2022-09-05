@@ -29,15 +29,15 @@ private:
   CAssetId x14_cmdl;
   CAssetId x18_cksr;
   CAssetId x1c_cinf;
-  rstl::vector< rstl::pair< s32, rstl::pair< rstl::string, rstl::string > > > x20_animInfo;
+  rstl::vector< rstl::pair< int, rstl::pair< rstl::string, rstl::string > > > x20_animInfo;
   CPASDatabase x30_pasDatabase;
   CParticleResData x44_partRes;
-  u32 x84_unk;
+  uint x84_unk;
   rstl::vector< rstl::pair< rstl::string, CAABox > > x88_aabbs;
   rstl::vector< rstl::pair< rstl::string, rstl::vector< CEffectComponent > > > x98_effects;
-  u32 xa8_cmdlOverlay;
-  u32 xac_cksrOverlay;
-  rstl::vector< s32 > xb0_animIdxs;
+  uint xa8_cmdlOverlay;
+  uint xac_cksrOverlay;
+  rstl::vector< int > xb0_animIdxs;
 };
 CHECK_SIZEOF(CCharacterInfo, 0xc0)
 

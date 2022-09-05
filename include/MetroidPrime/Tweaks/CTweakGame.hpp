@@ -10,7 +10,7 @@ public:
   const rstl::string& GetWorldPrefix() { return x4_worldPrefix; }
 
 private:
-  u32 x0_;
+  uint x0_;
   rstl::string x4_worldPrefix;
 };
 

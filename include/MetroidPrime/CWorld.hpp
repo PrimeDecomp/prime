@@ -25,7 +25,7 @@ public:
   virtual TAreaId IGetAreaId(CAssetId id) const = 0;
   virtual bool ICheckWorldComplete() = 0;
   virtual rstl::string IGetDefaultAudioTrack() const = 0;
-  virtual s32 IGetAreaCount() const = 0;
+  virtual int IGetAreaCount() const = 0;
 };
 
 class CGameArea;
@@ -55,7 +55,7 @@ public:
   TAreaId IGetAreaId(CAssetId id) const override;
   bool ICheckWorldComplete() override;
   rstl::string IGetDefaultAudioTrack() const override;
-  s32 IGetAreaCount() const override;
+  int IGetAreaCount() const override;
 
   const CGameArea& GetAreaAlways(TAreaId id) const {
     return *x18_areas[id.Value()];
@@ -87,13 +87,13 @@ private:
   rstl::vector< CRelay > x2c_relays;
   rstl::rc_ptr< IDvdRequest > x3c_loadToken;
   rstl::single_ptr< u8 > x40_loadBuf;
-  u32 x44_bufSz;
-  u32 x48_chainCount;
+  uint x44_bufSz;
+  uint x48_chainCount;
   CGameArea* x4c_chainHeads[5];
   IObjectStore* x60_objectStore;
   IFactory* x64_resFactory;
   TAreaId x68_curAreaId;
-  u32 x6c_loadedAudioGrpCount;
+  uint x6c_loadedAudioGrpCount;
   bool x70_24_currentAreaNeedsAllocation : 1;
   bool x70_25_loadPaused : 1;
   bool x70_26_skyboxActive : 1;

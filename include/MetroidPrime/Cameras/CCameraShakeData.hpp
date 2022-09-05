@@ -34,8 +34,8 @@ private:
   CCameraShakerComponent x8_shakerX;
   CCameraShakerComponent x44_shakerY;
   CCameraShakerComponent x80_shakerZ;
-  u32 xbc_shakerId;
-  u32 xc0_flags;
+  uint xbc_shakerId;
+  uint xc0_flags;
   CVector3f xc4_sfxPos;
   f32 xd0_sfxDist;
 };

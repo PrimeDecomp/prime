@@ -28,14 +28,14 @@ private:
   TUniqueId x0_curCameraId;
   rstl::vector< TUniqueId > x4_cineCameras;
   rstl::list< CCameraShakeData > x14_shakers;
-  u32 x2c_lastShakeId;
+  uint x2c_lastShakeId;
   CVector3f x30_shakeOffset;
   CAreaFog x3c_fog;
-  s32 x74_fluidCounter;
+  int x74_fluidCounter;
   TUniqueId x78_fluidId;
   CFirstPersonCamera* x7c_fpCamera;
   CBallCamera* x80_ballCamera;
-  s32 x84_rumbleId;
+  int x84_rumbleId;
   CInterpolationCamera* x88_interpCamera;
   s16 x8c_;
   f32 x90_rumbleCooldown;
@@ -48,8 +48,8 @@ private:
   TUniqueId xa2_spindleCamId;
   TUniqueId xa4_pathCamId;
   TUniqueId xa6_camHintId;
-  s32 xa8_hintPriority;
-  rstl::reserved_vector< rstl::pair< s32, TUniqueId >, 64 > xac_cameraHints;
+  int xa8_hintPriority;
+  rstl::reserved_vector< rstl::pair< int, TUniqueId >, 64 > xac_cameraHints;
   rstl::reserved_vector< TUniqueId, 64 > x2b0_inactiveCameraHints;
   rstl::reserved_vector< TUniqueId, 64 > x334_activeCameraHints;
   bool x3b8_24_ : 1;

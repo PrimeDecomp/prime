@@ -6,7 +6,7 @@
 class CSfxHandle {
 public:
   CSfxHandle() : value(0) {}
-  CSfxHandle(u32 value) : value(value) {}
+  CSfxHandle(uint value) : value(value) {}
 
   // GetIndex__10CSfxHandleCFv
   // NullHandle__10CSfxHandleFv
@@ -16,7 +16,7 @@ public:
   operator bool() const { return value != 0; }
 
 private:
-  u32 value;
+  uint value;
 };
 CHECK_SIZEOF(CSfxHandle, 0x4)
 

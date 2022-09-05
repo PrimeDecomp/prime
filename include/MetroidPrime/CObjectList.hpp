@@ -37,10 +37,10 @@ public:
   const CEntity* GetObjectById() const;
   CEntity* GetValidObjectById(TUniqueId uid);
   const CEntity* GetValidObjectById(TUniqueId uid) const;
-  CEntity* operator[](s32 idx);
-  const CEntity* operator[](s32 idx) const;
-  const CEntity* GetValidObjectByIndex(s32 idx) const;
-  s32 size() const { return mCount; }
+  CEntity* operator[](int idx);
+  const CEntity* operator[](int idx) const;
+  const CEntity* GetValidObjectByIndex(int idx) const;
+  int size() const { return mCount; }
 
 private:
   SObjectListEntry mObjects[1024];

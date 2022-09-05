@@ -27,19 +27,19 @@ public:
   EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
   const CCharAnimTime& GetTime() const { return x1c_time; }
   f32 GetWeight() const { return x2c_weight; }
-  s32 GetCharacterIndex() const { return x30_charIdx; }
-  s32 GetFlags() const { return x34_flags; }
+  int GetCharacterIndex() const { return x30_charIdx; }
+  int GetFlags() const { return x34_flags; }
 
 protected:
   u16 x4_;
   rstl::string x8_name;
   u16 x18_type;
   CCharAnimTime x1c_time;
-  s32 x24_index;
+  int x24_index;
   bool x28_unique;
   f32 x2c_weight;
-  s32 x30_charIdx;
-  s32 x34_flags;
+  int x30_charIdx;
+  int x34_flags;
 };
 CHECK_SIZEOF(CPOINode, 0x38)
 
@@ -60,11 +60,11 @@ public:
   // __ct__13CInt32POINodeFQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UsRC13CCharAnimTimeibfiiiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
   // CopyNodeMinusStartTime__13CInt32POINodeFRC13CInt32POINodeRC13CCharAnimTime
 
-  s32 GetValue() const { return x38_val; }
+  int GetValue() const { return x38_val; }
   const rstl::string& GetLocatorName() const { return x3c_lctrName; }
 
 private:
-  s32 x38_val;
+  int x38_val;
   rstl::string x3c_lctrName;
 };
 
@@ -75,12 +75,12 @@ private:
 
 class CSoundPOINode : public CPOINode {
 public:
-  u32 GetSoundId() const { return x38_sfxId; }
+  uint GetSoundId() const { return x38_sfxId; }
   f32 GetFallOff() const { return x3c_falloff; }
   f32 GetMaxDistance() const { return x40_maxDist; }
 
 private:
-  u32 x38_sfxId;
+  uint x38_sfxId;
   f32 x3c_falloff;
   f32 x40_maxDist;
 };

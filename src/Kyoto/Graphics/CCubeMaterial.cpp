@@ -7,7 +7,7 @@
 #include <dolphin/mtx.h>
 
 inline void CGX::SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1) {
-  u32 flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) | MaskAndShiftLeft(op, 7, 11) |
+  uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) | MaskAndShiftLeft(op, 7, 11) |
               MaskAndShiftLeft(comp1, 7, 14) | MaskAndShiftLeft(ref1, 0xFF, 17);
   if (sGXState.x248_alphaCompare != flags) {
     sGXState.x248_alphaCompare = flags;
@@ -16,7 +16,7 @@ inline void CGX::SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompa
   }
 }
 inline void CGX::SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac, GXLogicOp op) {
-  u32 flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) | MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
+  uint flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) | MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
   if (flags != sGXState.x56_blendMode) {
     update_fog(flags);
     sGXState.x56_blendMode = flags;
@@ -25,7 +25,7 @@ inline void CGX::SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFac
 }
 inline void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap, GXChannelID color) {
   STevState& state = sGXState.x68_tevStates[stageId];
-  u32 flags = MaskAndShiftLeft(texCoord, 0xFF, 0) | MaskAndShiftLeft(texMap, 0xFF, 8) | MaskAndShiftLeft(color, 0xFF, 16);
+  uint flags = MaskAndShiftLeft(texCoord, 0xFF, 0) | MaskAndShiftLeft(texMap, 0xFF, 8) | MaskAndShiftLeft(color, 0xFF, 16);
   if (state.x14_tevOrderFlags != flags) {
     state.x14_tevOrderFlags = flags;
     GXSetTevOrder(stageId, texCoord, texMap, color);
@@ -52,7 +52,7 @@ CVector3f sPlayerPosition;
 CVector3f CCubeMaterial::sViewingFrom;
 static CTransform4f sTextureProjectionTransform = CTransform4f::Identity();
 
-void CCubeMaterial::SetupBlendMode(u32 blendFactors, const CModelFlags& flags, bool alphaTest) {
+void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest) {
   GXBlendFactor newSrcFactor = static_cast< GXBlendFactor >(blendFactors & 0xFFFF);
   GXBlendFactor newDstFactor = static_cast< GXBlendFactor >(blendFactors >> 0x10);
   CModelFlags::ETrans blendMode = flags.GetTrans();
@@ -73,24 +73,24 @@ void CCubeMaterial::SetupBlendMode(u32 blendFactors, const CModelFlags& flags, b
   CGX::SetBlendMode(GX_BM_BLEND, newSrcFactor, newDstFactor, GX_LO_CLEAR);
 }
 
-void HandleTev(s32 tevCur, const u32* materialDataCur, const u32* texMapTexCoordFlags, bool shadowMapsEnabled) {
+void HandleTev(int tevCur, const uint* materialDataCur, const uint* texMapTexCoordFlags, bool shadowMapsEnabled) {
   const GXTevStageID stage = static_cast< GXTevStageID >(tevCur);
-  const u32 colorArgs = shadowMapsEnabled ? 0x7a04f : SBig(materialDataCur[0]);
-  const u32 alphaArgs = SBig(materialDataCur[1]);
-  const u32 colorOps = SBig(materialDataCur[2]);
-  const u32 alphaOps = SBig(materialDataCur[3]);
+  const uint colorArgs = shadowMapsEnabled ? 0x7a04f : SBig(materialDataCur[0]);
+  const uint alphaArgs = SBig(materialDataCur[1]);
+  const uint colorOps = SBig(materialDataCur[2]);
+  const uint alphaOps = SBig(materialDataCur[3]);
 
   CGX::SetStandardDirectTev_Compressed(stage, colorArgs, alphaArgs, colorOps, alphaOps);
 
-  u32 tmtcFlags = SBig(*texMapTexCoordFlags);
-  u32 matFlags = SBig(materialDataCur[4]);
+  uint tmtcFlags = SBig(*texMapTexCoordFlags);
+  uint matFlags = SBig(materialDataCur[4]);
   CGX::SetTevOrder(stage, static_cast< GXTexCoordID >(tmtcFlags & 0xFF), static_cast< GXTexMapID >(tmtcFlags >> 8 & 0xFF),
                    static_cast< GXChannelID >(matFlags & 0xFF));
   CGX::SetTevKColorSel(stage, static_cast< GXTevKColorSel >(matFlags >> 0x8 & 0xFF));
   CGX::SetTevKAlphaSel(stage, static_cast< GXTevKAlphaSel >(matFlags >> 0x10 & 0xFF));
 }
 
-u32 HandleAnimatedUV(const u32* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) {
+uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) {
   static const Mtx postMtx = {
       {0.5f, 0.0f, 0.0f, 0.5f},
       {0.0f, 0.0f, 0.5f, 0.5f},
@@ -101,7 +101,7 @@ u32 HandleAnimatedUV(const u32* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) {
       {0.0f, 0.0f, 0.5f, 0.5f},
       {0.0f, 0.0f, 0.0f, 1.0f},
   };
-  u32 type = SBig(*uvAnim);
+  uint type = SBig(*uvAnim);
   const f32* params = reinterpret_cast< const f32* >(uvAnim + 1);
   switch (type) {
   case 0: {
