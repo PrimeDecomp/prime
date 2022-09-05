@@ -21,14 +21,14 @@ class CRandom16 {
     static void _SetRandomNumber(CRandom16* rnd);
 public:
     static CRandom16* GetRandomNumber();
-    CRandom16(u32 seed = 99);
-    void SetSeed(u32 seed);
-    s32 Range(s32 min, s32 max);
+    CRandom16(uint seed = 99);
+    void SetSeed(uint seed);
+    int Range(int min, int max);
     float Range(float min, float max);
-    s32 Next();
+    int Next();
     float Float();
 private:
-    u32 mSeed;
+    uint mSeed;
 };
 
 #endif // __CRANDOM16_HPP__

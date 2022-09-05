@@ -4,7 +4,7 @@
 
 #include "Kyoto/Alloc/CMemory.hpp"
 
-CInputStream::CInputStream(s32 len)
+CInputStream::CInputStream(int len)
 : x4_blockOffset(0)
 , x8_blockLen(0)
 , xc_len(len)
@@ -14,7 +14,7 @@ CInputStream::CInputStream(s32 len)
 , x1c_bitWord(0)
 , x20_bitOffset(0) {}
 
-CInputStream::CInputStream(const void* ptr, s32 len, bool owned)
+CInputStream::CInputStream(const void* ptr, int len, bool owned)
 : x4_blockOffset(0)
 , x8_blockLen(len)
 , xc_len(len)
@@ -39,12 +39,12 @@ bool CInputStream::InternalReadNext() {
 bool CInputStream::GrabAnotherBlock() { return InternalReadNext(); }
 
 void CInputStream::Get(void* dest, unsigned long len) {
-  u32 remain = len;
-  u32 readCount = 0;
+  uint remain = len;
+  uint readCount = 0;
   x20_bitOffset = 0;
 
   while (remain != 0) {
-    u32 blockLen = x8_blockLen - x4_blockOffset;
+    uint blockLen = x8_blockLen - x4_blockOffset;
     blockLen = remain < blockLen ? remain : blockLen;
 
     if (blockLen != 0) {
@@ -53,7 +53,7 @@ void CInputStream::Get(void* dest, unsigned long len) {
       readCount += blockLen;
       x4_blockOffset += blockLen;
     } else if (remain > 256) {
-      u32 readLen = Read(reinterpret_cast< u8* >(dest) + readCount, remain);
+      uint readLen = Read(reinterpret_cast< u8* >(dest) + readCount, remain);
       remain -= readLen;
       readCount += readLen;
     } else {
@@ -64,7 +64,7 @@ void CInputStream::Get(void* dest, unsigned long len) {
   x18_readPosition += readCount;
 }
 
-u32 CInputStream::ReadBytes(void* dest, unsigned long len) {
+uint CInputStream::ReadBytes(void* dest, unsigned long len) {
   if (len == 0) {
     return 0;
   }
@@ -73,11 +73,11 @@ u32 CInputStream::ReadBytes(void* dest, unsigned long len) {
     GrabAnotherBlock();
   }
 
-  u32 curLen = len;
-  u32 curReadLen = 0;
+  uint curLen = len;
+  uint curReadLen = 0;
 
   while (curReadLen < len) {
-    u32 remain = x8_blockLen - x4_blockOffset;
+    uint remain = x8_blockLen - x4_blockOffset;
     if (remain == 0) {
       if (InternalReadNext()) {
         continue;
@@ -86,7 +86,7 @@ u32 CInputStream::ReadBytes(void* dest, unsigned long len) {
       }
     }
 
-    u32 sz = curLen < remain ? curLen : remain;
+    uint sz = curLen < remain ? curLen : remain;
     memcpy(reinterpret_cast< u8* >(dest) + curReadLen, x10_ptr + x4_blockOffset, sz);
     curReadLen += sz;
     curLen -= sz;
@@ -97,41 +97,41 @@ u32 CInputStream::ReadBytes(void* dest, unsigned long len) {
   return curReadLen;
 }
 
-static inline u32 BitsToBytes(u32 bits) { return (bits / 8) + ((bits % 8) ? 1 : 0); }
+static inline uint BitsToBytes(uint bits) { return (bits / 8) + ((bits % 8) ? 1 : 0); }
 
-u32 CInputStream::ReadBits(u32 bitCount) {
+uint CInputStream::ReadBits(uint bitCount) {
   if (x20_bitOffset >= bitCount) {
-    u32 mask = 0xffffffff;
-    u32 bwShift = 32 - bitCount;
+    uint mask = 0xffffffff;
+    uint bwShift = 32 - bitCount;
     if (bitCount != 0x20) {
       mask = (1 << bitCount) - 1;
     }
-    u32 ret = mask & (x1c_bitWord >> bwShift);
+    uint ret = mask & (x1c_bitWord >> bwShift);
 
     x20_bitOffset -= bitCount;
     x1c_bitWord <<= bitCount;
     return ret;
   }
 
-  u32 shiftAmt = bitCount - x20_bitOffset;
+  uint shiftAmt = bitCount - x20_bitOffset;
 
-  u32 ret = 0;
+  uint ret = 0;
   {
-    u32 mask = 0xffffffff;
-    u32 bwShift = 32 - x20_bitOffset;
+    uint mask = 0xffffffff;
+    uint bwShift = 32 - x20_bitOffset;
     if (x20_bitOffset != 0x20) {
       mask = (1 << x20_bitOffset) - 1;
     }
     ret = (mask & (x1c_bitWord >> bwShift)) << shiftAmt;
   }
 
-  u32 len = BitsToBytes(shiftAmt);
+  uint len = BitsToBytes(shiftAmt);
   x20_bitOffset = 0;
   Get(&x1c_bitWord, len);
 
   {
-    u32 mask = 0xffffffff;
-    u32 bwShift = 32 - shiftAmt;
+    uint mask = 0xffffffff;
+    uint bwShift = 32 - shiftAmt;
     if (shiftAmt != 0x20) {
       mask = (1 << shiftAmt) - 1;
     }
@@ -158,9 +158,9 @@ u16 CInputStream::ReadShort() {
   return s;
 }
 
-u32 CInputStream::ReadLong() {
-  static u32 l;
-  Get(&l, sizeof(u32));
+uint CInputStream::ReadLong() {
+  static uint l;
+  Get(&l, sizeof(uint));
   return l;
 }
 

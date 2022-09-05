@@ -44,25 +44,25 @@ CColor CColor::Lerp(const CColor& a, const CColor& b, float t) {
                 omt * a.GetAlpha() + t * b.GetAlpha());
 }
 
-u32 CColor::Lerp(u32 a, u32 b, float t) {
-  u32 alpha = t * 256.f;
+uint CColor::Lerp(uint a, uint b, float t) {
+  uint alpha = t * 256.f;
 
-  u32 dstrb = a & 0xff00ff;
-  u32 dstag = a >> 8 & 0xff00ff;
+  uint dstrb = a & 0xff00ff;
+  uint dstag = a >> 8 & 0xff00ff;
 
-  u32 srcrb = b & 0xff00ff;
-  u32 srcag = b >> 8 & 0xff00ff;
+  uint srcrb = b & 0xff00ff;
+  uint srcag = b >> 8 & 0xff00ff;
 
-  u32 drb = srcrb - dstrb;
-  u32 dag = srcag - dstag;
+  uint drb = srcrb - dstrb;
+  uint dag = srcag - dstag;
 
   drb *= alpha;
   dag *= alpha;
   drb >>= 8;
   dag >>= 8;
 
-  const u32 rb = (drb + dstrb) & 0x00ff00ff;
-  const u32 ag = (dag + dstag) << 8 & 0xff00ff00;
+  const uint rb = (drb + dstrb) & 0x00ff00ff;
+  const uint ag = (dag + dstag) << 8 & 0xff00ff00;
 
   return rb | ag;
 }
@@ -73,10 +73,10 @@ CColor CColor::Modulate(const CColor& a, const CColor& b) {
 }
 
 CColor CColor::Add(const CColor& arg0, const CColor& arg1) {
-  return CColor((u8)rstl::min_val< u32 >(255, arg0.GetRedu8() + arg1.GetRedu8()),
-                (u8)rstl::min_val< u32 >(255, arg0.GetGreenu8() + arg1.GetGreenu8()),
-                (u8)rstl::min_val< u32 >(255, arg0.GetBlueu8() + arg1.GetBlueu8()),
-                (u8)rstl::min_val< u32 >(255, arg0.GetAlphau8() + arg1.GetAlphau8()));
+  return CColor((u8)rstl::min_val< uint >(255, arg0.GetRedu8() + arg1.GetRedu8()),
+                (u8)rstl::min_val< uint >(255, arg0.GetGreenu8() + arg1.GetGreenu8()),
+                (u8)rstl::min_val< uint >(255, arg0.GetBlueu8() + arg1.GetBlueu8()),
+                (u8)rstl::min_val< uint >(255, arg0.GetAlphau8() + arg1.GetAlphau8()));
 }
 
 u16 CColor::ToRGB5A3() const {

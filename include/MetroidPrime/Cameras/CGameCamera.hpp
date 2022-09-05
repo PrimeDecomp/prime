@@ -22,7 +22,7 @@ private:
   f32 x160_znear;
   f32 x164_zfar;
   f32 x168_aspect;
-  u32 x16c_controllerIdx;
+  uint x16c_controllerIdx;
   mutable bool x170_24_perspDirty : 1;
   bool x170_25_disablesInput : 1;
   f32 x174_delayTime;

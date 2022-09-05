@@ -11,34 +11,34 @@ static const wchar_t skInvalidString[] = L"Invalid";
 CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) {
   in.ReadLong();
   in.ReadLong();
-  s32 langCount = in.Get(TType< s32 >());
-  x0_stringCount = in.Get(TType< u32 >());
-  rstl::vector< rstl::pair< FourCC, u32 > > langOffsets(langCount);
-  for (s32 i = 0; i < langCount; ++i) {
-    langOffsets.push_back(in.Get(TType< rstl::pair< FourCC, u32 > >()));
+  int langCount = in.Get(TType< int >());
+  x0_stringCount = in.Get(TType< uint >());
+  rstl::vector< rstl::pair< FourCC, uint > > langOffsets(langCount);
+  for (int i = 0; i < langCount; ++i) {
+    langOffsets.push_back(in.Get(TType< rstl::pair< FourCC, uint > >()));
   }
 
-  s32 offset = langOffsets.front().second;
-  for (s32 i = 0; i < langCount; ++i) {
+  int offset = langOffsets.front().second;
+  for (int i = 0; i < langCount; ++i) {
     if (langOffsets[i].first == mCurrentLanguage) {
       offset = langOffsets[i].second;
       break;
     }
   }
-  for (u32 i = 0; i < offset; ++i) {
+  for (uint i = 0; i < offset; ++i) {
     in.ReadChar();
   }
 
-  u32 dataLen = in.Get(TType< u32 >());
+  uint dataLen = in.Get(TType< uint >());
   x4_data = new u8[dataLen];
   in.ReadBytes(x4_data.get(), dataLen);
 }
 
-const wchar_t* CStringTable::GetString(s32 idx) const {
+const wchar_t* CStringTable::GetString(int idx) const {
   if (idx < 0 || idx >= x0_stringCount) {
     return skInvalidString;
   }
-  s32 offset = *(reinterpret_cast< const s32* >(x4_data.get()) + idx);
+  int offset = *(reinterpret_cast< const int* >(x4_data.get()) + idx);
   return reinterpret_cast< const wchar_t* >(x4_data.get() + offset);
 }
 

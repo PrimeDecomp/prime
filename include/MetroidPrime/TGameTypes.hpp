@@ -12,11 +12,11 @@ extern TEditorId kInvalidEditorId;
 extern TUniqueId kInvalidUniqueId;
 
 struct TAreaId {
-  s32 value;
+  int value;
 
   TAreaId() : value(-1) {}
-  TAreaId(s32 value) : value(value) {}
-  s32 Value() const { return value; }
+  TAreaId(int value) : value(value) {}
+  int Value() const { return value; }
 
   bool operator==(const TAreaId& other) const { return value == other.value; }
   bool operator!=(const TAreaId& other) const { return value != other.value; }
@@ -24,11 +24,11 @@ struct TAreaId {
 CHECK_SIZEOF(TAreaId, 0x4)
 
 struct TEditorId {
-  u32 value;
+  uint value;
 
   TEditorId() : value(-1) {}
-  TEditorId(u32 value) : value(value) {}
-  u32 Value() const { return value; }
+  TEditorId(uint value) : value(value) {}
+  uint Value() const { return value; }
 
   bool operator==(const TEditorId& other) const { return value == other.value; }
   bool operator!=(const TEditorId& other) const { return value != other.value; }

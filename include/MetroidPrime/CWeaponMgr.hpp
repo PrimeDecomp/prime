@@ -10,7 +10,7 @@
 
 class CWeaponMgr {
 private:
-  rstl::map< TUniqueId, rstl::reserved_vector< s32, 15 > > x0_weapons;
+  rstl::map< TUniqueId, rstl::reserved_vector< int, 15 > > x0_weapons;
 };
 CHECK_SIZEOF(CWeaponMgr, 0x14);
 

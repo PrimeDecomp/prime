@@ -5,8 +5,8 @@
 
 class CVector2i {
 private:
-  s32 x;
-  s32 y;
+  int x;
+  int y;
 };
 
 #endif

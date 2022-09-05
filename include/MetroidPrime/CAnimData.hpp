@@ -36,22 +36,22 @@ public:
     x120_particleDB.SetParticleEffectState(name, active, mgr);
   }
 
-  s32 GetCharacterIndex() const { return x204_charIdx; }
-  f32 GetAverageVelocity(s32 idx) const;
+  int GetCharacterIndex() const { return x204_charIdx; }
+  f32 GetAverageVelocity(int idx) const;
 
-  const CBoolPOINode* GetBoolPOIList(s32& count) const {
+  const CBoolPOINode* GetBoolPOIList(int& count) const {
     count = x20c_passedBoolCount;
     return mBoolPOINodes.data();
   }
-  const CInt32POINode* GetInt32POIList(s32& count) const {
+  const CInt32POINode* GetInt32POIList(int& count) const {
     count = x210_passedIntCount;
     return mInt32POINodes.data();
   }
-  const CParticlePOINode* GetParticlePOIList(s32& count) const {
+  const CParticlePOINode* GetParticlePOIList(int& count) const {
     count = x214_passedParticleCount;
     return mParticlePOINodes.data();
   }
-  const CSoundPOINode* GetSoundPOIList(s32& count) const {
+  const CSoundPOINode* GetSoundPOIList(int& count) const {
     count = x218_passedSoundCount;
     return mSoundPOINodes.data();
   }
@@ -171,13 +171,13 @@ private:
   rstl::rc_ptr< CAnimTreeNode > x1f8_animRoot;
   rstl::rc_ptr< CTransitionManager > x1fc_transMgr;
   f32 x200_speedScale;
-  s32 x204_charIdx;
-  s32 x208_defaultAnim;
-  s32 x20c_passedBoolCount;
-  s32 x210_passedIntCount;
-  s32 x214_passedParticleCount;
-  s32 x218_passedSoundCount;
-  s32 x21c_particleLightIdx;
+  int x204_charIdx;
+  int x208_defaultAnim;
+  int x20c_passedBoolCount;
+  int x210_passedIntCount;
+  int x214_passedParticleCount;
+  int x218_passedSoundCount;
+  int x21c_particleLightIdx;
   bool x220_24_animating : 1;
   bool x220_25_loop : 1;
   bool x220_26_aligningPos : 1;
@@ -189,7 +189,7 @@ private:
   CPoseAsTransforms x224_pose;
   CHierarchyPoseBuilder x2fc_poseBuilder;
   CAnimPlaybackParms x40c_playbackParms;
-  rstl::reserved_vector< rstl::pair< s32, CAdditiveAnimPlayback >, 8 > x434_additiveAnims;
+  rstl::reserved_vector< rstl::pair< int, CAdditiveAnimPlayback >, 8 > x434_additiveAnims;
 
   static rstl::reserved_vector< CBoolPOINode, 8 > mBoolPOINodes;
   static rstl::reserved_vector< CInt32POINode, 16 > mInt32POINodes;

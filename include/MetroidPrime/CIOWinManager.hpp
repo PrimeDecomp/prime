@@ -12,8 +12,8 @@ public:
   inline bool IsEmpty() const { return x4_ == 0 && x0_ == 0; }
 
 private:
-  u32 x0_;
-  u32 x4_;
+  uint x0_;
+  uint x4_;
   rstl::list< unkptr > x8_;
 };
 

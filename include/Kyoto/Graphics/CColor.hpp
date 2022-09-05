@@ -15,7 +15,7 @@ class CInputStream;
 class CColor {
 public:
   CColor() {}
-  CColor(u32 col) : mRgba(col) {}
+  CColor(uint col) : mRgba(col) {}
   CColor(CInputStream& in);
   CColor(f32 r, f32 g, f32 b, f32 a = 1.f);
   CColor(u8 r, u8 g, u8 b, u8 a = 255) {
@@ -29,7 +29,7 @@ public:
   void Get(float& r, float& g, float& b, float& a) const;
   void Get(float& r, float& g, float& b) const;
   static CColor Lerp(const CColor& a, const CColor& b, float t);
-  static u32 Lerp(u32 a, u32 b, float t);
+  static uint Lerp(uint a, uint b, float t);
   static CColor Modulate(const CColor& a, const CColor& b);
   static CColor Add(const CColor& a, const CColor& b);
   f32 GetRed() const { return CCast::ToReal32(mR) * (1/255.f); }
@@ -41,7 +41,7 @@ public:
   u8 GetBlueu8() const { return mB; }
   u8 GetAlphau8() const { return mA; }
   u16 ToRGB5A3() const;
-  GXColor ToGX(u32);
+  GXColor ToGX(uint);
 
   static const CColor& Black();
   static const CColor& White();
@@ -61,7 +61,7 @@ private:
       u8 mB;
       u8 mA;
     };
-    u32 mRgba;
+    uint mRgba;
   };
 
   static const CColor sBlackColor;

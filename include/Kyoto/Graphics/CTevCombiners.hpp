@@ -87,7 +87,7 @@ public:
 
   class CTevPass {
   public:
-    u32 x0_id;
+    uint x0_id;
     ColorPass x4_colorPass;
     AlphaPass x14_alphaPass;
     CTevOp x24_colorOp;

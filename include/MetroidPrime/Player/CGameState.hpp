@@ -26,7 +26,7 @@ public:
   CSystemOptions& SystemOptions() { return xa8_systemOptions; }
   CGameOptions& GameOptions() { return x17c_gameOptions; }
   CHintOptions& HintOptions() { return x1f8_hintOptions; }
-  u32& SaveIdx() { return x20c_saveIdx; }
+  uint& SaveIdx() { return x20c_saveIdx; }
   u64& CardSerial() { return x210_cardSerial; }
   rstl::vector< u8 >& BackupBuf() { return x218_backupBuf; }
 
@@ -40,7 +40,7 @@ private:
   CSystemOptions xa8_systemOptions;
   CGameOptions x17c_gameOptions;
   CHintOptions x1f8_hintOptions;
-  u32 x20c_saveIdx;
+  uint x20c_saveIdx;
   u64 x210_cardSerial;
   rstl::vector< u8 > x218_backupBuf;
   bool x228_24_hardMode : 1;

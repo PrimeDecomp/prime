@@ -4,7 +4,7 @@
 
 class CCRC32 {
 public:
-    static u32 Calculate(const void* data, u32 length);
+    static uint Calculate(const void* data, uint length);
 };
 
 #endif // __CCRC32_HPP__

@@ -8,7 +8,7 @@
 namespace rstl {
 struct rmemory_allocator {
   template < typename T >
-  static void allocate(T*& out, s32 sz) {
+  static void allocate(T*& out, int sz) {
     out = reinterpret_cast< T* >(new u8[sz]);
   }
   template < typename T >

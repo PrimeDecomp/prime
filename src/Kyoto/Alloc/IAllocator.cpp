@@ -2,10 +2,10 @@
 
 #include "Kyoto/Basics/COsContext.hpp"
 
-IAllocator::SMetrics::SMetrics(u32 heapSize, u32 unk1, u32 unk2, u32 unk3, u32 unk4, u32 heapSize2, u32 unk5, u32 unk6, u32 unk7, u32 unk8,
-                               u32 unk9, u32 smallAllocNumAllocs, u32 smallAllocAllocatedSize, u32 smallAllocRemainingSize,
-                               u32 mediumAllocNumAllocs, u32 mediumAllocAllocatedSize, u32 mediumAllocBlocksAvailable, u32 unk10, u32 unk11,
-                               u32 unk12, u32 mediumAllocTotalAllocated, u32 fakeStatics)
+IAllocator::SMetrics::SMetrics(uint heapSize, uint unk1, uint unk2, uint unk3, uint unk4, uint heapSize2, uint unk5, uint unk6, uint unk7, uint unk8,
+                               uint unk9, uint smallAllocNumAllocs, uint smallAllocAllocatedSize, uint smallAllocRemainingSize,
+                               uint mediumAllocNumAllocs, uint mediumAllocAllocatedSize, uint mediumAllocBlocksAvailable, uint unk10, uint unk11,
+                               uint unk12, uint mediumAllocTotalAllocated, uint fakeStatics)
 : x0_heapSize(heapSize)
 , x4_(unk1)
 , x8_(unk2)

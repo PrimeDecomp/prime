@@ -14,11 +14,11 @@ typedef uint64_t u64;
 #else
 typedef signed char s8;
 typedef signed short int s16;
-typedef signed int s32;
+typedef signed long s32;
 typedef signed long long int s64;
 typedef unsigned char u8;
 typedef unsigned short int u16;
-typedef unsigned int u32;
+typedef unsigned long u32;
 typedef unsigned long long int u64;
 #endif
 

@@ -6,7 +6,7 @@ CObjectList::CObjectList(EGameObjectList list)
 : mListType(list)
 , mFirstId(-1)
 , mCount(0) {
-    for (s32 i = 0; i < kMaxObjects; ++i) {
+    for (int i = 0; i < kMaxObjects; ++i) {
         mObjects[i] = SObjectListEntry();
     }
 }
@@ -39,8 +39,8 @@ CEntity* CObjectList::GetValidObjectById(TUniqueId uid) {}
 
 const CEntity* CObjectList::GetValidObjectById(TUniqueId uid) const {}
 
-CEntity* CObjectList::operator[](s32 idx) {}
+CEntity* CObjectList::operator[](int idx) {}
 
-const CEntity* CObjectList::operator[](s32 idx) const {}
+const CEntity* CObjectList::operator[](int idx) const {}
 
-const CEntity* CObjectList::GetValidObjectByIndex(s32 idx) const {}
+const CEntity* CObjectList::GetValidObjectByIndex(int idx) const {}

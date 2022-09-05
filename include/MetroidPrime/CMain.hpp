@@ -23,7 +23,7 @@ public:
   void StreamNewGameState(CInputStream& in, int saveIdx);
   void RefreshGameState();
   void AddWorldPaks();
-  void AsyncIdle(u32 time);
+  void AsyncIdle(uint time);
   int RsMain(int argc, const char* const* argv);
   void InitializeSubsystems();
   void FillInAssetIDs();
@@ -50,9 +50,9 @@ private:
   f32 x120_;
   f32 x124_;
   CGameGlobalObjects* x128_gameGlobalObjects;
-  u32 x12c_flowState; // EFlowState
-  rstl::reserved_vector< u32, 10 > x130_frameTimes;
-  s32 x15c_frameTimeIdx;
+  uint x12c_flowState; // EFlowState
+  rstl::reserved_vector< uint, 10 > x130_frameTimes;
+  int x15c_frameTimeIdx;
   bool x160_24_finished : 1;
   bool x160_25_mfGameBuilt : 1;
   bool x160_26_screenFading : 1;

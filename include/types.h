@@ -9,6 +9,9 @@ extern "C" {
 
 #include <dolphin/types.h>
 
+// Dolphin u32 is unsigned long
+typedef unsigned int uint;
+
 // Pointer to unknown, to be determined at a later date.
 typedef void* unkptr;
 

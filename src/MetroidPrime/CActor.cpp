@@ -102,7 +102,7 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
   UpdateSfxEmitters();
   if (HasAnimation()) {
     u16 maxVol = xd4_maxVol;
-    s32 aid = x4_areaId.Value();
+    int aid = x4_areaId.Value();
 
     const CGameCamera* camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
     const CVector3f origin = GetTranslation();
@@ -112,15 +112,15 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
     const CSoundPOINode* soundNode;
     const CParticlePOINode* particleNode;
 
-    s32 soundNodeCount = 0;
+    int soundNodeCount = 0;
     if (HasAnimation()) {
       soundNode = GetAnimationData()->GetSoundPOIList(soundNodeCount);
     } else {
       soundNode = nullptr;
     }
     if (soundNodeCount > 0 && soundNode != nullptr) {
-      for (s32 i = 0; i < soundNodeCount; ++soundNode, ++i) {
-        s32 charIdx = soundNode->GetCharacterIndex();
+      for (int i = 0; i < soundNodeCount; ++soundNode, ++i) {
+        int charIdx = soundNode->GetCharacterIndex();
         if (soundNode->GetPoiType() != kPT_Sound || GetMuted())
           continue;
         if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
@@ -130,15 +130,15 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
       }
     }
 
-    s32 intNodeCount = 0;
+    int intNodeCount = 0;
     if (HasAnimation()) {
       intNode = GetAnimationData()->GetInt32POIList(intNodeCount);
     } else {
       intNode = nullptr;
     }
     if (intNodeCount > 0 && intNode != nullptr) {
-      for (s32 i = 0; i < intNodeCount; ++intNode, ++i) {
-        s32 charIdx = intNode->GetCharacterIndex();
+      for (int i = 0; i < intNodeCount; ++intNode, ++i) {
+        int charIdx = intNode->GetCharacterIndex();
         if (intNode->GetPoiType() == kPT_SoundInt32 && !GetMuted() &&
             (charIdx == -1 || GetAnimationData()->GetCharacterIndex() == charIdx)) {
           ProcessSoundEvent(intNode->GetValue(), intNode->GetWeight(), intNode->GetFlags(), 0.1f, 150.f, 20, maxVol, toCamera, origin, aid,
@@ -149,15 +149,15 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
       }
     }
 
-    s32 particleNodeCount = 0;
+    int particleNodeCount = 0;
     if (HasAnimation()) {
       particleNode = GetAnimationData()->GetParticlePOIList(particleNodeCount);
     } else {
       particleNode = nullptr;
     }
     if (particleNodeCount > 0 && particleNode != nullptr) {
-      for (s32 i = 0; i < particleNodeCount; ++particleNode, ++i) {
-        s32 charIdx = particleNode->GetCharacterIndex();
+      for (int i = 0; i < particleNodeCount; ++particleNode, ++i) {
+        int charIdx = particleNode->GetCharacterIndex();
         if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
           continue;
         AnimationData()->SetParticleEffectState(particleNode->GetString(), true, mgr);
@@ -181,7 +181,7 @@ void CActor::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUse
   }
 }
 
-f32 CActor::GetAverageAnimVelocity(s32 anim) { return HasAnimation() ? GetAnimationData()->GetAverageVelocity(anim) : 0.f; }
+f32 CActor::GetAverageAnimVelocity(int anim) { return HasAnimation() ? GetAnimationData()->GetAverageVelocity(anim) : 0.f; }
 
 void CActor::CalculateRenderBounds() {
   if (HasModelData()) {

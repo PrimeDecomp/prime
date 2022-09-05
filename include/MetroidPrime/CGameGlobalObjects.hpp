@@ -36,9 +36,9 @@ private:
   CAiFuncMap x110_aiFuncMap;
   CGraphicsSys x130_graphicsSys;
   rstl::single_ptr< CGameState > x134_gameState;
-  u32 x138_;
+  uint x138_;
   rstl::optional_object< TCachedToken< unkptr > > x13c_;
-  u32 x14c_;
+  uint x14c_;
   rstl::single_ptr< CInGameTweakManager > x150_inGameTweakManager;
   TToken< CRasterFont > x154_defaultFont;
 };

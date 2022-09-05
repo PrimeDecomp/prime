@@ -21,7 +21,7 @@ CHECK_SIZEOF(SNode, 0x2c);
 
 struct SSortedList {
   s16 x0_ids[kMaxObjects];
-  u32 x800_size;
+  uint x800_size;
 };
 CHECK_SIZEOF(SSortedList, 0x804);
 

@@ -8,8 +8,8 @@
 
 #define kInvalidAssetId 0xFFFFFFFFu
 
-typedef u32 CAssetId;
-typedef u32 FourCC;
+typedef uint CAssetId;
+typedef uint FourCC;
 
 struct SObjectTag {
   FourCC type;

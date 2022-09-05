@@ -6,7 +6,7 @@ void CStopwatch::CSWData::Wait(f32 v) const {
   OSTime duration = OSSecondsToTicks(v);
   OSTime end = OSGetTime() + duration;
   volatile OSTime current;
-  volatile s32 diff;
+  volatile int diff;
   do {
     current = OSGetTime();
     diff = current - end;

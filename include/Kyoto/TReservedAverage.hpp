@@ -6,7 +6,7 @@
 #include "rstl/optional_object.hpp"
 #include "rstl/reserved_vector.hpp"
 
-template < typename T, s32 N >
+template < typename T, int N >
 class TReservedAverage : rstl::reserved_vector< T, N > {
 public:
   TReservedAverage(const T& value) {
@@ -14,7 +14,7 @@ public:
   }
   void AddValue(const T& value) {
     push_back(value);
-    for (s32 i = size() - 1; i > 0; --i) {
+    for (int i = size() - 1; i > 0; --i) {
       operator[](i) = operator[](i - 1);
     }
     operator[](0) = value;

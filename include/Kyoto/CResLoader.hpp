@@ -14,13 +14,13 @@ struct SResInfo {
   CAssetId x0_id;
   bool x4_compressed : 1;
   int x4_typeIdx; // CFactoryMgr::ETypeTable
-  u32 x5_offsetDiv32 : 27;
-  u32 x7_sizeDiv32 : 27;
+  uint x5_offsetDiv32 : 27;
+  uint x7_sizeDiv32 : 27;
 };
 
 class CResLoader {
 public:
-  s32 GetPakCount() const;
+  int GetPakCount() const;
   CPakFile& GetPakFile(int idx) const;
   void AddPakFileAsync(const rstl::string&, bool, bool);
   void AsyncIdlePakLoading();

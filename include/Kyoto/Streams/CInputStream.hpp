@@ -11,19 +11,19 @@ inline T cinput_stream_helper(const TType< T >& type, CInputStream& in);
 
 class CInputStream {
 public:
-  CInputStream(s32 len);
-  CInputStream(const void* ptr, s32 len, bool owned);
+  CInputStream(int len);
+  CInputStream(const void* ptr, int len, bool owned);
   virtual ~CInputStream();
-  virtual u32 Read(void* dest, u32 len) = 0;
+  virtual uint Read(void* dest, uint len) = 0;
 
   f32 ReadFloat();
   u64 ReadLongLong();
-  u32 ReadLong();
+  uint ReadLong();
   u16 ReadShort();
   bool ReadBool();
   u8 ReadChar();
-  u32 ReadBits(u32 len);
-  u32 ReadBytes(void* dest, unsigned long len);
+  uint ReadBits(uint len);
+  uint ReadBytes(void* dest, unsigned long len);
   void Get(void* dest, unsigned long len);
 
   template < typename T >
@@ -35,26 +35,26 @@ private:
   bool GrabAnotherBlock();
   bool InternalReadNext();
 
-  u32 x4_blockOffset;
-  u32 x8_blockLen;
-  u32 xc_len;
+  uint x4_blockOffset;
+  uint x8_blockLen;
+  uint xc_len;
   u8* x10_ptr;
   bool x14_owned;
-  u32 x18_readPosition;
-  u32 x1c_bitWord;
-  u32 x20_bitOffset;
+  uint x18_readPosition;
+  uint x1c_bitWord;
+  uint x20_bitOffset;
 };
 
 template <>
-inline s32 cinput_stream_helper(const TType< s32 >& type, CInputStream& in) {
+inline int cinput_stream_helper(const TType< int >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>
-inline u32 cinput_stream_helper(const TType< u32 >& type, CInputStream& in) {
+inline uint cinput_stream_helper(const TType< uint >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>
-inline unsigned int cinput_stream_helper(const TType< unsigned int >& type, CInputStream& in) {
+inline unsigned long cinput_stream_helper(const TType< unsigned long >& type, CInputStream& in) {
   return in.ReadLong();
 }
 template <>

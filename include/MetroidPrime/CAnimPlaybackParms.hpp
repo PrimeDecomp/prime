@@ -9,11 +9,11 @@ class CVector3f;
 
 class CAnimPlaybackParms {
 private:
-  s32 x0_animA;
-  s32 x4_animB;
+  int x0_animA;
+  int x4_animB;
   f32 x8_blendWeight;
   bool xc_animating;
-  s32 x10_;
+  int x10_;
   CVector3f* x14_targetPos;
   bool x18_useLocator;
   CQuaternion* x1c_deltaOrient;

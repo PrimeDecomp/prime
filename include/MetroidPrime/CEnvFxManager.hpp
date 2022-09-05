@@ -40,7 +40,7 @@ private:
   CVector3f x18_focusCellPosition;
   bool x24_enableSplash;
   f32 x28_firstSnowForce;
-  s32 x2c_lastBlockedGridIdx;
+  int x2c_lastBlockedGridIdx;
   f32 x30_fxDensity;
   f32 x34_targetFxDensity;
   f32 x38_maxDensityDeltaSpeed;

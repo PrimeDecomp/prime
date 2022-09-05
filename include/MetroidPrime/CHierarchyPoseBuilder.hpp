@@ -19,7 +19,7 @@ class TSegIdMap {
 private:
   CSegId x0_boneCount;
   CSegId x1_capacity;
-  u32 x4_maxCapacity;
+  uint x4_maxCapacity;
   CSegId x8_indirectionMap[200];
   T* xd0_nodes;
   CSegId xd4_curPrevBone;
