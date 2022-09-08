@@ -2,6 +2,7 @@
 
 .section .text, "ax"
 
+.if 0
 .global __init_user
 __init_user:
 /* 80385824 00382784  7C 08 02 A6 */	mflr r0
@@ -12,6 +13,7 @@ __init_user:
 /* 80385838 00382798  38 21 00 08 */	addi r1, r1, 8
 /* 8038583C 0038279C  7C 08 03 A6 */	mtlr r0
 /* 80385840 003827A0  4E 80 00 20 */	blr
+.endif
 
 .global __init_cpp
 __init_cpp:
