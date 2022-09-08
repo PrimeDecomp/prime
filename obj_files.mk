@@ -1,11 +1,8 @@
-INIT_O_FILES :=\
-
 METROTRK_FILES :=\
 	$(BUILD_DIR)/src/MetroTRK/mslsupp.o
 	
 METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/main.o\
-	$(BUILD_DIR)/asm/MetroidPrime/text_80008894_80009144.o\
 	$(BUILD_DIR)/asm/MetroidPrime/IRenderer.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CCameraManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CControlMapper.o\
