@@ -684,7 +684,7 @@ MTX_FILES :=\
 	
 # TODO: Move __ppc_eabi_init_text into the same source files as __ppc_eabi_init
 OS_FILES :=\
-	$(BUILD_DIR)/src/os/__start.o\
+	$(BUILD_DIR)/src/Dolphin/os/__start.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OS.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSAlarm.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSArena.o\
@@ -705,7 +705,7 @@ OS_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/os/OSSync.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSThread.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSTime.o\
-	$(BUILD_DIR)/src/os/__ppc_eabi_init.o\
+	$(BUILD_DIR)/src/Dolphin/os/__ppc_eabi_init.o\
 
 PAD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/pad/PadClamp.o\
