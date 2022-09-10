@@ -5,15 +5,17 @@
 .global __CARDBlock
 __CARDBlock:
 	.skip 0x220
+.global __CARDDiskNone
+__CARDDiskNone:
+	.skip 0x20
 
 .section .data, "wa"
 .balign 8
-lbl_803F6C90:
+__CARDVersionStr:
 	.asciz "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>"
 	.balign 4
 
-.global lbl_803F6CD8
-lbl_803F6CD8:
+ResetFunctionInfo:
 	.4byte OnReset
 	.4byte 0x0000007f
 
@@ -22,9 +24,9 @@ lbl_803F6CD8:
 .section .sdata, "wa"
 .balign 8
 
-.global lbl_805A8BF0
-lbl_805A8BF0:
-	.4byte lbl_803F6C90
+.global __CARDVersion
+__CARDVersion:
+	.4byte __CARDVersionStr
 	.skip 4
 
 .section .sbss, "wa"
@@ -1080,7 +1082,7 @@ CARDInit:
 lbl_803B8CEC:
 /* 803B8CEC 003B5C4C  4B FC 82 59 */	bl OSGetFontEncode
 /* 803B8CF0 003B5C50  B0 6D B0 08 */	sth r3, __CARDEncode@sda21(r13)
-/* 803B8CF4 003B5C54  80 6D A0 30 */	lwz r3, lbl_805A8BF0@sda21(r13)
+/* 803B8CF4 003B5C54  80 6D A0 30 */	lwz r3, __CARDVersion@sda21(r13)
 /* 803B8CF8 003B5C58  4B FC 53 41 */	bl OSRegisterVersion
 /* 803B8CFC 003B5C5C  4B FB 6D 09 */	bl DSPInit
 /* 803B8D00 003B5C60  4B FC 53 65 */	bl OSInitAlarm
@@ -1098,8 +1100,8 @@ lbl_803B8D0C:
 /* 803B8D2C 003B5C8C  41 80 FF E0 */	blt lbl_803B8D0C
 /* 803B8D30 003B5C90  3C 60 80 00 */	lis r3, 0x8000
 /* 803B8D34 003B5C94  48 00 00 35 */	bl __CARDSetDiskID
-/* 803B8D38 003B5C98  3C 60 80 3F */	lis r3, lbl_803F6CD8@ha
-/* 803B8D3C 003B5C9C  38 63 6C D8 */	addi r3, r3, lbl_803F6CD8@l
+/* 803B8D38 003B5C98  3C 60 80 3F */	lis r3, ResetFunctionInfo@ha
+/* 803B8D3C 003B5C9C  38 63 6C D8 */	addi r3, r3, ResetFunctionInfo@l
 /* 803B8D40 003B5CA0  4B FC A2 ED */	bl OSRegisterResetFunction
 lbl_803B8D44:
 /* 803B8D44 003B5CA4  80 01 00 1C */	lwz r0, 0x1c(r1)

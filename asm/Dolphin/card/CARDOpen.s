@@ -1,10 +1,5 @@
 .include "macros.inc"
 
-.section .bss
-.balign 8
-lbl_80569C78:
-	.skip 0x20
-
 .section .text, "ax"
 
 .global __CARDCompareFileName
@@ -55,9 +50,9 @@ __CARDAccess:
 /* 803BCDFC 003B9D5C  38 60 FF FC */	li r3, -4
 /* 803BCE00 003B9D60  48 00 00 54 */	b lbl_803BCE54
 lbl_803BCE04:
-/* 803BCE04 003B9D64  3C 60 80 57 */	lis r3, lbl_80569C78@ha
+/* 803BCE04 003B9D64  3C 60 80 57 */	lis r3, __CARDDiskNone@ha
 /* 803BCE08 003B9D68  80 9E 01 0C */	lwz r4, 0x10c(r30)
-/* 803BCE0C 003B9D6C  38 03 9C 78 */	addi r0, r3, lbl_80569C78@l
+/* 803BCE0C 003B9D6C  38 03 9C 78 */	addi r0, r3, __CARDDiskNone@l
 /* 803BCE10 003B9D70  7C 04 00 40 */	cmplw r4, r0
 /* 803BCE14 003B9D74  41 82 00 34 */	beq lbl_803BCE48
 /* 803BCE18 003B9D78  38 7F 00 00 */	addi r3, r31, 0
@@ -119,9 +114,9 @@ sub_803bce9c:
 lbl_803BCECC:
 /* 803BCECC 003B9E2C  7F 63 DB 78 */	mr r3, r27
 /* 803BCED0 003B9E30  4B FF DA A1 */	bl __CARDGetDirBlock
-/* 803BCED4 003B9E34  3C 80 80 57 */	lis r4, lbl_80569C78@ha
+/* 803BCED4 003B9E34  3C 80 80 57 */	lis r4, __CARDDiskNone@ha
 /* 803BCED8 003B9E38  3B E3 00 00 */	addi r31, r3, 0
-/* 803BCEDC 003B9E3C  3B 44 9C 78 */	addi r26, r4, lbl_80569C78@l
+/* 803BCEDC 003B9E3C  3B 44 9C 78 */	addi r26, r4, __CARDDiskNone@l
 /* 803BCEE0 003B9E40  3B C0 00 00 */	li r30, 0
 lbl_803BCEE4:
 /* 803BCEE4 003B9E44  88 1F 00 00 */	lbz r0, 0(r31)
@@ -228,9 +223,9 @@ lbl_803BD024:
 lbl_803BD03C:
 /* 803BD03C 003B9F9C  7F E3 FB 78 */	mr r3, r31
 /* 803BD040 003B9FA0  4B FF D9 31 */	bl __CARDGetDirBlock
-/* 803BD044 003B9FA4  3C 80 80 57 */	lis r4, lbl_80569C78@ha
+/* 803BD044 003B9FA4  3C 80 80 57 */	lis r4, __CARDDiskNone@ha
 /* 803BD048 003B9FA8  3A E3 00 00 */	addi r23, r3, 0
-/* 803BD04C 003B9FAC  3B 44 9C 78 */	addi r26, r4, lbl_80569C78@l
+/* 803BD04C 003B9FAC  3B 44 9C 78 */	addi r26, r4, __CARDDiskNone@l
 /* 803BD050 003B9FB0  3B 20 00 00 */	li r25, 0
 lbl_803BD054:
 /* 803BD054 003B9FB4  88 17 00 00 */	lbz r0, 0(r23)

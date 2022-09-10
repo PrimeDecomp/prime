@@ -2,6 +2,7 @@
 #define __DSP_H__
 
 #include "types.h"
+#include <dolphin/os.h>
 
 #ifdef __cplusplus
 extern "C" {
