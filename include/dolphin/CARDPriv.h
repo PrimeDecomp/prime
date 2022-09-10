@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+#define CARD_FAT_AVAIL          0x0000u
 #define CARD_FAT_CHECKSUM       0x0000u
 #define CARD_FAT_CHECKSUMINV    0x0001u
 #define CARD_FAT_CHECKCODE      0x0002u
@@ -94,8 +95,11 @@ typedef struct CARDID {
   u16 checkSumInv;
 } CARDID;
 
+#define CARDIsValidBlockNo(card, iBlock)    (CARD_NUM_SYSTEM_BLOCK <= (iBlock) && (iBlock) < (card)->cBlock)
+
 CARDDir* __CARDGetDirBlock( CARDControl* card );
 u16* __CARDGetFatBlock   ( CARDControl* card );
+s32 __CARDUpdateFatBlock(s32 chan, u16* fat, CARDCallback callback);
 
 
 extern CARDControl __CARDBlock[2];

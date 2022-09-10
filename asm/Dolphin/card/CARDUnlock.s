@@ -3,7 +3,6 @@
 .section .data, "wa"
 .balign 8
 
-.global CardData
 CardData:
 	# ROM: 0x3F3D00
 	.4byte 0
@@ -104,7 +103,6 @@ next:
 
 .section .text, "ax"
 
-.global bitrev
 bitrev:
 /* 803B908C 003B5FEC  38 00 00 08 */	li r0, 8
 /* 803B9090 003B5FF0  7C 09 03 A6 */	mtctr r0
@@ -211,7 +209,6 @@ lbl_803B91E8:
 /* 803B91F0 003B6150  7C E3 3B 78 */	mr r3, r7
 /* 803B91F4 003B6154  4E 80 00 20 */	blr
 
-.global ReadArrayUnlock
 ReadArrayUnlock:
 /* 803B91F8 003B6158  7C 08 02 A6 */	mflr r0
 /* 803B91FC 003B615C  90 01 00 04 */	stw r0, 4(r1)
