@@ -3,8 +3,8 @@
 .section .data, "wa"
 .balign 8
 
-.global lbl_803F6D00
-lbl_803F6D00:
+.global CardData
+CardData:
 	# ROM: 0x3F3D00
 	.4byte 0
 	.4byte 0
@@ -98,13 +98,13 @@ lbl_803F6D00:
 
 .section .sdata, "wa"
 .balign 8
-.global lbl_805A8BF8
-lbl_805A8BF8:
+next:
 	.4byte 1
 	.skip 4
 
 .section .text, "ax"
 
+.global bitrev
 bitrev:
 /* 803B908C 003B5FEC  38 00 00 08 */	li r0, 8
 /* 803B9090 003B5FF0  7C 09 03 A6 */	mtctr r0
@@ -311,14 +311,14 @@ DummyLen:
 /* 803B9354 003B62B4  93 A1 00 1C */	stw r29, 0x1c(r1)
 /* 803B9358 003B62B8  3B A0 00 00 */	li r29, 0
 /* 803B935C 003B62BC  4B FC C0 65 */	bl OSGetTick
-/* 803B9360 003B62C0  90 6D A0 38 */	stw r3, lbl_805A8BF8@sda21(r13)
+/* 803B9360 003B62C0  90 6D A0 38 */	stw r3, next@sda21(r13)
 /* 803B9364 003B62C4  3C 60 41 C6 */	lis r3, 0x41C64E6D@ha
 /* 803B9368 003B62C8  3B E3 4E 6D */	addi r31, r3, 0x41C64E6D@l
-/* 803B936C 003B62CC  80 0D A0 38 */	lwz r0, lbl_805A8BF8@sda21(r13)
+/* 803B936C 003B62CC  80 0D A0 38 */	lwz r0, next@sda21(r13)
 /* 803B9370 003B62D0  7C 60 F9 D6 */	mullw r3, r0, r31
 /* 803B9374 003B62D4  38 03 30 39 */	addi r0, r3, 0x3039
-/* 803B9378 003B62D8  90 0D A0 38 */	stw r0, lbl_805A8BF8@sda21(r13)
-/* 803B937C 003B62DC  80 0D A0 38 */	lwz r0, lbl_805A8BF8@sda21(r13)
+/* 803B9378 003B62D8  90 0D A0 38 */	stw r0, next@sda21(r13)
+/* 803B937C 003B62DC  80 0D A0 38 */	lwz r0, next@sda21(r13)
 /* 803B9380 003B62E0  54 03 86 FE */	rlwinm r3, r0, 0x10, 0x1b, 0x1f
 /* 803B9384 003B62E4  38 63 00 01 */	addi r3, r3, 1
 /* 803B9388 003B62E8  48 00 00 40 */	b lbl_803B93C8
@@ -330,13 +330,13 @@ lbl_803B938C:
 /* 803B939C 003B62FC  40 81 00 08 */	ble lbl_803B93A4
 /* 803B93A0 003B6300  3B C0 00 01 */	li r30, 1
 lbl_803B93A4:
-/* 803B93A4 003B6304  90 0D A0 38 */	stw r0, lbl_805A8BF8@sda21(r13)
+/* 803B93A4 003B6304  90 0D A0 38 */	stw r0, next@sda21(r13)
 /* 803B93A8 003B6308  3B BD 00 01 */	addi r29, r29, 1
-/* 803B93AC 003B630C  80 0D A0 38 */	lwz r0, lbl_805A8BF8@sda21(r13)
+/* 803B93AC 003B630C  80 0D A0 38 */	lwz r0, next@sda21(r13)
 /* 803B93B0 003B6310  7C 60 F9 D6 */	mullw r3, r0, r31
 /* 803B93B4 003B6314  38 03 30 39 */	addi r0, r3, 0x3039
-/* 803B93B8 003B6318  90 0D A0 38 */	stw r0, lbl_805A8BF8@sda21(r13)
-/* 803B93BC 003B631C  80 0D A0 38 */	lwz r0, lbl_805A8BF8@sda21(r13)
+/* 803B93B8 003B6318  90 0D A0 38 */	stw r0, next@sda21(r13)
+/* 803B93BC 003B631C  80 0D A0 38 */	lwz r0, next@sda21(r13)
 /* 803B93C0 003B6320  54 03 86 FE */	rlwinm r3, r0, 0x10, 0x1b, 0x1f
 /* 803B93C4 003B6324  38 63 00 01 */	addi r3, r3, 1
 lbl_803B93C8:
@@ -376,16 +376,16 @@ __CARDUnlock:
 /* 803B9438 003B6398  3B A3 00 00 */	addi r29, r3, 0
 /* 803B943C 003B639C  3A DC 00 20 */	addi r22, r28, 0x20
 /* 803B9440 003B63A0  4B FC BF 81 */	bl OSGetTick
-/* 803B9444 003B63A4  90 6D A0 38 */	stw r3, lbl_805A8BF8@sda21(r13)
+/* 803B9444 003B63A4  90 6D A0 38 */	stw r3, next@sda21(r13)
 /* 803B9448 003B63A8  3C 60 41 C6 */	lis r3, 0x41C64E6D@ha
 /* 803B944C 003B63AC  3C A0 7F ED */	lis r5, 0x7FEC8000@ha
-/* 803B9450 003B63B0  80 8D A0 38 */	lwz r4, lbl_805A8BF8@sda21(r13)
+/* 803B9450 003B63B0  80 8D A0 38 */	lwz r4, next@sda21(r13)
 /* 803B9454 003B63B4  38 03 4E 6D */	addi r0, r3, 0x41C64E6D@l
 /* 803B9458 003B63B8  3B 25 80 00 */	addi r25, r5, 0x7FEC8000@l
 /* 803B945C 003B63BC  7C 64 01 D6 */	mullw r3, r4, r0
 /* 803B9460 003B63C0  38 03 30 39 */	addi r0, r3, 0x3039
-/* 803B9464 003B63C4  90 0D A0 38 */	stw r0, lbl_805A8BF8@sda21(r13)
-/* 803B9468 003B63C8  80 0D A0 38 */	lwz r0, lbl_805A8BF8@sda21(r13)
+/* 803B9464 003B63C4  90 0D A0 38 */	stw r0, next@sda21(r13)
+/* 803B9468 003B63C8  80 0D A0 38 */	lwz r0, next@sda21(r13)
 /* 803B946C 003B63CC  54 00 84 7E */	rlwinm r0, r0, 0x10, 0x11, 0x1f
 /* 803B9470 003B63D0  7F 39 03 78 */	or r25, r25, r0
 /* 803B9474 003B63D4  57 39 00 26 */	rlwinm r25, r25, 0, 0, 0x13
@@ -1073,9 +1073,9 @@ lbl_803B9E78:
 /* 803B9ED8 003B6E38  38 80 00 10 */	li r4, 0x10
 /* 803B9EDC 003B6E3C  4B FC 4B D5 */	bl DCFlushRange
 /* 803B9EE0 003B6E40  38 00 00 FF */	li r0, 0xff
-/* 803B9EE4 003B6E44  3C 60 80 3F */	lis r3, lbl_803F6D00@ha
+/* 803B9EE4 003B6E44  3C 60 80 3F */	lis r3, CardData@ha
 /* 803B9EE8 003B6E48  90 1E 00 04 */	stw r0, 4(r30)
-/* 803B9EEC 003B6E4C  38 63 6D 00 */	addi r3, r3, lbl_803F6D00@l
+/* 803B9EEC 003B6E4C  38 63 6D 00 */	addi r3, r3, CardData@l
 /* 803B9EF0 003B6E50  3C 03 80 00 */	addis r0, r3, 0x8000
 /* 803B9EF4 003B6E54  90 1E 00 0C */	stw r0, 0xc(r30)
 /* 803B9EF8 003B6E58  38 00 01 60 */	li r0, 0x160

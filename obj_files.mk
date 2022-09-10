@@ -816,7 +816,7 @@ DTK_FILES :=\
 	
 CARD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDBios.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDUnlock.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDUnlock.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDRdwr.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDBlock.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDDir.o\
