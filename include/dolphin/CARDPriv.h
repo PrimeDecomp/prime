@@ -11,6 +11,7 @@ extern "C" {
 #define CARD_FAT_FREEBLOCKS     0x0003u
 #define CARD_FAT_LASTSLOT       0x0004u
 
+#define CARD_PAGE_SIZE 128u
 #define CARD_SEG_SIZE 512u
 
 #define CARD_NUM_SYSTEM_BLOCK 5
