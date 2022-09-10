@@ -14,10 +14,10 @@ static void BlockReadCallback(s32 chan, s32 result) {
     goto error;
   }
 
-  card->xferred += 0x200;
+  card->xferred += CARD_SEG_SIZE;
 
-  card->addr += 0x200;
-  (u8*)card->buffer += 0x200;
+  card->addr += CARD_SEG_SIZE;
+  (u8*)card->buffer += CARD_SEG_SIZE;
   if (--card->repeat <= 0) {
     goto error;
   }
@@ -63,10 +63,10 @@ static void BlockWriteCallback(s32 chan, s32 result) {
     goto error;
   }
 
-  card->xferred += 128;
+  card->xferred += CARD_PAGE_SIZE;
 
-  card->addr += 128;
-  (u8*)card->buffer += 128;
+  card->addr += CARD_PAGE_SIZE;
+  (u8*)card->buffer += CARD_PAGE_SIZE;
   if (--card->repeat <= 0) {
     goto error;
   }
@@ -96,7 +96,7 @@ s32 __CARDWrite(s32 chan, u32 addr, s32 length, void* dst, CARDCallback callback
   }
 
   card->xferCallback = callback;
-  card->repeat = (int)(length / 128u);
+  card->repeat = (int)(length / CARD_PAGE_SIZE);
   card->addr = addr;
   card->buffer = dst;
 
