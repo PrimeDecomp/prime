@@ -1,0 +1,29 @@
+#ifndef __ICONTROLLER_HPP__
+#define __ICONTROLLER_HPP__
+
+#include <types.h>
+
+#include "Kyoto/Input/InputTypes.hpp"
+#include "Kyoto/Input/CControllerGamepadData.hpp"
+
+
+class COsContext;
+class IController {
+    static const float kAbsoluteMinimum;
+    static const float kAbsoluteMaximum;
+    static const float kRelativeMinimum;
+    static const float kRelativeMaximum;
+
+public:
+    IController();
+    virtual ~IController();
+    virtual void Poll()=0;
+    virtual uint GetDeviceCount() const = 0;
+    virtual CControllerGamepadData& GetGamepadData(int controller) = 0;
+    virtual u32 GetControllerType(int) const = 0;
+    virtual void SetMotorState(EIOPort port, EMotorState state) = 0;
+
+    static IController* Create(const COsContext& ctx);
+};
+
+#endif // __ICONTROLLER_HPP__

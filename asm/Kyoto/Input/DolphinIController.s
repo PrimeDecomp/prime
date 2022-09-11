@@ -15,16 +15,6 @@ lbl_803EF680:
 	.4byte 0
 	.4byte 0
 
-.section .sbss, "wa"
-.balign 8
-
-.global lbl_805A95C8
-lbl_805A95C8:
-	.skip 0x1
-.global lbl_805A95C9
-lbl_805A95C9:
-	.skip 0x7
-
 .section .text, "ax"
 
 .global Create__11IControllerFRC10COsContext
@@ -89,3 +79,25 @@ lbl_803D8228:
 	.asciz "??(??)"
 	.balign 4
 
+.section .sdata2, "a"
+.balign 8
+
+.global kAbsoluteMinimum__11IController
+kAbsoluteMinimum__11IController:
+	# ROM: 0x3FB210
+	.float -1.0
+
+.global kAbsoluteMaximum__11IController
+kAbsoluteMaximum__11IController:
+	# ROM: 0x3FB214
+	.float 1.0
+
+.global kRelativeMinimum__11IController
+kRelativeMinimum__11IController:
+	# ROM: 0x3FB218
+	.float -1.0
+
+.global kRelativeMaximum__11IController
+kRelativeMaximum__11IController:
+	# ROM: 0x3FB21C
+	.float 1.0

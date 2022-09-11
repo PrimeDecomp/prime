@@ -583,7 +583,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/Audio/DolphinCAudioGroupSet.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/DolphinCAudioSys.o\
 	$(BUILD_DIR)/asm/Kyoto/DolphinCMemoryCardSys.o\
-	$(BUILD_DIR)/asm/Kyoto/Input/DolphinIController.o\
+	$(BUILD_DIR)/src/Kyoto/Input/DolphinIController.o\
 	$(BUILD_DIR)/asm/Kyoto/Input/CDolphinController.o\
 	$(BUILD_DIR)/asm/Kyoto/DolphinCDvdFile.o\
 	$(BUILD_DIR)/asm/Kyoto/Alloc/CMediumAllocPool.o\
