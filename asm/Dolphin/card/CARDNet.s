@@ -1,5 +1,12 @@
 .include "macros.inc"
 
+.section .sdata, "wa"
+.balign 8
+.global __CARDVendorID
+__CARDVendorID:
+	.2byte 0xFFFF
+	.balign 4
+
 .section .text, "ax"
 
 .global CARDGetSerialNo
