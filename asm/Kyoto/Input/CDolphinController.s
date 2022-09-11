@@ -25,6 +25,16 @@ lbl_803EF6B8:
 	.4byte GetControllerType__18CDolphinControllerFi
 	.4byte SetMotorState__18CDolphinControllerF7EIOPort11EMotorState
 
+.section .sbss, "wa"
+.balign 8
+
+.global lbl_805A95C8
+lbl_805A95C8:
+	.skip 0x1
+.global lbl_805A95C9
+lbl_805A95C9:
+	.skip 0x7
+
 .section .text, "ax"
 
 .global GetAnalogStickMaxValue__18CDolphinControllerCF8EJoyAxis
@@ -86,14 +96,14 @@ GetDeviceCount__18CDolphinControllerCFv:
 .global ProcessAnalogButton__18CDolphinControllerFfR15CControllerAxis
 ProcessAnalogButton__18CDolphinControllerFfR15CControllerAxis:
 /* 8034F0F4 0034C054  C0 02 CC 7C */	lfs f0, lbl_805AE99C@sda21(r2)
-/* 8034F0F8 0034C058  C0 42 CC 54 */	lfs f2, lbl_805AE974@sda21(r2)
+/* 8034F0F8 0034C058  C0 42 CC 54 */	lfs f2, kAbsoluteMaximum__11IController@sda21(r2)
 /* 8034F0FC 0034C05C  EC 61 00 32 */	fmuls f3, f1, f0
 /* 8034F100 0034C060  FC 03 10 40 */	fcmpo cr0, f3, f2
 /* 8034F104 0034C064  40 81 00 08 */	ble lbl_8034F10C
 /* 8034F108 0034C068  FC 60 10 90 */	fmr f3, f2
 lbl_8034F10C:
 /* 8034F10C 0034C06C  C0 04 00 04 */	lfs f0, 4(r4)
-/* 8034F110 0034C070  C0 22 CC 5C */	lfs f1, lbl_805AE97C@sda21(r2)
+/* 8034F110 0034C070  C0 22 CC 5C */	lfs f1, kRelativeMaximum__11IController@sda21(r2)
 /* 8034F114 0034C074  EC 03 00 28 */	fsubs f0, f3, f0
 /* 8034F118 0034C078  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 8034F11C 0034C07C  40 81 00 08 */	ble lbl_8034F124
@@ -274,26 +284,26 @@ lbl_8034F370:
 /* 8034F398 0034C2F8  EC 60 08 28 */	fsubs f3, f0, f1
 lbl_8034F39C:
 /* 8034F39C 0034C2FC  EC 43 00 B2 */	fmuls f2, f3, f2
-/* 8034F3A0 0034C300  C0 02 CC 50 */	lfs f0, lbl_805AE970@sda21(r2)
+/* 8034F3A0 0034C300  C0 02 CC 50 */	lfs f0, kAbsoluteMinimum__11IController@sda21(r2)
 /* 8034F3A4 0034C304  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 8034F3A8 0034C308  40 80 00 0C */	bge lbl_8034F3B4
 /* 8034F3AC 0034C30C  FC 40 00 90 */	fmr f2, f0
 /* 8034F3B0 0034C310  48 00 00 14 */	b lbl_8034F3C4
 lbl_8034F3B4:
-/* 8034F3B4 0034C314  C0 02 CC 54 */	lfs f0, lbl_805AE974@sda21(r2)
+/* 8034F3B4 0034C314  C0 02 CC 54 */	lfs f0, kAbsoluteMaximum__11IController@sda21(r2)
 /* 8034F3B8 0034C318  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 8034F3BC 0034C31C  40 81 00 08 */	ble lbl_8034F3C4
 /* 8034F3C0 0034C320  FC 40 00 90 */	fmr f2, f0
 lbl_8034F3C4:
 /* 8034F3C4 0034C324  C0 04 00 04 */	lfs f0, 4(r4)
-/* 8034F3C8 0034C328  C0 22 CC 58 */	lfs f1, lbl_805AE978@sda21(r2)
+/* 8034F3C8 0034C328  C0 22 CC 58 */	lfs f1, kRelativeMinimum__11IController@sda21(r2)
 /* 8034F3CC 0034C32C  EC 62 00 28 */	fsubs f3, f2, f0
 /* 8034F3D0 0034C330  FC 03 08 40 */	fcmpo cr0, f3, f1
 /* 8034F3D4 0034C334  40 80 00 0C */	bge lbl_8034F3E0
 /* 8034F3D8 0034C338  FC 60 08 90 */	fmr f3, f1
 /* 8034F3DC 0034C33C  48 00 00 14 */	b lbl_8034F3F0
 lbl_8034F3E0:
-/* 8034F3E0 0034C340  C0 02 CC 5C */	lfs f0, lbl_805AE97C@sda21(r2)
+/* 8034F3E0 0034C340  C0 02 CC 5C */	lfs f0, kRelativeMaximum__11IController@sda21(r2)
 /* 8034F3E4 0034C344  FC 03 00 40 */	fcmpo cr0, f3, f0
 /* 8034F3E8 0034C348  40 81 00 08 */	ble lbl_8034F3F0
 /* 8034F3EC 0034C34C  FC 60 00 90 */	fmr f3, f0
@@ -656,25 +666,6 @@ __ct__15CControllerAxisFv:
 
 .section .sdata2, "a"
 .balign 8
-.global lbl_805AE970
-lbl_805AE970:
-	# ROM: 0x3FB210
-	.float -1.0
-
-.global lbl_805AE974
-lbl_805AE974:
-	# ROM: 0x3FB214
-	.float 1.0
-
-.global lbl_805AE978
-lbl_805AE978:
-	# ROM: 0x3FB218
-	.float -1.0
-
-.global lbl_805AE97C
-lbl_805AE97C:
-	# ROM: 0x3FB21C
-	.float 1.0
 
 .global lbl_805AE980
 lbl_805AE980:
