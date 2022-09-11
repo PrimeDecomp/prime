@@ -5,12 +5,12 @@
 extern "C" {
 #endif
 
-#define CARD_FAT_AVAIL          0x0000u
-#define CARD_FAT_CHECKSUM       0x0000u
-#define CARD_FAT_CHECKSUMINV    0x0001u
-#define CARD_FAT_CHECKCODE      0x0002u
-#define CARD_FAT_FREEBLOCKS     0x0003u
-#define CARD_FAT_LASTSLOT       0x0004u
+#define CARD_FAT_AVAIL 0x0000u
+#define CARD_FAT_CHECKSUM 0x0000u
+#define CARD_FAT_CHECKSUMINV 0x0001u
+#define CARD_FAT_CHECKCODE 0x0002u
+#define CARD_FAT_FREEBLOCKS 0x0003u
+#define CARD_FAT_LASTSLOT 0x0004u
 
 #define CARD_PAGE_SIZE 128u
 #define CARD_SEG_SIZE 512u
@@ -20,27 +20,34 @@ extern "C" {
 
 #define CARD_MAX_MOUNT_STEP (CARD_NUM_SYSTEM_BLOCK + 2)
 
-typedef struct CARDDir
-{
-    u8      gameName[4];
-    u8      company[2];
-    u8      _padding0;
-    u8      bannerFormat;
-    u8      fileName[CARD_FILENAME_MAX];
-    u32     time;           // seconds since 01/01/2000 midnight
+typedef struct CARDDir {
+  u8 gameName[4];
+  u8 company[2];
+  u8 _padding0;
+  u8 bannerFormat;
+  u8 fileName[CARD_FILENAME_MAX];
+  u32 time; // seconds since 01/01/2000 midnight
 
-    u32     iconAddr;       // 0xffffffff if not used
-    u16     iconFormat;
-    u16     iconSpeed;
+  u32 iconAddr; // 0xffffffff if not used
+  u16 iconFormat;
+  u16 iconSpeed;
 
-    u8      permission;
-    u8      copyTimes;
-    u16     startBlock;
-    u16     length;
-    u8      _padding1[2];
+  u8 permission;
+  u8 copyTimes;
+  u16 startBlock;
+  u16 length;
+  u8 _padding1[2];
 
-    u32     commentAddr;    // 0xffffffff if not used
+  u32 commentAddr; // 0xffffffff if not used
 } CARDDir;
+
+typedef struct CARDDirCheck {
+  u8 padding0[64 - 2 * 4];
+  u16 padding1;
+  s16 checkCode;
+  u16 checkSum;
+  u16 checkSumInv;
+} CARDDirCheck;
 
 typedef struct CARDControl {
   BOOL attached;
@@ -57,7 +64,7 @@ typedef struct CARDControl {
   u32 scramble;
   DSPTaskInfo task;
   void* workArea;
-  CARDDir* dir;
+  CARDDir* currentDir;
   u16* currentFat;
   OSThreadQueue threadQueue;
   u8 cmd[9];
@@ -95,15 +102,17 @@ typedef struct CARDID {
   u16 checkSumInv;
 } CARDID;
 
-#define CARDIsValidBlockNo(card, iBlock)    (CARD_NUM_SYSTEM_BLOCK <= (iBlock) && (iBlock) < (card)->cBlock)
+#define CARDIsValidBlockNo(card, iBlock) (CARD_NUM_SYSTEM_BLOCK <= (iBlock) && (iBlock) < (card)->cBlock)
+#define  __CARDGetDirCheck(dir)  ((CARDDirCheck*) &(dir)[CARD_MAX_FILE])
 
-CARDDir* __CARDGetDirBlock( CARDControl* card );
-u16* __CARDGetFatBlock   ( CARDControl* card );
+CARDDir* __CARDGetDirBlock(CARDControl* card);
+u16* __CARDGetFatBlock(CARDControl* card);
 s32 __CARDUpdateFatBlock(s32 chan, u16* fat, CARDCallback callback);
-
+void __CARDCheckSum(void* ptr, int length, u16* checkSum, u16* checkSumInv);
+u16 __CARDGetFontEncode();
 
 extern CARDControl __CARDBlock[2];
-extern DVDDiskID   __CARDDiskNone;
+extern DVDDiskID __CARDDiskNone;
 
 #ifdef __cplusplus
 }

@@ -819,7 +819,7 @@ CARD_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/card/CARDUnlock.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDRdwr.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDBlock.ep.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDDir.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDDir.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDCheck.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDMount.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDFormat.o\

@@ -447,7 +447,7 @@ void CARDInit(void) {
   OSRegisterResetFunction(&ResetFunctionInfo);
 }
 
-u16 __CARDGetFontEncode(s32 chan) { return __CARDEncode; }
+u16 __CARDGetFontEncode() { return __CARDEncode; }
 
 void __CARDSetDiskID(const DVDDiskID* id) {
   __CARDBlock[0].diskID = id ? id : &__CARDDiskNone;
