@@ -526,7 +526,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Math/CVector3f.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/RMathUtils.o\
 	$(BUILD_DIR)/src/Kyoto/CCrc32.o\
-	$(BUILD_DIR)/asm/Kyoto/Alloc/CCircularBuffer.o\
+	$(BUILD_DIR)/src/Kyoto/Alloc/CCircularBuffer.o\
 	$(BUILD_DIR)/asm/Kyoto/Alloc/CMemory.o\
 	$(BUILD_DIR)/src/Kyoto/Alloc/IAllocator.o\
 	$(BUILD_DIR)/asm/Kyoto/PVS/CPVSVisOctree.o\
