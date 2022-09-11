@@ -821,16 +821,16 @@ CARD_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/card/CARDBlock.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDDir.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDCheck.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDMount.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDFormat.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDMount.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDFormat.ep.o\
 	$(BUILD_DIR)/src/Dolphin/card/CARDOpen.ep.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDCreate.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDRead.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDWrite.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDDelete.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDStat.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDRename.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDNet.o
+	$(BUILD_DIR)/src/Dolphin/card/CARDCreate.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDRead.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDWrite.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDDelete.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDStat.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDRename.ep.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDNet.ep.o
 	
 SI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/si/SIBios.o\
