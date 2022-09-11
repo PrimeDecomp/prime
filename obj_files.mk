@@ -823,7 +823,7 @@ CARD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDCheck.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDMount.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDFormat.o\
-	$(BUILD_DIR)/asm/Dolphin/card/CARDOpen.o\
+	$(BUILD_DIR)/src/Dolphin/card/CARDOpen.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDCreate.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDRead.o\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDWrite.o\

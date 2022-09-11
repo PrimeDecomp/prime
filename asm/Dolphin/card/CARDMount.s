@@ -3,8 +3,8 @@
 .section .data, "wa"
 .balign 8
 
-.global lbl_803F6E60
-lbl_803F6E60:
+.global SectorSizeTable
+SectorSizeTable:
 	.4byte 0x00002000
 	.4byte 0x00004000
 	.4byte 0x00008000
@@ -14,8 +14,8 @@ lbl_803F6E60:
 	.4byte 0x00000000
 	.4byte 0x00000000
 
-.global lbl_803F6E80
-lbl_803F6E80:
+.global LatencyTable
+LatencyTable:
 	.4byte 0x00000004
 	.4byte 0x00000008
 	.4byte 0x00000010
@@ -24,13 +24,6 @@ lbl_803F6E80:
 	.4byte 0x00000080
 	.4byte 0x00000100
 	.4byte 0x00000200
-
-.section .sdata, "wa"
-.balign 8
-.global lbl_805A8C00
-lbl_805A8C00:
-	.2byte 0xFFFF
-	.balign 4
 
 .section .text, "ax"
 
@@ -41,7 +34,7 @@ IsCard:
 /* 803BBB18 003B8A78  3C 03 80 00 */	addis r0, r3, 0x8000
 /* 803BBB1C 003B8A7C  28 00 00 04 */	cmplwi r0, 4
 /* 803BBB20 003B8A80  40 82 00 10 */	bne lbl_803BBB30
-/* 803BBB24 003B8A84  A0 0D A0 40 */	lhz r0, lbl_805A8C00@sda21(r13)
+/* 803BBB24 003B8A84  A0 0D A0 40 */	lhz r0, __CARDVendorID@sda21(r13)
 /* 803BBB28 003B8A88  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803BBB2C 003B8A8C  40 82 00 0C */	bne lbl_803BBB38
 lbl_803BBB30:
@@ -77,9 +70,9 @@ lbl_803BBB90:
 /* 803BBB90 003B8AF0  38 60 00 00 */	li r3, 0
 /* 803BBB94 003B8AF4  4E 80 00 20 */	blr
 lbl_803BBB98:
-/* 803BBB98 003B8AF8  3C 80 80 3F */	lis r4, lbl_803F6E60@ha
+/* 803BBB98 003B8AF8  3C 80 80 3F */	lis r4, SectorSizeTable@ha
 /* 803BBB9C 003B8AFC  54 63 BE FA */	rlwinm r3, r3, 0x17, 0x1b, 0x1d
-/* 803BBBA0 003B8B00  38 04 6E 60 */	addi r0, r4, lbl_803F6E60@l
+/* 803BBBA0 003B8B00  38 04 6E 60 */	addi r0, r4, SectorSizeTable@l
 /* 803BBBA4 003B8B04  7C 60 1A 14 */	add r3, r0, r3
 /* 803BBBA8 003B8B08  80 63 00 00 */	lwz r3, 0(r3)
 /* 803BBBAC 003B8B0C  2C 03 00 00 */	cmpwi r3, 0
@@ -189,8 +182,8 @@ lbl_803BBD08:
 /* 803BBD08 003B8C68  28 1F 00 00 */	cmplwi r31, 0
 /* 803BBD0C 003B8C6C  41 82 00 20 */	beq lbl_803BBD2C
 /* 803BBD10 003B8C70  80 81 00 14 */	lwz r4, 0x14(r1)
-/* 803BBD14 003B8C74  3C 60 80 3F */	lis r3, lbl_803F6E60@ha
-/* 803BBD18 003B8C78  38 03 6E 60 */	addi r0, r3, lbl_803F6E60@l
+/* 803BBD14 003B8C74  3C 60 80 3F */	lis r3, SectorSizeTable@ha
+/* 803BBD18 003B8C78  38 03 6E 60 */	addi r0, r3, SectorSizeTable@l
 /* 803BBD1C 003B8C7C  54 83 BE FA */	rlwinm r3, r4, 0x17, 0x1b, 0x1d
 /* 803BBD20 003B8C80  7C 60 1A 14 */	add r3, r0, r3
 /* 803BBD24 003B8C84  80 03 00 00 */	lwz r0, 0(r3)
@@ -250,11 +243,11 @@ lbl_803BBDD4:
 /* 803BBDD4 003B8D34  2C 1E 00 00 */	cmpwi r30, 0
 /* 803BBDD8 003B8D38  41 80 03 44 */	blt lbl_803BC11C
 /* 803BBDDC 003B8D3C  80 01 00 18 */	lwz r0, 0x18(r1)
-/* 803BBDE0 003B8D40  3C 80 80 3F */	lis r4, lbl_803F6E60@ha
-/* 803BBDE4 003B8D44  38 84 6E 60 */	addi r4, r4, lbl_803F6E60@l
+/* 803BBDE0 003B8D40  3C 80 80 3F */	lis r4, SectorSizeTable@ha
+/* 803BBDE4 003B8D44  38 84 6E 60 */	addi r4, r4, SectorSizeTable@l
 /* 803BBDE8 003B8D48  90 1F 01 08 */	stw r0, 0x108(r31)
-/* 803BBDEC 003B8D4C  3C 60 80 3F */	lis r3, lbl_803F6E80@ha
-/* 803BBDF0 003B8D50  38 03 6E 80 */	addi r0, r3, lbl_803F6E80@l
+/* 803BBDEC 003B8D4C  3C 60 80 3F */	lis r3, LatencyTable@ha
+/* 803BBDF0 003B8D50  38 03 6E 80 */	addi r0, r3, LatencyTable@l
 /* 803BBDF4 003B8D54  80 A1 00 18 */	lwz r5, 0x18(r1)
 /* 803BBDF8 003B8D58  38 7D 00 00 */	addi r3, r29, 0
 /* 803BBDFC 003B8D5C  54 A5 06 3A */	rlwinm r5, r5, 0, 0x18, 0x1d
@@ -423,7 +416,7 @@ lbl_803BC040:
 /* 803BC064 003B8FC4  7F 83 02 2E */	lhzx r28, r3, r0
 /* 803BC068 003B8FC8  38 60 00 00 */	li r3, 0
 /* 803BC06C 003B8FCC  4B FC 7E 4D */	bl __OSUnlockSramEx
-/* 803BC070 003B8FD0  A0 0D A0 40 */	lhz r0, lbl_805A8C00@sda21(r13)
+/* 803BC070 003B8FD0  A0 0D A0 40 */	lhz r0, __CARDVendorID@sda21(r13)
 /* 803BC074 003B8FD4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 803BC078 003B8FD8  41 82 00 0C */	beq lbl_803BC084
 /* 803BC07C 003B8FDC  7C 1C 00 40 */	cmplw r28, r0

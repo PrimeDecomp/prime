@@ -80,8 +80,8 @@ lbl_803BCE54:
 /* 803BCE64 003B9DC4  7C 08 03 A6 */	mtlr r0
 /* 803BCE68 003B9DC8  4E 80 00 20 */	blr
 
-.global sub_803bce6c
-sub_803bce6c:
+.global __CARDIsWritable
+__CARDIsWritable:
 /* 803BCE6C 003B9DCC  88 03 00 00 */	lbz r0, 0(r3)
 /* 803BCE70 003B9DD0  28 00 00 FF */	cmplwi r0, 0xff
 /* 803BCE74 003B9DD4  40 82 00 0C */	bne lbl_803BCE80
@@ -97,8 +97,8 @@ lbl_803BCE94:
 /* 803BCE94 003B9DF4  38 60 FF F6 */	li r3, -10
 /* 803BCE98 003B9DF8  4E 80 00 20 */	blr
 
-.global sub_803bce9c
-sub_803bce9c:
+.global __CARDGetFileNo
+__CARDGetFileNo:
 /* 803BCE9C 003B9DFC  7C 08 02 A6 */	mflr r0
 /* 803BCEA0 003B9E00  90 01 00 04 */	stw r0, 4(r1)
 /* 803BCEA4 003B9E04  94 21 FF D0 */	stwu r1, -0x30(r1)
