@@ -27,5 +27,6 @@ typedef struct OSSramEx {
   u8 _padding1[2];
 } OSSramEx;
 
+OSSram* __OSLockSram();
 OSSramEx* __OSLockSramEx();
 #endif

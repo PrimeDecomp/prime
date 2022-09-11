@@ -102,6 +102,8 @@ typedef struct CARDID {
   u16 checkSumInv;
 } CARDID;
 
+void __CARDDefaultApiCallback(s32 chan, s32 result);
+
 #define CARDIsValidBlockNo(card, iBlock) (CARD_NUM_SYSTEM_BLOCK <= (iBlock) && (iBlock) < (card)->cBlock)
 #define  __CARDGetDirCheck(dir)  ((CARDDirCheck*) &(dir)[CARD_MAX_FILE])
 
@@ -110,9 +112,18 @@ u16* __CARDGetFatBlock(CARDControl* card);
 s32 __CARDUpdateFatBlock(s32 chan, u16* fat, CARDCallback callback);
 void __CARDCheckSum(void* ptr, int length, u16* checkSum, u16* checkSumInv);
 u16 __CARDGetFontEncode();
+void __CARDExiHandler(s32 chan, OSContext* context);
+void __CARDExtHandler(s32 chan, OSContext* context);
+void __CARDUnlockedHandler(s32 chan, OSContext* context);
+s32 __CARDAccess(CARDControl* card, CARDDir* ent);
+BOOL __CARDIsWritable(CARDDir* ent);
+
+#define TRUNC(n, a)     (((u32) (n)) & ~((a) - 1))
+#define OFFSET(n, a)    (((u32) (n)) & ((a) - 1))
 
 extern CARDControl __CARDBlock[2];
 extern DVDDiskID __CARDDiskNone;
+extern u16 __CARDVendorID;
 
 #ifdef __cplusplus
 }
