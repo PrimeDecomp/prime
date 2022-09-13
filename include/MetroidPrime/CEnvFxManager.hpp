@@ -35,6 +35,9 @@ private:
 };
 
 class CEnvFxManager {
+public:
+  static void Initialize();
+
 private:
   CAABox x0_particleBounds;
   CVector3f x18_focusCellPosition;
@@ -49,8 +52,8 @@ private:
   rstl::reserved_vector< CEnvFxManagerGrid, 64 > x50_grids;
   f32 xb54_baseSplashRate;
   TLockedToken< CGenDescription > xb58_envRainSplash;
-  bool xb64_ = true;
-  TUniqueId xb68_envRainSplashId = kInvalidUniqueId;
+  bool xb64_;
+  TUniqueId xb68_envRainSplashId;
   bool xb6a_rainSoundActive;
   CSfxHandle xb6c_leftRainSound;
   CSfxHandle xb70_rightRainSound;

@@ -5412,12 +5412,12 @@ lbl_8001FE1C:
 /* 8001FE24 0001CD84  80 6D A0 84 */	lwz r3, gpMemoryCard@sda21(r13)
 /* 8001FE28 0001CD88  3B 20 00 00 */	li r25, 0
 /* 8001FE2C 0001CD8C  80 9A 00 08 */	lwz r4, 8(r26)
-/* 8001FE30 0001CD90  48 22 91 89 */	bl HasSaveWorldMemory__15CMemoryCardSysFi
+/* 8001FE30 0001CD90  48 22 91 89 */	bl HasSaveWorldMemory__11CMemoryCardFi
 /* 8001FE34 0001CD94  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8001FE38 0001CD98  41 82 00 18 */	beq lbl_8001FE50
 /* 8001FE3C 0001CD9C  80 6D A0 84 */	lwz r3, gpMemoryCard@sda21(r13)
 /* 8001FE40 0001CDA0  80 9A 00 08 */	lwz r4, 8(r26)
-/* 8001FE44 0001CDA4  48 22 90 C9 */	bl GetSaveWorldMemory__14CMemoryCardSysCFi
+/* 8001FE44 0001CDA4  48 22 90 C9 */	bl GetSaveWorldMemory__11CMemoryCardCFi
 /* 8001FE48 0001CDA8  48 22 90 81 */	bl GetFrontEndName__16CSaveWorldMemoryCFv
 /* 8001FE4C 0001CDAC  7C 79 1B 78 */	mr r25, r3
 lbl_8001FE50:

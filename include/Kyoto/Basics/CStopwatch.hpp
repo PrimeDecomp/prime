@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "Dolphin/os.h"
+#include "dolphin/os.h"
 
 class CStopwatch {
 public:

@@ -3,7 +3,13 @@
 
 #include "types.h"
 
+class CActor;
+class CStateManager;
+
 class CActorModelParticles {
+public:
+  void Render(const CStateManager& mgr, const CActor& actor) const;
+
 private:
   // TODO
 };

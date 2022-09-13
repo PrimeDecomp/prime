@@ -2,7 +2,8 @@
 #define __CCAST_HPP__
 
 #include "types.h"
-#include "Dolphin/os/OSFastCast.h"
+
+#include "dolphin/os/OSFastCast.h"
 
 namespace CCast {
 #ifdef __MWERKS__

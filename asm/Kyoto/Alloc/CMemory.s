@@ -8,16 +8,15 @@ lbl_ctor:
 .balign 8
 
 .lcomm lbl_804BFD58, 0xC, 4
-.lcomm lbl_804BFD64, 0xC4, 4
+.lcomm gGameAllocator, 0xC0, 4
 
 .section .sdata
 .balign 8
 
-.global lbl_805A8868
-lbl_805A8868:
+.global mpAllocator__7CMemory
+mpAllocator__7CMemory:
 	# ROM: 0x3F6208
-	.4byte lbl_804BFD64
-	.4byte 0
+	.4byte gGameAllocator
 
 .section .sbss, "wa"
 .balign 8
@@ -88,7 +87,7 @@ OffsetFakeStatics__7CMemoryFi:
 /* 803158C4 00312824  7C 08 02 A6 */	mflr r0
 /* 803158C8 00312828  7C 64 1B 78 */	mr r4, r3
 /* 803158CC 0031282C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 803158D0 00312830  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 803158D0 00312830  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 803158D4 00312834  81 83 00 00 */	lwz r12, 0(r3)
 /* 803158D8 00312838  81 8C 00 38 */	lwz r12, 0x38(r12)
 /* 803158DC 0031283C  7D 89 03 A6 */	mtctr r12
@@ -106,7 +105,7 @@ SetOutOfMemoryCallback__7CMemoryFPFPCvUi_CbPCv:
 /* 80315900 00312860  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80315904 00312864  7C 60 1B 78 */	mr r0, r3
 /* 80315908 00312868  7C 04 03 78 */	mr r4, r0
-/* 8031590C 0031286C  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 8031590C 0031286C  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 80315910 00312870  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315914 00312874  81 8C 00 2C */	lwz r12, 0x2c(r12)
 /* 80315918 00312878  7D 89 03 A6 */	mtctr r12
@@ -130,7 +129,7 @@ Free__7CMemoryFPCv:
 /* 80315954 003128B4  54 00 0F FE */	srwi r0, r0, 0x1f
 /* 80315958 003128B8  98 01 00 08 */	stb r0, 8(r1)
 /* 8031595C 003128BC  41 82 00 1C */	beq lbl_80315978
-/* 80315960 003128C0  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 80315960 003128C0  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 80315964 003128C4  7F E4 FB 78 */	mr r4, r31
 /* 80315968 003128C8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8031596C 003128CC  81 8C 00 18 */	lwz r12, 0x18(r12)
@@ -160,7 +159,7 @@ Alloc__7CMemoryFUlQ210IAllocator5EHintQ210IAllocator6EScopeQ210IAllocator5ETypeR
 /* 803159BC 0031291C  7C 03 00 D0 */	neg r0, r3
 /* 803159C0 00312920  7F 64 DB 78 */	mr r4, r27
 /* 803159C4 00312924  7C 00 1B 78 */	or r0, r0, r3
-/* 803159C8 00312928  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 803159C8 00312928  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 803159CC 0031292C  54 00 0F FE */	srwi r0, r0, 0x1f
 /* 803159D0 00312930  7F 85 E3 78 */	mr r5, r28
 /* 803159D4 00312934  81 83 00 00 */	lwz r12, 0(r3)
@@ -195,7 +194,7 @@ Shutdown__7CMemoryFv:
 /* 80315A38 00312998  90 01 00 64 */	stw r0, 0x64(r1)
 /* 80315A3C 0031299C  38 00 00 00 */	li r0, 0
 /* 80315A40 003129A0  38 61 00 08 */	addi r3, r1, 8
-/* 80315A44 003129A4  80 8D 9C A8 */	lwz r4, lbl_805A8868@sda21(r13)
+/* 80315A44 003129A4  80 8D 9C A8 */	lwz r4, mpAllocator__7CMemory@sda21(r13)
 /* 80315A48 003129A8  98 0D A8 A0 */	stb r0, lbl_805A9460@sda21(r13)
 /* 80315A4C 003129AC  81 84 00 00 */	lwz r12, 0(r4)
 /* 80315A50 003129B0  81 8C 00 3C */	lwz r12, 0x3c(r12)
@@ -208,7 +207,7 @@ Shutdown__7CMemoryFv:
 /* 80315A6C 003129CC  3C 60 80 31 */	lis r3, cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv@ha
 /* 80315A70 003129D0  38 83 5A BC */	addi r4, r3, cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv@l
 /* 80315A74 003129D4  90 0D A8 A4 */	stw r0, lbl_805A9464@sda21(r13)
-/* 80315A78 003129D8  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 80315A78 003129D8  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 80315A7C 003129DC  38 A0 00 00 */	li r5, 0
 /* 80315A80 003129E0  90 0D A8 A8 */	stw r0, lbl_805A9468@sda21(r13)
 /* 80315A84 003129E4  38 C0 00 00 */	li r6, 0
@@ -217,7 +216,7 @@ Shutdown__7CMemoryFv:
 /* 80315A90 003129F0  7D 89 03 A6 */	mtctr r12
 /* 80315A94 003129F4  4E 80 04 21 */	bctrl
 lbl_80315A98:
-/* 80315A98 003129F8  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 80315A98 003129F8  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 80315A9C 003129FC  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315AA0 00312A00  81 8C 00 10 */	lwz r12, 0x10(r12)
 /* 80315AA4 00312A04  7D 89 03 A6 */	mtctr r12
@@ -255,7 +254,7 @@ SetAllocator__7CMemoryFR10COsContextR10IAllocator:
 /* 80315B08 00312A68  7C 9F 23 78 */	mr r31, r4
 /* 80315B0C 00312A6C  93 C1 00 08 */	stw r30, 8(r1)
 /* 80315B10 00312A70  7C 7E 1B 78 */	mr r30, r3
-/* 80315B14 00312A74  80 0D 9C A8 */	lwz r0, lbl_805A8868@sda21(r13)
+/* 80315B14 00312A74  80 0D 9C A8 */	lwz r0, mpAllocator__7CMemory@sda21(r13)
 /* 80315B18 00312A78  7C 00 F8 40 */	cmplw r0, r31
 /* 80315B1C 00312A7C  41 82 00 3C */	beq lbl_80315B58
 /* 80315B20 00312A80  28 00 00 00 */	cmplwi r0, 0
@@ -266,7 +265,7 @@ SetAllocator__7CMemoryFR10COsContextR10IAllocator:
 /* 80315B34 00312A94  7D 89 03 A6 */	mtctr r12
 /* 80315B38 00312A98  4E 80 04 21 */	bctrl
 lbl_80315B3C:
-/* 80315B3C 00312A9C  93 ED 9C A8 */	stw r31, lbl_805A8868@sda21(r13)
+/* 80315B3C 00312A9C  93 ED 9C A8 */	stw r31, mpAllocator__7CMemory@sda21(r13)
 /* 80315B40 00312AA0  7F E3 FB 78 */	mr r3, r31
 /* 80315B44 00312AA4  7F C4 F3 78 */	mr r4, r30
 /* 80315B48 00312AA8  81 9F 00 00 */	lwz r12, 0(r31)
@@ -287,7 +286,7 @@ Startup__7CMemoryFR10COsContext:
 /* 80315B74 00312AD4  7C 08 02 A6 */	mflr r0
 /* 80315B78 00312AD8  7C 64 1B 78 */	mr r4, r3
 /* 80315B7C 00312ADC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80315B80 00312AE0  80 6D 9C A8 */	lwz r3, lbl_805A8868@sda21(r13)
+/* 80315B80 00312AE0  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 80315B84 00312AE4  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315B88 00312AE8  81 8C 00 0C */	lwz r12, 0xc(r12)
 /* 80315B8C 00312AEC  7D 89 03 A6 */	mtctr r12
@@ -300,8 +299,8 @@ Startup__7CMemoryFR10COsContext:
 
 .global GetGameAllocator__10CMemorySysFv
 GetGameAllocator__10CMemorySysFv:
-/* 80315BA8 00312B08  3C 60 80 4C */	lis r3, lbl_804BFD64@ha
-/* 80315BAC 00312B0C  38 63 FD 64 */	addi r3, r3, lbl_804BFD64@l
+/* 80315BA8 00312B08  3C 60 80 4C */	lis r3, gGameAllocator@ha
+/* 80315BAC 00312B0C  38 63 FD 64 */	addi r3, r3, gGameAllocator@l
 /* 80315BB0 00312B10  4E 80 00 20 */	blr
 
 .global __dt__10CMemorySysFv
@@ -357,9 +356,9 @@ __ct__10CMemorySysFR10COsContextR10IAllocator:
 __sinit_CMemory_cpp:
 /* 80315C5C 00312BBC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80315C60 00312BC0  7C 08 02 A6 */	mflr r0
-/* 80315C64 00312BC4  3C 60 80 4C */	lis r3, lbl_804BFD64@ha
+/* 80315C64 00312BC4  3C 60 80 4C */	lis r3, gGameAllocator@ha
 /* 80315C68 00312BC8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80315C6C 00312BCC  38 63 FD 64 */	addi r3, r3, lbl_804BFD64@l
+/* 80315C6C 00312BCC  38 63 FD 64 */	addi r3, r3, gGameAllocator@l
 /* 80315C70 00312BD0  48 03 C9 5D */	bl __ct__14CGameAllocatorFv
 /* 80315C74 00312BD4  3C 80 80 35 */	lis r4, __dt__14CGameAllocatorFv@ha
 /* 80315C78 00312BD8  3C A0 80 4C */	lis r5, lbl_804BFD58@ha

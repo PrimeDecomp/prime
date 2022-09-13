@@ -38,6 +38,7 @@ class CStateManager {
 public:
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg, EScriptObjectState state);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
+  void SetupParticleHook(const CActor& actor) const;
 
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
@@ -45,6 +46,11 @@ public:
   const CPlayerState* GetPlayerState() const { return x8b8_playerState.GetPtr(); }
   CWorld* World() { return x850_world.get(); }
   const CWorld* GetWorld() const { return x850_world.get(); }
+  CActorModelParticles* ActorModelParticles() { return x884_actorModelParticles.get(); }
+  const CActorModelParticles* GetActorModelParticles() const { return x884_actorModelParticles.get(); }
+
+  f32 GetThermalColdScale1() const { return xf24_thermColdScale1; }
+  f32 GetThermalColdScale2() const { return xf28_thermColdScale2; }
 
 private:
   u16 x0_nextFreeIndex;
@@ -69,6 +75,9 @@ private:
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
   rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
+  u8 pad2[0x658];
+  f32 xf24_thermColdScale1;
+  f32 xf28_thermColdScale2;
 };
 
 #endif

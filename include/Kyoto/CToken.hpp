@@ -3,15 +3,20 @@
 
 #include "types.h"
 
-#include "Kyoto/IObjectStore.hpp"
+#include "Kyoto/IObj.hpp"
+
+class CObjectReference;
 
 class CToken {
 public:
   CToken() {}
-  CToken(IObj* obj) : x0_objRef(new CObjectReference(obj)), x4_lockHeld(false) {}
+  CToken(IObj* obj); // : x0_objRef(new CObjectReference(obj)), x4_lockHeld(false) {}
   CToken(const CToken& other);
   ~CToken();
 
+  CToken& operator=(const CToken&);
+
+  CObjOwnerDerivedFromIObjUntyped* GetObj();
   void Lock();
 
 private:

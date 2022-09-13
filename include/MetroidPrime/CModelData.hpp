@@ -51,6 +51,9 @@ public:
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
   void RenderParticles(const CFrustumPlanes& planes) const;
   void RenderUnsortedParts(EWhichModel which, const CTransform4f& xf, const CActorLights* lights, const CModelFlags& flags) const;
+  void RenderThermal(const CTransform4f& xf, const CColor& mulColor, const CColor& addColor, const CModelFlags& flags) const;
+  void Render(const CStateManager&, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
+  void Render(CModelData::EWhichModel, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
   CAnimData* AnimationData() { return xc_animData.get(); }
@@ -62,7 +65,9 @@ public:
 
   void SetXRayModel(const rstl::pair< CAssetId, CAssetId >& assets);
   void SetInfraModel(const rstl::pair< CAssetId, CAssetId >& assets);
+
   void SetAmbientColor(const CColor& color) { x18_ambientColor = color; }
+  bool GetSortThermal() const { return x14_25_sortThermal; }
   void SetSortThermal(bool b) { x14_25_sortThermal = b; }
 
   static EWhichModel GetRenderingModel(const CStateManager& mgr);

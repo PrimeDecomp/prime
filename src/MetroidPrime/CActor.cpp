@@ -2,6 +2,7 @@
 
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CActorLights.hpp"
+#include "MetroidPrime/CActorModelParticles.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CGameArea.hpp"
@@ -15,8 +16,12 @@
 
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/CTimeProvider.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CFrustumPlanes.hpp"
+#include "Kyoto/Math/CMath.hpp"
+
+#include "rstl/math.hpp"
 
 static CMaterialList MakeActorMaterialList(const CMaterialList& in, const CActorParameters& params) {
   CMaterialList ret = in;
@@ -194,11 +199,6 @@ void CActor::CalculateRenderBounds() {
 
 void CActor::SetModelData(const CModelData& modelData) { x64_modelData = modelData.IsNull() ? nullptr : new CModelData(modelData); }
 
-// Unreferenced
-extern "C" {
-void sub_8005502c() {}
-}
-
 // TODO nonmatching
 void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
   if (HasModelData()) {
@@ -215,7 +215,8 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
         lightsDirty = true;
       }
 
-      if (GetShadowDirty() && GetDrawShadow() && HasShadow()) {
+      // TODO why doesn't GetDrawShadow() work?
+      if (GetShadowDirty() && xe5_24_shadowEnabled && HasShadow()) {
         Shadow()->Calculate(GetModelData()->GetBounds(), GetTransform(), mgr);
         SetShadowDirty(false);
       }
@@ -225,11 +226,15 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
         if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_Thermal) {
           ActorLights()->BuildConstantAmbientLighting();
         } else {
-          if (lightsDirty) {
-            TAreaId aid = x4_areaId;
-            if (aid != kInvalidAreaId && mgr.GetWorld()->IsAreaValid(aid) &&
-                ActorLights()->BuildAreaLightList(mgr, *mgr.GetWorld()->GetArea(aid), bounds)) {
-              xe7_28_worldLightingDirty = false;
+          if (lightsDirty == true) {
+            if (x4_areaId != kInvalidAreaId) {
+              TAreaId aid = x4_areaId;
+              if (mgr.GetWorld()->IsAreaValid(aid)) {
+                const CGameArea* area = mgr.GetWorld()->GetArea(aid);
+                if (ActorLights()->BuildAreaLightList(mgr, *area, bounds)) {
+                  xe7_28_worldLightingDirty = false;
+                }
+              }
             }
           }
           ActorLights()->BuildDynamicLightList(mgr, bounds);
@@ -244,7 +249,8 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
         SetPreRenderHasMoved(false);
         SetShadowDirty(true);
       }
-      if (GetShadowDirty() && GetDrawShadow() && HasShadow()) {
+      // TODO why doesn't GetDrawShadow() work?
+      if (GetShadowDirty() && xe5_24_shadowEnabled && HasShadow()) {
         if (planes.BoxInFrustumPlanes(GetShadow()->GetMaxShadowBox(GetModelData()->GetBounds(GetTransform()))) == true) {
           Shadow()->Calculate(GetModelData()->GetBounds(), GetTransform(), mgr);
           SetShadowDirty(false);
@@ -295,6 +301,77 @@ void CActor::EnsureRendered(const CStateManager& mgr) const {
 void CActor::DrawTouchBounds() const {}
 
 bool CActor::CanRenderUnsorted(const CStateManager& mgr) const {
-  // if (GetModelData()->IsNull() && )
-  return false;
+  bool result = HasAnimation();
+  if (result && GetAnimationData()->GetParticleDB().AreAnySystemsDrawnWithModel() && GetRenderParticleDatabaseInside()) {
+    result = false;
+  } else {
+    result = xe5_30_renderUnsorted || IsModelOpaque(mgr);
+  }
+  return result;
 }
+
+void CActor::Render(const CStateManager& mgr) const {
+  if (GetModelData() && !NullModel()) {
+    bool renderPrePostParticles = GetRenderParticleDatabaseInside() && HasAnimation();
+    if (renderPrePostParticles) {
+      x64_modelData->GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnFirst();
+    }
+
+    if (xe7_27_enableRender) {
+      if (xe5_31_pointGeneratorParticles) {
+        mgr.SetupParticleHook(*this);
+      }
+      if (xe5_29_globalTimeProvider) {
+        RenderInternal(mgr);
+      } else {
+        const f32 timeSince = CGraphics::GetSecondsMod900() - xbc_time;
+        const f32 tpTime = CMath::FastFmod(timeSince, 900.f);
+        CTimeProvider tp(tpTime);
+        RenderInternal(mgr);
+      }
+      if (xe5_31_pointGeneratorParticles) {
+        CSkinnedModel::ClearPointGeneratorFunc();
+        mgr.GetActorModelParticles()->Render(mgr, *this);
+      }
+    }
+
+    if (renderPrePostParticles) {
+      x64_modelData->GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnLast();
+    }
+  }
+  DrawTouchBounds();
+}
+
+void CActor::RenderInternal(const CStateManager& mgr) const {
+  CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
+  if (which == CModelData::kWM_ThermalHot) {
+    if (GetModelData()->GetSortThermal()) {
+      u8 addMag;
+      u8 mulMag = 255;
+      if (xd0_damageMag <= 1.f) {
+        mulMag = CCast::ToUint8(xd0_damageMag * 255.f);
+        addMag = 0.f;
+      } else if (xd0_damageMag < 2.f) {
+        addMag = CCast::ToUint8((xd0_damageMag - 1.f) * 255.f);
+      } else {
+        addMag = 255;
+      }
+
+      const u8 rgb = mulMag * xb4_drawFlags.GetColor().GetAlphau8();
+      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColor().GetAlphau8());
+      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColor().GetAlphau8() / 4);
+      GetModelData()->RenderThermal(x34_transform, mulColor, addColor, xb4_drawFlags);
+      return;
+    } else if (mgr.GetThermalColdScale2() > 0.0001f && xb4_drawFlags.GetTrans() == 0) {
+      const f32 scale = rstl::min_val< f32 >((mgr.GetThermalColdScale2() + mgr.GetThermalColdScale1()) * mgr.GetThermalColdScale2(),
+                                             mgr.GetThermalColdScale2());
+      const f32 rgbf = CMath::Clamp(0.f, scale * 255.f, 255.f);
+      const u8 rgb = CCast::ToUint8(rgbf);
+      CColor color(rgb, rgb, rgb, 255);
+      CModelFlags flags(xb4_drawFlags, CModelFlags::kT_Two, color);
+      GetModelData()->Render(which, x34_transform, x90_actorLights.get(), flags);
+      return;
+    }
+  }
+  GetModelData()->Render(which, x34_transform, x90_actorLights.get(), xb4_drawFlags);
+};

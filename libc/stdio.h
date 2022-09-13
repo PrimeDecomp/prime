@@ -12,7 +12,9 @@ extern "C" {
 
 typedef unsigned long __file_handle;
 typedef unsigned long fpos_t;
+#ifndef __cplusplus
 typedef unsigned short wchar_t;
+#endif
 
 enum __file_kinds { __closed_file, __disk_file, __console_file, __unavailable_file };
 enum __file_orientation { __unoriented, __char_oriented, __wide_oriented };

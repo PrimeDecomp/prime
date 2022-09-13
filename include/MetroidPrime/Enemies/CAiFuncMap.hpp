@@ -5,6 +5,7 @@
 
 class CAiFuncMap {
 public:
+  CAiFuncMap();
   ~CAiFuncMap();
 
 private:

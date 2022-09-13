@@ -1,7 +1,7 @@
-#include "Dolphin/dsp.h"
-#include "Dolphin/os.h"
+#include "dolphin/dsp.h"
+#include "dolphin/os.h"
 
-#include "Dolphin/dsp_regs.h"
+#include "dolphin/dsp_regs.h"
 
 #ifdef __cplusplus
 extern "C" {

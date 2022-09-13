@@ -1,19 +1,11 @@
 // C++98 static assert
 
-template < bool expr >
-struct do_static_assert;
-
-template <>
-struct do_static_assert< true > {
-  static const char test;
-};
-
 struct false_type {
-  static const bool value = false;
+  static const int value = 0;
 };
 
 struct true_type {
-  static const bool value = true;
+  static const int value = 1;
 };
 
 template < int A, int B >
@@ -27,7 +19,7 @@ struct check_sizeof : _n_is_equal< sizeof(T), N > {};
 
 #ifdef __MWERKS__
 #define CHECK_SIZEOF(cls, size)                                                                                                            \
-  static void cls##_check() { do_static_assert< check_sizeof< cls, size >::value >::test; }
+  extern int cls##_check[check_sizeof< cls, size >::value];
 #else
 #define CHECK_SIZEOF(cls, size)
 #endif

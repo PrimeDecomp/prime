@@ -3506,7 +3506,7 @@ lbl_800058F8:
 /* 800058FC 0000285C  41 82 00 10 */	beq lbl_8000590C
 /* 80005900 00002860  80 7E 01 38 */	lwz r3, 0x138(r30)
 /* 80005904 00002864  38 80 00 01 */	li r4, 1
-/* 80005908 00002868  48 24 44 FD */	bl __dt__14CMemoryCardSysFv
+/* 80005908 00002868  48 24 44 FD */	bl __dt__11CMemoryCardFv
 lbl_8000590C:
 /* 8000590C 0000286C  38 7E 01 34 */	addi r3, r30, 0x134
 /* 80005910 00002870  38 80 FF FF */	li r4, -1
@@ -5063,19 +5063,19 @@ MemoryCardInitializePump__5CMainFv:
 /* 80006688 000035E8  48 30 F1 E5 */	bl __nw__FUlPCcPCc
 /* 8000668C 000035EC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80006690 000035F0  41 82 00 0C */	beq lbl_8000669C
-/* 80006694 000035F4  48 24 3B 79 */	bl __ct__14CMemoryCardSysFv
+/* 80006694 000035F4  48 24 3B 79 */	bl __ct__11CMemoryCardFv
 /* 80006698 000035F8  7C 7E 1B 78 */	mr r30, r3
 lbl_8000669C:
 /* 8000669C 000035FC  83 FD 01 28 */	lwz r31, 0x128(r29)
 /* 800066A0 00003600  38 80 00 01 */	li r4, 1
 /* 800066A4 00003604  80 7F 01 38 */	lwz r3, 0x138(r31)
-/* 800066A8 00003608  48 24 37 5D */	bl __dt__14CMemoryCardSysFv
+/* 800066A8 00003608  48 24 37 5D */	bl __dt__11CMemoryCardFv
 /* 800066AC 0000360C  93 DF 01 38 */	stw r30, 0x138(r31)
 lbl_800066B0:
 /* 800066B0 00003610  80 7D 01 28 */	lwz r3, 0x128(r29)
 /* 800066B4 00003614  83 C3 01 38 */	lwz r30, 0x138(r3)
 /* 800066B8 00003618  7F C3 F3 78 */	mr r3, r30
-/* 800066BC 0000361C  48 24 29 D1 */	bl InitializePump__14CMemoryCardSysFv
+/* 800066BC 0000361C  48 24 29 D1 */	bl InitializePump__11CMemoryCardFv
 /* 800066C0 00003620  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800066C4 00003624  41 82 00 10 */	beq lbl_800066D4
 /* 800066C8 00003628  93 CD A0 84 */	stw r30, gpMemoryCard@sda21(r13)
@@ -6269,8 +6269,8 @@ lbl_8000775C:
 /* 80007784 000046E4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80007788 000046E8  4E 80 00 20 */	blr
 
-.global sub_8000778c
-sub_8000778c:
+.global LoadDefaultFont__18CGameGlobalObjectsFv
+LoadDefaultFont__18CGameGlobalObjectsFv:
 /* 8000778C 000046EC  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 80007790 000046F0  7C 08 02 A6 */	mflr r0
 /* 80007794 000046F4  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
@@ -6373,7 +6373,7 @@ lbl_800078D0:
 lbl_80007904:
 /* 80007904 00004864  3B C1 00 20 */	addi r30, r1, 0x20
 /* 80007908 00004868  38 61 00 08 */	addi r3, r1, 8
-/* 8000790C 0000486C  48 00 01 21 */	bl "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture"
+/* 8000790C 0000486C  48 00 01 21 */	bl "GetIObjObjectFor__17TToken<8CTexture>FP8CTexture"
 /* 80007910 00004870  38 00 00 00 */	li r0, 0
 /* 80007914 00004874  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 80007918 00004878  98 01 00 08 */	stb r0, 8(r1)
@@ -6453,8 +6453,8 @@ lbl_80007A10:
 /* 80007A24 00004984  38 21 00 10 */	addi r1, r1, 0x10
 /* 80007A28 00004988  4E 80 00 20 */	blr
 
-.global "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture"
-"GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture":
+.global "GetIObjObjectFor__17TToken<8CTexture>FP8CTexture"
+"GetIObjObjectFor__17TToken<8CTexture>FP8CTexture":
 /* 80007A2C 0000498C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80007A30 00004990  7C 08 02 A6 */	mflr r0
 /* 80007A34 00004994  3C A0 80 3D */	lis r5, lbl_803CBE74@ha
@@ -6504,7 +6504,7 @@ __ct__18CGameGlobalObjectsFR10COsContextR10CMemorySys:
 /* 80007AD4 00004A34  7C BE 2B 78 */	mr r30, r5
 /* 80007AD8 00004A38  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 80007ADC 00004A3C  7C 9D 23 78 */	mr r29, r4
-/* 80007AE0 00004A40  48 34 69 E1 */	bl Initialize__14CMemoryCardSysFv
+/* 80007AE0 00004A40  48 34 69 E1 */	bl __ct__14CMemoryCardSysFv
 /* 80007AE4 00004A44  38 7F 00 04 */	addi r3, r31, 4
 /* 80007AE8 00004A48  48 33 2C 09 */	bl __ct__11CResFactoryFv
 /* 80007AEC 00004A4C  38 7F 00 CC */	addi r3, r31, 0xcc
@@ -6549,11 +6549,11 @@ lbl_80007B4C:
 /* 80007B84 00004AE4  7C 60 1B 78 */	mr r0, r3
 lbl_80007B88:
 /* 80007B88 00004AE8  90 1F 01 50 */	stw r0, 0x150(r31)
-/* 80007B8C 00004AEC  4B FF FC 01 */	bl sub_8000778c
+/* 80007B8C 00004AEC  4B FF FC 01 */	bl LoadDefaultFont__18CGameGlobalObjectsFv
 /* 80007B90 00004AF0  7C 64 1B 78 */	mr r4, r3
 /* 80007B94 00004AF4  3B BF 01 54 */	addi r29, r31, 0x154
 /* 80007B98 00004AF8  38 61 00 08 */	addi r3, r1, 8
-/* 80007B9C 00004AFC  48 00 02 3D */	bl sub_80007dd8
+/* 80007B9C 00004AFC  48 00 02 3D */	bl "GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont"
 /* 80007BA0 00004B00  38 00 00 00 */	li r0, 0
 /* 80007BA4 00004B04  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 80007BA8 00004B08  98 01 00 08 */	stb r0, 8(r1)
@@ -6717,8 +6717,8 @@ lbl_80007DBC:
 /* 80007DD0 00004D30  38 21 00 30 */	addi r1, r1, 0x30
 /* 80007DD4 00004D34  4E 80 00 20 */	blr
 
-.global sub_80007dd8
-sub_80007dd8:
+.global "GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont"
+"GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont":
 /* 80007DD8 00004D38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80007DDC 00004D3C  7C 08 02 A6 */	mflr r0
 /* 80007DE0 00004D40  3C A0 80 3D */	lis r5, lbl_803CBE74@ha
@@ -6762,7 +6762,7 @@ ShutdownSubsystems__5CMainFv:
 /* 80007E68 00004DC8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80007E6C 00004DCC  7C 08 02 A6 */	mflr r0
 /* 80007E70 00004DD0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80007E74 00004DD4  48 36 4E E5 */	bl sub_8036cd58
+/* 80007E74 00004DD4  48 36 4E E5 */	bl ShutDown__19CFrameDelayedKillerFv
 /* 80007E78 00004DD8  48 10 F9 8D */	bl ShutDown__13CDecalManagerFv
 /* 80007E7C 00004DDC  48 31 72 E1 */	bl ShutDown__11CElementGenFv
 /* 80007E80 00004DE0  48 02 62 E9 */	bl FreeCache__9CAnimDataFv
@@ -6815,10 +6815,10 @@ InitializeSubsystems__5CMainFv:
 /* 80007F28 00004E88  3C 60 00 60 */	lis r3, 0x005FC000@ha
 /* 80007F2C 00004E8C  38 63 C0 00 */	addi r3, r3, 0x005FC000@l
 /* 80007F30 00004E90  48 36 5A E5 */	bl ARAlloc
-/* 80007F34 00004E94  80 6D 9D 60 */	lwz r3, lbl_805A8920@sda21(r13)
+/* 80007F34 00004E94  80 6D 9D 60 */	lwz r3, mPreInitializeAlloc__12CARAMManager@sda21(r13)
 /* 80007F38 00004E98  3C 63 00 60 */	addis r3, r3, 0x60
 /* 80007F3C 00004E9C  38 03 C0 00 */	addi r0, r3, -16384
-/* 80007F40 00004EA0  90 0D 9D 60 */	stw r0, lbl_805A8920@sda21(r13)
+/* 80007F40 00004EA0  90 0D 9D 60 */	stw r0, mPreInitializeAlloc__12CARAMManager@sda21(r13)
 /* 80007F44 00004EA4  48 36 76 BD */	bl ARQInit
 /* 80007F48 00004EA8  48 37 C6 8D */	bl OSGetCurrentThread
 /* 80007F4C 00004EAC  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
@@ -6884,7 +6884,7 @@ lbl_80008000:
 /* 80008028 00004F88  38 60 08 00 */	li r3, 0x800
 /* 8000802C 00004F8C  48 33 CC E9 */	bl Initialize__12CARAMManagerFUi
 /* 80008030 00004F90  48 10 F9 25 */	bl Initialize__13CDecalManagerFv
-/* 80008034 00004F94  48 36 4D 45 */	bl sub_8036cd78
+/* 80008034 00004F94  48 36 4D 45 */	bl Initialize__19CFrameDelayedKillerFv
 /* 80008038 00004F98  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8000803C 00004F9C  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 80008040 00004FA0  83 C1 00 18 */	lwz r30, 0x18(r1)
@@ -6993,14 +6993,14 @@ lbl_80008190:
 lbl_80008198:
 /* 80008198 000050F8  38 7E 00 70 */	addi r3, r30, 0x70
 /* 8000819C 000050FC  38 80 FF FF */	li r4, -1
-/* 800081A0 00005100  48 02 EA 11 */	bl sub_80036bb0
+/* 800081A0 00005100  48 02 EA 11 */	bl __dt__7CTweaksFv
 /* 800081A4 00005104  34 1E 00 6E */	addic. r0, r30, 0x6e
 /* 800081A8 00005108  41 82 00 18 */	beq lbl_800081C0
-/* 800081AC 0000510C  88 0D A7 70 */	lbz r0, lbl_805A9330@sda21(r13)
+/* 800081AC 0000510C  88 0D A7 70 */	lbz r0, mManagerInstalled__14CDvdRequestSys@sda21(r13)
 /* 800081B0 00005110  28 00 00 01 */	cmplwi r0, 1
 /* 800081B4 00005114  40 82 00 0C */	bne lbl_800081C0
 /* 800081B8 00005118  38 00 00 00 */	li r0, 0
-/* 800081BC 0000511C  98 0D A7 70 */	stb r0, lbl_805A9330@sda21(r13)
+/* 800081BC 0000511C  98 0D A7 70 */	stb r0, mManagerInstalled__14CDvdRequestSys@sda21(r13)
 lbl_800081C0:
 /* 800081C0 00005120  38 7E 00 6D */	addi r3, r30, 0x6d
 /* 800081C4 00005124  38 80 FF FF */	li r4, -1
@@ -7043,11 +7043,11 @@ __ct__5CMainFv:
 /* 80008248 000051A8  7F C5 F3 78 */	mr r5, r30
 /* 8000824C 000051AC  38 7F 00 6D */	addi r3, r31, 0x6d
 /* 80008250 000051B0  48 30 D9 B5 */	bl __ct__10CMemorySysFR10COsContextR10IAllocator
-/* 80008254 000051B4  88 0D A7 70 */	lbz r0, lbl_805A9330@sda21(r13)
+/* 80008254 000051B4  88 0D A7 70 */	lbz r0, mManagerInstalled__14CDvdRequestSys@sda21(r13)
 /* 80008258 000051B8  28 00 00 01 */	cmplwi r0, 1
 /* 8000825C 000051BC  41 82 00 0C */	beq lbl_80008268
 /* 80008260 000051C0  38 00 00 01 */	li r0, 1
-/* 80008264 000051C4  98 0D A7 70 */	stb r0, lbl_805A9330@sda21(r13)
+/* 80008264 000051C4  98 0D A7 70 */	stb r0, mManagerInstalled__14CDvdRequestSys@sda21(r13)
 lbl_80008268:
 /* 80008268 000051C8  38 7F 00 70 */	addi r3, r31, 0x70
 /* 8000826C 000051CC  48 02 EA 35 */	bl __ct__7CTweaksFv

@@ -5,12 +5,13 @@
 
 class CMemoryCardSys {
 public:
+  CMemoryCardSys();
   ~CMemoryCardSys();
+
+  void Initialize();
 
 private:
   // TODO
 };
-
-extern CMemoryCardSys* gpMemoryCard;
 
 #endif

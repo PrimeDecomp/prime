@@ -106,8 +106,8 @@ lbl_80248EFC:
 /* 80248F04 00245E64  38 21 00 10 */	addi r1, r1, 0x10
 /* 80248F08 00245E68  4E 80 00 20 */	blr
 
-.global GetSaveWorldMemory__14CMemoryCardSysCFi
-GetSaveWorldMemory__14CMemoryCardSysCFi:
+.global GetSaveWorldMemory__11CMemoryCardCFi
+GetSaveWorldMemory__11CMemoryCardCFi:
 /* 80248F0C 00245E6C  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80248F10 00245E70  7C 08 02 A6 */	mflr r0
 /* 80248F14 00245E74  90 01 00 44 */	stw r0, 0x44(r1)
@@ -154,8 +154,8 @@ lbl_80248FA0:
 /* 80248FB0 00245F10  38 21 00 40 */	addi r1, r1, 0x40
 /* 80248FB4 00245F14  4E 80 00 20 */	blr
 
-.global HasSaveWorldMemory__15CMemoryCardSysFi
-HasSaveWorldMemory__15CMemoryCardSysFi:
+.global HasSaveWorldMemory__11CMemoryCardFi
+HasSaveWorldMemory__11CMemoryCardFi:
 /* 80248FB8 00245F18  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80248FBC 00245F1C  7C 08 02 A6 */	mflr r0
 /* 80248FC0 00245F20  90 01 00 44 */	stw r0, 0x44(r1)
@@ -212,8 +212,8 @@ lbl_80249054:
 /* 80249084 00245FE4  38 21 00 40 */	addi r1, r1, 0x40
 /* 80249088 00245FE8  4E 80 00 20 */	blr
 
-.global InitializePump__14CMemoryCardSysFv
-InitializePump__14CMemoryCardSysFv:
+.global InitializePump__11CMemoryCardFv
+InitializePump__11CMemoryCardFv:
 /* 8024908C 00245FEC  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 80249090 00245FF0  7C 08 02 A6 */	mflr r0
 /* 80249094 00245FF4  90 01 00 84 */	stw r0, 0x84(r1)
@@ -301,7 +301,7 @@ lbl_8024919C:
 /* 802491B4 00246114  41 82 03 28 */	beq lbl_802494DC
 /* 802491B8 00246118  80 9D 00 00 */	lwz r4, 0(r29)
 /* 802491BC 0024611C  7F 03 C3 78 */	mr r3, r24
-/* 802491C0 00246120  4B FF FD 4D */	bl GetSaveWorldMemory__14CMemoryCardSysCFi
+/* 802491C0 00246120  4B FF FD 4D */	bl GetSaveWorldMemory__11CMemoryCardCFi
 /* 802491C4 00246124  7C 7F 1B 78 */	mr r31, r3
 /* 802491C8 00246128  80 63 00 04 */	lwz r3, 4(r3)
 /* 802491CC 0024612C  3C 03 00 01 */	addis r0, r3, 1
@@ -1184,8 +1184,8 @@ lbl_80249DDC:
 /* 80249DFC 00246D5C  38 21 00 40 */	addi r1, r1, 0x40
 /* 80249E00 00246D60  4E 80 00 20 */	blr
 
-.global __dt__14CMemoryCardSysFv
-__dt__14CMemoryCardSysFv:
+.global __dt__11CMemoryCardFv
+__dt__11CMemoryCardFv:
 /* 80249E04 00246D64  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80249E08 00246D68  7C 08 02 A6 */	mflr r0
 /* 80249E0C 00246D6C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1490,8 +1490,8 @@ lbl_8024A1F0:
 /* 8024A204 00247164  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024A208 00247168  4E 80 00 20 */	blr
 
-.global __ct__14CMemoryCardSysFv
-__ct__14CMemoryCardSysFv:
+.global __ct__11CMemoryCardFv
+__ct__11CMemoryCardFv:
 /* 8024A20C 0024716C  94 21 FE B0 */	stwu r1, -0x150(r1)
 /* 8024A210 00247170  7C 08 02 A6 */	mflr r0
 /* 8024A214 00247174  3C A0 80 3D */	lis r5, lbl_803D4780@ha

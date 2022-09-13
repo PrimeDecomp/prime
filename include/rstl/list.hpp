@@ -9,6 +9,7 @@ namespace rstl {
 template < typename T, typename Alloc = rmemory_allocator >
 class list {
 public:
+  list() : x4_start(&xc_empty), x8_end(&xc_empty), xc_empty(x8_end, nullptr) {}
   ~list() {
     node* cur = x4_start;
     while (cur != nullptr) {
@@ -25,6 +26,8 @@ private:
       T* x8_item;
       u32 x8_count;
     };
+
+    node(node* prev, node* next) : x0_prev(prev), x4_next(next), x8_count(0) {}
   };
 
   Alloc x0_allocator;

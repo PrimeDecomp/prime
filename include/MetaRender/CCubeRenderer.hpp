@@ -5,20 +5,13 @@
 
 #include <dolphin/gx/GXEnum.h>
 
+#include "MetaRender/Renderer.hpp"
+
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
 #include "rstl/pair.hpp"
-
-class IRenderer {
-public:
-  enum EDrawableSorting {
-    kDS_SortedCallback,
-    kDS_UnsortedCallback,
-  };
-
-  // TODO vtable
-};
 
 class CCubeRenderer {
 public:

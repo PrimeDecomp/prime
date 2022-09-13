@@ -1395,8 +1395,8 @@ lbl_80036B94:
 /* 80036BA8 00033B08  38 21 01 50 */	addi r1, r1, 0x150
 /* 80036BAC 00033B0C  4E 80 00 20 */	blr
 
-.global sub_80036bb0
-sub_80036bb0:
+.global __dt__7CTweaksFv
+__dt__7CTweaksFv:
 /* 80036BB0 00033B10  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80036BB4 00033B14  7C 08 02 A6 */	mflr r0
 /* 80036BB8 00033B18  90 01 00 24 */	stw r0, 0x24(r1)

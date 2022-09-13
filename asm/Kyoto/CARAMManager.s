@@ -7,8 +7,8 @@ lbl_ctor:
 .section .sdata
 .balign 8
 
-.global lbl_805A8920
-lbl_805A8920:
+.global mPreInitializeAlloc__12CARAMManager
+mPreInitializeAlloc__12CARAMManager:
 	# ROM: 0x3F62C0
 	.4byte 0x00004000
 	.4byte 0
@@ -595,7 +595,7 @@ Initialize__12CARAMManagerFUi:
 /* 80344D24 00341C84  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80344D28 00341C88  7C 7E 1B 78 */	mr r30, r3
 /* 80344D2C 00341C8C  48 02 8E 91 */	bl ARGetSize
-/* 80344D30 00341C90  80 0D 9D 60 */	lwz r0, lbl_805A8920@sda21(r13)
+/* 80344D30 00341C90  80 0D 9D 60 */	lwz r0, mPreInitializeAlloc__12CARAMManager@sda21(r13)
 /* 80344D34 00341C94  93 CD A9 68 */	stw r30, lbl_805A9528@sda21(r13)
 /* 80344D38 00341C98  7C 00 18 50 */	subf r0, r0, r3
 /* 80344D3C 00341C9C  7F E0 F3 96 */	divwu r31, r0, r30

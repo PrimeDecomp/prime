@@ -5,6 +5,7 @@
 
 class CGraphicsSys {
 public:
+  CGraphicsSys(const COsContext& osContext, const CMemorySys& memorySys, uint, void*);
   ~CGraphicsSys();
 
 private:

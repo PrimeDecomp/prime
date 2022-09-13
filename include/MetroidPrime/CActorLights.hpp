@@ -50,7 +50,7 @@ public:
   bool BuildAreaLightList(const CStateManager& mgr, const CGameArea& area, const CAABox& bounds);
   void BuildDynamicLightList(const CStateManager& mgr, const CAABox& bounds);
 
-  bool GetNeedsRelight() const { return x298_24_dirty; }
+  bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
 
 private:
   rstl::reserved_vector< CLight, 4 > x0_areaLights;

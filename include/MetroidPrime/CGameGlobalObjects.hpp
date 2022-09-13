@@ -13,23 +13,30 @@
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/CToken.hpp"
 #include "Kyoto/Graphics/CGraphicsSys.hpp"
-#include "Kyoto/Text/CRasterFont.hpp"
 #include "Kyoto/TOneStatic.hpp"
+#include "Kyoto/Text/CRasterFont.hpp"
 #include "MetroidPrime/CInGameTweakManager.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
 #include "MetroidPrime/Factories/CCharacterFactoryBuilder.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
+
+class IRenderer;
+class CStringTable;
 
 class CGameGlobalObjects : public TOneStatic< CGameGlobalObjects > {
 public:
   CGameGlobalObjects(COsContext&, CMemorySys&);
 
   void PostInitialize(COsContext&, CMemorySys&);
+  void AddPaksAndFactories();
+  void LoadStringTable();
 
   rstl::single_ptr< CGameState >& GameState() { return x134_gameState; }
 
+  static CRasterFont* LoadDefaultFont();
+
 private:
-  rstl::single_ptr< CMemoryCardSys > x0_memoryCardSys;
+  CMemoryCardSys x0_memoryCardSys;
   CResFactory x4_resFactory;
   CSimplePool xcc_simplePool;
   CCharacterFactoryBuilder xec_characterFactoryBuilder;
@@ -37,11 +44,12 @@ private:
   CGraphicsSys x130_graphicsSys;
   rstl::single_ptr< CGameState > x134_gameState;
   uint x138_;
-  rstl::optional_object< TCachedToken< unkptr > > x13c_;
-  uint x14c_;
+  rstl::optional_object< TLockedToken< CStringTable > > x13c_stringTable;
+  rstl::single_ptr< IRenderer > x14c_renderer;
   rstl::single_ptr< CInGameTweakManager > x150_inGameTweakManager;
   TToken< CRasterFont > x154_defaultFont;
 };
+CHECK_SIZEOF(CGameGlobalObjects, 0x15c)
 
 // TODO move to related headers
 extern unkptr gGuiSystem;

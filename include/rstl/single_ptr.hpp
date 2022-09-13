@@ -16,9 +16,10 @@ public:
   // const T* get() const { return x0_ptr; }
   T* operator->() { return x0_ptr; }
   const T* operator->() const { return x0_ptr; }
-  void operator=(T* ptr) {
+  single_ptr& operator=(T* ptr) {
     delete x0_ptr;
     x0_ptr = ptr;
+    return *this;
   }
   bool null() const { return x0_ptr == nullptr; }
   T& operator*() { return *x0_ptr; }
