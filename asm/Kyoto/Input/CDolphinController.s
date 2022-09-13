@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EF6A0
-lbl_803EF6A0:
+.global mButtonMapping
+mButtonMapping:
 	# ROM: 0x3EC6A0
 	.4byte 0x01000200
 	.4byte 0x04000800
@@ -13,8 +13,8 @@ lbl_803EF6A0:
 	.4byte 0x00040001
 	.4byte 0x00400020
 
-.global lbl_803EF6B8
-lbl_803EF6B8:
+.global __vt__18CDolphinController
+__vt__18CDolphinController:
 	# ROM: 0x3EC6B8
 	.4byte 0
 	.4byte 0
@@ -22,7 +22,7 @@ lbl_803EF6B8:
 	.4byte Poll__18CDolphinControllerFv
 	.4byte GetDeviceCount__18CDolphinControllerCFv
 	.4byte GetGamepadData__18CDolphinControllerFi
-	.4byte GetControllerType__18CDolphinControllerFi
+	.4byte GetControllerType__18CDolphinControllerCFi
 	.4byte SetMotorState__18CDolphinControllerF7EIOPort11EMotorState
 
 .section .sbss, "wa"
@@ -73,8 +73,8 @@ SetMotorState__18CDolphinControllerF7EIOPort11EMotorState:
 /* 8034F0C0 0034C020  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034F0C4 0034C024  4E 80 00 20 */	blr
 
-.global GetControllerType__18CDolphinControllerFi
-GetControllerType__18CDolphinControllerFi:
+.global GetControllerType__18CDolphinControllerCFi
+GetControllerType__18CDolphinControllerCFi:
 /* 8034F0C8 0034C028  54 80 10 3A */	slwi r0, r4, 2
 /* 8034F0CC 0034C02C  7C 63 02 14 */	add r3, r3, r0
 /* 8034F0D0 0034C030  80 63 01 A4 */	lwz r3, 0x1a4(r3)
@@ -146,13 +146,13 @@ ProcessDigitalButton__18CDolphinControllerFiR17CControllerButtonUs:
 ProcessButtons__18CDolphinControllerFi:
 /* 8034F198 0034C0F8  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8034F19C 0034C0FC  7C 08 02 A6 */	mflr r0
-/* 8034F1A0 0034C100  3C A0 80 3F */	lis r5, lbl_803EF6A0@ha
+/* 8034F1A0 0034C100  3C A0 80 3F */	lis r5, mButtonMapping@ha
 /* 8034F1A4 0034C104  90 01 00 34 */	stw r0, 0x34(r1)
 /* 8034F1A8 0034C108  BF 41 00 18 */	stmw r26, 0x18(r1)
 /* 8034F1AC 0034C10C  7C 9B 23 78 */	mr r27, r4
 /* 8034F1B0 0034C110  1C 9B 00 58 */	mulli r4, r27, 0x58
 /* 8034F1B4 0034C114  7C 7A 1B 78 */	mr r26, r3
-/* 8034F1B8 0034C118  3B C5 F6 A0 */	addi r30, r5, lbl_803EF6A0@l
+/* 8034F1B8 0034C118  3B C5 F6 A0 */	addi r30, r5, mButtonMapping@l
 /* 8034F1BC 0034C11C  3B 80 00 00 */	li r28, 0
 /* 8034F1C0 0034C120  3B A4 00 34 */	addi r29, r4, 0x34
 /* 8034F1C4 0034C124  3B E0 00 00 */	li r31, 0
@@ -432,7 +432,7 @@ lbl_8034F58C:
 /* 8034F59C 0034C4FC  80 1C 01 B4 */	lwz r0, 0x1b4(r28)
 /* 8034F5A0 0034C500  28 00 00 00 */	cmplwi r0, 0
 /* 8034F5A4 0034C504  40 82 00 5C */	bne lbl_8034F600
-/* 8034F5A8 0034C508  80 02 CC 60 */	lwz r0, lbl_805AE980@sda21(r2)
+/* 8034F5A8 0034C508  80 02 CC 60 */	lwz r0, skTypeUnknown__18CDolphinController@sda21(r2)
 /* 8034F5AC 0034C50C  90 1C 01 A4 */	stw r0, 0x1a4(r28)
 /* 8034F5B0 0034C510  48 00 00 50 */	b lbl_8034F600
 lbl_8034F5B4:
@@ -441,21 +441,21 @@ lbl_8034F5B4:
 /* 8034F5BC 0034C51C  28 00 00 00 */	cmplwi r0, 0
 /* 8034F5C0 0034C520  90 9C 01 B4 */	stw r4, 0x1b4(r28)
 /* 8034F5C4 0034C524  40 82 00 10 */	bne lbl_8034F5D4
-/* 8034F5C8 0034C528  80 02 CC 6C */	lwz r0, lbl_805AE98C@sda21(r2)
+/* 8034F5C8 0034C528  80 02 CC 6C */	lwz r0, skTypeWavebird__18CDolphinController@sda21(r2)
 /* 8034F5CC 0034C52C  90 1C 01 A4 */	stw r0, 0x1a4(r28)
 /* 8034F5D0 0034C530  48 00 00 30 */	b lbl_8034F600
 lbl_8034F5D4:
 /* 8034F5D4 0034C534  3C 03 FF FC */	addis r0, r3, 0xfffc
 /* 8034F5D8 0034C538  28 00 00 00 */	cmplwi r0, 0
 /* 8034F5DC 0034C53C  40 82 00 10 */	bne lbl_8034F5EC
-/* 8034F5E0 0034C540  80 02 CC 68 */	lwz r0, lbl_805AE988@sda21(r2)
+/* 8034F5E0 0034C540  80 02 CC 68 */	lwz r0, skTypeGBA__18CDolphinController@sda21(r2)
 /* 8034F5E4 0034C544  90 1C 01 A4 */	stw r0, 0x1a4(r28)
 /* 8034F5E8 0034C548  48 00 00 18 */	b lbl_8034F600
 lbl_8034F5EC:
 /* 8034F5EC 0034C54C  3C 03 F7 00 */	addis r0, r3, 0xf700
 /* 8034F5F0 0034C550  28 00 00 00 */	cmplwi r0, 0
 /* 8034F5F4 0034C554  40 82 00 0C */	bne lbl_8034F600
-/* 8034F5F8 0034C558  80 02 CC 64 */	lwz r0, lbl_805AE984@sda21(r2)
+/* 8034F5F8 0034C558  80 02 CC 64 */	lwz r0, skTypeStandard__18CDolphinController@sda21(r2)
 /* 8034F5FC 0034C55C  90 1C 01 A4 */	stw r0, 0x1a4(r28)
 lbl_8034F600:
 /* 8034F600 0034C560  3B 7B 00 01 */	addi r27, r27, 1
@@ -511,7 +511,7 @@ Initialize__18CDolphinControllerFv:
 /* 8034F6AC 0034C60C  38 80 00 02 */	li r4, 2
 /* 8034F6B0 0034C610  98 BF 00 34 */	stb r5, 0x34(r31)
 /* 8034F6B4 0034C614  38 7F 01 94 */	addi r3, r31, 0x194
-/* 8034F6B8 0034C618  80 02 CC 60 */	lwz r0, lbl_805AE980@sda21(r2)
+/* 8034F6B8 0034C618  80 02 CC 60 */	lwz r0, skTypeUnknown__18CDolphinController@sda21(r2)
 /* 8034F6BC 0034C61C  90 9F 01 94 */	stw r4, 0x194(r31)
 /* 8034F6C0 0034C620  90 BF 01 B4 */	stw r5, 0x1b4(r31)
 /* 8034F6C4 0034C624  90 1F 01 A4 */	stw r0, 0x1a4(r31)
@@ -550,9 +550,9 @@ __dt__18CDolphinControllerFv:
 /* 8034F73C 0034C69C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8034F740 0034C6A0  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8034F744 0034C6A4  41 82 00 28 */	beq lbl_8034F76C
-/* 8034F748 0034C6A8  3C A0 80 3F */	lis r5, lbl_803EF6B8@ha
+/* 8034F748 0034C6A8  3C A0 80 3F */	lis r5, __vt__18CDolphinController@ha
 /* 8034F74C 0034C6AC  38 80 00 00 */	li r4, 0
-/* 8034F750 0034C6B0  38 05 F6 B8 */	addi r0, r5, lbl_803EF6B8@l
+/* 8034F750 0034C6B0  38 05 F6 B8 */	addi r0, r5, __vt__18CDolphinController@l
 /* 8034F754 0034C6B4  90 1E 00 00 */	stw r0, 0(r30)
 /* 8034F758 0034C6B8  4B FF F8 B1 */	bl __dt__11IControllerFv
 /* 8034F75C 0034C6BC  7F E0 07 35 */	extsh. r0, r31
@@ -576,9 +576,9 @@ __ct__18CDolphinControllerFv:
 /* 8034F794 0034C6F4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8034F798 0034C6F8  7C 7F 1B 78 */	mr r31, r3
 /* 8034F79C 0034C6FC  4B FF F8 B5 */	bl __ct__11IControllerFv
-/* 8034F7A0 0034C700  3C 60 80 3F */	lis r3, lbl_803EF6B8@ha
+/* 8034F7A0 0034C700  3C 60 80 3F */	lis r3, __vt__18CDolphinController@ha
 /* 8034F7A4 0034C704  3C 80 80 35 */	lis r4, __ct__22CControllerGamepadDataFv@ha
-/* 8034F7A8 0034C708  38 03 F6 B8 */	addi r0, r3, lbl_803EF6B8@l
+/* 8034F7A8 0034C708  38 03 F6 B8 */	addi r0, r3, __vt__18CDolphinController@l
 /* 8034F7AC 0034C70C  38 A0 00 00 */	li r5, 0
 /* 8034F7B0 0034C710  90 1F 00 00 */	stw r0, 0(r31)
 /* 8034F7B4 0034C714  38 7F 00 34 */	addi r3, r31, 0x34
@@ -667,51 +667,50 @@ __ct__15CControllerAxisFv:
 .section .sdata2, "a"
 .balign 8
 
-.global lbl_805AE980
-lbl_805AE980:
+.global skTypeUnknown__18CDolphinController
+skTypeUnknown__18CDolphinController:
 	# ROM: 0x3FB220
-	.4byte 0x554E4B4E
+	.byte 'U', 'N', 'K', 'N'
 
-.global lbl_805AE984
-lbl_805AE984:
+.global skTypeStandard__18CDolphinController
+skTypeStandard__18CDolphinController:
 	# ROM: 0x3FB224
-	.4byte 0x53544E44
+	.byte 'S', 'T', 'N', 'D'
 
-.global lbl_805AE988
-lbl_805AE988:
+.global skTypeGBA__18CDolphinController
+skTypeGBA__18CDolphinController:
 	# ROM: 0x3FB228
-	.4byte 0x4742415F
+	.byte 'G', 'B', 'A', '_'
 
-.global lbl_805AE98C
-lbl_805AE98C:
+.global skTypeWavebird__18CDolphinController
+skTypeWavebird__18CDolphinController:
 	# ROM: 0x3FB22C
-	.4byte 0x57415645
+	.byte 'W', 'A', 'V', 'E'
 
 .global lbl_805AE990
 lbl_805AE990:
 	# ROM: 0x3FB230
-	.4byte 0x42900000
+	.float 72.0
 
 .global lbl_805AE994
 lbl_805AE994:
 	# ROM: 0x3FB234
-	.4byte 0x426C0000
+	.float 59.0
 
 .global lbl_805AE998
 lbl_805AE998:
 	# ROM: 0x3FB238
-	.4byte 0
+	.float 0.0
 
 .global lbl_805AE99C
 lbl_805AE99C:
 	# ROM: 0x3FB23C
-	.4byte 0x3BDA740E
+	.float 0.006666667
 
 .global lbl_805AE9A0
 lbl_805AE9A0:
 	# ROM: 0x3FB240
-	.4byte 0x43300000
-	.4byte 0
+	.double 4.503599627370496E15
 
 .global lbl_805AE9A8
 lbl_805AE9A8:

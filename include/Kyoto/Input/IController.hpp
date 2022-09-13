@@ -9,6 +9,7 @@
 
 class COsContext;
 class IController {
+protected:
     static const float kAbsoluteMinimum;
     static const float kAbsoluteMaximum;
     static const float kRelativeMinimum;
@@ -20,7 +21,7 @@ public:
     virtual void Poll()=0;
     virtual uint GetDeviceCount() const = 0;
     virtual CControllerGamepadData& GetGamepadData(int controller) = 0;
-    virtual u32 GetControllerType(int) const = 0;
+    virtual uint GetControllerType(int) const = 0;
     virtual void SetMotorState(EIOPort port, EMotorState state) = 0;
 
     static IController* Create(const COsContext& ctx);
