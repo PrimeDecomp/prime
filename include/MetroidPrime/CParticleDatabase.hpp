@@ -22,6 +22,10 @@ public:
   typedef rstl::map< rstl::string, rstl::auto_ptr< CParticleGenInfo > > DrawMap;
 
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr);
+  void RenderSystemsToBeDrawnFirst() const;
+  void RenderSystemsToBeDrawnLast() const;
+
+  bool AreAnySystemsDrawnWithModel() const { return xb4_25_anySystemsDrawnWithModel; }
 
 private:
   rstl::map< CAssetId, rstl::rc_ptr< TLockedToken< CGenDescription > > > x0_particleDescs;

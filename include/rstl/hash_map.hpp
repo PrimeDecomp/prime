@@ -1,0 +1,28 @@
+#ifndef _RSTL_HASH_MAP_HPP
+#define _RSTL_HASH_MAP_HPP
+
+#include "types.h"
+
+#include "rstl/list.hpp"
+#include "rstl/pair.hpp"
+#include "rstl/red_black_tree.hpp"
+#include "rstl/rmemory_allocator.hpp"
+#include "rstl/vector.hpp"
+
+namespace rstl {
+template < typename K, typename P, int unk, typename Select, typename Hash, typename Equal, typename Alloc = rmemory_allocator >
+class hash_table {
+private:
+  rstl::vector< rstl::list< P, Alloc > /*::iterator*/, Alloc > x;
+};
+
+template < typename K, typename V, typename Hash, typename Equal, typename Alloc = rmemory_allocator >
+class hash_map {
+  typedef rstl::pair< K, V > Pair;
+
+private:
+  hash_table< K, Pair, 0, select1st< Pair >, Hash, Equal, Alloc > table;
+};
+} // namespace rstl
+
+#endif

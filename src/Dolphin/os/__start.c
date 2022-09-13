@@ -1,4 +1,4 @@
-#include "Dolphin/__start.h"
+#include "dolphin/__start.h"
 
 void __check_pad3(void) {
   if ((Pad3Button & 0x0eef) == 0x0eef) {

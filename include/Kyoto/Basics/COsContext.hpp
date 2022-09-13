@@ -7,6 +7,9 @@
 
 class COsContext {
 public:
+  COsContext(bool, bool);
+  ~COsContext();
+
 private:
   int x0_right;
   int x4_bottom;
@@ -22,5 +25,6 @@ private:
   int x2c_frameBufferSize;
   GXRenderModeObj x30_renderMode;
 };
+CHECK_SIZEOF(COsContext, 0x6c)
 
 #endif

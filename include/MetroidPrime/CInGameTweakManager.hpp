@@ -7,9 +7,12 @@
 
 class CInGameTweakManager {
 public:
+  CInGameTweakManager();
+
   bool ReadFromMemoryCard(const rstl::string&);
 
 private:
+  u8 pad[0x10];
 };
 
 extern CInGameTweakManager* gpTweakManager;

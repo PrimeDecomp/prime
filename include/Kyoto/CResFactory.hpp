@@ -8,8 +8,13 @@
 #include "Kyoto/CFactoryMgr.hpp"
 #include "Kyoto/CResLoader.hpp"
 
-class CResFactory {
+class IFactory {
+  // TODO
+};
+
+class CResFactory : public IFactory {
 public:
+  CResFactory();
   virtual ~CResFactory() {}
 
   void AsyncIdle(uint time);
@@ -28,6 +33,7 @@ private:
   uint xac_;
   rstl::list< void > xb0_;
 };
+CHECK_SIZEOF(CResFactory, 0xc8);
 
 extern CResFactory* gpResourceFactory;
 

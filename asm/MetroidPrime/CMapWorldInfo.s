@@ -1125,7 +1125,7 @@ PutTo__13CMapWorldInfoCFR13COutputStreamRC10CSaveWorldi:
 /* 80168BB4 00165B14  7C BD 2B 78 */	mr r29, r5
 /* 80168BB8 00165B18  7C C4 33 78 */	mr r4, r6
 /* 80168BBC 00165B1C  80 6D A0 84 */	lwz r3, gpMemoryCard@sda21(r13)
-/* 80168BC0 00165B20  48 0E 03 4D */	bl GetSaveWorldMemory__14CMemoryCardSysCFi
+/* 80168BC0 00165B20  48 0E 03 4D */	bl GetSaveWorldMemory__11CMemoryCardCFi
 /* 80168BC4 00165B24  83 E3 00 08 */	lwz r31, 8(r3)
 /* 80168BC8 00165B28  3B C0 00 00 */	li r30, 0
 /* 80168BCC 00165B2C  48 00 00 88 */	b lbl_80168C54
@@ -1394,7 +1394,7 @@ __ct__13CMapWorldInfoFR16CBitStreamReaderRC10CSaveWorldUi:
 /* 80168F90 00165EF0  90 03 00 34 */	stw r0, 0x34(r3)
 /* 80168F94 00165EF4  98 03 00 38 */	stb r0, 0x38(r3)
 /* 80168F98 00165EF8  80 6D A0 84 */	lwz r3, gpMemoryCard@sda21(r13)
-/* 80168F9C 00165EFC  48 0D FF 71 */	bl GetSaveWorldMemory__14CMemoryCardSysCFi
+/* 80168F9C 00165EFC  48 0D FF 71 */	bl GetSaveWorldMemory__11CMemoryCardCFi
 /* 80168FA0 00165F00  83 83 00 08 */	lwz r28, 8(r3)
 /* 80168FA4 00165F04  38 78 00 04 */	addi r3, r24, 4
 /* 80168FA8 00165F08  57 80 D8 08 */	slwi r0, r28, 0x1b

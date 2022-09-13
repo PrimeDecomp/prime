@@ -15,8 +15,52 @@
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
 
+class CMain;
+
+// TODO
+class UnkClassArena {
+public:
+  UnkClassArena(CMain*);
+};
+
+// TODO move to new header
+class CDvdRequestSys {
+public:
+  CDvdRequestSys() {
+    if (mManagerInstalled != true) {
+      mManagerInstalled = true;
+    }
+  }
+  ~CDvdRequestSys() {
+    if (mManagerInstalled == true) {
+      mManagerInstalled = false;
+    }
+  }
+
+private:
+  static bool mManagerInstalled;
+};
+
+// TODO where?
+enum EFlowState {
+  kFS_None,
+  kFS_WinBad,
+  kFS_WinGood,
+  kFS_WinBest,
+  kFS_LoseGame,
+  kFS_Default,
+  kFS_StateSetter,
+  kFS_PreFrontEnd,
+  kFS_FrontEnd,
+  kFS_Game,
+  kFS_GameExit,
+};
+
 class CMain {
 public:
+  CMain();
+  ~CMain();
+
   void UpdateStreamedAudio();
   void RegisterResourceTweaks();
   void ResetGameState();
@@ -33,16 +77,30 @@ public:
   void DrawDebugMetrics(double dt, CStopwatch& stopWatch);
   bool CheckTerminate();
   bool CheckReset();
+  void OpenWindow();
+
+  void SetMaxSpeed(bool v) {
+    // ?
+    x160_26_screenFading = v;
+  }
 
   static void EnsureWorldPaksReady();
   static void EnsureWorldPakReady(CAssetId id);
 
+  // TODO
+  COsContext& InitOsContext() {
+    OpenWindow();
+    return x0_osContext;
+  }
+
 private:
   COsContext x0_osContext;
-  u8 x6c_unk;
+  UnkClassArena x6c_unk;
   CMemorySys x6d_memorySys;
+  CDvdRequestSys x6e_dvdRequestSys;
   CTweaks x70_tweaks;
-  u8 pad[0x7c];
+  u8 pad[0x14];
+  f64 xe8_;
   TReservedAverage< f32, 4 > xf0_;
   TReservedAverage< f32, 4 > x104_;
   f32 x118_;
@@ -50,7 +108,7 @@ private:
   f32 x120_;
   f32 x124_;
   CGameGlobalObjects* x128_gameGlobalObjects;
-  uint x12c_flowState; // EFlowState
+  EFlowState x12c_flowState;
   rstl::reserved_vector< uint, 10 > x130_frameTimes;
   int x15c_frameTimeIdx;
   bool x160_24_finished : 1;

@@ -62,6 +62,8 @@ struct OSThread {
   void* specific[OS_THREAD_SPECIFIC_MAX];
 };
 
+OSThread* OSGetCurrentThread(void);
+
 #ifdef __cplusplus
 }
 #endif

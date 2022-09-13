@@ -17,6 +17,8 @@ typedef struct DVDDiskID {
   u8 padding[22];      // 0's are stored
 } DVDDiskID;
 
+void DVDSetAutoFatalMessaging(BOOL);
+
 #ifdef __cplusplus
 }
 #endif

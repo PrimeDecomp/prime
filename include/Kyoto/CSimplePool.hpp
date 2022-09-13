@@ -3,13 +3,18 @@
 
 #include "types.h"
 
-#include "rstl/map.hpp"
+#include "rstl/hash_map.hpp"
+#include "rstl/rc_ptr.hpp"
 
 #include "Kyoto/CToken.hpp"
 #include "Kyoto/IObjectStore.hpp"
 
-class CSimplePool {
+class IFactory;
+
+class CSimplePool : public IObjectStore {
 public:
+  CSimplePool(IFactory& factory);
+
   virtual CToken GetObj(const SObjectTag& tag, CVParamTransfer xfer);
   virtual CToken GetObj(const SObjectTag& tag);
   virtual CToken GetObj(const char* name);
@@ -23,10 +28,11 @@ public:
 private:
   u8 x4_;
   u8 x5_;
-  rstl::map< unkptr, unkptr > x8_resources;
+  rstl::hash_map< unkptr, unkptr, void, void > x8_resources;
   unkptr x18_factory;
-  CVParamTransfer x1c_paramXfr;
+  rstl::rc_ptr< CVParamTransfer > x1c_paramXfr;
 };
+CHECK_SIZEOF(CSimplePool, 0x20)
 
 extern CSimplePool* gpSimplePool;
 

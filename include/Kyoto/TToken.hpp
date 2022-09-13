@@ -17,10 +17,13 @@ public:
   TToken(T* obj) : CToken(GetIObjObjectFor(obj).release()) {}
   TToken(const rstl::auto_ptr< T >& obj) : CToken(GetIObjObjectFor(obj).release()) {}
 
-  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(T* obj) {
+  T* GetT() { return reinterpret_cast< T* >(CToken::GetObj()->GetContents()); }
+  T* operator*() { return GetT(); }
+
+  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(T* obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
-  static rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
+  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
 };
@@ -29,23 +32,33 @@ template < typename T >
 class TCachedToken : public TToken< T > {
 public:
   TCachedToken() {}
-  TCachedToken(const CToken& token) : TToken< T >(token), x8_item(nullptr) {}
+  TCachedToken(const CToken& token) : TToken< T >(token), x8_item(GetT()) {}
 
-  // TODO
-  operator const TToken< T >&() const;
+  T* operator*() { return x8_item; }
 
 private:
   T* x8_item;
 };
 
 template < typename T >
-class TLockedToken : public TCachedToken< T > {
+class TLockedToken {
 public:
   TLockedToken() {}
-  TLockedToken(const CToken& token) : TCachedToken< T >(token) { this->Lock(); }
+  TLockedToken(const CToken& token) : x0_token(token), x8_item(*x0_token) {}
+  TLockedToken(const TLockedToken< T >& token) : x0_token(token), x8_item(*token) { x0_token.Lock(); }
 
-  // TODO
-  operator const TToken< T >&() const;
+  TLockedToken& operator=(const TLockedToken< T >& token) {
+    x0_token = token;
+    x8_item = *token;
+    return *this;
+  }
+
+  operator const TToken< T >&() const { return x0_token; }
+  T* operator*() const { return x8_item; }
+
+private:
+  TToken< T > x0_token;
+  T* x8_item;
 };
 
 #endif

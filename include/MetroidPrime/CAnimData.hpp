@@ -12,6 +12,7 @@
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 
 #include "Kyoto/TToken.hpp"
+#include "Kyoto/Animation/CSkinnedModel.hpp"
 
 #include "rstl/reserved_vector.hpp"
 
@@ -56,6 +57,8 @@ public:
     return mSoundPOINodes.data();
   }
 
+  CParticleDatabase& GetParticleDB() { return x120_particleDB; }
+  const CParticleDatabase& GetParticleDB() const { return x120_particleDB; }
   // SetIsAnimating__9CAnimDataFb
   // SetAnimDir__9CAnimDataFQ29CAnimData8EAnimDir
   // GetBoundingBox__9CAnimDataCFv
@@ -113,7 +116,6 @@ public:
 
   // GetCharacterInfo__9CAnimDataCFv
   // GetCharLayoutInfo__9CAnimDataCFv
-  // GetParticleDB__9CAnimDataFv
   // GetDeltaRotation__9CAnimDataCFv
   // GetDeltaOffset__9CAnimDataCFv
   // IsDeltaOffsetInUse__9CAnimDataCFv
@@ -130,7 +132,6 @@ public:
   // GetAnimationManager__9CAnimDataCFv
   // GetPoseValid__9CAnimDataCFv
   // GetPoseBuilderValid__9CAnimDataCFv
-  // GetParticleDB__9CAnimDataCFv
   // GetAnimSysContext__9CAnimDataCFv
   // CacheInt32PoiList__9CAnimDataFRC13CCharAnimTimeiRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
 
@@ -151,6 +152,9 @@ public:
   // CacheParticlePoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
   // CacheBoolPoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
   // CacheInt32PoiList__9CAnimDataFRCQ24rstl25ncrc_ptr<13CAnimTreeNode>RC13CCharAnimTimei
+
+  static void InitializeCache();
+  static void FreeCache();
 
 private:
   TLockedToken< CCharacterFactory > x0_charFactory;

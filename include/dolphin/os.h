@@ -53,6 +53,7 @@ u32 __OSCoreClock AT_ADDRESS(OS_BASE_CACHED | 0x00FC); // sync with OSLoMem.h
 #define OSRoundUp32B(v) (((u32)(v + 31) & ~31))
 
 OSTime OSGetTime();
+void OSReport(const char* msg, ...);
 
 #ifdef __cplusplus
 }

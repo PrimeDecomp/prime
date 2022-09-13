@@ -9,6 +9,7 @@
 template < typename T, int N >
 class TReservedAverage : rstl::reserved_vector< T, N > {
 public:
+  TReservedAverage() {}
   TReservedAverage(const T& value) {
     // resize(value, N); TODO
   }

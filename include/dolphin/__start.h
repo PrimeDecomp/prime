@@ -1,4 +1,4 @@
-#include "Dolphin/db.h"
+#include "dolphin/db.h"
 #include "types.h"
 
 #define PAD3_BUTTON_ADDR 0x800030E4

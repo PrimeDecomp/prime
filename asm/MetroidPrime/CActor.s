@@ -944,7 +944,6 @@ AcceptScriptMsg__6CActorF20EScriptObjectMessage9TUniqueIdR13CStateManager:
 /* 80053648 000505A8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8005364C 000505AC  7C 09 03 A6 */	mtctr r0
 /* 80053650 000505B0  4E 80 04 20 */	bctr
-.global lbl_80053654
 lbl_80053654:
 /* 80053654 000505B4  88 1C 00 30 */	lbz r0, 0x30(r28)
 /* 80053658 000505B8  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -952,11 +951,9 @@ lbl_80053654:
 /* 80053660 000505C0  48 2B 68 81 */	bl GetSecondsMod900__9CGraphicsFv
 /* 80053664 000505C4  D0 3C 00 BC */	stfs f1, 0xbc(r28)
 /* 80053668 000505C8  48 00 01 B4 */	b lbl_8005381C
-.global lbl_8005366C
 lbl_8005366C:
 /* 8005366C 000505CC  48 00 1B D9 */	bl RemoveEmitter__6CActorFv
 /* 80053670 000505D0  48 00 01 AC */	b lbl_8005381C
-.global lbl_80053674
 lbl_80053674:
 /* 80053674 000505D4  48 00 1B D1 */	bl RemoveEmitter__6CActorFv
 /* 80053678 000505D8  80 9C 00 64 */	lwz r4, 0x64(r28)
@@ -981,7 +978,6 @@ lbl_800536A4:
 /* 800536BC 0005061C  38 63 01 20 */	addi r3, r3, 0x120
 /* 800536C0 00050620  48 06 46 71 */	bl DeleteAllLights__17CParticleDatabaseCFR13CStateManager
 /* 800536C4 00050624  48 00 01 58 */	b lbl_8005381C
-.global lbl_800536C8
 lbl_800536C8:
 /* 800536C8 00050628  80 1C 00 98 */	lwz r0, 0x98(r28)
 /* 800536CC 0005062C  28 00 00 00 */	cmplwi r0, 0
@@ -1024,7 +1020,6 @@ lbl_80053710:
 /* 80053754 000506B4  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 80053758 000506B8  4B FD 77 15 */	bl InitializeEffects__9CAnimDataFR13CStateManager7TAreaIdRC9CVector3f
 /* 8005375C 000506BC  48 00 00 C0 */	b lbl_8005381C
-.global lbl_80053760
 lbl_80053760:
 /* 80053760 000506C0  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 80053764 000506C4  38 A1 00 18 */	addi r5, r1, 0x18
@@ -1032,7 +1027,6 @@ lbl_80053760:
 /* 8005376C 000506CC  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80053770 000506D0  4B FF FB 51 */	bl SetInFluid__6CActorFb9TUniqueId
 /* 80053774 000506D4  48 00 00 A8 */	b lbl_8005381C
-.global lbl_80053778
 lbl_80053778:
 /* 80053778 000506D8  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8005377C 000506DC  38 A1 00 14 */	addi r5, r1, 0x14
@@ -1040,7 +1034,6 @@ lbl_80053778:
 /* 80053784 000506E4  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80053788 000506E8  4B FF FB 39 */	bl SetInFluid__6CActorFb9TUniqueId
 /* 8005378C 000506EC  48 00 00 90 */	b lbl_8005381C
-.global lbl_80053790
 lbl_80053790:
 /* 80053790 000506F0  83 7C 00 2C */	lwz r27, 0x2c(r28)
 /* 80053794 000506F4  48 00 00 70 */	b lbl_80053804
@@ -1080,7 +1073,6 @@ lbl_80053804:
 /* 80053810 00050770  7C 03 02 14 */	add r0, r3, r0
 /* 80053814 00050774  7C 1B 00 40 */	cmplw r27, r0
 /* 80053818 00050778  40 82 FF 80 */	bne lbl_80053798
-.global lbl_8005381C
 lbl_8005381C:
 /* 8005381C 0005077C  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 80053820 00050780  7F 83 E3 78 */	mr r3, r28
@@ -2799,9 +2791,6 @@ lbl_80055010:
 /* 80055020 00051F80  83 81 00 B0 */	lwz r28, 0xb0(r1)
 /* 80055024 00051F84  7C 08 03 A6 */	mtlr r0
 /* 80055028 00051F88  38 21 00 C0 */	addi r1, r1, 0xc0
-
-.global sub_8005502c
-sub_8005502c:
 /* 8005502C 00051F8C  4E 80 00 20 */	blr
 
 .global SetModelData__6CActorFRC10CModelData

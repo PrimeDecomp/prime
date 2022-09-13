@@ -244,9 +244,14 @@ public:
   void EnsureRendered(const CStateManager& mgr) const;
   void EnsureRendered(const CStateManager& mgr, const CVector3f& pos, const CAABox& bounds) const;
   void DrawTouchBounds() const;
+  bool IsModelOpaque(const CStateManager& mgr) const;
+  void RenderInternal(const CStateManager& mgr) const;
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
+
+  /// ????
+  bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
 
   bool HasModelData() const { return GetModelData() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel()); }
   CModelData* ModelData() { return x64_modelData.get(); }
@@ -256,7 +261,7 @@ public:
   CAnimData* AnimationData() { return ModelData()->AnimationData(); }
   const CAnimData* GetAnimationData() const { return GetModelData()->GetAnimationData(); }
 
-  bool HasShadow() const { return !x94_simpleShadow.null(); }
+  bool HasShadow() const { return GetShadow() != nullptr; }
   CSimpleShadow* Shadow() { return x94_simpleShadow.get(); }
   const CSimpleShadow* GetShadow() const { return x94_simpleShadow.get(); }
 

@@ -25,6 +25,7 @@ public:
   reserved_vector(const T& value) : x0_count(N) { rstl::uninitialized_fill_n(data(), N, value); }
   reserved_vector(const reserved_vector& other) {
     x0_count = other.size();
+    // rstl::uninitialized_copy_n(other.data(), size(), data());
     rstl::uninitialized_copy_n(data(), other.data(), size());
   }
   reserved_vector& operator=(const reserved_vector& other) {

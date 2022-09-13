@@ -28,8 +28,9 @@ lbl_803ED594:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9330
-lbl_805A9330:
+# TODO CDvdRequestManager
+.global mManagerInstalled__14CDvdRequestSys
+mManagerInstalled__14CDvdRequestSys:
 	.skip 0x8
 
 .section .text, "ax"

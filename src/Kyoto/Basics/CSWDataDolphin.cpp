@@ -1,6 +1,6 @@
 #include "Kyoto/Basics/CStopwatch.hpp"
 
-#include "Dolphin/os.h"
+#include "dolphin/os.h"
 
 void CStopwatch::CSWData::Wait(f32 v) const {
   OSTime duration = OSSecondsToTicks(v);

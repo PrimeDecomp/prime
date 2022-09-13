@@ -1241,8 +1241,8 @@ lbl_8034E4A4:
 /* 8034E4B8 0034B418  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034E4BC 0034B41C  4E 80 00 20 */	blr
 
-.global Initialize__14CMemoryCardSysFv
-Initialize__14CMemoryCardSysFv:
+.global __ct__14CMemoryCardSysFv
+__ct__14CMemoryCardSysFv:
 /* 8034E4C0 0034B420  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034E4C4 0034B424  7C 08 02 A6 */	mflr r0
 /* 8034E4C8 0034B428  90 01 00 14 */	stw r0, 0x14(r1)

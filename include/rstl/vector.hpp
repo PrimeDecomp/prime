@@ -7,6 +7,22 @@
 #include "rstl/rmemory_allocator.hpp"
 
 namespace rstl {
+// template < typename T, typename Alloc >
+// struct allocator_auto_ptr {
+//   allocator_auto_ptr(T* ptr, Alloc* alloc) : ptr(ptr) {}
+//   ~allocator_auto_ptr() {
+//     if (ptr != nullptr) {
+//       Alloc::deallocate(ptr);
+//       ptr = nullptr;
+//     }
+//   }
+
+//   T* release() { T* v = ptr; ptr = nullptr; return v; }
+
+// private:
+//   T* ptr;
+// };
+
 template < typename T, typename Alloc = rmemory_allocator >
 class vector {
   Alloc x0_allocator;
@@ -36,6 +52,7 @@ public:
       } else {
         x0_allocator.allocate(xc_items, sz);
       }
+      // rstl::uninitialized_copy_n(other.data(), x4_count, data());
       rstl::uninitialized_copy_n(data(), other.data(), x4_count);
     }
   }

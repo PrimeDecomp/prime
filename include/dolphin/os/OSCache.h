@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 
+void DCFlushRange(void* addr, u32 nBytes);
+
 void LCEnable();
 
 #ifdef __cplusplus

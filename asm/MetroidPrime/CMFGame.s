@@ -717,12 +717,12 @@ lbl_80024258:
 /* 80024264 000211C4  80 6D A0 84 */	lwz r3, gpMemoryCard@sda21(r13)
 /* 80024268 000211C8  7C 1E 03 78 */	mr r30, r0
 /* 8002426C 000211CC  7F C4 F3 78 */	mr r4, r30
-/* 80024270 000211D0  48 22 4D 49 */	bl HasSaveWorldMemory__15CMemoryCardSysFi
+/* 80024270 000211D0  48 22 4D 49 */	bl HasSaveWorldMemory__11CMemoryCardFi
 /* 80024274 000211D4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80024278 000211D8  41 82 00 58 */	beq lbl_800242D0
 /* 8002427C 000211DC  80 6D A0 84 */	lwz r3, gpMemoryCard@sda21(r13)
 /* 80024280 000211E0  7F C4 F3 78 */	mr r4, r30
-/* 80024284 000211E4  48 22 4C 89 */	bl GetSaveWorldMemory__14CMemoryCardSysCFi
+/* 80024284 000211E4  48 22 4C 89 */	bl GetSaveWorldMemory__11CMemoryCardCFi
 /* 80024288 000211E8  7C 7E 1B 78 */	mr r30, r3
 /* 8002428C 000211EC  80 63 00 00 */	lwz r3, 0(r3)
 /* 80024290 000211F0  3C 03 00 01 */	addis r0, r3, 1
