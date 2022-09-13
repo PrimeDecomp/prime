@@ -43,6 +43,7 @@ enum EButton {
 enum EAnalogButton {
   kBA_Left,
   kBA_Right,
+  kBA_MAX
 };
 
 #endif // __INPUTTYPES_HPP__

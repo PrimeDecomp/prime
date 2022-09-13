@@ -37,8 +37,11 @@
 #define PAD_CHAN2_BIT 0x20000000
 #define PAD_CHAN3_BIT 0x10000000
 
-#define PADButtonDown(buttonLast, button) (((buttonLast) ^ (button)) & (button))
-#define PADButtonUp(buttonLast, button) (((buttonLast) ^ (button)) & (buttonLast))
+#define PADButtonDown(buttonLast, button)   \
+    ((((buttonLast) ^ (button)) & (button)))
+
+#define PADButtonUp(buttonLast, button)     \
+    ((((buttonLast) ^ (button)) & (buttonLast)))
 
 #ifdef __cplusplus
 extern "C" {

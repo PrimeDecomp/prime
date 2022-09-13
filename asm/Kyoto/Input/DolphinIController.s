@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EF680
-lbl_803EF680:
+.global __vt__11IController
+__vt__11IController:
 	# ROM: 0x3EC680
 	.4byte 0
 	.4byte 0
@@ -50,9 +50,9 @@ __dt__11IControllerFv:
 /* 8034F014 0034BF74  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8034F018 0034BF78  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8034F01C 0034BF7C  41 82 00 1C */	beq lbl_8034F038
-/* 8034F020 0034BF80  3C A0 80 3F */	lis r5, lbl_803EF680@ha
+/* 8034F020 0034BF80  3C A0 80 3F */	lis r5, __vt__11IController@ha
 /* 8034F024 0034BF84  7C 80 07 35 */	extsh. r0, r4
-/* 8034F028 0034BF88  38 05 F6 80 */	addi r0, r5, lbl_803EF680@l
+/* 8034F028 0034BF88  38 05 F6 80 */	addi r0, r5, __vt__11IController@l
 /* 8034F02C 0034BF8C  90 1F 00 00 */	stw r0, 0(r31)
 /* 8034F030 0034BF90  40 81 00 08 */	ble lbl_8034F038
 /* 8034F034 0034BF94  4B FC 68 FD */	bl Free__7CMemoryFPCv
@@ -66,8 +66,8 @@ lbl_8034F038:
 
 .global __ct__11IControllerFv
 __ct__11IControllerFv:
-/* 8034F050 0034BFB0  3C 80 80 3F */	lis r4, lbl_803EF680@ha
-/* 8034F054 0034BFB4  38 04 F6 80 */	addi r0, r4, lbl_803EF680@l
+/* 8034F050 0034BFB0  3C 80 80 3F */	lis r4, __vt__11IController@ha
+/* 8034F054 0034BFB4  38 04 F6 80 */	addi r0, r4, __vt__11IController@l
 /* 8034F058 0034BFB8  90 03 00 00 */	stw r0, 0(r3)
 /* 8034F05C 0034BFBC  4E 80 00 20 */	blr
 
