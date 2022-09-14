@@ -29,6 +29,7 @@ class CVector3f;
 class CWeaponMgr;
 class CWorld;
 class CWorldTransManager;
+class CEntity;
 
 namespace SL {
 class CSortedListManager;
@@ -37,8 +38,12 @@ class CSortedListManager;
 class CStateManager {
 public:
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg, EScriptObjectState state);
+  void SendScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
+  void FreeScriptObject(TUniqueId uid);
+
+  CEntity* ObjectById(TUniqueId uid);
 
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }

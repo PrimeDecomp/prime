@@ -9,6 +9,13 @@
 #include "Kyoto/CResLoader.hpp"
 
 class IFactory {
+public:
+  virtual ~IFactory() {}
+  virtual CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&, CObjectReference*) = 0;
+  virtual void BuildAsync(const SObjectTag&, const CVParamTransfer&, rstl::auto_ptr< IObj >*, CObjectReference*) = 0;
+  virtual void CancelBuild(const SObjectTag&) = 0;
+  virtual bool CanBuild(const SObjectTag&) = 0;
+  virtual const SObjectTag* GetResourceIdByName(const char* name) const = 0;
   // TODO
 };
 
