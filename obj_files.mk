@@ -599,7 +599,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleData.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CVertexMorphEffect.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CSkinnedModelWithAvgNormals.o\
-	$(BUILD_DIR)/asm/Kyoto/CTimeProvider.o\
+	$(BUILD_DIR)/src/Kyoto/CTimeProvider.o\
 	$(BUILD_DIR)/asm/Kyoto/CARAMToken.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CMidiManager.o\
 	$(BUILD_DIR)/asm/Kyoto/Text/CFontImageDef.o\
