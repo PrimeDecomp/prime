@@ -25,6 +25,7 @@ public:
   void AddPakFileAsync(const rstl::string&, bool, bool);
   void AsyncIdlePakLoading();
   bool AreAllPaksLoaded() const;
+  CInputStream* LoadNewResourceSync(const SObjectTag& tag, char* extBuf);
 
 private:
   rstl::list< void > x0_aramList;

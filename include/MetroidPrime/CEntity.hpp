@@ -25,6 +25,7 @@ public:
   void SendScriptMsgs(EScriptObjectState state, CStateManager& mgr, EScriptObjectMessage msg);
   TUniqueId GetUniqueId() const { return x8_uid; }
   TAreaId GetAreaId() const;
+  bool GetActive() const { return x30_24_active; }
 
   static rstl::vector<SConnection> NullConnectionList;
 
