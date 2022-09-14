@@ -138,7 +138,7 @@ lbl_80292638:
 /* 80292684 0028F5E4  B0 01 00 08 */	sth r0, 8(r1)
 /* 80292688 0028F5E8  38 C0 00 2F */	li r6, 0x2f
 /* 8029268C 0028F5EC  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80292690 0028F5F0  4B DB 18 41 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80292690 0028F5F0  4B DB 18 41 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80292694:
 /* 80292694 0028F5F4  7F DF F3 78 */	mr r31, r30
 lbl_80292698:
@@ -223,7 +223,7 @@ lbl_80292790:
 /* 802927B4 0028F714  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 802927B8 0028F718  38 C0 00 2E */	li r6, 0x2e
 /* 802927BC 0028F71C  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 802927C0 0028F720  4B DB 17 11 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 802927C0 0028F720  4B DB 17 11 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 802927C4 0028F724  38 00 00 00 */	li r0, 0
 /* 802927C8 0028F728  98 1F 00 0A */	stb r0, 0xa(r31)
 /* 802927CC 0028F72C  48 00 00 38 */	b lbl_80292804
@@ -240,7 +240,7 @@ lbl_802927D0:
 /* 802927F4 0028F754  B0 01 00 08 */	sth r0, 8(r1)
 /* 802927F8 0028F758  38 C0 00 2F */	li r6, 0x2f
 /* 802927FC 0028F75C  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80292800 0028F760  4B DB 16 D1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80292800 0028F760  4B DB 16 D1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80292804:
 /* 80292804 0028F764  7F DF F3 78 */	mr r31, r30
 lbl_80292808:
@@ -619,7 +619,7 @@ lbl_80292D08:
 /* 80292D34 0028FC94  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 80292D38 0028FC98  B0 01 00 08 */	sth r0, 8(r1)
 /* 80292D3C 0028FC9C  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80292D40 0028FCA0  4B DB 11 91 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80292D40 0028FCA0  4B DB 11 91 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80292D44 0028FCA4  38 00 00 00 */	li r0, 0
 /* 80292D48 0028FCA8  98 01 00 44 */	stb r0, 0x44(r1)
 lbl_80292D4C:

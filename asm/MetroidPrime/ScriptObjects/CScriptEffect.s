@@ -1248,7 +1248,7 @@ lbl_8008EA08:
 /* 8008EA54 0008B9B4  7F 44 D3 78 */	mr r4, r26
 /* 8008EA58 0008B9B8  38 A1 00 18 */	addi r5, r1, 0x18
 /* 8008EA5C 0008B9BC  B0 01 00 18 */	sth r0, 0x18(r1)
-/* 8008EA60 0008B9C0  4B FB 54 71 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8008EA60 0008B9C0  4B FB 54 71 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8008EA64 0008B9C4  88 1F 00 30 */	lbz r0, 0x30(r31)
 /* 8008EA68 0008B9C8  54 00 CF FE */	rlwinm r0, r0, 0x19, 0x1f, 0x1f
 /* 8008EA6C 0008B9CC  7C 1B 00 40 */	cmplw r27, r0

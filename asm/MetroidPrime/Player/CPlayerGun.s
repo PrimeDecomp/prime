@@ -2770,7 +2770,7 @@ lbl_8003C770:
 /* 8003C80C 0003976C  38 A1 00 24 */	addi r5, r1, 0x24
 /* 8003C810 00039770  38 C0 00 05 */	li r6, 5
 /* 8003C814 00039774  B0 01 00 24 */	sth r0, 0x24(r1)
-/* 8003C818 00039778  48 00 76 B9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8003C818 00039778  48 00 76 B9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8003C81C 0003977C  48 00 01 B0 */	b lbl_8003C9CC
 .global lbl_8003C820
 lbl_8003C820:

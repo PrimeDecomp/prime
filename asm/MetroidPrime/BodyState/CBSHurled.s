@@ -461,7 +461,7 @@ PlayLandAnimation__9CBSHurledFR15CBodyControllerR13CStateManager:
 /* 80144A14 00141974  38 A1 00 10 */	addi r5, r1, 0x10
 /* 80144A18 00141978  38 C0 00 17 */	li r6, 0x17
 /* 80144A1C 0014197C  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 80144A20 00141980  4B EF F4 B1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80144A20 00141980  4B EF F4 B1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80144A24:
 /* 80144A24 00141984  34 A1 00 A0 */	addic. r5, r1, 0xa0
 /* 80144A28 00141988  41 82 00 58 */	beq lbl_80144A80
@@ -1102,14 +1102,14 @@ lbl_801451EC:
 /* 8014533C 0014229C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80145340 001422A0  38 C0 00 1A */	li r6, 0x1a
 /* 80145344 001422A4  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 80145348 001422A8  4B EF EB 89 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80145348 001422A8  4B EF EB 89 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8014534C 001422AC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80145350 001422B0  7F 83 E3 78 */	mr r3, r28
 /* 80145354 001422B4  7F C4 F3 78 */	mr r4, r30
 /* 80145358 001422B8  38 A1 00 10 */	addi r5, r1, 0x10
 /* 8014535C 001422BC  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80145360 001422C0  38 C0 00 28 */	li r6, 0x28
-/* 80145364 001422C4  4B EF EB 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80145364 001422C4  4B EF EB 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80145368 001422C8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8014536C 001422CC  C0 22 9C 24 */	lfs f1, lbl_805AB944@sda21(r2)
 /* 80145370 001422D0  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l

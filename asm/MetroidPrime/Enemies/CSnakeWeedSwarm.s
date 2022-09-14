@@ -1768,7 +1768,7 @@ lbl_8023CC54:
 /* 8023CCBC 00239C1C  38 A1 00 08 */	addi r5, r1, 8
 /* 8023CCC0 00239C20  B0 01 00 08 */	sth r0, 8(r1)
 /* 8023CCC4 00239C24  38 C0 00 2C */	li r6, 0x2c
-/* 8023CCC8 00239C28  4B E0 72 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8023CCC8 00239C28  4B E0 72 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8023CCCC 00239C2C  88 1C 01 40 */	lbz r0, 0x140(r28)
 /* 8023CCD0 00239C30  38 60 00 01 */	li r3, 1
 /* 8023CCD4 00239C34  50 60 2E B4 */	rlwimi r0, r3, 5, 0x1a, 0x1a

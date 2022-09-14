@@ -543,7 +543,7 @@ lbl_801A8D8C:
 /* 801A8DBC 001A5D1C  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 801A8DC0 001A5D20  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 801A8DC4 001A5D24  B0 01 00 1C */	sth r0, 0x1c(r1)
-/* 801A8DC8 001A5D28  4B E9 B1 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801A8DC8 001A5D28  4B E9 B1 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 801A8DCC 001A5D2C  48 00 00 2C */	b lbl_801A8DF8
 .global lbl_801A8DD0
 lbl_801A8DD0:

@@ -1344,7 +1344,7 @@ lbl_80119AE0:
 /* 80119AE8 00116A48  38 A1 00 0C */	addi r5, r1, 0xc
 /* 80119AEC 00116A4C  B0 01 00 08 */	sth r0, 8(r1)
 /* 80119AF0 00116A50  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80119AF4 00116A54  4B F2 A3 DD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80119AF4 00116A54  4B F2 A3 DD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80119AF8:
 /* 80119AF8 00116A58  3B FF 00 0C */	addi r31, r31, 0xc
 lbl_80119AFC:

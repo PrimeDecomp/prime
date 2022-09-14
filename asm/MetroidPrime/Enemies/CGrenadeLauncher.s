@@ -1553,7 +1553,7 @@ Touch__16CGrenadeLauncherFR6CActorR13CStateManager:
 /* 80230A8C 0022D9EC  38 C0 00 1E */	li r6, 0x1e
 /* 80230A90 0022D9F0  B0 01 00 08 */	sth r0, 8(r1)
 /* 80230A94 0022D9F4  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80230A98 0022D9F8  4B E1 34 39 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80230A98 0022D9F8  4B E1 34 39 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80230A9C:
 /* 80230A9C 0022D9FC  80 01 00 44 */	lwz r0, 0x44(r1)
 /* 80230AA0 0022DA00  83 E1 00 3C */	lwz r31, 0x3c(r1)
@@ -1833,7 +1833,7 @@ lbl_80230E4C:
 /* 80230E5C 0022DDBC  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80230E60 0022DDC0  38 C0 00 29 */	li r6, 0x29
 /* 80230E64 0022DDC4  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 80230E68 0022DDC8  4B E1 30 69 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80230E68 0022DDC8  4B E1 30 69 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80230E6C 0022DDCC  7F A3 EB 78 */	mr r3, r29
 /* 80230E70 0022DDD0  7F C4 F3 78 */	mr r4, r30
 /* 80230E74 0022DDD4  4B FF E8 FD */	bl sub_8022f770

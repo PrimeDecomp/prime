@@ -214,7 +214,7 @@ lbl_8014580C:
 /* 801458A8 00142808  38 A1 00 10 */	addi r5, r1, 0x10
 /* 801458AC 0014280C  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 801458B0 00142810  38 C0 00 17 */	li r6, 0x17
-/* 801458B4 00142814  4B EF E6 1D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801458B4 00142814  4B EF E6 1D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 801458B8 00142818  34 A1 00 84 */	addic. r5, r1, 0x84
 /* 801458BC 0014281C  3B C0 00 01 */	li r30, 1
 /* 801458C0 00142820  41 82 00 58 */	beq lbl_80145918
@@ -325,7 +325,7 @@ lbl_801459A0:
 /* 80145A40 001429A0  38 A1 00 10 */	addi r5, r1, 0x10
 /* 80145A44 001429A4  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80145A48 001429A8  38 C0 00 17 */	li r6, 0x17
-/* 80145A4C 001429AC  4B EF E4 85 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80145A4C 001429AC  4B EF E4 85 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80145A50 001429B0  34 A1 00 60 */	addic. r5, r1, 0x60
 /* 80145A54 001429B4  41 82 00 58 */	beq lbl_80145AAC
 /* 80145A58 001429B8  80 C5 00 00 */	lwz r6, 0(r5)
@@ -619,7 +619,7 @@ lbl_80145E40:
 /* 80145E58 00142DB8  38 C0 00 1A */	li r6, 0x1a
 /* 80145E5C 00142DBC  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80145E60 00142DC0  80 9D 00 00 */	lwz r4, 0(r29)
-/* 80145E64 00142DC4  4B EF E0 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80145E64 00142DC4  4B EF E0 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80145E68 00142DC8  38 00 00 02 */	li r0, 2
 /* 80145E6C 00142DCC  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80145E70 00142DD0  90 1C 00 04 */	stw r0, 4(r28)
@@ -896,14 +896,14 @@ lbl_80146248:
 /* 8014626C 001431CC  38 A1 00 14 */	addi r5, r1, 0x14
 /* 80146270 001431D0  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80146274 001431D4  38 C0 00 1A */	li r6, 0x1a
-/* 80146278 001431D8  4B EF DC 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80146278 001431D8  4B EF DC 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8014627C 001431DC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80146280 001431E0  7F C3 F3 78 */	mr r3, r30
 /* 80146284 001431E4  7F E4 FB 78 */	mr r4, r31
 /* 80146288 001431E8  38 A1 00 10 */	addi r5, r1, 0x10
 /* 8014628C 001431EC  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80146290 001431F0  38 C0 00 28 */	li r6, 0x28
-/* 80146294 001431F4  4B EF DC 3D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80146294 001431F4  4B EF DC 3D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80146298 001431F8  C0 1F 01 38 */	lfs f0, 0x138(r31)
 /* 8014629C 001431FC  38 60 00 00 */	li r3, 0
 /* 801462A0 00143200  88 1D 00 30 */	lbz r0, 0x30(r29)

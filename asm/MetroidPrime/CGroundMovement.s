@@ -1651,7 +1651,7 @@ lbl_80187098:
 /* 801870B8 00184018  38 A1 00 2C */	addi r5, r1, 0x2c
 /* 801870BC 0018401C  B0 01 00 2C */	sth r0, 0x2c(r1)
 /* 801870C0 00184020  38 C0 00 17 */	li r6, 0x17
-/* 801870C4 00184024  4B EB CE 0D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801870C4 00184024  4B EB CE 0D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 801870C8 00184028  55 D3 08 3C */	slwi r19, r14, 1
 /* 801870CC 0018402C  55 C3 18 38 */	slwi r3, r14, 3
 /* 801870D0 00184030  7C 14 9A 2E */	lhzx r0, r20, r19
@@ -1697,7 +1697,7 @@ lbl_80187128:
 /* 80187164 001840C4  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80187168 001840C8  38 C0 00 1F */	li r6, 0x1f
 /* 8018716C 001840CC  B0 01 00 24 */	sth r0, 0x24(r1)
-/* 80187170 001840D0  4B EB CD 61 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80187170 001840D0  4B EB CD 61 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80187174:
 /* 80187174 001840D4  1C 0E 00 60 */	mulli r0, r14, 0x60
 /* 80187178 001840D8  39 C1 08 A8 */	addi r14, r1, 0x8a8
@@ -2169,7 +2169,7 @@ lbl_801877D8:
 /* 801877E4 00184744  38 A1 00 1C */	addi r5, r1, 0x1c
 /* 801877E8 00184748  B0 01 00 1C */	sth r0, 0x1c(r1)
 /* 801877EC 0018474C  38 C0 00 17 */	li r6, 0x17
-/* 801877F0 00184750  4B EB C6 E1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801877F0 00184750  4B EB C6 E1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 801877F4 00184754  C8 41 00 88 */	lfd f2, 0x88(r1)
 /* 801877F8 00184758  C8 22 A3 48 */	lfd f1, lbl_805AC068@sda21(r2)
 /* 801877FC 0018475C  C8 0D 8E D0 */	lfd f0, lbl_805A7A90@sda21(r13)
@@ -2230,7 +2230,7 @@ lbl_8018781C:
 /* 801878D0 00184830  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 801878D4 00184834  38 C0 00 1F */	li r6, 0x1f
 /* 801878D8 00184838  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 801878DC 0018483C  4B EB C5 F5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801878DC 0018483C  4B EB C5 F5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_801878E0:
 /* 801878E0 00184840  7E 03 83 78 */	mr r3, r16
 /* 801878E4 00184844  7D C4 73 78 */	mr r4, r14
@@ -3475,7 +3475,7 @@ lbl_80188A9C:
 /* 80188AE0 00185A40  38 A1 00 08 */	addi r5, r1, 8
 /* 80188AE4 00185A44  B0 01 00 08 */	sth r0, 8(r1)
 /* 80188AE8 00185A48  38 C0 00 1A */	li r6, 0x1a
-/* 80188AEC 00185A4C  4B EB B3 E5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80188AEC 00185A4C  4B EB B3 E5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80188AF0:
 /* 80188AF0 00185A50  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 80188AF4 00185A54  7F C3 F3 78 */	mr r3, r30
@@ -3722,7 +3722,7 @@ lbl_80188E5C:
 /* 80188E70 00185DD0  38 A1 00 08 */	addi r5, r1, 8
 /* 80188E74 00185DD4  B0 01 00 08 */	sth r0, 8(r1)
 /* 80188E78 00185DD8  38 C0 00 20 */	li r6, 0x20
-/* 80188E7C 00185DDC  4B EB B0 55 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80188E7C 00185DDC  4B EB B0 55 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80188E80:
 /* 80188E80 00185DE0  C8 02 A3 50 */	lfd f0, lbl_805AC070@sda21(r2)
 /* 80188E84 00185DE4  38 00 00 00 */	li r0, 0
@@ -3995,7 +3995,7 @@ lbl_80189244:
 /* 80189258 001861B8  38 A1 00 08 */	addi r5, r1, 8
 /* 8018925C 001861BC  B0 01 00 08 */	sth r0, 8(r1)
 /* 80189260 001861C0  38 C0 00 20 */	li r6, 0x20
-/* 80189264 001861C4  4B EB AC 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80189264 001861C4  4B EB AC 6D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80189268:
 /* 80189268 001861C8  38 60 00 00 */	li r3, 0
 /* 8018926C 001861CC  48 00 00 08 */	b lbl_80189274
@@ -4480,7 +4480,7 @@ lbl_80189894:
 /* 80189990 001868F0  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 80189994 001868F4  38 C0 00 1F */	li r6, 0x1f
 /* 80189998 001868F8  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 8018999C 001868FC  4B EB A5 35 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8018999C 001868FC  4B EB A5 35 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_801899A0:
 /* 801899A0 00186900  7F 83 E3 78 */	mr r3, r28
 /* 801899A4 00186904  7F 64 DB 78 */	mr r4, r27
@@ -4492,7 +4492,7 @@ lbl_801899A0:
 /* 801899BC 0018691C  38 A1 00 08 */	addi r5, r1, 8
 /* 801899C0 00186920  B0 01 00 08 */	sth r0, 8(r1)
 /* 801899C4 00186924  38 C0 00 17 */	li r6, 0x17
-/* 801899C8 00186928  4B EB A5 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801899C8 00186928  4B EB A5 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 801899CC 0018692C  48 00 00 14 */	b lbl_801899E0
 lbl_801899D0:
 /* 801899D0 00186930  FC 20 E8 90 */	fmr f1, f29
@@ -4724,7 +4724,7 @@ lbl_80189CC8:
 /* 80189CDC 00186C3C  38 A1 00 0C */	addi r5, r1, 0xc
 /* 80189CE0 00186C40  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 80189CE4 00186C44  38 C0 00 1A */	li r6, 0x1a
-/* 80189CE8 00186C48  4B EB A1 E9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80189CE8 00186C48  4B EB A1 E9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80189CEC 00186C4C  48 00 00 94 */	b lbl_80189D80
 lbl_80189CF0:
 /* 80189CF0 00186C50  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -4733,7 +4733,7 @@ lbl_80189CF0:
 /* 80189CFC 00186C5C  38 A1 00 08 */	addi r5, r1, 8
 /* 80189D00 00186C60  B0 01 00 08 */	sth r0, 8(r1)
 /* 80189D04 00186C64  38 C0 00 17 */	li r6, 0x17
-/* 80189D08 00186C68  4B EB A1 C9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80189D08 00186C68  4B EB A1 C9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80189D0C 00186C6C  38 61 00 20 */	addi r3, r1, 0x20
 /* 80189D10 00186C70  38 9B 01 44 */	addi r4, r27, 0x144
 /* 80189D14 00186C74  38 AD 8E A8 */	addi r5, r13, lbl_805A7A68@sda21

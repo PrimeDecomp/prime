@@ -263,7 +263,7 @@ lbl_800FE348:
 /* 800FE36C 000FB2CC  B0 01 00 08 */	sth r0, 8(r1)
 /* 800FE370 000FB2D0  38 C0 00 01 */	li r6, 1
 /* 800FE374 000FB2D4  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 800FE378 000FB2D8  4B F4 5B 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 800FE378 000FB2D8  4B F4 5B 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_800FE37C:
 /* 800FE37C 000FB2DC  C0 22 93 A4 */	lfs f1, lbl_805AB0C4@sda21(r2)
 /* 800FE380 000FB2E0  38 80 00 00 */	li r4, 0

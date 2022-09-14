@@ -1928,7 +1928,7 @@ lbl_801F55BC:
 /* 801F55CC 001F252C  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 801F55D0 001F2530  38 C0 00 02 */	li r6, 2
 /* 801F55D4 001F2534  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 801F55D8 001F2538  4B E4 E8 F9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 801F55D8 001F2538  4B E4 E8 F9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_801F55DC:
 /* 801F55DC 001F253C  A0 7B 02 DC */	lhz r3, 0x2dc(r27)
 /* 801F55E0 001F2540  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)

@@ -626,7 +626,7 @@ lbl_800B4D80:
 /* 800B4D90 000B1CF0  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 800B4D94 000B1CF4  38 C0 00 01 */	li r6, 1
 /* 800B4D98 000B1CF8  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 800B4D9C 000B1CFC  4B F8 F1 35 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 800B4D9C 000B1CFC  4B F8 F1 35 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_800B4DA0:
 /* 800B4DA0 000B1D00  80 01 01 4C */	lwz r0, 0x14c(r1)
 /* 800B4DA4 000B1D04  38 61 00 A4 */	addi r3, r1, 0xa4

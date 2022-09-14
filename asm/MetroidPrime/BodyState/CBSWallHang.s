@@ -193,7 +193,7 @@ lbl_8018D630:
 /* 8018D6CC 0018A62C  38 A1 00 10 */	addi r5, r1, 0x10
 /* 8018D6D0 0018A630  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 8018D6D4 0018A634  38 C0 00 17 */	li r6, 0x17
-/* 8018D6D8 0018A638  4B EB 67 F9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8018D6D8 0018A638  4B EB 67 F9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8018D6DC 0018A63C  34 A1 00 60 */	addic. r5, r1, 0x60
 /* 8018D6E0 0018A640  3B C0 00 01 */	li r30, 1
 /* 8018D6E4 0018A644  41 82 00 58 */	beq lbl_8018D73C
@@ -401,7 +401,7 @@ lbl_8018D910:
 /* 8018D9DC 0018A93C  D0 1F 01 58 */	stfs f0, 0x158(r31)
 /* 8018D9E0 0018A940  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 8018D9E4 0018A944  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 8018D9E8 0018A948  4B EB 64 E9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8018D9E8 0018A948  4B EB 64 E9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8018D9EC 0018A94C  34 A1 00 E4 */	addic. r5, r1, 0xe4
 /* 8018D9F0 0018A950  3B 60 00 01 */	li r27, 1
 /* 8018D9F4 0018A954  41 82 00 58 */	beq lbl_8018DA4C
@@ -617,7 +617,7 @@ lbl_8018DCCC:
 /* 8018DCF0 0018AC50  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8018DCF4 0018AC54  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 8018DCF8 0018AC58  38 C0 00 28 */	li r6, 0x28
-/* 8018DCFC 0018AC5C  4B EB 61 D5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8018DCFC 0018AC5C  4B EB 61 D5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8018DD00 0018AC60  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 8018DD04 0018AC64  7F C3 F3 78 */	mr r3, r30
 /* 8018DD08 0018AC68  38 81 00 1C */	addi r4, r1, 0x1c
@@ -1242,7 +1242,7 @@ lbl_8018E5D0:
 /* 8018E5F4 0018B554  38 A1 00 14 */	addi r5, r1, 0x14
 /* 8018E5F8 0018B558  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 8018E5FC 0018B55C  38 C0 00 28 */	li r6, 0x28
-/* 8018E600 0018B560  4B EB 58 D1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8018E600 0018B560  4B EB 58 D1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8018E604 0018B564  88 1C 00 18 */	lbz r0, 0x18(r28)
 /* 8018E608 0018B568  38 60 00 00 */	li r3, 0
 /* 8018E60C 0018B56C  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
