@@ -1053,7 +1053,7 @@ lbl_800C5EF8:
 /* 800C5FBC 000C2F1C  38 E1 00 54 */	addi r7, r1, 0x54
 /* 800C5FC0 000C2F20  91 61 00 10 */	stw r11, 0x10(r1)
 /* 800C5FC4 000C2F24  90 01 00 14 */	stw r0, 0x14(r1)
-/* 800C5FC8 000C2F28  48 1C 36 A5 */	bl "__ct__15CScriptMazeNodeF9TUniqueIdQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUiUiUiRC9CVector3fRC9CVector3fRC9CVector3f"
+/* 800C5FC8 000C2F28  48 1C 36 A5 */	bl "__ct__15CScriptMazeNodeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbiiiRC9CVector3fRC9CVector3fRC9CVector3f"
 /* 800C5FCC 000C2F2C  7C 7B 1B 78 */	mr r27, r3
 lbl_800C5FD0:
 /* 800C5FD0 000C2F30  38 61 00 44 */	addi r3, r1, 0x44

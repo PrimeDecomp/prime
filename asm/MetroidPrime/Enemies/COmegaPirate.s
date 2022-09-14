@@ -6247,7 +6247,7 @@ lbl_80290654:
 /* 8029068C 0028D5EC  38 C0 00 13 */	li r6, 0x13
 /* 80290690 0028D5F0  B0 01 00 08 */	sth r0, 8(r1)
 /* 80290694 0028D5F4  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80290698 0028D5F8  4B DB 38 39 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80290698 0028D5F8  4B DB 38 39 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8029069C 0028D5FC  48 00 01 60 */	b lbl_802907FC
 .global lbl_802906A0
 lbl_802906A0:

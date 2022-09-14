@@ -2448,7 +2448,7 @@ lbl_8016BD74:
 /* 8016BDB4 00168D14  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 8016BDB8 00168D18  B0 01 00 3C */	sth r0, 0x3c(r1)
 /* 8016BDBC 00168D1C  B0 01 00 40 */	sth r0, 0x40(r1)
-/* 8016BDC0 00168D20  4B ED 81 11 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8016BDC0 00168D20  4B ED 81 11 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_8016BDC4:
 /* 8016BDC4 00168D24  C0 02 A0 80 */	lfs f0, lbl_805ABDA0@sda21(r2)
 /* 8016BDC8 00168D28  D0 1D 07 C0 */	stfs f0, 0x7c0(r29)
@@ -6112,7 +6112,7 @@ lbl_8016F310:
 /* 8016F348 0016C2A8  38 C0 00 15 */	li r6, 0x15
 /* 8016F34C 0016C2AC  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 8016F350 0016C2B0  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 8016F354 0016C2B4  4B ED 4B 7D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8016F354 0016C2B4  4B ED 4B 7D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8016F358 0016C2B8  48 00 01 98 */	b lbl_8016F4F0
 lbl_8016F35C:
 /* 8016F35C 0016C2BC  80 1E 05 68 */	lwz r0, 0x568(r30)

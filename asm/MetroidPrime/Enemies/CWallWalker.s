@@ -370,7 +370,7 @@ lbl_802687E8:
 /* 802687F8 00265758  B0 01 00 08 */	sth r0, 8(r1)
 /* 802687FC 0026575C  38 C0 00 02 */	li r6, 2
 /* 80268800 00265760  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80268804 00265764  4B DD B6 CD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80268804 00265764  4B DD B6 CD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80268808:
 /* 80268808 00265768  7F A3 EB 78 */	mr r3, r29
 /* 8026880C 0026576C  38 81 00 2C */	addi r4, r1, 0x2c

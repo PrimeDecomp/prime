@@ -107,7 +107,7 @@ AcceptScriptMsg__24CScriptCameraHintTriggerF20EScriptObjectMessage9TUniqueIdR13C
 /* 8024B46C 002483CC  38 A1 00 0C */	addi r5, r1, 0xc
 /* 8024B470 002483D0  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 8024B474 002483D4  38 C0 00 04 */	li r6, 4
-/* 8024B478 002483D8  4B DF 8A 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8024B478 002483D8  4B DF 8A 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_8024B47C:
 /* 8024B47C 002483DC  88 9E 01 30 */	lbz r4, 0x130(r30)
 /* 8024B480 002483E0  54 80 DF FF */	rlwinm. r0, r4, 0x1b, 0x1f, 0x1f
@@ -131,7 +131,7 @@ lbl_8024B47C:
 /* 8024B4C8 00248428  38 A1 00 08 */	addi r5, r1, 8
 /* 8024B4CC 0024842C  B0 01 00 08 */	sth r0, 8(r1)
 /* 8024B4D0 00248430  38 C0 00 04 */	li r6, 4
-/* 8024B4D4 00248434  4B DF 89 FD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8024B4D4 00248434  4B DF 89 FD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_8024B4D8:
 /* 8024B4D8 00248438  88 1E 01 30 */	lbz r0, 0x130(r30)
 /* 8024B4DC 0024843C  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f

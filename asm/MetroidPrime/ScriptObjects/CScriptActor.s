@@ -450,7 +450,7 @@ lbl_8007546C:
 /* 80075488 000723E8  B0 01 00 24 */	sth r0, 0x24(r1)
 /* 8007548C 000723EC  38 C0 00 01 */	li r6, 1
 /* 80075490 000723F0  B0 01 00 28 */	sth r0, 0x28(r1)
-/* 80075494 000723F4  4B FC EA 3D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80075494 000723F4  4B FC EA 3D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80075498 000723F8  A0 1B 00 08 */	lhz r0, 8(r27)
 /* 8007549C 000723FC  7F C4 F3 78 */	mr r4, r30
 /* 800754A0 00072400  38 61 00 20 */	addi r3, r1, 0x20

@@ -431,7 +431,7 @@ lbl_8015E428:
 /* 8015E438 0015B398  B0 01 00 08 */	sth r0, 8(r1)
 /* 8015E43C 0015B39C  38 C0 00 01 */	li r6, 1
 /* 8015E440 0015B3A0  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 8015E444 0015B3A4  4B EE 5A 8D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8015E444 0015B3A4  4B EE 5A 8D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_8015E448:
 /* 8015E448 0015B3A8  BB 21 00 84 */	lmw r25, 0x84(r1)
 /* 8015E44C 0015B3AC  80 01 00 A4 */	lwz r0, 0xa4(r1)

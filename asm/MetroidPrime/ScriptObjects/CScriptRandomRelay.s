@@ -309,7 +309,7 @@ lbl_800E2AE8:
 /* 800E2AF8 000DFA58  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 800E2AFC 000DFA5C  80 96 00 00 */	lwz r4, 0(r22)
 /* 800E2B00 000DFA60  80 D6 00 04 */	lwz r6, 4(r22)
-/* 800E2B04 000DFA64  4B F6 13 CD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 800E2B04 000DFA64  4B F6 13 CD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 800E2B08 000DFA68  3A D6 00 08 */	addi r22, r22, 8
 lbl_800E2B0C:
 /* 800E2B0C 000DFA6C  80 01 00 58 */	lwz r0, 0x58(r1)

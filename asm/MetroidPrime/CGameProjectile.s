@@ -464,7 +464,7 @@ lbl_800377DC:
 /* 8003781C 0003477C  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80037820 00034780  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80037824 00034784  80 9F 08 4C */	lwz r4, 0x84c(r31)
-/* 80037828 00034788  48 00 C6 A9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80037828 00034788  48 00 C6 A9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_8003782C:
 /* 8003782C 0003478C  E3 E1 01 18 */	psq_l f31, 280(r1), 0, qr0
 /* 80037830 00034790  CB E1 01 10 */	lfd f31, 0x110(r1)

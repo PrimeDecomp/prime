@@ -710,7 +710,7 @@ ResolveCollisionWithActor__17CEnergyProjectileFRC14CRayCastResultR6CActorR13CSta
 /* 80214484 002113E4  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80214488 002113E8  38 C0 00 1E */	li r6, 0x1e
 /* 8021448C 002113EC  B0 01 00 1C */	sth r0, 0x1c(r1)
-/* 80214490 002113F0  4B E2 FA 41 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80214490 002113F0  4B E2 FA 41 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80214494 002113F4  7F A3 EB 78 */	mr r3, r29
 /* 80214498 002113F8  7F C5 F3 78 */	mr r5, r30
 /* 8021449C 002113FC  38 80 00 1F */	li r4, 0x1f

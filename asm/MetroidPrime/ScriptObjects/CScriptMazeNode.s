@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm lbl_805726FC, 0x4B0, 4
+.comm sMazeSeeds__15CScriptMazeNode, 0x4B0, 4
 
 .section .data
 .balign 8
@@ -109,11 +109,11 @@ LoadMazeSeeds__15CScriptMazeNodeFv:
 /* 802888B0 00285810  38 66 00 04 */	addi r3, r6, 4
 /* 802888B4 00285814  48 0B 30 B5 */	bl LoadNewResourceSync__10CResLoaderFRC10SObjectTagPc
 /* 802888B8 00285818  7C 03 00 D0 */	neg r0, r3
-/* 802888BC 0028581C  3C 80 80 57 */	lis r4, lbl_805726FC@ha
+/* 802888BC 0028581C  3C 80 80 57 */	lis r4, sMazeSeeds__15CScriptMazeNode@ha
 /* 802888C0 00285820  7C 00 1B 78 */	or r0, r0, r3
 /* 802888C4 00285824  90 61 00 0C */	stw r3, 0xc(r1)
 /* 802888C8 00285828  54 00 0F FE */	srwi r0, r0, 0x1f
-/* 802888CC 0028582C  3B E4 26 FC */	addi r31, r4, lbl_805726FC@l
+/* 802888CC 0028582C  3B E4 26 FC */	addi r31, r4, sMazeSeeds__15CScriptMazeNode@l
 /* 802888D0 00285830  98 01 00 08 */	stb r0, 8(r1)
 /* 802888D4 00285834  3B C0 00 00 */	li r30, 0
 lbl_802888D8:
@@ -171,14 +171,14 @@ Think__15CScriptMazeNodeFfR13CStateManager:
 /* 80288994 002858F4  38 A0 00 04 */	li r5, 4
 /* 80288998 002858F8  50 06 2E B4 */	rlwimi r6, r0, 5, 0x1a, 0x1a
 /* 8028899C 002858FC  98 C3 01 3C */	stb r6, 0x13c(r3)
-/* 802889A0 00285900  48 00 08 81 */	bl sub_80289220
+/* 802889A0 00285900  48 00 08 81 */	bl SendScriptMsgs__15CScriptMazeNodeFR13CStateManager20EScriptObjectMessage
 /* 802889A4 00285904  48 00 00 18 */	b lbl_802889BC
 lbl_802889A8:
 /* 802889A8 00285908  38 00 00 01 */	li r0, 1
 /* 802889AC 0028590C  38 A0 00 01 */	li r5, 1
 /* 802889B0 00285910  50 06 2E B4 */	rlwimi r6, r0, 5, 0x1a, 0x1a
 /* 802889B4 00285914  98 C3 01 3C */	stb r6, 0x13c(r3)
-/* 802889B8 00285918  48 00 08 69 */	bl sub_80289220
+/* 802889B8 00285918  48 00 08 69 */	bl SendScriptMsgs__15CScriptMazeNodeFR13CStateManager20EScriptObjectMessage
 lbl_802889BC:
 /* 802889BC 0028591C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802889C0 00285920  7C 08 03 A6 */	mtlr r0
@@ -231,17 +231,17 @@ lbl_80288A34:
 /* 80288A68 002859C8  38 A0 00 04 */	li r5, 4
 /* 80288A6C 002859CC  38 C0 00 05 */	li r6, 5
 /* 80288A70 002859D0  38 E0 00 03 */	li r7, 3
-/* 80288A74 002859D4  48 00 1E 25 */	bl sub_8028a898
+/* 80288A74 002859D4  48 00 1E 25 */	bl __ct__10CMazeStateFiiii
 /* 80288A78 002859D8  7C 7A 1B 78 */	mr r26, r3
 lbl_80288A7C:
 /* 80288A7C 002859DC  93 41 00 5C */	stw r26, 0x5c(r1)
 /* 80288A80 002859E0  80 7E 09 00 */	lwz r3, 0x900(r30)
 /* 80288A84 002859E4  48 08 9A 9D */	bl Next__9CRandom16Fv
 /* 80288A88 002859E8  3C A0 1B 4F */	lis r5, 0x1B4E81B5@ha
-/* 80288A8C 002859EC  3C 80 80 57 */	lis r4, lbl_805726FC@ha
+/* 80288A8C 002859EC  3C 80 80 57 */	lis r4, sMazeSeeds__15CScriptMazeNode@ha
 /* 80288A90 002859F0  38 05 81 B5 */	addi r0, r5, 0x1B4E81B5@l
 /* 80288A94 002859F4  7C 00 18 96 */	mulhw r0, r0, r3
-/* 80288A98 002859F8  38 84 26 FC */	addi r4, r4, lbl_805726FC@l
+/* 80288A98 002859F8  38 84 26 FC */	addi r4, r4, sMazeSeeds__15CScriptMazeNode@l
 /* 80288A9C 002859FC  7C 00 2E 70 */	srawi r0, r0, 5
 /* 80288AA0 00285A00  54 05 0F FE */	srwi r5, r0, 0x1f
 /* 80288AA4 00285A04  7C 00 2A 14 */	add r0, r0, r5
@@ -250,11 +250,11 @@ lbl_80288A7C:
 /* 80288AB0 00285A10  7F 43 D3 78 */	mr r3, r26
 /* 80288AB4 00285A14  54 00 10 3A */	slwi r0, r0, 2
 /* 80288AB8 00285A18  7C 84 00 2E */	lwzx r4, r4, r0
-/* 80288ABC 00285A1C  48 00 14 75 */	bl sub_80289f30
+/* 80288ABC 00285A1C  48 00 14 75 */	bl Reset__10CMazeStateFi
 /* 80288AC0 00285A20  7F 43 D3 78 */	mr r3, r26
-/* 80288AC4 00285A24  48 00 0D 39 */	bl sub_802897fc
+/* 80288AC4 00285A24  48 00 0D 39 */	bl Initialize__10CMazeStateFv
 /* 80288AC8 00285A28  7F 43 D3 78 */	mr r3, r26
-/* 80288ACC 00285A2C  48 00 0E FD */	bl sub_802899c8
+/* 80288ACC 00285A2C  48 00 0E FD */	bl GenerateObstacles__10CMazeStateFv
 /* 80288AD0 00285A30  7F 45 D3 78 */	mr r5, r26
 /* 80288AD4 00285A34  38 00 00 00 */	li r0, 0
 /* 80288AD8 00285A38  90 A1 00 58 */	stw r5, 0x58(r1)
@@ -275,7 +275,7 @@ lbl_80288B00:
 /* 80288B10 00285A70  41 82 06 E0 */	beq lbl_802891F0
 /* 80288B14 00285A74  80 9F 00 E8 */	lwz r4, 0xe8(r31)
 /* 80288B18 00285A78  80 BF 00 EC */	lwz r5, 0xec(r31)
-/* 80288B1C 00285A7C  48 00 13 F9 */	bl sub_80289f14
+/* 80288B1C 00285A7C  48 00 13 F9 */	bl GetCell__10CMazeStateFUiUi
 /* 80288B20 00285A80  80 9F 00 F0 */	lwz r4, 0xf0(r31)
 /* 80288B24 00285A84  7C 7A 1B 78 */	mr r26, r3
 /* 80288B28 00285A88  2C 04 00 00 */	cmpwi r4, 0
@@ -312,7 +312,7 @@ lbl_80288B94:
 /* 80288B98 00285AF8  41 82 00 10 */	beq lbl_80288BA8
 /* 80288B9C 00285AFC  7F E3 FB 78 */	mr r3, r31
 /* 80288BA0 00285B00  7F C4 F3 78 */	mr r4, r30
-/* 80288BA4 00285B04  48 00 08 41 */	bl sub_802893e4
+/* 80288BA4 00285B04  48 00 08 41 */	bl GenerateObjects__15CScriptMazeNodeFR13CStateManager
 lbl_80288BA8:
 /* 80288BA8 00285B08  80 1F 00 F0 */	lwz r0, 0xf0(r31)
 /* 80288BAC 00285B0C  2C 00 00 01 */	cmpwi r0, 1
@@ -388,7 +388,7 @@ lbl_80288BF0:
 /* 80288CBC 00285C1C  B0 01 00 2C */	sth r0, 0x2c(r1)
 /* 80288CC0 00285C20  38 C0 00 01 */	li r6, 1
 /* 80288CC4 00285C24  B0 01 00 30 */	sth r0, 0x30(r1)
-/* 80288CC8 00285C28  4B DB B2 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80288CC8 00285C28  4B DB B2 09 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80288CCC 00285C2C  48 00 00 20 */	b lbl_80288CEC
 lbl_80288CD0:
 /* 80288CD0 00285C30  38 C6 00 0C */	addi r6, r6, 0xc
@@ -512,7 +512,7 @@ lbl_80288DF4:
 /* 80288E7C 00285DDC  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80288E80 00285DE0  38 C0 00 01 */	li r6, 1
 /* 80288E84 00285DE4  B0 01 00 24 */	sth r0, 0x24(r1)
-/* 80288E88 00285DE8  4B DB B0 49 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80288E88 00285DE8  4B DB B0 49 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80288E8C:
 /* 80288E8C 00285DEC  3B 5A 00 0C */	addi r26, r26, 0xc
 lbl_80288E90:
@@ -577,7 +577,7 @@ lbl_80288F30:
 /* 80288F64 00285EC4  38 C0 00 01 */	li r6, 1
 /* 80288F68 00285EC8  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80288F6C 00285ECC  B0 01 00 18 */	sth r0, 0x18(r1)
-/* 80288F70 00285ED0  4B DB AF 61 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80288F70 00285ED0  4B DB AF 61 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80288F74 00285ED4  48 00 00 1C */	b lbl_80288F90
 lbl_80288F78:
 /* 80288F78 00285ED8  A0 04 00 08 */	lhz r0, 8(r4)
@@ -621,7 +621,7 @@ lbl_80288FB8:
 /* 80289004 00285F64  2C 00 00 01 */	cmpwi r0, 1
 /* 80289008 00285F68  40 82 00 40 */	bne lbl_80289048
 /* 8028900C 00285F6C  7F 83 E3 78 */	mr r3, r28
-/* 80289010 00285F70  48 00 0E E9 */	bl sub_80289ef8
+/* 80289010 00285F70  48 00 0E E9 */	bl GetCell2__10CMazeStateFUiUi
 /* 80289014 00285F74  88 A3 00 00 */	lbz r5, 0(r3)
 /* 80289018 00285F78  54 A0 D7 FF */	rlwinm. r0, r5, 0x1a, 0x1f, 0x1f
 /* 8028901C 00285F7C  40 82 00 2C */	bne lbl_80289048
@@ -630,7 +630,7 @@ lbl_80288FB8:
 /* 80289028 00285F88  50 05 36 72 */	rlwimi r5, r0, 6, 0x19, 0x19
 /* 8028902C 00285F8C  98 A3 00 00 */	stb r5, 0(r3)
 /* 80289030 00285F90  7F 63 DB 78 */	mr r3, r27
-/* 80289034 00285F94  48 00 03 0D */	bl sub_80289340
+/* 80289034 00285F94  48 00 03 0D */	bl Reset__15CScriptMazeNodeFR13CStateManager
 /* 80289038 00285F98  88 1B 01 3C */	lbz r0, 0x13c(r27)
 /* 8028903C 00285F9C  38 60 00 00 */	li r3, 0
 /* 80289040 00285FA0  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -648,7 +648,7 @@ lbl_80289048:
 /* 8028906C 00285FCC  2C 00 00 01 */	cmpwi r0, 1
 /* 80289070 00285FD0  40 82 00 40 */	bne lbl_802890B0
 /* 80289074 00285FD4  7F 83 E3 78 */	mr r3, r28
-/* 80289078 00285FD8  48 00 0E 81 */	bl sub_80289ef8
+/* 80289078 00285FD8  48 00 0E 81 */	bl GetCell2__10CMazeStateFUiUi
 /* 8028907C 00285FDC  88 A3 00 00 */	lbz r5, 0(r3)
 /* 80289080 00285FE0  54 A0 D7 FF */	rlwinm. r0, r5, 0x1a, 0x1f, 0x1f
 /* 80289084 00285FE4  40 82 00 2C */	bne lbl_802890B0
@@ -657,7 +657,7 @@ lbl_80289048:
 /* 80289090 00285FF0  50 05 36 72 */	rlwimi r5, r0, 6, 0x19, 0x19
 /* 80289094 00285FF4  98 A3 00 00 */	stb r5, 0(r3)
 /* 80289098 00285FF8  7F 63 DB 78 */	mr r3, r27
-/* 8028909C 00285FFC  48 00 02 A5 */	bl sub_80289340
+/* 8028909C 00285FFC  48 00 02 A5 */	bl Reset__15CScriptMazeNodeFR13CStateManager
 /* 802890A0 00286000  88 1B 01 3C */	lbz r0, 0x13c(r27)
 /* 802890A4 00286004  38 60 00 00 */	li r3, 0
 /* 802890A8 00286008  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -675,7 +675,7 @@ lbl_802890B0:
 /* 802890D4 00286034  2C 00 00 00 */	cmpwi r0, 0
 /* 802890D8 00286038  40 82 00 40 */	bne lbl_80289118
 /* 802890DC 0028603C  7F 83 E3 78 */	mr r3, r28
-/* 802890E0 00286040  48 00 0E 19 */	bl sub_80289ef8
+/* 802890E0 00286040  48 00 0E 19 */	bl GetCell2__10CMazeStateFUiUi
 /* 802890E4 00286044  88 A3 00 00 */	lbz r5, 0(r3)
 /* 802890E8 00286048  54 A0 CF FF */	rlwinm. r0, r5, 0x19, 0x1f, 0x1f
 /* 802890EC 0028604C  40 82 00 2C */	bne lbl_80289118
@@ -684,7 +684,7 @@ lbl_802890B0:
 /* 802890F8 00286058  50 05 3E 30 */	rlwimi r5, r0, 7, 0x18, 0x18
 /* 802890FC 0028605C  98 A3 00 00 */	stb r5, 0(r3)
 /* 80289100 00286060  7F 63 DB 78 */	mr r3, r27
-/* 80289104 00286064  48 00 02 3D */	bl sub_80289340
+/* 80289104 00286064  48 00 02 3D */	bl Reset__15CScriptMazeNodeFR13CStateManager
 /* 80289108 00286068  88 1B 01 3C */	lbz r0, 0x13c(r27)
 /* 8028910C 0028606C  38 60 00 00 */	li r3, 0
 /* 80289110 00286070  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -703,7 +703,7 @@ lbl_80289118:
 /* 80289140 002860A0  2C 00 00 00 */	cmpwi r0, 0
 /* 80289144 002860A4  40 82 00 40 */	bne lbl_80289184
 /* 80289148 002860A8  7F 83 E3 78 */	mr r3, r28
-/* 8028914C 002860AC  48 00 0D AD */	bl sub_80289ef8
+/* 8028914C 002860AC  48 00 0D AD */	bl GetCell2__10CMazeStateFUiUi
 /* 80289150 002860B0  88 A3 00 00 */	lbz r5, 0(r3)
 /* 80289154 002860B4  54 A0 CF FF */	rlwinm. r0, r5, 0x19, 0x1f, 0x1f
 /* 80289158 002860B8  40 82 00 2C */	bne lbl_80289184
@@ -712,7 +712,7 @@ lbl_80289118:
 /* 80289164 002860C4  50 05 3E 30 */	rlwimi r5, r0, 7, 0x18, 0x18
 /* 80289168 002860C8  98 A3 00 00 */	stb r5, 0(r3)
 /* 8028916C 002860CC  7F 63 DB 78 */	mr r3, r27
-/* 80289170 002860D0  48 00 01 D1 */	bl sub_80289340
+/* 80289170 002860D0  48 00 01 D1 */	bl Reset__15CScriptMazeNodeFR13CStateManager
 /* 80289174 002860D4  88 1B 01 3C */	lbz r0, 0x13c(r27)
 /* 80289178 002860D8  38 60 00 00 */	li r3, 0
 /* 8028917C 002860DC  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
@@ -745,11 +745,11 @@ lbl_802891AC:
 lbl_802891D8:
 /* 802891D8 00286138  7F E3 FB 78 */	mr r3, r31
 /* 802891DC 0028613C  7F C4 F3 78 */	mr r4, r30
-/* 802891E0 00286140  48 00 01 61 */	bl sub_80289340
+/* 802891E0 00286140  48 00 01 61 */	bl Reset__15CScriptMazeNodeFR13CStateManager
 /* 802891E4 00286144  48 00 00 0C */	b lbl_802891F0
 lbl_802891E8:
 /* 802891E8 00286148  7F C4 F3 78 */	mr r4, r30
-/* 802891EC 0028614C  48 00 01 55 */	bl sub_80289340
+/* 802891EC 0028614C  48 00 01 55 */	bl Reset__15CScriptMazeNodeFR13CStateManager
 lbl_802891F0:
 /* 802891F0 00286150  A0 19 00 00 */	lhz r0, 0(r25)
 /* 802891F4 00286154  7F E3 FB 78 */	mr r3, r31
@@ -764,8 +764,8 @@ lbl_802891F0:
 /* 80289218 00286178  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 8028921C 0028617C  4E 80 00 20 */	blr
 
-.global sub_80289220
-sub_80289220:
+.global SendScriptMsgs__15CScriptMazeNodeFR13CStateManager20EScriptObjectMessage
+SendScriptMsgs__15CScriptMazeNodeFR13CStateManager20EScriptObjectMessage:
 /* 80289220 00286180  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80289224 00286184  7C 08 02 A6 */	mflr r0
 /* 80289228 00286188  90 01 00 54 */	stw r0, 0x54(r1)
@@ -788,7 +788,7 @@ sub_80289220:
 /* 8028926C 002861CC  7F E6 FB 78 */	mr r6, r31
 /* 80289270 002861D0  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80289274 002861D4  38 A1 00 14 */	addi r5, r1, 0x14
-/* 80289278 002861D8  4B DB AC 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80289278 002861D8  4B DB AC 59 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8028927C 002861DC  A0 BD 00 08 */	lhz r5, 8(r29)
 /* 80289280 002861E0  7F C3 F3 78 */	mr r3, r30
 /* 80289284 002861E4  A0 1D 00 FC */	lhz r0, 0xfc(r29)
@@ -802,7 +802,7 @@ sub_80289220:
 /* 802892A4 00286204  7F E6 FB 78 */	mr r6, r31
 /* 802892A8 00286208  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 802892AC 0028620C  38 A1 00 10 */	addi r5, r1, 0x10
-/* 802892B0 00286210  4B DB AC 21 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 802892B0 00286210  4B DB AC 21 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 802892B4 00286214  A0 BD 00 08 */	lhz r5, 8(r29)
 /* 802892B8 00286218  7F C3 F3 78 */	mr r3, r30
 /* 802892BC 0028621C  A0 1D 01 0C */	lhz r0, 0x10c(r29)
@@ -816,7 +816,7 @@ sub_80289220:
 /* 802892DC 0028623C  7F E6 FB 78 */	mr r6, r31
 /* 802892E0 00286240  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 802892E4 00286244  38 A1 00 0C */	addi r5, r1, 0xc
-/* 802892E8 00286248  4B DB AB E9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 802892E8 00286248  4B DB AB E9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 802892EC 0028624C  A0 BD 00 08 */	lhz r5, 8(r29)
 /* 802892F0 00286250  7F C3 F3 78 */	mr r3, r30
 /* 802892F4 00286254  A0 1D 00 F4 */	lhz r0, 0xf4(r29)
@@ -830,7 +830,7 @@ sub_80289220:
 /* 80289314 00286274  7F E6 FB 78 */	mr r6, r31
 /* 80289318 00286278  B0 01 00 08 */	sth r0, 8(r1)
 /* 8028931C 0028627C  38 A1 00 08 */	addi r5, r1, 8
-/* 80289320 00286280  4B DB AB B1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80289320 00286280  4B DB AB B1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80289324 00286284  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 80289328 00286288  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 8028932C 0028628C  83 C1 00 48 */	lwz r30, 0x48(r1)
@@ -839,8 +839,8 @@ sub_80289220:
 /* 80289338 00286298  38 21 00 50 */	addi r1, r1, 0x50
 /* 8028933C 0028629C  4E 80 00 20 */	blr
 
-.global sub_80289340
-sub_80289340:
+.global Reset__15CScriptMazeNodeFR13CStateManager
+Reset__15CScriptMazeNodeFR13CStateManager:
 /* 80289340 002862A0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80289344 002862A4  7C 08 02 A6 */	mflr r0
 /* 80289348 002862A8  90 01 00 24 */	stw r0, 0x24(r1)
@@ -883,8 +883,8 @@ sub_80289340:
 /* 802893DC 0028633C  38 21 00 20 */	addi r1, r1, 0x20
 /* 802893E0 00286340  4E 80 00 20 */	blr
 
-.global sub_802893e4
-sub_802893e4:
+.global GenerateObjects__15CScriptMazeNodeFR13CStateManager
+GenerateObjects__15CScriptMazeNodeFR13CStateManager:
 /* 802893E4 00286344  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 802893E8 00286348  7C 08 02 A6 */	mflr r0
 /* 802893EC 0028634C  90 01 00 94 */	stw r0, 0x94(r1)
@@ -966,7 +966,7 @@ lbl_802894AC:
 /* 80289510 00286470  B0 01 00 08 */	sth r0, 8(r1)
 /* 80289514 00286474  38 C0 00 01 */	li r6, 1
 /* 80289518 00286478  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 8028951C 0028647C  4B DB A9 B5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8028951C 0028647C  4B DB A9 B5 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80289520 00286480  28 1C 00 00 */	cmplwi r28, 0
 /* 80289524 00286484  41 82 00 48 */	beq lbl_8028956C
 /* 80289528 00286488  C0 3D 00 50 */	lfs f1, 0x50(r29)
@@ -1058,8 +1058,8 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 80289664 002865C4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80289668 002865C8  4E 80 00 20 */	blr
 
-.global "__ct__15CScriptMazeNodeF9TUniqueIdQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUiUiUiRC9CVector3fRC9CVector3fRC9CVector3f"
-"__ct__15CScriptMazeNodeF9TUniqueIdQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbUiUiUiRC9CVector3fRC9CVector3fRC9CVector3f":
+.global "__ct__15CScriptMazeNodeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbiiiRC9CVector3fRC9CVector3fRC9CVector3f"
+"__ct__15CScriptMazeNodeF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fbiiiRC9CVector3fRC9CVector3fRC9CVector3f":
 /* 8028966C 002865CC  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 80289670 002865D0  7C 08 02 A6 */	mflr r0
 /* 80289674 002865D4  90 01 01 14 */	stw r0, 0x114(r1)
@@ -1161,8 +1161,8 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 802897F4 00286754  38 21 01 10 */	addi r1, r1, 0x110
 /* 802897F8 00286758  4E 80 00 20 */	blr
 
-.global sub_802897fc
-sub_802897fc:
+.global Initialize__10CMazeStateFv
+Initialize__10CMazeStateFv:
 /* 802897FC 0028675C  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 80289800 00286760  38 A0 00 00 */	li r5, 0
 /* 80289804 00286764  54 A0 10 3A */	slwi r0, r5, 2
@@ -1288,8 +1288,8 @@ lbl_802899A0:
 /* 802899C0 00286920  38 21 01 10 */	addi r1, r1, 0x110
 /* 802899C4 00286924  4E 80 00 20 */	blr
 
-.global sub_802899c8
-sub_802899c8:
+.global GenerateObstacles__10CMazeStateFv
+GenerateObstacles__10CMazeStateFv:
 /* 802899C8 00286928  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802899CC 0028692C  7C 08 02 A6 */	mflr r0
 /* 802899D0 00286930  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1298,7 +1298,7 @@ sub_802899c8:
 /* 802899DC 0028693C  88 03 00 94 */	lbz r0, 0x94(r3)
 /* 802899E0 00286940  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 802899E4 00286944  40 82 00 08 */	bne lbl_802899EC
-/* 802899E8 00286948  4B FF FE 15 */	bl sub_802897fc
+/* 802899E8 00286948  4B FF FE 15 */	bl Initialize__10CMazeStateFv
 lbl_802899EC:
 /* 802899EC 0028694C  7F 63 DB 78 */	mr r3, r27
 /* 802899F0 00286950  48 08 8B 31 */	bl Next__9CRandom16Fv
@@ -1648,8 +1648,8 @@ lbl_80289EE4:
 /* 80289EF0 00286E50  38 21 00 20 */	addi r1, r1, 0x20
 /* 80289EF4 00286E54  4E 80 00 20 */	blr
 
-.global sub_80289ef8
-sub_80289ef8:
+.global GetCell2__10CMazeStateFUiUi
+GetCell2__10CMazeStateFUiUi:
 /* 80289EF8 00286E58  1C 05 00 09 */	mulli r0, r5, 9
 /* 80289EFC 00286E5C  7C 65 1B 78 */	mr r5, r3
 /* 80289F00 00286E60  7C 04 02 14 */	add r0, r4, r0
@@ -1658,8 +1658,8 @@ sub_80289ef8:
 /* 80289F0C 00286E6C  7C 65 1A 14 */	add r3, r5, r3
 /* 80289F10 00286E70  4E 80 00 20 */	blr
 
-.global sub_80289f14
-sub_80289f14:
+.global GetCell__10CMazeStateFUiUi
+GetCell__10CMazeStateFUiUi:
 /* 80289F14 00286E74  1C 05 00 09 */	mulli r0, r5, 9
 /* 80289F18 00286E78  7C 65 1B 78 */	mr r5, r3
 /* 80289F1C 00286E7C  7C 04 02 14 */	add r0, r4, r0
@@ -1668,8 +1668,8 @@ sub_80289f14:
 /* 80289F28 00286E88  7C 65 1A 14 */	add r3, r5, r3
 /* 80289F2C 00286E8C  4E 80 00 20 */	blr
 
-.global sub_80289f30
-sub_80289f30:
+.global Reset__10CMazeStateFi
+Reset__10CMazeStateFi:
 /* 80289F30 00286E90  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80289F34 00286E94  7C 08 02 A6 */	mflr r0
 /* 80289F38 00286E98  90 01 00 34 */	stw r0, 0x34(r1)
@@ -2293,8 +2293,8 @@ lbl_8028A870:
 /* 8028A890 002877F0  38 21 00 30 */	addi r1, r1, 0x30
 /* 8028A894 002877F4  4E 80 00 20 */	blr
 
-.global sub_8028a898
-sub_8028a898:
+.global __ct__10CMazeStateFiiii
+__ct__10CMazeStateFiiii:
 /* 8028A898 002877F8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8028A89C 002877FC  7C 08 02 A6 */	mflr r0
 /* 8028A8A0 00287800  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2306,9 +2306,9 @@ sub_8028a898:
 /* 8028A8B8 00287818  7C FF 3B 78 */	mr r31, r7
 /* 8028A8BC 0028781C  38 80 00 00 */	li r4, 0
 /* 8028A8C0 00287820  48 08 7D 2D */	bl __ct__9CRandom16FUi
-/* 8028A8C4 00287824  3C 80 80 29 */	lis r4, sub_8028a918@ha
+/* 8028A8C4 00287824  3C 80 80 29 */	lis r4, __ct__9SMazeCellFv@ha
 /* 8028A8C8 00287828  38 7B 00 04 */	addi r3, r27, 4
-/* 8028A8CC 0028782C  38 84 A9 18 */	addi r4, r4, sub_8028a918@l
+/* 8028A8CC 0028782C  38 84 A9 18 */	addi r4, r4, __ct__9SMazeCellFv@l
 /* 8028A8D0 00287830  38 A0 00 00 */	li r5, 0
 /* 8028A8D4 00287834  38 C0 00 02 */	li r6, 2
 /* 8028A8D8 00287838  38 E0 00 3F */	li r7, 0x3f
@@ -2328,8 +2328,8 @@ sub_8028a898:
 /* 8028A910 00287870  38 21 00 20 */	addi r1, r1, 0x20
 /* 8028A914 00287874  4E 80 00 20 */	blr
 
-.global sub_8028a918
-sub_8028a918:
+.global __ct__9SMazeCellFv
+__ct__9SMazeCellFv:
 /* 8028A918 00287878  88 03 00 01 */	lbz r0, 1(r3)
 /* 8028A91C 0028787C  38 80 00 00 */	li r4, 0
 /* 8028A920 00287880  50 80 2E B4 */	rlwimi r0, r4, 5, 0x1a, 0x1a

@@ -1657,7 +1657,7 @@ Think__12CScriptWaterFfR13CStateManager:
 /* 80100218 000FD178  38 C0 00 25 */	li r6, 0x25
 /* 8010021C 000FD17C  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80100220 000FD180  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 80100224 000FD184  4B F4 3C AD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80100224 000FD184  4B F4 3C AD */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80100228 000FD188  48 00 00 30 */	b lbl_80100258
 lbl_8010022C:
 /* 8010022C 000FD18C  28 00 00 00 */	cmplwi r0, 0
@@ -1670,7 +1670,7 @@ lbl_8010022C:
 /* 80100248 000FD1A8  38 C0 00 27 */	li r6, 0x27
 /* 8010024C 000FD1AC  B0 01 00 08 */	sth r0, 8(r1)
 /* 80100250 000FD1B0  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80100254 000FD1B4  4B F4 3C 7D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80100254 000FD1B4  4B F4 3C 7D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80100258:
 /* 80100258 000FD1B8  7F C3 F3 78 */	mr r3, r30
 /* 8010025C 000FD1BC  7F E4 FB 78 */	mr r4, r31
@@ -1995,7 +1995,7 @@ lbl_8010070C:
 /* 8010071C 000FD67C  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80100720 000FD680  38 C0 00 26 */	li r6, 0x26
 /* 80100724 000FD684  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 80100728 000FD688  4B F4 37 A9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80100728 000FD688  4B F4 37 A9 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8010072C 000FD68C  38 00 00 00 */	li r0, 0
 /* 80100730 000FD690  98 1D 00 0A */	stb r0, 0xa(r29)
 /* 80100734 000FD694  48 00 00 60 */	b lbl_80100794
@@ -2023,7 +2023,7 @@ lbl_80100774:
 /* 80100784 000FD6E4  B0 01 00 08 */	sth r0, 8(r1)
 /* 80100788 000FD6E8  38 C0 00 27 */	li r6, 0x27
 /* 8010078C 000FD6EC  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 80100790 000FD6F0  4B F4 37 41 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 80100790 000FD6F0  4B F4 37 41 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 lbl_80100794:
 /* 80100794 000FD6F4  7F 9D E3 78 */	mr r29, r28
 lbl_80100798:
@@ -2147,7 +2147,7 @@ lbl_80100930:
 /* 80100940 000FD8A0  B0 01 00 08 */	sth r0, 8(r1)
 /* 80100944 000FD8A4  38 C0 00 25 */	li r6, 0x25
 /* 80100948 000FD8A8  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 8010094C 000FD8AC  4B F4 35 85 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8010094C 000FD8AC  4B F4 35 85 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 80100950 000FD8B0  38 00 00 00 */	li r0, 0
 /* 80100954 000FD8B4  98 01 00 40 */	stb r0, 0x40(r1)
 lbl_80100958:

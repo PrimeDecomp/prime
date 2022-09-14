@@ -602,7 +602,7 @@ lbl_8007E5F4:
 /* 8007E628 0007B588  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 8007E62C 0007B58C  B0 01 00 4C */	sth r0, 0x4c(r1)
 /* 8007E630 0007B590  B0 01 00 50 */	sth r0, 0x50(r1)
-/* 8007E634 0007B594  4B FC 58 9D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8007E634 0007B594  4B FC 58 9D */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8007E638 0007B598  80 6D A2 80 */	lwz r3, lbl_805A8E40@sda21(r13)
 /* 8007E63C 0007B59C  38 03 FF FF */	addi r0, r3, -1
 /* 8007E640 0007B5A0  90 0D A2 80 */	stw r0, lbl_805A8E40@sda21(r13)
@@ -665,7 +665,7 @@ lbl_8007E6AC:
 /* 8007E714 0007B674  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 8007E718 0007B678  B0 01 00 38 */	sth r0, 0x38(r1)
 /* 8007E71C 0007B67C  B0 01 00 3C */	sth r0, 0x3c(r1)
-/* 8007E720 0007B680  4B FC 57 B1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8007E720 0007B680  4B FC 57 B1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8007E724 0007B684  88 1E 02 A8 */	lbz r0, 0x2a8(r30)
 /* 8007E728 0007B688  38 60 00 01 */	li r3, 1
 /* 8007E72C 0007B68C  50 60 0F BC */	rlwimi r0, r3, 1, 0x1e, 0x1e
@@ -696,7 +696,7 @@ lbl_8007E738:
 /* 8007E78C 0007B6EC  B0 01 00 2C */	sth r0, 0x2c(r1)
 /* 8007E790 0007B6F0  38 C0 00 03 */	li r6, 3
 /* 8007E794 0007B6F4  B0 01 00 30 */	sth r0, 0x30(r1)
-/* 8007E798 0007B6F8  4B FC 57 39 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8007E798 0007B6F8  4B FC 57 39 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8007E79C 0007B6FC  88 1E 02 A8 */	lbz r0, 0x2a8(r30)
 /* 8007E7A0 0007B700  38 60 00 01 */	li r3, 1
 /* 8007E7A4 0007B704  50 60 0F BC */	rlwimi r0, r3, 1, 0x1e, 0x1e
@@ -1039,7 +1039,7 @@ lbl_8007EBA8:
 /* 8007EC64 0007BBC4  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 8007EC68 0007BBC8  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 8007EC6C 0007BBCC  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 8007EC70 0007BBD0  4B FC 52 61 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8007EC70 0007BBD0  4B FC 52 61 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8007EC74 0007BBD4  48 00 00 28 */	b lbl_8007EC9C
 lbl_8007EC78:
 /* 8007EC78 0007BBD8  2C 19 FF FF */	cmpwi r25, -1
@@ -1223,7 +1223,7 @@ lbl_8007EEC0:
 /* 8007EEF4 0007BE54  B0 01 00 08 */	sth r0, 8(r1)
 /* 8007EEF8 0007BE58  38 C0 00 0C */	li r6, 0xc
 /* 8007EEFC 0007BE5C  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 8007EF00 0007BE60  4B FC 4F D1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TEditorId20EScriptObjectMessage
+/* 8007EF00 0007BE60  4B FC 4F D1 */	bl SendScriptMsg__13CStateManagerFP7CEntity9TUniqueId20EScriptObjectMessage
 /* 8007EF04 0007BE64  38 60 00 01 */	li r3, 1
 /* 8007EF08 0007BE68  48 00 01 38 */	b lbl_8007F040
 lbl_8007EF0C:
