@@ -40,7 +40,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , x34_transform(xf)
 , x64_modelData(mData.IsNull() ? nullptr : new CModelData(mData))
 , x68_material(MakeActorMaterialList(list, params))
-, x70_materialFilter(CMaterialFilter::MakeIncludeExclude(CMaterialList().Union(SolidMaterial), CMaterialList(0)))
+, x70_materialFilter(CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()))
 , x88_sfxId(InvalidSfxId)
 , x8c_loopingSfxHandle(0)
 , x90_actorLights(mData.IsNull() ? nullptr : params.GetLighting().MakeActorLights().release())

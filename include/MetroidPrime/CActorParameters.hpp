@@ -113,6 +113,8 @@ public:
   bool ForceRenderUnsorted() const { return x58_26_renderUnsorted; }
   bool NoSortThermal() const { return x58_27_noSortThermal; }
 
+  static CActorParameters None();
+
 private:
   CLightParameters x0_lightParams;
   CScannableParameters x40_scanParams;
