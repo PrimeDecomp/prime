@@ -138,7 +138,7 @@ Accept__26CScriptDebugCameraWaypointFR8IVisitor:
 /* 8014AD28 00147C88  4B F0 AA F9 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8014AD2C 00147C8C  38 61 00 20 */	addi r3, r1, 0x20
 /* 8014AD30 00147C90  38 80 FF FF */	li r4, -1
-/* 8014AD34 00147C94  4B FB B8 D5 */	bl __dt__16CActorParametersFv
+/* 8014AD34 00147C94  4B FB B8 D5 */	bl __dt__16CLightParametersFv
 /* 8014AD38 00147C98  38 61 00 88 */	addi r3, r1, 0x88
 /* 8014AD3C 00147C9C  38 80 FF FF */	li r4, -1
 /* 8014AD40 00147CA0  4B FC BD 0D */	bl __dt__10CModelDataFv

@@ -4392,7 +4392,7 @@ lbl_80152BA8:
 /* 80152CA0 0014FC00  4B F0 2B 81 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 80152CA4 0014FC04  38 61 00 50 */	addi r3, r1, 0x50
 /* 80152CA8 0014FC08  38 80 FF FF */	li r4, -1
-/* 80152CAC 0014FC0C  4B FB 39 5D */	bl __dt__16CActorParametersFv
+/* 80152CAC 0014FC0C  4B FB 39 5D */	bl __dt__16CLightParametersFv
 /* 80152CB0 0014FC10  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 80152CB4 0014FC14  38 80 FF FF */	li r4, -1
 /* 80152CB8 0014FC18  4B FC 3D 95 */	bl __dt__10CModelDataFv

@@ -202,7 +202,7 @@ Accept__21CScriptTargetingPointFR8IVisitor:
 /* 8018D45C 0018A3BC  4B EC 83 C5 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8018D460 0018A3C0  38 61 00 20 */	addi r3, r1, 0x20
 /* 8018D464 0018A3C4  38 80 FF FF */	li r4, -1
-/* 8018D468 0018A3C8  4B F7 91 A1 */	bl __dt__16CActorParametersFv
+/* 8018D468 0018A3C8  4B F7 91 A1 */	bl __dt__16CLightParametersFv
 /* 8018D46C 0018A3CC  38 61 00 88 */	addi r3, r1, 0x88
 /* 8018D470 0018A3D0  38 80 FF FF */	li r4, -1
 /* 8018D474 0018A3D4  4B F8 95 D9 */	bl __dt__10CModelDataFv

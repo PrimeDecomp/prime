@@ -1102,7 +1102,7 @@ Accept__15CScriptMazeNodeFR8IVisitor:
 /* 80289708 00286668  4B DC C1 19 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8028970C 0028666C  38 61 00 20 */	addi r3, r1, 0x20
 /* 80289710 00286670  38 80 FF FF */	li r4, -1
-/* 80289714 00286674  4B E7 CE F5 */	bl __dt__16CActorParametersFv
+/* 80289714 00286674  4B E7 CE F5 */	bl __dt__16CLightParametersFv
 /* 80289718 00286678  38 61 00 88 */	addi r3, r1, 0x88
 /* 8028971C 0028667C  38 80 FF FF */	li r4, -1
 /* 80289720 00286680  4B E8 D3 2D */	bl __dt__10CModelDataFv

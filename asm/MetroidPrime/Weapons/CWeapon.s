@@ -417,10 +417,10 @@ lbl_80102278:
 /* 80102354 000FF2B4  4B F5 34 CD */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 80102358 000FF2B8  38 61 00 48 */	addi r3, r1, 0x48
 /* 8010235C 000FF2BC  38 80 FF FF */	li r4, -1
-/* 80102360 000FF2C0  48 00 42 A9 */	bl __dt__16CActorParametersFv
+/* 80102360 000FF2C0  48 00 42 A9 */	bl __dt__16CLightParametersFv
 /* 80102364 000FF2C4  38 61 00 B0 */	addi r3, r1, 0xb0
 /* 80102368 000FF2C8  38 80 FF FF */	li r4, -1
-/* 8010236C 000FF2CC  48 00 42 9D */	bl __dt__16CActorParametersFv
+/* 8010236C 000FF2CC  48 00 42 9D */	bl __dt__16CLightParametersFv
 /* 80102370 000FF2D0  80 01 00 38 */	lwz r0, 0x38(r1)
 /* 80102374 000FF2D4  80 61 00 40 */	lwz r3, 0x40(r1)
 /* 80102378 000FF2D8  1C 00 00 0C */	mulli r0, r0, 0xc

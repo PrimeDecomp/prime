@@ -1124,7 +1124,7 @@ lbl_80118ABC:
 /* 80118B88 00115AE8  4B F3 CC 99 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 80118B8C 00115AEC  38 61 00 20 */	addi r3, r1, 0x20
 /* 80118B90 00115AF0  38 80 FF FF */	li r4, -1
-/* 80118B94 00115AF4  4B FE DA 75 */	bl __dt__16CActorParametersFv
+/* 80118B94 00115AF4  4B FE DA 75 */	bl __dt__16CLightParametersFv
 /* 80118B98 00115AF8  38 61 00 88 */	addi r3, r1, 0x88
 /* 80118B9C 00115AFC  38 80 FF FF */	li r4, -1
 /* 80118BA0 00115B00  4B FF DE AD */	bl __dt__10CModelDataFv

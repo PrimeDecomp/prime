@@ -286,7 +286,7 @@ Accept__18CScriptAiJumpPointFR8IVisitor:
 /* 801EF514 001EC474  4B E6 63 0D */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801EF518 001EC478  38 61 00 50 */	addi r3, r1, 0x50
 /* 801EF51C 001EC47C  38 80 FF FF */	li r4, -1
-/* 801EF520 001EC480  4B F1 70 E9 */	bl __dt__16CActorParametersFv
+/* 801EF520 001EC480  4B F1 70 E9 */	bl __dt__16CLightParametersFv
 /* 801EF524 001EC484  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 801EF528 001EC488  38 80 FF FF */	li r4, -1
 /* 801EF52C 001EC48C  4B F2 75 21 */	bl __dt__10CModelDataFv

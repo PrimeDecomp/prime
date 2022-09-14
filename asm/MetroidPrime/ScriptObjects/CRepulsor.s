@@ -159,7 +159,7 @@ Accept__9CRepulsorFR8IVisitor:
 /* 8020FDCC 0020CD2C  4B E4 5A 55 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8020FDD0 0020CD30  38 61 00 50 */	addi r3, r1, 0x50
 /* 8020FDD4 0020CD34  38 80 FF FF */	li r4, -1
-/* 8020FDD8 0020CD38  4B EF 68 31 */	bl __dt__16CActorParametersFv
+/* 8020FDD8 0020CD38  4B EF 68 31 */	bl __dt__16CLightParametersFv
 /* 8020FDDC 0020CD3C  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8020FDE0 0020CD40  38 80 FF FF */	li r4, -1
 /* 8020FDE4 0020CD44  4B F0 6C 69 */	bl __dt__10CModelDataFv

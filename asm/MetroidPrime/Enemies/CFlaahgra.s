@@ -583,7 +583,7 @@ Accept__17CFlaahgraRendererFR8IVisitor:
 /* 801AD748 001AA6A8  4B EA 80 D9 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801AD74C 001AA6AC  38 61 00 20 */	addi r3, r1, 0x20
 /* 801AD750 001AA6B0  38 80 FF FF */	li r4, -1
-/* 801AD754 001AA6B4  4B F5 8E B5 */	bl __dt__16CActorParametersFv
+/* 801AD754 001AA6B4  4B F5 8E B5 */	bl __dt__16CLightParametersFv
 /* 801AD758 001AA6B8  38 61 00 88 */	addi r3, r1, 0x88
 /* 801AD75C 001AA6BC  38 80 FF FF */	li r4, -1
 /* 801AD760 001AA6C0  4B F6 92 ED */	bl __dt__10CModelDataFv
@@ -7487,7 +7487,7 @@ lbl_801B3978:
 /* 801B3980 001B08E0  34 7E 06 44 */	addic. r3, r30, 0x644
 /* 801B3984 001B08E4  41 82 00 0C */	beq lbl_801B3990
 /* 801B3988 001B08E8  38 80 FF FF */	li r4, -1
-/* 801B398C 001B08EC  4B F5 2C 7D */	bl __dt__16CActorParametersFv
+/* 801B398C 001B08EC  4B F5 2C 7D */	bl __dt__16CLightParametersFv
 lbl_801B3990:
 /* 801B3990 001B08F0  7F C3 F3 78 */	mr r3, r30
 /* 801B3994 001B08F4  38 80 00 00 */	li r4, 0
@@ -8082,7 +8082,7 @@ __ct__13CFlaahgraDataFR12CInputStream:
 /* 801B428C 001B11EC  4B F1 13 91 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 801B4290 001B11F0  38 61 00 14 */	addi r3, r1, 0x14
 /* 801B4294 001B11F4  38 80 FF FF */	li r4, -1
-/* 801B4298 001B11F8  4B F5 23 71 */	bl __dt__16CActorParametersFv
+/* 801B4298 001B11F8  4B F5 23 71 */	bl __dt__16CLightParametersFv
 /* 801B429C 001B11FC  7F E3 FB 78 */	mr r3, r31
 /* 801B42A0 001B1200  48 18 A9 89 */	bl ReadFloat__12CInputStreamFv
 /* 801B42A4 001B1204  D0 3E 01 40 */	stfs f1, 0x140(r30)

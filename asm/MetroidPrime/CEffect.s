@@ -139,7 +139,7 @@ nullsub_84:
 /* 8005ADFC 00057D5C  4B FF AA 25 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8005AE00 00057D60  38 61 00 20 */	addi r3, r1, 0x20
 /* 8005AE04 00057D64  38 80 FF FF */	li r4, -1
-/* 8005AE08 00057D68  48 0A B8 01 */	bl __dt__16CActorParametersFv
+/* 8005AE08 00057D68  48 0A B8 01 */	bl __dt__16CLightParametersFv
 /* 8005AE0C 00057D6C  38 61 00 88 */	addi r3, r1, 0x88
 /* 8005AE10 00057D70  38 80 FF FF */	li r4, -1
 /* 8005AE14 00057D74  48 0B BC 39 */	bl __dt__10CModelDataFv

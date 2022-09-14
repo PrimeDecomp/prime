@@ -10111,10 +10111,10 @@ __ct__11CDroneLaserF9TUniqueIdRC12CTransform4fUi:
 /* 801679F8 00164958  4B EE DE 29 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801679FC 0016495C  38 61 00 78 */	addi r3, r1, 0x78
 /* 80167A00 00164960  38 80 FF FF */	li r4, -1
-/* 80167A04 00164964  4B F9 EC 05 */	bl __dt__16CActorParametersFv
+/* 80167A04 00164964  4B F9 EC 05 */	bl __dt__16CLightParametersFv
 /* 80167A08 00164968  38 61 00 E0 */	addi r3, r1, 0xe0
 /* 80167A0C 0016496C  38 80 FF FF */	li r4, -1
-/* 80167A10 00164970  4B F9 EB F9 */	bl __dt__16CActorParametersFv
+/* 80167A10 00164970  4B F9 EB F9 */	bl __dt__16CLightParametersFv
 /* 80167A14 00164974  38 61 01 48 */	addi r3, r1, 0x148
 /* 80167A18 00164978  38 80 FF FF */	li r4, -1
 /* 80167A1C 0016497C  4B FA F0 31 */	bl __dt__10CModelDataFv

@@ -213,7 +213,7 @@ lbl_800C5340:
 /* 800C5354 000C22B4  48 00 02 C9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C5358 000C22B8  38 61 01 20 */	addi r3, r1, 0x120
 /* 800C535C 000C22BC  38 80 FF FF */	li r4, -1
-/* 800C5360 000C22C0  48 04 12 A9 */	bl __dt__16CActorParametersFv
+/* 800C5360 000C22C0  48 04 12 A9 */	bl __dt__16CLightParametersFv
 /* 800C5364 000C22C4  7E C3 B3 78 */	mr r3, r22
 /* 800C5368 000C22C8  48 27 99 1D */	bl ReadLong__12CInputStreamFv
 /* 800C536C 000C22CC  7C 79 1B 78 */	mr r25, r3
@@ -375,7 +375,7 @@ lbl_800C55B4:
 lbl_800C55C8:
 /* 800C55C8 000C2528  38 61 01 88 */	addi r3, r1, 0x188
 /* 800C55CC 000C252C  38 80 FF FF */	li r4, -1
-/* 800C55D0 000C2530  48 04 10 39 */	bl __dt__16CActorParametersFv
+/* 800C55D0 000C2530  48 04 10 39 */	bl __dt__16CLightParametersFv
 /* 800C55D4 000C2534  38 61 01 F0 */	addi r3, r1, 0x1f0
 /* 800C55D8 000C2538  48 27 85 09 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C55DC 000C253C  7F 03 C3 78 */	mr r3, r24
@@ -591,7 +591,7 @@ lbl_800C58C8:
 /* 800C58E8 000C2848  4B FF FD 35 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C58EC 000C284C  38 61 00 9C */	addi r3, r1, 0x9c
 /* 800C58F0 000C2850  38 80 FF FF */	li r4, -1
-/* 800C58F4 000C2854  48 04 0D 15 */	bl __dt__16CActorParametersFv
+/* 800C58F4 000C2854  48 04 0D 15 */	bl __dt__16CLightParametersFv
 /* 800C58F8 000C2858  7F 83 E3 78 */	mr r3, r28
 /* 800C58FC 000C285C  48 27 93 E1 */	bl ReadBool__12CInputStreamFv
 /* 800C5900 000C2860  7F 83 E3 78 */	mr r3, r28
@@ -609,7 +609,7 @@ lbl_800C58C8:
 /* 800C5930 000C2890  48 27 81 B1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C5934 000C2894  38 61 01 04 */	addi r3, r1, 0x104
 /* 800C5938 000C2898  38 80 FF FF */	li r4, -1
-/* 800C593C 000C289C  48 04 0C CD */	bl __dt__16CActorParametersFv
+/* 800C593C 000C289C  48 04 0C CD */	bl __dt__16CLightParametersFv
 /* 800C5940 000C28A0  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800C5944 000C28A4  48 27 81 9D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C5948 000C28A8  38 60 00 00 */	li r3, 0
@@ -671,7 +671,7 @@ lbl_800C5A18:
 /* 800C5A1C 000C297C  48 27 80 C5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C5A20 000C2980  38 61 01 04 */	addi r3, r1, 0x104
 /* 800C5A24 000C2984  38 80 FF FF */	li r4, -1
-/* 800C5A28 000C2988  48 04 0B E1 */	bl __dt__16CActorParametersFv
+/* 800C5A28 000C2988  48 04 0B E1 */	bl __dt__16CLightParametersFv
 /* 800C5A2C 000C298C  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800C5A30 000C2990  48 27 80 B1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C5A34 000C2994  7F 83 E3 78 */	mr r3, r28
@@ -884,7 +884,7 @@ lbl_800C5D20:
 /* 800C5D40 000C2CA0  4B FF F8 DD */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C5D44 000C2CA4  38 61 00 90 */	addi r3, r1, 0x90
 /* 800C5D48 000C2CA8  38 80 FF FF */	li r4, -1
-/* 800C5D4C 000C2CAC  48 04 08 BD */	bl __dt__16CActorParametersFv
+/* 800C5D4C 000C2CAC  48 04 08 BD */	bl __dt__16CLightParametersFv
 /* 800C5D50 000C2CB0  7F A4 EB 78 */	mr r4, r29
 /* 800C5D54 000C2CB4  7F 45 D3 78 */	mr r5, r26
 /* 800C5D58 000C2CB8  38 61 01 AC */	addi r3, r1, 0x1ac
@@ -896,11 +896,11 @@ lbl_800C5D20:
 /* 800C5D70 000C2CD0  34 61 01 D4 */	addic. r3, r1, 0x1d4
 /* 800C5D74 000C2CD4  41 82 00 0C */	beq lbl_800C5D80
 /* 800C5D78 000C2CD8  38 80 FF FF */	li r4, -1
-/* 800C5D7C 000C2CDC  48 04 08 8D */	bl __dt__16CActorParametersFv
+/* 800C5D7C 000C2CDC  48 04 08 8D */	bl __dt__16CLightParametersFv
 lbl_800C5D80:
 /* 800C5D80 000C2CE0  38 61 00 F8 */	addi r3, r1, 0xf8
 /* 800C5D84 000C2CE4  38 80 FF FF */	li r4, -1
-/* 800C5D88 000C2CE8  48 04 08 81 */	bl __dt__16CActorParametersFv
+/* 800C5D88 000C2CE8  48 04 08 81 */	bl __dt__16CLightParametersFv
 /* 800C5D8C 000C2CEC  38 61 01 60 */	addi r3, r1, 0x160
 /* 800C5D90 000C2CF0  48 27 7D 51 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C5D94 000C2CF4  38 60 00 00 */	li r3, 0
@@ -972,11 +972,11 @@ lbl_800C5E90:
 /* 800C5E90 000C2DF0  34 61 01 D4 */	addic. r3, r1, 0x1d4
 /* 800C5E94 000C2DF4  41 82 00 0C */	beq lbl_800C5EA0
 /* 800C5E98 000C2DF8  38 80 FF FF */	li r4, -1
-/* 800C5E9C 000C2DFC  48 04 07 6D */	bl __dt__16CActorParametersFv
+/* 800C5E9C 000C2DFC  48 04 07 6D */	bl __dt__16CLightParametersFv
 lbl_800C5EA0:
 /* 800C5EA0 000C2E00  38 61 00 F8 */	addi r3, r1, 0xf8
 /* 800C5EA4 000C2E04  38 80 FF FF */	li r4, -1
-/* 800C5EA8 000C2E08  48 04 07 61 */	bl __dt__16CActorParametersFv
+/* 800C5EA8 000C2E08  48 04 07 61 */	bl __dt__16CLightParametersFv
 /* 800C5EAC 000C2E0C  38 61 01 60 */	addi r3, r1, 0x160
 /* 800C5EB0 000C2E10  48 27 7C 31 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C5EB4 000C2E14  7F 43 D3 78 */	mr r3, r26
@@ -1118,7 +1118,7 @@ lbl_800C608C:
 /* 800C60A0 000C3000  4B FF F5 7D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C60A4 000C3004  38 61 00 EC */	addi r3, r1, 0xec
 /* 800C60A8 000C3008  38 80 FF FF */	li r4, -1
-/* 800C60AC 000C300C  48 04 05 5D */	bl __dt__16CActorParametersFv
+/* 800C60AC 000C300C  48 04 05 5D */	bl __dt__16CLightParametersFv
 /* 800C60B0 000C3010  7E E3 BB 78 */	mr r3, r23
 /* 800C60B4 000C3014  48 27 8B D1 */	bl ReadLong__12CInputStreamFv
 /* 800C60B8 000C3018  7C 7C 1B 78 */	mr r28, r3
@@ -1219,7 +1219,7 @@ lbl_800C621C:
 lbl_800C6230:
 /* 800C6230 000C3190  38 61 01 54 */	addi r3, r1, 0x154
 /* 800C6234 000C3194  38 80 FF FF */	li r4, -1
-/* 800C6238 000C3198  48 04 03 D1 */	bl __dt__16CActorParametersFv
+/* 800C6238 000C3198  48 04 03 D1 */	bl __dt__16CLightParametersFv
 /* 800C623C 000C319C  38 61 01 BC */	addi r3, r1, 0x1bc
 /* 800C6240 000C31A0  48 27 78 A1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C6244 000C31A4  7F 63 DB 78 */	mr r3, r27
@@ -2227,7 +2227,7 @@ lbl_800C7014:
 /* 800C7018 000C3F78  41 82 00 10 */	beq lbl_800C7028
 /* 800C701C 000C3F7C  38 7E 01 3C */	addi r3, r30, 0x13c
 /* 800C7020 000C3F80  38 80 FF FF */	li r4, -1
-/* 800C7024 000C3F84  48 03 F5 E5 */	bl __dt__16CActorParametersFv
+/* 800C7024 000C3F84  48 03 F5 E5 */	bl __dt__16CLightParametersFv
 lbl_800C7028:
 /* 800C7028 000C3F88  7F E0 07 35 */	extsh. r0, r31
 /* 800C702C 000C3F8C  40 81 00 0C */	ble lbl_800C7038
@@ -2294,7 +2294,7 @@ lbl_800C70F0:
 /* 800C7104 000C4064  4B FF E5 19 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C7108 000C4068  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800C710C 000C406C  38 80 FF FF */	li r4, -1
-/* 800C7110 000C4070  48 03 F4 F9 */	bl __dt__16CActorParametersFv
+/* 800C7110 000C4070  48 03 F4 F9 */	bl __dt__16CLightParametersFv
 /* 800C7114 000C4074  7F 63 DB 78 */	mr r3, r27
 /* 800C7118 000C4078  48 27 7B 6D */	bl ReadLong__12CInputStreamFv
 /* 800C711C 000C407C  90 61 00 3C */	stw r3, 0x3c(r1)
@@ -2393,7 +2393,7 @@ lbl_800C7278:
 lbl_800C728C:
 /* 800C728C 000C41EC  38 61 01 50 */	addi r3, r1, 0x150
 /* 800C7290 000C41F0  38 80 FF FF */	li r4, -1
-/* 800C7294 000C41F4  48 03 F3 75 */	bl __dt__16CActorParametersFv
+/* 800C7294 000C41F4  48 03 F3 75 */	bl __dt__16CLightParametersFv
 /* 800C7298 000C41F8  38 61 01 B8 */	addi r3, r1, 0x1b8
 /* 800C729C 000C41FC  48 27 68 45 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C72A0 000C4200  7F 63 DB 78 */	mr r3, r27
@@ -2565,7 +2565,7 @@ lbl_800C74F0:
 /* 800C7504 000C4464  4B FF E1 19 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C7508 000C4468  38 61 01 08 */	addi r3, r1, 0x108
 /* 800C750C 000C446C  38 80 FF FF */	li r4, -1
-/* 800C7510 000C4470  48 03 F0 F9 */	bl __dt__16CActorParametersFv
+/* 800C7510 000C4470  48 03 F0 F9 */	bl __dt__16CLightParametersFv
 /* 800C7514 000C4474  7F A3 EB 78 */	mr r3, r29
 /* 800C7518 000C4478  48 27 77 6D */	bl ReadLong__12CInputStreamFv
 /* 800C751C 000C447C  90 61 00 24 */	stw r3, 0x24(r1)
@@ -2681,7 +2681,7 @@ lbl_800C76BC:
 lbl_800C76D0:
 /* 800C76D0 000C4630  38 61 01 70 */	addi r3, r1, 0x170
 /* 800C76D4 000C4634  38 80 FF FF */	li r4, -1
-/* 800C76D8 000C4638  48 03 EF 31 */	bl __dt__16CActorParametersFv
+/* 800C76D8 000C4638  48 03 EF 31 */	bl __dt__16CLightParametersFv
 /* 800C76DC 000C463C  38 61 01 D8 */	addi r3, r1, 0x1d8
 /* 800C76E0 000C4640  48 27 64 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C76E4 000C4644  7F A3 EB 78 */	mr r3, r29
@@ -2766,7 +2766,7 @@ lbl_800C77F0:
 /* 800C7804 000C4764  4B FF DE 19 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C7808 000C4768  38 61 00 80 */	addi r3, r1, 0x80
 /* 800C780C 000C476C  38 80 FF FF */	li r4, -1
-/* 800C7810 000C4770  48 03 ED F9 */	bl __dt__16CActorParametersFv
+/* 800C7810 000C4770  48 03 ED F9 */	bl __dt__16CLightParametersFv
 /* 800C7814 000C4774  7F E3 FB 78 */	mr r3, r31
 /* 800C7818 000C4778  48 27 74 11 */	bl ReadFloat__12CInputStreamFv
 /* 800C781C 000C477C  FF E0 08 90 */	fmr f31, f1
@@ -2834,7 +2834,7 @@ lbl_800C78FC:
 lbl_800C7910:
 /* 800C7910 000C4870  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800C7914 000C4874  38 80 FF FF */	li r4, -1
-/* 800C7918 000C4878  48 03 EC F1 */	bl __dt__16CActorParametersFv
+/* 800C7918 000C4878  48 03 EC F1 */	bl __dt__16CLightParametersFv
 /* 800C791C 000C487C  38 61 01 50 */	addi r3, r1, 0x150
 /* 800C7920 000C4880  48 27 61 C1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C7924 000C4884  7F E3 FB 78 */	mr r3, r31
@@ -2912,7 +2912,7 @@ lbl_800C7A14:
 /* 800C7A28 000C4988  4B FF DB F5 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C7A2C 000C498C  38 61 00 D8 */	addi r3, r1, 0xd8
 /* 800C7A30 000C4990  38 80 FF FF */	li r4, -1
-/* 800C7A34 000C4994  48 03 EB D5 */	bl __dt__16CActorParametersFv
+/* 800C7A34 000C4994  48 03 EB D5 */	bl __dt__16CLightParametersFv
 /* 800C7A38 000C4998  7E E3 BB 78 */	mr r3, r23
 /* 800C7A3C 000C499C  48 27 71 ED */	bl ReadFloat__12CInputStreamFv
 /* 800C7A40 000C49A0  FF E0 08 90 */	fmr f31, f1
@@ -3006,7 +3006,7 @@ lbl_800C7B88:
 lbl_800C7B9C:
 /* 800C7B9C 000C4AFC  38 61 01 40 */	addi r3, r1, 0x140
 /* 800C7BA0 000C4B00  38 80 FF FF */	li r4, -1
-/* 800C7BA4 000C4B04  48 03 EA 65 */	bl __dt__16CActorParametersFv
+/* 800C7BA4 000C4B04  48 03 EA 65 */	bl __dt__16CLightParametersFv
 /* 800C7BA8 000C4B08  38 61 01 A8 */	addi r3, r1, 0x1a8
 /* 800C7BAC 000C4B0C  48 27 5F 35 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C7BB0 000C4B10  7E E3 BB 78 */	mr r3, r23
@@ -3066,14 +3066,14 @@ lbl_800C7C50:
 /* 800C7C70 000C4BD0  4B FF D9 AD */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C7C74 000C4BD4  38 61 00 88 */	addi r3, r1, 0x88
 /* 800C7C78 000C4BD8  38 80 FF FF */	li r4, -1
-/* 800C7C7C 000C4BDC  48 03 E9 8D */	bl __dt__16CActorParametersFv
+/* 800C7C7C 000C4BDC  48 03 E9 8D */	bl __dt__16CLightParametersFv
 /* 800C7C80 000C4BE0  80 61 02 90 */	lwz r3, 0x290(r1)
 /* 800C7C84 000C4BE4  3C 03 00 01 */	addis r0, r3, 1
 /* 800C7C88 000C4BE8  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800C7C8C 000C4BEC  40 82 00 20 */	bne lbl_800C7CAC
 /* 800C7C90 000C4BF0  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800C7C94 000C4BF4  38 80 FF FF */	li r4, -1
-/* 800C7C98 000C4BF8  48 03 E9 71 */	bl __dt__16CActorParametersFv
+/* 800C7C98 000C4BF8  48 03 E9 71 */	bl __dt__16CLightParametersFv
 /* 800C7C9C 000C4BFC  38 61 01 58 */	addi r3, r1, 0x158
 /* 800C7CA0 000C4C00  48 27 5E 41 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C7CA4 000C4C04  38 60 00 00 */	li r3, 0
@@ -3132,7 +3132,7 @@ lbl_800C7D5C:
 lbl_800C7D70:
 /* 800C7D70 000C4CD0  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800C7D74 000C4CD4  38 80 FF FF */	li r4, -1
-/* 800C7D78 000C4CD8  48 03 E8 91 */	bl __dt__16CActorParametersFv
+/* 800C7D78 000C4CD8  48 03 E8 91 */	bl __dt__16CLightParametersFv
 /* 800C7D7C 000C4CDC  38 61 01 58 */	addi r3, r1, 0x158
 /* 800C7D80 000C4CE0  48 27 5D 61 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C7D84 000C4CE4  7F 63 DB 78 */	mr r3, r27
@@ -3200,14 +3200,14 @@ lbl_800C7E44:
 /* 800C7E64 000C4DC4  4B FF D7 B9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C7E68 000C4DC8  38 61 00 FC */	addi r3, r1, 0xfc
 /* 800C7E6C 000C4DCC  38 80 FF FF */	li r4, -1
-/* 800C7E70 000C4DD0  48 03 E7 99 */	bl __dt__16CActorParametersFv
+/* 800C7E70 000C4DD0  48 03 E7 99 */	bl __dt__16CLightParametersFv
 /* 800C7E74 000C4DD4  80 61 03 6C */	lwz r3, 0x36c(r1)
 /* 800C7E78 000C4DD8  3C 03 00 01 */	addis r0, r3, 1
 /* 800C7E7C 000C4DDC  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800C7E80 000C4DE0  40 82 00 20 */	bne lbl_800C7EA0
 /* 800C7E84 000C4DE4  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800C7E88 000C4DE8  38 80 FF FF */	li r4, -1
-/* 800C7E8C 000C4DEC  48 03 E7 7D */	bl __dt__16CActorParametersFv
+/* 800C7E8C 000C4DEC  48 03 E7 7D */	bl __dt__16CLightParametersFv
 /* 800C7E90 000C4DF0  38 61 02 34 */	addi r3, r1, 0x234
 /* 800C7E94 000C4DF4  48 27 5C 4D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C7E98 000C4DF8  38 60 00 00 */	li r3, 0
@@ -3353,7 +3353,7 @@ lbl_800C80AC:
 lbl_800C80C0:
 /* 800C80C0 000C5020  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800C80C4 000C5024  38 80 FF FF */	li r4, -1
-/* 800C80C8 000C5028  48 03 E5 41 */	bl __dt__16CActorParametersFv
+/* 800C80C8 000C5028  48 03 E5 41 */	bl __dt__16CLightParametersFv
 /* 800C80CC 000C502C  38 61 02 34 */	addi r3, r1, 0x234
 /* 800C80D0 000C5030  48 27 5A 11 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C80D4 000C5034  7F A3 EB 78 */	mr r3, r29
@@ -3444,7 +3444,7 @@ lbl_800C81F8:
 /* 800C820C 000C516C  4B FF D4 11 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C8210 000C5170  38 61 00 BC */	addi r3, r1, 0xbc
 /* 800C8214 000C5174  38 80 FF FF */	li r4, -1
-/* 800C8218 000C5178  48 03 E3 F1 */	bl __dt__16CActorParametersFv
+/* 800C8218 000C5178  48 03 E3 F1 */	bl __dt__16CLightParametersFv
 /* 800C821C 000C517C  7E E3 BB 78 */	mr r3, r23
 /* 800C8220 000C5180  48 27 6A 65 */	bl ReadLong__12CInputStreamFv
 /* 800C8224 000C5184  7C 7D 1B 78 */	mr r29, r3
@@ -3558,7 +3558,7 @@ lbl_800C83BC:
 lbl_800C83D0:
 /* 800C83D0 000C5330  38 61 01 8C */	addi r3, r1, 0x18c
 /* 800C83D4 000C5334  38 80 FF FF */	li r4, -1
-/* 800C83D8 000C5338  48 03 E2 31 */	bl __dt__16CActorParametersFv
+/* 800C83D8 000C5338  48 03 E2 31 */	bl __dt__16CLightParametersFv
 /* 800C83DC 000C533C  38 61 01 F4 */	addi r3, r1, 0x1f4
 /* 800C83E0 000C5340  48 27 57 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C83E4 000C5344  7E E3 BB 78 */	mr r3, r23
@@ -3635,7 +3635,7 @@ lbl_800C8478:
 /* 800C84EC 000C544C  4B FF D1 31 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C84F0 000C5450  38 61 00 F8 */	addi r3, r1, 0xf8
 /* 800C84F4 000C5454  38 80 FF FF */	li r4, -1
-/* 800C84F8 000C5458  48 03 E1 11 */	bl __dt__16CActorParametersFv
+/* 800C84F8 000C5458  48 03 E1 11 */	bl __dt__16CLightParametersFv
 /* 800C84FC 000C545C  7E C3 B3 78 */	mr r3, r22
 /* 800C8500 000C5460  48 27 67 29 */	bl ReadFloat__12CInputStreamFv
 /* 800C8504 000C5464  FF C0 08 90 */	fmr f30, f1
@@ -3659,7 +3659,7 @@ lbl_800C8478:
 /* 800C854C 000C54AC  40 82 00 20 */	bne lbl_800C856C
 /* 800C8550 000C54B0  38 61 01 AC */	addi r3, r1, 0x1ac
 /* 800C8554 000C54B4  38 80 FF FF */	li r4, -1
-/* 800C8558 000C54B8  48 03 E0 B1 */	bl __dt__16CActorParametersFv
+/* 800C8558 000C54B8  48 03 E0 B1 */	bl __dt__16CLightParametersFv
 /* 800C855C 000C54BC  38 61 02 7C */	addi r3, r1, 0x27c
 /* 800C8560 000C54C0  48 27 55 81 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C8564 000C54C4  38 60 00 00 */	li r3, 0
@@ -3827,7 +3827,7 @@ lbl_800C87C0:
 /* 800C87C8 000C5728  48 04 E2 85 */	bl __dt__10CModelDataFv
 /* 800C87CC 000C572C  38 61 01 AC */	addi r3, r1, 0x1ac
 /* 800C87D0 000C5730  38 80 FF FF */	li r4, -1
-/* 800C87D4 000C5734  48 03 DE 35 */	bl __dt__16CActorParametersFv
+/* 800C87D4 000C5734  48 03 DE 35 */	bl __dt__16CLightParametersFv
 /* 800C87D8 000C5738  38 61 02 7C */	addi r3, r1, 0x27c
 /* 800C87DC 000C573C  48 27 53 05 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C87E0 000C5740  7E C3 B3 78 */	mr r3, r22
@@ -4041,7 +4041,7 @@ lbl_800C8AD4:
 /* 800C8AE8 000C5A48  4B FF CB 35 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C8AEC 000C5A4C  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 800C8AF0 000C5A50  38 80 FF FF */	li r4, -1
-/* 800C8AF4 000C5A54  48 03 DB 15 */	bl __dt__16CActorParametersFv
+/* 800C8AF4 000C5A54  48 03 DB 15 */	bl __dt__16CLightParametersFv
 /* 800C8AF8 000C5A58  7F 23 CB 78 */	mr r3, r25
 /* 800C8AFC 000C5A5C  48 27 61 89 */	bl ReadLong__12CInputStreamFv
 /* 800C8B00 000C5A60  7C 7A 1B 78 */	mr r26, r3
@@ -4126,7 +4126,7 @@ lbl_800C8C24:
 lbl_800C8C38:
 /* 800C8C38 000C5B98  38 61 01 1C */	addi r3, r1, 0x11c
 /* 800C8C3C 000C5B9C  38 80 FF FF */	li r4, -1
-/* 800C8C40 000C5BA0  48 03 D9 C9 */	bl __dt__16CActorParametersFv
+/* 800C8C40 000C5BA0  48 03 D9 C9 */	bl __dt__16CLightParametersFv
 /* 800C8C44 000C5BA4  38 61 01 84 */	addi r3, r1, 0x184
 /* 800C8C48 000C5BA8  48 27 4E 99 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C8C4C 000C5BAC  7F 23 CB 78 */	mr r3, r25
@@ -4200,14 +4200,14 @@ lbl_800C8D24:
 /* 800C8D44 000C5CA4  4B FF C8 D9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C8D48 000C5CA8  38 61 00 FC */	addi r3, r1, 0xfc
 /* 800C8D4C 000C5CAC  38 80 FF FF */	li r4, -1
-/* 800C8D50 000C5CB0  48 03 D8 B9 */	bl __dt__16CActorParametersFv
+/* 800C8D50 000C5CB0  48 03 D8 B9 */	bl __dt__16CLightParametersFv
 /* 800C8D54 000C5CB4  80 61 03 04 */	lwz r3, 0x304(r1)
 /* 800C8D58 000C5CB8  3C 03 00 01 */	addis r0, r3, 1
 /* 800C8D5C 000C5CBC  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800C8D60 000C5CC0  40 82 00 20 */	bne lbl_800C8D80
 /* 800C8D64 000C5CC4  38 61 01 64 */	addi r3, r1, 0x164
 /* 800C8D68 000C5CC8  38 80 FF FF */	li r4, -1
-/* 800C8D6C 000C5CCC  48 03 D8 9D */	bl __dt__16CActorParametersFv
+/* 800C8D6C 000C5CCC  48 03 D8 9D */	bl __dt__16CLightParametersFv
 /* 800C8D70 000C5CD0  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800C8D74 000C5CD4  48 27 4D 6D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C8D78 000C5CD8  38 60 00 00 */	li r3, 0
@@ -4354,7 +4354,7 @@ lbl_800C8F90:
 lbl_800C8FA4:
 /* 800C8FA4 000C5F04  38 61 01 64 */	addi r3, r1, 0x164
 /* 800C8FA8 000C5F08  38 80 FF FF */	li r4, -1
-/* 800C8FAC 000C5F0C  48 03 D6 5D */	bl __dt__16CActorParametersFv
+/* 800C8FAC 000C5F0C  48 03 D6 5D */	bl __dt__16CLightParametersFv
 /* 800C8FB0 000C5F10  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800C8FB4 000C5F14  48 27 4B 2D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C8FB8 000C5F18  7F E3 FB 78 */	mr r3, r31
@@ -4436,14 +4436,14 @@ lbl_800C90B0:
 /* 800C90D0 000C6030  4B FF C5 4D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C90D4 000C6034  38 61 00 F4 */	addi r3, r1, 0xf4
 /* 800C90D8 000C6038  38 80 FF FF */	li r4, -1
-/* 800C90DC 000C603C  48 03 D5 2D */	bl __dt__16CActorParametersFv
+/* 800C90DC 000C603C  48 03 D5 2D */	bl __dt__16CLightParametersFv
 /* 800C90E0 000C6040  80 61 03 64 */	lwz r3, 0x364(r1)
 /* 800C90E4 000C6044  3C 03 00 01 */	addis r0, r3, 1
 /* 800C90E8 000C6048  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800C90EC 000C604C  40 82 00 20 */	bne lbl_800C910C
 /* 800C90F0 000C6050  38 61 01 C4 */	addi r3, r1, 0x1c4
 /* 800C90F4 000C6054  38 80 FF FF */	li r4, -1
-/* 800C90F8 000C6058  48 03 D5 11 */	bl __dt__16CActorParametersFv
+/* 800C90F8 000C6058  48 03 D5 11 */	bl __dt__16CLightParametersFv
 /* 800C90FC 000C605C  38 61 02 2C */	addi r3, r1, 0x22c
 /* 800C9100 000C6060  48 27 49 E1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C9104 000C6064  38 60 00 00 */	li r3, 0
@@ -4566,7 +4566,7 @@ lbl_800C92BC:
 lbl_800C92D0:
 /* 800C92D0 000C6230  38 61 01 C4 */	addi r3, r1, 0x1c4
 /* 800C92D4 000C6234  38 80 FF FF */	li r4, -1
-/* 800C92D8 000C6238  48 03 D3 31 */	bl __dt__16CActorParametersFv
+/* 800C92D8 000C6238  48 03 D3 31 */	bl __dt__16CLightParametersFv
 /* 800C92DC 000C623C  38 61 02 2C */	addi r3, r1, 0x22c
 /* 800C92E0 000C6240  48 27 48 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C92E4 000C6244  7F 63 DB 78 */	mr r3, r27
@@ -4644,7 +4644,7 @@ lbl_800C9370:
 /* 800C93F0 000C6350  4B FF C2 2D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C93F4 000C6354  38 61 01 30 */	addi r3, r1, 0x130
 /* 800C93F8 000C6358  38 80 FF FF */	li r4, -1
-/* 800C93FC 000C635C  48 03 D2 0D */	bl __dt__16CActorParametersFv
+/* 800C93FC 000C635C  48 03 D2 0D */	bl __dt__16CLightParametersFv
 /* 800C9400 000C6360  7E E3 BB 78 */	mr r3, r23
 /* 800C9404 000C6364  48 27 58 81 */	bl ReadLong__12CInputStreamFv
 /* 800C9408 000C6368  7C 7E 1B 78 */	mr r30, r3
@@ -4662,7 +4662,7 @@ lbl_800C9370:
 /* 800C9438 000C6398  40 82 00 20 */	bne lbl_800C9458
 /* 800C943C 000C639C  38 61 01 E4 */	addi r3, r1, 0x1e4
 /* 800C9440 000C63A0  38 80 FF FF */	li r4, -1
-/* 800C9444 000C63A4  48 03 D1 C5 */	bl __dt__16CActorParametersFv
+/* 800C9444 000C63A4  48 03 D1 C5 */	bl __dt__16CLightParametersFv
 /* 800C9448 000C63A8  38 61 02 B4 */	addi r3, r1, 0x2b4
 /* 800C944C 000C63AC  48 27 46 95 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C9450 000C63B0  38 60 00 00 */	li r3, 0
@@ -4844,7 +4844,7 @@ lbl_800C96E4:
 /* 800C96EC 000C664C  48 04 D3 61 */	bl __dt__10CModelDataFv
 /* 800C96F0 000C6650  38 61 01 E4 */	addi r3, r1, 0x1e4
 /* 800C96F4 000C6654  38 80 FF FF */	li r4, -1
-/* 800C96F8 000C6658  48 03 CF 11 */	bl __dt__16CActorParametersFv
+/* 800C96F8 000C6658  48 03 CF 11 */	bl __dt__16CLightParametersFv
 /* 800C96FC 000C665C  38 61 02 B4 */	addi r3, r1, 0x2b4
 /* 800C9700 000C6660  48 27 43 E1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C9704 000C6664  7F A3 EB 78 */	mr r3, r29
@@ -4945,7 +4945,7 @@ lbl_800C97F4:
 /* 800C9868 000C67C8  4B FF BD B5 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C986C 000C67CC  38 61 00 B0 */	addi r3, r1, 0xb0
 /* 800C9870 000C67D0  38 80 FF FF */	li r4, -1
-/* 800C9874 000C67D4  48 03 CD 95 */	bl __dt__16CActorParametersFv
+/* 800C9874 000C67D4  48 03 CD 95 */	bl __dt__16CLightParametersFv
 /* 800C9878 000C67D8  7F C3 F3 78 */	mr r3, r30
 /* 800C987C 000C67DC  48 27 53 AD */	bl ReadFloat__12CInputStreamFv
 /* 800C9880 000C67E0  FF 00 08 90 */	fmr f24, f1
@@ -5100,7 +5100,7 @@ lbl_800C99CC:
 lbl_800C9AB4:
 /* 800C9AB4 000C6A14  38 61 01 18 */	addi r3, r1, 0x118
 /* 800C9AB8 000C6A18  38 80 FF FF */	li r4, -1
-/* 800C9ABC 000C6A1C  48 03 CB 4D */	bl __dt__16CActorParametersFv
+/* 800C9ABC 000C6A1C  48 03 CB 4D */	bl __dt__16CLightParametersFv
 /* 800C9AC0 000C6A20  38 61 00 68 */	addi r3, r1, 0x68
 /* 800C9AC4 000C6A24  48 27 40 1D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C9AC8 000C6A28  7F C3 F3 78 */	mr r3, r30
@@ -5265,14 +5265,14 @@ lbl_800C9CF4:
 /* 800C9D14 000C6C74  4B FF B9 09 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800C9D18 000C6C78  38 61 00 F8 */	addi r3, r1, 0xf8
 /* 800C9D1C 000C6C7C  38 80 FF FF */	li r4, -1
-/* 800C9D20 000C6C80  48 03 C8 E9 */	bl __dt__16CActorParametersFv
+/* 800C9D20 000C6C80  48 03 C8 E9 */	bl __dt__16CLightParametersFv
 /* 800C9D24 000C6C84  80 61 03 D0 */	lwz r3, 0x3d0(r1)
 /* 800C9D28 000C6C88  3C 03 00 01 */	addis r0, r3, 1
 /* 800C9D2C 000C6C8C  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800C9D30 000C6C90  40 82 00 20 */	bne lbl_800C9D50
 /* 800C9D34 000C6C94  38 61 02 30 */	addi r3, r1, 0x230
 /* 800C9D38 000C6C98  38 80 FF FF */	li r4, -1
-/* 800C9D3C 000C6C9C  48 03 C8 CD */	bl __dt__16CActorParametersFv
+/* 800C9D3C 000C6C9C  48 03 C8 CD */	bl __dt__16CLightParametersFv
 /* 800C9D40 000C6CA0  38 61 02 98 */	addi r3, r1, 0x298
 /* 800C9D44 000C6CA4  48 27 3D 9D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C9D48 000C6CA8  38 60 00 00 */	li r3, 0
@@ -5398,7 +5398,7 @@ lbl_800C9F0C:
 lbl_800C9F20:
 /* 800C9F20 000C6E80  38 61 02 30 */	addi r3, r1, 0x230
 /* 800C9F24 000C6E84  38 80 FF FF */	li r4, -1
-/* 800C9F28 000C6E88  48 03 C6 E1 */	bl __dt__16CActorParametersFv
+/* 800C9F28 000C6E88  48 03 C6 E1 */	bl __dt__16CLightParametersFv
 /* 800C9F2C 000C6E8C  38 61 02 98 */	addi r3, r1, 0x298
 /* 800C9F30 000C6E90  48 27 3B B1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800C9F34 000C6E94  7F 63 DB 78 */	mr r3, r27
@@ -5637,7 +5637,7 @@ lbl_800CA278:
 /* 800CA298 000C71F8  4B FF B3 85 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CA29C 000C71FC  38 61 00 88 */	addi r3, r1, 0x88
 /* 800CA2A0 000C7200  38 80 FF FF */	li r4, -1
-/* 800CA2A4 000C7204  48 03 C3 65 */	bl __dt__16CActorParametersFv
+/* 800CA2A4 000C7204  48 03 C3 65 */	bl __dt__16CLightParametersFv
 /* 800CA2A8 000C7208  7F 84 E3 78 */	mr r4, r28
 /* 800CA2AC 000C720C  7F A5 EB 78 */	mr r5, r29
 /* 800CA2B0 000C7210  38 61 01 A4 */	addi r3, r1, 0x1a4
@@ -5649,11 +5649,11 @@ lbl_800CA278:
 /* 800CA2C8 000C7228  34 61 01 CC */	addic. r3, r1, 0x1cc
 /* 800CA2CC 000C722C  41 82 00 0C */	beq lbl_800CA2D8
 /* 800CA2D0 000C7230  38 80 FF FF */	li r4, -1
-/* 800CA2D4 000C7234  48 03 C3 35 */	bl __dt__16CActorParametersFv
+/* 800CA2D4 000C7234  48 03 C3 35 */	bl __dt__16CLightParametersFv
 lbl_800CA2D8:
 /* 800CA2D8 000C7238  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800CA2DC 000C723C  38 80 FF FF */	li r4, -1
-/* 800CA2E0 000C7240  48 03 C3 29 */	bl __dt__16CActorParametersFv
+/* 800CA2E0 000C7240  48 03 C3 29 */	bl __dt__16CLightParametersFv
 /* 800CA2E4 000C7244  38 61 01 58 */	addi r3, r1, 0x158
 /* 800CA2E8 000C7248  48 27 37 F9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CA2EC 000C724C  38 60 00 00 */	li r3, 0
@@ -5713,11 +5713,11 @@ lbl_800CA3B8:
 /* 800CA3B8 000C7318  34 61 01 CC */	addic. r3, r1, 0x1cc
 /* 800CA3BC 000C731C  41 82 00 0C */	beq lbl_800CA3C8
 /* 800CA3C0 000C7320  38 80 FF FF */	li r4, -1
-/* 800CA3C4 000C7324  48 03 C2 45 */	bl __dt__16CActorParametersFv
+/* 800CA3C4 000C7324  48 03 C2 45 */	bl __dt__16CLightParametersFv
 lbl_800CA3C8:
 /* 800CA3C8 000C7328  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800CA3CC 000C732C  38 80 FF FF */	li r4, -1
-/* 800CA3D0 000C7330  48 03 C2 39 */	bl __dt__16CActorParametersFv
+/* 800CA3D0 000C7330  48 03 C2 39 */	bl __dt__16CLightParametersFv
 /* 800CA3D4 000C7334  38 61 01 58 */	addi r3, r1, 0x158
 /* 800CA3D8 000C7338  48 27 37 09 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CA3DC 000C733C  7F A3 EB 78 */	mr r3, r29
@@ -5999,7 +5999,7 @@ lbl_800CA7C0:
 /* 800CA7E0 000C7740  4B FF AE 3D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CA7E4 000C7744  38 61 01 50 */	addi r3, r1, 0x150
 /* 800CA7E8 000C7748  38 80 FF FF */	li r4, -1
-/* 800CA7EC 000C774C  48 03 BE 1D */	bl __dt__16CActorParametersFv
+/* 800CA7EC 000C774C  48 03 BE 1D */	bl __dt__16CLightParametersFv
 /* 800CA7F0 000C7750  7E 03 83 78 */	mr r3, r16
 /* 800CA7F4 000C7754  48 27 44 35 */	bl ReadFloat__12CInputStreamFv
 /* 800CA7F8 000C7758  FF E0 08 90 */	fmr f31, f1
@@ -6048,7 +6048,7 @@ lbl_800CA7C0:
 /* 800CA8A4 000C7804  41 82 00 20 */	beq lbl_800CA8C4
 /* 800CA8A8 000C7808  38 61 01 B8 */	addi r3, r1, 0x1b8
 /* 800CA8AC 000C780C  38 80 FF FF */	li r4, -1
-/* 800CA8B0 000C7810  48 03 BD 59 */	bl __dt__16CActorParametersFv
+/* 800CA8B0 000C7810  48 03 BD 59 */	bl __dt__16CLightParametersFv
 /* 800CA8B4 000C7814  38 61 00 5C */	addi r3, r1, 0x5c
 /* 800CA8B8 000C7818  48 27 32 29 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CA8BC 000C781C  38 60 00 00 */	li r3, 0
@@ -6125,7 +6125,7 @@ lbl_800CA9BC:
 lbl_800CA9D0:
 /* 800CA9D0 000C7930  38 61 01 B8 */	addi r3, r1, 0x1b8
 /* 800CA9D4 000C7934  38 80 FF FF */	li r4, -1
-/* 800CA9D8 000C7938  48 03 BC 31 */	bl __dt__16CActorParametersFv
+/* 800CA9D8 000C7938  48 03 BC 31 */	bl __dt__16CLightParametersFv
 /* 800CA9DC 000C793C  38 61 00 5C */	addi r3, r1, 0x5c
 /* 800CA9E0 000C7940  48 27 31 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CA9E4 000C7944  7E 03 83 78 */	mr r3, r16
@@ -6188,7 +6188,7 @@ lbl_800CAA90:
 /* 800CAAB0 000C7A10  4B FF AB 6D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CAAB4 000C7A14  38 61 00 88 */	addi r3, r1, 0x88
 /* 800CAAB8 000C7A18  38 80 FF FF */	li r4, -1
-/* 800CAABC 000C7A1C  48 03 BB 4D */	bl __dt__16CActorParametersFv
+/* 800CAABC 000C7A1C  48 03 BB 4D */	bl __dt__16CLightParametersFv
 /* 800CAAC0 000C7A20  7F 84 E3 78 */	mr r4, r28
 /* 800CAAC4 000C7A24  7F A5 EB 78 */	mr r5, r29
 /* 800CAAC8 000C7A28  38 61 01 A4 */	addi r3, r1, 0x1a4
@@ -6199,7 +6199,7 @@ lbl_800CAA90:
 /* 800CAADC 000C7A3C  40 82 00 20 */	bne lbl_800CAAFC
 /* 800CAAE0 000C7A40  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800CAAE4 000C7A44  38 80 FF FF */	li r4, -1
-/* 800CAAE8 000C7A48  48 03 BB 21 */	bl __dt__16CActorParametersFv
+/* 800CAAE8 000C7A48  48 03 BB 21 */	bl __dt__16CLightParametersFv
 /* 800CAAEC 000C7A4C  38 61 01 58 */	addi r3, r1, 0x158
 /* 800CAAF0 000C7A50  48 27 2F F1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CAAF4 000C7A54  38 60 00 00 */	li r3, 0
@@ -6258,7 +6258,7 @@ lbl_800CABAC:
 lbl_800CABC0:
 /* 800CABC0 000C7B20  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800CABC4 000C7B24  38 80 FF FF */	li r4, -1
-/* 800CABC8 000C7B28  48 03 BA 41 */	bl __dt__16CActorParametersFv
+/* 800CABC8 000C7B28  48 03 BA 41 */	bl __dt__16CLightParametersFv
 /* 800CABCC 000C7B2C  38 61 01 58 */	addi r3, r1, 0x158
 /* 800CABD0 000C7B30  48 27 2F 11 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CABD4 000C7B34  7F A3 EB 78 */	mr r3, r29
@@ -6324,7 +6324,7 @@ lbl_800CAC2C:
 /* 800CACB0 000C7C10  4B FF A9 6D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CACB4 000C7C14  38 61 01 64 */	addi r3, r1, 0x164
 /* 800CACB8 000C7C18  38 80 FF FF */	li r4, -1
-/* 800CACBC 000C7C1C  48 03 B9 4D */	bl __dt__16CActorParametersFv
+/* 800CACBC 000C7C1C  48 03 B9 4D */	bl __dt__16CLightParametersFv
 /* 800CACC0 000C7C20  7F 04 C3 78 */	mr r4, r24
 /* 800CACC4 000C7C24  38 61 00 28 */	addi r3, r1, 0x28
 /* 800CACC8 000C7C28  48 10 8B 7D */	bl __ct__11CHealthInfoFR12CInputStream
@@ -6347,7 +6347,7 @@ lbl_800CAC2C:
 lbl_800CAD0C:
 /* 800CAD0C 000C7C6C  38 61 02 80 */	addi r3, r1, 0x280
 /* 800CAD10 000C7C70  38 80 FF FF */	li r4, -1
-/* 800CAD14 000C7C74  48 03 B8 F5 */	bl __dt__16CActorParametersFv
+/* 800CAD14 000C7C74  48 03 B8 F5 */	bl __dt__16CLightParametersFv
 /* 800CAD18 000C7C78  38 61 00 60 */	addi r3, r1, 0x60
 /* 800CAD1C 000C7C7C  48 27 2D C5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CAD20 000C7C80  38 60 00 00 */	li r3, 0
@@ -6487,7 +6487,7 @@ lbl_800CAF0C:
 /* 800CAF14 000C7E74  48 04 BB 39 */	bl __dt__10CModelDataFv
 /* 800CAF18 000C7E78  38 61 02 80 */	addi r3, r1, 0x280
 /* 800CAF1C 000C7E7C  38 80 FF FF */	li r4, -1
-/* 800CAF20 000C7E80  48 03 B6 E9 */	bl __dt__16CActorParametersFv
+/* 800CAF20 000C7E80  48 03 B6 E9 */	bl __dt__16CLightParametersFv
 /* 800CAF24 000C7E84  38 61 00 60 */	addi r3, r1, 0x60
 /* 800CAF28 000C7E88  48 27 2B B9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CAF2C 000C7E8C  7F 63 DB 78 */	mr r3, r27
@@ -6771,7 +6771,7 @@ lbl_800CB304:
 /* 800CB324 000C8284  4B FF A2 F9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CB328 000C8288  38 61 01 04 */	addi r3, r1, 0x104
 /* 800CB32C 000C828C  38 80 FF FF */	li r4, -1
-/* 800CB330 000C8290  48 03 B2 D9 */	bl __dt__16CActorParametersFv
+/* 800CB330 000C8290  48 03 B2 D9 */	bl __dt__16CLightParametersFv
 /* 800CB334 000C8294  7F A3 EB 78 */	mr r3, r29
 /* 800CB338 000C8298  48 27 39 A5 */	bl ReadBool__12CInputStreamFv
 /* 800CB33C 000C829C  7F A3 EB 78 */	mr r3, r29
@@ -6791,7 +6791,7 @@ lbl_800CB304:
 /* 800CB374 000C82D4  40 82 00 20 */	bne lbl_800CB394
 /* 800CB378 000C82D8  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800CB37C 000C82DC  38 80 FF FF */	li r4, -1
-/* 800CB380 000C82E0  48 03 B2 89 */	bl __dt__16CActorParametersFv
+/* 800CB380 000C82E0  48 03 B2 89 */	bl __dt__16CLightParametersFv
 /* 800CB384 000C82E4  38 61 01 D4 */	addi r3, r1, 0x1d4
 /* 800CB388 000C82E8  48 27 27 59 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CB38C 000C82EC  38 60 00 00 */	li r3, 0
@@ -6895,7 +6895,7 @@ lbl_800CB4E8:
 lbl_800CB500:
 /* 800CB500 000C8460  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800CB504 000C8464  38 80 FF FF */	li r4, -1
-/* 800CB508 000C8468  48 03 B1 01 */	bl __dt__16CActorParametersFv
+/* 800CB508 000C8468  48 03 B1 01 */	bl __dt__16CLightParametersFv
 /* 800CB50C 000C846C  38 61 01 D4 */	addi r3, r1, 0x1d4
 /* 800CB510 000C8470  48 27 25 D1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CB514 000C8474  7F 83 E3 78 */	mr r3, r28
@@ -7004,14 +7004,14 @@ lbl_800CB654:
 /* 800CB674 000C85D4  4B FF 9F A9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CB678 000C85D8  38 61 00 80 */	addi r3, r1, 0x80
 /* 800CB67C 000C85DC  38 80 FF FF */	li r4, -1
-/* 800CB680 000C85E0  48 03 AF 89 */	bl __dt__16CActorParametersFv
+/* 800CB680 000C85E0  48 03 AF 89 */	bl __dt__16CLightParametersFv
 /* 800CB684 000C85E4  80 61 02 88 */	lwz r3, 0x288(r1)
 /* 800CB688 000C85E8  3C 03 00 01 */	addis r0, r3, 1
 /* 800CB68C 000C85EC  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800CB690 000C85F0  40 82 00 20 */	bne lbl_800CB6B0
 /* 800CB694 000C85F4  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800CB698 000C85F8  38 80 FF FF */	li r4, -1
-/* 800CB69C 000C85FC  48 03 AF 6D */	bl __dt__16CActorParametersFv
+/* 800CB69C 000C85FC  48 03 AF 6D */	bl __dt__16CLightParametersFv
 /* 800CB6A0 000C8600  38 61 01 50 */	addi r3, r1, 0x150
 /* 800CB6A4 000C8604  48 27 24 3D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CB6A8 000C8608  38 60 00 00 */	li r3, 0
@@ -7068,7 +7068,7 @@ lbl_800CB758:
 lbl_800CB76C:
 /* 800CB76C 000C86CC  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800CB770 000C86D0  38 80 FF FF */	li r4, -1
-/* 800CB774 000C86D4  48 03 AE 95 */	bl __dt__16CActorParametersFv
+/* 800CB774 000C86D4  48 03 AE 95 */	bl __dt__16CLightParametersFv
 /* 800CB778 000C86D8  38 61 01 50 */	addi r3, r1, 0x150
 /* 800CB77C 000C86DC  48 27 23 65 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CB780 000C86E0  7F E3 FB 78 */	mr r3, r31
@@ -7142,7 +7142,7 @@ lbl_800CB850:
 /* 800CB87C 000C87DC  4B FF 9D A1 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CB880 000C87E0  38 61 01 40 */	addi r3, r1, 0x140
 /* 800CB884 000C87E4  38 80 FF FF */	li r4, -1
-/* 800CB888 000C87E8  48 03 AD 81 */	bl __dt__16CActorParametersFv
+/* 800CB888 000C87E8  48 03 AD 81 */	bl __dt__16CLightParametersFv
 /* 800CB88C 000C87EC  7D C3 73 78 */	mr r3, r14
 /* 800CB890 000C87F0  48 27 33 F5 */	bl ReadLong__12CInputStreamFv
 /* 800CB894 000C87F4  7C 60 1B 78 */	mr r0, r3
@@ -7330,11 +7330,11 @@ lbl_800CBB64:
 /* 800CBB68 000C8AC8  41 82 00 10 */	beq lbl_800CBB78
 /* 800CBB6C 000C8ACC  38 61 00 D8 */	addi r3, r1, 0xd8
 /* 800CBB70 000C8AD0  38 80 FF FF */	li r4, -1
-/* 800CBB74 000C8AD4  48 03 AA 95 */	bl __dt__16CActorParametersFv
+/* 800CBB74 000C8AD4  48 03 AA 95 */	bl __dt__16CLightParametersFv
 lbl_800CBB78:
 /* 800CBB78 000C8AD8  38 61 02 10 */	addi r3, r1, 0x210
 /* 800CBB7C 000C8ADC  38 80 FF FF */	li r4, -1
-/* 800CBB80 000C8AE0  48 03 AA 89 */	bl __dt__16CActorParametersFv
+/* 800CBB80 000C8AE0  48 03 AA 89 */	bl __dt__16CLightParametersFv
 /* 800CBB84 000C8AE4  38 61 02 78 */	addi r3, r1, 0x278
 /* 800CBB88 000C8AE8  48 27 1F 59 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CBB8C 000C8AEC  7E 43 93 78 */	mr r3, r18
@@ -7433,7 +7433,7 @@ lbl_800CBCC8:
 /* 800CBCE8 000C8C48  4B FF 99 35 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CBCEC 000C8C4C  38 61 06 14 */	addi r3, r1, 0x614
 /* 800CBCF0 000C8C50  38 80 FF FF */	li r4, -1
-/* 800CBCF4 000C8C54  48 03 A9 15 */	bl __dt__16CActorParametersFv
+/* 800CBCF4 000C8C54  48 03 A9 15 */	bl __dt__16CLightParametersFv
 /* 800CBCF8 000C8C58  7F C3 F3 78 */	mr r3, r30
 /* 800CBCFC 000C8C5C  48 27 2F E1 */	bl ReadBool__12CInputStreamFv
 /* 800CBD00 000C8C60  7F C3 F3 78 */	mr r3, r30
@@ -7444,7 +7444,7 @@ lbl_800CBCC8:
 /* 800CBD14 000C8C74  40 82 00 20 */	bne lbl_800CBD34
 /* 800CBD18 000C8C78  38 61 06 7C */	addi r3, r1, 0x67c
 /* 800CBD1C 000C8C7C  38 80 FF FF */	li r4, -1
-/* 800CBD20 000C8C80  48 03 A8 E9 */	bl __dt__16CActorParametersFv
+/* 800CBD20 000C8C80  48 03 A8 E9 */	bl __dt__16CLightParametersFv
 /* 800CBD24 000C8C84  38 61 06 E4 */	addi r3, r1, 0x6e4
 /* 800CBD28 000C8C88  48 27 1D B9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CBD2C 000C8C8C  38 60 00 00 */	li r3, 0
@@ -7907,7 +7907,7 @@ lbl_800CC410:
 lbl_800CC428:
 /* 800CC428 000C9388  38 61 06 7C */	addi r3, r1, 0x67c
 /* 800CC42C 000C938C  38 80 FF FF */	li r4, -1
-/* 800CC430 000C9390  48 03 A1 D9 */	bl __dt__16CActorParametersFv
+/* 800CC430 000C9390  48 03 A1 D9 */	bl __dt__16CLightParametersFv
 /* 800CC434 000C9394  38 61 06 E4 */	addi r3, r1, 0x6e4
 /* 800CC438 000C9398  48 27 16 A9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CC43C 000C939C  7E 03 83 78 */	mr r3, r16
@@ -7997,7 +7997,7 @@ lbl_800CC554:
 /* 800CC574 000C94D4  4B FF 90 A9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CC578 000C94D8  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 800CC57C 000C94DC  38 80 FF FF */	li r4, -1
-/* 800CC580 000C94E0  48 03 A0 89 */	bl __dt__16CActorParametersFv
+/* 800CC580 000C94E0  48 03 A0 89 */	bl __dt__16CLightParametersFv
 /* 800CC584 000C94E4  7F 84 E3 78 */	mr r4, r28
 /* 800CC588 000C94E8  38 61 00 4C */	addi r3, r1, 0x4c
 /* 800CC58C 000C94EC  4B FF 6F D5 */	bl __ct__11CDamageInfoFR12CInputStream
@@ -8049,7 +8049,7 @@ lbl_800CC554:
 /* 800CC644 000C95A4  41 82 00 20 */	beq lbl_800CC664
 /* 800CC648 000C95A8  38 61 01 1C */	addi r3, r1, 0x11c
 /* 800CC64C 000C95AC  38 80 FF FF */	li r4, -1
-/* 800CC650 000C95B0  48 03 9F B9 */	bl __dt__16CActorParametersFv
+/* 800CC650 000C95B0  48 03 9F B9 */	bl __dt__16CLightParametersFv
 /* 800CC654 000C95B4  38 61 01 84 */	addi r3, r1, 0x184
 /* 800CC658 000C95B8  48 27 14 89 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CC65C 000C95BC  38 60 00 00 */	li r3, 0
@@ -8122,7 +8122,7 @@ lbl_800CC74C:
 lbl_800CC760:
 /* 800CC760 000C96C0  38 61 01 1C */	addi r3, r1, 0x11c
 /* 800CC764 000C96C4  38 80 FF FF */	li r4, -1
-/* 800CC768 000C96C8  48 03 9E A1 */	bl __dt__16CActorParametersFv
+/* 800CC768 000C96C8  48 03 9E A1 */	bl __dt__16CLightParametersFv
 /* 800CC76C 000C96CC  38 61 01 84 */	addi r3, r1, 0x184
 /* 800CC770 000C96D0  48 27 13 71 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CC774 000C96D4  7F 83 E3 78 */	mr r3, r28
@@ -9421,7 +9421,7 @@ lbl_800CD9AC:
 /* 800CD9CC 000CA92C  4B FF 7C 51 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CD9D0 000CA930  38 61 02 B4 */	addi r3, r1, 0x2b4
 /* 800CD9D4 000CA934  38 80 FF FF */	li r4, -1
-/* 800CD9D8 000CA938  48 03 8C 31 */	bl __dt__16CActorParametersFv
+/* 800CD9D8 000CA938  48 03 8C 31 */	bl __dt__16CLightParametersFv
 /* 800CD9DC 000CA93C  7F E4 FB 78 */	mr r4, r31
 /* 800CD9E0 000CA940  38 61 01 EC */	addi r3, r1, 0x1ec
 /* 800CD9E4 000CA944  4B FF 5B 7D */	bl __ct__11CDamageInfoFR12CInputStream
@@ -9846,7 +9846,7 @@ lbl_800CDFE0:
 /* 800CDFE4 000CAF44  38 61 03 1C */	addi r3, r1, 0x31c
 /* 800CDFE8 000CAF48  98 01 01 CC */	stb r0, 0x1cc(r1)
 /* 800CDFEC 000CAF4C  38 80 FF FF */	li r4, -1
-/* 800CDFF0 000CAF50  48 03 86 19 */	bl __dt__16CActorParametersFv
+/* 800CDFF0 000CAF50  48 03 86 19 */	bl __dt__16CLightParametersFv
 /* 800CDFF4 000CAF54  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 800CDFF8 000CAF58  48 26 FA E9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CDFFC 000CAF5C  38 60 00 00 */	li r3, 0
@@ -10097,7 +10097,7 @@ lbl_800CE3A8:
 /* 800CE3AC 000CB30C  38 61 03 1C */	addi r3, r1, 0x31c
 /* 800CE3B0 000CB310  98 01 01 CC */	stb r0, 0x1cc(r1)
 /* 800CE3B4 000CB314  38 80 FF FF */	li r4, -1
-/* 800CE3B8 000CB318  48 03 82 51 */	bl __dt__16CActorParametersFv
+/* 800CE3B8 000CB318  48 03 82 51 */	bl __dt__16CLightParametersFv
 /* 800CE3BC 000CB31C  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 800CE3C0 000CB320  48 26 F7 21 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CE3C4 000CB324  7E E3 BB 78 */	mr r3, r23
@@ -10911,7 +10911,7 @@ lbl_800CEF30:
 /* 800CEFB4 000CBF14  4B FF 66 69 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CEFB8 000CBF18  38 61 01 3C */	addi r3, r1, 0x13c
 /* 800CEFBC 000CBF1C  38 80 FF FF */	li r4, -1
-/* 800CEFC0 000CBF20  48 03 76 49 */	bl __dt__16CActorParametersFv
+/* 800CEFC0 000CBF20  48 03 76 49 */	bl __dt__16CLightParametersFv
 /* 800CEFC4 000CBF24  7F 23 CB 78 */	mr r3, r25
 /* 800CEFC8 000CBF28  48 26 FD 15 */	bl ReadBool__12CInputStreamFv
 /* 800CEFCC 000CBF2C  7C 7C 1B 78 */	mr r28, r3
@@ -10938,7 +10938,7 @@ lbl_800CEF30:
 /* 800CF020 000CBF80  40 82 00 20 */	bne lbl_800CF040
 /* 800CF024 000CBF84  38 61 01 A4 */	addi r3, r1, 0x1a4
 /* 800CF028 000CBF88  38 80 FF FF */	li r4, -1
-/* 800CF02C 000CBF8C  48 03 75 DD */	bl __dt__16CActorParametersFv
+/* 800CF02C 000CBF8C  48 03 75 DD */	bl __dt__16CLightParametersFv
 /* 800CF030 000CBF90  38 61 02 74 */	addi r3, r1, 0x274
 /* 800CF034 000CBF94  48 26 EA AD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CF038 000CBF98  38 60 00 00 */	li r3, 0
@@ -11116,7 +11116,7 @@ lbl_800CF2A4:
 lbl_800CF2B8:
 /* 800CF2B8 000CC218  38 61 01 A4 */	addi r3, r1, 0x1a4
 /* 800CF2BC 000CC21C  38 80 FF FF */	li r4, -1
-/* 800CF2C0 000CC220  48 03 73 49 */	bl __dt__16CActorParametersFv
+/* 800CF2C0 000CC220  48 03 73 49 */	bl __dt__16CLightParametersFv
 /* 800CF2C4 000CC224  38 61 02 74 */	addi r3, r1, 0x274
 /* 800CF2C8 000CC228  48 26 E8 19 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CF2CC 000CC22C  7E A3 AB 78 */	mr r3, r21
@@ -11124,7 +11124,7 @@ lbl_800CF2B8:
 lbl_800CF2D4:
 /* 800CF2D4 000CC234  38 61 01 A4 */	addi r3, r1, 0x1a4
 /* 800CF2D8 000CC238  38 80 FF FF */	li r4, -1
-/* 800CF2DC 000CC23C  48 03 73 2D */	bl __dt__16CActorParametersFv
+/* 800CF2DC 000CC23C  48 03 73 2D */	bl __dt__16CLightParametersFv
 /* 800CF2E0 000CC240  38 61 02 74 */	addi r3, r1, 0x274
 /* 800CF2E4 000CC244  48 26 E7 FD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CF2E8 000CC248  38 60 00 00 */	li r3, 0
@@ -11187,7 +11187,7 @@ lbl_800CF394:
 /* 800CF3B4 000CC314  4B FF 62 69 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CF3B8 000CC318  38 61 00 88 */	addi r3, r1, 0x88
 /* 800CF3BC 000CC31C  38 80 FF FF */	li r4, -1
-/* 800CF3C0 000CC320  48 03 72 49 */	bl __dt__16CActorParametersFv
+/* 800CF3C0 000CC320  48 03 72 49 */	bl __dt__16CLightParametersFv
 /* 800CF3C4 000CC324  7F 84 E3 78 */	mr r4, r28
 /* 800CF3C8 000CC328  7F A5 EB 78 */	mr r5, r29
 /* 800CF3CC 000CC32C  38 61 01 A4 */	addi r3, r1, 0x1a4
@@ -11198,7 +11198,7 @@ lbl_800CF394:
 /* 800CF3E0 000CC340  40 82 00 20 */	bne lbl_800CF400
 /* 800CF3E4 000CC344  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800CF3E8 000CC348  38 80 FF FF */	li r4, -1
-/* 800CF3EC 000CC34C  48 03 72 1D */	bl __dt__16CActorParametersFv
+/* 800CF3EC 000CC34C  48 03 72 1D */	bl __dt__16CLightParametersFv
 /* 800CF3F0 000CC350  38 61 01 58 */	addi r3, r1, 0x158
 /* 800CF3F4 000CC354  48 26 E6 ED */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CF3F8 000CC358  38 60 00 00 */	li r3, 0
@@ -11257,7 +11257,7 @@ lbl_800CF4B0:
 lbl_800CF4C4:
 /* 800CF4C4 000CC424  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800CF4C8 000CC428  38 80 FF FF */	li r4, -1
-/* 800CF4CC 000CC42C  48 03 71 3D */	bl __dt__16CActorParametersFv
+/* 800CF4CC 000CC42C  48 03 71 3D */	bl __dt__16CLightParametersFv
 /* 800CF4D0 000CC430  38 61 01 58 */	addi r3, r1, 0x158
 /* 800CF4D4 000CC434  48 26 E6 0D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CF4D8 000CC438  7F A3 EB 78 */	mr r3, r29
@@ -11578,7 +11578,7 @@ lbl_800CF944:
 /* 800CF964 000CC8C4  4B FF 5C B9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CF968 000CC8C8  38 61 01 04 */	addi r3, r1, 0x104
 /* 800CF96C 000CC8CC  38 80 FF FF */	li r4, -1
-/* 800CF970 000CC8D0  48 03 6C 99 */	bl __dt__16CActorParametersFv
+/* 800CF970 000CC8D0  48 03 6C 99 */	bl __dt__16CLightParametersFv
 /* 800CF974 000CC8D4  7F 84 E3 78 */	mr r4, r28
 /* 800CF978 000CC8D8  7F A5 EB 78 */	mr r5, r29
 /* 800CF97C 000CC8DC  38 61 01 D4 */	addi r3, r1, 0x1d4
@@ -11589,7 +11589,7 @@ lbl_800CF944:
 /* 800CF990 000CC8F0  40 82 00 20 */	bne lbl_800CF9B0
 /* 800CF994 000CC8F4  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800CF998 000CC8F8  38 80 FF FF */	li r4, -1
-/* 800CF99C 000CC8FC  48 03 6C 6D */	bl __dt__16CActorParametersFv
+/* 800CF99C 000CC8FC  48 03 6C 6D */	bl __dt__16CLightParametersFv
 /* 800CF9A0 000CC900  38 61 00 2C */	addi r3, r1, 0x2c
 /* 800CF9A4 000CC904  48 26 E1 3D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CF9A8 000CC908  38 60 00 00 */	li r3, 0
@@ -11648,7 +11648,7 @@ lbl_800CFA60:
 lbl_800CFA74:
 /* 800CFA74 000CC9D4  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800CFA78 000CC9D8  38 80 FF FF */	li r4, -1
-/* 800CFA7C 000CC9DC  48 03 6B 8D */	bl __dt__16CActorParametersFv
+/* 800CFA7C 000CC9DC  48 03 6B 8D */	bl __dt__16CLightParametersFv
 /* 800CFA80 000CC9E0  38 61 00 2C */	addi r3, r1, 0x2c
 /* 800CFA84 000CC9E4  48 26 E0 5D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CFA88 000CC9E8  7F A3 EB 78 */	mr r3, r29
@@ -11721,7 +11721,7 @@ lbl_800CFB5C:
 /* 800CFB7C 000CCADC  4B FF 5A A1 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CFB80 000CCAE0  38 61 01 10 */	addi r3, r1, 0x110
 /* 800CFB84 000CCAE4  38 80 FF FF */	li r4, -1
-/* 800CFB88 000CCAE8  48 03 6A 81 */	bl __dt__16CActorParametersFv
+/* 800CFB88 000CCAE8  48 03 6A 81 */	bl __dt__16CLightParametersFv
 /* 800CFB8C 000CCAEC  7F 64 DB 78 */	mr r4, r27
 /* 800CFB90 000CCAF0  7F 85 E3 78 */	mr r5, r28
 /* 800CFB94 000CCAF4  38 61 01 E0 */	addi r3, r1, 0x1e0
@@ -11735,7 +11735,7 @@ lbl_800CFB5C:
 /* 800CFBB4 000CCB14  48 00 01 65 */	bl sub_800cfd18
 /* 800CFBB8 000CCB18  38 61 01 78 */	addi r3, r1, 0x178
 /* 800CFBBC 000CCB1C  38 80 FF FF */	li r4, -1
-/* 800CFBC0 000CCB20  48 03 6A 49 */	bl __dt__16CActorParametersFv
+/* 800CFBC0 000CCB20  48 03 6A 49 */	bl __dt__16CLightParametersFv
 /* 800CFBC4 000CCB24  38 61 00 38 */	addi r3, r1, 0x38
 /* 800CFBC8 000CCB28  48 26 DF 19 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CFBCC 000CCB2C  38 60 00 00 */	li r3, 0
@@ -11748,7 +11748,7 @@ lbl_800CFBD4:
 /* 800CFBE4 000CCB44  48 00 01 35 */	bl sub_800cfd18
 /* 800CFBE8 000CCB48  38 61 01 78 */	addi r3, r1, 0x178
 /* 800CFBEC 000CCB4C  38 80 FF FF */	li r4, -1
-/* 800CFBF0 000CCB50  48 03 6A 19 */	bl __dt__16CActorParametersFv
+/* 800CFBF0 000CCB50  48 03 6A 19 */	bl __dt__16CLightParametersFv
 /* 800CFBF4 000CCB54  38 61 00 38 */	addi r3, r1, 0x38
 /* 800CFBF8 000CCB58  48 26 DE E9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CFBFC 000CCB5C  38 60 00 00 */	li r3, 0
@@ -11816,7 +11816,7 @@ lbl_800CFCE0:
 /* 800CFCE8 000CCC48  48 00 00 31 */	bl sub_800cfd18
 /* 800CFCEC 000CCC4C  38 61 01 78 */	addi r3, r1, 0x178
 /* 800CFCF0 000CCC50  38 80 FF FF */	li r4, -1
-/* 800CFCF4 000CCC54  48 03 69 15 */	bl __dt__16CActorParametersFv
+/* 800CFCF4 000CCC54  48 03 69 15 */	bl __dt__16CLightParametersFv
 /* 800CFCF8 000CCC58  38 61 00 38 */	addi r3, r1, 0x38
 /* 800CFCFC 000CCC5C  48 26 DD E5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CFD00 000CCC60  7F 83 E3 78 */	mr r3, r28
@@ -11993,14 +11993,14 @@ lbl_800CFF3C:
 /* 800CFF5C 000CCEBC  4B FF 56 C1 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800CFF60 000CCEC0  38 61 01 64 */	addi r3, r1, 0x164
 /* 800CFF64 000CCEC4  38 80 FF FF */	li r4, -1
-/* 800CFF68 000CCEC8  48 03 66 A1 */	bl __dt__16CActorParametersFv
+/* 800CFF68 000CCEC8  48 03 66 A1 */	bl __dt__16CLightParametersFv
 /* 800CFF6C 000CCECC  80 61 03 20 */	lwz r3, 0x320(r1)
 /* 800CFF70 000CCED0  3C 03 00 01 */	addis r0, r3, 1
 /* 800CFF74 000CCED4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800CFF78 000CCED8  40 82 00 20 */	bne lbl_800CFF98
 /* 800CFF7C 000CCEDC  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800CFF80 000CCEE0  38 80 FF FF */	li r4, -1
-/* 800CFF84 000CCEE4  48 03 66 85 */	bl __dt__16CActorParametersFv
+/* 800CFF84 000CCEE4  48 03 66 85 */	bl __dt__16CLightParametersFv
 /* 800CFF88 000CCEE8  38 61 00 2C */	addi r3, r1, 0x2c
 /* 800CFF8C 000CCEEC  48 26 DB 55 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800CFF90 000CCEF0  38 60 00 00 */	li r3, 0
@@ -12088,7 +12088,7 @@ lbl_800D00BC:
 lbl_800D00D0:
 /* 800D00D0 000CD030  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800D00D4 000CD034  38 80 FF FF */	li r4, -1
-/* 800D00D8 000CD038  48 03 65 31 */	bl __dt__16CActorParametersFv
+/* 800D00D8 000CD038  48 03 65 31 */	bl __dt__16CLightParametersFv
 /* 800D00DC 000CD03C  38 61 00 2C */	addi r3, r1, 0x2c
 /* 800D00E0 000CD040  48 26 DA 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D00E4 000CD044  7F 83 E3 78 */	mr r3, r28
@@ -12189,7 +12189,7 @@ lbl_800D0228:
 /* 800D0248 000CD1A8  4B FF 53 D5 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D024C 000CD1AC  38 61 01 78 */	addi r3, r1, 0x178
 /* 800D0250 000CD1B0  38 80 FF FF */	li r4, -1
-/* 800D0254 000CD1B4  48 03 63 B5 */	bl __dt__16CActorParametersFv
+/* 800D0254 000CD1B4  48 03 63 B5 */	bl __dt__16CLightParametersFv
 /* 800D0258 000CD1B8  7F 03 C3 78 */	mr r3, r24
 /* 800D025C 000CD1BC  48 26 E9 CD */	bl ReadFloat__12CInputStreamFv
 /* 800D0260 000CD1C0  FE C0 08 90 */	fmr f22, f1
@@ -12253,7 +12253,7 @@ lbl_800D0228:
 /* 800D0348 000CD2A8  41 82 00 20 */	beq lbl_800D0368
 /* 800D034C 000CD2AC  38 61 01 E0 */	addi r3, r1, 0x1e0
 /* 800D0350 000CD2B0  38 80 FF FF */	li r4, -1
-/* 800D0354 000CD2B4  48 03 62 B5 */	bl __dt__16CActorParametersFv
+/* 800D0354 000CD2B4  48 03 62 B5 */	bl __dt__16CLightParametersFv
 /* 800D0358 000CD2B8  38 61 00 84 */	addi r3, r1, 0x84
 /* 800D035C 000CD2BC  48 26 D7 85 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0360 000CD2C0  38 60 00 00 */	li r3, 0
@@ -12370,7 +12370,7 @@ lbl_800D0500:
 lbl_800D0514:
 /* 800D0514 000CD474  38 61 01 E0 */	addi r3, r1, 0x1e0
 /* 800D0518 000CD478  38 80 FF FF */	li r4, -1
-/* 800D051C 000CD47C  48 03 60 ED */	bl __dt__16CActorParametersFv
+/* 800D051C 000CD47C  48 03 60 ED */	bl __dt__16CLightParametersFv
 /* 800D0520 000CD480  38 61 00 84 */	addi r3, r1, 0x84
 /* 800D0524 000CD484  48 26 D5 BD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0528 000CD488  7F A3 EB 78 */	mr r3, r29
@@ -12463,7 +12463,7 @@ lbl_800D064C:
 /* 800D066C 000CD5CC  4B FF 4F B1 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D0670 000CD5D0  38 61 00 64 */	addi r3, r1, 0x64
 /* 800D0674 000CD5D4  38 80 FF FF */	li r4, -1
-/* 800D0678 000CD5D8  48 03 5F 91 */	bl __dt__16CActorParametersFv
+/* 800D0678 000CD5D8  48 03 5F 91 */	bl __dt__16CLightParametersFv
 /* 800D067C 000CD5DC  7F 84 E3 78 */	mr r4, r28
 /* 800D0680 000CD5E0  7F A5 EB 78 */	mr r5, r29
 /* 800D0684 000CD5E4  38 61 01 80 */	addi r3, r1, 0x180
@@ -12516,11 +12516,11 @@ lbl_800D072C:
 /* 800D073C 000CD69C  34 61 02 58 */	addic. r3, r1, 0x258
 /* 800D0740 000CD6A0  41 82 00 0C */	beq lbl_800D074C
 /* 800D0744 000CD6A4  38 80 FF FF */	li r4, -1
-/* 800D0748 000CD6A8  48 03 5E C1 */	bl __dt__16CActorParametersFv
+/* 800D0748 000CD6A8  48 03 5E C1 */	bl __dt__16CLightParametersFv
 lbl_800D074C:
 /* 800D074C 000CD6AC  38 61 00 CC */	addi r3, r1, 0xcc
 /* 800D0750 000CD6B0  38 80 FF FF */	li r4, -1
-/* 800D0754 000CD6B4  48 03 5E B5 */	bl __dt__16CActorParametersFv
+/* 800D0754 000CD6B4  48 03 5E B5 */	bl __dt__16CLightParametersFv
 /* 800D0758 000CD6B8  38 61 01 34 */	addi r3, r1, 0x134
 /* 800D075C 000CD6BC  48 26 D3 85 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0760 000CD6C0  38 60 00 00 */	li r3, 0
@@ -12555,11 +12555,11 @@ lbl_800D07CC:
 /* 800D07CC 000CD72C  34 61 02 58 */	addic. r3, r1, 0x258
 /* 800D07D0 000CD730  41 82 00 0C */	beq lbl_800D07DC
 /* 800D07D4 000CD734  38 80 FF FF */	li r4, -1
-/* 800D07D8 000CD738  48 03 5E 31 */	bl __dt__16CActorParametersFv
+/* 800D07D8 000CD738  48 03 5E 31 */	bl __dt__16CLightParametersFv
 lbl_800D07DC:
 /* 800D07DC 000CD73C  38 61 00 CC */	addi r3, r1, 0xcc
 /* 800D07E0 000CD740  38 80 FF FF */	li r4, -1
-/* 800D07E4 000CD744  48 03 5E 25 */	bl __dt__16CActorParametersFv
+/* 800D07E4 000CD744  48 03 5E 25 */	bl __dt__16CLightParametersFv
 /* 800D07E8 000CD748  38 61 01 34 */	addi r3, r1, 0x134
 /* 800D07EC 000CD74C  48 26 D2 F5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D07F0 000CD750  7F A3 EB 78 */	mr r3, r29
@@ -12618,7 +12618,7 @@ lbl_800D088C:
 /* 800D08AC 000CD80C  4B FF 4D 71 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D08B0 000CD810  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 800D08B4 000CD814  38 80 FF FF */	li r4, -1
-/* 800D08B8 000CD818  48 03 5D 51 */	bl __dt__16CActorParametersFv
+/* 800D08B8 000CD818  48 03 5D 51 */	bl __dt__16CLightParametersFv
 /* 800D08BC 000CD81C  7F 03 C3 78 */	mr r3, r24
 /* 800D08C0 000CD820  48 26 E3 69 */	bl ReadFloat__12CInputStreamFv
 /* 800D08C4 000CD824  FF E0 08 90 */	fmr f31, f1
@@ -12646,7 +12646,7 @@ lbl_800D088C:
 /* 800D091C 000CD87C  40 82 00 20 */	bne lbl_800D093C
 /* 800D0920 000CD880  38 61 01 1C */	addi r3, r1, 0x11c
 /* 800D0924 000CD884  38 80 FF FF */	li r4, -1
-/* 800D0928 000CD888  48 03 5C E1 */	bl __dt__16CActorParametersFv
+/* 800D0928 000CD888  48 03 5C E1 */	bl __dt__16CLightParametersFv
 /* 800D092C 000CD88C  38 61 01 84 */	addi r3, r1, 0x184
 /* 800D0930 000CD890  48 26 D1 B1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0934 000CD894  38 60 00 00 */	li r3, 0
@@ -12711,7 +12711,7 @@ lbl_800D0A04:
 lbl_800D0A18:
 /* 800D0A18 000CD978  38 61 01 1C */	addi r3, r1, 0x11c
 /* 800D0A1C 000CD97C  38 80 FF FF */	li r4, -1
-/* 800D0A20 000CD980  48 03 5B E9 */	bl __dt__16CActorParametersFv
+/* 800D0A20 000CD980  48 03 5B E9 */	bl __dt__16CLightParametersFv
 /* 800D0A24 000CD984  38 61 01 84 */	addi r3, r1, 0x184
 /* 800D0A28 000CD988  48 26 D0 B9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0A2C 000CD98C  7F 03 C3 78 */	mr r3, r24
@@ -12788,7 +12788,7 @@ lbl_800D0B10:
 /* 800D0B30 000CDA90  4B FF 4A ED */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D0B34 000CDA94  38 61 01 34 */	addi r3, r1, 0x134
 /* 800D0B38 000CDA98  38 80 FF FF */	li r4, -1
-/* 800D0B3C 000CDA9C  48 03 5A CD */	bl __dt__16CActorParametersFv
+/* 800D0B3C 000CDA9C  48 03 5A CD */	bl __dt__16CLightParametersFv
 /* 800D0B40 000CDAA0  7F A4 EB 78 */	mr r4, r29
 /* 800D0B44 000CDAA4  38 61 00 6C */	addi r3, r1, 0x6c
 /* 800D0B48 000CDAA8  4B FF 2A 19 */	bl __ct__11CDamageInfoFR12CInputStream
@@ -12813,7 +12813,7 @@ lbl_800D0B10:
 /* 800D0B94 000CDAF4  41 82 00 20 */	beq lbl_800D0BB4
 /* 800D0B98 000CDAF8  38 61 01 9C */	addi r3, r1, 0x19c
 /* 800D0B9C 000CDAFC  38 80 FF FF */	li r4, -1
-/* 800D0BA0 000CDB00  48 03 5A 69 */	bl __dt__16CActorParametersFv
+/* 800D0BA0 000CDB00  48 03 5A 69 */	bl __dt__16CLightParametersFv
 /* 800D0BA4 000CDB04  38 61 00 40 */	addi r3, r1, 0x40
 /* 800D0BA8 000CDB08  48 26 CF 39 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0BAC 000CDB0C  38 60 00 00 */	li r3, 0
@@ -12885,7 +12885,7 @@ lbl_800D0C98:
 lbl_800D0CAC:
 /* 800D0CAC 000CDC0C  38 61 01 9C */	addi r3, r1, 0x19c
 /* 800D0CB0 000CDC10  38 80 FF FF */	li r4, -1
-/* 800D0CB4 000CDC14  48 03 59 55 */	bl __dt__16CActorParametersFv
+/* 800D0CB4 000CDC14  48 03 59 55 */	bl __dt__16CLightParametersFv
 /* 800D0CB8 000CDC18  38 61 00 40 */	addi r3, r1, 0x40
 /* 800D0CBC 000CDC1C  48 26 CE 25 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D0CC0 000CDC20  7F A3 EB 78 */	mr r3, r29
@@ -13238,7 +13238,7 @@ lbl_800D1184:
 /* 800D11A4 000CE104  4B FF 44 79 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D11A8 000CE108  38 61 00 80 */	addi r3, r1, 0x80
 /* 800D11AC 000CE10C  38 80 FF FF */	li r4, -1
-/* 800D11B0 000CE110  48 03 54 59 */	bl __dt__16CActorParametersFv
+/* 800D11B0 000CE110  48 03 54 59 */	bl __dt__16CLightParametersFv
 /* 800D11B4 000CE114  7F E3 FB 78 */	mr r3, r31
 /* 800D11B8 000CE118  48 26 DB 25 */	bl ReadBool__12CInputStreamFv
 /* 800D11BC 000CE11C  7F E3 FB 78 */	mr r3, r31
@@ -13259,7 +13259,7 @@ lbl_800D1184:
 /* 800D11F8 000CE158  40 82 00 20 */	bne lbl_800D1218
 /* 800D11FC 000CE15C  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800D1200 000CE160  38 80 FF FF */	li r4, -1
-/* 800D1204 000CE164  48 03 54 05 */	bl __dt__16CActorParametersFv
+/* 800D1204 000CE164  48 03 54 05 */	bl __dt__16CLightParametersFv
 /* 800D1208 000CE168  38 61 01 50 */	addi r3, r1, 0x150
 /* 800D120C 000CE16C  48 26 C8 D5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D1210 000CE170  38 60 00 00 */	li r3, 0
@@ -13320,7 +13320,7 @@ lbl_800D12D0:
 lbl_800D12E4:
 /* 800D12E4 000CE244  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800D12E8 000CE248  38 80 FF FF */	li r4, -1
-/* 800D12EC 000CE24C  48 03 53 1D */	bl __dt__16CActorParametersFv
+/* 800D12EC 000CE24C  48 03 53 1D */	bl __dt__16CLightParametersFv
 /* 800D12F0 000CE250  38 61 01 50 */	addi r3, r1, 0x150
 /* 800D12F4 000CE254  48 26 C7 ED */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D12F8 000CE258  7F E3 FB 78 */	mr r3, r31
@@ -13390,7 +13390,7 @@ lbl_800D13C0:
 /* 800D13E0 000CE340  4B FF 42 3D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D13E4 000CE344  38 61 00 80 */	addi r3, r1, 0x80
 /* 800D13E8 000CE348  38 80 FF FF */	li r4, -1
-/* 800D13EC 000CE34C  48 03 52 1D */	bl __dt__16CActorParametersFv
+/* 800D13EC 000CE34C  48 03 52 1D */	bl __dt__16CLightParametersFv
 /* 800D13F0 000CE350  7F E3 FB 78 */	mr r3, r31
 /* 800D13F4 000CE354  48 26 D8 E9 */	bl ReadBool__12CInputStreamFv
 /* 800D13F8 000CE358  7F E3 FB 78 */	mr r3, r31
@@ -13404,7 +13404,7 @@ lbl_800D13C0:
 /* 800D1418 000CE378  40 82 00 20 */	bne lbl_800D1438
 /* 800D141C 000CE37C  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800D1420 000CE380  38 80 FF FF */	li r4, -1
-/* 800D1424 000CE384  48 03 51 E5 */	bl __dt__16CActorParametersFv
+/* 800D1424 000CE384  48 03 51 E5 */	bl __dt__16CLightParametersFv
 /* 800D1428 000CE388  38 61 01 50 */	addi r3, r1, 0x150
 /* 800D142C 000CE38C  48 26 C6 B5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D1430 000CE390  38 60 00 00 */	li r3, 0
@@ -13462,7 +13462,7 @@ lbl_800D14E4:
 lbl_800D14F8:
 /* 800D14F8 000CE458  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 800D14FC 000CE45C  38 80 FF FF */	li r4, -1
-/* 800D1500 000CE460  48 03 51 09 */	bl __dt__16CActorParametersFv
+/* 800D1500 000CE460  48 03 51 09 */	bl __dt__16CLightParametersFv
 /* 800D1504 000CE464  38 61 01 50 */	addi r3, r1, 0x150
 /* 800D1508 000CE468  48 26 C5 D9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D150C 000CE46C  7F E3 FB 78 */	mr r3, r31
@@ -13546,7 +13546,7 @@ lbl_800D160C:
 /* 800D162C 000CE58C  4B FF 3F F1 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D1630 000CE590  38 61 01 64 */	addi r3, r1, 0x164
 /* 800D1634 000CE594  38 80 FF FF */	li r4, -1
-/* 800D1638 000CE598  48 03 4F D1 */	bl __dt__16CActorParametersFv
+/* 800D1638 000CE598  48 03 4F D1 */	bl __dt__16CLightParametersFv
 /* 800D163C 000CE59C  7F A3 EB 78 */	mr r3, r29
 /* 800D1640 000CE5A0  48 26 D5 E9 */	bl ReadFloat__12CInputStreamFv
 /* 800D1644 000CE5A4  FF E0 08 90 */	fmr f31, f1
@@ -13649,7 +13649,7 @@ lbl_800D17B0:
 lbl_800D17C4:
 /* 800D17C4 000CE724  38 61 01 CC */	addi r3, r1, 0x1cc
 /* 800D17C8 000CE728  38 80 FF FF */	li r4, -1
-/* 800D17CC 000CE72C  48 03 4E 3D */	bl __dt__16CActorParametersFv
+/* 800D17CC 000CE72C  48 03 4E 3D */	bl __dt__16CLightParametersFv
 /* 800D17D0 000CE730  38 61 00 54 */	addi r3, r1, 0x54
 /* 800D17D4 000CE734  48 26 C3 0D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D17D8 000CE738  7F A3 EB 78 */	mr r3, r29
@@ -13855,7 +13855,7 @@ lbl_800D1A90:
 /* 800D1AB0 000CEA10  4B FF 3B 6D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D1AB4 000CEA14  38 61 01 30 */	addi r3, r1, 0x130
 /* 800D1AB8 000CEA18  38 80 FF FF */	li r4, -1
-/* 800D1ABC 000CEA1C  48 03 4B 4D */	bl __dt__16CActorParametersFv
+/* 800D1ABC 000CEA1C  48 03 4B 4D */	bl __dt__16CLightParametersFv
 /* 800D1AC0 000CEA20  7F 83 E3 78 */	mr r3, r28
 /* 800D1AC4 000CEA24  48 26 D2 19 */	bl ReadBool__12CInputStreamFv
 /* 800D1AC8 000CEA28  7C 79 1B 78 */	mr r25, r3
@@ -13892,7 +13892,7 @@ lbl_800D1A90:
 /* 800D1B44 000CEAA4  41 82 00 20 */	beq lbl_800D1B64
 /* 800D1B48 000CEAA8  38 61 01 98 */	addi r3, r1, 0x198
 /* 800D1B4C 000CEAAC  38 80 FF FF */	li r4, -1
-/* 800D1B50 000CEAB0  48 03 4A B9 */	bl __dt__16CActorParametersFv
+/* 800D1B50 000CEAB0  48 03 4A B9 */	bl __dt__16CLightParametersFv
 /* 800D1B54 000CEAB4  38 61 00 3C */	addi r3, r1, 0x3c
 /* 800D1B58 000CEAB8  48 26 BF 89 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D1B5C 000CEABC  38 60 00 00 */	li r3, 0
@@ -13965,7 +13965,7 @@ lbl_800D1C4C:
 lbl_800D1C60:
 /* 800D1C60 000CEBC0  38 61 01 98 */	addi r3, r1, 0x198
 /* 800D1C64 000CEBC4  38 80 FF FF */	li r4, -1
-/* 800D1C68 000CEBC8  48 03 49 A1 */	bl __dt__16CActorParametersFv
+/* 800D1C68 000CEBC8  48 03 49 A1 */	bl __dt__16CLightParametersFv
 /* 800D1C6C 000CEBCC  38 61 00 3C */	addi r3, r1, 0x3c
 /* 800D1C70 000CEBD0  48 26 BE 71 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D1C74 000CEBD4  7F 83 E3 78 */	mr r3, r28
@@ -14047,7 +14047,7 @@ lbl_800D1D6C:
 /* 800D1D8C 000CECEC  4B FF 38 91 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D1D90 000CECF0  38 61 01 60 */	addi r3, r1, 0x160
 /* 800D1D94 000CECF4  38 80 FF FF */	li r4, -1
-/* 800D1D98 000CECF8  48 03 48 71 */	bl __dt__16CActorParametersFv
+/* 800D1D98 000CECF8  48 03 48 71 */	bl __dt__16CLightParametersFv
 /* 800D1D9C 000CECFC  7E 23 8B 78 */	mr r3, r17
 /* 800D1DA0 000CED00  48 26 CE 89 */	bl ReadFloat__12CInputStreamFv
 /* 800D1DA4 000CED04  FF C0 08 90 */	fmr f30, f1
@@ -14140,7 +14140,7 @@ lbl_800D1D6C:
 /* 800D1F00 000CEE60  41 82 00 20 */	beq lbl_800D1F20
 /* 800D1F04 000CEE64  38 61 01 C8 */	addi r3, r1, 0x1c8
 /* 800D1F08 000CEE68  38 80 FF FF */	li r4, -1
-/* 800D1F0C 000CEE6C  48 03 46 FD */	bl __dt__16CActorParametersFv
+/* 800D1F0C 000CEE6C  48 03 46 FD */	bl __dt__16CLightParametersFv
 /* 800D1F10 000CEE70  38 61 02 30 */	addi r3, r1, 0x230
 /* 800D1F14 000CEE74  48 26 BB CD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D1F18 000CEE78  38 60 00 00 */	li r3, 0
@@ -14227,7 +14227,7 @@ lbl_800D2040:
 lbl_800D2054:
 /* 800D2054 000CEFB4  38 61 01 C8 */	addi r3, r1, 0x1c8
 /* 800D2058 000CEFB8  38 80 FF FF */	li r4, -1
-/* 800D205C 000CEFBC  48 03 45 AD */	bl __dt__16CActorParametersFv
+/* 800D205C 000CEFBC  48 03 45 AD */	bl __dt__16CLightParametersFv
 /* 800D2060 000CEFC0  38 61 02 30 */	addi r3, r1, 0x230
 /* 800D2064 000CEFC4  48 26 BA 7D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D2068 000CEFC8  7E 83 A3 78 */	mr r3, r20
@@ -14312,7 +14312,7 @@ lbl_800D216C:
 /* 800D218C 000CF0EC  4B FF 34 91 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D2190 000CF0F0  38 61 01 0C */	addi r3, r1, 0x10c
 /* 800D2194 000CF0F4  38 80 FF FF */	li r4, -1
-/* 800D2198 000CF0F8  48 03 44 71 */	bl __dt__16CActorParametersFv
+/* 800D2198 000CF0F8  48 03 44 71 */	bl __dt__16CLightParametersFv
 /* 800D219C 000CF0FC  7F 83 E3 78 */	mr r3, r28
 /* 800D21A0 000CF100  48 26 CB 3D */	bl ReadBool__12CInputStreamFv
 /* 800D21A4 000CF104  7C 79 1B 78 */	mr r25, r3
@@ -14331,7 +14331,7 @@ lbl_800D216C:
 /* 800D21D8 000CF138  41 82 00 20 */	beq lbl_800D21F8
 /* 800D21DC 000CF13C  38 61 01 74 */	addi r3, r1, 0x174
 /* 800D21E0 000CF140  38 80 FF FF */	li r4, -1
-/* 800D21E4 000CF144  48 03 44 25 */	bl __dt__16CActorParametersFv
+/* 800D21E4 000CF144  48 03 44 25 */	bl __dt__16CLightParametersFv
 /* 800D21E8 000CF148  38 61 00 34 */	addi r3, r1, 0x34
 /* 800D21EC 000CF14C  48 26 B8 F5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D21F0 000CF150  38 60 00 00 */	li r3, 0
@@ -14399,7 +14399,7 @@ lbl_800D22CC:
 lbl_800D22E0:
 /* 800D22E0 000CF240  38 61 01 74 */	addi r3, r1, 0x174
 /* 800D22E4 000CF244  38 80 FF FF */	li r4, -1
-/* 800D22E8 000CF248  48 03 43 21 */	bl __dt__16CActorParametersFv
+/* 800D22E8 000CF248  48 03 43 21 */	bl __dt__16CLightParametersFv
 /* 800D22EC 000CF24C  38 61 00 34 */	addi r3, r1, 0x34
 /* 800D22F0 000CF250  48 26 B7 F1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D22F4 000CF254  7F 83 E3 78 */	mr r3, r28
@@ -14558,7 +14558,7 @@ lbl_800D2504:
 /* 800D2524 000CF484  4B FF 30 F9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D2528 000CF488  38 61 01 04 */	addi r3, r1, 0x104
 /* 800D252C 000CF48C  38 80 FF FF */	li r4, -1
-/* 800D2530 000CF490  48 03 40 D9 */	bl __dt__16CActorParametersFv
+/* 800D2530 000CF490  48 03 40 D9 */	bl __dt__16CLightParametersFv
 /* 800D2534 000CF494  7E 83 A3 78 */	mr r3, r20
 /* 800D2538 000CF498  48 26 C7 4D */	bl ReadLong__12CInputStreamFv
 /* 800D253C 000CF49C  7C 78 1B 78 */	mr r24, r3
@@ -14604,7 +14604,7 @@ lbl_800D2504:
 /* 800D25DC 000CF53C  41 82 00 20 */	beq lbl_800D25FC
 /* 800D25E0 000CF540  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800D25E4 000CF544  38 80 FF FF */	li r4, -1
-/* 800D25E8 000CF548  48 03 40 21 */	bl __dt__16CActorParametersFv
+/* 800D25E8 000CF548  48 03 40 21 */	bl __dt__16CLightParametersFv
 /* 800D25EC 000CF54C  38 61 01 D4 */	addi r3, r1, 0x1d4
 /* 800D25F0 000CF550  48 26 B4 F1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D25F4 000CF554  38 60 00 00 */	li r3, 0
@@ -14677,7 +14677,7 @@ lbl_800D26E4:
 lbl_800D26F8:
 /* 800D26F8 000CF658  38 61 01 6C */	addi r3, r1, 0x16c
 /* 800D26FC 000CF65C  38 80 FF FF */	li r4, -1
-/* 800D2700 000CF660  48 03 3F 09 */	bl __dt__16CActorParametersFv
+/* 800D2700 000CF660  48 03 3F 09 */	bl __dt__16CLightParametersFv
 /* 800D2704 000CF664  38 61 01 D4 */	addi r3, r1, 0x1d4
 /* 800D2708 000CF668  48 26 B3 D9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D270C 000CF66C  7E E3 BB 78 */	mr r3, r23
@@ -14933,7 +14933,7 @@ lbl_800D2A74:
 /* 800D2A94 000CF9F4  4B FF 2B 89 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D2A98 000CF9F8  38 61 00 88 */	addi r3, r1, 0x88
 /* 800D2A9C 000CF9FC  38 80 FF FF */	li r4, -1
-/* 800D2AA0 000CFA00  48 03 3B 69 */	bl __dt__16CActorParametersFv
+/* 800D2AA0 000CFA00  48 03 3B 69 */	bl __dt__16CLightParametersFv
 /* 800D2AA4 000CFA04  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 800D2AA8 000CFA08  80 81 02 90 */	lwz r4, 0x290(r1)
 /* 800D2AAC 000CFA0C  38 63 00 04 */	addi r3, r3, 4
@@ -14943,7 +14943,7 @@ lbl_800D2A74:
 /* 800D2ABC 000CFA1C  41 82 00 20 */	beq lbl_800D2ADC
 /* 800D2AC0 000CFA20  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800D2AC4 000CFA24  38 80 FF FF */	li r4, -1
-/* 800D2AC8 000CFA28  48 03 3B 41 */	bl __dt__16CActorParametersFv
+/* 800D2AC8 000CFA28  48 03 3B 41 */	bl __dt__16CLightParametersFv
 /* 800D2ACC 000CFA2C  38 61 01 58 */	addi r3, r1, 0x158
 /* 800D2AD0 000CFA30  48 26 B0 11 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D2AD4 000CFA34  38 60 00 00 */	li r3, 0
@@ -15002,7 +15002,7 @@ lbl_800D2B8C:
 lbl_800D2BA0:
 /* 800D2BA0 000CFB00  38 61 00 F0 */	addi r3, r1, 0xf0
 /* 800D2BA4 000CFB04  38 80 FF FF */	li r4, -1
-/* 800D2BA8 000CFB08  48 03 3A 61 */	bl __dt__16CActorParametersFv
+/* 800D2BA8 000CFB08  48 03 3A 61 */	bl __dt__16CLightParametersFv
 /* 800D2BAC 000CFB0C  38 61 01 58 */	addi r3, r1, 0x158
 /* 800D2BB0 000CFB10  48 26 AF 31 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D2BB4 000CFB14  7F 63 DB 78 */	mr r3, r27
@@ -15058,7 +15058,7 @@ lbl_800D2C44:
 /* 800D2C64 000CFBC4  4B FF 29 B9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D2C68 000CFBC8  38 61 00 D8 */	addi r3, r1, 0xd8
 /* 800D2C6C 000CFBCC  38 80 FF FF */	li r4, -1
-/* 800D2C70 000CFBD0  48 03 39 99 */	bl __dt__16CActorParametersFv
+/* 800D2C70 000CFBD0  48 03 39 99 */	bl __dt__16CLightParametersFv
 /* 800D2C74 000CFBD4  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 800D2C78 000CFBD8  80 81 02 E0 */	lwz r4, 0x2e0(r1)
 /* 800D2C7C 000CFBDC  38 63 00 04 */	addi r3, r3, 4
@@ -15068,7 +15068,7 @@ lbl_800D2C44:
 /* 800D2C8C 000CFBEC  41 82 00 20 */	beq lbl_800D2CAC
 /* 800D2C90 000CFBF0  38 61 01 40 */	addi r3, r1, 0x140
 /* 800D2C94 000CFBF4  38 80 FF FF */	li r4, -1
-/* 800D2C98 000CFBF8  48 03 39 71 */	bl __dt__16CActorParametersFv
+/* 800D2C98 000CFBF8  48 03 39 71 */	bl __dt__16CLightParametersFv
 /* 800D2C9C 000CFBFC  38 61 01 A8 */	addi r3, r1, 0x1a8
 /* 800D2CA0 000CFC00  48 26 AE 41 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D2CA4 000CFC04  38 60 00 00 */	li r3, 0
@@ -15164,7 +15164,7 @@ lbl_800D2DEC:
 lbl_800D2E00:
 /* 800D2E00 000CFD60  38 61 01 40 */	addi r3, r1, 0x140
 /* 800D2E04 000CFD64  38 80 FF FF */	li r4, -1
-/* 800D2E08 000CFD68  48 03 38 01 */	bl __dt__16CActorParametersFv
+/* 800D2E08 000CFD68  48 03 38 01 */	bl __dt__16CLightParametersFv
 /* 800D2E0C 000CFD6C  38 61 01 A8 */	addi r3, r1, 0x1a8
 /* 800D2E10 000CFD70  48 26 AC D1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D2E14 000CFD74  7F 63 DB 78 */	mr r3, r27
@@ -16230,7 +16230,7 @@ lbl_800D3C94:
 /* 800D3D80 000D0CE0  4B FF 18 9D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D3D84 000D0CE4  38 61 01 68 */	addi r3, r1, 0x168
 /* 800D3D88 000D0CE8  38 80 FF FF */	li r4, -1
-/* 800D3D8C 000D0CEC  48 03 28 7D */	bl __dt__16CActorParametersFv
+/* 800D3D8C 000D0CEC  48 03 28 7D */	bl __dt__16CLightParametersFv
 /* 800D3D90 000D0CF0  7D C3 73 78 */	mr r3, r14
 /* 800D3D94 000D0CF4  48 26 AE F1 */	bl ReadLong__12CInputStreamFv
 /* 800D3D98 000D0CF8  7C 74 1B 78 */	mr r20, r3
@@ -16389,7 +16389,7 @@ lbl_800D3FD8:
 lbl_800D3FEC:
 /* 800D3FEC 000D0F4C  38 61 01 D0 */	addi r3, r1, 0x1d0
 /* 800D3FF0 000D0F50  38 80 FF FF */	li r4, -1
-/* 800D3FF4 000D0F54  48 03 26 15 */	bl __dt__16CActorParametersFv
+/* 800D3FF4 000D0F54  48 03 26 15 */	bl __dt__16CLightParametersFv
 /* 800D3FF8 000D0F58  38 61 02 38 */	addi r3, r1, 0x238
 /* 800D3FFC 000D0F5C  48 26 9A E5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D4000 000D0F60  7E 43 93 78 */	mr r3, r18
@@ -16484,7 +16484,7 @@ lbl_800D40C4:
 /* 800D4150 000D10B0  4B FF 14 CD */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D4154 000D10B4  38 61 00 A8 */	addi r3, r1, 0xa8
 /* 800D4158 000D10B8  38 80 FF FF */	li r4, -1
-/* 800D415C 000D10BC  48 03 24 AD */	bl __dt__16CActorParametersFv
+/* 800D415C 000D10BC  48 03 24 AD */	bl __dt__16CLightParametersFv
 /* 800D4160 000D10C0  7E E3 BB 78 */	mr r3, r23
 /* 800D4164 000D10C4  48 26 AB 21 */	bl ReadLong__12CInputStreamFv
 /* 800D4168 000D10C8  7C 78 1B 78 */	mr r24, r3
@@ -16505,7 +16505,7 @@ lbl_800D40C4:
 /* 800D41A4 000D1104  40 82 00 20 */	bne lbl_800D41C4
 /* 800D41A8 000D1108  38 61 01 10 */	addi r3, r1, 0x110
 /* 800D41AC 000D110C  38 80 FF FF */	li r4, -1
-/* 800D41B0 000D1110  48 03 24 59 */	bl __dt__16CActorParametersFv
+/* 800D41B0 000D1110  48 03 24 59 */	bl __dt__16CLightParametersFv
 /* 800D41B4 000D1114  38 61 01 78 */	addi r3, r1, 0x178
 /* 800D41B8 000D1118  48 26 99 29 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D41BC 000D111C  38 60 00 00 */	li r3, 0
@@ -16569,7 +16569,7 @@ lbl_800D4288:
 lbl_800D429C:
 /* 800D429C 000D11FC  38 61 01 10 */	addi r3, r1, 0x110
 /* 800D42A0 000D1200  38 80 FF FF */	li r4, -1
-/* 800D42A4 000D1204  48 03 23 65 */	bl __dt__16CActorParametersFv
+/* 800D42A4 000D1204  48 03 23 65 */	bl __dt__16CLightParametersFv
 /* 800D42A8 000D1208  38 61 01 78 */	addi r3, r1, 0x178
 /* 800D42AC 000D120C  48 26 98 35 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D42B0 000D1210  7E E3 BB 78 */	mr r3, r23
@@ -18059,7 +18059,7 @@ lbl_800D585C:
 /* 800D58B4 000D2814  4B FE FD 69 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D58B8 000D2818  38 61 02 18 */	addi r3, r1, 0x218
 /* 800D58BC 000D281C  38 80 FF FF */	li r4, -1
-/* 800D58C0 000D2820  48 03 0D 49 */	bl __dt__16CActorParametersFv
+/* 800D58C0 000D2820  48 03 0D 49 */	bl __dt__16CLightParametersFv
 /* 800D58C4 000D2824  7E A3 AB 78 */	mr r3, r21
 /* 800D58C8 000D2828  48 26 93 61 */	bl ReadFloat__12CInputStreamFv
 /* 800D58CC 000D282C  FF E0 08 90 */	fmr f31, f1
@@ -18106,7 +18106,7 @@ lbl_800D585C:
 /* 800D5970 000D28D0  40 82 00 20 */	bne lbl_800D5990
 /* 800D5974 000D28D4  38 61 03 34 */	addi r3, r1, 0x334
 /* 800D5978 000D28D8  38 80 FF FF */	li r4, -1
-/* 800D597C 000D28DC  48 03 0C 8D */	bl __dt__16CActorParametersFv
+/* 800D597C 000D28DC  48 03 0C 8D */	bl __dt__16CLightParametersFv
 /* 800D5980 000D28E0  38 61 03 9C */	addi r3, r1, 0x39c
 /* 800D5984 000D28E4  48 26 81 5D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D5988 000D28E8  38 60 00 00 */	li r3, 0
@@ -18334,7 +18334,7 @@ lbl_800D5CD0:
 /* 800D5CD4 000D2C34  38 61 03 34 */	addi r3, r1, 0x334
 /* 800D5CD8 000D2C38  98 01 00 84 */	stb r0, 0x84(r1)
 /* 800D5CDC 000D2C3C  38 80 FF FF */	li r4, -1
-/* 800D5CE0 000D2C40  48 03 09 29 */	bl __dt__16CActorParametersFv
+/* 800D5CE0 000D2C40  48 03 09 29 */	bl __dt__16CLightParametersFv
 /* 800D5CE4 000D2C44  38 61 03 9C */	addi r3, r1, 0x39c
 /* 800D5CE8 000D2C48  48 26 7D F9 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D5CEC 000D2C4C  7E C3 B3 78 */	mr r3, r22
@@ -19036,7 +19036,7 @@ lbl_800D65CC:
 /* 800D66FC 000D365C  D0 01 00 B4 */	stfs f0, 0xb4(r1)
 /* 800D6700 000D3660  90 A1 00 B8 */	stw r5, 0xb8(r1)
 /* 800D6704 000D3664  90 01 00 BC */	stw r0, 0xbc(r1)
-/* 800D6708 000D3668  48 02 FF 01 */	bl __dt__16CActorParametersFv
+/* 800D6708 000D3668  48 02 FF 01 */	bl __dt__16CLightParametersFv
 /* 800D670C 000D366C  3C 80 80 3D */	lis r4, lbl_803CE07C@ha
 /* 800D6710 000D3670  38 60 01 48 */	li r3, 0x148
 /* 800D6714 000D3674  38 84 E0 7C */	addi r4, r4, lbl_803CE07C@l
@@ -19082,7 +19082,7 @@ lbl_800D65CC:
 lbl_800D67B4:
 /* 800D67B4 000D3714  38 61 00 80 */	addi r3, r1, 0x80
 /* 800D67B8 000D3718  38 80 FF FF */	li r4, -1
-/* 800D67BC 000D371C  48 02 FE 4D */	bl __dt__16CActorParametersFv
+/* 800D67BC 000D371C  48 02 FE 4D */	bl __dt__16CLightParametersFv
 /* 800D67C0 000D3720  38 61 00 C0 */	addi r3, r1, 0xc0
 /* 800D67C4 000D3724  48 26 73 1D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D67C8 000D3728  7E 03 83 78 */	mr r3, r16
@@ -19147,7 +19147,7 @@ lbl_800D6868:
 /* 800D689C 000D37FC  4B FE ED 81 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D68A0 000D3800  38 61 00 F4 */	addi r3, r1, 0xf4
 /* 800D68A4 000D3804  38 80 FF FF */	li r4, -1
-/* 800D68A8 000D3808  48 02 FD 61 */	bl __dt__16CActorParametersFv
+/* 800D68A8 000D3808  48 02 FD 61 */	bl __dt__16CLightParametersFv
 /* 800D68AC 000D380C  7F 04 C3 78 */	mr r4, r24
 /* 800D68B0 000D3810  38 61 00 54 */	addi r3, r1, 0x54
 /* 800D68B4 000D3814  48 23 E2 D9 */	bl __ct__9CVector3fFR12CInputStream
@@ -19199,7 +19199,7 @@ lbl_800D6868:
 /* 800D696C 000D38CC  40 82 00 20 */	bne lbl_800D698C
 /* 800D6970 000D38D0  38 61 01 A8 */	addi r3, r1, 0x1a8
 /* 800D6974 000D38D4  38 80 FF FF */	li r4, -1
-/* 800D6978 000D38D8  48 02 FC 91 */	bl __dt__16CActorParametersFv
+/* 800D6978 000D38D8  48 02 FC 91 */	bl __dt__16CLightParametersFv
 /* 800D697C 000D38DC  38 61 02 10 */	addi r3, r1, 0x210
 /* 800D6980 000D38E0  48 26 71 61 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D6984 000D38E4  38 60 00 00 */	li r3, 0
@@ -19314,7 +19314,7 @@ lbl_800D6B18:
 /* 800D6B20 000D3A80  48 03 FF 2D */	bl __dt__10CModelDataFv
 /* 800D6B24 000D3A84  38 61 01 A8 */	addi r3, r1, 0x1a8
 /* 800D6B28 000D3A88  38 80 FF FF */	li r4, -1
-/* 800D6B2C 000D3A8C  48 02 FA DD */	bl __dt__16CActorParametersFv
+/* 800D6B2C 000D3A8C  48 02 FA DD */	bl __dt__16CLightParametersFv
 /* 800D6B30 000D3A90  38 61 02 10 */	addi r3, r1, 0x210
 /* 800D6B34 000D3A94  48 26 6F AD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D6B38 000D3A98  7F 03 C3 78 */	mr r3, r24
@@ -19476,7 +19476,7 @@ lbl_800D6D58:
 /* 800D6D78 000D3CD8  4B FE E8 A5 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D6D7C 000D3CDC  38 61 01 70 */	addi r3, r1, 0x170
 /* 800D6D80 000D3CE0  38 80 FF FF */	li r4, -1
-/* 800D6D84 000D3CE4  48 02 F8 85 */	bl __dt__16CActorParametersFv
+/* 800D6D84 000D3CE4  48 02 F8 85 */	bl __dt__16CLightParametersFv
 /* 800D6D88 000D3CE8  7E C3 B3 78 */	mr r3, r22
 /* 800D6D8C 000D3CEC  48 26 7F 51 */	bl ReadBool__12CInputStreamFv
 /* 800D6D90 000D3CF0  7C 75 1B 78 */	mr r21, r3
@@ -19504,7 +19504,7 @@ lbl_800D6D58:
 /* 800D6DE8 000D3D48  41 82 00 20 */	beq lbl_800D6E08
 /* 800D6DEC 000D3D4C  38 61 01 D8 */	addi r3, r1, 0x1d8
 /* 800D6DF0 000D3D50  38 80 FF FF */	li r4, -1
-/* 800D6DF4 000D3D54  48 02 F8 15 */	bl __dt__16CActorParametersFv
+/* 800D6DF4 000D3D54  48 02 F8 15 */	bl __dt__16CLightParametersFv
 /* 800D6DF8 000D3D58  38 61 00 44 */	addi r3, r1, 0x44
 /* 800D6DFC 000D3D5C  48 26 6C E5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D6E00 000D3D60  38 60 00 00 */	li r3, 0
@@ -19589,7 +19589,7 @@ lbl_800D6F20:
 lbl_800D6F34:
 /* 800D6F34 000D3E94  38 61 01 D8 */	addi r3, r1, 0x1d8
 /* 800D6F38 000D3E98  38 80 FF FF */	li r4, -1
-/* 800D6F3C 000D3E9C  48 02 F6 CD */	bl __dt__16CActorParametersFv
+/* 800D6F3C 000D3E9C  48 02 F6 CD */	bl __dt__16CLightParametersFv
 /* 800D6F40 000D3EA0  38 61 00 44 */	addi r3, r1, 0x44
 /* 800D6F44 000D3EA4  48 26 6B 9D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D6F48 000D3EA8  7F 83 E3 78 */	mr r3, r28
@@ -19663,7 +19663,7 @@ lbl_800D7020:
 /* 800D7040 000D3FA0  4B FE E5 DD */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D7044 000D3FA4  38 61 01 74 */	addi r3, r1, 0x174
 /* 800D7048 000D3FA8  38 80 FF FF */	li r4, -1
-/* 800D704C 000D3FAC  48 02 F5 BD */	bl __dt__16CActorParametersFv
+/* 800D704C 000D3FAC  48 02 F5 BD */	bl __dt__16CLightParametersFv
 /* 800D7050 000D3FB0  7F 44 D3 78 */	mr r4, r26
 /* 800D7054 000D3FB4  38 61 00 AC */	addi r3, r1, 0xac
 /* 800D7058 000D3FB8  4B FE C5 09 */	bl __ct__11CDamageInfoFR12CInputStream
@@ -19706,7 +19706,7 @@ lbl_800D7020:
 /* 800D70EC 000D404C  41 82 00 20 */	beq lbl_800D710C
 /* 800D70F0 000D4050  38 61 02 AC */	addi r3, r1, 0x2ac
 /* 800D70F4 000D4054  38 80 FF FF */	li r4, -1
-/* 800D70F8 000D4058  48 02 F5 11 */	bl __dt__16CActorParametersFv
+/* 800D70F8 000D4058  48 02 F5 11 */	bl __dt__16CLightParametersFv
 /* 800D70FC 000D405C  38 61 00 6C */	addi r3, r1, 0x6c
 /* 800D7100 000D4060  48 26 69 E1 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D7104 000D4064  38 60 00 00 */	li r3, 0
@@ -19726,7 +19726,7 @@ lbl_800D710C:
 /* 800D7138 000D4098  38 61 02 AC */	addi r3, r1, 0x2ac
 /* 800D713C 000D409C  98 01 00 A8 */	stb r0, 0xa8(r1)
 /* 800D7140 000D40A0  38 80 FF FF */	li r4, -1
-/* 800D7144 000D40A4  48 02 F4 C5 */	bl __dt__16CActorParametersFv
+/* 800D7144 000D40A4  48 02 F4 C5 */	bl __dt__16CLightParametersFv
 /* 800D7148 000D40A8  38 61 00 6C */	addi r3, r1, 0x6c
 /* 800D714C 000D40AC  48 26 69 95 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D7150 000D40B0  38 60 00 00 */	li r3, 0
@@ -19830,7 +19830,7 @@ lbl_800D72BC:
 /* 800D72C0 000D4220  38 61 02 AC */	addi r3, r1, 0x2ac
 /* 800D72C4 000D4224  98 01 00 A8 */	stb r0, 0xa8(r1)
 /* 800D72C8 000D4228  38 80 FF FF */	li r4, -1
-/* 800D72CC 000D422C  48 02 F3 3D */	bl __dt__16CActorParametersFv
+/* 800D72CC 000D422C  48 02 F3 3D */	bl __dt__16CLightParametersFv
 /* 800D72D0 000D4230  38 61 00 6C */	addi r3, r1, 0x6c
 /* 800D72D4 000D4234  48 26 68 0D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D72D8 000D4238  7F C3 F3 78 */	mr r3, r30
@@ -19918,7 +19918,7 @@ lbl_800D735C:
 /* 800D7400 000D4360  4B FE E2 1D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D7404 000D4364  38 61 01 DC */	addi r3, r1, 0x1dc
 /* 800D7408 000D4368  38 80 FF FF */	li r4, -1
-/* 800D740C 000D436C  48 02 F1 FD */	bl __dt__16CActorParametersFv
+/* 800D740C 000D436C  48 02 F1 FD */	bl __dt__16CLightParametersFv
 /* 800D7410 000D4370  7E 43 93 78 */	mr r3, r18
 /* 800D7414 000D4374  48 26 78 C9 */	bl ReadBool__12CInputStreamFv
 /* 800D7418 000D4378  7C 7E 1B 78 */	mr r30, r3
@@ -19944,7 +19944,7 @@ lbl_800D735C:
 /* 800D7468 000D43C8  40 82 00 20 */	bne lbl_800D7488
 /* 800D746C 000D43CC  38 61 02 90 */	addi r3, r1, 0x290
 /* 800D7470 000D43D0  38 80 FF FF */	li r4, -1
-/* 800D7474 000D43D4  48 02 F1 95 */	bl __dt__16CActorParametersFv
+/* 800D7474 000D43D4  48 02 F1 95 */	bl __dt__16CLightParametersFv
 /* 800D7478 000D43D8  38 61 02 F8 */	addi r3, r1, 0x2f8
 /* 800D747C 000D43DC  48 26 66 65 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D7480 000D43E0  38 60 00 00 */	li r3, 0
@@ -20123,7 +20123,7 @@ lbl_800D7700:
 /* 800D7708 000D4668  48 03 F3 45 */	bl __dt__10CModelDataFv
 /* 800D770C 000D466C  38 61 02 90 */	addi r3, r1, 0x290
 /* 800D7710 000D4670  38 80 FF FF */	li r4, -1
-/* 800D7714 000D4674  48 02 EE F5 */	bl __dt__16CActorParametersFv
+/* 800D7714 000D4674  48 02 EE F5 */	bl __dt__16CLightParametersFv
 /* 800D7718 000D4678  38 61 02 F8 */	addi r3, r1, 0x2f8
 /* 800D771C 000D467C  48 26 63 C5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D7720 000D4680  7E 43 93 78 */	mr r3, r18
@@ -20200,7 +20200,7 @@ lbl_800D779C:
 /* 800D7828 000D4788  4B FE DD F5 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 800D782C 000D478C  38 61 01 FC */	addi r3, r1, 0x1fc
 /* 800D7830 000D4790  38 80 FF FF */	li r4, -1
-/* 800D7834 000D4794  48 02 ED D5 */	bl __dt__16CActorParametersFv
+/* 800D7834 000D4794  48 02 ED D5 */	bl __dt__16CLightParametersFv
 /* 800D7838 000D4798  7D C3 73 78 */	mr r3, r14
 /* 800D783C 000D479C  48 26 74 A1 */	bl ReadBool__12CInputStreamFv
 /* 800D7840 000D47A0  7C 74 1B 78 */	mr r20, r3
@@ -20250,7 +20250,7 @@ lbl_800D779C:
 /* 800D78F0 000D4850  40 82 00 20 */	bne lbl_800D7910
 /* 800D78F4 000D4854  38 61 02 B0 */	addi r3, r1, 0x2b0
 /* 800D78F8 000D4858  38 80 FF FF */	li r4, -1
-/* 800D78FC 000D485C  48 02 ED 0D */	bl __dt__16CActorParametersFv
+/* 800D78FC 000D485C  48 02 ED 0D */	bl __dt__16CLightParametersFv
 /* 800D7900 000D4860  38 61 03 80 */	addi r3, r1, 0x380
 /* 800D7904 000D4864  48 26 61 DD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D7908 000D4868  38 60 00 00 */	li r3, 0
@@ -20466,7 +20466,7 @@ lbl_800D7C10:
 /* 800D7C18 000D4B78  48 03 EE 35 */	bl __dt__10CModelDataFv
 /* 800D7C1C 000D4B7C  38 61 02 B0 */	addi r3, r1, 0x2b0
 /* 800D7C20 000D4B80  38 80 FF FF */	li r4, -1
-/* 800D7C24 000D4B84  48 02 E9 E5 */	bl __dt__16CActorParametersFv
+/* 800D7C24 000D4B84  48 02 E9 E5 */	bl __dt__16CLightParametersFv
 /* 800D7C28 000D4B88  38 61 03 80 */	addi r3, r1, 0x380
 /* 800D7C2C 000D4B8C  48 26 5E B5 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800D7C30 000D4B90  7E 03 83 78 */	mr r3, r16
@@ -22821,7 +22821,7 @@ lbl_800D9DDC:
 /* 800D9E70 000D6DD0  D0 01 00 CC */	stfs f0, 0xcc(r1)
 /* 800D9E74 000D6DD4  90 A1 00 D0 */	stw r5, 0xd0(r1)
 /* 800D9E78 000D6DD8  90 01 00 D4 */	stw r0, 0xd4(r1)
-/* 800D9E7C 000D6DDC  48 02 C7 8D */	bl __dt__16CActorParametersFv
+/* 800D9E7C 000D6DDC  48 02 C7 8D */	bl __dt__16CLightParametersFv
 /* 800D9E80 000D6DE0  2C 1B 00 05 */	cmpwi r27, 5
 /* 800D9E84 000D6DE4  40 81 00 18 */	ble lbl_800D9E9C
 /* 800D9E88 000D6DE8  7F E4 FB 78 */	mr r4, r31
@@ -23000,7 +23000,7 @@ lbl_800DA098:
 /* 800DA0DC 000D703C  48 02 C7 ED */	bl sub_801068c8
 /* 800DA0E0 000D7040  38 61 00 98 */	addi r3, r1, 0x98
 /* 800DA0E4 000D7044  38 80 FF FF */	li r4, -1
-/* 800DA0E8 000D7048  48 02 C5 21 */	bl __dt__16CActorParametersFv
+/* 800DA0E8 000D7048  48 02 C5 21 */	bl __dt__16CLightParametersFv
 lbl_800DA0EC:
 /* 800DA0EC 000D704C  E3 E1 01 38 */	psq_l f31, 312(r1), 0, qr0
 /* 800DA0F0 000D7050  CB E1 01 30 */	lfd f31, 0x130(r1)

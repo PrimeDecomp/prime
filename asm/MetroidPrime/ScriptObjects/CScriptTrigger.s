@@ -1331,7 +1331,7 @@ lbl_80076D34:
 /* 80076E28 00073D88  4B FD E9 F9 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 80076E2C 00073D8C  38 61 00 50 */	addi r3, r1, 0x50
 /* 80076E30 00073D90  38 80 FF FF */	li r4, -1
-/* 80076E34 00073D94  48 08 F7 D5 */	bl __dt__16CActorParametersFv
+/* 80076E34 00073D94  48 08 F7 D5 */	bl __dt__16CLightParametersFv
 /* 80076E38 00073D98  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 80076E3C 00073D9C  38 80 FF FF */	li r4, -1
 /* 80076E40 00073DA0  48 09 FC 0D */	bl __dt__10CModelDataFv

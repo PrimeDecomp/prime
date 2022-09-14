@@ -1816,10 +1816,10 @@ lbl_8008F11C:
 /* 8008F280 0008C1E0  4B FC 65 A1 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8008F284 0008C1E4  38 61 01 58 */	addi r3, r1, 0x158
 /* 8008F288 0008C1E8  38 80 FF FF */	li r4, -1
-/* 8008F28C 0008C1EC  48 07 73 7D */	bl __dt__16CActorParametersFv
+/* 8008F28C 0008C1EC  48 07 73 7D */	bl __dt__16CLightParametersFv
 /* 8008F290 0008C1F0  38 61 01 C0 */	addi r3, r1, 0x1c0
 /* 8008F294 0008C1F4  38 80 FF FF */	li r4, -1
-/* 8008F298 0008C1F8  48 07 73 71 */	bl __dt__16CActorParametersFv
+/* 8008F298 0008C1F8  48 07 73 71 */	bl __dt__16CLightParametersFv
 /* 8008F29C 0008C1FC  38 61 02 28 */	addi r3, r1, 0x228
 /* 8008F2A0 0008C200  38 80 FF FF */	li r4, -1
 /* 8008F2A4 0008C204  48 08 77 A9 */	bl __dt__10CModelDataFv

@@ -332,7 +332,7 @@ Accept__24CScriptCameraHintTriggerFR8IVisitor:
 /* 8024B7A0 00248700  4B E0 A0 81 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8024B7A4 00248704  38 61 00 20 */	addi r3, r1, 0x20
 /* 8024B7A8 00248708  38 80 FF FF */	li r4, -1
-/* 8024B7AC 0024870C  4B EB AE 5D */	bl __dt__16CActorParametersFv
+/* 8024B7AC 0024870C  4B EB AE 5D */	bl __dt__16CLightParametersFv
 /* 8024B7B0 00248710  38 61 00 88 */	addi r3, r1, 0x88
 /* 8024B7B4 00248714  38 80 FF FF */	li r4, -1
 /* 8024B7B8 00248718  4B EC B2 95 */	bl __dt__10CModelDataFv

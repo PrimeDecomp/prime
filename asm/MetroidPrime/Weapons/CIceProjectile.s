@@ -2357,7 +2357,7 @@ lbl_801F39D4:
 /* 801F3B44 001F0AA4  4B E6 1C DD */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801F3B48 001F0AA8  38 61 01 00 */	addi r3, r1, 0x100
 /* 801F3B4C 001F0AAC  38 80 FF FF */	li r4, -1
-/* 801F3B50 001F0AB0  4B F1 2A B9 */	bl __dt__16CActorParametersFv
+/* 801F3B50 001F0AB0  4B F1 2A B9 */	bl __dt__16CLightParametersFv
 /* 801F3B54 001F0AB4  38 61 01 68 */	addi r3, r1, 0x168
 /* 801F3B58 001F0AB8  38 80 FF FF */	li r4, -1
 /* 801F3B5C 001F0ABC  4B F2 2E F1 */	bl __dt__10CModelDataFv

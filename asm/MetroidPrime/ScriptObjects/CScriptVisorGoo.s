@@ -566,7 +566,7 @@ lbl_801D7614:
 /* 801D76F0 001D4650  4B E7 E1 31 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801D76F4 001D4654  38 61 00 68 */	addi r3, r1, 0x68
 /* 801D76F8 001D4658  38 80 FF FF */	li r4, -1
-/* 801D76FC 001D465C  4B F2 EF 0D */	bl __dt__16CActorParametersFv
+/* 801D76FC 001D465C  4B F2 EF 0D */	bl __dt__16CLightParametersFv
 /* 801D7700 001D4660  38 61 00 D0 */	addi r3, r1, 0xd0
 /* 801D7704 001D4664  38 80 FF FF */	li r4, -1
 /* 801D7708 001D4668  4B F3 F3 45 */	bl __dt__10CModelDataFv

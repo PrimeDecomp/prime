@@ -236,7 +236,7 @@ lbl_8012F904:
 /* 8012F9D0 0012C930  4B F2 5E 51 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8012F9D4 0012C934  38 61 00 50 */	addi r3, r1, 0x50
 /* 8012F9D8 0012C938  38 80 FF FF */	li r4, -1
-/* 8012F9DC 0012C93C  4B FD 6C 2D */	bl __dt__16CActorParametersFv
+/* 8012F9DC 0012C93C  4B FD 6C 2D */	bl __dt__16CLightParametersFv
 /* 8012F9E0 0012C940  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8012F9E4 0012C944  38 80 FF FF */	li r4, -1
 /* 8012F9E8 0012C948  4B FE 70 65 */	bl __dt__10CModelDataFv

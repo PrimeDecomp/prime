@@ -531,10 +531,10 @@ lbl_8018F18C:
 /* 8018F290 0018C1F0  4B EC 65 91 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8018F294 0018C1F4  38 61 00 30 */	addi r3, r1, 0x30
 /* 8018F298 0018C1F8  38 80 FF FF */	li r4, -1
-/* 8018F29C 0018C1FC  4B F7 73 6D */	bl __dt__16CActorParametersFv
+/* 8018F29C 0018C1FC  4B F7 73 6D */	bl __dt__16CLightParametersFv
 /* 8018F2A0 0018C200  38 61 00 98 */	addi r3, r1, 0x98
 /* 8018F2A4 0018C204  38 80 FF FF */	li r4, -1
-/* 8018F2A8 0018C208  4B F7 73 61 */	bl __dt__16CActorParametersFv
+/* 8018F2A8 0018C208  4B F7 73 61 */	bl __dt__16CLightParametersFv
 /* 8018F2AC 0018C20C  38 61 01 00 */	addi r3, r1, 0x100
 /* 8018F2B0 0018C210  38 80 FF FF */	li r4, -1
 /* 8018F2B4 0018C214  4B F8 77 99 */	bl __dt__10CModelDataFv

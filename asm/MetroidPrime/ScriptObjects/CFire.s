@@ -544,7 +544,7 @@ __ct__5CFire:
 /* 8025D320 0025A280  4B DF 85 01 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8025D324 0025A284  38 61 00 7C */	addi r3, r1, 0x7c
 /* 8025D328 0025A288  38 80 FF FF */	li r4, -1
-/* 8025D32C 0025A28C  4B EA 92 DD */	bl __dt__16CActorParametersFv
+/* 8025D32C 0025A28C  4B EA 92 DD */	bl __dt__16CLightParametersFv
 /* 8025D330 0025A290  38 61 00 E4 */	addi r3, r1, 0xe4
 /* 8025D334 0025A294  38 80 FF FF */	li r4, -1
 /* 8025D338 0025A298  4B EB 97 15 */	bl __dt__10CModelDataFv

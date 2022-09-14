@@ -340,7 +340,7 @@ lbl_8027C950:
 /* 8027CA10 00279970  4B DD 8E 11 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8027CA14 00279974  38 61 00 20 */	addi r3, r1, 0x20
 /* 8027CA18 00279978  38 80 FF FF */	li r4, -1
-/* 8027CA1C 0027997C  4B E8 9B ED */	bl __dt__16CActorParametersFv
+/* 8027CA1C 0027997C  4B E8 9B ED */	bl __dt__16CLightParametersFv
 /* 8027CA20 00279980  38 61 00 88 */	addi r3, r1, 0x88
 /* 8027CA24 00279984  38 80 FF FF */	li r4, -1
 /* 8027CA28 00279988  4B E9 A0 25 */	bl __dt__10CModelDataFv
