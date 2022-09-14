@@ -55,6 +55,7 @@ public:
   static const CTransform4f& GetModelMatrix() { return mModelMatrix; }
 
   static float GetSecondsMod900();
+  static void SetExternalTimeProvider(CTimeProvider* provider);
 
 private:
   static CTransform4f mViewMatrix;

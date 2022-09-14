@@ -3,8 +3,8 @@
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9658
-lbl_805A9658:
+.global gCurrentTimeProvider__13CTimeProvider
+gCurrentTimeProvider__13CTimeProvider:
 	.skip 0x8
 
 .section .text, "ax"
@@ -21,11 +21,11 @@ __dt__13CTimeProviderFv:
 /* 80358278 003551D8  41 82 00 40 */	beq lbl_803582B8
 /* 8035827C 003551DC  80 7E 00 08 */	lwz r3, 8(r30)
 /* 80358280 003551E0  28 03 00 00 */	cmplwi r3, 0
-/* 80358284 003551E4  90 6D AA 98 */	stw r3, lbl_805A9658@sda21(r13)
+/* 80358284 003551E4  90 6D AA 98 */	stw r3, gCurrentTimeProvider__13CTimeProvider@sda21(r13)
 /* 80358288 003551E8  41 82 00 18 */	beq lbl_803582A0
 /* 8035828C 003551EC  38 00 00 01 */	li r0, 1
 /* 80358290 003551F0  98 03 00 04 */	stb r0, 4(r3)
-/* 80358294 003551F4  80 6D AA 98 */	lwz r3, lbl_805A9658@sda21(r13)
+/* 80358294 003551F4  80 6D AA 98 */	lwz r3, gCurrentTimeProvider__13CTimeProvider@sda21(r13)
 /* 80358298 003551F8  4B FB 1C 41 */	bl SetExternalTimeProvider__9CGraphicsFP13CTimeProvider
 /* 8035829C 003551FC  48 00 00 0C */	b lbl_803582A8
 lbl_803582A0:
@@ -55,7 +55,7 @@ __ct__13CTimeProviderFRCf:
 /* 803582E8 00355248  7C 7F 1B 78 */	mr r31, r3
 /* 803582EC 0035524C  90 83 00 00 */	stw r4, 0(r3)
 /* 803582F0 00355250  98 03 00 04 */	stb r0, 4(r3)
-/* 803582F4 00355254  80 0D AA 98 */	lwz r0, lbl_805A9658@sda21(r13)
+/* 803582F4 00355254  80 0D AA 98 */	lwz r0, gCurrentTimeProvider__13CTimeProvider@sda21(r13)
 /* 803582F8 00355258  90 03 00 08 */	stw r0, 8(r3)
 /* 803582FC 0035525C  80 63 00 08 */	lwz r3, 8(r3)
 /* 80358300 00355260  28 03 00 00 */	cmplwi r3, 0
@@ -63,7 +63,7 @@ __ct__13CTimeProviderFRCf:
 /* 80358308 00355268  38 00 00 00 */	li r0, 0
 /* 8035830C 0035526C  98 03 00 04 */	stb r0, 4(r3)
 lbl_80358310:
-/* 80358310 00355270  93 ED AA 98 */	stw r31, lbl_805A9658@sda21(r13)
+/* 80358310 00355270  93 ED AA 98 */	stw r31, gCurrentTimeProvider__13CTimeProvider@sda21(r13)
 /* 80358314 00355274  7F E3 FB 78 */	mr r3, r31
 /* 80358318 00355278  4B FB 1B C1 */	bl SetExternalTimeProvider__9CGraphicsFP13CTimeProvider
 /* 8035831C 0035527C  80 01 00 14 */	lwz r0, 0x14(r1)
