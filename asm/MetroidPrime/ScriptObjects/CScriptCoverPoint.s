@@ -449,7 +449,7 @@ Accept__17CScriptCoverPointFR8IVisitor:
 /* 8012D7EC 0012A74C  4B F2 80 35 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8012D7F0 0012A750  38 61 00 50 */	addi r3, r1, 0x50
 /* 8012D7F4 0012A754  38 80 FF FF */	li r4, -1
-/* 8012D7F8 0012A758  4B FD 8E 11 */	bl __dt__16CActorParametersFv
+/* 8012D7F8 0012A758  4B FD 8E 11 */	bl __dt__16CLightParametersFv
 /* 8012D7FC 0012A75C  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8012D800 0012A760  38 80 FF FF */	li r4, -1
 /* 8012D804 0012A764  4B FE 92 49 */	bl __dt__10CModelDataFv

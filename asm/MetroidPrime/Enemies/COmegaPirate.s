@@ -1047,7 +1047,7 @@ AddToRenderer__Q212COmegaPirate6CFlashCFRC14CFrustumPlanesRC13CStateManager:
 /* 8028BDB0 00288D10  4B DC 9A 71 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8028BDB4 00288D14  38 61 00 60 */	addi r3, r1, 0x60
 /* 8028BDB8 00288D18  38 80 FF FF */	li r4, -1
-/* 8028BDBC 00288D1C  4B E7 A8 4D */	bl __dt__16CActorParametersFv
+/* 8028BDBC 00288D1C  4B E7 A8 4D */	bl __dt__16CLightParametersFv
 /* 8028BDC0 00288D20  38 61 00 C8 */	addi r3, r1, 0xc8
 /* 8028BDC4 00288D24  38 80 FF FF */	li r4, -1
 /* 8028BDC8 00288D28  4B E8 AC 85 */	bl __dt__10CModelDataFv

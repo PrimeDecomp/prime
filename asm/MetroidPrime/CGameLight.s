@@ -300,7 +300,7 @@ SetLight__10CGameLightFRC6CLight:
 /* 800B590C 000B286C  4B F9 FF 15 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 800B5910 000B2870  38 61 00 50 */	addi r3, r1, 0x50
 /* 800B5914 000B2874  38 80 FF FF */	li r4, -1
-/* 800B5918 000B2878  48 05 0C F1 */	bl __dt__16CActorParametersFv
+/* 800B5918 000B2878  48 05 0C F1 */	bl __dt__16CLightParametersFv
 /* 800B591C 000B287C  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 800B5920 000B2880  38 80 FF FF */	li r4, -1
 /* 800B5924 000B2884  48 06 11 29 */	bl __dt__10CModelDataFv

@@ -1087,7 +1087,7 @@ __ct__15CCollisionActorF9TUniqueId7TAreaId9TUniqueIdbff:
 /* 801A9588 001A64E8  4B F7 2F 29 */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 /* 801A958C 001A64EC  38 61 00 B4 */	addi r3, r1, 0xb4
 /* 801A9590 001A64F0  38 80 FF FF */	li r4, -1
-/* 801A9594 001A64F4  4B F5 D0 75 */	bl __dt__16CActorParametersFv
+/* 801A9594 001A64F4  4B F5 D0 75 */	bl __dt__16CLightParametersFv
 /* 801A9598 001A64F8  38 61 01 1C */	addi r3, r1, 0x11c
 /* 801A959C 001A64FC  38 80 FF FF */	li r4, -1
 /* 801A95A0 001A6500  4B F6 D4 AD */	bl __dt__10CModelDataFv
@@ -1384,7 +1384,7 @@ __ct__15CCollisionActorF9TUniqueId9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9A10 001A6970  4B F7 2A A1 */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 /* 801A9A14 001A6974  38 61 00 E4 */	addi r3, r1, 0xe4
 /* 801A9A18 001A6978  38 80 FF FF */	li r4, -1
-/* 801A9A1C 001A697C  4B F5 CB ED */	bl __dt__16CActorParametersFv
+/* 801A9A1C 001A697C  4B F5 CB ED */	bl __dt__16CLightParametersFv
 /* 801A9A20 001A6980  38 61 01 4C */	addi r3, r1, 0x14c
 /* 801A9A24 001A6984  38 80 FF FF */	li r4, -1
 /* 801A9A28 001A6988  4B F6 D0 25 */	bl __dt__10CModelDataFv
@@ -1701,7 +1701,7 @@ __ct__15CCollisionActorF9TUniqueIdCRi9TUniqueIdRC9CVector3fRC9CVector3fbf:
 /* 801A9EE8 001A6E48  4B F7 25 C9 */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 /* 801A9EEC 001A6E4C  38 61 00 AC */	addi r3, r1, 0xac
 /* 801A9EF0 001A6E50  38 80 FF FF */	li r4, -1
-/* 801A9EF4 001A6E54  4B F5 C7 15 */	bl __dt__16CActorParametersFv
+/* 801A9EF4 001A6E54  4B F5 C7 15 */	bl __dt__16CLightParametersFv
 /* 801A9EF8 001A6E58  38 61 01 14 */	addi r3, r1, 0x114
 /* 801A9EFC 001A6E5C  38 80 FF FF */	li r4, -1
 /* 801A9F00 001A6E60  4B F6 CB 4D */	bl __dt__10CModelDataFv

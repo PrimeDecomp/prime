@@ -8,7 +8,7 @@ lbl_803DFF80:
 	# ROM: 0x3DCF80
 	.4byte 0
 	.4byte 0
-	.4byte __dt__16CActorParametersFv
+	.4byte __dt__16CLightParametersFv
 	.4byte 0
 
 .section .sdata
@@ -190,8 +190,8 @@ lbl_80106600:
 /* 80106600 00103560  38 60 00 08 */	li r3, 8
 /* 80106604 00103564  4E 80 00 20 */	blr
 
-.global __dt__16CActorParametersFv
-__dt__16CActorParametersFv:
+.global __dt__16CLightParametersFv
+__dt__16CLightParametersFv:
 /* 80106608 00103568  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8010660C 0010356C  7C 08 02 A6 */	mflr r0
 /* 80106610 00103570  90 01 00 14 */	stw r0, 0x14(r1)
@@ -328,7 +328,7 @@ MakeDamageableTriggerActorParms__FRC16CActorParametersRC16CVisorParameters:
 /* 801067E4 00103744  4B FB EE 39 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 801067E8 00103748  38 61 00 08 */	addi r3, r1, 8
 /* 801067EC 0010374C  38 80 FF FF */	li r4, -1
-/* 801067F0 00103750  4B FF FE 19 */	bl __dt__16CActorParametersFv
+/* 801067F0 00103750  4B FF FE 19 */	bl __dt__16CLightParametersFv
 /* 801067F4 00103754  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 801067F8 00103758  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 801067FC 0010375C  83 C1 00 78 */	lwz r30, 0x78(r1)
@@ -355,7 +355,7 @@ sub_8010680c:
 /* 80106844 001037A4  4B FB ED D9 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 80106848 001037A8  38 61 00 08 */	addi r3, r1, 8
 /* 8010684C 001037AC  38 80 FF FF */	li r4, -1
-/* 80106850 001037B0  4B FF FD B9 */	bl __dt__16CActorParametersFv
+/* 80106850 001037B0  4B FF FD B9 */	bl __dt__16CLightParametersFv
 /* 80106854 001037B4  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 80106858 001037B8  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 8010685C 001037BC  83 C1 00 78 */	lwz r30, 0x78(r1)
@@ -381,7 +381,7 @@ Scannable__16CActorParametersCFRC20CScannableParameters:
 /* 801068A0 00103800  4B FB ED 7D */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 801068A4 00103804  38 61 00 08 */	addi r3, r1, 8
 /* 801068A8 00103808  38 80 FF FF */	li r4, -1
-/* 801068AC 0010380C  4B FF FD 5D */	bl __dt__16CActorParametersFv
+/* 801068AC 0010380C  4B FF FD 5D */	bl __dt__16CLightParametersFv
 /* 801068B0 00103810  80 01 00 84 */	lwz r0, 0x84(r1)
 /* 801068B4 00103814  83 E1 00 7C */	lwz r31, 0x7c(r1)
 /* 801068B8 00103818  83 C1 00 78 */	lwz r30, 0x78(r1)
@@ -504,7 +504,7 @@ __ct__16CActorParametersFv:
 /* 80106A74 001039D4  90 1F 00 38 */	stw r0, 0x38(r31)
 /* 80106A78 001039D8  80 01 00 48 */	lwz r0, 0x48(r1)
 /* 80106A7C 001039DC  90 1F 00 3C */	stw r0, 0x3c(r31)
-/* 80106A80 001039E0  4B FF FB 89 */	bl __dt__16CActorParametersFv
+/* 80106A80 001039E0  4B FF FB 89 */	bl __dt__16CLightParametersFv
 /* 80106A84 001039E4  38 60 FF FF */	li r3, -1
 /* 80106A88 001039E8  80 01 00 08 */	lwz r0, 8(r1)
 /* 80106A8C 001039EC  90 7F 00 40 */	stw r3, 0x40(r31)

@@ -4656,10 +4656,10 @@ lbl_801D2090:
 /* 801D22D8 001CF238  4B E8 35 49 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801D22DC 001CF23C  38 61 00 EC */	addi r3, r1, 0xec
 /* 801D22E0 001CF240  38 80 FF FF */	li r4, -1
-/* 801D22E4 001CF244  4B F3 43 25 */	bl __dt__16CActorParametersFv
+/* 801D22E4 001CF244  4B F3 43 25 */	bl __dt__16CLightParametersFv
 /* 801D22E8 001CF248  38 61 01 54 */	addi r3, r1, 0x154
 /* 801D22EC 001CF24C  38 80 FF FF */	li r4, -1
-/* 801D22F0 001CF250  4B F3 43 19 */	bl __dt__16CActorParametersFv
+/* 801D22F0 001CF250  4B F3 43 19 */	bl __dt__16CLightParametersFv
 /* 801D22F4 001CF254  3C 60 80 3E */	lis r3, lbl_803E5758@ha
 /* 801D22F8 001CF258  38 00 00 01 */	li r0, 1
 /* 801D22FC 001CF25C  38 63 57 58 */	addi r3, r3, lbl_803E5758@l
@@ -5745,7 +5745,7 @@ Accept__18CFishCloudModifierFR8IVisitor:
 /* 801D32A8 001D0208  4B E8 25 79 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801D32AC 001D020C  38 61 00 50 */	addi r3, r1, 0x50
 /* 801D32B0 001D0210  38 80 FF FF */	li r4, -1
-/* 801D32B4 001D0214  4B F3 33 55 */	bl __dt__16CActorParametersFv
+/* 801D32B4 001D0214  4B F3 33 55 */	bl __dt__16CLightParametersFv
 /* 801D32B8 001D0218  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 801D32BC 001D021C  38 80 FF FF */	li r4, -1
 /* 801D32C0 001D0220  4B F4 37 8D */	bl __dt__10CModelDataFv

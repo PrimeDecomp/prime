@@ -333,7 +333,7 @@ Accept__24CScriptCameraPitchVolumeFR8IVisitor:
 /* 802268AC 0022380C  4B E2 EF 75 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 802268B0 00223810  38 61 00 2C */	addi r3, r1, 0x2c
 /* 802268B4 00223814  38 80 FF FF */	li r4, -1
-/* 802268B8 00223818  4B ED FD 51 */	bl __dt__16CActorParametersFv
+/* 802268B8 00223818  4B ED FD 51 */	bl __dt__16CLightParametersFv
 /* 802268BC 0022381C  38 61 00 94 */	addi r3, r1, 0x94
 /* 802268C0 00223820  38 80 FF FF */	li r4, -1
 /* 802268C4 00223824  4B EF 01 89 */	bl __dt__10CModelDataFv

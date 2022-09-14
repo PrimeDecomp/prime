@@ -12409,7 +12409,7 @@ __ct__7CPlayerF9TUniqueIdRC12CTransform4fRC6CAABoxUi9CVector3fffffRC13CMaterialL
 /* 8001A3A8 00017308  48 10 21 09 */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 /* 8001A3AC 0001730C  38 61 01 44 */	addi r3, r1, 0x144
 /* 8001A3B0 00017310  38 80 FF FF */	li r4, -1
-/* 8001A3B4 00017314  48 0E C2 55 */	bl __dt__16CActorParametersFv
+/* 8001A3B4 00017314  48 0E C2 55 */	bl __dt__16CLightParametersFv
 /* 8001A3B8 00017318  38 61 01 AC */	addi r3, r1, 0x1ac
 /* 8001A3BC 0001731C  38 80 FF FF */	li r4, -1
 /* 8001A3C0 00017320  48 0F C6 8D */	bl __dt__10CModelDataFv

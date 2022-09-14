@@ -303,7 +303,7 @@ lbl_801D6710:
 /* 801D6810 001D3770  4B E7 F0 11 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 801D6814 001D3774  38 61 00 50 */	addi r3, r1, 0x50
 /* 801D6818 001D3778  38 80 FF FF */	li r4, -1
-/* 801D681C 001D377C  4B F2 FD ED */	bl __dt__16CActorParametersFv
+/* 801D681C 001D377C  4B F2 FD ED */	bl __dt__16CLightParametersFv
 /* 801D6820 001D3780  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 801D6824 001D3784  38 80 FF FF */	li r4, -1
 /* 801D6828 001D3788  4B F4 02 25 */	bl __dt__10CModelDataFv

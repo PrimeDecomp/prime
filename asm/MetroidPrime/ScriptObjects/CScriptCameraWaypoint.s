@@ -312,7 +312,7 @@ lbl_800B5480:
 /* 800B5554 000B24B4  4B FA 02 CD */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 800B5558 000B24B8  38 61 00 20 */	addi r3, r1, 0x20
 /* 800B555C 000B24BC  38 80 FF FF */	li r4, -1
-/* 800B5560 000B24C0  48 05 10 A9 */	bl __dt__16CActorParametersFv
+/* 800B5560 000B24C0  48 05 10 A9 */	bl __dt__16CLightParametersFv
 /* 800B5564 000B24C4  38 61 00 88 */	addi r3, r1, 0x88
 /* 800B5568 000B24C8  38 80 FF FF */	li r4, -1
 /* 800B556C 000B24CC  48 06 14 E1 */	bl __dt__10CModelDataFv

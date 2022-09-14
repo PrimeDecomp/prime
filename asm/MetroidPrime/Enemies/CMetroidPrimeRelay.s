@@ -1384,7 +1384,7 @@ __ct__19SPrimeExoParametersFR12CInputStream:
 /* 802817F4 0027E754  4B E4 3E 29 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 802817F8 0027E758  38 61 00 10 */	addi r3, r1, 0x10
 /* 802817FC 0027E75C  38 80 FF FF */	li r4, -1
-/* 80281800 0027E760  4B E8 4E 09 */	bl __dt__16CActorParametersFv
+/* 80281800 0027E760  4B E8 4E 09 */	bl __dt__16CLightParametersFv
 /* 80281804 0027E764  7F E3 FB 78 */	mr r3, r31
 /* 80281808 0027E768  48 0B D4 7D */	bl ReadLong__12CInputStreamFv
 /* 8028180C 0027E76C  38 03 FF FF */	addi r0, r3, -1

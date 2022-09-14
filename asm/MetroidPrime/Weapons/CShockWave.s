@@ -1011,7 +1011,7 @@ __ct__10CShockWaveFv:
 /* 80232420 0022F380  4B E2 34 01 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 80232424 0022F384  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 80232428 0022F388  38 80 FF FF */	li r4, -1
-/* 8023242C 0022F38C  4B ED 41 DD */	bl __dt__16CActorParametersFv
+/* 8023242C 0022F38C  4B ED 41 DD */	bl __dt__16CLightParametersFv
 /* 80232430 0022F390  38 61 01 0C */	addi r3, r1, 0x10c
 /* 80232434 0022F394  38 80 FF FF */	li r4, -1
 /* 80232438 0022F398  4B EE 46 15 */	bl __dt__10CModelDataFv

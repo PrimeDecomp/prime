@@ -7322,7 +7322,7 @@ lbl_8022D72C:
 /* 8022D734 0022A694  34 7E 06 00 */	addic. r3, r30, 0x600
 /* 8022D738 0022A698  41 82 00 0C */	beq lbl_8022D744
 /* 8022D73C 0022A69C  38 80 FF FF */	li r4, -1
-/* 8022D740 0022A6A0  4B ED 8E C9 */	bl __dt__16CActorParametersFv
+/* 8022D740 0022A6A0  4B ED 8E C9 */	bl __dt__16CLightParametersFv
 lbl_8022D744:
 /* 8022D744 0022A6A4  34 1E 05 D4 */	addic. r0, r30, 0x5d4
 /* 8022D748 0022A6A8  41 82 00 10 */	beq lbl_8022D758
@@ -7848,7 +7848,7 @@ __ct__16CElitePirateDataFR12CInputStreami:
 /* 8022DF14 0022AE74  4B E9 77 09 */	bl __ct__16CActorParametersFRC16CActorParameters
 /* 8022DF18 0022AE78  38 61 00 14 */	addi r3, r1, 0x14
 /* 8022DF1C 0022AE7C  38 80 FF FF */	li r4, -1
-/* 8022DF20 0022AE80  4B ED 86 E9 */	bl __dt__16CActorParametersFv
+/* 8022DF20 0022AE80  4B ED 86 E9 */	bl __dt__16CLightParametersFv
 /* 8022DF24 0022AE84  7F C4 F3 78 */	mr r4, r30
 /* 8022DF28 0022AE88  38 61 00 08 */	addi r3, r1, 8
 /* 8022DF2C 0022AE8C  4B EA C4 E1 */	bl LoadAnimationParameters__FR12CInputStream

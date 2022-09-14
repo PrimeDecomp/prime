@@ -1203,7 +1203,7 @@ lbl_800C4410:
 /* 800C460C 000C156C  48 05 7E A5 */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 /* 800C4610 000C1570  38 61 00 BC */	addi r3, r1, 0xbc
 /* 800C4614 000C1574  38 80 FF FF */	li r4, -1
-/* 800C4618 000C1578  48 04 1F F1 */	bl __dt__16CActorParametersFv
+/* 800C4618 000C1578  48 04 1F F1 */	bl __dt__16CLightParametersFv
 /* 800C461C 000C157C  38 61 01 24 */	addi r3, r1, 0x124
 /* 800C4620 000C1580  38 80 FF FF */	li r4, -1
 /* 800C4624 000C1584  48 05 24 29 */	bl __dt__10CModelDataFv

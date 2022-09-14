@@ -1097,7 +1097,7 @@ PreThink__12CScriptSoundFfR13CStateManager:
 /* 800B0AA4 000ADA04  4B FA 4D 7D */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 800B0AA8 000ADA08  38 61 00 20 */	addi r3, r1, 0x20
 /* 800B0AAC 000ADA0C  38 80 FF FF */	li r4, -1
-/* 800B0AB0 000ADA10  48 05 5B 59 */	bl __dt__16CActorParametersFv
+/* 800B0AB0 000ADA10  48 05 5B 59 */	bl __dt__16CLightParametersFv
 /* 800B0AB4 000ADA14  38 61 00 88 */	addi r3, r1, 0x88
 /* 800B0AB8 000ADA18  38 80 FF FF */	li r4, -1
 /* 800B0ABC 000ADA1C  48 06 5F 91 */	bl __dt__10CModelDataFv

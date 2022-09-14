@@ -365,7 +365,7 @@ lbl_80232B78:
 /* 80232C50 0022FBB0  4B E8 11 B1 */	bl "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii"
 /* 80232C54 0022FBB4  38 61 00 34 */	addi r3, r1, 0x34
 /* 80232C58 0022FBB8  38 80 FF FF */	li r4, -1
-/* 80232C5C 0022FBBC  4B ED 39 AD */	bl __dt__16CActorParametersFv
+/* 80232C5C 0022FBBC  4B ED 39 AD */	bl __dt__16CLightParametersFv
 /* 80232C60 0022FBC0  38 61 00 9C */	addi r3, r1, 0x9c
 /* 80232C64 0022FBC4  38 80 FF FF */	li r4, -1
 /* 80232C68 0022FBC8  4B EE 3D E5 */	bl __dt__10CModelDataFv

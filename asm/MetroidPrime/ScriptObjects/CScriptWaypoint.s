@@ -395,7 +395,7 @@ lbl_800773F8:
 /* 800774EC 0007444C  4B FD E3 35 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 800774F0 00074450  38 61 00 20 */	addi r3, r1, 0x20
 /* 800774F4 00074454  38 80 FF FF */	li r4, -1
-/* 800774F8 00074458  48 08 F1 11 */	bl __dt__16CActorParametersFv
+/* 800774F8 00074458  48 08 F1 11 */	bl __dt__16CLightParametersFv
 /* 800774FC 0007445C  38 61 00 88 */	addi r3, r1, 0x88
 /* 80077500 00074460  38 80 FF FF */	li r4, -1
 /* 80077504 00074464  48 09 F5 49 */	bl __dt__10CModelDataFv

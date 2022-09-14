@@ -429,7 +429,7 @@ lbl_8015BCB0:
 /* 8015BD70 00158CD0  4B EF 9A B1 */	bl "__ct__6CActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC16CActorParameters9TUniqueId"
 /* 8015BD74 00158CD4  38 61 00 20 */	addi r3, r1, 0x20
 /* 8015BD78 00158CD8  38 80 FF FF */	li r4, -1
-/* 8015BD7C 00158CDC  4B FA A8 8D */	bl __dt__16CActorParametersFv
+/* 8015BD7C 00158CDC  4B FA A8 8D */	bl __dt__16CLightParametersFv
 /* 8015BD80 00158CE0  38 61 00 88 */	addi r3, r1, 0x88
 /* 8015BD84 00158CE4  38 80 FF FF */	li r4, -1
 /* 8015BD88 00158CE8  4B FB AC C5 */	bl __dt__10CModelDataFv

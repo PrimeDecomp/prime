@@ -4302,7 +4302,7 @@ sub_80274230:
 /* 802743A0 00271300  4B EA 81 11 */	bl "__ct__13CPhysicsActorF9TUniqueIdbRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC13CMaterialListRC6CAABoxRC10SMoverDataRC16CActorParametersff"
 /* 802743A4 00271304  38 61 00 8C */	addi r3, r1, 0x8c
 /* 802743A8 00271308  38 80 FF FF */	li r4, -1
-/* 802743AC 0027130C  4B E9 22 5D */	bl __dt__16CActorParametersFv
+/* 802743AC 0027130C  4B E9 22 5D */	bl __dt__16CLightParametersFv
 /* 802743B0 00271310  38 61 00 F4 */	addi r3, r1, 0xf4
 /* 802743B4 00271314  38 80 FF FF */	li r4, -1
 /* 802743B8 00271318  4B EA 26 95 */	bl __dt__10CModelDataFv
