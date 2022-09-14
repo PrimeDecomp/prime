@@ -211,6 +211,9 @@ public:
          const CMaterialList& list, const CActorParameters& params, TUniqueId nextDrawNode);
   ~CActor();
 
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void SetActive(bool active) override;
+
   virtual void PreRender(CStateManager&, const CFrustumPlanes&);
   virtual void AddToRenderer(const CFrustumPlanes&, const CStateManager&) const;
   virtual void Render(const CStateManager&) const;
@@ -226,10 +229,10 @@ public:
   virtual CVector3f GetHomingPosition(const CStateManager&, float) const;
   virtual CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const;
   virtual EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&, const CWeaponMode&,
-                                                                 EProjectileAttrib) const;
+                                                                 int /*EProjectileAttrib?*/) const;
   virtual void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
-  virtual void OnScanStateChanged(EScanState, CStateManager&);
-  virtual CAABox GetSortingBounds(const CStateManager&) const;
+  virtual void OnScanStateChange(EScanState, CStateManager&);
+  virtual CAABox GetSortingBounds(const CTransform4f&) const;
   virtual void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type, float dt);
 
   SAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);

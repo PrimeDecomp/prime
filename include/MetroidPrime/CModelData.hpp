@@ -70,6 +70,7 @@ public:
   bool GetSortThermal() const { return x14_25_sortThermal; }
   void SetSortThermal(bool b) { x14_25_sortThermal = b; }
 
+  static CModelData CModelDataNull();
   static EWhichModel GetRenderingModel(const CStateManager& mgr);
 
 private:
