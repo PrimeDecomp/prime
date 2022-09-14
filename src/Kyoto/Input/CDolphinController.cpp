@@ -3,6 +3,8 @@
 #include "Kyoto/Math/CMath.hpp"
 
 #include <dolphin/gba.h>
+#include <dolphin/os/OSSerial.h>
+
 #include <string.h>
 
 CDolphinController::CDolphinController() : x1c4_(0xf0000000), x1c8_invalidControllers(0), x1cc_(0) {
@@ -36,7 +38,54 @@ void CDolphinController::Poll() {
   ProcessInputData();
 }
 
-void CDolphinController::ReadDevices() {}
+void CDolphinController::ReadDevices() {
+  PADStatus status[4];
+  PADRead(status);
+  if (status[0].err == PAD_ERR_NONE) {
+    PADClamp(status);
+    memcpy(x4_status, status, sizeof(PADStatus) * 4);
+  } else {
+    for (int i = 0; i < 4; ++i) {
+      x4_status[i].err = status[i].err;
+    }
+  }
+
+  for (int i = 0; i < 4; ++i) {
+    uint controller = (PAD_CHAN0_BIT >> i);
+    if (x4_status[i].err != PAD_ERR_NOT_READY) {
+      if (x4_status[i].err == PAD_ERR_NONE) {
+        x34_gamepadStates[i].SetDeviceIsPresent(true);
+      } else if (x4_status[i].err == PAD_ERR_NO_CONTROLLER) {
+        x1c8_invalidControllers |= controller;
+        x34_gamepadStates[i].SetDeviceIsPresent(false);
+      }
+    }
+
+    if (x1b4_controllerTypePollTime[i] != 0) {
+      --x1b4_controllerTypePollTime[i];
+    } else {
+      const u32 type = SIProbe(i);
+      if ((type & (SI_ERROR_NO_RESPONSE | SI_ERROR_UNKNOWN | SI_ERROR_BUSY)) != 0) {
+        if (x1b4_controllerTypePollTime[i] == 0) {
+          x1a4_controllerTypes[i] = skTypeUnknown;
+        }
+      } else {
+        x1b4_controllerTypePollTime[i] = 60;
+        if (type == SI_GC_WAVEBIRD) {
+          x1a4_controllerTypes[i] = skTypeWavebird;
+        } else if (type == SI_GBA) {
+          x1a4_controllerTypes[i] = skTypeGBA;
+        } else if (type == SI_GC_CONTROLLER) {
+          x1a4_controllerTypes[i] = skTypeStandard;
+        }
+      }
+    }
+  }
+
+  if (x1c8_invalidControllers != 0 && PADReset(x1c8_invalidControllers)) {
+    x1c8_invalidControllers = 0;
+  }
+}
 
 void CDolphinController::ProcessInputData() {
   for (int i = 0; i < 4; ++i) {
@@ -56,17 +105,35 @@ void CDolphinController::ProcessAxis(int controller, EJoyAxis axis) {
 
   float axisValue = 0.f;
   switch (axis) {
-  case kJA_LeftX: axisValue = x4_status[controller].stickX; break;
-  case kJA_LeftY: axisValue = x4_status[controller].stickY; break;
-  case kJA_RightX: axisValue = x4_status[controller].substickX; break;
-  case kJA_RightY: axisValue = x4_status[controller].substickY; break;
+  case kJA_LeftX:
+    axisValue = x4_status[controller].stickX;
+    break;
+  case kJA_LeftY:
+    axisValue = x4_status[controller].stickY;
+    break;
+  case kJA_RightX:
+    axisValue = x4_status[controller].substickX;
+    break;
+  case kJA_RightY:
+    axisValue = x4_status[controller].substickY;
+    break;
   }
-#if 0
-  float absolute = CMath::Clamp(kAbsoluteMinimum, axisValue * maxAxisValue, kAbsoluteMaximum);
-  float relativeValue = CMath::Clamp(kRelativeMinimum, absolute - data.GetAbsoluteValue(), kRelativeMaximum);
+
+  float absolute = axisValue * maxAxisValue;
+  if (absolute < kAbsoluteMinimum) {
+    absolute = kAbsoluteMinimum;
+  } else if (absolute > kAbsoluteMaximum) {
+    absolute = kAbsoluteMaximum;
+  }
+
+  float relativeValue = absolute - data.GetAbsoluteValue();
+  if (relativeValue < kRelativeMinimum) {
+    relativeValue = kRelativeMinimum;
+  } else if (relativeValue > kRelativeMaximum) {
+    relativeValue = kRelativeMaximum;
+  }
   data.SetRelativeValue(relativeValue);
   data.SetAbsoluteValue(absolute);
-#endif
 }
 
 static u16 mButtonMapping[size_t(kBU_MAX)] = {
@@ -75,14 +142,12 @@ static u16 mButtonMapping[size_t(kBU_MAX)] = {
 };
 
 void CDolphinController::ProcessButtons(int controller) {
-    for (s32 i = 0; i < s32(kBU_MAX); ++i) {
+  for (s32 i = 0; i < s32(kBU_MAX); ++i) {
     ProcessDigitalButton(controller, x34_gamepadStates[controller].GetButton(EButton(i)), mButtonMapping[i]);
   }
 
-  ProcessAnalogButton(x4_status[controller].triggerL,
-                      x34_gamepadStates[controller].GetAnalogButton(kBA_Left));
-  ProcessAnalogButton(x4_status[controller].triggerR,
-                      x34_gamepadStates[controller].GetAnalogButton(kBA_Right));
+  ProcessAnalogButton(x4_status[controller].triggerL, x34_gamepadStates[controller].GetAnalogButton(kBA_Left));
+  ProcessAnalogButton(x4_status[controller].triggerR, x34_gamepadStates[controller].GetAnalogButton(kBA_Right));
 }
 
 void CDolphinController::ProcessDigitalButton(int controller, CControllerButton& button, u16 mapping) {
@@ -92,7 +157,20 @@ void CDolphinController::ProcessDigitalButton(int controller, CControllerButton&
   button.SetIsPressed(btnPressed);
 }
 
-void CDolphinController::ProcessAnalogButton(float value, CControllerAxis& axis) {}
+void CDolphinController::ProcessAnalogButton(float value, CControllerAxis& axis) {
+  value *= 1.f / 150.f;
+  if (value > kAbsoluteMaximum) {
+    value = kAbsoluteMaximum;
+  }
+
+  float relative = value - axis.GetAbsoluteValue();
+  if (relative > kRelativeMaximum) {
+    relative = kRelativeMaximum;
+  }
+
+  axis.SetRelativeValue(relative);
+  axis.SetAbsoluteValue(value);
+}
 
 uint CDolphinController::GetDeviceCount() const { return 4; }
 
