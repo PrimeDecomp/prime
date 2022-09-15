@@ -26,6 +26,7 @@ public:
   TUniqueId GetUniqueId() const { return x8_uid; }
   TAreaId GetAreaId() const;
   bool GetActive() const { return x30_24_active; }
+  const rstl::vector<SConnection>& GetConnectionList() const { return x20_conns; }
 
   static rstl::vector<SConnection> NullConnectionList;
 

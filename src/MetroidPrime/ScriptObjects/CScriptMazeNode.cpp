@@ -87,7 +87,6 @@ static inline int GetRandom(CRandom16& rand, int offset) {
   return tmp - ((tmp / 5) * 5) + offset;
 }
 
-// TODO non-matching
 void CMazeState::GenerateObstacles() {
   if (!x94_24_initialized) {
     Initialize();
@@ -99,13 +98,12 @@ void CMazeState::GenerateObstacles() {
   int puddle1Idx = GetRandom(x0_rand, 13);
   int puddle2Idx = GetRandom(x0_rand, 29);
 
-  int row = x88_enterRow;
-  int col = x84_enterCol;
-  int prevRow = x88_enterRow;
   int prevCol = x84_enterCol;
-
+  int prevRow = x88_enterRow;
   ESide side = kS_Invalid;
   int idx = 0;
+  int col = prevCol;
+  int row = prevRow;
 
   while (col != x8c_targetCol || row != x90_targetRow) {
     if (idx == gate1Idx || idx == gate2Idx || idx == gate3Idx) {
@@ -129,102 +127,102 @@ void CMazeState::GenerateObstacles() {
       }
     }
 
-    int nextCol = col;
-    int nextRow = row;
-    if (row > 1 && side != kS_Bottom && GetCellInline(col, row).x0_24_openTop && GetCellInline(col, row - 1).x1_25_onPath) {
+    int curCol = col;
+    int curRow = row;
+    if (row > 0 && side != kS_Bottom && GetCellInline(col, row).x0_24_openTop && GetCellInline(col, row - 1).x1_25_onPath) {
       side = kS_Top;
-      nextRow--;
+      row--;
     } else if (row < skMazeRows - 1 && side != kS_Top && GetCellInline(col, row).x0_26_openBottom &&
                GetCellInline(col, row + 1).x1_25_onPath) {
       side = kS_Bottom;
-      nextRow++;
-    } else if (col > 1 && side != kS_Right && GetCellInline(col, row).x0_27_openLeft && GetCellInline(col - 1, row).x1_25_onPath) {
+      row++;
+    } else if (col > 0 && side != kS_Right && GetCellInline(col, row).x0_27_openLeft && GetCellInline(col - 1, row).x1_25_onPath) {
       side = kS_Left;
-      nextCol--;
-    } else if (col < skMazeRows && side != kS_Left && GetCellInline(col, row).x0_25_openRight && GetCellInline(col + 1, row).x1_25_onPath) {
+      col--;
+    } else if (col < skMazeCols - 1 && side != kS_Left && GetCellInline(col, row).x0_25_openRight &&
+               GetCellInline(col + 1, row).x1_25_onPath) {
       side = kS_Right;
-      nextCol++;
+      col++;
     } else {
       return;
     }
 
+#define GetCellInline(c, r) x4_cells[c + r * skMazeCols]
     if (idx == puddle1Idx || idx == puddle2Idx) {
-      if (col == 0 || row == 0 || col == skMazeCols - 1 || row == skMazeRows - 1) {
+      if (curCol == 0 || curRow == 0 || curCol == skMazeCols - 1 || curRow == skMazeRows - 1) {
         if (idx == puddle1Idx) {
           puddle1Idx++;
         } else {
           puddle2Idx++;
         }
       } else {
-        SMazeCell& cell = GetCellInline(col, row);
-        cell.x1_24_puddle = true;
+        // SMazeCell& cell = GetCellInline(curCol, curRow);
+        GetCellInline(curCol, curRow).x1_24_puddle = true;
         switch (side) {
         case kS_Top:
-          GetCellInline(nextCol, nextRow).x0_26_openBottom = false;
-          cell.x0_24_openTop = false;
+          GetCellInline(col, row).x0_26_openBottom = false;
+          GetCellInline(curCol, curRow).x0_24_openTop = false;
           break;
         case kS_Right:
-          GetCellInline(nextCol, nextRow).x0_27_openLeft = false;
-          cell.x0_25_openRight = false;
+          GetCellInline(col, row).x0_27_openLeft = false;
+          GetCellInline(curCol, curRow).x0_25_openRight = false;
           break;
         case kS_Bottom:
-          GetCellInline(nextCol, nextRow).x0_24_openTop = false;
-          cell.x0_26_openBottom = false;
+          GetCellInline(col, row).x0_24_openTop = false;
+          GetCellInline(curCol, curRow).x0_26_openBottom = false;
           break;
         case kS_Left:
-          GetCellInline(nextCol, nextRow).x0_25_openRight = false;
-          cell.x0_27_openLeft = false;
+          GetCellInline(col, row).x0_25_openRight = false;
+          GetCellInline(curCol, curRow).x0_27_openLeft = false;
           break;
         }
       }
     }
 
     idx++;
-    prevCol = col;
-    prevRow = row;
-    col = nextCol;
-    row = nextRow;
-  };
+    prevCol = curCol;
+    prevRow = curRow;
+  }
 }
 
-// TODO non-matching
 void CMazeState::Initialize() {
   int path[NUM_MAZE_CELLS];
+  int pathIdx = 0;
   int targetRow = x90_targetRow;
   int targetCol = x8c_targetCol;
   int cellIdx = x84_enterCol + x88_enterRow * skMazeCols;
-  path[0] = cellIdx;
+  int max = targetCol + targetRow * skMazeCols;
+
+  path[pathIdx++] = cellIdx;
   x4_cells[cellIdx].x1_26_checked = true;
-  int pathLength = 1;
-  while (cellIdx != targetCol + targetRow * skMazeCols) {
+
+  while (cellIdx != max) {
     if (x4_cells[cellIdx].x0_24_openTop && !x4_cells[cellIdx - skMazeCols].x1_26_checked) {
-      path[pathLength] = cellIdx - skMazeCols;
-      pathLength++;
+      path[pathIdx++] = cellIdx - skMazeCols;
     }
     if (x4_cells[cellIdx].x0_25_openRight && !x4_cells[cellIdx + 1].x1_26_checked) {
-      path[pathLength] = cellIdx + 1;
-      pathLength++;
+      path[pathIdx++] = cellIdx + 1;
     }
     if (x4_cells[cellIdx].x0_26_openBottom && !x4_cells[cellIdx + skMazeCols].x1_26_checked) {
-      path[pathLength] = cellIdx + skMazeCols;
-      pathLength++;
+      path[pathIdx++] = cellIdx + skMazeCols;
     }
     if (x4_cells[cellIdx].x0_27_openLeft && !x4_cells[cellIdx - 1].x1_26_checked) {
-      path[pathLength] = cellIdx - 1;
-      pathLength++;
+      path[pathIdx++] = cellIdx - 1;
     }
-    if (cellIdx == path[pathLength - 1]) {
-      pathLength--;
+    if (cellIdx == path[pathIdx - 1]) {
+      pathIdx--;
     }
-    cellIdx = path[pathLength - 1];
+    cellIdx = path[pathIdx - 1];
     x4_cells[cellIdx].x1_26_checked = true;
   }
-  for (; pathLength != 0; pathLength--) {
-    int idx = path[pathLength];
-    if (x4_cells[idx].x1_26_checked) {
-      x4_cells[idx].x1_25_onPath = true;
+
+  while (pathIdx--) {
+    cellIdx = path[pathIdx];
+    if (x4_cells[cellIdx].x1_26_checked) {
+      x4_cells[cellIdx].x1_25_onPath = true;
     }
   }
+
   x94_24_initialized = true;
 }
 
@@ -249,8 +247,49 @@ CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const 
 
 void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
+static inline TUniqueId GenerateObject(CStateManager& mgr, const SConnection& conn) {
+  bool wasGeneratingObject = mgr.IsGeneratingObject();
+  mgr.SetIsGeneratingObject(true);
+  TUniqueId objUid = mgr.GenerateObject(conn.x8_objId).second;
+  mgr.SetIsGeneratingObject(wasGeneratingObject);
+  return objUid;
+}
+
+// TODO non-matching
+// https://decomp.me/scratch/IvHBz
 void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
-  // TODO
+  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+  for (; conn != GetConnectionList().end(); ++conn) {
+    if (conn->x0_state != kSS_MaxReached || conn->x4_msg != kSM_Activate) {
+      continue;
+    }
+    CEntity* ent = mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId));
+    CScriptEffect* scriptEffect = TCastToPtr< CScriptEffect >(ent);
+    CScriptActor* scriptActor = TCastToPtr< CScriptActor >(ent);
+    CScriptTrigger* scriptTrigger = TCastToPtr< CScriptTrigger >(ent);
+    if ((scriptEffect || scriptActor || scriptTrigger) && (!scriptEffect || !x13c_25_hasGate)) {
+      // TUniqueId objUid = GenerateObject(mgr, *conn);
+      bool wasGeneratingObject = mgr.IsGeneratingObject();
+      mgr.SetIsGeneratingObject(true);
+      TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
+      mgr.SetIsGeneratingObject(wasGeneratingObject);
+      if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
+        mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+        if (scriptEffect) {
+          actor->SetTranslation(GetTranslation() + x120_effectPos);
+          x11c_effectId = objUid;
+        }
+        if (scriptActor) {
+          actor->SetTranslation(GetTranslation() + x100_actorPos);
+          xfc_actorId = objUid;
+        }
+        if (scriptTrigger) {
+          actor->SetTranslation(GetTranslation() + x110_triggerPos);
+          x10c_triggerId = objUid;
+        }
+      }
+    }
+  }
 }
 
 void CScriptMazeNode::Reset(CStateManager& mgr) {
@@ -262,6 +301,7 @@ void CScriptMazeNode::Reset(CStateManager& mgr) {
 }
 
 // TODO non-matching
+// https://decomp.me/scratch/3F51I
 void CScriptMazeNode::SendScriptMsgs(CStateManager& mgr, EScriptObjectMessage msg) {
   mgr.SendScriptMsg(mgr.ObjectById(x11c_effectId), GetUniqueId(), msg);
   mgr.SendScriptMsg(mgr.ObjectById(xfc_actorId), GetUniqueId(), msg);
