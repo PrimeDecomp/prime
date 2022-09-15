@@ -81,6 +81,10 @@ public:
 
   static void LoadMazeSeeds();
 
+  inline void SendScriptMsg(CStateManager& mgr, CEntity* to, EScriptObjectMessage msg) {
+    mgr.SendScriptMsg(to, GetUniqueId(), msg);
+  }
+
 private:
   enum ESide {
     Invalid = -1,

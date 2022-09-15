@@ -8,6 +8,7 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
+#include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
@@ -42,8 +43,11 @@ public:
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
   void FreeScriptObject(TUniqueId uid);
+  rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
 
   CEntity* ObjectById(TUniqueId uid);
+  const CEntity* GetObjectById(TUniqueId uid) const;
+  TUniqueId GetIdForScript(TEditorId eid) const;
 
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
@@ -56,6 +60,9 @@ public:
 
   f32 GetThermalColdScale1() const { return xf24_thermColdScale1; }
   f32 GetThermalColdScale2() const { return xf28_thermColdScale2; }
+
+  bool IsGeneratingObject() const { return xf94_26_generatingObject; }
+  void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
 
 private:
   u16 x0_nextFreeIndex;
@@ -83,6 +90,14 @@ private:
   u8 pad2[0x658];
   f32 xf24_thermColdScale1;
   f32 xf28_thermColdScale2;
+  u8 pad3[0x6c];
+  bool xf94_24_readyToRender : 1;
+  bool xf94_25_quitGame : 1;
+  bool xf94_26_generatingObject : 1;
+  bool xf94_27_inMapScreen : 1;
+  bool xf94_28_inSaveUI : 1;
+  bool xf94_29_cinematicPause : 1;
+  bool xf94_30_fullThreat : 1;
 };
 
 #endif

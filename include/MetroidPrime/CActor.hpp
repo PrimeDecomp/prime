@@ -252,6 +252,7 @@ public:
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
+  void SetTranslation(const CVector3f& vec);
 
   /// ????
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
