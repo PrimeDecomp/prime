@@ -587,7 +587,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/src/Kyoto/Input/CDolphinController.o\
 	$(BUILD_DIR)/asm/Kyoto/DolphinCDvdFile.o\
 	$(BUILD_DIR)/asm/Kyoto/Alloc/CMediumAllocPool.o\
-	$(BUILD_DIR)/asm/Kyoto/Alloc/CSmallAllocPool.o\
+	$(BUILD_DIR)/src/Kyoto/Alloc/CSmallAllocPool.o\
 	$(BUILD_DIR)/asm/Kyoto/Alloc/CGameAllocator.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/DolphinCSkinnedModel.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/DolphinCSkinRules.o\

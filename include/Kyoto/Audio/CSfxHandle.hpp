@@ -9,8 +9,8 @@ public:
   CSfxHandle(uint value);
 
   uint GetIndex() const { return mID & 0xFFF; }
-  static NullHandle() { return CSfxHandle(); }
-  bool operator=(const CSfxHandle& other) { mID = other.mID; }
+  static CSfxHandle NullHandle() { return CSfxHandle(); }
+  void operator=(const CSfxHandle& other) { mID = other.mID; }
   bool operator==(const CSfxHandle& other) { return mID == other.mID; }
   bool operator!=(const CSfxHandle& other) { return mID != other.mID; }
   operator bool() const { return mID != 0; }
