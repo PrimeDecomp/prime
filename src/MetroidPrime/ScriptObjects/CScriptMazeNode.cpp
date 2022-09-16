@@ -300,13 +300,11 @@ void CScriptMazeNode::Reset(CStateManager& mgr) {
   x11c_effectId = xfc_actorId = x10c_triggerId = xf4_gateEffectId = kInvalidUniqueId;
 }
 
-// TODO non-matching
-// https://decomp.me/scratch/3F51I
 void CScriptMazeNode::SendScriptMsgs(CStateManager& mgr, EScriptObjectMessage msg) {
-  mgr.SendScriptMsg(mgr.ObjectById(x11c_effectId), GetUniqueId(), msg);
-  mgr.SendScriptMsg(mgr.ObjectById(xfc_actorId), GetUniqueId(), msg);
-  mgr.SendScriptMsg(mgr.ObjectById(x10c_triggerId), GetUniqueId(), msg);
-  mgr.SendScriptMsg(mgr.ObjectById(xf4_gateEffectId), GetUniqueId(), msg);
+  SendScriptMsg(mgr, mgr.ObjectById(x11c_effectId), GetUniqueId(), msg);
+  SendScriptMsg(mgr, mgr.ObjectById(xfc_actorId), GetUniqueId(), msg);
+  SendScriptMsg(mgr, mgr.ObjectById(x10c_triggerId), GetUniqueId(), msg);
+  SendScriptMsg(mgr, mgr.ObjectById(xf4_gateEffectId), GetUniqueId(), msg);
 }
 
 void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {

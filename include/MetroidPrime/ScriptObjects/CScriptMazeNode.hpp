@@ -81,8 +81,8 @@ public:
 
   static void LoadMazeSeeds();
 
-  inline void SendScriptMsg(CStateManager& mgr, CEntity* to, EScriptObjectMessage msg) {
-    mgr.SendScriptMsg(to, GetUniqueId(), msg);
+  static inline void SendScriptMsg(CStateManager& mgr, CEntity* to, TUniqueId sender, EScriptObjectMessage msg) {
+    mgr.SendScriptMsg(to, sender, msg);
   }
 
 private:
