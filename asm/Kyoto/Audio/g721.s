@@ -38,14 +38,6 @@ lbl_803EF840:
 	.4byte 0x02000200
 	.4byte 0x02000000
 	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
 
 .section .text, "ax"
 
