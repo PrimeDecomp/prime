@@ -4601,6 +4601,24 @@ __ct__Q211CSfxManager11CSfxChannelFv:
 
 .section .sdata2, "a"
 .balign 8
+
+.section .sdata2, "a"
+.balign 8
+.global lbl_805AE318
+lbl_805AE318:
+	# ROM: 0x3FABB8
+	.2byte 0x000000FF
+
+.global lbl_805AE31A
+lbl_805AE31A:
+	# ROM: 0x3FABBA
+	.2byte 0x0000007F
+
+.global lbl_805AE31C
+lbl_805AE31C:
+	# ROM: 0x3FABBC
+	.4byte 0xFFFF0000
+
 .global lbl_805AE320
 lbl_805AE320:
 	# ROM: 0x3FABC0
