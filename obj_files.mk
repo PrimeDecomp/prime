@@ -455,7 +455,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CTransitionManager.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CTreeUtils.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/IMetaAnim.o\
-	$(BUILD_DIR)/asm/Kyoto/Audio/CSfxHandle.o\
+	$(BUILD_DIR)/src/Kyoto/Audio/CSfxHandle.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CSfxManager.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CAdvancementDeltas.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CAnimMathUtils.o\

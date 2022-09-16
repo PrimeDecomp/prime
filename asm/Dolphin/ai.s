@@ -10,8 +10,8 @@ AIVersion:
 
 .section .sdata
 .balign 8
-.global lbl_805A8A68
-lbl_805A8A68:
+.global __AIVersion
+__AIVersion:
 	.4byte AIVersion
 	.4byte 0
 
@@ -405,7 +405,7 @@ AIInit:
 /* 8036D3EC 0036A34C  80 0D AB 08 */	lwz r0, __AI_init_flag@sda21(r13)
 /* 8036D3F0 0036A350  2C 00 00 01 */	cmpwi r0, 1
 /* 8036D3F4 0036A354  41 82 01 34 */	beq lbl_8036D528
-/* 8036D3F8 0036A358  80 6D 9E A8 */	lwz r3, lbl_805A8A68@sda21(r13)
+/* 8036D3F8 0036A358  80 6D 9E A8 */	lwz r3, __AIVersion@sda21(r13)
 /* 8036D3FC 0036A35C  48 01 0C 3D */	bl OSRegisterVersion
 /* 8036D400 0036A360  3C 60 80 00 */	lis r3, 0x800000F8@ha
 /* 8036D404 0036A364  80 03 00 F8 */	lwz r0, 0x800000F8@l(r3)

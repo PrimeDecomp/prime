@@ -5,18 +5,19 @@
 
 class CSfxHandle {
 public:
-  CSfxHandle() : value(0) {}
-  CSfxHandle(uint value) : value(value) {}
+  CSfxHandle() : mID(~0) {}
+  CSfxHandle(uint value);
 
-  // GetIndex__10CSfxHandleCFv
-  // NullHandle__10CSfxHandleFv
-  // mRefCount__10CSfxHandle ??
-
-  bool operator==(const CSfxHandle& other) { return value == other.value; }
-  operator bool() const { return value != 0; }
+  uint GetIndex() const { return mID & 0xFFF; }
+  static NullHandle() { return CSfxHandle(); }
+  bool operator=(const CSfxHandle& other) { mID = other.mID; }
+  bool operator==(const CSfxHandle& other) { return mID == other.mID; }
+  bool operator!=(const CSfxHandle& other) { return mID != other.mID; }
+  operator bool() const { return mID != 0; }
 
 private:
-  uint value;
+  uint mID;
+  static uint mRefCount;
 };
 CHECK_SIZEOF(CSfxHandle, 0x4)
 
