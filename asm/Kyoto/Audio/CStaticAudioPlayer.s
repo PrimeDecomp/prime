@@ -4,6 +4,18 @@
 lbl_ctor:
 .4byte __sinit_CStaticAudioPlayer_cpp
 
+.section .data
+.balign 8
+lbl_803EF8C0:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
 .section .bss
 .balign 8
 .lcomm lbl_80540A20, 0xC, 4

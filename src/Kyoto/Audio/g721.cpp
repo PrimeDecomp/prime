@@ -418,9 +418,7 @@ static short	_witab[16] = {-12, 18, 41, 64, 112, 198, 355, 1122,
  */
 static short	_fitab[16] = {0, 0, 0, 0x200, 0x200, 0x200, 0x600, 0xE00,
     0xE00, 0x600, 0x200, 0x200, 0x200, 0, 0, 0};
-/* HACK: To make match */
-/* TODO: Remove this */
-static int padding[8] = { 0, 0, 0, 0, 0, 0, 0, 0};
+
 /*
  * g721_decoder()
  *
