@@ -623,7 +623,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/Input/RumbleAdsr.o\
 	$(BUILD_DIR)/asm/Kyoto/Input/CRumbleGenerator.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/SDSPStream.o\
-	$(BUILD_DIR)/asm/Kyoto/Audio/g721.o\
+	$(BUILD_DIR)/src/Kyoto/Audio/g721.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CStaticAudioPlayer.o\
 	$(BUILD_DIR)/asm/Kyoto/CFrameDelayedKiller.o\
 	
