@@ -5,7 +5,7 @@
 
 .global mRefCount__10CSfxHandle
 mRefCount__10CSfxHandle:
-	.skip 0x8
+	.skip 0x4
 
 .section .text, "ax"
 
