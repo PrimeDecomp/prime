@@ -54,6 +54,7 @@ u32 __OSCoreClock AT_ADDRESS(OS_BASE_CACHED | 0x00FC); // sync with OSLoMem.h
 
 OSTime OSGetTime();
 void OSReport(const char* msg, ...);
+void OSPanic(const char* file, int line, const char* msg, ...);
 
 #ifdef __cplusplus
 }

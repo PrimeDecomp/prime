@@ -20,6 +20,9 @@ lbl_805A97C0:
 .global lbl_805A97C4
 lbl_805A97C4:
 	.skip 0x4
+.global __DVDThreadQueue
+__DVDThreadQueue:
+	.skip 0x8
 
 .section .sdata
 .balign 8
@@ -706,7 +709,7 @@ lbl_80371B3C:
 /* 80371B4C 0036EAAC  38 7B 00 00 */	addi r3, r27, 0
 /* 80371B50 0036EAB0  38 9C 00 00 */	addi r4, r28, 0
 /* 80371B54 0036EAB4  7C A0 EA 14 */	add r5, r0, r29
-/* 80371B58 0036EAB8  48 00 20 1D */	bl sub_80373b74
+/* 80371B58 0036EAB8  48 00 20 1D */	bl DVDPrepareStreamAbsAsync
 /* 80371B5C 0036EABC  BB 61 00 24 */	lmw r27, 0x24(r1)
 /* 80371B60 0036EAC0  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 80371B64 0036EAC4  38 21 00 38 */	addi r1, r1, 0x38
