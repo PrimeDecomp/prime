@@ -6,10 +6,13 @@
 #include "rstl/construct.hpp"
 
 namespace rstl {
+struct optional_object_null {};
+
 template < typename T >
 class optional_object {
 public:
   optional_object() : m_valid(false) {}
+  optional_object(optional_object_null) : m_valid(false) {}
   optional_object(const T& item) : m_valid(true) { rstl::construct< T >(m_data, item); }
   optional_object(const optional_object& other) : m_valid(other.m_valid) {
     if (other.m_valid) {

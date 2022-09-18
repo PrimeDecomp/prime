@@ -107,6 +107,6 @@ rstl::optional_object< CAABox > CScriptPlatform::GetTouchBounds() const {
       return GetBoundingBox();
     }
   } else {
-    return rstl::optional_object< CAABox >();
+    return rstl::optional_object_null();
   }
 }
