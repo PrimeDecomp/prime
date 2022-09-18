@@ -6093,8 +6093,8 @@ lbl_801C5FB4:
 /* 801C5FC4 001C2F24  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
 /* 801C5FC8 001C2F28  90 1E 07 68 */	stw r0, 0x768(r30)
 /* 801C5FCC 001C2F2C  41 82 00 10 */	beq lbl_801C5FDC
-/* 801C5FD0 001C2F30  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 801C5FD4 001C2F34  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 801C5FD0 001C2F30  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 801C5FD4 001C2F34  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 801C5FD8 001C2F38  90 1E 07 68 */	stw r0, 0x768(r30)
 lbl_801C5FDC:
 /* 801C5FDC 001C2F3C  34 1E 07 64 */	addic. r0, r30, 0x764

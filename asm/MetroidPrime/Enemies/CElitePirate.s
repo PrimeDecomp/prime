@@ -7300,8 +7300,8 @@ lbl_8022D6D8:
 /* 8022D6E8 0022A648  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
 /* 8022D6EC 0022A64C  90 1E 07 38 */	stw r0, 0x738(r30)
 /* 8022D6F0 0022A650  41 82 00 10 */	beq lbl_8022D700
-/* 8022D6F4 0022A654  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 8022D6F8 0022A658  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 8022D6F4 0022A654  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 8022D6F8 0022A658  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 8022D6FC 0022A65C  90 1E 07 38 */	stw r0, 0x738(r30)
 lbl_8022D700:
 /* 8022D700 0022A660  34 1E 07 30 */	addic. r0, r30, 0x730

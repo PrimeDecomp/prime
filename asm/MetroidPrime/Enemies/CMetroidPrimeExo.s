@@ -3712,7 +3712,7 @@ lbl_80273AF0:
 /* 80273B40 00270AA0  7F C4 F3 78 */	mr r4, r30
 /* 80273B44 00270AA4  7F 65 DB 78 */	mr r5, r27
 /* 80273B48 00270AA8  38 61 00 2C */	addi r3, r1, 0x2c
-/* 80273B4C 00270AAC  4B DD 47 9D */	bl GenerateObject__13CStateManagerF9TEditorId
+/* 80273B4C 00270AAC  4B DD 47 9D */	bl GenerateObject__13CStateManagerFRC9TEditorId
 /* 80273B50 00270AB0  A0 01 00 30 */	lhz r0, 0x30(r1)
 /* 80273B54 00270AB4  7F C3 F3 78 */	mr r3, r30
 /* 80273B58 00270AB8  38 81 00 10 */	addi r4, r1, 0x10

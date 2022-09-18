@@ -384,7 +384,7 @@ lbl_800B497C:
 /* 800B49F4 000B1954  98 1F 0F 94 */	stb r0, 0xf94(r31)
 /* 800B49F8 000B1958  54 D2 DF FE */	rlwinm r18, r6, 0x1b, 0x1f, 0x1f
 /* 800B49FC 000B195C  38 61 00 E8 */	addi r3, r1, 0xe8
-/* 800B4A00 000B1960  4B F9 38 E9 */	bl GenerateObject__13CStateManagerF9TEditorId
+/* 800B4A00 000B1960  4B F9 38 E9 */	bl GenerateObject__13CStateManagerFRC9TEditorId
 /* 800B4A04 000B1964  A0 81 00 EC */	lhz r4, 0xec(r1)
 /* 800B4A08 000B1968  88 1F 0F 94 */	lbz r0, 0xf94(r31)
 /* 800B4A0C 000B196C  52 40 2E B4 */	rlwimi r0, r18, 5, 0x1a, 0x1a

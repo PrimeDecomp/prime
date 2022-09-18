@@ -1301,9 +1301,9 @@ ValidateFPPosition__7CPlayerF9CVector3fR13CStateManager:
 /* 8017A568 001774C8  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
 /* 8017A56C 001774CC  80 A1 00 E0 */	lwz r5, 0xe0(r1)
 /* 8017A570 001774D0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
-/* 8017A574 001774D4  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 8017A574 001774D4  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8017A578 001774D8  90 01 00 B8 */	stw r0, 0xb8(r1)
-/* 8017A57C 001774DC  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 8017A57C 001774DC  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 8017A580 001774E0  2C 05 00 00 */	cmpwi r5, 0
 /* 8017A584 001774E4  38 60 00 00 */	li r3, 0
 /* 8017A588 001774E8  90 01 00 B8 */	stw r0, 0xb8(r1)
@@ -1335,9 +1335,9 @@ lbl_8017A5DC:
 /* 8017A5DC 0017753C  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
 /* 8017A5E0 00177540  80 A1 00 E0 */	lwz r5, 0xe0(r1)
 /* 8017A5E4 00177544  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
-/* 8017A5E8 00177548  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 8017A5E8 00177548  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8017A5EC 0017754C  90 01 00 B8 */	stw r0, 0xb8(r1)
-/* 8017A5F0 00177550  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 8017A5F0 00177550  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 8017A5F4 00177554  2C 05 00 00 */	cmpwi r5, 0
 /* 8017A5F8 00177558  38 60 00 00 */	li r3, 0
 /* 8017A5FC 0017755C  90 01 00 B8 */	stw r0, 0xb8(r1)

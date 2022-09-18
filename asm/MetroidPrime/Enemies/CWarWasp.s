@@ -6998,8 +6998,8 @@ lbl_80110B9C:
 /* 80110BAC 0010DB0C  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
 /* 80110BB0 0010DB10  90 1E 05 70 */	stw r0, 0x570(r30)
 /* 80110BB4 0010DB14  41 82 00 10 */	beq lbl_80110BC4
-/* 80110BB8 0010DB18  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 80110BBC 0010DB1C  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80110BB8 0010DB18  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 80110BBC 0010DB1C  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80110BC0 0010DB20  90 1E 05 70 */	stw r0, 0x570(r30)
 lbl_80110BC4:
 /* 80110BC4 0010DB24  7F C3 F3 78 */	mr r3, r30

@@ -563,8 +563,8 @@ lbl_801BDD98:
 /* 801BDDAC 001BAD0C  39 03 CA D0 */	addi r8, r3, lbl_803ECAD0@l
 /* 801BDDB0 001BAD10  C0 A1 00 D4 */	lfs f5, 0xd4(r1)
 /* 801BDDB4 001BAD14  91 01 01 38 */	stw r8, 0x138(r1)
-/* 801BDDB8 001BAD18  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 801BDDBC 001BAD1C  38 E3 97 E4 */	addi r7, r3, lbl_803D97E4@l
+/* 801BDDB8 001BAD18  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 801BDDBC 001BAD1C  38 E3 97 E4 */	addi r7, r3, __vt__19CCollisionPrimitive@l
 /* 801BDDC0 001BAD20  C0 81 00 D8 */	lfs f4, 0xd8(r1)
 /* 801BDDC4 001BAD24  C0 61 00 DC */	lfs f3, 0xdc(r1)
 /* 801BDDC8 001BAD28  FC 20 F0 90 */	fmr f1, f30
@@ -643,11 +643,11 @@ lbl_801BDD98:
 /* 801BDEEC 001BAE4C  90 01 01 E8 */	stw r0, 0x1e8(r1)
 /* 801BDEF0 001BAE50  40 82 00 28 */	bne lbl_801BDF18
 /* 801BDEF4 001BAE54  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
-/* 801BDEF8 001BAE58  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 801BDEF8 001BAE58  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 801BDEFC 001BAE5C  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
 /* 801BDF00 001BAE60  38 00 00 00 */	li r0, 0
 /* 801BDF04 001BAE64  90 81 01 F0 */	stw r4, 0x1f0(r1)
-/* 801BDF08 001BAE68  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 801BDF08 001BAE68  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 801BDF0C 001BAE6C  90 61 01 F0 */	stw r3, 0x1f0(r1)
 /* 801BDF10 001BAE70  98 01 00 E8 */	stb r0, 0xe8(r1)
 /* 801BDF14 001BAE74  48 00 00 70 */	b lbl_801BDF84
@@ -673,11 +673,11 @@ lbl_801BDF18:
 /* 801BDF60 001BAEC0  B0 1B 00 00 */	sth r0, 0(r27)
 lbl_801BDF64:
 /* 801BDF64 001BAEC4  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
-/* 801BDF68 001BAEC8  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 801BDF68 001BAEC8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 801BDF6C 001BAECC  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
 /* 801BDF70 001BAED0  38 00 00 00 */	li r0, 0
 /* 801BDF74 001BAED4  90 81 01 F0 */	stw r4, 0x1f0(r1)
-/* 801BDF78 001BAED8  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 801BDF78 001BAED8  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 801BDF7C 001BAEDC  90 61 01 F0 */	stw r3, 0x1f0(r1)
 /* 801BDF80 001BAEE0  98 01 00 E8 */	stb r0, 0xe8(r1)
 lbl_801BDF84:

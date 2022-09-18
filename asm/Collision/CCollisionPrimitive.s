@@ -1392,8 +1392,8 @@ lbl_802CF880:
 
 .global __ct__19CCollisionPrimitiveFRC13CMaterialList
 __ct__19CCollisionPrimitiveFRC13CMaterialList:
-/* 802CF8B4 002CC814  3C A0 80 3E */	lis r5, lbl_803D97E4@ha
-/* 802CF8B8 002CC818  38 05 97 E4 */	addi r0, r5, lbl_803D97E4@l
+/* 802CF8B4 002CC814  3C A0 80 3E */	lis r5, __vt__19CCollisionPrimitive@ha
+/* 802CF8B8 002CC818  38 05 97 E4 */	addi r0, r5, __vt__19CCollisionPrimitive@l
 /* 802CF8BC 002CC81C  90 03 00 00 */	stw r0, 0(r3)
 /* 802CF8C0 002CC820  80 04 00 00 */	lwz r0, 0(r4)
 /* 802CF8C4 002CC824  80 84 00 04 */	lwz r4, 4(r4)

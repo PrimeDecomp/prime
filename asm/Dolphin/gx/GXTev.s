@@ -60,7 +60,7 @@ lbl_8037B438:
 /* 8037B444 003783A4  38 A5 00 14 */	addi r5, r5, 0x14
 /* 8037B448 003783A8  39 29 00 3C */	addi r9, r9, 0x3c
 lbl_8037B44C:
-/* 8037B44C 003783AC  80 E2 CE 08 */	lwz r7, lbl_805AEB28@sda21(r2)
+/* 8037B44C 003783AC  80 E2 CE 08 */	lwz r7, __GXData@sda21(r2)
 /* 8037B450 003783B0  54 63 10 3A */	slwi r3, r3, 2
 /* 8037B454 003783B4  80 05 00 00 */	lwz r0, 0(r5)
 /* 8037B458 003783B8  38 A0 00 61 */	li r5, 0x61
@@ -85,7 +85,7 @@ lbl_8037B44C:
 
 .global GXSetTevColorIn
 GXSetTevColorIn:
-/* 8037B4A4 00378404  81 22 CE 08 */	lwz r9, lbl_805AEB28@sda21(r2)
+/* 8037B4A4 00378404  81 22 CE 08 */	lwz r9, __GXData@sda21(r2)
 /* 8037B4A8 00378408  54 63 10 3A */	slwi r3, r3, 2
 /* 8037B4AC 0037840C  38 00 00 61 */	li r0, 0x61
 /* 8037B4B0 00378410  7D 09 1A 14 */	add r8, r9, r3
@@ -105,7 +105,7 @@ GXSetTevColorIn:
 
 .global GXSetTevAlphaIn
 GXSetTevAlphaIn:
-/* 8037B4E8 00378448  81 22 CE 08 */	lwz r9, lbl_805AEB28@sda21(r2)
+/* 8037B4E8 00378448  81 22 CE 08 */	lwz r9, __GXData@sda21(r2)
 /* 8037B4EC 0037844C  54 63 10 3A */	slwi r3, r3, 2
 /* 8037B4F0 00378450  38 00 00 61 */	li r0, 0x61
 /* 8037B4F4 00378454  7D 09 1A 14 */	add r8, r9, r3
@@ -125,7 +125,7 @@ GXSetTevAlphaIn:
 
 .global GXSetTevColorOp
 GXSetTevColorOp:
-/* 8037B52C 0037848C  80 02 CE 08 */	lwz r0, lbl_805AEB28@sda21(r2)
+/* 8037B52C 0037848C  80 02 CE 08 */	lwz r0, __GXData@sda21(r2)
 /* 8037B530 00378490  54 69 10 3A */	slwi r9, r3, 2
 /* 8037B534 00378494  2C 04 00 01 */	cmpwi r4, 1
 /* 8037B538 00378498  7C 60 4A 14 */	add r3, r0, r9
@@ -142,7 +142,7 @@ lbl_8037B558:
 /* 8037B560 003784C0  50 0A 83 9E */	rlwimi r10, r0, 0x10, 0xe, 0xf
 lbl_8037B564:
 /* 8037B564 003784C4  38 00 00 61 */	li r0, 0x61
-/* 8037B568 003784C8  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037B568 003784C8  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037B56C 003784CC  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037B570 003784D0  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
 /* 8037B574 003784D4  50 EA 9B 18 */	rlwimi r10, r7, 0x13, 0xc, 0xc
@@ -156,7 +156,7 @@ lbl_8037B564:
 
 .global GXSetTevAlphaOp
 GXSetTevAlphaOp:
-/* 8037B594 003784F4  80 02 CE 08 */	lwz r0, lbl_805AEB28@sda21(r2)
+/* 8037B594 003784F4  80 02 CE 08 */	lwz r0, __GXData@sda21(r2)
 /* 8037B598 003784F8  54 69 10 3A */	slwi r9, r3, 2
 /* 8037B59C 003784FC  2C 04 00 01 */	cmpwi r4, 1
 /* 8037B5A0 00378500  7C 60 4A 14 */	add r3, r0, r9
@@ -173,7 +173,7 @@ lbl_8037B5C0:
 /* 8037B5C8 00378528  50 0A 83 9E */	rlwimi r10, r0, 0x10, 0xe, 0xf
 lbl_8037B5CC:
 /* 8037B5CC 0037852C  38 00 00 61 */	li r0, 0x61
-/* 8037B5D0 00378530  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037B5D0 00378530  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037B5D4 00378534  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037B5D8 00378538  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
 /* 8037B5DC 0037853C  50 EA 9B 18 */	rlwimi r10, r7, 0x13, 0xc, 0xc
@@ -197,7 +197,7 @@ GXSetTevColor:
 /* 8037B618 00378578  88 C4 00 01 */	lbz r6, 1(r4)
 /* 8037B61C 0037857C  54 E7 C0 0E */	slwi r7, r7, 0x18
 /* 8037B620 00378580  38 A0 00 61 */	li r5, 0x61
-/* 8037B624 00378584  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037B624 00378584  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037B628 00378588  3C 80 CC 01 */	lis r4, 0xCC008000@ha
 /* 8037B62C 0037858C  98 A4 80 00 */	stb r5, 0xCC008000@l(r4)
 /* 8037B630 00378590  51 27 03 3E */	rlwimi r7, r9, 0, 0xc, 0x1f
@@ -229,7 +229,7 @@ GXSetTevColorS10:
 /* 8037B68C 003785EC  A8 C4 00 02 */	lha r6, 2(r4)
 /* 8037B690 003785F0  55 08 C0 0E */	slwi r8, r8, 0x18
 /* 8037B694 003785F4  38 A0 00 61 */	li r5, 0x61
-/* 8037B698 003785F8  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037B698 003785F8  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037B69C 003785FC  3C 80 CC 01 */	lis r4, 0xCC008000@ha
 /* 8037B6A0 00378600  98 A4 80 00 */	stb r5, 0xCC008000@l(r4)
 /* 8037B6A4 00378604  51 48 02 7E */	rlwimi r8, r10, 0, 9, 0x1f
@@ -261,7 +261,7 @@ GXSetTevKColor:
 /* 8037B700 00378660  89 24 00 02 */	lbz r9, 2(r4)
 /* 8037B704 00378664  54 00 03 0E */	rlwinm r0, r0, 0, 0xc, 7
 /* 8037B708 00378668  64 08 00 80 */	oris r8, r0, 0x80
-/* 8037B70C 0037866C  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037B70C 0037866C  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037B710 00378670  54 E7 C0 0E */	slwi r7, r7, 0x18
 /* 8037B714 00378674  38 00 00 61 */	li r0, 0x61
 /* 8037B718 00378678  3C 80 CC 01 */	lis r4, 0xCC008000@ha
@@ -284,7 +284,7 @@ GXSetTevKColor:
 .global GXSetTevKColorSel
 GXSetTevKColorSel:
 /* 8037B758 003786B8  7C 65 0E 70 */	srawi r5, r3, 1
-/* 8037B75C 003786BC  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 8037B75C 003786BC  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 8037B760 003786C0  54 60 07 FF */	clrlwi. r0, r3, 0x1f
 /* 8037B764 003786C4  54 A3 10 3A */	slwi r3, r5, 2
 /* 8037B768 003786C8  38 E3 01 B0 */	addi r7, r3, 0x1b0
@@ -304,7 +304,7 @@ lbl_8037B78C:
 /* 8037B79C 003786FC  90 07 00 00 */	stw r0, 0(r7)
 lbl_8037B7A0:
 /* 8037B7A0 00378700  38 00 00 61 */	li r0, 0x61
-/* 8037B7A4 00378704  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037B7A4 00378704  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037B7A8 00378708  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037B7AC 0037870C  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
 /* 8037B7B0 00378710  38 00 00 00 */	li r0, 0
@@ -316,7 +316,7 @@ lbl_8037B7A0:
 .global GXSetTevKAlphaSel
 GXSetTevKAlphaSel:
 /* 8037B7C4 00378724  7C 65 0E 70 */	srawi r5, r3, 1
-/* 8037B7C8 00378728  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 8037B7C8 00378728  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 8037B7CC 0037872C  54 60 07 FF */	clrlwi. r0, r3, 0x1f
 /* 8037B7D0 00378730  54 A3 10 3A */	slwi r3, r5, 2
 /* 8037B7D4 00378734  38 E3 01 B0 */	addi r7, r3, 0x1b0
@@ -336,7 +336,7 @@ lbl_8037B7F8:
 /* 8037B808 00378768  90 07 00 00 */	stw r0, 0(r7)
 lbl_8037B80C:
 /* 8037B80C 0037876C  38 00 00 61 */	li r0, 0x61
-/* 8037B810 00378770  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037B810 00378770  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037B814 00378774  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037B818 00378778  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
 /* 8037B81C 0037877C  38 00 00 00 */	li r0, 0
@@ -348,7 +348,7 @@ lbl_8037B80C:
 .global GXSetTevSwapMode
 GXSetTevSwapMode:
 /* 8037B830 00378790  54 63 10 3A */	slwi r3, r3, 2
-/* 8037B834 00378794  80 E2 CE 08 */	lwz r7, lbl_805AEB28@sda21(r2)
+/* 8037B834 00378794  80 E2 CE 08 */	lwz r7, __GXData@sda21(r2)
 /* 8037B838 00378798  39 03 01 70 */	addi r8, r3, 0x170
 /* 8037B83C 0037879C  7D 07 42 14 */	add r8, r7, r8
 /* 8037B840 003787A0  80 08 00 00 */	lwz r0, 0(r8)
@@ -372,7 +372,7 @@ GXSetTevSwapMode:
 .global GXSetTevSwapModeTable
 GXSetTevSwapModeTable:
 /* 8037B884 003787E4  54 6A 08 3C */	slwi r10, r3, 1
-/* 8037B888 003787E8  81 22 CE 08 */	lwz r9, lbl_805AEB28@sda21(r2)
+/* 8037B888 003787E8  81 22 CE 08 */	lwz r9, __GXData@sda21(r2)
 /* 8037B88C 003787EC  54 63 18 38 */	slwi r3, r3, 3
 /* 8037B890 003787F0  39 63 01 B0 */	addi r11, r3, 0x1b0
 /* 8037B894 003787F4  7D 69 5A 14 */	add r11, r9, r11
@@ -413,7 +413,7 @@ GXSetTevSwapModeTable:
 .global GXSetAlphaCompare
 GXSetAlphaCompare:
 /* 8037B91C 0037887C  54 80 06 3E */	clrlwi r0, r4, 0x18
-/* 8037B920 00378880  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037B920 00378880  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037B924 00378884  64 00 F3 00 */	oris r0, r0, 0xf300
 /* 8037B928 00378888  54 00 06 1E */	rlwinm r0, r0, 0, 0x18, 0xf
 /* 8037B92C 0037888C  50 E0 44 2E */	rlwimi r0, r7, 8, 0x10, 0x17
@@ -461,7 +461,7 @@ lbl_8037B9B4:
 /* 8037B9B4 00378914  38 C0 00 02 */	li r6, 2
 lbl_8037B9B8:
 /* 8037B9B8 00378918  38 00 00 61 */	li r0, 0x61
-/* 8037B9BC 0037891C  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037B9BC 0037891C  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037B9C0 00378920  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037B9C4 00378924  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
 /* 8037B9C8 00378928  54 C6 07 B6 */	rlwinm r6, r6, 0, 0x1e, 0x1b
@@ -479,7 +479,7 @@ lbl_8037B9B8:
 .global GXSetTevOrder
 GXSetTevOrder:
 /* 8037B9F4 00378954  7C 67 0E 70 */	srawi r7, r3, 1
-/* 8037B9F8 00378958  81 22 CE 08 */	lwz r9, lbl_805AEB28@sda21(r2)
+/* 8037B9F8 00378958  81 22 CE 08 */	lwz r9, __GXData@sda21(r2)
 /* 8037B9FC 0037895C  54 AA 06 2C */	rlwinm r10, r5, 0, 0x18, 0x16
 /* 8037BA00 00378960  7C E7 01 94 */	addze r7, r7
 /* 8037BA04 00378964  54 60 10 3A */	slwi r0, r3, 2
@@ -498,7 +498,7 @@ lbl_8037BA30:
 lbl_8037BA34:
 /* 8037BA34 00378994  2C 04 00 08 */	cmpwi r4, 8
 /* 8037BA38 00378998  41 80 00 28 */	blt lbl_8037BA60
-/* 8037BA3C 0037899C  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037BA3C 0037899C  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037BA40 003789A0  38 00 00 01 */	li r0, 1
 /* 8037BA44 003789A4  7C 00 18 30 */	slw r0, r0, r3
 /* 8037BA48 003789A8  81 04 04 E0 */	lwz r8, 0x4e0(r4)
@@ -508,7 +508,7 @@ lbl_8037BA34:
 /* 8037BA58 003789B8  90 0A 00 00 */	stw r0, 0(r10)
 /* 8037BA5C 003789BC  48 00 00 20 */	b lbl_8037BA7C
 lbl_8037BA60:
-/* 8037BA60 003789C0  81 02 CE 08 */	lwz r8, lbl_805AEB28@sda21(r2)
+/* 8037BA60 003789C0  81 02 CE 08 */	lwz r8, __GXData@sda21(r2)
 /* 8037BA64 003789C4  38 00 00 01 */	li r0, 1
 /* 8037BA68 003789C8  7C 00 18 30 */	slw r0, r0, r3
 /* 8037BA6C 003789CC  39 48 04 E0 */	addi r10, r8, 0x4e0
@@ -597,7 +597,7 @@ lbl_8037BB88:
 /* 8037BB98 00378AF8  90 07 00 00 */	stw r0, 0(r7)
 lbl_8037BB9C:
 /* 8037BB9C 00378AFC  38 00 00 61 */	li r0, 0x61
-/* 8037BBA0 00378B00  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037BBA0 00378B00  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037BBA4 00378B04  3C A0 CC 01 */	lis r5, 0xCC008000@ha
 /* 8037BBA8 00378B08  98 05 80 00 */	stb r0, 0xCC008000@l(r5)
 /* 8037BBAC 00378B0C  38 00 00 00 */	li r0, 0
@@ -611,7 +611,7 @@ lbl_8037BB9C:
 
 .global GXSetNumTevStages
 GXSetNumTevStages:
-/* 8037BBCC 00378B2C  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037BBCC 00378B2C  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037BBD0 00378B30  54 63 06 3E */	clrlwi r3, r3, 0x18
 /* 8037BBD4 00378B34  38 03 FF FF */	addi r0, r3, -1
 /* 8037BBD8 00378B38  80 64 02 04 */	lwz r3, 0x204(r4)

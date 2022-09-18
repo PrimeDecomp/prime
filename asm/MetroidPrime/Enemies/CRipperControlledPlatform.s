@@ -362,7 +362,7 @@ lbl_80232B78:
 /* 80232C44 0022FBA4  93 C1 00 1C */	stw r30, 0x1c(r1)
 /* 80232C48 0022FBA8  90 01 00 20 */	stw r0, 0x20(r1)
 /* 80232C4C 0022FBAC  90 01 00 24 */	stw r0, 0x24(r1)
-/* 80232C50 0022FBB0  4B E8 11 B1 */	bl "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii"
+/* 80232C50 0022FBB0  4B E8 11 B1 */	bl "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbfbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>bUiUi"
 /* 80232C54 0022FBB4  38 61 00 34 */	addi r3, r1, 0x34
 /* 80232C58 0022FBB8  38 80 FF FF */	li r4, -1
 /* 80232C5C 0022FBBC  4B ED 39 AD */	bl __dt__16CLightParametersFv

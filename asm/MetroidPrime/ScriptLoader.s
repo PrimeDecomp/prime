@@ -18314,7 +18314,7 @@ lbl_800D5C10:
 /* 800D5C8C 000D2BEC  93 81 00 1C */	stw r28, 0x1c(r1)
 /* 800D5C90 000D2BF0  93 A1 00 20 */	stw r29, 0x20(r1)
 /* 800D5C94 000D2BF4  93 C1 00 24 */	stw r30, 0x24(r1)
-/* 800D5C98 000D2BF8  4B FD E1 69 */	bl "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii"
+/* 800D5C98 000D2BF8  4B FD E1 69 */	bl "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbfbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>bUiUi"
 /* 800D5C9C 000D2BFC  7C 76 1B 78 */	mr r22, r3
 lbl_800D5CA0:
 /* 800D5CA0 000D2C00  38 61 02 80 */	addi r3, r1, 0x280

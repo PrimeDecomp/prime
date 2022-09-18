@@ -367,8 +367,8 @@ __dt__11CWallWalkerFv:
 /* 80156AB0 00153A10  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
 /* 80156AB4 00153A14  90 1E 05 90 */	stw r0, 0x590(r30)
 /* 80156AB8 00153A18  41 82 00 10 */	beq lbl_80156AC8
-/* 80156ABC 00153A1C  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 80156AC0 00153A20  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80156ABC 00153A1C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 80156AC0 00153A20  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80156AC4 00153A24  90 1E 05 90 */	stw r0, 0x590(r30)
 lbl_80156AC8:
 /* 80156AC8 00153A28  7F C3 F3 78 */	mr r3, r30
@@ -3266,10 +3266,10 @@ lbl_80159364:
 /* 80159430 00156390  D0 01 00 8C */	stfs f0, 0x8c(r1)
 /* 80159434 00156394  48 02 9F 6D */	bl DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
 /* 80159438 00156398  3C A0 80 3F */	lis r5, lbl_803ECAD0@ha
-/* 8015943C 0015639C  3C 80 80 3E */	lis r4, lbl_803D97E4@ha
+/* 8015943C 0015639C  3C 80 80 3E */	lis r4, __vt__19CCollisionPrimitive@ha
 /* 80159440 001563A0  38 05 CA D0 */	addi r0, r5, lbl_803ECAD0@l
 /* 80159444 001563A4  90 01 00 68 */	stw r0, 0x68(r1)
-/* 80159448 001563A8  38 04 97 E4 */	addi r0, r4, lbl_803D97E4@l
+/* 80159448 001563A8  38 04 97 E4 */	addi r0, r4, __vt__19CCollisionPrimitive@l
 /* 8015944C 001563AC  90 01 00 68 */	stw r0, 0x68(r1)
 /* 80159450 001563B0  83 E1 00 9C */	lwz r31, 0x9c(r1)
 /* 80159454 001563B4  83 C1 00 98 */	lwz r30, 0x98(r1)

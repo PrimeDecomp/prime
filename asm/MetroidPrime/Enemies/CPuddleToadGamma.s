@@ -2145,7 +2145,7 @@ lbl_8014CC14:
 /* 8014CF50 00149EB0  41 82 00 14 */	beq lbl_8014CF64
 /* 8014CF54 00149EB4  80 81 00 48 */	lwz r4, 0x48(r1)
 /* 8014CF58 00149EB8  38 BD 00 68 */	addi r5, r29, 0x68
-/* 8014CF5C 00149EBC  48 16 0A 09 */	bl "__ct__23CCollidableOBBTreeGroupFRCQ24rstl42vector<6CAABox,Q24rstl17rmemory_allocator>R14CCMaterialList"
+/* 8014CF5C 00149EBC  48 16 0A 09 */	bl "__ct__23CCollidableOBBTreeGroupFP32CCollidableOBBTreeGroupContainerRC13CMaterialList"
 /* 8014CF60 00149EC0  7C 7E 1B 78 */	mr r30, r3
 lbl_8014CF64:
 /* 8014CF64 00149EC4  80 7D 05 E4 */	lwz r3, 0x5e4(r29)

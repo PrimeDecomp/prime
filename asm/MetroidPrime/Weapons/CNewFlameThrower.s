@@ -1355,9 +1355,9 @@ lbl_8026212C:
 /* 8026220C 0025F16C  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
 /* 80262210 0025F170  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80262214 0025F174  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
-/* 80262218 0025F178  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80262218 0025F178  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8026221C 0025F17C  90 81 00 60 */	stw r4, 0x60(r1)
-/* 80262220 0025F180  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 80262220 0025F180  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 80262224 0025F184  90 61 00 60 */	stw r3, 0x60(r1)
 /* 80262228 0025F188  41 82 00 1C */	beq lbl_80262244
 /* 8026222C 0025F18C  A0 9B 00 00 */	lhz r4, 0(r27)
@@ -2074,11 +2074,11 @@ lbl_80262C88:
 /* 80262C88 0025FBE8  42 00 00 00 */	bdnz lbl_80262C88
 lbl_80262C8C:
 /* 80262C8C 0025FBEC  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
-/* 80262C90 0025FBF0  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80262C90 0025FBF0  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80262C94 0025FBF4  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
 /* 80262C98 0025FBF8  90 01 02 08 */	stw r0, 0x208(r1)
 /* 80262C9C 0025FBFC  38 80 00 00 */	li r4, 0
-/* 80262CA0 0025FC00  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 80262CA0 0025FC00  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 80262CA4 0025FC04  34 01 26 C8 */	addic. r0, r1, 0x26c8
 /* 80262CA8 0025FC08  90 81 1A AC */	stw r4, 0x1aac(r1)
 /* 80262CAC 0025FC0C  90 61 02 08 */	stw r3, 0x208(r1)
@@ -2206,11 +2206,11 @@ lbl_80262E3C:
 /* 80262E40 0025FDA0  42 00 FF FC */	bdnz lbl_80262E3C
 lbl_80262E44:
 /* 80262E44 0025FDA4  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
-/* 80262E48 0025FDA8  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80262E48 0025FDA8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80262E4C 0025FDAC  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
 /* 80262E50 0025FDB0  38 80 00 00 */	li r4, 0
 /* 80262E54 0025FDB4  90 01 02 08 */	stw r0, 0x208(r1)
-/* 80262E58 0025FDB8  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80262E58 0025FDB8  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80262E5C 0025FDBC  90 81 1A AC */	stw r4, 0x1aac(r1)
 /* 80262E60 0025FDC0  90 01 02 08 */	stw r0, 0x208(r1)
 lbl_80262E64:
@@ -2432,9 +2432,9 @@ lbl_80263184:
 /* 80263184 002600E4  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
 /* 80263188 002600E8  80 A1 02 A4 */	lwz r5, 0x2a4(r1)
 /* 8026318C 002600EC  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
-/* 80263190 002600F0  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80263190 002600F0  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80263194 002600F4  90 01 01 E8 */	stw r0, 0x1e8(r1)
-/* 80263198 002600F8  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80263198 002600F8  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 8026319C 002600FC  2C 05 00 00 */	cmpwi r5, 0
 /* 802631A0 00260100  38 60 00 00 */	li r3, 0
 /* 802631A4 00260104  90 01 01 E8 */	stw r0, 0x1e8(r1)

@@ -48,8 +48,8 @@ __dt__18CCollidableOBBTreeFv:
 /* 802A9908 002A6868  38 03 C4 48 */	addi r0, r3, lbl_803EC448@l
 /* 802A990C 002A686C  90 1F 00 00 */	stw r0, 0(r31)
 /* 802A9910 002A6870  41 82 00 10 */	beq lbl_802A9920
-/* 802A9914 002A6874  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 802A9918 002A6878  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 802A9914 002A6874  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 802A9918 002A6878  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 802A991C 002A687C  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802A9920:
 /* 802A9920 002A6880  7C 80 07 35 */	extsh. r0, r4

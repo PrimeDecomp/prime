@@ -343,7 +343,7 @@ GeneratePickup__22CScriptPickupGeneratorFR13CStateManager9TUniqueId9TEditorId:
 /* 8015E2E4 0015B244  98 1F 0F 94 */	stb r0, 0xf94(r31)
 /* 8015E2E8 0015B248  54 DD DF FE */	rlwinm r29, r6, 0x1b, 0x1f, 0x1f
 /* 8015E2EC 0015B24C  38 61 00 4C */	addi r3, r1, 0x4c
-/* 8015E2F0 0015B250  4B EE 9F F9 */	bl GenerateObject__13CStateManagerF9TEditorId
+/* 8015E2F0 0015B250  4B EE 9F F9 */	bl GenerateObject__13CStateManagerFRC9TEditorId
 /* 8015E2F4 0015B254  A0 81 00 50 */	lhz r4, 0x50(r1)
 /* 8015E2F8 0015B258  88 1F 0F 94 */	lbz r0, 0xf94(r31)
 /* 8015E2FC 0015B25C  53 A0 2E B4 */	rlwimi r0, r29, 5, 0x1a, 0x1a
