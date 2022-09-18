@@ -1769,7 +1769,7 @@ lbl_801A9FC8:
 /* 801A9FE8 001A6F48  41 82 00 14 */	beq lbl_801A9FFC
 /* 801A9FEC 001A6F4C  80 9F 02 78 */	lwz r4, 0x278(r31)
 /* 801A9FF0 001A6F50  38 BF 00 68 */	addi r5, r31, 0x68
-/* 801A9FF4 001A6F54  48 10 39 71 */	bl "__ct__23CCollidableOBBTreeGroupFRCQ24rstl42vector<6CAABox,Q24rstl17rmemory_allocator>R14CCMaterialList"
+/* 801A9FF4 001A6F54  48 10 39 71 */	bl "__ct__23CCollidableOBBTreeGroupFP32CCollidableOBBTreeGroupContainerRC13CMaterialList"
 /* 801A9FF8 001A6F58  7C 60 1B 78 */	mr r0, r3
 lbl_801A9FFC:
 /* 801A9FFC 001A6F5C  90 1F 02 7C */	stw r0, 0x27c(r31)

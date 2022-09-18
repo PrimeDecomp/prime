@@ -1954,11 +1954,11 @@ lbl_802117F8:
 /* 80211960 0020E8C0  D8 01 02 30 */	stfd f0, 0x230(r1)
 lbl_80211964:
 /* 80211964 0020E8C4  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
-/* 80211968 0020E8C8  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80211968 0020E8C8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8021196C 0020E8CC  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
 /* 80211970 0020E8D0  38 00 00 00 */	li r0, 0
 /* 80211974 0020E8D4  90 81 01 E0 */	stw r4, 0x1e0(r1)
-/* 80211978 0020E8D8  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 80211978 0020E8D8  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 8021197C 0020E8DC  90 61 01 E0 */	stw r3, 0x1e0(r1)
 /* 80211980 0020E8E0  98 01 01 30 */	stb r0, 0x130(r1)
 lbl_80211984:

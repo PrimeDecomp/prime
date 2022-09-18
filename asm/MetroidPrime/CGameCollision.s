@@ -261,9 +261,9 @@ sub_8017fb84:
 /* 8017FDD0 0017CD30  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
 /* 8017FDD4 0017CD34  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8017FDD8 0017CD38  3B A4 CA F8 */	addi r29, r4, lbl_803ECAF8@l
-/* 8017FDDC 0017CD3C  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 8017FDDC 0017CD3C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8017FDE0 0017CD40  93 A1 00 F8 */	stw r29, 0xf8(r1)
-/* 8017FDE4 0017CD44  3B C3 97 E4 */	addi r30, r3, lbl_803D97E4@l
+/* 8017FDE4 0017CD44  3B C3 97 E4 */	addi r30, r3, __vt__19CCollisionPrimitive@l
 /* 8017FDE8 0017CD48  93 C1 00 F8 */	stw r30, 0xf8(r1)
 /* 8017FDEC 0017CD4C  41 82 00 A0 */	beq lbl_8017FE8C
 /* 8017FDF0 0017CD50  34 E1 01 C0 */	addic. r7, r1, 0x1c0

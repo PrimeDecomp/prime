@@ -626,8 +626,8 @@ sub_80044008:
 /* 80044028 00040F88  90 03 0F 04 */	stw r0, 0xf04(r3)
 /* 8004402C 00040F8C  4E 80 00 20 */	blr
 
-.global sub_80044030
-sub_80044030:
+.global "SetCurrentMaze__13CStateManagerFRCQ24rstl24single_ptr<10CMazeState>"
+"SetCurrentMaze__13CStateManagerFRCQ24rstl24single_ptr<10CMazeState>":
 /* 80044030 00040F90  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80044034 00040F94  7C 08 02 A6 */	mflr r0
 /* 80044038 00040F98  90 01 00 14 */	stw r0, 0x14(r1)
@@ -652,13 +652,13 @@ lbl_80044070:
 /* 80044080 00040FE0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80044084 00040FE4  4E 80 00 20 */	blr
 
-.global sub_80044088
-sub_80044088:
+.global CurrentMaze__13CStateManagerFv
+CurrentMaze__13CStateManagerFv:
 /* 80044088 00040FE8  80 63 0F 70 */	lwz r3, 0xf70(r3)
 /* 8004408C 00040FEC  4E 80 00 20 */	blr
 
-.global sub_80044090
-sub_80044090:
+.global GetCurrentMaze__13CStateManagerCFv
+GetCurrentMaze__13CStateManagerCFv:
 /* 80044090 00040FF0  80 63 0F 70 */	lwz r3, 0xf70(r3)
 /* 80044094 00040FF4  4E 80 00 20 */	blr
 
@@ -5423,8 +5423,8 @@ lbl_800482C8:
 /* 800482E0 00045240  38 21 00 70 */	addi r1, r1, 0x70
 /* 800482E4 00045244  4E 80 00 20 */	blr
 
-.global GenerateObject__13CStateManagerF9TEditorId
-GenerateObject__13CStateManagerF9TEditorId:
+.global GenerateObject__13CStateManagerFRC9TEditorId
+GenerateObject__13CStateManagerFRC9TEditorId:
 /* 800482E8 00045248  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 800482EC 0004524C  7C 08 02 A6 */	mflr r0
 /* 800482F0 00045250  90 01 00 74 */	stw r0, 0x74(r1)

@@ -137,7 +137,7 @@ lbl_8037BCA0:
 /* 8037BD04 00378C64  50 80 03 7E */	rlwimi r0, r4, 0, 0xd, 0x1f
 /* 8037BD08 00378C68  81 81 00 28 */	lwz r12, 0x28(r1)
 /* 8037BD0C 00378C6C  54 07 02 3E */	clrlwi r7, r0, 8
-/* 8037BD10 00378C70  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037BD10 00378C70  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037BD14 00378C74  64 EA EE 00 */	oris r10, r7, 0xee00
 /* 8037BD18 00378C78  38 00 00 61 */	li r0, 0x61
 /* 8037BD1C 00378C7C  3C 80 CC 01 */	lis r4, 0xCC008000@ha
@@ -230,7 +230,7 @@ GXSetFogRangeAdj:
 /* 8037BE6C 00378DCC  91 26 80 00 */	stw r9, 0xCC008000@l(r6)
 lbl_8037BE70:
 /* 8037BE70 00378DD0  54 85 04 3E */	clrlwi r5, r4, 0x10
-/* 8037BE74 00378DD4  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037BE74 00378DD4  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037BE78 00378DD8  38 05 01 56 */	addi r0, r5, 0x156
 /* 8037BE7C 00378DDC  54 05 05 A8 */	rlwinm r5, r0, 0, 0x16, 0x14
 /* 8037BE80 00378DE0  54 60 53 AA */	rlwinm r0, r3, 0xa, 0xe, 0x15
@@ -247,7 +247,7 @@ lbl_8037BE70:
 
 .global GXSetBlendMode
 GXSetBlendMode:
-/* 8037BEAC 00378E0C  81 02 CE 08 */	lwz r8, lbl_805AEB28@sda21(r2)
+/* 8037BEAC 00378E0C  81 02 CE 08 */	lwz r8, __GXData@sda21(r2)
 /* 8037BEB0 00378E10  20 03 00 03 */	subfic r0, r3, 3
 /* 8037BEB4 00378E14  7C 07 00 34 */	cntlzw r7, r0
 /* 8037BEB8 00378E18  20 03 00 02 */	subfic r0, r3, 2
@@ -271,7 +271,7 @@ GXSetBlendMode:
 
 .global GXSetColorUpdate
 GXSetColorUpdate:
-/* 8037BF00 00378E60  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
+/* 8037BF00 00378E60  80 A2 CE 08 */	lwz r5, __GXData@sda21(r2)
 /* 8037BF04 00378E64  38 00 00 61 */	li r0, 0x61
 /* 8037BF08 00378E68  3C 80 CC 01 */	lis r4, 0xCC008000@ha
 /* 8037BF0C 00378E6C  80 C5 01 D0 */	lwz r6, 0x1d0(r5)
@@ -285,7 +285,7 @@ GXSetColorUpdate:
 
 .global GXSetAlphaUpdate
 GXSetAlphaUpdate:
-/* 8037BF2C 00378E8C  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
+/* 8037BF2C 00378E8C  80 A2 CE 08 */	lwz r5, __GXData@sda21(r2)
 /* 8037BF30 00378E90  38 00 00 61 */	li r0, 0x61
 /* 8037BF34 00378E94  3C 80 CC 01 */	lis r4, 0xCC008000@ha
 /* 8037BF38 00378E98  80 C5 01 D0 */	lwz r6, 0x1d0(r5)
@@ -299,7 +299,7 @@ GXSetAlphaUpdate:
 
 .global GXSetZMode
 GXSetZMode:
-/* 8037BF58 00378EB8  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 8037BF58 00378EB8  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 8037BF5C 00378EBC  38 00 00 61 */	li r0, 0x61
 /* 8037BF60 00378EC0  80 E6 01 D8 */	lwz r7, 0x1d8(r6)
 /* 8037BF64 00378EC4  50 67 07 FE */	rlwimi r7, r3, 0, 0x1f, 0x1f
@@ -315,7 +315,7 @@ GXSetZMode:
 
 .global GXSetZCompLoc
 GXSetZCompLoc:
-/* 8037BF8C 00378EEC  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 8037BF8C 00378EEC  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 8037BF90 00378EF0  54 60 34 B2 */	rlwinm r0, r3, 6, 0x12, 0x19
 /* 8037BF94 00378EF4  38 60 00 61 */	li r3, 0x61
 /* 8037BF98 00378EF8  80 A6 01 DC */	lwz r5, 0x1dc(r6)
@@ -332,7 +332,7 @@ GXSetZCompLoc:
 
 .global GXSetPixelFmt
 GXSetPixelFmt:
-/* 8037BFC4 00378F24  80 E2 CE 08 */	lwz r7, lbl_805AEB28@sda21(r2)
+/* 8037BFC4 00378F24  80 E2 CE 08 */	lwz r7, __GXData@sda21(r2)
 /* 8037BFC8 00378F28  3C A0 80 3F */	lis r5, lbl_803F0C90@ha
 /* 8037BFCC 00378F2C  54 66 10 3A */	slwi r6, r3, 2
 /* 8037BFD0 00378F30  38 05 0C 90 */	addi r0, r5, lbl_803F0C90@l
@@ -361,7 +361,7 @@ GXSetPixelFmt:
 lbl_8037C02C:
 /* 8037C02C 00378F8C  38 00 00 00 */	li r0, 0
 lbl_8037C030:
-/* 8037C030 00378F90  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
+/* 8037C030 00378F90  80 A2 CE 08 */	lwz r5, __GXData@sda21(r2)
 /* 8037C034 00378F94  54 00 4B EC */	rlwinm r0, r0, 9, 0xf, 0x16
 /* 8037C038 00378F98  80 85 02 04 */	lwz r4, 0x204(r5)
 /* 8037C03C 00378F9C  54 84 05 EA */	rlwinm r4, r4, 0, 0x17, 0x15
@@ -374,7 +374,7 @@ lbl_8037C054:
 /* 8037C054 00378FB4  80 0A 00 00 */	lwz r0, 0(r10)
 /* 8037C058 00378FB8  28 00 00 04 */	cmplwi r0, 4
 /* 8037C05C 00378FBC  40 82 00 40 */	bne lbl_8037C09C
-/* 8037C060 00378FC0  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
+/* 8037C060 00378FC0  80 A2 CE 08 */	lwz r5, __GXData@sda21(r2)
 /* 8037C064 00378FC4  38 63 FF FC */	addi r3, r3, -4
 /* 8037C068 00378FC8  38 00 00 61 */	li r0, 0x61
 /* 8037C06C 00378FCC  80 85 01 D4 */	lwz r4, 0x1d4(r5)
@@ -390,14 +390,14 @@ lbl_8037C054:
 /* 8037C094 00378FF4  80 05 01 D4 */	lwz r0, 0x1d4(r5)
 /* 8037C098 00378FF8  90 03 80 00 */	stw r0, 0xCC008000@l(r3)
 lbl_8037C09C:
-/* 8037C09C 00378FFC  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037C09C 00378FFC  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 8037C0A0 00379000  38 00 00 00 */	li r0, 0
 /* 8037C0A4 00379004  B0 03 00 02 */	sth r0, 2(r3)
 /* 8037C0A8 00379008  4E 80 00 20 */	blr
 
 .global GXSetDither
 GXSetDither:
-/* 8037C0AC 0037900C  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 8037C0AC 0037900C  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 8037C0B0 00379010  38 00 00 61 */	li r0, 0x61
 /* 8037C0B4 00379014  3C 80 CC 01 */	lis r4, 0xCC008000@ha
 /* 8037C0B8 00379018  80 A6 01 D0 */	lwz r5, 0x1d0(r6)
@@ -413,7 +413,7 @@ GXSetDither:
 
 .global GXSetDstAlpha
 GXSetDstAlpha:
-/* 8037C0E0 00379040  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 8037C0E0 00379040  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 8037C0E4 00379044  54 85 06 3E */	clrlwi r5, r4, 0x18
 /* 8037C0E8 00379048  38 00 00 61 */	li r0, 0x61
 /* 8037C0EC 0037904C  80 E6 01 D4 */	lwz r7, 0x1d4(r6)
@@ -432,7 +432,7 @@ GXSetDstAlpha:
 .global GXSetFieldMask
 GXSetFieldMask:
 /* 8037C11C 0037907C  54 80 06 3E */	clrlwi r0, r4, 0x18
-/* 8037C120 00379080  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 8037C120 00379080  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 8037C124 00379084  54 05 07 FA */	rlwinm r5, r0, 0, 0x1f, 0x1d
 /* 8037C128 00379088  54 60 0D FC */	rlwinm r0, r3, 1, 0x17, 0x1e
 /* 8037C12C 0037908C  7C A0 03 78 */	or r0, r5, r0
@@ -458,7 +458,7 @@ GXSetFieldMode:
 /* 8037C170 003790D0  3B C0 00 61 */	li r30, 0x61
 /* 8037C174 003790D4  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 8037C178 003790D8  7C 7D 1B 78 */	mr r29, r3
-/* 8037C17C 003790DC  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
+/* 8037C17C 003790DC  80 A2 CE 08 */	lwz r5, __GXData@sda21(r2)
 /* 8037C180 003790E0  80 85 00 7C */	lwz r4, 0x7c(r5)
 /* 8037C184 003790E4  54 84 02 90 */	rlwinm r4, r4, 0, 0xa, 8
 /* 8037C188 003790E8  7C 80 03 78 */	or r0, r4, r0

@@ -8888,8 +8888,8 @@ lbl_801A5CE8:
 /* 801A5CF8 001A2C58  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
 /* 801A5CFC 001A2C5C  90 1E 0A 30 */	stw r0, 0xa30(r30)
 /* 801A5D00 001A2C60  41 82 00 10 */	beq lbl_801A5D10
-/* 801A5D04 001A2C64  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 801A5D08 001A2C68  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 801A5D04 001A2C64  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 801A5D08 001A2C68  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 801A5D0C 001A2C6C  90 1E 0A 30 */	stw r0, 0xa30(r30)
 lbl_801A5D10:
 /* 801A5D10 001A2C70  34 1E 0A 2C */	addic. r0, r30, 0xa2c

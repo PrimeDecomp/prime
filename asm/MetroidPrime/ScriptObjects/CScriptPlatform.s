@@ -3713,12 +3713,12 @@ __dt__23CCollidableOBBTreeGroupFv:
 /* 800B3DB0 000B0D10  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 800B3DB4 000B0D14  7C 7F 1B 79 */	or. r31, r3, r3
 /* 800B3DB8 000B0D18  41 82 00 30 */	beq lbl_800B3DE8
-/* 800B3DBC 000B0D1C  3C 60 80 3F */	lis r3, lbl_803EC470@ha
-/* 800B3DC0 000B0D20  38 03 C4 70 */	addi r0, r3, lbl_803EC470@l
+/* 800B3DBC 000B0D1C  3C 60 80 3F */	lis r3, __vt__23CCollidableOBBTreeGroup@ha
+/* 800B3DC0 000B0D20  38 03 C4 70 */	addi r0, r3, __vt__23CCollidableOBBTreeGroup@l
 /* 800B3DC4 000B0D24  90 1F 00 00 */	stw r0, 0(r31)
 /* 800B3DC8 000B0D28  41 82 00 10 */	beq lbl_800B3DD8
-/* 800B3DCC 000B0D2C  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 800B3DD0 000B0D30  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 800B3DCC 000B0D2C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 800B3DD0 000B0D30  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 800B3DD4 000B0D34  90 1F 00 00 */	stw r0, 0(r31)
 lbl_800B3DD8:
 /* 800B3DD8 000B0D38  7C 80 07 35 */	extsh. r0, r4
@@ -3733,8 +3733,8 @@ lbl_800B3DE8:
 /* 800B3DF8 000B0D58  38 21 00 10 */	addi r1, r1, 0x10
 /* 800B3DFC 000B0D5C  4E 80 00 20 */	blr
 
-.global "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii"
-"__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl58optional_object<39TLockedToken<23CCollidableOBBTreeGroup>>bii":
+.global "__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbfbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>bUiUi"
+"__ct__15CScriptPlatformF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxfbfbRC11CHealthInfoRC20CDamageVulnerabilityRCQ24rstl67optional_object<48TLockedToken<32CCollidableOBBTreeGroupContainer>>bUiUi":
 /* 800B3E00 000B0D60  94 21 FF 20 */	stwu r1, -0xe0(r1)
 /* 800B3E04 000B0D64  7C 08 02 A6 */	mflr r0
 /* 800B3E08 000B0D68  90 01 00 E4 */	stw r0, 0xe4(r1)
@@ -4067,7 +4067,7 @@ lbl_800B42F4:
 /* 800B4318 000B1278  41 82 00 14 */	beq lbl_800B432C
 /* 800B431C 000B127C  80 9F 03 0C */	lwz r4, 0x30c(r31)
 /* 800B4320 000B1280  38 BF 00 68 */	addi r5, r31, 0x68
-/* 800B4324 000B1284  48 1F 96 41 */	bl "__ct__23CCollidableOBBTreeGroupFRCQ24rstl42vector<6CAABox,Q24rstl17rmemory_allocator>R14CCMaterialList"
+/* 800B4324 000B1284  48 1F 96 41 */	bl "__ct__23CCollidableOBBTreeGroupFP32CCollidableOBBTreeGroupContainerRC13CMaterialList"
 /* 800B4328 000B1288  7C 6E 1B 78 */	mr r14, r3
 lbl_800B432C:
 /* 800B432C 000B128C  80 7F 03 14 */	lwz r3, 0x314(r31)
@@ -4112,7 +4112,7 @@ update_fog__3CGXFUi:
 /* 800B43B4 000B1314  3C 60 F2 00 */	lis r3, 0xf200
 /* 800B43B8 000B1318  38 00 00 00 */	li r0, 0
 /* 800B43BC 000B131C  90 64 80 00 */	stw r3, 0xCC008000@l(r4)
-/* 800B43C0 000B1320  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 800B43C0 000B1320  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 800B43C4 000B1324  B0 03 00 02 */	sth r0, 2(r3)
 /* 800B43C8 000B1328  4E 80 00 20 */	blr
 lbl_800B43CC:
@@ -4127,7 +4127,7 @@ lbl_800B43CC:
 /* 800B43EC 000B134C  50 A4 82 1E */	rlwimi r4, r5, 0x10, 8, 0xf
 /* 800B43F0 000B1350  64 83 F2 00 */	oris r3, r4, 0xf200
 /* 800B43F4 000B1354  90 66 80 00 */	stw r3, 0xCC008000@l(r6)
-/* 800B43F8 000B1358  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 800B43F8 000B1358  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 800B43FC 000B135C  B0 03 00 02 */	sth r0, 2(r3)
 /* 800B4400 000B1360  4E 80 00 20 */	blr
 

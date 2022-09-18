@@ -29,7 +29,7 @@ GXCPInterruptHandler:
 /* 80376288 003731E8  93 E1 02 DC */	stw r31, 0x2dc(r1)
 /* 8037628C 003731EC  7C 9F 23 78 */	mr r31, r4
 /* 80376290 003731F0  80 AD AC 7C */	lwz r5, lbl_805A983C@sda21(r13)
-/* 80376294 003731F4  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 80376294 003731F4  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 80376298 003731F8  A0 05 00 00 */	lhz r0, 0(r5)
 /* 8037629C 003731FC  90 03 00 0C */	stw r0, 0xc(r3)
 /* 803762A0 00373200  80 03 00 08 */	lwz r0, 8(r3)
@@ -49,7 +49,7 @@ GXCPInterruptHandler:
 /* 803762D8 00373238  38 80 00 00 */	li r4, 0
 /* 803762DC 0037323C  48 00 06 D1 */	bl __GXWriteFifoIntEnable
 lbl_803762E0:
-/* 803762E0 00373240  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 803762E0 00373240  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 803762E4 00373244  80 03 00 08 */	lwz r0, 8(r3)
 /* 803762E8 00373248  54 00 F7 FF */	rlwinm. r0, r0, 0x1e, 0x1f, 0x1f
 /* 803762EC 0037324C  41 82 00 44 */	beq lbl_80376330
@@ -70,7 +70,7 @@ lbl_803762E0:
 /* 80376328 00373288  90 0D AC 98 */	stw r0, lbl_805A9858@sda21(r13)
 /* 8037632C 0037328C  48 00 EC 71 */	bl OSSuspendThread
 lbl_80376330:
-/* 80376330 00373290  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 80376330 00373290  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 80376334 00373294  80 83 00 08 */	lwz r4, 8(r3)
 /* 80376338 00373298  38 A3 00 08 */	addi r5, r3, 8
 /* 8037633C 0037329C  54 80 DF FF */	rlwinm. r0, r4, 0x1b, 0x1f, 0x1f
@@ -425,7 +425,7 @@ GXEnableBreakPt:
 /* 80376828 00373788  B3 C3 00 3C */	sth r30, 0x3c(r3)
 /* 8037682C 0037378C  80 6D AC 7C */	lwz r3, lbl_805A983C@sda21(r13)
 /* 80376830 00373790  B0 03 00 3E */	sth r0, 0x3e(r3)
-/* 80376834 00373794  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 80376834 00373794  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 80376838 00373798  80 03 00 08 */	lwz r0, 8(r3)
 /* 8037683C 0037379C  54 00 07 FA */	rlwinm r0, r0, 0, 0x1f, 0x1d
 /* 80376840 003737A0  60 00 00 02 */	ori r0, r0, 2
@@ -454,7 +454,7 @@ GXDisableBreakPt:
 /* 80376890 003737F0  90 01 00 04 */	stw r0, 4(r1)
 /* 80376894 003737F4  94 21 FF F8 */	stwu r1, -8(r1)
 /* 80376898 003737F8  48 00 AD C9 */	bl OSDisableInterrupts
-/* 8037689C 003737FC  80 A2 CE 08 */	lwz r5, lbl_805AEB28@sda21(r2)
+/* 8037689C 003737FC  80 A2 CE 08 */	lwz r5, __GXData@sda21(r2)
 /* 803768A0 00373800  38 00 00 00 */	li r0, 0
 /* 803768A4 00373804  80 85 00 08 */	lwz r4, 8(r5)
 /* 803768A8 00373808  54 84 07 FA */	rlwinm r4, r4, 0, 0x1f, 0x1d
@@ -496,7 +496,7 @@ __GXFifoInit:
 
 .global __GXFifoReadEnable
 __GXFifoReadEnable:
-/* 8037692C 0037388C  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 8037692C 0037388C  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 80376930 00373890  80 03 00 08 */	lwz r0, 8(r3)
 /* 80376934 00373894  54 00 00 3C */	rlwinm r0, r0, 0, 0, 0x1e
 /* 80376938 00373898  60 00 00 01 */	ori r0, r0, 1
@@ -508,7 +508,7 @@ __GXFifoReadEnable:
 
 .global __GXFifoReadDisable
 __GXFifoReadDisable:
-/* 80376950 003738B0  80 62 CE 08 */	lwz r3, lbl_805AEB28@sda21(r2)
+/* 80376950 003738B0  80 62 CE 08 */	lwz r3, __GXData@sda21(r2)
 /* 80376954 003738B4  80 03 00 08 */	lwz r0, 8(r3)
 /* 80376958 003738B8  54 00 00 3C */	rlwinm r0, r0, 0, 0, 0x1e
 /* 8037695C 003738BC  90 03 00 08 */	stw r0, 8(r3)
@@ -526,7 +526,7 @@ __GXFifoLink:
 lbl_80376980:
 /* 80376980 003738E0  38 00 00 00 */	li r0, 0
 lbl_80376984:
-/* 80376984 003738E4  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 80376984 003738E4  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 80376988 003738E8  54 00 20 36 */	slwi r0, r0, 4
 /* 8037698C 003738EC  80 64 00 08 */	lwz r3, 8(r4)
 /* 80376990 003738F0  54 63 07 34 */	rlwinm r3, r3, 0, 0x1c, 0x1a
@@ -539,7 +539,7 @@ lbl_80376984:
 
 .global __GXWriteFifoIntEnable
 __GXWriteFifoIntEnable:
-/* 803769AC 0037390C  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 803769AC 0037390C  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 803769B0 00373910  54 63 15 BA */	rlwinm r3, r3, 2, 0x16, 0x1d
 /* 803769B4 00373914  54 80 1D 78 */	rlwinm r0, r4, 3, 0x15, 0x1c
 /* 803769B8 00373918  80 A6 00 08 */	lwz r5, 8(r6)
@@ -557,7 +557,7 @@ __GXWriteFifoIntEnable:
 
 .global __GXWriteFifoIntReset
 __GXWriteFifoIntReset:
-/* 803769E8 00373948  80 C2 CE 08 */	lwz r6, lbl_805AEB28@sda21(r2)
+/* 803769E8 00373948  80 C2 CE 08 */	lwz r6, __GXData@sda21(r2)
 /* 803769EC 0037394C  54 63 06 3E */	clrlwi r3, r3, 0x18
 /* 803769F0 00373950  54 80 0D FC */	rlwinm r0, r4, 1, 0x17, 0x1e
 /* 803769F4 00373954  80 A6 00 10 */	lwz r5, 0x10(r6)
@@ -676,7 +676,7 @@ lbl_80376B58:
 /* 80376B70 00373AD0  88 0D AC 94 */	lbz r0, lbl_805A9854@sda21(r13)
 /* 80376B74 00373AD4  28 00 00 00 */	cmplwi r0, 0
 /* 80376B78 00373AD8  41 82 00 44 */	beq lbl_80376BBC
-/* 80376B7C 00373ADC  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 80376B7C 00373ADC  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 80376B80 00373AE0  80 04 00 08 */	lwz r0, 8(r4)
 /* 80376B84 00373AE4  54 00 07 34 */	rlwinm r0, r0, 0, 0x1c, 0x1a
 /* 80376B88 00373AE8  90 04 00 08 */	stw r0, 8(r4)
@@ -791,7 +791,7 @@ lbl_80376CC8:
 /* 80376D20 00373C80  88 0D AC 94 */	lbz r0, lbl_805A9854@sda21(r13)
 /* 80376D24 00373C84  28 00 00 00 */	cmplwi r0, 0
 /* 80376D28 00373C88  41 82 00 78 */	beq lbl_80376DA0
-/* 80376D2C 00373C8C  80 82 CE 08 */	lwz r4, lbl_805AEB28@sda21(r2)
+/* 80376D2C 00373C8C  80 82 CE 08 */	lwz r4, __GXData@sda21(r2)
 /* 80376D30 00373C90  80 04 00 10 */	lwz r0, 0x10(r4)
 /* 80376D34 00373C94  54 00 00 3C */	rlwinm r0, r0, 0, 0, 0x1e
 /* 80376D38 00373C98  60 00 00 01 */	ori r0, r0, 1

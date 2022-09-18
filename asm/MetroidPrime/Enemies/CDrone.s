@@ -702,8 +702,8 @@ lbl_8015F0C0:
 /* 8015F0D0 0015C030  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
 /* 8015F0D4 0015C034  90 1E 06 90 */	stw r0, 0x690(r30)
 /* 8015F0D8 0015C038  41 82 00 10 */	beq lbl_8015F0E8
-/* 8015F0DC 0015C03C  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 8015F0E0 0015C040  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 8015F0DC 0015C03C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 8015F0E0 0015C040  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 8015F0E4 0015C044  90 1E 06 90 */	stw r0, 0x690(r30)
 lbl_8015F0E8:
 /* 8015F0E8 0015C048  38 7E 05 7C */	addi r3, r30, 0x57c
@@ -5795,10 +5795,10 @@ lbl_801639C8:
 /* 80163AF0 00160A50  90 01 00 F0 */	stw r0, 0xf0(r1)
 /* 80163AF4 00160A54  40 82 00 20 */	bne lbl_80163B14
 /* 80163AF8 00160A58  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
-/* 80163AFC 00160A5C  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80163AFC 00160A5C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80163B00 00160A60  38 04 CA D0 */	addi r0, r4, lbl_803ECAD0@l
 /* 80163B04 00160A64  90 01 00 F8 */	stw r0, 0xf8(r1)
-/* 80163B08 00160A68  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80163B08 00160A68  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80163B0C 00160A6C  90 01 00 F8 */	stw r0, 0xf8(r1)
 /* 80163B10 00160A70  48 00 00 A0 */	b lbl_80163BB0
 lbl_80163B14:
@@ -5832,10 +5832,10 @@ lbl_80163B28:
 /* 80163B7C 00160ADC  B0 18 00 00 */	sth r0, 0(r24)
 lbl_80163B80:
 /* 80163B80 00160AE0  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
-/* 80163B84 00160AE4  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80163B84 00160AE4  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80163B88 00160AE8  38 04 CA D0 */	addi r0, r4, lbl_803ECAD0@l
 /* 80163B8C 00160AEC  90 01 00 F8 */	stw r0, 0xf8(r1)
-/* 80163B90 00160AF0  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80163B90 00160AF0  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80163B94 00160AF4  90 01 00 F8 */	stw r0, 0xf8(r1)
 lbl_80163B98:
 /* 80163B98 00160AF8  C0 22 9F 68 */	lfs f1, lbl_805ABC88@sda21(r2)

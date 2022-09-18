@@ -1499,9 +1499,9 @@ lbl_8020DBF8:
 /* 8020DD14 0020AC74  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
 /* 8020DD18 0020AC78  88 01 01 28 */	lbz r0, 0x128(r1)
 /* 8020DD1C 0020AC7C  38 83 CA F8 */	addi r4, r3, lbl_803ECAF8@l
-/* 8020DD20 0020AC80  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 8020DD20 0020AC80  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8020DD24 0020AC84  90 81 00 90 */	stw r4, 0x90(r1)
-/* 8020DD28 0020AC88  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 8020DD28 0020AC88  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 8020DD2C 0020AC8C  28 00 00 00 */	cmplwi r0, 0
 /* 8020DD30 0020AC90  90 61 00 90 */	stw r3, 0x90(r1)
 /* 8020DD34 0020AC94  41 82 01 94 */	beq lbl_8020DEC8

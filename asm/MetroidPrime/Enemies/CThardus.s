@@ -7277,7 +7277,7 @@ lbl_801E0640:
 /* 801E0640 001DD5A0  7F E4 FB 78 */	mr r4, r31
 /* 801E0644 001DD5A4  38 61 00 EC */	addi r3, r1, 0xec
 /* 801E0648 001DD5A8  38 BE 06 0C */	addi r5, r30, 0x60c
-/* 801E064C 001DD5AC  4B E6 7C 9D */	bl GenerateObject__13CStateManagerF9TEditorId
+/* 801E064C 001DD5AC  4B E6 7C 9D */	bl GenerateObject__13CStateManagerFRC9TEditorId
 /* 801E0650 001DD5B0  A0 81 00 F0 */	lhz r4, 0xf0(r1)
 /* 801E0654 001DD5B4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801E0658 001DD5B8  54 83 04 3E */	clrlwi r3, r4, 0x10

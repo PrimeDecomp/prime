@@ -293,8 +293,8 @@ lbl_80146B80:
 /* 80146B90 00143AF0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
 /* 80146B94 00143AF4  90 1E 05 A0 */	stw r0, 0x5a0(r30)
 /* 80146B98 00143AF8  41 82 00 10 */	beq lbl_80146BA8
-/* 80146B9C 00143AFC  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 80146BA0 00143B00  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 80146B9C 00143AFC  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 80146BA0 00143B00  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80146BA4 00143B04  90 1E 05 A0 */	stw r0, 0x5a0(r30)
 lbl_80146BA8:
 /* 80146BA8 00143B08  7F C3 F3 78 */	mr r3, r30
@@ -898,13 +898,13 @@ UpdateBoundingState__12CPuddleSporeFRC6CAABoxR13CStateManager:
 /* 801473E4 00144344  39 03 CA D0 */	addi r8, r3, lbl_803ECAD0@l
 /* 801473E8 00144348  C0 BC 00 04 */	lfs f5, 4(r28)
 /* 801473EC 0014434C  C0 9C 00 08 */	lfs f4, 8(r28)
-/* 801473F0 00144350  3C A0 80 3E */	lis r5, lbl_803D97E4@ha
+/* 801473F0 00144350  3C A0 80 3E */	lis r5, __vt__19CCollisionPrimitive@ha
 /* 801473F4 00144354  C0 7C 00 0C */	lfs f3, 0xc(r28)
 /* 801473F8 00144358  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801473FC 0014435C  C0 5C 00 10 */	lfs f2, 0x10(r28)
 /* 80147400 00144360  38 83 66 A0 */	addi r4, r3, sZeroVector__9CVector3f@l
 /* 80147404 00144364  C0 3C 00 14 */	lfs f1, 0x14(r28)
-/* 80147408 00144368  38 05 97 E4 */	addi r0, r5, lbl_803D97E4@l
+/* 80147408 00144368  38 05 97 E4 */	addi r0, r5, __vt__19CCollisionPrimitive@l
 /* 8014740C 0014436C  91 01 00 90 */	stw r8, 0x90(r1)
 /* 80147410 00144370  7C 85 23 78 */	mr r5, r4
 /* 80147414 00144374  C8 01 00 98 */	lfd f0, 0x98(r1)

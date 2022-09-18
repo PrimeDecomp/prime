@@ -1894,8 +1894,8 @@ lbl_80038CB0:
 /* 80038CC4 00035C24  39 03 CA D0 */	addi r8, r3, lbl_803ECAD0@l
 /* 80038CC8 00035C28  C0 A1 00 EC */	lfs f5, 0xec(r1)
 /* 80038CCC 00035C2C  91 01 01 68 */	stw r8, 0x168(r1)
-/* 80038CD0 00035C30  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 80038CD4 00035C34  38 E3 97 E4 */	addi r7, r3, lbl_803D97E4@l
+/* 80038CD0 00035C30  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 80038CD4 00035C34  38 E3 97 E4 */	addi r7, r3, __vt__19CCollisionPrimitive@l
 /* 80038CD8 00035C38  C0 81 00 F0 */	lfs f4, 0xf0(r1)
 /* 80038CDC 00035C3C  C0 61 00 F4 */	lfs f3, 0xf4(r1)
 /* 80038CE0 00035C40  FC 20 F0 90 */	fmr f1, f30
@@ -2020,7 +2020,7 @@ lbl_80038E7C:
 /* 80038EB4 00035E14  C0 97 00 04 */	lfs f4, 4(r23)
 /* 80038EB8 00035E18  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
 /* 80038EBC 00035E1C  C1 01 00 3C */	lfs f8, 0x3c(r1)
-/* 80038EC0 00035E20  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80038EC0 00035E20  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80038EC4 00035E24  C0 C1 00 34 */	lfs f6, 0x34(r1)
 /* 80038EC8 00035E28  EC 04 01 F2 */	fmuls f0, f4, f7
 /* 80038ECC 00035E2C  C0 77 00 00 */	lfs f3, 0(r23)
@@ -2031,7 +2031,7 @@ lbl_80038E7C:
 /* 80038EE0 00035E40  81 1B 00 6C */	lwz r8, 0x6c(r27)
 /* 80038EE4 00035E44  EC 03 01 BA */	fmadds f0, f3, f6, f0
 /* 80038EE8 00035E48  A0 BB 00 08 */	lhz r5, 8(r27)
-/* 80038EEC 00035E4C  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 80038EEC 00035E4C  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 80038EF0 00035E50  C0 22 84 14 */	lfs f1, lbl_805AA134@sda21(r2)
 /* 80038EF4 00035E54  38 00 00 00 */	li r0, 0
 /* 80038EF8 00035E58  EC 45 02 3A */	fmadds f2, f5, f8, f0
@@ -2071,11 +2071,11 @@ lbl_80038E7C:
 /* 80038F80 00035EE0  48 00 00 50 */	b lbl_80038FD0
 lbl_80038F84:
 /* 80038F84 00035EE4  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
-/* 80038F88 00035EE8  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 80038F88 00035EE8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80038F8C 00035EEC  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
 /* 80038F90 00035EF0  38 00 00 00 */	li r0, 0
 /* 80038F94 00035EF4  90 81 02 28 */	stw r4, 0x228(r1)
-/* 80038F98 00035EF8  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 80038F98 00035EF8  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 80038F9C 00035EFC  90 61 02 28 */	stw r3, 0x228(r1)
 /* 80038FA0 00035F00  98 01 01 00 */	stb r0, 0x100(r1)
 lbl_80038FA4:

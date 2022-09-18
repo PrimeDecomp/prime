@@ -851,9 +851,9 @@ lbl_8023F058:
 /* 8023F1C4 0023C124  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
 /* 8023F1C8 0023C128  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8023F1CC 0023C12C  38 84 CA F8 */	addi r4, r4, lbl_803ECAF8@l
-/* 8023F1D0 0023C130  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
+/* 8023F1D0 0023C130  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8023F1D4 0023C134  90 81 00 80 */	stw r4, 0x80(r1)
-/* 8023F1D8 0023C138  38 63 97 E4 */	addi r3, r3, lbl_803D97E4@l
+/* 8023F1D8 0023C138  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
 /* 8023F1DC 0023C13C  90 61 00 80 */	stw r3, 0x80(r1)
 /* 8023F1E0 0023C140  41 82 00 14 */	beq lbl_8023F1F4
 /* 8023F1E4 0023C144  C8 01 00 20 */	lfd f0, 0x20(r1)

@@ -2337,8 +2337,8 @@ lbl_8011C450:
 /* 8011C460 001193C0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
 /* 8011C464 001193C4  90 1E 01 C0 */	stw r0, 0x1c0(r30)
 /* 8011C468 001193C8  41 82 00 10 */	beq lbl_8011C478
-/* 8011C46C 001193CC  3C 60 80 3E */	lis r3, lbl_803D97E4@ha
-/* 8011C470 001193D0  38 03 97 E4 */	addi r0, r3, lbl_803D97E4@l
+/* 8011C46C 001193CC  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
+/* 8011C470 001193D0  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 8011C474 001193D4  90 1E 01 C0 */	stw r0, 0x1c0(r30)
 lbl_8011C478:
 /* 8011C478 001193D8  7F C3 F3 78 */	mr r3, r30
