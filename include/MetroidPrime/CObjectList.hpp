@@ -8,15 +8,15 @@
 #define kMaxObjects 1024
 
 enum EGameObjectList {
-  kGOL_Invalid = -1,
-  kGOL_All,
-  kGOL_Actor,
-  kGOL_PhysicsActor,
-  kGOL_GameCamera,
-  kGOL_GameLight,
-  kGOL_ListeningAi,
-  kGOL_AiWaypoint,
-  kGOL_PlatformAndDoor,
+  kOL_Invalid = -1,
+  kOL_All,
+  kOL_Actor,
+  kOL_PhysicsActor,
+  kOL_GameCamera,
+  kOL_GameLight,
+  kOL_ListeningAi,
+  kOL_AiWaypoint,
+  kOL_PlatformAndDoor,
 };
 
 class CEntity;
@@ -30,7 +30,9 @@ class CObjectList {
 
 public:
   CObjectList(EGameObjectList list);
-  bool IsQualified(CEntity& ent);
+
+  virtual bool IsQualified(CEntity& ent);
+
   void AddObject(CEntity& ent);
   void RemoveObject(TUniqueId uid);
   CEntity* GetObjectById();
@@ -42,11 +44,21 @@ public:
   const CEntity* GetValidObjectByIndex(int idx) const;
   int size() const { return mCount; }
 
+  int GetFirstObjectIndex() const { return mFirstId; }
+  int GetNextObjectIndex(int idx) const {
+    if (idx != -1) {
+      return mObjects[idx].mNext;
+    } else {
+      return -1;
+    }
+  }
+
 private:
   SObjectListEntry mObjects[1024];
   EGameObjectList mListType;
-  s16 mFirstId = -1;
-  s16 mCount = 0;
+  s16 mFirstId;
+  s16 mCount;
 };
+CHECK_SIZEOF(CObjectList, 0x200c)
 
 #endif // __COBJECTLIST_HPP__

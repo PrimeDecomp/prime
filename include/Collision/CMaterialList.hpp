@@ -73,12 +73,33 @@ class CMaterialList {
 public:
   CMaterialList() : value(0) {}
   CMaterialList(const EMaterialTypes& material) : value(0) { value |= u64(1) << material; }
-  // TODO
-  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2);
-  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3);
-  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3, const EMaterialTypes& m4);
-  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3, const EMaterialTypes& m4,
-                const EMaterialTypes& m5);
+  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2) : value(0) {
+    value |= u64(1) << m1;
+    value |= u64(1) << m2;
+  }
+  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3)
+  : value(0) {
+    value |= u64(1) << m1;
+    value |= u64(1) << m2;
+    value |= u64(1) << m3;
+  }
+  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3,
+                const EMaterialTypes& m4)
+  : value(0) {
+    value |= u64(1) << m1;
+    value |= u64(1) << m2;
+    value |= u64(1) << m3;
+    value |= u64(1) << m4;
+  }
+  CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3,
+                const EMaterialTypes& m4, const EMaterialTypes& m5)
+  : value(0) {
+    value |= u64(1) << m1;
+    value |= u64(1) << m2;
+    value |= u64(1) << m3;
+    value |= u64(1) << m4;
+    value |= u64(1) << m5;
+  }
   CMaterialList(u64 value) : value(value) {}
 
   void Add(EMaterialTypes material) { value |= u64(1) << material; }

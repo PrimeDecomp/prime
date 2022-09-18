@@ -209,7 +209,7 @@ public:
 
   CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
          const CMaterialList& list, const CActorParameters& params, TUniqueId nextDrawNode);
-  ~CActor();
+  ~CActor() override;
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
   void SetActive(bool active) override;
@@ -249,8 +249,15 @@ public:
   void DrawTouchBounds() const;
   bool IsModelOpaque(const CStateManager& mgr) const;
   void RenderInternal(const CStateManager& mgr) const;
+  void SetMaterialFilter(const CMaterialFilter& filter);
 
   const CTransform4f& GetTransform() const { return x34_transform; }
+  void SetTransform(const CTransform4f& xf) {
+    x34_transform = xf;
+    xe4_27_notInSortedLists = true;
+    xe4_28_transformDirty = true;
+    xe4_29_actorLightsDirty = true;
+  }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);
 
@@ -275,6 +282,9 @@ public:
 
   const CModelFlags& GetModelFlags() const { return xb4_drawFlags; }
   void SetModelFlags(const CModelFlags& flags) { xb4_drawFlags = flags; }
+
+  const CMaterialList& GetMaterialList() const { return x68_material; }
+  CMaterialList& MaterialList() { return x68_material; }
 
   bool GetTransformDirty() const { return xe4_27_notInSortedLists; }
   bool GetTransformDirtySpare() const { return xe4_28_transformDirty; }

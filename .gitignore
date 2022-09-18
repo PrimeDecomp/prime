@@ -11,3 +11,6 @@ tools/mwcc_compiler/*
 !tools/mwcc_compiler/.gitkeep
 *.bat
 include/lmgr326b.dll
+.idea/
+.vscode/
+versions/
