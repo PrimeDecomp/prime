@@ -9,8 +9,13 @@ namespace rstl {
 template < typename T >
 class optional_object {
 public:
-  optional_object() : x4_valid(false) {}
-  optional_object(const T& item) : x0_item(item), x4_valid(true) {}
+  optional_object() : m_valid(false) {}
+  optional_object(const T& item) : m_valid(true) { rstl::construct< T >(m_data, item); }
+  optional_object(const optional_object& other) : m_valid(other.m_valid) {
+    if (other.m_valid) {
+      rstl::construct< T >(m_data, other.data());
+    }
+  }
   ~optional_object() { clear(); }
 
   optional_object& operator=(const T& item) {
@@ -18,24 +23,30 @@ public:
     return *this;
   }
 
-  T& data() { return x0_item; }
-  T* get_ptr() { return &x0_item; }
-  operator bool() const { return x4_valid; }
+  T& data() { return *get_ptr(); }
+  const T& data() const { return *get_ptr(); }
+  T* get_ptr() { return reinterpret_cast< T* >(m_data); }
+  const T* get_ptr() const { return reinterpret_cast< const T* >(m_data); }
+  bool valid() const { return m_valid; }
+  operator bool() const { return m_valid; } // replace with valid()?
   void clear() {
-    rstl::destroy(&x0_item);
-    x4_valid = false;
+    if (m_valid) {
+      rstl::destroy(get_ptr());
+    }
+    m_valid = false;
   }
 
   T& operator*() { return data(); }
+  T* operator->() { return data(); }
 
 private:
-  T x0_item;
-  bool x4_valid;
+  u8 m_data[sizeof(T)];
+  bool m_valid;
 
   void assign(const T& item) {
-    if (!x4_valid) {
+    if (!m_valid) {
       rstl::construct(get_ptr(), item);
-      x4_valid = true;
+      m_valid = true;
     } else {
       data() = item;
     }

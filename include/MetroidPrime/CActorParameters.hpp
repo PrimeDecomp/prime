@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -112,6 +112,8 @@ public:
   bool IsHotInThermal() const { return x58_25_thermalHeat; }
   bool ForceRenderUnsorted() const { return x58_26_renderUnsorted; }
   bool NoSortThermal() const { return x58_27_noSortThermal; }
+  f32 GetFadeInTime() const { return x5c_fadeInTime; }
+  f32 GetFadeOutTime() const { return x60_fadeOutTime; }
 
   static CActorParameters None();
 

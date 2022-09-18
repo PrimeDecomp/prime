@@ -33,6 +33,13 @@ public:
   };
 
   void PreRender();
+  void EnableLooping(bool v) {
+    x220_25_loop = v;
+    x220_24_animating = true;
+  }
+  void SetIsAnimating(bool v) {
+    x220_24_animating = v;
+  }
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr) {
     x120_particleDB.SetParticleEffectState(name, active, mgr);
   }

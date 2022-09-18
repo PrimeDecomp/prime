@@ -3,7 +3,9 @@
 
 #include "types.h"
 
+#include "Kyoto/CRandom16.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
+#include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -31,6 +33,7 @@ class CWeaponMgr;
 class CWorld;
 class CWorldTransManager;
 class CEntity;
+class CMazeState;
 
 namespace SL {
 class CSortedListManager;
@@ -49,6 +52,10 @@ public:
   const CEntity* GetObjectById(TUniqueId uid) const;
   TUniqueId GetIdForScript(TEditorId eid) const;
 
+  CMazeState* CurrentMaze();
+  const CMazeState* GetCurrentMaze() const;
+  void SetCurrentMaze(const rstl::single_ptr<CMazeState>& maze);
+
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
   CPlayerState* PlayerState() { return x8b8_playerState.GetPtr(); }
@@ -57,12 +64,23 @@ public:
   const CWorld* GetWorld() const { return x850_world.get(); }
   CActorModelParticles* ActorModelParticles() { return x884_actorModelParticles.get(); }
   const CActorModelParticles* GetActorModelParticles() const { return x884_actorModelParticles.get(); }
+  CRandom16* GetActiveRandom() const { return x900_random; }
+
+  CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
 
   f32 GetThermalColdScale1() const { return xf24_thermColdScale1; }
   f32 GetThermalColdScale2() const { return xf28_thermColdScale2; }
 
   bool IsGeneratingObject() const { return xf94_26_generatingObject; }
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
+
+  inline TUniqueId GenerateObjectInline(TEditorId eid) {
+    bool wasGeneratingObject = IsGeneratingObject();
+    SetIsGeneratingObject(true);
+    TUniqueId objUid = GenerateObject(eid).second;
+    SetIsGeneratingObject(wasGeneratingObject);
+    return objUid;
+  }
 
 private:
   u16 x0_nextFreeIndex;
@@ -87,7 +105,9 @@ private:
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
   rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
-  u8 pad2[0x658];
+  u8 pad2[0x38];
+  CRandom16* x900_random;
+  u8 pad4[0x61c];
   f32 xf24_thermColdScale1;
   f32 xf28_thermColdScale2;
   u8 pad3[0x6c];

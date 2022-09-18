@@ -64,7 +64,7 @@ public:
   void GenerateObstacles();
 
   SMazeCell& GetCell(uint col, uint row);
-  SMazeCell& GetCell2(uint col, uint row);                                                  // ????
+  const SMazeCell& GetCell(uint col, uint row) const;
   SMazeCell& GetCellInline(uint col, uint row) { return x4_cells[col + row * skMazeCols]; } // ????
   inline SMazeCell& GetCell(uint idx) { return x4_cells[idx]; }
 };
@@ -77,13 +77,9 @@ public:
 
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
-  void Think(float dt, CStateManager& mgr) override;
+  void Think(f32 dt, CStateManager& mgr) override;
 
   static void LoadMazeSeeds();
-
-  static inline void SendScriptMsg(CStateManager& mgr, CEntity* to, TUniqueId sender, EScriptObjectMessage msg) {
-    mgr.SendScriptMsg(to, sender, msg);
-  }
 
 private:
   enum ESide {
@@ -98,7 +94,7 @@ private:
   int xec_row;
   ESide xf0_side;
   TUniqueId xf4_gateEffectId;
-  float xf8_msgTimer;
+  f32 xf8_msgTimer;
   TUniqueId xfc_actorId;
   CVector3f x100_actorPos;
   TUniqueId x10c_triggerId;

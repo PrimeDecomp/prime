@@ -2,6 +2,9 @@
 
 #include "Kyoto/CResFactory.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/CObjectList.hpp"
+
+#include "rstl/algorithm.hpp"
 
 uint CScriptMazeNode::sMazeSeeds[300];
 
@@ -79,8 +82,7 @@ void CMazeState::Reset(int seed) {
 
 SMazeCell& CMazeState::GetCell(uint col, uint row) { return x4_cells[col + row * skMazeCols]; }
 
-// ????
-SMazeCell& CMazeState::GetCell2(uint col, uint row) { return x4_cells[col + row * skMazeCols]; }
+const SMazeCell& CMazeState::GetCell(uint col, uint row) const { return x4_cells[col + row * skMazeCols]; }
 
 static inline int GetRandom(CRandom16& rand, int offset) {
   int tmp = rand.Next();
@@ -156,7 +158,6 @@ void CMazeState::GenerateObstacles() {
           puddle2Idx++;
         }
       } else {
-        // SMazeCell& cell = GetCellInline(curCol, curRow);
         GetCellInline(curCol, curRow).x1_24_puddle = true;
         switch (side) {
         case kS_Top:
@@ -178,6 +179,7 @@ void CMazeState::GenerateObstacles() {
         }
       }
     }
+#undef GetCellInline
 
     idx++;
     prevCol = curCol;
@@ -247,10 +249,10 @@ CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const 
 
 void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-static inline TUniqueId GenerateObject(CStateManager& mgr, const SConnection& conn) {
+static inline TUniqueId GenerateObject(CStateManager& mgr, const TEditorId& eid) {
   bool wasGeneratingObject = mgr.IsGeneratingObject();
   mgr.SetIsGeneratingObject(true);
-  TUniqueId objUid = mgr.GenerateObject(conn.x8_objId).second;
+  TUniqueId objUid = mgr.GenerateObject(eid).second;
   mgr.SetIsGeneratingObject(wasGeneratingObject);
   return objUid;
 }
@@ -267,26 +269,31 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
     CScriptEffect* scriptEffect = TCastToPtr< CScriptEffect >(ent);
     CScriptActor* scriptActor = TCastToPtr< CScriptActor >(ent);
     CScriptTrigger* scriptTrigger = TCastToPtr< CScriptTrigger >(ent);
-    if ((scriptEffect || scriptActor || scriptTrigger) && (!scriptEffect || !x13c_25_hasGate)) {
-      // TUniqueId objUid = GenerateObject(mgr, *conn);
-      bool wasGeneratingObject = mgr.IsGeneratingObject();
-      mgr.SetIsGeneratingObject(true);
-      TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
-      mgr.SetIsGeneratingObject(wasGeneratingObject);
-      if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
-        mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
-        if (scriptEffect) {
-          actor->SetTranslation(GetTranslation() + x120_effectPos);
-          x11c_effectId = objUid;
-        }
-        if (scriptActor) {
-          actor->SetTranslation(GetTranslation() + x100_actorPos);
-          xfc_actorId = objUid;
-        }
-        if (scriptTrigger) {
-          actor->SetTranslation(GetTranslation() + x110_triggerPos);
-          x10c_triggerId = objUid;
-        }
+    if (!scriptEffect && !scriptActor && !scriptTrigger) {
+      continue;
+    }
+    if (scriptEffect && x13c_25_hasGate) {
+      continue;
+    }
+    // TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
+    TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
+    // bool wasGeneratingObject = mgr.IsGeneratingObject();
+    // mgr.SetIsGeneratingObject(true);
+    // TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
+    // mgr.SetIsGeneratingObject(wasGeneratingObject);
+    if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
+      mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+      if (scriptEffect) {
+        actor->SetTranslation(GetTranslation() + x120_effectPos);
+        x11c_effectId = objUid;
+      }
+      if (scriptActor) {
+        actor->SetTranslation(GetTranslation() + x100_actorPos);
+        xfc_actorId = objUid;
+      }
+      if (scriptTrigger) {
+        actor->SetTranslation(GetTranslation() + x110_triggerPos);
+        x10c_triggerId = objUid;
       }
     }
   }
@@ -307,8 +314,185 @@ void CScriptMazeNode::SendScriptMsgs(CStateManager& mgr, EScriptObjectMessage ms
   SendScriptMsg(mgr, mgr.ObjectById(xf4_gateEffectId), GetUniqueId(), msg);
 }
 
+template < typename Iter, typename T >
+static inline Iter contains(Iter it, Iter end, const T& value) {
+  for (; it != end && *it != value; ++it) {
+  }
+  return it;
+}
+
+template < typename T >
+static inline bool contains(const rstl::vector< T >& vec, typename rstl::vector< T >::const_iterator end, const T& value) {
+  return rstl::find< rstl::vector< T >::const_iterator, T >(vec.begin(), end, value) != end;
+}
+
 void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
-  // TODO
+  if (GetActive()) {
+    switch (msg) {
+    case kSM_InitializedInArea: {
+      if (mgr.CurrentMaze() == nullptr) {
+        rstl::single_ptr< CMazeState > maze = new CMazeState(skEnterCol, skEnterRow, skTargetCol, skTargetRow);
+        maze->Reset(sMazeSeeds[mgr.GetActiveRandom()->Next() % 300]);
+        maze->Initialize();
+        maze->GenerateObstacles();
+        mgr.SetCurrentMaze(maze.release());
+      }
+      break;
+    }
+    case kSM_Action: {
+      bool shouldGenObjs = false;
+      if (const CMazeState* maze = mgr.CurrentMaze()) {
+        const SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
+        if (xf0_side == CMazeState::kS_Top && cell.x0_24_openTop) {
+          if (cell.x0_28_gateTop) {
+            shouldGenObjs = true;
+            x13c_25_hasGate = true;
+          }
+        } else if (xf0_side == CMazeState::kS_Right && cell.x0_25_openRight) {
+          if (cell.x0_29_gateRight) {
+            shouldGenObjs = true;
+            x13c_25_hasGate = true;
+          }
+        } else {
+          shouldGenObjs = true;
+        }
+        if (shouldGenObjs) {
+          GenerateObjects(mgr);
+        }
+        if (xf0_side == CMazeState::kS_Right && cell.x1_24_puddle) {
+          x13c_24_hasPuddle = true;
+        }
+        if (x13c_25_hasGate) {
+#ifndef NON_MATCHING
+          // Unused
+          CTransform4f xf = GetTransform();
+#endif
+          rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+          for (; conn != GetConnectionList().end(); ++conn) {
+            if (conn->x0_state != kSS_Modify || conn->x4_msg != kSM_Activate) {
+              continue;
+            }
+
+            // TUniqueId genObj = GenerateObject(mgr, conn->x8_objId);
+            bool wasGeneratingObject = mgr.IsGeneratingObject();
+            mgr.SetIsGeneratingObject(true);
+            TUniqueId genObj = mgr.GenerateObject(conn->x8_objId).second;
+            mgr.SetIsGeneratingObject(wasGeneratingObject);
+
+            xf4_gateEffectId = genObj;
+            if (CActor* actor = TCastToPtr< CActor >(mgr.ObjectById(genObj))) {
+              actor->SetTranslation(GetTranslation() + x120_effectPos);
+              mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+            }
+            break;
+          }
+        }
+        if (x13c_24_hasPuddle) {
+          int count = 0;
+          rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+          for (; conn != GetConnectionList().end(); ++conn) {
+            if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) && conn->x4_msg == kSM_Activate) {
+              count++;
+            }
+          }
+          x12c_puddleObjectIds.reserve(count);
+          conn = GetConnectionList().begin();
+          for (; conn != GetConnectionList().end(); ++conn) {
+            if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) && conn->x4_msg == kSM_Activate) {
+              // TUniqueId genObj = GenerateObject(mgr, conn->x8_objId);
+              bool wasGeneratingObject = mgr.IsGeneratingObject();
+              mgr.SetIsGeneratingObject(true);
+              TUniqueId genObj = mgr.GenerateObject(conn->x8_objId).second;
+              mgr.SetIsGeneratingObject(wasGeneratingObject);
+
+              x12c_puddleObjectIds.push_back(genObj);
+              if (CActor* actor = TCastToPtr< CActor >(mgr.ObjectById(genObj))) {
+                actor->SetTransform(GetTransform());
+                if (conn->x0_state == kSS_Closed) {
+                  mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
+                }
+              }
+            }
+          }
+        }
+      }
+      break;
+    }
+    case kSM_SetToZero: {
+      CMazeState* maze = mgr.CurrentMaze();
+      if (x13c_24_hasPuddle && maze != nullptr) {
+        rstl::vector< TUniqueId >::const_iterator pend = x12c_puddleObjectIds.end();
+        rstl::vector< TUniqueId >::const_iterator pit =
+            rstl::find< rstl::vector< TUniqueId >::const_iterator, TUniqueId >(x12c_puddleObjectIds.begin(), pend, uid);
+        if (pit != pend) {
+        // if (contains(x12c_puddleObjectIds, x12c_puddleObjectIds.end(), uid)) {
+          rstl::vector< TUniqueId >::const_iterator it = x12c_puddleObjectIds.begin();
+          for (; it != x12c_puddleObjectIds.end(); ++it) {
+            if (CEntity* ent = mgr.ObjectById(*it)) {
+              if (!ent->GetActive()) {
+                mgr.SendScriptMsg(ent, GetUniqueId(), kSM_Activate);
+              } else {
+                mgr.FreeScriptObject(ent->GetUniqueId());
+              }
+            }
+          }
+          CObjectList& list = mgr.GetObjectListById(kOL_All);
+          int objIdx = list.GetFirstObjectIndex();
+          while (objIdx != -1) {
+            if (CScriptMazeNode* node = TCastToPtr< CScriptMazeNode >(list[objIdx])) {
+              if (node->xe8_col == xe8_col - 1 && node->xec_row == xec_row && node->xf0_side == CMazeState::kS_Right) {
+                SMazeCell& cell = maze->GetCell(xe8_col - 1, xec_row);
+                if (!cell.x0_25_openRight) {
+                  cell.x0_25_openRight = true;
+                  node->Reset(mgr);
+                  node->x13c_25_hasGate = false;
+                }
+              }
+              if (node->xe8_col == xe8_col && node->xec_row == xec_row && node->xf0_side == CMazeState::kS_Right) {
+                SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
+                if (!cell.x0_25_openRight) {
+                  cell.x0_25_openRight = true;
+                  node->Reset(mgr);
+                  node->x13c_25_hasGate = false;
+                }
+              }
+              if (node->xe8_col == xe8_col && node->xec_row == xec_row && node->xf0_side == CMazeState::kS_Top) {
+                SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
+                if (!cell.x0_24_openTop) {
+                  cell.x0_24_openTop = true;
+                  node->Reset(mgr);
+                  node->x13c_25_hasGate = false;
+                }
+              }
+              if (node->xe8_col == xe8_col && node->xec_row == xec_row + 1 && node->xf0_side == CMazeState::kS_Top) {
+                SMazeCell& cell = maze->GetCell(xe8_col, xec_row + 1);
+                if (!cell.x0_24_openTop) {
+                  cell.x0_24_openTop = true;
+                  node->Reset(mgr);
+                  node->x13c_25_hasGate = false;
+                }
+              }
+            }
+            objIdx = list.GetNextObjectIndex(objIdx);
+          }
+        }
+      }
+      break;
+    }
+    case kSM_Deleted: {
+      if (mgr.GetCurrentMaze()) {
+        mgr.SetCurrentMaze(nullptr);
+      }
+      Reset(mgr);
+      break;
+    }
+    case kSM_Deactivate: {
+      Reset(mgr);
+      break;
+    }
+    }
+  }
+  CEntity::AcceptScriptMsg(msg, uid, mgr);
 }
 
 void CScriptMazeNode::Think(float dt, CStateManager& mgr) {

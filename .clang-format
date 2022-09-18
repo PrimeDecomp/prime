@@ -1,7 +1,7 @@
 ---
 BasedOnStyle: LLVM
 IndentWidth: 2
-ColumnLimit: 140
+ColumnLimit: 100
 ---
 Language: Cpp
 DerivePointerAlignment: false
