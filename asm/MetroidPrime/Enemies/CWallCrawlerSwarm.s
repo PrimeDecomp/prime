@@ -1627,7 +1627,7 @@ MoveToWayPoint__17CWallCrawlerSwarmFRQ217CWallCrawlerSwarm5CBoidR13CStateManager
 /* 801E8AB8 001E5A18  40 80 00 80 */	bge lbl_801E8B38
 /* 801E8ABC 001E5A1C  7F A5 EB 78 */	mr r5, r29
 /* 801E8AC0 001E5A20  38 61 00 0C */	addi r3, r1, 0xc
-/* 801E8AC4 001E5A24  4B E8 E6 71 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801E8AC4 001E5A24  4B E8 E6 71 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801E8AC8 001E5A28  A0 01 00 0C */	lhz r0, 0xc(r1)
 /* 801E8ACC 001E5A2C  B0 1C 00 3C */	sth r0, 0x3c(r28)
 /* 801E8AD0 001E5A30  A0 7C 00 3C */	lhz r3, 0x3c(r28)

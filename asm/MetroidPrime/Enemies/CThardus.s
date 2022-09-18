@@ -5141,7 +5141,7 @@ lbl_801DE780:
 /* 801DE7B8 001DB718  7F E5 FB 78 */	mr r5, r31
 /* 801DE7BC 001DB71C  38 61 00 0C */	addi r3, r1, 0xc
 /* 801DE7C0 001DB720  7E 64 9B 78 */	mr r4, r19
-/* 801DE7C4 001DB724  4B E9 89 71 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801DE7C4 001DB724  4B E9 89 71 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801DE7C8 001DB728  A0 01 00 0C */	lhz r0, 0xc(r1)
 /* 801DE7CC 001DB72C  7F E3 FB 78 */	mr r3, r31
 /* 801DE7D0 001DB730  38 81 00 10 */	addi r4, r1, 0x10

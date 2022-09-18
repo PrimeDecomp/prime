@@ -272,6 +272,7 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
     if (conn->x0_state != kSS_MaxReached || conn->x4_msg != kSM_Activate) {
       continue;
     }
+
     CEntity* ent = mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId));
     CScriptEffect* scriptEffect = TCastToPtr< CScriptEffect >(ent);
     CScriptActor* scriptActor = TCastToPtr< CScriptActor >(ent);
@@ -282,12 +283,13 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
     if (scriptEffect && x13c_25_hasGate) {
       continue;
     }
+
     // TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
-    TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
-    // bool wasGeneratingObject = mgr.IsGeneratingObject();
-    // mgr.SetIsGeneratingObject(true);
-    // TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
-    // mgr.SetIsGeneratingObject(wasGeneratingObject);
+    bool wasGeneratingObject = mgr.IsGeneratingObject();
+    mgr.SetIsGeneratingObject(true);
+    TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
+    mgr.SetIsGeneratingObject(wasGeneratingObject);
+
     if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
       mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);
       if (scriptEffect) {
@@ -321,19 +323,6 @@ void CScriptMazeNode::SendScriptMsgs(CStateManager& mgr, EScriptObjectMessage ms
   SendScriptMsg(mgr, mgr.ObjectById(xf4_gateEffectId), GetUniqueId(), msg);
 }
 
-template < typename Iter, typename T >
-static inline Iter contains(Iter it, Iter end, const T& value) {
-  for (; it != end && *it != value; ++it) {
-  }
-  return it;
-}
-
-template < typename T >
-static inline bool contains(const rstl::vector< T >& vec,
-                            typename rstl::vector< T >::const_iterator end, const T& value) {
-  return rstl::find< rstl::vector< T >::const_iterator, T >(vec.begin(), end, value) != end;
-}
-
 void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   if (GetActive()) {
     switch (msg) {
@@ -344,7 +333,7 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
         maze->Reset(sMazeSeeds[mgr.GetActiveRandom()->Next() % 300]);
         maze->Initialize();
         maze->GenerateObstacles();
-        mgr.SetCurrentMaze(maze.release());
+        mgr.SetCurrentMaze(maze);
       }
       break;
     }
@@ -432,12 +421,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
     case kSM_SetToZero: {
       CMazeState* maze = mgr.CurrentMaze();
       if (x13c_24_hasPuddle && maze != nullptr) {
-        rstl::vector< TUniqueId >::const_iterator pend = x12c_puddleObjectIds.end();
-        rstl::vector< TUniqueId >::const_iterator pit =
-            rstl::find< rstl::vector< TUniqueId >::const_iterator, TUniqueId >(
-                x12c_puddleObjectIds.begin(), pend, uid);
-        if (pit != pend) {
-          // if (contains(x12c_puddleObjectIds, x12c_puddleObjectIds.end(), uid)) {
+        if (rstl::find(x12c_puddleObjectIds.begin(), x12c_puddleObjectIds.end(), uid) !=
+            x12c_puddleObjectIds.end()) {
           rstl::vector< TUniqueId >::const_iterator it = x12c_puddleObjectIds.begin();
           for (; it != x12c_puddleObjectIds.end(); ++it) {
             if (CEntity* ent = mgr.ObjectById(*it)) {

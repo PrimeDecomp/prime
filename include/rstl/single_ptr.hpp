@@ -6,7 +6,7 @@
 namespace rstl {
 template < typename T >
 class single_ptr {
-  T* x0_ptr;
+  mutable T* x0_ptr;
 
 public:
   single_ptr() : x0_ptr(nullptr) {}
@@ -16,6 +16,9 @@ public:
   // const T* get() const { return x0_ptr; }
   T* operator->() { return x0_ptr; }
   const T* operator->() const { return x0_ptr; }
+  single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) {
+    other.x0_ptr = nullptr;
+  }
   single_ptr& operator=(T* ptr) {
     delete x0_ptr;
     x0_ptr = ptr;

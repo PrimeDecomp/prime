@@ -23,6 +23,10 @@ struct SRiders {
   TUniqueId x0_uid;
   f32 x4_decayTimer;
   CTransform4f x8_transform;
+
+  SRiders(TUniqueId uid)
+  : x0_uid(uid), x4_decayTimer(1.f / 6.f), x8_transform(CTransform4f::Identity()) {}
+  bool operator==(const SRiders& other) const { return x0_uid == other.x0_uid; }
 };
 
 class CScriptPlatform : public CPhysicsActor {
@@ -59,6 +63,12 @@ public:
   // CScriptPlatform
   virtual void SplashThink(const CAABox&, const CFluidPlane&, float, CStateManager&) const;
   virtual CQuaternion Move(float, CStateManager&);
+
+  TUniqueId GetWaypoint(CStateManager& mgr);
+  TUniqueId GetNext(TUniqueId uid, CStateManager& mgr);
+
+  static void AddRider(rstl::vector< SRiders >& riders, TUniqueId riderId,
+                       const CPhysicsActor* ridee, CStateManager& mgr);
 
 private:
   TUniqueId x258_currentWaypoint;

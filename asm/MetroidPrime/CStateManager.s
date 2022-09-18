@@ -626,8 +626,8 @@ sub_80044008:
 /* 80044028 00040F88  90 03 0F 04 */	stw r0, 0xf04(r3)
 /* 8004402C 00040F8C  4E 80 00 20 */	blr
 
-.global "SetCurrentMaze__13CStateManagerFRCQ24rstl24single_ptr<10CMazeState>"
-"SetCurrentMaze__13CStateManagerFRCQ24rstl24single_ptr<10CMazeState>":
+.global "SetCurrentMaze__13CStateManagerFQ24rstl24single_ptr<10CMazeState>"
+"SetCurrentMaze__13CStateManagerFQ24rstl24single_ptr<10CMazeState>":
 /* 80044030 00040F90  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80044034 00040F94  7C 08 02 A6 */	mflr r0
 /* 80044038 00040F98  90 01 00 14 */	stw r0, 0x14(r1)

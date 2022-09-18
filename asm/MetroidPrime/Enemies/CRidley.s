@@ -7980,7 +7980,7 @@ lbl_80258EEC:
 /* 80258F4C 00255EAC  7F 44 D3 78 */	mr r4, r26
 /* 80258F50 00255EB0  7F C5 F3 78 */	mr r5, r30
 /* 80258F54 00255EB4  38 61 00 78 */	addi r3, r1, 0x78
-/* 80258F58 00255EB8  4B E1 E1 DD */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 80258F58 00255EB8  4B E1 E1 DD */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 80258F5C 00255EBC  A0 01 00 78 */	lhz r0, 0x78(r1)
 /* 80258F60 00255EC0  7F C3 F3 78 */	mr r3, r30
 /* 80258F64 00255EC4  38 81 00 7C */	addi r4, r1, 0x7c
@@ -8029,7 +8029,7 @@ lbl_80258EEC:
 /* 80259010 00255F70  D0 A1 01 A4 */	stfs f5, 0x1a4(r1)
 /* 80259014 00255F74  D0 C1 01 A8 */	stfs f6, 0x1a8(r1)
 /* 80259018 00255F78  D0 1F 0A B8 */	stfs f0, 0xab8(r31)
-/* 8025901C 00255F7C  4B E1 E1 19 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 8025901C 00255F7C  4B E1 E1 19 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 80259020 00255F80  A0 01 00 70 */	lhz r0, 0x70(r1)
 /* 80259024 00255F84  7F C3 F3 78 */	mr r3, r30
 /* 80259028 00255F88  38 81 00 74 */	addi r4, r1, 0x74

@@ -74,6 +74,7 @@ private:
   static const CColor sPurpleColor;
   static const CColor sOrangeColor;
 };
+CHECK_SIZEOF(CColor, 0x4)
 
 #ifdef __MWERKS__
 #pragma cpp_extensions off

@@ -18,7 +18,13 @@ template < class T, int N >
 struct check_sizeof : _n_is_equal< sizeof(T), N > {};
 
 #ifdef __MWERKS__
+#ifndef offsetof
+typedef unsigned long size_t;
+#define offsetof(type, member) ((size_t) & (((type*)0)->member))
+#endif
 #define CHECK_SIZEOF(cls, size) extern int cls##_check[check_sizeof< cls, size >::value];
+#define CHECK_OFFSETOF(cls, member, offset)                                                        \
+  extern int cls##_check_offset##[_n_is_equal< offsetof(cls, member), offset >::value];
 #else
 #define CHECK_SIZEOF(cls, size)
 #endif

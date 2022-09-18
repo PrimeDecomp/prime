@@ -87,5 +87,6 @@ private:
   rstl::optional_object< TCachedToken< CModel > > x2c_xrayModel;
   rstl::optional_object< TCachedToken< CModel > > x3c_infraModel;
 };
+CHECK_SIZEOF(CModelData, 0x4c)
 
 #endif

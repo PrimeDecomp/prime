@@ -261,7 +261,7 @@ lbl_80288A7C:
 /* 80288ADC 00285A3C  7F C3 F3 78 */	mr r3, r30
 /* 80288AE0 00285A40  38 81 00 58 */	addi r4, r1, 0x58
 /* 80288AE4 00285A44  90 01 00 5C */	stw r0, 0x5c(r1)
-/* 80288AE8 00285A48  4B DB B5 49 */	bl "SetCurrentMaze__13CStateManagerFRCQ24rstl24single_ptr<10CMazeState>"
+/* 80288AE8 00285A48  4B DB B5 49 */	bl "SetCurrentMaze__13CStateManagerFQ24rstl24single_ptr<10CMazeState>"
 /* 80288AEC 00285A4C  80 61 00 58 */	lwz r3, 0x58(r1)
 /* 80288AF0 00285A50  48 08 CE 41 */	bl Free__7CMemoryFPCv
 /* 80288AF4 00285A54  80 61 00 5C */	lwz r3, 0x5c(r1)
@@ -739,7 +739,7 @@ lbl_802891AC:
 /* 802891C0 00286120  7F C3 F3 78 */	mr r3, r30
 /* 802891C4 00286124  90 01 00 40 */	stw r0, 0x40(r1)
 /* 802891C8 00286128  38 81 00 40 */	addi r4, r1, 0x40
-/* 802891CC 0028612C  4B DB AE 65 */	bl "SetCurrentMaze__13CStateManagerFRCQ24rstl24single_ptr<10CMazeState>"
+/* 802891CC 0028612C  4B DB AE 65 */	bl "SetCurrentMaze__13CStateManagerFQ24rstl24single_ptr<10CMazeState>"
 /* 802891D0 00286130  80 61 00 40 */	lwz r3, 0x40(r1)
 /* 802891D4 00286134  48 08 C7 5D */	bl Free__7CMemoryFPCv
 lbl_802891D8:

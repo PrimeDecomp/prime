@@ -1618,7 +1618,7 @@ lbl_800B1FD0:
 /* 800B2044 000AEFA4  80 9D 03 3C */	lwz r4, 0x33c(r29)
 /* 800B2048 000AEFA8  38 7D 03 38 */	addi r3, r29, 0x338
 /* 800B204C 000AEFAC  38 84 00 01 */	addi r4, r4, 1
-/* 800B2050 000AEFB0  48 00 23 B5 */	bl sub_800b4404
+/* 800B2050 000AEFB0  48 00 23 B5 */	bl "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
 /* 800B2054 000AEFB4  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 800B2058 000AEFB8  3B C1 00 38 */	addi r30, r1, 0x38
 /* 800B205C 000AEFBC  C0 02 8C CC */	lfs f0, lbl_805AA9EC@sda21(r2)
@@ -1638,7 +1638,7 @@ lbl_800B1FD0:
 /* 800B2094 000AEFF4  41 82 00 08 */	beq lbl_800B209C
 /* 800B2098 000AEFF8  54 A4 08 3C */	slwi r4, r5, 1
 lbl_800B209C:
-/* 800B209C 000AEFFC  48 00 23 69 */	bl sub_800b4404
+/* 800B209C 000AEFFC  48 00 23 69 */	bl "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
 lbl_800B20A0:
 /* 800B20A0 000AF000  80 1D 03 3C */	lwz r0, 0x33c(r29)
 /* 800B20A4 000AF004  80 7D 03 44 */	lwz r3, 0x344(r29)
@@ -1761,12 +1761,10 @@ AcceptScriptMsg__15CScriptPlatformF20EScriptObjectMessage9TUniqueIdR13CStateMana
 /* 800B222C 000AF18C  7C 04 00 2E */	lwzx r0, r4, r0
 /* 800B2230 000AF190  7C 09 03 A6 */	mtctr r0
 /* 800B2234 000AF194  4E 80 04 20 */	bctr
-.global lbl_800B2238
 lbl_800B2238:
 /* 800B2238 000AF198  7F E4 FB 78 */	mr r4, r31
 /* 800B223C 000AF19C  48 00 08 15 */	bl BuildSlaveList__15CScriptPlatformFR13CStateManager
 /* 800B2240 000AF1A0  48 00 03 3C */	b lbl_800B257C
-.global lbl_800B2244
 lbl_800B2244:
 /* 800B2244 000AF1A4  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 800B2248 000AF1A8  7F 85 E3 78 */	mr r5, r28
@@ -1775,13 +1773,11 @@ lbl_800B2244:
 /* 800B2254 000AF1B4  B0 01 00 64 */	sth r0, 0x64(r1)
 /* 800B2258 000AF1B8  48 00 15 79 */	bl "AddRider__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>9TUniqueIdPC13CPhysicsActorR13CStateManager"
 /* 800B225C 000AF1BC  48 00 03 20 */	b lbl_800B257C
-.global lbl_800B2260
 lbl_800B2260:
 /* 800B2260 000AF1C0  C0 02 8C AC */	lfs f0, lbl_805AA9CC@sda21(r2)
 /* 800B2264 000AF1C4  D0 1C 02 5C */	stfs f0, 0x25c(r28)
 /* 800B2268 000AF1C8  48 06 91 11 */	bl Stop__13CPhysicsActorFv
 /* 800B226C 000AF1CC  48 00 03 10 */	b lbl_800B257C
-.global lbl_800B2270
 lbl_800B2270:
 /* 800B2270 000AF1D0  A0 1C 02 58 */	lhz r0, 0x258(r28)
 /* 800B2274 000AF1D4  7F 84 E3 78 */	mr r4, r28
@@ -1908,7 +1904,6 @@ lbl_800B2428:
 /* 800B243C 000AF39C  C0 03 00 08 */	lfs f0, 8(r3)
 /* 800B2440 000AF3A0  D0 1C 02 78 */	stfs f0, 0x278(r28)
 /* 800B2444 000AF3A4  48 00 01 38 */	b lbl_800B257C
-.global lbl_800B2448
 lbl_800B2448:
 /* 800B2448 000AF3A8  A0 1C 02 58 */	lhz r0, 0x258(r28)
 /* 800B244C 000AF3AC  7F 84 E3 78 */	mr r4, r28
@@ -1946,7 +1941,6 @@ lbl_800B249C:
 /* 800B24C8 000AF428  C0 03 00 E8 */	lfs f0, 0xe8(r3)
 /* 800B24CC 000AF42C  D0 1C 02 5C */	stfs f0, 0x25c(r28)
 /* 800B24D0 000AF430  48 00 00 AC */	b lbl_800B257C
-.global lbl_800B24D4
 lbl_800B24D4:
 /* 800B24D4 000AF434  88 1C 03 56 */	lbz r0, 0x356(r28)
 /* 800B24D8 000AF438  38 60 00 00 */	li r3, 0
@@ -1957,7 +1951,6 @@ lbl_800B24D4:
 /* 800B24EC 000AF44C  C0 1C 02 90 */	lfs f0, 0x290(r28)
 /* 800B24F0 000AF450  D0 1C 02 98 */	stfs f0, 0x298(r28)
 /* 800B24F4 000AF454  48 00 00 88 */	b lbl_800B257C
-.global lbl_800B24F8
 lbl_800B24F8:
 /* 800B24F8 000AF458  88 1C 00 30 */	lbz r0, 0x30(r28)
 /* 800B24FC 000AF45C  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -1980,7 +1973,6 @@ lbl_800B2524:
 /* 800B253C 000AF49C  C0 3C 02 68 */	lfs f1, 0x268(r28)
 /* 800B2540 000AF4A0  48 14 F4 69 */	bl FadeInHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf
 /* 800B2544 000AF4A4  48 00 00 38 */	b lbl_800B257C
-.global lbl_800B2548
 lbl_800B2548:
 /* 800B2548 000AF4A8  A0 1C 00 08 */	lhz r0, 8(r28)
 /* 800B254C 000AF4AC  7F E4 FB 78 */	mr r4, r31
@@ -1991,13 +1983,11 @@ lbl_800B2548:
 /* 800B2560 000AF4C0  C0 3C 02 6C */	lfs f1, 0x26c(r28)
 /* 800B2564 000AF4C4  48 14 F2 15 */	bl FadeOutHelper__20CScriptColorModulateFR13CStateManager9TUniqueIdf
 /* 800B2568 000AF4C8  48 00 00 14 */	b lbl_800B257C
-.global lbl_800B256C
 lbl_800B256C:
 /* 800B256C 000AF4CC  C0 22 8C D0 */	lfs f1, lbl_805AA9F0@sda21(r2)
 /* 800B2570 000AF4D0  7F E4 FB 78 */	mr r4, r31
 /* 800B2574 000AF4D4  38 7C 03 18 */	addi r3, r28, 0x318
 /* 800B2578 000AF4D8  48 00 10 2D */	bl "DecayRiders__15CScriptPlatformFRQ24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>fR13CStateManager"
-.global lbl_800B257C
 lbl_800B257C:
 /* 800B257C 000AF4DC  A0 1E 00 00 */	lhz r0, 0(r30)
 /* 800B2580 000AF4E0  7F 83 E3 78 */	mr r3, r28
@@ -2360,7 +2350,7 @@ BuildSlaveList__15CScriptPlatformFR13CStateManager:
 /* 800B2A64 000AF9C4  7C 7C 1B 78 */	mr r28, r3
 /* 800B2A68 000AF9C8  80 83 00 24 */	lwz r4, 0x24(r3)
 /* 800B2A6C 000AF9CC  38 7C 03 28 */	addi r3, r28, 0x328
-/* 800B2A70 000AF9D0  48 00 19 95 */	bl sub_800b4404
+/* 800B2A70 000AF9D0  48 00 19 95 */	bl "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
 /* 800B2A74 000AF9D4  83 FC 00 2C */	lwz r31, 0x2c(r28)
 /* 800B2A78 000AF9D8  3B C1 00 4C */	addi r30, r1, 0x4c
 /* 800B2A7C 000AF9DC  48 00 01 E0 */	b lbl_800B2C5C
@@ -2426,7 +2416,7 @@ lbl_800B2A80:
 /* 800B2B68 000AFAC8  41 82 00 08 */	beq lbl_800B2B70
 /* 800B2B6C 000AFACC  54 A4 08 3C */	slwi r4, r5, 1
 lbl_800B2B70:
-/* 800B2B70 000AFAD0  48 00 18 95 */	bl sub_800b4404
+/* 800B2B70 000AFAD0  48 00 18 95 */	bl "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
 lbl_800B2B74:
 /* 800B2B74 000AFAD4  80 1C 03 2C */	lwz r0, 0x32c(r28)
 /* 800B2B78 000AFAD8  80 7C 03 34 */	lwz r3, 0x334(r28)
@@ -3384,7 +3374,7 @@ lbl_800B3938:
 /* 800B3938 000B0898  80 9B 00 04 */	lwz r4, 4(r27)
 /* 800B393C 000B089C  7F 63 DB 78 */	mr r3, r27
 /* 800B3940 000B08A0  38 84 00 01 */	addi r4, r4, 1
-/* 800B3944 000B08A4  48 00 0A C1 */	bl sub_800b4404
+/* 800B3944 000B08A4  48 00 0A C1 */	bl "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
 /* 800B3948 000B08A8  80 1B 00 04 */	lwz r0, 4(r27)
 /* 800B394C 000B08AC  80 BB 00 08 */	lwz r5, 8(r27)
 /* 800B3950 000B08B0  7C 00 28 00 */	cmpw r0, r5
@@ -3395,7 +3385,7 @@ lbl_800B3938:
 /* 800B3964 000B08C4  41 82 00 08 */	beq lbl_800B396C
 /* 800B3968 000B08C8  54 A4 08 3C */	slwi r4, r5, 1
 lbl_800B396C:
-/* 800B396C 000B08CC  48 00 0A 99 */	bl sub_800b4404
+/* 800B396C 000B08CC  48 00 0A 99 */	bl "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
 lbl_800B3970:
 /* 800B3970 000B08D0  80 1B 00 04 */	lwz r0, 4(r27)
 /* 800B3974 000B08D4  80 7B 00 0C */	lwz r3, 0xc(r27)
@@ -3454,7 +3444,7 @@ GetNext__15CScriptPlatformF9TUniqueIdR13CStateManager:
 lbl_800B3A30:
 /* 800B3A30 000B0990  7F E5 FB 78 */	mr r5, r31
 /* 800B3A34 000B0994  38 61 00 0C */	addi r3, r1, 0xc
-/* 800B3A38 000B0998  4B FC 36 FD */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 800B3A38 000B0998  4B FC 36 FD */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 800B3A3C 000B099C  A0 01 00 0C */	lhz r0, 0xc(r1)
 /* 800B3A40 000B09A0  7F E3 FB 78 */	mr r3, r31
 /* 800B3A44 000B09A4  38 81 00 08 */	addi r4, r1, 8
@@ -4131,8 +4121,8 @@ lbl_800B43CC:
 /* 800B43FC 000B135C  B0 03 00 02 */	sth r0, 2(r3)
 /* 800B4400 000B1360  4E 80 00 20 */	blr
 
-.global sub_800b4404
-sub_800b4404:
+.global "reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>Fi":
 /* 800B4404 000B1364  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 800B4408 000B1368  7C 08 02 A6 */	mflr r0
 /* 800B440C 000B136C  90 01 00 34 */	stw r0, 0x34(r1)

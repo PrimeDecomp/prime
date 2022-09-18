@@ -44,7 +44,7 @@ public:
 
 private:
   u8 m_data[sizeof(T)];
-  bool m_valid;
+  bool m_valid ATTRIBUTE_ALIGN(4);
 
   void assign(const T& item) {
     if (!m_valid) {

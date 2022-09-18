@@ -4542,7 +4542,7 @@ lbl_802746C0:
 lbl_8027470C:
 /* 8027470C 0027166C  7F C5 F3 78 */	mr r5, r30
 /* 80274710 00271670  38 61 00 08 */	addi r3, r1, 8
-/* 80274714 00271674  4B E0 2A 21 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 80274714 00271674  4B E0 2A 21 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 80274718 00271678  A0 01 00 08 */	lhz r0, 8(r1)
 /* 8027471C 0027167C  B0 01 00 14 */	sth r0, 0x14(r1)
 lbl_80274720:
@@ -7045,7 +7045,7 @@ lbl_80276AC8:
 lbl_80276AEC:
 /* 80276AEC 00273A4C  7F A5 EB 78 */	mr r5, r29
 /* 80276AF0 00273A50  38 61 00 08 */	addi r3, r1, 8
-/* 80276AF4 00273A54  4B E0 06 41 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 80276AF4 00273A54  4B E0 06 41 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 80276AF8 00273A58  A0 01 00 08 */	lhz r0, 8(r1)
 /* 80276AFC 00273A5C  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80276B00 00273A60  48 00 00 0C */	b lbl_80276B0C
