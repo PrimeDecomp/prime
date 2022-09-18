@@ -10,16 +10,16 @@ class CDolphinController : public IController {
   static const uint skTypeWavebird;
 
 public:
-    CDolphinController();
-    virtual ~CDolphinController();
-    void Poll();
-    uint GetDeviceCount() const;
-    CControllerGamepadData& GetGamepadData(int controller);
-    uint GetControllerType(int) const;
-    void SetMotorState(EIOPort port, EMotorState state);
-    bool Initialize();
+  CDolphinController();
+  virtual ~CDolphinController();
+  void Poll();
+  uint GetDeviceCount() const;
+  CControllerGamepadData& GetGamepadData(int controller);
+  uint GetControllerType(int) const;
+  void SetMotorState(EIOPort port, EMotorState state);
+  bool Initialize();
 
-    float GetAnalogStickMaxValue(EJoyAxis axis) const;
+  float GetAnalogStickMaxValue(EJoyAxis axis) const;
 
 private:
   void ReadDevices();

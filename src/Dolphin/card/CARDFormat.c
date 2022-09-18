@@ -24,16 +24,18 @@ static void FormatCallback(s32 chan, s32 result) {
     }
   } else if (card->formatStep < 2 * CARD_NUM_SYSTEM_BLOCK) {
     int step = card->formatStep - CARD_NUM_SYSTEM_BLOCK;
-    result = __CARDWrite(chan, (u32)card->sectorSize * step, CARD_SYSTEM_BLOCK_SIZE, (u8*)card->workArea + (CARD_SYSTEM_BLOCK_SIZE * step),
-                         FormatCallback);
+    result = __CARDWrite(chan, (u32)card->sectorSize * step, CARD_SYSTEM_BLOCK_SIZE,
+                         (u8*)card->workArea + (CARD_SYSTEM_BLOCK_SIZE * step), FormatCallback);
     if (result >= 0) {
       return;
     }
   } else {
     card->currentDir = (CARDDir*)((u8*)card->workArea + (1 + 0) * CARD_SYSTEM_BLOCK_SIZE);
-    memcpy(card->currentDir, (u8*)card->workArea + (1 + 1) * CARD_SYSTEM_BLOCK_SIZE, CARD_SYSTEM_BLOCK_SIZE);
+    memcpy(card->currentDir, (u8*)card->workArea + (1 + 1) * CARD_SYSTEM_BLOCK_SIZE,
+           CARD_SYSTEM_BLOCK_SIZE);
     card->currentFat = (u16*)((u8*)card->workArea + (3 + 0) * CARD_SYSTEM_BLOCK_SIZE);
-    memcpy(card->currentFat, (u8*)card->workArea + (3 + 1) * CARD_SYSTEM_BLOCK_SIZE, CARD_SYSTEM_BLOCK_SIZE);
+    memcpy(card->currentFat, (u8*)card->workArea + (3 + 1) * CARD_SYSTEM_BLOCK_SIZE,
+           CARD_SYSTEM_BLOCK_SIZE);
   }
 
 error:
@@ -96,7 +98,8 @@ s32 __CARDFormatRegionAsync(s32 chan, u16 encode, CARDCallback callback) {
     memset(dir, 0xff, CARD_SYSTEM_BLOCK_SIZE);
     check = __CARDGetDirCheck(dir);
     check->checkCode = i;
-    __CARDCheckSum(dir, CARD_SYSTEM_BLOCK_SIZE - sizeof(u32), &check->checkSum, &check->checkSumInv);
+    __CARDCheckSum(dir, CARD_SYSTEM_BLOCK_SIZE - sizeof(u32), &check->checkSum,
+                   &check->checkSumInv);
   }
   for (i = 0; i < 2; i++) {
     fat = (u16*)((u8*)card->workArea + (3 + i) * CARD_SYSTEM_BLOCK_SIZE);
@@ -104,7 +107,8 @@ s32 __CARDFormatRegionAsync(s32 chan, u16 encode, CARDCallback callback) {
     fat[CARD_FAT_CHECKCODE] = (u16)i;
     fat[CARD_FAT_FREEBLOCKS] = (u16)(card->cBlock - CARD_NUM_SYSTEM_BLOCK);
     fat[CARD_FAT_LASTSLOT] = CARD_NUM_SYSTEM_BLOCK - 1;
-    __CARDCheckSum(&fat[CARD_FAT_CHECKCODE], CARD_SYSTEM_BLOCK_SIZE - sizeof(u32), &fat[CARD_FAT_CHECKSUM], &fat[CARD_FAT_CHECKSUMINV]);
+    __CARDCheckSum(&fat[CARD_FAT_CHECKCODE], CARD_SYSTEM_BLOCK_SIZE - sizeof(u32),
+                   &fat[CARD_FAT_CHECKSUM], &fat[CARD_FAT_CHECKSUMINV]);
   }
 
   card->apiCallback = callback ? callback : __CARDDefaultApiCallback;
@@ -118,4 +122,6 @@ s32 __CARDFormatRegionAsync(s32 chan, u16 encode, CARDCallback callback) {
   return result;
 }
 
-s32 CARDFormatAsync(s32 chan, CARDCallback callback) { return __CARDFormatRegionAsync(chan, __CARDGetFontEncode(), callback); }
+s32 CARDFormatAsync(s32 chan, CARDCallback callback) {
+  return __CARDFormatRegionAsync(chan, __CARDGetFontEncode(), callback);
+}

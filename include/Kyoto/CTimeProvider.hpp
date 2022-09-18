@@ -10,6 +10,7 @@ public:
   CTimeProvider(const float& time);
   ~CTimeProvider();
   float GetSecondsMod900() const { return x0_currentTime; }
+
 private:
   const float& x0_currentTime; // in seconds
   bool x4_first;

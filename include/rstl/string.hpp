@@ -9,7 +9,8 @@ namespace rstl {
 template < typename _CharTp >
 struct char_traits {};
 
-template < typename _CharTp, typename Traits = char_traits< _CharTp >, typename Alloc = rmemory_allocator >
+template < typename _CharTp, typename Traits = char_traits< _CharTp >,
+           typename Alloc = rmemory_allocator >
 class basic_string {
   struct COWData {
     u32 x0_capacity;

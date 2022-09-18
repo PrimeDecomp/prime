@@ -10,13 +10,15 @@
 #include "rstl/vector.hpp"
 
 namespace rstl {
-template < typename K, typename P, int unk, typename Select, typename Hash, typename Equal, typename Alloc = rmemory_allocator >
+template < typename K, typename P, int unk, typename Select, typename Hash, typename Equal,
+           typename Alloc = rmemory_allocator >
 class hash_table {
 private:
   rstl::vector< rstl::list< P, Alloc > /*::iterator*/, Alloc > x;
 };
 
-template < typename K, typename V, typename Hash, typename Equal, typename Alloc = rmemory_allocator >
+template < typename K, typename V, typename Hash, typename Equal,
+           typename Alloc = rmemory_allocator >
 class hash_map {
   typedef rstl::pair< K, V > Pair;
 

@@ -14,7 +14,6 @@ s32 CARDGetSerialNo(s32 chan, u64* serialNo) {
   u64 code;
   s32 result;
 
-
   if (!(0 <= chan && chan < 2)) {
     return CARD_RESULT_FATAL_ERROR;
   }

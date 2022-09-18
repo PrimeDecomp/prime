@@ -4,8 +4,8 @@
 #include "types.h"
 
 #include "Kyoto/Graphics/CColor.hpp"
-#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include "Kyoto/Graphics/CTevCombiners.hpp"
 

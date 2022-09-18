@@ -22,8 +22,14 @@ public:
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(begin) {}
-  const_pointer_iterator& operator++() { ++current; return *this; }
-  const_pointer_iterator& operator--() { --current; return *this; }
+  const_pointer_iterator& operator++() {
+    ++current;
+    return *this;
+  }
+  const_pointer_iterator& operator--() {
+    --current;
+    return *this;
+  }
   T* get_pointer() const { return const_cast< T* >(current); }
   const T& operator*() const { return *get_pointer(); }
   const T* operator->() const { return get_pointer(); }
@@ -31,8 +37,12 @@ public:
   bool operator==(const const_pointer_iterator& other) { return current == other.current; }
   bool operator!=(const const_pointer_iterator& other) { return current != other.current; }
 
-  friend const_pointer_iterator operator+(const const_pointer_iterator& x, int v) { return const_pointer_iterator(x.current + v); }
-  friend const_pointer_iterator operator-(const const_pointer_iterator& x, int v) { return const_pointer_iterator(x.current - v); }
+  friend const_pointer_iterator operator+(const const_pointer_iterator& x, int v) {
+    return const_pointer_iterator(x.current + v);
+  }
+  friend const_pointer_iterator operator-(const const_pointer_iterator& x, int v) {
+    return const_pointer_iterator(x.current - v);
+  }
 };
 
 template < typename T, typename Vec, typename Alloc >
@@ -54,11 +64,21 @@ public:
       rstl::destroy(get_pointer());
     }
   }
-  pointer_iterator& operator++() { ++current; return *this; }
-  pointer_iterator& operator--() { --current; return *this; }
+  pointer_iterator& operator++() {
+    ++current;
+    return *this;
+  }
+  pointer_iterator& operator--() {
+    --current;
+    return *this;
+  }
 
-  friend pointer_iterator operator+(const pointer_iterator& x, int v) { return pointer_iterator(x.get_pointer() + v); }
-  friend pointer_iterator operator-(const pointer_iterator& x, int v) { return pointer_iterator(x.get_pointer() - v); }
+  friend pointer_iterator operator+(const pointer_iterator& x, int v) {
+    return pointer_iterator(x.get_pointer() + v);
+  }
+  friend pointer_iterator operator-(const pointer_iterator& x, int v) {
+    return pointer_iterator(x.get_pointer() - v);
+  }
 };
 } // namespace rstl
 

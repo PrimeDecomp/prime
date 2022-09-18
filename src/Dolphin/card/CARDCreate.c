@@ -51,7 +51,8 @@ error:
   }
 }
 
-s32 CARDCreateAsync(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo, CARDCallback callback) {
+s32 CARDCreateAsync(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo,
+                    CARDCallback callback) {
   CARDControl* card;
   CARDDir* dir;
   CARDDir* ent;
@@ -82,7 +83,8 @@ s32 CARDCreateAsync(s32 chan, const char* fileName, u32 size, CARDFileInfo* file
         freeNo = fileNo;
       }
     } else if (memcmp(ent->gameName, card->diskID->gameName, sizeof(ent->gameName)) == 0 &&
-               memcmp(ent->company, card->diskID->company, sizeof(ent->company)) == 0 && __CARDCompareFileName(ent, fileName)) {
+               memcmp(ent->company, card->diskID->company, sizeof(ent->company)) == 0 &&
+               __CARDCompareFileName(ent, fileName)) {
       return __CARDPutControlBlock(card, CARD_RESULT_EXIST);
     }
   }

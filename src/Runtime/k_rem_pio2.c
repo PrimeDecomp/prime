@@ -158,7 +158,8 @@ static double
     twon24 = 5.96046447753906250000e-08;           /* 0x3E700000, 0x00000000 */
 
 #ifdef __STDC__
-_INT32 __kernel_rem_pio2(double* x, double* y, _INT32 e0, _INT32 nx, _INT32 prec, const _INT32* ipio2)
+_INT32 __kernel_rem_pio2(double* x, double* y, _INT32 e0, _INT32 nx, _INT32 prec,
+                         const _INT32* ipio2)
 #else
 _INT32 __kernel_rem_pio2(x, y, e0, nx, prec, ipio2)
 double x[], y[];

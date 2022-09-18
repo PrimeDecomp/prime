@@ -3,6 +3,7 @@
 
 #include "Kyoto/Input/CControllerAxis.hpp"
 #include "Kyoto/Input/CControllerButton.hpp"
+#include "Kyoto/Input/InputTypes.hpp"
 
 class CControllerGamepadData {
 public:
@@ -15,7 +16,9 @@ public:
   const CControllerButton& GetButton(EButton button) const { return x34_buttons[button]; }
   CControllerButton& GetButton(EButton button) { return x34_buttons[button]; }
 
-  const CControllerAxis& GetAnalogButton(EAnalogButton button) const { return x24_triggers[button]; }
+  const CControllerAxis& GetAnalogButton(EAnalogButton button) const {
+    return x24_triggers[button];
+  }
   CControllerAxis& GetAnalogButton(EAnalogButton button) { return x24_triggers[button]; }
 
 private:

@@ -50,10 +50,14 @@ public:
   SAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
   void RenderParticles(const CFrustumPlanes& planes) const;
-  void RenderUnsortedParts(EWhichModel which, const CTransform4f& xf, const CActorLights* lights, const CModelFlags& flags) const;
-  void RenderThermal(const CTransform4f& xf, const CColor& mulColor, const CColor& addColor, const CModelFlags& flags) const;
-  void Render(const CStateManager&, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
-  void Render(CModelData::EWhichModel, const CTransform4f&, const CActorLights*, const CModelFlags&) const;
+  void RenderUnsortedParts(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,
+                           const CModelFlags& flags) const;
+  void RenderThermal(const CTransform4f& xf, const CColor& mulColor, const CColor& addColor,
+                     const CModelFlags& flags) const;
+  void Render(const CStateManager&, const CTransform4f&, const CActorLights*,
+              const CModelFlags&) const;
+  void Render(CModelData::EWhichModel, const CTransform4f&, const CActorLights*,
+              const CModelFlags&) const;
 
   const CAnimData* GetAnimationData() const { return xc_animData.get(); }
   CAnimData* AnimationData() { return xc_animData.get(); }

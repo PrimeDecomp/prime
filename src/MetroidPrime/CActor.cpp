@@ -23,7 +23,8 @@
 
 #include "rstl/math.hpp"
 
-static CMaterialList MakeActorMaterialList(const CMaterialList& in, const CActorParameters& params) {
+static CMaterialList MakeActorMaterialList(const CMaterialList& in,
+                                           const CActorParameters& params) {
   CMaterialList ret = in;
   if (params.GetVisorParameters().GetBool1()) {
     ret.Add(kMT_Unknown46);
@@ -34,13 +35,15 @@ static CMaterialList MakeActorMaterialList(const CMaterialList& in, const CActor
   return ret;
 }
 
-CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-               const CModelData& mData, const CMaterialList& list, const CActorParameters& params, TUniqueId nextDrawNode)
+CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
+               const CTransform4f& xf, const CModelData& mData, const CMaterialList& list,
+               const CActorParameters& params, TUniqueId nextDrawNode)
 : CEntity(uid, info, active, name)
 , x34_transform(xf)
 , x64_modelData(mData.IsNull() ? nullptr : new CModelData(mData))
 , x68_material(MakeActorMaterialList(list, params))
-, x70_materialFilter(CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()))
+, x70_materialFilter(
+      CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()))
 , x88_sfxId(InvalidSfxId)
 , x8c_loopingSfxHandle(0)
 , x90_actorLights(mData.IsNull() ? nullptr : params.GetLighting().MakeActorLights().release())
@@ -94,7 +97,8 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
   }
   const CAssetId scanId = params.GetScannable().GetScannableObject0();
   if (scanId != kInvalidAssetId) {
-    x98_scanObjectInfo = new TCachedToken< CScannableObjectInfo >(gpSimplePool->GetObj(SObjectTag('SCAN', scanId)));
+    x98_scanObjectInfo =
+        new TCachedToken< CScannableObjectInfo >(gpSimplePool->GetObj(SObjectTag('SCAN', scanId)));
     x98_scanObjectInfo->Lock();
   }
 }
@@ -130,8 +134,9 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
           continue;
         if (charIdx != -1 && GetAnimationData()->GetCharacterIndex() != charIdx)
           continue;
-        ProcessSoundEvent(soundNode->GetSoundId(), soundNode->GetWeight(), soundNode->GetFlags(), soundNode->GetFallOff(),
-                          soundNode->GetMaxDistance(), 20, maxVol, toCamera, origin, aid, mgr, true);
+        ProcessSoundEvent(soundNode->GetSoundId(), soundNode->GetWeight(), soundNode->GetFlags(),
+                          soundNode->GetFallOff(), soundNode->GetMaxDistance(), 20, maxVol,
+                          toCamera, origin, aid, mgr, true);
       }
     }
 
@@ -146,8 +151,8 @@ SAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
         int charIdx = intNode->GetCharacterIndex();
         if (intNode->GetPoiType() == kPT_SoundInt32 && !GetMuted() &&
             (charIdx == -1 || GetAnimationData()->GetCharacterIndex() == charIdx)) {
-          ProcessSoundEvent(intNode->GetValue(), intNode->GetWeight(), intNode->GetFlags(), 0.1f, 150.f, 20, maxVol, toCamera, origin, aid,
-                            mgr, true);
+          ProcessSoundEvent(intNode->GetValue(), intNode->GetWeight(), intNode->GetFlags(), 0.1f,
+                            150.f, 20, maxVol, toCamera, origin, aid, mgr, true);
         } else if (intNode->GetPoiType() == kPT_UserEvent) {
           DoUserAnimEvent(mgr, *intNode, static_cast< EUserEventType >(intNode->GetValue()), dt);
         }
@@ -180,13 +185,16 @@ void CActor::RemoveEmitter() {
   }
 }
 
-void CActor::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type, float dt) {
+void CActor::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
+                             float dt) {
   if (type == kUE_LoopedSoundStop) {
     RemoveEmitter();
   }
 }
 
-f32 CActor::GetAverageAnimVelocity(int anim) { return HasAnimation() ? GetAnimationData()->GetAverageVelocity(anim) : 0.f; }
+f32 CActor::GetAverageAnimVelocity(int anim) {
+  return HasAnimation() ? GetAnimationData()->GetAverageVelocity(anim) : 0.f;
+}
 
 void CActor::CalculateRenderBounds() {
   if (HasModelData()) {
@@ -197,7 +205,9 @@ void CActor::CalculateRenderBounds() {
   }
 }
 
-void CActor::SetModelData(const CModelData& modelData) { x64_modelData = modelData.IsNull() ? nullptr : new CModelData(modelData); }
+void CActor::SetModelData(const CModelData& modelData) {
+  x64_modelData = modelData.IsNull() ? nullptr : new CModelData(modelData);
+}
 
 // TODO nonmatching
 void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
@@ -251,7 +261,8 @@ void CActor::PreRender(CStateManager& mgr, const CFrustumPlanes& planes) {
       }
       // TODO why doesn't GetDrawShadow() work?
       if (GetShadowDirty() && xe5_24_shadowEnabled && HasShadow()) {
-        if (planes.BoxInFrustumPlanes(GetShadow()->GetMaxShadowBox(GetModelData()->GetBounds(GetTransform()))) == true) {
+        if (planes.BoxInFrustumPlanes(
+                GetShadow()->GetMaxShadowBox(GetModelData()->GetBounds(GetTransform()))) == true) {
           Shadow()->Calculate(GetModelData()->GetBounds(), GetTransform(), mgr);
           SetShadowDirty(false);
         }
@@ -275,15 +286,16 @@ void CActor::AddToRenderer(const CFrustumPlanes& planes, const CStateManager& mg
     }
 
     if (mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_XRay &&
-        mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_Thermal && GetDrawShadow() && GetShadow()->Valid() &&
-        planes.BoxInFrustumPlanes(GetShadow()->GetBounds()) == true) {
-      gpRender->AddDrawable(GetShadow(), GetShadow()->GetTransform().GetTranslation(), GetShadow()->GetBounds(), 1,
-                            IRenderer::kDS_SortedCallback);
+        mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_Thermal && GetDrawShadow() &&
+        GetShadow()->Valid() && planes.BoxInFrustumPlanes(GetShadow()->GetBounds()) == true) {
+      gpRender->AddDrawable(GetShadow(), GetShadow()->GetTransform().GetTranslation(),
+                            GetShadow()->GetBounds(), 1, IRenderer::kDS_SortedCallback);
     }
   }
 }
 
-void CActor::EnsureRendered(const CStateManager& mgr, const CVector3f& pos, const CAABox& bounds) const {
+void CActor::EnsureRendered(const CStateManager& mgr, const CVector3f& pos,
+                            const CAABox& bounds) const {
   if (GetModelData()) {
     const CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
     GetModelData()->RenderUnsortedParts(which, GetTransform(), GetActorLights(), GetModelFlags());
@@ -302,7 +314,8 @@ void CActor::DrawTouchBounds() const {}
 
 bool CActor::CanRenderUnsorted(const CStateManager& mgr) const {
   bool result = HasAnimation();
-  if (result && GetAnimationData()->GetParticleDB().AreAnySystemsDrawnWithModel() && GetRenderParticleDatabaseInside()) {
+  if (result && GetAnimationData()->GetParticleDB().AreAnySystemsDrawnWithModel() &&
+      GetRenderParticleDatabaseInside()) {
     result = false;
   } else {
     result = xe5_30_renderUnsorted || IsModelOpaque(mgr);
@@ -363,8 +376,9 @@ void CActor::RenderInternal(const CStateManager& mgr) const {
       GetModelData()->RenderThermal(x34_transform, mulColor, addColor, xb4_drawFlags);
       return;
     } else if (mgr.GetThermalColdScale2() > 0.0001f && xb4_drawFlags.GetTrans() == 0) {
-      const f32 scale = rstl::min_val< f32 >((mgr.GetThermalColdScale2() + mgr.GetThermalColdScale1()) * mgr.GetThermalColdScale2(),
-                                             mgr.GetThermalColdScale2());
+      const f32 scale = rstl::min_val< f32 >(
+          (mgr.GetThermalColdScale2() + mgr.GetThermalColdScale1()) * mgr.GetThermalColdScale2(),
+          mgr.GetThermalColdScale2());
       const f32 rgbf = CMath::Clamp(0.f, scale * 255.f, 255.f);
       const u8 rgb = CCast::ToUint8(rgbf);
       CColor color(rgb, rgb, rgb, 255);

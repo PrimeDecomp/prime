@@ -10,12 +10,8 @@ void Free(const void* ptr);
 
 void* operator new(unsigned long sz, const char*, const char*);
 void* operator new[](unsigned long sz, const char*, const char*);
-inline void* operator new(unsigned long sz) {
-  return operator new(sz, "??(??)", nullptr);
-}
-inline void* operator new[](unsigned long sz) {
-  return operator new[](sz, "??(??)", nullptr);
-}
+inline void* operator new(unsigned long sz) { return operator new(sz, "??(??)", nullptr); }
+inline void* operator new[](unsigned long sz) { return operator new[](sz, "??(??)", nullptr); }
 // placement new
 inline void* operator new(unsigned long n, void* ptr) { return ptr; };
 

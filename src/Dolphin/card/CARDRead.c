@@ -17,13 +17,15 @@ s32 __CARDSeek(CARDFileInfo* fileInfo, s32 length, s32 offset, CARDControl** pca
     return result;
   }
 
-  if (!CARDIsValidBlockNo(card, fileInfo->iBlock) || card->cBlock * card->sectorSize <= fileInfo->offset) {
+  if (!CARDIsValidBlockNo(card, fileInfo->iBlock) ||
+      card->cBlock * card->sectorSize <= fileInfo->offset) {
     return __CARDPutControlBlock(card, CARD_RESULT_FATAL_ERROR);
   }
 
   dir = __CARDGetDirBlock(card);
   ent = &dir[fileInfo->fileNo];
-  if (ent->length * card->sectorSize <= offset || ent->length * card->sectorSize < offset + length) {
+  if (ent->length * card->sectorSize <= offset ||
+      ent->length * card->sectorSize < offset + length) {
     return __CARDPutControlBlock(card, CARD_RESULT_LIMIT);
   }
 
@@ -84,7 +86,8 @@ static void ReadCallback(s32 chan, s32 result) {
   }
 
   result = __CARDRead(chan, card->sectorSize * (u32)fileInfo->iBlock,
-                      (fileInfo->length < card->sectorSize) ? fileInfo->length : card->sectorSize, card->buffer, ReadCallback);
+                      (fileInfo->length < card->sectorSize) ? fileInfo->length : card->sectorSize,
+                      card->buffer, ReadCallback);
   if (result < 0) {
     goto error;
   }
@@ -98,7 +101,8 @@ error:
   callback(chan, result);
 }
 
-s32 CARDReadAsync(CARDFileInfo* fileInfo, void* buf, s32 length, s32 offset, CARDCallback callback) {
+s32 CARDReadAsync(CARDFileInfo* fileInfo, void* buf, s32 length, s32 offset,
+                  CARDCallback callback) {
   CARDControl* card;
   s32 result;
   CARDDir* dir;
@@ -128,7 +132,8 @@ s32 CARDReadAsync(CARDFileInfo* fileInfo, void* buf, s32 length, s32 offset, CAR
 
   offset = (s32)OFFSET(fileInfo->offset, card->sectorSize);
   length = (length < card->sectorSize - offset) ? length : card->sectorSize - offset;
-  result = __CARDRead(fileInfo->chan, card->sectorSize * (u32)fileInfo->iBlock + offset, length, buf, ReadCallback);
+  result = __CARDRead(fileInfo->chan, card->sectorSize * (u32)fileInfo->iBlock + offset, length,
+                      buf, ReadCallback);
   if (result < 0) {
     __CARDPutControlBlock(card, result);
   }

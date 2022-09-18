@@ -52,7 +52,8 @@ void sndAuxCallbackDelay(u8 reason, SND_AUX_INFO* info, void* user) {
     delay->currentPos[0] = (delay->currentPos[0] + 1) % delay->currentSize[0];
     delay->currentPos[1] = (delay->currentPos[1] + 1) % delay->currentSize[1];
     delay->currentPos[2] = (delay->currentPos[2] + 1) % delay->currentSize[2];
-  case SND_AUX_REASON_PARAMETERUPDATE: break;
+  case SND_AUX_REASON_PARAMETERUPDATE:
+    break;
   default:
     // ASSERT_MSG(FALSE);
     break;

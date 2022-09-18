@@ -8,7 +8,7 @@ public:
   CAABox() {
     // TODO
   }
-  CAABox(const CVector3f& min, const CVector3f& max);// : min(min), max(max) {}
+  CAABox(const CVector3f& min, const CVector3f& max); // : min(min), max(max) {}
   CAABox(const CAABox& other) : min(other.min), max(other.max) {}
 
   CVector3f ClosestPointAlongVector(const CVector3f& vec) const;

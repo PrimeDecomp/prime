@@ -120,7 +120,7 @@ double x, y;
       hx = hx + hx + (lx >> 31);
       lx = lx + lx;
     } else {
-      if ((hz | lz) == 0)               /* return sign(x)*0 */
+      if ((hz | lz) == 0) /* return sign(x)*0 */
         return Zero[(_UINT32)sx >> 31];
       hx = hz + hz + (lz >> 31);
       lx = lz + lz;
@@ -136,9 +136,9 @@ double x, y;
   }
 
   /* convert back to floating value and restore the sign */
-  if ((hx | lx) == 0)               /* return sign(x)*0 */
+  if ((hx | lx) == 0) /* return sign(x)*0 */
     return Zero[(_UINT32)sx >> 31];
-  while (hx < 0x00100000) {         /* normalize x */
+  while (hx < 0x00100000) { /* normalize x */
     hx = hx + hx + (lx >> 31);
     lx = lx + lx;
     iy -= 1;

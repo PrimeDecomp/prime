@@ -68,7 +68,8 @@ double y, x;
   hy = __HI(y);
   iy = hy & 0x7fffffff;
   ly = __LO(y);
-  if (((ix | ((lx | -lx) >> 31)) > 0x7ff00000) || ((iy | ((ly | -ly) >> 31)) > 0x7ff00000)) /* x or y is NaN */
+  if (((ix | ((lx | -lx) >> 31)) > 0x7ff00000) ||
+      ((iy | ((ly | -ly) >> 31)) > 0x7ff00000)) /* x or y is NaN */
     return x + y;
   if ((hx - 0x3ff00000 | lx) == 0)
     return atan(y);                        /* x=1.0 */

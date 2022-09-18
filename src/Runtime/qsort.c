@@ -2,22 +2,23 @@
 
 #define table_ptr(i) (((char*)table_base) + (member_size * ((i)-1)))
 
-#define swap(dst, src, cnt)                                                                                                                \
-  do {                                                                                                                                     \
-    char* p;                                                                                                                               \
-    char* q;                                                                                                                               \
-    size_t n = cnt;                                                                                                                        \
-                                                                                                                                           \
-    unsigned long tmp;                                                                                                                     \
-                                                                                                                                           \
-    for (p = (char*)src - 1, q = (char*)dst - 1, n++; --n;) {                                                                              \
-      tmp = *++q;                                                                                                                          \
-      *q = *++p;                                                                                                                           \
-      *p = tmp;                                                                                                                            \
-    }                                                                                                                                      \
+#define swap(dst, src, cnt)                                                                        \
+  do {                                                                                             \
+    char* p;                                                                                       \
+    char* q;                                                                                       \
+    size_t n = cnt;                                                                                \
+                                                                                                   \
+    unsigned long tmp;                                                                             \
+                                                                                                   \
+    for (p = (char*)src - 1, q = (char*)dst - 1, n++; --n;) {                                      \
+      tmp = *++q;                                                                                  \
+      *q = *++p;                                                                                   \
+      *p = tmp;                                                                                    \
+    }                                                                                              \
   } while (0)
 
-void qsort(void* table_base, size_t num_members, size_t member_size, _compare_function compare_members) {
+void qsort(void* table_base, size_t num_members, size_t member_size,
+           _compare_function compare_members) {
   size_t l, r, j;
   char* lp;
   char* rp;

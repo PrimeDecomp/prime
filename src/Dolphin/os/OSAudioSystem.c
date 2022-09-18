@@ -85,10 +85,10 @@ void __OSInitAudioSystem(void) {
 void __OSStopAudioSystem(void) {
   u32 r28;
 
-#define waitUntil(load, mask)                                                                                                              \
-  r28 = (load);                                                                                                                            \
-  while (r28 & (mask)) {                                                                                                                   \
-    r28 = (load);                                                                                                                          \
+#define waitUntil(load, mask)                                                                      \
+  r28 = (load);                                                                                    \
+  while (r28 & (mask)) {                                                                           \
+    r28 = (load);                                                                                  \
   }
 
   __DSPRegs[5] = 0x804;

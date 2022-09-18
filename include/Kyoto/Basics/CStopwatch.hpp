@@ -32,8 +32,12 @@ public:
     }
     x0_startTime = mData.GetCPUCycles();
   }
-  inline f32 GetElapsedTime() const { return (mData.GetCPUCycles() - x0_startTime) * mData.GetTimerPeriod(); }
-  inline s64 GetElapsedMicros() const { return (mData.GetCPUCycles() - x0_startTime) / mData.GetTimerFreqO1M(); }
+  inline f32 GetElapsedTime() const {
+    return (mData.GetCPUCycles() - x0_startTime) * mData.GetTimerPeriod();
+  }
+  inline s64 GetElapsedMicros() const {
+    return (mData.GetCPUCycles() - x0_startTime) / mData.GetTimerFreqO1M();
+  }
 
 private:
   static CSWData mData;

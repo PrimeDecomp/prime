@@ -7,9 +7,7 @@ class CARAMManager {
 public:
   static void Shutdown();
   static void CollectGarbage();
-  static void PreInitializeAlloc(uint size) {
-    mPreInitializeAlloc += size;
-  }
+  static void PreInitializeAlloc(uint size) { mPreInitializeAlloc += size; }
   static void Initialize(uint);
 
 private:

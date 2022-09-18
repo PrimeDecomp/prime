@@ -88,35 +88,45 @@ public:
   static void SetNumIndStages(u8 num);
   static void SetChanAmbColor(EChannelId channel, const GXColor& color);
   static void SetChanMatColor(EChannelId channel, const GXColor& color);
-  static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc, GXLightID lights, GXDiffuseFn diffFn,
-                          GXAttnFn attnFn);
+  static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc,
+                          GXLightID lights, GXDiffuseFn diffFn, GXAttnFn attnFn);
   static void SetTevKColor(GXTevKColorID id, const GXColor& color);
-  static void SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c, GXTevColorArg d);
-  static void SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c, GXTevAlphaArg d);
-  static void SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
+  static void SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c,
+                            GXTevColorArg d);
+  static void SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c,
+                            GXTevAlphaArg d);
+  static void SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
+                            GXBool clamp, GXTevRegID outReg);
   static void SetTevColorOp_Compressed(GXTevStageID stageId, uint flags);
-  static void SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg);
+  static void SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
+                            GXBool clamp, GXTevRegID outReg);
   static void SetTevAlphaOp_Compressed(GXTevStageID stageId, uint flags);
   static void SetTevKColorSel(GXTevStageID stageId, GXTevKColorSel sel);
   static void SetTevKAlphaSel(GXTevStageID stageId, GXTevKAlphaSel sel);
-  static void SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap, GXChannelID color);
-  static void SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac, GXLogicOp op);
+  static void SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap,
+                          GXChannelID color);
+  static void SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac,
+                           GXLogicOp op);
   static void SetZMode(bool compareEnable, GXCompare func, bool updateEnable);
   static void SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1);
-  static void SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt, GXIndTexBiasSel biasSel,
-                             GXIndTexMtxID mtxSel, GXIndTexWrap wrapS, GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
+  static void SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt,
+                             GXIndTexBiasSel biasSel, GXIndTexMtxID mtxSel, GXIndTexWrap wrapS,
+                             GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
                              GXIndTexAlphaSel alphaSel);
   static void SetTevDirect(GXTevStageID stageId);
-  static void SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx, GXBool normalize, GXPTTexMtx postMtx);
+  static void SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx,
+                             GXBool normalize, GXPTTexMtx postMtx);
   static void SetArray(GXAttr attr, const void* data, u8 stride);
-  static void SetFog(GXFogType type, f32 startZ, f32 endZ, f32 nearZ, f32 farZ, const GXColor& color);
+  static void SetFog(GXFogType type, f32 startZ, f32 endZ, f32 nearZ, f32 farZ,
+                     const GXColor& color);
   static void SetLineWidth(u8 width, GXTexOffset offset);
   static void SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp);
   static void SetVtxDescv_Compressed(uint flags);
   static void SetVtxDesc(GXAttr attr, GXAttrType type); // name?
   static void ResetVtxDescv();                          // name?
   static void SetVtxDescv(const GXVtxDescList* list);
-  static void SetStandardDirectTev_Compressed(GXTevStageID stageId, uint colorArgs, uint alphaArgs, uint colorOps, uint alphaOps);
+  static void SetStandardDirectTev_Compressed(GXTevStageID stageId, uint colorArgs, uint alphaArgs,
+                                              uint colorOps, uint alphaOps);
   static void SetStandardTevColorAlphaOp(GXTevStageID stageId);
 
   static void CallDisplayList(const void* ptr, size_t size);
@@ -126,11 +136,12 @@ public:
   static void ResetGXStatesFull(); // name?
 
   static inline void LoadTexMtxImm(const f32 mtx[][4], unsigned long id, GXTexMtxType type) {
-    GXLoadTexMtxImm(const_cast<MtxPtr>(mtx), id, type);
+    GXLoadTexMtxImm(const_cast< MtxPtr >(mtx), id, type);
   }
 
   static GXColor GetChanAmbColor(EChannelId channel);
-  static void GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ, GXColor* fogColor);
+  static void GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ,
+                     GXColor* fogColor);
 
   static inline bool CompareGXColors(const GXColor& lhs, const GXColor& rhs) {
     return *reinterpret_cast< const uint* >(&lhs) == *reinterpret_cast< const uint* >(&rhs);
@@ -146,9 +157,12 @@ private:
   static void update_fog(uint flags);
   static void apply_fog() {
     static const GXColor black = {0, 0, 0, 0};
-    GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ, sGXState.x24c_fogParams.x4_fogEndZ,
-             sGXState.x24c_fogParams.x8_fogNearZ, sGXState.x24c_fogParams.xc_fogFarZ,
-             (sGXState.x56_blendMode & (7 << 5)) == (GX_BL_ONE << 5) ? black : sGXState.x24c_fogParams.x10_fogColor);
+    GXSetFog(static_cast< GXFogType >(sGXState.x53_fogType), sGXState.x24c_fogParams.x0_fogStartZ,
+             sGXState.x24c_fogParams.x4_fogEndZ, sGXState.x24c_fogParams.x8_fogNearZ,
+             sGXState.x24c_fogParams.xc_fogFarZ,
+             (sGXState.x56_blendMode & (7 << 5)) == (GX_BL_ONE << 5)
+                 ? black
+                 : sGXState.x24c_fogParams.x10_fogColor);
   }
 
   static SGXState sGXState;

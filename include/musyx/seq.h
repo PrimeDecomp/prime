@@ -16,4 +16,3 @@ u16 seqGetMIDIPriority(s32 unk1, s32 unk2);
 #ifdef __cplusplus
 }
 #endif
- 

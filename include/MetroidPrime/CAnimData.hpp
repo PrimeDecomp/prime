@@ -11,8 +11,8 @@
 #include "MetroidPrime/CParticleDatabase.hpp"
 #include "MetroidPrime/CPoseAsTransforms.hpp"
 
-#include "Kyoto/TToken.hpp"
 #include "Kyoto/Animation/CSkinnedModel.hpp"
+#include "Kyoto/TToken.hpp"
 
 #include "rstl/reserved_vector.hpp"
 
@@ -37,9 +37,7 @@ public:
     x220_25_loop = v;
     x220_24_animating = true;
   }
-  void SetIsAnimating(bool v) {
-    x220_24_animating = v;
-  }
+  void SetIsAnimating(bool v) { x220_24_animating = v; }
   void SetParticleEffectState(const rstl::string& name, bool active, CStateManager& mgr) {
     x120_particleDB.SetParticleEffectState(name, active, mgr);
   }

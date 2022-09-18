@@ -207,8 +207,9 @@ public:
     kSS_Done,
   };
 
-  CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
-         const CMaterialList& list, const CActorParameters& params, TUniqueId nextDrawNode);
+  CActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
+         const CTransform4f& xf, const CModelData& mData, const CMaterialList& list,
+         const CActorParameters& params, TUniqueId nextDrawNode);
   ~CActor() override;
 
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
@@ -221,24 +222,28 @@ public:
   virtual void CalculateRenderBounds();
   virtual CHealthInfo* HealthInfo(CStateManager&);
   virtual const CDamageVulnerability* GetDamageVulnerability() const;
-  virtual const CDamageVulnerability* GetDamageVulnerability(const CVector3f&, const CVector3f&, const CDamageInfo&) const;
+  virtual const CDamageVulnerability* GetDamageVulnerability(const CVector3f&, const CVector3f&,
+                                                             const CDamageInfo&) const;
   virtual rstl::optional_object< CAABox > GetTouchBounds() const;
   virtual void Touch(CActor&, CStateManager&);
   virtual CVector3f GetOrbitPosition(const CStateManager&) const;
   virtual CVector3f GetAimPosition(const CStateManager&, float) const;
   virtual CVector3f GetHomingPosition(const CStateManager&, float) const;
   virtual CVector3f GetScanObjectIndicatorPosition(const CStateManager&) const;
-  virtual EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&, const CWeaponMode&,
+  virtual EWeaponCollisionResponseTypes GetCollisionResponseType(const CVector3f&, const CVector3f&,
+                                                                 const CWeaponMode&,
                                                                  int /*EProjectileAttrib?*/) const;
   virtual void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
   virtual void OnScanStateChange(EScanState, CStateManager&);
   virtual CAABox GetSortingBounds(const CTransform4f&) const;
-  virtual void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type, float dt);
+  virtual void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
+                               float dt);
 
   SAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
 
-  void ProcessSoundEvent(int sfxId, f32 weight, int flags, f32 fallOff, f32 maxDist, u8 minVol, u8 maxVol, const CVector3f& toListener,
-                         const CVector3f& position, int aid, CStateManager& mgr, bool translateId);
+  void ProcessSoundEvent(int sfxId, f32 weight, int flags, f32 fallOff, f32 maxDist, u8 minVol,
+                         u8 maxVol, const CVector3f& toListener, const CVector3f& position, int aid,
+                         CStateManager& mgr, bool translateId);
 
   void UpdateSfxEmitters();
   void RemoveEmitter();
@@ -264,7 +269,9 @@ public:
   /// ????
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
 
-  bool HasModelData() const { return GetModelData() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel()); }
+  bool HasModelData() const {
+    return GetModelData() && (GetModelData()->HasAnimation() || GetModelData()->HasNormalModel());
+  }
   CModelData* ModelData() { return x64_modelData.get(); }
   const CModelData* GetModelData() const { return x64_modelData.get(); }
 

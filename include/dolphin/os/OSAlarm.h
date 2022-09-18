@@ -1,8 +1,8 @@
 #ifndef __OSALARM_H__
 #define __OSALARM_H__
 
-#include <types.h>
 #include <dolphin/os/OSContext.h>
+#include <types.h>
 
 #ifdef __cplusplus
 extern "C" {

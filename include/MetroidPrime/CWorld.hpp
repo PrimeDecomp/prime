@@ -57,15 +57,9 @@ public:
   rstl::string IGetDefaultAudioTrack() const override;
   int IGetAreaCount() const override;
 
-  const CGameArea& GetAreaAlways(TAreaId id) const {
-    return *x18_areas[id.Value()];
-  }
-  const CGameArea* GetArea(TAreaId id) const {
-    return x18_areas[id.Value()].get();
-  }
-  bool IsAreaValid(TAreaId id) const {
-    return x18_areas[id.Value()]->IsLoaded();
-  }
+  const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
+  const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }
+  bool IsAreaValid(TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
 
 private:
   enum Phase {

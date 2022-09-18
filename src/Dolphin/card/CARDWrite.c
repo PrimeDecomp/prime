@@ -68,7 +68,8 @@ static void EraseCallback(s32 chan, s32 result) {
   }
 
   fileInfo = card->fileInfo;
-  result = __CARDWrite(chan, card->sectorSize * (u32)fileInfo->iBlock, card->sectorSize, card->buffer, WriteCallback);
+  result = __CARDWrite(chan, card->sectorSize * (u32)fileInfo->iBlock, card->sectorSize,
+                       card->buffer, WriteCallback);
   if (result < 0) {
     goto error;
   }
@@ -81,7 +82,8 @@ error:
   callback(chan, result);
 }
 
-s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* buf, s32 length, s32 offset, CARDCallback callback) {
+s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* buf, s32 length, s32 offset,
+                   CARDCallback callback) {
   CARDControl* card;
   s32 result;
   CARDDir* dir;
@@ -106,7 +108,8 @@ s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* buf, s32 length, s32 offs
   DCStoreRange((void*)buf, (u32)length);
   card->apiCallback = callback ? callback : __CARDDefaultApiCallback;
   card->buffer = (void*)buf;
-  result = __CARDEraseSector(fileInfo->chan, card->sectorSize * (u32)fileInfo->iBlock, EraseCallback);
+  result =
+      __CARDEraseSector(fileInfo->chan, card->sectorSize * (u32)fileInfo->iBlock, EraseCallback);
   if (result < 0) {
     __CARDPutControlBlock(card, result);
   }

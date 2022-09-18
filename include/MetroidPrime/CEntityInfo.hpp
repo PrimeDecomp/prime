@@ -236,13 +236,14 @@ struct SConnection {
 
 class CEntityInfo {
   TAreaId x0_areaId;
-  rstl::vector<SConnection> x4_conns;
+  rstl::vector< SConnection > x4_conns;
   TEditorId x14_editorId;
 
 public:
-  CEntityInfo(TAreaId aid, const rstl::vector< SConnection >& conns, TEditorId eid = kInvalidEditorId);
+  CEntityInfo(TAreaId aid, const rstl::vector< SConnection >& conns,
+              TEditorId eid = kInvalidEditorId);
   TAreaId GetAreaId() const { return x0_areaId; }
-  const rstl::vector<SConnection>& GetConnectionList() const { return x4_conns; }
+  const rstl::vector< SConnection >& GetConnectionList() const { return x4_conns; }
   TEditorId GetEditorId() const { return x14_editorId; }
 };
 

@@ -24,9 +24,7 @@ public:
   CRasterFont(CInputStream&, IObjectStore*);
   ~CRasterFont();
 
-  void SetTexture(TToken<CTexture> token) {
-    x7c_texture = token;
-  }
+  void SetTexture(TToken< CTexture > token) { x7c_texture = token; }
 
 private:
   bool x0_initialized;

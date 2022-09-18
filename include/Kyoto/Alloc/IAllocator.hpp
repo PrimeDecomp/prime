@@ -41,10 +41,11 @@ public:
     uint x4c_;
     uint x50_mediumTotalAllocated;
     uint x54_fakeStatics;
-    SMetrics(uint heapSize, uint unk1, uint unk2, uint unk3, uint unk4, uint heapSize2, uint unk5, uint unk6, uint unk7, uint unk8, uint unk9,
-             uint smallAllocNumAllocs, uint smallAllocAllocatedSize, uint smallAllocRemainingSize, uint mediumAllocNumAllocs,
-             uint mediumAllocAllocatedSize, uint mediumAllocBlocksAvailable, uint unk10, uint unk11, uint unk12, uint mediumAllocTotalAllocated,
-             uint fakeStatics);
+    SMetrics(uint heapSize, uint unk1, uint unk2, uint unk3, uint unk4, uint heapSize2, uint unk5,
+             uint unk6, uint unk7, uint unk8, uint unk9, uint smallAllocNumAllocs,
+             uint smallAllocAllocatedSize, uint smallAllocRemainingSize, uint mediumAllocNumAllocs,
+             uint mediumAllocAllocatedSize, uint mediumAllocBlocksAvailable, uint unk10, uint unk11,
+             uint unk12, uint mediumAllocTotalAllocated, uint fakeStatics);
   };
 
   struct SAllocInfo {
@@ -62,10 +63,12 @@ public:
 
   virtual bool Initialize(COsContext& ctx) = 0;
   virtual void Shutdown() = 0;
-  virtual void* Alloc(unsigned long size, EHint hint, EScope scope, EType type, const CCallStack& cs) = 0;
+  virtual void* Alloc(unsigned long size, EHint hint, EScope scope, EType type,
+                      const CCallStack& cs) = 0;
   virtual void Free(const void* ptr) = 0;
   virtual void ReleaseAll() = 0;
-  virtual void* AllocSecondary(unsigned long size, EHint hint, EScope scope, EType type, const CCallStack& cs) = 0;
+  virtual void* AllocSecondary(unsigned long size, EHint hint, EScope scope, EType type,
+                               const CCallStack& cs) = 0;
   virtual void FreeSecondary(const void* ptr) = 0;
   virtual void ReleaseAllSecondary() = 0;
   virtual void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* data) = 0;

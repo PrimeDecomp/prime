@@ -27,7 +27,7 @@ public:
   CVector3f GetRight() const { return CVector3f(m0.GetX(), m1.GetX(), m2.GetX()); }
   CVector3f GetForward() const { return CVector3f(m0.GetY(), m1.GetY(), m2.GetY()); }
   CVector3f GetUp() const { return CVector3f(m0.GetZ(), m1.GetZ(), m2.GetZ()); }
-  ConstMtxPtr GetCStyleMatrix() const { return reinterpret_cast<ConstMtxPtr>(this); }
+  ConstMtxPtr GetCStyleMatrix() const { return reinterpret_cast< ConstMtxPtr >(this); }
 
   CMatrix3f BuildMatrix3f() const;
   f32 Get00() const { return m0.GetX(); }
@@ -93,7 +93,8 @@ public:
   CTransform4f operator*(const CTransform4f& vec) const;
   CTransform4f operator*(const CVector3f& vec) const;
 
-  static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&, const CVector3f&);
+  static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&,
+                                  const CVector3f&);
   static const CTransform4f& Identity() { return sIdentity; }
 
 private:

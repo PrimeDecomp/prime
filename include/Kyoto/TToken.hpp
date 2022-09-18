@@ -23,7 +23,8 @@ public:
   static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(T* obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
-  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
+  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
+  GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
   }
 };
@@ -45,7 +46,9 @@ class TLockedToken {
 public:
   TLockedToken() {}
   TLockedToken(const CToken& token) : x0_token(token), x8_item(*x0_token) {}
-  TLockedToken(const TLockedToken< T >& token) : x0_token(token), x8_item(*token) { x0_token.Lock(); }
+  TLockedToken(const TLockedToken< T >& token) : x0_token(token), x8_item(*token) {
+    x0_token.Lock();
+  }
 
   TLockedToken& operator=(const TLockedToken< T >& token) {
     x0_token = token;

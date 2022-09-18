@@ -41,7 +41,8 @@ class CSortedListManager;
 
 class CStateManager {
 public:
-  void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg, EScriptObjectState state);
+  void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
+                     EScriptObjectState state);
   void SendScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
@@ -54,7 +55,7 @@ public:
 
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;
-  void SetCurrentMaze(const rstl::single_ptr<CMazeState>& maze);
+  void SetCurrentMaze(const rstl::single_ptr< CMazeState >& maze);
 
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
@@ -63,7 +64,9 @@ public:
   CWorld* World() { return x850_world.get(); }
   const CWorld* GetWorld() const { return x850_world.get(); }
   CActorModelParticles* ActorModelParticles() { return x884_actorModelParticles.get(); }
-  const CActorModelParticles* GetActorModelParticles() const { return x884_actorModelParticles.get(); }
+  const CActorModelParticles* GetActorModelParticles() const {
+    return x884_actorModelParticles.get();
+  }
   CRandom16* GetActiveRandom() const { return x900_random; }
 
   CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }

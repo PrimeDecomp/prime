@@ -154,5 +154,6 @@ s32 __CARDUpdateFatBlock(s32 chan, u16* fat, CARDCallback callback) {
   DCStoreRange(fat, 0x2000);
   card->eraseCallback = callback;
 
-  return __CARDEraseSector(chan, (((u32)fat - (u32)card->workArea) / 8192u) * card->sectorSize, EraseCallback);
+  return __CARDEraseSector(chan, (((u32)fat - (u32)card->workArea) / 8192u) * card->sectorSize,
+                           EraseCallback);
 }

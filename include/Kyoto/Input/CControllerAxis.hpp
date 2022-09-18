@@ -8,6 +8,7 @@ public:
   float GetRelativeValue() const { return x0_relative; }
   void SetAbsoluteValue(float val) { x4_absolute = val; }
   float GetAbsoluteValue() const { return x4_absolute; }
+
 public:
   float x0_relative;
   float x4_absolute;

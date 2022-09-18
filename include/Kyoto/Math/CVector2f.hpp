@@ -10,7 +10,7 @@ public:
   f32 GetX() const { return mX; }
   f32 GetY() const { return mY; }
 
-// private:
+  // private:
   f32 mX;
   f32 mY;
 };

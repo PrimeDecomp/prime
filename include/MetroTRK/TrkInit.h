@@ -10,5 +10,4 @@ void EnableMetroTRKInterrupts(void);
 }
 #endif
 
-
 #endif /* #ifndef __TRKINIT_H__ */

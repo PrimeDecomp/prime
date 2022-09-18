@@ -18,8 +18,7 @@ template < class T, int N >
 struct check_sizeof : _n_is_equal< sizeof(T), N > {};
 
 #ifdef __MWERKS__
-#define CHECK_SIZEOF(cls, size)                                                                                                            \
-  extern int cls##_check[check_sizeof< cls, size >::value];
+#define CHECK_SIZEOF(cls, size) extern int cls##_check[check_sizeof< cls, size >::value];
 #else
 #define CHECK_SIZEOF(cls, size)
 #endif

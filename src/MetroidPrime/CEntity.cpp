@@ -42,8 +42,9 @@ void CEntity::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
   }
 }
 
-void CEntity::SendScriptMsgs(EScriptObjectState state, CStateManager& mgr, EScriptObjectMessage skipMsg) {
-  rstl::vector<SConnection>::const_iterator it = x20_conns.begin();
+void CEntity::SendScriptMsgs(EScriptObjectState state, CStateManager& mgr,
+                             EScriptObjectMessage skipMsg) {
+  rstl::vector< SConnection >::const_iterator it = x20_conns.begin();
   for (; it != x20_conns.end(); ++it) {
     if (it->x0_state == state && it->x4_msg != skipMsg) {
       mgr.SendScriptMsg(GetUniqueId(), it->x8_objId, it->x4_msg, state);
