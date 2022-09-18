@@ -41,17 +41,19 @@ void CGX::SetChanMatColor(EChannelId channel, const GXColor& color) {
   }
 }
 
-void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc, GXLightID lights, GXDiffuseFn diffFn,
-                      GXAttnFn attnFn) {
+void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc,
+                      GXLightID lights, GXDiffuseFn diffFn, GXAttnFn attnFn) {
   u16& state = sGXState.x34_chanCtrls[channel];
   u16 prevFlags = sGXState.x30_prevChanCtrls[channel];
   if (lights == GX_LIGHT_NULL) {
     enable = GX_FALSE;
   }
-  uint flags = MaskAndShiftLeft(enable, 1, 0) | MaskAndShiftLeft(ambSrc, 1, 1) | MaskAndShiftLeft(matSrc, 1, 2) |
-              MaskAndShiftLeft(lights, 0xFF, 3) | MaskAndShiftLeft(diffFn, 3, 11) | MaskAndShiftLeft(attnFn, 3, 13);
+  uint flags = MaskAndShiftLeft(enable, 1, 0) | MaskAndShiftLeft(ambSrc, 1, 1) |
+               MaskAndShiftLeft(matSrc, 1, 2) | MaskAndShiftLeft(lights, 0xFF, 3) |
+               MaskAndShiftLeft(diffFn, 3, 11) | MaskAndShiftLeft(attnFn, 3, 13);
   state = flags;
-  sGXState.x4c_chanFlags = ((flags != prevFlags) << (channel + 1)) | (sGXState.x4c_chanFlags & ~(1 << (channel + 1)));
+  sGXState.x4c_chanFlags =
+      ((flags != prevFlags) << (channel + 1)) | (sGXState.x4c_chanFlags & ~(1 << (channel + 1)));
 }
 
 void CGX::SetNumTevStages(u8 num) {
@@ -68,8 +70,10 @@ void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
   }
 }
 
-void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c, GXTevColorArg d) {
-  uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) | MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c,
+                        GXTevColorArg d) {
+  uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) |
+               MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.x0_colorInArgs) {
     state.x0_colorInArgs = flags;
@@ -77,8 +81,10 @@ void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b, 
   }
 }
 
-void CGX::SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c, GXTevAlphaArg d) {
-  uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) | MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
+void CGX::SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c,
+                        GXTevAlphaArg d) {
+  uint flags = MaskAndShiftLeft(a, 0x1F, 0) | MaskAndShiftLeft(b, 0x1F, 5) |
+               MaskAndShiftLeft(c, 0x1F, 10) | MaskAndShiftLeft(d, 0x1F, 15);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.x4_alphaInArgs) {
     state.x4_alphaInArgs = flags;
@@ -86,9 +92,11 @@ void CGX::SetTevAlphaIn(GXTevStageID stageId, GXTevAlphaArg a, GXTevAlphaArg b, 
   }
 }
 
-void CGX::SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg) {
-  uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) | MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
-              MaskAndShiftLeft(outReg, 3, 9);
+void CGX::SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
+                        GXBool clamp, GXTevRegID outReg) {
+  uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
+               MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
+               MaskAndShiftLeft(outReg, 3, 9);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.x8_colorOps) {
     state.x8_colorOps = flags;
@@ -101,14 +109,18 @@ void CGX::SetTevColorOp_Compressed(GXTevStageID stageId, uint flags) {
   if (flags != state.x8_colorOps) {
     state.x8_colorOps = flags;
     GXSetTevColorOp(stageId, static_cast< GXTevOp >(ShiftRightAndMask(flags, 0xF, 0)),
-                    static_cast< GXTevBias >(ShiftRightAndMask(flags, 3, 4)), static_cast< GXTevScale >(ShiftRightAndMask(flags, 3, 6)),
-                    static_cast< GXBool >(ShiftRightAndMask(flags, 1, 8)), static_cast< GXTevRegID >(ShiftRightAndMask(flags, 3, 9)));
+                    static_cast< GXTevBias >(ShiftRightAndMask(flags, 3, 4)),
+                    static_cast< GXTevScale >(ShiftRightAndMask(flags, 3, 6)),
+                    static_cast< GXBool >(ShiftRightAndMask(flags, 1, 8)),
+                    static_cast< GXTevRegID >(ShiftRightAndMask(flags, 3, 9)));
   }
 }
 
-void CGX::SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID outReg) {
-  uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) | MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
-              MaskAndShiftLeft(outReg, 3, 9);
+void CGX::SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias, GXTevScale scale,
+                        GXBool clamp, GXTevRegID outReg) {
+  uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
+               MaskAndShiftLeft(scale, 3, 6) | MaskAndShiftLeft(clamp, 1, 8) |
+               MaskAndShiftLeft(outReg, 3, 9);
   STevState& state = sGXState.x68_tevStates[stageId];
   if (flags != state.xc_alphaOps) {
     state.xc_alphaOps = flags;
@@ -121,8 +133,10 @@ void CGX::SetTevAlphaOp_Compressed(GXTevStageID stageId, uint flags) {
   if (flags != state.xc_alphaOps) {
     state.xc_alphaOps = flags;
     GXSetTevAlphaOp(stageId, static_cast< GXTevOp >(ShiftRightAndMask(flags, 0xF, 0)),
-                    static_cast< GXTevBias >(ShiftRightAndMask(flags, 3, 4)), static_cast< GXTevScale >(ShiftRightAndMask(flags, 3, 6)),
-                    static_cast< GXBool >(ShiftRightAndMask(flags, 1, 8)), static_cast< GXTevRegID >(ShiftRightAndMask(flags, 3, 9)));
+                    static_cast< GXTevBias >(ShiftRightAndMask(flags, 3, 4)),
+                    static_cast< GXTevScale >(ShiftRightAndMask(flags, 3, 6)),
+                    static_cast< GXBool >(ShiftRightAndMask(flags, 1, 8)),
+                    static_cast< GXTevRegID >(ShiftRightAndMask(flags, 3, 9)));
   }
 }
 
@@ -142,9 +156,11 @@ void CGX::SetTevKAlphaSel(GXTevStageID stageId, GXTevKAlphaSel sel) {
   }
 }
 
-void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap, GXChannelID color) {
+void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID texMap,
+                      GXChannelID color) {
   STevState& state = sGXState.x68_tevStates[stageId];
-  uint flags = MaskAndShiftLeft(texCoord, 0xFF, 0) | MaskAndShiftLeft(texMap, 0xFF, 8) | MaskAndShiftLeft(color, 0xFF, 16);
+  uint flags = MaskAndShiftLeft(texCoord, 0xFF, 0) | MaskAndShiftLeft(texMap, 0xFF, 8) |
+               MaskAndShiftLeft(color, 0xFF, 16);
   if (state.x14_tevOrderFlags != flags) {
     state.x14_tevOrderFlags = flags;
     GXSetTevOrder(stageId, texCoord, texMap, color);
@@ -152,7 +168,8 @@ void CGX::SetTevOrder(GXTevStageID stageId, GXTexCoordID texCoord, GXTexMapID te
 }
 
 void CGX::SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac, GXLogicOp op) {
-  uint flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) | MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
+  uint flags = MaskAndShiftLeft(mode, 3, 0) | MaskAndShiftLeft(srcFac, 7, 2) |
+               MaskAndShiftLeft(dstFac, 7, 5) | MaskAndShiftLeft(op, 0xF, 8);
   if (flags != sGXState.x56_blendMode) {
     update_fog(flags);
     sGXState.x56_blendMode = flags;
@@ -170,8 +187,9 @@ void CGX::SetZMode(bool compareEnable, GXCompare func, bool updateEnable) {
 }
 
 void CGX::SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1) {
-  uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) | MaskAndShiftLeft(op, 7, 11) |
-              MaskAndShiftLeft(comp1, 7, 14) | MaskAndShiftLeft(ref1, 0xFF, 17);
+  uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) |
+               MaskAndShiftLeft(op, 7, 11) | MaskAndShiftLeft(comp1, 7, 14) |
+               MaskAndShiftLeft(ref1, 0xFF, 17);
   if (sGXState.x248_alphaCompare != flags) {
     sGXState.x248_alphaCompare = flags;
     GXSetAlphaCompare(comp0, ref0, op, comp1, ref1);
@@ -179,15 +197,20 @@ void CGX::SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp
   }
 }
 
-void CGX::SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt, GXIndTexBiasSel biasSel, GXIndTexMtxID mtxSel,
-                         GXIndTexWrap wrapS, GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod, GXIndTexAlphaSel alphaSel) {
+void CGX::SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt,
+                         GXIndTexBiasSel biasSel, GXIndTexMtxID mtxSel, GXIndTexWrap wrapS,
+                         GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
+                         GXIndTexAlphaSel alphaSel) {
   STevState& state = sGXState.x68_tevStates[stageId];
-  uint flags = MaskAndShiftLeft(indStage, 3, 0) | MaskAndShiftLeft(fmt, 3, 2) | MaskAndShiftLeft(biasSel, 7, 4) |
-              MaskAndShiftLeft(mtxSel, 15, 7) | MaskAndShiftLeft(wrapS, 7, 11) | MaskAndShiftLeft(wrapT, 7, 14) |
-              MaskAndShiftLeft(addPrev, 1, 17) | MaskAndShiftLeft(indLod, 1, 18) | MaskAndShiftLeft(alphaSel, 3, 19);
+  uint flags = MaskAndShiftLeft(indStage, 3, 0) | MaskAndShiftLeft(fmt, 3, 2) |
+               MaskAndShiftLeft(biasSel, 7, 4) | MaskAndShiftLeft(mtxSel, 15, 7) |
+               MaskAndShiftLeft(wrapS, 7, 11) | MaskAndShiftLeft(wrapT, 7, 14) |
+               MaskAndShiftLeft(addPrev, 1, 17) | MaskAndShiftLeft(indLod, 1, 18) |
+               MaskAndShiftLeft(alphaSel, 3, 19);
   if (state.x10_indFlags != flags) {
     state.x10_indFlags = flags;
-    GXSetTevIndirect(stageId, indStage, fmt, biasSel, mtxSel, wrapS, wrapT, addPrev, indLod, alphaSel);
+    GXSetTevIndirect(stageId, indStage, fmt, biasSel, mtxSel, wrapS, wrapT, addPrev, indLod,
+                     alphaSel);
   }
 }
 
@@ -199,7 +222,8 @@ void CGX::SetTevDirect(GXTevStageID stageId) {
   }
 }
 
-void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx, GXBool normalize, GXPTTexMtx postMtx) {
+void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx,
+                         GXBool normalize, GXPTTexMtx postMtx) {
   STexState& state = sGXState.x228_texStates[dstCoord];
   uint vm = (mtx - GX_TEXMTX0) / 3;
   uint vp = postMtx - GX_PTTEXMTX0;
@@ -207,8 +231,9 @@ void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src
   // Similarly to GXTexMtx, this should also be divided by 3
   vp /= 3;
 #endif
-  uint flags = MaskAndShiftLeft(fn, 0xF, 0) | MaskAndShiftLeft(src, 0x1F, 4) | MaskAndShiftLeft(vm, 0x1F, 9) |
-              MaskAndShiftLeft(normalize, 1, 14) | MaskAndShiftLeft(vp, 0x3F, 15);
+  uint flags = MaskAndShiftLeft(fn, 0xF, 0) | MaskAndShiftLeft(src, 0x1F, 4) |
+               MaskAndShiftLeft(vm, 0x1F, 9) | MaskAndShiftLeft(normalize, 1, 14) |
+               MaskAndShiftLeft(vp, 0x3F, 15);
   if (state.x0_coordGen != flags) {
     state.x0_coordGen = flags;
     GXSetTexCoordGen2(dstCoord, fn, src, mtx, normalize, postMtx);
@@ -423,7 +448,8 @@ void CGX::SetVtxDescv(const GXVtxDescList* list) {
   SetVtxDescv_Compressed(flags);
 }
 
-void CGX::SetStandardDirectTev_Compressed(GXTevStageID stageId, uint colorArgs, uint alphaArgs, uint colorOps, uint alphaOps) {
+void CGX::SetStandardDirectTev_Compressed(GXTevStageID stageId, uint colorArgs, uint alphaArgs,
+                                          uint colorOps, uint alphaOps) {
   STevState& state = sGXState.x68_tevStates[stageId];
   if (state.x10_indFlags != 0) {
     state.x10_indFlags = 0;
@@ -466,7 +492,8 @@ void CGX::SetStandardTevColorAlphaOp(GXTevStageID stageId) {
   }
 }
 
-void CGX::GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ, GXColor* fogColor) {
+void CGX::GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ,
+                 GXColor* fogColor) {
   if (fogType != nullptr) {
     *fogType = static_cast< GXFogType >(sGXState.x53_fogType);
   }

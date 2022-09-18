@@ -80,7 +80,8 @@ public:
   CVisorParameters() {
     // TODO
   }
-  CVisorParameters(u8 mask, bool b1, bool scanPassthrough) : x0_mask(mask), x0_4_b1(b1), x0_5_scanPassthrough(scanPassthrough) {}
+  CVisorParameters(u8 mask, bool b1, bool scanPassthrough)
+  : x0_mask(mask), x0_4_b1(b1), x0_5_scanPassthrough(scanPassthrough) {}
 
   u8 GetMask() const { return x0_mask; }
   // TODO: GetIsBlockXRay__16CVisorParametersCFv?

@@ -6,7 +6,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
+
 typedef struct _SynthInfo {
   u32 freq;
   u8 unk[0x20c];
@@ -33,7 +33,7 @@ void synthExit();
 u32 synthGetTicksPerSecond(u32 seconds);
 u16 sndRand(void);
 s16 sndSin(u32 __x);
-u8* sndBSearch(u16 *key,u8 *subTab,s32 mainTab,s32 len,SND_COMPARE cmp);
+u8* sndBSearch(u16* key, u8* subTab, s32 mainTab, s32 len, SND_COMPARE cmp);
 void sndConvertMs(u32* time);
 void sndConvertTicks(u32* out, u32 seconds);
 u32 sndConvert2Ms(u32 time);
@@ -48,7 +48,6 @@ void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out
 float salNormalizeVector(SND_FVECTOR* vec);
 void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* b);
 void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in);
-
 
 /* hardware */
 /* TODO: Figure out what `unk` is */

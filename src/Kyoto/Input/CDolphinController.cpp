@@ -137,20 +137,25 @@ void CDolphinController::ProcessAxis(int controller, EJoyAxis axis) {
 }
 
 static u16 mButtonMapping[size_t(kBU_MAX)] = {
-    PAD_BUTTON_A,  PAD_BUTTON_B,     PAD_BUTTON_X,    PAD_BUTTON_Y,    PAD_BUTTON_START, PAD_TRIGGER_Z,
-    PAD_BUTTON_UP, PAD_BUTTON_RIGHT, PAD_BUTTON_DOWN, PAD_BUTTON_LEFT, PAD_TRIGGER_L,    PAD_TRIGGER_R,
+    PAD_BUTTON_A,     PAD_BUTTON_B,    PAD_BUTTON_X,  PAD_BUTTON_Y,
+    PAD_BUTTON_START, PAD_TRIGGER_Z,   PAD_BUTTON_UP, PAD_BUTTON_RIGHT,
+    PAD_BUTTON_DOWN,  PAD_BUTTON_LEFT, PAD_TRIGGER_L, PAD_TRIGGER_R,
 };
 
 void CDolphinController::ProcessButtons(int controller) {
   for (s32 i = 0; i < s32(kBU_MAX); ++i) {
-    ProcessDigitalButton(controller, x34_gamepadStates[controller].GetButton(EButton(i)), mButtonMapping[i]);
+    ProcessDigitalButton(controller, x34_gamepadStates[controller].GetButton(EButton(i)),
+                         mButtonMapping[i]);
   }
 
-  ProcessAnalogButton(x4_status[controller].triggerL, x34_gamepadStates[controller].GetAnalogButton(kBA_Left));
-  ProcessAnalogButton(x4_status[controller].triggerR, x34_gamepadStates[controller].GetAnalogButton(kBA_Right));
+  ProcessAnalogButton(x4_status[controller].triggerL,
+                      x34_gamepadStates[controller].GetAnalogButton(kBA_Left));
+  ProcessAnalogButton(x4_status[controller].triggerR,
+                      x34_gamepadStates[controller].GetAnalogButton(kBA_Right));
 }
 
-void CDolphinController::ProcessDigitalButton(int controller, CControllerButton& button, u16 mapping) {
+void CDolphinController::ProcessDigitalButton(int controller, CControllerButton& button,
+                                              u16 mapping) {
   bool btnPressed = (x4_status[controller].button & mapping);
   button.SetPressEvent(PADButtonDown(button.GetIsPressed(), btnPressed));
   button.SetReleaseEvent(PADButtonUp(button.GetIsPressed(), btnPressed));
@@ -174,9 +179,13 @@ void CDolphinController::ProcessAnalogButton(float value, CControllerAxis& axis)
 
 uint CDolphinController::GetDeviceCount() const { return 4; }
 
-CControllerGamepadData& CDolphinController::GetGamepadData(int controller) { return x34_gamepadStates[controller]; }
+CControllerGamepadData& CDolphinController::GetGamepadData(int controller) {
+  return x34_gamepadStates[controller];
+}
 
-uint CDolphinController::GetControllerType(int controller) const { return x1a4_controllerTypes[controller]; }
+uint CDolphinController::GetControllerType(int controller) const {
+  return x1a4_controllerTypes[controller];
+}
 
 void CDolphinController::SetMotorState(EIOPort port, EMotorState state) {
   x194_motorStates[port] = state;

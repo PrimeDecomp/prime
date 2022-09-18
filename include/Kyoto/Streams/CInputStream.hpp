@@ -27,7 +27,7 @@ public:
   void Get(void* dest, unsigned long len);
 
   template < typename T >
-  inline T Get(const TType<T>& type) {
+  inline T Get(const TType< T >& type) {
     return cinput_stream_helper(type, *this);
   }
 
@@ -65,7 +65,8 @@ inline float cinput_stream_helper(const TType< float >& type, CInputStream& in) 
 // rstl
 #include "rstl/pair.hpp"
 template < typename L, typename R >
-inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >& type, CInputStream& in) {
+inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >& type,
+                                               CInputStream& in) {
   rstl::pair< L, R > result;
   result.first = in.Get(TType< L >());
   result.second = in.Get(TType< R >());

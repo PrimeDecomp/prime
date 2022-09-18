@@ -230,7 +230,8 @@ typedef struct SND_PARAMETER_INFO {
 #define sndFXStart(fid, vol, pan) sndFXStartEx(fid, vol, pan, SND_STUDIO_DEFAULT)
 SND_VOICEID sndFXStartEx(SND_FXID fid, u8 vol, u8 pan, u8 studio);
 SND_VOICEID sndFXStartPara(SND_FXID fid, u8 vol, u8 pan, u8 studio, u8 numPara, ...);
-SND_VOICEID sndFXStartParaInfo(SND_FXID fid, u8 vol, u8 pan, u8 studio, SND_PARAMETER_INFO* paraInfo);
+SND_VOICEID sndFXStartParaInfo(SND_FXID fid, u8 vol, u8 pan, u8 studio,
+                               SND_PARAMETER_INFO* paraInfo);
 SND_VOICEID sndFXCheck(SND_VOICEID vid);
 bool sndFXKeyOff(SND_VOICEID vid);
 bool sndFXCtrl(SND_VOICEID vid, u8 ctrl, u8 value);

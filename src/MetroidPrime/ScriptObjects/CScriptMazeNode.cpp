@@ -32,7 +32,8 @@ void CMazeState::Reset(int seed) {
     if (cellIdx - skMazeCols > 0 && GetCell(cellIdx - skMazeCols).IsClosed()) {
       sides[acc++] = kS_Top;
     }
-    if (cellIdx < NUM_MAZE_CELLS - 2 && (cellIdx + 1) % skMazeCols != 0 && GetCell(cellIdx + 1).IsClosed()) {
+    if (cellIdx < NUM_MAZE_CELLS - 2 && (cellIdx + 1) % skMazeCols != 0 &&
+        GetCell(cellIdx + 1).IsClosed()) {
       sides[acc++] = kS_Right;
     }
     if (cellIdx + skMazeCols <= NUM_MAZE_CELLS - 1 && GetCell(cellIdx + skMazeCols).IsClosed()) {
@@ -82,7 +83,9 @@ void CMazeState::Reset(int seed) {
 
 SMazeCell& CMazeState::GetCell(uint col, uint row) { return x4_cells[col + row * skMazeCols]; }
 
-const SMazeCell& CMazeState::GetCell(uint col, uint row) const { return x4_cells[col + row * skMazeCols]; }
+const SMazeCell& CMazeState::GetCell(uint col, uint row) const {
+  return x4_cells[col + row * skMazeCols];
+}
 
 static inline int GetRandom(CRandom16& rand, int offset) {
   int tmp = rand.Next();
@@ -131,14 +134,16 @@ void CMazeState::GenerateObstacles() {
 
     int curCol = col;
     int curRow = row;
-    if (row > 0 && side != kS_Bottom && GetCellInline(col, row).x0_24_openTop && GetCellInline(col, row - 1).x1_25_onPath) {
+    if (row > 0 && side != kS_Bottom && GetCellInline(col, row).x0_24_openTop &&
+        GetCellInline(col, row - 1).x1_25_onPath) {
       side = kS_Top;
       row--;
     } else if (row < skMazeRows - 1 && side != kS_Top && GetCellInline(col, row).x0_26_openBottom &&
                GetCellInline(col, row + 1).x1_25_onPath) {
       side = kS_Bottom;
       row++;
-    } else if (col > 0 && side != kS_Right && GetCellInline(col, row).x0_27_openLeft && GetCellInline(col - 1, row).x1_25_onPath) {
+    } else if (col > 0 && side != kS_Right && GetCellInline(col, row).x0_27_openLeft &&
+               GetCellInline(col - 1, row).x1_25_onPath) {
       side = kS_Left;
       col--;
     } else if (col < skMazeCols - 1 && side != kS_Left && GetCellInline(col, row).x0_25_openRight &&
@@ -228,10 +233,12 @@ void CMazeState::Initialize() {
   x94_24_initialized = true;
 }
 
-CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf, bool active,
-                                 int col, int row, int side, const CVector3f& actorPos, const CVector3f& triggerPos,
+CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                                 const CTransform4f& xf, bool active, int col, int row, int side,
+                                 const CVector3f& actorPos, const CVector3f& triggerPos,
                                  const CVector3f& effectPos)
-: CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(), CActorParameters::None(), kInvalidUniqueId)
+: CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
+         CActorParameters::None(), kInvalidUniqueId)
 , xe8_col(col)
 , xec_row(row)
 , xf0_side(static_cast< ESide >(side))
@@ -322,7 +329,8 @@ static inline Iter contains(Iter it, Iter end, const T& value) {
 }
 
 template < typename T >
-static inline bool contains(const rstl::vector< T >& vec, typename rstl::vector< T >::const_iterator end, const T& value) {
+static inline bool contains(const rstl::vector< T >& vec,
+                            typename rstl::vector< T >::const_iterator end, const T& value) {
   return rstl::find< rstl::vector< T >::const_iterator, T >(vec.begin(), end, value) != end;
 }
 
@@ -331,7 +339,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
     switch (msg) {
     case kSM_InitializedInArea: {
       if (mgr.CurrentMaze() == nullptr) {
-        rstl::single_ptr< CMazeState > maze = new CMazeState(skEnterCol, skEnterRow, skTargetCol, skTargetRow);
+        rstl::single_ptr< CMazeState > maze =
+            new CMazeState(skEnterCol, skEnterRow, skTargetCol, skTargetRow);
         maze->Reset(sMazeSeeds[mgr.GetActiveRandom()->Next() % 300]);
         maze->Initialize();
         maze->GenerateObstacles();
@@ -391,14 +400,16 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
           int count = 0;
           rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
           for (; conn != GetConnectionList().end(); ++conn) {
-            if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) && conn->x4_msg == kSM_Activate) {
+            if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) &&
+                conn->x4_msg == kSM_Activate) {
               count++;
             }
           }
           x12c_puddleObjectIds.reserve(count);
           conn = GetConnectionList().begin();
           for (; conn != GetConnectionList().end(); ++conn) {
-            if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) && conn->x4_msg == kSM_Activate) {
+            if ((conn->x0_state == kSS_Closed || conn->x0_state == kSS_DeactivateState) &&
+                conn->x4_msg == kSM_Activate) {
               // TUniqueId genObj = GenerateObject(mgr, conn->x8_objId);
               bool wasGeneratingObject = mgr.IsGeneratingObject();
               mgr.SetIsGeneratingObject(true);
@@ -423,9 +434,10 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
       if (x13c_24_hasPuddle && maze != nullptr) {
         rstl::vector< TUniqueId >::const_iterator pend = x12c_puddleObjectIds.end();
         rstl::vector< TUniqueId >::const_iterator pit =
-            rstl::find< rstl::vector< TUniqueId >::const_iterator, TUniqueId >(x12c_puddleObjectIds.begin(), pend, uid);
+            rstl::find< rstl::vector< TUniqueId >::const_iterator, TUniqueId >(
+                x12c_puddleObjectIds.begin(), pend, uid);
         if (pit != pend) {
-        // if (contains(x12c_puddleObjectIds, x12c_puddleObjectIds.end(), uid)) {
+          // if (contains(x12c_puddleObjectIds, x12c_puddleObjectIds.end(), uid)) {
           rstl::vector< TUniqueId >::const_iterator it = x12c_puddleObjectIds.begin();
           for (; it != x12c_puddleObjectIds.end(); ++it) {
             if (CEntity* ent = mgr.ObjectById(*it)) {
@@ -440,7 +452,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
           int objIdx = list.GetFirstObjectIndex();
           while (objIdx != -1) {
             if (CScriptMazeNode* node = TCastToPtr< CScriptMazeNode >(list[objIdx])) {
-              if (node->xe8_col == xe8_col - 1 && node->xec_row == xec_row && node->xf0_side == CMazeState::kS_Right) {
+              if (node->xe8_col == xe8_col - 1 && node->xec_row == xec_row &&
+                  node->xf0_side == CMazeState::kS_Right) {
                 SMazeCell& cell = maze->GetCell(xe8_col - 1, xec_row);
                 if (!cell.x0_25_openRight) {
                   cell.x0_25_openRight = true;
@@ -448,7 +461,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
                   node->x13c_25_hasGate = false;
                 }
               }
-              if (node->xe8_col == xe8_col && node->xec_row == xec_row && node->xf0_side == CMazeState::kS_Right) {
+              if (node->xe8_col == xe8_col && node->xec_row == xec_row &&
+                  node->xf0_side == CMazeState::kS_Right) {
                 SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
                 if (!cell.x0_25_openRight) {
                   cell.x0_25_openRight = true;
@@ -456,7 +470,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
                   node->x13c_25_hasGate = false;
                 }
               }
-              if (node->xe8_col == xe8_col && node->xec_row == xec_row && node->xf0_side == CMazeState::kS_Top) {
+              if (node->xe8_col == xe8_col && node->xec_row == xec_row &&
+                  node->xf0_side == CMazeState::kS_Top) {
                 SMazeCell& cell = maze->GetCell(xe8_col, xec_row);
                 if (!cell.x0_24_openTop) {
                   cell.x0_24_openTop = true;
@@ -464,7 +479,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
                   node->x13c_25_hasGate = false;
                 }
               }
-              if (node->xe8_col == xe8_col && node->xec_row == xec_row + 1 && node->xf0_side == CMazeState::kS_Top) {
+              if (node->xe8_col == xe8_col && node->xec_row == xec_row + 1 &&
+                  node->xf0_side == CMazeState::kS_Top) {
                 SMazeCell& cell = maze->GetCell(xe8_col, xec_row + 1);
                 if (!cell.x0_24_openTop) {
                   cell.x0_24_openTop = true;
@@ -513,7 +529,8 @@ void CScriptMazeNode::Think(float dt, CStateManager& mgr) {
 
 void CScriptMazeNode::LoadMazeSeeds() {
   const SObjectTag* tag = gpResourceFactory->GetResourceIdByName("DUMB_MazeSeeds");
-  rstl::auto_ptr< CInputStream > stream = gpResourceFactory->GetResLoader().LoadNewResourceSync(*tag, nullptr);
+  rstl::auto_ptr< CInputStream > stream =
+      gpResourceFactory->GetResLoader().LoadNewResourceSync(*tag, nullptr);
   for (int i = 0; i < 300; i++) {
     sMazeSeeds[i] = stream->ReadLong();
   }

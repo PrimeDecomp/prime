@@ -37,15 +37,9 @@ inline s16 FtoS(register f32 in) {
   return *ptr;
 }
 #else
-inline u8 ToUint8(f32 in) {
-  return static_cast<u8>(in);
-}
-inline f32 ToReal32(u8 in) {
-  return static_cast<f32>(in);
-}
-inline s16 FtoS(f32 in) {
-  return static_cast<s16>(in);
-}
+inline u8 ToUint8(f32 in) { return static_cast< u8 >(in); }
+inline f32 ToReal32(u8 in) { return static_cast< f32 >(in); }
+inline s16 FtoS(f32 in) { return static_cast< s16 >(in); }
 #endif
 } // namespace CCast
 

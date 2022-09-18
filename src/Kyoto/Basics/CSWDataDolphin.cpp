@@ -16,6 +16,6 @@ void CStopwatch::CSWData::Wait(f32 v) const {
 bool CStopwatch::CSWData::Initialize() {
   x0_timerFreq = OS_TIMER_CLOCK;
   x8_timerFreqO1M = x0_timerFreq / 1000000ll;
-  x10_timerPeriod = 1.f / static_cast<f32>(x0_timerFreq);
+  x10_timerPeriod = 1.f / static_cast< f32 >(x0_timerFreq);
   return true;
 }

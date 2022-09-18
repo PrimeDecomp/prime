@@ -8,7 +8,7 @@ function add_newline {
     fi
 }
 
-FILES=$(git ls-files -o "*.h" "*.hpp" "*.c" "*.cpp")
+FILES=$(git ls-files -c "*.h" "*.hpp" "*.c" "*.cpp")
 clang-format -i ${FILES}
 for f in ${FILES}; do
     add_newline $f

@@ -1,19 +1,20 @@
 #ifndef __CCAMERAHINT_HPP__
 #define __CCAMERAHINT_HPP__
 
-#include "types.h"
-#include "MetroidPrime/Cameras/CBallCamera.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "MetroidPrime/Cameras/CBallCamera.hpp"
+#include "types.h"
 
 class CCameraHint {
 public:
-  CCameraHint(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, f32 minDist, f32 maxDist,
-              f32 backwardsDist, const CVector3f& lookAtOffset, const CVector3f& chaseLookAtOffset,
-              const CVector3f& ballToCam, f32 fov, f32 attitudeRange, f32 azimuthRange,
-              f32 anglePerSecond, f32 clampVelRange, f32 clampRotRange, f32 elevation, f32 interpolateTime,
-              f32 clampVelTime, f32 controlInterpDur);
+  CCameraHint(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, f32 minDist,
+              f32 maxDist, f32 backwardsDist, const CVector3f& lookAtOffset,
+              const CVector3f& chaseLookAtOffset, const CVector3f& ballToCam, f32 fov,
+              f32 attitudeRange, f32 azimuthRange, f32 anglePerSecond, f32 clampVelRange,
+              f32 clampRotRange, f32 elevation, f32 interpolateTime, f32 clampVelTime,
+              f32 controlInterpDur);
   virtual ~CCameraHint();
-  
+
 private:
   uint mOverrideFlags;
   CBallCamera::EBallCameraBehaviour mBehaviour;

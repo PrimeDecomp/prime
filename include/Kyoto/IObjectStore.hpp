@@ -39,7 +39,8 @@ public:
   // , x10_object(obj.release())
   // , x14_params(CVParamTransfer::Null()) {}
 
-  CObjectReference(IObjectStore* store, const rstl::auto_ptr< IObj >& obj, SObjectTag tag, CVParamTransfer xfer);
+  CObjectReference(IObjectStore* store, const rstl::auto_ptr< IObj >& obj, SObjectTag tag,
+                   CVParamTransfer xfer);
 
 private:
   u16 x0_refCount;
@@ -50,6 +51,8 @@ private:
   IObj* x10_object;
   CVParamTransfer x14_params;
 };
+
+class CToken;
 
 class IObjectStore {
 public:

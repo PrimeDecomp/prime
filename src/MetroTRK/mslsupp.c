@@ -3,7 +3,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
+
 // 80003640
 void EnableMetroTRKInterrupts() {}
 

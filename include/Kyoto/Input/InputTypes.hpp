@@ -16,13 +16,7 @@ enum EMotorState {
   kMS_StopHard = PAD_MOTOR_STOP_HARD,
 };
 
-enum EJoyAxis {
-  kJA_LeftX,
-  kJA_LeftY,
-  kJA_RightX,
-  kJA_RightY,
-  kJA_MAX
-};
+enum EJoyAxis { kJA_LeftX, kJA_LeftY, kJA_RightX, kJA_RightY, kJA_MAX };
 
 enum EButton {
   kBU_A,
@@ -40,10 +34,6 @@ enum EButton {
   kBU_MAX,
 };
 
-enum EAnalogButton {
-  kBA_Left,
-  kBA_Right,
-  kBA_MAX
-};
+enum EAnalogButton { kBA_Left, kBA_Right, kBA_MAX };
 
 #endif // __INPUTTYPES_HPP__

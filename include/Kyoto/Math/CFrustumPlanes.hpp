@@ -5,8 +5,8 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "rstl/reserved_vector.hpp"
 #include "rstl/optional_object.hpp"
+#include "rstl/reserved_vector.hpp"
 
 class CAABox;
 class CSphere;

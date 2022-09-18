@@ -5,7 +5,8 @@
 
 #include <dolphin/CARDPriv.h>
 
-const char* __CARDVersion = "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>";
+const char* __CARDVersion =
+    "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>";
 
 CARDControl __CARDBlock[2];
 DVDDiskID __CARDDiskNone;
@@ -73,7 +74,8 @@ void __CARDExiHandler(s32 chan, OSContext* context) {
     goto error;
   }
 
-  if ((result = (status & 0x18) ? CARD_RESULT_IOERROR : CARD_RESULT_READY) == CARD_RESULT_IOERROR && --card->retry > 0) {
+  if ((result = (status & 0x18) ? CARD_RESULT_IOERROR : CARD_RESULT_READY) == CARD_RESULT_IOERROR &&
+      --card->retry > 0) {
     result = Retry(chan);
     if (result >= 0) {
       return;
@@ -203,7 +205,8 @@ static void SetupTimeoutAlarm(CARDControl* card) {
     break;
   case 0xF4:
   case 0xF1:
-    OSSetAlarm(&card->alarm, OSSecondsToTicks((OSTime)2) * (card->sectorSize / 0x2000), TimeoutHandler);
+    OSSetAlarm(&card->alarm, OSSecondsToTicks((OSTime)2) * (card->sectorSize / 0x2000),
+               TimeoutHandler);
     break;
   }
 }
@@ -225,7 +228,8 @@ static s32 Retry(s32 chan) {
     return CARD_RESULT_NOCARD;
   }
 
-  if (card->cmd[0] == 0x52 && !EXIImmEx(chan, (u8*)card->workArea + sizeof(CARDID), card->latency, 1)) {
+  if (card->cmd[0] == 0x52 &&
+      !EXIImmEx(chan, (u8*)card->workArea + sizeof(CARDID), card->latency, 1)) {
     EXIDeselect(chan);
     EXIUnlock(chan);
     return CARD_RESULT_NOCARD;
@@ -237,7 +241,8 @@ static s32 Retry(s32 chan) {
     return CARD_RESULT_READY;
   }
 
-  if (!EXIDma(chan, card->buffer, (s32)((card->cmd[0] == 0x52) ? 512 : 128), card->mode, __CARDTxHandler)) {
+  if (!EXIDma(chan, card->buffer, (s32)((card->cmd[0] == 0x52) ? 512 : 128), card->mode,
+              __CARDTxHandler)) {
     EXIDeselect(chan);
     EXIUnlock(chan);
     return CARD_RESULT_NOCARD;
@@ -347,7 +352,8 @@ s32 __CARDReadSegment(s32 chan, CARDCallback callback) {
     result = CARD_RESULT_READY;
   } else if (result >= 0) {
     if (!EXIImmEx(chan, card->cmd, card->cmdlen, 1) ||
-        !EXIImmEx(chan, (u8*)card->workArea + sizeof(CARDID), card->latency, 1) || // XXX use DMA if possible
+        !EXIImmEx(chan, (u8*)card->workArea + sizeof(CARDID), card->latency,
+                  1) || // XXX use DMA if possible
         !EXIDma(chan, card->buffer, 512, card->mode, __CARDTxHandler)) {
       card->txCallback = 0;
       EXIDeselect(chan);
@@ -378,7 +384,8 @@ s32 __CARDWritePage(s32 chan, CARDCallback callback) {
   if (result == CARD_RESULT_BUSY) {
     result = CARD_RESULT_READY;
   } else if (result >= 0) {
-    if (!EXIImmEx(chan, card->cmd, card->cmdlen, 1) || !EXIDma(chan, card->buffer, 128, card->mode, __CARDTxHandler)) {
+    if (!EXIImmEx(chan, card->cmd, card->cmdlen, 1) ||
+        !EXIDma(chan, card->buffer, 128, card->mode, __CARDTxHandler)) {
       card->exiCallback = 0;
       EXIDeselect(chan);
       EXIUnlock(chan);

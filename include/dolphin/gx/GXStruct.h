@@ -1,8 +1,8 @@
 #ifndef DOLPHIN_GXSTRUCT_H
 #define DOLPHIN_GXSTRUCT_H
 
-#include <dolphin/types.h>
 #include <dolphin/gx/GXEnum.h>
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C" {

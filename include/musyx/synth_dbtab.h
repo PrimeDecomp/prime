@@ -13,5 +13,5 @@ extern float dspDLSVolTab[129];
 
 #ifdef __cplusplus
 }
-#endif 
+#endif
 #endif

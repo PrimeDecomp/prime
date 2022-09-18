@@ -40,8 +40,8 @@ void CColor::Get(float& r, float& g, float& b) const {
 
 CColor CColor::Lerp(const CColor& a, const CColor& b, float t) {
   const float omt = 1.f - t;
-  return CColor(omt * a.GetRed() + t * b.GetRed(), omt * a.GetGreen() + t * b.GetGreen(), omt * a.GetBlue() + t * b.GetBlue(),
-                omt * a.GetAlpha() + t * b.GetAlpha());
+  return CColor(omt * a.GetRed() + t * b.GetRed(), omt * a.GetGreen() + t * b.GetGreen(),
+                omt * a.GetBlue() + t * b.GetBlue(), omt * a.GetAlpha() + t * b.GetAlpha());
 }
 
 uint CColor::Lerp(uint a, uint b, float t) {
@@ -68,8 +68,9 @@ uint CColor::Lerp(uint a, uint b, float t) {
 }
 
 CColor CColor::Modulate(const CColor& a, const CColor& b) {
-  return CColor((u8)((a.GetRedu8() * b.GetRedu8()) / (u8)255), (a.GetGreenu8() * b.GetGreenu8()) / (u8)255,
-                (a.GetBlueu8() * b.GetBlueu8()) / (u8)255, (a.GetAlphau8() * b.GetAlphau8()) / (u8)255);
+  return CColor(
+      (u8)((a.GetRedu8() * b.GetRedu8()) / (u8)255), (a.GetGreenu8() * b.GetGreenu8()) / (u8)255,
+      (a.GetBlueu8() * b.GetBlueu8()) / (u8)255, (a.GetAlphau8() * b.GetAlphau8()) / (u8)255);
 }
 
 CColor CColor::Add(const CColor& arg0, const CColor& arg1) {

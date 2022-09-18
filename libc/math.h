@@ -142,7 +142,8 @@ static inline int __fpclassifyd(double x) {
   return FP_NORMAL;
 }
 
-#define fpclassify(x) (sizeof(x) == sizeof(float) ? __fpclassifyf((float)(x)) : __fpclassifyd((double)(x)))
+#define fpclassify(x)                                                                              \
+  (sizeof(x) == sizeof(float) ? __fpclassifyf((float)(x)) : __fpclassifyd((double)(x)))
 #define isnormal(x) (fpclassify(x) == FP_NORMAL)
 #define isnan(x) (fpclassify(x) == FP_NAN)
 #define isinf(x) (fpclassify(x) == FP_INFINITE)

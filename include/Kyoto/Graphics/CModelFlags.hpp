@@ -24,17 +24,32 @@ public:
   };
 
   CModelFlags(ETrans trans, f32 rgba)
-  : x0_blendMode(trans), x1_matSetIdx(0), x2_flags(kF_DepthCompare | kF_DepthUpdate), x4_color(rgba, rgba, rgba, rgba) {}
+  : x0_blendMode(trans)
+  , x1_matSetIdx(0)
+  , x2_flags(kF_DepthCompare | kF_DepthUpdate)
+  , x4_color(rgba, rgba, rgba, rgba) {}
   CModelFlags(ETrans trans, CColor color)
-  : x0_blendMode(trans), x1_matSetIdx(0), x2_flags(kF_DepthCompare | kF_DepthUpdate), x4_color(color) {}
+  : x0_blendMode(trans)
+  , x1_matSetIdx(0)
+  , x2_flags(kF_DepthCompare | kF_DepthUpdate)
+  , x4_color(color) {}
   CModelFlags(const CModelFlags& flags, uint otherFlags)
-  : x0_blendMode(flags.x0_blendMode), x1_matSetIdx(flags.x1_matSetIdx), x2_flags(otherFlags), x4_color(flags.x4_color) {}
+  : x0_blendMode(flags.x0_blendMode)
+  , x1_matSetIdx(flags.x1_matSetIdx)
+  , x2_flags(otherFlags)
+  , x4_color(flags.x4_color) {}
   CModelFlags(const CModelFlags& flags, bool b /* TODO what's this? */, int shaderSet)
-  : x0_blendMode(flags.x0_blendMode), x1_matSetIdx(shaderSet), x2_flags(flags.x2_flags), x4_color(flags.x4_color) {}
+  : x0_blendMode(flags.x0_blendMode)
+  , x1_matSetIdx(shaderSet)
+  , x2_flags(flags.x2_flags)
+  , x4_color(flags.x4_color) {}
 
   // ?
   CModelFlags(const CModelFlags& flags, ETrans trans, CColor color)
-  : x0_blendMode(trans), x1_matSetIdx(flags.x1_matSetIdx), x2_flags(flags.x2_flags), x4_color(color) {}
+  : x0_blendMode(trans)
+  , x1_matSetIdx(flags.x1_matSetIdx)
+  , x2_flags(flags.x2_flags)
+  , x4_color(color) {}
 
   CModelFlags UseShaderSet(int matSet) { return CModelFlags(*this, false, matSet); }
   CModelFlags DontLoadTextures() { return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock); }

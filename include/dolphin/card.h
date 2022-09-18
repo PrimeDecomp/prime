@@ -29,12 +29,16 @@ extern "C" {
 #define CARDGetIconAnim(stat) (((stat)->bannerFormat) & CARD_STAT_ANIM_MASK)
 #define CARDGetIconFormat(stat, n) (((stat)->iconFormat >> (2 * (n))) & CARD_STAT_ICON_MASK)
 #define CARDGetIconSpeed(stat, n) (((stat)->iconSpeed >> (2 * (n))) & CARD_STAT_SPEED_MASK)
-#define CARDSetBannerFormat(stat, f) ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_BANNER_MASK) | (f)))
-#define CARDSetIconAnim(stat, f) ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_ANIM_MASK) | (f)))
-#define CARDSetIconFormat(stat, n, f)                                                                                                      \
-  ((stat)->iconFormat = (u16)(((stat)->iconFormat & ~(CARD_STAT_ICON_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
-#define CARDSetIconSpeed(stat, n, f)                                                                                                       \
-  ((stat)->iconSpeed = (u16)(((stat)->iconSpeed & ~(CARD_STAT_SPEED_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
+#define CARDSetBannerFormat(stat, f)                                                               \
+  ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_BANNER_MASK) | (f)))
+#define CARDSetIconAnim(stat, f)                                                                   \
+  ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_ANIM_MASK) | (f)))
+#define CARDSetIconFormat(stat, n, f)                                                              \
+  ((stat)->iconFormat =                                                                            \
+       (u16)(((stat)->iconFormat & ~(CARD_STAT_ICON_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
+#define CARDSetIconSpeed(stat, n, f)                                                               \
+  ((stat)->iconSpeed =                                                                             \
+       (u16)(((stat)->iconSpeed & ~(CARD_STAT_SPEED_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
 #define CARDSetIconAddress(stat, addr) ((stat)->iconAddr = (u32)(addr))
 #define CARDSetCommentAddress(stat, addr) ((stat)->commentAddr = (u32)(addr))
 #define CARDGetFileNo(fileInfo) ((fileInfo)->fileNo)
@@ -125,7 +129,8 @@ s32 CARDCheckAsync(s32 chan, CARDCallback callback);
 s32 CARDCheckEx(s32 chan, s32* xferBytes);
 s32 CARDCheckExAsync(s32 chan, s32* xferBytes, CARDCallback callback);
 s32 CARDCreate(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo);
-s32 CARDCreateAsync(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo, CARDCallback callback);
+s32 CARDCreateAsync(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo,
+                    CARDCallback callback);
 s32 CARDDelete(s32 chan, const char* fileName);
 s32 CARDDeleteAsync(s32 chan, const char* fileName, CARDCallback callback);
 s32 CARDFastDelete(s32 chan, s32 fileNo);
@@ -143,7 +148,8 @@ s32 CARDGetSerialNo(s32 chan, u64* serialNo);
 s32 CARDGetStatus(s32 chan, s32 fileNo, CARDStat* stat);
 s32 CARDGetXferredBytes(s32 chan);
 s32 CARDMount(s32 chan, void* workArea, CARDCallback detachCallback);
-s32 CARDMountAsync(s32 chan, void* workArea, CARDCallback detachCallback, CARDCallback attachCallback);
+s32 CARDMountAsync(s32 chan, void* workArea, CARDCallback detachCallback,
+                   CARDCallback attachCallback);
 s32 CARDOpen(s32 chan, const char* fileName, CARDFileInfo* fileInfo);
 BOOL CARDProbe(s32 chan);
 s32 CARDProbeEx(s32 chan, s32* memSize, s32* sectorSize);
@@ -158,9 +164,11 @@ s32 CARDGetCurrentMode(s32 chan, u32* mode);
 s32 CARDCancel(CARDFileInfo* fileInfo);
 s32 CARDClose(CARDFileInfo* fileInfo);
 s32 CARDRead(CARDFileInfo* fileInfo, void* addr, s32 length, s32 offset);
-s32 CARDReadAsync(CARDFileInfo* fileInfo, void* addr, s32 length, s32 offset, CARDCallback callback);
+s32 CARDReadAsync(CARDFileInfo* fileInfo, void* addr, s32 length, s32 offset,
+                  CARDCallback callback);
 s32 CARDWrite(CARDFileInfo* fileInfo, const void* addr, s32 length, s32 offset);
-s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* addr, s32 length, s32 offset, CARDCallback callback);
+s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* addr, s32 length, s32 offset,
+                   CARDCallback callback);
 
 #ifdef __cplusplus
 }

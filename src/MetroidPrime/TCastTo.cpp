@@ -6,11 +6,11 @@
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 
 // TODO create headers for all entities
-#define STUB(cls, parent)                                                                                                                  \
-  class cls : public parent {                                                                                                              \
-  public:                                                                                                                                  \
-    ~cls() override;                                                                                                                       \
-    void Accept(IVisitor& visitor) override;                                                                                               \
+#define STUB(cls, parent)                                                                          \
+  class cls : public parent {                                                                      \
+  public:                                                                                          \
+    ~cls() override;                                                                               \
+    void Accept(IVisitor& visitor) override;                                                       \
   };
 STUB(CWeapon, CActor)
 STUB(CBomb, CWeapon)
@@ -132,15 +132,15 @@ VISIT_IMPL(cls, CWallCrawlerSwarm) \
 VISIT_IMPL(cls, CWeapon)
 // clang-format on
 
-#define VISIT_IMPL(base, cls)                                                                                                              \
+#define VISIT_IMPL(base, cls)                                                                      \
   void TCastToPtr< base >::Visit(cls& v) { ptr = GetPtr(&v); }
-#define VISIT(cls)                                                                                                                         \
-  TCastToPtr< cls >::TCastToPtr(CEntity& p) : ptr(nullptr) { p.Accept(*this); }                                                            \
-  TCastToPtr< cls >::TCastToPtr(CEntity* p) : ptr(nullptr) {                                                                               \
-    if (p != nullptr) {                                                                                                                    \
-      p->Accept(*this);                                                                                                                    \
-    }                                                                                                                                      \
-  }                                                                                                                                        \
+#define VISIT(cls)                                                                                 \
+  TCastToPtr< cls >::TCastToPtr(CEntity& p) : ptr(nullptr) { p.Accept(*this); }                    \
+  TCastToPtr< cls >::TCastToPtr(CEntity* p) : ptr(nullptr) {                                       \
+    if (p != nullptr) {                                                                            \
+      p->Accept(*this);                                                                            \
+    }                                                                                              \
+  }                                                                                                \
   TCASTTO_VISITORS_IMPL(cls)
 TCASTTO_VISITORS
 #undef VISIT
@@ -388,7 +388,9 @@ void TCastToPtr< CCinematicCamera >::Visit(CScriptRoomAcoustics& v) { ptr = GetP
 void TCastToPtr< CCinematicCamera >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCinematicCamera >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCinematicCamera >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CCinematicCamera >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CCinematicCamera >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CCinematicCamera >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCinematicCamera >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCinematicCamera >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -451,7 +453,9 @@ void TCastToPtr< CCollisionActor >::Visit(CScriptRoomAcoustics& v) { ptr = GetPt
 void TCastToPtr< CCollisionActor >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCollisionActor >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCollisionActor >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CCollisionActor >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CCollisionActor >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CCollisionActor >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCollisionActor >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CCollisionActor >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -514,7 +518,9 @@ void TCastToPtr< CDestroyableRock >::Visit(CScriptRoomAcoustics& v) { ptr = GetP
 void TCastToPtr< CDestroyableRock >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CDestroyableRock >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CDestroyableRock >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CDestroyableRock >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CDestroyableRock >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CDestroyableRock >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CDestroyableRock >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CDestroyableRock >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -577,7 +583,9 @@ void TCastToPtr< CEnergyProjectile >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CEnergyProjectile >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CEnergyProjectile >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CEnergyProjectile >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CEnergyProjectile >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CEnergyProjectile >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CEnergyProjectile >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CEnergyProjectile >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CEnergyProjectile >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -766,7 +774,9 @@ void TCastToPtr< CFirstPersonCamera >::Visit(CScriptRoomAcoustics& v) { ptr = Ge
 void TCastToPtr< CFirstPersonCamera >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CFirstPersonCamera >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CFirstPersonCamera >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CFirstPersonCamera >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CFirstPersonCamera >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CFirstPersonCamera >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CFirstPersonCamera >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CFirstPersonCamera >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1018,7 +1028,9 @@ void TCastToPtr< CGameProjectile >::Visit(CScriptRoomAcoustics& v) { ptr = GetPt
 void TCastToPtr< CGameProjectile >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CGameProjectile >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CGameProjectile >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CGameProjectile >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CGameProjectile >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CGameProjectile >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CGameProjectile >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CGameProjectile >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1081,7 +1093,9 @@ void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptRoomAcoustics& v) { ptr = G
 void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CHUDBillboardEffect >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CHUDBillboardEffect >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1144,7 +1158,9 @@ void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptRoomAcoustics& v) { ptr = Ge
 void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CMetroidPrimeRelay >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CMetroidPrimeRelay >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1585,7 +1601,9 @@ void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptRoomAcoustics& v) { ptr = 
 void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptActorKeyframe >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptActorKeyframe >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1648,7 +1666,9 @@ void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptRoomAcoustics& v) { ptr = Ge
 void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptAiJumpPoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptAiJumpPoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1711,7 +1731,9 @@ void TCastToPtr< CScriptCameraHint >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CScriptCameraHint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraHint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraHint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCameraHint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptCameraHint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptCameraHint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraHint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraHint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1755,10 +1777,14 @@ void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptActor& v) { ptr = GetP
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptActorKeyframe& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptAiJumpPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptCameraHint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptCameraPitchVolume& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptCameraPitchVolume& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptCameraWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptCoverPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptDebugCameraWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptDebugCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptDistanceFog& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptDock& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptDoor& v) { ptr = GetPtr(&v); }
@@ -1774,8 +1800,12 @@ void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptRoomAcoustics& v) { pt
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptSpiderBallWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraPitchVolume >::Visit(CScriptTimer& v) { ptr = GetPtr(&v); }
@@ -1837,7 +1867,9 @@ void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptRoomAcoustics& v) { ptr =
 void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraWaypoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCameraWaypoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1900,7 +1932,9 @@ void TCastToPtr< CScriptCoverPoint >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CScriptCoverPoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCoverPoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCoverPoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptCoverPoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptCoverPoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptCoverPoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCoverPoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptCoverPoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -1944,10 +1978,14 @@ void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptActor& v) { ptr = Ge
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptActorKeyframe& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptAiJumpPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptCameraHint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptCameraPitchVolume& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptCameraPitchVolume& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptCameraWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptCoverPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptDebugCameraWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptDebugCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptDistanceFog& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptDock& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptDoor& v) { ptr = GetPtr(&v); }
@@ -1958,13 +1996,21 @@ void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptMazeNode& v) { ptr =
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptPickup& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptPlatform& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptPlayerHint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptPointOfInterest& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptPointOfInterest& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptRoomAcoustics& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpecialFunction& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptSpiderBallWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDebugCameraWaypoint >::Visit(CScriptTimer& v) { ptr = GetPtr(&v); }
@@ -2026,7 +2072,9 @@ void TCastToPtr< CScriptDistanceFog >::Visit(CScriptRoomAcoustics& v) { ptr = Ge
 void TCastToPtr< CScriptDistanceFog >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDistanceFog >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDistanceFog >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptDistanceFog >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptDistanceFog >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptDistanceFog >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDistanceFog >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptDistanceFog >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2278,7 +2326,9 @@ void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptRoomAcoustics& v) { ptr = G
 void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGrapplePoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGrapplePoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2341,7 +2391,9 @@ void TCastToPtr< CScriptGunTurret >::Visit(CScriptRoomAcoustics& v) { ptr = GetP
 void TCastToPtr< CScriptGunTurret >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGunTurret >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGunTurret >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptGunTurret >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptGunTurret >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptGunTurret >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGunTurret >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptGunTurret >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2404,7 +2456,9 @@ void TCastToPtr< CScriptMazeNode >::Visit(CScriptRoomAcoustics& v) { ptr = GetPt
 void TCastToPtr< CScriptMazeNode >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptMazeNode >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptMazeNode >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptMazeNode >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptMazeNode >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptMazeNode >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptMazeNode >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptMazeNode >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2530,7 +2584,9 @@ void TCastToPtr< CScriptPlatform >::Visit(CScriptRoomAcoustics& v) { ptr = GetPt
 void TCastToPtr< CScriptPlatform >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlatform >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlatform >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptPlatform >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptPlatform >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptPlatform >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlatform >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlatform >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2593,7 +2649,9 @@ void TCastToPtr< CScriptPlayerHint >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CScriptPlayerHint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlayerHint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlayerHint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptPlayerHint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptPlayerHint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptPlayerHint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlayerHint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPlayerHint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2640,7 +2698,9 @@ void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptCameraHint& v) { ptr = G
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptCameraPitchVolume& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptCameraWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptCoverPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptDebugCameraWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptDebugCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptDistanceFog& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptDock& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptDoor& v) { ptr = GetPtr(&v); }
@@ -2656,7 +2716,9 @@ void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptRoomAcoustics& v) { ptr 
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptPointOfInterest >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2719,7 +2781,9 @@ void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptRoomAcoustics& v) { ptr = 
 void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptRoomAcoustics >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptRoomAcoustics >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2845,7 +2909,9 @@ void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpawnPoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpawnPoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2892,7 +2958,9 @@ void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptCameraHint& v) { ptr = G
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptCameraPitchVolume& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptCameraWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptCoverPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptDebugCameraWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptDebugCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptDistanceFog& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptDock& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptDoor& v) { ptr = GetPtr(&v); }
@@ -2908,7 +2976,9 @@ void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptRoomAcoustics& v) { ptr 
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -2921,7 +2991,9 @@ void TCastToPtr< CScriptSpecialFunction >::Visit(CSnakeWeedSwarm& v) { ptr = Get
 void TCastToPtr< CScriptSpecialFunction >::Visit(CScriptSpindleCamera& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CWallCrawlerSwarm& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpecialFunction >::Visit(CWeapon& v) { ptr = GetPtr(&v); }
-TCastToPtr< CScriptSpiderBallAttractionSurface >::TCastToPtr(CEntity& p) : ptr(0) { p.Accept(*this); }
+TCastToPtr< CScriptSpiderBallAttractionSurface >::TCastToPtr(CEntity& p) : ptr(0) {
+  p.Accept(*this);
+}
 TCastToPtr< CScriptSpiderBallAttractionSurface >::TCastToPtr(CEntity* p) : ptr(0) {
   if (p != 0) {
     p->Accept(*this);
@@ -2930,59 +3002,128 @@ TCastToPtr< CScriptSpiderBallAttractionSurface >::TCastToPtr(CEntity* p) : ptr(0
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CActor& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CBallCamera& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CBomb& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CCinematicCamera& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CCollisionActor& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CDestroyableRock& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CEnergyProjectile& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CCinematicCamera& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CCollisionActor& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CDestroyableRock& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CEnergyProjectile& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CEntity& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CExplosion& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CFirstPersonCamera& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CFirstPersonCamera& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CFishCloud& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CGameCamera& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CGameLight& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CGameProjectile& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CHUDBillboardEffect& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CMetroidPrimeRelay& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CGameProjectile& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CHUDBillboardEffect& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CMetroidPrimeRelay& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CPathCamera& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CPatterned& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CPhysicsActor& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CPlayer& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CRepulsor& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptActor& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptActorKeyframe& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptAiJumpPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCameraHint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCameraPitchVolume& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCameraWaypoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCoverPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptDebugCameraWaypoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptDistanceFog& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptActorKeyframe& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptAiJumpPoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCameraHint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCameraPitchVolume& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptCoverPoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptDebugCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptDistanceFog& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptDock& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptDoor& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptEffect& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptGrapplePoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptGunTurret& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptMazeNode& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptGrapplePoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptGunTurret& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptMazeNode& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPickup& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPlatform& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPlayerHint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPointOfInterest& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptRoomAcoustics& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPlatform& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPlayerHint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptPointOfInterest& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptRoomAcoustics& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpawnPoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpecialFunction& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(
+    CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpiderBallWaypoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptTargetingPoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptTimer& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptTrigger& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptVisorFlare& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptTrigger& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptVisorFlare& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptWater& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptWaypoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CSnakeWeedSwarm& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpindleCamera& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CWallCrawlerSwarm& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptWaypoint& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CSnakeWeedSwarm& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CScriptSpindleCamera& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CWallCrawlerSwarm& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallAttractionSurface >::Visit(CWeapon& v) { ptr = GetPtr(&v); }
 TCastToPtr< CScriptSpiderBallWaypoint >::TCastToPtr(CEntity& p) : ptr(0) { p.Accept(*this); }
 TCastToPtr< CScriptSpiderBallWaypoint >::TCastToPtr(CEntity* p) : ptr(0) {
@@ -3015,10 +3156,14 @@ void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptActor& v) { ptr = Get
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptActorKeyframe& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptAiJumpPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptCameraHint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptCameraPitchVolume& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptCameraPitchVolume& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptCameraWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptCoverPoint& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptDebugCameraWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptDebugCameraWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptDistanceFog& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptDock& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptDoor& v) { ptr = GetPtr(&v); }
@@ -3034,8 +3179,12 @@ void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptRoomAcoustics& v) { p
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
+void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptSpiderBallWaypoint& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpiderBallWaypoint >::Visit(CScriptTimer& v) { ptr = GetPtr(&v); }
@@ -3097,7 +3246,9 @@ void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptRoomAcoustics& v) { ptr =
 void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTargetingPoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTargetingPoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -3286,7 +3437,9 @@ void TCastToPtr< CScriptTrigger >::Visit(CScriptRoomAcoustics& v) { ptr = GetPtr
 void TCastToPtr< CScriptTrigger >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTrigger >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTrigger >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptTrigger >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptTrigger >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptTrigger >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTrigger >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptTrigger >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -3349,7 +3502,9 @@ void TCastToPtr< CScriptVisorFlare >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CScriptVisorFlare >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptVisorFlare >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptVisorFlare >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptVisorFlare >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptVisorFlare >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptVisorFlare >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptVisorFlare >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptVisorFlare >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -3475,7 +3630,9 @@ void TCastToPtr< CScriptWaypoint >::Visit(CScriptRoomAcoustics& v) { ptr = GetPt
 void TCastToPtr< CScriptWaypoint >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptWaypoint >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptWaypoint >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptWaypoint >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptWaypoint >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptWaypoint >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptWaypoint >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -3538,7 +3695,9 @@ void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptRoomAcoustics& v) { ptr = GetPt
 void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CSnakeWeedSwarm >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CSnakeWeedSwarm >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -3601,7 +3760,9 @@ void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptRoomAcoustics& v) { ptr = 
 void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpindleCamera >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CScriptSpindleCamera >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }
@@ -3664,7 +3825,9 @@ void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptRoomAcoustics& v) { ptr = Get
 void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptSound& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptSpawnPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptSpecialFunction& v) { ptr = GetPtr(&v); }
-void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptSpiderBallAttractionSurface& v) { ptr = GetPtr(&v); }
+void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptSpiderBallAttractionSurface& v) {
+  ptr = GetPtr(&v);
+}
 void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptSpiderBallWaypoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CWallCrawlerSwarm >::Visit(CScriptTargetingPoint& v) { ptr = GetPtr(&v); }
 void TCastToPtr< CWallCrawlerSwarm >::Visit(CTeamAiMgr& v) { ptr = GetPtr(&v); }

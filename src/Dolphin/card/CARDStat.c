@@ -106,8 +106,10 @@ s32 CARDSetStatusAsync(s32 chan, s32 fileNo, CARDStat* stat, CARDCallback callba
   CARDDir* ent;
   s32 result;
 
-  if (fileNo < 0 || CARD_MAX_FILE <= fileNo || (stat->iconAddr != 0xffffffff && CARD_READ_SIZE <= stat->iconAddr) ||
-      (stat->commentAddr != 0xffffffff && CARD_SYSTEM_BLOCK_SIZE - CARD_COMMENT_SIZE < stat->commentAddr % CARD_SYSTEM_BLOCK_SIZE)) {
+  if (fileNo < 0 || CARD_MAX_FILE <= fileNo ||
+      (stat->iconAddr != 0xffffffff && CARD_READ_SIZE <= stat->iconAddr) ||
+      (stat->commentAddr != 0xffffffff &&
+       CARD_SYSTEM_BLOCK_SIZE - CARD_COMMENT_SIZE < stat->commentAddr % CARD_SYSTEM_BLOCK_SIZE)) {
     return CARD_RESULT_FATAL_ERROR;
   }
   result = __CARDGetControlBlock(chan, &card);

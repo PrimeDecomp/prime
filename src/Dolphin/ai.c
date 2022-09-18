@@ -46,7 +46,9 @@ void AIStartDMA() { __DSPRegs[27] |= 0x8000; }
 
 void AIStopDMA(void) { __DSPRegs[27] &= ~0x8000; }
 
-u32 AIGetDMAStartAddr(void) { return (u32)((__DSPRegs[24] & 0x03ff) << 16) | (__DSPRegs[25] & 0xffe0); }
+u32 AIGetDMAStartAddr(void) {
+  return (u32)((__DSPRegs[24] & 0x03ff) << 16) | (__DSPRegs[25] & 0xffe0);
+}
 
 AISCallback AIRegisterStreamCallback(AISCallback callback) {
   AISCallback ret;
@@ -157,7 +159,9 @@ void AISetStreamVolLeft(u8 volume) { __AIRegs[1] = (__AIRegs[1] & ~0xFF) | (volu
 
 u8 AIGetStreamVolLeft() { return __AIRegs[1]; }
 
-void AISetStreamVolRight(u8 volume) { __AIRegs[1] = (__AIRegs[1] & ~0xFF00) | ((volume & 0xFF) << 8); }
+void AISetStreamVolRight(u8 volume) {
+  __AIRegs[1] = (__AIRegs[1] & ~0xFF00) | ((volume & 0xFF) << 8);
+}
 
 u8 AIGetStreamVolRight() { return __AIRegs[1] >> 8; }
 

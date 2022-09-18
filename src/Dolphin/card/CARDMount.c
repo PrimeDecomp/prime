@@ -215,8 +215,8 @@ static s32 DoMount(s32 chan) {
   }
 
   step = card->mountStep - 2;
-  result = __CARDRead(chan, (u32)card->sectorSize * step, CARD_SYSTEM_BLOCK_SIZE, (u8*)card->workArea + (CARD_SYSTEM_BLOCK_SIZE * step),
-                      __CARDMountCallback);
+  result = __CARDRead(chan, (u32)card->sectorSize * step, CARD_SYSTEM_BLOCK_SIZE,
+                      (u8*)card->workArea + (CARD_SYSTEM_BLOCK_SIZE * step), __CARDMountCallback);
   if (result < 0) {
     __CARDPutControlBlock(card, result);
   }
@@ -269,7 +269,8 @@ void __CARDMountCallback(s32 chan, s32 result) {
   callback(chan, result);
 }
 
-s32 CARDMountAsync(s32 chan, void* workArea, CARDCallback detachCallback, CARDCallback attachCallback) {
+s32 CARDMountAsync(s32 chan, void* workArea, CARDCallback detachCallback,
+                   CARDCallback attachCallback) {
   CARDControl* card;
   BOOL enabled;
 

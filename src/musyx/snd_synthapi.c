@@ -103,38 +103,36 @@ void sndSetAuxProcessingCallbacks(u8 studio,
 }
 
 void synthActivateStudio(u8 studio, u32 arg1, u32 arg2) {
-    hwDisableIrq();
-    synthAuxACallback[studio] = NULL;
-    synthAuxBCallback[studio] = NULL;
-    synthAuxAMIDI[studio] = 0xFF;
-    synthAuxBMIDI[studio] = 0xFF;
-    synthITDDefault[studio * 2 + 1] = 0;
-    synthITDDefault[studio * 2 + 0] = 0;
-    hwActivateStudio(studio, arg1, arg2);
-    hwEnableIrq();
+  hwDisableIrq();
+  synthAuxACallback[studio] = NULL;
+  synthAuxBCallback[studio] = NULL;
+  synthAuxAMIDI[studio] = 0xFF;
+  synthAuxBMIDI[studio] = 0xFF;
+  synthITDDefault[studio * 2 + 1] = 0;
+  synthITDDefault[studio * 2 + 0] = 0;
+  hwActivateStudio(studio, arg1, arg2);
+  hwEnableIrq();
 }
 
 void synthDeactivateStudio(u8 studio) {
-    u32 i;
-    for (i = 0; i < synthInfo.voices; ++i) {
-        if (studio == synthVoice[i].studio) {
-            if (synthVoice[i]._f4 != 0xFFFFFFFF) {
-                voiceKillSound(synthVoice[i].voiceId->pubId);                
-            } else if (hwIsActive(i)) {
-                hwOff(i);
-            }
-        }
+  u32 i;
+  for (i = 0; i < synthInfo.voices; ++i) {
+    if (studio == synthVoice[i].studio) {
+      if (synthVoice[i]._f4 != 0xFFFFFFFF) {
+        voiceKillSound(synthVoice[i].voiceId->pubId);
+      } else if (hwIsActive(i)) {
+        hwOff(i);
+      }
     }
-    hwDisableIrq();
-    synthAuxACallback[studio] = 0;
-    synthAuxBCallback[studio] = 0;
-    synthAuxAMIDI[studio] = 0xFF;
-    synthAuxBMIDI[studio] = 0xFF;
-    hwEnableIrq();
-    hwDeactivateStudio(studio);
+  }
+  hwDisableIrq();
+  synthAuxACallback[studio] = 0;
+  synthAuxBCallback[studio] = 0;
+  synthAuxAMIDI[studio] = 0xFF;
+  synthAuxBMIDI[studio] = 0xFF;
+  hwEnableIrq();
+  hwDeactivateStudio(studio);
 }
 
 /* TODO: Figure out what `unk` is */
-bool synthAddStudioInput(u8 studio, void* unk) {
-    return hwAddInput(studio, unk);
-}
+bool synthAddStudioInput(u8 studio, void* unk) { return hwAddInput(studio, unk); }

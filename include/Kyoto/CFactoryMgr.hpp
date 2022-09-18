@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-#include "Kyoto/TToken.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/TToken.hpp"
 
 class CFactoryMgr {
 public:
@@ -24,6 +24,7 @@ private:
   rstl::auto_ptr< CObjOwnerDerivedFromIObjUntyped > obj;
 };
 
-CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in, const CVParamTransfer& xfer);
+CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
+                                     const CVParamTransfer& xfer);
 
 #endif

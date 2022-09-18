@@ -2,6 +2,4 @@
 
 #include "MetroidPrime/UserNames.hpp"
 
-bool IsUser(int name) {
-    return name == 1;
-}
+bool IsUser(int name) { return name == 1; }

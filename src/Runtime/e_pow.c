@@ -127,7 +127,8 @@ double x, y;
     return one;
 
   /* +-NaN return x+y */
-  if (ix > 0x7ff00000 || ((ix == 0x7ff00000) && (lx != 0)) || iy > 0x7ff00000 || ((iy == 0x7ff00000) && (ly != 0))) {
+  if (ix > 0x7ff00000 || ((ix == 0x7ff00000) && (lx != 0)) || iy > 0x7ff00000 ||
+      ((iy == 0x7ff00000) && (ly != 0))) {
     return x + y;
 #ifdef __STDC__
     errno = EDOM; /* mf-- added to conform to old ANSI standard */

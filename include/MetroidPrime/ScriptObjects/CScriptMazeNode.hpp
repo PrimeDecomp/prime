@@ -33,11 +33,14 @@ struct SMazeCell {
   bool x1_26_checked : 1;
 
   SMazeCell() {
-    x0_24_openTop = x0_25_openRight = x0_26_openBottom = x0_27_openLeft = x0_28_gateTop = x0_29_gateRight = x0_30_gateBottom =
-        x0_31_gateLeft = x1_24_puddle = x1_25_onPath = x1_26_checked = false;
+    x0_24_openTop = x0_25_openRight = x0_26_openBottom = x0_27_openLeft = x0_28_gateTop =
+        x0_29_gateRight = x0_30_gateBottom = x0_31_gateLeft = x1_24_puddle = x1_25_onPath =
+            x1_26_checked = false;
   }
 
-  inline bool IsClosed() const { return !x0_24_openTop && !x0_25_openRight && !x0_26_openBottom && !x0_27_openLeft; }
+  inline bool IsClosed() const {
+    return !x0_24_openTop && !x0_25_openRight && !x0_26_openBottom && !x0_27_openLeft;
+  }
 };
 
 class CMazeState {
@@ -71,8 +74,10 @@ public:
 
 class CScriptMazeNode : public CActor {
 public:
-  CScriptMazeNode(TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf, bool active, int col, int row,
-                  int side, const CVector3f& actorPos, const CVector3f& triggerPos, const CVector3f& effectPos);
+  CScriptMazeNode(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                  const CTransform4f& xf, bool active, int col, int row, int side,
+                  const CVector3f& actorPos, const CVector3f& triggerPos,
+                  const CVector3f& effectPos);
   ~CScriptMazeNode() override;
 
   void Accept(IVisitor& visitor) override;

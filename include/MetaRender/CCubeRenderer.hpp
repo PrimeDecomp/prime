@@ -30,7 +30,8 @@ public:
   virtual void AddParticleGen1();
   virtual void AddParticleGen2();
   virtual void AddPlaneObject();
-  virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode, IRenderer::EDrawableSorting sorting);
+  virtual void AddDrawable(const void* obj, const CVector3f& pos, const CAABox& bounds, int mode,
+                           IRenderer::EDrawableSorting sorting);
   virtual void SetDrawableCallback();
   virtual void SetWorldViewpoint();
   virtual void SetPerspective1();

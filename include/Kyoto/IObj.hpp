@@ -32,7 +32,8 @@ public:
   static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetNewDerivedObject(T* obj) {
     return new TObjOwnerDerivedFromIObj< T >(obj);
   }
-  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetNewDerivedObject(const rstl::auto_ptr< T >& obj) {
+  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
+  GetNewDerivedObject(const rstl::auto_ptr< T >& obj) {
     return new TObjOwnerDerivedFromIObj< T >(obj);
   }
 

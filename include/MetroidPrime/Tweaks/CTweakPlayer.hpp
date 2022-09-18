@@ -71,7 +71,9 @@ public:
   f32 GetDashStrafeInputThreshold() const { return x208_dashStrafeInputThreshold; }
   f32 GetSidewaysDoubleJumpImpulse() const { return x20c_sidewaysDoubleJumpImpulse; }
   f32 GetSidewaysVerticalDoubleJumpAccel() const { return x210_sidewaysVerticalDoubleJumpAccel; }
-  f32 GetSidewaysHorizontalDoubleJumpAccel() const { return x214_sidewaysHorizontalDoubleJumpAccel; }
+  f32 GetSidewaysHorizontalDoubleJumpAccel() const {
+    return x214_sidewaysHorizontalDoubleJumpAccel;
+  }
   f32 GetScanningRange() const { return x218_scanningRange; }
   bool GetScanRetention() const { return x21c_24_scanRetention; }
   bool GetScanFreezesGame() const { return x21c_25_scanFreezesGame; }
@@ -107,7 +109,9 @@ public:
   f32 GetGrappleSwingLength() const { return x2a4_grappleSwingLength; }
   f32 GetGrappleSwingPeriod() const { return x2a8_grappleSwingPeriod; }
   f32 GetGrapplePullSpeedMin() const { return x2ac_grapplePullSpeedMin; }
-  f32 GetMaxGrappleLockedTurnAlignDistance() const { return x2b4_maxGrappleLockedTurnAlignDistance; }
+  f32 GetMaxGrappleLockedTurnAlignDistance() const {
+    return x2b4_maxGrappleLockedTurnAlignDistance;
+  }
   f32 GetGrapplePullSpeedProportion() const { return x2b8_grapplePullSpeedProportion; }
   f32 GetGrapplePullSpeedMax() const { return x2bc_grapplePullSpeedMax; }
   f32 GetGrappleLookCenterSpeed() const { return x2c0_grappleLookCenterSpeed; }

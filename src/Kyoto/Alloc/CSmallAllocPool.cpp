@@ -19,30 +19,30 @@ void* CSmallAllocPool::FindFree(int len) {
   if (xc_cachedBookKeepingOffset == nullptr) {
     xc_cachedBookKeepingOffset = x4_bookKeeping;
   }
-  u8* curKeepingOffset = static_cast<u8*>(xc_cachedBookKeepingOffset);
-  bookKeepingPtr = static_cast<u8*>(x4_bookKeeping);
+  u8* curKeepingOffset = static_cast< u8* >(xc_cachedBookKeepingOffset);
+  bookKeepingPtr = static_cast< u8* >(x4_bookKeeping);
   u8* bookKeepingEndPtr = bookKeepingPtr + ((u32)x8_numBlocks >> 1);
   u8* curKeepingIter = curKeepingOffset;
-  while(true) {
+  while (true) {
     u8* iter;
-    if (static_cast<u8*>(curKeepingIter)[0] != 0 || curKeepingIter == bookKeepingEndPtr) {
+    if (static_cast< u8* >(curKeepingIter)[0] != 0 || curKeepingIter == bookKeepingEndPtr) {
       if (curKeepingIter == bookKeepingEndPtr) {
-          curKeepingIter = bookKeepingPtr;
+        curKeepingIter = bookKeepingPtr;
       } else {
-          s32 tmp = static_cast<u8*>(curKeepingIter)[0];
-          s32 reg = tmp >> 4;
-          curKeepingIter += (reg / 2);
+        s32 tmp = static_cast< u8* >(curKeepingIter)[0];
+        s32 reg = tmp >> 4;
+        curKeepingIter += (reg / 2);
       }
     } else {
-        u8* tempIter = curKeepingIter + size;
-        iter = curKeepingIter + 1;
-        while (iter != curKeepingOffset && iter != bookKeepingEndPtr && iter != tempIter) {
-            if (static_cast<u8*>(iter)[0] == 0) {
-                iter++;
-            } else {
-                break;
-            }
+      u8* tempIter = curKeepingIter + size;
+      iter = curKeepingIter + 1;
+      while (iter != curKeepingOffset && iter != bookKeepingEndPtr && iter != tempIter) {
+        if (static_cast< u8* >(iter)[0] == 0) {
+          iter++;
+        } else {
+          break;
         }
+      }
 
       if (iter == curKeepingIter + size) {
         if (iter == bookKeepingEndPtr) {
@@ -59,7 +59,7 @@ void* CSmallAllocPool::FindFree(int len) {
       if (iter == bookKeepingEndPtr) {
         curKeepingIter = bookKeepingPtr;
       } else {
-          curKeepingIter = iter;
+        curKeepingIter = iter;
       }
     }
     if (curKeepingIter == curKeepingOffset) {

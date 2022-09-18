@@ -1,69 +1,70 @@
 volatile u8 DAT_800030e2 : 0x800030e2;
 typedef struct Unk {
-    u8 pad[0x24];
-    u32 resetCode;
+  u8 pad[0x24];
+  u32 resetCode;
 } Unk;
 volatile Unk DAT_cc003000 : 0xcc003000;
 
 typedef struct Unk2 {
-    u16 _0;
-    u16 _2;
+  u16 _0;
+  u16 _2;
 } Unk2;
 
 volatile Unk2 DAT_cc002000 : 0xcc002000;
 
 typedef struct OSResetQueue {
-    OSResetFunctionInfo* first;
-    OSResetFunctionInfo* last;
+  OSResetFunctionInfo* first;
+  OSResetFunctionInfo* last;
 } OSResetQueue;
 
-
 void OSRegisterResetFunction(OSResetFunctionInfo* func) {
-    OSResetFunctionInfo* tmp;
-    OSResetFunctionInfo* iter;
+  OSResetFunctionInfo* tmp;
+  OSResetFunctionInfo* iter;
 
-    for (iter = ResetFunctionQueue.first; iter && iter->priority <= func->priority; iter = iter->next);
+  for (iter = ResetFunctionQueue.first; iter && iter->priority <= func->priority; iter = iter->next)
+    ;
 
-    if (iter == NULL) {
-        tmp = ResetFunctionQueue.last;
-        if (tmp == NULL) {
-            ResetFunctionQueue.first = func;
-        } else {
-            tmp->next = func;
-        }
-        func->prev = tmp;
-        func->next = NULL;
-        ResetFunctionQueue.last = func;
-        return;
-    }
-    
-    func->next = iter;
-    tmp = iter->prev;
-    iter->prev = func;
-    func->prev = tmp;
+  if (iter == NULL) {
+    tmp = ResetFunctionQueue.last;
     if (tmp == NULL) {
-        ResetFunctionQueue.first = func;
-        return;
+      ResetFunctionQueue.first = func;
+    } else {
+      tmp->next = func;
     }
-    tmp->next = func;
+    func->prev = tmp;
+    func->next = NULL;
+    ResetFunctionQueue.last = func;
+    return;
+  }
+
+  func->next = iter;
+  tmp = iter->prev;
+  iter->prev = func;
+  func->prev = tmp;
+  if (tmp == NULL) {
+    ResetFunctionQueue.first = func;
+    return;
+  }
+  tmp->next = func;
 }
 
 s32 __OSCallResetFunctions(s32 arg0) {
-    OSResetFunctionInfo* iter;
-    s32 retCode = 0;
-    u32 ret;
+  OSResetFunctionInfo* iter;
+  s32 retCode = 0;
+  u32 ret;
 
-    for (iter = ResetFunctionQueue.first; iter != NULL; iter = iter->next) {
-        retCode |= !iter->func(arg0);
-    }
-    retCode |= !__OSSyncSram();
-    if (retCode) {
-        return 0;
-    }
-    return 1;
+  for (iter = ResetFunctionQueue.first; iter != NULL; iter = iter->next) {
+    retCode |= !iter->func(arg0);
+  }
+  retCode |= !__OSSyncSram();
+  if (retCode) {
+    return 0;
+  }
+  return 1;
 }
 
 asm void Reset(register s32 resetCode) {
+  // clang-format off
     nofralloc
     b lbl_8038315C
 lbl_80383140:
@@ -102,22 +103,21 @@ lbl_803831A0:
     b lbl_803831A0
 lbl_803831A8:
     b lbl_80383140
+  // clang-format on
 }
 
 void __OSDoHotReset(s32 arg0) {
-    OSDisableInterrupts();
-    DAT_cc002000._2 = 0;
-    ICFlashInvalidate();
-    Reset(arg0 * 8);
+  OSDisableInterrupts();
+  DAT_cc002000._2 = 0;
+  ICFlashInvalidate();
+  Reset(arg0 * 8);
 }
 
-void OSResetSystem(int reset, u32 resetCode, BOOL forceMenu) {
-    
-}
+void OSResetSystem(int reset, u32 resetCode, BOOL forceMenu) {}
 
 u32 OSGetResetCode(void) {
-    if (DAT_800030e2 != 0) {
-        return 0x80000000;
-    }
-    return ((DAT_cc003000.resetCode & ~7) >> 3);
+  if (DAT_800030e2 != 0) {
+    return 0x80000000;
+  }
+  return ((DAT_cc003000.resetCode & ~7) >> 3);
 }
