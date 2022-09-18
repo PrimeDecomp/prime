@@ -55,7 +55,7 @@ public:
 
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;
-  void SetCurrentMaze(const rstl::single_ptr< CMazeState >& maze);
+  void SetCurrentMaze(rstl::single_ptr< CMazeState > maze);
 
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }

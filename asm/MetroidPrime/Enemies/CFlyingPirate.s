@@ -802,7 +802,7 @@ lbl_801F4584:
 /* 801F4584 001F14E4  7F A5 EB 78 */	mr r5, r29
 /* 801F4588 001F14E8  38 61 00 10 */	addi r3, r1, 0x10
 /* 801F458C 001F14EC  3B 18 00 01 */	addi r24, r24, 1
-/* 801F4590 001F14F0  4B E8 2B A5 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801F4590 001F14F0  4B E8 2B A5 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801F4594 001F14F4  A0 01 00 10 */	lhz r0, 0x10(r1)
 /* 801F4598 001F14F8  7F A3 EB 78 */	mr r3, r29
 /* 801F459C 001F14FC  38 81 00 14 */	addi r4, r1, 0x14
@@ -951,7 +951,7 @@ lbl_801F479C:
 /* 801F47A8 001F1708  38 61 00 08 */	addi r3, r1, 8
 /* 801F47AC 001F170C  38 06 00 01 */	addi r0, r6, 1
 /* 801F47B0 001F1710  90 1C 03 90 */	stw r0, 0x390(r28)
-/* 801F47B4 001F1714  4B E8 29 81 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801F47B4 001F1714  4B E8 29 81 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801F47B8 001F1718  A0 01 00 08 */	lhz r0, 8(r1)
 /* 801F47BC 001F171C  7F A3 EB 78 */	mr r3, r29
 /* 801F47C0 001F1720  38 81 00 0C */	addi r4, r1, 0xc
@@ -1746,7 +1746,7 @@ UpdateDest__10CPatternedFR13CStateManager:
 /* 801F52FC 001F225C  7F E4 FB 78 */	mr r4, r31
 /* 801F5300 001F2260  7F 85 E3 78 */	mr r5, r28
 /* 801F5304 001F2264  38 61 00 20 */	addi r3, r1, 0x20
-/* 801F5308 001F2268  4B E8 1E 2D */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801F5308 001F2268  4B E8 1E 2D */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801F530C 001F226C  A0 01 00 20 */	lhz r0, 0x20(r1)
 /* 801F5310 001F2270  B0 1B 02 DC */	sth r0, 0x2dc(r27)
 /* 801F5314 001F2274  A0 7B 02 DC */	lhz r3, 0x2dc(r27)
@@ -1846,7 +1846,7 @@ lbl_801F5480:
 /* 801F5488 001F23E8  7F C4 F3 78 */	mr r4, r30
 /* 801F548C 001F23EC  7F 85 E3 78 */	mr r5, r28
 /* 801F5490 001F23F0  38 61 00 18 */	addi r3, r1, 0x18
-/* 801F5494 001F23F4  4B E8 1C A1 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801F5494 001F23F4  4B E8 1C A1 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801F5498 001F23F8  A0 61 00 18 */	lhz r3, 0x18(r1)
 /* 801F549C 001F23FC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 801F54A0 001F2400  B0 61 00 28 */	sth r3, 0x28(r1)

@@ -75,7 +75,7 @@ public:
   // Translate__12CTransform4fFfff
   // Translate__12CTransform4fFRC9CVector3f
   // TransposeMultiply__12CTransform4fCFRC9CVector3f
-  // TransposeRotate__12CTransform4fCFRC9CVector3f
+  CVector3f TransposeRotate(const CVector3f& in) const;
 
   void SetTranslation(const CVector3f& vec) {
     posX = vec.GetX();

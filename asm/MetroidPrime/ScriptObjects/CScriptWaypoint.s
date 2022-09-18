@@ -126,8 +126,8 @@ lbl_80077120:
 /* 8007712C 0007408C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80077130 00074090  4E 80 00 20 */	blr
 
-.global NextWaypoint__15CScriptWaypointCFR13CStateManager
-NextWaypoint__15CScriptWaypointCFR13CStateManager:
+.global NextWaypoint__15CScriptWaypointCFRC13CStateManager
+NextWaypoint__15CScriptWaypointCFRC13CStateManager:
 /* 80077134 00074094  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80077138 00074098  7C 08 02 A6 */	mflr r0
 /* 8007713C 0007409C  90 01 00 64 */	stw r0, 0x64(r1)

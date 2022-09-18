@@ -345,7 +345,7 @@ GotoNextWaypoint__11CWallWalkerFR13CStateManager:
 /* 80268798 002656F8  7F E4 FB 78 */	mr r4, r31
 /* 8026879C 002656FC  7F C5 F3 78 */	mr r5, r30
 /* 802687A0 00265700  38 61 00 10 */	addi r3, r1, 0x10
-/* 802687A4 00265704  4B E0 E9 91 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 802687A4 00265704  4B E0 E9 91 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 802687A8 00265708  A0 01 00 10 */	lhz r0, 0x10(r1)
 /* 802687AC 0026570C  C0 22 BB 04 */	lfs f1, lbl_805AD824@sda21(r2)
 /* 802687B0 00265710  B0 1D 02 DC */	sth r0, 0x2dc(r29)

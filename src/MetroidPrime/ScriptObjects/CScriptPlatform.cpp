@@ -2,10 +2,13 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CAnimData.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"
 
 #include "Kyoto/Graphics/CGX.hpp"
 
 #include "WorldFormat/CCollidableOBBTreeGroup.hpp"
+
+#include "rstl/algorithm.hpp"
 
 #ifndef TARGET_PC
 struct GXData {
@@ -108,5 +111,44 @@ rstl::optional_object< CAABox > CScriptPlatform::GetTouchBounds() const {
     }
   } else {
     return rstl::optional_object_null();
+  }
+}
+
+TUniqueId CScriptPlatform::GetWaypoint(CStateManager& mgr) {
+  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+  for (; conn != GetConnectionList().end(); ++conn) {
+    if (conn->x4_msg == kSM_Follow) {
+      return mgr.GetIdForScript(conn->x8_objId);
+    }
+  }
+  return kInvalidUniqueId;
+}
+
+TUniqueId CScriptPlatform::GetNext(TUniqueId uid, CStateManager& mgr) {
+  const CScriptWaypoint* nextWp = TCastToConstPtr< CScriptWaypoint >(mgr.GetObjectById(uid));
+  if (!nextWp) {
+    return GetWaypoint(mgr);
+  }
+  TUniqueId next = nextWp->NextWaypoint(mgr);
+  if (const CScriptWaypoint* wp = TCastToConstPtr< CScriptWaypoint >(mgr.GetObjectById(next))) {
+    x25c_currentSpeed = wp->GetSpeed();
+  }
+  return next;
+}
+
+void CScriptPlatform::AddRider(rstl::vector< SRiders >& riders, TUniqueId riderId,
+                               const CPhysicsActor* ridee, CStateManager& mgr) {
+  rstl::vector< SRiders >::iterator it = rstl::find(riders.begin(), riders.end(), SRiders(riderId));
+  if (it == riders.end()) {
+    SRiders rider(riderId);
+    if (CPhysicsActor* act = TCastToPtr< CPhysicsActor >(mgr.ObjectById(riderId))) {
+      CVector3f rideePos = ridee->GetTranslation();
+      rider.x8_transform.SetTranslation(ridee->GetTransform().TransposeRotate(act->GetTranslation() - rideePos));
+      mgr.SendScriptMsg(act, ridee->GetUniqueId(), kSM_AddPlatformRider);
+    }
+    riders.reserve(riders.size() + 1);
+    riders.push_back(rider);
+  } else {
+    it->x4_decayTimer = 1.f / 6.f;
   }
 }

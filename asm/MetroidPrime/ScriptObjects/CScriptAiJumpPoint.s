@@ -196,7 +196,7 @@ lbl_801EF36C:
 /* 801EF3D0 001EC330  7F A5 EB 78 */	mr r5, r29
 /* 801EF3D4 001EC334  38 61 00 08 */	addi r3, r1, 8
 /* 801EF3D8 001EC338  B0 1F 01 0C */	sth r0, 0x10c(r31)
-/* 801EF3DC 001EC33C  4B E8 7D 59 */	bl NextWaypoint__15CScriptWaypointCFR13CStateManager
+/* 801EF3DC 001EC33C  4B E8 7D 59 */	bl NextWaypoint__15CScriptWaypointCFRC13CStateManager
 /* 801EF3E0 001EC340  A0 01 00 08 */	lhz r0, 8(r1)
 /* 801EF3E4 001EC344  B0 1F 01 0E */	sth r0, 0x10e(r31)
 /* 801EF3E8 001EC348  48 00 00 20 */	b lbl_801EF408
