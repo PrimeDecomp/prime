@@ -62,6 +62,7 @@ public:
   }
 
   void reserve(int size);
+  iterator erase(iterator it);
 
   void push_back(const T& in) {
     if (x4_count >= x8_capacity) {

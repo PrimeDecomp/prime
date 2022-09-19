@@ -52,7 +52,7 @@ public:
   // f32 operator[](int i) const { return *(&mX + i); }
   bool IsNonZero() const { return mX != 0.f || mY != 0.f || mZ != 0.f; }
 
-  void DropZ() { mZ = 0.f; }
+  CVector3f DropZ() const { return CVector3f(mX, mY, 0.f); }
 
   CVector3f& operator+=(const CVector3f& other) {
     mX += other.mX;

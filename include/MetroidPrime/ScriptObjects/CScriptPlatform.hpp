@@ -69,6 +69,13 @@ public:
 
   static void AddRider(rstl::vector< SRiders >& riders, TUniqueId riderId,
                        const CPhysicsActor* ridee, CStateManager& mgr);
+  static TEntityList BuildNearListFromRiders(CStateManager& mgr,
+                                             const rstl::vector< SRiders >& riders);
+  static void DecayRiders(rstl::vector< SRiders >& riders, f32 dt, CStateManager& mgr);
+  static void MoveRiders(CStateManager& mgr, f32 dt, bool active, rstl::vector< SRiders >& riders,
+                         rstl::vector< SRiders >& collidedRiders, const CTransform4f& oldXf,
+                         const CTransform4f& newXf, const CVector3f& dragDelta,
+                         CQuaternion rotDelta);
 
 private:
   TUniqueId x258_currentWaypoint;

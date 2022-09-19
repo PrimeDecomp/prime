@@ -27,4 +27,5 @@ typedef unsigned long size_t;
   extern int cls##_check_offset##[_n_is_equal< offsetof(cls, member), offset >::value];
 #else
 #define CHECK_SIZEOF(cls, size)
+#define CHECK_OFFSETOF(cls, member, offset)
 #endif

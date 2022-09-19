@@ -103,7 +103,7 @@ inline const T* TCastToConstPtr(const CEntity* p) {
 }
 template < typename T >
 inline const T* TCastToConstPtr(const CEntity& p) {
-  return TCastToPtr< T >(const_cast< CEntity* >(&p));
+  return TCastToPtr< T >(const_cast< CEntity& >(p));
 }
 
 #endif

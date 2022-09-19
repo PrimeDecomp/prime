@@ -334,7 +334,7 @@ lbl_8005A4D4:
 /* 8005A514 00057474  38 A1 00 10 */	addi r5, r1, 0x10
 /* 8005A518 00057478  A0 1C 00 EC */	lhz r0, 0xec(r28)
 /* 8005A51C 0005747C  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 8005A520 00057480  4B FE 99 35 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 8005A520 00057480  4B FE 99 35 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 lbl_8005A524:
 /* 8005A524 00057484  BA E1 00 AC */	lmw r23, 0xac(r1)
 /* 8005A528 00057488  80 01 00 D4 */	lwz r0, 0xd4(r1)

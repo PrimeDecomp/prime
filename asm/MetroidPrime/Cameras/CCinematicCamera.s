@@ -2224,7 +2224,7 @@ SendArrivedMsg__16CCinematicCameraCF9TUniqueIdR13CStateManager:
 /* 8009491C 0009187C  38 A1 00 0C */	addi r5, r1, 0xc
 /* 80094920 00091880  B0 E1 00 0C */	sth r7, 0xc(r1)
 /* 80094924 00091884  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 80094928 00091888  4B FA F5 2D */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 80094928 00091888  4B FA F5 2D */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 8009492C 0009188C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80094930 00091890  7C 08 03 A6 */	mtlr r0
 /* 80094934 00091894  38 21 00 20 */	addi r1, r1, 0x20

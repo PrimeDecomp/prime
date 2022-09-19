@@ -39,11 +39,15 @@ namespace SL {
 class CSortedListManager;
 } // namespace SL
 
+#define kMaxEntities 1024
+typedef rstl::reserved_vector< TUniqueId, kMaxEntities > TEntityList;
+
 class CStateManager {
 public:
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
   void SendScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
+  void SendScriptMsgAlways(TUniqueId uid, TUniqueId src, EScriptObjectMessage msg);
   bool AddDrawableActor(const CActor& actor, const CVector3f& pos, const CAABox& bounds) const;
   void SetupParticleHook(const CActor& actor) const;
   void FreeScriptObject(TUniqueId uid);

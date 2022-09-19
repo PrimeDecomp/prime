@@ -1955,7 +1955,7 @@ lbl_80272258:
 /* 80272318 0026F278  A0 07 00 08 */	lhz r0, 8(r7)
 /* 8027231C 0026F27C  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80272320 0026F280  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 80272324 0026F284  4B DD 1B 31 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 80272324 0026F284  4B DD 1B 31 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 80272328 0026F288  80 BF 08 4C */	lwz r5, 0x84c(r31)
 /* 8027232C 0026F28C  38 61 00 28 */	addi r3, r1, 0x28
 /* 80272330 0026F290  C0 1E 00 50 */	lfs f0, 0x50(r30)

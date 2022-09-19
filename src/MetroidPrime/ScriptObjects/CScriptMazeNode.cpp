@@ -256,27 +256,27 @@ CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const 
 
 void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-static inline TUniqueId GenerateObject(CStateManager& mgr, const TEditorId& eid) {
-  bool wasGeneratingObject = mgr.IsGeneratingObject();
-  mgr.SetIsGeneratingObject(true);
-  TUniqueId objUid = mgr.GenerateObject(eid).second;
-  mgr.SetIsGeneratingObject(wasGeneratingObject);
-  return objUid;
-}
+// static inline TUniqueId GenerateObject(CStateManager& mgr, const TEditorId& eid) {
+//   bool wasGeneratingObject = mgr.IsGeneratingObject();
+//   mgr.SetIsGeneratingObject(true);
+//   TUniqueId objUid = mgr.GenerateObject(eid).second;
+//   mgr.SetIsGeneratingObject(wasGeneratingObject);
+//   return objUid;
+// }
 
 // TODO non-matching
 // https://decomp.me/scratch/IvHBz
 void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
-  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
-  for (; conn != GetConnectionList().end(); ++conn) {
+  rstl::vector< SConnection >::iterator conn = ConnectionList().begin();
+  for (; conn != ConnectionList().end(); ++conn) {
     if (conn->x0_state != kSS_MaxReached || conn->x4_msg != kSM_Activate) {
       continue;
     }
 
-    CEntity* ent = mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId));
-    CScriptEffect* scriptEffect = TCastToPtr< CScriptEffect >(ent);
-    CScriptActor* scriptActor = TCastToPtr< CScriptActor >(ent);
-    CScriptTrigger* scriptTrigger = TCastToPtr< CScriptTrigger >(ent);
+    const CEntity* ent = mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId));
+    const CScriptEffect* scriptEffect = TCastToConstPtr< CScriptEffect >(ent);
+    const CScriptActor* scriptActor = TCastToConstPtr< CScriptActor >(ent);
+    const CScriptTrigger* scriptTrigger = TCastToConstPtr< CScriptTrigger >(ent);
     if (!scriptEffect && !scriptActor && !scriptTrigger) {
       continue;
     }
@@ -434,8 +434,8 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
             }
           }
           CObjectList& list = mgr.GetObjectListById(kOL_All);
-          int objIdx = list.GetFirstObjectIndex();
-          while (objIdx != -1) {
+          for (int objIdx = list.GetFirstObjectIndex(); objIdx != -1;
+               objIdx = list.GetNextObjectIndex(objIdx)) {
             if (CScriptMazeNode* node = TCastToPtr< CScriptMazeNode >(list[objIdx])) {
               if (node->xe8_col == xe8_col - 1 && node->xec_row == xec_row &&
                   node->xf0_side == CMazeState::kS_Right) {
@@ -474,7 +474,6 @@ void CScriptMazeNode::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, C
                 }
               }
             }
-            objIdx = list.GetNextObjectIndex(objIdx);
           }
         }
       }

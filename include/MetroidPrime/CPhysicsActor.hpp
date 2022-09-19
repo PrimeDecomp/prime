@@ -61,11 +61,12 @@ public:
   virtual const CCollisionPrimitive* GetCollisionPrimitive() const;
   virtual CTransform4f GetPrimitiveTransform() const;
   virtual void CollidedWith(TUniqueId id, const CCollisionInfoList& list, CStateManager& mgr);
-  virtual f32 GetStepUpHeight() const;
   virtual f32 GetStepDownHeight() const;
+  virtual f32 GetStepUpHeight() const;
   virtual f32 GetWeight() const;
 
   CAABox GetBoundingBox() const;
+  void MoveCollisionPrimitive(const CVector3f&);
 
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }

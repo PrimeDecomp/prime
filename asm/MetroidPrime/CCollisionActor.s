@@ -556,7 +556,7 @@ lbl_801A8DD0:
 /* 801A8DE8 001A5D48  A0 1C 02 5C */	lhz r0, 0x25c(r28)
 /* 801A8DEC 001A5D4C  B0 E1 00 0C */	sth r7, 0xc(r1)
 /* 801A8DF0 001A5D50  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 801A8DF4 001A5D54  4B E9 B0 61 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 801A8DF4 001A5D54  4B E9 B0 61 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 .global lbl_801A8DF8
 lbl_801A8DF8:
 /* 801A8DF8 001A5D58  A0 1E 00 00 */	lhz r0, 0(r30)
@@ -639,7 +639,7 @@ Touch__15CCollisionActorFR6CActorR13CStateManager:
 /* 801A8F00 001A5E60  7D 03 43 78 */	mr r3, r8
 /* 801A8F04 001A5E64  B0 E1 00 08 */	sth r7, 8(r1)
 /* 801A8F08 001A5E68  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 801A8F0C 001A5E6C  4B E9 AF 49 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 801A8F0C 001A5E6C  4B E9 AF 49 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 801A8F10 001A5E70  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801A8F14 001A5E74  7C 08 03 A6 */	mtlr r0
 /* 801A8F18 001A5E78  38 21 00 20 */	addi r1, r1, 0x20

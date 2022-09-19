@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CAnimData.hpp"
+#include "MetroidPrime/CGameCollision.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"
 
 #include "Kyoto/Graphics/CGX.hpp"
@@ -143,12 +145,88 @@ void CScriptPlatform::AddRider(rstl::vector< SRiders >& riders, TUniqueId riderI
     SRiders rider(riderId);
     if (CPhysicsActor* act = TCastToPtr< CPhysicsActor >(mgr.ObjectById(riderId))) {
       CVector3f rideePos = ridee->GetTranslation();
-      rider.x8_transform.SetTranslation(ridee->GetTransform().TransposeRotate(act->GetTranslation() - rideePos));
+      rider.x8_transform.SetTranslation(
+          ridee->GetTransform().TransposeRotate(act->GetTranslation() - rideePos));
       mgr.SendScriptMsg(act, ridee->GetUniqueId(), kSM_AddPlatformRider);
     }
     riders.reserve(riders.size() + 1);
     riders.push_back(rider);
   } else {
     it->x4_decayTimer = 1.f / 6.f;
+  }
+}
+
+TEntityList CScriptPlatform::BuildNearListFromRiders(CStateManager& mgr,
+                                                     const rstl::vector< SRiders >& riders) {
+  TEntityList result;
+  rstl::vector< SRiders >::const_iterator it = riders.begin();
+  for (; it != riders.end(); ++it) {
+    if (CActor* actor = TCastToPtr< CActor >(mgr.ObjectById(it->x0_uid))) {
+      result.push_back(actor->GetUniqueId());
+    }
+  }
+  return result;
+}
+
+void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, f32 dt, CStateManager& mgr) {
+  rstl::vector< SRiders >::iterator it = riders.begin();
+  while (it != riders.end()) {
+    it->x4_decayTimer -= dt;
+    if (it->x4_decayTimer <= 0.f) {
+      mgr.SendScriptMsgAlways(it->x0_uid, kInvalidUniqueId, kSM_AddPlatformRider);
+#ifdef NON_MATCHING
+      it = riders.erase(it);
+#else
+      // Oops, forgot to reassign the iterator
+      riders.erase(it);
+#endif
+    } else {
+      it = it + 1;
+    }
+  }
+}
+
+// TODO: minor regswap
+void CScriptPlatform::MoveRiders(CStateManager& mgr, f32 dt, bool active,
+                                 rstl::vector< SRiders >& riders,
+                                 rstl::vector< SRiders >& collidedRiders, const CTransform4f& oldXf,
+                                 const CTransform4f& newXf, const CVector3f& dragDelta,
+                                 CQuaternion rotDelta) {
+  rstl::vector< SRiders >::iterator it = riders.begin();
+  while (it != riders.end()) {
+    if (active) {
+      CPhysicsActor* act = TCastToPtr< CPhysicsActor >(mgr.ObjectById(it->x0_uid));
+      if (act == nullptr || !act->GetActive()) {
+        ++it;
+        continue;
+      }
+      const CTransform4f& xf = it->x8_transform;
+      CVector3f diff = newXf.Rotate(xf.GetTranslation()) - oldXf.Rotate(xf.GetTranslation());
+      diff.SetZ(0.f);
+      CVector3f delta = dragDelta + diff;
+      CVector3f newPos = act->GetTranslation() + delta;
+      act->MoveCollisionPrimitive(delta);
+      bool collision = CGameCollision::DetectStaticCollisionBoolean(
+          mgr, *act->GetCollisionPrimitive(), act->GetPrimitiveTransform(),
+          act->GetMaterialFilter());
+      act->MoveCollisionPrimitive(CVector3f::Zero());
+      if (collision) {
+        AddRider(collidedRiders, act->GetUniqueId(), act, mgr);
+#ifdef NON_MATCHING
+        it = riders.erase(it);
+#else
+        // Oops, forgot to reassign the iterator (again)
+        riders.erase(it);
+#endif
+        continue;
+      }
+      act->SetTranslation(newPos);
+      const CPlayer* player = TCastToConstPtr< CPlayer >(*act);
+      if (player == nullptr || player->GetOrbitState() == CPlayer::kOS_NoOrbit) {
+        const CQuaternion& rot = rotDelta * CQuaternion::FromMatrix(act->GetTransform());
+        act->SetTransform(rot.BuildTransform4f(act->GetTranslation()));
+      }
+    }
+    ++it;
   }
 }

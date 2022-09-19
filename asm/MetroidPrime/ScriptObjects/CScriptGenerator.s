@@ -236,7 +236,7 @@ lbl_800B47C4:
 /* 800B47D8 000B1738  B0 C1 00 30 */	sth r6, 0x30(r1)
 /* 800B47DC 000B173C  B0 01 00 28 */	sth r0, 0x28(r1)
 /* 800B47E0 000B1740  80 DB 00 04 */	lwz r6, 4(r27)
-/* 800B47E4 000B1744  4B F8 F6 71 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 800B47E4 000B1744  4B F8 F6 71 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 lbl_800B47E8:
 /* 800B47E8 000B1748  3B 7B 00 0C */	addi r27, r27, 0xc
 lbl_800B47EC:

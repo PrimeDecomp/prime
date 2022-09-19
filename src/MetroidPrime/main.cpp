@@ -149,7 +149,6 @@ CMain::CMain()
 
 CMain::~CMain() {}
 
-#define ALIGN_UP(x, a) (((x) + (a - 1)) & ~(a - 1))
 #define UNUSED_STACK_VAL 0x7337D00D
 
 void CMain::InitializeSubsystems() {
