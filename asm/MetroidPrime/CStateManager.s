@@ -478,8 +478,8 @@ lbl_80043E38:
 /* 80043E4C 00040DAC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80043E50 00040DB0  4E 80 00 20 */	blr
 
-.global SendScriptMsgAlways__13CStateManagerF9TUniqueId
-SendScriptMsgAlways__13CStateManagerF9TUniqueId:
+.global SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
+SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage:
 /* 80043E54 00040DB4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80043E58 00040DB8  7C 08 02 A6 */	mflr r0
 /* 80043E5C 00040DBC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -5303,7 +5303,7 @@ lbl_800480E0:
 /* 80048128 00045088  38 A1 00 08 */	addi r5, r1, 8
 /* 8004812C 0004508C  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80048130 00045090  38 C0 00 23 */	li r6, 0x23
-/* 80048134 00045094  4B FF BD 21 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 80048134 00045094  4B FF BD 21 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 lbl_80048138:
 /* 80048138 00045098  3B FF 00 04 */	addi r31, r31, 4
 /* 8004813C 0004509C  3B DE 00 01 */	addi r30, r30, 1
@@ -8844,7 +8844,7 @@ lbl_8004B37C:
 /* 8004B39C 000482FC  A0 07 00 08 */	lhz r0, 8(r7)
 /* 8004B3A0 00048300  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 8004B3A4 00048304  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 8004B3A8 00048308  4B FF 8A AD */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 8004B3A8 00048308  4B FF 8A AD */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 8004B3AC 0004830C  48 00 00 34 */	b lbl_8004B3E0
 lbl_8004B3B0:
 /* 8004B3B0 00048310  80 1C 08 4C */	lwz r0, 0x84c(r28)

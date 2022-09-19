@@ -721,7 +721,7 @@ lbl_80201584:
 /* 802015A8 001FE508  A0 1E 00 34 */	lhz r0, 0x34(r30)
 /* 802015AC 001FE50C  B0 E1 00 10 */	sth r7, 0x10(r1)
 /* 802015B0 001FE510  B0 01 00 18 */	sth r0, 0x18(r1)
-/* 802015B4 001FE514  4B E4 28 A1 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 802015B4 001FE514  4B E4 28 A1 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 lbl_802015B8:
 /* 802015B8 001FE518  7F C3 F3 78 */	mr r3, r30
 /* 802015BC 001FE51C  7F E5 FB 78 */	mr r5, r31

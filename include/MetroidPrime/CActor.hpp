@@ -254,7 +254,6 @@ public:
   void DrawTouchBounds() const;
   bool IsModelOpaque(const CStateManager& mgr) const;
   void RenderInternal(const CStateManager& mgr) const;
-  void SetMaterialFilter(const CMaterialFilter& filter);
 
   const CTransform4f& GetTransform() const { return x34_transform; }
   void SetTransform(const CTransform4f& xf) {
@@ -292,6 +291,9 @@ public:
 
   const CMaterialList& GetMaterialList() const { return x68_material; }
   CMaterialList& MaterialList() { return x68_material; }
+
+  const CMaterialFilter& GetMaterialFilter() const;
+  void SetMaterialFilter(const CMaterialFilter& filter);
 
   bool GetTransformDirty() const { return xe4_27_notInSortedLists; }
   bool GetTransformDirtySpare() const { return xe4_28_transformDirty; }

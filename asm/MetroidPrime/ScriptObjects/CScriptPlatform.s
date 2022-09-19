@@ -1455,8 +1455,8 @@ lbl_800B1DDC:
 /* 800B1DFC 000AED5C  38 21 00 60 */	addi r1, r1, 0x60
 /* 800B1E00 000AED60  4E 80 00 20 */	blr
 
-.global sub_800b1e04
-sub_800b1e04:
+.global "erase__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>FQ24rstl106pointer_iterator<7SRiders,Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
+"erase__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>FQ24rstl106pointer_iterator<7SRiders,Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>":
 /* 800B1E04 000AED64  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800B1E08 000AED68  7C 08 02 A6 */	mflr r0
 /* 800B1E0C 000AED6C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2242,7 +2242,7 @@ lbl_800B28D0:
 /* 800B28D8 000AF838  38 9C 03 38 */	addi r4, r28, 0x338
 /* 800B28DC 000AF83C  38 A1 00 10 */	addi r5, r1, 0x10
 /* 800B28E0 000AF840  90 01 00 10 */	stw r0, 0x10(r1)
-/* 800B28E4 000AF844  4B FF F5 21 */	bl sub_800b1e04
+/* 800B28E4 000AF844  4B FF F5 21 */	bl "erase__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>FQ24rstl106pointer_iterator<7SRiders,Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 /* 800B28E8 000AF848  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800B28EC 000AF84C  90 01 00 18 */	stw r0, 0x18(r1)
 lbl_800B28F0:
@@ -2992,7 +2992,7 @@ lbl_800B3274:
 /* 800B33C8 000B0328  38 61 00 18 */	addi r3, r1, 0x18
 /* 800B33CC 000B032C  38 A1 00 14 */	addi r5, r1, 0x14
 /* 800B33D0 000B0330  90 01 00 14 */	stw r0, 0x14(r1)
-/* 800B33D4 000B0334  4B FF EA 31 */	bl sub_800b1e04
+/* 800B33D4 000B0334  4B FF EA 31 */	bl "erase__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>FQ24rstl106pointer_iterator<7SRiders,Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 /* 800B33D8 000B0338  48 00 00 B8 */	b lbl_800B3490
 lbl_800B33DC:
 /* 800B33DC 000B033C  7F C3 F3 78 */	mr r3, r30
@@ -3151,13 +3151,13 @@ lbl_800B35E4:
 /* 800B3618 000B0578  38 C0 00 1F */	li r6, 0x1f
 /* 800B361C 000B057C  A0 07 00 00 */	lhz r0, 0(r7)
 /* 800B3620 000B0580  B0 01 00 0C */	sth r0, 0xc(r1)
-/* 800B3624 000B0584  4B F9 08 31 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 800B3624 000B0584  4B F9 08 31 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 800B3628 000B0588  80 01 00 18 */	lwz r0, 0x18(r1)
 /* 800B362C 000B058C  7F C4 F3 78 */	mr r4, r30
 /* 800B3630 000B0590  38 61 00 14 */	addi r3, r1, 0x14
 /* 800B3634 000B0594  38 A1 00 10 */	addi r5, r1, 0x10
 /* 800B3638 000B0598  90 01 00 10 */	stw r0, 0x10(r1)
-/* 800B363C 000B059C  4B FF E7 C9 */	bl sub_800b1e04
+/* 800B363C 000B059C  4B FF E7 C9 */	bl "erase__Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>FQ24rstl106pointer_iterator<7SRiders,Q24rstl43vector<7SRiders,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>"
 /* 800B3640 000B05A0  48 00 00 10 */	b lbl_800B3650
 lbl_800B3644:
 /* 800B3644 000B05A4  80 61 00 18 */	lwz r3, 0x18(r1)

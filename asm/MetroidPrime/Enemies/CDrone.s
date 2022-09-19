@@ -8552,7 +8552,7 @@ lbl_801662E8:
 /* 801662FC 0016325C  7D 03 43 78 */	mr r3, r8
 /* 80166300 00163260  B0 E1 00 08 */	sth r7, 8(r1)
 /* 80166304 00163264  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 80166308 00163268  4B ED DB 4D */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 80166308 00163268  4B ED DB 4D */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 8016630C 0016326C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80166310 00163270  7C 08 03 A6 */	mtlr r0
 /* 80166314 00163274  38 21 00 20 */	addi r1, r1, 0x20
@@ -9364,7 +9364,7 @@ lbl_80166EDC:
 /* 80166EF0 00163E50  7D 03 43 78 */	mr r3, r8
 /* 80166EF4 00163E54  B0 E1 00 08 */	sth r7, 8(r1)
 /* 80166EF8 00163E58  B0 01 00 10 */	sth r0, 0x10(r1)
-/* 80166EFC 00163E5C  4B ED CF 59 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 80166EFC 00163E5C  4B ED CF 59 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 80166F00 00163E60  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80166F04 00163E64  7C 08 03 A6 */	mtlr r0
 /* 80166F08 00163E68  38 21 00 20 */	addi r1, r1, 0x20

@@ -267,7 +267,7 @@ lbl_80231930:
 /* 80231960 0022E8C0  38 A1 00 10 */	addi r5, r1, 0x10
 /* 80231964 0022E8C4  A0 1C 09 80 */	lhz r0, 0x980(r28)
 /* 80231968 0022E8C8  B0 01 00 14 */	sth r0, 0x14(r1)
-/* 8023196C 0022E8CC  4B E1 24 E9 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId
+/* 8023196C 0022E8CC  4B E1 24 E9 */	bl SendScriptMsgAlways__13CStateManagerF9TUniqueId9TUniqueId20EScriptObjectMessage
 /* 80231970 0022E8D0  BA E1 00 AC */	lmw r23, 0xac(r1)
 /* 80231974 0022E8D4  80 01 00 D4 */	lwz r0, 0xd4(r1)
 /* 80231978 0022E8D8  7C 08 03 A6 */	mtlr r0

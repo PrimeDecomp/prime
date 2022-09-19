@@ -59,7 +59,7 @@ public:
   // MakeRotationsBasedOnY__12CTransform4fFRC13CUnitVector3f
   CTransform4f MultiplyIgnoreTranslation(const CTransform4f& other) const;
   // Orthonormalize__12CTransform4fFv
-  // Rotate__12CTransform4fCFRC9CVector3f
+  CVector3f Rotate(const CVector3f& in) const;
   // RotateLocalX__12CTransform4fFRC9CRelAngle
   // RotateLocalY__12CTransform4fFRC9CRelAngle
   // RotateLocalZ__12CTransform4fFRC9CRelAngle

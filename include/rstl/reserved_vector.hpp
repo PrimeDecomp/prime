@@ -46,11 +46,9 @@ public:
   ~reserved_vector() { clear(); }
 
   void push_back(const T& in) {
-    if (x0_count < N) {
-      iterator out = begin() + x0_count;
-      out = in;
-      ++x0_count;
-    }
+    iterator out = begin() + x0_count;
+    out = in;
+    ++x0_count;
   }
 
   inline T* data() { return reinterpret_cast< T* >(x4_data); }

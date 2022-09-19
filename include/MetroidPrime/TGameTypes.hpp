@@ -2,7 +2,6 @@
 #define _TGAMETYPES_HPP
 
 #include "types.h"
-
 class CInputStream;
 class COutputStream;
 
@@ -65,5 +64,7 @@ class CSegId {
 private:
   u8 x0_id;
 };
+
+#define ALIGN_UP(x, a) (((x) + (a - 1)) & ~(a - 1))
 
 #endif
