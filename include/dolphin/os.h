@@ -52,7 +52,16 @@ u32 __OSCoreClock AT_ADDRESS(OS_BASE_CACHED | 0x00FC); // sync with OSLoMem.h
 
 #define OSRoundUp32B(v) (((u32)(v + 31) & ~31))
 
+void* OSGetArenaHi(void);
+void* OSGetArenaLo(void);
+void OSSetArenaHi(void* newHi);
+void OSSetArenaLo(void* newLo);
+
+void* OSAllocFromArenaLo(u32 size, u32 align);
+void* OSAllocFromArenaHi(u32 size, u32 align);
+
 OSTime OSGetTime();
+OSTick OSGetTick();
 void OSReport(const char* msg, ...);
 void OSPanic(const char* file, int line, const char* msg, ...);
 

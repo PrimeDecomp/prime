@@ -1,6 +1,8 @@
 #ifndef _COSCONTEXT_HPP
 #define _COSCONTEXT_HPP
 
+#include <stddef.h>
+
 #include "types.h"
 
 #include <dolphin/gx/GXStruct.h>
@@ -9,6 +11,12 @@ class COsContext {
 public:
   COsContext(bool, bool);
   ~COsContext();
+
+  uint GetBaseFreeRam() const {
+    size_t hiAddr = reinterpret_cast< size_t >(x1c_arenaHi);
+    size_t loAddr = reinterpret_cast< size_t >(x20_arenaLo2);
+    return ((hiAddr & ~31) - ((loAddr + 31) & ~31));
+  }
 
 private:
   int x0_right;

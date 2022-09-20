@@ -3,6 +3,7 @@
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "types.h"
+#include <stddef.h>
 
 class COsContext;
 class CCallStack;
@@ -10,13 +11,20 @@ class CCallStack;
 class IAllocator {
 public:
   enum EHint {
-    kHI_Unk = (1 << 0),
+    kHI_None = 0,
+    kHI_TopOfHeap = (1 << 0),
     kHI_RoundUpLen = (1 << 1),
   };
+
   enum EScope {
     kSC_Unk0,
+    kSC_Unk1,
   };
-  enum EType { kTP_Unk0 };
+
+  enum EType {
+    kTP_Unk0,
+    kTP_Unk1,
+  };
 
   struct SMetrics {
     uint x0_heapSize;
@@ -46,6 +54,7 @@ public:
              uint smallAllocAllocatedSize, uint smallAllocRemainingSize, uint mediumAllocNumAllocs,
              uint mediumAllocAllocatedSize, uint mediumAllocBlocksAvailable, uint unk10, uint unk11,
              uint unk12, uint mediumAllocTotalAllocated, uint fakeStatics);
+    SMetrics(const SMetrics& other);
   };
 
   struct SAllocInfo {
@@ -57,7 +66,7 @@ public:
     const char* x10_type;
   };
 
-  typedef const bool (*FOutOfMemoryCb)(void*, uint);
+  typedef const bool (*FOutOfMemoryCb)(const void*, uint);
   typedef const bool (*FEnumAllocationsCb)(const SAllocInfo& info, const void* ptr);
   virtual ~IAllocator();
 
@@ -65,11 +74,11 @@ public:
   virtual void Shutdown() = 0;
   virtual void* Alloc(unsigned long size, EHint hint, EScope scope, EType type,
                       const CCallStack& cs) = 0;
-  virtual void Free(const void* ptr) = 0;
+  virtual bool Free(const void* ptr) = 0;
   virtual void ReleaseAll() = 0;
   virtual void* AllocSecondary(unsigned long size, EHint hint, EScope scope, EType type,
                                const CCallStack& cs) = 0;
-  virtual void FreeSecondary(const void* ptr) = 0;
+  virtual bool FreeSecondary(const void* ptr) = 0;
   virtual void ReleaseAllSecondary() = 0;
   virtual void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* data) = 0;
   virtual void EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const = 0;

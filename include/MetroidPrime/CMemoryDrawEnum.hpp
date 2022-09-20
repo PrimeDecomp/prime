@@ -1,0 +1,4 @@
+#ifndef __CMEMORYDRAWENUM_HPP__
+#define __CMEMORYDRAWENUM_HPP__
+
+#endif // __CMEMORYDRAWENUM_HPP__
