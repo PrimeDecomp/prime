@@ -39,6 +39,7 @@ public:
     return (mData.GetCPUCycles() - x0_startTime) / mData.GetTimerFreqO1M();
   }
 
+  static void Wait(f32);
 private:
   static CSWData mData;
   static CStopwatch mGlobalTimer;

@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EF6D8
-lbl_803EF6D8:
+.global __vt__14CGameAllocator
+__vt__14CGameAllocator:
 	# ROM: 0x3EC6D8
 	.4byte 0
 	.4byte 0
@@ -26,11 +26,8 @@ lbl_803EF6D8:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A95D8
-lbl_805A95D8:
-	.skip 0x8
-.global lbl_805A95E0
-lbl_805A95E0:
+.global gAllocatorTime
+gAllocatorTime:
 	.skip 0x4
 .global lbl_805A95E4
 lbl_805A95E4:
@@ -1054,11 +1051,11 @@ lbl_80351EC0:
 /* 80351EC0 0034EE20  28 18 00 00 */	cmplwi r24, 0
 /* 80351EC4 0034EE24  41 82 00 20 */	beq lbl_80351EE4
 /* 80351EC8 0034EE28  48 03 34 F9 */	bl OSGetTick
-/* 80351ECC 0034EE2C  80 0D AA 20 */	lwz r0, lbl_805A95E0@sda21(r13)
+/* 80351ECC 0034EE2C  80 0D AA 20 */	lwz r0, gAllocatorTime@sda21(r13)
 /* 80351ED0 0034EE30  7C 99 18 50 */	subf r4, r25, r3
 /* 80351ED4 0034EE34  7F 03 C3 78 */	mr r3, r24
 /* 80351ED8 0034EE38  7C 00 22 14 */	add r0, r0, r4
-/* 80351EDC 0034EE3C  90 0D AA 20 */	stw r0, lbl_805A95E0@sda21(r13)
+/* 80351EDC 0034EE3C  90 0D AA 20 */	stw r0, gAllocatorTime@sda21(r13)
 /* 80351EE0 0034EE40  48 00 02 84 */	b lbl_80352164
 lbl_80351EE4:
 /* 80351EE4 0034EE44  38 60 00 19 */	li r3, 0x19
@@ -1073,7 +1070,7 @@ lbl_80351EF4:
 /* 80351F04 0034EE64  41 81 01 08 */	bgt lbl_8035200C
 /* 80351F08 0034EE68  57 60 07 FF */	clrlwi. r0, r27, 0x1f
 /* 80351F0C 0034EE6C  40 82 01 00 */	bne lbl_8035200C
-/* 80351F10 0034EE70  4B FF ED CD */	bl sub_80350cdc
+/* 80351F10 0034EE70  4B FF ED CD */	bl HasPuddles__16CMediumAllocPoolCFv
 /* 80351F14 0034EE74  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80351F18 0034EE78  40 82 00 20 */	bne lbl_80351F38
 /* 80351F1C 0034EE7C  80 7F 00 74 */	lwz r3, 0x74(r31)
@@ -1081,7 +1078,7 @@ lbl_80351EF4:
 /* 80351F24 0034EE84  80 BF 00 78 */	lwz r5, 0x78(r31)
 /* 80351F28 0034EE88  38 80 10 00 */	li r4, 0x1000
 /* 80351F2C 0034EE8C  38 C0 00 00 */	li r6, 0
-/* 80351F30 0034EE90  4B FF EA 61 */	bl AddPuddle__16CMediumAllocPoolFUiPvPvi
+/* 80351F30 0034EE90  4B FF EA 61 */	bl AddPuddle__16CMediumAllocPoolFUiPvi
 /* 80351F34 0034EE94  92 FF 00 78 */	stw r23, 0x78(r31)
 lbl_80351F38:
 /* 80351F38 0034EE98  80 7F 00 74 */	lwz r3, 0x74(r31)
@@ -1112,7 +1109,7 @@ lbl_80351F38:
 /* 80351F9C 0034EEFC  7C 05 03 78 */	mr r5, r0
 /* 80351FA0 0034EF00  38 80 10 00 */	li r4, 0x1000
 /* 80351FA4 0034EF04  38 C0 00 01 */	li r6, 1
-/* 80351FA8 0034EF08  4B FF E9 E9 */	bl AddPuddle__16CMediumAllocPoolFUiPvPvi
+/* 80351FA8 0034EF08  4B FF E9 E9 */	bl AddPuddle__16CMediumAllocPoolFUiPvi
 /* 80351FAC 0034EF0C  80 7F 00 74 */	lwz r3, 0x74(r31)
 /* 80351FB0 0034EF10  7F 44 D3 78 */	mr r4, r26
 /* 80351FB4 0034EF14  4B FF EC 85 */	bl Alloc__16CMediumAllocPoolFUi
@@ -1121,11 +1118,11 @@ lbl_80351FBC:
 /* 80351FBC 0034EF1C  28 17 00 00 */	cmplwi r23, 0
 /* 80351FC0 0034EF20  41 82 00 20 */	beq lbl_80351FE0
 /* 80351FC4 0034EF24  48 03 33 FD */	bl OSGetTick
-/* 80351FC8 0034EF28  80 0D AA 20 */	lwz r0, lbl_805A95E0@sda21(r13)
+/* 80351FC8 0034EF28  80 0D AA 20 */	lwz r0, gAllocatorTime@sda21(r13)
 /* 80351FCC 0034EF2C  7C 99 18 50 */	subf r4, r25, r3
 /* 80351FD0 0034EF30  7E E3 BB 78 */	mr r3, r23
 /* 80351FD4 0034EF34  7C 00 22 14 */	add r0, r0, r4
-/* 80351FD8 0034EF38  90 0D AA 20 */	stw r0, lbl_805A95E0@sda21(r13)
+/* 80351FD8 0034EF38  90 0D AA 20 */	stw r0, gAllocatorTime@sda21(r13)
 /* 80351FDC 0034EF3C  48 00 01 88 */	b lbl_80352164
 lbl_80351FE0:
 /* 80351FE0 0034EF40  88 1F 00 7C */	lbz r0, 0x7c(r31)
@@ -1229,11 +1226,11 @@ lbl_8035213C:
 /* 80352144 0034F0A4  7E C5 B3 78 */	mr r5, r22
 /* 80352148 0034F0A8  4B FF F8 21 */	bl UpdateAllocDebugStats__14CGameAllocatorFUiUiUi
 /* 8035214C 0034F0AC  48 03 32 75 */	bl OSGetTick
-/* 80352150 0034F0B0  80 0D AA 20 */	lwz r0, lbl_805A95E0@sda21(r13)
+/* 80352150 0034F0B0  80 0D AA 20 */	lwz r0, gAllocatorTime@sda21(r13)
 /* 80352154 0034F0B4  7C 99 18 50 */	subf r4, r25, r3
 /* 80352158 0034F0B8  38 78 00 20 */	addi r3, r24, 0x20
 /* 8035215C 0034F0BC  7C 00 22 14 */	add r0, r0, r4
-/* 80352160 0034F0C0  90 0D AA 20 */	stw r0, lbl_805A95E0@sda21(r13)
+/* 80352160 0034F0C0  90 0D AA 20 */	stw r0, gAllocatorTime@sda21(r13)
 lbl_80352164:
 /* 80352164 0034F0C4  BA C1 00 18 */	lmw r22, 0x18(r1)
 /* 80352168 0034F0C8  80 01 00 44 */	lwz r0, 0x44(r1)
@@ -1502,8 +1499,8 @@ __dt__14CGameAllocatorFv:
 /* 80352558 0034F4B8  93 C1 00 08 */	stw r30, 8(r1)
 /* 8035255C 0034F4BC  7C 7E 1B 79 */	or. r30, r3, r3
 /* 80352560 0034F4C0  41 82 00 50 */	beq lbl_803525B0
-/* 80352564 0034F4C4  3C 60 80 3F */	lis r3, lbl_803EF6D8@ha
-/* 80352568 0034F4C8  38 03 F6 D8 */	addi r0, r3, lbl_803EF6D8@l
+/* 80352564 0034F4C4  3C 60 80 3F */	lis r3, __vt__14CGameAllocator@ha
+/* 80352568 0034F4C8  38 03 F6 D8 */	addi r0, r3, __vt__14CGameAllocator@l
 /* 8035256C 0034F4CC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80352570 0034F4D0  80 7E 00 74 */	lwz r3, 0x74(r30)
 /* 80352574 0034F4D4  28 03 00 00 */	cmplwi r3, 0
@@ -1534,11 +1531,11 @@ lbl_803525B0:
 .global __ct__14CGameAllocatorFv
 __ct__14CGameAllocatorFv:
 /* 803525CC 0034F52C  3C A0 80 3F */	lis r5, __vt__10IAllocator@ha
-/* 803525D0 0034F530  3C 80 80 3F */	lis r4, lbl_803EF6D8@ha
+/* 803525D0 0034F530  3C 80 80 3F */	lis r4, __vt__14CGameAllocator@ha
 /* 803525D4 0034F534  38 A5 D9 C0 */	addi r5, r5, __vt__10IAllocator@l
 /* 803525D8 0034F538  38 00 00 00 */	li r0, 0
 /* 803525DC 0034F53C  90 A3 00 00 */	stw r5, 0(r3)
-/* 803525E0 0034F540  38 84 F6 D8 */	addi r4, r4, lbl_803EF6D8@l
+/* 803525E0 0034F540  38 84 F6 D8 */	addi r4, r4, __vt__14CGameAllocator@l
 /* 803525E4 0034F544  90 83 00 00 */	stw r4, 0(r3)
 /* 803525E8 0034F548  98 03 00 04 */	stb r0, 4(r3)
 /* 803525EC 0034F54C  90 03 00 08 */	stw r0, 8(r3)
@@ -1581,7 +1578,7 @@ GetMemInfoFromBlockPtr__14CGameAllocatorCFPCv:
 .global lbl_805AE9B8
 lbl_805AE9B8:
 	# ROM: 0x3FB258
-	.4byte 0x3BA3D70A
+	.float 0.005
 	.4byte 0
 
 
@@ -1591,21 +1588,15 @@ lbl_805AE9B8:
 lbl_803D8248:
 	# ROM: 0x3D5248
 	.asciz "<NULL>"
-	.byte 0x3C
-	.asciz "SOURCE MODULE UNLOADED>"
-	.4byte 0x004D6564
-	.asciz "iumAllocMainData   "
+	.asciz "<SOURCE MODULE UNLOADED>"
+	.asciz ""
+	.asciz "MediumAllocMainData   "
 	.asciz " - Ignore"
-	.byte 0x4D, 0x65
-	.asciz "mHead"
-	.byte 0x4D, 0x65
-	.asciz "mTail"
-	.byte 0x53, 0x6D
-	.asciz "allAllocMainData   "
+	.asciz "MemHead"
+	.asciz "MemTail"
+	.asciz "SmallAllocMainData   "
 	.asciz "SmallAllocBookKeeping"
-	.byte 0x53, 0x6D
-	.asciz "allAllocClass      "
+	.asciz "SmallAllocClass      "
 	.asciz "MediumAllocClass      "
-	.balign 4
-	.4byte 0
+	.balign 8
 
