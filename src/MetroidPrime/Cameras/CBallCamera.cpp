@@ -13,16 +13,6 @@ static CMaterialList kLineOfSightExcludeList =
 static CMaterialFilter kLineOfSightFilter =
     CMaterialFilter::MakeIncludeExclude(kLineOfSightIncludeList, kLineOfSightExcludeList);
 
-CCameraCollider::CCameraCollider(f32 radius, CVector3f vec, const CCameraSpring& spring, f32 scale)
-: x4_radius(radius)
-, x8_lastLocalPos(vec)
-, x14_localPos(vec)
-, x20_scaledWorldPos(vec)
-, x2c_lastWorldPos(vec)
-, x38_spring(spring)
-, x4c_occlusionCount(0)
-, x50_scale(scale) {}
-
 // TODO non-matching
 CBallCamera::CBallCamera(TUniqueId uid, TUniqueId watchedId, const CTransform4f& xf, f32 fovY,
                          f32 nearZ, f32 farZ, f32 aspect)
@@ -144,15 +134,12 @@ CBallCamera::CBallCamera(TUniqueId uid, TUniqueId watchedId, const CTransform4f&
 , x470_clampVelTimer(0.f)
 , x474_clampVelRange(0.f)
 , x478_shortMoveCount(0)
-// , x47c_failsafeState(new SFailsafeState)
-, x47c_failsafeStateContainer()
-, x480_() {
+, x47c_failsafeState(new SFailsafeState)
+, x480_(new SUnknown) {
   SetupColliders(x264_smallColliders, 2.31f, 2.31f, 0.1f, 3, 2.f, 0.5f, -M_PIF / 2.f);
   SetupColliders(x274_mediumColliders, 4.62f, 4.62f, 0.1f, 6, 2.f, 0.5f, -M_PIF / 2.f);
   SetupColliders(x284_largeColliders, 7.f, 7.f, 0.1f, 12, 2.f, 0.5f, -M_PIF / 2.f);
 }
-
-CBallCamera::SFailsafeStateContainer::~SFailsafeStateContainer() { delete x0_failsafeState; }
 
 CBallCamera::~CBallCamera() {}
 
@@ -219,18 +206,6 @@ void CBallCamera::ResetToTweaks(CStateManager& mgr) {
   x18e_25_noSpline = false;
   x18e_26_ = false;
 }
-
-CCameraCollider::~CCameraCollider() {}
-
-CCameraCollider::CCameraCollider(const CCameraCollider& other)
-: x4_radius(other.x4_radius)
-, x8_lastLocalPos(other.x8_lastLocalPos)
-, x14_localPos(other.x14_localPos)
-, x20_scaledWorldPos(other.x20_scaledWorldPos)
-, x2c_lastWorldPos(other.x2c_lastWorldPos)
-, x38_spring(other.x38_spring)
-, x4c_occlusionCount(other.x4c_occlusionCount)
-, x50_scale(other.x50_scale) {}
 
 void CBallCamera::SetupColliders(rstl::vector< CCameraCollider >& out, f32 xMag, f32 zMag,
                                  f32 radius, int count, f32 k, f32 max, f32 startAngle) {

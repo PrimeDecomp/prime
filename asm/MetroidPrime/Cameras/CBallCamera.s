@@ -13564,7 +13564,7 @@ __dt__11CBallCameraFv:
 lbl_8008CD34:
 /* 8008CD34 00089C94  38 7E 04 7C */	addi r3, r30, 0x47c
 /* 8008CD38 00089C98  38 80 FF FF */	li r4, -1
-/* 8008CD3C 00089C9C  48 00 01 71 */	bl __dt__Q211CBallCamera23SFailsafeStateContainerFv
+/* 8008CD3C 00089C9C  48 00 01 71 */	bl "__dt__Q24rstl43single_ptr<Q211CBallCamera14SFailsafeState>Fv"
 /* 8008CD40 00089CA0  38 7E 03 7C */	addi r3, r30, 0x37c
 /* 8008CD44 00089CA4  38 80 FF FF */	li r4, -1
 /* 8008CD48 00089CA8  4B FD 08 A1 */	bl __dt__13CCameraSplineFv
@@ -13667,8 +13667,8 @@ lbl_8008CE88:
 /* 8008CEA4 00089E04  38 21 00 50 */	addi r1, r1, 0x50
 /* 8008CEA8 00089E08  4E 80 00 20 */	blr
 
-.global __dt__Q211CBallCamera23SFailsafeStateContainerFv
-__dt__Q211CBallCamera23SFailsafeStateContainerFv:
+.global "__dt__Q24rstl43single_ptr<Q211CBallCamera14SFailsafeState>Fv"
+"__dt__Q24rstl43single_ptr<Q211CBallCamera14SFailsafeState>Fv":
 /* 8008CEAC 00089E0C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8008CEB0 00089E10  7C 08 02 A6 */	mflr r0
 /* 8008CEB4 00089E14  90 01 00 34 */	stw r0, 0x34(r1)

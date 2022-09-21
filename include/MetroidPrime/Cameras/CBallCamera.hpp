@@ -26,17 +26,16 @@ private:
 
 class CCameraCollider {
 public:
-  CCameraCollider(f32 radius, CVector3f vec, const CCameraSpring& spring, f32 scale);
-  // : x4_radius(radius)
-  // , x8_lastLocalPos(vec)
-  // , x14_localPos(vec)
-  // , x20_scaledWorldPos(vec)
-  // , x2c_lastWorldPos(vec)
-  // , x38_spring(spring)
-  // , x4c_occlusionCount(0)
-  // , x50_scale(scale) {}
-  CCameraCollider(const CCameraCollider&);
-  virtual ~CCameraCollider();
+  CCameraCollider(f32 radius, CVector3f vec, const CCameraSpring& spring, f32 scale)
+  : x4_radius(radius)
+  , x8_lastLocalPos(vec)
+  , x14_localPos(vec)
+  , x20_scaledWorldPos(vec)
+  , x2c_lastWorldPos(vec)
+  , x38_spring(spring)
+  , x4c_occlusionCount(0)
+  , x50_scale(scale) {}
+  virtual ~CCameraCollider() {}
 
   f32 GetRadius() const { return x4_radius; }
   // TODO
@@ -145,22 +144,9 @@ private:
     rstl::vector< CVector3f > x90_splinePoints;
 
     SFailsafeState();
-    // ~SFailsafeState();
-  };
-  struct SFailsafeStateContainer {
-    SFailsafeState* x0_failsafeState;
-
-    SFailsafeStateContainer() : x0_failsafeState(new SFailsafeState) {}
-    ~SFailsafeStateContainer(); // {  }
   };
   struct SUnknown {
     SUnknown();
-  };
-  struct SUnknownContainer {
-    SUnknown* x0_;
-
-    SUnknownContainer() : x0_(new SUnknown) {}
-    ~SUnknownContainer() { delete x0_; }
   };
 
   EBallCameraBehaviour x188_behaviour;
@@ -269,8 +255,8 @@ private:
   f32 x470_clampVelTimer;
   f32 x474_clampVelRange;
   uint x478_shortMoveCount;
-  SFailsafeStateContainer x47c_failsafeStateContainer;
-  SUnknownContainer x480_;
+  rstl::single_ptr< SFailsafeState > x47c_failsafeState;
+  rstl::single_ptr< SUnknown > x480_;
 };
 CHECK_SIZEOF(CBallCamera, 0x488)
 
