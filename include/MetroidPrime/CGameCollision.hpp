@@ -12,6 +12,8 @@ class CGameCollision {
 public:
   static bool DetectStaticCollisionBoolean(const CStateManager&, const CCollisionPrimitive&,
                                            const CTransform4f&, const CMaterialFilter&);
+  static bool DetectDynamicCollisionBoolean(const CCollisionPrimitive&, const CTransform4f&,
+                                            const TEntityList&, const CStateManager&);
 };
 
 #endif

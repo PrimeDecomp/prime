@@ -8,11 +8,27 @@
 #include "Kyoto/Math/CMatrix4f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 
+class CFinalInput;
+
 class CGameCamera : public CActor {
 public:
+  CGameCamera(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
+              const CTransform4f& xf, float fov, float nearZ, float farZ, float aspect,
+              TUniqueId watchedId, bool disableInput, int controllerIdx);
+
+  // CEntity
   ~CGameCamera() override;
   void Accept(IVisitor& visitor) override;
-  // TODO
+  void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
+  void SetActive(bool active) override;
+
+  // CGameCamera
+  virtual void ProcessInput(const CFinalInput&, CStateManager& mgr) = 0;
+  virtual void Reset(const CTransform4f&, CStateManager& mgr) = 0;
+
+  f32 GetFov() const { return x15c_currentFov; }
+  void SetFov(f32 fov) { x15c_currentFov = fov; }
+  void SetFovInterpolation(f32 start, f32 fov, f32 time, f32 delayTime);
 
 private:
   TUniqueId xe8_watchedObject;

@@ -67,6 +67,10 @@ public:
 
   CAABox GetBoundingBox() const;
   void MoveCollisionPrimitive(const CVector3f&);
+  void Stop();
+
+  CMotionState GetMotionState() const;
+  void SetMotionState(const CMotionState& state);
 
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }

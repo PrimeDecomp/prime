@@ -262,6 +262,9 @@ public:
     xe4_28_transformDirty = true;
     xe4_29_actorLightsDirty = true;
   }
+  void SetRotation(const CQuaternion& rot) {
+    SetTransform(rot.BuildTransform4f(GetTranslation()));
+  }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);
 

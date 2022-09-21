@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#define M_PIF 3.14159265358979323846f
+
 class CMath {
 public:
   static f32 FastCosR(f32 v);
@@ -14,6 +16,7 @@ public:
   template < typename T >
   static const T& Clamp(const T& min, const T& val, const T& max);
   // ClampRadians__5CMathFf
+  static f32 SqrtF(f32 v);
 };
 
 #endif

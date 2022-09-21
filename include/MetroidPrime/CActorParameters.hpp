@@ -33,9 +33,9 @@ public:
     kLR_OneFrame,
   };
 
-  CLightParameters() {
-    // TODO
-  }
+  // CLightParameters() {
+  //   // TODO
+  // }
 
   virtual ~CLightParameters();
 
@@ -99,9 +99,9 @@ CHECK_SIZEOF(CVisorParameters, 0x4)
 
 class CActorParameters {
 public:
-  CActorParameters() {
-    // TODO
-  }
+  // CActorParameters() {
+  //   // TODO
+  // }
 
   const CLightParameters& GetLighting() const { return x0_lightParams; }
   const CScannableParameters& GetScannable() const { return x40_scanParams; }
