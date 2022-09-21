@@ -24,6 +24,8 @@ class CCameraManager {
 public:
   CGameCamera* GetCurrentCamera(CStateManager& mgr) const;
 
+  static f32 DefaultThirdPersonFov();
+
 private:
   TUniqueId x0_curCameraId;
   rstl::vector< TUniqueId > x4_cineCameras;

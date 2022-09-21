@@ -61,6 +61,8 @@ public:
   const CMazeState* GetCurrentMaze() const;
   void SetCurrentMaze(rstl::single_ptr< CMazeState > maze);
 
+  CPlayer* Player() { return x84c_player; }
+  const CPlayer* GetPlayer() const { return x84c_player; }
   CCameraManager* CameraManager() { return x870_cameraManager; }
   const CCameraManager* GetCameraManager() const { return x870_cameraManager; }
   CPlayerState* PlayerState() { return x8b8_playerState.GetPtr(); }

@@ -98,11 +98,14 @@ public:
   inline T* data() { return xc_items; }
   inline const T* data() const { return xc_items; }
   inline int size() const { return x4_count; }
+  inline bool empty() const { return x4_count == 0; }
   inline int capacity() const { return x8_capacity; }
-  inline T& front() { return xc_items[0]; }
-  inline const T& front() const { return xc_items[0]; }
-  inline T& back() { return xc_items[x4_count - 1]; }
-  inline const T& back() const { return xc_items[x4_count - 1]; }
+  inline T& at(int idx) { return xc_items[idx]; }
+  inline const T& at(int idx) const { return xc_items[idx]; }
+  inline T& front() { return at(0); }
+  inline const T& front() const { return at(0); }
+  inline T& back() { return at(x4_count - 1); }
+  inline const T& back() const { return at(x4_count - 1); }
   inline T& operator[](int idx) { return xc_items[idx]; }
   inline const T& operator[](int idx) const { return xc_items[idx]; }
 };

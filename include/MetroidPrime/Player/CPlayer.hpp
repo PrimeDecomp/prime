@@ -148,6 +148,7 @@ public:
   // CPlayer
   virtual bool IsTransparent();
 
+  CVector3f GetBallPosition() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
 
 private:

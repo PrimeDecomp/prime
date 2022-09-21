@@ -181,6 +181,7 @@ void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, f32 dt, CStat
       riders.erase(it);
 #endif
     } else {
+      // TODO: likely it++ (post-increment) but not matching
       it = it + 1;
     }
   }
@@ -223,10 +224,55 @@ void CScriptPlatform::MoveRiders(CStateManager& mgr, f32 dt, bool active,
       act->SetTranslation(newPos);
       const CPlayer* player = TCastToConstPtr< CPlayer >(*act);
       if (player == nullptr || player->GetOrbitState() == CPlayer::kOS_NoOrbit) {
-        const CQuaternion& rot = rotDelta * CQuaternion::FromMatrix(act->GetTransform());
-        act->SetTransform(rot.BuildTransform4f(act->GetTranslation()));
+        act->SetRotation(rotDelta * CQuaternion::FromMatrix(act->GetTransform()));
       }
     }
     ++it;
+  }
+}
+
+// TODO non-matching
+void CScriptPlatform::PreThink(f32 dt, CStateManager& mgr) {
+  DecayRiders(x318_riders, dt, mgr);
+  x264_collisionRecoverDelay -= dt;
+  x260_moveDelay -= dt;
+  if (x260_moveDelay < 0.f) {
+    x270_dragDelta = CVector3f::Zero();
+    CTransform4f oldXf = GetTransform();
+    CMotionState mState = GetMotionState();
+    if (GetActive()) {
+      rstl::vector< SRiders >::iterator it = x318_riders.begin();
+      for (; it != x318_riders.end(); ++it) {
+        if (const CPhysicsActor* act =
+                TCastToConstPtr< CPhysicsActor >(mgr.ObjectById(it->x0_uid))) {
+          CVector3f actPos = act->GetTranslation();
+          CVector3f pos = GetTranslation();
+          it->x8_transform.SetTranslation(GetTransform().TransposeRotate(actPos - pos));
+        }
+      }
+      x27c_rotDelta = Move(dt, mgr);
+    }
+
+    CTransform4f newXf = GetTransform();
+    x270_dragDelta = newXf.GetTranslation() - oldXf.GetTranslation();
+
+    rstl::vector< SRiders > collidedRiders;
+    MoveRiders(mgr, dt, GetActive(), x318_riders, collidedRiders, oldXf, newXf, x270_dragDelta,
+               x27c_rotDelta);
+    x356_27_squishedRider = false;
+    if (!collidedRiders.empty()) {
+      TEntityList nearList = BuildNearListFromRiders(mgr, collidedRiders);
+      if (CGameCollision::DetectDynamicCollisionBoolean(*GetCollisionPrimitive(),
+                                                        GetPrimitiveTransform(), nearList, mgr)) {
+        SetMotionState(mState);
+        Stop();
+        x260_moveDelay = 0.035f;
+        MoveRiders(mgr, dt, GetActive(), x318_riders, collidedRiders, newXf, oldXf, -x270_dragDelta,
+                   x27c_rotDelta.BuildInverted());
+        x270_dragDelta = CVector3f::Zero();
+        SendScriptMsgs(kSS_Modify, mgr, kSM_None);
+        x356_27_squishedRider = true;
+      }
+    }
   }
 }

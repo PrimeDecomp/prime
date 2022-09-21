@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803DAB90
-lbl_803DAB90:
+.global __vt__11CBallCamera
+__vt__11CBallCamera:
 	# ROM: 0x3D7B90
 	.4byte 0
 	.4byte 0
@@ -53,8 +53,8 @@ lbl_803DAC04:
 	.4byte lbl_800826CC
 	.4byte lbl_800826CC
 
-.global lbl_803DAC28
-lbl_803DAC28:
+.global __vt__15CCameraCollider
+__vt__15CCameraCollider:
 	# ROM: 0x3D7C28
 	.4byte 0
 	.4byte 0
@@ -377,24 +377,15 @@ lbl_805A710C:
 .section .bss
 .balign 8
 
-.lcomm lbl_8046C408, 0x18, 4
+.lcomm kLineOfSightFilter, 0x18, 4
 
 .section .sbss
 .balign 8
 
-# CBallCamera
-.global lbl_805A8E48
-lbl_805A8E48:
-	.skip 0x4
-.global lbl_805A8E4C
-lbl_805A8E4C:
-	.skip 0x4
-.global lbl_805A8E50
-lbl_805A8E50:
-	.skip 0x4
-.global lbl_805A8E54
-lbl_805A8E54:
-	.skip 0x4
+kLineOfSightIncludeList:
+	.skip 0x8
+kLineOfSightExcludeList:
+	.skip 0x8
 
 .section .sdata2, "a"
 .balign 8
@@ -1328,8 +1319,8 @@ lbl_80081844:
 /* 800818E4 0007E844  38 81 00 78 */	addi r4, r1, 0x78
 /* 800818E8 0007E848  48 29 2F 69 */	bl AsNormalized__9CVector3fCFv
 /* 800818EC 0007E84C  FC 20 D8 90 */	fmr f1, f27
-/* 800818F0 0007E850  3C 60 80 47 */	lis r3, lbl_8046C408@ha
-/* 800818F4 0007E854  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 800818F0 0007E850  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
+/* 800818F4 0007E854  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 800818F8 0007E858  7F A4 EB 78 */	mr r4, r29
 /* 800818FC 0007E85C  38 61 00 D0 */	addi r3, r1, 0xd0
 /* 80081900 0007E860  38 A1 00 08 */	addi r5, r1, 8
@@ -1381,9 +1372,9 @@ lbl_8008197C:
 /* 800819B4 0007E914  D0 21 00 40 */	stfs f1, 0x40(r1)
 /* 800819B8 0007E918  D0 01 00 44 */	stfs f0, 0x44(r1)
 /* 800819BC 0007E91C  48 29 2E FD */	bl Magnitude__9CVector3fCFv
-/* 800819C0 0007E920  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 800819C0 0007E920  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 800819C4 0007E924  7F A4 EB 78 */	mr r4, r29
-/* 800819C8 0007E928  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 800819C8 0007E928  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 800819CC 0007E92C  38 A1 00 08 */	addi r5, r1, 8
 /* 800819D0 0007E930  38 61 00 A0 */	addi r3, r1, 0xa0
 /* 800819D4 0007E934  38 C1 00 84 */	addi r6, r1, 0x84
@@ -2369,8 +2360,8 @@ lbl_8008279C:
 /* 800827A0 0007F700  38 61 00 14 */	addi r3, r1, 0x14
 /* 800827A4 0007F704  4B FC A9 39 */	bl AllocateUniqueId__13CStateManagerFv
 /* 800827A8 0007F708  A0 01 00 14 */	lhz r0, 0x14(r1)
-/* 800827AC 0007F70C  3C 60 80 3D */	lis r3, lbl_803CD678@ha
-/* 800827B0 0007F710  38 83 D6 78 */	addi r4, r3, lbl_803CD678@l
+/* 800827AC 0007F70C  3C 60 80 3D */	lis r3, "@stringBase0"@ha
+/* 800827B0 0007F710  38 83 D6 78 */	addi r4, r3, "@stringBase0"@l
 /* 800827B4 0007F714  38 A0 00 00 */	li r5, 0
 /* 800827B8 0007F718  B0 1F 04 6C */	sth r0, 0x46c(r31)
 /* 800827BC 0007F71C  38 60 03 10 */	li r3, 0x310
@@ -3221,9 +3212,9 @@ CheckFailSafe__11CBallCameraFfR13CStateManager:
 /* 80083400 00080360  38 61 00 90 */	addi r3, r1, 0x90
 /* 80083404 00080364  48 29 14 F5 */	bl Normalize__9CVector3fFv
 /* 80083408 00080368  38 00 00 00 */	li r0, 0
-/* 8008340C 0008036C  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 8008340C 0008036C  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80083410 00080370  90 01 01 08 */	stw r0, 0x108(r1)
-/* 80083414 00080374  38 E3 C4 08 */	addi r7, r3, lbl_8046C408@l
+/* 80083414 00080374  38 E3 C4 08 */	addi r7, r3, kLineOfSightFilter@l
 /* 80083418 00080378  FC 20 F0 90 */	fmr f1, f30
 /* 8008341C 0008037C  7F C3 F3 78 */	mr r3, r30
 /* 80083420 00080380  C0 7D 00 60 */	lfs f3, 0x60(r29)
@@ -3238,11 +3229,11 @@ CheckFailSafe__11CBallCameraFfR13CStateManager:
 /* 80083444 000803A4  D0 61 00 68 */	stfs f3, 0x68(r1)
 /* 80083448 000803A8  4B FC 92 91 */	bl "BuildNearList__13CStateManagerCFRQ24rstl32reserved_vector<9TUniqueId,1024>RC9CVector3fRC9CVector3ffRC15CMaterialFilterPC6CActor"
 /* 8008344C 000803AC  C0 7D 00 60 */	lfs f3, 0x60(r29)
-/* 80083450 000803B0  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80083450 000803B0  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80083454 000803B4  C0 5D 00 50 */	lfs f2, 0x50(r29)
 /* 80083458 000803B8  FC 20 F0 90 */	fmr f1, f30
 /* 8008345C 000803BC  C0 1D 00 40 */	lfs f0, 0x40(r29)
-/* 80083460 000803C0  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 80083460 000803C0  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 80083464 000803C4  7F C4 F3 78 */	mr r4, r30
 /* 80083468 000803C8  38 61 00 A8 */	addi r3, r1, 0xa8
 /* 8008346C 000803CC  D0 01 00 54 */	stfs f0, 0x54(r1)
@@ -3304,9 +3295,9 @@ CheckFailSafe__11CBallCameraFfR13CStateManager:
 /* 8008354C 000804AC  D0 21 00 4C */	stfs f1, 0x4c(r1)
 /* 80083550 000804B0  D0 41 00 50 */	stfs f2, 0x50(r1)
 /* 80083554 000804B4  4B FC 09 E9 */	bl GetPlayer__13CStateManagerCFv
-/* 80083558 000804B8  3C 80 80 47 */	lis r4, lbl_8046C408@ha
+/* 80083558 000804B8  3C 80 80 47 */	lis r4, kLineOfSightFilter@ha
 /* 8008355C 000804BC  7C 68 1B 78 */	mr r8, r3
-/* 80083560 000804C0  38 E4 C4 08 */	addi r7, r4, lbl_8046C408@l
+/* 80083560 000804C0  38 E4 C4 08 */	addi r7, r4, kLineOfSightFilter@l
 /* 80083564 000804C4  7F C3 F3 78 */	mr r3, r30
 /* 80083568 000804C8  38 81 00 48 */	addi r4, r1, 0x48
 /* 8008356C 000804CC  38 A1 00 84 */	addi r5, r1, 0x84
@@ -3321,9 +3312,9 @@ CheckFailSafe__11CBallCameraFfR13CStateManager:
 /* 80083590 000804F0  D0 21 00 40 */	stfs f1, 0x40(r1)
 /* 80083594 000804F4  D0 41 00 44 */	stfs f2, 0x44(r1)
 /* 80083598 000804F8  4B FC 09 A5 */	bl GetPlayer__13CStateManagerCFv
-/* 8008359C 000804FC  3C 80 80 47 */	lis r4, lbl_8046C408@ha
+/* 8008359C 000804FC  3C 80 80 47 */	lis r4, kLineOfSightFilter@ha
 /* 800835A0 00080500  7C 68 1B 78 */	mr r8, r3
-/* 800835A4 00080504  38 E4 C4 08 */	addi r7, r4, lbl_8046C408@l
+/* 800835A4 00080504  38 E4 C4 08 */	addi r7, r4, kLineOfSightFilter@l
 /* 800835A8 00080508  7F C3 F3 78 */	mr r3, r30
 /* 800835AC 0008050C  38 81 00 3C */	addi r4, r1, 0x3c
 /* 800835B0 00080510  38 A1 00 78 */	addi r5, r1, 0x78
@@ -3365,9 +3356,9 @@ CheckFailSafe__11CBallCameraFfR13CStateManager:
 /* 80083640 000805A0  7C 60 03 79 */	or. r0, r3, r0
 /* 80083644 000805A4  41 82 00 90 */	beq lbl_800836D4
 /* 80083648 000805A8  C0 21 00 A0 */	lfs f1, 0xa0(r1)
-/* 8008364C 000805AC  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 8008364C 000805AC  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80083650 000805B0  C0 62 89 B0 */	lfs f3, lbl_805AA6D0@sda21(r2)
-/* 80083654 000805B4  38 E3 C4 08 */	addi r7, r3, lbl_8046C408@l
+/* 80083654 000805B4  38 E3 C4 08 */	addi r7, r3, kLineOfSightFilter@l
 /* 80083658 000805B8  C0 01 00 9C */	lfs f0, 0x9c(r1)
 /* 8008365C 000805BC  7F C3 F3 78 */	mr r3, r30
 /* 80083660 000805C0  EC 81 18 2A */	fadds f4, f1, f3
@@ -5994,9 +5985,9 @@ lbl_80085CA8:
 /* 80085D08 00082C68  7C 64 1B 78 */	mr r4, r3
 /* 80085D0C 00082C6C  38 61 00 48 */	addi r3, r1, 0x48
 /* 80085D10 00082C70  48 02 9F 81 */	bl "__ct__19TCastToPtr<6CActor>FP7CEntity"
-/* 80085D14 00082C74  3C 80 80 47 */	lis r4, lbl_8046C408@ha
+/* 80085D14 00082C74  3C 80 80 47 */	lis r4, kLineOfSightFilter@ha
 /* 80085D18 00082C78  80 E3 00 04 */	lwz r7, 4(r3)
-/* 80085D1C 00082C7C  38 C4 C4 08 */	addi r6, r4, lbl_8046C408@l
+/* 80085D1C 00082C7C  38 C4 C4 08 */	addi r6, r4, kLineOfSightFilter@l
 /* 80085D20 00082C80  7F C3 F3 78 */	mr r3, r30
 /* 80085D24 00082C84  38 81 03 D0 */	addi r4, r1, 0x3d0
 /* 80085D28 00082C88  38 BF 03 34 */	addi r5, r31, 0x334
@@ -6355,8 +6346,8 @@ lbl_8008623C:
 /* 8008625C 000831BC  D0 21 01 C4 */	stfs f1, 0x1c4(r1)
 lbl_80086260:
 /* 80086260 000831C0  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 80086264 000831C4  3C 60 80 47 */	lis r3, lbl_8046C408@ha
-/* 80086268 000831C8  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 80086264 000831C4  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
+/* 80086268 000831C8  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 8008626C 000831CC  C0 21 00 2C */	lfs f1, 0x2c(r1)
 /* 80086270 000831D0  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80086274 000831D4  7F C4 F3 78 */	mr r4, r30
@@ -7542,9 +7533,9 @@ ResetSpline__11CBallCameraFR13CStateManager:
 /* 80087404 00084364  C0 42 89 B0 */	lfs f2, lbl_805AA6D0@sda21(r2)
 /* 80087408 00084368  39 40 00 00 */	li r10, 0
 /* 8008740C 0008436C  C0 21 00 EC */	lfs f1, 0xec(r1)
-/* 80087410 00084370  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80087410 00084370  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80087414 00084374  C0 81 00 F0 */	lfs f4, 0xf0(r1)
-/* 80087418 00084378  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 80087418 00084378  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 8008741C 0008437C  C0 61 00 F4 */	lfs f3, 0xf4(r1)
 /* 80087420 00084380  7F E4 FB 78 */	mr r4, r31
 /* 80087424 00084384  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
@@ -8095,9 +8086,9 @@ lbl_80087BD4:
 /* 80087C6C 00084BCC  D0 21 01 A0 */	stfs f1, 0x1a0(r1)
 /* 80087C70 00084BD0  D0 01 01 A4 */	stfs f0, 0x1a4(r1)
 /* 80087C74 00084BD4  48 28 CC 45 */	bl Magnitude__9CVector3fCFv
-/* 80087C78 00084BD8  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80087C78 00084BD8  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80087C7C 00084BDC  7F E4 FB 78 */	mr r4, r31
-/* 80087C80 00084BE0  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 80087C80 00084BE0  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 80087C84 00084BE4  38 A1 00 08 */	addi r5, r1, 8
 /* 80087C88 00084BE8  38 61 03 68 */	addi r3, r1, 0x368
 /* 80087C8C 00084BEC  38 C1 02 7C */	addi r6, r1, 0x27c
@@ -8238,9 +8229,9 @@ lbl_80087D70:
 /* 80087EA0 00084E00  D0 21 01 28 */	stfs f1, 0x128(r1)
 /* 80087EA4 00084E04  D0 01 01 2C */	stfs f0, 0x12c(r1)
 /* 80087EA8 00084E08  48 28 CA 11 */	bl Magnitude__9CVector3fCFv
-/* 80087EAC 00084E0C  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80087EAC 00084E0C  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80087EB0 00084E10  7F E4 FB 78 */	mr r4, r31
-/* 80087EB4 00084E14  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 80087EB4 00084E14  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 80087EB8 00084E18  38 A1 00 08 */	addi r5, r1, 8
 /* 80087EBC 00084E1C  38 61 03 38 */	addi r3, r1, 0x338
 /* 80087EC0 00084E20  38 C1 02 64 */	addi r6, r1, 0x264
@@ -8358,9 +8349,9 @@ lbl_80087F9C:
 /* 80088078 00084FD8  D0 21 00 C8 */	stfs f1, 0xc8(r1)
 /* 8008807C 00084FDC  D0 01 00 CC */	stfs f0, 0xcc(r1)
 /* 80088080 00084FE0  48 28 C8 39 */	bl Magnitude__9CVector3fCFv
-/* 80088084 00084FE4  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80088084 00084FE4  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80088088 00084FE8  7F E4 FB 78 */	mr r4, r31
-/* 8008808C 00084FEC  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 8008808C 00084FEC  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 80088090 00084FF0  38 A1 00 08 */	addi r5, r1, 8
 /* 80088094 00084FF4  38 61 03 08 */	addi r3, r1, 0x308
 /* 80088098 00084FF8  38 C1 02 58 */	addi r6, r1, 0x258
@@ -8483,9 +8474,9 @@ lbl_80088174:
 /* 80088264 000851C4  D0 21 00 80 */	stfs f1, 0x80(r1)
 /* 80088268 000851C8  D0 01 00 84 */	stfs f0, 0x84(r1)
 /* 8008826C 000851CC  48 28 C6 4D */	bl Magnitude__9CVector3fCFv
-/* 80088270 000851D0  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80088270 000851D0  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80088274 000851D4  7F E4 FB 78 */	mr r4, r31
-/* 80088278 000851D8  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 80088278 000851D8  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 8008827C 000851DC  38 A1 00 08 */	addi r5, r1, 8
 /* 80088280 000851E0  38 61 02 D8 */	addi r3, r1, 0x2d8
 /* 80088284 000851E4  38 C1 02 7C */	addi r6, r1, 0x27c
@@ -8581,9 +8572,9 @@ lbl_80088398:
 /* 800883E8 00085348  D0 21 00 50 */	stfs f1, 0x50(r1)
 /* 800883EC 0008534C  D0 01 00 54 */	stfs f0, 0x54(r1)
 /* 800883F0 00085350  48 28 C4 C9 */	bl Magnitude__9CVector3fCFv
-/* 800883F4 00085354  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 800883F4 00085354  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 800883F8 00085358  7F E4 FB 78 */	mr r4, r31
-/* 800883FC 0008535C  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 800883FC 0008535C  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 80088400 00085360  38 A1 00 08 */	addi r5, r1, 8
 /* 80088404 00085364  38 61 02 A8 */	addi r3, r1, 0x2a8
 /* 80088408 00085368  38 C1 02 64 */	addi r6, r1, 0x264
@@ -10369,9 +10360,9 @@ lbl_80089DCC:
 /* 80089E3C 00086D9C  38 61 01 9C */	addi r3, r1, 0x19c
 /* 80089E40 00086DA0  48 1F AF 3D */	bl GetEyePosition__7CPlayerCFv
 /* 80089E44 00086DA4  C0 41 01 9C */	lfs f2, 0x19c(r1)
-/* 80089E48 00086DA8  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 80089E48 00086DA8  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 80089E4C 00086DAC  C0 21 01 A0 */	lfs f1, 0x1a0(r1)
-/* 80089E50 00086DB0  38 C3 C4 08 */	addi r6, r3, lbl_8046C408@l
+/* 80089E50 00086DB0  38 C3 C4 08 */	addi r6, r3, kLineOfSightFilter@l
 /* 80089E54 00086DB4  C0 01 01 A4 */	lfs f0, 0x1a4(r1)
 /* 80089E58 00086DB8  7F E3 FB 78 */	mr r3, r31
 /* 80089E5C 00086DBC  D0 41 02 08 */	stfs f2, 0x208(r1)
@@ -10482,9 +10473,9 @@ lbl_80089E98:
 /* 80089FFC 00086F5C  7C 64 1B 78 */	mr r4, r3
 /* 8008A000 00086F60  38 61 00 3C */	addi r3, r1, 0x3c
 /* 8008A004 00086F64  48 02 5C 8D */	bl "__ct__19TCastToPtr<6CActor>FP7CEntity"
-/* 8008A008 00086F68  3C 80 80 47 */	lis r4, lbl_8046C408@ha
+/* 8008A008 00086F68  3C 80 80 47 */	lis r4, kLineOfSightFilter@ha
 /* 8008A00C 00086F6C  80 E3 00 04 */	lwz r7, 4(r3)
-/* 8008A010 00086F70  38 C4 C4 08 */	addi r6, r4, lbl_8046C408@l
+/* 8008A010 00086F70  38 C4 C4 08 */	addi r6, r4, kLineOfSightFilter@l
 /* 8008A014 00086F74  7F E3 FB 78 */	mr r3, r31
 /* 8008A018 00086F78  38 81 0D 30 */	addi r4, r1, 0xd30
 /* 8008A01C 00086F7C  38 A1 02 44 */	addi r5, r1, 0x244
@@ -10510,10 +10501,10 @@ lbl_80089E98:
 /* 8008A06C 00086FCC  38 61 04 9C */	addi r3, r1, 0x49c
 /* 8008A070 00086FD0  38 81 03 1C */	addi r4, r1, 0x31c
 /* 8008A074 00086FD4  48 28 8B 01 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 8008A078 00086FD8  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 8008A078 00086FD8  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 8008A07C 00086FDC  CB 42 89 C8 */	lfd f26, lbl_805AA6E8@sda21(r2)
 /* 8008A080 00086FE0  C3 22 8A 9C */	lfs f25, lbl_805AA7BC@sda21(r2)
-/* 8008A084 00086FE4  3B 63 C4 08 */	addi r27, r3, lbl_8046C408@l
+/* 8008A084 00086FE4  3B 63 C4 08 */	addi r27, r3, kLineOfSightFilter@l
 /* 8008A088 00086FE8  C3 02 8A A0 */	lfs f24, lbl_805AA7C0@sda21(r2)
 /* 8008A08C 00086FEC  3F 40 43 30 */	lis r26, 0x4330
 /* 8008A090 00086FF0  C2 E2 89 C4 */	lfs f23, lbl_805AA6E4@sda21(r2)
@@ -10911,9 +10902,9 @@ lbl_8008A5F4:
 /* 8008A654 000875B4  7C 64 1B 78 */	mr r4, r3
 /* 8008A658 000875B8  38 61 00 34 */	addi r3, r1, 0x34
 /* 8008A65C 000875BC  48 02 56 35 */	bl "__ct__19TCastToPtr<6CActor>FP7CEntity"
-/* 8008A660 000875C0  3C 80 80 47 */	lis r4, lbl_8046C408@ha
+/* 8008A660 000875C0  3C 80 80 47 */	lis r4, kLineOfSightFilter@ha
 /* 8008A664 000875C4  80 E3 00 04 */	lwz r7, 4(r3)
-/* 8008A668 000875C8  38 C4 C4 08 */	addi r6, r4, lbl_8046C408@l
+/* 8008A668 000875C8  38 C4 C4 08 */	addi r6, r4, kLineOfSightFilter@l
 /* 8008A66C 000875CC  7F E3 FB 78 */	mr r3, r31
 /* 8008A670 000875D0  38 81 05 2C */	addi r4, r1, 0x52c
 /* 8008A674 000875D4  38 A1 02 2C */	addi r5, r1, 0x22c
@@ -10939,10 +10930,10 @@ lbl_8008A5F4:
 /* 8008A6C4 00087624  38 61 03 DC */	addi r3, r1, 0x3dc
 /* 8008A6C8 00087628  38 81 02 5C */	addi r4, r1, 0x25c
 /* 8008A6CC 0008762C  48 28 84 A9 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 8008A6D0 00087630  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 8008A6D0 00087630  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 8008A6D4 00087634  CB 02 89 C8 */	lfd f24, lbl_805AA6E8@sda21(r2)
 /* 8008A6D8 00087638  C3 22 8A 9C */	lfs f25, lbl_805AA7BC@sda21(r2)
-/* 8008A6DC 0008763C  3B 43 C4 08 */	addi r26, r3, lbl_8046C408@l
+/* 8008A6DC 0008763C  3B 43 C4 08 */	addi r26, r3, kLineOfSightFilter@l
 /* 8008A6E0 00087640  C3 E2 8A A0 */	lfs f31, lbl_805AA7C0@sda21(r2)
 /* 8008A6E4 00087644  3F 60 43 30 */	lis r27, 0x4330
 /* 8008A6E8 00087648  C3 42 89 C4 */	lfs f26, lbl_805AA6E4@sda21(r2)
@@ -12280,9 +12271,9 @@ lbl_8008B8C4:
 /* 8008BA10 00088970  38 81 01 50 */	addi r4, r1, 0x150
 /* 8008BA14 00088974  48 28 71 61 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 8008BA18 00088978  C0 02 89 B8 */	lfs f0, lbl_805AA6D8@sda21(r2)
-/* 8008BA1C 0008897C  3C 60 80 47 */	lis r3, lbl_8046C408@ha
+/* 8008BA1C 0008897C  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
 /* 8008BA20 00088980  C3 61 01 AC */	lfs f27, 0x1ac(r1)
-/* 8008BA24 00088984  3B E3 C4 08 */	addi r31, r3, lbl_8046C408@l
+/* 8008BA24 00088984  3B E3 C4 08 */	addi r31, r3, kLineOfSightFilter@l
 /* 8008BA28 00088988  EF 40 D0 24 */	fdivs f26, f0, f26
 /* 8008BA2C 0008898C  C3 81 01 9C */	lfs f28, 0x19c(r1)
 /* 8008BA30 00088990  C3 A1 01 8C */	lfs f29, 0x18c(r1)
@@ -12377,8 +12368,8 @@ lbl_8008BB4C:
 /* 8008BB8C 00088AEC  38 61 00 9C */	addi r3, r1, 0x9c
 /* 8008BB90 00088AF0  48 28 8D 69 */	bl Normalize__9CVector3fFv
 /* 8008BB94 00088AF4  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 8008BB98 00088AF8  3C 60 80 47 */	lis r3, lbl_8046C408@ha
-/* 8008BB9C 00088AFC  39 03 C4 08 */	addi r8, r3, lbl_8046C408@l
+/* 8008BB98 00088AF8  3C 60 80 47 */	lis r3, kLineOfSightFilter@ha
+/* 8008BB9C 00088AFC  39 03 C4 08 */	addi r8, r3, kLineOfSightFilter@l
 /* 8008BBA0 00088B00  C0 61 01 8C */	lfs f3, 0x18c(r1)
 /* 8008BBA4 00088B04  B0 01 00 08 */	sth r0, 8(r1)
 /* 8008BBA8 00088B08  7F A4 EB 78 */	mr r4, r29
@@ -13037,8 +13028,8 @@ lbl_8008C4FC:
 /* 8008C570 000894D0  48 00 00 B9 */	bl "push_back__Q24rstl52vector<15CCameraCollider,Q24rstl17rmemory_allocator>FRC15CCameraCollider"
 /* 8008C574 000894D4  34 01 00 34 */	addic. r0, r1, 0x34
 /* 8008C578 000894D8  41 82 00 10 */	beq lbl_8008C588
-/* 8008C57C 000894DC  3C 60 80 3E */	lis r3, lbl_803DAC28@ha
-/* 8008C580 000894E0  38 03 AC 28 */	addi r0, r3, lbl_803DAC28@l
+/* 8008C57C 000894DC  3C 60 80 3E */	lis r3, __vt__15CCameraCollider@ha
+/* 8008C580 000894E0  38 03 AC 28 */	addi r0, r3, __vt__15CCameraCollider@l
 /* 8008C584 000894E4  90 01 00 34 */	stw r0, 0x34(r1)
 lbl_8008C588:
 /* 8008C588 000894E8  93 C1 00 8C */	stw r30, 0x8c(r1)
@@ -13135,8 +13126,8 @@ lbl_8008C6BC:
 
 .global __ct__15CCameraColliderFRC15CCameraCollider
 __ct__15CCameraColliderFRC15CCameraCollider:
-/* 8008C6CC 0008962C  3C A0 80 3E */	lis r5, lbl_803DAC28@ha
-/* 8008C6D0 00089630  38 05 AC 28 */	addi r0, r5, lbl_803DAC28@l
+/* 8008C6CC 0008962C  3C A0 80 3E */	lis r5, __vt__15CCameraCollider@ha
+/* 8008C6D0 00089630  38 05 AC 28 */	addi r0, r5, __vt__15CCameraCollider@l
 /* 8008C6D4 00089634  90 03 00 00 */	stw r0, 0(r3)
 /* 8008C6D8 00089638  C0 04 00 04 */	lfs f0, 4(r4)
 /* 8008C6DC 0008963C  D0 03 00 04 */	stfs f0, 4(r3)
@@ -13188,9 +13179,9 @@ __dt__15CCameraColliderFv:
 /* 8008C788 000896E8  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8008C78C 000896EC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 8008C790 000896F0  41 82 00 1C */	beq lbl_8008C7AC
-/* 8008C794 000896F4  3C A0 80 3E */	lis r5, lbl_803DAC28@ha
+/* 8008C794 000896F4  3C A0 80 3E */	lis r5, __vt__15CCameraCollider@ha
 /* 8008C798 000896F8  7C 80 07 35 */	extsh. r0, r4
-/* 8008C79C 000896FC  38 05 AC 28 */	addi r0, r5, lbl_803DAC28@l
+/* 8008C79C 000896FC  38 05 AC 28 */	addi r0, r5, __vt__15CCameraCollider@l
 /* 8008C7A0 00089700  90 1F 00 00 */	stw r0, 0(r31)
 /* 8008C7A4 00089704  40 81 00 08 */	ble lbl_8008C7AC
 /* 8008C7A8 00089708  48 28 91 89 */	bl Free__7CMemoryFPCv
@@ -13563,9 +13554,9 @@ __dt__11CBallCameraFv:
 /* 8008CD0C 00089C6C  93 A1 00 44 */	stw r29, 0x44(r1)
 /* 8008CD10 00089C70  93 81 00 40 */	stw r28, 0x40(r1)
 /* 8008CD14 00089C74  41 82 01 74 */	beq lbl_8008CE88
-/* 8008CD18 00089C78  3C 60 80 3E */	lis r3, lbl_803DAB90@ha
+/* 8008CD18 00089C78  3C 60 80 3E */	lis r3, __vt__11CBallCamera@ha
 /* 8008CD1C 00089C7C  34 1E 04 80 */	addic. r0, r30, 0x480
-/* 8008CD20 00089C80  38 03 AB 90 */	addi r0, r3, lbl_803DAB90@l
+/* 8008CD20 00089C80  38 03 AB 90 */	addi r0, r3, __vt__11CBallCamera@l
 /* 8008CD24 00089C84  90 1E 00 00 */	stw r0, 0(r30)
 /* 8008CD28 00089C88  41 82 00 0C */	beq lbl_8008CD34
 /* 8008CD2C 00089C8C  80 7E 04 80 */	lwz r3, 0x480(r30)
@@ -13573,7 +13564,7 @@ __dt__11CBallCameraFv:
 lbl_8008CD34:
 /* 8008CD34 00089C94  38 7E 04 7C */	addi r3, r30, 0x47c
 /* 8008CD38 00089C98  38 80 FF FF */	li r4, -1
-/* 8008CD3C 00089C9C  48 00 01 71 */	bl __dt__Q211CBallCamera14SFailsafeStateFv
+/* 8008CD3C 00089C9C  48 00 01 71 */	bl __dt__Q211CBallCamera23SFailsafeStateContainerFv
 /* 8008CD40 00089CA0  38 7E 03 7C */	addi r3, r30, 0x37c
 /* 8008CD44 00089CA4  38 80 FF FF */	li r4, -1
 /* 8008CD48 00089CA8  4B FD 08 A1 */	bl __dt__13CCameraSplineFv
@@ -13676,8 +13667,8 @@ lbl_8008CE88:
 /* 8008CEA4 00089E04  38 21 00 50 */	addi r1, r1, 0x50
 /* 8008CEA8 00089E08  4E 80 00 20 */	blr
 
-.global __dt__Q211CBallCamera14SFailsafeStateFv
-__dt__Q211CBallCamera14SFailsafeStateFv:
+.global __dt__Q211CBallCamera23SFailsafeStateContainerFv
+__dt__Q211CBallCamera23SFailsafeStateContainerFv:
 /* 8008CEAC 00089E0C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8008CEB0 00089E10  7C 08 02 A6 */	mflr r0
 /* 8008CEB4 00089E14  90 01 00 34 */	stw r0, 0x34(r1)
@@ -13745,10 +13736,10 @@ __ct__11CBallCameraF9TUniqueId9TUniqueIdRC12CTransform4fffff:
 /* 8008CF8C 00089EEC  93 C1 00 68 */	stw r30, 0x68(r1)
 /* 8008CF90 00089EF0  93 A1 00 64 */	stw r29, 0x64(r1)
 /* 8008CF94 00089EF4  93 81 00 60 */	stw r28, 0x60(r1)
-/* 8008CF98 00089EF8  3C E0 80 3D */	lis r7, lbl_803CD678@ha
+/* 8008CF98 00089EF8  3C E0 80 3D */	lis r7, "@stringBase0"@ha
 /* 8008CF9C 00089EFC  FF 80 08 90 */	fmr f28, f1
 /* 8008CFA0 00089F00  FF A0 10 90 */	fmr f29, f2
-/* 8008CFA4 00089F04  38 E7 D6 78 */	addi r7, r7, lbl_803CD678@l
+/* 8008CFA4 00089F04  38 E7 D6 78 */	addi r7, r7, "@stringBase0"@l
 /* 8008CFA8 00089F08  7C 7E 1B 78 */	mr r30, r3
 /* 8008CFAC 00089F0C  7C 9C 23 78 */	mr r28, r4
 /* 8008CFB0 00089F10  FF E0 18 90 */	fmr f31, f3
@@ -13808,9 +13799,9 @@ lbl_8008D06C:
 lbl_8008D080:
 /* 8008D080 00089FE0  38 61 00 30 */	addi r3, r1, 0x30
 /* 8008D084 00089FE4  48 2B 0A 5D */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-/* 8008D088 00089FE8  3C 60 80 3E */	lis r3, lbl_803DAB90@ha
+/* 8008D088 00089FE8  3C 60 80 3E */	lis r3, __vt__11CBallCamera@ha
 /* 8008D08C 00089FEC  38 80 00 00 */	li r4, 0
-/* 8008D090 00089FF0  38 03 AB 90 */	addi r0, r3, lbl_803DAB90@l
+/* 8008D090 00089FF0  38 03 AB 90 */	addi r0, r3, __vt__11CBallCamera@l
 /* 8008D094 00089FF4  38 60 00 01 */	li r3, 1
 /* 8008D098 00089FF8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8008D09C 00089FFC  90 9E 01 88 */	stw r4, 0x188(r30)
@@ -14175,9 +14166,9 @@ lbl_8008D080:
 /* 8008D638 0008A598  C0 02 89 E0 */	lfs f0, lbl_805AA700@sda21(r2)
 /* 8008D63C 0008A59C  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 8008D640 0008A5A0  38 C5 66 A0 */	addi r6, r5, sZeroVector__9CVector3f@l
-/* 8008D644 0008A5A4  3C 60 80 3D */	lis r3, lbl_803CD678@ha
+/* 8008D644 0008A5A4  3C 60 80 3D */	lis r3, "@stringBase0"@ha
 /* 8008D648 0008A5A8  EC 00 00 72 */	fmuls f0, f0, f1
-/* 8008D64C 0008A5AC  38 83 D6 78 */	addi r4, r3, lbl_803CD678@l
+/* 8008D64C 0008A5AC  38 83 D6 78 */	addi r4, r3, "@stringBase0"@l
 /* 8008D650 0008A5B0  C0 42 89 B0 */	lfs f2, lbl_805AA6D0@sda21(r2)
 /* 8008D654 0008A5B4  38 00 00 00 */	li r0, 0
 /* 8008D658 0008A5B8  38 60 00 A0 */	li r3, 0xa0
@@ -14206,9 +14197,9 @@ lbl_8008D080:
 /* 8008D6B4 0008A614  48 1B 0F 55 */	bl __ct__Q211CBallCamera14SFailsafeStateFv
 /* 8008D6B8 0008A618  7C 60 1B 78 */	mr r0, r3
 lbl_8008D6BC:
-/* 8008D6BC 0008A61C  3C 60 80 3D */	lis r3, lbl_803CD678@ha
+/* 8008D6BC 0008A61C  3C 60 80 3D */	lis r3, "@stringBase0"@ha
 /* 8008D6C0 0008A620  90 1E 04 7C */	stw r0, 0x47c(r30)
-/* 8008D6C4 0008A624  38 83 D6 78 */	addi r4, r3, lbl_803CD678@l
+/* 8008D6C4 0008A624  38 83 D6 78 */	addi r4, r3, "@stringBase0"@l
 /* 8008D6C8 0008A628  38 A0 00 00 */	li r5, 0
 /* 8008D6CC 0008A62C  38 60 00 01 */	li r3, 1
 /* 8008D6D0 0008A630  48 28 81 9D */	bl __nw__FUlPCcPCc
@@ -14268,9 +14259,9 @@ lbl_8008D6E4:
 
 .global __ct__15CCameraColliderFf9CVector3fRC13CCameraSpringf
 __ct__15CCameraColliderFf9CVector3fRC13CCameraSpringf:
-/* 8008D7A4 0008A704  3C C0 80 3E */	lis r6, lbl_803DAC28@ha
+/* 8008D7A4 0008A704  3C C0 80 3E */	lis r6, __vt__15CCameraCollider@ha
 /* 8008D7A8 0008A708  38 00 00 00 */	li r0, 0
-/* 8008D7AC 0008A70C  38 C6 AC 28 */	addi r6, r6, lbl_803DAC28@l
+/* 8008D7AC 0008A70C  38 C6 AC 28 */	addi r6, r6, __vt__15CCameraCollider@l
 /* 8008D7B0 0008A710  90 C3 00 00 */	stw r6, 0(r3)
 /* 8008D7B4 0008A714  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8008D7B8 0008A718  C0 04 00 00 */	lfs f0, 0(r4)
@@ -14328,9 +14319,9 @@ __ct__15CCameraColliderFf9CVector3fRC13CCameraSpringf:
 /* 8008D87C 0008A7DC  3B A0 00 00 */	li r29, 0
 /* 8008D880 0008A7E0  48 00 00 18 */	b lbl_8008D898
 lbl_8008D884:
-/* 8008D884 0008A7E4  3C 80 80 3D */	lis r4, lbl_803CD678@ha
+/* 8008D884 0008A7E4  3C 80 80 3D */	lis r4, "@stringBase0"@ha
 /* 8008D888 0008A7E8  38 A0 00 00 */	li r5, 0
-/* 8008D88C 0008A7EC  38 84 D6 78 */	addi r4, r4, lbl_803CD678@l
+/* 8008D88C 0008A7EC  38 84 D6 78 */	addi r4, r4, "@stringBase0"@l
 /* 8008D890 0008A7F0  48 28 7F 89 */	bl __nwa__FUlPCcPCc
 /* 8008D894 0008A7F4  7C 7D 1B 78 */	mr r29, r3
 lbl_8008D898:
@@ -14419,10 +14410,10 @@ __sinit_CBallCamera_cpp:
 /* 8008D9B0 0008A910  93 C1 00 28 */	stw r30, 0x28(r1)
 /* 8008D9B4 0008A914  80 AD 84 60 */	lwz r5, lbl_805A7020@sda21(r13)
 /* 8008D9B8 0008A918  48 2F C5 3D */	bl __shl2i
-/* 8008D9BC 0008A91C  90 8D A2 8C */	stw r4, lbl_805A8E4C@sda21(r13)
+/* 8008D9BC 0008A91C  90 8D A2 8C */	stw r4, kLineOfSightIncludeList+4@sda21(r13)
 /* 8008D9C0 0008A920  38 80 00 01 */	li r4, 1
 /* 8008D9C4 0008A924  80 AD 84 64 */	lwz r5, lbl_805A7024@sda21(r13)
-/* 8008D9C8 0008A928  90 6D A2 88 */	stw r3, lbl_805A8E48@sda21(r13)
+/* 8008D9C8 0008A928  90 6D A2 88 */	stw r3, kLineOfSightIncludeList@sda21(r13)
 /* 8008D9CC 0008A92C  38 60 00 00 */	li r3, 0
 /* 8008D9D0 0008A930  48 2F C5 25 */	bl __shl2i
 /* 8008D9D4 0008A934  80 AD 84 68 */	lwz r5, lbl_805A7028@sda21(r13)
@@ -14443,15 +14434,15 @@ __sinit_CBallCamera_cpp:
 /* 8008DA10 0008A970  38 60 00 00 */	li r3, 0
 /* 8008DA14 0008A974  38 80 00 01 */	li r4, 1
 /* 8008DA18 0008A978  48 2F C4 DD */	bl __shl2i
-/* 8008DA1C 0008A97C  3C A0 80 47 */	lis r5, lbl_8046C408@ha
-/* 8008DA20 0008A980  80 0D A2 88 */	lwz r0, lbl_805A8E48@sda21(r13)
+/* 8008DA1C 0008A97C  3C A0 80 47 */	lis r5, kLineOfSightFilter@ha
+/* 8008DA20 0008A980  80 0D A2 88 */	lwz r0, kLineOfSightIncludeList@sda21(r13)
 /* 8008DA24 0008A984  7F DE 23 78 */	or r30, r30, r4
 /* 8008DA28 0008A988  7F FF 1B 78 */	or r31, r31, r3
-/* 8008DA2C 0008A98C  38 65 C4 08 */	addi r3, r5, lbl_8046C408@l
+/* 8008DA2C 0008A98C  38 65 C4 08 */	addi r3, r5, kLineOfSightFilter@l
 /* 8008DA30 0008A990  38 A0 00 03 */	li r5, 3
-/* 8008DA34 0008A994  80 8D A2 8C */	lwz r4, lbl_805A8E4C@sda21(r13)
-/* 8008DA38 0008A998  93 CD A2 94 */	stw r30, lbl_805A8E54@sda21(r13)
-/* 8008DA3C 0008A99C  93 ED A2 90 */	stw r31, lbl_805A8E50@sda21(r13)
+/* 8008DA34 0008A994  80 8D A2 8C */	lwz r4, kLineOfSightIncludeList+4@sda21(r13)
+/* 8008DA38 0008A998  93 CD A2 94 */	stw r30, kLineOfSightExcludeList+4@sda21(r13)
+/* 8008DA3C 0008A99C  93 ED A2 90 */	stw r31, kLineOfSightExcludeList@sda21(r13)
 /* 8008DA40 0008A9A0  90 A1 00 18 */	stw r5, 0x18(r1)
 /* 8008DA44 0008A9A4  90 83 00 04 */	stw r4, 4(r3)
 /* 8008DA48 0008A9A8  90 03 00 00 */	stw r0, 0(r3)
@@ -14467,8 +14458,7 @@ __sinit_CBallCamera_cpp:
 
 .section .rodata
 .balign 8
-.global lbl_803CD678
-lbl_803CD678:
+"@stringBase0":
 	# ROM: 0x3CA678
 	.asciz "??(??)"
 	.byte 0x42

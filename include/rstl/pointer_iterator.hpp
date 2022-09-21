@@ -23,10 +23,12 @@ public:
     ++this->current;
     return *this;
   }
+  const_pointer_iterator& operator++(int) { return const_pointer_iterator(this->current++); }
   const_pointer_iterator& operator--() {
     --this->current;
     return *this;
   }
+  const_pointer_iterator& operator--(int) { return const_pointer_iterator(this->current--); }
   const_pointer_iterator& operator+=(int v) {
     this->current += v;
     return *this;
@@ -65,19 +67,17 @@ public:
   void operator=(const T& other) { rstl::construct(this->current, other); }
   T& operator*() { return *this->current; }
   T* operator->() { return this->current; }
-  void destroy() const {
-    if (this->current != nullptr) {
-      rstl::destroy(this->current);
-    }
-  }
+  void destroy() const { rstl::destroy(this->current); }
   pointer_iterator& operator++() {
     ++this->current;
     return *this;
   }
+  pointer_iterator operator++(int) { return pointer_iterator(this->current++); }
   pointer_iterator& operator--() {
     --this->current;
     return *this;
   }
+  pointer_iterator operator--(int) { return pointer_iterator(this->current--); }
   pointer_iterator& operator+=(int v) {
     this->current += v;
     return *this;
@@ -86,12 +86,8 @@ public:
     this->current -= v;
     return *this;
   }
-  pointer_iterator operator+(int v) const {
-    return pointer_iterator(this->current + v);
-  }
-  pointer_iterator operator-(int v) const {
-    return pointer_iterator(this->current - v);
-  }
+  pointer_iterator operator+(int v) const { return pointer_iterator(this->current + v); }
+  pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
 };
 } // namespace rstl
 
