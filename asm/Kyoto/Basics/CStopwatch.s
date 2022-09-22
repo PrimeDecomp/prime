@@ -9,18 +9,15 @@ lbl_ctor:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9238
-lbl_805A9238:
-	.skip 0x4
-.global lbl_805A923C
-lbl_805A923C:
-	.skip 0x4
+.global mGlobalTimer__10CStopwatch
+mGlobalTimer__10CStopwatch:
+	.skip 0x8
 
 .section .text, "ax"
 
 .global GetGlobalTimerObj__10CStopwatchFv
 GetGlobalTimerObj__10CStopwatchFv:
-/* 802D6264 002D31C4  38 6D A6 78 */	addi r3, r13, lbl_805A9238@sda21
+/* 802D6264 002D31C4  38 6D A6 78 */	addi r3, r13, mGlobalTimer__10CStopwatch@sda21
 /* 802D6268 002D31C8  4E 80 00 20 */	blr
 
 .global Wait__10CStopwatchFf
@@ -63,9 +60,9 @@ InitGlobalTimer__10CStopwatchFv:
 /* 802D62E4 002D3244  48 00 04 39 */	bl Initialize__Q210CStopwatch7CSWDataFv
 lbl_802D62E8:
 /* 802D62E8 002D3248  48 0A F0 C1 */	bl OSGetTime
-/* 802D62EC 002D324C  90 6D A6 78 */	stw r3, lbl_805A9238@sda21(r13)
+/* 802D62EC 002D324C  90 6D A6 78 */	stw r3, mGlobalTimer__10CStopwatch@sda21(r13)
 /* 802D62F0 002D3250  38 60 00 01 */	li r3, 1
-/* 802D62F4 002D3254  90 8D A6 7C */	stw r4, lbl_805A923C@sda21(r13)
+/* 802D62F4 002D3254  90 8D A6 7C */	stw r4, mGlobalTimer__10CStopwatch+4@sda21(r13)
 /* 802D62F8 002D3258  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D62FC 002D325C  7C 08 03 A6 */	mtlr r0
 /* 802D6300 002D3260  38 21 00 10 */	addi r1, r1, 0x10
@@ -86,8 +83,8 @@ __sinit_CStopwatch_cpp:
 /* 802D6330 002D3290  90 03 00 08 */	stw r0, 8(r3)
 /* 802D6334 002D3294  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 802D6338 002D3298  48 0A F0 71 */	bl OSGetTime
-/* 802D633C 002D329C  90 8D A6 7C */	stw r4, lbl_805A923C@sda21(r13)
-/* 802D6340 002D32A0  90 6D A6 78 */	stw r3, lbl_805A9238@sda21(r13)
+/* 802D633C 002D329C  90 8D A6 7C */	stw r4, mGlobalTimer__10CStopwatch+4@sda21(r13)
+/* 802D6340 002D32A0  90 6D A6 78 */	stw r3, mGlobalTimer__10CStopwatch@sda21(r13)
 /* 802D6344 002D32A4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D6348 002D32A8  7C 08 03 A6 */	mtlr r0
 /* 802D634C 002D32AC  38 21 00 10 */	addi r1, r1, 0x10
@@ -104,6 +101,5 @@ lbl_805AE278:
 .global lbl_805AE280
 lbl_805AE280:
 	# ROM: 0x3FAB20
-	.4byte 0
-	.4byte 0
+	.float 0.0
 

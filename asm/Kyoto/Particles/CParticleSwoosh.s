@@ -4985,10 +4985,10 @@ lbl_8032EDC8:
 /* 8032EF44 0032BEA4  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 8032EF48 0032BEA8  41 82 00 54 */	beq lbl_8032EF9C
 /* 8032EF4C 0032BEAC  48 05 64 5D */	bl OSGetTime
-/* 8032EF50 0032BEB0  80 ED A6 7C */	lwz r7, lbl_805A923C@sda21(r13)
+/* 8032EF50 0032BEB0  80 ED A6 7C */	lwz r7, mGlobalTimer__10CStopwatch+4@sda21(r13)
 /* 8032EF54 0032BEB4  3C A0 80 5A */	lis r5, mData__10CStopwatch@ha
 /* 8032EF58 0032BEB8  38 C5 FD 30 */	addi r6, r5, mData__10CStopwatch@l
-/* 8032EF5C 0032BEBC  80 0D A6 78 */	lwz r0, lbl_805A9238@sda21(r13)
+/* 8032EF5C 0032BEBC  80 0D A6 78 */	lwz r0, mGlobalTimer__10CStopwatch@sda21(r13)
 /* 8032EF60 0032BEC0  7C 87 20 10 */	subfc r4, r7, r4
 /* 8032EF64 0032BEC4  80 A6 00 08 */	lwz r5, 8(r6)
 /* 8032EF68 0032BEC8  80 C6 00 0C */	lwz r6, 0xc(r6)

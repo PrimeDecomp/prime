@@ -9,6 +9,11 @@ class CStopwatch {
 public:
   class CSWData {
   public:
+    CSWData()
+    : x0_timerFreq(0)
+    , x8_timerFreqO1M(0)
+    , x10_timerPeriod(0.f) {}
+
     bool Initialize();
     void Wait(f32) const;
 
@@ -24,8 +29,8 @@ public:
   };
 
   CStopwatch() : x0_startTime(mData.GetCPUCycles()) {}
-  // static inline void InitGlobalTimer() {}
-  // static inline CStopwatch& GetGlobalTimerObj() { return mGlobalTimer; }
+  static bool InitGlobalTimer();
+  static CStopwatch& GetGlobalTimerObj();
   inline void Reset() {
     if (mData.GetTimerFreq() == 0) {
       mData.Initialize();
