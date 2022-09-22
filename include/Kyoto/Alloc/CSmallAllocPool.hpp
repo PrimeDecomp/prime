@@ -12,7 +12,6 @@ public:
   void* Alloc(uint size);
   bool Free(const void* ptr);
 
-private:
   bool PtrWithinPool(const void* ptr) const {
     return u32((reinterpret_cast< const u8* >(ptr) - reinterpret_cast< u8* >(x0_mainData)) / 4) < x8_numBlocks;
   }

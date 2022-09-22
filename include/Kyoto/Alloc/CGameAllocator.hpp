@@ -11,6 +11,7 @@ class COsContext;
 class CGameAllocator : public IAllocator {
 public:
   class SGameMemInfo {
+    friend class CGameAllocator;
   public:
     SGameMemInfo(SGameMemInfo* prev, SGameMemInfo* next, SGameMemInfo* nextFree, uint len, const char* fileAndLine, const char* type)
     : x0_priorGuard(0xefefefef)
@@ -46,6 +47,10 @@ public:
     }
 
     bool IsAllocated() const { return ((size_t)x10_prev) & 1; }
+
+    bool IsPostGuardIntact() const { return x1c_postGuard == 0xeaeaeaea; }
+    bool IsPriorGuardIntact() const { return x0_priorGuard == 0xefefefef; }
+
   private:
     int x0_priorGuard;
     size_t x4_len;
@@ -75,7 +80,7 @@ public:
   bool FreeSecondary(const void* ptr) override;
   void ReleaseAllSecondary() override;
   void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* target) override;
-  void EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const override;
+  int EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const override;
   SAllocInfo GetAllocInfo(const void* ptr) const override;
   SMetrics GetMetrics() const override;
   void OffsetFakeStatics(int offset) override;

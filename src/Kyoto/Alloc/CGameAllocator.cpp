@@ -68,7 +68,8 @@ void CGameAllocator::Shutdown() {
   x54_ = 0;
 }
 
-void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type, const CCallStack& callstack) {
+void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
+                            const CCallStack& callstack) {
   OSTick startTick = OSGetTick();
 
   if (hint & kHI_RoundUpLen) {
@@ -113,7 +114,8 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type, c
     buf = x74_mediumPool->Alloc(size);
 
     if (buf == nullptr) {
-      buf = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Unk0, CCallStack(-1, "MediumAllocMainData   ", " - Ignore"));
+      buf = Alloc(0x21000, kHI_None, kSC_Unk1, kTP_Unk0,
+                  CCallStack(-1, "MediumAllocMainData   ", " - Ignore"));
       x74_mediumPool->AddPuddle(0x1000, buf, 1);
       buf = x74_mediumPool->Alloc(size);
     }
@@ -267,7 +269,8 @@ void CGameAllocator::ReleaseAll() {
   x10_last = nullptr;
 };
 
-void* CGameAllocator::AllocSecondary(size_t size, EHint hint, EScope scope, EType type, const CCallStack& callstack) {
+void* CGameAllocator::AllocSecondary(size_t size, EHint hint, EScope scope, EType type,
+                                     const CCallStack& callstack) {
   Alloc(size, hint, scope, type, callstack);
 };
 
@@ -280,25 +283,58 @@ void CGameAllocator::SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* targe
   x5c_oomTarget = target;
 };
 
-IAllocator::SAllocInfo CGameAllocator::GetAllocInfo(const void* ptr) const {};
+IAllocator::SAllocInfo CGameAllocator::GetAllocInfo(const void* ptr) const {
+  SGameMemInfo* info = GetMemInfoFromBlockPtr(ptr);
+
+  return SAllocInfo((const void*)info, info->GetLength(), info->IsAllocated(), false,
+                    info->x8_fileAndLine, info->xc_type);
+};
 
 IAllocator::SMetrics CGameAllocator::GetMetrics() const {
-  u32 mediumAllocTotalAllocated = x74_mediumPool != nullptr ? x74_mediumPool->GetTotalEntries() * 32 : 0;
-  u32 mediumAllocBlocksAvailable = x74_mediumPool != nullptr ? x74_mediumPool->GetNumBlocksAvailable() : 0;
+  u32 mediumAllocTotalAllocated =
+      x74_mediumPool != nullptr ? x74_mediumPool->GetTotalEntries() * 32 : 0;
+  u32 mediumAllocBlocksAvailable =
+      x74_mediumPool != nullptr ? x74_mediumPool->GetNumBlocksAvailable() : 0;
   u32 mediumAllocAllocatedSize =
-      x74_mediumPool != nullptr ? x74_mediumPool->GetTotalEntries() - x74_mediumPool->GetNumBlocksAvailable() : 0;
+      x74_mediumPool != nullptr
+          ? x74_mediumPool->GetTotalEntries() - x74_mediumPool->GetNumBlocksAvailable()
+          : 0;
   u32 mediumAllocNumAllocs = x74_mediumPool != nullptr ? x74_mediumPool->GetNumAllocs() : 0;
   SMetrics ret(x8_heapSize, x80_, x84_, x88_, x8c_, x90_heapSize2, x94_, x98_, x9c_, xa0_, xa4_,
                x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetNumAllocs() : 0,
                x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetAllocatedSize() : 0,
-               x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetNumBlocksAvailable() : 0, mediumAllocNumAllocs,
-               mediumAllocAllocatedSize, mediumAllocBlocksAvailable, x80_ - xb0_, (uint)xb4_physicalAddr, xbc_, mediumAllocTotalAllocated,
+               x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetNumBlocksAvailable() : 0,
+               mediumAllocNumAllocs, mediumAllocAllocatedSize, mediumAllocBlocksAvailable,
+               x80_ - xb0_, (uint)xb4_physicalAddr, xbc_, mediumAllocTotalAllocated,
                xb8_fakeStatics);
   xb0_ = x80_;
   return ret;
 };
 
-void CGameAllocator::EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const {};
+int CGameAllocator::EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const {
+
+  int i = 0;
+  SGameMemInfo* iter = xc_first;
+
+  while (iter != nullptr) {
+    if (!iter->IsPostGuardIntact()) {
+      return -1;
+    }
+
+    if (!iter->IsPriorGuardIntact()) {
+      return -1;
+    }
+
+    SGameMemInfo* next = iter->GetNext();
+    SAllocInfo alloc((const void*)iter, iter->GetLength(), iter->IsAllocated(), false,
+                     iter->x8_fileAndLine, iter->xc_type);
+    func(alloc, ptr);
+    ++i;
+    iter = next;
+  }
+
+  return i;
+};
 
 uint CGameAllocator::GetFreeBinEntryForSize(uint size) {
   uint maxLen = 0x20;
@@ -371,4 +407,4 @@ size_t CGameAllocator::GetLargestFreeChunk() const {
 
   return ret;
 }
-void CGameAllocator::OffsetFakeStatics(int offset) { xb8_fakeStatics += offset; };
+void CGameAllocator::OffsetFakeStatics(int offset) { xb8_fakeStatics += offset; }

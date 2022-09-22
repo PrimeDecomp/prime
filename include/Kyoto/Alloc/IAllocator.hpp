@@ -58,12 +58,21 @@ public:
   };
 
   struct SAllocInfo {
-    void* x0_infoPtr;
+    const void* x0_infoPtr;
     uint x4_len;
-    bool x8_hasPrevious;
+    bool x8_isAllocated;
     bool x9_;
-    const char* xc_fileAndLne;
+    const char* xc_fileAndLine;
     const char* x10_type;
+
+    SAllocInfo(const void* ptr, uint len, bool isAllocated, bool b2, const char* fileAndLine,
+               const char* type)
+    : x0_infoPtr(ptr)
+    , x4_len(len)
+    , x8_isAllocated(isAllocated)
+    , x9_(b2)
+    , xc_fileAndLine(fileAndLine)
+    , x10_type(type) {}
   };
 
   typedef const bool (*FOutOfMemoryCb)(const void*, uint);
@@ -81,7 +90,7 @@ public:
   virtual bool FreeSecondary(const void* ptr) = 0;
   virtual void ReleaseAllSecondary() = 0;
   virtual void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* data) = 0;
-  virtual void EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const = 0;
+  virtual int EnumAllocations(FEnumAllocationsCb func, const void* ptr, bool b) const = 0;
   virtual SAllocInfo GetAllocInfo(const void* ptr) const = 0;
   virtual void OffsetFakeStatics(int offset) = 0;
   virtual SMetrics GetMetrics() const = 0;
