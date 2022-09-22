@@ -2337,8 +2337,8 @@ Render__17CParticleElectricFv:
 /* 80360854 0035D7B4  93 81 00 10 */	stw r28, 0x10(r1)
 /* 80360858 0035D7B8  7C 7E 1B 78 */	mr r30, r3
 /* 8036085C 0035D7BC  48 02 4B 4D */	bl OSGetTime
-/* 80360860 0035D7C0  80 AD A6 7C */	lwz r5, lbl_805A923C@sda21(r13)
-/* 80360864 0035D7C4  80 0D A6 78 */	lwz r0, lbl_805A9238@sda21(r13)
+/* 80360860 0035D7C0  80 AD A6 7C */	lwz r5, mGlobalTimer__10CStopwatch+4@sda21(r13)
+/* 80360864 0035D7C4  80 0D A6 78 */	lwz r0, mGlobalTimer__10CStopwatch@sda21(r13)
 /* 80360868 0035D7C8  7C 85 20 10 */	subfc r4, r5, r4
 /* 8036086C 0035D7CC  7C 60 19 10 */	subfe r3, r0, r3
 /* 80360870 0035D7D0  48 02 96 F5 */	bl __cvt_sll_flt
@@ -2410,8 +2410,8 @@ lbl_80360950:
 /* 80360958 0035D8B8  41 80 FF D4 */	blt lbl_8036092C
 lbl_8036095C:
 /* 8036095C 0035D8BC  48 02 4A 4D */	bl OSGetTime
-/* 80360960 0035D8C0  80 AD A6 7C */	lwz r5, lbl_805A923C@sda21(r13)
-/* 80360964 0035D8C4  80 0D A6 78 */	lwz r0, lbl_805A9238@sda21(r13)
+/* 80360960 0035D8C0  80 AD A6 7C */	lwz r5, mGlobalTimer__10CStopwatch+4@sda21(r13)
+/* 80360964 0035D8C4  80 0D A6 78 */	lwz r0, mGlobalTimer__10CStopwatch@sda21(r13)
 /* 80360968 0035D8C8  7C 85 20 10 */	subfc r4, r5, r4
 /* 8036096C 0035D8CC  7C 60 19 10 */	subfe r3, r0, r3
 /* 80360970 0035D8D0  48 02 95 F5 */	bl __cvt_sll_flt
