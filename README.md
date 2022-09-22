@@ -11,6 +11,8 @@ This repository builds the following DOLs:
 52316d2a71c0d18c84f054fd6f1e58bdd7bf0ded  build/mp1.kor/main.dol (KOR)
 ```
 
+If you'd like to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 Dependencies
 ============
 
