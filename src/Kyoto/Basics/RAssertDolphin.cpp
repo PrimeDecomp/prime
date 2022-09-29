@@ -42,8 +42,8 @@ void ErrorHandler(OSError code, OSContext * context, int arg1, int arg2) {
                 local_60 = 0x2010408;
                 if ((pads[1].button & 0xc10) == 0xc10) {
                     if ((pads[1].button & 0xf) != 0) {
-                        if (pads[1].button & loopExitCriteria == 0) {
-                            if ((loopExitCriteria != 0) && pads[1].button == 0) {
+                        if (pads[1].button & loopExitCriteria == 0) {  // TODO: wrong logic with loopExitCriteria
+                            if ((loopExitCriteria != 0) && pads[1].button == 0) { // TODO: wrong logic with pads[1].button
                                 loopExitCriteria = 0;
                             }
                         } else {
