@@ -64,7 +64,7 @@ lbl_802D6868:
 /* 802D68D0 002D3830  38 C3 0D 1E */	addi r6, r3, 0xD1DD0D1E@l
 /* 802D68D4 002D3834  38 60 00 FF */	li r3, 0xff
 /* 802D68D8 002D3838  38 A0 00 00 */	li r5, 0
-/* 802D68DC 002D383C  48 00 00 7D */	bl ErrorHandler__FsP9OSContextii
+/* 802D68DC 002D383C  48 00 00 7D */	bl ErrorHandler__FUsP9OSContextii
 /* 802D68E0 002D3840  80 01 03 54 */	lwz r0, 0x354(r1)
 /* 802D68E4 002D3844  83 E1 03 4C */	lwz r31, 0x34c(r1)
 /* 802D68E8 002D3848  83 C1 03 48 */	lwz r30, 0x348(r1)
@@ -77,22 +77,22 @@ lbl_802D6868:
 SetErrorHandlers__Fv:
 /* 802D68FC 002D385C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802D6900 002D3860  7C 08 02 A6 */	mflr r0
-/* 802D6904 002D3864  3C 80 80 2D */	lis r4, ErrorHandler__FsP9OSContextii@ha
+/* 802D6904 002D3864  3C 80 80 2D */	lis r4, ErrorHandler__FUsP9OSContextii@ha
 /* 802D6908 002D3868  38 60 00 02 */	li r3, 2
 /* 802D690C 002D386C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802D6910 002D3870  38 84 69 58 */	addi r4, r4, ErrorHandler__FsP9OSContextii@l
+/* 802D6910 002D3870  38 84 69 58 */	addi r4, r4, ErrorHandler__FUsP9OSContextii@l
 /* 802D6914 002D3874  48 0A 92 45 */	bl OSSetErrorHandler
-/* 802D6918 002D3878  3C 80 80 2D */	lis r4, ErrorHandler__FsP9OSContextii@ha
+/* 802D6918 002D3878  3C 80 80 2D */	lis r4, ErrorHandler__FUsP9OSContextii@ha
 /* 802D691C 002D387C  38 60 00 03 */	li r3, 3
-/* 802D6920 002D3880  38 84 69 58 */	addi r4, r4, ErrorHandler__FsP9OSContextii@l
+/* 802D6920 002D3880  38 84 69 58 */	addi r4, r4, ErrorHandler__FUsP9OSContextii@l
 /* 802D6924 002D3884  48 0A 92 35 */	bl OSSetErrorHandler
-/* 802D6928 002D3888  3C 80 80 2D */	lis r4, ErrorHandler__FsP9OSContextii@ha
+/* 802D6928 002D3888  3C 80 80 2D */	lis r4, ErrorHandler__FUsP9OSContextii@ha
 /* 802D692C 002D388C  38 60 00 05 */	li r3, 5
-/* 802D6930 002D3890  38 84 69 58 */	addi r4, r4, ErrorHandler__FsP9OSContextii@l
+/* 802D6930 002D3890  38 84 69 58 */	addi r4, r4, ErrorHandler__FUsP9OSContextii@l
 /* 802D6934 002D3894  48 0A 92 25 */	bl OSSetErrorHandler
-/* 802D6938 002D3898  3C 80 80 2D */	lis r4, ErrorHandler__FsP9OSContextii@ha
+/* 802D6938 002D3898  3C 80 80 2D */	lis r4, ErrorHandler__FUsP9OSContextii@ha
 /* 802D693C 002D389C  38 60 00 0F */	li r3, 0xf
-/* 802D6940 002D38A0  38 84 69 58 */	addi r4, r4, ErrorHandler__FsP9OSContextii@l
+/* 802D6940 002D38A0  38 84 69 58 */	addi r4, r4, ErrorHandler__FUsP9OSContextii@l
 /* 802D6944 002D38A4  48 0A 92 15 */	bl OSSetErrorHandler
 /* 802D6948 002D38A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802D694C 002D38AC  7C 08 03 A6 */	mtlr r0
@@ -101,8 +101,8 @@ SetErrorHandlers__Fv:
 
 .if version >= 1
 
-.global ErrorHandler__FsP9OSContextii
-ErrorHandler__FsP9OSContextii:
+.global ErrorHandler__FUsP9OSContextii
+ErrorHandler__FUsP9OSContextii:
 /* 802D6A04 002D3964  94 21 FC C0 */	stwu r1, -0x340(r1)
 /* 802D6A08 002D3968  7C 08 02 A6 */	mflr r0
 /* 802D6A0C 002D396C  90 01 03 44 */	stw r0, 0x344(r1)
@@ -403,8 +403,8 @@ lbl_802D6E50:
 
 .else
 
-.global ErrorHandler__FsP9OSContextii
-ErrorHandler__FsP9OSContextii:
+.global ErrorHandler__FUsP9OSContextii
+ErrorHandler__FUsP9OSContextii:
 /* 802D6958 002D38B8  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 802D695C 002D38BC  7C 08 02 A6 */	mflr r0
 /* 802D6960 002D38C0  90 01 00 74 */	stw r0, 0x74(r1)
