@@ -64,7 +64,7 @@ OSTime OSGetTime();
 OSTick OSGetTick();
 void OSReport(const char* msg, ...);
 void OSPanic(const char* file, int line, const char* msg, ...);
-void OSFatal(uint a, uint b, const char* msg );
+void OSFatal(uint a, uint b, const char* msg);
 
 #ifdef __cplusplus
 }
