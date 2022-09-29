@@ -35,6 +35,7 @@ class CWorldTransManager;
 class CEntity;
 class CMazeState;
 class CRayCastResult;
+class CMaterialFilter;
 
 namespace SL {
 class CSortedListManager;
