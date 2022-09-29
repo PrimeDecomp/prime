@@ -19,6 +19,7 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Audio/CStreamAudioManager.hpp"
 #include "Kyoto/Basics/CBasics.hpp"
+#include "Kyoto/Basics/RAssertDolphin.hpp"
 #include "Kyoto/CARAMManager.hpp"
 #include "Kyoto/CARAMToken.hpp"
 #include "Kyoto/CFrameDelayedKiller.hpp"
@@ -53,8 +54,6 @@ extern "C" {
 void sub_8036ccfc();
 // part of CMain but lazy
 void nullsub_2(CMain*);
-// RAssertDolphin
-void SetErrorHandlers();
 }
 
 CResFactory* gpResourceFactory;
