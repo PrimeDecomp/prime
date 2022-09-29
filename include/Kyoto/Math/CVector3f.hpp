@@ -30,13 +30,15 @@ public:
 
   // ByElementMultiply__9CVector3fFRC9CVector3fRC9CVector3f
   // Slerp__9CVector3fFRC9CVector3fRC9CVector3fRC9CRelAngle
-  // Normalize__9CVector3fFv
-  // Magnitude__9CVector3fCFv
+  void Normalize();
+  f32 Magnitude() const;
   // AsNormalized__9CVector3fCFv
-  // CanBeNormalized__9CVector3fCFv
+  bool CanBeNormalized() const;
   // GetAngleDiff__9CVector3fFRC9CVector3fRC9CVector3f
   // IsEqu__9CVector3fCFRC9CVector3ff
   // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
+  // MagSquared__9CVector3fCFv weak
+  // Cross__9CVector3fFRC9CVector3fRC9CVector3f weak
 
   f32& operator[](EDimX dim) { return mX; }
   f32& operator[](EDimY dim) { return mY; }

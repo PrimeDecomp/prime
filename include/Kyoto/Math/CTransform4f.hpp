@@ -47,15 +47,16 @@ public:
   // GetColumn__12CTransform4fCF5EDimZ
   // GetColumn__12CTransform4fCFi
   // GetCStyleMatrix__12CTransform4fCFv
-  // GetInverse__12CTransform4fCFv
+  CTransform4f GetInverse() const;
   CTransform4f GetQuickInverse() const;
-  // GetRotation__12CTransform4fCFv
+  CTransform4f GetRotation() const;
   inline const CVector3f& GetRow(EDimX dim) const { return m0; }
   inline const CVector3f& GetRow(EDimY dim) const { return m1; }
   inline const CVector3f& GetRow(EDimZ dim) const { return m2; }
   // GetRow__12CTransform4fCFi
   // GetUp__12CTransform4fCFv
-  // LookAt__12CTransform4fFRC9CVector3fRC9CVector3fRC9CVector3f
+  static CTransform4f LookAt(const CVector3f& pos, const CVector3f& lookPos,
+                             const CVector3f& up = CVector3f::Up());
   // MakeRotationsBasedOnY__12CTransform4fFRC13CUnitVector3f
   CTransform4f MultiplyIgnoreTranslation(const CTransform4f& other) const;
   // Orthonormalize__12CTransform4fFv
@@ -91,7 +92,7 @@ public:
 
   CTransform4f& operator*=(const CTransform4f& other);
   CTransform4f operator*(const CTransform4f& vec) const;
-  CTransform4f operator*(const CVector3f& vec) const;
+  CVector3f operator*(const CVector3f& vec) const;
 
   static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&,
                                   const CVector3f&);

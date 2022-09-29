@@ -23,6 +23,7 @@ class CStateManager;
 class CCameraManager {
 public:
   CGameCamera* GetCurrentCamera(CStateManager& mgr) const;
+  void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
 
   static f32 DefaultThirdPersonFov();
 
