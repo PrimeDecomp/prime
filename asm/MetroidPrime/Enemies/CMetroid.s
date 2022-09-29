@@ -9121,9 +9121,9 @@ lbl_80171DF4:
 lbl_80171DFC:
 /* 80171DFC 0016ED5C  34 1E 06 A0 */	addic. r0, r30, 0x6a0
 /* 80171E00 0016ED60  41 82 00 24 */	beq lbl_80171E24
-/* 80171E04 0016ED64  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 80171E04 0016ED64  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 80171E08 0016ED68  34 1E 06 A0 */	addic. r0, r30, 0x6a0
-/* 80171E0C 0016ED6C  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 80171E0C 0016ED6C  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 80171E10 0016ED70  90 1E 06 A0 */	stw r0, 0x6a0(r30)
 /* 80171E14 0016ED74  41 82 00 10 */	beq lbl_80171E24
 /* 80171E18 0016ED78  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -9217,9 +9217,9 @@ lbl_80171E4C:
 /* 80171F64 0016EEC4  C3 BF 00 08 */	lfs f29, 8(r31)
 /* 80171F68 0016EEC8  D0 21 00 6C */	stfs f1, 0x6c(r1)
 /* 80171F6C 0016EECC  48 15 D9 49 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 80171F70 0016EED0  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 80171F70 0016EED0  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 80171F74 0016EED4  C0 22 A0 98 */	lfs f1, lbl_805ABDB8@sda21(r2)
-/* 80171F78 0016EED8  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 80171F78 0016EED8  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 80171F7C 0016EEDC  38 7A 06 C0 */	addi r3, r26, 0x6c0
 /* 80171F80 0016EEE0  90 19 00 00 */	stw r0, 0(r25)
 /* 80171F84 0016EEE4  FC 40 08 90 */	fmr f2, f1

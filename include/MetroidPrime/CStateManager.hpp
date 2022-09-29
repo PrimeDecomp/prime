@@ -60,6 +60,7 @@ public:
   CRayCastResult RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos, const CVector3f& dir,
                                       f32 length, const CMaterialFilter& filter,
                                       const TEntityList& list) const;
+  void BuildColliderList(TEntityList& out, const CActor& actor, const CAABox& aabb) const;
 
   CEntity* ObjectById(TUniqueId uid);
   const CEntity* GetObjectById(TUniqueId uid) const;

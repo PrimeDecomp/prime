@@ -1176,8 +1176,8 @@ lbl_801A95E4:
 /* 801A96E0 001A6640  38 81 00 38 */	addi r4, r1, 0x38
 /* 801A96E4 001A6644  90 A1 00 3C */	stw r5, 0x3c(r1)
 /* 801A96E8 001A6648  48 12 61 CD */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 801A96EC 001A664C  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
-/* 801A96F0 001A6650  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 801A96EC 001A664C  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
+/* 801A96F0 001A6650  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 801A96F4 001A6654  90 1E 00 00 */	stw r0, 0(r30)
 /* 801A96F8 001A6658  D3 DE 00 10 */	stfs f30, 0x10(r30)
 /* 801A96FC 001A665C  D3 BE 00 14 */	stfs f29, 0x14(r30)

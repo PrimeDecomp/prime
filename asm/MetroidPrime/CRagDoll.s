@@ -1470,8 +1470,8 @@ lbl_8020DBF8:
 /* 8020DCA0 0020AC00  38 81 00 40 */	addi r4, r1, 0x40
 /* 8020DCA4 0020AC04  48 0C 1C 11 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 8020DCA8 0020AC08  83 01 00 84 */	lwz r24, 0x84(r1)
-/* 8020DCAC 0020AC0C  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
-/* 8020DCB0 0020AC10  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 8020DCAC 0020AC0C  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
+/* 8020DCB0 0020AC10  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 8020DCB4 0020AC14  83 21 00 88 */	lwz r25, 0x88(r1)
 /* 8020DCB8 0020AC18  81 81 00 8C */	lwz r12, 0x8c(r1)
 /* 8020DCBC 0020AC1C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
@@ -1496,9 +1496,9 @@ lbl_8020DBF8:
 /* 8020DD08 0020AC68  91 61 00 08 */	stw r11, 8(r1)
 /* 8020DD0C 0020AC6C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8020DD10 0020AC70  4B F7 65 DD */	bl "DetectCollision_Cached_Moving__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>9CVector3fR9TUniqueIdR14CCollisionInfoRd"
-/* 8020DD14 0020AC74  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 8020DD14 0020AC74  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 8020DD18 0020AC78  88 01 01 28 */	lbz r0, 0x128(r1)
-/* 8020DD1C 0020AC7C  38 83 CA F8 */	addi r4, r3, lbl_803ECAF8@l
+/* 8020DD1C 0020AC7C  38 83 CA F8 */	addi r4, r3, __vt__17CCollidableSphere@l
 /* 8020DD20 0020AC80  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8020DD24 0020AC84  90 81 00 90 */	stw r4, 0x90(r1)
 /* 8020DD28 0020AC88  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l

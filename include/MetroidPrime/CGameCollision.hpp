@@ -3,10 +3,11 @@
 
 #include "types.h"
 
-class CStateManager;
+class CAreaCollisionCache;
 class CCollisionPrimitive;
-class CTransform4f;
 class CMaterialFilter;
+class CStateManager;
+class CTransform4f;
 
 class CGameCollision {
 public:
@@ -14,6 +15,15 @@ public:
                                            const CTransform4f&, const CMaterialFilter&);
   static bool DetectDynamicCollisionBoolean(const CCollisionPrimitive&, const CTransform4f&,
                                             const TEntityList&, const CStateManager&);
+  static void BuildAreaCollisionCache(const CStateManager& mgr, CAreaCollisionCache& cache);
+  static bool DetectCollisionBoolean_Cached(const CStateManager& mgr, CAreaCollisionCache& cache,
+                                            const CCollisionPrimitive& prim, const CTransform4f& xf,
+                                            const CMaterialFilter& filter,
+                                            const TEntityList& nearList);
+  static bool DetectCollision_Cached_Moving(const CStateManager&, CAreaCollisionCache&,
+                                            const CCollisionPrimitive&, const CTransform4f&,
+                                            const CMaterialFilter&, const TEntityList&, CVector3f,
+                                            TUniqueId&, CCollisionInfo&, f64&);
 };
 
 #endif

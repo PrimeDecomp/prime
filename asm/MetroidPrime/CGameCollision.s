@@ -232,9 +232,9 @@ sub_8017fb84:
 /* 8017FD5C 0017CCBC  38 81 00 10 */	addi r4, r1, 0x10
 /* 8017FD60 0017CCC0  90 A1 00 14 */	stw r5, 0x14(r1)
 /* 8017FD64 0017CCC4  48 14 FB 51 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 8017FD68 0017CCC8  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 8017FD68 0017CCC8  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 8017FD6C 0017CCCC  80 AD 8E 98 */	lwz r5, lbl_805A7A58@sda21(r13)
-/* 8017FD70 0017CCD0  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 8017FD70 0017CCD0  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 8017FD74 0017CCD4  D3 41 01 08 */	stfs f26, 0x108(r1)
 /* 8017FD78 0017CCD8  38 60 00 00 */	li r3, 0
 /* 8017FD7C 0017CCDC  38 80 00 01 */	li r4, 1
@@ -258,9 +258,9 @@ sub_8017fb84:
 /* 8017FDC4 0017CD24  91 01 00 E0 */	stw r8, 0xe0(r1)
 /* 8017FDC8 0017CD28  90 01 00 F0 */	stw r0, 0xf0(r1)
 /* 8017FDCC 0017CD2C  48 00 38 2D */	bl DetectStaticCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
-/* 8017FDD0 0017CD30  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 8017FDD0 0017CD30  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 8017FDD4 0017CD34  54 60 06 3F */	clrlwi. r0, r3, 0x18
-/* 8017FDD8 0017CD38  3B A4 CA F8 */	addi r29, r4, lbl_803ECAF8@l
+/* 8017FDD8 0017CD38  3B A4 CA F8 */	addi r29, r4, __vt__17CCollidableSphere@l
 /* 8017FDDC 0017CD3C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8017FDE0 0017CD40  93 A1 00 F8 */	stw r29, 0xf8(r1)
 /* 8017FDE4 0017CD44  3B C3 97 E4 */	addi r30, r3, __vt__19CCollisionPrimitive@l

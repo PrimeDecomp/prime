@@ -53,7 +53,7 @@ public:
   inline const CVector3f& GetRow(EDimX dim) const { return m0; }
   inline const CVector3f& GetRow(EDimY dim) const { return m1; }
   inline const CVector3f& GetRow(EDimZ dim) const { return m2; }
-  // GetRow__12CTransform4fCFi
+  inline const CVector3f& GetRow(int i) const { return *(&m0 + i); }
   // GetUp__12CTransform4fCFv
   static CTransform4f LookAt(const CVector3f& pos, const CVector3f& lookPos,
                              const CVector3f& up = CVector3f::Up());
@@ -73,8 +73,6 @@ public:
   // ScaleBy__12CTransform4fFf
   // SetRotation__12CTransform4fFRC12CTransform4f
   // SetRotation__12CTransform4fFRC9CMatrix3f
-  // Translate__12CTransform4fFfff
-  // Translate__12CTransform4fFRC9CVector3f
   // TransposeMultiply__12CTransform4fCFRC9CVector3f
   CVector3f TransposeRotate(const CVector3f& in) const;
 
@@ -96,6 +94,9 @@ public:
 
   static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&,
                                   const CVector3f&);
+  static CTransform4f Translate(f32 x, f32 y, f32 z);
+  static CTransform4f Translate(const CVector3f& vec);
+
   static const CTransform4f& Identity() { return sIdentity; }
 
 private:

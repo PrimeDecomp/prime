@@ -362,9 +362,9 @@ __dt__11CWallWalkerFv:
 /* 80156A9C 001539FC  38 03 A0 F0 */	addi r0, r3, lbl_803EA0F0@l
 /* 80156AA0 00153A00  90 1E 00 00 */	stw r0, 0(r30)
 /* 80156AA4 00153A04  41 82 00 24 */	beq lbl_80156AC8
-/* 80156AA8 00153A08  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 80156AA8 00153A08  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 80156AAC 00153A0C  34 1E 05 90 */	addic. r0, r30, 0x590
-/* 80156AB0 00153A10  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 80156AB0 00153A10  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 80156AB4 00153A14  90 1E 05 90 */	stw r0, 0x590(r30)
 /* 80156AB8 00153A18  41 82 00 10 */	beq lbl_80156AC8
 /* 80156ABC 00153A1C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha

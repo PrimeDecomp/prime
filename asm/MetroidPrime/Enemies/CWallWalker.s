@@ -1152,9 +1152,9 @@ ProjectPointToPlane__11CWallWalkerFRC9CVector3fRC9CVector3fRC9CVector3f:
 /* 80269358 002662B8  7F 63 DB 78 */	mr r3, r27
 /* 8026935C 002662BC  C3 A5 00 08 */	lfs f29, 8(r5)
 /* 80269360 002662C0  48 06 65 55 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 80269364 002662C4  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 80269364 002662C4  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 80269368 002662C8  C0 02 BB 04 */	lfs f0, lbl_805AD824@sda21(r2)
-/* 8026936C 002662CC  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 8026936C 002662CC  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 80269370 002662D0  80 82 BA F8 */	lwz r4, lbl_805AD818@sda21(r2)
 /* 80269374 002662D4  90 1B 00 00 */	stw r0, 0(r27)
 /* 80269378 002662D8  38 61 00 24 */	addi r3, r1, 0x24

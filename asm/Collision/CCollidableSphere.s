@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803ECAF8
-lbl_803ECAF8:
+.global __vt__17CCollidableSphere
+__vt__17CCollidableSphere:
 	# ROM: 0x3E9AF8
 	.4byte 0
 	.4byte 0
