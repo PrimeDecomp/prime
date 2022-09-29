@@ -2101,7 +2101,7 @@ lbl_800822B8:
 /* 800823F0 0007F350  91 21 00 4C */	stw r9, 0x4c(r1)
 /* 800823F4 0007F354  91 01 00 50 */	stw r8, 0x50(r1)
 /* 800823F8 0007F358  90 01 00 54 */	stw r0, 0x54(r1)
-/* 800823FC 0007F35C  48 00 78 B9 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 800823FC 0007F35C  48 00 78 B9 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80082400 0007F360  C0 41 00 58 */	lfs f2, 0x58(r1)
 /* 80082404 0007F364  C0 21 00 5C */	lfs f1, 0x5c(r1)
 /* 80082408 0007F368  C0 01 00 60 */	lfs f0, 0x60(r1)
@@ -2269,7 +2269,7 @@ lbl_80082604:
 /* 80082670 0007F5D0  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 80082674 0007F5D4  80 08 05 14 */	lwz r0, 0x514(r8)
 /* 80082678 0007F5D8  90 01 00 30 */	stw r0, 0x30(r1)
-/* 8008267C 0007F5DC  48 00 76 39 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 8008267C 0007F5DC  48 00 76 39 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80082680 0007F5E0  C0 41 00 34 */	lfs f2, 0x34(r1)
 /* 80082684 0007F5E4  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 80082688 0007F5E8  C0 21 00 38 */	lfs f1, 0x38(r1)
@@ -3587,7 +3587,7 @@ ActivateFailSafe__11CBallCameraFfR13CStateManager:
 /* 800839AC 0008090C  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 800839B0 00080910  80 08 05 14 */	lwz r0, 0x514(r8)
 /* 800839B4 00080914  90 01 00 20 */	stw r0, 0x20(r1)
-/* 800839B8 00080918  48 00 62 FD */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 800839B8 00080918  48 00 62 FD */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 800839BC 0008091C  C0 41 00 24 */	lfs f2, 0x24(r1)
 /* 800839C0 00080920  7F C3 F3 78 */	mr r3, r30
 /* 800839C4 00080924  C0 21 00 28 */	lfs f1, 0x28(r1)
@@ -5069,7 +5069,7 @@ lbl_80084F3C:
 /* 80084F68 00081EC8  90 01 00 E4 */	stw r0, 0xe4(r1)
 /* 80084F6C 00081ECC  80 09 05 14 */	lwz r0, 0x514(r9)
 /* 80084F70 00081ED0  90 01 00 E8 */	stw r0, 0xe8(r1)
-/* 80084F74 00081ED4  48 00 4D 41 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 80084F74 00081ED4  48 00 4D 41 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80084F78 00081ED8  C0 41 00 EC */	lfs f2, 0xec(r1)
 /* 80084F7C 00081EDC  C0 21 00 F0 */	lfs f1, 0xf0(r1)
 /* 80084F80 00081EE0  C0 01 00 F4 */	lfs f0, 0xf4(r1)
@@ -7160,7 +7160,7 @@ lbl_80086E2C:
 /* 80086E7C 00083DDC  91 21 00 BC */	stw r9, 0xbc(r1)
 /* 80086E80 00083DE0  91 01 00 C0 */	stw r8, 0xc0(r1)
 /* 80086E84 00083DE4  90 01 00 C4 */	stw r0, 0xc4(r1)
-/* 80086E88 00083DE8  48 00 2E 2D */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 80086E88 00083DE8  48 00 2E 2D */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80086E8C 00083DEC  C0 41 00 C8 */	lfs f2, 0xc8(r1)
 /* 80086E90 00083DF0  C0 21 00 CC */	lfs f1, 0xcc(r1)
 /* 80086E94 00083DF4  C0 01 00 D0 */	lfs f0, 0xd0(r1)
@@ -7735,7 +7735,7 @@ lbl_8008770C:
 /* 80087734 00084694  38 E0 00 00 */	li r7, 0
 /* 80087738 00084698  C0 41 00 10 */	lfs f2, 0x10(r1)
 /* 8008773C 0008469C  90 01 00 58 */	stw r0, 0x58(r1)
-/* 80087740 000846A0  48 00 25 75 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 80087740 000846A0  48 00 25 75 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80087744 000846A4  C0 22 89 B0 */	lfs f1, lbl_805AA6D0@sda21(r2)
 /* 80087748 000846A8  38 7E 03 7C */	addi r3, r30, 0x37c
 /* 8008774C 000846AC  C0 81 00 5C */	lfs f4, 0x5c(r1)
@@ -8185,7 +8185,7 @@ lbl_80087D70:
 /* 80087E08 00084D68  91 21 01 48 */	stw r9, 0x148(r1)
 /* 80087E0C 00084D6C  91 01 01 4C */	stw r8, 0x14c(r1)
 /* 80087E10 00084D70  90 01 01 50 */	stw r0, 0x150(r1)
-/* 80087E14 00084D74  48 00 1E A1 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 80087E14 00084D74  48 00 1E A1 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80087E18 00084D78  38 61 01 3C */	addi r3, r1, 0x13c
 /* 80087E1C 00084D7C  38 81 02 88 */	addi r4, r1, 0x288
 /* 80087E20 00084D80  38 A1 02 98 */	addi r5, r1, 0x298
@@ -10215,7 +10215,7 @@ lbl_80089BE0:
 /* 80089C30 00086B90  38 E0 00 00 */	li r7, 0
 /* 80089C34 00086B94  C0 41 00 08 */	lfs f2, 8(r1)
 /* 80089C38 00086B98  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80089C3C 00086B9C  48 00 00 79 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 80089C3C 00086B9C  48 00 00 79 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 80089C40 00086BA0  C0 21 00 1C */	lfs f1, 0x1c(r1)
 /* 80089C44 00086BA4  7F C3 F3 78 */	mr r3, r30
 /* 80089C48 00086BA8  C0 41 00 20 */	lfs f2, 0x20(r1)
@@ -10246,8 +10246,8 @@ lbl_80089BE0:
 /* 80089CAC 00086C0C  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 80089CB0 00086C10  4E 80 00 20 */	blr
 
-.global FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
-FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb:
+.global FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
+FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb:
 /* 80089CB4 00086C14  94 21 EA 10 */	stwu r1, -0x15f0(r1)
 /* 80089CB8 00086C18  7C 08 02 A6 */	mflr r0
 /* 80089CBC 00086C1C  90 01 15 F4 */	stw r0, 0x15f4(r1)
@@ -12730,7 +12730,7 @@ Reset__11CBallCameraFRC12CTransform4fR13CStateManager:
 /* 8008C124 00089084  90 01 00 40 */	stw r0, 0x40(r1)
 /* 8008C128 00089088  C0 3E 01 90 */	lfs f1, 0x190(r30)
 /* 8008C12C 0008908C  C0 5E 01 A0 */	lfs f2, 0x1a0(r30)
-/* 8008C130 00089090  4B FF DB 85 */	bl FindDesiredPosition__11CBallCameraFffRC9CVector3fR13CStateManagerb
+/* 8008C130 00089090  4B FF DB 85 */	bl FindDesiredPosition__11CBallCameraFff9CVector3fR13CStateManagerb
 /* 8008C134 00089094  C0 41 00 44 */	lfs f2, 0x44(r1)
 /* 8008C138 00089098  7F E3 FB 78 */	mr r3, r31
 /* 8008C13C 0008909C  C0 21 00 48 */	lfs f1, 0x48(r1)

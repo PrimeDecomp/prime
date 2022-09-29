@@ -26,6 +26,7 @@ public:
   virtual void ProcessInput(const CFinalInput&, CStateManager& mgr) = 0;
   virtual void Reset(const CTransform4f&, CStateManager& mgr) = 0;
 
+  TUniqueId GetWatchedObject() const { return xe8_watchedObject; }
   f32 GetFov() const { return x15c_currentFov; }
   void SetFov(f32 fov) { x15c_currentFov = fov; }
   void SetFovInterpolation(f32 start, f32 fov, f32 time, f32 delayTime);

@@ -149,7 +149,10 @@ public:
   virtual bool IsTransparent();
 
   CVector3f GetBallPosition() const;
+  CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
+  const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
+  // GetMovementDirection2D__7CPlayerCFv ??
 
 private:
   struct CVisorSteam {

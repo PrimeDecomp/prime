@@ -39,27 +39,31 @@ public:
 
   f32 GetRadius() const { return x4_radius; }
   // TODO
-  CVector3f GetRealPosition() const;
-  CVector3f GetDesiredPosition() const;
-  CVector3f GetLookAtPosition() const;
-  CVector3f GetLineOfSight() const;
-  CVector3f GetPosition() const;
+  const CVector3f& GetRealPosition() const { return x2c_lastWorldPos; }
+  const CVector3f& GetDesiredPosition() const { return x14_localPos; }
+  const CVector3f& GetLookAtPosition() const { return x20_scaledWorldPos; }
+  const CVector3f& GetLineOfSight() const;
+  const CVector3f& GetPosition() const { return x8_lastLocalPos; }
+  uint GetOcclusionCount() const { return x4c_occlusionCount; }
 
   void SetRadius(f32 radius) { this->x4_radius = radius; }
   // TODO
-  void SetPosition();
+  void SetPosition(CVector3f vec) { x8_lastLocalPos = vec; }
   void SetRealPosition(CVector3f vec) { x2c_lastWorldPos = vec; }
   void SetDesiredPosition(CVector3f vec) { x14_localPos = vec; }
   void SetLookAtPosition(CVector3f vec) { x20_scaledWorldPos = vec; }
   void SetLineOfSight();
+  void SetOcclusionCount(uint val) { x4c_occlusionCount = val; }
 
 private:
   f32 x4_radius;
-  CVector3f x8_lastLocalPos;
+  CVector3f x8_lastLocalPos;    // position
   CVector3f x14_localPos;       // desired position
   CVector3f x20_scaledWorldPos; // look at position
   CVector3f x2c_lastWorldPos;   // real position
   CCameraSpring x38_spring;
+
+public: // TODO
   uint x4c_occlusionCount;
   f32 x50_scale;
 };
@@ -115,6 +119,17 @@ public:
   void TeleportCamera(const CTransform4f& xf, CStateManager& mgr);
   void ResetPosition(CStateManager& mgr);
   void ResetToTweaks(CStateManager& mgr);
+  CVector3f FindDesiredPosition(f32 distance, f32 elevation, CVector3f dir, CStateManager& mgr,
+                                bool fullTest);
+  void UpdateCollidersDistances(rstl::vector< CCameraCollider >& colliderList, f32 xMag, f32 zMag,
+                                f32 angOffset);
+  void UpdateColliders(const CTransform4f& xf, rstl::vector< CCameraCollider >& colliderList,
+                       int& idx, int count, float tolerance, const TEntityList& nearList, f32 dt,
+                       CStateManager& mgr);
+
+  const CVector3f& GetLookAtPosition() const { return x1d8_lookPos; }
+  f32 GetDistance() const { return x190_curMinDistance; }
+  f32 GetElevation() const { return x1a0_elevation; }
 
   void SetBehaviourType(EBallCameraBehaviour type) { x188_behaviour = type; }
   void SetAllowChaseCamera(bool v) { x18c_25_chaseAllowed = v; }

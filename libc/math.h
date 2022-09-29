@@ -7,6 +7,10 @@
 extern "C" {
 #endif
 
+#ifndef _MATH_INLINE
+#define _MATH_INLINE static inline
+#endif
+
 #ifdef __MWERKS__
 
 /* Metrowerks */
@@ -67,8 +71,8 @@ double sin(double x);
 double cos(double x);
 double atan(double x);
 
-float sinf(float x);
-float cosf(float x);
+_MATH_INLINE float sinf(float x) { return (float)sin((double)x); }
+_MATH_INLINE float cosf(float x) { return (float)cos((double)x); }
 float tanf(float x);
 float acosf(float x);
 

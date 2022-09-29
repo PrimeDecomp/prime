@@ -34,6 +34,7 @@ class CWorld;
 class CWorldTransManager;
 class CEntity;
 class CMazeState;
+class CRayCastResult;
 
 namespace SL {
 class CSortedListManager;
@@ -52,6 +53,12 @@ public:
   void SetupParticleHook(const CActor& actor) const;
   void FreeScriptObject(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
+
+  bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
+                       const CMaterialFilter& filter, const CActor* damagee) const;
+  CRayCastResult RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos, const CVector3f& dir,
+                                      f32 length, const CMaterialFilter& filter,
+                                      const TEntityList& list) const;
 
   CEntity* ObjectById(TUniqueId uid);
   const CEntity* GetObjectById(TUniqueId uid) const;
