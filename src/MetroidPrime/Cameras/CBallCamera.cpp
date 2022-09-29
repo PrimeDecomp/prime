@@ -2,13 +2,18 @@
 
 #include "math.h"
 
+#include "Collision/CCollidableSphere.hpp"
+#include "Collision/CCollisionInfo.hpp"
 #include "Collision/CRayCastResult.hpp"
 
 #include "MetroidPrime/CCollisionActor.hpp"
+#include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakBall.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
+
+#include "WorldFormat/CMetroidAreaCollider.hpp"
 
 static CMaterialList kLineOfSightIncludeList = CMaterialList(kMT_Solid);
 static CMaterialList kLineOfSightExcludeList =
@@ -353,4 +358,232 @@ void CBallCamera::UpdateColliders(const CTransform4f& xf,
       }
     }
   }
+}
+
+// TODO non-matching regswaps
+CVector3f
+CBallCamera::CalculateCollidersCentroid(const rstl::vector< CCameraCollider >& colliderList,
+                                        int numObscured) const {
+  if (colliderList.size() < 3) {
+    return CVector3f(0.f, 1.f, 0.f);
+  }
+
+  int clearColliders = 0;
+  int prevCol = colliderList.size() - 1;
+  f32 accumCross = 0.f;
+  f32 accumX = 0.f;
+  f32 accumZ = 0.f;
+  for (int i = 0; i < colliderList.size(); ++i) {
+    if (colliderList[prevCol].GetOcclusionCount() < 2 && colliderList[i].GetOcclusionCount() < 2) {
+      f32 scale = colliderList[prevCol].GetScale();
+      f32 z0 = scale * colliderList[prevCol].GetPosition().GetZ();
+      f32 x0 = scale * colliderList[prevCol].GetPosition().GetX();
+      f32 x1 = scale * colliderList[i].GetPosition().GetX();
+      f32 z1 = scale * colliderList[i].GetPosition().GetZ();
+
+      f32 cross = x0 * z1 - x1 * z0;
+      accumCross += cross;
+      accumX += cross * (x1 + x0);
+      accumZ += cross * (z1 + z0);
+    } else {
+      clearColliders += 1;
+    }
+    prevCol = i;
+  }
+
+  if (static_cast< f32 >(clearColliders) / static_cast< f32 >(colliderList.size()) <=
+      x330_clearColliderThreshold) {
+    return CVector3f(0.f, 1.f, 0.f);
+  }
+
+  if (accumCross != 0.f) {
+    f32 baryCross = 3.f * accumCross;
+    return CVector3f(accumX / baryCross, 0.f, accumZ / baryCross);
+  }
+
+  return CVector3f(0.f, 2.f, 0.f);
+}
+
+CVector3f CBallCamera::ApplyColliders() {
+  CVector3f smallCentroid =
+      CalculateCollidersCentroid(x264_smallColliders, x2c4_smallCollidersObsCount);
+  CVector3f mediumCentroid =
+      CalculateCollidersCentroid(x274_mediumColliders, x2c8_mediumCollidersObsCount);
+  CVector3f largeCentroid =
+      CalculateCollidersCentroid(x284_largeColliders, x2cc_largeCollidersObsCount);
+
+  if (smallCentroid.GetY() == 0.f) {
+    x2a0_smallCentroid = smallCentroid;
+  } else {
+    x2a0_smallCentroid = CVector3f::Zero();
+  }
+
+  float centroidX = x2a0_smallCentroid.GetX();
+  float centroidZ = x2a0_smallCentroid.GetZ();
+
+  if (mediumCentroid.GetY() == 0.f) {
+    x2ac_mediumCentroid = mediumCentroid;
+  } else {
+    x2ac_mediumCentroid = CVector3f::Zero();
+  }
+
+  centroidX += x2ac_mediumCentroid.GetX();
+  centroidZ += x2ac_mediumCentroid.GetZ();
+
+  if (largeCentroid.GetY() == 0.f) {
+    x2b8_largeCentroid = largeCentroid;
+  } else {
+    x2b8_largeCentroid = CVector3f::Zero();
+  }
+
+  centroidX += x2b8_largeCentroid.GetX();
+  centroidZ += x2b8_largeCentroid.GetZ();
+
+  if (x18c_31_clearLOS) {
+    centroidX /= 1.5f;
+  }
+  centroidZ /= 3.f;
+
+  if (!x18c_31_clearLOS && x368_obscuringObjectId == kInvalidUniqueId) {
+    float xMul = 1.5f;
+    float zMul = 1.f;
+    if (x350_obscuringMaterial.HasMaterial(kMT_Floor)) {
+      zMul += 2.f * x358_unobscureMag;
+    }
+    if (x350_obscuringMaterial.HasMaterial(kMT_Wall)) {
+      xMul += 3.f * CMath::Clamp(0.f, x358_unobscureMag - 0.25f, 1.f);
+    }
+    centroidX *= xMul;
+    centroidZ *= zMul;
+  }
+
+  if (!x18c_28_volumeCollider) {
+    return CVector3f::Zero();
+  }
+
+  if (fabsf(centroidX) < 0.05f) {
+    centroidX = 0.f;
+  }
+  if (fabsf(centroidZ) < 0.05f) {
+    centroidZ = 0.f;
+  }
+
+  if (x18c_31_clearLOS) {
+    centroidZ *= 0.5f;
+  }
+
+  return CVector3f(centroidX, 0.f, centroidZ);
+}
+
+int CBallCamera::CountObscuredColliders(const rstl::vector< CCameraCollider >& colliderList) const {
+  int ret = 0;
+  for (int i = 0; i < colliderList.size(); i++) {
+    if (colliderList[i].GetOcclusionCount() >= 2) {
+      ++ret;
+    }
+  }
+  return ret;
+}
+
+CAABox
+CBallCamera::CalculateCollidersBoundingBox(const rstl::vector< CCameraCollider >& colliderList,
+                                           const CStateManager& mgr) const {
+  CAABox aabb = CAABox::MakeMaxInvertedBox();
+  for (int i = 0; i < colliderList.size(); i++) {
+    aabb.AccumulateBounds(colliderList[i].GetRealPosition());
+  }
+  aabb.AccumulateBounds(mgr.GetPlayer()->GetTranslation());
+  return aabb;
+}
+
+CVector3f CBallCamera::AvoidGeometryFull(const CTransform4f& xf, const TEntityList& nearList,
+                                         f32 dt, CStateManager& mgr) {
+  UpdateColliders(xf, x264_smallColliders, x2d0_smallColliderIt, x264_smallColliders.size(), 4.f,
+                  nearList, dt, mgr);
+  UpdateColliders(xf, x274_mediumColliders, x2d4_mediumColliderIt, x274_mediumColliders.size(), 4.f,
+                  nearList, dt, mgr);
+  UpdateColliders(xf, x284_largeColliders, x2d8_largeColliderIt, x284_largeColliders.size(), 4.f,
+                  nearList, dt, mgr);
+  return ApplyColliders();
+}
+
+CVector3f CBallCamera::AvoidGeometry(const CTransform4f& xf, const TEntityList& nearList, f32 dt,
+                                     CStateManager& mgr) {
+  switch (x328_avoidGeomCycle) {
+  case 0:
+    UpdateColliders(xf, x264_smallColliders, x2d0_smallColliderIt, 1, 4.f, nearList, dt, mgr);
+    break;
+  case 1:
+    UpdateColliders(xf, x274_mediumColliders, x2d4_mediumColliderIt, 3, 4.f, nearList, dt, mgr);
+    break;
+  case 2:
+    UpdateColliders(xf, x284_largeColliders, x2d8_largeColliderIt, 4, 4.f, nearList, dt, mgr);
+    break;
+  case 3:
+    UpdateColliders(xf, x284_largeColliders, x2d8_largeColliderIt, 4, 4.f, nearList, dt, mgr);
+    break;
+  default:
+    break;
+  }
+
+  int newCycle = x328_avoidGeomCycle + 1;
+  x328_avoidGeomCycle = newCycle;
+  if (newCycle >= 4) {
+    x328_avoidGeomCycle = 0;
+  }
+
+  return ApplyColliders();
+}
+
+// TODO non-matching regswaps
+bool CBallCamera::DetectCollision(const CVector3f& from, const CVector3f& to, f32 radius, f32& d,
+                                  CStateManager& mgr) {
+  CVector3f delta = to - from;
+  f32 deltaMag = delta.Magnitude();
+  CVector3f deltaNorm = delta * (1.f / deltaMag);
+  bool clear = true;
+
+  if (deltaMag > 0.000001f) {
+    f32 margin = 2.f * radius;
+    CAABox aabb = CAABox::MakeMaxInvertedBox();
+    aabb.AccumulateBounds(from);
+    aabb.AccumulateBounds(to);
+    aabb = CAABox(aabb.GetMinPoint() - CVector3f(margin, margin, margin),
+                  aabb.GetMaxPoint() + CVector3f(margin, margin, margin));
+    TEntityList nearList;
+    mgr.BuildColliderList(nearList, *mgr.GetPlayer(), aabb);
+    CAreaCollisionCache cache(aabb);
+    CGameCollision::BuildAreaCollisionCache(mgr, cache);
+    if (cache.HasCacheOverflowed()) {
+      clear = false;
+    }
+    if (CGameCollision::DetectCollisionBoolean_Cached(
+            mgr, cache,
+            CCollidableSphere(CSphere(CVector3f::Zero(), radius), CMaterialList(kMT_Solid)),
+            CTransform4f::Translate(from),
+            CMaterialFilter::MakeIncludeExclude(
+                CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough, kMT_Player,
+                                                        kMT_Character, kMT_CameraPassthrough)),
+            nearList)) {
+      d = -1.f;
+      return true;
+    }
+    if (clear) {
+      TUniqueId intersectId = kInvalidUniqueId;
+      CCollisionInfo info;
+      f64 dTmp = deltaMag;
+      if (CGameCollision::DetectCollision_Cached_Moving(
+              mgr, cache,
+              CCollidableSphere(CSphere(CVector3f::Zero(), radius), CMaterialList(kMT_Solid)),
+              CTransform4f::Translate(from),
+              CMaterialFilter::MakeIncludeExclude(
+                  CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough, kMT_Player,
+                                                          kMT_Character, kMT_CameraPassthrough)),
+              nearList, deltaNorm, intersectId, info, dTmp)) {
+        d = static_cast< f32 >(dTmp);
+        clear = false;
+      }
+    }
+  }
+  return !clear;
 }

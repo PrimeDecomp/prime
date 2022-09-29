@@ -44,7 +44,8 @@ public:
   const CVector3f& GetLookAtPosition() const { return x20_scaledWorldPos; }
   const CVector3f& GetLineOfSight() const;
   const CVector3f& GetPosition() const { return x8_lastLocalPos; }
-  uint GetOcclusionCount() const { return x4c_occlusionCount; }
+  int GetOcclusionCount() const { return x4c_occlusionCount; }
+  f32 GetScale() const { return x50_scale; }
 
   void SetRadius(f32 radius) { this->x4_radius = radius; }
   // TODO
@@ -53,7 +54,8 @@ public:
   void SetDesiredPosition(CVector3f vec) { x14_localPos = vec; }
   void SetLookAtPosition(CVector3f vec) { x20_scaledWorldPos = vec; }
   void SetLineOfSight();
-  void SetOcclusionCount(uint val) { x4c_occlusionCount = val; }
+  void SetOcclusionCount(int val) { x4c_occlusionCount = val; }
+  void SetScale(f32 val) { x50_scale = val; }
 
 private:
   f32 x4_radius;
@@ -62,9 +64,7 @@ private:
   CVector3f x20_scaledWorldPos; // look at position
   CVector3f x2c_lastWorldPos;   // real position
   CCameraSpring x38_spring;
-
-public: // TODO
-  uint x4c_occlusionCount;
+  int x4c_occlusionCount;
   f32 x50_scale;
 };
 
@@ -125,6 +125,18 @@ public:
                                 f32 angOffset);
   void UpdateColliders(const CTransform4f& xf, rstl::vector< CCameraCollider >& colliderList,
                        int& idx, int count, float tolerance, const TEntityList& nearList, f32 dt,
+                       CStateManager& mgr);
+  CVector3f CalculateCollidersCentroid(const rstl::vector< CCameraCollider >& colliderList,
+                                       int numObscured) const;
+  CVector3f ApplyColliders();
+  int CountObscuredColliders(const rstl::vector< CCameraCollider >& colliderList) const;
+  CAABox CalculateCollidersBoundingBox(const rstl::vector< CCameraCollider >& colliderList,
+                                       const CStateManager&) const;
+  CVector3f AvoidGeometryFull(const CTransform4f& xf, const TEntityList& nearList, f32 dt,
+                              CStateManager& mgr);
+  CVector3f AvoidGeometry(const CTransform4f& xf, const TEntityList& nearList, f32 dt,
+                          CStateManager& mgr);
+  bool DetectCollision(const CVector3f& from, const CVector3f& to, f32 radius, f32& d,
                        CStateManager& mgr);
 
   const CVector3f& GetLookAtPosition() const { return x1d8_lookPos; }
@@ -226,7 +238,7 @@ private:
   f32 x30c_speedingTime;
   CVector3f x310_idealLookVec;
   CVector3f x31c_predictedLookPos;
-  uint x328_avoidGeomCycle;
+  int x328_avoidGeomCycle;
   f32 x32c_colliderMag;
   f32 x330_clearColliderThreshold;
   CAABox x334_collidersAABB;

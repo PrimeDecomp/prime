@@ -5196,9 +5196,9 @@ BallCloseToCollision__10CMorphBallCFRC13CStateManagerfRC15CMaterialFilter:
 /* 800F162C 000EE58C  EF C2 18 2A */	fadds f30, f2, f3
 /* 800F1630 000EE590  EF E0 08 2A */	fadds f31, f0, f1
 /* 800F1634 000EE594  48 1D E2 81 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 800F1638 000EE598  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 800F1638 000EE598  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 800F163C 000EE59C  38 00 00 00 */	li r0, 0
-/* 800F1640 000EE5A0  38 A3 CA F8 */	addi r5, r3, lbl_803ECAF8@l
+/* 800F1640 000EE5A0  38 A3 CA F8 */	addi r5, r3, __vt__17CCollidableSphere@l
 /* 800F1644 000EE5A4  D3 A1 00 48 */	stfs f29, 0x48(r1)
 /* 800F1648 000EE5A8  38 61 00 20 */	addi r3, r1, 0x20
 /* 800F164C 000EE5AC  38 81 00 38 */	addi r4, r1, 0x38
@@ -5244,9 +5244,9 @@ lbl_800F16D4:
 lbl_800F16E4:
 /* 800F16E4 000EE644  42 00 00 00 */	bdnz lbl_800F16E4
 lbl_800F16E8:
-/* 800F16E8 000EE648  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 800F16E8 000EE648  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 800F16EC 000EE64C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 800F16F0 000EE650  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F16F0 000EE650  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F16F4 000EE654  38 80 00 00 */	li r4, 0
 /* 800F16F8 000EE658  90 01 00 38 */	stw r0, 0x38(r1)
 /* 800F16FC 000EE65C  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -5325,9 +5325,9 @@ lbl_800F1800:
 lbl_800F1810:
 /* 800F1810 000EE770  42 00 00 00 */	bdnz lbl_800F1810
 lbl_800F1814:
-/* 800F1814 000EE774  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 800F1814 000EE774  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 800F1818 000EE778  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 800F181C 000EE77C  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F181C 000EE77C  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F1820 000EE780  38 80 00 00 */	li r4, 0
 /* 800F1824 000EE784  90 01 00 38 */	stw r0, 0x38(r1)
 /* 800F1828 000EE788  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -5365,9 +5365,9 @@ lbl_800F1888:
 lbl_800F1898:
 /* 800F1898 000EE7F8  42 00 00 00 */	bdnz lbl_800F1898
 lbl_800F189C:
-/* 800F189C 000EE7FC  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 800F189C 000EE7FC  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 800F18A0 000EE800  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 800F18A4 000EE804  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F18A4 000EE804  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F18A8 000EE808  38 80 00 00 */	li r4, 0
 /* 800F18AC 000EE80C  90 01 00 38 */	stw r0, 0x38(r1)
 /* 800F18B0 000EE810  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -6906,10 +6906,10 @@ PreRender__10CMorphBallFR13CStateManagerRC14CFrustumPlanes:
 /* 800F2ED0 000EFE30  C0 02 91 FC */	lfs f0, lbl_805AAF1C@sda21(r2)
 /* 800F2ED4 000EFE34  98 1E 02 98 */	stb r0, 0x298(r30)
 /* 800F2ED8 000EFE38  3C A0 80 3E */	lis r5, __vt__19CCollisionPrimitive@ha
-/* 800F2EDC 000EFE3C  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 800F2EDC 000EFE3C  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 800F2EE0 000EFE40  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 800F2EE4 000EFE44  D0 1E 02 D0 */	stfs f0, 0x2d0(r30)
-/* 800F2EE8 000EFE48  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F2EE8 000EFE48  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F2EEC 000EFE4C  38 E0 00 01 */	li r7, 1
 /* 800F2EF0 000EFE50  3B E3 66 A0 */	addi r31, r3, sZeroVector__9CVector3f@l
 /* 800F2EF4 000EFE54  88 DE 02 98 */	lbz r6, 0x298(r30)
@@ -7003,8 +7003,8 @@ lbl_800F3020:
 /* 800F3050 000EFFB0  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 800F3054 000EFFB4  C0 1F 00 08 */	lfs f0, 8(r31)
 /* 800F3058 000EFFB8  90 01 00 80 */	stw r0, 0x80(r1)
-/* 800F305C 000EFFBC  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
-/* 800F3060 000EFFC0  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F305C 000EFFBC  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
+/* 800F3060 000EFFC0  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F3064 000EFFC4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 800F3068 000EFFC8  80 BC 00 40 */	lwz r5, 0x40(r28)
 /* 800F306C 000EFFCC  7F 84 E3 78 */	mr r4, r28
@@ -7052,9 +7052,9 @@ lbl_800F3020:
 /* 800F3114 000F0074  39 00 00 00 */	li r8, 0
 /* 800F3118 000F0078  39 20 00 00 */	li r9, 0
 /* 800F311C 000F007C  48 01 E0 B5 */	bl BuildLightShadowTexture__12CWorldShadowFRC13CStateManager7TAreaIdUiRC6CAABoxbb
-/* 800F3120 000F0080  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 800F3120 000F0080  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 800F3124 000F0084  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 800F3128 000F0088  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F3128 000F0088  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F312C 000F008C  90 01 00 80 */	stw r0, 0x80(r1)
 /* 800F3130 000F0090  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 800F3134 000F0094  90 01 00 80 */	stw r0, 0x80(r1)
@@ -7113,9 +7113,9 @@ lbl_800F31A8:
 /* 800F31F8 000F0158  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 800F31FC 000F015C  4B F3 98 09 */	bl PreRender__9CAnimDataFv
 lbl_800F3200:
-/* 800F3200 000F0160  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 800F3200 000F0160  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 800F3204 000F0164  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 800F3208 000F0168  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 800F3208 000F0168  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 800F320C 000F016C  90 01 00 B8 */	stw r0, 0xb8(r1)
 /* 800F3210 000F0170  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 800F3214 000F0174  90 01 00 B8 */	stw r0, 0xb8(r1)
@@ -13981,9 +13981,9 @@ lbl_800F9504:
 lbl_800F9518:
 /* 800F9518 000F6478  34 1E 00 38 */	addic. r0, r30, 0x38
 /* 800F951C 000F647C  41 82 00 24 */	beq lbl_800F9540
-/* 800F9520 000F6480  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 800F9520 000F6480  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 800F9524 000F6484  34 1E 00 38 */	addic. r0, r30, 0x38
-/* 800F9528 000F6488  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 800F9528 000F6488  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 800F952C 000F648C  90 1E 00 38 */	stw r0, 0x38(r30)
 /* 800F9530 000F6490  41 82 00 10 */	beq lbl_800F9540
 /* 800F9534 000F6494  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -14075,9 +14075,9 @@ __ct__10CMorphBallFR7CPlayerf:
 /* 800F9678 000F65D8  38 81 00 B0 */	addi r4, r1, 0xb0
 /* 800F967C 000F65DC  90 A1 00 B4 */	stw r5, 0xb4(r1)
 /* 800F9680 000F65E0  48 1D 62 35 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 800F9684 000F65E4  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 800F9684 000F65E4  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 800F9688 000F65E8  C0 02 91 50 */	lfs f0, lbl_805AAE70@sda21(r2)
-/* 800F968C 000F65EC  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 800F968C 000F65EC  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 800F9690 000F65F0  80 8D A3 2C */	lwz r4, lbl_805A8EEC@sda21(r13)
 /* 800F9694 000F65F4  90 1A 00 00 */	stw r0, 0(r26)
 /* 800F9698 000F65F8  38 61 01 1C */	addi r3, r1, 0x11c

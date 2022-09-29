@@ -32,7 +32,7 @@ public:
   // Slerp__9CVector3fFRC9CVector3fRC9CVector3fRC9CRelAngle
   void Normalize();
   f32 Magnitude() const;
-  // AsNormalized__9CVector3fCFv
+  CVector3f AsNormalized() const;
   bool CanBeNormalized() const;
   // GetAngleDiff__9CVector3fFRC9CVector3fRC9CVector3f
   // IsEqu__9CVector3fCFRC9CVector3ff
@@ -47,8 +47,8 @@ public:
   f32 operator[](EDimY) const { return mY; }
   f32 operator[](EDimZ) const { return mZ; }
 
-  f32& operator[](int i) { return *(&mX + i); }
-  // f32 operator[](int i) const { return *(&mX + i); }
+  f32& operator[](int i) { return (&mX)[i]; }
+  f32 operator[](int i) const { return (&mX)[i]; }
   bool IsNonZero() const { return mX != 0.f || mY != 0.f || mZ != 0.f; }
 
   CVector3f DropZ() const { return CVector3f(mX, mY, 0.f); }
@@ -78,6 +78,10 @@ public:
     return *this;
   }
 
+  static f32 Dot(const CVector3f& a, const CVector3f& b) {
+    return (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
+  }
+
   static const CVector3f& Zero() { return sZeroVector; }
   static const CVector3f& Up() { return sUpVector; }
   static const CVector3f& Down() { return sDownVector; }
@@ -99,6 +103,7 @@ private:
   static CVector3f sForwardVector;
   static CVector3f sBackVector;
 };
+CHECK_SIZEOF(CVector3f, 0xc)
 
 // ClassifyVector__FRC9CVector3f
 // TGetType<9CVector3f>__FRC9CVector3f

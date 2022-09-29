@@ -72,44 +72,58 @@ static EMaterialTypes SolidMaterial = kMT_Solid;
 class CMaterialList {
 public:
   CMaterialList() : value(0) {}
-  CMaterialList(const EMaterialTypes& material) : value(0) { value |= u64(1) << material; }
+  CMaterialList(const EMaterialTypes& m1) : value(0) { Add(m1); }
   CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2) : value(0) {
-    value |= u64(1) << m1;
-    value |= u64(1) << m2;
+    Add(m1);
+    Add(m2);
   }
   CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3)
   : value(0) {
-    value |= u64(1) << m1;
-    value |= u64(1) << m2;
-    value |= u64(1) << m3;
+    Add(m1);
+    Add(m2);
+    Add(m3);
   }
   CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3,
                 const EMaterialTypes& m4)
   : value(0) {
-    value |= u64(1) << m1;
-    value |= u64(1) << m2;
-    value |= u64(1) << m3;
-    value |= u64(1) << m4;
+    Add(m1);
+    Add(m2);
+    Add(m3);
+    Add(m4);
   }
   CMaterialList(const EMaterialTypes& m1, const EMaterialTypes& m2, const EMaterialTypes& m3,
                 const EMaterialTypes& m4, const EMaterialTypes& m5)
   : value(0) {
-    value |= u64(1) << m1;
-    value |= u64(1) << m2;
-    value |= u64(1) << m3;
-    value |= u64(1) << m4;
-    value |= u64(1) << m5;
+    Add(m1);
+    Add(m2);
+    Add(m3);
+    Add(m4);
+    Add(m5);
   }
   CMaterialList(u64 value) : value(value) {}
 
   void Add(EMaterialTypes material) { value |= u64(1) << material; }
+  // Add__13CMaterialListFRC13CMaterialList weak
+  // Remove__13CMaterialListF14EMaterialTypes weak
+  // Remove__13CMaterialListFRC13CMaterialList weak
   const CMaterialList& Union(const CMaterialList& other) {
     value |= other.value;
     return *this;
   }
+  bool HasMaterial(EMaterialTypes material) const {
+    return (value & (u64(1) << material)) ? true : false;
+  }
+  // HasMaterials__13CMaterialListCFv weak
+  // GetField__13CMaterialListCFUxUx weak
+  // Intersection__13CMaterialListCFRC13CMaterialList weak
+  // BitPosition__13CMaterialListFUx global
+  // GetMaterialString__13CMaterialListCFv weak
+  // SharesMaterials__13CMaterialListCFRC13CMaterialList weak
 
 private:
   u64 value;
+
+  // static CMaterialList kEverything;
 };
 CHECK_SIZEOF(CMaterialList, 0x8)
 

@@ -38,7 +38,7 @@ public:
   }
   void clear() {
     for (int i = 0; i < x0_count; ++i) {
-      rstl::destroy(&data()[i]);
+      rstl::destroy(&reinterpret_cast< T* >(x4_data)[i]);
     }
     x0_count = 0;
   }

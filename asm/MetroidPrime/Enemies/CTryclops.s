@@ -403,9 +403,9 @@ lbl_8025DC90:
 /* 8025DD5C 0025ACBC  EF A1 10 2A */	fadds f29, f1, f2
 /* 8025DD60 0025ACC0  EF C0 F8 2A */	fadds f30, f0, f31
 /* 8025DD64 0025ACC4  48 07 1B 51 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 8025DD68 0025ACC8  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 8025DD68 0025ACC8  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 8025DD6C 0025ACCC  38 00 00 00 */	li r0, 0
-/* 8025DD70 0025ACD0  38 A3 CA F8 */	addi r5, r3, lbl_803ECAF8@l
+/* 8025DD70 0025ACD0  38 A3 CA F8 */	addi r5, r3, __vt__17CCollidableSphere@l
 /* 8025DD74 0025ACD4  D3 81 00 88 */	stfs f28, 0x88(r1)
 /* 8025DD78 0025ACD8  38 61 00 48 */	addi r3, r1, 0x48
 /* 8025DD7C 0025ACDC  38 81 00 78 */	addi r4, r1, 0x78
@@ -451,9 +451,9 @@ lbl_8025DE04:
 lbl_8025DE14:
 /* 8025DE14 0025AD74  42 00 00 00 */	bdnz lbl_8025DE14
 lbl_8025DE18:
-/* 8025DE18 0025AD78  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 8025DE18 0025AD78  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 8025DE1C 0025AD7C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 8025DE20 0025AD80  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 8025DE20 0025AD80  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 8025DE24 0025AD84  38 80 00 00 */	li r4, 0
 /* 8025DE28 0025AD88  90 01 00 78 */	stw r0, 0x78(r1)
 /* 8025DE2C 0025AD8C  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -536,9 +536,9 @@ lbl_8025DF40:
 lbl_8025DF50:
 /* 8025DF50 0025AEB0  42 00 00 00 */	bdnz lbl_8025DF50
 lbl_8025DF54:
-/* 8025DF54 0025AEB4  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 8025DF54 0025AEB4  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 8025DF58 0025AEB8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 8025DF5C 0025AEBC  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 8025DF5C 0025AEBC  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 8025DF60 0025AEC0  38 80 00 00 */	li r4, 0
 /* 8025DF64 0025AEC4  90 01 00 78 */	stw r0, 0x78(r1)
 /* 8025DF68 0025AEC8  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -576,9 +576,9 @@ lbl_8025DFC8:
 lbl_8025DFD8:
 /* 8025DFD8 0025AF38  42 00 00 00 */	bdnz lbl_8025DFD8
 lbl_8025DFDC:
-/* 8025DFDC 0025AF3C  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 8025DFDC 0025AF3C  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 8025DFE0 0025AF40  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 8025DFE4 0025AF44  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 8025DFE4 0025AF44  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 8025DFE8 0025AF48  38 80 00 00 */	li r4, 0
 /* 8025DFEC 0025AF4C  90 01 00 78 */	stw r0, 0x78(r1)
 /* 8025DFF0 0025AF50  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l

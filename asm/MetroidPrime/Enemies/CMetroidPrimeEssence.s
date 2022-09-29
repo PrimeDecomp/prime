@@ -2657,8 +2657,8 @@ sub_8027e870:
 /* 8027EAC0 0027BA20  C3 45 00 08 */	lfs f26, 8(r5)
 /* 8027EAC4 0027BA24  48 05 0D F1 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 8027EAC8 0027BA28  C0 02 BD 38 */	lfs f0, lbl_805ADA58@sda21(r2)
-/* 8027EACC 0027BA2C  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
-/* 8027EAD0 0027BA30  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 8027EACC 0027BA2C  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
+/* 8027EAD0 0027BA30  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 8027EAD4 0027BA34  D3 81 00 B8 */	stfs f28, 0xb8(r1)
 /* 8027EAD8 0027BA38  7F E3 FB 78 */	mr r3, r31
 /* 8027EADC 0027BA3C  7F C5 F3 78 */	mr r5, r30
@@ -2675,9 +2675,9 @@ sub_8027e870:
 /* 8027EB08 0027BA68  80 A1 01 40 */	lwz r5, 0x140(r1)
 /* 8027EB0C 0027BA6C  2C 05 00 00 */	cmpwi r5, 0
 /* 8027EB10 0027BA70  40 81 00 C0 */	ble lbl_8027EBD0
-/* 8027EB14 0027BA74  3C 80 80 3F */	lis r4, lbl_803ECAF8@ha
+/* 8027EB14 0027BA74  3C 80 80 3F */	lis r4, __vt__17CCollidableSphere@ha
 /* 8027EB18 0027BA78  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 8027EB1C 0027BA7C  38 04 CA F8 */	addi r0, r4, lbl_803ECAF8@l
+/* 8027EB1C 0027BA7C  38 04 CA F8 */	addi r0, r4, __vt__17CCollidableSphere@l
 /* 8027EB20 0027BA80  38 80 00 00 */	li r4, 0
 /* 8027EB24 0027BA84  90 01 00 A8 */	stw r0, 0xa8(r1)
 /* 8027EB28 0027BA88  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -2785,9 +2785,9 @@ lbl_8027EBD0:
 /* 8027EC9C 0027BBFC  88 01 01 30 */	lbz r0, 0x130(r1)
 /* 8027ECA0 0027BC00  28 00 00 00 */	cmplwi r0, 0
 /* 8027ECA4 0027BC04  40 82 00 C8 */	bne lbl_8027ED6C
-/* 8027ECA8 0027BC08  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 8027ECA8 0027BC08  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 8027ECAC 0027BC0C  80 A1 01 40 */	lwz r5, 0x140(r1)
-/* 8027ECB0 0027BC10  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 8027ECB0 0027BC10  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 8027ECB4 0027BC14  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8027ECB8 0027BC18  90 01 00 A8 */	stw r0, 0xa8(r1)
 /* 8027ECBC 0027BC1C  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -2843,9 +2843,9 @@ lbl_8027ED5C:
 /* 8027ED64 0027BCC4  90 01 0D 44 */	stw r0, 0xd44(r1)
 /* 8027ED68 0027BCC8  48 00 00 C4 */	b lbl_8027EE2C
 lbl_8027ED6C:
-/* 8027ED6C 0027BCCC  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 8027ED6C 0027BCCC  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 8027ED70 0027BCD0  80 A1 01 40 */	lwz r5, 0x140(r1)
-/* 8027ED74 0027BCD4  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 8027ED74 0027BCD4  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 8027ED78 0027BCD8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8027ED7C 0027BCDC  90 01 00 A8 */	stw r0, 0xa8(r1)
 /* 8027ED80 0027BCE0  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l

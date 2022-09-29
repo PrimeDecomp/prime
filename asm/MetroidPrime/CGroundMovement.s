@@ -2496,9 +2496,9 @@ lbl_80187C68:
 /* 80187CC0 00184C20  7C 64 1B 78 */	mr r4, r3
 /* 80187CC4 00184C24  7E 43 93 78 */	mr r3, r18
 /* 80187CC8 00184C28  48 14 7B ED */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 80187CCC 00184C2C  3C 60 80 3F */	lis r3, lbl_803ECAF8@ha
+/* 80187CCC 00184C2C  3C 60 80 3F */	lis r3, __vt__17CCollidableSphere@ha
 /* 80187CD0 00184C30  D2 A1 04 94 */	stfs f21, 0x494(r1)
-/* 80187CD4 00184C34  38 03 CA F8 */	addi r0, r3, lbl_803ECAF8@l
+/* 80187CD4 00184C34  38 03 CA F8 */	addi r0, r3, __vt__17CCollidableSphere@l
 /* 80187CD8 00184C38  90 01 04 84 */	stw r0, 0x484(r1)
 /* 80187CDC 00184C3C  D2 C1 04 98 */	stfs f22, 0x498(r1)
 /* 80187CE0 00184C40  D2 E1 04 9C */	stfs f23, 0x49c(r1)
