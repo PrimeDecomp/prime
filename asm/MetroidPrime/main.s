@@ -7251,7 +7251,7 @@ main:
 /* 80008524 00005484  38 60 00 01 */	li r3, 1
 /* 80008528 00005488  48 36 C8 A5 */	bl DVDSetAutoFatalMessaging
 .endif
-/* 8000852C 0000548C  48 2C E3 D1 */	bl SetErrorHandlers
+/* 8000852C 0000548C  48 2C E3 D1 */	bl SetErrorHandlers__Fv
 /* 80008530 00005490  3C 60 80 45 */	lis r3, sMainSpace@ha
 /* 80008534 00005494  37 E3 75 60 */	addic. r31, r3, sMainSpace@l
 /* 80008538 00005498  41 82 00 10 */	beq lbl_80008548

@@ -72,6 +72,7 @@ void OSPanic(const char* file, int line, const char* msg, ...);
 #include <dolphin/os/OSAlarm.h>
 #include <dolphin/os/OSCache.h>
 #include <dolphin/os/OSContext.h>
+#include <dolphin/os/OSError.h>
 #include <dolphin/os/OSFont.h>
 #include <dolphin/os/OSReset.h>
 #include <dolphin/os/OSSerial.h>
