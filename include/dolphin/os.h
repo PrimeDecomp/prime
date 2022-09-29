@@ -2,6 +2,7 @@
 #define _DOLPHIN_OS_H
 
 #include <dolphin/types.h>
+#include <dolphin/gx.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -64,7 +65,7 @@ OSTime OSGetTime();
 OSTick OSGetTick();
 void OSReport(const char* msg, ...);
 void OSPanic(const char* file, int line, const char* msg, ...);
-void OSFatal(uint a, uint b, const char* msg);
+void OSFatal(GXColor fg, GXColor bg, const char* msg);
 
 #ifdef __cplusplus
 }

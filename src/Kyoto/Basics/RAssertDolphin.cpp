@@ -113,16 +113,16 @@ void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
              context->srr0, arg2);
 
     if (DAT_805a9248 == '\0') {
-      uint arg1; // = &DAT_80000000;
-      uint arg2 = 0xffffff00;
-      OSFatal(arg1, arg2, rs_debugger_buffer);
+      GXColor fg; // = &DAT_80000000;
+      GXColor bg; // = 0xffffff00;
+      OSFatal(fg, bg, rs_debugger_buffer);
     }
   }
 }
 
 void SetErrorHandlers() {
-  OSSetErrorHandler(2, ErrorHandler);
-  OSSetErrorHandler(3, ErrorHandler);
-  OSSetErrorHandler(5, ErrorHandler);
-  OSSetErrorHandler(15, ErrorHandler);
+  OSSetErrorHandler(2, (OSErrorHandler*) ErrorHandler);
+  OSSetErrorHandler(3, (OSErrorHandler*) ErrorHandler);
+  OSSetErrorHandler(5, (OSErrorHandler*) ErrorHandler);
+  OSSetErrorHandler(15, (OSErrorHandler*) ErrorHandler);
 }

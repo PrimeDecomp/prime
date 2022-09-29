@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 typedef short OSError;
-typedef void OSErrorHandler(OSError, OSContext* context, int, int);
+typedef void OSErrorHandler(OSError, OSContext* context, ...);
 
 void OSSetErrorHandler(OSError code, OSErrorHandler* handler);
 
