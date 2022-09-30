@@ -2,7 +2,7 @@
 
 #include "Kyoto/Streams/CInputStream.hpp"
 
-#include "rstl/algorithm.hpp"
+#include "rstl/math.hpp"
 
 CColor::CColor(CInputStream& in) {
   float r = in.ReadFloat();
