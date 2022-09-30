@@ -14,6 +14,8 @@ struct CStaticInterferenceSource {
 
 class CStaticInterference {
 public:
+  CStaticInterference(int);
+
 private:
   rstl::vector< CStaticInterferenceSource > sources;
 };

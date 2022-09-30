@@ -236,52 +236,64 @@ void CPlayerState::DecrPickUp(CPlayerState::EItemType type, int amount) {
   }
 
   switch (type) {
-    case kIT_Missiles:
-    case kIT_PowerBombs:
-    case kIT_Flamethrower:
-      x24_powerups[type].x0_amount -= amount;
-      if (x24_powerups[type].x0_amount < 0) {
-        x24_powerups[type].x0_amount = 0;
-      }
-    default:
-      return;
+  case kIT_Missiles:
+  case kIT_PowerBombs:
+  case kIT_Flamethrower:
+    x24_powerups[type].x0_amount -= amount;
+    if (x24_powerups[type].x0_amount < 0) {
+      x24_powerups[type].x0_amount = 0;
+    }
+  default:
+    return;
   }
 }
 
 void CPlayerState::IncrPickUp(EItemType type, int amount) {
-  if (type >= kIT_Max)
+  if (type < 0 || kIT_Max - 1 < type) {
     return;
+  }
 
-  switch (type) {
-  case kIT_Missiles:
-  case kIT_PowerBombs:
-  case kIT_ChargeBeam:
-  case kIT_SpaceJumpBoots:
-  case kIT_EnergyTanks:
-  case kIT_Truth:
-  case kIT_Strength:
-  case kIT_Elder:
-  case kIT_Wild:
-  case kIT_Lifegiver:
-  case kIT_Warrior:
-  case kIT_Chozo:
-  case kIT_Nature:
-  case kIT_Sun:
-  case kIT_World:
-  case kIT_Spirit:
-  case kIT_Newborn: {
-    CPowerUp& pup = x24_powerups[u32(type)];
-    pup.x0_amount = rstl::min_val(pup.x0_amount + amount, pup.x4_capacity);
-
+  if (0 <= amount) {
+    switch (type) {
+    case kIT_Missiles:
+    case kIT_PowerBombs:
+    case kIT_ChargeBeam:
+    case kIT_SpaceJumpBoots:
+    case kIT_EnergyTanks:
+    case kIT_Truth:
+    case kIT_Strength:
+    case kIT_Elder:
+    case kIT_Wild:
+    case kIT_Lifegiver:
+    case kIT_Warrior:
+    case kIT_Chozo:
+    case kIT_Nature:
+    case kIT_Sun:
+    case kIT_World:
+    case kIT_Spirit:
+    case kIT_Newborn: {
+      int oldCapacity = x24_powerups[type].x4_capacity;
+      x24_powerups[type].x0_amount += amount;
+      if (oldCapacity < x24_powerups[type].x0_amount) {
+        x24_powerups[type].x0_amount = oldCapacity;
+      }
+      break;
+    }
+    case kIT_HealthRefill: {
+      CHealthInfo* info = &xc_health;
+      if (info != NULL) {
+        float newHealth = float(amount) + info->GetHP();
+        float maxHealth = CalculateHealth();
+        if (newHealth <= newHealth) {
+          info->SetHP(newHealth);
+        } else {
+          info->SetHP(maxHealth);
+        }
+      }
+    }
+    }
     if (type == kIT_EnergyTanks)
       IncrPickUp(kIT_HealthRefill, 9999);
-    break;
-  }
-  case kIT_HealthRefill:
-    xc_health.SetHP(rstl::min_val(amount + xc_health.GetHP(), CalculateHealth()));
-    break;
-  default:
-    break;
   }
 }
 
@@ -339,25 +351,38 @@ const rstl::vector< rstl::pair< CAssetId, float > >& CPlayerState::GetScanTimes(
 }
 
 CPlayerState::CPlayerState()
-: x4_enabledItems(0)
+: x0_24_alive(true)
+, x0_25_firingComboBeam(false)
+, x0_26_fusion(false)
+, x4_enabledItems(0)
 , x8_currentBeam(kBI_Power)
 , xc_health(99.f, 50.f)
 , x14_currentVisor(kPV_Combat)
-, x18_transitioningVisor(kPV_Combat)
+, x18_transitioningVisor(x14_currentVisor)
 , x1c_visorTransitionFactor(0.2f)
 , x20_currentSuit(kPS_Power)
-// , x188_staticIntf({5}) TODO
-{}
+, x24_powerups(CPowerUp(0, 0))
+, x170_scanTimes()
+, x180_scanCompletionRate(0, 0)
+, x188_staticIntf(5)
+{
+}
 
 CPlayerState::CPlayerState(CInputStream& stream)
-: x4_enabledItems(0)
+: x0_24_alive(true)
+, x0_25_firingComboBeam(false)
+, x0_26_fusion(false)
+, x4_enabledItems(0)
 , x8_currentBeam(kBI_Power)
 , xc_health(99.f, 50.f)
 , x14_currentVisor(kPV_Combat)
-, x18_transitioningVisor(kPV_Combat)
+, x18_transitioningVisor(x14_currentVisor)
 , x1c_visorTransitionFactor(0.2f)
 , x20_currentSuit(kPS_Power)
-// , x188_staticIntf({5}) TODO
+, x24_powerups()
+, x170_scanTimes()
+, x180_scanCompletionRate(0, 0)
+, x188_staticIntf(5)
 {
   // TODO
 }
@@ -390,3 +415,14 @@ void CPlayerState::PutTo(COutputStream& stream) {
   stream.WriteBits(x180_scanCompletionRate.second, COutputStream::GetBitCount(0x100));
   */
 }
+
+uint CPlayerState::GetBitCount(uint val) {
+  int bits = 0;
+  for (; val != 0; val >>= 1) {
+    bits += 1;
+  }
+  return bits;
+}
+
+CPlayerState::CPowerUp::CPowerUp(int amount, int capacity)
+: x0_amount(amount), x4_capacity(capacity) {}

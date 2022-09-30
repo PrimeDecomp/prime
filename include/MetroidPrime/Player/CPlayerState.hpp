@@ -142,12 +142,14 @@ public:
   explicit CPlayerState(CInputStream& stream);
   void PutTo(COutputStream& stream);
 
+  static uint GetBitCount(uint);
+
 private:
   struct CPowerUp {
     int x0_amount;
     int x4_capacity;
     CPowerUp() : x0_amount(0), x4_capacity(0) {}
-    CPowerUp(int amount, int capacity) : x0_amount(amount), x4_capacity(capacity) {}
+    CPowerUp(int amount, int capacity);
   };
 
   bool x0_24_alive : 1;
