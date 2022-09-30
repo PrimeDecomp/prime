@@ -88,31 +88,66 @@ public:
     kBI_Phazon2 = 27,
   };
 
-  EPlayerVisor GetActiveVisor(const CStateManager& mgr) const;
+  u32 GetMissileCostForAltAttack() const;
+  float GetComboFireAmmoPeriod() const;
+  static float GetMissileComboChargeFactor();
+  u32 CalculateItemCollectionRate();
+
+  CHealthInfo& GetHealthInfo();
+  const CHealthInfo& GetHealthInfo() const;
+  u32 GetTotalPickupCount();
 
   void SetIsFusionEnabled(bool v);
+  bool GetIsFusionEnabled();
+
+  EPlayerSuit GetCurrentSuit();
+  EPlayerSuit GetCurrentSuitRaw() const { return x20_currentSuit; }
+  EBeamId GetCurrentBeam() const { return x8_currentBeam; }
+  void SetCurrentBeam(EBeamId beam) { x8_currentBeam = beam; }
+  bool CanVisorSeeFog(const CStateManager& stateMgr) const;
+  EPlayerVisor GetCurrentVisor() const { return x14_currentVisor; }
+  EPlayerVisor GetTransitioningVisor() const { return x18_transitioningVisor; }
+  EPlayerVisor GetActiveVisor(const CStateManager& mgr) const;
+
+  void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
+  void IncreaseScanTime(u32 time, float val);
+  void SetScanTime(CAssetId res, float time);
+  float GetScanTime(CAssetId time) const;
+  bool GetIsVisorTransitioning() const;
+  float GetVisorTransitionFactor() const;
+  void UpdateVisorTransition(float dt);
+  void StartTransitionToVisor(EPlayerVisor visor);
+  void ResetVisor();
 
   bool ItemEnabled(EItemType type) const;
   void DisableItem(EItemType type);
   void EnableItem(EItemType type);
   bool HasPowerUp(EItemType type) const;
+  u32 GetPowerUp(EItemType type);
   u32 GetItemCapacity(EItemType type) const;
   u32 GetItemAmount(EItemType type) const;
-  void DecrPickup(EItemType type, u32 amount);
-  void IncrPickup(EItemType type, u32 amount);
-  void ResetAndIncrPickUp(EItemType type, u32 amount);
-  static float GetEnergyTankCapacity() { return 100.f; }
-  static float GetBaseHealthCapacity() { return 99.f; }
+  void DecrPickUp(EItemType type, int amount);
+  void IncrPickUp(EItemType type, int amount);
+  void ResetAndIncrPickUp(EItemType type, int amount);
+  static float GetEnergyTankCapacity();
+  static float GetBaseHealthCapacity();
   float CalculateHealth();
+  void InitializePowerUp(CPlayerState::EItemType type, int capacity);
+  void ReInitializePowerUp(CPlayerState::EItemType type, int capacity);
 
+  void InitializeScanTimes();
+  CStaticInterference& GetStaticInterference();
+  const rstl::vector< rstl::pair<CAssetId, float> >& GetScanTimes() const;
   CPlayerState();
+  explicit CPlayerState(CInputStream& stream);
+  void PutTo(COutputStream& stream);
 
 private:
   struct CPowerUp {
-    u32 x0_amount;
-    u32 x4_capacity;
+    int x0_amount;
+    int x4_capacity;
     CPowerUp() : x0_amount(0), x4_capacity(0) {}
-    CPowerUp(u32 amount, u32 capacity) : x0_amount(amount), x4_capacity(capacity) {}
+    CPowerUp(int amount, int capacity) : x0_amount(amount), x4_capacity(capacity) {}
   };
 
   bool x0_24_alive : 1;
@@ -126,7 +161,7 @@ private:
   float x1c_visorTransitionFactor;
   EPlayerSuit x20_currentSuit;
   rstl::reserved_vector<CPowerUp, 41> x24_powerups;
-  rstl::vector<rstl::pair<CAssetId, float> > x170_scanTimes;
+  rstl::vector< rstl::pair<CAssetId, float> > x170_scanTimes;
   rstl::pair<u32, u32> x180_scanCompletionRate;
   CStaticInterference x188_staticIntf;
 };

@@ -1099,8 +1099,8 @@ ReInitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091EB4 0008EE14  38 21 00 10 */	addi r1, r1, 0x10
 /* 80091EB8 0008EE18  4E 80 00 20 */	blr
 
-.global PutTo__12CPlayerStateFR13COutPutStream
-PutTo__12CPlayerStateFR13COutPutStream:
+.global PutTo__12CPlayerStateFR13COutputStream
+PutTo__12CPlayerStateFR13COutputStream:
 /* 80091EBC 0008EE1C  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80091EC0 0008EE20  7C 08 02 A6 */	mflr r0
 /* 80091EC4 0008EE24  90 01 00 44 */	stw r0, 0x44(r1)
