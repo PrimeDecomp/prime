@@ -14,8 +14,23 @@ There are several useful resources you can use for this decomp:
 
 Visual Studio Code is recommended.
 
-[objdiff](https://github.com/encounter/objdiff) will be your primary diffing tool. // TODO more info
+### Diffing
 
+[objdiff](https://github.com/encounter/objdiff) will be your primary diffing tool. You can fetch a binary from the latest GitHub Actions build, or build from source with `cargo run --release`.
+
+objdiff configuration:
+- Project dir: `prime`
+- Target build dir: `prime/build/mp1.0/asm`
+- Base build dir: `prime/build/mp1.0/src`
+- Obj: Whatever .o you're currently working on (can select from asm or src build dirs)
+- [x] Build target
+- [x] Reverse function order (deferred)
+
+objdiff will automatically rebuild and reload the object on source changes, so you can quickly iterate on functions.
+
+With CodeWarrior, the `-inline deferred` flag reverses the function order in a translation unit. You'll work bottom-up in most asm files. Dolphin SDK files do **not** use `-inline deferred`, so their function order is top-down.
+
+### Sharing
 When you have a function mismatch that you want help on, you can upload a scratch to [decomp.me](https://decomp.me):
 - Use `tools/decompctx.py src/path/to/file.cpp` to generate `ctx.c` which you can put in the "Context" field.
 - Set preset to `Metroid Prime (USA)`.
@@ -33,6 +48,7 @@ Metaforce -> decomp
 - Any other `zeus::` class has the prefixed removed, i.e. `zeus::CVector3f` -> `CVector3f`
 - `std::vector` -> `rstl::vector`
 - `std::optional` -> `rstl::optional_object`
+- `std::pair` -> `rstl::pair`
 - `std::unique_ptr` -> `rstl::single_ptr` or `rstl::auto_ptr` (`auto_ptr` has an adjacent boolean)
 - `std::shared_ptr` -> `rstl::rc_ptr` or `rstl::ncrc_ptr`
 - `std::array<T, N> var` -> `T var[N]`
