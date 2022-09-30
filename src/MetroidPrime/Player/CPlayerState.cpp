@@ -18,6 +18,9 @@ static const float kComboAmmoPeriods[] = {
     0.2f, 0.1f, 0.2f, 0.2f, 1.f,
 };
 
+static const float kEnergyTankCapacity = 100.f;
+static const float kBaseHealthCapacity = 99.f;
+
 u32 CPlayerState::GetMissileCostForAltAttack() const {
   return kMissileCosts[size_t(x8_currentBeam)];
 }
@@ -228,11 +231,21 @@ u32 CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
 }
 
 void CPlayerState::DecrPickUp(CPlayerState::EItemType type, int amount) {
-  if (type >= kIT_Max)
+  if (type < 0 || kIT_Max - 1 < type) {
     return;
+  }
 
-  if ((type == kIT_Missiles || type >= kIT_PowerBombs) && type < kIT_ThermalVisor)
-    x24_powerups[u32(type)].x0_amount -= amount;
+  switch (type) {
+    case kIT_Missiles:
+    case kIT_PowerBombs:
+    case kIT_Flamethrower:
+      x24_powerups[type].x0_amount -= amount;
+      if (x24_powerups[type].x0_amount < 0) {
+        x24_powerups[type].x0_amount = 0;
+      }
+    default:
+      return;
+  }
 }
 
 void CPlayerState::IncrPickUp(EItemType type, int amount) {
@@ -277,12 +290,11 @@ void CPlayerState::ResetAndIncrPickUp(CPlayerState::EItemType type, int amount) 
   IncrPickUp(type, amount);
 }
 
-float CPlayerState::GetEnergyTankCapacity() { return 100.f; }
-float CPlayerState::GetBaseHealthCapacity() { return 99.f; }
+float CPlayerState::GetEnergyTankCapacity() { return kEnergyTankCapacity; }
+float CPlayerState::GetBaseHealthCapacity() { return kBaseHealthCapacity; }
 
 float CPlayerState::CalculateHealth() {
-  return (GetEnergyTankCapacity() * x24_powerups[u32(kIT_EnergyTanks)].x0_amount) +
-         GetBaseHealthCapacity();
+  return (kEnergyTankCapacity * x24_powerups[kIT_EnergyTanks].x0_amount) + kBaseHealthCapacity;
 }
 
 void CPlayerState::InitializePowerUp(CPlayerState::EItemType type, int capacity) {
@@ -350,8 +362,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
   // TODO
 }
 
-void CPlayerState::PutTo(COutputStream& stream)
-{
+void CPlayerState::PutTo(COutputStream& stream) {
   /*
   stream.WriteBits(x4_enabledItems, 32);
 
