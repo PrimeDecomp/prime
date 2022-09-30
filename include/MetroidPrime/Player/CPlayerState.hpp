@@ -1,13 +1,13 @@
 #ifndef _CPLAYERSTATE_HPP
 #define _CPLAYERSTATE_HPP
 
-#include "types.h"
+#include "Kyoto/IObjectStore.hpp"
 #include "MetroidPrime/CHealthInfo.hpp"
 #include "MetroidPrime/Player/CStaticInterference.hpp"
-#include "rstl/reserved_vector.hpp"
 #include "rstl/pair.hpp"
+#include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-#include "Kyoto/IObjectStore.hpp"
+#include "types.h"
 
 class CStateManager;
 
@@ -137,7 +137,7 @@ public:
 
   void InitializeScanTimes();
   CStaticInterference& GetStaticInterference();
-  const rstl::vector< rstl::pair<CAssetId, float> >& GetScanTimes() const;
+  const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const;
   CPlayerState();
   explicit CPlayerState(CInputStream& stream);
   void PutTo(COutputStream& stream);
@@ -162,9 +162,9 @@ private:
   EPlayerVisor x18_transitioningVisor;
   float x1c_visorTransitionFactor;
   EPlayerSuit x20_currentSuit;
-  rstl::reserved_vector<CPowerUp, 41> x24_powerups;
-  rstl::vector< rstl::pair<CAssetId, float> > x170_scanTimes;
-  rstl::pair<u32, u32> x180_scanCompletionRate;
+  rstl::reserved_vector< CPowerUp, 41 > x24_powerups;
+  rstl::vector< rstl::pair< CAssetId, float > > x170_scanTimes;
+  rstl::pair< u32, u32 > x180_scanCompletionRate;
   CStaticInterference x188_staticIntf;
 };
 

@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-#include "rstl/vector.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+#include "rstl/vector.hpp"
 
 struct CStaticInterferenceSource {
   TUniqueId x0_id;

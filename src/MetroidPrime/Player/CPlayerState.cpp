@@ -364,9 +364,7 @@ CPlayerState::CPlayerState()
 , x24_powerups(CPowerUp(0, 0))
 , x170_scanTimes()
 , x180_scanCompletionRate(0, 0)
-, x188_staticIntf(5)
-{
-}
+, x188_staticIntf(5) {}
 
 CPlayerState::CPlayerState(CInputStream& stream)
 : x0_24_alive(true)
@@ -382,8 +380,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , x24_powerups()
 , x170_scanTimes()
 , x180_scanCompletionRate(0, 0)
-, x188_staticIntf(5)
-{
+, x188_staticIntf(5) {
   // TODO
 }
 
