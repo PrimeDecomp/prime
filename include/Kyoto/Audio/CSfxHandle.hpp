@@ -5,7 +5,7 @@
 
 class CSfxHandle {
 public:
-  CSfxHandle() : mID(~0) {}
+  CSfxHandle() : mID(0) {}
   CSfxHandle(uint value);
 
   uint GetIndex() const { return mID & 0xFFF; }

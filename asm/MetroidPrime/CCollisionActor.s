@@ -35,7 +35,7 @@ lbl_803E4B18:
 	.4byte GetCollisionResponseType__15CCollisionActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__15CCollisionActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte sub_801a8ea4
 	.4byte GetPrimitiveTransform__15CCollisionActorCFv
@@ -1980,4 +1980,3 @@ lbl_803D14A0:
 	.byte 0x3F
 	.asciz "?(??)"
 	.balign 4
-

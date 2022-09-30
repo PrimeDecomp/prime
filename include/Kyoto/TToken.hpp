@@ -33,7 +33,7 @@ template < typename T >
 class TCachedToken : public TToken< T > {
 public:
   TCachedToken() {}
-  TCachedToken(const CToken& token) : TToken< T >(token), x8_item(GetT()) {}
+  TCachedToken(const CToken& token) : TToken< T >(token), x8_item(nullptr) {}
 
   T* operator*() { return x8_item; }
 

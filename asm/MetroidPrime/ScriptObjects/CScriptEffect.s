@@ -31,7 +31,7 @@ lbl_803DAC38:
 	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__13CScriptEffectCFRC12CTransform4f
+	.4byte GetSortingBounds__13CScriptEffectCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 
 .global lbl_803DACA4
@@ -206,8 +206,8 @@ SetActive__13CScriptEffectFb:
 /* 8008DBA4 0008AB04  38 21 00 10 */	addi r1, r1, 0x10
 /* 8008DBA8 0008AB08  4E 80 00 20 */	blr
 
-.global GetSortingBounds__13CScriptEffectCFRC12CTransform4f
-GetSortingBounds__13CScriptEffectCFRC12CTransform4f:
+.global GetSortingBounds__13CScriptEffectCFRC13CStateManager
+GetSortingBounds__13CScriptEffectCFRC13CStateManager:
 /* 8008DBAC 0008AB0C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8008DBB0 0008AB10  7C 08 02 A6 */	mflr r0
 /* 8008DBB4 0008AB14  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2395,4 +2395,3 @@ lbl_803CD690:
 	.byte 0x45
 	.asciz "ffectPLight_"
 	.balign 4
-

@@ -45,9 +45,8 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , x70_materialFilter(
       CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()))
 , x88_sfxId(InvalidSfxId)
-, x8c_loopingSfxHandle(0)
 , x90_actorLights(mData.IsNull() ? nullptr : params.GetLighting().MakeActorLights().release())
-, x9c_renderBounds(CAABox::mskInvertedBox)
+, x9c_renderBounds(CAABox::MakeMaxInvertedBox())
 , xb4_drawFlags(CModelFlags::Normal())
 , xbc_time(0.f)
 , xc0_pitchBend(8192)
@@ -57,7 +56,7 @@ CActor::CActor(TUniqueId uid, bool active, const rstl::string& name, const CEnti
 , xcc_addedToken(-1)
 , xd0_damageMag(params.GetThermalMag())
 , xd4_maxVol(CAudioSys::kMaxVolume)
-, xd8_nonLoopingSfxHandles(CSfxHandle(0))
+, xd8_nonLoopingSfxHandles(CSfxHandle())
 , xe4_24_nextNonLoopingSfxHandle(0)
 , xe4_27_notInSortedLists(true)
 , xe4_28_transformDirty(true)
@@ -181,7 +180,7 @@ void CActor::RemoveEmitter() {
   if (CSfxHandle handle = x8c_loopingSfxHandle) {
     CSfxManager::RemoveEmitter(handle);
     x88_sfxId = -1;
-    x8c_loopingSfxHandle = 0;
+    x8c_loopingSfxHandle = CSfxHandle();
   }
 }
 

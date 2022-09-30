@@ -31,7 +31,7 @@ __vt__15CScriptPlatform:
 	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__15CScriptPlatformCFRC12CTransform4f
+	.4byte GetSortingBounds__15CScriptPlatformCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte GetCollisionPrimitive__15CScriptPlatformCFv
 	.4byte GetPrimitiveTransform__15CScriptPlatformCFv
@@ -242,8 +242,8 @@ lbl_800B0CC0:
 /* 800B0CD4 000ADC34  38 21 00 20 */	addi r1, r1, 0x20
 /* 800B0CD8 000ADC38  4E 80 00 20 */	blr
 
-.global GetSortingBounds__15CScriptPlatformCFRC12CTransform4f
-GetSortingBounds__15CScriptPlatformCFRC12CTransform4f:
+.global GetSortingBounds__15CScriptPlatformCFRC13CStateManager
+GetSortingBounds__15CScriptPlatformCFRC13CStateManager:
 /* 800B0CDC 000ADC3C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800B0CE0 000ADC40  7C 08 02 A6 */	mflr r0
 /* 800B0CE4 000ADC44  90 01 00 24 */	stw r0, 0x24(r1)
@@ -270,7 +270,7 @@ lbl_800B0D34:
 /* 800B0D34 000ADC94  7F A3 EB 78 */	mr r3, r29
 /* 800B0D38 000ADC98  7F C4 F3 78 */	mr r4, r30
 /* 800B0D3C 000ADC9C  7F E5 FB 78 */	mr r5, r31
-/* 800B0D40 000ADCA0  4B FA 28 A1 */	bl GetSortingBounds__6CActorCFRC12CTransform4f
+/* 800B0D40 000ADCA0  4B FA 28 A1 */	bl GetSortingBounds__6CActorCFRC13CStateManager
 lbl_800B0D44:
 /* 800B0D44 000ADCA4  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800B0D48 000ADCA8  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -4201,4 +4201,3 @@ lbl_803CDE70:
 	# ROM: 0x3CAE70
 	.asciz "??(??)"
 	.balign 4
-

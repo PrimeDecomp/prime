@@ -31,7 +31,7 @@ lbl_803E9D80:
 	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte ProcessInput__20CInterpolationCameraFRC11CFinalInputR13CStateManager
 	.4byte Reset__20CInterpolationCameraFRC12CTransform4fR13CStateManager
@@ -1239,4 +1239,3 @@ lbl_803D5298:
 	# ROM: 0x3D2298
 	.asciz "Interpolation Camera"
 	.balign 4
-

@@ -159,7 +159,7 @@ lbl_803E0800:
 	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__12CSpacePirateCFRC12CTransform4f
+	.4byte GetSortingBounds__12CSpacePirateCFRC13CStateManager
 	.4byte DoUserAnimEvent__12CSpacePirateFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -2328,8 +2328,8 @@ lbl_80121A44:
 /* 80121A6C 0011E9CC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80121A70 0011E9D0  4E 80 00 20 */	blr
 
-.global GetSortingBounds__12CSpacePirateCFRC12CTransform4f
-GetSortingBounds__12CSpacePirateCFRC12CTransform4f:
+.global GetSortingBounds__12CSpacePirateCFRC13CStateManager
+GetSortingBounds__12CSpacePirateCFRC13CStateManager:
 /* 80121A74 0011E9D4  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80121A78 0011E9D8  7C 08 02 A6 */	mflr r0
 /* 80121A7C 0011E9DC  7C 85 23 78 */	mr r5, r4
@@ -15886,4 +15886,3 @@ lbl_803CFF70:
 	.asciz "woEyes"
 	.balign 4
 	.4byte 0
-
