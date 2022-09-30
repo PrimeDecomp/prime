@@ -12,5 +12,4 @@ tools/mwcc_compiler/*
 *.bat
 include/lmgr326b.dll
 .idea/
-.vscode/
 versions/
