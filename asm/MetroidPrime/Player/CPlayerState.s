@@ -943,7 +943,7 @@ lbl_80091C80:
 /* 80091CA0 0008EC00  C8 21 00 08 */	lfd f1, 8(r1)
 /* 80091CA4 0008EC04  EC 21 10 28 */	fsubs f1, f1, f2
 /* 80091CA8 0008EC08  EF E1 00 2A */	fadds f31, f1, f0
-/* 80091CAC 0008EC0C  48 00 00 85 */	bl CalculateHealth__12CPlayerStateFUi
+/* 80091CAC 0008EC0C  48 00 00 85 */	bl CalculateHealth__12CPlayerStateFv
 /* 80091CB0 0008EC10  FC 1F 08 40 */	fcmpo cr0, f31, f1
 /* 80091CB4 0008EC14  40 81 00 0C */	ble lbl_80091CC0
 /* 80091CB8 0008EC18  D0 3F 00 00 */	stfs f1, 0(r31)
@@ -984,8 +984,8 @@ ResetAndIncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091D28 0008EC88  38 21 00 10 */	addi r1, r1, 0x10
 /* 80091D2C 0008EC8C  4E 80 00 20 */	blr
 
-.global CalculateHealth__12CPlayerStateFUi
-CalculateHealth__12CPlayerStateFUi:
+.global CalculateHealth__12CPlayerStateFv
+CalculateHealth__12CPlayerStateFv:
 /* 80091D30 0008EC90  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80091D34 0008EC94  3C 00 43 30 */	lis r0, 0x4330
 /* 80091D38 0008EC98  C8 42 8B 20 */	lfd f2, lbl_805AA840@sda21(r2)
