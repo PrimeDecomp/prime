@@ -24,11 +24,11 @@ mpAllocator__7CMemory:
 .global lbl_805A9460
 lbl_805A9460:
 	.skip 0x4
-.global lbl_805A9464
-lbl_805A9464:
+.global gLeakCount
+gLeakCount:
 	.skip 0x4
-.global lbl_805A9468
-lbl_805A9468:
+.global gLeakBytes
+gLeakBytes:
 	.skip 0x8
 
 .section .text, "ax"
@@ -206,10 +206,10 @@ Shutdown__7CMemoryFv:
 /* 80315A68 003129C8  38 00 00 00 */	li r0, 0
 /* 80315A6C 003129CC  3C 60 80 31 */	lis r3, cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv@ha
 /* 80315A70 003129D0  38 83 5A BC */	addi r4, r3, cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv@l
-/* 80315A74 003129D4  90 0D A8 A4 */	stw r0, lbl_805A9464@sda21(r13)
+/* 80315A74 003129D4  90 0D A8 A4 */	stw r0, gLeakCount@sda21(r13)
 /* 80315A78 003129D8  80 6D 9C A8 */	lwz r3, mpAllocator__7CMemory@sda21(r13)
 /* 80315A7C 003129DC  38 A0 00 00 */	li r5, 0
-/* 80315A80 003129E0  90 0D A8 A8 */	stw r0, lbl_805A9468@sda21(r13)
+/* 80315A80 003129E0  90 0D A8 A8 */	stw r0, gLeakBytes@sda21(r13)
 /* 80315A84 003129E4  38 C0 00 00 */	li r6, 0
 /* 80315A88 003129E8  81 83 00 00 */	lwz r12, 0(r3)
 /* 80315A8C 003129EC  81 8C 00 30 */	lwz r12, 0x30(r12)
@@ -234,13 +234,13 @@ cmemory_enum_alloc_cb__FRCQ210IAllocator10SAllocInfoPCv:
 /* 80315AC8 00312A28  88 03 00 09 */	lbz r0, 9(r3)
 /* 80315ACC 00312A2C  28 00 00 00 */	cmplwi r0, 0
 /* 80315AD0 00312A30  40 82 00 20 */	bne lbl_80315AF0
-/* 80315AD4 00312A34  80 AD A8 A4 */	lwz r5, lbl_805A9464@sda21(r13)
-/* 80315AD8 00312A38  80 8D A8 A8 */	lwz r4, lbl_805A9468@sda21(r13)
+/* 80315AD4 00312A34  80 AD A8 A4 */	lwz r5, gLeakCount@sda21(r13)
+/* 80315AD8 00312A38  80 8D A8 A8 */	lwz r4, gLeakBytes@sda21(r13)
 /* 80315ADC 00312A3C  80 03 00 04 */	lwz r0, 4(r3)
 /* 80315AE0 00312A40  38 65 00 01 */	addi r3, r5, 1
-/* 80315AE4 00312A44  90 6D A8 A4 */	stw r3, lbl_805A9464@sda21(r13)
+/* 80315AE4 00312A44  90 6D A8 A4 */	stw r3, gLeakCount@sda21(r13)
 /* 80315AE8 00312A48  7C 04 02 14 */	add r0, r4, r0
-/* 80315AEC 00312A4C  90 0D A8 A8 */	stw r0, lbl_805A9468@sda21(r13)
+/* 80315AEC 00312A4C  90 0D A8 A8 */	stw r0, gLeakBytes@sda21(r13)
 lbl_80315AF0:
 /* 80315AF0 00312A50  38 60 00 01 */	li r3, 1
 /* 80315AF4 00312A54  4E 80 00 20 */	blr

@@ -694,7 +694,7 @@ lbl_80304C24:
 /* 80304C3C 00301B9C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80304C40 00301BA0  41 82 00 10 */	beq lbl_80304C50
 /* 80304C44 00301BA4  7F A3 EB 78 */	mr r3, r29
-/* 80304C48 00301BA8  4B FF E4 61 */	bl __ct__21CPushStateInstructionFv
+/* 80304C48 00301BA8  4B FF E4 61 */	bl AddPushState__18CTextExecuteBufferFv
 /* 80304C4C 00301BAC  48 00 00 44 */	b lbl_80304C90
 lbl_80304C50:
 /* 80304C50 00301BB0  3C 80 80 3F */	lis r4, lbl_803ED718@ha
@@ -706,7 +706,7 @@ lbl_80304C50:
 /* 80304C68 00301BC8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80304C6C 00301BCC  41 82 00 10 */	beq lbl_80304C7C
 /* 80304C70 00301BD0  7F A3 EB 78 */	mr r3, r29
-/* 80304C74 00301BD4  4B FF E3 4D */	bl __ct__20CPopStateInstructionFv
+/* 80304C74 00301BD4  4B FF E3 4D */	bl AddPopState__18CTextExecuteBufferFv
 /* 80304C78 00301BD8  48 00 00 18 */	b lbl_80304C90
 lbl_80304C7C:
 /* 80304C7C 00301BDC  7F 83 E3 78 */	mr r3, r28
@@ -1655,7 +1655,7 @@ lbl_8030598C:
 .global lbl_805AE478
 lbl_805AE478:
 	# ROM: 0x3FAD18
-	.4byte 0x42C80000
+	.float 100.0
 	.4byte 0
 
 .global lbl_805AE480
@@ -1667,7 +1667,6 @@ lbl_805AE480:
 lbl_805AE488:
 	# ROM: 0x3FAD28
 	.float 1.0
-	.4byte 0
 
 
 .section .rodata
@@ -1676,10 +1675,9 @@ lbl_805AE488:
 lbl_803D6EA0:
 	# ROM: 0x3D3EA0
 	.asciz "%02x%02x%02x%02x"
-	.byte 0x3F, 0x3F, 0x28
-	.4byte 0x3F3F2900
-	.4byte 0x2C004100
-	.4byte 0x53410053
-	.4byte 0x49000000
-	.4byte 0
+	.asciz "??(??)"
+	.asciz ","
+	.asciz "A"
+	.asciz "SA"
+	.asciz "SI"
 

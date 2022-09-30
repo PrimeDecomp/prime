@@ -1256,7 +1256,7 @@ StartNewLine__18CTextExecuteBufferFv:
 /* 80302C90 002FFBF0  80 03 00 A4 */	lwz r0, 0xa4(r3)
 /* 80302C94 002FFBF4  28 00 00 00 */	cmplwi r0, 0
 /* 80302C98 002FFBF8  41 82 00 08 */	beq lbl_80302CA0
-/* 80302C9C 002FFBFC  48 00 02 05 */	bl sub_80302ea0
+/* 80302C9C 002FFBFC  48 00 02 05 */	bl TerminateLine__18CTextExecuteBufferFv
 lbl_80302CA0:
 /* 80302CA0 002FFC00  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
 /* 80302CA4 002FFC04  38 60 00 34 */	li r3, 0x34
@@ -1394,8 +1394,8 @@ lbl_80302E30:
 /* 80302E98 002FFDF8  38 21 00 20 */	addi r1, r1, 0x20
 /* 80302E9C 002FFDFC  4E 80 00 20 */	blr
 
-.global sub_80302ea0
-sub_80302ea0:
+.global TerminateLine__18CTextExecuteBufferFv
+TerminateLine__18CTextExecuteBufferFv:
 /* 80302EA0 002FFE00  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80302EA4 002FFE04  7C 08 02 A6 */	mflr r0
 /* 80302EA8 002FFE08  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1477,8 +1477,8 @@ lbl_80302FA0:
 /* 80302FB8 002FFF18  38 21 00 30 */	addi r1, r1, 0x30
 /* 80302FBC 002FFF1C  4E 80 00 20 */	blr
 
-.global __ct__20CPopStateInstructionFv
-__ct__20CPopStateInstructionFv:
+.global AddPopState__18CTextExecuteBufferFv
+AddPopState__18CTextExecuteBufferFv:
 /* 80302FC0 002FFF20  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80302FC4 002FFF24  7C 08 02 A6 */	mflr r0
 /* 80302FC8 002FFF28  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
@@ -1541,8 +1541,8 @@ lbl_80303088:
 /* 803030A0 00300000  38 21 00 20 */	addi r1, r1, 0x20
 /* 803030A4 00300004  4E 80 00 20 */	blr
 
-.global __ct__21CPushStateInstructionFv
-__ct__21CPushStateInstructionFv:
+.global AddPushState__18CTextExecuteBufferFv
+AddPushState__18CTextExecuteBufferFv:
 /* 803030A8 00300008  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803030AC 0030000C  7C 08 02 A6 */	mflr r0
 /* 803030B0 00300010  3C 80 80 3D */	lis r4, lbl_803D6E90@ha
@@ -2282,7 +2282,7 @@ EndBlock__18CTextExecuteBufferFv:
 /* 80303B3C 00300A9C  80 03 00 A4 */	lwz r0, 0xa4(r3)
 /* 80303B40 00300AA0  28 00 00 00 */	cmplwi r0, 0
 /* 80303B44 00300AA4  41 82 00 08 */	beq lbl_80303B4C
-/* 80303B48 00300AA8  4B FF F3 59 */	bl sub_80302ea0
+/* 80303B48 00300AA8  4B FF F3 59 */	bl TerminateLine__18CTextExecuteBufferFv
 lbl_80303B4C:
 /* 80303B4C 00300AAC  38 00 00 00 */	li r0, 0
 /* 80303B50 00300AB0  90 1F 00 A4 */	stw r0, 0xa4(r31)
