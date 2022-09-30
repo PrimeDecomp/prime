@@ -156,11 +156,6 @@ default: all
 
 all: $(DOL)
 
-ALL_DIRS := $(sort $(dir $(O_FILES)))
-
-# Make sure build directory exists before compiling anything
-DUMMY != mkdir -p $(ALL_DIRS)
-
 .PHONY: tools
 
 $(LDSCRIPT): ldscript.lcf
@@ -174,7 +169,7 @@ ifneq ($(findstring -map,$(LDFLAGS)),)
 endif
 
 clean:
-	$(RM) $(O_FILES) $(DEPENDS)
+	$(RM) -r $(BUILD_DIR)
 	$(MAKE) -C tools clean
 tools:
 	$(MAKE) -C tools
@@ -182,8 +177,8 @@ tools:
 # ELF creation makefile instructions
 $(ELF): $(O_FILES) $(LDSCRIPT)
 	@echo Linking ELF $@
-	$(QUIET) @echo $(O_FILES) > build/o_files
-	$(QUIET) $(LD) $(LDFLAGS) -o $@ -lcf $(LDSCRIPT) @build/o_files
+	$(QUIET) @echo $(O_FILES) > $(BUILD_DIR)/o_files
+	$(QUIET) $(LD) $(LDFLAGS) -o $@ -lcf $(LDSCRIPT) @$(BUILD_DIR)/o_files
 
 %.d.unix: %.d $(TRANSFORM_DEP)
 	@echo Processing $<
@@ -193,26 +188,32 @@ $(ELF): $(O_FILES) $(LDSCRIPT)
 
 $(BUILD_DIR)/%.o: %.s
 	@echo "Assembling" $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.clang.o: %.cpp
 	@echo "Clang     " $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(CLANG_CC) $(CLANG_CFLAGS) -c -o $@ $<
 
 $(BUILD_DIR)/%.ep.o: $(BUILD_DIR)/%.o
 	@echo Frank is fixing $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(PYTHON) $(FRANK) $< $@
 
 $(BUILD_DIR)/%.o: %.c
 	@echo "Compiling " $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
 
 $(BUILD_DIR)/%.o: %.cp
 	@echo "Compiling " $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
 
 $(BUILD_DIR)/%.o: %.cpp
 	@echo "Compiling " $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(CC) $(CFLAGS) -c -o $(dir $@) $<
 
 ### Debug Print ###
