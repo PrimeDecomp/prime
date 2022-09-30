@@ -88,13 +88,14 @@ public:
     kBI_Phazon2 = 27,
   };
 
+  CPlayerState();
+  explicit CPlayerState(CInputStream& stream);
+  void PutTo(COutputStream& stream);
+
   u32 GetMissileCostForAltAttack() const;
   float GetComboFireAmmoPeriod() const;
   static float GetMissileComboChargeFactor();
   u32 CalculateItemCollectionRate();
-
-  CHealthInfo& GetHealthInfo();
-  const CHealthInfo& GetHealthInfo() const;
   u32 GetTotalPickupCount();
 
   void SetIsFusionEnabled(bool v);
@@ -136,13 +137,19 @@ public:
   void ReInitializePowerUp(CPlayerState::EItemType type, int capacity);
 
   void InitializeScanTimes();
-  CStaticInterference& GetStaticInterference();
-  const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const;
-  CPlayerState();
-  explicit CPlayerState(CInputStream& stream);
-  void PutTo(COutputStream& stream);
 
   static uint GetBitCount(uint);
+
+  CStaticInterference& GetStaticInterference() { return x188_staticIntf; }
+
+  const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const {
+    return x170_scanTimes;
+  }
+
+  CHealthInfo& GetHealthInfo() { return xc_health; }
+
+  const CHealthInfo& GetHealthInfo() const { return xc_health; }
+
 
 private:
   struct CPowerUp {
