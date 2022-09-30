@@ -5,7 +5,7 @@
 
 #include <math.h>
 
-static int kPowerUpMaxValues[] = {
+static const int kPowerUpMaxValues[] = {
     1, 1, 1, 1,  250, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 14, 1,   0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 };
