@@ -4,8 +4,6 @@
 #include "rstl/pointer_iterator.hpp"
 
 namespace rstl {
-template < typename T >
-
 template < class Iter, class T >
 inline Iter find(Iter first, Iter last, const T& val) {
   while (first != last && !(*first == val))
