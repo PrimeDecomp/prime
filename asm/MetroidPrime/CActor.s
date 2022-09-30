@@ -31,7 +31,7 @@ __vt__6CActor:
 	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 
 .global lbl_803D9F1C
@@ -910,8 +910,8 @@ lbl_800535CC:
 FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager:
 /* 800535DC 0005053C  4E 80 00 20 */	blr
 
-.global GetSortingBounds__6CActorCFRC12CTransform4f
-GetSortingBounds__6CActorCFRC12CTransform4f:
+.global GetSortingBounds__6CActorCFRC13CStateManager
+GetSortingBounds__6CActorCFRC13CStateManager:
 /* 800535E0 00050540  C0 04 00 9C */	lfs f0, 0x9c(r4)
 /* 800535E4 00050544  D0 03 00 00 */	stfs f0, 0(r3)
 /* 800535E8 00050548  C0 04 00 A0 */	lfs f0, 0xa0(r4)
@@ -3742,4 +3742,3 @@ lbl_803CCF68:
 	# ROM: 0x3C9F68
 	.asciz "??(??)"
 	.balign 4
-

@@ -119,7 +119,7 @@ lbl_803E8240:
 	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__10CMagdoliteFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__10CMagdoliteFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -4169,4 +4169,3 @@ lbl_803D4354:
 	.byte 0x46, 0x6C
 	.asciz "ameThrower"
 	.balign 4
-

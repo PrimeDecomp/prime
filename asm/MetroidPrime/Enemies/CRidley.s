@@ -148,7 +148,7 @@ lbl_803E9258:
 	.4byte GetCollisionResponseType__7CRidleyCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__7CRidleyCFRC12CTransform4f
+	.4byte GetSortingBounds__7CRidleyCFRC13CStateManager
 	.4byte DoUserAnimEvent__7CRidleyFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -7042,8 +7042,8 @@ lbl_802581C0:
 /* 802581D0 00255130  38 21 00 30 */	addi r1, r1, 0x30
 /* 802581D4 00255134  4E 80 00 20 */	blr
 
-.global GetSortingBounds__7CRidleyCFRC12CTransform4f
-GetSortingBounds__7CRidleyCFRC12CTransform4f:
+.global GetSortingBounds__7CRidleyCFRC13CStateManager
+GetSortingBounds__7CRidleyCFRC13CStateManager:
 /* 802581D8 00255138  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802581DC 0025513C  7C 08 02 A6 */	mflr r0
 /* 802581E0 00255140  90 01 00 14 */	stw r0, 0x14(r1)
@@ -11926,4 +11926,3 @@ lbl_803D521A:
 	.byte 0x3F, 0x3F
 	.asciz "(??)"
 	.balign 4
-

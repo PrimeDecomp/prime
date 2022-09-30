@@ -37,7 +37,7 @@ lbl_803E5CE0:
 	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__8CThardusCFRC12CTransform4f
+	.4byte GetSortingBounds__8CThardusCFRC13CStateManager
 	.4byte DoUserAnimEvent__8CThardusFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -278,7 +278,7 @@ lbl_803E6074:
 	.4byte GetCollisionResponseType__3CAiCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -1203,8 +1203,8 @@ lbl_801DB048:
 /* 801DB05C 001D7FBC  38 21 00 80 */	addi r1, r1, 0x80
 /* 801DB060 001D7FC0  4E 80 00 20 */	blr
 
-.global GetSortingBounds__8CThardusCFRC12CTransform4f
-GetSortingBounds__8CThardusCFRC12CTransform4f:
+.global GetSortingBounds__8CThardusCFRC13CStateManager
+GetSortingBounds__8CThardusCFRC13CStateManager:
 /* 801DB064 001D7FC4  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 801DB068 001D7FC8  7C 08 02 A6 */	mflr r0
 /* 801DB06C 001D7FCC  90 01 00 74 */	stw r0, 0x74(r1)
@@ -11247,4 +11247,3 @@ lbl_803D1E1E:
 	.asciz "ermal_Spot_2"
 	.balign 4
 	.4byte 0
-

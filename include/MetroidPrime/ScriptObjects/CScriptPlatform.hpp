@@ -54,7 +54,7 @@ public:
   rstl::optional_object< CAABox > GetTouchBounds() const override;
   CVector3f GetOrbitPosition(const CStateManager&) const override;
   CVector3f GetAimPosition(const CStateManager&, float) const override;
-  CAABox GetSortingBounds(const CTransform4f&) const override;
+  CAABox GetSortingBounds(const CStateManager&) const override;
 
   // CPhysicsActor
   const CCollisionPrimitive* GetCollisionPrimitive() const override;

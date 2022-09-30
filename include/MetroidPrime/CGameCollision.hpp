@@ -4,6 +4,7 @@
 #include "types.h"
 
 class CAreaCollisionCache;
+class CCollisionInfo;
 class CCollisionPrimitive;
 class CMaterialFilter;
 class CStateManager;

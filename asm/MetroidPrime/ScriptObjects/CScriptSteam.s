@@ -31,7 +31,7 @@ lbl_803E3DA8:
 	.4byte GetCollisionResponseType__6CActorCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__6CActorFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte InhabitantAdded__14CScriptTriggerFR6CActorR13CStateManager
 	.4byte InhabitantIdle__14CScriptTriggerFR6CActorR13CStateManager
@@ -356,4 +356,3 @@ lbl_805ABE88:
 	# ROM: 0x3F8728
 	.float 1.0
 	.4byte 0
-

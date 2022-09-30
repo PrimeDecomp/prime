@@ -31,7 +31,7 @@ lbl_803E4648:
 	.4byte GetCollisionResponseType__7CWeaponCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__15CGameProjectileFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__6CActorFR13CStateManagerRC13CInt32POINode14EUserEventTypef
 	.4byte ResolveCollisionWithActor__15CGameProjectileFRC14CRayCastResultR6CActorR13CStateManager
 	.4byte UpdateFx__15CBeamProjectileFRC12CTransform4ffR13CStateManager
@@ -804,4 +804,3 @@ lbl_805AC3EC:
 lbl_805AC3F0:
 	# ROM: 0x3F8C90
 	.double 4.503601774854144E15
-

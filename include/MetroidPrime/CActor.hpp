@@ -235,7 +235,7 @@ public:
                                                                  int /*EProjectileAttrib?*/) const;
   virtual void FluidFXThink(EFluidState, CScriptWater&, CStateManager&);
   virtual void OnScanStateChange(EScanState, CStateManager&);
-  virtual CAABox GetSortingBounds(const CTransform4f&) const;
+  virtual CAABox GetSortingBounds(const CStateManager&) const;
   virtual void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                                float dt);
 

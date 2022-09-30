@@ -35,7 +35,7 @@ lbl_803E4728:
 	.4byte GetCollisionResponseType__12CIceSheegothCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__12CIceSheegothCFRC12CTransform4f
+	.4byte GetSortingBounds__12CIceSheegothCFRC13CStateManager
 	.4byte DoUserAnimEvent__12CIceSheegothFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__12CIceSheegothCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -370,15 +370,15 @@ GetGravityConstant__12CIceSheegothCFv:
 /* 8019E26C 0019B1CC  EC 21 00 32 */	fmuls f1, f1, f0
 /* 8019E270 0019B1D0  4E 80 00 20 */	blr
 
-.global GetSortingBounds__12CIceSheegothCFRC12CTransform4f
-GetSortingBounds__12CIceSheegothCFRC12CTransform4f:
+.global GetSortingBounds__12CIceSheegothCFRC13CStateManager
+GetSortingBounds__12CIceSheegothCFRC13CStateManager:
 /* 8019E274 0019B1D4  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 8019E278 0019B1D8  7C 08 02 A6 */	mflr r0
 /* 8019E27C 0019B1DC  90 01 00 74 */	stw r0, 0x74(r1)
 /* 8019E280 0019B1E0  93 E1 00 6C */	stw r31, 0x6c(r1)
 /* 8019E284 0019B1E4  7C 7F 1B 78 */	mr r31, r3
 /* 8019E288 0019B1E8  38 61 00 2C */	addi r3, r1, 0x2c
-/* 8019E28C 0019B1EC  4B EB 53 55 */	bl GetSortingBounds__6CActorCFRC12CTransform4f
+/* 8019E28C 0019B1EC  4B EB 53 55 */	bl GetSortingBounds__6CActorCFRC13CStateManager
 /* 8019E290 0019B1F0  C0 A1 00 2C */	lfs f5, 0x2c(r1)
 /* 8019E294 0019B1F4  38 61 00 20 */	addi r3, r1, 0x20
 /* 8019E298 0019B1F8  C0 81 00 30 */	lfs f4, 0x30(r1)
@@ -10451,4 +10451,3 @@ lbl_803D1459:
 	.asciz "FlameThrower"
 	.balign 4
 	.4byte 0
-

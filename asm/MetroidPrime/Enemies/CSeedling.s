@@ -45,7 +45,7 @@ lbl_803E9E10:
 	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__9CSeedlingFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__11CWallWalkerCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -1532,4 +1532,3 @@ lbl_803D53A6:
 	.asciz "spike6_LCTR_SDK"
 	.asciz "??(??)"
 	.balign 4
-

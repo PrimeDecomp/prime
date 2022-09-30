@@ -84,7 +84,7 @@ lbl_803EB244:
 	.4byte GetCollisionResponseType__10CPatternedCFRC9CVector3fRC9CVector3fRC11CWeaponModei
 	.4byte FluidFXThink__3CAiFQ26CActor11EFluidStateR12CScriptWaterR13CStateManager
 	.4byte OnScanStateChange__6CActorFQ26CActor10EScanStateR13CStateManager
-	.4byte GetSortingBounds__6CActorCFRC12CTransform4f
+	.4byte GetSortingBounds__6CActorCFRC13CStateManager
 	.4byte DoUserAnimEvent__20CMetroidPrimeEssenceFR13CStateManagerRC13CInt32POINode14EUserEventType
 	.4byte GetCollisionPrimitive__13CPhysicsActorCFv
 	.4byte GetPrimitiveTransform__13CPhysicsActorCFv
@@ -4620,4 +4620,3 @@ lbl_803D58B4:
 	.byte 0x57, 0x68
 	.asciz "ole Body"
 	.balign 4
-
