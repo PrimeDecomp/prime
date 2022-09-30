@@ -6,7 +6,8 @@
 class CHealthInfo {
 public:
   CHealthInfo(f32 hp, f32 resist);
-  // TODO
+  void SetHP(float hp) { x0_health = hp; }
+  float GetHP() const { return x0_health; }
 
 private:
   f32 x0_health;

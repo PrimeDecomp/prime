@@ -2,11 +2,65 @@
 #define _CPLAYERSTATE_HPP
 
 #include "types.h"
+#include "MetroidPrime/CHealthInfo.hpp"
+#include "MetroidPrime/Player/CStaticInterference.hpp"
+#include "rstl/reserved_vector.hpp"
+#include "rstl/pair.hpp"
+#include "rstl/vector.hpp"
+#include "Kyoto/IObjectStore.hpp"
 
 class CStateManager;
 
 class CPlayerState {
 public:
+  enum EItemType {
+    kIT_Invalid = -1,
+    kIT_PowerBeam = 0,
+    kIT_IceBeam = 1,
+    kIT_WaveBeam = 2,
+    kIT_PlasmaBeam = 3,
+    kIT_Missiles = 4,
+    kIT_ScanVisor = 5,
+    kIT_MorphBallBombs = 6,
+    kIT_PowerBombs = 7,
+    kIT_Flamethrower = 8,
+    kIT_ThermalVisor = 9,
+    kIT_ChargeBeam = 10,
+    kIT_SuperMissile = 11,
+    kIT_GrappleBeam = 12,
+    kIT_XRayVisor = 13,
+    kIT_IceSpreader = 14,
+    kIT_SpaceJumpBoots = 15,
+    kIT_MorphBall = 16,
+    kIT_CombatVisor = 17,
+    kIT_BoostBall = 18,
+    kIT_SpiderBall = 19,
+    kIT_PowerSuit = 20,
+    kIT_GravitySuit = 21,
+    kIT_VariaSuit = 22,
+    kIT_PhazonSuit = 23,
+    kIT_EnergyTanks = 24,
+    kIT_UnknownItem1 = 25,
+    kIT_HealthRefill = 26,
+    kIT_UnknownItem2 = 27,
+    kIT_Wavebuster = 28,
+    kIT_Truth = 29,
+    kIT_Strength = 30,
+    kIT_Elder = 31,
+    kIT_Wild = 32,
+    kIT_Lifegiver = 33,
+    kIT_Warrior = 34,
+    kIT_Chozo = 35,
+    kIT_Nature = 36,
+    kIT_Sun = 37,
+    kIT_World = 38,
+    kIT_Spirit = 39,
+    kIT_Newborn = 40,
+
+    /* This must remain at the end of the list */
+    kIT_Max
+  };
+
   enum EPlayerVisor {
     kPV_Combat,
     kPV_XRay,
@@ -38,8 +92,43 @@ public:
 
   void SetIsFusionEnabled(bool v);
 
+  bool ItemEnabled(EItemType type) const;
+  void DisableItem(EItemType type);
+  void EnableItem(EItemType type);
+  bool HasPowerUp(EItemType type) const;
+  u32 GetItemCapacity(EItemType type) const;
+  u32 GetItemAmount(EItemType type) const;
+  void DecrPickup(EItemType type, u32 amount);
+  void IncrPickup(EItemType type, u32 amount);
+  void ResetAndIncrPickUp(EItemType type, u32 amount);
+  static float GetEnergyTankCapacity() { return 100.f; }
+  static float GetBaseHealthCapacity() { return 99.f; }
+  float CalculateHealth();
+
+  CPlayerState();
+
 private:
-  u8 pad[0x198];
+  struct CPowerUp {
+    u32 x0_amount;
+    u32 x4_capacity;
+    CPowerUp() : x0_amount(0), x4_capacity(0) {}
+    CPowerUp(u32 amount, u32 capacity) : x0_amount(amount), x4_capacity(capacity) {}
+  };
+
+  bool x0_24_alive : 1;
+  bool x0_25_firingComboBeam : 1;
+  bool x0_26_fusion : 1;
+  u32 x4_enabledItems;
+  EBeamId x8_currentBeam;
+  CHealthInfo xc_health;
+  EPlayerVisor x14_currentVisor;
+  EPlayerVisor x18_transitioningVisor;
+  float x1c_visorTransitionFactor;
+  EPlayerSuit x20_currentSuit;
+  rstl::reserved_vector<CPowerUp, 41> x24_powerups;
+  rstl::vector<rstl::pair<CAssetId, float> > x170_scanTimes;
+  rstl::pair<u32, u32> x180_scanCompletionRate;
+  CStaticInterference x188_staticIntf;
 };
 
 #endif
