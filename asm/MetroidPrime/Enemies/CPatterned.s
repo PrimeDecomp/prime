@@ -2420,7 +2420,7 @@ Shock__10CPatternedFff:
 /* 80078D50 00075CB0  4E 80 04 21 */	bctrl
 /* 80078D54 00075CB4  38 81 00 08 */	addi r4, r1, 8
 /* 80078D58 00075CB8  38 A0 00 00 */	li r5, 0
-/* 80078D5C 00075CBC  48 08 97 61 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80078D5C 00075CBC  48 08 97 61 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80078D60 00075CC0  2C 03 00 01 */	cmpwi r3, 1
 /* 80078D64 00075CC4  41 82 00 34 */	beq lbl_80078D98
 /* 80078D68 00075CC8  40 80 00 40 */	bge lbl_80078DA8
@@ -2483,7 +2483,7 @@ Burn__10CPatternedFff:
 /* 80078E34 00075D94  4E 80 04 21 */	bctrl
 /* 80078E38 00075D98  38 81 00 08 */	addi r4, r1, 8
 /* 80078E3C 00075D9C  38 A0 00 00 */	li r5, 0
-/* 80078E40 00075DA0  48 08 96 7D */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80078E40 00075DA0  48 08 96 7D */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80078E44 00075DA4  2C 03 00 01 */	cmpwi r3, 1
 /* 80078E48 00075DA8  41 82 00 34 */	beq lbl_80078E7C
 /* 80078E4C 00075DAC  40 80 00 40 */	bge lbl_80078E8C

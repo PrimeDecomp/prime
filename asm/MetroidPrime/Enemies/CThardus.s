@@ -8180,7 +8180,7 @@ lbl_801E119C:
 /* 801E137C 001DE2DC  91 61 00 20 */	stw r11, 0x20(r1)
 /* 801E1380 001DE2E0  91 61 00 24 */	stw r11, 0x24(r1)
 /* 801E1384 001DE2E4  90 01 00 28 */	stw r0, 0x28(r1)
-/* 801E1388 001DE2E8  4B F2 15 AD */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 801E1388 001DE2E8  4B F2 15 AD */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 801E138C 001DE2EC  90 61 00 08 */	stw r3, 8(r1)
 /* 801E1390 001DE2F0  38 1F 00 68 */	addi r0, r31, 0x68
 /* 801E1394 001DE2F4  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha

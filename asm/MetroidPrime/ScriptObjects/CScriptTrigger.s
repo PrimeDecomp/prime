@@ -1032,7 +1032,7 @@ lbl_80076998:
 /* 800769BC 0007391C  4E 80 04 21 */	bctrl
 /* 800769C0 00073920  38 9B 01 00 */	addi r4, r27, 0x100
 /* 800769C4 00073924  38 A0 00 00 */	li r5, 0
-/* 800769C8 00073928  48 08 BD 41 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800769C8 00073928  48 08 BD 41 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800769CC 0007392C  80 1B 01 00 */	lwz r0, 0x100(r27)
 /* 800769D0 00073930  7C 7E 1B 78 */	mr r30, r3
 /* 800769D4 00073934  2C 00 00 08 */	cmpwi r0, 8

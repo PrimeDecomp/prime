@@ -1456,7 +1456,7 @@ lbl_800E3DBC:
 /* 800E3DBC 000E0D1C  7F C4 F3 78 */	mr r4, r30
 /* 800E3DC0 000E0D20  38 7B 07 44 */	addi r3, r27, 0x744
 /* 800E3DC4 000E0D24  38 A0 00 00 */	li r5, 0
-/* 800E3DC8 000E0D28  48 01 E9 41 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800E3DC8 000E0D28  48 01 E9 41 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800E3DCC 000E0D2C  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800E3DD0 000E0D30  40 82 00 08 */	bne lbl_800E3DD8
 /* 800E3DD4 000E0D34  3B E0 00 45 */	li r31, 0x45
@@ -1735,7 +1735,7 @@ lbl_800E4198:
 /* 800E41C8 000E1128  90 A1 00 08 */	stw r5, 8(r1)
 /* 800E41CC 000E112C  38 A0 00 00 */	li r5, 0
 /* 800E41D0 000E1130  98 01 00 0C */	stb r0, 0xc(r1)
-/* 800E41D4 000E1134  48 01 E2 E9 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800E41D4 000E1134  48 01 E2 E9 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800E41D8 000E1138  2C 03 00 01 */	cmpwi r3, 1
 /* 800E41DC 000E113C  41 82 00 34 */	beq lbl_800E4210
 /* 800E41E0 000E1140  40 80 00 40 */	bge lbl_800E4220
@@ -1910,7 +1910,7 @@ lbl_800E4438:
 /* 800E4468 000E13C8  90 A1 00 08 */	stw r5, 8(r1)
 /* 800E446C 000E13CC  38 A0 00 00 */	li r5, 0
 /* 800E4470 000E13D0  98 01 00 0C */	stb r0, 0xc(r1)
-/* 800E4474 000E13D4  48 01 E0 49 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800E4474 000E13D4  48 01 E0 49 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800E4478 000E13D8  2C 03 00 01 */	cmpwi r3, 1
 /* 800E447C 000E13DC  41 82 00 34 */	beq lbl_800E44B0
 /* 800E4480 000E13E0  40 80 00 40 */	bge lbl_800E44C0

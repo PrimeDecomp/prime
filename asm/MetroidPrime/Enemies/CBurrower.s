@@ -1827,7 +1827,7 @@ __sinit_CBurrower_cpp:
 /* 802711B0 0026E110  91 61 00 20 */	stw r11, 0x20(r1)
 /* 802711B4 0026E114  91 61 00 24 */	stw r11, 0x24(r1)
 /* 802711B8 0026E118  90 01 00 28 */	stw r0, 0x28(r1)
-/* 802711BC 0026E11C  4B E9 17 79 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 802711BC 0026E11C  4B E9 17 79 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 802711C0 0026E120  3C 60 80 57 */	lis r3, lbl_80572694@ha
 /* 802711C4 0026E124  82 21 00 30 */	lwz r17, 0x30(r1)
 /* 802711C8 0026E128  3A 03 26 94 */	addi r16, r3, lbl_80572694@l
