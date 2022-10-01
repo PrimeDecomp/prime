@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/IObj.hpp"
+#include "Kyoto/CObjectReference.hpp"
 
 class CObjectReference;
 
@@ -18,7 +19,7 @@ public:
 
   CObjOwnerDerivedFromIObjUntyped* GetObj();
   void Lock();
-
+  bool IsLoaded() const { return x0_objRef->IsLoaded(); }
 private:
   CObjectReference* x0_objRef;
   bool x4_lockHeld;

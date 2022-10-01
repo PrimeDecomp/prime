@@ -103,8 +103,7 @@ AddTypes__17InternalCollidersFv:
 lbl_803D6A20:
 	# ROM: 0x3D3A20
 	.asciz "CCollidableAABox"
-	.byte 0x43, 0x43, 0x6F
-	.asciz "llidableSphere"
+	.asciz "CCollidableSphere"
 	.balign 4
 	.4byte 0
 

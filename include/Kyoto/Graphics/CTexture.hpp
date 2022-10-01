@@ -27,8 +27,13 @@ public:
 
   static void InvalidateTexmap(GXTexMapID id);
 
+  s16 GetWidth() const { return mWidth; }
+  s16 GetHeight() const { return mHeight; }
 private:
-  u8 pad[0x68];
+  u32 mTexelFormat; // TODO: Enum
+  s16 mWidth;
+  s16 mHeight;
+  u8 pad[0x60];
 };
 
 #endif
