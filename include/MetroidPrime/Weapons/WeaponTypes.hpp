@@ -28,9 +28,9 @@ class CWeaponMode {
   bool x4_26_instantKill : 1;
 
 public:
-  //constexpr CWeaponMode() = default;
   explicit CWeaponMode(EWeaponType type = kWT_None, bool charged = false, bool comboed = false, bool instaKill = false)
   : x0_weaponType(type), x4_24_charged(charged), x4_25_comboed(comboed), x4_26_instantKill(instaKill) {}
+  
   EWeaponType GetType() const { return x0_weaponType; }
 
   bool IsCharged() const { return x4_24_charged; }
