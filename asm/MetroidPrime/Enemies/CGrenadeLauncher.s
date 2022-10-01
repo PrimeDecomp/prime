@@ -1535,7 +1535,7 @@ Touch__16CGrenadeLauncherFR6CActorR13CStateManager:
 /* 80230A44 0022D9A4  98 C1 00 20 */	stb r6, 0x20(r1)
 /* 80230A48 0022D9A8  50 E0 2E B4 */	rlwimi r0, r7, 5, 0x1a, 0x1a
 /* 80230A4C 0022D9AC  98 01 00 20 */	stb r0, 0x20(r1)
-/* 80230A50 0022D9B0  4B ED 1C B9 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80230A50 0022D9B0  4B ED 1C B9 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80230A54 0022D9B4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80230A58 0022D9B8  41 82 00 44 */	beq lbl_80230A9C
 /* 80230A5C 0022D9BC  C0 02 B6 94 */	lfs f0, lbl_805AD3B4@sda21(r2)

@@ -799,7 +799,7 @@ GetCollisionResponseType__12CBloodFlowerCFRC9CVector3fRC9CVector3fRC11CWeaponMod
 /* 80119330 00116290  4E 80 04 21 */	bctrl
 /* 80119334 00116294  7F E4 FB 78 */	mr r4, r31
 /* 80119338 00116298  38 A0 00 00 */	li r5, 0
-/* 8011933C 0011629C  4B FE 93 CD */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8011933C 0011629C  4B FE 93 CD */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80119340 001162A0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80119344 001162A4  38 60 00 4E */	li r3, 0x4e
 /* 80119348 001162A8  41 82 00 08 */	beq lbl_80119350

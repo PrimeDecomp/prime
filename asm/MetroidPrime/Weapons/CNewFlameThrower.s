@@ -395,7 +395,7 @@ sub_80261430:
 /* 80261464 0025E3C4  4E 80 04 21 */	bctrl
 /* 80261468 0025E3C8  38 9D 01 2C */	addi r4, r29, 0x12c
 /* 8026146C 0025E3CC  38 A0 00 00 */	li r5, 0
-/* 80261470 0025E3D0  4B EA 10 4D */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80261470 0025E3D0  4B EA 10 4D */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80261474 0025E3D4  2C 03 00 04 */	cmpwi r3, 4
 /* 80261478 0025E3D8  40 82 00 0C */	bne lbl_80261484
 /* 8026147C 0025E3DC  38 60 00 00 */	li r3, 0

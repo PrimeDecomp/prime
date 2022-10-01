@@ -3909,7 +3909,7 @@ __sinit_CTryclops_cpp:
 /* 80260F70 0025DED0  91 61 00 20 */	stw r11, 0x20(r1)
 /* 80260F74 0025DED4  91 61 00 24 */	stw r11, 0x24(r1)
 /* 80260F78 0025DED8  90 01 00 28 */	stw r0, 0x28(r1)
-/* 80260F7C 0025DEDC  4B EA 19 B9 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 80260F7C 0025DEDC  4B EA 19 B9 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 80260F80 0025DEE0  80 61 00 30 */	lwz r3, 0x30(r1)
 /* 80260F84 0025DEE4  3C 80 80 57 */	lis r4, lbl_80572614@ha
 /* 80260F88 0025DEE8  C0 22 BA 34 */	lfs f1, lbl_805AD754@sda21(r2)

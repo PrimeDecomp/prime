@@ -10988,7 +10988,7 @@ __sinit_CRidley_cpp:
 /* 8025BD40 00258CA0  D0 21 00 34 */	stfs f1, 0x34(r1)
 /* 8025BD44 00258CA4  91 81 00 38 */	stw r12, 0x38(r1)
 /* 8025BD48 00258CA8  91 E1 00 28 */	stw r15, 0x28(r1)
-/* 8025BD4C 00258CAC  4B EA 6B E9 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 8025BD4C 00258CAC  4B EA 6B E9 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 8025BD50 00258CB0  81 E1 06 78 */	lwz r15, 0x678(r1)
 /* 8025BD54 00258CB4  3C 60 80 57 */	lis r3, lbl_80572544@ha
 /* 8025BD58 00258CB8  3A 03 25 44 */	addi r16, r3, lbl_80572544@l
@@ -11078,7 +11078,7 @@ __sinit_CRidley_cpp:
 /* 8025BEA8 00258E08  38 00 00 00 */	li r0, 0
 /* 8025BEAC 00258E0C  91 E1 06 B0 */	stw r15, 0x6b0(r1)
 /* 8025BEB0 00258E10  90 01 00 28 */	stw r0, 0x28(r1)
-/* 8025BEB4 00258E14  4B EA 6A 81 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 8025BEB4 00258E14  4B EA 6A 81 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 8025BEB8 00258E18  3C 60 80 57 */	lis r3, lbl_805725AC@ha
 /* 8025BEBC 00258E1C  83 81 05 C8 */	lwz r28, 0x5c8(r1)
 /* 8025BEC0 00258E20  3B A3 25 AC */	addi r29, r3, lbl_805725AC@l

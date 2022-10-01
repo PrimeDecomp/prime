@@ -4788,7 +4788,7 @@ GetCollisionResponseType__12CMetroidBetaCFRC9CVector3fRC9CVector3fRC11CWeaponMod
 /* 801C4D28 001C1C88  4E 80 04 21 */	bctrl
 /* 801C4D2C 001C1C8C  7F A4 EB 78 */	mr r4, r29
 /* 801C4D30 001C1C90  38 A0 00 00 */	li r5, 0
-/* 801C4D34 001C1C94  4B F3 D9 D5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 801C4D34 001C1C94  4B F3 D9 D5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 801C4D38 001C1C98  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801C4D3C 001C1C9C  40 82 00 10 */	bne lbl_801C4D4C
 /* 801C4D40 001C1CA0  28 1E 00 00 */	cmplwi r30, 0
