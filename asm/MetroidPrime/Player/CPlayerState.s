@@ -122,8 +122,8 @@ GetMissileComboChargeFactor__12CPlayerStateFv:
 .global GetComboFireAmmoPeriod__12CPlayerStateCFv
 GetComboFireAmmoPeriod__12CPlayerStateCFv:
 /* 80091204 0008E164  80 03 00 08 */	lwz r0, 8(r3)
-/* 80091208 0008E168  3C 60 80 3D */	lis r3, lbl_803CD778@ha
-/* 8009120C 0008E16C  38 63 D7 78 */	addi r3, r3, lbl_803CD778@l
+/* 80091208 0008E168  3C 60 80 3D */	lis r3, kComboAmmoPeriods@ha
+/* 8009120C 0008E16C  38 63 D7 78 */	addi r3, r3, kComboAmmoPeriods@l
 /* 80091210 0008E170  54 00 10 3A */	slwi r0, r0, 2
 /* 80091214 0008E174  7C 23 04 2E */	lfsx f1, r3, r0
 /* 80091218 0008E178  4E 80 00 20 */	blr
@@ -131,8 +131,8 @@ GetComboFireAmmoPeriod__12CPlayerStateCFv:
 .global GetMissileCostForAltAttack__12CPlayerStateCFv
 GetMissileCostForAltAttack__12CPlayerStateCFv:
 /* 8009121C 0008E17C  80 03 00 08 */	lwz r0, 8(r3)
-/* 80091220 0008E180  3C 60 80 3D */	lis r3, lbl_803CD764@ha
-/* 80091224 0008E184  38 63 D7 64 */	addi r3, r3, lbl_803CD764@l
+/* 80091220 0008E180  3C 60 80 3D */	lis r3, kMissileCosts@ha
+/* 80091224 0008E184  38 63 D7 64 */	addi r3, r3, kMissileCosts@l
 /* 80091228 0008E188  54 00 10 3A */	slwi r0, r0, 2
 /* 8009122C 0008E18C  7C 63 00 2E */	lwzx r3, r3, r0
 /* 80091230 0008E190  4E 80 00 20 */	blr
@@ -860,18 +860,12 @@ DecrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091B98 0008EAF8  4D 80 00 20 */	bltlr
 /* 80091B9C 0008EAFC  2C 04 00 28 */	cmpwi r4, 0x28
 /* 80091BA0 0008EB00  40 81 00 08 */	ble lbl_80091BA8
-
-.global sub_80091ba4
-sub_80091ba4:
 /* 80091BA4 0008EB04  4E 80 00 20 */	blr
 lbl_80091BA8:
 /* 80091BA8 0008EB08  2C 04 00 07 */	cmpwi r4, 7
 /* 80091BAC 0008EB0C  40 80 00 10 */	bge lbl_80091BBC
 /* 80091BB0 0008EB10  2C 04 00 04 */	cmpwi r4, 4
 /* 80091BB4 0008EB14  41 82 00 10 */	beq lbl_80091BC4
-
-.global sub_80091bb8
-sub_80091bb8:
 /* 80091BB8 0008EB18  4E 80 00 20 */	blr
 lbl_80091BBC:
 /* 80091BBC 0008EB1C  2C 04 00 09 */	cmpwi r4, 9
@@ -917,7 +911,6 @@ lbl_80091C28:
 /* 80091C48 0008EBA8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 80091C4C 0008EBAC  7C 09 03 A6 */	mtctr r0
 /* 80091C50 0008EBB0  4E 80 04 20 */	bctr
-.global lbl_80091C54
 lbl_80091C54:
 /* 80091C54 0008EBB4  57 C0 18 38 */	slwi r0, r30, 3
 /* 80091C58 0008EBB8  7C 9D 02 14 */	add r4, r29, r0
@@ -930,7 +923,6 @@ lbl_80091C54:
 /* 80091C74 0008EBD4  40 81 00 50 */	ble lbl_80091CC4
 /* 80091C78 0008EBD8  90 64 00 28 */	stw r3, 0x28(r4)
 /* 80091C7C 0008EBDC  48 00 00 48 */	b lbl_80091CC4
-.global lbl_80091C80
 lbl_80091C80:
 /* 80091C80 0008EBE0  37 FD 00 0C */	addic. r31, r29, 0xc
 /* 80091C84 0008EBE4  41 82 00 40 */	beq lbl_80091CC4
@@ -943,14 +935,13 @@ lbl_80091C80:
 /* 80091CA0 0008EC00  C8 21 00 08 */	lfd f1, 8(r1)
 /* 80091CA4 0008EC04  EC 21 10 28 */	fsubs f1, f1, f2
 /* 80091CA8 0008EC08  EF E1 00 2A */	fadds f31, f1, f0
-/* 80091CAC 0008EC0C  48 00 00 85 */	bl CalculateHealth__12CPlayerStateFUi
+/* 80091CAC 0008EC0C  48 00 00 85 */	bl CalculateHealth__12CPlayerStateFv
 /* 80091CB0 0008EC10  FC 1F 08 40 */	fcmpo cr0, f31, f1
 /* 80091CB4 0008EC14  40 81 00 0C */	ble lbl_80091CC0
 /* 80091CB8 0008EC18  D0 3F 00 00 */	stfs f1, 0(r31)
 /* 80091CBC 0008EC1C  48 00 00 08 */	b lbl_80091CC4
 lbl_80091CC0:
 /* 80091CC0 0008EC20  D3 FF 00 00 */	stfs f31, 0(r31)
-.global lbl_80091CC4
 lbl_80091CC4:
 /* 80091CC4 0008EC24  2C 1E 00 18 */	cmpwi r30, 0x18
 /* 80091CC8 0008EC28  40 82 00 14 */	bne lbl_80091CDC
@@ -984,8 +975,8 @@ ResetAndIncrPickUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091D28 0008EC88  38 21 00 10 */	addi r1, r1, 0x10
 /* 80091D2C 0008EC8C  4E 80 00 20 */	blr
 
-.global CalculateHealth__12CPlayerStateFUi
-CalculateHealth__12CPlayerStateFUi:
+.global CalculateHealth__12CPlayerStateFv
+CalculateHealth__12CPlayerStateFv:
 /* 80091D30 0008EC90  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80091D34 0008EC94  3C 00 43 30 */	lis r0, 0x4330
 /* 80091D38 0008EC98  C8 42 8B 20 */	lfd f2, lbl_805AA840@sda21(r2)
@@ -1017,11 +1008,11 @@ InitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091D94 0008ECF4  48 00 00 DC */	b lbl_80091E70
 lbl_80091D98:
 /* 80091D98 0008ECF8  57 A0 18 38 */	slwi r0, r29, 3
-/* 80091D9C 0008ECFC  3C 60 80 3D */	lis r3, lbl_803CD6C0@ha
+/* 80091D9C 0008ECFC  3C 60 80 3D */	lis r3, kPowerUpMaxValues@ha
 /* 80091DA0 0008ED00  7F DF 02 14 */	add r30, r31, r0
 /* 80091DA4 0008ED04  57 A6 10 3A */	slwi r6, r29, 2
 /* 80091DA8 0008ED08  80 FE 00 2C */	lwz r7, 0x2c(r30)
-/* 80091DAC 0008ED0C  38 03 D6 C0 */	addi r0, r3, lbl_803CD6C0@l
+/* 80091DAC 0008ED0C  38 03 D6 C0 */	addi r0, r3, kPowerUpMaxValues@l
 /* 80091DB0 0008ED10  38 81 00 08 */	addi r4, r1, 8
 /* 80091DB4 0008ED14  3B DE 00 28 */	addi r30, r30, 0x28
 /* 80091DB8 0008ED18  7C 65 3A 14 */	add r3, r5, r7
@@ -1099,8 +1090,8 @@ ReInitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091EB4 0008EE14  38 21 00 10 */	addi r1, r1, 0x10
 /* 80091EB8 0008EE18  4E 80 00 20 */	blr
 
-.global PutTo__12CPlayerStateFR13COutPutStream
-PutTo__12CPlayerStateFR13COutPutStream:
+.global PutTo__12CPlayerStateFR13COutputStream
+PutTo__12CPlayerStateFR13COutputStream:
 /* 80091EBC 0008EE1C  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80091EC0 0008EE20  7C 08 02 A6 */	mflr r0
 /* 80091EC4 0008EE24  90 01 00 44 */	stw r0, 0x44(r1)
@@ -1131,9 +1122,9 @@ PutTo__12CPlayerStateFR13COutPutStream:
 /* 80091F28 0008EE88  7C 65 1B 78 */	mr r5, r3
 /* 80091F2C 0008EE8C  7F E3 FB 78 */	mr r3, r31
 /* 80091F30 0008EE90  48 2A D4 8D */	bl WriteBits__13COutputStreamFii
-/* 80091F34 0008EE94  3C 60 80 3D */	lis r3, lbl_803CD6C0@ha
+/* 80091F34 0008EE94  3C 60 80 3D */	lis r3, kPowerUpMaxValues@ha
 /* 80091F38 0008EE98  3B 9E 00 28 */	addi r28, r30, 0x28
-/* 80091F3C 0008EE9C  3B A3 D6 C0 */	addi r29, r3, lbl_803CD6C0@l
+/* 80091F3C 0008EE9C  3B A3 D6 C0 */	addi r29, r3, kPowerUpMaxValues@l
 /* 80091F40 0008EEA0  3B 60 00 00 */	li r27, 0
 lbl_80091F44:
 /* 80091F44 0008EEA4  80 7D 00 00 */	lwz r3, 0(r29)
@@ -1264,9 +1255,9 @@ __ct__12CPlayerStateFR12CInputStream:
 /* 80092118 0008F078  7C 64 1B 78 */	mr r4, r3
 /* 8009211C 0008F07C  7F E3 FB 78 */	mr r3, r31
 /* 80092120 0008F080  48 2A CC 19 */	bl ReadBits__12CInputStreamFUi
-/* 80092124 0008F084  3C 80 80 3D */	lis r4, lbl_803CD6C0@ha
+/* 80092124 0008F084  3C 80 80 3D */	lis r4, kPowerUpMaxValues@ha
 /* 80092128 0008F088  90 7E 00 20 */	stw r3, 0x20(r30)
-/* 8009212C 0008F08C  3B 64 D6 C0 */	addi r27, r4, lbl_803CD6C0@l
+/* 8009212C 0008F08C  3B 64 D6 C0 */	addi r27, r4, kPowerUpMaxValues@l
 /* 80092130 0008F090  3B 9E 00 24 */	addi r28, r30, 0x24
 /* 80092134 0008F094  3B A0 00 00 */	li r29, 0
 lbl_80092138:
@@ -1749,8 +1740,8 @@ sub_800926c4:
 
 .section .rodata
 .balign 8
-.global lbl_803CD6C0
-lbl_803CD6C0:
+.global kPowerUpMaxValues
+kPowerUpMaxValues:
 	# ROM: 0x3CA6C0
 	.4byte 0x00000001
 	.4byte 0x00000001
@@ -1794,8 +1785,8 @@ lbl_803CD6C0:
 	.4byte 0x00000001
 	.4byte 0x00000001
 
-.global lbl_803CD764
-lbl_803CD764:
+.global kMissileCosts
+kMissileCosts:
 	# ROM: 0x3CA764
 	.4byte 0x00000005
 	.4byte 0x0000000A
@@ -1803,8 +1794,8 @@ lbl_803CD764:
 	.4byte 0x0000000A
 	.4byte 0x00000001
 
-.global lbl_803CD778
-lbl_803CD778:
+.global kComboAmmoPeriods
+kComboAmmoPeriods:
 	# ROM: 0x3CA778
 	.float 0.2
 	.float 0.1
