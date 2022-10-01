@@ -52,24 +52,23 @@ public:
   CTri GetTri(EBoxFaceId face, int windOffset) const;
   CVector3f ClosestPointAlongVector(const CVector3f& vec) const;
   CVector3f FurthestPointAlongVector(const CVector3f& vec) const;
-  const CVector3f& GetMinPoint() const { return min; }
-  const CVector3f& GetMaxPoint() const { return max; }
-  // GetCenterPoint__6CAABoxCFv global
-  // GetPoint__6CAABoxCFi global
+  CVector3f GetCenterPoint() const;
+  CVector3f GetPoint(int) const;
   // Include__6CAABoxFRC9CVector3f weak
   // Include__6CAABoxFRC6CAABox weak
   void AccumulateBounds(const CVector3f&);
-  // bool Invalid__6CAABoxCFv global
-  // PointInside__6CAABoxCFRC9CVector3f global
+  bool Invalid() const;
+  bool PointInside(const CVector3f& vec) const;
   bool DoBoundsOverlap(const CAABox&) const;
-  // GetVolume__6CAABoxCFv global
-  // GetBooleanIntersection__6CAABoxCFRC6CAABox global
+  f32 GetVolume() const;
+  CAABox GetBooleanIntersection(const CAABox& other) const;
   bool Inside(const CAABox& other) const;
   bool InsidePlane(const CPlane& plane) const;
   CVector3f ClampToBox(const CVector3f& vec) const;
-  // GetTri__6CAABoxCFQ26CAABox10EBoxFaceIdi global
-  // DistanceBetween__6CAABoxFRC6CAABoxRC6CAABox global
   CAABox GetTransformedAABox(const CTransform4f& xf) const;
+
+  const CVector3f& GetMinPoint() const { return min; }
+  const CVector3f& GetMaxPoint() const { return max; }
 
   // GetPointA__6CAABoxCFv weak
   // GetPointB__6CAABoxCFv weak
@@ -89,6 +88,7 @@ public:
   static const CAABox& Identity() { return mskNullBox; }
   static const CAABox& MakeMaxInvertedBox() { return mskInvertedBox; }
   // MakeNullBox__6CAABoxFv ??
+  static f32 DistanceBetween(const CAABox& a, const CAABox& b);
 
 private:
   CVector3f min;

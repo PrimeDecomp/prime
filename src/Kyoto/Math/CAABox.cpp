@@ -186,6 +186,119 @@ CVector3f CAABox::ClampToBox(const CVector3f& vec) const {
       vec.GetZ() < min.GetZ() ? min.GetZ() : (vec.GetZ() > max.GetZ() ? max.GetZ() : vec.GetZ()));
 }
 
+// TODO non-matching instruction swap
+CAABox CAABox::GetBooleanIntersection(const CAABox& other) const {
+  CVector3f minVec = CVector3f::Zero();
+  CVector3f maxVec = CVector3f::Zero();
+
+  for (int i = 0; i < 3; ++i) {
+    if (GetMinPoint()[i] <= other.GetMinPoint()[i] && GetMaxPoint()[i] >= other.GetMaxPoint()[i]) {
+      minVec[i] = other.GetMinPoint()[i];
+      maxVec[i] = other.GetMaxPoint()[i];
+    } else if (other.GetMinPoint()[i] <= GetMinPoint()[i] &&
+               other.GetMaxPoint()[i] >= GetMaxPoint()[i]) {
+      minVec[i] = GetMinPoint()[i];
+      maxVec[i] = GetMaxPoint()[i];
+    } else if (other.GetMinPoint()[i] <= GetMinPoint()[i] &&
+               other.GetMaxPoint()[i] >= GetMinPoint()[i]) {
+      minVec[i] = GetMinPoint()[i];
+      maxVec[i] = other.GetMaxPoint()[i];
+    } else if (other.GetMinPoint()[i] <= GetMaxPoint()[i] &&
+               other.GetMaxPoint()[i] >= GetMaxPoint()[i]) {
+      minVec[i] = other.GetMinPoint()[i];
+      maxVec[i] = GetMaxPoint()[i];
+    }
+  }
+
+  return CAABox(minVec, maxVec);
+}
+
+bool CAABox::Invalid() const {
+  if (min.GetX() > max.GetX() && min.GetY() > max.GetY() && min.GetZ() > max.GetZ()) {
+    return true;
+  }
+  if (min.IsEqu(CVector3f::Zero()) && max.IsEqu(CVector3f::Zero())) {
+    return true;
+  }
+  return false;
+}
+
+f32 CAABox::GetVolume() const {
+  CVector3f delta = max - min;
+  return delta.GetX() * delta.GetY() * delta.GetZ();
+}
+
+CVector3f CAABox::GetCenterPoint() const {
+  CVector3f result = min + max;
+  result.SetX(result.GetX() * 0.5f);
+  result.SetY(result.GetY() * 0.5f);
+  result.SetZ(result.GetZ() * 0.5f);
+  return result;
+}
+
+CVector3f CAABox::GetPoint(int point) const {
+  const CVector3f* vecs[2] = {&min, &max};
+  return CVector3f(vecs[(point & 1) != 0]->GetX(), vecs[(point & 2) != 0]->GetY(),
+                   vecs[(point & 4) != 0]->GetZ());
+}
+
+bool CAABox::PointInside(const CVector3f& vec) const {
+  return vec.GetX() >= min.GetX() && vec.GetX() <= max.GetX() && vec.GetY() >= min.GetY() &&
+         vec.GetY() <= max.GetY() && vec.GetZ() >= min.GetZ() && vec.GetZ() <= max.GetZ();
+}
+
+f32 CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
+  f32 minX = b.GetMaxPoint().GetX();
+  f32 maxX = a.GetMinPoint().GetX();
+  f32 minY = b.GetMaxPoint().GetY();
+  f32 maxY = a.GetMinPoint().GetY();
+  f32 minZ = b.GetMaxPoint().GetZ();
+  f32 maxZ = a.GetMinPoint().GetZ();
+
+  bool xi = b.GetMinPoint().GetX() < a.GetMaxPoint().GetX() && maxX < minX;
+  bool yi = b.GetMinPoint().GetY() < a.GetMaxPoint().GetY() && maxY < minY;
+  bool zi = b.GetMinPoint().GetZ() < a.GetMaxPoint().GetZ() && maxZ < minZ;
+
+  int intersects = 0;
+  if (xi) intersects |= 1;
+  if (yi) intersects |= 2;
+  if (zi) intersects |= 4;
+
+  if (b.GetMinPoint().GetX() > a.GetMaxPoint().GetX()) {
+    minX = b.GetMinPoint().GetX();
+    maxX = a.GetMaxPoint().GetX();
+  }
+  if (b.GetMinPoint().GetY() > a.GetMaxPoint().GetY()) {
+    minX = b.GetMinPoint().GetY();
+    maxX = a.GetMaxPoint().GetY();
+  }
+  if (b.GetMinPoint().GetZ() > a.GetMaxPoint().GetZ()) {
+    minX = b.GetMinPoint().GetZ();
+    maxX = a.GetMaxPoint().GetZ();
+  }
+
+  switch (intersects) {
+  case 0:
+    return (CVector3f(maxX, maxY, maxZ) - CVector3f(minX, minY, minZ)).Magnitude();
+  case 1:
+    return (CVector2f(maxY, maxZ) - CVector2f(minY, minZ)).Magnitude();
+  case 2:
+    return (CVector2f(maxX, maxZ) - CVector2f(minX, minZ)).Magnitude();
+  case 3:
+    return fabs(maxZ - minZ);
+  case 4:
+    return (CVector2f(maxX, maxY) - CVector2f(minX, minY)).Magnitude();
+  case 5:
+    return fabs(maxY - minY);
+  case 6:
+    return fabs(maxX - minX);
+  case 7:
+    return 0.f;
+  default:
+    return 0.f;
+  }
+}
+
 CVector3f CAABox::FurthestPointAlongVector(const CVector3f& vec) const {
   return CVector3f(CMath::FastFSel(vec.GetX(), max.GetX(), min.GetX()),
                    CMath::FastFSel(vec.GetY(), max.GetY(), min.GetY()),
