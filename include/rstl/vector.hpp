@@ -40,6 +40,22 @@ public:
   inline const_iterator end() const { return const_iterator(xc_items + x4_count); }
   inline vector() : x4_count(0), x8_capacity(0), xc_items(NULL) {}
   inline vector(int count) : x4_count(0), x8_capacity(0), xc_items(0) { reserve(count); }
+  inline explicit vector(const T& v) : x4_count(1), x8_capacity(1) {
+    if (x4_count * sizeof(T) == 0) {
+      xc_items = NULL;
+    } else {
+      x0_allocator.allocate(xc_items, x4_count * sizeof(T));
+    }
+    new (&xc_items[0]) T(v);
+  }
+  vector(int count, const T& v) : x4_count(count), x8_capacity(count) {
+    if (x4_count * sizeof(T) == 0) {
+      xc_items = NULL;
+    } else {
+      x0_allocator.allocate(xc_items, x4_count * sizeof(T));
+    }
+    uninitialized_fill_n(xc_items, x8_capacity, v);
+  }
   vector(const vector& other) {
     x4_count = other.x4_count;
     x8_capacity = other.x8_capacity;

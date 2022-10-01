@@ -245,4 +245,3 @@ lbl_803D8348:
 	# ROM: 0x3D5348
 	.asciz "??(??)"
 	.balign 4
-

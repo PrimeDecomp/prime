@@ -949,9 +949,6 @@ lbl_803C2720:
 /* 803C2724 003BF684  7C 06 00 AE */	lbzx r0, r6, r0
 /* 803C2728 003BF688  28 00 00 00 */	cmplwi r0, 0
 /* 803C272C 003BF68C  40 82 FF BC */	bne lbl_803C26E8
-
-.global sub_803c2730
-sub_803c2730:
 /* 803C2730 003BF690  4E 80 00 20 */	blr
 
 .global __THPHuffGenerateDecoderTables
