@@ -2,9 +2,8 @@
 #include <Kyoto/Text/CFontImageDef.hpp>
 
 CFontImageDef::CFontImageDef(const TToken< CTexture >& texture, const CVector2f& cropFactor)
-: mFPS(0.f), mTextures(texture), mCropFactor(cropFactor) {
+: mFPS(0.f), mTextures(1, texture), mCropFactor(cropFactor) {
   rstl::vector< TToken< CTexture > >::iterator it = mTextures.begin();
-
   for (; it != mTextures.end(); ++it) {
     it->Lock();
   }

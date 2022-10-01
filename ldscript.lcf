@@ -60,7 +60,6 @@ FORCEFILES
     CloseEnough.o
     CParticleGen.o
     CWarp.o
-    CFontImageDef.o
     CImageInstruction.o
     RumbleFxTable.o
     CGuiWidgetDrawParms.o

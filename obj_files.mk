@@ -602,7 +602,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/src/Kyoto/CTimeProvider.o\
 	$(BUILD_DIR)/asm/Kyoto/CARAMToken.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/CMidiManager.o\
-	$(BUILD_DIR)/asm/Kyoto/Text/CFontImageDef.o\
+	$(BUILD_DIR)/src/Kyoto/Text/CFontImageDef.o\
 	$(BUILD_DIR)/asm/Kyoto/Text/CImageInstruction.o\
 	$(BUILD_DIR)/asm/Kyoto/Text/CTextRenderBuffer.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CCubeMoviePlayer.o\
