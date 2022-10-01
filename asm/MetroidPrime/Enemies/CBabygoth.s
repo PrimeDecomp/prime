@@ -6359,7 +6359,7 @@ Shock__9CBabygothFff:
 /* 80222AC4 0021FA24  4E 80 04 21 */	bctrl
 /* 80222AC8 0021FA28  38 81 00 14 */	addi r4, r1, 0x14
 /* 80222ACC 0021FA2C  38 A0 00 00 */	li r5, 0
-/* 80222AD0 0021FA30  4B ED F9 ED */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80222AD0 0021FA30  4B ED F9 ED */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80222AD4 0021FA34  2C 03 00 01 */	cmpwi r3, 1
 /* 80222AD8 0021FA38  41 82 00 34 */	beq lbl_80222B0C
 /* 80222ADC 0021FA3C  40 80 00 40 */	bge lbl_80222B1C

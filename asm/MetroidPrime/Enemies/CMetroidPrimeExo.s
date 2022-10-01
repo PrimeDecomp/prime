@@ -8726,7 +8726,7 @@ sub_8027827c:
 /* 80278328 00275288  4E 80 04 21 */	bctrl
 /* 8027832C 0027528C  38 9E 01 2C */	addi r4, r30, 0x12c
 /* 80278330 00275290  38 A0 00 00 */	li r5, 0
-/* 80278334 00275294  4B E8 A3 D5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80278334 00275294  4B E8 A3 D5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80278338 00275298  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8027833C 0027529C  41 82 01 B8 */	beq lbl_802784F4
 /* 80278340 002752A0  C0 02 88 F0 */	lfs f0, lbl_805AA610@sda21(r2)

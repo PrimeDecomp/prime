@@ -2923,7 +2923,7 @@ lbl_80236AB0:
 /* 80236B04 00233A64  38 7C 05 BC */	addi r3, r28, 0x5bc
 /* 80236B08 00233A68  38 9B 01 2C */	addi r4, r27, 0x12c
 /* 80236B0C 00233A6C  38 A0 00 00 */	li r5, 0
-/* 80236B10 00233A70  4B EC B9 AD */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80236B10 00233A70  4B EC B9 AD */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80236B14 00233A74  2C 03 00 02 */	cmpwi r3, 2
 /* 80236B18 00233A78  41 82 00 30 */	beq lbl_80236B48
 /* 80236B1C 00233A7C  88 1C 04 00 */	lbz r0, 0x400(r28)
@@ -2967,7 +2967,7 @@ lbl_80236BAC:
 /* 80236BAC 00233B0C  38 7C 06 24 */	addi r3, r28, 0x624
 /* 80236BB0 00233B10  38 9B 01 2C */	addi r4, r27, 0x12c
 /* 80236BB4 00233B14  38 A0 00 00 */	li r5, 0
-/* 80236BB8 00233B18  4B EC B9 05 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80236BB8 00233B18  4B EC B9 05 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80236BBC 00233B1C  2C 03 00 02 */	cmpwi r3, 2
 /* 80236BC0 00233B20  41 82 00 14 */	beq lbl_80236BD4
 /* 80236BC4 00233B24  88 1C 04 00 */	lbz r0, 0x400(r28)

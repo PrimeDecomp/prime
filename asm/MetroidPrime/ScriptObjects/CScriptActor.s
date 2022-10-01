@@ -133,7 +133,7 @@ GetCollisionResponseType__12CScriptActorCFRC9CVector3fRC9CVector3fRC11CWeaponMod
 /* 80075018 00071F78  7F A4 EB 78 */	mr r4, r29
 /* 8007501C 00071F7C  7C 7F 1B 78 */	mr r31, r3
 /* 80075020 00071F80  38 A0 00 00 */	li r5, 0
-/* 80075024 00071F84  48 08 D4 99 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80075024 00071F84  48 08 D4 99 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80075028 00071F88  2C 03 00 02 */	cmpwi r3, 2
 /* 8007502C 00071F8C  40 82 00 2C */	bne lbl_80075058
 /* 80075030 00071F90  7F E3 FB 78 */	mr r3, r31
