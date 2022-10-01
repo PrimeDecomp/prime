@@ -8957,9 +8957,9 @@ lbl_8027861C:
 /* 8027869C 002755FC  4B DD BC 19 */	bl AddMaterial__6CActorF14EMaterialTypes14EMaterialTypesR13CStateManager
 /* 802786A0 00275600  48 00 00 48 */	b lbl_802786E8
 lbl_802786A4:
-/* 802786A4 00275604  3C 80 80 57 */	lis r4, lbl_8056D718@ha
+/* 802786A4 00275604  3C 80 80 57 */	lis r4, sImmuneVulnerability__20CDamageVulnerability@ha
 /* 802786A8 00275608  7F 63 DB 78 */	mr r3, r27
-/* 802786AC 0027560C  38 84 D7 18 */	addi r4, r4, lbl_8056D718@l
+/* 802786AC 0027560C  38 84 D7 18 */	addi r4, r4, sImmuneVulnerability__20CDamageVulnerability@l
 /* 802786B0 00275610  4B F3 04 E9 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 /* 802786B4 00275614  A0 1D 00 08 */	lhz r0, 8(r29)
 /* 802786B8 00275618  7F C6 F3 78 */	mr r6, r30

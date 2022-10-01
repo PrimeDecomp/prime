@@ -7593,8 +7593,8 @@ GetDamageVulnerability__6CDroneCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 80165530 00162490  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80165534 00162494  41 82 00 18 */	beq lbl_8016554C
 /* 80165538 00162498  C0 02 9F 7C */	lfs f0, lbl_805ABC9C@sda21(r2)
-/* 8016553C 0016249C  3C 60 80 57 */	lis r3, lbl_8056D780@ha
-/* 80165540 001624A0  38 63 D7 80 */	addi r3, r3, lbl_8056D780@l
+/* 8016553C 0016249C  3C 60 80 57 */	lis r3, sReflectVulnerability__20CDamageVulnerability@ha
+/* 80165540 001624A0  38 63 D7 80 */	addi r3, r3, sReflectVulnerability__20CDamageVulnerability@l
 /* 80165544 001624A4  D0 1F 05 E8 */	stfs f0, 0x5e8(r31)
 /* 80165548 001624A8  48 00 00 0C */	b lbl_80165554
 lbl_8016554C:

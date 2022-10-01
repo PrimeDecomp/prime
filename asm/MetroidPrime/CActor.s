@@ -1949,8 +1949,8 @@ GetDamageVulnerability__6CActorCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 
 .global GetDamageVulnerability__6CActorCFv
 GetDamageVulnerability__6CActorCFv:
-/* 80054444 000513A4  3C 60 80 57 */	lis r3, lbl_8056D578@ha
-/* 80054448 000513A8  38 63 D5 78 */	addi r3, r3, lbl_8056D578@l
+/* 80054444 000513A4  3C 60 80 57 */	lis r3, sNormalVulnerability__20CDamageVulnerability@ha
+/* 80054448 000513A8  38 63 D5 78 */	addi r3, r3, sNormalVulnerability__20CDamageVulnerability@l
 /* 8005444C 000513AC  4E 80 00 20 */	blr
 
 .global HealthInfo__6CActorFR13CStateManager

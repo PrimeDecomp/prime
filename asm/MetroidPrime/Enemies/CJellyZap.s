@@ -815,8 +815,8 @@ GetDamageVulnerability__9CJellyZapCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 801D8120 001D5080  48 00 00 71 */	bl sub801d8190__9CJellyZapFv
 /* 801D8124 001D5084  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801D8128 001D5088  41 82 00 10 */	beq lbl_801D8138
-/* 801D812C 001D508C  3C 60 80 57 */	lis r3, lbl_8056D780@ha
-/* 801D8130 001D5090  38 63 D7 80 */	addi r3, r3, lbl_8056D780@l
+/* 801D812C 001D508C  3C 60 80 57 */	lis r3, sReflectVulnerability__20CDamageVulnerability@ha
+/* 801D8130 001D5090  38 63 D7 80 */	addi r3, r3, sReflectVulnerability__20CDamageVulnerability@l
 /* 801D8134 001D5094  48 00 00 0C */	b lbl_801D8140
 lbl_801D8138:
 /* 801D8138 001D5098  7F E3 FB 78 */	mr r3, r31

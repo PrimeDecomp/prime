@@ -1476,8 +1476,8 @@ GetDamageVulnerability__7CBeetleCFv:
 /* 800E3DFC 000E0D5C  88 03 08 38 */	lbz r0, 0x838(r3)
 /* 800E3E00 000E0D60  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 800E3E04 000E0D64  41 82 00 10 */	beq lbl_800E3E14
-/* 800E3E08 000E0D68  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 800E3E0C 000E0D6C  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 800E3E08 000E0D68  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 800E3E0C 000E0D6C  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 800E3E10 000E0D70  48 00 00 38 */	b lbl_800E3E48
 lbl_800E3E14:
 /* 800E3E14 000E0D74  80 03 03 FC */	lwz r0, 0x3fc(r3)
@@ -1515,8 +1515,8 @@ GetDamageVulnerability__7CBeetleCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 800E3E7C 000E0DDC  88 03 08 38 */	lbz r0, 0x838(r3)
 /* 800E3E80 000E0DE0  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 800E3E84 000E0DE4  41 82 00 10 */	beq lbl_800E3E94
-/* 800E3E88 000E0DE8  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 800E3E8C 000E0DEC  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 800E3E88 000E0DE8  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 800E3E8C 000E0DEC  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 800E3E90 000E0DF0  48 00 00 F8 */	b lbl_800E3F88
 lbl_800E3E94:
 /* 800E3E94 000E0DF4  80 1D 03 FC */	lwz r0, 0x3fc(r29)

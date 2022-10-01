@@ -4295,9 +4295,9 @@ lbl_800C8D80:
 /* 800C8EBC 000C5E1C  3B 20 00 01 */	li r25, 1
 /* 800C8EC0 000C5E20  4B F8 42 1D */	bl AllocateUniqueId__13CStateManagerFv
 /* 800C8EC4 000C5E24  A0 81 00 60 */	lhz r4, 0x60(r1)
-/* 800C8EC8 000C5E28  3C 60 80 57 */	lis r3, lbl_8056D578@ha
+/* 800C8EC8 000C5E28  3C 60 80 57 */	lis r3, sNormalVulnerability__20CDamageVulnerability@ha
 /* 800C8ECC 000C5E2C  C0 22 8E 28 */	lfs f1, lbl_805AAB48@sda21(r2)
-/* 800C8ED0 000C5E30  3B 43 D5 78 */	addi r26, r3, lbl_8056D578@l
+/* 800C8ED0 000C5E30  3B 43 D5 78 */	addi r26, r3, sNormalVulnerability__20CDamageVulnerability@l
 /* 800C8ED4 000C5E34  B0 81 00 64 */	sth r4, 0x64(r1)
 /* 800C8ED8 000C5E38  38 00 00 06 */	li r0, 6
 /* 800C8EDC 000C5E3C  C0 02 8E 38 */	lfs f0, lbl_805AAB58@sda21(r2)
@@ -12311,12 +12311,12 @@ lbl_800D0368:
 /* 800D042C 000CD38C  3B 40 00 01 */	li r26, 1
 /* 800D0430 000CD390  4B F7 CC AD */	bl AllocateUniqueId__13CStateManagerFv
 /* 800D0434 000CD394  A0 81 00 60 */	lhz r4, 0x60(r1)
-/* 800D0438 000CD398  3C 60 80 57 */	lis r3, lbl_8056D578@ha
+/* 800D0438 000CD398  3C 60 80 57 */	lis r3, sNormalVulnerability__20CDamageVulnerability@ha
 /* 800D043C 000CD39C  38 00 00 06 */	li r0, 6
 /* 800D0440 000CD3A0  C0 02 8E 28 */	lfs f0, lbl_805AAB48@sda21(r2)
 /* 800D0444 000CD3A4  B0 81 00 64 */	sth r4, 0x64(r1)
 /* 800D0448 000CD3A8  3B 20 00 00 */	li r25, 0
-/* 800D044C 000CD3AC  3B 63 D5 78 */	addi r27, r3, lbl_8056D578@l
+/* 800D044C 000CD3AC  3B 63 D5 78 */	addi r27, r3, sNormalVulnerability__20CDamageVulnerability@l
 /* 800D0450 000CD3B0  39 81 00 B0 */	addi r12, r1, 0xb0
 /* 800D0454 000CD3B4  90 01 00 08 */	stw r0, 8(r1)
 /* 800D0458 000CD3B8  39 60 FF FF */	li r11, -1

@@ -2913,12 +2913,12 @@ lbl_802297FC:
 sub_80229818:
 /* 80229818 00226778  94 21 FF 00 */	stwu r1, -0x100(r1)
 /* 8022981C 0022677C  7C 08 02 A6 */	mflr r0
-/* 80229820 00226780  3C A0 80 57 */	lis r5, lbl_8056D780@ha
+/* 80229820 00226780  3C A0 80 57 */	lis r5, sReflectVulnerability__20CDamageVulnerability@ha
 /* 80229824 00226784  90 01 01 04 */	stw r0, 0x104(r1)
 /* 80229828 00226788  BD C1 00 B8 */	stmw r14, 0xb8(r1)
 /* 8022982C 0022678C  7C 9F 23 78 */	mr r31, r4
 /* 80229830 00226790  7C 7E 1B 78 */	mr r30, r3
-/* 80229834 00226794  85 E5 D7 80 */	lwzu r15, lbl_8056D780@l(r5)
+/* 80229834 00226794  85 E5 D7 80 */	lwzu r15, sReflectVulnerability__20CDamageVulnerability@l(r5)
 /* 80229838 00226798  82 05 00 04 */	lwz r16, 4(r5)
 /* 8022983C 0022679C  82 25 00 08 */	lwz r17, 8(r5)
 /* 80229840 002267A0  82 45 00 0C */	lwz r18, 0xc(r5)
@@ -3623,8 +3623,8 @@ lbl_8022A22C:
 /* 8022A274 002271D4  80 63 00 04 */	lwz r3, 4(r3)
 /* 8022A278 002271D8  28 03 00 00 */	cmplwi r3, 0
 /* 8022A27C 002271DC  41 82 00 10 */	beq lbl_8022A28C
-/* 8022A280 002271E0  3C 80 80 57 */	lis r4, lbl_8056D718@ha
-/* 8022A284 002271E4  38 84 D7 18 */	addi r4, r4, lbl_8056D718@l
+/* 8022A280 002271E0  3C 80 80 57 */	lis r4, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 8022A284 002271E4  38 84 D7 18 */	addi r4, r4, sImmuneVulnerability__20CDamageVulnerability@l
 /* 8022A288 002271E8  4B F7 E9 11 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 lbl_8022A28C:
 /* 8022A28C 002271EC  80 7D 05 D4 */	lwz r3, 0x5d4(r29)
@@ -6243,14 +6243,14 @@ lbl_8022C7C8:
 
 .global GetDamageVulnerability__12CElitePirateCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__12CElitePirateCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
-/* 8022C7F4 00229754  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 8022C7F8 00229758  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 8022C7F4 00229754  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 8022C7F8 00229758  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 8022C7FC 0022975C  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__12CElitePirateCFv
 GetDamageVulnerability__12CElitePirateCFv:
-/* 8022C800 00229760  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 8022C804 00229764  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 8022C800 00229760  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 8022C804 00229764  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 8022C808 00229768  4E 80 00 20 */	blr
 
 .global TakeDamage__12CElitePirateFRC9CVector3ff

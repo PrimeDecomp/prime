@@ -334,13 +334,13 @@ lbl_80232B78:
 /* 80232BD4 0022FB34  38 61 00 34 */	addi r3, r1, 0x34
 /* 80232BD8 0022FB38  4B DE 82 61 */	bl None__16CActorParametersFv
 /* 80232BDC 0022FB3C  C0 22 B6 E0 */	lfs f1, lbl_805AD400@sda21(r2)
-/* 80232BE0 0022FB40  3C 60 80 57 */	lis r3, lbl_8056D718@ha
+/* 80232BE0 0022FB40  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
 /* 80232BE4 0022FB44  C0 02 B6 E4 */	lfs f0, lbl_805AD404@sda21(r2)
 /* 80232BE8 0022FB48  3B C0 00 00 */	li r30, 0
 /* 80232BEC 0022FB4C  A0 96 00 00 */	lhz r4, 0(r22)
 /* 80232BF0 0022FB50  39 81 00 2C */	addi r12, r1, 0x2c
 /* 80232BF4 0022FB54  D0 21 00 2C */	stfs f1, 0x2c(r1)
-/* 80232BF8 0022FB58  39 63 D7 18 */	addi r11, r3, lbl_8056D718@l
+/* 80232BF8 0022FB58  39 63 D7 18 */	addi r11, r3, sImmuneVulnerability__20CDamageVulnerability@l
 /* 80232BFC 0022FB5C  38 00 00 01 */	li r0, 1
 /* 80232C00 0022FB60  C0 22 B6 D0 */	lfs f1, lbl_805AD3F0@sda21(r2)
 /* 80232C04 0022FB64  D0 01 00 30 */	stfs f0, 0x30(r1)

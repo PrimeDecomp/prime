@@ -1189,13 +1189,13 @@ lbl_801A9708:
 /* 801A9710 001A6670  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 801A9714 001A6674  C0 02 A8 30 */	lfs f0, lbl_805AC550@sda21(r2)
 /* 801A9718 001A6678  D3 FB 02 88 */	stfs f31, 0x288(r27)
-/* 801A971C 001A667C  3C 80 80 57 */	lis r4, lbl_8056D578@ha
+/* 801A971C 001A667C  3C 80 80 57 */	lis r4, sNormalVulnerability__20CDamageVulnerability@ha
 /* 801A9720 001A6680  38 00 00 10 */	li r0, 0x10
 /* 801A9724 001A6684  C0 22 A8 20 */	lfs f1, lbl_805AC540@sda21(r2)
 /* 801A9728 001A6688  D0 1B 02 8C */	stfs f0, 0x28c(r27)
 /* 801A972C 001A668C  7F 63 DB 78 */	mr r3, r27
 /* 801A9730 001A6690  D0 1B 02 90 */	stfs f0, 0x290(r27)
-/* 801A9734 001A6694  84 E4 D5 78 */	lwzu r7, lbl_8056D578@l(r4)
+/* 801A9734 001A6694  84 E4 D5 78 */	lwzu r7, sNormalVulnerability__20CDamageVulnerability@l(r4)
 /* 801A9738 001A6698  80 C4 00 04 */	lwz r6, 4(r4)
 /* 801A973C 001A669C  90 FB 02 94 */	stw r7, 0x294(r27)
 /* 801A9740 001A66A0  90 DB 02 98 */	stw r6, 0x298(r27)
@@ -1510,14 +1510,14 @@ lbl_801A9BEC:
 /* 801A9BF8 001A6B58  C0 02 A8 30 */	lfs f0, lbl_805AC550@sda21(r2)
 /* 801A9BFC 001A6B5C  90 1A 02 84 */	stw r0, 0x284(r26)
 /* 801A9C00 001A6B60  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
-/* 801A9C04 001A6B64  3C 80 80 57 */	lis r4, lbl_8056D578@ha
+/* 801A9C04 001A6B64  3C 80 80 57 */	lis r4, sNormalVulnerability__20CDamageVulnerability@ha
 /* 801A9C08 001A6B68  38 00 00 10 */	li r0, 0x10
 /* 801A9C0C 001A6B6C  D0 1A 02 88 */	stfs f0, 0x288(r26)
 /* 801A9C10 001A6B70  7F 43 D3 78 */	mr r3, r26
 /* 801A9C14 001A6B74  C0 22 A8 20 */	lfs f1, lbl_805AC540@sda21(r2)
 /* 801A9C18 001A6B78  D0 1A 02 8C */	stfs f0, 0x28c(r26)
 /* 801A9C1C 001A6B7C  D0 1A 02 90 */	stfs f0, 0x290(r26)
-/* 801A9C20 001A6B80  84 E4 D5 78 */	lwzu r7, lbl_8056D578@l(r4)
+/* 801A9C20 001A6B80  84 E4 D5 78 */	lwzu r7, sNormalVulnerability__20CDamageVulnerability@l(r4)
 /* 801A9C24 001A6B84  80 C4 00 04 */	lwz r6, 4(r4)
 /* 801A9C28 001A6B88  90 FA 02 94 */	stw r7, 0x294(r26)
 /* 801A9C2C 001A6B8C  90 DA 02 98 */	stw r6, 0x298(r26)
@@ -1775,7 +1775,7 @@ lbl_801A9FFC:
 /* 801A9FFC 001A6F5C  90 1F 02 7C */	stw r0, 0x27c(r31)
 /* 801AA000 001A6F60  38 A0 00 00 */	li r5, 0
 /* 801AA004 001A6F64  C0 02 A8 30 */	lfs f0, lbl_805AC550@sda21(r2)
-/* 801AA008 001A6F68  3C 80 80 57 */	lis r4, lbl_8056D578@ha
+/* 801AA008 001A6F68  3C 80 80 57 */	lis r4, sNormalVulnerability__20CDamageVulnerability@ha
 /* 801AA00C 001A6F6C  90 BF 02 80 */	stw r5, 0x280(r31)
 /* 801AA010 001A6F70  38 00 00 10 */	li r0, 0x10
 /* 801AA014 001A6F74  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
@@ -1786,7 +1786,7 @@ lbl_801A9FFC:
 /* 801AA028 001A6F88  D0 1F 02 88 */	stfs f0, 0x288(r31)
 /* 801AA02C 001A6F8C  D0 1F 02 8C */	stfs f0, 0x28c(r31)
 /* 801AA030 001A6F90  D0 1F 02 90 */	stfs f0, 0x290(r31)
-/* 801AA034 001A6F94  84 E4 D5 78 */	lwzu r7, lbl_8056D578@l(r4)
+/* 801AA034 001A6F94  84 E4 D5 78 */	lwzu r7, sNormalVulnerability__20CDamageVulnerability@l(r4)
 /* 801AA038 001A6F98  80 C4 00 04 */	lwz r6, 4(r4)
 /* 801AA03C 001A6F9C  90 FF 02 94 */	stw r7, 0x294(r31)
 /* 801AA040 001A6FA0  90 DF 02 98 */	stw r6, 0x298(r31)

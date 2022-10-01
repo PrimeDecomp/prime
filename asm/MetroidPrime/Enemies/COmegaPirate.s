@@ -2588,9 +2588,9 @@ lbl_8028D1E0:
 /* 8028D2DC 0028A23C  7F 65 DB 78 */	mr r5, r27
 /* 8028D2E0 0028A240  38 80 00 12 */	li r4, 0x12
 /* 8028D2E4 0028A244  4B DC 6C 9D */	bl RemoveMaterial__6CActorF14EMaterialTypesR13CStateManager
-/* 8028D2E8 0028A248  3C 80 80 57 */	lis r4, lbl_8056D780@ha
+/* 8028D2E8 0028A248  3C 80 80 57 */	lis r4, sReflectVulnerability__20CDamageVulnerability@ha
 /* 8028D2EC 0028A24C  7F 83 E3 78 */	mr r3, r28
-/* 8028D2F0 0028A250  38 84 D7 80 */	addi r4, r4, lbl_8056D780@l
+/* 8028D2F0 0028A250  38 84 D7 80 */	addi r4, r4, sReflectVulnerability__20CDamageVulnerability@l
 /* 8028D2F4 0028A254  4B F1 B8 A5 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 lbl_8028D2F8:
 /* 8028D2F8 0028A258  3B BD 00 01 */	addi r29, r29, 1
@@ -4499,8 +4499,8 @@ lbl_8028ED78:
 /* 8028ED8C 0028BCEC  4B DB D7 E9 */	bl ObjectById__13CStateManagerF9TUniqueId
 /* 8028ED90 0028BCF0  7C 7A 1B 79 */	or. r26, r3, r3
 /* 8028ED94 0028BCF4  41 82 00 9C */	beq lbl_8028EE30
-/* 8028ED98 0028BCF8  3C 80 80 57 */	lis r4, lbl_8056D718@ha
-/* 8028ED9C 0028BCFC  38 84 D7 18 */	addi r4, r4, lbl_8056D718@l
+/* 8028ED98 0028BCF8  3C 80 80 57 */	lis r4, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 8028ED9C 0028BCFC  38 84 D7 18 */	addi r4, r4, sImmuneVulnerability__20CDamageVulnerability@l
 /* 8028EDA0 0028BD00  4B E2 20 B5 */	bl sub_800b0e54
 /* 8028EDA4 0028BD04  7F 43 D3 78 */	mr r3, r26
 /* 8028EDA8 0028BD08  7F A5 EB 78 */	mr r5, r29
@@ -8722,7 +8722,7 @@ lbl_8029186C:
 /* 80291B64 0028EAC4  98 1F 0A DE */	stb r0, 0xade(r31)
 /* 80291B68 0028EAC8  98 9F 0A DF */	stb r4, 0xadf(r31)
 /* 80291B6C 0028EACC  98 9F 0A E0 */	stb r4, 0xae0(r31)
-/* 80291B70 0028EAD0  84 A3 D5 78 */	lwzu r5, lbl_8056D578@l(r3)
+/* 80291B70 0028EAD0  84 A3 D5 78 */	lwzu r5, sNormalVulnerability__20CDamageVulnerability@l(r3)
 /* 80291B74 0028EAD4  80 83 00 04 */	lwz r4, 4(r3)
 /* 80291B78 0028EAD8  90 BF 0A E4 */	stw r5, 0xae4(r31)
 /* 80291B7C 0028EADC  90 9F 0A E8 */	stw r4, 0xae8(r31)
