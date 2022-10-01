@@ -1808,9 +1808,7 @@ lbl_803CD78C:
 	# ROM: 0x3CA78C
 	.asciz "CombatVisor"
 	.asciz "XRayVisor"
-	.byte 0x53, 0x63
-	.asciz "anVisor"
+	.asciz "ScanVisor"
 	.asciz "ThermalVisor"
 	.byte 0x3F, 0x3F, 0x28
 	.4byte 0x3F3F2900
-
