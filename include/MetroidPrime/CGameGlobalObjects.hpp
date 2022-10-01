@@ -16,6 +16,7 @@
 #include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/Text/CRasterFont.hpp"
 #include "MetroidPrime/CInGameTweakManager.hpp"
+#include "MetroidPrime/CMemoryCard.hpp"
 #include "MetroidPrime/Enemies/CAiFuncMap.hpp"
 #include "MetroidPrime/Factories/CCharacterFactoryBuilder.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
@@ -43,7 +44,7 @@ private:
   CAiFuncMap x110_aiFuncMap;
   CGraphicsSys x130_graphicsSys;
   rstl::single_ptr< CGameState > x134_gameState;
-  uint x138_;
+  rstl::single_ptr< CMemoryCard > x138_;
   rstl::optional_object< TLockedToken< CStringTable > > x13c_stringTable;
   rstl::single_ptr< IRenderer > x14c_renderer;
   rstl::single_ptr< CInGameTweakManager > x150_inGameTweakManager;
@@ -52,7 +53,6 @@ private:
 CHECK_SIZEOF(CGameGlobalObjects, 0x15c)
 
 // TODO move to related headers
-extern unkptr gGuiSystem;
 extern unkptr gpController;
 extern unkptr gpDefaultFont;
 

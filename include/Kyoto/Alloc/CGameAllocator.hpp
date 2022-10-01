@@ -1,9 +1,9 @@
 #ifndef __CGAMEALLOCATOR_HPP__
 #define __CGAMEALLOCATOR_HPP__
 
-#include <types.h>
-#include <Kyoto/Alloc/IAllocator.hpp>
 #include <Kyoto/Alloc/CMediumAllocPool.hpp>
+#include <Kyoto/Alloc/IAllocator.hpp>
+#include <types.h>
 
 class CSmallAllocPool;
 class CMediumAllocPool;
@@ -12,8 +12,10 @@ class CGameAllocator : public IAllocator {
 public:
   class SGameMemInfo {
     friend class CGameAllocator;
+
   public:
-    SGameMemInfo(SGameMemInfo* prev, SGameMemInfo* next, SGameMemInfo* nextFree, uint len, const char* fileAndLine, const char* type)
+    SGameMemInfo(SGameMemInfo* prev, SGameMemInfo* next, SGameMemInfo* nextFree, uint len,
+                 const char* fileAndLine, const char* type)
     : x0_priorGuard(0xefefefef)
     , x4_len(len)
     , x8_fileAndLine(fileAndLine)
@@ -25,15 +27,15 @@ public:
 
     SGameMemInfo* GetPrev() { return (SGameMemInfo*)((size_t)x10_prev & ~31); }
     void SetPrev(SGameMemInfo* prev) {
-        void* ptr = x10_prev;
-        x10_prev = prev;
-        x10_prev = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x10_prev & ~31));
+      void* ptr = x10_prev;
+      x10_prev = prev;
+      x10_prev = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x10_prev & ~31));
     }
     SGameMemInfo* GetNext() const { return (SGameMemInfo*)((size_t)x14_next & ~31); }
     void SetNext(SGameMemInfo* next) {
-        void* ptr = x14_next;
-        x14_next = next;
-        x14_next = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x14_next & ~31));
+      void* ptr = x14_next;
+      x14_next = next;
+      x14_next = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x14_next & ~31));
     }
     u32 GetPrevMaskedFlags();
     u32 GetNextMaskedFlags();
@@ -41,9 +43,9 @@ public:
     size_t GetLength() const { return x4_len; }
     SGameMemInfo* GetNextFree() const { return (SGameMemInfo*)((size_t)x18_nextFree & ~31); }
     void SetNextFree(SGameMemInfo* info) {
-        void* ptr = x18_nextFree;
-        x18_nextFree = info;
-        x18_nextFree = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x18_nextFree & ~31));
+      void* ptr = x18_nextFree;
+      x18_nextFree = info;
+      x18_nextFree = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x18_nextFree & ~31));
     }
 
     bool IsAllocated() const { return ((size_t)x10_prev) & 1; }
@@ -68,7 +70,7 @@ public:
 
   bool Initialize(COsContext& ctx);
   void Shutdown();
-  void* Alloc(size_t, EHint, EScope, EType, const CCallStack&) override;
+  void* Alloc(size_t size, EHint hint, EScope scope, EType type, const CCallStack& cs) override;
   SGameMemInfo* FindFreeBlock(uint);
   SGameMemInfo* FindFreeBlockFromTopOfHeap(uint);
   uint FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&);
@@ -76,7 +78,8 @@ public:
   bool Free(const void* ptr) override;
   bool FreeNormalAllocation(const void* ptr);
   void ReleaseAll() override;
-  void* AllocSecondary(size_t, IAllocator::EHint, IAllocator::EScope, IAllocator::EType, const CCallStack&) override;
+  void* AllocSecondary(size_t size, EHint hint, EScope scope, EType type,
+                       const CCallStack& cs) override;
   bool FreeSecondary(const void* ptr) override;
   void ReleaseAllSecondary() override;
   void SetOutOfMemoryCallback(FOutOfMemoryCb cb, const void* target) override;

@@ -86,7 +86,7 @@ lbl_8029E580:
 /* 8029E580 0029B4E0  3C 80 00 0F */	lis r4, 0x000F4240@ha
 /* 8029E584 0029B4E4  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 8029E588 0029B4E8  38 84 42 40 */	addi r4, r4, 0x000F4240@l
-/* 8029E58C 0029B4EC  48 09 B6 45 */	bl AsyncIdle__11CResFactoryFUl
+/* 8029E58C 0029B4EC  48 09 B6 45 */	bl AsyncIdle__11CResFactoryFUi
 /* 8029E590 0029B4F0  80 6D A0 78 */	lwz r3, gpMain@sda21(r13)
 /* 8029E594 0029B4F4  4B D6 80 A9 */	bl MemoryCardInitializePump__5CMainFv
 /* 8029E598 0029B4F8  80 0D A0 84 */	lwz r0, gpMemoryCard@sda21(r13)
@@ -146,4 +146,3 @@ lbl_803D5E80:
 	# ROM: 0x3D2E80
 	.asciz "Pre front-end window"
 	.balign 4
-

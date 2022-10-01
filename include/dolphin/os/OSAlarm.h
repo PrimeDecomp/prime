@@ -22,6 +22,9 @@ struct OSAlarm {
 };
 
 void OSSetAlarm(OSAlarm* alarm, OSTime tick, OSAlarmHandler handler);
+void OSSetPeriodicAlarm(OSAlarm* alarm, OSTime start, OSTime period, OSAlarmHandler handler);
+void OSCancelAlarm(OSAlarm* alarm);
+
 #ifdef __cplusplus
 }
 #endif

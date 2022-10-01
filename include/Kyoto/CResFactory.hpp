@@ -23,7 +23,14 @@ public:
 class CResFactory : public IFactory {
 public:
   CResFactory();
-  virtual ~CResFactory() {}
+
+  ~CResFactory() override {}
+  CFactoryFnReturn Build(const SObjectTag&, const CVParamTransfer&, CObjectReference*) override;
+  void BuildAsync(const SObjectTag&, const CVParamTransfer&, rstl::auto_ptr< IObj >*,
+                  CObjectReference*) override;
+  void CancelBuild(const SObjectTag&) override;
+  bool CanBuild(const SObjectTag&) override;
+  const SObjectTag* GetResourceIdByName(const char* name) const override;
 
   void AsyncIdle(uint time);
 

@@ -39,6 +39,8 @@ enum ERglPrimitive {
   kP_Points = 0xB8,
 };
 
+class CTimeProvider;
+
 class CGraphics {
 public:
   static void SetIsBeginSceneClearFb(bool);
