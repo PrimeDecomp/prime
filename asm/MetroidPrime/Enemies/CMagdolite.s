@@ -2553,8 +2553,8 @@ GetDamageVulnerability__10CMagdoliteCFv:
 /* 802365A0 00233500  4B E6 C7 D1 */	bl GetDamageVulnerability__3CAiCFv
 /* 802365A4 00233504  48 00 00 0C */	b lbl_802365B0
 lbl_802365A8:
-/* 802365A8 00233508  3C 60 80 57 */	lis r3, lbl_8056D718@ha
-/* 802365AC 0023350C  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
+/* 802365A8 00233508  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 802365AC 0023350C  38 63 D7 18 */	addi r3, r3, sImmuneVulnerability__20CDamageVulnerability@l
 lbl_802365B0:
 /* 802365B0 00233510  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802365B4 00233514  7C 08 03 A6 */	mtlr r0

@@ -3514,9 +3514,9 @@ lbl_801DD084:
 /* 801DD094 001D9FF4  28 00 00 00 */	cmplwi r0, 0
 /* 801DD098 001D9FF8  41 82 00 20 */	beq lbl_801DD0B8
 lbl_801DD09C:
-/* 801DD09C 001D9FFC  3C 80 80 57 */	lis r4, lbl_8056D718@ha
+/* 801DD09C 001D9FFC  3C 80 80 57 */	lis r4, sImmuneVulnerability__20CDamageVulnerability@ha
 /* 801DD0A0 001DA000  7F C3 F3 78 */	mr r3, r30
-/* 801DD0A4 001DA004  38 84 D7 18 */	addi r4, r4, lbl_8056D718@l
+/* 801DD0A4 001DA004  38 84 D7 18 */	addi r4, r4, sImmuneVulnerability__20CDamageVulnerability@l
 /* 801DD0A8 001DA008  4B FC BA F1 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 /* 801DD0AC 001DA00C  C0 02 AC DC */	lfs f0, lbl_805AC9FC@sda21(r2)
 /* 801DD0B0 001DA010  D0 1C 03 2C */	stfs f0, 0x32c(r28)
@@ -4492,9 +4492,9 @@ lbl_801DDE50:
 /* 801DDEB4 001DAE14  41 82 00 90 */	beq lbl_801DDF44
 /* 801DDEB8 001DAE18  28 19 00 00 */	cmplwi r25, 0
 /* 801DDEBC 001DAE1C  41 82 00 20 */	beq lbl_801DDEDC
-/* 801DDEC0 001DAE20  3C 80 80 57 */	lis r4, lbl_8056D718@ha
+/* 801DDEC0 001DAE20  3C 80 80 57 */	lis r4, sImmuneVulnerability__20CDamageVulnerability@ha
 /* 801DDEC4 001DAE24  7F 43 D3 78 */	mr r3, r26
-/* 801DDEC8 001DAE28  38 84 D7 18 */	addi r4, r4, lbl_8056D718@l
+/* 801DDEC8 001DAE28  38 84 D7 18 */	addi r4, r4, sImmuneVulnerability__20CDamageVulnerability@l
 /* 801DDECC 001DAE2C  4B FC AC CD */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 /* 801DDED0 001DAE30  C0 02 AC DC */	lfs f0, lbl_805AC9FC@sda21(r2)
 /* 801DDED4 001DAE34  D0 1C 03 2C */	stfs f0, 0x32c(r28)

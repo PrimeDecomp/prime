@@ -764,8 +764,8 @@ lbl_8015702C:
 /* 8015702C 00153F8C  88 03 07 43 */	lbz r0, 0x743(r3)
 /* 80157030 00153F90  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
 /* 80157034 00153F94  40 82 00 10 */	bne lbl_80157044
-/* 80157038 00153F98  3C 60 80 57 */	lis r3, lbl_8056D718@ha
-/* 8015703C 00153F9C  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
+/* 80157038 00153F98  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 8015703C 00153F9C  38 63 D7 18 */	addi r3, r3, sImmuneVulnerability__20CDamageVulnerability@l
 /* 80157040 00153FA0  48 00 00 08 */	b lbl_80157048
 lbl_80157044:
 /* 80157044 00153FA4  4B F4 BD 2D */	bl GetDamageVulnerability__3CAiCFv

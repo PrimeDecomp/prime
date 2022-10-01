@@ -593,8 +593,8 @@ ResolveCollisionWithWorld__17CEnergyProjectileFRC14CRayCastResultR13CStateManage
 /* 802142C4 00211224  2C 00 00 90 */	cmpwi r0, 0x90
 /* 802142C8 00211228  41 82 00 9C */	beq lbl_80214364
 /* 802142CC 0021122C  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
-/* 802142D0 00211230  3C 60 80 57 */	lis r3, lbl_8056D578@ha
-/* 802142D4 00211234  39 03 D5 78 */	addi r8, r3, lbl_8056D578@l
+/* 802142D0 00211230  3C 60 80 57 */	lis r3, sNormalVulnerability__20CDamageVulnerability@ha
+/* 802142D4 00211234  39 03 D5 78 */	addi r8, r3, sNormalVulnerability__20CDamageVulnerability@l
 /* 802142D8 00211238  7F E7 FB 78 */	mr r7, r31
 /* 802142DC 0021123C  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 802142E0 00211240  7F A3 EB 78 */	mr r3, r29
@@ -878,10 +878,10 @@ lbl_802146E0:
 /* 80214700 00211660  41 82 00 58 */	beq lbl_80214758
 /* 80214704 00211664  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80214708 00211668  3C A0 80 5A */	lis r5, sUpVector__9CVector3f@ha
-/* 8021470C 0021166C  3C 80 80 57 */	lis r4, lbl_8056D578@ha
+/* 8021470C 0021166C  3C 80 80 57 */	lis r4, sNormalVulnerability__20CDamageVulnerability@ha
 /* 80214710 00211670  7F A3 EB 78 */	mr r3, r29
 /* 80214714 00211674  B0 01 00 20 */	sth r0, 0x20(r1)
-/* 80214718 00211678  39 04 D5 78 */	addi r8, r4, lbl_8056D578@l
+/* 80214718 00211678  39 04 D5 78 */	addi r8, r4, sNormalVulnerability__20CDamageVulnerability@l
 /* 8021471C 0021167C  38 A5 66 F4 */	addi r5, r5, sUpVector__9CVector3f@l
 /* 80214720 00211680  7F C7 F3 78 */	mr r7, r30
 /* 80214724 00211684  C0 5D 00 60 */	lfs f2, 0x60(r29)

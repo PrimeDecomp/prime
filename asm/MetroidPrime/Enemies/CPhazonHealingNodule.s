@@ -937,8 +937,8 @@ lbl_802956C4:
 /* 802956CC 0029262C  81 8C 00 8C */	lwz r12, 0x8c(r12)
 /* 802956D0 00292630  7D 89 03 A6 */	mtctr r12
 /* 802956D4 00292634  4E 80 04 21 */	bctrl
-/* 802956D8 00292638  3C A0 80 57 */	lis r5, lbl_8056D718@ha
-/* 802956DC 0029263C  84 C5 D7 18 */	lwzu r6, lbl_8056D718@l(r5)
+/* 802956D8 00292638  3C A0 80 57 */	lis r5, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 802956DC 0029263C  84 C5 D7 18 */	lwzu r6, sImmuneVulnerability__20CDamageVulnerability@l(r5)
 /* 802956E0 00292640  38 80 00 00 */	li r4, 0
 /* 802956E4 00292644  80 05 00 04 */	lwz r0, 4(r5)
 /* 802956E8 00292648  90 C3 00 00 */	stw r6, 0(r3)

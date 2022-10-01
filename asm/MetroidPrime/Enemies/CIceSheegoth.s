@@ -881,8 +881,8 @@ sub_8019e9cc:
 /* 8019E9F8 0019B958  38 7C 05 84 */	addi r3, r28, 0x584
 /* 8019E9FC 0019B95C  48 00 00 0C */	b lbl_8019EA08
 lbl_8019EA00:
-/* 8019EA00 0019B960  3C 60 80 57 */	lis r3, lbl_8056D718@ha
-/* 8019EA04 0019B964  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
+/* 8019EA00 0019B960  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 8019EA04 0019B964  38 63 D7 18 */	addi r3, r3, sImmuneVulnerability__20CDamageVulnerability@l
 lbl_8019EA08:
 /* 8019EA08 0019B968  80 83 00 00 */	lwz r4, 0(r3)
 /* 8019EA0C 0019B96C  3B FC 0B 00 */	addi r31, r28, 0xb00
@@ -2554,9 +2554,9 @@ lbl_801A01D4:
 /* 801A0208 0019D168  83 03 00 04 */	lwz r24, 4(r3)
 /* 801A020C 0019D16C  28 18 00 00 */	cmplwi r24, 0
 /* 801A0210 0019D170  41 82 01 88 */	beq lbl_801A0398
-/* 801A0214 0019D174  3C 80 80 57 */	lis r4, lbl_8056D718@ha
+/* 801A0214 0019D174  3C 80 80 57 */	lis r4, sImmuneVulnerability__20CDamageVulnerability@ha
 /* 801A0218 0019D178  7F 03 C3 78 */	mr r3, r24
-/* 801A021C 0019D17C  38 84 D7 18 */	addi r4, r4, lbl_8056D718@l
+/* 801A021C 0019D17C  38 84 D7 18 */	addi r4, r4, sImmuneVulnerability__20CDamageVulnerability@l
 /* 801A0220 0019D180  48 00 89 79 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 /* 801A0224 0019D184  80 82 A7 40 */	lwz r4, lbl_805AC460@sda21(r2)
 /* 801A0228 0019D188  38 61 00 78 */	addi r3, r1, 0x78
@@ -2587,9 +2587,9 @@ lbl_801A0268:
 /* 801A0288 0019D1E8  48 19 D8 59 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 801A028C 0019D1EC  56 E0 06 3F */	clrlwi. r0, r23, 0x18
 /* 801A0290 0019D1F0  41 82 00 18 */	beq lbl_801A02A8
-/* 801A0294 0019D1F4  3C 80 80 57 */	lis r4, lbl_8056D7E8@ha
+/* 801A0294 0019D1F4  3C 80 80 57 */	lis r4, sPassThroughVulnerability__20CDamageVulnerability@ha
 /* 801A0298 0019D1F8  7F 03 C3 78 */	mr r3, r24
-/* 801A029C 0019D1FC  38 84 D7 E8 */	addi r4, r4, lbl_8056D7E8@l
+/* 801A029C 0019D1FC  38 84 D7 E8 */	addi r4, r4, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 801A02A0 0019D200  48 00 88 F9 */	bl SetDamageVulnerability__15CCollisionActorFRC20CDamageVulnerability
 /* 801A02A4 0019D204  48 00 00 F4 */	b lbl_801A0398
 lbl_801A02A8:
@@ -7024,14 +7024,14 @@ lbl_801A4288:
 
 .global GetDamageVulnerability__12CIceSheegothCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__12CIceSheegothCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
-/* 801A4298 001A11F8  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 801A429C 001A11FC  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 801A4298 001A11F8  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 801A429C 001A11FC  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 801A42A0 001A1200  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__12CIceSheegothCFv
 GetDamageVulnerability__12CIceSheegothCFv:
-/* 801A42A4 001A1204  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 801A42A8 001A1208  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 801A42A4 001A1204  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 801A42A8 001A1208  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 801A42AC 001A120C  4E 80 00 20 */	blr
 
 .global GetAimPosition__12CIceSheegothCFRC13CStateManagerf

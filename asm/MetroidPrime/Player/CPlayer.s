@@ -2934,12 +2934,12 @@ GetDamageVulnerability__7CPlayerCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
 /* 80011D2C 0000EC8C  88 06 00 18 */	lbz r0, 0x18(r6)
 /* 80011D30 0000EC90  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 80011D34 0000EC94  40 82 00 10 */	bne lbl_80011D44
-/* 80011D38 0000EC98  3C 60 80 57 */	lis r3, lbl_8056D718@ha
-/* 80011D3C 0000EC9C  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
+/* 80011D38 0000EC98  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 80011D3C 0000EC9C  38 63 D7 18 */	addi r3, r3, sImmuneVulnerability__20CDamageVulnerability@l
 /* 80011D40 0000ECA0  4E 80 00 20 */	blr
 lbl_80011D44:
-/* 80011D44 0000ECA4  3C 60 80 57 */	lis r3, lbl_8056D578@ha
-/* 80011D48 0000ECA8  38 63 D5 78 */	addi r3, r3, lbl_8056D578@l
+/* 80011D44 0000ECA4  3C 60 80 57 */	lis r3, sNormalVulnerability__20CDamageVulnerability@ha
+/* 80011D48 0000ECA8  38 63 D5 78 */	addi r3, r3, sNormalVulnerability__20CDamageVulnerability@l
 /* 80011D4C 0000ECAC  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__7CPlayerCFv

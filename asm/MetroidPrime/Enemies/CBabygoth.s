@@ -6295,14 +6295,14 @@ lbl_802229EC:
 
 .global GetDamageVulnerability__9CBabygothCFRC9CVector3fRC9CVector3fRC11CDamageInfo
 GetDamageVulnerability__9CBabygothCFRC9CVector3fRC9CVector3fRC11CDamageInfo:
-/* 802229F4 0021F954  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 802229F8 0021F958  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 802229F4 0021F954  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 802229F8 0021F958  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 802229FC 0021F95C  4E 80 00 20 */	blr
 
 .global GetDamageVulnerability__9CBabygothCFv
 GetDamageVulnerability__9CBabygothCFv:
-/* 80222A00 0021F960  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 80222A04 0021F964  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 80222A00 0021F960  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 80222A04 0021F964  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 80222A08 0021F968  4E 80 00 20 */	blr
 
 .global TakeDamage__9CBabygothFRC9CVector3ff

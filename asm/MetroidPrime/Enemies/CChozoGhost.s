@@ -3175,8 +3175,8 @@ GetDamageVulnerability__11CChozoGhostCFv:
 /* 80141B50 0013EAB0  88 03 06 65 */	lbz r0, 0x665(r3)
 /* 80141B54 0013EAB4  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
 /* 80141B58 0013EAB8  41 82 00 10 */	beq lbl_80141B68
-/* 80141B5C 0013EABC  3C 60 80 57 */	lis r3, lbl_8056D7E8@ha
-/* 80141B60 0013EAC0  38 63 D7 E8 */	addi r3, r3, lbl_8056D7E8@l
+/* 80141B5C 0013EABC  3C 60 80 57 */	lis r3, sPassThroughVulnerability__20CDamageVulnerability@ha
+/* 80141B60 0013EAC0  38 63 D7 E8 */	addi r3, r3, sPassThroughVulnerability__20CDamageVulnerability@l
 /* 80141B64 0013EAC4  48 00 00 08 */	b lbl_80141B6C
 lbl_80141B68:
 /* 80141B68 0013EAC8  4B F6 12 09 */	bl GetDamageVulnerability__3CAiCFv

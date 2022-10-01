@@ -1608,8 +1608,8 @@ GetDamageVulnerability__16CPuddleToadGammaCFRC9CVector3fRC9CVector3fRC11CDamageI
 /* 8014C74C 001496AC  4B F5 66 25 */	bl GetDamageVulnerability__3CAiCFv
 /* 8014C750 001496B0  48 00 00 0C */	b lbl_8014C75C
 lbl_8014C754:
-/* 8014C754 001496B4  3C 60 80 57 */	lis r3, lbl_8056D718@ha
-/* 8014C758 001496B8  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
+/* 8014C754 001496B4  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 8014C758 001496B8  38 63 D7 18 */	addi r3, r3, sImmuneVulnerability__20CDamageVulnerability@l
 lbl_8014C75C:
 /* 8014C75C 001496BC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8014C760 001496C0  7C 08 03 A6 */	mtlr r0
@@ -1618,8 +1618,8 @@ lbl_8014C75C:
 
 .global GetDamageVulnerability__16CPuddleToadGammaCFv
 GetDamageVulnerability__16CPuddleToadGammaCFv:
-/* 8014C76C 001496CC  3C 60 80 57 */	lis r3, lbl_8056D718@ha
-/* 8014C770 001496D0  38 63 D7 18 */	addi r3, r3, lbl_8056D718@l
+/* 8014C76C 001496CC  3C 60 80 57 */	lis r3, sImmuneVulnerability__20CDamageVulnerability@ha
+/* 8014C770 001496D0  38 63 D7 18 */	addi r3, r3, sImmuneVulnerability__20CDamageVulnerability@l
 /* 8014C774 001496D4  4E 80 00 20 */	blr
 
 .global sub_8014c778

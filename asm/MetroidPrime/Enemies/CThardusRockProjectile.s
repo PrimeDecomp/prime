@@ -2314,9 +2314,9 @@ lbl_80205314:
 /* 802054C4 00202424  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 802054C8 00202428  39 03 66 70 */	addi r8, r3, sIdentity__12CTransform4f@l
 /* 802054CC 0020242C  7E 29 8B 78 */	mr r9, r17
-/* 802054D0 00202430  3C A0 80 57 */	lis r5, lbl_8056D578@ha
+/* 802054D0 00202430  3C A0 80 57 */	lis r5, sNormalVulnerability__20CDamageVulnerability@ha
 /* 802054D4 00202434  B0 01 00 64 */	sth r0, 0x64(r1)
-/* 802054D8 00202438  38 05 D5 78 */	addi r0, r5, lbl_8056D578@l
+/* 802054D8 00202438  38 05 D5 78 */	addi r0, r5, sNormalVulnerability__20CDamageVulnerability@l
 /* 802054DC 0020243C  38 9F 00 68 */	addi r4, r31, 0x68
 /* 802054E0 00202440  90 01 00 08 */	stw r0, 8(r1)
 /* 802054E4 00202444  39 61 01 D0 */	addi r11, r1, 0x1d0

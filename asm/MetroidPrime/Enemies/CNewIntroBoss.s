@@ -1153,8 +1153,8 @@ lbl_8018AB20:
 /* 8018AB90 00187AF0  7D 89 03 A6 */	mtctr r12
 /* 8018AB94 00187AF4  4E 80 04 21 */	bctrl
 /* 8018AB98 00187AF8  C0 18 00 00 */	lfs f0, 0(r24)
-/* 8018AB9C 00187AFC  3C 80 80 57 */	lis r4, lbl_8056D578@ha
-/* 8018ABA0 00187B00  38 84 D5 78 */	addi r4, r4, lbl_8056D578@l
+/* 8018AB9C 00187AFC  3C 80 80 57 */	lis r4, sNormalVulnerability__20CDamageVulnerability@ha
+/* 8018ABA0 00187B00  38 84 D5 78 */	addi r4, r4, sNormalVulnerability__20CDamageVulnerability@l
 /* 8018ABA4 00187B04  D0 03 00 00 */	stfs f0, 0(r3)
 /* 8018ABA8 00187B08  C0 18 00 04 */	lfs f0, 4(r24)
 /* 8018ABAC 00187B0C  D0 03 00 04 */	stfs f0, 4(r3)
@@ -3080,4 +3080,3 @@ lbl_803D08C4:
 	.byte 0x49, 0x6E, 0x74
 	.asciz "roBoss_Beam_Stage2"
 	.balign 4
-
