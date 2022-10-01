@@ -45,6 +45,7 @@ Metaforce -> decomp
 - `s32` -> `int`
 - `u32` -> `uint`
 - `zeus::CTransform` -> `CTransform4f`
+- `zeus::CFrustum` -> `CFrustumPlanes`
 - Any other `zeus::` class has the prefixed removed, i.e. `zeus::CVector3f` -> `CVector3f`
 - `std::vector` -> `rstl::vector`
 - `std::optional` -> `rstl::optional_object`
