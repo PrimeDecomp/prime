@@ -54,7 +54,7 @@ GetRadiusDamage__11CDamageInfoCFRC20CDamageVulnerability:
 /* 800C34AC 000C040C  7C 7F 1B 78 */	mr r31, r3
 /* 800C34B0 000C0410  7C 83 23 78 */	mr r3, r4
 /* 800C34B4 000C0414  7F E4 FB 78 */	mr r4, r31
-/* 800C34B8 000C0418  48 03 F0 05 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800C34B8 000C0418  48 03 F0 05 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800C34BC 000C041C  2C 03 00 02 */	cmpwi r3, 2
 /* 800C34C0 000C0420  40 82 00 0C */	bne lbl_800C34CC
 /* 800C34C4 000C0424  C0 22 8E 04 */	lfs f1, lbl_805AAB24@sda21(r2)
@@ -85,7 +85,7 @@ GetDamage__11CDamageInfoCFRC20CDamageVulnerability:
 /* 800C3510 000C0470  7C 7F 1B 78 */	mr r31, r3
 /* 800C3514 000C0474  7C 83 23 78 */	mr r3, r4
 /* 800C3518 000C0478  7F E4 FB 78 */	mr r4, r31
-/* 800C351C 000C047C  48 03 EF A1 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800C351C 000C047C  48 03 EF A1 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800C3520 000C0480  2C 03 00 02 */	cmpwi r3, 2
 /* 800C3524 000C0484  40 82 00 0C */	bne lbl_800C3530
 /* 800C3528 000C0488  C0 22 8E 04 */	lfs f1, lbl_805AAB24@sda21(r2)

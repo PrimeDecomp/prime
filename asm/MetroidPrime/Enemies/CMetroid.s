@@ -8362,7 +8362,7 @@ lbl_8017136C:
 /* 8017136C 0016E2CC  7F 63 DB 78 */	mr r3, r27
 /* 80171370 0016E2D0  7F E4 FB 78 */	mr r4, r31
 /* 80171374 0016E2D4  38 A0 00 00 */	li r5, 0
-/* 80171378 0016E2D8  4B F9 13 91 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80171378 0016E2D8  4B F9 13 91 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8017137C 0016E2DC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80171380 0016E2E0  41 82 00 50 */	beq lbl_801713D0
 /* 80171384 0016E2E4  80 7E 09 00 */	lwz r3, 0x900(r30)
@@ -8494,7 +8494,7 @@ GetCollisionResponseType__8CMetroidCFRC9CVector3fRC9CVector3fRC11CWeaponModei:
 /* 80171548 0016E4A8  4E 80 04 21 */	bctrl
 /* 8017154C 0016E4AC  7F A4 EB 78 */	mr r4, r29
 /* 80171550 0016E4B0  38 A0 00 00 */	li r5, 0
-/* 80171554 0016E4B4  4B F9 11 B5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80171554 0016E4B4  4B F9 11 B5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80171558 0016E4B8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8017155C 0016E4BC  40 82 00 10 */	bne lbl_8017156C
 /* 80171560 0016E4C0  28 1E 00 00 */	cmplwi r30, 0
@@ -9850,7 +9850,7 @@ __sinit_CMetroid_cpp:
 /* 8017289C 0016F7FC  91 61 00 20 */	stw r11, 0x20(r1)
 /* 801728A0 0016F800  91 61 00 24 */	stw r11, 0x24(r1)
 /* 801728A4 0016F804  90 01 00 28 */	stw r0, 0x28(r1)
-/* 801728A8 0016F808  4B F9 00 8D */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 801728A8 0016F808  4B F9 00 8D */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 801728AC 0016F80C  39 60 00 02 */	li r11, 2
 /* 801728B0 0016F810  3C 60 80 57 */	lis r3, lbl_80571E6C@ha
 /* 801728B4 0016F814  91 61 00 08 */	stw r11, 8(r1)
@@ -9872,7 +9872,7 @@ __sinit_CMetroid_cpp:
 /* 801728F4 0016F854  91 61 00 20 */	stw r11, 0x20(r1)
 /* 801728F8 0016F858  91 61 00 24 */	stw r11, 0x24(r1)
 /* 801728FC 0016F85C  90 01 00 28 */	stw r0, 0x28(r1)
-/* 80172900 0016F860  4B F9 00 35 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 80172900 0016F860  4B F9 00 35 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 80172904 0016F864  39 60 00 02 */	li r11, 2
 /* 80172908 0016F868  3C 60 80 57 */	lis r3, lbl_80571ED4@ha
 /* 8017290C 0016F86C  91 61 00 08 */	stw r11, 8(r1)
@@ -9894,7 +9894,7 @@ __sinit_CMetroid_cpp:
 /* 8017294C 0016F8AC  91 61 00 20 */	stw r11, 0x20(r1)
 /* 80172950 0016F8B0  91 61 00 24 */	stw r11, 0x24(r1)
 /* 80172954 0016F8B4  90 01 00 28 */	stw r0, 0x28(r1)
-/* 80172958 0016F8B8  4B F8 FF DD */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 80172958 0016F8B8  4B F8 FF DD */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 8017295C 0016F8BC  39 60 00 02 */	li r11, 2
 /* 80172960 0016F8C0  3C 60 80 57 */	lis r3, lbl_80571F3C@ha
 /* 80172964 0016F8C4  91 61 00 08 */	stw r11, 8(r1)
@@ -9916,7 +9916,7 @@ __sinit_CMetroid_cpp:
 /* 801729A4 0016F904  91 61 00 20 */	stw r11, 0x20(r1)
 /* 801729A8 0016F908  91 61 00 24 */	stw r11, 0x24(r1)
 /* 801729AC 0016F90C  90 01 00 28 */	stw r0, 0x28(r1)
-/* 801729B0 0016F910  4B F8 FF 85 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 801729B0 0016F910  4B F8 FF 85 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 801729B4 0016F914  39 60 00 02 */	li r11, 2
 /* 801729B8 0016F918  3C 60 80 57 */	lis r3, lbl_80571FA4@ha
 /* 801729BC 0016F91C  91 61 00 08 */	stw r11, 8(r1)
@@ -9937,7 +9937,7 @@ __sinit_CMetroid_cpp:
 /* 801729F8 0016F958  91 61 00 20 */	stw r11, 0x20(r1)
 /* 801729FC 0016F95C  91 61 00 24 */	stw r11, 0x24(r1)
 /* 80172A00 0016F960  90 01 00 28 */	stw r0, 0x28(r1)
-/* 80172A04 0016F964  4B F8 FF 31 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
+/* 80172A04 0016F964  4B F8 FF 31 */	bl __ct__20CDamageVulnerabilityF14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability14EVulnerability15EDeflectionType
 /* 80172A08 0016F968  3B A0 00 FE */	li r29, 0xfe
 /* 80172A0C 0016F96C  39 40 00 D8 */	li r10, 0xd8
 /* 80172A10 0016F970  39 2D A4 2C */	addi r9, r13, lbl_805A8FEC@sda21

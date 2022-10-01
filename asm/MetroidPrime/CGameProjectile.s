@@ -2157,7 +2157,7 @@ CanCollideWith__15CGameProjectileFR6CActorR13CStateManager:
 /* 800390B0 00036010  4E 80 04 21 */	bctrl
 /* 800390B4 00036014  38 9D 01 2C */	addi r4, r29, 0x12c
 /* 800390B8 00036018  38 A0 00 00 */	li r5, 0
-/* 800390BC 0003601C  48 0C 94 01 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800390BC 0003601C  48 0C 94 01 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800390C0 00036020  2C 03 00 04 */	cmpwi r3, 4
 /* 800390C4 00036024  40 82 00 84 */	bne lbl_80039148
 /* 800390C8 00036028  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)

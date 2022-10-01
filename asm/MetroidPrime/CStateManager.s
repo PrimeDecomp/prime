@@ -5999,7 +5999,7 @@ ApplyKnockBack__13CStateManagerFR6CActorRC11CDamageInfoRC20CDamageVulnerabilityR
 /* 80048AD4 00045A34  7C C3 33 78 */	mr r3, r6
 /* 80048AD8 00045A38  7F 84 E3 78 */	mr r4, r28
 /* 80048ADC 00045A3C  38 A0 00 00 */	li r5, 0
-/* 80048AE0 00045A40  48 0B 99 DD */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80048AE0 00045A40  48 0B 99 DD */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80048AE4 00045A44  2C 03 00 02 */	cmpwi r3, 2
 /* 80048AE8 00045A48  41 82 01 98 */	beq lbl_80048C80
 /* 80048AEC 00045A4C  7F 63 DB 78 */	mr r3, r27
@@ -6605,7 +6605,7 @@ lbl_800493A8:
 /* 800493A8 00046308  7F 83 E3 78 */	mr r3, r28
 /* 800493AC 0004630C  7F 64 DB 78 */	mr r4, r27
 /* 800493B0 00046310  38 A0 00 01 */	li r5, 1
-/* 800493B4 00046314  48 0B 93 55 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800493B4 00046314  48 0B 93 55 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800493B8 00046318  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800493BC 0004631C  41 82 00 6C */	beq lbl_80049428
 /* 800493C0 00046320  7F 63 DB 78 */	mr r3, r27
@@ -7594,7 +7594,7 @@ lbl_8004A21C:
 /* 8004A228 00047188  41 82 00 18 */	beq lbl_8004A240
 /* 8004A22C 0004718C  7F 24 CB 78 */	mr r4, r25
 /* 8004A230 00047190  38 A0 00 00 */	li r5, 0
-/* 8004A234 00047194  48 0B 84 D5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8004A234 00047194  48 0B 84 D5 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8004A238 00047198  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8004A23C 0004719C  41 82 00 68 */	beq lbl_8004A2A4
 lbl_8004A240:
@@ -15516,4 +15516,3 @@ lbl_803CCEE0:
 	.asciz "ject list full!"
 	.asciz "DefaultShadow"
 	.balign 4
-

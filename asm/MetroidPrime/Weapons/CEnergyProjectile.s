@@ -1265,7 +1265,7 @@ Explode__17CEnergyProjectileFRC9CVector3fRC9CVector3f29EWeaponCollisionResponseT
 /* 80214C9C 00211BFC  D0 41 01 28 */	stfs f2, 0x128(r1)
 /* 80214CA0 00211C00  D0 21 01 2C */	stfs f1, 0x12c(r1)
 /* 80214CA4 00211C04  D0 01 01 30 */	stfs f0, 0x130(r1)
-/* 80214CA8 00211C08  4B EE D8 15 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 80214CA8 00211C08  4B EE D8 15 */	bl GetVulnerability__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 80214CAC 00211C0C  7C 7B 1B 78 */	mr r27, r3
 /* 80214CB0 00211C10  2C 1B 00 02 */	cmpwi r27, 2
 /* 80214CB4 00211C14  40 82 01 58 */	bne lbl_80214E0C

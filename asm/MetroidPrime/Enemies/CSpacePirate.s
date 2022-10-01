@@ -12542,7 +12542,7 @@ lbl_8012AD1C:
 /* 8012AD68 00127CC8  4E 80 04 21 */	bctrl
 /* 8012AD6C 00127CCC  38 81 00 64 */	addi r4, r1, 0x64
 /* 8012AD70 00127CD0  38 A0 00 00 */	li r5, 0
-/* 8012AD74 00127CD4  4B FD 79 95 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8012AD74 00127CD4  4B FD 79 95 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8012AD78 00127CD8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8012AD7C 00127CDC  41 82 00 10 */	beq lbl_8012AD8C
 /* 8012AD80 00127CE0  38 7D 04 60 */	addi r3, r29, 0x460
@@ -12582,7 +12582,7 @@ lbl_8012ADB0:
 /* 8012AE00 00127D60  90 A1 00 5C */	stw r5, 0x5c(r1)
 /* 8012AE04 00127D64  38 A0 00 00 */	li r5, 0
 /* 8012AE08 00127D68  98 01 00 60 */	stb r0, 0x60(r1)
-/* 8012AE0C 00127D6C  4B FD 78 FD */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8012AE0C 00127D6C  4B FD 78 FD */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8012AE10 00127D70  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8012AE14 00127D74  41 82 00 30 */	beq lbl_8012AE44
 /* 8012AE18 00127D78  38 A0 00 FE */	li r5, 0xfe
@@ -12612,7 +12612,7 @@ lbl_8012AE44:
 /* 8012AE74 00127DD4  90 A1 00 54 */	stw r5, 0x54(r1)
 /* 8012AE78 00127DD8  38 A0 00 00 */	li r5, 0
 /* 8012AE7C 00127DDC  98 01 00 58 */	stb r0, 0x58(r1)
-/* 8012AE80 00127DE0  4B FD 78 89 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8012AE80 00127DE0  4B FD 78 89 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8012AE84 00127DE4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8012AE88 00127DE8  41 82 00 14 */	beq lbl_8012AE9C
 /* 8012AE8C 00127DEC  48 21 F1 21 */	bl White__6CColorFv
@@ -12634,7 +12634,7 @@ lbl_8012AE9C:
 /* 8012AEC8 00127E28  50 C0 2E B4 */	rlwimi r0, r6, 5, 0x1a, 0x1a
 /* 8012AECC 00127E2C  38 A0 00 00 */	li r5, 0
 /* 8012AED0 00127E30  98 01 00 50 */	stb r0, 0x50(r1)
-/* 8012AED4 00127E34  4B FD 78 35 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8012AED4 00127E34  4B FD 78 35 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8012AED8 00127E38  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8012AEDC 00127E3C  41 82 00 30 */	beq lbl_8012AF0C
 /* 8012AEE0 00127E40  38 A0 00 FD */	li r5, 0xfd
@@ -12664,7 +12664,7 @@ lbl_8012AF0C:
 /* 8012AF3C 00127E9C  90 A1 00 44 */	stw r5, 0x44(r1)
 /* 8012AF40 00127EA0  38 A0 00 00 */	li r5, 0
 /* 8012AF44 00127EA4  98 01 00 48 */	stb r0, 0x48(r1)
-/* 8012AF48 00127EA8  4B FD 77 C1 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 8012AF48 00127EA8  4B FD 77 C1 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 8012AF4C 00127EAC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8012AF50 00127EB0  41 82 00 28 */	beq lbl_8012AF78
 /* 8012AF54 00127EB4  38 00 00 FF */	li r0, 0xff

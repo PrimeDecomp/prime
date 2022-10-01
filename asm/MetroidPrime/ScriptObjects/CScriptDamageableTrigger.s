@@ -164,7 +164,7 @@ GetCollisionResponseType__24CScriptDamageableTriggerCFRC9CVector3fRC9CVector3fRC
 /* 800FA668 000F75C8  38 A0 00 00 */	li r5, 0
 /* 800FA66C 000F75CC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 800FA670 000F75D0  38 63 01 74 */	addi r3, r3, 0x174
-/* 800FA674 000F75D4  48 00 80 95 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 800FA674 000F75D4  48 00 80 95 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 800FA678 000F75D8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800FA67C 000F75DC  38 60 00 0F */	li r3, 0xf
 /* 800FA680 000F75E0  41 82 00 08 */	beq lbl_800FA688

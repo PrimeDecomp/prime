@@ -1069,7 +1069,7 @@ Touch__17CWallCrawlerSwarmFR6CActorR13CStateManager:
 /* 801E8278 001E51D8  38 7C 03 C4 */	addi r3, r28, 0x3c4
 /* 801E827C 001E51DC  7F 64 DB 78 */	mr r4, r27
 /* 801E8280 001E51E0  38 A0 00 00 */	li r5, 0
-/* 801E8284 001E51E4  4B F1 A4 85 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponMode
+/* 801E8284 001E51E4  4B F1 A4 85 */	bl WeaponHurts__20CDamageVulnerabilityCFRC11CWeaponModei
 /* 801E8288 001E51E8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801E828C 001E51EC  41 82 01 94 */	beq lbl_801E8420
 /* 801E8290 001E51F0  7F 44 D3 78 */	mr r4, r26
