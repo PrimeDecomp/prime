@@ -1045,8 +1045,8 @@ lbl_803406E4:
 /* 80340700 0033D660  38 21 00 20 */	addi r1, r1, 0x20
 /* 80340704 0033D664  4E 80 00 20 */	blr
 
-.global __dt__11CSimplePool
-__dt__11CSimplePool:
+.global __dt__11CSimplePoolFv
+__dt__11CSimplePoolFv:
 /* 80340708 0033D668  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034070C 0033D66C  7C 08 02 A6 */	mflr r0
 /* 80340710 0033D670  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1465,4 +1465,3 @@ lbl_803D7A98:
 	# ROM: 0x3D4A98
 	.asciz "??(??)"
 	.balign 4
-

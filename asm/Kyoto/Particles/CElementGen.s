@@ -15601,7 +15601,7 @@ lbl_80324EB4:
 /* 80324EC4 00321E24  7C 64 1B 78 */	mr r4, r3
 /* 80324EC8 00321E28  3B 01 00 70 */	addi r24, r1, 0x70
 /* 80324ECC 00321E2C  38 61 00 10 */	addi r3, r1, 0x10
-/* 80324ED0 00321E30  4B CE 2B 5D */	bl "GetIObjObjectFor__17TToken<8CTexture>FP8CTexture"
+/* 80324ED0 00321E30  4B CE 2B 5D */	bl "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture"
 /* 80324ED4 00321E34  38 00 00 00 */	li r0, 0
 /* 80324ED8 00321E38  80 81 00 14 */	lwz r4, 0x14(r1)
 /* 80324EDC 00321E3C  98 01 00 10 */	stb r0, 0x10(r1)
@@ -15732,7 +15732,7 @@ lbl_80325044:
 /* 803250B0 00322010  7C 64 1B 78 */	mr r4, r3
 /* 803250B4 00322014  3B 01 00 60 */	addi r24, r1, 0x60
 /* 803250B8 00322018  38 61 00 08 */	addi r3, r1, 8
-/* 803250BC 0032201C  4B CE 29 71 */	bl "GetIObjObjectFor__17TToken<8CTexture>FP8CTexture"
+/* 803250BC 0032201C  4B CE 29 71 */	bl "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture"
 /* 803250C0 00322020  38 00 00 00 */	li r0, 0
 /* 803250C4 00322024  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 803250C8 00322028  98 01 00 08 */	stb r0, 8(r1)
@@ -22031,4 +22031,3 @@ lbl_803D7918:
 	# ROM: 0x3D4918
 	.asciz "??(??)"
 	.balign 4
-

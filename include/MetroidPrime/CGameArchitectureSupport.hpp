@@ -4,19 +4,19 @@
 #include "types.h"
 
 #include "GuiSys/CGuiSys.hpp"
+
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/Basics/COsContext.hpp"
 #include "Kyoto/Basics/CStopwatch.hpp"
 #include "Kyoto/TOneStatic.hpp"
+
+#include "MetroidPrime/CArchitectureQueue.hpp"
 #include "MetroidPrime/CIOWinManager.hpp"
 #include "MetroidPrime/CInputGenerator.hpp"
 
-class CSavableState;
+#include "rstl/vector.hpp"
 
-class Unknown {
-private:
-  u8 pad[0x2c];
-};
+class CToken;
 
 class CGameArchitectureSupport : public TOneStatic< CGameArchitectureSupport > {
 public:
@@ -26,33 +26,29 @@ public:
   void PreloadAudio();
   bool UpdateTicks();
   void Update();
+  void UnloadAudio();
 
   inline CStopwatch& GetStopwatch1() { return x20_stopwatch1; }
   inline CStopwatch& GetStopwatch2() { return x28_stopwatch2; }
-  // TODO
-  inline CIOWinManager& GetIOWinManager() { return *(CIOWinManager*)(((u8*)this) + 0x58); }
-  inline int& GetFramesDrawn() const { return *(int*)(((u8*)this) + 0x78); }
+  inline CIOWinManager& GetIOWinManager() { return x58_ioWinMgr; }
+  inline int& GetFramesDrawn() { return x78_gameFrameCount; }
 
 private:
   CAudioSys x0_audioSys;
-  rstl::list< CSavableState > x8_;
-  u32 pad;
+  CArchitectureQueue x4_archQueue;
   CStopwatch x20_stopwatch1;
   CStopwatch x28_stopwatch2;
   CInputGenerator x30_inputGenerator;
   CGuiSys x44_guiSys;
   CIOWinManager x58_ioWinMgr;
-  uint x78_gameFrameCount;
+  int x78_gameFrameCount;
   f32 x7c_;
   f32 x80_;
   f32 x84_;
   uint x88_;
-  uint x8c_; // unused?
-  uint x90_;
-  uint x94_;
-  uint x98_;
-  rstl::optional_object< Unknown > x9c_;
-  u8 pad2[0x4];
+  rstl::vector< CToken > x90_;
+  OSAlarm xa0_infiniteLoopAlarm;
+  bool xc8_infiniteLoopAlarmSet;
 };
 CHECK_SIZEOF(CGameArchitectureSupport, 0xd0)
 

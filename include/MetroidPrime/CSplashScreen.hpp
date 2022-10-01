@@ -14,10 +14,10 @@ public:
   };
 
   CSplashScreen(ESplashScreen);
-  ~CSplashScreen() override;
 
-  virtual EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&);
-  virtual void Draw();
+  ~CSplashScreen() override;
+  EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
+  void Draw() override;
 };
 
 #endif

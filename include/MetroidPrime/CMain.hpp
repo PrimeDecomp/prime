@@ -122,6 +122,7 @@ private:
   bool x161_24_gameFrameDrawn : 1;
   CGameArchitectureSupport* x164_;
 };
+CHECK_SIZEOF(CMain, 0x168)
 
 extern CMain* gpMain;
 

@@ -18,7 +18,7 @@ static inline U1 T_round_up(U2 val, int align) {
 }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::GetMemInfoFromBlockPtr(const void* ptr) const {
-  return (SGameMemInfo*)(const_cast< u8* >(ptr) - sizeof(SGameMemInfo));
+  return (SGameMemInfo*)((u8*)(ptr) - sizeof(SGameMemInfo));
 }
 
 CGameAllocator::CGameAllocator()
@@ -105,9 +105,7 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
   if (x74_mediumPool && size <= 0x400 && !(hint & kHI_TopOfHeap)) {
     void* buf = nullptr;
     if (!x74_mediumPool->HasPuddles()) {
-      void* ptr = x78_;
-      uint puddleSize = 0x1000;
-      x74_mediumPool->AddPuddle(puddleSize, ptr, 0);
+      x74_mediumPool->AddPuddle(0x1000, x78_, 0);
       x78_ = nullptr;
     }
 
@@ -149,10 +147,9 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
     }
 
     static bool bTriedCallback = false;
-
     if (!bTriedCallback) {
       bTriedCallback = true;
-      mediumBuf = (SGameMemInfo*)Alloc(size, hint, scope, type, callstack);
+      mediumBuf = Alloc(size, hint, scope, type, callstack);
       bTriedCallback = false;
     } else {
       return nullptr;
@@ -162,7 +159,6 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
       callstack.GetFileAndLineText();
       callstack.GetTypeText();
       DumpAllocations();
-      mediumBuf = nullptr;
       return nullptr;
     }
     return mediumBuf;
@@ -175,8 +171,7 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
 
   UpdateAllocDebugStats(size, roundedSize, tmp);
   gAllocatorTime += OSGetTick() - startTick;
-  ((u8*)info) += sizeof(SGameMemInfo);
-  return info;
+  return ++info;
 }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint) {}

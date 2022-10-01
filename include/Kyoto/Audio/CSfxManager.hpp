@@ -9,6 +9,7 @@ class CSfxManager {
 public:
   static void Update(f32 dt);
   static void RemoveEmitter(CSfxHandle handle);
+  static void Shutdown();
 };
 
 #endif

@@ -16,6 +16,7 @@ enum ETRKRepeatMode {
 class CAudioSys {
 public:
   CAudioSys(u8, u8, u8, u8, uint);
+  ~CAudioSys();
 
   static void SysSetVolume(u8, uint, u8);
   static void SetDefaultVolumeScale(s16);

@@ -13,8 +13,9 @@ struct rmemory_allocator {
   }
   template < typename T >
   static void deallocate(T* ptr) {
-    if (ptr != nullptr)
-      CMemory::Free(ptr);
+    if (ptr != nullptr) {
+      delete[] reinterpret_cast< u8* >(ptr);
+    }
   }
 };
 } // namespace rstl

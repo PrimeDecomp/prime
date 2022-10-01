@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global sub_802ffed4
-sub_802ffed4:
+.global "SetTexture__11CRasterFontF17TToken<8CTexture>"
+"SetTexture__11CRasterFontF17TToken<8CTexture>":
 /* 802FFED4 002FCE34  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802FFED8 002FCE38  7C 08 02 A6 */	mflr r0
 /* 802FFEDC 002FCE3C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1843,4 +1843,3 @@ lbl_803D6E80:
 	# ROM: 0x3D3E80
 	.asciz "??(??)"
 	.balign 4
-

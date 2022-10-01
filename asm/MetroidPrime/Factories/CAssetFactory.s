@@ -128,7 +128,7 @@ __dt__24CCharacterFactoryBuilderFv:
 /* 8003498C 000318EC  41 82 00 44 */	beq lbl_800349D0
 /* 80034990 000318F0  38 7E 00 04 */	addi r3, r30, 4
 /* 80034994 000318F4  38 80 FF FF */	li r4, -1
-/* 80034998 000318F8  48 30 BD 71 */	bl __dt__11CSimplePool
+/* 80034998 000318F8  48 30 BD 71 */	bl __dt__11CSimplePoolFv
 /* 8003499C 000318FC  28 1E 00 00 */	cmplwi r30, 0
 /* 800349A0 00031900  41 82 00 20 */	beq lbl_800349C0
 /* 800349A4 00031904  3C 60 80 3E */	lis r3, lbl_803D9C88@ha
@@ -455,4 +455,3 @@ lbl_803CCD80:
 	# ROM: 0x3C9D80
 	.asciz "??(??)"
 	.balign 4
-

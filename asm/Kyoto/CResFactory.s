@@ -524,8 +524,8 @@ sub_80339b38:
 /* 80339BC8 00336B28  90 05 00 04 */	stw r0, 4(r5)
 /* 80339BCC 00336B2C  4E 80 00 20 */	blr
 
-.global AsyncIdle__11CResFactoryFUl
-AsyncIdle__11CResFactoryFUl:
+.global AsyncIdle__11CResFactoryFUi
+AsyncIdle__11CResFactoryFUi:
 /* 80339BD0 00336B30  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80339BD4 00336B34  7C 08 02 A6 */	mflr r0
 /* 80339BD8 00336B38  90 01 00 34 */	stw r0, 0x34(r1)
@@ -1767,4 +1767,3 @@ lbl_803D7A28:
 	.byte 0x31
 	.asciz ".1.3"
 	.balign 4
-

@@ -1212,8 +1212,8 @@ IsMemoryCardInserted__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034E454 0034B3B4  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034E458 0034B3B8  4E 80 00 20 */	blr
 
-.global sub_8034e45c
-sub_8034e45c:
+.global __dt__14CMemoryCardSysFv
+__dt__14CMemoryCardSysFv:
 /* 8034E45C 0034B3BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034E460 0034B3C0  7C 08 02 A6 */	mflr r0
 /* 8034E464 0034B3C4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2085,4 +2085,3 @@ lbl_803D8220:
 	# ROM: 0x3D5220
 	.asciz "??(??)"
 	.balign 4
-

@@ -803,8 +803,8 @@ GetIsContinueDraw__18CErrorOutputWindowCFv:
 /* 80269BB8 00266B18  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 80269BBC 00266B1C  4E 80 00 20 */	blr
 
-.global __ct__18CErrorOutputWindowFiff
-__ct__18CErrorOutputWindowFiff:
+.global __ct__18CErrorOutputWindowFb
+__ct__18CErrorOutputWindowFb:
 /* 80269BC0 00266B20  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80269BC4 00266B24  7C 08 02 A6 */	mflr r0
 /* 80269BC8 00266B28  3C A0 80 3D */	lis r5, lbl_803D53E0@ha
@@ -895,4 +895,3 @@ lbl_803D53E0:
 	# ROM: 0x3D23E0
 	.asciz "Error output window"
 	.4byte 0
-

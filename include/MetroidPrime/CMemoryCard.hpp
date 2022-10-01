@@ -4,6 +4,8 @@
 #include "types.h"
 
 class CMemoryCard {
+public:
+  ~CMemoryCard();
   // TODO
 };
 

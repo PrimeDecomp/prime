@@ -35,10 +35,14 @@
 #include "Kyoto/Text/CStringTable.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CAnimData.hpp"
+#include "MetroidPrime/CAudioStateWin.hpp"
+#include "MetroidPrime/CConsoleOutputWindow.hpp"
 #include "MetroidPrime/CDecalManager.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
+#include "MetroidPrime/CErrorOutputWindow.hpp"
 #include "MetroidPrime/CGameGlobalObjects.hpp"
 #include "MetroidPrime/CInGameTweakManager.hpp"
+#include "MetroidPrime/CMainFlow.hpp"
 #include "MetroidPrime/CMemoryCard.hpp"
 #include "MetroidPrime/CSplashScreen.hpp"
 #include "MetroidPrime/Factories/CCharacterFactoryBuilder.hpp"
@@ -60,7 +64,7 @@ CResFactory* gpResourceFactory;
 CSimplePool* gpSimplePool;
 CCubeRenderer* gpRender;
 CCharacterFactoryBuilder* gpCharacterFactoryBuilder;
-unkptr gGuiSystem;
+CGuiSys* gGuiSystem;
 CStringTable* gpStringTable;
 CMain* gpMain;
 unkptr gpController;
@@ -72,6 +76,7 @@ unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
 bool lbl_805A8C58;
 u32 sARAMMemArray[2];
+f32 sInfiniteLoopTime;
 
 #define GRAPHICS_FIFO_SIZE 0x60000
 static u8 sGraphicsFifo[GRAPHICS_FIFO_SIZE];
@@ -113,8 +118,7 @@ bool lbl_805A6BC0;
 int main(int argc, char** argv) {
   DVDSetAutoFatalMessaging(TRUE);
   SetErrorHandlers();
-  CMain* main = reinterpret_cast< CMain* >(&sMainSpace);
-  new (&sMainSpace) CMain();
+  CMain* main = new (&sMainSpace) CMain();
   gpMain->RsMain(argc, argv);
   main->~CMain();
   return 0;
@@ -123,7 +127,7 @@ int main(int argc, char** argv) {
 CMain::CMain()
 : x0_osContext(true, true)
 , x6c_unk(this)
-, x6d_memorySys(InitOsContext(), CMemorySys::GetGameAllocator())
+, x6d_memorySys(x0_osContext, CMemorySys::GetGameAllocator())
 , xe8_(0.0)
 , x118_(0.f)
 , x11c_(0.f)
@@ -203,8 +207,6 @@ CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memory
 : xcc_simplePool(x4_resFactory)
 , x130_graphicsSys(osContext, memorySys, GRAPHICS_FIFO_SIZE, sGraphicsFifo)
 , x134_gameState(new CGameState())
-, x138_(0)
-, x14c_renderer(0)
 , x150_inGameTweakManager(new CInGameTweakManager())
 , x154_defaultFont(LoadDefaultFont()) {
   gpResourceFactory = &x4_resFactory;
@@ -415,8 +417,18 @@ void CGameGlobalObjects::LoadStringTable() {
   gpStringTable = **x13c_stringTable;
 }
 
+// TODO CAuiMain
+void InitializeApplicationUI(CGuiSys&);
+
+void InfiniteLoopAlarm(OSAlarm* alarm, OSContext* context) {
+  if (sInfiniteLoopTime >= 10.f) {
+    rs_debugger_printf("INFINITE LOOP");
+  }
+  sInfiniteLoopTime += alarm->period / OS_TIMER_CLOCK;
+}
+
 CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
-: x0_audioSys(0, 0, 0, 0, 0x5fc000)
+: x0_audioSys(0x30, 0x30, 0x30, 0x30, 0x5fc000)
 , x30_inputGenerator(&osContext, gpTweakPlayer->GetLeftAnalogMax(),
                      gpTweakPlayer->GetRightAnalogMax())
 , x44_guiSys(gpResourceFactory, gpSimplePool, CGuiSys::kUM_Zero)
@@ -425,9 +437,7 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
 , x80_(0.f)
 , x84_(0.f)
 , x88_(2)
-, x90_(0)
-, x94_(0)
-, x98_(0) {
+, xc8_infiniteLoopAlarmSet(false) {
   CAudioSys::SysSetVolume(0x7F, 0, 0xFF);
   CAudioSys::SetDefaultVolumeScale(0x75);
   CAudioSys::SetVolumeScale(CAudioSys::GetDefaultVolumeScale());
@@ -439,7 +449,28 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   if (!gpTweakGame->GetSplashScreensDisabled()) {
     x58_ioWinMgr.AddIOWin(new CSplashScreen(CSplashScreen::Nintendo), 1000, 10000);
   }
-  // TODO
+  x58_ioWinMgr.AddIOWin(new CMainFlow(), 0, 0);
+  x58_ioWinMgr.AddIOWin(new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);
+  x58_ioWinMgr.AddIOWin(new CAudioStateWin(), 100, -1);
+  x58_ioWinMgr.AddIOWin(new CErrorOutputWindow(false), 10000, 100000);
+  InitializeApplicationUI(x44_guiSys);
+  CGuiSys::SetGlobalGuiSys(&x44_guiSys);
+  gpController = x30_inputGenerator.GetController();
+  gpGameState->GameOptions().EnsureOptions();
+  sInfiniteLoopTime = 0.f;
+  OSSetPeriodicAlarm(&xa0_infiniteLoopAlarm, OSGetTime(), (f32)OS_TIMER_CLOCK, InfiniteLoopAlarm);
+  xc8_infiniteLoopAlarmSet = true;
+}
+
+CGameArchitectureSupport::~CGameArchitectureSupport() {
+  if (xc8_infiniteLoopAlarmSet) {
+    OSCancelAlarm(&xa0_infiniteLoopAlarm);
+    xc8_infiniteLoopAlarmSet = false;
+  }
+  x58_ioWinMgr.RemoveAllIOWins();
+  UnloadAudio();
+  CSfxManager::Shutdown();
+  CDSPStreamManager::Shutdown();
 }
 
 // 80003658

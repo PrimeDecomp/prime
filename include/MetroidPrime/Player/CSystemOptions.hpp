@@ -14,7 +14,7 @@ public:
   CSystemOptions();
 
   void SetHasFusion(bool v);
-  bool GetHasFusion() const { return xd0_27_fusionBeat; }
+  bool GetHasFusion() const { return xd0_28_fusionSuitActive; }
 
 private:
   rstl::reserved_vector< u8, 98 > x0_nesState;

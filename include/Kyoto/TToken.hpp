@@ -14,15 +14,12 @@ class TToken : public CToken {
 public:
   TToken() {}
   TToken(const CToken& token) : CToken(token) {}
-  TToken(T* obj) : CToken(GetIObjObjectFor(obj).release()) {}
+  TToken(T* obj) : CToken(TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj).release()) {}
   TToken(const rstl::auto_ptr< T >& obj) : CToken(GetIObjObjectFor(obj).release()) {}
 
   T* GetT() { return reinterpret_cast< T* >(CToken::GetObj()->GetContents()); }
   T* operator*() { return GetT(); }
 
-  static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > > GetIObjObjectFor(T* obj) {
-    return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);
-  }
   static inline rstl::auto_ptr< TObjOwnerDerivedFromIObj< T > >
   GetIObjObjectFor(const rstl::auto_ptr< T >& obj) {
     return TObjOwnerDerivedFromIObj< T >::GetNewDerivedObject(obj);

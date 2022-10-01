@@ -12,6 +12,8 @@ public:
   COsContext(bool, bool);
   ~COsContext();
 
+  void OpenWindow(const char* title, int x, int y, int w, int h, bool fullscreen);
+
   uint GetBaseFreeRam() const {
     size_t hiAddr = reinterpret_cast< size_t >(x1c_arenaHi);
     size_t loAddr = reinterpret_cast< size_t >(x20_arenaLo2);

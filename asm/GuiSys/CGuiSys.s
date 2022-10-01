@@ -27,8 +27,8 @@ CreateWidgetInGame__7CGuiSysFUiR12CInputStreamP9CGuiFrame:
 /* 802C6408 002C3368  38 21 00 10 */	addi r1, r1, 0x10
 /* 802C640C 002C336C  4E 80 00 20 */	blr
 
-.global sub_802c6410
-sub_802c6410:
+.global __dt__7CGuiSysFv
+__dt__7CGuiSysFv:
 /* 802C6410 002C3370  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802C6414 002C3374  7C 08 02 A6 */	mflr r0
 /* 802C6418 002C3378  90 01 00 14 */	stw r0, 0x14(r1)
@@ -169,4 +169,3 @@ lbl_803D68C8:
 	# ROM: 0x3D38C8
 	.asciz "??(??)"
 	.balign 4
-

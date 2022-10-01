@@ -9,12 +9,13 @@ namespace rstl {
 template < typename T, typename Alloc = rmemory_allocator >
 class list {
 public:
-  list() : x4_start(&xc_empty), x8_end(&xc_empty), xc_empty(x8_end, nullptr) {}
+  list() : x4_start(&xc_empty), x8_end(&xc_empty), xc_empty(&xc_empty, &xc_empty) {}
   ~list() {
     node* cur = x4_start;
-    while (cur != nullptr) {
-      delete cur->x8_item;
-      cur = cur->x4_next;
+    while (cur != x8_end) {
+      cur->get_value()->~T();
+      Alloc::deallocate(cur->get_value());
+      cur = cur->get_next();
     }
   }
 
@@ -28,6 +29,12 @@ private:
     };
 
     node(node* prev, node* next) : x0_prev(prev), x4_next(next), x8_count(0) {}
+
+    node* get_prev() const { return x0_prev; }
+    node* get_next() const { return x4_next; }
+    T* get_value() { return x8_item; }
+
+    // todo set_next / set_prev
   };
 
   Alloc x0_allocator;

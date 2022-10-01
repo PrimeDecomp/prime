@@ -81,11 +81,10 @@ public:
 
   virtual bool Initialize(COsContext& ctx) = 0;
   virtual void Shutdown() = 0;
-  virtual void* Alloc(unsigned long size, EHint hint, EScope scope, EType type,
-                      const CCallStack& cs) = 0;
+  virtual void* Alloc(size_t size, EHint hint, EScope scope, EType type, const CCallStack& cs) = 0;
   virtual bool Free(const void* ptr) = 0;
   virtual void ReleaseAll() = 0;
-  virtual void* AllocSecondary(unsigned long size, EHint hint, EScope scope, EType type,
+  virtual void* AllocSecondary(size_t size, EHint hint, EScope scope, EType type,
                                const CCallStack& cs) = 0;
   virtual bool FreeSecondary(const void* ptr) = 0;
   virtual void ReleaseAllSecondary() = 0;

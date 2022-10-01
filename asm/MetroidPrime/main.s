@@ -2665,8 +2665,8 @@ lbl_80004CD0:
 /* 80004CE0 00001C40  90 03 00 08 */	stw r0, 8(r3)
 /* 80004CE4 00001C44  4E 80 00 20 */	blr
 
-.global AsyncIdle__5CMainFUl
-AsyncIdle__5CMainFUl:
+.global AsyncIdle__5CMainFUi
+AsyncIdle__5CMainFUi:
 /* 80004CE8 00001C48  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80004CEC 00001C4C  7C 08 02 A6 */	mflr r0
 /* 80004CF0 00001C50  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2706,7 +2706,7 @@ lbl_80004D6C:
 /* 80004D70 00001CD0  41 82 00 10 */	beq lbl_80004D80
 /* 80004D74 00001CD4  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 80004D78 00001CD8  7F E4 FB 78 */	mr r4, r31
-/* 80004D7C 00001CDC  48 33 4E 55 */	bl AsyncIdle__11CResFactoryFUl
+/* 80004D7C 00001CDC  48 33 4E 55 */	bl AsyncIdle__11CResFactoryFUi
 lbl_80004D80:
 /* 80004D80 00001CE0  80 1E 01 5C */	lwz r0, 0x15c(r30)
 /* 80004D84 00001CE4  54 00 10 3A */	slwi r0, r0, 2
@@ -3309,7 +3309,7 @@ lbl_800055EC:
 /* 80005638 00002598  7C 64 1B 78 */	mr r4, r3
 lbl_8000563C:
 /* 8000563C 0000259C  7F A3 EB 78 */	mr r3, r29
-/* 80005640 000025A0  4B FF F6 A9 */	bl AsyncIdle__5CMainFUl
+/* 80005640 000025A0  4B FF F6 A9 */	bl AsyncIdle__5CMainFUi
 /* 80005644 000025A4  80 6D A0 68 */	lwz r3, gpRender@sda21(r13)
 /* 80005648 000025A8  81 83 00 00 */	lwz r12, 0(r3)
 /* 8000564C 000025AC  81 8C 00 8C */	lwz r12, 0x8c(r12)
@@ -3331,7 +3331,7 @@ lbl_80005688:
 /* 80005688 000025E8  3C 80 00 0F */	lis r4, 0x000F4240@ha
 /* 8000568C 000025EC  80 6D A0 60 */	lwz r3, gpResourceFactory@sda21(r13)
 /* 80005690 000025F0  38 84 42 40 */	addi r4, r4, 0x000F4240@l
-/* 80005694 000025F4  48 33 45 3D */	bl AsyncIdle__11CResFactoryFUl
+/* 80005694 000025F4  48 33 45 3D */	bl AsyncIdle__11CResFactoryFUi
 lbl_80005698:
 /* 80005698 000025F8  80 61 00 08 */	lwz r3, 8(r1)
 /* 8000569C 000025FC  48 00 15 F5 */	bl Update__24CGameArchitectureSupportFv
@@ -3475,7 +3475,7 @@ __dt__18CGameGlobalObjectsFv:
 lbl_80005890:
 /* 80005890 000027F0  38 7E 01 50 */	addi r3, r30, 0x150
 /* 80005894 000027F4  38 80 FF FF */	li r4, -1
-/* 80005898 000027F8  48 00 02 29 */	bl sub_80005ac0
+/* 80005898 000027F8  48 00 02 29 */	bl "__dt__Q24rstl33single_ptr<19CInGameTweakManager>Fv"
 /* 8000589C 000027FC  34 1E 01 4C */	addic. r0, r30, 0x14c
 /* 800058A0 00002800  41 82 00 24 */	beq lbl_800058C4
 /* 800058A4 00002804  80 7E 01 4C */	lwz r3, 0x14c(r30)
@@ -3510,25 +3510,25 @@ lbl_800058F8:
 lbl_8000590C:
 /* 8000590C 0000286C  38 7E 01 34 */	addi r3, r30, 0x134
 /* 80005910 00002870  38 80 FF FF */	li r4, -1
-/* 80005914 00002874  48 00 01 55 */	bl sub_80005a68
+/* 80005914 00002874  48 00 01 55 */	bl "__dt__Q24rstl24single_ptr<10CGameState>Fv"
 /* 80005918 00002878  38 7E 01 30 */	addi r3, r30, 0x130
 /* 8000591C 0000287C  38 80 FF FF */	li r4, -1
 /* 80005920 00002880  48 30 3A D9 */	bl __dt__12CGraphicsSysFv
 /* 80005924 00002884  38 7E 01 10 */	addi r3, r30, 0x110
 /* 80005928 00002888  38 80 FF FF */	li r4, -1
-/* 8000592C 0000288C  48 00 00 61 */	bl sub_8000598c
+/* 8000592C 0000288C  48 00 00 61 */	bl __dt__10CAiFuncMapFv
 /* 80005930 00002890  38 7E 00 EC */	addi r3, r30, 0xec
 /* 80005934 00002894  38 80 FF FF */	li r4, -1
 /* 80005938 00002898  48 02 F0 39 */	bl __dt__24CCharacterFactoryBuilderFv
 /* 8000593C 0000289C  38 7E 00 CC */	addi r3, r30, 0xcc
 /* 80005940 000028A0  38 80 FF FF */	li r4, -1
-/* 80005944 000028A4  48 33 AD C5 */	bl __dt__11CSimplePool
+/* 80005944 000028A4  48 33 AD C5 */	bl __dt__11CSimplePoolFv
 /* 80005948 000028A8  38 7E 00 04 */	addi r3, r30, 4
 /* 8000594C 000028AC  38 80 FF FF */	li r4, -1
 /* 80005950 000028B0  48 33 4C CD */	bl __dt__11CResFactoryFv
 /* 80005954 000028B4  7F C3 F3 78 */	mr r3, r30
 /* 80005958 000028B8  38 80 FF FF */	li r4, -1
-/* 8000595C 000028BC  48 34 8B 01 */	bl sub_8034e45c
+/* 8000595C 000028BC  48 34 8B 01 */	bl __dt__14CMemoryCardSysFv
 /* 80005960 000028C0  7F E0 07 35 */	extsh. r0, r31
 /* 80005964 000028C4  40 81 00 0C */	ble lbl_80005970
 /* 80005968 000028C8  7F C3 F3 78 */	mr r3, r30
@@ -3542,8 +3542,8 @@ lbl_80005970:
 /* 80005984 000028E4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80005988 000028E8  4E 80 00 20 */	blr
 
-.global sub_8000598c
-sub_8000598c:
+.global __dt__10CAiFuncMapFv
+__dt__10CAiFuncMapFv:
 /* 8000598C 000028EC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80005990 000028F0  7C 08 02 A6 */	mflr r0
 /* 80005994 000028F4  90 01 00 34 */	stw r0, 0x34(r1)
@@ -3607,8 +3607,8 @@ lbl_80005A4C:
 /* 80005A60 000029C0  38 21 00 30 */	addi r1, r1, 0x30
 /* 80005A64 000029C4  4E 80 00 20 */	blr
 
-.global sub_80005a68
-sub_80005a68:
+.global "__dt__Q24rstl24single_ptr<10CGameState>Fv"
+"__dt__Q24rstl24single_ptr<10CGameState>Fv":
 /* 80005A68 000029C8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005A6C 000029CC  7C 08 02 A6 */	mflr r0
 /* 80005A70 000029D0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3633,8 +3633,8 @@ lbl_80005AA4:
 /* 80005AB8 00002A18  38 21 00 10 */	addi r1, r1, 0x10
 /* 80005ABC 00002A1C  4E 80 00 20 */	blr
 
-.global sub_80005ac0
-sub_80005ac0:
+.global "__dt__Q24rstl33single_ptr<19CInGameTweakManager>Fv"
+"__dt__Q24rstl33single_ptr<19CInGameTweakManager>Fv":
 /* 80005AC0 00002A20  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005AC4 00002A24  7C 08 02 A6 */	mflr r0
 /* 80005AC8 00002A28  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3645,7 +3645,7 @@ sub_80005ac0:
 /* 80005ADC 00002A3C  41 82 00 20 */	beq lbl_80005AFC
 /* 80005AE0 00002A40  80 7E 00 00 */	lwz r3, 0(r30)
 /* 80005AE4 00002A44  38 80 00 01 */	li r4, 1
-/* 80005AE8 00002A48  48 00 00 31 */	bl sub_80005b18
+/* 80005AE8 00002A48  48 00 00 31 */	bl __dt__19CInGameTweakManagerFv
 /* 80005AEC 00002A4C  7F E0 07 35 */	extsh. r0, r31
 /* 80005AF0 00002A50  40 81 00 0C */	ble lbl_80005AFC
 /* 80005AF4 00002A54  7F C3 F3 78 */	mr r3, r30
@@ -3659,8 +3659,8 @@ lbl_80005AFC:
 /* 80005B10 00002A70  38 21 00 10 */	addi r1, r1, 0x10
 /* 80005B14 00002A74  4E 80 00 20 */	blr
 
-.global sub_80005b18
-sub_80005b18:
+.global __dt__19CInGameTweakManagerFv
+__dt__19CInGameTweakManagerFv:
 /* 80005B18 00002A78  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80005B1C 00002A7C  7C 08 02 A6 */	mflr r0
 /* 80005B20 00002A80  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4377,7 +4377,7 @@ AddPaksAndFactories__18CGameGlobalObjectsFv:
 /* 800061C0 00003120  48 33 7A 01 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800061C4 00003124  38 61 00 9C */	addi r3, r1, 0x9c
 /* 800061C8 00003128  38 80 00 01 */	li r4, 0x1
-/* 800061CC 0000312C  48 26 3A 71 */	bl __ct__18CErrorOutputWindowFiff
+/* 800061CC 0000312C  48 26 3A 71 */	bl __ct__18CErrorOutputWindowFb
 /* 800061D0 00003130  38 60 00 01 */	li r3, 0x1
 /* 800061D4 00003134  48 30 33 B5 */	bl SetIsBeginSceneClearFb__9CGraphicsFb
 /* 800061D8 00003138  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
@@ -4737,7 +4737,7 @@ AddPaksAndFactories__18CGameGlobalObjectsFv:
 /* 8000619C 000030FC  48 33 79 45 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 800061A0 00003100  38 61 00 98 */	addi r3, r1, 0x98
 /* 800061A4 00003104  38 80 00 01 */	li r4, 1
-/* 800061A8 00003108  48 26 3A 19 */	bl __ct__18CErrorOutputWindowFiff
+/* 800061A8 00003108  48 26 3A 19 */	bl __ct__18CErrorOutputWindowFb
 /* 800061AC 0000310C  38 60 00 01 */	li r3, 1
 /* 800061B0 00003110  48 30 32 F9 */	bl SetIsBeginSceneClearFb__9CGraphicsFb
 /* 800061B4 00003114  3C 80 80 3F */	lis r4, mViewport__9CGraphics@ha
@@ -5795,10 +5795,10 @@ lbl_80007084:
 lbl_8000709C:
 /* 8000709C 00003FFC  38 7C 00 58 */	addi r3, r28, 0x58
 /* 800070A0 00004000  38 80 FF FF */	li r4, -1
-/* 800070A4 00004004  48 04 BA 3D */	bl sub_80052ae0
+/* 800070A4 00004004  48 04 BA 3D */	bl __dt__13CIOWinManagerFv
 /* 800070A8 00004008  38 7C 00 44 */	addi r3, r28, 0x44
 /* 800070AC 0000400C  38 80 FF FF */	li r4, -1
-/* 800070B0 00004010  48 2B F3 61 */	bl sub_802c6410
+/* 800070B0 00004010  48 2B F3 61 */	bl __dt__7CGuiSysFv
 /* 800070B4 00004014  34 1C 00 30 */	addic. r0, r28, 0x30
 /* 800070B8 00004018  41 82 00 2C */	beq lbl_800070E4
 /* 800070BC 0000401C  34 1C 00 34 */	addic. r0, r28, 0x34
@@ -5816,7 +5816,7 @@ lbl_800070E4:
 /* 800070E8 00004048  41 82 00 10 */	beq lbl_800070F8
 /* 800070EC 0000404C  38 7C 00 04 */	addi r3, r28, 4
 /* 800070F0 00004050  38 80 FF FF */	li r4, -1
-/* 800070F4 00004054  48 00 1F B5 */	bl sub_800090a8
+/* 800070F4 00004054  48 00 1F B5 */	bl __dt__18CArchitectureQueueFv
 lbl_800070F8:
 /* 800070F8 00004058  7F 83 E3 78 */	mr r3, r28
 /* 800070FC 0000405C  38 80 FF FF */	li r4, -1
@@ -5947,7 +5947,7 @@ lbl_800072C8:
 /* 800072D8 00004238  38 C0 27 10 */	li r6, 0x2710
 /* 800072DC 0000423C  48 04 B6 75 */	bl "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 /* 800072E0 00004240  38 61 00 18 */	addi r3, r1, 0x18
-/* 800072E4 00004244  48 00 13 B9 */	bl sub_8000869c
+/* 800072E4 00004244  48 00 13 B9 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
 lbl_800072E8:
 /* 800072E8 00004248  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
 /* 800072EC 0000424C  38 60 00 18 */	li r3, 0x18
@@ -5979,7 +5979,7 @@ lbl_8000733C:
 /* 8000734C 000042AC  38 C0 00 00 */	li r6, 0
 /* 80007350 000042B0  48 04 B6 01 */	bl "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 /* 80007354 000042B4  38 61 00 14 */	addi r3, r1, 0x14
-/* 80007358 000042B8  48 00 13 45 */	bl sub_8000869c
+/* 80007358 000042B8  48 00 13 45 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
 /* 8000735C 000042BC  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
 /* 80007360 000042C0  38 60 00 4C */	li r3, 0x4c
 /* 80007364 000042C4  38 84 BE 74 */	addi r4, r4, lbl_803CBE74@l
@@ -6013,7 +6013,7 @@ lbl_800073BC:
 /* 800073CC 0000432C  38 C0 00 00 */	li r6, 0
 /* 800073D0 00004330  48 04 B5 81 */	bl "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 /* 800073D4 00004334  38 61 00 10 */	addi r3, r1, 0x10
-/* 800073D8 00004338  48 00 12 C5 */	bl sub_8000869c
+/* 800073D8 00004338  48 00 12 C5 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
 /* 800073DC 0000433C  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
 /* 800073E0 00004340  38 60 00 14 */	li r3, 0x14
 /* 800073E4 00004344  38 84 BE 74 */	addi r4, r4, lbl_803CBE74@l
@@ -6044,7 +6044,7 @@ lbl_80007430:
 /* 80007440 000043A0  38 C0 FF FF */	li r6, -1
 /* 80007444 000043A4  48 04 B5 0D */	bl "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 /* 80007448 000043A8  38 61 00 0C */	addi r3, r1, 0xc
-/* 8000744C 000043AC  48 00 12 51 */	bl sub_8000869c
+/* 8000744C 000043AC  48 00 12 51 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
 /* 80007450 000043B0  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
 /* 80007454 000043B4  38 60 00 20 */	li r3, 0x20
 /* 80007458 000043B8  38 84 BE 74 */	addi r4, r4, lbl_803CBE74@l
@@ -6054,7 +6054,7 @@ lbl_80007430:
 /* 80007468 000043C8  7C 7D 1B 79 */	or. r29, r3, r3
 /* 8000746C 000043CC  41 82 00 10 */	beq lbl_8000747C
 /* 80007470 000043D0  38 80 00 00 */	li r4, 0
-/* 80007474 000043D4  48 26 27 4D */	bl __ct__18CErrorOutputWindowFiff
+/* 80007474 000043D4  48 26 27 4D */	bl __ct__18CErrorOutputWindowFb
 /* 80007478 000043D8  7C 7D 1B 78 */	mr r29, r3
 lbl_8000747C:
 /* 8000747C 000043DC  3C 80 80 3D */	lis r4, lbl_803CBE74@ha
@@ -6077,7 +6077,7 @@ lbl_800074A8:
 /* 800074BC 0000441C  38 A0 27 10 */	li r5, 0x2710
 /* 800074C0 00004420  48 04 B4 91 */	bl "AddIOWin__13CIOWinManagerFQ24rstl17ncrc_ptr<6CIOWin>ii"
 /* 800074C4 00004424  38 61 00 08 */	addi r3, r1, 8
-/* 800074C8 00004428  48 00 11 D5 */	bl sub_8000869c
+/* 800074C8 00004428  48 00 11 D5 */	bl "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
 /* 800074CC 0000442C  38 7E 00 44 */	addi r3, r30, 0x44
 /* 800074D0 00004430  48 2B 97 25 */	bl InitializeApplicationUI__FR7CGuiSys
 /* 800074D4 00004434  38 1E 00 44 */	addi r0, r30, 0x44
@@ -6103,9 +6103,9 @@ lbl_800074A8:
 /* 80007524 00004484  7C 9D 23 78 */	mr r29, r4
 /* 80007528 00004488  7C 7F 1B 78 */	mr r31, r3
 /* 8000752C 0000448C  48 37 DE 7D */	bl OSGetTime
-/* 80007530 00004490  3C A0 80 00 */	lis r5, sub_80007578@ha
+/* 80007530 00004490  3C A0 80 00 */	lis r5, InfiniteLoopAlarm__FP7OSAlarmP9OSContext@ha
 /* 80007534 00004494  7F A8 EB 78 */	mr r8, r29
-/* 80007538 00004498  39 25 75 78 */	addi r9, r5, sub_80007578@l
+/* 80007538 00004498  39 25 75 78 */	addi r9, r5, InfiniteLoopAlarm__FP7OSAlarmP9OSContext@l
 /* 8000753C 0000449C  7C 86 23 78 */	mr r6, r4
 /* 80007540 000044A0  7C 65 1B 78 */	mr r5, r3
 /* 80007544 000044A4  7F E7 FB 78 */	mr r7, r31
@@ -6122,8 +6122,8 @@ lbl_800074A8:
 /* 80007570 000044D0  38 21 00 40 */	addi r1, r1, 0x40
 /* 80007574 000044D4  4E 80 00 20 */	blr
 
-.global sub_80007578
-sub_80007578:
+.global InfiniteLoopAlarm__FP7OSAlarmP9OSContext
+InfiniteLoopAlarm__FP7OSAlarmP9OSContext:
 /* 80007578 000044D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8000757C 000044DC  7C 08 02 A6 */	mflr r0
 /* 80007580 000044E0  C0 02 80 58 */	lfs f0, lbl_805A9D78@sda21(r2)
@@ -6373,7 +6373,7 @@ lbl_800078D0:
 lbl_80007904:
 /* 80007904 00004864  3B C1 00 20 */	addi r30, r1, 0x20
 /* 80007908 00004868  38 61 00 08 */	addi r3, r1, 8
-/* 8000790C 0000486C  48 00 01 21 */	bl "GetIObjObjectFor__17TToken<8CTexture>FP8CTexture"
+/* 8000790C 0000486C  48 00 01 21 */	bl "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture"
 /* 80007910 00004870  38 00 00 00 */	li r0, 0
 /* 80007914 00004874  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 80007918 00004878  98 01 00 08 */	stb r0, 8(r1)
@@ -6393,7 +6393,7 @@ lbl_80007904:
 lbl_80007950:
 /* 80007950 000048B0  7F E3 FB 78 */	mr r3, r31
 /* 80007954 000048B4  38 81 00 20 */	addi r4, r1, 0x20
-/* 80007958 000048B8  48 2F 85 7D */	bl sub_802ffed4
+/* 80007958 000048B8  48 2F 85 7D */	bl "SetTexture__11CRasterFontF17TToken<8CTexture>"
 /* 8000795C 000048BC  38 61 00 20 */	addi r3, r1, 0x20
 /* 80007960 000048C0  38 80 00 00 */	li r4, 0
 /* 80007964 000048C4  48 33 94 DD */	bl __dt__6CTokenFv
@@ -6453,8 +6453,8 @@ lbl_80007A10:
 /* 80007A24 00004984  38 21 00 10 */	addi r1, r1, 0x10
 /* 80007A28 00004988  4E 80 00 20 */	blr
 
-.global "GetIObjObjectFor__17TToken<8CTexture>FP8CTexture"
-"GetIObjObjectFor__17TToken<8CTexture>FP8CTexture":
+.global "GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture"
+"GetNewDerivedObject__35TObjOwnerDerivedFromIObj<8CTexture>FP8CTexture":
 /* 80007A2C 0000498C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80007A30 00004990  7C 08 02 A6 */	mflr r0
 /* 80007A34 00004994  3C A0 80 3D */	lis r5, lbl_803CBE74@ha
@@ -6553,7 +6553,7 @@ lbl_80007B88:
 /* 80007B90 00004AF0  7C 64 1B 78 */	mr r4, r3
 /* 80007B94 00004AF4  3B BF 01 54 */	addi r29, r31, 0x154
 /* 80007B98 00004AF8  38 61 00 08 */	addi r3, r1, 8
-/* 80007B9C 00004AFC  48 00 02 3D */	bl "GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont"
+/* 80007B9C 00004AFC  48 00 02 3D */	bl "GetNewDerivedObject__39TObjOwnerDerivedFromIObj<11CRasterFont>FP11CRasterFont"
 /* 80007BA0 00004B00  38 00 00 00 */	li r0, 0
 /* 80007BA4 00004B04  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 80007BA8 00004B08  98 01 00 08 */	stb r0, 8(r1)
@@ -6717,8 +6717,8 @@ lbl_80007DBC:
 /* 80007DD0 00004D30  38 21 00 30 */	addi r1, r1, 0x30
 /* 80007DD4 00004D34  4E 80 00 20 */	blr
 
-.global "GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont"
-"GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont":
+.global "GetNewDerivedObject__39TObjOwnerDerivedFromIObj<11CRasterFont>FP11CRasterFont"
+"GetNewDerivedObject__39TObjOwnerDerivedFromIObj<11CRasterFont>FP11CRasterFont":
 /* 80007DD8 00004D38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80007DDC 00004D3C  7C 08 02 A6 */	mflr r0
 /* 80007DE0 00004D40  3C A0 80 3D */	lis r5, lbl_803CBE74@ha
@@ -7356,8 +7356,8 @@ lbl_80008688:
 /* 80008694 000055F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80008698 000055F8  4E 80 00 20 */	blr
 
-.global sub_8000869c
-sub_8000869c:
+.global "__dt__Q24rstl15rc_ptr<6CIOWin>Fv"
+"__dt__Q24rstl15rc_ptr<6CIOWin>Fv":
 /* 8000869C 000055FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800086A0 00005600  7C 08 02 A6 */	mflr r0
 /* 800086A4 00005604  90 01 00 14 */	stw r0, 0x14(r1)
@@ -8129,8 +8129,8 @@ lbl_8000908C:
 /* 800090A0 00006000  38 21 00 30 */	addi r1, r1, 0x30
 /* 800090A4 00006004  4E 80 00 20 */	blr
 
-.global sub_800090a8
-sub_800090a8:
+.global __dt__18CArchitectureQueueFv
+__dt__18CArchitectureQueueFv:
 /* 800090A8 00006008  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800090AC 0000600C  7C 08 02 A6 */	mflr r0
 /* 800090B0 00006010  90 01 00 24 */	stw r0, 0x24(r1)

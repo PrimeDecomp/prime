@@ -2967,7 +2967,7 @@ lbl_80027824:
 /* 80027824 00024784  3B 1F 00 50 */	addi r24, r31, 0x50
 /* 80027828 00024788  38 61 00 08 */	addi r3, r1, 8
 /* 8002782C 0002478C  38 80 00 00 */	li r4, 0
-/* 80027830 00024790  4B FE 05 A9 */	bl "GetIObjObjectFor__21TToken<11CRasterFont>FP11CRasterFont"
+/* 80027830 00024790  4B FE 05 A9 */	bl "GetNewDerivedObject__39TObjOwnerDerivedFromIObj<11CRasterFont>FP11CRasterFont"
 /* 80027834 00024794  38 00 00 00 */	li r0, 0
 /* 80027838 00024798  80 81 00 0C */	lwz r4, 0xc(r1)
 /* 8002783C 0002479C  98 01 00 08 */	stb r0, 8(r1)
@@ -3807,4 +3807,3 @@ lbl_803CCC85:
 	.byte 0x50
 	.asciz "layMovie"
 	.balign 4
-
