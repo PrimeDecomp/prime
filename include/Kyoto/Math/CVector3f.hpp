@@ -5,6 +5,8 @@
 
 #include "Kyoto/Math/CVector2f.hpp"
 
+#include "float.h"
+
 class CInputStream;
 class COutputStream;
 
@@ -36,6 +38,7 @@ public:
   bool CanBeNormalized() const;
   // GetAngleDiff__9CVector3fFRC9CVector3fRC9CVector3f
   // IsEqu__9CVector3fCFRC9CVector3ff
+  bool IsEqu(const CVector3f& other, f32 epsilon = FLT_EPSILON) const;
   // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
   // MagSquared__9CVector3fCFv weak
   // Cross__9CVector3fFRC9CVector3fRC9CVector3f weak
