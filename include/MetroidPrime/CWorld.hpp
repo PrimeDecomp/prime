@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "Kyoto/IObjectStore.hpp"
@@ -60,6 +61,8 @@ public:
   const CGameArea& GetAreaAlways(TAreaId id) const { return *x18_areas[id.Value()]; }
   const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }
   bool IsAreaValid(TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
+  CAssetId GetWorldAssetId() const { return x8_mlvlId; }
+  TAreaId GetAreaIdForSaveId(s32 saveId) const;
 
 private:
   enum Phase {

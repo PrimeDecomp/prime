@@ -67,6 +67,7 @@ public:
 
   CAABox GetBoundingBox() const;
   void MoveCollisionPrimitive(const CVector3f&);
+  void SetAngularVelocityWR(const CAxisAngle& angVel);
   void Stop();
 
   CMotionState GetMotionState() const;

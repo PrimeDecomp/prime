@@ -3,7 +3,10 @@
 
 #include "types.h"
 
+#include "Kyoto/CObjectReference.hpp"
 #include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Math/CVector2i.hpp"
+#include "Kyoto/TToken.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
@@ -36,6 +39,10 @@ class CEntity;
 class CMazeState;
 class CRayCastResult;
 class CMaterialFilter;
+class CScriptLayerManager;
+class CLight;
+class CDamageInfo;
+class CTexture;
 
 namespace SL {
 class CSortedListManager;
@@ -44,8 +51,24 @@ class CSortedListManager;
 #define kMaxEntities 1024
 typedef rstl::reserved_vector< TUniqueId, kMaxEntities > TEntityList;
 
+enum EStateManagerTransition {
+  kSMT_InGame,
+  kSMT_MapScreen,
+  kSMT_PauseGame,
+  kSMT_LogBook,
+  kSMT_SaveGame,
+  kSMT_MessageScreen
+};
+
+struct SOnScreenTex {
+  CAssetId x0_id;
+  CVector2i x4_origin;
+  CVector2i xc_extent;
+};
+
 class CStateManager {
 public:
+  void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
   void SendScriptMsg(CEntity* ent, TUniqueId target, EScriptObjectMessage msg);
@@ -65,6 +88,7 @@ public:
   CEntity* ObjectById(TUniqueId uid);
   const CEntity* GetObjectById(TUniqueId uid) const;
   TUniqueId GetIdForScript(TEditorId eid) const;
+  // <unk> GetIdListForScript(TEditorId) const;
 
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;
@@ -82,6 +106,9 @@ public:
   const CActorModelParticles* GetActorModelParticles() const {
     return x884_actorModelParticles.get();
   }
+  CEnvFxManager* EnvFxManager() { return x880_envFxManager; }
+  const CEnvFxManager* GetEnvFxManager() const { return x880_envFxManager; }
+
   CRandom16* GetActiveRandom() const { return x900_random; }
 
   CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
@@ -99,6 +126,30 @@ public:
     SetIsGeneratingObject(wasGeneratingObject);
     return objUid;
   }
+
+  void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,
+                          CMaterialFilter&);
+  bool ApplyDamage(TUniqueId damagerId, TUniqueId damageeId, TUniqueId radiusSender,
+                   const CDamageInfo& info, const CMaterialFilter& filter,
+                   const CVector3f& knockbackVec);
+
+  void DeferStateTransition(EStateManagerTransition t);
+  EStateManagerTransition GetDeferredStateTransition() const { return xf90_deferredTransition; }
+  void SetBossParams(TUniqueId bossId, float maxEnergy, u32 stringIdx);
+  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent) {
+    xef4_pendingScreenTex.x0_id = texId;
+    xef4_pendingScreenTex.x4_origin = origin;
+    xef4_pendingScreenTex.xc_extent = extent;
+  }
+  const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
+
+  void SetShouldQuitGame(bool should) { xf94_25_quitGame = should; }
+  void SetSkipCinematicSpecialFunction(TUniqueId id) { /*xf38_skipCineSpecialFunc = id;*/
+  }
+  void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
+  bool GetInSaveUI() const { return xf94_28_inSaveUI; }
+  void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
+  u32 GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
 
 private:
   u16 x0_nextFreeIndex;
@@ -123,12 +174,29 @@ private:
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
   rstl::rc_ptr< CWorldTransManager > x8c4_worldTransManager;
-  u8 pad2[0x38];
+  rstl::rc_ptr< CScriptLayerManager > x8c8_worldLayerState;
+
+  TAreaId x8cc_nextAreaId;
+  TAreaId x8d0_prevAreaId;
+  u32 x8d4_inputFrameIdx;
+  u32 x8d8_updateFrameIdx;
+  u32 x8dc_objectDrawToken;
+
+  rstl::vector< CLight > x8e0_dynamicLights;
+
+  TLockedToken< CTexture > x8f0_shadowTex;
   CRandom16* x900_random;
-  u8 pad4[0x61c];
+
+  u8 x904_pad[0x5f0];
+
+  SOnScreenTex xef4_pendingScreenTex;
+
+  u8 xf08_pad[0x1C];
+
   f32 xf24_thermColdScale1;
   f32 xf28_thermColdScale2;
-  u8 pad3[0x6c];
+  u8 pad3[0x68];
+  EStateManagerTransition xf90_deferredTransition;
   bool xf94_24_readyToRender : 1;
   bool xf94_25_quitGame : 1;
   bool xf94_26_generatingObject : 1;

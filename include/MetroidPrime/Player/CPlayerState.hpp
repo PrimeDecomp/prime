@@ -95,11 +95,11 @@ public:
   u32 GetMissileCostForAltAttack() const;
   float GetComboFireAmmoPeriod() const;
   static float GetMissileComboChargeFactor();
-  u32 CalculateItemCollectionRate();
-  u32 GetTotalPickupCount();
+  u32 CalculateItemCollectionRate() const;
+  u32 GetTotalPickupCount() const;
 
   void SetIsFusionEnabled(bool v);
-  bool GetIsFusionEnabled();
+  bool GetIsFusionEnabled() const;
 
   EPlayerSuit GetCurrentSuit();
   EPlayerSuit GetCurrentSuitRaw() const { return x20_currentSuit; }
