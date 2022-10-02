@@ -37,6 +37,7 @@ private:
 class CEnvFxManager {
 public:
   static void Initialize();
+  void SetFxDensity(s32, float);
 
 private:
   CAABox x0_particleBounds;

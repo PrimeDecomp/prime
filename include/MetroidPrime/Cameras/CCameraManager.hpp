@@ -25,6 +25,8 @@ public:
   CGameCamera* GetCurrentCamera(CStateManager& mgr) const;
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
 
+  void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
+
   static f32 DefaultThirdPersonFov();
 
 private:

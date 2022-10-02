@@ -17,6 +17,10 @@ class CHintOptions {
 public:
   void SetHintNextTime();
 
+  void DelayHint(const rstl::string& name);
+  void ActivateImmediateHintTimer(const rstl::string& name);
+  void ActivateContinueDelayHintTimer(const rstl::string& name);
+
 private:
   rstl::vector< SHintState > x0_hintStates;
   int x10_nextHintIdx;
