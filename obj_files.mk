@@ -133,7 +133,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBloodFlower.o\
 	$(BUILD_DIR)/asm/MetroidPrime/TGameTypes.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPhysicsActor.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CPhysicsState.o\
+	$(BUILD_DIR)/src/MetroidPrime/CPhysicsState.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CRipple.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFluidUVMotion.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CRippleManager.o\

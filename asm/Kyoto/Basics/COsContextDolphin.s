@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global sub_802d63e0
-sub_802d63e0:
+.global AllocFromArena__10COsContextFUi
+AllocFromArena__10COsContextFUi:
 /* 802D63E0 002D3340  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802D63E4 002D3344  7C 08 02 A6 */	mflr r0
 /* 802D63E8 002D3348  90 01 00 14 */	stw r0, 0x14(r1)
@@ -258,4 +258,3 @@ lbl_805AE28C:
 lbl_805AE28E:
 	# ROM: 0x3FAB2E
 	.2byte 0x00000400
-
