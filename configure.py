@@ -21,6 +21,7 @@ COMPLETE_OBJECTS = [
     "MetroidPrime/CEntity",
     "MetroidPrime/TCastTo",
     "MetroidPrime/UserNames",
+    "MetroidPrime/CPhysicsState",
     "MetroidPrime/CMemoryDrawEnum",
     "MetroidPrime/HUD/CHUDMemoParms",
     "MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint",
