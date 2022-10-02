@@ -4,6 +4,9 @@
 #include "types.h"
 
 class CVector2i {
+public:
+  CVector2i(int, int);
+
 private:
   int x;
   int y;

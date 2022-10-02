@@ -78,6 +78,7 @@ public:
   bool CheckTerminate();
   bool CheckReset();
   void OpenWindow();
+  void SetFlowState(EFlowState s) { x12c_flowState = s; }
 
   void SetMaxSpeed(bool v) {
     // ?

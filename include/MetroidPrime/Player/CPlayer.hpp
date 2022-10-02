@@ -152,6 +152,9 @@ public:
   CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
+  void SetHudDisable(float staticTimer, float outSpeed, float inSpeed);
+  void IncrementPhazon();
+  void DecrementPhazon();
   // GetMovementDirection2D__7CPlayerCFv ??
 
 private:

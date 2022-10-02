@@ -362,13 +362,13 @@ CPlayerState::EPlayerSuit CPlayerState::GetCurrentSuit() {
   return x20_currentSuit;
 }
 
-bool CPlayerState::GetIsFusionEnabled() { return x0_26_fusion; }
+bool CPlayerState::GetIsFusionEnabled() const { return x0_26_fusion; }
 
 void CPlayerState::SetIsFusionEnabled(bool val) { x0_26_fusion = val; }
 
-u32 CPlayerState::GetTotalPickupCount() { return 99; }
+u32 CPlayerState::GetTotalPickupCount() const { return 99; }
 
-u32 CPlayerState::CalculateItemCollectionRate() {
+u32 CPlayerState::CalculateItemCollectionRate() const {
   u32 total = GetItemCapacity(kIT_PowerBombs);
 
   if (total >= 4)
@@ -416,4 +416,3 @@ float CPlayerState::GetComboFireAmmoPeriod() const {
 }
 
 float CPlayerState::GetMissileComboChargeFactor() { return 1.8f; }
-

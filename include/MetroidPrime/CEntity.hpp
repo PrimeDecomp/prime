@@ -28,7 +28,9 @@ public:
     mgr.SendScriptMsg(to, sender, msg);
   }
   TUniqueId GetUniqueId() const { return x8_uid; }
+  TEditorId GetEditorId() const { return xc_editorId; }
   TAreaId GetAreaId() const;
+  TAreaId GetAreaIdAlways() const { return x4_areaId; }
   bool GetActive() const { return x30_24_active; }
 
   // might be fake?
