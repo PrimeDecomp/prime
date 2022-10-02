@@ -39,6 +39,7 @@ public:
   };
 
   // TODO these probably aren't real
+  bool HasAnimData() const { return xc_animData.get() != nullptr; }
   bool HasNormalModel() const { return x1c_normalModel; }
 
   CModelData();
@@ -73,6 +74,9 @@ public:
   void SetAmbientColor(const CColor& color) { x18_ambientColor = color; }
   bool GetSortThermal() const { return x14_25_sortThermal; }
   void SetSortThermal(bool b) { x14_25_sortThermal = b; }
+
+  const CVector3f& GetScale() const { return x0_scale; }
+  void SetScale(const CVector3f& scale) { x0_scale = scale; }
 
   static CModelData CModelDataNull();
   static EWhichModel GetRenderingModel(const CStateManager& mgr);

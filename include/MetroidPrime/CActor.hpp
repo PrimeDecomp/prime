@@ -267,6 +267,7 @@ public:
   }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);
+  CTransform4f GetScaledLocatorTransform(const rstl::string& segName) const;
 
   /// ????
   bool NullModel() const { return !GetAnimationData() && !GetModelData()->HasNormalModel(); }
@@ -317,6 +318,17 @@ public:
   void SetShadowDirty(bool b) { xe5_25_shadowDirty = b; }
   void SetMuted(bool b) { xe5_26_muted = b; }
   void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
+
+  void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void RemoveMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
+  void RemoveMaterial(EMaterialTypes, CStateManager&);
+  void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void AddMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
+  void AddMaterial(EMaterialTypes, CStateManager&);
+  void AddMaterial(const CMaterialList& l);
 
   const CAABox& GetRenderBoundsCached() const { return x9c_renderBounds; }
   void SetRenderBounds(const CAABox& bounds) { x9c_renderBounds = bounds; }

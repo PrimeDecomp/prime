@@ -15,7 +15,7 @@ lbl_803E2B68:
 	.4byte AcceptScriptMsg__22CScriptSpecialFunctionF20EScriptObjectMessage9TUniqueIdR13CStateManager
 	.4byte SetActive__6CActorFb
 	.4byte PreRender__22CScriptSpecialFunctionFR13CStateManagerRC14CFrustumPlanes
-	.4byte AddToRenderer__22CScriptSpecialFunctionCFRC14CFrustumPlanesRC13CStateManager
+	.4byte AddToRenderer__22CScriptSpecialFunctionFRC14CFrustumPlanesR13CStateManager
 	.4byte Render__22CScriptSpecialFunctionCFRC13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
@@ -442,8 +442,8 @@ lbl_8014F530:
 /* 8014F538 0014C498  38 21 00 10 */	addi r1, r1, 0x10
 /* 8014F53C 0014C49C  4E 80 00 20 */	blr
 
-.global sub_8014f540
-sub_8014f540:
+.global ThinkActorScale__22CScriptSpecialFunctionFfR13CStateManager
+ThinkActorScale__22CScriptSpecialFunctionFfR13CStateManager:
 /* 8014F540 0014C4A0  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8014F544 0014C4A4  7C 08 02 A6 */	mflr r0
 /* 8014F548 0014C4A8  90 01 00 84 */	stw r0, 0x84(r1)
@@ -3693,7 +3693,7 @@ lbl_80152324:
 /* 80152338 0014F298  C0 3F 00 FC */	lfs f1, 0xfc(r31)
 /* 8015233C 0014F29C  D8 01 01 50 */	stfd f0, 0x150(r1)
 /* 80152340 0014F2A0  80 81 01 54 */	lwz r4, 0x154(r1)
-/* 80152344 0014F2A4  48 0B DC 19 */	bl sub_8020ff5c
+/* 80152344 0014F2A4  48 0B DC 19 */	bl SetFxDensity__13CEnvFxManagerFv
 /* 80152348 0014F2A8  48 00 05 58 */	b lbl_801528A0
 .global lbl_8015234C
 lbl_8015234C:
@@ -4046,14 +4046,14 @@ lbl_80152814:
 /* 8015281C 0014F77C  40 82 00 14 */	bne lbl_80152830
 /* 80152820 0014F780  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 80152824 0014F784  C0 3F 00 FC */	lfs f1, 0xfc(r31)
-/* 80152828 0014F788  4B EB 8D A5 */	bl sub_8000b5cc
+/* 80152828 0014F788  4B EB 8D A5 */	bl SetFogDensity__14CCameraManagerFfFf
 /* 8015282C 0014F78C  48 00 00 74 */	b lbl_801528A0
 lbl_80152830:
 /* 80152830 0014F790  2C 1C 00 05 */	cmpwi r28, 5
 /* 80152834 0014F794  40 82 00 6C */	bne lbl_801528A0
 /* 80152838 0014F798  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 8015283C 0014F79C  C0 22 9D B4 */	lfs f1, lbl_805ABAD4@sda21(r2)
-/* 80152840 0014F7A0  4B EB 8D 8D */	bl sub_8000b5cc
+/* 80152840 0014F7A0  4B EB 8D 8D */	bl SetFogDensity__14CCameraManagerFfFf
 /* 80152844 0014F7A4  48 00 00 5C */	b lbl_801528A0
 .global lbl_80152848
 lbl_80152848:
@@ -4184,8 +4184,8 @@ lbl_801529F4:
 /* 80152A04 0014F964  38 21 00 50 */	addi r1, r1, 0x50
 /* 80152A08 0014F968  4E 80 00 20 */	blr
 
-.global AddToRenderer__22CScriptSpecialFunctionCFRC14CFrustumPlanesRC13CStateManager
-AddToRenderer__22CScriptSpecialFunctionCFRC14CFrustumPlanesRC13CStateManager:
+.global AddToRenderer__22CScriptSpecialFunctionFRC14CFrustumPlanesR13CStateManager
+AddToRenderer__22CScriptSpecialFunctionFRC14CFrustumPlanesR13CStateManager:
 /* 80152A0C 0014F96C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80152A10 0014F970  7C 08 02 A6 */	mflr r0
 /* 80152A14 0014F974  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4227,33 +4227,26 @@ Think__22CScriptSpecialFunctionFfR13CStateManager:
 /* 80152A94 0014F9F4  7C 05 00 2E */	lwzx r0, r5, r0
 /* 80152A98 0014F9F8  7C 09 03 A6 */	mtctr r0
 /* 80152A9C 0014F9FC  4E 80 04 20 */	bctr
-.global lbl_80152AA0
 lbl_80152AA0:
 /* 80152AA0 0014FA00  4B FF E4 D1 */	bl ThinkPlayerFollowLocator__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152AA4 0014FA04  48 00 01 04 */	b lbl_80152BA8
-.global lbl_80152AA8
 lbl_80152AA8:
 /* 80152AA8 0014FA08  38 A0 00 00 */	li r5, 0
 /* 80152AAC 0014FA0C  4B FF D7 E1 */	bl ThinkSpinnerController__22CScriptSpecialFunctionFfR13CStateManagerQ222CScriptSpecialFunction22ESpinnerControllerMode
 /* 80152AB0 0014FA10  48 00 00 F8 */	b lbl_80152BA8
-.global lbl_80152AB4
 lbl_80152AB4:
 /* 80152AB4 0014FA14  38 A0 00 01 */	li r5, 1
 /* 80152AB8 0014FA18  4B FF D7 D5 */	bl ThinkSpinnerController__22CScriptSpecialFunctionFfR13CStateManagerQ222CScriptSpecialFunction22ESpinnerControllerMode
 /* 80152ABC 0014FA1C  48 00 00 EC */	b lbl_80152BA8
-.global lbl_80152AC0
 lbl_80152AC0:
 /* 80152AC0 0014FA20  4B FF D5 99 */	bl ThinkObjectFollowLocator__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152AC4 0014FA24  48 00 00 E4 */	b lbl_80152BA8
-.global lbl_80152AC8
 lbl_80152AC8:
 /* 80152AC8 0014FA28  4B FF D3 CD */	bl ThinkObjectFollowObject__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152ACC 0014FA2C  48 00 00 DC */	b lbl_80152BA8
-.global lbl_80152AD0
 lbl_80152AD0:
 /* 80152AD0 0014FA30  4B FF CE F1 */	bl ThinkChaffTarget__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152AD4 0014FA34  48 00 00 D4 */	b lbl_80152BA8
-.global lbl_80152AD8
 lbl_80152AD8:
 /* 80152AD8 0014FA38  88 9E 01 E4 */	lbz r4, 0x1e4(r30)
 /* 80152ADC 0014FA3C  54 80 EF FF */	rlwinm. r0, r4, 0x1d, 0x1f, 0x1f
@@ -4278,31 +4271,24 @@ lbl_80152B00:
 /* 80152B24 0014FA84  38 C0 FF FF */	li r6, -1
 /* 80152B28 0014FA88  4B EF E5 99 */	bl SendScriptMsgs__7CEntityF18EScriptObjectStateR13CStateManager20EScriptObjectMessage
 /* 80152B2C 0014FA8C  48 00 00 7C */	b lbl_80152BA8
-.global lbl_80152B30
 lbl_80152B30:
 /* 80152B30 0014FA90  4B FF EB 7D */	bl ThinkSaveStation__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152B34 0014FA94  48 00 00 74 */	b lbl_80152BA8
-.global lbl_80152B38
 lbl_80152B38:
 /* 80152B38 0014FA98  4B FF E5 E5 */	bl ThinkIntroBossRingController__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152B3C 0014FA9C  48 00 00 6C */	b lbl_80152BA8
-.global lbl_80152B40
 lbl_80152B40:
 /* 80152B40 0014FAA0  4B FF CD F9 */	bl ThinkRainSimulator__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152B44 0014FAA4  48 00 00 64 */	b lbl_80152BA8
-.global lbl_80152B48
 lbl_80152B48:
 /* 80152B48 0014FAA8  4B FF CB F1 */	bl ThinkAreaDamage__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152B4C 0014FAAC  48 00 00 5C */	b lbl_80152BA8
-.global lbl_80152B50
 lbl_80152B50:
-/* 80152B50 0014FAB0  4B FF C9 F1 */	bl sub_8014f540
+/* 80152B50 0014FAB0  4B FF C9 F1 */	bl ThinkActorScale__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152B54 0014FAB4  48 00 00 54 */	b lbl_80152BA8
-.global lbl_80152B58
 lbl_80152B58:
 /* 80152B58 0014FAB8  4B FF C9 65 */	bl ThinkPlayerInArea__22CScriptSpecialFunctionFfR13CStateManager
 /* 80152B5C 0014FABC  48 00 00 4C */	b lbl_80152BA8
-.global lbl_80152B60
 lbl_80152B60:
 /* 80152B60 0014FAC0  88 1E 01 F0 */	lbz r0, 0x1f0(r30)
 /* 80152B64 0014FAC4  28 00 00 00 */	cmplwi r0, 0
@@ -4322,7 +4308,6 @@ lbl_80152B60:
 /* 80152B9C 0014FAFC  38 60 00 00 */	li r3, 0
 /* 80152BA0 0014FB00  50 60 2E B4 */	rlwimi r0, r3, 5, 0x1a, 0x1a
 /* 80152BA4 0014FB04  98 1E 01 E5 */	stb r0, 0x1e5(r30)
-.global lbl_80152BA8
 lbl_80152BA8:
 /* 80152BA8 0014FB08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80152BAC 0014FB0C  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -4331,8 +4316,8 @@ lbl_80152BA8:
 /* 80152BB8 0014FB18  38 21 00 10 */	addi r1, r1, 0x10
 /* 80152BBC 0014FB1C  4E 80 00 20 */	blr
 
-.global "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoUiUiUiUsUsUs"
-"__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoUiUiUiUsUsUs":
+.global "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypesss"
+"__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypesss":
 /* 80152BC0 0014FB20  94 21 FE 70 */	stwu r1, -0x190(r1)
 /* 80152BC4 0014FB24  7C 08 02 A6 */	mflr r0
 /* 80152BC8 0014FB28  90 01 01 94 */	stw r0, 0x194(r1)
