@@ -61,6 +61,12 @@ Metaforce -> decomp
 - `std::max` -> `rstl::max_val`
 - `std::clamp` -> `CMath::Clamp` (depends on context)
 
+### Converting Vector / Transforms
+
+Metaforce -> decomp
+- `zeus::CTransform::frontVector()` -> `CTransform4f::GetForward()`
+- `zeus::skForward` -> `CVector3f::Forward`
+
 ### Class definitions & constructors
 
 Metaforce often uses default values inside of class definitions, like the ` = false` below:
