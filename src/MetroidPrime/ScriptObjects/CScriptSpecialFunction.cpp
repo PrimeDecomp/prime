@@ -504,28 +504,35 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
 }
 
 void CScriptSpecialFunction::PreRender(CStateManager&, const CFrustumPlanes& frustum) {
-  if (xe8_function != kSF_FogVolume && xe8_function != kSF_ViewFrustumTester) {
-    return;
-  }
-  if (!GetActive()) {
-    return;
-  }
+  switch (xe8_function) {
+  case kSF_FogVolume:
+  case kSF_ViewFrustumTester: {
+    if (!GetActive()) {
+      break;
+    }
 
-  bool val;
-  if (xe8_function == kSF_FogVolume) {
-    val = frustum.BoxInFrustumPlanes(
-        CAABox(GetTranslation() - x10c_vector3f, GetTranslation() + x10c_vector3f));
-  } else {
-    val = frustum.PointInFrustumPlanes(GetTranslation());
-  }
+    bool val;
+    if (xe8_function == kSF_FogVolume) {
+      CVector3f pos = GetTranslation();
+      CVector3f max = pos + x10c_vector3f;
+      max[kDZ] += xfc_float1;
+      CAABox aabb(pos - x10c_vector3f, max);
+      val = frustum.BoxInFrustumPlanes(aabb);
+    } else {
+      val = frustum.PointInFrustumPlanes(GetTranslation());
+    }
 
-  if (x1e4_30_ == val) {
-    return;
+    if (x1e4_30_ == val) {
+      break;
+    }
+    if (val) {
+      x1e4_28_frustumEntered = true;
+    } else {
+      x1e4_29_frustumExited = true;
+    }
+    x1e4_30_ = val;
+    break;
   }
-  if (!val) {
-    x1e4_29_frustumExited = true;
-  } else {
-    x1e4_28_frustumEntered = true;
   }
 }
 
