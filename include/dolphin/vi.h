@@ -8,6 +8,7 @@
 extern "C" {
 #endif
 
+
 void VIInit(void);
 void VIConfigure(GXRenderModeObj* rm);
 void VIFlush(void);

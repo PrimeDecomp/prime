@@ -74,7 +74,7 @@ CInGameTweakManager* gpTweakManager;
 unkptr gpDefaultFont;
 unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
-bool lbl_805A8C58;
+bool mProgressiveMode__10COsContext;
 u32 sARAMMemArray[2];
 f32 sInfiniteLoopTime;
 

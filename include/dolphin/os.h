@@ -1,8 +1,8 @@
 #ifndef _DOLPHIN_OS_H
 #define _DOLPHIN_OS_H
 
-#include <dolphin/types.h>
 #include <dolphin/gx.h>
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -63,6 +63,31 @@ void* OSAllocFromArenaHi(u32 size, u32 align);
 
 OSTime OSGetTime();
 OSTick OSGetTick();
+
+#define OS_CONSOLE_MASK 0xf0000000
+#define OS_CONSOLE_RETAIL 0x00000000
+#define OS_CONSOLE_DEVELOPMENT 0x10000000
+#define OS_CONSOLE_TDEV 0x20000000
+
+#define OS_CONSOLE_RETAIL4 0x00000004
+#define OS_CONSOLE_RETAIL3 0x00000003
+#define OS_CONSOLE_RETAIL2 0x00000002
+#define OS_CONSOLE_RETAIL1 0x00000001
+#define OS_CONSOLE_TDEVHW4 0x20000007
+#define OS_CONSOLE_TDEVHW3 0x20000006
+#define OS_CONSOLE_TDEVHW2 0x20000005
+#define OS_CONSOLE_TDEVHW1 0x20000004
+#define OS_CONSOLE_DEVHW4 0x10000007
+#define OS_CONSOLE_DEVHW3 0x10000006
+#define OS_CONSOLE_DEVHW2 0x10000005
+#define OS_CONSOLE_DEVHW1 0x10000004
+#define OS_CONSOLE_MINNOW 0x10000003
+#define OS_CONSOLE_ARTHUR 0x10000002
+#define OS_CONSOLE_PC_EMULATOR 0x10000001
+#define OS_CONSOLE_EMULATOR 0x10000000
+
+u32 OSGetConsoleType();
+
 void OSReport(const char* msg, ...);
 void OSPanic(const char* file, int line, const char* msg, ...);
 void OSFatal(GXColor fg, GXColor bg, const char* msg);

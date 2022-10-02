@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803F08E0
-lbl_803F08E0:
+.global GXNtsc480IntDf
+GXNtsc480IntDf:
 	# ROM: 0x3ED8E0
 	.4byte 0
 	.4byte 0x028001E0
@@ -22,8 +22,8 @@ lbl_803F08E0:
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
 
-.global lbl_803F091C
-lbl_803F091C:
+.global GXMpal480IntDf
+GXMpal480IntDf:
 	# ROM: 0x3ED91C
 	.4byte 0x00000008
 	.4byte 0x028001E0
@@ -41,8 +41,8 @@ lbl_803F091C:
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
 
-.global lbl_803F0958
-lbl_803F0958:
+.global GXPal528IntDf
+GXPal528IntDf:
 	# ROM: 0x3ED958
 	.4byte 0x00000004
 	.4byte 0x02800210
@@ -60,8 +60,8 @@ lbl_803F0958:
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
 
-.global lbl_803F0994
-lbl_803F0994:
+.global GXEurgb60Hz480IntDf
+GXEurgb60Hz480IntDf:
 	# ROM: 0x3ED994
 	.4byte 0x00000014
 	.4byte 0x028001E0
