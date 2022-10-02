@@ -5,8 +5,11 @@
 
 #include "Kyoto/CObjectReference.hpp"
 #include "Kyoto/CRandom16.hpp"
+#include "Kyoto/Math/CVector2f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
+#include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TToken.hpp"
+
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
@@ -60,13 +63,19 @@ enum EStateManagerTransition {
   kSMT_MessageScreen
 };
 
+enum EThermalDrawFlag {
+  kTD_Hot,
+  kTD_Cold,
+  kTD_Bypass,
+};
+
 struct SOnScreenTex {
   CAssetId x0_id;
   CVector2i x4_origin;
   CVector2i xc_extent;
 };
 
-class CStateManager {
+class CStateManager : public TOneStatic< CStateManager > {
 public:
   void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
@@ -136,8 +145,7 @@ public:
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
 
   void SetShouldQuitGame(bool should) { xf94_25_quitGame = should; }
-  void SetSkipCinematicSpecialFunction(TUniqueId id) { /*xf38_skipCineSpecialFunc = id;*/
-  }
+  void SetSkipCinematicSpecialFunction(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
@@ -177,17 +185,36 @@ private:
   rstl::vector< CLight > x8e0_dynamicLights;
 
   TLockedToken< CTexture > x8f0_shadowTex;
+  CRandom16 x8fc_random;
   CRandom16* x900_random;
 
   u8 x904_pad[0x5f0];
 
   SOnScreenTex xef4_pendingScreenTex;
-
-  u8 xf08_pad[0x1C];
-
+  CAssetId xf08_pauseHudMessage;
+  f32 xf0c_escapeTimer;
+  f32 xf10_escapeTotalTime;
+  f32 xf14_curTimeMod900;
+  TUniqueId xf18_bossId;
+  f32 xf1c_totalBossEnergy;
+  uint xf20_bossStringIdx;
   f32 xf24_thermColdScale1;
   f32 xf28_thermColdScale2;
-  u8 pad3[0x68];
+  CVector2f xf2c_viewportScale;
+  EThermalDrawFlag xf34_thermalFlag;
+  TUniqueId xf38_skipCineSpecialFunc;
+  rstl::list< TUniqueId > xf3c_activeFlickerBats;
+  rstl::list< TUniqueId > xf54_activeParasites;
+  TUniqueId xf6c_playerActorHead;
+  rstl::single_ptr< CMazeState > xf70_currentMaze;
+  TUniqueId xf74_lastTrigger;
+  TUniqueId xf76_lastRelay;
+  f32 xf78_hudMessageTime;
+  unkptr xf7c_projectedShadow;
+  uint xf80_hudMessageFrameCount;
+  CAssetId xf84_;
+  CAssetId xf88_;
+  f32 xf8c_;
   EStateManagerTransition xf90_deferredTransition;
   bool xf94_24_readyToRender : 1;
   bool xf94_25_quitGame : 1;
@@ -197,5 +224,6 @@ private:
   bool xf94_29_cinematicPause : 1;
   bool xf94_30_fullThreat : 1;
 };
+CHECK_SIZEOF(CStateManager, 0xf98)
 
 #endif

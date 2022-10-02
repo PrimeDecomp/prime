@@ -405,8 +405,9 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
         }
       } else if (msg == kSM_Decrement) {
         mgr.SetSkipCinematicSpecialFunction(kInvalidUniqueId);
-        gpGameState->SystemOptions().SetCinematicState(mgr.GetWorld()->GetWorldAssetId(),
-                                                       GetEditorId(), true);
+        gpGameState->SystemOptions().SetCinematicState(
+            rstl::pair< CAssetId, TEditorId >(mgr.GetWorld()->GetWorldAssetId(), GetEditorId()),
+            true);
       }
       break;
     }
@@ -562,14 +563,16 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
   }
 }
 
-bool CScriptSpecialFunction::ShouldSkipCinematic(CStateManager& stateMgr) const {
-  return gpGameState->SystemOptions().GetCinematicState(stateMgr.GetWorld()->IGetWorldAssetId(),
-                                                        GetEditorId());
+bool CScriptSpecialFunction::ShouldSkipCinematic(CStateManager& mgr) const {
+  CAssetId mlvlId = mgr.GetWorld()->GetWorldAssetId();
+  TEditorId cineId = GetEditorId();
+  return gpGameState->SystemOptions().GetCinematicState(
+      rstl::pair< CAssetId, TEditorId >(mlvlId, cineId));
 }
 
-void CScriptSpecialFunction::SkipCinematic(CStateManager& stateMgr) {
-  SendScriptMsgs(kSS_Zero, stateMgr, kSM_None);
-  stateMgr.SetSkipCinematicSpecialFunction(kInvalidUniqueId);
+void CScriptSpecialFunction::SkipCinematic(CStateManager& mgr) {
+  SendScriptMsgs(kSS_Zero, mgr, kSM_None);
+  mgr.SetSkipCinematicSpecialFunction(kInvalidUniqueId);
 }
 
 void CScriptSpecialFunction::Accept(IVisitor& visitor) { visitor.Visit(*this); }
@@ -578,25 +581,26 @@ void CScriptSpecialFunction::RingScramble(CStateManager& mgr) {
   SendScriptMsgs(kSS_Zero, mgr, kSM_None);
   x1a8_ringState = kRS_Scramble;
   x1b8_ringReverse = !x1b8_ringReverse;
-  float dir = (x1b8_ringReverse ? 1.f : -1.f);
-  for (rstl::vector< SRingController >::iterator it = x198_ringControllers.begin();
-       it != x198_ringControllers.end(); ++it) {
-    it->x4_rotateSpeed = dir * mgr.GetActiveRandom()->Range(x100_float2, x104_float3);
+  float dir = x1b8_ringReverse ? 1.f : -1.f;
+  for (int i = 0; i < x198_ringControllers.size(); ++i) {
+    x198_ringControllers[i].x4_rotateSpeed =
+        dir * mgr.GetActiveRandom()->Range(x100_float2, x104_float3);
     dir = -dir;
-    it->x8_reachedTarget = false;
+    x198_ringControllers[i].x8_reachedTarget = false;
   }
 }
 
 void CScriptSpecialFunction::ThinkSaveStation(float, CStateManager& mgr) {
-  if (!x1e5_24_doSave || mgr.GetDeferredStateTransition() == kSMT_SaveGame) {
+  if (!x1e5_24_doSave) {
     return;
   }
-
-  x1e5_24_doSave = false;
-  if (mgr.GetInSaveUI()) {
-    SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
-  } else {
-    SendScriptMsgs(kSS_Zero, mgr, kSM_None);
+  if (mgr.GetDeferredStateTransition() != kSMT_SaveGame) {
+    x1e5_24_doSave = false;
+    if (mgr.GetInSaveUI()) {
+      SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
+    } else {
+      SendScriptMsgs(kSS_Zero, mgr, kSM_None);
+    }
   }
 }
 

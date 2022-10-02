@@ -2203,8 +2203,8 @@ lbl_801D54FC:
 /* 801D5520 001D2480  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D5524 001D2484  4E 80 00 20 */	blr
 
-.global "GetCinematicState__14CSystemOptionsFRCQ24rstl19pair<Ui,9TEditorId>"
-"GetCinematicState__14CSystemOptionsFRCQ24rstl19pair<Ui,9TEditorId>":
+.global "GetCinematicState__14CSystemOptionsCFQ24rstl19pair<Ui,9TEditorId>"
+"GetCinematicState__14CSystemOptionsCFQ24rstl19pair<Ui,9TEditorId>":
 /* 801D5528 001D2488  80 03 00 B0 */	lwz r0, 0xb0(r3)
 /* 801D552C 001D248C  80 E3 00 B8 */	lwz r7, 0xb8(r3)
 /* 801D5530 001D2490  54 00 18 38 */	slwi r0, r0, 3
@@ -2422,7 +2422,7 @@ lbl_801D583C:
 /* 801D584C 001D27AC  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 801D5850 001D27B0  93 21 00 20 */	stw r25, 0x20(r1)
 /* 801D5854 001D27B4  90 01 00 24 */	stw r0, 0x24(r1)
-/* 801D5858 001D27B8  4B FF FC D1 */	bl "GetCinematicState__14CSystemOptionsFRCQ24rstl19pair<Ui,9TEditorId>"
+/* 801D5858 001D27B8  4B FF FC D1 */	bl "GetCinematicState__14CSystemOptionsCFQ24rstl19pair<Ui,9TEditorId>"
 /* 801D585C 001D27BC  80 01 00 58 */	lwz r0, 0x58(r1)
 /* 801D5860 001D27C0  7C 74 1B 78 */	mr r20, r3
 /* 801D5864 001D27C4  80 A1 00 5C */	lwz r5, 0x5c(r1)
@@ -3363,4 +3363,3 @@ lbl_803D1B88:
 	# ROM: 0x3CEB88
 	.asciz "??(??)"
 	.balign 4
-
