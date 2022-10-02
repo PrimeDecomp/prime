@@ -4288,8 +4288,8 @@ lbl_80152BA8:
 /* 80152BB8 0014FB18  38 21 00 10 */	addi r1, r1, 0x10
 /* 80152BBC 0014FB1C  4E 80 00 20 */	blr
 
-.global "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypesss"
-"__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypesss":
+.global "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs"
+"__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs":
 /* 80152BC0 0014FB20  94 21 FE 70 */	stwu r1, -0x190(r1)
 /* 80152BC4 0014FB24  7C 08 02 A6 */	mflr r0
 /* 80152BC8 0014FB28  90 01 01 94 */	stw r0, 0x194(r1)
@@ -4410,7 +4410,7 @@ lbl_80152BA8:
 /* 80152D94 0014FCF4  38 80 00 06 */	li r4, 6
 /* 80152D98 0014FCF8  38 AD 8C 50 */	addi r5, r13, lbl_805A7810@sda21
 /* 80152D9C 0014FCFC  D0 1A 01 80 */	stfs f0, 0x180(r26)
-/* 80152DA0 0014FD00  48 00 01 B5 */	bl "__ct__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FRCQ24rstl17rmemory_allocator"
+/* 80152DA0 0014FD00  48 00 01 B5 */	bl "__ct__11TAverage<f>FiRCf"
 /* 80152DA4 0014FD04  C0 02 9D 9C */	lfs f0, lbl_805ABABC@sda21(r2)
 /* 80152DA8 0014FD08  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80152DAC 0014FD0C  38 A0 00 00 */	li r5, 0
@@ -4523,8 +4523,8 @@ lbl_80152F1C:
 /* 80152F4C 0014FEAC  38 21 01 90 */	addi r1, r1, 0x190
 /* 80152F50 0014FEB0  4E 80 00 20 */	blr
 
-.global "__ct__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FRCQ24rstl17rmemory_allocator"
-"__ct__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FRCQ24rstl17rmemory_allocator":
+.global "__ct__11TAverage<f>FiRCf"
+"__ct__11TAverage<f>FiRCf":
 /* 80152F54 0014FEB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80152F58 0014FEB8  7C 08 02 A6 */	mflr r0
 /* 80152F5C 0014FEBC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4534,7 +4534,7 @@ lbl_80152F1C:
 /* 80152F6C 0014FECC  90 03 00 04 */	stw r0, 4(r3)
 /* 80152F70 0014FED0  90 03 00 08 */	stw r0, 8(r3)
 /* 80152F74 0014FED4  90 03 00 0C */	stw r0, 0xc(r3)
-/* 80152F78 0014FED8  48 00 00 1D */	bl sub_80152f94
+/* 80152F78 0014FED8  48 00 00 1D */	bl "resize__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FiRCf"
 /* 80152F7C 0014FEDC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80152F80 0014FEE0  7F E3 FB 78 */	mr r3, r31
 /* 80152F84 0014FEE4  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -4542,8 +4542,8 @@ lbl_80152F1C:
 /* 80152F8C 0014FEEC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80152F90 0014FEF0  4E 80 00 20 */	blr
 
-.global sub_80152f94
-sub_80152f94:
+.global "resize__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FiRCf"
+"resize__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FiRCf":
 /* 80152F94 0014FEF4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80152F98 0014FEF8  7C 08 02 A6 */	mflr r0
 /* 80152F9C 0014FEFC  90 01 00 34 */	stw r0, 0x34(r1)

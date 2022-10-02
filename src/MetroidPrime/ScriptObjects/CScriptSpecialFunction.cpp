@@ -24,7 +24,7 @@ CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
     ESpecialFunction func, const rstl::string& lcName, float f1, float f2, float f3, float f4,
     const CVector3f& vec, const CColor& col, bool active, const CDamageInfo& dInfo, s32 aId1,
-    s32 aId2, CPlayerState::EItemType itemType, s16 sId1, s16 sId2, s16 sId3)
+    s32 aId2, CPlayerState::EItemType itemType, u16 sId1, u16 sId2, u16 sId3)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_function(func)
@@ -37,14 +37,31 @@ CScriptSpecialFunction::CScriptSpecialFunction(
 , x118_color(col)
 , x11c_damageInfo(dInfo)
 , x13c_spinnerInitialXf(CTransform4f::Identity())
+, x138_(0.f)
+, x16c_(0.f)
 , x170_sfx1(CSfxManager::TranslateSFXID(sId1))
 , x172_sfx2(CSfxManager::TranslateSFXID(sId2))
 , x174_sfx3(CSfxManager::TranslateSFXID(sId3))
-, x184_(0.f)
+, x180_(0.f)
+, x184_(6, 0.f)
+, x194_(0.f)
+, x1a8_ringState(kRS_Stopped)
 , x1ac_ringRotateTarget(CVector3f::Zero())
+, x1b8_ringReverse(true)
 , x1bc_areaSaveId(aId1)
 , x1c0_layerIdx(aId2)
-, x1c4_item(itemType) {
+, x1c4_item(itemType)
+, x1e4_24_spinnerInitializedXf(false)
+, x1e4_25_spinnerCanMove(false)
+, x1e4_26_sfx2Played(true)
+, x1e4_27_sfx3Played(false)
+// , x1e4_28_frustumEntered(false)
+// , x1e4_29_frustumExited(false)
+// , x1e4_30_(false)
+, x1e4_31_inAreaDamage(false)
+, x1e5_24_doSave(false)
+, x1e5_25_playerInArea(false)
+, x1e5_26_displayBillboard(false) {
   if (xe8_function == kSF_HUDTarget) {
     x1c8_touchBounds = CAABox(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f));
   }
@@ -356,12 +373,13 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       if (msg == kSM_Decrement || msg == kSM_Increment) {
         if (x1bc_areaSaveId != -1 && x1c0_layerIdx != -1) {
           TAreaId aId = mgr.GetWorld()->GetAreaIdForSaveId(x1bc_areaSaveId);
-          rstl::rc_ptr<CScriptLayerManager> worldLayerState(NULL);
-          
+          rstl::rc_ptr< CScriptLayerManager > worldLayerState(NULL);
+
           if (aId != kInvalidAreaId) {
             // worldLayerState = mgr.WorldLayerState();
           } else {
-            const rstl::pair<CAssetId, TAreaId> worldAreaPair = gpMemoryCard->GetAreaAndWorldIdForSaveId(x1bc_areaSaveId);
+            const rstl::pair< CAssetId, TAreaId > worldAreaPair =
+                gpMemoryCard->GetAreaAndWorldIdForSaveId(x1bc_areaSaveId);
 
             if (worldAreaPair.first != kInvalidAssetId) {
               // worldLayerState = gpGameState->StateForWorld(worldAreaPair.first).GetLayerState();

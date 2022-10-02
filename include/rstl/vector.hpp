@@ -70,6 +70,7 @@ public:
   }
 
   void reserve(int size);
+  void resize(int size, const T& in);
   iterator erase(iterator it);
 
   void push_back(const T& in) {
@@ -117,6 +118,19 @@ public:
   inline T& operator[](int idx) { return xc_items[idx]; }
   inline const T& operator[](int idx) const { return xc_items[idx]; }
 };
+
+template < typename T, typename Alloc >
+void vector< T, Alloc >::resize(int size, const T& in) {
+  if (x4_count != size) {
+    if (size > x4_count) {
+      reserve(size);
+      uninitialized_fill_n(xc_items + x4_count, size - x4_count, in);
+    } else {
+      destroy(begin() + size, end());
+    }
+    x4_count = size;
+  }
+}
 
 template < typename T, typename Alloc >
 void vector< T, Alloc >::reserve(int size) {

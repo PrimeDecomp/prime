@@ -119,14 +119,6 @@ public:
   bool IsGeneratingObject() const { return xf94_26_generatingObject; }
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
 
-  inline TUniqueId GenerateObjectInline(TEditorId eid) {
-    bool wasGeneratingObject = IsGeneratingObject();
-    SetIsGeneratingObject(true);
-    TUniqueId objUid = GenerateObject(eid).second;
-    SetIsGeneratingObject(wasGeneratingObject);
-    return objUid;
-  }
-
   void ApplyDamageToWorld(TUniqueId, const CActor&, const CVector3f&, const CDamageInfo& info,
                           CMaterialFilter&);
   bool ApplyDamage(TUniqueId damagerId, TUniqueId damageeId, TUniqueId radiusSender,
