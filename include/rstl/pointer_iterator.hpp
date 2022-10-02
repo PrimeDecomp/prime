@@ -38,15 +38,22 @@ public:
     return *this;
   }
   const_pointer_iterator operator+(int v) const {
-    return const_pointer_iterator(this->current + v);
+    const_pointer_iterator it = *this;
+    return it += v;
   }
   const_pointer_iterator operator-(int v) const {
-    return const_pointer_iterator(this->current - v);
+    const_pointer_iterator it = *this;
+    return it -= v;
   }
+  int operator-(const const_pointer_iterator& other) const { return this->current - other.current; }
   const T& operator*() const { return *current; }
   const T* operator->() const { return current; }
   bool operator==(const const_pointer_iterator& other) { return current == other.current; }
   bool operator!=(const const_pointer_iterator& other) { return current != other.current; }
+  bool operator<(const const_pointer_iterator& other) { return current < other.current; }
+  bool operator>(const const_pointer_iterator& other) { return current > other.current; }
+  bool operator<=(const const_pointer_iterator& other) { return current <= other.current; }
+  bool operator>=(const const_pointer_iterator& other) { return current >= other.current; }
 
   // friend const_pointer_iterator operator+(const const_pointer_iterator& x, int v) {
   //   return const_pointer_iterator(x.current + v);
@@ -86,8 +93,14 @@ public:
     this->current -= v;
     return *this;
   }
-  pointer_iterator operator+(int v) const { return pointer_iterator(this->current + v); }
-  pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
+  pointer_iterator operator+(int v) const {
+    pointer_iterator it = *this;
+    return it += v;
+  }
+  pointer_iterator operator-(int v) const {
+    pointer_iterator it = *this;
+    return it -= v;
+  }
 };
 } // namespace rstl
 

@@ -9,10 +9,9 @@
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
-#include "Kyoto/TReservedAverage.hpp"
+#include "Kyoto/TAverage.hpp"
 
 #include "MetroidPrime/Player/CPlayerState.hpp"
-
 
 class CScriptSpecialFunction : public CActor {
 public:
@@ -90,17 +89,16 @@ private:
   CSfxHandle x178_sfxHandle;
   u32 x17c_;
   float x180_;
-  TReservedAverage<uchar, 6> x184_;  // metaforce has this as TReservedAverage<float, 6>, but volume is uchar here
-  u8 x190_pad[4];  // type change in x184_ fixes it being too big, but then it becomes 4 bytes too small
+  TAverage< f32 > x184_;
   float x194_;
-  rstl::vector<SRingController> x198_ringControllers;
+  rstl::vector< SRingController > x198_ringControllers;
   ERingState x1a8_ringState;
   CVector3f x1ac_ringRotateTarget;
   bool x1b8_ringReverse;
   s32 x1bc_areaSaveId;
   s32 x1c0_layerIdx;
   CPlayerState::EItemType x1c4_item;
-  rstl::optional_object<CAABox> x1c8_touchBounds;
+  rstl::optional_object< CAABox > x1c8_touchBounds;
   bool x1e4_24_spinnerInitializedXf : 1;
   bool x1e4_25_spinnerCanMove : 1;
   bool x1e4_26_sfx2Played : 1;
@@ -112,11 +110,12 @@ private:
   bool x1e5_24_doSave : 1;
   bool x1e5_25_playerInArea : 1;
   bool x1e5_26_displayBillboard : 1;
-  rstl::optional_object<CToken> x1e8_;  // CTexture?
+  rstl::optional_object< CToken > x1e8_; // CTexture?
 public:
-  CScriptSpecialFunction(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&, ESpecialFunction,
-                         const rstl::string&, float, float, float, float, const CVector3f&, const CColor&,
-                         bool, const CDamageInfo&, s32, s32, CPlayerState::EItemType, s16, s16, s16);
+  CScriptSpecialFunction(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
+                         ESpecialFunction, const rstl::string&, float, float, float, float,
+                         const CVector3f&, const CColor&, bool, const CDamageInfo&, s32, s32,
+                         CPlayerState::EItemType, u16, u16, u16);
 
   void Accept(IVisitor& visitor) override;
   void Think(float, CStateManager&) override;
@@ -124,7 +123,7 @@ public:
   void PreRender(CStateManager&, const CFrustumPlanes&) override;
   void AddToRenderer(const CFrustumPlanes&, CStateManager&) override;
   void Render(CStateManager&) override;
-  rstl::optional_object<CAABox> GetTouchBounds() const override { return x1c8_touchBounds; }
+  rstl::optional_object< CAABox > GetTouchBounds() const override { return x1c8_touchBounds; }
 
   void SkipCinematic(CStateManager&);
   void RingScramble(CStateManager&);
