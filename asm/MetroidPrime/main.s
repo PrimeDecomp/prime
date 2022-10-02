@@ -860,8 +860,8 @@ lbl_805A8C50:
 .global lbl_805A8C54
 lbl_805A8C54:
 	.skip 0x4
-.global lbl_805A8C58
-lbl_805A8C58:
+.global mProgressiveMode__10COsContext
+mProgressiveMode__10COsContext:
 	.skip 0x4
 .global sARAMMemArray
 sARAMMemArray:
@@ -7177,7 +7177,7 @@ sub_800083e4:
 /* 80008428 00005388  38 61 00 08 */	addi r3, r1, 8
 /* 8000842C 0000538C  54 05 0F FE */	srwi r5, r0, 0x1f
 /* 80008430 00005390  38 04 E3 98 */	addi r0, r4, __vt__15CMemoryInStream@l
-/* 80008434 00005394  98 AD A0 98 */	stb r5, lbl_805A8C58@sda21(r13)
+/* 80008434 00005394  98 AD A0 98 */	stb r5, mProgressiveMode__10COsContext@sda21(r13)
 /* 80008438 00005398  38 80 00 00 */	li r4, 0
 /* 8000843C 0000539C  90 01 00 08 */	stw r0, 8(r1)
 /* 80008440 000053A0  48 33 6C 6D */	bl __dt__12CInputStreamFv
@@ -7292,7 +7292,7 @@ sub_80008584:
 /* 800085B4 00005514  48 37 AA 59 */	bl OSSetSaveRegion
 /* 800085B8 00005518  7F E3 FB 78 */	mr r3, r31
 /* 800085BC 0000551C  38 80 00 80 */	li r4, 0x80
-/* 800085C0 00005520  48 2C DE 21 */	bl AllocFromArena__10COsContextFUi
+/* 800085C0 00005520  48 2C DE 21 */	bl AllocFromArena__10COsContextFUl
 /* 800085C4 00005524  90 6D A0 90 */	stw r3, lbl_805A8C50@sda21(r13)
 /* 800085C8 00005528  7F C3 F3 78 */	mr r3, r30
 /* 800085CC 0000552C  80 01 00 24 */	lwz r0, 0x24(r1)

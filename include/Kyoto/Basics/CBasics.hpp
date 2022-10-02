@@ -4,6 +4,7 @@
 #include "types.h"
 
 namespace CBasics {
+void Init();
 char* Stringize(const char* fmt, ...);
 };
 

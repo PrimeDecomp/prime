@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global AllocFromArena__10COsContextFUi
-AllocFromArena__10COsContextFUi:
+.global AllocFromArena__10COsContextFUl
+AllocFromArena__10COsContextFUl:
 /* 802D63E0 002D3340  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802D63E4 002D3344  7C 08 02 A6 */	mflr r0
 /* 802D63E8 002D3348  90 01 00 14 */	stw r0, 0x14(r1)
@@ -53,23 +53,23 @@ lbl_802D6484:
 /* 802D6488 002D33E8  40 80 00 4C */	bge lbl_802D64D4
 /* 802D648C 002D33EC  48 00 00 34 */	b lbl_802D64C0
 lbl_802D6490:
-/* 802D6490 002D33F0  3C 60 80 3F */	lis r3, lbl_803F08E0@ha
+/* 802D6490 002D33F0  3C 60 80 3F */	lis r3, GXNtsc480IntDf@ha
 /* 802D6494 002D33F4  38 00 00 01 */	li r0, 1
-/* 802D6498 002D33F8  38 63 08 E0 */	addi r3, r3, lbl_803F08E0@l
+/* 802D6498 002D33F8  38 63 08 E0 */	addi r3, r3, GXNtsc480IntDf@l
 /* 802D649C 002D33FC  90 1F 00 10 */	stw r0, 0x10(r31)
 /* 802D64A0 002D3400  7C 7E 1B 78 */	mr r30, r3
 /* 802D64A4 002D3404  48 00 00 30 */	b lbl_802D64D4
 lbl_802D64A8:
-/* 802D64A8 002D3408  3C 60 80 3F */	lis r3, lbl_803F0958@ha
+/* 802D64A8 002D3408  3C 60 80 3F */	lis r3, GXPal528IntDf@ha
 /* 802D64AC 002D340C  38 00 00 02 */	li r0, 2
-/* 802D64B0 002D3410  38 63 09 58 */	addi r3, r3, lbl_803F0958@l
+/* 802D64B0 002D3410  38 63 09 58 */	addi r3, r3, GXPal528IntDf@l
 /* 802D64B4 002D3414  90 1F 00 10 */	stw r0, 0x10(r31)
 /* 802D64B8 002D3418  7C 7E 1B 78 */	mr r30, r3
 /* 802D64BC 002D341C  48 00 00 18 */	b lbl_802D64D4
 lbl_802D64C0:
-/* 802D64C0 002D3420  3C 60 80 3F */	lis r3, lbl_803F091C@ha
+/* 802D64C0 002D3420  3C 60 80 3F */	lis r3, GXMpal480IntDf@ha
 /* 802D64C4 002D3424  38 00 00 03 */	li r0, 3
-/* 802D64C8 002D3428  38 63 09 1C */	addi r3, r3, lbl_803F091C@l
+/* 802D64C8 002D3428  38 63 09 1C */	addi r3, r3, GXMpal480IntDf@l
 /* 802D64CC 002D342C  90 1F 00 10 */	stw r0, 0x10(r31)
 /* 802D64D0 002D3430  7C 7E 1B 78 */	mr r30, r3
 lbl_802D64D4:
@@ -121,7 +121,7 @@ lbl_802D64EC:
 /* 802D6580 002D34E0  A0 7F 00 3A */	lhz r3, 0x3a(r31)
 /* 802D6584 002D34E4  38 03 FF F6 */	addi r0, r3, -10
 /* 802D6588 002D34E8  B0 1F 00 3A */	sth r0, 0x3a(r31)
-/* 802D658C 002D34EC  88 0D A0 98 */	lbz r0, lbl_805A8C58@sda21(r13)
+/* 802D658C 002D34EC  88 0D A0 98 */	lbz r0, mProgressiveMode__10COsContext@sda21(r13)
 /* 802D6590 002D34F0  28 00 00 00 */	cmplwi r0, 0
 /* 802D6594 002D34F4  41 82 00 3C */	beq lbl_802D65D0
 /* 802D6598 002D34F8  38 60 00 02 */	li r3, 2
@@ -131,9 +131,9 @@ lbl_802D64EC:
 /* 802D65A8 002D3508  38 81 00 08 */	addi r4, r1, 8
 /* 802D65AC 002D350C  38 A0 00 07 */	li r5, 7
 /* 802D65B0 002D3510  90 1F 00 44 */	stw r0, 0x44(r31)
-/* 802D65B4 002D3514  80 E2 C5 68 */	lwz r7, lbl_805AE288@sda21(r2)
-/* 802D65B8 002D3518  A0 C2 C5 6C */	lhz r6, lbl_805AE28C@sda21(r2)
-/* 802D65BC 002D351C  88 02 C5 6E */	lbz r0, lbl_805AE28E@sda21(r2)
+/* 802D65B4 002D3514  80 E2 C5 68 */	lwz r7, progressiveFilterPattern@sda21(r2)
+/* 802D65B8 002D3518  A0 C2 C5 6C */	lhz r6, progressiveFilterPattern+4@sda21(r2)
+/* 802D65BC 002D351C  88 02 C5 6E */	lbz r0, progressiveFilterPattern+6@sda21(r2)
 /* 802D65C0 002D3520  90 E1 00 08 */	stw r7, 8(r1)
 /* 802D65C4 002D3524  B0 C1 00 0C */	sth r6, 0xc(r1)
 /* 802D65C8 002D3528  98 01 00 0E */	stb r0, 0xe(r1)
@@ -244,17 +244,7 @@ lbl_802D6704:
 
 .section .sdata2, "a"
 .balign 8
-.global lbl_805AE288
-lbl_805AE288:
+.global progressiveFilterPattern
+progressiveFilterPattern:
 	# ROM: 0x3FAB28
-	.4byte 0x04041010
-
-.global lbl_805AE28C
-lbl_805AE28C:
-	# ROM: 0x3FAB2C
-	.2byte 0x00001004
-
-.global lbl_805AE28E
-lbl_805AE28E:
-	# ROM: 0x3FAB2E
-	.2byte 0x00000400
+	.byte 4, 4, 16, 16, 16, 4, 4,
