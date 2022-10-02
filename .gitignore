@@ -13,3 +13,4 @@ tools/mwcc_compiler/*
 include/lmgr326b.dll
 .idea/
 versions/
+build.ninja
