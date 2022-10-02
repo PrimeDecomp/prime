@@ -16,8 +16,8 @@ public:
   void SetHasFusion(bool v);
   bool GetHasFusion() const { return xd0_28_fusionSuitActive; }
 
-  bool GetCinematicState(CAssetId mlvlId, TEditorId cineId) const;
-  void SetCinematicState(CAssetId mlvlId, TEditorId cineId, bool state);
+  bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;
+  void SetCinematicState(rstl::pair< CAssetId, TEditorId > cineId, bool state);
 
 private:
   rstl::reserved_vector< u8, 98 > x0_nesState;

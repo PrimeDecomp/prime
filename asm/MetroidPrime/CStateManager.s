@@ -1334,7 +1334,7 @@ lbl_800449E8:
 /* 800449F8 00041958  7C 7E 1B 79 */	or. r30, r3, r3
 /* 800449FC 0004195C  41 82 00 14 */	beq lbl_80044A10
 /* 80044A00 00041960  7F A4 EB 78 */	mr r4, r29
-/* 80044A04 00041964  48 10 CE 65 */	bl ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager
+/* 80044A04 00041964  48 10 CE 65 */	bl ShouldSkipCinematic__22CScriptSpecialFunctionCFR13CStateManager
 /* 80044A08 00041968  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80044A0C 0004196C  40 82 00 0C */	bne lbl_80044A18
 lbl_80044A10:

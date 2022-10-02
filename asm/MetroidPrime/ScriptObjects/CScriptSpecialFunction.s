@@ -2912,8 +2912,8 @@ SkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
 /* 80151860 0014E7C0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80151864 0014E7C4  4E 80 00 20 */	blr
 
-.global ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager
-ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
+.global ShouldSkipCinematic__22CScriptSpecialFunctionCFR13CStateManager
+ShouldSkipCinematic__22CScriptSpecialFunctionCFR13CStateManager:
 /* 80151868 0014E7C8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8015186C 0014E7CC  7C 08 02 A6 */	mflr r0
 /* 80151870 0014E7D0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -2927,7 +2927,7 @@ ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager:
 /* 80151890 0014E7F0  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80151894 0014E7F4  90 A1 00 10 */	stw r5, 0x10(r1)
 /* 80151898 0014E7F8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8015189C 0014E7FC  48 08 3C 8D */	bl "GetCinematicState__14CSystemOptionsFRCQ24rstl19pair<Ui,9TEditorId>"
+/* 8015189C 0014E7FC  48 08 3C 8D */	bl "GetCinematicState__14CSystemOptionsCFQ24rstl19pair<Ui,9TEditorId>"
 /* 801518A0 0014E800  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801518A4 0014E804  7C 08 03 A6 */	mtlr r0
 /* 801518A8 0014E808  38 21 00 20 */	addi r1, r1, 0x20
@@ -3579,7 +3579,7 @@ lbl_801521C4:
 /* 801521C8 0014F128  40 82 00 2C */	bne lbl_801521F4
 /* 801521CC 0014F12C  7F E3 FB 78 */	mr r3, r31
 /* 801521D0 0014F130  7F C4 F3 78 */	mr r4, r30
-/* 801521D4 0014F134  4B FF F6 95 */	bl ShouldSkipCinematic__22CScriptSpecialFunctionFR13CStateManager
+/* 801521D4 0014F134  4B FF F6 95 */	bl ShouldSkipCinematic__22CScriptSpecialFunctionCFR13CStateManager
 /* 801521D8 0014F138  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801521DC 0014F13C  41 82 06 C4 */	beq lbl_801528A0
 /* 801521E0 0014F140  A0 1F 00 08 */	lhz r0, 8(r31)
