@@ -67,8 +67,6 @@ CScriptSpecialFunction::CScriptSpecialFunction(
   }
 }
 
-void CScriptSpecialFunction::Accept(IVisitor& visitor) { visitor.Visit(*this); }
-
 void CScriptSpecialFunction::Think(float dt, CStateManager& mgr) {
   if (!GetActive()) {
     return;
@@ -131,6 +129,49 @@ void CScriptSpecialFunction::Think(float dt, CStateManager& mgr) {
   }
   default:
     break;
+  }
+}
+
+void CScriptSpecialFunction::AddToRenderer(const CFrustumPlanes&, CStateManager& mgr) {
+  if (!GetActive()) {
+    return;
+  }
+
+  if (xe8_function == kSF_FogVolume && x1e4_30_) {
+    EnsureRendered(mgr);
+  }
+}
+
+void CScriptSpecialFunction::PreRender(CStateManager&, const CFrustumPlanes& frustum) {
+  switch (xe8_function) {
+  case kSF_FogVolume:
+  case kSF_ViewFrustumTester: {
+    if (!GetActive()) {
+      break;
+    }
+
+    bool val;
+    if (xe8_function == kSF_FogVolume) {
+      CVector3f pos = GetTranslation();
+      CVector3f max = pos + x10c_vector3f;
+      max[kDZ] += xfc_float1;
+      CAABox aabb(pos - x10c_vector3f, max);
+      val = frustum.BoxInFrustumPlanes(aabb);
+    } else {
+      val = frustum.PointInFrustumPlanes(GetTranslation());
+    }
+
+    if (x1e4_30_ == val) {
+      break;
+    }
+    if (val) {
+      x1e4_28_frustumEntered = true;
+    } else {
+      x1e4_29_frustumExited = true;
+    }
+    x1e4_30_ = val;
+    break;
+  }
   }
 }
 
@@ -521,71 +562,17 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
   }
 }
 
-void CScriptSpecialFunction::PreRender(CStateManager&, const CFrustumPlanes& frustum) {
-  switch (xe8_function) {
-  case kSF_FogVolume:
-  case kSF_ViewFrustumTester: {
-    if (!GetActive()) {
-      break;
-    }
-
-    bool val;
-    if (xe8_function == kSF_FogVolume) {
-      CVector3f pos = GetTranslation();
-      CVector3f max = pos + x10c_vector3f;
-      max[kDZ] += xfc_float1;
-      CAABox aabb(pos - x10c_vector3f, max);
-      val = frustum.BoxInFrustumPlanes(aabb);
-    } else {
-      val = frustum.PointInFrustumPlanes(GetTranslation());
-    }
-
-    if (x1e4_30_ == val) {
-      break;
-    }
-    if (val) {
-      x1e4_28_frustumEntered = true;
-    } else {
-      x1e4_29_frustumExited = true;
-    }
-    x1e4_30_ = val;
-    break;
-  }
-  }
-}
-
-void CScriptSpecialFunction::AddToRenderer(const CFrustumPlanes&, CStateManager& mgr) {
-  if (!GetActive()) {
-    return;
-  }
-
-  if (xe8_function == kSF_FogVolume && x1e4_30_) {
-    EnsureRendered(mgr);
-  }
-}
-
-void CScriptSpecialFunction::Render(CStateManager& mgr) {
-  if (xe8_function == kSF_FogVolume) {
-    /* TODO
-    const float z = mgr.IntegrateVisorFog(xfc_float1 * std::sin(CGraphics::GetSecondsMod900()));
-    if (z > 0.f) {
-      CVector3f max = GetTranslation() + x10c_vector3f;
-      max.SetZ(max.GetZ() + z);
-      const CAABox box(GetTranslation() - x10c_vector3f, max);
-      const CTransform4f modelMtx = CTransform4f::Translate(box.center()) *
-    CTransform4f::Scale(box.extents()); g_Renderer->SetModelMatrix(modelMtx);
-      g_Renderer->RenderFogVolume(x118_color, zeus::CAABox(-1.f, 1.f), nullptr, nullptr);
-    }
-    */
-  } else {
-    CActor::Render(mgr);
-  }
+bool CScriptSpecialFunction::ShouldSkipCinematic(CStateManager& stateMgr) const {
+  return gpGameState->SystemOptions().GetCinematicState(stateMgr.GetWorld()->IGetWorldAssetId(),
+                                                        GetEditorId());
 }
 
 void CScriptSpecialFunction::SkipCinematic(CStateManager& stateMgr) {
   SendScriptMsgs(kSS_Zero, stateMgr, kSM_None);
   stateMgr.SetSkipCinematicSpecialFunction(kInvalidUniqueId);
 }
+
+void CScriptSpecialFunction::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
 void CScriptSpecialFunction::RingScramble(CStateManager& mgr) {
   SendScriptMsgs(kSS_Zero, mgr, kSM_None);
@@ -597,6 +584,19 @@ void CScriptSpecialFunction::RingScramble(CStateManager& mgr) {
     it->x4_rotateSpeed = dir * mgr.GetActiveRandom()->Range(x100_float2, x104_float3);
     dir = -dir;
     it->x8_reachedTarget = false;
+  }
+}
+
+void CScriptSpecialFunction::ThinkSaveStation(float, CStateManager& mgr) {
+  if (!x1e5_24_doSave || mgr.GetDeferredStateTransition() == kSMT_SaveGame) {
+    return;
+  }
+
+  x1e5_24_doSave = false;
+  if (mgr.GetInSaveUI()) {
+    SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
+  } else {
+    SendScriptMsgs(kSS_Zero, mgr, kSM_None);
   }
 }
 
@@ -896,6 +896,24 @@ void CScriptSpecialFunction::ThinkObjectFollowObject(float, CStateManager& mgr) 
   }
 }
 
+void CScriptSpecialFunction::Render(CStateManager& mgr) {
+  if (xe8_function == kSF_FogVolume) {
+    /* TODO
+    const float z = mgr.IntegrateVisorFog(xfc_float1 * std::sin(CGraphics::GetSecondsMod900()));
+    if (z > 0.f) {
+      CVector3f max = GetTranslation() + x10c_vector3f;
+      max.SetZ(max.GetZ() + z);
+      const CAABox box(GetTranslation() - x10c_vector3f, max);
+      const CTransform4f modelMtx = CTransform4f::Translate(box.center()) *
+    CTransform4f::Scale(box.extents()); g_Renderer->SetModelMatrix(modelMtx);
+      g_Renderer->RenderFogVolume(x118_color, zeus::CAABox(-1.f, 1.f), nullptr, nullptr);
+    }
+    */
+  } else {
+    CActor::Render(mgr);
+  }
+}
+
 void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
   /*
   const zeus::CAABox box(5.f - GetTranslation(), 5.f + GetTranslation());
@@ -932,49 +950,6 @@ void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
     }
   }
   */
-}
-
-void CScriptSpecialFunction::ThinkActorScale(float dt, CStateManager& mgr) {
-  const float deltaScale = dt * xfc_float1;
-
-  for (rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
-       conn != GetConnectionList().end(); ++conn) {
-    if (conn->x0_state != kSS_Play || conn->x4_msg != kSM_Activate) {
-      continue;
-    }
-
-    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId)))) {
-      CModelData* mData = act->ModelData();
-      if (mData && (mData->HasAnimData() || mData->HasNormalModel())) {
-        CVector3f scale = mData->GetScale();
-
-        if (deltaScale > 0.f) {
-          scale = CVector3f(rstl::min_val(deltaScale + scale.GetX(), x100_float2),
-                            rstl::min_val(deltaScale + scale.GetY(), x100_float2),
-                            rstl::min_val(deltaScale + scale.GetZ(), x100_float2));
-        } else {
-          scale = CVector3f(rstl::max_val(deltaScale + scale.GetX(), x100_float2),
-                            rstl::max_val(deltaScale + scale.GetY(), x100_float2),
-                            rstl::max_val(deltaScale + scale.GetZ(), x100_float2));
-        }
-
-        mData->SetScale(scale);
-      }
-    }
-  }
-}
-
-void CScriptSpecialFunction::ThinkSaveStation(float, CStateManager& mgr) {
-  if (!x1e5_24_doSave || mgr.GetDeferredStateTransition() == kSMT_SaveGame) {
-    return;
-  }
-
-  x1e5_24_doSave = false;
-  if (mgr.GetInSaveUI()) {
-    SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
-  } else {
-    SendScriptMsgs(kSS_Zero, mgr, kSM_None);
-  }
 }
 
 void CScriptSpecialFunction::ThinkRainSimulator(float, CStateManager& mgr) {
@@ -1027,6 +1002,36 @@ void CScriptSpecialFunction::ThinkAreaDamage(float dt, CStateManager& mgr) {
                   CVector3f::Zero());
 }
 
+void CScriptSpecialFunction::ThinkActorScale(float dt, CStateManager& mgr) {
+  const float deltaScale = dt * xfc_float1;
+
+  for (rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+       conn != GetConnectionList().end(); ++conn) {
+    if (conn->x0_state != kSS_Play || conn->x4_msg != kSM_Activate) {
+      continue;
+    }
+
+    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId)))) {
+      CModelData* mData = act->ModelData();
+      if (mData && (mData->HasAnimData() || mData->HasNormalModel())) {
+        CVector3f scale = mData->GetScale();
+
+        if (deltaScale > 0.f) {
+          scale = CVector3f(rstl::min_val(deltaScale + scale.GetX(), x100_float2),
+                            rstl::min_val(deltaScale + scale.GetY(), x100_float2),
+                            rstl::min_val(deltaScale + scale.GetZ(), x100_float2));
+        } else {
+          scale = CVector3f(rstl::max_val(deltaScale + scale.GetX(), x100_float2),
+                            rstl::max_val(deltaScale + scale.GetY(), x100_float2),
+                            rstl::max_val(deltaScale + scale.GetZ(), x100_float2));
+        }
+
+        mData->SetScale(scale);
+      }
+    }
+  }
+}
+
 void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
   if (mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
     if (x1e5_25_playerInArea) {
@@ -1039,11 +1044,6 @@ void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
     x1e5_25_playerInArea = false;
     SendScriptMsgs(kSS_Exited, mgr, kSM_None);
   }
-}
-
-bool CScriptSpecialFunction::ShouldSkipCinematic(CStateManager& stateMgr) const {
-  return gpGameState->SystemOptions().GetCinematicState(stateMgr.GetWorld()->IGetWorldAssetId(),
-                                                        GetEditorId());
 }
 
 void CScriptSpecialFunction::DeleteEmitter(const CSfxHandle& handle) {
