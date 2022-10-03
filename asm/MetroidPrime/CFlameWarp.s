@@ -572,9 +572,9 @@ lbl_801B570C:
 
 .global __ct__10CFlameWarpFfRC9CVector3fb
 __ct__10CFlameWarpFfRC9CVector3fb:
-/* 801B5728 001B2688  3C C0 80 3F */	lis r6, lbl_803EE2F8@ha
+/* 801B5728 001B2688  3C C0 80 3F */	lis r6, __vt__5CWarp@ha
 /* 801B572C 001B268C  39 03 00 08 */	addi r8, r3, 8
-/* 801B5730 001B2690  38 06 E2 F8 */	addi r0, r6, lbl_803EE2F8@l
+/* 801B5730 001B2690  38 06 E2 F8 */	addi r0, r6, __vt__5CWarp@l
 /* 801B5734 001B2694  3C C0 80 3E */	lis r6, lbl_803E51C8@ha
 /* 801B5738 001B2698  90 03 00 00 */	stw r0, 0(r3)
 /* 801B573C 001B269C  38 E6 51 C8 */	addi r7, r6, lbl_803E51C8@l
@@ -949,4 +949,3 @@ lbl_803D1638:
 	# ROM: 0x3CE638
 	.asciz "??(??)"
 	.balign 4
-

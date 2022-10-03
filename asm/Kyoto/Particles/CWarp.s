@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EE2F8
-lbl_803EE2F8:
+.global __vt__5CWarp
+__vt__5CWarp:
 	# ROM: 0x3EB2F8
 	.4byte 0
 	.4byte 0
@@ -25,9 +25,9 @@ __dt__5CWarpFv:
 /* 80336FD0 00333F30  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80336FD4 00333F34  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80336FD8 00333F38  41 82 00 1C */	beq lbl_80336FF4
-/* 80336FDC 00333F3C  3C A0 80 3F */	lis r5, lbl_803EE2F8@ha
+/* 80336FDC 00333F3C  3C A0 80 3F */	lis r5, __vt__5CWarp@ha
 /* 80336FE0 00333F40  7C 80 07 35 */	extsh. r0, r4
-/* 80336FE4 00333F44  38 05 E2 F8 */	addi r0, r5, lbl_803EE2F8@l
+/* 80336FE4 00333F44  38 05 E2 F8 */	addi r0, r5, __vt__5CWarp@l
 /* 80336FE8 00333F48  90 1F 00 00 */	stw r0, 0(r31)
 /* 80336FEC 00333F4C  40 81 00 08 */	ble lbl_80336FF4
 /* 80336FF0 00333F50  4B FD E9 41 */	bl Free__7CMemoryFPCv
