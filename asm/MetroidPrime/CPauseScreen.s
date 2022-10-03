@@ -285,7 +285,7 @@ SetRightTableSelection__16CPauseScreenBaseFii:
 /* 80070B5C 0006DABC  80 1D 00 1C */	lwz r0, 0x1c(r29)
 /* 80070B60 0006DAC0  7C 1C 00 00 */	cmpw r28, r0
 /* 80070B64 0006DAC4  41 82 00 28 */	beq lbl_80070B8C
-/* 80070B68 0006DAC8  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80070B68 0006DAC8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070B6C 0006DACC  38 61 00 08 */	addi r3, r1, 8
 /* 80070B70 0006DAD0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80070B74 0006DAD4  38 80 05 9C */	li r4, 0x59c
@@ -350,7 +350,7 @@ OnTableSelectionChange__16CPauseScreenBaseFP14CGuiTableGroupi:
 /* 80070C48 0006DBA8  80 1D 00 70 */	lwz r0, 0x70(r29)
 /* 80070C4C 0006DBAC  7C 1E 00 40 */	cmplw r30, r0
 /* 80070C50 0006DBB0  40 82 00 40 */	bne lbl_80070C90
-/* 80070C54 0006DBB4  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80070C54 0006DBB4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070C58 0006DBB8  38 61 00 08 */	addi r3, r1, 8
 /* 80070C5C 0006DBBC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80070C60 0006DBC0  38 80 05 9C */	li r4, 0x59c
@@ -399,7 +399,7 @@ OnRightTableAdvance__16CPauseScreenBaseFP14CGuiTableGroup:
 /* 80070CF8 0006DC58  7F E3 FB 78 */	mr r3, r31
 /* 80070CFC 0006DC5C  38 80 00 02 */	li r4, 2
 /* 80070D00 0006DC60  48 00 01 15 */	bl ChangeMode__16CPauseScreenBaseFQ216CPauseScreenBase5EMode
-/* 80070D04 0006DC64  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80070D04 0006DC64  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070D08 0006DC68  38 61 00 08 */	addi r3, r1, 8
 /* 80070D0C 0006DC6C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80070D10 0006DC70  38 80 05 98 */	li r4, 0x598
@@ -439,7 +439,7 @@ OnLeftTableAdvance__16CPauseScreenBaseFP14CGuiTableGroup:
 /* 80070D7C 0006DCDC  88 1F 01 98 */	lbz r0, 0x198(r31)
 /* 80070D80 0006DCE0  38 60 00 01 */	li r3, 1
 /* 80070D84 0006DCE4  50 60 36 72 */	rlwimi r0, r3, 6, 0x19, 0x19
-/* 80070D88 0006DCE8  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80070D88 0006DCE8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070D8C 0006DCEC  98 1F 01 98 */	stb r0, 0x198(r31)
 /* 80070D90 0006DCF0  38 61 00 08 */	addi r3, r1, 8
 /* 80070D94 0006DCF4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
@@ -554,7 +554,7 @@ lbl_80070EF8:
 /* 80070F00 0006DE60  48 25 96 E5 */	bl SetIsActive__10CGuiWidgetFb
 /* 80070F04 0006DE64  48 00 00 28 */	b lbl_80070F2C
 lbl_80070F08:
-/* 80070F08 0006DE68  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80070F08 0006DE68  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070F0C 0006DE6C  38 61 00 10 */	addi r3, r1, 0x10
 /* 80070F10 0006DE70  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80070F14 0006DE74  38 80 05 97 */	li r4, 0x597
@@ -579,7 +579,7 @@ lbl_80070F4C:
 lbl_80070F58:
 /* 80070F58 0006DEB8  2C 1F 00 01 */	cmpwi r31, 1
 /* 80070F5C 0006DEBC  40 82 00 28 */	bne lbl_80070F84
-/* 80070F60 0006DEC0  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80070F60 0006DEC0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070F64 0006DEC4  38 61 00 0C */	addi r3, r1, 0xc
 /* 80070F68 0006DEC8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80070F6C 0006DECC  38 80 05 97 */	li r4, 0x597
@@ -2610,7 +2610,7 @@ lbl_80072CA8:
 /* 80072CC4 0006FC24  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80072CC8 0006FC28  41 82 00 44 */	beq lbl_80072D0C
 lbl_80072CCC:
-/* 80072CCC 0006FC2C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80072CCC 0006FC2C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80072CD0 0006FC30  38 61 00 24 */	addi r3, r1, 0x24
 /* 80072CD4 0006FC34  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80072CD8 0006FC38  38 80 05 9A */	li r4, 0x59a
@@ -2632,7 +2632,7 @@ lbl_80072D0C:
 /* 80072D14 0006FC74  4B F9 9A BD */	bl GetPressInput__13ControlMapperFQ213ControlMapper9ECommandsRC11CFinalInput
 /* 80072D18 0006FC78  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80072D1C 0006FC7C  41 82 00 5C */	beq lbl_80072D78
-/* 80072D20 0006FC80  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80072D20 0006FC80  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80072D24 0006FC84  38 61 00 20 */	addi r3, r1, 0x20
 /* 80072D28 0006FC88  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80072D2C 0006FC8C  38 80 05 99 */	li r4, 0x599
@@ -2661,7 +2661,7 @@ lbl_80072D78:
 /* 80072D80 0006FCE0  4B F9 9A 51 */	bl GetPressInput__13ControlMapperFQ213ControlMapper9ECommandsRC11CFinalInput
 /* 80072D84 0006FCE4  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80072D88 0006FCE8  41 82 00 58 */	beq lbl_80072DE0
-/* 80072D8C 0006FCEC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80072D8C 0006FCEC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80072D90 0006FCF0  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80072D94 0006FCF4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80072D98 0006FCF8  38 80 05 99 */	li r4, 0x599
@@ -4108,7 +4108,7 @@ lbl_80074240:
 /* 80074254 000711B4  48 2C CB 31 */	bl Lock__6CTokenFv
 /* 80074258 000711B8  38 7F 00 28 */	addi r3, r31, 0x28
 /* 8007425C 000711BC  48 2C CB 29 */	bl Lock__6CTokenFv
-/* 80074260 000711C0  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80074260 000711C0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80074264 000711C4  38 61 00 08 */	addi r3, r1, 8
 /* 80074268 000711C8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8007426C 000711CC  38 80 05 9B */	li r4, 0x59b
@@ -4260,4 +4260,3 @@ lbl_803CD2D8:
 	.byte 0x46, 0x52
 	.asciz "ME_PauseScreen"
 	.balign 4
-

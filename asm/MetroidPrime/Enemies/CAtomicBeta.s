@@ -413,7 +413,7 @@ sub_80250d1c:
 /* 80250D3C 0024DC9C  80 83 00 04 */	lwz r4, 4(r3)
 /* 80250D40 0024DCA0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80250D44 0024DCA4  38 03 66 A0 */	addi r0, r3, sZeroVector__9CVector3f@l
-/* 80250D48 0024DCA8  A9 42 C5 FA */	lha r10, lbl_805AE31A@sda21(r2)
+/* 80250D48 0024DCA8  A9 42 C5 FA */	lha r10, kMedPriority__11CSfxManager@sda21(r2)
 /* 80250D4C 0024DCAC  90 81 00 08 */	stw r4, 8(r1)
 /* 80250D50 0024DCB0  7C A4 2B 78 */	mr r4, r5
 /* 80250D54 0024DCB4  7C C5 33 78 */	mr r5, r6

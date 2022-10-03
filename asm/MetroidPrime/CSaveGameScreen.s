@@ -107,7 +107,7 @@ DoSelectionChange__15CSaveGameScreenFP14CGuiTableGroup:
 /* 8024F1D4 0024C134  4B FF FF A1 */	bl SetUIColors__15CSaveGameScreenFv
 /* 8024F1D8 0024C138  80 1F 00 88 */	lwz r0, 0x88(r31)
 /* 8024F1DC 0024C13C  38 61 00 08 */	addi r3, r1, 8
-/* 8024F1E0 0024C140  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8024F1E0 0024C140  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8024F1E4 0024C144  38 A0 00 7F */	li r5, 0x7f
 /* 8024F1E8 0024C148  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8024F1EC 0024C14C  54 04 04 3E */	clrlwi r4, r0, 0x10
@@ -403,7 +403,7 @@ lbl_8024F5A0:
 lbl_8024F5B4:
 /* 8024F5B4 0024C514  2C 06 00 00 */	cmpwi r6, 0
 /* 8024F5B8 0024C518  41 80 00 28 */	blt lbl_8024F5E0
-/* 8024F5BC 0024C51C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8024F5BC 0024C51C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8024F5C0 0024C520  38 61 00 08 */	addi r3, r1, 8
 /* 8024F5C4 0024C524  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8024F5C8 0024C528  54 C4 04 3E */	clrlwi r4, r6, 0x10
@@ -2007,4 +2007,3 @@ lbl_803D4ACE:
 	.byte 0x3F
 	.asciz "?(??)"
 	.balign 4
-

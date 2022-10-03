@@ -203,7 +203,7 @@ sub_8022e424:
 /* 8022E44C 0022B3AC  38 00 00 01 */	li r0, 1
 /* 8022E450 0022B3B0  3C 60 80 5A */	lis r3, sUpVector__9CVector3f@ha
 /* 8022E454 0022B3B4  50 04 3E 30 */	rlwimi r4, r0, 7, 0x18, 0x18
-/* 8022E458 0022B3B8  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8022E458 0022B3B8  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8022E45C 0022B3BC  98 9E 02 B4 */	stb r4, 0x2b4(r30)
 /* 8022E460 0022B3C0  38 C3 66 F4 */	addi r6, r3, sUpVector__9CVector3f@l
 /* 8022E464 0022B3C4  38 61 00 3C */	addi r3, r1, 0x3c
@@ -799,7 +799,7 @@ lbl_8022EC8C:
 /* 8022ED18 0022BC78  38 61 00 14 */	addi r3, r1, 0x14
 /* 8022ED1C 0022BC7C  C0 1C 00 40 */	lfs f0, 0x40(r28)
 /* 8022ED20 0022BC80  38 A1 00 24 */	addi r5, r1, 0x24
-/* 8022ED24 0022BC84  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8022ED24 0022BC84  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8022ED28 0022BC88  38 E0 00 00 */	li r7, 0
 /* 8022ED2C 0022BC8C  D0 01 00 24 */	stfs f0, 0x24(r1)
 /* 8022ED30 0022BC90  39 00 00 00 */	li r8, 0

@@ -215,7 +215,7 @@ PlayImpactSound__17CEnergyProjectileFRC9CVector3f29EWeaponCollisionResponseTypes
 /* 80213D34 00210C94  48 0D 4C 7D */	bl TranslateSFXID__11CSfxManagerFUs
 /* 80213D38 00210C98  B0 61 00 38 */	sth r3, 0x38(r1)
 /* 80213D3C 00210C9C  38 61 00 0C */	addi r3, r1, 0xc
-/* 80213D40 00210CA0  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 80213D40 00210CA0  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 80213D44 00210CA4  38 81 00 14 */	addi r4, r1, 0x14
 /* 80213D48 00210CA8  81 02 C6 00 */	lwz r8, lbl_805AE320@sda21(r2)
 /* 80213D4C 00210CAC  38 A0 00 01 */	li r5, 1
@@ -516,7 +516,7 @@ lbl_802140E8:
 /* 802141B0 00211110  38 61 00 2C */	addi r3, r1, 0x2c
 /* 802141B4 00211114  38 80 00 00 */	li r4, 0
 /* 802141B8 00211118  48 12 CC 89 */	bl __dt__6CTokenFv
-/* 802141BC 0021111C  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 802141BC 0021111C  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 802141C0 00211120  38 61 00 1C */	addi r3, r1, 0x1c
 /* 802141C4 00211124  81 02 C6 00 */	lwz r8, lbl_805AE320@sda21(r2)
 /* 802141C8 00211128  38 81 00 90 */	addi r4, r1, 0x90

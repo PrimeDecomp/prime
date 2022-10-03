@@ -588,7 +588,7 @@ lbl_80209510:
 /* 80209550 002064B0  40 82 00 2C */	bne lbl_8020957C
 /* 80209554 002064B4  D0 1F 00 3C */	stfs f0, 0x3c(r31)
 /* 80209558 002064B8  38 61 00 0C */	addi r3, r1, 0xc
-/* 8020955C 002064BC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8020955C 002064BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80209560 002064C0  38 80 05 9E */	li r4, 0x59e
 /* 80209564 002064C4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80209568 002064C8  38 A0 00 7F */	li r5, 0x7f
@@ -922,7 +922,7 @@ sub_802099c0:
 /* 802099F4 00206954  38 61 00 08 */	addi r3, r1, 8
 /* 802099F8 00206958  88 DF 00 2D */	lbz r6, 0x2d(r31)
 /* 802099FC 0020695C  38 E0 00 00 */	li r7, 0
-/* 80209A00 00206960  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80209A00 00206960  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80209A04 00206964  39 20 00 01 */	li r9, 1
 /* 80209A08 00206968  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80209A0C 0020696C  48 0E 03 69 */	bl SfxStart__11CSfxManagerFUsssbsbi
@@ -3276,4 +3276,3 @@ lbl_803D2768:
 	.asciz "??(??)"
 	.byte 0x47
 	.asciz "UN_LCTR"
-

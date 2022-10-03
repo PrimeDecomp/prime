@@ -1978,7 +1978,7 @@ StartLandingSfx__10CMorphBallFv:
 /* 800EE820 000EB780  38 C0 00 40 */	li r6, 0x40
 /* 800EE824 000EB784  88 A1 00 08 */	lbz r5, 8(r1)
 /* 800EE828 000EB788  38 E0 00 01 */	li r7, 1
-/* 800EE82C 000EB78C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800EE82C 000EB78C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800EE830 000EB790  39 20 00 00 */	li r9, 0
 /* 800EE834 000EB794  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800EE838 000EB798  48 1F B5 3D */	bl SfxStart__11CSfxManagerFUsssbsbi
@@ -2089,7 +2089,7 @@ lbl_800EE988:
 /* 800EE9AC 000EB90C  80 BF 00 00 */	lwz r5, 0(r31)
 /* 800EE9B0 000EB910  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 800EE9B4 000EB914  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
-/* 800EE9B8 000EB918  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 800EE9B8 000EB918  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 800EE9BC 000EB91C  C0 45 00 60 */	lfs f2, 0x60(r5)
 /* 800EE9C0 000EB920  38 61 00 34 */	addi r3, r1, 0x34
 /* 800EE9C4 000EB924  C0 25 00 50 */	lfs f1, 0x50(r5)
@@ -4552,7 +4552,7 @@ lbl_800F0CBC:
 /* 800F0CF0 000EDC50  40 82 00 70 */	bne lbl_800F0D60
 /* 800F0CF4 000EDC54  C0 02 91 50 */	lfs f0, lbl_805AAE70@sda21(r2)
 /* 800F0CF8 000EDC58  38 61 00 0C */	addi r3, r1, 0xc
-/* 800F0CFC 000EDC5C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 800F0CFC 000EDC5C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 800F0D00 000EDC60  38 A1 00 4C */	addi r5, r1, 0x4c
 /* 800F0D04 000EDC64  D0 01 00 40 */	stfs f0, 0x40(r1)
 /* 800F0D08 000EDC68  38 C1 00 40 */	addi r6, r1, 0x40
@@ -8410,7 +8410,7 @@ lbl_800F4420:
 /* 800F44A8 000F1408  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 800F44AC 000F140C  4B F3 88 D1 */	bl SetAnimation__9CAnimDataFRC18CAnimPlaybackParmsb
 /* 800F44B0 000F1410  38 00 00 01 */	li r0, 1
-/* 800F44B4 000F1414  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800F44B4 000F1414  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800F44B8 000F1418  90 1E 1E 20 */	stw r0, 0x1e20(r30)
 /* 800F44BC 000F141C  38 61 00 10 */	addi r3, r1, 0x10
 /* 800F44C0 000F1420  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)

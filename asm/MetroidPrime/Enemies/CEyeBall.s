@@ -428,7 +428,7 @@ FireBeam__8CEyeballFR13CStateManagerRC12CTransform4f:
 /* 80224934 00221894  38 E0 00 01 */	li r7, 1
 /* 80224938 00221898  C0 06 00 08 */	lfs f0, 8(r6)
 /* 8022493C 0022189C  D0 A1 00 18 */	stfs f5, 0x18(r1)
-/* 80224940 002218A0  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 80224940 002218A0  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 80224944 002218A4  D0 A1 00 1C */	stfs f5, 0x1c(r1)
 /* 80224948 002218A8  D0 A1 00 20 */	stfs f5, 0x20(r1)
 /* 8022494C 002218AC  D0 A1 00 24 */	stfs f5, 0x24(r1)

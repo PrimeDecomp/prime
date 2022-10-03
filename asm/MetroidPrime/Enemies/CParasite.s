@@ -1423,7 +1423,7 @@ GetUp__9CParasiteFR13CStateManager9EStateMsgf:
 /* 801579C8 00154928  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 801579CC 0015492C  C0 1F 00 40 */	lfs f0, 0x40(r31)
 /* 801579D0 00154930  38 61 00 08 */	addi r3, r1, 8
-/* 801579D4 00154934  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 801579D4 00154934  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 801579D8 00154938  38 A1 00 0C */	addi r5, r1, 0xc
 /* 801579DC 0015493C  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 801579E0 00154940  38 E0 00 01 */	li r7, 1
@@ -1461,7 +1461,7 @@ Crouch__9CParasiteFR13CStateManager9EStateMsgf:
 /* 80157A50 001549B0  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80157A54 001549B4  C0 1F 00 40 */	lfs f0, 0x40(r31)
 /* 80157A58 001549B8  38 61 00 08 */	addi r3, r1, 8
-/* 80157A5C 001549BC  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 80157A5C 001549BC  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 80157A60 001549C0  38 A1 00 0C */	addi r5, r1, 0xc
 /* 80157A64 001549C4  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 80157A68 001549C8  38 E0 00 01 */	li r7, 1
@@ -1515,7 +1515,7 @@ lbl_80157AD0:
 /* 80157B10 00154A70  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80157B14 00154A74  C0 1F 00 40 */	lfs f0, 0x40(r31)
 /* 80157B18 00154A78  38 61 00 08 */	addi r3, r1, 8
-/* 80157B1C 00154A7C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 80157B1C 00154A7C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 80157B20 00154A80  38 A1 00 20 */	addi r5, r1, 0x20
 /* 80157B24 00154A84  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 80157B28 00154A88  38 E0 00 01 */	li r7, 1

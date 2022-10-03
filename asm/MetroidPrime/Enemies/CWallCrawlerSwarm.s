@@ -259,7 +259,7 @@ lbl_801E7670:
 /* 801E76D8 001E4638  D0 A1 00 38 */	stfs f5, 0x38(r1)
 /* 801E76DC 001E463C  C0 1E 00 08 */	lfs f0, 8(r30)
 /* 801E76E0 001E4640  D0 A1 00 3C */	stfs f5, 0x3c(r1)
-/* 801E76E4 001E4644  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 801E76E4 001E4644  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 801E76E8 001E4648  D0 81 00 40 */	stfs f4, 0x40(r1)
 /* 801E76EC 001E464C  D0 61 00 44 */	stfs f3, 0x44(r1)
 /* 801E76F0 001E4650  91 61 00 48 */	stw r11, 0x48(r1)
@@ -3620,7 +3620,7 @@ lbl_801EA790:
 /* 801EA79C 001E76FC  38 80 00 01 */	li r4, 1
 /* 801EA7A0 001E7700  D3 9F 00 34 */	stfs f28, 0x34(r31)
 /* 801EA7A4 001E7704  38 61 00 08 */	addi r3, r1, 8
-/* 801EA7A8 001E7708  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 801EA7A8 001E7708  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 801EA7AC 001E770C  38 A1 00 3C */	addi r5, r1, 0x3c
 /* 801EA7B0 001E7710  D3 7F 00 38 */	stfs f27, 0x38(r31)
 /* 801EA7B4 001E7714  38 E0 00 01 */	li r7, 1
@@ -3729,7 +3729,7 @@ sub_801ea83c:
 /* 801EA944 001E78A4  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 801EA948 001E78A8  38 E0 00 01 */	li r7, 1
 /* 801EA94C 001E78AC  38 80 00 05 */	li r4, 5
-/* 801EA950 001E78B0  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 801EA950 001E78B0  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 801EA954 001E78B4  D0 1E 00 34 */	stfs f0, 0x34(r30)
 /* 801EA958 001E78B8  38 61 00 08 */	addi r3, r1, 8
 /* 801EA95C 001E78BC  38 A1 00 10 */	addi r5, r1, 0x10
@@ -5195,7 +5195,7 @@ lbl_801EBDFC:
 /* 801EBEA0 001E8E00  88 1E 00 80 */	lbz r0, 0x80(r30)
 /* 801EBEA4 001E8E04  38 60 00 01 */	li r3, 1
 /* 801EBEA8 001E8E08  50 60 26 F6 */	rlwimi r0, r3, 4, 0x1b, 0x1b
-/* 801EBEAC 001E8E0C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 801EBEAC 001E8E0C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 801EBEB0 001E8E10  98 1E 00 80 */	stb r0, 0x80(r30)
 /* 801EBEB4 001E8E14  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801EBEB8 001E8E18  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l

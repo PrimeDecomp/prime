@@ -1742,7 +1742,7 @@ lbl_80010C98:
 lbl_80010CE0:
 /* 80010CE0 0000DC40  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 80010CE4 0000DC44  41 82 00 34 */	beq lbl_80010D18
-/* 80010CE8 0000DC48  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80010CE8 0000DC48  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80010CEC 0000DC4C  7F 84 E3 78 */	mr r4, r28
 /* 80010CF0 0000DC50  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80010CF4 0000DC54  7F A5 EB 78 */	mr r5, r29
@@ -3659,7 +3659,7 @@ lbl_80012730:
 /* 80012754 0000F6B4  48 2D 75 F5 */	bl SfxStop__11CSfxManagerFRC10CSfxHandle
 lbl_80012758:
 /* 80012758 0000F6B8  57 DE 04 3E */	clrlwi r30, r30, 0x10
-/* 8001275C 0000F6BC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8001275C 0000F6BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80012760 0000F6C0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80012764 0000F6C4  7F C4 F3 78 */	mr r4, r30
 /* 80012768 0000F6C8  38 61 00 10 */	addi r3, r1, 0x10
@@ -3687,7 +3687,7 @@ lbl_80012794:
 /* 800127B8 0000F718  90 1A 07 70 */	stw r0, 0x770(r26)
 lbl_800127BC:
 /* 800127BC 0000F71C  57 F9 04 3E */	clrlwi r25, r31, 0x10
-/* 800127C0 0000F720  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800127C0 0000F720  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800127C4 0000F724  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800127C8 0000F728  7F 24 CB 78 */	mr r4, r25
 /* 800127CC 0000F72C  38 61 00 08 */	addi r3, r1, 8
@@ -6279,7 +6279,7 @@ lbl_80014BD8:
 /* 80014C28 00011B88  48 26 ED 25 */	bl TransitionToMorphBallState__7CPlayerFfR13CStateManager
 /* 80014C2C 00011B8C  48 00 01 10 */	b lbl_80014D3C
 lbl_80014C30:
-/* 80014C30 00011B90  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80014C30 00011B90  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80014C34 00011B94  38 61 00 10 */	addi r3, r1, 0x10
 /* 80014C38 00011B98  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80014C3C 00011B9C  38 80 06 F5 */	li r4, 0x6f5
@@ -6334,7 +6334,7 @@ lbl_80014C6C:
 /* 80014CFC 00011C5C  48 26 E3 79 */	bl TransitionFromMorphBallState__7CPlayerFR13CStateManager
 /* 80014D00 00011C60  48 00 00 3C */	b lbl_80014D3C
 lbl_80014D04:
-/* 80014D04 00011C64  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80014D04 00011C64  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80014D08 00011C68  38 61 00 08 */	addi r3, r1, 8
 /* 80014D0C 00011C6C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80014D10 00011C70  38 80 06 F5 */	li r4, 0x6f5
@@ -7166,7 +7166,7 @@ lbl_800158D4:
 /* 800158E8 00012848  80 1D 07 54 */	lwz r0, 0x754(r29)
 /* 800158EC 0001284C  2C 00 00 00 */	cmpwi r0, 0
 /* 800158F0 00012850  41 82 00 40 */	beq lbl_80015930
-/* 800158F4 00012854  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800158F4 00012854  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800158F8 00012858  38 61 00 10 */	addi r3, r1, 0x10
 /* 800158FC 0001285C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80015900 00012860  38 80 0C 37 */	li r4, 0xc37
@@ -7182,7 +7182,7 @@ lbl_800158D4:
 /* 80015928 00012888  4B FF B8 65 */	bl ApplySubmergedPitchBend__7CPlayerFR10CSfxHandle
 /* 8001592C 0001288C  48 00 00 3C */	b lbl_80015968
 lbl_80015930:
-/* 80015930 00012890  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80015930 00012890  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80015934 00012894  38 61 00 08 */	addi r3, r1, 8
 /* 80015938 00012898  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8001593C 0001289C  38 80 0C 38 */	li r4, 0xc38
@@ -7416,7 +7416,7 @@ lbl_80015C7C:
 /* 80015C84 00012BE4  38 61 00 54 */	addi r3, r1, 0x54
 /* 80015C88 00012BE8  48 32 7E 59 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_80015C8C:
-/* 80015C8C 00012BEC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80015C8C 00012BEC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80015C90 00012BF0  38 61 00 18 */	addi r3, r1, 0x18
 /* 80015C94 00012BF4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80015C98 00012BF8  38 80 0C 39 */	li r4, 0xc39
@@ -7545,7 +7545,7 @@ lbl_80015E3C:
 /* 80015E50 00012DB0  48 00 43 C5 */	bl IsMorphBallTransitioning__7CPlayerCFv
 /* 80015E54 00012DB4  93 BB 0A 08 */	stw r29, 0xa08(r27)
 /* 80015E58 00012DB8  7F C4 F3 78 */	mr r4, r30
-/* 80015E5C 00012DBC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80015E5C 00012DBC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80015E60 00012DC0  38 61 00 08 */	addi r3, r1, 8
 /* 80015E64 00012DC4  93 FB 0A 0C */	stw r31, 0xa0c(r27)
 /* 80015E68 00012DC8  38 A0 00 7F */	li r5, 0x7f
@@ -7823,7 +7823,7 @@ lbl_8001624C:
 lbl_8001625C:
 /* 8001625C 000131BC  A0 9F 02 60 */	lhz r4, 0x260(r31)
 /* 80016260 000131C0  38 61 00 18 */	addi r3, r1, 0x18
-/* 80016264 000131C4  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80016264 000131C4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80016268 000131C8  38 A0 00 7F */	li r5, 0x7f
 /* 8001626C 000131CC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80016270 000131D0  38 C0 00 40 */	li r6, 0x40
@@ -8174,7 +8174,7 @@ lbl_80016768:
 /* 80016768 000136C8  7F 63 DB 78 */	mr r3, r27
 /* 8001676C 000136CC  4B FF EF A9 */	bl StartLandingControlFreeze__7CPlayerFv
 lbl_80016770:
-/* 80016770 000136D0  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80016770 000136D0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80016774 000136D4  7F E5 FB 78 */	mr r5, r31
 /* 80016778 000136D8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8001677C 000136DC  38 61 00 44 */	addi r3, r1, 0x44
@@ -9489,7 +9489,7 @@ lbl_800179F4:
 lbl_80017A04:
 /* 80017A04 00014964  A0 9F 02 62 */	lhz r4, 0x262(r31)
 /* 80017A08 00014968  38 61 00 18 */	addi r3, r1, 0x18
-/* 80017A0C 0001496C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80017A0C 0001496C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017A10 00014970  38 A0 00 7F */	li r5, 0x7f
 /* 80017A14 00014974  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80017A18 00014978  38 C0 00 40 */	li r6, 0x40
@@ -9864,7 +9864,7 @@ lbl_80017F00:
 /* 80017F34 00014E94  80 1D 07 90 */	lwz r0, 0x790(r29)
 /* 80017F38 00014E98  2C 00 00 01 */	cmpwi r0, 1
 /* 80017F3C 00014E9C  40 82 00 40 */	bne lbl_80017F7C
-/* 80017F40 00014EA0  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80017F40 00014EA0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017F44 00014EA4  38 61 00 2C */	addi r3, r1, 0x2c
 /* 80017F48 00014EA8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80017F4C 00014EAC  7F E5 07 74 */	extsb r5, r31
@@ -9880,7 +9880,7 @@ lbl_80017F00:
 /* 80017F74 00014ED4  4B FF 92 19 */	bl ApplySubmergedPitchBend__7CPlayerFR10CSfxHandle
 /* 80017F78 00014ED8  48 00 01 54 */	b lbl_800180CC
 lbl_80017F7C:
-/* 80017F7C 00014EDC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80017F7C 00014EDC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017F80 00014EE0  38 61 00 24 */	addi r3, r1, 0x24
 /* 80017F84 00014EE4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80017F88 00014EE8  7F E5 07 74 */	extsb r5, r31
@@ -9899,7 +9899,7 @@ lbl_80017FB8:
 /* 80017FB8 00014F18  80 1D 07 90 */	lwz r0, 0x790(r29)
 /* 80017FBC 00014F1C  2C 00 00 01 */	cmpwi r0, 1
 /* 80017FC0 00014F20  40 82 00 40 */	bne lbl_80018000
-/* 80017FC4 00014F24  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80017FC4 00014F24  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017FC8 00014F28  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80017FCC 00014F2C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80017FD0 00014F30  7F E5 07 74 */	extsb r5, r31
@@ -9915,7 +9915,7 @@ lbl_80017FB8:
 /* 80017FF8 00014F58  4B FF 91 95 */	bl ApplySubmergedPitchBend__7CPlayerFR10CSfxHandle
 /* 80017FFC 00014F5C  48 00 00 D0 */	b lbl_800180CC
 lbl_80018000:
-/* 80018000 00014F60  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80018000 00014F60  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80018004 00014F64  38 61 00 14 */	addi r3, r1, 0x14
 /* 80018008 00014F68  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8001800C 00014F6C  7F E5 07 74 */	extsb r5, r31
@@ -9955,7 +9955,7 @@ lbl_80018070:
 /* 8001808C 00014FEC  48 00 00 A9 */	bl GetMaterialSoundUnderPlayer__7CPlayerFR13CStateManagerPCUsiUs
 /* 80018090 00014FF0  7C 60 1B 78 */	mr r0, r3
 lbl_80018094:
-/* 80018094 00014FF4  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80018094 00014FF4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80018098 00014FF8  38 61 00 0C */	addi r3, r1, 0xc
 /* 8001809C 00014FFC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800180A0 00015000  54 04 04 3E */	clrlwi r4, r0, 0x10
@@ -10530,7 +10530,7 @@ lbl_8001887C:
 /* 800188AC 0001580C  80 1E 02 F8 */	lwz r0, 0x2f8(r30)
 /* 800188B0 00015810  2C 00 00 00 */	cmpwi r0, 0
 /* 800188B4 00015814  40 82 00 3C */	bne lbl_800188F0
-/* 800188B8 00015818  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800188B8 00015818  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800188BC 0001581C  38 61 00 2C */	addi r3, r1, 0x2c
 /* 800188C0 00015820  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800188C4 00015824  38 80 05 EC */	li r4, 0x5ec
@@ -10573,7 +10573,7 @@ lbl_80018940:
 /* 80018950 000158B0  40 82 00 44 */	bne lbl_80018994
 /* 80018954 000158B4  FC 1F 00 40 */	fcmpo cr0, f31, f0
 /* 80018958 000158B8  40 80 00 3C */	bge lbl_80018994
-/* 8001895C 000158BC  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8001895C 000158BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80018960 000158C0  38 61 00 24 */	addi r3, r1, 0x24
 /* 80018964 000158C4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80018968 000158C8  38 80 05 EC */	li r4, 0x5ec

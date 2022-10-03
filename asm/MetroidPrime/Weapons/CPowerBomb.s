@@ -128,7 +128,7 @@ lbl_8014D98C:
 /* 8014D9D0 0014A930  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8014D9D4 0014A934  C0 1C 00 40 */	lfs f0, 0x40(r28)
 /* 8014D9D8 0014A938  38 61 00 24 */	addi r3, r1, 0x24
-/* 8014D9DC 0014A93C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8014D9DC 0014A93C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8014D9E0 0014A940  38 A1 00 34 */	addi r5, r1, 0x34
 /* 8014D9E4 0014A944  D0 01 00 34 */	stfs f0, 0x34(r1)
 /* 8014D9E8 0014A948  38 80 07 10 */	li r4, 0x710

@@ -309,7 +309,7 @@ lbl_80172E10:
 /* 80172E14 0016FD74  C0 02 A1 14 */	lfs f0, lbl_805ABE34@sda21(r2)
 /* 80172E18 0016FD78  90 1F 00 0C */	stw r0, 0xc(r31)
 /* 80172E1C 0016FD7C  38 61 00 2C */	addi r3, r1, 0x2c
-/* 80172E20 0016FD80  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80172E20 0016FD80  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80172E24 0016FD84  38 80 05 9F */	li r4, 0x59f
 /* 80172E28 0016FD88  D0 1F 01 A4 */	stfs f0, 0x1a4(r31)
 /* 80172E2C 0016FD8C  38 A0 00 7F */	li r5, 0x7f
@@ -366,7 +366,7 @@ lbl_80172EE0:
 /* 80172EE0 0016FE40  80 1F 01 AC */	lwz r0, 0x1ac(r31)
 /* 80172EE4 0016FE44  7C 00 E0 00 */	cmpw r0, r28
 /* 80172EE8 0016FE48  41 82 00 98 */	beq lbl_80172F80
-/* 80172EEC 0016FE4C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80172EEC 0016FE4C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80172EF0 0016FE50  38 61 00 20 */	addi r3, r1, 0x20
 /* 80172EF4 0016FE54  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80172EF8 0016FE58  38 80 05 9F */	li r4, 0x59f
@@ -738,7 +738,7 @@ lbl_80173438:
 /* 8017343C 0017039C  C0 02 A1 14 */	lfs f0, lbl_805ABE34@sda21(r2)
 /* 80173440 001703A0  90 1F 00 0C */	stw r0, 0xc(r31)
 /* 80173444 001703A4  38 61 00 28 */	addi r3, r1, 0x28
-/* 80173448 001703A8  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80173448 001703A8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8017344C 001703AC  38 80 05 89 */	li r4, 0x589
 /* 80173450 001703B0  D0 1F 01 A4 */	stfs f0, 0x1a4(r31)
 /* 80173454 001703B4  38 A0 00 7F */	li r5, 0x7f
@@ -786,7 +786,7 @@ lbl_80173474:
 /* 801734F8 00170458  80 7F 00 A8 */	lwz r3, 0xa8(r31)
 /* 801734FC 0017045C  38 80 00 01 */	li r4, 1
 /* 80173500 00170460  48 00 15 C1 */	bl SetScanMessageTypeEffect__12CScanDisplayFP12CGuiTextPaneb
-/* 80173504 00170464  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 80173504 00170464  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80173508 00170468  38 61 00 24 */	addi r3, r1, 0x24
 /* 8017350C 0017046C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 80173510 00170470  38 80 05 91 */	li r4, 0x591
@@ -942,7 +942,7 @@ lbl_8017372C:
 /* 80173730 00170690  FC 00 08 00 */	fcmpu cr0, f0, f1
 /* 80173734 00170694  40 82 00 48 */	bne lbl_8017377C
 /* 80173738 00170698  38 00 00 04 */	li r0, 4
-/* 8017373C 0017069C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8017373C 0017069C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80173740 001706A0  90 1C 00 00 */	stw r0, 0(r28)
 /* 80173744 001706A4  38 61 00 18 */	addi r3, r1, 0x18
 /* 80173748 001706A8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
@@ -2460,4 +2460,3 @@ lbl_803D0620:
 	# ROM: 0x3CD620
 	.asciz "TXTR_DataDot"
 	.balign 4
-

@@ -5399,7 +5399,7 @@ lbl_80256974:
 /* 802569B0 00253910  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802569B4 00253914  D0 A1 00 0C */	stfs f5, 0xc(r1)
 /* 802569B8 00253918  39 03 66 A0 */	addi r8, r3, sZeroVector__9CVector3f@l
-/* 802569BC 0025391C  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 802569BC 0025391C  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 802569C0 00253920  D0 A1 00 10 */	stfs f5, 0x10(r1)
 /* 802569C4 00253924  38 61 00 08 */	addi r3, r1, 8
 /* 802569C8 00253928  C0 48 00 00 */	lfs f2, 0(r8)

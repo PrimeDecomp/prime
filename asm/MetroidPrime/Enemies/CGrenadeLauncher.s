@@ -338,7 +338,7 @@ lbl_8022F8D0:
 /* 8022F8E8 0022C848  38 61 00 28 */	addi r3, r1, 0x28
 /* 8022F8EC 0022C84C  88 A2 CC 40 */	lbz r5, kMaxVolume__9CAudioSys@sda21(r2)
 /* 8022F8F0 0022C850  38 C0 00 40 */	li r6, 0x40
-/* 8022F8F4 0022C854  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8022F8F4 0022C854  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8022F8F8 0022C858  38 E0 00 00 */	li r7, 0
 /* 8022F8FC 0022C85C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8022F900 0022C860  39 20 00 00 */	li r9, 0
