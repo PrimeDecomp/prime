@@ -67,6 +67,7 @@ extern _INT32 __extended_huge[];
 #define HUGE_VALL (*(long double*)__extended_huge)
 
 double fabs(double x);
+double fmod(double x, double m);
 double sin(double x);
 double cos(double x);
 double atan(double x);

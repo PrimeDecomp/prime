@@ -26,7 +26,7 @@
 #include "Kyoto/Math/CVector2i.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 
-#include "Runtime/w_fmod.h"
+#include "math.h"
 #include "rstl/math.hpp"
 
 namespace rstl {
