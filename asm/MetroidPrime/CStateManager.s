@@ -896,7 +896,7 @@ lbl_80044370:
 /* 80044404 00041364  48 2A 45 AD */	bl TranslateSFXID__11CSfxManagerFUs
 /* 80044408 00041368  B0 61 00 E8 */	sth r3, 0xe8(r1)
 /* 8004440C 0004136C  38 61 00 2C */	addi r3, r1, 0x2c
-/* 80044410 00041370  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 80044410 00041370  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 80044414 00041374  38 81 00 C4 */	addi r4, r1, 0xc4
 /* 80044418 00041378  81 02 C6 00 */	lwz r8, lbl_805AE320@sda21(r2)
 /* 8004441C 0004137C  38 A0 00 01 */	li r5, 1

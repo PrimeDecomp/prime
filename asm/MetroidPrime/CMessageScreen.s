@@ -119,7 +119,7 @@ lbl_801EF70C:
 /* 801EF74C 001EC6AC  48 0D A1 39 */	bl "SetText__15CGuiTextSupportFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>"
 /* 801EF750 001EC6B0  38 61 00 10 */	addi r3, r1, 0x10
 /* 801EF754 001EC6B4  48 14 D9 E1 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
-/* 801EF758 001EC6B8  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 801EF758 001EC6B8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 801EF75C 001EC6BC  38 61 00 0C */	addi r3, r1, 0xc
 /* 801EF760 001EC6C0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 801EF764 001EC6C4  38 80 05 8D */	li r4, 0x58d
@@ -878,4 +878,3 @@ lbl_803D1F48:
 	.byte 0x46, 0x52, 0x4D
 	.asciz "E_MsgScreen"
 	.4byte 0
-

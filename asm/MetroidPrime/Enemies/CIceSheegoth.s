@@ -1557,7 +1557,7 @@ lbl_8019F344:
 /* 8019F3E0 0019C340  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8019F3E4 0019C344  C0 1F 00 40 */	lfs f0, 0x40(r31)
 /* 8019F3E8 0019C348  38 61 00 14 */	addi r3, r1, 0x14
-/* 8019F3EC 0019C34C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8019F3EC 0019C34C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8019F3F0 0019C350  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8019F3F4 0019C354  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 8019F3F8 0019C358  38 E0 00 00 */	li r7, 0

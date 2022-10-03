@@ -4609,8 +4609,8 @@ lbl_805AE318:
 	# ROM: 0x3FABB8
 	.2byte 0x000000FF
 
-.global lbl_805AE31A
-lbl_805AE31A:
+.global kMedPriority__11CSfxManager
+kMedPriority__11CSfxManager:
 	# ROM: 0x3FABBA
 	.2byte 0x0000007F
 

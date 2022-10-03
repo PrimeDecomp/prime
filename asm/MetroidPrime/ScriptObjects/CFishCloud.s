@@ -1971,7 +1971,7 @@ sub_801cfbd4:
 /* 801CFC48 001CCBA8  38 E0 00 00 */	li r7, 0
 /* 801CFC4C 001CCBAC  C0 06 00 08 */	lfs f0, 8(r6)
 /* 801CFC50 001CCBB0  D0 A1 00 18 */	stfs f5, 0x18(r1)
-/* 801CFC54 001CCBB4  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
+/* 801CFC54 001CCBB4  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 801CFC58 001CCBB8  D0 A1 00 1C */	stfs f5, 0x1c(r1)
 /* 801CFC5C 001CCBBC  D0 A1 00 20 */	stfs f5, 0x20(r1)
 /* 801CFC60 001CCBC0  D0 81 00 24 */	stfs f4, 0x24(r1)

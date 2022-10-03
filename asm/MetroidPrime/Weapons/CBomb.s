@@ -420,7 +420,7 @@ lbl_8008FEBC:
 /* 8008FEE4 0008CE44  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8008FEE8 0008CE48  C0 1C 00 40 */	lfs f0, 0x40(r28)
 /* 8008FEEC 0008CE4C  38 61 00 38 */	addi r3, r1, 0x38
-/* 8008FEF0 0008CE50  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8008FEF0 0008CE50  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8008FEF4 0008CE54  38 A1 00 50 */	addi r5, r1, 0x50
 /* 8008FEF8 0008CE58  D0 01 00 50 */	stfs f0, 0x50(r1)
 /* 8008FEFC 0008CE5C  38 80 06 DC */	li r4, 0x6dc
@@ -933,7 +933,7 @@ Explode__5CBombFRC9CVector3fR13CStateManager:
 /* 80090664 0008D5C4  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80090668 0008D5C8  C0 1D 00 40 */	lfs f0, 0x40(r29)
 /* 8009066C 0008D5CC  38 61 00 18 */	addi r3, r1, 0x18
-/* 80090670 0008D5D0  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 80090670 0008D5D0  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 80090674 0008D5D4  38 A1 00 1C */	addi r5, r1, 0x1c
 /* 80090678 0008D5D8  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 8009067C 0008D5DC  38 80 06 DE */	li r4, 0x6de

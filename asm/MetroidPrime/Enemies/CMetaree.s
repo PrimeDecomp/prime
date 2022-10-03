@@ -573,7 +573,7 @@ lbl_8014E5A4:
 /* 8014E628 0014B588  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 8014E62C 0014B58C  C0 1F 00 40 */	lfs f0, 0x40(r31)
 /* 8014E630 0014B590  38 61 00 08 */	addi r3, r1, 8
-/* 8014E634 0014B594  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8014E634 0014B594  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8014E638 0014B598  38 A1 00 0C */	addi r5, r1, 0xc
 /* 8014E63C 0014B59C  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 8014E640 0014B5A0  38 E0 00 01 */	li r7, 1

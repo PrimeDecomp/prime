@@ -426,7 +426,7 @@ lbl_8012F510:
 /* 8012F52C 0012C48C  D0 41 00 48 */	stfs f2, 0x48(r1)
 /* 8012F530 0012C490  D0 01 00 4C */	stfs f0, 0x4c(r1)
 /* 8012F534 0012C494  4B FD 01 91 */	bl GetSplashSound__12CScriptWaterCFf
-/* 8012F538 0012C498  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8012F538 0012C498  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8012F53C 0012C49C  7C 64 1B 78 */	mr r4, r3
 /* 8012F540 0012C4A0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 8012F544 0012C4A4  7F A5 EB 78 */	mr r5, r29
@@ -612,4 +612,3 @@ lbl_803D0038:
 	.byte 0x53
 	.asciz "plash"
 	.balign 4
-

@@ -342,7 +342,7 @@ SetRotationSfxPlaying__10CSamusDollFb:
 /* 800DAA4C 000D79AC  80 1F 02 68 */	lwz r0, 0x268(r31)
 /* 800DAA50 000D79B0  28 00 00 00 */	cmplwi r0, 0
 /* 800DAA54 000D79B4  40 82 00 4C */	bne lbl_800DAAA0
-/* 800DAA58 000D79B8  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800DAA58 000D79B8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800DAA5C 000D79BC  38 61 00 0C */	addi r3, r1, 0xc
 /* 800DAA60 000D79C0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800DAA64 000D79C4  38 80 05 5F */	li r4, 0x55f
@@ -380,7 +380,7 @@ SetZoomSfxPlaying__10CSamusDollFb:
 /* 800DAAD0 000D7A30  80 1F 02 6C */	lwz r0, 0x26c(r31)
 /* 800DAAD4 000D7A34  28 00 00 00 */	cmplwi r0, 0
 /* 800DAAD8 000D7A38  40 82 00 4C */	bne lbl_800DAB24
-/* 800DAADC 000D7A3C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800DAADC 000D7A3C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800DAAE0 000D7A40  38 61 00 0C */	addi r3, r1, 0xc
 /* 800DAAE4 000D7A44  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800DAAE8 000D7A48  38 80 05 60 */	li r4, 0x560
@@ -418,7 +418,7 @@ SetOffsetSfxPlaying__10CSamusDollFb:
 /* 800DAB54 000D7AB4  80 1F 02 64 */	lwz r0, 0x264(r31)
 /* 800DAB58 000D7AB8  28 00 00 00 */	cmplwi r0, 0
 /* 800DAB5C 000D7ABC  40 82 00 4C */	bne lbl_800DABA8
-/* 800DAB60 000D7AC0  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800DAB60 000D7AC0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800DAB64 000D7AC4  38 61 00 0C */	addi r3, r1, 0xc
 /* 800DAB68 000D7AC8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800DAB6C 000D7ACC  38 80 05 7E */	li r4, 0x57e
@@ -457,7 +457,7 @@ BeginViewInterpolate__10CSamusDollFb:
 /* 800DABDC 000D7B3C  C0 23 00 C4 */	lfs f1, 0xc4(r3)
 /* 800DABE0 000D7B40  FC 00 08 00 */	fcmpu cr0, f0, f1
 /* 800DABE4 000D7B44  40 82 00 2C */	bne lbl_800DAC10
-/* 800DABE8 000D7B48  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800DABE8 000D7B48  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800DABEC 000D7B4C  38 61 00 0C */	addi r3, r1, 0xc
 /* 800DABF0 000D7B50  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800DABF4 000D7B54  38 80 05 A0 */	li r4, 0x5a0
@@ -479,7 +479,7 @@ lbl_800DAC10:
 /* 800DAC30 000D7B90  7F C3 F3 78 */	mr r3, r30
 /* 800DAC34 000D7B94  38 80 00 00 */	li r4, 0
 /* 800DAC38 000D7B98  4B FF FD F9 */	bl SetRotationSfxPlaying__10CSamusDollFb
-/* 800DAC3C 000D7B9C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 800DAC3C 000D7B9C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800DAC40 000D7BA0  38 61 00 08 */	addi r3, r1, 8
 /* 800DAC44 000D7BA4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 800DAC48 000D7BA8  38 80 05 A1 */	li r4, 0x5a1

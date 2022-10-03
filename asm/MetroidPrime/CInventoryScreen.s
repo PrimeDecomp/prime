@@ -1724,7 +1724,7 @@ lbl_802072A4:
 /* 802072B0 00204210  48 0C 0B 59 */	bl SetPage__15CGuiTextSupportFi
 /* 802072B4 00204214  7C 1F F0 00 */	cmpw r31, r30
 /* 802072B8 00204218  41 82 00 28 */	beq lbl_802072E0
-/* 802072BC 0020421C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 802072BC 0020421C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 802072C0 00204220  38 61 00 08 */	addi r3, r1, 8
 /* 802072C4 00204224  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
 /* 802072C8 00204228  38 80 05 A4 */	li r4, 0x5a4
@@ -2124,4 +2124,3 @@ lbl_803D2718:
 	# ROM: 0x3CF718
 	.asciz "??(??)"
 	.balign 4
-

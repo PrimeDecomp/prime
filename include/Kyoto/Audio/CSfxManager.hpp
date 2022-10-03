@@ -9,7 +9,7 @@ class CSfxManager {
 public:
   static void Update(f32 dt);
   static void RemoveEmitter(CSfxHandle handle);
-  static void UpdateEmitter(const CSfxHandle& handle, const CVector3f& pos, const CVector3f& dir,
+  static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
                             uchar maxVol);
   static CSfxHandle AddEmitter(u16 id, const CVector3f& pos, const CVector3f& dir,
                                bool useAcoustics, bool looped, s16 prio, s32 areaId);
@@ -19,6 +19,9 @@ public:
   static u16 TranslateSFXID(u16);
 
   static void PitchBend(CSfxHandle handle, int pitch);
+
+  static s16 kMaxPriority;  // 0xff
+  static s16 kMedPriority;  // 0x7f
 };
 
 #endif

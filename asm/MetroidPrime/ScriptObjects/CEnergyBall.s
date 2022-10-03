@@ -444,7 +444,7 @@ lbl_8029F594:
 /* 8029F5E4 0029C544  48 0A 18 5D */	bl __dt__6CTokenFv
 lbl_8029F5E8:
 /* 8029F5E8 0029C548  38 00 00 00 */	li r0, 0
-/* 8029F5EC 0029C54C  A9 02 C5 FA */	lha r8, lbl_805AE31A@sda21(r2)
+/* 8029F5EC 0029C54C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8029F5F0 0029C550  98 01 00 90 */	stb r0, 0x90(r1)
 /* 8029F5F4 0029C554  38 61 00 3C */	addi r3, r1, 0x3c
 /* 8029F5F8 0029C558  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)

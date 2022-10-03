@@ -418,7 +418,7 @@ Think__7CPufferFfR13CStateManager:
 /* 8025C2A0 00259200  B0 7E 05 CC */	sth r3, 0x5cc(r30)
 /* 8025C2A4 00259204  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8025C2A8 00259208  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
-/* 8025C2AC 0025920C  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 8025C2AC 0025920C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8025C2B0 00259210  C0 5E 00 60 */	lfs f2, 0x60(r30)
 /* 8025C2B4 00259214  38 61 00 08 */	addi r3, r1, 8
 /* 8025C2B8 00259218  C0 3E 00 50 */	lfs f1, 0x50(r30)

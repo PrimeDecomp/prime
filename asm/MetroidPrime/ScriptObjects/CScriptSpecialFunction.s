@@ -364,7 +364,7 @@ AddOrUpdateEmitter__22CScriptSpecialFunctionFfR10CSfxHandleUsRC9CVector3fUc:
 /* 8014F41C 0014C37C  80 82 C6 00 */	lwz r4, lbl_805AE320@sda21(r2)
 /* 8014F420 0014C380  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8014F424 0014C384  38 03 66 A0 */	addi r0, r3, sZeroVector__9CVector3f@l
-/* 8014F428 0014C388  A9 42 C5 FA */	lha r10, lbl_805AE31A@sda21(r2)
+/* 8014F428 0014C388  A9 42 C5 FA */	lha r10, kMedPriority__11CSfxManager@sda21(r2)
 /* 8014F42C 0014C38C  90 81 00 08 */	stw r4, 8(r1)
 /* 8014F430 0014C390  7C A4 2B 78 */	mr r4, r5
 /* 8014F434 0014C394  7C C5 33 78 */	mr r5, r6
@@ -1634,7 +1634,7 @@ lbl_80150638:
 /* 80150684 0014D5E4  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80150688 0014D5E8  C0 18 00 40 */	lfs f0, 0x40(r24)
 /* 8015068C 0014D5EC  38 61 00 14 */	addi r3, r1, 0x14
-/* 80150690 0014D5F0  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 80150690 0014D5F0  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 80150694 0014D5F4  38 A1 00 60 */	addi r5, r1, 0x60
 /* 80150698 0014D5F8  D0 01 00 60 */	stfs f0, 0x60(r1)
 /* 8015069C 0014D5FC  38 E0 00 01 */	li r7, 1
@@ -1682,7 +1682,7 @@ lbl_801506F0:
 /* 80150734 0014D694  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80150738 0014D698  C0 18 00 40 */	lfs f0, 0x40(r24)
 /* 8015073C 0014D69C  38 61 00 10 */	addi r3, r1, 0x10
-/* 80150740 0014D6A0  A9 22 C5 FA */	lha r9, lbl_805AE31A@sda21(r2)
+/* 80150740 0014D6A0  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 80150744 0014D6A4  38 A1 00 54 */	addi r5, r1, 0x54
 /* 80150748 0014D6A8  D0 01 00 54 */	stfs f0, 0x54(r1)
 /* 8015074C 0014D6AC  38 E0 00 01 */	li r7, 1
