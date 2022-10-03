@@ -120,7 +120,7 @@ public:
   // GetAnimationManager__9CAnimDataFv
   // SetPoseValid__9CAnimDataFb
 
-  u16 GetDefaultAnimation() const { return x208_defaultAnim; }
+  s16 GetDefaultAnimation() const { return x208_defaultAnim; }
   // GetCharacterInfo__9CAnimDataCFv
   // GetCharLayoutInfo__9CAnimDataCFv
   // GetDeltaRotation__9CAnimDataCFv
@@ -183,7 +183,8 @@ private:
   rstl::rc_ptr< CTransitionManager > x1fc_transMgr;
   f32 x200_speedScale;
   int x204_charIdx;
-  int x208_defaultAnim;
+  s16 x208_defaultAnim;
+  s16 x20a_padding;
   int x20c_passedBoolCount;
   int x210_passedIntCount;
   int x214_passedParticleCount;
