@@ -27,6 +27,7 @@ COMPLETE_OBJECTS = [
     "MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint",
     "Weapons/IWeaponRenderer",
     "Kyoto/Basics/CStopwatch",
+    "Kyoto/Basics/COsContextDolphin",
     "Kyoto/Basics/CSWDataDolphin",
     "Kyoto/Audio/CSfxHandle",
     "Kyoto/Graphics/CGX",

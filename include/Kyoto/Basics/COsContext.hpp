@@ -28,8 +28,10 @@ private:
 };
 
 class COsContext {
-  static bool mProgressiveMode;
 public:
+  // TODO: Once main.cpp is matched make this private
+  static bool mProgressiveMode;
+
   COsContext(bool, bool);
   ~COsContext();
 
@@ -38,7 +40,7 @@ public:
   COsKeyState GetOsKeyState(int key) const;
 
   void* AllocFromArena(size_t sz);
-  
+
   uint GetBaseFreeRam() const {
     size_t hiAddr = reinterpret_cast< size_t >(x1c_arenaHi);
     size_t loAddr = reinterpret_cast< size_t >(x20_arenaLo2);
