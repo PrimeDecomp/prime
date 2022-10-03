@@ -6465,7 +6465,7 @@ lbl_802BB7DC:
 /* 802BB7E4 002B8744  7F A4 EB 78 */	mr r4, r29
 /* 802BB7E8 002B8748  7E 55 02 14 */	add r18, r21, r0
 /* 802BB7EC 002B874C  7E 45 93 78 */	mr r5, r18
-/* 802BB7F0 002B8750  48 07 B8 1D */	bl ProjectedDeltaDist__RC6CPlaneRC9CVector3fRC9CVector3f
+/* 802BB7F0 002B8750  48 07 B8 1D */	bl ClipLineSegment__6CPlaneCFRC9CVector3fRC9CVector3f
 /* 802BB7F4 002B8754  C0 02 C2 74 */	lfs f0, lbl_805ADF94@sda21(r2)
 /* 802BB7F8 002B8758  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 802BB7FC 002B875C  40 81 00 6C */	ble lbl_802BB868
@@ -13056,4 +13056,3 @@ lbl_803D685C:
 	.byte 0x54
 	.asciz "XTR_ThermoPalette"
 	.balign 4
-
