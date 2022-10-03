@@ -20,9 +20,9 @@ public:
 
   static void PitchBend(CSfxHandle handle, int pitch);
 
-  static s16 kMaxPriority;  // 0xff
-  static s16 kMedPriority;  // 0x7f
-  static int kAllAreas;
+  const static s16 kMaxPriority;  // 0xff
+  const static s16 kMedPriority;  // 0x7f
+  const static int kAllAreas;
 };
 
 #endif
