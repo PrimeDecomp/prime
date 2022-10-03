@@ -14,6 +14,7 @@ public:
   bool operator==(const CSfxHandle& other) { return mID == other.mID; }
   bool operator!=(const CSfxHandle& other) { return mID != other.mID; }
   operator bool() const { return mID != 0; }
+  void Clear() { mID = 0; }
 
 private:
   uint mID;

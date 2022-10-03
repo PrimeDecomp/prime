@@ -1078,12 +1078,11 @@ void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
   }
 }
 
-void CScriptSpecialFunction::DeleteEmitter(const CSfxHandle& handle) {
-  if (!handle) {
-    return;
+void CScriptSpecialFunction::DeleteEmitter(CSfxHandle& handle) {
+  if (handle) {
+    CSfxManager::RemoveEmitter(handle);
+    handle.Clear();
   }
-
-  CSfxManager::RemoveEmitter(handle);
 }
 
 u32 CScriptSpecialFunction::GetSpecialEnding(const CStateManager& mgr) const {
