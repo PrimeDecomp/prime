@@ -74,7 +74,7 @@ CInGameTweakManager* gpTweakManager;
 unkptr gpDefaultFont;
 unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
-bool mProgressiveMode__10COsContext;
+bool COsContext::mProgressiveMode;
 u32 sARAMMemArray[2];
 f32 sInfiniteLoopTime;
 
@@ -681,9 +681,10 @@ int CMain::RsMain(int argc, const char* const* argv) {
         break;
       bool needsReset = false;
       if (archSupport->GetIOWinManager().IsEmpty()) {
-        // rs_log_print
+        // rs_log_print("IOWinManager got empty. Resetting game architecture\n");
         needsReset = true;
       } else if (CheckReset()) {
+        // rs_log_print("Reset pressed...\n");
         needsReset = true;
       }
       if (needsReset) {
