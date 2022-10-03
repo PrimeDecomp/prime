@@ -69,9 +69,7 @@ public:
 
   inline CVector3f GetExtents() const {
     // Name is a guess
-    CVector3f result = max - min;
-    result *= 0.5f;
-    return result;
+    return (max - min) * 0.5f;
   }
 
   const CVector3f& GetMinPoint() const { return min; }
