@@ -2731,7 +2731,7 @@ lbl_801E5E4C:
 /* 801E5E4C 001E2DAC  80 1B 00 74 */	lwz r0, 0x74(r27)
 /* 801E5E50 001E2DB0  38 61 00 08 */	addi r3, r1, 8
 /* 801E5E54 001E2DB4  90 01 00 08 */	stw r0, 8(r1)
-/* 801E5E58 001E2DB8  48 10 40 2D */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 801E5E58 001E2DB8  48 10 40 2D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 801E5E5C 001E2DBC  38 00 00 00 */	li r0, 0
 /* 801E5E60 001E2DC0  90 1B 00 74 */	stw r0, 0x74(r27)
 lbl_801E5E64:
@@ -3656,7 +3656,7 @@ lbl_801E6B50:
 /* 801E6B5C 001E3ABC  80 1C 00 74 */	lwz r0, 0x74(r28)
 /* 801E6B60 001E3AC0  38 61 00 0C */	addi r3, r1, 0xc
 /* 801E6B64 001E3AC4  90 01 00 0C */	stw r0, 0xc(r1)
-/* 801E6B68 001E3AC8  48 10 33 1D */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 801E6B68 001E3AC8  48 10 33 1D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 801E6B6C 001E3ACC  38 00 00 00 */	li r0, 0
 /* 801E6B70 001E3AD0  90 1C 00 74 */	stw r0, 0x74(r28)
 lbl_801E6B74:
@@ -3772,7 +3772,7 @@ __dt__Q220CActorModelParticles5CItemFv:
 /* 801E6CF4 001E3C54  80 1E 00 74 */	lwz r0, 0x74(r30)
 /* 801E6CF8 001E3C58  38 61 00 08 */	addi r3, r1, 8
 /* 801E6CFC 001E3C5C  90 01 00 08 */	stw r0, 8(r1)
-/* 801E6D00 001E3C60  48 10 31 85 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 801E6D00 001E3C60  48 10 31 85 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 lbl_801E6D04:
 /* 801E6D04 001E3C64  88 1E 01 34 */	lbz r0, 0x134(r30)
 /* 801E6D08 001E3C68  28 00 00 00 */	cmplwi r0, 0
@@ -4471,4 +4471,3 @@ lbl_803D1EF8:
 	.byte 0x54
 	.asciz "XTR_Ashy"
 	.balign 4
-

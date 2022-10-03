@@ -308,11 +308,11 @@ lbl_8021015C:
 /* 80210168 0020D0C8  80 1F 0B 6C */	lwz r0, 0xb6c(r31)
 /* 8021016C 0020D0CC  38 61 00 0C */	addi r3, r1, 0xc
 /* 80210170 0020D0D0  90 01 00 0C */	stw r0, 0xc(r1)
-/* 80210174 0020D0D4  48 0D 9D 11 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80210174 0020D0D4  48 0D 9D 11 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80210178 0020D0D8  80 1F 0B 70 */	lwz r0, 0xb70(r31)
 /* 8021017C 0020D0DC  38 61 00 08 */	addi r3, r1, 8
 /* 80210180 0020D0E0  90 01 00 08 */	stw r0, 8(r1)
-/* 80210184 0020D0E4  48 0D 9D 01 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80210184 0020D0E4  48 0D 9D 01 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80210188 0020D0E8  38 00 00 00 */	li r0, 0
 /* 8021018C 0020D0EC  98 1F 0B 6A */	stb r0, 0xb6a(r31)
 lbl_80210190:

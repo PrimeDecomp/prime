@@ -390,7 +390,7 @@ sub_80250cd0:
 /* 80250CF0 0024DC50  80 1F 00 00 */	lwz r0, 0(r31)
 /* 80250CF4 0024DC54  38 61 00 08 */	addi r3, r1, 8
 /* 80250CF8 0024DC58  90 01 00 08 */	stw r0, 8(r1)
-/* 80250CFC 0024DC5C  48 09 91 89 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80250CFC 0024DC5C  48 09 91 89 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80250D00 0024DC60  38 00 00 00 */	li r0, 0
 /* 80250D04 0024DC64  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80250D08:

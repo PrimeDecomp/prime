@@ -4083,7 +4083,7 @@ lbl_800679D4:
 /* 800679EC 0006494C  80 1D 03 A4 */	lwz r0, 0x3a4(r29)
 /* 800679F0 00064950  38 61 00 34 */	addi r3, r1, 0x34
 /* 800679F4 00064954  90 01 00 34 */	stw r0, 0x34(r1)
-/* 800679F8 00064958  48 28 24 8D */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 800679F8 00064958  48 28 24 8D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 800679FC 0006495C  38 00 00 00 */	li r0, 0
 /* 80067A00 00064960  90 1D 03 A4 */	stw r0, 0x3a4(r29)
 lbl_80067A04:
@@ -6627,7 +6627,7 @@ __dt__9CSamusHudFv:
 /* 80069E50 00066DB0  80 1E 03 A4 */	lwz r0, 0x3a4(r30)
 /* 80069E54 00066DB4  38 61 00 18 */	addi r3, r1, 0x18
 /* 80069E58 00066DB8  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80069E5C 00066DBC  48 28 00 29 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80069E5C 00066DBC  48 28 00 29 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 lbl_80069E60:
 /* 80069E60 00066DC0  38 60 00 00 */	li r3, 0
 /* 80069E64 00066DC4  34 1E 07 AC */	addic. r0, r30, 0x7ac
@@ -10838,4 +10838,3 @@ lbl_803CD1D8:
 	.asciz "%s%d"
 	.balign 4
 	.4byte 0
-

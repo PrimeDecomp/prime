@@ -456,7 +456,7 @@ lbl_800B0180:
 /* 800B018C 000AD0EC  80 1F 00 EC */	lwz r0, 0xec(r31)
 /* 800B0190 000AD0F0  38 61 00 08 */	addi r3, r1, 8
 /* 800B0194 000AD0F4  90 01 00 08 */	stw r0, 8(r1)
-/* 800B0198 000AD0F8  48 23 9C ED */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 800B0198 000AD0F8  48 23 9C ED */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 800B019C 000AD0FC  38 00 00 00 */	li r0, 0
 /* 800B01A0 000AD100  90 1F 00 EC */	stw r0, 0xec(r31)
 lbl_800B01A4:

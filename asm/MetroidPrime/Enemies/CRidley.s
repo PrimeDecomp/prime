@@ -5225,7 +5225,7 @@ sub_80256624:
 /* 80256744 002536A4  80 1F 0D 0C */	lwz r0, 0xd0c(r31)
 /* 80256748 002536A8  38 61 00 18 */	addi r3, r1, 0x18
 /* 8025674C 002536AC  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80256750 002536B0  48 09 37 35 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80256750 002536B0  48 09 37 35 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80256754 002536B4  38 00 00 00 */	li r0, 0
 /* 80256758 002536B8  90 1F 0D 0C */	stw r0, 0xd0c(r31)
 /* 8025675C 002536BC  48 00 01 10 */	b lbl_8025686C
@@ -5320,7 +5320,7 @@ lbl_80256888:
 /* 80256894 002537F4  80 1F 0D 0C */	lwz r0, 0xd0c(r31)
 /* 80256898 002537F8  38 61 00 14 */	addi r3, r1, 0x14
 /* 8025689C 002537FC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802568A0 00253800  48 09 35 E5 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 802568A0 00253800  48 09 35 E5 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 802568A4 00253804  38 00 00 00 */	li r0, 0
 /* 802568A8 00253808  90 1F 0D 0C */	stw r0, 0xd0c(r31)
 lbl_802568AC:
@@ -5480,7 +5480,7 @@ lbl_80256AD4:
 /* 80256AE0 00253A40  80 1D 0C A8 */	lwz r0, 0xca8(r29)
 /* 80256AE4 00253A44  38 61 00 0C */	addi r3, r1, 0xc
 /* 80256AE8 00253A48  90 01 00 0C */	stw r0, 0xc(r1)
-/* 80256AEC 00253A4C  48 09 33 99 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80256AEC 00253A4C  48 09 33 99 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80256AF0 00253A50  38 00 00 00 */	li r0, 0
 /* 80256AF4 00253A54  90 1D 0C A8 */	stw r0, 0xca8(r29)
 lbl_80256AF8:

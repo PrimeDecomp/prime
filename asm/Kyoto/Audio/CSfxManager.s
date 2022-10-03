@@ -2917,8 +2917,8 @@ lbl_802E9E70:
 /* 802E9E7C 002E6DDC  38 21 00 70 */	addi r1, r1, 0x70
 /* 802E9E80 002E6DE0  4E 80 00 20 */	blr
 
-.global RemoveEmitter__11CSfxManagerFRC10CSfxHandle
-RemoveEmitter__11CSfxManagerFRC10CSfxHandle:
+.global RemoveEmitter__11CSfxManagerF10CSfxHandle
+RemoveEmitter__11CSfxManagerF10CSfxHandle:
 /* 802E9E84 002E6DE4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802E9E88 002E6DE8  7C 08 02 A6 */	mflr r0
 /* 802E9E8C 002E6DEC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4677,4 +4677,3 @@ lbl_803D6DC8:
 	# ROM: 0x3D3DC8
 	.asciz "??(??)"
 	.balign 4
-
