@@ -5,16 +5,15 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 
-class CAxisAngle {
+class CAxisAngle : CVector3f {
 public:
-  CAxisAngle(f32 x, f32 y, f32 z) : x(x), y(y), z(z) {}
-  CAxisAngle(const CAxisAngle& other) : x(other.x), y(other.y), z(other.z) {}
+  CAxisAngle(f32 x, f32 y, f32 z) : CVector3f(x, y, z) {}
+  CAxisAngle(const CAxisAngle& other) : CVector3f(other) {}
 
   static const CAxisAngle& Identity();
+  
+  const CVector3f& GetVector() const;
 
-private:
-  // maybe CUnitVector3f?
-  f32 x, y, z;
 };
 CHECK_SIZEOF(CAxisAngle, 0xc)
 

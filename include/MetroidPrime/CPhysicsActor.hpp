@@ -69,6 +69,7 @@ public:
   void MoveCollisionPrimitive(const CVector3f&);
   void SetVelocityWR(const CVector3f&);
   void SetAngularVelocityWR(const CAxisAngle& angVel);
+  CAxisAngle GetAngularVelocityOR() const;
   void ClearForcesAndTorques();
   void Stop();
 
