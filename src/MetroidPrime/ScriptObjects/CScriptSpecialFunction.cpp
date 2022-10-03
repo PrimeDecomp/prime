@@ -16,6 +16,8 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
 
 #include "rstl/math.hpp"
@@ -606,33 +608,30 @@ void CScriptSpecialFunction::ThinkSaveStation(float, CStateManager& mgr) {
 
 void CScriptSpecialFunction::ThinkIntroBossRingController(float dt, CStateManager& mgr) {
   if (x1a8_ringState != kRS_Breakup) {
-    for (rstl::vector< SRingController >::iterator it = x198_ringControllers.begin();
-         it != x198_ringControllers.end(); ++it) {
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->x0_id))) {
+    for (int i = 0; i < x198_ringControllers.size(); ++i) {
+      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
         CTransform4f newXf = act->GetTransform();
-        // TODO
-        // newXf.rotateLocalZ(zeus::degToRad(it->x4_rotateSpeed * dt));
+        newXf.RotateLocalZ(CRelAngle::FromDegrees(dt * x198_ringControllers[i].x4_rotateSpeed));
         act->SetTransform(newXf);
       }
     }
   }
   switch (x1a8_ringState) {
+  case kRS_Scramble:
+    break;
   case kRS_Breakup: {
     float minMag = 0.f;
-    for (rstl::vector< SRingController >::iterator it = x198_ringControllers.begin();
-         it != x198_ringControllers.end(); ++it) {
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->x0_id))) {
-        // TODO: CTransform api differences
-        // act->SetTranslation(act->GetTranform().basis[1] * 50.f * dt + act->GetTranslation());
-        // minMag = std::min(act->GetTranslation().magnitude(), minMag);
+    for (int i = 0; i < x198_ringControllers.size(); ++i) {
+      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
+        act->SetTranslation(act->GetTranslation() + act->GetTransform().GetForward() * 50.f * dt);
+        minMag = rstl::min_val(minMag, act->GetTranslation().Magnitude());
       }
     }
     CalculateRenderBounds();
-    if (minMag != 0.f) {
-      /* Never actually happens */
-      for (rstl::vector< SRingController >::iterator it = x198_ringControllers.begin();
-           it != x198_ringControllers.end(); ++it) {
-        if (CEntity* ent = mgr.ObjectById(it->x0_id)) {
+    if (minMag) {
+      // Never actually happens
+      for (int i = 0; i < x198_ringControllers.size(); ++i) {
+        if (CEntity* ent = mgr.ObjectById(x198_ringControllers[i].x0_id)) {
           ent->SetActive(false);
         }
       }
@@ -641,35 +640,39 @@ void CScriptSpecialFunction::ThinkIntroBossRingController(float dt, CStateManage
     break;
   }
   case kRS_Rotate: {
-    // x1ac_ringRotateTarget = CQuaternion::fromAxisAngle(zeus::skUp, zeus::degToRad(xfc_float1 *
-    // (x1b8_ringReverse ? 1.f : -1.f) * dt))
-    //         .transform(x1ac_ringRotateTarget);
+    x1ac_ringRotateTarget =
+        CQuaternion::AxisAngle(
+            CVector3f(0.f, 0.f, 1.f),
+            CRelAngle::FromDegrees(xfc_float1 * (x1b8_ringReverse ? 1.f : -1.f) * dt))
+            .Transform(x1ac_ringRotateTarget);
     bool allReachedTarget = true;
-    for (rstl::vector< SRingController >::iterator it = x198_ringControllers.begin();
-         it != x198_ringControllers.end(); ++it) {
-      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->x0_id))) {
-        /*CVector3f lookDirFlat = act->GetTransform().basis[1];
-        lookDirFlat.SetZ(0.f);
-        lookDirFlat.Normalize();
-        if (std::acos(CMath::Clamp(-1.f, lookDirFlat.Dot(x1ac_ringRotateTarget), 1.f)) <=
-            zeus::degToRad((xfc_float1 + std::fabs(rc.x4_rotateSpeed)) / 30.f)) {
-          CTransform4f newXf = zeus::lookAt(zeus::skZero3f, x1ac_ringRotateTarget);
-          newXf.origin = act->GetTranslation();
+    for (int i = 0; i < x198_ringControllers.size(); ++i) {
+      if (x198_ringControllers[i].x8_reachedTarget) {
+        continue;
+      }
+      if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(x198_ringControllers[i].x0_id))) {
+        CVector3f forward = act->GetTransform().GetForward();
+        forward.SetZ(0.f);
+        forward.Normalize();
+        float f1 = CMath::Limit(CVector3f::Dot(forward, x1ac_ringRotateTarget), 1.f);
+        float f2 = (xfc_float1 + CMath::AbsF(x198_ringControllers[i].x4_rotateSpeed)) / 30.f;
+        if (CMath::ArcCosineR(f1) <= CMath::Deg2Rad(f2)) {
+          CTransform4f newXf = CTransform4f::LookAt(CVector3f::Zero(), x1ac_ringRotateTarget);
+          newXf.SetTranslation(act->GetTranslation());
           act->SetTransform(newXf);
-          rc.x4_rotateSpeed = (x1b8_ringReverse ? 1.f : -1.f) * xfc_float1;
-          rc.x8_reachedTarget = true;
+          x198_ringControllers[i].x4_rotateSpeed = (x1b8_ringReverse ? 1.f : -1.f) * xfc_float1;
+          x198_ringControllers[i].x8_reachedTarget = true;
         } else {
           allReachedTarget = false;
           break;
-        }*/
+        }
       }
     }
     if (allReachedTarget) {
       SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
       x1a8_ringState = kRS_Stopped;
-      for (rstl::vector< SRingController >::iterator it = x198_ringControllers.begin();
-           it != x198_ringControllers.end(); ++it) {
-        it->x8_reachedTarget = false;
+      for (int i = 0; i < x198_ringControllers.size(); ++i) {
+        x198_ringControllers[i].x8_reachedTarget = false;
       }
     }
     break;
@@ -686,20 +689,21 @@ void CScriptSpecialFunction::ThinkPlayerFollowLocator(float, CStateManager& mgr)
       continue;
     }
 
-    /*
-    const auto search = mgr.GetIdListForScript(conn->x8_objId);
-    for (auto it = search.first; it != search.second; ++it) {
-      if (const TCastToConstPtr<CActor> act = mgr.GetObjectById(it->second)) {
-        const CTransform4f xf = act->GetTransform() * act->GetLocatorTransform(xec_locatorName);
-        CPlayer& pl = mgr.GetPlayer();
-        pl.SetTransform(xf);
-        pl.SetVelocityWR({});
-        pl.SetAngularVelocityWR({});
-        pl.ClearForcesAndTorques();
+    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
+    if (it.first != it.second) {
+      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(it.first->second))) {
+        if (!act->HasAnimation()) {
+          continue;
+        }
+        CTransform4f xf = act->GetTransform() * act->GetLocatorTransform(xec_locatorName);
+        CPlayer* player = mgr.Player();
+        player->SetTransform(xf);
+        player->SetVelocityWR(CVector3f::Zero());
+        player->SetAngularVelocityWR(CAxisAngle::Identity());
+        player->ClearForcesAndTorques();
         return;
       }
     }
-    */
   }
 }
 
@@ -846,28 +850,31 @@ void CScriptSpecialFunction::ThinkObjectFollowLocator(float, CStateManager& mgr)
       continue;
     }
 
-    // GetIdListForScript seems very different between Ghidra and Metaforce
-    // const auto search = mgr.GetIdListForScript(conn->x8_objId);
-
-    rstl::pair< TUniqueId, TUniqueId >* it;
-    if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(it->second))) {
-      if (conn->x4_msg == kSM_Activate &&
-          (act->HasModelData() && act->GetModelData()->HasAnimData()) && act->GetActive()) {
-        followedAct = it->second;
-      } else if (conn->x4_msg == kSM_Deactivate) {
-        followerAct = it->second;
+    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
+    if (it.first != it.second) {
+      TUniqueId uid = it.first->second;
+      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
+        if (conn->x4_msg == kSM_Activate && act->HasAnimation()) {
+          if (!act->GetActive()) {
+            return;
+          }
+          followedAct = uid;
+        } else if (conn->x4_msg == kSM_Deactivate) {
+          followerAct = uid;
+        }
       }
     }
   }
 
-  if (followerAct == kInvalidUniqueId || followedAct == kInvalidUniqueId) {
-    return;
+  if (followerAct != kInvalidUniqueId && followedAct != kInvalidUniqueId) {
+    const CActor* fromAct = TCastToConstPtr< CActor >(mgr.GetObjectById(followedAct));
+    CActor* toAct = TCastToPtr< CActor >(mgr.ObjectById(followerAct));
+    if (fromAct && toAct) {
+      CTransform4f xf =
+          fromAct->GetTransform() * fromAct->GetScaledLocatorTransform(xec_locatorName);
+      toAct->SetTransform(xf);
+    }
   }
-
-  const CActor* fromAct = TCastToConstPtr< CActor >(mgr.GetObjectById(followedAct));
-  CActor* toAct = TCastToPtr< CActor >(mgr.ObjectById(followerAct));
-  toAct->SetTransform(fromAct->GetTransform() *
-                      fromAct->GetScaledLocatorTransform(xec_locatorName));
 }
 
 void CScriptSpecialFunction::ThinkObjectFollowObject(float, CStateManager& mgr) {
@@ -880,22 +887,25 @@ void CScriptSpecialFunction::ThinkObjectFollowObject(float, CStateManager& mgr) 
       continue;
     }
 
-    // GetIdListForScript seems very different between Ghidra and Metaforce
-    // const auto search = mgr.GetIdListForScript(conn->x8_objId);
-
-    rstl::pair< TUniqueId, TUniqueId >* it;
-    if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(it->second))) {
-      if (conn->x4_msg == kSM_Activate && act->GetActive()) {
-        followedAct = it->second;
-      } else if (conn->x4_msg == kSM_Deactivate) {
-        followerAct = it->second;
+    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
+    if (it.first != it.second) {
+      TUniqueId uid = it.first->second;
+      if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
+        if (conn->x4_msg == kSM_Activate) {
+          if (!act->GetActive()) {
+            return;
+          }
+          followedAct = uid;
+        } else if (conn->x4_msg == kSM_Deactivate) {
+          followerAct = uid;
+        }
       }
     }
   }
 
   const CActor* followed = TCastToConstPtr< CActor >(mgr.GetObjectById(followedAct));
   CActor* follower = TCastToPtr< CActor >(mgr.ObjectById(followerAct));
-  if (followed && follower) {
+  if (follower && followed) {
     follower->SetTransform(followed->GetTransform());
   }
 }
@@ -957,7 +967,7 @@ void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
 }
 
 void CScriptSpecialFunction::ThinkRainSimulator(float, CStateManager& mgr) {
-  if ((float(mgr.GetInputFrameIdx()) / 3600.f) < 0.5f) {
+  if ((static_cast< float >(mgr.GetInputFrameIdx() % 3600)) / 3600.f < 0.5f) {
     SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
   } else {
     SendScriptMsgs(kSS_Zero, mgr, kSM_None);
@@ -965,49 +975,35 @@ void CScriptSpecialFunction::ThinkRainSimulator(float, CStateManager& mgr) {
 }
 
 void CScriptSpecialFunction::ThinkAreaDamage(float dt, CStateManager& mgr) {
-  const CPlayerState& playerState = *mgr.GetPlayerState();
-  CPlayer& player = *mgr.Player();
-
-  /* Make sure we're not currently set to take damage, if so reset our state to be as if we're not
-   */
+  const CPlayer* player = mgr.GetPlayer();
+  bool inArea = player->GetAreaIdAlways() == GetAreaIdAlways();
+  bool immune = mgr.GetPlayerState()->GetCurrentSuitRaw() > CPlayerState::kPS_Power;
   if (x1e4_31_inAreaDamage) {
-    x1e4_31_inAreaDamage = false;
-    player.DecrementPhazon();
-    SendScriptMsgs(kSS_Exited, mgr, kSM_None);
-    mgr.SetIsFullThreat(false);
-  }
-  return;
-
-  if (!x1e4_31_inAreaDamage) {
-    if (player.GetAreaIdAlways() != GetAreaIdAlways() ||
-        playerState.GetCurrentSuitRaw() != CPlayerState::kPS_Power) {
+    if (!inArea || immune) {
+      x1e4_31_inAreaDamage = false;
+      mgr.Player()->DecrementPhazon();
+      SendScriptMsgs(kSS_Exited, mgr, kSM_None);
+      mgr.SetIsFullThreat(false);
       return;
     }
+  } else if (!inArea || immune) {
+    return;
+  } else {
     x1e4_31_inAreaDamage = true;
-    player.IncrementPhazon();
+    mgr.Player()->IncrementPhazon();
     SendScriptMsgs(kSS_Entered, mgr, kSM_None);
     mgr.SetIsFullThreat(true);
-  } else if (player.GetAreaIdAlways() != GetAreaIdAlways() ||
-             playerState.GetCurrentSuitRaw() != CPlayerState::kPS_Power) {
-    x1e4_31_inAreaDamage = false;
-    player.DecrementPhazon();
-    SendScriptMsgs(kSS_Exited, mgr, kSM_None);
-    mgr.SetIsFullThreat(false);
-    return;
   }
 
-  CMaterialList includeList(kMT_Solid);
-  CMaterialList excudeList(0);
-  CMaterialFilter filter(CMaterialFilter::MakeIncludeExclude(includeList, excudeList));
-
-  CDamageInfo dInfo(CWeaponMode(kWT_Heat), xfc_float1 * dt, 0.f, 0.f);
-  dInfo.SetNoImmunity(true);
-  mgr.ApplyDamage(GetUniqueId(), player.GetUniqueId(), GetUniqueId(), dInfo, filter,
+  CDamageInfo dInfo(CWeaponMode(kWT_Heat), xfc_float1 * dt, 0.f, 0.f, true);
+  mgr.ApplyDamage(GetUniqueId(), player->GetUniqueId(), GetUniqueId(), dInfo,
+                  CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
                   CVector3f::Zero());
 }
 
 void CScriptSpecialFunction::ThinkActorScale(float dt, CStateManager& mgr) {
   const float deltaScale = dt * xfc_float1;
+  const float f2 = x100_float2;
 
   for (rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
        conn != GetConnectionList().end(); ++conn) {
@@ -1015,22 +1011,21 @@ void CScriptSpecialFunction::ThinkActorScale(float dt, CStateManager& mgr) {
       continue;
     }
 
-    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId)))) {
-      CModelData* mData = act->ModelData();
-      if (mData && (mData->HasAnimData() || mData->HasNormalModel())) {
-        CVector3f scale = mData->GetScale();
-
+    TUniqueId uid = mgr.GetIdForScript(conn->x8_objId);
+    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(uid))) {
+      if (act->HasModelData()) {
+        CVector3f scale = act->GetModelData()->GetScale();
+        f32 x, y, z;
         if (deltaScale > 0.f) {
-          scale = CVector3f(rstl::min_val(deltaScale + scale.GetX(), x100_float2),
-                            rstl::min_val(deltaScale + scale.GetY(), x100_float2),
-                            rstl::min_val(deltaScale + scale.GetZ(), x100_float2));
+          x = CMath::Min(deltaScale + scale.GetX(), f2);
+          y = CMath::Min(deltaScale + scale.GetY(), f2);
+          z = CMath::Min(deltaScale + scale.GetZ(), f2);
         } else {
-          scale = CVector3f(rstl::max_val(deltaScale + scale.GetX(), x100_float2),
-                            rstl::max_val(deltaScale + scale.GetY(), x100_float2),
-                            rstl::max_val(deltaScale + scale.GetZ(), x100_float2));
+          x = CMath::Max(deltaScale + scale.GetX(), f2);
+          y = CMath::Max(deltaScale + scale.GetY(), f2);
+          z = CMath::Max(deltaScale + scale.GetZ(), f2);
         }
-
-        mData->SetScale(scale);
+        act->ModelData()->SetScale(CVector3f(x, y, z));
       }
     }
   }

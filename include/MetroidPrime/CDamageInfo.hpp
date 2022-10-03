@@ -17,15 +17,24 @@ class CDamageInfo {
 
 public:
   CDamageInfo()
-  : x0_weaponMode(), x8_damage(0.f), xc_radiusDamage(0.f), x10_radius(0.f), x14_knockback(0.f), x18_24_noImmunity(false) {}
-  
-  explicit CDamageInfo(CInputStream& in);
-  
-  CDamageInfo(const CWeaponMode& mode, float damage, float radius, float knockback)
-  : x0_weaponMode(mode), x8_damage(damage), xc_radiusDamage(damage), x10_radius(radius), x14_knockback(knockback), x18_24_noImmunity(false) {}
-
+  : x0_weaponMode()
+  , x8_damage(0.f)
+  , xc_radiusDamage(0.f)
+  , x10_radius(0.f)
+  , x14_knockback(0.f)
+  , x18_24_noImmunity(false) {}
+  CDamageInfo(const CWeaponMode& mode, float damage, float radius, float knockback,
+              bool noImmunity = false)
+  : x0_weaponMode(mode)
+  , x8_damage(damage)
+  , xc_radiusDamage(damage)
+  , x10_radius(radius)
+  , x14_knockback(knockback)
+  , x18_24_noImmunity(noImmunity) {}
+  CDamageInfo(CInputStream& in);
   CDamageInfo(const CDamageInfo&, float);
-  explicit CDamageInfo(const SShotParam& other);
+  CDamageInfo(const SShotParam& other);
+
   CDamageInfo& operator=(const SShotParam& other);
 
   const CWeaponMode& GetWeaponMode() const { return x0_weaponMode; }

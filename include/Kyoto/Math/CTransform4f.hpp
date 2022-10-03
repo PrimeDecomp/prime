@@ -9,6 +9,7 @@ typedef const f32 (*ConstMtxPtr)[4];
 
 class CInputStream;
 class CMatrix3f;
+class CRelAngle;
 
 class CTransform4f {
 public:
@@ -61,9 +62,9 @@ public:
   CTransform4f MultiplyIgnoreTranslation(const CTransform4f& other) const;
   // Orthonormalize__12CTransform4fFv
   CVector3f Rotate(const CVector3f& in) const;
-  // RotateLocalX__12CTransform4fFRC9CRelAngle
-  // RotateLocalY__12CTransform4fFRC9CRelAngle
-  // RotateLocalZ__12CTransform4fFRC9CRelAngle
+  void RotateLocalX(const CRelAngle& angle);
+  void RotateLocalY(const CRelAngle& angle);
+  void RotateLocalZ(const CRelAngle& angle);
   // RotateX__12CTransform4fFRC9CRelAngle
   // RotateY__12CTransform4fFRC9CRelAngle
   // RotateZ__12CTransform4fFRC9CRelAngle
