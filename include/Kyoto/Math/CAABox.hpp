@@ -67,6 +67,13 @@ public:
   CVector3f ClampToBox(const CVector3f& vec) const;
   CAABox GetTransformedAABox(const CTransform4f& xf) const;
 
+  inline CVector3f GetExtents() const {
+    // Name is a guess
+    CVector3f result = max - min;
+    result *= 0.5f;
+    return result;
+  }
+
   const CVector3f& GetMinPoint() const { return min; }
   const CVector3f& GetMaxPoint() const { return max; }
 

@@ -70,7 +70,7 @@ public:
   // RotateZ__12CTransform4fFRC9CRelAngle
   // Scale__12CTransform4fFf
   // Scale__12CTransform4fFfff
-  // Scale__12CTransform4fFRC9CVector3f
+  static CTransform4f Scale(const CVector3f&);
   // ScaleBy__12CTransform4fFf
   // SetRotation__12CTransform4fFRC12CTransform4f
   // SetRotation__12CTransform4fFRC9CMatrix3f
