@@ -642,7 +642,7 @@ void CScriptSpecialFunction::ThinkIntroBossRingController(float dt, CStateManage
   case kRS_Rotate: {
     x1ac_ringRotateTarget =
         CQuaternion::AxisAngle(
-            CVector3f(0.f, 0.f, 1.f),
+            CUnitVector3f(0.f, 0.f, 1.f),
             CRelAngle::FromDegrees(xfc_float1 * (x1b8_ringReverse ? 1.f : -1.f) * dt))
             .Transform(x1ac_ringRotateTarget);
     bool allReachedTarget = true;
