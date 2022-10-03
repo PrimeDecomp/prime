@@ -6435,7 +6435,7 @@ lbl_8027623C:
 /* 80276254 002731B4  80 1F 0F BC */	lwz r0, 0xfbc(r31)
 /* 80276258 002731B8  38 61 00 18 */	addi r3, r1, 0x18
 /* 8027625C 002731BC  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80276260 002731C0  48 07 3C 25 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80276260 002731C0  48 07 3C 25 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 lbl_80276264:
 /* 80276264 002731C4  C0 5F 00 60 */	lfs f2, 0x60(r31)
 /* 80276268 002731C8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
@@ -6495,7 +6495,7 @@ lbl_8027633C:
 /* 8027633C 0027329C  80 1F 0F BC */	lwz r0, 0xfbc(r31)
 /* 80276340 002732A0  38 61 00 10 */	addi r3, r1, 0x10
 /* 80276344 002732A4  90 01 00 10 */	stw r0, 0x10(r1)
-/* 80276348 002732A8  48 07 3B 3D */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80276348 002732A8  48 07 3B 3D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8027634C 002732AC  38 00 00 00 */	li r0, 0
 /* 80276350 002732B0  3C 60 80 3E */	lis r3, lbl_803DAA68@ha
 /* 80276354 002732B4  90 1F 0F BC */	stw r0, 0xfbc(r31)
@@ -6563,7 +6563,7 @@ lbl_802763E0:
 /* 80276434 00273394  80 1F 0F BC */	lwz r0, 0xfbc(r31)
 /* 80276438 00273398  38 61 00 18 */	addi r3, r1, 0x18
 /* 8027643C 0027339C  90 01 00 18 */	stw r0, 0x18(r1)
-/* 80276440 002733A0  48 07 3A 45 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80276440 002733A0  48 07 3A 45 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 lbl_80276444:
 /* 80276444 002733A4  C0 5F 00 60 */	lfs f2, 0x60(r31)
 /* 80276448 002733A8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
@@ -6590,7 +6590,7 @@ lbl_80276498:
 /* 80276498 002733F8  80 1F 0F BC */	lwz r0, 0xfbc(r31)
 /* 8027649C 002733FC  38 61 00 10 */	addi r3, r1, 0x10
 /* 802764A0 00273400  90 01 00 10 */	stw r0, 0x10(r1)
-/* 802764A4 00273404  48 07 39 E1 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 802764A4 00273404  48 07 39 E1 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 802764A8 00273408  38 00 00 00 */	li r0, 0
 /* 802764AC 0027340C  90 1F 0F BC */	stw r0, 0xfbc(r31)
 lbl_802764B0:

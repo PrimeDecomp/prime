@@ -325,8 +325,8 @@ lbl_8014F38C:
 /* 8014F39C 0014C2FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8014F3A0 0014C300  4E 80 00 20 */	blr
 
-.global DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle
-DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle:
+.global DeleteEmitter__22CScriptSpecialFunctionFR10CSfxHandle
+DeleteEmitter__22CScriptSpecialFunctionFR10CSfxHandle:
 /* 8014F3A4 0014C304  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8014F3A8 0014C308  7C 08 02 A6 */	mflr r0
 /* 8014F3AC 0014C30C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -338,7 +338,7 @@ DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle:
 /* 8014F3C4 0014C324  80 1F 00 00 */	lwz r0, 0(r31)
 /* 8014F3C8 0014C328  38 61 00 08 */	addi r3, r1, 8
 /* 8014F3CC 0014C32C  90 01 00 08 */	stw r0, 8(r1)
-/* 8014F3D0 0014C330  48 19 AA B5 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 8014F3D0 0014C330  48 19 AA B5 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8014F3D4 0014C334  38 00 00 00 */	li r0, 0
 /* 8014F3D8 0014C338  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8014F3DC:
@@ -1796,7 +1796,7 @@ lbl_80150874:
 lbl_801508D4:
 /* 801508D4 0014D834  7F 03 C3 78 */	mr r3, r24
 /* 801508D8 0014D838  38 98 01 78 */	addi r4, r24, 0x178
-/* 801508DC 0014D83C  4B FF EA C9 */	bl DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle
+/* 801508DC 0014D83C  4B FF EA C9 */	bl DeleteEmitter__22CScriptSpecialFunctionFR10CSfxHandle
 lbl_801508E0:
 /* 801508E0 0014D840  80 7F 00 64 */	lwz r3, 0x64(r31)
 /* 801508E4 0014D844  80 63 00 10 */	lwz r3, 0x10(r3)
@@ -3095,7 +3095,7 @@ lbl_80151AD8:
 lbl_80151AEC:
 /* 80151AEC 0014EA4C  7F E3 FB 78 */	mr r3, r31
 /* 80151AF0 0014EA50  38 9F 01 78 */	addi r4, r31, 0x178
-/* 80151AF4 0014EA54  4B FF D8 B1 */	bl DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle
+/* 80151AF4 0014EA54  4B FF D8 B1 */	bl DeleteEmitter__22CScriptSpecialFunctionFR10CSfxHandle
 /* 80151AF8 0014EA58  48 00 0D A8 */	b lbl_801528A0
 lbl_80151AFC:
 /* 80151AFC 0014EA5C  2C 1C 00 07 */	cmpwi r28, 7

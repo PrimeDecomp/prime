@@ -364,7 +364,7 @@ lbl_80213F54:
 /* 80213F60 00210EC0  80 1B 02 E8 */	lwz r0, 0x2e8(r27)
 /* 80213F64 00210EC4  38 61 00 20 */	addi r3, r1, 0x20
 /* 80213F68 00210EC8  90 01 00 20 */	stw r0, 0x20(r1)
-/* 80213F6C 00210ECC  48 0D 5F 19 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80213F6C 00210ECC  48 0D 5F 19 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80213F70 00210ED0  38 00 00 00 */	li r0, 0
 /* 80213F74 00210ED4  90 1B 02 E8 */	stw r0, 0x2e8(r27)
 /* 80213F78 00210ED8  48 00 02 84 */	b lbl_802141FC
@@ -1938,7 +1938,7 @@ StopProjectile__17CEnergyProjectileFR13CStateManager:
 /* 80215668 002125C8  80 1E 02 E8 */	lwz r0, 0x2e8(r30)
 /* 8021566C 002125CC  38 61 00 10 */	addi r3, r1, 0x10
 /* 80215670 002125D0  90 01 00 10 */	stw r0, 0x10(r1)
-/* 80215674 002125D4  48 0D 48 11 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80215674 002125D4  48 0D 48 11 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80215678 002125D8  38 00 00 00 */	li r0, 0
 /* 8021567C 002125DC  90 1E 02 E8 */	stw r0, 0x2e8(r30)
 lbl_80215680:

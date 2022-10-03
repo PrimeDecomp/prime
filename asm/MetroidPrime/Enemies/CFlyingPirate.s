@@ -13608,7 +13608,7 @@ __dt__20CFlyingPirateRagDollFv:
 /* 801FFF34 001FCE94  90 1E 00 00 */	stw r0, 0(r30)
 /* 801FFF38 001FCE98  80 1E 00 A0 */	lwz r0, 0xa0(r30)
 /* 801FFF3C 001FCE9C  90 01 00 08 */	stw r0, 8(r1)
-/* 801FFF40 001FCEA0  48 0E 9F 45 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 801FFF40 001FCEA0  48 0E 9F 45 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 801FFF44 001FCEA4  7F C3 F3 78 */	mr r3, r30
 /* 801FFF48 001FCEA8  38 80 00 00 */	li r4, 0
 /* 801FFF4C 001FCEAC  4B F2 08 D1 */	bl __dt__8CRagDollFv

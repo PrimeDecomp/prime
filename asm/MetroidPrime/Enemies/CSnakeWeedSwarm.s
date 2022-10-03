@@ -2072,7 +2072,7 @@ lbl_8023D118:
 /* 8023D124 0023A084  80 1D 01 D8 */	lwz r0, 0x1d8(r29)
 /* 8023D128 0023A088  38 61 00 24 */	addi r3, r1, 0x24
 /* 8023D12C 0023A08C  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8023D130 0023A090  48 0A CD 55 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 8023D130 0023A090  48 0A CD 55 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8023D134 0023A094  38 00 00 00 */	li r0, 0
 /* 8023D138 0023A098  90 1D 01 D8 */	stw r0, 0x1d8(r29)
 lbl_8023D13C:
@@ -2492,7 +2492,7 @@ lbl_8023D718:
 /* 8023D724 0023A684  80 1D 01 D8 */	lwz r0, 0x1d8(r29)
 /* 8023D728 0023A688  38 61 00 0C */	addi r3, r1, 0xc
 /* 8023D72C 0023A68C  90 01 00 0C */	stw r0, 0xc(r1)
-/* 8023D730 0023A690  48 0A C7 55 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 8023D730 0023A690  48 0A C7 55 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8023D734 0023A694  38 00 00 00 */	li r0, 0
 /* 8023D738 0023A698  90 1D 01 D8 */	stw r0, 0x1d8(r29)
 lbl_8023D73C:

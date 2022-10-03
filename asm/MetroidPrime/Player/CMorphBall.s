@@ -8461,7 +8461,7 @@ lbl_800F450C:
 /* 800F456C 000F14CC  90 1E 1E 20 */	stw r0, 0x1e20(r30)
 /* 800F4570 000F14D0  80 1E 1E 24 */	lwz r0, 0x1e24(r30)
 /* 800F4574 000F14D4  90 01 00 0C */	stw r0, 0xc(r1)
-/* 800F4578 000F14D8  48 1F 59 0D */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 800F4578 000F14D8  48 1F 59 0D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 800F457C 000F14DC  80 6D A1 1C */	lwz r3, gpTweakBall@sda21(r13)
 /* 800F4580 000F14E0  C0 3E 1D E8 */	lfs f1, 0x1de8(r30)
 /* 800F4584 000F14E4  C0 03 02 18 */	lfs f0, 0x218(r3)

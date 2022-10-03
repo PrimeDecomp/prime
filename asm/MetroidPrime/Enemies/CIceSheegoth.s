@@ -1577,7 +1577,7 @@ lbl_8019F420:
 /* 8019F42C 0019C38C  80 1F 0A F0 */	lwz r0, 0xaf0(r31)
 /* 8019F430 0019C390  38 61 00 10 */	addi r3, r1, 0x10
 /* 8019F434 0019C394  90 01 00 10 */	stw r0, 0x10(r1)
-/* 8019F438 0019C398  48 14 AA 4D */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 8019F438 0019C398  48 14 AA 4D */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8019F43C 0019C39C  38 00 00 00 */	li r0, 0
 /* 8019F440 0019C3A0  90 1F 0A F0 */	stw r0, 0xaf0(r31)
 lbl_8019F444:
@@ -8094,7 +8094,7 @@ lbl_801A5198:
 /* 801A51A4 001A2104  80 1F 0A F0 */	lwz r0, 0xaf0(r31)
 /* 801A51A8 001A2108  38 61 00 50 */	addi r3, r1, 0x50
 /* 801A51AC 001A210C  90 01 00 50 */	stw r0, 0x50(r1)
-/* 801A51B0 001A2110  48 14 4C D5 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 801A51B0 001A2110  48 14 4C D5 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 801A51B4 001A2114  48 00 05 58 */	b lbl_801A570C
 .global lbl_801A51B8
 lbl_801A51B8:

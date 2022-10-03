@@ -275,7 +275,7 @@ lbl_8028ADAC:
 /* 8028ADB0 00287D10  41 82 00 E0 */	beq lbl_8028AE90
 /* 8028ADB4 00287D14  90 81 00 1C */	stw r4, 0x1c(r1)
 /* 8028ADB8 00287D18  38 61 00 1C */	addi r3, r1, 0x1c
-/* 8028ADBC 00287D1C  48 05 F0 C9 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 8028ADBC 00287D1C  48 05 F0 C9 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 8028ADC0 00287D20  A8 C2 C5 FA */	lha r6, lbl_805AE31A@sda21(r2)
 /* 8028ADC4 00287D24  7F 08 C3 78 */	mr r8, r24
 /* 8028ADC8 00287D28  38 61 00 18 */	addi r3, r1, 0x18
@@ -783,4 +783,3 @@ lbl_805ADB88:
 lbl_805ADB8C:
 	# ROM: 0x3FA42C
 	.float 1.0
-

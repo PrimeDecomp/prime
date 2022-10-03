@@ -6693,7 +6693,7 @@ lbl_80287AE4:
 /* 80287AF0 00284A50  EF 5A 07 32 */	fmuls f26, f26, f28
 /* 80287AF4 00284A54  38 61 00 0C */	addi r3, r1, 0xc
 /* 80287AF8 00284A58  90 01 00 0C */	stw r0, 0xc(r1)
-/* 80287AFC 00284A5C  48 06 23 89 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80287AFC 00284A5C  48 06 23 89 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80287B00 00284A60  48 00 01 00 */	b lbl_80287C00
 lbl_80287B04:
 /* 80287B04 00284A64  88 1C 03 9C */	lbz r0, 0x39c(r28)
@@ -7899,4 +7899,3 @@ lbl_803D5968:
 	.asciz "?(??)"
 	.balign 4
 	.4byte 0
-

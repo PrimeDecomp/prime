@@ -159,7 +159,7 @@ lbl_80055DD0:
 /* 80055DD0 00052D30  80 1E 00 04 */	lwz r0, 4(r30)
 /* 80055DD4 00052D34  38 61 00 08 */	addi r3, r1, 8
 /* 80055DD8 00052D38  90 01 00 08 */	stw r0, 8(r1)
-/* 80055DDC 00052D3C  48 29 40 A9 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80055DDC 00052D3C  48 29 40 A9 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80055DE0 00052D40  3B DE 00 08 */	addi r30, r30, 8
 lbl_80055DE4:
 /* 80055DE4 00052D44  80 BD 00 C8 */	lwz r5, 0xc8(r29)
@@ -222,7 +222,7 @@ lbl_80055E9C:
 /* 80055EA8 00052E08  80 1D 00 04 */	lwz r0, 4(r29)
 /* 80055EAC 00052E0C  38 61 00 08 */	addi r3, r1, 8
 /* 80055EB0 00052E10  90 01 00 08 */	stw r0, 8(r1)
-/* 80055EB4 00052E14  48 29 3F D1 */	bl RemoveEmitter__11CSfxManagerFRC10CSfxHandle
+/* 80055EB4 00052E14  48 29 3F D1 */	bl RemoveEmitter__11CSfxManagerF10CSfxHandle
 /* 80055EB8 00052E18  7C 1D F8 40 */	cmplw r29, r31
 /* 80055EBC 00052E1C  41 80 00 64 */	blt lbl_80055F20
 /* 80055EC0 00052E20  80 1E 00 C8 */	lwz r0, 0xc8(r30)
@@ -5011,4 +5011,3 @@ lbl_803CCF70:
 	# ROM: 0x3C9F70
 	.4byte 0x003F3F28
 	.4byte 0x3F3F2900
-
