@@ -39,7 +39,6 @@ public:
   };
 
   // TODO these probably aren't real
-  bool HasAnimData() const { return xc_animData.get() != nullptr; }
   bool HasNormalModel() const { return x1c_normalModel; }
 
   CModelData();

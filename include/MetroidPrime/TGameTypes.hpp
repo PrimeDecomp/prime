@@ -55,7 +55,13 @@ struct TUniqueId {
 
 private:
 };
-// CHECK_SIZEOF(TUniqueId, 0x2)
+CHECK_SIZEOF(TUniqueId, 0x2)
+
+// struct TGameScriptId {
+//   TEditorId editorId;
+//   bool b;
+// };
+// CHECK_SIZEOF(TGameScriptId, 0x8)
 
 typedef u16 TSfxId;
 static TSfxId InvalidSfxId = 0xFFFFu;

@@ -16,6 +16,7 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
+#include "rstl/map.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/rc_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
@@ -77,6 +78,9 @@ struct SOnScreenTex {
 
 class CStateManager : public TOneStatic< CStateManager > {
 public:
+  typedef rstl::map< TEditorId, TUniqueId > TIdList;
+  typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
+
   void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
@@ -97,7 +101,7 @@ public:
   CEntity* ObjectById(TUniqueId uid);
   const CEntity* GetObjectById(TUniqueId uid) const;
   TUniqueId GetIdForScript(TEditorId eid) const;
-  // <unk> GetIdListForScript(TEditorId) const;
+  TIdListResult GetIdListForScript(TEditorId) const;
 
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;

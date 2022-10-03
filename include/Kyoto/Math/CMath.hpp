@@ -31,8 +31,10 @@ public:
   // WrapPi__5CMathFf weak
   // WrapTwoPi__5CMathFf weak
   // FastFmod__5CMathFfff weak
-  // Min<f>__5CMathFRCfRCf weak
-  // Max<f>__5CMathFRCfRCf weak
+  template < typename T >
+  static const T& Min(const T& a, const T& b);
+  template < typename T >
+  static const T& Max(const T& a, const T& b);
   // InvSqrtF__5CMathFf global
   // FastArcCosR__5CMathFf global
   // SlowCosineR__5CMathFf global
@@ -41,9 +43,9 @@ public:
   // GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
   // ClampRadians__5CMathFf weak
   // ModF__5CMathFff weak
-  // Deg2Rad__5CMathFf weak
-  // Deg2Rev__5CMathFf weak
-  // ArcCosineR__5CMathFf global
+  static f32 Deg2Rad(f32 deg) { return Deg2Rev(deg) * (M_PIF * 2.f); }
+  static f32 Deg2Rev(f32 deg) { return deg * (1.f / 360.f); }
+  static f32 ArcCosineR(f32 v);
   // FloorF__5CMathFf global
   // BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f global
   // GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global

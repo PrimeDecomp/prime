@@ -16,6 +16,7 @@ template < typename T, typename Vec, typename Alloc >
 class const_pointer_iterator {
 public:
   typedef random_access_iterator_tag iterator_category;
+  typedef T* value_type;
 
   const_pointer_iterator() : current(nullptr) {}
   const_pointer_iterator(const T* begin) : current(const_cast< T* >(begin)) {}
