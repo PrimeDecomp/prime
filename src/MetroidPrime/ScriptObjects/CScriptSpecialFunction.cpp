@@ -343,13 +343,13 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
               continue;
             }
 
-            // GetIdListForScript seems very different between Ghidra and Metaforce
-            // const auto search = mgr.GetIdListForScript(conn->x8_objId);
-
-            rstl::pair< TUniqueId, TUniqueId >* it;
-            if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(it->second))) {
-              x198_ringControllers.push_back(SRingController(it->second, 0.f, false));
-              act->RemoveMaterial(kMT_Occluder, mgr);
+            const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
+            if (it.first != it.second) {
+              TUniqueId uid = it.first->second;
+              if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(uid))) {
+                x198_ringControllers.push_back(SRingController(uid, 0.f, false));
+                act->RemoveMaterial(kMT_Occluder, mgr);
+              }
             }
           }
 
