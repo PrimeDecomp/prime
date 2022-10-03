@@ -824,7 +824,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             if (!x1e4_27_sfx3Played) {
               if (x174_sfx3 != 0xFFFF) {
                 CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true, false,
-                                        CSfxManager::kMedPriority, kInvalidAreaId.value);
+                                        CSfxManager::kMedPriority, CSfxManager::kAllAreas);
               }
 
               x1e4_27_sfx3Played = true;
@@ -840,7 +840,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             if (!x1e4_26_sfx2Played) {
               if (x172_sfx2 != 0xFFFF) {
                 CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true, false,
-                                        CSfxManager::kMedPriority, kInvalidAreaId.value);
+                                        CSfxManager::kMedPriority, CSfxManager::kAllAreas);
               }
 
               x1e4_26_sfx2Played = true;
@@ -1118,10 +1118,10 @@ void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle,
                                                 const CVector3f& pos, uchar vol) {
   if (!handle) {
     handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true,
-                                     CSfxManager::kMedPriority, kInvalidAreaId.value);
+                                     CSfxManager::kMedPriority, CSfxManager::kAllAreas);
   } else {
     CSfxManager::UpdateEmitter(handle, pos, CVector3f::Zero(), vol);
-    CSfxManager::PitchBend(handle, 8192.f * pitch + 8192.f);
+    CSfxManager::PitchBend(handle, static_cast< s16 >(8192.f * pitch + 8192.f));
   }
 }
 
