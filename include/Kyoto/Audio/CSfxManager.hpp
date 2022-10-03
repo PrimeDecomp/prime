@@ -18,7 +18,7 @@ public:
   static void Shutdown();
   static u16 TranslateSFXID(u16);
 
-  static void PitchBend(const CSfxHandle& handle, float pitch);
+  static void PitchBend(CSfxHandle handle, int pitch);
 };
 
 #endif
