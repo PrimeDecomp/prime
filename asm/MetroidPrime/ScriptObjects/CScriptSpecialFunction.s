@@ -16,7 +16,7 @@ lbl_803E2B68:
 	.4byte SetActive__6CActorFb
 	.4byte PreRender__22CScriptSpecialFunctionFR13CStateManagerRC14CFrustumPlanes
 	.4byte AddToRenderer__22CScriptSpecialFunctionFRC14CFrustumPlanesR13CStateManager
-	.4byte Render__22CScriptSpecialFunctionCFRC13CStateManager
+	.4byte Render__22CScriptSpecialFunctionFR13CStateManager
 	.4byte CanRenderUnsorted__6CActorCFRC13CStateManager
 	.4byte CalculateRenderBounds__6CActorFv
 	.4byte HealthInfo__6CActorFR13CStateManager
@@ -958,8 +958,8 @@ lbl_8014FC98:
 /* 8014FCB4 0014CC14  38 21 08 B0 */	addi r1, r1, 0x8b0
 /* 8014FCB8 0014CC18  4E 80 00 20 */	blr
 
-.global Render__22CScriptSpecialFunctionCFRC13CStateManager
-Render__22CScriptSpecialFunctionCFRC13CStateManager:
+.global Render__22CScriptSpecialFunctionFR13CStateManager
+Render__22CScriptSpecialFunctionFR13CStateManager:
 /* 8014FCBC 0014CC1C  94 21 FE A0 */	stwu r1, -0x160(r1)
 /* 8014FCC0 0014CC20  7C 08 02 A6 */	mflr r0
 /* 8014FCC4 0014CC24  90 01 01 64 */	stw r0, 0x164(r1)

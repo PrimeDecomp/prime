@@ -71,7 +71,7 @@ public:
   virtual void DrawModelFlat();
   virtual void SetWireframeFlags();
   virtual void SetWorldFog();
-  virtual void RenderFogVolume();
+  virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken<CModel>*, const CSkinnedModel*);
   virtual void SetThermal();
   virtual void SetThermalColdScale();
   virtual void DoThermalBlendCold();

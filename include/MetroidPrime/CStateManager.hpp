@@ -147,6 +147,7 @@ public:
     xef4_pendingScreenTex.xc_extent = extent;
   }
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
+  float IntegrateVisorFog(float f);
 
   void SetShouldQuitGame(bool should) { xf94_25_quitGame = should; }
   void SetSkipCinematicSpecialFunction(TUniqueId id) { xf38_skipCineSpecialFunc = id; }

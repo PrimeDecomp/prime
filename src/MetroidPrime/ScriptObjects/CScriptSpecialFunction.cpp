@@ -13,10 +13,12 @@
 #include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
+#include "MetaRender/CCubeRenderer.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
+#include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Math/CFrustumPlanes.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
@@ -27,14 +29,12 @@
 #include "Runtime/w_fmod.h"
 #include "rstl/math.hpp"
 
-
 namespace rstl {
-  static int string_find(const string& haystack, const string& needle, int) {
-    // TODO: proper implementation
-    return 0;
-  }
+static int string_find(const string& haystack, const string& needle, int) {
+  // TODO: proper implementation
+  return 0;
 }
-
+} // namespace rstl
 
 CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
@@ -847,7 +847,8 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           animData->SetPlaybackRate(1.f);
           // Redundant copy is needed
           SAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
-          plat->SetTransform(x13c_spinnerInitialXf * deltas.xc_rotDelta.BuildTransform4f(deltas.x0_posDelta));
+          plat->SetTransform(x13c_spinnerInitialXf *
+                             deltas.xc_rotDelta.BuildTransform4f(deltas.x0_posDelta));
         }
       }
     }
@@ -926,17 +927,28 @@ void CScriptSpecialFunction::ThinkObjectFollowObject(float, CStateManager& mgr) 
 
 void CScriptSpecialFunction::Render(CStateManager& mgr) {
   if (xe8_function == kSF_FogVolume) {
-    /* TODO
-    const float z = mgr.IntegrateVisorFog(xfc_float1 * std::sin(CGraphics::GetSecondsMod900()));
-    if (z > 0.f) {
-      CVector3f max = GetTranslation() + x10c_vector3f;
-      max.SetZ(max.GetZ() + z);
-      const CAABox box(GetTranslation() - x10c_vector3f, max);
-      const CTransform4f modelMtx = CTransform4f::Translate(box.center()) *
-    CTransform4f::Scale(box.extents()); g_Renderer->SetModelMatrix(modelMtx);
-      g_Renderer->RenderFogVolume(x118_color, zeus::CAABox(-1.f, 1.f), nullptr, nullptr);
+    if (GetActive()) {
+      const float z = mgr.IntegrateVisorFog(
+          xfc_float1 * CMath::FastSinR(CGraphics::GetSecondsMod900() * x100_float2));
+      if (z > 0.f) {
+        CVector3f translation = GetTranslation();
+        CVector3f min(translation - x10c_vector3f);
+        CVector3f max(translation.GetX() + x10c_vector3f.GetX(),
+                      translation.GetY() + x10c_vector3f.GetY(), 0.0);
+        max.SetZ(translation.GetZ() + x10c_vector3f.GetZ() + z);
+        CAABox box(min, max);
+        CVector3f extents(box.GetExtents());
+        CTransform4f modelMtx =
+            CTransform4f::Translate(box.GetCenterPoint()) * CTransform4f::Scale(extents);
+
+        CVector3f renderMin(-1.f, -1.f, -1.f);
+        CVector3f renderMax(1.f, 1.f, 1.f);
+        CAABox renderbox(renderMin, renderMax);
+
+        gpRender->SetModelMatrix(modelMtx);
+        gpRender->RenderFogVolume(x118_color, renderbox, nullptr, nullptr);
+      }
     }
-    */
   } else {
     CActor::Render(mgr);
   }
