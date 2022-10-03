@@ -5991,7 +5991,7 @@ lbl_801F8FF8:
 /* 801F9014 001F5F74  38 A1 00 70 */	addi r5, r1, 0x70
 /* 801F9018 001F5F78  D0 01 00 70 */	stfs f0, 0x70(r1)
 /* 801F901C 001F5F7C  38 E0 00 01 */	li r7, 1
-/* 801F9020 001F5F80  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801F9020 001F5F80  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801F9024 001F5F84  39 00 00 00 */	li r8, 0
 /* 801F9028 001F5F88  D0 21 00 74 */	stfs f1, 0x74(r1)
 /* 801F902C 001F5F8C  D0 41 00 78 */	stfs f2, 0x78(r1)
@@ -9689,7 +9689,7 @@ lbl_801FC538:
 /* 801FC544 001F94A4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801FC548 001F94A8  98 1A 06 A1 */	stb r0, 0x6a1(r26)
 /* 801FC54C 001F94AC  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
-/* 801FC550 001F94B0  80 02 C6 00 */	lwz r0, lbl_805AE320@sda21(r2)
+/* 801FC550 001F94B0  80 02 C6 00 */	lwz r0, kAllAreas__11CSfxManager@sda21(r2)
 /* 801FC554 001F94B4  38 61 00 20 */	addi r3, r1, 0x20
 /* 801FC558 001F94B8  88 9A 03 28 */	lbz r4, 0x328(r26)
 /* 801FC55C 001F94BC  50 A4 36 72 */	rlwimi r4, r5, 6, 0x19, 0x19
@@ -9721,7 +9721,7 @@ lbl_801FC5B0:
 /* 801FC5BC 001F951C  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 801FC5C0 001F9520  C0 1A 00 40 */	lfs f0, 0x40(r26)
 /* 801FC5C4 001F9524  38 61 00 1C */	addi r3, r1, 0x1c
-/* 801FC5C8 001F9528  80 02 C6 00 */	lwz r0, lbl_805AE320@sda21(r2)
+/* 801FC5C8 001F9528  80 02 C6 00 */	lwz r0, kAllAreas__11CSfxManager@sda21(r2)
 /* 801FC5CC 001F952C  38 A1 00 2C */	addi r5, r1, 0x2c
 /* 801FC5D0 001F9530  D0 01 00 2C */	stfs f0, 0x2c(r1)
 /* 801FC5D4 001F9534  38 E0 00 7F */	li r7, 0x7f
@@ -13486,7 +13486,7 @@ lbl_801FFD3C:
 /* 801FFD70 001FCCD0  D0 41 00 48 */	stfs f2, 0x48(r1)
 /* 801FFD74 001FCCD4  F3 E1 A0 10 */	psq_st f31, 16(r1), 1, qr2
 /* 801FFD78 001FCCD8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 801FFD7C 001FCCDC  80 02 C6 00 */	lwz r0, lbl_805AE320@sda21(r2)
+/* 801FFD7C 001FCCDC  80 02 C6 00 */	lwz r0, kAllAreas__11CSfxManager@sda21(r2)
 /* 801FFD80 001FCCE0  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 801FFD84 001FCCE4  88 E1 00 10 */	lbz r7, 0x10(r1)
 /* 801FFD88 001FCCE8  38 61 00 14 */	addi r3, r1, 0x14
@@ -13569,7 +13569,7 @@ sub_801ffe50:
 /* 801FFEA8 001FCE08  38 A1 00 0C */	addi r5, r1, 0xc
 /* 801FFEAC 001FCE0C  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 801FFEB0 001FCE10  38 E0 00 01 */	li r7, 1
-/* 801FFEB4 001FCE14  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801FFEB4 001FCE14  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801FFEB8 001FCE18  39 00 00 01 */	li r8, 1
 /* 801FFEBC 001FCE1C  D0 21 00 10 */	stfs f1, 0x10(r1)
 /* 801FFEC0 001FCE20  D0 41 00 14 */	stfs f2, 0x14(r1)

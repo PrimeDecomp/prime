@@ -1987,7 +1987,7 @@ lbl_8000AAD4:
 /* 8000AB24 00007A84  54 87 06 3E */	clrlwi r7, r4, 0x18
 /* 8000AB28 00007A88  D0 41 00 24 */	stfs f2, 0x24(r1)
 /* 8000AB2C 00007A8C  38 61 00 18 */	addi r3, r1, 0x18
-/* 8000AB30 00007A90  80 02 C6 00 */	lwz r0, lbl_805AE320@sda21(r2)
+/* 8000AB30 00007A90  80 02 C6 00 */	lwz r0, kAllAreas__11CSfxManager@sda21(r2)
 /* 8000AB34 00007A94  38 A1 00 24 */	addi r5, r1, 0x24
 /* 8000AB38 00007A98  D0 21 00 28 */	stfs f1, 0x28(r1)
 /* 8000AB3C 00007A9C  38 80 04 6D */	li r4, 0x46d
@@ -2003,7 +2003,7 @@ lbl_8000AAD4:
 lbl_8000AB64:
 /* 8000AB64 00007AC4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8000AB68 00007AC8  38 61 00 14 */	addi r3, r1, 0x14
-/* 8000AB6C 00007ACC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8000AB6C 00007ACC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8000AB70 00007AD0  54 85 06 3E */	clrlwi r5, r4, 0x18
 /* 8000AB74 00007AD4  38 80 04 6D */	li r4, 0x46d
 /* 8000AB78 00007AD8  38 C0 00 40 */	li r6, 0x40

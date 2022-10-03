@@ -1427,7 +1427,7 @@ GetUp__9CParasiteFR13CStateManager9EStateMsgf:
 /* 801579D8 00154938  38 A1 00 0C */	addi r5, r1, 0xc
 /* 801579DC 0015493C  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 801579E0 00154940  38 E0 00 01 */	li r7, 1
-/* 801579E4 00154944  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801579E4 00154944  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801579E8 00154948  39 00 00 00 */	li r8, 0
 /* 801579EC 0015494C  D0 21 00 10 */	stfs f1, 0x10(r1)
 /* 801579F0 00154950  D0 41 00 14 */	stfs f2, 0x14(r1)
@@ -1465,7 +1465,7 @@ Crouch__9CParasiteFR13CStateManager9EStateMsgf:
 /* 80157A60 001549C0  38 A1 00 0C */	addi r5, r1, 0xc
 /* 80157A64 001549C4  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 80157A68 001549C8  38 E0 00 01 */	li r7, 1
-/* 80157A6C 001549CC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80157A6C 001549CC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80157A70 001549D0  39 00 00 00 */	li r8, 0
 /* 80157A74 001549D4  D0 21 00 10 */	stfs f1, 0x10(r1)
 /* 80157A78 001549D8  D0 41 00 14 */	stfs f2, 0x14(r1)
@@ -1519,7 +1519,7 @@ lbl_80157AD0:
 /* 80157B20 00154A80  38 A1 00 20 */	addi r5, r1, 0x20
 /* 80157B24 00154A84  D0 01 00 20 */	stfs f0, 0x20(r1)
 /* 80157B28 00154A88  38 E0 00 01 */	li r7, 1
-/* 80157B2C 00154A8C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80157B2C 00154A8C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80157B30 00154A90  39 00 00 00 */	li r8, 0
 /* 80157B34 00154A94  D0 21 00 24 */	stfs f1, 0x24(r1)
 /* 80157B38 00154A98  D0 41 00 28 */	stfs f2, 0x28(r1)

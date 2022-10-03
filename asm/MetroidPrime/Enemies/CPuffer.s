@@ -425,7 +425,7 @@ Think__7CPufferFfR13CStateManager:
 /* 8025C2BC 0025921C  38 A1 00 24 */	addi r5, r1, 0x24
 /* 8025C2C0 00259220  C0 1E 00 40 */	lfs f0, 0x40(r30)
 /* 8025C2C4 00259224  38 E0 00 01 */	li r7, 1
-/* 8025C2C8 00259228  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8025C2C8 00259228  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8025C2CC 0025922C  39 00 00 00 */	li r8, 0
 /* 8025C2D0 00259230  D0 01 00 24 */	stfs f0, 0x24(r1)
 /* 8025C2D4 00259234  D0 21 00 28 */	stfs f1, 0x28(r1)

@@ -361,7 +361,7 @@ AddOrUpdateEmitter__22CScriptSpecialFunctionFfR10CSfxHandleUsRC9CVector3fUc:
 /* 8014F410 0014C370  7C 9F 23 78 */	mr r31, r4
 /* 8014F414 0014C374  28 00 00 00 */	cmplwi r0, 0
 /* 8014F418 0014C378  40 82 00 40 */	bne lbl_8014F458
-/* 8014F41C 0014C37C  80 82 C6 00 */	lwz r4, lbl_805AE320@sda21(r2)
+/* 8014F41C 0014C37C  80 82 C6 00 */	lwz r4, kAllAreas__11CSfxManager@sda21(r2)
 /* 8014F420 0014C380  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8014F424 0014C384  38 03 66 A0 */	addi r0, r3, sZeroVector__9CVector3f@l
 /* 8014F428 0014C388  A9 42 C5 FA */	lha r10, kMedPriority__11CSfxManager@sda21(r2)
@@ -1638,7 +1638,7 @@ lbl_80150638:
 /* 80150694 0014D5F4  38 A1 00 60 */	addi r5, r1, 0x60
 /* 80150698 0014D5F8  D0 01 00 60 */	stfs f0, 0x60(r1)
 /* 8015069C 0014D5FC  38 E0 00 01 */	li r7, 1
-/* 801506A0 0014D600  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801506A0 0014D600  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801506A4 0014D604  39 00 00 00 */	li r8, 0
 /* 801506A8 0014D608  D0 21 00 64 */	stfs f1, 0x64(r1)
 /* 801506AC 0014D60C  D0 41 00 68 */	stfs f2, 0x68(r1)
@@ -1686,7 +1686,7 @@ lbl_801506F0:
 /* 80150744 0014D6A4  38 A1 00 54 */	addi r5, r1, 0x54
 /* 80150748 0014D6A8  D0 01 00 54 */	stfs f0, 0x54(r1)
 /* 8015074C 0014D6AC  38 E0 00 01 */	li r7, 1
-/* 80150750 0014D6B0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80150750 0014D6B0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80150754 0014D6B4  39 00 00 00 */	li r8, 0
 /* 80150758 0014D6B8  D0 21 00 58 */	stfs f1, 0x58(r1)
 /* 8015075C 0014D6BC  D0 41 00 5C */	stfs f2, 0x5c(r1)

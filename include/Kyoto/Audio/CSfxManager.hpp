@@ -12,9 +12,9 @@ public:
   static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
                             uchar maxVol);
   static CSfxHandle AddEmitter(u16 id, const CVector3f& pos, const CVector3f& dir,
-                               bool useAcoustics, bool looped, s16 prio, s32 areaId);
+                               bool useAcoustics, bool looped, s16 prio, int areaId);
   static CSfxHandle AddEmitter(u16 id, const CVector3f& pos, const CVector3f& dir, uchar vol,
-                               bool useAcoustics, bool looped, s16 prio, s32 areaId);
+                               bool useAcoustics, bool looped, s16 prio, int areaId);
   static void Shutdown();
   static u16 TranslateSFXID(u16);
 
@@ -22,6 +22,7 @@ public:
 
   static s16 kMaxPriority;  // 0xff
   static s16 kMedPriority;  // 0x7f
+  static int kAllAreas;
 };
 
 #endif

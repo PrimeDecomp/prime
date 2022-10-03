@@ -2374,7 +2374,7 @@ lbl_80078CA8:
 /* 80078CA8 00075C08  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
 /* 80078CAC 00075C0C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 80078CB0 00075C10  38 C5 66 A0 */	addi r6, r5, sZeroVector__9CVector3f@l
-/* 80078CB4 00075C14  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80078CB4 00075C14  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80078CB8 00075C18  7F A5 EB 78 */	mr r5, r29
 /* 80078CBC 00075C1C  38 E0 00 01 */	li r7, 1
 /* 80078CC0 00075C20  39 00 00 00 */	li r8, 0
@@ -4528,7 +4528,7 @@ lbl_8007AB68:
 /* 8007AB8C 00077AEC  38 A1 00 24 */	addi r5, r1, 0x24
 /* 8007AB90 00077AF0  D0 01 00 24 */	stfs f0, 0x24(r1)
 /* 8007AB94 00077AF4  38 E0 00 01 */	li r7, 1
-/* 8007AB98 00077AF8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8007AB98 00077AF8  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8007AB9C 00077AFC  39 00 00 00 */	li r8, 0
 /* 8007ABA0 00077B00  D0 21 00 28 */	stfs f1, 0x28(r1)
 /* 8007ABA4 00077B04  D0 41 00 2C */	stfs f2, 0x2c(r1)
@@ -4624,7 +4624,7 @@ MassiveDeath__10CPatternedFR13CStateManager:
 /* 8007ACF4 00077C54  38 E0 00 01 */	li r7, 1
 /* 8007ACF8 00077C58  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8007ACFC 00077C5C  38 A1 00 0C */	addi r5, r1, 0xc
-/* 8007AD00 00077C60  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8007AD00 00077C60  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8007AD04 00077C64  39 00 00 00 */	li r8, 0
 /* 8007AD08 00077C68  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8007AD0C 00077C6C  7C 9F 23 78 */	mr r31, r4

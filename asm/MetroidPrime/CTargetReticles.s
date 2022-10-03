@@ -4645,7 +4645,7 @@ UpdateCurrLockOnGroup__22CCompoundTargetReticleFfRC13CStateManager:
 /* 800C0270 000BD1D0  41 82 00 2C */	beq lbl_800C029C
 /* 800C0274 000BD1D4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800C0278 000BD1D8  38 61 00 3C */	addi r3, r1, 0x3c
-/* 800C027C 000BD1DC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 800C027C 000BD1DC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 800C0280 000BD1E0  38 80 05 71 */	li r4, 0x571
 /* 800C0284 000BD1E4  38 A0 00 7F */	li r5, 0x7f
 /* 800C0288 000BD1E8  38 C0 00 40 */	li r6, 0x40
@@ -4656,7 +4656,7 @@ UpdateCurrLockOnGroup__22CCompoundTargetReticleFfRC13CStateManager:
 lbl_800C029C:
 /* 800C029C 000BD1FC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800C02A0 000BD200  38 61 00 38 */	addi r3, r1, 0x38
-/* 800C02A4 000BD204  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 800C02A4 000BD204  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 800C02A8 000BD208  38 80 05 61 */	li r4, 0x561
 /* 800C02AC 000BD20C  38 A0 00 7F */	li r5, 0x7f
 /* 800C02B0 000BD210  38 C0 00 40 */	li r6, 0x40

@@ -590,7 +590,7 @@ lbl_80209510:
 /* 80209558 002064B8  38 61 00 0C */	addi r3, r1, 0xc
 /* 8020955C 002064BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80209560 002064C0  38 80 05 9E */	li r4, 0x59e
-/* 80209564 002064C4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80209564 002064C4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80209568 002064C8  38 A0 00 7F */	li r5, 0x7f
 /* 8020956C 002064CC  38 C0 00 40 */	li r6, 0x40
 /* 80209570 002064D0  38 E0 00 00 */	li r7, 0
@@ -924,7 +924,7 @@ sub_802099c0:
 /* 802099FC 0020695C  38 E0 00 00 */	li r7, 0
 /* 80209A00 00206960  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80209A04 00206964  39 20 00 01 */	li r9, 1
-/* 80209A08 00206968  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80209A08 00206968  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80209A0C 0020696C  48 0E 03 69 */	bl SfxStart__11CSfxManagerFUsssbsbi
 /* 80209A10 00206970  80 01 00 08 */	lwz r0, 8(r1)
 /* 80209A14 00206974  90 1F 00 28 */	stw r0, 0x28(r31)

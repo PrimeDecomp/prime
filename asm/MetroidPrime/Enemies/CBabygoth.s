@@ -696,7 +696,7 @@ lbl_8021D938:
 /* 8021D958 0021A8B8  7F A4 EB 78 */	mr r4, r29
 /* 8021D95C 0021A8BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 8021D960 0021A8C0  38 61 00 2C */	addi r3, r1, 0x2c
-/* 8021D964 0021A8C4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8021D964 0021A8C4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8021D968 0021A8C8  38 C0 00 40 */	li r6, 0x40
 /* 8021D96C 0021A8CC  38 E0 00 00 */	li r7, 0
 /* 8021D970 0021A8D0  39 20 00 00 */	li r9, 0

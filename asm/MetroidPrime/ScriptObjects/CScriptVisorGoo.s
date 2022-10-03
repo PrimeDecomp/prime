@@ -445,7 +445,7 @@ lbl_801D7534:
 /* 801D7538 001D4498  38 61 00 20 */	addi r3, r1, 0x20
 /* 801D753C 001D449C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 801D7540 001D44A0  38 A0 00 7F */	li r5, 0x7f
-/* 801D7544 001D44A4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801D7544 001D44A4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801D7548 001D44A8  38 C0 00 40 */	li r6, 0x40
 /* 801D754C 001D44AC  38 E0 00 00 */	li r7, 0
 /* 801D7550 001D44B0  39 20 00 00 */	li r9, 0

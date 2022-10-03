@@ -898,7 +898,7 @@ lbl_80044370:
 /* 8004440C 0004136C  38 61 00 2C */	addi r3, r1, 0x2c
 /* 80044410 00041370  A8 C2 C5 FA */	lha r6, kMedPriority__11CSfxManager@sda21(r2)
 /* 80044414 00041374  38 81 00 C4 */	addi r4, r1, 0xc4
-/* 80044418 00041378  81 02 C6 00 */	lwz r8, lbl_805AE320@sda21(r2)
+/* 80044418 00041378  81 02 C6 00 */	lwz r8, kAllAreas__11CSfxManager@sda21(r2)
 /* 8004441C 0004137C  38 A0 00 01 */	li r5, 1
 /* 80044420 00041380  38 E0 00 00 */	li r7, 0
 /* 80044424 00041384  48 2A 5B BD */	bl AddEmitter__11CSfxManagerFRQ29CAudioSys18C3DEmitterParmDatabsbi

@@ -2372,7 +2372,7 @@ sub_801bf6ec:
 /* 801BF8AC 001BC80C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801BF8B0 001BC810  98 1F 03 D0 */	stb r0, 0x3d0(r31)
 /* 801BF8B4 001BC814  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
-/* 801BF8B8 001BC818  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801BF8B8 001BC818  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801BF8BC 001BC81C  38 61 00 0C */	addi r3, r1, 0xc
 /* 801BF8C0 001BC820  38 80 06 FF */	li r4, 0x6ff
 /* 801BF8C4 001BC824  38 E0 00 01 */	li r7, 1
@@ -2917,7 +2917,7 @@ SetNewTarget__11CWaveBusterF9TUniqueId:
 /* 801C00A8 001BD008  A9 22 C5 F8 */	lha r9, lbl_805AE318@sda21(r2)
 /* 801C00AC 001BD00C  D0 03 03 A0 */	stfs f0, 0x3a0(r3)
 /* 801C00B0 001BD010  38 A1 00 10 */	addi r5, r1, 0x10
-/* 801C00B4 001BD014  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801C00B4 001BD014  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801C00B8 001BD018  38 80 06 FF */	li r4, 0x6ff
 /* 801C00BC 001BD01C  C0 43 00 60 */	lfs f2, 0x60(r3)
 /* 801C00C0 001BD020  38 E0 00 01 */	li r7, 1

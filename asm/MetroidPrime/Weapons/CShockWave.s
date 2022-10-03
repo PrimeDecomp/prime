@@ -681,7 +681,7 @@ lbl_80231F64:
 /* 80231F68 0022EEC8  38 61 00 58 */	addi r3, r1, 0x58
 /* 80231F6C 0022EECC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80231F70 0022EED0  38 A0 00 7F */	li r5, 0x7f
-/* 80231F74 0022EED4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80231F74 0022EED4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80231F78 0022EED8  38 C0 00 40 */	li r6, 0x40
 /* 80231F7C 0022EEDC  38 E0 00 00 */	li r7, 0
 /* 80231F80 0022EEE0  39 20 00 00 */	li r9, 0
