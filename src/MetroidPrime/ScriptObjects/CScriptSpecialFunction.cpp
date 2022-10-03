@@ -34,6 +34,13 @@ static int string_find(const string& haystack, const string& needle, int) {
   // TODO: proper implementation
   return 0;
 }
+
+template < class RandomAccessIterator, class Compare >
+void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp) {
+  // TODO: proper implementation
+  comp(*first, *last);
+}
+
 } // namespace rstl
 
 CScriptSpecialFunction::CScriptSpecialFunction(
@@ -196,6 +203,26 @@ void CScriptSpecialFunction::PreRender(CStateManager&, const CFrustumPlanes& fru
 //     ERumbleFxId::TwentyTwo, ERumbleFxId::TwentyThree, ERumbleFxId::Zero,
 // };
 
+namespace {
+class CRingSorter {
+  CStateManager* mgr;
+
+public:
+  CRingSorter(CStateManager* mgr) : mgr(mgr) {}
+
+  bool operator()(const CScriptSpecialFunction::SRingController& a,
+                  const CScriptSpecialFunction::SRingController& b) {
+
+    const CActor* actA = TCastToConstPtr< CActor >(mgr->GetObjectById(a.x0_id));
+    const CActor* actB = TCastToConstPtr< CActor >(mgr->GetObjectById(b.x0_id));
+    if (actA && actB) {
+      return actA->GetTranslation().GetZ() < actB->GetTranslation().GetZ();
+    }
+    return false;
+  }
+};
+} // namespace
+
 void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
                                              CStateManager& mgr) {
   if (GetActive() && msg == kSM_Deactivate && xe8_function == kSF_Billboard) {
@@ -353,16 +380,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
             }
           }
 
-          // TODO: there's an actual sort symbol, so it's a templated sort somewhere
-          // std::sort(x198_ringControllers.begin(), x198_ringControllers.end(),
-          //           [&mgr](const SRingController& a, const SRingController& b) {
-          //             const TCastToConstPtr<CActor> actA(mgr.GetObjectById(a.x0_id));
-          //             const TCastToConstPtr<CActor> actB(mgr.GetObjectById(b.x0_id));
-          //             if (actA && actB) {
-          //               return actA->GetTranslation().z() < actB->GetTranslation().z();
-          //             }
-          //             return false;
-          //           });
+          rstl::sort(x198_ringControllers.begin(), x198_ringControllers.end(), CRingSorter(&mgr));
 
           for (rstl::vector< SRingController >::iterator rc = x198_ringControllers.begin();
                rc != x198_ringControllers.end(); ++rc) {
@@ -845,9 +863,8 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
               }
               rstl::optional_object< float > volume = x184_.GetAverage();
               float pitch = 0.f <= f28 ? x108_float4 : 1.f;
-              
-              AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1,
-                                 GetTranslation(), volume.data());
+
+              AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1, GetTranslation(), volume.data());
             }
           } else {
             DeleteEmitter(x178_sfxHandle);
@@ -1100,8 +1117,8 @@ u32 CScriptSpecialFunction::GetSpecialEnding(const CStateManager& mgr) const {
 void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id,
                                                 const CVector3f& pos, uchar vol) {
   if (!handle) {
-    handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true, CSfxManager::kMedPriority,
-                                     kInvalidAreaId.value);
+    handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true,
+                                     CSfxManager::kMedPriority, kInvalidAreaId.value);
   } else {
     CSfxManager::UpdateEmitter(handle, pos, CVector3f::Zero(), vol);
     CSfxManager::PitchBend(handle, 8192.f * pitch + 8192.f);
