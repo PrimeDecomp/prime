@@ -152,6 +152,7 @@ public:
   CTransform4f CreateTransformFromMovementDirection() const;
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
+  EPlayerMorphBallState GetMorphballTransitionState() const { return x2f8_morphBallState; }
   void SetHudDisable(float staticTimer, float outSpeed, float inSpeed);
   void IncrementPhazon();
   void DecrementPhazon();

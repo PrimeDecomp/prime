@@ -1309,8 +1309,8 @@ GetAnimationManager__9CAnimDataFv:
 /* 8002A500 00027460  90 04 00 04 */	stw r0, 4(r4)
 /* 8002A504 00027464  4E 80 00 20 */	blr
 
-.global sub_8002a508
-sub_8002a508:
+.global SetPhase__9CAnimDataFf
+SetPhase__9CAnimDataFf:
 /* 8002A508 00027468  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8002A50C 0002746C  7C 08 02 A6 */	mflr r0
 /* 8002A510 00027470  90 01 00 14 */	stw r0, 0x14(r1)
@@ -9688,4 +9688,3 @@ lbl_803CCD20:
 	.asciz " has invalid initial animation, so defaulting to first.\n"
 	.balign 4
 	.4byte 0
-

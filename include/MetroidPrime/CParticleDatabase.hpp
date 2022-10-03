@@ -40,6 +40,6 @@ private:
   bool xb4_24_updatesEnabled : 1;
   bool xb4_25_anySystemsDrawnWithModel : 1;
 };
-CHECK_SIZEOF(CParticleDatabase, 0xb5)
+CHECK_SIZEOF(CParticleDatabase, 0xb8)
 
 #endif

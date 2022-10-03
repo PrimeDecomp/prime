@@ -1,6 +1,7 @@
 #include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
+#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
 #include "MetroidPrime/CMain.hpp"
 #include "MetroidPrime/CStateManager.hpp"
@@ -9,7 +10,9 @@
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/TCastTo.hpp"
+
 
 #include "Collision/CMaterialFilter.hpp"
 
@@ -19,8 +22,19 @@
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector2i.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 
+#include "Runtime/w_fmod.h"
 #include "rstl/math.hpp"
+
+
+namespace rstl {
+  static int string_find(const string& haystack, const string& needle, int) {
+    // TODO: proper implementation
+    return 0;
+  }
+}
+
 
 CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
@@ -710,8 +724,8 @@ void CScriptSpecialFunction::ThinkPlayerFollowLocator(float, CStateManager& mgr)
 void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr,
                                                     ESpinnerControllerMode mode) {
   // rstl::string_find is found in CScriptSpecialFunction.s as sub_80150d98
-  // const bool allowWrap = rstl::string_find(xec_locatorName, "AllowWrap") != std::string::npos;
-  // const bool noBackward = rstl::string_find(xec_locatorName, "NoBackward") != std::string::npos;
+  const bool allowWrap = rstl::string_find(xec_locatorName, rstl::string_l("AllowWrap"), 0) != -1;
+  const bool noBackward = rstl::string_find(xec_locatorName, rstl::string_l("NoBackward"), 0) != -1;
   const float pointOneByDt = 0.1f * dt;
   const float twoByDt = 2.f * dt;
 
@@ -721,11 +735,11 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
       continue;
     }
 
-    /*
-    const auto search = mgr.GetIdListForScript(conn->x8_objId);
-    for (auto it = search.first; it != search.second; ++it) {
-      if (const TCastToPtr<CScriptPlatform> plat = mgr.ObjectById((*it).second)) {
-        if (plat->HasModelData() && plat->GetModelData()->HasAnimData()) {
+    const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
+    if (it.first != it.second) {
+      TUniqueId uid = it.first->second;
+      if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(uid))) {
+        if (plat->HasModelData() && plat->GetModelData()->GetAnimationData()) {
           plat->SetControlledAnimation(true);
           if (!x1e4_24_spinnerInitializedXf) {
             x13c_spinnerInitialXf = plat->GetTransform();
@@ -737,16 +751,17 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
 
           if (mode == kSCM_Zero) {
             if (x1e4_25_spinnerCanMove) {
-              const CPlayer& pl = mgr.GetPlayer();
-              const CVector3f angVel = pl.GetAngularVelocityOR().getVector();
+              const CPlayer& pl = *mgr.GetPlayer();
+              const CVector3f angVel = pl.GetAngularVelocityOR().GetVector();
               float mag = 0.f;
-              if (angVel.canBeNormalized()) {
-                mag = angVel.magnitude();
+              if (angVel.CanBeNormalized()) {
+                mag = angVel.Magnitude();
               }
 
               const float spinImpulse =
-                  (pl.GetMorphballTransitionState() == CPlayer::EPlayerMorphBallState::Morphed ?
-    0.025f * mag : 0.f); if (spinImpulse >= x180_) { SendScriptMsgs(kSS_Play, mgr, kSM_None);
+                  (pl.GetMorphballTransitionState() == CPlayer::kMS_Morphed ? 0.025f * mag : 0.f);
+              if (spinImpulse >= x180_) {
+                SendScriptMsgs(kSS_Play, mgr, kSM_None);
               }
 
               x180_ = spinImpulse;
@@ -764,7 +779,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             if (!noBackward) {
               x138_ -= f29;
 
-              if (std::fabs(x16c_) < dt) {
+              if (CMath::AbsF(x16c_) < dt) {
                 x16c_ = 0.f;
               } else {
                 x16c_ -= (dt * (x16c_ <= 0.f ? -1.f : 1.f));
@@ -773,21 +788,21 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           }
 
           if (allowWrap) {
-            x138_ = std::fmod(x138_, 1.f);
+            x138_ = fmod(x138_, 1.f);
             if (x138_ < 0.f) {
               x138_ += 1.f;
             }
           } else {
-            x138_ = zeus::clamp(0.f, x138_, 1.f);
+            x138_ = CMath::Clamp(0.f, x138_, 1.f);
           }
 
           bool r23 = true;
           f28 = x138_ - f28; // always 0?
-          if (zeus::close_enough(x138_, 1.f, FLT_EPSILON)) {
+          if (close_enough(x138_, 1.f, FLT_EPSILON)) {
             if (!x1e4_27_sfx3Played) {
               if (x174_sfx3 != 0xFFFF) {
-                CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), {}, true, false, 0x7F,
-    kInvalidAreaId);
+                CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true, false,
+                                        0x7F, kInvalidAreaId.value);
               }
 
               x1e4_27_sfx3Played = true;
@@ -799,11 +814,11 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             x1e4_27_sfx3Played = false;
           }
 
-          if (zeus::close_enough(x138_, 0.f, FLT_EPSILON)) {
+          if (close_enough(x138_, 0.f, FLT_EPSILON)) {
             if (!x1e4_26_sfx2Played) {
               if (x172_sfx2 != 0xFFFF) {
-                CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), {}, true, false, 0x7F,
-    kInvalidAreaId);
+                CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true, false,
+                                        0x7F, kInvalidAreaId.value);
               }
 
               x1e4_26_sfx2Played = true;
@@ -818,25 +833,24 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           if (r23) {
             if (x170_sfx1 != 0xFFFF) {
               x184_.AddValue(0.f <= f28 ? 100 : 0x7f);
-              const std::optional<float> avg = x184_.GetAverage();
+              const rstl::optional_object< float > avg = x184_.GetAverage();
               AddOrUpdateEmitter(0.f <= f28 ? x108_float4 : 1.f, x178_sfxHandle, x170_sfx1,
-    GetTranslation(), avg.value());
+                                 GetTranslation(), avg.data());
             }
           } else {
             DeleteEmitter(x178_sfxHandle);
           }
 
-          CAnimData* animData = plat->GetModelData()->GetAnimationData();
+          CAnimData* animData = plat->ModelData()->AnimationData();
           const float dur = animData->GetAnimationDuration(animData->GetDefaultAnimation()) * x138_;
           animData->SetPhase(0.f);
           animData->SetPlaybackRate(1.f);
-          const SAdvancementDeltas& deltas = plat->UpdateAnimation(dur, mgr, true);
-          plat->SetTransform(x13c_spinnerInitialXf *
-    deltas.xc_rotDelta.toTransform(deltas.x0_posDelta));
+          // Redundant copy is needed
+          SAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
+          plat->SetTransform(x13c_spinnerInitialXf * deltas.xc_rotDelta.BuildTransform4f(deltas.x0_posDelta));
         }
       }
     }
-    */
   }
 }
 

@@ -91,20 +91,21 @@ public:
   // Render__9CAnimDataCFRC13CSkinnedModelRC11CModelFlagsRCQ24rstl37optional_object<18CVertexMorphEffect>PCf
   // RenderAuxiliary__9CAnimDataCFRC14CFrustumPlanes
   // RecalcPoseBuilder__9CAnimDataCFPC13CCharAnimTime
-  // GetAnimationDuration__9CAnimDataCFi
+  float GetAnimationDuration(int animIn) const;
   // GetAnimTimeRemaining__9CAnimDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
   // IsAnimTimeRemaining__9CAnimDataCFfRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>
   // GetLocatorTransform__9CAnimDataCFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PC13CCharAnimTime
   // GetLocatorTransform__9CAnimDataCF6CSegIdPC13CCharAnimTime
   // CalcPlaybackAlignmentParms__9CAnimDataFRC18CAnimPlaybackParmsRCQ24rstl25ncrc_ptr<13CAnimTreeNode>
   // SetRandomPlaybackRate__9CAnimDataFR9CRandom16
-  // SetPlaybackRate__9CAnimDataFf
+  void SetPlaybackRate(float set);
   // MultiplyPlaybackRate__9CAnimDataFf
   // GetTimeOfUserEvent__9CAnimDataCF14EUserEventTypeRC13CCharAnimTime
   // GetAdvancementDeltas__9CAnimDataCFRC13CCharAnimTimeRC13CCharAnimTime
   // Touch__9CAnimDataCFRC13CSkinnedModeli
   // InitializeEffects__9CAnimDataFR13CStateManagerRC9CVector3f
   // SetPhase__9CAnimDataFf -> SetPhase__11IAnimReaderFf
+  void SetPhase(float ph);
   // AddAdditiveAnimation__9CAnimDataFUifbb
   // DelAdditiveAnimation__9CAnimDataFUi
   // IsAdditiveAnimationActive__9CAnimDataCFUi
@@ -119,6 +120,7 @@ public:
   // GetAnimationManager__9CAnimDataFv
   // SetPoseValid__9CAnimDataFb
 
+  u16 GetDefaultAnimation() const { return x208_defaultAnim; }
   // GetCharacterInfo__9CAnimDataCFv
   // GetCharLayoutInfo__9CAnimDataCFv
   // GetDeltaRotation__9CAnimDataCFv

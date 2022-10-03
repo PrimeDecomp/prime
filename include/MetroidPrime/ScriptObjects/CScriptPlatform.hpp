@@ -67,6 +67,8 @@ public:
   TUniqueId GetWaypoint(CStateManager& mgr);
   TUniqueId GetNext(TUniqueId uid, CStateManager& mgr);
 
+  void SetControlledAnimation(bool controlled) { x356_25_controlledAnimation = controlled; }
+
   static void AddRider(rstl::vector< SRiders >& riders, TUniqueId riderId,
                        const CPhysicsActor* ridee, CStateManager& mgr);
   static TEntityList BuildNearListFromRiders(CStateManager& mgr,
