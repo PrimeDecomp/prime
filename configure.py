@@ -1161,11 +1161,11 @@ if os.name == "nt":
     n.rule(name="mwcc_frank", command=ALLOW_CHAIN+"$wine tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && $python tools/franklite.py $out $out",
            description="FRANK $out", depfile="$basefile.d", deps="gcc")
 else:
-    n.rule(name="mwcc", command="$wine tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && $python tools/transform-dep.py $basefile.d $basefile.d.unix",
-           description="MWCC $out", depfile="$basefile.d.unix", deps="gcc")
+    n.rule(name="mwcc", command="$wine tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && $python tools/transform-dep.py $basefile.d $basefile.d",
+           description="MWCC $out", depfile="$basefile.d", deps="gcc")
     n.newline()
-    n.rule(name="mwcc_frank", command="$wine tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && $python tools/franklite.py $out $out && $python tools/transform-dep.py $basefile.d $basefile.d.unix",
-           description="FRANK $out", depfile="$basefile.d.unix", deps="gcc")
+    n.rule(name="mwcc_frank", command="$wine tools/mwcc_compiler/$mwcc_version/mwcceppc.exe $cflags -c $in -o $basedir && $python tools/franklite.py $out $out && $python tools/transform-dep.py $basefile.d $basefile.d",
+           description="FRANK $out", depfile="$basefile.d", deps="gcc")
 n.newline()
 n.rule(name="as", command="$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -MD $out.d",
        description="AS $out", depfile="$out.d", deps="gcc")
@@ -1253,7 +1253,7 @@ if args.check:
     n.rule(name="check", command="shasum -a 1 -c $in && touch $out",
            description="CHECK $in")
     n.build("$builddir/main.dol.ok", "check",
-            "sha1/mp1.$version.sha1", implicit=f"$builddir/main.dol")
+            "sha1/mp1.$version.sha1", implicit="$builddir/main.dol")
     n.newline()
 
 ###
