@@ -325,8 +325,8 @@ lbl_8014F38C:
 /* 8014F39C 0014C2FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8014F3A0 0014C300  4E 80 00 20 */	blr
 
-.global sub_8014f3a4
-sub_8014f3a4:
+.global DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle
+DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle:
 /* 8014F3A4 0014C304  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8014F3A8 0014C308  7C 08 02 A6 */	mflr r0
 /* 8014F3AC 0014C30C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -348,8 +348,8 @@ lbl_8014F3DC:
 /* 8014F3E8 0014C348  38 21 00 20 */	addi r1, r1, 0x20
 /* 8014F3EC 0014C34C  4E 80 00 20 */	blr
 
-.global sub_8014f3f0
-sub_8014f3f0:
+.global AddOrUpdateEmitter__22CScriptSpecialFunctionFfR10CSfxHandleUsRC9CVector3fUc
+AddOrUpdateEmitter__22CScriptSpecialFunctionFfR10CSfxHandleUsRC9CVector3fUc:
 /* 8014F3F0 0014C350  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8014F3F4 0014C354  7C 08 02 A6 */	mflr r0
 /* 8014F3F8 0014C358  90 01 00 44 */	stw r0, 0x44(r1)
@@ -1712,7 +1712,7 @@ lbl_80150790:
 lbl_801507A0:
 /* 801507A0 0014D700  38 61 00 24 */	addi r3, r1, 0x24
 /* 801507A4 0014D704  38 98 01 84 */	addi r4, r24, 0x184
-/* 801507A8 0014D708  48 00 05 91 */	bl sub_80150d38
+/* 801507A8 0014D708  48 00 05 91 */	bl "GetAverage__11TAverage<f>CFv"
 /* 801507AC 0014D70C  88 01 00 28 */	lbz r0, 0x28(r1)
 /* 801507B0 0014D710  28 00 00 00 */	cmplwi r0, 0
 /* 801507B4 0014D714  98 01 00 38 */	stb r0, 0x38(r1)
@@ -1752,16 +1752,16 @@ lbl_80150818:
 /* 80150834 0014D794  C8 01 01 50 */	lfd f0, 0x150(r1)
 /* 80150838 0014D798  EC 00 08 28 */	fsubs f0, f0, f1
 /* 8015083C 0014D79C  D0 01 00 0C */	stfs f0, 0xc(r1)
-/* 80150840 0014D7A0  48 00 01 E5 */	bl sub_80150a24
+/* 80150840 0014D7A0  48 00 01 E5 */	bl "AddValue__11TAverage<f>FRCf"
 /* 80150844 0014D7A4  48 00 00 10 */	b lbl_80150854
 lbl_80150848:
 /* 80150848 0014D7A8  38 78 01 84 */	addi r3, r24, 0x184
 /* 8015084C 0014D7AC  38 8D 8C 64 */	addi r4, r13, lbl_805A7824@sda21
-/* 80150850 0014D7B0  48 00 01 D5 */	bl sub_80150a24
+/* 80150850 0014D7B0  48 00 01 D5 */	bl "AddValue__11TAverage<f>FRCf"
 lbl_80150854:
 /* 80150854 0014D7B4  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80150858 0014D7B8  38 98 01 84 */	addi r4, r24, 0x184
-/* 8015085C 0014D7BC  48 00 04 DD */	bl sub_80150d38
+/* 8015085C 0014D7BC  48 00 04 DD */	bl "GetAverage__11TAverage<f>CFv"
 /* 80150860 0014D7C0  28 17 00 00 */	cmplwi r23, 0
 /* 80150864 0014D7C4  41 82 00 0C */	beq lbl_80150870
 /* 80150868 0014D7C8  C0 38 01 08 */	lfs f1, 0x108(r24)
@@ -1789,14 +1789,14 @@ lbl_80150874:
 /* 801508B8 0014D818  90 A1 00 4C */	stw r5, 0x4c(r1)
 /* 801508BC 0014D81C  90 01 00 50 */	stw r0, 0x50(r1)
 /* 801508C0 0014D820  A0 B8 01 70 */	lhz r5, 0x170(r24)
-/* 801508C4 0014D824  4B FF EB 2D */	bl sub_8014f3f0
+/* 801508C4 0014D824  4B FF EB 2D */	bl AddOrUpdateEmitter__22CScriptSpecialFunctionFfR10CSfxHandleUsRC9CVector3fUc
 /* 801508C8 0014D828  38 00 00 00 */	li r0, 0
 /* 801508CC 0014D82C  98 01 00 20 */	stb r0, 0x20(r1)
 /* 801508D0 0014D830  48 00 00 10 */	b lbl_801508E0
 lbl_801508D4:
 /* 801508D4 0014D834  7F 03 C3 78 */	mr r3, r24
 /* 801508D8 0014D838  38 98 01 78 */	addi r4, r24, 0x178
-/* 801508DC 0014D83C  4B FF EA C9 */	bl sub_8014f3a4
+/* 801508DC 0014D83C  4B FF EA C9 */	bl DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle
 lbl_801508E0:
 /* 801508E0 0014D840  80 7F 00 64 */	lwz r3, 0x64(r31)
 /* 801508E4 0014D844  80 63 00 10 */	lwz r3, 0x10(r3)
@@ -1882,8 +1882,8 @@ lbl_801509C8:
 /* 80150A1C 0014D97C  38 21 01 E0 */	addi r1, r1, 0x1e0
 /* 80150A20 0014D980  4E 80 00 20 */	blr
 
-.global sub_80150a24
-sub_80150a24:
+.global "AddValue__11TAverage<f>FRCf"
+"AddValue__11TAverage<f>FRCf":
 /* 80150A24 0014D984  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80150A28 0014D988  7C 08 02 A6 */	mflr r0
 /* 80150A2C 0014D98C  7C 86 23 78 */	mr r6, r4
@@ -2114,8 +2114,8 @@ lbl_80150D24:
 /* 80150D30 0014DC90  38 21 00 30 */	addi r1, r1, 0x30
 /* 80150D34 0014DC94  4E 80 00 20 */	blr
 
-.global sub_80150d38
-sub_80150d38:
+.global "GetAverage__11TAverage<f>CFv"
+"GetAverage__11TAverage<f>CFv":
 /* 80150D38 0014DC98  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80150D3C 0014DC9C  7C 08 02 A6 */	mflr r0
 /* 80150D40 0014DCA0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3095,7 +3095,7 @@ lbl_80151AD8:
 lbl_80151AEC:
 /* 80151AEC 0014EA4C  7F E3 FB 78 */	mr r3, r31
 /* 80151AF0 0014EA50  38 9F 01 78 */	addi r4, r31, 0x178
-/* 80151AF4 0014EA54  4B FF D8 B1 */	bl sub_8014f3a4
+/* 80151AF4 0014EA54  4B FF D8 B1 */	bl DeleteEmitter__22CScriptSpecialFunctionFRC10CSfxHandle
 /* 80151AF8 0014EA58  48 00 0D A8 */	b lbl_801528A0
 lbl_80151AFC:
 /* 80151AFC 0014EA5C  2C 1C 00 07 */	cmpwi r28, 7

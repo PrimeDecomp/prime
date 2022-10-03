@@ -750,7 +750,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           const float f29 = pointOneByDt * x100_float2;
 
           if (mode == kSCM_Zero) {
-            if (x1e4_25_spinnerCanMove) {
+            if (!x1e4_25_spinnerCanMove) {
               const CPlayer& pl = *mgr.GetPlayer();
               const CVector3f angVel = pl.GetAngularVelocityOR().GetVector();
               float mag = 0.f;
@@ -770,8 +770,10 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
               if (!noBackward) {
                 x138_ -= f29;
               }
-            } else if (!noBackward) {
-              x138_ = f28 - twoByDt;
+            } else {
+              if (!noBackward) {
+                x138_ = f28 - twoByDt;
+              }
             }
           } else if (mode == kSCM_One) {
             x138_ = (0.01f * x16c_) * xfc_float1 + f28;
@@ -782,7 +784,8 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
               if (CMath::AbsF(x16c_) < dt) {
                 x16c_ = 0.f;
               } else {
-                x16c_ -= (dt * (x16c_ <= 0.f ? -1.f : 1.f));
+                float multi = CMath::Sign(x16c_);
+                x16c_ = -(dt * multi - x16c_);
               }
             }
           }
@@ -793,10 +796,11 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
               x138_ += 1.f;
             }
           } else {
+            // TODO: get Clamp to inline here
             x138_ = CMath::Clamp(0.f, x138_, 1.f);
           }
 
-          bool r23 = true;
+          bool noSfxPlayed = true;
           f28 = x138_ - f28; // always 0?
           if (close_enough(x138_, 1.f, FLT_EPSILON)) {
             if (!x1e4_27_sfx3Played) {
@@ -809,7 +813,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             }
 
             SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
-            r23 = false;
+            noSfxPlayed = false;
           } else {
             x1e4_27_sfx3Played = false;
           }
@@ -825,17 +829,25 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             }
 
             SendScriptMsgs(kSS_Zero, mgr, kSM_None);
-            r23 = false;
+            noSfxPlayed = false;
           } else {
             x1e4_26_sfx2Played = false;
           }
 
-          if (r23) {
+          rstl::optional_object< float > unused = x184_.GetAverage();
+
+          if (noSfxPlayed) {
             if (x170_sfx1 != 0xFFFF) {
-              x184_.AddValue(0.f <= f28 ? 100 : 0x7f);
-              const rstl::optional_object< float > avg = x184_.GetAverage();
-              AddOrUpdateEmitter(0.f <= f28 ? x108_float4 : 1.f, x178_sfxHandle, x170_sfx1,
-                                 GetTranslation(), avg.data());
+              if (noSfxPlayed) {
+                x184_.AddValue(0.f <= f28 ? 100 : 0x7f);
+              } else {
+                x184_.AddValue(0.f);
+              }
+              rstl::optional_object< float > volume = x184_.GetAverage();
+              float pitch = 0.f <= f28 ? x108_float4 : 1.f;
+              
+              AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1,
+                                 GetTranslation(), volume.data());
             }
           } else {
             DeleteEmitter(x178_sfxHandle);
@@ -931,19 +943,14 @@ void CScriptSpecialFunction::Render(CStateManager& mgr) {
       const float z = mgr.IntegrateVisorFog(
           xfc_float1 * CMath::FastSinR(CGraphics::GetSecondsMod900() * x100_float2));
       if (z > 0.f) {
-        CVector3f translation = GetTranslation();
-        CVector3f min(translation - x10c_vector3f);
-        CVector3f max(translation.GetX() + x10c_vector3f.GetX(),
-                      translation.GetY() + x10c_vector3f.GetY(), 0.0);
-        max.SetZ(translation.GetZ() + x10c_vector3f.GetZ() + z);
+        CVector3f min(GetTranslation() - x10c_vector3f);
+        CVector3f max(GetTranslation() + x10c_vector3f);
+        max.SetZ(max.GetZ() + z);
         CAABox box(min, max);
-        CVector3f extents(box.GetExtents());
         CTransform4f modelMtx =
-            CTransform4f::Translate(box.GetCenterPoint()) * CTransform4f::Scale(extents);
+            CTransform4f::Translate(box.GetCenterPoint()) * CTransform4f::Scale(box.GetExtents());
 
-        CVector3f renderMin(-1.f, -1.f, -1.f);
-        CVector3f renderMax(1.f, 1.f, 1.f);
-        CAABox renderbox(renderMin, renderMax);
+        CAABox renderbox(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f));
 
         gpRender->SetModelMatrix(modelMtx);
         gpRender->RenderFogVolume(x118_color, renderbox, nullptr, nullptr);
