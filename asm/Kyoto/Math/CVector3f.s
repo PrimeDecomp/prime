@@ -484,13 +484,6 @@ __sinit_CVector3f_cpp:
 /* 80314C40 00311BA0  D0 43 00 08 */	stfs f2, 8(r3)
 /* 80314C44 00311BA4  4E 80 00 20 */	blr
 
-.global __ct__9CVector3iFiii
-__ct__9CVector3iFiii:
-/* 80314C48 00311BA8  90 83 00 00 */	stw r4, 0(r3)
-/* 80314C4C 00311BAC  90 A3 00 04 */	stw r5, 4(r3)
-/* 80314C50 00311BB0  90 C3 00 08 */	stw r6, 8(r3)
-/* 80314C54 00311BB4  4E 80 00 20 */	blr
-
 .section .sdata2, "a"
 .balign 8
 .global lbl_805AE630
@@ -518,4 +511,3 @@ lbl_805AE640:
 	# ROM: 0x3FAEE0
 	.4byte 0x10FD87B5
 	.4byte 0
-
