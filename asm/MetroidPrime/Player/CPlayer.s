@@ -1744,7 +1744,7 @@ lbl_80010CE0:
 /* 80010CE4 0000DC44  41 82 00 34 */	beq lbl_80010D18
 /* 80010CE8 0000DC48  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80010CEC 0000DC4C  7F 84 E3 78 */	mr r4, r28
-/* 80010CF0 0000DC50  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80010CF0 0000DC50  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80010CF4 0000DC54  7F A5 EB 78 */	mr r5, r29
 /* 80010CF8 0000DC58  38 61 00 08 */	addi r3, r1, 8
 /* 80010CFC 0000DC5C  38 C0 00 40 */	li r6, 0x40
@@ -3660,7 +3660,7 @@ lbl_80012730:
 lbl_80012758:
 /* 80012758 0000F6B8  57 DE 04 3E */	clrlwi r30, r30, 0x10
 /* 8001275C 0000F6BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
-/* 80012760 0000F6C0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80012760 0000F6C0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80012764 0000F6C4  7F C4 F3 78 */	mr r4, r30
 /* 80012768 0000F6C8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8001276C 0000F6CC  38 A0 00 7F */	li r5, 0x7f
@@ -3688,7 +3688,7 @@ lbl_80012794:
 lbl_800127BC:
 /* 800127BC 0000F71C  57 F9 04 3E */	clrlwi r25, r31, 0x10
 /* 800127C0 0000F720  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
-/* 800127C4 0000F724  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 800127C4 0000F724  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 800127C8 0000F728  7F 24 CB 78 */	mr r4, r25
 /* 800127CC 0000F72C  38 61 00 08 */	addi r3, r1, 8
 /* 800127D0 0000F730  38 A0 00 7F */	li r5, 0x7f
@@ -6281,7 +6281,7 @@ lbl_80014BD8:
 lbl_80014C30:
 /* 80014C30 00011B90  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80014C34 00011B94  38 61 00 10 */	addi r3, r1, 0x10
-/* 80014C38 00011B98  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80014C38 00011B98  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80014C3C 00011B9C  38 80 06 F5 */	li r4, 0x6f5
 /* 80014C40 00011BA0  38 A0 00 7F */	li r5, 0x7f
 /* 80014C44 00011BA4  38 C0 00 40 */	li r6, 0x40
@@ -6336,7 +6336,7 @@ lbl_80014C6C:
 lbl_80014D04:
 /* 80014D04 00011C64  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80014D08 00011C68  38 61 00 08 */	addi r3, r1, 8
-/* 80014D0C 00011C6C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80014D0C 00011C6C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80014D10 00011C70  38 80 06 F5 */	li r4, 0x6f5
 /* 80014D14 00011C74  38 A0 00 7F */	li r5, 0x7f
 /* 80014D18 00011C78  38 C0 00 40 */	li r6, 0x40
@@ -7168,7 +7168,7 @@ lbl_800158D4:
 /* 800158F0 00012850  41 82 00 40 */	beq lbl_80015930
 /* 800158F4 00012854  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800158F8 00012858  38 61 00 10 */	addi r3, r1, 0x10
-/* 800158FC 0001285C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 800158FC 0001285C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80015900 00012860  38 80 0C 37 */	li r4, 0xc37
 /* 80015904 00012864  38 A0 00 7F */	li r5, 0x7f
 /* 80015908 00012868  38 C0 00 40 */	li r6, 0x40
@@ -7184,7 +7184,7 @@ lbl_800158D4:
 lbl_80015930:
 /* 80015930 00012890  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80015934 00012894  38 61 00 08 */	addi r3, r1, 8
-/* 80015938 00012898  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80015938 00012898  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8001593C 0001289C  38 80 0C 38 */	li r4, 0xc38
 /* 80015940 000128A0  38 A0 00 7F */	li r5, 0x7f
 /* 80015944 000128A4  38 C0 00 40 */	li r6, 0x40
@@ -7418,7 +7418,7 @@ lbl_80015C7C:
 lbl_80015C8C:
 /* 80015C8C 00012BEC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80015C90 00012BF0  38 61 00 18 */	addi r3, r1, 0x18
-/* 80015C94 00012BF4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80015C94 00012BF4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80015C98 00012BF8  38 80 0C 39 */	li r4, 0xc39
 /* 80015C9C 00012BFC  38 A0 00 7F */	li r5, 0x7f
 /* 80015CA0 00012C00  38 C0 00 40 */	li r6, 0x40
@@ -7549,7 +7549,7 @@ lbl_80015E3C:
 /* 80015E60 00012DC0  38 61 00 08 */	addi r3, r1, 8
 /* 80015E64 00012DC4  93 FB 0A 0C */	stw r31, 0xa0c(r27)
 /* 80015E68 00012DC8  38 A0 00 7F */	li r5, 0x7f
-/* 80015E6C 00012DCC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80015E6C 00012DCC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80015E70 00012DD0  38 C0 00 40 */	li r6, 0x40
 /* 80015E74 00012DD4  38 E0 00 00 */	li r7, 0
 /* 80015E78 00012DD8  39 20 00 00 */	li r9, 0
@@ -7825,7 +7825,7 @@ lbl_8001625C:
 /* 80016260 000131C0  38 61 00 18 */	addi r3, r1, 0x18
 /* 80016264 000131C4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80016268 000131C8  38 A0 00 7F */	li r5, 0x7f
-/* 8001626C 000131CC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8001626C 000131CC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80016270 000131D0  38 C0 00 40 */	li r6, 0x40
 /* 80016274 000131D4  38 E0 00 00 */	li r7, 0
 /* 80016278 000131D8  39 20 00 00 */	li r9, 0
@@ -8176,7 +8176,7 @@ lbl_80016768:
 lbl_80016770:
 /* 80016770 000136D0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80016774 000136D4  7F E5 FB 78 */	mr r5, r31
-/* 80016778 000136D8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80016778 000136D8  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8001677C 000136DC  38 61 00 44 */	addi r3, r1, 0x44
 /* 80016780 000136E0  57 44 04 3E */	clrlwi r4, r26, 0x10
 /* 80016784 000136E4  38 C0 00 40 */	li r6, 0x40
@@ -9491,7 +9491,7 @@ lbl_80017A04:
 /* 80017A08 00014968  38 61 00 18 */	addi r3, r1, 0x18
 /* 80017A0C 0001496C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017A10 00014970  38 A0 00 7F */	li r5, 0x7f
-/* 80017A14 00014974  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80017A14 00014974  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80017A18 00014978  38 C0 00 40 */	li r6, 0x40
 /* 80017A1C 0001497C  38 E0 00 00 */	li r7, 0
 /* 80017A20 00014980  39 20 00 00 */	li r9, 0
@@ -9866,7 +9866,7 @@ lbl_80017F00:
 /* 80017F3C 00014E9C  40 82 00 40 */	bne lbl_80017F7C
 /* 80017F40 00014EA0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017F44 00014EA4  38 61 00 2C */	addi r3, r1, 0x2c
-/* 80017F48 00014EA8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80017F48 00014EA8  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80017F4C 00014EAC  7F E5 07 74 */	extsb r5, r31
 /* 80017F50 00014EB0  38 80 08 87 */	li r4, 0x887
 /* 80017F54 00014EB4  38 C0 00 40 */	li r6, 0x40
@@ -9882,7 +9882,7 @@ lbl_80017F00:
 lbl_80017F7C:
 /* 80017F7C 00014EDC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017F80 00014EE0  38 61 00 24 */	addi r3, r1, 0x24
-/* 80017F84 00014EE4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80017F84 00014EE4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80017F88 00014EE8  7F E5 07 74 */	extsb r5, r31
 /* 80017F8C 00014EEC  38 80 08 88 */	li r4, 0x888
 /* 80017F90 00014EF0  38 C0 00 40 */	li r6, 0x40
@@ -9901,7 +9901,7 @@ lbl_80017FB8:
 /* 80017FC0 00014F20  40 82 00 40 */	bne lbl_80018000
 /* 80017FC4 00014F24  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80017FC8 00014F28  38 61 00 1C */	addi r3, r1, 0x1c
-/* 80017FCC 00014F2C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80017FCC 00014F2C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80017FD0 00014F30  7F E5 07 74 */	extsb r5, r31
 /* 80017FD4 00014F34  38 80 05 CC */	li r4, 0x5cc
 /* 80017FD8 00014F38  38 C0 00 40 */	li r6, 0x40
@@ -9917,7 +9917,7 @@ lbl_80017FB8:
 lbl_80018000:
 /* 80018000 00014F60  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80018004 00014F64  38 61 00 14 */	addi r3, r1, 0x14
-/* 80018008 00014F68  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80018008 00014F68  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8001800C 00014F6C  7F E5 07 74 */	extsb r5, r31
 /* 80018010 00014F70  38 80 05 CD */	li r4, 0x5cd
 /* 80018014 00014F74  38 C0 00 40 */	li r6, 0x40
@@ -9957,7 +9957,7 @@ lbl_80018070:
 lbl_80018094:
 /* 80018094 00014FF4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80018098 00014FF8  38 61 00 0C */	addi r3, r1, 0xc
-/* 8001809C 00014FFC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8001809C 00014FFC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 800180A0 00015000  54 04 04 3E */	clrlwi r4, r0, 0x10
 /* 800180A4 00015004  7F E5 07 74 */	extsb r5, r31
 /* 800180A8 00015008  38 C0 00 40 */	li r6, 0x40
@@ -10532,7 +10532,7 @@ lbl_8001887C:
 /* 800188B4 00015814  40 82 00 3C */	bne lbl_800188F0
 /* 800188B8 00015818  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 800188BC 0001581C  38 61 00 2C */	addi r3, r1, 0x2c
-/* 800188C0 00015820  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 800188C0 00015820  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 800188C4 00015824  38 80 05 EC */	li r4, 0x5ec
 /* 800188C8 00015828  38 A0 00 7F */	li r5, 0x7f
 /* 800188CC 0001582C  38 C0 00 40 */	li r6, 0x40
@@ -10575,7 +10575,7 @@ lbl_80018940:
 /* 80018958 000158B8  40 80 00 3C */	bge lbl_80018994
 /* 8001895C 000158BC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80018960 000158C0  38 61 00 24 */	addi r3, r1, 0x24
-/* 80018964 000158C4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80018964 000158C4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80018968 000158C8  38 80 05 EC */	li r4, 0x5ec
 /* 8001896C 000158CC  38 A0 00 7F */	li r5, 0x7f
 /* 80018970 000158D0  38 C0 00 40 */	li r6, 0x40

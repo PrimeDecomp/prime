@@ -428,7 +428,7 @@ lbl_8012F510:
 /* 8012F534 0012C494  4B FD 01 91 */	bl GetSplashSound__12CScriptWaterCFf
 /* 8012F538 0012C498  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8012F53C 0012C49C  7C 64 1B 78 */	mr r4, r3
-/* 8012F540 0012C4A0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8012F540 0012C4A0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8012F544 0012C4A4  7F A5 EB 78 */	mr r5, r29
 /* 8012F548 0012C4A8  38 61 00 2C */	addi r3, r1, 0x2c
 /* 8012F54C 0012C4AC  38 C1 00 44 */	addi r6, r1, 0x44

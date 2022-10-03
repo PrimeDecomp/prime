@@ -691,7 +691,7 @@ lbl_8013F80C:
 /* 8013F824 0013C784  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8013F828 0013C788  D0 1C 03 E8 */	stfs f0, 0x3e8(r28)
 /* 8013F82C 0013C78C  38 61 00 14 */	addi r3, r1, 0x14
-/* 8013F830 0013C790  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8013F830 0013C790  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8013F834 0013C794  38 A1 00 24 */	addi r5, r1, 0x24
 /* 8013F838 0013C798  C0 5C 00 60 */	lfs f2, 0x60(r28)
 /* 8013F83C 0013C79C  38 E0 00 00 */	li r7, 0
@@ -728,7 +728,7 @@ lbl_8013F898:
 /* 8013F8B0 0013C810  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 8013F8B4 0013C814  D0 1C 03 E8 */	stfs f0, 0x3e8(r28)
 /* 8013F8B8 0013C818  38 61 00 10 */	addi r3, r1, 0x10
-/* 8013F8BC 0013C81C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8013F8BC 0013C81C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8013F8C0 0013C820  38 A1 00 18 */	addi r5, r1, 0x18
 /* 8013F8C4 0013C824  C0 5C 00 60 */	lfs f2, 0x60(r28)
 /* 8013F8C8 0013C828  38 E0 00 00 */	li r7, 0

@@ -3176,7 +3176,7 @@ lbl_801DCBCC:
 /* 801DCBD0 001D9B30  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 801DCBD4 001D9B34  90 1E 05 EC */	stw r0, 0x5ec(r30)
 /* 801DCBD8 001D9B38  38 61 00 24 */	addi r3, r1, 0x24
-/* 801DCBDC 001D9B3C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801DCBDC 001D9B3C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801DCBE0 001D9B40  38 80 07 AD */	li r4, 0x7ad
 /* 801DCBE4 001D9B44  38 A0 00 7F */	li r5, 0x7f
 /* 801DCBE8 001D9B48  38 C0 00 40 */	li r6, 0x40

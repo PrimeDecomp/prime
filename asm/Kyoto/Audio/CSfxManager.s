@@ -4619,8 +4619,8 @@ lbl_805AE31C:
 	# ROM: 0x3FABBC
 	.4byte 0xFFFF0000
 
-.global lbl_805AE320
-lbl_805AE320:
+.global kAllAreas__11CSfxManager
+kAllAreas__11CSfxManager:
 	# ROM: 0x3FABC0
 	.4byte 0xFFFFFFFF
 

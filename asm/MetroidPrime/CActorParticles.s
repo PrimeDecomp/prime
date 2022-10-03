@@ -97,7 +97,7 @@ StartBurnDeath__20CActorModelParticlesFR5CActor:
 /* 801E399C 001E08FC  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 801E39A0 001E0900  38 03 04 7E */	addi r0, r3, 0x47e
 /* 801E39A4 001E0904  D0 01 00 10 */	stfs f0, 0x10(r1)
-/* 801E39A8 001E0908  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801E39A8 001E0908  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801E39AC 001E090C  54 04 04 3E */	clrlwi r4, r0, 0x10
 /* 801E39B0 001E0910  D0 21 00 14 */	stfs f1, 0x14(r1)
 /* 801E39B4 001E0914  38 61 00 08 */	addi r3, r1, 8
@@ -2620,7 +2620,7 @@ lbl_801E5C7C:
 /* 801E5CBC 001E2C1C  A9 22 C5 FA */	lha r9, kMedPriority__11CSfxManager@sda21(r2)
 /* 801E5CC0 001E2C20  D0 21 00 34 */	stfs f1, 0x34(r1)
 /* 801E5CC4 001E2C24  54 04 04 3E */	clrlwi r4, r0, 0x10
-/* 801E5CC8 001E2C28  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801E5CC8 001E2C28  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801E5CCC 001E2C2C  38 61 00 10 */	addi r3, r1, 0x10
 /* 801E5CD0 001E2C30  D0 41 00 38 */	stfs f2, 0x38(r1)
 /* 801E5CD4 001E2C34  38 A1 00 30 */	addi r5, r1, 0x30

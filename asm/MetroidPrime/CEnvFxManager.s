@@ -210,7 +210,7 @@ UpdateRainSounds__13CEnvFxManagerFR13CStateManager:
 /* 8020FFE8 0020CF48  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 8020FFEC 0020CF4C  A9 22 C5 F8 */	lha r9, lbl_805AE318@sda21(r2)
 /* 8020FFF0 0020CF50  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
-/* 8020FFF4 0020CF54  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8020FFF4 0020CF54  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8020FFF8 0020CF58  38 61 00 24 */	addi r3, r1, 0x24
 /* 8020FFFC 0020CF5C  38 80 09 F0 */	li r4, 0x9f0
 /* 80210000 0020CF60  7C A6 2B 78 */	mr r6, r5
@@ -223,7 +223,7 @@ UpdateRainSounds__13CEnvFxManagerFR13CStateManager:
 /* 8021001C 0020CF7C  A9 22 C5 F8 */	lha r9, lbl_805AE318@sda21(r2)
 /* 80210020 0020CF80  90 1F 0B 6C */	stw r0, 0xb6c(r31)
 /* 80210024 0020CF84  7C A6 2B 78 */	mr r6, r5
-/* 80210028 0020CF88  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80210028 0020CF88  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8021002C 0020CF8C  38 61 00 20 */	addi r3, r1, 0x20
 /* 80210030 0020CF90  38 80 09 F1 */	li r4, 0x9f1
 /* 80210034 0020CF94  38 E0 00 00 */	li r7, 0

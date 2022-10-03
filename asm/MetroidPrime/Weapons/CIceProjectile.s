@@ -1320,7 +1320,7 @@ UpdateTrailObjects__20CIceAttackProjectileFfR13CStateManager:
 /* 801F2C74 001EFBD4  38 61 00 0C */	addi r3, r1, 0xc
 /* 801F2C78 001EFBD8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 801F2C7C 001EFBDC  38 A0 00 7F */	li r5, 0x7f
-/* 801F2C80 001EFBE0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 801F2C80 001EFBE0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 801F2C84 001EFBE4  38 C0 00 40 */	li r6, 0x40
 /* 801F2C88 001EFBE8  38 E0 00 00 */	li r7, 0
 /* 801F2C8C 001EFBEC  39 20 00 01 */	li r9, 1

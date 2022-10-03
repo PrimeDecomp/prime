@@ -287,7 +287,7 @@ SetRightTableSelection__16CPauseScreenBaseFii:
 /* 80070B64 0006DAC4  41 82 00 28 */	beq lbl_80070B8C
 /* 80070B68 0006DAC8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070B6C 0006DACC  38 61 00 08 */	addi r3, r1, 8
-/* 80070B70 0006DAD0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80070B70 0006DAD0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80070B74 0006DAD4  38 80 05 9C */	li r4, 0x59c
 /* 80070B78 0006DAD8  38 A0 00 7F */	li r5, 0x7f
 /* 80070B7C 0006DADC  38 C0 00 40 */	li r6, 0x40
@@ -352,7 +352,7 @@ OnTableSelectionChange__16CPauseScreenBaseFP14CGuiTableGroupi:
 /* 80070C50 0006DBB0  40 82 00 40 */	bne lbl_80070C90
 /* 80070C54 0006DBB4  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070C58 0006DBB8  38 61 00 08 */	addi r3, r1, 8
-/* 80070C5C 0006DBBC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80070C5C 0006DBBC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80070C60 0006DBC0  38 80 05 9C */	li r4, 0x59c
 /* 80070C64 0006DBC4  38 A0 00 7F */	li r5, 0x7f
 /* 80070C68 0006DBC8  38 C0 00 40 */	li r6, 0x40
@@ -401,7 +401,7 @@ OnRightTableAdvance__16CPauseScreenBaseFP14CGuiTableGroup:
 /* 80070D00 0006DC60  48 00 01 15 */	bl ChangeMode__16CPauseScreenBaseFQ216CPauseScreenBase5EMode
 /* 80070D04 0006DC64  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070D08 0006DC68  38 61 00 08 */	addi r3, r1, 8
-/* 80070D0C 0006DC6C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80070D0C 0006DC6C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80070D10 0006DC70  38 80 05 98 */	li r4, 0x598
 /* 80070D14 0006DC74  38 A0 00 7F */	li r5, 0x7f
 /* 80070D18 0006DC78  38 C0 00 40 */	li r6, 0x40
@@ -442,7 +442,7 @@ OnLeftTableAdvance__16CPauseScreenBaseFP14CGuiTableGroup:
 /* 80070D88 0006DCE8  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070D8C 0006DCEC  98 1F 01 98 */	stb r0, 0x198(r31)
 /* 80070D90 0006DCF0  38 61 00 08 */	addi r3, r1, 8
-/* 80070D94 0006DCF4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80070D94 0006DCF4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80070D98 0006DCF8  38 80 05 98 */	li r4, 0x598
 /* 80070D9C 0006DCFC  38 A0 00 7F */	li r5, 0x7f
 /* 80070DA0 0006DD00  38 C0 00 40 */	li r6, 0x40
@@ -556,7 +556,7 @@ lbl_80070EF8:
 lbl_80070F08:
 /* 80070F08 0006DE68  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070F0C 0006DE6C  38 61 00 10 */	addi r3, r1, 0x10
-/* 80070F10 0006DE70  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80070F10 0006DE70  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80070F14 0006DE74  38 80 05 97 */	li r4, 0x597
 /* 80070F18 0006DE78  38 A0 00 7F */	li r5, 0x7f
 /* 80070F1C 0006DE7C  38 C0 00 40 */	li r6, 0x40
@@ -581,7 +581,7 @@ lbl_80070F58:
 /* 80070F5C 0006DEBC  40 82 00 28 */	bne lbl_80070F84
 /* 80070F60 0006DEC0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80070F64 0006DEC4  38 61 00 0C */	addi r3, r1, 0xc
-/* 80070F68 0006DEC8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80070F68 0006DEC8  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80070F6C 0006DECC  38 80 05 97 */	li r4, 0x597
 /* 80070F70 0006DED0  38 A0 00 7F */	li r5, 0x7f
 /* 80070F74 0006DED4  38 C0 00 40 */	li r6, 0x40
@@ -2612,7 +2612,7 @@ lbl_80072CA8:
 lbl_80072CCC:
 /* 80072CCC 0006FC2C  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80072CD0 0006FC30  38 61 00 24 */	addi r3, r1, 0x24
-/* 80072CD4 0006FC34  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80072CD4 0006FC34  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80072CD8 0006FC38  38 80 05 9A */	li r4, 0x59a
 /* 80072CDC 0006FC3C  38 A0 00 7F */	li r5, 0x7f
 /* 80072CE0 0006FC40  38 C0 00 40 */	li r6, 0x40
@@ -2634,7 +2634,7 @@ lbl_80072D0C:
 /* 80072D1C 0006FC7C  41 82 00 5C */	beq lbl_80072D78
 /* 80072D20 0006FC80  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80072D24 0006FC84  38 61 00 20 */	addi r3, r1, 0x20
-/* 80072D28 0006FC88  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80072D28 0006FC88  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80072D2C 0006FC8C  38 80 05 99 */	li r4, 0x599
 /* 80072D30 0006FC90  38 A0 00 7F */	li r5, 0x7f
 /* 80072D34 0006FC94  38 C0 00 40 */	li r6, 0x40
@@ -2663,7 +2663,7 @@ lbl_80072D78:
 /* 80072D88 0006FCE8  41 82 00 58 */	beq lbl_80072DE0
 /* 80072D8C 0006FCEC  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80072D90 0006FCF0  38 61 00 1C */	addi r3, r1, 0x1c
-/* 80072D94 0006FCF4  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80072D94 0006FCF4  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 80072D98 0006FCF8  38 80 05 99 */	li r4, 0x599
 /* 80072D9C 0006FCFC  38 A0 00 7F */	li r5, 0x7f
 /* 80072DA0 0006FD00  38 C0 00 40 */	li r6, 0x40
@@ -4110,7 +4110,7 @@ lbl_80074240:
 /* 8007425C 000711BC  48 2C CB 29 */	bl Lock__6CTokenFv
 /* 80074260 000711C0  A9 02 C5 FA */	lha r8, kMedPriority__11CSfxManager@sda21(r2)
 /* 80074264 000711C4  38 61 00 08 */	addi r3, r1, 8
-/* 80074268 000711C8  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 80074268 000711C8  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8007426C 000711CC  38 80 05 9B */	li r4, 0x59b
 /* 80074270 000711D0  38 A0 00 7F */	li r5, 0x7f
 /* 80074274 000711D4  38 C0 00 40 */	li r6, 0x40

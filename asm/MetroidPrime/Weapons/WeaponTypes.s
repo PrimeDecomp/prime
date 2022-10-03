@@ -98,7 +98,7 @@ play_sfx__12NWeaponTypesFUsbbs:
 /* 8028AB10 00287A70  A9 02 C5 F8 */	lha r8, lbl_805AE318@sda21(r2)
 /* 8028AB14 00287A74  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 8028AB18 00287A78  7C BF 2B 78 */	mr r31, r5
-/* 8028AB1C 00287A7C  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8028AB1C 00287A7C  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8028AB20 00287A80  38 A0 00 7F */	li r5, 0x7f
 /* 8028AB24 00287A84  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8028AB28 00287A88  7C 7E 1B 78 */	mr r30, r3

@@ -1097,7 +1097,7 @@ lbl_8003B02C:
 lbl_8003B058:
 /* 8003B058 00037FB8  A9 02 C5 F8 */	lha r8, lbl_805AE318@sda21(r2)
 /* 8003B05C 00037FBC  38 61 00 0C */	addi r3, r1, 0xc
-/* 8003B060 00037FC0  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8003B060 00037FC0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8003B064 00037FC4  38 80 06 EF */	li r4, 0x6ef
 /* 8003B068 00037FC8  38 A0 00 7F */	li r5, 0x7f
 /* 8003B06C 00037FCC  38 C0 00 40 */	li r6, 0x40
@@ -5669,7 +5669,7 @@ lbl_8003F100:
 /* 8003F170 0003C0D0  41 82 00 28 */	beq lbl_8003F198
 /* 8003F174 0003C0D4  A9 02 C5 F8 */	lha r8, lbl_805AE318@sda21(r2)
 /* 8003F178 0003C0D8  38 61 00 08 */	addi r3, r1, 8
-/* 8003F17C 0003C0DC  81 42 C6 00 */	lwz r10, lbl_805AE320@sda21(r2)
+/* 8003F17C 0003C0DC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8003F180 0003C0E0  38 80 06 EE */	li r4, 0x6ee
 /* 8003F184 0003C0E4  38 A0 00 7F */	li r5, 0x7f
 /* 8003F188 0003C0E8  38 C0 00 40 */	li r6, 0x40
@@ -11065,4 +11065,3 @@ lbl_803CCEB0:
 	.asciz "ole Body"
 	.balign 4
 	.4byte 0
-
