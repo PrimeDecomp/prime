@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 class CPlane {
@@ -16,7 +17,7 @@ public:
   f32 GetConstant() const { return xc_constant; }
   // GetHeight__6CPlaneCFRC9CVector3f
   // IsFacing__6CPlaneCFRC9CVector3f
-  // ClipLineSegment__6CPlaneCFRC9CVector3fRC9CVector3f
+  float ClipLineSegment(const CVector3f& start, const CVector3f& end) const;
 
 private:
   CUnitVector3f x0_normal;

@@ -41,7 +41,12 @@ public:
   bool IsEqu(const CVector3f& other, f32 epsilon = FLT_EPSILON) const;
   // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
   // MagSquared__9CVector3fCFv weak
-  // Cross__9CVector3fFRC9CVector3fRC9CVector3f weak
+  static CVector3f Cross(const CVector3f& lhs, const CVector3f& rhs) {
+    const float x = (lhs.GetY() * rhs.GetZ()) - (rhs.GetY() * lhs.GetZ());
+    const float y = (lhs.GetZ() * rhs.GetX()) - (rhs.GetZ() * lhs.GetX());
+    const float z = (lhs.GetX() * rhs.GetY()) - (rhs.GetX() * lhs.GetY());
+    return CVector3f(x, y, z);
+  }
 
   f32& operator[](EDimX dim) { return mX; }
   f32& operator[](EDimY dim) { return mY; }

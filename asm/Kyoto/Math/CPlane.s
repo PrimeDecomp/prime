@@ -2,8 +2,8 @@
 
 .section .text, "ax"
 
-.global ProjectedDeltaDist__RC6CPlaneRC9CVector3fRC9CVector3f
-ProjectedDeltaDist__RC6CPlaneRC9CVector3fRC9CVector3f:
+.global ClipLineSegment__6CPlaneCFRC9CVector3fRC9CVector3f
+ClipLineSegment__6CPlaneCFRC9CVector3fRC9CVector3f:
 /* 8033700C 00333F6C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80337010 00333F70  C0 64 00 04 */	lfs f3, 4(r4)
 /* 80337014 00333F74  C0 43 00 04 */	lfs f2, 4(r3)
@@ -117,4 +117,3 @@ lbl_805AE8A0:
 lbl_805AE8A4:
 	# ROM: 0x3FB144
 	.float 1.0
-

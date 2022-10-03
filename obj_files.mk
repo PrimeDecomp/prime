@@ -542,7 +542,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CUVElement.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CVectorElement.o\
 	$(BUILD_DIR)/src/Kyoto/Particles/CWarp.o\
-	$(BUILD_DIR)/asm/Kyoto/Math/CPlane.o\
+	$(BUILD_DIR)/src/Kyoto/Math/CPlane.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CSphere.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CAABox.o\
 	$(BUILD_DIR)/asm/Kyoto/CFactoryMgr.o\
