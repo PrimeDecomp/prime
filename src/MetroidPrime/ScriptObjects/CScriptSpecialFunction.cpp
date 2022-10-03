@@ -806,7 +806,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             if (!x1e4_27_sfx3Played) {
               if (x174_sfx3 != 0xFFFF) {
                 CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true, false,
-                                        0x7F, kInvalidAreaId.value);
+                                        CSfxManager::kMedPriority, kInvalidAreaId.value);
               }
 
               x1e4_27_sfx3Played = true;
@@ -822,7 +822,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             if (!x1e4_26_sfx2Played) {
               if (x172_sfx2 != 0xFFFF) {
                 CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true, false,
-                                        0x7F, kInvalidAreaId.value);
+                                        CSfxManager::kMedPriority, kInvalidAreaId.value);
               }
 
               x1e4_26_sfx2Played = true;
@@ -1100,7 +1100,7 @@ u32 CScriptSpecialFunction::GetSpecialEnding(const CStateManager& mgr) const {
 void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id,
                                                 const CVector3f& pos, uchar vol) {
   if (!handle) {
-    handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true, 0x7f,
+    handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true, CSfxManager::kMedPriority,
                                      kInvalidAreaId.value);
   } else {
     CSfxManager::UpdateEmitter(handle, pos, CVector3f::Zero(), vol);
