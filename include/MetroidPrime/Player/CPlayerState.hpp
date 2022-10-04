@@ -125,7 +125,7 @@ public:
   void EnableItem(EItemType type);
   bool HasPowerUp(EItemType type) const;
   uint GetPowerUp(EItemType type);
-  uint GetItemCapacity(EItemType type) const;
+  int GetItemCapacity(EItemType type) const;
   uint GetItemAmount(EItemType type) const;
   void DecrPickUp(EItemType type, int amount);
   void IncrPickUp(EItemType type, int amount);
