@@ -33,6 +33,7 @@ COMPLETE_OBJECTS = [
     "Kyoto/Graphics/CGX",
     "Kyoto/Particles/CWarp",
     "Kyoto/Math/CPlane",
+    "Kyoto/Math/CUnitVector3f",
     "Kyoto/Math/CVector2f",
     "Kyoto/Math/CVector2i",
     "Kyoto/Math/CVector3d",
