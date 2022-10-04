@@ -355,11 +355,12 @@ void CPlayerState::InitializeScanTimes() {
   if (x170_scanTimes.size())
     return;
 
-  // TODO
-  // const auto& scanStates = g_MemoryCardSys->GetScanStates();
-  // x170_scanTimes.reserve(scanStates.size());
-  // for (const auto& state : scanStates)
-  //   x170_scanTimes.emplace_back(state.first, 0.f);
+  const rstl::vector< CMemoryCard::ScanState >& scanStates = gpMemoryCard->GetScanStates();
+  x170_scanTimes.reserve(scanStates.size());
+  for (rstl::vector< CMemoryCard::ScanState >::const_iterator it = scanStates.begin();
+       it != scanStates.end(); ++it) {
+    x170_scanTimes.push_back(rstl::pair< CAssetId, float >(it->first, 0.f));
+  }
 }
 
 float CPlayerState::GetScanTime(CAssetId res) const {
