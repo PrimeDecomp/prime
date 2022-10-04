@@ -22,23 +22,21 @@ public:
   inline const_iterator end() const { return const_iterator(data() + x0_count); }
 
   reserved_vector() : x0_count(0) {}
-  // reserved_vector(const T& value) : x0_count(N) { rstl::uninitialized_fill_n(data(), N, value); }
-  reserved_vector(const reserved_vector& other) {
-    x0_count = other.size();
-    // rstl::uninitialized_copy_n(other.data(), size(), data());
-    rstl::uninitialized_copy_n(data(), other.data(), size());
+  reserved_vector(const T& value) : x0_count(N) { uninitialized_fill_n(data(), N, value); }
+  reserved_vector(const reserved_vector& other) : x0_count(other.x0_count) {
+    uninitialized_copy_n(other.data(), x0_count, data());
   }
   reserved_vector& operator=(const reserved_vector& other) {
     if (this != &other) {
       clear();
-      rstl::uninitialized_copy_2(other.data(), data(), other.data() + other.size());
+      uninitialized_copy(data(), other.data() + other.size(), other.data());
       x0_count = other.x0_count;
     }
     return *this;
   }
   void clear() {
     for (int i = 0; i < x0_count; ++i) {
-      rstl::destroy(&data()[i]);
+      destroy(&data()[i]);
     }
     x0_count = 0;
   }

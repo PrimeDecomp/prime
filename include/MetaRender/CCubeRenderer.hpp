@@ -11,7 +11,12 @@
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector2f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/TToken.hpp"
+
 #include "rstl/pair.hpp"
+
+class CSkinnedModel;
 
 class CCubeRenderer {
 public:
@@ -71,7 +76,8 @@ public:
   virtual void DrawModelFlat();
   virtual void SetWireframeFlags();
   virtual void SetWorldFog();
-  virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken<CModel>*, const CSkinnedModel*);
+  virtual void RenderFogVolume(const CColor&, const CAABox&, const TLockedToken< CModel >*,
+                               const CSkinnedModel*);
   virtual void SetThermal();
   virtual void SetThermalColdScale();
   virtual void DoThermalBlendCold();

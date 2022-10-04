@@ -292,8 +292,8 @@ GetTouchBounds__22CScriptSpecialFunctionCFv:
 /* 8014F32C 0014C28C  D0 03 00 14 */	stfs f0, 0x14(r3)
 /* 8014F330 0014C290  4E 80 00 20 */	blr
 
-.global GetSpecialEnding__22CScriptSpecialFunctionCFv
-GetSpecialEnding__22CScriptSpecialFunctionCFv:
+.global GetSpecialEnding__22CScriptSpecialFunctionCFRC13CStateManager
+GetSpecialEnding__22CScriptSpecialFunctionCFRC13CStateManager:
 /* 8014F334 0014C294  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8014F338 0014C298  7C 08 02 A6 */	mflr r0
 /* 8014F33C 0014C29C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -302,10 +302,10 @@ GetSpecialEnding__22CScriptSpecialFunctionCFv:
 /* 8014F348 0014C2A8  80 64 08 B8 */	lwz r3, 0x8b8(r4)
 /* 8014F34C 0014C2AC  83 C3 00 00 */	lwz r30, 0(r3)
 /* 8014F350 0014C2B0  7F C3 F3 78 */	mr r3, r30
-/* 8014F354 0014C2B4  4B F4 21 59 */	bl GetTotalPickupCount__12CPlayerStateFv
+/* 8014F354 0014C2B4  4B F4 21 59 */	bl GetTotalPickupCount__12CPlayerStateCFv
 /* 8014F358 0014C2B8  7C 7F 1B 78 */	mr r31, r3
 /* 8014F35C 0014C2BC  7F C3 F3 78 */	mr r3, r30
-/* 8014F360 0014C2C0  4B F4 1E D5 */	bl CalculateItemCollectionRate__12CPlayerStateFv
+/* 8014F360 0014C2C0  4B F4 1E D5 */	bl CalculateItemCollectionRate__12CPlayerStateCFv
 /* 8014F364 0014C2C4  1C 03 00 64 */	mulli r0, r3, 0x64
 /* 8014F368 0014C2C8  7C 00 FB D6 */	divw r0, r0, r31
 /* 8014F36C 0014C2CC  2C 00 00 4B */	cmpwi r0, 0x4b
@@ -833,8 +833,8 @@ lbl_8014FA90:
 /* 8014FAE8 0014CA48  7C 04 00 00 */	cmpw r4, r0
 /* 8014FAEC 0014CA4C  40 82 00 5C */	bne lbl_8014FB48
 /* 8014FAF0 0014CA50  C0 3E 01 00 */	lfs f1, 0x100(r30)
-/* 8014FAF4 0014CA54  C0 42 80 F8 */	lfs f2, lbl_805A9E18@sda21(r2)
-/* 8014FAF8 0014CA58  C0 62 80 FC */	lfs f3, lbl_805A9E1C@sda21(r2)
+/* 8014FAF4 0014CA54  C0 42 80 F8 */	lfs f2, skDefaultHudFadeOutSpeed__7CPlayer@sda21(r2)
+/* 8014FAF8 0014CA58  C0 62 80 FC */	lfs f3, skDefaultHudFadeInSpeed__7CPlayer@sda21(r2)
 /* 8014FAFC 0014CA5C  4B EC 35 71 */	bl SetHudDisable__7CPlayerFfff
 /* 8014FB00 0014CA60  C0 22 9D B4 */	lfs f1, lbl_805ABAD4@sda21(r2)
 /* 8014FB04 0014CA64  38 61 00 28 */	addi r3, r1, 0x28
@@ -900,7 +900,7 @@ lbl_8014FBD4:
 /* 8014FBE8 0014CB48  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 8014FBEC 0014CB4C  80 63 00 00 */	lwz r3, 0(r3)
 /* 8014FBF0 0014CB50  38 63 01 88 */	addi r3, r3, 0x188
-/* 8014FBF4 0014CB54  48 07 0F 45 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 8014FBF4 0014CB54  48 07 0F 45 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 lbl_8014FBF8:
 /* 8014FBF8 0014CB58  57 60 06 3F */	clrlwi. r0, r27, 0x18
 /* 8014FBFC 0014CB5C  41 82 00 38 */	beq lbl_8014FC34
@@ -1386,7 +1386,7 @@ ThinkSpinnerController__22CScriptSpecialFunctionFfR13CStateManagerQ222CScriptSpe
 /* 801502F0 0014D250  38 78 00 EC */	addi r3, r24, 0xec
 /* 801502F4 0014D254  38 81 00 98 */	addi r4, r1, 0x98
 /* 801502F8 0014D258  38 A0 00 00 */	li r5, 0
-/* 801502FC 0014D25C  48 00 0A 9D */	bl sub_80150d98
+/* 801502FC 0014D25C  48 00 0A 9D */	bl "string_find__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>i"
 /* 80150300 0014D260  20 83 FF FF */	subfic r4, r3, -1
 /* 80150304 0014D264  38 03 00 01 */	addi r0, r3, 1
 /* 80150308 0014D268  7C 80 03 78 */	or r0, r4, r0
@@ -1401,7 +1401,7 @@ ThinkSpinnerController__22CScriptSpecialFunctionFfR13CStateManagerQ222CScriptSpe
 /* 8015032C 0014D28C  38 78 00 EC */	addi r3, r24, 0xec
 /* 80150330 0014D290  38 81 00 88 */	addi r4, r1, 0x88
 /* 80150334 0014D294  38 A0 00 00 */	li r5, 0
-/* 80150338 0014D298  48 00 0A 61 */	bl sub_80150d98
+/* 80150338 0014D298  48 00 0A 61 */	bl "string_find__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>i"
 /* 8015033C 0014D29C  20 83 FF FF */	subfic r4, r3, -1
 /* 80150340 0014D2A0  38 03 00 01 */	addi r0, r3, 1
 /* 80150344 0014D2A4  7C 80 03 78 */	or r0, r4, r0
@@ -1902,14 +1902,14 @@ lbl_80150A50:
 /* 80150A5C 0014D9BC  38 A1 00 0C */	addi r5, r1, 0xc
 /* 80150A60 0014D9C0  90 01 00 08 */	stw r0, 8(r1)
 /* 80150A64 0014D9C4  90 01 00 0C */	stw r0, 0xc(r1)
-/* 80150A68 0014D9C8  48 00 00 15 */	bl sub_80150a7c
+/* 80150A68 0014D9C8  48 00 00 15 */	bl "insert__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FQ24rstl92pointer_iterator<f,Q24rstl36vector<f,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RCf"
 /* 80150A6C 0014D9CC  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80150A70 0014D9D0  7C 08 03 A6 */	mtlr r0
 /* 80150A74 0014D9D4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80150A78 0014D9D8  4E 80 00 20 */	blr
 
-.global sub_80150a7c
-sub_80150a7c:
+.global "insert__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FQ24rstl92pointer_iterator<f,Q24rstl36vector<f,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RCf"
+"insert__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FQ24rstl92pointer_iterator<f,Q24rstl36vector<f,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>RCf":
 /* 80150A7C 0014D9DC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80150A80 0014D9E0  7C 08 02 A6 */	mflr r0
 /* 80150A84 0014D9E4  90 01 00 34 */	stw r0, 0x34(r1)
@@ -1933,7 +1933,7 @@ sub_80150a7c:
 /* 80150ACC 0014DA2C  38 81 00 08 */	addi r4, r1, 8
 /* 80150AD0 0014DA30  90 01 00 10 */	stw r0, 0x10(r1)
 /* 80150AD4 0014DA34  90 E1 00 08 */	stw r7, 8(r1)
-/* 80150AD8 0014DA38  48 00 00 31 */	bl sub_80150b08
+/* 80150AD8 0014DA38  48 00 00 31 */	bl "insert_into<Q24rstl26const_counting_iterator<f>>__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FQ24rstl92pointer_iterator<f,Q24rstl36vector<f,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26const_counting_iterator<f>"
 /* 80150ADC 0014DA3C  80 7E 00 0C */	lwz r3, 0xc(r30)
 /* 80150AE0 0014DA40  57 E0 10 3A */	slwi r0, r31, 2
 /* 80150AE4 0014DA44  7C 63 02 14 */	add r3, r3, r0
@@ -1946,8 +1946,8 @@ sub_80150a7c:
 /* 80150B00 0014DA60  38 21 00 30 */	addi r1, r1, 0x30
 /* 80150B04 0014DA64  4E 80 00 20 */	blr
 
-.global sub_80150b08
-sub_80150b08:
+.global "insert_into<Q24rstl26const_counting_iterator<f>>__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FQ24rstl92pointer_iterator<f,Q24rstl36vector<f,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26const_counting_iterator<f>"
+"insert_into<Q24rstl26const_counting_iterator<f>>__Q24rstl36vector<f,Q24rstl17rmemory_allocator>FQ24rstl92pointer_iterator<f,Q24rstl36vector<f,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>iQ24rstl26const_counting_iterator<f>":
 /* 80150B08 0014DA68  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80150B0C 0014DA6C  7C 08 02 A6 */	mflr r0
 /* 80150B10 0014DA70  90 01 00 34 */	stw r0, 0x34(r1)
@@ -2143,8 +2143,8 @@ lbl_80150D84:
 /* 80150D90 0014DCF0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80150D94 0014DCF4  4E 80 00 20 */	blr
 
-.global sub_80150d98
-sub_80150d98:
+.global "string_find__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>i"
+"string_find__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>i":
 /* 80150D98 0014DCF8  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80150D9C 0014DCFC  7C 08 02 A6 */	mflr r0
 /* 80150DA0 0014DD00  2C 05 FF FF */	cmpwi r5, -1
@@ -3543,7 +3543,7 @@ lbl_8015214C:
 /* 80152150 0014F0B0  40 82 07 50 */	bne lbl_801528A0
 /* 80152154 0014F0B4  7F E3 FB 78 */	mr r3, r31
 /* 80152158 0014F0B8  7F C4 F3 78 */	mr r4, r30
-/* 8015215C 0014F0BC  4B FF D1 D9 */	bl GetSpecialEnding__22CScriptSpecialFunctionCFv
+/* 8015215C 0014F0BC  4B FF D1 D9 */	bl GetSpecialEnding__22CScriptSpecialFunctionCFRC13CStateManager
 /* 80152160 0014F0C0  2C 03 00 01 */	cmpwi r3, 1
 /* 80152164 0014F0C4  41 82 00 30 */	beq lbl_80152194
 /* 80152168 0014F0C8  40 80 00 10 */	bge lbl_80152178
@@ -4042,7 +4042,7 @@ lbl_80152860:
 /* 80152864 0014F7C4  40 82 00 3C */	bne lbl_801528A0
 /* 80152868 0014F7C8  7F E3 FB 78 */	mr r3, r31
 /* 8015286C 0014F7CC  7F C4 F3 78 */	mr r4, r30
-/* 80152870 0014F7D0  4B FF CA C5 */	bl GetSpecialEnding__22CScriptSpecialFunctionCFv
+/* 80152870 0014F7D0  4B FF CA C5 */	bl GetSpecialEnding__22CScriptSpecialFunctionCFRC13CStateManager
 /* 80152874 0014F7D4  C0 1F 00 FC */	lfs f0, 0xfc(r31)
 /* 80152878 0014F7D8  FC 00 00 1E */	fctiwz f0, f0
 /* 8015287C 0014F7DC  D8 01 01 68 */	stfd f0, 0x168(r1)

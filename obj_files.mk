@@ -560,7 +560,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CZipSupport.o\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
 	$(BUILD_DIR)/asm/Kyoto/CToken.o\
-	$(BUILD_DIR)/asm/Kyoto/IObj.o
+	$(BUILD_DIR)/asm/Kyoto/IObj.o\
 
 ZLIB_FILES :=\
 	$(BUILD_DIR)/src/Kyoto/zlib/adler32.o\
@@ -629,17 +629,17 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/CFrameDelayedKiller.o\
 	
 AI_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/ai.o
+	$(BUILD_DIR)/asm/Dolphin/ai.o\
 	
 AR_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/ar/ar.o\
 	$(BUILD_DIR)/asm/Dolphin/ar/arq.o
 	
 BASE_FILES :=\
-	$(BUILD_DIR)/src/Dolphin/PPCArch.o
+	$(BUILD_DIR)/src/Dolphin/PPCArch.o\
 	
 DB_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/db.o
+	$(BUILD_DIR)/asm/Dolphin/db.o\
 	
 DSP_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dsp/dsp.o\
@@ -671,18 +671,17 @@ GX_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/gx/GXStubs.o\
 	$(BUILD_DIR)/asm/Dolphin/gx/GXDisplayList.o\
 	$(BUILD_DIR)/asm/Dolphin/gx/GXTransform.o\
-	$(BUILD_DIR)/asm/Dolphin/gx/GXPerf.o
-	
+	$(BUILD_DIR)/asm/Dolphin/gx/GXPerf.o\
+
 MTX_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/mtx/mtx.o\
 	$(BUILD_DIR)/asm/Dolphin/mtx/mtx44vec.o\
 	$(BUILD_DIR)/asm/Dolphin/mtx/mtx44.o\
 	$(BUILD_DIR)/asm/Dolphin/mtx/vec.o\
-	$(BUILD_DIR)/asm/Dolphin/mtx/psmtx.o
-	
-# TODO: Move __ppc_eabi_init_text into the same source files as __ppc_eabi_init
+	$(BUILD_DIR)/asm/Dolphin/mtx/psmtx.o\
+
 OS_FILES :=\
-	$(BUILD_DIR)/src/Dolphin/os/__start.o\
+	$(BUILD_DIR)/src/Dolphin/os/__start.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OS.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSAlarm.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSArena.o\
@@ -703,7 +702,7 @@ OS_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/os/OSSync.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSThread.o\
 	$(BUILD_DIR)/asm/Dolphin/os/OSTime.o\
-	$(BUILD_DIR)/src/Dolphin/os/__ppc_eabi_init.o\
+	$(BUILD_DIR)/src/Dolphin/os/__ppc_eabi_init.ep.o\
 
 PAD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/pad/PadClamp.o\
@@ -810,7 +809,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/src/musyx/reverb_fx.o\
 	$(BUILD_DIR)/asm/musyx/reverb.o\
 	$(BUILD_DIR)/src/musyx/delay_fx.o\
-	$(BUILD_DIR)/asm/musyx/chorus_fx.o
+	$(BUILD_DIR)/asm/musyx/chorus_fx.o\
 	
 DTK_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/dtk.o
@@ -850,4 +849,4 @@ GBA_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBARead.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAWrite.o\
 	$(BUILD_DIR)/asm/Dolphin/GBA/GBAXfer.o\
-	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o
+	$(BUILD_DIR)/asm/Dolphin/GBA/GBAKey.o\

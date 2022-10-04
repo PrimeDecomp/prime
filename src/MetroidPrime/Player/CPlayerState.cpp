@@ -366,10 +366,10 @@ bool CPlayerState::GetIsFusionEnabled() const { return x0_26_fusion; }
 
 void CPlayerState::SetIsFusionEnabled(bool val) { x0_26_fusion = val; }
 
-u32 CPlayerState::GetTotalPickupCount() const { return 99; }
+int CPlayerState::GetTotalPickupCount() const { return 99; }
 
-u32 CPlayerState::CalculateItemCollectionRate() const {
-  u32 total = GetItemCapacity(kIT_PowerBombs);
+int CPlayerState::CalculateItemCollectionRate() const {
+  int total = GetItemCapacity(kIT_PowerBombs);
 
   if (total >= 4)
     total -= 3;
@@ -407,7 +407,7 @@ u32 CPlayerState::CalculateItemCollectionRate() const {
   return total + GetItemCapacity(kIT_Wavebuster);
 }
 
-u32 CPlayerState::GetMissileCostForAltAttack() const {
+int CPlayerState::GetMissileCostForAltAttack() const {
   return kMissileCosts[size_t(x8_currentBeam)];
 }
 

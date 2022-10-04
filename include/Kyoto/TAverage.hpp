@@ -12,7 +12,13 @@ public:
   TAverage() {}
   TAverage(int capacity, const T& value);
   void AddValue(const T& value);
-  rstl::optional_object< T > GetAverage() const;
+  rstl::optional_object< T > GetAverage() const {
+    if (empty()) {
+      return rstl::optional_object_null();
+    } else {
+      return GetAverageValue(data(), size());
+    }
+  }
 };
 
 template < typename T >
@@ -22,11 +28,14 @@ TAverage< T >::TAverage(int capacity, const T& value) {
 
 template < typename T >
 void TAverage< T >::AddValue(const T& value) {
-  push_back(value);
-  for (int i = size() - 1; i > 0; --i) {
-    operator[](i) = operator[](i - 1);
+  if (size() == capacity()) {
+    // TODO ?
+    x4_count -= 1;
   }
-  operator[](0) = value;
+  insert(begin(), value);
 }
+
+template < typename T >
+T GetAverageValue(const T* ptr, int count); // TODO
 
 #endif

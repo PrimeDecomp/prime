@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "Kyoto/TAverage.hpp"
+
 #include "rstl/optional_object.hpp"
 #include "rstl/reserved_vector.hpp"
 

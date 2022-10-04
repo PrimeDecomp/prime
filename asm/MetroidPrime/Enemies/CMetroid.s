@@ -2660,14 +2660,14 @@ lbl_8016C09C:
 /* 8016C0E8 00169048  B0 01 00 08 */	sth r0, 8(r1)
 /* 8016C0EC 0016904C  80 63 00 00 */	lwz r3, 0(r3)
 /* 8016C0F0 00169050  38 63 01 88 */	addi r3, r3, 0x188
-/* 8016C0F4 00169054  48 05 4A 45 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 8016C0F4 00169054  48 05 4A 45 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 8016C0F8 00169058  80 7E 08 4C */	lwz r3, 0x84c(r30)
 /* 8016C0FC 0016905C  C0 22 A0 B0 */	lfs f1, lbl_805ABDD0@sda21(r2)
 /* 8016C100 00169060  C0 03 07 40 */	lfs f0, 0x740(r3)
 /* 8016C104 00169064  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 8016C108 00169068  40 80 00 10 */	bge lbl_8016C118
-/* 8016C10C 0016906C  C0 42 80 F8 */	lfs f2, lbl_805A9E18@sda21(r2)
-/* 8016C110 00169070  C0 62 80 FC */	lfs f3, lbl_805A9E1C@sda21(r2)
+/* 8016C10C 0016906C  C0 42 80 F8 */	lfs f2, skDefaultHudFadeOutSpeed__7CPlayer@sda21(r2)
+/* 8016C110 00169070  C0 62 80 FC */	lfs f3, skDefaultHudFadeInSpeed__7CPlayer@sda21(r2)
 /* 8016C114 00169074  4B EA 6F 59 */	bl SetHudDisable__7CPlayerFfff
 lbl_8016C118:
 /* 8016C118 00169078  88 1D 04 02 */	lbz r0, 0x402(r29)

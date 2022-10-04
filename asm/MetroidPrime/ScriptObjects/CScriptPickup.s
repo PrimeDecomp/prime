@@ -385,10 +385,10 @@ lbl_800C291C:
 /* 800C297C 000BF8DC  80 7E 08 B8 */	lwz r3, 0x8b8(r30)
 /* 800C2980 000BF8E0  83 43 00 00 */	lwz r26, 0(r3)
 /* 800C2984 000BF8E4  7F 43 D3 78 */	mr r3, r26
-/* 800C2988 000BF8E8  4B FC EB 25 */	bl GetTotalPickupCount__12CPlayerStateFv
+/* 800C2988 000BF8E8  4B FC EB 25 */	bl GetTotalPickupCount__12CPlayerStateCFv
 /* 800C298C 000BF8EC  7C 7B 1B 78 */	mr r27, r3
 /* 800C2990 000BF8F0  7F 43 D3 78 */	mr r3, r26
-/* 800C2994 000BF8F4  4B FC E8 A1 */	bl CalculateItemCollectionRate__12CPlayerStateFv
+/* 800C2994 000BF8F4  4B FC E8 A1 */	bl CalculateItemCollectionRate__12CPlayerStateCFv
 /* 800C2998 000BF8F8  7C 03 D8 00 */	cmpw r3, r27
 /* 800C299C 000BF8FC  40 82 00 60 */	bne lbl_800C29FC
 /* 800C29A0 000BF900  80 8D A0 80 */	lwz r4, gpGameState@sda21(r13)

@@ -153,10 +153,17 @@ public:
   EPlayerOrbitState GetOrbitState() const { return x304_orbitState; }
   const CVector3f& GetMovementDirection() const { return x50c_moveDir; }
   EPlayerMorphBallState GetMorphballTransitionState() const { return x2f8_morphBallState; }
-  void SetHudDisable(float staticTimer, float outSpeed, float inSpeed);
+
+  static float skDefaultHudFadeOutSpeed;
+  static float skDefaultHudFadeInSpeed;
+  void SetHudDisable(float staticTimer, float outSpeed = skDefaultHudFadeOutSpeed,
+                     float inSpeed = skDefaultHudFadeInSpeed);
+
   void IncrementPhazon();
   void DecrementPhazon();
   // GetMovementDirection2D__7CPlayerCFv ??
+  void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
+  void RemoveOrbitDisableSource(TUniqueId uid);
 
 private:
   struct CVisorSteam {

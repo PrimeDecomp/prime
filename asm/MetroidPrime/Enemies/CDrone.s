@@ -6191,7 +6191,7 @@ lbl_80164000:
 /* 801640EC 0016104C  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 801640F0 00161050  80 63 00 00 */	lwz r3, 0(r3)
 /* 801640F4 00161054  38 63 01 88 */	addi r3, r3, 0x188
-/* 801640F8 00161058  48 05 CA 41 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 801640F8 00161058  48 05 CA 41 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 801640FC 0016105C  C0 22 9F 80 */	lfs f1, lbl_805ABCA0@sda21(r2)
 /* 80164100 00161060  7E C5 B3 78 */	mr r5, r22
 /* 80164104 00161064  C0 02 9F 68 */	lfs f0, lbl_805ABC88@sda21(r2)
@@ -7073,7 +7073,7 @@ lbl_80164D84:
 /* 80164D9C 00161CFC  B0 01 00 20 */	sth r0, 0x20(r1)
 /* 80164DA0 00161D00  80 63 00 00 */	lwz r3, 0(r3)
 /* 80164DA4 00161D04  38 63 01 88 */	addi r3, r3, 0x188
-/* 80164DA8 00161D08  48 05 BD 91 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 80164DA8 00161D08  48 05 BD 91 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 lbl_80164DAC:
 /* 80164DAC 00161D0C  88 1E 08 34 */	lbz r0, 0x834(r30)
 /* 80164DB0 00161D10  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f
@@ -7114,7 +7114,7 @@ lbl_80164E1C:
 /* 80164E34 00161D94  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 80164E38 00161D98  80 63 00 00 */	lwz r3, 0(r3)
 /* 80164E3C 00161D9C  38 63 01 88 */	addi r3, r3, 0x188
-/* 80164E40 00161DA0  48 05 BC F9 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 80164E40 00161DA0  48 05 BC F9 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 lbl_80164E44:
 /* 80164E44 00161DA4  88 1E 08 34 */	lbz r0, 0x834(r30)
 /* 80164E48 00161DA8  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f

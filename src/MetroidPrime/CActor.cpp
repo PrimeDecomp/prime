@@ -326,7 +326,7 @@ void CActor::Render(const CStateManager& mgr) const {
   if (GetModelData() && !NullModel()) {
     bool renderPrePostParticles = GetRenderParticleDatabaseInside() && HasAnimation();
     if (renderPrePostParticles) {
-      x64_modelData->GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnFirst();
+      GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnFirst();
     }
 
     if (xe7_27_enableRender) {
@@ -337,8 +337,7 @@ void CActor::Render(const CStateManager& mgr) const {
         RenderInternal(mgr);
       } else {
         const f32 timeSince = CGraphics::GetSecondsMod900() - xbc_time;
-        const f32 tpTime = CMath::FastFmod(timeSince, 900.f);
-        CTimeProvider tp(tpTime);
+        CTimeProvider tp(CMath::FastFmod(timeSince, 900.f));
         RenderInternal(mgr);
       }
       if (xe5_31_pointGeneratorParticles) {
@@ -348,7 +347,7 @@ void CActor::Render(const CStateManager& mgr) const {
     }
 
     if (renderPrePostParticles) {
-      x64_modelData->GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnLast();
+      GetAnimationData()->GetParticleDB().RenderSystemsToBeDrawnLast();
     }
   }
   DrawTouchBounds();

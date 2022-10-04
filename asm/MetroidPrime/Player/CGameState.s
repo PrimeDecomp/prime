@@ -873,10 +873,10 @@ lbl_801D4280:
 /* 801D435C 001D12BC  48 00 00 20 */	b lbl_801D437C
 lbl_801D4360:
 /* 801D4360 001D12C0  38 61 00 60 */	addi r3, r1, 0x60
-/* 801D4364 001D12C4  4B EB D1 49 */	bl GetTotalPickupCount__12CPlayerStateFv
+/* 801D4364 001D12C4  4B EB D1 49 */	bl GetTotalPickupCount__12CPlayerStateCFv
 /* 801D4368 001D12C8  7C 7E 1B 78 */	mr r30, r3
 /* 801D436C 001D12CC  38 61 00 60 */	addi r3, r1, 0x60
-/* 801D4370 001D12D0  4B EB CE C5 */	bl CalculateItemCollectionRate__12CPlayerStateFv
+/* 801D4370 001D12D0  4B EB CE C5 */	bl CalculateItemCollectionRate__12CPlayerStateCFv
 /* 801D4374 001D12D4  1C 03 00 64 */	mulli r0, r3, 0x64
 /* 801D4378 001D12D8  7C 00 F3 D6 */	divw r0, r0, r30
 lbl_801D437C:

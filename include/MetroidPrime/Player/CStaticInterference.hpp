@@ -14,7 +14,12 @@ struct CStaticInterferenceSource {
 
 class CStaticInterference {
 public:
-  CStaticInterference(int);
+  CStaticInterference(int sourceCount);
+
+  void AddSource(TUniqueId id, float magnitude, float duration);
+  void RemoveSource(TUniqueId id);
+  void Update(CStateManager&, float dt);
+  float GetTotalInterference() const;
 
 private:
   rstl::vector< CStaticInterferenceSource > sources;

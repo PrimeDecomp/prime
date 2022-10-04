@@ -292,8 +292,8 @@ lbl_801C0B0C:
 /* 801C0B30 001BDA90  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C0B34 001BDA94  4E 80 00 20 */	blr
 
-.global AddSource__19CStaticInterferenceF9TUniqueId
-AddSource__19CStaticInterferenceF9TUniqueId:
+.global AddSource__19CStaticInterferenceF9TUniqueIdff
+AddSource__19CStaticInterferenceF9TUniqueIdff:
 /* 801C0B38 001BDA98  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801C0B3C 001BDA9C  7C 08 02 A6 */	mflr r0
 /* 801C0B40 001BDAA0  90 01 00 44 */	stw r0, 0x44(r1)
@@ -487,4 +487,3 @@ lbl_803D1A78:
 	# ROM: 0x3CEA78
 	.asciz "??(??)"
 	.balign 4
-

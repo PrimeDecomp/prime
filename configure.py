@@ -1106,6 +1106,11 @@ LIBS = [
     },
 ]
 
+# Create & link static libraries
+# Currently broken due to deadstripping
+ENABLE_STATIC_LIBS = False
+
+# On Windows, we need this to use && in commands
 ALLOW_CHAIN = "cmd /c " if os.name == "nt" else ""
 
 out = io.StringIO()
@@ -1170,9 +1175,10 @@ n.newline()
 n.rule(name="as", command="$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -MD $out.d",
        description="AS $out", depfile="$out.d", deps="gcc")
 n.newline()
-n.rule(name="ar", command="$devkitppc/bin/powerpc-eabi-ar crs $out $in",
-       description="AR $out")
-n.newline()
+if ENABLE_STATIC_LIBS:
+    n.rule(name="ar", command="$devkitppc/bin/powerpc-eabi-ar crs $out $in",
+        description="AR $out")
+    n.newline()
 n.rule(name="link", command="$wine tools/mwcc_compiler/$mwcc_version/mwldeppc.exe $ldflags -o $out @$out.rsp",
        description="LINK $out", rspfile="$out.rsp", rspfile_content="$in")
 n.newline()
@@ -1212,23 +1218,23 @@ for lib in LIBS:
             inputs.append(f"$builddir/src/{object}.o")
         else:
             inputs.append(f"$builddir/asm/{object}.o")
-    if "lib" in lib:
+    if ENABLE_STATIC_LIBS and "lib" in lib:
         lib_name = lib["lib"]
-        n.build(f"$builddir/{lib_name}.a", "ar", inputs)
+        n.build(f"$builddir/lib/{lib_name}.a", "ar", inputs)
     n.newline()
 
 n.comment("main.elf")
 inputs = []
 for lib in LIBS:
-    # if "lib" in lib:
-    #     lib_name = lib["lib"]
-    #     inputs.append(f"$builddir/{lib_name}.a")
-    # else:
-    for object in lib["objects"]:
-        if object in COMPLETE_OBJECTS:
-            inputs.append(f"$builddir/src/{object}.o")
-        else:
-            inputs.append(f"$builddir/asm/{object}.o")
+    if ENABLE_STATIC_LIBS and "lib" in lib:
+        lib_name = lib["lib"]
+        inputs.append(f"$builddir/lib/{lib_name}.a")
+    else:
+        for object in lib["objects"]:
+            if object in COMPLETE_OBJECTS:
+                inputs.append(f"$builddir/src/{object}.o")
+            else:
+                inputs.append(f"$builddir/asm/{object}.o")
 if args.map:
     n.build("$builddir/main.elf", "link", inputs,
             implicit_outputs="$builddir/MetroidPrime.MAP")

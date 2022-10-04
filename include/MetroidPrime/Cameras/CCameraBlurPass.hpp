@@ -1,0 +1,42 @@
+#ifndef _CCAMERABLURPASS_HPP
+#define _CCAMERABLURPASS_HPP
+
+#include "types.h"
+
+#include "MetroidPrime/TGameTypes.hpp"
+
+#include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/TToken.hpp"
+
+#include "rstl/auto_ptr.hpp"
+#include "rstl/optional_object.hpp"
+
+class CTexture;
+
+class CCameraBlurPass {
+public:
+  enum EBlurType {
+    kBT_NoBlur,
+    kBT_LoBlur,
+    kBT_HiBlur,
+    kBT_XRay,
+  };
+
+  static void DrawWideScreen(const CColor& color, const CTexture* tex, f32 v);
+
+private:
+  rstl::optional_object< TLockedToken< CTexture > > x0_paletteTex;
+  EBlurType x10_curType;
+  EBlurType x14_endType;
+  float x18_endValue;
+  float x1c_curValue;
+  float x20_startValue;
+  float x24_totalTime;
+  float x28_remainingTime;
+  bool x2c_usePersistent;
+  bool x2d_noPersistentCopy;
+  uint x30_persistentBuf;
+};
+CHECK_SIZEOF(CCameraBlurPass, 0x34)
+
+#endif

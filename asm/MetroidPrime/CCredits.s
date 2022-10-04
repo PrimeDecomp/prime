@@ -2140,10 +2140,10 @@ lbl_80026C0C:
 /* 80026C4C 00023BAC  80 81 00 38 */	lwz r4, 0x38(r1)
 /* 80026C50 00023BB0  80 63 00 00 */	lwz r3, 0(r3)
 /* 80026C54 00023BB4  83 24 00 00 */	lwz r25, 0(r4)
-/* 80026C58 00023BB8  48 06 A8 55 */	bl GetTotalPickupCount__12CPlayerStateFv
+/* 80026C58 00023BB8  48 06 A8 55 */	bl GetTotalPickupCount__12CPlayerStateCFv
 /* 80026C5C 00023BBC  7C 7A 1B 78 */	mr r26, r3
 /* 80026C60 00023BC0  7F 23 CB 78 */	mr r3, r25
-/* 80026C64 00023BC4  48 06 A5 D1 */	bl CalculateItemCollectionRate__12CPlayerStateFv
+/* 80026C64 00023BC4  48 06 A5 D1 */	bl CalculateItemCollectionRate__12CPlayerStateCFv
 /* 80026C68 00023BC8  1C 03 00 64 */	mulli r0, r3, 0x64
 /* 80026C6C 00023BCC  38 61 00 34 */	addi r3, r1, 0x34
 /* 80026C70 00023BD0  7F 00 D3 D6 */	divw r24, r0, r26

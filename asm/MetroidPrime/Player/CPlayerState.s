@@ -137,8 +137,8 @@ GetMissileCostForAltAttack__12CPlayerStateCFv:
 /* 8009122C 0008E18C  7C 63 00 2E */	lwzx r3, r3, r0
 /* 80091230 0008E190  4E 80 00 20 */	blr
 
-.global CalculateItemCollectionRate__12CPlayerStateFv
-CalculateItemCollectionRate__12CPlayerStateFv:
+.global CalculateItemCollectionRate__12CPlayerStateCFv
+CalculateItemCollectionRate__12CPlayerStateCFv:
 /* 80091234 0008E194  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80091238 0008E198  7C 08 02 A6 */	mflr r0
 /* 8009123C 0008E19C  38 80 00 07 */	li r4, 7
@@ -299,8 +299,8 @@ lbl_8009126C:
 /* 800914A4 0008E404  38 21 00 20 */	addi r1, r1, 0x20
 /* 800914A8 0008E408  4E 80 00 20 */	blr
 
-.global GetTotalPickupCount__12CPlayerStateFv
-GetTotalPickupCount__12CPlayerStateFv:
+.global GetTotalPickupCount__12CPlayerStateCFv
+GetTotalPickupCount__12CPlayerStateCFv:
 /* 800914AC 0008E40C  38 60 00 63 */	li r3, 0x63
 /* 800914B0 0008E410  4E 80 00 20 */	blr
 

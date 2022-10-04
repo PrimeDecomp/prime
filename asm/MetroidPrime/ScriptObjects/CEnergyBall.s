@@ -463,7 +463,7 @@ lbl_8029F5E8:
 /* 8029F62C 0029C58C  C0 3D 05 B8 */	lfs f1, 0x5b8(r29)
 /* 8029F630 0029C590  C0 5D 05 BC */	lfs f2, 0x5bc(r29)
 /* 8029F634 0029C594  38 63 01 88 */	addi r3, r3, 0x188
-/* 8029F638 0029C598  4B F2 15 01 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 8029F638 0029C598  4B F2 15 01 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 8029F63C 0029C59C  48 00 01 68 */	b lbl_8029F7A4
 lbl_8029F640:
 /* 8029F640 0029C5A0  38 00 00 00 */	li r0, 0
