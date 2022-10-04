@@ -9,6 +9,7 @@
 
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
+#include "Kyoto/Streams/COutputStream.hpp"
 
 #include "rstl/math.hpp"
 
@@ -114,32 +115,29 @@ CPlayerState::CPlayerState(CInputStream& stream)
 }
 
 void CPlayerState::PutTo(COutputStream& stream) {
-  /*
   stream.WriteBits(x4_enabledItems, 32);
 
   const float realHP = xc_health.GetHP();
-  u32 integralHP;
-  std::memcpy(&integralHP, &realHP, sizeof(u32));
-
-  stream.WriteBits(integralHP, 32);
-  stream.WriteBits(u32(x8_currentBeam), COutputStream::GetBitCount(5));
-  stream.WriteBits(u32(x20_currentSuit), COutputStream::GetBitCount(4));
+  stream.WriteBits(*(int*)(&realHP), 32);
+  stream.WriteBits(int(x8_currentBeam), GetBitCount(5));
+  stream.WriteBits(int(x20_currentSuit), GetBitCount(4));
   for (size_t i = 0; i < x24_powerups.size(); ++i) {
     const CPowerUp& pup = x24_powerups[i];
-    stream.WriteBits(pup.x0_amount, COutputStream::GetBitCount(PowerUpMaxValues[i]));
-    stream.WriteBits(pup.x4_capacity, COutputStream::GetBitCount(PowerUpMaxValues[i]));
+    stream.WriteBits(pup.x0_amount, GetBitCount(kPowerUpMax[i]));
+    stream.WriteBits(pup.x4_capacity, GetBitCount(kPowerUpMax[i]));
   }
 
-  for (const auto& scanTime : x170_scanTimes) {
-    if (scanTime.second >= 1.f)
+  for (rstl::vector< rstl::pair< CAssetId, float > >::iterator it = x170_scanTimes.begin();
+    it != x170_scanTimes.end(); ++it) {
+    if (it->second >= 1.f)
       stream.WriteBits(true, 1);
     else
       stream.WriteBits(false, 1);
   }
 
-  stream.WriteBits(x180_scanCompletionRate.first, COutputStream::GetBitCount(0x100));
-  stream.WriteBits(x180_scanCompletionRate.second, COutputStream::GetBitCount(0x100));
-  */
+  stream.WriteBits(x180_scanCompletionRateFirst, GetBitCount(0x100));
+  stream.WriteBits(x184_scanCompletionRateSecond, GetBitCount(0x100));
+
 }
 
 void CPlayerState::ReInitializePowerUp(CPlayerState::EItemType type, int capacity) {
