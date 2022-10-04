@@ -50,7 +50,7 @@ public:
   // BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f global
   // GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
   // FastSqrtF__5CMathFf weak
-  // SqrtD__5CMathFd global
+  static double SqrtD(double x);
   // AbsD__5CMathFd weak
   // IsEpsilon__5CMathFfff global
   // FastMin__5CMathFff weak
