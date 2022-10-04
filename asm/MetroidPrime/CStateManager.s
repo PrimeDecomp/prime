@@ -1380,7 +1380,7 @@ GetVisAreaId__13CStateManagerCFv:
 /* 80044A90 000419F0  7C 7D 1B 78 */	mr r29, r3
 /* 80044A94 000419F4  7C 9E 23 78 */	mr r30, r4
 /* 80044A98 000419F8  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 80044A9C 000419FC  4B FC 70 7D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80044A9C 000419FC  4B FC 70 7D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80044AA0 00041A00  80 BE 08 70 */	lwz r5, 0x870(r30)
 /* 80044AA4 00041A04  80 9E 08 50 */	lwz r4, 0x850(r30)
 /* 80044AA8 00041A08  80 C5 00 80 */	lwz r6, 0x80(r5)
@@ -2091,7 +2091,7 @@ lbl_80045448:
 lbl_80045454:
 /* 80045454 000423B4  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 80045458 000423B8  7F C4 F3 78 */	mr r4, r30
-/* 8004545C 000423BC  4B FC 66 BD */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8004545C 000423BC  4B FC 66 BD */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80045460 000423C0  7C 64 1B 78 */	mr r4, r3
 /* 80045464 000423C4  7F E5 FB 78 */	mr r5, r31
 /* 80045468 000423C8  38 61 00 08 */	addi r3, r1, 8
@@ -2195,7 +2195,7 @@ DrawReflection__13CStateManagerFRC9CVector3f:
 /* 800455E0 00042540  48 2C 71 6D */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 800455E4 00042544  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 800455E8 00042548  7F A4 EB 78 */	mr r4, r29
-/* 800455EC 0004254C  4B FC 65 2D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800455EC 0004254C  4B FC 65 2D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800455F0 00042550  7C 7F 1B 78 */	mr r31, r3
 /* 800455F4 00042554  48 2C 48 69 */	bl GetProjectionState__9CGraphicsFv
 /* 800455F8 00042558  88 03 00 00 */	lbz r0, 0(r3)
@@ -2811,7 +2811,7 @@ ResetViewAfterDraw__13CStateManagerCFRCQ29CGraphics9CViewportRC12CTransform4f:
 /* 80045E5C 00042DBC  4E 80 04 21 */	bctrl
 /* 80045E60 00042DC0  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 80045E64 00042DC4  7F E4 FB 78 */	mr r4, r31
-/* 80045E68 00042DC8  4B FC 5C B1 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80045E68 00042DC8  4B FC 5C B1 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80045E6C 00042DCC  7C 7F 1B 78 */	mr r31, r3
 /* 80045E70 00042DD0  C0 22 85 BC */	lfs f1, lbl_805AA2DC@sda21(r2)
 /* 80045E74 00042DD4  C0 03 01 5C */	lfs f0, 0x15c(r3)
@@ -4072,7 +4072,7 @@ SetupViewForDraw__13CStateManagerCFRCQ29CGraphics9CViewport:
 /* 80047018 00043F78  7C 7D 1B 78 */	mr r29, r3
 /* 8004701C 00043F7C  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 80047020 00043F80  7C B9 2B 78 */	mr r25, r5
-/* 80047024 00043F84  4B FC 4A F5 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80047024 00043F84  4B FC 4A F5 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80047028 00043F88  80 9E 08 70 */	lwz r4, 0x870(r30)
 /* 8004702C 00043F8C  7C 7F 1B 78 */	mr r31, r3
 /* 80047030 00043F90  7F C5 F3 78 */	mr r5, r30
@@ -4353,7 +4353,7 @@ lbl_8004741C:
 /* 80047434 00044394  4B FF E3 4D */	bl BuildDynamicLightListForWorld__13CStateManagerFv
 /* 80047438 00044398  80 7C 08 70 */	lwz r3, 0x870(r28)
 /* 8004743C 0004439C  7F 84 E3 78 */	mr r4, r28
-/* 80047440 000443A0  4B FC 46 D9 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80047440 000443A0  4B FC 46 D9 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80047444 000443A4  80 9C 08 70 */	lwz r4, 0x870(r28)
 /* 80047448 000443A8  7C 7D 1B 78 */	mr r29, r3
 /* 8004744C 000443AC  7F 85 E3 78 */	mr r5, r28
@@ -7899,7 +7899,7 @@ lbl_8004A648:
 /* 8004A650 000475B0  40 82 01 54 */	bne lbl_8004A7A4
 /* 8004A654 000475B4  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 8004A658 000475B8  7F C4 F3 78 */	mr r4, r30
-/* 8004A65C 000475BC  4B FC 14 BD */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8004A65C 000475BC  4B FC 14 BD */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8004A660 000475C0  80 9E 08 4C */	lwz r4, 0x84c(r30)
 /* 8004A664 000475C4  88 63 01 70 */	lbz r3, 0x170(r3)
 /* 8004A668 000475C8  88 04 09 C6 */	lbz r0, 0x9c6(r4)
@@ -8044,7 +8044,7 @@ lbl_8004A834:
 /* 8004A878 000477D8  40 82 00 7C */	bne lbl_8004A8F4
 /* 8004A87C 000477DC  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 8004A880 000477E0  7F C4 F3 78 */	mr r4, r30
-/* 8004A884 000477E4  4B FC 12 95 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8004A884 000477E4  4B FC 12 95 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8004A888 000477E8  7C 64 1B 78 */	mr r4, r3
 /* 8004A88C 000477EC  38 61 00 10 */	addi r3, r1, 0x10
 /* 8004A890 000477F0  48 06 4E A1 */	bl "__ct__30TCastToPtr<16CCinematicCamera>FR7CEntity"

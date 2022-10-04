@@ -8213,7 +8213,7 @@ lbl_800F4190:
 /* 800F41BC 000F111C  40 80 00 CC */	bge lbl_800F4288
 /* 800F41C0 000F1120  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 800F41C4 000F1124  7F E4 FB 78 */	mr r4, r31
-/* 800F41C8 000F1128  4B F1 79 51 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800F41C8 000F1128  4B F1 79 51 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800F41CC 000F112C  C3 C3 00 48 */	lfs f30, 0x48(r3)
 /* 800F41D0 000F1130  C3 E3 00 38 */	lfs f31, 0x38(r3)
 /* 800F41D4 000F1134  EC 1E 07 B2 */	fmuls f0, f30, f30
@@ -12347,7 +12347,7 @@ ApplySpiderBallRollForces__10CMorphBallFRC11CFinalInputR13CStateManagerf:
 /* 800F7DFC 000F4D5C  C3 E1 00 BC */	lfs f31, 0xbc(r1)
 /* 800F7E00 000F4D60  C3 A1 00 C0 */	lfs f29, 0xc0(r1)
 /* 800F7E04 000F4D64  80 7D 08 70 */	lwz r3, 0x870(r29)
-/* 800F7E08 000F4D68  4B F1 3D 11 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800F7E08 000F4D68  4B F1 3D 11 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800F7E0C 000F4D6C  7C 64 1B 78 */	mr r4, r3
 /* 800F7E10 000F4D70  38 61 01 3C */	addi r3, r1, 0x13c
 /* 800F7E14 000F4D74  38 84 00 34 */	addi r4, r4, 0x34
@@ -12976,7 +12976,7 @@ TransformSpiderBallForcesXY__10CMorphBallFR9CVector2fR13CStateManager:
 /* 800F8728 000F5688  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 800F872C 000F568C  7C 7E 1B 78 */	mr r30, r3
 /* 800F8730 000F5690  80 65 08 70 */	lwz r3, 0x870(r5)
-/* 800F8734 000F5694  4B F1 33 E5 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800F8734 000F5694  4B F1 33 E5 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800F8738 000F5698  7C 64 1B 78 */	mr r4, r3
 /* 800F873C 000F569C  38 61 00 08 */	addi r3, r1, 8
 /* 800F8740 000F56A0  38 84 00 34 */	addi r4, r4, 0x34
@@ -13019,7 +13019,7 @@ TransformSpiderBallForcesXZ__10CMorphBallFR9CVector2fR13CStateManager:
 /* 800F87C8 000F5728  93 C1 00 38 */	stw r30, 0x38(r1)
 /* 800F87CC 000F572C  7C 7E 1B 78 */	mr r30, r3
 /* 800F87D0 000F5730  80 65 08 70 */	lwz r3, 0x870(r5)
-/* 800F87D4 000F5734  4B F1 33 45 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800F87D4 000F5734  4B F1 33 45 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800F87D8 000F5738  7C 64 1B 78 */	mr r4, r3
 /* 800F87DC 000F573C  38 61 00 08 */	addi r3, r1, 8
 /* 800F87E0 000F5740  38 84 00 34 */	addi r4, r4, 0x34

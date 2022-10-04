@@ -369,7 +369,7 @@ GetActiveVisor__12CPlayerStateCFRC13CStateManager:
 /* 80091564 0008E4C4  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80091568 0008E4C8  7C 7F 1B 78 */	mr r31, r3
 /* 8009156C 0008E4CC  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 80091570 0008E4D0  4B F7 A5 A9 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80091570 0008E4D0  4B F7 A5 A9 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80091574 0008E4D4  7C 64 1B 78 */	mr r4, r3
 /* 80091578 0008E4D8  38 61 00 08 */	addi r3, r1, 8
 /* 8009157C 0008E4DC  48 01 CE F9 */	bl "__ct__32TCastToPtr<18CFirstPersonCamera>FR7CEntity"

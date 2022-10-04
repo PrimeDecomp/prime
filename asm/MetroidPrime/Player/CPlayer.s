@@ -5003,7 +5003,7 @@ Render__7CPlayerCFRC13CStateManager:
 /* 80013A20 00010980  54 15 0F FF */	rlwinm. r21, r0, 1, 0x1f, 0x1f
 /* 80013A24 00010984  40 82 00 48 */	bne lbl_80013A6C
 /* 80013A28 00010988  80 7F 08 70 */	lwz r3, 0x870(r31)
-/* 80013A2C 0001098C  4B FF 80 ED */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80013A2C 0001098C  4B FF 80 ED */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80013A30 00010990  7C 64 1B 78 */	mr r4, r3
 /* 80013A34 00010994  38 61 00 10 */	addi r3, r1, 0x10
 /* 80013A38 00010998  48 09 BC F9 */	bl "__ct__30TCastToPtr<16CCinematicCamera>FR7CEntity"
@@ -9036,7 +9036,7 @@ lbl_80017354:
 lbl_80017380:
 /* 80017380 000142E0  7F E4 FB 78 */	mr r4, r31
 /* 80017384 000142E4  3B A0 00 00 */	li r29, 0
-/* 80017388 000142E8  4B FF 47 91 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80017388 000142E8  4B FF 47 91 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8001738C 000142EC  7C 64 1B 78 */	mr r4, r3
 /* 80017390 000142F0  38 61 00 20 */	addi r3, r1, 0x20
 /* 80017394 000142F4  48 09 83 9D */	bl "__ct__30TCastToPtr<16CCinematicCamera>FR7CEntity"
@@ -10411,7 +10411,7 @@ ShouldSampleFailsafe__7CPlayerCFv:
 /* 800186F8 00015658  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 800186FC 0001565C  7C 7E 1B 78 */	mr r30, r3
 /* 80018700 00015660  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 80018704 00015664  4B FF 34 15 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80018704 00015664  4B FF 34 15 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80018708 00015668  7C 64 1B 78 */	mr r4, r3
 /* 8001870C 0001566C  38 61 00 08 */	addi r3, r1, 8
 /* 80018710 00015670  48 09 70 21 */	bl "__ct__30TCastToPtr<16CCinematicCamera>FR7CEntity"

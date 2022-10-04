@@ -22,7 +22,8 @@ class CStateManager;
 
 class CCameraManager {
 public:
-  CGameCamera* GetCurrentCamera(CStateManager& mgr) const;
+  CGameCamera* CurrentCamera(CStateManager& mgr);
+  const CGameCamera* GetCurrentCamera(const CStateManager& mgr) const;
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
 
   void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);

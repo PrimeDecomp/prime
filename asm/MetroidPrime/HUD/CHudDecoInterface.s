@@ -3737,7 +3737,7 @@ lbl_801922D8:
 /* 801922E4 0018F244  EE D7 D8 24 */	fdivs f22, f23, f27
 /* 801922E8 0018F248  C2 85 00 F0 */	lfs f20, 0xf0(r5)
 /* 801922EC 0018F24C  80 79 08 70 */	lwz r3, 0x870(r25)
-/* 801922F0 0018F250  4B E7 98 29 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 801922F0 0018F250  4B E7 98 29 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 801922F4 0018F254  7C 64 1B 78 */	mr r4, r3
 /* 801922F8 0018F258  38 61 00 5C */	addi r3, r1, 0x5c
 /* 801922FC 0018F25C  38 84 00 34 */	addi r4, r4, 0x34

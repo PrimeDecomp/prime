@@ -1765,7 +1765,7 @@ GetMiniMapCameraOrientation__11CAutoMapperFRC13CStateManager:
 /* 80096A0C 0009396C  7C 7F 1B 78 */	mr r31, r3
 /* 80096A10 00093970  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 80096A14 00093974  C3 E5 00 2C */	lfs f31, 0x2c(r5)
-/* 80096A18 00093978  4B F7 51 01 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80096A18 00093978  4B F7 51 01 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80096A1C 0009397C  7C 64 1B 78 */	mr r4, r3
 /* 80096A20 00093980  38 61 00 30 */	addi r3, r1, 0x30
 /* 80096A24 00093984  38 84 00 34 */	addi r4, r4, 0x34
@@ -9289,7 +9289,7 @@ __ct__11CAutoMapperFR13CStateManager:
 /* 8009D62C 0009A58C  80 1F 00 A0 */	lwz r0, 0xa0(r31)
 /* 8009D630 0009A590  90 1F 00 A4 */	stw r0, 0xa4(r31)
 /* 8009D634 0009A594  80 79 08 70 */	lwz r3, 0x870(r25)
-/* 8009D638 0009A598  4B F6 E4 E1 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8009D638 0009A598  4B F6 E4 E1 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8009D63C 0009A59C  7C 64 1B 78 */	mr r4, r3
 /* 8009D640 0009A5A0  38 61 00 C4 */	addi r3, r1, 0xc4
 /* 8009D644 0009A5A4  38 84 00 34 */	addi r4, r4, 0x34

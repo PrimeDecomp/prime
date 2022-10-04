@@ -815,7 +815,7 @@ SetupSnowTevs__13CEnvFxManagerFR13CStateManager:
 /* 802108B0 0020D810  7C 7E 1B 78 */	mr r30, r3
 /* 802108B4 0020D814  83 E4 08 70 */	lwz r31, 0x870(r4)
 /* 802108B8 0020D818  7F E3 FB 78 */	mr r3, r31
-/* 802108BC 0020D81C  4B DF B2 5D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 802108BC 0020D81C  4B DF B2 5D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 802108C0 0020D820  48 13 96 ED */	bl White__6CColorFv
 /* 802108C4 0020D824  80 03 00 00 */	lwz r0, 0(r3)
 /* 802108C8 0020D828  90 01 00 0C */	stw r0, 0xc(r1)

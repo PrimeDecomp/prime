@@ -1846,7 +1846,7 @@ GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager:
 /* 8000A92C 0000788C  93 C1 00 08 */	stw r30, 8(r1)
 /* 8000A930 00007890  7C 7E 1B 78 */	mr r30, r3
 /* 8000A934 00007894  7F E3 FB 78 */	mr r3, r31
-/* 8000A938 00007898  48 00 11 E1 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8000A938 00007898  48 00 11 E1 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8000A93C 0000789C  7C 64 1B 78 */	mr r4, r3
 /* 8000A940 000078A0  7F C3 F3 78 */	mr r3, r30
 /* 8000A944 000078A4  38 84 00 34 */	addi r4, r4, 0x34
@@ -1871,7 +1871,7 @@ GetCurrentCameraTransform__14CCameraManagerCFRC13CStateManager:
 /* 8000A984 000078E4  93 A1 00 44 */	stw r29, 0x44(r1)
 /* 8000A988 000078E8  7C 7D 1B 78 */	mr r29, r3
 /* 8000A98C 000078EC  7F C3 F3 78 */	mr r3, r30
-/* 8000A990 000078F0  48 00 11 89 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8000A990 000078F0  48 00 11 89 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8000A994 000078F4  7C 7F 1B 78 */	mr r31, r3
 /* 8000A998 000078F8  38 61 00 08 */	addi r3, r1, 8
 /* 8000A99C 000078FC  38 9E 00 30 */	addi r4, r30, 0x30
@@ -2334,7 +2334,7 @@ lbl_8000AFE0:
 /* 8000B000 00007F60  48 08 92 E9 */	bl WasDeactivated__16CCinematicCameraFR13CStateManager
 /* 8000B004 00007F64  7F A3 EB 78 */	mr r3, r29
 /* 8000B008 00007F68  7F C4 F3 78 */	mr r4, r30
-/* 8000B00C 00007F6C  48 00 0B 55 */	bl GetCurrentCamera__14CCameraManagerFR13CStateManager
+/* 8000B00C 00007F6C  48 00 0B 55 */	bl CurrentCamera__14CCameraManagerFR13CStateManager
 /* 8000B010 00007F70  7C 64 1B 78 */	mr r4, r3
 /* 8000B014 00007F74  38 61 00 10 */	addi r3, r1, 0x10
 /* 8000B018 00007F78  48 0A 47 19 */	bl "__ct__30TCastToPtr<16CCinematicCamera>FR7CEntity"
@@ -2870,7 +2870,7 @@ lbl_8000B724:
 /* 8000B758 000086B8  83 A3 00 04 */	lwz r29, 4(r3)
 /* 8000B75C 000086BC  7F E3 FB 78 */	mr r3, r31
 /* 8000B760 000086C0  7F 84 E3 78 */	mr r4, r28
-/* 8000B764 000086C4  48 00 03 B5 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8000B764 000086C4  48 00 03 B5 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8000B768 000086C8  28 1D 00 00 */	cmplwi r29, 0
 /* 8000B76C 000086CC  41 82 00 88 */	beq lbl_8000B7F4
 /* 8000B770 000086D0  C3 E3 01 60 */	lfs f31, 0x160(r3)
@@ -3131,8 +3131,8 @@ GetLastCineCamera__14CCameraManagerCFR13CStateManager:
 /* 8000BB10 00008A70  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000BB14 00008A74  4E 80 00 20 */	blr
 
-.global GetCurrentCamera__14CCameraManagerCFR13CStateManager
-GetCurrentCamera__14CCameraManagerCFR13CStateManager:
+.global GetCurrentCamera__14CCameraManagerCFRC13CStateManager
+GetCurrentCamera__14CCameraManagerCFRC13CStateManager:
 /* 8000BB18 00008A78  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8000BB1C 00008A7C  7C 08 02 A6 */	mflr r0
 /* 8000BB20 00008A80  90 01 00 24 */	stw r0, 0x24(r1)
@@ -3152,8 +3152,8 @@ GetCurrentCamera__14CCameraManagerCFR13CStateManager:
 /* 8000BB58 00008AB8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000BB5C 00008ABC  4E 80 00 20 */	blr
 
-.global GetCurrentCamera__14CCameraManagerFR13CStateManager
-GetCurrentCamera__14CCameraManagerFR13CStateManager:
+.global CurrentCamera__14CCameraManagerFR13CStateManager
+CurrentCamera__14CCameraManagerFR13CStateManager:
 /* 8000BB60 00008AC0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8000BB64 00008AC4  7C 08 02 A6 */	mflr r0
 /* 8000BB68 00008AC8  90 01 00 24 */	stw r0, 0x24(r1)

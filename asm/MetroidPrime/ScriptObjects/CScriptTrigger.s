@@ -561,7 +561,7 @@ lbl_800762E0:
 lbl_80076304:
 /* 80076304 00073264  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 80076308 00073268  7F C4 F3 78 */	mr r4, r30
-/* 8007630C 0007326C  4B F9 58 55 */	bl GetCurrentCamera__14CCameraManagerFR13CStateManager
+/* 8007630C 0007326C  4B F9 58 55 */	bl CurrentCamera__14CCameraManagerFR13CStateManager
 /* 80076310 00073270  7C 78 1B 78 */	mr r24, r3
 /* 80076314 00073274  7F A4 EB 78 */	mr r4, r29
 /* 80076318 00073278  C0 58 00 60 */	lfs f2, 0x60(r24)

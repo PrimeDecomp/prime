@@ -1265,7 +1265,7 @@ DoUserAnimEvents__11CGrappleArmFR13CStateManager:
 /* 8011E398 0011B2F8  80 A4 08 4C */	lwz r5, 0x84c(r4)
 /* 8011E39C 0011B2FC  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 8011E3A0 0011B300  83 A5 00 04 */	lwz r29, 4(r5)
-/* 8011E3A4 0011B304  4B EE D7 75 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8011E3A4 0011B304  4B EE D7 75 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8011E3A8 0011B308  C0 BE 02 4C */	lfs f5, 0x24c(r30)
 /* 8011E3AC 0011B30C  3C 80 80 57 */	lis r4, mSoundPOINodes__9CAnimData@ha
 /* 8011E3B0 0011B310  C0 9E 02 3C */	lfs f4, 0x23c(r30)
@@ -3663,4 +3663,3 @@ lbl_803CF413:
 	.asciz "??(??)"
 	.asciz "Whole Body"
 	.balign 4
-

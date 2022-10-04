@@ -1280,7 +1280,7 @@ GetScanObjectIndicatorPosition__6CActorCFRC13CStateManager:
 /* 80053AD4 00050A34  80 65 08 70 */	lwz r3, 0x870(r5)
 /* 80053AD8 00050A38  7C 9D 23 78 */	mr r29, r4
 /* 80053ADC 00050A3C  7F C4 F3 78 */	mr r4, r30
-/* 80053AE0 00050A40  4B FB 80 39 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80053AE0 00050A40  4B FB 80 39 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80053AE4 00050A44  7F A4 EB 78 */	mr r4, r29
 /* 80053AE8 00050A48  7C 7F 1B 78 */	mr r31, r3
 /* 80053AEC 00050A4C  81 9D 00 00 */	lwz r12, 0(r29)
@@ -3042,7 +3042,7 @@ lbl_80055384:
 /* 80055390 000522F0  7F 84 E3 78 */	mr r4, r28
 /* 80055394 000522F4  83 FB 00 04 */	lwz r31, 4(r27)
 /* 80055398 000522F8  80 7C 08 70 */	lwz r3, 0x870(r28)
-/* 8005539C 000522FC  4B FB 67 7D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8005539C 000522FC  4B FB 67 7D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800553A0 00052300  C0 BB 00 60 */	lfs f5, 0x60(r27)
 /* 800553A4 00052304  3B A0 00 00 */	li r29, 0
 /* 800553A8 00052308  C0 9B 00 50 */	lfs f4, 0x50(r27)

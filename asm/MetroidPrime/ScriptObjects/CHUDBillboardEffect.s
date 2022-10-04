@@ -619,7 +619,7 @@ GetNearClipDistance__19CHUDBillboardEffectFRC13CStateManager:
 /* 80130200 0012D160  7C 64 1B 78 */	mr r4, r3
 /* 80130204 0012D164  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80130208 0012D168  80 63 08 70 */	lwz r3, 0x870(r3)
-/* 8013020C 0012D16C  4B ED B9 0D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8013020C 0012D16C  4B ED B9 0D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80130210 0012D170  C0 22 99 44 */	lfs f1, lbl_805AB664@sda21(r2)
 /* 80130214 0012D174  C0 03 01 60 */	lfs f0, 0x160(r3)
 /* 80130218 0012D178  EC 21 00 2A */	fadds f1, f1, f0
