@@ -3058,7 +3058,7 @@ LoadMorphBallModel__10CMorphBallFR13CStateManager:
 /* 800EF75C 000EC6BC  83 BE 00 20 */	lwz r29, 0x20(r30)
 /* 800EF760 000EC6C0  7C 7B 1B 78 */	mr r27, r3
 /* 800EF764 000EC6C4  7F C3 F3 78 */	mr r3, r30
-/* 800EF768 000EC6C8  4B FA 1D 5D */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 800EF768 000EC6C8  4B FA 1D 5D */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 800EF76C 000EC6CC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800EF770 000EC6D0  41 82 00 08 */	beq lbl_800EF778
 /* 800EF774 000EC6D4  3B BD 00 04 */	addi r29, r29, 4
@@ -3069,7 +3069,7 @@ lbl_800EF778:
 /* 800EF784 000EC6E4  3B 5D 00 04 */	addi r26, r29, 4
 lbl_800EF788:
 /* 800EF788 000EC6E8  7F C3 F3 78 */	mr r3, r30
-/* 800EF78C 000EC6EC  4B FA 1D 39 */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 800EF78C 000EC6EC  4B FA 1D 39 */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 800EF790 000EC6F0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800EF794 000EC6F4  41 82 00 08 */	beq lbl_800EF79C
 /* 800EF798 000EC6F8  3B 5A 00 64 */	addi r26, r26, 0x64
