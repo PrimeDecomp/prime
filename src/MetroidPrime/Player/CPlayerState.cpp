@@ -417,46 +417,22 @@ void CPlayerState::SetIsFusionEnabled(bool val) { x0_26_fusion = val; }
 int CPlayerState::GetTotalPickupCount() const { return 99; }
 
 int CPlayerState::CalculateItemCollectionRate() const {
-  int total = 0;
-
   int pbCount = GetItemCapacity(kIT_PowerBombs);
-  if (pbCount >= 4)
-    pbCount = pbCount - 3;
-
-  total += GetItemCapacity(kIT_WaveBeam);
-  int iceBeam = GetItemCapacity(kIT_IceBeam);
-  total += GetItemCapacity(kIT_PlasmaBeam);
-  total += GetItemCapacity(kIT_Missiles) / 5;
-
-  int aux = total + GetItemCapacity(kIT_MorphBallBombs);
-  total = aux + pbCount;
-  total += GetItemCapacity(kIT_Flamethrower);
-  total += GetItemCapacity(kIT_ThermalVisor);
-  total += GetItemCapacity(kIT_ChargeBeam);
-  total += GetItemCapacity(kIT_SuperMissile);
-  total += GetItemCapacity(kIT_GrappleBeam);
-  total += GetItemCapacity(kIT_XRayVisor);
-  total += GetItemCapacity(kIT_IceSpreader);
-  total += GetItemCapacity(kIT_SpaceJumpBoots);
-  total += GetItemCapacity(kIT_MorphBall);
-  total += GetItemCapacity(kIT_BoostBall);
-  total += GetItemCapacity(kIT_SpiderBall);
-  total += GetItemCapacity(kIT_GravitySuit);
-  total += GetItemCapacity(kIT_VariaSuit);
-  total += GetItemCapacity(kIT_EnergyTanks);
-  total += GetItemCapacity(kIT_Truth);
-  total += GetItemCapacity(kIT_Strength);
-  total += GetItemCapacity(kIT_Elder);
-  total += GetItemCapacity(kIT_Wild);
-  total += GetItemCapacity(kIT_Lifegiver);
-  total += GetItemCapacity(kIT_Warrior);
-  total += GetItemCapacity(kIT_Chozo);
-  total += GetItemCapacity(kIT_Nature);
-  total += GetItemCapacity(kIT_Sun);
-  total += GetItemCapacity(kIT_World);
-  total += GetItemCapacity(kIT_Spirit);
-  total += GetItemCapacity(kIT_Newborn);
-  return iceBeam + total + GetItemCapacity(kIT_Wavebuster);
+  return GetItemCapacity(kIT_IceBeam) + GetItemCapacity(kIT_WaveBeam) +
+         GetItemCapacity(kIT_PlasmaBeam) + GetItemCapacity(kIT_Missiles) / 5 +
+         GetItemCapacity(kIT_MorphBallBombs) + (pbCount >= 4 ? pbCount - 3 : pbCount) +
+         GetItemCapacity(kIT_Flamethrower) + GetItemCapacity(kIT_ThermalVisor) +
+         GetItemCapacity(kIT_ChargeBeam) + GetItemCapacity(kIT_SuperMissile) +
+         GetItemCapacity(kIT_GrappleBeam) + GetItemCapacity(kIT_XRayVisor) +
+         GetItemCapacity(kIT_IceSpreader) + GetItemCapacity(kIT_SpaceJumpBoots) +
+         GetItemCapacity(kIT_MorphBall) + GetItemCapacity(kIT_BoostBall) +
+         GetItemCapacity(kIT_SpiderBall) + GetItemCapacity(kIT_GravitySuit) +
+         GetItemCapacity(kIT_VariaSuit) + GetItemCapacity(kIT_EnergyTanks) +
+         GetItemCapacity(kIT_Truth) + GetItemCapacity(kIT_Strength) + GetItemCapacity(kIT_Elder) +
+         GetItemCapacity(kIT_Wild) + GetItemCapacity(kIT_Lifegiver) + GetItemCapacity(kIT_Warrior) +
+         GetItemCapacity(kIT_Chozo) + GetItemCapacity(kIT_Nature) + GetItemCapacity(kIT_Sun) +
+         GetItemCapacity(kIT_World) + GetItemCapacity(kIT_Spirit) + GetItemCapacity(kIT_Newborn) +
+         GetItemCapacity(kIT_Wavebuster);
 }
 
 int CPlayerState::GetMissileCostForAltAttack() const {
