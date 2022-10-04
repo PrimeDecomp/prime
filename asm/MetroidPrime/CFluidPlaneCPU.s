@@ -387,7 +387,7 @@ lbl_80199D50:
 /* 80199D54 00196CB4  41 82 00 B4 */	beq lbl_80199E08
 /* 80199D58 00196CB8  80 78 08 70 */	lwz r3, 0x870(r24)
 /* 80199D5C 00196CBC  7F 04 C3 78 */	mr r4, r24
-/* 80199D60 00196CC0  4B E7 1D B9 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80199D60 00196CC0  4B E7 1D B9 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80199D64 00196CC4  C3 83 00 60 */	lfs f28, 0x60(r3)
 /* 80199D68 00196CC8  C3 A3 00 50 */	lfs f29, 0x50(r3)
 /* 80199D6C 00196CCC  C3 C3 00 40 */	lfs f30, 0x40(r3)
@@ -4223,4 +4223,3 @@ lbl_803D12F8:
 	# ROM: 0x3CE2F8
 	.asciz "??(??)"
 	.balign 4
-

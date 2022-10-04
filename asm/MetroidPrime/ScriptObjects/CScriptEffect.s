@@ -547,7 +547,7 @@ lbl_8008E044:
 /* 8008E050 0008AFB0  C3 BE 00 50 */	lfs f29, 0x50(r30)
 /* 8008E054 0008AFB4  C3 DE 00 40 */	lfs f30, 0x40(r30)
 /* 8008E058 0008AFB8  80 7F 08 70 */	lwz r3, 0x870(r31)
-/* 8008E05C 0008AFBC  4B F7 DA BD */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8008E05C 0008AFBC  4B F7 DA BD */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8008E060 0008AFC0  C0 63 00 50 */	lfs f3, 0x50(r3)
 /* 8008E064 0008AFC4  C0 23 00 40 */	lfs f1, 0x40(r3)
 /* 8008E068 0008AFC8  EC C3 E8 28 */	fsubs f6, f3, f29

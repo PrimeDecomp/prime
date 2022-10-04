@@ -1568,7 +1568,7 @@ lbl_802150EC:
 /* 8021510C 0021206C  40 82 00 80 */	bne lbl_8021518C
 /* 80215110 00212070  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 80215114 00212074  7F C4 F3 78 */	mr r4, r30
-/* 80215118 00212078  4B DF 6A 01 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80215118 00212078  4B DF 6A 01 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8021511C 0021207C  C0 21 01 D4 */	lfs f1, 0x1d4(r1)
 /* 80215120 00212080  C0 03 00 50 */	lfs f0, 0x50(r3)
 /* 80215124 00212084  C0 61 01 E4 */	lfs f3, 0x1e4(r1)

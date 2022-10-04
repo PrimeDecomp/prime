@@ -192,7 +192,7 @@ PreRender__12CScriptActorFR13CStateManagerRC14CFrustumPlanes:
 /* 800750E0 00072040  41 82 00 38 */	beq lbl_80075118
 /* 800750E4 00072044  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 800750E8 00072048  7F A4 EB 78 */	mr r4, r29
-/* 800750EC 0007204C  4B F9 6A 2D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800750EC 0007204C  4B F9 6A 2D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800750F0 00072050  7C 64 1B 78 */	mr r4, r3
 /* 800750F4 00072054  38 61 00 0C */	addi r3, r1, 0xc
 /* 800750F8 00072058  48 03 A6 39 */	bl "__ct__30TCastToPtr<16CCinematicCamera>FR7CEntity"

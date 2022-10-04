@@ -430,7 +430,7 @@ lbl_802821D4:
 /* 802821DC 0027F13C  41 80 FF C4 */	blt lbl_802821A0
 /* 802821E0 0027F140  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 802821E4 0027F144  7F A4 EB 78 */	mr r4, r29
-/* 802821E8 0027F148  4B D8 99 31 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 802821E8 0027F148  4B D8 99 31 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 802821EC 0027F14C  C0 23 01 60 */	lfs f1, 0x160(r3)
 /* 802821F0 0027F150  38 81 00 80 */	addi r4, r1, 0x80
 /* 802821F4 0027F154  C0 63 00 60 */	lfs f3, 0x60(r3)
@@ -4507,7 +4507,7 @@ lbl_80285BD0:
 /* 80285BF0 00282B50  48 00 02 8C */	b lbl_80285E7C
 lbl_80285BF4:
 /* 80285BF4 00282B54  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 80285BF8 00282B58  4B D8 5F 21 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80285BF8 00282B58  4B D8 5F 21 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80285BFC 00282B5C  C0 3F 00 50 */	lfs f1, 0x50(r31)
 /* 80285C00 00282B60  C0 03 00 50 */	lfs f0, 0x50(r3)
 /* 80285C04 00282B64  C0 7F 00 60 */	lfs f3, 0x60(r31)

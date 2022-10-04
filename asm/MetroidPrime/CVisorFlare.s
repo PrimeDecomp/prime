@@ -417,7 +417,7 @@ lbl_80207B60:
 /* 80207B7C 00204ADC  4E 80 04 21 */	bctrl
 /* 80207B80 00204AE0  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 80207B84 00204AE4  7F E4 FB 78 */	mr r4, r31
-/* 80207B88 00204AE8  4B E0 3F 91 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80207B88 00204AE8  4B E0 3F 91 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80207B8C 00204AEC  7C 7D 1B 78 */	mr r29, r3
 /* 80207B90 00204AF0  3C 60 80 5A */	lis r3, mViewMatrix__9CGraphics@ha
 /* 80207B94 00204AF4  C0 BD 00 60 */	lfs f5, 0x60(r29)
@@ -707,7 +707,7 @@ lbl_80207FBC:
 /* 80207FC8 00204F28  40 82 02 E4 */	bne lbl_802082AC
 /* 80207FCC 00204F2C  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 80207FD0 00204F30  7F E4 FB 78 */	mr r4, r31
-/* 80207FD4 00204F34  4B E0 3B 45 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80207FD4 00204F34  4B E0 3B 45 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80207FD8 00204F38  C0 A3 00 60 */	lfs f5, 0x60(r3)
 /* 80207FDC 00204F3C  C0 1E 00 08 */	lfs f0, 8(r30)
 /* 80207FE0 00204F40  C0 83 00 50 */	lfs f4, 0x50(r3)
@@ -844,7 +844,7 @@ lbl_802081C0:
 /* 802081C4 00205124  7F E4 FB 78 */	mr r4, r31
 /* 802081C8 00205128  D0 1D 00 28 */	stfs f0, 0x28(r29)
 /* 802081CC 0020512C  80 7F 08 70 */	lwz r3, 0x870(r31)
-/* 802081D0 00205130  4B E0 39 49 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 802081D0 00205130  4B E0 39 49 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 802081D4 00205134  C0 3E 00 04 */	lfs f1, 4(r30)
 /* 802081D8 00205138  38 81 00 1C */	addi r4, r1, 0x1c
 /* 802081DC 0020513C  C0 03 00 50 */	lfs f0, 0x50(r3)
@@ -1056,4 +1056,3 @@ lbl_803D2720:
 	.4byte 0x00000001
 	.4byte 0x000000FF
 	.4byte 0
-

@@ -1080,7 +1080,7 @@ lbl_8002474C:
 /* 80024760 000216C0  80 7D 00 14 */	lwz r3, 0x14(r29)
 /* 80024764 000216C4  80 83 00 00 */	lwz r4, 0(r3)
 /* 80024768 000216C8  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 8002476C 000216CC  4B FE 73 AD */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8002476C 000216CC  4B FE 73 AD */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80024770 000216D0  7C 60 1B 78 */	mr r0, r3
 /* 80024774 000216D4  38 61 00 10 */	addi r3, r1, 0x10
 /* 80024778 000216D8  7C 04 03 78 */	mr r4, r0
@@ -1385,7 +1385,7 @@ lbl_80024A74:
 /* 80024BCC 00021B2C  80 7D 00 14 */	lwz r3, 0x14(r29)
 /* 80024BD0 00021B30  80 83 00 00 */	lwz r4, 0(r3)
 /* 80024BD4 00021B34  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 80024BD8 00021B38  4B FE 6F 41 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80024BD8 00021B38  4B FE 6F 41 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80024BDC 00021B3C  7C 60 1B 78 */	mr r0, r3
 /* 80024BE0 00021B40  38 61 00 08 */	addi r3, r1, 8
 /* 80024BE4 00021B44  7C 04 03 78 */	mr r4, r0

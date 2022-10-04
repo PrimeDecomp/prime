@@ -674,7 +674,7 @@ lbl_8028B838:
 lbl_8028B83C:
 /* 8028B83C 0028879C  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 8028B840 002887A0  7F E4 FB 78 */	mr r4, r31
-/* 8028B844 002887A4  4B D8 02 D5 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8028B844 002887A4  4B D8 02 D5 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8028B848 002887A8  C0 3E 00 50 */	lfs f1, 0x50(r30)
 /* 8028B84C 002887AC  38 81 00 1C */	addi r4, r1, 0x1c
 /* 8028B850 002887B0  C0 03 00 50 */	lfs f0, 0x50(r3)

@@ -1448,7 +1448,7 @@ lbl_801AB508:
 /* 801AB52C 001A848C  48 10 BE 21 */	bl CopyTex__13CCubeRendererFibPv8GXTexFmtb
 /* 801AB530 001A8490  80 7E 08 70 */	lwz r3, 0x870(r30)
 /* 801AB534 001A8494  7F C4 F3 78 */	mr r4, r30
-/* 801AB538 001A8498  4B E6 05 E1 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 801AB538 001A8498  4B E6 05 E1 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 801AB53C 001A849C  C0 43 00 60 */	lfs f2, 0x60(r3)
 /* 801AB540 001A84A0  7F A4 EB 78 */	mr r4, r29
 /* 801AB544 001A84A4  C0 23 00 50 */	lfs f1, 0x50(r3)

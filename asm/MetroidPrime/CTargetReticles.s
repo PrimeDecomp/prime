@@ -334,7 +334,7 @@ lbl_800BC34C:
 /* 800BC354 000B92B4  41 82 02 48 */	beq lbl_800BC59C
 /* 800BC358 000B92B8  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 800BC35C 000B92BC  7F A4 EB 78 */	mr r4, r29
-/* 800BC360 000B92C0  4B F4 F7 B9 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800BC360 000B92C0  4B F4 F7 B9 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800BC364 000B92C4  80 9D 08 70 */	lwz r4, 0x870(r29)
 /* 800BC368 000B92C8  7C 7E 1B 78 */	mr r30, r3
 /* 800BC36C 000B92CC  7F A5 EB 78 */	mr r5, r29
@@ -517,7 +517,7 @@ Update__17COrbitPointMarkerFfRC13CStateManager:
 /* 800BC608 000B9568  83 C4 08 4C */	lwz r30, 0x84c(r4)
 /* 800BC60C 000B956C  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 800BC610 000B9570  83 7E 03 04 */	lwz r27, 0x304(r30)
-/* 800BC614 000B9574  4B F4 F5 05 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800BC614 000B9574  4B F4 F5 05 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800BC618 000B9578  38 9B FF FE */	addi r4, r27, -2
 /* 800BC61C 000B957C  38 A0 00 01 */	li r5, 1
 /* 800BC620 000B9580  20 04 00 01 */	subfic r0, r4, 1
@@ -951,7 +951,7 @@ Draw__17CTargetingManagerCFRC13CStateManager:
 /* 800BCC08 000B9B68  4B FF F6 B1 */	bl Draw__17COrbitPointMarkerCFRC13CStateManager
 /* 800BCC0C 000B9B6C  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 800BCC10 000B9B70  7F A4 EB 78 */	mr r4, r29
-/* 800BCC14 000B9B74  4B F4 EF 05 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800BCC14 000B9B74  4B F4 EF 05 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800BCC18 000B9B78  80 9D 08 70 */	lwz r4, 0x870(r29)
 /* 800BCC1C 000B9B7C  7C 7F 1B 78 */	mr r31, r3
 /* 800BCC20 000B9B80  7F A5 EB 78 */	mr r5, r29
@@ -1219,7 +1219,7 @@ CalculateClampedScale__22CCompoundTargetReticleF9CVector3ffffRC13CStateManager:
 /* 800BCFD0 000B9F30  D0 41 00 08 */	stfs f2, 8(r1)
 /* 800BCFD4 000B9F34  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 800BCFD8 000B9F38  D0 61 00 0C */	stfs f3, 0xc(r1)
-/* 800BCFDC 000B9F3C  4B F4 EB 3D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800BCFDC 000B9F3C  4B F4 EB 3D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800BCFE0 000B9F40  80 9E 08 70 */	lwz r4, 0x870(r30)
 /* 800BCFE4 000B9F44  7C 7F 1B 78 */	mr r31, r3
 /* 800BCFE8 000B9F48  7F C5 F3 78 */	mr r5, r30
@@ -1347,7 +1347,7 @@ CalculateOrbitZoneReticlePosition__22CCompoundTargetReticleCFRC13CStateManagerb:
 /* 800BD1B8 000BA118  7C 9D 23 78 */	mr r29, r4
 /* 800BD1BC 000BA11C  7C DF 33 78 */	mr r31, r6
 /* 800BD1C0 000BA120  7F C4 F3 78 */	mr r4, r30
-/* 800BD1C4 000BA124  4B F4 E9 55 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800BD1C4 000BA124  4B F4 E9 55 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800BD1C8 000BA128  80 8D A1 18 */	lwz r4, gpTweakPlayer@sda21(r13)
 /* 800BD1CC 000BA12C  3C 00 43 30 */	lis r0, 0x4330
 /* 800BD1D0 000BA130  90 01 00 80 */	stw r0, 0x80(r1)
@@ -5866,7 +5866,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1344 000BE2A4  7C 9E 23 78 */	mr r30, r4
 /* 800C1348 000BE2A8  3B E5 DE E8 */	addi r31, r5, lbl_803CDEE8@l
 /* 800C134C 000BE2AC  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 800C1350 000BE2B0  4B F4 A7 C9 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800C1350 000BE2B0  4B F4 A7 C9 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800C1354 000BE2B4  7C 64 1B 78 */	mr r4, r3
 /* 800C1358 000BE2B8  38 61 00 90 */	addi r3, r1, 0x90
 /* 800C135C 000BE2BC  38 84 00 34 */	addi r4, r4, 0x34
@@ -5881,7 +5881,7 @@ __ct__22CCompoundTargetReticleFRC13CStateManager:
 /* 800C1380 000BE2E0  C0 01 00 9C */	lfs f0, 0x9c(r1)
 /* 800C1384 000BE2E4  D0 1D 00 0C */	stfs f0, 0xc(r29)
 /* 800C1388 000BE2E8  80 7E 08 70 */	lwz r3, 0x870(r30)
-/* 800C138C 000BE2EC  4B F4 A7 8D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 800C138C 000BE2EC  4B F4 A7 8D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 800C1390 000BE2F0  7C 64 1B 78 */	mr r4, r3
 /* 800C1394 000BE2F4  38 61 00 80 */	addi r3, r1, 0x80
 /* 800C1398 000BE2F8  38 84 00 34 */	addi r4, r4, 0x34

@@ -667,7 +667,7 @@ GetScanObjectIndicatorPosition__15CCollisionActorCFRC13CStateManager:
 /* 801A8F64 001A5EC4  80 65 08 70 */	lwz r3, 0x870(r5)
 /* 801A8F68 001A5EC8  7C 9D 23 78 */	mr r29, r4
 /* 801A8F6C 001A5ECC  7F C4 F3 78 */	mr r4, r30
-/* 801A8F70 001A5ED0  4B E6 2B A9 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 801A8F70 001A5ED0  4B E6 2B A9 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 801A8F74 001A5ED4  80 1D 02 58 */	lwz r0, 0x258(r29)
 /* 801A8F78 001A5ED8  7C 7F 1B 78 */	mr r31, r3
 /* 801A8F7C 001A5EDC  2C 00 00 02 */	cmpwi r0, 2

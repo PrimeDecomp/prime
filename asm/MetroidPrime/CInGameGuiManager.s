@@ -1856,7 +1856,7 @@ lbl_801082E4:
 /* 801082FC 0010525C  41 82 00 A8 */	beq lbl_801083A4
 /* 80108300 00105260  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 80108304 00105264  7F A4 EB 78 */	mr r4, r29
-/* 80108308 00105268  4B F0 38 11 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80108308 00105268  4B F0 38 11 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8010830C 0010526C  7C 64 1B 78 */	mr r4, r3
 /* 80108310 00105270  38 61 00 28 */	addi r3, r1, 0x28
 /* 80108314 00105274  4B FA 61 61 */	bl "__ct__32TCastToPtr<18CFirstPersonCamera>FR7CEntity"

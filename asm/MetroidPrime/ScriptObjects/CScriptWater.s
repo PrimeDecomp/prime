@@ -1644,7 +1644,7 @@ Think__12CScriptWaterFfR13CStateManager:
 /* 801001E4 000FD144  4B F7 62 E9 */	bl Think__14CScriptTriggerFfR13CStateManager
 /* 801001E8 000FD148  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 801001EC 000FD14C  7F E4 FB 78 */	mr r4, r31
-/* 801001F0 000FD150  4B F0 B9 71 */	bl GetCurrentCamera__14CCameraManagerFR13CStateManager
+/* 801001F0 000FD150  4B F0 B9 71 */	bl CurrentCamera__14CCameraManagerFR13CStateManager
 /* 801001F4 000FD154  88 1E 01 48 */	lbz r0, 0x148(r30)
 /* 801001F8 000FD158  7C 64 1B 78 */	mr r4, r3
 /* 801001FC 000FD15C  54 00 D7 FF */	rlwinm. r0, r0, 0x1a, 0x1f, 0x1f
@@ -3672,4 +3672,3 @@ lbl_803CEE38:
 	# ROM: 0x3CBE38
 	.asciz "??(??)"
 	.balign 4
-

@@ -982,7 +982,7 @@ sub_80130da0:
 /* 80130DDC 0012DD3C  48 00 00 F8 */	b lbl_80130ED4
 lbl_80130DE0:
 /* 80130DE0 0012DD40  80 7F 08 70 */	lwz r3, 0x870(r31)
-/* 80130DE4 0012DD44  4B ED AD 35 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80130DE4 0012DD44  4B ED AD 35 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80130DE8 0012DD48  C0 43 00 60 */	lfs f2, 0x60(r3)
 /* 80130DEC 0012DD4C  7F C4 F3 78 */	mr r4, r30
 /* 80130DF0 0012DD50  C0 23 00 50 */	lfs f1, 0x50(r3)

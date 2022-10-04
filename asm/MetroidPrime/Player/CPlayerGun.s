@@ -2284,7 +2284,7 @@ DoUserAnimEvents__10CPlayerGunFfR13CStateManager:
 /* 8003C12C 0003908C  83 A5 00 04 */	lwz r29, 4(r5)
 /* 8003C130 00039090  83 83 00 20 */	lwz r28, 0x20(r3)
 /* 8003C134 00039094  80 64 08 70 */	lwz r3, 0x870(r4)
-/* 8003C138 00039098  4B FC F9 E1 */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8003C138 00039098  4B FC F9 E1 */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8003C13C 0003909C  C0 BE 04 14 */	lfs f5, 0x414(r30)
 /* 8003C140 000390A0  3C 80 80 57 */	lis r4, mSoundPOINodes__9CAnimData@ha
 /* 8003C144 000390A4  C0 9E 04 04 */	lfs f4, 0x404(r30)
@@ -8605,7 +8605,7 @@ lbl_80041B60:
 lbl_80041B64:
 /* 80041B64 0003EAC4  80 7D 08 70 */	lwz r3, 0x870(r29)
 /* 80041B68 0003EAC8  7F A4 EB 78 */	mr r4, r29
-/* 80041B6C 0003EACC  4B FC 9F AD */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 80041B6C 0003EACC  4B FC 9F AD */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 80041B70 0003EAD0  C0 22 85 08 */	lfs f1, lbl_805AA228@sda21(r2)
 /* 80041B74 0003EAD4  7C 77 1B 78 */	mr r23, r3
 /* 80041B78 0003EAD8  C0 42 85 0C */	lfs f2, lbl_805AA22C@sda21(r2)

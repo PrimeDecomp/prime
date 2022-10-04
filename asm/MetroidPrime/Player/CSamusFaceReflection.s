@@ -64,7 +64,7 @@ Draw__20CSamusFaceReflectionCFRC13CStateManager:
 /* 8015AE50 00157DB0  28 00 00 00 */	cmplwi r0, 0
 /* 8015AE54 00157DB4  40 82 03 00 */	bne lbl_8015B154
 /* 8015AE58 00157DB8  80 7E 08 70 */	lwz r3, 0x870(r30)
-/* 8015AE5C 00157DBC  4B EB 0C BD */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8015AE5C 00157DBC  4B EB 0C BD */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8015AE60 00157DC0  7C 64 1B 78 */	mr r4, r3
 /* 8015AE64 00157DC4  38 61 00 08 */	addi r3, r1, 8
 /* 8015AE68 00157DC8  4B F5 36 0D */	bl "__ct__32TCastToPtr<18CFirstPersonCamera>FR7CEntity"
@@ -318,7 +318,7 @@ PreDraw__20CSamusFaceReflectionFRC13CStateManager:
 lbl_8015B224:
 /* 8015B224 00158184  80 7F 08 70 */	lwz r3, 0x870(r31)
 /* 8015B228 00158188  7F E4 FB 78 */	mr r4, r31
-/* 8015B22C 0015818C  4B EB 08 ED */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8015B22C 0015818C  4B EB 08 ED */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8015B230 00158190  7C 64 1B 78 */	mr r4, r3
 /* 8015B234 00158194  38 61 00 08 */	addi r3, r1, 8
 /* 8015B238 00158198  4B F5 32 3D */	bl "__ct__32TCastToPtr<18CFirstPersonCamera>FR7CEntity"
@@ -364,7 +364,7 @@ Update__20CSamusFaceReflectionFfRC13CStateManagerR9CRandom16:
 /* 8015B2C0 00158220  7C 7F 1B 78 */	mr r31, r3
 /* 8015B2C4 00158224  80 64 08 70 */	lwz r3, 0x870(r4)
 /* 8015B2C8 00158228  7C BE 2B 78 */	mr r30, r5
-/* 8015B2CC 0015822C  4B EB 08 4D */	bl GetCurrentCamera__14CCameraManagerCFR13CStateManager
+/* 8015B2CC 0015822C  4B EB 08 4D */	bl GetCurrentCamera__14CCameraManagerCFRC13CStateManager
 /* 8015B2D0 00158230  7C 64 1B 78 */	mr r4, r3
 /* 8015B2D4 00158234  38 61 00 1C */	addi r3, r1, 0x1c
 /* 8015B2D8 00158238  4B F5 31 9D */	bl "__ct__32TCastToPtr<18CFirstPersonCamera>FR7CEntity"
@@ -802,4 +802,3 @@ lbl_803D0340:
 	.byte 0x3F, 0x3F
 	.asciz "(??)"
 	.balign 4
-
