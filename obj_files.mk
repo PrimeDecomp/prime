@@ -522,7 +522,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Math/CUnitVector3f.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CVector2f.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CVector2i.o\
-	$(BUILD_DIR)/asm/Kyoto/Math/CVector3d.o\
+	$(BUILD_DIR)/src/Kyoto/Math/CVector3d.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CVector3f.o\
 	$(BUILD_DIR)/src/Kyoto/Math/CVector3i.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/RMathUtils.o\
