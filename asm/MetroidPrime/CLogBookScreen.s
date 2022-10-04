@@ -536,7 +536,7 @@ lbl_80246070:
 /* 80246080 00242FE0  48 08 5E 4D */	bl SetTextureID0__13CAuiImagePaneFUib
 /* 80246084 00242FE4  C0 22 B8 58 */	lfs f1, lbl_805AD578@sda21(r2)
 /* 80246088 00242FE8  7F 43 D3 78 */	mr r3, r26
-/* 8024608C 00242FEC  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 8024608C 00242FEC  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 80246090 00242FF0  FC 40 08 90 */	fmr f2, f1
 /* 80246094 00242FF4  48 08 6E 15 */	bl SetAnimationParms__13CAuiImagePaneFRC9CVector2fff
 /* 80246098 00242FF8  3B DE 00 04 */	addi r30, r30, 4

@@ -925,7 +925,7 @@ lbl_801736F4:
 /* 801736F4 00170654  38 00 00 03 */	li r0, 3
 /* 801736F8 00170658  7F 83 E3 78 */	mr r3, r28
 /* 801736FC 0017065C  90 1C 00 00 */	stw r0, 0(r28)
-/* 80173700 00170660  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 80173700 00170660  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 80173704 00170664  80 AD A1 38 */	lwz r5, gpTweakGui@sda21(r13)
 /* 80173708 00170668  C0 25 02 44 */	lfs f1, 0x244(r5)
 /* 8017370C 0017066C  48 00 11 B5 */	bl StartTransitionTo__Q212CScanDisplay8CDataDotFRC9CVector2ff
@@ -1744,7 +1744,7 @@ lbl_801741C4:
 /* 80174220 00171180  48 15 7C AD */	bl SetTextureID0__13CAuiImagePaneFUib
 /* 80174224 00171184  C0 22 A1 10 */	lfs f1, lbl_805ABE30@sda21(r2)
 /* 80174228 00171188  7F A3 EB 78 */	mr r3, r29
-/* 8017422C 0017118C  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 8017422C 0017118C  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 80174230 00171190  FC 40 08 90 */	fmr f2, f1
 /* 80174234 00171194  48 15 8C 75 */	bl SetAnimationParms__13CAuiImagePaneFRC9CVector2fff
 /* 80174238 00171198  80 1E 00 34 */	lwz r0, 0x34(r30)
@@ -1922,7 +1922,7 @@ lbl_8017449C:
 /* 801744A4 00171404  C0 22 A1 44 */	lfs f1, lbl_805ABE64@sda21(r2)
 /* 801744A8 00171408  7F 83 E3 78 */	mr r3, r28
 /* 801744AC 0017140C  D0 1C 00 28 */	stfs f0, 0x28(r28)
-/* 801744B0 00171410  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 801744B0 00171410  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 801744B4 00171414  90 1C 00 00 */	stw r0, 0(r28)
 /* 801744B8 00171418  48 00 04 09 */	bl StartTransitionTo__Q212CScanDisplay8CDataDotFRC9CVector2ff
 /* 801744BC 0017141C  C0 22 A1 44 */	lfs f1, lbl_805ABE64@sda21(r2)
@@ -2333,10 +2333,10 @@ lbl_80174A44:
 .global __ct__Q212CScanDisplay8CDataDotFv
 __ct__Q212CScanDisplay8CDataDotFv:
 /* 80174A6C 001719CC  38 00 00 00 */	li r0, 0
-/* 80174A70 001719D0  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 80174A70 001719D0  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 80174A74 001719D4  90 03 00 00 */	stw r0, 0(r3)
 /* 80174A78 001719D8  C0 02 A1 10 */	lfs f0, lbl_805ABE30@sda21(r2)
-/* 80174A7C 001719DC  C0 2D A8 98 */	lfs f1, lbl_805A9458@sda21(r13)
+/* 80174A7C 001719DC  C0 2D A8 98 */	lfs f1, skZeroVector__9CVector2f@sda21(r13)
 /* 80174A80 001719E0  D0 23 00 04 */	stfs f1, 4(r3)
 /* 80174A84 001719E4  C0 24 00 04 */	lfs f1, 4(r4)
 /* 80174A88 001719E8  D0 23 00 08 */	stfs f1, 8(r3)

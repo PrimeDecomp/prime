@@ -12199,12 +12199,12 @@ Accept__12CSpacePirateFR8IVisitor:
 /* 8012A854 001277B4  80 03 00 00 */	lwz r0, 0(r3)
 /* 8012A858 001277B8  3C 60 80 3D */	lis r3, lbl_803CFF70@ha
 /* 8012A85C 001277BC  38 83 FF 70 */	addi r4, r3, lbl_803CFF70@l
-/* 8012A860 001277C0  38 AD A8 98 */	addi r5, r13, lbl_805A9458@sda21
+/* 8012A860 001277C0  38 AD A8 98 */	addi r5, r13, skZeroVector__9CVector2f@sda21
 /* 8012A864 001277C4  90 1D 08 CC */	stw r0, 0x8cc(r29)
 /* 8012A868 001277C8  38 61 01 78 */	addi r3, r1, 0x178
 /* 8012A86C 001277CC  C0 02 97 BC */	lfs f0, lbl_805AB4DC@sda21(r2)
 /* 8012A870 001277D0  38 84 00 1A */	addi r4, r4, 0x1a
-/* 8012A874 001277D4  C0 2D A8 98 */	lfs f1, lbl_805A9458@sda21(r13)
+/* 8012A874 001277D4  C0 2D A8 98 */	lfs f1, skZeroVector__9CVector2f@sda21(r13)
 /* 8012A878 001277D8  D0 3D 08 D0 */	stfs f1, 0x8d0(r29)
 /* 8012A87C 001277DC  C0 25 00 04 */	lfs f1, 4(r5)
 /* 8012A880 001277E0  D0 3D 08 D4 */	stfs f1, 0x8d4(r29)
