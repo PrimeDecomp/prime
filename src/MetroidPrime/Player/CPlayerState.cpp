@@ -391,9 +391,7 @@ CPlayerState::EPlayerVisor CPlayerState::GetActiveVisor(const CStateManager& sta
 
 bool CPlayerState::CanVisorSeeFog(const CStateManager& stateMgr) const {
   EPlayerVisor activeVisor = GetActiveVisor(stateMgr);
-  if (activeVisor == kPV_Combat || activeVisor == kPV_Scan)
-    return true;
-  return true;
+  return (activeVisor == kPV_Combat || activeVisor == kPV_Scan);
 }
 
 CPlayerState::EPlayerSuit CPlayerState::GetCurrentSuit() {
