@@ -149,7 +149,7 @@ UpdateMorphBallTransition__7CPlayerFfR13CStateManager:
 /* 80281DB0 0027ED10  80 7D 08 B8 */	lwz r3, 0x8b8(r29)
 /* 80281DB4 0027ED14  80 63 00 00 */	lwz r3, 0(r3)
 /* 80281DB8 0027ED18  83 23 00 20 */	lwz r25, 0x20(r3)
-/* 80281DBC 0027ED1C  4B E0 F7 09 */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 80281DBC 0027ED1C  4B E0 F7 09 */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 80281DC0 0027ED20  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80281DC4 0027ED24  41 82 00 08 */	beq lbl_80281DCC
 /* 80281DC8 0027ED28  3B 39 00 04 */	addi r25, r25, 4

@@ -1930,7 +1930,7 @@ __ct__16CInventoryScreenFRC13CStateManagerRC9CGuiFrameRC12CStringTableRC16CDepen
 /* 80207590 002044F0  4B E8 A5 31 */	bl HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType
 /* 80207594 002044F4  7C 7E 1B 78 */	mr r30, r3
 /* 80207598 002044F8  7F 23 CB 78 */	mr r3, r25
-/* 8020759C 002044FC  4B E8 9F 29 */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 8020759C 002044FC  4B E8 9F 29 */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 802075A0 00204500  54 60 15 BA */	rlwinm r0, r3, 2, 0x16, 0x1d
 /* 802075A4 00204504  7F 83 E3 78 */	mr r3, r28
 /* 802075A8 00204508  7E E4 BB 78 */	mr r4, r23

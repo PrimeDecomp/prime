@@ -468,7 +468,7 @@ GetSuitCharIdx__18CScriptPlayerActorCFRC13CStateManager11EPlayerSuit:
 /* 801AA788 001A76E8  7C BF 2B 78 */	mr r31, r5
 /* 801AA78C 001A76EC  80 64 08 B8 */	lwz r3, 0x8b8(r4)
 /* 801AA790 001A76F0  80 63 00 00 */	lwz r3, 0(r3)
-/* 801AA794 001A76F4  4B EE 6D 31 */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 801AA794 001A76F4  4B EE 6D 31 */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 801AA798 001A76F8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801AA79C 001A76FC  41 82 00 48 */	beq lbl_801AA7E4
 /* 801AA7A0 001A7700  2C 1F 00 02 */	cmpwi r31, 2

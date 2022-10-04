@@ -852,7 +852,7 @@ lbl_801074C8:
 /* 801074D4 00104434  80 7B 08 B8 */	lwz r3, 0x8b8(r27)
 /* 801074D8 00104438  80 63 00 00 */	lwz r3, 0(r3)
 /* 801074DC 0010443C  83 63 00 20 */	lwz r27, 0x20(r3)
-/* 801074E0 00104440  4B F8 9F E5 */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 801074E0 00104440  4B F8 9F E5 */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 801074E4 00104444  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 801074E8 00104448  41 82 00 38 */	beq lbl_80107520
 /* 801074EC 0010444C  2C 1B 00 03 */	cmpwi r27, 3

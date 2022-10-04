@@ -311,8 +311,8 @@ SetIsFusionEnabled__12CPlayerStateFb:
 /* 800914BC 0008E41C  98 03 00 00 */	stb r0, 0(r3)
 /* 800914C0 0008E420  4E 80 00 20 */	blr
 
-.global GetIsFusionEnabled__12CPlayerStateFv
-GetIsFusionEnabled__12CPlayerStateFv:
+.global GetIsFusionEnabled__12CPlayerStateCFv
+GetIsFusionEnabled__12CPlayerStateCFv:
 /* 800914C4 0008E424  88 03 00 00 */	lbz r0, 0(r3)
 /* 800914C8 0008E428  54 03 DF FE */	rlwinm r3, r0, 0x1b, 0x1f, 0x1f
 /* 800914CC 0008E42C  7C 03 00 D0 */	neg r0, r3
@@ -327,7 +327,7 @@ GetCurrentSuit__12CPlayerStateFv:
 /* 800914E4 0008E444  90 01 00 14 */	stw r0, 0x14(r1)
 /* 800914E8 0008E448  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 800914EC 0008E44C  7C 7F 1B 78 */	mr r31, r3
-/* 800914F0 0008E450  4B FF FF D5 */	bl GetIsFusionEnabled__12CPlayerStateFv
+/* 800914F0 0008E450  4B FF FF D5 */	bl GetIsFusionEnabled__12CPlayerStateCFv
 /* 800914F4 0008E454  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800914F8 0008E458  41 82 00 0C */	beq lbl_80091504
 /* 800914FC 0008E45C  38 60 00 04 */	li r3, 4
