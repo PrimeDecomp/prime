@@ -175,8 +175,8 @@ Touch__14CScriptEMPulseFR6CActorR13CStateManager:
 /* 8018ED7C 0018BCDC  FC 1F 00 40 */	fcmpo cr0, f31, f0
 /* 8018ED80 0018BCE0  40 81 00 3C */	ble lbl_8018EDBC
 /* 8018ED84 0018BCE4  FC 20 F8 90 */	fmr f1, f31
-/* 8018ED88 0018BCE8  C0 42 80 F8 */	lfs f2, lbl_805A9E18@sda21(r2)
-/* 8018ED8C 0018BCEC  C0 62 80 FC */	lfs f3, lbl_805A9E1C@sda21(r2)
+/* 8018ED88 0018BCE8  C0 42 80 F8 */	lfs f2, skDefaultHudFadeOutSpeed__7CPlayer@sda21(r2)
+/* 8018ED8C 0018BCEC  C0 62 80 FC */	lfs f3, skDefaultHudFadeInSpeed__7CPlayer@sda21(r2)
 /* 8018ED90 0018BCF0  7F E3 FB 78 */	mr r3, r31
 /* 8018ED94 0018BCF4  4B E8 42 D9 */	bl SetHudDisable__7CPlayerFfff
 /* 8018ED98 0018BCF8  80 BE 08 4C */	lwz r5, 0x84c(r30)
@@ -198,7 +198,7 @@ lbl_8018EDBC:
 /* 8018EDD4 0018BD34  B0 01 00 08 */	sth r0, 8(r1)
 /* 8018EDD8 0018BD38  80 63 00 00 */	lwz r3, 0(r3)
 /* 8018EDDC 0018BD3C  38 63 01 88 */	addi r3, r3, 0x188
-/* 8018EDE0 0018BD40  48 03 1D 59 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 8018EDE0 0018BD40  48 03 1D 59 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 lbl_8018EDE4:
 /* 8018EDE4 0018BD44  E3 E1 00 68 */	psq_l f31, 104(r1), 0, qr0
 /* 8018EDE8 0018BD48  CB E1 00 60 */	lfd f31, 0x60(r1)
@@ -458,7 +458,7 @@ lbl_8018F0F4:
 /* 8018F17C 0018C0DC  C0 3D 01 00 */	lfs f1, 0x100(r29)
 /* 8018F180 0018C0E0  C0 5D 00 F8 */	lfs f2, 0xf8(r29)
 /* 8018F184 0018C0E4  38 63 01 88 */	addi r3, r3, 0x188
-/* 8018F188 0018C0E8  48 03 19 B1 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 8018F188 0018C0E8  48 03 19 B1 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 lbl_8018F18C:
 /* 8018F18C 0018C0EC  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8018F190 0018C0F0  83 E1 00 6C */	lwz r31, 0x6c(r1)

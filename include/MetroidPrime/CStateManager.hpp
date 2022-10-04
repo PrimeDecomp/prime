@@ -12,6 +12,8 @@
 
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/CObjectList.hpp"
+#include "MetroidPrime/Cameras/CCameraBlurPass.hpp"
+#include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -81,6 +83,19 @@ public:
   typedef rstl::map< TEditorId, TUniqueId > TIdList;
   typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
 
+  enum ECameraFilterStage {
+    kCFS_Zero,
+    kCFS_One,
+    kCFS_Two,
+    kCFS_Three,
+    kCFS_Four,
+    kCFS_Five,
+    kCFS_Six,
+    kCFS_Seven,
+    kCFS_Eight,
+    kCFS_Max,
+  };
+
   void ResetEscapeSequenceTimer(float);
   void SendScriptMsg(TUniqueId uid, TEditorId target, EScriptObjectMessage msg,
                      EScriptObjectState state);
@@ -91,6 +106,8 @@ public:
   void FreeScriptObject(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
 
+  void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
+                     const CActor*) const;
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
                        const CMaterialFilter& filter, const CActor* damagee) const;
   CRayCastResult RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos, const CVector3f& dir,
@@ -125,6 +142,13 @@ public:
   CRandom16* GetActiveRandom() const { return x900_random; }
 
   CObjectList& GetObjectListById(EGameObjectList id) { return *x808_objectLists[id]; }
+
+  CCameraFilterPass& CameraFilterPass(ECameraFilterStage stage) {
+    return xb84_camFilterPasses[size_t(stage)];
+  }
+  const CCameraFilterPass& GetCameraFilterPass(ECameraFilterStage stage) const {
+    return xb84_camFilterPasses[size_t(stage)];
+  }
 
   f32 GetThermalColdScale1() const { return xf24_thermColdScale1; }
   f32 GetThermalColdScale2() const { return xf28_thermColdScale2; }
@@ -169,7 +193,8 @@ private:
   CWeaponMgr* x878_weaponMgr;
   CFluidPlaneManager* x87c_fluidPlaneManager;
   CEnvFxManager* x880_envFxManager;
-  rstl::auto_ptr< CActorModelParticles > x884_actorModelParticles;
+  rstl::single_ptr< CActorModelParticles > x884_actorModelParticles;
+  uint x888_;
   CRumbleManager* x88c_rumbleManager;
   // TODO
   // rstl::multimap< TEditorId, TUniqueId > x890_scriptIdMap;
@@ -193,8 +218,12 @@ private:
   CRandom16 x8fc_random;
   CRandom16* x900_random;
 
-  u8 x904_pad[0x5f0];
+  u8 x904_pad[0x280];
 
+  rstl::reserved_vector< CCameraFilterPass, kCFS_Max > xb84_camFilterPasses;
+  rstl::reserved_vector< CCameraBlurPass, kCFS_Max > xd14_camBlurPasses;
+  int xeec_hintIdx;
+  uint xef0_hintPeriods;
   SOnScreenTex xef4_pendingScreenTex;
   CAssetId xf08_pauseHudMessage;
   f32 xf0c_escapeTimer;

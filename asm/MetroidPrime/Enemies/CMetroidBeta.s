@@ -2214,15 +2214,15 @@ sub_801c2698:
 /* 801C2818 001BF778  80 63 00 00 */	lwz r3, 0(r3)
 /* 801C281C 001BF77C  EC 21 00 32 */	fmuls f1, f1, f0
 /* 801C2820 001BF780  38 63 01 88 */	addi r3, r3, 0x188
-/* 801C2824 001BF784  4B FF E3 15 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 801C2824 001BF784  4B FF E3 15 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 801C2828 001BF788  80 7E 08 4C */	lwz r3, 0x84c(r30)
 /* 801C282C 001BF78C  C0 22 AA F0 */	lfs f1, lbl_805AC810@sda21(r2)
 /* 801C2830 001BF790  C0 03 07 40 */	lfs f0, 0x740(r3)
 /* 801C2834 001BF794  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 801C2838 001BF798  40 80 00 14 */	bge lbl_801C284C
-/* 801C283C 001BF79C  C0 42 80 F8 */	lfs f2, lbl_805A9E18@sda21(r2)
+/* 801C283C 001BF79C  C0 42 80 F8 */	lfs f2, skDefaultHudFadeOutSpeed__7CPlayer@sda21(r2)
 /* 801C2840 001BF7A0  7F E3 FB 78 */	mr r3, r31
-/* 801C2844 001BF7A4  C0 62 80 FC */	lfs f3, lbl_805A9E1C@sda21(r2)
+/* 801C2844 001BF7A4  C0 62 80 FC */	lfs f3, skDefaultHudFadeInSpeed__7CPlayer@sda21(r2)
 /* 801C2848 001BF7A8  4B E5 08 25 */	bl SetHudDisable__7CPlayerFfff
 lbl_801C284C:
 /* 801C284C 001BF7AC  C0 1D 07 A0 */	lfs f0, 0x7a0(r29)

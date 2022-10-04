@@ -749,8 +749,8 @@ lbl_801D7FA0:
 /* 801D8038 001D4F98  EC 24 08 BA */	fmadds f1, f4, f2, f1
 /* 801D803C 001D4F9C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 801D8040 001D4FA0  40 81 00 34 */	ble lbl_801D8074
-/* 801D8044 001D4FA4  C0 42 80 F8 */	lfs f2, lbl_805A9E18@sda21(r2)
-/* 801D8048 001D4FA8  C0 62 80 FC */	lfs f3, lbl_805A9E1C@sda21(r2)
+/* 801D8044 001D4FA4  C0 42 80 F8 */	lfs f2, skDefaultHudFadeOutSpeed__7CPlayer@sda21(r2)
+/* 801D8048 001D4FA8  C0 62 80 FC */	lfs f3, skDefaultHudFadeInSpeed__7CPlayer@sda21(r2)
 /* 801D804C 001D4FAC  4B E3 B0 21 */	bl SetHudDisable__7CPlayerFfff
 /* 801D8050 001D4FB0  80 7F 08 4C */	lwz r3, 0x84c(r31)
 /* 801D8054 001D4FB4  7F E6 FB 78 */	mr r6, r31
@@ -771,7 +771,7 @@ lbl_801D8074:
 /* 801D808C 001D4FEC  B0 01 00 08 */	sth r0, 8(r1)
 /* 801D8090 001D4FF0  80 63 00 00 */	lwz r3, 0(r3)
 /* 801D8094 001D4FF4  38 63 01 88 */	addi r3, r3, 0x188
-/* 801D8098 001D4FF8  4B FE 8A A1 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 801D8098 001D4FF8  4B FE 8A A1 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 lbl_801D809C:
 /* 801D809C 001D4FFC  C0 1E 05 AC */	lfs f0, 0x5ac(r30)
 /* 801D80A0 001D5000  D0 1E 03 40 */	stfs f0, 0x340(r30)
@@ -1019,7 +1019,7 @@ lbl_801D835C:
 /* 801D8404 001D5364  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 801D8408 001D5368  80 63 00 00 */	lwz r3, 0(r3)
 /* 801D840C 001D536C  38 63 01 88 */	addi r3, r3, 0x188
-/* 801D8410 001D5370  4B FE 87 29 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 801D8410 001D5370  4B FE 87 29 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 801D8414 001D5374  48 00 00 7C */	b lbl_801D8490
 lbl_801D8418:
 /* 801D8418 001D5378  3C 60 80 3E */	lis r3, lbl_803DAA68@ha

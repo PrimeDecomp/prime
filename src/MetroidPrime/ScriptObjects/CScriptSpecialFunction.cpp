@@ -12,6 +12,7 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/TCastTo.hpp"
+#include "MetroidPrime/Weapons/CEnergyProjectile.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
 
@@ -35,12 +36,11 @@ static int string_find(const string& haystack, const string& needle, int) {
   return 0;
 }
 
-template < class RandomAccessIterator, class Compare >
-void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp) {
+template < class It, class Cmp >
+void sort(It first, It last, Cmp cmp) {
   // TODO: proper implementation
-  comp(*first, *last);
+  cmp(*first, *last);
 }
-
 } // namespace rstl
 
 CScriptSpecialFunction::CScriptSpecialFunction(
@@ -979,41 +979,43 @@ void CScriptSpecialFunction::Render(CStateManager& mgr) {
 }
 
 void CScriptSpecialFunction::ThinkChaffTarget(float dt, CStateManager& mgr) {
-  /*
-  const zeus::CAABox box(5.f - GetTranslation(), 5.f + GetTranslation());
-  EntityList nearList;
-  mgr.BuildNearList(nearList, box, CMaterialFilter::MakeInclude({kMT_Projectile}), nullptr);
-  auto& filter = mgr.GetCameraFilterPass(7);
+  TEntityList nearList;
+  const CVector3f offset(5.f, 5.f, 5.f);
+  const CAABox box(GetTranslation() - offset, GetTranslation() + offset);
+  mgr.BuildNearList(nearList, box, CMaterialFilter::MakeInclude(kMT_Projectile), nullptr);
 
-  for (const auto& uid : nearList) {
-    if (const TCastToPtr<CEnergyProjectile> proj = mgr.ObjectById(uid)) {
+  for (int i = 0; i < nearList.size(); ++i) {
+    if (CEnergyProjectile* proj = TCastToPtr< CEnergyProjectile >(mgr.ObjectById(nearList[i]))) {
       if (proj->GetHomingTargetId() == GetUniqueId()) {
         proj->Set3d0_26(true);
-        if (mgr.GetPlayer().GetAreaIdAlways() == GetAreaIdAlways()) {
-          mgr.GetPlayer().SetHudDisable(x100_float2, 0.5f, 2.5f);
-          filter.SetFilter(EFilterType::Blend, EFilterShape::Fullscreen, 0.f, zeus::skWhite,
-  CAssetId()); filter.DisableFilter(0.1f);
+        if (mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
+          mgr.Player()->SetHudDisable(x100_float2);
+          x194_ = xfc_float1;
+
+          CCameraFilterPass& filter = mgr.CameraFilterPass(CStateManager::kCFS_Seven);
+          filter.SetFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen, 0.f,
+                           CColor(1.f, 1.f, 1.f), kInvalidAssetId);
+          filter.DisableFilter(0.1f);
         }
       }
     }
   }
 
-  x194_ = zeus::max(0.f, x194_ - dt);
-  if (x194_ != 0.f && mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
-    float intfMag = x104_float3 * (0.5f + ((0.5f + x194_) / xfc_float1));
+  bool addedInterference = false;
+  x194_ = CMath::Max(0.f, x194_ - dt);
+  if (x194_ && mgr.GetPlayer()->GetAreaIdAlways() == GetAreaIdAlways()) {
+    addedInterference = true;
+    float intfMag = x104_float3 * (0.5f + ((0.5f * x194_) / xfc_float1));
     if (x194_ < 1.f) {
       intfMag *= x194_;
     }
-
-    mgr.GetPlayerState()->GetStaticInterference().AddSource(GetUniqueId(), intfMag, .5f);
-
-    if (mgr.GetPlayerState()->GetCurrentVisor() != kPV_Scan) {
-      mgr.GetPlayer()->AddOrbitDisableSource(mgr, GetUniqueId());
-    } else {
-      mgr.GetPlayer()->RemoveOrbitDisableSource(GetUniqueId());
-    }
+    mgr.PlayerState()->StaticInterference().AddSource(GetUniqueId(), intfMag, 0.5f);
   }
-  */
+  if (addedInterference && mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Thermal) {
+    mgr.Player()->AddOrbitDisableSource(mgr, GetUniqueId());
+  } else {
+    mgr.Player()->RemoveOrbitDisableSource(GetUniqueId());
+  }
 }
 
 void CScriptSpecialFunction::ThinkRainSimulator(float, CStateManager& mgr) {
@@ -1095,25 +1097,6 @@ void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
   }
 }
 
-void CScriptSpecialFunction::DeleteEmitter(CSfxHandle& handle) {
-  if (handle) {
-    CSfxManager::RemoveEmitter(handle);
-    handle.Clear();
-  }
-}
-
-u32 CScriptSpecialFunction::GetSpecialEnding(const CStateManager& mgr) const {
-  const u32 rate = (mgr.GetPlayerState()->CalculateItemCollectionRate() * 100) /
-                   mgr.GetPlayerState()->GetTotalPickupCount();
-  if (rate < 75) {
-    return 0;
-  }
-  if (rate < 100) {
-    return 1;
-  }
-  return 2;
-}
-
 void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id,
                                                 const CVector3f& pos, uchar vol) {
   if (!handle) {
@@ -1125,9 +1108,24 @@ void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle,
   }
 }
 
-CScriptSpecialFunction::SRingController::SRingController(TUniqueId uid, float rotateSpeed,
-                                                         bool reachedTarget)
-: x0_id(uid)
-, x4_rotateSpeed(rotateSpeed)
-, x8_reachedTarget(reachedTarget)
-, xc_(CVector3f::Zero()) {}
+void CScriptSpecialFunction::DeleteEmitter(CSfxHandle& handle) {
+  if (handle) {
+    CSfxManager::RemoveEmitter(handle);
+    handle.Clear();
+  }
+}
+
+int CScriptSpecialFunction::GetSpecialEnding(const CStateManager& mgr) const {
+  const int rate = (mgr.GetPlayerState()->CalculateItemCollectionRate() * 100) /
+                   mgr.GetPlayerState()->GetTotalPickupCount();
+  int result;
+  if (rate < 75) {
+    result = 0;
+  } else {
+    result = 2;
+    if (rate < 100) {
+      result = 1;
+    }
+  }
+  return result;
+}

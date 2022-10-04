@@ -92,11 +92,11 @@ public:
   explicit CPlayerState(CInputStream& stream);
   void PutTo(COutputStream& stream);
 
-  u32 GetMissileCostForAltAttack() const;
+  int GetMissileCostForAltAttack() const;
   float GetComboFireAmmoPeriod() const;
   static float GetMissileComboChargeFactor();
-  u32 CalculateItemCollectionRate() const;
-  u32 GetTotalPickupCount() const;
+  int CalculateItemCollectionRate() const;
+  int GetTotalPickupCount() const;
 
   void SetIsFusionEnabled(bool v);
   bool GetIsFusionEnabled() const;
@@ -111,7 +111,7 @@ public:
   EPlayerVisor GetActiveVisor(const CStateManager& mgr) const;
 
   void UpdateStaticInterference(CStateManager& stateMgr, const float& dt);
-  void IncreaseScanTime(u32 time, float val);
+  void IncreaseScanTime(uint time, float val);
   void SetScanTime(CAssetId res, float time);
   float GetScanTime(CAssetId time) const;
   bool GetIsVisorTransitioning() const;
@@ -124,9 +124,9 @@ public:
   void DisableItem(EItemType type);
   void EnableItem(EItemType type);
   bool HasPowerUp(EItemType type) const;
-  u32 GetPowerUp(EItemType type);
-  u32 GetItemCapacity(EItemType type) const;
-  u32 GetItemAmount(EItemType type) const;
+  uint GetPowerUp(EItemType type);
+  uint GetItemCapacity(EItemType type) const;
+  uint GetItemAmount(EItemType type) const;
   void DecrPickUp(EItemType type, int amount);
   void IncrPickUp(EItemType type, int amount);
   void ResetAndIncrPickUp(EItemType type, int amount);
@@ -140,7 +140,8 @@ public:
 
   static uint GetBitCount(uint);
 
-  CStaticInterference& GetStaticInterference() { return x188_staticIntf; }
+  CStaticInterference& StaticInterference() { return x188_staticIntf; }
+  const CStaticInterference& GetStaticInterference() const { return x188_staticIntf; }
 
   const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const {
     return x170_scanTimes;
@@ -162,7 +163,7 @@ private:
   bool x0_24_alive : 1;
   bool x0_25_firingComboBeam : 1;
   bool x0_26_fusion : 1;
-  u32 x4_enabledItems;
+  uint x4_enabledItems;
   EBeamId x8_currentBeam;
   CHealthInfo xc_health;
   EPlayerVisor x14_currentVisor;
@@ -171,7 +172,7 @@ private:
   EPlayerSuit x20_currentSuit;
   rstl::reserved_vector< CPowerUp, 41 > x24_powerups;
   rstl::vector< rstl::pair< CAssetId, float > > x170_scanTimes;
-  rstl::pair< u32, u32 > x180_scanCompletionRate;
+  rstl::pair< uint, uint > x180_scanCompletionRate;
   CStaticInterference x188_staticIntf;
 };
 

@@ -13,71 +13,36 @@ template < typename T >
 inline void destroy(T* in) {
   in->~T();
 }
-// template < typename T >
-// inline void destroy(const T* in) {}
 
-template < typename Iter >
-inline void destroy(Iter begin, Iter end) {
-  Iter current = begin;
-  while (current != end) {
-    current.destroy();
-    ++current;
-  }
-}
-template < typename S >
-inline void destroy(S* begin, S* end) {
-  S* current = begin;
-  while (current != end) {
-    destroy(current);
-    ++current;
+template < typename It >
+inline void destroy(It begin, It end) {
+  It cur = begin;
+  for (; cur != end; ++cur) {
+    destroy(&*cur);
   }
 }
 
-template < typename Iter, typename T >
-inline void uninitialized_copy(Iter begin, Iter end, T* out) {
-  Iter current = begin;
-  while (current != end) {
-    construct(out, *current);
-    current.destroy();
-    ++out;
-    ++current;
+template < typename It, typename T >
+inline void uninitialized_copy(It begin, It end, T* out) {
+  It cur = begin;
+  for (; cur != end; ++out, ++cur) {
+    construct(out, *cur);
   }
 }
 
 template < typename S, typename D >
-inline void uninitialized_copy(D* out, S* begin, S* end) {
-  while (begin != end) {
-    construct(out, *begin);
-    ++out;
-    ++begin;
+inline void uninitialized_copy_n(S src, int n, D dest) {
+  D cur = dest;
+  for (int i = 0; i < n; ++cur, ++i, ++src) {
+    construct(&*cur, *src);
   }
-  // rstl::destroy(begin, end);
-}
-
-// FIXME this is a hack around regalloc
-// need to figure out the proper types/positions for all of these funcs
-template < typename S, typename D >
-inline void uninitialized_copy_2(S* begin, D* out, S* end) {
-  while (begin != end) {
-    construct(out, *begin);
-    ++out;
-    ++begin;
-  }
-}
-
-template < typename S, typename D >
-// inline void uninitialized_copy_n(S* src, int count, D* dest) {
-inline void uninitialized_copy_n(D* dest, S* src, int count) {
-  for (int i = 0; i < count; ++dest, ++i, ++src) {
-    construct(dest, *src);
-  }
-  // destroy(src, src + count); ??
 }
 
 template < typename D, typename S >
-inline void uninitialized_fill_n(D dest, int count, const S& value) {
-  for (int i = 0; i < count; ++dest, ++i) {
-    construct(dest, value);
+inline void uninitialized_fill_n(D dest, int n, const S& value) {
+  D cur = dest;
+  for (; n > 0; --n, ++cur) {
+    construct(&*cur, value);
   }
 }
 } // namespace rstl

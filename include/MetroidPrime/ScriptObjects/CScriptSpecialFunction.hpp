@@ -67,7 +67,12 @@ public:
     float x4_rotateSpeed;
     bool x8_reachedTarget;
     CVector3f xc_;
-    SRingController(TUniqueId uid, float rotateSpeed, bool reachedTarget);
+
+    SRingController(TUniqueId uid, float rotateSpeed, bool reachedTarget)
+    : x0_id(uid)
+    , x4_rotateSpeed(rotateSpeed)
+    , x8_reachedTarget(reachedTarget)
+    , xc_(CVector3f::Zero()) {}
   };
 
 private:
@@ -87,7 +92,7 @@ private:
   u16 x172_sfx2;
   u16 x174_sfx3;
   CSfxHandle x178_sfxHandle;
-  u32 x17c_;
+  uint x17c_;
   float x180_;
   TAverage< f32 > x184_;
   float x194_;
@@ -142,7 +147,7 @@ public:
   bool ShouldSkipCinematic(CStateManager& stateMgr) const;
 
   void DeleteEmitter(CSfxHandle& handle);
-  u32 GetSpecialEnding(const CStateManager&) const;
+  int GetSpecialEnding(const CStateManager&) const;
   void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id, const CVector3f& pos, uchar vol);
 };
 

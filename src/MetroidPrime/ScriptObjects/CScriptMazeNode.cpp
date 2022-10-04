@@ -264,6 +264,13 @@ void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 //   return objUid;
 // }
 
+// struct GenerateObjectGuard {
+//   GenerateObjectGuard(CStateManager& mgr) : mgr(mgr), wasGenerating(mgr.IsGeneratingObject()) {}
+//   ~GenerateObjectGuard() { mgr.SetIsGeneratingObject(wasGenerating); }
+//   CStateManager& mgr;
+//   bool wasGenerating;
+// };
+
 // TODO non-matching
 // https://decomp.me/scratch/IvHBz
 void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
@@ -285,6 +292,7 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
     }
 
     // TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
+    // TUniqueId objUid = kInvalidUniqueId;
     bool wasGeneratingObject = mgr.IsGeneratingObject();
     mgr.SetIsGeneratingObject(true);
     TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;

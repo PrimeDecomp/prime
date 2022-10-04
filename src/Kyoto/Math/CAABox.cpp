@@ -99,7 +99,7 @@ CTri CAABox::GetTri(EBoxFaceId face, int windOffset) const {
     verts[3] = CVector3f(min.GetX(), min.GetY(), max.GetZ());
     break;
   case kF_ZMin:
-    verts[0] = min;
+    verts[0] = CVector3f(min.GetX(), min.GetY(), min.GetZ());
     verts[1] = CVector3f(max.GetX(), min.GetY(), min.GetZ());
     verts[2] = CVector3f(max.GetX(), max.GetY(), min.GetZ());
     verts[3] = CVector3f(min.GetX(), max.GetY(), min.GetZ());
@@ -228,13 +228,7 @@ f32 CAABox::GetVolume() const {
   return delta.GetX() * delta.GetY() * delta.GetZ();
 }
 
-CVector3f CAABox::GetCenterPoint() const {
-  CVector3f result = min + max;
-  result.SetX(result.GetX() * 0.5f);
-  result.SetY(result.GetY() * 0.5f);
-  result.SetZ(result.GetZ() * 0.5f);
-  return result;
-}
+CVector3f CAABox::GetCenterPoint() const { return (min + max) * 0.5f; }
 
 CVector3f CAABox::GetPoint(int point) const {
   const CVector3f* vecs[2] = {&min, &max};
@@ -260,9 +254,12 @@ f32 CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
   bool zi = b.GetMinPoint().GetZ() < a.GetMaxPoint().GetZ() && maxZ < minZ;
 
   int intersects = 0;
-  if (xi) intersects |= 1;
-  if (yi) intersects |= 2;
-  if (zi) intersects |= 4;
+  if (xi)
+    intersects |= 1;
+  if (yi)
+    intersects |= 2;
+  if (zi)
+    intersects |= 4;
 
   if (b.GetMinPoint().GetX() > a.GetMaxPoint().GetX()) {
     minX = b.GetMinPoint().GetX();

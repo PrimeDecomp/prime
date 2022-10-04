@@ -440,13 +440,13 @@ lbl_805A9E14:
 	# ROM: 0x3F66B4
 	.4byte lbl_803CC4F8
 
-.global lbl_805A9E18
-lbl_805A9E18:
+.global skDefaultHudFadeOutSpeed__7CPlayer
+skDefaultHudFadeOutSpeed__7CPlayer:
 	# ROM: 0x3F66B8
 	.float 0.5
 
-.global lbl_805A9E1C
-lbl_805A9E1C:
+.global skDefaultHudFadeInSpeed__7CPlayer
+skDefaultHudFadeInSpeed__7CPlayer:
 	# ROM: 0x3F66BC
 	.float 2.5
 
@@ -8555,7 +8555,7 @@ lbl_80016C58:
 /* 80016CAC 00013C0C  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80016CB0 00013C10  80 63 00 00 */	lwz r3, 0(r3)
 /* 80016CB4 00013C14  38 63 01 88 */	addi r3, r3, 0x188
-/* 80016CB8 00013C18  48 1A 9E 81 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 80016CB8 00013C18  48 1A 9E 81 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 80016CBC 00013C1C  48 00 00 68 */	b lbl_80016D24
 .global lbl_80016CC0
 lbl_80016CC0:

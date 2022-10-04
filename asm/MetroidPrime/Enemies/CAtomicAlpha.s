@@ -860,7 +860,7 @@ CollidedWith__12CAtomicAlphaFRC9TUniqueIdRC18CCollisionInfoListR13CStateManager:
 /* 802454A8 00242408  B0 01 00 08 */	sth r0, 8(r1)
 /* 802454AC 0024240C  80 63 00 00 */	lwz r3, 0(r3)
 /* 802454B0 00242410  38 63 01 88 */	addi r3, r3, 0x188
-/* 802454B4 00242414  4B F7 B6 85 */	bl AddSource__19CStaticInterferenceF9TUniqueId
+/* 802454B4 00242414  4B F7 B6 85 */	bl AddSource__19CStaticInterferenceF9TUniqueIdff
 /* 802454B8 00242418  C0 02 B8 44 */	lfs f0, lbl_805AD564@sda21(r2)
 /* 802454BC 0024241C  38 7C 06 E0 */	addi r3, r28, 0x6e0
 /* 802454C0 00242420  38 80 00 00 */	li r4, 0

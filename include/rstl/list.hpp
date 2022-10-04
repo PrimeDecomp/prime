@@ -14,7 +14,7 @@ public:
     node* cur = x4_start;
     while (cur != x8_end) {
       cur->get_value()->~T();
-      Alloc::deallocate(cur->get_value());
+      x0_allocator.deallocate(cur->get_value());
       cur = cur->get_next();
     }
   }

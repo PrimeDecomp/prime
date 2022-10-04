@@ -36,31 +36,4 @@ SECTIONS
 FORCEFILES 
 {
     __init_cpp_exceptions.o
-    uart_console_io.o
-    mslsupp.o
-    CBallFilter.o
-    CABSIdle.o
-    CMetaAnimPlay.o
-    CMetaTransSnap.o
-    CAnimTreeAnimReaderContainer.o
-    CAnimTreeContinuousPhaseBlend.o
-    CAnimTreeSingleChild.o
-    CTimeScaleFunctions.o
-    CDvdRequest.o
-    CColorInstruction.o
-    CColorOverrideInstruction.o
-    CFontInstruction.o
-    CLineExtraSpaceInstruction.o
-    CLineSpacingInstruction.o
-    CPopStateInstruction.o
-    CPushStateInstruction.o
-    CRemoveColorOverrideInstruction.o
-    CWordInstruction.o
-    CBlockInstruction.o
-    CloseEnough.o
-    CParticleGen.o
-    CWarp.o
-    CImageInstruction.o
-    RumbleFxTable.o
-    CGuiWidgetDrawParms.o
 }
