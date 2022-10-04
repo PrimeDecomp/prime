@@ -1,6 +1,10 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/CMemoryCard.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Cameras/CGameCamera.hpp"
 
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
@@ -336,7 +340,7 @@ void CPlayerState::UpdateVisorTransition(float dt) {
 float CPlayerState::GetVisorTransitionFactor() const { return x1c_visorTransitionFactor / kMaxVisorTransitionFactor; }
 
 bool CPlayerState::GetIsVisorTransitioning() const {
-  return x14_currentVisor != x18_transitioningVisor || x1c_visorTransitionFactor < kMaxVisorTransitionFactor;
+  return x14_currentVisor != x18_transitioningVisor || kMaxVisorTransitionFactor > x1c_visorTransitionFactor;
 }
 
 float CPlayerState::GetBaseHealthCapacity() { return kBaseHealthCapacity; }
@@ -381,9 +385,7 @@ void CPlayerState::UpdateStaticInterference(CStateManager& stateMgr, const float
 }
 
 CPlayerState::EPlayerVisor CPlayerState::GetActiveVisor(const CStateManager& stateMgr) const {
-  void* cam = NULL;
-  // const CFirstPersonCamera* cam =
-  // TCastToConstPtr<CFirstPersonCamera>(stateMgr.GetCameraManager()->GetCurrentCamera(stateMgr)).GetPtr();
+  const CFirstPersonCamera* cam = TCastToConstPtr<CFirstPersonCamera>(*stateMgr.GetCameraManager()->GetCurrentCamera(stateMgr));
   return (cam ? x14_currentVisor : kPV_Combat);
 }
 
