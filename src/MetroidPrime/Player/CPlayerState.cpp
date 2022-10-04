@@ -406,7 +406,7 @@ CPlayerState::EPlayerSuit CPlayerState::GetCurrentSuit() {
   return x20_currentSuit;
 }
 
-bool CPlayerState::GetIsFusionEnabled() const { return x0_26_fusion; }
+bool CPlayerState::GetIsFusionEnabled() const { return x0_26_fusion || false; }
 
 void CPlayerState::SetIsFusionEnabled(bool val) { x0_26_fusion = val; }
 
