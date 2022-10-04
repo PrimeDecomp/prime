@@ -9,7 +9,7 @@
 
 #include <math.h>
 
-static const int kPowerUpMaxValues[] = {
+static const int kPowerUpMax[] = {
     1, 1, 1, 1,  250, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 14, 1,   0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 };
@@ -24,6 +24,9 @@ static const float kComboAmmoPeriods[] = {
 
 static const float kEnergyTankCapacity = 100.f;
 static const float kBaseHealthCapacity = 99.f;
+
+static const float kDefaultKnockbackResistance = 50.f;
+static const float kMaxVisorTransitionFactor = 0.2f;
 
 uint CPlayerState::GetBitCount(uint val) {
   int bits = 0;
@@ -42,10 +45,10 @@ CPlayerState::CPlayerState()
 , x0_26_fusion(false)
 , x4_enabledItems(0)
 , x8_currentBeam(kBI_Power)
-, xc_health(99.f, 50.f)
+, xc_health(kBaseHealthCapacity, kDefaultKnockbackResistance)
 , x14_currentVisor(kPV_Combat)
 , x18_transitioningVisor(x14_currentVisor)
-, x1c_visorTransitionFactor(0.2f)
+, x1c_visorTransitionFactor(kMaxVisorTransitionFactor)
 , x20_currentSuit(kPS_Power)
 , x24_powerups(CPowerUp(0, 0))
 , x170_scanTimes()
@@ -59,10 +62,10 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , x0_26_fusion(false)
 , x4_enabledItems(0)
 , x8_currentBeam(kBI_Power)
-, xc_health(99.f, 50.f)
+, xc_health(kBaseHealthCapacity, kDefaultKnockbackResistance)
 , x14_currentVisor(kPV_Combat)
 , x18_transitioningVisor(x14_currentVisor)
-, x1c_visorTransitionFactor(0.2f)
+, x1c_visorTransitionFactor(kMaxVisorTransitionFactor)
 , x20_currentSuit(kPS_Power)
 , x24_powerups()
 , x170_scanTimes()
@@ -73,7 +76,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
 
   const u32 integralHP = u32(stream.ReadBits(32));
   xc_health.SetHP(*(float*)(&integralHP));
-  xc_health.SetKnockbackResistance(50.0f);
+  xc_health.SetKnockbackResistance(kDefaultKnockbackResistance);
 
   x8_currentBeam = EBeamId(stream.ReadBits(GetBitCount(5)));
   x20_currentSuit = EPlayerSuit(stream.ReadBits(GetBitCount(4)));
@@ -82,7 +85,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
     int amount = 0;
     int capacity = 0;
 
-    int maxValue = kPowerUpMaxValues[i];
+    int maxValue = kPowerUpMax[i];
     if (maxValue != 0) {
       uint bitCount = GetBitCount(maxValue);
       amount = stream.ReadBits(bitCount);
@@ -144,7 +147,7 @@ void CPlayerState::InitializePowerUp(CPlayerState::EItemType type, int capacity)
     return;
 
   CPowerUp& pup = x24_powerups[u32(type)];
-  pup.x4_capacity = CMath::Clamp(0, pup.x4_capacity + capacity, kPowerUpMaxValues[u32(type)]);
+  pup.x4_capacity = CMath::Clamp(0, pup.x4_capacity + capacity, kPowerUpMax[u32(type)]);
   pup.x0_amount = rstl::min_val(pup.x0_amount, pup.x4_capacity);
   if (type >= kIT_PowerSuit && type <= kIT_PhazonSuit) {
     if (HasPowerUp(kIT_PhazonSuit))
@@ -330,10 +333,10 @@ void CPlayerState::UpdateVisorTransition(float dt) {
   }
 }
 
-float CPlayerState::GetVisorTransitionFactor() const { return x1c_visorTransitionFactor / 0.2f; }
+float CPlayerState::GetVisorTransitionFactor() const { return x1c_visorTransitionFactor / kMaxVisorTransitionFactor; }
 
 bool CPlayerState::GetIsVisorTransitioning() const {
-  return x14_currentVisor != x18_transitioningVisor || x1c_visorTransitionFactor < 0.2f;
+  return x14_currentVisor != x18_transitioningVisor || x1c_visorTransitionFactor < kMaxVisorTransitionFactor;
 }
 
 float CPlayerState::GetBaseHealthCapacity() { return kBaseHealthCapacity; }
