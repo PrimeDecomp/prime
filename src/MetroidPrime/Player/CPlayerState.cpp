@@ -271,7 +271,7 @@ uint CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
   return 0;
 }
 
-uint CPlayerState::GetItemCapacity(CPlayerState::EItemType type) const {
+int CPlayerState::GetItemCapacity(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
@@ -413,15 +413,19 @@ void CPlayerState::SetIsFusionEnabled(bool val) { x0_26_fusion = val; }
 int CPlayerState::GetTotalPickupCount() const { return 99; }
 
 int CPlayerState::CalculateItemCollectionRate() const {
-  int total = GetItemCapacity(kIT_PowerBombs);
+  int total = 0;
 
-  if (total >= 4)
-    total -= 3;
+  int pbCount = GetItemCapacity(kIT_PowerBombs);
+  if (pbCount >= 4)
+    pbCount = pbCount - 3;
+
   total += GetItemCapacity(kIT_WaveBeam);
-  total += GetItemCapacity(kIT_IceBeam);
+  int iceBeam = GetItemCapacity(kIT_IceBeam);
   total += GetItemCapacity(kIT_PlasmaBeam);
   total += GetItemCapacity(kIT_Missiles) / 5;
-  total += GetItemCapacity(kIT_MorphBallBombs);
+  
+  int aux = total + GetItemCapacity(kIT_MorphBallBombs);
+  total = aux + pbCount;
   total += GetItemCapacity(kIT_Flamethrower);
   total += GetItemCapacity(kIT_ThermalVisor);
   total += GetItemCapacity(kIT_ChargeBeam);
@@ -448,7 +452,7 @@ int CPlayerState::CalculateItemCollectionRate() const {
   total += GetItemCapacity(kIT_World);
   total += GetItemCapacity(kIT_Spirit);
   total += GetItemCapacity(kIT_Newborn);
-  return total + GetItemCapacity(kIT_Wavebuster);
+  return iceBeam + total + GetItemCapacity(kIT_Wavebuster);
 }
 
 int CPlayerState::GetMissileCostForAltAttack() const {
