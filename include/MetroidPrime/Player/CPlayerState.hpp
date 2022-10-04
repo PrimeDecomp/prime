@@ -172,7 +172,8 @@ private:
   EPlayerSuit x20_currentSuit;
   rstl::reserved_vector< CPowerUp, 41 > x24_powerups;
   rstl::vector< rstl::pair< CAssetId, float > > x170_scanTimes;
-  rstl::pair< uint, uint > x180_scanCompletionRate;
+  int x180_scanCompletionRateFirst;
+  int x184_scanCompletionRateSecond;
   CStaticInterference x188_staticIntf;
 };
 

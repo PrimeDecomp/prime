@@ -1,6 +1,10 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "MetroidPrime/CMemoryCard.hpp"
+
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Streams/CInputStream.hpp"
+
 #include "rstl/math.hpp"
 
 #include <math.h>
@@ -21,7 +25,6 @@ static const float kComboAmmoPeriods[] = {
 static const float kEnergyTankCapacity = 100.f;
 static const float kBaseHealthCapacity = 99.f;
 
-
 uint CPlayerState::GetBitCount(uint val) {
   int bits = 0;
   for (; val != 0; val >>= 1) {
@@ -32,7 +35,6 @@ uint CPlayerState::GetBitCount(uint val) {
 
 CPlayerState::CPowerUp::CPowerUp(int amount, int capacity)
 : x0_amount(amount), x4_capacity(capacity) {}
-
 
 CPlayerState::CPlayerState()
 : x0_24_alive(true)
@@ -47,7 +49,8 @@ CPlayerState::CPlayerState()
 , x20_currentSuit(kPS_Power)
 , x24_powerups(CPowerUp(0, 0))
 , x170_scanTimes()
-, x180_scanCompletionRate(0, 0)
+, x180_scanCompletionRateFirst(0)
+, x184_scanCompletionRateSecond(0)
 , x188_staticIntf(5) {}
 
 CPlayerState::CPlayerState(CInputStream& stream)
@@ -63,9 +66,43 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , x20_currentSuit(kPS_Power)
 , x24_powerups()
 , x170_scanTimes()
-, x180_scanCompletionRate(0, 0)
+, x180_scanCompletionRateFirst(0)
+, x184_scanCompletionRateSecond(0)
 , x188_staticIntf(5) {
-  // TODO
+  x4_enabledItems = u32(stream.ReadBits(32));
+
+  const u32 integralHP = u32(stream.ReadBits(32));
+  xc_health.SetHP(*(float*)(&integralHP));
+  xc_health.SetKnockbackResistance(50.0f);
+
+  x8_currentBeam = EBeamId(stream.ReadBits(GetBitCount(5)));
+  x20_currentSuit = EPlayerSuit(stream.ReadBits(GetBitCount(4)));
+
+  for (size_t i = 0; i < x24_powerups.capacity(); ++i) {
+    int amount = 0;
+    int capacity = 0;
+
+    int maxValue = kPowerUpMaxValues[i];
+    if (maxValue != 0) {
+      uint bitCount = GetBitCount(maxValue);
+      amount = stream.ReadBits(bitCount);
+      capacity = stream.ReadBits(bitCount);
+    }
+
+    x24_powerups.push_back(CPowerUp(amount, capacity));
+  }
+
+  // Scan
+  const rstl::vector< CMemoryCard::ScanState >& scanStates = gpMemoryCard->GetScanStates();
+  x170_scanTimes.reserve(scanStates.size());
+  for (rstl::vector< CMemoryCard::ScanState >::const_iterator it = scanStates.begin();
+       it != scanStates.end(); ++it) {
+    float time = stream.ReadBits(1) ? 1.f : 0.f;
+    x170_scanTimes.push_back(rstl::pair< CAssetId, float >(it->first, time));
+  }
+
+  x180_scanCompletionRateFirst = u32(stream.ReadBits(GetBitCount(0x100u)));
+  x184_scanCompletionRateSecond = u32(stream.ReadBits(GetBitCount(0x100u)));
 }
 
 void CPlayerState::PutTo(COutputStream& stream) {
@@ -197,7 +234,7 @@ void CPlayerState::DecrPickUp(CPlayerState::EItemType type, int amount) {
   }
 }
 
-u32 CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
+uint CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
@@ -226,7 +263,7 @@ u32 CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
   return 0;
 }
 
-u32 CPlayerState::GetItemCapacity(CPlayerState::EItemType type) const {
+uint CPlayerState::GetItemCapacity(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
@@ -240,7 +277,7 @@ bool CPlayerState::HasPowerUp(CPlayerState::EItemType type) const {
   return x24_powerups[u32(type)].x4_capacity != 0;
 }
 
-u32 CPlayerState::GetPowerUp(CPlayerState::EItemType type) {
+uint CPlayerState::GetPowerUp(CPlayerState::EItemType type) {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
@@ -337,8 +374,7 @@ void CPlayerState::SetScanTime(CAssetId res, float time) {
 }
 
 void CPlayerState::UpdateStaticInterference(CStateManager& stateMgr, const float& dt) {
-  // TODO
-  // x188_staticIntf.Update(stateMgr, dt);
+  x188_staticIntf.Update(stateMgr, dt);
 }
 
 CPlayerState::EPlayerVisor CPlayerState::GetActiveVisor(const CStateManager& stateMgr) const {

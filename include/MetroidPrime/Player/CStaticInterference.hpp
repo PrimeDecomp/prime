@@ -12,6 +12,8 @@ struct CStaticInterferenceSource {
   float x8_timeLeft;
 };
 
+class CStateManager;
+
 class CStaticInterference {
 public:
   CStaticInterference(int sourceCount);
