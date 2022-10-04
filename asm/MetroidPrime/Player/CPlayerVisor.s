@@ -3085,7 +3085,7 @@ __ct__12CPlayerVisorFRC13CStateManager:
 /* 801146DC 0011163C  90 01 00 84 */	stw r0, 0x84(r1)
 /* 801146E0 00111640  38 00 00 7F */	li r0, 0x7f
 /* 801146E4 00111644  C0 22 95 D0 */	lfs f1, lbl_805AB2F0@sda21(r2)
-/* 801146E8 00111648  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 801146E8 00111648  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 801146EC 0011164C  93 E1 00 7C */	stw r31, 0x7c(r1)
 /* 801146F0 00111650  7C 7F 1B 78 */	mr r31, r3
 /* 801146F4 00111654  93 C1 00 78 */	stw r30, 0x78(r1)
@@ -3106,7 +3106,7 @@ __ct__12CPlayerVisorFRC13CStateManager:
 /* 80114730 00111690  90 BF 00 34 */	stw r5, 0x34(r31)
 /* 80114734 00111694  D0 1F 00 38 */	stfs f0, 0x38(r31)
 /* 80114738 00111698  D0 1F 00 3C */	stfs f0, 0x3c(r31)
-/* 8011473C 0011169C  C0 0D A8 98 */	lfs f0, lbl_805A9458@sda21(r13)
+/* 8011473C 0011169C  C0 0D A8 98 */	lfs f0, skZeroVector__9CVector2f@sda21(r13)
 /* 80114740 001116A0  D0 1F 00 40 */	stfs f0, 0x40(r31)
 /* 80114744 001116A4  C0 04 00 04 */	lfs f0, 4(r4)
 /* 80114748 001116A8  D0 1F 00 44 */	stfs f0, 0x44(r31)
@@ -3380,7 +3380,7 @@ lbl_80114B08:
 /* 80114B54 00111AB4  38 80 FF FF */	li r4, -1
 /* 80114B58 00111AB8  48 22 C2 E9 */	bl __dt__6CTokenFv
 /* 80114B5C 00111ABC  C0 02 95 C8 */	lfs f0, lbl_805AB2E8@sda21(r2)
-/* 80114B60 00111AC0  38 6D A8 98 */	addi r3, r13, lbl_805A9458@sda21
+/* 80114B60 00111AC0  38 6D A8 98 */	addi r3, r13, skZeroVector__9CVector2f@sda21
 /* 80114B64 00111AC4  D0 1F 05 4C */	stfs f0, 0x54c(r31)
 /* 80114B68 00111AC8  D0 1F 05 50 */	stfs f0, 0x550(r31)
 /* 80114B6C 00111ACC  80 1F 00 00 */	lwz r0, 0(r31)

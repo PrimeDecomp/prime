@@ -339,7 +339,7 @@ DoDrawImagePane__13CAuiImagePaneCF6CColorRC8CTextureifb:
 /* 802CC0F8 002C9058  80 C4 00 00 */	lwz r6, 0(r4)
 /* 802CC0FC 002C905C  38 7C 01 38 */	addi r3, r28, 0x138
 /* 802CC100 002C9060  88 A1 00 08 */	lbz r5, 8(r1)
-/* 802CC104 002C9064  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 802CC104 002C9064  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 802CC108 002C9068  50 C5 00 2E */	rlwimi r5, r6, 0, 0, 0x17
 /* 802CC10C 002C906C  90 01 00 78 */	stw r0, 0x78(r1)
 /* 802CC110 002C9070  90 A1 00 24 */	stw r5, 0x24(r1)
@@ -1205,7 +1205,7 @@ Update__13CAuiImagePaneFf:
 /* 802CCDB8 002C9D18  48 0C 7E F5 */	bl fmod
 /* 802CCDBC 002C9D1C  FC 00 08 18 */	frsp f0, f1
 /* 802CCDC0 002C9D20  38 7F 01 38 */	addi r3, r31, 0x138
-/* 802CCDC4 002C9D24  38 8D A8 98 */	addi r4, r13, lbl_805A9458@sda21
+/* 802CCDC4 002C9D24  38 8D A8 98 */	addi r4, r13, skZeroVector__9CVector2f@sda21
 /* 802CCDC8 002C9D28  D0 1F 00 D4 */	stfs f0, 0xd4(r31)
 /* 802CCDCC 002C9D2C  48 04 71 3D */	bl __eq__FRC9CVector2fRC9CVector2f
 /* 802CCDD0 002C9D30  54 60 06 3F */	clrlwi. r0, r3, 0x18
@@ -1347,8 +1347,8 @@ lbl_802CCFBC:
 /* 802CCFC0 002C9F20  38 63 00 08 */	addi r3, r3, 8
 /* 802CCFC4 002C9F24  42 00 FF E0 */	bdnz lbl_802CCFA4
 lbl_802CCFC8:
-/* 802CCFC8 002C9F28  C0 2D A8 98 */	lfs f1, lbl_805A9458@sda21(r13)
-/* 802CCFCC 002C9F2C  38 6D A8 98 */	addi r3, r13, lbl_805A9458@sda21
+/* 802CCFC8 002C9F28  C0 2D A8 98 */	lfs f1, skZeroVector__9CVector2f@sda21(r13)
+/* 802CCFCC 002C9F2C  38 6D A8 98 */	addi r3, r13, skZeroVector__9CVector2f@sda21
 /* 802CCFD0 002C9F30  C0 02 C4 48 */	lfs f0, lbl_805AE168@sda21(r2)
 /* 802CCFD4 002C9F34  57 80 06 3F */	clrlwi. r0, r28, 0x18
 /* 802CCFD8 002C9F38  D0 3D 01 38 */	stfs f1, 0x138(r29)

@@ -1876,8 +1876,8 @@ Arrival2D__18CSteeringBehaviorsCFRC13CPhysicsActorRC9CVector2ff:
 /* 8013E528 0013B488  48 1D 5B 59 */	bl AsNormalized__9CVector2fCFv
 /* 8013E52C 0013B48C  48 00 00 18 */	b lbl_8013E544
 lbl_8013E530:
-/* 8013E530 0013B490  C0 0D A8 98 */	lfs f0, lbl_805A9458@sda21(r13)
-/* 8013E534 0013B494  38 6D A8 98 */	addi r3, r13, lbl_805A9458@sda21
+/* 8013E530 0013B490  C0 0D A8 98 */	lfs f0, skZeroVector__9CVector2f@sda21(r13)
+/* 8013E534 0013B494  38 6D A8 98 */	addi r3, r13, skZeroVector__9CVector2f@sda21
 /* 8013E538 0013B498  D0 1E 00 00 */	stfs f0, 0(r30)
 /* 8013E53C 0013B49C  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8013E540 0013B4A0  D0 1E 00 04 */	stfs f0, 4(r30)

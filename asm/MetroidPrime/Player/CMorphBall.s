@@ -12927,8 +12927,8 @@ CalculateSpiderBallAttractionSurfaceForces__10CMorphBallCFRC11CFinalInput:
 /* 800F8678 000F55D8  48 00 06 21 */	bl IsMovementAllowed__10CMorphBallCFv
 /* 800F867C 000F55DC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800F8680 000F55E0  40 82 00 1C */	bne lbl_800F869C
-/* 800F8684 000F55E4  C0 0D A8 98 */	lfs f0, lbl_805A9458@sda21(r13)
-/* 800F8688 000F55E8  38 6D A8 98 */	addi r3, r13, lbl_805A9458@sda21
+/* 800F8684 000F55E4  C0 0D A8 98 */	lfs f0, skZeroVector__9CVector2f@sda21(r13)
+/* 800F8688 000F55E8  38 6D A8 98 */	addi r3, r13, skZeroVector__9CVector2f@sda21
 /* 800F868C 000F55EC  D0 1E 00 00 */	stfs f0, 0(r30)
 /* 800F8690 000F55F0  C0 03 00 04 */	lfs f0, 4(r3)
 /* 800F8694 000F55F4  D0 1E 00 04 */	stfs f0, 4(r30)

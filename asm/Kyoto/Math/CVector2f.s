@@ -7,8 +7,8 @@ lbl_ctor:
 .section .sbss, "wa"
 .balign 8
 # skZero2f
-.global lbl_805A9458
-lbl_805A9458:
+.global skZeroVector__9CVector2f
+skZeroVector__9CVector2f:
 	.skip 0x8
 
 .section .text, "ax"
@@ -227,8 +227,8 @@ Magnitude__9CVector2fCFv:
 /* 80314120 00311080  38 21 00 10 */	addi r1, r1, 0x10
 /* 80314124 00311084  4E 80 00 20 */	blr
 
-.global sub_80314128
-sub_80314128:
+.global __adv__9CVector2fFf
+__adv__9CVector2fFf:
 /* 80314128 00311088  C0 42 C8 F8 */	lfs f2, lbl_805AE618@sda21(r2)
 /* 8031412C 0031108C  C0 03 00 00 */	lfs f0, 0(r3)
 /* 80314130 00311090  EC 22 08 24 */	fdivs f1, f2, f1
@@ -249,8 +249,8 @@ __amu__9CVector2fFf:
 /* 80314160 003110C0  D0 03 00 04 */	stfs f0, 4(r3)
 /* 80314164 003110C4  4E 80 00 20 */	blr
 
-.global sub_80314168
-sub_80314168:
+.global __ami__9CVector2fFRC9CVector2f
+__ami__9CVector2fFRC9CVector2f:
 /* 80314168 003110C8  C0 23 00 00 */	lfs f1, 0(r3)
 /* 8031416C 003110CC  C0 04 00 00 */	lfs f0, 0(r4)
 /* 80314170 003110D0  EC 01 00 28 */	fsubs f0, f1, f0
@@ -312,9 +312,9 @@ __sinit_CVector2f_cpp:
 /* 80314220 00311180  FC 40 08 90 */	fmr f2, f1
 /* 80314224 00311184  4B FF FF DD */	bl __ct__9CVector2fFff
 /* 80314228 00311188  C0 21 00 08 */	lfs f1, 8(r1)
-/* 8031422C 0031118C  38 6D A8 98 */	addi r3, r13, lbl_805A9458@sda21
+/* 8031422C 0031118C  38 6D A8 98 */	addi r3, r13, skZeroVector__9CVector2f@sda21
 /* 80314230 00311190  C0 01 00 0C */	lfs f0, 0xc(r1)
-/* 80314234 00311194  D0 2D A8 98 */	stfs f1, lbl_805A9458@sda21(r13)
+/* 80314234 00311194  D0 2D A8 98 */	stfs f1, skZeroVector__9CVector2f@sda21(r13)
 /* 80314238 00311198  D0 03 00 04 */	stfs f0, 4(r3)
 /* 8031423C 0031119C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80314240 003111A0  7C 08 03 A6 */	mtlr r0
