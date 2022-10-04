@@ -6,7 +6,6 @@
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
-
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
@@ -119,25 +118,31 @@ void CPlayerState::PutTo(COutputStream& stream) {
 
   const float realHP = xc_health.GetHP();
   stream.WriteBits(*(int*)(&realHP), 32);
-  stream.WriteBits(int(x8_currentBeam), GetBitCount(5));
-  stream.WriteBits(int(x20_currentSuit), GetBitCount(4));
-  for (size_t i = 0; i < x24_powerups.size(); ++i) {
-    const CPowerUp& pup = x24_powerups[i];
-    stream.WriteBits(pup.x0_amount, GetBitCount(kPowerUpMax[i]));
-    stream.WriteBits(pup.x4_capacity, GetBitCount(kPowerUpMax[i]));
+  stream.WriteBits(x8_currentBeam, GetBitCount(5));
+  stream.WriteBits(x20_currentSuit, GetBitCount(4));
+
+  CPowerUp* powup = x24_powerups.data();
+  for (int i = 0; i < x24_powerups.capacity(); ++i) {
+    if (0 < kPowerUpMax[i]) {
+      int bitCount = GetBitCount(kPowerUpMax[i]);
+      stream.WriteBits(powup[i].x0_amount, bitCount);
+      stream.WriteBits(powup[i].x4_capacity, bitCount);
+    }
   }
 
   for (rstl::vector< rstl::pair< CAssetId, float > >::iterator it = x170_scanTimes.begin();
-    it != x170_scanTimes.end(); ++it) {
-    if (it->second >= 1.f)
-      stream.WriteBits(true, 1);
-    else
-      stream.WriteBits(false, 1);
+       it != x170_scanTimes.end(); ++it) {
+    int flag;
+    if (it->second >= 1.f) {
+      flag = 1;
+    } else {
+      flag = 0;
+    }
+    stream.WriteBits(flag, 1);
   }
 
   stream.WriteBits(x180_scanCompletionRateFirst, GetBitCount(0x100));
   stream.WriteBits(x184_scanCompletionRateSecond, GetBitCount(0x100));
-
 }
 
 void CPlayerState::ReInitializePowerUp(CPlayerState::EItemType type, int capacity) {
@@ -422,7 +427,7 @@ int CPlayerState::CalculateItemCollectionRate() const {
   int iceBeam = GetItemCapacity(kIT_IceBeam);
   total += GetItemCapacity(kIT_PlasmaBeam);
   total += GetItemCapacity(kIT_Missiles) / 5;
-  
+
   int aux = total + GetItemCapacity(kIT_MorphBallBombs);
   total = aux + pbCount;
   total += GetItemCapacity(kIT_Flamethrower);
