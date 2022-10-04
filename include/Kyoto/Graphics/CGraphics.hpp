@@ -58,6 +58,7 @@ public:
 
   static float GetSecondsMod900();
   static void SetExternalTimeProvider(CTimeProvider* provider);
+  static void DisableAllLights();
 
 private:
   static CTransform4f mViewMatrix;
