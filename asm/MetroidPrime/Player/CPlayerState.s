@@ -518,7 +518,7 @@ InitializeScanTimes__12CPlayerStateFv:
 /* 80091770 0008E6D0  83 ED A0 84 */	lwz r31, gpMemoryCard@sda21(r13)
 /* 80091774 0008E6D4  38 7C 01 70 */	addi r3, r28, 0x170
 /* 80091778 0008E6D8  80 9F 00 24 */	lwz r4, 0x24(r31)
-/* 8009177C 0008E6DC  48 00 0D E5 */	bl sub_80092560
+/* 8009177C 0008E6DC  48 00 0D E5 */	bl "reserve__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>Fi"
 /* 80091780 0008E6E0  83 DF 00 2C */	lwz r30, 0x2c(r31)
 /* 80091784 0008E6E4  48 00 00 60 */	b lbl_800917E4
 lbl_80091788:
@@ -534,7 +534,7 @@ lbl_80091788:
 /* 800917AC 0008E70C  41 82 00 08 */	beq lbl_800917B4
 /* 800917B0 0008E710  54 A4 08 3C */	slwi r4, r5, 1
 lbl_800917B4:
-/* 800917B4 0008E714  48 00 0D AD */	bl sub_80092560
+/* 800917B4 0008E714  48 00 0D AD */	bl "reserve__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>Fi"
 lbl_800917B8:
 /* 800917B8 0008E718  80 1C 01 74 */	lwz r0, 0x174(r28)
 /* 800917BC 0008E71C  80 7C 01 7C */	lwz r3, 0x17c(r28)
@@ -1302,7 +1302,7 @@ lbl_800921AC:
 /* 800921C8 0008F128  83 AD A0 84 */	lwz r29, gpMemoryCard@sda21(r13)
 /* 800921CC 0008F12C  38 7E 01 70 */	addi r3, r30, 0x170
 /* 800921D0 0008F130  80 9D 00 24 */	lwz r4, 0x24(r29)
-/* 800921D4 0008F134  48 00 03 8D */	bl sub_80092560
+/* 800921D4 0008F134  48 00 03 8D */	bl "reserve__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>Fi"
 /* 800921D8 0008F138  83 9D 00 2C */	lwz r28, 0x2c(r29)
 /* 800921DC 0008F13C  48 00 00 84 */	b lbl_80092260
 lbl_800921E0:
@@ -1329,7 +1329,7 @@ lbl_80092208:
 /* 80092228 0008F188  41 82 00 08 */	beq lbl_80092230
 /* 8009222C 0008F18C  54 A4 08 3C */	slwi r4, r5, 1
 lbl_80092230:
-/* 80092230 0008F190  48 00 03 31 */	bl sub_80092560
+/* 80092230 0008F190  48 00 03 31 */	bl "reserve__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>Fi"
 lbl_80092234:
 /* 80092234 0008F194  80 1E 01 74 */	lwz r0, 0x174(r30)
 /* 80092238 0008F198  80 7E 01 7C */	lwz r3, 0x17c(r30)
@@ -1562,8 +1562,8 @@ lbl_8009253C:
 /* 80092558 0008F4B8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8009255C 0008F4BC  4E 80 00 20 */	blr
 
-.global sub_80092560
-sub_80092560:
+.global "reserve__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>Fi"
+"reserve__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>Fi":
 /* 80092560 0008F4C0  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80092564 0008F4C4  7C 08 02 A6 */	mflr r0
 /* 80092568 0008F4C8  90 01 00 34 */	stw r0, 0x34(r1)
