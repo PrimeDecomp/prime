@@ -77,13 +77,13 @@ lbl_805AA82C:
 	# ROM: 0x3F70CC
 	.4byte 0x42C80000
 
-.global lbl_805AA830
-lbl_805AA830:
+.global kBaseHealthCapacity
+kBaseHealthCapacity:
 	# ROM: 0x3F70D0
 	.4byte 0x42C60000
 
-.global lbl_805AA834
-lbl_805AA834:
+.global kMaxVisorTransitionFactor
+kMaxVisorTransitionFactor:
 	# ROM: 0x3F70D4
 	.float 0.2
 
@@ -107,8 +107,8 @@ lbl_805AA848:
 	# ROM: 0x3F70E8
 	.float 1.0
 
-.global lbl_805AA84C
-lbl_805AA84C:
+.global kDefaultKnockbackResistance
+kDefaultKnockbackResistance:
 	# ROM: 0x3F70EC
 	.4byte 0x42480000
 
@@ -574,7 +574,7 @@ GetEnergyTankCapacity__12CPlayerStateFv:
 
 .global GetBaseHealthCapacity__12CPlayerStateFv
 GetBaseHealthCapacity__12CPlayerStateFv:
-/* 8009182C 0008E78C  C0 22 8B 10 */	lfs f1, lbl_805AA830@sda21(r2)
+/* 8009182C 0008E78C  C0 22 8B 10 */	lfs f1, kBaseHealthCapacity@sda21(r2)
 /* 80091830 0008E790  4E 80 00 20 */	blr
 
 .global GetIsVisorTransitioning__12CPlayerStateCFv
@@ -584,7 +584,7 @@ GetIsVisorTransitioning__12CPlayerStateCFv:
 /* 8009183C 0008E79C  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 80091840 0008E7A0  7C 04 00 00 */	cmpw r4, r0
 /* 80091844 0008E7A4  40 82 00 14 */	bne lbl_80091858
-/* 80091848 0008E7A8  C0 22 8B 14 */	lfs f1, lbl_805AA834@sda21(r2)
+/* 80091848 0008E7A8  C0 22 8B 14 */	lfs f1, kMaxVisorTransitionFactor@sda21(r2)
 /* 8009184C 0008E7AC  C0 03 00 1C */	lfs f0, 0x1c(r3)
 /* 80091850 0008E7B0  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80091854 0008E7B4  40 81 00 08 */	ble lbl_8009185C
@@ -597,7 +597,7 @@ lbl_8009185C:
 .global GetVisorTransitionFactor__12CPlayerStateCFv
 GetVisorTransitionFactor__12CPlayerStateCFv:
 /* 80091864 0008E7C4  C0 23 00 1C */	lfs f1, 0x1c(r3)
-/* 80091868 0008E7C8  C0 02 8B 14 */	lfs f0, lbl_805AA834@sda21(r2)
+/* 80091868 0008E7C8  C0 02 8B 14 */	lfs f0, kMaxVisorTransitionFactor@sda21(r2)
 /* 8009186C 0008E7CC  EC 21 00 24 */	fdivs f1, f1, f0
 /* 80091870 0008E7D0  4E 80 00 20 */	blr
 
@@ -985,7 +985,7 @@ CalculateHealth__12CPlayerStateFv:
 /* 80091D44 0008ECA4  6C 60 80 00 */	xoris r0, r3, 0x8000
 /* 80091D48 0008ECA8  C0 62 8B 0C */	lfs f3, lbl_805AA82C@sda21(r2)
 /* 80091D4C 0008ECAC  90 01 00 0C */	stw r0, 0xc(r1)
-/* 80091D50 0008ECB0  C0 02 8B 10 */	lfs f0, lbl_805AA830@sda21(r2)
+/* 80091D50 0008ECB0  C0 02 8B 10 */	lfs f0, kBaseHealthCapacity@sda21(r2)
 /* 80091D54 0008ECB4  C8 21 00 08 */	lfd f1, 8(r1)
 /* 80091D58 0008ECB8  EC 21 10 28 */	fsubs f1, f1, f2
 /* 80091D5C 0008ECBC  EC 23 00 7A */	fmadds f1, f3, f1, f0
@@ -1008,11 +1008,11 @@ InitializePowerUp__12CPlayerStateFQ212CPlayerState9EItemTypei:
 /* 80091D94 0008ECF4  48 00 00 DC */	b lbl_80091E70
 lbl_80091D98:
 /* 80091D98 0008ECF8  57 A0 18 38 */	slwi r0, r29, 3
-/* 80091D9C 0008ECFC  3C 60 80 3D */	lis r3, kPowerUpMaxValues@ha
+/* 80091D9C 0008ECFC  3C 60 80 3D */	lis r3, kPowerUpMax@ha
 /* 80091DA0 0008ED00  7F DF 02 14 */	add r30, r31, r0
 /* 80091DA4 0008ED04  57 A6 10 3A */	slwi r6, r29, 2
 /* 80091DA8 0008ED08  80 FE 00 2C */	lwz r7, 0x2c(r30)
-/* 80091DAC 0008ED0C  38 03 D6 C0 */	addi r0, r3, kPowerUpMaxValues@l
+/* 80091DAC 0008ED0C  38 03 D6 C0 */	addi r0, r3, kPowerUpMax@l
 /* 80091DB0 0008ED10  38 81 00 08 */	addi r4, r1, 8
 /* 80091DB4 0008ED14  3B DE 00 28 */	addi r30, r30, 0x28
 /* 80091DB8 0008ED18  7C 65 3A 14 */	add r3, r5, r7
@@ -1122,9 +1122,9 @@ PutTo__12CPlayerStateFR13COutputStream:
 /* 80091F28 0008EE88  7C 65 1B 78 */	mr r5, r3
 /* 80091F2C 0008EE8C  7F E3 FB 78 */	mr r3, r31
 /* 80091F30 0008EE90  48 2A D4 8D */	bl WriteBits__13COutputStreamFii
-/* 80091F34 0008EE94  3C 60 80 3D */	lis r3, kPowerUpMaxValues@ha
+/* 80091F34 0008EE94  3C 60 80 3D */	lis r3, kPowerUpMax@ha
 /* 80091F38 0008EE98  3B 9E 00 28 */	addi r28, r30, 0x28
-/* 80091F3C 0008EE9C  3B A3 D6 C0 */	addi r29, r3, kPowerUpMaxValues@l
+/* 80091F3C 0008EE9C  3B A3 D6 C0 */	addi r29, r3, kPowerUpMax@l
 /* 80091F40 0008EEA0  3B 60 00 00 */	li r27, 0
 lbl_80091F44:
 /* 80091F44 0008EEA4  80 7D 00 00 */	lwz r3, 0(r29)
@@ -1206,13 +1206,13 @@ __ct__12CPlayerStateFR12CInputStream:
 /* 80092054 0008EFB4  38 A0 00 00 */	li r5, 0
 /* 80092058 0008EFB8  98 1E 00 00 */	stb r0, 0(r30)
 /* 8009205C 0008EFBC  38 7E 01 88 */	addi r3, r30, 0x188
-/* 80092060 0008EFC0  C0 42 8B 10 */	lfs f2, lbl_805AA830@sda21(r2)
+/* 80092060 0008EFC0  C0 42 8B 10 */	lfs f2, kBaseHealthCapacity@sda21(r2)
 /* 80092064 0008EFC4  38 80 00 05 */	li r4, 5
 /* 80092068 0008EFC8  88 1E 00 00 */	lbz r0, 0(r30)
 /* 8009206C 0008EFCC  50 A0 36 72 */	rlwimi r0, r5, 6, 0x19, 0x19
-/* 80092070 0008EFD0  C0 22 8B 2C */	lfs f1, lbl_805AA84C@sda21(r2)
+/* 80092070 0008EFD0  C0 22 8B 2C */	lfs f1, kDefaultKnockbackResistance@sda21(r2)
 /* 80092074 0008EFD4  98 1E 00 00 */	stb r0, 0(r30)
-/* 80092078 0008EFD8  C0 02 8B 14 */	lfs f0, lbl_805AA834@sda21(r2)
+/* 80092078 0008EFD8  C0 02 8B 14 */	lfs f0, kMaxVisorTransitionFactor@sda21(r2)
 /* 8009207C 0008EFDC  88 1E 00 00 */	lbz r0, 0(r30)
 /* 80092080 0008EFE0  50 A0 2E B4 */	rlwimi r0, r5, 5, 0x1a, 0x1a
 /* 80092084 0008EFE4  98 1E 00 00 */	stb r0, 0(r30)
@@ -1241,7 +1241,7 @@ __ct__12CPlayerStateFR12CInputStream:
 /* 800920E0 0008F040  48 2A CC 59 */	bl ReadBits__12CInputStreamFUi
 /* 800920E4 0008F044  90 61 00 08 */	stw r3, 8(r1)
 /* 800920E8 0008F048  38 60 00 05 */	li r3, 5
-/* 800920EC 0008F04C  C0 02 8B 2C */	lfs f0, lbl_805AA84C@sda21(r2)
+/* 800920EC 0008F04C  C0 02 8B 2C */	lfs f0, kDefaultKnockbackResistance@sda21(r2)
 /* 800920F0 0008F050  C0 21 00 08 */	lfs f1, 8(r1)
 /* 800920F4 0008F054  D0 3E 00 0C */	stfs f1, 0xc(r30)
 /* 800920F8 0008F058  D0 1E 00 10 */	stfs f0, 0x10(r30)
@@ -1255,9 +1255,9 @@ __ct__12CPlayerStateFR12CInputStream:
 /* 80092118 0008F078  7C 64 1B 78 */	mr r4, r3
 /* 8009211C 0008F07C  7F E3 FB 78 */	mr r3, r31
 /* 80092120 0008F080  48 2A CC 19 */	bl ReadBits__12CInputStreamFUi
-/* 80092124 0008F084  3C 80 80 3D */	lis r4, kPowerUpMaxValues@ha
+/* 80092124 0008F084  3C 80 80 3D */	lis r4, kPowerUpMax@ha
 /* 80092128 0008F088  90 7E 00 20 */	stw r3, 0x20(r30)
-/* 8009212C 0008F08C  3B 64 D6 C0 */	addi r27, r4, kPowerUpMaxValues@l
+/* 8009212C 0008F08C  3B 64 D6 C0 */	addi r27, r4, kPowerUpMax@l
 /* 80092130 0008F090  3B 9E 00 24 */	addi r28, r30, 0x24
 /* 80092134 0008F094  3B A0 00 00 */	li r29, 0
 lbl_80092138:
@@ -1376,15 +1376,15 @@ __ct__12CPlayerStateFv:
 /* 800922C8 0008F228  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800922CC 0008F22C  7C 08 02 A6 */	mflr r0
 /* 800922D0 0008F230  38 C0 00 00 */	li r6, 0
-/* 800922D4 0008F234  C0 42 8B 10 */	lfs f2, lbl_805AA830@sda21(r2)
+/* 800922D4 0008F234  C0 42 8B 10 */	lfs f2, kBaseHealthCapacity@sda21(r2)
 /* 800922D8 0008F238  90 01 00 24 */	stw r0, 0x24(r1)
 /* 800922DC 0008F23C  38 80 00 00 */	li r4, 0
-/* 800922E0 0008F240  C0 22 8B 2C */	lfs f1, lbl_805AA84C@sda21(r2)
+/* 800922E0 0008F240  C0 22 8B 2C */	lfs f1, kDefaultKnockbackResistance@sda21(r2)
 /* 800922E4 0008F244  38 A0 00 00 */	li r5, 0
 /* 800922E8 0008F248  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 800922EC 0008F24C  7C 7F 1B 78 */	mr r31, r3
 /* 800922F0 0008F250  38 60 00 01 */	li r3, 1
-/* 800922F4 0008F254  C0 02 8B 14 */	lfs f0, lbl_805AA834@sda21(r2)
+/* 800922F4 0008F254  C0 02 8B 14 */	lfs f0, kMaxVisorTransitionFactor@sda21(r2)
 /* 800922F8 0008F258  88 1F 00 00 */	lbz r0, 0(r31)
 /* 800922FC 0008F25C  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 80092300 0008F260  38 61 00 08 */	addi r3, r1, 8
@@ -1740,8 +1740,8 @@ sub_800926c4:
 
 .section .rodata
 .balign 8
-.global kPowerUpMaxValues
-kPowerUpMaxValues:
+.global kPowerUpMax
+kPowerUpMax:
 	# ROM: 0x3CA6C0
 	.4byte 0x00000001
 	.4byte 0x00000001
