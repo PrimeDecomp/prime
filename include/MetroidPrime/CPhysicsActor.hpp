@@ -52,6 +52,8 @@ CHECK_SIZEOF(CMotionState, 0x34)
 class CCollisionInfoList;
 
 class CPhysicsActor : public CActor {
+  static const float skGravityConstant;
+
 public:
   CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
                 const CTransform4f& xf, const CModelData& mData, const CMaterialList& matList,
@@ -91,6 +93,15 @@ public:
   void ComputeDerivedQuantities();
   void Stop();
 
+  const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
+  void SetConstantForceWR(const CVector3f& force) { xfc_constantForce = force; }
+  const CAxisAngle& GetAngularMomentumWR() const { return x108_angularMomentum; }
+  const CVector3f& GetMomentumWR() const { return x150_momentum; }
+  const CVector3f& GetForceWR() const { return x15c_force; }
+  const CVector3f& GetImpulseWR() const { return x168_impulse; }
+  const CAxisAngle& GetTorqueWR() const { return x174_torque; }
+  const CAxisAngle& GetAngularImpulseWR() const { return x180_angularImpulse; }
+
   CPhysicsState GetPhysicsState() const;
   void SetPhysicsState(const CPhysicsState& state);
   CMotionState GetMotionState() const;
@@ -99,6 +110,8 @@ public:
 
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }
+
+  static float GetGravityConstant() { return skGravityConstant; }
 
 private:
   f32 xe8_mass;
