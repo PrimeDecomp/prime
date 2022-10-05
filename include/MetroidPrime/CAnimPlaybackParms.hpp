@@ -19,6 +19,10 @@ private:
   CQuaternion* x1c_deltaOrient;
   CTransform4f* x20_objectXf;
   CVector3f* x24_objectScale;
+
+public:
+  CAnimPlaybackParms(int animA, int animB, float blendWeight, bool animating)
+  : x0_animA(animA), x4_animB(animB), x8_blendWeight(blendWeight), xc_animating(animating) {}
 };
 CHECK_SIZEOF(CAnimPlaybackParms, 0x28)
 

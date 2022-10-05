@@ -111,6 +111,9 @@ public:
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }
 
+  void MoveToOR(const CVector3f&, float);
+  void RotateToOR(const CQuaternion&, float);
+
   static float GetGravityConstant() { return skGravityConstant; }
 
 private:

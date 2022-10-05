@@ -163,6 +163,12 @@ public:
                    const CDamageInfo& info, const CMaterialFilter& filter,
                    const CVector3f& knockbackVec);
 
+  //
+  void QueueMessage(int frameCount, CAssetId msg, float f1);
+  int GetHUDMessageFrameCount() const {
+    return xf80_hudMessageFrameCount;
+  }
+
   // State transitions
   void DeferStateTransition(EStateManagerTransition t);
   void EnterMapScreen() { DeferStateTransition(kSMT_MapScreen); }

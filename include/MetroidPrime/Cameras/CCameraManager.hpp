@@ -24,6 +24,7 @@ class CCameraManager {
 public:
   CGameCamera* CurrentCamera(CStateManager& mgr);
   const CGameCamera* GetCurrentCamera(const CStateManager& mgr) const;
+  const CFirstPersonCamera* GetFirstPersonCamera() const { return x7c_fpCamera; }
   void SetPlayerCamera(CStateManager& mgr, TUniqueId newCamId);
 
   void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);

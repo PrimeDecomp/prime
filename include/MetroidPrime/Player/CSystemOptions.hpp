@@ -19,6 +19,12 @@ public:
   bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;
   void SetCinematicState(rstl::pair< CAssetId, TEditorId > cineId, bool state);
 
+  bool GetShowPowerBombAmmoMessage() const;
+  void IncrementPowerBombAmmoCount();
+
+  bool GetAllItemsCollected() const { return xd0_29_allItemsCollected; }
+  void SetAllItemsCollected(bool);
+
 private:
   rstl::reserved_vector< u8, 98 > x0_nesState;
   rstl::reserved_vector< bool, 64 > x68_;

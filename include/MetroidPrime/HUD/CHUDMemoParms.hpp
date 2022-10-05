@@ -5,6 +5,8 @@
 class CInputStream;
 class CHUDMemoParms {
 public:
+  CHUDMemoParms(float dispTime, bool clear, bool fadeOut, bool hint)
+  : mDispTime(dispTime), mClearMemoWindow(clear), mFadeOutOnly(fadeOut), mHintMemo(hint) {}
   CHUDMemoParms(CInputStream& in);
 
   float GetDisplayTime() const { return mDispTime; }
