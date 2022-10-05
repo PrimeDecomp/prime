@@ -72,6 +72,7 @@ public:
   virtual f32 GetStepDownHeight() const;
   virtual f32 GetStepUpHeight() const;
   virtual f32 GetWeight() const;
+  float GetMass() const { return xe8_mass; }
   void SetMass(float mass);
 
   CAABox GetBoundingBox() const;
@@ -90,7 +91,10 @@ public:
   CAxisAngle GetAngularVelocityOR() const;
   void SetAngularVelocityOR(const CAxisAngle& angleVel);
   void ClearForcesAndTorques();
+  void ClearImpulses();
   void ComputeDerivedQuantities();
+  void UseCollisionImpulses();
+  bool WillMove(const CStateManager& mgr);
   void Stop();
 
   const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
@@ -106,13 +110,22 @@ public:
   void SetPhysicsState(const CPhysicsState& state);
   CMotionState GetMotionState() const;
   void SetMotionState(const CMotionState& state);
-
-
+  CVector3f CalculateNewVelocityWR_UsingImpulses() const;
+  CMotionState PredictMotion(float dt) const;
+  CMotionState PredictAngularMotion(float dt) const;
+  CMotionState PredictLinearMotion(float dt) const;
+  CMotionState PredictMotion_Internal(float dt) const;
+  void AddMotionState(const CMotionState& state);
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }
 
+  void MoveToWR(const CVector3f&, float);
+  void RotateToWR(const CQuaternion&, float);
+
   void MoveToOR(const CVector3f&, float);
   void RotateToOR(const CQuaternion&, float);
+
+  CVector3f GetTotalForcesWR() const;
 
   static float GetGravityConstant() { return skGravityConstant; }
 
