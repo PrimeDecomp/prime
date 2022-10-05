@@ -85,7 +85,7 @@ public:
       xc_items = nullptr;
     } else {
       reserve(other.size());
-      uninitialized_copy(data(), other.data(), other.data() + other.size());
+      uninitialized_copy(other.data(), other.data() + other.size(), data());
       x4_count = other.x4_count;
     }
     return *this;
