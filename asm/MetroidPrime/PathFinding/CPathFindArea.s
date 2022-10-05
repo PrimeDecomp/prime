@@ -2337,4 +2337,3 @@ lbl_803D1AA0:
 	# ROM: 0x3CEAA0
 	.asciz "??(??)"
 	.balign 4
-

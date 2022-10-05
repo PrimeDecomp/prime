@@ -1,5 +1,6 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
+#include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"

@@ -513,7 +513,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCGraphics.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCPalette.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/DolphinCTexture.o\
-	$(BUILD_DIR)/asm/Kyoto/Math/CloseEnough.o\
+	$(BUILD_DIR)/src/Kyoto/Math/CloseEnough.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CMatrix3f.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CMatrix4f.o\
 	$(BUILD_DIR)/asm/Kyoto/Math/CQuaternion.o\
