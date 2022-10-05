@@ -28,10 +28,10 @@ static const float kComboAmmoPeriods[] = {
 };
 
 static const char* kVisorNames[] = {
-  "CombatVisor",
-  "XRayVisor",
-  "ScanVisor",
-  "ThermalVisor",
+    "CombatVisor",
+    "XRayVisor",
+    "ScanVisor",
+    "ThermalVisor",
 };
 
 static const float kEnergyTankCapacity = 100.f;
@@ -39,6 +39,8 @@ static const float kBaseHealthCapacity = 99.f;
 
 static const float kDefaultKnockbackResistance = 50.f;
 static const float kMaxVisorTransitionFactor = 0.2f;
+
+static inline void do_nothing() {}
 
 uint CPlayerState::GetBitCount(uint val) {
   int bits = 0;
@@ -317,9 +319,13 @@ void CPlayerState::ResetVisor() {
 }
 
 void CPlayerState::StartTransitionToVisor(CPlayerState::EPlayerVisor visor) {
-  if (x18_transitioningVisor == visor)
+  if (visor == x18_transitioningVisor)
     return;
+
   x18_transitioningVisor = visor;
+
+  if (x18_transitioningVisor == x14_currentVisor)
+    return;
 }
 
 void CPlayerState::UpdateVisorTransition(float dt) {
