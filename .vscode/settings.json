@@ -9,9 +9,7 @@
   },
   "editor.tabSize": 2,
   "files.associations": {
-    "source_location": "cpp",
-    "fdlibm.h": "c",
-    "math_ppc.h": "c"
+    "source_location": "cpp"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
