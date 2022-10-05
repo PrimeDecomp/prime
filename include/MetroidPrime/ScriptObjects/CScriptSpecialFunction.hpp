@@ -115,11 +115,11 @@ private:
   bool x1e5_24_doSave : 1;
   bool x1e5_25_playerInArea : 1;
   bool x1e5_26_displayBillboard : 1;
-  rstl::optional_object< CToken > x1e8_; // CTexture?
+  rstl::optional_object< CToken > x1e8_;
 public:
   CScriptSpecialFunction(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
                          ESpecialFunction, const rstl::string&, float, float, float, float,
-                         const CVector3f&, const CColor&, bool, const CDamageInfo&, s32, s32,
+                         const CVector3f&, const CColor&, bool, const CDamageInfo&, int, int,
                          CPlayerState::EItemType, u16, u16, u16);
 
   void Accept(IVisitor& visitor) override;
@@ -148,7 +148,7 @@ public:
 
   void DeleteEmitter(CSfxHandle& handle);
   int GetSpecialEnding(const CStateManager&) const;
-  void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id, const CVector3f& pos, uchar vol);
+  void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id, CVector3f pos, u8 vol);
 };
 
 #endif _CSCRIPTSPECIALFUNCTION_HPP

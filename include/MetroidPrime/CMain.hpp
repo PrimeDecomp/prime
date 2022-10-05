@@ -41,23 +41,22 @@ private:
   static bool mManagerInstalled;
 };
 
-// TODO where?
-enum EFlowState {
-  kFS_None,
-  kFS_WinBad,
-  kFS_WinGood,
-  kFS_WinBest,
-  kFS_LoseGame,
-  kFS_Default,
-  kFS_StateSetter,
-  kFS_PreFrontEnd,
-  kFS_FrontEnd,
-  kFS_Game,
-  kFS_GameExit,
-};
-
 class CMain {
 public:
+  enum ERestartMode {
+    kRM_None,
+    kRM_WinBad,
+    kRM_WinGood,
+    kRM_WinBest,
+    kRM_LoseGame,
+    kRM_Default,
+    kRM_StateSetter,
+    kRM_PreFrontEnd,
+    kRM_FrontEnd,
+    kRM_Game,
+    kRM_GameExit,
+  };
+
   CMain();
   ~CMain();
 
@@ -78,7 +77,7 @@ public:
   bool CheckTerminate();
   bool CheckReset();
   void OpenWindow();
-  void SetFlowState(EFlowState s) { x12c_flowState = s; }
+  void SetRestartMode(ERestartMode s) { x12c_restartMode = s; }
 
   void SetMaxSpeed(bool v) {
     // ?
@@ -109,7 +108,7 @@ private:
   f32 x120_;
   f32 x124_;
   CGameGlobalObjects* x128_gameGlobalObjects;
-  EFlowState x12c_flowState;
+  ERestartMode x12c_restartMode;
   rstl::reserved_vector< uint, 10 > x130_frameTimes;
   int x15c_frameTimeIdx;
   bool x160_24_finished : 1;

@@ -16,11 +16,21 @@ public:
   optional_object(const T& item) : m_valid(true) { rstl::construct< T >(m_data, item); }
   optional_object(const optional_object& other) : m_valid(other.m_valid) {
     if (other.m_valid) {
-      rstl::construct< T >(m_data, other.data());
+      construct< T >(m_data, other.data());
     }
   }
   ~optional_object() { clear(); }
 
+  optional_object& operator=(const optional_object& other) {
+    if (this != &other) {
+      if (other.m_valid) {
+        assign(other.data());
+      } else {
+        clear();
+      }
+    }
+    return *this;
+  }
   optional_object& operator=(const T& item) {
     assign(item);
     return *this;
@@ -40,7 +50,7 @@ public:
   }
 
   T& operator*() { return data(); }
-  T* operator->() { return data(); }
+  T* operator->() { return &data(); }
 
 private:
   u8 m_data[sizeof(T)];
@@ -48,7 +58,7 @@ private:
 
   void assign(const T& item) {
     if (!m_valid) {
-      rstl::construct(get_ptr(), item);
+      construct(get_ptr(), item);
       m_valid = true;
     } else {
       data() = item;

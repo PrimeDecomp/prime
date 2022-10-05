@@ -27,6 +27,8 @@ private:
     node* mLeft;
     node* mRight;
     P mValue;
+
+    P& get_value() { return mValue; }
   };
   struct header {};
 
@@ -35,12 +37,12 @@ public:
     node* mNode;
     const header* mHeader;
 
-    const P* operator->() const { return &mNode->mValue; }
+    const P* operator->() const { return &mNode->get_value(); }
     bool operator==(const const_iterator& other) const {
       return mNode == other.mNode && mHeader == other.mHeader;
     }
     bool operator!=(const const_iterator& other) const {
-      return mNode != other.mNode || mHeader != other.mHeader;
+      return !(*this == other); // mNode != other.mNode || mHeader != other.mHeader;
     }
   };
 

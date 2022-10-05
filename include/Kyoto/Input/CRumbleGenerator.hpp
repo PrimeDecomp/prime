@@ -4,12 +4,7 @@
 #include "types.h"
 
 #include "Kyoto/Input/CRumbleVoice.hpp"
-
-enum EMotorState {
-  kMS_Stop,     // = PAD_MOTOR_STOP,
-  kMS_Rumble,   // = PAD_MOTOR_RUMBLE,
-  kMS_StopHard, // = PAD_MOTOR_STOP_HARD,
-};
+#include "Kyoto/Input/InputTypes.hpp"
 
 class CRumbleGenerator {
 private:

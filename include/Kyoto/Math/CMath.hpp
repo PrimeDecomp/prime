@@ -28,6 +28,8 @@ public:
     return out;
   }
   static inline f32 AbsF(f32 v) { return fabs(v); }
+  static inline f64 AbsD(f64 v) { return fabs(v); }
+  static inline int AbsI(int v) { return abs(v); }
   // WrapPi__5CMathFf weak
   // WrapTwoPi__5CMathFf weak
   // FastFmod__5CMathFfff weak
@@ -51,7 +53,6 @@ public:
   // GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
   // FastSqrtF__5CMathFf weak
   static double SqrtD(double x);
-  // AbsD__5CMathFd weak
   // IsEpsilon__5CMathFfff global
   // FastMin__5CMathFff weak
   // FastMax__5CMathFff weak

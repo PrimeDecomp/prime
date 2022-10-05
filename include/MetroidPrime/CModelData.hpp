@@ -24,6 +24,11 @@ class CModelFlags;
 // TODO move
 #include "Kyoto/Math/CQuaternion.hpp"
 struct SAdvancementDeltas {
+public:
+  const CVector3f& GetOffsetDelta() const { return x0_posDelta; }
+  const CQuaternion& GetOrientationDelta() const { return xc_rotDelta; }
+
+private:
   CVector3f x0_posDelta;
   CQuaternion xc_rotDelta;
 };
