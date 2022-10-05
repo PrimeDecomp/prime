@@ -138,6 +138,7 @@ public:
   }
   CEnvFxManager* EnvFxManager() { return x880_envFxManager; }
   const CEnvFxManager* GetEnvFxManager() const { return x880_envFxManager; }
+  CRumbleManager* GetRumbleManager() { return x88c_rumbleManager; }
 
   CRandom16* GetActiveRandom() const { return x900_random; }
 
@@ -162,19 +163,33 @@ public:
                    const CDamageInfo& info, const CMaterialFilter& filter,
                    const CVector3f& knockbackVec);
 
+  // State transitions
   void DeferStateTransition(EStateManagerTransition t);
-  EStateManagerTransition GetDeferredStateTransition() const { return xf90_deferredTransition; }
-  void SetBossParams(TUniqueId bossId, float maxEnergy, u32 stringIdx);
-  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent) {
+  void EnterMapScreen() { DeferStateTransition(kSMT_MapScreen); }
+  void EnterPauseScreen() { DeferStateTransition(kSMT_PauseGame); }
+  void EnterLogBookScreen() { DeferStateTransition(kSMT_LogBook); }
+  void EnterSaveGameScreen() { DeferStateTransition(kSMT_SaveGame); }
+  void EnterMessageScreen(uint, float);
+  bool GetWantsToEnterMapScreen() const { return xf90_deferredTransition == kSMT_MapScreen; }
+  bool GetWantsToEnterPauseScreen() const { return xf90_deferredTransition == kSMT_PauseGame; }
+  bool GetWantsToEnterLogBookScreen() const { return xf90_deferredTransition == kSMT_LogBook; }
+  bool GetWantsToEnterSaveGameScreen() const { return xf90_deferredTransition == kSMT_SaveGame; }
+  bool GetWantsToEnterMessageScreen() const {
+    return xf90_deferredTransition == kSMT_MessageScreen;
+  }
+
+  void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, u32 stringIdx);
+  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent);/* {
     xef4_pendingScreenTex.x0_id = texId;
     xef4_pendingScreenTex.x4_origin = origin;
     xef4_pendingScreenTex.xc_extent = extent;
-  }
+  }*/
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
   float IntegrateVisorFog(float f);
 
-  void SetShouldQuitGame(bool should) { xf94_25_quitGame = should; }
-  void SetSkipCinematicSpecialFunction(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
+  void QuitGame() { xf94_25_quitGame = true; }
+  bool GetWantsToQuit() const { return xf94_25_quitGame; }
+  void SetCinematicSkipObject(TUniqueId id) { xf38_skipCineSpecialFunc = id; }
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }

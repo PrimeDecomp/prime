@@ -6,11 +6,29 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
+enum ERumbleFxId {
+  kRFX_Zero = 0,
+  kRFX_One = 1,
+  kRFX_CameraShake = 6,
+  kRFX_EscapeSequenceShake = 7,
+  kRFX_PlayerBump = 11,
+  kRFX_PlayerGunCharge = 12,
+  kRFX_PlayerMissileFire = 13,
+  kRFX_PlayerGrappleFire = 14,
+  kRFX_PlayerLand = 15,
+  kRFX_PlayerGrappleSwoosh = 17,
+  kRFX_IntroBossProjectile = 19,
+  kRFX_Twenty = 20,
+  kRFX_TwentyOne = 21,
+  kRFX_TwentyTwo = 22,
+  kRFX_TwentyThree = 23
+};
+
 enum ERumblePriority {
-  kRP_None,
-  kRP_One,
-  kRP_Two,
-  kRP_Three,
+  kRP_None = 0,
+  kRP_One = 1,
+  kRP_Two = 2,
+  kRP_Three = 3,
 };
 
 struct SAdsrData {

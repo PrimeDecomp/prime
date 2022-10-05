@@ -98,11 +98,11 @@ private:
 };
 
 template < typename T >
-inline const T* TCastToConstPtr(const CEntity* p) {
+static inline const T* TCastToConstPtr(const CEntity* p) {
   return TCastToPtr< T >(const_cast< CEntity* >(p));
 }
 template < typename T >
-inline const T* TCastToConstPtr(const CEntity& p) {
+static inline const T* TCastToConstPtr(const CEntity& p) {
   return TCastToPtr< T >(const_cast< CEntity& >(p));
 }
 

@@ -258,9 +258,9 @@ public:
   const CTransform4f& GetTransform() const { return x34_transform; }
   void SetTransform(const CTransform4f& xf) {
     x34_transform = xf;
-    xe4_27_notInSortedLists = true;
-    xe4_28_transformDirty = true;
-    xe4_29_actorLightsDirty = true;
+    SetTransformDirty(true);
+    SetTransformDirtySpare(true);
+    SetPreRenderHasMoved(true);
   }
   void SetRotation(const CQuaternion& rot) {
     SetTransform(rot.BuildTransform4f(GetTranslation()));

@@ -4,6 +4,7 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
 #include "MetroidPrime/CMain.hpp"
+#include "MetroidPrime/CRumbleManager.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
@@ -46,8 +47,8 @@ void sort(It first, It last, Cmp cmp) {
 CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
     ESpecialFunction func, const rstl::string& lcName, float f1, float f2, float f3, float f4,
-    const CVector3f& vec, const CColor& col, bool active, const CDamageInfo& dInfo, s32 aId1,
-    s32 aId2, CPlayerState::EItemType itemType, u16 sId1, u16 sId2, u16 sId3)
+    const CVector3f& vec, const CColor& col, bool active, const CDamageInfo& dInfo, int aId1,
+    int aId2, CPlayerState::EItemType itemType, u16 sId1, u16 sId2, u16 sId3)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_function(func)
@@ -198,10 +199,9 @@ void CScriptSpecialFunction::PreRender(CStateManager&, const CFrustumPlanes& fru
   }
 }
 
-// constexpr std::array fxTranslation{
-//     ERumbleFxId::Twenty,    ERumbleFxId::One,         ERumbleFxId::TwentyOne,
-//     ERumbleFxId::TwentyTwo, ERumbleFxId::TwentyThree, ERumbleFxId::Zero,
-// };
+static const ERumbleFxId skRumbleFxList[6] = {
+    kRFX_Twenty, kRFX_One, kRFX_TwentyOne, kRFX_TwentyTwo, kRFX_TwentyThree, kRFX_Zero,
+};
 
 namespace {
 class CRingSorter {
@@ -212,7 +212,6 @@ public:
 
   bool operator()(const CScriptSpecialFunction::SRingController& a,
                   const CScriptSpecialFunction::SRingController& b) {
-
     const CActor* actA = TCastToConstPtr< CActor >(mgr->GetObjectById(a.x0_id));
     const CActor* actB = TCastToConstPtr< CActor >(mgr->GetObjectById(b.x0_id));
     if (actA && actB) {
@@ -227,9 +226,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
                                              CStateManager& mgr) {
   if (GetActive() && msg == kSM_Deactivate && xe8_function == kSF_Billboard) {
     mgr.SetPendingOnScreenTex(CAssetId(), CVector2i(0, 0), CVector2i(0, 0));
-    if (x1e8_) {
-      x1e8_.clear();
-    }
+    x1e8_ = rstl::optional_object_null();
     x1e5_26_displayBillboard = false;
   }
   CActor::AcceptScriptMsg(msg, uid, mgr);
@@ -296,7 +293,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     case kSF_MapStation: {
       if (msg == kSM_Action) {
         // TODO
-        // mgr.MapWorldInfo()->SetMapStationUsed(true);
+        // mgr.MapWorldInfo()->SetIsMapped(true);
         // mgr.GetWorld()->GetMapWorld()->RecalculateWorldSphere(*mgr.MapWorldInfo(),
         // *mgr.GetWorld());
       }
@@ -324,7 +321,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
         if (gpGameState->CardSerial() == 0) {
           SendScriptMsgs(kSS_Closed, mgr, kSM_None);
         } else {
-          mgr.DeferStateTransition(kSMT_SaveGame);
+          mgr.EnterSaveGameScreen();
           x1e5_24_doSave = true;
         }
       }
@@ -409,9 +406,9 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_BossEnergyBar: {
       if (msg == kSM_Increment) {
-        mgr.SetBossParams(uid, xfc_float1, u32(x100_float2) + 86);
+        mgr.SetEnergyBarActorInfo(uid, xfc_float1, u32(x100_float2) + 86);
       } else if (msg == kSM_Decrement) {
-        mgr.SetBossParams(kInvalidUniqueId, 0.f, 0);
+        mgr.SetEnergyBarActorInfo(kInvalidUniqueId, 0.f, 0);
       }
       break;
     }
@@ -419,26 +416,26 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       if (msg == kSM_Action) {
         switch (GetSpecialEnding(mgr)) {
         case 0:
-          gpMain->SetFlowState(kFS_WinBad);
+          gpMain->SetRestartMode(CMain::kRM_WinBad);
           break;
         case 1:
-          gpMain->SetFlowState(kFS_WinGood);
+          gpMain->SetRestartMode(CMain::kRM_WinGood);
           break;
         case 2:
-          gpMain->SetFlowState(kFS_WinBest);
+          gpMain->SetRestartMode(CMain::kRM_WinBest);
           break;
         }
-        mgr.SetShouldQuitGame(true);
+        mgr.QuitGame();
       }
       break;
     }
     case kSF_CinematicSkip: {
       if (msg == kSM_Increment) {
         if (ShouldSkipCinematic(mgr)) {
-          mgr.SetSkipCinematicSpecialFunction(GetUniqueId());
+          mgr.SetCinematicSkipObject(GetUniqueId());
         }
       } else if (msg == kSM_Decrement) {
-        mgr.SetSkipCinematicSpecialFunction(kInvalidUniqueId);
+        mgr.SetCinematicSkipObject(kInvalidUniqueId);
         gpGameState->SystemOptions().SetCinematicState(
             rstl::pair< CAssetId, TEditorId >(mgr.GetWorld()->GetWorldAssetId(), GetEditorId()),
             true);
@@ -475,22 +472,30 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_EnvFxDensityController: {
       if (msg == kSM_Action) {
-        mgr.EnvFxManager()->SetFxDensity(s32(x100_float2), xfc_float1);
+        mgr.EnvFxManager()->SetFxDensity(int(x100_float2), xfc_float1);
       }
       break;
     }
     case kSF_RumbleEffect:
-      if (msg == kSM_Action) {
-        const s32 rumbFx = s32(x100_float2);
-
-        // Retro originally did not check the upper bounds, this could potentially cause a crash
-        // with some runtimes, so let's make sure we're not out of bounds in either direction.
-        // if (rumbFx < 0 || rumbFx >= 6) {
-        //   break;
-        // }
-
-        // TODO: add fxTranslation
-        // mgr.GetRumbleManager().Rumble(mgr, fxTranslation[rumbFx], 1.f, kRP_One);
+      if (msg != kSM_Action) {
+        break;
+      }
+      int rumbFxIdx = int(x100_float2);
+      if (rumbFxIdx < 0 || rumbFxIdx >= int(sizeof(skRumbleFxList) / sizeof(ERumbleFxId))) {
+        break;
+      }
+      ERumbleFxId rumbFx = skRumbleFxList[rumbFxIdx];
+      uint param3 = x104_float3;
+      if ((param3 & 1) != 0) {
+        mgr.GetRumbleManager()->Rumble(mgr, rumbFx, 1.f, kRP_One);
+      } else {
+        CVector3f pos = GetTranslation();
+        if ((param3 & 2) != 0) {
+          if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(uid))) {
+            pos = act->GetTranslation();
+          }
+        }
+        mgr.GetRumbleManager()->Rumble(mgr, pos, rumbFx, xfc_float1, kRP_One);
       }
       break;
     case kSF_InventoryActivator: {
@@ -544,14 +549,14 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
         mgr.SetPendingOnScreenTex(assetId, CVector2i(int(x104_float3), int(x108_float4)),
                                   CVector2i(int(xfc_float1), int(x100_float2)));
         if (objectTag) {
-          x1e8_ = gpSimplePool->GetObj(*objectTag);
+          x1e8_ = gpSimplePool->GetObj(xec_locatorName.data());
+          x1e8_->Lock();
           x1e5_26_displayBillboard = true;
         }
       } else if (msg == kSM_Decrement) {
         mgr.SetPendingOnScreenTex(kInvalidAssetId, CVector2i(int(x104_float3), int(x108_float4)),
                                   CVector2i(int(xfc_float1), int(x100_float2)));
-        if (x1e8_)
-          x1e8_.clear();
+        x1e8_ = rstl::optional_object_null();
         x1e5_26_displayBillboard = false;
       }
       break;
@@ -572,21 +577,22 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
       break;
     }
     case kSF_FogFader: {
+      float speed = x100_float2;
       if (msg == kSM_Increment) {
-        mgr.CameraManager()->SetFogDensity(x100_float2, xfc_float1);
+        mgr.CameraManager()->SetFogDensity(xfc_float1, speed);
       } else if (msg == kSM_Decrement) {
-        mgr.CameraManager()->SetFogDensity(x100_float2, 1.f);
+        mgr.CameraManager()->SetFogDensity(1.f, speed);
       }
       break;
     }
     case kSF_EnterLogbook: {
       if (msg == kSM_Action) {
-        mgr.DeferStateTransition(kSMT_LogBook);
+        mgr.EnterLogBookScreen();
       }
       break;
     }
     case kSF_Ending: {
-      if (msg == kSM_Action && GetSpecialEnding(mgr) == u32(xfc_float1)) {
+      if (msg == kSM_Action && GetSpecialEnding(mgr) == int(xfc_float1)) {
         SendScriptMsgs(kSS_Zero, mgr, kSM_None);
       }
       break;
@@ -606,7 +612,7 @@ bool CScriptSpecialFunction::ShouldSkipCinematic(CStateManager& mgr) const {
 
 void CScriptSpecialFunction::SkipCinematic(CStateManager& mgr) {
   SendScriptMsgs(kSS_Zero, mgr, kSM_None);
-  mgr.SetSkipCinematicSpecialFunction(kInvalidUniqueId);
+  mgr.SetCinematicSkipObject(kInvalidUniqueId);
 }
 
 void CScriptSpecialFunction::Accept(IVisitor& visitor) { visitor.Visit(*this); }
@@ -628,7 +634,7 @@ void CScriptSpecialFunction::ThinkSaveStation(float, CStateManager& mgr) {
   if (!x1e5_24_doSave) {
     return;
   }
-  if (mgr.GetDeferredStateTransition() != kSMT_SaveGame) {
+  if (!mgr.GetWantsToEnterSaveGameScreen()) {
     x1e5_24_doSave = false;
     if (mgr.GetInSaveUI()) {
       SendScriptMsgs(kSS_MaxReached, mgr, kSM_None);
@@ -755,9 +761,8 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
 
     const CStateManager::TIdListResult& it = mgr.GetIdListForScript(conn->x8_objId);
     if (it.first != it.second) {
-      TUniqueId uid = it.first->second;
-      if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(uid))) {
-        if (plat->HasModelData() && plat->GetModelData()->GetAnimationData()) {
+      if (CScriptPlatform* plat = TCastToPtr< CScriptPlatform >(mgr.ObjectById(it.first->second))) {
+        if (plat->HasAnimation()) {
           plat->SetControlledAnimation(true);
           if (!x1e4_24_spinnerInitializedXf) {
             x13c_spinnerInitialXf = plat->GetTransform();
@@ -768,17 +773,19 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           const float f29 = pointOneByDt * x100_float2;
 
           if (mode == kSCM_Zero) {
-            if (!x1e4_25_spinnerCanMove) {
-              const CPlayer& pl = *mgr.GetPlayer();
-              const CVector3f angVel = pl.GetAngularVelocityOR().GetVector();
-              float mag = 0.f;
+            if (x1e4_25_spinnerCanMove) {
+              bool isMorphed =
+                  mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed;
+              const CVector3f angVel = mgr.GetPlayer()->GetAngularVelocityOR().GetVector();
+              float mag;
               if (angVel.CanBeNormalized()) {
                 mag = angVel.Magnitude();
+              } else {
+                mag = 0.f;
               }
 
-              const float spinImpulse =
-                  (pl.GetMorphballTransitionState() == CPlayer::kMS_Morphed ? 0.025f * mag : 0.f);
-              if (spinImpulse >= x180_) {
+              const float spinImpulse = (isMorphed ? 0.025f * mag : 0.f);
+              if (spinImpulse > x180_) {
                 SendScriptMsgs(kSS_Play, mgr, kSM_None);
               }
 
@@ -788,10 +795,8 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
               if (!noBackward) {
                 x138_ -= f29;
               }
-            } else {
-              if (!noBackward) {
-                x138_ = f28 - twoByDt;
-              }
+            } else if (!noBackward) {
+              x138_ = f28 - twoByDt;
             }
           } else if (mode == kSCM_One) {
             x138_ = (0.01f * x16c_) * xfc_float1 + f28;
@@ -814,17 +819,16 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
               x138_ += 1.f;
             }
           } else {
-            // TODO: get Clamp to inline here
-            x138_ = CMath::Clamp(0.f, x138_, 1.f);
+            x138_ = rstl::min_val(1.f, rstl::max_val(0.f, x138_));
           }
 
           bool noSfxPlayed = true;
           f28 = x138_ - f28; // always 0?
-          if (close_enough(x138_, 1.f, FLT_EPSILON)) {
+          if (close_enough(x138_, 1.f)) {
             if (!x1e4_27_sfx3Played) {
-              if (x174_sfx3 != 0xFFFF) {
-                CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true, false,
-                                        CSfxManager::kMedPriority, CSfxManager::kAllAreas);
+              if (x174_sfx3 != InvalidSfxId) {
+                CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true,
+                                        false);
               }
 
               x1e4_27_sfx3Played = true;
@@ -836,11 +840,11 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
             x1e4_27_sfx3Played = false;
           }
 
-          if (close_enough(x138_, 0.f, FLT_EPSILON)) {
+          if (close_enough(x138_, 0.f)) {
             if (!x1e4_26_sfx2Played) {
-              if (x172_sfx2 != 0xFFFF) {
-                CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true, false,
-                                        CSfxManager::kMedPriority, CSfxManager::kAllAreas);
+              if (x172_sfx2 != InvalidSfxId) {
+                CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true,
+                                        false);
               }
 
               x1e4_26_sfx2Played = true;
@@ -855,29 +859,28 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           rstl::optional_object< float > unused = x184_.GetAverage();
 
           if (noSfxPlayed) {
-            if (x170_sfx1 != 0xFFFF) {
+            if (x170_sfx1 != InvalidSfxId) {
+              bool b = f28 >= 0.f;
               if (noSfxPlayed) {
-                x184_.AddValue(0.f <= f28 ? 100 : 0x7f);
+                x184_.AddValue(b ? u8(100) : u8(0x7F));
               } else {
                 x184_.AddValue(0.f);
               }
-              rstl::optional_object< float > volume = x184_.GetAverage();
-              float pitch = 0.f <= f28 ? x108_float4 : 1.f;
-
+              const rstl::optional_object< float >& volume = x184_.GetAverage();
+              float pitch = b ? x108_float4 : 1.f;
               AddOrUpdateEmitter(pitch, x178_sfxHandle, x170_sfx1, GetTranslation(), volume.data());
             }
           } else {
             DeleteEmitter(x178_sfxHandle);
           }
 
-          CAnimData* animData = plat->ModelData()->AnimationData();
+          const CAnimData* animData = plat->GetAnimationData();
           const float dur = animData->GetAnimationDuration(animData->GetDefaultAnimation()) * x138_;
-          animData->SetPhase(0.f);
-          animData->SetPlaybackRate(1.f);
-          // Redundant copy is needed
+          plat->AnimationData()->SetPhase(0.f);
+          plat->AnimationData()->SetPlaybackRate(1.f);
           SAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
-          plat->SetTransform(x13c_spinnerInitialXf *
-                             deltas.xc_rotDelta.BuildTransform4f(deltas.x0_posDelta));
+          plat->SetTransform(x13c_spinnerInitialXf * deltas.GetOrientationDelta().BuildTransform4f(
+                                                         deltas.GetOffsetDelta()));
         }
       }
     }
@@ -1098,10 +1101,9 @@ void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
 }
 
 void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id,
-                                                const CVector3f& pos, uchar vol) {
+                                                CVector3f pos, u8 vol) {
   if (!handle) {
-    handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true,
-                                     CSfxManager::kMedPriority, CSfxManager::kAllAreas);
+    handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true);
   } else {
     CSfxManager::UpdateEmitter(handle, pos, CVector3f::Zero(), vol);
     CSfxManager::PitchBend(handle, static_cast< s16 >(8192.f * pitch + 8192.f));

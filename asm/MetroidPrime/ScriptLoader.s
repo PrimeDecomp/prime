@@ -3964,7 +3964,7 @@ lbl_800C8844:
 /* 800C89D8 000C5938  C8 01 00 C0 */	lfd f0, 0xc0(r1)
 /* 800C89DC 000C593C  93 61 00 28 */	stw r27, 0x28(r1)
 /* 800C89E0 000C5940  EC 60 18 28 */	fsubs f3, f0, f3
-/* 800C89E4 000C5944  48 08 A1 DD */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs"
+/* 800C89E4 000C5944  48 08 A1 DD */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoiiQ212CPlayerState9EItemTypeUsUsUs"
 /* 800C89E8 000C5948  7C 7C 1B 78 */	mr r28, r3
 lbl_800C89EC:
 /* 800C89EC 000C594C  7F 20 07 75 */	extsb. r0, r25
@@ -5569,7 +5569,7 @@ lbl_800CA054:
 /* 800CA1A8 000C7108  C8 01 00 80 */	lfd f0, 0x80(r1)
 /* 800CA1AC 000C710C  93 61 00 28 */	stw r27, 0x28(r1)
 /* 800CA1B0 000C7110  EC 40 10 28 */	fsubs f2, f0, f2
-/* 800CA1B4 000C7114  48 08 8A 0D */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs"
+/* 800CA1B4 000C7114  48 08 8A 0D */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoiiQ212CPlayerState9EItemTypeUsUsUs"
 /* 800CA1B8 000C7118  7C 7D 1B 78 */	mr r29, r3
 lbl_800CA1BC:
 /* 800CA1BC 000C711C  7F 40 07 75 */	extsb. r0, r26
@@ -5919,7 +5919,7 @@ lbl_800CA580:
 /* 800CA6C0 000C7620  93 41 00 20 */	stw r26, 0x20(r1)
 /* 800CA6C4 000C7624  93 41 00 24 */	stw r26, 0x24(r1)
 /* 800CA6C8 000C7628  93 41 00 28 */	stw r26, 0x28(r1)
-/* 800CA6CC 000C762C  48 08 84 F5 */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs"
+/* 800CA6CC 000C762C  48 08 84 F5 */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoiiQ212CPlayerState9EItemTypeUsUsUs"
 /* 800CA6D0 000C7630  7C 7B 1B 78 */	mr r27, r3
 lbl_800CA6D4:
 /* 800CA6D4 000C7634  7F C0 07 75 */	extsb. r0, r30
@@ -15309,7 +15309,7 @@ lbl_800D2E70:
 /* 800D3020 000CFF80  93 81 00 20 */	stw r28, 0x20(r1)
 /* 800D3024 000CFF84  93 81 00 24 */	stw r28, 0x24(r1)
 /* 800D3028 000CFF88  93 81 00 28 */	stw r28, 0x28(r1)
-/* 800D302C 000CFF8C  48 07 FB 95 */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs"
+/* 800D302C 000CFF8C  48 07 FB 95 */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoiiQ212CPlayerState9EItemTypeUsUsUs"
 /* 800D3030 000CFF90  7C 7F 1B 78 */	mr r31, r3
 lbl_800D3034:
 /* 800D3034 000CFF94  7F 40 07 75 */	extsb. r0, r26
@@ -15473,7 +15473,7 @@ lbl_800D31AC:
 /* 800D328C 000D01EC  93 21 00 20 */	stw r25, 0x20(r1)
 /* 800D3290 000D01F0  93 01 00 24 */	stw r24, 0x24(r1)
 /* 800D3294 000D01F4  92 E1 00 28 */	stw r23, 0x28(r1)
-/* 800D3298 000D01F8  48 07 F9 29 */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfollQ212CPlayerState9EItemTypeUsUsUs"
+/* 800D3298 000D01F8  48 07 F9 29 */	bl "__ct__22CScriptSpecialFunctionF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fQ222CScriptSpecialFunction16ESpecialFunctionRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>ffffRC9CVector3fRC6CColorbRC11CDamageInfoiiQ212CPlayerState9EItemTypeUsUsUs"
 /* 800D329C 000D01FC  7C 7A 1B 78 */	mr r26, r3
 lbl_800D32A0:
 /* 800D32A0 000D0200  38 61 00 44 */	addi r3, r1, 0x44
