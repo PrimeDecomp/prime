@@ -59,9 +59,10 @@ public:
                 const CTransform4f& xf, const CModelData& mData, const CMaterialList& matList,
                 const CAABox& aabb, const SMoverData& moverData, const CActorParameters& actParams,
                 f32 stepUp, f32 stepDown);
-  ~CPhysicsActor() override;
 
   // CActor
+  ~CPhysicsActor() override;
+  void Render(const CStateManager&) const override;
   CVector3f GetOrbitPosition(const CStateManager& mgr) const override;
   CVector3f GetAimPosition(const CStateManager& mgr, f32 val) const override;
 

@@ -43,9 +43,9 @@ public:
   f32 Get21() const { return m2.GetY(); }
   f32 Get22() const { return m2.GetZ(); }
   f32 Get23() const { return posZ; }
-  // GetColumn__12CTransform4fCF5EDimX
-  // GetColumn__12CTransform4fCF5EDimY
-  // GetColumn__12CTransform4fCF5EDimZ
+  CVector3f GetColumn(EDimX) const { return CVector3f(m0.GetX(), m1.GetX(), m2.GetX()); }
+  CVector3f GetColumn(EDimY) const { return CVector3f(m0.GetY(), m1.GetY(), m2.GetY()); }
+  CVector3f GetColumn(EDimZ) const { return CVector3f(m0.GetZ(), m1.GetZ(), m2.GetZ()); }
   // GetColumn__12CTransform4fCFi
   // GetCStyleMatrix__12CTransform4fCFv
   CTransform4f GetInverse() const;

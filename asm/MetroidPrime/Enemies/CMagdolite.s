@@ -734,7 +734,7 @@ sub_80234b20:
 /* 80234BD4 00231B34  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80234BD8 00231B38  38 A0 00 00 */	li r5, 0
 /* 80234BDC 00231B3C  39 60 FF FF */	li r11, -1
-/* 80234BE0 00231B40  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 80234BE0 00231B40  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80234BE4 00231B44  90 61 00 10 */	stw r3, 0x10(r1)
 /* 80234BE8 00231B48  7F A3 EB 78 */	mr r3, r29
 /* 80234BEC 00231B4C  38 9E 06 CC */	addi r4, r30, 0x6cc

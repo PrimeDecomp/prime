@@ -27,13 +27,13 @@ public:
   : x0_blendMode(trans)
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
-  , x4_color(rgba, rgba, rgba, rgba) {}
+  , x4_color(1.f, 1.f, 1.f, rgba) {}
   CModelFlags(ETrans trans, CColor color)
   : x0_blendMode(trans)
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
   , x4_color(color) {}
-  
+
   CModelFlags(ETrans blendMode, u8 shadIdx, EFlags flags, const CColor& col)
   : x0_blendMode(blendMode), x1_matSetIdx(shadIdx), x2_flags(flags), x4_color(col) {}
 
@@ -55,23 +55,33 @@ public:
   , x2_flags(flags.x2_flags)
   , x4_color(color) {}
 
-  CModelFlags UseShaderSet(int matSet) { return CModelFlags(*this, false, matSet); }
-  CModelFlags DontLoadTextures() { return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock); }
-  CModelFlags DepthCompareUpdate(bool compare, bool update) {
-    uint flags = GetOtherFlags();
+  // CModelFlags(const CModelFlags& other) : x0_blendMode(other.x0_blendMode),
+  // x1_matSetIdx(other.x1_matSetIdx), x2_flags(other.x2_flags), x4_color(other.x4_color) {}
+  CModelFlags& operator=(const CModelFlags& other) {
+    x0_blendMode = other.x0_blendMode;
+    x1_matSetIdx = other.x1_matSetIdx;
+    x2_flags = other.x2_flags;
+    x4_color = other.x4_color;
+    return *this;
+  }
+
+  CModelFlags UseShaderSet(int matSet) const { return CModelFlags(*this, false, matSet); }
+  CModelFlags DontLoadTextures() const {
+    return CModelFlags(*this, GetOtherFlags() | kF_NoTextureLock);
+  }
+  CModelFlags DepthCompareUpdate(bool compare, bool update) const {
+    uint newFlags = 0;
     if (compare) {
-      flags |= kF_DepthCompare;
-    } else {
-      flags &= ~kF_DepthCompare;
+      newFlags |= kF_DepthCompare;
     }
     if (update) {
-      flags |= kF_DepthUpdate;
-    } else {
-      flags &= ~kF_DepthUpdate;
+      newFlags |= kF_DepthUpdate;
     }
-    return CModelFlags(*this, flags);
+    return CModelFlags(*this, (x2_flags & ~(kF_DepthCompare | kF_DepthUpdate)) | newFlags);
   }
-  CModelFlags DepthBackwards() { return CModelFlags(*this, GetOtherFlags() | kF_DepthGreater); }
+  CModelFlags DepthBackwards() const {
+    return CModelFlags(*this, GetOtherFlags() | kF_DepthGreater);
+  }
 
   ETrans GetTrans() const { return static_cast< ETrans >(x0_blendMode); }
   int GetShaderSet() const { return x1_matSetIdx; }
@@ -79,7 +89,7 @@ public:
   CColor GetColor() const { return x4_color; }
 
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }
-  static CModelFlags AlphaBlended(f32 f);
+  static CModelFlags AlphaBlended(f32 alpha) { return CModelFlags(kT_Blend, alpha); }
   static CModelFlags AlphaBlended(const CColor& color);
   static CModelFlags Additive(f32 f);
   static CModelFlags Additive(const CColor& color);
@@ -87,7 +97,7 @@ public:
   static CModelFlags ColorModulate(const CColor& color);
 
 private:
-  s8 x0_blendMode;
+  u8 x0_blendMode;
   u8 x1_matSetIdx;
   u16 x2_flags;
   CColor x4_color;

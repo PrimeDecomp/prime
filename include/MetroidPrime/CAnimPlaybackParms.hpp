@@ -22,7 +22,16 @@ private:
 
 public:
   CAnimPlaybackParms(int animA, int animB, float blendWeight, bool animating)
-  : x0_animA(animA), x4_animB(animB), x8_blendWeight(blendWeight), xc_animating(animating) {}
+  : x0_animA(animA)
+  , x4_animB(animB)
+  , x8_blendWeight(blendWeight)
+  , xc_animating(animating)
+  , x10_(0)
+  , x14_targetPos(nullptr)
+  , x18_useLocator(false)
+  , x1c_deltaOrient(nullptr)
+  , x20_objectXf(nullptr)
+  , x24_objectScale(nullptr) {}
 };
 CHECK_SIZEOF(CAnimPlaybackParms, 0x28)
 

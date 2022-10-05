@@ -2813,7 +2813,7 @@ FireProjectile__12CSpacePirateFfR13CStateManager:
 /* 8012212C 0011F08C  39 60 00 00 */	li r11, 0
 /* 80122130 0011F090  99 61 01 34 */	stb r11, 0x134(r1)
 /* 80122134 0011F094  38 01 01 1C */	addi r0, r1, 0x11c
-/* 80122138 0011F098  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 80122138 0011F098  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 8012213C 0011F09C  7F A3 EB 78 */	mr r3, r29
 /* 80122140 0011F0A0  D0 01 01 1C */	stfs f0, 0x11c(r1)
 /* 80122144 0011F0A4  7F C5 F3 78 */	mr r5, r30
@@ -3052,7 +3052,7 @@ lbl_801223B0:
 /* 801224D8 0011F438  39 60 00 00 */	li r11, 0
 /* 801224DC 0011F43C  99 61 00 94 */	stb r11, 0x94(r1)
 /* 801224E0 0011F440  38 01 00 7C */	addi r0, r1, 0x7c
-/* 801224E4 0011F444  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 801224E4 0011F444  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801224E8 0011F448  7F A3 EB 78 */	mr r3, r29
 /* 801224EC 0011F44C  D0 01 00 7C */	stfs f0, 0x7c(r1)
 /* 801224F0 0011F450  7F C5 F3 78 */	mr r5, r30

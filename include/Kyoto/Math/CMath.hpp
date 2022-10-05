@@ -43,7 +43,13 @@ public:
   // SlowSineR__5CMathFf global
   // FastCosR__5CMathFf global
   // GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
-  // ClampRadians__5CMathFf weak
+  static f32 ClampRadians(f32 rad) {
+    f32 value = rad - static_cast<int>(rad * (M_PIF * 2.f)) * (M_PIF * 2.f);
+    if (value < 0.f) {
+      value += (M_PIF * 2.f);
+    }
+    return value;
+  }
   // ModF__5CMathFff weak
   static f32 Deg2Rad(f32 deg) { return Deg2Rev(deg) * (M_PIF * 2.f); }
   static f32 Deg2Rev(f32 deg) { return deg * (1.f / 360.f); }

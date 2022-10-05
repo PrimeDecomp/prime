@@ -265,7 +265,7 @@ public:
   void SetRotation(const CQuaternion& rot) {
     SetTransform(rot.BuildTransform4f(GetTranslation()));
   }
-  const CQuaternion& GetRotation() const { 
+  const CQuaternion& GetRotation() const {
     return CQuaternion::FromMatrix(GetTransform());
   }
   const CVector3f& GetTranslation() const { return x34_transform.GetTranslation(); }
@@ -323,11 +323,13 @@ public:
   void SetMuted(bool b) { xe5_26_muted = b; }
   void SetRenderParticleDatabaseInside(bool b) { xe6_29_renderParticleDBInside = b; }
 
-  void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes,
+                      CStateManager&);
   void RemoveMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
   void RemoveMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);
   void RemoveMaterial(EMaterialTypes, CStateManager&);
-  void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
+  void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes,
+                   CStateManager&);
   void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, EMaterialTypes, EMaterialTypes, CStateManager&);
   void AddMaterial(EMaterialTypes, EMaterialTypes, CStateManager&);

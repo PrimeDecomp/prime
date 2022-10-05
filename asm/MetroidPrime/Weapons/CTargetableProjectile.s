@@ -414,7 +414,7 @@ Think__21CTargetableProjectileFfR13CStateManager:
 /* 8013BDC8 00138D28  39 81 00 80 */	addi r12, r1, 0x80
 /* 8013BDCC 00138D2C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8013BDD0 00138D30  39 61 00 8C */	addi r11, r1, 0x8c
-/* 8013BDD4 00138D34  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 8013BDD4 00138D34  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 8013BDD8 00138D38  7F E3 FB 78 */	mr r3, r31
 /* 8013BDDC 00138D3C  90 81 00 10 */	stw r4, 0x10(r1)
 /* 8013BDE0 00138D40  7F 26 CB 78 */	mr r6, r25

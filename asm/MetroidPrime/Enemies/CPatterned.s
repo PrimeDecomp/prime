@@ -2611,7 +2611,7 @@ lbl_80078F20:
 /* 80079014 00075F74  39 60 00 00 */	li r11, 0
 /* 80079018 00075F78  99 61 00 80 */	stb r11, 0x80(r1)
 /* 8007901C 00075F7C  38 01 00 68 */	addi r0, r1, 0x68
-/* 80079020 00075F80  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 80079020 00075F80  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80079024 00075F84  7F 83 E3 78 */	mr r3, r28
 /* 80079028 00075F88  D0 01 00 68 */	stfs f0, 0x68(r1)
 /* 8007902C 00075F8C  7F A5 EB 78 */	mr r5, r29
@@ -2643,7 +2643,7 @@ lbl_80079088:
 /* 8007908C 00075FEC  39 60 00 00 */	li r11, 0
 /* 80079090 00075FF0  99 61 00 64 */	stb r11, 0x64(r1)
 /* 80079094 00075FF4  38 01 00 4C */	addi r0, r1, 0x4c
-/* 80079098 00075FF8  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 80079098 00075FF8  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 8007909C 00075FFC  7F 83 E3 78 */	mr r3, r28
 /* 800790A0 00076000  D0 01 00 4C */	stfs f0, 0x4c(r1)
 /* 800790A4 00076004  7F A5 EB 78 */	mr r5, r29
@@ -4505,7 +4505,7 @@ MassiveFrozenDeath__10CPatternedFR13CStateManager:
 /* 8007AB34 00077A94  94 21 FE E0 */	stwu r1, -0x120(r1)
 /* 8007AB38 00077A98  7C 08 02 A6 */	mflr r0
 /* 8007AB3C 00077A9C  90 01 01 24 */	stw r0, 0x124(r1)
-/* 8007AB40 00077AA0  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 8007AB40 00077AA0  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 8007AB44 00077AA4  93 E1 01 1C */	stw r31, 0x11c(r1)
 /* 8007AB48 00077AA8  7C 9F 23 78 */	mr r31, r4
 /* 8007AB4C 00077AAC  93 C1 01 18 */	stw r30, 0x118(r1)

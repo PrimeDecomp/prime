@@ -91,7 +91,7 @@ CPhysicsState CPhysicsActor::GetPhysicsState() const {
 
 void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   SetTranslation(state.GetTranslation());
-  CQuaternion quat = state.GetOrientationWR();
+  const CQuaternion& quat = state.GetOrientationWR();
   SetTransform(quat.BuildTransform4f(GetTranslation()));
   xfc_constantForce = state.GetConstantForceWR();
   x108_angularMomentum = state.GetAngularMomentumWR();
@@ -187,8 +187,6 @@ void CPhysicsActor::UseCollisionImpulses() {
 }
 
 void CPhysicsActor::MoveToWR(const CVector3f& trans, float d) {
-  float f = (1.f / d);
-  CVector3f diff = trans - GetTranslation();
-  xfc_constantForce = f * GetMass() * diff;
+  xfc_constantForce = (trans - GetTransform().GetTranslation()) * GetMass() * (1.f / d);
   ComputeDerivedQuantities();
 }

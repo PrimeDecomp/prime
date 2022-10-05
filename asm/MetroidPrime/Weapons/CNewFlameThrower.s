@@ -3776,7 +3776,7 @@ GetTouchBounds__16CNewFlameThrowerCFv:
 /* 8026447C 002613DC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80264480 002613E0  9B 01 00 DC */	stb r24, 0xdc(r1)
 /* 80264484 002613E4  B0 01 00 30 */	sth r0, 0x30(r1)
-/* 80264488 002613E8  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 80264488 002613E8  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 8026448C 002613EC  D0 01 00 E0 */	stfs f0, 0xe0(r1)
 /* 80264490 002613F0  D0 01 00 E4 */	stfs f0, 0xe4(r1)
 /* 80264494 002613F4  D0 01 00 E8 */	stfs f0, 0xe8(r1)

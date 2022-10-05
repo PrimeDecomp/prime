@@ -459,7 +459,7 @@ lbl_801D6BA8:
 /* 801D6F00 001D3E60  93 FD 00 38 */	stw r31, 0x38(r29)
 /* 801D6F04 001D3E64  C0 02 AC 48 */	lfs f0, lbl_805AC968@sda21(r2)
 /* 801D6F08 001D3E68  90 FD 00 3C */	stw r7, 0x3c(r29)
-/* 801D6F0C 001D3E6C  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 801D6F0C 001D3E6C  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801D6F10 001D3E70  88 DD 00 40 */	lbz r6, 0x40(r29)
 /* 801D6F14 001D3E74  50 E6 3E 30 */	rlwimi r6, r7, 7, 0x18, 0x18
 /* 801D6F18 001D3E78  98 DD 00 40 */	stb r6, 0x40(r29)
@@ -523,4 +523,3 @@ lbl_805AC968:
 	# ROM: 0x3F9208
 	.4byte 0
 	.4byte 0
-

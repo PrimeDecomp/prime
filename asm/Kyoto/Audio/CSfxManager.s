@@ -4604,8 +4604,8 @@ __ct__Q211CSfxManager11CSfxChannelFv:
 
 .section .sdata2, "a"
 .balign 8
-.global lbl_805AE318
-lbl_805AE318:
+.global kMaxPriority__11CSfxManager
+kMaxPriority__11CSfxManager:
 	# ROM: 0x3FABB8
 	.2byte 0x000000FF
 
@@ -4614,8 +4614,8 @@ kMedPriority__11CSfxManager:
 	# ROM: 0x3FABBA
 	.2byte 0x0000007F
 
-.global lbl_805AE31C
-lbl_805AE31C:
+.global kInternalInvalidSfxId__11CSfxManager
+kInternalInvalidSfxId__11CSfxManager:
 	# ROM: 0x3FABBC
 	.4byte 0xFFFF0000
 
