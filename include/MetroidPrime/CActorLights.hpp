@@ -41,6 +41,8 @@ private:
 CHECK_SIZEOF(CLight, 0x50)
 
 class CGameArea;
+class CStateManager;
+class CAABox;
 
 class CActorLights {
 public:
