@@ -796,7 +796,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/hw_volconv.o\
 	$(BUILD_DIR)/asm/musyx/snd3d.o\
 	$(BUILD_DIR)/src/musyx/snd_init.o\
-	$(BUILD_DIR)/src/musyx/snd_math.o\
+	$(BUILD_DIR)/asm/musyx/snd_math.o\
 	$(BUILD_DIR)/asm/musyx/snd_midictrl.o\
 	$(BUILD_DIR)/src/musyx/snd_service.o\
 	$(BUILD_DIR)/asm/musyx/hardware.o\
