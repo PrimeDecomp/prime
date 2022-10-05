@@ -13,6 +13,8 @@ parser.add_argument('--map', dest='map', action=argparse.BooleanOptionalAction,
                     default=False, help='generate map file')
 parser.add_argument('--check', dest='check', action=argparse.BooleanOptionalAction,
                     default=True, help='check hash of resulting dol')
+parser.add_argument('--static-libs', dest='static_libs', action=argparse.BooleanOptionalAction,
+                    default=False, help='build and use static libs')
 args = parser.parse_args()
 
 # Completed c/cpp files to link
@@ -66,6 +68,7 @@ COMPLETE_OBJECTS = [
     "Dolphin/os/__start",
     "Dolphin/os/OSAudioSystem",
     "Dolphin/os/__ppc_eabi_init",
+    "Runtime/__mem",
     "Runtime/abort_exit",
     "Runtime/ctype",
     "Runtime/locale",
@@ -1113,7 +1116,7 @@ LIBS = [
 
 # Create & link static libraries
 # Disabled by default for now until we can get it working on windows/macOS
-ENABLE_STATIC_LIBS = False
+ENABLE_STATIC_LIBS = args.static_libs
 
 # On Windows, we need this to use && in commands
 ALLOW_CHAIN = "cmd /c " if os.name == "nt" else ""
