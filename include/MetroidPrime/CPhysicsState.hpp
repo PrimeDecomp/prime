@@ -1,7 +1,8 @@
 #ifndef __CPHYSICSSTATE_HPP__
 #define __CPHYSICSSTATE_HPP__
 
-#include "Kyoto/Math/CAxisAngle.hpp"
+#include "MetroidPrime/CAxisAngle.hpp"
+
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -11,6 +12,16 @@ public:
                 const CVector3f& constantForce, const CAxisAngle& angularMomentum,
                 const CVector3f& momentum, const CVector3f& force, const CVector3f& impulse,
                 const CAxisAngle& torque, const CAxisAngle& angularImpulse);
+
+  CVector3f GetTranslation() const { return x0_translation; }
+  CQuaternion GetOrientationWR() const { return xc_orientation; }
+  CVector3f GetConstantForceWR() const { return x1c_constantForce; }
+  CAxisAngle GetAngularMomentumWR() const { return x28_angularMomentum; }
+  CVector3f GetMomentumWR() const { return x34_momentum; }
+  CVector3f GetForceWR() const { return x40_force; }
+  CVector3f GetImpulseWR() const { return x4c_impulse; }
+  CAxisAngle GetTorque() const { return x58_torque; }
+  CAxisAngle GetAngularImpulseWR() const { return x64_angularImpulse; }
 
 private:
   CVector3f x0_translation;
