@@ -29,7 +29,7 @@ public:
   reserved_vector& operator=(const reserved_vector& other) {
     if (this != &other) {
       clear();
-      uninitialized_copy(data(), other.data() + other.size(), other.data());
+      uninitialized_copy(other.data(), other.data() + other.size(), data());
       x0_count = other.x0_count;
     }
     return *this;
