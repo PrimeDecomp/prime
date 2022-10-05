@@ -33,6 +33,10 @@ public:
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
   , x4_color(color) {}
+  
+  CModelFlags(ETrans blendMode, u8 shadIdx, EFlags flags, const CColor& col)
+  : x0_blendMode(blendMode), x1_matSetIdx(shadIdx), x2_flags(flags), x4_color(col) {}
+
   CModelFlags(const CModelFlags& flags, uint otherFlags)
   : x0_blendMode(flags.x0_blendMode)
   , x1_matSetIdx(flags.x1_matSetIdx)

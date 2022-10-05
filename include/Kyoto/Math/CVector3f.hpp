@@ -42,7 +42,12 @@ public:
   static float GetAngleDiff(const CVector3f& a, const CVector3f& b);
   bool IsEqu(const CVector3f& other, f32 epsilon = FLT_EPSILON) const;
   // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
-  // MagSquared__9CVector3fCFv weak
+  inline float MagSquared() const {
+    float mag = mX * mX;
+    mag += mY * mY;
+    mag += mZ * mZ;
+    return mag;
+  }
   static CVector3f Cross(const CVector3f& lhs, const CVector3f& rhs) {
     const float x = (lhs.GetY() * rhs.GetZ()) - (rhs.GetY() * lhs.GetZ());
     const float y = (lhs.GetZ() * rhs.GetX()) - (rhs.GetZ() * lhs.GetX());

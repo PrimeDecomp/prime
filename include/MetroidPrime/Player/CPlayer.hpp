@@ -165,6 +165,9 @@ public:
   void AddOrbitDisableSource(CStateManager& mgr, TUniqueId addId);
   void RemoveOrbitDisableSource(TUniqueId uid);
 
+  CPlayerGun* PlayerGun() { return x490_gun.get(); }
+  const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
+
 private:
   struct CVisorSteam {
     f32 x0_curTargetAlpha;

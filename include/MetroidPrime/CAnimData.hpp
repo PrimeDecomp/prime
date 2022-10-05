@@ -82,7 +82,7 @@ public:
   // AdvanceIgnoreParticles__9CAnimDataFfR9CRandom16b
   // Advance__9CAnimDataFfRC9CVector3fR13CStateManagerb
   // DoAdvance__9CAnimDataFfRbR9CRandom16b
-  // SetAnimation__9CAnimDataFRC18CAnimPlaybackParmsb
+  void SetAnimation(const CAnimPlaybackParms& parms, bool noTrans);
   // GetAnimationPrimitives__9CAnimDataCFRC18CAnimPlaybackParmsRQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>
   // PrimitiveSetToTokenVector__9CAnimDataFRCQ24rstl72set<10CPrimitive,Q24rstl18less<10CPrimitive>,Q24rstl17rmemory_allocator>RQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b
   // BuildPose__9CAnimDataFv
