@@ -7,8 +7,8 @@ lbl_ctor:
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9440
-lbl_805A9440:
+.global svector2_Identity
+svector2_Identity:
 	.skip 0x8
 
 .section .text, "ax"
@@ -69,7 +69,7 @@ __sinit_CloseEnough_cpp:
 /* 8030FFCC 0030CF2C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8030FFD0 0030CF30  7C 08 02 A6 */	mflr r0
 /* 8030FFD4 0030CF34  C0 22 C8 48 */	lfs f1, lbl_805AE568@sda21(r2)
-/* 8030FFD8 0030CF38  38 6D A8 80 */	addi r3, r13, lbl_805A9440@sda21
+/* 8030FFD8 0030CF38  38 6D A8 80 */	addi r3, r13, svector2_Identity@sda21
 /* 8030FFDC 0030CF3C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8030FFE0 0030CF40  FC 40 08 90 */	fmr f2, f1
 /* 8030FFE4 0030CF44  48 00 42 1D */	bl __ct__9CVector2fFff
@@ -85,4 +85,3 @@ lbl_805AE568:
 	# ROM: 0x3FAE08
 	.4byte 0
 	.4byte 0
-

@@ -17,8 +17,8 @@ struct Double {
 static inline float vector3_epsilon() { return FLT_EPSILON; }
 static inline float vector2_epsilon() { return FLT_EPSILON; }
 
-static bool close_enough(const CVector2f& a, const CVector2f& b, float epsilon = vector2_epsilon());
-static bool close_enough(const CVector3f& a, const CVector3f& b, float epsilon = vector3_epsilon());
+bool close_enough(const CVector2f& a, const CVector2f& b, float epsilon = vector2_epsilon());
+bool close_enough(const CVector3f& a, const CVector3f& b, float epsilon = vector3_epsilon());
 inline bool close_enough(float a, float b, float epsilon = Real32::Epsilon()) {
   return fabs(a - b) < epsilon;
 }

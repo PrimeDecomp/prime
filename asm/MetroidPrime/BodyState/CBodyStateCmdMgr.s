@@ -1171,4 +1171,3 @@ lbl_805AB6B0:
 lbl_805AB6B4:
 	# ROM: 0x3F7F54
 	.float 1.0E-4
-

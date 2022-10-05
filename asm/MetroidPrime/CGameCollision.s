@@ -6674,4 +6674,3 @@ lbl_803D0690:
 	.asciz "ollidableAABox"
 	.balign 4
 	.4byte 0
-
