@@ -17,6 +17,7 @@
 #include "rstl/pair.hpp"
 
 class CSkinnedModel;
+class CModel;
 
 class CCubeRenderer {
 public:

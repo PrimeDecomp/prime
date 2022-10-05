@@ -1,5 +1,7 @@
 #include "MetroidPrime/CObjectList.hpp"
 
+#include "MetroidPrime/CEntity.hpp"
+
 CObjectList::SObjectListEntry::SObjectListEntry() : mEnt(nullptr), mNext(-1), mPrev(-1) {}
 
 CObjectList::CObjectList(EGameObjectList list) : mListType(list), mFirstId(-1), mCount(0) {

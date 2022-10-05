@@ -53,8 +53,8 @@ inline void CGX::SetTevKAlphaSel(GXTevStageID stageId, GXTevKAlphaSel sel) {
 
 #include "Kyoto/Math/CTransform4f.hpp"
 
-CVector3f sPlayerPosition;
-CVector3f CCubeMaterial::sViewingFrom;
+CVector3f sPlayerPosition = CVector3f::Zero();
+CVector3f CCubeMaterial::sViewingFrom = CVector3f::Zero();
 static CTransform4f sTextureProjectionTransform = CTransform4f::Identity();
 
 void CCubeMaterial::SetupBlendMode(uint blendFactors, const CModelFlags& flags, bool alphaTest) {
