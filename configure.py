@@ -134,6 +134,7 @@ LIBS = [
         "objects": ["MetroTRK/mslsupp"],
     },
     {
+        "lib": "MetroidPrimeCW",
         "cflags": "$cflags_retro",
         "mwcc_version": "1.3.2",
         "objects": [
@@ -1111,7 +1112,7 @@ LIBS = [
 ]
 
 # Create & link static libraries
-# Currently broken due to deadstripping
+# Disabled by default for now until we can get it working on windows/macOS
 ENABLE_STATIC_LIBS = False
 
 # On Windows, we need this to use && in commands

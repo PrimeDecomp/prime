@@ -9,6 +9,7 @@
 
 class CInputStream;
 class COutputStream;
+class CRelAngle;
 
 enum EDimX { kDX };
 enum EDimY { kDY };
@@ -31,13 +32,14 @@ public:
   void SetZ(f32 z) { mZ = z; }
 
   // ByElementMultiply__9CVector3fFRC9CVector3fRC9CVector3f
-  // Slerp__9CVector3fFRC9CVector3fRC9CVector3fRC9CRelAngle
-  void Normalize();
+  static CVector3f Slerp(const CVector3f& a, const CVector3f& b, const CRelAngle& angle);
+  CVector3f& Normalize();
   f32 Magnitude() const;
   CVector3f AsNormalized() const;
+  bool IsNotInf() const;
+  bool IsMagnitudeSafe() const;
   bool CanBeNormalized() const;
-  // GetAngleDiff__9CVector3fFRC9CVector3fRC9CVector3f
-  // IsEqu__9CVector3fCFRC9CVector3ff
+  static float GetAngleDiff(const CVector3f& a, const CVector3f& b);
   bool IsEqu(const CVector3f& other, f32 epsilon = FLT_EPSILON) const;
   // Lerp__9CVector3fFRC9CVector3fRC9CVector3ff
   // MagSquared__9CVector3fCFv weak
@@ -104,6 +106,7 @@ private:
   f32 mZ;
 
   static CVector3f sZeroVector;
+  static int sUnkData[18];
   static CVector3f sUpVector;
   static CVector3f sDownVector;
   static CVector3f sLeftVector;

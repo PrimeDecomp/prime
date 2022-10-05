@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803EE3B8
-lbl_803EE3B8:
+.global __vt__13COutputStream
+__vt__13COutputStream:
 	# ROM: 0x3EB3B8
 	.4byte 0
 	.4byte 0
@@ -232,8 +232,8 @@ __dt__13COutputStreamFv:
 /* 8033F6A4 0033C604  93 C1 00 08 */	stw r30, 8(r1)
 /* 8033F6A8 0033C608  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8033F6AC 0033C60C  41 82 00 34 */	beq lbl_8033F6E0
-/* 8033F6B0 0033C610  3C 60 80 3F */	lis r3, lbl_803EE3B8@ha
-/* 8033F6B4 0033C614  38 03 E3 B8 */	addi r0, r3, lbl_803EE3B8@l
+/* 8033F6B0 0033C610  3C 60 80 3F */	lis r3, __vt__13COutputStream@ha
+/* 8033F6B4 0033C614  38 03 E3 B8 */	addi r0, r3, __vt__13COutputStream@l
 /* 8033F6B8 0033C618  90 1E 00 00 */	stw r0, 0(r30)
 /* 8033F6BC 0033C61C  80 1E 00 08 */	lwz r0, 8(r30)
 /* 8033F6C0 0033C620  28 00 00 40 */	cmplwi r0, 0x40
@@ -258,13 +258,13 @@ lbl_8033F6E0:
 __ct__13COutputStreamFi:
 /* 8033F6FC 0033C65C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8033F700 0033C660  7C 08 02 A6 */	mflr r0
-/* 8033F704 0033C664  3C A0 80 3F */	lis r5, lbl_803EE3B8@ha
+/* 8033F704 0033C664  3C A0 80 3F */	lis r5, __vt__13COutputStream@ha
 /* 8033F708 0033C668  2C 04 00 40 */	cmpwi r4, 0x40
 /* 8033F70C 0033C66C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8033F710 0033C670  38 00 00 00 */	li r0, 0
 /* 8033F714 0033C674  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8033F718 0033C678  7C 7F 1B 78 */	mr r31, r3
-/* 8033F71C 0033C67C  38 65 E3 B8 */	addi r3, r5, lbl_803EE3B8@l
+/* 8033F71C 0033C67C  38 65 E3 B8 */	addi r3, r5, __vt__13COutputStream@l
 /* 8033F720 0033C680  90 7F 00 00 */	stw r3, 0(r31)
 /* 8033F724 0033C684  90 1F 00 04 */	stw r0, 4(r31)
 /* 8033F728 0033C688  90 9F 00 08 */	stw r4, 8(r31)
@@ -310,4 +310,3 @@ lbl_803D7A70:
 	# ROM: 0x3D4A70
 	.asciz "??(??)"
 	.balign 4
-
