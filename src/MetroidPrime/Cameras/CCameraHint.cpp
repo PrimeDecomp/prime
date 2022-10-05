@@ -1,12 +1,12 @@
 #include "MetroidPrime/Cameras/CCameraHint.hpp"
 #include "Kyoto/Alloc/CMemory.hpp"
 
-CCameraHint::CCameraHint(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour,
-                         float minDist, float maxDist, float backwardsDist, CVector3f* lookAtOffset,
-                         CVector3f* chaseLookAtOffset, CVector3f* ballToCam, float fov,
-                         float attitudeRange, float azimuthRange, float anglePerSecond,
-                         float clampVelRange, float clampRotRange, float elevation,
-                         float InterpolationTime, float clampVelTime, float controlInterpDur)
+CCameraHint::CCameraHint(uint overrideFlags, CBallCamera::EBallCameraBehaviour behaviour, float minDist,
+              float maxDist, float backwardsDist, const CVector3f& lookAtOffset,
+              const CVector3f& chaseLookAtOffset, const CVector3f& ballToCam, float fov,
+              float attitudeRange, float azimuthRange, float anglePerSecond, float clampVelRange,
+              float clampRotRange, float elevation, float interpolateTime, float clampVelTime,
+              float controlInterpDur)
 : mOverrideFlags(overrideFlags)
 , mBehaviour(behaviour)
 , mMinDist(minDist)
@@ -17,7 +17,6 @@ CCameraHint::CCameraHint(uint overrideFlags, CBallCamera::EBallCameraBehaviour b
 , mBallToCam(ballToCam)
 , mFov(fov)
 , mAttitudeRange(attitudeRange)
-, mAzimuthRnage(azimuthRange)
 , mAnglePerSecond(anglePerSecond)
 , mClampVelRange(clampVelRange)
 , mClampRotRange(clampRotRange)

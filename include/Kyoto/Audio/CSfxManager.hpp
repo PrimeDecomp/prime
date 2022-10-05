@@ -5,6 +5,7 @@
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 
+class CVector3f;
 class CSfxManager {
 public:
   static void Update(f32 dt);

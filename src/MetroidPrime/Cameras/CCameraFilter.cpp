@@ -1,17 +1,20 @@
 #include "Kyoto/Graphics/CGraphics.hpp"
+#include "Kyoto/Graphics/CTexture.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
+
+#include "stdlib.h"
 
 // FIXME non-matching https://decomp.me/scratch/8N81d
 void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, f32 lod) {
   const rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  f32 left = vp.first.mX;
-  f32 dVar5 = -((vp.second.mX - vp.first.mX) * 0.0625f * 9.f - (vp.second.mY - vp.first.mY)) * 0.5f;
-  f32 bottom = vp.first.mY;
-  f32 right = vp.second.mX;
-  f32 top = vp.second.mY;
+  f32 left = vp.first.GetX();
+  f32 dVar5 = -((vp.second.GetX() - vp.first.GetX()) * 0.0625f * 9.f - (vp.second.GetY() - vp.first.GetY())) * 0.5f;
+  f32 bottom = vp.first.GetY();
+  f32 right = vp.second.GetX();
+  f32 top = vp.second.GetY();
   gpRender->SetDepthReadWrite(false, false);
-  gpRender->SetModelMatrix(CTransform4f::sIdentity);
+  gpRender->SetModelMatrix(CTransform4f::Identity());
   if (tex != nullptr) {
     tex->Load(GX_TEXMAP0, CTexture::Repeat);
   }

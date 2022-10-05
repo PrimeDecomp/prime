@@ -134,7 +134,7 @@ CMain::CMain()
 , x120_(0.f)
 , x124_(0.f)
 , x128_gameGlobalObjects(nullptr)
-, x12c_flowState(kFS_Default)
+, x12c_restartMode(kRM_Default)
 , x130_frameTimes(0xF4240)
 , x15c_frameTimeIdx(0)
 , x160_24_finished(false)
@@ -688,7 +688,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
         needsReset = true;
       }
       if (needsReset) {
-        x12c_flowState = kFS_Default;
+        x12c_restartMode = kRM_Default;
         CStreamAudioManager::StopAll();
         PADRecalibrate(0xf0000000);
         CGraphics::SetIsBeginSceneClearFb(true);

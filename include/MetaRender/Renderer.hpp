@@ -14,6 +14,7 @@ public:
   // TODO vtable
 };
 
+class IObjectStore;
 class COsContext;
 class CMemorySys;
 class CResFactory;
