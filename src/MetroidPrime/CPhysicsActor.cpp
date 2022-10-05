@@ -1,5 +1,7 @@
 #include "MetroidPrime/CPhysicsActor.hpp"
 
+const float CPhysicsActor::skGravityConstant = 9.81f * 2.5f;
+
 CPhysicsActor::CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name,
                              const CEntityInfo& info, const CTransform4f& xf,
                              const CModelData& mData, const CMaterialList& matList,
@@ -80,15 +82,14 @@ void CPhysicsActor::ComputeDerivedQuantities() {
 }
 
 CPhysicsState CPhysicsActor::GetPhysicsState() const {
-  CQuaternion quat(CQuaternion::FromMatrix(x34_transform));
-  return CPhysicsState(GetTranslation(), quat, xfc_constantForce, x108_angularMomentum,
-                       x150_momentum, x15c_force, x168_impulse, x174_torque, x180_angularImpulse);
+  return CPhysicsState(GetTranslation(), GetRotation(), GetConstantForceWR(),
+                       GetAngularMomentumWR(), GetMomentumWR(), GetForceWR(), GetImpulseWR(),
+                       GetTorqueWR(), GetAngularImpulseWR());
 }
-
 
 void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   SetTranslation(state.GetTranslation());
-  CQuaternion quat(state.GetOrientationWR());
+  CQuaternion quat = state.GetOrientationWR();
   SetTransform(quat.BuildTransform4f(GetTranslation()));
   xfc_constantForce = state.GetConstantForceWR();
   x108_angularMomentum = state.GetAngularMomentumWR();

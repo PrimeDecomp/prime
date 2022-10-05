@@ -265,7 +265,10 @@ public:
   void SetRotation(const CQuaternion& rot) {
     SetTransform(rot.BuildTransform4f(GetTranslation()));
   }
-  CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
+  const CQuaternion& GetRotation() const { 
+    return CQuaternion::FromMatrix(GetTransform());
+  }
+  const CVector3f& GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);
   CTransform4f GetLocatorTransform(const rstl::string& segName) const;
   CTransform4f GetScaledLocatorTransform(const rstl::string& segName) const;
