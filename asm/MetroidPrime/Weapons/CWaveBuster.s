@@ -2368,7 +2368,7 @@ sub_801bf6ec:
 /* 801BF89C 001BC7FC  88 1F 03 D0 */	lbz r0, 0x3d0(r31)
 /* 801BF8A0 001BC800  38 60 00 01 */	li r3, 1
 /* 801BF8A4 001BC804  50 60 2E B4 */	rlwimi r0, r3, 5, 0x1a, 0x1a
-/* 801BF8A8 001BC808  A9 22 C5 F8 */	lha r9, lbl_805AE318@sda21(r2)
+/* 801BF8A8 001BC808  A9 22 C5 F8 */	lha r9, kMaxPriority__11CSfxManager@sda21(r2)
 /* 801BF8AC 001BC80C  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 801BF8B0 001BC810  98 1F 03 D0 */	stb r0, 0x3d0(r31)
 /* 801BF8B4 001BC814  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
@@ -2914,7 +2914,7 @@ SetNewTarget__11CWaveBusterF9TUniqueId:
 /* 801C009C 001BCFFC  98 03 03 D0 */	stb r0, 0x3d0(r3)
 /* 801C00A0 001BD000  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801C00A4 001BD004  38 C4 66 A0 */	addi r6, r4, sZeroVector__9CVector3f@l
-/* 801C00A8 001BD008  A9 22 C5 F8 */	lha r9, lbl_805AE318@sda21(r2)
+/* 801C00A8 001BD008  A9 22 C5 F8 */	lha r9, kMaxPriority__11CSfxManager@sda21(r2)
 /* 801C00AC 001BD00C  D0 03 03 A0 */	stfs f0, 0x3a0(r3)
 /* 801C00B0 001BD010  38 A1 00 10 */	addi r5, r1, 0x10
 /* 801C00B4 001BD014  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
@@ -3014,7 +3014,7 @@ sub_801c0144:
 /* 801C01F4 001BD154  D0 01 00 AC */	stfs f0, 0xac(r1)
 /* 801C01F8 001BD158  3A C1 00 A8 */	addi r22, r1, 0xa8
 /* 801C01FC 001BD15C  39 81 00 98 */	addi r12, r1, 0x98
-/* 801C0200 001BD160  A1 62 C5 FC */	lhz r11, lbl_805AE31C@sda21(r2)
+/* 801C0200 001BD160  A1 62 C5 FC */	lhz r11, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801C0204 001BD164  D0 01 00 B0 */	stfs f0, 0xb0(r1)
 /* 801C0208 001BD168  7F E3 FB 78 */	mr r3, r31
 /* 801C020C 001BD16C  7E E5 BB 78 */	mr r5, r23

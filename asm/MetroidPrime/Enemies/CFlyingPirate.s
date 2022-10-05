@@ -5521,7 +5521,7 @@ lbl_801F88DC:
 /* 801F8914 001F5874  39 01 00 48 */	addi r8, r1, 0x48
 /* 801F8918 001F5878  B0 01 00 38 */	sth r0, 0x38(r1)
 /* 801F891C 001F587C  39 60 00 00 */	li r11, 0
-/* 801F8920 001F5880  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 801F8920 001F5880  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801F8924 001F5884  7F C3 F3 78 */	mr r3, r30
 /* 801F8928 001F5888  90 A1 00 08 */	stw r5, 8(r1)
 /* 801F892C 001F588C  7F E5 FB 78 */	mr r5, r31
@@ -5695,7 +5695,7 @@ FireProjectile__13CFlyingPirateFR13CStateManagerRC9CVector3f:
 /* 801F8B90 001F5AF0  39 60 00 00 */	li r11, 0
 /* 801F8B94 001F5AF4  99 61 01 04 */	stb r11, 0x104(r1)
 /* 801F8B98 001F5AF8  38 01 00 EC */	addi r0, r1, 0xec
-/* 801F8B9C 001F5AFC  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 801F8B9C 001F5AFC  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801F8BA0 001F5B00  7F A3 EB 78 */	mr r3, r29
 /* 801F8BA4 001F5B04  D0 01 00 EC */	stfs f0, 0xec(r1)
 /* 801F8BA8 001F5B08  7F C5 F3 78 */	mr r5, r30
@@ -5899,7 +5899,7 @@ lbl_801F8D88:
 /* 801F8EB0 001F5E10  39 60 00 00 */	li r11, 0
 /* 801F8EB4 001F5E14  99 61 00 94 */	stb r11, 0x94(r1)
 /* 801F8EB8 001F5E18  38 01 00 7C */	addi r0, r1, 0x7c
-/* 801F8EBC 001F5E1C  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 801F8EBC 001F5E1C  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801F8EC0 001F5E20  7F A3 EB 78 */	mr r3, r29
 /* 801F8EC4 001F5E24  D0 01 00 7C */	stfs f0, 0x7c(r1)
 /* 801F8EC8 001F5E28  7F C5 F3 78 */	mr r5, r30

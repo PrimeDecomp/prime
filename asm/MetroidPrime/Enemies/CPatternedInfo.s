@@ -184,7 +184,7 @@ lbl_80105AB4:
 /* 80105ACC 00102A2C  48 1E 2E E5 */	bl TranslateSFXID__11CSfxManagerFUs
 /* 80105AD0 00102A30  48 00 00 08 */	b lbl_80105AD8
 lbl_80105AD4:
-/* 80105AD4 00102A34  A0 62 C5 FC */	lhz r3, lbl_805AE31C@sda21(r2)
+/* 80105AD4 00102A34  A0 62 C5 FC */	lhz r3, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 lbl_80105AD8:
 /* 80105AD8 00102A38  54 60 04 3E */	clrlwi r0, r3, 0x10
 /* 80105ADC 00102A3C  7F A3 EB 78 */	mr r3, r29

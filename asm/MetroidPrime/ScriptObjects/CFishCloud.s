@@ -4713,7 +4713,7 @@ lbl_801D2090:
 /* 801D23BC 001CF31C  90 8F 01 F8 */	stw r4, 0x1f8(r15)
 /* 801D23C0 001CF320  90 8F 02 1C */	stw r4, 0x21c(r15)
 /* 801D23C4 001CF324  40 82 00 08 */	bne lbl_801D23CC
-/* 801D23C8 001CF328  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 801D23C8 001CF328  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 lbl_801D23CC:
 /* 801D23CC 001CF32C  54 03 04 3E */	clrlwi r3, r0, 0x10
 /* 801D23D0 001CF330  48 11 65 E1 */	bl TranslateSFXID__11CSfxManagerFUs

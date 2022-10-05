@@ -17,8 +17,8 @@
 #include "MetroidPrime/HUD/CSamusHud.hpp"
 
 #include "Kyoto/CResFactory.hpp"
+#include "Kyoto/Math/CAbsAngle.hpp"
 #include "Kyoto/Math/CMath.hpp"
-#include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Text/CStringTable.hpp"
 
 #include "rstl/math.hpp"
@@ -39,18 +39,22 @@ CScriptPickup::CScriptPickup(TUniqueId uid, const rstl::string& name, const CEnt
 , x264_possibility(possibility)
 , x268_fadeInTime(fadeInTime)
 , x26c_lifeTime(lifeTime)
-, x278_delayTimer(startDelay) {
+, x270_curTime(0.f)
+, x278_delayTimer(startDelay)
+, x28c_24_generated(false)
+, x28c_25_inTractor(false)
+, x28c_26_enableTractorTest(false) {
   if (pickupEffect != kInvalidAssetId) {
     x27c_pickupParticleDesc = gpSimplePool->GetObj(SObjectTag('PART', pickupEffect));
+    x27c_pickupParticleDesc->Lock();
   }
 
-  if (!x64_modelData.null() && x64_modelData->GetAnimationData()) {
-    x64_modelData->AnimationData()->SetAnimation(CAnimPlaybackParms(0, -1, 1.f, true), false);
+  if (HasAnimation()) {
+    AnimationData()->SetAnimation(CAnimPlaybackParms(0, -1, 1.f, true), false);
   }
 
-  if (x278_delayTimer != 0.f) {
-    xb4_drawFlags = CModelFlags(CModelFlags::kT_Blend, 0, CModelFlags::kF_DepthCompare,
-                                CColor(1.f, 1.f, 1.f, 0.f));
+  if (x268_fadeInTime) {
+    SetModelFlags(CModelFlags::AlphaBlended(0.f).DepthCompareUpdate(true, false));
   }
 }
 
@@ -69,19 +73,19 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
 
   x270_curTime += dt;
   if (x28c_25_inTractor && (x26c_lifeTime - x270_curTime) < 2.f) {
-    x270_curTime = rstl::max_val(x270_curTime - 2.f * dt, x26c_lifeTime - 2.f - FLT_EPSILON);
+    x270_curTime = rstl::max_val(x26c_lifeTime - 2.f - FLT_EPSILON, x270_curTime - 2.f * dt);
   }
 
-  CModelFlags drawFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.f));
+  CModelFlags drawFlags = CModelFlags::Normal();
 
-  if (x268_fadeInTime != 0.f) {
+  if (x268_fadeInTime) {
     if (x270_curTime < x268_fadeInTime) {
-      drawFlags = CModelFlags(CModelFlags::kT_Blend, 0, CModelFlags::kF_DepthCompare,
-                              CColor(1.f, 1.f, 1.f, x270_curTime / x268_fadeInTime));
+      drawFlags =
+          CModelFlags::AlphaBlended(x270_curTime / x268_fadeInTime).DepthCompareUpdate(true, false);
     } else {
       x268_fadeInTime = 0.f;
     }
-  } else if (x26c_lifeTime != 0.f) {
+  } else if (x26c_lifeTime) {
     float alpha = 1.f;
     if (x26c_lifeTime < 2.f) {
       alpha = 1.f - (x26c_lifeTime / x270_curTime);
@@ -89,13 +93,12 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
       alpha = (x26c_lifeTime - x270_curTime) * 0.5f;
     }
 
-    drawFlags = CModelFlags(CModelFlags::kT_Blend, 0, CModelFlags::kF_DepthCompare,
-                            CColor(1.f, 1.f, 1.f, alpha));
+    drawFlags = CModelFlags::AlphaBlended(alpha).DepthCompareUpdate(true, false);
   }
 
-  xb4_drawFlags = drawFlags;
+  SetModelFlags(drawFlags);
 
-  if (!x64_modelData.null() && x64_modelData->HasAnimation()) {
+  if (HasAnimation()) {
     SAdvancementDeltas deltas = UpdateAnimation(dt, mgr, true);
     MoveToOR(deltas.GetOffsetDelta(), dt);
     RotateToOR(deltas.GetOrientationDelta(), dt);
@@ -103,30 +106,24 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
 
   if (x28c_25_inTractor) {
     CVector3f posDelta =
-        mgr.GetPlayer()->GetTranslation() + (CVector3f::Up() * 2.0) - GetTranslation();
+        (mgr.GetPlayer()->GetTranslation() + CVector3f::Up()) * 2.0 - GetTranslation();
     x274_tractorTime += dt;
     posDelta = posDelta.AsNormalized() * (20.f * (0.5f * rstl::min_val(2.f, x274_tractorTime)));
-
-    if (x28c_26_enableTractorTest && (mgr.GetPlayer()->GetPlayerGun()->IsCharging()
-                                          ? mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor()
-                                          : 0.f) < CPlayerGun::GetTractorBeamFactor()) {
+    if (x28c_26_enableTractorTest && mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() <
+                                         CPlayerGun::GetTractorBeamFactor()) {
       x28c_26_enableTractorTest = false;
       x28c_25_inTractor = false;
       posDelta = CVector3f::Zero();
     }
     SetVelocityWR(posDelta);
   } else if (x28c_24_generated) {
-    const float chargeFactor = mgr.GetPlayer()->GetPlayerGun()->IsCharging()
-                                   ? mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor()
-                                   : 0.f;
-
-    if (chargeFactor > CPlayerGun::GetTractorBeamFactor()) {
-      const CVector3f posDelta =
-          GetTranslation() - mgr.GetCameraManager()->GetFirstPersonCamera()->GetTranslation();
-      const float relFov = CRelAngle::FromDegrees(gpTweakGame->GetFirstPersonFOV()).AsRadians();
-      if (CVector3f::Dot(
-              mgr.GetCameraManager()->GetFirstPersonCamera()->GetTransform().GetForward(),
-              posDelta.AsNormalized()) > cos(relFov) &&
+    if (mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() >
+        CPlayerGun::GetTractorBeamFactor()) {
+      const CFirstPersonCamera* camera = mgr.GetCameraManager()->GetFirstPersonCamera();
+      CVector3f posDelta = GetTranslation() - camera->GetTranslation();
+      CAbsAngle fov = CAbsAngle::FromDegrees(gpTweakGame->GetFirstPersonFOV());
+      if (CVector3f::Dot(camera->GetTransform().GetColumn(kDY), posDelta.AsNormalized()) >
+              cosine(fov) &&
           posDelta.MagSquared() < (30.f * 30.f)) {
         x28c_25_inTractor = true;
         x28c_26_enableTractorTest = true;
@@ -135,7 +132,7 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
     }
   }
 
-  if (x26c_lifeTime != 0.f && x270_curTime > x26c_lifeTime) {
+  if (x26c_lifeTime && x270_curTime > x26c_lifeTime) {
     mgr.FreeScriptObject(GetUniqueId());
   }
 }
@@ -201,8 +198,8 @@ void CScriptPickup::Render(const CStateManager& mgr) const override { CPhysicsAc
 
 void CScriptPickup::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-float CScriptPickup::GetPossibility() const { return x264_possibility; }
-
 CPlayerState::EItemType CScriptPickup::GetItem() const { return x258_itemType; }
+
+float CScriptPickup::GetPossibility() const { return x264_possibility; }
 
 void CScriptPickup::SetSpawned() { x28c_24_generated = true; }

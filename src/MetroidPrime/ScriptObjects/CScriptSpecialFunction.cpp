@@ -826,7 +826,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           f28 = x138_ - f28; // always 0?
           if (close_enough(x138_, 1.f)) {
             if (!x1e4_27_sfx3Played) {
-              if (x174_sfx3 != InvalidSfxId) {
+              if (x174_sfx3 != CSfxManager::kInternalInvalidSfxId) {
                 CSfxManager::AddEmitter(x174_sfx3, GetTranslation(), CVector3f::Zero(), true,
                                         false);
               }
@@ -842,7 +842,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
 
           if (close_enough(x138_, 0.f)) {
             if (!x1e4_26_sfx2Played) {
-              if (x172_sfx2 != InvalidSfxId) {
+              if (x172_sfx2 != CSfxManager::kInternalInvalidSfxId) {
                 CSfxManager::AddEmitter(x172_sfx2, GetTranslation(), CVector3f::Zero(), true,
                                         false);
               }
@@ -859,10 +859,10 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           rstl::optional_object< float > unused = x184_.GetAverage();
 
           if (noSfxPlayed) {
-            if (x170_sfx1 != InvalidSfxId) {
+            if (x170_sfx1 != CSfxManager::kInternalInvalidSfxId) {
               bool b = f28 >= 0.f;
               if (noSfxPlayed) {
-                x184_.AddValue(b ? u8(100) : u8(0x7F));
+                x184_.AddValue(b ? uchar(100) : uchar(0x7F));
               } else {
                 x184_.AddValue(0.f);
               }

@@ -256,13 +256,13 @@ CScriptMazeNode::CScriptMazeNode(TUniqueId uid, const rstl::string& name, const 
 
 void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 
-// static inline TUniqueId GenerateObject(CStateManager& mgr, const TEditorId& eid) {
-//   bool wasGeneratingObject = mgr.IsGeneratingObject();
-//   mgr.SetIsGeneratingObject(true);
-//   TUniqueId objUid = mgr.GenerateObject(eid).second;
-//   mgr.SetIsGeneratingObject(wasGeneratingObject);
-//   return objUid;
-// }
+static inline TUniqueId GenerateObject(CStateManager& mgr, const TEditorId& eid) {
+  bool wasGeneratingObject = mgr.IsGeneratingObject();
+  mgr.SetIsGeneratingObject(true);
+  TUniqueId objUid = mgr.GenerateObject(eid).second;
+  mgr.SetIsGeneratingObject(wasGeneratingObject);
+  return objUid;
+}
 
 // struct GenerateObjectGuard {
 //   GenerateObjectGuard(CStateManager& mgr) : mgr(mgr), wasGenerating(mgr.IsGeneratingObject()) {}
@@ -274,16 +274,16 @@ void CScriptMazeNode::Accept(IVisitor& visitor) { visitor.Visit(*this); }
 // TODO non-matching
 // https://decomp.me/scratch/IvHBz
 void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
-  rstl::vector< SConnection >::iterator conn = ConnectionList().begin();
-  for (; conn != ConnectionList().end(); ++conn) {
+  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+  for (; conn != GetConnectionList().end(); ++conn) {
     if (conn->x0_state != kSS_MaxReached || conn->x4_msg != kSM_Activate) {
       continue;
     }
 
-    const CEntity* ent = mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId));
-    const CScriptEffect* scriptEffect = TCastToConstPtr< CScriptEffect >(ent);
-    const CScriptActor* scriptActor = TCastToConstPtr< CScriptActor >(ent);
-    const CScriptTrigger* scriptTrigger = TCastToConstPtr< CScriptTrigger >(ent);
+    CEntity* ent = mgr.ObjectById(mgr.GetIdForScript(conn->x8_objId));
+    CScriptEffect* scriptEffect = TCastToPtr< CScriptEffect >(ent);
+    CScriptActor* scriptActor = TCastToPtr< CScriptActor >(ent);
+    CScriptTrigger* scriptTrigger = TCastToPtr< CScriptTrigger >(ent);
     if (!scriptEffect && !scriptActor && !scriptTrigger) {
       continue;
     }
@@ -291,12 +291,12 @@ void CScriptMazeNode::GenerateObjects(CStateManager& mgr) {
       continue;
     }
 
-    // TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
+    TUniqueId objUid = GenerateObject(mgr, conn->x8_objId);
     // TUniqueId objUid = kInvalidUniqueId;
-    bool wasGeneratingObject = mgr.IsGeneratingObject();
-    mgr.SetIsGeneratingObject(true);
-    TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
-    mgr.SetIsGeneratingObject(wasGeneratingObject);
+    // bool wasGeneratingObject = mgr.IsGeneratingObject();
+    // mgr.SetIsGeneratingObject(true);
+    // TUniqueId objUid = mgr.GenerateObject(conn->x8_objId).second;
+    // mgr.SetIsGeneratingObject(wasGeneratingObject);
 
     if (CActor* actor = static_cast< CActor* >(mgr.ObjectById(objUid))) {
       mgr.SendScriptMsg(actor, GetUniqueId(), kSM_Activate);

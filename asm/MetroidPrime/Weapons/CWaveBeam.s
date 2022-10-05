@@ -449,7 +449,7 @@ lbl_800E04E4:
 /* 800E05CC 000DD52C  3A 21 00 54 */	addi r17, r1, 0x54
 /* 800E05D0 000DD530  90 01 00 0C */	stw r0, 0xc(r1)
 /* 800E05D4 000DD534  39 81 00 60 */	addi r12, r1, 0x60
-/* 800E05D8 000DD538  A1 62 C5 FC */	lhz r11, lbl_805AE31C@sda21(r2)
+/* 800E05D8 000DD538  A1 62 C5 FC */	lhz r11, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 800E05DC 000DD53C  38 00 00 00 */	li r0, 0
 /* 800E05E0 000DD540  90 61 00 10 */	stw r3, 0x10(r1)
 /* 800E05E4 000DD544  7F A3 EB 78 */	mr r3, r29
@@ -1095,4 +1095,3 @@ lbl_803CE568:
 	.asciz "ve2nd_2"
 	.asciz "Wave2nd_3"
 	.balign 4
-

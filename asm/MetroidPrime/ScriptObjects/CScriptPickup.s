@@ -8,7 +8,7 @@ lbl_803DF4F8:
 	# ROM: 0x3DC4F8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__13CScriptPickup
+	.4byte __dt__13CScriptPickupFv
 	.4byte Accept__13CScriptPickupFR8IVisitor
 	.4byte PreThink__7CEntityFfR13CStateManager
 	.4byte Think__13CScriptPickupFfR13CStateManager
@@ -851,8 +851,8 @@ lbl_800C3028:
 /* 800C3054 000BFFB4  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 800C3058 000BFFB8  4E 80 00 20 */	blr
 
-.global __dt__13CScriptPickup
-__dt__13CScriptPickup:
+.global __dt__13CScriptPickupFv
+__dt__13CScriptPickupFv:
 /* 800C305C 000BFFBC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800C3060 000BFFC0  7C 08 02 A6 */	mflr r0
 /* 800C3064 000BFFC4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -895,8 +895,8 @@ lbl_800C30D8:
 /* 800C30EC 000C004C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800C30F0 000C0050  4E 80 00 20 */	blr
 
-.global "__ct__13CScriptPickupF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxiiiiffffb"
-"__ct__13CScriptPickupF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxiiiiffffb":
+.global "__ct__13CScriptPickupF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxQ212CPlayerState9EItemTypeiiUiffffb"
+"__ct__13CScriptPickupF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfoRC12CTransform4fRC10CModelDataRC16CActorParametersRC6CAABoxQ212CPlayerState9EItemTypeiiUiffffb":
 /* 800C30F4 000C0054  94 21 FE E0 */	stwu r1, -0x120(r1)
 /* 800C30F8 000C0058  7C 08 02 A6 */	mflr r0
 /* 800C30FC 000C005C  90 01 01 24 */	stw r0, 0x124(r1)

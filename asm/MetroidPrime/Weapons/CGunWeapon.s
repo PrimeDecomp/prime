@@ -2162,7 +2162,7 @@ lbl_801BB9CC:
 /* 801BBA44 001B89A4  B0 61 00 34 */	sth r3, 0x34(r1)
 /* 801BBA48 001B89A8  39 61 00 58 */	addi r11, r1, 0x58
 /* 801BBA4C 001B89AC  39 01 00 48 */	addi r8, r1, 0x48
-/* 801BBA50 001B89B0  A0 C2 C5 FC */	lhz r6, lbl_805AE31C@sda21(r2)
+/* 801BBA50 001B89B0  A0 C2 C5 FC */	lhz r6, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801BBA54 001B89B4  90 01 00 08 */	stw r0, 8(r1)
 /* 801BBA58 001B89B8  38 00 00 00 */	li r0, 0
 /* 801BBA5C 001B89BC  7F C3 F3 78 */	mr r3, r30
@@ -4402,4 +4402,3 @@ lbl_803D19D7:
 	.4byte 0x3F3F2900
 	.asciz "Whole Body"
 	.balign 4
-

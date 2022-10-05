@@ -12,9 +12,10 @@ public:
   static void UpdateEmitter(CSfxHandle handle, const CVector3f& pos, const CVector3f& dir,
                             uchar maxVol);
 
-  static const s16 kMaxPriority; // 0xFF
-  static const s16 kMedPriority; // 0x7F
-  static const int kAllAreas;    // 0xFFFF
+  static const s16 kMaxPriority;          // 0xFF
+  static const s16 kMedPriority;          // 0x7F
+  static const u16 kInternalInvalidSfxId; // 0xFFFF
+  static const int kAllAreas;             // 0xFFFFFFFF
   static CSfxHandle AddEmitter(u16 id, const CVector3f& pos, const CVector3f& dir,
                                bool useAcoustics, bool looped, s16 prio = kMedPriority,
                                int areaId = kAllAreas);

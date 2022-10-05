@@ -1614,7 +1614,7 @@ lbl_80198AE8:
 /* 80198B4C 00195AAC  A0 0D A3 8C */	lhz r0, kInvalidUniqueId@sda21(r13)
 /* 80198B50 00195AB0  9A A1 00 70 */	stb r21, 0x70(r1)
 /* 80198B54 00195AB4  B0 01 00 30 */	sth r0, 0x30(r1)
-/* 80198B58 00195AB8  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 80198B58 00195AB8  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80198B5C 00195ABC  D0 01 00 74 */	stfs f0, 0x74(r1)
 /* 80198B60 00195AC0  D0 01 00 78 */	stfs f0, 0x78(r1)
 /* 80198B64 00195AC4  D0 01 00 7C */	stfs f0, 0x7c(r1)

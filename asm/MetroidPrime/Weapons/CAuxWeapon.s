@@ -636,7 +636,7 @@ lbl_801B919C:
 /* 801B91A8 001B6108  48 0D 18 7D */	bl GetShotDamageInfo__10CGunWeaponCFRC10SShotParamR13CStateManager
 /* 801B91AC 001B610C  92 41 00 08 */	stw r18, 8(r1)
 /* 801B91B0 001B6110  63 84 08 00 */	ori r4, r28, 0x800
-/* 801B91B4 001B6114  A1 62 C5 FC */	lhz r11, lbl_805AE31C@sda21(r2)
+/* 801B91B4 001B6114  A1 62 C5 FC */	lhz r11, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 801B91B8 001B6118  38 00 00 00 */	li r0, 0
 /* 801B91BC 001B611C  92 61 00 0C */	stw r19, 0xc(r1)
 /* 801B91C0 001B6120  7E A3 AB 78 */	mr r3, r21
@@ -1491,4 +1491,3 @@ lbl_803D1699:
 	.byte 0x42, 0x75
 	.asciz "sterMuzzle"
 	.balign 4
-

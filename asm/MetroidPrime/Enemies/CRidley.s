@@ -5804,7 +5804,7 @@ lbl_80256F04:
 /* 80256FB0 00253F10  38 E0 00 01 */	li r7, 1
 /* 80256FB4 00253F14  C0 06 00 08 */	lfs f0, 8(r6)
 /* 80256FB8 00253F18  D0 A1 00 B0 */	stfs f5, 0xb0(r1)
-/* 80256FBC 00253F1C  A8 C2 C5 F8 */	lha r6, lbl_805AE318@sda21(r2)
+/* 80256FBC 00253F1C  A8 C2 C5 F8 */	lha r6, kMaxPriority__11CSfxManager@sda21(r2)
 /* 80256FC0 00253F20  D0 A1 00 B4 */	stfs f5, 0xb4(r1)
 /* 80256FC4 00253F24  81 02 C6 00 */	lwz r8, kAllAreas__11CSfxManager@sda21(r2)
 /* 80256FC8 00253F28  D0 A1 00 B8 */	stfs f5, 0xb8(r1)
@@ -7220,7 +7220,7 @@ lbl_80258428:
 /* 80258454 002553B4  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80258458 002553B8  D0 A1 03 30 */	stfs f5, 0x330(r1)
 /* 8025845C 002553BC  39 03 66 A0 */	addi r8, r3, sZeroVector__9CVector3f@l
-/* 80258460 002553C0  A8 C2 C5 F8 */	lha r6, lbl_805AE318@sda21(r2)
+/* 80258460 002553C0  A8 C2 C5 F8 */	lha r6, kMaxPriority__11CSfxManager@sda21(r2)
 /* 80258464 002553C4  D0 A1 03 34 */	stfs f5, 0x334(r1)
 /* 80258468 002553C8  38 61 00 A4 */	addi r3, r1, 0xa4
 /* 8025846C 002553CC  C0 48 00 00 */	lfs f2, 0(r8)
@@ -7405,7 +7405,7 @@ lbl_80258578:
 /* 80258714 00255674  39 61 01 0C */	addi r11, r1, 0x10c
 /* 80258718 00255678  90 01 00 08 */	stw r0, 8(r1)
 /* 8025871C 0025567C  7F 63 DB 78 */	mr r3, r27
-/* 80258720 00255680  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 80258720 00255680  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80258724 00255684  38 BC 0C 14 */	addi r5, r28, 0xc14
 /* 80258728 00255688  90 C1 00 0C */	stw r6, 0xc(r1)
 /* 8025872C 0025568C  38 E1 03 00 */	addi r7, r1, 0x300
@@ -7589,7 +7589,7 @@ lbl_80258828:
 /* 802589D0 00255930  39 61 00 CC */	addi r11, r1, 0xcc
 /* 802589D4 00255934  90 01 00 08 */	stw r0, 8(r1)
 /* 802589D8 00255938  7F 63 DB 78 */	mr r3, r27
-/* 802589DC 0025593C  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 802589DC 0025593C  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 802589E0 00255940  38 BC 0C 3C */	addi r5, r28, 0xc3c
 /* 802589E4 00255944  90 C1 00 0C */	stw r6, 0xc(r1)
 /* 802589E8 00255948  38 E1 02 D0 */	addi r7, r1, 0x2d0

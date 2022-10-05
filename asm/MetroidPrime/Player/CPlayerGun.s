@@ -1095,7 +1095,7 @@ lbl_8003B02C:
 /* 8003B050 00037FB0  40 80 00 08 */	bge lbl_8003B058
 /* 8003B054 00037FB4  48 00 01 50 */	b lbl_8003B1A4
 lbl_8003B058:
-/* 8003B058 00037FB8  A9 02 C5 F8 */	lha r8, lbl_805AE318@sda21(r2)
+/* 8003B058 00037FB8  A9 02 C5 F8 */	lha r8, kMaxPriority__11CSfxManager@sda21(r2)
 /* 8003B05C 00037FBC  38 61 00 0C */	addi r3, r1, 0xc
 /* 8003B060 00037FC0  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8003B064 00037FC4  38 80 06 EF */	li r4, 0x6ef
@@ -5667,7 +5667,7 @@ lbl_8003F100:
 /* 8003F168 0003C0C8  48 00 01 D9 */	bl Reset__10CPlayerGunFR13CStateManager
 /* 8003F16C 0003C0CC  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 8003F170 0003C0D0  41 82 00 28 */	beq lbl_8003F198
-/* 8003F174 0003C0D4  A9 02 C5 F8 */	lha r8, lbl_805AE318@sda21(r2)
+/* 8003F174 0003C0D4  A9 02 C5 F8 */	lha r8, kMaxPriority__11CSfxManager@sda21(r2)
 /* 8003F178 0003C0D8  38 61 00 08 */	addi r3, r1, 8
 /* 8003F17C 0003C0DC  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8003F180 0003C0E0  38 80 06 EE */	li r4, 0x6ee
@@ -8432,7 +8432,7 @@ PlayAnim__10CPlayerGunFQ212NWeaponTypes12EGunAnimTypeb:
 /* 800418FC 0003E85C  4E 80 04 21 */	bctrl
 lbl_80041900:
 /* 80041900 0003E860  2C 1E 00 07 */	cmpwi r30, 7
-/* 80041904 0003E864  A0 62 C5 FC */	lhz r3, lbl_805AE31C@sda21(r2)
+/* 80041904 0003E864  A0 62 C5 FC */	lhz r3, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80041908 0003E868  41 82 00 80 */	beq lbl_80041988
 /* 8004190C 0003E86C  40 80 00 14 */	bge lbl_80041920
 /* 80041910 0003E870  2C 1E 00 05 */	cmpwi r30, 5
@@ -8471,7 +8471,7 @@ lbl_8004196C:
 /* 80041980 0003E8E0  54 00 08 3C */	slwi r0, r0, 1
 /* 80041984 0003E8E4  7C 63 02 2E */	lhzx r3, r3, r0
 lbl_80041988:
-/* 80041988 0003E8E8  A0 02 C5 FC */	lhz r0, lbl_805AE31C@sda21(r2)
+/* 80041988 0003E8E8  A0 02 C5 FC */	lhz r0, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 8004198C 0003E8EC  54 64 04 3E */	clrlwi r4, r3, 0x10
 /* 80041990 0003E8F0  7C 04 00 40 */	cmplw r4, r0
 /* 80041994 0003E8F4  41 82 00 1C */	beq lbl_800419B0
@@ -10966,7 +10966,7 @@ __sinit_CPlayerGun_cpp:
 /* 80043D6C 00040CCC  B0 65 00 1A */	sth r3, 0x1a(r5)
 /* 80043D70 00040CD0  90 05 00 1C */	stw r0, 0x1c(r5)
 /* 80043D74 00040CD4  48 30 62 39 */	bl White__6CColorFv
-/* 80043D78 00040CD8  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 80043D78 00040CD8  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80043D7C 00040CDC  39 00 00 07 */	li r8, 7
 /* 80043D80 00040CE0  81 23 00 00 */	lwz r9, 0(r3)
 /* 80043D84 00040CE4  38 CD A1 C4 */	addi r6, r13, lbl_805A8D84@sda21

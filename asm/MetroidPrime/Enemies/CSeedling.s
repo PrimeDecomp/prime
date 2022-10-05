@@ -409,7 +409,7 @@ lbl_802662C0:
 /* 802662F0 00263250  38 61 00 2C */	addi r3, r1, 0x2c
 /* 802662F4 00263254  48 0D 77 ED */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 802662F8 00263258  38 00 00 00 */	li r0, 0
-/* 802662FC 0026325C  A1 42 C5 FC */	lhz r10, lbl_805AE31C@sda21(r2)
+/* 802662FC 0026325C  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80266300 00263260  98 01 00 28 */	stb r0, 0x28(r1)
 /* 80266304 00263264  7F A3 EB 78 */	mr r3, r29
 /* 80266308 00263268  7F C5 F3 78 */	mr r5, r30

@@ -150,7 +150,7 @@ lbl_8014D98C:
 /* 8014DA28 0014A988  4B EF AD 5D */	bl InformListeners__13CStateManagerFRC9CVector3f16EListenNoiseType
 /* 8014DA2C 0014A98C  48 00 00 7C */	b lbl_8014DAA8
 lbl_8014DA30:
-/* 8014DA30 0014A990  A9 02 C5 F8 */	lha r8, lbl_805AE318@sda21(r2)
+/* 8014DA30 0014A990  A9 02 C5 F8 */	lha r8, kMaxPriority__11CSfxManager@sda21(r2)
 /* 8014DA34 0014A994  38 61 00 1C */	addi r3, r1, 0x1c
 /* 8014DA38 0014A998  81 42 C6 00 */	lwz r10, kAllAreas__11CSfxManager@sda21(r2)
 /* 8014DA3C 0014A99C  38 80 07 3F */	li r4, 0x73f
