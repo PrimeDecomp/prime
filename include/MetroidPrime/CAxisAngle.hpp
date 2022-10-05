@@ -12,7 +12,8 @@ public:
   explicit CAxisAngle(const CVector3f& vec);
   static const CAxisAngle& Identity();  
   const CVector3f& GetVector() const;
-  
+
+  const CAxisAngle& operator+=(const CAxisAngle& rhs);
 private:
   CVector3f mVector;
 };

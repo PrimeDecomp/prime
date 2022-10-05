@@ -149,6 +149,14 @@ inline CVector3f operator*(const CVector3f& vec, f32 f) {
   f32 z = vec.GetZ() * f;
   return CVector3f(x, y, z);
 }
+
+inline CVector3f operator*(f32 f, const CVector3f& vec) {
+  f32 x = f * vec.GetX();
+  f32 y = f * vec.GetY();
+  f32 z = f * vec.GetZ();
+  return CVector3f(x, y, z);
+}
+
 inline CVector3f operator/(const CVector3f& vec, f32 f) {
   f32 x = vec.GetX() / f;
   f32 y = vec.GetY() / f;

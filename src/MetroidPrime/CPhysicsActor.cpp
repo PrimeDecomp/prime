@@ -1,5 +1,7 @@
 #include "MetroidPrime/CPhysicsActor.hpp"
 
+#include "Kyoto/Math/CloseEnough.hpp"
+
 const float CPhysicsActor::skGravityConstant = 9.81f * 2.5f;
 
 CPhysicsActor::CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name,
@@ -98,5 +100,95 @@ void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   x168_impulse = state.GetImpulseWR();
   x174_torque = state.GetTorque();
   x180_angularImpulse = state.GetAngularImpulseWR();
+  ComputeDerivedQuantities();
+}
+
+CVector3f CPhysicsActor::CalculateNewVelocityWR_UsingImpulses() const {
+  float impX;
+  float impY;
+  float impZ;
+  float masRecip;
+  float moveImpX;
+  float moveImpY;
+  float moveImpZ;
+  float velX;
+  float velY;
+  float velZ;
+
+  impX = x168_impulse.GetX();
+  impY = x168_impulse.GetY();
+  impZ = x168_impulse.GetZ();
+  moveImpX = x18c_moveImpulse.GetX();
+  moveImpY = x18c_moveImpulse.GetY();
+  moveImpZ = x18c_moveImpulse.GetZ();
+  masRecip = xec_massRecip;
+  velY = x138_velocity.GetY();
+  velZ = x138_velocity.GetZ();
+
+  return CVector3f(velX + masRecip * (impX + moveImpX), velY + masRecip * (impY + moveImpY),
+                   velZ + masRecip * (impZ + moveImpZ));
+}
+
+CMotionState CPhysicsActor::PredictMotion(float dt) const {}
+
+CMotionState CPhysicsActor::PredictAngularMotion(float dt) const {}
+
+CMotionState CPhysicsActor::PredictLinearMotion(float dt) const {}
+
+CMotionState CPhysicsActor::PredictMotion_Internal(float dt) const {}
+
+void CPhysicsActor::SetMotionState(const CMotionState& state) {}
+
+CMotionState CPhysicsActor::GetMotionState() const {
+  CNUQuaternion nquat(CNUQuaternion::BuildFromQuaternion(GetRotation()));
+  return CMotionState(GetTranslation(), nquat, GetConstantForceWR(), GetAngularMomentumWR());
+}
+
+void CPhysicsActor::AddMotionState(const CMotionState& state) {}
+
+bool CPhysicsActor::WillMove(const CStateManager& mgr) {
+  if (close_enough(x138_velocity, CVector3f::Zero()) &&
+      close_enough(x168_impulse, CVector3f::Zero()) &&
+      close_enough(x174_torque.GetVector(), CVector3f::Zero()) &&
+      close_enough(x18c_moveImpulse, CVector3f::Zero()) &&
+      close_enough(x144_angularVelocity.GetVector(), CVector3f::Zero()) &&
+      close_enough(x180_angularImpulse.GetVector(), CVector3f::Zero()) &&
+      close_enough(x198_moveAngularImpulse.GetVector(), CVector3f::Zero()) &&
+      close_enough(GetTotalForcesWR(), CVector3f::Zero())) {
+    return false;
+  }
+
+  return true;
+}
+
+void CPhysicsActor::Stop() {
+  ClearForcesAndTorques();
+  xfc_constantForce = CVector3f::Zero();
+  x108_angularMomentum = CAxisAngle::Identity();
+  ComputeDerivedQuantities();
+}
+
+void CPhysicsActor::ClearForcesAndTorques() {
+  x15c_force = x168_impulse = x18c_moveImpulse = CVector3f::Zero();
+  x174_torque = x180_angularImpulse = x198_moveAngularImpulse = CAxisAngle::Identity();
+}
+
+void CPhysicsActor::ClearImpulses() {
+  x168_impulse = x18c_moveImpulse = CVector3f::Zero();
+  x180_angularImpulse = x198_moveAngularImpulse = CAxisAngle::Identity();
+}
+
+void CPhysicsActor::UseCollisionImpulses() {
+  xfc_constantForce += x168_impulse;
+  x108_angularMomentum += x180_angularImpulse;
+  x168_impulse = CVector3f::Zero();
+  x180_angularImpulse = CAxisAngle::Identity();
+  ComputeDerivedQuantities();
+}
+
+void CPhysicsActor::MoveToWR(const CVector3f& trans, float d) {
+  float f = (1.f / d);
+  CVector3f diff = trans - GetTranslation();
+  xfc_constantForce = f * GetMass() * diff;
   ComputeDerivedQuantities();
 }
