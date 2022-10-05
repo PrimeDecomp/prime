@@ -27,6 +27,13 @@ static const float kComboAmmoPeriods[] = {
     0.2f, 0.1f, 0.2f, 0.2f, 1.f,
 };
 
+static const char* kVisorNames[] = {
+  "CombatVisor",
+  "XRayVisor",
+  "ScanVisor",
+  "ThermalVisor",
+};
+
 static const float kEnergyTankCapacity = 100.f;
 static const float kBaseHealthCapacity = 99.f;
 
@@ -151,11 +158,11 @@ void CPlayerState::ReInitializePowerUp(CPlayerState::EItemType type, int capacit
 }
 
 void CPlayerState::InitializePowerUp(CPlayerState::EItemType type, int capacity) {
-  if (type >= kIT_Max)
+  if (type < kIT_PowerBeam || type > kIT_Max - 1)
     return;
 
   CPowerUp& pup = x24_powerups[u32(type)];
-  pup.x4_capacity = CMath::Clamp(0, pup.x4_capacity + capacity, kPowerUpMax[u32(type)]);
+  pup.x4_capacity = CMath::Clamp(0, capacity + pup.x4_capacity, kPowerUpMax[u32(type)]);
   pup.x0_amount = rstl::min_val(pup.x0_amount, pup.x4_capacity);
   if (type >= kIT_PowerSuit && type <= kIT_PhazonSuit) {
     if (HasPowerUp(kIT_PhazonSuit))
@@ -202,11 +209,7 @@ void CPlayerState::IncrPickUp(EItemType type, int amount) {
     case kIT_World:
     case kIT_Spirit:
     case kIT_Newborn: {
-      int oldCapacity = x24_powerups[type].x4_capacity;
-      x24_powerups[type].x0_amount += amount;
-      if (oldCapacity < x24_powerups[type].x0_amount) {
-        x24_powerups[type].x0_amount = oldCapacity;
-      }
+      x24_powerups[type].Add(amount);
       break;
     }
     case kIT_HealthRefill: {
@@ -214,10 +217,10 @@ void CPlayerState::IncrPickUp(EItemType type, int amount) {
       if (info != NULL) {
         float newHealth = float(amount) + info->GetHP();
         float maxHealth = CalculateHealth();
-        if (newHealth <= newHealth) {
-          info->SetHP(newHealth);
-        } else {
+        if (newHealth > maxHealth) {
           info->SetHP(maxHealth);
+        } else {
+          info->SetHP(newHealth);
         }
       }
     }
@@ -236,10 +239,7 @@ void CPlayerState::DecrPickUp(CPlayerState::EItemType type, int amount) {
   case kIT_Missiles:
   case kIT_PowerBombs:
   case kIT_Flamethrower:
-    x24_powerups[type].x0_amount -= amount;
-    if (x24_powerups[type].x0_amount < 0) {
-      x24_powerups[type].x0_amount = 0;
-    }
+    x24_powerups[type].Dec(amount);
   default:
     return;
   }
@@ -285,7 +285,7 @@ bool CPlayerState::HasPowerUp(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return false;
   }
-  return x24_powerups[u32(type)].x4_capacity != 0;
+  return x24_powerups[u32(type)].x4_capacity > 0;
 }
 
 uint CPlayerState::GetPowerUp(CPlayerState::EItemType type) {
@@ -312,7 +312,7 @@ bool CPlayerState::ItemEnabled(CPlayerState::EItemType type) const {
 }
 
 void CPlayerState::ResetVisor() {
-  x18_transitioningVisor = x14_currentVisor = kPV_Combat;
+  x14_currentVisor = x18_transitioningVisor = kPV_Combat;
   x1c_visorTransitionFactor = 0.0f;
 }
 
@@ -327,16 +327,13 @@ void CPlayerState::UpdateVisorTransition(float dt) {
     return;
 
   if (x14_currentVisor == x18_transitioningVisor) {
-    x1c_visorTransitionFactor += dt;
-    if (x1c_visorTransitionFactor > 0.2f)
-      x1c_visorTransitionFactor = 0.2f;
+    x1c_visorTransitionFactor = rstl::min_val(0.2f, x1c_visorTransitionFactor + dt);
   } else {
     x1c_visorTransitionFactor -= dt;
     if (x1c_visorTransitionFactor < 0.f) {
       x14_currentVisor = x18_transitioningVisor;
       x1c_visorTransitionFactor = fabs(x1c_visorTransitionFactor);
-      if (x1c_visorTransitionFactor > 0.19999f)
-        x1c_visorTransitionFactor = 0.19999f;
+      x1c_visorTransitionFactor = rstl::min_val(x1c_visorTransitionFactor, 0.19999f);
     }
   }
 }

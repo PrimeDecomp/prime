@@ -158,6 +158,21 @@ private:
     int x4_capacity;
     CPowerUp() : x0_amount(0), x4_capacity(0) {}
     CPowerUp(int amount, int capacity);
+
+    void Add(int amount) {
+      int capacity = x4_capacity;
+      x0_amount += amount;
+      if (x0_amount > capacity) {
+        x0_amount = capacity;
+      }
+    }
+
+    void Dec(int amount) {
+      x0_amount -= amount;
+      if (x0_amount < 0) {
+        x0_amount = 0;
+      }
+    }
   };
 
   bool x0_24_alive : 1;

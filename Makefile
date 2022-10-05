@@ -119,7 +119,7 @@ DEFINES = -DPRIME1 -DVERSION=$(VERSION_NUM) -DNONMATCHING=$(NONMATCHING)
 CFLAGS_BASE = -proc gekko -nodefaults -Cpp_exceptions off -RTTI off -fp hard -fp_contract on -O4,p -maxerrors 1 -enum int -inline auto -str reuse -nosyspath -MMD $(DEFINES) $(INCLUDES)
 CFLAGS = $(CFLAGS_BASE) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,noauto -common on
 CFLAGS_RUNTIME = $(CFLAGS_BASE) -use_lmw_stmw on -str reuse,pool,readonly -gccinc -inline deferred,auto
-CFLAGS_MUSYX = $(CFLAGS_BASE) -str reuse,pool,readonly
+CFLAGS_MUSYX = $(CFLAGS_BASE) -fp hard -fp_contract off -str reuse,pool,readonly
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
