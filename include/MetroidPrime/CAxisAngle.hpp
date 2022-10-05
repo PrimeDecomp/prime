@@ -6,25 +6,15 @@
 #include <math.h>
 #include "Kyoto/Math/CVector3f.hpp"
 
-class CAxisAngle : protected CVector3f {
+class CAxisAngle {
 public:
-  CAxisAngle(f32 x, f32 y, f32 z) : CVector3f(x, y, z) {}
-  //CAxisAngle(const CAxisAngle& other) : CVector3f(other) {}
-
-  static const CAxisAngle& Identity();
-  
+  CAxisAngle(f32 x, f32 y, f32 z) : mVector(x, y, z) {}
+  explicit CAxisAngle(const CVector3f& vec);
+  static const CAxisAngle& Identity();  
   const CVector3f& GetVector() const;
-/*
-  CAxisAngle& operator=(const CAxisAngle& other) {
-    int otherX = __HI(other.mX);
-    __HI(mX) = otherX;
-      int otherY = __HI(other.mY);
-    __HI(mY) = otherY;
-    int otherZ = __HI(other.mZ);
-    __HI(mZ) = otherZ;
-    return *this;
-  }
-  */
+  
+private:
+  CVector3f mVector;
 };
 
 CAxisAngle operator+(const CAxisAngle& lhs, const CAxisAngle& rhs);

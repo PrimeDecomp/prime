@@ -5,6 +5,7 @@
 
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CAxisAngle.hpp"
+#include "MetroidPrime/CPhysicsState.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CMatrix3f.hpp"
@@ -74,6 +75,12 @@ public:
   CAABox GetBoundingBox() const;
 
   void ApplyImpulseWR(const CVector3f& impulse, const CAxisAngle& angularImpulse);
+  void ApplyTorqueWR(const CVector3f& torque);
+  void ApplyForceWR(const CVector3f& force, const CAxisAngle& torque);
+
+  void ApplyImpulseOR(const CVector3f& impulse, const CAxisAngle& angularImpulse);
+  void ApplyForceOR(const CVector3f& impulse, const CAxisAngle& torque);
+
   void MoveCollisionPrimitive(const CVector3f&);
   void SetVelocityWR(const CVector3f&);
   void SetAngularVelocityWR(const CAxisAngle& angVel);
@@ -84,8 +91,11 @@ public:
   void ComputeDerivedQuantities();
   void Stop();
 
+  CPhysicsState GetPhysicsState() const;
+  void SetPhysicsState(const CPhysicsState& state);
   CMotionState GetMotionState() const;
   void SetMotionState(const CMotionState& state);
+
 
   bool GetMovable() const { return xf8_24_movable; }
   void SetMovable(bool v) { xf8_24_movable = v; }

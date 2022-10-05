@@ -9,8 +9,9 @@ class CMatrix3f {
   static const CMatrix3f sIdentity;
 public:
   CMatrix3f(const CMatrix3f&);
+  const CMatrix3f& operator=(const CMatrix3f& other);
 
-  static CMatrix3f Identity() { return sIdentity; }
+  static const CMatrix3f& Identity() { return sIdentity; }
 private:
   // TODO maybe individual f32s
   CVector3f m0;
