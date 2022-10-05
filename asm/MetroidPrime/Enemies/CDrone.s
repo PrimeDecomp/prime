@@ -5736,9 +5736,9 @@ lbl_801639C8:
 /* 80163A04 00160964  38 9C 00 68 */	addi r4, r28, 0x68
 /* 80163A08 00160968  48 16 BE AD */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 80163A0C 0016096C  C0 C1 00 20 */	lfs f6, 0x20(r1)
-/* 80163A10 00160970  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80163A10 00160970  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80163A14 00160974  C0 A1 00 24 */	lfs f5, 0x24(r1)
-/* 80163A18 00160978  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80163A18 00160978  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80163A1C 0016097C  C0 81 00 28 */	lfs f4, 0x28(r1)
 /* 80163A20 00160980  FC 20 F8 90 */	fmr f1, f31
 /* 80163A24 00160984  C0 61 00 2C */	lfs f3, 0x2c(r1)
@@ -5794,9 +5794,9 @@ lbl_801639C8:
 /* 80163AEC 00160A4C  90 61 00 F4 */	stw r3, 0xf4(r1)
 /* 80163AF0 00160A50  90 01 00 F0 */	stw r0, 0xf0(r1)
 /* 80163AF4 00160A54  40 82 00 20 */	bne lbl_80163B14
-/* 80163AF8 00160A58  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80163AF8 00160A58  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80163AFC 00160A5C  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 80163B00 00160A60  38 04 CA D0 */	addi r0, r4, lbl_803ECAD0@l
+/* 80163B00 00160A60  38 04 CA D0 */	addi r0, r4, __vt__16CCollidableAABox@l
 /* 80163B04 00160A64  90 01 00 F8 */	stw r0, 0xf8(r1)
 /* 80163B08 00160A68  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80163B0C 00160A6C  90 01 00 F8 */	stw r0, 0xf8(r1)
@@ -5831,9 +5831,9 @@ lbl_80163B28:
 /* 80163B78 00160AD8  D8 01 01 78 */	stfd f0, 0x178(r1)
 /* 80163B7C 00160ADC  B0 18 00 00 */	sth r0, 0(r24)
 lbl_80163B80:
-/* 80163B80 00160AE0  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80163B80 00160AE0  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80163B84 00160AE4  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 80163B88 00160AE8  38 04 CA D0 */	addi r0, r4, lbl_803ECAD0@l
+/* 80163B88 00160AE8  38 04 CA D0 */	addi r0, r4, __vt__16CCollidableAABox@l
 /* 80163B8C 00160AEC  90 01 00 F8 */	stw r0, 0xf8(r1)
 /* 80163B90 00160AF0  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80163B94 00160AF4  90 01 00 F8 */	stw r0, 0xf8(r1)

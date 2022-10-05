@@ -712,7 +712,7 @@ VI_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/vi.o
 	
 MSL_PPCEABI_BARE_H :=\
-	$(BUILD_DIR)/asm/Runtime/__mem.o\
+	$(BUILD_DIR)/src/Runtime/__mem.o\
 	$(BUILD_DIR)/asm/Runtime/__va_arg.o\
 	$(BUILD_DIR)/asm/Runtime/global_destructor_chain.o\
 	$(BUILD_DIR)/asm/Runtime/CPlusLibPPC.o\
@@ -796,7 +796,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/hw_volconv.o\
 	$(BUILD_DIR)/asm/musyx/snd3d.o\
 	$(BUILD_DIR)/src/musyx/snd_init.o\
-	$(BUILD_DIR)/asm/musyx/snd_math.o\
+	$(BUILD_DIR)/src/musyx/snd_math.o\
 	$(BUILD_DIR)/asm/musyx/snd_midictrl.o\
 	$(BUILD_DIR)/src/musyx/snd_service.o\
 	$(BUILD_DIR)/asm/musyx/hardware.o\

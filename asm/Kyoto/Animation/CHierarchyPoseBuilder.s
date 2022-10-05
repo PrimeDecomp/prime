@@ -93,13 +93,13 @@ lbl_802FC41C:
 /* 802FC42C 002F938C  C3 A2 C7 14 */	lfs f29, lbl_805AE434@sda21(r2)
 /* 802FC430 002F9390  38 A3 66 60 */	addi r5, r3, sNoRotation__11CQuaternion@l
 /* 802FC434 002F9394  C0 65 00 00 */	lfs f3, 0(r5)
-/* 802FC438 002F9398  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 802FC438 002F9398  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 802FC43C 002F939C  C0 45 00 04 */	lfs f2, 4(r5)
 /* 802FC440 002F93A0  FF 80 E8 90 */	fmr f28, f29
 /* 802FC444 002F93A4  C0 25 00 08 */	lfs f1, 8(r5)
 /* 802FC448 002F93A8  FF 60 E8 90 */	fmr f27, f29
 /* 802FC44C 002F93AC  C0 05 00 0C */	lfs f0, 0xc(r5)
-/* 802FC450 002F93B0  38 83 65 FC */	addi r4, r3, lbl_805A65FC@l
+/* 802FC450 002F93B0  38 83 65 FC */	addi r4, r3, sIdentity__9CMatrix3f@l
 /* 802FC454 002F93B4  D0 61 00 24 */	stfs f3, 0x24(r1)
 /* 802FC458 002F93B8  38 61 00 E8 */	addi r3, r1, 0xe8
 /* 802FC45C 002F93BC  D0 41 00 28 */	stfs f2, 0x28(r1)
@@ -441,12 +441,12 @@ BuildNoScale__21CHierarchyPoseBuilderFR17CPoseAsTransforms:
 /* 802FC938 002F9898  48 06 C5 6D */	bl Clear__17CPoseAsTransformsFv
 /* 802FC93C 002F989C  88 01 00 08 */	lbz r0, 8(r1)
 /* 802FC940 002F98A0  3C A0 80 5A */	lis r5, sNoRotation__11CQuaternion@ha
-/* 802FC944 002F98A4  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 802FC944 002F98A4  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 802FC948 002F98A8  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 802FC94C 002F98AC  54 00 08 3C */	slwi r0, r0, 1
 /* 802FC950 002F98B0  38 E5 66 60 */	addi r7, r5, sNoRotation__11CQuaternion@l
 /* 802FC954 002F98B4  7C BE 02 14 */	add r5, r30, r0
-/* 802FC958 002F98B8  39 04 65 FC */	addi r8, r4, lbl_805A65FC@l
+/* 802FC958 002F98B8  39 04 65 FC */	addi r8, r4, sIdentity__9CMatrix3f@l
 /* 802FC95C 002F98BC  88 05 00 41 */	lbz r0, 0x41(r5)
 /* 802FC960 002F98C0  39 23 66 A0 */	addi r9, r3, sZeroVector__9CVector3f@l
 /* 802FC964 002F98C4  80 BE 01 08 */	lwz r5, 0x108(r30)
@@ -841,4 +841,3 @@ lbl_803D6E40:
 	# ROM: 0x3D3E40
 	.asciz "??(??)"
 	.balign 4
-

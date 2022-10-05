@@ -9189,9 +9189,9 @@ lbl_8031F3C0:
 /* 8031F584 0031C4E4  38 7F 01 D8 */	addi r3, r31, 0x1d8
 /* 8031F588 0031C4E8  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 8031F58C 0031C4EC  4B FF 35 E9 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 8031F590 0031C4F0  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 8031F590 0031C4F0  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 8031F594 0031C4F4  38 7F 02 08 */	addi r3, r31, 0x208
-/* 8031F598 0031C4F8  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 8031F598 0031C4F8  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 8031F59C 0031C4FC  4B FF 0A 89 */	bl __ct__9CMatrix3fFRC9CMatrix3f
 /* 8031F5A0 0031C500  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
 /* 8031F5A4 0031C504  38 7F 02 2C */	addi r3, r31, 0x22c
@@ -9706,9 +9706,9 @@ lbl_8031FD2C:
 /* 8031FD2C 0031CC8C  80 1F 00 2C */	lwz r0, 0x2c(r31)
 /* 8031FD30 0031CC90  2C 00 00 01 */	cmpwi r0, 1
 /* 8031FD34 0031CC94  40 82 00 18 */	bne lbl_8031FD4C
-/* 8031FD38 0031CC98  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 8031FD38 0031CC98  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 8031FD3C 0031CC9C  80 9F 00 90 */	lwz r4, 0x90(r31)
-/* 8031FD40 0031CCA0  38 A3 65 FC */	addi r5, r3, lbl_805A65FC@l
+/* 8031FD40 0031CCA0  38 A3 65 FC */	addi r5, r3, sIdentity__9CMatrix3f@l
 /* 8031FD44 0031CCA4  38 7F 00 50 */	addi r3, r31, 0x50
 /* 8031FD48 0031CCA8  48 00 01 85 */	bl sub_8031fecc
 lbl_8031FD4C:

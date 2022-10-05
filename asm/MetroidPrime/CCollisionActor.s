@@ -1488,8 +1488,8 @@ lbl_801A9A6C:
 /* 801A9BA4 001A6B04  7F 23 CB 78 */	mr r3, r25
 /* 801A9BA8 001A6B08  38 81 00 38 */	addi r4, r1, 0x38
 /* 801A9BAC 001A6B0C  48 12 5D 09 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 801A9BB0 001A6B10  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 801A9BB4 001A6B14  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 801A9BB0 001A6B10  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 801A9BB4 001A6B14  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 801A9BB8 001A6B18  90 19 00 00 */	stw r0, 0(r25)
 /* 801A9BBC 001A6B1C  C0 01 00 80 */	lfs f0, 0x80(r1)
 /* 801A9BC0 001A6B20  D0 19 00 10 */	stfs f0, 0x10(r25)

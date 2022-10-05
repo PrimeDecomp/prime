@@ -362,9 +362,9 @@ lbl_8012F390:
 /* 8012F444 0012C3A4  7F 83 E3 78 */	mr r3, r28
 /* 8012F448 0012C3A8  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 8012F44C 0012C3AC  4B FD 02 B1 */	bl GetSplashEffect__12CScriptWaterCFf
-/* 8012F450 0012C3B0  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 8012F450 0012C3B0  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 8012F454 0012C3B4  7C 78 1B 78 */	mr r24, r3
-/* 8012F458 0012C3B8  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 8012F458 0012C3B8  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 8012F45C 0012C3BC  7F A5 EB 78 */	mr r5, r29
 /* 8012F460 0012C3C0  38 61 00 84 */	addi r3, r1, 0x84
 /* 8012F464 0012C3C4  48 1E 3E 15 */	bl __ct__12CTransform4fFRC9CMatrix3fRC9CVector3f

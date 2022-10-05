@@ -414,9 +414,9 @@ lbl_80197A00:
 /* 80197A14 00194974  38 61 01 08 */	addi r3, r1, 0x108
 /* 80197A18 00194978  38 94 00 68 */	addi r4, r20, 0x68
 /* 80197A1C 0019497C  48 13 7E 99 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 80197A20 00194980  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80197A20 00194980  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80197A24 00194984  C0 C1 00 88 */	lfs f6, 0x88(r1)
-/* 80197A28 00194988  39 03 CA D0 */	addi r8, r3, lbl_803ECAD0@l
+/* 80197A28 00194988  39 03 CA D0 */	addi r8, r3, __vt__16CCollidableAABox@l
 /* 80197A2C 0019498C  C0 A1 00 8C */	lfs f5, 0x8c(r1)
 /* 80197A30 00194990  91 01 01 08 */	stw r8, 0x108(r1)
 /* 80197A34 00194994  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -519,9 +519,9 @@ lbl_80197A00:
 /* 80197BB8 00194B18  98 E1 02 88 */	stb r7, 0x288(r1)
 /* 80197BBC 00194B1C  D8 01 02 90 */	stfd f0, 0x290(r1)
 /* 80197BC0 00194B20  40 82 00 34 */	bne lbl_80197BF4
-/* 80197BC4 00194B24  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80197BC4 00194B24  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80197BC8 00194B28  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 80197BCC 00194B2C  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
+/* 80197BCC 00194B2C  38 84 CA D0 */	addi r4, r4, __vt__16CCollidableAABox@l
 /* 80197BD0 00194B30  38 00 00 00 */	li r0, 0
 /* 80197BD4 00194B34  90 81 01 98 */	stw r4, 0x198(r1)
 /* 80197BD8 00194B38  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
@@ -533,11 +533,11 @@ lbl_80197A00:
 /* 80197BF0 00194B50  48 00 00 DC */	b lbl_80197CCC
 lbl_80197BF4:
 /* 80197BF4 00194B54  D0 3E 00 00 */	stfs f1, 0(r30)
-/* 80197BF8 00194B58  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80197BF8 00194B58  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80197BFC 00194B5C  C0 01 02 6C */	lfs f0, 0x26c(r1)
 /* 80197C00 00194B60  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80197C04 00194B64  C0 21 02 70 */	lfs f1, 0x270(r1)
-/* 80197C08 00194B68  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
+/* 80197C08 00194B68  38 84 CA D0 */	addi r4, r4, __vt__16CCollidableAABox@l
 /* 80197C0C 00194B6C  D0 1E 00 04 */	stfs f0, 4(r30)
 /* 80197C10 00194B70  28 17 00 00 */	cmplwi r23, 0
 /* 80197C14 00194B74  C0 01 02 74 */	lfs f0, 0x274(r1)

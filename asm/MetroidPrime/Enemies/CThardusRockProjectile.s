@@ -419,9 +419,9 @@ sub_80203824:
 /* 80203958 002008B8  48 13 A8 3D */	bl "__ct__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>FPCciRCQ24rstl17rmemory_allocator"
 /* 8020395C 002008BC  3B 20 00 01 */	li r25, 1
 /* 80203960 002008C0  48 14 66 4D */	bl White__6CColorFv
-/* 80203964 002008C4  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 80203964 002008C4  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 80203968 002008C8  7C 7B 1B 78 */	mr r27, r3
-/* 8020396C 002008CC  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 8020396C 002008CC  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 80203970 002008D0  7F 85 E3 78 */	mr r5, r28
 /* 80203974 002008D4  38 61 00 A0 */	addi r3, r1, 0xa0
 /* 80203978 002008D8  48 10 F9 01 */	bl __ct__12CTransform4fFRC9CMatrix3fRC9CVector3f

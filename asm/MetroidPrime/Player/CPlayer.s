@@ -4001,7 +4001,7 @@ lbl_80012B20:
 /* 80012C20 0000FB80  38 E4 66 A0 */	addi r7, r4, sZeroVector__9CVector3f@l
 /* 80012C24 0000FB84  C0 59 00 50 */	lfs f2, 0x50(r25)
 /* 80012C28 0000FB88  C0 39 00 40 */	lfs f1, 0x40(r25)
-/* 80012C2C 0000FB8C  3C C0 80 3F */	lis r6, lbl_803ECAD0@ha
+/* 80012C2C 0000FB8C  3C C0 80 3F */	lis r6, __vt__16CCollidableAABox@ha
 /* 80012C30 0000FB90  C0 07 00 00 */	lfs f0, 0(r7)
 /* 80012C34 0000FB94  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
 /* 80012C38 0000FB98  3C 80 80 3E */	lis r4, __vt__19CCollisionPrimitive@ha
@@ -4013,7 +4013,7 @@ lbl_80012B20:
 /* 80012C50 0000FBB0  C0 07 00 04 */	lfs f0, 4(r7)
 /* 80012C54 0000FBB4  D0 21 00 40 */	stfs f1, 0x40(r1)
 /* 80012C58 0000FBB8  7C 7A 1B 78 */	mr r26, r3
-/* 80012C5C 0000FBBC  3B 66 CA D0 */	addi r27, r6, lbl_803ECAD0@l
+/* 80012C5C 0000FBBC  3B 66 CA D0 */	addi r27, r6, __vt__16CCollidableAABox@l
 /* 80012C60 0000FBC0  D0 1F 00 04 */	stfs f0, 4(r31)
 /* 80012C64 0000FBC4  3B 85 66 70 */	addi r28, r5, sIdentity__12CTransform4f@l
 /* 80012C68 0000FBC8  3B A4 97 E4 */	addi r29, r4, __vt__19CCollisionPrimitive@l
@@ -4087,9 +4087,9 @@ lbl_80012C80:
 /* 80012D74 0000FCD4  48 17 18 A1 */	bl "DetectCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 /* 80012D78 0000FCD8  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80012D7C 0000FCDC  40 82 00 78 */	bne lbl_80012DF4
-/* 80012D80 0000FCE0  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80012D80 0000FCE0  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80012D84 0000FCE4  80 A1 01 10 */	lwz r5, 0x110(r1)
-/* 80012D88 0000FCE8  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80012D88 0000FCE8  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80012D8C 0000FCEC  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80012D90 0000FCF0  90 01 00 E8 */	stw r0, 0xe8(r1)
 /* 80012D94 0000FCF4  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -4178,8 +4178,8 @@ __dt__16CCollidableAABoxFv:
 /* 80012EAC 0000FE0C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80012EB0 0000FE10  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80012EB4 0000FE14  41 82 00 30 */	beq lbl_80012EE4
-/* 80012EB8 0000FE18  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 80012EBC 0000FE1C  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80012EB8 0000FE18  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 80012EBC 0000FE1C  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80012EC0 0000FE20  90 1F 00 00 */	stw r0, 0(r31)
 /* 80012EC4 0000FE24  41 82 00 10 */	beq lbl_80012ED4
 /* 80012EC8 0000FE28  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -6495,9 +6495,9 @@ lbl_80014E9C:
 /* 80014F58 00011EB8  38 61 01 A8 */	addi r3, r1, 0x1a8
 /* 80014F5C 00011EBC  48 2B A9 59 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 80014F60 00011EC0  C0 A1 00 B8 */	lfs f5, 0xb8(r1)
-/* 80014F64 00011EC4  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80014F64 00011EC4  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80014F68 00011EC8  C0 81 00 BC */	lfs f4, 0xbc(r1)
-/* 80014F6C 00011ECC  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80014F6C 00011ECC  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80014F70 00011ED0  C0 61 00 C0 */	lfs f3, 0xc0(r1)
 /* 80014F74 00011ED4  7F A3 EB 78 */	mr r3, r29
 /* 80014F78 00011ED8  C0 41 00 C4 */	lfs f2, 0xc4(r1)
@@ -6680,9 +6680,9 @@ lbl_800151FC:
 /* 80015208 00012168  38 00 00 00 */	li r0, 0
 /* 8001520C 0001216C  90 07 00 00 */	stw r0, 0(r7)
 lbl_80015210:
-/* 80015210 00012170  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80015210 00012170  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80015214 00012174  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 80015218 00012178  38 04 CA D0 */	addi r0, r4, lbl_803ECAD0@l
+/* 80015218 00012178  38 04 CA D0 */	addi r0, r4, __vt__16CCollidableAABox@l
 /* 8001521C 0001217C  90 01 01 A8 */	stw r0, 0x1a8(r1)
 /* 80015220 00012180  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
 /* 80015224 00012184  90 01 01 A8 */	stw r0, 0x1a8(r1)
