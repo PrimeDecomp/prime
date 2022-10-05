@@ -1275,8 +1275,8 @@ ValidateFPPosition__7CPlayerF9CVector3fR13CStateManager:
 /* 8017A500 00177460  38 81 00 08 */	addi r4, r1, 8
 /* 8017A504 00177464  48 15 53 B1 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 8017A508 00177468  C0 A1 00 58 */	lfs f5, 0x58(r1)
-/* 8017A50C 0017746C  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 8017A510 00177470  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 8017A50C 0017746C  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 8017A510 00177470  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 8017A514 00177474  C0 81 00 5C */	lfs f4, 0x5c(r1)
 /* 8017A518 00177478  C0 61 00 60 */	lfs f3, 0x60(r1)
 /* 8017A51C 0017747C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
@@ -1298,9 +1298,9 @@ ValidateFPPosition__7CPlayerF9CVector3fR13CStateManager:
 /* 8017A55C 001774BC  48 00 A0 B9 */	bl "DetectCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024>"
 /* 8017A560 001774C0  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 8017A564 001774C4  40 82 00 78 */	bne lbl_8017A5DC
-/* 8017A568 001774C8  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 8017A568 001774C8  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 8017A56C 001774CC  80 A1 00 E0 */	lwz r5, 0xe0(r1)
-/* 8017A570 001774D0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 8017A570 001774D0  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 8017A574 001774D4  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8017A578 001774D8  90 01 00 B8 */	stw r0, 0xb8(r1)
 /* 8017A57C 001774DC  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -1332,9 +1332,9 @@ lbl_8017A5CC:
 /* 8017A5D4 00177534  90 01 00 E0 */	stw r0, 0xe0(r1)
 /* 8017A5D8 00177538  48 00 00 74 */	b lbl_8017A64C
 lbl_8017A5DC:
-/* 8017A5DC 0017753C  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 8017A5DC 0017753C  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 8017A5E0 00177540  80 A1 00 E0 */	lwz r5, 0xe0(r1)
-/* 8017A5E4 00177544  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 8017A5E4 00177544  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 8017A5E8 00177548  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 8017A5EC 0017754C  90 01 00 B8 */	stw r0, 0xb8(r1)
 /* 8017A5F0 00177550  38 03 97 E4 */	addi r0, r3, __vt__19CCollisionPrimitive@l
@@ -7452,4 +7452,3 @@ lbl_805ABFC0:
 lbl_805ABFC4:
 	# ROM: 0x3F8864
 	.4byte 0x3F3504F3
-

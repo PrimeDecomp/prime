@@ -33,7 +33,12 @@ struct SMoverData {
 
 class CMotionState {
 public:
-  // TODO
+  CMotionState(const CVector3f& translation, const CNUQuaternion& orientation,
+               const CVector3f& velocity, const CAxisAngle& angularMomentum)
+  : x0_translation(translation)
+  , xc_orientation(orientation)
+  , x1c_velocity(velocity)
+  , x28_angularMomentum(angularMomentum) {}
 
 private:
   CVector3f x0_translation;
@@ -64,13 +69,19 @@ public:
   virtual f32 GetStepDownHeight() const;
   virtual f32 GetStepUpHeight() const;
   virtual f32 GetWeight() const;
+  void SetMass(float mass);
 
   CAABox GetBoundingBox() const;
+
+  void ApplyImpulseWR(const CVector3f& impulse, const CAxisAngle& angularImpulse);
   void MoveCollisionPrimitive(const CVector3f&);
   void SetVelocityWR(const CVector3f&);
   void SetAngularVelocityWR(const CAxisAngle& angVel);
+  void SetVelocityOR(const CVector3f& vel);
   CAxisAngle GetAngularVelocityOR() const;
+  void SetAngularVelocityOR(const CAxisAngle& angleVel);
   void ClearForcesAndTorques();
+  void ComputeDerivedQuantities();
   void Stop();
 
   CMotionState GetMotionState() const;
@@ -111,6 +122,7 @@ private:
   f32 x248_collisionAccuracyModifier;
   uint x24c_numTicksStuck;
   uint x250_numTicksPartialUpdate;
+  uint x254_;
 };
 CHECK_SIZEOF(CPhysicsActor, 0x258)
 

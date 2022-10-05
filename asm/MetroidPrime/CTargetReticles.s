@@ -2558,9 +2558,9 @@ lbl_800BE38C:
 lbl_800BE398:
 /* 800BE398 000BB2F8  3B 40 00 01 */	li r26, 1
 lbl_800BE39C:
-/* 800BE39C 000BB2FC  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 800BE39C 000BB2FC  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 800BE3A0 000BB300  38 61 0A EC */	addi r3, r1, 0xaec
-/* 800BE3A4 000BB304  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 800BE3A4 000BB304  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 800BE3A8 000BB308  48 25 1C 7D */	bl __ct__9CMatrix3fFRC9CMatrix3f
 /* 800BE3AC 000BB30C  38 00 00 00 */	li r0, 0
 /* 800BE3B0 000BB310  80 7D 08 4C */	lwz r3, 0x84c(r29)

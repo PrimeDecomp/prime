@@ -3878,8 +3878,8 @@ lbl_800F01D8:
 /* 800F033C 000ED29C  90 A1 00 14 */	stw r5, 0x14(r1)
 /* 800F0340 000ED2A0  48 1D F5 75 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 800F0344 000ED2A4  C0 A1 00 E8 */	lfs f5, 0xe8(r1)
-/* 800F0348 000ED2A8  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 800F034C 000ED2AC  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 800F0348 000ED2A8  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 800F034C 000ED2AC  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 800F0350 000ED2B0  C0 81 00 EC */	lfs f4, 0xec(r1)
 /* 800F0354 000ED2B4  C0 61 00 F0 */	lfs f3, 0xf0(r1)
 /* 800F0358 000ED2B8  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
@@ -3899,9 +3899,9 @@ lbl_800F01D8:
 /* 800F0390 000ED2F0  D0 21 01 50 */	stfs f1, 0x150(r1)
 /* 800F0394 000ED2F4  D0 01 01 54 */	stfs f0, 0x154(r1)
 /* 800F0398 000ED2F8  48 09 30 09 */	bl DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
-/* 800F039C 000ED2FC  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 800F039C 000ED2FC  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 800F03A0 000ED300  54 60 06 3F */	clrlwi. r0, r3, 0x18
-/* 800F03A4 000ED304  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
+/* 800F03A4 000ED304  38 84 CA D0 */	addi r4, r4, __vt__16CCollidableAABox@l
 /* 800F03A8 000ED308  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 800F03AC 000ED30C  90 81 01 30 */	stw r4, 0x130(r1)
 /* 800F03B0 000ED310  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l
@@ -6782,9 +6782,9 @@ lbl_800F2CD0:
 /* 800F2D10 000EFC70  B0 01 00 56 */	sth r0, 0x56(r1)
 /* 800F2D14 000EFC74  48 27 06 D9 */	bl __ct__6CColorFffff
 /* 800F2D18 000EFC78  89 01 00 54 */	lbz r8, 0x54(r1)
-/* 800F2D1C 000EFC7C  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 800F2D1C 000EFC7C  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 800F2D20 000EFC80  88 E1 00 55 */	lbz r7, 0x55(r1)
-/* 800F2D24 000EFC84  38 83 65 FC */	addi r4, r3, lbl_805A65FC@l
+/* 800F2D24 000EFC84  38 83 65 FC */	addi r4, r3, sIdentity__9CMatrix3f@l
 /* 800F2D28 000EFC88  A0 C1 00 56 */	lhz r6, 0x56(r1)
 /* 800F2D2C 000EFC8C  38 61 01 34 */	addi r3, r1, 0x134
 /* 800F2D30 000EFC90  80 01 00 58 */	lwz r0, 0x58(r1)

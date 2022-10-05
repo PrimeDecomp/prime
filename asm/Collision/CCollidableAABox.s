@@ -7,8 +7,8 @@ lbl_ctor:
 .section .data
 .balign 8
 
-.global lbl_803ECAD0
-lbl_803ECAD0:
+.global __vt__16CCollidableAABox
+__vt__16CCollidableAABox:
 	# ROM: 0x3E9AD0
 	.4byte 0
 	.4byte 0
@@ -876,4 +876,3 @@ lbl_803D69E8:
 	.asciz "CCollidableAABox"
 	.balign 4
 	.4byte 0
-

@@ -288,9 +288,9 @@ lbl_80146B64:
 lbl_80146B80:
 /* 80146B80 00143AE0  34 1E 05 A0 */	addic. r0, r30, 0x5a0
 /* 80146B84 00143AE4  41 82 00 24 */	beq lbl_80146BA8
-/* 80146B88 00143AE8  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80146B88 00143AE8  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80146B8C 00143AEC  34 1E 05 A0 */	addic. r0, r30, 0x5a0
-/* 80146B90 00143AF0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80146B90 00143AF0  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80146B94 00143AF4  90 1E 05 A0 */	stw r0, 0x5a0(r30)
 /* 80146B98 00143AF8  41 82 00 10 */	beq lbl_80146BA8
 /* 80146B9C 00143AFC  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -894,8 +894,8 @@ UpdateBoundingState__12CPuddleSporeFRC6CAABoxR13CStateManager:
 /* 801473D4 00144334  38 9D 00 68 */	addi r4, r29, 0x68
 /* 801473D8 00144338  48 18 84 DD */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 801473DC 0014433C  C0 DC 00 00 */	lfs f6, 0(r28)
-/* 801473E0 00144340  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 801473E4 00144344  39 03 CA D0 */	addi r8, r3, lbl_803ECAD0@l
+/* 801473E0 00144340  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 801473E4 00144344  39 03 CA D0 */	addi r8, r3, __vt__16CCollidableAABox@l
 /* 801473E8 00144348  C0 BC 00 04 */	lfs f5, 4(r28)
 /* 801473EC 0014434C  C0 9C 00 08 */	lfs f4, 8(r28)
 /* 801473F0 00144350  3C A0 80 3E */	lis r5, __vt__19CCollisionPrimitive@ha
@@ -2068,9 +2068,9 @@ Accept__12CPuddleSporeFR8IVisitor:
 /* 801484C0 00145420  7F C4 F3 78 */	mr r4, r30
 /* 801484C4 00145424  7F 43 D3 78 */	mr r3, r26
 /* 801484C8 00145428  48 18 73 ED */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 801484CC 0014542C  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 801484CC 0014542C  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 801484D0 00145430  3C 60 50 41 */	lis r3, 0x50415254@ha
-/* 801484D4 00145434  38 04 CA D0 */	addi r0, r4, lbl_803ECAD0@l
+/* 801484D4 00145434  38 04 CA D0 */	addi r0, r4, __vt__16CCollidableAABox@l
 /* 801484D8 00145438  38 80 00 00 */	li r4, 0
 /* 801484DC 0014543C  90 1A 00 00 */	stw r0, 0(r26)
 /* 801484E0 00145440  38 03 52 54 */	addi r0, r3, 0x50415254@l

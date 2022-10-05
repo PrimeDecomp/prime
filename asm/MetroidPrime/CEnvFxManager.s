@@ -1877,9 +1877,9 @@ lbl_802117F8:
 /* 8021182C 0020E78C  90 A1 00 44 */	stw r5, 0x44(r1)
 /* 80211830 0020E790  48 0B E0 85 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 80211834 0020E794  C0 C1 01 18 */	lfs f6, 0x118(r1)
-/* 80211838 0020E798  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80211838 0020E798  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 8021183C 0020E79C  C0 A1 01 1C */	lfs f5, 0x11c(r1)
-/* 80211840 0020E7A0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80211840 0020E7A0  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80211844 0020E7A4  C0 81 01 20 */	lfs f4, 0x120(r1)
 /* 80211848 0020E7A8  38 61 02 38 */	addi r3, r1, 0x238
 /* 8021184C 0020E7AC  C0 61 01 24 */	lfs f3, 0x124(r1)
@@ -1953,9 +1953,9 @@ lbl_802117F8:
 /* 8021195C 0020E8BC  98 A1 02 28 */	stb r5, 0x228(r1)
 /* 80211960 0020E8C0  D8 01 02 30 */	stfd f0, 0x230(r1)
 lbl_80211964:
-/* 80211964 0020E8C4  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80211964 0020E8C4  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80211968 0020E8C8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 8021196C 0020E8CC  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
+/* 8021196C 0020E8CC  38 84 CA D0 */	addi r4, r4, __vt__16CCollidableAABox@l
 /* 80211970 0020E8D0  38 00 00 00 */	li r0, 0
 /* 80211974 0020E8D4  90 81 01 E0 */	stw r4, 0x1e0(r1)
 /* 80211978 0020E8D8  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l

@@ -1,4 +1,4 @@
-#include "math_ppc.h"
+#include "math.h"
 #include "musyx/musyx_priv.h"
 
 void salApplyMatrix(const SND_FMATRIX* a, const SND_FVECTOR* b, SND_FVECTOR* out) {
@@ -21,4 +21,6 @@ void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* 
   out->z = (a->x * b->y) - (a->y * b->x);
 }
 
-void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in) {}
+void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in) {
+  out->t[0] = 1.f;
+}

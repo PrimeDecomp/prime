@@ -2455,9 +2455,9 @@ lbl_80187A54:
 /* 80187C20 00184B80  7D E4 7B 78 */	mr r4, r15
 /* 80187C24 00184B84  48 14 7C 91 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 80187C28 00184B88  C0 A1 02 10 */	lfs f5, 0x210(r1)
-/* 80187C2C 00184B8C  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80187C2C 00184B8C  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80187C30 00184B90  C0 81 02 14 */	lfs f4, 0x214(r1)
-/* 80187C34 00184B94  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 80187C34 00184B94  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 80187C38 00184B98  C0 61 02 18 */	lfs f3, 0x218(r1)
 /* 80187C3C 00184B9C  C0 41 02 1C */	lfs f2, 0x21c(r1)
 /* 80187C40 00184BA0  C0 21 02 20 */	lfs f1, 0x220(r1)
@@ -4909,4 +4909,3 @@ lbl_805AC0A0:
 lbl_805AC0A4:
 	# ROM: 0x3F8944
 	.4byte 0x40400000
-

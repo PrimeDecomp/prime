@@ -595,9 +595,9 @@ lbl_80354F2C:
 /* 80354F44 00351EA4  38 84 66 70 */	addi r4, r4, sIdentity__12CTransform4f@l
 /* 80354F48 00351EA8  38 7F 00 20 */	addi r3, r31, 0x20
 /* 80354F4C 00351EAC  4B FB DC 29 */	bl __ct__12CTransform4fFRC12CTransform4f
-/* 80354F50 00351EB0  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 80354F50 00351EB0  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 80354F54 00351EB4  38 7F 00 50 */	addi r3, r31, 0x50
-/* 80354F58 00351EB8  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 80354F58 00351EB8  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 80354F5C 00351EBC  4B FB B0 C9 */	bl __ct__9CMatrix3fFRC9CMatrix3f
 /* 80354F60 00351EC0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 80354F64 00351EC4  7F E3 FB 78 */	mr r3, r31
@@ -738,4 +738,3 @@ lbl_805AE9C0:
 	# ROM: 0x3FB260
 	.4byte 0
 	.4byte 0
-

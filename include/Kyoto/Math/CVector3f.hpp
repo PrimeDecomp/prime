@@ -100,7 +100,7 @@ public:
   static const CVector3f& Forward() { return sForwardVector; }
   static const CVector3f& Back() { return sBackVector; }
 
-private:
+protected:
   f32 mX;
   f32 mY;
   f32 mZ;

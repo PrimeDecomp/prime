@@ -6088,9 +6088,9 @@ lbl_801C5F98:
 lbl_801C5FB4:
 /* 801C5FB4 001C2F14  34 1E 07 68 */	addic. r0, r30, 0x768
 /* 801C5FB8 001C2F18  41 82 00 24 */	beq lbl_801C5FDC
-/* 801C5FBC 001C2F1C  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 801C5FBC 001C2F1C  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 801C5FC0 001C2F20  34 1E 07 68 */	addic. r0, r30, 0x768
-/* 801C5FC4 001C2F24  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 801C5FC4 001C2F24  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 801C5FC8 001C2F28  90 1E 07 68 */	stw r0, 0x768(r30)
 /* 801C5FCC 001C2F2C  41 82 00 10 */	beq lbl_801C5FDC
 /* 801C5FD0 001C2F30  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -6212,9 +6212,9 @@ lbl_801C6070:
 /* 801C6174 001C30D4  7F A4 EB 78 */	mr r4, r29
 /* 801C6178 001C30D8  7F 83 E3 78 */	mr r3, r28
 /* 801C617C 001C30DC  48 10 97 39 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 801C6180 001C30E0  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 801C6180 001C30E0  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 801C6184 001C30E4  C0 22 AA 98 */	lfs f1, lbl_805AC7B8@sda21(r2)
-/* 801C6188 001C30E8  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 801C6188 001C30E8  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 801C618C 001C30EC  3C 80 80 5A */	lis r4, sZeroVector__9CVector3f@ha
 /* 801C6190 001C30F0  90 1C 00 00 */	stw r0, 0(r28)
 /* 801C6194 001C30F4  3C 60 50 41 */	lis r3, 0x50415254@ha

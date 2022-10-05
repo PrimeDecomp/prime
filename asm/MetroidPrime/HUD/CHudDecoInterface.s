@@ -2300,10 +2300,10 @@ SetIsVisibleDebug__19CHudHelmetInterfaceFbb:
 __ct__19CHudHelmetInterfaceFR9CGuiFrame:
 /* 80190E40 0018DDA0  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80190E44 0018DDA4  7C 08 02 A6 */	mflr r0
-/* 80190E48 0018DDA8  3C A0 80 5A */	lis r5, lbl_805A65FC@ha
+/* 80190E48 0018DDA8  3C A0 80 5A */	lis r5, sIdentity__9CMatrix3f@ha
 /* 80190E4C 0018DDAC  3C C0 80 3D */	lis r6, lbl_803D0BD8@ha
 /* 80190E50 0018DDB0  90 01 00 64 */	stw r0, 0x64(r1)
-/* 80190E54 0018DDB4  38 05 65 FC */	addi r0, r5, lbl_805A65FC@l
+/* 80190E54 0018DDB4  38 05 65 FC */	addi r0, r5, sIdentity__9CMatrix3f@l
 /* 80190E58 0018DDB8  93 E1 00 5C */	stw r31, 0x5c(r1)
 /* 80190E5C 0018DDBC  3B E6 0B D8 */	addi r31, r6, lbl_803D0BD8@l
 /* 80190E60 0018DDC0  93 C1 00 58 */	stw r30, 0x58(r1)
@@ -6809,9 +6809,9 @@ __ct__24CHudDecoInterfaceThermalFR9CGuiFrame:
 /* 80194E08 00191D68  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 80194E0C 00191D6C  90 1D 00 00 */	stw r0, 0(r29)
 /* 80194E10 00191D70  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
-/* 80194E14 00191D74  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 80194E14 00191D74  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 80194E18 00191D78  C0 06 00 00 */	lfs f0, 0(r6)
-/* 80194E1C 00191D7C  38 03 65 FC */	addi r0, r3, lbl_805A65FC@l
+/* 80194E1C 00191D7C  38 03 65 FC */	addi r0, r3, sIdentity__9CMatrix3f@l
 /* 80194E20 00191D80  38 7D 00 38 */	addi r3, r29, 0x38
 /* 80194E24 00191D84  D0 1D 00 04 */	stfs f0, 4(r29)
 /* 80194E28 00191D88  7C 04 03 78 */	mr r4, r0
@@ -8812,9 +8812,9 @@ __ct__21CHudDecoInterfaceXRayFR9CGuiFrame:
 /* 80196A54 001939B4  3B A5 66 A0 */	addi r29, r5, sZeroVector__9CVector3f@l
 /* 80196A58 001939B8  90 1E 00 00 */	stw r0, 0(r30)
 /* 80196A5C 001939BC  38 03 45 50 */	addi r0, r3, lbl_803E4550@l
-/* 80196A60 001939C0  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 80196A60 001939C0  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 80196A64 001939C4  90 1E 00 00 */	stw r0, 0(r30)
-/* 80196A68 001939C8  38 03 65 FC */	addi r0, r3, lbl_805A65FC@l
+/* 80196A68 001939C8  38 03 65 FC */	addi r0, r3, sIdentity__9CMatrix3f@l
 /* 80196A6C 001939CC  7C 04 03 78 */	mr r4, r0
 /* 80196A70 001939D0  38 7E 00 3C */	addi r3, r30, 0x3c
 /* 80196A74 001939D4  D0 1E 00 04 */	stfs f0, 4(r30)
@@ -8846,11 +8846,11 @@ __ct__21CHudDecoInterfaceXRayFR9CGuiFrame:
 /* 80196ADC 00193A3C  D0 1E 00 38 */	stfs f0, 0x38(r30)
 /* 80196AE0 00193A40  48 17 95 45 */	bl __ct__9CMatrix3fFRC9CMatrix3f
 /* 80196AE4 00193A44  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
-/* 80196AE8 00193A48  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
+/* 80196AE8 00193A48  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
 /* 80196AEC 00193A4C  38 A3 66 A0 */	addi r5, r3, sZeroVector__9CVector3f@l
 /* 80196AF0 00193A50  C0 05 00 00 */	lfs f0, 0(r5)
 /* 80196AF4 00193A54  38 7E 00 78 */	addi r3, r30, 0x78
-/* 80196AF8 00193A58  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 80196AF8 00193A58  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 80196AFC 00193A5C  D0 1E 00 60 */	stfs f0, 0x60(r30)
 /* 80196B00 00193A60  C0 1D 00 04 */	lfs f0, 4(r29)
 /* 80196B04 00193A64  D0 1E 00 64 */	stfs f0, 0x64(r30)
@@ -9266,9 +9266,9 @@ __ct__23CHudDecoInterfaceCombatFR9CGuiFrame:
 /* 801970C0 00194020  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha
 /* 801970C4 00194024  90 1F 00 00 */	stw r0, 0(r31)
 /* 801970C8 00194028  38 C3 66 60 */	addi r6, r3, sNoRotation__11CQuaternion@l
-/* 801970CC 0019402C  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 801970CC 0019402C  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 801970D0 00194030  C0 06 00 00 */	lfs f0, 0(r6)
-/* 801970D4 00194034  38 03 65 FC */	addi r0, r3, lbl_805A65FC@l
+/* 801970D4 00194034  38 03 65 FC */	addi r0, r3, sIdentity__9CMatrix3f@l
 /* 801970D8 00194038  7C 04 03 78 */	mr r4, r0
 /* 801970DC 0019403C  38 7F 00 44 */	addi r3, r31, 0x44
 /* 801970E0 00194040  D0 1F 00 04 */	stfs f0, 4(r31)

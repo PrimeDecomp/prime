@@ -766,8 +766,8 @@ lbl_800B8368:
 /* 800B839C 000B52FC  D0 01 00 6C */	stfs f0, 0x6c(r1)
 /* 800B83A0 000B5300  D0 21 00 70 */	stfs f1, 0x70(r1)
 /* 800B83A4 000B5304  41 82 00 10 */	beq lbl_800B83B4
-/* 800B83A8 000B5308  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
-/* 800B83AC 000B530C  38 63 65 FC */	addi r3, r3, lbl_805A65FC@l
+/* 800B83A8 000B5308  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
+/* 800B83AC 000B530C  38 63 65 FC */	addi r3, r3, sIdentity__9CMatrix3f@l
 /* 800B83B0 000B5310  48 00 00 10 */	b lbl_800B83C0
 lbl_800B83B4:
 /* 800B83B4 000B5314  7F 83 E3 78 */	mr r3, r28
@@ -4613,4 +4613,3 @@ lbl_803CDEA0:
 	.asciz "OT_A_VALID_LOCATOR"
 	.balign 4
 	.4byte 0
-

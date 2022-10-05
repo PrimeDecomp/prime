@@ -105,8 +105,8 @@ CPlayerState::CPlayerState(CInputStream& stream)
       amount = stream.ReadBits(bitCount);
       capacity = stream.ReadBits(bitCount);
     }
-
-    x24_powerups.push_back(CPowerUp(amount, capacity));
+    CPowerUp pw(amount, capacity);
+    x24_powerups.push_back(pw);
   }
 
   // Scan
@@ -114,7 +114,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
   x170_scanTimes.reserve(scanStates.size());
   for (rstl::vector< CMemoryCard::ScanState >::const_iterator it = scanStates.begin();
        it != scanStates.end(); ++it) {
-    float time = stream.ReadBits(1) ? 1.f : 0.f;
+    float time = stream.ReadPackedBool() ? 1.f : 0.f;
     x170_scanTimes.push_back(rstl::pair< CAssetId, float >(it->first, time));
   }
 

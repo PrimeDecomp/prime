@@ -3244,8 +3244,8 @@ lbl_80159364:
 /* 801593D8 00156338  38 9E 00 68 */	addi r4, r30, 0x68
 /* 801593DC 0015633C  48 17 64 D9 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
 /* 801593E0 00156340  C0 A1 00 50 */	lfs f5, 0x50(r1)
-/* 801593E4 00156344  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 801593E8 00156348  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 801593E4 00156344  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 801593E8 00156348  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 801593EC 0015634C  C0 81 00 54 */	lfs f4, 0x54(r1)
 /* 801593F0 00156350  C0 61 00 58 */	lfs f3, 0x58(r1)
 /* 801593F4 00156354  3C 80 80 5A */	lis r4, sIdentity__12CTransform4f@ha
@@ -3265,9 +3265,9 @@ lbl_80159364:
 /* 8015942C 0015638C  D0 21 00 88 */	stfs f1, 0x88(r1)
 /* 80159430 00156390  D0 01 00 8C */	stfs f0, 0x8c(r1)
 /* 80159434 00156394  48 02 9F 6D */	bl DetectStaticCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilter
-/* 80159438 00156398  3C A0 80 3F */	lis r5, lbl_803ECAD0@ha
+/* 80159438 00156398  3C A0 80 3F */	lis r5, __vt__16CCollidableAABox@ha
 /* 8015943C 0015639C  3C 80 80 3E */	lis r4, __vt__19CCollisionPrimitive@ha
-/* 80159440 001563A0  38 05 CA D0 */	addi r0, r5, lbl_803ECAD0@l
+/* 80159440 001563A0  38 05 CA D0 */	addi r0, r5, __vt__16CCollidableAABox@l
 /* 80159444 001563A4  90 01 00 68 */	stw r0, 0x68(r1)
 /* 80159448 001563A8  38 04 97 E4 */	addi r0, r4, __vt__19CCollisionPrimitive@l
 /* 8015944C 001563AC  90 01 00 68 */	stw r0, 0x68(r1)

@@ -6,9 +6,11 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
 class CMatrix3f {
+  static const CMatrix3f sIdentity;
 public:
-  // TODO
+  CMatrix3f(const CMatrix3f&);
 
+  static CMatrix3f Identity() { return sIdentity; }
 private:
   // TODO maybe individual f32s
   CVector3f m0;

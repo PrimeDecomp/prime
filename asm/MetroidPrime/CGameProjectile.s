@@ -1889,9 +1889,9 @@ lbl_80038CB0:
 /* 80038CB0 00035C10  38 61 01 68 */	addi r3, r1, 0x168
 /* 80038CB4 00035C14  38 9B 00 68 */	addi r4, r27, 0x68
 /* 80038CB8 00035C18  48 29 6B FD */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 80038CBC 00035C1C  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 80038CBC 00035C1C  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 80038CC0 00035C20  C0 C1 00 E8 */	lfs f6, 0xe8(r1)
-/* 80038CC4 00035C24  39 03 CA D0 */	addi r8, r3, lbl_803ECAD0@l
+/* 80038CC4 00035C24  39 03 CA D0 */	addi r8, r3, __vt__16CCollidableAABox@l
 /* 80038CC8 00035C28  C0 A1 00 EC */	lfs f5, 0xec(r1)
 /* 80038CCC 00035C2C  91 01 01 68 */	stw r8, 0x168(r1)
 /* 80038CD0 00035C30  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -2018,13 +2018,13 @@ lbl_80038E7C:
 /* 80038EAC 00035E0C  C0 E1 00 38 */	lfs f7, 0x38(r1)
 /* 80038EB0 00035E10  39 20 00 01 */	li r9, 1
 /* 80038EB4 00035E14  C0 97 00 04 */	lfs f4, 4(r23)
-/* 80038EB8 00035E18  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80038EB8 00035E18  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80038EBC 00035E1C  C1 01 00 3C */	lfs f8, 0x3c(r1)
 /* 80038EC0 00035E20  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
 /* 80038EC4 00035E24  C0 C1 00 34 */	lfs f6, 0x34(r1)
 /* 80038EC8 00035E28  EC 04 01 F2 */	fmuls f0, f4, f7
 /* 80038ECC 00035E2C  C0 77 00 00 */	lfs f3, 0(r23)
-/* 80038ED0 00035E30  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
+/* 80038ED0 00035E30  38 84 CA D0 */	addi r4, r4, __vt__16CCollidableAABox@l
 /* 80038ED4 00035E34  C0 B7 00 08 */	lfs f5, 8(r23)
 /* 80038ED8 00035E38  28 1D 00 00 */	cmplwi r29, 0
 /* 80038EDC 00035E3C  80 FB 00 68 */	lwz r7, 0x68(r27)
@@ -2070,9 +2070,9 @@ lbl_80038E7C:
 /* 80038F7C 00035EDC  98 01 02 84 */	stb r0, 0x284(r1)
 /* 80038F80 00035EE0  48 00 00 50 */	b lbl_80038FD0
 lbl_80038F84:
-/* 80038F84 00035EE4  3C 80 80 3F */	lis r4, lbl_803ECAD0@ha
+/* 80038F84 00035EE4  3C 80 80 3F */	lis r4, __vt__16CCollidableAABox@ha
 /* 80038F88 00035EE8  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
-/* 80038F8C 00035EEC  38 84 CA D0 */	addi r4, r4, lbl_803ECAD0@l
+/* 80038F8C 00035EEC  38 84 CA D0 */	addi r4, r4, __vt__16CCollidableAABox@l
 /* 80038F90 00035EF0  38 00 00 00 */	li r0, 0
 /* 80038F94 00035EF4  90 81 02 28 */	stw r4, 0x228(r1)
 /* 80038F98 00035EF8  38 63 97 E4 */	addi r3, r3, __vt__19CCollisionPrimitive@l

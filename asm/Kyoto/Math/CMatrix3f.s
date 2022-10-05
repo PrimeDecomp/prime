@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.comm lbl_805A65FC, 0x24, 4
+.comm sIdentity__9CMatrix3f, 0x24, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -484,10 +484,10 @@ __ct__9CMatrix3fFRC9CVector3fRC9CVector3fRC9CVector3f:
 __sinit_CMatrix3f_cpp:
 /* 803106C8 0030D628  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 803106CC 0030D62C  7C 08 02 A6 */	mflr r0
-/* 803106D0 0030D630  3C 60 80 5A */	lis r3, lbl_805A65FC@ha
+/* 803106D0 0030D630  3C 60 80 5A */	lis r3, sIdentity__9CMatrix3f@ha
 /* 803106D4 0030D634  C0 02 C8 50 */	lfs f0, lbl_805AE570@sda21(r2)
 /* 803106D8 0030D638  90 01 00 34 */	stw r0, 0x34(r1)
-/* 803106DC 0030D63C  38 63 65 FC */	addi r3, r3, lbl_805A65FC@l
+/* 803106DC 0030D63C  38 63 65 FC */	addi r3, r3, sIdentity__9CMatrix3f@l
 /* 803106E0 0030D640  C0 22 C8 54 */	lfs f1, lbl_805AE574@sda21(r2)
 /* 803106E4 0030D644  38 81 00 08 */	addi r4, r1, 8
 /* 803106E8 0030D648  D0 01 00 0C */	stfs f0, 0xc(r1)
@@ -516,4 +516,3 @@ lbl_805AE570:
 lbl_805AE574:
 	# ROM: 0x3FAE14
 	.float 1.0
-

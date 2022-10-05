@@ -31,6 +31,10 @@ public:
     return cinput_stream_helper(type, *this);
   }
 
+  bool ReadPackedBool() {
+    return ReadBits(1) != 0;
+  }
+
 private:
   bool GrabAnotherBlock();
   bool InternalReadNext();

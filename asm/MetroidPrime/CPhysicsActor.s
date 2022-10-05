@@ -2332,9 +2332,9 @@ __dt__13CPhysicsActorFv:
 lbl_8011C450:
 /* 8011C450 001193B0  34 1E 01 C0 */	addic. r0, r30, 0x1c0
 /* 8011C454 001193B4  41 82 00 24 */	beq lbl_8011C478
-/* 8011C458 001193B8  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
+/* 8011C458 001193B8  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
 /* 8011C45C 001193BC  34 1E 01 C0 */	addic. r0, r30, 0x1c0
-/* 8011C460 001193C0  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 8011C460 001193C0  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 8011C464 001193C4  90 1E 01 C0 */	stw r0, 0x1c0(r30)
 /* 8011C468 001193C8  41 82 00 10 */	beq lbl_8011C478
 /* 8011C46C 001193CC  3C 60 80 3E */	lis r3, __vt__19CCollisionPrimitive@ha
@@ -2417,8 +2417,8 @@ lbl_8011C548:
 /* 8011C584 001194E4  D0 1D 01 04 */	stfs f0, 0x104(r29)
 /* 8011C588 001194E8  4B EF EF AD */	bl Identity__10CAxisAngleFv
 /* 8011C58C 001194EC  C0 03 00 00 */	lfs f0, 0(r3)
-/* 8011C590 001194F0  3C 80 80 5A */	lis r4, lbl_805A65FC@ha
-/* 8011C594 001194F4  38 84 65 FC */	addi r4, r4, lbl_805A65FC@l
+/* 8011C590 001194F0  3C 80 80 5A */	lis r4, sIdentity__9CMatrix3f@ha
+/* 8011C594 001194F4  38 84 65 FC */	addi r4, r4, sIdentity__9CMatrix3f@l
 /* 8011C598 001194F8  D0 1D 01 08 */	stfs f0, 0x108(r29)
 /* 8011C59C 001194FC  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8011C5A0 00119500  D0 1D 01 0C */	stfs f0, 0x10c(r29)
@@ -2491,8 +2491,8 @@ lbl_8011C548:
 /* 8011C6AC 0011960C  C0 1C 00 14 */	lfs f0, 0x14(r28)
 /* 8011C6B0 00119610  D0 1D 01 B8 */	stfs f0, 0x1b8(r29)
 /* 8011C6B4 00119614  48 1B 32 01 */	bl __ct__19CCollisionPrimitiveFRC13CMaterialList
-/* 8011C6B8 00119618  3C 60 80 3F */	lis r3, lbl_803ECAD0@ha
-/* 8011C6BC 0011961C  38 03 CA D0 */	addi r0, r3, lbl_803ECAD0@l
+/* 8011C6B8 00119618  3C 60 80 3F */	lis r3, __vt__16CCollidableAABox@ha
+/* 8011C6BC 0011961C  38 03 CA D0 */	addi r0, r3, __vt__16CCollidableAABox@l
 /* 8011C6C0 00119620  90 1A 00 00 */	stw r0, 0(r26)
 /* 8011C6C4 00119624  C0 1C 00 00 */	lfs f0, 0(r28)
 /* 8011C6C8 00119628  D0 1A 00 10 */	stfs f0, 0x10(r26)
