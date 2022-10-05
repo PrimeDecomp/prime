@@ -41,6 +41,7 @@ COMPLETE_OBJECTS = [
     "Kyoto/Math/CVector3d",
     "Kyoto/Math/CVector3i",
     "Kyoto/Math/CloseEnough",
+    "Kyoto/Math/CSphere",
     "Kyoto/CRandom16",
     "Kyoto/CCrc32",
     "Kyoto/Alloc/CCircularBuffer",
