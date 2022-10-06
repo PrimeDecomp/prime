@@ -8,6 +8,7 @@ class CVector3f;
 class CGrappleArm {
 public:
   CGrappleArm(const CVector3f& scale);
+  ~CGrappleArm();
 
 private:
   u8 x0_pad[0x3b4];
