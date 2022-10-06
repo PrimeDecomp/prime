@@ -11,7 +11,7 @@ public:
    return GetAllocSpace();
  }*/
   void* operator new(unsigned long sz) { return operator new(sz, "??(??)", nullptr); }
-  void operator delete(void* ptr) { ReferenceCount()--; }
+  void operator delete(void* ptr);
 
 private:
   static void* GetAllocSpace() {
@@ -23,5 +23,10 @@ private:
     return sReferenceCount;
   }
 };
+
+template < typename T >
+void TOneStatic< T >::operator delete(void* ptr) {
+  ReferenceCount()--;
+}
 
 #endif
