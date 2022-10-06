@@ -28,6 +28,7 @@ COMPLETE_OBJECTS = [
     "MetroidPrime/HUD/CHUDMemoParms",
     "MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint",
     "Weapons/IWeaponRenderer",
+    "Collision/CMRay",
     "Kyoto/Basics/CStopwatch",
     "Kyoto/Basics/COsContextDolphin",
     "Kyoto/Basics/CSWDataDolphin",
