@@ -88,6 +88,9 @@ public:
   virtual void SetWorldLightFadeLevel();
   virtual void Something();
   virtual void PrepareDynamicLights();
+
+  
+  void AllocatePhazonSuitMaskTexture();
 };
 
 extern CCubeRenderer* gpRender;

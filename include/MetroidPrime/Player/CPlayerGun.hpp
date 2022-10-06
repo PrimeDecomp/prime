@@ -95,6 +95,9 @@ public:
   CPlayerGun(TUniqueId);
   ~CPlayerGun();
 
+  void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const;
+  void PreRender(CStateManager&, const CFrustumPlanes&, const CVector3f&);
+
   void InitBeamData();
   void InitBombData();
   void InitMuzzleData();

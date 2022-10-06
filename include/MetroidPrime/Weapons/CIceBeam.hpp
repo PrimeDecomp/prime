@@ -7,7 +7,7 @@ class CIceBeam : public CGunWeapon {
 public:
   CIceBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
              EMaterialTypes playerMaterial, const CVector3f& scale);
-
+  ~CIceBeam();
 private:
   u8 x21c_pad[0x30];
 };

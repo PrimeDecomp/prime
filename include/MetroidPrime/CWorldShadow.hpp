@@ -24,6 +24,12 @@ class CWorldShadow {
 public:
   CWorldShadow(uint w, uint h, bool rgba8);
   ~CWorldShadow();
+
+  void EnableModelProjectedShadow(const CTransform4f& pos, uint lightIdx, float f1);
+  void DisableModelProjectedShadow();
+  void BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid, uint lightIdx, const CAABox& aabb,
+                               bool motionBlur, bool lighten);
+  void ResetBlur();
 };
 CHECK_SIZEOF(CWorldShadow, 0x8c)
 

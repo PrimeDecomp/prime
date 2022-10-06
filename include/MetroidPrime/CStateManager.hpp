@@ -120,6 +120,9 @@ public:
   TUniqueId GetIdForScript(TEditorId eid) const;
   TIdListResult GetIdListForScript(TEditorId) const;
 
+  TAreaId GetNextAreaId() const { return x8cc_nextAreaId; }
+  void SetCurrentAreaId(TAreaId);
+
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;
   void SetCurrentMaze(rstl::single_ptr< CMazeState > maze);
