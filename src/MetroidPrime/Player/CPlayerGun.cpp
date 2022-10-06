@@ -570,7 +570,22 @@ float CPlayerGun::GetBeamVelocity() const {
   return 10.f;
 }
 
-TUniqueId CPlayerGun::GetTargetId(CStateManager&) { return TUniqueId(0, 0); }
+TUniqueId CPlayerGun::GetTargetId(CStateManager& mgr) {
+  TUniqueId ret = mgr.GetPlayer()->GetOrbitTargetId();
+  if (x832_26_comboFiring && ret == kInvalidUniqueId && x310_currentBeam == CPlayerState::kBI_Wave)
+    ret = mgr.GetPlayer()->GetOrbitNextTargetId();
+  
+  if (ret != kInvalidUniqueId) {
+    const CActor* act = TCastToConstPtr<CActor>(mgr.GetObjectById(ret));
+    if (act != nullptr) {
+        if (!act->GetMaterialList().HasMaterial(kMT_Target)) {
+            ret = kInvalidUniqueId;
+        }
+    }
+  }
+  
+  return ret;
+ }
 
 CPlayerGun::CGunMorph::CGunMorph(float gunTransformTime, float holoHoldTime)
 : x4_gunTransformTime(gunTransformTime), x10_holoHoldTime(fabs(holoHoldTime)) {}
