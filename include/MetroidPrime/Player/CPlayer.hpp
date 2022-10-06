@@ -167,6 +167,10 @@ public:
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
+  
+  TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
+  TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
+  TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
 
 private:
   struct CVisorSteam {
