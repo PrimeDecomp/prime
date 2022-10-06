@@ -574,21 +574,31 @@ TUniqueId CPlayerGun::GetTargetId(CStateManager& mgr) {
   TUniqueId ret = mgr.GetPlayer()->GetOrbitTargetId();
   if (x832_26_comboFiring && ret == kInvalidUniqueId && x310_currentBeam == CPlayerState::kBI_Wave)
     ret = mgr.GetPlayer()->GetOrbitNextTargetId();
-  
+
   if (ret != kInvalidUniqueId) {
-    const CActor* act = TCastToConstPtr<CActor>(mgr.GetObjectById(ret));
+    const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(ret));
     if (act != nullptr) {
-        if (!act->GetMaterialList().HasMaterial(kMT_Target)) {
-            ret = kInvalidUniqueId;
-        }
+      if (!act->GetMaterialList().HasMaterial(kMT_Target)) {
+        ret = kInvalidUniqueId;
+      }
     }
   }
-  
+
   return ret;
- }
+}
 
 CPlayerGun::CGunMorph::CGunMorph(float gunTransformTime, float holoHoldTime)
-: x4_gunTransformTime(gunTransformTime), x10_holoHoldTime(fabs(holoHoldTime)) {}
+: x0_yLerp(0.f)
+, x4_gunTransformTime(CMath::Sign(gunTransformTime))
+, x8_remTime(0.f)
+, xc_speed(0.1f)
+, x10_holoHoldTime(fabs(holoHoldTime))
+, x14_remHoldTime(2.f)
+, x18_transitionFactor(1.f)
+, x1c_dir(kD_Done)
+, x20_gunState(kGS_OutWipeDone)
+, x24_24_morphing(false)
+, x24_25_weaponChanged(false) {}
 
 void CPlayerGun::CGunMorph::StartWipe(CPlayerGun::CGunMorph::EDir) {}
 
