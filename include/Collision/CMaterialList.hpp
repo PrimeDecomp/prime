@@ -116,9 +116,11 @@ public:
   // HasMaterials__13CMaterialListCFv weak
   // GetField__13CMaterialListCFUxUx weak
   // Intersection__13CMaterialListCFRC13CMaterialList weak
-  // BitPosition__13CMaterialListFUx global
+  static s32 BitPosition(u64 flags);
   // GetMaterialString__13CMaterialListCFv weak
-  // SharesMaterials__13CMaterialListCFRC13CMaterialList weak
+  u64 SharesMaterials(const CMaterialList& other) const {
+    return (other.value & value);
+  }
 
 private:
   u64 value;

@@ -6,6 +6,7 @@
 #include "Collision/CMaterialList.hpp"
 
 class CMaterialFilter {
+  static const CMaterialFilter skPassEverything;
 public:
   enum EFilterType {
     kFT_Always,
@@ -14,7 +15,7 @@ public:
     kFT_IncludeExclude,
   };
 
-  CMaterialFilter() : type(kFT_Always) {}
+  CMaterialFilter() : include(0x00000000FFFFFFFF), exclude(0), type(kFT_Always) {}
   CMaterialFilter(const CMaterialList& include, const CMaterialList& exclude, EFilterType type)
   : include(include), exclude(exclude), type(type) {}
 
@@ -28,6 +29,8 @@ public:
                                             const CMaterialList& exclude) {
     return CMaterialFilter(include, exclude, kFT_IncludeExclude);
   }
+
+  bool Passes(const CMaterialList& other) const;
 
 private:
   CMaterialList include;
