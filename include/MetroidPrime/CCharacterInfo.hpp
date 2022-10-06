@@ -4,10 +4,10 @@
 #include "types.h"
 
 #include "MetroidPrime/CEffectComponent.hpp"
-#include "MetroidPrime/CPASDatabase.hpp"
 
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
+#include "Kyoto/Animation/CPASDatabase.hpp"
 
 #include "rstl/pair.hpp"
 #include "rstl/string.hpp"

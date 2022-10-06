@@ -54,6 +54,13 @@ public:
     bool m_bool;
   };
 
+  static CPASAnimParm FromEnum(s32 val);
+  static CPASAnimParm FromBool(bool val);
+  static CPASAnimParm FromReal32(float val);
+  static CPASAnimParm FromUint32(u32 val);
+  static CPASAnimParm FromInt32(s32 val);
+  static CPASAnimParm NoParameter();
+
 private:
   UParmValue x0_value;
   EParmType x4_type;
