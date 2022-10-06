@@ -13,7 +13,7 @@ LoadAnimations__10CGunMotionFv:
 /* 801D8F8C 001D5EEC  38 A0 00 0E */	li r5, 0xe
 /* 801D8F90 001D5EF0  38 E0 00 01 */	li r7, 1
 /* 801D8F94 001D5EF4  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 801D8F98 001D5EF8  48 0B 22 D5 */	bl "get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
+/* 801D8F98 001D5EF8  48 0B 22 D5 */	bl "get_token_vector__12NWeaponTypesFRC9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 /* 801D8F9C 001D5EFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D8FA0 001D5F00  7C 08 03 A6 */	mtlr r0
 /* 801D8FA4 001D5F04  38 21 00 10 */	addi r1, r1, 0x10
@@ -568,4 +568,3 @@ lbl_805AC9B8:
 lbl_805AC9BC:
 	# ROM: 0x3F925C
 	.4byte 0
-

@@ -3,6 +3,7 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimRes.hpp"
 #include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Weapons/WeaponCommon.hpp"
 
 #include "Kyoto/Animation/CPASAnimParmData.hpp"
 #include "Kyoto/Animation/CPASDatabase.hpp"
@@ -98,4 +99,6 @@ void CGunMotion::EnterFidget(CStateManager& mgr, SamusGun::EFidgetType type, int
   x4c_gunController.EnterFidget(mgr, int(type), 0, parm2);
 }
 
-void CGunMotion::LoadAnimations() {}
+void CGunMotion::LoadAnimations() {
+  NWeaponTypes::get_token_vector(*x0_modelData.GetAnimationData(), 0, 14, xa8_anims, true);
+}

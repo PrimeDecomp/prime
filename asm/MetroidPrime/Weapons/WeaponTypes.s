@@ -620,8 +620,8 @@ lbl_8028B25C:
 /* 8028B264 002881C4  38 60 00 01 */	li r3, 1
 /* 8028B268 002881C8  4E 80 00 20 */	blr
 
-.global "get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
-"get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b":
+.global "get_token_vector__12NWeaponTypesFRC9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
+"get_token_vector__12NWeaponTypesFRC9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b":
 /* 8028B26C 002881CC  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8028B270 002881D0  7C 08 02 A6 */	mflr r0
 /* 8028B274 002881D4  90 01 00 84 */	stw r0, 0x84(r1)

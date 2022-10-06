@@ -959,7 +959,7 @@ LoadAnimations__10CGunWeaponFv:
 /* 801BA9D8 001B7938  38 A0 00 0F */	li r5, 0xf
 /* 801BA9DC 001B793C  38 E0 00 01 */	li r7, 1
 /* 801BA9E0 001B7940  80 63 00 20 */	lwz r3, 0x20(r3)
-/* 801BA9E4 001B7944  48 0D 08 89 */	bl "get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
+/* 801BA9E4 001B7944  48 0D 08 89 */	bl "get_token_vector__12NWeaponTypesFRC9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 /* 801BA9E8 001B7948  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801BA9EC 001B794C  7C 08 03 A6 */	mtlr r0
 /* 801BA9F0 001B7950  38 21 00 10 */	addi r1, r1, 0x10
