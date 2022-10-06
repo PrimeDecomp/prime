@@ -38,7 +38,7 @@ public:
   void Update(float, CStateManager&);
   void Draw(const CStateManager&, const CTransform4f&) const;
   void ReturnToDefault(CStateManager& mgr);
-  void GetFreeLookSetId() const;
+  int GetFreeLookSetId() const;
   void BasePosition(bool bigStrikeReset);
   void EnterFidget(CStateManager&, SamusGun::EFidgetType, int);
   void LoadAnimations();
