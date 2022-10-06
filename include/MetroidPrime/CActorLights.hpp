@@ -22,10 +22,16 @@ public:
   ~CActorLights();
 
   void BuildConstantAmbientLighting();
+  void BuildConstantAmbientLighting(const CColor&);
   bool BuildAreaLightList(const CStateManager& mgr, const CGameArea& area, const CAABox& bounds);
   void BuildDynamicLightList(const CStateManager& mgr, const CAABox& bounds);
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
+  bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }
+  s32 GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
+
+  void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
+  void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
 
 private:
   rstl::reserved_vector< CLight, 4 > x0_areaLights;

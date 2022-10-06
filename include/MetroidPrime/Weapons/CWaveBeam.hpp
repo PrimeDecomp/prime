@@ -7,7 +7,7 @@ class CWaveBeam : public CGunWeapon {
 public:
   CWaveBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
              EMaterialTypes playerMaterial, const CVector3f& scale);
-
+  ~CWaveBeam();
 private:
   u8 x21c_pad[0x40];
 };

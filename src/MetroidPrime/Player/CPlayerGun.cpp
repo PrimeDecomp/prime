@@ -1,8 +1,11 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 
+#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimRes.hpp"
 #include "MetroidPrime/CRainSplashGenerator.hpp"
 #include "MetroidPrime/CWorldShadow.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
@@ -15,11 +18,14 @@
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
+#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
 #include "Collision/CMaterialList.hpp"
+
+#include "MetaRender/CCubeRenderer.hpp"
 
 static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
 static float kHorizontalAngleTable[3] = {30.f, 30.f, 30.f};
@@ -275,3 +281,53 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 }
 
 CPlayerGun::~CPlayerGun() {}
+
+void CPlayerGun::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager&) const {
+  rstl::optional_object< CModelData >& model = x72c_currentBeam->SolidModelData();
+  if (model)
+    model->RenderParticles(frustum);
+}
+
+void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, const CVector3f& camPos) {
+  const CPlayerState& playerState = *mgr.GetPlayerState();
+  if (playerState.GetCurrentVisor() == CPlayerState::kPV_Scan)
+    return;
+
+  CPlayerState::EPlayerVisor activeVisor = playerState.GetActiveVisor(mgr);
+  switch (activeVisor) {
+  case CPlayerState::kPV_Thermal:
+    float rgb = CMath::Clamp(0.6f, 0.5f * x380_shotSmokeTimer + 0.6f - x378_shotSmokeStartTimer, 1.f);
+    x0_lights.BuildConstantAmbientLighting(CColor(rgb, rgb, rgb, 1.f));
+    break;
+    
+  case CPlayerState::kPV_Combat: {
+    CAABox aabb = x72c_currentBeam->GetBounds(CTransform4f::Translate(camPos) * x4a8_gunWorldXf);
+    if (mgr.GetNextAreaId() != kInvalidAreaId) {
+      x0_lights.SetFindShadowLight(true);
+      x0_lights.SetShadowDynamicRangeThreshold(0.25f);
+      x0_lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(mgr.GetNextAreaId()), aabb);
+    }
+    x0_lights.BuildDynamicLightList(mgr, aabb);
+    if (x0_lights.HasShadowLight()) {
+      if (x72c_currentBeam->IsLoaded()) {
+        x82c_shadow->BuildLightShadowTexture(mgr, mgr.GetNextAreaId(), x0_lights.GetShadowLightIndex(), aabb, true,
+                                             false);
+      }
+    } else {
+      x82c_shadow->ResetBlur();
+    }
+    break;
+  }
+  default:
+    break;
+  }
+
+  if (x740_grappleArm->GetActive())
+    x740_grappleArm->PreRender(mgr, frustum, camPos);
+
+  if (x678_morph.GetGunState() != CGunMorph::kGS_OutWipeDone || activeVisor == CPlayerState::kPV_XRay)
+    x6e0_rightHandModel.AnimationData()->PreRender();
+
+  if (x833_28_phazonBeamActive)
+    gpRender->AllocatePhazonSuitMaskTexture();
+}

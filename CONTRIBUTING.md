@@ -61,11 +61,12 @@ Metaforce -> decomp
 - `std::max` -> `rstl::max_val`
 - `std::clamp` -> `CMath::Clamp` (depends on context)
 
-### Converting Vector / Transforms
+### Converting globals and getters
 
 Metaforce -> decomp
 - `zeus::CTransform::frontVector()` -> `CTransform4f::GetForward()`
 - `zeus::skForward` -> `CVector3f::Forward`
+- `g_Renderer` -> `gpRender`
 
 ### Class definitions & constructors
 

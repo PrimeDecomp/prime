@@ -7,7 +7,7 @@ class CPlasmaBeam : public CGunWeapon {
 public:
   CPlasmaBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
              EMaterialTypes playerMaterial, const CVector3f& scale);
-
+  ~CPlasmaBeam();
 private:
   u8 x21c_pad[0x24];
 };

@@ -5,6 +5,7 @@
 #include "types.h"
 
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/Weapons/WeaponCommon.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
 #include "Kyoto/Math/CVector3f.hpp"
@@ -58,6 +59,29 @@ public:
     kFFT_Frozen,
     kFFT_Thawed,
   };
+
+  // Virtual Methods
+  virtual void Reset(CStateManager& mgr);
+  virtual void PlayAnim(NWeaponTypes::EGunAnimType type, bool loop);
+  virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
+  virtual void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
+  virtual void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr, const CTransform4f& xf);
+  virtual void Fire(bool underwater, float dt, EChargeState chargeState, const CTransform4f& xf, CStateManager& mgr,
+                    TUniqueId homingTarget, float chargeFactor1, float chargeFactor2);
+  virtual void EnableFx(bool enable);
+  virtual void EnableSecondaryFx(ESecondaryFxType type);
+  virtual void Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf, const CModelFlags& flags,
+                    const CActorLights* lights);
+  virtual void DrawMuzzleFx(const CStateManager& mgr) const;
+  virtual void Update(float dt, CStateManager& mgr);
+  virtual void Load(CStateManager& mgr, bool subtypeBasePose);
+  virtual void Unload(CStateManager& mgr);
+  virtual bool IsLoaded() const;
+
+  rstl::optional_object< CModelData >& SolidModelData() { return x10_solidModelData; }
+
+  CAABox GetBounds() const;
+  CAABox GetBounds(const CTransform4f& xf) const;
 
 private:
   // x0 is vtable

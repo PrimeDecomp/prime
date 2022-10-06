@@ -7,6 +7,7 @@ class CPowerBeam : public CGunWeapon {
 public:
   CPowerBeam(CAssetId characterId, EWeaponType type, TUniqueId playerId,
              EMaterialTypes playerMaterial, const CVector3f& scale);
+  ~CPowerBeam();
 
 private:
   u8 x21c_pad[0x2C];
