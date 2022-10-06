@@ -1,10 +1,122 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 
 #include "MetroidPrime/CAnimRes.hpp"
-#include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
+#include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
-CPlayerGun::CPlayerGun(TUniqueId uid)
+#include "Kyoto/Graphics/CModelFlags.hpp"
+#include "Kyoto/Particles/CElementGen.hpp"
+
+#include "Collision/CMaterialFilter.hpp"
+#include "Collision/CMaterialList.hpp"
+
+static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
+static float kHorizontalAngleTable[3] = {30.f, 30.f, 30.f};
+static float kVerticalVarianceTable[3] = {30.f, 30.f, 30.f};
+
+static const CVector3f sGunScale(2.f, 2.f, 2.f);
+
+static const uint skBeamAnimIds[4] = {
+    0,
+    1,
+    2,
+    1,
+};
+
+static const CPlayerState::EItemType skBeamArr[4] = {
+    CPlayerState::kIT_PowerBeam,
+    CPlayerState::kIT_IceBeam,
+    CPlayerState::kIT_WaveBeam,
+    CPlayerState::kIT_PlasmaBeam,
+};
+
+static const CPlayerState::EItemType skBeamComboArr[4] = {
+    CPlayerState::kIT_SuperMissile,
+    CPlayerState::kIT_IceSpreader,
+    CPlayerState::kIT_Wavebuster,
+    CPlayerState::kIT_Flamethrower,
+};
+
+// static ControlMapper::ECommands mBeamCtrlCmd[4] = {
+//     ControlMapper::kC_PowerBeam,
+//     ControlMapper::kC_IceBeam,
+//     ControlMapper::kC_WaveBeam,
+//     ControlMapper::kC_PlasmaBeam,
+// };
+
+// constexpr std::array<u16, 4> skFromMissileSound{
+//     SFXwpn_from_missile_power,
+//     SFXwpn_from_missile_ice,
+//     SFXwpn_from_missile_wave,
+//     SFXwpn_from_missile_plasma,
+// };
+
+// constexpr std::array<u16, 4> skFromBeamSound{
+//     SFXsfx0000,
+//     SFXwpn_from_beam_ice,
+//     SFXwpn_from_beam_wave,
+//     SFXwpn_from_beam_plasma,
+// };
+
+// constexpr std::array<u16, 4> skToMissileSound{
+//     SFXwpn_to_missile_power,
+//     SFXwpn_to_missile_ice,
+//     SFXwpn_to_missile_wave,
+//     SFXwpn_to_missile_plasma,
+// };
+
+// constexpr std::array<u16, 4> skIntoBeamSound{
+//     SFXsfx0000,
+//     SFXwpn_into_beam_ice,
+//     SFXwpn_into_beam_wave,
+//     SFXwpn_into_beam_plasma,
+// };
+
+static const float kChargeSpeed = 1.f / CPlayerState::GetMissileComboChargeFactor();
+static const float kChargeFxStart = 1.f / CPlayerState::GetMissileComboChargeFactor();
+static const float kChargeAnimStart = 0.25f / CPlayerState::GetMissileComboChargeFactor();
+static const float kChargeStart = 0.025f / CPlayerState::GetMissileComboChargeFactor();
+
+// constexpr std::array<u16, 4> skBeamChargeUpSound{
+//     SFXwpn_chargeup_power,
+//     SFXwpn_chargeup_ice,
+//     SFXwpn_chargeup_wave,
+//     SFXwpn_chargeup_plasma,
+// };
+
+static const CPlayerState::EItemType skItemArr[2] = {
+    CPlayerState::kIT_Invalid,
+    CPlayerState::kIT_Missiles,
+};
+
+// static const ushort skItemEmptySound[2] = {
+//     SFXsfx0000,
+//     SFXwpn_empty_action,
+// };
+
+static const float chargeShakeTbl[3] = {
+    -0.001f,
+    0.f,
+    0.001f,
+};
+
+static const CMaterialFilter sAimFilter = CMaterialFilter::MakeIncludeExclude(
+    CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough));
+
+static const CModelFlags kThermalFlags[4] = {
+    CModelFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.0f)),
+    CModelFlags(CModelFlags::kT_Blend, CColor(0.f, 0.f, 0.f, 0.5f)),
+    CModelFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.0f)),
+    CModelFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.0f)),
+};
+
+static const CModelFlags kHandThermalFlag(CModelFlags::kT_Additive, CColor::White());
+
+static const CModelFlags kHandHoloFlag((CModelFlags::ETrans)1, // TODO: ETrans 1?
+                                       CColor(0.75f, 0.5f, 0.f, 1.f));
+
+CPlayerGun::CPlayerGun(TUniqueId playerId)
 : x0_lights(8, CVector3f::Zero(), 4, 4, false, false, false, 0.1)
 , x2ec_lastFireButtonStates(0)
 , x2f0_pressedFireButtonStates(0)
@@ -32,6 +144,8 @@ CPlayerGun::CPlayerGun(TUniqueId uid)
 , x348_chargeCooldownTimer(0.f)
 , x34c_shakeX(0.f)
 , x350_shakeZ(0.f)
+, x354_bombFuseTime(gpTweakPlayerGun->GetBombFuseTime())
+, x358_bombDropDelayTime(gpTweakPlayerGun->GetBombDropDelayTime())
 , x35c_bombTime(0.f)
 , x360_(0.f)
 , x364_gunStrikeCoolTimer(0.f)
@@ -58,7 +172,7 @@ CPlayerGun::CPlayerGun(TUniqueId uid)
 , x4a8_gunWorldXf(CTransform4f::Identity())
 , x4d8_gunLocalXf(CTransform4f::Identity())
 , x508_elbowLocalXf(CTransform4f::Identity())
-, x538_playerId(uid)
+, x538_playerId(playerId)
 , x53a_powerBomb(kInvalidUniqueId)
 , x53c_lightId(kInvalidUniqueId)
 , x550_camBob(CPlayerCameraBob::kCBT_One, CPlayerCameraBob::GetCameraBobExtent(),
@@ -67,14 +181,30 @@ CPlayerGun::CPlayerGun(TUniqueId uid)
 , x65c_(0.f)
 , x660_(0.f)
 , x664_(0.f)
+, x668_aimVerticalSpeed(gpTweakPlayerGun->GetAimVerticalSpeed())
+, x66c_aimHorizontalSpeed(gpTweakPlayerGun->GetAimHorizontalSpeed())
 , x678_morph(gpTweakPlayerGun->GetGunTransformTime(), gpTweakPlayerGun->GetHoloHoldTime())
 , x6c8_hologramClipCube(CVector3f(-0.29329199f, 0.f, -0.2481945f),
                         CVector3f(0.29329199f, 1.292392f, 0.2481945f))
 , x6e0_rightHandModel(CAnimRes(gpTweakGunRes->xc_rightHand, 0, CVector3f(3.f, 3.f, 3.f), 0, true))
-,  x72c_currentBeam(nullptr)
-,  x730_outgoingBeam(nullptr)
-,  x734_loadingBeam(nullptr)
-,  x738_nextBeam(nullptr)
+, x72c_currentBeam(nullptr)
+, x730_outgoingBeam(nullptr)
+, x734_loadingBeam(nullptr)
+, x738_nextBeam(nullptr)
+// , x73c_gunMotion(new CGunMotion(gpTweakGunRes->x4_gunMotion, sGunScale))
+// , x740_grappleArm(new CGrappleArm(sGunScale))
+// , x744_auxWeapon(new CAuxWeapon(playerId))
+// , x748_rainSplashGenerator(new CRainSplashGenerator(sGunScale, 20, 2, 0.f, 0.125f))
+// , x74c_powerBeam(new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player,
+// sGunScale)) , x750_iceBeam(new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId,
+// kMT_Player, sGunScale)) , x754_waveBeam(new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave,
+// playerId, kMT_Player, sGunScale)) , x758_plasmaBeam(new
+// CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player, sGunScale)) ,
+// x75c_phazonBeam(new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player,
+// sGunScale))
+, x774_holoTransitionGen(
+      new CElementGen(gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
+// , x82c_shadow(new CWorldShadow(256, 256, true))
 , x830_chargeRumbleHandle(-1)
 , x832_24_coolingCharge(false)
 , x832_25_chargeEffectVisible(false)
@@ -108,4 +238,24 @@ CPlayerGun::CPlayerGun(TUniqueId uid)
 , x835_29_powerBombReady(false)
 // , x835_30_inPhazonPool(false)
 // , x835_31_actorAttached(false)
-{}
+{
+
+  kVerticalAngleTable[2] = gpTweakPlayerGun->GetUpLookAngle();
+  kVerticalAngleTable[0] = gpTweakPlayerGun->GetDownLookAngle();
+  kHorizontalAngleTable[1] = gpTweakPlayerGun->GetHorizontalSpread();
+  kHorizontalAngleTable[2] = gpTweakPlayerGun->GetHighHorizontalSpread();
+  kHorizontalAngleTable[0] = gpTweakPlayerGun->GetLowHorizontalSpread();
+  kVerticalVarianceTable[1] = gpTweakPlayerGun->GetVerticalSpread();
+  kVerticalVarianceTable[2] = gpTweakPlayerGun->GetHighVerticalSpread();
+  kVerticalVarianceTable[0] = gpTweakPlayerGun->GetLowVerticalSpread();
+  CMotionState::SetExtendDistance(gpTweakPlayerGun->GetGunExtendDistance());
+
+  InitBeamData();
+  InitBombData();
+  InitMuzzleData();
+  InitCTData();
+  LoadHandAnimTokens();
+  x550_camBob.SetPlayerVelocity(CVector3f::Zero());
+  x550_camBob.SetBobMagnitude(0.f);
+  x550_camBob.SetBobTimeScale(0.f);
+}

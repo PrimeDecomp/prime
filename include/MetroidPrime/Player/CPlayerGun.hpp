@@ -92,6 +92,12 @@ public:
 
   CPlayerGun(TUniqueId);
 
+  void InitBeamData();
+  void InitBombData();
+  void InitMuzzleData();
+  void InitCTData();
+  void LoadHandAnimTokens();
+
   bool IsCharging() const { return x834_24_charging; }
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
 
