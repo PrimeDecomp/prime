@@ -1,4 +1,6 @@
-#pragma once
+// #pragma once
+#ifndef _CGUNWEAPON_HPP_
+#define _CGUNWEAPON_HPP_
 
 #include "types.h"
 
@@ -41,6 +43,7 @@ private:
 class CGunWeapon {
 public:
   // TODO ctor
+  CGunWeapon();
   virtual ~CGunWeapon();
   // TODO other virtual methods
 
@@ -57,6 +60,7 @@ public:
   };
 
 private:
+  // x0 is vtable
   CVector3f x4_scale;
   rstl::optional_object< CModelData > x10_solidModelData;
   rstl::optional_object< CModelData > x60_holoModelData;
@@ -64,6 +68,7 @@ private:
   rstl::single_ptr< CGunController > x100_gunController;
   TToken< CAnimCharacterSet > x104_gunCharacter;
   rstl::vector< CToken > x10c_anims;
+  rstl::vector< int > x11c_unk;
   rstl::vector< CToken > x12c_deps;
   TToken< CAnimCharacterSet > x13c_armCharacter;
   rstl::reserved_vector< TCachedToken< CWeaponDescription >, 2 > x144_weapons;
@@ -71,6 +76,7 @@ private:
   rstl::reserved_vector< TCachedToken< CGenDescription >, 2 > x16c_muzzleEffects;
   rstl::reserved_vector< TCachedToken< CGenDescription >, 2 > x188_frozenEffects;
   rstl::reserved_vector< rstl::single_ptr< CElementGen >, 2 > x1a4_muzzleGenerators;
+  u8 x1b0_pad[8];
   rstl::single_ptr< CElementGen > x1b8_frozenGenerator;
   CRainSplashGenerator* x1bc_rainSplashGenerator;
   EWeaponType x1c0_weaponType;
@@ -95,4 +101,6 @@ private:
 
   static const int skShootAnim[32];
 };
-CHECK_SIZEOF(CGunWeapon, 0x218)
+CHECK_SIZEOF(CGunWeapon, 0x21c)
+
+#endif

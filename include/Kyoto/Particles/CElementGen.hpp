@@ -13,6 +13,10 @@ public:
 
   static void Initialize();
   static void ShutDown();
+
+private:
+  u8 x0_pad[0x340];
 };
+CHECK_SIZEOF(CElementGen, 0x340)
 
 #endif
