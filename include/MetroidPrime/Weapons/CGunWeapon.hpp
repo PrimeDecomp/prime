@@ -78,6 +78,7 @@ public:
   virtual void Unload(CStateManager& mgr);
   virtual bool IsLoaded() const;
 
+  const CVelocityInfo& GetVelocityInfo() const { return x1d0_velInfo; }
   rstl::optional_object< CModelData >& SolidModelData() { return x10_solidModelData; }
 
   CAABox GetBounds() const;

@@ -562,11 +562,13 @@ void CPlayerGun::InitMuzzleData() {
   }
 }
 
-void CPlayerGun::InitCTData() {
-    x77c_comboXferGen = rstl::auto_ptr< CElementGen >();
-}
+void CPlayerGun::InitCTData() { x77c_comboXferGen = rstl::auto_ptr< CElementGen >(); }
 
-float CPlayerGun::GetBeamVelocity() const { return 0.0f; }
+float CPlayerGun::GetBeamVelocity() const {
+  if (x72c_currentBeam->IsLoaded())
+    return x72c_currentBeam->GetVelocityInfo().GetVelocity(int(x330_chargeState)).GetY();
+  return 10.f;
+}
 
 TUniqueId CPlayerGun::GetTargetId(CStateManager&) { return TUniqueId(0, 0); }
 
