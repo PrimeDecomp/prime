@@ -3,7 +3,10 @@
 
 #include "types.h"
 
+#include "Kyoto/TToken.hpp"
 #include "Kyoto/Particles/CParticleGen.hpp"
+
+class CGenDescription;
 
 class CElementGen : public CParticleGen {
 public:

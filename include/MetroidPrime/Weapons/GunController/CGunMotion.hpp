@@ -1,10 +1,32 @@
 #ifndef _CGUNMOTION_HPP
 #define _CGUNMOTION_HPP
 
+#include "MetroidPrime/CModelData.hpp"
+
+#include "Kyoto/CToken.hpp"
 #include "Kyoto/CObjectReference.hpp"
+
+#include "rstl/vector.hpp"
 
 class CVector3f;
 class CStateManager;
+
+namespace SamusGun {
+enum EAnimationState {
+  kAS_Wander,
+  kAS_Fidget,
+  kAS_Struck,
+  kAS_FreeLook,
+  kAS_ComboFire,
+  kAS_Idle,
+  kAS_BasePosition,
+};
+enum EFidgetType {
+  kFT_Invalid = -1,
+  kFT_Minor,
+  kFT_Major,
+};
+} // namespace SamusGun
 
 class CGunMotion {
 public:

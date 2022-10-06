@@ -2,23 +2,7 @@
 
 #include "types.h"
 
-// TODO CGunMotion?
-namespace SamusGun {
-enum EAnimationState {
-  kAS_Wander,
-  kAS_Fidget,
-  kAS_Struck,
-  kAS_FreeLook,
-  kAS_ComboFire,
-  kAS_Idle,
-  kAS_BasePosition,
-};
-enum EFidgetType {
-  kFT_Invalid = -1,
-  kFT_Minor,
-  kFT_Major,
-};
-} // namespace SamusGun
+#include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 
 class CStateManager;
 
