@@ -31,6 +31,7 @@ class CGunController {
 
 public:
   explicit CGunController(CModelData& modelData);
+  ~CGunController();
   
   void EnterFreeLook(CStateManager&, int, int);
   void EnterComboFire(CStateManager&, int);
@@ -43,5 +44,6 @@ public:
   void Reset();
   void ReturnToBasePosition(CStateManager&);
 };
+CHECK_SIZEOF(CGunController, 0x5C)
 
 #endif // _CGUNCONTROLLER_HPP

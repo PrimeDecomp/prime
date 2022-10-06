@@ -122,7 +122,7 @@ public:
   // SetPoseValid__9CAnimDataFb
 
   s16 GetDefaultAnimation() const { return x208_defaultAnim; }
-  // GetCharacterInfo__9CAnimDataCFv
+  const CCharacterInfo& GetCharacterInfo() const { return xc_charInfo; }
   // GetCharLayoutInfo__9CAnimDataCFv
   // GetDeltaRotation__9CAnimDataCFv
   // GetDeltaOffset__9CAnimDataCFv
