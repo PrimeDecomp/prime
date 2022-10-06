@@ -651,7 +651,7 @@ __ct__20CSamusFaceReflectionFRC13CStateManager:
 /* 8015B724 00158684  39 40 00 00 */	li r10, 0
 /* 8015B728 00158688  91 61 00 0C */	stw r11, 0xc(r1)
 /* 8015B72C 0015868C  90 01 00 10 */	stw r0, 0x10(r1)
-/* 8015B730 00158690  4B FA 9A 9D */	bl __ct__12CActorLightsFUi9CVector3fiif
+/* 8015B730 00158690  4B FA 9A 9D */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
 /* 8015B734 00158694  7C 60 1B 78 */	mr r0, r3
 lbl_8015B738:
 /* 8015B738 00158698  3C 60 80 5A */	lis r3, sNoRotation__11CQuaternion@ha

@@ -91,7 +91,7 @@ MakeActorLights__16CLightParametersCFv:
 /* 801064B4 00103414  38 A1 00 18 */	addi r5, r1, 0x18
 /* 801064B8 00103418  55 29 D9 7E */	srwi r9, r9, 5
 /* 801064BC 0010341C  54 0A D9 7E */	srwi r10, r0, 5
-/* 801064C0 00103420  4B FF ED 0D */	bl __ct__12CActorLightsFUi9CVector3fiif
+/* 801064C0 00103420  4B FF ED 0D */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
 /* 801064C4 00103424  7C 7D 1B 78 */	mr r29, r3
 lbl_801064C8:
 /* 801064C8 00103428  7C 1D 00 D0 */	neg r0, r29
@@ -555,4 +555,3 @@ lbl_803CEE50:
 	# ROM: 0x3CBE50
 	.asciz "??(??)"
 	.balign 4
-

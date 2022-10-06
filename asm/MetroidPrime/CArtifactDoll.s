@@ -943,7 +943,7 @@ __ct__13CArtifactDollFv:
 /* 8029D570 0029A4D0  39 40 00 00 */	li r10, 0
 /* 8029D574 0029A4D4  91 61 00 24 */	stw r11, 0x24(r1)
 /* 8029D578 0029A4D8  90 01 00 28 */	stw r0, 0x28(r1)
-/* 8029D57C 0029A4DC  4B E6 7C 51 */	bl __ct__12CActorLightsFUi9CVector3fiif
+/* 8029D57C 0029A4DC  4B E6 7C 51 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
 /* 8029D580 0029A4E0  7C 60 1B 78 */	mr r0, r3
 lbl_8029D584:
 /* 8029D584 0029A4E4  90 1F 00 20 */	stw r0, 0x20(r31)
@@ -1240,4 +1240,3 @@ lbl_803D5E36:
 	.asciz "?(??)"
 	.balign 4
 	.4byte 0
-

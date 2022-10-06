@@ -442,7 +442,7 @@ __ct__13CGameCubeDollFv:
 /* 8029EC88 0029BBE8  39 40 00 00 */	li r10, 0
 /* 8029EC8C 0029BBEC  91 61 00 1C */	stw r11, 0x1c(r1)
 /* 8029EC90 0029BBF0  90 01 00 20 */	stw r0, 0x20(r1)
-/* 8029EC94 0029BBF4  4B E6 65 39 */	bl __ct__12CActorLightsFUi9CVector3fiif
+/* 8029EC94 0029BBF4  4B E6 65 39 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
 /* 8029EC98 0029BBF8  7C 60 1B 78 */	mr r0, r3
 lbl_8029EC9C:
 /* 8029EC9C 0029BBFC  90 1F 00 18 */	stw r0, 0x18(r31)
@@ -533,4 +533,3 @@ lbl_803D5E98:
 	.asciz "CMDL_GameCube"
 	.asciz "??(??)"
 	.balign 4
-
