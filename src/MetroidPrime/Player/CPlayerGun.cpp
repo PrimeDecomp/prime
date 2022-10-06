@@ -23,6 +23,7 @@
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
+#include "Kyoto/SObjectTag.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
 #include "Collision/CMaterialList.hpp"
@@ -537,7 +538,19 @@ void CPlayerGun::InitBeamData() {
   x774_holoTransitionGen->SetParticleEmission(true);
 }
 
-void CPlayerGun::InitBombData() {}
+void CPlayerGun::InitBombData() {
+  for (int i = 0; i < 2; ++i)
+    x784_bombEffects.push_back(rstl::reserved_vector< TLockedToken< CGenDescription >, 2 >());
+
+  CToken obj1 = gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x28_bombSet));
+  CToken obj2 = gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x2c_bombExplode));
+  CToken obj3 = gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x30_powerBombExplode));
+
+  x784_bombEffects[0].push_back(obj1);
+  x784_bombEffects[0].push_back(obj2);
+  x784_bombEffects[1].push_back(obj3);
+  x784_bombEffects[1].push_back(obj3);
+}
 
 void CPlayerGun::InitMuzzleData() {}
 
