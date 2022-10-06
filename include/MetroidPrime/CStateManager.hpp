@@ -15,6 +15,7 @@
 #include "MetroidPrime/Cameras/CCameraBlurPass.hpp"
 #include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/list.hpp"
@@ -122,6 +123,8 @@ public:
 
   TAreaId GetNextAreaId() const { return x8cc_nextAreaId; }
   void SetCurrentAreaId(TAreaId);
+
+  bool CanCreateProjectile(TUniqueId, EWeaponType, int) const;
 
   CMazeState* CurrentMaze();
   const CMazeState* GetCurrentMaze() const;

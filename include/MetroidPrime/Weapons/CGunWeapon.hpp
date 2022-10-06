@@ -83,6 +83,7 @@ public:
 
   CAABox GetBounds() const;
   CAABox GetBounds(const CTransform4f& xf) const;
+  const SWeaponInfo& GetWeaponInfo() const;
 
 private:
   // x0 is vtable

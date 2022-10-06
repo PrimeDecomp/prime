@@ -171,6 +171,8 @@ public:
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
+  EGrappleState GetGrappleState() const { return x3b8_grappleState; }
+  EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
 
 private:
   struct CVisorSteam {

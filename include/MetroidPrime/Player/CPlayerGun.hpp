@@ -60,10 +60,10 @@ public:
     kBW_PowerBomb,
   };
   enum EPhazonBeamState {
-    kKBS_Inactive,
-    kKBS_Entering,
-    kKBS_Exiting,
-    kKBS_Active,
+    kPBS_Inactive,
+    kPBS_Entering,
+    kPBS_Exiting,
+    kPBS_Active,
   };
   enum EChargePhase {
     kCP_NotCharging,
