@@ -38,7 +38,7 @@ public:
   void EnterFidget(CStateManager&, int, int, int);
   void EnterStruck(CStateManager&, float);
   void LoadFidgetAnimAsync(CStateManager&, int, int, int);
-  bool Update(float, CStateManager&);
+  int Update(float, CStateManager&);
   void EnterIdle(CStateManager&);
   void ReturnToDefault(CStateManager&, float);
   void Reset();
