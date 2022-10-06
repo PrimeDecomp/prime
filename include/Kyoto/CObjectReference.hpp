@@ -2,22 +2,8 @@
 #define __COBJECTREFERENCE_HPP__
 
 #include <Kyoto/CVParamTransfer.hpp>
+#include <Kyoto/SObjectTag.hpp>
 #include <rstl/auto_ptr.hpp>
-
-
-#define kInvalidAssetId 0xFFFFFFFFu
-
-typedef uint CAssetId;
-typedef uint FourCC;
-
-struct SObjectTag {
-  FourCC type;
-  CAssetId id;
-
-  SObjectTag() {}
-  SObjectTag(FourCC type, CAssetId id) : type(type), id(id) {}
-  SObjectTag(const SObjectTag& other) : type(other.type), id(other.id) {}
-};
 
 class IObj;
 class IObjectStore;
