@@ -401,7 +401,6 @@ Update__14CGunControllerFfR13CStateManager:
 /* 801CC690 001C95F0  7C 03 00 2E */	lwzx r0, r3, r0
 /* 801CC694 001C95F4  7C 09 03 A6 */	mtctr r0
 /* 801CC698 001C95F8  4E 80 04 20 */	bctr
-.global lbl_801CC69C
 lbl_801CC69C:
 /* 801CC69C 001C95FC  7F A4 EB 78 */	mr r4, r29
 /* 801CC6A0 001C9600  7F E5 FB 78 */	mr r5, r31
@@ -424,7 +423,6 @@ lbl_801CC69C:
 /* 801CC6E4 001C9644  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 801CC6E8 001C9648  98 1E 00 58 */	stb r0, 0x58(r30)
 /* 801CC6EC 001C964C  48 00 00 E8 */	b lbl_801CC7D4
-.global lbl_801CC6F0
 lbl_801CC6F0:
 /* 801CC6F0 001C9650  7F A4 EB 78 */	mr r4, r29
 /* 801CC6F4 001C9654  7F E5 FB 78 */	mr r5, r31
@@ -434,7 +432,6 @@ lbl_801CC6F0:
 /* 801CC704 001C9664  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 801CC708 001C9668  98 1E 00 58 */	stb r0, 0x58(r30)
 /* 801CC70C 001C966C  48 00 00 C8 */	b lbl_801CC7D4
-.global lbl_801CC710
 lbl_801CC710:
 /* 801CC710 001C9670  7F A4 EB 78 */	mr r4, r29
 /* 801CC714 001C9674  7F E5 FB 78 */	mr r5, r31
@@ -444,7 +441,6 @@ lbl_801CC710:
 /* 801CC724 001C9684  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18
 /* 801CC728 001C9688  98 1E 00 58 */	stb r0, 0x58(r30)
 /* 801CC72C 001C968C  48 00 00 A8 */	b lbl_801CC7D4
-.global lbl_801CC730
 lbl_801CC730:
 /* 801CC730 001C9690  3C 80 80 3D */	lis r4, lbl_803D1AA8@ha
 /* 801CC734 001C9694  38 61 00 18 */	addi r3, r1, 0x18
@@ -472,7 +468,6 @@ lbl_801CC730:
 /* 801CC78C 001C96EC  38 00 00 02 */	li r0, 2
 /* 801CC790 001C96F0  90 1E 00 50 */	stw r0, 0x50(r30)
 /* 801CC794 001C96F4  48 00 00 40 */	b lbl_801CC7D4
-.global lbl_801CC798
 lbl_801CC798:
 /* 801CC798 001C96F8  3C 80 80 3D */	lis r4, lbl_803D1AA8@ha
 /* 801CC79C 001C96FC  38 61 00 08 */	addi r3, r1, 8
@@ -489,7 +484,6 @@ lbl_801CC798:
 /* 801CC7C8 001C9728  38 61 00 08 */	addi r3, r1, 8
 /* 801CC7CC 001C972C  98 1E 00 58 */	stb r0, 0x58(r30)
 /* 801CC7D0 001C9730  48 17 13 11 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
-.global lbl_801CC7D4
 lbl_801CC7D4:
 /* 801CC7D4 001C9734  88 1E 00 58 */	lbz r0, 0x58(r30)
 /* 801CC7D8 001C9738  54 00 CF FF */	rlwinm. r0, r0, 0x19, 0x1f, 0x1f
@@ -869,4 +863,3 @@ lbl_803D1AA8:
 	.asciz "Whole Body"
 	.balign 4
 	.4byte 0
-
