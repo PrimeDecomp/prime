@@ -53,6 +53,8 @@ private:
   bool x34_24_loading : 1;
 
 public:
+  CFidget();
+
   EState GetState() const { return x0_state; }
   SamusGun::EFidgetType GetType() const { return x4_type; }
   int GetAnimSet() const { return xc_animSet; }

@@ -123,8 +123,9 @@ private:
       kD_Done,
     };
 
-    CGunMorph(float gunTransformTime, float holoHoldTime)
-    : x4_gunTransformTime(gunTransformTime), x10_holoHoldTime(fabs(holoHoldTime)) {}
+    CGunMorph(float gunTransformTime, float holoHoldTime);
+    // CGunMorph(float gunTransformTime, float holoHoldTime)
+    // : x4_gunTransformTime(gunTransformTime), x10_holoHoldTime(fabs(holoHoldTime)) {}
 
     EMorphEvent Update(float inY, float outY, float dt);
     void StartWipe(EDir dir);
@@ -161,6 +162,18 @@ private:
       kFS_StartFire,
       kFS_Firing,
     };
+
+    CMotionState()
+    : x0_24_extendParabola(true)
+    , x4_extendParabolaDelayTimer(0.f)
+    , x8_fireTime(0.f)
+    , xc_curExtendDist(0.f)
+    , x10_curRotation(0.f)
+    , x14_rotationT(0.f)
+    , x18_startRotation(0.f)
+    , x1c_endRotation(0.f)
+    , x20_state(kMS_Zero)
+    , x24_fireState(kFS_NotFiring) {}
 
     static void SetExtendDistance(float d) { kGunExtendDistance = d; }
 
@@ -315,6 +328,9 @@ private:
   bool x835_27_intoPhazonBeam : 1;
   bool x835_28_bombReady : 1;
   bool x835_29_powerBombReady : 1;
+  bool x835_30_inPhazonPool : 1;
+  bool x835_31_actorAttached : 1;
+  // bool x835_32_unk : 1;
 };
 CHECK_SIZEOF(CPlayerGun, 0x838)
 

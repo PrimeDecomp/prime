@@ -1,8 +1,18 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 
 #include "MetroidPrime/CAnimRes.hpp"
+#include "MetroidPrime/CRainSplashGenerator.hpp"
+#include "MetroidPrime/CWorldShadow.hpp"
+#include "MetroidPrime/Player/CGrappleArm.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
+#include "MetroidPrime/Weapons/CAuxWeapon.hpp"
+#include "MetroidPrime/Weapons/CIceBeam.hpp"
+#include "MetroidPrime/Weapons/CPhazonBeam.hpp"
+#include "MetroidPrime/Weapons/CPlasmaBeam.hpp"
+#include "MetroidPrime/Weapons/CPowerBeam.hpp"
+#include "MetroidPrime/Weapons/CWaveBeam.hpp"
+#include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
 #include "Kyoto/Graphics/CModelFlags.hpp"
@@ -164,7 +174,7 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x398_damageAmt(0.f)
 , x39c_phazonMorphT(0.f)
 , x3a0_missileExitTimer(0.f)
-, x3dc_damageLocation(0.f, 0.f, 0.f)
+, x3dc_damageLocation(CVector3f::Zero())
 , x3e8_xf(CTransform4f::Identity())
 , x418_beamLocalXf(CTransform4f::Identity())
 , x448_elbowWorldXf(CTransform4f::Identity())
@@ -184,6 +194,7 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x668_aimVerticalSpeed(gpTweakPlayerGun->GetAimVerticalSpeed())
 , x66c_aimHorizontalSpeed(gpTweakPlayerGun->GetAimHorizontalSpeed())
 , x678_morph(gpTweakPlayerGun->GetGunTransformTime(), gpTweakPlayerGun->GetHoloHoldTime())
+, x6a0_motionState()
 , x6c8_hologramClipCube(CVector3f(-0.29329199f, 0.f, -0.2481945f),
                         CVector3f(0.29329199f, 1.292392f, 0.2481945f))
 , x6e0_rightHandModel(CAnimRes(gpTweakGunRes->xc_rightHand, 0, CVector3f(3.f, 3.f, 3.f), 0, true))
@@ -191,20 +202,23 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x730_outgoingBeam(nullptr)
 , x734_loadingBeam(nullptr)
 , x738_nextBeam(nullptr)
-// , x73c_gunMotion(new CGunMotion(gpTweakGunRes->x4_gunMotion, sGunScale))
-// , x740_grappleArm(new CGrappleArm(sGunScale))
-// , x744_auxWeapon(new CAuxWeapon(playerId))
-// , x748_rainSplashGenerator(new CRainSplashGenerator(sGunScale, 20, 2, 0.f, 0.125f))
-// , x74c_powerBeam(new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player,
-// sGunScale)) , x750_iceBeam(new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId,
-// kMT_Player, sGunScale)) , x754_waveBeam(new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave,
-// playerId, kMT_Player, sGunScale)) , x758_plasmaBeam(new
-// CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player, sGunScale)) ,
-// x75c_phazonBeam(new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player,
-// sGunScale))
+, x73c_gunMotion(new CGunMotion(gpTweakGunRes->x4_gunMotion, sGunScale))
+, x740_grappleArm(new CGrappleArm(sGunScale))
+, x744_auxWeapon(new CAuxWeapon(playerId))
+, x748_rainSplashGenerator(new CRainSplashGenerator(sGunScale, 20, 2, 0.f, 0.125f))
+, x74c_powerBeam(
+      new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player, sGunScale))
+, x750_iceBeam(new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId, kMT_Player, sGunScale))
+, x754_waveBeam(
+      new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave, playerId, kMT_Player, sGunScale))
+, x758_plasmaBeam(
+      new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player, sGunScale))
+, x75c_phazonBeam(
+      new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player, sGunScale))
+, x760_selectableBeams(nullptr)
 , x774_holoTransitionGen(
       new CElementGen(gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
-// , x82c_shadow(new CWorldShadow(256, 256, true))
+, x82c_shadow(new CWorldShadow(32, 32, true))
 , x830_chargeRumbleHandle(-1)
 , x832_24_coolingCharge(false)
 , x832_25_chargeEffectVisible(false)
@@ -236,10 +250,10 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x835_27_intoPhazonBeam(false)
 , x835_28_bombReady(false)
 , x835_29_powerBombReady(false)
-// , x835_30_inPhazonPool(false)
-// , x835_31_actorAttached(false)
-{
+, x835_30_inPhazonPool(false)
+, x835_31_actorAttached(false) {
 
+  x6e0_rightHandModel.SetSortThermal(true);
   kVerticalAngleTable[2] = gpTweakPlayerGun->GetUpLookAngle();
   kVerticalAngleTable[0] = gpTweakPlayerGun->GetDownLookAngle();
   kHorizontalAngleTable[1] = gpTweakPlayerGun->GetHorizontalSpread();
