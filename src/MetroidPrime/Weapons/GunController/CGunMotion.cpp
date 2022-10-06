@@ -93,6 +93,9 @@ void CGunMotion::BasePosition(bool bigStrikeReset) {
   animData.SetAnimation(CAnimPlaybackParms(animation, -1, 1.f, true), false);
 }
 
-void CGunMotion::EnterFidget(CStateManager&, SamusGun::EFidgetType, int) {}
+void CGunMotion::EnterFidget(CStateManager& mgr, SamusGun::EFidgetType type, int parm2) {
+  xb8_24_animPlaying = true;
+  x4c_gunController.EnterFidget(mgr, int(type), 0, parm2);
+}
 
 void CGunMotion::LoadAnimations() {}
