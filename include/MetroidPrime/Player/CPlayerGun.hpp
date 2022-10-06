@@ -9,6 +9,7 @@
 #include "MetroidPrime/Player/CPlayerCameraBob.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
 
+#include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -38,8 +39,9 @@ class CPhazonBeam;
 class CElementGen;
 class CWorldShadow;
 class CGenDescription;
+class CPlayerGun;
 
-class CPlayerGun {
+class CPlayerGun : public TOneStatic< CPlayerGun > {
   static float skTractorBeamFactor;
 
 public:
@@ -91,6 +93,7 @@ public:
   };
 
   CPlayerGun(TUniqueId);
+  ~CPlayerGun();
 
   void InitBeamData();
   void InitBombData();

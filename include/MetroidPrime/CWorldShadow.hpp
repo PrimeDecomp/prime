@@ -23,6 +23,7 @@ class CWorldShadow {
 
 public:
   CWorldShadow(uint w, uint h, bool rgba8);
+  ~CWorldShadow();
 };
 CHECK_SIZEOF(CWorldShadow, 0x8c)
 

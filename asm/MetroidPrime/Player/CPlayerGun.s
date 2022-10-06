@@ -9673,7 +9673,7 @@ lbl_80042AB8:
 lbl_80042ACC:
 /* 80042ACC 0003FA2C  38 7E 07 84 */	addi r3, r30, 0x784
 /* 80042AD0 0003FA30  38 80 FF FF */	li r4, -1
-/* 80042AD4 0003FA34  48 00 06 41 */	bl sub_80043114
+/* 80042AD4 0003FA34  48 00 06 41 */	bl "__dt__Q24rstl80reserved_vector<Q24rstl52reserved_vector<31TLockedToken<15CGenDescription>,2>,2>Fv"
 /* 80042AD8 0003FA38  34 1E 07 7C */	addic. r0, r30, 0x77c
 /* 80042ADC 0003FA3C  41 82 00 30 */	beq lbl_80042B0C
 /* 80042AE0 0003FA40  88 1E 07 7C */	lbz r0, 0x77c(r30)
@@ -10138,8 +10138,8 @@ lbl_800430F8:
 /* 8004310C 0004006C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80043110 00040070  4E 80 00 20 */	blr
 
-.global sub_80043114
-sub_80043114:
+.global "__dt__Q24rstl80reserved_vector<Q24rstl52reserved_vector<31TLockedToken<15CGenDescription>,2>,2>Fv"
+"__dt__Q24rstl80reserved_vector<Q24rstl52reserved_vector<31TLockedToken<15CGenDescription>,2>,2>Fv":
 /* 80043114 00040074  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80043118 00040078  7C 08 02 A6 */	mflr r0
 /* 8004311C 0004007C  90 01 00 34 */	stw r0, 0x34(r1)

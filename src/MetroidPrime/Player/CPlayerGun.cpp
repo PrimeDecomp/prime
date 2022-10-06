@@ -273,3 +273,5 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
   x550_camBob.SetBobMagnitude(0.f);
   x550_camBob.SetBobTimeScale(0.f);
 }
+
+CPlayerGun::~CPlayerGun() {}
