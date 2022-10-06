@@ -560,7 +560,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Streams/CZipSupport.o\
 	$(BUILD_DIR)/asm/Kyoto/CSimplePool.o\
 	$(BUILD_DIR)/asm/Kyoto/CToken.o\
-	$(BUILD_DIR)/asm/Kyoto/IObj.o\
+	$(BUILD_DIR)/src/Kyoto/IObj.o\
 
 ZLIB_FILES :=\
 	$(BUILD_DIR)/src/Kyoto/zlib/adler32.o\
@@ -621,7 +621,7 @@ KYOTO_2 :=\
 	$(BUILD_DIR)/asm/Kyoto/CPakFile.o\
 	$(BUILD_DIR)/asm/Kyoto/Animation/CPoseAsTransforms.o\
 	$(BUILD_DIR)/asm/Kyoto/Input/CRumbleVoice.o\
-	$(BUILD_DIR)/asm/Kyoto/Input/RumbleAdsr.o\
+	$(BUILD_DIR)/src/Kyoto/Input/RumbleAdsr.o\
 	$(BUILD_DIR)/asm/Kyoto/Input/CRumbleGenerator.o\
 	$(BUILD_DIR)/asm/Kyoto/Audio/SDSPStream.o\
 	$(BUILD_DIR)/src/Kyoto/Audio/g721.o\
