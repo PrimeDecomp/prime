@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define VERSION_MAX_LEN 35
+#define VERSION_MAX_LEN (size_t)(35)
 #define METROID_BUILD_INFO_TAG "!#$MetroidBuildInfo!#$"
 
 void* memmem(const void* l, size_t l_len, const void* s, size_t s_len) {
@@ -44,7 +44,7 @@ int main(int argc, const char* argv[]) {
 
     );
     fprintf(stdout, "Usage:\n"
-                    "\tmetroidbuildinfo <binary> <version-string>\n");
+                    "\tmetroidbuildinfo <binary> <build_file>\n");
     return -1;
   }
 
@@ -55,13 +55,22 @@ int main(int argc, const char* argv[]) {
     return -2;
   }
 
-  /* Verify string length, if the string is too long hard error */
-  if (strlen(argv[2]) > VERSION_MAX_LEN) {
-    fprintf(stderr, "Version string '%s'\ntoo long, got %i, expected %i\n", argv[2], ver_len,
-            VERSION_MAX_LEN);
+  char build_string[36] = {0};
+  FILE* build = fopen(argv[2], "rb");
+
+  if (!build) {
+    fprintf(stderr, "Unable to open '%s'\nPlease ensure the file exists!\n", argv[2]);
     return -3;
   }
-  /* Lets include the null terminator */
+  size_t read_len = fread(build_string, 1, 35, build);
+  fclose(build);
+
+  if (read_len <= 0) {
+    fprintf(stderr, "Empty file %s specified for build version!\n", argv[2]);
+    return -4;
+  }
+
+  build_string[strcspn(build_string, "\n")] = '\0';
 
   /* Get source length */
   fseek(source, 0, SEEK_END);
@@ -70,7 +79,7 @@ int main(int argc, const char* argv[]) {
   void* source_buf = malloc(source_len);
   if (source_buf == NULL) {
     fprintf(stderr, "Unable to allocate buffer of size %zubytes!\n", source_len);
-    return -4;
+    return -5;
   }
   fread(source_buf, 1, source_len, source);
   fclose(source);
@@ -84,7 +93,7 @@ int main(int argc, const char* argv[]) {
   }
 
   /* Lets actually copy over the build string */
-  strcpy(ptr + strlen(METROID_BUILD_INFO_TAG), argv[2]);
+  strcpy(ptr + strlen(METROID_BUILD_INFO_TAG), build_string);
 
   /* Now attempt to open the target file */
   FILE* target = fopen(argv[1], "wb");
@@ -101,5 +110,5 @@ int main(int argc, const char* argv[]) {
   /* Don't leak */
   free(source_buf);
 
-  return 1;
+  return 0;
 }
