@@ -2485,8 +2485,8 @@ lbl_801051B4:
 /* 801051C4 00102124  38 21 00 10 */	addi r1, r1, 0x10
 /* 801051C8 00102128  4E 80 00 20 */	blr
 
-.global __ct__12CActorLightsFUi9CVector3fiif
-__ct__12CActorLightsFUi9CVector3fiif:
+.global __ct__12CActorLightsFUiRC9CVector3fiibbbf
+__ct__12CActorLightsFUiRC9CVector3fiibbbf:
 /* 801051CC 0010212C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801051D0 00102130  3D 60 80 5A */	lis r11, sZeroVector__9CVector3f@ha
 /* 801051D4 00102134  55 40 06 3F */	clrlwi. r0, r10, 0x18
@@ -2935,4 +2935,3 @@ lbl_803CEE40:
 	.float -1.0
 	.float -1.0
 	.float -1.0
-

@@ -7617,7 +7617,7 @@ __ct__9CSamusHudFRC13CStateManager:
 /* 8006ABDC 00067B3C  39 40 00 00 */	li r10, 0
 /* 8006ABE0 00067B40  91 61 00 38 */	stw r11, 0x38(r1)
 /* 8006ABE4 00067B44  90 01 00 3C */	stw r0, 0x3c(r1)
-/* 8006ABE8 00067B48  48 09 A5 E5 */	bl __ct__12CActorLightsFUi9CVector3fiif
+/* 8006ABE8 00067B48  48 09 A5 E5 */	bl __ct__12CActorLightsFUiRC9CVector3fiibbbf
 /* 8006ABEC 00067B4C  7C 60 1B 78 */	mr r0, r3
 lbl_8006ABF0:
 /* 8006ABF0 00067B50  90 1F 03 3C */	stw r0, 0x33c(r31)
