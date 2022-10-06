@@ -65,6 +65,7 @@ COMPLETE_OBJECTS = [
     "Kyoto/Text/CFontImageDef",
     "Kyoto/Graphics/DolphinCColor",
     "Kyoto/Audio/g721",
+    "Kyoto/IObj",
     "Dolphin/PPCArch",
     "Dolphin/dsp/dsp_debug",
     "Dolphin/os/__start",

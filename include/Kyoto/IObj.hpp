@@ -3,7 +3,10 @@
 
 #include "types.h"
 
+#include "Kyoto/SObjectTag.hpp"
 #include "rstl/auto_ptr.hpp"
+
+extern const SObjectTag gkInvalidObjectTag;
 
 class IObj {
 public:
