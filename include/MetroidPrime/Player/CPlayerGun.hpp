@@ -122,7 +122,7 @@ public:
   void ActivateCombo(CStateManager&);
   void EnableChargeFx(CPlayerState::EChargeStage, CStateManager&);
   void UpdateChargeState(float, CStateManager&);
-  void Reset(CStateManager&);
+  void Reset(CStateManager& mgr, bool);
   void ResetCharge(CStateManager&, bool);
   void ResetBeamParams(CStateManager&, const CPlayerState&, bool);
   void ChangeWeapon(const CPlayerState&, CStateManager&);
@@ -176,6 +176,9 @@ public:
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
 
   static float GetTractorBeamFactor() { return skTractorBeamFactor; }
+
+  s32 GetStateFlags() const { return x2f8_stateFlags; }
+  void SetStateFlags(s32 flags) { x2f8_stateFlags = flags; }
 
 private:
   class CGunMorph {
@@ -275,7 +278,7 @@ private:
   uint x2f0_pressedFireButtonStates;
   uint x2f4_fireButtonStates;
   // 0x1: beam mode, 0x2: missile mode, 0x4: missile ready, 0x8: morphing, 0x10: combo fire
-  uint x2f8_stateFlags;
+  s32 x2f8_stateFlags;
   uint x2fc_fidgetAnimBits;
   uint x300_remainingMissiles;
   uint x304_;
