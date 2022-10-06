@@ -2802,7 +2802,7 @@ __dt__11CGrappleArmFv:
 /* 8011F988 0011C8E8  41 82 02 68 */	beq lbl_8011FBF0
 /* 8011F98C 0011C8EC  38 7E 03 A4 */	addi r3, r30, 0x3a4
 /* 8011F990 0011C8F0  38 80 FF FF */	li r4, -1
-/* 8011F994 0011C8F4  4B F2 35 E5 */	bl "__dt__Q24rstl34single_ptr<20CRainSplashGenerator>"
+/* 8011F994 0011C8F4  4B F2 35 E5 */	bl "__dt__Q24rstl34single_ptr<20CRainSplashGenerator>Fv"
 /* 8011F998 0011C8F8  34 1E 03 A0 */	addic. r0, r30, 0x3a0
 /* 8011F99C 0011C8FC  41 82 00 24 */	beq lbl_8011F9C0
 /* 8011F9A0 0011C900  80 7E 03 A0 */	lwz r3, 0x3a0(r30)

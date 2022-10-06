@@ -13594,7 +13594,7 @@ lbl_800F8FD4:
 lbl_800F8FDC:
 /* 800F8FDC 000F5F3C  38 7E 1C 1C */	addi r3, r30, 0x1c1c
 /* 800F8FE0 000F5F40  38 80 FF FF */	li r4, -1
-/* 800F8FE4 000F5F44  4B F4 9F 95 */	bl "__dt__Q24rstl34single_ptr<20CRainSplashGenerator>"
+/* 800F8FE4 000F5F44  4B F4 9F 95 */	bl "__dt__Q24rstl34single_ptr<20CRainSplashGenerator>Fv"
 /* 800F8FE8 000F5F48  34 1E 1C 18 */	addic. r0, r30, 0x1c18
 /* 800F8FEC 000F5F4C  41 82 00 10 */	beq lbl_800F8FFC
 /* 800F8FF0 000F5F50  80 7E 1C 18 */	lwz r3, 0x1c18(r30)

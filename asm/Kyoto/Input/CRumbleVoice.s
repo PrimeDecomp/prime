@@ -11,8 +11,8 @@ lbl_805A8A60:
 
 .section .text, "ax"
 
-.global CreateRumbleHandle__12CRumbleVoiceFs
-CreateRumbleHandle__12CRumbleVoiceFs:
+.global CreateRumbleHandle__12CRumbleVoiceFUs
+CreateRumbleHandle__12CRumbleVoiceFUs:
 /* 80369250 003661B0  88 A3 00 2E */	lbz r5, 0x2e(r3)
 /* 80369254 003661B4  38 05 00 01 */	addi r0, r5, 1
 /* 80369258 003661B8  98 03 00 2E */	stb r0, 0x2e(r3)
@@ -437,8 +437,8 @@ lbl_803697F4:
 /* 80369804 00366764  38 21 00 10 */	addi r1, r1, 0x10
 /* 80369808 00366768  4E 80 00 20 */	blr
 
-.global Activate__12CRumbleVoiceFRC9SAdsrDatasf15ERumblePriority
-Activate__12CRumbleVoiceFRC9SAdsrDatasf15ERumblePriority:
+.global Activate__12CRumbleVoiceFRC9SAdsrDataUsf15ERumblePriority
+Activate__12CRumbleVoiceFRC9SAdsrDataUsf15ERumblePriority:
 /* 8036980C 0036676C  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80369810 00366770  7C 08 02 A6 */	mflr r0
 /* 80369814 00366774  90 01 00 64 */	stw r0, 0x64(r1)
@@ -520,7 +520,7 @@ Activate__12CRumbleVoiceFRC9SAdsrDatasf15ERumblePriority:
 /* 80369944 003668A4  41 82 00 14 */	beq lbl_80369958
 /* 80369948 003668A8  7F 83 E3 78 */	mr r3, r28
 /* 8036994C 003668AC  7F C4 F3 78 */	mr r4, r30
-/* 80369950 003668B0  4B FF F9 01 */	bl CreateRumbleHandle__12CRumbleVoiceFs
+/* 80369950 003668B0  4B FF F9 01 */	bl CreateRumbleHandle__12CRumbleVoiceFUs
 /* 80369954 003668B4  48 00 00 08 */	b lbl_8036995C
 lbl_80369958:
 /* 80369958 003668B8  38 60 FF FF */	li r3, -1
@@ -732,4 +732,3 @@ lbl_803D8540:
 	# ROM: 0x3D5540
 	.asciz "??(??)"
 	.balign 4
-

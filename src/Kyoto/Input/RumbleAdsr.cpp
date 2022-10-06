@@ -1,4 +1,4 @@
-#include "Kyoto/Input/RumbleAdsr.hpp"
+#include "Kyoto/Input/CRumbleVoice.hpp"
 
 SAdsrDelta SAdsrDelta::Start(ERumblePriority priority, bool prePulse) {
   return SAdsrDelta(prePulse ? kP_PrePulse : kP_Attack, priority);
@@ -11,7 +11,7 @@ SAdsrDelta::SAdsrDelta(EPhase phase)
 , x8_decayTime(0.f)
 , xc_releaseTime(0.f)
 , x10_autoReleaseTime(0.f)
-, x1c_priority(kPriority_Zero)
+, x1c_priority(kRP_None)
 , x20_phase(phase) {}
 
 SAdsrDelta::SAdsrDelta(EPhase phase, ERumblePriority priority)
