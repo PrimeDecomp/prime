@@ -552,7 +552,15 @@ void CPlayerGun::InitBombData() {
   x784_bombEffects[1].push_back(obj3);
 }
 
-void CPlayerGun::InitMuzzleData() {}
+void CPlayerGun::InitMuzzleData() {
+  for (int i = 0; i < 5; ++i) {
+    SObjectTag tag('PART', (i < 0 || 4 < i) ? kInvalidAssetId : gpTweakGunRes->xa4_auxMuzzle[i]);
+    x7c0_auxMuzzleEffects.push_back(gpSimplePool->GetObj(tag));
+    // TODO: not likely correct, maybe need improvements to auto_ptr
+    x800_auxMuzzleGenerators.push_back(new CElementGen(x7c0_auxMuzzleEffects.back()));
+    x800_auxMuzzleGenerators.back()->SetParticleEmission(false);
+  }
+}
 
 void CPlayerGun::InitCTData() {}
 
