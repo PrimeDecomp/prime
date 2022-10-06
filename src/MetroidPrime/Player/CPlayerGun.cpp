@@ -6,6 +6,7 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/CWorldShadow.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
@@ -31,6 +32,8 @@
 #include "Collision/CMaterialList.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
+
+#include "math.h"
 
 static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
 static float kHorizontalAngleTable[3] = {30.f, 30.f, 30.f};
@@ -792,7 +795,117 @@ void CPlayerGun::ResetIdle(CStateManager& mgr) {
     x834_26_animPlaying = false;
 }
 
-void CPlayerGun::UpdateGunIdle(bool, float, float, CStateManager&) {}
+void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, CStateManager& mgr) {
+  CPlayer& player = *mgr.Player();
+  if (player.IsInFreeLook() && !x832_29_lockedOn && !x740_grappleArm->IsGrappling() &&
+      x3a4_fidget.GetState() != CFidget::kS_HolsterBeam &&
+      player.GetGunHolsterState() == CPlayer::kGH_Drawn && !x834_30_inBigStrike) {
+    if ((x2f8_stateFlags & 0x8) != 0x8) {
+      if (!x833_31_inFreeLook && !x834_26_animPlaying) {
+        if (x388_enterFreeLookDelayTimer < 0.25f)
+          x388_enterFreeLookDelayTimer += dt;
+        if (x388_enterFreeLookDelayTimer >= 0.25f && !x740_grappleArm->IsSuitLoading()) {
+          EnterFreeLook(mgr);
+          x833_31_inFreeLook = true;
+        }
+      } else {
+        x388_enterFreeLookDelayTimer = 0.f;
+        if (x834_26_animPlaying)
+          ResetIdle(mgr);
+      }
+    }
+  } else {
+    if (x833_31_inFreeLook) {
+      if ((x2f8_stateFlags & 0x10) != 0x10) {
+        x73c_gunMotion->ReturnToDefault(mgr, x834_30_inBigStrike);
+        x740_grappleArm->ReturnToDefault(mgr, 0.f, false);
+      }
+      x833_31_inFreeLook = false;
+    }
+    x388_enterFreeLookDelayTimer = 0.f;
+    if (player.GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
+      x833_24_notFidgeting =
+          !(player.GetSurfaceRestraint() != CPlayer::kSR_Water &&
+            mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan &&
+            (x2f4_fireButtonStates & 0x3) == 0 && x32c_chargePhase == kCP_NotCharging && !x832_29_lockedOn &&
+            (x2f8_stateFlags & 0x8) != 0x8 && x364_gunStrikeCoolTimer <= 0.f &&
+            player.GetPlayerMovementState() == NPlayer::kMS_OnGround && !player.IsInFreeLook() &&
+            !player.GetFreeLookStickState() && player.GetOrbitState() == CPlayer::kOS_NoOrbit &&
+            fabs(player.GetAngularVelocityOR().GetAngle()) <= 0.1f && camBobT <= 0.01f &&
+            !mgr.GetCameraManager()->IsInCinematicCamera() &&
+            player.GetGunHolsterState() == CPlayer::kGH_Drawn &&
+            player.GetGrappleState() == CPlayer::kGS_None && !x834_30_inBigStrike && !x835_25_inPhazonBeam);
+      if (x833_24_notFidgeting) {
+        if (!x834_30_inBigStrike) {
+          bool doWander = camBobT > 0.01f && (x2f4_fireButtonStates & 0x3) == 0;
+          if (doWander) {
+            x370_gunMotionSpeedMult = 1.f;
+            x374_ = 0.f;
+            if (x364_gunStrikeCoolTimer <= 0.f && x368_idleWanderDelayTimer <= 0.f) {
+              x368_idleWanderDelayTimer = 8.f;
+              x73c_gunMotion->PlayPasAnim(SamusGun::kAS_Wander, mgr, 0.f, false);
+              x324_idleState = kIS_Wander;
+              x550_camBob.SetState(CPlayerCameraBob::kCBS_Walk, mgr);
+            }
+            x368_idleWanderDelayTimer -= dt;
+            x360_ -= dt;
+          }
+          if (!doWander || x834_26_animPlaying)
+            ResetIdle(mgr);
+        } else if (x394_damageTimer > 0.f) {
+          x394_damageTimer -= dt;
+        } else if (!x834_31_gunMotionInFidgetBasePosition) {
+          x394_damageTimer = 0.f;
+          x834_31_gunMotionInFidgetBasePosition = true;
+          x73c_gunMotion->BasePosition(true);
+        } else if (!x73c_gunMotion->GetModelData().GetAnimationData()->IsAnimTimeRemaining(0.001f, rstl::string_l("Whole Body"))) {
+          x834_30_inBigStrike = false;
+          x834_31_gunMotionInFidgetBasePosition = false;
+        }
+      } else {
+        switch (x3a4_fidget.Update(x2ec_lastFireButtonStates, camBobT > 0.01f, inStrikeCooldown, dt, mgr)) {
+        case CFidget::kS_NoFidget:
+          if (x324_idleState != kIS_Idle) {
+            x73c_gunMotion->PlayPasAnim(SamusGun::kAS_Idle, mgr, 0.f, false);
+            x324_idleState = kIS_Idle;
+          }
+          x550_camBob.SetState(CPlayerCameraBob::kCBS_WalkNoBob, mgr);
+          break;
+        case CFidget::kS_MinorFidget:
+        case CFidget::kS_MajorFidget:
+        case CFidget::kS_HolsterBeam:
+          if (x324_idleState != kIS_NotIdle) {
+            x73c_gunMotion->BasePosition(false);
+            x324_idleState = kIS_NotIdle;
+          }
+          AsyncLoadFidget(mgr);
+          break;
+        case CFidget::kS_Loading:
+          if (IsFidgetLoaded())
+            EnterFidget(mgr);
+          break;
+        case CFidget::kS_StillMinorFidget:
+        case CFidget::kS_StillMajorFidget:
+          x550_camBob.SetState(CPlayerCameraBob::kCBS_Walk, mgr);
+          x833_24_notFidgeting = false;
+          x834_26_animPlaying =
+              x834_25_gunMotionFidgeting
+                  ? x73c_gunMotion->IsAnimPlaying()
+                  : x72c_currentBeam->GetSolidModelData().GetAnimationData()->IsAnimTimeRemaining(0.001f, rstl::string_l("Whole Body"));
+          if (!x834_26_animPlaying) {
+            x3a4_fidget.ResetMinor();
+            ReturnToRestPose();
+          }
+          break;
+        default:
+          break;
+        }
+      }
+      x550_camBob.Update(dt, mgr);
+    }
+  }
+}
+
 
 void CPlayerGun::CMotionState::Update(bool, float, CTransform4f&, CStateManager&) {}
 
@@ -846,7 +959,9 @@ void CPlayerGun::AsyncLoadFidget(CStateManager&) {}
 
 void CPlayerGun::UnLoadFidget() {}
 
-void CPlayerGun::IsFidgetLoaded() {}
+bool CPlayerGun::IsFidgetLoaded() {
+    return false;
+}
 
 void CPlayerGun::SetFidgetAnimBits(int, bool) {}
 

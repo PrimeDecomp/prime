@@ -165,7 +165,7 @@ public:
   void ProcessGunMorph(float, CStateManager&);
   void AsyncLoadFidget(CStateManager&);
   void UnLoadFidget();
-  void IsFidgetLoaded();
+  bool IsFidgetLoaded();
   void SetFidgetAnimBits(int, bool);
   void AsyncLoadSuit(CStateManager&);
   void ReturnToRestPose();
