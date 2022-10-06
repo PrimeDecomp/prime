@@ -617,8 +617,54 @@ void CPlayerGun::CGunMorph::StartWipe(CPlayerGun::CGunMorph::EDir dir) {
   x24_24_morphing = true;
 }
 
-CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float, float, float) {
-  return kME_None;
+CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float inY, float outY, float dt) {
+  EMorphEvent ret = kME_None;
+
+  switch (x20_gunState) {
+  case kGS_InWipeDone:
+    x14_remHoldTime -= dt;
+    if (x14_remHoldTime <= 0.f && x24_25_weaponChanged) {
+      StartWipe(kD_Out);
+      x24_25_weaponChanged = false;
+      x14_remHoldTime = 0.f;
+      ret = kME_InWipeDone;
+    }
+    // explicitly no break
+
+  case kGS_OutWipeDone:
+  case kGS_InWipe:
+  case kGS_OutWipe:
+  default:
+    if (x24_24_morphing) {
+      float omt = x8_remTime * xc_speed;
+      float t = 1.f - omt;
+      if (x1c_dir == kD_In) {
+        x0_yLerp = omt * outY + t * inY;
+        x18_transitionFactor = omt;
+      } else {
+        x0_yLerp = omt * inY + t * outY;
+        x18_transitionFactor = t;
+      }
+
+      if (x8_remTime <= 0.f) {
+        x24_24_morphing = false;
+        x8_remTime = 0.f;
+        if (x1c_dir == kD_In) {
+          x20_gunState = kGS_InWipeDone;
+          x18_transitionFactor = 0.f;
+        } else {
+          x18_transitionFactor = 1.f;
+          x20_gunState = kGS_OutWipeDone;
+          x1c_dir = kD_Done;
+          ret = kME_OutWipeDone;
+        }
+      } else {
+        x8_remTime -= dt;
+      }
+    }
+  }
+
+  return ret;
 }
 
 void CPlayerGun::UpdateWeaponFire(float, CPlayerState&, CStateManager&) {}
