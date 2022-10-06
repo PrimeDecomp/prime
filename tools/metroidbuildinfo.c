@@ -70,7 +70,7 @@ int main(int argc, const char* argv[]) {
     return -4;
   }
 
-  build_string[strcspn(build_string, "\n")] = '\0';
+  build_string[strcspn(build_string, "\r\n")] = '\0';
 
   /* Get source length */
   fseek(source, 0, SEEK_END);
