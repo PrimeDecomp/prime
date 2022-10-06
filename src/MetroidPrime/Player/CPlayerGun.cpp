@@ -527,7 +527,15 @@ void CPlayerGun::SetPhazonBeamMorph(bool) {}
 
 void CPlayerGun::HandlePhazonBeamChange(CStateManager&) {}
 
-void CPlayerGun::InitBeamData() {}
+void CPlayerGun::InitBeamData() {
+  x760_selectableBeams[0] = x74c_powerBeam.get();
+  x760_selectableBeams[1] = x750_iceBeam.get();
+  x760_selectableBeams[2] = x754_waveBeam.get();
+  x760_selectableBeams[3] = x758_plasmaBeam.get();
+  x72c_currentBeam = x760_selectableBeams[0];
+  x738_nextBeam = x72c_currentBeam;
+  x774_holoTransitionGen->SetParticleEmission(true);
+}
 
 void CPlayerGun::InitBombData() {}
 
