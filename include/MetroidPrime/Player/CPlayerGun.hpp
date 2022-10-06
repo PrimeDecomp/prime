@@ -3,17 +3,20 @@
 
 #include "types.h"
 
+#include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CActorLights.hpp"
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/Player/CFidget.hpp"
 #include "MetroidPrime/Player/CPlayerCameraBob.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/Weapons/WeaponCommon.hpp"
 
-#include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/TOneStatic.hpp"
 
+#include "rstl/string.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
@@ -39,6 +42,9 @@ class CPhazonBeam;
 class CElementGen;
 class CWorldShadow;
 class CGenDescription;
+class CFinalInput;
+class CGameCamera;
+
 class CPlayerGun;
 
 class CPlayerGun : public TOneStatic< CPlayerGun > {
@@ -97,12 +103,74 @@ public:
 
   void AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const;
   void PreRender(CStateManager&, const CFrustumPlanes&, const CVector3f&);
-
+  void TouchModel(const CStateManager&) const;
+  CVector3f ConvertToScreenSpace(const CVector3f& pos, const CGameCamera&) const;
+  void DrawArm(const CStateManager&, const CVector3f&, const CModelFlags&) const;
+  void Render(const CStateManager&, const CVector3f&, const CModelFlags&) const;
+  void GetLctrWithShake(CTransform4f& xfOut, const CModelData&, const rstl::string&, bool, bool);
+  void PlayAnim(NWeaponTypes::EGunAnimType type, bool);
+  void Update(float, float, float, CStateManager&);
+  void ProcessInput(const CFinalInput&, CStateManager&);
+  void ProcessChargeState(int, int, CStateManager&, float);
+  void ResetNormal(CStateManager&);
+  void ResetCharged(float, CStateManager&);
+  void ProcessNormalState(int, int, CStateManager&, float);
+  bool ExitMissile();
+  void UpdateNormalShotCycle(float, CStateManager&);
+  void FireSecondary(float, CStateManager&);
+  void DropBomb(CPlayerGun::EBWeapon, CStateManager&);
+  void ActivateCombo(CStateManager&);
+  void EnableChargeFx(CPlayerState::EChargeStage, CStateManager&);
+  void UpdateChargeState(float, CStateManager&);
+  void Reset(CStateManager&);
+  void ResetCharge(CStateManager&, bool);
+  void ResetBeamParams(CStateManager&, const CPlayerState&, bool);
+  void ChangeWeapon(const CPlayerState&, CStateManager&);
+  void StartPhazonBeamTransition(bool, CStateManager&, CPlayerState&);
+  void HandleWeaponChange(const CFinalInput&, CStateManager&);
+  void HandleBeamChange(const CFinalInput&, CStateManager&);
+  void SetPhazonBeamMorph(bool);
+  void HandlePhazonBeamChange(CStateManager&);
   void InitBeamData();
   void InitBombData();
   void InitMuzzleData();
   void InitCTData();
+  float GetBeamVelocity() const;
+  TUniqueId GetTargetId(CStateManager&);
+  void UpdateWeaponFire(float, CPlayerState&, CStateManager&);
+  void ResetIdle(CStateManager&);
+  void UpdateGunIdle(bool, float, float, CStateManager&);
+  void DamageRumble(const CVector3f&, const CStateManager&);
+  void TakeDamage(bool, bool, CStateManager&);
+  void StopChargeSound(CStateManager&);
+  void CancelFiring(CStateManager&);
+  void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&);
+  void StopContinuousBeam(CStateManager&, bool);
+  void RenderEnergyDrainEffects(const CStateManager&) const;
+  void DoUserAnimEvents(float, CStateManager&);
+  void DoUserAnimEvent(float, CStateManager&, const CInt32POINode&, EUserEventType);
+  void CancelCharge(CStateManager&, bool);
+  void EnterFreeLook(CStateManager&);
+  void EnterFidget(CStateManager&);
+  void UpdateLeftArmTransform(const CModelData&, const CStateManager&);
+  void ReturnArmAndGunToDefault(CStateManager&, bool);
+  void UpdateAuxWeapons(float, const CTransform4f&, CStateManager&);
+  void CancelLockOn();
+  void CreateGunLight(CStateManager&);
+  void DeleteGunLight(CStateManager&);
+  void UpdateGunLight(const CTransform4f&, CStateManager&);
+  void SetGunLightActive(bool, CStateManager&);
   void LoadHandAnimTokens();
+  void ProcessPhazonGunMorph(float, CStateManager&);
+  void ProcessGunMorph(float, CStateManager&);
+  void AsyncLoadFidget(CStateManager&);
+  void UnLoadFidget();
+  void IsFidgetLoaded();
+  void SetFidgetAnimBits(int, bool);
+  void AsyncLoadSuit(CStateManager&);
+  void ReturnToRestPose();
+  void DropPowerBomb(CStateManager&) const;
+  void SetPhazonBeamFeedback(bool);
 
   bool IsCharging() const { return x834_24_charging; }
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
@@ -130,9 +198,6 @@ private:
     };
 
     CGunMorph(float gunTransformTime, float holoHoldTime);
-    // CGunMorph(float gunTransformTime, float holoHoldTime)
-    // : x4_gunTransformTime(gunTransformTime), x10_holoHoldTime(fabs(holoHoldTime)) {}
-
     EMorphEvent Update(float inY, float outY, float dt);
     void StartWipe(EDir dir);
 

@@ -66,7 +66,7 @@ public:
   virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr, const CTransform4f& xf);
-  virtual void Fire(bool underwater, float dt, EChargeState chargeState, const CTransform4f& xf, CStateManager& mgr,
+  virtual void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState, const CTransform4f& xf, CStateManager& mgr,
                     TUniqueId homingTarget, float chargeFactor1, float chargeFactor2);
   virtual void EnableFx(bool enable);
   virtual void EnableSecondaryFx(ESecondaryFxType type);
