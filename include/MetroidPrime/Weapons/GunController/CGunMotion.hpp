@@ -2,6 +2,7 @@
 #define _CGUNMOTION_HPP
 
 #include "MetroidPrime/CModelData.hpp"
+#include "MetroidPrime/Weapons/GunController/CGunController.hpp"
 
 #include "Kyoto/CToken.hpp"
 #include "Kyoto/CObjectReference.hpp"
@@ -34,8 +35,13 @@ public:
   ~CGunMotion();
 
   bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle, bool bigStrike);
+  void Update(float, CStateManager&);
+  void Draw(const CStateManager&, const CTransform4f&) const;
+  void ReturnToDefault(CStateManager& mgr);
+  void GetFreeLookSetId() const;
   void BasePosition(bool bigStrikeReset);
-  void ReturnToDefault(CStateManager& mgr, bool setState);
+  void EnterFidget(CStateManager&, SamusGun::EFidgetType, int);
+  void LoadAnimations();
 
   CModelData& GetModelData() { return x0_modelData; }
   const CModelData& GetModelData() const { return x0_modelData; }
@@ -43,7 +49,7 @@ public:
 
 private:
   CModelData x0_modelData;
-  u8 x4c_pad[0x5C];
+  CGunController x4c_gunController;
   rstl::vector<CToken> xa8_anims;
   bool xb8_24_animPlaying : 1;
 };

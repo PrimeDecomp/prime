@@ -22,6 +22,8 @@ public:
     rstl::vector< CAssetId > x20_elsc;
     rstl::vector< CAssetId > x30_elsc;
   };
+  
+  const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
 
 private:
   u16 x0_tableCount;

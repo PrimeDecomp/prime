@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "rstl/vector.hpp"
+#include "rstl/reserved_vector.hpp"
 
 namespace pas {
 enum EAnimationState {
