@@ -1,6 +1,11 @@
 #ifndef _WEAPONCOMMON_HPP
 #define _WEAPONCOMMON_HPP
 
+#include "rstl/vector.hpp"
+
+class CToken;
+class CSfxHandle;
+
 namespace NWeaponTypes {
 
 enum EGunAnimType {
@@ -18,6 +23,7 @@ enum EGunAnimType {
 };
 
 CSfxHandle play_sfx(u16 sfx, bool underwater, bool looped, short pan);
+void get_token_vector(const CAnimData& animData, int begin, int end, rstl::vector<CToken>& tokensOut, bool preLock);
 
 }
 

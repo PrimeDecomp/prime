@@ -1043,7 +1043,7 @@ LoadAnimations__11CGrappleArmFv:
 /* 8011E080 0011AFE0  7C 7F 1B 78 */	mr r31, r3
 /* 8011E084 0011AFE4  38 DF 01 8C */	addi r6, r31, 0x18c
 /* 8011E088 0011AFE8  80 63 00 10 */	lwz r3, 0x10(r3)
-/* 8011E08C 0011AFEC  48 16 D1 E1 */	bl "get_token_vector__12NWeaponTypesFR9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
+/* 8011E08C 0011AFEC  48 16 D1 E1 */	bl "get_token_vector__12NWeaponTypesFRC9CAnimDataiiRQ24rstl42vector<6CToken,Q24rstl17rmemory_allocator>b"
 /* 8011E090 0011AFF0  38 00 00 00 */	li r0, 0
 /* 8011E094 0011AFF4  7F E3 FB 78 */	mr r3, r31
 /* 8011E098 0011AFF8  98 01 00 54 */	stb r0, 0x54(r1)
