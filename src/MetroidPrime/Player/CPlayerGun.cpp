@@ -600,7 +600,22 @@ CPlayerGun::CGunMorph::CGunMorph(float gunTransformTime, float holoHoldTime)
 , x24_24_morphing(false)
 , x24_25_weaponChanged(false) {}
 
-void CPlayerGun::CGunMorph::StartWipe(CPlayerGun::CGunMorph::EDir) {}
+void CPlayerGun::CGunMorph::StartWipe(CPlayerGun::CGunMorph::EDir dir) {
+  x14_remHoldTime = x10_holoHoldTime;
+  if (dir == kD_In && x20_gunState == kGS_InWipeDone)
+    return;
+
+  if (x1c_dir != dir && x20_gunState != kGS_OutWipe) {
+    x8_remTime = x4_gunTransformTime;
+    xc_speed = 1.f / x4_gunTransformTime;
+  } else if (x20_gunState != kGS_InWipe) {
+    x8_remTime = x4_gunTransformTime - x8_remTime;
+  }
+
+  x1c_dir = dir;
+  x20_gunState = x1c_dir == kD_In ? kGS_InWipe : kGS_OutWipe;
+  x24_24_morphing = true;
+}
 
 CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float, float, float) {
   return kME_None;
