@@ -22,11 +22,17 @@ public:
   //   other.x0_has = false;
   // }
   // TODO check
-  // auto_ptr& operator=(const auto_ptr& other) {
-  //   x0_has = other.x4_item != nullptr;
-  //   x4_item = other.x4_item;
-  //   other.x0_has = false;
-  // }
+  auto_ptr& operator=(const auto_ptr& other) {
+    if (this != &other) {
+      if (x0_has != false) {
+        delete x4_item;
+      }
+      x0_has = other.x0_has;
+      x4_item = other.x4_item;
+      const_cast<auto_ptr&>(other).x0_has = false;
+    }
+    return *this;
+  }
   T* get() const { return x4_item; }
   T* operator->() const { return x4_item; }
   T& operator*() const { return *x4_item; }
