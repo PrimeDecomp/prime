@@ -2,8 +2,11 @@
 
 #include "MetroidPrime/CAnimRes.hpp"
 #include "MetroidPrime/CAnimData.hpp"
-#include "MetroidPrime/CPASDatabase.hpp"
 #include "MetroidPrime/CStateManager.hpp"
+
+#include "Kyoto/Animation/CPASDatabase.hpp"
+#include "Kyoto/Animation/CPASAnimParmData.hpp"
+
 
 CGunMotion::CGunMotion(CAssetId ancsId, const CVector3f& scale)
 : x0_modelData(CAnimRes(ancsId, 0, scale, 0, false))
@@ -21,22 +24,22 @@ bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr
   bool loop = true;
   switch (state) {
   case SamusGun::kAS_Wander: {
-    CPASAnimParmData* parms; //((pas::EAnimationState(state)));
-    rstl::pair<float, int> anim = pas.FindBestAnimation(*parms, *mgr.GetActiveRandom(), -1);
+    CPASAnimParmData parms((pas::EAnimationState(state)));
+    rstl::pair<float, int> anim = pas.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
     animId = anim.second;
     break;
   }
   case SamusGun::kAS_Idle: {
-    CPASAnimParmData* parms; //(pas::EAnimationState(state), CPASAnimParm::FromEnum(0));
-    rstl::pair<float, int> anim = pas.FindBestAnimation(*parms, *mgr.GetActiveRandom(), -1);
+    CPASAnimParmData parms(pas::EAnimationState(state), CPASAnimParm::FromEnum(0));
+    rstl::pair<float, int> anim = pas.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
     animId = anim.second;
     break;
   }
   case SamusGun::kAS_Struck: {
-    CPASAnimParmData* parms; /*(pas::EAnimationState(state), CPASAnimParm::FromInt32(0),
+    CPASAnimParmData parms(pas::EAnimationState(state), CPASAnimParm::FromInt32(0),
                            CPASAnimParm::FromReal32(angle), CPASAnimParm::FromBool(bigStrike),
-                           CPASAnimParm::FromBool(false));*/
-    rstl::pair<float, int> anim = pas.FindBestAnimation(*parms, *mgr.GetActiveRandom(), -1);
+                           CPASAnimParm::FromBool(false));
+    rstl::pair<float, int> anim = pas.FindBestAnimation(parms, *mgr.GetActiveRandom(), -1);
     animId = anim.second;
     loop = false;
     break;

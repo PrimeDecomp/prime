@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#include "MetroidPrime/CPASAnimState.hpp"
+#include "Kyoto/Animation/CPASAnimState.hpp"
 
 #include "rstl/vector.hpp"
 #include "rstl/pair.hpp"
