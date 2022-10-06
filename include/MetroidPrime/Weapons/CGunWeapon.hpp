@@ -80,6 +80,7 @@ public:
 
   const CVelocityInfo& GetVelocityInfo() const { return x1d0_velInfo; }
   rstl::optional_object< CModelData >& SolidModelData() { return x10_solidModelData; }
+  const CModelData& GetSolidModelData() const { return x10_solidModelData.data(); }
 
   CAABox GetBounds() const;
   CAABox GetBounds(const CTransform4f& xf) const;

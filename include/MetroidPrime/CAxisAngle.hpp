@@ -11,6 +11,8 @@ public:
   CAxisAngle(f32 x, f32 y, f32 z) : mVector(x, y, z) {}
   explicit CAxisAngle(const CVector3f& vec);
   static const CAxisAngle& Identity();
+  
+  float GetAngle() const;
   const CVector3f& GetVector() const;
 
   const CAxisAngle& operator+=(const CAxisAngle& rhs);

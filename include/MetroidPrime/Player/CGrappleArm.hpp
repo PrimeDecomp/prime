@@ -11,8 +11,14 @@ public:
   ~CGrappleArm();
 
   void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, const CVector3f& camPos);
+  void ReturnToDefault(CStateManager& mgr, float dt, bool setState);
   
+  // EArmState GetAnimState() const { return x334_animState; }
   bool GetActive() const { return x3b2_24_active; }
+  bool BeamActive() const { return x3b2_25_beamActive; }
+  bool IsArmMoving() const { return x3b2_27_armMoving; }
+  bool IsGrappling() const { return x3b2_28_isGrappling; }
+  bool IsSuitLoading() const { return x3b2_29_suitLoading; }
 
 private:
   u8 x0_pad[0x3b0];

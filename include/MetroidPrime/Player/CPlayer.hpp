@@ -167,12 +167,21 @@ public:
 
   CPlayerGun* PlayerGun() { return x490_gun.get(); }
   const CPlayerGun* GetPlayerGun() const { return x490_gun.get(); }
+
+  ESurfaceRestraints GetCurrentSurfaceRestraint() const { return x2ac_surfaceRestraint; }
+  ESurfaceRestraints GetSurfaceRestraint() const {
+    return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
+  }
   
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
   EGrappleState GetGrappleState() const { return x3b8_grappleState; }
+  bool IsInFreeLook() const { return x3dc_inFreeLook; }
+  bool GetFreeLookStickState() const { return x3de_lookAnalogHeld; }
+  EPlayerCameraState GetCameraState() const { return x2f4_cameraState; }
   EGunHolsterState GetGunHolsterState() const { return x498_gunHolsterState; }
+  NPlayer::EPlayerMovementState GetPlayerMovementState() const { return x258_movementState; }
 
 private:
   struct CVisorSteam {
