@@ -562,7 +562,9 @@ void CPlayerGun::InitMuzzleData() {
   }
 }
 
-void CPlayerGun::InitCTData() {}
+void CPlayerGun::InitCTData() {
+    x77c_comboXferGen = rstl::auto_ptr< CElementGen >();
+}
 
 float CPlayerGun::GetBeamVelocity() const { return 0.0f; }
 
