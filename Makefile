@@ -94,6 +94,7 @@ endif
 CC      =  $(WINE) tools/mwcc_compiler/$(MWCC_VERSION)/mwcceppc.exe
 LD      := $(WINE) tools/mwcc_compiler/$(MWLD_VERSION)/mwldeppc.exe
 ELF2DOL := tools/elf2dol
+METROIDBUILDINFO := tools/metroidbuildinfo
 
 TRANSFORM_DEP := tools/transform-dep.py
 FRANK := tools/franklite.py
@@ -163,6 +164,7 @@ $(LDSCRIPT): ldscript.lcf
 
 $(DOL): $(ELF) | tools
 	$(QUIET) $(ELF2DOL) $< $@
+	$(METROIDBUILDINFO) $@ buildstrings/$(NAME).$(VERSION).build
 	$(QUIET) $(SHA1SUM) -c sha1/$(NAME).$(VERSION).sha1
 ifneq ($(findstring -map,$(LDFLAGS)),)
 	$(QUIET) $(PYTHON) tools/calcprogress.py $(DOL) $(MAP)
