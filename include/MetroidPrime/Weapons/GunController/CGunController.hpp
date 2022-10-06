@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "MetroidPrime/Weapons/GunController/CGSFreeLook.hpp"
+
 class CModelData;
 
 enum EGunState {
@@ -20,10 +22,10 @@ class CStateManager;
 
 class CGunController {
   CModelData& x0_modelData;
-  // CGSFreeLook x4_freeLook;
+  CGSFreeLook x4_freeLook;
   // CGSComboFire x1c_comboFire;
   // CGSFidget x30_fidget;
-  u8 x4_pad[0x4C];
+  u8 x1c_pad[0x34];
   EGunState x50_gunState;
   int x54_curAnimId;
   bool x58_24_animDone : 1;
@@ -43,6 +45,9 @@ public:
   void ReturnToDefault(CStateManager&, float);
   void Reset();
   void ReturnToBasePosition(CStateManager&);
+
+  int GetFreeLookSetId() const { return x4_freeLook.GetSetId(); }
+
 };
 CHECK_SIZEOF(CGunController, 0x5C)
 
