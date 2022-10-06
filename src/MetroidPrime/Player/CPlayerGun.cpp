@@ -19,6 +19,7 @@
 #include "MetroidPrime/Weapons/CWaveBeam.hpp"
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
+#include "MetroidPrime/SFX/Weapons.h"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
@@ -748,7 +749,7 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
           FireSecondary(dt, mgr);
         } else {
           if (!CSfxManager::IsPlaying(x2e4_invalidSfx)) {
-            x2e4_invalidSfx = NWeaponTypes::play_sfx(1781, x834_27_underwater, false, 0x4a);
+            x2e4_invalidSfx = NWeaponTypes::play_sfx(SFXwpn_invalid_action, x834_27_underwater, false, 0x4a);
           } else {
             x2e4_invalidSfx.Clear();
           }
