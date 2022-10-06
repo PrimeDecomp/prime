@@ -200,7 +200,7 @@ Rumble__16CRumbleGeneratorFRC9SAdsrDataf15ERumblePriority7EIOPort:
 /* 80369FC0 00366F20  7F 64 DB 78 */	mr r4, r27
 /* 80369FC4 00366F24  D0 06 00 D0 */	stfs f0, 0xd0(r6)
 /* 80369FC8 00366F28  7F 86 E3 78 */	mr r6, r28
-/* 80369FCC 00366F2C  4B FF F8 41 */	bl Activate__12CRumbleVoiceFRC9SAdsrDatasf15ERumblePriority
+/* 80369FCC 00366F2C  4B FF F8 41 */	bl Activate__12CRumbleVoiceFRC9SAdsrDataUsf15ERumblePriority
 /* 80369FD0 00366F30  48 00 00 08 */	b lbl_80369FD8
 lbl_80369FD4:
 /* 80369FD4 00366F34  38 60 FF FF */	li r3, -1
@@ -395,4 +395,3 @@ lbl_803D8548:
 	.4byte 0x00000002
 	.4byte 0x00000002
 	.4byte 0x00000002
-

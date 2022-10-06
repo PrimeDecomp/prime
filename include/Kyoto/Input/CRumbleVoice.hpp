@@ -32,6 +32,10 @@ enum ERumblePriority {
 };
 
 struct SAdsrData {
+  SAdsrData();
+  SAdsrData(float attackGain, float autoReleaseDur, float attackDur, float decayDur,
+            float sustainGain, float releaseDur, bool hasSustain, bool autoRelease);
+
   f32 x0_attackGain;
   f32 x4_autoReleaseDur;
   f32 x8_attackDur;
@@ -52,6 +56,11 @@ struct SAdsrDelta {
     kP_Release,
   };
 
+  SAdsrDelta(EPhase phase, ERumblePriority priority);
+  SAdsrDelta(EPhase phase);
+  static SAdsrDelta Stopped();
+  static SAdsrDelta Start(ERumblePriority priority, bool prePulse);
+
   f32 x0_curIntensity;
   f32 x4_attackTime;
   f32 x8_decayTime;
@@ -67,9 +76,21 @@ class CRumbleVoice {
 private:
   rstl::vector< SAdsrData > x0_datas;
   rstl::vector< SAdsrDelta > x10_deltas;
-  rstl::reserved_vector< s16, 4 > x20_handleIds;
-  s16 x2c_usedChannels;
+  rstl::reserved_vector< u16, 4 > x20_handleIds;
+  u16 x2c_usedChannels;
   u8 x2e_lastId;
+
+  CRumbleVoice();
+
+  s16 Activate(const SAdsrData& data, u16 idx, float gain, ERumblePriority prio);
+  void Deactivate(s16 id, bool b1);
+  void HardReset();
+  bool UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float dt);
+  bool Update(float dt);
+  uint GetFreeChannel() const;
+  float GetIntensity() const;
+  bool OwnsSustained(s16 id) const;
+  s16 CreateRumbleHandle(u16 idx);
 };
 
 #endif

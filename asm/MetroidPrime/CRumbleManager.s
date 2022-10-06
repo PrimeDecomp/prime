@@ -182,4 +182,3 @@ lbl_805AD350:
 	# ROM: 0x3F9BF0
 	.float 1.0
 	.4byte 0
-
