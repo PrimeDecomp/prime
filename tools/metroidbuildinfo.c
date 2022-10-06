@@ -89,7 +89,7 @@ int main(int argc, const char* argv[]) {
       memmem(source_buf, source_len, METROID_BUILD_INFO_TAG, strlen(METROID_BUILD_INFO_TAG));
   if (ptr == NULL) {
     fprintf(stderr, "Unable to find build info tag in source!\n");
-    return -5;
+    return -6;
   }
 
   /* Lets actually copy over the build string */
@@ -100,7 +100,7 @@ int main(int argc, const char* argv[]) {
 
   if (!target) {
     fprintf(stderr, "Unable to open '%s'\nPlease ensure you have write permissions!\n", argv[1]);
-    return -3;
+    return -7;
   }
 
   /* Finally write the buffer to the target file */
