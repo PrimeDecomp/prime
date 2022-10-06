@@ -91,15 +91,16 @@ CPhysicsState CPhysicsActor::GetPhysicsState() const {
 
 void CPhysicsActor::SetPhysicsState(const CPhysicsState& state) {
   SetTranslation(state.GetTranslation());
-  const CQuaternion& quat = state.GetOrientationWR();
-  SetTransform(quat.BuildTransform4f(GetTranslation()));
-  xfc_constantForce = state.GetConstantForceWR();
-  x108_angularMomentum = state.GetAngularMomentumWR();
-  x150_momentum = state.GetMomentumWR();
-  x15c_force = state.GetForceWR();
-  x168_impulse = state.GetImpulseWR();
-  x174_torque = state.GetTorque();
-  x180_angularImpulse = state.GetAngularImpulseWR();
+  CQuaternion quat = state.GetOrientationWR();
+  CVector3f translation = GetTranslation();
+  SetTransform(quat.BuildTransform4f(translation));
+  SetConstantForceWR(state.GetConstantForceWR());
+  SetAngularMomentumWR(state.GetAngularMomentumWR());
+  SetMomentumWR(state.GetMomentumWR());
+  SetForceWR(state.GetForceWR());
+  SetImpulseWR(state.GetImpulseWR());
+  SetTorqueWR(state.GetTorque());
+  SetAngularImpulseWR(state.GetAngularImpulseWR());
   ComputeDerivedQuantities();
 }
 
@@ -190,3 +191,15 @@ void CPhysicsActor::MoveToWR(const CVector3f& trans, float d) {
   xfc_constantForce = (trans - GetTransform().GetTranslation()) * GetMass() * (1.f / d);
   ComputeDerivedQuantities();
 }
+
+void CPhysicsActor::MoveToInOneFrameWR(const CVector3f& trans, float d) {
+  x18c_moveImpulse += (trans - GetTranslation()) * GetMass() * (1.f / d);
+}
+
+
+CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) const {
+  CVector3f impulse = x34_transform.Rotate(trans);
+  return  (GetMass() * impulse) * (1.f / d);
+}
+
+CAxisAngle CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {}

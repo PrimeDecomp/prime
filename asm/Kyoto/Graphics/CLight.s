@@ -77,11 +77,11 @@ lbl_80306090:
 /* 803060C0 00303020  D0 01 00 0C */	stfs f0, 0xc(r1)
 /* 803060C4 00303024  48 00 E7 F5 */	bl Magnitude__9CVector3fCFv
 /* 803060C8 00303028  FC 40 08 18 */	frsp f2, f1
-/* 803060CC 0030302C  C0 02 C7 78 */	lfs f0, lbl_805AE498@sda21(r2)
+/* 803060CC 0030302C  C0 02 C7 78 */	lfs f0, gkEpsilon32@sda21(r2)
 /* 803060D0 00303030  D0 21 00 08 */	stfs f1, 8(r1)
 /* 803060D4 00303034  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 803060D8 00303038  40 80 00 0C */	bge lbl_803060E4
-/* 803060DC 0030303C  38 62 C7 78 */	addi r3, r2, lbl_805AE498@sda21
+/* 803060DC 0030303C  38 62 C7 78 */	addi r3, r2, gkEpsilon32@sda21
 /* 803060E0 00303040  48 00 00 08 */	b lbl_803060E8
 lbl_803060E4:
 /* 803060E4 00303044  38 61 00 08 */	addi r3, r1, 8
@@ -491,15 +491,15 @@ __sinit_CLight_cpp:
 
 .section .sdata2, "a"
 .balign 8
-.global lbl_805AE498
-lbl_805AE498:
+.global gkEpsilon32
+gkEpsilon32:
 	# ROM: 0x3FAD38
 	.float 1.1920929E-7
 
 .global lbl_805AE49C
 lbl_805AE49C:
 	# ROM: 0x3FAD3C
-	.4byte 0x3B808081
+	.float 0.003921569
 
 .global lbl_805AE4A0
 lbl_805AE4A0:
@@ -514,7 +514,7 @@ lbl_805AE4A4:
 .global lbl_805AE4A8
 lbl_805AE4A8:
 	# ROM: 0x3FAD48
-	.4byte 0
+	.float 0.0
 
 .global lbl_805AE4AC
 lbl_805AE4AC:
@@ -524,10 +524,9 @@ lbl_805AE4AC:
 .global lbl_805AE4B0
 lbl_805AE4B0:
 	# ROM: 0x3FAD50
-	.4byte 0x7C1071DB
+	.float 3.0E36
 
 .global lbl_805AE4B4
 lbl_805AE4B4:
 	# ROM: 0x3FAD54
-	.4byte 0x43340000
-
+	.float 180.0
