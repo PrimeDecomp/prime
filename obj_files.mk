@@ -410,10 +410,10 @@ COLLISION :=\
 	$(BUILD_DIR)/asm/Collision/CCollisionInfo.o\
 	$(BUILD_DIR)/asm/Collision/InternalColliders.o\
 	$(BUILD_DIR)/asm/Collision/CCollisionPrimitive.o\
-	$(BUILD_DIR)/asm/Collision/CMaterialList.o\
+	$(BUILD_DIR)/src/Collision/CMaterialList.o\
 	$(BUILD_DIR)/asm/Collision/CollisionUtil.o\
 	$(BUILD_DIR)/asm/Collision/CCollidableSphere.o\
-	$(BUILD_DIR)/asm/Collision/CMaterialFilter.o\
+	$(BUILD_DIR)/src/Collision/CMaterialFilter.o\
 	$(BUILD_DIR)/asm/Collision/COBBox.o\
 	$(BUILD_DIR)/src/Collision/CMRay.o\
 

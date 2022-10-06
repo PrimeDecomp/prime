@@ -7,18 +7,11 @@ bool CMaterialFilter::Passes(const CMaterialList& other) const {
   case kFT_Always:
     return true;
   case kFT_Include:
-    return other.SharesMaterials(include) != 0 ? true : false;
+    return other.SharesMaterials(include);
   case kFT_Exclude:
-    return other.SharesMaterials(exclude) == 0;
-  case kFT_IncludeExclude: {
-    bool ret = false;
-    if (other.SharesMaterials(include) != 0) {
-      if (other.SharesMaterials(exclude) == 0) {
-        ret = true;
-      }
-    }
-    return ret;
-  }
+    return !other.SharesMaterials(exclude);
+  case kFT_IncludeExclude:
+    return other.SharesMaterials(include) && !other.SharesMaterials(exclude);
   default:
     return true;
   }

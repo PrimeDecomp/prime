@@ -118,8 +118,8 @@ public:
   // Intersection__13CMaterialListCFRC13CMaterialList weak
   static s32 BitPosition(u64 flags);
   // GetMaterialString__13CMaterialListCFv weak
-  u64 SharesMaterials(const CMaterialList& other) const {
-    return (other.value & value);
+  bool SharesMaterials(const CMaterialList& other) const {
+    return (other.value & value) ? true : false;
   }
 
 private:
