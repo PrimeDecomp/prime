@@ -63,7 +63,13 @@ bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr
   return loop;
 }
 
-void CGunMotion::Update(float, CStateManager&) {}
+void CGunMotion::Update(float dt, CStateManager& mgr) {
+  x0_modelData.AdvanceAnimation(dt, mgr, kInvalidAreaId, true);
+  switch (x4c_gunController.Update(dt, mgr)) {
+    case 1:
+      xb8_24_animPlaying = false;
+  }    
+}
 
 void CGunMotion::Draw(const CStateManager&, const CTransform4f&) const {}
 
