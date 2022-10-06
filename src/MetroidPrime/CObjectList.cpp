@@ -30,16 +30,30 @@ void CObjectList::AddObject(CEntity& ent) {
 
 void CObjectList::RemoveObject(TUniqueId uid) {}
 
-CEntity* CObjectList::GetObjectById() {}
+CEntity* CObjectList::GetObjectById() {
+  return nullptr;
+}
 
-const CEntity* CObjectList::GetObjectById() const {}
+const CEntity* CObjectList::GetObjectById() const {
+  return nullptr;
+}
 
-CEntity* CObjectList::GetValidObjectById(TUniqueId uid) {}
+CEntity* CObjectList::GetValidObjectById(TUniqueId uid) {
+  return nullptr;
+}
 
-const CEntity* CObjectList::GetValidObjectById(TUniqueId uid) const {}
+const CEntity* CObjectList::GetValidObjectById(TUniqueId uid) const {
+  return nullptr;
+}
 
-CEntity* CObjectList::operator[](int idx) {}
+CEntity* CObjectList::operator[](int idx) {
+  return nullptr;
+}
 
-const CEntity* CObjectList::operator[](int idx) const {}
+const CEntity* CObjectList::operator[](int idx) const {
+  return nullptr;
+}
 
-const CEntity* CObjectList::GetValidObjectByIndex(int idx) const {}
+const CEntity* CObjectList::GetValidObjectByIndex(int idx) const {
+  return nullptr;
+}

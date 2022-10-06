@@ -21,6 +21,7 @@ class CAnimRes;
 class CFrustumPlanes;
 class CModel;
 class CModelFlags;
+class CStateManager;
 
 // TODO move
 #include "Kyoto/Math/CQuaternion.hpp"
