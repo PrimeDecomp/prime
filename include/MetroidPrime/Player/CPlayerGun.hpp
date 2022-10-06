@@ -4,8 +4,10 @@
 #include "types.h"
 
 #include "MetroidPrime/CActorLights.hpp"
+#include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/Player/CFidget.hpp"
 #include "MetroidPrime/Player/CPlayerCameraBob.hpp"
+#include "MetroidPrime/Player/CPlayerState.hpp"
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
 #include "Kyoto/Math/CAABox.hpp"
@@ -15,6 +17,8 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
+
+#include "math.h"
 
 enum EChargeState {
   kCS_Normal,
@@ -33,6 +37,7 @@ class CPlasmaBeam;
 class CPhazonBeam;
 class CElementGen;
 class CWorldShadow;
+class CGenDescription;
 
 class CPlayerGun {
   static float skTractorBeamFactor;
@@ -84,6 +89,8 @@ public:
     kIS_Three,
     kIS_Four,
   };
+
+  CPlayerGun(TUniqueId);
 
   bool IsCharging() const { return x834_24_charging; }
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
