@@ -2978,7 +2978,7 @@ lbl_8003CB1C:
 /* 8003CB2C 00039A8C  38 05 FF FE */	addi r0, r5, -2
 /* 8003CB30 00039A90  7C 00 00 34 */	cntlzw r0, r0
 /* 8003CB34 00039A94  54 05 D9 7E */	srwi r5, r0, 5
-/* 8003CB38 00039A98  48 00 28 09 */	bl Reset__10CPlayerGunFR13CStateManager
+/* 8003CB38 00039A98  48 00 28 09 */	bl Reset__10CPlayerGunFR13CStateManagerb
 /* 8003CB3C 00039A9C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8003CB40 00039AA0  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8003CB44 00039AA4  83 C1 00 08 */	lwz r30, 8(r1)
@@ -5654,7 +5654,7 @@ lbl_8003F100:
 /* 8003F15C 0003C0BC  7F E3 FB 78 */	mr r3, r31
 /* 8003F160 0003C0C0  7F 84 E3 78 */	mr r4, r28
 /* 8003F164 0003C0C4  38 A0 00 00 */	li r5, 0
-/* 8003F168 0003C0C8  48 00 01 D9 */	bl Reset__10CPlayerGunFR13CStateManager
+/* 8003F168 0003C0C8  48 00 01 D9 */	bl Reset__10CPlayerGunFR13CStateManagerb
 /* 8003F16C 0003C0CC  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 8003F170 0003C0D0  41 82 00 28 */	beq lbl_8003F198
 /* 8003F174 0003C0D4  A9 02 C5 F8 */	lha r8, kMaxPriority__11CSfxManager@sda21(r2)
@@ -5785,8 +5785,8 @@ lbl_8003F2E0:
 /* 8003F338 0003C298  38 21 00 20 */	addi r1, r1, 0x20
 /* 8003F33C 0003C29C  4E 80 00 20 */	blr
 
-.global Reset__10CPlayerGunFR13CStateManager
-Reset__10CPlayerGunFR13CStateManager:
+.global Reset__10CPlayerGunFR13CStateManagerb
+Reset__10CPlayerGunFR13CStateManagerb:
 /* 8003F340 0003C2A0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8003F344 0003C2A4  7C 08 02 A6 */	mflr r0
 /* 8003F348 0003C2A8  90 01 00 24 */	stw r0, 0x24(r1)
@@ -6056,7 +6056,7 @@ lbl_8003F714:
 /* 8003F71C 0003C67C  7F C3 F3 78 */	mr r3, r30
 /* 8003F720 0003C680  7F E4 FB 78 */	mr r4, r31
 /* 8003F724 0003C684  38 A0 00 00 */	li r5, 0
-/* 8003F728 0003C688  4B FF FC 19 */	bl Reset__10CPlayerGunFR13CStateManager
+/* 8003F728 0003C688  4B FF FC 19 */	bl Reset__10CPlayerGunFR13CStateManagerb
 lbl_8003F72C:
 /* 8003F72C 0003C68C  80 1E 02 E0 */	lwz r0, 0x2e0(r30)
 /* 8003F730 0003C690  28 00 00 00 */	cmplwi r0, 0
@@ -7113,7 +7113,7 @@ ResetNormal__10CPlayerGunFR13CStateManager:
 /* 80040638 0003D598  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8004063C 0003D59C  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80040640 0003D5A0  7C 7F 1B 78 */	mr r31, r3
-/* 80040644 0003D5A4  4B FF EC FD */	bl Reset__10CPlayerGunFR13CStateManager
+/* 80040644 0003D5A4  4B FF EC FD */	bl Reset__10CPlayerGunFR13CStateManagerb
 /* 80040648 0003D5A8  88 1F 08 32 */	lbz r0, 0x832(r31)
 /* 8004064C 0003D5AC  38 60 00 00 */	li r3, 0
 /* 80040650 0003D5B0  50 60 1F 38 */	rlwimi r0, r3, 3, 0x1c, 0x1c

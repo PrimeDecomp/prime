@@ -7,6 +7,7 @@
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/CWorldShadow.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
 #include "MetroidPrime/Weapons/CAuxWeapon.hpp"
@@ -18,6 +19,7 @@
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
+#include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
@@ -354,15 +356,81 @@ void CPlayerGun::Update(float, float, float, CStateManager&) {}
 
 void CPlayerGun::ProcessInput(const CFinalInput&, CStateManager&) {}
 
-void CPlayerGun::ProcessChargeState(int, int, CStateManager&, float) {}
+void CPlayerGun::ProcessChargeState(int releasedStates, int pressedStates, CStateManager& mgr,
+                                    float dt) {
+  if ((releasedStates & 0x1) != 0) {
+    ResetCharged(dt, mgr);
+    return;
+  }
+  if ((pressedStates & 0x1) != 0) {
+    if (x32c_chargePhase == kCP_NotCharging && (pressedStates & 0x1) != 0 &&
+        x348_chargeCooldownTimer == 0.f && x832_28_readyForShot == 1) {
+      UpdateNormalShotCycle(dt, mgr);
+      x32c_chargePhase = kCP_ChargeRequested;
+    }
+  } else {
+    const CPlayerState* state = mgr.GetPlayerState();
+    if (state->HasPowerUp(CPlayerState::kIT_Missiles) && (pressedStates & 0x2) != 0) {
+      if (x32c_chargePhase >= kCP_FxGrown) {
+        if (state->HasPowerUp(skBeamComboArr[size_t(x310_currentBeam)]))
+          ActivateCombo(mgr);
+      } else if (x32c_chargePhase == kCP_NotCharging) {
+        FireSecondary(dt, mgr);
+      }
+    }
+  }
+}
 
-void CPlayerGun::ResetNormal(CStateManager&) {}
+void CPlayerGun::ResetNormal(CStateManager& mgr) {
+  Reset(mgr, false);
+  x832_28_readyForShot = false;
+}
 
-void CPlayerGun::ResetCharged(float, CStateManager&) {}
+void CPlayerGun::ResetCharged(float dt, CStateManager& mgr) {
+  if (x832_26_comboFiring == true) {
+    return;
+  }
 
-void CPlayerGun::ProcessNormalState(int, int, CStateManager&, float) {}
+  if (x32c_chargePhase >= kCP_FxGrowing) {
+    x833_30_canShowAuxMuzzleEffect = false;
+    UpdateNormalShotCycle(dt, mgr);
+    x832_24_coolingCharge = true;
+    CancelCharge(mgr, true);
+  } else if (x32c_chargePhase != kCP_NotCharging) {
+    x320_currentAuxBeam = x310_currentBeam;
+    x833_30_canShowAuxMuzzleEffect = true;
+    x32c_chargePhase = kCP_ChargeDone;
+  }
+  StopChargeSound(mgr);
+}
 
-bool CPlayerGun::ExitMissile() { return false; }
+void CPlayerGun::ProcessNormalState(int releasedStates, int pressedStates, CStateManager& mgr,
+                                    float dt) {
+  if ((releasedStates & 0x1) != 0) {
+    ResetNormal(mgr);
+    return;
+  }
+
+  if ((pressedStates & 0x1) != 0 && x348_chargeCooldownTimer == 0.f &&
+      x832_28_readyForShot == true) {
+    UpdateNormalShotCycle(dt, mgr);
+    return;
+  }
+  if ((pressedStates & 0x2) != 0) {
+    FireSecondary(dt, mgr);
+  }
+}
+
+bool CPlayerGun::ExitMissile() {
+  if ((x2f8_stateFlags & 0x1) != 0x1) {
+    if ((x2f8_stateFlags & 0x10) != 0x10 && x338_nextState != kNS_ExitMissile) {
+      x338_nextState = kNS_ExitMissile;
+      PlayAnim(NWeaponTypes::kGAT_FromMissile, false);
+    }
+    return false;
+  }
+  return true;
+}
 
 void CPlayerGun::UpdateNormalShotCycle(float, CStateManager&) {}
 
@@ -376,11 +444,76 @@ void CPlayerGun::EnableChargeFx(CPlayerState::EChargeStage, CStateManager&) {}
 
 void CPlayerGun::UpdateChargeState(float, CStateManager&) {}
 
-void CPlayerGun::Reset(CStateManager&) {}
+void CPlayerGun::Reset(CStateManager& mgr, bool b1) {
+  x72c_currentBeam->Reset(mgr);
+  x832_25_chargeEffectVisible = false;
+  x832_24_coolingCharge = false;
+  x833_26_ = false;
+  x348_chargeCooldownTimer = 0.f;
+  SetGunLightActive(false, mgr);
+  if ((x2f8_stateFlags & 0x10) != 0x10) {
+    if (!b1 && (x2f8_stateFlags & 0x2) != 0x2) {
+      if ((x2f8_stateFlags & 0x8) != 0x8) {
+        x2f8_stateFlags |= 0x1;
+        x2f8_stateFlags &= ~0x16;
+      }
+      x318_comboAmmoIdx = 0;
+      x31c_missileMode = kMM_Inactive;
+    }
+  } else {
+    x2f8_stateFlags &= ~0x7;
+  }
+}
 
-void CPlayerGun::ResetCharge(CStateManager&, bool) {}
+void CPlayerGun::ResetCharge(CStateManager& mgr, bool resetBeam) {
+  if (x32c_chargePhase != kCP_NotCharging)
+    StopChargeSound(mgr);
 
-void CPlayerGun::ResetBeamParams(CStateManager&, const CPlayerState&, bool) {}
+  if ((x2f8_stateFlags & 0x8) != 0x8 && (x2f8_stateFlags & 0x10) != 0x10) {
+    bool doResetBeam =
+        mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Morphed || resetBeam;
+    if (x832_27_chargeAnimStarted || doResetBeam)
+      PlayAnim(NWeaponTypes::kGAT_BasePosition, false);
+    if (doResetBeam)
+      x72c_currentBeam->EnableSecondaryFx(CGunWeapon::kSFT_None);
+    if ((x2f8_stateFlags & 0x2) != 0x2 || x330_chargeState != kCS_Normal) {
+      if ((x2f8_stateFlags & 0x8) != 0x8) {
+        x2f8_stateFlags |= 0x1;
+        x2f8_stateFlags &= ~0x16;
+      }
+      x318_comboAmmoIdx = 0;
+      x31c_missileMode = kMM_Inactive;
+    }
+  }
+
+  x32c_chargePhase = kCP_NotCharging;
+  x330_chargeState = kCS_Normal;
+  x320_currentAuxBeam = x310_currentBeam;
+  x833_30_canShowAuxMuzzleEffect = true;
+  x832_27_chargeAnimStarted = false;
+  x832_26_comboFiring = false;
+  x344_comboXferTimer = 0.f;
+}
+
+#define SFXwpn_morph_out_wipe 1774
+
+void CPlayerGun::ResetBeamParams(CStateManager& mgr, const CPlayerState& playerState,
+                                 bool playSelectionSfx) {
+  StopContinuousBeam(mgr, true);
+  if (playerState.ItemEnabled(CPlayerState::kIT_ChargeBeam)) {
+    ResetCharge(mgr, false);
+  }
+  const CAnimPlaybackParms parms(skBeamAnimIds[size_t(x314_nextBeam)], -1, 1.f, true);
+  x6e0_rightHandModel.AnimationData()->SetAnimation(parms, false);
+  Reset(mgr, false);
+  if (playSelectionSfx) {
+    CSfxManager::SfxStart(SFXwpn_morph_out_wipe, 0x7f, 0x40, true, CSfxManager::kMaxPriority, false,
+                          CSfxManager::kAllAreas);
+  }
+  x2ec_lastFireButtonStates &= ~0x1;
+  x320_currentAuxBeam = x310_currentBeam;
+  x833_30_canShowAuxMuzzleEffect = true;
+}
 
 void CPlayerGun::ChangeWeapon(const CPlayerState&, CStateManager&) {}
 
@@ -417,7 +550,23 @@ CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float, float, f
 
 void CPlayerGun::UpdateWeaponFire(float, CPlayerState&, CStateManager&) {}
 
-void CPlayerGun::ResetIdle(CStateManager&) {}
+void CPlayerGun::ResetIdle(CStateManager& mgr) {
+  CFidget::EState fidgetState = x3a4_fidget.GetState();
+  x370_gunMotionSpeedMult = 1.f;
+  x550_camBob.SetState(CPlayerCameraBob::kCBS_GunFireNoBob, mgr);
+  if (fidgetState != CFidget::kS_NoFidget) {
+    if (fidgetState == CFidget::kS_Loading) {
+      UnLoadFidget();
+    }
+    ReturnArmAndGunToDefault(mgr, true);
+  }
+  x3a4_fidget.ResetAll();
+  ReturnToRestPose();
+  if (x324_idleState != kIS_NotIdle)
+    x324_idleState = kIS_NotIdle;
+  if (!x740_grappleArm->GetActive())
+    x834_26_animPlaying = false;
+}
 
 void CPlayerGun::UpdateGunIdle(bool, float, float, CStateManager&) {}
 
