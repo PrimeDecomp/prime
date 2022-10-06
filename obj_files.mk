@@ -415,7 +415,7 @@ COLLISION :=\
 	$(BUILD_DIR)/asm/Collision/CCollidableSphere.o\
 	$(BUILD_DIR)/asm/Collision/CMaterialFilter.o\
 	$(BUILD_DIR)/asm/Collision/COBBox.o\
-	$(BUILD_DIR)/asm/Collision/CMRay.o\
+	$(BUILD_DIR)/src/Collision/CMRay.o\
 
 KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Basics/CBasics.o\
