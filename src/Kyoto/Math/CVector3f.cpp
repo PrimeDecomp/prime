@@ -1,8 +1,8 @@
 #include "Kyoto/Math/CVector3f.hpp"
 
-#include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
 #include "types.h"
@@ -25,7 +25,13 @@ void CVector3f::PutTo(COutputStream& out) const {
   out.WriteReal32(mZ);
 }
 
-CVector3f CVector3f::Slerp(const CVector3f& a, const CVector3f& b, const CRelAngle& angle) {}
+CVector3f CVector3f::Slerp(const CVector3f& a, const CVector3f& b, const CRelAngle& angle) {
+  CVector3f ab = CVector3f::Cross(a, b);
+  CVector3f vec = CVector3f::Cross(ab.AsNormalized(), a);
+  float sinAngle = sin(angle.AsRadians());
+  float cosAngle = cos(angle.AsRadians());
+  return cosAngle * a + vec * sinAngle;
+}
 
 CVector3f& CVector3f::Normalize() {
   float mag = 1.f / Magnitude();
