@@ -1,6 +1,82 @@
 #ifndef __CLIGHT_HPP__
 #define __CLIGHT_HPP__
 
-class CLight {};
+#include "Kyoto/Graphics/CColor.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+
+enum ELightType {
+  kLT_Spot = 0,
+  kLT_Point = 1,
+  kLT_Directional = 2,
+  kLT_LocalAmbient = 3,
+  kLT_Custom = 4,
+};
+
+enum EFallofType { kFT_Constant, kFT_Linear, kFT_Quadratic };
+
+class CLight {
+  static const CVector3f kDefaultPosition;
+  static const CVector3f kDefaultDirection;
+
+  float CalculateLightRadius() const;
+public:
+  CLight(ELightType type, const CVector3f& position, const CVector3f& direction,
+         const CColor& color, float cutoff);
+  CLight(const CVector3f& pos, const CVector3f& direction, const CColor& color, float distC,
+         float distL, float distQ, float angleC, float angleL, float angleQ);
+
+  void SetPosition(const CVector3f& pos);
+  const CVector3f& GetPosition() const { return x0_pos; }
+  void SetDirection(const CVector3f& dir);
+  const CVector3f& GetDirection() const { return xc_dir; }
+  void SetColor(const CColor& col);
+  void SetAttenuation(float constant, float linear, float quadratic);
+  float GetSpotCutoff() const { return x20_spotCutoff; }
+  float GetAttenuationConstant() const { return x24_distC; }
+  float GetAttenuationLinear() const { return x28_distL; }
+  float GetAttenuationQuadratic() const { return x2c_distQ; }
+
+  void SetAngleAttenuation(float constant, float linear, float quadratic);
+  float GetAngleAttenuationConstant() const { return x30_angleC; }
+  float GetAngleAttenuationLinear() const { return x34_angleL; }
+  float GetAngleAttenuationQuadratic() const { return x38_angleQ; }
+
+  ELightType GetType() const { return x1c_type; }
+  u32 GetId() const { return x40_lightId; }
+  float GetIntensity() const;
+  float GetRadius() const;
+  const CColor& GetColor() const { return x18_color; }
+
+  CVector3f GetNormalIndependentLightingAtPoint(const CVector3f& point) const;
+
+  static CLight BuildDirectional(const CVector3f& dir, const CColor& color);
+  static CLight BuildSpot(const CVector3f& pos, const CVector3f& dir, const CColor& color,
+                          float cutoff);
+  static CLight BuildPoint(const CVector3f& pos, const CColor& color);
+  static CLight BuildCustom(const CVector3f& pos, const CVector3f& dir, const CColor& color,
+                            float distC, float distL, float distQ, float angleC, float angleL,
+                            float angleQ);
+  static CLight BuildLocalAmbient(const CVector3f& pos, const CColor& color);
+
+private:
+  CVector3f x0_pos;
+  CVector3f xc_dir;
+  CColor x18_color;
+  ELightType x1c_type;
+  f32 x20_spotCutoff;
+  f32 x24_distC;
+  f32 x28_distL;
+  f32 x2c_distQ;
+  f32 x30_angleC;
+  f32 x34_angleL;
+  f32 x38_angleQ;
+  uint x3c_priority;
+  uint x40_lightId;
+  mutable f32 x44_cachedRadius;
+  mutable f32 x48_cachedIntensity;
+  mutable bool x4c_24_intensityDirty : 1;
+  mutable bool x4c_25_radiusDirty : 1;
+};
+CHECK_SIZEOF(CLight, 0x50)
 
 #endif // __CLIGHT_HPP__

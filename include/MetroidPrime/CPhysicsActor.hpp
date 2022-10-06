@@ -101,11 +101,17 @@ public:
   const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
   void SetConstantForceWR(const CVector3f& force) { xfc_constantForce = force; }
   const CAxisAngle& GetAngularMomentumWR() const { return x108_angularMomentum; }
+  void SetAngularMomentumWR(const CAxisAngle& angularMomentum) { x108_angularMomentum = angularMomentum; }
   const CVector3f& GetMomentumWR() const { return x150_momentum; }
+  void SetMomentumWR(const CVector3f& momentum) { x150_momentum = momentum; }
   const CVector3f& GetForceWR() const { return x15c_force; }
+  void SetForceWR(const CVector3f& force) { x15c_force = force; }
   const CVector3f& GetImpulseWR() const { return x168_impulse; }
+  void SetImpulseWR(const CVector3f& impulse) { x168_impulse = impulse; }
   const CAxisAngle& GetTorqueWR() const { return x174_torque; }
+  void SetTorqueWR(const CAxisAngle& torque) { x174_torque = torque; }
   const CAxisAngle& GetAngularImpulseWR() const { return x180_angularImpulse; }
+  void SetAngularImpulseWR(const CAxisAngle& angularImpulse) { x180_angularImpulse = angularImpulse; }
 
   CPhysicsState GetPhysicsState() const;
   void SetPhysicsState(const CPhysicsState& state);
@@ -121,6 +127,9 @@ public:
   void SetMovable(bool v) { xf8_24_movable = v; }
 
   void MoveToWR(const CVector3f&, float);
+  void MoveToInOneFrameWR(const CVector3f&, float);
+  CVector3f GetMoveToORImpulseWR(const CVector3f& impulse, float d) const;
+  CAxisAngle GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const;
   void RotateToWR(const CQuaternion&, float);
 
   void MoveToOR(const CVector3f&, float);
