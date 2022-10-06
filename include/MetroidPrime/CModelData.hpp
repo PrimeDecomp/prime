@@ -17,6 +17,7 @@
 class CAABox;
 class CActorLights;
 class CAnimData;
+class CAnimRes;
 class CFrustumPlanes;
 class CModel;
 class CModelFlags;
@@ -47,7 +48,7 @@ public:
   bool HasNormalModel() const { return x1c_normalModel; }
 
   CModelData();
-  // __ct__10CModelDataFRC8CAnimRes
+  CModelData(const CAnimRes&);
   // __ct__10CModelDataFRC10CStaticRes
   CModelData(const CModelData& other);
   ~CModelData();

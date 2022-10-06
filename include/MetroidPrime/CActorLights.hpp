@@ -17,6 +17,8 @@ class CAABox;
 
 class CActorLights {
 public:
+  CActorLights(uint areaUpdateFramePeriod, const CVector3f& actorPosBias, int maxDynamicLights, int maxAreaLights,
+               bool ambientChannelOverflow, bool layer2, bool disableWorldLights, float positionUpdateThreshold);
   ~CActorLights();
 
   void BuildConstantAmbientLighting();
