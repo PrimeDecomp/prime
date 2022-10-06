@@ -15,6 +15,7 @@
 #include "MetroidPrime/Weapons/CPhazonBeam.hpp"
 #include "MetroidPrime/Weapons/CPlasmaBeam.hpp"
 #include "MetroidPrime/Weapons/CPowerBeam.hpp"
+#include "MetroidPrime/Weapons/CPowerBomb.hpp"
 #include "MetroidPrime/Weapons/CWaveBeam.hpp"
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
@@ -157,7 +158,7 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x330_chargeState(kCS_Normal)
 , x334_(0)
 , x338_nextState(kNS_StatusQuo)
-, x33c_phazonBeamState(kKBS_Inactive)
+, x33c_phazonBeamState(kPBS_Inactive)
 , x340_chargeBeamFactor(0.f)
 , x344_comboXferTimer(0.f)
 , x348_chargeCooldownTimer(0.f)
@@ -667,7 +668,110 @@ CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float inY, floa
   return ret;
 }
 
-void CPlayerGun::UpdateWeaponFire(float, CPlayerState&, CStateManager&) {}
+void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateManager& mgr) {
+  u32 oldFiring = x2ec_lastFireButtonStates;
+  x2ec_lastFireButtonStates = x2f4_fireButtonStates;
+  u32 pressedStates = x2f4_fireButtonStates & (oldFiring ^ x2f4_fireButtonStates);
+  x2f0_pressedFireButtonStates = pressedStates;
+  u32 releasedStates = oldFiring & (oldFiring ^ x2f4_fireButtonStates);
+  x832_28_readyForShot = false;
+
+  CPlayer& player = *mgr.Player();
+  if (!x832_24_coolingCharge && !x834_30_inBigStrike) {
+    float coolDown = x72c_currentBeam->GetWeaponInfo().x0_coolDown;
+    if ((pressedStates & 0x1) == 0) {
+      if (x390_cooldown >= coolDown) {
+        x390_cooldown = coolDown;
+        if (player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed &&
+            playerState.ItemEnabled(CPlayerState::kIT_ChargeBeam) &&
+            player.GetGunHolsterState() == CPlayer::kGH_Drawn &&
+            player.GetGrappleState() == CPlayer::kGS_None &&
+            playerState.GetTransitioningVisor() != CPlayerState::kPV_Scan &&
+            playerState.GetCurrentVisor() != CPlayerState::kPV_Scan &&
+            (x2ec_lastFireButtonStates & 0x1) != 0 && x32c_chargePhase == kCP_NotCharging) {
+          x832_28_readyForShot = true;
+          pressedStates |= 0x1;
+          x390_cooldown = 0.f;
+        }
+      }
+    } else if (x390_cooldown >= coolDown) {
+      x832_28_readyForShot = true;
+      x390_cooldown = 0.f;
+    }
+    x390_cooldown += dt;
+  }
+
+  if (x834_28_requestImmediateRecharge)
+    x834_28_requestImmediateRecharge = (x2ec_lastFireButtonStates & 0x1) != 0;
+
+  if (player.GetMorphballTransitionState() == CPlayer::kMS_Morphed) {
+    x835_28_bombReady = false;
+    x835_29_powerBombReady = false;
+    if (!x835_31_actorAttached) {
+      x835_28_bombReady = true;
+      if (x53a_powerBomb != kInvalidUniqueId && !mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1)) {
+        const CPowerBomb* pb = static_cast<const CPowerBomb*>(mgr.GetObjectById(x53a_powerBomb));
+        if (pb && pb->GetCurTime() <= 4.25f) {
+          x835_28_bombReady = false;
+        } else {
+          x53a_powerBomb = kInvalidUniqueId;
+        }
+      }
+      if (((pressedStates & 0x1) != 0 || x32c_chargePhase != kCP_NotCharging) &&
+          playerState.HasPowerUp(CPlayerState::kIT_MorphBallBombs)) {
+        if (x835_28_bombReady)
+          DropBomb(kBW_Bomb, mgr);
+      } else if (playerState.HasPowerUp(CPlayerState::kIT_PowerBombs) &&
+                 playerState.GetItemAmount(CPlayerState::kIT_PowerBombs) > 0) {
+        x835_29_powerBombReady = mgr.CanCreateProjectile(x538_playerId, kWT_PowerBomb, 1) &&
+                                 mgr.CanCreateProjectile(x538_playerId, kWT_Bomb, 1);
+        if ((pressedStates & 0x2) != 0 && x835_29_powerBombReady)
+          DropBomb(kBW_PowerBomb, mgr);
+      }
+    }
+  } else if ((x2f8_stateFlags & 0x8) != 0x8 &&
+             player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
+    if ((pressedStates & 0x2) != 0 && x318_comboAmmoIdx == 0 && (x2f8_stateFlags & 0x2) != 0x2 &&
+        x32c_chargePhase == kCP_NotCharging) {
+      u32 missileCount = playerState.GetItemAmount(CPlayerState::kIT_Missiles);
+      if (x338_nextState != kNS_EnterMissile && x338_nextState != kNS_ExitMissile) {
+        if (playerState.HasPowerUp(CPlayerState::kIT_Missiles) && missileCount > 0) {
+          x300_remainingMissiles = missileCount;
+          if (x300_remainingMissiles > 5)
+            x300_remainingMissiles = 5;
+          if (!x835_25_inPhazonBeam) {
+            x2f8_stateFlags &= ~0x1;
+            x2f8_stateFlags |= 0x6;
+            x318_comboAmmoIdx = 1;
+            x31c_missileMode = kMM_Active;
+          }
+          FireSecondary(dt, mgr);
+        } else {
+          if (!CSfxManager::IsPlaying(x2e4_invalidSfx)) {
+            x2e4_invalidSfx = NWeaponTypes::play_sfx(1781, x834_27_underwater, false, 0x4a);
+          } else {
+            x2e4_invalidSfx.Clear();
+          }
+        }
+      }
+    } else {
+      if (x3a4_fidget.GetState() == CFidget::kS_NoFidget) {
+        if ((x2f8_stateFlags & 0x10) == 0x10 && x744_auxWeapon->IsComboFxActive(mgr)) {
+          if (x2ec_lastFireButtonStates == 0 ||
+              (x310_currentBeam == CPlayerState::kBI_Wave && x833_29_pointBlankWorldSurface)) {
+            StopContinuousBeam(mgr, (x2f8_stateFlags & 0x8) == 0x8);
+          }
+        } else {
+          if (mgr.GetPlayerState()->ItemEnabled(CPlayerState::kIT_ChargeBeam) &&
+              x33c_phazonBeamState == kPBS_Inactive)
+            ProcessChargeState(releasedStates, pressedStates, mgr, dt);
+          else
+            ProcessNormalState(releasedStates, pressedStates, mgr, dt);
+        }
+      }
+    }
+  }
+}
 
 void CPlayerGun::ResetIdle(CStateManager& mgr) {
   CFidget::EState fidgetState = x3a4_fidget.GetState();

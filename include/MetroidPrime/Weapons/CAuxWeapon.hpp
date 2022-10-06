@@ -7,6 +7,8 @@ class CAuxWeapon {
 public:
   explicit CAuxWeapon(TUniqueId playerId);
 
+  bool IsComboFxActive(const CStateManager& mgr) const;
+
 private:
   u8 x0_pad[0x84];
 };

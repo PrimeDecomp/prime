@@ -29,6 +29,7 @@ public:
   static void PitchBend(CSfxHandle handle, int pitch);
 
   static CSfxHandle SfxStart(u16 id, u8 vol, u8 pan, bool useAcoustics, s16 prio, bool looped, s32 areaId);
+  static bool IsPlaying(const CSfxHandle& handle);
 };
 
 #endif
