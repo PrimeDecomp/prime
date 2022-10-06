@@ -87,6 +87,7 @@ public:
     kBI_Phazon,
     kBI_Phazon2 = 27,
   };
+  enum EChargeStage { kCS_Normal, kCS_Charged };
 
   CPlayerState();
   explicit CPlayerState(CInputStream& stream);

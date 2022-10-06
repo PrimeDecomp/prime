@@ -3,9 +3,9 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimRes.hpp"
 #include "MetroidPrime/CRainSplashGenerator.hpp"
-#include "MetroidPrime/CWorldShadow.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/CWorldShadow.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
 #include "MetroidPrime/Tweaks/CTweakGunRes.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
@@ -18,8 +18,8 @@
 #include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
-#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
+#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
@@ -288,7 +288,8 @@ void CPlayerGun::AddToRenderer(const CFrustumPlanes& frustum, const CStateManage
     model->RenderParticles(frustum);
 }
 
-void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, const CVector3f& camPos) {
+void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum,
+                           const CVector3f& camPos) {
   const CPlayerState& playerState = *mgr.GetPlayerState();
   if (playerState.GetCurrentVisor() == CPlayerState::kPV_Scan)
     return;
@@ -296,10 +297,11 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, co
   CPlayerState::EPlayerVisor activeVisor = playerState.GetActiveVisor(mgr);
   switch (activeVisor) {
   case CPlayerState::kPV_Thermal:
-    float rgb = CMath::Clamp(0.6f, 0.5f * x380_shotSmokeTimer + 0.6f - x378_shotSmokeStartTimer, 1.f);
+    float rgb =
+        CMath::Clamp(0.6f, 0.5f * x380_shotSmokeTimer + 0.6f - x378_shotSmokeStartTimer, 1.f);
     x0_lights.BuildConstantAmbientLighting(CColor(rgb, rgb, rgb, 1.f));
     break;
-    
+
   case CPlayerState::kPV_Combat: {
     CAABox aabb = x72c_currentBeam->GetBounds(CTransform4f::Translate(camPos) * x4a8_gunWorldXf);
     if (mgr.GetNextAreaId() != kInvalidAreaId) {
@@ -310,8 +312,8 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, co
     x0_lights.BuildDynamicLightList(mgr, aabb);
     if (x0_lights.HasShadowLight()) {
       if (x72c_currentBeam->IsLoaded()) {
-        x82c_shadow->BuildLightShadowTexture(mgr, mgr.GetNextAreaId(), x0_lights.GetShadowLightIndex(), aabb, true,
-                                             false);
+        x82c_shadow->BuildLightShadowTexture(mgr, mgr.GetNextAreaId(),
+                                             x0_lights.GetShadowLightIndex(), aabb, true, false);
       }
     } else {
       x82c_shadow->ResetBlur();
@@ -325,9 +327,160 @@ void CPlayerGun::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, co
   if (x740_grappleArm->GetActive())
     x740_grappleArm->PreRender(mgr, frustum, camPos);
 
-  if (x678_morph.GetGunState() != CGunMorph::kGS_OutWipeDone || activeVisor == CPlayerState::kPV_XRay)
+  if (x678_morph.GetGunState() != CGunMorph::kGS_OutWipeDone ||
+      activeVisor == CPlayerState::kPV_XRay)
     x6e0_rightHandModel.AnimationData()->PreRender();
 
   if (x833_28_phazonBeamActive)
     gpRender->AllocatePhazonSuitMaskTexture();
 }
+
+void CPlayerGun::TouchModel(const CStateManager&) const {}
+
+CVector3f CPlayerGun::ConvertToScreenSpace(const CVector3f& pos, const CGameCamera&) const {
+  return pos;
+}
+
+void CPlayerGun::DrawArm(const CStateManager&, const CVector3f&, const CModelFlags&) const {}
+
+void CPlayerGun::Render(const CStateManager&, const CVector3f&, const CModelFlags&) const {}
+
+void CPlayerGun::GetLctrWithShake(CTransform4f& xfOut, const CModelData&, const rstl::string&, bool,
+                                  bool) {}
+
+void CPlayerGun::PlayAnim(NWeaponTypes::EGunAnimType type, bool) {}
+
+void CPlayerGun::Update(float, float, float, CStateManager&) {}
+
+void CPlayerGun::ProcessInput(const CFinalInput&, CStateManager&) {}
+
+void CPlayerGun::ProcessChargeState(int, int, CStateManager&, float) {}
+
+void CPlayerGun::ResetNormal(CStateManager&) {}
+
+void CPlayerGun::ResetCharged(float, CStateManager&) {}
+
+void CPlayerGun::ProcessNormalState(int, int, CStateManager&, float) {}
+
+bool CPlayerGun::ExitMissile() { return false; }
+
+void CPlayerGun::UpdateNormalShotCycle(float, CStateManager&) {}
+
+void CPlayerGun::FireSecondary(float, CStateManager&) {}
+
+void CPlayerGun::DropBomb(CPlayerGun::EBWeapon, CStateManager&) {}
+
+void CPlayerGun::ActivateCombo(CStateManager&) {}
+
+void CPlayerGun::EnableChargeFx(CPlayerState::EChargeStage, CStateManager&) {}
+
+void CPlayerGun::UpdateChargeState(float, CStateManager&) {}
+
+void CPlayerGun::Reset(CStateManager&) {}
+
+void CPlayerGun::ResetCharge(CStateManager&, bool) {}
+
+void CPlayerGun::ResetBeamParams(CStateManager&, const CPlayerState&, bool) {}
+
+void CPlayerGun::ChangeWeapon(const CPlayerState&, CStateManager&) {}
+
+void CPlayerGun::StartPhazonBeamTransition(bool, CStateManager&, CPlayerState&) {}
+
+void CPlayerGun::HandleWeaponChange(const CFinalInput&, CStateManager&) {}
+
+void CPlayerGun::HandleBeamChange(const CFinalInput&, CStateManager&) {}
+
+void CPlayerGun::SetPhazonBeamMorph(bool) {}
+
+void CPlayerGun::HandlePhazonBeamChange(CStateManager&) {}
+
+void CPlayerGun::InitBeamData() {}
+
+void CPlayerGun::InitBombData() {}
+
+void CPlayerGun::InitMuzzleData() {}
+
+void CPlayerGun::InitCTData() {}
+
+float CPlayerGun::GetBeamVelocity() const { return 0.0f; }
+
+TUniqueId CPlayerGun::GetTargetId(CStateManager&) { return TUniqueId(0, 0); }
+
+CPlayerGun::CGunMorph::CGunMorph(float gunTransformTime, float holoHoldTime)
+: x4_gunTransformTime(gunTransformTime), x10_holoHoldTime(fabs(holoHoldTime)) {}
+
+void CPlayerGun::CGunMorph::StartWipe(CPlayerGun::CGunMorph::EDir) {}
+
+CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float, float, float) {
+  return kME_None;
+}
+
+void CPlayerGun::UpdateWeaponFire(float, CPlayerState&, CStateManager&) {}
+
+void CPlayerGun::ResetIdle(CStateManager&) {}
+
+void CPlayerGun::UpdateGunIdle(bool, float, float, CStateManager&) {}
+
+void CPlayerGun::CMotionState::Update(bool, float, CTransform4f&, CStateManager&) {}
+
+void CPlayerGun::DamageRumble(const CVector3f&, const CStateManager&) {}
+
+void CPlayerGun::TakeDamage(bool, bool, CStateManager&) {}
+
+void CPlayerGun::StopChargeSound(CStateManager&) {}
+
+void CPlayerGun::CancelFiring(CStateManager&) {}
+
+void CPlayerGun::AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) {}
+
+void CPlayerGun::StopContinuousBeam(CStateManager&, bool) {}
+
+void CPlayerGun::RenderEnergyDrainEffects(const CStateManager&) const {}
+
+void CPlayerGun::DoUserAnimEvents(float, CStateManager&) {}
+
+void CPlayerGun::DoUserAnimEvent(float, CStateManager&, const CInt32POINode&, EUserEventType) {}
+
+void CPlayerGun::CancelCharge(CStateManager&, bool) {}
+
+void CPlayerGun::EnterFreeLook(CStateManager&) {}
+
+void CPlayerGun::EnterFidget(CStateManager&) {}
+
+void CPlayerGun::UpdateLeftArmTransform(const CModelData&, const CStateManager&) {}
+
+void CPlayerGun::ReturnArmAndGunToDefault(CStateManager&, bool) {}
+
+void CPlayerGun::UpdateAuxWeapons(float, const CTransform4f&, CStateManager&) {}
+
+void CPlayerGun::CancelLockOn() {}
+
+void CPlayerGun::CreateGunLight(CStateManager&) {}
+
+void CPlayerGun::DeleteGunLight(CStateManager&) {}
+
+void CPlayerGun::UpdateGunLight(const CTransform4f&, CStateManager&) {}
+
+void CPlayerGun::SetGunLightActive(bool, CStateManager&) {}
+
+void CPlayerGun::LoadHandAnimTokens() {}
+
+void CPlayerGun::ProcessPhazonGunMorph(float, CStateManager&) {}
+
+void CPlayerGun::ProcessGunMorph(float, CStateManager&) {}
+
+void CPlayerGun::AsyncLoadFidget(CStateManager&) {}
+
+void CPlayerGun::UnLoadFidget() {}
+
+void CPlayerGun::IsFidgetLoaded() {}
+
+void CPlayerGun::SetFidgetAnimBits(int, bool) {}
+
+void CPlayerGun::AsyncLoadSuit(CStateManager&) {}
+
+void CPlayerGun::ReturnToRestPose() {}
+
+void CPlayerGun::DropPowerBomb(CStateManager&) const {}
+
+void CPlayerGun::SetPhazonBeamFeedback(bool) {}
