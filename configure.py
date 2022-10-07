@@ -10,12 +10,12 @@ from tools import ninja_syntax
 parser = argparse.ArgumentParser()
 parser.add_argument('--version', dest='version',
                     default='0', help='version to build (0, 1, kor)')
-parser.add_argument('--map', dest='map', action=argparse.BooleanOptionalAction,
-                    default=False, help='generate map file')
-parser.add_argument('--check', dest='check', action=argparse.BooleanOptionalAction,
-                    default=True, help='check hash of resulting dol')
-parser.add_argument('--static-libs', dest='static_libs', action=argparse.BooleanOptionalAction,
-                    default=False, help='build and use static libs')
+parser.add_argument('--map', dest='map', action='store_true',
+                    help='generate map file')
+parser.add_argument('--no-check', dest='check', action='store_false', 
+                    help='don\'t check hash of resulting dol')
+parser.add_argument('--static-libs', dest='static_libs', action='store_true',
+                    help='build and use static libs')
 parser.add_argument('--devkitppc', dest='devkitppc', help='path to devkitPPC')
 if os.name != "nt" and not "_NT-" in os.uname().sysname:
     parser.add_argument('--wine', dest='wine', help='path to wine (or wibo)')
