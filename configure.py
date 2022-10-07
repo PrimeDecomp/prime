@@ -1142,7 +1142,7 @@ n.newline()
 n.comment("The arguments passed to configure.py, for rerunning it.")
 configure_args = sys.argv[1:]
 # Ignore DEVKITPPC env var on Windows
-if os.name != "nt" and "DEVKITPPC" in os.environ:
+if os.name != "nt" and "DEVKITPPC" in os.environ and not args.devkitppc:
     configure_args.extend(["--devkitppc", os.environ["DEVKITPPC"]])
 n.variable("configure_args", configure_args)
 n.newline()
@@ -1188,7 +1188,7 @@ else:
         # MSYS2
         n.variable("wine", "")
     elif args.wine:
-        n.variable("wine", args.wine)
+        n.variable("wine", args.wine + " ")
     elif which("wibo") is not None:
         n.variable("wine", "wibo ")
     else:
