@@ -458,8 +458,8 @@ lbl_802D5ADC:
 /* 802D5B6C 002D2ACC  38 21 01 A0 */	addi r1, r1, 0x1a0
 /* 802D5B70 002D2AD0  4E 80 00 20 */	blr
 
-.global AABoxIntersectsBox__6COBBoxFRC6CAABox
-AABoxIntersectsBox__6COBBoxFRC6CAABox:
+.global AABoxIntersectsBox__6COBBoxCFRC6CAABox
+AABoxIntersectsBox__6COBBoxCFRC6CAABox:
 /* 802D5B74 002D2AD4  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 802D5B78 002D2AD8  7C 08 02 A6 */	mflr r0
 /* 802D5B7C 002D2ADC  3C A0 80 5A */	lis r5, sIdentity__12CTransform4f@ha
@@ -785,4 +785,3 @@ lbl_805AE268:
 	# ROM: 0x3FAB08
 	.float -1.0
 	.4byte 0
-

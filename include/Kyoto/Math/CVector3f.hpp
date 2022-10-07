@@ -164,10 +164,7 @@ inline CVector3f operator/(const CVector3f& vec, f32 f) {
   return CVector3f(x, y, z);
 }
 inline CVector3f operator-(const CVector3f& vec) {
-  f32 x = -vec.GetX();
-  f32 y = -vec.GetY();
-  f32 z = -vec.GetZ();
-  return CVector3f(x, y, z);
+  return CVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
 }
 
 #endif // __CVECTOR3F_HPP__
