@@ -937,7 +937,7 @@ LIBS = [
     },
     {
         "lib": "pad",
-        "mwcc_version": "1.2.5",
+        "mwcc_version": "1.2.5e",
         "cflags": "$cflags_base",
         "objects": [
             "Dolphin/pad/PadClamp",
