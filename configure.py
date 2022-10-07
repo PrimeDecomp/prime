@@ -30,6 +30,7 @@ COMPLETE_OBJECTS = [
     "Weapons/IWeaponRenderer",
     "Collision/CMaterialList",
     "Collision/CMaterialFilter",
+    "Collision/CCollisionInfo",
     "Collision/CMRay",
     "Kyoto/Basics/CStopwatch",
     "Kyoto/Basics/COsContextDolphin",

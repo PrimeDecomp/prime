@@ -407,7 +407,7 @@ GUISYS :=\
 COLLISION :=\
 	$(BUILD_DIR)/asm/Collision/CCollidableAABox.o\
 	$(BUILD_DIR)/asm/Collision/CCollidableCollisionSurface.o\
-	$(BUILD_DIR)/asm/Collision/CCollisionInfo.o\
+	$(BUILD_DIR)/src/Collision/CCollisionInfo.o\
 	$(BUILD_DIR)/asm/Collision/InternalColliders.o\
 	$(BUILD_DIR)/asm/Collision/CCollisionPrimitive.o\
 	$(BUILD_DIR)/src/Collision/CMaterialList.o\

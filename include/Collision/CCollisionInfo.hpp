@@ -5,7 +5,6 @@
 
 #include "Collision/CMaterialList.hpp"
 
-#include "Kyoto/Math/CUnitVector3f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
 class CAABox;
@@ -17,16 +16,36 @@ public:
     kI_Valid,
   };
   enum ESwapMaterials {
-    // TODO
+    kSM_Swap
   };
 
   CCollisionInfo(EInvalid valid = kI_Invalid);
-  CCollisionInfo(const CVector3f&, const CMaterialList&, const CMaterialList&, const CVector3f&);
-  CCollisionInfo(const CVector3f&, const CMaterialList&, const CMaterialList&, const CVector3f&,
-                 const CVector3f&);
-  CCollisionInfo(const CAABox&, const CMaterialList&, const CMaterialList&, const CVector3f&,
-                 const CVector3f&);
-  CCollisionInfo(const CCollisionInfo&, ESwapMaterials);
+  CCollisionInfo(const CVector3f& point, const CMaterialList& leftMat, const CMaterialList& rightMat, const CVector3f& normal);
+  CCollisionInfo(const CVector3f& point, const CMaterialList& leftMat, const CMaterialList& rightMat, const CVector3f& leftNormal,
+                 const CVector3f& rightNormal);
+  CCollisionInfo(const CAABox& aabox, const CMaterialList& leftMat, const CMaterialList& rightMat, const CVector3f& leftNormal,
+                 const CVector3f& rightNormal);
+  CCollisionInfo(const CCollisionInfo& other, ESwapMaterials swap)
+  : x0_point(other.x0_point)
+  , xc_extentX(other.xc_extentX)
+  , x18_extentY(other.x18_extentY)
+  , x24_extentZ(other.x24_extentZ)
+  , x30_valid(other.x30_valid)
+  , x31_hasExtents(other.x31_hasExtents)
+  , x38_materialLeft(other.x40_materialRight)
+  , x40_materialRight(other.x38_materialLeft)
+  , x48_normalLeft(other.x54_normalRight)
+  , x54_normalRight(other.x48_normalLeft) {}
+
+  CCollisionInfo GetSwapped() const;
+  bool IsValid() const { return x30_valid; }
+  const CMaterialList& GetMaterialLeft() const { return x38_materialLeft; }
+  const CMaterialList& GetMaterialRight() const { return x40_materialRight; }
+  CVector3f GetExtreme() const;
+  void Swap();
+  const CVector3f& GetNormalLeft() const { return x48_normalLeft; }
+  const CVector3f& GetNormalRight() const { return x54_normalRight; }
+  const CVector3f& GetPoint() const { return x0_point; }
 
 private:
   CVector3f x0_point;
@@ -37,8 +56,8 @@ private:
   bool x31_hasExtents;
   CMaterialList x38_materialLeft;
   CMaterialList x40_materialRight;
-  CUnitVector3f x48_normalLeft;
-  CUnitVector3f x54_normalRight;
+  CVector3f x48_normalLeft;
+  CVector3f x54_normalRight;
 };
 CHECK_SIZEOF(CCollisionInfo, 0x60)
 
