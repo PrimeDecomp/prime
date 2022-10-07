@@ -26,7 +26,7 @@ jobs:
       run: |
         sudo dpkg --add-architecture i386
         sudo apt-get update
-        sudo apt-get -y install build-essential gcc-multilib g++-multilib libc6:i386
+        sudo apt-get -y install build-essential ninja-build python3 gcc-multilib g++-multilib libc6:i386
         curl -L https://cdn.discordapp.com/attachments/727918646525165659/917185027656286218/GC_WII_COMPILERS.zip \
           | bsdtar -xvf- -C tools --exclude Wii
         mv tools/GC/* tools/mwcc_compiler/
@@ -36,7 +36,9 @@ jobs:
         cmake -B build
         cmake --build build
     - name: Build
-      run: make -j$(nproc) WINE=./tools/WiBo/build/wibo GENERATE_MAP=1 VERSION=${{matrix.version}}
+      run: |
+        python3 configure.py --map --version ${{matrix.version}} --wine ./tools/WiBo/build/wibo
+        ninja
     - name: Upload map
       uses: actions/upload-artifact@v2
       with:
