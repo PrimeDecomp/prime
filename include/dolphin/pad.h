@@ -3,6 +3,15 @@
 
 #include <dolphin/types.h>
 
+extern u32 __PADFixBits;
+
+#define PAD_SPEC_0 0
+#define PAD_SPEC_1 1
+#define PAD_SPEC_2 2
+#define PAD_SPEC_3 3
+#define PAD_SPEC_4 4
+#define PAD_SPEC_5 5
+
 #define PAD_CHAN0 0
 #define PAD_CHAN1 1
 #define PAD_CHAN2 2
@@ -45,6 +54,8 @@
 extern "C" {
 #endif
 
+typedef void (*PADSamplingCallback)(void);
+
 typedef struct PADStatus {
   u16 button;
   s8 stickX;
@@ -68,6 +79,7 @@ void PADControlMotor(s32 chan, u32 cmd);
 void PADSetSpec(u32 spec);
 void PADControlAllMotors(const u32* cmdArr);
 void PADSetAnalogMode(u32 mode);
+PADSamplingCallback PADSetSamplingCallback(PADSamplingCallback);
 
 #ifdef TARGET_PC
 /* New API to facilitate controller interactions */
