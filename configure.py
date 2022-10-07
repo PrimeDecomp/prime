@@ -1192,7 +1192,7 @@ n.rule(name="as", command="$devkitppc/bin/powerpc-eabi-as $asflags -o $out $in -
 n.newline()
 if ENABLE_STATIC_LIBS:
     n.rule(name="ar", command="$devkitppc/bin/powerpc-eabi-ar crs $out $in",
-        description="AR $out")
+           description="AR $out")
     n.newline()
 n.rule(name="link", command="$wine tools/mwcc_compiler/$mwcc_version/mwldeppc.exe $ldflags -o $out @$out.rsp",
        description="LINK $out", rspfile="$out.rsp", rspfile_content="$in")
@@ -1262,9 +1262,12 @@ n.newline()
 ###
 n.comment("main.dol")
 n.build("build/elf2dol", "cc", "tools/elf2dol.c")
-n.rule(name="elf2dol", command="build/elf2dol $in $out", description="DOL $out")
-n.build("$builddir/main.dol", "elf2dol",
-        "$builddir/main.elf", implicit="build/elf2dol")
+n.build("build/metroidbuildinfo", "cc", "tools/metroidbuildinfo.c")
+n.rule(name="elf2dol",
+       command="build/elf2dol $in $out && build/metroidbuildinfo $out buildstrings/mp1.$version.build",
+       description="DOL $out")
+n.build("$builddir/main.dol", "elf2dol", "$builddir/main.elf",
+        implicit=["build/elf2dol", "build/metroidbuildinfo"])
 n.newline()
 
 ###
