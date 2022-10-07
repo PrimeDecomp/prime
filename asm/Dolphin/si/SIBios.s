@@ -84,8 +84,8 @@ lbl_805A9BD0:
 .global lbl_805A9BD4
 lbl_805A9BD4:
 	.skip 0x4
-.global lbl_805A9BD8
-lbl_805A9BD8:
+.global __PADFixBits
+__PADFixBits:
 	.skip 0x8
 .global lbl_805A9BE0
 lbl_805A9BE0:
@@ -1376,10 +1376,10 @@ GetTypeCallback:
 /* 803BF860 003BC7C0  57 40 07 3F */	clrlwi. r0, r26, 0x1c
 /* 803BF864 003BC7C4  90 65 01 20 */	stw r3, 0x120(r5)
 /* 803BF868 003BC7C8  7C 84 DC 30 */	srw r4, r4, r27
-/* 803BF86C 003BC7CC  80 6D B0 18 */	lwz r3, lbl_805A9BD8@sda21(r13)
+/* 803BF86C 003BC7CC  80 6D B0 18 */	lwz r3, __PADFixBits@sda21(r13)
 /* 803BF870 003BC7D0  83 9E 00 00 */	lwz r28, 0(r30)
 /* 803BF874 003BC7D4  7C 60 20 78 */	andc r0, r3, r4
-/* 803BF878 003BC7D8  90 0D B0 18 */	stw r0, lbl_805A9BD8@sda21(r13)
+/* 803BF878 003BC7D8  90 0D B0 18 */	stw r0, __PADFixBits@sda21(r13)
 /* 803BF87C 003BC7DC  7C 7A 20 38 */	and r26, r3, r4
 /* 803BF880 003BC7E0  40 82 00 24 */	bne lbl_803BF8A4
 /* 803BF884 003BC7E4  57 83 00 C8 */	rlwinm r3, r28, 0, 3, 4

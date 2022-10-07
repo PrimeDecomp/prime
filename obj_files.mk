@@ -705,7 +705,7 @@ OS_FILES :=\
 	$(BUILD_DIR)/src/Dolphin/os/__ppc_eabi_init.ep.o\
 
 PAD_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/pad/PadClamp.o\
+	$(BUILD_DIR)/src/Dolphin/pad/PadClamp.ep.o\
 	$(BUILD_DIR)/asm/Dolphin/pad/pad.o
 	
 VI_FILES :=\
