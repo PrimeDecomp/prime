@@ -1,5 +1,6 @@
 Metroid Prime
 =============
+[![Build](https://github.com/PrimeDecomp/prime/actions/workflows/build.yml/badge.svg)](https://github.com/PrimeDecomp/prime/actions/workflows/build.yml)
 
 A decompilation of Metroid Prime.
 
