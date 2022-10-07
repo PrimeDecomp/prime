@@ -46,21 +46,45 @@ lbl_803899A8:
 .global __save_fpr
 __save_fpr:
 /* 803899B0 00386910  D9 CB FF 70 */	stfd f14, -0x90(r11)
+
+.global _savefpr_15
+_savefpr_15:
 /* 803899B4 00386914  D9 EB FF 78 */	stfd f15, -0x88(r11)
+
+.global _savefpr_16
+_savefpr_16:
 /* 803899B8 00386918  DA 0B FF 80 */	stfd f16, -0x80(r11)
+
+.global _savefpr_17
+_savefpr_17:
 /* 803899BC 0038691C  DA 2B FF 88 */	stfd f17, -0x78(r11)
 
 .global _savefpr_18
 _savefpr_18:
 /* 803899C0 00386920  DA 4B FF 90 */	stfd f18, -0x70(r11)
+
+.global _savefpr_19
+_savefpr_19:
 /* 803899C4 00386924  DA 6B FF 98 */	stfd f19, -0x68(r11)
+
+.global _savefpr_20
+_savefpr_20:
 /* 803899C8 00386928  DA 8B FF A0 */	stfd f20, -0x60(r11)
 
 .global _savefpr_21
 _savefpr_21:
 /* 803899CC 0038692C  DA AB FF A8 */	stfd f21, -0x58(r11)
+
+.global _savefpr_22
+_savefpr_22:
 /* 803899D0 00386930  DA CB FF B0 */	stfd f22, -0x50(r11)
+
+.global _savefpr_23
+_savefpr_23:
 /* 803899D4 00386934  DA EB FF B8 */	stfd f23, -0x48(r11)
+
+.global _savefpr_24
+_savefpr_24:
 /* 803899D8 00386938  DB 0B FF C0 */	stfd f24, -0x40(r11)
 
 .global _savefpr_25
@@ -78,8 +102,14 @@ _savefpr_27:
 .global _savefpr_28
 _savefpr_28:
 /* 803899E8 00386948  DB 8B FF E0 */	stfd f28, -0x20(r11)
+.global _savefpr_29
+_savefpr_29:
 /* 803899EC 0038694C  DB AB FF E8 */	stfd f29, -0x18(r11)
+.global _savefpr_30
+_savefpr_30:
 /* 803899F0 00386950  DB CB FF F0 */	stfd f30, -0x10(r11)
+.global _savefpr_31
+_savefpr_31:
 /* 803899F4 00386954  DB EB FF F8 */	stfd f31, -8(r11)
 /* 803899F8 00386958  4E 80 00 20 */	blr
 

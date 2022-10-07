@@ -129,7 +129,7 @@ __vt__13CCubeRenderer:
 	.4byte SetGXRegister1Color__13CCubeRendererFRC6CColor
 	.4byte SetWorldLightFadeLevel__13CCubeRendererFf
 	.4byte sub_802b7c28
-	.4byte "PrepareDynamicLights__13CCubeRendererFRCQ24rstl14vector<CLight>"
+	.4byte "PrepareDynamicLights__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
 	.4byte 0
 	.4byte 0
 	.4byte "@4@__dt__13CCubeRendererFv"
@@ -2242,8 +2242,8 @@ lbl_802B7A24:
 /* 802B7A30 002B4990  38 21 00 90 */	addi r1, r1, 0x90
 /* 802B7A34 002B4994  4E 80 00 20 */	blr
 
-.global "PrepareDynamicLights__13CCubeRendererFRCQ24rstl14vector<CLight>"
-"PrepareDynamicLights__13CCubeRendererFRCQ24rstl14vector<CLight>":
+.global "PrepareDynamicLights__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>"
+"PrepareDynamicLights__13CCubeRendererFRCQ24rstl42vector<6CLight,Q24rstl17rmemory_allocator>":
 /* 802B7A38 002B4998  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 802B7A3C 002B499C  7C 08 02 A6 */	mflr r0
 /* 802B7A40 002B49A0  90 01 00 A4 */	stw r0, 0xa4(r1)
