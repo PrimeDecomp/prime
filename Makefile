@@ -145,7 +145,8 @@ $(MUSYX_FILES): CFLAGS := $(CFLAGS_MUSYX)
 $(ZLIB_FILES): CFLAGS := $(CFLAGS_RUNTIME)
 $(MSL_PPCEABI_BARE_H): CFLAGS := $(CFLAGS_RUNTIME)
 $(MSL_COMMON_MATH): CFLAGS := $(CFLAGS_RUNTIME)
-
+$(PAD_FILES): MWCC_VERSION := 1.2.5
+$(PAD_FILES): CFLAGS := $(CFLAGS_BASE)
 
 #-------------------------------------------------------------------------------
 # Recipes

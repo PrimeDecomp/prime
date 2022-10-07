@@ -125,6 +125,8 @@ COMPLETE_OBJECTS = [
     "musyx/creverb_fx",
     "musyx/reverb_fx",
     "musyx/delay_fx",
+    "Dolphin/pad/PadClamp",
+    #"Dolphin/pad/pad",
     "Dolphin/card/CARDUnlock",
     "Dolphin/card/CARDRdwr",
     "Dolphin/card/CARDBlock",
