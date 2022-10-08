@@ -254,7 +254,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CJellyZap.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptControllerAction.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Weapons/GunController/CGunMotion.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSwitch.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptSwitch.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSIdle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSFlinch.o\
 	$(BUILD_DIR)/asm/MetroidPrime/BodyState/CABSAim.o\

@@ -32,6 +32,7 @@ COMPLETE_OBJECTS = [
     "MetroidPrime/HUD/CHUDMemoParms",
     "MetroidPrime/ScriptObjects/CScriptDebugCameraWaypoint",
     "MetroidPrime/ScriptObjects/CScriptPickup",
+    "MetroidPrime/ScriptObjects/CScriptSwitch",
     "Weapons/IWeaponRenderer",
     "Collision/CMaterialList",
     "Collision/CMaterialFilter",
