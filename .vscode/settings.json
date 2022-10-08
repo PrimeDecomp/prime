@@ -10,6 +10,7 @@
   "editor.tabSize": 2,
   "files.associations": {
     "source_location": "cpp",
+    "math.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
