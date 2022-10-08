@@ -333,7 +333,7 @@ lbl_8022F8D0:
 /* 8022F8D4 0022C834  41 82 00 34 */	beq lbl_8022F908
 /* 8022F8D8 0022C838  7F E3 FB 78 */	mr r3, r31
 /* 8022F8DC 0022C83C  7F A4 EB 78 */	mr r4, r29
-/* 8022F8E0 0022C840  4B E1 D4 15 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8022F8E0 0022C840  4B E1 D4 15 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8022F8E4 0022C844  A0 9E 03 14 */	lhz r4, 0x314(r30)
 /* 8022F8E8 0022C848  38 61 00 28 */	addi r3, r1, 0x28
 /* 8022F8EC 0022C84C  88 A2 CC 40 */	lbz r5, kMaxVolume__9CAudioSys@sda21(r2)
@@ -1074,7 +1074,7 @@ lbl_802303B4:
 /* 802303B8 0022D318  41 82 00 10 */	beq lbl_802303C8
 /* 802303BC 0022D31C  7F E3 FB 78 */	mr r3, r31
 /* 802303C0 0022D320  7F 84 E3 78 */	mr r4, r28
-/* 802303C4 0022D324  4B E1 C9 31 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 802303C4 0022D324  4B E1 C9 31 */	bl AddObject__13CStateManagerFP7CEntity
 lbl_802303C8:
 /* 802303C8 0022D328  34 A1 02 84 */	addic. r5, r1, 0x284
 /* 802303CC 0022D32C  41 82 00 58 */	beq lbl_80230424

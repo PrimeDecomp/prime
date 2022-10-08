@@ -383,7 +383,7 @@ lbl_801D73D0:
 lbl_801D7468:
 /* 801D7468 001D43C8  7F A3 EB 78 */	mr r3, r29
 /* 801D746C 001D43CC  7F E4 FB 78 */	mr r4, r31
-/* 801D7470 001D43D0  4B E7 58 85 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801D7470 001D43D0  4B E7 58 85 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801D7474 001D43D4  7E E0 07 75 */	extsb. r0, r23
 /* 801D7478 001D43D8  41 82 00 28 */	beq lbl_801D74A0
 /* 801D747C 001D43DC  88 01 00 30 */	lbz r0, 0x30(r1)

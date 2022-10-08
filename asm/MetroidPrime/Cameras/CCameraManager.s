@@ -3446,7 +3446,7 @@ lbl_8000BF60:
 /* 8000BF60 00008EC0  93 BE 00 7C */	stw r29, 0x7c(r30)
 /* 8000BF64 00008EC4  7F E3 FB 78 */	mr r3, r31
 /* 8000BF68 00008EC8  80 9E 00 7C */	lwz r4, 0x7c(r30)
-/* 8000BF6C 00008ECC  48 04 0D 89 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8000BF6C 00008ECC  48 04 0D 89 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8000BF70 00008ED0  80 7F 08 4C */	lwz r3, 0x84c(r31)
 /* 8000BF74 00008ED4  7F E5 FB 78 */	mr r5, r31
 /* 8000BF78 00008ED8  38 80 00 00 */	li r4, 0
@@ -3492,7 +3492,7 @@ lbl_8000C014:
 /* 8000C014 00008F74  93 BE 00 80 */	stw r29, 0x80(r30)
 /* 8000C018 00008F78  7F E3 FB 78 */	mr r3, r31
 /* 8000C01C 00008F7C  80 9E 00 80 */	lwz r4, 0x80(r30)
-/* 8000C020 00008F80  48 04 0C D5 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8000C020 00008F80  48 04 0C D5 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8000C024 00008F84  7F E4 FB 78 */	mr r4, r31
 /* 8000C028 00008F88  38 61 00 0C */	addi r3, r1, 0xc
 /* 8000C02C 00008F8C  48 04 10 B1 */	bl AllocateUniqueId__13CStateManagerFv
@@ -3515,7 +3515,7 @@ lbl_8000C06C:
 /* 8000C06C 00008FCC  90 1E 00 88 */	stw r0, 0x88(r30)
 /* 8000C070 00008FD0  7F E3 FB 78 */	mr r3, r31
 /* 8000C074 00008FD4  80 9E 00 88 */	lwz r4, 0x88(r30)
-/* 8000C078 00008FD8  48 04 0C 7D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8000C078 00008FD8  48 04 0C 7D */	bl AddObject__13CStateManagerFP7CEntity
 /* 8000C07C 00008FDC  E3 E1 00 C8 */	psq_l f31, 200(r1), 0, qr0
 /* 8000C080 00008FE0  CB E1 00 C0 */	lfd f31, 0xc0(r1)
 /* 8000C084 00008FE4  E3 C1 00 B8 */	psq_l f30, 184(r1), 0, qr0

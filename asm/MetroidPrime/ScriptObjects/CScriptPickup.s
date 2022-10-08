@@ -243,7 +243,7 @@ Touch__13CScriptPickupFR6CActorR13CStateManager:
 /* 800C2760 000BF6C0  2C 1F 00 28 */	cmpwi r31, 0x28
 /* 800C2764 000BF6C4  41 81 00 2C */	bgt lbl_800C2790
 /* 800C2768 000BF6C8  7F E3 FB 78 */	mr r3, r31
-/* 800C276C 000BF6CC  48 1D A1 CD */	bl GetArtifactHeadScanFromItemType__13CArtifactDollF9EItemType
+/* 800C276C 000BF6CC  48 1D A1 CD */	bl GetArtifactHeadScanFromItemType__13CArtifactDollFQ212CPlayerState9EItemType
 /* 800C2770 000BF6D0  3C 03 00 01 */	addis r0, r3, 1
 /* 800C2774 000BF6D4  28 00 FF FF */	cmplwi r0, 0xffff
 /* 800C2778 000BF6D8  41 82 00 18 */	beq lbl_800C2790
@@ -325,7 +325,7 @@ lbl_800C2790:
 lbl_800C28A4:
 /* 800C28A4 000BF804  7F C3 F3 78 */	mr r3, r30
 /* 800C28A8 000BF808  7F 44 D3 78 */	mr r4, r26
-/* 800C28AC 000BF80C  4B F8 A4 49 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 800C28AC 000BF80C  4B F8 A4 49 */	bl AddObject__13CStateManagerFP7CEntity
 /* 800C28B0 000BF810  7F 60 07 75 */	extsb. r0, r27
 /* 800C28B4 000BF814  41 82 00 10 */	beq lbl_800C28C4
 /* 800C28B8 000BF818  38 61 00 5C */	addi r3, r1, 0x5c
@@ -411,7 +411,7 @@ lbl_800C29C8:
 /* 800C29E0 000BF940  7F C3 F3 78 */	mr r3, r30
 /* 800C29E4 000BF944  C0 22 8D C8 */	lfs f1, lbl_805AAAE8@sda21(r2)
 /* 800C29E8 000BF948  38 84 00 01 */	addi r4, r4, 1
-/* 800C29EC 000BF94C  4B F8 15 41 */	bl sub_80043f2c
+/* 800C29EC 000BF94C  4B F8 15 41 */	bl QueueMessage__13CStateManagerFiUif
 /* 800C29F0 000BF950  7F 43 D3 78 */	mr r3, r26
 /* 800C29F4 000BF954  38 80 00 01 */	li r4, 1
 /* 800C29F8 000BF958  48 11 27 B9 */	bl SetAllItemsCollected__14CSystemOptionsFb
@@ -421,11 +421,11 @@ lbl_800C29FC:
 /* 800C2A04 000BF964  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 800C2A08 000BF968  3B 43 00 A8 */	addi r26, r3, 0xa8
 /* 800C2A0C 000BF96C  7F 43 D3 78 */	mr r3, r26
-/* 800C2A10 000BF970  48 11 28 45 */	bl sub_801d5254
+/* 800C2A10 000BF970  48 11 28 45 */	bl GetShowPowerBombAmmoMessage__14CSystemOptionsCFv
 /* 800C2A14 000BF974  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 800C2A18 000BF978  41 82 00 54 */	beq lbl_800C2A6C
 /* 800C2A1C 000BF97C  7F 43 D3 78 */	mr r3, r26
-/* 800C2A20 000BF980  48 11 28 01 */	bl sub_801d5220
+/* 800C2A20 000BF980  48 11 28 01 */	bl IncrementPowerBombAmmoCount__14CSystemOptionsFv
 /* 800C2A24 000BF984  80 6D A0 74 */	lwz r3, gpStringTable@sda21(r13)
 /* 800C2A28 000BF988  38 80 00 6D */	li r4, 0x6d
 /* 800C2A2C 000BF98C  48 29 3C D1 */	bl GetString__12CStringTableCFi
@@ -441,7 +441,7 @@ lbl_800C29FC:
 /* 800C2A54 000BF9B4  D0 01 00 3C */	stfs f0, 0x3c(r1)
 /* 800C2A58 000BF9B8  98 A1 00 40 */	stb r5, 0x40(r1)
 /* 800C2A5C 000BF9BC  98 01 00 42 */	stb r0, 0x42(r1)
-/* 800C2A60 000BF9C0  4B FA 92 09 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 800C2A60 000BF9C0  4B FA 92 09 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 800C2A64 000BF9C4  38 61 00 4C */	addi r3, r1, 0x4c
 /* 800C2A68 000BF9C8  48 27 A6 CD */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 lbl_800C2A6C:

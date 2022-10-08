@@ -1104,7 +1104,7 @@ lbl_80261E50:
 lbl_80261E64:
 /* 80261E64 0025EDC4  7F A3 EB 78 */	mr r3, r29
 /* 80261E68 0025EDC8  7F 24 CB 78 */	mr r4, r25
-/* 80261E6C 0025EDCC  4B DE AE 89 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80261E6C 0025EDCC  4B DE AE 89 */	bl AddObject__13CStateManagerFP7CEntity
 /* 80261E70 0025EDD0  80 1C 03 B8 */	lwz r0, 0x3b8(r28)
 /* 80261E74 0025EDD4  54 00 08 3C */	slwi r0, r0, 1
 /* 80261E78 0025EDD8  7C 7F 02 15 */	add. r3, r31, r0

@@ -413,7 +413,7 @@ lbl_800376A8:
 lbl_80037768:
 /* 80037768 000346C8  7F E3 FB 78 */	mr r3, r31
 /* 8003776C 000346CC  7F 24 CB 78 */	mr r4, r25
-/* 80037770 000346D0  48 01 55 85 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80037770 000346D0  48 01 55 85 */	bl AddObject__13CStateManagerFP7CEntity
 /* 80037774 000346D4  7F 00 07 75 */	extsb. r0, r24
 /* 80037778 000346D8  41 82 00 28 */	beq lbl_800377A0
 /* 8003777C 000346DC  88 01 00 38 */	lbz r0, 0x38(r1)
@@ -589,7 +589,7 @@ lbl_800378E8:
 lbl_800379C0:
 /* 800379C0 00034920  7F 83 E3 78 */	mr r3, r28
 /* 800379C4 00034924  7F E4 FB 78 */	mr r4, r31
-/* 800379C8 00034928  48 01 53 2D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 800379C8 00034928  48 01 53 2D */	bl AddObject__13CStateManagerFP7CEntity
 /* 800379CC 0003492C  BB 21 00 34 */	lmw r25, 0x34(r1)
 /* 800379D0 00034930  80 01 00 54 */	lwz r0, 0x54(r1)
 /* 800379D4 00034934  7C 08 03 A6 */	mtlr r0

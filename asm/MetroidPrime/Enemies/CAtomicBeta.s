@@ -994,7 +994,7 @@ lbl_80251538:
 /* 802515B8 0024E518  7C 64 1B 78 */	mr r4, r3
 lbl_802515BC:
 /* 802515BC 0024E51C  7F A3 EB 78 */	mr r3, r29
-/* 802515C0 0024E520  4B DF B7 35 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 802515C0 0024E520  4B DF B7 35 */	bl AddObject__13CStateManagerFP7CEntity
 /* 802515C4 0024E524  3B DE 00 01 */	addi r30, r30, 1
 /* 802515C8 0024E528  2C 1E 00 03 */	cmpwi r30, 3
 /* 802515CC 0024E52C  41 80 FF 44 */	blt lbl_80251510

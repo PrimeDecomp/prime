@@ -2448,7 +2448,7 @@ lbl_80082814:
 /* 80082914 0007F874  4B FD 05 79 */	bl SetTranslation__6CActorFRC9CVector3f
 /* 80082918 0007F878  7F C3 F3 78 */	mr r3, r30
 /* 8008291C 0007F87C  7F A4 EB 78 */	mr r4, r29
-/* 80082920 0007F880  4B FC A3 D5 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80082920 0007F880  4B FC A3 D5 */	bl AddObject__13CStateManagerFP7CEntity
 /* 80082924 0007F884  88 1D 00 F8 */	lbz r0, 0xf8(r29)
 /* 80082928 0007F888  38 60 00 00 */	li r3, 0
 /* 8008292C 0007F88C  50 60 3E 30 */	rlwimi r0, r3, 7, 0x18, 0x18

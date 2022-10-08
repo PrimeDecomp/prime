@@ -1523,7 +1523,7 @@ lbl_801F2E5C:
 /* 801F2F70 001EFED0  4B E6 09 31 */	bl SetMaterialFilter__6CActorFRC15CMaterialFilter
 /* 801F2F74 001EFED4  7F A3 EB 78 */	mr r3, r29
 /* 801F2F78 001EFED8  7F E4 FB 78 */	mr r4, r31
-/* 801F2F7C 001EFEDC  4B E5 9D 79 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801F2F7C 001EFEDC  4B E5 9D 79 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801F2F80 001EFEE0  3C 60 80 3D */	lis r3, lbl_803D2050@ha
 /* 801F2F84 001EFEE4  3B 40 00 00 */	li r26, 0
 /* 801F2F88 001EFEE8  38 83 20 50 */	addi r4, r3, lbl_803D2050@l

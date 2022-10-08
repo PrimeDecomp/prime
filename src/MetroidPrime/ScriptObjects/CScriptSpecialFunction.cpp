@@ -878,7 +878,7 @@ void CScriptSpecialFunction::ThinkSpinnerController(float dt, CStateManager& mgr
           const float dur = animData->GetAnimationDuration(animData->GetDefaultAnimation()) * x138_;
           plat->AnimationData()->SetPhase(0.f);
           plat->AnimationData()->SetPlaybackRate(1.f);
-          SAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
+          CAdvancementDeltas deltas = plat->UpdateAnimation(dur, mgr, true);
           plat->SetTransform(x13c_spinnerInitialXf * deltas.GetOrientationDelta().BuildTransform4f(
                                                          deltas.GetOffsetDelta()));
         }

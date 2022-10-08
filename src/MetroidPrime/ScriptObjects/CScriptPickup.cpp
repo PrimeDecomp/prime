@@ -3,6 +3,7 @@
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
 #include "MetroidPrime/CArtifactDoll.hpp"
+#include "MetroidPrime/CExplosion.hpp"
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
@@ -22,6 +23,8 @@
 #include "Kyoto/Text/CStringTable.hpp"
 
 #include "rstl/math.hpp"
+
+static float skDrawInDistance = 30.f;
 
 CScriptPickup::CScriptPickup(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                              const CTransform4f& xf, const CModelData& mData,
@@ -90,7 +93,7 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
     if (x26c_lifeTime < 2.f) {
       alpha = 1.f - (x26c_lifeTime / x270_curTime);
     } else if ((x26c_lifeTime - x270_curTime) < 2.f) {
-      alpha = (x26c_lifeTime - x270_curTime) * 0.5f;
+      alpha = (x26c_lifeTime - x270_curTime) / 2.f;
     }
 
     drawFlags = CModelFlags::AlphaBlended(alpha).DepthCompareUpdate(true, false);
@@ -99,32 +102,33 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
   SetModelFlags(drawFlags);
 
   if (HasAnimation()) {
-    SAdvancementDeltas deltas = UpdateAnimation(dt, mgr, true);
+    CAdvancementDeltas deltas = UpdateAnimation(dt, mgr, true);
     MoveToOR(deltas.GetOffsetDelta(), dt);
     RotateToOR(deltas.GetOrientationDelta(), dt);
   }
 
   if (x28c_25_inTractor) {
-    CVector3f posDelta =
-        (mgr.GetPlayer()->GetTranslation() + CVector3f::Up()) * 2.0 - GetTranslation();
+    CVector3f velocity =
+        mgr.GetPlayer()->GetTranslation() + (CVector3f::Up() * 2.f) - GetTranslation();
     x274_tractorTime += dt;
-    posDelta = posDelta.AsNormalized() * (20.f * (0.5f * rstl::min_val(2.f, x274_tractorTime)));
+    float halfTractorTime = rstl::min_val(x274_tractorTime, 2.f) * 0.5f;
+    velocity = velocity.AsNormalized() * (halfTractorTime * 20.f);
     if (x28c_26_enableTractorTest && mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() <
                                          CPlayerGun::GetTractorBeamFactor()) {
       x28c_26_enableTractorTest = false;
       x28c_25_inTractor = false;
-      posDelta = CVector3f::Zero();
+      velocity = CVector3f::Zero();
     }
-    SetVelocityWR(posDelta);
+    SetVelocityWR(velocity);
   } else if (x28c_24_generated) {
     if (mgr.GetPlayer()->GetPlayerGun()->GetChargeBeamFactor() >
         CPlayerGun::GetTractorBeamFactor()) {
-      const CFirstPersonCamera* camera = mgr.GetCameraManager()->GetFirstPersonCamera();
+      const CFirstPersonCamera* camera = mgr.CameraManager()->FirstPersonCamera();
       CVector3f posDelta = GetTranslation() - camera->GetTranslation();
-      CAbsAngle fov = CAbsAngle::FromDegrees(gpTweakGame->GetFirstPersonFOV());
-      if (CVector3f::Dot(camera->GetTransform().GetColumn(kDY), posDelta.AsNormalized()) >
-              cosine(fov) &&
-          posDelta.MagSquared() < (30.f * 30.f)) {
+      CVector3f cameraFront = camera->GetTransform().GetColumn(kDY);
+      float dot = CVector3f::Dot(cameraFront, posDelta.AsNormalized());
+      float fovCos = cosine(CAbsAngle::FromDegrees(gpTweakGame->GetFirstPersonFOV()));
+      if (dot > fovCos && posDelta.MagSquared() < skDrawInDistance * skDrawInDistance) {
         x28c_25_inTractor = true;
         x28c_26_enableTractorTest = true;
         x274_tractorTime = 0.f;
@@ -138,49 +142,53 @@ void CScriptPickup::Think(float dt, CStateManager& mgr) {
 }
 
 void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
-  if (GetActive() && x278_delayTimer < 0.f && TCastToPtr< CPlayer >(act)) {
-    if (x258_itemType >= CPlayerState::kIT_Truth && x258_itemType <= CPlayerState::kIT_Newborn) {
-      const CAssetId id = CArtifactDoll::GetArtifactHeadScanFromItemType(x258_itemType);
+  if (GetActive() && !(x278_delayTimer >= 0) && TCastToPtr< CPlayer >(act)) {
+    CPlayerState::EItemType itemType = x258_itemType;
+    if (itemType >= CPlayerState::kIT_Truth && itemType <= CPlayerState::kIT_Newborn) {
+      CAssetId id = CArtifactDoll::GetArtifactHeadScanFromItemType(itemType);
       if (id != kInvalidAssetId) {
         mgr.PlayerState()->SetScanTime(id, 0.5f);
       }
     }
 
-    /*if (x27c_pickupParticleDesc) {
+    if (x27c_pickupParticleDesc) {
       if (mgr.GetPlayerState()->GetActiveVisor(mgr) != CPlayerState::kPV_Thermal) {
-        mgr.AddObject(new CExplosion(x27c_pickupParticleDesc, mgr.AllocateUniqueId(), true,
-                                     CEntityInfo(GetAreaIdAlways(), CEntity::NullConnectionList,
-    kInvalidEditorId), "Explosion - Pickup Effect", x34_transform, 0, zeus::skOne3f,
-    zeus::skWhite));
+        mgr.AddObject(new CExplosion(
+            *x27c_pickupParticleDesc, mgr.AllocateUniqueId(), true,
+            CEntityInfo(GetAreaIdAlways(), CEntity::NullConnectionList, kInvalidEditorId),
+            rstl::string_l("Explosion - Pickup Effect"), GetTransform(), 0,
+            CVector3f(1.f, 1.f, 1.f), CColor::White()));
       }
-    }*/
+    }
 
-    mgr.PlayerState()->InitializePowerUp(x258_itemType, x260_capacity);
-    mgr.PlayerState()->IncrPickUp(x258_itemType, x25c_amount);
+    mgr.PlayerState()->InitializePowerUp(itemType, x260_capacity);
+    mgr.PlayerState()->IncrPickUp(itemType, x25c_amount);
     mgr.FreeScriptObject(GetUniqueId());
     SendScriptMsgs(kSS_Arrived, mgr, kSM_None);
 
     if (x260_capacity > 0) {
-      const int total = mgr.GetPlayerState()->GetTotalPickupCount();
-      const int colRate = mgr.GetPlayerState()->CalculateItemCollectionRate();
-      if (total == colRate) {
+      const CPlayerState* playerState = mgr.GetPlayerState();
+      int total = playerState->GetTotalPickupCount();
+      int colRate = playerState->CalculateItemCollectionRate();
+      if (colRate == total) {
         CSystemOptions& opts = gpGameState->SystemOptions();
-        mgr.QueueMessage(mgr.GetHUDMessageFrameCount() + 1,
-                         gpResourceFactory
-                             ->GetResourceIdByName(opts.GetAllItemsCollected()
-                                                       ? "STRG_AllPickupsFound_2"
-                                                       : "STRG_AllPickupsFound_1")
-                             ->id,
-                         0.f);
+        CAssetId id =
+            gpResourceFactory
+                ->GetResourceIdByName(opts.GetAllItemsCollected() ? "STRG_AllPickupsFound_2"
+                                                                  : "STRG_AllPickupsFound_1")
+                ->id;
+        mgr.QueueMessage(mgr.GetHUDMessageFrameCount() + 1, id, 0.f);
         opts.SetAllItemsCollected(true);
       }
     }
 
-    if (x258_itemType == CPlayerState::kIT_PowerBombs &&
-        gpGameState->SystemOptions().GetShowPowerBombAmmoMessage()) {
-      gpGameState->SystemOptions().IncrementPowerBombAmmoCount();
-      CSamusHud::DisplayHudMemo(rstl::wstring_l(gpStringTable->GetString(109)),
-                                CHUDMemoParms(0.5f, true, false, false));
+    if (itemType == CPlayerState::kIT_PowerBombs) {
+      CSystemOptions& opts = gpGameState->SystemOptions();
+      if (opts.GetShowPowerBombAmmoMessage()) {
+        opts.IncrementPowerBombAmmoCount();
+        CSamusHud::DisplayHudMemo(rstl::wstring_l(gpStringTable->GetString(109)),
+                                  CHUDMemoParms(0.5f, true, false, false));
+      }
     }
   }
 }

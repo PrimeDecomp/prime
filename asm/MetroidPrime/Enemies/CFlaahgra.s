@@ -1085,7 +1085,7 @@ lbl_801ADE50:
 /* 801ADE58 001AADB8  41 82 00 10 */	beq lbl_801ADE68
 /* 801ADE5C 001AADBC  7F E3 FB 78 */	mr r3, r31
 /* 801ADE60 001AADC0  7F 84 E3 78 */	mr r4, r28
-/* 801ADE64 001AADC4  4B E9 EE 91 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801ADE64 001AADC4  4B E9 EE 91 */	bl AddObject__13CStateManagerFP7CEntity
 lbl_801ADE68:
 /* 801ADE68 001AADC8  7F 63 DB 78 */	mr r3, r27
 /* 801ADE6C 001AADCC  BB 61 00 4C */	lmw r27, 0x4c(r1)
@@ -6415,7 +6415,7 @@ lbl_801B2A90:
 lbl_801B2AA4:
 /* 801B2AA4 001AFA04  7F 83 E3 78 */	mr r3, r28
 /* 801B2AA8 001AFA08  7F 44 D3 78 */	mr r4, r26
-/* 801B2AAC 001AFA0C  4B E9 A2 49 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801B2AAC 001AFA0C  4B E9 A2 49 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801B2AB0 001AFA10  80 1B 00 04 */	lwz r0, 4(r27)
 /* 801B2AB4 001AFA14  7F 83 E3 78 */	mr r3, r28
 /* 801B2AB8 001AFA18  7F 44 D3 78 */	mr r4, r26
@@ -6644,7 +6644,7 @@ lbl_801B2CE4:
 lbl_801B2DBC:
 /* 801B2DBC 001AFD1C  7F C3 F3 78 */	mr r3, r30
 /* 801B2DC0 001AFD20  7F 64 DB 78 */	mr r4, r27
-/* 801B2DC4 001AFD24  4B E9 9F 31 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801B2DC4 001AFD24  4B E9 9F 31 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801B2DC8 001AFD28  7F 20 07 75 */	extsb. r0, r25
 /* 801B2DCC 001AFD2C  41 82 00 0C */	beq lbl_801B2DD8
 /* 801B2DD0 001AFD30  38 61 00 B4 */	addi r3, r1, 0xb4

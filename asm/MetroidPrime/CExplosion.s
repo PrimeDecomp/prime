@@ -291,7 +291,7 @@ lbl_8005A378:
 lbl_8005A478:
 /* 8005A478 000573D8  7F E3 FB 78 */	mr r3, r31
 /* 8005A47C 000573DC  7F 44 D3 78 */	mr r4, r26
-/* 8005A480 000573E0  4B FF 28 75 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8005A480 000573E0  4B FF 28 75 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8005A484 000573E4  7E E0 07 75 */	extsb. r0, r23
 /* 8005A488 000573E8  41 82 00 0C */	beq lbl_8005A494
 /* 8005A48C 000573EC  38 61 00 38 */	addi r3, r1, 0x38

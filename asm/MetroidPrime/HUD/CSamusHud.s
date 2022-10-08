@@ -8757,8 +8757,8 @@ lbl_8006BC58:
 /* 8006BC60 00068BC0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8006BC64 00068BC4  4E 80 00 20 */	blr
 
-.global DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
-DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo:
+.global "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
+"DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms":
 /* 8006BC68 00068BC8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8006BC6C 00068BCC  7C 08 02 A6 */	mflr r0
 /* 8006BC70 00068BD0  7C 66 1B 78 */	mr r6, r3

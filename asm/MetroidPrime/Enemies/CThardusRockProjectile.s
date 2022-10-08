@@ -2385,7 +2385,7 @@ lbl_802055B8:
 /* 802055C4 00202524  7E 24 8B 78 */	mr r4, r17
 /* 802055C8 00202528  C0 1F 05 0C */	lfs f0, 0x50c(r31)
 /* 802055CC 0020252C  D0 11 03 2C */	stfs f0, 0x32c(r17)
-/* 802055D0 00202530  4B E4 77 25 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 802055D0 00202530  4B E4 77 25 */	bl AddObject__13CStateManagerFP7CEntity
 /* 802055D4 00202534  80 1F 05 90 */	lwz r0, 0x590(r31)
 /* 802055D8 00202538  80 BF 05 94 */	lwz r5, 0x594(r31)
 /* 802055DC 0020253C  7C 00 28 00 */	cmpw r0, r5

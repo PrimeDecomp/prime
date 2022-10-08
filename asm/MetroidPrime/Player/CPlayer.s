@@ -7218,7 +7218,7 @@ lbl_80015968:
 /* 800159B0 00012910  D0 01 00 18 */	stfs f0, 0x18(r1)
 /* 800159B4 00012914  98 01 00 1D */	stb r0, 0x1d(r1)
 /* 800159B8 00012918  98 01 00 1E */	stb r0, 0x1e(r1)
-/* 800159BC 0001291C  48 05 62 AD */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 800159BC 0001291C  48 05 62 AD */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 800159C0 00012920  38 61 00 20 */	addi r3, r1, 0x20
 /* 800159C4 00012924  48 32 77 71 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 800159C8 00012928  7F A3 EB 78 */	mr r3, r29
@@ -7372,7 +7372,7 @@ lbl_80015B30:
 lbl_80015BF0:
 /* 80015BF0 00012B50  7F C3 F3 78 */	mr r3, r30
 /* 80015BF4 00012B54  7F E4 FB 78 */	mr r4, r31
-/* 80015BF8 00012B58  48 03 70 FD */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80015BF8 00012B58  48 03 70 FD */	bl AddObject__13CStateManagerFP7CEntity
 /* 80015BFC 00012B5C  7E C0 07 75 */	extsb. r0, r22
 /* 80015C00 00012B60  41 82 00 28 */	beq lbl_80015C28
 /* 80015C04 00012B64  88 01 00 44 */	lbz r0, 0x44(r1)
@@ -7507,7 +7507,7 @@ lbl_80015D78:
 /* 80015DC4 00012D24  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 80015DC8 00012D28  98 A1 00 14 */	stb r5, 0x14(r1)
 /* 80015DCC 00012D2C  98 01 00 16 */	stb r0, 0x16(r1)
-/* 80015DD0 00012D30  48 05 5E 99 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 80015DD0 00012D30  48 05 5E 99 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 80015DD4 00012D34  38 61 00 18 */	addi r3, r1, 0x18
 /* 80015DD8 00012D38  48 32 73 5D */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 lbl_80015DDC:
@@ -7789,7 +7789,7 @@ lbl_80016128:
 lbl_800161E8:
 /* 800161E8 00013148  7F C3 F3 78 */	mr r3, r30
 /* 800161EC 0001314C  7F 04 C3 78 */	mr r4, r24
-/* 800161F0 00013150  48 03 6B 05 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 800161F0 00013150  48 03 6B 05 */	bl AddObject__13CStateManagerFP7CEntity
 /* 800161F4 00013154  7E E0 07 75 */	extsb. r0, r23
 /* 800161F8 00013158  41 82 00 28 */	beq lbl_80016220
 /* 800161FC 0001315C  88 01 00 68 */	lbz r0, 0x68(r1)
@@ -9455,7 +9455,7 @@ lbl_800178D0:
 lbl_80017990:
 /* 80017990 000148F0  7F C3 F3 78 */	mr r3, r30
 /* 80017994 000148F4  7F 04 C3 78 */	mr r4, r24
-/* 80017998 000148F8  48 03 53 5D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80017998 000148F8  48 03 53 5D */	bl AddObject__13CStateManagerFP7CEntity
 /* 8001799C 000148FC  7E E0 07 75 */	extsb. r0, r23
 /* 800179A0 00014900  41 82 00 28 */	beq lbl_800179C8
 /* 800179A4 00014904  88 01 00 2C */	lbz r0, 0x2c(r1)

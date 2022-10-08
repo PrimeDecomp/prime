@@ -6,6 +6,7 @@
 #include "math.h"
 
 #define M_PIF 3.14159265358979323846f
+#define M_2PIF 6.28318530718f
 
 class CMath {
 public:
@@ -32,7 +33,6 @@ public:
   static inline int AbsI(int v) { return abs(v); }
   // WrapPi__5CMathFf weak
   // WrapTwoPi__5CMathFf weak
-  // FastFmod__5CMathFfff weak
   template < typename T >
   static const T& Min(const T& a, const T& b);
   template < typename T >
@@ -44,14 +44,14 @@ public:
   // FastCosR__5CMathFf global
   // GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
   static f32 ClampRadians(f32 rad) {
-    f32 value = rad - static_cast<int>(rad * (M_PIF * 2.f)) * (M_PIF * 2.f);
+    f32 value = FastFmod(rad, M_2PIF);
     if (value < 0.f) {
-      value += (M_PIF * 2.f);
+      value += M_2PIF;
     }
     return value;
   }
   // ModF__5CMathFff weak
-  static f32 Deg2Rad(f32 deg) { return Deg2Rev(deg) * (M_PIF * 2.f); }
+  static f32 Deg2Rad(f32 deg) { return Deg2Rev(deg) * M_2PIF; }
   static f32 Deg2Rev(f32 deg) { return deg * (1.f / 360.f); }
   static f32 ArcCosineR(f32 v);
   // FloorF__5CMathFf global
@@ -66,8 +66,8 @@ public:
   // Rev2Deg__5CMathFf weak
   // GetCatmullRomSplinePoint__5CMathFfffff global
   // SlowTangentR__5CMathFf global
-  // Rad2Deg__5CMathFf weak
-  // Rad2Rev__5CMathFf weak
+  static f32 Rad2Deg(f32 rad) { return rad * (180.f / M_PIF); }
+  static f32 Rad2Rev(f32 rad) { return rad * (1.f / M_2PIF); }
   // CeilingF__5CMathFf global
   // ArcTangentR__5CMathFf global
   // Swap<f>__5CMathFRfRf weak

@@ -5561,7 +5561,7 @@ lbl_801F89A4:
 /* 801F89A8 001F5908  41 82 00 C0 */	beq lbl_801F8A68
 /* 801F89AC 001F590C  7F 23 CB 78 */	mr r3, r25
 /* 801F89B0 001F5910  7F C4 F3 78 */	mr r4, r30
-/* 801F89B4 001F5914  4B E5 43 41 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801F89B4 001F5914  4B E5 43 41 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801F89B8 001F5918  88 18 06 A1 */	lbz r0, 0x6a1(r24)
 /* 801F89BC 001F591C  54 00 DF FF */	rlwinm. r0, r0, 0x1b, 0x1f, 0x1f
 /* 801F89C0 001F5920  40 82 00 A8 */	bne lbl_801F8A68

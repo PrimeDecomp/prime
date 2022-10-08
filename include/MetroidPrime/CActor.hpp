@@ -239,7 +239,7 @@ public:
   virtual void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                                float dt);
 
-  SAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
+  CAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
 
   void ProcessSoundEvent(int sfxId, f32 weight, int flags, f32 fallOff, f32 maxDist, u8 minVol,
                          u8 maxVol, const CVector3f& toListener, const CVector3f& position, int aid,

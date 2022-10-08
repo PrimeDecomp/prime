@@ -993,7 +993,7 @@ lbl_8008E580:
 lbl_8008E688:
 /* 8008E688 0008B5E8  7F C3 F3 78 */	mr r3, r30
 /* 8008E68C 0008B5EC  7F 24 CB 78 */	mr r4, r25
-/* 8008E690 0008B5F0  4B FB E6 65 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8008E690 0008B5F0  4B FB E6 65 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8008E694 0008B5F4  7E E0 07 75 */	extsb. r0, r23
 /* 8008E698 0008B5F8  41 82 00 0C */	beq lbl_8008E6A4
 /* 8008E69C 0008B5FC  38 61 00 A4 */	addi r3, r1, 0xa4

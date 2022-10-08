@@ -166,7 +166,7 @@ lbl_800B776C:
 lbl_800B78D4:
 /* 800B78D4 000B4834  7F A3 EB 78 */	mr r3, r29
 /* 800B78D8 000B4838  7F 44 D3 78 */	mr r4, r26
-/* 800B78DC 000B483C  4B F9 54 19 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 800B78DC 000B483C  4B F9 54 19 */	bl AddObject__13CStateManagerFP7CEntity
 /* 800B78E0 000B4840  7F 60 07 75 */	extsb. r0, r27
 /* 800B78E4 000B4844  41 82 00 0C */	beq lbl_800B78F0
 /* 800B78E8 000B4848  38 61 00 24 */	addi r3, r1, 0x24
@@ -288,4 +288,3 @@ lbl_803CDE88:
 	.byte 0x50
 	.asciz "articleLight"
 	.balign 4
-

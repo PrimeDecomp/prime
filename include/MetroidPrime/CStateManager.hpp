@@ -106,6 +106,8 @@ public:
   void SetupParticleHook(const CActor& actor) const;
   void FreeScriptObject(TUniqueId uid);
   rstl::pair< TEditorId, TUniqueId > GenerateObject(const TEditorId& eid);
+  void AddObject(CEntity*);
+  TUniqueId AllocateUniqueId();
 
   void BuildNearList(TEntityList& nearList, const CAABox&, const CMaterialFilter&,
                      const CActor*) const;

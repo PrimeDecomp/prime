@@ -1966,8 +1966,8 @@ sub_801d5210:
 /* 801D5218 001D2178  98 03 00 D0 */	stb r0, 0xd0(r3)
 /* 801D521C 001D217C  4E 80 00 20 */	blr
 
-.global sub_801d5220
-sub_801d5220:
+.global IncrementPowerBombAmmoCount__14CSystemOptionsFv
+IncrementPowerBombAmmoCount__14CSystemOptionsFv:
 /* 801D5220 001D2180  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D5224 001D2184  80 A3 00 C8 */	lwz r5, 0xc8(r3)
 /* 801D5228 001D2188  38 81 00 08 */	addi r4, r1, 8
@@ -1983,8 +1983,8 @@ lbl_801D5244:
 /* 801D524C 001D21AC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D5250 001D21B0  4E 80 00 20 */	blr
 
-.global sub_801d5254
-sub_801d5254:
+.global GetShowPowerBombAmmoMessage__14CSystemOptionsCFv
+GetShowPowerBombAmmoMessage__14CSystemOptionsCFv:
 /* 801D5254 001D21B4  80 03 00 C8 */	lwz r0, 0xc8(r3)
 /* 801D5258 001D21B8  38 60 00 01 */	li r3, 1
 /* 801D525C 001D21BC  7C 60 02 78 */	xor r0, r3, r0

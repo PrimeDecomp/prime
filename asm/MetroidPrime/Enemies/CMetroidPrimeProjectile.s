@@ -256,7 +256,7 @@ lbl_802A0664:
 /* 802A0664 0029D5C4  28 04 00 00 */	cmplwi r4, 0
 /* 802A0668 0029D5C8  41 82 00 0C */	beq lbl_802A0674
 /* 802A066C 0029D5CC  7F A3 EB 78 */	mr r3, r29
-/* 802A0670 0029D5D0  4B DA C6 85 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 802A0670 0029D5D0  4B DA C6 85 */	bl AddObject__13CStateManagerFP7CEntity
 lbl_802A0674:
 /* 802A0674 0029D5D4  7F C3 F3 78 */	mr r3, r30
 /* 802A0678 0029D5D8  BA E1 01 1C */	lmw r23, 0x11c(r1)
