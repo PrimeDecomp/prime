@@ -147,6 +147,8 @@ $(MSL_PPCEABI_BARE_H): CFLAGS := $(CFLAGS_RUNTIME)
 $(MSL_COMMON_MATH): CFLAGS := $(CFLAGS_RUNTIME)
 $(PAD_FILES): MWCC_VERSION := 1.2.5
 $(PAD_FILES): CFLAGS := $(CFLAGS_BASE)
+$(DTK_FILES): MWCC_VERSION := 1.2.5
+$(DTK_FILES): CFLAGS := $(CFLAGS_BASE)
 
 #-------------------------------------------------------------------------------
 # Recipes

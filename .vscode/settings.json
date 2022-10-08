@@ -9,7 +9,9 @@
   },
   "editor.tabSize": 2,
   "files.associations": {
-    "source_location": "cpp"
+    "source_location": "cpp",
+    "dtk.h": "c",
+    "dvd.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
