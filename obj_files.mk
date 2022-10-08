@@ -34,7 +34,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmReal32.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Decode.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CIOWinManager.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CIOWin.o\
+	$(BUILD_DIR)/src/MetroidPrime/CIOWin.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CActor.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakParticle.o\
