@@ -1901,7 +1901,7 @@ ProcessInput__14CLogBookScreenFRC11CFinalInput:
 /* 80247364 002442C4  7C 00 00 34 */	cntlzw r0, r0
 /* 80247368 002442C8  54 1D D9 7E */	srwi r29, r0, 5
 /* 8024736C 002442CC  41 82 01 34 */	beq lbl_802474A0
-/* 80247370 002442D0  C0 02 CC 28 */	lfs f0, lbl_805AE948@sda21(r2)
+/* 80247370 002442D0  C0 02 CC 28 */	lfs f0, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 80247374 002442D4  38 80 00 00 */	li r4, 0
 /* 80247378 002442D8  C0 3C 00 0C */	lfs f1, 0xc(r28)
 /* 8024737C 002442DC  FC 00 08 40 */	fcmpo cr0, f0, f1

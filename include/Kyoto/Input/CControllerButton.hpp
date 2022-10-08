@@ -7,9 +7,9 @@ public:
   void SetIsPressed(bool pressed) { x0_pressed = pressed; }
   uint GetIsPressed() const { return x0_pressed; }
   void SetPressEvent(bool press) { x1_pressEvent = press; }
-  bool GetPressEvent() const { return x1_pressEvent; }
+  uint GetPressEvent() const { return x1_pressEvent; }
   void SetReleaseEvent(bool release) { x2_releaseEvent = release; };
-  bool GetReleaseEvent() const { return x2_releaseEvent; }
+  uint GetReleaseEvent() const { return x2_releaseEvent; }
 
 private:
   uchar x0_pressed;

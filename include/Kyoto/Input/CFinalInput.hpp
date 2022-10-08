@@ -6,8 +6,17 @@
 #pragma cpp_extensions on
 #endif
 
+class CControllerGamepadData;
+class COsContext;
 class CFinalInput {
+
+  static const float kInput_AnalogOnThreshhold;
+  static const float kInput_AnalogTriggerOnThreshhold;
 public:
+  CFinalInput();
+  CFinalInput(int channel, float dt, const CControllerGamepadData& data, float leftDif,
+              float rightDiv);
+  CFinalInput(int channel, float dt, const COsContext& context);
   CFinalInput(const CFinalInput& other)
   : x0_dt(other.x0_dt)
   , x4_controllerIdx(other.x4_controllerIdx)
@@ -26,6 +35,10 @@ public:
   , btns1(other.btns1)
   , btns2(other.btns2)
   , btns3(other.btns3) {}
+
+  void InitializeAnalog(float leftDiv, float rightDiv);
+
+  CFinalInput ScaleAnalogueSticks(float leftDiv, float rightDiv) const;
 
 private:
   float x0_dt;
@@ -47,44 +60,43 @@ private:
 
   union {
     struct {
-      bool x2c_b24_A : 1;
-      bool x2c_b25_B : 1;
-      bool x2c_b26_X : 1;
-      bool x2c_b27_Y : 1;
-      bool x2c_b28_Z : 1;
-      bool x2c_b29_L : 1;
-      bool x2c_b30_R : 1;
-      bool x2c_b31_DPUp : 1;
+      uchar x2c_b24_A : 1;
+      uchar x2c_b25_B : 1;
+      uchar x2c_b26_X : 1;
+      uchar x2c_b27_Y : 1;
+      uchar x2c_b28_Z : 1;
+      uchar x2c_b29_L : 1;
+      uchar x2c_b30_R : 1;
+      uchar x2c_b31_DPUp : 1;
     };
-    u8 btns1;
+    uchar btns1;
   };
   union {
     struct {
-      bool x2d_b24_DPRight : 1;
-      bool x2d_b25_DPDown : 1;
-      bool x2d_b26_DPLeft : 1;
-      bool x2d_b27_Start : 1;
-      bool x2d_b28_PA : 1;
-      bool x2d_b29_PB : 1;
-      bool x2d_b30_PX : 1;
-      bool x2d_b31_PY : 1;
+      uchar x2d_b24_DPRight : 1;
+      uchar x2d_b25_DPDown : 1;
+      uchar x2d_b26_DPLeft : 1;
+      uchar x2d_b27_Start : 1;
+      uchar x2d_b28_PA : 1;
+      uchar x2d_b29_PB : 1;
+      uchar x2d_b30_PX : 1;
+      uchar x2d_b31_PY : 1;
     };
-    u8 btns2;
+    uchar btns2;
   };
   union {
     struct {
-      bool x2e_b24_PZ : 1;
-      bool x2e_b25_PL : 1;
-      bool x2e_b26_PR : 1;
-      bool x2e_b27_PDPUp : 1;
-      bool x2e_b28_PDPRight : 1;
-      bool x2e_b29_PDPDown : 1;
-      bool x2e_b30_PDPLeft : 1;
-      bool x2e_b31_PStart : 1;
+      uchar x2e_b24_PZ : 1;
+      uchar x2e_b25_PL : 1;
+      uchar x2e_b26_PR : 1;
+      uchar x2e_b27_PDPUp : 1;
+      uchar x2e_b28_PDPRight : 1;
+      uchar x2e_b29_PDPDown : 1;
+      uchar x2e_b30_PDPLeft : 1;
+      uchar x2e_b31_PStart : 1;
     };
-    u8 btns3;
+    uchar btns3;
   };
-
 };
 
 #ifdef __MWERKS__
