@@ -85,7 +85,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakGunRes.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CTargetReticles.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CWeaponMgr.o\
-	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptPickup.o\
+	$(BUILD_DIR)/src/MetroidPrime/ScriptObjects/CScriptPickup.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CDamageInfo.o\
 	$(BUILD_DIR)/src/MetroidPrime/CMemoryDrawEnum.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptDock.o\
