@@ -536,7 +536,7 @@ SetPhazonBeamFeedback__10CPlayerGunFb:
 /* 8003A878 000377D8  38 81 00 14 */	addi r4, r1, 0x14
 /* 8003A87C 000377DC  98 A1 00 19 */	stb r5, 0x19(r1)
 /* 8003A880 000377E0  98 01 00 1A */	stb r0, 0x1a(r1)
-/* 8003A884 000377E4  48 03 13 E5 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 8003A884 000377E4  48 03 13 E5 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 8003A888 000377E8  38 61 00 1C */	addi r3, r1, 0x1c
 /* 8003A88C 000377EC  48 30 28 A9 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 8003A890 000377F0  80 1E 02 E8 */	lwz r0, 0x2e8(r30)
@@ -1678,7 +1678,7 @@ CreateGunLight__10CPlayerGunFR13CStateManager:
 lbl_8003B8BC:
 /* 8003B8BC 0003881C  7F E3 FB 78 */	mr r3, r31
 /* 8003B8C0 00038820  7F 84 E3 78 */	mr r4, r28
-/* 8003B8C4 00038824  48 01 14 31 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8003B8C4 00038824  48 01 14 31 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8003B8C8 00038828  7F 60 07 75 */	extsb. r0, r27
 /* 8003B8CC 0003882C  41 82 00 0C */	beq lbl_8003B8D8
 /* 8003B8D0 00038830  38 61 00 20 */	addi r3, r1, 0x20

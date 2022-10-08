@@ -604,7 +604,7 @@ lbl_80142D70:
 lbl_80142DF4:
 /* 80142DF4 0013FD54  7F C3 F3 78 */	mr r3, r30
 /* 80142DF8 0013FD58  7F E4 FB 78 */	mr r4, r31
-/* 80142DFC 0013FD5C  4B F0 9E F9 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80142DFC 0013FD5C  4B F0 9E F9 */	bl AddObject__13CStateManagerFP7CEntity
 /* 80142E00 0013FD60  38 61 00 1C */	addi r3, r1, 0x1c
 /* 80142E04 0013FD64  48 1F AC DD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 lbl_80142E08:

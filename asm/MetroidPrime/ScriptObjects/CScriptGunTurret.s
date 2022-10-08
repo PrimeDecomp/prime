@@ -2312,7 +2312,7 @@ lbl_80217790:
 /* 80217794 002146F4  41 82 01 84 */	beq lbl_80217918
 /* 80217798 002146F8  7F E3 FB 78 */	mr r3, r31
 /* 8021779C 002146FC  7F A4 EB 78 */	mr r4, r29
-/* 802177A0 00214700  4B E3 55 55 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 802177A0 00214700  4B E3 55 55 */	bl AddObject__13CStateManagerFP7CEntity
 /* 802177A4 00214704  38 61 00 60 */	addi r3, r1, 0x60
 /* 802177A8 00214708  48 0C B8 D5 */	bl NoParameter__12CPASAnimParmFv
 /* 802177AC 0021470C  38 61 00 68 */	addi r3, r1, 0x68
@@ -5387,7 +5387,7 @@ lbl_8021A2B0:
 lbl_8021A3C0:
 /* 8021A3C0 00217320  7F E3 FB 78 */	mr r3, r31
 /* 8021A3C4 00217324  7F A4 EB 78 */	mr r4, r29
-/* 8021A3C8 00217328  4B E3 29 2D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8021A3C8 00217328  4B E3 29 2D */	bl AddObject__13CStateManagerFP7CEntity
 /* 8021A3CC 0021732C  7F 40 07 75 */	extsb. r0, r26
 /* 8021A3D0 00217330  41 82 00 0C */	beq lbl_8021A3DC
 /* 8021A3D4 00217334  38 61 00 7C */	addi r3, r1, 0x7c

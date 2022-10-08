@@ -1568,7 +1568,7 @@ lbl_801B7058:
 lbl_801B7158:
 /* 801B7158 001B40B8  7F E3 FB 78 */	mr r3, r31
 /* 801B715C 001B40BC  7F 44 D3 78 */	mr r4, r26
-/* 801B7160 001B40C0  4B E9 5B 95 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801B7160 001B40C0  4B E9 5B 95 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801B7164 001B40C4  7E E0 07 75 */	extsb. r0, r23
 /* 801B7168 001B40C8  41 82 00 0C */	beq lbl_801B7174
 /* 801B716C 001B40CC  38 61 00 38 */	addi r3, r1, 0x38

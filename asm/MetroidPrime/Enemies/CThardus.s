@@ -2505,7 +2505,7 @@ lbl_801DC200:
 /* 801DC268 001D91C8  D0 01 00 14 */	stfs f0, 0x14(r1)
 /* 801DC26C 001D91CC  98 A1 00 18 */	stb r5, 0x18(r1)
 /* 801DC270 001D91D0  98 01 00 1A */	stb r0, 0x1a(r1)
-/* 801DC274 001D91D4  4B E8 F9 F5 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 801DC274 001D91D4  4B E8 F9 F5 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 801DC278 001D91D8  38 61 00 1C */	addi r3, r1, 0x1c
 /* 801DC27C 001D91DC  48 16 0E B9 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 lbl_801DC280:
@@ -7171,7 +7171,7 @@ lbl_801E0468:
 /* 801E04C8 001DD428  D0 01 00 30 */	stfs f0, 0x30(r1)
 /* 801E04CC 001DD42C  98 A1 00 34 */	stb r5, 0x34(r1)
 /* 801E04D0 001DD430  98 01 00 36 */	stb r0, 0x36(r1)
-/* 801E04D4 001DD434  4B E8 B7 95 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 801E04D4 001DD434  4B E8 B7 95 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 801E04D8 001DD438  38 61 00 40 */	addi r3, r1, 0x40
 /* 801E04DC 001DD43C  48 15 CC 59 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 801E04E0 001DD440  88 7A 09 5D */	lbz r3, 0x95d(r26)
@@ -7830,7 +7830,7 @@ lbl_801E0B30:
 lbl_801E0E8C:
 /* 801E0E8C 001DDDEC  7F E3 FB 78 */	mr r3, r31
 /* 801E0E90 001DDDF0  7F A4 EB 78 */	mr r4, r29
-/* 801E0E94 001DDDF4  4B E6 BE 61 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801E0E94 001DDDF4  4B E6 BE 61 */	bl AddObject__13CStateManagerFP7CEntity
 /* 801E0E98 001DDDF8  7E E0 07 75 */	extsb. r0, r23
 /* 801E0E9C 001DDDFC  41 82 00 10 */	beq lbl_801E0EAC
 /* 801E0EA0 001DDE00  38 61 00 8C */	addi r3, r1, 0x8c
@@ -8242,7 +8242,7 @@ lbl_801E144C:
 lbl_801E1460:
 /* 801E1460 001DE3C0  7F C3 F3 78 */	mr r3, r30
 /* 801E1464 001DE3C4  7E 64 9B 78 */	mr r4, r19
-/* 801E1468 001DE3C8  4B E6 B8 8D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 801E1468 001DE3C8  4B E6 B8 8D */	bl AddObject__13CStateManagerFP7CEntity
 /* 801E146C 001DE3CC  80 1F 06 14 */	lwz r0, 0x614(r31)
 /* 801E1470 001DE3D0  80 BF 06 18 */	lwz r5, 0x618(r31)
 /* 801E1474 001DE3D4  7C 00 28 00 */	cmpw r0, r5

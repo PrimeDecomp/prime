@@ -25,8 +25,11 @@ class CStateManager;
 
 // TODO move
 #include "Kyoto/Math/CQuaternion.hpp"
-struct SAdvancementDeltas {
+struct CAdvancementDeltas {
 public:
+  CAdvancementDeltas(const CVector3f& posDelta, const CQuaternion& rotDelta)
+  : x0_posDelta(posDelta), xc_rotDelta(rotDelta) {}
+
   const CVector3f& GetOffsetDelta() const { return x0_posDelta; }
   const CQuaternion& GetOrientationDelta() const { return xc_rotDelta; }
 
@@ -34,7 +37,7 @@ private:
   CVector3f x0_posDelta;
   CQuaternion xc_rotDelta;
 };
-CHECK_SIZEOF(SAdvancementDeltas, 0x1c)
+CHECK_SIZEOF(CAdvancementDeltas, 0x1c)
 
 class CModelData {
 public:
@@ -54,7 +57,7 @@ public:
   CModelData(const CModelData& other);
   ~CModelData();
 
-  SAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
+  CAdvancementDeltas AdvanceAnimation(float dt, CStateManager& mgr, TAreaId aid, bool advTree);
   void AdvanceParticles(const CTransform4f& xf, float dt, CStateManager& mgr);
   void RenderParticles(const CFrustumPlanes& planes) const;
   void RenderUnsortedParts(EWhichModel which, const CTransform4f& xf, const CActorLights* lights,

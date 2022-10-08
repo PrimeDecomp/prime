@@ -623,7 +623,7 @@ Death__7CPufferFRC9CVector3fR13CStateManager:
 /* 8025C5C0 00259520  7C 64 1B 78 */	mr r4, r3
 lbl_8025C5C4:
 /* 8025C5C4 00259524  7F E3 FB 78 */	mr r3, r31
-/* 8025C5C8 00259528  4B DF 07 2D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8025C5C8 00259528  4B DF 07 2D */	bl AddObject__13CStateManagerFP7CEntity
 /* 8025C5CC 0025952C  BB 61 01 4C */	lmw r27, 0x14c(r1)
 /* 8025C5D0 00259530  80 01 01 64 */	lwz r0, 0x164(r1)
 /* 8025C5D4 00259534  7C 08 03 A6 */	mtlr r0

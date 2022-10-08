@@ -9812,7 +9812,7 @@ lbl_800F583C:
 lbl_800F5938:
 /* 800F5938 000F2898  7F E3 FB 78 */	mr r3, r31
 /* 800F593C 000F289C  7F A4 EB 78 */	mr r4, r29
-/* 800F5940 000F28A0  4B F5 73 B5 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 800F5940 000F28A0  4B F5 73 B5 */	bl AddObject__13CStateManagerFP7CEntity
 /* 800F5944 000F28A4  7F 80 07 75 */	extsb. r0, r28
 /* 800F5948 000F28A8  41 82 00 18 */	beq lbl_800F5960
 /* 800F594C 000F28AC  38 61 00 24 */	addi r3, r1, 0x24

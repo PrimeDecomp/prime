@@ -307,7 +307,7 @@ sub_8029f318:
 lbl_8029F3F4:
 /* 8029F3F4 0029C354  7F 83 E3 78 */	mr r3, r28
 /* 8029F3F8 0029C358  7F A4 EB 78 */	mr r4, r29
-/* 8029F3FC 0029C35C  4B DA D8 F9 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8029F3FC 0029C35C  4B DA D8 F9 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8029F400 0029C360  BB 21 00 44 */	lmw r25, 0x44(r1)
 /* 8029F404 0029C364  80 01 00 64 */	lwz r0, 0x64(r1)
 /* 8029F408 0029C368  7C 08 03 A6 */	mtlr r0
@@ -534,7 +534,7 @@ lbl_8029F694:
 lbl_8029F740:
 /* 8029F740 0029C6A0  7F C3 F3 78 */	mr r3, r30
 /* 8029F744 0029C6A4  7F 84 E3 78 */	mr r4, r28
-/* 8029F748 0029C6A8  4B DA D5 AD */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8029F748 0029C6A8  4B DA D5 AD */	bl AddObject__13CStateManagerFP7CEntity
 /* 8029F74C 0029C6AC  7F 40 07 75 */	extsb. r0, r26
 /* 8029F750 0029C6B0  41 82 00 44 */	beq lbl_8029F794
 /* 8029F754 0029C6B4  80 01 00 D0 */	lwz r0, 0xd0(r1)

@@ -486,7 +486,7 @@ lbl_800E0650:
 lbl_800E0658:
 /* 800E0658 000DD5B8  7E E3 BB 78 */	mr r3, r23
 /* 800E065C 000DD5BC  7F A4 EB 78 */	mr r4, r29
-/* 800E0660 000DD5C0  4B F6 C6 95 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 800E0660 000DD5C0  4B F6 C6 95 */	bl AddObject__13CStateManagerFP7CEntity
 /* 800E0664 000DD5C4  7F A3 EB 78 */	mr r3, r29
 /* 800E0668 000DD5C8  FC 20 D0 90 */	fmr f1, f26
 /* 800E066C 000DD5CC  81 9D 00 00 */	lwz r12, 0(r29)

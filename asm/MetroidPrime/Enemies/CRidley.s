@@ -7443,7 +7443,7 @@ lbl_8025879C:
 /* 802587A0 00255700  41 82 00 24 */	beq lbl_802587C4
 /* 802587A4 00255704  7F A3 EB 78 */	mr r3, r29
 /* 802587A8 00255708  7F 64 DB 78 */	mr r4, r27
-/* 802587AC 0025570C  4B DF 45 49 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 802587AC 0025570C  4B DF 45 49 */	bl AddObject__13CStateManagerFP7CEntity
 /* 802587B0 00255710  7F 63 DB 78 */	mr r3, r27
 /* 802587B4 00255714  38 9C 06 34 */	addi r4, r28, 0x634
 /* 802587B8 00255718  4B FB B3 15 */	bl SetCameraShake__17CEnergyProjectileFRC16CCameraShakeData
@@ -7627,7 +7627,7 @@ lbl_80258A58:
 /* 80258A5C 002559BC  41 82 02 44 */	beq lbl_80258CA0
 /* 80258A60 002559C0  7F A3 EB 78 */	mr r3, r29
 /* 80258A64 002559C4  7F 64 DB 78 */	mr r4, r27
-/* 80258A68 002559C8  4B DF 42 8D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80258A68 002559C8  4B DF 42 8D */	bl AddObject__13CStateManagerFP7CEntity
 /* 80258A6C 002559CC  7F 63 DB 78 */	mr r3, r27
 /* 80258A70 002559D0  38 9C 07 28 */	addi r4, r28, 0x728
 /* 80258A74 002559D4  4B FB B0 59 */	bl SetCameraShake__17CEnergyProjectileFRC16CCameraShakeData

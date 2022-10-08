@@ -97,7 +97,7 @@ lbl_800E83D4:
 /* 800E83FC 000E535C  48 25 53 C1 */	bl "__ct__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>FPCwiRCQ24rstl17rmemory_allocator"
 /* 800E8400 000E5360  38 61 00 38 */	addi r3, r1, 0x38
 /* 800E8404 000E5364  38 9C 00 34 */	addi r4, r28, 0x34
-/* 800E8408 000E5368  4B F8 38 61 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 800E8408 000E5368  4B F8 38 61 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 800E840C 000E536C  38 61 00 38 */	addi r3, r1, 0x38
 /* 800E8410 000E5370  48 25 4D 25 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 800E8414 000E5374  48 00 00 7C */	b lbl_800E8490
@@ -107,7 +107,7 @@ lbl_800E8418:
 /* 800E8420 000E5380  4B F2 D5 D1 */	bl wstring_l__4rstlFPCw
 /* 800E8424 000E5384  38 61 00 28 */	addi r3, r1, 0x28
 /* 800E8428 000E5388  38 9C 00 34 */	addi r4, r28, 0x34
-/* 800E842C 000E538C  4B F8 38 3D */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 800E842C 000E538C  4B F8 38 3D */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 800E8430 000E5390  38 61 00 28 */	addi r3, r1, 0x28
 /* 800E8434 000E5394  48 25 4D 01 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 800E8438 000E5398  48 00 00 58 */	b lbl_800E8490
@@ -130,7 +130,7 @@ lbl_800E843C:
 /* 800E8478 000E53D8  D0 01 00 10 */	stfs f0, 0x10(r1)
 /* 800E847C 000E53DC  98 01 00 15 */	stb r0, 0x15(r1)
 /* 800E8480 000E53E0  98 A1 00 16 */	stb r5, 0x16(r1)
-/* 800E8484 000E53E4  4B F8 37 E5 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 800E8484 000E53E4  4B F8 37 E5 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 800E8488 000E53E8  38 61 00 18 */	addi r3, r1, 0x18
 /* 800E848C 000E53EC  48 25 4C A9 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 lbl_800E8490:

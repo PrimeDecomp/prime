@@ -216,7 +216,7 @@ lbl_8020853C:
 /* 80208624 00205584  80 DF 00 6C */	lwz r6, 0x6c(r31)
 /* 80208628 00205588  7C C0 03 78 */	or r0, r6, r0
 /* 8020862C 0020558C  90 1F 00 6C */	stw r0, 0x6c(r31)
-/* 80208630 00205590  4B E4 46 C5 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80208630 00205590  4B E4 46 C5 */	bl AddObject__13CStateManagerFP7CEntity
 /* 80208634 00205594  80 1D 00 04 */	lwz r0, 4(r29)
 /* 80208638 00205598  7F C3 F3 78 */	mr r3, r30
 /* 8020863C 0020559C  7F E4 FB 78 */	mr r4, r31

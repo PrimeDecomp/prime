@@ -369,7 +369,7 @@ lbl_8015BFFC:
 /* 8015C000 00158F60  41 82 00 20 */	beq lbl_8015C020
 /* 8015C004 00158F64  7F C3 F3 78 */	mr r3, r30
 /* 8015C008 00158F68  7F E4 FB 78 */	mr r4, r31
-/* 8015C00C 00158F6C  4B EF 0C E9 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8015C00C 00158F6C  4B EF 0C E9 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8015C010 00158F70  7F E3 FB 78 */	mr r3, r31
 /* 8015C014 00158F74  7F C5 F3 78 */	mr r5, r30
 /* 8015C018 00158F78  38 80 00 12 */	li r4, 0x12
@@ -510,7 +510,7 @@ AddGrapplePoint__7CRipperFR13CStateManager:
 lbl_8015C204:
 /* 8015C204 00159164  7F C3 F3 78 */	mr r3, r30
 /* 8015C208 00159168  7F E4 FB 78 */	mr r4, r31
-/* 8015C20C 0015916C  4B EF 0A E9 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8015C20C 0015916C  4B EF 0A E9 */	bl AddObject__13CStateManagerFP7CEntity
 /* 8015C210 00159170  7F 60 07 75 */	extsb. r0, r27
 /* 8015C214 00159174  41 82 00 0C */	beq lbl_8015C220
 /* 8015C218 00159178  38 61 00 2C */	addi r3, r1, 0x2c

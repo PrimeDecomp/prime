@@ -1483,7 +1483,7 @@ lbl_80147C60:
 /* 80147C84 00144BE4  48 16 74 B9 */	bl SetVelocity__17CProjectileWeaponFRC9CVector3f
 /* 80147C88 00144BE8  7F 83 E3 78 */	mr r3, r28
 /* 80147C8C 00144BEC  7F E4 FB 78 */	mr r4, r31
-/* 80147C90 00144BF0  4B F0 50 65 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 80147C90 00144BF0  4B F0 50 65 */	bl AddObject__13CStateManagerFP7CEntity
 lbl_80147C94:
 /* 80147C94 00144BF4  38 00 00 01 */	li r0, 1
 lbl_80147C98:

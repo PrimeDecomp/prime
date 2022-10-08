@@ -227,7 +227,7 @@ lbl_8027C764:
 lbl_8027C870:
 /* 8027C870 002797D0  7F C3 F3 78 */	mr r3, r30
 /* 8027C874 002797D4  7F E4 FB 78 */	mr r4, r31
-/* 8027C878 002797D8  4B DD 04 7D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8027C878 002797D8  4B DD 04 7D */	bl AddObject__13CStateManagerFP7CEntity
 /* 8027C87C 002797DC  7F 20 07 75 */	extsb. r0, r25
 /* 8027C880 002797E0  41 82 00 0C */	beq lbl_8027C88C
 /* 8027C884 002797E4  38 61 00 48 */	addi r3, r1, 0x48

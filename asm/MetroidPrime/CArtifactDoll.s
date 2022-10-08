@@ -94,8 +94,8 @@ lbl_8029C924:
 /* 8029C930 00299890  38 60 FF FF */	li r3, -1
 /* 8029C934 00299894  4E 80 00 20 */	blr
 
-.global GetArtifactHeadScanFromItemType__13CArtifactDollF9EItemType
-GetArtifactHeadScanFromItemType__13CArtifactDollF9EItemType:
+.global GetArtifactHeadScanFromItemType__13CArtifactDollFQ212CPlayerState9EItemType
+GetArtifactHeadScanFromItemType__13CArtifactDollFQ212CPlayerState9EItemType:
 /* 8029C938 00299898  2C 03 00 1D */	cmpwi r3, 0x1d
 /* 8029C93C 0029989C  41 80 00 24 */	blt lbl_8029C960
 /* 8029C940 002998A0  2C 03 00 28 */	cmpwi r3, 0x28

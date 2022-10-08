@@ -540,8 +540,8 @@ lbl_80043F1C:
 /* 80043F24 00040E84  38 21 00 10 */	addi r1, r1, 0x10
 /* 80043F28 00040E88  4E 80 00 20 */	blr
 
-.global sub_80043f2c
-sub_80043f2c:
+.global QueueMessage__13CStateManagerFiUif
+QueueMessage__13CStateManagerFiUif:
 /* 80043F2C 00040E8C  90 83 0F 84 */	stw r4, 0xf84(r3)
 /* 80043F30 00040E90  90 A3 0F 88 */	stw r5, 0xf88(r3)
 /* 80043F34 00040E94  D0 23 0F 8C */	stfs f1, 0xf8c(r3)
@@ -854,7 +854,7 @@ lbl_80044354:
 lbl_80044364:
 /* 80044364 000412C4  7F A3 EB 78 */	mr r3, r29
 /* 80044368 000412C8  7E E4 BB 78 */	mr r4, r23
-/* 8004436C 000412CC  48 00 89 89 */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8004436C 000412CC  48 00 89 89 */	bl AddObject__13CStateManagerFP7CEntity
 lbl_80044370:
 /* 80044370 000412D0  7F C3 F3 78 */	mr r3, r30
 /* 80044374 000412D4  7F 24 CB 78 */	mr r4, r25
@@ -1660,7 +1660,7 @@ lbl_80044E54:
 /* 80044E7C 00041DDC  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 80044E80 00041DE0  98 01 00 21 */	stb r0, 0x21(r1)
 /* 80044E84 00041DE4  98 01 00 22 */	stb r0, 0x22(r1)
-/* 80044E88 00041DE8  48 02 6D E1 */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 80044E88 00041DE8  48 02 6D E1 */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 80044E8C 00041DEC  38 61 00 24 */	addi r3, r1, 0x24
 /* 80044E90 00041DF0  48 2F 82 A5 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 80044E94 00041DF4  48 00 00 44 */	b lbl_80044ED8
@@ -6245,7 +6245,7 @@ lbl_80048DC0:
 /* 80048E80 00045DE0  D0 01 00 1C */	stfs f0, 0x1c(r1)
 /* 80048E84 00045DE4  98 01 00 21 */	stb r0, 0x21(r1)
 /* 80048E88 00045DE8  98 01 00 22 */	stb r0, 0x22(r1)
-/* 80048E8C 00045DEC  48 02 2D DD */	bl DisplayHudMemo__9CSamusHudFRC7wstringRC12SHudMemoInfo
+/* 80048E8C 00045DEC  48 02 2D DD */	bl "DisplayHudMemo__9CSamusHudFRCQ24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>RC13CHUDMemoParms"
 /* 80048E90 00045DF0  38 61 00 54 */	addi r3, r1, 0x54
 /* 80048E94 00045DF4  48 2F 42 A1 */	bl "internal_dereference__Q24rstl66basic_string<w,Q24rstl14char_traits<w>,Q24rstl17rmemory_allocator>Fv"
 /* 80048E98 00045DF8  7F 43 D3 78 */	mr r3, r26
@@ -10668,8 +10668,8 @@ lbl_8004CCD4:
 /* 8004CCEC 00049C4C  38 21 00 60 */	addi r1, r1, 0x60
 /* 8004CCF0 00049C50  4E 80 00 20 */	blr
 
-.global AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
-AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence:
+.global AddObject__13CStateManagerFP7CEntity
+AddObject__13CStateManagerFP7CEntity:
 /* 8004CCF4 00049C54  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8004CCF8 00049C58  7C 08 02 A6 */	mflr r0
 /* 8004CCFC 00049C5C  28 04 00 00 */	cmplwi r4, 0

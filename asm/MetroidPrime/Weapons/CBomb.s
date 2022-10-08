@@ -396,7 +396,7 @@ lbl_8008FD98:
 lbl_8008FE90:
 /* 8008FE90 0008CDF0  7F E3 FB 78 */	mr r3, r31
 /* 8008FE94 0008CDF4  7F 64 DB 78 */	mr r4, r27
-/* 8008FE98 0008CDF8  4B FB CE 5D */	bl AddObject__13CStateManagerFP7CEntityQ213CStateManager18EScriptPersistence
+/* 8008FE98 0008CDF8  4B FB CE 5D */	bl AddObject__13CStateManagerFP7CEntity
 /* 8008FE9C 0008CDFC  7F 40 07 75 */	extsb. r0, r26
 /* 8008FEA0 0008CE00  41 82 00 0C */	beq lbl_8008FEAC
 /* 8008FEA4 0008CE04  38 61 00 5C */	addi r3, r1, 0x5c
