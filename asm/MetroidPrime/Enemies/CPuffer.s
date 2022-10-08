@@ -619,7 +619,7 @@ Death__7CPufferFRC9CVector3fR13CStateManager:
 /* 8025C5B0 00259510  54 00 D7 FE */	rlwinm r0, r0, 0x1a, 0x1f, 0x1f
 /* 8025C5B4 00259514  90 01 00 20 */	stw r0, 0x20(r1)
 /* 8025C5B8 00259518  C0 5E 05 B8 */	lfs f2, 0x5b8(r30)
-/* 8025C5BC 0025951C  48 00 0C 21 */	bl __ct__5CFire
+/* 8025C5BC 0025951C  48 00 0C 21 */	bl "__ct__5CFireF25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff"
 /* 8025C5C0 00259520  7C 64 1B 78 */	mr r4, r3
 lbl_8025C5C4:
 /* 8025C5C4 00259524  7F E3 FB 78 */	mr r3, r31
