@@ -9,7 +9,7 @@ CFire::CFire(TToken< CGenDescription > effect, TUniqueId uid, TAreaId area, bool
              TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox,
              const CVector3f& vec, bool b1, CAssetId visorEffect, bool b2, bool b3, bool b4,
              float f1, float f2, float f3, float f4)
-: CActor(uid, active, rstl::string("Fire", -1), CEntityInfo(area, NullConnectionList), xf,
+: CActor(uid, active, "Fire", CEntityInfo(area, NullConnectionList), xf,
          CModelData::CModelDataNull(), MakeMaterialList(), CActorParameters::None(),
          kInvalidUniqueId)
 , xe8_(new CElementGen(effect))
