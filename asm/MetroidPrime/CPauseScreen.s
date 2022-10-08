@@ -2684,7 +2684,7 @@ lbl_80072DC0:
 /* 80072DD8 0006FD38  7F 46 D3 78 */	mr r6, r26
 /* 80072DDC 0006FD3C  48 00 09 21 */	bl StartTransition__12CPauseScreenFfRC13CStateManagerQ212CPauseScreen10ESubScreeni
 lbl_80072DE0:
-/* 80072DE0 0006FD40  C0 22 CC 2C */	lfs f1, lbl_805AE94C@sda21(r2)
+/* 80072DE0 0006FD40  C0 22 CC 2C */	lfs f1, kInput_AnalogTriggerOnThreshhold__11CFinalInput@sda21(r2)
 /* 80072DE4 0006FD44  C0 1C 00 18 */	lfs f0, 0x18(r28)
 /* 80072DE8 0006FD48  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80072DEC 0006FD4C  40 80 00 0C */	bge lbl_80072DF8

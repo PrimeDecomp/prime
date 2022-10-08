@@ -19,6 +19,8 @@ public:
   COsKeyState(int key, bool down, bool released, bool repeat, bool unk)
   : x0_key(key), x4_down(down), x4_released(released), x4_repeat(repeat), x4_unk(unk) {}
 
+  bool IsPressed() const { return x4_down; }
+  bool JustPressed() const { return x4_unk && x4_down; }
 private:
   int x0_key;
   short x4_down : 1;

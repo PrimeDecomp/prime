@@ -1152,7 +1152,7 @@ lbl_802C7498:
 /* 802C7498 002C43F8  88 7E 00 D1 */	lbz r3, 0xd1(r30)
 /* 802C749C 002C43FC  28 03 00 00 */	cmplwi r3, 0
 /* 802C74A0 002C4400  41 82 00 2C */	beq lbl_802C74CC
-/* 802C74A4 002C4404  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 802C74A4 002C4404  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 802C74A8 002C4408  3B A0 00 01 */	li r29, 1
 /* 802C74AC 002C440C  C0 1F 00 0C */	lfs f0, 0xc(r31)
 /* 802C74B0 002C4410  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1163,7 +1163,7 @@ lbl_802C7498:
 /* 802C74C4 002C4424  3B A0 00 00 */	li r29, 0
 /* 802C74C8 002C4428  48 00 00 28 */	b lbl_802C74F0
 lbl_802C74CC:
-/* 802C74CC 002C442C  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 802C74CC 002C442C  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 802C74D0 002C4430  3B A0 00 01 */	li r29, 1
 /* 802C74D4 002C4434  C0 1F 00 08 */	lfs f0, 8(r31)
 /* 802C74D8 002C4438  FC 20 08 50 */	fneg f1, f1
@@ -1175,7 +1175,7 @@ lbl_802C74CC:
 lbl_802C74F0:
 /* 802C74F0 002C4450  28 03 00 00 */	cmplwi r3, 0
 /* 802C74F4 002C4454  41 82 00 30 */	beq lbl_802C7524
-/* 802C74F8 002C4458  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 802C74F8 002C4458  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 802C74FC 002C445C  3B 80 00 01 */	li r28, 1
 /* 802C7500 002C4460  C0 1F 00 0C */	lfs f0, 0xc(r31)
 /* 802C7504 002C4464  FC 20 08 50 */	fneg f1, f1
@@ -1187,7 +1187,7 @@ lbl_802C74F0:
 /* 802C751C 002C447C  3B 80 00 00 */	li r28, 0
 /* 802C7520 002C4480  48 00 00 28 */	b lbl_802C7548
 lbl_802C7524:
-/* 802C7524 002C4484  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 802C7524 002C4484  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 802C7528 002C4488  3B 80 00 01 */	li r28, 1
 /* 802C752C 002C448C  C0 1F 00 08 */	lfs f0, 8(r31)
 /* 802C7530 002C4490  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1238,4 +1238,3 @@ lbl_803D68D0:
 	# ROM: 0x3D38D0
 	.asciz "??(??)"
 	.balign 4
-

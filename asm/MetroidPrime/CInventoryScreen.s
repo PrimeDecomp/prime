@@ -1660,7 +1660,7 @@ lbl_802071A0:
 /* 802071D4 00204134  7C 00 00 34 */	cntlzw r0, r0
 /* 802071D8 00204138  54 1D D9 7E */	srwi r29, r0, 5
 /* 802071DC 0020413C  41 82 01 34 */	beq lbl_80207310
-/* 802071E0 00204140  C0 02 CC 28 */	lfs f0, lbl_805AE948@sda21(r2)
+/* 802071E0 00204140  C0 02 CC 28 */	lfs f0, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 802071E4 00204144  38 80 00 00 */	li r4, 0
 /* 802071E8 00204148  C0 3C 00 0C */	lfs f1, 0xc(r28)
 /* 802071EC 0020414C  FC 00 08 40 */	fcmpo cr0, f0, f1

@@ -1225,15 +1225,15 @@ __ct__11CFinalInputFv:
 
 .section .sdata2, "a"
 .balign 8
-.global lbl_805AE948
-lbl_805AE948:
+.global kInput_AnalogOnThreshhold__11CFinalInput
+kInput_AnalogOnThreshhold__11CFinalInput:
 	# ROM: 0x3FB1E8
 	.float 0.7
 
-.global lbl_805AE94C
-lbl_805AE94C:
+.global kInput_AnalogTriggerOnThreshhold__11CFinalInput
+kInput_AnalogTriggerOnThreshhold__11CFinalInput:
 	# ROM: 0x3FB1EC
-	.4byte 0x3D4CCCCD
+	.float 0.05
 
 .global lbl_805AE950
 lbl_805AE950:
@@ -1250,4 +1250,3 @@ lbl_805AE958:
 	# ROM: 0x3FB1F8
 	.4byte 0xBF333333
 	.4byte 0
-

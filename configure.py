@@ -75,6 +75,7 @@ COMPLETE_OBJECTS = [
     "Kyoto/zlib/infutil",
     "Kyoto/zlib/zutil",
     "Kyoto/Graphics/CColor",
+    "Kyoto/Input/CFinalInput",
     "Kyoto/Input/RumbleAdsr",
     "Kyoto/Input/DolphinIController",
     "Kyoto/Input/CDolphinController",

@@ -452,7 +452,7 @@ lbl_802C6060:
 ProcessUserInput__15CGuiSliderGroupFRC11CFinalInput:
 /* 802C611C 002C307C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802C6120 002C3080  7C 08 02 A6 */	mflr r0
-/* 802C6124 002C3084  C0 42 CC 28 */	lfs f2, lbl_805AE948@sda21(r2)
+/* 802C6124 002C3084  C0 42 CC 28 */	lfs f2, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 802C6128 002C3088  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802C612C 002C308C  FC 00 10 50 */	fneg f0, f2
 /* 802C6130 002C3090  C0 24 00 08 */	lfs f1, 8(r4)
@@ -681,4 +681,3 @@ lbl_803D68C0:
 	# ROM: 0x3D38C0
 	.asciz "??(??)"
 	.balign 4
-

@@ -1439,7 +1439,7 @@ PDPUp__11CFinalInputCFv:
 
 .global PRTrigger__11CFinalInputCFv
 PRTrigger__11CFinalInputCFv:
-/* 8000D058 00009FB8  C0 22 CC 2C */	lfs f1, lbl_805AE94C@sda21(r2)
+/* 8000D058 00009FB8  C0 22 CC 2C */	lfs f1, kInput_AnalogTriggerOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D05C 00009FBC  C0 03 00 28 */	lfs f0, 0x28(r3)
 /* 8000D060 00009FC0  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D064 00009FC4  40 80 00 0C */	bge lbl_8000D070
@@ -1451,7 +1451,7 @@ lbl_8000D070:
 
 .global PLTrigger__11CFinalInputCFv
 PLTrigger__11CFinalInputCFv:
-/* 8000D078 00009FD8  C0 22 CC 2C */	lfs f1, lbl_805AE94C@sda21(r2)
+/* 8000D078 00009FD8  C0 22 CC 2C */	lfs f1, kInput_AnalogTriggerOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D07C 00009FDC  C0 03 00 24 */	lfs f0, 0x24(r3)
 /* 8000D080 00009FE0  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D084 00009FE4  40 80 00 0C */	bge lbl_8000D090
@@ -1463,7 +1463,7 @@ lbl_8000D090:
 
 .global PRARight__11CFinalInputCFv
 PRARight__11CFinalInputCFv:
-/* 8000D098 00009FF8  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D098 00009FF8  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D09C 00009FFC  38 80 00 00 */	li r4, 0
 /* 8000D0A0 0000A000  C0 03 00 10 */	lfs f0, 0x10(r3)
 /* 8000D0A4 0000A004  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1481,7 +1481,7 @@ lbl_8000D0BC:
 
 .global PRALeft__11CFinalInputCFv
 PRALeft__11CFinalInputCFv:
-/* 8000D0D0 0000A030  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D0D0 0000A030  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D0D4 0000A034  38 80 00 00 */	li r4, 0
 /* 8000D0D8 0000A038  C0 03 00 10 */	lfs f0, 0x10(r3)
 /* 8000D0DC 0000A03C  FC 20 08 50 */	fneg f1, f1
@@ -1500,7 +1500,7 @@ lbl_8000D0F8:
 
 .global PRADown__11CFinalInputCFv
 PRADown__11CFinalInputCFv:
-/* 8000D10C 0000A06C  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D10C 0000A06C  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D110 0000A070  38 80 00 00 */	li r4, 0
 /* 8000D114 0000A074  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 8000D118 0000A078  FC 20 08 50 */	fneg f1, f1
@@ -1519,7 +1519,7 @@ lbl_8000D134:
 
 .global PRAUp__11CFinalInputCFv
 PRAUp__11CFinalInputCFv:
-/* 8000D148 0000A0A8  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D148 0000A0A8  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D14C 0000A0AC  38 80 00 00 */	li r4, 0
 /* 8000D150 0000A0B0  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 8000D154 0000A0B4  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1537,7 +1537,7 @@ lbl_8000D16C:
 
 .global PLARight__11CFinalInputCFv
 PLARight__11CFinalInputCFv:
-/* 8000D180 0000A0E0  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D180 0000A0E0  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D184 0000A0E4  38 80 00 00 */	li r4, 0
 /* 8000D188 0000A0E8  C0 03 00 08 */	lfs f0, 8(r3)
 /* 8000D18C 0000A0EC  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1555,7 +1555,7 @@ lbl_8000D1A4:
 
 .global PLALeft__11CFinalInputCFv
 PLALeft__11CFinalInputCFv:
-/* 8000D1B8 0000A118  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D1B8 0000A118  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D1BC 0000A11C  38 80 00 00 */	li r4, 0
 /* 8000D1C0 0000A120  C0 03 00 08 */	lfs f0, 8(r3)
 /* 8000D1C4 0000A124  FC 20 08 50 */	fneg f1, f1
@@ -1574,7 +1574,7 @@ lbl_8000D1E0:
 
 .global PLADown__11CFinalInputCFv
 PLADown__11CFinalInputCFv:
-/* 8000D1F4 0000A154  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D1F4 0000A154  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D1F8 0000A158  38 80 00 00 */	li r4, 0
 /* 8000D1FC 0000A15C  C0 03 00 0C */	lfs f0, 0xc(r3)
 /* 8000D200 0000A160  FC 20 08 50 */	fneg f1, f1
@@ -1593,7 +1593,7 @@ lbl_8000D21C:
 
 .global PLAUp__11CFinalInputCFv
 PLAUp__11CFinalInputCFv:
-/* 8000D230 0000A190  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D230 0000A190  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D234 0000A194  38 80 00 00 */	li r4, 0
 /* 8000D238 0000A198  C0 03 00 0C */	lfs f0, 0xc(r3)
 /* 8000D23C 0000A19C  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1719,7 +1719,7 @@ DDPUp__11CFinalInputCFv:
 
 .global DRTrigger__11CFinalInputCFv
 DRTrigger__11CFinalInputCFv:
-/* 8000D388 0000A2E8  C0 22 CC 2C */	lfs f1, lbl_805AE94C@sda21(r2)
+/* 8000D388 0000A2E8  C0 22 CC 2C */	lfs f1, kInput_AnalogTriggerOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D38C 0000A2EC  C0 03 00 1C */	lfs f0, 0x1c(r3)
 /* 8000D390 0000A2F0  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D394 0000A2F4  40 80 00 0C */	bge lbl_8000D3A0
@@ -1731,7 +1731,7 @@ lbl_8000D3A0:
 
 .global DLTrigger__11CFinalInputCFv
 DLTrigger__11CFinalInputCFv:
-/* 8000D3A8 0000A308  C0 22 CC 2C */	lfs f1, lbl_805AE94C@sda21(r2)
+/* 8000D3A8 0000A308  C0 22 CC 2C */	lfs f1, kInput_AnalogTriggerOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D3AC 0000A30C  C0 03 00 18 */	lfs f0, 0x18(r3)
 /* 8000D3B0 0000A310  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D3B4 0000A314  40 80 00 0C */	bge lbl_8000D3C0
@@ -1743,7 +1743,7 @@ lbl_8000D3C0:
 
 .global DRARight__11CFinalInputCFv
 DRARight__11CFinalInputCFv:
-/* 8000D3C8 0000A328  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D3C8 0000A328  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D3CC 0000A32C  C0 03 00 10 */	lfs f0, 0x10(r3)
 /* 8000D3D0 0000A330  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D3D4 0000A334  40 80 00 0C */	bge lbl_8000D3E0
@@ -1755,7 +1755,7 @@ lbl_8000D3E0:
 
 .global DRALeft__11CFinalInputCFv
 DRALeft__11CFinalInputCFv:
-/* 8000D3E8 0000A348  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D3E8 0000A348  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D3EC 0000A34C  C0 03 00 10 */	lfs f0, 0x10(r3)
 /* 8000D3F0 0000A350  FC 20 08 50 */	fneg f1, f1
 /* 8000D3F4 0000A354  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1768,7 +1768,7 @@ lbl_8000D404:
 
 .global DRADown__11CFinalInputCFv
 DRADown__11CFinalInputCFv:
-/* 8000D40C 0000A36C  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D40C 0000A36C  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D410 0000A370  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 8000D414 0000A374  FC 20 08 50 */	fneg f1, f1
 /* 8000D418 0000A378  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1781,7 +1781,7 @@ lbl_8000D428:
 
 .global DRAUp__11CFinalInputCFv
 DRAUp__11CFinalInputCFv:
-/* 8000D430 0000A390  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D430 0000A390  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D434 0000A394  C0 03 00 14 */	lfs f0, 0x14(r3)
 /* 8000D438 0000A398  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D43C 0000A39C  40 80 00 0C */	bge lbl_8000D448
@@ -1793,7 +1793,7 @@ lbl_8000D448:
 
 .global DLARight__11CFinalInputCFv
 DLARight__11CFinalInputCFv:
-/* 8000D450 0000A3B0  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D450 0000A3B0  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D454 0000A3B4  C0 03 00 08 */	lfs f0, 8(r3)
 /* 8000D458 0000A3B8  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D45C 0000A3BC  40 80 00 0C */	bge lbl_8000D468
@@ -1805,7 +1805,7 @@ lbl_8000D468:
 
 .global DLALeft__11CFinalInputCFv
 DLALeft__11CFinalInputCFv:
-/* 8000D470 0000A3D0  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D470 0000A3D0  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D474 0000A3D4  C0 03 00 08 */	lfs f0, 8(r3)
 /* 8000D478 0000A3D8  FC 20 08 50 */	fneg f1, f1
 /* 8000D47C 0000A3DC  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1818,7 +1818,7 @@ lbl_8000D48C:
 
 .global DLADown__11CFinalInputCFv
 DLADown__11CFinalInputCFv:
-/* 8000D494 0000A3F4  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D494 0000A3F4  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D498 0000A3F8  C0 03 00 0C */	lfs f0, 0xc(r3)
 /* 8000D49C 0000A3FC  FC 20 08 50 */	fneg f1, f1
 /* 8000D4A0 0000A400  FC 01 00 40 */	fcmpo cr0, f1, f0
@@ -1831,7 +1831,7 @@ lbl_8000D4B0:
 
 .global DLAUp__11CFinalInputCFv
 DLAUp__11CFinalInputCFv:
-/* 8000D4B8 0000A418  C0 22 CC 28 */	lfs f1, lbl_805AE948@sda21(r2)
+/* 8000D4B8 0000A418  C0 22 CC 28 */	lfs f1, kInput_AnalogOnThreshhold__11CFinalInput@sda21(r2)
 /* 8000D4BC 0000A41C  C0 03 00 0C */	lfs f0, 0xc(r3)
 /* 8000D4C0 0000A420  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8000D4C4 0000A424  40 80 00 0C */	bge lbl_8000D4D0
