@@ -108,7 +108,7 @@ void CFinalInput::InitializeAnalog(float leftDiv, float rightDiv) {
     sIsAnalogPressed[x4_controllerIdx][0] = true;
   } else if (xc_anaLeftY < -0.7f && sIsAnalogPressed[x4_controllerIdx][0]) {
     x21_enableAnaLeftYP = false;
-  } else if ((float)fabs(xc_anaLeftY) < 0.7f) {
+  } else if (fabsf(xc_anaLeftY) < 0.7f) {
     x21_enableAnaLeftYP = false;
     sIsAnalogPressed[x4_controllerIdx][0] = false;
   }
@@ -123,7 +123,7 @@ void CFinalInput::InitializeAnalog(float leftDiv, float rightDiv) {
     x20_enableAnaLeftXP = true;
   } else if (x8_anaLeftX < -0.7f && sIsAnalogPressed[x4_controllerIdx][1]) {
     x20_enableAnaLeftXP = false;
-  } else if ((float)fabs(x8_anaLeftX) < 0.7f) {
+  } else if (fabsf(x8_anaLeftX) < 0.7f) {
     x20_enableAnaLeftXP = false;
     sIsAnalogPressed[x4_controllerIdx][1] = false;
   }
@@ -138,7 +138,7 @@ void CFinalInput::InitializeAnalog(float leftDiv, float rightDiv) {
     sIsAnalogPressed[x4_controllerIdx][2] = true;
   } else if (x14_anaRightY < -0.7f && sIsAnalogPressed[x4_controllerIdx][2]) {
     x23_enableAnaRightYP = false;
-  } else if ((float)fabs(x14_anaRightY) < 0.7f) {
+  } else if (fabsf(x14_anaRightY) < 0.7f) {
     x23_enableAnaRightYP = false;
     sIsAnalogPressed[x4_controllerIdx][2] = false;
   }
@@ -153,7 +153,7 @@ void CFinalInput::InitializeAnalog(float leftDiv, float rightDiv) {
     x22_enableAnaRightXP = true;
   } else if (x10_anaRightX < -0.7f && sIsAnalogPressed[x4_controllerIdx][3]) {
     x22_enableAnaRightXP = false;
-  } else if ((float)fabs(x10_anaRightX) < 0.7f) {
+  } else if (fabsf(x10_anaRightX) < 0.7f) {
     x22_enableAnaRightXP = false;
     sIsAnalogPressed[x4_controllerIdx][3] = false;
   }
