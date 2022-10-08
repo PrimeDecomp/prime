@@ -24,6 +24,7 @@ args = parser.parse_args()
 # Completed c/cpp files to link
 COMPLETE_OBJECTS = [
     "MetroTRK/mslsupp",
+    "MetroidPrime/CAxisAngle",
     "MetroidPrime/CEntity",
     "MetroidPrime/TCastTo",
     "MetroidPrime/UserNames",
