@@ -11,6 +11,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayer.o\
 	$(BUILD_DIR)/src/MetroidPrime/CAxisAngle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CEulerAngles.o\
+	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmUserInput.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFrontEndUI.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInputGenerator.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CMainFlow.o\
@@ -28,10 +29,10 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayerGun.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CStateManager.o\
 	$(BUILD_DIR)/src/MetroidPrime/CEntity.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmInt32.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmInt32Int32VoidPtr.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmNull.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmReal32.o\
+	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmInt32.o\
+	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmInt32Int32VoidPtr.o\
+	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmNull.o\
+	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmReal32.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Decode.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CIOWinManager.o\
 	$(BUILD_DIR)/src/MetroidPrime/CIOWin.o\
@@ -39,7 +40,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CWorld.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Tweaks/CTweakParticle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Clamp_int.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CArchMsgParmControllerStatus.o\
+	$(BUILD_DIR)/src/MetroidPrime/CArchMsgParmControllerStatus.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CExplosion.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CEffect.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CGameCamera.o\

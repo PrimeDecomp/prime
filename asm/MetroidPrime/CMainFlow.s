@@ -418,11 +418,11 @@ lbl_8002394C:
 lbl_80023958:
 /* 80023958 000208B8  7C 83 23 78 */	mr r3, r4
 /* 8002395C 000208BC  48 02 E1 7D */	bl GetParmNewGameflowState__7MakeMsgFRC20CArchitectureMessage
-/* 80023960 000208C0  3C A0 80 3E */	lis r5, lbl_803D8E9C@ha
-/* 80023964 000208C4  3C 80 80 3E */	lis r4, lbl_803D9E50@ha
-/* 80023968 000208C8  38 05 8E 9C */	addi r0, r5, lbl_803D8E9C@l
+/* 80023960 000208C0  3C A0 80 3E */	lis r5, __vt__24IArchitectureMessageParm@ha
+/* 80023964 000208C4  3C 80 80 3E */	lis r4, __vt__17CArchMsgParmInt32@ha
+/* 80023968 000208C8  38 05 8E 9C */	addi r0, r5, __vt__24IArchitectureMessageParm@l
 /* 8002396C 000208CC  90 01 00 08 */	stw r0, 8(r1)
-/* 80023970 000208D0  38 04 9E 50 */	addi r0, r4, lbl_803D9E50@l
+/* 80023970 000208D0  38 04 9E 50 */	addi r0, r4, __vt__17CArchMsgParmInt32@l
 /* 80023974 000208D4  7F E5 FB 78 */	mr r5, r31
 /* 80023978 000208D8  90 01 00 08 */	stw r0, 8(r1)
 /* 8002397C 000208DC  80 83 00 04 */	lwz r4, 4(r3)

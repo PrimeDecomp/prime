@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803D9E60
-lbl_803D9E60:
+.global __vt__29CArchMsgParmInt32Int32VoidPtr
+__vt__29CArchMsgParmInt32Int32VoidPtr:
 	# ROM: 0x3D6E60
 	.4byte 0
 	.4byte 0
@@ -21,12 +21,12 @@ __dt__29CArchMsgParmInt32Int32VoidPtrFv:
 /* 80051650 0004E5B0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80051654 0004E5B4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80051658 0004E5B8  41 82 00 30 */	beq lbl_80051688
-/* 8005165C 0004E5BC  3C 60 80 3E */	lis r3, lbl_803D9E60@ha
-/* 80051660 0004E5C0  38 03 9E 60 */	addi r0, r3, lbl_803D9E60@l
+/* 8005165C 0004E5BC  3C 60 80 3E */	lis r3, __vt__29CArchMsgParmInt32Int32VoidPtr@ha
+/* 80051660 0004E5C0  38 03 9E 60 */	addi r0, r3, __vt__29CArchMsgParmInt32Int32VoidPtr@l
 /* 80051664 0004E5C4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80051668 0004E5C8  41 82 00 10 */	beq lbl_80051678
-/* 8005166C 0004E5CC  3C 60 80 3E */	lis r3, lbl_803D8E9C@ha
-/* 80051670 0004E5D0  38 03 8E 9C */	addi r0, r3, lbl_803D8E9C@l
+/* 8005166C 0004E5CC  3C 60 80 3E */	lis r3, __vt__24IArchitectureMessageParm@ha
+/* 80051670 0004E5D0  38 03 8E 9C */	addi r0, r3, __vt__24IArchitectureMessageParm@l
 /* 80051674 0004E5D4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80051678:
 /* 80051678 0004E5D8  7C 80 07 35 */	extsh. r0, r4
@@ -43,11 +43,11 @@ lbl_80051688:
 
 .global __ct__29CArchMsgParmInt32Int32VoidPtrFiiPCv
 __ct__29CArchMsgParmInt32Int32VoidPtrFiiPCv:
-/* 800516A0 0004E600  3D 00 80 3E */	lis r8, lbl_803D8E9C@ha
-/* 800516A4 0004E604  3C E0 80 3E */	lis r7, lbl_803D9E60@ha
-/* 800516A8 0004E608  39 08 8E 9C */	addi r8, r8, lbl_803D8E9C@l
+/* 800516A0 0004E600  3D 00 80 3E */	lis r8, __vt__24IArchitectureMessageParm@ha
+/* 800516A4 0004E604  3C E0 80 3E */	lis r7, __vt__29CArchMsgParmInt32Int32VoidPtr@ha
+/* 800516A8 0004E608  39 08 8E 9C */	addi r8, r8, __vt__24IArchitectureMessageParm@l
 /* 800516AC 0004E60C  91 03 00 00 */	stw r8, 0(r3)
-/* 800516B0 0004E610  38 07 9E 60 */	addi r0, r7, lbl_803D9E60@l
+/* 800516B0 0004E610  38 07 9E 60 */	addi r0, r7, __vt__29CArchMsgParmInt32Int32VoidPtr@l
 /* 800516B4 0004E614  90 03 00 00 */	stw r0, 0(r3)
 /* 800516B8 0004E618  90 83 00 04 */	stw r4, 4(r3)
 /* 800516BC 0004E61C  90 A3 00 08 */	stw r5, 8(r3)

@@ -25,8 +25,10 @@ enum EArchMsgType {
 };
 
 struct IArchitectureMessageParm {
-  virtual ~IArchitectureMessageParm() = 0;
+  inline virtual ~IArchitectureMessageParm() = 0;
 };
+
+IArchitectureMessageParm::~IArchitectureMessageParm() {}
 
 class CArchitectureMessage {
 private:

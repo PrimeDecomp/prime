@@ -25,8 +25,8 @@ __dt__28CArchMsgParmControllerStatusFv:
 /* 8005A0AC 0005700C  38 03 A0 98 */	addi r0, r3, lbl_803DA098@l
 /* 8005A0B0 00057010  90 1F 00 00 */	stw r0, 0(r31)
 /* 8005A0B4 00057014  41 82 00 10 */	beq lbl_8005A0C4
-/* 8005A0B8 00057018  3C 60 80 3E */	lis r3, lbl_803D8E9C@ha
-/* 8005A0BC 0005701C  38 03 8E 9C */	addi r0, r3, lbl_803D8E9C@l
+/* 8005A0B8 00057018  3C 60 80 3E */	lis r3, __vt__24IArchitectureMessageParm@ha
+/* 8005A0BC 0005701C  38 03 8E 9C */	addi r0, r3, __vt__24IArchitectureMessageParm@l
 /* 8005A0C0 00057020  90 1F 00 00 */	stw r0, 0(r31)
 lbl_8005A0C4:
 /* 8005A0C4 00057024  7C 80 07 35 */	extsh. r0, r4
@@ -43,13 +43,12 @@ lbl_8005A0D4:
 
 .global __ct__28CArchMsgParmControllerStatusFsb
 __ct__28CArchMsgParmControllerStatusFsb:
-/* 8005A0EC 0005704C  3C E0 80 3E */	lis r7, lbl_803D8E9C@ha
+/* 8005A0EC 0005704C  3C E0 80 3E */	lis r7, __vt__24IArchitectureMessageParm@ha
 /* 8005A0F0 00057050  3C C0 80 3E */	lis r6, lbl_803DA098@ha
-/* 8005A0F4 00057054  38 E7 8E 9C */	addi r7, r7, lbl_803D8E9C@l
+/* 8005A0F4 00057054  38 E7 8E 9C */	addi r7, r7, __vt__24IArchitectureMessageParm@l
 /* 8005A0F8 00057058  90 E3 00 00 */	stw r7, 0(r3)
 /* 8005A0FC 0005705C  38 06 A0 98 */	addi r0, r6, lbl_803DA098@l
 /* 8005A100 00057060  90 03 00 00 */	stw r0, 0(r3)
 /* 8005A104 00057064  B0 83 00 04 */	sth r4, 4(r3)
 /* 8005A108 00057068  98 A3 00 06 */	stb r5, 6(r3)
 /* 8005A10C 0005706C  4E 80 00 20 */	blr
-

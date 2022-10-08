@@ -3473,11 +3473,11 @@ lbl_8029A9C4:
 lbl_8029AA14:
 /* 8029AA14 00297974  7C 83 23 78 */	mr r3, r4
 /* 8029AA18 00297978  4B DB 70 CD */	bl GetParmUserInput__7MakeMsgFRC20CArchitectureMessage
-/* 8029AA1C 0029797C  3C A0 80 3E */	lis r5, lbl_803D8E9C@ha
-/* 8029AA20 00297980  3C 80 80 3E */	lis r4, lbl_803D9810@ha
-/* 8029AA24 00297984  38 05 8E 9C */	addi r0, r5, lbl_803D8E9C@l
+/* 8029AA1C 0029797C  3C A0 80 3E */	lis r5, __vt__24IArchitectureMessageParm@ha
+/* 8029AA20 00297980  3C 80 80 3E */	lis r4, __vt__21CArchMsgParmUserInput@ha
+/* 8029AA24 00297984  38 05 8E 9C */	addi r0, r5, __vt__24IArchitectureMessageParm@l
 /* 8029AA28 00297988  90 01 00 90 */	stw r0, 0x90(r1)
-/* 8029AA2C 0029798C  38 04 98 10 */	addi r0, r4, lbl_803D9810@l
+/* 8029AA2C 0029798C  38 04 98 10 */	addi r0, r4, __vt__21CArchMsgParmUserInput@l
 /* 8029AA30 00297990  90 01 00 90 */	stw r0, 0x90(r1)
 /* 8029AA34 00297994  C0 03 00 04 */	lfs f0, 4(r3)
 /* 8029AA38 00297998  D0 01 00 94 */	stfs f0, 0x94(r1)

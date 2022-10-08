@@ -1301,11 +1301,11 @@ lbl_80024A74:
 /* 80024A7C 000219DC  41 82 02 CC */	beq lbl_80024D48
 /* 80024A80 000219E0  7C 83 23 78 */	mr r3, r4
 /* 80024A84 000219E4  48 02 D0 61 */	bl GetParmUserInput__7MakeMsgFRC20CArchitectureMessage
-/* 80024A88 000219E8  3C A0 80 3E */	lis r5, lbl_803D8E9C@ha
-/* 80024A8C 000219EC  3C 80 80 3E */	lis r4, lbl_803D9810@ha
-/* 80024A90 000219F0  38 05 8E 9C */	addi r0, r5, lbl_803D8E9C@l
+/* 80024A88 000219E8  3C A0 80 3E */	lis r5, __vt__24IArchitectureMessageParm@ha
+/* 80024A8C 000219EC  3C 80 80 3E */	lis r4, __vt__21CArchMsgParmUserInput@ha
+/* 80024A90 000219F0  38 05 8E 9C */	addi r0, r5, __vt__24IArchitectureMessageParm@l
 /* 80024A94 000219F4  90 01 00 60 */	stw r0, 0x60(r1)
-/* 80024A98 000219F8  38 04 98 10 */	addi r0, r4, lbl_803D9810@l
+/* 80024A98 000219F8  38 04 98 10 */	addi r0, r4, __vt__21CArchMsgParmUserInput@l
 /* 80024A9C 000219FC  90 01 00 60 */	stw r0, 0x60(r1)
 /* 80024AA0 00021A00  C0 03 00 04 */	lfs f0, 4(r3)
 /* 80024AA4 00021A04  D0 01 00 64 */	stfs f0, 0x64(r1)
