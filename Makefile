@@ -149,7 +149,8 @@ $(PAD_FILES): MWCC_VERSION := 1.2.5
 $(PAD_FILES): CFLAGS := $(CFLAGS_BASE)
 $(DTK_FILES): MWCC_VERSION := 1.2.5
 $(DTK_FILES): CFLAGS := $(CFLAGS_BASE)
-
+$(SI_FILES): MWCC_VERSION := 1.2.5
+$(SI_FILES): CFLAGS := $(CFLAGS_BASE)
 #-------------------------------------------------------------------------------
 # Recipes
 #-------------------------------------------------------------------------------
