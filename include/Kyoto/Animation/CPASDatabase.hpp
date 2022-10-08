@@ -17,6 +17,7 @@ private:
   int x10_defaultState;
 
 public:
+  const CPASAnimState* GetAnimState(int) const;
   rstl::pair<float, int> FindBestAnimation(const CPASAnimParmData&, CRandom16&, int) const;
 };
 CHECK_SIZEOF(CPASDatabase, 0x14)

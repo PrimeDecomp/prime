@@ -12,7 +12,7 @@ class CGSFreeLook {
   int x8_loopState; // In, loop, out
   int xc_gunId;
   int x10_setId;
-  bool x14_idle;
+  bool x14_idle : 1;
 
 public:
   CGSFreeLook();
