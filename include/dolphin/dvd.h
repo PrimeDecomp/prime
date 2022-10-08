@@ -38,8 +38,32 @@ struct DVDCommandBlock {
 
 typedef struct DVDFileInfo DVDFileInfo;
 
+typedef void (*DVDCallback)(s32 result, DVDFileInfo* fileInfo);
+
+struct DVDFileInfo {
+  u32 startAddr;
+  u32 length;
+  DVDCallback callback;
+};
+
 void DVDSetAutoFatalMessaging(BOOL);
 void DVDReset();
+
+BOOL DVDPrepareStreamAsync(DVDFileInfo *fInfo, u32 length, u32 offset, DVDCallback callback);
+s32  DVDPrepareStream(DVDFileInfo *fInfo, u32 length, u32 offset);
+
+BOOL DVDCancelStreamAsync(DVDCommandBlock *block, DVDCBCallback callback);
+s32  DVDCancelStream(DVDCommandBlock *block);
+
+BOOL DVDStopStreamAtEndAsync(DVDCommandBlock *block, DVDCBCallback callback);
+s32  DVDStopStreamAtEnd(DVDCommandBlock *block);
+
+BOOL DVDGetStreamErrorStatusAsync(DVDCommandBlock *block, DVDCBCallback callback);
+s32  DVDGetStreamErrorStatus(DVDCommandBlock *block);
+
+BOOL DVDGetStreamPlayAddrAsync(DVDCommandBlock *block, DVDCBCallback callback);
+s32  DVDGetStreamPlayAddr(DVDCommandBlock *block);
+
 
 #ifdef __cplusplus
 }

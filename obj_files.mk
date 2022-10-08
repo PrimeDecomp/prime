@@ -812,7 +812,7 @@ MUSYX_FILES :=\
 	$(BUILD_DIR)/asm/musyx/chorus_fx.o\
 	
 DTK_FILES :=\
-	$(BUILD_DIR)/asm/Dolphin/dtk.o
+	$(BUILD_DIR)/src/Dolphin/dtk.ep.o
 	
 CARD_FILES :=\
 	$(BUILD_DIR)/asm/Dolphin/card/CARDBios.o\
