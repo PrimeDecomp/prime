@@ -73,8 +73,8 @@ lbl_803D8D90:
 	.4byte 0
 
 # CArchitectureMessage
-.global lbl_803D8E9C
-lbl_803D8E9C:
+.global __vt__24IArchitectureMessageParm
+__vt__24IArchitectureMessageParm:
 	# ROM: 0x3D5E9C
 	.4byte 0
 	.4byte 0

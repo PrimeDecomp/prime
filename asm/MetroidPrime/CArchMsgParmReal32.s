@@ -3,8 +3,8 @@
 .section .data
 .balign 8
 
-.global lbl_803D9E80
-lbl_803D9E80:
+.global __vt__18CArchMsgParmReal32
+__vt__18CArchMsgParmReal32:
 	# ROM: 0x3D6E80
 	.4byte 0
 	.4byte 0
@@ -21,12 +21,12 @@ __dt__18CArchMsgParmReal32Fv:
 /* 8005174C 0004E6AC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80051750 0004E6B0  7C 7F 1B 79 */	or. r31, r3, r3
 /* 80051754 0004E6B4  41 82 00 30 */	beq lbl_80051784
-/* 80051758 0004E6B8  3C 60 80 3E */	lis r3, lbl_803D9E80@ha
-/* 8005175C 0004E6BC  38 03 9E 80 */	addi r0, r3, lbl_803D9E80@l
+/* 80051758 0004E6B8  3C 60 80 3E */	lis r3, __vt__18CArchMsgParmReal32@ha
+/* 8005175C 0004E6BC  38 03 9E 80 */	addi r0, r3, __vt__18CArchMsgParmReal32@l
 /* 80051760 0004E6C0  90 1F 00 00 */	stw r0, 0(r31)
 /* 80051764 0004E6C4  41 82 00 10 */	beq lbl_80051774
-/* 80051768 0004E6C8  3C 60 80 3E */	lis r3, lbl_803D8E9C@ha
-/* 8005176C 0004E6CC  38 03 8E 9C */	addi r0, r3, lbl_803D8E9C@l
+/* 80051768 0004E6C8  3C 60 80 3E */	lis r3, __vt__24IArchitectureMessageParm@ha
+/* 8005176C 0004E6CC  38 03 8E 9C */	addi r0, r3, __vt__24IArchitectureMessageParm@l
 /* 80051770 0004E6D0  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80051774:
 /* 80051774 0004E6D4  7C 80 07 35 */	extsh. r0, r4
@@ -43,11 +43,11 @@ lbl_80051784:
 
 .global __ct__18CArchMsgParmReal32Ff
 __ct__18CArchMsgParmReal32Ff:
-/* 8005179C 0004E6FC  3C A0 80 3E */	lis r5, lbl_803D8E9C@ha
-/* 800517A0 0004E700  3C 80 80 3E */	lis r4, lbl_803D9E80@ha
-/* 800517A4 0004E704  38 A5 8E 9C */	addi r5, r5, lbl_803D8E9C@l
+/* 8005179C 0004E6FC  3C A0 80 3E */	lis r5, __vt__24IArchitectureMessageParm@ha
+/* 800517A0 0004E700  3C 80 80 3E */	lis r4, __vt__18CArchMsgParmReal32@ha
+/* 800517A4 0004E704  38 A5 8E 9C */	addi r5, r5, __vt__24IArchitectureMessageParm@l
 /* 800517A8 0004E708  90 A3 00 00 */	stw r5, 0(r3)
-/* 800517AC 0004E70C  38 04 9E 80 */	addi r0, r4, lbl_803D9E80@l
+/* 800517AC 0004E70C  38 04 9E 80 */	addi r0, r4, __vt__18CArchMsgParmReal32@l
 /* 800517B0 0004E710  90 03 00 00 */	stw r0, 0(r3)
 /* 800517B4 0004E714  D0 23 00 04 */	stfs f1, 4(r3)
 /* 800517B8 0004E718  4E 80 00 20 */	blr
