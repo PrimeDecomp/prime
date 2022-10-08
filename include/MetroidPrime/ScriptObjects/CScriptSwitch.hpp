@@ -9,8 +9,7 @@ public:
 
   void Accept(IVisitor& visitor);
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
-    ~CScriptSwitch();
-
+  ~CScriptSwitch();
 
 private:
   u8 mOpened;
