@@ -19,7 +19,7 @@ bool CGSFreeLook::Update(CAnimData& data, float dt, CStateManager& mgr) {
       x0_delay = 0.f;
       x4_cueAnimId = -1;
     }
-  } else if (!data.IsAnimTimeRemaining(0.001f, "Whole Body")) {
+  } else if (!data.IsAnimTimeRemaining(0.001f, rstl::string_l("Whole Body"))) {
     switch (x8_loopState) {
     case 0:
       SetAnim(data, xc_gunId, x10_setId, 1, mgr, 0.f);
