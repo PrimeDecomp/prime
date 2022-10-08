@@ -69,7 +69,8 @@ public:
   // CPhysicsActor
   virtual const CCollisionPrimitive* GetCollisionPrimitive() const;
   virtual CTransform4f GetPrimitiveTransform() const;
-  virtual void CollidedWith(TUniqueId id, const CCollisionInfoList& list, CStateManager& mgr);
+  virtual void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
+                            CStateManager& mgr);
   virtual f32 GetStepDownHeight() const;
   virtual f32 GetStepUpHeight() const;
   virtual f32 GetWeight() const;
@@ -101,7 +102,9 @@ public:
   const CVector3f& GetConstantForceWR() const { return xfc_constantForce; }
   void SetConstantForceWR(const CVector3f& force) { xfc_constantForce = force; }
   const CAxisAngle& GetAngularMomentumWR() const { return x108_angularMomentum; }
-  void SetAngularMomentumWR(const CAxisAngle& angularMomentum) { x108_angularMomentum = angularMomentum; }
+  void SetAngularMomentumWR(const CAxisAngle& angularMomentum) {
+    x108_angularMomentum = angularMomentum;
+  }
   const CVector3f& GetMomentumWR() const { return x150_momentum; }
   void SetMomentumWR(const CVector3f& momentum) { x150_momentum = momentum; }
   const CVector3f& GetForceWR() const { return x15c_force; }
@@ -111,7 +114,9 @@ public:
   const CAxisAngle& GetTorqueWR() const { return x174_torque; }
   void SetTorqueWR(const CAxisAngle& torque) { x174_torque = torque; }
   const CAxisAngle& GetAngularImpulseWR() const { return x180_angularImpulse; }
-  void SetAngularImpulseWR(const CAxisAngle& angularImpulse) { x180_angularImpulse = angularImpulse; }
+  void SetAngularImpulseWR(const CAxisAngle& angularImpulse) {
+    x180_angularImpulse = angularImpulse;
+  }
 
   CPhysicsState GetPhysicsState() const;
   void SetPhysicsState(const CPhysicsState& state);

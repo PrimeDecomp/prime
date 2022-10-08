@@ -53,9 +53,9 @@ public:
   f32& operator[](EDimX dim) { return mX; }
   f32& operator[](EDimY dim) { return mY; }
   f32& operator[](EDimZ dim) { return mZ; }
-  f32 operator[](EDimX) const { return mX; }
-  f32 operator[](EDimY) const { return mY; }
-  f32 operator[](EDimZ) const { return mZ; }
+  const f32& operator[](EDimX) const { return mX; }
+  const f32& operator[](EDimY) const { return mY; }
+  const f32& operator[](EDimZ) const { return mZ; }
 
   f32& operator[](int i) { return (&mX)[i]; }
   f32 operator[](int i) const { return (&mX)[i]; }

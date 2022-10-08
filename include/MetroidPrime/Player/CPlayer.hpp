@@ -140,7 +140,8 @@ public:
   // CPhysicsActor
   const CCollisionPrimitive* GetCollisionPrimitive() const override;
   CTransform4f GetPrimitiveTransform() const override;
-  void CollidedWith(TUniqueId id, const CCollisionInfoList& list, CStateManager& mgr) override;
+  void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
+                    CStateManager& mgr) override;
   f32 GetStepDownHeight() const override;
   f32 GetStepUpHeight() const override;
   f32 GetWeight() const override;
@@ -172,7 +173,7 @@ public:
   ESurfaceRestraints GetSurfaceRestraint() const {
     return x2b0_outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
   }
-  
+
   TUniqueId GetOrbitTargetId() const { return x310_orbitTargetId; }
   TUniqueId GetOrbitNextTargetId() const { return x33c_orbitNextTargetId; }
   TUniqueId GetScanningObjectId() const { return x3b4_scanningObject; }
