@@ -53,6 +53,8 @@ public:
     f32 m_float;
     bool m_bool;
   };
+  CPASAnimParm(const CPASAnimParm& other)
+  : x0_value(other.x0_value), x4_type(other.x4_type) {}
 
   static CPASAnimParm FromEnum(s32 val);
   static CPASAnimParm FromBool(bool val);
@@ -60,6 +62,8 @@ public:
   static CPASAnimParm FromUint32(u32 val);
   static CPASAnimParm FromInt32(s32 val);
   static CPASAnimParm NoParameter();
+
+  int GetInt32Value() const;
 
 private:
   UParmValue x0_value;
@@ -90,6 +94,8 @@ private:
 };
 
 class CPASAnimState {
+public:
+  CPASAnimParm GetAnimParmData(int, unsigned int) const;
 private:
   pas::EAnimationState x0_id;
   rstl::vector< CPASParmInfo > x4_parms;
