@@ -17,11 +17,14 @@ public:
     kMR_RemoveIOWin = 3,
   };
 
+  CIOWin(const rstl::string& name);
   virtual ~CIOWin();
+
+  const rstl::string& GetName() const;
   virtual EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) = 0;
   virtual bool GetIsContinueDraw() const;
-  virtual void Draw();
-  virtual void PreDraw();
+  virtual void Draw() const;
+  virtual void PreDraw() const;
 
 private:
   rstl::string x4_name;
