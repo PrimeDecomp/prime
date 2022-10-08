@@ -187,7 +187,7 @@ void CScriptPickup::Touch(CActor& act, CStateManager& mgr) {
       if (opts.GetShowPowerBombAmmoMessage()) {
         opts.IncrementPowerBombAmmoCount();
         CSamusHud::DisplayHudMemo(rstl::wstring_l(gpStringTable->GetString(109)),
-                                  CHUDMemoParms(0.5f, true, false, false));
+                                  CHUDMemoParms(5.f, true, false, false));
       }
     }
   }

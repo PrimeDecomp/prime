@@ -172,7 +172,6 @@ public:
   void DropPowerBomb(CStateManager&) const;
   void SetPhazonBeamFeedback(bool);
 
-  bool IsCharging() const { return x834_24_charging; }
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
 
   static float GetTractorBeamFactor() { return skTractorBeamFactor; }

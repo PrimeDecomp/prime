@@ -156,8 +156,8 @@ lbl_805A6E18:
 .balign 8
 
 # CPlayerGun
-.global lbl_805A8D70
-lbl_805A8D70:
+.global skTractorBeamFactor__10CPlayerGun
+skTractorBeamFactor__10CPlayerGun:
 	.skip 0x4
 .global lbl_805A8D74
 lbl_805A8D74:
@@ -5906,7 +5906,7 @@ lbl_8003F4C0:
 /* 8003F4F0 0003C450  98 9E 08 32 */	stb r4, 0x832(r30)
 lbl_8003F4F4:
 /* 8003F4F4 0003C454  C0 3E 03 40 */	lfs f1, 0x340(r30)
-/* 8003F4F8 0003C458  C0 0D A1 B0 */	lfs f0, lbl_805A8D70@sda21(r13)
+/* 8003F4F8 0003C458  C0 0D A1 B0 */	lfs f0, skTractorBeamFactor__10CPlayerGun@sda21(r13)
 /* 8003F4FC 0003C45C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8003F500 0003C460  40 81 02 2C */	ble lbl_8003F72C
 /* 8003F504 0003C464  7F C3 F3 78 */	mr r3, r30
@@ -10826,7 +10826,7 @@ __sinit_CPlayerGun_cpp:
 /* 80043BAC 00040B0C  38 61 00 0C */	addi r3, r1, 0xc
 /* 80043BB0 00040B10  C0 42 84 FC */	lfs f2, lbl_805AA21C@sda21(r2)
 /* 80043BB4 00040B14  D0 04 00 04 */	stfs f0, 4(r4)
-/* 80043BB8 00040B18  D0 6D A1 B0 */	stfs f3, lbl_805A8D70@sda21(r13)
+/* 80043BB8 00040B18  D0 6D A1 B0 */	stfs f3, skTractorBeamFactor__10CPlayerGun@sda21(r13)
 /* 80043BBC 00040B1C  C0 62 84 6C */	lfs f3, lbl_805AA18C@sda21(r2)
 /* 80043BC0 00040B20  D0 04 00 08 */	stfs f0, 8(r4)
 /* 80043BC4 00040B24  C0 82 84 7C */	lfs f4, lbl_805AA19C@sda21(r2)
