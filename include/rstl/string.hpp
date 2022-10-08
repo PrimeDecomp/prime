@@ -64,7 +64,7 @@ public:
   //         ++x4_cow->x4_refCount;
   // }
 
-  basic_string(const _CharTp* data, int size, const Alloc&);
+  basic_string(const _CharTp* data, int size, const Alloc& = rmemory_allocator());
   // {
   //     if (size <= 0 && !data)
   //     {

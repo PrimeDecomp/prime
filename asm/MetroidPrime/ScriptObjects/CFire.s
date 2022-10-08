@@ -458,8 +458,8 @@ lbl_8025D1C0:
 /* 8025D1D4 0025A134  38 21 00 10 */	addi r1, r1, 0x10
 /* 8025D1D8 0025A138  4E 80 00 20 */	blr
 
-.global __ct__5CFire
-__ct__5CFire:
+.global "__ct__5CFireF25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff"
+"__ct__5CFireF25TToken<15CGenDescription>9TUniqueId7TAreaIdb9TUniqueIdRC12CTransform4fRC11CDamageInfoRC6CAABoxRC9CVector3fbUibbbffff":
 /* 8025D1DC 0025A13C  94 21 FE 50 */	stwu r1, -0x1b0(r1)
 /* 8025D1E0 0025A140  7C 08 02 A6 */	mflr r0
 /* 8025D1E4 0025A144  90 01 01 B4 */	stw r0, 0x1b4(r1)

@@ -7,6 +7,8 @@
 
 namespace rstl {
 struct rmemory_allocator {
+  rmemory_allocator() {}
+  rmemory_allocator(const rmemory_allocator&) {}
   template < typename T >
   static void allocate(T*& out, int count) {
     int size = count * sizeof(T);
