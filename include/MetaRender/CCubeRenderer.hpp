@@ -5,7 +5,8 @@
 
 #include <dolphin/gx/GXEnum.h>
 
-#include "MetaRender/Renderer.hpp"
+#include "MetaRender/IRenderer.hpp"
+#include "Weapons/IWeaponRenderer.hpp"
 
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CAABox.hpp"
@@ -19,7 +20,7 @@
 class CSkinnedModel;
 class CModel;
 
-class CCubeRenderer {
+class CCubeRenderer : public IRenderer, public IWeaponRenderer {
 public:
   virtual ~CCubeRenderer();
   // TODO types

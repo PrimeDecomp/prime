@@ -9,7 +9,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/Cameras/CFirstPersonCamera.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CObjectList.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Player/CPlayer.o\
-	$(BUILD_DIR)/asm/MetroidPrime/CAxisAngle.o\
+	$(BUILD_DIR)/src/MetroidPrime/CAxisAngle.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CEulerAngles.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CFrontEndUI.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CInputGenerator.o\
