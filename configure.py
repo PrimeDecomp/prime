@@ -41,6 +41,7 @@ COMPLETE_OBJECTS = [
     "MetroidPrime/ScriptObjects/CScriptPickup",
     "MetroidPrime/ScriptObjects/CScriptSwitch",
     "MetroidPrime/CIOWin",
+    "WorldFormat/CCollisionSurface",
     "Weapons/IWeaponRenderer",
     "Collision/CMaterialList",
     "Collision/CMaterialFilter",
