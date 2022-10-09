@@ -54,7 +54,9 @@ public:
   inline const CVector3f& GetRow(EDimX dim) const { return m0; }
   inline const CVector3f& GetRow(EDimY dim) const { return m1; }
   inline const CVector3f& GetRow(EDimZ dim) const { return m2; }
-  inline const CVector3f& GetRow(int i) const { return *(&m0 + i); }
+  inline const CVector3f& GetRow(int i) const {
+    return *(reinterpret_cast< const CVector3f* >(reinterpret_cast< const float* >(&m0) + i * 4));
+  }
   // GetUp__12CTransform4fCFv
   static CTransform4f LookAt(const CVector3f& pos, const CVector3f& lookPos,
                              const CVector3f& up = CVector3f::Up());
