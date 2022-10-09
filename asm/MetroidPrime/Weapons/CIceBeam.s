@@ -600,7 +600,7 @@ PostRenderGunFx__8CIceBeamFRC13CStateManagerRC12CTransform4f:
 /* 800E16B8 000DE618  54 7F D9 7E */	srwi r31, r3, 5
 /* 800E16BC 000DE61C  41 82 00 0C */	beq lbl_800E16C8
 /* 800E16C0 000DE620  38 00 00 01 */	li r0, 1
-/* 800E16C4 000DE624  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 800E16C4 000DE624  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 lbl_800E16C8:
 /* 800E16C8 000DE628  80 7C 02 40 */	lwz r3, 0x240(r28)
 /* 800E16CC 000DE62C  28 03 00 00 */	cmplwi r3, 0
@@ -628,7 +628,7 @@ lbl_800E170C:
 /* 800E171C 000DE67C  57 E0 06 3F */	clrlwi. r0, r31, 0x18
 /* 800E1720 000DE680  41 82 00 0C */	beq lbl_800E172C
 /* 800E1724 000DE684  38 00 00 00 */	li r0, 0
-/* 800E1728 000DE688  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 800E1728 000DE688  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 lbl_800E172C:
 /* 800E172C 000DE68C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 800E1730 000DE690  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -859,4 +859,3 @@ lbl_803CE598:
 	.asciz "2nd_2"
 	.balign 4
 	.4byte 0
-

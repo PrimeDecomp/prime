@@ -3,39 +3,39 @@
 .section .sbss, "wa"
 .balign 8
 
-.global lbl_805A9490
-lbl_805A9490:
+.global mParticleLifetime__16CParticleGlobals
+mParticleLifetime__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A9494
-lbl_805A9494:
+.global mParticleLifetimeReal__16CParticleGlobals
+mParticleLifetimeReal__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A9498
-lbl_805A9498:
+.global mEmitterTime__16CParticleGlobals
+mEmitterTime__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A949C
-lbl_805A949C:
+.global mEmitterTimeReal__16CParticleGlobals
+mEmitterTimeReal__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A94A0
-lbl_805A94A0:
+.global mParticleLifetimePercentage__16CParticleGlobals
+mParticleLifetimePercentage__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A94A4
-lbl_805A94A4:
+.global mParticleLifetimePercentageReal__16CParticleGlobals
+mParticleLifetimePercentageReal__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A94A8
-lbl_805A94A8:
+.global mParticleLifetimePercentageRemainder__16CParticleGlobals
+mParticleLifetimePercentageRemainder__16CParticleGlobals:
 	.skip 0x4
+# mCurrentParticle
 .global lbl_805A94AC
 lbl_805A94AC:
 	.skip 0x4
+# mParticleAccessParameters
 .global lbl_805A94B0
 lbl_805A94B0:
 	.skip 0x4
-.global lbl_805A94B4
-lbl_805A94B4:
+# mCurrentParticleSystem
+.global mCurrentParticleSystem__16CParticleGlobals
+mCurrentParticleSystem__16CParticleGlobals:
 	.skip 0x4
-.global lbl_805A94B8
-lbl_805A94B8:
-	.skip 0x8
 
 .section .text, "ax"
 
@@ -44,7 +44,7 @@ UpdateParticleLifetimeTweenValues__16CParticleGlobalsFi:
 /* 8032A67C 003275DC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8032A680 003275E0  3C 00 43 30 */	lis r0, 0x4330
 /* 8032A684 003275E4  C8 22 CA 88 */	lfd f1, lbl_805AE7A8@sda21(r2)
-/* 8032A688 003275E8  80 8D A8 D0 */	lwz r4, lbl_805A9490@sda21(r13)
+/* 8032A688 003275E8  80 8D A8 D0 */	lwz r4, mParticleLifetime__16CParticleGlobals@sda21(r13)
 /* 8032A68C 003275EC  90 01 00 08 */	stw r0, 8(r1)
 /* 8032A690 003275F0  6C 84 80 00 */	xoris r4, r4, 0x8000
 /* 8032A694 003275F4  C0 42 CA 7C */	lfs f2, lbl_805AE79C@sda21(r2)
@@ -73,26 +73,26 @@ lbl_8032A6C4:
 /* 8032A6E8 00327648  EC 01 00 32 */	fmuls f0, f1, f0
 /* 8032A6EC 0032764C  EC 20 18 24 */	fdivs f1, f0, f3
 /* 8032A6F0 00327650  FC 00 08 1E */	fctiwz f0, f1
-/* 8032A6F4 00327654  D0 2D A8 E4 */	stfs f1, lbl_805A94A4@sda21(r13)
+/* 8032A6F4 00327654  D0 2D A8 E4 */	stfs f1, mParticleLifetimePercentageReal__16CParticleGlobals@sda21(r13)
 /* 8032A6F8 00327658  D8 01 00 20 */	stfd f0, 0x20(r1)
 /* 8032A6FC 0032765C  80 61 00 24 */	lwz r3, 0x24(r1)
 /* 8032A700 00327660  6C 60 80 00 */	xoris r0, r3, 0x8000
 /* 8032A704 00327664  2C 03 00 00 */	cmpwi r3, 0
 /* 8032A708 00327668  90 01 00 2C */	stw r0, 0x2c(r1)
 /* 8032A70C 0032766C  C8 01 00 28 */	lfd f0, 0x28(r1)
-/* 8032A710 00327670  90 6D A8 E0 */	stw r3, lbl_805A94A0@sda21(r13)
+/* 8032A710 00327670  90 6D A8 E0 */	stw r3, mParticleLifetimePercentage__16CParticleGlobals@sda21(r13)
 /* 8032A714 00327674  EC 00 10 28 */	fsubs f0, f0, f2
 /* 8032A718 00327678  EC 01 00 28 */	fsubs f0, f1, f0
-/* 8032A71C 0032767C  D0 0D A8 E8 */	stfs f0, lbl_805A94A8@sda21(r13)
+/* 8032A71C 0032767C  D0 0D A8 E8 */	stfs f0, mParticleLifetimePercentageRemainder__16CParticleGlobals@sda21(r13)
 /* 8032A720 00327680  40 80 00 10 */	bge lbl_8032A730
 /* 8032A724 00327684  38 00 00 00 */	li r0, 0
-/* 8032A728 00327688  90 0D A8 E0 */	stw r0, lbl_805A94A0@sda21(r13)
+/* 8032A728 00327688  90 0D A8 E0 */	stw r0, mParticleLifetimePercentage__16CParticleGlobals@sda21(r13)
 /* 8032A72C 0032768C  48 00 00 14 */	b lbl_8032A740
 lbl_8032A730:
 /* 8032A730 00327690  2C 03 00 64 */	cmpwi r3, 0x64
 /* 8032A734 00327694  40 81 00 0C */	ble lbl_8032A740
 /* 8032A738 00327698  38 00 00 64 */	li r0, 0x64
-/* 8032A73C 0032769C  90 0D A8 E0 */	stw r0, lbl_805A94A0@sda21(r13)
+/* 8032A73C 0032769C  90 0D A8 E0 */	stw r0, mParticleLifetimePercentage__16CParticleGlobals@sda21(r13)
 lbl_8032A740:
 /* 8032A740 003276A0  38 21 00 30 */	addi r1, r1, 0x30
 /* 8032A744 003276A4  4E 80 00 20 */	blr
@@ -106,9 +106,9 @@ SetEmitterTime__16CParticleGlobalsFi:
 /* 8032A758 003276B8  90 81 00 0C */	stw r4, 0xc(r1)
 /* 8032A75C 003276BC  90 01 00 08 */	stw r0, 8(r1)
 /* 8032A760 003276C0  C8 01 00 08 */	lfd f0, 8(r1)
-/* 8032A764 003276C4  90 6D A8 D8 */	stw r3, lbl_805A9498@sda21(r13)
+/* 8032A764 003276C4  90 6D A8 D8 */	stw r3, mEmitterTime__16CParticleGlobals@sda21(r13)
 /* 8032A768 003276C8  EC 00 08 28 */	fsubs f0, f0, f1
-/* 8032A76C 003276CC  D0 0D A8 DC */	stfs f0, lbl_805A949C@sda21(r13)
+/* 8032A76C 003276CC  D0 0D A8 DC */	stfs f0, mEmitterTimeReal__16CParticleGlobals@sda21(r13)
 /* 8032A770 003276D0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8032A774 003276D4  4E 80 00 20 */	blr
 
@@ -121,9 +121,9 @@ SetParticleLifetime__16CParticleGlobalsFi:
 /* 8032A788 003276E8  90 81 00 0C */	stw r4, 0xc(r1)
 /* 8032A78C 003276EC  90 01 00 08 */	stw r0, 8(r1)
 /* 8032A790 003276F0  C8 01 00 08 */	lfd f0, 8(r1)
-/* 8032A794 003276F4  90 6D A8 D0 */	stw r3, lbl_805A9490@sda21(r13)
+/* 8032A794 003276F4  90 6D A8 D0 */	stw r3, mParticleLifetime__16CParticleGlobals@sda21(r13)
 /* 8032A798 003276F8  EC 00 08 28 */	fsubs f0, f0, f1
-/* 8032A79C 003276FC  D0 0D A8 D4 */	stfs f0, lbl_805A9494@sda21(r13)
+/* 8032A79C 003276FC  D0 0D A8 D4 */	stfs f0, mParticleLifetimeReal__16CParticleGlobals@sda21(r13)
 /* 8032A7A0 00327700  38 21 00 10 */	addi r1, r1, 0x10
 /* 8032A7A4 00327704  4E 80 00 20 */	blr
 
@@ -149,4 +149,3 @@ lbl_805AE7A0:
 lbl_805AE7A8:
 	# ROM: 0x3FB048
 	.double 4.503601774854144E15
-

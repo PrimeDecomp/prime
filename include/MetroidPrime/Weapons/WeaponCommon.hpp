@@ -1,7 +1,5 @@
 #ifndef _WEAPONCOMMON
 #define _WEAPONCOMMON
-#ifndef _WEAPONCOMMON_HPP
-#define _WEAPONCOMMON_HPP
 
 #include "rstl/vector.hpp"
 
@@ -29,7 +27,5 @@ void get_token_vector(const CAnimData& animData, int begin, int end,
                       rstl::vector< CToken >& tokensOut, bool preLock);
 
 } // namespace NWeaponTypes
-
-#endif _WEAPONCOMMON_HPP
 
 #endif // _WEAPONCOMMON

@@ -8,7 +8,7 @@ __vt__17CIEGetEmitterTime:
 	# ROM: 0x3EAAF8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__17CIEGetEmitterTime
+	.4byte __dt__17CIEGetEmitterTimeFv
 	.4byte GetValue__17CIEGetEmitterTimeCFiRi
 
 .global __vt__25CIEGetActiveParticleCount
@@ -16,7 +16,7 @@ __vt__25CIEGetActiveParticleCount:
 	# ROM: 0x3EAB08
 	.4byte 0
 	.4byte 0
-	.4byte __dt__25CIEGetActiveParticleCount
+	.4byte __dt__25CIEGetActiveParticleCountFv
 	.4byte GetValue__25CIEGetActiveParticleCountCFiRi
 
 .global __vt__29CIEGetCumulativeParticleCount
@@ -24,7 +24,7 @@ __vt__29CIEGetCumulativeParticleCount:
 	# ROM: 0x3EAB18
 	.4byte 0
 	.4byte 0
-	.4byte __dt__29CIEGetCumulativeParticleCount
+	.4byte __dt__29CIEGetCumulativeParticleCountFv
 	.4byte GetValue__29CIEGetCumulativeParticleCountCFiRi
 
 .global __vt__12CIERealToInt
@@ -32,7 +32,7 @@ __vt__12CIERealToInt:
 	# ROM: 0x3EAB28
 	.4byte 0
 	.4byte 0
-	.4byte __dt__12CIERealToInt
+	.4byte __dt__12CIERealToIntFv
 	.4byte GetValue__12CIERealToIntCFiRi
 
 .global __vt__11CIESubtract
@@ -40,7 +40,7 @@ __vt__11CIESubtract:
 	# ROM: 0x3EAB38
 	.4byte 0
 	.4byte 0
-	.4byte __dt__11CIESubtract
+	.4byte __dt__11CIESubtractFv
 	.4byte GetValue__11CIESubtractCFiRi
 
 .global __vt__18CIEKeyframeEmitter
@@ -48,7 +48,7 @@ __vt__18CIEKeyframeEmitter:
 	# ROM: 0x3EAB48
 	.4byte 0
 	.4byte 0
-	.4byte __dt__18CIEKeyframeEmitter
+	.4byte __dt__18CIEKeyframeEmitterFv
 	.4byte GetValue__18CIEKeyframeEmitterCFiRi
 
 .global __vt__18CIELifetimePercent
@@ -56,7 +56,7 @@ __vt__18CIELifetimePercent:
 	# ROM: 0x3EAB58
 	.4byte 0
 	.4byte 0
-	.4byte __dt__18CIELifetimePercent
+	.4byte __dt__18CIELifetimePercentFv
 	.4byte GetValue__18CIELifetimePercentCFiRi
 
 .global __vt__8CIEPulse
@@ -64,7 +64,7 @@ __vt__8CIEPulse:
 	# ROM: 0x3EAB68
 	.4byte 0
 	.4byte 0
-	.4byte __dt__8CIEPulse
+	.4byte __dt__8CIEPulseFv
 	.4byte GetValue__8CIEPulseCFiRi
 
 .global __vt__8CIEClamp
@@ -72,7 +72,7 @@ __vt__8CIEClamp:
 	# ROM: 0x3EAB78
 	.4byte 0
 	.4byte 0
-	.4byte __dt__8CIEClamp
+	.4byte __dt__8CIEClampFv
 	.4byte GetValue__8CIEClampCFiRi
 
 .global __vt__12CIETimeChain
@@ -80,7 +80,7 @@ __vt__12CIETimeChain:
 	# ROM: 0x3EAB88
 	.4byte 0
 	.4byte 0
-	.4byte __dt__12CIETimeChain
+	.4byte __dt__12CIETimeChainFv
 	.4byte GetValue__12CIETimeChainCFiRi
 
 .global __vt__16CIEInitialRandom
@@ -88,7 +88,7 @@ __vt__16CIEInitialRandom:
 	# ROM: 0x3EAB98
 	.4byte 0
 	.4byte 0
-	.4byte __dt__16CIEInitialRandom
+	.4byte __dt__16CIEInitialRandomFv
 	.4byte GetValue__16CIEInitialRandomCFiRi
 
 .global __vt__12CIETimescale
@@ -96,7 +96,7 @@ __vt__12CIETimescale:
 	# ROM: 0x3EABA8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__12CIETimeScale
+	.4byte __dt__12CIETimescaleFv
 	.4byte GetValue__12CIETimescaleCFiRi
 
 .global __vt__10CIEImpulse
@@ -104,7 +104,7 @@ __vt__10CIEImpulse:
 	# ROM: 0x3EABB8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__10CIEImpulse
+	.4byte __dt__10CIEImpulseFv
 	.4byte GetValue__10CIEImpulseCFiRi
 
 .global __vt__16CIESampleAndHold
@@ -112,7 +112,7 @@ __vt__16CIESampleAndHold:
 	# ROM: 0x3EABC8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__16CIESampleAndHold
+	.4byte __dt__16CIESampleAndHoldFv
 	.4byte GetValue__16CIESampleAndHoldCFiRi
 
 .global __vt__9CIERandom
@@ -120,7 +120,7 @@ __vt__9CIERandom:
 	# ROM: 0x3EABD8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__9CIERandom
+	.4byte __dt__9CIERandomFv
 	.4byte GetValue__9CIERandomCFiRi
 
 .global __vt__9CIEModulo
@@ -128,7 +128,7 @@ __vt__9CIEModulo:
 	# ROM: 0x3EABE8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__9CIEModulo
+	.4byte __dt__9CIEModuloFv
 	.4byte GetValue__9CIEModuloCFiRi
 
 .global __vt__11CIEMultiply
@@ -136,7 +136,7 @@ __vt__11CIEMultiply:
 	# ROM: 0x3EABF8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__11CIEMultiply
+	.4byte __dt__11CIEMultiplyFv
 	.4byte GetValue__11CIEMultiplyCFiRi
 
 .global __vt__6CIEAdd
@@ -144,7 +144,7 @@ __vt__6CIEAdd:
 	# ROM: 0x3EAC08
 	.4byte 0
 	.4byte 0
-	.4byte __dt__6CIEAdd
+	.4byte __dt__6CIEAddFv
 	.4byte GetValue__6CIEAddCFiRi
 
 .global __vt__8CIEDeath
@@ -152,7 +152,7 @@ __vt__8CIEDeath:
 	# ROM: 0x3EAC18
 	.4byte 0
 	.4byte 0
-	.4byte __dt__8CIEDeath
+	.4byte __dt__8CIEDeathFv
 	.4byte GetValue__8CIEDeathCFiRi
 
 .global __vt__11CIEConstant
@@ -160,7 +160,7 @@ __vt__11CIEConstant:
 	# ROM: 0x3EAC28
 	.4byte 0
 	.4byte 0
-	.4byte __dt__11CIEConstant
+	.4byte __dt__11CIEConstantFv
 	.4byte GetValue__11CIEConstantCFiRi
 
 .section .sdata2, "a"
@@ -193,8 +193,8 @@ lbl_805AE784:
 
 .section .text
 
-.global __dt__17CIEGetEmitterTime
-__dt__17CIEGetEmitterTime:
+.global __dt__17CIEGetEmitterTimeFv
+__dt__17CIEGetEmitterTimeFv:
 /* 80320C88 0031DBE8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80320C8C 0031DBEC  7C 08 02 A6 */	mflr r0
 /* 80320C90 0031DBF0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -205,19 +205,19 @@ __dt__17CIEGetEmitterTime:
 /* 80320CA4 0031DC04  38 03 DA F8 */	addi r0, r3, __vt__17CIEGetEmitterTime@l
 /* 80320CA8 0031DC08  90 1F 00 00 */	stw r0, 0(r31)
 /* 80320CAC 0031DC0C  41 82 00 20 */	beq lbl_80320CCC
-/* 80320CB0 0031DC10  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80320CB4 0031DC14  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80320CB0 0031DC10  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80320CB4 0031DC14  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80320CB8 0031DC18  90 1F 00 00 */	stw r0, 0(r31)
 /* 80320CBC 0031DC1C  41 82 00 10 */	beq lbl_80320CCC
-/* 80320CC0 0031DC20  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80320CC4 0031DC24  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80320CC0 0031DC20  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80320CC4 0031DC24  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80320CC8 0031DC28  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80320CCC:
 /* 80320CCC 0031DC2C  7C 80 07 35 */	extsh. r0, r4
 /* 80320CD0 0031DC30  40 81 00 10 */	ble lbl_80320CE0
 /* 80320CD4 0031DC34  7F E3 FB 78 */	mr r3, r31
 /* 80320CD8 0031DC38  38 80 00 04 */	li r4, 4
-/* 80320CDC 0031DC3C  48 04 BD 89 */	bl sub_8036ca64
+/* 80320CDC 0031DC3C  48 04 BD 89 */	bl __dl__8IElementFPvUl
 lbl_80320CE0:
 /* 80320CE0 0031DC40  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80320CE4 0031DC44  7F E3 FB 78 */	mr r3, r31
@@ -233,9 +233,9 @@ GetValue__17CIEGetEmitterTimeCFiRi:
 /* 80320D00 0031DC60  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80320D04 0031DC64  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80320D08 0031DC68  7C BF 2B 78 */	mr r31, r5
-/* 80320D0C 0031DC6C  80 6D A8 F4 */	lwz r3, lbl_805A94B4@sda21(r13)
+/* 80320D0C 0031DC6C  80 6D A8 F4 */	lwz r3, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 80320D10 0031DC70  80 63 00 04 */	lwz r3, 4(r3)
-/* 80320D14 0031DC74  4B FF 6C 71 */	bl GetEmitterTime__11CElementGenFv
+/* 80320D14 0031DC74  4B FF 6C 71 */	bl GetEmitterTime__11CElementGenCFv
 /* 80320D18 0031DC78  90 7F 00 00 */	stw r3, 0(r31)
 /* 80320D1C 0031DC7C  38 60 00 00 */	li r3, 0
 /* 80320D20 0031DC80  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -251,7 +251,7 @@ GetValue__25CIEGetActiveParticleCountCFiRi:
 /* 80320D3C 0031DC9C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80320D40 0031DCA0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80320D44 0031DCA4  7C BF 2B 78 */	mr r31, r5
-/* 80320D48 0031DCA8  80 6D A8 F4 */	lwz r3, lbl_805A94B4@sda21(r13)
+/* 80320D48 0031DCA8  80 6D A8 F4 */	lwz r3, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 80320D4C 0031DCAC  80 63 00 04 */	lwz r3, 4(r3)
 /* 80320D50 0031DCB0  81 83 00 00 */	lwz r12, 0(r3)
 /* 80320D54 0031DCB4  81 8C 00 60 */	lwz r12, 0x60(r12)
@@ -267,7 +267,7 @@ GetValue__25CIEGetActiveParticleCountCFiRi:
 
 .global GetValue__29CIEGetCumulativeParticleCountCFiRi
 GetValue__29CIEGetCumulativeParticleCountCFiRi:
-/* 80320D7C 0031DCDC  80 8D A8 F4 */	lwz r4, lbl_805A94B4@sda21(r13)
+/* 80320D7C 0031DCDC  80 8D A8 F4 */	lwz r4, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 80320D80 0031DCE0  38 60 00 00 */	li r3, 0
 /* 80320D84 0031DCE4  80 84 00 04 */	lwz r4, 4(r4)
 /* 80320D88 0031DCE8  80 04 02 60 */	lwz r0, 0x260(r4)
@@ -318,8 +318,8 @@ GetValue__12CIERealToIntCFiRi:
 /* 80320E30 0031DD90  38 21 00 30 */	addi r1, r1, 0x30
 /* 80320E34 0031DD94  4E 80 00 20 */	blr
 
-.global __dt__12CIERealToInt
-__dt__12CIERealToInt:
+.global __dt__12CIERealToIntFv
+__dt__12CIERealToIntFv:
 /* 80320E38 0031DD98  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80320E3C 0031DD9C  7C 08 02 A6 */	mflr r0
 /* 80320E40 0031DDA0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -351,19 +351,19 @@ lbl_80320E84:
 lbl_80320EA4:
 /* 80320EA4 0031DE04  28 1E 00 00 */	cmplwi r30, 0
 /* 80320EA8 0031DE08  41 82 00 20 */	beq lbl_80320EC8
-/* 80320EAC 0031DE0C  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80320EB0 0031DE10  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80320EAC 0031DE0C  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80320EB0 0031DE10  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80320EB4 0031DE14  90 1E 00 00 */	stw r0, 0(r30)
 /* 80320EB8 0031DE18  41 82 00 10 */	beq lbl_80320EC8
-/* 80320EBC 0031DE1C  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80320EC0 0031DE20  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80320EBC 0031DE1C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80320EC0 0031DE20  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80320EC4 0031DE24  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80320EC8:
 /* 80320EC8 0031DE28  7F E0 07 35 */	extsh. r0, r31
 /* 80320ECC 0031DE2C  40 81 00 10 */	ble lbl_80320EDC
 /* 80320ED0 0031DE30  7F C3 F3 78 */	mr r3, r30
 /* 80320ED4 0031DE34  38 80 00 0C */	li r4, 0xc
-/* 80320ED8 0031DE38  48 04 BB 8D */	bl sub_8036ca64
+/* 80320ED8 0031DE38  48 04 BB 8D */	bl __dl__8IElementFPvUl
 lbl_80320EDC:
 /* 80320EDC 0031DE3C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80320EE0 0031DE40  7F C3 F3 78 */	mr r3, r30
@@ -375,12 +375,12 @@ lbl_80320EDC:
 
 .global __ct__12CIERealToIntFP12CRealElementP12CRealElement
 __ct__12CIERealToIntFP12CRealElementP12CRealElement:
-/* 80320EF8 0031DE58  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 80320EFC 0031DE5C  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 80320F00 0031DE60  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80320EF8 0031DE58  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 80320EFC 0031DE5C  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 80320F00 0031DE60  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 80320F04 0031DE64  3C C0 80 3F */	lis r6, __vt__12CIERealToInt@ha
 /* 80320F08 0031DE68  90 03 00 00 */	stw r0, 0(r3)
-/* 80320F0C 0031DE6C  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 80320F0C 0031DE6C  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 80320F10 0031DE70  38 06 DB 28 */	addi r0, r6, __vt__12CIERealToInt@l
 /* 80320F14 0031DE74  90 E3 00 00 */	stw r7, 0(r3)
 /* 80320F18 0031DE78  90 03 00 00 */	stw r0, 0(r3)
@@ -425,8 +425,8 @@ GetValue__11CIESubtractCFiRi:
 /* 80320FA8 0031DF08  38 21 00 20 */	addi r1, r1, 0x20
 /* 80320FAC 0031DF0C  4E 80 00 20 */	blr
 
-.global __dt__11CIESubtract
-__dt__11CIESubtract:
+.global __dt__11CIESubtractFv
+__dt__11CIESubtractFv:
 /* 80320FB0 0031DF10  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80320FB4 0031DF14  7C 08 02 A6 */	mflr r0
 /* 80320FB8 0031DF18  90 01 00 14 */	stw r0, 0x14(r1)
@@ -458,19 +458,19 @@ lbl_80320FFC:
 lbl_8032101C:
 /* 8032101C 0031DF7C  28 1E 00 00 */	cmplwi r30, 0
 /* 80321020 0031DF80  41 82 00 20 */	beq lbl_80321040
-/* 80321024 0031DF84  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321028 0031DF88  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80321024 0031DF84  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321028 0031DF88  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 8032102C 0031DF8C  90 1E 00 00 */	stw r0, 0(r30)
 /* 80321030 0031DF90  41 82 00 10 */	beq lbl_80321040
-/* 80321034 0031DF94  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321038 0031DF98  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80321034 0031DF94  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321038 0031DF98  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 8032103C 0031DF9C  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80321040:
 /* 80321040 0031DFA0  7F E0 07 35 */	extsh. r0, r31
 /* 80321044 0031DFA4  40 81 00 10 */	ble lbl_80321054
 /* 80321048 0031DFA8  7F C3 F3 78 */	mr r3, r30
 /* 8032104C 0031DFAC  38 80 00 0C */	li r4, 0xc
-/* 80321050 0031DFB0  48 04 BA 15 */	bl sub_8036ca64
+/* 80321050 0031DFB0  48 04 BA 15 */	bl __dl__8IElementFPvUl
 lbl_80321054:
 /* 80321054 0031DFB4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321058 0031DFB8  7F C3 F3 78 */	mr r3, r30
@@ -482,12 +482,12 @@ lbl_80321054:
 
 .global __ct__11CIESubtractFP11CIntElementP11CIntElement
 __ct__11CIESubtractFP11CIntElementP11CIntElement:
-/* 80321070 0031DFD0  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 80321074 0031DFD4  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 80321078 0031DFD8  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80321070 0031DFD0  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 80321074 0031DFD4  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 80321078 0031DFD8  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 8032107C 0031DFDC  3C C0 80 3F */	lis r6, __vt__11CIESubtract@ha
 /* 80321080 0031DFE0  90 03 00 00 */	stw r0, 0(r3)
-/* 80321084 0031DFE4  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 80321084 0031DFE4  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 80321088 0031DFE8  38 06 DB 38 */	addi r0, r6, __vt__11CIESubtract@l
 /* 8032108C 0031DFEC  90 E3 00 00 */	stw r7, 0(r3)
 /* 80321090 0031DFF0  90 03 00 00 */	stw r0, 0(r3)
@@ -502,7 +502,7 @@ GetValue__18CIEKeyframeEmitterCFiRi:
 /* 803210A8 0031E008  2C 00 00 00 */	cmpwi r0, 0
 /* 803210AC 0031E00C  40 82 00 A0 */	bne lbl_8032114C
 /* 803210B0 0031E010  88 03 00 0C */	lbz r0, 0xc(r3)
-/* 803210B4 0031E014  81 0D A8 D8 */	lwz r8, lbl_805A9498@sda21(r13)
+/* 803210B4 0031E014  81 0D A8 D8 */	lwz r8, mEmitterTime__16CParticleGlobals@sda21(r13)
 /* 803210B8 0031E018  28 00 00 00 */	cmplwi r0, 0
 /* 803210BC 0031E01C  91 01 00 0C */	stw r8, 0xc(r1)
 /* 803210C0 0031E020  41 82 00 50 */	beq lbl_80321110
@@ -545,7 +545,7 @@ lbl_80321144:
 /* 80321144 0031E0A4  38 60 00 00 */	li r3, 0
 /* 80321148 0031E0A8  48 00 00 94 */	b lbl_803211DC
 lbl_8032114C:
-/* 8032114C 0031E0AC  80 8D A8 E0 */	lwz r4, lbl_805A94A0@sda21(r13)
+/* 8032114C 0031E0AC  80 8D A8 E0 */	lwz r4, mParticleLifetimePercentage__16CParticleGlobals@sda21(r13)
 /* 80321150 0031E0B0  2C 04 00 64 */	cmpwi r4, 0x64
 /* 80321154 0031E0B4  40 82 00 18 */	bne lbl_8032116C
 /* 80321158 0031E0B8  80 63 00 24 */	lwz r3, 0x24(r3)
@@ -566,7 +566,7 @@ lbl_8032116C:
 /* 80321190 0031E0F0  6C 84 80 00 */	xoris r4, r4, 0x8000
 /* 80321194 0031E0F4  C8 42 CA 58 */	lfd f2, lbl_805AE778@sda21(r2)
 /* 80321198 0031E0F8  90 01 00 1C */	stw r0, 0x1c(r1)
-/* 8032119C 0031E0FC  C0 8D A8 E8 */	lfs f4, lbl_805A94A8@sda21(r13)
+/* 8032119C 0031E0FC  C0 8D A8 E8 */	lfs f4, mParticleLifetimePercentageRemainder__16CParticleGlobals@sda21(r13)
 /* 803211A0 0031E100  C8 01 00 18 */	lfd f0, 0x18(r1)
 /* 803211A4 0031E104  90 81 00 14 */	stw r4, 0x14(r1)
 /* 803211A8 0031E108  EC 00 10 28 */	fsubs f0, f0, f2
@@ -587,8 +587,8 @@ lbl_803211DC:
 /* 803211DC 0031E13C  38 21 00 30 */	addi r1, r1, 0x30
 /* 803211E0 0031E140  4E 80 00 20 */	blr
 
-.global __dt__18CIEKeyframeEmitter
-__dt__18CIEKeyframeEmitter:
+.global __dt__18CIEKeyframeEmitterFv
+__dt__18CIEKeyframeEmitterFv:
 /* 803211E4 0031E144  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803211E8 0031E148  7C 08 02 A6 */	mflr r0
 /* 803211EC 0031E14C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -623,19 +623,19 @@ lbl_80321244:
 lbl_80321258:
 /* 80321258 0031E1B8  28 1E 00 00 */	cmplwi r30, 0
 /* 8032125C 0031E1BC  41 82 00 20 */	beq lbl_8032127C
-/* 80321260 0031E1C0  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321264 0031E1C4  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80321260 0031E1C0  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321264 0031E1C4  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80321268 0031E1C8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8032126C 0031E1CC  41 82 00 10 */	beq lbl_8032127C
-/* 80321270 0031E1D0  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321274 0031E1D4  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80321270 0031E1D0  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321274 0031E1D4  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80321278 0031E1D8  90 1E 00 00 */	stw r0, 0(r30)
 lbl_8032127C:
 /* 8032127C 0031E1DC  7F E0 07 35 */	extsh. r0, r31
 /* 80321280 0031E1E0  40 81 00 10 */	ble lbl_80321290
 /* 80321284 0031E1E4  7F C3 F3 78 */	mr r3, r30
 /* 80321288 0031E1E8  38 80 00 28 */	li r4, 0x28
-/* 8032128C 0031E1EC  48 04 B7 D9 */	bl sub_8036ca64
+/* 8032128C 0031E1EC  48 04 B7 D9 */	bl __dl__8IElementFPvUl
 lbl_80321290:
 /* 80321290 0031E1F0  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 80321294 0031E1F4  7F C3 F3 78 */	mr r3, r30
@@ -649,17 +649,17 @@ lbl_80321290:
 __ct__18CIEKeyframeEmitterFR12CInputStream:
 /* 803212AC 0031E20C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 803212B0 0031E210  7C 08 02 A6 */	mflr r0
-/* 803212B4 0031E214  3C A0 80 3F */	lis r5, lbl_803EC584@ha
+/* 803212B4 0031E214  3C A0 80 3F */	lis r5, __vt__11CIntElement@ha
 /* 803212B8 0031E218  90 01 00 24 */	stw r0, 0x24(r1)
 /* 803212BC 0031E21C  BF 61 00 0C */	stmw r27, 0xc(r1)
 /* 803212C0 0031E220  7C 7E 1B 78 */	mr r30, r3
-/* 803212C4 0031E224  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
+/* 803212C4 0031E224  3C 60 80 3F */	lis r3, __vt__8IElement@ha
 /* 803212C8 0031E228  7C 9F 23 78 */	mr r31, r4
-/* 803212CC 0031E22C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803212CC 0031E22C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803212D0 0031E230  7F C6 F3 78 */	mr r6, r30
 /* 803212D4 0031E234  3C 60 80 3F */	lis r3, __vt__18CIEKeyframeEmitter@ha
 /* 803212D8 0031E238  90 1E 00 00 */	stw r0, 0(r30)
-/* 803212DC 0031E23C  38 05 C5 84 */	addi r0, r5, lbl_803EC584@l
+/* 803212DC 0031E23C  38 05 C5 84 */	addi r0, r5, __vt__11CIntElement@l
 /* 803212E0 0031E240  90 1E 00 00 */	stw r0, 0(r30)
 /* 803212E4 0031E244  38 03 DB 48 */	addi r0, r3, __vt__18CIEKeyframeEmitter@l
 /* 803212E8 0031E248  7F E3 FB 78 */	mr r3, r31
@@ -760,7 +760,7 @@ lbl_80321428:
 /* 80321440 0031E3A0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80321444 0031E3A4  C0 42 CA 64 */	lfs f2, lbl_805AE784@sda21(r2)
 /* 80321448 0031E3A8  C8 01 00 10 */	lfd f0, 0x10(r1)
-/* 8032144C 0031E3AC  C0 2D A8 D4 */	lfs f1, lbl_805A9494@sda21(r13)
+/* 8032144C 0031E3AC  C0 2D A8 D4 */	lfs f1, mParticleLifetimeReal__16CParticleGlobals@sda21(r13)
 /* 80321450 0031E3B0  EC 60 18 28 */	fsubs f3, f0, f3
 /* 80321454 0031E3B4  C0 02 CA 60 */	lfs f0, lbl_805AE780@sda21(r2)
 /* 80321458 0031E3B8  EC 43 10 24 */	fdivs f2, f3, f2
@@ -775,8 +775,8 @@ lbl_80321428:
 /* 8032147C 0031E3DC  38 21 00 30 */	addi r1, r1, 0x30
 /* 80321480 0031E3E0  4E 80 00 20 */	blr
 
-.global __dt__18CIELifetimePercent
-__dt__18CIELifetimePercent:
+.global __dt__18CIELifetimePercentFv
+__dt__18CIELifetimePercentFv:
 /* 80321484 0031E3E4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321488 0031E3E8  7C 08 02 A6 */	mflr r0
 /* 8032148C 0031E3EC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -799,19 +799,19 @@ __dt__18CIELifetimePercent:
 lbl_803214D0:
 /* 803214D0 0031E430  28 1E 00 00 */	cmplwi r30, 0
 /* 803214D4 0031E434  41 82 00 20 */	beq lbl_803214F4
-/* 803214D8 0031E438  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 803214DC 0031E43C  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 803214D8 0031E438  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 803214DC 0031E43C  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 803214E0 0031E440  90 1E 00 00 */	stw r0, 0(r30)
 /* 803214E4 0031E444  41 82 00 10 */	beq lbl_803214F4
-/* 803214E8 0031E448  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803214EC 0031E44C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803214E8 0031E448  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803214EC 0031E44C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803214F0 0031E450  90 1E 00 00 */	stw r0, 0(r30)
 lbl_803214F4:
 /* 803214F4 0031E454  7F E0 07 35 */	extsh. r0, r31
 /* 803214F8 0031E458  40 81 00 10 */	ble lbl_80321508
 /* 803214FC 0031E45C  7F C3 F3 78 */	mr r3, r30
 /* 80321500 0031E460  38 80 00 08 */	li r4, 8
-/* 80321504 0031E464  48 04 B5 61 */	bl sub_8036ca64
+/* 80321504 0031E464  48 04 B5 61 */	bl __dl__8IElementFPvUl
 lbl_80321508:
 /* 80321508 0031E468  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032150C 0031E46C  7F C3 F3 78 */	mr r3, r30
@@ -823,12 +823,12 @@ lbl_80321508:
 
 .global __ct__18CIELifetimePercentFP11CIntElement
 __ct__18CIELifetimePercentFP11CIntElement:
-/* 80321524 0031E484  3C E0 80 3F */	lis r7, lbl_803EC5A8@ha
-/* 80321528 0031E488  3C C0 80 3F */	lis r6, lbl_803EC584@ha
-/* 8032152C 0031E48C  38 07 C5 A8 */	addi r0, r7, lbl_803EC5A8@l
+/* 80321524 0031E484  3C E0 80 3F */	lis r7, __vt__8IElement@ha
+/* 80321528 0031E488  3C C0 80 3F */	lis r6, __vt__11CIntElement@ha
+/* 8032152C 0031E48C  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
 /* 80321530 0031E490  3C A0 80 3F */	lis r5, __vt__18CIELifetimePercent@ha
 /* 80321534 0031E494  90 03 00 00 */	stw r0, 0(r3)
-/* 80321538 0031E498  38 C6 C5 84 */	addi r6, r6, lbl_803EC584@l
+/* 80321538 0031E498  38 C6 C5 84 */	addi r6, r6, __vt__11CIntElement@l
 /* 8032153C 0031E49C  38 05 DB 58 */	addi r0, r5, __vt__18CIELifetimePercent@l
 /* 80321540 0031E4A0  90 C3 00 00 */	stw r6, 0(r3)
 /* 80321544 0031E4A4  90 03 00 00 */	stw r0, 0(r3)
@@ -908,8 +908,8 @@ lbl_80321638:
 /* 80321650 0031E5B0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80321654 0031E5B4  4E 80 00 20 */	blr
 
-.global __dt__8CIEPulse
-__dt__8CIEPulse:
+.global __dt__8CIEPulseFv
+__dt__8CIEPulseFv:
 /* 80321658 0031E5B8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8032165C 0031E5BC  7C 08 02 A6 */	mflr r0
 /* 80321660 0031E5C0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -959,19 +959,19 @@ lbl_803216E4:
 lbl_80321704:
 /* 80321704 0031E664  28 1E 00 00 */	cmplwi r30, 0
 /* 80321708 0031E668  41 82 00 20 */	beq lbl_80321728
-/* 8032170C 0031E66C  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321710 0031E670  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 8032170C 0031E66C  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321710 0031E670  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80321714 0031E674  90 1E 00 00 */	stw r0, 0(r30)
 /* 80321718 0031E678  41 82 00 10 */	beq lbl_80321728
-/* 8032171C 0031E67C  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321720 0031E680  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 8032171C 0031E67C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321720 0031E680  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80321724 0031E684  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80321728:
 /* 80321728 0031E688  7F E0 07 35 */	extsh. r0, r31
 /* 8032172C 0031E68C  40 81 00 10 */	ble lbl_8032173C
 /* 80321730 0031E690  7F C3 F3 78 */	mr r3, r30
 /* 80321734 0031E694  38 80 00 14 */	li r4, 0x14
-/* 80321738 0031E698  48 04 B3 2D */	bl sub_8036ca64
+/* 80321738 0031E698  48 04 B3 2D */	bl __dl__8IElementFPvUl
 lbl_8032173C:
 /* 8032173C 0031E69C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321740 0031E6A0  7F C3 F3 78 */	mr r3, r30
@@ -983,12 +983,12 @@ lbl_8032173C:
 
 .global __ct__8CIEPulseFP11CIntElementP11CIntElementP11CIntElementP11CIntElement
 __ct__8CIEPulseFP11CIntElementP11CIntElementP11CIntElementP11CIntElement:
-/* 80321758 0031E6B8  3D 40 80 3F */	lis r10, lbl_803EC5A8@ha
-/* 8032175C 0031E6BC  3D 20 80 3F */	lis r9, lbl_803EC584@ha
-/* 80321760 0031E6C0  38 0A C5 A8 */	addi r0, r10, lbl_803EC5A8@l
+/* 80321758 0031E6B8  3D 40 80 3F */	lis r10, __vt__8IElement@ha
+/* 8032175C 0031E6BC  3D 20 80 3F */	lis r9, __vt__11CIntElement@ha
+/* 80321760 0031E6C0  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
 /* 80321764 0031E6C4  3D 00 80 3F */	lis r8, __vt__8CIEPulse@ha
 /* 80321768 0031E6C8  90 03 00 00 */	stw r0, 0(r3)
-/* 8032176C 0031E6CC  39 29 C5 84 */	addi r9, r9, lbl_803EC584@l
+/* 8032176C 0031E6CC  39 29 C5 84 */	addi r9, r9, __vt__11CIntElement@l
 /* 80321770 0031E6D0  38 08 DB 68 */	addi r0, r8, __vt__8CIEPulse@l
 /* 80321774 0031E6D4  91 23 00 00 */	stw r9, 0(r3)
 /* 80321778 0031E6D8  90 03 00 00 */	stw r0, 0(r3)
@@ -1050,8 +1050,8 @@ lbl_8032182C:
 /* 80321844 0031E7A4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80321848 0031E7A8  4E 80 00 20 */	blr
 
-.global __dt__8CIEClamp
-__dt__8CIEClamp:
+.global __dt__8CIEClampFv
+__dt__8CIEClampFv:
 /* 8032184C 0031E7AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321850 0031E7B0  7C 08 02 A6 */	mflr r0
 /* 80321854 0031E7B4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1092,19 +1092,19 @@ lbl_803218B8:
 lbl_803218D8:
 /* 803218D8 0031E838  28 1E 00 00 */	cmplwi r30, 0
 /* 803218DC 0031E83C  41 82 00 20 */	beq lbl_803218FC
-/* 803218E0 0031E840  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 803218E4 0031E844  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 803218E0 0031E840  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 803218E4 0031E844  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 803218E8 0031E848  90 1E 00 00 */	stw r0, 0(r30)
 /* 803218EC 0031E84C  41 82 00 10 */	beq lbl_803218FC
-/* 803218F0 0031E850  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803218F4 0031E854  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803218F0 0031E850  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803218F4 0031E854  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803218F8 0031E858  90 1E 00 00 */	stw r0, 0(r30)
 lbl_803218FC:
 /* 803218FC 0031E85C  7F E0 07 35 */	extsh. r0, r31
 /* 80321900 0031E860  40 81 00 10 */	ble lbl_80321910
 /* 80321904 0031E864  7F C3 F3 78 */	mr r3, r30
 /* 80321908 0031E868  38 80 00 10 */	li r4, 0x10
-/* 8032190C 0031E86C  48 04 B1 59 */	bl sub_8036ca64
+/* 8032190C 0031E86C  48 04 B1 59 */	bl __dl__8IElementFPvUl
 lbl_80321910:
 /* 80321910 0031E870  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321914 0031E874  7F C3 F3 78 */	mr r3, r30
@@ -1116,12 +1116,12 @@ lbl_80321910:
 
 .global __ct__8CIEClampFP11CIntElementP11CIntElementP11CIntElement
 __ct__8CIEClampFP11CIntElementP11CIntElementP11CIntElement:
-/* 8032192C 0031E88C  3D 20 80 3F */	lis r9, lbl_803EC5A8@ha
-/* 80321930 0031E890  3D 00 80 3F */	lis r8, lbl_803EC584@ha
-/* 80321934 0031E894  38 09 C5 A8 */	addi r0, r9, lbl_803EC5A8@l
+/* 8032192C 0031E88C  3D 20 80 3F */	lis r9, __vt__8IElement@ha
+/* 80321930 0031E890  3D 00 80 3F */	lis r8, __vt__11CIntElement@ha
+/* 80321934 0031E894  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
 /* 80321938 0031E898  3C E0 80 3F */	lis r7, __vt__8CIEClamp@ha
 /* 8032193C 0031E89C  90 03 00 00 */	stw r0, 0(r3)
-/* 80321940 0031E8A0  39 08 C5 84 */	addi r8, r8, lbl_803EC584@l
+/* 80321940 0031E8A0  39 08 C5 84 */	addi r8, r8, __vt__11CIntElement@l
 /* 80321944 0031E8A4  38 07 DB 78 */	addi r0, r7, __vt__8CIEClamp@l
 /* 80321948 0031E8A8  91 03 00 00 */	stw r8, 0(r3)
 /* 8032194C 0031E8AC  90 03 00 00 */	stw r0, 0(r3)
@@ -1175,8 +1175,8 @@ lbl_803219E4:
 /* 803219F8 0031E958  38 21 00 20 */	addi r1, r1, 0x20
 /* 803219FC 0031E95C  4E 80 00 20 */	blr
 
-.global __dt__12CIETimeChain
-__dt__12CIETimeChain:
+.global __dt__12CIETimeChainFv
+__dt__12CIETimeChainFv:
 /* 80321A00 0031E960  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321A04 0031E964  7C 08 02 A6 */	mflr r0
 /* 80321A08 0031E968  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1217,19 +1217,19 @@ lbl_80321A6C:
 lbl_80321A8C:
 /* 80321A8C 0031E9EC  28 1E 00 00 */	cmplwi r30, 0
 /* 80321A90 0031E9F0  41 82 00 20 */	beq lbl_80321AB0
-/* 80321A94 0031E9F4  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321A98 0031E9F8  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80321A94 0031E9F4  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321A98 0031E9F8  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80321A9C 0031E9FC  90 1E 00 00 */	stw r0, 0(r30)
 /* 80321AA0 0031EA00  41 82 00 10 */	beq lbl_80321AB0
-/* 80321AA4 0031EA04  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321AA8 0031EA08  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80321AA4 0031EA04  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321AA8 0031EA08  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80321AAC 0031EA0C  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80321AB0:
 /* 80321AB0 0031EA10  7F E0 07 35 */	extsh. r0, r31
 /* 80321AB4 0031EA14  40 81 00 10 */	ble lbl_80321AC4
 /* 80321AB8 0031EA18  7F C3 F3 78 */	mr r3, r30
 /* 80321ABC 0031EA1C  38 80 00 10 */	li r4, 0x10
-/* 80321AC0 0031EA20  48 04 AF A5 */	bl sub_8036ca64
+/* 80321AC0 0031EA20  48 04 AF A5 */	bl __dl__8IElementFPvUl
 lbl_80321AC4:
 /* 80321AC4 0031EA24  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321AC8 0031EA28  7F C3 F3 78 */	mr r3, r30
@@ -1241,12 +1241,12 @@ lbl_80321AC4:
 
 .global __ct__12CIETimeChainFP11CIntElementP11CIntElementP11CIntElement
 __ct__12CIETimeChainFP11CIntElementP11CIntElementP11CIntElement:
-/* 80321AE0 0031EA40  3D 20 80 3F */	lis r9, lbl_803EC5A8@ha
-/* 80321AE4 0031EA44  3D 00 80 3F */	lis r8, lbl_803EC584@ha
-/* 80321AE8 0031EA48  38 09 C5 A8 */	addi r0, r9, lbl_803EC5A8@l
+/* 80321AE0 0031EA40  3D 20 80 3F */	lis r9, __vt__8IElement@ha
+/* 80321AE4 0031EA44  3D 00 80 3F */	lis r8, __vt__11CIntElement@ha
+/* 80321AE8 0031EA48  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
 /* 80321AEC 0031EA4C  3C E0 80 3F */	lis r7, __vt__12CIETimeChain@ha
 /* 80321AF0 0031EA50  90 03 00 00 */	stw r0, 0(r3)
-/* 80321AF4 0031EA54  39 08 C5 84 */	addi r8, r8, lbl_803EC584@l
+/* 80321AF4 0031EA54  39 08 C5 84 */	addi r8, r8, __vt__11CIntElement@l
 /* 80321AF8 0031EA58  38 07 DB 88 */	addi r0, r7, __vt__12CIETimeChain@l
 /* 80321AFC 0031EA5C  91 03 00 00 */	stw r8, 0(r3)
 /* 80321B00 0031EA60  90 03 00 00 */	stw r0, 0(r3)
@@ -1295,8 +1295,8 @@ lbl_80321B84:
 /* 80321B9C 0031EAFC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80321BA0 0031EB00  4E 80 00 20 */	blr
 
-.global __dt__16CIEInitialRandom
-__dt__16CIEInitialRandom:
+.global __dt__16CIEInitialRandomFv
+__dt__16CIEInitialRandomFv:
 /* 80321BA4 0031EB04  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321BA8 0031EB08  7C 08 02 A6 */	mflr r0
 /* 80321BAC 0031EB0C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1328,19 +1328,19 @@ lbl_80321BF0:
 lbl_80321C10:
 /* 80321C10 0031EB70  28 1E 00 00 */	cmplwi r30, 0
 /* 80321C14 0031EB74  41 82 00 20 */	beq lbl_80321C34
-/* 80321C18 0031EB78  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321C1C 0031EB7C  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80321C18 0031EB78  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321C1C 0031EB7C  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80321C20 0031EB80  90 1E 00 00 */	stw r0, 0(r30)
 /* 80321C24 0031EB84  41 82 00 10 */	beq lbl_80321C34
-/* 80321C28 0031EB88  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321C2C 0031EB8C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80321C28 0031EB88  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321C2C 0031EB8C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80321C30 0031EB90  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80321C34:
 /* 80321C34 0031EB94  7F E0 07 35 */	extsh. r0, r31
 /* 80321C38 0031EB98  40 81 00 10 */	ble lbl_80321C48
 /* 80321C3C 0031EB9C  7F C3 F3 78 */	mr r3, r30
 /* 80321C40 0031EBA0  38 80 00 0C */	li r4, 0xc
-/* 80321C44 0031EBA4  48 04 AE 21 */	bl sub_8036ca64
+/* 80321C44 0031EBA4  48 04 AE 21 */	bl __dl__8IElementFPvUl
 lbl_80321C48:
 /* 80321C48 0031EBA8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321C4C 0031EBAC  7F C3 F3 78 */	mr r3, r30
@@ -1352,12 +1352,12 @@ lbl_80321C48:
 
 .global __ct__16CIEInitialRandomFP11CIntElementP11CIntElement
 __ct__16CIEInitialRandomFP11CIntElementP11CIntElement:
-/* 80321C64 0031EBC4  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 80321C68 0031EBC8  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 80321C6C 0031EBCC  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80321C64 0031EBC4  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 80321C68 0031EBC8  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 80321C6C 0031EBCC  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 80321C70 0031EBD0  3C C0 80 3F */	lis r6, __vt__16CIEInitialRandom@ha
 /* 80321C74 0031EBD4  90 03 00 00 */	stw r0, 0(r3)
-/* 80321C78 0031EBD8  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 80321C78 0031EBD8  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 80321C7C 0031EBDC  38 06 DB 98 */	addi r0, r6, __vt__16CIEInitialRandom@l
 /* 80321C80 0031EBE0  90 E3 00 00 */	stw r7, 0(r3)
 /* 80321C84 0031EBE4  90 03 00 00 */	stw r0, 0(r3)
@@ -1401,8 +1401,8 @@ GetValue__12CIETimescaleCFiRi:
 /* 80321D10 0031EC70  38 21 00 30 */	addi r1, r1, 0x30
 /* 80321D14 0031EC74  4E 80 00 20 */	blr
 
-.global __dt__12CIETimeScale
-__dt__12CIETimeScale:
+.global __dt__12CIETimescaleFv
+__dt__12CIETimescaleFv:
 /* 80321D18 0031EC78  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321D1C 0031EC7C  7C 08 02 A6 */	mflr r0
 /* 80321D20 0031EC80  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1425,19 +1425,19 @@ __dt__12CIETimeScale:
 lbl_80321D64:
 /* 80321D64 0031ECC4  28 1E 00 00 */	cmplwi r30, 0
 /* 80321D68 0031ECC8  41 82 00 20 */	beq lbl_80321D88
-/* 80321D6C 0031ECCC  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321D70 0031ECD0  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80321D6C 0031ECCC  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321D70 0031ECD0  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80321D74 0031ECD4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80321D78 0031ECD8  41 82 00 10 */	beq lbl_80321D88
-/* 80321D7C 0031ECDC  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321D80 0031ECE0  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80321D7C 0031ECDC  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321D80 0031ECE0  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80321D84 0031ECE4  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80321D88:
 /* 80321D88 0031ECE8  7F E0 07 35 */	extsh. r0, r31
 /* 80321D8C 0031ECEC  40 81 00 10 */	ble lbl_80321D9C
 /* 80321D90 0031ECF0  7F C3 F3 78 */	mr r3, r30
 /* 80321D94 0031ECF4  38 80 00 08 */	li r4, 8
-/* 80321D98 0031ECF8  48 04 AC CD */	bl sub_8036ca64
+/* 80321D98 0031ECF8  48 04 AC CD */	bl __dl__8IElementFPvUl
 lbl_80321D9C:
 /* 80321D9C 0031ECFC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321DA0 0031ED00  7F C3 F3 78 */	mr r3, r30
@@ -1449,12 +1449,12 @@ lbl_80321D9C:
 
 .global __ct__12CIETimescaleFP12CRealElement
 __ct__12CIETimescaleFP12CRealElement:
-/* 80321DB8 0031ED18  3C E0 80 3F */	lis r7, lbl_803EC5A8@ha
-/* 80321DBC 0031ED1C  3C C0 80 3F */	lis r6, lbl_803EC584@ha
-/* 80321DC0 0031ED20  38 07 C5 A8 */	addi r0, r7, lbl_803EC5A8@l
+/* 80321DB8 0031ED18  3C E0 80 3F */	lis r7, __vt__8IElement@ha
+/* 80321DBC 0031ED1C  3C C0 80 3F */	lis r6, __vt__11CIntElement@ha
+/* 80321DC0 0031ED20  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
 /* 80321DC4 0031ED24  3C A0 80 3F */	lis r5, __vt__12CIETimescale@ha
 /* 80321DC8 0031ED28  90 03 00 00 */	stw r0, 0(r3)
-/* 80321DCC 0031ED2C  38 C6 C5 84 */	addi r6, r6, lbl_803EC584@l
+/* 80321DCC 0031ED2C  38 C6 C5 84 */	addi r6, r6, __vt__11CIntElement@l
 /* 80321DD0 0031ED30  38 05 DB A8 */	addi r0, r5, __vt__12CIETimescale@l
 /* 80321DD4 0031ED34  90 C3 00 00 */	stw r6, 0(r3)
 /* 80321DD8 0031ED38  90 03 00 00 */	stw r0, 0(r3)
@@ -1484,8 +1484,8 @@ lbl_80321E18:
 /* 80321E24 0031ED84  38 21 00 10 */	addi r1, r1, 0x10
 /* 80321E28 0031ED88  4E 80 00 20 */	blr
 
-.global __dt__10CIEImpulse
-__dt__10CIEImpulse:
+.global __dt__10CIEImpulseFv
+__dt__10CIEImpulseFv:
 /* 80321E2C 0031ED8C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321E30 0031ED90  7C 08 02 A6 */	mflr r0
 /* 80321E34 0031ED94  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1508,19 +1508,19 @@ __dt__10CIEImpulse:
 lbl_80321E78:
 /* 80321E78 0031EDD8  28 1E 00 00 */	cmplwi r30, 0
 /* 80321E7C 0031EDDC  41 82 00 20 */	beq lbl_80321E9C
-/* 80321E80 0031EDE0  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80321E84 0031EDE4  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80321E80 0031EDE0  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80321E84 0031EDE4  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80321E88 0031EDE8  90 1E 00 00 */	stw r0, 0(r30)
 /* 80321E8C 0031EDEC  41 82 00 10 */	beq lbl_80321E9C
-/* 80321E90 0031EDF0  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80321E94 0031EDF4  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80321E90 0031EDF0  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80321E94 0031EDF4  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80321E98 0031EDF8  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80321E9C:
 /* 80321E9C 0031EDFC  7F E0 07 35 */	extsh. r0, r31
 /* 80321EA0 0031EE00  40 81 00 10 */	ble lbl_80321EB0
 /* 80321EA4 0031EE04  7F C3 F3 78 */	mr r3, r30
 /* 80321EA8 0031EE08  38 80 00 08 */	li r4, 8
-/* 80321EAC 0031EE0C  48 04 AB B9 */	bl sub_8036ca64
+/* 80321EAC 0031EE0C  48 04 AB B9 */	bl __dl__8IElementFPvUl
 lbl_80321EB0:
 /* 80321EB0 0031EE10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80321EB4 0031EE14  7F C3 F3 78 */	mr r3, r30
@@ -1532,12 +1532,12 @@ lbl_80321EB0:
 
 .global __ct__10CIEImpulseFP11CIntElement
 __ct__10CIEImpulseFP11CIntElement:
-/* 80321ECC 0031EE2C  3C E0 80 3F */	lis r7, lbl_803EC5A8@ha
-/* 80321ED0 0031EE30  3C C0 80 3F */	lis r6, lbl_803EC584@ha
-/* 80321ED4 0031EE34  38 07 C5 A8 */	addi r0, r7, lbl_803EC5A8@l
+/* 80321ECC 0031EE2C  3C E0 80 3F */	lis r7, __vt__8IElement@ha
+/* 80321ED0 0031EE30  3C C0 80 3F */	lis r6, __vt__11CIntElement@ha
+/* 80321ED4 0031EE34  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
 /* 80321ED8 0031EE38  3C A0 80 3F */	lis r5, __vt__10CIEImpulse@ha
 /* 80321EDC 0031EE3C  90 03 00 00 */	stw r0, 0(r3)
-/* 80321EE0 0031EE40  38 C6 C5 84 */	addi r6, r6, lbl_803EC584@l
+/* 80321EE0 0031EE40  38 C6 C5 84 */	addi r6, r6, __vt__11CIntElement@l
 /* 80321EE4 0031EE44  38 05 DB B8 */	addi r0, r5, __vt__10CIEImpulse@l
 /* 80321EE8 0031EE48  90 C3 00 00 */	stw r6, 0(r3)
 /* 80321EEC 0031EE4C  90 03 00 00 */	stw r0, 0(r3)
@@ -1600,8 +1600,8 @@ lbl_80321FA8:
 /* 80321FBC 0031EF1C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80321FC0 0031EF20  4E 80 00 20 */	blr
 
-.global __dt__16CIESampleAndHold
-__dt__16CIESampleAndHold:
+.global __dt__16CIESampleAndHoldFv
+__dt__16CIESampleAndHoldFv:
 /* 80321FC4 0031EF24  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80321FC8 0031EF28  7C 08 02 A6 */	mflr r0
 /* 80321FCC 0031EF2C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1642,19 +1642,19 @@ lbl_80322030:
 lbl_80322050:
 /* 80322050 0031EFB0  28 1E 00 00 */	cmplwi r30, 0
 /* 80322054 0031EFB4  41 82 00 20 */	beq lbl_80322074
-/* 80322058 0031EFB8  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 8032205C 0031EFBC  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80322058 0031EFB8  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 8032205C 0031EFBC  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80322060 0031EFC0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80322064 0031EFC4  41 82 00 10 */	beq lbl_80322074
-/* 80322068 0031EFC8  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 8032206C 0031EFCC  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80322068 0031EFC8  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 8032206C 0031EFCC  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322070 0031EFD0  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80322074:
 /* 80322074 0031EFD4  7F E0 07 35 */	extsh. r0, r31
 /* 80322078 0031EFD8  40 81 00 10 */	ble lbl_80322088
 /* 8032207C 0031EFDC  7F C3 F3 78 */	mr r3, r30
 /* 80322080 0031EFE0  38 80 00 18 */	li r4, 0x18
-/* 80322084 0031EFE4  48 04 A9 E1 */	bl sub_8036ca64
+/* 80322084 0031EFE4  48 04 A9 E1 */	bl __dl__8IElementFPvUl
 lbl_80322088:
 /* 80322088 0031EFE8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032208C 0031EFEC  7F C3 F3 78 */	mr r3, r30
@@ -1666,12 +1666,12 @@ lbl_80322088:
 
 .global __ct__16CIESampleAndHoldFP11CIntElementP11CIntElementP11CIntElement
 __ct__16CIESampleAndHoldFP11CIntElementP11CIntElementP11CIntElement:
-/* 803220A4 0031F004  3D 20 80 3F */	lis r9, lbl_803EC5A8@ha
-/* 803220A8 0031F008  3D 00 80 3F */	lis r8, lbl_803EC584@ha
-/* 803220AC 0031F00C  38 09 C5 A8 */	addi r0, r9, lbl_803EC5A8@l
+/* 803220A4 0031F004  3D 20 80 3F */	lis r9, __vt__8IElement@ha
+/* 803220A8 0031F008  3D 00 80 3F */	lis r8, __vt__11CIntElement@ha
+/* 803220AC 0031F00C  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
 /* 803220B0 0031F010  3C E0 80 3F */	lis r7, __vt__16CIESampleAndHold@ha
 /* 803220B4 0031F014  90 03 00 00 */	stw r0, 0(r3)
-/* 803220B8 0031F018  39 08 C5 84 */	addi r8, r8, lbl_803EC584@l
+/* 803220B8 0031F018  39 08 C5 84 */	addi r8, r8, __vt__11CIntElement@l
 /* 803220BC 0031F01C  38 E7 DB C8 */	addi r7, r7, __vt__16CIESampleAndHold@l
 /* 803220C0 0031F020  38 00 00 00 */	li r0, 0
 /* 803220C4 0031F024  91 03 00 00 */	stw r8, 0(r3)
@@ -1729,8 +1729,8 @@ lbl_80322168:
 /* 80322180 0031F0E0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80322184 0031F0E4  4E 80 00 20 */	blr
 
-.global __dt__9CIERandom
-__dt__9CIERandom:
+.global __dt__9CIERandomFv
+__dt__9CIERandomFv:
 /* 80322188 0031F0E8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8032218C 0031F0EC  7C 08 02 A6 */	mflr r0
 /* 80322190 0031F0F0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1762,19 +1762,19 @@ lbl_803221D4:
 lbl_803221F4:
 /* 803221F4 0031F154  28 1E 00 00 */	cmplwi r30, 0
 /* 803221F8 0031F158  41 82 00 20 */	beq lbl_80322218
-/* 803221FC 0031F15C  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80322200 0031F160  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 803221FC 0031F15C  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80322200 0031F160  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80322204 0031F164  90 1E 00 00 */	stw r0, 0(r30)
 /* 80322208 0031F168  41 82 00 10 */	beq lbl_80322218
-/* 8032220C 0031F16C  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322210 0031F170  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 8032220C 0031F16C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322210 0031F170  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322214 0031F174  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80322218:
 /* 80322218 0031F178  7F E0 07 35 */	extsh. r0, r31
 /* 8032221C 0031F17C  40 81 00 10 */	ble lbl_8032222C
 /* 80322220 0031F180  7F C3 F3 78 */	mr r3, r30
 /* 80322224 0031F184  38 80 00 0C */	li r4, 0xc
-/* 80322228 0031F188  48 04 A8 3D */	bl sub_8036ca64
+/* 80322228 0031F188  48 04 A8 3D */	bl __dl__8IElementFPvUl
 lbl_8032222C:
 /* 8032222C 0031F18C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80322230 0031F190  7F C3 F3 78 */	mr r3, r30
@@ -1786,12 +1786,12 @@ lbl_8032222C:
 
 .global __ct__9CIERandomFP11CIntElementP11CIntElement
 __ct__9CIERandomFP11CIntElementP11CIntElement:
-/* 80322248 0031F1A8  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 8032224C 0031F1AC  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 80322250 0031F1B0  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80322248 0031F1A8  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 8032224C 0031F1AC  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 80322250 0031F1B0  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 80322254 0031F1B4  3C C0 80 3F */	lis r6, __vt__9CIERandom@ha
 /* 80322258 0031F1B8  90 03 00 00 */	stw r0, 0(r3)
-/* 8032225C 0031F1BC  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 8032225C 0031F1BC  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 80322260 0031F1C0  38 06 DB D8 */	addi r0, r6, __vt__9CIERandom@l
 /* 80322264 0031F1C4  90 E3 00 00 */	stw r7, 0(r3)
 /* 80322268 0031F1C8  90 03 00 00 */	stw r0, 0(r3)
@@ -1845,8 +1845,8 @@ lbl_803222FC:
 /* 80322314 0031F274  38 21 00 20 */	addi r1, r1, 0x20
 /* 80322318 0031F278  4E 80 00 20 */	blr
 
-.global __dt__9CIEModulo
-__dt__9CIEModulo:
+.global __dt__9CIEModuloFv
+__dt__9CIEModuloFv:
 /* 8032231C 0031F27C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80322320 0031F280  7C 08 02 A6 */	mflr r0
 /* 80322324 0031F284  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1878,19 +1878,19 @@ lbl_80322368:
 lbl_80322388:
 /* 80322388 0031F2E8  28 1E 00 00 */	cmplwi r30, 0
 /* 8032238C 0031F2EC  41 82 00 20 */	beq lbl_803223AC
-/* 80322390 0031F2F0  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80322394 0031F2F4  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80322390 0031F2F0  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80322394 0031F2F4  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80322398 0031F2F8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8032239C 0031F2FC  41 82 00 10 */	beq lbl_803223AC
-/* 803223A0 0031F300  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803223A4 0031F304  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803223A0 0031F300  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803223A4 0031F304  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803223A8 0031F308  90 1E 00 00 */	stw r0, 0(r30)
 lbl_803223AC:
 /* 803223AC 0031F30C  7F E0 07 35 */	extsh. r0, r31
 /* 803223B0 0031F310  40 81 00 10 */	ble lbl_803223C0
 /* 803223B4 0031F314  7F C3 F3 78 */	mr r3, r30
 /* 803223B8 0031F318  38 80 00 0C */	li r4, 0xc
-/* 803223BC 0031F31C  48 04 A6 A9 */	bl sub_8036ca64
+/* 803223BC 0031F31C  48 04 A6 A9 */	bl __dl__8IElementFPvUl
 lbl_803223C0:
 /* 803223C0 0031F320  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803223C4 0031F324  7F C3 F3 78 */	mr r3, r30
@@ -1902,12 +1902,12 @@ lbl_803223C0:
 
 .global __ct__9CIEModuloFP11CIntElementP11CIntElement
 __ct__9CIEModuloFP11CIntElementP11CIntElement:
-/* 803223DC 0031F33C  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 803223E0 0031F340  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 803223E4 0031F344  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 803223DC 0031F33C  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 803223E0 0031F340  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 803223E4 0031F344  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 803223E8 0031F348  3C C0 80 3F */	lis r6, __vt__9CIEModulo@ha
 /* 803223EC 0031F34C  90 03 00 00 */	stw r0, 0(r3)
-/* 803223F0 0031F350  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 803223F0 0031F350  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 803223F4 0031F354  38 06 DB E8 */	addi r0, r6, __vt__9CIEModulo@l
 /* 803223F8 0031F358  90 E3 00 00 */	stw r7, 0(r3)
 /* 803223FC 0031F35C  90 03 00 00 */	stw r0, 0(r3)
@@ -1952,8 +1952,8 @@ GetValue__11CIEMultiplyCFiRi:
 /* 8032248C 0031F3EC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80322490 0031F3F0  4E 80 00 20 */	blr
 
-.global __dt__11CIEMultiply
-__dt__11CIEMultiply:
+.global __dt__11CIEMultiplyFv
+__dt__11CIEMultiplyFv:
 /* 80322494 0031F3F4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80322498 0031F3F8  7C 08 02 A6 */	mflr r0
 /* 8032249C 0031F3FC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1985,19 +1985,19 @@ lbl_803224E0:
 lbl_80322500:
 /* 80322500 0031F460  28 1E 00 00 */	cmplwi r30, 0
 /* 80322504 0031F464  41 82 00 20 */	beq lbl_80322524
-/* 80322508 0031F468  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 8032250C 0031F46C  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80322508 0031F468  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 8032250C 0031F46C  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80322510 0031F470  90 1E 00 00 */	stw r0, 0(r30)
 /* 80322514 0031F474  41 82 00 10 */	beq lbl_80322524
-/* 80322518 0031F478  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 8032251C 0031F47C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80322518 0031F478  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 8032251C 0031F47C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322520 0031F480  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80322524:
 /* 80322524 0031F484  7F E0 07 35 */	extsh. r0, r31
 /* 80322528 0031F488  40 81 00 10 */	ble lbl_80322538
 /* 8032252C 0031F48C  7F C3 F3 78 */	mr r3, r30
 /* 80322530 0031F490  38 80 00 0C */	li r4, 0xc
-/* 80322534 0031F494  48 04 A5 31 */	bl sub_8036ca64
+/* 80322534 0031F494  48 04 A5 31 */	bl __dl__8IElementFPvUl
 lbl_80322538:
 /* 80322538 0031F498  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032253C 0031F49C  7F C3 F3 78 */	mr r3, r30
@@ -2009,12 +2009,12 @@ lbl_80322538:
 
 .global __ct__11CIEMultiplyFP11CIntElementP11CIntElement
 __ct__11CIEMultiplyFP11CIntElementP11CIntElement:
-/* 80322554 0031F4B4  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 80322558 0031F4B8  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 8032255C 0031F4BC  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80322554 0031F4B4  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 80322558 0031F4B8  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 8032255C 0031F4BC  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 80322560 0031F4C0  3C C0 80 3F */	lis r6, __vt__11CIEMultiply@ha
 /* 80322564 0031F4C4  90 03 00 00 */	stw r0, 0(r3)
-/* 80322568 0031F4C8  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 80322568 0031F4C8  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 8032256C 0031F4CC  38 06 DB F8 */	addi r0, r6, __vt__11CIEMultiply@l
 /* 80322570 0031F4D0  90 E3 00 00 */	stw r7, 0(r3)
 /* 80322574 0031F4D4  90 03 00 00 */	stw r0, 0(r3)
@@ -2059,8 +2059,8 @@ GetValue__6CIEAddCFiRi:
 /* 80322604 0031F564  38 21 00 20 */	addi r1, r1, 0x20
 /* 80322608 0031F568  4E 80 00 20 */	blr
 
-.global __dt__6CIEAdd
-__dt__6CIEAdd:
+.global __dt__6CIEAddFv
+__dt__6CIEAddFv:
 /* 8032260C 0031F56C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80322610 0031F570  7C 08 02 A6 */	mflr r0
 /* 80322614 0031F574  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2092,19 +2092,19 @@ lbl_80322658:
 lbl_80322678:
 /* 80322678 0031F5D8  28 1E 00 00 */	cmplwi r30, 0
 /* 8032267C 0031F5DC  41 82 00 20 */	beq lbl_8032269C
-/* 80322680 0031F5E0  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80322684 0031F5E4  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 80322680 0031F5E0  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80322684 0031F5E4  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80322688 0031F5E8  90 1E 00 00 */	stw r0, 0(r30)
 /* 8032268C 0031F5EC  41 82 00 10 */	beq lbl_8032269C
-/* 80322690 0031F5F0  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322694 0031F5F4  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80322690 0031F5F0  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322694 0031F5F4  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322698 0031F5F8  90 1E 00 00 */	stw r0, 0(r30)
 lbl_8032269C:
 /* 8032269C 0031F5FC  7F E0 07 35 */	extsh. r0, r31
 /* 803226A0 0031F600  40 81 00 10 */	ble lbl_803226B0
 /* 803226A4 0031F604  7F C3 F3 78 */	mr r3, r30
 /* 803226A8 0031F608  38 80 00 0C */	li r4, 0xc
-/* 803226AC 0031F60C  48 04 A3 B9 */	bl sub_8036ca64
+/* 803226AC 0031F60C  48 04 A3 B9 */	bl __dl__8IElementFPvUl
 lbl_803226B0:
 /* 803226B0 0031F610  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803226B4 0031F614  7F C3 F3 78 */	mr r3, r30
@@ -2116,12 +2116,12 @@ lbl_803226B0:
 
 .global __ct__6CIEAddFP11CIntElementP11CIntElement
 __ct__6CIEAddFP11CIntElementP11CIntElement:
-/* 803226CC 0031F62C  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 803226D0 0031F630  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 803226D4 0031F634  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 803226CC 0031F62C  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 803226D0 0031F630  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 803226D4 0031F634  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 803226D8 0031F638  3C C0 80 3F */	lis r6, __vt__6CIEAdd@ha
 /* 803226DC 0031F63C  90 03 00 00 */	stw r0, 0(r3)
-/* 803226E0 0031F640  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 803226E0 0031F640  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 803226E4 0031F644  38 06 DC 08 */	addi r0, r6, __vt__6CIEAdd@l
 /* 803226E8 0031F648  90 E3 00 00 */	stw r7, 0(r3)
 /* 803226EC 0031F64C  90 03 00 00 */	stw r0, 0(r3)
@@ -2163,8 +2163,8 @@ GetValue__8CIEDeathCFiRi:
 /* 80322770 0031F6D0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80322774 0031F6D4  4E 80 00 20 */	blr
 
-.global __dt__8CIEDeath
-__dt__8CIEDeath:
+.global __dt__8CIEDeathFv
+__dt__8CIEDeathFv:
 /* 80322778 0031F6D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8032277C 0031F6DC  7C 08 02 A6 */	mflr r0
 /* 80322780 0031F6E0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2196,19 +2196,19 @@ lbl_803227C4:
 lbl_803227E4:
 /* 803227E4 0031F744  28 1E 00 00 */	cmplwi r30, 0
 /* 803227E8 0031F748  41 82 00 20 */	beq lbl_80322808
-/* 803227EC 0031F74C  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 803227F0 0031F750  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 803227EC 0031F74C  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 803227F0 0031F750  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 803227F4 0031F754  90 1E 00 00 */	stw r0, 0(r30)
 /* 803227F8 0031F758  41 82 00 10 */	beq lbl_80322808
-/* 803227FC 0031F75C  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322800 0031F760  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803227FC 0031F75C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322800 0031F760  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322804 0031F764  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80322808:
 /* 80322808 0031F768  7F E0 07 35 */	extsh. r0, r31
 /* 8032280C 0031F76C  40 81 00 10 */	ble lbl_8032281C
 /* 80322810 0031F770  7F C3 F3 78 */	mr r3, r30
 /* 80322814 0031F774  38 80 00 0C */	li r4, 0xc
-/* 80322818 0031F778  48 04 A2 4D */	bl sub_8036ca64
+/* 80322818 0031F778  48 04 A2 4D */	bl __dl__8IElementFPvUl
 lbl_8032281C:
 /* 8032281C 0031F77C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80322820 0031F780  7F C3 F3 78 */	mr r3, r30
@@ -2220,12 +2220,12 @@ lbl_8032281C:
 
 .global __ct__8CIEDeathFP11CIntElementP11CIntElement
 __ct__8CIEDeathFP11CIntElementP11CIntElement:
-/* 80322838 0031F798  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 8032283C 0031F79C  3C E0 80 3F */	lis r7, lbl_803EC584@ha
-/* 80322840 0031F7A0  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80322838 0031F798  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 8032283C 0031F79C  3C E0 80 3F */	lis r7, __vt__11CIntElement@ha
+/* 80322840 0031F7A0  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 80322844 0031F7A4  3C C0 80 3F */	lis r6, __vt__8CIEDeath@ha
 /* 80322848 0031F7A8  90 03 00 00 */	stw r0, 0(r3)
-/* 8032284C 0031F7AC  38 E7 C5 84 */	addi r7, r7, lbl_803EC584@l
+/* 8032284C 0031F7AC  38 E7 C5 84 */	addi r7, r7, __vt__11CIntElement@l
 /* 80322850 0031F7B0  38 06 DC 18 */	addi r0, r6, __vt__8CIEDeath@l
 /* 80322854 0031F7B4  90 E3 00 00 */	stw r7, 0(r3)
 /* 80322858 0031F7B8  90 03 00 00 */	stw r0, 0(r3)
@@ -2240,8 +2240,8 @@ GetValue__11CIEConstantCFiRi:
 /* 80322870 0031F7D0  90 05 00 00 */	stw r0, 0(r5)
 /* 80322874 0031F7D4  4E 80 00 20 */	blr
 
-.global __dt__11CIEConstant
-__dt__11CIEConstant:
+.global __dt__11CIEConstantFv
+__dt__11CIEConstantFv:
 /* 80322878 0031F7D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8032287C 0031F7DC  7C 08 02 A6 */	mflr r0
 /* 80322880 0031F7E0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2252,19 +2252,19 @@ __dt__11CIEConstant:
 /* 80322894 0031F7F4  38 03 DC 28 */	addi r0, r3, __vt__11CIEConstant@l
 /* 80322898 0031F7F8  90 1F 00 00 */	stw r0, 0(r31)
 /* 8032289C 0031F7FC  41 82 00 20 */	beq lbl_803228BC
-/* 803228A0 0031F800  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 803228A4 0031F804  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 803228A0 0031F800  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 803228A4 0031F804  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 803228A8 0031F808  90 1F 00 00 */	stw r0, 0(r31)
 /* 803228AC 0031F80C  41 82 00 10 */	beq lbl_803228BC
-/* 803228B0 0031F810  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803228B4 0031F814  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803228B0 0031F810  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803228B4 0031F814  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803228B8 0031F818  90 1F 00 00 */	stw r0, 0(r31)
 lbl_803228BC:
 /* 803228BC 0031F81C  7C 80 07 35 */	extsh. r0, r4
 /* 803228C0 0031F820  40 81 00 10 */	ble lbl_803228D0
 /* 803228C4 0031F824  7F E3 FB 78 */	mr r3, r31
 /* 803228C8 0031F828  38 80 00 08 */	li r4, 8
-/* 803228CC 0031F82C  48 04 A1 99 */	bl sub_8036ca64
+/* 803228CC 0031F82C  48 04 A1 99 */	bl __dl__8IElementFPvUl
 lbl_803228D0:
 /* 803228D0 0031F830  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803228D4 0031F834  7F E3 FB 78 */	mr r3, r31
@@ -2275,20 +2275,20 @@ lbl_803228D0:
 
 .global __ct__11CIEConstantFi
 __ct__11CIEConstantFi:
-/* 803228E8 0031F848  3C E0 80 3F */	lis r7, lbl_803EC5A8@ha
-/* 803228EC 0031F84C  3C C0 80 3F */	lis r6, lbl_803EC584@ha
-/* 803228F0 0031F850  38 07 C5 A8 */	addi r0, r7, lbl_803EC5A8@l
+/* 803228E8 0031F848  3C E0 80 3F */	lis r7, __vt__8IElement@ha
+/* 803228EC 0031F84C  3C C0 80 3F */	lis r6, __vt__11CIntElement@ha
+/* 803228F0 0031F850  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
 /* 803228F4 0031F854  3C A0 80 3F */	lis r5, __vt__11CIEConstant@ha
 /* 803228F8 0031F858  90 03 00 00 */	stw r0, 0(r3)
-/* 803228FC 0031F85C  38 C6 C5 84 */	addi r6, r6, lbl_803EC584@l
+/* 803228FC 0031F85C  38 C6 C5 84 */	addi r6, r6, __vt__11CIntElement@l
 /* 80322900 0031F860  38 05 DC 28 */	addi r0, r5, __vt__11CIEConstant@l
 /* 80322904 0031F864  90 C3 00 00 */	stw r6, 0(r3)
 /* 80322908 0031F868  90 03 00 00 */	stw r0, 0(r3)
 /* 8032290C 0031F86C  90 83 00 04 */	stw r4, 4(r3)
 /* 80322910 0031F870  4E 80 00 20 */	blr
 
-.global __dt__25CIEGetActiveParticleCount
-__dt__25CIEGetActiveParticleCount:
+.global __dt__25CIEGetActiveParticleCountFv
+__dt__25CIEGetActiveParticleCountFv:
 /* 80322914 0031F874  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80322918 0031F878  7C 08 02 A6 */	mflr r0
 /* 8032291C 0031F87C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2299,19 +2299,19 @@ __dt__25CIEGetActiveParticleCount:
 /* 80322930 0031F890  38 03 DB 08 */	addi r0, r3, __vt__25CIEGetActiveParticleCount@l
 /* 80322934 0031F894  90 1F 00 00 */	stw r0, 0(r31)
 /* 80322938 0031F898  41 82 00 20 */	beq lbl_80322958
-/* 8032293C 0031F89C  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 80322940 0031F8A0  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 8032293C 0031F89C  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 80322940 0031F8A0  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 80322944 0031F8A4  90 1F 00 00 */	stw r0, 0(r31)
 /* 80322948 0031F8A8  41 82 00 10 */	beq lbl_80322958
-/* 8032294C 0031F8AC  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322950 0031F8B0  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 8032294C 0031F8AC  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322950 0031F8B0  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322954 0031F8B4  90 1F 00 00 */	stw r0, 0(r31)
 lbl_80322958:
 /* 80322958 0031F8B8  7C 80 07 35 */	extsh. r0, r4
 /* 8032295C 0031F8BC  40 81 00 10 */	ble lbl_8032296C
 /* 80322960 0031F8C0  7F E3 FB 78 */	mr r3, r31
 /* 80322964 0031F8C4  38 80 00 04 */	li r4, 4
-/* 80322968 0031F8C8  48 04 A0 FD */	bl sub_8036ca64
+/* 80322968 0031F8C8  48 04 A0 FD */	bl __dl__8IElementFPvUl
 lbl_8032296C:
 /* 8032296C 0031F8CC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80322970 0031F8D0  7F E3 FB 78 */	mr r3, r31
@@ -2320,8 +2320,8 @@ lbl_8032296C:
 /* 8032297C 0031F8DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80322980 0031F8E0  4E 80 00 20 */	blr
 
-.global __dt__29CIEGetCumulativeParticleCount
-__dt__29CIEGetCumulativeParticleCount:
+.global __dt__29CIEGetCumulativeParticleCountFv
+__dt__29CIEGetCumulativeParticleCountFv:
 /* 80322984 0031F8E4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80322988 0031F8E8  7C 08 02 A6 */	mflr r0
 /* 8032298C 0031F8EC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2332,19 +2332,19 @@ __dt__29CIEGetCumulativeParticleCount:
 /* 803229A0 0031F900  38 03 DB 18 */	addi r0, r3, __vt__29CIEGetCumulativeParticleCount@l
 /* 803229A4 0031F904  90 1F 00 00 */	stw r0, 0(r31)
 /* 803229A8 0031F908  41 82 00 20 */	beq lbl_803229C8
-/* 803229AC 0031F90C  3C 60 80 3F */	lis r3, lbl_803EC584@ha
-/* 803229B0 0031F910  38 03 C5 84 */	addi r0, r3, lbl_803EC584@l
+/* 803229AC 0031F90C  3C 60 80 3F */	lis r3, __vt__11CIntElement@ha
+/* 803229B0 0031F910  38 03 C5 84 */	addi r0, r3, __vt__11CIntElement@l
 /* 803229B4 0031F914  90 1F 00 00 */	stw r0, 0(r31)
 /* 803229B8 0031F918  41 82 00 10 */	beq lbl_803229C8
-/* 803229BC 0031F91C  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803229C0 0031F920  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803229BC 0031F91C  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803229C0 0031F920  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803229C4 0031F924  90 1F 00 00 */	stw r0, 0(r31)
 lbl_803229C8:
 /* 803229C8 0031F928  7C 80 07 35 */	extsh. r0, r4
 /* 803229CC 0031F92C  40 81 00 10 */	ble lbl_803229DC
 /* 803229D0 0031F930  7F E3 FB 78 */	mr r3, r31
 /* 803229D4 0031F934  38 80 00 04 */	li r4, 4
-/* 803229D8 0031F938  48 04 A0 8D */	bl sub_8036ca64
+/* 803229D8 0031F938  48 04 A0 8D */	bl __dl__8IElementFPvUl
 lbl_803229DC:
 /* 803229DC 0031F93C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803229E0 0031F940  7F E3 FB 78 */	mr r3, r31

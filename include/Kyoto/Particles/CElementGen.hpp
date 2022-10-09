@@ -38,12 +38,17 @@ public:
   virtual CColor GetModulationColor() const;
   virtual bool IsSystemDeletable() const;
   virtual CAABox GetBounds() const;
-  virtual int GetParticleCOunt() const;
+  virtual int GetParticleCount() const;
   virtual bool SystemHasLight() const;
   virtual CLight GetLight();
   virtual void DestroyParticles();
   virtual void AddModifier(CWarp*);
   virtual uint Get4CharId() const;
+
+  int GetEmitterTime() const;
+
+  // TODO
+  int GetCumulativeParticleCount() const { return *reinterpret_cast< const int* >(&x4_pad[0x25c]); }
 
   static void Initialize();
   static void ShutDown();

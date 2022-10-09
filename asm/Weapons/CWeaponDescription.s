@@ -3,12 +3,12 @@
 .section .data
 .balign 8
 
-.global lbl_803EC5C8
-lbl_803EC5C8:
+.global __vt__17CModVectorElement
+__vt__17CModVectorElement:
 	# ROM: 0x3E95C8
 	.4byte 0
 	.4byte 0
-	.4byte __dt__17CModVectorElement
+	.4byte __dt__17CModVectorElementFv
 	.4byte 0
 
 .section .text, "ax"
@@ -249,27 +249,27 @@ lbl_802B5BBC:
 /* 802B5BD0 002B2B30  38 21 00 10 */	addi r1, r1, 0x10
 /* 802B5BD4 002B2B34  4E 80 00 20 */	blr
 
-.global __dt__17CModVectorElement
-__dt__17CModVectorElement:
+.global __dt__17CModVectorElementFv
+__dt__17CModVectorElementFv:
 /* 802B5BD8 002B2B38  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802B5BDC 002B2B3C  7C 08 02 A6 */	mflr r0
 /* 802B5BE0 002B2B40  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802B5BE4 002B2B44  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802B5BE8 002B2B48  7C 7F 1B 79 */	or. r31, r3, r3
 /* 802B5BEC 002B2B4C  41 82 00 34 */	beq lbl_802B5C20
-/* 802B5BF0 002B2B50  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 802B5BF4 002B2B54  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 802B5BF0 002B2B50  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 802B5BF4 002B2B54  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 802B5BF8 002B2B58  90 1F 00 00 */	stw r0, 0(r31)
 /* 802B5BFC 002B2B5C  41 82 00 10 */	beq lbl_802B5C0C
-/* 802B5C00 002B2B60  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 802B5C04 002B2B64  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 802B5C00 002B2B60  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 802B5C04 002B2B64  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 802B5C08 002B2B68  90 1F 00 00 */	stw r0, 0(r31)
 lbl_802B5C0C:
 /* 802B5C0C 002B2B6C  7C 80 07 35 */	extsh. r0, r4
 /* 802B5C10 002B2B70  40 81 00 10 */	ble lbl_802B5C20
 /* 802B5C14 002B2B74  7F E3 FB 78 */	mr r3, r31
 /* 802B5C18 002B2B78  38 80 00 04 */	li r4, 4
-/* 802B5C1C 002B2B7C  48 0B 6E 49 */	bl sub_8036ca64
+/* 802B5C1C 002B2B7C  48 0B 6E 49 */	bl __dl__8IElementFPvUl
 lbl_802B5C20:
 /* 802B5C20 002B2B80  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 802B5C24 002B2B84  7F E3 FB 78 */	mr r3, r31

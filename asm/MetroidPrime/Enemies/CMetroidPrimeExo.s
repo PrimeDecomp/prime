@@ -5518,7 +5518,7 @@ lbl_80275548:
 
 .global sub_802755a4
 sub_802755a4:
-/* 802755A4 00272504  80 6D A8 F8 */	lwz r3, lbl_805A94B8@sda21(r13)
+/* 802755A4 00272504  80 6D A8 F8 */	lwz r3, mSwooshAliveCount__15CParticleSwoosh@sda21(r13)
 /* 802755A8 00272508  4E 80 00 20 */	blr
 
 .global sub_802755ac

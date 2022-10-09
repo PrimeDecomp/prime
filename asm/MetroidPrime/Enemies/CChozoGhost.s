@@ -2946,8 +2946,8 @@ lbl_801417E8:
 /* 8014180C 0013E76C  54 9F D9 7E */	srwi r31, r4, 5
 /* 80141810 0013E770  41 82 00 4C */	beq lbl_8014185C
 /* 80141814 0013E774  38 00 00 01 */	li r0, 1
-/* 80141818 0013E778  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
-/* 8014181C 0013E77C  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
+/* 80141818 0013E778  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
+/* 8014181C 0013E77C  98 0D A8 B8 */	stb r0, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 80141820 0013E780  48 20 87 95 */	bl Black__6CColorFv
 /* 80141824 0013E784  C0 22 9B 5C */	lfs f1, lbl_805AB87C@sda21(r2)
 /* 80141828 0013E788  7C 64 1B 78 */	mr r4, r3
@@ -2985,8 +2985,8 @@ lbl_8014185C:
 /* 801418A4 0013E804  90 01 00 08 */	stw r0, 8(r1)
 /* 801418A8 0013E808  4B F0 54 D9 */	bl SetupFogForArea__13CStateManagerCF7TAreaId
 /* 801418AC 0013E80C  38 00 00 00 */	li r0, 0
-/* 801418B0 0013E810  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
-/* 801418B4 0013E814  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
+/* 801418B0 0013E810  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
+/* 801418B4 0013E814  98 0D A8 B8 */	stb r0, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 lbl_801418B8:
 /* 801418B8 0013E818  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 801418BC 0013E81C  83 E1 00 2C */	lwz r31, 0x2c(r1)

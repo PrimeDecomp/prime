@@ -168,19 +168,19 @@ __dt__15CMVESetPositionFv:
 lbl_80322A78:
 /* 80322A78 0031F9D8  28 1E 00 00 */	cmplwi r30, 0
 /* 80322A7C 0031F9DC  41 82 00 20 */	beq lbl_80322A9C
-/* 80322A80 0031F9E0  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 80322A84 0031F9E4  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80322A80 0031F9E0  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 80322A84 0031F9E4  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80322A88 0031F9E8  90 1E 00 00 */	stw r0, 0(r30)
 /* 80322A8C 0031F9EC  41 82 00 10 */	beq lbl_80322A9C
-/* 80322A90 0031F9F0  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322A94 0031F9F4  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80322A90 0031F9F0  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322A94 0031F9F4  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322A98 0031F9F8  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80322A9C:
 /* 80322A9C 0031F9FC  7F E0 07 35 */	extsh. r0, r31
 /* 80322AA0 0031FA00  40 81 00 10 */	ble lbl_80322AB0
 /* 80322AA4 0031FA04  7F C3 F3 78 */	mr r3, r30
 /* 80322AA8 0031FA08  38 80 00 08 */	li r4, 8
-/* 80322AAC 0031FA0C  48 04 9F B9 */	bl sub_8036ca64
+/* 80322AAC 0031FA0C  48 04 9F B9 */	bl __dl__8IElementFPvUl
 lbl_80322AB0:
 /* 80322AB0 0031FA10  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80322AB4 0031FA14  7F C3 F3 78 */	mr r3, r30
@@ -192,12 +192,12 @@ lbl_80322AB0:
 
 .global __ct__15CMVESetPositionFP14CVectorElement
 __ct__15CMVESetPositionFP14CVectorElement:
-/* 80322ACC 0031FA2C  3C E0 80 3F */	lis r7, lbl_803EC5A8@ha
-/* 80322AD0 0031FA30  3C C0 80 3F */	lis r6, lbl_803EC5C8@ha
-/* 80322AD4 0031FA34  38 07 C5 A8 */	addi r0, r7, lbl_803EC5A8@l
+/* 80322ACC 0031FA2C  3C E0 80 3F */	lis r7, __vt__8IElement@ha
+/* 80322AD0 0031FA30  3C C0 80 3F */	lis r6, __vt__17CModVectorElement@ha
+/* 80322AD4 0031FA34  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
 /* 80322AD8 0031FA38  3C A0 80 3F */	lis r5, __vt__15CMVESetPosition@ha
 /* 80322ADC 0031FA3C  90 03 00 00 */	stw r0, 0(r3)
-/* 80322AE0 0031FA40  38 C6 C5 C8 */	addi r6, r6, lbl_803EC5C8@l
+/* 80322AE0 0031FA40  38 C6 C5 C8 */	addi r6, r6, __vt__17CModVectorElement@l
 /* 80322AE4 0031FA44  38 05 DC 38 */	addi r0, r5, __vt__15CMVESetPosition@l
 /* 80322AE8 0031FA48  90 C3 00 00 */	stw r6, 0(r3)
 /* 80322AEC 0031FA4C  90 03 00 00 */	stw r0, 0(r3)
@@ -435,19 +435,19 @@ lbl_80322E34:
 lbl_80322E54:
 /* 80322E54 0031FDB4  28 1E 00 00 */	cmplwi r30, 0
 /* 80322E58 0031FDB8  41 82 00 20 */	beq lbl_80322E78
-/* 80322E5C 0031FDBC  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 80322E60 0031FDC0  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80322E5C 0031FDBC  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 80322E60 0031FDC0  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80322E64 0031FDC4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80322E68 0031FDC8  41 82 00 10 */	beq lbl_80322E78
-/* 80322E6C 0031FDCC  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322E70 0031FDD0  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80322E6C 0031FDCC  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322E70 0031FDD0  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322E74 0031FDD4  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80322E78:
 /* 80322E78 0031FDD8  7F E0 07 35 */	extsh. r0, r31
 /* 80322E7C 0031FDDC  40 81 00 10 */	ble lbl_80322E8C
 /* 80322E80 0031FDE0  7F C3 F3 78 */	mr r3, r30
 /* 80322E84 0031FDE4  38 80 00 28 */	li r4, 0x28
-/* 80322E88 0031FDE8  48 04 9B DD */	bl sub_8036ca64
+/* 80322E88 0031FDE8  48 04 9B DD */	bl __dl__8IElementFPvUl
 lbl_80322E8C:
 /* 80322E8C 0031FDEC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80322E90 0031FDF0  7F C3 F3 78 */	mr r3, r30
@@ -461,7 +461,7 @@ lbl_80322E8C:
 __ct__10CMVEBounceFP14CVectorElementP14CVectorElementP12CRealElementP12CRealElementb:
 /* 80322EA8 0031FE08  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80322EAC 0031FE0C  7C 08 02 A6 */	mflr r0
-/* 80322EB0 0031FE10  3D 20 80 3F */	lis r9, lbl_803EC5C8@ha
+/* 80322EB0 0031FE10  3D 20 80 3F */	lis r9, __vt__17CModVectorElement@ha
 /* 80322EB4 0031FE14  C0 02 CA 68 */	lfs f0, lbl_805AE788@sda21(r2)
 /* 80322EB8 0031FE18  90 01 00 34 */	stw r0, 0x34(r1)
 /* 80322EBC 0031FE1C  93 E1 00 2C */	stw r31, 0x2c(r1)
@@ -470,11 +470,11 @@ __ct__10CMVEBounceFP14CVectorElementP14CVectorElementP12CRealElementP12CRealElem
 /* 80322EC8 0031FE28  7C 9E 23 79 */	or. r30, r4, r4
 /* 80322ECC 0031FE2C  93 A1 00 24 */	stw r29, 0x24(r1)
 /* 80322ED0 0031FE30  7C 7D 1B 78 */	mr r29, r3
-/* 80322ED4 0031FE34  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80322ED8 0031FE38  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80322ED4 0031FE34  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80322ED8 0031FE38  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80322EDC 0031FE3C  7F AA EB 78 */	mr r10, r29
 /* 80322EE0 0031FE40  90 1D 00 00 */	stw r0, 0(r29)
-/* 80322EE4 0031FE44  38 09 C5 C8 */	addi r0, r9, lbl_803EC5C8@l
+/* 80322EE4 0031FE44  38 09 C5 C8 */	addi r0, r9, __vt__17CModVectorElement@l
 /* 80322EE8 0031FE48  3C 60 80 3F */	lis r3, __vt__10CMVEBounce@ha
 /* 80322EEC 0031FE4C  90 1D 00 00 */	stw r0, 0(r29)
 /* 80322EF0 0031FE50  38 63 DC 48 */	addi r3, r3, __vt__10CMVEBounce@l
@@ -745,19 +745,19 @@ lbl_803232C8:
 lbl_803232E8:
 /* 803232E8 00320248  28 1E 00 00 */	cmplwi r30, 0
 /* 803232EC 0032024C  41 82 00 20 */	beq lbl_8032330C
-/* 803232F0 00320250  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 803232F4 00320254  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 803232F0 00320250  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 803232F4 00320254  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 803232F8 00320258  90 1E 00 00 */	stw r0, 0(r30)
 /* 803232FC 0032025C  41 82 00 10 */	beq lbl_8032330C
-/* 80323300 00320260  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80323304 00320264  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80323300 00320260  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80323304 00320264  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80323308 00320268  90 1E 00 00 */	stw r0, 0(r30)
 lbl_8032330C:
 /* 8032330C 0032026C  7F E0 07 35 */	extsh. r0, r31
 /* 80323310 00320270  40 81 00 10 */	ble lbl_80323320
 /* 80323314 00320274  7F C3 F3 78 */	mr r3, r30
 /* 80323318 00320278  38 80 00 14 */	li r4, 0x14
-/* 8032331C 0032027C  48 04 97 49 */	bl sub_8036ca64
+/* 8032331C 0032027C  48 04 97 49 */	bl __dl__8IElementFPvUl
 lbl_80323320:
 /* 80323320 00320280  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80323324 00320284  7F C3 F3 78 */	mr r3, r30
@@ -769,12 +769,12 @@ lbl_80323320:
 
 .global __ct__9CMVESwirlFP14CVectorElementP14CVectorElementP12CRealElementP12CRealElement
 __ct__9CMVESwirlFP14CVectorElementP14CVectorElementP12CRealElementP12CRealElement:
-/* 8032333C 0032029C  3D 40 80 3F */	lis r10, lbl_803EC5A8@ha
-/* 80323340 003202A0  3D 20 80 3F */	lis r9, lbl_803EC5C8@ha
-/* 80323344 003202A4  38 0A C5 A8 */	addi r0, r10, lbl_803EC5A8@l
+/* 8032333C 0032029C  3D 40 80 3F */	lis r10, __vt__8IElement@ha
+/* 80323340 003202A0  3D 20 80 3F */	lis r9, __vt__17CModVectorElement@ha
+/* 80323344 003202A4  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
 /* 80323348 003202A8  3D 00 80 3F */	lis r8, __vt__9CMVESwirl@ha
 /* 8032334C 003202AC  90 03 00 00 */	stw r0, 0(r3)
-/* 80323350 003202B0  39 29 C5 C8 */	addi r9, r9, lbl_803EC5C8@l
+/* 80323350 003202B0  39 29 C5 C8 */	addi r9, r9, __vt__17CModVectorElement@l
 /* 80323354 003202B4  38 08 DC 58 */	addi r0, r8, __vt__9CMVESwirl@l
 /* 80323358 003202B8  91 23 00 00 */	stw r9, 0(r3)
 /* 8032335C 003202BC  90 03 00 00 */	stw r0, 0(r3)
@@ -966,19 +966,19 @@ lbl_803235F0:
 lbl_80323610:
 /* 80323610 00320570  28 1E 00 00 */	cmplwi r30, 0
 /* 80323614 00320574  41 82 00 20 */	beq lbl_80323634
-/* 80323618 00320578  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 8032361C 0032057C  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80323618 00320578  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 8032361C 0032057C  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80323620 00320580  90 1E 00 00 */	stw r0, 0(r30)
 /* 80323624 00320584  41 82 00 10 */	beq lbl_80323634
-/* 80323628 00320588  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 8032362C 0032058C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80323628 00320588  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 8032362C 0032058C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80323630 00320590  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80323634:
 /* 80323634 00320594  7F E0 07 35 */	extsh. r0, r31
 /* 80323638 00320598  40 81 00 10 */	ble lbl_80323648
 /* 8032363C 0032059C  7F C3 F3 78 */	mr r3, r30
 /* 80323640 003205A0  38 80 00 18 */	li r4, 0x18
-/* 80323644 003205A4  48 04 94 21 */	bl sub_8036ca64
+/* 80323644 003205A4  48 04 94 21 */	bl __dl__8IElementFPvUl
 lbl_80323648:
 /* 80323648 003205A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032364C 003205AC  7F C3 F3 78 */	mr r3, r30
@@ -990,12 +990,12 @@ lbl_80323648:
 
 .global __ct__24CMVEExponentialImplosionFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementb
 __ct__24CMVEExponentialImplosionFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementb:
-/* 80323664 003205C4  3D 60 80 3F */	lis r11, lbl_803EC5A8@ha
-/* 80323668 003205C8  3D 40 80 3F */	lis r10, lbl_803EC5C8@ha
-/* 8032366C 003205CC  38 0B C5 A8 */	addi r0, r11, lbl_803EC5A8@l
+/* 80323664 003205C4  3D 60 80 3F */	lis r11, __vt__8IElement@ha
+/* 80323668 003205C8  3D 40 80 3F */	lis r10, __vt__17CModVectorElement@ha
+/* 8032366C 003205CC  38 0B C5 A8 */	addi r0, r11, __vt__8IElement@l
 /* 80323670 003205D0  3D 20 80 3F */	lis r9, __vt__24CMVEExponentialImplosion@ha
 /* 80323674 003205D4  90 03 00 00 */	stw r0, 0(r3)
-/* 80323678 003205D8  39 4A C5 C8 */	addi r10, r10, lbl_803EC5C8@l
+/* 80323678 003205D8  39 4A C5 C8 */	addi r10, r10, __vt__17CModVectorElement@l
 /* 8032367C 003205DC  38 09 DC 68 */	addi r0, r9, __vt__24CMVEExponentialImplosion@l
 /* 80323680 003205E0  91 43 00 00 */	stw r10, 0(r3)
 /* 80323684 003205E4  90 03 00 00 */	stw r0, 0(r3)
@@ -1175,19 +1175,19 @@ lbl_803238E8:
 lbl_80323908:
 /* 80323908 00320868  28 1E 00 00 */	cmplwi r30, 0
 /* 8032390C 0032086C  41 82 00 20 */	beq lbl_8032392C
-/* 80323910 00320870  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 80323914 00320874  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80323910 00320870  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 80323914 00320874  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80323918 00320878  90 1E 00 00 */	stw r0, 0(r30)
 /* 8032391C 0032087C  41 82 00 10 */	beq lbl_8032392C
-/* 80323920 00320880  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80323924 00320884  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80323920 00320880  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80323924 00320884  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80323928 00320888  90 1E 00 00 */	stw r0, 0(r30)
 lbl_8032392C:
 /* 8032392C 0032088C  7F E0 07 35 */	extsh. r0, r31
 /* 80323930 00320890  40 81 00 10 */	ble lbl_80323940
 /* 80323934 00320894  7F C3 F3 78 */	mr r3, r30
 /* 80323938 00320898  38 80 00 18 */	li r4, 0x18
-/* 8032393C 0032089C  48 04 91 29 */	bl sub_8036ca64
+/* 8032393C 0032089C  48 04 91 29 */	bl __dl__8IElementFPvUl
 lbl_80323940:
 /* 80323940 003208A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80323944 003208A4  7F C3 F3 78 */	mr r3, r30
@@ -1199,12 +1199,12 @@ lbl_80323940:
 
 .global __ct__19CMVELinearImplosionFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementb
 __ct__19CMVELinearImplosionFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementb:
-/* 8032395C 003208BC  3D 60 80 3F */	lis r11, lbl_803EC5A8@ha
-/* 80323960 003208C0  3D 40 80 3F */	lis r10, lbl_803EC5C8@ha
-/* 80323964 003208C4  38 0B C5 A8 */	addi r0, r11, lbl_803EC5A8@l
+/* 8032395C 003208BC  3D 60 80 3F */	lis r11, __vt__8IElement@ha
+/* 80323960 003208C0  3D 40 80 3F */	lis r10, __vt__17CModVectorElement@ha
+/* 80323964 003208C4  38 0B C5 A8 */	addi r0, r11, __vt__8IElement@l
 /* 80323968 003208C8  3D 20 80 3F */	lis r9, __vt__19CMVELinearImplosion@ha
 /* 8032396C 003208CC  90 03 00 00 */	stw r0, 0(r3)
-/* 80323970 003208D0  39 4A C5 C8 */	addi r10, r10, lbl_803EC5C8@l
+/* 80323970 003208D0  39 4A C5 C8 */	addi r10, r10, __vt__17CModVectorElement@l
 /* 80323974 003208D4  38 09 DC 78 */	addi r0, r9, __vt__19CMVELinearImplosion@l
 /* 80323978 003208D8  91 43 00 00 */	stw r10, 0(r3)
 /* 8032397C 003208DC  90 03 00 00 */	stw r0, 0(r3)
@@ -1390,19 +1390,19 @@ lbl_80323BF8:
 lbl_80323C18:
 /* 80323C18 00320B78  28 1E 00 00 */	cmplwi r30, 0
 /* 80323C1C 00320B7C  41 82 00 20 */	beq lbl_80323C3C
-/* 80323C20 00320B80  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 80323C24 00320B84  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80323C20 00320B80  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 80323C24 00320B84  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80323C28 00320B88  90 1E 00 00 */	stw r0, 0(r30)
 /* 80323C2C 00320B8C  41 82 00 10 */	beq lbl_80323C3C
-/* 80323C30 00320B90  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80323C34 00320B94  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80323C30 00320B90  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80323C34 00320B94  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80323C38 00320B98  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80323C3C:
 /* 80323C3C 00320B9C  7F E0 07 35 */	extsh. r0, r31
 /* 80323C40 00320BA0  40 81 00 10 */	ble lbl_80323C50
 /* 80323C44 00320BA4  7F C3 F3 78 */	mr r3, r30
 /* 80323C48 00320BA8  38 80 00 18 */	li r4, 0x18
-/* 80323C4C 00320BAC  48 04 8E 19 */	bl sub_8036ca64
+/* 80323C4C 00320BAC  48 04 8E 19 */	bl __dl__8IElementFPvUl
 lbl_80323C50:
 /* 80323C50 00320BB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80323C54 00320BB4  7F C3 F3 78 */	mr r3, r30
@@ -1414,12 +1414,12 @@ lbl_80323C50:
 
 .global __ct__13CMVEImplosionFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementb
 __ct__13CMVEImplosionFP14CVectorElementP12CRealElementP12CRealElementP12CRealElementb:
-/* 80323C6C 00320BCC  3D 60 80 3F */	lis r11, lbl_803EC5A8@ha
-/* 80323C70 00320BD0  3D 40 80 3F */	lis r10, lbl_803EC5C8@ha
-/* 80323C74 00320BD4  38 0B C5 A8 */	addi r0, r11, lbl_803EC5A8@l
+/* 80323C6C 00320BCC  3D 60 80 3F */	lis r11, __vt__8IElement@ha
+/* 80323C70 00320BD0  3D 40 80 3F */	lis r10, __vt__17CModVectorElement@ha
+/* 80323C74 00320BD4  38 0B C5 A8 */	addi r0, r11, __vt__8IElement@l
 /* 80323C78 00320BD8  3D 20 80 3F */	lis r9, __vt__13CMVEImplosion@ha
 /* 80323C7C 00320BDC  90 03 00 00 */	stw r0, 0(r3)
-/* 80323C80 00320BE0  39 4A C5 C8 */	addi r10, r10, lbl_803EC5C8@l
+/* 80323C80 00320BE0  39 4A C5 C8 */	addi r10, r10, __vt__17CModVectorElement@l
 /* 80323C84 00320BE4  38 09 DC 88 */	addi r0, r9, __vt__13CMVEImplosion@l
 /* 80323C88 00320BE8  91 43 00 00 */	stw r10, 0(r3)
 /* 80323C8C 00320BEC  90 03 00 00 */	stw r0, 0(r3)
@@ -1560,19 +1560,19 @@ lbl_80323E54:
 lbl_80323E74:
 /* 80323E74 00320DD4  28 1E 00 00 */	cmplwi r30, 0
 /* 80323E78 00320DD8  41 82 00 20 */	beq lbl_80323E98
-/* 80323E7C 00320DDC  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 80323E80 00320DE0  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80323E7C 00320DDC  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 80323E80 00320DE0  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80323E84 00320DE4  90 1E 00 00 */	stw r0, 0(r30)
 /* 80323E88 00320DE8  41 82 00 10 */	beq lbl_80323E98
-/* 80323E8C 00320DEC  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 80323E90 00320DF0  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80323E8C 00320DEC  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 80323E90 00320DF0  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80323E94 00320DF4  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80323E98:
 /* 80323E98 00320DF8  7F E0 07 35 */	extsh. r0, r31
 /* 80323E9C 00320DFC  40 81 00 10 */	ble lbl_80323EAC
 /* 80323EA0 00320E00  7F C3 F3 78 */	mr r3, r30
 /* 80323EA4 00320E04  38 80 00 14 */	li r4, 0x14
-/* 80323EA8 00320E08  48 04 8B BD */	bl sub_8036ca64
+/* 80323EA8 00320E08  48 04 8B BD */	bl __dl__8IElementFPvUl
 lbl_80323EAC:
 /* 80323EAC 00320E0C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80323EB0 00320E10  7F C3 F3 78 */	mr r3, r30
@@ -1584,12 +1584,12 @@ lbl_80323EAC:
 
 .global __ct__9CMVEPulseFP11CIntElementP11CIntElementP17CModVectorElementP17CModVectorElement
 __ct__9CMVEPulseFP11CIntElementP11CIntElementP17CModVectorElementP17CModVectorElement:
-/* 80323EC8 00320E28  3D 40 80 3F */	lis r10, lbl_803EC5A8@ha
-/* 80323ECC 00320E2C  3D 20 80 3F */	lis r9, lbl_803EC5C8@ha
-/* 80323ED0 00320E30  38 0A C5 A8 */	addi r0, r10, lbl_803EC5A8@l
+/* 80323EC8 00320E28  3D 40 80 3F */	lis r10, __vt__8IElement@ha
+/* 80323ECC 00320E2C  3D 20 80 3F */	lis r9, __vt__17CModVectorElement@ha
+/* 80323ED0 00320E30  38 0A C5 A8 */	addi r0, r10, __vt__8IElement@l
 /* 80323ED4 00320E34  3D 00 80 3F */	lis r8, __vt__9CMVEPulse@ha
 /* 80323ED8 00320E38  90 03 00 00 */	stw r0, 0(r3)
-/* 80323EDC 00320E3C  39 29 C5 C8 */	addi r9, r9, lbl_803EC5C8@l
+/* 80323EDC 00320E3C  39 29 C5 C8 */	addi r9, r9, __vt__17CModVectorElement@l
 /* 80323EE0 00320E40  38 08 DC 98 */	addi r0, r8, __vt__9CMVEPulse@l
 /* 80323EE4 00320E44  91 23 00 00 */	stw r9, 0(r3)
 /* 80323EE8 00320E48  90 03 00 00 */	stw r0, 0(r3)
@@ -1691,19 +1691,19 @@ lbl_80324020:
 lbl_80324040:
 /* 80324040 00320FA0  28 1E 00 00 */	cmplwi r30, 0
 /* 80324044 00320FA4  41 82 00 20 */	beq lbl_80324064
-/* 80324048 00320FA8  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 8032404C 00320FAC  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80324048 00320FA8  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 8032404C 00320FAC  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80324050 00320FB0  90 1E 00 00 */	stw r0, 0(r30)
 /* 80324054 00320FB4  41 82 00 10 */	beq lbl_80324064
-/* 80324058 00320FB8  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 8032405C 00320FBC  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80324058 00320FB8  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 8032405C 00320FBC  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80324060 00320FC0  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80324064:
 /* 80324064 00320FC4  7F E0 07 35 */	extsh. r0, r31
 /* 80324068 00320FC8  40 81 00 10 */	ble lbl_80324078
 /* 8032406C 00320FCC  7F C3 F3 78 */	mr r3, r30
 /* 80324070 00320FD0  38 80 00 10 */	li r4, 0x10
-/* 80324074 00320FD4  48 04 89 F1 */	bl sub_8036ca64
+/* 80324074 00320FD4  48 04 89 F1 */	bl __dl__8IElementFPvUl
 lbl_80324078:
 /* 80324078 00320FD8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032407C 00320FDC  7F C3 F3 78 */	mr r3, r30
@@ -1715,12 +1715,12 @@ lbl_80324078:
 
 .global __ct__13CMVETimeChainFP17CModVectorElementP17CModVectorElementP11CIntElement
 __ct__13CMVETimeChainFP17CModVectorElementP17CModVectorElementP11CIntElement:
-/* 80324094 00320FF4  3D 20 80 3F */	lis r9, lbl_803EC5A8@ha
-/* 80324098 00320FF8  3D 00 80 3F */	lis r8, lbl_803EC5C8@ha
-/* 8032409C 00320FFC  38 09 C5 A8 */	addi r0, r9, lbl_803EC5A8@l
+/* 80324094 00320FF4  3D 20 80 3F */	lis r9, __vt__8IElement@ha
+/* 80324098 00320FF8  3D 00 80 3F */	lis r8, __vt__17CModVectorElement@ha
+/* 8032409C 00320FFC  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
 /* 803240A0 00321000  3C E0 80 3F */	lis r7, __vt__13CMVETimeChain@ha
 /* 803240A4 00321004  90 03 00 00 */	stw r0, 0(r3)
-/* 803240A8 00321008  39 08 C5 C8 */	addi r8, r8, lbl_803EC5C8@l
+/* 803240A8 00321008  39 08 C5 C8 */	addi r8, r8, __vt__17CModVectorElement@l
 /* 803240AC 0032100C  38 07 DC A8 */	addi r0, r7, __vt__13CMVETimeChain@l
 /* 803240B0 00321010  91 03 00 00 */	stw r8, 0(r3)
 /* 803240B4 00321014  90 03 00 00 */	stw r0, 0(r3)
@@ -1866,19 +1866,19 @@ lbl_8032429C:
 lbl_803242BC:
 /* 803242BC 0032121C  28 1E 00 00 */	cmplwi r30, 0
 /* 803242C0 00321220  41 82 00 20 */	beq lbl_803242E0
-/* 803242C4 00321224  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 803242C8 00321228  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 803242C4 00321224  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 803242C8 00321228  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 803242CC 0032122C  90 1E 00 00 */	stw r0, 0(r30)
 /* 803242D0 00321230  41 82 00 10 */	beq lbl_803242E0
-/* 803242D4 00321234  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803242D8 00321238  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803242D4 00321234  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803242D8 00321238  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803242DC 0032123C  90 1E 00 00 */	stw r0, 0(r30)
 lbl_803242E0:
 /* 803242E0 00321240  7F E0 07 35 */	extsh. r0, r31
 /* 803242E4 00321244  40 81 00 10 */	ble lbl_803242F4
 /* 803242E8 00321248  7F C3 F3 78 */	mr r3, r30
 /* 803242EC 0032124C  38 80 00 0C */	li r4, 0xc
-/* 803242F0 00321250  48 04 87 75 */	bl sub_8036ca64
+/* 803242F0 00321250  48 04 87 75 */	bl __dl__8IElementFPvUl
 lbl_803242F4:
 /* 803242F4 00321254  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803242F8 00321258  7F C3 F3 78 */	mr r3, r30
@@ -1890,12 +1890,12 @@ lbl_803242F4:
 
 .global __ct__11CMVEExplodeFP12CRealElementP12CRealElement
 __ct__11CMVEExplodeFP12CRealElementP12CRealElement:
-/* 80324310 00321270  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 80324314 00321274  3C E0 80 3F */	lis r7, lbl_803EC5C8@ha
-/* 80324318 00321278  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80324310 00321270  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 80324314 00321274  3C E0 80 3F */	lis r7, __vt__17CModVectorElement@ha
+/* 80324318 00321278  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 8032431C 0032127C  3C C0 80 3F */	lis r6, __vt__11CMVEExplode@ha
 /* 80324320 00321280  90 03 00 00 */	stw r0, 0(r3)
-/* 80324324 00321284  38 E7 C5 C8 */	addi r7, r7, lbl_803EC5C8@l
+/* 80324324 00321284  38 E7 C5 C8 */	addi r7, r7, __vt__17CModVectorElement@l
 /* 80324328 00321288  38 06 DC B8 */	addi r0, r6, __vt__11CMVEExplode@l
 /* 8032432C 0032128C  90 E3 00 00 */	stw r7, 0(r3)
 /* 80324330 00321290  90 03 00 00 */	stw r0, 0(r3)
@@ -2007,19 +2007,19 @@ lbl_8032449C:
 lbl_803244BC:
 /* 803244BC 0032141C  28 1E 00 00 */	cmplwi r30, 0
 /* 803244C0 00321420  41 82 00 20 */	beq lbl_803244E0
-/* 803244C4 00321424  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 803244C8 00321428  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 803244C4 00321424  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 803244C8 00321428  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 803244CC 0032142C  90 1E 00 00 */	stw r0, 0(r30)
 /* 803244D0 00321430  41 82 00 10 */	beq lbl_803244E0
-/* 803244D4 00321434  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803244D8 00321438  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803244D4 00321434  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803244D8 00321438  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803244DC 0032143C  90 1E 00 00 */	stw r0, 0(r30)
 lbl_803244E0:
 /* 803244E0 00321440  7F E0 07 35 */	extsh. r0, r31
 /* 803244E4 00321444  40 81 00 10 */	ble lbl_803244F4
 /* 803244E8 00321448  7F C3 F3 78 */	mr r3, r30
 /* 803244EC 0032144C  38 80 00 0C */	li r4, 0xc
-/* 803244F0 00321450  48 04 85 75 */	bl sub_8036ca64
+/* 803244F0 00321450  48 04 85 75 */	bl __dl__8IElementFPvUl
 lbl_803244F4:
 /* 803244F4 00321454  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803244F8 00321458  7F C3 F3 78 */	mr r3, r30
@@ -2031,12 +2031,12 @@ lbl_803244F4:
 
 .global __ct__8CMVEWindFP14CVectorElementP12CRealElement
 __ct__8CMVEWindFP14CVectorElementP12CRealElement:
-/* 80324510 00321470  3D 00 80 3F */	lis r8, lbl_803EC5A8@ha
-/* 80324514 00321474  3C E0 80 3F */	lis r7, lbl_803EC5C8@ha
-/* 80324518 00321478  38 08 C5 A8 */	addi r0, r8, lbl_803EC5A8@l
+/* 80324510 00321470  3D 00 80 3F */	lis r8, __vt__8IElement@ha
+/* 80324514 00321474  3C E0 80 3F */	lis r7, __vt__17CModVectorElement@ha
+/* 80324518 00321478  38 08 C5 A8 */	addi r0, r8, __vt__8IElement@l
 /* 8032451C 0032147C  3C C0 80 3F */	lis r6, __vt__8CMVEWind@ha
 /* 80324520 00321480  90 03 00 00 */	stw r0, 0(r3)
-/* 80324524 00321484  38 E7 C5 C8 */	addi r7, r7, lbl_803EC5C8@l
+/* 80324524 00321484  38 E7 C5 C8 */	addi r7, r7, __vt__17CModVectorElement@l
 /* 80324528 00321488  38 06 DC C8 */	addi r0, r6, __vt__8CMVEWind@l
 /* 8032452C 0032148C  90 E3 00 00 */	stw r7, 0(r3)
 /* 80324530 00321490  90 03 00 00 */	stw r0, 0(r3)
@@ -2104,19 +2104,19 @@ __dt__11CMVEGravityFv:
 lbl_80324610:
 /* 80324610 00321570  28 1E 00 00 */	cmplwi r30, 0
 /* 80324614 00321574  41 82 00 20 */	beq lbl_80324634
-/* 80324618 00321578  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 8032461C 0032157C  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80324618 00321578  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 8032461C 0032157C  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 80324620 00321580  90 1E 00 00 */	stw r0, 0(r30)
 /* 80324624 00321584  41 82 00 10 */	beq lbl_80324634
-/* 80324628 00321588  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 8032462C 0032158C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 80324628 00321588  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 8032462C 0032158C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 80324630 00321590  90 1E 00 00 */	stw r0, 0(r30)
 lbl_80324634:
 /* 80324634 00321594  7F E0 07 35 */	extsh. r0, r31
 /* 80324638 00321598  40 81 00 10 */	ble lbl_80324648
 /* 8032463C 0032159C  7F C3 F3 78 */	mr r3, r30
 /* 80324640 003215A0  38 80 00 08 */	li r4, 8
-/* 80324644 003215A4  48 04 84 21 */	bl sub_8036ca64
+/* 80324644 003215A4  48 04 84 21 */	bl __dl__8IElementFPvUl
 lbl_80324648:
 /* 80324648 003215A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032464C 003215AC  7F C3 F3 78 */	mr r3, r30
@@ -2128,12 +2128,12 @@ lbl_80324648:
 
 .global __ct__11CMVEGravityFP14CVectorElement
 __ct__11CMVEGravityFP14CVectorElement:
-/* 80324664 003215C4  3C E0 80 3F */	lis r7, lbl_803EC5A8@ha
-/* 80324668 003215C8  3C C0 80 3F */	lis r6, lbl_803EC5C8@ha
-/* 8032466C 003215CC  38 07 C5 A8 */	addi r0, r7, lbl_803EC5A8@l
+/* 80324664 003215C4  3C E0 80 3F */	lis r7, __vt__8IElement@ha
+/* 80324668 003215C8  3C C0 80 3F */	lis r6, __vt__17CModVectorElement@ha
+/* 8032466C 003215CC  38 07 C5 A8 */	addi r0, r7, __vt__8IElement@l
 /* 80324670 003215D0  3C A0 80 3F */	lis r5, __vt__11CMVEGravity@ha
 /* 80324674 003215D4  90 03 00 00 */	stw r0, 0(r3)
-/* 80324678 003215D8  38 C6 C5 C8 */	addi r6, r6, lbl_803EC5C8@l
+/* 80324678 003215D8  38 C6 C5 C8 */	addi r6, r6, __vt__17CModVectorElement@l
 /* 8032467C 003215DC  38 05 DC D8 */	addi r0, r5, __vt__11CMVEGravity@l
 /* 80324680 003215E0  90 C3 00 00 */	stw r6, 0(r3)
 /* 80324684 003215E4  90 03 00 00 */	stw r0, 0(r3)
@@ -2163,19 +2163,19 @@ __dt__16CMVEFastConstantFv:
 /* 803246CC 0032162C  38 03 DC E8 */	addi r0, r3, __vt__16CMVEFastConstant@l
 /* 803246D0 00321630  90 1F 00 00 */	stw r0, 0(r31)
 /* 803246D4 00321634  41 82 00 20 */	beq lbl_803246F4
-/* 803246D8 00321638  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 803246DC 0032163C  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 803246D8 00321638  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 803246DC 0032163C  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 803246E0 00321640  90 1F 00 00 */	stw r0, 0(r31)
 /* 803246E4 00321644  41 82 00 10 */	beq lbl_803246F4
-/* 803246E8 00321648  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803246EC 0032164C  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803246E8 00321648  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803246EC 0032164C  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803246F0 00321650  90 1F 00 00 */	stw r0, 0(r31)
 lbl_803246F4:
 /* 803246F4 00321654  7C 80 07 35 */	extsh. r0, r4
 /* 803246F8 00321658  40 81 00 10 */	ble lbl_80324708
 /* 803246FC 0032165C  7F E3 FB 78 */	mr r3, r31
 /* 80324700 00321660  38 80 00 10 */	li r4, 0x10
-/* 80324704 00321664  48 04 83 61 */	bl sub_8036ca64
+/* 80324704 00321664  48 04 83 61 */	bl __dl__8IElementFPvUl
 lbl_80324708:
 /* 80324708 00321668  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8032470C 0032166C  7F E3 FB 78 */	mr r3, r31
@@ -2186,12 +2186,12 @@ lbl_80324708:
 
 .global __ct__16CMVEFastConstantFfff
 __ct__16CMVEFastConstantFfff:
-/* 80324720 00321680  3C C0 80 3F */	lis r6, lbl_803EC5A8@ha
-/* 80324724 00321684  3C A0 80 3F */	lis r5, lbl_803EC5C8@ha
-/* 80324728 00321688  38 06 C5 A8 */	addi r0, r6, lbl_803EC5A8@l
+/* 80324720 00321680  3C C0 80 3F */	lis r6, __vt__8IElement@ha
+/* 80324724 00321684  3C A0 80 3F */	lis r5, __vt__17CModVectorElement@ha
+/* 80324728 00321688  38 06 C5 A8 */	addi r0, r6, __vt__8IElement@l
 /* 8032472C 0032168C  3C 80 80 3F */	lis r4, __vt__16CMVEFastConstant@ha
 /* 80324730 00321690  90 03 00 00 */	stw r0, 0(r3)
-/* 80324734 00321694  38 A5 C5 C8 */	addi r5, r5, lbl_803EC5C8@l
+/* 80324734 00321694  38 A5 C5 C8 */	addi r5, r5, __vt__17CModVectorElement@l
 /* 80324738 00321698  38 04 DC E8 */	addi r0, r4, __vt__16CMVEFastConstant@l
 /* 8032473C 0032169C  90 A3 00 00 */	stw r5, 0(r3)
 /* 80324740 003216A0  90 03 00 00 */	stw r0, 0(r3)
@@ -2288,19 +2288,19 @@ lbl_8032486C:
 lbl_8032488C:
 /* 8032488C 003217EC  28 1E 00 00 */	cmplwi r30, 0
 /* 80324890 003217F0  41 82 00 20 */	beq lbl_803248B0
-/* 80324894 003217F4  3C 60 80 3F */	lis r3, lbl_803EC5C8@ha
-/* 80324898 003217F8  38 03 C5 C8 */	addi r0, r3, lbl_803EC5C8@l
+/* 80324894 003217F4  3C 60 80 3F */	lis r3, __vt__17CModVectorElement@ha
+/* 80324898 003217F8  38 03 C5 C8 */	addi r0, r3, __vt__17CModVectorElement@l
 /* 8032489C 003217FC  90 1E 00 00 */	stw r0, 0(r30)
 /* 803248A0 00321800  41 82 00 10 */	beq lbl_803248B0
-/* 803248A4 00321804  3C 60 80 3F */	lis r3, lbl_803EC5A8@ha
-/* 803248A8 00321808  38 03 C5 A8 */	addi r0, r3, lbl_803EC5A8@l
+/* 803248A4 00321804  3C 60 80 3F */	lis r3, __vt__8IElement@ha
+/* 803248A8 00321808  38 03 C5 A8 */	addi r0, r3, __vt__8IElement@l
 /* 803248AC 0032180C  90 1E 00 00 */	stw r0, 0(r30)
 lbl_803248B0:
 /* 803248B0 00321810  7F E0 07 35 */	extsh. r0, r31
 /* 803248B4 00321814  40 81 00 10 */	ble lbl_803248C4
 /* 803248B8 00321818  7F C3 F3 78 */	mr r3, r30
 /* 803248BC 0032181C  38 80 00 10 */	li r4, 0x10
-/* 803248C0 00321820  48 04 81 A5 */	bl sub_8036ca64
+/* 803248C0 00321820  48 04 81 A5 */	bl __dl__8IElementFPvUl
 lbl_803248C4:
 /* 803248C4 00321824  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 803248C8 00321828  7F C3 F3 78 */	mr r3, r30
@@ -2312,12 +2312,12 @@ lbl_803248C4:
 
 .global __ct__12CMVEConstantFP12CRealElementP12CRealElementP12CRealElement
 __ct__12CMVEConstantFP12CRealElementP12CRealElementP12CRealElement:
-/* 803248E0 00321840  3D 20 80 3F */	lis r9, lbl_803EC5A8@ha
-/* 803248E4 00321844  3D 00 80 3F */	lis r8, lbl_803EC5C8@ha
-/* 803248E8 00321848  38 09 C5 A8 */	addi r0, r9, lbl_803EC5A8@l
+/* 803248E0 00321840  3D 20 80 3F */	lis r9, __vt__8IElement@ha
+/* 803248E4 00321844  3D 00 80 3F */	lis r8, __vt__17CModVectorElement@ha
+/* 803248E8 00321848  38 09 C5 A8 */	addi r0, r9, __vt__8IElement@l
 /* 803248EC 0032184C  3C E0 80 3F */	lis r7, __vt__12CMVEConstant@ha
 /* 803248F0 00321850  90 03 00 00 */	stw r0, 0(r3)
-/* 803248F4 00321854  39 08 C5 C8 */	addi r8, r8, lbl_803EC5C8@l
+/* 803248F4 00321854  39 08 C5 C8 */	addi r8, r8, __vt__17CModVectorElement@l
 /* 803248F8 00321858  38 07 DC F8 */	addi r0, r7, __vt__12CMVEConstant@l
 /* 803248FC 0032185C  91 03 00 00 */	stw r8, 0(r3)
 /* 80324900 00321860  90 03 00 00 */	stw r0, 0(r3)

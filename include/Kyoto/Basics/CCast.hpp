@@ -41,6 +41,8 @@ inline uchar ToUint8(float in) { return static_cast< uchar >(in); }
 inline float ToReal32(uchar in) { return static_cast< float >(in); }
 inline short FtoS(float in) { return static_cast< short >(in); }
 #endif
+
+inline int ToInt32(float in) { return static_cast< int >(in); }
 } // namespace CCast
 
 #endif // _CCAST

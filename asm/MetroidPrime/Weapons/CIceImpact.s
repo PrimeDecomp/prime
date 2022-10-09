@@ -1936,7 +1936,7 @@ Render__10CIceImpactCFRC13CStateManager:
 /* 801B768C 001B45EC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801B7690 001B45F0  7C 7F 1B 78 */	mr r31, r3
 /* 801B7694 001B45F4  38 60 00 01 */	li r3, 1
-/* 801B7698 001B45F8  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 801B7698 001B45F8  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 801B769C 001B45FC  48 18 E1 4D */	bl SetRenderModelBlack__10CCubeModelFb
 /* 801B76A0 001B4600  80 7F 00 E8 */	lwz r3, 0xe8(r31)
 /* 801B76A4 001B4604  81 83 00 00 */	lwz r12, 0(r3)
@@ -1945,7 +1945,7 @@ Render__10CIceImpactCFRC13CStateManager:
 /* 801B76B0 001B4610  4E 80 04 21 */	bctrl
 /* 801B76B4 001B4614  38 00 00 00 */	li r0, 0
 /* 801B76B8 001B4618  38 60 00 00 */	li r3, 0
-/* 801B76BC 001B461C  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 801B76BC 001B461C  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 801B76C0 001B4620  48 18 E1 29 */	bl SetRenderModelBlack__10CCubeModelFb
 /* 801B76C4 001B4624  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801B76C8 001B4628  83 E1 00 0C */	lwz r31, 0xc(r1)

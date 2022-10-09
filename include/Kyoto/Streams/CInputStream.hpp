@@ -33,6 +33,11 @@ public:
 
   bool ReadPackedBool() { return ReadBits(1) != 0; }
 
+  // TODO: this cast to uint fixes regalloc in
+  // CIEKeyframeEmitter / rstl::vector(CInputStream&)
+  // why?
+  int ReadInt32() { return static_cast< uint >(Get(TType< int >())); }
+
 private:
   bool GrabAnotherBlock();
   bool InternalReadNext();
@@ -63,6 +68,14 @@ template <>
 inline float cinput_stream_helper(const TType< float >& type, CInputStream& in) {
   return in.ReadFloat();
 }
+template <>
+inline short cinput_stream_helper(const TType< short >& type, CInputStream& in) {
+  return in.ReadShort();
+}
+template <>
+inline ushort cinput_stream_helper(const TType< ushort >& type, CInputStream& in) {
+  return in.ReadShort();
+}
 
 // rstl
 #include "rstl/pair.hpp"
@@ -73,6 +86,17 @@ inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >
   result.first = in.Get(TType< L >());
   result.second = in.Get(TType< R >());
   return result;
+}
+
+#include "rstl/vector.hpp"
+template < typename T, typename A >
+inline rstl::vector< T, A >::vector(CInputStream& in)
+: x4_count(0), x8_capacity(0), xc_items(nullptr) {
+  int count = in.ReadInt32();
+  reserve(count);
+  for (int i = 0; i < count; i++) {
+    push_back(in.Get(TType< T >()));
+  }
 }
 
 #endif // _CINPUTSTREAM
