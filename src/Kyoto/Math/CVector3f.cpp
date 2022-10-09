@@ -8,8 +8,6 @@
 #include "types.h"
 
 CVector3f CVector3f::sZeroVector(0.f, 0.f, 0.f);
-int CVector3f::sUnkData[18]; // This data is unreferenced, only here to ensure sUpVector starts in
-                             // the correct location
 CVector3f CVector3f::sUpVector(0.f, 0.f, 1.f);
 CVector3f CVector3f::sDownVector(0.f, 0.f, -1.f);
 CVector3f CVector3f::sLeftVector(-1.f, 0.f, 0.f);

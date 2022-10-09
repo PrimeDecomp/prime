@@ -106,7 +106,6 @@ protected:
   float mZ;
 
   static CVector3f sZeroVector;
-  static int sUnkData[18];
   static CVector3f sUpVector;
   static CVector3f sDownVector;
   static CVector3f sLeftVector;
