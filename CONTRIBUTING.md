@@ -71,6 +71,7 @@ Metaforce -> decomp
 - `zeus::CTransform::frontVector()` -> `CTransform4f::GetForward()`
 - `zeus::skForward` -> `CVector3f::Forward`
 - `g_Renderer` -> `gpRender`
+- `zeus::degToRad` -> `CRelAngle::FromDegrees`
 
 ### Class definitions & constructors
 

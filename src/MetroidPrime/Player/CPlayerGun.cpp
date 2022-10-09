@@ -25,6 +25,7 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
@@ -139,6 +140,8 @@ static const CModelFlags kHandThermalFlag(CModelFlags::kT_Additive, CColor::Whit
 
 static const CModelFlags kHandHoloFlag((CModelFlags::ETrans)1, // TODO: ETrans 1?
                                        CColor(0.75f, 0.5f, 0.f, 1.f));
+
+float CPlayerGun::CMotionState::gGunExtendDistance = 0.125f;
 
 CPlayerGun::CPlayerGun(TUniqueId playerId)
 : x0_lights(8, CVector3f::Zero(), 4, 4, false, false, false, 0.1)
@@ -912,7 +915,81 @@ void CPlayerGun::UpdateGunIdle(bool inStrikeCooldown, float camBobT, float dt, C
   }
 }
 
-void CPlayerGun::CMotionState::Update(bool, float, CTransform4f&, CStateManager&) {}
+void CPlayerGun::CMotionState::Update(bool firing, float dt, CTransform4f& xf, CStateManager& mgr) {
+  if (firing) {
+    x24_fireState = kFS_StartFire;
+    x8_fireTime = 0.f;
+  } else if (x24_fireState != kFS_NotFiring) {
+    if (x8_fireTime > dt)
+      x24_fireState = kFS_Firing;
+    x8_fireTime += dt;
+  }
+
+  if (x0_24_extendParabola && x20_state == kMS_LockOn) {
+    float extendT = xc_curExtendDist * (1.0f / gGunExtendDistance);
+    CTransform4f other =
+        CTransform4f::RotateZ(CRelAngle::FromDegrees(extendT * -4.f * (extendT - 1.f) * 15.f));
+    other.SetTranslation(CVector3f(0.f, xc_curExtendDist, 0.f));
+    xf = xf * other;
+  } else if (x24_fireState == kFS_StartFire || x24_fireState == kFS_Firing) {
+    if (fabs(x14_rotationT - 1.f) < 0.1f) {
+      x18_startRotation = x1c_endRotation;
+      x14_rotationT = 0.f;
+      if (x24_fireState == kFS_StartFire) {
+        x1c_endRotation = mgr.GetActiveRandom()->Next() % 15;
+        x1c_endRotation *= (mgr.GetActiveRandom()->Next() % 100) > 45 ? 1.f : -1.f;
+      } else {
+        x1c_endRotation = 0.f;
+        if (x18_startRotation == x1c_endRotation) {
+          x10_curRotation = x1c_endRotation;
+          x24_fireState = kFS_NotFiring;
+        }
+      }
+    } else {
+      x10_curRotation = (x1c_endRotation - x18_startRotation) * x14_rotationT + x18_startRotation;
+    }
+
+    x14_rotationT += (1.f - x14_rotationT) * 0.8f * (10.f * dt);
+
+    CQuaternion quat = CQuaternion::AxisAngle(CUnitVector3f(xf.GetForward()),
+                                              CRelAngle::FromDegrees(x10_curRotation));
+
+    CTransform4f tmpXf = quat.BuildTransform4f() * xf.GetRotation();
+    tmpXf.SetTranslation(xf.GetTranslation());
+    xf = tmpXf * CTransform4f::Translate(0.f, xc_curExtendDist, 0.f);
+  } else {
+    xf = xf * CTransform4f::Translate(0.f, xc_curExtendDist, 0.f);
+  }
+
+  switch (x20_state) {
+  case kMS_LockOn:
+    xc_curExtendDist += 3.f * dt;
+    if (xc_curExtendDist > gGunExtendDistance) {
+      xc_curExtendDist = gGunExtendDistance;
+      x20_state = kMS_One;
+      x0_24_extendParabola = false;
+    }
+    break;
+  case kMS_CancelLockOn:
+    xc_curExtendDist -= 3.f * dt;
+    if (xc_curExtendDist < 0.f) {
+      xc_curExtendDist = 0.f;
+      x20_state = kMS_Zero;
+    }
+    break;
+  default:
+    break;
+  }
+
+  if (x0_24_extendParabola != true) {
+    if (x4_extendParabolaDelayTimer < 30.f) {
+      x4_extendParabolaDelayTimer += dt;
+    } else {
+      x0_24_extendParabola = true;
+      x4_extendParabolaDelayTimer = 0.f;
+    }
+  }
+}
 
 void CPlayerGun::DamageRumble(const CVector3f&, const CStateManager&) {}
 
