@@ -17,6 +17,18 @@ CAABox BoundingBoxFromData(const void* ptr) {
   return CAABox(minX, minY, minZ, maxX, maxY, maxZ);
 }
 
-CMetroidModelInstance::CMetroidModelInstance(const void*, const void*, const void*, const void*,
-                                             const void*, const void*, const void*,
-                                             const rstl::vector< void* >&) {}
+CMetroidModelInstance::CMetroidModelInstance(const void* header, const void* firstGeom,
+                                             const void* positions, const void* normals,
+                                             const void* colors, const void* texCoords,
+                                             const void* packedTexCoords,
+                                             const rstl::vector< void* >& surfaces)
+: x0_visorFlags(*reinterpret_cast< const uint* >(header))
+, x4_worldXf(TransformFromData((uchar*)header + sizeof(uint)))
+, x34_worldAABB(BoundingBoxFromData((uchar*)header + sizeof(CTransform4f) + sizeof(uint)))
+, x4c_materialData(firstGeom)
+, x50_surfaces(surfaces)
+, x60_positions(positions)
+, x64_normals(normals)
+, x68_colors(colors)
+, x6c_texCoords(texCoords)
+, x70_packedTexCoords(packedTexCoords) {}
