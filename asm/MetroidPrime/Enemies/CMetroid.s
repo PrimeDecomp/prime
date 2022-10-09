@@ -378,7 +378,8 @@ lbl_805A79D8:
 .section .bss
 .balign 8
 
-.comm lbl_80571C64, 0x208, 4
+.comm lbl_80571C64, 0x68, 4
+.comm lbl_80571CCC, 0x1A0, 4 # MWCC .comm bug
 .comm lbl_80571E6C, 0x68, 4
 .comm lbl_80571ED4, 0x68, 4
 .comm lbl_80571F3C, 0x68, 4

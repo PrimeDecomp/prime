@@ -96,7 +96,7 @@ mBrightnessMax__9CGraphics:
 .lcomm sSpareFrameBuffer, 0x46000, 4
 .lcomm kEnvBlendCTandCConCF, 0x50, 4
 .comm kEnvModulateConstColor__9CGraphics, 0x4C, 4
-.comm lbl_805A56E4, 0x78C, 4 # ???
+.comm lbl_805A56E4, 0x78C, 4 # MWCC .comm bug
 .comm kEnvConstColor__9CGraphics, 0x4C, 4
 .comm kEnvModulate__9CGraphics, 0x4C, 4
 .comm kEnvDecal__9CGraphics, 0x4C, 4

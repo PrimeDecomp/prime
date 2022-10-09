@@ -138,10 +138,10 @@ lbl_805A877C:
 .balign 8
 
 .lcomm lbl_80479BA0, 0x30, 4
-.comm lbl_8059FD48, 0x2BC, 4
-.comm lbl_805A0004, 0x2B5C, 4
-.comm lbl_805A2B60, 0x1604, 4
-.comm lbl_805A4164, 0xA04, 4
+.comm mChannels__11CSfxManager, 0x5B0, 4
+.comm lbl_805A02F8, 0x2868, 4 # MWCC .comm bug
+.comm mEmitterWrapperPool__11CSfxManager, 0x1604, 4
+.comm mWrapperPool__11CSfxManager, 0xA04, 4
 .comm lbl_805A4B68, 0x1E0, 4
 .comm lbl_805A4D48, 0x9C, 4
 .comm lbl_805A4DE4, 0x154, 4
@@ -959,9 +959,9 @@ lbl_802E8364:
 ApplyReverb__11CSfxManagerFv:
 /* 802E8378 002E52D8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E837C 002E52DC  7C 08 02 A6 */	mflr r0
-/* 802E8380 002E52E0  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E8380 002E52E0  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E8384 002E52E4  90 01 00 24 */	stw r0, 0x24(r1)
-/* 802E8388 002E52E8  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E8388 002E52E8  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E838C 002E52EC  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802E8390 002E52F0  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802E8394 002E52F4  93 A1 00 14 */	stw r29, 0x14(r1)
@@ -1027,10 +1027,10 @@ DisableAuxProcessing__11CSfxManagerFv:
 AllocateCSfxWrapper__11CSfxManagerFRCQ211CSfxManager11CSfxWrapper:
 /* 802E844C 002E53AC  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E8450 002E53B0  7C 08 02 A6 */	mflr r0
-/* 802E8454 002E53B4  3C 80 80 5A */	lis r4, lbl_805A4164@ha
+/* 802E8454 002E53B4  3C 80 80 5A */	lis r4, mWrapperPool__11CSfxManager@ha
 /* 802E8458 002E53B8  90 01 00 24 */	stw r0, 0x24(r1)
 /* 802E845C 002E53BC  BF 41 00 08 */	stmw r26, 8(r1)
-/* 802E8460 002E53C0  3B 84 41 64 */	addi r28, r4, lbl_805A4164@l
+/* 802E8460 002E53C0  3B 84 41 64 */	addi r28, r4, mWrapperPool__11CSfxManager@l
 /* 802E8464 002E53C4  3B FC 00 04 */	addi r31, r28, 4
 /* 802E8468 002E53C8  7C 7D 1B 78 */	mr r29, r3
 /* 802E846C 002E53CC  3B C0 00 00 */	li r30, 0
@@ -1078,8 +1078,8 @@ lbl_802E84FC:
 lbl_802E8508:
 /* 802E8508 002E5468  28 1E 00 00 */	cmplwi r30, 0
 /* 802E850C 002E546C  40 82 00 B0 */	bne lbl_802E85BC
-/* 802E8510 002E5470  3C 60 80 5A */	lis r3, lbl_805A4164@ha
-/* 802E8514 002E5474  80 03 41 64 */	lwz r0, lbl_805A4164@l(r3)
+/* 802E8510 002E5470  3C 60 80 5A */	lis r3, mWrapperPool__11CSfxManager@ha
+/* 802E8514 002E5474  80 03 41 64 */	lwz r0, mWrapperPool__11CSfxManager@l(r3)
 /* 802E8518 002E5478  2C 00 00 40 */	cmpwi r0, 0x40
 /* 802E851C 002E547C  41 82 00 A0 */	beq lbl_802E85BC
 /* 802E8520 002E5480  1C 00 00 28 */	mulli r0, r0, 0x28
@@ -1114,8 +1114,8 @@ lbl_802E8508:
 /* 802E8594 002E54F4  B0 65 00 22 */	sth r3, 0x22(r5)
 /* 802E8598 002E54F8  98 05 00 24 */	stb r0, 0x24(r5)
 lbl_802E859C:
-/* 802E859C 002E54FC  3C 60 80 5A */	lis r3, lbl_805A4164@ha
-/* 802E85A0 002E5500  38 83 41 64 */	addi r4, r3, lbl_805A4164@l
+/* 802E859C 002E54FC  3C 60 80 5A */	lis r3, mWrapperPool__11CSfxManager@ha
+/* 802E85A0 002E5500  38 83 41 64 */	addi r4, r3, mWrapperPool__11CSfxManager@l
 /* 802E85A4 002E5504  80 64 00 00 */	lwz r3, 0(r4)
 /* 802E85A8 002E5508  38 63 00 01 */	addi r3, r3, 1
 /* 802E85AC 002E550C  38 03 FF FF */	addi r0, r3, -1
@@ -1134,10 +1134,10 @@ lbl_802E85BC:
 sub_802e85d4:
 /* 802E85D4 002E5534  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E85D8 002E5538  7C 08 02 A6 */	mflr r0
-/* 802E85DC 002E553C  3C 80 80 5A */	lis r4, lbl_805A2B60@ha
+/* 802E85DC 002E553C  3C 80 80 5A */	lis r4, mEmitterWrapperPool__11CSfxManager@ha
 /* 802E85E0 002E5540  90 01 00 24 */	stw r0, 0x24(r1)
 /* 802E85E4 002E5544  BF 41 00 08 */	stmw r26, 8(r1)
-/* 802E85E8 002E5548  3B 84 2B 60 */	addi r28, r4, lbl_805A2B60@l
+/* 802E85E8 002E5548  3B 84 2B 60 */	addi r28, r4, mEmitterWrapperPool__11CSfxManager@l
 /* 802E85EC 002E554C  3B FC 00 04 */	addi r31, r28, 4
 /* 802E85F0 002E5550  7C 7D 1B 78 */	mr r29, r3
 /* 802E85F4 002E5554  3B C0 00 00 */	li r30, 0
@@ -1209,15 +1209,15 @@ lbl_802E86E4:
 lbl_802E86F0:
 /* 802E86F0 002E5650  28 1E 00 00 */	cmplwi r30, 0
 /* 802E86F4 002E5654  40 82 00 38 */	bne lbl_802E872C
-/* 802E86F8 002E5658  3C 60 80 5A */	lis r3, lbl_805A2B60@ha
-/* 802E86FC 002E565C  38 63 2B 60 */	addi r3, r3, lbl_805A2B60@l
+/* 802E86F8 002E5658  3C 60 80 5A */	lis r3, mEmitterWrapperPool__11CSfxManager@ha
+/* 802E86FC 002E565C  38 63 2B 60 */	addi r3, r3, mEmitterWrapperPool__11CSfxManager@l
 /* 802E8700 002E5660  80 03 00 00 */	lwz r0, 0(r3)
 /* 802E8704 002E5664  2C 00 00 40 */	cmpwi r0, 0x40
 /* 802E8708 002E5668  41 82 00 24 */	beq lbl_802E872C
 /* 802E870C 002E566C  7F A4 EB 78 */	mr r4, r29
 /* 802E8710 002E5670  48 00 00 35 */	bl sub_802e8744
-/* 802E8714 002E5674  3C 60 80 5A */	lis r3, lbl_805A2B60@ha
-/* 802E8718 002E5678  38 63 2B 60 */	addi r3, r3, lbl_805A2B60@l
+/* 802E8714 002E5674  3C 60 80 5A */	lis r3, mEmitterWrapperPool__11CSfxManager@ha
+/* 802E8718 002E5678  38 63 2B 60 */	addi r3, r3, mEmitterWrapperPool__11CSfxManager@l
 /* 802E871C 002E567C  80 63 00 00 */	lwz r3, 0(r3)
 /* 802E8720 002E5680  38 03 FF FF */	addi r0, r3, -1
 /* 802E8724 002E5684  1C 00 00 58 */	mulli r0, r0, 0x58
@@ -1331,9 +1331,9 @@ sub_802e87b4:
 "SetActiveAreas__11CSfxManagerFRCQ24rstl21reserved_vector<i,10>":
 /* 802E88A0 002E5800  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E88A4 002E5804  7C 08 02 A6 */	mflr r0
-/* 802E88A8 002E5808  3C 80 80 5A */	lis r4, lbl_8059FD48@ha
+/* 802E88A8 002E5808  3C 80 80 5A */	lis r4, mChannels__11CSfxManager@ha
 /* 802E88AC 002E580C  90 01 00 24 */	stw r0, 0x24(r1)
-/* 802E88B0 002E5810  38 04 FD 48 */	addi r0, r4, lbl_8059FD48@l
+/* 802E88B0 002E5810  38 04 FD 48 */	addi r0, r4, mChannels__11CSfxManager@l
 /* 802E88B4 002E5814  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802E88B8 002E5818  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802E88BC 002E581C  93 A1 00 14 */	stw r29, 0x14(r1)
@@ -1578,9 +1578,9 @@ lbl_802E8BD8:
 GetRank__11CSfxManagerFPQ211CSfxManager15CBaseSfxWrapper:
 /* 802E8BF4 002E5B54  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E8BF8 002E5B58  7C 08 02 A6 */	mflr r0
-/* 802E8BFC 002E5B5C  3C 80 80 5A */	lis r4, lbl_8059FD48@ha
+/* 802E8BFC 002E5B5C  3C 80 80 5A */	lis r4, mChannels__11CSfxManager@ha
 /* 802E8C00 002E5B60  90 01 00 24 */	stw r0, 0x24(r1)
-/* 802E8C04 002E5B64  38 04 FD 48 */	addi r0, r4, lbl_8059FD48@l
+/* 802E8C04 002E5B64  38 04 FD 48 */	addi r0, r4, mChannels__11CSfxManager@l
 /* 802E8C08 002E5B68  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802E8C0C 002E5B6C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802E8C10 002E5B70  93 A1 00 14 */	stw r29, 0x14(r1)
@@ -1673,10 +1673,10 @@ IsHandleValid__11CSfxManagerF10CSfxHandle:
 /* 802E8D44 002E5CA4  7C 7F 1B 78 */	mr r31, r3
 /* 802E8D48 002E5CA8  80 8D A7 00 */	lwz r4, lbl_805A92C0@sda21(r13)
 /* 802E8D4C 002E5CAC  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E8D50 002E5CB0  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E8D50 002E5CB0  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E8D54 002E5CB4  1C 84 01 6C */	mulli r4, r4, 0x16c
 /* 802E8D58 002E5CB8  54 05 05 3F */	clrlwi. r5, r0, 0x14
-/* 802E8D5C 002E5CBC  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E8D5C 002E5CBC  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E8D60 002E5CC0  7C 60 22 14 */	add r3, r0, r4
 /* 802E8D64 002E5CC4  41 80 00 10 */	blt lbl_802E8D74
 /* 802E8D68 002E5CC8  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -1722,10 +1722,10 @@ IsPlaying__11CSfxManagerF10CSfxHandle:
 /* 802E8DE8 002E5D48  7C 7E 1B 78 */	mr r30, r3
 /* 802E8DEC 002E5D4C  80 8D A7 00 */	lwz r4, lbl_805A92C0@sda21(r13)
 /* 802E8DF0 002E5D50  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E8DF4 002E5D54  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E8DF4 002E5D54  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E8DF8 002E5D58  1C 84 01 6C */	mulli r4, r4, 0x16c
 /* 802E8DFC 002E5D5C  54 05 05 3F */	clrlwi. r5, r0, 0x14
-/* 802E8E00 002E5D60  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E8E00 002E5D60  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E8E04 002E5D64  7C 60 22 14 */	add r3, r0, r4
 /* 802E8E08 002E5D68  41 80 00 10 */	blt lbl_802E8E18
 /* 802E8E0C 002E5D6C  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -1786,9 +1786,9 @@ PitchBend__11CSfxManagerF10CSfxHandlei:
 /* 802E8EC8 002E5E28  7C 7D 1B 78 */	mr r29, r3
 /* 802E8ECC 002E5E2C  80 AD A7 00 */	lwz r5, lbl_805A92C0@sda21(r13)
 /* 802E8ED0 002E5E30  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E8ED4 002E5E34  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E8ED4 002E5E34  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E8ED8 002E5E38  1C A5 01 6C */	mulli r5, r5, 0x16c
-/* 802E8EDC 002E5E3C  38 63 FD 48 */	addi r3, r3, lbl_8059FD48@l
+/* 802E8EDC 002E5E3C  38 63 FD 48 */	addi r3, r3, mChannels__11CSfxManager@l
 /* 802E8EE0 002E5E40  54 00 14 BA */	rlwinm r0, r0, 2, 0x12, 0x1d
 /* 802E8EE4 002E5E44  7C 63 2A 14 */	add r3, r3, r5
 /* 802E8EE8 002E5E48  7C 63 02 14 */	add r3, r3, r0
@@ -1853,8 +1853,8 @@ Update__11CSfxManagerFf:
 /* 802E8FBC 002E5F1C  F3 C1 00 E8 */	psq_st f30, 232(r1), 0, qr0
 /* 802E8FC0 002E5F20  BE A1 00 B4 */	stmw r21, 0xb4(r1)
 /* 802E8FC4 002E5F24  80 8D A7 00 */	lwz r4, lbl_805A92C0@sda21(r13)
-/* 802E8FC8 002E5F28  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
-/* 802E8FCC 002E5F2C  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E8FC8 002E5F28  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
+/* 802E8FCC 002E5F2C  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E8FD0 002E5F30  FF C0 08 90 */	fmr f30, f1
 /* 802E8FD4 002E5F34  1C 64 01 6C */	mulli r3, r4, 0x16c
 /* 802E8FD8 002E5F38  3B 80 00 00 */	li r28, 0
@@ -2327,9 +2327,9 @@ lbl_802E963C:
 LocateHandle__11CSfxManagerFs:
 /* 802E9660 002E65C0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802E9664 002E65C4  7C 08 02 A6 */	mflr r0
-/* 802E9668 002E65C8  3C 80 80 5A */	lis r4, lbl_8059FD48@ha
+/* 802E9668 002E65C8  3C 80 80 5A */	lis r4, mChannels__11CSfxManager@ha
 /* 802E966C 002E65CC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802E9670 002E65D0  38 04 FD 48 */	addi r0, r4, lbl_8059FD48@l
+/* 802E9670 002E65D0  38 04 FD 48 */	addi r0, r4, mChannels__11CSfxManager@l
 /* 802E9674 002E65D4  38 80 00 00 */	li r4, 0
 /* 802E9678 002E65D8  80 AD A7 00 */	lwz r5, lbl_805A92C0@sda21(r13)
 /* 802E967C 002E65DC  1C A5 01 6C */	mulli r5, r5, 0x16c
@@ -2380,10 +2380,10 @@ TurnOnChannel__11CSfxManagerFQ211CSfxManager12ESfxChannels:
 /* 802E970C 002E666C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E9710 002E6670  7C 08 02 A6 */	mflr r0
 /* 802E9714 002E6674  1C C3 01 6C */	mulli r6, r3, 0x16c
-/* 802E9718 002E6678  3C A0 80 5A */	lis r5, lbl_8059FD48@ha
+/* 802E9718 002E6678  3C A0 80 5A */	lis r5, mChannels__11CSfxManager@ha
 /* 802E971C 002E667C  90 01 00 24 */	stw r0, 0x24(r1)
 /* 802E9720 002E6680  38 80 00 01 */	li r4, 1
-/* 802E9724 002E6684  38 05 FD 48 */	addi r0, r5, lbl_8059FD48@l
+/* 802E9724 002E6684  38 05 FD 48 */	addi r0, r5, mChannels__11CSfxManager@l
 /* 802E9728 002E6688  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802E972C 002E668C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802E9730 002E6690  7F C0 32 14 */	add r30, r0, r6
@@ -2425,9 +2425,9 @@ TurnOffChannel__11CSfxManagerFi:
 /* 802E97A4 002E6704  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E97A8 002E6708  7C 08 02 A6 */	mflr r0
 /* 802E97AC 002E670C  1C 83 01 6C */	mulli r4, r3, 0x16c
-/* 802E97B0 002E6710  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E97B0 002E6710  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E97B4 002E6714  90 01 00 24 */	stw r0, 0x24(r1)
-/* 802E97B8 002E6718  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E97B8 002E6718  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E97BC 002E671C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802E97C0 002E6720  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802E97C4 002E6724  93 A1 00 14 */	stw r29, 0x14(r1)
@@ -2535,10 +2535,10 @@ SetDuration__10CSfxHandleFf:
 /* 802E9920 002E6880  7C 7E 1B 78 */	mr r30, r3
 /* 802E9924 002E6884  80 8D A7 00 */	lwz r4, lbl_805A92C0@sda21(r13)
 /* 802E9928 002E6888  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E992C 002E688C  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E992C 002E688C  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E9930 002E6890  1C 84 01 6C */	mulli r4, r4, 0x16c
 /* 802E9934 002E6894  54 05 05 3F */	clrlwi. r5, r0, 0x14
-/* 802E9938 002E6898  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E9938 002E6898  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E993C 002E689C  7C 60 22 14 */	add r3, r0, r4
 /* 802E9940 002E68A0  41 80 00 60 */	blt lbl_802E99A0
 /* 802E9944 002E68A4  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -2586,10 +2586,10 @@ StopSound__11CSfxManagerFRC10CSfxHandle:
 /* 802E99D4 002E6934  7C 7D 1B 78 */	mr r29, r3
 /* 802E99D8 002E6938  80 8D A7 00 */	lwz r4, lbl_805A92C0@sda21(r13)
 /* 802E99DC 002E693C  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E99E0 002E6940  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E99E0 002E6940  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E99E4 002E6944  1C 84 01 6C */	mulli r4, r4, 0x16c
 /* 802E99E8 002E6948  54 05 05 3F */	clrlwi. r5, r0, 0x14
-/* 802E99EC 002E694C  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E99EC 002E694C  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E99F0 002E6950  7C 60 22 14 */	add r3, r0, r4
 /* 802E99F4 002E6954  41 80 00 A4 */	blt lbl_802E9A98
 /* 802E99F8 002E6958  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -2649,9 +2649,9 @@ KillAll__11CSfxManagerFQ211CSfxManager12ESfxChannels:
 /* 802E9AB4 002E6A14  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802E9AB8 002E6A18  7C 08 02 A6 */	mflr r0
 /* 802E9ABC 002E6A1C  1C 83 01 6C */	mulli r4, r3, 0x16c
-/* 802E9AC0 002E6A20  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E9AC0 002E6A20  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E9AC4 002E6A24  90 01 00 24 */	stw r0, 0x24(r1)
-/* 802E9AC8 002E6A28  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E9AC8 002E6A28  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E9ACC 002E6A2C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 802E9AD0 002E6A30  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 802E9AD4 002E6A34  7F C0 22 14 */	add r30, r0, r4
@@ -2711,10 +2711,10 @@ SfxSpan__11CSfxManagerF10CSfxHandleUc:
 /* 802E9B90 002E6AF0  7C 7D 1B 78 */	mr r29, r3
 /* 802E9B94 002E6AF4  80 AD A7 00 */	lwz r5, lbl_805A92C0@sda21(r13)
 /* 802E9B98 002E6AF8  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E9B9C 002E6AFC  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E9B9C 002E6AFC  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E9BA0 002E6B00  1C A5 01 6C */	mulli r5, r5, 0x16c
 /* 802E9BA4 002E6B04  54 04 05 3F */	clrlwi. r4, r0, 0x14
-/* 802E9BA8 002E6B08  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E9BA8 002E6B08  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E9BAC 002E6B0C  7C 60 2A 14 */	add r3, r0, r5
 /* 802E9BB0 002E6B10  41 80 00 8C */	blt lbl_802E9C3C
 /* 802E9BB4 002E6B14  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -2774,10 +2774,10 @@ SfxVolume__11CSfxManagerF10CSfxHandleUc:
 /* 802E9C74 002E6BD4  7C 7D 1B 78 */	mr r29, r3
 /* 802E9C78 002E6BD8  80 AD A7 00 */	lwz r5, lbl_805A92C0@sda21(r13)
 /* 802E9C7C 002E6BDC  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E9C80 002E6BE0  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E9C80 002E6BE0  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E9C84 002E6BE4  1C A5 01 6C */	mulli r5, r5, 0x16c
 /* 802E9C88 002E6BE8  54 04 05 3F */	clrlwi. r4, r0, 0x14
-/* 802E9C8C 002E6BEC  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E9C8C 002E6BEC  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E9C90 002E6BF0  7C 60 2A 14 */	add r3, r0, r5
 /* 802E9C94 002E6BF4  41 80 00 98 */	blt lbl_802E9D2C
 /* 802E9C98 002E6BF8  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -2872,11 +2872,11 @@ lbl_802E9DC8:
 lbl_802E9DD4:
 /* 802E9DD4 002E6D34  80 0D A7 00 */	lwz r0, lbl_805A92C0@sda21(r13)
 /* 802E9DD8 002E6D38  38 60 00 01 */	li r3, 1
-/* 802E9DDC 002E6D3C  3C 80 80 5A */	lis r4, lbl_8059FD48@ha
+/* 802E9DDC 002E6D3C  3C 80 80 5A */	lis r4, mChannels__11CSfxManager@ha
 /* 802E9DE0 002E6D40  98 6D A7 04 */	stb r3, lbl_805A92C4@sda21(r13)
 /* 802E9DE4 002E6D44  1C A0 01 6C */	mulli r5, r0, 0x16c
 /* 802E9DE8 002E6D48  38 61 00 14 */	addi r3, r1, 0x14
-/* 802E9DEC 002E6D4C  38 04 FD 48 */	addi r0, r4, lbl_8059FD48@l
+/* 802E9DEC 002E6D4C  38 04 FD 48 */	addi r0, r4, mChannels__11CSfxManager@l
 /* 802E9DF0 002E6D50  7F 24 07 34 */	extsh r4, r25
 /* 802E9DF4 002E6D54  7F 80 2A 14 */	add r28, r0, r5
 /* 802E9DF8 002E6D58  4B FF F8 69 */	bl LocateHandle__11CSfxManagerFs
@@ -2943,10 +2943,10 @@ UpdateEmitter__11CSfxManagerF10CSfxHandleRC9CVector3fRC9CVector3fUc:
 /* 802E9ECC 002E6E2C  7C DC 33 78 */	mr r28, r6
 /* 802E9ED0 002E6E30  80 ED A7 00 */	lwz r7, lbl_805A92C0@sda21(r13)
 /* 802E9ED4 002E6E34  80 03 00 00 */	lwz r0, 0(r3)
-/* 802E9ED8 002E6E38  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802E9ED8 002E6E38  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802E9EDC 002E6E3C  1C E7 01 6C */	mulli r7, r7, 0x16c
 /* 802E9EE0 002E6E40  54 04 05 3F */	clrlwi. r4, r0, 0x14
-/* 802E9EE4 002E6E44  38 03 FD 48 */	addi r0, r3, lbl_8059FD48@l
+/* 802E9EE4 002E6E44  38 03 FD 48 */	addi r0, r3, mChannels__11CSfxManager@l
 /* 802E9EE8 002E6E48  7C 60 3A 14 */	add r3, r0, r7
 /* 802E9EEC 002E6E4C  41 80 00 E0 */	blt lbl_802E9FCC
 /* 802E9EF0 002E6E50  80 03 00 48 */	lwz r0, 0x48(r3)
@@ -3073,11 +3073,11 @@ lbl_802EA034:
 lbl_802EA0B4:
 /* 802EA0B4 002E7014  80 0D A7 00 */	lwz r0, lbl_805A92C0@sda21(r13)
 /* 802EA0B8 002E7018  38 60 00 01 */	li r3, 1
-/* 802EA0BC 002E701C  3C 80 80 5A */	lis r4, lbl_8059FD48@ha
+/* 802EA0BC 002E701C  3C 80 80 5A */	lis r4, mChannels__11CSfxManager@ha
 /* 802EA0C0 002E7020  98 6D A7 04 */	stb r3, lbl_805A92C4@sda21(r13)
 /* 802EA0C4 002E7024  1C A0 01 6C */	mulli r5, r0, 0x16c
 /* 802EA0C8 002E7028  38 61 00 0C */	addi r3, r1, 0xc
-/* 802EA0CC 002E702C  38 04 FD 48 */	addi r0, r4, lbl_8059FD48@l
+/* 802EA0CC 002E702C  38 04 FD 48 */	addi r0, r4, mChannels__11CSfxManager@l
 /* 802EA0D0 002E7030  7F A4 07 34 */	extsh r4, r29
 /* 802EA0D4 002E7034  7F 40 2A 14 */	add r26, r0, r5
 /* 802EA0D8 002E7038  4B FF F5 89 */	bl LocateHandle__11CSfxManagerFs
@@ -3275,9 +3275,9 @@ AddEmitter__11CSfxManagerFUsRC9CVector3fRC9CVector3fbbsi:
 UpdateListener__11CSfxManagerFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3fUc:
 /* 802EA398 002E72F8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802EA39C 002E72FC  7C 08 02 A6 */	mflr r0
-/* 802EA3A0 002E7300  3D 00 80 5A */	lis r8, lbl_8059FD48@ha
+/* 802EA3A0 002E7300  3D 00 80 5A */	lis r8, mChannels__11CSfxManager@ha
 /* 802EA3A4 002E7304  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802EA3A8 002E7308  39 08 FD 48 */	addi r8, r8, lbl_8059FD48@l
+/* 802EA3A8 002E7308  39 08 FD 48 */	addi r8, r8, mChannels__11CSfxManager@l
 /* 802EA3AC 002E730C  80 0D A7 00 */	lwz r0, lbl_805A92C0@sda21(r13)
 /* 802EA3B0 002E7310  C0 23 00 00 */	lfs f1, 0(r3)
 /* 802EA3B4 002E7314  1D 20 01 6C */	mulli r9, r0, 0x16c
@@ -3319,10 +3319,10 @@ AddListener__11CSfxManagerFQ211CSfxManager12ESfxChannelsRC9CVector3fRC9CVector3f
 /* 802EA438 002E7398  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 802EA43C 002E739C  7C 08 02 A6 */	mflr r0
 /* 802EA440 002E73A0  1D 83 01 6C */	mulli r12, r3, 0x16c
-/* 802EA444 002E73A4  3D 60 80 5A */	lis r11, lbl_8059FD48@ha
+/* 802EA444 002E73A4  3D 60 80 5A */	lis r11, mChannels__11CSfxManager@ha
 /* 802EA448 002E73A8  90 01 00 84 */	stw r0, 0x84(r1)
 /* 802EA44C 002E73AC  FC A0 08 18 */	frsp f5, f1
-/* 802EA450 002E73B0  38 6B FD 48 */	addi r3, r11, lbl_8059FD48@l
+/* 802EA450 002E73B0  38 6B FD 48 */	addi r3, r11, mChannels__11CSfxManager@l
 /* 802EA454 002E73B4  FC 80 10 18 */	frsp f4, f2
 /* 802EA458 002E73B8  80 04 00 00 */	lwz r0, 0(r4)
 /* 802EA45C 002E73BC  81 44 00 04 */	lwz r10, 4(r4)
@@ -3426,11 +3426,11 @@ AddListener__11CSfxManagerFQ211CSfxManager12ESfxChannelsRC9CVector3fRC9CVector3f
 StopAndRemoveAllEmitters__11CSfxManagerFv:
 /* 802EA5DC 002E753C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802EA5E0 002E7540  7C 08 02 A6 */	mflr r0
-/* 802EA5E4 002E7544  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802EA5E4 002E7544  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802EA5E8 002E7548  90 01 00 24 */	stw r0, 0x24(r1)
 /* 802EA5EC 002E754C  BF 61 00 0C */	stmw r27, 0xc(r1)
 /* 802EA5F0 002E7550  3B 80 00 00 */	li r28, 0
-/* 802EA5F4 002E7554  3B A3 FD 48 */	addi r29, r3, lbl_8059FD48@l
+/* 802EA5F4 002E7554  3B A3 FD 48 */	addi r29, r3, mChannels__11CSfxManager@l
 lbl_802EA5F8:
 /* 802EA5F8 002E7558  3B DD 00 4C */	addi r30, r29, 0x4c
 /* 802EA5FC 002E755C  3B 60 00 00 */	li r27, 0
@@ -4339,12 +4339,12 @@ lbl_802EB138:
 __sinit_CSfxManager_cpp:
 /* 802EB154 002E80B4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802EB158 002E80B8  7C 08 02 A6 */	mflr r0
-/* 802EB15C 002E80BC  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802EB15C 002E80BC  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802EB160 002E80C0  3C 80 80 2F */	lis r4, __ct__Q211CSfxManager11CSfxChannelFv@ha
 /* 802EB164 002E80C4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 802EB168 002E80C8  3C A0 80 2F */	lis r5, __dt__Q211CSfxManager11CSfxChannelFv@ha
 /* 802EB16C 002E80CC  3C C0 80 48 */	lis r6, lbl_80479BA0@ha
-/* 802EB170 002E80D0  38 63 FD 48 */	addi r3, r3, lbl_8059FD48@l
+/* 802EB170 002E80D0  38 63 FD 48 */	addi r3, r3, mChannels__11CSfxManager@l
 /* 802EB174 002E80D4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 802EB178 002E80D8  3B E6 9B A0 */	addi r31, r6, lbl_80479BA0@l
 /* 802EB17C 002E80DC  38 84 B4 20 */	addi r4, r4, __ct__Q211CSfxManager11CSfxChannelFv@l
@@ -4367,16 +4367,16 @@ __sinit_CSfxManager_cpp:
 /* 802EB1C0 002E8120  38 6D A7 10 */	addi r3, r13, lbl_805A92D0@sda21
 /* 802EB1C4 002E8124  48 09 E4 C9 */	bl __register_global_object
 /* 802EB1C8 002E8128  38 00 00 00 */	li r0, 0
-/* 802EB1CC 002E812C  3C 60 80 5A */	lis r3, lbl_805A2B60@ha
+/* 802EB1CC 002E812C  3C 60 80 5A */	lis r3, mEmitterWrapperPool__11CSfxManager@ha
 /* 802EB1D0 002E8130  3C 80 80 2F */	lis r4, "__dt__Q24rstl56reserved_vector<Q211CSfxManager18CSfxEmitterWrapper,128>Fv"@ha
-/* 802EB1D4 002E8134  94 03 2B 60 */	stwu r0, lbl_805A2B60@l(r3)
+/* 802EB1D4 002E8134  94 03 2B 60 */	stwu r0, mEmitterWrapperPool__11CSfxManager@l(r3)
 /* 802EB1D8 002E8138  38 84 B2 B0 */	addi r4, r4, "__dt__Q24rstl56reserved_vector<Q211CSfxManager18CSfxEmitterWrapper,128>Fv"@l
 /* 802EB1DC 002E813C  38 BF 00 18 */	addi r5, r31, 0x18
 /* 802EB1E0 002E8140  48 09 E4 AD */	bl __register_global_object
 /* 802EB1E4 002E8144  38 00 00 00 */	li r0, 0
-/* 802EB1E8 002E8148  3C 60 80 5A */	lis r3, lbl_805A4164@ha
+/* 802EB1E8 002E8148  3C 60 80 5A */	lis r3, mWrapperPool__11CSfxManager@ha
 /* 802EB1EC 002E814C  3C 80 80 2F */	lis r4, "__dt__Q24rstl49reserved_vector<Q211CSfxManager11CSfxWrapper,128>Fv"@ha
-/* 802EB1F0 002E8150  94 03 41 64 */	stwu r0, lbl_805A4164@l(r3)
+/* 802EB1F0 002E8150  94 03 41 64 */	stwu r0, mWrapperPool__11CSfxManager@l(r3)
 /* 802EB1F4 002E8154  38 84 B2 14 */	addi r4, r4, "__dt__Q24rstl49reserved_vector<Q211CSfxManager11CSfxWrapper,128>Fv"@l
 /* 802EB1F8 002E8158  38 BF 00 24 */	addi r5, r31, 0x24
 /* 802EB1FC 002E815C  48 09 E4 91 */	bl __register_global_object
@@ -4480,10 +4480,10 @@ lbl_802EB328:
 __arraydtor$2309:
 /* 802EB34C 002E82AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 802EB350 002E82B0  7C 08 02 A6 */	mflr r0
-/* 802EB354 002E82B4  3C 60 80 5A */	lis r3, lbl_8059FD48@ha
+/* 802EB354 002E82B4  3C 60 80 5A */	lis r3, mChannels__11CSfxManager@ha
 /* 802EB358 002E82B8  3C 80 80 2F */	lis r4, __dt__Q211CSfxManager11CSfxChannelFv@ha
 /* 802EB35C 002E82BC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 802EB360 002E82C0  38 63 FD 48 */	addi r3, r3, lbl_8059FD48@l
+/* 802EB360 002E82C0  38 63 FD 48 */	addi r3, r3, mChannels__11CSfxManager@l
 /* 802EB364 002E82C4  38 A0 01 6C */	li r5, 0x16c
 /* 802EB368 002E82C8  38 84 B3 84 */	addi r4, r4, __dt__Q211CSfxManager11CSfxChannelFv@l
 /* 802EB36C 002E82CC  38 C0 00 04 */	li r6, 4

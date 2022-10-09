@@ -88,7 +88,8 @@ lbl_805A6DB0:
 .balign 8
 
 .lcomm lbl_8045B140, 0x40, 4
-.comm mBoolPOINodes__9CAnimData, 0x17F4, 4
+.comm mBoolPOINodes__9CAnimData, 0x1E4, 4
+.comm lbl_8056A7E4, 0x1610, 4 # MWCC .comm bug
 .comm mInt32POINodes__9CAnimData, 0x4C4, 4
 .comm mParticlePOINodes__9CAnimData, 0x734, 4
 .comm mSoundPOINodes__9CAnimData, 0x554, 4

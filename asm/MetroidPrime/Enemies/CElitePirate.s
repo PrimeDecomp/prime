@@ -1,7 +1,8 @@
 .include "macros.inc"
 
-.comm lbl_805723E0, 0x18, 4
-.comm lbl_805723F8, 0xC, 4
+.comm skExtendedClawBounds__12CElitePirate, 0xC, 4
+.comm lbl_805723EC, 0xC, 4 # MWCC .comm bug
+.comm skLocalShieldBounds__12CElitePirate, 0xC, 4
 
 .section .ctors, "wa"
 lbl_ctor:
@@ -3295,11 +3296,11 @@ lbl_80229D6C:
 /* 80229DB0 00226D10  38 84 00 E1 */	addi r4, r4, 0xe1
 /* 80229DB4 00226D14  4B DD AF 05 */	bl string_l__4rstlFPCc
 /* 80229DB8 00226D18  88 01 00 10 */	lbz r0, 0x10(r1)
-/* 80229DBC 00226D1C  3C 80 80 57 */	lis r4, lbl_805723F8@ha
+/* 80229DBC 00226D1C  3C 80 80 57 */	lis r4, skLocalShieldBounds__12CElitePirate@ha
 /* 80229DC0 00226D20  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha
 /* 80229DC4 00226D24  C0 22 B5 F4 */	lfs f1, lbl_805AD314@sda21(r2)
 /* 80229DC8 00226D28  98 01 00 08 */	stb r0, 8(r1)
-/* 80229DCC 00226D2C  38 A4 23 F8 */	addi r5, r4, lbl_805723F8@l
+/* 80229DCC 00226D2C  38 A4 23 F8 */	addi r5, r4, skLocalShieldBounds__12CElitePirate@l
 /* 80229DD0 00226D30  38 C3 66 A0 */	addi r6, r3, sZeroVector__9CVector3f@l
 /* 80229DD4 00226D34  38 61 00 90 */	addi r3, r1, 0x90
 /* 80229DD8 00226D38  38 81 00 08 */	addi r4, r1, 8
@@ -3924,9 +3925,9 @@ lbl_8022A6DC:
 /* 8022A6E4 00227644  48 00 03 10 */	b lbl_8022A9F4
 lbl_8022A6E8:
 /* 8022A6E8 00227648  38 00 00 00 */	li r0, 0
-/* 8022A6EC 0022764C  3C A0 80 57 */	lis r5, lbl_805723E0@ha
+/* 8022A6EC 0022764C  3C A0 80 57 */	lis r5, skExtendedClawBounds__12CElitePirate@ha
 /* 8022A6F0 00227650  90 1E 05 68 */	stw r0, 0x568(r30)
-/* 8022A6F4 00227654  38 C5 23 E0 */	addi r6, r5, lbl_805723E0@l
+/* 8022A6F4 00227654  38 C5 23 E0 */	addi r6, r5, skExtendedClawBounds__12CElitePirate@l
 /* 8022A6F8 00227658  38 BE 07 74 */	addi r5, r30, 0x774
 /* 8022A6FC 0022765C  4B FF EC 4D */	bl sub_80229348
 /* 8022A700 00227660  80 7E 00 64 */	lwz r3, 0x64(r30)
@@ -4032,9 +4033,9 @@ lbl_8022A83C:
 /* 8022A878 002277D8  50 E0 2E B4 */	rlwimi r0, r7, 5, 0x1a, 0x1a
 /* 8022A87C 002277DC  98 1E 09 88 */	stb r0, 0x988(r30)
 /* 8022A880 002277E0  4B FF EA C9 */	bl sub_80229348
-/* 8022A884 002277E4  3C 80 80 57 */	lis r4, lbl_805723E0@ha
+/* 8022A884 002277E4  3C 80 80 57 */	lis r4, skExtendedClawBounds__12CElitePirate@ha
 /* 8022A888 002277E8  7F C3 F3 78 */	mr r3, r30
-/* 8022A88C 002277EC  38 C4 23 E0 */	addi r6, r4, lbl_805723E0@l
+/* 8022A88C 002277EC  38 C4 23 E0 */	addi r6, r4, skExtendedClawBounds__12CElitePirate@l
 /* 8022A890 002277F0  38 BE 07 88 */	addi r5, r30, 0x788
 /* 8022A894 002277F4  7F E4 FB 78 */	mr r4, r31
 /* 8022A898 002277F8  4B FF EA B1 */	bl sub_80229348
@@ -7960,11 +7961,11 @@ lbl_8022E0A4:
 .global __sinit_CElitePirate_cpp
 __sinit_CElitePirate_cpp:
 /* 8022E0C8 0022B028  C0 22 B6 10 */	lfs f1, lbl_805AD330@sda21(r2)
-/* 8022E0CC 0022B02C  3C 80 80 57 */	lis r4, lbl_805723E0@ha
+/* 8022E0CC 0022B02C  3C 80 80 57 */	lis r4, skExtendedClawBounds__12CElitePirate@ha
 /* 8022E0D0 0022B030  C0 02 B6 04 */	lfs f0, lbl_805AD324@sda21(r2)
-/* 8022E0D4 0022B034  3C 60 80 57 */	lis r3, lbl_805723F8@ha
-/* 8022E0D8 0022B038  D4 24 23 E0 */	stfsu f1, lbl_805723E0@l(r4)
-/* 8022E0DC 0022B03C  D4 03 23 F8 */	stfsu f0, lbl_805723F8@l(r3)
+/* 8022E0D4 0022B034  3C 60 80 57 */	lis r3, skLocalShieldBounds__12CElitePirate@ha
+/* 8022E0D8 0022B038  D4 24 23 E0 */	stfsu f1, skExtendedClawBounds__12CElitePirate@l(r4)
+/* 8022E0DC 0022B03C  D4 03 23 F8 */	stfsu f0, skLocalShieldBounds__12CElitePirate@l(r3)
 /* 8022E0E0 0022B040  D0 24 00 04 */	stfs f1, 4(r4)
 /* 8022E0E4 0022B044  D0 24 00 08 */	stfs f1, 8(r4)
 /* 8022E0E8 0022B048  D0 03 00 04 */	stfs f0, 4(r3)

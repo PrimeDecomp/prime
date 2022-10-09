@@ -1,6 +1,7 @@
 .include "macros.inc"
 
-.comm mskInvertedBox__6CAABox, 0x30, 4
+.comm mskInvertedBox__6CAABox, 0x18, 4
+.comm lbl_805A676C, 0x18, 4 # MWCC .comm bug
 .comm mskNullBox__6CAABox, 0x18, 4
 
 .section .ctors, "wa"
@@ -1489,4 +1490,3 @@ lbl_805AE8B8:
 	# ROM: 0x3FB158
 	.4byte 0xFF7FFFFF
 	.4byte 0
-

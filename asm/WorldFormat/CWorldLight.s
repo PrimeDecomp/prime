@@ -1,6 +1,7 @@
 .include "macros.inc"
 
-.comm lbl_8059FBAC, 0x18, 4
+.comm lbl_8059FBAC, 0xC, 4
+.comm lbl_8059FBB8, 0xC, 4 # MWCC .comm bug
 .comm lbl_8059FBC4, 0xC, 4
 
 .section .ctors, "wa"
@@ -323,4 +324,3 @@ lbl_805ADEB8:
 lbl_805ADEBC:
 	# ROM: 0x3FA75C
 	.float 2.0
-
