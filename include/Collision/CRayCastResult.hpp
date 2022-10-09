@@ -15,7 +15,7 @@ public:
     kI_Valid,
   };
 
-  f32 GetTime() const { return x0_t; }
+  float GetTime() const { return x0_t; }
   bool IsValid() const { return x20_valid; }
   // GetPlane__14CRayCastResultCFv
   // GetPoint__14CRayCastResultCFv
@@ -25,7 +25,7 @@ public:
   // MakeInvalid__14CRayCastResultFv
 
 private:
-  f32 x0_t;
+  float x0_t;
   CVector3f x4_point;
   CPlane x10_plane;
   bool x20_valid;

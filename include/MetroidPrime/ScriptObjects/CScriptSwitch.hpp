@@ -14,8 +14,8 @@ public:
   ~CScriptSwitch();
 
 private:
-  u8 mOpened;
-  u8 mCloseOnOpened;
+  uchar mOpened;
+  uchar mCloseOnOpened;
 };
 
 #endif // _CSCRIPTSWITCH

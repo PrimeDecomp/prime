@@ -28,7 +28,7 @@ public:
   CHintOptions& HintOptions() { return x1f8_hintOptions; }
   uint& SaveIdx() { return x20c_saveIdx; }
   u64& CardSerial() { return x210_cardSerial; }
-  rstl::vector< u8 >& BackupBuf() { return x218_backupBuf; }
+  rstl::vector< uchar >& BackupBuf() { return x218_backupBuf; }
 
 private:
   rstl::reserved_vector< bool, 128 > x0_;
@@ -36,13 +36,13 @@ private:
   rstl::vector< CWorldState > x88_worldStates;
   rstl::rc_ptr< CPlayerState > x98_playerState;
   rstl::rc_ptr< CWorldTransManager > x9c_transManager;
-  f64 xa0_playTime;
+  double xa0_playTime;
   CSystemOptions xa8_systemOptions;
   CGameOptions x17c_gameOptions;
   CHintOptions x1f8_hintOptions;
   uint x20c_saveIdx;
   u64 x210_cardSerial;
-  rstl::vector< u8 > x218_backupBuf;
+  rstl::vector< uchar > x218_backupBuf;
   bool x228_24_hardMode : 1;
   bool x228_25_initPowerupsAtFirstSpawn : 1;
 };

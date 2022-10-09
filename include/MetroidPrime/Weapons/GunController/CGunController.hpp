@@ -25,7 +25,7 @@ class CGunController {
   CGSFreeLook x4_freeLook;
   // CGSComboFire x1c_comboFire;
   // CGSFidget x30_fidget;
-  u8 x1c_pad[0x34];
+  uchar x1c_pad[0x34];
   EGunState x50_gunState;
   int x54_curAnimId;
   bool x58_24_animDone : 1;

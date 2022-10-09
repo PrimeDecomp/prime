@@ -20,7 +20,7 @@ private:
   uint x0_duration;
   SObjectTag x4_particle;
   rstl::string xc_boneName;
-  f32 x1c_scale;
+  float x1c_scale;
   EParentedMode x20_parentMode;
 };
 
@@ -29,7 +29,7 @@ private:
   uint x0_duration;
   SObjectTag x4_particle;
   CVector3f xc_translation;
-  f32 x18_scale;
+  float x18_scale;
 };
 
 #endif // _CPARTICLEDATA

@@ -7,7 +7,7 @@
 
 class CUnitVector3f : public CVector3f {
 public:
-  CUnitVector3f(f32 x, f32 y, f32 z) : CVector3f(x, y, z) { Normalize(); }
+  CUnitVector3f(float x, float y, float z) : CVector3f(x, y, z) { Normalize(); }
   CUnitVector3f(const CVector3f& vec); // : CVector3f(vec) { Normalize(); }
   // TODO
 };

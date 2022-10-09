@@ -176,8 +176,8 @@ public:
 
   static float GetTractorBeamFactor() { return skTractorBeamFactor; }
 
-  s32 GetStateFlags() const { return x2f8_stateFlags; }
-  void SetStateFlags(s32 flags) { x2f8_stateFlags = flags; }
+  int GetStateFlags() const { return x2f8_stateFlags; }
+  void SetStateFlags(int flags) { x2f8_stateFlags = flags; }
 
 private:
   class CGunMorph {
@@ -277,7 +277,7 @@ private:
   uint x2f0_pressedFireButtonStates;
   uint x2f4_fireButtonStates;
   // 0x1: beam mode, 0x2: missile mode, 0x4: missile ready, 0x8: morphing, 0x10: combo fire
-  s32 x2f8_stateFlags;
+  int x2f8_stateFlags;
   uint x2fc_fidgetAnimBits;
   uint x300_remainingMissiles;
   uint x304_;
@@ -340,7 +340,7 @@ private:
   float x664_;
   float x668_aimVerticalSpeed;
   float x66c_aimHorizontalSpeed;
-  rstl::pair< u16, CSfxHandle > x670_animSfx;
+  rstl::pair< ushort, CSfxHandle > x670_animSfx;
   CGunMorph x678_morph;
   CMotionState x6a0_motionState;
   CAABox x6c8_hologramClipCube;
@@ -366,7 +366,7 @@ private:
   rstl::reserved_vector< TLockedToken< CGenDescription >, 5 > x7c0_auxMuzzleEffects;
   rstl::reserved_vector< rstl::auto_ptr< CElementGen >, 5 > x800_auxMuzzleGenerators;
   rstl::single_ptr< CWorldShadow > x82c_shadow;
-  s16 x830_chargeRumbleHandle;
+  short x830_chargeRumbleHandle;
 
   bool x832_24_coolingCharge : 1;
   bool x832_25_chargeEffectVisible : 1;

@@ -49,7 +49,7 @@ public:
   static void SetTevOp(ERglTevStage stage, const CTevCombiners::CTevPass& pass);
   static void StreamBegin(ERglPrimitive primitive);
   static void StreamColor(const CColor& color);
-  static void StreamTexcoord(f32 u, f32 v);
+  static void StreamTexcoord(float u, float v);
   static void StreamVertex(const CVector3f& vtx);
   static void StreamEnd();
 

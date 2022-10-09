@@ -11,7 +11,7 @@
 class CFluidPlaneManager {
 private:
   class CSplashRecord {
-    f32 x0_time;
+    float x0_time;
     TUniqueId x4_id;
   };
 

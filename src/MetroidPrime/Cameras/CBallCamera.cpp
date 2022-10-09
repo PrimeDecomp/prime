@@ -22,8 +22,8 @@ static CMaterialFilter kLineOfSightFilter =
     CMaterialFilter::MakeIncludeExclude(kLineOfSightIncludeList, kLineOfSightExcludeList);
 
 // TODO non-matching
-CBallCamera::CBallCamera(TUniqueId uid, TUniqueId watchedId, const CTransform4f& xf, f32 fovY,
-                         f32 nearZ, f32 farZ, f32 aspect)
+CBallCamera::CBallCamera(TUniqueId uid, TUniqueId watchedId, const CTransform4f& xf, float fovY,
+                         float nearZ, float farZ, float aspect)
 : CGameCamera(uid, true, rstl::string_l("Ball Camera"),
               CEntityInfo(kInvalidAreaId, CEntity::NullConnectionList, kInvalidEditorId), xf, fovY,
               nearZ, farZ, aspect, watchedId, false, 0)
@@ -216,18 +216,18 @@ void CBallCamera::ResetToTweaks(CStateManager& mgr) {
 }
 
 // TODO non-matching
-void CBallCamera::SetupColliders(rstl::vector< CCameraCollider >& out, f32 xMag, f32 zMag,
-                                 f32 radius, int count, f32 k, f32 max, f32 startAngle) {
+void CBallCamera::SetupColliders(rstl::vector< CCameraCollider >& out, float xMag, float zMag,
+                                 float radius, int count, float k, float max, float startAngle) {
   out.reserve(count);
-  f32 theta = startAngle;
+  float theta = startAngle;
   for (int i = 0; i < count; ++i) {
-    f32 z = cos(theta) * zMag;
+    float z = cos(theta) * zMag;
     if (theta > M_PIF / 2.f) {
       z *= 0.25f;
     }
     out.push_back(CCameraCollider(radius, CVector3f(xMag * sin(theta), 0.f, z),
                                   CCameraSpring(k, max, 1.f), 1.f));
-    theta += 2.f * M_PIF / f32(count);
+    theta += 2.f * M_PIF / float(count);
   }
 }
 
@@ -286,15 +286,15 @@ void CBallCamera::Reset(const CTransform4f& xf, CStateManager& mgr) {
   }
 }
 
-void CBallCamera::UpdateCollidersDistances(rstl::vector< CCameraCollider >& colliderList, f32 xMag,
-                                           f32 zMag, f32 angOffset) {
-  f32 theta = angOffset;
+void CBallCamera::UpdateCollidersDistances(rstl::vector< CCameraCollider >& colliderList,
+                                           float xMag, float zMag, float angOffset) {
+  float theta = angOffset;
   for (int i = 0; i < colliderList.size(); ++i) {
-    f32 z = cosf(theta) * zMag;
+    float z = cosf(theta) * zMag;
     if (theta > M_PIF / 2.f) {
       z *= 0.25f;
     }
-    f32 x = CMath::Limit(sinf(theta), 1.f) * xMag;
+    float x = CMath::Limit(sinf(theta), 1.f) * xMag;
     CVector3f pos(x, 0.f, z);
     colliderList[i].SetDesiredPosition(pos);
     theta += 2.f * M_PIF / colliderList.size();
@@ -304,7 +304,7 @@ void CBallCamera::UpdateCollidersDistances(rstl::vector< CCameraCollider >& coll
 // TODO non-matching
 void CBallCamera::UpdateColliders(const CTransform4f& xf,
                                   rstl::vector< CCameraCollider >& colliderList, int& idx,
-                                  int count, float tolerance, const TEntityList& nearList, f32 dt,
+                                  int count, float tolerance, const TEntityList& nearList, float dt,
                                   CStateManager& mgr) {
   if (idx < colliderList.size()) {
     const CPlayer& player = *mgr.GetPlayer();
@@ -325,14 +325,14 @@ void CBallCamera::UpdateColliders(const CTransform4f& xf,
         worldPos = colliderList[idx].GetRealPosition();
       }
       CVector3f centerToCollider = worldPos - predictedLookPos;
-      f32 mag = centerToCollider.Magnitude();
+      float mag = centerToCollider.Magnitude();
       if (centerToCollider.CanBeNormalized()) {
         centerToCollider.Normalize();
         TUniqueId intersectId = kInvalidUniqueId;
         const CRayCastResult& result = mgr.RayWorldIntersection(
             intersectId, predictedLookXf.GetTranslation(), centerToCollider,
             mag + colliderList[idx].GetRadius(), kLineOfSightFilter, nearList);
-        f32 t = result.GetTime();
+        float t = result.GetTime();
         if (result.IsValid()) {
           worldPos = predictedLookXf.GetTranslation() +
                      centerToCollider * (t - colliderList[idx].GetRadius());
@@ -370,18 +370,18 @@ CBallCamera::CalculateCollidersCentroid(const rstl::vector< CCameraCollider >& c
 
   int clearColliders = 0;
   int prevCol = colliderList.size() - 1;
-  f32 accumCross = 0.f;
-  f32 accumX = 0.f;
-  f32 accumZ = 0.f;
+  float accumCross = 0.f;
+  float accumX = 0.f;
+  float accumZ = 0.f;
   for (int i = 0; i < colliderList.size(); ++i) {
     if (colliderList[prevCol].GetOcclusionCount() < 2 && colliderList[i].GetOcclusionCount() < 2) {
-      f32 scale = colliderList[prevCol].GetScale();
-      f32 z0 = scale * colliderList[prevCol].GetPosition().GetZ();
-      f32 x0 = scale * colliderList[prevCol].GetPosition().GetX();
-      f32 x1 = scale * colliderList[i].GetPosition().GetX();
-      f32 z1 = scale * colliderList[i].GetPosition().GetZ();
+      float scale = colliderList[prevCol].GetScale();
+      float z0 = scale * colliderList[prevCol].GetPosition().GetZ();
+      float x0 = scale * colliderList[prevCol].GetPosition().GetX();
+      float x1 = scale * colliderList[i].GetPosition().GetX();
+      float z1 = scale * colliderList[i].GetPosition().GetZ();
 
-      f32 cross = x0 * z1 - x1 * z0;
+      float cross = x0 * z1 - x1 * z0;
       accumCross += cross;
       accumX += cross * (x1 + x0);
       accumZ += cross * (z1 + z0);
@@ -391,13 +391,13 @@ CBallCamera::CalculateCollidersCentroid(const rstl::vector< CCameraCollider >& c
     prevCol = i;
   }
 
-  if (static_cast< f32 >(clearColliders) / static_cast< f32 >(colliderList.size()) <=
+  if (static_cast< float >(clearColliders) / static_cast< float >(colliderList.size()) <=
       x330_clearColliderThreshold) {
     return CVector3f(0.f, 1.f, 0.f);
   }
 
   if (accumCross != 0.f) {
-    f32 baryCross = 3.f * accumCross;
+    float baryCross = 3.f * accumCross;
     return CVector3f(accumX / baryCross, 0.f, accumZ / baryCross);
   }
 
@@ -497,7 +497,7 @@ CBallCamera::CalculateCollidersBoundingBox(const rstl::vector< CCameraCollider >
 }
 
 CVector3f CBallCamera::AvoidGeometryFull(const CTransform4f& xf, const TEntityList& nearList,
-                                         f32 dt, CStateManager& mgr) {
+                                         float dt, CStateManager& mgr) {
   UpdateColliders(xf, x264_smallColliders, x2d0_smallColliderIt, x264_smallColliders.size(), 4.f,
                   nearList, dt, mgr);
   UpdateColliders(xf, x274_mediumColliders, x2d4_mediumColliderIt, x274_mediumColliders.size(), 4.f,
@@ -507,7 +507,7 @@ CVector3f CBallCamera::AvoidGeometryFull(const CTransform4f& xf, const TEntityLi
   return ApplyColliders();
 }
 
-CVector3f CBallCamera::AvoidGeometry(const CTransform4f& xf, const TEntityList& nearList, f32 dt,
+CVector3f CBallCamera::AvoidGeometry(const CTransform4f& xf, const TEntityList& nearList, float dt,
                                      CStateManager& mgr) {
   switch (x328_avoidGeomCycle) {
   case 0:
@@ -536,15 +536,15 @@ CVector3f CBallCamera::AvoidGeometry(const CTransform4f& xf, const TEntityList& 
 }
 
 // TODO non-matching regswaps
-bool CBallCamera::DetectCollision(const CVector3f& from, const CVector3f& to, f32 radius, f32& d,
-                                  CStateManager& mgr) {
+bool CBallCamera::DetectCollision(const CVector3f& from, const CVector3f& to, float radius,
+                                  float& d, CStateManager& mgr) {
   CVector3f delta = to - from;
-  f32 deltaMag = delta.Magnitude();
+  float deltaMag = delta.Magnitude();
   CVector3f deltaNorm = delta * (1.f / deltaMag);
   bool clear = true;
 
   if (deltaMag > 0.000001f) {
-    f32 margin = 2.f * radius;
+    float margin = 2.f * radius;
     CAABox aabb = CAABox::MakeMaxInvertedBox();
     aabb.AccumulateBounds(from);
     aabb.AccumulateBounds(to);
@@ -571,7 +571,7 @@ bool CBallCamera::DetectCollision(const CVector3f& from, const CVector3f& to, f3
     if (clear) {
       TUniqueId intersectId = kInvalidUniqueId;
       CCollisionInfo info;
-      f64 dTmp = deltaMag;
+      double dTmp = deltaMag;
       if (CGameCollision::DetectCollision_Cached_Moving(
               mgr, cache,
               CCollidableSphere(CSphere(CVector3f::Zero(), radius), CMaterialList(kMT_Solid)),
@@ -580,7 +580,7 @@ bool CBallCamera::DetectCollision(const CVector3f& from, const CVector3f& to, f3
                   CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough, kMT_Player,
                                                           kMT_Character, kMT_CameraPassthrough)),
               nearList, deltaNorm, intersectId, info, dTmp)) {
-        d = static_cast< f32 >(dTmp);
+        d = static_cast< float >(dTmp);
         clear = false;
       }
     }

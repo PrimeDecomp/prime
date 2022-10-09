@@ -15,7 +15,7 @@ public:
   static const CMatrix3f& Identity() { return sIdentity; }
 
 private:
-  // TODO maybe individual f32s
+  // TODO maybe individual floats
   CVector3f m0;
   CVector3f m1;
   CVector3f m2;

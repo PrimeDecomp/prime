@@ -27,14 +27,14 @@ public:
 
   static void InvalidateTexmap(GXTexMapID id);
 
-  s16 GetWidth() const { return mWidth; }
-  s16 GetHeight() const { return mHeight; }
+  short GetWidth() const { return mWidth; }
+  short GetHeight() const { return mHeight; }
 
 private:
-  u32 mTexelFormat; // TODO: Enum
-  s16 mWidth;
-  s16 mHeight;
-  u8 pad[0x60];
+  uint mTexelFormat; // TODO: Enum
+  short mWidth;
+  short mHeight;
+  uchar pad[0x60];
 };
 
 #endif // _CTEXTURE

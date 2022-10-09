@@ -42,7 +42,7 @@ int CRandom16::Next() {
   return (mSeed >> 16) & 0xffff;
 }
 
-f32 CRandom16::Float() {
+float CRandom16::Float() {
   int next = Next();
   return 1.52590222E-5f * next;
 }

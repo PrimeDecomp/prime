@@ -7,7 +7,7 @@
 COutputStream::COutputStream(int len)
 : mPosition(0)
 , mBufLen(len)
-, mBufPtr(len > 64 ? new u8[len] : &mScratch[32 - (u32)(mScratch) % 31])
+, mBufPtr(len > 64 ? new uchar[len] : &mScratch[32 - (uint)(mScratch) % 31])
 , mNumWrites(0)
 , mShiftRegister(0)
 , mShiftRegisterOffset(32) {}
@@ -24,20 +24,20 @@ void COutputStream::DoPut(const void* ptr, size_t len) {
   }
 
   mNumWrites += len;
-  u32 curLen = len;
+  uint curLen = len;
   if (mBufLen <= len + mPosition) {
-    memcpy((u8*)mBufPtr + mPosition, ptr, len);
+    memcpy((uchar*)mBufPtr + mPosition, ptr, len);
     mPosition += len;
   } else {
     while (curLen != 0) {
-      u32 count = mBufLen - mPosition;
+      uint count = mBufLen - mPosition;
       if (curLen < count) {
         count = curLen;
       }
       if (count == 0) {
         DoFlush();
       } else {
-        memcpy((u8*)mBufPtr + mPosition, (u8*)ptr + (len - curLen), count);
+        memcpy((uchar*)mBufPtr + mPosition, (uchar*)ptr + (len - curLen), count);
         mPosition += count;
         curLen -= count;
       }

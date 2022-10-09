@@ -24,7 +24,7 @@ public:
   static bool DetectCollision_Cached_Moving(const CStateManager&, CAreaCollisionCache&,
                                             const CCollisionPrimitive&, const CTransform4f&,
                                             const CMaterialFilter&, const TEntityList&, CVector3f,
-                                            TUniqueId&, CCollisionInfo&, f64&);
+                                            TUniqueId&, CCollisionInfo&, double&);
 };
 
 #endif // _CGAMECOLLISION

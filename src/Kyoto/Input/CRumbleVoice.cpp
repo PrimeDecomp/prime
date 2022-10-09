@@ -8,7 +8,7 @@ CRumbleVoice::CRumbleVoice()
 , x2c_usedChannels(0)
 , x2e_lastId(0) {}
 
-s16 CRumbleVoice::Activate(const SAdsrData& data, u16 idx, float gain, ERumblePriority prio) {
+short CRumbleVoice::Activate(const SAdsrData& data, ushort idx, float gain, ERumblePriority prio) {
   if (gain > 0.f) {
     x0_datas[idx] = data;
     x10_deltas[idx] = SAdsrDelta::Start(prio, x2c_usedChannels == 0);
@@ -21,7 +21,7 @@ s16 CRumbleVoice::Activate(const SAdsrData& data, u16 idx, float gain, ERumblePr
   return -1;
 }
 
-void CRumbleVoice::Deactivate(s16 id, bool b1) {
+void CRumbleVoice::Deactivate(short id, bool b1) {
   if (id == -1)
     return;
   if (OwnsSustained(id)) {
@@ -34,7 +34,7 @@ void CRumbleVoice::Deactivate(s16 id, bool b1) {
 
 void CRumbleVoice::HardReset() {
   x2c_usedChannels = 0;
-  for (u16 i = 0; i < 4; ++i) {
+  for (ushort i = 0; i < 4; ++i) {
     x10_deltas[i] = SAdsrDelta::Stopped();
     x20_handleIds[i] = 0;
   }
@@ -117,7 +117,7 @@ bool CRumbleVoice::UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float
 }
 bool CRumbleVoice::Update(float dt) {
   if (x2c_usedChannels != 0) {
-    for (u16 i = 0; i < 4; ++i) {
+    for (ushort i = 0; i < 4; ++i) {
       if (x2c_usedChannels & (1 << i)) {
         if (UpdateChannel(x10_deltas[i], x0_datas[i], dt)) {
           x2c_usedChannels &= ~(1 << i);
@@ -131,7 +131,7 @@ bool CRumbleVoice::Update(float dt) {
 }
 
 uint CRumbleVoice::GetFreeChannel() const {
-  for (u16 i = 0; i < 4; ++i) {
+  for (ushort i = 0; i < 4; ++i) {
     if ((x2c_usedChannels & (1 << i)) == 0) {
       return i;
     }
@@ -158,14 +158,14 @@ float CRumbleVoice::GetIntensity() const {
 
   return ret;
 }
-bool CRumbleVoice::OwnsSustained(s16 handle) const {
-  u16 idx = (((u16)handle >> 8) & 0xff);
+bool CRumbleVoice::OwnsSustained(short handle) const {
+  ushort idx = (((ushort)handle >> 8) & 0xff);
   if (idx < 4)
     return x20_handleIds[idx] == (idx & 0xf);
   return false;
 }
 
-s16 CRumbleVoice::CreateRumbleHandle(u16 idx) {
+short CRumbleVoice::CreateRumbleHandle(ushort idx) {
   ++x2e_lastId;
   if (x2e_lastId == 0)
     x2e_lastId = 1;

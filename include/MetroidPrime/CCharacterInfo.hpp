@@ -26,7 +26,7 @@ public:
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
 
 private:
-  u16 x0_tableCount;
+  ushort x0_tableCount;
   rstl::string x4_name;
   CAssetId x14_cmdl;
   CAssetId x18_cksr;

@@ -20,38 +20,38 @@ class CTexture;
 
 class CVectorFixed8_8 {
 private:
-  s16 x;
-  s16 y;
-  s16 z;
+  short x;
+  short y;
+  short z;
 };
 
 class CEnvFxManagerGrid {
 private:
   bool x0_24_blockDirty;
-  CVector2i x4_position;             /* 8.8 fixed point */
-  CVector2i xc_extent;               /* 8.8 fixed point */
-  rstl::pair< bool, f32 > x14_block; /* Blocked-bool, Z-coordinate */
+  CVector2i x4_position;               /* 8.8 fixed point */
+  CVector2i xc_extent;                 /* 8.8 fixed point */
+  rstl::pair< bool, float > x14_block; /* Blocked-bool, Z-coordinate */
   rstl::vector< CVectorFixed8_8 > x1c_particles;
 };
 
 class CEnvFxManager {
 public:
   static void Initialize();
-  void SetFxDensity(s32, float);
+  void SetFxDensity(int, float);
 
 private:
   CAABox x0_particleBounds;
   CVector3f x18_focusCellPosition;
   bool x24_enableSplash;
-  f32 x28_firstSnowForce;
+  float x28_firstSnowForce;
   int x2c_lastBlockedGridIdx;
-  f32 x30_fxDensity;
-  f32 x34_targetFxDensity;
-  f32 x38_maxDensityDeltaSpeed;
+  float x30_fxDensity;
+  float x34_targetFxDensity;
+  float x38_maxDensityDeltaSpeed;
   bool x3c_snowflakeTextureMipBlanked;
   TLockedToken< CTexture > x40_txtrEnvGradient;
   rstl::reserved_vector< CEnvFxManagerGrid, 64 > x50_grids;
-  f32 xb54_baseSplashRate;
+  float xb54_baseSplashRate;
   TLockedToken< CGenDescription > xb58_envRainSplash;
   bool xb64_;
   TUniqueId xb68_envRainSplashId;

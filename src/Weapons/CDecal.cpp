@@ -5,7 +5,7 @@
 CRandom16 CDecal::sDecalRandom(99);
 bool CDecal::sMoveRedToAlpha = false;
 
-void CDecal::SetGlobalSeed(u16 seed) { sDecalRandom.SetSeed(seed); }
+void CDecal::SetGlobalSeed(ushort seed) { sDecalRandom.SetSeed(seed); }
 
 CDecal::CDecal(const TToken< CDecalDescription >& desc, const CTransform4f& xf)
 : x0_description(desc)

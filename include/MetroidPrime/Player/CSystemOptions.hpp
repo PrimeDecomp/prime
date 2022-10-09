@@ -26,7 +26,7 @@ public:
   void SetAllItemsCollected(bool);
 
 private:
-  rstl::reserved_vector< u8, 98 > x0_nesState;
+  rstl::reserved_vector< uchar, 98 > x0_nesState;
   rstl::reserved_vector< bool, 64 > x68_;
   rstl::vector< rstl::pair< CAssetId, TEditorId > > xac_cinematicStates;
   int xbc_autoMapperKeyState;

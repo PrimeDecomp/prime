@@ -15,7 +15,7 @@ struct rmemory_allocator {
     if (size == 0) {
       out = nullptr;
     } else {
-      out = reinterpret_cast< T* >(new u8[size]);
+      out = reinterpret_cast< T* >(new uchar[size]);
     }
   }
   // TODO: this fixes a regswap in vector::reserve
@@ -25,13 +25,13 @@ struct rmemory_allocator {
     if (size == 0) {
       return nullptr;
     } else {
-      return reinterpret_cast< T* >(new u8[size]);
+      return reinterpret_cast< T* >(new uchar[size]);
     }
   }
   template < typename T >
   static void deallocate(T* ptr) {
     if (ptr != nullptr) {
-      delete[] reinterpret_cast< u8* >(ptr);
+      delete[] reinterpret_cast< uchar* >(ptr);
     }
   }
 };

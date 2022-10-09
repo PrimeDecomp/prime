@@ -26,18 +26,18 @@ public:
   const rstl::string& GetString() const { return x8_name; }
   EPOIType GetPoiType() const { return static_cast< EPOIType >(x18_type); }
   const CCharAnimTime& GetTime() const { return x1c_time; }
-  f32 GetWeight() const { return x2c_weight; }
+  float GetWeight() const { return x2c_weight; }
   int GetCharacterIndex() const { return x30_charIdx; }
   int GetFlags() const { return x34_flags; }
 
 protected:
-  u16 x4_;
+  ushort x4_;
   rstl::string x8_name;
-  u16 x18_type;
+  ushort x18_type;
   CCharAnimTime x1c_time;
   int x24_index;
   bool x28_unique;
-  f32 x2c_weight;
+  float x2c_weight;
   int x30_charIdx;
   int x34_flags;
 };
@@ -76,13 +76,13 @@ private:
 class CSoundPOINode : public CPOINode {
 public:
   uint GetSoundId() const { return x38_sfxId; }
-  f32 GetFallOff() const { return x3c_falloff; }
-  f32 GetMaxDistance() const { return x40_maxDist; }
+  float GetFallOff() const { return x3c_falloff; }
+  float GetMaxDistance() const { return x40_maxDist; }
 
 private:
   uint x38_sfxId;
-  f32 x3c_falloff;
-  f32 x40_maxDist;
+  float x3c_falloff;
+  float x40_maxDist;
 };
 
 #endif // _CPOINODE

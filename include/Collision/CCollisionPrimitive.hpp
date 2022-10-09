@@ -16,7 +16,7 @@ class CCollisionPrimitive {
 public:
   CCollisionPrimitive(const CMaterialList& list);
 
-  virtual u32 GetTableIndex() const = 0;
+  virtual uint GetTableIndex() const = 0;
   virtual void SetMaterial(const CMaterialList&);
   virtual const CMaterialList& GetMaterial() const;
   virtual CAABox CalculateAABox(const CTransform4f&) const = 0;

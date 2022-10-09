@@ -14,8 +14,8 @@ class CRainSplashGenerator {
     float x8_yEnd;
     float xc_speed;
     float x10_zParabolaHeight;
-    u8 x14_;
-    u8 x15_length;
+    uchar x14_;
+    uchar x15_length;
     bool x16_active : 1;
     SSplashLine();
     void Update(float dt, CStateManager& mgr);
@@ -43,7 +43,7 @@ private:
   rstl::vector< SRainSplash > x0_rainSplashes;
   CRandom16 x10_random;
   CVector3f x14_scale;
-  u8 x0_pad[0x2c];
+  uchar x0_pad[0x2c];
 };
 CHECK_SIZEOF(CRainSplashGenerator, 0x4c)
 

@@ -43,7 +43,8 @@ public:
   virtual void SetWorldViewpoint();
   virtual void SetPerspective1();
   virtual void SetPerspective2();
-  virtual rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, f32 znear, f32 zfar);
+  virtual rstl::pair< CVector2f, CVector2f > SetViewportOrtho(bool centered, float znear,
+                                                              float zfar);
   virtual void SetClippingPlanes();
   virtual void SetViewport();
   virtual void SetDepthReadWrite(bool read, bool update);
@@ -65,7 +66,7 @@ public:
   virtual void BeginTriangleFan(int nverts);
   virtual void PrimVertex(const CVector3f& vtx);
   virtual void PrimNormal(const CVector3f& nrm);
-  virtual void PrimColor(f32 r, f32 g, f32 b, f32 a);
+  virtual void PrimColor(float r, float g, float b, float a);
   virtual void PrimColor(const CColor& color);
   virtual void EndPrimitive();
   virtual void SetAmbientColor(const CColor& color);

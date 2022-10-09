@@ -22,7 +22,7 @@ public:
     kBT_XRay,
   };
 
-  static void DrawWideScreen(const CColor& color, const CTexture* tex, f32 v);
+  static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
 
 private:
   rstl::optional_object< TLockedToken< CTexture > > x0_paletteTex;

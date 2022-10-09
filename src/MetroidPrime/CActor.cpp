@@ -109,7 +109,7 @@ CAdvancementDeltas CActor::UpdateAnimation(float dt, CStateManager& mgr, bool ad
   ModelData()->AdvanceParticles(GetTransform(), dt, mgr);
   UpdateSfxEmitters();
   if (HasAnimation()) {
-    u16 maxVol = xd4_maxVol;
+    ushort maxVol = xd4_maxVol;
     int aid = x4_areaId.Value();
 
     const CGameCamera* camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
@@ -191,7 +191,7 @@ void CActor::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUse
   }
 }
 
-f32 CActor::GetAverageAnimVelocity(int anim) {
+float CActor::GetAverageAnimVelocity(int anim) {
   return HasAnimation() ? GetAnimationData()->GetAverageVelocity(anim) : 0.f;
 }
 
@@ -336,7 +336,7 @@ void CActor::Render(const CStateManager& mgr) const {
       if (xe5_29_globalTimeProvider) {
         RenderInternal(mgr);
       } else {
-        const f32 timeSince = CGraphics::GetSecondsMod900() - xbc_time;
+        const float timeSince = CGraphics::GetSecondsMod900() - xbc_time;
         CTimeProvider tp(CMath::FastFmod(timeSince, 900.f));
         RenderInternal(mgr);
       }
@@ -357,8 +357,8 @@ void CActor::RenderInternal(const CStateManager& mgr) const {
   CModelData::EWhichModel which = CModelData::GetRenderingModel(mgr);
   if (which == CModelData::kWM_ThermalHot) {
     if (GetModelData()->GetSortThermal()) {
-      u8 addMag;
-      u8 mulMag = 255;
+      uchar addMag;
+      uchar mulMag = 255;
       if (xd0_damageMag <= 1.f) {
         mulMag = CCast::ToUint8(xd0_damageMag * 255.f);
         addMag = 0.f;
@@ -368,17 +368,17 @@ void CActor::RenderInternal(const CStateManager& mgr) const {
         addMag = 255;
       }
 
-      const u8 rgb = mulMag * xb4_drawFlags.GetColor().GetAlphau8();
-      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColor().GetAlphau8());
-      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColor().GetAlphau8() / 4);
+      const uchar rgb = mulMag * xb4_drawFlags.GetColor().GetAlphauchar();
+      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColor().GetAlphauchar());
+      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColor().GetAlphauchar() / 4);
       GetModelData()->RenderThermal(x34_transform, mulColor, addColor, xb4_drawFlags);
       return;
     } else if (mgr.GetThermalColdScale2() > 0.0001f && xb4_drawFlags.GetTrans() == 0) {
-      const f32 scale = rstl::min_val< f32 >(
+      const float scale = rstl::min_val< float >(
           (mgr.GetThermalColdScale2() + mgr.GetThermalColdScale1()) * mgr.GetThermalColdScale2(),
           mgr.GetThermalColdScale2());
-      const f32 rgbf = CMath::Clamp(0.f, scale * 255.f, 255.f);
-      const u8 rgb = CCast::ToUint8(rgbf);
+      const float rgbf = CMath::Clamp(0.f, scale * 255.f, 255.f);
+      const uchar rgb = CCast::ToUint8(rgbf);
       CColor color(rgb, rgb, rgb, 255);
       CModelFlags flags(xb4_drawFlags, CModelFlags::kT_Two, color);
       GetModelData()->Render(which, x34_transform, x90_actorLights.get(), flags);

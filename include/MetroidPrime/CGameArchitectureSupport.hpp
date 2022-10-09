@@ -42,9 +42,9 @@ private:
   CGuiSys x44_guiSys;
   CIOWinManager x58_ioWinMgr;
   int x78_gameFrameCount;
-  f32 x7c_;
-  f32 x80_;
-  f32 x84_;
+  float x7c_;
+  float x80_;
+  float x84_;
   uint x88_;
   rstl::vector< CToken > x90_;
   OSAlarm xa0_infiniteLoopAlarm;

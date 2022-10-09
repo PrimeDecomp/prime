@@ -10,7 +10,7 @@ namespace rstl {
 template < typename T, int N >
 class reserved_vector {
   int x0_count;
-  u8 x4_data[N * sizeof(T)];
+  uchar x4_data[N * sizeof(T)];
 
 public:
   typedef pointer_iterator< T, reserved_vector< T, N >, void > iterator;

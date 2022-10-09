@@ -89,7 +89,7 @@ void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
 
     OSReport("\nAddress:      Back Chain    LR Save\n");
 
-    u32 stackPtr = context->gpr[1];
+    uint stackPtr = context->gpr[1];
     bool check;
     i = 0;
     while (true) {
@@ -101,7 +101,7 @@ void ErrorHandler(OSError code, OSContext* context, int arg1, int arg2) {
         sprintf(rs_debugger_buffer + j, "0x%08x: BAD PTR\n", stackPtr);
         break;
       }
-      u32* asPtr = (u32*)stackPtr;
+      uint* asPtr = (uint*)stackPtr;
 
       OSReport("0x%08x:   0x%08x    0x%08x\n", stackPtr, *asPtr, asPtr[1]);
       bufferIndex +=

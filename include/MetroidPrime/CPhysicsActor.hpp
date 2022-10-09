@@ -21,9 +21,9 @@ struct SMoverData {
   CAxisAngle xc_angularVelocity;
   CVector3f x18_momentum;
   CAxisAngle x24_;
-  f32 x30_mass;
+  float x30_mass;
 
-  SMoverData(f32 mass, const CVector3f& velocity, const CAxisAngle& angularVelocity,
+  SMoverData(float mass, const CVector3f& velocity, const CAxisAngle& angularVelocity,
              const CVector3f& momentum, const CAxisAngle& unk)
   : x0_velocity(velocity)
   , xc_angularVelocity(angularVelocity)
@@ -58,22 +58,22 @@ public:
   CPhysicsActor(TUniqueId uid, bool active, const rstl::string& name, const CEntityInfo& info,
                 const CTransform4f& xf, const CModelData& mData, const CMaterialList& matList,
                 const CAABox& aabb, const SMoverData& moverData, const CActorParameters& actParams,
-                f32 stepUp, f32 stepDown);
+                float stepUp, float stepDown);
 
   // CActor
   ~CPhysicsActor() override;
   void Render(const CStateManager&) const override;
   CVector3f GetOrbitPosition(const CStateManager& mgr) const override;
-  CVector3f GetAimPosition(const CStateManager& mgr, f32 val) const override;
+  CVector3f GetAimPosition(const CStateManager& mgr, float val) const override;
 
   // CPhysicsActor
   virtual const CCollisionPrimitive* GetCollisionPrimitive() const;
   virtual CTransform4f GetPrimitiveTransform() const;
   virtual void CollidedWith(const TUniqueId& id, const CCollisionInfoList& list,
                             CStateManager& mgr);
-  virtual f32 GetStepDownHeight() const;
-  virtual f32 GetStepUpHeight() const;
-  virtual f32 GetWeight() const;
+  virtual float GetStepDownHeight() const;
+  virtual float GetStepUpHeight() const;
+  virtual float GetWeight() const;
   float GetMass() const { return xe8_mass; }
   void SetMass(float mass);
 
@@ -145,10 +145,10 @@ public:
   static float GetGravityConstant() { return skGravityConstant; }
 
 private:
-  f32 xe8_mass;
-  f32 xec_massRecip;
-  f32 xf0_inertiaTensor;
-  f32 xf4_inertiaTensorRecip;
+  float xe8_mass;
+  float xec_massRecip;
+  float xf0_inertiaTensor;
+  float xf4_inertiaTensorRecip;
   bool xf8_24_movable : 1;
   bool xf8_25_angularEnabled : 1;
   bool xf9_standardCollider;
@@ -169,11 +169,11 @@ private:
   CVector3f x1e8_primitiveOffset;
   CMotionState x1f4_lastNonCollidingState;
   rstl::optional_object< CVector3f > x228_lastFloorPlaneNormal;
-  f32 x238_maximumCollisionVelocity;
-  f32 x23c_stepUpHeight;
-  f32 x240_stepDownHeight;
-  f32 x244_restitutionCoefModifier;
-  f32 x248_collisionAccuracyModifier;
+  float x238_maximumCollisionVelocity;
+  float x23c_stepUpHeight;
+  float x240_stepDownHeight;
+  float x244_restitutionCoefModifier;
+  float x248_collisionAccuracyModifier;
   uint x24c_numTicksStuck;
   uint x250_numTicksPartialUpdate;
   uint x254_;

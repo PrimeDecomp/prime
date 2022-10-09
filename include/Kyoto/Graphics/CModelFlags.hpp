@@ -23,7 +23,7 @@ public:
     kF_ThermalUnsortedOnly = 0x40,
   };
 
-  CModelFlags(ETrans trans, f32 rgba)
+  CModelFlags(ETrans trans, float rgba)
   : x0_blendMode(trans)
   , x1_matSetIdx(0)
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
@@ -34,7 +34,7 @@ public:
   , x2_flags(kF_DepthCompare | kF_DepthUpdate)
   , x4_color(color) {}
 
-  CModelFlags(ETrans blendMode, u8 shadIdx, EFlags flags, const CColor& col)
+  CModelFlags(ETrans blendMode, uchar shadIdx, EFlags flags, const CColor& col)
   : x0_blendMode(blendMode), x1_matSetIdx(shadIdx), x2_flags(flags), x4_color(col) {}
 
   CModelFlags(const CModelFlags& flags, uint otherFlags)
@@ -89,17 +89,17 @@ public:
   CColor GetColor() const { return x4_color; }
 
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }
-  static CModelFlags AlphaBlended(f32 alpha) { return CModelFlags(kT_Blend, alpha); }
+  static CModelFlags AlphaBlended(float alpha) { return CModelFlags(kT_Blend, alpha); }
   static CModelFlags AlphaBlended(const CColor& color);
-  static CModelFlags Additive(f32 f);
+  static CModelFlags Additive(float f);
   static CModelFlags Additive(const CColor& color);
   static CModelFlags AdditiveRGB(const CColor& color);
   static CModelFlags ColorModulate(const CColor& color);
 
 private:
-  u8 x0_blendMode;
-  u8 x1_matSetIdx;
-  u16 x2_flags;
+  uchar x0_blendMode;
+  uchar x1_matSetIdx;
+  ushort x2_flags;
   CColor x4_color;
 };
 CHECK_SIZEOF(CModelFlags, 0x8)

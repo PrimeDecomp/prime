@@ -9,8 +9,8 @@ class CAnimTreeNode;
 
 class CAdditiveAnimationInfo {
 private:
-  f32 x0_fadeInDur;
-  f32 x4_fadeOutDur;
+  float x0_fadeInDur;
+  float x4_fadeOutDur;
 };
 
 class CAdditiveAnimPlayback {
@@ -26,10 +26,10 @@ public:
 private:
   CAdditiveAnimationInfo x0_info;
   rstl::ncrc_ptr< CAnimTreeNode > x8_anim;
-  f32 xc_targetWeight;
-  f32 x10_curWeight;
+  float xc_targetWeight;
+  float x10_curWeight;
   bool x14_active;
-  f32 x18_weightTimer;
+  float x18_weightTimer;
   EPlaybackPhase x1c_phase;
   bool x20_needsFadeOut;
 };

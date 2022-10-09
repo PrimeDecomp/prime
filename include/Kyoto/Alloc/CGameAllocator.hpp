@@ -37,8 +37,8 @@ public:
       x14_next = next;
       x14_next = (SGameMemInfo*)(((size_t)ptr & 31) | ((size_t)x14_next & ~31));
     }
-    u32 GetPrevMaskedFlags();
-    u32 GetNextMaskedFlags();
+    uint GetPrevMaskedFlags();
+    uint GetNextMaskedFlags();
     void SetTopOfHeapAllocated(bool topOfHeap);
     size_t GetLength() const { return x4_len; }
     SGameMemInfo* GetNextFree() const { return (SGameMemInfo*)((size_t)x18_nextFree & ~31); }
@@ -95,16 +95,16 @@ public:
   size_t GetLargestFreeChunk() const;
 
 private:
-  SGameMemInfo** GetBinPtr(u32 bin) { return &x14_bins[bin]; }
-  u8 x4_;
-  u8 x5_;
-  u8 x6_;
-  u8 x7_;
-  u32 x8_heapSize;
+  SGameMemInfo** GetBinPtr(uint bin) { return &x14_bins[bin]; }
+  uchar x4_;
+  uchar x5_;
+  uchar x6_;
+  uchar x7_;
+  uint x8_heapSize;
   SGameMemInfo* xc_first;
   SGameMemInfo* x10_last;
   SGameMemInfo* x14_bins[16];
-  u32 x54_;
+  uint x54_;
   FOutOfMemoryCb x58_oomCallback;
   const void* x5c_oomTarget;
   CSmallAllocPool* x60_smallAllocPool;

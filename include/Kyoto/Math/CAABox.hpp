@@ -35,7 +35,7 @@ public:
   };
 
   CAABox(const CVector3f& min, const CVector3f& max);
-  CAABox(f32 minX, f32 minY, f32 minZ, f32 maxX, f32 maxY, f32 maxZ)
+  CAABox(float minX, float minY, float minZ, float maxX, float maxY, float maxZ)
   : min(minX, minY, minZ), max(maxX, maxY, maxZ) {}
   CAABox(CInputStream& in);
   // CAABox(const CAABox& other)
@@ -60,7 +60,7 @@ public:
   bool Invalid() const;
   bool PointInside(const CVector3f& vec) const;
   bool DoBoundsOverlap(const CAABox&) const;
-  f32 GetVolume() const;
+  float GetVolume() const;
   CAABox GetBooleanIntersection(const CAABox& other) const;
   bool Inside(const CAABox& other) const;
   bool InsidePlane(const CPlane& plane) const;
@@ -93,7 +93,7 @@ public:
   static const CAABox& Identity() { return mskNullBox; }
   static const CAABox& MakeMaxInvertedBox() { return mskInvertedBox; }
   // MakeNullBox__6CAABoxFv ??
-  static f32 DistanceBetween(const CAABox& a, const CAABox& b);
+  static float DistanceBetween(const CAABox& a, const CAABox& b);
 
 private:
   CVector3f min;

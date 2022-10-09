@@ -26,7 +26,7 @@ public:
   CCollidableOBBTreeGroup(CCollidableOBBTreeGroupContainer* container,
                           const CMaterialList& matList);
 
-  u32 GetTableIndex() const override;
+  uint GetTableIndex() const override;
   CAABox CalculateAABox(const CTransform4f&) const override;
   CAABox CalculateLocalAABox() const override;
   FourCC GetPrimType() const override;

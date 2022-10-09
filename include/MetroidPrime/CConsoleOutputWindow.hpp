@@ -7,7 +7,7 @@
 
 class CConsoleOutputWindow : public CIOWin {
 public:
-  CConsoleOutputWindow(int, f32, f32);
+  CConsoleOutputWindow(int, float, float);
 
   ~CConsoleOutputWindow() override;
   EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;

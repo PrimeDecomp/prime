@@ -43,7 +43,7 @@ public:
   }
 
   int GetCharacterIndex() const { return x204_charIdx; }
-  f32 GetAverageVelocity(int idx) const;
+  float GetAverageVelocity(int idx) const;
 
   const CBoolPOINode* GetBoolPOIList(int& count) const {
     count = x20c_passedBoolCount;
@@ -121,7 +121,7 @@ public:
   // GetAnimationManager__9CAnimDataFv
   // SetPoseValid__9CAnimDataFb
 
-  s16 GetDefaultAnimation() const { return x208_defaultAnim; }
+  short GetDefaultAnimation() const { return x208_defaultAnim; }
   const CCharacterInfo& GetCharacterInfo() const { return xc_charInfo; }
   // GetCharLayoutInfo__9CAnimDataCFv
   // GetDeltaRotation__9CAnimDataCFv
@@ -182,23 +182,23 @@ private:
   CQuaternion x1e8_alignRot;
   rstl::rc_ptr< CAnimTreeNode > x1f8_animRoot;
   rstl::rc_ptr< CTransitionManager > x1fc_transMgr;
-  f32 x200_speedScale;
+  float x200_speedScale;
   int x204_charIdx;
-  s16 x208_defaultAnim;
-  s16 x20a_padding;
+  short x208_defaultAnim;
+  short x20a_padding;
   int x20c_passedBoolCount;
   int x210_passedIntCount;
   int x214_passedParticleCount;
   int x218_passedSoundCount;
   int x21c_particleLightIdx;
-  u8 x220_24_animating : 1;
-  u8 x220_25_loop : 1;
-  u8 x220_26_aligningPos : 1;
-  u8 x220_27_ : 1;
-  u8 x220_28_ : 1;
-  u8 x220_29_animationJustStarted : 1;
-  u8 x220_30_poseBuilt : 1;
-  u8 x220_31_poseCached : 1;
+  uchar x220_24_animating : 1;
+  uchar x220_25_loop : 1;
+  uchar x220_26_aligningPos : 1;
+  uchar x220_27_ : 1;
+  uchar x220_28_ : 1;
+  uchar x220_29_animationJustStarted : 1;
+  uchar x220_30_poseBuilt : 1;
+  uchar x220_31_poseCached : 1;
   CPoseAsTransforms x224_pose;
   CHierarchyPoseBuilder x2fc_poseBuilder;
   CAnimPlaybackParms x40c_playbackParms;

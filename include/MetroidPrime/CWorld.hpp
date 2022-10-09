@@ -62,7 +62,7 @@ public:
   const CGameArea* GetArea(TAreaId id) const { return x18_areas[id.Value()].get(); }
   bool IsAreaValid(TAreaId id) const { return x18_areas[id.Value()]->IsLoaded(); }
   CAssetId GetWorldAssetId() const { return x8_mlvlId; }
-  TAreaId GetAreaIdForSaveId(s32 saveId) const;
+  TAreaId GetAreaIdForSaveId(int saveId) const;
 
 private:
   enum Phase {
@@ -83,7 +83,7 @@ private:
   CMapWorld* x28_mapWorld;
   rstl::vector< CRelay > x2c_relays;
   rstl::rc_ptr< IDvdRequest > x3c_loadToken;
-  rstl::single_ptr< u8 > x40_loadBuf;
+  rstl::single_ptr< uchar > x40_loadBuf;
   uint x44_bufSz;
   uint x48_chainCount;
   CGameArea* x4c_chainHeads[5];

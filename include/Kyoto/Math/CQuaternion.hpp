@@ -11,7 +11,7 @@ class CUnitVector3f;
 
 class CQuaternion {
 public:
-  CQuaternion(f32 w, f32 x, f32 y, f32 z) : w(w), x(x), y(y), z(z) {}
+  CQuaternion(float w, float x, float y, float z) : w(w), x(x), y(y), z(z) {}
   // __ct__11CQuaternionFfRC9CVector3f
 
   // CQuaternion(const CQuaternion& other)
@@ -47,10 +47,10 @@ public:
   CTransform4f BuildTransform4f() const;
   CTransform4f BuildTransform4f(const CVector3f&) const;
   CQuaternion BuildInverted() const {
-    // f64 w = this->w;
-    // f64 x = -this->x;
-    // f64 y = -this->y;
-    // f64 z = -this->z;
+    // double w = this->w;
+    // double x = -this->x;
+    // double y = -this->y;
+    // double z = -this->z;
     return CQuaternion(w, -x, -y, -z);
   }
 
@@ -61,10 +61,10 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
 private:
-  f32 w;
-  f32 x;
-  f32 y;
-  f32 z;
+  float w;
+  float x;
+  float y;
+  float z;
 
   static const CQuaternion sNoRotation;
 };

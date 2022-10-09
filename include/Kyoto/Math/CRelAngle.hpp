@@ -7,8 +7,8 @@
 
 class CRelAngle {
 public:
-  f32 AsDegrees() const { return x0_angle * (180.f / M_PIF); }
-  f32 AsRadians() const { return x0_angle; }
+  float AsDegrees() const { return x0_angle * (180.f / M_PIF); }
+  float AsRadians() const { return x0_angle; }
   // ArcCosine__9CRelAngleFf weak
 
   CRelAngle& operator+=(const CRelAngle& v) {
@@ -19,22 +19,22 @@ public:
     x0_angle -= v.x0_angle;
     return *this;
   }
-  CRelAngle& operator*=(f32 v) {
+  CRelAngle& operator*=(float v) {
     x0_angle *= v;
     return *this;
   }
-  CRelAngle& operator/=(f32 v) {
+  CRelAngle& operator/=(float v) {
     x0_angle /= v;
     return *this;
   }
 
   // __lt__9CRelAngleCFRC9CRelAngle
 
-  static CRelAngle FromDegrees(f32 deg) { return CRelAngle(deg * (M_PIF / 180.f)); }
-  static CRelAngle FromRadians(f32 rad) { return CRelAngle(rad); }
+  static CRelAngle FromDegrees(float deg) { return CRelAngle(deg * (M_PIF / 180.f)); }
+  static CRelAngle FromRadians(float rad) { return CRelAngle(rad); }
 
 private:
-  CRelAngle(f32 rad) : x0_angle(rad) {}
+  CRelAngle(float rad) : x0_angle(rad) {}
 
   float x0_angle;
 };

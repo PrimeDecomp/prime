@@ -14,7 +14,7 @@ bool CObjectList::IsQualified(CEntity& ent) { return true; }
 
 void CObjectList::AddObject(CEntity& ent) {
   if (IsQualified(ent)) {
-    s16 next = -1;
+    short next = -1;
     if (mFirstId != -1) {
       mObjects[this->mFirstId].mPrev = ent.GetUniqueId().Value();
       next = mFirstId;

@@ -12,7 +12,7 @@ public:
   ~CWaveBeam();
 
 private:
-  u8 x21c_pad[0x40];
+  uchar x21c_pad[0x40];
 };
 CHECK_SIZEOF(CWaveBeam, 0x25c)
 

@@ -17,8 +17,8 @@ public:
   CColor() {}
   CColor(uint col) : mRgba(col) {}
   CColor(CInputStream& in);
-  CColor(f32 r, f32 g, f32 b, f32 a = 1.f);
-  CColor(u8 r, u8 g, u8 b, u8 a = 255) {
+  CColor(float r, float g, float b, float a = 1.f);
+  CColor(uchar r, uchar g, uchar b, uchar a = 255) {
     mR = r;
     mG = g;
     mB = b;
@@ -32,15 +32,15 @@ public:
   static uint Lerp(uint a, uint b, float t);
   static CColor Modulate(const CColor& a, const CColor& b);
   static CColor Add(const CColor& a, const CColor& b);
-  f32 GetRed() const { return CCast::ToReal32(mR) * (1 / 255.f); }
-  f32 GetGreen() const { return CCast::ToReal32(mG) * (1 / 255.f); }
-  f32 GetBlue() const { return CCast::ToReal32(mB) * (1 / 255.f); }
-  f32 GetAlpha() const { return CCast::ToReal32(mA) * (1 / 255.f); }
-  u8 GetRedu8() const { return mR; }
-  u8 GetGreenu8() const { return mG; }
-  u8 GetBlueu8() const { return mB; }
-  u8 GetAlphau8() const { return mA; }
-  u16 ToRGB5A3() const;
+  float GetRed() const { return CCast::ToReal32(mR) * (1 / 255.f); }
+  float GetGreen() const { return CCast::ToReal32(mG) * (1 / 255.f); }
+  float GetBlue() const { return CCast::ToReal32(mB) * (1 / 255.f); }
+  float GetAlpha() const { return CCast::ToReal32(mA) * (1 / 255.f); }
+  uchar GetReduchar() const { return mR; }
+  uchar GetGreenuchar() const { return mG; }
+  uchar GetBlueuchar() const { return mB; }
+  uchar GetAlphauchar() const { return mA; }
+  ushort ToRGB5A3() const;
   GXColor ToGX(uint);
 
   static const CColor& Black();
@@ -56,10 +56,10 @@ public:
 private:
   union {
     struct {
-      u8 mR;
-      u8 mG;
-      u8 mB;
-      u8 mA;
+      uchar mR;
+      uchar mG;
+      uchar mB;
+      uchar mA;
     };
     uint mRgba;
   };

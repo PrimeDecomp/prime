@@ -86,9 +86,9 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , x180_scanCompletionRateFirst(0)
 , x184_scanCompletionRateSecond(0)
 , x188_staticIntf(5) {
-  x4_enabledItems = u32(stream.ReadBits(32));
+  x4_enabledItems = uint(stream.ReadBits(32));
 
-  const u32 integralHP = u32(stream.ReadBits(32));
+  const uint integralHP = uint(stream.ReadBits(32));
   xc_health.SetHP(*(float*)(&integralHP));
   xc_health.SetKnockbackResistance(kDefaultKnockbackResistance);
 
@@ -118,8 +118,8 @@ CPlayerState::CPlayerState(CInputStream& stream)
     x170_scanTimes.push_back(rstl::pair< CAssetId, float >(it->first, time));
   }
 
-  x180_scanCompletionRateFirst = u32(stream.ReadBits(GetBitCount(0x100u)));
-  x184_scanCompletionRateSecond = u32(stream.ReadBits(GetBitCount(0x100u)));
+  x180_scanCompletionRateFirst = uint(stream.ReadBits(GetBitCount(0x100u)));
+  x184_scanCompletionRateSecond = uint(stream.ReadBits(GetBitCount(0x100u)));
 }
 
 void CPlayerState::PutTo(COutputStream& stream) {
@@ -155,7 +155,7 @@ void CPlayerState::PutTo(COutputStream& stream) {
 }
 
 void CPlayerState::ReInitializePowerUp(CPlayerState::EItemType type, int capacity) {
-  x24_powerups[u32(type)].x4_capacity = 0;
+  x24_powerups[uint(type)].x4_capacity = 0;
   InitializePowerUp(type, capacity);
 }
 
@@ -163,8 +163,8 @@ void CPlayerState::InitializePowerUp(CPlayerState::EItemType type, int capacity)
   if (type < kIT_PowerBeam || type > kIT_Max - 1)
     return;
 
-  CPowerUp& pup = x24_powerups[u32(type)];
-  pup.x4_capacity = CMath::Clamp(0, capacity + pup.x4_capacity, kPowerUpMax[u32(type)]);
+  CPowerUp& pup = x24_powerups[uint(type)];
+  pup.x4_capacity = CMath::Clamp(0, capacity + pup.x4_capacity, kPowerUpMax[uint(type)]);
   pup.x0_amount = rstl::min_val(pup.x0_amount, pup.x4_capacity);
   if (type >= kIT_PowerSuit && type <= kIT_PhazonSuit) {
     if (HasPowerUp(kIT_PhazonSuit))
@@ -183,7 +183,7 @@ float CPlayerState::CalculateHealth() {
 }
 
 void CPlayerState::ResetAndIncrPickUp(CPlayerState::EItemType type, int amount) {
-  x24_powerups[u32(type)].x0_amount = 0;
+  x24_powerups[uint(type)].x0_amount = 0;
   IncrPickUp(type, amount);
 }
 
@@ -270,7 +270,7 @@ uint CPlayerState::GetItemAmount(CPlayerState::EItemType type) const {
   case kIT_World:
   case kIT_Spirit:
   case kIT_Newborn:
-    return x24_powerups[u32(type)].x0_amount;
+    return x24_powerups[uint(type)].x0_amount;
   }
 
   return 0;
@@ -280,36 +280,36 @@ int CPlayerState::GetItemCapacity(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
-  return x24_powerups[u32(type)].x4_capacity;
+  return x24_powerups[uint(type)].x4_capacity;
 }
 
 bool CPlayerState::HasPowerUp(CPlayerState::EItemType type) const {
   if (type < 0 || kIT_Max - 1 < type) {
     return false;
   }
-  return x24_powerups[u32(type)].x4_capacity > 0;
+  return x24_powerups[uint(type)].x4_capacity > 0;
 }
 
 uint CPlayerState::GetPowerUp(CPlayerState::EItemType type) {
   if (type < 0 || kIT_Max - 1 < type) {
     return 0;
   }
-  return x24_powerups[u32(type)].x4_capacity;
+  return x24_powerups[uint(type)].x4_capacity;
 }
 
 void CPlayerState::EnableItem(CPlayerState::EItemType type) {
   if (HasPowerUp(type))
-    x4_enabledItems |= (1 << u32(type));
+    x4_enabledItems |= (1 << uint(type));
 }
 
 void CPlayerState::DisableItem(CPlayerState::EItemType type) {
   if (HasPowerUp(type))
-    x4_enabledItems &= ~(1 << u32(type));
+    x4_enabledItems &= ~(1 << uint(type));
 }
 
 bool CPlayerState::ItemEnabled(CPlayerState::EItemType type) const {
   if (HasPowerUp(type))
-    return (x4_enabledItems & (1 << u32(type)));
+    return (x4_enabledItems & (1 << uint(type)));
   return false;
 }
 

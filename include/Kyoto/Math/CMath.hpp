@@ -10,26 +10,26 @@
 
 class CMath {
 public:
-  static f32 FastCosR(f32 v);
-  static f32 FastSinR(f32 v);
-  static inline f32 FastFmod(f32 x, f32 y) {
+  static float FastCosR(float v);
+  static float FastSinR(float v);
+  static inline float FastFmod(float x, float y) {
     int v = static_cast< int >(x * (1.f / y));
     return x - v * y;
   }
   template < typename T >
   static const T& Clamp(const T& min, const T& val, const T& max); // TODO: weak
-  static f32 SqrtF(f32 v);
-  static inline f32 Limit(f32 v, f32 h) { return fabs(v) > h ? h * Sign(v) : v; }
-  static inline f32 Sign(f32 v) { return FastFSel(v, 1.f, -1.f); }
-  static inline f32 FastFSel(register f32 v, register f32 h, register f32 l) {
-    register f32 out;
+  static float SqrtF(float v);
+  static inline float Limit(float v, float h) { return fabs(v) > h ? h * Sign(v) : v; }
+  static inline float Sign(float v) { return FastFSel(v, 1.f, -1.f); }
+  static inline float FastFSel(register float v, register float h, register float l) {
+    register float out;
     asm {
       fsel out, v, h, l
     }
     return out;
   }
-  static inline f32 AbsF(f32 v) { return fabs(v); }
-  static inline f64 AbsD(f64 v) { return fabs(v); }
+  static inline float AbsF(float v) { return fabs(v); }
+  static inline double AbsD(double v) { return fabs(v); }
   static inline int AbsI(int v) { return abs(v); }
   // WrapPi__5CMathFf weak
   // WrapTwoPi__5CMathFf weak
@@ -43,17 +43,17 @@ public:
   // SlowSineR__5CMathFf global
   // FastCosR__5CMathFf global
   // GetBezierPoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
-  static f32 ClampRadians(f32 rad) {
-    f32 value = FastFmod(rad, M_2PIF);
+  static float ClampRadians(float rad) {
+    float value = FastFmod(rad, M_2PIF);
     if (value < 0.f) {
       value += M_2PIF;
     }
     return value;
   }
   // ModF__5CMathFff weak
-  static f32 Deg2Rad(f32 deg) { return Deg2Rev(deg) * M_2PIF; }
-  static f32 Deg2Rev(f32 deg) { return deg * (1.f / 360.f); }
-  static f32 ArcCosineR(f32 v);
+  static float Deg2Rad(float deg) { return Deg2Rev(deg) * M_2PIF; }
+  static float Deg2Rev(float deg) { return deg * (1.f / 360.f); }
+  static float ArcCosineR(float v);
   // FloorF__5CMathFf global
   // BaryToWorld__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3f global
   // GetCatmullRomSplinePoint__5CMathFRC9CVector3fRC9CVector3fRC9CVector3fRC9CVector3ff global
@@ -66,8 +66,8 @@ public:
   // Rev2Deg__5CMathFf weak
   // GetCatmullRomSplinePoint__5CMathFfffff global
   // SlowTangentR__5CMathFf global
-  static f32 Rad2Deg(f32 rad) { return rad * (180.f / M_PIF); }
-  static f32 Rad2Rev(f32 rad) { return rad * (1.f / M_2PIF); }
+  static float Rad2Deg(float rad) { return rad * (180.f / M_PIF); }
+  static float Rad2Rev(float rad) { return rad * (1.f / M_2PIF); }
   // CeilingF__5CMathFf global
   // ArcTangentR__5CMathFf global
   // Swap<f>__5CMathFRfRf weak

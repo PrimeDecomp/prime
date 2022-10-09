@@ -8,7 +8,7 @@ public:
   static bool FileExists(const char*);
 
 private:
-  u8 pad[0x28];
+  uchar pad[0x28];
 };
 
 #endif // _CDVDFILE

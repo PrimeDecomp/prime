@@ -69,28 +69,28 @@ static const CPlayerState::EItemType skBeamComboArr[4] = {
 //     ControlMapper::kC_PlasmaBeam,
 // };
 
-// constexpr std::array<u16, 4> skFromMissileSound{
+// constexpr std::array<ushort, 4> skFromMissileSound{
 //     SFXwpn_from_missile_power,
 //     SFXwpn_from_missile_ice,
 //     SFXwpn_from_missile_wave,
 //     SFXwpn_from_missile_plasma,
 // };
 
-// constexpr std::array<u16, 4> skFromBeamSound{
+// constexpr std::array<ushort, 4> skFromBeamSound{
 //     SFXsfx0000,
 //     SFXwpn_from_beam_ice,
 //     SFXwpn_from_beam_wave,
 //     SFXwpn_from_beam_plasma,
 // };
 
-// constexpr std::array<u16, 4> skToMissileSound{
+// constexpr std::array<ushort, 4> skToMissileSound{
 //     SFXwpn_to_missile_power,
 //     SFXwpn_to_missile_ice,
 //     SFXwpn_to_missile_wave,
 //     SFXwpn_to_missile_plasma,
 // };
 
-// constexpr std::array<u16, 4> skIntoBeamSound{
+// constexpr std::array<ushort, 4> skIntoBeamSound{
 //     SFXsfx0000,
 //     SFXwpn_into_beam_ice,
 //     SFXwpn_into_beam_wave,
@@ -102,7 +102,7 @@ static const float kChargeFxStart = 1.f / CPlayerState::GetMissileComboChargeFac
 static const float kChargeAnimStart = 0.25f / CPlayerState::GetMissileComboChargeFactor();
 static const float kChargeStart = 0.025f / CPlayerState::GetMissileComboChargeFactor();
 
-// constexpr std::array<u16, 4> skBeamChargeUpSound{
+// constexpr std::array<ushort, 4> skBeamChargeUpSound{
 //     SFXwpn_chargeup_power,
 //     SFXwpn_chargeup_ice,
 //     SFXwpn_chargeup_wave,
@@ -673,11 +673,11 @@ CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float inY, floa
 }
 
 void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateManager& mgr) {
-  u32 oldFiring = x2ec_lastFireButtonStates;
+  uint oldFiring = x2ec_lastFireButtonStates;
   x2ec_lastFireButtonStates = x2f4_fireButtonStates;
-  u32 pressedStates = x2f4_fireButtonStates & (oldFiring ^ x2f4_fireButtonStates);
+  uint pressedStates = x2f4_fireButtonStates & (oldFiring ^ x2f4_fireButtonStates);
   x2f0_pressedFireButtonStates = pressedStates;
-  u32 releasedStates = oldFiring & (oldFiring ^ x2f4_fireButtonStates);
+  uint releasedStates = oldFiring & (oldFiring ^ x2f4_fireButtonStates);
   x832_28_readyForShot = false;
 
   CPlayer& player = *mgr.Player();
@@ -738,7 +738,7 @@ void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateMan
              player.GetMorphballTransitionState() == CPlayer::kMS_Unmorphed) {
     if ((pressedStates & 0x2) != 0 && x318_comboAmmoIdx == 0 && (x2f8_stateFlags & 0x2) != 0x2 &&
         x32c_chargePhase == kCP_NotCharging) {
-      u32 missileCount = playerState.GetItemAmount(CPlayerState::kIT_Missiles);
+      uint missileCount = playerState.GetItemAmount(CPlayerState::kIT_Missiles);
       if (x338_nextState != kNS_EnterMissile && x338_nextState != kNS_ExitMissile) {
         if (playerState.HasPowerUp(CPlayerState::kIT_Missiles) && missileCount > 0) {
           x300_remainingMissiles = missileCount;

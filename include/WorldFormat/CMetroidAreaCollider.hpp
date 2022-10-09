@@ -15,7 +15,7 @@ public:
   public:
     COctreeLeafCache(const CAreaOctTree& octTree);
     void AddLeaf(const CAreaOctTree::Node& node);
-    u32 GetNumLeaves() const { return x4_nodeCache.size(); }
+    uint GetNumLeaves() const { return x4_nodeCache.size(); }
     bool HasCacheOverflowed() const { return x908_24_overflow; }
     const CAreaOctTree& GetOctTree() const { return x0_octTree; }
     rstl::reserved_vector< CAreaOctTree::Node, 64 >::const_iterator begin() const {
@@ -45,7 +45,7 @@ public:
   const CAABox& GetCacheBounds() const { return x0_aabb; }
   void SetCacheBounds(const CAABox& aabb) { x0_aabb = aabb; }
   void AddOctreeLeafCache(const CMetroidAreaCollider::COctreeLeafCache& leafCache);
-  u32 GetNumCaches() const { return x18_leafCaches.size(); }
+  uint GetNumCaches() const { return x18_leafCaches.size(); }
   const CMetroidAreaCollider::COctreeLeafCache& GetOctreeLeafCache(int idx) {
     return x18_leafCaches[idx];
   }

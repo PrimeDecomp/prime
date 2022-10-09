@@ -8,7 +8,7 @@ CPhysicsActor::CPhysicsActor(TUniqueId uid, bool active, const rstl::string& nam
                              const CEntityInfo& info, const CTransform4f& xf,
                              const CModelData& mData, const CMaterialList& matList,
                              const CAABox& aabb, const SMoverData& moverData,
-                             const CActorParameters& actParams, f32 stepUp, f32 stepDown)
+                             const CActorParameters& actParams, float stepUp, float stepDown)
 : CActor(uid, active, name, info, xf, mData, matList, actParams, kInvalidUniqueId)
 , xe8_mass(moverData.x30_mass)
 , xec_massRecip(moverData.x30_mass > 0.f ? 1.f / moverData.x30_mass : 1.f)

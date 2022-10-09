@@ -50,16 +50,16 @@ public:
   union UParmValue {
     int m_int;
     uint m_uint;
-    f32 m_float;
+    float m_float;
     bool m_bool;
   };
   CPASAnimParm(const CPASAnimParm& other) : x0_value(other.x0_value), x4_type(other.x4_type) {}
 
-  static CPASAnimParm FromEnum(s32 val);
+  static CPASAnimParm FromEnum(int val);
   static CPASAnimParm FromBool(bool val);
   static CPASAnimParm FromReal32(float val);
-  static CPASAnimParm FromUint32(u32 val);
-  static CPASAnimParm FromInt32(s32 val);
+  static CPASAnimParm FromUint32(uint val);
+  static CPASAnimParm FromInt32(int val);
   static CPASAnimParm NoParameter();
 
   int GetInt32Value() const;

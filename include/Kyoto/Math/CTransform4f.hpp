@@ -5,7 +5,7 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 
-typedef const f32 (*ConstMtxPtr)[4];
+typedef const float (*ConstMtxPtr)[4];
 
 class CInputStream;
 class CMatrix3f;
@@ -18,7 +18,7 @@ public:
   // }
   CTransform4f(const CVector3f& m0, const CVector3f& m1, const CVector3f& m2, const CVector3f& pos)
   : m0(m0), posX(pos.GetX()), m1(m1), posY(pos.GetY()), m2(m2), posZ(pos.GetZ()) {}
-  CTransform4f(f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);
+  CTransform4f(float, float, float, float, float, float, float, float, float, float, float, float);
   CTransform4f(CInputStream& in);
   CTransform4f(const CMatrix3f& rotation, const CVector3f& translation);
   CTransform4f(const CTransform4f& other);
@@ -31,18 +31,18 @@ public:
   ConstMtxPtr GetCStyleMatrix() const { return reinterpret_cast< ConstMtxPtr >(this); }
 
   CMatrix3f BuildMatrix3f() const;
-  f32 Get00() const { return m0.GetX(); }
-  f32 Get01() const { return m0.GetY(); }
-  f32 Get02() const { return m0.GetZ(); }
-  f32 Get03() const { return posX; }
-  f32 Get10() const { return m1.GetX(); }
-  f32 Get11() const { return m1.GetY(); }
-  f32 Get12() const { return m1.GetZ(); }
-  f32 Get13() const { return posY; }
-  f32 Get20() const { return m2.GetX(); }
-  f32 Get21() const { return m2.GetY(); }
-  f32 Get22() const { return m2.GetZ(); }
-  f32 Get23() const { return posZ; }
+  float Get00() const { return m0.GetX(); }
+  float Get01() const { return m0.GetY(); }
+  float Get02() const { return m0.GetZ(); }
+  float Get03() const { return posX; }
+  float Get10() const { return m1.GetX(); }
+  float Get11() const { return m1.GetY(); }
+  float Get12() const { return m1.GetZ(); }
+  float Get13() const { return posY; }
+  float Get20() const { return m2.GetX(); }
+  float Get21() const { return m2.GetY(); }
+  float Get22() const { return m2.GetZ(); }
+  float Get23() const { return posZ; }
   CVector3f GetColumn(EDimX dim) const { return CVector3f(m0[dim], m1[dim], m2[dim]); }
   CVector3f GetColumn(EDimY dim) const { return CVector3f(m0[dim], m1[dim], m2[dim]); }
   CVector3f GetColumn(EDimZ dim) const { return CVector3f(m0[dim], m1[dim], m2[dim]); }
@@ -87,7 +87,7 @@ public:
     posY += vec.GetY();
     posZ += vec.GetZ();
   }
-  void AddTranslationZ(f32 z) { posZ += z; }
+  void AddTranslationZ(float z) { posZ += z; }
 
   CTransform4f& operator*=(const CTransform4f& other);
   CTransform4f operator*(const CTransform4f& vec) const;
@@ -95,18 +95,18 @@ public:
 
   static CTransform4f FromColumns(const CVector3f&, const CVector3f&, const CVector3f&,
                                   const CVector3f&);
-  static CTransform4f Translate(f32 x, f32 y, f32 z);
+  static CTransform4f Translate(float x, float y, float z);
   static CTransform4f Translate(const CVector3f& vec);
 
   static const CTransform4f& Identity() { return sIdentity; }
 
 private:
   CVector3f m0;
-  f32 posX;
+  float posX;
   CVector3f m1;
-  f32 posY;
+  float posY;
   CVector3f m2;
-  f32 posZ;
+  float posZ;
 
   static CTransform4f sIdentity;
 };

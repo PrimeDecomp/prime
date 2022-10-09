@@ -11,6 +11,7 @@ extern "C" {
 
 // Dolphin u32 is unsigned long
 typedef unsigned int uint;
+typedef unsigned short ushort;
 typedef unsigned char uchar;
 
 // Pointer to unknown, to be determined at a later date.

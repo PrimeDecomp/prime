@@ -241,14 +241,14 @@ public:
 
   CAdvancementDeltas UpdateAnimation(float dt, CStateManager& mgr, bool advTree);
 
-  void ProcessSoundEvent(int sfxId, f32 weight, int flags, f32 fallOff, f32 maxDist, u8 minVol,
-                         u8 maxVol, const CVector3f& toListener, const CVector3f& position, int aid,
-                         CStateManager& mgr, bool translateId);
+  void ProcessSoundEvent(int sfxId, float weight, int flags, float fallOff, float maxDist,
+                         uchar minVol, uchar maxVol, const CVector3f& toListener,
+                         const CVector3f& position, int aid, CStateManager& mgr, bool translateId);
 
   void UpdateSfxEmitters();
   void RemoveEmitter();
   void SetModelData(const CModelData& modelData);
-  f32 GetAverageAnimVelocity(int anim);
+  float GetAverageAnimVelocity(int anim);
   void EnsureRendered(const CStateManager& mgr) const;
   void EnsureRendered(const CStateManager& mgr, const CVector3f& pos, const CAABox& bounds) const;
   void DrawTouchBounds() const;
@@ -359,14 +359,14 @@ protected:
   rstl::single_ptr< TCachedToken< CScannableObjectInfo > > x98_scanObjectInfo;
   CAABox x9c_renderBounds;
   CModelFlags xb4_drawFlags;
-  f32 xbc_time;
+  float xbc_time;
   uint xc0_pitchBend;
   TUniqueId xc4_fluidId;
   TUniqueId xc6_nextDrawNode;
   int xc8_drawnToken;
   int xcc_addedToken;
-  f32 xd0_damageMag;
-  u8 xd4_maxVol;
+  float xd0_damageMag;
+  uchar xd4_maxVol;
   rstl::reserved_vector< CSfxHandle, 2 > xd8_nonLoopingSfxHandles;
   uint xe4_24_nextNonLoopingSfxHandle : 3;
   uint xe4_27_notInSortedLists : 1;

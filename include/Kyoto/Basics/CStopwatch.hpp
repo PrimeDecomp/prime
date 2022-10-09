@@ -12,17 +12,17 @@ public:
     CSWData() : x0_timerFreq(0), x8_timerFreqO1M(0), x10_timerPeriod(0.f) {}
 
     bool Initialize();
-    void Wait(f32) const;
+    void Wait(float) const;
 
     s64 GetTimerFreq() const { return x0_timerFreq; }
     s64 GetTimerFreqO1M() const { return x8_timerFreqO1M; }
-    f32 GetTimerPeriod() const { return x10_timerPeriod; }
+    float GetTimerPeriod() const { return x10_timerPeriod; }
     s64 GetCPUCycles() const { return OSGetTime(); }
 
   private:
     s64 x0_timerFreq;
     s64 x8_timerFreqO1M;
-    f32 x10_timerPeriod;
+    float x10_timerPeriod;
   };
 
   CStopwatch() : x0_startTime(mData.GetCPUCycles()) {}
@@ -34,14 +34,14 @@ public:
     }
     x0_startTime = mData.GetCPUCycles();
   }
-  inline f32 GetElapsedTime() const {
+  inline float GetElapsedTime() const {
     return (mData.GetCPUCycles() - x0_startTime) * mData.GetTimerPeriod();
   }
   inline s64 GetElapsedMicros() const {
     return (mData.GetCPUCycles() - x0_startTime) / mData.GetTimerFreqO1M();
   }
 
-  static void Wait(f32);
+  static void Wait(float);
 
 private:
   static CSWData mData;

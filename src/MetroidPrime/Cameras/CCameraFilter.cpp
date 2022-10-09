@@ -6,15 +6,15 @@
 #include "stdlib.h"
 
 // FIXME non-matching https://decomp.me/scratch/8N81d
-void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, f32 lod) {
+void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, float lod) {
   const rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
-  f32 left = vp.first.GetX();
-  f32 dVar5 = -((vp.second.GetX() - vp.first.GetX()) * 0.0625f * 9.f -
-                (vp.second.GetY() - vp.first.GetY())) *
-              0.5f;
-  f32 bottom = vp.first.GetY();
-  f32 right = vp.second.GetX();
-  f32 top = vp.second.GetY();
+  float left = vp.first.GetX();
+  float dVar5 = -((vp.second.GetX() - vp.first.GetX()) * 0.0625f * 9.f -
+                  (vp.second.GetY() - vp.first.GetY())) *
+                0.5f;
+  float bottom = vp.first.GetY();
+  float right = vp.second.GetX();
+  float top = vp.second.GetY();
   gpRender->SetDepthReadWrite(false, false);
   gpRender->SetModelMatrix(CTransform4f::Identity());
   if (tex != nullptr) {
@@ -25,7 +25,7 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
 
   {
     CGraphics::StreamBegin(kP_TriangleStrip);
-    f32 v = (f32)(rand() % 4000) / 16384.f;
+    float v = (float)(rand() % 4000) / 16384.f;
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(v, 1.f);
     CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, bottom + (dVar5 * lod)));
@@ -39,7 +39,7 @@ void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex,
   }
   {
     CGraphics::StreamBegin(kP_TriangleStrip);
-    f32 v = (f32)(rand() % 4000) / 16384.f;
+    float v = (float)(rand() % 4000) / 16384.f;
     CGraphics::StreamColor(color);
     CGraphics::StreamTexcoord(v, 0.f);
     CGraphics::StreamVertex(CVector3f(left - 10.f, 0.f, top));

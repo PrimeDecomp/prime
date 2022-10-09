@@ -77,14 +77,14 @@ float CVector2f::Dot(const CVector2f& a, const CVector2f& b) {
 }
 
 CVector2f operator+(const CVector2f& lhs, const CVector2f& rhs) {
-  f32 x = lhs.GetX() + rhs.GetX();
-  f32 y = lhs.GetY() + rhs.GetY();
+  float x = lhs.GetX() + rhs.GetX();
+  float y = lhs.GetY() + rhs.GetY();
   return CVector2f(x, y);
 }
 
 CVector2f operator-(const CVector2f& lhs, const CVector2f& rhs) {
-  f32 x = lhs.GetX() - rhs.GetX();
-  f32 y = lhs.GetY() - rhs.GetY();
+  float x = lhs.GetX() - rhs.GetX();
+  float y = lhs.GetY() - rhs.GetY();
   return CVector2f(x, y);
 }
 
@@ -93,20 +93,20 @@ bool operator==(const CVector2f& lhs, const CVector2f& rhs) {
 }
 
 CVector2f operator*(const CVector2f& lhs, const float& rhs) {
-  f32 x = lhs.GetX() * rhs;
-  f32 y = lhs.GetY() * rhs;
+  float x = lhs.GetX() * rhs;
+  float y = lhs.GetY() * rhs;
   return CVector2f(x, y);
 }
 
 CVector2f operator*(const float& lhs, const CVector2f& rhs) {
-  f32 x = lhs * rhs.GetX();
-  f32 y = lhs * rhs.GetY();
+  float x = lhs * rhs.GetX();
+  float y = lhs * rhs.GetY();
   return CVector2f(x, y);
 }
 
 CVector2f operator/(const CVector2f& lhs, const float& rhs) {
   float v = 1.f / rhs;
-  f32 x = lhs.GetX() * v;
-  f32 y = lhs.GetY() * v;
+  float x = lhs.GetX() * v;
+  float y = lhs.GetY() * v;
   return CVector2f(x, y);
 }

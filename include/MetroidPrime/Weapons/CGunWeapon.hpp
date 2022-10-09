@@ -104,7 +104,7 @@ private:
   rstl::reserved_vector< TCachedToken< CGenDescription >, 2 > x16c_muzzleEffects;
   rstl::reserved_vector< TCachedToken< CGenDescription >, 2 > x188_frozenEffects;
   rstl::reserved_vector< rstl::single_ptr< CElementGen >, 2 > x1a4_muzzleGenerators;
-  u8 x1b0_pad[8];
+  uchar x1b0_pad[8];
   rstl::single_ptr< CElementGen > x1b8_frozenGenerator;
   CRainSplashGenerator* x1bc_rainSplashGenerator;
   EWeaponType x1c0_weaponType;

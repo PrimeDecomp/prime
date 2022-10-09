@@ -9,7 +9,7 @@ public:
   ~CCharacterFactoryBuilder();
 
 private:
-  u8 pad[0x24];
+  uchar pad[0x24];
 };
 
 extern CCharacterFactoryBuilder* gpCharacterFactoryBuilder;

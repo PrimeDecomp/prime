@@ -10,7 +10,7 @@
 class CFactoryMgr {
 public:
 private:
-  u8 pad[0x38];
+  uchar pad[0x38];
 };
 
 class CFactoryFnReturn {

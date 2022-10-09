@@ -15,17 +15,17 @@ enum ETRKRepeatMode {
 
 class CAudioSys {
 public:
-  CAudioSys(u8, u8, u8, u8, uint);
+  CAudioSys(uchar, uchar, uchar, uchar, uint);
   ~CAudioSys();
 
-  static void SysSetVolume(u8, uint, u8);
-  static void SetDefaultVolumeScale(s16);
-  static void SetVolumeScale(s16);
+  static void SysSetVolume(uchar, uint, uchar);
+  static void SetDefaultVolumeScale(short);
+  static void SetVolumeScale(short);
   static void TrkSetSampleRate(ETRKSampleRate);
 
-  static s16 GetDefaultVolumeScale();
+  static short GetDefaultVolumeScale();
 
-  static const u8 kMaxVolume;
+  static const uchar kMaxVolume;
 };
 
 #endif // _CAUDIOSYS

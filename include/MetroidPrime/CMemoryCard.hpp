@@ -17,13 +17,13 @@ public:
   ~CMemoryCard();
   // TODO
 
-  rstl::pair< CAssetId, TAreaId > GetAreaAndWorldIdForSaveId(s32 saveId) const;
+  rstl::pair< CAssetId, TAreaId > GetAreaAndWorldIdForSaveId(int saveId) const;
 
   typedef rstl::pair< CAssetId, CWorldSaveGameInfo::EScanCategory > ScanState;
   const rstl::vector< ScanState >& GetScanStates() const { return x20_scanStates; }
 
 private:
-  u8 x0_pad[0x20];
+  uchar x0_pad[0x20];
   rstl::vector< ScanState > x20_scanStates;
 };
 

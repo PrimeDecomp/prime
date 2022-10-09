@@ -36,7 +36,7 @@ public:
 
 private:
   rstl::optional_object< TLockedToken< CGenDescription > > x158_visorParticle;
-  u16 x168_visorSfx;
+  ushort x168_visorSfx;
   CProjectileWeapon x170_projectile;
   CVector3f x298_previousPos;
   float x2a4_projExtent;

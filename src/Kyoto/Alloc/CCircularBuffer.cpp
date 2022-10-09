@@ -15,14 +15,14 @@ bool CCircularBuffer::IsWrappedMemory(int offset, int len) {
 }
 
 void* CCircularBuffer::Alloc(int len) {
-  u8* ret;
+  uchar* ret;
   if ((x8_bufferLen - x10_nextFreeAddr) >= len && !IsWrappedMemory(x10_nextFreeAddr, len)) {
-    s32 offset = x10_nextFreeAddr;
-    u8* ptr = (u8*)x4_ptr;
+    int offset = x10_nextFreeAddr;
+    uchar* ptr = (uchar*)x4_ptr;
     x10_nextFreeAddr = offset + len;
     return ptr + offset;
   } else if (xc_ >= len && !IsWrappedMemory(0, len)) {
-    u32 r3 = xc_;
+    uint r3 = xc_;
     xc_ = 0;
     x10_nextFreeAddr = len;
     x14_ = r3;

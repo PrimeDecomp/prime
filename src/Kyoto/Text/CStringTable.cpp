@@ -30,7 +30,7 @@ CStringTable::CStringTable(CInputStream& in) : x0_stringCount(0), x4_data(NULL) 
   }
 
   uint dataLen = in.Get(TType< uint >());
-  x4_data = new u8[dataLen];
+  x4_data = new uchar[dataLen];
   in.ReadBytes(x4_data.get(), dataLen);
 }
 

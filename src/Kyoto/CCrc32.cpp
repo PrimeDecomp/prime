@@ -37,7 +37,7 @@ static const uint gkCRC32Table[256] = {
 
 uint CCRC32::Calculate(const void* data, uint length) {
   uint checksum = 0xFFFFFFFF;
-  const s8* buf = static_cast< const s8* >(data);
+  const char* buf = static_cast< const char* >(data);
   while ((length--) > 0) {
     checksum = (checksum >> 8) ^ gkCRC32Table[(checksum ^ *(buf++)) & 0xFF];
   }

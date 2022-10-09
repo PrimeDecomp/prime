@@ -10,24 +10,24 @@ class CTweakValue {
 public:
   struct Audio {
   public:
-    Audio(f32 fadeIn, f32 fadeOut, f32 vol, const rstl::string& fileName, u32 handle)
+    Audio(float fadeIn, float fadeOut, float vol, const rstl::string& fileName, uint handle)
     : x0_fadeIn(fadeIn)
     , x4_fadeOut(fadeOut)
     , x8_volume(vol)
     , xc_fileName(fileName)
     , x1c_res(handle) {}
 
-    f32 GetFadeIn() const { return x0_fadeIn; }
-    f32 GetFadeOut() const { return x4_fadeOut; }
-    f32 GetVolume() const { return x8_volume; }
+    float GetFadeIn() const { return x0_fadeIn; }
+    float GetFadeOut() const { return x4_fadeOut; }
+    float GetVolume() const { return x8_volume; }
     const rstl::string& GetFileName() const { return xc_fileName; }
     CAssetId GetResId() const { return x1c_res; }
     // static Audio None() { return Audio(0.f, 0.f, 0.f, "", 0); }
 
   private:
-    f32 x0_fadeIn;
-    f32 x4_fadeOut;
-    f32 x8_volume;
+    float x0_fadeIn;
+    float x4_fadeOut;
+    float x8_volume;
     rstl::string xc_fileName;
     CAssetId x1c_res;
   };
@@ -49,8 +49,8 @@ private:
   rstl::string x14_str;
   Audio x24_audio;
   union {
-    u32 x44_int;
-    f32 x44_flt;
+    uint x44_int;
+    float x44_flt;
   };
 };
 
