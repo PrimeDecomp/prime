@@ -20,13 +20,13 @@
 /* 802A27AC 0029F70C  80 04 00 00 */	lwz r0, 0(r4)
 /* 802A27B0 0029F710  90 03 00 00 */	stw r0, 0(r3)
 /* 802A27B4 0029F714  38 77 00 04 */	addi r3, r23, 4
-/* 802A27B8 0029F718  48 00 01 65 */	bl nullsub_30
+/* 802A27B8 0029F718  48 00 01 65 */	bl TransformFromData__FPCv
 /* 802A27BC 0029F71C  7C 64 1B 78 */	mr r4, r3
 /* 802A27C0 0029F720  38 79 00 04 */	addi r3, r25, 4
 /* 802A27C4 0029F724  48 07 03 B1 */	bl __ct__12CTransform4fFRC12CTransform4f
 /* 802A27C8 0029F728  38 61 00 08 */	addi r3, r1, 8
 /* 802A27CC 0029F72C  38 97 00 34 */	addi r4, r23, 0x34
-/* 802A27D0 0029F730  48 00 00 F9 */	bl sub_802a28c8
+/* 802A27D0 0029F730  48 00 00 F9 */	bl BoundingBoxFromData__FPCv
 /* 802A27D4 0029F734  C0 01 00 08 */	lfs f0, 8(r1)
 /* 802A27D8 0029F738  D0 19 00 34 */	stfs f0, 0x34(r25)
 /* 802A27DC 0029F73C  C0 01 00 0C */	lfs f0, 0xc(r1)
@@ -95,8 +95,8 @@ lbl_802A289C:
 /* 802A28C0 0029F820  38 21 00 50 */	addi r1, r1, 0x50
 /* 802A28C4 0029F824  4E 80 00 20 */	blr
 
-.global sub_802a28c8
-sub_802a28c8:
+.global BoundingBoxFromData__FPCv
+BoundingBoxFromData__FPCv:
 /* 802A28C8 0029F828  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 802A28CC 0029F82C  C0 24 00 00 */	lfs f1, 0(r4)
 /* 802A28D0 0029F830  C0 A4 00 04 */	lfs f5, 4(r4)
@@ -119,7 +119,8 @@ sub_802a28c8:
 /* 802A2914 0029F874  38 21 00 20 */	addi r1, r1, 0x20
 /* 802A2918 0029F878  4E 80 00 20 */	blr
 
-nullsub_30:
+.global TransformFromData__FPCv
+TransformFromData__FPCv:
 /* 802A291C 0029F87C  4E 80 00 20 */	blr
 
 .section .rodata
@@ -129,4 +130,3 @@ lbl_803D6018:
 	# ROM: 0x3D3018
 	.asciz "??(??)"
 	.balign 4
-

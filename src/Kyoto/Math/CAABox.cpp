@@ -154,7 +154,6 @@ bool CAABox::InsidePlane(const CPlane& plane) const {
   return !(CVector3f::Dot(plane.GetNormal(), vec) >= plane.GetConstant());
 }
 
-// TODO non-matching
 CAABox CAABox::GetTransformedAABox(const CTransform4f& xf) const {
   if (&xf == &CTransform4f::Identity()) {
     return *this;
@@ -163,16 +162,18 @@ CAABox CAABox::GetTransformedAABox(const CTransform4f& xf) const {
   CVector3f newMin = xf.GetTranslation();
   CVector3f newMax = xf.GetTranslation();
   for (int x = 0; x < 3; ++x) {
+    const CVector3f& row = xf.GetRow(x);
+    const CVector3f& minPoint = GetMinPoint();
+    const CVector3f& maxPoint = GetMaxPoint();
     for (int y = 0; y < 3; ++y) {
-      float mul = xf.GetRow(x)[y];
-      float minMul = mul * GetMinPoint()[y];
-      float maxMul = mul * GetMaxPoint()[y];
+      float minMul = row[y] * minPoint[y];
+      float maxMul = row[y] * maxPoint[y];
       if (minMul < maxMul) {
-        newMin[x] += maxMul;
-        newMax[x] += minMul;
-      } else {
         newMin[x] += minMul;
         newMax[x] += maxMul;
+      } else {
+        newMin[x] += maxMul;
+        newMax[x] += minMul;
       }
     }
   }
