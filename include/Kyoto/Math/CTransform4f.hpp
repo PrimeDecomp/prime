@@ -67,7 +67,7 @@ public:
   void RotateLocalZ(const CRelAngle& angle);
   // RotateX__12CTransform4fFRC9CRelAngle
   // RotateY__12CTransform4fFRC9CRelAngle
-  // RotateZ__12CTransform4fFRC9CRelAngle
+  static CTransform4f RotateZ(const CRelAngle&);
   // Scale__12CTransform4fFf
   // Scale__12CTransform4fFfff
   static CTransform4f Scale(const CVector3f&);

@@ -248,12 +248,13 @@ private:
     , x20_state(kMS_Zero)
     , x24_fireState(kFS_NotFiring) {}
 
-    static void SetExtendDistance(float d) { kGunExtendDistance = d; }
+    static void SetExtendDistance(float d) { gGunExtendDistance = d; }
 
     void SetState(EMotionState state) { x20_state = state; }
     void Update(bool firing, float dt, CTransform4f& xf, CStateManager& mgr);
 
   private:
+    static float gGunExtendDistance;
     bool x0_24_extendParabola : 1;
     float x4_extendParabolaDelayTimer;
     float x8_fireTime;
@@ -264,8 +265,6 @@ private:
     float x1c_endRotation;
     EMotionState x20_state;
     EFireState x24_fireState;
-
-    static float kGunExtendDistance;
   };
 
   CActorLights x0_lights;
