@@ -1,5 +1,5 @@
-#ifndef __GBA_H__
-#define __GBA_H__
+#ifndef _DOLPHIN_GBA
+#define _DOLPHIN_GBA
 
 #ifdef __cplusplus
 extern "C" {
@@ -9,4 +9,4 @@ void GBAInit();
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GBA

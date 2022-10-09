@@ -1,5 +1,5 @@
-#ifndef _CFRAMEDELAYEDKILLER_HPP
-#define _CFRAMEDELAYEDKILLER_HPP
+#ifndef _CFRAMEDELAYEDKILLER
+#define _CFRAMEDELAYEDKILLER
 
 #include "types.h"
 
@@ -9,4 +9,4 @@ public:
   static void ShutDown();
 };
 
-#endif
+#endif // _CFRAMEDELAYEDKILLER

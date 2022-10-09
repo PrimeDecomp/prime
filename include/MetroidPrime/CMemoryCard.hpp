@@ -1,5 +1,5 @@
-#ifndef _CMEMORYCARD_HPP
-#define _CMEMORYCARD_HPP
+#ifndef _CMEMORYCARD
+#define _CMEMORYCARD
 
 #include "types.h"
 
@@ -29,4 +29,4 @@ private:
 
 extern CMemoryCard* gpMemoryCard;
 
-#endif
+#endif // _CMEMORYCARD

@@ -1,5 +1,5 @@
-#ifndef _CMAIN_HPP
-#define _CMAIN_HPP
+#ifndef _CMAIN
+#define _CMAIN
 
 #include "types.h"
 
@@ -126,4 +126,4 @@ CHECK_SIZEOF(CMain, 0x168)
 
 extern CMain* gpMain;
 
-#endif
+#endif // _CMAIN

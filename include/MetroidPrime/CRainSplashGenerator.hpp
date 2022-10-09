@@ -1,5 +1,5 @@
-#ifndef _CRAINSPLASHGENERATOR_HPP
-#define _CRAINSPLASHGENERATOR_HPP
+#ifndef _CRAINSPLASHGENERATOR
+#define _CRAINSPLASHGENERATOR
 
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
@@ -47,4 +47,4 @@ private:
 };
 CHECK_SIZEOF(CRainSplashGenerator, 0x4c)
 
-#endif // _CRAINSPLASHGENERATOR_HPP
+#endif // _CRAINSPLASHGENERATOR

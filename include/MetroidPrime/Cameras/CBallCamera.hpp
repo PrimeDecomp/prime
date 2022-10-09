@@ -1,5 +1,5 @@
-#ifndef __CBALLCAMERA_HPP__
-#define __CBALLCAMERA_HPP__
+#ifndef _CBALLCAMERA
+#define _CBALLCAMERA
 
 #include "types.h"
 
@@ -287,4 +287,4 @@ private:
 };
 CHECK_SIZEOF(CBallCamera, 0x488)
 
-#endif // __CBALLCAMERA_HPP__
+#endif // _CBALLCAMERA

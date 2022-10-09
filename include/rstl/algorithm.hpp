@@ -1,5 +1,5 @@
-#ifndef _RSTL_ALGORITHM_HPP
-#define _RSTL_ALGORITHM_HPP
+#ifndef _RSTL_ALGORITHM
+#define _RSTL_ALGORITHM
 
 #include "rstl/pointer_iterator.hpp"
 
@@ -30,4 +30,4 @@ template < typename It, class Cmp >
 inline void sort(It first, It last, Cmp cmp); // TODO
 } // namespace rstl
 
-#endif // _RSTL_ALGORITHM_HPP
+#endif // _RSTL_ALGORITHM

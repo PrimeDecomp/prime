@@ -1,5 +1,5 @@
-#ifndef _CIOWINMANAGER_HPP
-#define _CIOWINMANAGER_HPP
+#ifndef _CIOWINMANAGER
+#define _CIOWINMANAGER
 
 #include "types.h"
 
@@ -28,4 +28,4 @@ private:
 };
 CHECK_SIZEOF(CIOWinManager, 0x20)
 
-#endif
+#endif // _CIOWINMANAGER

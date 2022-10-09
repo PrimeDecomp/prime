@@ -1,13 +1,16 @@
-#ifndef _CPLAYERSTATE_HPP
-#define _CPLAYERSTATE_HPP
+#ifndef _CPLAYERSTATE
+#define _CPLAYERSTATE
 
-#include "Kyoto/IObjectStore.hpp"
+#include "types.h"
+
 #include "MetroidPrime/CHealthInfo.hpp"
 #include "MetroidPrime/Player/CStaticInterference.hpp"
+
+#include "Kyoto/IObjectStore.hpp"
+
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-#include "types.h"
 
 class CStateManager;
 
@@ -152,7 +155,6 @@ public:
 
   const CHealthInfo& GetHealthInfo() const { return xc_health; }
 
-
 private:
   struct CPowerUp {
     int x0_amount;
@@ -193,4 +195,4 @@ private:
   CStaticInterference x188_staticIntf;
 };
 
-#endif
+#endif // _CPLAYERSTATE

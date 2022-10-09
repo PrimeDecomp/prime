@@ -1,9 +1,10 @@
-#ifndef _CSTATICINTERFERENCE_HPP
-#define _CSTATICINTERFERENCE_HPP
+#ifndef _CSTATICINTERFERENCE
+#define _CSTATICINTERFERENCE
 
 #include "types.h"
 
 #include "MetroidPrime/TGameTypes.hpp"
+
 #include "rstl/vector.hpp"
 
 struct CStaticInterferenceSource {
@@ -27,4 +28,4 @@ private:
   rstl::vector< CStaticInterferenceSource > sources;
 };
 
-#endif
+#endif // _CSTATICINTERFERENCE

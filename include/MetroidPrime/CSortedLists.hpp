@@ -1,5 +1,5 @@
-#ifndef _CSORTEDLISTS_HPP
-#define _CSORTEDLISTS_HPP
+#ifndef _CSORTEDLISTS
+#define _CSORTEDLISTS
 
 #include "types.h"
 
@@ -32,4 +32,4 @@ class CSortedListManager {
 CHECK_SIZEOF(CSortedListManager, 0xe018);
 } // namespace SL
 
-#endif
+#endif // _CSORTEDLISTS

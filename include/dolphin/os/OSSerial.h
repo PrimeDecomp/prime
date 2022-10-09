@@ -1,5 +1,5 @@
-#ifndef __OSSERIAL_H__
-#define __OSSERIAL_H__
+#ifndef _DOLPHIN_OSSERIAL
+#define _DOLPHIN_OSSERIAL
 
 #include <types.h>
 
@@ -66,4 +66,4 @@ void SISetSamplingRate(u32 msec);
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif // _DOLPHIN_OSSERIAL

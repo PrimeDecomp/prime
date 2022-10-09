@@ -1,5 +1,5 @@
-#ifndef _CTWEAKGAME_HPP
-#define _CTWEAKGAME_HPP
+#ifndef _CTWEAKGAME
+#define _CTWEAKGAME
 
 #include "types.h"
 
@@ -57,4 +57,4 @@ private:
 
 extern CTweakGame* gpTweakGame;
 
-#endif
+#endif // _CTWEAKGAME

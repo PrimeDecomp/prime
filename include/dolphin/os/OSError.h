@@ -1,5 +1,5 @@
-#ifndef __OSERROR_H__
-#define __OSERROR_H__
+#ifndef _DOLPHIN_OSERROR
+#define _DOLPHIN_OSERROR
 
 #include <types.h>
 
@@ -16,4 +16,4 @@ void OSSetErrorHandler(OSError code, OSErrorHandler* handler);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSERROR

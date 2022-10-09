@@ -1,5 +1,5 @@
-#ifndef _CDSPSTREAMMANAGER_HPP
-#define _CDSPSTREAMMANAGER_HPP
+#ifndef _CDSPSTREAMMANAGER
+#define _CDSPSTREAMMANAGER
 
 #include "types.h"
 
@@ -9,4 +9,4 @@ public:
   static void Shutdown();
 };
 
-#endif
+#endif // _CDSPSTREAMMANAGER

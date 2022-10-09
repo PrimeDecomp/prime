@@ -1,5 +1,5 @@
-#ifndef _RSTL_CONSTRUCT_HPP
-#define _RSTL_CONSTRUCT_HPP
+#ifndef _RSTL_CONSTRUCT
+#define _RSTL_CONSTRUCT
 
 #include "types.h"
 
@@ -41,10 +41,10 @@ inline void uninitialized_copy_n(S src, int n, D dest) {
 template < typename D, typename S >
 inline void uninitialized_fill_n(D dest, int n, const S& value) {
   D cur = dest;
-  for (size_t i = 0; i < n ; ++i, ++cur) {
+  for (size_t i = 0; i < n; ++i, ++cur) {
     construct(&*cur, value);
   }
 }
 } // namespace rstl
 
-#endif
+#endif // _RSTL_CONSTRUCT

@@ -1,5 +1,5 @@
-#ifndef _CTWEAKS_HPP
-#define _CTWEAKS_HPP
+#ifndef _CTWEAKS
+#define _CTWEAKS
 
 #include "types.h"
 
@@ -21,4 +21,4 @@ private:
 };
 CHECK_SIZEOF(CTweaks, 0x64)
 
-#endif
+#endif // _CTWEAKS

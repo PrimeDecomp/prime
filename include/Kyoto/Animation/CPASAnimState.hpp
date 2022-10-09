@@ -1,10 +1,10 @@
-#ifndef _CPASANIMSTATE_HPP
-#define _CPASANIMSTATE_HPP
+#ifndef _CPASANIMSTATE
+#define _CPASANIMSTATE
 
 #include "types.h"
 
-#include "rstl/vector.hpp"
 #include "rstl/reserved_vector.hpp"
+#include "rstl/vector.hpp"
 
 namespace pas {
 enum EAnimationState {
@@ -53,8 +53,7 @@ public:
     f32 m_float;
     bool m_bool;
   };
-  CPASAnimParm(const CPASAnimParm& other)
-  : x0_value(other.x0_value), x4_type(other.x4_type) {}
+  CPASAnimParm(const CPASAnimParm& other) : x0_value(other.x0_value), x4_type(other.x4_type) {}
 
   static CPASAnimParm FromEnum(s32 val);
   static CPASAnimParm FromBool(bool val);
@@ -96,6 +95,7 @@ private:
 class CPASAnimState {
 public:
   CPASAnimParm GetAnimParmData(int, unsigned int) const;
+
 private:
   pas::EAnimationState x0_id;
   rstl::vector< CPASParmInfo > x4_parms;
@@ -104,4 +104,4 @@ private:
 };
 CHECK_SIZEOF(CPASAnimState, 0x34)
 
-#endif
+#endif // _CPASANIMSTATE

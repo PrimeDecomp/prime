@@ -1,5 +1,5 @@
-#ifndef _CTWEAKPLAYER_HPP
-#define _CTWEAKPLAYER_HPP
+#ifndef _CTWEAKPLAYER
+#define _CTWEAKPLAYER
 
 #include "types.h"
 
@@ -319,4 +319,4 @@ private:
 
 extern CTweakPlayer* gpTweakPlayer;
 
-#endif
+#endif // _CTWEAKPLAYER

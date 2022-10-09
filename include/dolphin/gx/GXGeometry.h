@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXGEOMETRY_H
-#define DOLPHIN_GXGEOMETRY_H
+#ifndef _DOLPHIN_GXGEOMETRY
+#define _DOLPHIN_GXGEOMETRY
 
 #include <dolphin/gx/GXEnum.h>
 
@@ -34,4 +34,4 @@ static inline void GXSetTexCoordGen(GXTexCoordID dst_coord, GXTexGenType func,
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXGEOMETRY

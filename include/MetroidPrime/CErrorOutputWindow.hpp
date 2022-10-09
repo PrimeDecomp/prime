@@ -1,5 +1,5 @@
-#ifndef _CERROROUTPUTWINDOW_HPP
-#define _CERROROUTPUTWINDOW_HPP
+#ifndef _CERROROUTPUTWINDOW
+#define _CERROROUTPUTWINDOW
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ public:
   void Draw() override;
 };
 
-#endif
+#endif // _CERROROUTPUTWINDOW

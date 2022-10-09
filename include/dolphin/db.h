@@ -1,5 +1,5 @@
-#ifndef _DOLPHIN_DB_H
-#define _DOLPHIN_DB_H
+#ifndef _DOLPHIN_DB
+#define _DOLPHIN_DB
 
 #include "types.h"
 
@@ -28,4 +28,4 @@ static void __DBExceptionDestination(void);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_DB

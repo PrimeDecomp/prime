@@ -1,5 +1,5 @@
-#ifndef __TRKINIT_H__
-#define __TRKINIT_H__
+#ifndef _TRKINIT
+#define _TRKINIT
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,6 +8,6 @@ void InitMetroTRK(void);
 void EnableMetroTRKInterrupts(void);
 #ifdef __cplusplus
 }
-#endif
+#endif // _TRKINIT
 
 #endif /* #ifndef __TRKINIT_H__ */

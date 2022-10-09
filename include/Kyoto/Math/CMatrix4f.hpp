@@ -1,5 +1,5 @@
-#ifndef _CMATRIX4F_HPP
-#define _CMATRIX4F_HPP
+#ifndef _CMATRIX4F
+#define _CMATRIX4F
 
 #include "types.h"
 
@@ -24,4 +24,4 @@ private:
 };
 CHECK_SIZEOF(CMatrix4f, 0x40);
 
-#endif
+#endif // _CMATRIX4F

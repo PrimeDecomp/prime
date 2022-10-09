@@ -1,5 +1,5 @@
-#ifndef _CCAMERAMANAGER_HPP
-#define _CCAMERAMANAGER_HPP
+#ifndef _CCAMERAMANAGER
+#define _CCAMERAMANAGER
 
 #include "types.h"
 
@@ -66,4 +66,4 @@ private:
 };
 CHECK_SIZEOF(CCameraManager, 0x3c0)
 
-#endif
+#endif // _CCAMERAMANAGER

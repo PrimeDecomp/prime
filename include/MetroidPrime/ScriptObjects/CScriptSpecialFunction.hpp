@@ -1,5 +1,5 @@
-#ifndef _CSCRIPTSPECIALFUNCTION_HPP
-#define _CSCRIPTSPECIALFUNCTION_HPP
+#ifndef _CSCRIPTSPECIALFUNCTION
+#define _CSCRIPTSPECIALFUNCTION
 
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CDamageInfo.hpp"
@@ -116,6 +116,7 @@ private:
   bool x1e5_25_playerInArea : 1;
   bool x1e5_26_displayBillboard : 1;
   rstl::optional_object< CToken > x1e8_;
+
 public:
   CScriptSpecialFunction(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
                          ESpecialFunction, const rstl::string&, float, float, float, float,
@@ -151,4 +152,4 @@ public:
   void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id, CVector3f pos, u8 vol);
 };
 
-#endif _CSCRIPTSPECIALFUNCTION_HPP
+#endif // _CSCRIPTSPECIALFUNCTION

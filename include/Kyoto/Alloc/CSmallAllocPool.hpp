@@ -1,5 +1,5 @@
-#ifndef __CSMALLALLOCPOOL_HPP__
-#define __CSMALLALLOCPOOL_HPP__
+#ifndef _CSMALLALLOCPOOL
+#define _CSMALLALLOCPOOL
 
 #include <types.h>
 
@@ -13,12 +13,17 @@ public:
   bool Free(const void* ptr);
 
   bool PtrWithinPool(const void* ptr) const {
-    return u32((reinterpret_cast< const u8* >(ptr) - reinterpret_cast< u8* >(x0_mainData)) / 4) < x8_numBlocks;
+    return u32((reinterpret_cast< const u8* >(ptr) - reinterpret_cast< u8* >(x0_mainData)) / 4) <
+           x8_numBlocks;
   }
 
-  uint GetIndexFromPtr(const void* ptr) const { return ((const u8*)ptr - x0_mainData) / kPointerSize; }
+  uint GetIndexFromPtr(const void* ptr) const {
+    return ((const u8*)ptr - x0_mainData) / kPointerSize;
+  }
   long GetEntryValue(uint idx) const { return (long)*((u8*)x4_bookKeeping + idx); }
-  u8* GetPtrFromIndex(unsigned int idx) const { return static_cast< u8* >(x0_mainData) + (idx << 3); }
+  u8* GetPtrFromIndex(unsigned int idx) const {
+    return static_cast< u8* >(x0_mainData) + (idx << 3);
+  }
 
   uint GetNumBlocksAvailable() const { return x18_numBlocksAvailable; }
   uint GetTotalEntries() const { return x8_numBlocks; }
@@ -26,7 +31,6 @@ public:
   uint GetNumAllocs() const { return x1c_numAllocs; }
 
 private:
-
   void* x0_mainData;
   void* x4_bookKeeping;
   int x8_numBlocks;
@@ -36,4 +40,5 @@ private:
   uint x18_numBlocksAvailable;
   uint x1c_numAllocs;
 };
-#endif // __CSMALLALLOCPOOL_HPP__
+
+#endif // _CSMALLALLOCPOOL

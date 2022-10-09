@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXSTRUCT_H
-#define DOLPHIN_GXSTRUCT_H
+#ifndef _DOLPHIN_GXSTRUCT
+#define _DOLPHIN_GXSTRUCT
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/types.h>
@@ -97,4 +97,4 @@ typedef struct _GXColorS10 {
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXSTRUCT

@@ -1,5 +1,5 @@
-#ifndef _IALLOCATOR_HPP
-#define _IALLOCATOR_HPP
+#ifndef _IALLOCATOR
+#define _IALLOCATOR
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "types.h"
@@ -95,4 +95,4 @@ public:
   virtual SMetrics GetMetrics() const = 0;
 };
 
-#endif
+#endif // _IALLOCATOR

@@ -1,5 +1,5 @@
-#ifndef _CCHARACTERFACTORYBUILDER_HPP
-#define _CCHARACTERFACTORYBUILDER_HPP
+#ifndef _CCHARACTERFACTORYBUILDER
+#define _CCHARACTERFACTORYBUILDER
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ private:
 
 extern CCharacterFactoryBuilder* gpCharacterFactoryBuilder;
 
-#endif
+#endif // _CCHARACTERFACTORYBUILDER

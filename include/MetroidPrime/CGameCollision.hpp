@@ -1,5 +1,5 @@
-#ifndef _CGAMECOLLISION_HPP
-#define _CGAMECOLLISION_HPP
+#ifndef _CGAMECOLLISION
+#define _CGAMECOLLISION
 
 #include "types.h"
 
@@ -27,4 +27,4 @@ public:
                                             TUniqueId&, CCollisionInfo&, f64&);
 };
 
-#endif
+#endif // _CGAMECOLLISION

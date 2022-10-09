@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_PAD_H
-#define DOLPHIN_PAD_H
+#ifndef _DOLPHIN_PAD
+#define _DOLPHIN_PAD
 
 #include <dolphin/types.h>
 
@@ -125,4 +125,4 @@ void PADBlockInput(bool block);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_PAD

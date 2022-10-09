@@ -1,5 +1,5 @@
-#ifndef _CRELANGLE_HPP
-#define _CRELANGLE_HPP
+#ifndef _CRELANGLE
+#define _CRELANGLE
 
 #include "types.h"
 
@@ -45,4 +45,4 @@ CHECK_SIZEOF(CRelAngle, 0x4)
 // __dv__FRC9CRelAnglef
 // sine__FRC9CRelAngle
 
-#endif
+#endif // _CRELANGLE

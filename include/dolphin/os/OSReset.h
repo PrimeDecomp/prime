@@ -1,5 +1,5 @@
-#ifndef __OSRESET_H__
-#define __OSRESET_H__
+#ifndef _DOLPHIN_OSRESET
+#define _DOLPHIN_OSRESET
 
 #include <types.h>
 
@@ -24,4 +24,4 @@ struct OSResetFunctionInfo {
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSRESET

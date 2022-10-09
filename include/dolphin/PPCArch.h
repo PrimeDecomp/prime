@@ -1,5 +1,5 @@
-#ifndef _DOLPHIN_PPCARCH_H
-#define _DOLPHIN_PPCARCH_H
+#ifndef _DOLPHIN_PPCARCH
+#define _DOLPHIN_PPCARCH
 
 #include "types.h"
 
@@ -32,4 +32,4 @@ void PPCSetFpNonIEEEMode();
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_PPCARCH

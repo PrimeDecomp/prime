@@ -1,5 +1,7 @@
-#ifndef _CTWEAKGUNRES_HPP
-#define _CTWEAKGUNRES_HPP
+#ifndef _CTWEAKGUNRES
+#define _CTWEAKGUNRES
+
+#include "types.h"
 
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
@@ -45,4 +47,4 @@ public:
 
 extern CTweakGunRes* gpTweakGunRes;
 
-#endif // _CTWEAKGUNRES_HPP
+#endif // _CTWEAKGUNRES

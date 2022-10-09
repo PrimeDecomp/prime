@@ -1,5 +1,5 @@
-#ifndef _CSCRIPTWAYPOINT_HPP
-#define _CSCRIPTWAYPOINT_HPP
+#ifndef _CSCRIPTWAYPOINT
+#define _CSCRIPTWAYPOINT
 
 #include "types.h"
 
@@ -47,4 +47,4 @@ private:
   u16 xfa_behaviourModifiers;
 };
 
-#endif
+#endif // _CSCRIPTWAYPOINT

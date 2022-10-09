@@ -1,5 +1,5 @@
-#ifndef __CMRAY_HPP__
-#define __CMRAY_HPP__
+#ifndef _CMRAY
+#define _CMRAY
 
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -19,4 +19,4 @@ private:
   CVector3f mDir;
 };
 
-#endif // __CMRAY_HPP__
+#endif // _CMRAY

@@ -1,5 +1,5 @@
-#ifndef MUSYX_H
-#define MUSYX_H
+#ifndef _MUSYX_MUSYX
+#define _MUSYX_MUSYX
 
 #ifdef __cplusplus
 extern "C" {
@@ -240,4 +240,4 @@ bool sndFXCtrl14(SND_VOICEID vid, u8 ctrl, u16 value);
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif // _MUSYX_MUSYX

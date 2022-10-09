@@ -1,5 +1,5 @@
-#ifndef _CABSANGLE_HPP
-#define _CABSANGLE_HPP
+#ifndef _CABSANGLE
+#define _CABSANGLE
 
 #include "types.h"
 
@@ -48,4 +48,4 @@ CHECK_SIZEOF(CAbsAngle, 0x4)
 
 static inline f32 cosine(const CAbsAngle& angle) { return cos(angle.AsRadians()); }
 
-#endif
+#endif // _CABSANGLE

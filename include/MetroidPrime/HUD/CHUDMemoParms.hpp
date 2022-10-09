@@ -1,8 +1,10 @@
-#ifndef __CHUDMEMOPARMS_HPP__
-#define __CHUDMEMOPARMS_HPP__
+#ifndef _CHUDMEMOPARMS
+#define _CHUDMEMOPARMS
 
 #include "types.h"
+
 class CInputStream;
+
 class CHUDMemoParms {
 public:
   CHUDMemoParms(float dispTime, bool clear, bool fadeOut, bool hint)
@@ -20,4 +22,5 @@ private:
   bool mFadeOutOnly;
   bool mHintMemo;
 };
-#endif // __CHUDMEMOPARMS_HPP__
+
+#endif // _CHUDMEMOPARMS

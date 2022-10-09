@@ -1,5 +1,5 @@
-#ifndef _RSTL_RMEMORY_ALLOCATOR_HPP
-#define _RSTL_RMEMORY_ALLOCATOR_HPP
+#ifndef _RSTL_RMEMORY_ALLOCATOR
+#define _RSTL_RMEMORY_ALLOCATOR
 
 #include "types.h"
 
@@ -37,4 +37,4 @@ struct rmemory_allocator {
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_RMEMORY_ALLOCATOR

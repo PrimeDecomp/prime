@@ -1,5 +1,5 @@
-#ifndef _CMATRIX3F_HPP
-#define _CMATRIX3F_HPP
+#ifndef _CMATRIX3F
+#define _CMATRIX3F
 
 #include "types.h"
 
@@ -7,11 +7,13 @@
 
 class CMatrix3f {
   static const CMatrix3f sIdentity;
+
 public:
   CMatrix3f(const CMatrix3f&);
   const CMatrix3f& operator=(const CMatrix3f& other);
 
   static const CMatrix3f& Identity() { return sIdentity; }
+
 private:
   // TODO maybe individual f32s
   CVector3f m0;
@@ -20,4 +22,4 @@ private:
 };
 CHECK_SIZEOF(CMatrix3f, 0x24);
 
-#endif
+#endif // _CMATRIX3F

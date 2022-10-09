@@ -1,5 +1,5 @@
-#ifndef _CCOLLISIONINFO_HPP
-#define _CCOLLISIONINFO_HPP
+#ifndef _CCOLLISIONINFO
+#define _CCOLLISIONINFO
 
 #include "types.h"
 
@@ -15,16 +15,16 @@ public:
     kI_Invalid,
     kI_Valid,
   };
-  enum ESwapMaterials {
-    kSM_Swap
-  };
+  enum ESwapMaterials { kSM_Swap };
 
   CCollisionInfo(EInvalid valid = kI_Invalid);
-  CCollisionInfo(const CVector3f& point, const CMaterialList& leftMat, const CMaterialList& rightMat, const CVector3f& normal);
-  CCollisionInfo(const CVector3f& point, const CMaterialList& leftMat, const CMaterialList& rightMat, const CVector3f& leftNormal,
+  CCollisionInfo(const CVector3f& point, const CMaterialList& leftMat,
+                 const CMaterialList& rightMat, const CVector3f& normal);
+  CCollisionInfo(const CVector3f& point, const CMaterialList& leftMat,
+                 const CMaterialList& rightMat, const CVector3f& leftNormal,
                  const CVector3f& rightNormal);
-  CCollisionInfo(const CAABox& aabox, const CMaterialList& leftMat, const CMaterialList& rightMat, const CVector3f& leftNormal,
-                 const CVector3f& rightNormal);
+  CCollisionInfo(const CAABox& aabox, const CMaterialList& leftMat, const CMaterialList& rightMat,
+                 const CVector3f& leftNormal, const CVector3f& rightNormal);
   CCollisionInfo(const CCollisionInfo& other, ESwapMaterials swap)
   : x0_point(other.x0_point)
   , xc_extentX(other.xc_extentX)
@@ -61,4 +61,4 @@ private:
 };
 CHECK_SIZEOF(CCollisionInfo, 0x60)
 
-#endif
+#endif // _CCOLLISIONINFO

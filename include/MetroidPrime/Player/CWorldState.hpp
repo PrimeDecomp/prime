@@ -1,5 +1,5 @@
-#ifndef _CWORLDSTATE_HPP
-#define _CWORLDSTATE_HPP
+#ifndef _CWORLDSTATE
+#define _CWORLDSTATE
 
 #include "types.h"
 
@@ -9,4 +9,4 @@ private:
   u8 pad[0x18];
 };
 
-#endif
+#endif // _CWORLDSTATE

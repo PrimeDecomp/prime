@@ -1,5 +1,5 @@
-#ifndef _CMEMORYINSTREAM_HPP
-#define _CMEMORYINSTREAM_HPP
+#ifndef _CMEMORYINSTREAM
+#define _CMEMORYINSTREAM
 
 #include "Kyoto/Streams/CInputStream.hpp"
 
@@ -16,4 +16,4 @@ public:
   virtual uint Read(void* dest, uint len) override;
 };
 
-#endif
+#endif // _CMEMORYINSTREAM

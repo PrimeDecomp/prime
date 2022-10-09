@@ -1,5 +1,5 @@
-#ifndef __CLIGHT_HPP__
-#define __CLIGHT_HPP__
+#ifndef _CLIGHT
+#define _CLIGHT
 
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
@@ -19,6 +19,7 @@ class CLight {
   static const CVector3f kDefaultDirection;
 
   float CalculateLightRadius() const;
+
 public:
   CLight(ELightType type, const CVector3f& position, const CVector3f& direction,
          const CColor& color, float cutoff);
@@ -79,4 +80,4 @@ private:
 };
 CHECK_SIZEOF(CLight, 0x50)
 
-#endif // __CLIGHT_HPP__
+#endif // _CLIGHT

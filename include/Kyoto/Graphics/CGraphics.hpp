@@ -1,5 +1,5 @@
-#ifndef _CGRAPHICS_HPP
-#define _CGRAPHICS_HPP
+#ifndef _CGRAPHICS
+#define _CGRAPHICS
 
 #include "types.h"
 
@@ -65,4 +65,4 @@ private:
   static CTransform4f mModelMatrix;
 };
 
-#endif
+#endif // _CGRAPHICS

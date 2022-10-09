@@ -1,5 +1,5 @@
-#ifndef __SOBJECTTAG_HPP__
-#define __SOBJECTTAG_HPP__
+#ifndef _SOBJECTTAG
+#define _SOBJECTTAG
 
 #define kInvalidAssetId 0xFFFFFFFFu
 
@@ -17,4 +17,4 @@ struct SObjectTag {
   static const char* Type2Text(FourCC type);
 };
 
-#endif
+#endif // _SOBJECTTAG

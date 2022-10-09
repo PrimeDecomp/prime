@@ -1,5 +1,5 @@
-#ifndef _CADDITIVEANIMPLAYBACK_HPP
-#define _CADDITIVEANIMPLAYBACK_HPP
+#ifndef _CADDITIVEANIMPLAYBACK
+#define _CADDITIVEANIMPLAYBACK
 
 #include "types.h"
 
@@ -35,4 +35,4 @@ private:
 };
 CHECK_SIZEOF(CAdditiveAnimPlayback, 0x24)
 
-#endif
+#endif // _CADDITIVEANIMPLAYBACK

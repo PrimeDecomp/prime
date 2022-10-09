@@ -1,6 +1,8 @@
 
-#ifndef __CARCMSGPARMINT32INT32VOIDPTR_HPP__
-#define __CARCMSGPARMINT32INT32VOIDPTR_HPP__
+#ifndef _CARCHMSGPARMINT32INT32VOIDPTR
+#define _CARCHMSGPARMINT32INT32VOIDPTR
+
+#include "types.h"
 
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
@@ -14,4 +16,4 @@ public:
   ~CArchMsgParmInt32Int32VoidPtr();
 };
 
-#endif // __CARCMSGPARMINT32INT32VOIDPTR_HPP__
+#endif // _CARCHMSGPARMINT32INT32VOIDPTR

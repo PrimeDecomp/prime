@@ -1,5 +1,5 @@
-#ifndef _CRIPPLEMANAGER_HPP
-#define _CRIPPLEMANAGER_HPP
+#ifndef _CRIPPLEMANAGER
+#define _CRIPPLEMANAGER
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ private:
   f32 x14_alpha;
 };
 
-#endif
+#endif // _CRIPPLEMANAGER

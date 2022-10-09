@@ -1,5 +1,5 @@
-#ifndef _CPOSEASTRANSFORMS_HPP
-#define _CPOSEASTRANSFORMS_HPP
+#ifndef _CPOSEASTRANSFORMS
+#define _CPOSEASTRANSFORMS
 
 #include "types.h"
 
@@ -21,4 +21,4 @@ private:
 };
 CHECK_SIZEOF(CPoseAsTransforms, 0xd8)
 
-#endif
+#endif // _CPOSEASTRANSFORMS

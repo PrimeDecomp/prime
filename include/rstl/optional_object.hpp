@@ -1,5 +1,5 @@
-#ifndef _RSTL_OPTIONAL_OBJECT_HPP
-#define _RSTL_OPTIONAL_OBJECT_HPP
+#ifndef _RSTL_OPTIONAL_OBJECT
+#define _RSTL_OPTIONAL_OBJECT
 
 #include "types.h"
 
@@ -67,4 +67,4 @@ private:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_OPTIONAL_OBJECT

@@ -1,5 +1,5 @@
-#ifndef __COBJECTLIST_HPP__
-#define __COBJECTLIST_HPP__
+#ifndef _COBJECTLIST
+#define _COBJECTLIST
 
 #include "types.h"
 
@@ -61,4 +61,4 @@ private:
 };
 CHECK_SIZEOF(CObjectList, 0x200c)
 
-#endif // __COBJECTLIST_HPP__
+#endif // _COBJECTLIST

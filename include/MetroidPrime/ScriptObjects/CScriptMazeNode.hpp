@@ -1,5 +1,5 @@
-#ifndef _CSCRIPTMAZENODE_HPP
-#define _CSCRIPTMAZENODE_HPP
+#ifndef _CSCRIPTMAZENODE
+#define _CSCRIPTMAZENODE
 
 #include "types.h"
 
@@ -118,4 +118,4 @@ private:
   static uint sMazeSeeds[300];
 };
 
-#endif
+#endif // _CSCRIPTMAZENODE

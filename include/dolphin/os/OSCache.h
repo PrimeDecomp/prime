@@ -15,4 +15,4 @@ void LCEnable();
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSCACHE

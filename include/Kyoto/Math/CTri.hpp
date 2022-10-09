@@ -1,5 +1,5 @@
-#ifndef _CTRI_HPP
-#define _CTRI_HPP
+#ifndef _CTRI
+#define _CTRI
 
 #include "types.h"
 
@@ -24,4 +24,4 @@ private:
 };
 CHECK_SIZEOF(CTri, 0x34)
 
-#endif
+#endif // _CTRI

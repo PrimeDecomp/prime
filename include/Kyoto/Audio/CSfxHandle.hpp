@@ -1,5 +1,5 @@
-#ifndef _CSFXHANDLE_HPP
-#define _CSFXHANDLE_HPP
+#ifndef _CSFXHANDLE
+#define _CSFXHANDLE
 
 #include "types.h"
 
@@ -22,4 +22,4 @@ private:
 };
 CHECK_SIZEOF(CSfxHandle, 0x4)
 
-#endif
+#endif // _CSFXHANDLE

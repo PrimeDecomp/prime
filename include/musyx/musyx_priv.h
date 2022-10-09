@@ -1,5 +1,5 @@
-#ifndef MUSYX_PRIV_H
-#define MUSYX_PRIV_H
+#ifndef _MUSYX_MUSYX_PRIV
+#define _MUSYX_MUSYX_PRIV
 
 #include "musyx/musyx.h"
 
@@ -56,4 +56,4 @@ bool hwRemoveInput(u8 studio, void* unk);
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif // _MUSYX_MUSYX_PRIV

@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_TYPES_H
-#define DOLPHIN_TYPES_H
+#ifndef _DOLPHIN_TYPES
+#define _DOLPHIN_TYPES
 
 #ifdef TARGET_PC
 #include <stdint.h>
@@ -83,4 +83,4 @@ typedef int BOOL;
 #endif
 #endif
 
-#endif
+#endif // _DOLPHIN_TYPES

@@ -1,5 +1,5 @@
-#ifndef __CCONTROLLERBUTTON_HPP__
-#define __CCONTROLLERBUTTON_HPP__
+#ifndef _CCONTROLLERBUTTON
+#define _CCONTROLLERBUTTON
 
 class CControllerButton {
 public:
@@ -17,4 +17,4 @@ private:
   uchar x2_releaseEvent;
 };
 
-#endif // __CCONTROLLERBUTTON_HPP__
+#endif // _CCONTROLLERBUTTON

@@ -1,5 +1,5 @@
-#ifndef _CPLAYERGUN_HPP
-#define _CPLAYERGUN_HPP
+#ifndef _CPLAYERGUN
+#define _CPLAYERGUN
 
 #include "types.h"
 
@@ -16,10 +16,10 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/TOneStatic.hpp"
 
-#include "rstl/string.hpp"
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
+#include "rstl/string.hpp"
 #include "rstl/vector.hpp"
 
 #include "math.h"
@@ -407,4 +407,4 @@ private:
 };
 CHECK_SIZEOF(CPlayerGun, 0x838)
 
-#endif // _CPLAYERGUN_HPP
+#endif // _CPLAYERGUN

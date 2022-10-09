@@ -1,10 +1,10 @@
-#ifndef _CSPHERE_HPP
-#define _CSPHERE_HPP
+#ifndef _CSPHERE
+#define _CSPHERE
 
 #include "types.h"
 
-#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CUnitVector3f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 class CSphere {
 public:
@@ -18,4 +18,4 @@ private:
 };
 CHECK_SIZEOF(CSphere, 0x10)
 
-#endif
+#endif // _CSPHERE

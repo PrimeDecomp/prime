@@ -1,5 +1,5 @@
-#ifndef _OSMUTEX_H_
-#define _OSMUTEX_H_
+#ifndef _DOLPHIN_OSMUTEX
+#define _DOLPHIN_OSMUTEX
 
 #include "types.h"
 
@@ -20,4 +20,4 @@ struct OSMutex {
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSMUTEX

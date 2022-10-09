@@ -1,5 +1,5 @@
-#ifndef _CGX_HPP
-#define _CGX_HPP
+#ifndef _CGX
+#define _CGX
 
 #include "types.h"
 
@@ -168,4 +168,4 @@ private:
   static SGXState sGXState;
 };
 
-#endif
+#endif // _CGX

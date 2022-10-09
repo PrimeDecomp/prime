@@ -1,5 +1,5 @@
-#ifndef _CGAMEGLOBALOBJECTS_HPP
-#define _CGAMEGLOBALOBJECTS_HPP
+#ifndef _CGAMEGLOBALOBJECTS
+#define _CGAMEGLOBALOBJECTS
 
 #include "types.h"
 
@@ -56,4 +56,4 @@ CHECK_SIZEOF(CGameGlobalObjects, 0x15c)
 extern unkptr gpController;
 extern unkptr gpDefaultFont;
 
-#endif
+#endif // _CGAMEGLOBALOBJECTS

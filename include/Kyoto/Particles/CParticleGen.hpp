@@ -1,5 +1,5 @@
-#ifndef _CPARTICLEGEN_HPP
-#define _CPARTICLEGEN_HPP
+#ifndef _CPARTICLEGEN
+#define _CPARTICLEGEN
 
 #include "Kyoto/Graphics/CColor.hpp"
 #include "Kyoto/Graphics/CLight.hpp"
@@ -40,4 +40,4 @@ public:
   virtual uint Get4CharId() const = 0;
 };
 
-#endif // _CPARTICLEGEN_HPP
+#endif // _CPARTICLEGEN

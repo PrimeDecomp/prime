@@ -1,5 +1,7 @@
-#ifndef _CDAMAGEINFO_HPP
-#define _CDAMAGEINFO_HPP
+#ifndef _CDAMAGEINFO
+#define _CDAMAGEINFO
+
+#include "types.h"
 
 #include "MetroidPrime/TGameTypes.hpp"
 #include "MetroidPrime/Weapons/WeaponTypes.hpp"
@@ -64,4 +66,4 @@ public:
   }
 };
 
-#endif
+#endif // _CDAMAGEINFO

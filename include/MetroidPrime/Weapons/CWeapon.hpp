@@ -1,5 +1,5 @@
-#ifndef _CWEAPON_HPP
-#define _CWEAPON_HPP
+#ifndef _CWEAPON
+#define _CWEAPON
 
 #include "types.h"
 
@@ -36,4 +36,4 @@ private:
 };
 CHECK_SIZEOF(CWeapon, 0x158)
 
-#endif
+#endif // _CWEAPON

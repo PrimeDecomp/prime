@@ -1,5 +1,5 @@
-#ifndef _CGAMEARCHITECTURESUPPORT_HPP
-#define _CGAMEARCHITECTURESUPPORT_HPP
+#ifndef _CGAMEARCHITECTURESUPPORT
+#define _CGAMEARCHITECTURESUPPORT
 
 #include "types.h"
 
@@ -52,4 +52,4 @@ private:
 };
 CHECK_SIZEOF(CGameArchitectureSupport, 0xd0)
 
-#endif
+#endif // _CGAMEARCHITECTURESUPPORT

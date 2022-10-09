@@ -1,8 +1,8 @@
-#ifndef _RSTL_POINTER_ITERATOR_HPP
-#define _RSTL_POINTER_ITERATOR_HPP
+#ifndef _RSTL_POINTER_ITERATOR
+#define _RSTL_POINTER_ITERATOR
 
-#include "types.h"
 #include "stddef.h"
+#include "types.h"
 
 #include "rstl/construct.hpp"
 
@@ -113,9 +113,7 @@ public:
     return it -= v;
   }
   // HACK: non-const operator- is required to match vector::insert
-  difference_type operator-(const pointer_iterator& other) {
-    return this->current - other.current;
-  }
+  difference_type operator-(const pointer_iterator& other) { return this->current - other.current; }
 };
 
 template < typename T >
@@ -137,4 +135,4 @@ inline typename It::difference_type distance(It first, It last) {
 }
 } // namespace rstl
 
-#endif
+#endif // _RSTL_POINTER_ITERATOR

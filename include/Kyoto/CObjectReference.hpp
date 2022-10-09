@@ -1,5 +1,5 @@
-#ifndef __COBJECTREFERENCE_HPP__
-#define __COBJECTREFERENCE_HPP__
+#ifndef _COBJECTREFERENCE
+#define _COBJECTREFERENCE
 
 #include <Kyoto/CVParamTransfer.hpp>
 #include <Kyoto/SObjectTag.hpp>
@@ -21,6 +21,7 @@ public:
                    CVParamTransfer xfer);
 
   bool IsLoaded() const { return x10_object != nullptr; }
+
 private:
   u16 x0_refCount;
   bool x2_locked : 1;
@@ -30,4 +31,4 @@ private:
   IObj* x10_object;
   CVParamTransfer x14_params;
 };
-#endif // __COBJECTREFERENCE_HPP__
+#endif // _COBJECTREFERENCE

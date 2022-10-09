@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXTRANSFORM_H
-#define DOLPHIN_GXTRANSFORM_H
+#ifndef _DOLPHIN_GXTRANSFORM
+#define _DOLPHIN_GXTRANSFORM
 
 #include <dolphin/gx/GXEnum.h>
 
@@ -30,4 +30,4 @@ void GXSetClipMode(GXClipMode mode);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXTRANSFORM

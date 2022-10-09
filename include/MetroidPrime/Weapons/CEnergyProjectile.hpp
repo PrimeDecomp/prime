@@ -1,5 +1,5 @@
-#ifndef _CENERGYPROJECTILE_HPP
-#define _CENERGYPROJECTILE_HPP
+#ifndef _CENERGYPROJECTILE
+#define _CENERGYPROJECTILE
 
 #include "types.h"
 
@@ -48,4 +48,4 @@ private:
 };
 CHECK_SIZEOF(CEnergyProjectile, 0x3d8);
 
-#endif
+#endif // _CENERGYPROJECTILE

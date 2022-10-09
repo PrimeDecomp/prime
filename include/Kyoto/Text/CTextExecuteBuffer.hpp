@@ -1,8 +1,6 @@
-#ifndef __CTEXTEXECUTEBUFFER_HPP__
-#define __CTEXTEXECUTEBUFFER_HPP__
+#ifndef _CTEXTEXECUTEBUFFER
+#define _CTEXTEXECUTEBUFFER
 
-class CTextExecuteBuffer {
+class CTextExecuteBuffer {};
 
-};
-
-#endif
+#endif // _CTEXTEXECUTEBUFFER

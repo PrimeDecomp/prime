@@ -1,5 +1,5 @@
-#ifndef _CGRAPPLEARM_HPP_
-#define _CGRAPPLEARM_HPP_
+#ifndef _CGRAPPLEARM
+#define _CGRAPPLEARM
 
 #include "types.h"
 
@@ -12,7 +12,7 @@ public:
 
   void PreRender(CStateManager& mgr, const CFrustumPlanes& frustum, const CVector3f& camPos);
   void ReturnToDefault(CStateManager& mgr, float dt, bool setState);
-  
+
   // EArmState GetAnimState() const { return x334_animState; }
   bool GetActive() const { return x3b2_24_active; }
   bool BeamActive() const { return x3b2_25_beamActive; }
@@ -23,7 +23,7 @@ public:
 private:
   u8 x0_pad[0x3b0];
   s16 x3b0_rumbleHandle;
-  bool x3b2_24_active : 1; 
+  bool x3b2_24_active : 1;
   bool x3b2_25_beamActive : 1;
   bool x3b2_26_grappleHit : 1;
   bool x3b2_27_armMoving : 1;
@@ -32,4 +32,4 @@ private:
 };
 CHECK_SIZEOF(CGrappleArm, 0x3b4)
 
-#endif // _CGRAPPLEARM_HPP_
+#endif // _CGRAPPLEARM

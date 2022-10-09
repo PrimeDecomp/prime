@@ -1,5 +1,5 @@
-#ifndef _CRUMBLEVOICE_HPP
-#define _CRUMBLEVOICE_HPP
+#ifndef _CRUMBLEVOICE
+#define _CRUMBLEVOICE
 
 #include "types.h"
 
@@ -93,4 +93,4 @@ private:
   s16 CreateRumbleHandle(u16 idx);
 };
 
-#endif
+#endif // _CRUMBLEVOICE

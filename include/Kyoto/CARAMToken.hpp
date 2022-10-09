@@ -1,5 +1,5 @@
-#ifndef _CARAMTOKEN_HPP
-#define _CARAMTOKEN_HPP
+#ifndef _CARAMTOKEN
+#define _CARAMTOKEN
 
 #include "types.h"
 
@@ -8,4 +8,4 @@ public:
   static void UpdateAllDMAs();
 };
 
-#endif
+#endif // _CARAMTOKEN

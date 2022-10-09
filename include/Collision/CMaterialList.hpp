@@ -1,5 +1,5 @@
-#ifndef _CMATERIALLIST_HPP
-#define _CMATERIALLIST_HPP
+#ifndef _CMATERIALLIST
+#define _CMATERIALLIST
 
 #include "types.h"
 
@@ -129,4 +129,4 @@ private:
 };
 CHECK_SIZEOF(CMaterialList, 0x8)
 
-#endif
+#endif // _CMATERIALLIST

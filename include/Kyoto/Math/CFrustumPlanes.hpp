@@ -1,5 +1,5 @@
-#ifndef _CFRUSTUMPLANES_HPP
-#define _CFRUSTUMPLANES_HPP
+#ifndef _CFRUSTUMPLANES
+#define _CFRUSTUMPLANES
 
 #include "types.h"
 
@@ -30,4 +30,4 @@ private:
   rstl::reserved_vector< CPlane, 6 > x0_planes;
 };
 
-#endif
+#endif // _CFRUSTUMPLANES

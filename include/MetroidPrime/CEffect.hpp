@@ -1,5 +1,5 @@
-#ifndef _CEFFECT_HPP
-#define _CEFFECT_HPP
+#ifndef _CEFFECT
+#define _CEFFECT
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ public:
 };
 CHECK_SIZEOF(CEffect, 0xe8)
 
-#endif
+#endif // _CEFFECT

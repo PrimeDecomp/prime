@@ -1,5 +1,7 @@
-#ifndef _CTWEAKPLAYERGUN_HPP_
-#define _CTWEAKPLAYERGUN_HPP_
+#ifndef _CTWEAKPLAYERGUN
+#define _CTWEAKPLAYERGUN
+
+#include "types.h"
 
 #include "MetroidPrime/Tweaks/ITweakObject.hpp"
 
@@ -17,7 +19,7 @@ struct SShotParam {
   float x10_radius;
   float x14_knockback;
   bool x18_24_noImmunity : 1;
-  
+
   SShotParam()
   : x0_weaponType(-1)
   , x4_24_charged(false)
@@ -27,8 +29,7 @@ struct SShotParam {
   , xc_radiusDamage(0.f)
   , x10_radius(0.f)
   , x14_knockback(0.f)
-  , x18_24_noImmunity(false)
-  {}
+  , x18_24_noImmunity(false) {}
   explicit SShotParam(CInputStream& in);
 };
 
@@ -47,11 +48,9 @@ struct SWeaponInfo {
   SShotParam x4_normal;
   SChargedShotParam x20_charged;
 
-  SWeaponInfo()
-  : x0_coolDown(0.1f) {}
+  SWeaponInfo() : x0_coolDown(0.1f) {}
   explicit SWeaponInfo(CInputStream& in);
 };
-
 
 class CTweakPlayerGun : public ITweakObject {
 public:
@@ -104,10 +103,11 @@ private:
   SShotParam x8c_powerBomb;
   SShotParam x1d4_missile;
   SWeaponInfo xa8_beams[5];
-  rstl::reserved_vector<SShotParam,5> x1f0_combos;    // Originally rstl::reserved_vector<SShotParam,5>
-  rstl::reserved_vector<float,5> x280_ricochetData;
+  rstl::reserved_vector< SShotParam, 5 >
+      x1f0_combos; // Originally rstl::reserved_vector<SShotParam,5>
+  rstl::reserved_vector< float, 5 > x280_ricochetData;
 };
 
 extern CTweakPlayerGun* gpTweakPlayerGun;
 
-#endif // _CTWEAKPLAYERGUN_HPP_
+#endif // _CTWEAKPLAYERGUN

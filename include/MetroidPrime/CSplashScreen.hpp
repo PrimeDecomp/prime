@@ -1,5 +1,5 @@
-#ifndef _CSPLASHSCREEN_HPP
-#define _CSPLASHSCREEN_HPP
+#ifndef _CSPLASHSCREEN
+#define _CSPLASHSCREEN
 
 #include "types.h"
 
@@ -20,4 +20,4 @@ public:
   void Draw() override;
 };
 
-#endif
+#endif // _CSPLASHSCREEN

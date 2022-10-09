@@ -1,5 +1,5 @@
-#ifndef _CANIMPLAYBACKPARMS_HPP
-#define _CANIMPLAYBACKPARMS_HPP
+#ifndef _CANIMPLAYBACKPARMS
+#define _CANIMPLAYBACKPARMS
 
 #include "types.h"
 
@@ -35,4 +35,4 @@ public:
 };
 CHECK_SIZEOF(CAnimPlaybackParms, 0x28)
 
-#endif
+#endif // _CANIMPLAYBACKPARMS

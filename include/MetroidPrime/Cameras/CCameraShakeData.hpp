@@ -1,5 +1,5 @@
-#ifndef _CCAMERASHAKEDATA_HPP
-#define _CCAMERASHAKEDATA_HPP
+#ifndef _CCAMERASHAKEDATA
+#define _CCAMERASHAKEDATA
 
 #include "types.h"
 
@@ -41,4 +41,4 @@ private:
 };
 CHECK_SIZEOF(CCameraShakeData, 0xd4)
 
-#endif
+#endif // _CCAMERASHAKEDATA

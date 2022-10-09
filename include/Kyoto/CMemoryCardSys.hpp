@@ -1,5 +1,5 @@
-#ifndef _CMEMORYCARDSYS_HPP
-#define _CMEMORYCARDSYS_HPP
+#ifndef _CMEMORYCARDSYS
+#define _CMEMORYCARDSYS
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ private:
   // TODO
 };
 
-#endif
+#endif // _CMEMORYCARDSYS

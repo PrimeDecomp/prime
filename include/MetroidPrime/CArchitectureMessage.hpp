@@ -1,5 +1,5 @@
-#ifndef _CARCHITECTUREMESSAGE_HPP
-#define _CARCHITECTUREMESSAGE_HPP
+#ifndef _CARCHITECTUREMESSAGE
+#define _CARCHITECTUREMESSAGE
 
 #include "types.h"
 
@@ -37,4 +37,4 @@ private:
   rstl::rc_ptr< IArchitectureMessageParm > x8_parm;
 };
 
-#endif
+#endif // _CARCHITECTUREMESSAGE

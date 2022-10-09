@@ -1,5 +1,5 @@
-#ifndef _CSIMPLESHADOW_HPP
-#define _CSIMPLESHADOW_HPP
+#ifndef _CSIMPLESHADOW
+#define _CSIMPLESHADOW
 
 #include "types.h"
 
@@ -19,4 +19,4 @@ private:
   // TODO
 };
 
-#endif
+#endif // _CSIMPLESHADOW

@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXVERT_H
-#define DOLPHIN_GXVERT_H
+#ifndef _DOLPHIN_GXVERT
+#define _DOLPHIN_GXVERT
 
 #include <dolphin/types.h>
 
@@ -129,4 +129,4 @@ static inline void GXEnd(void) {}
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXVERT

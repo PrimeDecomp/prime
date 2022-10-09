@@ -1,5 +1,5 @@
-#ifndef _RSTL_VECTOR_HPP
-#define _RSTL_VECTOR_HPP
+#ifndef _RSTL_VECTOR
+#define _RSTL_VECTOR
 
 #include "types.h"
 
@@ -112,15 +112,15 @@ public:
 
 protected:
   template < typename In >
-  void insert_into(iterator at, int n, In in);/* {
-    int insertAt = xc_items + n;
-    if (x8_capacity < insertAt) {
-      int newCapacity = x8_capacity != 0 ? x8_capacity * 2 : 4;
-      T* newData;
-      x0_allocator.allocate(newData, newCapacity);
+  void insert_into(iterator at, int n, In in); /* {
+     int insertAt = xc_items + n;
+     if (x8_capacity < insertAt) {
+       int newCapacity = x8_capacity != 0 ? x8_capacity * 2 : 4;
+       T* newData;
+       x0_allocator.allocate(newData, newCapacity);
 
-    }
-  }*/
+     }
+   }*/
 };
 
 template < typename T, typename Alloc >
@@ -161,4 +161,4 @@ typedef vector< void > unk_vector;
 CHECK_SIZEOF(unk_vector, 0x10)
 } // namespace rstl
 
-#endif
+#endif // _RSTL_VECTOR

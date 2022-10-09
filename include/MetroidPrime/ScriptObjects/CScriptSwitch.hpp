@@ -1,5 +1,7 @@
-#ifndef __CSCRIPTSWITCH_HPP__
-#define __CSCRIPTSWITCH_HPP__
+#ifndef _CSCRIPTSWITCH
+#define _CSCRIPTSWITCH
+
+#include "types.h"
 
 #include "MetroidPrime/CEntity.hpp"
 
@@ -16,4 +18,4 @@ private:
   u8 mCloseOnOpened;
 };
 
-#endif // __CSCRIPTSWITCH_HPP__
+#endif // _CSCRIPTSWITCH

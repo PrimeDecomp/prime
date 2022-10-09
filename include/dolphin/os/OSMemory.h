@@ -1,5 +1,5 @@
-#ifndef _OSMEMORY_H_
-#define _OSMEMORY_H_
+#ifndef _DOLPHIN_OSMEMORY
+#define _DOLPHIN_OSMEMORY
 
 #include "types.h"
 
@@ -23,4 +23,4 @@ void OSProtectRange(u32 chan, void* addr, u32 nBytes, u32 control);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSMEMORY

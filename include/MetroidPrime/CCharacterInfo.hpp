@@ -1,13 +1,13 @@
-#ifndef _CCHARACTERINFO_HPP
-#define _CCHARACTERINFO_HPP
+#ifndef _CCHARACTERINFO
+#define _CCHARACTERINFO
 
 #include "types.h"
 
 #include "MetroidPrime/CEffectComponent.hpp"
 
+#include "Kyoto/Animation/CPASDatabase.hpp"
 #include "Kyoto/IObjectStore.hpp"
 #include "Kyoto/Math/CAABox.hpp"
-#include "Kyoto/Animation/CPASDatabase.hpp"
 
 #include "rstl/pair.hpp"
 #include "rstl/string.hpp"
@@ -22,7 +22,7 @@ public:
     rstl::vector< CAssetId > x20_elsc;
     rstl::vector< CAssetId > x30_elsc;
   };
-  
+
   const CPASDatabase& GetPASDatabase() const { return x30_pasDatabase; }
 
 private:
@@ -43,4 +43,4 @@ private:
 };
 CHECK_SIZEOF(CCharacterInfo, 0xc0)
 
-#endif
+#endif // _CCHARACTERINFO

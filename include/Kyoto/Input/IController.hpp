@@ -1,5 +1,5 @@
-#ifndef __ICONTROLLER_HPP__
-#define __ICONTROLLER_HPP__
+#ifndef _ICONTROLLER
+#define _ICONTROLLER
 
 #include <types.h>
 
@@ -26,4 +26,4 @@ public:
   static IController* Create(const COsContext& ctx);
 };
 
-#endif // __ICONTROLLER_HPP__
+#endif // _ICONTROLLER

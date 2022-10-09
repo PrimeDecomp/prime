@@ -1,5 +1,5 @@
-#ifndef _CMATERIALFILTER_HPP
-#define _CMATERIALFILTER_HPP
+#ifndef _CMATERIALFILTER
+#define _CMATERIALFILTER
 
 #include "types.h"
 
@@ -7,6 +7,7 @@
 
 class CMaterialFilter {
   static const CMaterialFilter skPassEverything;
+
 public:
   enum EFilterType {
     kFT_Always,
@@ -39,4 +40,4 @@ private:
 };
 CHECK_SIZEOF(CMaterialFilter, 0x18)
 
-#endif
+#endif // _CMATERIALFILTER

@@ -1,5 +1,5 @@
-#ifndef _TAVERAGE_HPP
-#define _TAVERAGE_HPP
+#ifndef _TAVERAGE
+#define _TAVERAGE
 
 #include "types.h"
 
@@ -38,4 +38,4 @@ void TAverage< T >::AddValue(const T& value) {
 template < typename T >
 T GetAverageValue(const T* ptr, int count); // TODO
 
-#endif
+#endif // _TAVERAGE

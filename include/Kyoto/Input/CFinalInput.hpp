@@ -1,17 +1,19 @@
-#ifndef __CFINALINPUT_HPP__
-#define __CFINALINPUT_HPP__
+#ifndef _CFINALINPUT
+#define _CFINALINPUT
 
 #include <types.h>
+
 #ifdef __MWERKS__
 #pragma cpp_extensions on
 #endif
 
 class CControllerGamepadData;
 class COsContext;
-class CFinalInput {
 
+class CFinalInput {
   static const float kInput_AnalogOnThreshhold;
   static const float kInput_AnalogTriggerOnThreshhold;
+
 public:
   CFinalInput();
   CFinalInput(int channel, float dt, const CControllerGamepadData& data, float leftDif,
@@ -103,4 +105,4 @@ private:
 #pragma cpp_extensions reset
 #endif
 
-#endif // __CFINALINPUT_HPP__
+#endif // _CFINALINPUT

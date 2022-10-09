@@ -1,5 +1,5 @@
-#ifndef __CDECAL_HPP__
-#define __CDECAL_HPP__
+#ifndef _CDECAL
+#define _CDECAL
 
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -28,6 +28,7 @@ public:
 
     inline float GetRotation() const { return x8_rotation; }
     inline void SetRotation(float rotation) { x8_rotation = rotation; }
+
   private:
     bool x0_24_invalid : 1;
     int x4_lifetime;
@@ -43,13 +44,13 @@ public:
   void Update(float dt);
 
 private:
-    TLockedToken<CDecalDescription> x0_description;
-    CTransform4f xc_transform;
-    CQuadDecal x3c_quad1;    
-    CQuadDecal x48_quad2;
-    int x54_modelLifetime;
-    int x58_frameIdx;
-    int x5c_flags;
-    CVector3f x60_rotation;
+  TLockedToken< CDecalDescription > x0_description;
+  CTransform4f xc_transform;
+  CQuadDecal x3c_quad1;
+  CQuadDecal x48_quad2;
+  int x54_modelLifetime;
+  int x58_frameIdx;
+  int x5c_flags;
+  CVector3f x60_rotation;
 };
-#endif // __CDECAL_HPP__
+#endif // _CDECAL

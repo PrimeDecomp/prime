@@ -1,5 +1,5 @@
-#ifndef __CPARTICLEGLOBALS_HPP__
-#define __CPARTICLEGLOBALS_HPP__
+#ifndef _CPARTICLEGLOBALS
+#define _CPARTICLEGLOBALS
 
 class CParticleGlobals {
 public:
@@ -8,4 +8,4 @@ public:
   static void UpdateParticleLifetimeTweenValues(int time);
 };
 
-#endif // __CPARTICLEGLOBALS_HPP__
+#endif // _CPARTICLEGLOBALS

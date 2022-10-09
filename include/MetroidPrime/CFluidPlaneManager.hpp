@@ -1,5 +1,5 @@
-#ifndef _CFLUIDPLANEMANAGER_HPP
-#define _CFLUIDPLANEMANAGER_HPP
+#ifndef _CFLUIDPLANEMANAGER
+#define _CFLUIDPLANEMANAGER
 
 #include "types.h"
 
@@ -22,4 +22,4 @@ private:
   bool x121_;
 };
 
-#endif
+#endif // _CFLUIDPLANEMANAGER

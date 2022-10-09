@@ -1,5 +1,5 @@
-#ifndef __CARCMSGPARMUSERINPUT_HPP__
-#define __CARCMSGPARMUSERINPUT_HPP__
+#ifndef _CARCHMSGPARMUSERINPUT
+#define _CARCHMSGPARMUSERINPUT
 
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
@@ -11,8 +11,9 @@ public:
   ~CArchMsgParmUserInput();
 
   const CFinalInput& GetUserInput() const;
+
 private:
   CFinalInput mInput;
 };
 
-#endif // __CARCMSGPARMUSERINPUT_HPP__
+#endif // _CARCHMSGPARMUSERINPUT

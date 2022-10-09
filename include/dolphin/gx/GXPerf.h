@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXPERF_H
-#define DOLPHIN_GXPERF_H
+#ifndef _DOLPHIN_GXPERF
+#define _DOLPHIN_GXPERF
 
 #include <dolphin/types.h>
 
@@ -13,4 +13,4 @@ void GXReadXfRasMetric(u32* xf_wait_in, u32* xf_wait_out, u32* ras_busy, u32* cl
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXPERF

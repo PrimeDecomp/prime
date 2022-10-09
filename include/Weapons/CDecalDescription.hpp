@@ -1,13 +1,11 @@
-#ifndef __CDECALDESCRIPTION_HPP__
-#define __CDECALDESCRIPTION_HPP__
-
+#ifndef _CDECALDESCRIPTION
+#define _CDECALDESCRIPTION
 
 class CDecalDescription {
 public:
-  struct SQuadDescr {
-  };
+  struct SQuadDescr {};
 
 private:
 };
 
-#endif //__CDECALDESCRIPTION_HPP__
+#endif // _CDECALDESCRIPTION

@@ -1,5 +1,5 @@
-#ifndef _RSTL_RED_BLACK_TREE_HPP
-#define _RSTL_RED_BLACK_TREE_HPP
+#ifndef _RSTL_RED_BLACK_TREE
+#define _RSTL_RED_BLACK_TREE
 
 #include "types.h"
 
@@ -55,4 +55,5 @@ private:
   uint x10_;
 };
 }; // namespace rstl
-#endif
+
+#endif // _RSTL_RED_BLACK_TREE

@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXTEV_H
-#define DOLPHIN_GXTEV_H
+#ifndef _DOLPHIN_GXTEV
+#define _DOLPHIN_GXTEV
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
@@ -34,4 +34,4 @@ void GXSetNumTevStages(u8 nStages);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXTEV

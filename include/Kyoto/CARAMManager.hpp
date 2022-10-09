@@ -1,5 +1,5 @@
-#ifndef _CARAMMANAGER_HPP
-#define _CARAMMANAGER_HPP
+#ifndef _CARAMMANAGER
+#define _CARAMMANAGER
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ private:
   static u32 mPreInitializeAlloc;
 };
 
-#endif
+#endif // _CARAMMANAGER

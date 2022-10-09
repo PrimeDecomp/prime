@@ -1,5 +1,5 @@
-#ifndef _CINPUTSTREAM_HPP
-#define _CINPUTSTREAM_HPP
+#ifndef _CINPUTSTREAM
+#define _CINPUTSTREAM
 
 #include "types.h"
 
@@ -31,9 +31,7 @@ public:
     return cinput_stream_helper(type, *this);
   }
 
-  bool ReadPackedBool() {
-    return ReadBits(1) != 0;
-  }
+  bool ReadPackedBool() { return ReadBits(1) != 0; }
 
 private:
   bool GrabAnotherBlock();
@@ -77,4 +75,4 @@ inline rstl::pair< L, R > cinput_stream_helper(const TType< rstl::pair< L, R > >
   return result;
 }
 
-#endif
+#endif // _CINPUTSTREAM

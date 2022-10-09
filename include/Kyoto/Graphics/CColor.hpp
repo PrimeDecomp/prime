@@ -1,5 +1,5 @@
-#ifndef __CCOLOR_HPP__
-#define __CCOLOR_HPP__
+#ifndef _CCOLOR
+#define _CCOLOR
 
 #include "types.h"
 
@@ -80,4 +80,4 @@ CHECK_SIZEOF(CColor, 0x4)
 #pragma cpp_extensions off
 #endif
 
-#endif // __CCOLOR_HPP__
+#endif // _CCOLOR

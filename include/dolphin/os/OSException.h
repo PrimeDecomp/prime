@@ -1,6 +1,6 @@
 
-#ifndef __OSEXCEPTION_H__
-#define __OSEXCEPTION_H__
+#ifndef _DOLPHIN_OSEXCEPTION
+#define _DOLPHIN_OSEXCEPTION
 
 #include <dolphin/os/OSContext.h>
 #include <dolphin/types.h>
@@ -15,4 +15,4 @@ typedef void (*__OSExceptionHandler)(__OSException exception, OSContext* context
 }
 #endif
 
-#endif // __OSEXCEPTION_H__
+#endif // _DOLPHIN_OSEXCEPTION

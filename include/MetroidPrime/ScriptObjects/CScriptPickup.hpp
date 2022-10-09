@@ -1,5 +1,5 @@
-#ifndef _CSCRIPTPICKUP_HPP
-#define _CSCRIPTPICKUP_HPP
+#ifndef _CSCRIPTPICKUP
+#define _CSCRIPTPICKUP
 
 #include "types.h"
 
@@ -43,4 +43,4 @@ public:
   void SetSpawned();
 };
 
-#endif // _CSCRIPTPICKUP_HPP
+#endif // _CSCRIPTPICKUP

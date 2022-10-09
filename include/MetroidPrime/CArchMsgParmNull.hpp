@@ -1,5 +1,7 @@
-#ifndef __CARCMSGPARMNULL_HPP__
-#define __CARCMSGPARMNULL_HPP__
+#ifndef _CARCHMSGPARMNULL
+#define _CARCHMSGPARMNULL
+
+#include "types.h"
 
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
@@ -9,4 +11,4 @@ public:
   ~CArchMsgParmNull();
 };
 
-#endif // __CARCMSGPARMNULL_HPP__
+#endif // _CARCHMSGPARMNULL

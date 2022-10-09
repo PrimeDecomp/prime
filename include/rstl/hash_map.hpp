@@ -1,5 +1,5 @@
-#ifndef _RSTL_HASH_MAP_HPP
-#define _RSTL_HASH_MAP_HPP
+#ifndef _RSTL_HASH_MAP
+#define _RSTL_HASH_MAP
 
 #include "types.h"
 
@@ -27,4 +27,4 @@ private:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_HASH_MAP

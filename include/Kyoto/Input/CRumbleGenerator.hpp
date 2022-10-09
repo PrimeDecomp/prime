@@ -1,5 +1,5 @@
-#ifndef _CRUMBLEGENERATOR_HPP
-#define _CRUMBLEGENERATOR_HPP
+#ifndef _CRUMBLEGENERATOR
+#define _CRUMBLEGENERATOR
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ private:
   bool xf0_24_disabled : 1;
 };
 
-#endif
+#endif // _CRUMBLEGENERATOR

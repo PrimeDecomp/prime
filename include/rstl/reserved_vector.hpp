@@ -1,5 +1,5 @@
-#ifndef _RSTL_RESERVED_VECTOR_HPP
-#define _RSTL_RESERVED_VECTOR_HPP
+#ifndef _RSTL_RESERVED_VECTOR
+#define _RSTL_RESERVED_VECTOR
 
 #include "types.h"
 
@@ -62,4 +62,4 @@ public:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_RESERVED_VECTOR

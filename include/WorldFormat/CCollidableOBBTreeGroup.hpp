@@ -1,5 +1,5 @@
-#ifndef _CCOLLIDABLEOBBTREEGROUP_HPP
-#define _CCOLLIDABLEOBBTREEGROUP_HPP
+#ifndef _CCOLLIDABLEOBBTREEGROUP
+#define _CCOLLIDABLEOBBTREEGROUP
 
 #include "types.h"
 
@@ -37,4 +37,4 @@ private:
   CCollidableOBBTreeGroupContainer* x10_container;
 };
 
-#endif
+#endif // _CCOLLIDABLEOBBTREEGROUP

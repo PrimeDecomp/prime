@@ -1,11 +1,13 @@
-#ifndef _CGUNMOTION_HPP
-#define _CGUNMOTION_HPP
+#ifndef _CGUNMOTION
+#define _CGUNMOTION
+
+#include "types.h"
 
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/Weapons/GunController/CGunController.hpp"
 
-#include "Kyoto/CToken.hpp"
 #include "Kyoto/CObjectReference.hpp"
+#include "Kyoto/CToken.hpp"
 
 #include "rstl/vector.hpp"
 
@@ -34,7 +36,8 @@ public:
   CGunMotion(CAssetId ancsId, const CVector3f& scale);
   ~CGunMotion();
 
-  bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle, bool bigStrike);
+  bool PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr, float angle,
+                   bool bigStrike);
   void Update(float, CStateManager&);
   void Draw(const CStateManager&, const CTransform4f&) const;
   void ReturnToDefault(CStateManager& mgr);
@@ -50,9 +53,9 @@ public:
 private:
   CModelData x0_modelData;
   CGunController x4c_gunController;
-  rstl::vector<CToken> xa8_anims;
+  rstl::vector< CToken > xa8_anims;
   bool xb8_24_animPlaying : 1;
 };
 CHECK_SIZEOF(CGunMotion, 0xbc)
 
-#endif // _CGUNMOTION_HPP
+#endif // _CGUNMOTION

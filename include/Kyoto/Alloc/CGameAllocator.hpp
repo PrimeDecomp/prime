@@ -1,5 +1,5 @@
-#ifndef __CGAMEALLOCATOR_HPP__
-#define __CGAMEALLOCATOR_HPP__
+#ifndef _CGAMEALLOCATOR
+#define _CGAMEALLOCATOR
 
 #include <Kyoto/Alloc/CMediumAllocPool.hpp>
 #include <Kyoto/Alloc/IAllocator.hpp>
@@ -133,4 +133,4 @@ private:
   uint xbc_;
 };
 
-#endif // __CGAMEALLOCATOR_HPP__
+#endif // _CGAMEALLOCATOR

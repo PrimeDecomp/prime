@@ -1,5 +1,5 @@
-#ifndef __CCAMERAHINT_HPP__
-#define __CCAMERAHINT_HPP__
+#ifndef _CCAMERAHINT
+#define _CCAMERAHINT
 
 #include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
@@ -36,4 +36,4 @@ private:
   float mControlInterpDur;
 };
 
-#endif // __CCAMERAHINT_HPP__
+#endif // _CCAMERAHINT

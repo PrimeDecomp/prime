@@ -1,5 +1,5 @@
-#ifndef _CDECALMANAGER_HPP
-#define _CDECALMANAGER_HPP
+#ifndef _CDECALMANAGER
+#define _CDECALMANAGER
 
 #include "types.h"
 
@@ -9,4 +9,4 @@ public:
   static void ShutDown();
 };
 
-#endif
+#endif // _CDECALMANAGER

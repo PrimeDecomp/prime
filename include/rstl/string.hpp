@@ -1,5 +1,5 @@
-#ifndef _RSTL_STRING_HPP
-#define _RSTL_STRING_HPP
+#ifndef _RSTL_STRING
+#define _RSTL_STRING
 
 #include "types.h"
 
@@ -120,4 +120,4 @@ string string_l(const char* data);
 CHECK_SIZEOF(string, 0x10)
 } // namespace rstl
 
-#endif
+#endif // _RSTL_STRING

@@ -1,5 +1,5 @@
-#ifndef _CGAMEAREA_HPP
-#define _CGAMEAREA_HPP
+#ifndef _CGAMEAREA
+#define _CGAMEAREA
 
 #include "types.h"
 
@@ -78,4 +78,4 @@ private:
   rstl::list< rstl::rc_ptr< IDvdRequest > > xf8_loadTransactions;
 };
 
-#endif
+#endif // _CGAMEAREA

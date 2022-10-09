@@ -1,5 +1,5 @@
-#ifndef _CGAMEOPTIONS_HPP
-#define _CGAMEOPTIONS_HPP
+#ifndef _CGAMEOPTIONS
+#define _CGAMEOPTIONS
 
 #include "types.h"
 
@@ -36,4 +36,4 @@ private:
   rstl::vector< rstl::pair< CAssetId, CAssetId > > x6c_controlTxtrMap;
 };
 
-#endif
+#endif // _CGAMEOPTIONS

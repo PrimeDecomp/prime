@@ -1,5 +1,5 @@
-#ifndef _CCOLLISIONACTOR_HPP
-#define _CCOLLISIONACTOR_HPP
+#ifndef _CCOLLISIONACTOR
+#define _CCOLLISIONACTOR
 
 #include "types.h"
 
@@ -13,4 +13,4 @@ private:
   // TODO
 };
 
-#endif
+#endif // _CCOLLISIONACTOR

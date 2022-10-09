@@ -1,5 +1,5 @@
-#ifndef _RSTL_PAIR_HPP
-#define _RSTL_PAIR_HPP
+#ifndef _RSTL_PAIR
+#define _RSTL_PAIR
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ public:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_PAIR

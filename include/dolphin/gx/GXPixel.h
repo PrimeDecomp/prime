@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXPIXEL_H
-#define DOLPHIN_GXPIXEL_H
+#ifndef _DOLPHIN_GXPIXEL
+#define _DOLPHIN_GXPIXEL
 
 #include <dolphin/gx/GXEnum.h>
 
@@ -26,4 +26,4 @@ void GXSetDstAlpha(GXBool enable, u8 alpha);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXPIXEL

@@ -1,5 +1,5 @@
-#ifndef _CCAMERASPLINE_HPP
-#define _CCAMERASPLINE_HPP
+#ifndef _CCAMERASPLINE
+#define _CCAMERASPLINE
 
 #include "types.h"
 
@@ -26,4 +26,4 @@ private:
 };
 CHECK_SIZEOF(CCameraSpline, 0x4c)
 
-#endif
+#endif // _CCAMERASPLINE

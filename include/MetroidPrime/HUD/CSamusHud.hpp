@@ -1,5 +1,7 @@
-#ifndef __CSAMUSHUD_HPP__
-#define __CSAMUSHUD_HPP__
+#ifndef _CSAMUSHUD
+#define _CSAMUSHUD
+
+#include "types.h"
 
 #include "MetroidPrime/HUD/CHUDMemoParms.hpp"
 
@@ -10,4 +12,4 @@ public:
   static void DisplayHudMemo(const rstl::wstring& text, const CHUDMemoParms& info);
 };
 
-#endif // __CSAMUSHUD_HPP__
+#endif // _CSAMUSHUD

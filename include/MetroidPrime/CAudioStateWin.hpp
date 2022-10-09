@@ -1,5 +1,5 @@
-#ifndef _CAUDIOSTATEWIN_HPP
-#define _CAUDIOSTATEWIN_HPP
+#ifndef _CAUDIOSTATEWIN
+#define _CAUDIOSTATEWIN
 
 #include "types.h"
 
@@ -13,4 +13,4 @@ public:
   EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
 };
 
-#endif
+#endif // _CAUDIOSTATEWIN

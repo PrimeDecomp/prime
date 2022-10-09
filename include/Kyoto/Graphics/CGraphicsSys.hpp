@@ -1,5 +1,5 @@
-#ifndef _CGRAPHICSSYS_HPP
-#define _CGRAPHICSSYS_HPP
+#ifndef _CGRAPHICSSYS
+#define _CGRAPHICSSYS
 
 #include "types.h"
 
@@ -12,4 +12,4 @@ private:
   uint pad;
 };
 
-#endif
+#endif // _CGRAPHICSSYS

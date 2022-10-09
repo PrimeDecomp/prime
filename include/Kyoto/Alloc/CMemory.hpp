@@ -1,5 +1,5 @@
-#ifndef _CMEMORY_HPP
-#define _CMEMORY_HPP
+#ifndef _CMEMORY
+#define _CMEMORY
 
 #include "types.h"
 
@@ -18,4 +18,4 @@ inline void* operator new(size_t n, void* ptr) { return ptr; };
 inline void operator delete(void* ptr) { CMemory::Free(ptr); }
 inline void operator delete[](void* ptr) { CMemory::Free(ptr); }
 
-#endif
+#endif // _CMEMORY

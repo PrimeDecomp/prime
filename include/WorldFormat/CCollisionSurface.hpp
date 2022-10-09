@@ -1,5 +1,5 @@
-#ifndef _CCOLLISIONSURFACE_HPP
-#define _CCOLLISIONSURFACE_HPP
+#ifndef _CCOLLISIONSURFACE
+#define _CCOLLISIONSURFACE
 
 #include "types.h"
 
@@ -17,4 +17,4 @@ private:
 };
 CHECK_SIZEOF(CCollisionSurface, 0x28)
 
-#endif
+#endif // _CCOLLISIONSURFACE

@@ -1,5 +1,5 @@
-#ifndef __CARDPRIV_H__
-#define __CARDPRIV_H__
+#ifndef _DOLPHIN_CARDPRIV
+#define _DOLPHIN_CARDPRIV
 
 #ifdef __cplusplus
 extern "C" {
@@ -129,4 +129,4 @@ extern u16 __CARDVendorID;
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif // _DOLPHIN_CARDPRIV

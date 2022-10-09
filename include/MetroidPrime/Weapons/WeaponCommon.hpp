@@ -1,3 +1,5 @@
+#ifndef _WEAPONCOMMON
+#define _WEAPONCOMMON
 #ifndef _WEAPONCOMMON_HPP
 #define _WEAPONCOMMON_HPP
 
@@ -23,8 +25,11 @@ enum EGunAnimType {
 };
 
 CSfxHandle play_sfx(u16 sfx, bool underwater, bool looped, short pan);
-void get_token_vector(const CAnimData& animData, int begin, int end, rstl::vector<CToken>& tokensOut, bool preLock);
+void get_token_vector(const CAnimData& animData, int begin, int end,
+                      rstl::vector< CToken >& tokensOut, bool preLock);
 
-}
+} // namespace NWeaponTypes
 
 #endif _WEAPONCOMMON_HPP
+
+#endif // _WEAPONCOMMON

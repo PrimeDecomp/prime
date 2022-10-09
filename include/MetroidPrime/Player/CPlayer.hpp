@@ -1,5 +1,5 @@
-#ifndef _CPLAYER_HPP
-#define _CPLAYER_HPP
+#ifndef _CPLAYER
+#define _CPLAYER
 
 #include "types.h"
 
@@ -414,4 +414,4 @@ private:
 };
 CHECK_SIZEOF(CPlayer, 0xa38)
 
-#endif
+#endif // _CPLAYER

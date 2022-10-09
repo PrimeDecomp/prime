@@ -1,5 +1,5 @@
-#ifndef _RSTL_RC_PTR_HPP
-#define _RSTL_RC_PTR_HPP
+#ifndef _RSTL_RC_PTR
+#define _RSTL_RC_PTR
 
 #include "types.h"
 
@@ -47,4 +47,4 @@ public:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_RC_PTR

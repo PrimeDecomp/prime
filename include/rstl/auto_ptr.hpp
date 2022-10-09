@@ -1,5 +1,5 @@
-#ifndef _RSTL_AUTO_PTR_HPP
-#define _RSTL_AUTO_PTR_HPP
+#ifndef _RSTL_AUTO_PTR
+#define _RSTL_AUTO_PTR
 
 #include "types.h"
 
@@ -29,7 +29,7 @@ public:
       }
       x0_has = other.x0_has;
       x4_item = other.x4_item;
-      const_cast<auto_ptr&>(other).x0_has = false;
+      const_cast< auto_ptr& >(other).x0_has = false;
     }
     return *this;
   }
@@ -44,4 +44,4 @@ public:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_AUTO_PTR

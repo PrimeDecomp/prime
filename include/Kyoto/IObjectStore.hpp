@@ -1,7 +1,8 @@
-#ifndef _IOBJECTSTORE_HPP
-#define _IOBJECTSTORE_HPP
+#ifndef _IOBJECTSTORE
+#define _IOBJECTSTORE
 
 #include "types.h"
+
 #include "Kyoto/CToken.hpp"
 
 #include "rstl/auto_ptr.hpp"
@@ -20,4 +21,4 @@ public:
   virtual void ObjectUnreferenced(const SObjectTag& tag) = 0;
 };
 
-#endif
+#endif // _IOBJECTSTORE

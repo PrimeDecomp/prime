@@ -1,5 +1,5 @@
-#ifndef _CPLAYERENERGYDRAIN_HPP
-#define _CPLAYERENERGYDRAIN_HPP
+#ifndef _CPLAYERENERGYDRAIN
+#define _CPLAYERENERGYDRAIN
 
 #include "types.h"
 
@@ -26,4 +26,4 @@ private:
 };
 CHECK_SIZEOF(CPlayerEnergyDrain, 0x14)
 
-#endif
+#endif // _CPLAYERENERGYDRAIN

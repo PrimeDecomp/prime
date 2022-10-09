@@ -1,5 +1,5 @@
-#ifndef __OSALARM_H__
-#define __OSALARM_H__
+#ifndef _DOLPHIN_OSALARM
+#define _DOLPHIN_OSALARM
 
 #include <dolphin/os/OSContext.h>
 #include <types.h>
@@ -36,4 +36,4 @@ BOOL OSCheckAlarmQueue(void);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSALARM

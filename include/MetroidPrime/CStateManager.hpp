@@ -1,5 +1,5 @@
-#ifndef _CSTATEMANAGER_HPP
-#define _CSTATEMANAGER_HPP
+#ifndef _CSTATEMANAGER
+#define _CSTATEMANAGER
 
 #include "types.h"
 
@@ -173,9 +173,7 @@ public:
 
   //
   void QueueMessage(int frameCount, CAssetId msg, float f1);
-  int GetHUDMessageFrameCount() const {
-    return xf80_hudMessageFrameCount;
-  }
+  int GetHUDMessageFrameCount() const { return xf80_hudMessageFrameCount; }
 
   // State transitions
   void DeferStateTransition(EStateManagerTransition t);
@@ -193,11 +191,11 @@ public:
   }
 
   void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, u32 stringIdx);
-  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent);/* {
-    xef4_pendingScreenTex.x0_id = texId;
-    xef4_pendingScreenTex.x4_origin = origin;
-    xef4_pendingScreenTex.xc_extent = extent;
-  }*/
+  void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent); /* {
+     xef4_pendingScreenTex.x0_id = texId;
+     xef4_pendingScreenTex.x4_origin = origin;
+     xef4_pendingScreenTex.xc_extent = extent;
+   }*/
   const SOnScreenTex& GetPendingScreenTex() const { return xef4_pendingScreenTex; }
   float IntegrateVisorFog(float f);
 
@@ -289,4 +287,4 @@ private:
 };
 CHECK_SIZEOF(CStateManager, 0xf98)
 
-#endif
+#endif // _CSTATEMANAGER

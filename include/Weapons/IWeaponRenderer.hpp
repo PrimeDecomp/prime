@@ -1,5 +1,5 @@
-#ifndef __IWEAPONRENDERER_HPP__
-#define __IWEAPONRENDERER_HPP__
+#ifndef _IWEAPONRENDERER
+#define _IWEAPONRENDERER
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Particles/CParticleGen.hpp"
@@ -22,4 +22,4 @@ public:
   void AddParticleGen(const CParticleGen& gen) { gen.Render(); }
 };
 
-#endif //__IWEAPONRENDERER_HPP__
+#endif // _IWEAPONRENDERER

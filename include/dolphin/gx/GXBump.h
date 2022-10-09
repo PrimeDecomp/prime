@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXBUMP_H
-#define DOLPHIN_GXBUMP_H
+#ifndef _DOLPHIN_GXBUMP
+#define _DOLPHIN_GXBUMP
 
 #include <dolphin/gx/GXEnum.h>
 
@@ -27,4 +27,4 @@ void GXSetIndTexCoordScale(GXIndTexStageID ind_state, GXIndTexScale scale_s, GXI
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXBUMP

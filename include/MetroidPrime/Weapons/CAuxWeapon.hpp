@@ -1,5 +1,7 @@
-#ifndef _CAUXWEAPON_HPP
-#define _CAUXWEAPON_HPP
+#ifndef _CAUXWEAPON
+#define _CAUXWEAPON
+
+#include "types.h"
 
 #include "MetroidPrime/TGameTypes.hpp"
 
@@ -14,4 +16,4 @@ private:
 };
 CHECK_SIZEOF(CAuxWeapon, 0x84)
 
-#endif // _CAUXWEAPON_HPP
+#endif // _CAUXWEAPON

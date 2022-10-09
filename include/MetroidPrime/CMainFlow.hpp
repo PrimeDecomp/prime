@@ -1,5 +1,5 @@
-#ifndef _CMAINFLOW_HPP
-#define _CMAINFLOW_HPP
+#ifndef _CMAINFLOW
+#define _CMAINFLOW
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ public:
   void Draw() override;
 };
 
-#endif
+#endif // _CMAINFLOW

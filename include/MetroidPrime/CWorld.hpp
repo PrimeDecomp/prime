@@ -1,5 +1,5 @@
-#ifndef _CWORLD_HPP
-#define _CWORLD_HPP
+#ifndef _CWORLD
+#define _CWORLD
 
 #include "types.h"
 
@@ -105,4 +105,4 @@ private:
 };
 CHECK_SIZEOF(CWorld, 0xf4)
 
-#endif
+#endif // _CWORLD

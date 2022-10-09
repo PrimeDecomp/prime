@@ -1,5 +1,5 @@
-#ifndef __AR_H__
-#define __AR_H__
+#ifndef _DOLPHIN_AR
+#define _DOLPHIN_AR
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ u32 ARAlloc(u32 length);
 }
 #endif
 
-#endif // __AR_H__
+#endif // _DOLPHIN_AR
