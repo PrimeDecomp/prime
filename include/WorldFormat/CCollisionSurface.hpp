@@ -4,17 +4,22 @@
 #include "types.h"
 
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Math/CPlane.hpp"
 
 class CCollisionSurface {
 public:
-  typedef CVector3f TVerts[3];
 
-  // TODO
+  CCollisionSurface(const CVector3f&, const CVector3f&, const CVector3f&, uint flags);
+
+  CUnitVector3f GetNormal() const;
+  CPlane GetPlane() const;
 
 private:
-  TVerts x0_data;
+  CVector3f x0_a;
+  CVector3f xc_b;
+  CVector3f x18_c;
   uint x24_flags;
 };
-CHECK_SIZEOF(CCollisionSurface, 0x28)
+//CHECK_SIZEOF(CCollisionSurface, 0x28)
 
 #endif // _CCOLLISIONSURFACE
