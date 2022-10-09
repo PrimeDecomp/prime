@@ -1,5 +1,5 @@
-#ifndef _CSTOPWATCH_HPP
-#define _CSTOPWATCH_HPP
+#ifndef _CSTOPWATCH
+#define _CSTOPWATCH
 
 #include "types.h"
 
@@ -9,10 +9,7 @@ class CStopwatch {
 public:
   class CSWData {
   public:
-    CSWData()
-    : x0_timerFreq(0)
-    , x8_timerFreqO1M(0)
-    , x10_timerPeriod(0.f) {}
+    CSWData() : x0_timerFreq(0), x8_timerFreqO1M(0), x10_timerPeriod(0.f) {}
 
     bool Initialize();
     void Wait(f32) const;
@@ -45,6 +42,7 @@ public:
   }
 
   static void Wait(f32);
+
 private:
   static CSWData mData;
   static CStopwatch mGlobalTimer;
@@ -52,4 +50,4 @@ private:
   s64 x0_startTime;
 };
 
-#endif
+#endif // _CSTOPWATCH

@@ -1,5 +1,5 @@
-#ifndef _CPARTICLEDATA_HPP
-#define _CPARTICLEDATA_HPP
+#ifndef _CPARTICLEDATA
+#define _CPARTICLEDATA
 
 #include "types.h"
 
@@ -32,4 +32,4 @@ private:
   f32 x18_scale;
 };
 
-#endif
+#endif // _CPARTICLEDATA

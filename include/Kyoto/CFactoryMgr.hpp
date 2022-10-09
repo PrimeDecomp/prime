@@ -1,5 +1,5 @@
-#ifndef _CFACTORYMGR_HPP
-#define _CFACTORYMGR_HPP
+#ifndef _CFACTORYMGR
+#define _CFACTORYMGR
 
 #include "types.h"
 
@@ -27,4 +27,4 @@ private:
 CFactoryFnReturn FStringTableFactory(const SObjectTag& tag, CInputStream& in,
                                      const CVParamTransfer& xfer);
 
-#endif
+#endif // _CFACTORYMGR

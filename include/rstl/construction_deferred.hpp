@@ -1,5 +1,5 @@
-#ifndef _RSTL_CONSTRUCTION_DEFERRED_HPP
-#define _RSTL_CONSTRUCTION_DEFERRED_HPP
+#ifndef _RSTL_CONSTRUCTION_DEFERRED
+#define _RSTL_CONSTRUCTION_DEFERRED
 
 #include "types.h"
 
@@ -34,4 +34,4 @@ private:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_CONSTRUCTION_DEFERRED

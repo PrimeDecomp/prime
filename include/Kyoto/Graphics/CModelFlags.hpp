@@ -1,5 +1,5 @@
-#ifndef _CMODELFLAGS_HPP
-#define _CMODELFLAGS_HPP
+#ifndef _CMODELFLAGS
+#define _CMODELFLAGS
 
 #include "types.h"
 
@@ -104,4 +104,4 @@ private:
 };
 CHECK_SIZEOF(CModelFlags, 0x8)
 
-#endif
+#endif // _CMODELFLAGS

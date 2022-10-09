@@ -1,5 +1,5 @@
-#ifndef _CMATH_HPP
-#define _CMATH_HPP
+#ifndef _CMATH
+#define _CMATH
 
 #include "types.h"
 
@@ -73,4 +73,4 @@ public:
   // Swap<f>__5CMathFRfRf weak
 };
 
-#endif
+#endif // _CMATH

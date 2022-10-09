@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _CFIDGET
+#define _CFIDGET
 
 #include "types.h"
 
@@ -50,3 +51,5 @@ public:
   void DoneLoading() { x34_24_loading = false; }
 };
 CHECK_SIZEOF(CFidget, 0x38)
+
+#endif // _CFIDGET

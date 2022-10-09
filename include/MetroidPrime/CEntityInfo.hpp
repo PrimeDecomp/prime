@@ -1,5 +1,5 @@
-#ifndef _CENTITY_INFO_HPP
-#define _CENTITY_INFO_HPP
+#ifndef _CENTITYINFO
+#define _CENTITYINFO
 
 #include "types.h"
 
@@ -247,4 +247,4 @@ public:
   TEditorId GetEditorId() const { return x14_editorId; }
 };
 
-#endif
+#endif // _CENTITYINFO

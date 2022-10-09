@@ -1,5 +1,5 @@
-#ifndef __CPHYSICSSTATE_HPP__
-#define __CPHYSICSSTATE_HPP__
+#ifndef _CPHYSICSSTATE
+#define _CPHYSICSSTATE
 
 #include "MetroidPrime/CAxisAngle.hpp"
 
@@ -35,4 +35,4 @@ private:
   CAxisAngle x64_angularImpulse;
 };
 
-#endif // __CHPYSICSSTATE_HPP__
+#endif // _CPHYSICSSTATE

@@ -1,5 +1,5 @@
-#ifndef _CMEMORY_SYS_HPP
-#define _CMEMORY_SYS_HPP
+#ifndef _CMEMORYSYS
+#define _CMEMORYSYS
 
 #include "types.h"
 
@@ -17,4 +17,4 @@ private:
   u8 x0_unk;
 };
 
-#endif
+#endif // _CMEMORYSYS

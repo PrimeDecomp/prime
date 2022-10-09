@@ -1,9 +1,8 @@
-#ifndef __DTK_H__
-#define __DTK_H__
+#ifndef _DOLPHIN_DTK
+#define _DOLPHIN_DTK
 
-#include <dolphin/types.h>
 #include <dolphin/dvd.h>
-
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,4 +44,4 @@ u16 DTKGetVolume(void);
 }
 #endif
 
-#endif // __DTK_H__
+#endif // _DOLPHIN_DTK

@@ -1,3 +1,6 @@
+#ifndef _MUSYX_SEQ
+#define _MUSYX_SEQ
+
 #include "musyx/musyx_priv.h"
 
 #ifdef __cplusplus
@@ -16,3 +19,5 @@ u16 seqGetMIDIPriority(s32 unk1, s32 unk2);
 #ifdef __cplusplus
 }
 #endif
+
+#endif // _MUSYX_SEQ

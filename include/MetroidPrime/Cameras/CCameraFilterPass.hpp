@@ -1,5 +1,5 @@
-#ifndef _CCAMERAFILTERPASS_HPP
-#define _CCAMERAFILTERPASS_HPP
+#ifndef _CCAMERAFILTERPASS
+#define _CCAMERAFILTERPASS
 
 #include "types.h"
 
@@ -58,4 +58,4 @@ private:
 };
 CHECK_SIZEOF(CCameraFilterPass, 0x2c)
 
-#endif
+#endif // _CCAMERAFILTERPASS

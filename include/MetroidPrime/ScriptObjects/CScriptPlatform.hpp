@@ -1,5 +1,5 @@
-#ifndef _CSCRIPTPLATFORM_HPP
-#define _CSCRIPTPLATFORM_HPP
+#ifndef _CSCRIPTPLATFORM
+#define _CSCRIPTPLATFORM
 
 #include "types.h"
 
@@ -112,4 +112,4 @@ private:
 };
 CHECK_SIZEOF(CScriptPlatform, 0x358)
 
-#endif
+#endif // _CSCRIPTPLATFORM

@@ -1,5 +1,5 @@
-#ifndef _CRESFACTORY_HPP
-#define _CRESFACTORY_HPP
+#ifndef _CRESFACTORY
+#define _CRESFACTORY
 
 #include "types.h"
 
@@ -52,4 +52,4 @@ CHECK_SIZEOF(CResFactory, 0xc8);
 
 extern CResFactory* gpResourceFactory;
 
-#endif
+#endif // _CRESFACTORY

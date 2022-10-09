@@ -1,5 +1,5 @@
-#ifndef _CARCHITECTUREQUEUE_HPP
-#define _CARCHITECTUREQUEUE_HPP
+#ifndef _CARCHITECTUREQUEUE
+#define _CARCHITECTUREQUEUE
 
 #include "types.h"
 
@@ -18,4 +18,4 @@ private:
   rstl::list< CArchitectureMessage > x0_queue;
 };
 
-#endif
+#endif // _CARCHITECTUREQUEUE

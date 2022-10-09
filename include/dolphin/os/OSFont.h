@@ -1,5 +1,5 @@
-#ifndef __OSFONT_H__
-#define __OSFONT_H__
+#ifndef _DOLPHIN_OSFONT
+#define _DOLPHIN_OSFONT
 
 #include <types.h>
 
@@ -14,4 +14,4 @@ u16 OSSetFontEncode(u16 encode);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSFONT

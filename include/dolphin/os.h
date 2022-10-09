@@ -1,5 +1,5 @@
-#ifndef _DOLPHIN_OS_H
-#define _DOLPHIN_OS_H
+#ifndef _DOLPHIN_OS
+#define _DOLPHIN_OS
 
 #include <dolphin/gx.h>
 #include <dolphin/types.h>
@@ -142,4 +142,4 @@ void OSFatal(GXColor fg, GXColor bg, const char* msg);
 #include <dolphin/os/OSReset.h>
 #include <dolphin/os/OSSerial.h>
 #include <dolphin/os/OSThread.h>
-#endif
+#endif // _DOLPHIN_OS

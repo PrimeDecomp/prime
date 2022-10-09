@@ -1,5 +1,5 @@
-#ifndef _WEAPONTYPES_HPP
-#define _WEAPONTYPES_HPP
+#ifndef _WEAPONTYPES
+#define _WEAPONTYPES
 
 enum EWeaponType {
   kWT_None = -1,
@@ -52,4 +52,4 @@ public:
   static CWeaponMode PowerBomb() { return CWeaponMode(kWT_PowerBomb); }
 };
 
-#endif
+#endif // _WEAPONTYPES

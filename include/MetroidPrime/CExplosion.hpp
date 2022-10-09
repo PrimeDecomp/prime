@@ -1,5 +1,5 @@
-#ifndef _CEXPLOSION_HPP
-#define _CEXPLOSION_HPP
+#ifndef _CEXPLOSION
+#define _CEXPLOSION
 
 #include "types.h"
 
@@ -43,4 +43,4 @@ public:
 };
 CHECK_SIZEOF(CExplosion, 0x100)
 
-#endif
+#endif // _CEXPLOSION

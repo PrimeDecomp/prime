@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GX_H
-#define DOLPHIN_GX_H
+#ifndef _DOLPHIN_GX
+#define _DOLPHIN_GX
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
@@ -23,4 +23,4 @@
 #include <dolphin/gx/GXTransform.h>
 #include <dolphin/gx/GXVert.h>
 
-#endif
+#endif // _DOLPHIN_GX

@@ -1,5 +1,5 @@
-#ifndef __SYNTH_H__
-#define __SYNTH_H__
+#ifndef _MUSYX_SYNTH
+#define _MUSYX_SYNTH
 
 #include "musyx/musyx_priv.h"
 #ifndef __cplusplus
@@ -44,4 +44,4 @@ void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
 }
 #endif
 
-#endif // __SYNTH_H__
+#endif // _MUSYX_SYNTH

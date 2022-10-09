@@ -1,5 +1,5 @@
-#ifndef _CACTOR_HPP
-#define _CACTOR_HPP
+#ifndef _CACTOR
+#define _CACTOR
 
 #include "types.h"
 
@@ -262,12 +262,8 @@ public:
     SetTransformDirtySpare(true);
     SetPreRenderHasMoved(true);
   }
-  void SetRotation(const CQuaternion& rot) {
-    SetTransform(rot.BuildTransform4f(GetTranslation()));
-  }
-  CQuaternion GetRotation() const {
-    return CQuaternion::FromMatrix(GetTransform());
-  }
+  void SetRotation(const CQuaternion& rot) { SetTransform(rot.BuildTransform4f(GetTranslation())); }
+  CQuaternion GetRotation() const { return CQuaternion::FromMatrix(GetTransform()); }
   CVector3f GetTranslation() const { return x34_transform.GetTranslation(); }
   void SetTranslation(const CVector3f& vec);
   CTransform4f GetLocatorTransform(const rstl::string& segName) const;
@@ -399,4 +395,4 @@ protected:
 };
 CHECK_SIZEOF(CActor, 0xe8)
 
-#endif
+#endif // _CACTOR

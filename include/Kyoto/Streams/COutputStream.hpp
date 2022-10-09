@@ -1,10 +1,10 @@
-#ifndef _COUTPUTSTREAM_HPP
-#define _COUTPUTSTREAM_HPP
+#ifndef _COUTPUTSTREAM
+#define _COUTPUTSTREAM
 
 #include "types.h"
 
 class COutputStream;
-template <typename T>
+template < typename T >
 void coutput_stream_helper(const T& t, COutputStream& out) {
   t.PutTo(out);
 }
@@ -13,6 +13,7 @@ class COutputStream {
   void DoPut(const void* ptr, size_t len);
   void Flush();
   void DoFlush();
+
 public:
   COutputStream(int len);
   virtual ~COutputStream();
@@ -24,25 +25,17 @@ public:
     DoPut(ptr, len);
   }
 
-  template <typename T>
+  template < typename T >
   void Put(const T& t) {
     coutput_stream_helper(t, *this);
   }
 
-  void WriteReal32(float t) {
-    Put(t);
-  }
+  void WriteReal32(float t) { Put(t); }
 
-  void WriteUint32(uint t) {
-    Put(t);
-  }
-  void WriteInt32(int t) {
-    Put(t);
-  }
+  void WriteUint32(uint t) { Put(t); }
+  void WriteInt32(int t) { Put(t); }
 
-  void WriteLong(int t) {
-    Put(&t, sizeof(int));
-  }
+  void WriteLong(int t) { Put(&t, sizeof(int)); }
 
 private:
   uint mPosition;
@@ -60,15 +53,14 @@ inline void coutput_stream_helper(const float& t, COutputStream& out) {
   out.Put(&tmp, sizeof(float));
 }
 
-template<>
+template <>
 inline void coutput_stream_helper(const int& t, COutputStream& out) {
   out.WriteLong(t);
 }
 
-template<>
+template <>
 inline void coutput_stream_helper(const uint& t, COutputStream& out) {
   out.WriteLong(t);
 }
 
-
-#endif // _COUTPUTSTREAM_HPP
+#endif // _COUTPUTSTREAM

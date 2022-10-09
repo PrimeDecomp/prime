@@ -1,5 +1,5 @@
-#ifndef _CRESLOADER_HPP
-#define _CRESLOADER_HPP
+#ifndef _CRESLOADER
+#define _CRESLOADER
 
 #include "types.h"
 
@@ -37,4 +37,4 @@ private:
   bool x54_forwardSeek;
 };
 
-#endif
+#endif // _CRESLOADER

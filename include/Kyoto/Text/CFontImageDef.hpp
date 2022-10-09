@@ -1,5 +1,5 @@
-#ifndef __CFONTIMAGEDEF_HPP__
-#define __CFONTIMAGEDEF_HPP__
+#ifndef _CFONTIMAGEDEF
+#define _CFONTIMAGEDEF
 
 #include <Kyoto/Graphics/CTexture.hpp>
 #include <Kyoto/Math/CVector2f.hpp>
@@ -28,4 +28,4 @@ private:
   CVector2f mCropFactor;
 };
 
-#endif // __CFONTIMAGEDEF__
+#endif // _CFONTIMAGEDEF

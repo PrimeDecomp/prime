@@ -1,5 +1,5 @@
-#ifndef _CEFFECTCOMPONENT_HPP
-#define _CEFFECTCOMPONENT_HPP
+#ifndef _CEFFECTCOMPONENT
+#define _CEFFECTCOMPONENT
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ private:
   uint x30_flags;
 };
 
-#endif
+#endif // _CEFFECTCOMPONENT

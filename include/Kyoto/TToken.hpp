@@ -1,5 +1,5 @@
-#ifndef _TTOKEN_HPP
-#define _TTOKEN_HPP
+#ifndef _TTOKEN
+#define _TTOKEN
 
 #include "types.h"
 
@@ -62,4 +62,4 @@ private:
   T* x8_item;
 };
 
-#endif
+#endif // _TTOKEN

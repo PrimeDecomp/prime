@@ -1,5 +1,5 @@
-#ifndef __CAABOX_HPP__
-#define __CAABOX_HPP__
+#ifndef _CAABOX
+#define _CAABOX
 
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -104,4 +104,4 @@ private:
 };
 CHECK_SIZEOF(CAABox, 0x18)
 
-#endif // __CAABOX_HPP__
+#endif // _CAABOX

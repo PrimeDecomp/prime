@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXMANAGE_H
-#define DOLPHIN_GXMANAGE_H
+#ifndef _DOLPHIN_GXMANAGE
+#define _DOLPHIN_GXMANAGE
 
 #include <dolphin/gx/GXFifo.h>
 
@@ -20,4 +20,4 @@ void GXPixModeSync(void);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXMANAGE

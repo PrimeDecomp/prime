@@ -1,5 +1,5 @@
-#ifndef __CARD_H__
-#define __CARD_H__
+#ifndef _DOLPHIN_CARD
+#define _DOLPHIN_CARD
 
 #include "types.h"
 
@@ -173,4 +173,4 @@ s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* addr, s32 length, s32 off
 #ifdef __cplusplus
 }
 #endif
-#endif // __CARD_H__
+#endif // _DOLPHIN_CARD

@@ -1,5 +1,5 @@
-#ifndef _CTEXTURE_HPP
-#define _CTEXTURE_HPP
+#ifndef _CTEXTURE
+#define _CTEXTURE
 
 #include "types.h"
 
@@ -29,6 +29,7 @@ public:
 
   s16 GetWidth() const { return mWidth; }
   s16 GetHeight() const { return mHeight; }
+
 private:
   u32 mTexelFormat; // TODO: Enum
   s16 mWidth;
@@ -36,4 +37,4 @@ private:
   u8 pad[0x60];
 };
 
-#endif
+#endif // _CTEXTURE

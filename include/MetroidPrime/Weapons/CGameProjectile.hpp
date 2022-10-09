@@ -1,5 +1,5 @@
-#ifndef _CGAMEPROJECTILE_HPP
-#define _CGAMEPROJECTILE_HPP
+#ifndef _CGAMEPROJECTILE
+#define _CGAMEPROJECTILE
 
 #include "types.h"
 
@@ -59,4 +59,4 @@ private:
 };
 CHECK_SIZEOF(CGameProjectile, 0x2e8)
 
-#endif
+#endif // _CGAMEPROJECTILE

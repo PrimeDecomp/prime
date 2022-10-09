@@ -1,5 +1,5 @@
-#ifndef _ITWEAKOBJECT_HPP
-#define _ITWEAKOBJECT_HPP
+#ifndef _ITWEAKOBJECT
+#define _ITWEAKOBJECT
 
 #include "types.h"
 
@@ -8,4 +8,4 @@ public:
   virtual ~ITweakObject() = 0;
 };
 
-#endif
+#endif // _ITWEAKOBJECT

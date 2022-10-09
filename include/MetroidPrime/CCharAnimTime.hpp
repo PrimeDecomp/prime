@@ -1,5 +1,5 @@
-#ifndef _CCHARANIMTIME_HPP
-#define _CCHARANIMTIME_HPP
+#ifndef _CCHARANIMTIME
+#define _CCHARANIMTIME
 
 #include "types.h"
 
@@ -19,4 +19,4 @@ private:
 };
 CHECK_SIZEOF(CCharAnimTime, 0x8)
 
-#endif
+#endif // _CCHARANIMTIME

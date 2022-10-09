@@ -1,10 +1,10 @@
-#ifndef _CTOKEN_HPP
-#define _CTOKEN_HPP
+#ifndef _CTOKEN
+#define _CTOKEN
 
 #include "types.h"
 
-#include "Kyoto/IObj.hpp"
 #include "Kyoto/CObjectReference.hpp"
+#include "Kyoto/IObj.hpp"
 
 class CObjectReference;
 
@@ -20,9 +20,10 @@ public:
   CObjOwnerDerivedFromIObjUntyped* GetObj();
   void Lock();
   bool IsLoaded() const { return x0_objRef->IsLoaded(); }
+
 private:
   CObjectReference* x0_objRef;
   bool x4_lockHeld;
 };
 
-#endif
+#endif // _CTOKEN

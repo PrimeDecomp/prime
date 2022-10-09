@@ -1,5 +1,5 @@
-#ifndef _g721_h
-#define _g721_h
+#ifndef _G721
+#define _G721
 
 struct g72x_state {
   long yl;   /* Locked or steady state step size multiplier. */
@@ -31,4 +31,4 @@ void g72x_init_state(struct g72x_state* state_ptr);
 
 int g721_decoder(int i, struct g72x_state* state_ptr);
 
-#endif
+#endif // _G721

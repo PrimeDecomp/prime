@@ -1,5 +1,5 @@
-#ifndef _CACTORLIGHTS_HPP
-#define _CACTORLIGHTS_HPP
+#ifndef _CACTORLIGHTS
+#define _CACTORLIGHTS
 
 #include "types.h"
 
@@ -17,8 +17,9 @@ class CAABox;
 
 class CActorLights {
 public:
-  CActorLights(uint areaUpdateFramePeriod, const CVector3f& actorPosBias, int maxDynamicLights, int maxAreaLights,
-               bool ambientChannelOverflow, bool layer2, bool disableWorldLights, float positionUpdateThreshold);
+  CActorLights(uint areaUpdateFramePeriod, const CVector3f& actorPosBias, int maxDynamicLights,
+               int maxAreaLights, bool ambientChannelOverflow, bool layer2, bool disableWorldLights,
+               float positionUpdateThreshold);
   ~CActorLights();
 
   void BuildConstantAmbientLighting();
@@ -66,4 +67,4 @@ private:
 };
 CHECK_SIZEOF(CActorLights, 0x2e0)
 
-#endif
+#endif // _CACTORLIGHTS

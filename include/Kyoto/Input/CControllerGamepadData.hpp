@@ -1,5 +1,5 @@
-#ifndef __CCONTROLLERGAMEPADDATA_HPP__
-#define __CCONTROLLERGAMEPADDATA_HPP__
+#ifndef _CCONTROLLERGAMEPADDATA
+#define _CCONTROLLERGAMEPADDATA
 
 #include "Kyoto/Input/CControllerAxis.hpp"
 #include "Kyoto/Input/CControllerButton.hpp"
@@ -28,4 +28,4 @@ private:
   CControllerButton x34_buttons[12];
 };
 
-#endif // __CCONTROLLERGAMEPADDATA_HPP__
+#endif // _CCONTROLLERGAMEPADDATA

@@ -1,9 +1,10 @@
-#ifndef __CVPARAMTRANSFER_HPP__
-#define __CVPARAMTRANSFER_HPP__
+#ifndef _CVPARAMTRANSFER
+#define _CVPARAMTRANSFER
 
 #include <rstl/rc_ptr.hpp>
 
 class IObj;
+
 class CVParamTransfer {
 public:
   static CVParamTransfer Null();
@@ -12,4 +13,4 @@ private:
   rstl::rc_ptr< unkptr > x0_;
 };
 
-#endif // __CVPARAMTRANSFER_HPP__
+#endif // _CVPARAMTRANSFER

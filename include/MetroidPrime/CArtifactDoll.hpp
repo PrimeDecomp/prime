@@ -1,12 +1,14 @@
-#ifndef _CARTIFACTDOLL_HPP
-#define _CARTIFACTDOLL_HPP
+#ifndef _CARTIFACTDOLL
+#define _CARTIFACTDOLL
 
-#include "MetroidPrime/TGameTypes.hpp"
+#include "types.h"
+
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/TGameTypes.hpp"
 
 class CArtifactDoll {
 public:
   static CAssetId GetArtifactHeadScanFromItemType(CPlayerState::EItemType);
 };
 
-#endif // _CARTIFACTDOLL_HPP
+#endif // _CARTIFACTDOLL

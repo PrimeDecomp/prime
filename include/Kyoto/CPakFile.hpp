@@ -1,5 +1,5 @@
-#ifndef _CPAKFILE_HPP
-#define _CPAKFILE_HPP
+#ifndef _CPAKFILE
+#define _CPAKFILE
 
 #include "types.h"
 
@@ -35,4 +35,4 @@ private:
   mutable int x84_currentSeek;
 };
 
-#endif
+#endif // _CPAKFILE

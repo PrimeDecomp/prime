@@ -1,5 +1,5 @@
-#ifndef _CHIERARCHYPOSEBUILDER_HPP
-#define _CHIERARCHYPOSEBUILDER_HPP
+#ifndef _CHIERARCHYPOSEBUILDER
+#define _CHIERARCHYPOSEBUILDER
 
 #include "types.h"
 
@@ -59,4 +59,4 @@ private:
 };
 CHECK_SIZEOF(CHierarchyPoseBuilder, 0x110)
 
-#endif
+#endif // _CHIERARCHYPOSEBUILDER

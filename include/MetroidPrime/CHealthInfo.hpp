@@ -1,5 +1,5 @@
-#ifndef _CHEALTHINFO_HPP
-#define _CHEALTHINFO_HPP
+#ifndef _CHEALTHINFO
+#define _CHEALTHINFO
 
 #include "types.h"
 
@@ -16,4 +16,4 @@ private:
 };
 CHECK_SIZEOF(CHealthInfo, 0x8)
 
-#endif
+#endif // _CHEALTHINFO

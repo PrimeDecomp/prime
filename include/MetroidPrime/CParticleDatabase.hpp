@@ -1,5 +1,5 @@
-#ifndef _CPARTICLEDATABASE_HPP
-#define _CPARTICLEDATABASE_HPP
+#ifndef _CPARTICLEDATABASE
+#define _CPARTICLEDATABASE
 
 #include "types.h"
 
@@ -42,4 +42,4 @@ private:
 };
 CHECK_SIZEOF(CParticleDatabase, 0xb8)
 
-#endif
+#endif // _CPARTICLEDATABASE

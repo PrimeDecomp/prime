@@ -1,5 +1,5 @@
-#ifndef __ARQ_H__
-#define __ARQ_H__
+#ifndef _DOLPHIN_ARQ
+#define _DOLPHIN_ARQ
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ void ARQInit(void);
 }
 #endif
 
-#endif // __ARQ_H__
+#endif // _DOLPHIN_ARQ

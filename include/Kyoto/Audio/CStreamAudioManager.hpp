@@ -1,5 +1,5 @@
-#ifndef _CSTREAMAUDIOMANAGER_HPP
-#define _CSTREAMAUDIOMANAGER_HPP
+#ifndef _CSTREAMAUDIOMANAGER
+#define _CSTREAMAUDIOMANAGER
 
 #include "types.h"
 
@@ -12,4 +12,4 @@ public:
 private:
 };
 
-#endif
+#endif // _CSTREAMAUDIOMANAGER

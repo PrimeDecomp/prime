@@ -1,5 +1,5 @@
-#ifndef __CTIMEPROVIDER_HPP__
-#define __CTIMEPROVIDER_HPP__
+#ifndef _CTIMEPROVIDER
+#define _CTIMEPROVIDER
 
 #include <types.h>
 
@@ -17,4 +17,4 @@ private:
   CTimeProvider* x8_lastProvider;
 };
 
-#endif // __CTIMEPROVIDER_HPP__
+#endif // _CTIMEPROVIDER

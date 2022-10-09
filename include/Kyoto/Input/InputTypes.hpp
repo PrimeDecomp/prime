@@ -1,5 +1,5 @@
-#ifndef __INPUTTYPES_HPP__
-#define __INPUTTYPES_HPP__
+#ifndef _INPUTTYPES
+#define _INPUTTYPES
 
 #include <dolphin/pad.h>
 
@@ -36,4 +36,4 @@ enum EButton {
 
 enum EAnalogButton { kBA_Left, kBA_Right, kBA_MAX };
 
-#endif // __INPUTTYPES_HPP__
+#endif // _INPUTTYPES

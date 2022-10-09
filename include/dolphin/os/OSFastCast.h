@@ -1,5 +1,5 @@
-#ifndef _OSFASTCAST_H_
-#define _OSFASTCAST_H_
+#ifndef _DOLPHIN_OSFASTCAST
+#define _DOLPHIN_OSFASTCAST
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,4 +12,4 @@ extern "C" {
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSFASTCAST

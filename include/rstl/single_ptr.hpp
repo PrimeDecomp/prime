@@ -1,5 +1,5 @@
-#ifndef _RSTL_SINGLE_PTR_HPP
-#define _RSTL_SINGLE_PTR_HPP
+#ifndef _RSTL_SINGLE_PTR
+#define _RSTL_SINGLE_PTR
 
 #include "types.h"
 
@@ -16,9 +16,7 @@ public:
   // const T* get() const { return x0_ptr; }
   T* operator->() { return x0_ptr; }
   const T* operator->() const { return x0_ptr; }
-  single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) {
-    other.x0_ptr = nullptr;
-  }
+  single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) { other.x0_ptr = nullptr; }
   single_ptr& operator=(T* ptr) {
     delete x0_ptr;
     x0_ptr = ptr;
@@ -38,4 +36,4 @@ typedef single_ptr< void > unk_singleptr;
 CHECK_SIZEOF(unk_singleptr, 0x4);
 } // namespace rstl
 
-#endif
+#endif // _RSTL_SINGLE_PTR

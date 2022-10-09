@@ -1,5 +1,5 @@
-#ifndef _CGAMECAMERA_HPP
-#define _CGAMECAMERA_HPP
+#ifndef _CGAMECAMERA
+#define _CGAMECAMERA
 
 #include "types.h"
 
@@ -50,4 +50,4 @@ private:
 };
 CHECK_SIZEOF(CGameCamera, 0x188)
 
-#endif
+#endif // _CGAMECAMERA

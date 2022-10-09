@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXFIFO_H
-#define DOLPHIN_GXFIFO_H
+#ifndef _DOLPHIN_GXFIFO
+#define _DOLPHIN_GXFIFO
 
 #include <dolphin/gx/GXEnum.h>
 
@@ -29,4 +29,4 @@ void GXInitFifoLimits(GXFifoObj* fifo, u32 hiWaterMark, u32 loWaterMark);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXFIFO

@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXCOMMANDLIST_H
-#define DOLPHIN_GXCOMMANDLIST_H
+#ifndef _DOLPHIN_GXCOMMANDLIST
+#define _DOLPHIN_GXCOMMANDLIST
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,4 +32,4 @@ extern "C" {
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXCOMMANDLIST

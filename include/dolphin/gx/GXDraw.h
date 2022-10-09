@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXDRAW_H
-#define DOLPHIN_GXDRAW_H
+#ifndef _DOLPHIN_GXDRAW
+#define _DOLPHIN_GXDRAW
 
 #include <dolphin/types.h>
 
@@ -13,4 +13,4 @@ void GXDrawSphere(u8 numMajor, u8 numMinor);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXDRAW

@@ -1,5 +1,5 @@
-#ifndef __OSRTCPRIV_H__
-#define __OSRTCPRIV_H__
+#ifndef _DOLPHIN_OSRTCPRIV
+#define _DOLPHIN_OSRTCPRIV
 
 #include <types.h>
 
@@ -29,4 +29,5 @@ typedef struct OSSramEx {
 
 OSSram* __OSLockSram();
 OSSramEx* __OSLockSramEx();
-#endif
+
+#endif // _DOLPHIN_OSRTCPRIV

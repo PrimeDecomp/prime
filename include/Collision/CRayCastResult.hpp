@@ -1,5 +1,5 @@
-#ifndef _CRAYCASTRESULT_HPP
-#define _CRAYCASTRESULT_HPP
+#ifndef _CRAYCASTRESULT
+#define _CRAYCASTRESULT
 
 #include "types.h"
 
@@ -33,4 +33,4 @@ private:
 };
 CHECK_SIZEOF(CRayCastResult, 0x30)
 
-#endif
+#endif // _CRAYCASTRESULT

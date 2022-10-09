@@ -1,5 +1,5 @@
-#ifndef _CPROJECTILEWEAPON_HPP
-#define _CPROJECTILEWEAPON_HPP
+#ifndef _CPROJECTILEWEAPON
+#define _CPROJECTILEWEAPON
 
 #include "types.h"
 
@@ -68,4 +68,4 @@ private:
 };
 CHECK_SIZEOF(CProjectileWeapon, 0x128)
 
-#endif
+#endif // _CPROJECTILEWEAPON

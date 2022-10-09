@@ -1,5 +1,5 @@
-#ifndef _CCUBEMATERIAL_HPP
-#define _CCUBEMATERIAL_HPP
+#ifndef _CCUBEMATERIAL
+#define _CCUBEMATERIAL
 
 #include "types.h"
 
@@ -16,4 +16,4 @@ private:
   static CVector3f sViewingFrom;
 };
 
-#endif
+#endif // _CCUBEMATERIAL

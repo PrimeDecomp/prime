@@ -1,5 +1,5 @@
-#ifndef _CWEAPONMANAGER_HPP
-#define _CWEAPONMANAGER_HPP
+#ifndef _CWEAPONMGR
+#define _CWEAPONMGR
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ private:
 };
 CHECK_SIZEOF(CWeaponMgr, 0x14);
 
-#endif
+#endif // _CWEAPONMGR

@@ -1,5 +1,5 @@
-#ifndef __CVECTOR3I_HPP__
-#define __CVECTOR3I_HPP__
+#ifndef _CVECTOR3I
+#define _CVECTOR3I
 
 class CVector3i {
 public:
@@ -11,4 +11,4 @@ private:
   int mZ;
 };
 
-#endif // __CVECTOR3I_HPP__
+#endif // _CVECTOR3I

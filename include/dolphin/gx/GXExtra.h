@@ -1,5 +1,6 @@
-#ifndef DOLPHIN_GXEXTRA_H
-#define DOLPHIN_GXEXTRA_H
+#ifndef _DOLPHIN_GXEXTRA
+#define _DOLPHIN_GXEXTRA
+
 // Extra types for PC
 #ifdef TARGET_PC
 #include <dolphin/gx/GXStruct.h>
@@ -29,6 +30,7 @@ void GXColor4f32(float r, float g, float b, float a);
 #ifdef __cplusplus
 }
 #endif
-#endif
 
-#endif
+#endif // TARGET_PC
+
+#endif // _DOLPHIN_GXEXTRA

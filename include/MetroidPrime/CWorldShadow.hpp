@@ -1,17 +1,17 @@
-#ifndef _CWORLDSHADOW_HPP
-#define _CWORLDSHADOW_HPP
+#ifndef _CWORLDSHADOW
+#define _CWORLDSHADOW
 
 #include "MetroidPrime/TGameTypes.hpp"
 
-#include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 #include "rstl/single_ptr.hpp"
 
 class CTexture;
 
 class CWorldShadow {
-  rstl::single_ptr<CTexture> x0_texture;
+  rstl::single_ptr< CTexture > x0_texture;
   CTransform4f x4_view;
   CTransform4f x34_model;
   float x64_objHalfExtent;
@@ -27,11 +27,10 @@ public:
 
   void EnableModelProjectedShadow(const CTransform4f& pos, uint lightIdx, float f1);
   void DisableModelProjectedShadow();
-  void BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid, uint lightIdx, const CAABox& aabb,
-                               bool motionBlur, bool lighten);
+  void BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid, uint lightIdx,
+                               const CAABox& aabb, bool motionBlur, bool lighten);
   void ResetBlur();
 };
 CHECK_SIZEOF(CWorldShadow, 0x8c)
 
-
-#endif // _CWORLDSHADOW_HPP
+#endif // _CWORLDSHADOW

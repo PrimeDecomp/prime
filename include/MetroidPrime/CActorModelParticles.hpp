@@ -1,5 +1,5 @@
-#ifndef _CACTORMODELPARTICLES_HPP
-#define _CACTORMODELPARTICLES_HPP
+#ifndef _CACTORMODELPARTICLES
+#define _CACTORMODELPARTICLES
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ private:
   // TODO
 };
 
-#endif
+#endif // _CACTORMODELPARTICLES

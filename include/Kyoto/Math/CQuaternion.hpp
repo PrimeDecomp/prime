@@ -1,5 +1,5 @@
-#ifndef _CQUATERNION_HPP
-#define _CQUATERNION_HPP
+#ifndef _CQUATERNION
+#define _CQUATERNION
 
 #include "types.h"
 
@@ -69,4 +69,4 @@ private:
   static const CQuaternion sNoRotation;
 };
 
-#endif
+#endif // _CQUATERNION

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _CPLAYERCAMERABOB
+#define _CPLAYERCAMERABOB
 
 #include "types.h"
 
@@ -104,3 +105,5 @@ private:
   static const float kCameraDamping;
 };
 CHECK_SIZEOF(CPlayerCameraBob, 0x108)
+
+#endif // _CPLAYERCAMERABOB

@@ -1,5 +1,5 @@
-#ifndef __DSP_H__
-#define __DSP_H__
+#ifndef _DOLPHIN_DSP
+#define _DOLPHIN_DSP
 
 #include "types.h"
 #include <dolphin/os.h>
@@ -56,4 +56,4 @@ void __DSP_debug_printf(const char* fmt, ...);
 }
 #endif
 
-#endif // __DSP_H__
+#endif // _DOLPHIN_DSP

@@ -1,5 +1,5 @@
-#ifndef MUSYX_DSP_IMPORT_H
-#define MUSYX_DSP_IMPORT_H
+#ifndef _MUSYX_SYNTH_DBTAB
+#define _MUSYX_SYNTH_DBTAB
 
 #include "types.h"
 
@@ -14,4 +14,5 @@ extern float dspDLSVolTab[129];
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif // _MUSYX_SYNTH_DBTAB

@@ -1,5 +1,5 @@
-#ifndef _RSTL_LIST_HPP
-#define _RSTL_LIST_HPP
+#ifndef _RSTL_LIST
+#define _RSTL_LIST
 
 #include "types.h"
 
@@ -44,4 +44,4 @@ private:
 };
 } // namespace rstl
 
-#endif
+#endif // _RSTL_LIST

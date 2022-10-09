@@ -1,5 +1,5 @@
-#ifndef _TCASTTO_HPP
-#define _TCASTTO_HPP
+#ifndef _TCASTTO
+#define _TCASTTO
 
 #include "types.h"
 
@@ -106,4 +106,4 @@ static inline const T* TCastToConstPtr(const CEntity& p) {
   return TCastToPtr< T >(const_cast< CEntity& >(p));
 }
 
-#endif
+#endif // _TCASTTO

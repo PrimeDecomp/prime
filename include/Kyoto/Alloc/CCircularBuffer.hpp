@@ -1,5 +1,5 @@
-#ifndef __CCIRCULARBUFFER_HPP__
-#define __CCIRCULARBUFFER_HPP__
+#ifndef _CCIRCULARBUFFER
+#define _CCIRCULARBUFFER
 
 #include <types.h>
 
@@ -21,4 +21,5 @@ private:
   s32 x10_nextFreeAddr;
   s32 x14_;
 };
-#endif // __CCIRCULARBUFFER_HPP__
+
+#endif // _CCIRCULARBUFFER

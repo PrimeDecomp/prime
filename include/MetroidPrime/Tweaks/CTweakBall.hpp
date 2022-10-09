@@ -1,5 +1,5 @@
-#ifndef _CTWEAKBALL_HPP
-#define _CTWEAKBALL_HPP
+#ifndef _CTWEAKBALL
+#define _CTWEAKBALL
 
 #include "types.h"
 
@@ -213,4 +213,4 @@ private:
 
 extern CTweakBall* gpTweakBall;
 
-#endif
+#endif // _CTWEAKBALL

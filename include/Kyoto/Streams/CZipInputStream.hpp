@@ -1,5 +1,5 @@
-#ifndef _CZIPINPUTSTREAM_HPP
-#define _CZIPINPUTSTREAM_HPP
+#ifndef _CZIPINPUTSTREAM
+#define _CZIPINPUTSTREAM
 
 #include "types.h"
 
@@ -19,4 +19,4 @@ private:
   unkptr x30_zstream;
 };
 
-#endif
+#endif // _CZIPINPUTSTREAM

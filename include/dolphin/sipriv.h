@@ -1,5 +1,6 @@
-#ifndef __SIPRIV_H__
-#define __SIPRIV_H__
+#ifndef _DOLPHIN_SIPRIV
+#define _DOLPHIN_SIPRIV
+
 #include "dolphin/os.h"
 
 #ifdef __cplusplus
@@ -18,7 +19,6 @@ typedef struct SIPacket {
   SICallback callback;
   OSTime fire;
 } SIPacket;
-
 
 void SIInit(void);
 u32 SIGetStatus(s32 chan);
@@ -49,4 +49,4 @@ u32 SIDecodeType(u32 type);
 }
 #endif
 
-#endif // __SIPRIV_H__
+#endif // _DOLPHIN_SIPRIV

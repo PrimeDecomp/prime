@@ -1,5 +1,5 @@
-#ifndef _CSTATEMANAGERCONTAINER_HPP
-#define _CSTATEMANAGERCONTAINER_HPP
+#ifndef _CSTATEMANAGERCONTAINER
+#define _CSTATEMANAGERCONTAINER
 
 #include "types.h"
 
@@ -27,4 +27,4 @@ class CStateManagerContainer {
   rstl::reserved_vector< TUniqueId, 20 > xf39c_renderLast;
 };
 
-#endif
+#endif // _CSTATEMANAGERCONTAINER

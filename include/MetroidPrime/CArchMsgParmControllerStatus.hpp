@@ -1,6 +1,8 @@
 
-#ifndef __CARCMSGPARMCONTROLLERSTATUS_HPP__
-#define __CARCMSGPARMCONTROLLERSTATUS_HPP__
+#ifndef _CARCHMSGPARMCONTROLLERSTATUS
+#define _CARCHMSGPARMCONTROLLERSTATUS
+
+#include "types.h"
 
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
@@ -13,4 +15,4 @@ public:
   ~CArchMsgParmControllerStatus();
 };
 
-#endif // __CARCMSGPARMCONTROLLERSTATUS_HPP__
+#endif // _CARCHMSGPARMCONTROLLERSTATUS

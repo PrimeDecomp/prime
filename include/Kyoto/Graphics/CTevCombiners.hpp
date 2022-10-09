@@ -1,5 +1,5 @@
-#ifndef _CTEVCOMBINERS_HPP
-#define _CTEVCOMBINERS_HPP
+#ifndef _CTEVCOMBINERS
+#define _CTEVCOMBINERS
 
 #include "types.h"
 
@@ -99,4 +99,4 @@ extern CTevCombiners::CTevPass CTevPass_805a5ebc;
 // TODO move to CGraphics
 extern CTevCombiners::CTevPass* PTR_skPassThru_805a8828;
 
-#endif
+#endif // _CTEVCOMBINERS

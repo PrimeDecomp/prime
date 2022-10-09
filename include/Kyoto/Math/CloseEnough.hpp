@@ -1,5 +1,5 @@
-#ifndef __CLOSEENOUGH_HPP__
-#define __CLOSEENOUGH_HPP__
+#ifndef _CLOSEENOUGH
+#define _CLOSEENOUGH
 
 #include "types.h"
 
@@ -26,4 +26,4 @@ inline bool close_enough(double a, double b, double epsilon = Double::Epsilon())
   return fabs(a - b) < epsilon;
 }
 
-#endif // __CLOSEENOUGH_HPP__
+#endif // _CLOSEENOUGH

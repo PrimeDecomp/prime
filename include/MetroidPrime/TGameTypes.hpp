@@ -1,7 +1,8 @@
-#ifndef _TGAMETYPES_HPP
-#define _TGAMETYPES_HPP
+#ifndef _TGAMETYPES
+#define _TGAMETYPES
 
 #include "types.h"
+
 class CInputStream;
 class COutputStream;
 
@@ -73,4 +74,4 @@ private:
 
 #define ALIGN_UP(x, a) (((x) + (a - 1)) & ~(a - 1))
 
-#endif
+#endif // _TGAMETYPES

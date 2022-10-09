@@ -1,5 +1,5 @@
-#ifndef __CRANDOM16_HPP__
-#define __CRANDOM16_HPP__
+#ifndef _CRANDOM16
+#define _CRANDOM16
 
 #include "types.h"
 
@@ -36,4 +36,4 @@ private:
   uint mSeed;
 };
 
-#endif // __CRANDOM16_HPP__
+#endif // _CRANDOM16

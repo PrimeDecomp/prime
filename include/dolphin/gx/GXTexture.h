@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXTEXTURE_H
-#define DOLPHIN_GXTEXTURE_H
+#ifndef _DOLPHIN_GXTEXTURE
+#define _DOLPHIN_GXTEXTURE
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
@@ -28,4 +28,4 @@ void GXSetTexCoordScaleManually(GXTexCoordID coord, GXBool enable, u16 ss, u16 t
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXTEXTURE

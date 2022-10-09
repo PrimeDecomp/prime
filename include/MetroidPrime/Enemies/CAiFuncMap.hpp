@@ -1,5 +1,5 @@
-#ifndef _CAIFUNCMAP_HPP
-#define _CAIFUNCMAP_HPP
+#ifndef _CAIFUNCMAP
+#define _CAIFUNCMAP
 
 #include "types.h"
 
@@ -12,4 +12,4 @@ private:
   u8 pad[0x20];
 };
 
-#endif
+#endif // _CAIFUNCMAP

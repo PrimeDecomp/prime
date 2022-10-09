@@ -1,5 +1,5 @@
-#ifndef _CCOLLIDABLESPHERE_HPP
-#define _CCOLLIDABLESPHERE_HPP
+#ifndef _CCOLLIDABLESPHERE
+#define _CCOLLIDABLESPHERE
 
 #include "types.h"
 
@@ -24,4 +24,4 @@ private:
 };
 CHECK_SIZEOF(CCollidableSphere, 0x20)
 
-#endif
+#endif // _CCOLLIDABLESPHERE

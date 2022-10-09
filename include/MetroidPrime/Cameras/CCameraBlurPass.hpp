@@ -1,5 +1,5 @@
-#ifndef _CCAMERABLURPASS_HPP
-#define _CCAMERABLURPASS_HPP
+#ifndef _CCAMERABLURPASS
+#define _CCAMERABLURPASS
 
 #include "types.h"
 
@@ -39,4 +39,4 @@ private:
 };
 CHECK_SIZEOF(CCameraBlurPass, 0x34)
 
-#endif
+#endif // _CCAMERABLURPASS

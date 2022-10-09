@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXENUM_H
-#define DOLPHIN_GXENUM_H
+#ifndef _DOLPHIN_GXENUM
+#define _DOLPHIN_GXENUM
 
 #include <dolphin/types.h>
 
@@ -784,4 +784,4 @@ typedef enum _GXTlutFmt {
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXENUM

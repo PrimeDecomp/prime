@@ -1,5 +1,5 @@
-#ifndef __CCAST_HPP__
-#define __CCAST_HPP__
+#ifndef _CCAST
+#define _CCAST
 
 #include "types.h"
 
@@ -43,4 +43,4 @@ inline s16 FtoS(f32 in) { return static_cast< s16 >(in); }
 #endif
 } // namespace CCast
 
-#endif
+#endif // _CCAST

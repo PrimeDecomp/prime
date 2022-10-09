@@ -1,5 +1,5 @@
-#ifndef __CVECTOR3F_HPP__
-#define __CVECTOR3F_HPP__
+#ifndef _CVECTOR3F
+#define _CVECTOR3F
 
 #include "types.h"
 
@@ -162,4 +162,4 @@ inline CVector3f operator-(const CVector3f& vec) {
   return CVector3f(-vec.GetX(), -vec.GetY(), -vec.GetZ());
 }
 
-#endif // __CVECTOR3F_HPP__
+#endif // _CVECTOR3F

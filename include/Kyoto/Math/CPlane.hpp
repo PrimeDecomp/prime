@@ -1,5 +1,5 @@
-#ifndef _CPLANE_HPP
-#define _CPLANE_HPP
+#ifndef _CPLANE
+#define _CPLANE
 
 #include "types.h"
 
@@ -25,4 +25,4 @@ private:
 };
 CHECK_SIZEOF(CPlane, 0x10)
 
-#endif
+#endif // _CPLANE

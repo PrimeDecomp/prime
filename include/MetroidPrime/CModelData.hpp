@@ -1,5 +1,5 @@
-#ifndef _CMODELDATA_HPP
-#define _CMODELDATA_HPP
+#ifndef _CMODELDATA
+#define _CMODELDATA
 
 #include "types.h"
 
@@ -102,4 +102,4 @@ private:
 };
 CHECK_SIZEOF(CModelData, 0x4c)
 
-#endif
+#endif // _CMODELDATA

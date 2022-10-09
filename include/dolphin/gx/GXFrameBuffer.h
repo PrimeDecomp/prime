@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXFRAMEBUFFER_H
-#define DOLPHIN_GXFRAMEBUFFER_H
+#ifndef _DOLPHIN_GXFRAMEBUFFER
+#define _DOLPHIN_GXFRAMEBUFFER
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
@@ -8,38 +8,37 @@
 extern "C" {
 #endif
 
-//extern GXRenderModeObj GXNtsc240Ds;
-//extern GXRenderModeObj GXNtsc240DsAa;
-//extern GXRenderModeObj GXNtsc240Int;
-//extern GXRenderModeObj GXNtsc240IntAa;
+// extern GXRenderModeObj GXNtsc240Ds;
+// extern GXRenderModeObj GXNtsc240DsAa;
+// extern GXRenderModeObj GXNtsc240Int;
+// extern GXRenderModeObj GXNtsc240IntAa;
 extern GXRenderModeObj GXNtsc480IntDf;
-//extern GXRenderModeObj GXNtsc480Int;
-//extern GXRenderModeObj GXNtsc480IntAa;
-//extern GXRenderModeObj GXNtsc480Prog;
-//extern GXRenderModeObj GXNtsc480ProgSoft;
-//extern GXRenderModeObj GXNtsc480ProgAa;
-//extern GXRenderModeObj GXMpal240Ds;
-//extern GXRenderModeObj GXMpal240DsAa;
-//extern GXRenderModeObj GXMpal240Int;
-//extern GXRenderModeObj GXMpal240IntAa;
+// extern GXRenderModeObj GXNtsc480Int;
+// extern GXRenderModeObj GXNtsc480IntAa;
+// extern GXRenderModeObj GXNtsc480Prog;
+// extern GXRenderModeObj GXNtsc480ProgSoft;
+// extern GXRenderModeObj GXNtsc480ProgAa;
+// extern GXRenderModeObj GXMpal240Ds;
+// extern GXRenderModeObj GXMpal240DsAa;
+// extern GXRenderModeObj GXMpal240Int;
+// extern GXRenderModeObj GXMpal240IntAa;
 extern GXRenderModeObj GXMpal480IntDf;
-//extern GXRenderModeObj GXMpal480Int;
-//extern GXRenderModeObj GXMpal480IntAa;
-//extern GXRenderModeObj GXPal264Ds;
-//extern GXRenderModeObj GXPal264DsAa;
-//extern GXRenderModeObj GXPal264Int;
-//extern GXRenderModeObj GXPal264IntAa;
+// extern GXRenderModeObj GXMpal480Int;
+// extern GXRenderModeObj GXMpal480IntAa;
+// extern GXRenderModeObj GXPal264Ds;
+// extern GXRenderModeObj GXPal264DsAa;
+// extern GXRenderModeObj GXPal264Int;
+// extern GXRenderModeObj GXPal264IntAa;
 extern GXRenderModeObj GXPal528IntDf;
-//extern GXRenderModeObj GXPal528Int;
-//extern GXRenderModeObj GXPal524IntAa;
-//extern GXRenderModeObj GXEurgb60Hz240Ds;
-//extern GXRenderModeObj GXEurgb60Hz240DsAa;
-//extern GXRenderModeObj GXEurgb60Hz240Int;
-//extern GXRenderModeObj GXEurgb60Hz240IntAa;
+// extern GXRenderModeObj GXPal528Int;
+// extern GXRenderModeObj GXPal524IntAa;
+// extern GXRenderModeObj GXEurgb60Hz240Ds;
+// extern GXRenderModeObj GXEurgb60Hz240DsAa;
+// extern GXRenderModeObj GXEurgb60Hz240Int;
+// extern GXRenderModeObj GXEurgb60Hz240IntAa;
 extern GXRenderModeObj GXEurgb60Hz480IntDf;
-//extern GXRenderModeObj GXEurgb60Hz480Int;
-//extern GXRenderModeObj GXEurgb60Hz480IntAa;
-
+// extern GXRenderModeObj GXEurgb60Hz480Int;
+// extern GXRenderModeObj GXEurgb60Hz480IntAa;
 
 #define GX_MAX_Z24 0x00FFFFFF
 
@@ -60,4 +59,4 @@ void GXCopyTex(void* dest, GXBool clear);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXFRAMEBUFFER

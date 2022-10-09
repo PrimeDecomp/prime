@@ -1,5 +1,5 @@
-#ifndef _CSKINNEDMODEL_HPP
-#define _CSKINNEDMODEL_HPP
+#ifndef _CSKINNEDMODEL
+#define _CSKINNEDMODEL
 
 #include "types.h"
 
@@ -11,4 +11,4 @@ private:
   // TODO
 };
 
-#endif
+#endif // _CSKINNEDMODEL

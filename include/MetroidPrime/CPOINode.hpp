@@ -1,5 +1,5 @@
-#ifndef _CPOINODE_HPP
-#define _CPOINODE_HPP
+#ifndef _CPOINODE
+#define _CPOINODE
 
 #include "types.h"
 
@@ -85,4 +85,4 @@ private:
   f32 x40_maxDist;
 };
 
-#endif
+#endif // _CPOINODE

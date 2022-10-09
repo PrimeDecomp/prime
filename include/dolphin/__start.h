@@ -1,3 +1,6 @@
+#ifndef _DOLPHIN__START
+#define _DOLPHIN__START
+
 #include "dolphin/db.h"
 #include "types.h"
 
@@ -52,3 +55,5 @@ typedef struct __bss_init_info {
 } __bss_init_info;
 
 __declspec(section ".init") extern __bss_init_info _bss_init_info[];
+
+#endif // _DOLPHIN__START

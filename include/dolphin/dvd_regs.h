@@ -1,6 +1,6 @@
-#ifndef __DVD_REGS_H__
-#define __DVD_REGS_H__
+#ifndef _DOLPHIN_DVD_REGS
+#define _DOLPHIN_DVD_REGS
 
 vu32 __DIRegs[16] : 0xCC006000;
 
-#endif // __DVD_REGS_H__
+#endif // _DOLPHIN_DVD_REGS

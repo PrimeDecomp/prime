@@ -1,5 +1,5 @@
-#ifndef __OSTHREAD_H__
-#define __OSTHREAD_H__
+#ifndef _DOLPHIN_OSTHREAD
+#define _DOLPHIN_OSTHREAD
 
 #include <dolphin/os/OSContext.h>
 
@@ -68,4 +68,4 @@ OSThread* OSGetCurrentThread(void);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSTHREAD

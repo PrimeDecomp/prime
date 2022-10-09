@@ -1,5 +1,5 @@
-#ifndef _CPHYSICSACTOR_HPP
-#define _CPHYSICSACTOR_HPP
+#ifndef _CPHYSICSACTOR
+#define _CPHYSICSACTOR
 
 #include "types.h"
 
@@ -180,4 +180,4 @@ private:
 };
 CHECK_SIZEOF(CPhysicsActor, 0x258)
 
-#endif
+#endif // _CPHYSICSACTOR

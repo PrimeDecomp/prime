@@ -1,5 +1,5 @@
-#ifndef __CCONTROLLERAXIS_HPP__
-#define __CCONTROLLERAXIS_HPP__
+#ifndef _CCONTROLLERAXIS
+#define _CCONTROLLERAXIS
 
 class CControllerAxis {
 public:
@@ -14,4 +14,4 @@ public:
   float x4_absolute;
 };
 
-#endif // __CCONTROLLERAXIS_HPP__
+#endif // _CCONTROLLERAXIS

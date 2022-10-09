@@ -1,5 +1,5 @@
-#ifndef _CGUNCONTROLLER_HPP
-#define _CGUNCONTROLLER_HPP
+#ifndef _CGUNCONTROLLER
+#define _CGUNCONTROLLER
 
 #include "types.h"
 
@@ -34,7 +34,7 @@ class CGunController {
 public:
   explicit CGunController(CModelData& modelData);
   ~CGunController();
-  
+
   void EnterFreeLook(CStateManager&, int, int);
   void EnterComboFire(CStateManager&, int);
   void EnterFidget(CStateManager&, int, int, int);
@@ -47,8 +47,7 @@ public:
   void ReturnToBasePosition(CStateManager&);
 
   int GetFreeLookSetId() const { return x4_freeLook.GetSetId(); }
-
 };
 CHECK_SIZEOF(CGunController, 0x5C)
 
-#endif // _CGUNCONTROLLER_HPP
+#endif // _CGUNCONTROLLER

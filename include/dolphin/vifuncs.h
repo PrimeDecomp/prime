@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_VIFUNCS_H
-#define DOLPHIN_VIFUNCS_H
+#ifndef _DOLPHIN_VIFUNCS
+#define _DOLPHIN_VIFUNCS
 
 #include <dolphin/types.h>
 
@@ -13,4 +13,4 @@ u32 VIGetNextField(void);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_VIFUNCS

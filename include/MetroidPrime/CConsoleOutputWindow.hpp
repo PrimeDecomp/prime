@@ -1,5 +1,5 @@
-#ifndef _CCONSOLEOUTPUTWINDOW_HPP
-#define _CCONSOLEOUTPUTWINDOW_HPP
+#ifndef _CCONSOLEOUTPUTWINDOW
+#define _CCONSOLEOUTPUTWINDOW
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ public:
   void Draw() override;
 };
 
-#endif
+#endif // _CCONSOLEOUTPUTWINDOW

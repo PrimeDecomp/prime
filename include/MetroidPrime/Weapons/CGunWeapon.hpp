@@ -1,6 +1,6 @@
 // #pragma once
-#ifndef _CGUNWEAPON_HPP_
-#define _CGUNWEAPON_HPP_
+#ifndef _CGUNWEAPON
+#define _CGUNWEAPON
 
 #include "types.h"
 
@@ -65,13 +65,15 @@ public:
   virtual void PlayAnim(NWeaponTypes::EGunAnimType type, bool loop);
   virtual void PreRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
   virtual void PostRenderGunFx(const CStateManager& mgr, const CTransform4f& xf);
-  virtual void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr, const CTransform4f& xf);
-  virtual void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState, const CTransform4f& xf, CStateManager& mgr,
-                    TUniqueId homingTarget, float chargeFactor1, float chargeFactor2);
+  virtual void UpdateGunFx(bool shotSmoke, float dt, const CStateManager& mgr,
+                           const CTransform4f& xf);
+  virtual void Fire(bool underwater, float dt, CPlayerState::EChargeStage chargeState,
+                    const CTransform4f& xf, CStateManager& mgr, TUniqueId homingTarget,
+                    float chargeFactor1, float chargeFactor2);
   virtual void EnableFx(bool enable);
   virtual void EnableSecondaryFx(ESecondaryFxType type);
-  virtual void Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf, const CModelFlags& flags,
-                    const CActorLights* lights);
+  virtual void Draw(bool drawSuitArm, const CStateManager& mgr, const CTransform4f& xf,
+                    const CModelFlags& flags, const CActorLights* lights);
   virtual void DrawMuzzleFx(const CStateManager& mgr) const;
   virtual void Update(float dt, CStateManager& mgr);
   virtual void Load(CStateManager& mgr, bool subtypeBasePose);
@@ -130,4 +132,4 @@ private:
 };
 CHECK_SIZEOF(CGunWeapon, 0x21c)
 
-#endif
+#endif // _CGUNWEAPON

@@ -1,3 +1,6 @@
+#ifndef _DOLPHIN__PPC_EABI_INIT
+#define _DOLPHIN__PPC_EABI_INIT
+
 #include "types.h"
 
 #ifdef __cplusplus
@@ -12,3 +15,5 @@ void __init_cpp(void);
 #ifdef __cplusplus
 }
 #endif
+
+#endif // _DOLPHIN__PPC_EABI_INIT

@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXDISPLIST_H
-#define DOLPHIN_GXDISPLIST_H
+#ifndef _DOLPHIN_GXDISPLIST
+#define _DOLPHIN_GXDISPLIST
 
 #include <dolphin/types.h>
 
@@ -15,4 +15,4 @@ void GXCallDisplayList(const void* list, u32 nbytes);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXDISPLIST

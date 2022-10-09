@@ -1,5 +1,5 @@
-#ifndef _CINPUTGENERATOR_HPP
-#define _CINPUTGENERATOR_HPP
+#ifndef _CINPUTGENERATOR
+#define _CINPUTGENERATOR
 
 #include "types.h"
 
@@ -25,4 +25,4 @@ private:
 };
 CHECK_SIZEOF(CInputGenerator, 0x14)
 
-#endif
+#endif // _CINPUTGENERATOR

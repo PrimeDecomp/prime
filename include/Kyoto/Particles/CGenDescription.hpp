@@ -1,12 +1,13 @@
-#ifndef __CGENDESCRIPTION_HPP__
-#define __CGENDESCRIPTION_HPP__
+#ifndef _CGENDESCRIPTION
+#define _CGENDESCRIPTION
 
 class CGenDescription {
 public:
   CGenDescription();
   ~CGenDescription();
+
 private:
   char data[0x12c];
 };
 
-#endif // __CGENDESCRIPTION_HPP__
+#endif // _CGENDESCRIPTION

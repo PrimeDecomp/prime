@@ -1,6 +1,5 @@
-#ifndef __CVECTOR3D_HPP__
-#define __CVECTOR3D_HPP__
-
+#ifndef _CVECTOR3D
+#define _CVECTOR3D
 
 #include "Kyoto/Math/CVector3f.hpp"
 
@@ -21,7 +20,6 @@ public:
   static double Dot(const CVector3d& a, const CVector3d& b);
   static CVector3d Cross(const CVector3d& a, const CVector3d& b);
 
-
 private:
   double mX;
   double mY;
@@ -30,4 +28,4 @@ private:
 
 CVector3d operator+(const CVector3d& other);
 
-#endif // __CVECTOR3D_HPP__
+#endif // _CVECTOR3D

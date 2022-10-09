@@ -1,5 +1,5 @@
-#ifndef _CNUQUATERNION_HPP
-#define _CNUQUATERNION_HPP
+#ifndef _CNUQUATERNION
+#define _CNUQUATERNION
 
 #include "types.h"
 
@@ -10,6 +10,7 @@ public:
 
   static CNUQuaternion BuildFromMatrix3f(const CMatrix3f& matrix);
   static CNUQuaternion BuildFromQuaternion(const CQuaternion& quat);
+
 private:
   f32 w;
   f32 x;
@@ -17,4 +18,4 @@ private:
   f32 z;
 };
 
-#endif
+#endif // _CNUQUATERNION

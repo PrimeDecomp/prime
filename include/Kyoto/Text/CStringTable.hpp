@@ -1,5 +1,5 @@
-#ifndef _CSTRINGTABLE_HPP
-#define _CSTRINGTABLE_HPP
+#ifndef _CSTRINGTABLE
+#define _CSTRINGTABLE
 
 #include "types.h"
 
@@ -18,4 +18,4 @@ public:
 
 extern CStringTable* gpStringTable;
 
-#endif
+#endif // _CSTRINGTABLE

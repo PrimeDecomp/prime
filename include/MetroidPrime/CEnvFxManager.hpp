@@ -1,5 +1,5 @@
-#ifndef _CENVFXMANAGER_HPP
-#define _CENVFXMANAGER_HPP
+#ifndef _CENVFXMANAGER
+#define _CENVFXMANAGER
 
 #include "types.h"
 
@@ -65,4 +65,4 @@ private:
   bool xc54_;
 };
 
-#endif
+#endif // _CENVFXMANAGER

@@ -1,5 +1,5 @@
-#ifndef _CANIMDATA_HPP
-#define _CANIMDATA_HPP
+#ifndef _CANIMDATA
+#define _CANIMDATA
 
 #include "types.h"
 
@@ -212,4 +212,4 @@ private:
 };
 CHECK_SIZEOF(CAnimData, 0x434 + 0x144)
 
-#endif
+#endif // _CANIMDATA

@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXGET_H
-#define DOLPHIN_GXGET_H
+#ifndef _DOLPHIN_GXGET
+#define _DOLPHIN_GXGET
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
@@ -25,4 +25,4 @@ void GXGetVtxAttrFmt(GXVtxFmt idx, GXAttr attr, GXCompCnt* compCnt, GXCompType* 
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXGET

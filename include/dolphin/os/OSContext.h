@@ -1,5 +1,5 @@
-#ifndef __OSCONTEXT_H__
-#define __OSCONTEXT_H__
+#ifndef _DOLPHIN_OSCONTEXT
+#define _DOLPHIN_OSCONTEXT
 
 #include <types.h>
 
@@ -39,4 +39,4 @@ void OSSetCurrentContext(OSContext* context);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_OSCONTEXT

@@ -1,5 +1,5 @@
-#ifndef _CGSFREELOOK_HPP
-#define _CGSFREELOOK_HPP
+#ifndef _CGSFREELOOK
+#define _CGSFREELOOK
 
 #include "types.h"
 
@@ -23,8 +23,9 @@ public:
   void SetIdle(bool l) { x14_idle = l; }
   int GetGunId() const { return xc_gunId; }
   bool Update(CAnimData& data, float dt, CStateManager& mgr);
-  int SetAnim(CAnimData& data, int gunId, int setId, int loopState, CStateManager& mgr, float delay);
+  int SetAnim(CAnimData& data, int gunId, int setId, int loopState, CStateManager& mgr,
+              float delay);
 };
 CHECK_SIZEOF(CGSFreeLook, 0x18)
 
-#endif // _CGSFREELOOK_HPP
+#endif // _CGSFREELOOK

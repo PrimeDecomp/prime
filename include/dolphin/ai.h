@@ -1,5 +1,5 @@
-#ifndef __AI_H__
-#define __AI_H__
+#ifndef _DOLPHIN_AI
+#define _DOLPHIN_AI
 
 #include "types.h"
 
@@ -33,4 +33,4 @@ void AIInit(u8* stack);
 BOOL AICheckInit();
 void AIReset();
 
-#endif // __AI_H__
+#endif // _DOLPHIN_AI

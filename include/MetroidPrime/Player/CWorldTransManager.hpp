@@ -1,5 +1,5 @@
-#ifndef _CWORLDTRANSMANAGER_HPP
-#define _CWORLDTRANSMANAGER_HPP
+#ifndef _CWORLDTRANSMANAGER
+#define _CWORLDTRANSMANAGER
 
 #include "types.h"
 
@@ -9,4 +9,4 @@ private:
   u8 pad[0x48];
 };
 
-#endif
+#endif // _CWORLDTRANSMANAGER

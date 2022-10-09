@@ -1,5 +1,5 @@
-#ifndef _CACTORPARAMETERS_HPP
-#define _CACTORPARAMETERS_HPP
+#ifndef _CACTORPARAMETERS
+#define _CACTORPARAMETERS
 
 #include "types.h"
 
@@ -134,4 +134,4 @@ private:
 };
 CHECK_SIZEOF(CActorParameters, 0x68)
 
-#endif
+#endif // _CACTORPARAMETERS

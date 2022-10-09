@@ -1,13 +1,13 @@
-#ifndef _CSYSTEMOPTIONS_HPP
-#define _CSYSTEMOPTIONS_HPP
+#ifndef _CSYSTEMOPTIONS
+#define _CSYSTEMOPTIONS
 
 #include "types.h"
+
+#include "MetroidPrime/TGameTypes.hpp"
 
 #include "rstl/pair.hpp"
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
-
-#include "MetroidPrime/TGameTypes.hpp"
 
 class CSystemOptions {
 public:
@@ -42,4 +42,4 @@ private:
   bool xd0_29_allItemsCollected : 1;
 };
 
-#endif
+#endif // _CSYSTEMOPTIONS

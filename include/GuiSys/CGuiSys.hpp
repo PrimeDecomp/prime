@@ -1,5 +1,5 @@
-#ifndef _CGUISYS_HPP
-#define _CGUISYS_HPP
+#ifndef _CGUISYS
+#define _CGUISYS
 
 #include "types.h"
 
@@ -31,4 +31,4 @@ private:
   static CGuiSys* spGuiSys;
 };
 
-#endif
+#endif // _CGUISYS

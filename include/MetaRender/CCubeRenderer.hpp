@@ -1,5 +1,5 @@
-#ifndef _CCUBERENDERER_HPP
-#define _CCUBERENDERER_HPP
+#ifndef _CCUBERENDERER
+#define _CCUBERENDERER
 
 #include "types.h"
 
@@ -90,10 +90,9 @@ public:
   virtual void Something();
   virtual void PrepareDynamicLights();
 
-  
   void AllocatePhazonSuitMaskTexture();
 };
 
 extern CCubeRenderer* gpRender;
 
-#endif
+#endif // _CCUBERENDERER

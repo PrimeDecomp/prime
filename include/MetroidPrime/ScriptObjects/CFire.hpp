@@ -1,8 +1,9 @@
-#ifndef __CFIRE_HPP__
-#define __CFIRE_HPP__
+#ifndef _CFIRE
+#define _CFIRE
+
+#include "types.h"
 
 #include "MetroidPrime/CActor.hpp"
-
 #include "MetroidPrime/CDamageInfo.hpp"
 
 #include "Kyoto/Particles/CElementGen.hpp"
@@ -38,4 +39,4 @@ private:
   float x15c_;
 };
 
-#endif // __CFIRE_HPP__
+#endif // _CFIRE

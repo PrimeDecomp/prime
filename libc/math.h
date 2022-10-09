@@ -154,22 +154,23 @@ static inline int __fpclassifyd(double x) {
 #define isinf(x) (fpclassify(x) == FP_INFINITE)
 #define isfinite(x) ((fpclassify(x) > FP_INFINITE))
 
-inline float sqrtf(float x)
-{
-	const double _half=.5;
-	const double _three=3.0;
-	volatile float y;
+inline float sqrtf(float x) {
+  const double _half = .5;
+  const double _three = 3.0;
+  volatile float y;
 
-	if(x > 0.0f)
-	{
-		double guess = __frsqrte((double)x);   			/* returns an approximation to	*/
-		guess = _half*guess*(_three - guess*guess*x);	/* now have 12 sig bits			*/
-		guess = _half*guess*(_three - guess*guess*x);	/* now have 24 sig bits			*/
-		guess = _half*guess*(_three - guess*guess*x);	/* now have 32 sig bits			*/
-		y=(float)(x*guess);
-		return y ;
-	}
-	return x ;
+  if (x > 0.0f) {
+    double guess = __frsqrte((double)x);                  /* returns an approximation to	*/
+    guess = _half * guess * (_three - guess * guess * x); /* now have 12 sig bits
+                                                           */
+    guess = _half * guess * (_three - guess * guess * x); /* now have 24 sig bits
+                                                           */
+    guess = _half * guess * (_three - guess * guess * x); /* now have 32 sig bits
+                                                           */
+    y = (float)(x * guess);
+    return y;
+  }
+  return x;
 }
 
 static inline double sqrt(double x) {

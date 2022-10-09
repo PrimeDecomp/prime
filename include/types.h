@@ -1,5 +1,5 @@
-#ifndef __TYPES_H__
-#define __TYPES_H__
+#ifndef _TYPES
+#define _TYPES
 
 #ifdef __cplusplus
 #include "static_assert.hpp"
@@ -22,4 +22,4 @@ typedef void* unkptr;
 }
 #endif
 
-#endif
+#endif // _TYPES

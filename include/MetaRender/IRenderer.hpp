@@ -1,5 +1,5 @@
-#ifndef _RENDERER_HPP
-#define _RENDERER_HPP
+#ifndef _IRENDERER
+#define _IRENDERER
 
 #include "types.h"
 
@@ -21,6 +21,6 @@ class CResFactory;
 
 namespace Renderer {
 IRenderer* AllocateRenderer(IObjectStore&, COsContext&, CMemorySys&, CResFactory&);
-};
+}; // namespace Renderer
 
-#endif
+#endif // _IRENDERER

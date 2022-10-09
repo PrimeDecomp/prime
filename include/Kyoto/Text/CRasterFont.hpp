@@ -1,5 +1,5 @@
-#ifndef _CRASTERFONT_HPP
-#define _CRASTERFONT_HPP
+#ifndef _CRASTERFONT
+#define _CRASTERFONT
 
 #include "types.h"
 
@@ -41,4 +41,4 @@ private:
 };
 CHECK_SIZEOF(CRasterFont, 0x94)
 
-#endif
+#endif // _CRASTERFONT

@@ -1,5 +1,5 @@
-#ifndef _RSTL_MAP_HPP
-#define _RSTL_MAP_HPP
+#ifndef _RSTL_MAP
+#define _RSTL_MAP
 
 #include "types.h"
 
@@ -29,4 +29,4 @@ typedef map< char, char > unk_map;
 CHECK_SIZEOF(unk_map, 0x14)
 } // namespace rstl
 
-#endif
+#endif // _RSTL_MAP

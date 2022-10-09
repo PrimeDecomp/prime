@@ -1,5 +1,5 @@
-#ifndef _CIOWIN_HPP
-#define _CIOWIN_HPP
+#ifndef _CIOWIN
+#define _CIOWIN
 
 #include "types.h"
 
@@ -30,4 +30,4 @@ private:
   rstl::string x4_name;
 };
 
-#endif
+#endif // _CIOWIN

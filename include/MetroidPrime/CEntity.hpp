@@ -1,5 +1,5 @@
-#ifndef _CENTITY_HPP
-#define _CENTITY_HPP
+#ifndef _CENTITY
+#define _CENTITY
 
 #include "types.h"
 
@@ -53,4 +53,4 @@ protected:
 
 CHECK_SIZEOF(CEntity, 0x34)
 
-#endif
+#endif // _CENTITY

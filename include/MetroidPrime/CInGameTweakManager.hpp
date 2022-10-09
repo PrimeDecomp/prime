@@ -1,5 +1,5 @@
-#ifndef _CINGAMETWEAKMANAGER_HPP
-#define _CINGAMETWEAKMANAGER_HPP
+#ifndef _CINGAMETWEAKMANAGER
+#define _CINGAMETWEAKMANAGER
 
 #include "types.h"
 
@@ -67,4 +67,4 @@ CHECK_SIZEOF(CInGameTweakManager, 0x10)
 
 extern CInGameTweakManager* gpTweakManager;
 
-#endif
+#endif // _CINGAMETWEAKMANAGER

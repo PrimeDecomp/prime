@@ -1,5 +1,7 @@
-#ifndef _CPOWERBOMB_HPP_
-#define _CPOWERBOMB_HPP_
+#ifndef _CPOWERBOMB
+#define _CPOWERBOMB
+
+#include "types.h"
 
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
@@ -11,11 +13,11 @@ class CPowerBomb : public CWeapon {
   float x15c_curTime;
   float x160_curRadius;
   float x164_radiusIncrement;
-  rstl::single_ptr<CElementGen> x168_particle;
+  rstl::single_ptr< CElementGen > x168_particle;
   float x16c_radius;
 
 public:
   float GetCurTime() const { return x15c_curTime; }
 };
 
-#endif // _CPOWERBOMB_HPP_
+#endif // _CPOWERBOMB

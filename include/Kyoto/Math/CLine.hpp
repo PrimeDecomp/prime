@@ -1,5 +1,5 @@
-#ifndef _CLINE_HPP
-#define _CLINE_HPP
+#ifndef _CLINE
+#define _CLINE
 
 #include "types.h"
 
@@ -18,4 +18,4 @@ private:
   CUnitVector3f xc_dir;
 };
 
-#endif
+#endif // _CLINE

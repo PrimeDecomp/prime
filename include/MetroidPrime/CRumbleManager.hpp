@@ -1,5 +1,5 @@
-#ifndef _CRUMBLEMANAGER_HPP
-#define _CRUMBLEMANAGER_HPP
+#ifndef _CRUMBLEMANAGER
+#define _CRUMBLEMANAGER
 
 #include "types.h"
 
@@ -20,4 +20,4 @@ private:
   CRumbleGenerator x0_rumbleGenerator;
 };
 
-#endif
+#endif // _CRUMBLEMANAGER

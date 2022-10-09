@@ -1,5 +1,5 @@
-#ifndef __OSINTERRUPT_H__
-#define __OSINTERRUPT_H__
+#ifndef _DOLPHIN_OSINTERRUPT
+#define _DOLPHIN_OSINTERRUPT
 
 #include <dolphin/os/OSContext.h>
 #include <dolphin/types.h>
@@ -88,7 +88,6 @@ extern "C" {
    OS_INTERRUPTMASK_PI_PE_TOKEN | OS_INTERRUPTMASK_PI_PE_FINISH | OS_INTERRUPTMASK_PI_DEBUG |      \
    OS_INTERRUPTMASK_PI_HSP)
 
-
 typedef s16 __OSInterrupt;
 typedef void (*__OSInterruptHandler)(__OSInterrupt interrupt, OSContext* context);
 
@@ -113,4 +112,4 @@ OSInterruptMask __OSUnmaskInterrupts(OSInterruptMask mask);
 }
 #endif
 
-#endif // __OSINTERRUPT_H__
+#endif // _DOLPHIN_OSINTERRUPT

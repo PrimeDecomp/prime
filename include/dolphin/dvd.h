@@ -1,5 +1,5 @@
-#ifndef __DVD_H__
-#define __DVD_H__
+#ifndef _DOLPHIN_DVD
+#define _DOLPHIN_DVD
 
 #include "types.h"
 
@@ -49,24 +49,23 @@ struct DVDFileInfo {
 void DVDSetAutoFatalMessaging(BOOL);
 void DVDReset();
 
-BOOL DVDPrepareStreamAsync(DVDFileInfo *fInfo, u32 length, u32 offset, DVDCallback callback);
-s32  DVDPrepareStream(DVDFileInfo *fInfo, u32 length, u32 offset);
+BOOL DVDPrepareStreamAsync(DVDFileInfo* fInfo, u32 length, u32 offset, DVDCallback callback);
+s32 DVDPrepareStream(DVDFileInfo* fInfo, u32 length, u32 offset);
 
-BOOL DVDCancelStreamAsync(DVDCommandBlock *block, DVDCBCallback callback);
-s32  DVDCancelStream(DVDCommandBlock *block);
+BOOL DVDCancelStreamAsync(DVDCommandBlock* block, DVDCBCallback callback);
+s32 DVDCancelStream(DVDCommandBlock* block);
 
-BOOL DVDStopStreamAtEndAsync(DVDCommandBlock *block, DVDCBCallback callback);
-s32  DVDStopStreamAtEnd(DVDCommandBlock *block);
+BOOL DVDStopStreamAtEndAsync(DVDCommandBlock* block, DVDCBCallback callback);
+s32 DVDStopStreamAtEnd(DVDCommandBlock* block);
 
-BOOL DVDGetStreamErrorStatusAsync(DVDCommandBlock *block, DVDCBCallback callback);
-s32  DVDGetStreamErrorStatus(DVDCommandBlock *block);
+BOOL DVDGetStreamErrorStatusAsync(DVDCommandBlock* block, DVDCBCallback callback);
+s32 DVDGetStreamErrorStatus(DVDCommandBlock* block);
 
-BOOL DVDGetStreamPlayAddrAsync(DVDCommandBlock *block, DVDCBCallback callback);
-s32  DVDGetStreamPlayAddr(DVDCommandBlock *block);
-
+BOOL DVDGetStreamPlayAddrAsync(DVDCommandBlock* block, DVDCBCallback callback);
+s32 DVDGetStreamPlayAddr(DVDCommandBlock* block);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_DVD

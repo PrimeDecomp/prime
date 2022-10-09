@@ -1,5 +1,5 @@
-#ifndef _CSIMPLEPOOL_HPP
-#define _CSIMPLEPOOL_HPP
+#ifndef _CSIMPLEPOOL
+#define _CSIMPLEPOOL
 
 #include "types.h"
 
@@ -37,4 +37,4 @@ CHECK_SIZEOF(CSimplePool, 0x20)
 
 extern CSimplePool* gpSimplePool;
 
-#endif
+#endif // _CSIMPLEPOOL

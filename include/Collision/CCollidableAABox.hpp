@@ -1,5 +1,5 @@
-#ifndef _CCOLLIDABLEAABOX_HPP
-#define _CCOLLIDABLEAABOX_HPP
+#ifndef _CCOLLIDABLEAABOX
+#define _CCOLLIDABLEAABOX
 
 #include "types.h"
 
@@ -16,7 +16,7 @@ public:
   CAABox CalculateAABox(const CTransform4f&) const override;
   CAABox CalculateLocalAABox() const override;
   FourCC GetPrimType() const override;
-  ~CCollidableAABox() override {};
+  ~CCollidableAABox() override{};
   CRayCastResult CastRayInternal(const CInternalRayCastStructure&) const;
 
 private:
@@ -24,4 +24,4 @@ private:
 };
 CHECK_SIZEOF(CCollidableAABox, 0x28)
 
-#endif
+#endif // _CCOLLIDABLEAABOX

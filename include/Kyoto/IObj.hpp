@@ -1,5 +1,5 @@
-#ifndef _IOBJ_HPP
-#define _IOBJ_HPP
+#ifndef _IOBJ
+#define _IOBJ
 
 #include "types.h"
 
@@ -45,4 +45,4 @@ private:
   TObjOwnerDerivedFromIObj(const rstl::auto_ptr< T >& obj) : CObjOwnerDerivedFromIObjUntyped(obj) {}
 };
 
-#endif
+#endif // _IOBJ

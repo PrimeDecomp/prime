@@ -1,11 +1,7 @@
-#ifndef _CGAMESTATE_HPP
-#define _CGAMESTATE_HPP
+#ifndef _CGAMESTATE
+#define _CGAMESTATE
 
 #include "types.h"
-
-#include "rstl/rc_ptr.hpp"
-#include "rstl/reserved_vector.hpp"
-#include "rstl/vector.hpp"
 
 #include "MetroidPrime/Player/CGameOptions.hpp"
 #include "MetroidPrime/Player/CHintOptions.hpp"
@@ -14,6 +10,10 @@
 #include "MetroidPrime/Player/CWorldState.hpp"
 #include "MetroidPrime/Player/CWorldTransManager.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+
+#include "rstl/rc_ptr.hpp"
+#include "rstl/reserved_vector.hpp"
+#include "rstl/vector.hpp"
 
 class CGameState {
 public:
@@ -49,4 +49,4 @@ private:
 
 extern CGameState* gpGameState;
 
-#endif
+#endif // _CGAMESTATE

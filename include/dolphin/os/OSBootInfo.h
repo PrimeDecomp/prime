@@ -1,5 +1,5 @@
-#ifndef __OSBOOTINFO_H__
-#define __OSBOOTINFO_H__
+#ifndef _DOLPHIN_OSBOOTINFO
+#define _DOLPHIN_OSBOOTINFO
 
 typedef struct OSBootInfo {
   DVDDiskID DVDDiskID;
@@ -13,4 +13,4 @@ typedef struct OSBootInfo {
   u32 FSTMaxLength;
 } OSBootInfo;
 
-#endif // __OSBOOTINFO_H__
+#endif // _DOLPHIN_OSBOOTINFO

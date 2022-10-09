@@ -1,5 +1,5 @@
-#ifndef _RSTL_MATH_HPP
-#define _RSTL_MATH_HPP
+#ifndef _RSTL_MATH
+#define _RSTL_MATH
 
 #include "types.h"
 
@@ -15,4 +15,4 @@ inline const T& max_val(const T& a, const T& b) {
 }
 } // namespace rstl
 
-#endif
+#endif // _RSTL_MATH

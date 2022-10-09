@@ -1,5 +1,5 @@
-#ifndef _CAUDIOSYS_HPP
-#define _CAUDIOSYS_HPP
+#ifndef _CAUDIOSYS
+#define _CAUDIOSYS
 
 #include "types.h"
 
@@ -28,4 +28,4 @@ public:
   static const u8 kMaxVolume;
 };
 
-#endif
+#endif // _CAUDIOSYS

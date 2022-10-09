@@ -1,5 +1,5 @@
-#ifndef __COBBOX_HPP__
-#define __COBBOX_HPP__
+#ifndef _COBBOX
+#define _COBBOX
 
 #include "Kyoto/Math/CAABox.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
@@ -19,9 +19,10 @@ public:
   bool LineIntersectsBox(const CMRay& ray, float& penetration) const;
   bool AABoxIntersectsBox(const CAABox& box) const;
   bool OBBIntersectsBox(const COBBox& box) const;
+
 private:
   CTransform4f mTransform;
   CVector3f mExtents;
 };
 
-#endif // __COBBOX_HPP__
+#endif // _COBBOX

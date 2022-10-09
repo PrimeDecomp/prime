@@ -1,5 +1,5 @@
-#ifndef _TONESTATIC_HPP
-#define _TONESTATIC_HPP
+#ifndef _TONESTATIC
+#define _TONESTATIC
 
 #include "types.h"
 
@@ -29,4 +29,4 @@ void TOneStatic< T >::operator delete(void* ptr) {
   ReferenceCount()--;
 }
 
-#endif
+#endif // _TONESTATIC

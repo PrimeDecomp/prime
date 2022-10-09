@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXLIGHTING_H
-#define DOLPHIN_GXLIGHTING_H
+#ifndef _DOLPHIN_GXLIGHTING
+#define _DOLPHIN_GXLIGHTING
 
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXStruct.h>
@@ -29,4 +29,4 @@ void GXLoadLightObjImm(GXLightObj* lt_obj, GXLightID light);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXLIGHTING

@@ -1,4 +1,4 @@
-#ifndef _MATH_PPC_H_
-#define _MATH_PPC_H_
+#ifndef _MATH_PPC
+#define _MATH_PPC
 
-#endif
+#endif // _MATH_PPC

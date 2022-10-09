@@ -1,5 +1,5 @@
-#ifndef _CHINTOPTIONS_HPP
-#define _CHINTOPTIONS_HPP
+#ifndef _CHINTOPTIONS
+#define _CHINTOPTIONS
 
 #include "types.h"
 
@@ -26,4 +26,4 @@ private:
   int x10_nextHintIdx;
 };
 
-#endif
+#endif // _CHINTOPTIONS

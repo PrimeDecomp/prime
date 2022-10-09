@@ -1,5 +1,5 @@
-#ifndef _COSCONTEXT_HPP
-#define _COSCONTEXT_HPP
+#ifndef _COSCONTEXT
+#define _COSCONTEXT
 
 #include <stddef.h>
 
@@ -21,6 +21,7 @@ public:
 
   bool IsPressed() const { return x4_down; }
   bool JustPressed() const { return x4_unk && x4_down; }
+
 private:
   int x0_key;
   short x4_down : 1;
@@ -51,6 +52,7 @@ public:
 
   static void SetProgressiveMode(bool progressive) { mProgressiveMode = progressive; }
   static bool GetProgressiveMode() { return mProgressiveMode; }
+
 private:
   int x0_right;
   int x4_bottom;
@@ -68,4 +70,4 @@ private:
 };
 CHECK_SIZEOF(COsContext, 0x6c)
 
-#endif
+#endif // _COSCONTEXT

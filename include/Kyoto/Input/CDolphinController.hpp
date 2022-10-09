@@ -1,5 +1,5 @@
-#ifndef __CDOLPHINCONTROLLER_HPP__
-#define __CDOLPHINCONTROLLER_HPP__
+#ifndef _CDOLPHINCONTROLLER
+#define _CDOLPHINCONTROLLER
 
 #include "Kyoto/Input/IController.hpp"
 
@@ -38,4 +38,4 @@ private:
   u32 x1cc_;
 };
 
-#endif // __CDOLPHINCONTROLLER_HPP__
+#endif // _CDOLPHINCONTROLLER

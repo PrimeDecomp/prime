@@ -1,5 +1,5 @@
-#ifndef _CCOLLISIONPRIMITIVE_HPP
-#define _CCOLLISIONPRIMITIVE_HPP
+#ifndef _CCOLLISIONPRIMITIVE
+#define _CCOLLISIONPRIMITIVE
 
 #include "types.h"
 
@@ -33,4 +33,4 @@ CHECK_SIZEOF(CCollisionPrimitive, 0x10)
 
 inline CCollisionPrimitive::~CCollisionPrimitive() {}
 
-#endif
+#endif // _CCOLLISIONPRIMITIVE

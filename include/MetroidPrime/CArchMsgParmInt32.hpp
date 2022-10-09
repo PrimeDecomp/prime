@@ -1,13 +1,16 @@
-#ifndef __CARCMSGPARMINT32_HPP__
-#define __CARCMSGPARMINT32_HPP__
+#ifndef _CARCHMSGPARMINT32
+#define _CARCHMSGPARMINT32
+
+#include "types.h"
 
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
 class CArchMsgParmInt32 : public IArchitectureMessageParm {
   int mVal;
+
 public:
   CArchMsgParmInt32(int);
   ~CArchMsgParmInt32();
 };
 
-#endif // __CARCMSGPARMINT32_HPP__
+#endif // _CARCHMSGPARMINT32

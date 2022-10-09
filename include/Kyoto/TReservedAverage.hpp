@@ -1,5 +1,5 @@
-#ifndef _TRESERVEDAVERAGE_HPP
-#define _TRESERVEDAVERAGE_HPP
+#ifndef _TRESERVEDAVERAGE
+#define _TRESERVEDAVERAGE
 
 #include "types.h"
 
@@ -25,4 +25,4 @@ public:
   rstl::optional_object< T > GetAverage() const;
 };
 
-#endif
+#endif // _TRESERVEDAVERAGE

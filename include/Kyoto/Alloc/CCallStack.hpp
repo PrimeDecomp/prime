@@ -1,5 +1,5 @@
-#ifndef __CCALLSTACK_HPP__
-#define __CCALLSTACK_HPP__
+#ifndef _CCALLSTACK
+#define _CCALLSTACK
 
 class CCallStack {
 public:
@@ -7,9 +7,10 @@ public:
 
   const char* GetFileAndLineText() const;
   const char* GetTypeText() const;
+
 private:
   const char* x0_line;
   const char* x4_type;
 };
 
-#endif // __CCALLSTACK_HPP__
+#endif // _CCALLSTACK

@@ -1,8 +1,8 @@
-#ifndef __USERNAMES_HPP_
-#define __USERNAMES_HPP_
+#ifndef _USERNAMES
+#define _USERNAMES
 
 #include "types.h"
 
 bool IsUser(int name);
 
-#endif // __USERNAMES_HPP_
+#endif // _USERNAMES

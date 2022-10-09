@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_GXCULL_H
-#define DOLPHIN_GXCULL_H
+#ifndef _DOLPHIN_GXCULL
+#define _DOLPHIN_GXCULL
 
 #include <dolphin/types.h>
 
@@ -15,4 +15,4 @@ void GXSetCoPlanar(GXBool enable);
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_GXCULL

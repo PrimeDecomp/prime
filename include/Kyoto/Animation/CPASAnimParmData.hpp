@@ -1,5 +1,5 @@
-#ifndef _CPASANIMPARMDATA_HPP
-#define _CPASANIMPARMDATA_HPP
+#ifndef _CPASANIMPARMDATA
+#define _CPASANIMPARMDATA
 
 #include "Kyoto/Animation/CPASAnimState.hpp"
 
@@ -36,4 +36,4 @@ public:
   }
 };
 
-#endif // _CPASANIMPARMDATA_HPP
+#endif // _CPASANIMPARMDATA

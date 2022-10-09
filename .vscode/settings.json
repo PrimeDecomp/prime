@@ -14,4 +14,25 @@
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
+  "C/C++ Include Guard.Macro Type": "Filename",
+  "C/C++ Include Guard.Prefix": "_",
+  "C/C++ Include Guard.Suffix": "",
+  "C/C++ Include Guard.Comment Style": "Line",
+  "C/C++ Include Guard.Subfolder Prefixes": [
+    {
+      "folderPath": "include/dolphin",
+      "prefix": "DOLPHIN_"
+    },
+    {
+      "folderPath": "include/musyx",
+      "prefix": "MUSYX_"
+    },
+    {
+      "folderPath": "include/rstl",
+      "prefix": "RSTL_"
+    }
+  ],
+  "C/C++ Include Guard.Auto Update Path Allowlist": [
+    "include"
+  ],
 }

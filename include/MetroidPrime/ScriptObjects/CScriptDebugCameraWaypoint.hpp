@@ -1,5 +1,5 @@
-#ifndef _CSCRIPTDEBUGCAMERAWAYPOINT_HPP
-#define _CSCRIPTDEBUGCAMERAWAYPOINT_HPP
+#ifndef _CSCRIPTDEBUGCAMERAWAYPOINT
+#define _CSCRIPTDEBUGCAMERAWAYPOINT
 
 #include "types.h"
 
@@ -17,4 +17,4 @@ private:
   uint xe8_value;
 };
 
-#endif
+#endif // _CSCRIPTDEBUGCAMERAWAYPOINT

@@ -1,5 +1,5 @@
-#ifndef _CAREAOCTTREE_HPP
-#define _CAREAOCTTREE_HPP
+#ifndef _CAREAOCTTREE
+#define _CAREAOCTTREE
 
 #include "types.h"
 
@@ -90,4 +90,4 @@ private:
 };
 CHECK_SIZEOF(CAreaOctTree, 0x50)
 
-#endif
+#endif // _CAREAOCTTREE

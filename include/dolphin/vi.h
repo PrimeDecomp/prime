@@ -1,5 +1,5 @@
-#ifndef DOLPHIN_VI_H
-#define DOLPHIN_VI_H
+#ifndef _DOLPHIN_VI
+#define _DOLPHIN_VI
 
 #include <dolphin/gx/GXStruct.h>
 #include <dolphin/vifuncs.h>
@@ -7,7 +7,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 void VIInit(void);
 void VIConfigure(GXRenderModeObj* rm);
@@ -29,4 +28,4 @@ vu16 __VIRegs[59] : 0xCC002000;
 }
 #endif
 
-#endif
+#endif // _DOLPHIN_VI

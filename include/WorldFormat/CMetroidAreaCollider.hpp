@@ -1,5 +1,5 @@
-#ifndef _CMETROIDAREACOLLIDER_HPP
-#define _CMETROIDAREACOLLIDER_HPP
+#ifndef _CMETROIDAREACOLLIDER
+#define _CMETROIDAREACOLLIDER
 
 #include "types.h"
 
@@ -65,4 +65,4 @@ private:
 };
 CHECK_SIZEOF(CAreaCollisionCache, 0x1b44)
 
-#endif
+#endif // _CMETROIDAREACOLLIDER

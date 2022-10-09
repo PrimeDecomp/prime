@@ -1,5 +1,5 @@
-#ifndef __CTRANSFORM4F_HPP__
-#define __CTRANSFORM4F_HPP__
+#ifndef _CTRANSFORM4F
+#define _CTRANSFORM4F
 
 #include "types.h"
 
@@ -115,4 +115,4 @@ inline bool operator==(const CTransform4f& lhs, const CTransform4f& rhs);
 
 CHECK_SIZEOF(CTransform4f, 0x30)
 
-#endif // __CTRANSFORM4F_HPP__
+#endif // _CTRANSFORM4F

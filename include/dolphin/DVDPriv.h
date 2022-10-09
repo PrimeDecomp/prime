@@ -1,5 +1,5 @@
-#ifndef __DVDPRIV_H__
-#define __DVDPRIV_H__
+#ifndef _DOLPHIN_DVDPRIV
+#define _DOLPHIN_DVDPRIV
 
 #include <dolphin/dvd.h>
 #include <types.h>
@@ -41,6 +41,6 @@ DVDLowCallback DVDLowClearCallback();
 
 #ifdef __cplusplus
 }
-#endif
+#endif // _DOLPHIN_DVDPRIV
 
 #endif __DVDPRIV_H__
