@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _NMWEXCEPTION
+#define _NMWEXCEPTION
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,3 +19,5 @@ void __destroy_global_chain(void);
 #ifdef __cplusplus
 }
 #endif
+
+#endif // _NMWEXCEPTION

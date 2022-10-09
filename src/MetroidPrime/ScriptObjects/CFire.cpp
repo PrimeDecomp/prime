@@ -1,9 +1,7 @@
 #include "MetroidPrime/ScriptObjects/CFire.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
 
-static inline CMaterialList MakeMaterialList() {
-  return CMaterialList(kMT_Projectile);
-}
+static inline CMaterialList MakeMaterialList() { return CMaterialList(kMT_Projectile); }
 
 CFire::CFire(TToken< CGenDescription > effect, TUniqueId uid, TAreaId area, bool active,
              TUniqueId owner, const CTransform4f& xf, const CDamageInfo& dInfo, const CAABox& aabox,
@@ -33,7 +31,4 @@ CFire::CFire(TToken< CGenDescription > effect, TUniqueId uid, TAreaId area, bool
   xe8_->SetTranslation(xf.GetTranslation());
 }
 
-
-CFire::~CFire() {
-
-}
+CFire::~CFire() {}

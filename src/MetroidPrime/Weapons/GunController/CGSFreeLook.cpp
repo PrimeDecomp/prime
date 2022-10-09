@@ -40,7 +40,7 @@ int CGSFreeLook::SetAnim(CAnimData& data, int gunId, int setId, int loopState, C
   if (!x14_idle)
     useLoopState = loopState;
   x14_idle = false;
-  
+
   const CPASDatabase& pas = data.GetCharacterInfo().GetPASDatabase();
   rstl::pair< float, int > anim = pas.FindBestAnimation(
       CPASAnimParmData(pas::kAS_Step, CPASAnimParm::FromInt32(gunId),

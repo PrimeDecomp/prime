@@ -78,7 +78,7 @@ int COsContext::OpenWindow(const char* title, int x, int y, int w, int h, bool f
   if (mProgressiveMode) {
     x30_renderMode.viTVmode = VI_TVMODE_NTSC_PROG;
     x30_renderMode.xFBmode = VI_XFBMODE_SF;
-    u8 progressiveFilterPattern[7] = {4, 4, 16, 16, 16, 4, 4 };
+    u8 progressiveFilterPattern[7] = {4, 4, 16, 16, 16, 4, 4};
     memcpy(x30_renderMode.vfilter, progressiveFilterPattern, 7);
   }
   VIConfigure(&x30_renderMode);

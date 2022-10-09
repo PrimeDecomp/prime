@@ -345,9 +345,7 @@ void DTKNextTrack() {
   }
 }
 
-u32 DTKGetState() {
-  return __DTKState;
-}
+u32 DTKGetState() { return __DTKState; }
 
 void DTKSetVolume(u8 left, u8 right) {
   __DTKVolumeL = left;

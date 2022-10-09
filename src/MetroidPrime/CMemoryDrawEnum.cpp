@@ -1,7 +1,6 @@
 //#include <MetroidPrime/CMemoryDrawEnum.hpp>
 #include <Kyoto/Alloc/IAllocator.hpp>
 
-
 /* ODR strikes again! */
 IAllocator::SMetrics::SMetrics(const SMetrics& other)
 : x0_heapSize(other.x0_heapSize)

@@ -1,33 +1,23 @@
 #include <Kyoto/Text/CTextParser.hpp>
 
-#include <Kyoto/Text/CTextExecuteBuffer.hpp>
 #include <Kyoto/IObjectStore.hpp>
+#include <Kyoto/Text/CTextExecuteBuffer.hpp>
 
-CTextParser::CTextParser(IObjectStore& store) 
-: mObjectStore(store) {}
+CTextParser::CTextParser(IObjectStore& store) : mObjectStore(store) {}
 
-void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len) {
-}
+void CTextParser::ParseText(CTextExecuteBuffer& buffer, const wchar_t* str, int len) {}
 
-uint CTextParser::GetAssetIdFromString(const rstl::string& str) {
+uint CTextParser::GetAssetIdFromString(const rstl::string& str) {}
 
-}
+uint CTextParser::GetFont(const wchar_t* str, int len) { return -1; }
 
-uint CTextParser::GetFont(const wchar_t* str, int len) {
-    return -1;
-}
-
-uint CTextParser::GetImage(const wchar_t* str, int len) {
-    return -1;
-}
+uint CTextParser::GetImage(const wchar_t* str, int len) { return -1; }
 
 uint CTextParser::HandleUserTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len) {
-    return 0;
+  return 0;
 }
 
-void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len) {
-
-}
+void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, int len) {}
 
 bool CTextParser::BeginsWith(const wchar_t* str1, int len, const wchar_t* str2) {
   int i = 0;
@@ -36,19 +26,19 @@ bool CTextParser::BeginsWith(const wchar_t* str1, int len, const wchar_t* str2) 
       return false;
     }
   }
-  
+
   return str2[i] == L'\x0';
 }
 
 bool CTextParser::Equals(const wchar_t* str1, int len, const wchar_t* str2) {
-    int i = 0;
-    for (;str2[i] != L'\x0' && i < len; ++i) {
-        if (str1[i] != str2[i]) {
-            return false;
-        }
+  int i = 0;
+  for (; str2[i] != L'\x0' && i < len; ++i) {
+    if (str1[i] != str2[i]) {
+      return false;
     }
+  }
 
-    return str2[i] == L'\x0';
+  return str2[i] == L'\x0';
 }
 
 uint CTextParser::ParseInt(const wchar_t* str, int len, bool signVal) {
@@ -84,16 +74,16 @@ uint CTextParser::FromHex(wchar_t ch) {
 }
 
 uint CTextParser::GetColorValue(const wchar_t* str) {
-    uint a = (FromHex(str[0]) << 4);
-    uint b = FromHex(str[1]);
-    return b + a;
+  uint a = (FromHex(str[0]) << 4);
+  uint b = FromHex(str[1]);
+  return b + a;
 }
 
 CTextColor CTextParser::ParseColor(const wchar_t* str, int len) {
-    uint r = GetColorValue(str + 1);
-    uint g = GetColorValue(str + 3);
-    uint b = GetColorValue(str + 5);
-    uint a = len == 9 ? GetColorValue(str + 7) : 255;
+  uint r = GetColorValue(str + 1);
+  uint g = GetColorValue(str + 3);
+  uint b = GetColorValue(str + 5);
+  uint a = len == 9 ? GetColorValue(str + 7) : 255;
 
-    return CTextColor(r, g, b, a);
+  return CTextColor(r, g, b, a);
 }

@@ -8,7 +8,7 @@ const char* SObjectTag::Type2Text(FourCC type) {
   text[0] = toupper((type >> 24) & 0xFF);
   text[1] = toupper((type >> 16) & 0xFF);
   text[2] = toupper((type >> 8) & 0xFF);
-  text[3] = toupper(type  & 0xFF);
+  text[3] = toupper(type & 0xFF);
   text[4] = '\0';
 
   for (int i = 0; i < 4; ++i) {

@@ -9,7 +9,9 @@
 void CCameraFilterPass::DrawWideScreen(const CColor& color, const CTexture* tex, f32 lod) {
   const rstl::pair< CVector2f, CVector2f > vp = gpRender->SetViewportOrtho(true, -4096.f, 4096.f);
   f32 left = vp.first.GetX();
-  f32 dVar5 = -((vp.second.GetX() - vp.first.GetX()) * 0.0625f * 9.f - (vp.second.GetY() - vp.first.GetY())) * 0.5f;
+  f32 dVar5 = -((vp.second.GetX() - vp.first.GetX()) * 0.0625f * 9.f -
+                (vp.second.GetY() - vp.first.GetY())) *
+              0.5f;
   f32 bottom = vp.first.GetY();
   f32 right = vp.second.GetX();
   f32 top = vp.second.GetY();

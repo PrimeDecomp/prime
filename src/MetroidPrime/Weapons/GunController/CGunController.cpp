@@ -17,9 +17,7 @@ void CGunController::EnterStruck(CStateManager&, float) {}
 
 void CGunController::LoadFidgetAnimAsync(CStateManager&, int, int, int) {}
 
-int CGunController::Update(float, CStateManager&) {
-  return 0;
-}
+int CGunController::Update(float, CStateManager&) { return 0; }
 
 void CGunController::EnterIdle(CStateManager&) {}
 
