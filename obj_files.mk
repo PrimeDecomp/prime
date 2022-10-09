@@ -507,7 +507,7 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/Text/CWordInstruction.o\
 	$(BUILD_DIR)/asm/Kyoto/Text/CBlockInstruction.o\
 	$(BUILD_DIR)/asm/Kyoto/Text/CFont.o\
-	$(BUILD_DIR)/asm/Kyoto/Graphics/CLight.o\
+	$(BUILD_DIR)/src/Kyoto/Graphics/CLight.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CCubeModel.o\
 	$(BUILD_DIR)/src/Kyoto/Graphics/CGX.o\
 	$(BUILD_DIR)/asm/Kyoto/Graphics/CTevCombiners.o\
