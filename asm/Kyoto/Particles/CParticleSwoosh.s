@@ -4872,9 +4872,9 @@ lbl_8032ED7C:
 lbl_8032ED98:
 /* 8032ED98 0032BCF8  28 1E 00 00 */	cmplwi r30, 0
 /* 8032ED9C 0032BCFC  41 82 00 1C */	beq lbl_8032EDB8
-/* 8032EDA0 0032BD00  3C 80 80 3F */	lis r4, lbl_803EDD08@ha
+/* 8032EDA0 0032BD00  3C 80 80 3F */	lis r4, __vt__12CParticleGen@ha
 /* 8032EDA4 0032BD04  38 7E 00 04 */	addi r3, r30, 4
-/* 8032EDA8 0032BD08  38 04 DD 08 */	addi r0, r4, lbl_803EDD08@l
+/* 8032EDA8 0032BD08  38 04 DD 08 */	addi r0, r4, __vt__12CParticleGen@l
 /* 8032EDAC 0032BD0C  38 80 FF FF */	li r4, -1
 /* 8032EDB0 0032BD10  90 1E 00 00 */	stw r0, 0(r30)
 /* 8032EDB4 0032BD14  4B D2 BF 1D */	bl __dt__12CParticleGenFv
@@ -4896,9 +4896,9 @@ lbl_8032EDC8:
 "__ct__15CParticleSwooshF28TToken<18CSwooshDescription>i":
 /* 8032EDE4 0032BD44  94 21 FF 00 */	stwu r1, -0x100(r1)
 /* 8032EDE8 0032BD48  7C 08 02 A6 */	mflr r0
-/* 8032EDEC 0032BD4C  3C C0 80 3F */	lis r6, lbl_803EDD08@ha
+/* 8032EDEC 0032BD4C  3C C0 80 3F */	lis r6, __vt__12CParticleGen@ha
 /* 8032EDF0 0032BD50  90 01 01 04 */	stw r0, 0x104(r1)
-/* 8032EDF4 0032BD54  38 06 DD 08 */	addi r0, r6, lbl_803EDD08@l
+/* 8032EDF4 0032BD54  38 06 DD 08 */	addi r0, r6, __vt__12CParticleGen@l
 /* 8032EDF8 0032BD58  38 C0 00 00 */	li r6, 0
 /* 8032EDFC 0032BD5C  BF 61 00 EC */	stmw r27, 0xec(r1)
 /* 8032EE00 0032BD60  7C 7F 1B 78 */	mr r31, r3
@@ -5885,4 +5885,3 @@ lbl_803D7968:
 	# ROM: 0x3D4968
 	.asciz "??(??)"
 	.balign 4
-
