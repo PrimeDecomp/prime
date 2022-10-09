@@ -14,12 +14,12 @@ public:
   int GetAllocatedAmount() const;
 
 private:
-  u8 x0_owned;
+  uchar x0_owned;
   void* x4_ptr;
-  s32 x8_bufferLen;
-  s32 xc_;
-  s32 x10_nextFreeAddr;
-  s32 x14_;
+  int x8_bufferLen;
+  int xc_;
+  int x10_nextFreeAddr;
+  int x14_;
 };
 
 #endif // _CCIRCULARBUFFER

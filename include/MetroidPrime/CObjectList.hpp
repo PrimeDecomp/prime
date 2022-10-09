@@ -23,8 +23,8 @@ class CEntity;
 class CObjectList {
   struct SObjectListEntry {
     CEntity* mEnt;
-    s16 mNext;
-    s16 mPrev;
+    short mNext;
+    short mPrev;
     SObjectListEntry();
   };
 
@@ -56,8 +56,8 @@ public:
 private:
   SObjectListEntry mObjects[1024];
   EGameObjectList mListType;
-  s16 mFirstId;
-  s16 mCount;
+  short mFirstId;
+  short mCount;
 };
 CHECK_SIZEOF(CObjectList, 0x200c)
 

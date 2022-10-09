@@ -12,7 +12,7 @@ public:
   ~CPhazonBeam();
 
 private:
-  u8 x21c_pad[0x60];
+  uchar x21c_pad[0x60];
 };
 CHECK_SIZEOF(CPhazonBeam, 0x27c)
 

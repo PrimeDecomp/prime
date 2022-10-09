@@ -24,7 +24,7 @@ enum EGunAnimType {
   kGAT_ToBeam
 };
 
-CSfxHandle play_sfx(u16 sfx, bool underwater, bool looped, short pan);
+CSfxHandle play_sfx(ushort sfx, bool underwater, bool looped, short pan);
 void get_token_vector(const CAnimData& animData, int begin, int end,
                       rstl::vector< CToken >& tokensOut, bool preLock);
 

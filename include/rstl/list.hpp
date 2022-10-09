@@ -25,7 +25,7 @@ private:
     node* x4_next;
     union {
       T* x8_item;
-      u32 x8_count;
+      uint x8_count;
     };
 
     node(node* prev, node* next) : x0_prev(prev), x4_next(next), x8_count(0) {}

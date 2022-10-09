@@ -14,14 +14,14 @@ public:
   // TODO
 
   const CUnitVector3f& GetNormal() const { return x0_normal; }
-  f32 GetConstant() const { return xc_constant; }
+  float GetConstant() const { return xc_constant; }
   // GetHeight__6CPlaneCFRC9CVector3f
   // IsFacing__6CPlaneCFRC9CVector3f
   float ClipLineSegment(const CVector3f& start, const CVector3f& end) const;
 
 private:
   CUnitVector3f x0_normal;
-  f32 xc_constant;
+  float xc_constant;
 };
 CHECK_SIZEOF(CPlane, 0x10)
 

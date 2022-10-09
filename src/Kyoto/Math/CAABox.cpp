@@ -164,9 +164,9 @@ CAABox CAABox::GetTransformedAABox(const CTransform4f& xf) const {
   CVector3f newMax = xf.GetTranslation();
   for (int x = 0; x < 3; ++x) {
     for (int y = 0; y < 3; ++y) {
-      f32 mul = xf.GetRow(x)[y];
-      f32 minMul = mul * GetMinPoint()[y];
-      f32 maxMul = mul * GetMaxPoint()[y];
+      float mul = xf.GetRow(x)[y];
+      float minMul = mul * GetMinPoint()[y];
+      float maxMul = mul * GetMaxPoint()[y];
       if (minMul < maxMul) {
         newMin[x] += maxMul;
         newMax[x] += minMul;
@@ -223,7 +223,7 @@ bool CAABox::Invalid() const {
   return false;
 }
 
-f32 CAABox::GetVolume() const {
+float CAABox::GetVolume() const {
   CVector3f delta = max - min;
   return delta.GetX() * delta.GetY() * delta.GetZ();
 }
@@ -241,13 +241,13 @@ bool CAABox::PointInside(const CVector3f& vec) const {
          vec.GetY() <= max.GetY() && vec.GetZ() >= min.GetZ() && vec.GetZ() <= max.GetZ();
 }
 
-f32 CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
-  f32 minX = b.GetMaxPoint().GetX();
-  f32 maxX = a.GetMinPoint().GetX();
-  f32 minY = b.GetMaxPoint().GetY();
-  f32 maxY = a.GetMinPoint().GetY();
-  f32 minZ = b.GetMaxPoint().GetZ();
-  f32 maxZ = a.GetMinPoint().GetZ();
+float CAABox::DistanceBetween(const CAABox& a, const CAABox& b) {
+  float minX = b.GetMaxPoint().GetX();
+  float maxX = a.GetMinPoint().GetX();
+  float minY = b.GetMaxPoint().GetY();
+  float maxY = a.GetMinPoint().GetY();
+  float minZ = b.GetMaxPoint().GetZ();
+  float maxZ = a.GetMinPoint().GetZ();
 
   bool xi = b.GetMinPoint().GetX() < a.GetMaxPoint().GetX() && maxX < minX;
   bool yi = b.GetMinPoint().GetY() < a.GetMaxPoint().GetY() && maxY < minY;

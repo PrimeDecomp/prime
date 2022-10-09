@@ -114,7 +114,7 @@ public:
   bool RayCollideWorld(const CVector3f& start, const CVector3f& end, const TEntityList& nearList,
                        const CMaterialFilter& filter, const CActor* damagee) const;
   CRayCastResult RayWorldIntersection(TUniqueId& idOut, const CVector3f& pos, const CVector3f& dir,
-                                      f32 length, const CMaterialFilter& filter,
+                                      float length, const CMaterialFilter& filter,
                                       const TEntityList& list) const;
   void BuildColliderList(TEntityList& out, const CActor& actor, const CAABox& aabb) const;
 
@@ -159,8 +159,8 @@ public:
     return xb84_camFilterPasses[size_t(stage)];
   }
 
-  f32 GetThermalColdScale1() const { return xf24_thermColdScale1; }
-  f32 GetThermalColdScale2() const { return xf28_thermColdScale2; }
+  float GetThermalColdScale1() const { return xf24_thermColdScale1; }
+  float GetThermalColdScale2() const { return xf28_thermColdScale2; }
 
   bool IsGeneratingObject() const { return xf94_26_generatingObject; }
   void SetIsGeneratingObject(bool gen) { xf94_26_generatingObject = gen; }
@@ -190,7 +190,7 @@ public:
     return xf90_deferredTransition == kSMT_MessageScreen;
   }
 
-  void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, u32 stringIdx);
+  void SetEnergyBarActorInfo(TUniqueId bossId, float maxEnergy, uint stringIdx);
   void SetPendingOnScreenTex(CAssetId texId, const CVector2i& origin, const CVector2i& extent); /* {
      xef4_pendingScreenTex.x0_id = texId;
      xef4_pendingScreenTex.x4_origin = origin;
@@ -205,11 +205,11 @@ public:
   void SetInSaveUI(bool b) { xf94_28_inSaveUI = b; }
   bool GetInSaveUI() const { return xf94_28_inSaveUI; }
   void SetIsFullThreat(bool v) { xf94_30_fullThreat = v; }
-  u32 GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
+  uint GetInputFrameIdx() const { return x8d4_inputFrameIdx; }
 
 private:
-  u16 x0_nextFreeIndex;
-  rstl::reserved_vector< u16, 1024 > x8_objectIndexArray;
+  ushort x0_nextFreeIndex;
+  rstl::reserved_vector< ushort, 1024 > x8_objectIndexArray;
   rstl::reserved_vector< rstl::auto_ptr< CObjectList >, 8 > x808_objectLists;
   CPlayer* x84c_player;
   rstl::single_ptr< CWorld > x850_world;
@@ -226,7 +226,7 @@ private:
   // TODO
   // rstl::multimap< TEditorId, TUniqueId > x890_scriptIdMap;
   // rstl::map< TEditorId, SScriptObjectStream > x8a4_loadedScriptObjects;
-  u8 pad[0x28];
+  uchar pad[0x28];
   rstl::rc_ptr< CPlayerState > x8b8_playerState;
   rstl::rc_ptr< CScriptMailbox > x8bc_mailbox;
   rstl::rc_ptr< CMapWorldInfo > x8c0_mapWorldInfo;
@@ -235,9 +235,9 @@ private:
 
   TAreaId x8cc_nextAreaId;
   TAreaId x8d0_prevAreaId;
-  u32 x8d4_inputFrameIdx;
-  u32 x8d8_updateFrameIdx;
-  u32 x8dc_objectDrawToken;
+  uint x8d4_inputFrameIdx;
+  uint x8d8_updateFrameIdx;
+  uint x8dc_objectDrawToken;
 
   rstl::vector< CLight > x8e0_dynamicLights;
 
@@ -245,7 +245,7 @@ private:
   CRandom16 x8fc_random;
   CRandom16* x900_random;
 
-  u8 x904_pad[0x280];
+  uchar x904_pad[0x280];
 
   rstl::reserved_vector< CCameraFilterPass, kCFS_Max > xb84_camFilterPasses;
   rstl::reserved_vector< CCameraBlurPass, kCFS_Max > xd14_camBlurPasses;
@@ -253,14 +253,14 @@ private:
   uint xef0_hintPeriods;
   SOnScreenTex xef4_pendingScreenTex;
   CAssetId xf08_pauseHudMessage;
-  f32 xf0c_escapeTimer;
-  f32 xf10_escapeTotalTime;
-  f32 xf14_curTimeMod900;
+  float xf0c_escapeTimer;
+  float xf10_escapeTotalTime;
+  float xf14_curTimeMod900;
   TUniqueId xf18_bossId;
-  f32 xf1c_totalBossEnergy;
+  float xf1c_totalBossEnergy;
   uint xf20_bossStringIdx;
-  f32 xf24_thermColdScale1;
-  f32 xf28_thermColdScale2;
+  float xf24_thermColdScale1;
+  float xf28_thermColdScale2;
   CVector2f xf2c_viewportScale;
   EThermalDrawFlag xf34_thermalFlag;
   TUniqueId xf38_skipCineSpecialFunc;
@@ -270,12 +270,12 @@ private:
   rstl::single_ptr< CMazeState > xf70_currentMaze;
   TUniqueId xf74_lastTrigger;
   TUniqueId xf76_lastRelay;
-  f32 xf78_hudMessageTime;
+  float xf78_hudMessageTime;
   unkptr xf7c_projectedShadow;
   uint xf80_hudMessageFrameCount;
   CAssetId xf84_;
   CAssetId xf88_;
-  f32 xf8c_;
+  float xf8c_;
   EStateManagerTransition xf90_deferredTransition;
   bool xf94_24_readyToRender : 1;
   bool xf94_25_quitGame : 1;

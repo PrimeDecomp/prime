@@ -27,8 +27,8 @@ public:
   virtual void ObjectUnreferenced(const SObjectTag& tag);
 
 private:
-  u8 x4_;
-  u8 x5_;
+  uchar x4_;
+  uchar x5_;
   rstl::hash_map< unkptr, unkptr, void, void > x8_resources;
   unkptr x18_factory;
   rstl::rc_ptr< CVParamTransfer > x1c_paramXfr;

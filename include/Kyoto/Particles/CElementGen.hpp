@@ -49,7 +49,7 @@ public:
   static void ShutDown();
 
 private:
-  u8 x4_pad[0x33C];
+  uchar x4_pad[0x33C];
 };
 CHECK_SIZEOF(CElementGen, 0x340)
 

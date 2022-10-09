@@ -13,20 +13,20 @@ template < typename _CharTp, typename Traits = char_traits< _CharTp >,
            typename Alloc = rmemory_allocator >
 class basic_string {
   struct COWData {
-    u32 x0_capacity;
-    u32 x4_refCount;
+    uint x0_capacity;
+    uint x4_refCount;
     _CharTp* x8_data;
   };
 
   const _CharTp* x0_ptr;
   COWData* x4_cow;
-  u32 x8_size;
-  u32 _pad; // Alloc?
+  uint x8_size;
+  uint _pad; // Alloc?
 
   // void internal_allocate(int size)
   // {
-  //     x4_cow = reinterpret_cast<COWData*>(new u8[size * sizeof(_CharTp) +
-  //     8]); x0_ptr = x4_cow->x8_data; x4_cow->x0_capacity = u32(size);
+  //     x4_cow = reinterpret_cast<COWData*>(new uchar[size * sizeof(_CharTp) +
+  //     8]); x0_ptr = x4_cow->x8_data; x4_cow->x0_capacity = uint(size);
   //     x4_cow->x4_refCount = 1;
   // }
 
@@ -52,7 +52,7 @@ public:
   //     while (*it)
   //         ++it;
 
-  //     x8_size = u32((it - data) / sizeof(_CharTp));
+  //     x8_size = uint((it - data) / sizeof(_CharTp));
   // }
 
   basic_string(const basic_string& str);
@@ -75,7 +75,7 @@ public:
   //     }
 
   //     const _CharTp* it = data;
-  //     u32 len = 0;
+  //     uint len = 0;
   //     while (*it)
   //     {
   //         if (size != -1 && len >= size)

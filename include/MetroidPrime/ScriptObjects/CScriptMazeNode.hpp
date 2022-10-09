@@ -82,7 +82,7 @@ public:
 
   void Accept(IVisitor& visitor) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
-  void Think(f32 dt, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
 
   static void LoadMazeSeeds();
 
@@ -99,7 +99,7 @@ private:
   int xec_row;
   ESide xf0_side;
   TUniqueId xf4_gateEffectId;
-  f32 xf8_msgTimer;
+  float xf8_msgTimer;
   TUniqueId xfc_actorId;
   CVector3f x100_actorPos;
   TUniqueId x10c_triggerId;

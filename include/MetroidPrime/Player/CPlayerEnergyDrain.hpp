@@ -9,20 +9,20 @@
 
 class CEnergyDrainSource {
 public:
-  CEnergyDrainSource(TUniqueId src, f32 intensity);
+  CEnergyDrainSource(TUniqueId src, float intensity);
   TUniqueId GetEnergyDrainSourceId() const { return x0_source; }
-  void SetEnergyDrainIntensity(f32 in) { x4_intensity = in; }
-  f32 GetEnergyDrainIntensity() const { return x4_intensity; }
+  void SetEnergyDrainIntensity(float in) { x4_intensity = in; }
+  float GetEnergyDrainIntensity() const { return x4_intensity; }
 
 private:
   TUniqueId x0_source;
-  f32 x4_intensity;
+  float x4_intensity;
 };
 
 class CPlayerEnergyDrain {
 private:
   rstl::vector< CEnergyDrainSource > x0_sources;
-  f32 x10_energyDrainTime;
+  float x10_energyDrainTime;
 };
 CHECK_SIZEOF(CPlayerEnergyDrain, 0x14)
 

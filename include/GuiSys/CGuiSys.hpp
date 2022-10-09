@@ -26,7 +26,7 @@ public:
   }
 
 private:
-  u8 pad[0x14];
+  uchar pad[0x14];
 
   static CGuiSys* spGuiSys;
 };

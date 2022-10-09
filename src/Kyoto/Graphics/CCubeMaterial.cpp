@@ -6,7 +6,8 @@
 
 #include <dolphin/mtx.h>
 
-inline void CGX::SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1) {
+inline void CGX::SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
+                                 uchar ref1) {
   uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) |
                MaskAndShiftLeft(op, 7, 11) | MaskAndShiftLeft(comp1, 7, 14) |
                MaskAndShiftLeft(ref1, 0xFF, 17);
@@ -109,7 +110,7 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
       {0.0f, 0.0f, 0.0f, 1.0f},
   };
   uint type = SBig(*uvAnim);
-  const f32* params = reinterpret_cast< const f32* >(uvAnim + 1);
+  const float* params = reinterpret_cast< const float* >(uvAnim + 1);
   switch (type) {
   case 0: {
     CTransform4f xf = CGraphics::GetViewMatrix().GetQuickInverse().MultiplyIgnoreTranslation(
@@ -126,23 +127,23 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     return 1;
   }
   case 2: {
-    const f32 f1 = SBig(params[0]);
-    const f32 f2 = SBig(params[1]);
-    const f32 f3 = SBig(params[2]);
-    const f32 f4 = SBig(params[3]);
-    const f32 seconds = CGraphics::GetSecondsMod900();
+    const float f1 = SBig(params[0]);
+    const float f2 = SBig(params[1]);
+    const float f3 = SBig(params[2]);
+    const float f4 = SBig(params[3]);
+    const float seconds = CGraphics::GetSecondsMod900();
     translateMtx[0][3] = f1 + seconds * f3;
     translateMtx[1][3] = f2 + seconds * f4;
     CGX::LoadTexMtxImm(translateMtx, texMtx, GX_MTX3x4);
     return 5;
   }
   case 3: {
-    const f32 f1 = SBig(params[0]);
-    const f32 f2 = SBig(params[1]);
-    const f32 seconds = CGraphics::GetSecondsMod900();
-    const f32 angle = f1 + seconds * f2;
-    const f32 asin = CMath::FastSinR(angle);
-    const f32 acos = CMath::FastCosR(angle);
+    const float f1 = SBig(params[0]);
+    const float f2 = SBig(params[1]);
+    const float seconds = CGraphics::GetSecondsMod900();
+    const float angle = f1 + seconds * f2;
+    const float asin = CMath::FastSinR(angle);
+    const float acos = CMath::FastCosR(angle);
     Mtx mtx = {
         {acos, -asin, 0.f, (1.f - (acos - asin)) * 0.5f},
         {asin, acos, 0.f, (1.f - (asin + acos)) * 0.5f},
@@ -153,14 +154,14 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
   }
   case 4:
   case 5: {
-    const f32 f1 = SBig(params[0]);
-    const f32 f2 = SBig(params[1]);
-    const f32 f3 = SBig(params[2]);
-    const f32 f4 = SBig(params[3]);
-    const f32 value = (f4 + CGraphics::GetSecondsMod900()) * f1 * f3;
-    const f32 fmod = CMath::FastFmod(value, 1.f);
-    const f32 fs = CCast::FtoS(fmod * f2);
-    const f32 v2 = fs * f3;
+    const float f1 = SBig(params[0]);
+    const float f2 = SBig(params[1]);
+    const float f3 = SBig(params[2]);
+    const float f4 = SBig(params[3]);
+    const float value = (f4 + CGraphics::GetSecondsMod900()) * f1 * f3;
+    const float fmod = CMath::FastFmod(value, 1.f);
+    const float fs = CCast::FtoS(fmod * f2);
+    const float v2 = fs * f3;
     if (type == 4) {
       translateMtx[0][3] = v2;
       translateMtx[1][3] = 0.f;
@@ -212,11 +213,11 @@ uint HandleAnimatedUV(const uint* uvAnim, GXTexMtx texMtx, GXPTTexMtx ptTexMtx) 
     const CTransform4f& vm = CGraphics::GetViewMatrix();
     CTransform4f xf = CGraphics::GetViewMatrix().GetQuickInverse().MultiplyIgnoreTranslation(
         CGraphics::GetModelMatrix());
-    f32 v = SBig(params[0]) / 2.f;
-    f32 v03 = 0.025f * (vm.Get03() + vm.Get13()) * SBig(params[1]);
-    f32 v13 = 0.05f * vm.Get23() * SBig(params[1]);
-    f32 v03f = CMath::FastFmod(v03, 1.f);
-    f32 v13f = CMath::FastFmod(v13, 1.f);
+    float v = SBig(params[0]) / 2.f;
+    float v03 = 0.025f * (vm.Get03() + vm.Get13()) * SBig(params[1]);
+    float v13 = 0.05f * vm.Get23() * SBig(params[1]);
+    float v03f = CMath::FastFmod(v03, 1.f);
+    float v13f = CMath::FastFmod(v13, 1.f);
     xf.SetTranslation(CVector3f::Zero());
     Mtx tmpPtMtx;
     __memcpy(&tmpPtMtx, &sPtMtx, sizeof(Mtx));

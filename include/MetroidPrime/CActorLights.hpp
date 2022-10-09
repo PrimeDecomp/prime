@@ -29,7 +29,7 @@ public:
 
   bool GetNeedsRelight() const { return x298_24_dirty == TRUE; }
   bool HasShadowLight() const { return x29c_shadowLightArrIdx != -1; }
-  s32 GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
+  int GetShadowLightIndex() const { return x2a0_shadowLightIdx; }
 
   void SetFindShadowLight(bool v) { x298_27_findShadowLight = v; }
   void SetShadowDynamicRangeThreshold(float t) { x2d0_shadowDynamicRangeThreshold = t; }
@@ -59,9 +59,9 @@ private:
   int x2b8_maxAreaLights;
   int x2bc_maxDynamicLights;
   CVector3f x2c0_lastActorPos;
-  f32 x2cc_actorPositionDeltaUpdateThreshold;
-  f32 x2d0_shadowDynamicRangeThreshold;
-  f32 x2d4_worldLightingLevel;
+  float x2cc_actorPositionDeltaUpdateThreshold;
+  float x2d0_shadowDynamicRangeThreshold;
+  float x2d4_worldLightingLevel;
   int x2d8_brightLightIdx;
   uint x2dc_brightLightLag;
 };

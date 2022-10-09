@@ -14,7 +14,7 @@ public:
   };
 
 private:
-  f32 x0_time;
+  float x0_time;
   EType x4_type;
 };
 CHECK_SIZEOF(CCharAnimTime, 0x8)

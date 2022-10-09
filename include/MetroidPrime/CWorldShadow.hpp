@@ -18,7 +18,7 @@ class CWorldShadow {
   CVector3f x68_objPos;
   CVector3f x74_lightPos;
   TAreaId x80_aid;
-  s32 x84_lightIdx;
+  int x84_lightIdx;
   bool x88_blurReset;
 
 public:

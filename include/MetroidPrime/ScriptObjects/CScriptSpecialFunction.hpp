@@ -88,20 +88,20 @@ private:
   float x138_;
   CTransform4f x13c_spinnerInitialXf;
   float x16c_;
-  u16 x170_sfx1;
-  u16 x172_sfx2;
-  u16 x174_sfx3;
+  ushort x170_sfx1;
+  ushort x172_sfx2;
+  ushort x174_sfx3;
   CSfxHandle x178_sfxHandle;
   uint x17c_;
   float x180_;
-  TAverage< f32 > x184_;
+  TAverage< float > x184_;
   float x194_;
   rstl::vector< SRingController > x198_ringControllers;
   ERingState x1a8_ringState;
   CVector3f x1ac_ringRotateTarget;
   bool x1b8_ringReverse;
-  s32 x1bc_areaSaveId;
-  s32 x1c0_layerIdx;
+  int x1bc_areaSaveId;
+  int x1c0_layerIdx;
   CPlayerState::EItemType x1c4_item;
   rstl::optional_object< CAABox > x1c8_touchBounds;
   bool x1e4_24_spinnerInitializedXf : 1;
@@ -121,7 +121,7 @@ public:
   CScriptSpecialFunction(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
                          ESpecialFunction, const rstl::string&, float, float, float, float,
                          const CVector3f&, const CColor&, bool, const CDamageInfo&, int, int,
-                         CPlayerState::EItemType, u16, u16, u16);
+                         CPlayerState::EItemType, ushort, ushort, ushort);
 
   void Accept(IVisitor& visitor) override;
   void Think(float, CStateManager&) override;
@@ -149,7 +149,7 @@ public:
 
   void DeleteEmitter(CSfxHandle& handle);
   int GetSpecialEnding(const CStateManager&) const;
-  void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id, CVector3f pos, u8 vol);
+  void AddOrUpdateEmitter(float pitch, CSfxHandle& handle, ushort id, CVector3f pos, uchar vol);
 };
 
 #endif // _CSCRIPTSPECIALFUNCTION

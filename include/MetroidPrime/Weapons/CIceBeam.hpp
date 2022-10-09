@@ -12,7 +12,7 @@ public:
   ~CIceBeam();
 
 private:
-  u8 x21c_pad[0x30];
+  uchar x21c_pad[0x30];
 };
 CHECK_SIZEOF(CIceBeam, 0x24c)
 

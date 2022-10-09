@@ -64,7 +64,7 @@ void CDolphinController::ReadDevices() {
     if (x1b4_controllerTypePollTime[i] != 0) {
       --x1b4_controllerTypePollTime[i];
     } else {
-      const u32 type = SIProbe(i);
+      const uint type = SIProbe(i);
       if ((type & (SI_ERROR_NO_RESPONSE | SI_ERROR_UNKNOWN | SI_ERROR_BUSY)) != 0) {
         if (x1b4_controllerTypePollTime[i] == 0) {
           x1a4_controllerTypes[i] = skTypeUnknown;
@@ -136,14 +136,14 @@ void CDolphinController::ProcessAxis(int controller, EJoyAxis axis) {
   data.SetAbsoluteValue(absolute);
 }
 
-static u16 mButtonMapping[size_t(kBU_MAX)] = {
+static ushort mButtonMapping[size_t(kBU_MAX)] = {
     PAD_BUTTON_A,     PAD_BUTTON_B,    PAD_BUTTON_X,  PAD_BUTTON_Y,
     PAD_BUTTON_START, PAD_TRIGGER_Z,   PAD_BUTTON_UP, PAD_BUTTON_RIGHT,
     PAD_BUTTON_DOWN,  PAD_BUTTON_LEFT, PAD_TRIGGER_L, PAD_TRIGGER_R,
 };
 
 void CDolphinController::ProcessButtons(int controller) {
-  for (s32 i = 0; i < s32(kBU_MAX); ++i) {
+  for (int i = 0; i < int(kBU_MAX); ++i) {
     ProcessDigitalButton(controller, x34_gamepadStates[controller].GetButton(EButton(i)),
                          mButtonMapping[i]);
   }
@@ -155,7 +155,7 @@ void CDolphinController::ProcessButtons(int controller) {
 }
 
 void CDolphinController::ProcessDigitalButton(int controller, CControllerButton& button,
-                                              u16 mapping) {
+                                              ushort mapping) {
   bool btnPressed = (x4_status[controller].button & mapping);
   button.SetPressEvent(PADButtonDown(button.GetIsPressed(), btnPressed));
   button.SetReleaseEvent(PADButtonUp(button.GetIsPressed(), btnPressed));

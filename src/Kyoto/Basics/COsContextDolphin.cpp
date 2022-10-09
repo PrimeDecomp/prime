@@ -66,7 +66,8 @@ int COsContext::OpenWindow(const char* title, int x, int y, int w, int h, bool f
   x0_right = x30_renderMode.viWidth;
   x4_bottom = x30_renderMode.viHeight;
 
-  x2c_frameBufferSize = (u16)((x30_renderMode.fbWidth + 15) & ~15) * x30_renderMode.xfbHeight * 2;
+  x2c_frameBufferSize =
+      (ushort)((x30_renderMode.fbWidth + 15) & ~15) * x30_renderMode.xfbHeight * 2;
   x24_frameBuffer1 = OSAllocFromArenaLo(x2c_frameBufferSize, 32);
   x28_frameBuffer2 = OSAllocFromArenaLo(x2c_frameBufferSize, 32);
   x20_arenaLo2 = OSGetArenaLo();
@@ -78,7 +79,7 @@ int COsContext::OpenWindow(const char* title, int x, int y, int w, int h, bool f
   if (mProgressiveMode) {
     x30_renderMode.viTVmode = VI_TVMODE_NTSC_PROG;
     x30_renderMode.xFBmode = VI_XFBMODE_SF;
-    u8 progressiveFilterPattern[7] = {4, 4, 16, 16, 16, 4, 4};
+    uchar progressiveFilterPattern[7] = {4, 4, 16, 16, 16, 4, 4};
     memcpy(x30_renderMode.vfilter, progressiveFilterPattern, 7);
   }
   VIConfigure(&x30_renderMode);

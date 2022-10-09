@@ -21,8 +21,8 @@ public:
   bool IsSuitLoading() const { return x3b2_29_suitLoading; }
 
 private:
-  u8 x0_pad[0x3b0];
-  s16 x3b0_rumbleHandle;
+  uchar x0_pad[0x3b0];
+  short x3b0_rumbleHandle;
   bool x3b2_24_active : 1;
   bool x3b2_25_beamActive : 1;
   bool x3b2_26_grappleHit : 1;

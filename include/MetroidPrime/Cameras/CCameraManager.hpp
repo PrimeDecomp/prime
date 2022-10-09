@@ -30,7 +30,7 @@ public:
   void SetFogDensity(float fogDensityTarget, float fogDensitySpeed);
   bool IsInCinematicCamera() const;
 
-  static f32 DefaultThirdPersonFov();
+  static float DefaultThirdPersonFov();
 
 private:
   TUniqueId x0_curCameraId;
@@ -45,11 +45,11 @@ private:
   CBallCamera* x80_ballCamera;
   int x84_rumbleId;
   CInterpolationCamera* x88_interpCamera;
-  s16 x8c_;
-  f32 x90_rumbleCooldown;
-  f32 x94_fogDensityFactor;
-  f32 x98_fogDensitySpeed;
-  f32 x9c_fogDensityFactorTarget;
+  short x8c_;
+  float x90_rumbleCooldown;
+  float x94_fogDensityFactor;
+  float x98_fogDensitySpeed;
+  float x9c_fogDensityFactorTarget;
   bool xa0_24_pendingRumble : 1;
   bool xa0_25_rumbling : 1;
   bool xa0_26_inWater : 1;
@@ -62,7 +62,7 @@ private:
   rstl::reserved_vector< TUniqueId, 64 > x334_activeCameraHints;
   bool x3b8_24_ : 1;
   bool x3b8_25_ : 1;
-  f32 x3bc_curFov;
+  float x3bc_curFov;
 };
 CHECK_SIZEOF(CCameraManager, 0x3c0)
 

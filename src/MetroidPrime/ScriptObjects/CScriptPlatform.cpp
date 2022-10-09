@@ -14,13 +14,13 @@
 
 #ifndef TARGET_PC
 struct GXData {
-  u16 cpSRreg;
-  u16 cpCRreg;
+  ushort cpSRreg;
+  ushort cpCRreg;
 };
 extern GXData* __GXData;
 
 static inline void write_bp_cmd(u32 cmd) {
-  GXWGFifo.u8 = GX_LOAD_BP_REG;
+  GXWGFifo.uchar = GX_LOAD_BP_REG;
   GXWGFifo.u32 = cmd;
   __GXData->cpCRreg = 0;
 }
@@ -53,8 +53,8 @@ void CGX::update_fog(uint flags) {
 
 CScriptPlatform::CScriptPlatform(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-    const CModelData& mData, const CActorParameters& actParams, const CAABox& aabb, f32 speed,
-    bool detectCollision, f32 xrayAlpha, bool active, const CHealthInfo& hInfo,
+    const CModelData& mData, const CActorParameters& actParams, const CAABox& aabb, float speed,
+    bool detectCollision, float xrayAlpha, bool active, const CHealthInfo& hInfo,
     const CDamageVulnerability& dVuln,
     const rstl::optional_object< TLockedToken< CCollidableOBBTreeGroupContainer > >& dcln,
     bool rainSplashes, uint maxRainSplashes, uint rainGenRate)
@@ -168,7 +168,7 @@ TEntityList CScriptPlatform::BuildNearListFromRiders(CStateManager& mgr,
   return result;
 }
 
-void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, f32 dt, CStateManager& mgr) {
+void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, float dt, CStateManager& mgr) {
   rstl::vector< SRiders >::iterator it = riders.begin();
   while (it != riders.end()) {
     it->x4_decayTimer -= dt;
@@ -188,7 +188,7 @@ void CScriptPlatform::DecayRiders(rstl::vector< SRiders >& riders, f32 dt, CStat
 }
 
 // TODO: minor regswap
-void CScriptPlatform::MoveRiders(CStateManager& mgr, f32 dt, bool active,
+void CScriptPlatform::MoveRiders(CStateManager& mgr, float dt, bool active,
                                  rstl::vector< SRiders >& riders,
                                  rstl::vector< SRiders >& collidedRiders, const CTransform4f& oldXf,
                                  const CTransform4f& newXf, const CVector3f& dragDelta,
@@ -232,7 +232,7 @@ void CScriptPlatform::MoveRiders(CStateManager& mgr, f32 dt, bool active,
 }
 
 // TODO non-matching
-void CScriptPlatform::PreThink(f32 dt, CStateManager& mgr) {
+void CScriptPlatform::PreThink(float dt, CStateManager& mgr) {
   DecayRiders(x318_riders, dt, mgr);
   x264_collisionRecoverDelay -= dt;
   x260_moveDelay -= dt;

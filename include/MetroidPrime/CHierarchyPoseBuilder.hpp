@@ -32,7 +32,7 @@ public:
   class CScaledLayoutDescription {
   private:
     TCachedToken< CCharLayoutInfo > x0_layoutToken;
-    f32 xc_scale;
+    float xc_scale;
     rstl::optional_object< CVector3f > x10_scaleVec;
   };
 

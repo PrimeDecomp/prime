@@ -13,7 +13,7 @@ public:
 
   // CEntity
   ~CWeapon() override;
-  void Think(f32 dt, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
 
   // CActor
   void Render(const CStateManager&) const override;

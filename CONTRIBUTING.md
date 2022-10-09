@@ -42,6 +42,10 @@ Metaforce is a non-matching decompilation, and often uses modern C++ features th
 ### Converting types
 
 Metaforce -> decomp
+- `s8` -> `char`
+- `u8` -> `uchar`
+- `s16` -> `short`
+- `u16` -> `ushort`
 - `s32` -> `int`
 - `u32` -> `uint`
 - `zeus::CTransform` -> `CTransform4f`

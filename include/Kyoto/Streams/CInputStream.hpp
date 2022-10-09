@@ -16,12 +16,12 @@ public:
   virtual ~CInputStream();
   virtual uint Read(void* dest, uint len) = 0;
 
-  f32 ReadFloat();
+  float ReadFloat();
   u64 ReadLongLong();
   uint ReadLong();
-  u16 ReadShort();
+  ushort ReadShort();
   bool ReadBool();
-  u8 ReadChar();
+  uchar ReadChar();
   uint ReadBits(uint len);
   uint ReadBytes(void* dest, unsigned long len);
   void Get(void* dest, unsigned long len);
@@ -40,7 +40,7 @@ private:
   uint x4_blockOffset;
   uint x8_blockLen;
   uint xc_len;
-  u8* x10_ptr;
+  uchar* x10_ptr;
   bool x14_owned;
   uint x18_readPosition;
   uint x1c_bitWord;

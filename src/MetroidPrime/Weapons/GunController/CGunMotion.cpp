@@ -21,7 +21,7 @@ bool CGunMotion::PlayPasAnim(SamusGun::EAnimationState state, CStateManager& mgr
                              bool bigStrike) {
   const CPASDatabase& pas = x0_modelData.GetAnimationData()->GetCharacterInfo().GetPASDatabase();
 
-  s32 animId = -1;
+  int animId = -1;
   bool loop = true;
   switch (state) {
   case SamusGun::kAS_Wander: {

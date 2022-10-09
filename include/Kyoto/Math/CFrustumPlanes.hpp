@@ -13,10 +13,10 @@ class CSphere;
 
 class CPlane {
 private:
-  f32 x;
-  f32 y;
-  f32 z;
-  f32 d;
+  float x;
+  float y;
+  float z;
+  float d;
 };
 
 class CFrustumPlanes {

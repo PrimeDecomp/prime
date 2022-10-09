@@ -18,7 +18,7 @@ public:
   CAxisAngle() : mVector(CVector3f::Zero()) {}
   explicit CAxisAngle(const CVector3f& vec);
   explicit CAxisAngle(const CUnitVector3f& vec, float);
-  CAxisAngle(f32 x, f32 y, f32 z) : mVector(x, y, z) {}
+  CAxisAngle(float x, float y, float z) : mVector(x, y, z) {}
   void FromVector(const CVector3f& angle);
 
   static const CAxisAngle& Identity();

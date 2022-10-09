@@ -12,7 +12,7 @@ public:
   CCollidableSphere(const CSphere& sphere, const CMaterialList& material)
   : CCollisionPrimitive(material), x10_sphere(sphere) {}
 
-  u32 GetTableIndex() const override;
+  uint GetTableIndex() const override;
   CAABox CalculateAABox(const CTransform4f&) const override;
   CAABox CalculateLocalAABox() const override;
   FourCC GetPrimType() const override;

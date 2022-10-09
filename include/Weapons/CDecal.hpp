@@ -35,7 +35,7 @@ public:
     float x8_rotation;
   };
 
-  static void SetGlobalSeed(u16 seed);
+  static void SetGlobalSeed(ushort seed);
   CDecal(const TToken< CDecalDescription >& desc, const CTransform4f& xf);
 
   void RenderQuad(CQuadDecal& quad, const CDecalDescription::SQuadDescr& quadDesc) const;

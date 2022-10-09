@@ -20,7 +20,7 @@ public:
   // CEntity
   ~CExplosion();
   void Accept(IVisitor& visitor) override;
-  void Think(f32 dt, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor

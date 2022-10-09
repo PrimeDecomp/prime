@@ -22,7 +22,7 @@ private:
   CColor x28_colorTarget;
   unkptr x2c_;
   unkptr x30_;
-  f32 x34_colorDelta;
+  float x34_colorDelta;
 };
 CHECK_SIZEOF(CAreaFog, 0x38)
 

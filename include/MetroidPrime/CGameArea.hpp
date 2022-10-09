@@ -25,7 +25,7 @@ public:
   virtual bool IIsActive() const = 0;
   virtual CAssetId IGetAreaAssetId() const = 0;
   virtual int IGetAreaSaveId() const = 0;
-  virtual rstl::pair< rstl::auto_ptr< u8 >, int > IGetScriptingMemoryAlways() const = 0;
+  virtual rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const = 0;
 };
 
 class Dock;
@@ -42,7 +42,7 @@ public:
   bool IIsActive() const override;
   CAssetId IGetAreaAssetId() const override;
   int IGetAreaSaveId() const override;
-  rstl::pair< rstl::auto_ptr< u8 >, int > IGetScriptingMemoryAlways() const override;
+  rstl::pair< rstl::auto_ptr< uchar >, int > IGetScriptingMemoryAlways() const override;
 
   bool IsLoaded() const { return xf0_24_postConstructed; }
   bool IsActive() const { return xf0_25_active; }
@@ -62,7 +62,7 @@ private:
   CAABox x6c_aabb;
   CAssetId x84_mrea;
   int x88_areaId;
-  rstl::vector< u16 > x8c_attachedAreaIndices;
+  rstl::vector< ushort > x8c_attachedAreaIndices;
   rstl::vector< SObjectTag > x9c_deps1;
   rstl::vector< SObjectTag > xac_deps2;
   rstl::vector< uint > xbc_layerDepOffsets;

@@ -17,8 +17,8 @@ public:
     uint xc_alphaOps;
     uint x10_indFlags;
     uint x14_tevOrderFlags;
-    u8 x18_kColorSel;
-    u8 x19_kAlphaSel;
+    uchar x18_kColorSel;
+    uchar x19_kAlphaSel;
 
     STevState();
   };
@@ -30,10 +30,10 @@ public:
   };
 
   struct SFogParams {
-    f32 x0_fogStartZ;
-    f32 x4_fogEndZ;
-    f32 x8_fogNearZ;
-    f32 xc_fogFarZ;
+    float x0_fogStartZ;
+    float x4_fogEndZ;
+    float x8_fogNearZ;
+    float xc_fogFarZ;
     GXColor x10_fogColor;
 
     SFogParams() : x0_fogStartZ(0.f), x4_fogEndZ(1.f), x8_fogNearZ(0.1f), xc_fogFarZ(1.f) {
@@ -46,28 +46,28 @@ public:
 
   struct SGXState {
     const void* x0_arrayPtrs[12];
-    u16 x30_prevChanCtrls[2];
-    u16 x34_chanCtrls[2];
+    ushort x30_prevChanCtrls[2];
+    ushort x34_chanCtrls[2];
     GXColor x38_chanAmbColors[2];
     GXColor x40_chanMatColors[2];
     uint x48_descList;
     union {
-      u8 x4c_chanFlags;
+      uchar x4c_chanFlags;
       struct {
-        u8 unused : 5;
-        u8 chansDirty : 2;
-        u8 numDirty : 1;
+        uchar unused : 5;
+        uchar chansDirty : 2;
+        uchar numDirty : 1;
       } x4c_flags;
     };
-    u8 x4d_prevNumChans;
-    u8 x4e_numChans;
-    u8 x4f_numTexGens;
-    u8 x50_numTevStages;
-    u8 x51_numIndStages;
-    u8 x52_zmode;
-    u8 x53_fogType;
-    u16 x54_lineWidthAndOffset;
-    u16 x56_blendMode;
+    uchar x4d_prevNumChans;
+    uchar x4e_numChans;
+    uchar x4f_numTexGens;
+    uchar x50_numTevStages;
+    uchar x51_numIndStages;
+    uchar x52_zmode;
+    uchar x53_fogType;
+    ushort x54_lineWidthAndOffset;
+    ushort x56_blendMode;
     GXColor x58_kColors[4];
     STevState x68_tevStates[16];
     STexState x228_texStates[8];
@@ -82,10 +82,10 @@ public:
     Channel1, // GX_COLOR1
   };
 
-  static void SetNumChans(u8 num);
-  static void SetNumTexGens(u8 num);
-  static void SetNumTevStages(u8 num);
-  static void SetNumIndStages(u8 num);
+  static void SetNumChans(uchar num);
+  static void SetNumTexGens(uchar num);
+  static void SetNumTevStages(uchar num);
+  static void SetNumIndStages(uchar num);
   static void SetChanAmbColor(EChannelId channel, const GXColor& color);
   static void SetChanMatColor(EChannelId channel, const GXColor& color);
   static void SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc, GXColorSrc matSrc,
@@ -108,7 +108,8 @@ public:
   static void SetBlendMode(GXBlendMode mode, GXBlendFactor srcFac, GXBlendFactor dstFac,
                            GXLogicOp op);
   static void SetZMode(bool compareEnable, GXCompare func, bool updateEnable);
-  static void SetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1);
+  static void SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
+                              uchar ref1);
   static void SetTevIndirect(GXTevStageID stageId, GXIndTexStageID indStage, GXIndTexFormat fmt,
                              GXIndTexBiasSel biasSel, GXIndTexMtxID mtxSel, GXIndTexWrap wrapS,
                              GXIndTexWrap wrapT, GXBool addPrev, GXBool indLod,
@@ -116,10 +117,10 @@ public:
   static void SetTevDirect(GXTevStageID stageId);
   static void SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src, GXTexMtx mtx,
                              GXBool normalize, GXPTTexMtx postMtx);
-  static void SetArray(GXAttr attr, const void* data, u8 stride);
-  static void SetFog(GXFogType type, f32 startZ, f32 endZ, f32 nearZ, f32 farZ,
+  static void SetArray(GXAttr attr, const void* data, uchar stride);
+  static void SetFog(GXFogType type, float startZ, float endZ, float nearZ, float farZ,
                      const GXColor& color);
-  static void SetLineWidth(u8 width, GXTexOffset offset);
+  static void SetLineWidth(uchar width, GXTexOffset offset);
   static void SetIndTexMtxSTPointFive(GXIndTexMtxID id, s8 scaleExp);
   static void SetVtxDescv_Compressed(uint flags);
   static void SetVtxDesc(GXAttr attr, GXAttrType type); // name?
@@ -130,18 +131,18 @@ public:
   static void SetStandardTevColorAlphaOp(GXTevStageID stageId);
 
   static void CallDisplayList(const void* ptr, size_t size);
-  static void Begin(GXPrimitive prim, GXVtxFmt fmt, u16 numVtx);
+  static void Begin(GXPrimitive prim, GXVtxFmt fmt, ushort numVtx);
   static void End();
   static void ResetGXStates();
   static void ResetGXStatesFull(); // name?
 
-  static inline void LoadTexMtxImm(const f32 mtx[][4], unsigned long id, GXTexMtxType type) {
+  static inline void LoadTexMtxImm(const float mtx[][4], unsigned long id, GXTexMtxType type) {
     GXLoadTexMtxImm(const_cast< MtxPtr >(mtx), id, type);
   }
 
   static GXColor GetChanAmbColor(EChannelId channel);
-  static void GetFog(GXFogType* fogType, f32* fogStartZ, f32* fogEndZ, f32* fogNearZ, f32* fogFarZ,
-                     GXColor* fogColor);
+  static void GetFog(GXFogType* fogType, float* fogStartZ, float* fogEndZ, float* fogNearZ,
+                     float* fogFarZ, GXColor* fogColor);
 
   static inline bool CompareGXColors(const GXColor& lhs, const GXColor& rhs) {
     return *reinterpret_cast< const uint* >(&lhs) == *reinterpret_cast< const uint* >(&rhs);

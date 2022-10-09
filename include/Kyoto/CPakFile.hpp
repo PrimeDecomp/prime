@@ -25,7 +25,7 @@ private:
   bool x28_27_stashedInARAM : 1;
   int x2c_asyncLoadPhase;            // EAsyncPhase
   rstl::auto_ptr< void > x30_dvdReq; // IDvdRequest
-  rstl::vector< u8 > x38_headerData;
+  rstl::vector< uchar > x38_headerData;
   uint x48_resTableOffset;
   uint x4c_resTableCount;
   int x50_aramBase;

@@ -6,7 +6,7 @@
 class CMediumAllocPool {
 public:
   struct SMediumAllocPuddle {
-    u8 unk;
+    uchar unk;
     void* x4_mainData;
     void* x8_bookKeeping;
     void* xc_cachedBookKeepingOffset;
@@ -24,7 +24,7 @@ public:
   void AddPuddle(uint, void*, int);
   void ClearPuddles();
 
-  s32 Free(const void* ptr);
+  int Free(const void* ptr);
 
   uint GetTotalEntries();
   uint GetNumBlocksAvailable();

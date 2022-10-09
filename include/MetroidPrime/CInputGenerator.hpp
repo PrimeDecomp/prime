@@ -12,7 +12,7 @@ class IController;
 
 class CInputGenerator {
 public:
-  CInputGenerator(COsContext*, f32, f32);
+  CInputGenerator(COsContext*, float, float);
 
   IController* GetController() const { return x4_controller.get(); }
 
@@ -20,8 +20,8 @@ private:
   COsContext* x0_context;
   rstl::single_ptr< IController > x4_controller;
   bool x8_connectedControllers[4];
-  f32 xc_leftDiv;
-  f32 x10_rightDiv;
+  float xc_leftDiv;
+  float x10_rightDiv;
 };
 CHECK_SIZEOF(CInputGenerator, 0x14)
 

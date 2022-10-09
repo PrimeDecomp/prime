@@ -11,7 +11,7 @@ class CAnimPlaybackParms {
 private:
   int x0_animA;
   int x4_animB;
-  f32 x8_blendWeight;
+  float x8_blendWeight;
   bool xc_animating;
   int x10_;
   CVector3f* x14_targetPos;

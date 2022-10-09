@@ -44,11 +44,11 @@ struct TEditorId {
 CHECK_SIZEOF(TEditorId, 0x4)
 
 struct TUniqueId {
-  u16 value;
+  ushort value;
 
-  TUniqueId(u16 version, u16 id) : value(((version & 0x3F) << 10) | (id & 0x3FF)) {}
-  u16 Value() const { return value & 0x3FF; }
-  u16 Version() const { return (value >> 10) & 0x3F; }
+  TUniqueId(ushort version, ushort id) : value(((version & 0x3F) << 10) | (id & 0x3FF)) {}
+  ushort Value() const { return value & 0x3FF; }
+  ushort Version() const { return (value >> 10) & 0x3F; }
 
   bool operator==(const TUniqueId& other) const { return value == other.value; }
   bool operator!=(const TUniqueId& other) const { return value != other.value; }
@@ -64,12 +64,12 @@ CHECK_SIZEOF(TUniqueId, 0x2)
 // };
 // CHECK_SIZEOF(TGameScriptId, 0x8)
 
-typedef u16 TSfxId;
+typedef ushort TSfxId;
 static TSfxId InvalidSfxId = 0xFFFFu;
 
 class CSegId {
 private:
-  u8 x0_id;
+  uchar x0_id;
 };
 
 #define ALIGN_UP(x, a) (((x) + (a - 1)) & ~(a - 1))

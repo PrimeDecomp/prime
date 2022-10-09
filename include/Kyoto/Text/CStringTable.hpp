@@ -9,7 +9,7 @@
 
 class CStringTable {
   int x0_stringCount;
-  rstl::single_ptr< u8 > x4_data;
+  rstl::single_ptr< uchar > x4_data;
 
 public:
   CStringTable(CInputStream& in);

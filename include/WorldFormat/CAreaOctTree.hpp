@@ -19,17 +19,17 @@ public:
   struct SRayResult {
     CPlane x0_plane;
     rstl::optional_object< CCollisionSurface > x10_surface;
-    f32 x3c_t;
+    float x3c_t;
   };
 
   class TriListReference {
   public:
-    explicit TriListReference(const u16* ptr) : m_ptr(ptr) {}
-    u16 GetAt(int idx) const { return m_ptr[idx + 1]; }
-    u16 GetSize() const { return m_ptr[0]; }
+    explicit TriListReference(const ushort* ptr) : m_ptr(ptr) {}
+    ushort GetAt(int idx) const { return m_ptr[idx + 1]; }
+    ushort GetSize() const { return m_ptr[0]; }
 
   private:
-    const u16* m_ptr;
+    const ushort* m_ptr;
   };
 
   class Node {
@@ -38,35 +38,35 @@ public:
 
     Node(const void* ptr, const CAABox& aabb, const CAreaOctTree& owner, ETreeType type)
     : x0_aabb(aabb)
-    , x18_ptr(reinterpret_cast< const u8* >(ptr))
+    , x18_ptr(reinterpret_cast< const uchar* >(ptr))
     , x1c_owner(owner)
     , x20_nodeType(type) {}
 
-    bool LineTest(const CLine& line, const CMaterialFilter& filter, f32 length) const;
+    bool LineTest(const CLine& line, const CMaterialFilter& filter, float length) const;
     void LineTestEx(const CLine& line, const CMaterialFilter& filter, SRayResult& res,
-                    f32 length) const;
+                    float length) const;
 
     const CAreaOctTree& GetOwner() const { return x1c_owner; }
     const CAABox& GetBoundingBox() const { return x0_aabb; }
-    u16 GetChildFlags() const { return *reinterpret_cast< const u16* >(x18_ptr); }
+    ushort GetChildFlags() const { return *reinterpret_cast< const ushort* >(x18_ptr); }
     Node GetChild(int idx) const;
     TriListReference GetTriangleArray() const;
     ETreeType GetChildType(int idx) const {
-      u16 flags = *reinterpret_cast< const u16* >(x18_ptr);
+      ushort flags = *reinterpret_cast< const ushort* >(x18_ptr);
       return ETreeType((flags >> (2 * idx)) & 0x3);
     }
     ETreeType GetTreeType() const { return x20_nodeType; }
 
   private:
     CAABox x0_aabb;
-    const u8* x18_ptr;
+    const uchar* x18_ptr;
     const CAreaOctTree& x1c_owner;
     ETreeType x20_nodeType;
 
-    bool LineTestInternal(const CLine& line, const CMaterialFilter& filter, f32 lT, f32 hT,
-                          f32 maxT, const CVector3f& vec) const;
+    bool LineTestInternal(const CLine& line, const CMaterialFilter& filter, float lT, float hT,
+                          float maxT, const CVector3f& vec) const;
     void LineTestExInternal(const CLine& line, const CMaterialFilter& filter, SRayResult& res,
-                            f32 lT, f32 hT, f32 maxT, const CVector3f& dirRecip) const;
+                            float lT, float hT, float maxT, const CVector3f& dirRecip) const;
   };
 
   // TODO
@@ -74,17 +74,17 @@ public:
 private:
   CAABox x0_aabb;
   Node::ETreeType x18_treeType;
-  const u8* x1c_buf;
-  const u8* x20_treeBuf;
+  const uchar* x1c_buf;
+  const uchar* x20_treeBuf;
   uint x24_matCount;
   const uint* x28_materials;
-  const u8* x2c_vertMats;
-  const u8* x30_edgeMats;
-  const u8* x34_polyMats;
+  const uchar* x2c_vertMats;
+  const uchar* x30_edgeMats;
+  const uchar* x34_polyMats;
   uint x38_edgeCount;
   const CCollisionEdge* x3c_edges;
   uint x40_polyCount;
-  const u16* x44_polyEdges;
+  const ushort* x44_polyEdges;
   uint x48_vertCount;
   const float* x4c_verts;
 };

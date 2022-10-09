@@ -9,7 +9,7 @@ enum EHintState { kHS_Zero, kHS_Waiting, kHS_Displaying, kHS_Delayed };
 
 struct SHintState {
   EHintState x0_state;
-  f32 x4_time;
+  float x4_time;
   bool x8_dismissed;
 };
 

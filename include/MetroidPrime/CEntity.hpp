@@ -15,8 +15,8 @@ class CEntity {
 public:
   virtual ~CEntity();
   virtual void Accept(IVisitor& visitor) = 0;
-  virtual void PreThink(f32 dt, CStateManager& mgr);
-  virtual void Think(f32 dt, CStateManager& mgr);
+  virtual void PreThink(float dt, CStateManager& mgr);
+  virtual void Think(float dt, CStateManager& mgr);
   virtual void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr);
   virtual void SetActive(bool active);
 

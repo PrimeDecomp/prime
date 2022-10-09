@@ -47,10 +47,10 @@ public:
 
 private:
   bool x4_castShadow;
-  f32 x8_shadowScale;
+  float x8_shadowScale;
   EShadowTesselation xc_shadowTesselation;
-  f32 x10_shadowAlpha;
-  f32 x14_maxShadowHeight;
+  float x10_shadowAlpha;
+  float x14_maxShadowHeight;
   CColor x18_noLightsAmbient;
   bool x1c_makeLights;
   bool x1d_ambientChannelOverflow;
@@ -80,10 +80,10 @@ public:
   CVisorParameters() {
     // TODO
   }
-  CVisorParameters(u8 mask, bool b1, bool scanPassthrough)
+  CVisorParameters(uchar mask, bool b1, bool scanPassthrough)
   : x0_mask(mask), x0_4_b1(b1), x0_5_scanPassthrough(scanPassthrough) {}
 
-  u8 GetMask() const { return x0_mask; }
+  uchar GetMask() const { return x0_mask; }
   // TODO: GetIsBlockXRay__16CVisorParametersCFv?
   bool GetBool1() const { return x0_4_b1; }
   bool GetScanPassthrough() const { return x0_5_scanPassthrough; }
@@ -108,13 +108,13 @@ public:
   const rstl::pair< CAssetId, CAssetId >& GetXRay() const { return x44_xrayAssets; }
   const rstl::pair< CAssetId, CAssetId >& GetInfra() const { return x4c_thermalAssets; }
   const CVisorParameters& GetVisorParameters() const { return x54_visorParams; }
-  f32 GetThermalMag() const { return x64_thermalMag; }
+  float GetThermalMag() const { return x64_thermalMag; }
   bool GetUseGlobalRenderTime() const { return x58_24_globalTimeProvider; }
   bool IsHotInThermal() const { return x58_25_thermalHeat; }
   bool ForceRenderUnsorted() const { return x58_26_renderUnsorted; }
   bool NoSortThermal() const { return x58_27_noSortThermal; }
-  f32 GetFadeInTime() const { return x5c_fadeInTime; }
-  f32 GetFadeOutTime() const { return x60_fadeOutTime; }
+  float GetFadeInTime() const { return x5c_fadeInTime; }
+  float GetFadeOutTime() const { return x60_fadeOutTime; }
 
   static CActorParameters None();
 
@@ -128,9 +128,9 @@ private:
   bool x58_25_thermalHeat : 1;
   bool x58_26_renderUnsorted : 1;
   bool x58_27_noSortThermal : 1;
-  f32 x5c_fadeInTime;
-  f32 x60_fadeOutTime;
-  f32 x64_thermalMag;
+  float x5c_fadeInTime;
+  float x60_fadeOutTime;
+  float x64_thermalMag;
 };
 CHECK_SIZEOF(CActorParameters, 0x68)
 

@@ -13,80 +13,80 @@ class CTweakBall : public ITweakObject {
 public:
   ~CTweakBall() override;
 
-  f32 GetMaxBallTranslationAcceleration(int s) const { return x4_maxTranslationAcceleration[s]; }
-  f32 GetBallTranslationFriction(int s) const { return x24_translationFriction[s]; }
-  f32 GetBallTranslationMaxSpeed(int s) const { return x44_translationMaxSpeed[s]; }
-  f32 GetBallCameraElevation() const { return 2.736f; }
-  f32 GetBallCameraAnglePerSecond() const { return x74_ballCameraAnglePerSecond; }
+  float GetMaxBallTranslationAcceleration(int s) const { return x4_maxTranslationAcceleration[s]; }
+  float GetBallTranslationFriction(int s) const { return x24_translationFriction[s]; }
+  float GetBallTranslationMaxSpeed(int s) const { return x44_translationMaxSpeed[s]; }
+  float GetBallCameraElevation() const { return 2.736f; }
+  float GetBallCameraAnglePerSecond() const { return x74_ballCameraAnglePerSecond; }
   const CVector3f& GetBallCameraOffset() const { return x78_ballCameraOffset; }
-  f32 GetBallCameraMinSpeedDistance() const { return x84_ballCameraMinSpeedDistance; }
-  f32 GetBallCameraMaxSpeedDistance() const { return x88_ballCameraMaxSpeedDistance; }
-  f32 GetBallCameraBackwardsDistance() const { return x8c_ballCameraBackwardsDistance; }
-  f32 GetBallCameraSpringConstant() const { return x94_ballCameraSpringConstant; }
-  f32 GetBallCameraSpringMax() const { return x98_ballCameraSpringMax; }
-  f32 GetBallCameraSpringTardis() const { return x9c_ballCameraSpringTardis; }
-  f32 GetBallCameraCentroidSpringConstant() const { return xa0_ballCameraCentroidSpringConstant; }
-  f32 GetBallCameraCentroidSpringMax() const { return xa4_ballCameraCentroidSpringMax; }
-  f32 GetBallCameraCentroidSpringTardis() const { return xa8_ballCameraCentroidSpringTardis; }
-  f32 GetBallCameraCentroidDistanceSpringConstant() const {
+  float GetBallCameraMinSpeedDistance() const { return x84_ballCameraMinSpeedDistance; }
+  float GetBallCameraMaxSpeedDistance() const { return x88_ballCameraMaxSpeedDistance; }
+  float GetBallCameraBackwardsDistance() const { return x8c_ballCameraBackwardsDistance; }
+  float GetBallCameraSpringConstant() const { return x94_ballCameraSpringConstant; }
+  float GetBallCameraSpringMax() const { return x98_ballCameraSpringMax; }
+  float GetBallCameraSpringTardis() const { return x9c_ballCameraSpringTardis; }
+  float GetBallCameraCentroidSpringConstant() const { return xa0_ballCameraCentroidSpringConstant; }
+  float GetBallCameraCentroidSpringMax() const { return xa4_ballCameraCentroidSpringMax; }
+  float GetBallCameraCentroidSpringTardis() const { return xa8_ballCameraCentroidSpringTardis; }
+  float GetBallCameraCentroidDistanceSpringConstant() const {
     return xac_ballCameraCentroidDistanceSpringConstant;
   }
-  f32 GetBallCameraCentroidDistanceSpringMax() const {
+  float GetBallCameraCentroidDistanceSpringMax() const {
     return xb0_ballCameraCentroidDistanceSpringMax;
   }
-  f32 GetBallCameraCentroidDistanceSpringTardis() const {
+  float GetBallCameraCentroidDistanceSpringTardis() const {
     return xb4_ballCameraCentroidDistanceSpringTardis;
   }
-  f32 GetBallCameraLookAtSpringConstant() const { return xb8_ballCameraLookAtSpringConstant; }
-  f32 GetBallCameraLookAtSpringMax() const { return xbc_ballCameraLookAtSpringMax; }
-  f32 GetBallCameraLookAtSpringTardis() const { return xc0_ballCameraLookAtSpringTardis; }
-  f32 GetBallForwardBrakingAcceleration(int s) const {
+  float GetBallCameraLookAtSpringConstant() const { return xb8_ballCameraLookAtSpringConstant; }
+  float GetBallCameraLookAtSpringMax() const { return xbc_ballCameraLookAtSpringMax; }
+  float GetBallCameraLookAtSpringTardis() const { return xc0_ballCameraLookAtSpringTardis; }
+  float GetBallForwardBrakingAcceleration(int s) const {
     return xc4_ballForwardBrakingAcceleration[s];
   }
-  f32 GetBallGravity() const { return xe4_ballGravity; }
-  f32 GetBallWaterGravity() const { return xe8_ballWaterGravity; }
-  f32 GetBallSlipFactor(int s) const { return x12c_ballSlipFactor[s]; }
-  f32 GetConservativeDoorCameraDistance() const { return x170_conservativeDoorCamDistance; }
-  f32 GetBallCameraChaseElevation() const { return x178_ballCameraChaseElevation; }
-  f32 GetBallCameraChaseDampenAngle() const { return x17c_ballCameraChaseDampenAngle; }
-  f32 GetBallCameraChaseDistance() const { return x180_ballCameraChaseDistance; }
-  f32 GetBallCameraChaseYawSpeed() const { return x184_ballCameraChaseYawSpeed; }
-  f32 GetBallCameraChaseAnglePerSecond() const { return x188_ballCameraChaseAnglePerSecond; }
+  float GetBallGravity() const { return xe4_ballGravity; }
+  float GetBallWaterGravity() const { return xe8_ballWaterGravity; }
+  float GetBallSlipFactor(int s) const { return x12c_ballSlipFactor[s]; }
+  float GetConservativeDoorCameraDistance() const { return x170_conservativeDoorCamDistance; }
+  float GetBallCameraChaseElevation() const { return x178_ballCameraChaseElevation; }
+  float GetBallCameraChaseDampenAngle() const { return x17c_ballCameraChaseDampenAngle; }
+  float GetBallCameraChaseDistance() const { return x180_ballCameraChaseDistance; }
+  float GetBallCameraChaseYawSpeed() const { return x184_ballCameraChaseYawSpeed; }
+  float GetBallCameraChaseAnglePerSecond() const { return x188_ballCameraChaseAnglePerSecond; }
   const CVector3f& GetBallCameraChaseLookAtOffset() const {
     return x18c_ballCameraChaseLookAtOffset;
   }
-  f32 GetBallCameraChaseSpringConstant() const { return x198_ballCameraChaseSpringConstant; }
-  f32 GetBallCameraChaseSpringMax() const { return x19c_ballCameraChaseSpringMax; }
-  f32 GetBallCameraChaseSpringTardis() const { return x1a0_ballCameraChaseSpringTardis; }
-  f32 GetBallCameraBoostElevation() const { return x1a4_ballCameraBoostElevation; }
-  f32 GetBallCameraBoostDampenAngle() const { return x1a8_ballCameraBoostDampenAngle; }
-  f32 GetBallCameraBoostDistance() const { return x1ac_ballCameraBoostDistance; }
-  f32 GetBallCameraBoostYawSpeed() const { return x1b0_ballCameraBoostYawSpeed; }
-  f32 GetBallCameraBoostAnglePerSecond() const { return x1b4_ballCameraBoostAnglePerSecond; }
+  float GetBallCameraChaseSpringConstant() const { return x198_ballCameraChaseSpringConstant; }
+  float GetBallCameraChaseSpringMax() const { return x19c_ballCameraChaseSpringMax; }
+  float GetBallCameraChaseSpringTardis() const { return x1a0_ballCameraChaseSpringTardis; }
+  float GetBallCameraBoostElevation() const { return x1a4_ballCameraBoostElevation; }
+  float GetBallCameraBoostDampenAngle() const { return x1a8_ballCameraBoostDampenAngle; }
+  float GetBallCameraBoostDistance() const { return x1ac_ballCameraBoostDistance; }
+  float GetBallCameraBoostYawSpeed() const { return x1b0_ballCameraBoostYawSpeed; }
+  float GetBallCameraBoostAnglePerSecond() const { return x1b4_ballCameraBoostAnglePerSecond; }
   const CVector3f& GetBallCameraBoostLookAtOffset() const {
     return x1b8_ballCameraBoostLookAtOffset;
   }
-  f32 GetBallCameraBoostSpringConstant() const { return x1c4_ballCameraBoostSpringConstant; }
-  f32 GetBallCameraBoostSpringMax() const { return x1c8_ballCameraBoostSpringMax; }
-  f32 GetBallCameraBoostSpringTardis() const { return x1cc_ballCameraBoostSpringTardis; }
-  f32 GetBallCameraControlDistance() const { return x1d0_ballCameraControlDistance; }
-  f32 GetMinimumAlignmentSpeed() const { return x1dc_minimumAlignmentSpeed; }
-  f32 GetTireness() const { return x1e0_tireness; }
-  f32 GetMaxLeanAngle() const { return x1ec_maxLeanAngle; }
-  f32 GetTireToMarbleThresholdSpeed() const { return x1f0_tireToMarbleThresholdSpeed; }
-  f32 GetMarbleToTireThresholdSpeed() const { return x1f4_marbleToTireThresholdSpeed; }
-  f32 GetForceToLeanGain() const { return x1f8_forceToLeanGain; }
-  f32 GetLeanTrackingGain() const { return x1fc_leanTrackingGain; }
-  f32 GetLeftStickDivisor() const { return x1e4_leftStickDivisor; }
-  f32 GetRightStickDivisor() const { return x1e8_rightStickDivisor; }
-  f32 GetBallTouchRadius() const { return x204_ballTouchRadius; }
-  f32 GetBoostBallDrainTime() const { return x20c_boostBallDrainTime; }
-  f32 GetBoostBallMaxChargeTime() const { return x210_boostBallMaxChargeTime; }
-  f32 GetBoostBallMinChargeTime() const { return x218_boostBallMinChargeTime; }
-  f32 GetBoostBallMinRelativeSpeedForDamage() const {
+  float GetBallCameraBoostSpringConstant() const { return x1c4_ballCameraBoostSpringConstant; }
+  float GetBallCameraBoostSpringMax() const { return x1c8_ballCameraBoostSpringMax; }
+  float GetBallCameraBoostSpringTardis() const { return x1cc_ballCameraBoostSpringTardis; }
+  float GetBallCameraControlDistance() const { return x1d0_ballCameraControlDistance; }
+  float GetMinimumAlignmentSpeed() const { return x1dc_minimumAlignmentSpeed; }
+  float GetTireness() const { return x1e0_tireness; }
+  float GetMaxLeanAngle() const { return x1ec_maxLeanAngle; }
+  float GetTireToMarbleThresholdSpeed() const { return x1f0_tireToMarbleThresholdSpeed; }
+  float GetMarbleToTireThresholdSpeed() const { return x1f4_marbleToTireThresholdSpeed; }
+  float GetForceToLeanGain() const { return x1f8_forceToLeanGain; }
+  float GetLeanTrackingGain() const { return x1fc_leanTrackingGain; }
+  float GetLeftStickDivisor() const { return x1e4_leftStickDivisor; }
+  float GetRightStickDivisor() const { return x1e8_rightStickDivisor; }
+  float GetBallTouchRadius() const { return x204_ballTouchRadius; }
+  float GetBoostBallDrainTime() const { return x20c_boostBallDrainTime; }
+  float GetBoostBallMaxChargeTime() const { return x210_boostBallMaxChargeTime; }
+  float GetBoostBallMinChargeTime() const { return x218_boostBallMinChargeTime; }
+  float GetBoostBallMinRelativeSpeedForDamage() const {
     return x21c_boostBallMinRelativeSpeedForDamage;
   }
-  f32 GetBoostBallChargeTimeTable(int i) const {
+  float GetBoostBallChargeTimeTable(int i) const {
     switch (i) {
     default:
     case 0:
@@ -97,7 +97,7 @@ public:
       return x228_boostBallChargeTime2;
     }
   }
-  f32 GetBoostBallIncrementalSpeedTable(int i) const {
+  float GetBoostBallIncrementalSpeedTable(int i) const {
     switch (i) {
     default:
     case 0:
@@ -110,105 +110,105 @@ public:
   }
 
 private:
-  f32 x4_maxTranslationAcceleration[8];
-  f32 x24_translationFriction[8];
-  f32 x44_translationMaxSpeed[8];
-  f32 x64_;
-  f32 x68_;
-  f32 x6c_;
-  f32 x70_;
-  f32 x74_ballCameraAnglePerSecond;
+  float x4_maxTranslationAcceleration[8];
+  float x24_translationFriction[8];
+  float x44_translationMaxSpeed[8];
+  float x64_;
+  float x68_;
+  float x6c_;
+  float x70_;
+  float x74_ballCameraAnglePerSecond;
   CVector3f x78_ballCameraOffset;
-  f32 x84_ballCameraMinSpeedDistance;
-  f32 x88_ballCameraMaxSpeedDistance;
-  f32 x8c_ballCameraBackwardsDistance;
-  f32 x90_;
-  f32 x94_ballCameraSpringConstant;
-  f32 x98_ballCameraSpringMax;
-  f32 x9c_ballCameraSpringTardis;
-  f32 xa0_ballCameraCentroidSpringConstant;
-  f32 xa4_ballCameraCentroidSpringMax;
-  f32 xa8_ballCameraCentroidSpringTardis;
-  f32 xac_ballCameraCentroidDistanceSpringConstant;
-  f32 xb0_ballCameraCentroidDistanceSpringMax;
-  f32 xb4_ballCameraCentroidDistanceSpringTardis;
-  f32 xb8_ballCameraLookAtSpringConstant;
-  f32 xbc_ballCameraLookAtSpringMax;
-  f32 xc0_ballCameraLookAtSpringTardis;
-  f32 xc4_ballForwardBrakingAcceleration[8];
-  f32 xe4_ballGravity;
-  f32 xe8_ballWaterGravity;
-  f32 xec_;
-  f32 xf0_;
-  f32 xf4_;
-  f32 xf8_;
-  f32 xfc_;
-  f32 x100_;
-  f32 x104_;
-  f32 x108_;
-  f32 x10c_;
-  f32 x110_;
-  f32 x114_;
-  f32 x118_;
-  f32 x11c_;
-  f32 x120_;
-  f32 x124_;
-  f32 x128_;
-  f32 x12c_ballSlipFactor[8];
-  f32 x14c_;
-  f32 x150_;
-  f32 x158_;
-  f32 x154_;
-  f32 x15c_;
-  f32 x160_;
-  f32 x164_;
-  f32 x168_;
-  f32 x16c_;
-  f32 x170_conservativeDoorCamDistance;
-  f32 x174_;
-  f32 x178_ballCameraChaseElevation;
-  f32 x17c_ballCameraChaseDampenAngle;
-  f32 x180_ballCameraChaseDistance;
-  f32 x184_ballCameraChaseYawSpeed;
-  f32 x188_ballCameraChaseAnglePerSecond;
+  float x84_ballCameraMinSpeedDistance;
+  float x88_ballCameraMaxSpeedDistance;
+  float x8c_ballCameraBackwardsDistance;
+  float x90_;
+  float x94_ballCameraSpringConstant;
+  float x98_ballCameraSpringMax;
+  float x9c_ballCameraSpringTardis;
+  float xa0_ballCameraCentroidSpringConstant;
+  float xa4_ballCameraCentroidSpringMax;
+  float xa8_ballCameraCentroidSpringTardis;
+  float xac_ballCameraCentroidDistanceSpringConstant;
+  float xb0_ballCameraCentroidDistanceSpringMax;
+  float xb4_ballCameraCentroidDistanceSpringTardis;
+  float xb8_ballCameraLookAtSpringConstant;
+  float xbc_ballCameraLookAtSpringMax;
+  float xc0_ballCameraLookAtSpringTardis;
+  float xc4_ballForwardBrakingAcceleration[8];
+  float xe4_ballGravity;
+  float xe8_ballWaterGravity;
+  float xec_;
+  float xf0_;
+  float xf4_;
+  float xf8_;
+  float xfc_;
+  float x100_;
+  float x104_;
+  float x108_;
+  float x10c_;
+  float x110_;
+  float x114_;
+  float x118_;
+  float x11c_;
+  float x120_;
+  float x124_;
+  float x128_;
+  float x12c_ballSlipFactor[8];
+  float x14c_;
+  float x150_;
+  float x158_;
+  float x154_;
+  float x15c_;
+  float x160_;
+  float x164_;
+  float x168_;
+  float x16c_;
+  float x170_conservativeDoorCamDistance;
+  float x174_;
+  float x178_ballCameraChaseElevation;
+  float x17c_ballCameraChaseDampenAngle;
+  float x180_ballCameraChaseDistance;
+  float x184_ballCameraChaseYawSpeed;
+  float x188_ballCameraChaseAnglePerSecond;
   CVector3f x18c_ballCameraChaseLookAtOffset;
-  f32 x198_ballCameraChaseSpringConstant;
-  f32 x19c_ballCameraChaseSpringMax;
-  f32 x1a0_ballCameraChaseSpringTardis;
-  f32 x1a4_ballCameraBoostElevation;
-  f32 x1a8_ballCameraBoostDampenAngle;
-  f32 x1ac_ballCameraBoostDistance;
-  f32 x1b0_ballCameraBoostYawSpeed;
-  f32 x1b4_ballCameraBoostAnglePerSecond;
+  float x198_ballCameraChaseSpringConstant;
+  float x19c_ballCameraChaseSpringMax;
+  float x1a0_ballCameraChaseSpringTardis;
+  float x1a4_ballCameraBoostElevation;
+  float x1a8_ballCameraBoostDampenAngle;
+  float x1ac_ballCameraBoostDistance;
+  float x1b0_ballCameraBoostYawSpeed;
+  float x1b4_ballCameraBoostAnglePerSecond;
   CVector3f x1b8_ballCameraBoostLookAtOffset;
-  f32 x1c4_ballCameraBoostSpringConstant;
-  f32 x1c8_ballCameraBoostSpringMax;
-  f32 x1cc_ballCameraBoostSpringTardis;
-  f32 x1d0_ballCameraControlDistance;
-  f32 x1d4_;
-  f32 x1d8_;
-  f32 x1dc_minimumAlignmentSpeed;
-  f32 x1e0_tireness;
-  f32 x1ec_maxLeanAngle;
-  f32 x1f0_tireToMarbleThresholdSpeed;
-  f32 x1f4_marbleToTireThresholdSpeed;
-  f32 x1f8_forceToLeanGain;
-  f32 x1fc_leanTrackingGain;
-  f32 x1e4_leftStickDivisor;
-  f32 x1e8_rightStickDivisor;
-  f32 x200_;
-  f32 x204_ballTouchRadius;
-  f32 x208_;
-  f32 x20c_boostBallDrainTime;
-  f32 x218_boostBallMinChargeTime;
-  f32 x21c_boostBallMinRelativeSpeedForDamage;
-  f32 x220_boostBallChargeTime0;
-  f32 x224_boostBallChargeTime1;
-  f32 x228_boostBallChargeTime2;
-  f32 x210_boostBallMaxChargeTime;
-  f32 x22c_boostBallIncrementalSpeed0;
-  f32 x230_boostBallIncrementalSpeed1;
-  f32 x234_boostBallIncrementalSpeed2;
+  float x1c4_ballCameraBoostSpringConstant;
+  float x1c8_ballCameraBoostSpringMax;
+  float x1cc_ballCameraBoostSpringTardis;
+  float x1d0_ballCameraControlDistance;
+  float x1d4_;
+  float x1d8_;
+  float x1dc_minimumAlignmentSpeed;
+  float x1e0_tireness;
+  float x1ec_maxLeanAngle;
+  float x1f0_tireToMarbleThresholdSpeed;
+  float x1f4_marbleToTireThresholdSpeed;
+  float x1f8_forceToLeanGain;
+  float x1fc_leanTrackingGain;
+  float x1e4_leftStickDivisor;
+  float x1e8_rightStickDivisor;
+  float x200_;
+  float x204_ballTouchRadius;
+  float x208_;
+  float x20c_boostBallDrainTime;
+  float x218_boostBallMinChargeTime;
+  float x21c_boostBallMinRelativeSpeedForDamage;
+  float x220_boostBallChargeTime0;
+  float x224_boostBallChargeTime1;
+  float x228_boostBallChargeTime2;
+  float x210_boostBallMaxChargeTime;
+  float x22c_boostBallIncrementalSpeed0;
+  float x230_boostBallIncrementalSpeed1;
+  float x234_boostBallIncrementalSpeed2;
 };
 
 extern CTweakBall* gpTweakBall;

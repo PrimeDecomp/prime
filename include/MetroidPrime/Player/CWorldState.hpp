@@ -6,7 +6,7 @@
 class CWorldState {
 public:
 private:
-  u8 pad[0x18];
+  uchar pad[0x18];
 };
 
 #endif // _CWORLDSTATE

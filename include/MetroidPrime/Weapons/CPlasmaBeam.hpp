@@ -12,7 +12,7 @@ public:
   ~CPlasmaBeam();
 
 private:
-  u8 x21c_pad[0x24];
+  uchar x21c_pad[0x24];
 };
 CHECK_SIZEOF(CPlasmaBeam, 0x240)
 

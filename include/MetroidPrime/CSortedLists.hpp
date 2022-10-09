@@ -13,14 +13,14 @@ namespace SL {
 struct SNode {
   CActor* x0_actor;
   CAABox x4_box;
-  s16 x1c_selfIdxs[6];
-  s16 x28_next;
+  short x1c_selfIdxs[6];
+  short x28_next;
   bool x2a_populated;
 };
 CHECK_SIZEOF(SNode, 0x2c);
 
 struct SSortedList {
-  s16 x0_ids[kMaxObjects];
+  short x0_ids[kMaxObjects];
   uint x800_size;
 };
 CHECK_SIZEOF(SSortedList, 0x804);

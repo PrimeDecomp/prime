@@ -14,30 +14,30 @@ CSmallAllocPool::CSmallAllocPool(uint len, void* mainData, void* bookKeeping)
 }
 
 void* CSmallAllocPool::FindFree(int len) {
-  u8* bookKeepingPtr;
-  s32 size = (s32)len / 2;
+  uchar* bookKeepingPtr;
+  int size = (int)len / 2;
   if (xc_cachedBookKeepingOffset == nullptr) {
     xc_cachedBookKeepingOffset = x4_bookKeeping;
   }
-  u8* curKeepingOffset = static_cast< u8* >(xc_cachedBookKeepingOffset);
-  bookKeepingPtr = static_cast< u8* >(x4_bookKeeping);
-  u8* bookKeepingEndPtr = bookKeepingPtr + ((u32)x8_numBlocks >> 1);
-  u8* curKeepingIter = curKeepingOffset;
+  uchar* curKeepingOffset = static_cast< uchar* >(xc_cachedBookKeepingOffset);
+  bookKeepingPtr = static_cast< uchar* >(x4_bookKeeping);
+  uchar* bookKeepingEndPtr = bookKeepingPtr + ((uint)x8_numBlocks >> 1);
+  uchar* curKeepingIter = curKeepingOffset;
   while (true) {
-    u8* iter;
-    if (static_cast< u8* >(curKeepingIter)[0] != 0 || curKeepingIter == bookKeepingEndPtr) {
+    uchar* iter;
+    if (static_cast< uchar* >(curKeepingIter)[0] != 0 || curKeepingIter == bookKeepingEndPtr) {
       if (curKeepingIter == bookKeepingEndPtr) {
         curKeepingIter = bookKeepingPtr;
       } else {
-        s32 tmp = static_cast< u8* >(curKeepingIter)[0];
-        s32 reg = tmp >> 4;
+        int tmp = static_cast< uchar* >(curKeepingIter)[0];
+        int reg = tmp >> 4;
         curKeepingIter += (reg / 2);
       }
     } else {
-      u8* tempIter = curKeepingIter + size;
+      uchar* tempIter = curKeepingIter + size;
       iter = curKeepingIter + 1;
       while (iter != curKeepingOffset && iter != bookKeepingEndPtr && iter != tempIter) {
-        if (static_cast< u8* >(iter)[0] == 0) {
+        if (static_cast< uchar* >(iter)[0] == 0) {
           iter++;
         } else {
           break;
@@ -69,22 +69,22 @@ void* CSmallAllocPool::FindFree(int len) {
 }
 
 void* CSmallAllocPool::Alloc(uint size) {
-  u32 len = size >= 4 ? len = (size + 3) / 4 : 1;
+  uint len = size >= 4 ? len = (size + 3) / 4 : 1;
 
   if ((len & 1) != 0) {
     len += 1;
   }
 
-  u8* freePtr = static_cast< u8* >(FindFree(len));
+  uchar* freePtr = static_cast< uchar* >(FindFree(len));
   if (freePtr == nullptr) {
     return nullptr;
   }
 
-  s32 sub = len - 2;
-  u8* bufPtr = GetPtrFromIndex(freePtr - static_cast< u8* >(x4_bookKeeping));
-  *static_cast< u8* >(freePtr) = (len << 4) | 0xf;
-  s32 blockSize = sub / 2;
-  u8* freePtrIter = freePtr + 1;
+  int sub = len - 2;
+  uchar* bufPtr = GetPtrFromIndex(freePtr - static_cast< uchar* >(x4_bookKeeping));
+  *static_cast< uchar* >(freePtr) = (len << 4) | 0xf;
+  int blockSize = sub / 2;
+  uchar* freePtrIter = freePtr + 1;
   while (blockSize--) {
     *freePtrIter = 0xff;
     ++freePtrIter;
@@ -97,20 +97,20 @@ void* CSmallAllocPool::Alloc(uint size) {
 }
 
 bool CSmallAllocPool::Free(const void* arg0) {
-  s32 temp_r8 = GetIndexFromPtr(arg0);
-  s32 mask = (temp_r8 & 1) ? 0 : 4;
-  u32 temp_r9 = (u32)temp_r8 / 2;
-  s32 temp_r4_2 = GetEntryValue(temp_r9);
+  int temp_r8 = GetIndexFromPtr(arg0);
+  int mask = (temp_r8 & 1) ? 0 : 4;
+  size_t temp_r9 = (size_t)temp_r8 / 2;
+  long temp_r4_2 = GetEntryValue(temp_r9);
   temp_r4_2 = (temp_r4_2 >> mask) & 0xF;
   x18_numBlocksAvailable += temp_r4_2;
-  s32 var_r5 = temp_r4_2;
+  int var_r5 = temp_r4_2;
   x1c_numAllocs -= 1;
   x14_ = temp_r8;
-  if ((u32)temp_r8 == (u32)x10_) {
+  if ((size_t)temp_r8 == (size_t)x10_) {
     x10_ = -1;
   }
 
-  u8* var_r3 = ((u8*)x4_bookKeeping) + temp_r9;
+  uchar* var_r3 = ((uchar*)x4_bookKeeping) + temp_r9;
   while (var_r5 != 0) {
     *var_r3 = 0;
     var_r5 -= 2;

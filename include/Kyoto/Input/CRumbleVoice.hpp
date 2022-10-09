@@ -36,12 +36,12 @@ struct SAdsrData {
   SAdsrData(float attackGain, float autoReleaseDur, float attackDur, float decayDur,
             float sustainGain, float releaseDur, bool hasSustain, bool autoRelease);
 
-  f32 x0_attackGain;
-  f32 x4_autoReleaseDur;
-  f32 x8_attackDur;
-  f32 xc_decayDur;
-  f32 x10_sustainGain;
-  f32 x14_releaseDur;
+  float x0_attackGain;
+  float x4_autoReleaseDur;
+  float x8_attackDur;
+  float xc_decayDur;
+  float x10_sustainGain;
+  float x14_releaseDur;
   bool x18_24_hasSustain : 1;
   bool x18_25_autoRelease : 1;
 };
@@ -61,13 +61,13 @@ struct SAdsrDelta {
   static SAdsrDelta Stopped();
   static SAdsrDelta Start(ERumblePriority priority, bool prePulse);
 
-  f32 x0_curIntensity;
-  f32 x4_attackTime;
-  f32 x8_decayTime;
-  f32 xc_releaseTime;
-  f32 x10_autoReleaseTime;
-  f32 x14_attackIntensity;
-  f32 x18_sustainIntensity;
+  float x0_curIntensity;
+  float x4_attackTime;
+  float x8_decayTime;
+  float xc_releaseTime;
+  float x10_autoReleaseTime;
+  float x14_attackIntensity;
+  float x18_sustainIntensity;
   ERumblePriority x1c_priority;
   EPhase x20_phase;
 };
@@ -76,21 +76,21 @@ class CRumbleVoice {
 private:
   rstl::vector< SAdsrData > x0_datas;
   rstl::vector< SAdsrDelta > x10_deltas;
-  rstl::reserved_vector< u16, 4 > x20_handleIds;
-  u16 x2c_usedChannels;
-  u8 x2e_lastId;
+  rstl::reserved_vector< ushort, 4 > x20_handleIds;
+  ushort x2c_usedChannels;
+  uchar x2e_lastId;
 
   CRumbleVoice();
 
-  s16 Activate(const SAdsrData& data, u16 idx, float gain, ERumblePriority prio);
-  void Deactivate(s16 id, bool b1);
+  short Activate(const SAdsrData& data, ushort idx, float gain, ERumblePriority prio);
+  void Deactivate(short id, bool b1);
   void HardReset();
   bool UpdateChannel(SAdsrDelta& delta, const SAdsrData& data, float dt);
   bool Update(float dt);
   uint GetFreeChannel() const;
   float GetIntensity() const;
-  bool OwnsSustained(s16 id) const;
-  s16 CreateRumbleHandle(u16 idx);
+  bool OwnsSustained(short id) const;
+  short CreateRumbleHandle(ushort idx);
 };
 
 #endif // _CRUMBLEVOICE

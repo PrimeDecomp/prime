@@ -14,7 +14,7 @@ public:
   uint Read(void* dest, uint len) override;
 
 private:
-  u8* x24_compBuf;
+  uchar* x24_compBuf;
   rstl::auto_ptr< CInputStream > x28_stream;
   unkptr x30_zstream;
 };

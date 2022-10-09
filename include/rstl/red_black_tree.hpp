@@ -47,8 +47,8 @@ public:
   };
 
 private:
-  u8 x0_;
-  u8 x1_;
+  uchar x0_;
+  uchar x1_;
   uint x4_;
   uint x8_;
   uint xc_;

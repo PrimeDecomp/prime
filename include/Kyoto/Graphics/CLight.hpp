@@ -43,7 +43,7 @@ public:
   float GetAngleAttenuationQuadratic() const { return x38_angleQ; }
 
   ELightType GetType() const { return x1c_type; }
-  u32 GetId() const { return x40_lightId; }
+  uint GetId() const { return x40_lightId; }
   float GetIntensity() const;
   float GetRadius() const;
   const CColor& GetColor() const { return x18_color; }
@@ -64,17 +64,17 @@ private:
   CVector3f xc_dir;
   CColor x18_color;
   ELightType x1c_type;
-  f32 x20_spotCutoff;
-  f32 x24_distC;
-  f32 x28_distL;
-  f32 x2c_distQ;
-  f32 x30_angleC;
-  f32 x34_angleL;
-  f32 x38_angleQ;
+  float x20_spotCutoff;
+  float x24_distC;
+  float x28_distL;
+  float x2c_distQ;
+  float x30_angleC;
+  float x34_angleL;
+  float x38_angleQ;
   uint x3c_priority;
   uint x40_lightId;
-  mutable f32 x44_cachedRadius;
-  mutable f32 x48_cachedIntensity;
+  mutable float x44_cachedRadius;
+  mutable float x48_cachedIntensity;
   mutable bool x4c_24_intensityDirty : 1;
   mutable bool x4c_25_radiusDirty : 1;
 };

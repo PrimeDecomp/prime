@@ -9,9 +9,9 @@ class CRipple;
 
 class CRippleManager {
 private:
-  f32 x0_maxTimeFalloff;
+  float x0_maxTimeFalloff;
   rstl::vector< CRipple > x4_ripples;
-  f32 x14_alpha;
+  float x14_alpha;
 };
 
 #endif // _CRIPPLEMANAGER

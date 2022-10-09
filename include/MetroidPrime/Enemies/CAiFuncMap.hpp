@@ -9,7 +9,7 @@ public:
   ~CAiFuncMap();
 
 private:
-  u8 pad[0x20];
+  uchar pad[0x20];
 };
 
 #endif // _CAIFUNCMAP

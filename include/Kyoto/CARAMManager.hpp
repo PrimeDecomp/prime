@@ -11,7 +11,7 @@ public:
   static void Initialize(uint);
 
 private:
-  static u32 mPreInitializeAlloc;
+  static uint mPreInitializeAlloc;
 };
 
 #endif // _CARAMMANAGER

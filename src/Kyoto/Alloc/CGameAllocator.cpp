@@ -18,7 +18,7 @@ static inline U1 T_round_up(U2 val, int align) {
 }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::GetMemInfoFromBlockPtr(const void* ptr) const {
-  return (SGameMemInfo*)((u8*)(ptr) - sizeof(SGameMemInfo));
+  return (SGameMemInfo*)((uchar*)(ptr) - sizeof(SGameMemInfo));
 }
 
 CGameAllocator::CGameAllocator()
@@ -85,7 +85,7 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
 
   if (bVar1) {
     void* buf = x60_smallAllocPool->Alloc(size);
-    u32 tmp = x60_smallAllocPool->GetAllocatedSize();
+    uint tmp = x60_smallAllocPool->GetAllocatedSize();
     if (xac_ < tmp) {
       xac_ = tmp;
       static int sLastSmallAllocSize = 0;
@@ -255,7 +255,7 @@ void CGameAllocator::ReleaseAll() {
   while (iter != nullptr) {
     SGameMemInfo* next = iter->GetNext();
     if (iter->IsAllocated()) {
-      FreeNormalAllocation(((u8*)iter) + sizeof(SGameMemInfo));
+      FreeNormalAllocation(((uchar*)iter) + sizeof(SGameMemInfo));
     }
     iter = next;
   }
@@ -286,15 +286,15 @@ IAllocator::SAllocInfo CGameAllocator::GetAllocInfo(const void* ptr) const {
 };
 
 IAllocator::SMetrics CGameAllocator::GetMetrics() const {
-  u32 mediumAllocTotalAllocated =
+  uint mediumAllocTotalAllocated =
       x74_mediumPool != nullptr ? x74_mediumPool->GetTotalEntries() * 32 : 0;
-  u32 mediumAllocBlocksAvailable =
+  uint mediumAllocBlocksAvailable =
       x74_mediumPool != nullptr ? x74_mediumPool->GetNumBlocksAvailable() : 0;
-  u32 mediumAllocAllocatedSize =
+  uint mediumAllocAllocatedSize =
       x74_mediumPool != nullptr
           ? x74_mediumPool->GetTotalEntries() - x74_mediumPool->GetNumBlocksAvailable()
           : 0;
-  u32 mediumAllocNumAllocs = x74_mediumPool != nullptr ? x74_mediumPool->GetNumAllocs() : 0;
+  uint mediumAllocNumAllocs = x74_mediumPool != nullptr ? x74_mediumPool->GetNumAllocs() : 0;
   SMetrics ret(x8_heapSize, x80_, x84_, x88_, x8c_, x90_heapSize2, x94_, x98_, x9c_, xa0_, xa4_,
                x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetNumAllocs() : 0,
                x60_smallAllocPool != nullptr ? x60_smallAllocPool->GetAllocatedSize() : 0,
@@ -354,7 +354,7 @@ void CGameAllocator::AddFreeEntryToFreeList(SGameMemInfo* info) {
 }
 
 void CGameAllocator::RemoveFreeEntryFromFreeList(SGameMemInfo* memInfo) {
-  u32 bin = GetFreeBinEntryForSize(memInfo->GetLength());
+  uint bin = GetFreeBinEntryForSize(memInfo->GetLength());
   SGameMemInfo* curBin = nullptr;
   SGameMemInfo* binIt = x14_bins[bin];
 
@@ -377,7 +377,7 @@ static inline bool DoWait(int v) { return (v % 4) == 0; }
 
 void CGameAllocator::DumpAllocations() const {
   GetLargestFreeChunk();
-  u32 i = 0;
+  uint i = 0;
   SGameMemInfo* iter = xc_first;
 
   while (iter != nullptr) {

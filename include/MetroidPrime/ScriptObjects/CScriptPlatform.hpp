@@ -21,7 +21,7 @@ class CFluidPlane;
 
 struct SRiders {
   TUniqueId x0_uid;
-  f32 x4_decayTimer;
+  float x4_decayTimer;
   CTransform4f x8_transform;
 
   SRiders(TUniqueId uid)
@@ -33,8 +33,8 @@ class CScriptPlatform : public CPhysicsActor {
 public:
   CScriptPlatform(
       TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
-      const CModelData& mData, const CActorParameters& actParams, const CAABox& aabb, f32 speed,
-      bool detectCollision, f32 xrayAlpha, bool active, const CHealthInfo& hInfo,
+      const CModelData& mData, const CActorParameters& actParams, const CAABox& aabb, float speed,
+      bool detectCollision, float xrayAlpha, bool active, const CHealthInfo& hInfo,
       const CDamageVulnerability& dVuln,
       const rstl::optional_object< TLockedToken< CCollidableOBBTreeGroupContainer > >& dcln,
       bool rainSplashes, uint maxRainSplashes, uint rainGenRate);
@@ -42,8 +42,8 @@ public:
   // CEntity
   ~CScriptPlatform() override;
   void Accept(IVisitor& visitor) override;
-  void PreThink(f32 dt, CStateManager& mgr) override;
-  void Think(f32 dt, CStateManager& mgr) override;
+  void PreThink(float dt, CStateManager& mgr) override;
+  void Think(float dt, CStateManager& mgr) override;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
 
   // CActor
@@ -73,8 +73,8 @@ public:
                        const CPhysicsActor* ridee, CStateManager& mgr);
   static TEntityList BuildNearListFromRiders(CStateManager& mgr,
                                              const rstl::vector< SRiders >& riders);
-  static void DecayRiders(rstl::vector< SRiders >& riders, f32 dt, CStateManager& mgr);
-  static void MoveRiders(CStateManager& mgr, f32 dt, bool active, rstl::vector< SRiders >& riders,
+  static void DecayRiders(rstl::vector< SRiders >& riders, float dt, CStateManager& mgr);
+  static void MoveRiders(CStateManager& mgr, float dt, bool active, rstl::vector< SRiders >& riders,
                          rstl::vector< SRiders >& collidedRiders, const CTransform4f& oldXf,
                          const CTransform4f& newXf, const CVector3f& dragDelta,
                          CQuaternion rotDelta);
@@ -82,11 +82,11 @@ public:
 private:
   TUniqueId x258_currentWaypoint;
   TUniqueId x25a_targetWaypoint;
-  f32 x25c_currentSpeed;
-  f32 x260_moveDelay;
-  f32 x264_collisionRecoverDelay;
-  f32 x268_fadeInTime;
-  f32 x26c_fadeOutTime;
+  float x25c_currentSpeed;
+  float x260_moveDelay;
+  float x264_collisionRecoverDelay;
+  float x268_fadeInTime;
+  float x26c_fadeOutTime;
   CVector3f x270_dragDelta;
   CQuaternion x27c_rotDelta;
   CHealthInfo x28c_initialHealth;
@@ -97,7 +97,7 @@ private:
   rstl::vector< SRiders > x318_riders;
   rstl::vector< SRiders > x328_slavesStatic;
   rstl::vector< SRiders > x338_slavesDynamic;
-  f32 x348_xrayAlpha;
+  float x348_xrayAlpha;
   uint x34c_maxRainSplashes;
   uint x350_rainGenRate;
   TUniqueId x354_boundsTrigger;

@@ -7,9 +7,9 @@ class CVector2f {
   static const CVector2f skZeroVector;
 
 public:
-  CVector2f(f32 x, f32 y);
-  f32 GetX() const { return mX; }
-  f32 GetY() const { return mY; }
+  CVector2f(float x, float y);
+  float GetX() const { return mX; }
+  float GetY() const { return mY; }
 
   CVector2f& operator+=(const CVector2f& rhs);
   CVector2f& operator-=(const CVector2f& rhs);
@@ -18,16 +18,16 @@ public:
 
   CVector2f& Normalize();
 
-  f32 Magnitude() const;
-  f32 MagSquared() const;
+  float Magnitude() const;
+  float MagSquared() const;
   CVector2f AsNormalized() const;
 
   static float GetAngleDiff(const CVector2f& a, const CVector2f& b);
   static float Dot(const CVector2f& a, const CVector2f& b);
 
 private:
-  f32 mX;
-  f32 mY;
+  float mX;
+  float mY;
 };
 
 CVector2f operator+(const CVector2f& lhs, const CVector2f& rhs);

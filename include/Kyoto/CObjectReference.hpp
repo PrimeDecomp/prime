@@ -23,9 +23,9 @@ public:
   bool IsLoaded() const { return x10_object != nullptr; }
 
 private:
-  u16 x0_refCount;
+  ushort x0_refCount;
   bool x2_locked : 1;
-  u16 x2_lockCount : 15;
+  ushort x2_lockCount : 15;
   SObjectTag x4_objTag;
   IObjectStore* xc_objectStore;
   IObj* x10_object;

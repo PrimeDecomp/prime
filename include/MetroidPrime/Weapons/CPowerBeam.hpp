@@ -12,7 +12,7 @@ public:
   ~CPowerBeam();
 
 private:
-  u8 x21c_pad[0x2C];
+  uchar x21c_pad[0x2C];
 };
 CHECK_SIZEOF(CPowerBeam, 0x248)
 

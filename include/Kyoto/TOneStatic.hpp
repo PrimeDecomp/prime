@@ -15,7 +15,7 @@ public:
 
 private:
   static void* GetAllocSpace() {
-    static u8 sAllocSpace[sizeof(T)];
+    static uchar sAllocSpace[sizeof(T)];
     return &sAllocSpace;
   }
   static uint& ReferenceCount() {

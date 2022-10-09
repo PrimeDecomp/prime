@@ -75,12 +75,12 @@ unkptr gpDefaultFont;
 unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
 bool COsContext::mProgressiveMode;
-u32 sARAMMemArray[2];
-f32 sInfiniteLoopTime;
+uint sARAMMemArray[2];
+float sInfiniteLoopTime;
 
 #define GRAPHICS_FIFO_SIZE 0x60000
-static u8 sGraphicsFifo[GRAPHICS_FIFO_SIZE];
-static u8 sMainSpace[sizeof(CMain)];
+static uchar sGraphicsFifo[GRAPHICS_FIFO_SIZE];
+static uchar sMainSpace[sizeof(CMain)];
 
 const char* s0 = "Misc_AGSC";
 const char* s1 = "MiscSamus_AGSC";
@@ -161,18 +161,18 @@ void CMain::InitializeSubsystems() {
   ARQInit();
   OSThread* thread = OSGetCurrentThread();
   printf("Protecting stack...  ");
-  u8* stackEnd =
-      reinterpret_cast< u8* >(ALIGN_UP(reinterpret_cast< uintptr_t >(thread->stackEnd), 0x400));
-  u8* stackBase = thread->stackBase;
+  uchar* stackEnd =
+      reinterpret_cast< uchar* >(ALIGN_UP(reinterpret_cast< uintptr_t >(thread->stackEnd), 0x400));
+  uchar* stackBase = thread->stackBase;
   OSProtectRange(OS_PROTECT_CHAN3, stackEnd, 0x400, OS_PROTECT_CONTROL_NONE);
 
-  u8* end = stackBase - 0x2000;
-  u8* ptr = stackEnd + 0x400;
+  uchar* end = stackBase - 0x2000;
+  uchar* ptr = stackEnd + 0x400;
   for (; ptr < end; ptr += 4) {
     *reinterpret_cast< int* >(ptr) = UNUSED_STACK_VAL;
   }
 
-  DCFlushRange(stackEnd + 0x400, static_cast< u32 >(end - (stackEnd + 0x400)));
+  DCFlushRange(stackEnd + 0x400, static_cast< uint >(end - (stackEnd + 0x400)));
   printf("Stack: 0x%8.8x down to 0x%8.8x\n", thread->stackBase, thread->stackEnd);
   CElementGen::Initialize();
   CAnimData::InitializeCache();
@@ -188,19 +188,19 @@ void CMain::ShutdownSubsystems() {
   CAnimData::FreeCache();
 
   OSThread* thread = OSGetCurrentThread();
-  u8* stackEnd =
-      reinterpret_cast< u8* >(ALIGN_UP(reinterpret_cast< uintptr_t >(thread->stackEnd), 0x400));
-  u8* stackBase = thread->stackBase;
+  uchar* stackEnd =
+      reinterpret_cast< uchar* >(ALIGN_UP(reinterpret_cast< uintptr_t >(thread->stackEnd), 0x400));
+  uchar* stackBase = thread->stackBase;
 
-  u8* ptr = stackEnd + 0x400;
-  u8* end = stackBase - 0x2000;
+  uchar* ptr = stackEnd + 0x400;
+  uchar* end = stackBase - 0x2000;
   for (; ptr < end; ptr += 4) {
-    if (*reinterpret_cast< u32* >(ptr) != UNUSED_STACK_VAL) {
+    if (*reinterpret_cast< uint* >(ptr) != UNUSED_STACK_VAL) {
       break;
     }
   }
   OSReport("Stack usage: %d bytes (%dk)\n", (int)(stackBase - ptr),
-           ((u32)((int)stackBase - (int)ptr) / 1024));
+           ((uint)((int)stackBase - (int)ptr) / 1024));
 }
 
 CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memorySys)
@@ -217,7 +217,7 @@ CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memory
   gpDefaultFont = &x154_defaultFont;
 }
 
-const u8 sDefaultFontData[] = {
+const uchar sDefaultFontData[] = {
     0x78, 0xDA, 0x8D, 0x57, 0x5B, 0x6F, 0x54, 0x55, 0x14, 0x5E, 0xA5, 0x74, 0x3A, 0x9D, 0x96, 0x82,
     0x18, 0x85, 0x48, 0xD2, 0x40, 0xB9, 0x28, 0xD7, 0x52, 0x29, 0xA5, 0xB7, 0xD9, 0x5B, 0x6B, 0x69,
     0xA1, 0x42, 0xB9, 0xB4, 0x94, 0x8A, 0xD0, 0xD2, 0x4E, 0xE7, 0xD6, 0x4E, 0x67, 0xDA, 0xB9, 0x74,
@@ -320,7 +320,7 @@ const u8 sDefaultFontData[] = {
     0xB0, 0x37, 0x71, 0x5E, 0x86, 0xDE, 0x32, 0xF8, 0xCB, 0xB0, 0x2B, 0x8F, 0xF7, 0x79, 0xE4, 0x57,
     0x1E, 0xEF, 0x57, 0xF0, 0xBD, 0x2B, 0xB8, 0xC7, 0xAA, 0xC1, 0xFF, 0x01, 0xCB, 0xC9, 0xBA, 0xB0,
 };
-const u8 sDefaultFontTexture[] = {
+const uchar sDefaultFontTexture[] = {
     0x78, 0xDA, 0xED, 0x59, 0xDB, 0x92, 0x14, 0x31, 0x08, 0x05, 0xCB, 0x07, 0x1F, 0xC3, 0x1F, 0xF9,
     0xAB, 0x7E, 0xA9, 0x4E, 0x37, 0x77, 0x02, 0xE9, 0x99, 0xD2, 0x37, 0xB7, 0xB7, 0x70, 0xA7, 0x77,
     0x12, 0x42, 0x08, 0x07, 0x0E, 0x11, 0x00, 0xBE, 0x23, 0xC0, 0x4F, 0x00, 0x78, 0xFD, 0x82, 0x6F,
@@ -458,7 +458,7 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   gpController = x30_inputGenerator.GetController();
   gpGameState->GameOptions().EnsureOptions();
   sInfiniteLoopTime = 0.f;
-  OSSetPeriodicAlarm(&xa0_infiniteLoopAlarm, OSGetTime(), (f32)OS_TIMER_CLOCK, InfiniteLoopAlarm);
+  OSSetPeriodicAlarm(&xa0_infiniteLoopAlarm, OSGetTime(), (float)OS_TIMER_CLOCK, InfiniteLoopAlarm);
   xc8_infiniteLoopAlarmSet = true;
 }
 
@@ -508,9 +508,9 @@ void CMain::StreamNewGameState(CInputStream& in, int saveIdx) {
 // 80004590
 void CMain::RefreshGameState() {
   CSystemOptions systemOptions = gpGameState->SystemOptions();
-  u32 saveIdx = gpGameState->SaveIdx();
+  uint saveIdx = gpGameState->SaveIdx();
   u64 cardSerial = gpGameState->CardSerial();
-  rstl::vector< u8 > backupBuf = gpGameState->BackupBuf();
+  rstl::vector< uchar > backupBuf = gpGameState->BackupBuf();
   CGameOptions gameOptions = gpGameState->GameOptions();
   x128_gameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
@@ -636,7 +636,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
       if (!archSupport->UpdateTicks()) {
         x160_24_finished = true;
       }
-      f64 t1 = archSupport->GetStopwatch2().GetElapsedTime();
+      double t1 = archSupport->GetStopwatch2().GetElapsedTime();
       xf0_.AddValue(t1 / dt);
       x118_ = xf0_.GetAverage().data();
       archSupport->GetStopwatch2().Reset();
@@ -651,12 +651,12 @@ int CMain::RsMain(int argc, const char* const* argv) {
         archSupport->GetIOWinManager().Draw();
         DrawDebugMetrics(t1, archSupport->GetStopwatch2());
 
-        f64 t2 = archSupport->GetStopwatch2().GetElapsedTime();
+        double t2 = archSupport->GetStopwatch2().GetElapsedTime();
         x104_.AddValue(t2 / dt);
         x11c_ = x104_.GetAverage().data();
 
         uint idleMicros;
-        f64 idleTime = (dt - (t1 + t2)) - 0.00075;
+        double idleTime = (dt - (t1 + t2)) - 0.00075;
         if (idleTime > 0)
           idleMicros = idleTime * 1000000;
         else

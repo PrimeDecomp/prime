@@ -48,7 +48,7 @@ CScriptSpecialFunction::CScriptSpecialFunction(
     TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const CTransform4f& xf,
     ESpecialFunction func, const rstl::string& lcName, float f1, float f2, float f3, float f4,
     const CVector3f& vec, const CColor& col, bool active, const CDamageInfo& dInfo, int aId1,
-    int aId2, CPlayerState::EItemType itemType, u16 sId1, u16 sId2, u16 sId3)
+    int aId2, CPlayerState::EItemType itemType, ushort sId1, ushort sId2, ushort sId3)
 : CActor(uid, active, name, info, xf, CModelData::CModelDataNull(), CMaterialList(),
          CActorParameters::None(), kInvalidUniqueId)
 , xe8_function(func)
@@ -406,7 +406,7 @@ void CScriptSpecialFunction::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId
     }
     case kSF_BossEnergyBar: {
       if (msg == kSM_Increment) {
-        mgr.SetEnergyBarActorInfo(uid, xfc_float1, u32(x100_float2) + 86);
+        mgr.SetEnergyBarActorInfo(uid, xfc_float1, uint(x100_float2) + 86);
       } else if (msg == kSM_Decrement) {
         mgr.SetEnergyBarActorInfo(kInvalidUniqueId, 0.f, 0);
       }
@@ -1070,7 +1070,7 @@ void CScriptSpecialFunction::ThinkActorScale(float dt, CStateManager& mgr) {
     if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(uid))) {
       if (act->HasModelData()) {
         CVector3f scale = act->GetModelData()->GetScale();
-        f32 x, y, z;
+        float x, y, z;
         if (deltaScale > 0.f) {
           x = CMath::Min(deltaScale + scale.GetX(), f2);
           y = CMath::Min(deltaScale + scale.GetY(), f2);
@@ -1100,13 +1100,13 @@ void CScriptSpecialFunction::ThinkPlayerInArea(float dt, CStateManager& mgr) {
   }
 }
 
-void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, u16 id,
-                                                CVector3f pos, u8 vol) {
+void CScriptSpecialFunction::AddOrUpdateEmitter(float pitch, CSfxHandle& handle, ushort id,
+                                                CVector3f pos, uchar vol) {
   if (!handle) {
     handle = CSfxManager::AddEmitter(id, pos, CVector3f::Zero(), vol, true, true);
   } else {
     CSfxManager::UpdateEmitter(handle, pos, CVector3f::Zero(), vol);
-    CSfxManager::PitchBend(handle, static_cast< s16 >(8192.f * pitch + 8192.f));
+    CSfxManager::PitchBend(handle, static_cast< short >(8192.f * pitch + 8192.f));
   }
 }
 

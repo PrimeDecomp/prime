@@ -42,7 +42,7 @@ public:
                  CAssetId txtr);
   void DisableFilter(float time);
 
-  static void DrawWideScreen(const CColor& color, const CTexture* tex, f32 v);
+  static void DrawWideScreen(const CColor& color, const CTexture* tex, float v);
 
 private:
   EFilterType x0_curType;
