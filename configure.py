@@ -51,6 +51,7 @@ COMPLETE_OBJECTS = [
     "Kyoto/Basics/CSWDataDolphin",
     "Kyoto/Audio/CSfxHandle",
     "Kyoto/Graphics/CGX",
+    "Kyoto/Particles/CIntElement",
     "Kyoto/Particles/CWarp",
     "Kyoto/Math/CPlane",
     "Kyoto/Math/CUnitVector3f",

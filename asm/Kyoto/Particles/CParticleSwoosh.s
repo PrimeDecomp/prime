@@ -50,6 +50,13 @@ lbl_805A88DC:
 	# ROM: 0x3F627C
 	.4byte 0
 
+.section .sbss, "wa"
+.balign 8
+
+.global mSwooshAliveCount__15CParticleSwoosh
+mSwooshAliveCount__15CParticleSwoosh:
+	.skip 0x8
+
 .section .text, "ax"
 
 .global GetTranslation__15CParticleSwooshCFv
@@ -4755,9 +4762,9 @@ __dt__15CParticleSwooshFv:
 /* 8032EC00 0032BB60  34 1E 01 9C */	addic. r0, r30, 0x19c
 /* 8032EC04 0032BB64  38 03 DD 80 */	addi r0, r3, lbl_803EDD80@l
 /* 8032EC08 0032BB68  90 1E 00 00 */	stw r0, 0(r30)
-/* 8032EC0C 0032BB6C  80 6D A8 F8 */	lwz r3, lbl_805A94B8@sda21(r13)
+/* 8032EC0C 0032BB6C  80 6D A8 F8 */	lwz r3, mSwooshAliveCount__15CParticleSwoosh@sda21(r13)
 /* 8032EC10 0032BB70  38 03 FF FF */	addi r0, r3, -1
-/* 8032EC14 0032BB74  90 0D A8 F8 */	stw r0, lbl_805A94B8@sda21(r13)
+/* 8032EC14 0032BB74  90 0D A8 F8 */	stw r0, mSwooshAliveCount__15CParticleSwoosh@sda21(r13)
 /* 8032EC18 0032BB78  41 82 00 44 */	beq lbl_8032EC5C
 /* 8032EC1C 0032BB7C  80 1E 01 A0 */	lwz r0, 0x1a0(r30)
 /* 8032EC20 0032BB80  80 7E 01 A8 */	lwz r3, 0x1a8(r30)
@@ -5058,10 +5065,10 @@ lbl_8032EFA0:
 /* 8032F060 0032BFC0  D0 3F 02 08 */	stfs f1, 0x208(r31)
 /* 8032F064 0032BFC4  90 1F 02 0C */	stw r0, 0x20c(r31)
 /* 8032F068 0032BFC8  4B FE 36 19 */	bl __ct__13CGlobalRandomFR9CRandom16
-/* 8032F06C 0032BFCC  80 6D A8 F8 */	lwz r3, lbl_805A94B8@sda21(r13)
+/* 8032F06C 0032BFCC  80 6D A8 F8 */	lwz r3, mSwooshAliveCount__15CParticleSwoosh@sda21(r13)
 /* 8032F070 0032BFD0  2C 1E 00 00 */	cmpwi r30, 0
 /* 8032F074 0032BFD4  38 03 00 01 */	addi r0, r3, 1
-/* 8032F078 0032BFD8  90 0D A8 F8 */	stw r0, lbl_805A94B8@sda21(r13)
+/* 8032F078 0032BFD8  90 0D A8 F8 */	stw r0, mSwooshAliveCount__15CParticleSwoosh@sda21(r13)
 /* 8032F07C 0032BFDC  40 81 00 0C */	ble lbl_8032F088
 /* 8032F080 0032BFE0  93 DF 01 B4 */	stw r30, 0x1b4(r31)
 /* 8032F084 0032BFE4  48 00 00 2C */	b lbl_8032F0B0

@@ -32,7 +32,7 @@ public:
   virtual float GetGeneratorRate() const { return 1.f; }
   virtual bool IsSystemDeletable() const = 0;
   virtual CAABox GetBounds() const = 0;
-  virtual int GetParticleCOunt() const = 0;
+  virtual int GetParticleCount() const = 0;
   virtual bool SystemHasLight() const = 0;
   virtual CLight GetLight() = 0;
   virtual void DestroyParticles() = 0;

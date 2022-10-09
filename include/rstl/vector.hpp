@@ -6,6 +6,8 @@
 #include "rstl/pointer_iterator.hpp"
 #include "rstl/rmemory_allocator.hpp"
 
+class CInputStream;
+
 namespace rstl {
 // template < typename T, typename Alloc >
 // struct allocator_auto_ptr {
@@ -53,6 +55,7 @@ public:
       uninitialized_copy_n(other.xc_items, x4_count, xc_items);
     }
   }
+  vector(CInputStream& in);
   ~vector() {
     destroy(begin(), end());
     x0_allocator.deallocate(xc_items);

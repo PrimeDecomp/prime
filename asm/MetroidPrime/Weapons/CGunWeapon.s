@@ -2654,7 +2654,7 @@ DrawMuzzleFx__10CGunWeaponCFRC13CStateManager:
 /* 801BC170 001B90D0  40 82 00 38 */	bne lbl_801BC1A8
 /* 801BC174 001B90D4  80 1E 02 08 */	lwz r0, 0x208(r30)
 /* 801BC178 001B90D8  38 60 00 01 */	li r3, 1
-/* 801BC17C 001B90DC  98 6D A8 B9 */	stb r3, lbl_805A9479@sda21(r13)
+/* 801BC17C 001B90DC  98 6D A8 B9 */	stb r3, sSubtractBlend__11CElementGen@sda21(r13)
 /* 801BC180 001B90E0  54 03 18 38 */	slwi r3, r0, 3
 /* 801BC184 001B90E4  38 03 00 04 */	addi r0, r3, 4
 /* 801BC188 001B90E8  7C 7F 00 2E */	lwzx r3, r31, r0
@@ -2663,7 +2663,7 @@ DrawMuzzleFx__10CGunWeaponCFRC13CStateManager:
 /* 801BC194 001B90F4  7D 89 03 A6 */	mtctr r12
 /* 801BC198 001B90F8  4E 80 04 21 */	bctrl
 /* 801BC19C 001B90FC  38 00 00 00 */	li r0, 0
-/* 801BC1A0 001B9100  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 801BC1A0 001B9100  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 801BC1A4 001B9104  48 00 00 24 */	b lbl_801BC1C8
 lbl_801BC1A8:
 /* 801BC1A8 001B9108  80 1E 02 08 */	lwz r0, 0x208(r30)

@@ -77,28 +77,28 @@ lbl_805A88D0:
 .section .bss
 .balign 8
 
-.lcomm lbl_804BFE28, 0x20, 4
-.lcomm lbl_804BFE48, 0x20, 4
-.lcomm lbl_804BFE68, 0x4C, 4
-.lcomm lbl_804BFEB4, 0x4C, 4
+.lcomm mStaticParticleList, 0x20, 4
+.lcomm mStaticFreeList, 0x20, 4
+.lcomm "ModulatePreviousTEVWithRasColor$6239", 0x4C, 4
+.lcomm "ModulatePreviousTEVWithRasColor$6760", 0x4C, 4
 
 .section .sbss, "wa"
 .balign 8
-# TODO this probably isn't split properly
-.global lbl_805A9470
-lbl_805A9470:
+
+.global mParticleAliveCount__11CElementGen
+mParticleAliveCount__11CElementGen:
 	.skip 0x4
-.global lbl_805A9474
-lbl_805A9474:
+.global mParticleSystemAliveCount__11CElementGen
+mParticleSystemAliveCount__11CElementGen:
 	.skip 0x4
-.global lbl_805A9478
-lbl_805A9478:
+.global sMoveRedToAlphaBuffer__11CElementGen
+sMoveRedToAlphaBuffer__11CElementGen:
 	.skip 0x1
-.global lbl_805A9479
-lbl_805A9479:
+.global sSubtractBlend__11CElementGen
+sSubtractBlend__11CElementGen:
 	.skip 0x1
-.global lbl_805A947A
-lbl_805A947A:
+.global sStaticListInitialized
+sStaticListInitialized:
 	.skip 0x1
 .global lbl_805A947B
 lbl_805A947B:
@@ -392,8 +392,8 @@ SystemHasLight__11CElementGenCFv:
 /* 8031797C 003148DC  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 80317980 003148E0  4E 80 00 20 */	blr
 
-.global GetEmitterTime__11CElementGenFv
-GetEmitterTime__11CElementGenFv:
+.global GetEmitterTime__11CElementGenCFv
+GetEmitterTime__11CElementGenCFv:
 /* 80317984 003148E4  80 63 00 74 */	lwz r3, 0x74(r3)
 /* 80317988 003148E8  4E 80 00 20 */	blr
 
@@ -822,7 +822,7 @@ lbl_80317F48:
 /* 80317F74 00314ED4  88 64 00 31 */	lbz r3, 0x31(r4)
 /* 80317F78 00314ED8  54 60 DF FF */	rlwinm. r0, r3, 0x1b, 0x1f, 0x1f
 /* 80317F7C 00314EDC  41 82 02 A8 */	beq lbl_80318224
-/* 80317F80 00314EE0  88 0D A8 B8 */	lbz r0, lbl_805A9478@sda21(r13)
+/* 80317F80 00314EE0  88 0D A8 B8 */	lbz r0, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 80317F84 00314EE4  3A 80 00 00 */	li r20, 0
 /* 80317F88 00314EE8  28 00 00 00 */	cmplwi r0, 0
 /* 80317F8C 00314EEC  41 82 00 1C */	beq lbl_80317FA8
@@ -1441,7 +1441,7 @@ lbl_80318848:
 /* 803188C8 00315828  4B FF 2B 49 */	bl StreamEnd__9CGraphicsFv
 /* 803188CC 0031582C  48 00 01 80 */	b lbl_80318A4C
 lbl_803188D0:
-/* 803188D0 00315830  88 0D A8 B9 */	lbz r0, lbl_805A9479@sda21(r13)
+/* 803188D0 00315830  88 0D A8 B9 */	lbz r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 803188D4 00315834  83 84 00 50 */	lwz r28, 0x50(r4)
 /* 803188D8 00315838  28 00 00 00 */	cmplwi r0, 0
 /* 803188DC 0031583C  41 82 00 6C */	beq lbl_80318948
@@ -1784,9 +1784,9 @@ lbl_80318CBC:
 /* 80318DEC 00315D4C  38 80 00 0F */	li r4, 0xf
 /* 80318DF0 00315D50  4B FF 03 35 */	bl __ct__Q213CTevCombiners8ColorVarFQ213CTevCombiners9EColorSrc
 /* 80318DF4 00315D54  80 A1 00 28 */	lwz r5, 0x28(r1)
-/* 80318DF8 00315D58  3C 60 80 4C */	lis r3, lbl_804BFEB4@ha
+/* 80318DF8 00315D58  3C 60 80 4C */	lis r3, "ModulatePreviousTEVWithRasColor$6760"@ha
 /* 80318DFC 00315D5C  81 21 00 24 */	lwz r9, 0x24(r1)
-/* 80318E00 00315D60  38 63 FE B4 */	addi r3, r3, lbl_804BFEB4@l
+/* 80318E00 00315D60  38 63 FE B4 */	addi r3, r3, "ModulatePreviousTEVWithRasColor$6760"@l
 /* 80318E04 00315D64  81 01 00 20 */	lwz r8, 0x20(r1)
 /* 80318E08 00315D68  38 81 00 78 */	addi r4, r1, 0x78
 /* 80318E0C 00315D6C  80 01 00 1C */	lwz r0, 0x1c(r1)
@@ -1801,9 +1801,9 @@ lbl_80318CBC:
 /* 80318E30 00315D90  38 00 00 01 */	li r0, 1
 /* 80318E34 00315D94  98 0D A8 C5 */	stb r0, lbl_805A9485@sda21(r13)
 lbl_80318E38:
-/* 80318E38 00315D98  3C 80 80 4C */	lis r4, lbl_804BFEB4@ha
+/* 80318E38 00315D98  3C 80 80 4C */	lis r4, "ModulatePreviousTEVWithRasColor$6760"@ha
 /* 80318E3C 00315D9C  38 60 00 01 */	li r3, 1
-/* 80318E40 00315DA0  38 84 FE B4 */	addi r4, r4, lbl_804BFEB4@l
+/* 80318E40 00315DA0  38 84 FE B4 */	addi r4, r4, "ModulatePreviousTEVWithRasColor$6760"@l
 /* 80318E44 00315DA4  4B FF 14 75 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 80318E48 00315DA8  48 00 00 10 */	b lbl_80318E58
 lbl_80318E4C:
@@ -2928,7 +2928,7 @@ sub_80319e3c:
 /* 80319F20 00316E80  80 8D 9C 68 */	lwz r4, kEnvPassthru__9CGraphics@sda21(r13)
 /* 80319F24 00316E84  38 60 00 01 */	li r3, 1
 /* 80319F28 00316E88  4B FF 03 91 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
-/* 80319F2C 00316E8C  8B AD A8 B8 */	lbz r29, lbl_805A9478@sda21(r13)
+/* 80319F2C 00316E8C  8B AD A8 B8 */	lbz r29, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 80319F30 00316E90  7F D0 F3 78 */	mr r16, r30
 /* 80319F34 00316E94  3A 20 00 00 */	li r17, 0
 /* 80319F38 00316E98  48 00 00 4C */	b lbl_80319F84
@@ -3158,7 +3158,7 @@ lbl_8031A27C:
 /* 8031A28C 003171EC  57 93 13 BA */	rlwinm r19, r28, 2, 0xe, 0x1d
 /* 8031A290 003171F0  7E BE 98 2E */	lwzx r21, r30, r19
 /* 8031A294 003171F4  7E A3 AB 78 */	mr r3, r21
-/* 8031A298 003171F8  4B FF D6 ED */	bl GetEmitterTime__11CElementGenFv
+/* 8031A298 003171F8  4B FF D6 ED */	bl GetEmitterTime__11CElementGenCFv
 /* 8031A29C 003171FC  7C 9E 98 2E */	lwzx r4, r30, r19
 /* 8031A2A0 00317200  57 A0 06 3F */	clrlwi. r0, r29, 0x18
 /* 8031A2A4 00317204  7C 77 1B 78 */	mr r23, r3
@@ -3619,9 +3619,9 @@ lbl_8031A858:
 /* 8031A988 003178E8  38 80 00 0F */	li r4, 0xf
 /* 8031A98C 003178EC  4B FE E7 99 */	bl __ct__Q213CTevCombiners8ColorVarFQ213CTevCombiners9EColorSrc
 /* 8031A990 003178F0  80 BF 00 30 */	lwz r5, 0x30(r31)
-/* 8031A994 003178F4  3C 60 80 4C */	lis r3, lbl_804BFE68@ha
+/* 8031A994 003178F4  3C 60 80 4C */	lis r3, "ModulatePreviousTEVWithRasColor$6239"@ha
 /* 8031A998 003178F8  81 3F 00 2C */	lwz r9, 0x2c(r31)
-/* 8031A99C 003178FC  38 63 FE 68 */	addi r3, r3, lbl_804BFE68@l
+/* 8031A99C 003178FC  38 63 FE 68 */	addi r3, r3, "ModulatePreviousTEVWithRasColor$6239"@l
 /* 8031A9A0 00317900  81 1F 00 28 */	lwz r8, 0x28(r31)
 /* 8031A9A4 00317904  38 9F 01 0C */	addi r4, r31, 0x10c
 /* 8031A9A8 00317908  80 1F 00 24 */	lwz r0, 0x24(r31)
@@ -3636,9 +3636,9 @@ lbl_8031A858:
 /* 8031A9CC 0031792C  38 00 00 01 */	li r0, 1
 /* 8031A9D0 00317930  98 0D A8 BB */	stb r0, lbl_805A947B@sda21(r13)
 lbl_8031A9D4:
-/* 8031A9D4 00317934  3C 80 80 4C */	lis r4, lbl_804BFE68@ha
+/* 8031A9D4 00317934  3C 80 80 4C */	lis r4, "ModulatePreviousTEVWithRasColor$6239"@ha
 /* 8031A9D8 00317938  38 60 00 01 */	li r3, 1
-/* 8031A9DC 0031793C  38 84 FE 68 */	addi r4, r4, lbl_804BFE68@l
+/* 8031A9DC 0031793C  38 84 FE 68 */	addi r4, r4, "ModulatePreviousTEVWithRasColor$6239"@l
 /* 8031A9E0 00317940  4B FE F8 D9 */	bl SetTevOp__9CGraphicsF12ERglTevStageRCQ213CTevCombiners8CTevPass
 /* 8031A9E4 00317944  48 00 00 10 */	b lbl_8031A9F4
 lbl_8031A9E8:
@@ -3716,8 +3716,8 @@ lbl_8031AAF0:
 /* 8031AAF4 00317A54  4B FE E3 5D */	bl SetNumChans__3CGXFUc
 /* 8031AAF8 00317A58  3B 60 00 01 */	li r27, 1
 lbl_8031AAFC:
-/* 8031AAFC 00317A5C  88 0D A8 B9 */	lbz r0, lbl_805A9479@sda21(r13)
-/* 8031AB00 00317A60  8B 4D A8 B8 */	lbz r26, lbl_805A9478@sda21(r13)
+/* 8031AAFC 00317A5C  88 0D A8 B9 */	lbz r0, sSubtractBlend__11CElementGen@sda21(r13)
+/* 8031AB00 00317A60  8B 4D A8 B8 */	lbz r26, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 8031AB04 00317A64  28 00 00 00 */	cmplwi r0, 0
 /* 8031AB08 00317A68  41 82 00 98 */	beq lbl_8031ABA0
 /* 8031AB0C 00317A6C  88 1E 02 6C */	lbz r0, 0x26c(r30)
@@ -5511,14 +5511,14 @@ lbl_8031C5A4:
 /* 8031C5B0 00319510  7C 03 02 14 */	add r0, r3, r0
 /* 8031C5B4 00319514  7C 1C 00 40 */	cmplw r28, r0
 /* 8031C5B8 00319518  40 82 FF D4 */	bne lbl_8031C58C
-/* 8031C5BC 0031951C  80 6D A8 F4 */	lwz r3, lbl_805A94B4@sda21(r13)
+/* 8031C5BC 0031951C  80 6D A8 F4 */	lwz r3, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 8031C5C0 00319520  3C 80 50 41 */	lis r4, 0x50415254@ha
 /* 8031C5C4 00319524  38 84 52 54 */	addi r4, r4, 0x50415254@l
 /* 8031C5C8 00319528  38 01 00 08 */	addi r0, r1, 8
 /* 8031C5CC 0031952C  90 81 00 08 */	stw r4, 8(r1)
 /* 8031C5D0 00319530  93 A1 00 0C */	stw r29, 0xc(r1)
 /* 8031C5D4 00319534  90 61 00 10 */	stw r3, 0x10(r1)
-/* 8031C5D8 00319538  90 0D A8 F4 */	stw r0, lbl_805A94B4@sda21(r13)
+/* 8031C5D8 00319538  90 0D A8 F4 */	stw r0, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 8031C5DC 0031953C  80 1D 00 34 */	lwz r0, 0x34(r29)
 /* 8031C5E0 00319540  2C 00 00 00 */	cmpwi r0, 0
 /* 8031C5E4 00319544  40 81 00 48 */	ble lbl_8031C62C
@@ -5555,7 +5555,7 @@ lbl_8031C62C:
 /* 8031C650 003195B0  D0 1D 02 D0 */	stfs f0, 0x2d0(r29)
 /* 8031C654 003195B4  41 82 00 0C */	beq lbl_8031C660
 /* 8031C658 003195B8  80 01 00 10 */	lwz r0, 0x10(r1)
-/* 8031C65C 003195BC  90 0D A8 F4 */	stw r0, lbl_805A94B4@sda21(r13)
+/* 8031C65C 003195BC  90 0D A8 F4 */	stw r0, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 lbl_8031C660:
 /* 8031C660 003195C0  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8031C664 003195C4  83 E1 00 2C */	lwz r31, 0x2c(r1)
@@ -5622,10 +5622,10 @@ DestroyParticles__11CElementGenFv:
 /* 8031C72C 0031968C  93 E1 00 2C */	stw r31, 0x2c(r1)
 /* 8031C730 00319690  7C 7F 1B 78 */	mr r31, r3
 /* 8031C734 00319694  93 C1 00 28 */	stw r30, 0x28(r1)
-/* 8031C738 00319698  80 0D A8 B0 */	lwz r0, lbl_805A9470@sda21(r13)
+/* 8031C738 00319698  80 0D A8 B0 */	lwz r0, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031C73C 0031969C  80 63 00 34 */	lwz r3, 0x34(r3)
 /* 8031C740 003196A0  7C 03 00 50 */	subf r0, r3, r0
-/* 8031C744 003196A4  90 0D A8 B0 */	stw r0, lbl_805A9470@sda21(r13)
+/* 8031C744 003196A4  90 0D A8 B0 */	stw r0, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031C748 003196A8  80 1F 00 34 */	lwz r0, 0x34(r31)
 /* 8031C74C 003196AC  80 7F 00 3C */	lwz r3, 0x3c(r31)
 /* 8031C750 003196B0  1C 00 00 38 */	mulli r0, r0, 0x38
@@ -5747,11 +5747,11 @@ ForceParticleCreation__11CElementGenFi:
 /* 8031C8DC 0031983C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 8031C8E0 00319840  7C 7E 1B 78 */	mr r30, r3
 /* 8031C8E4 00319844  38 66 52 54 */	addi r3, r6, 0x50415254@l
-/* 8031C8E8 00319848  80 AD A8 F4 */	lwz r5, lbl_805A94B4@sda21(r13)
+/* 8031C8E8 00319848  80 AD A8 F4 */	lwz r5, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 8031C8EC 0031984C  93 C1 00 0C */	stw r30, 0xc(r1)
 /* 8031C8F0 00319850  90 61 00 08 */	stw r3, 8(r1)
 /* 8031C8F4 00319854  90 A1 00 10 */	stw r5, 0x10(r1)
-/* 8031C8F8 00319858  90 0D A8 F4 */	stw r0, lbl_805A94B4@sda21(r13)
+/* 8031C8F8 00319858  90 0D A8 F4 */	stw r0, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 8031C8FC 0031985C  80 7E 00 74 */	lwz r3, 0x74(r30)
 /* 8031C900 00319860  48 00 DE 49 */	bl SetEmitterTime__16CParticleGlobalsFi
 /* 8031C904 00319864  7F C3 F3 78 */	mr r3, r30
@@ -5760,7 +5760,7 @@ ForceParticleCreation__11CElementGenFi:
 /* 8031C910 00319870  34 01 00 08 */	addic. r0, r1, 8
 /* 8031C914 00319874  41 82 00 0C */	beq lbl_8031C920
 /* 8031C918 00319878  80 01 00 10 */	lwz r0, 0x10(r1)
-/* 8031C91C 0031987C  90 0D A8 F4 */	stw r0, lbl_805A94B4@sda21(r13)
+/* 8031C91C 0031987C  90 0D A8 F4 */	stw r0, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 lbl_8031C920:
 /* 8031C920 00319880  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8031C924 00319884  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -6735,7 +6735,7 @@ CreateNewParticles__11CElementGenFi:
 /* 8031D6F0 0031A650  BF 41 01 28 */	stmw r26, 0x128(r1)
 /* 8031D6F4 0031A654  7C 7A 1B 78 */	mr r26, r3
 /* 8031D6F8 0031A658  7C 9B 23 78 */	mr r27, r4
-/* 8031D6FC 0031A65C  88 0D A8 BA */	lbz r0, lbl_805A947A@sda21(r13)
+/* 8031D6FC 0031A65C  88 0D A8 BA */	lbz r0, sStaticListInitialized@sda21(r13)
 /* 8031D700 0031A660  28 00 00 00 */	cmplwi r0, 0
 /* 8031D704 0031A664  40 82 00 08 */	bne lbl_8031D70C
 /* 8031D708 0031A668  48 00 1A 61 */	bl Initialize__11CElementGenFv
@@ -6750,7 +6750,7 @@ lbl_8031D70C:
 /* 8031D728 0031A688  40 81 00 08 */	ble lbl_8031D730
 /* 8031D72C 0031A68C  7F A3 20 50 */	subf r29, r3, r4
 lbl_8031D730:
-/* 8031D730 0031A690  80 6D A8 B0 */	lwz r3, lbl_805A9470@sda21(r13)
+/* 8031D730 0031A690  80 6D A8 B0 */	lwz r3, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031D734 0031A694  7C 1D 1A 14 */	add r0, r29, r3
 /* 8031D738 0031A698  2C 00 0A 00 */	cmpwi r0, 0xa00
 /* 8031D73C 0031A69C  40 81 00 08 */	ble lbl_8031D744
@@ -6784,8 +6784,8 @@ lbl_8031D7A0:
 /* 8031D7A0 0031A700  80 83 00 00 */	lwz r4, 0(r3)
 /* 8031D7A4 0031A704  38 7A 00 60 */	addi r3, r26, 0x60
 /* 8031D7A8 0031A708  48 00 2E 75 */	bl "reserve__Q24rstl69vector<Q211CElementGen17CParticleListItem,Q24rstl17rmemory_allocator>Fi"
-/* 8031D7AC 0031A70C  3C 60 80 4C */	lis r3, lbl_804BFE48@ha
-/* 8031D7B0 0031A710  3B E3 FE 48 */	addi r31, r3, lbl_804BFE48@l
+/* 8031D7AC 0031A70C  3C 60 80 4C */	lis r3, mStaticFreeList@ha
+/* 8031D7B0 0031A710  3B E3 FE 48 */	addi r31, r3, mStaticFreeList@l
 /* 8031D7B4 0031A714  48 00 00 CC */	b lbl_8031D880
 lbl_8031D7B8:
 /* 8031D7B8 0031A718  80 1A 00 64 */	lwz r0, 0x64(r26)
@@ -6878,10 +6878,10 @@ lbl_8031D8A8:
 /* 8031D8FC 0031A85C  98 A1 01 22 */	stb r5, 0x122(r1)
 /* 8031D900 0031A860  98 A1 01 23 */	stb r5, 0x123(r1)
 /* 8031D904 0031A864  48 00 03 81 */	bl sub_8031dc84
-/* 8031D908 0031A868  80 6D A8 B0 */	lwz r3, lbl_805A9470@sda21(r13)
+/* 8031D908 0031A868  80 6D A8 B0 */	lwz r3, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031D90C 0031A86C  80 9A 00 34 */	lwz r4, 0x34(r26)
 /* 8031D910 0031A870  38 03 00 01 */	addi r0, r3, 1
-/* 8031D914 0031A874  90 0D A8 B0 */	stw r0, lbl_805A9470@sda21(r13)
+/* 8031D914 0031A874  90 0D A8 B0 */	stw r0, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031D918 0031A878  3B 64 FF FF */	addi r27, r4, -1
 /* 8031D91C 0031A87C  80 7A 02 5C */	lwz r3, 0x25c(r26)
 /* 8031D920 0031A880  38 03 00 01 */	addi r0, r3, 1
@@ -7205,10 +7205,10 @@ lbl_8031DDA8:
 /* 8031DDAC 0031AD0C  80 1D 00 74 */	lwz r0, 0x74(r29)
 /* 8031DDB0 0031AD10  7C 03 00 00 */	cmpw r3, r0
 /* 8031DDB4 0031AD14  40 80 01 84 */	bge lbl_8031DF38
-/* 8031DDB8 0031AD18  80 6D A8 B0 */	lwz r3, lbl_805A9470@sda21(r13)
+/* 8031DDB8 0031AD18  80 6D A8 B0 */	lwz r3, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031DDBC 0031AD1C  38 1F 00 38 */	addi r0, r31, 0x38
 /* 8031DDC0 0031AD20  38 63 FF FF */	addi r3, r3, -1
-/* 8031DDC4 0031AD24  90 6D A8 B0 */	stw r3, lbl_805A9470@sda21(r13)
+/* 8031DDC4 0031AD24  90 6D A8 B0 */	stw r3, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031DDC8 0031AD28  80 9D 00 34 */	lwz r4, 0x34(r29)
 /* 8031DDCC 0031AD2C  80 BD 00 3C */	lwz r5, 0x3c(r29)
 /* 8031DDD0 0031AD30  1C 64 00 38 */	mulli r3, r4, 0x38
@@ -8104,11 +8104,11 @@ Update__11CElementGenFd:
 /* 8031EAAC 0031BA0C  93 E1 00 24 */	stw r31, 0x24(r1)
 /* 8031EAB0 0031BA10  7C 7F 1B 78 */	mr r31, r3
 /* 8031EAB4 0031BA14  38 65 52 54 */	addi r3, r5, 0x50415254@l
-/* 8031EAB8 0031BA18  80 8D A8 F4 */	lwz r4, lbl_805A94B4@sda21(r13)
+/* 8031EAB8 0031BA18  80 8D A8 F4 */	lwz r4, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 8031EABC 0031BA1C  93 E1 00 10 */	stw r31, 0x10(r1)
 /* 8031EAC0 0031BA20  90 61 00 0C */	stw r3, 0xc(r1)
 /* 8031EAC4 0031BA24  90 81 00 14 */	stw r4, 0x14(r1)
-/* 8031EAC8 0031BA28  90 0D A8 F4 */	stw r0, lbl_805A94B4@sda21(r13)
+/* 8031EAC8 0031BA28  90 0D A8 F4 */	stw r0, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 /* 8031EACC 0031BA2C  80 7F 00 28 */	lwz r3, 0x28(r31)
 /* 8031EAD0 0031BA30  80 03 00 04 */	lwz r0, 4(r3)
 /* 8031EAD4 0031BA34  28 00 00 00 */	cmplwi r0, 0
@@ -8149,7 +8149,7 @@ lbl_8031EB50:
 /* 8031EB5C 0031BABC  34 01 00 0C */	addic. r0, r1, 0xc
 /* 8031EB60 0031BAC0  41 82 00 0C */	beq lbl_8031EB6C
 /* 8031EB64 0031BAC4  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8031EB68 0031BAC8  90 0D A8 F4 */	stw r0, lbl_805A94B4@sda21(r13)
+/* 8031EB68 0031BAC8  90 0D A8 F4 */	stw r0, mCurrentParticleSystem__16CParticleGlobals@sda21(r13)
 lbl_8031EB6C:
 /* 8031EB6C 0031BACC  80 01 00 34 */	lwz r0, 0x34(r1)
 /* 8031EB70 0031BAD0  CB E1 00 28 */	lfd f31, 0x28(r1)
@@ -8579,19 +8579,19 @@ lbl_8031F124:
 .global ShutDown__11CElementGenFv
 ShutDown__11CElementGenFv:
 /* 8031F15C 0031C0BC  38 00 00 00 */	li r0, 0
-/* 8031F160 0031C0C0  98 0D A8 BA */	stb r0, lbl_805A947A@sda21(r13)
+/* 8031F160 0031C0C0  98 0D A8 BA */	stb r0, sStaticListInitialized@sda21(r13)
 /* 8031F164 0031C0C4  4E 80 00 20 */	blr
 
 .global Initialize__11CElementGenFv
 Initialize__11CElementGenFv:
-/* 8031F168 0031C0C8  88 0D A8 BA */	lbz r0, lbl_805A947A@sda21(r13)
+/* 8031F168 0031C0C8  88 0D A8 BA */	lbz r0, sStaticListInitialized@sda21(r13)
 /* 8031F16C 0031C0CC  28 00 00 00 */	cmplwi r0, 0
 /* 8031F170 0031C0D0  4C 82 00 20 */	bnelr
 /* 8031F174 0031C0D4  38 60 00 00 */	li r3, 0
 /* 8031F178 0031C0D8  38 00 00 01 */	li r0, 1
-/* 8031F17C 0031C0DC  90 6D A8 B0 */	stw r3, lbl_805A9470@sda21(r13)
-/* 8031F180 0031C0E0  90 6D A8 B4 */	stw r3, lbl_805A9474@sda21(r13)
-/* 8031F184 0031C0E4  98 0D A8 BA */	stb r0, lbl_805A947A@sda21(r13)
+/* 8031F17C 0031C0DC  90 6D A8 B0 */	stw r3, mParticleAliveCount__11CElementGen@sda21(r13)
+/* 8031F180 0031C0E0  90 6D A8 B4 */	stw r3, mParticleSystemAliveCount__11CElementGen@sda21(r13)
+/* 8031F184 0031C0E4  98 0D A8 BA */	stb r0, sStaticListInitialized@sda21(r13)
 /* 8031F188 0031C0E8  4E 80 00 20 */	blr
 
 .global __dt__11CElementGenFv
@@ -8608,13 +8608,13 @@ __dt__11CElementGenFv:
 /* 8031F1B0 0031C110  3C 60 80 3F */	lis r3, lbl_803EDA80@ha
 /* 8031F1B4 0031C114  38 03 DA 80 */	addi r0, r3, lbl_803EDA80@l
 /* 8031F1B8 0031C118  90 1E 00 00 */	stw r0, 0(r30)
-/* 8031F1BC 0031C11C  80 6D A8 B4 */	lwz r3, lbl_805A9474@sda21(r13)
-/* 8031F1C0 0031C120  80 0D A8 B0 */	lwz r0, lbl_805A9470@sda21(r13)
+/* 8031F1BC 0031C11C  80 6D A8 B4 */	lwz r3, mParticleSystemAliveCount__11CElementGen@sda21(r13)
+/* 8031F1C0 0031C120  80 0D A8 B0 */	lwz r0, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031F1C4 0031C124  38 63 FF FF */	addi r3, r3, -1
-/* 8031F1C8 0031C128  90 6D A8 B4 */	stw r3, lbl_805A9474@sda21(r13)
+/* 8031F1C8 0031C128  90 6D A8 B4 */	stw r3, mParticleSystemAliveCount__11CElementGen@sda21(r13)
 /* 8031F1CC 0031C12C  80 7E 00 34 */	lwz r3, 0x34(r30)
 /* 8031F1D0 0031C130  7C 03 00 50 */	subf r0, r3, r0
-/* 8031F1D4 0031C134  90 0D A8 B0 */	stw r0, lbl_805A9470@sda21(r13)
+/* 8031F1D4 0031C134  90 0D A8 B0 */	stw r0, mParticleAliveCount__11CElementGen@sda21(r13)
 /* 8031F1D8 0031C138  83 BE 02 9C */	lwz r29, 0x29c(r30)
 /* 8031F1DC 0031C13C  48 00 00 28 */	b lbl_8031F204
 lbl_8031F1E0:
@@ -9005,9 +9005,9 @@ lbl_8031F780:
 /* 8031F780 0031C6E0  A8 9F 00 94 */	lha r4, 0x94(r31)
 /* 8031F784 0031C6E4  38 7F 02 7C */	addi r3, r31, 0x27c
 /* 8031F788 0031C6E8  4B FF 2E 5D */	bl SetSeed__9CRandom16FUi
-/* 8031F78C 0031C6EC  80 6D A8 B4 */	lwz r3, lbl_805A9474@sda21(r13)
+/* 8031F78C 0031C6EC  80 6D A8 B4 */	lwz r3, mParticleSystemAliveCount__11CElementGen@sda21(r13)
 /* 8031F790 0031C6F0  38 03 00 01 */	addi r0, r3, 1
-/* 8031F794 0031C6F4  90 0D A8 B4 */	stw r0, lbl_805A9474@sda21(r13)
+/* 8031F794 0031C6F4  90 0D A8 B4 */	stw r0, mParticleSystemAliveCount__11CElementGen@sda21(r13)
 /* 8031F798 0031C6F8  80 7F 00 28 */	lwz r3, 0x28(r31)
 /* 8031F79C 0031C6FC  88 1F 02 6C */	lbz r0, 0x26c(r31)
 /* 8031F7A0 0031C700  88 63 00 30 */	lbz r3, 0x30(r3)
@@ -9368,9 +9368,9 @@ lbl_8031FCBC:
 /* 8031FCC8 0031CC28  88 1F 02 6D */	lbz r0, 0x26d(r31)
 /* 8031FCCC 0031CC2C  54 00 EF FF */	rlwinm. r0, r0, 0x1d, 0x1f, 0x1f
 /* 8031FCD0 0031CC30  41 82 00 5C */	beq lbl_8031FD2C
-/* 8031FCD4 0031CC34  3C 60 80 4C */	lis r3, lbl_804BFE28@ha
+/* 8031FCD4 0031CC34  3C 60 80 4C */	lis r3, mStaticParticleList@ha
 /* 8031FCD8 0031CC38  38 A1 00 20 */	addi r5, r1, 0x20
-/* 8031FCDC 0031CC3C  3B A3 FE 28 */	addi r29, r3, lbl_804BFE28@l
+/* 8031FCDC 0031CC3C  3B A3 FE 28 */	addi r29, r3, mStaticParticleList@l
 /* 8031FCE0 0031CC40  7F C4 F3 78 */	mr r4, r30
 /* 8031FCE4 0031CC44  81 9D 00 00 */	lwz r12, 0(r29)
 /* 8031FCE8 0031CC48  38 7F 00 60 */	addi r3, r31, 0x60

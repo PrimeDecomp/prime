@@ -3753,7 +3753,7 @@ SetThermal__13CCubeRendererFbfRC6CColor:
 /* 802B8F9C 002B5EFC  80 85 00 00 */	lwz r4, 0(r5)
 /* 802B8FA0 002B5F00  90 83 02 F4 */	stw r4, 0x2f4(r3)
 /* 802B8FA4 002B5F04  98 0D A5 EC */	stb r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
-/* 802B8FA8 002B5F08  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
+/* 802B8FA8 002B5F08  98 0D A8 B8 */	stb r0, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 802B8FAC 002B5F0C  4E 80 00 20 */	blr
 
 .global ReallyRenderFogVolume__13CCubeRendererFRC6CColorRC6CAABoxPC6CModelPC13CSkinnedModel
@@ -5381,7 +5381,7 @@ DoThermalBlendHot__13CCubeRendererFv:
 /* 802BA7B8 002B7718  38 61 00 24 */	addi r3, r1, 0x24
 /* 802BA7BC 002B771C  48 05 1F 91 */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 802BA7C0 002B7720  38 00 00 00 */	li r0, 0
-/* 802BA7C4 002B7724  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
+/* 802BA7C4 002B7724  98 0D A8 B8 */	stb r0, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 802BA7C8 002B7728  98 0D A5 EC */	stb r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
 /* 802BA7CC 002B772C  BB 41 00 88 */	lmw r26, 0x88(r1)
 /* 802BA7D0 002B7730  80 01 00 A4 */	lwz r0, 0xa4(r1)
@@ -5785,7 +5785,7 @@ lbl_802BAA1C:
 /* 802BADEC 002B7D4C  38 61 00 64 */	addi r3, r1, 0x64
 /* 802BADF0 002B7D50  48 05 19 5D */	bl SetViewPointMatrix__9CGraphicsFRC12CTransform4f
 /* 802BADF4 002B7D54  38 00 00 01 */	li r0, 1
-/* 802BADF8 002B7D58  98 0D A8 B8 */	stb r0, lbl_805A9478@sda21(r13)
+/* 802BADF8 002B7D58  98 0D A8 B8 */	stb r0, sMoveRedToAlphaBuffer__11CElementGen@sda21(r13)
 /* 802BADFC 002B7D5C  98 0D A5 EC */	stb r0, sMoveRedToAlphaBuffer__6CDecal@sda21(r13)
 /* 802BAE00 002B7D60  E3 E1 00 F8 */	psq_l f31, 248(r1), 0, qr0
 /* 802BAE04 002B7D64  CB E1 00 F0 */	lfd f31, 0xf0(r1)

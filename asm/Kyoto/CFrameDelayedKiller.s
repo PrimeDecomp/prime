@@ -19,8 +19,8 @@ lbl_805A96B0:
 
 .section .text, "ax"
 
-.global sub_8036ca64
-sub_8036ca64:
+.global __dl__8IElementFPvUl
+__dl__8IElementFPvUl:
 /* 8036CA64 003699C4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8036CA68 003699C8  7C 08 02 A6 */	mflr r0
 /* 8036CA6C 003699CC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -30,8 +30,8 @@ sub_8036ca64:
 /* 8036CA7C 003699DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8036CA80 003699E0  4E 80 00 20 */	blr
 
-.global __nw__FUlPCcPCc_0
-__nw__FUlPCcPCc_0:
+.global __nw__8IElementFUl
+__nw__8IElementFUl:
 /* 8036CA84 003699E4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8036CA88 003699E8  7C 08 02 A6 */	mflr r0
 /* 8036CA8C 003699EC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -415,4 +415,3 @@ lbl_803D8568:
 	# ROM: 0x3D5568
 	.asciz "??(??)"
 	.balign 4
-

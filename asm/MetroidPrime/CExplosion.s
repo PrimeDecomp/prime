@@ -73,7 +73,7 @@ Render__10CExplosionCFRC13CStateManager:
 /* 8005A140 000570A0  41 82 00 3C */	beq lbl_8005A17C
 /* 8005A144 000570A4  38 00 00 01 */	li r0, 1
 /* 8005A148 000570A8  38 60 00 01 */	li r3, 1
-/* 8005A14C 000570AC  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 8005A14C 000570AC  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 8005A150 000570B0  48 2E B6 99 */	bl SetRenderModelBlack__10CCubeModelFb
 /* 8005A154 000570B4  80 7E 00 E8 */	lwz r3, 0xe8(r30)
 /* 8005A158 000570B8  81 83 00 00 */	lwz r12, 0(r3)
@@ -83,14 +83,14 @@ Render__10CExplosionCFRC13CStateManager:
 /* 8005A168 000570C8  38 60 00 00 */	li r3, 0
 /* 8005A16C 000570CC  48 2E B6 7D */	bl SetRenderModelBlack__10CCubeModelFb
 /* 8005A170 000570D0  38 00 00 00 */	li r0, 0
-/* 8005A174 000570D4  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 8005A174 000570D4  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 8005A178 000570D8  48 00 00 64 */	b lbl_8005A1DC
 lbl_8005A17C:
 /* 8005A17C 000570DC  88 1E 00 F4 */	lbz r0, 0xf4(r30)
 /* 8005A180 000570E0  54 00 CF FE */	rlwinm r0, r0, 0x19, 0x1f, 0x1f
 /* 8005A184 000570E4  7C 00 00 34 */	cntlzw r0, r0
 /* 8005A188 000570E8  54 00 D9 7E */	srwi r0, r0, 5
-/* 8005A18C 000570EC  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 8005A18C 000570EC  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 /* 8005A190 000570F0  48 2E FE 25 */	bl Black__6CColorFv
 /* 8005A194 000570F4  C0 22 86 A8 */	lfs f1, lbl_805AA3C8@sda21(r2)
 /* 8005A198 000570F8  7C 64 1B 78 */	mr r4, r3
@@ -109,7 +109,7 @@ lbl_8005A17C:
 /* 8005A1CC 0005712C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 8005A1D0 00057130  4B FE CB B1 */	bl SetupFogForArea__13CStateManagerCF7TAreaId
 /* 8005A1D4 00057134  38 00 00 00 */	li r0, 0
-/* 8005A1D8 00057138  98 0D A8 B9 */	stb r0, lbl_805A9479@sda21(r13)
+/* 8005A1D8 00057138  98 0D A8 B9 */	stb r0, sSubtractBlend__11CElementGen@sda21(r13)
 lbl_8005A1DC:
 /* 8005A1DC 0005713C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8005A1E0 00057140  83 E1 00 1C */	lwz r31, 0x1c(r1)
