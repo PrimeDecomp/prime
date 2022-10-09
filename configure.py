@@ -1188,9 +1188,6 @@ for lib in LIBS:
                 object = object[0]
 
             if completed:
-                if not completed:
-                    print(f"{object} is still in COMPLETE_OBJECTS")
-
                 inputs.append(f"$builddir/src/{object}.o")
             else:
                 inputs.append(f"$builddir/asm/{object}.o")
