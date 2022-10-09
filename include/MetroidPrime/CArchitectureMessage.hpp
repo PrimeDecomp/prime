@@ -31,6 +31,9 @@ struct IArchitectureMessageParm {
 IArchitectureMessageParm::~IArchitectureMessageParm() {}
 
 class CArchitectureMessage {
+
+public:
+  EArchMsgType GetType() const { return x4_type; }
 private:
   EArchMsgTarget x0_target;
   EArchMsgType x4_type;

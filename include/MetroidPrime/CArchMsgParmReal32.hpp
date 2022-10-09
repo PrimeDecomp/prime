@@ -6,11 +6,12 @@
 #include "MetroidPrime/CArchitectureMessage.hpp"
 
 class CArchMsgParmReal32 : public IArchitectureMessageParm {
-  float mVal;
-
 public:
   CArchMsgParmReal32(float);
   ~CArchMsgParmReal32();
+  float GetReal() const { return mVal; }
+private:
+  float mVal;
 };
 
 #endif // _CARCHMSGPARMREAL32

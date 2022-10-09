@@ -1,5 +1,16 @@
 .include "macros.inc"
 
+.section .rodata
+.balign 8
+.global lbl_803CEE00
+lbl_803CEE00:
+	# ROM: 0x3CBE00
+	.asciz "ConsoleOutputWindow"
+	.4byte 0x003F3F28
+	.4byte 0x3F3F2900
+	.4byte 0
+
+
 .section .data
 .balign 8
 
@@ -32,8 +43,8 @@ lbl_805A7544:
 .balign 8
 
 # CConsoleOutputWindow
-.global lbl_805A8F00
-lbl_805A8F00:
+.global mInstance__20CConsoleOutputWindow
+mInstance__20CConsoleOutputWindow:
 	.skip 0x8
 
 .section .sdata2, "a"
@@ -139,7 +150,7 @@ __dt__20CConsoleOutputWindowFv:
 /* 800FE988 000FB8E8  38 63 FE 50 */	addi r3, r3, lbl_803DFE50@l
 /* 800FE98C 000FB8EC  38 00 00 00 */	li r0, 0
 /* 800FE990 000FB8F0  90 7E 00 00 */	stw r3, 0(r30)
-/* 800FE994 000FB8F4  90 0D A3 40 */	stw r0, lbl_805A8F00@sda21(r13)
+/* 800FE994 000FB8F4  90 0D A3 40 */	stw r0, mInstance__20CConsoleOutputWindow@sda21(r13)
 /* 800FE998 000FB8F8  41 82 00 44 */	beq lbl_800FE9DC
 /* 800FE99C 000FB8FC  80 1E 00 34 */	lwz r0, 0x34(r30)
 /* 800FE9A0 000FB900  80 7E 00 3C */	lwz r3, 0x3c(r30)
@@ -336,7 +347,7 @@ lbl_800FEC44:
 lbl_800FEC54:
 /* 800FEC54 000FBBB4  7C 1E E8 00 */	cmpw r30, r29
 /* 800FEC58 000FBBB8  41 80 FF 38 */	blt lbl_800FEB90
-/* 800FEC5C 000FBBBC  93 8D A3 40 */	stw r28, lbl_805A8F00@sda21(r13)
+/* 800FEC5C 000FBBBC  93 8D A3 40 */	stw r28, mInstance__20CConsoleOutputWindow@sda21(r13)
 /* 800FEC60 000FBBC0  7F 83 E3 78 */	mr r3, r28
 /* 800FEC64 000FBBC4  E3 E1 00 68 */	psq_l f31, 104(r1), 0, qr0
 /* 800FEC68 000FBBC8  CB E1 00 60 */	lfd f31, 0x60(r1)
@@ -350,14 +361,3 @@ lbl_800FEC54:
 /* 800FEC88 000FBBE8  7C 08 03 A6 */	mtlr r0
 /* 800FEC8C 000FBBEC  38 21 00 70 */	addi r1, r1, 0x70
 /* 800FEC90 000FBBF0  4E 80 00 20 */	blr
-
-.section .rodata
-.balign 8
-.global lbl_803CEE00
-lbl_803CEE00:
-	# ROM: 0x3CBE00
-	.asciz "ConsoleOutputWindow"
-	.4byte 0x003F3F28
-	.4byte 0x3F3F2900
-	.4byte 0
-
