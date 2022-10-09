@@ -1,12 +1,14 @@
+#include <float.h>
+
 #include "Kyoto/Graphics/CLight.hpp"
 
 #include "Kyoto/Math/CMath.hpp"
 #include "rstl/math.hpp"
 
+static const float gkEpsilon32 = FLT_EPSILON;
+
 const CVector3f CLight::kDefaultPosition(0.f, 0.f, 0.f);
 const CVector3f CLight::kDefaultDirection(0.f, -1.f, 0.f);
-
-static const float gkEpsilon32 = FLT_EPSILON;
 
 CLight::CLight(ELightType type, const CVector3f& position, const CVector3f& direction,
                const CColor& color, float cutoff)
@@ -52,9 +54,11 @@ CLight CLight::BuildLocalAmbient(const CVector3f& pos, const CColor& col) {
   return CLight(kLT_LocalAmbient, pos, kDefaultDirection, col, 180.f);
 }
 
+
 CLight CLight::BuildDirectional(const CVector3f& direction, const CColor& col) {
   return CLight(kLT_Directional, kDefaultPosition, direction, col, 180.f);
 }
+
 
 CLight CLight::BuildPoint(const CVector3f& pos, const CColor& color) {
   return CLight(kLT_Point, pos, kDefaultDirection, color, 180.f);
@@ -71,6 +75,7 @@ CLight CLight::BuildCustom(const CVector3f& pos, const CVector3f& dir, const CCo
   return CLight(pos, dir, color, distC, distL, distQ, angleC, angleL, angleQ);
 }
 
+
 void CLight::SetAttenuation(float constant, float linear, float quadratic) {
   x24_distC = constant;
   x28_distL = linear;
@@ -78,6 +83,7 @@ void CLight::SetAttenuation(float constant, float linear, float quadratic) {
   x4c_25_radiusDirty = true;
   x4c_24_intensityDirty = true;
 }
+
 
 void CLight::SetAngleAttenuation(float constant, float linear, float quadratic) {
   x30_angleC = constant;
@@ -105,9 +111,10 @@ float CLight::GetRadius() const {
   return x44_cachedRadius;
 }
 
+
 float CLight::CalculateLightRadius() const {
   if (x28_distL < gkEpsilon32 && x2c_distQ < gkEpsilon32) {
-    return FLT_MAX;
+    return 3.0E36f;
   }
 
   float intensity = GetIntensity();
@@ -139,6 +146,11 @@ float CLight::GetIntensity() const {
         rstl::max_val(x18_color.GetRed(), rstl::max_val(x18_color.GetGreen(), x18_color.GetBlue()));
   }
   return x48_cachedIntensity;
+}
+// Hack for float ordering
+static void StrippedFunc() {
+  static float f1 = -1.f;
+  static float f2 = 0.f;
 }
 
 CVector3f CLight::GetNormalIndependentLightingAtPoint(const CVector3f& point) const {
