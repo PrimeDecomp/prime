@@ -368,9 +368,9 @@ void CActor::RenderInternal(const CStateManager& mgr) const {
         addMag = 255;
       }
 
-      const uchar rgb = mulMag * xb4_drawFlags.GetColor().GetAlphauchar();
-      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColor().GetAlphauchar());
-      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColor().GetAlphauchar() / 4);
+      const uchar rgb = mulMag * xb4_drawFlags.GetColor().GetAlphau8();
+      CColor mulColor(rgb, rgb, rgb, xb4_drawFlags.GetColor().GetAlphau8());
+      CColor addColor(addMag, addMag, addMag, xb4_drawFlags.GetColor().GetAlphau8() / 4);
       GetModelData()->RenderThermal(x34_transform, mulColor, addColor, xb4_drawFlags);
       return;
     } else if (mgr.GetThermalColdScale2() > 0.0001f && xb4_drawFlags.GetTrans() == 0) {

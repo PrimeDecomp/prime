@@ -68,24 +68,24 @@ uint CColor::Lerp(uint a, uint b, float t) {
 }
 
 CColor CColor::Modulate(const CColor& a, const CColor& b) {
-  return CColor((uchar)((a.GetReduchar() * b.GetReduchar()) / (uchar)255),
-                (a.GetGreenuchar() * b.GetGreenuchar()) / (uchar)255,
-                (a.GetBlueuchar() * b.GetBlueuchar()) / (uchar)255,
-                (a.GetAlphauchar() * b.GetAlphauchar()) / (uchar)255);
+  return CColor((uchar)((a.GetRedu8() * b.GetRedu8()) / (uchar)255),
+                (a.GetGreenu8() * b.GetGreenu8()) / (uchar)255,
+                (a.GetBlueu8() * b.GetBlueu8()) / (uchar)255,
+                (a.GetAlphau8() * b.GetAlphau8()) / (uchar)255);
 }
 
 CColor CColor::Add(const CColor& arg0, const CColor& arg1) {
-  return CColor((uchar)rstl::min_val< uint >(255, arg0.GetReduchar() + arg1.GetReduchar()),
-                (uchar)rstl::min_val< uint >(255, arg0.GetGreenuchar() + arg1.GetGreenuchar()),
-                (uchar)rstl::min_val< uint >(255, arg0.GetBlueuchar() + arg1.GetBlueuchar()),
-                (uchar)rstl::min_val< uint >(255, arg0.GetAlphauchar() + arg1.GetAlphauchar()));
+  return CColor((uchar)rstl::min_val< uint >(255, arg0.GetRedu8() + arg1.GetRedu8()),
+                (uchar)rstl::min_val< uint >(255, arg0.GetGreenu8() + arg1.GetGreenu8()),
+                (uchar)rstl::min_val< uint >(255, arg0.GetBlueu8() + arg1.GetBlueu8()),
+                (uchar)rstl::min_val< uint >(255, arg0.GetAlphau8() + arg1.GetAlphau8()));
 }
 
 ushort CColor::ToRGB5A3() const {
-  uchar r = GetReduchar();
-  uchar g = GetGreenuchar();
-  uchar b = GetBlueuchar();
-  uchar a = GetAlphauchar();
+  uchar r = GetRedu8();
+  uchar g = GetGreenu8();
+  uchar b = GetBlueu8();
+  uchar a = GetAlphau8();
   ushort ret = (1 << 15) | ((b & 0xf8) >> 3) | ((g & 0xf8) << 2) | ((r & 0xf8) << 7);
   if (a != 0xFF) {
     ret = ((a & 0xe0) << 7) | ((b & 0xf0) >> 4) | (g & 0xf0) | ((r & 0xf0) << 4);
