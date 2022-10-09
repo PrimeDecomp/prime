@@ -80,9 +80,7 @@ void CGunMotion::ReturnToDefault(CStateManager& mgr) {
   x4c_gunController.ReturnToDefault(mgr, 0.f);
 }
 
-int CGunMotion::GetFreeLookSetId() const {
-  return x4c_gunController.GetFreeLookSetId();
-}
+int CGunMotion::GetFreeLookSetId() const { return x4c_gunController.GetFreeLookSetId(); }
 
 void CGunMotion::BasePosition(bool bigStrikeReset) {
   CAnimData& animData = *x0_modelData.AnimationData();

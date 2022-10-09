@@ -1,6 +1,5 @@
 #include "string.h"
 
-
 void* memcpy(void* dst, const void* src, size_t n) {
   const char* p;
   char* q;
@@ -17,7 +16,6 @@ void* memcpy(void* dst, const void* src, size_t n) {
   }
   return (dst);
 }
-
 
 #define cps ((unsigned char*)src)
 #define cpd ((unsigned char*)dst)

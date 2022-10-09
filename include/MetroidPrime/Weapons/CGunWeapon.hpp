@@ -1,4 +1,3 @@
-// #pragma once
 #ifndef _CGUNWEAPON
 #define _CGUNWEAPON
 

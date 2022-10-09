@@ -106,7 +106,7 @@ float CLight::GetRadius() const {
 }
 
 float CLight::CalculateLightRadius() const {
-  if (x28_distL < gkEpsilon32 &&  x2c_distQ < gkEpsilon32) {
+  if (x28_distL < gkEpsilon32 && x2c_distQ < gkEpsilon32) {
     return FLT_MAX;
   }
 
@@ -134,7 +134,9 @@ float CLight::GetIntensity() const {
     if (x1c_type == kLT_Custom) {
       coef = x30_angleC;
     }
-    x48_cachedIntensity = coef * rstl::max_val(x18_color.GetRed(), rstl::max_val(x18_color.GetGreen(), x18_color.GetBlue()));
+    x48_cachedIntensity =
+        coef *
+        rstl::max_val(x18_color.GetRed(), rstl::max_val(x18_color.GetGreen(), x18_color.GetBlue()));
   }
   return x48_cachedIntensity;
 }

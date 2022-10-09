@@ -21,6 +21,4 @@ void salCrossProduct(SND_FVECTOR* out, const SND_FVECTOR* a, const SND_FVECTOR* 
   out->z = (a->x * b->y) - (a->y * b->x);
 }
 
-void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in) {
-  out->t[0] = 1.f;
-}
+void salInvertMatrix(SND_FMATRIX* out, const SND_FMATRIX* in) { out->t[0] = 1.f; }

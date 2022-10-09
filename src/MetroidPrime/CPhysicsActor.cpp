@@ -196,10 +196,9 @@ void CPhysicsActor::MoveToInOneFrameWR(const CVector3f& trans, float d) {
   x18c_moveImpulse += (trans - GetTranslation()) * GetMass() * (1.f / d);
 }
 
-
 CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) const {
   CVector3f impulse = x34_transform.Rotate(trans);
-  return  (GetMass() * impulse) * (1.f / d);
+  return (GetMass() * impulse) * (1.f / d);
 }
 
 CAxisAngle CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {}
