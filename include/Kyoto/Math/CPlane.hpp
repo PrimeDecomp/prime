@@ -9,7 +9,7 @@
 class CPlane {
 public:
   CPlane(const CVector3f&, const CUnitVector3f&); // TODO weak
-  CPlane(float, const CUnitVector3f&);            // TODO weak
+  CPlane(float constant, const CUnitVector3f& normal) : x0_normal(normal), xc_constant(constant) {}
   CPlane(const CVector3f&, const CVector3f&, const CVector3f&);
   // TODO
 
