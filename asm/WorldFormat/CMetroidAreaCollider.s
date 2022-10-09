@@ -1,6 +1,7 @@
 .include "macros.inc"
 
-.comm lbl_80572BAC, 0x19000, 4
+.comm lbl_80572BAC, 0x5000, 4
+.comm lbl_80577BAC, 0x14000, 4 # MWCC .comm bug
 .comm lbl_8058BBAC, 0xC000, 4
 .comm lbl_80597BAC, 0x8000, 4
 
@@ -4872,4 +4873,3 @@ lbl_805ADE98:
 	# ROM: 0x3FA738
 	.4byte 0x40080000
 	.4byte 0
-

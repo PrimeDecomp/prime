@@ -608,7 +608,8 @@ lbl_805A8378:
 .lcomm lbl_8046D4F8, 0x2E8, 4
 .lcomm lbl_8046D7E0, 0x1E0, 4
 .lcomm lbl_8046D9C0, 0x2D0, 4
-.comm lbl_80572404, 0x110, 4
+.comm lbl_80572404, 0x10, 4
+.comm lbl_80572414, 0x100, 4 # MWCC .comm bug
 .comm lbl_80572514, 0x10, 4
 .comm lbl_80572524, 0x10, 4
 .comm lbl_80572534, 0x10, 4

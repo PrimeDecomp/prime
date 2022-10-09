@@ -9,8 +9,9 @@ lbl_ctor:
 
 .lcomm lbl_8046C558, 0xC, 4
 .lcomm lbl_8046C564, 0xC, 4
-.comm lbl_8056D850, 0x1F08, 4
-.comm lbl_8056F758, 0x104, 4
+.comm mDecalPool__13CDecalManager, 0x1E04, 4
+.comm lbl_8056F654, 0x104, 4 # MWCC .comm bug
+.comm mActiveIndexList__13CDecalManager, 0x104, 4
 
 .section .sbss
 .balign 8
@@ -57,11 +58,11 @@ lbl_805AB380:
 AddToRenderer__13CDecalManagerFRC14CFrustumPlanesRC13CStateManager:
 /* 80116EC4 00113E24  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80116EC8 00113E28  7C 08 02 A6 */	mflr r0
-/* 80116ECC 00113E2C  3C A0 80 57 */	lis r5, lbl_8056F758@ha
-/* 80116ED0 00113E30  3C 60 80 57 */	lis r3, lbl_8056D850@ha
+/* 80116ECC 00113E2C  3C A0 80 57 */	lis r5, mActiveIndexList__13CDecalManager@ha
+/* 80116ED0 00113E30  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
 /* 80116ED4 00113E34  90 01 00 64 */	stw r0, 0x64(r1)
-/* 80116ED8 00113E38  38 A5 F7 58 */	addi r5, r5, lbl_8056F758@l
-/* 80116EDC 00113E3C  38 63 D8 50 */	addi r3, r3, lbl_8056D850@l
+/* 80116ED8 00113E38  38 A5 F7 58 */	addi r5, r5, mActiveIndexList__13CDecalManager@l
+/* 80116EDC 00113E3C  38 63 D8 50 */	addi r3, r3, mDecalPool__13CDecalManager@l
 /* 80116EE0 00113E40  BF 61 00 4C */	stmw r27, 0x4c(r1)
 /* 80116EE4 00113E44  7C 9F 23 78 */	mr r31, r4
 /* 80116EE8 00113E48  38 85 00 04 */	addi r4, r5, 4
@@ -131,13 +132,13 @@ Update__13CDecalManagerFfR13CStateManager:
 /* 80116FCC 00113F2C  BF 61 00 0C */	stmw r27, 0xc(r1)
 /* 80116FD0 00113F30  FF E0 08 90 */	fmr f31, f1
 /* 80116FD4 00113F34  C0 0D A3 70 */	lfs f0, lbl_805A8F30@sda21(r13)
-/* 80116FD8 00113F38  3C A0 80 57 */	lis r5, lbl_8056F758@ha
-/* 80116FDC 00113F3C  3C 80 80 57 */	lis r4, lbl_8056D850@ha
-/* 80116FE0 00113F40  3B E5 F7 58 */	addi r31, r5, lbl_8056F758@l
+/* 80116FD8 00113F38  3C A0 80 57 */	lis r5, mActiveIndexList__13CDecalManager@ha
+/* 80116FDC 00113F3C  3C 80 80 57 */	lis r4, mDecalPool__13CDecalManager@ha
+/* 80116FE0 00113F40  3B E5 F7 58 */	addi r31, r5, mActiveIndexList__13CDecalManager@l
 /* 80116FE4 00113F44  7C 7B 1B 78 */	mr r27, r3
 /* 80116FE8 00113F48  EC 00 F8 2A */	fadds f0, f0, f31
 /* 80116FEC 00113F4C  3B BF 00 04 */	addi r29, r31, 4
-/* 80116FF0 00113F50  38 64 D8 50 */	addi r3, r4, lbl_8056D850@l
+/* 80116FF0 00113F50  38 64 D8 50 */	addi r3, r4, mDecalPool__13CDecalManager@l
 /* 80116FF4 00113F54  7F BC EB 78 */	mr r28, r29
 /* 80116FF8 00113F58  D0 0D A3 70 */	stfs f0, lbl_805A8F30@sda21(r13)
 /* 80116FFC 00113F5C  3B C3 00 04 */	addi r30, r3, 4
@@ -178,8 +179,8 @@ lbl_80117048:
 
 .global RemoveFromActiveList__13CDecalManagerFPii
 RemoveFromActiveList__13CDecalManagerFPii:
-/* 80117078 00113FD8  3C A0 80 57 */	lis r5, lbl_8056F758@ha
-/* 8011707C 00113FDC  38 C5 F7 58 */	addi r6, r5, lbl_8056F758@l
+/* 80117078 00113FD8  3C A0 80 57 */	lis r5, mActiveIndexList__13CDecalManager@ha
+/* 8011707C 00113FDC  38 C5 F7 58 */	addi r6, r5, mActiveIndexList__13CDecalManager@l
 /* 80117080 00113FE0  39 06 00 04 */	addi r8, r6, 4
 /* 80117084 00113FE4  7C 03 40 40 */	cmplw r3, r8
 /* 80117088 00113FE8  41 80 00 5C */	blt lbl_801170E4
@@ -201,24 +202,24 @@ lbl_801170B4:
 /* 801170C0 00114020  7C 08 02 14 */	add r0, r8, r0
 /* 801170C4 00114024  7C 07 00 40 */	cmplw r7, r0
 /* 801170C8 00114028  41 80 FF E0 */	blt lbl_801170A8
-/* 801170CC 0011402C  3C A0 80 57 */	lis r5, lbl_8056F758@ha
-/* 801170D0 00114030  38 C5 F7 58 */	addi r6, r5, lbl_8056F758@l
+/* 801170CC 0011402C  3C A0 80 57 */	lis r5, mActiveIndexList__13CDecalManager@ha
+/* 801170D0 00114030  38 C5 F7 58 */	addi r6, r5, mActiveIndexList__13CDecalManager@l
 /* 801170D4 00114034  80 A6 00 00 */	lwz r5, 0(r6)
 /* 801170D8 00114038  38 05 FF FF */	addi r0, r5, -1
 /* 801170DC 0011403C  90 06 00 00 */	stw r0, 0(r6)
 /* 801170E0 00114040  48 00 00 14 */	b lbl_801170F4
 lbl_801170E4:
-/* 801170E4 00114044  3C 60 80 57 */	lis r3, lbl_8056F758@ha
-/* 801170E8 00114048  80 03 F7 58 */	lwz r0, lbl_8056F758@l(r3)
+/* 801170E4 00114044  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
+/* 801170E8 00114048  80 03 F7 58 */	lwz r0, mActiveIndexList__13CDecalManager@l(r3)
 /* 801170EC 0011404C  54 00 10 3A */	slwi r0, r0, 2
 /* 801170F0 00114050  7C 68 02 14 */	add r3, r8, r0
 lbl_801170F4:
 /* 801170F4 00114054  1C A4 00 78 */	mulli r5, r4, 0x78
 /* 801170F8 00114058  80 ED A3 68 */	lwz r7, lbl_805A8F28@sda21(r13)
 /* 801170FC 0011405C  80 0D A3 74 */	lwz r0, lbl_805A8F34@sda21(r13)
-/* 80117100 00114060  3C C0 80 57 */	lis r6, lbl_8056D850@ha
+/* 80117100 00114060  3C C0 80 57 */	lis r6, mDecalPool__13CDecalManager@ha
 /* 80117104 00114064  90 8D A3 68 */	stw r4, lbl_805A8F28@sda21(r13)
-/* 80117108 00114068  38 C6 D8 50 */	addi r6, r6, lbl_8056D850@l
+/* 80117108 00114068  38 C6 D8 50 */	addi r6, r6, mDecalPool__13CDecalManager@l
 /* 8011710C 0011406C  7C 00 20 00 */	cmpw r0, r4
 /* 80117110 00114070  7C 86 2A 14 */	add r4, r6, r5
 /* 80117114 00114074  98 E4 00 78 */	stb r7, 0x78(r4)
@@ -250,9 +251,9 @@ lbl_801170F4:
 /* 80117170 001140D0  7C 00 F0 40 */	cmplw r0, r30
 /* 80117174 001140D4  40 82 00 70 */	bne lbl_801171E4
 /* 80117178 001140D8  1C 07 00 78 */	mulli r0, r7, 0x78
-/* 8011717C 001140DC  3C 60 80 57 */	lis r3, lbl_8056D850@ha
+/* 8011717C 001140DC  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
 /* 80117180 001140E0  C0 5A 00 1C */	lfs f2, 0x1c(r26)
-/* 80117184 001140E4  38 63 D8 50 */	addi r3, r3, lbl_8056D850@l
+/* 80117184 001140E4  38 63 D8 50 */	addi r3, r3, mDecalPool__13CDecalManager@l
 /* 80117188 001140E8  C0 1A 00 0C */	lfs f0, 0xc(r26)
 /* 8011718C 001140EC  7C 63 02 14 */	add r3, r3, r0
 /* 80117190 001140F0  C0 E3 00 2C */	lfs f7, 0x2c(r3)
@@ -280,14 +281,14 @@ lbl_801171E4:
 /* 801171E4 00114144  80 0D A3 68 */	lwz r0, lbl_805A8F28@sda21(r13)
 /* 801171E8 00114148  2C 00 FF FF */	cmpwi r0, -1
 /* 801171EC 0011414C  40 82 00 14 */	bne lbl_80117200
-/* 801171F0 00114150  3C 60 80 57 */	lis r3, lbl_8056F758@ha
-/* 801171F4 00114154  38 63 F7 58 */	addi r3, r3, lbl_8056F758@l
+/* 801171F0 00114150  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
+/* 801171F4 00114154  38 63 F7 58 */	addi r3, r3, mActiveIndexList__13CDecalManager@l
 /* 801171F8 00114158  84 83 00 04 */	lwzu r4, 4(r3)
 /* 801171FC 0011415C  4B FF FE 7D */	bl RemoveFromActiveList__13CDecalManagerFPii
 lbl_80117200:
 /* 80117200 00114160  83 AD A3 68 */	lwz r29, lbl_805A8F28@sda21(r13)
-/* 80117204 00114164  3C 60 80 57 */	lis r3, lbl_8056D850@ha
-/* 80117208 00114168  38 63 D8 50 */	addi r3, r3, lbl_8056D850@l
+/* 80117204 00114164  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
+/* 80117208 00114168  38 63 D8 50 */	addi r3, r3, mDecalPool__13CDecalManager@l
 /* 8011720C 0011416C  1C 1D 00 78 */	mulli r0, r29, 0x78
 /* 80117210 00114170  7F E3 02 14 */	add r31, r3, r0
 /* 80117214 00114174  88 7F 00 78 */	lbz r3, 0x78(r31)
@@ -318,9 +319,9 @@ lbl_8011724C:
 /* 80117274 001141D4  38 80 00 00 */	li r4, 0
 /* 80117278 001141D8  48 22 9B C9 */	bl __dt__6CTokenFv
 /* 8011727C 001141DC  80 BC 08 CC */	lwz r5, 0x8cc(r28)
-/* 80117280 001141E0  3C 60 80 57 */	lis r3, lbl_8056F758@ha
+/* 80117280 001141E0  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
 /* 80117284 001141E4  20 9B 00 01 */	subfic r4, r27, 1
-/* 80117288 001141E8  84 03 F7 58 */	lwzu r0, lbl_8056F758@l(r3)
+/* 80117288 001141E8  84 03 F7 58 */	lwzu r0, mActiveIndexList__13CDecalManager@l(r3)
 /* 8011728C 001141EC  7C 84 00 34 */	cntlzw r4, r4
 /* 80117290 001141F0  90 BF 00 70 */	stw r5, 0x70(r31)
 /* 80117294 001141F4  54 00 10 3A */	slwi r0, r0, 2
@@ -338,8 +339,8 @@ lbl_8011724C:
 /* 801172C4 00114224  41 82 00 08 */	beq lbl_801172CC
 /* 801172C8 00114228  93 A5 00 00 */	stw r29, 0(r5)
 lbl_801172CC:
-/* 801172CC 0011422C  3C 60 80 57 */	lis r3, lbl_8056F758@ha
-/* 801172D0 00114230  38 83 F7 58 */	addi r4, r3, lbl_8056F758@l
+/* 801172CC 0011422C  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
+/* 801172D0 00114230  38 83 F7 58 */	addi r4, r3, mActiveIndexList__13CDecalManager@l
 /* 801172D4 00114234  80 64 00 00 */	lwz r3, 0(r4)
 /* 801172D8 00114238  38 03 00 01 */	addi r0, r3, 1
 /* 801172DC 0011423C  90 04 00 00 */	stw r0, 0(r4)
@@ -472,9 +473,9 @@ Reinitialize__13CDecalManagerFv:
 /* 801174A4 00114404  40 82 00 08 */	bne lbl_801174AC
 /* 801174A8 00114408  48 00 04 AD */	bl Initialize__13CDecalManagerFv
 lbl_801174AC:
-/* 801174AC 0011440C  3C 60 80 57 */	lis r3, lbl_8056D850@ha
+/* 801174AC 0011440C  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
 /* 801174B0 00114410  3B C0 00 00 */	li r30, 0
-/* 801174B4 00114414  38 63 D8 50 */	addi r3, r3, lbl_8056D850@l
+/* 801174B4 00114414  38 63 D8 50 */	addi r3, r3, mDecalPool__13CDecalManager@l
 /* 801174B8 00114418  3B E3 00 04 */	addi r31, r3, 4
 lbl_801174BC:
 /* 801174BC 0011441C  39 00 00 00 */	li r8, 0
@@ -521,8 +522,8 @@ lbl_8011754C:
 /* 80117558 001144B8  98 81 00 F4 */	stb r4, 0xf4(r1)
 /* 8011755C 001144BC  3B FF 00 78 */	addi r31, r31, 0x78
 /* 80117560 001144C0  41 80 FF 5C */	blt lbl_801174BC
-/* 80117564 001144C4  3C 60 80 57 */	lis r3, lbl_8056F758@ha
-/* 80117568 001144C8  80 A3 F7 58 */	lwz r5, lbl_8056F758@l(r3)
+/* 80117564 001144C4  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
+/* 80117568 001144C8  80 A3 F7 58 */	lwz r5, mActiveIndexList__13CDecalManager@l(r3)
 /* 8011756C 001144CC  2C 05 00 00 */	cmpwi r5, 0
 /* 80117570 001144D0  40 81 00 40 */	ble lbl_801175B0
 /* 80117574 001144D4  2C 05 00 08 */	cmpwi r5, 8
@@ -545,10 +546,10 @@ lbl_801175AC:
 /* 801175AC 0011450C  42 00 00 00 */	bdnz lbl_801175AC
 lbl_801175B0:
 /* 801175B0 00114510  38 00 00 3F */	li r0, 0x3f
-/* 801175B4 00114514  3C 60 80 57 */	lis r3, lbl_8056F758@ha
+/* 801175B4 00114514  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
 /* 801175B8 00114518  38 80 00 00 */	li r4, 0
 /* 801175BC 0011451C  90 0D A3 68 */	stw r0, lbl_805A8F28@sda21(r13)
-/* 801175C0 00114520  90 83 F7 58 */	stw r4, lbl_8056F758@l(r3)
+/* 801175C0 00114520  90 83 F7 58 */	stw r4, mActiveIndexList__13CDecalManager@l(r3)
 /* 801175C4 00114524  83 E1 00 FC */	lwz r31, 0xfc(r1)
 /* 801175C8 00114528  80 01 01 04 */	lwz r0, 0x104(r1)
 /* 801175CC 0011452C  83 C1 00 F8 */	lwz r30, 0xf8(r1)
@@ -716,10 +717,10 @@ lbl_801177E0:
 ShutDown__13CDecalManagerFv:
 /* 80117804 00114764  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80117808 00114768  7C 08 02 A6 */	mflr r0
-/* 8011780C 0011476C  3C 60 80 57 */	lis r3, lbl_8056F758@ha
+/* 8011780C 0011476C  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
 /* 80117810 00114770  38 80 00 00 */	li r4, 0
 /* 80117814 00114774  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80117818 00114778  80 A3 F7 58 */	lwz r5, lbl_8056F758@l(r3)
+/* 80117818 00114778  80 A3 F7 58 */	lwz r5, mActiveIndexList__13CDecalManager@l(r3)
 /* 8011781C 0011477C  2C 05 00 00 */	cmpwi r5, 0
 /* 80117820 00114780  40 81 00 40 */	ble lbl_80117860
 /* 80117824 00114784  2C 05 00 08 */	cmpwi r5, 8
@@ -741,11 +742,11 @@ lbl_8011784C:
 lbl_8011785C:
 /* 8011785C 001147BC  42 00 00 00 */	bdnz lbl_8011785C
 lbl_80117860:
-/* 80117860 001147C0  3C 80 80 57 */	lis r4, lbl_8056F758@ha
+/* 80117860 001147C0  3C 80 80 57 */	lis r4, mActiveIndexList__13CDecalManager@ha
 /* 80117864 001147C4  38 00 00 00 */	li r0, 0
-/* 80117868 001147C8  3C 60 80 57 */	lis r3, lbl_8056D850@ha
-/* 8011786C 001147CC  90 04 F7 58 */	stw r0, lbl_8056F758@l(r4)
-/* 80117870 001147D0  38 63 D8 50 */	addi r3, r3, lbl_8056D850@l
+/* 80117868 001147C8  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
+/* 8011786C 001147CC  90 04 F7 58 */	stw r0, mActiveIndexList__13CDecalManager@l(r4)
+/* 80117870 001147D0  38 63 D8 50 */	addi r3, r3, mDecalPool__13CDecalManager@l
 /* 80117874 001147D4  48 00 00 1D */	bl "data__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv"
 /* 80117878 001147D8  38 00 00 00 */	li r0, 0
 /* 8011787C 001147DC  98 0D A3 6C */	stb r0, lbl_805A8F2C@sda21(r13)
@@ -823,12 +824,12 @@ Initialize__13CDecalManagerFv:
 /* 80117968 001148C8  88 0D A3 6C */	lbz r0, lbl_805A8F2C@sda21(r13)
 /* 8011796C 001148CC  28 00 00 00 */	cmplwi r0, 0
 /* 80117970 001148D0  40 82 00 E4 */	bne lbl_80117A54
-/* 80117974 001148D4  3C 60 80 57 */	lis r3, lbl_8056D850@ha
-/* 80117978 001148D8  38 63 D8 50 */	addi r3, r3, lbl_8056D850@l
+/* 80117974 001148D4  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
+/* 80117978 001148D8  38 63 D8 50 */	addi r3, r3, mDecalPool__13CDecalManager@l
 /* 8011797C 001148DC  4B FF FF 15 */	bl "data__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv"
-/* 80117980 001148E0  3C 60 80 57 */	lis r3, lbl_8056D850@ha
+/* 80117980 001148E0  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
 /* 80117984 001148E4  3B C0 00 00 */	li r30, 0
-/* 80117988 001148E8  3B E3 D8 50 */	addi r31, r3, lbl_8056D850@l
+/* 80117988 001148E8  3B E3 D8 50 */	addi r31, r3, mDecalPool__13CDecalManager@l
 lbl_8011798C:
 /* 8011798C 001148EC  39 00 00 00 */	li r8, 0
 /* 80117990 001148F0  38 1E FF FF */	addi r0, r30, -1
@@ -957,16 +958,16 @@ __sinit_CDecalManager_cpp:
 /* 80117B3C 00114A9C  3C A0 80 47 */	lis r5, lbl_8046C558@ha
 /* 80117B40 00114AA0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80117B44 00114AA4  38 00 00 00 */	li r0, 0
-/* 80117B48 00114AA8  3C 60 80 57 */	lis r3, lbl_8056D850@ha
+/* 80117B48 00114AA8  3C 60 80 57 */	lis r3, mDecalPool__13CDecalManager@ha
 /* 80117B4C 00114AAC  38 84 7C 20 */	addi r4, r4, "__dt__Q24rstl44reserved_vector<Q213CDecalManager6SDecal,64>Fv"@l
-/* 80117B50 00114AB0  94 03 D8 50 */	stwu r0, lbl_8056D850@l(r3)
+/* 80117B50 00114AB0  94 03 D8 50 */	stwu r0, mDecalPool__13CDecalManager@l(r3)
 /* 80117B54 00114AB4  38 A5 C5 58 */	addi r5, r5, lbl_8046C558@l
 /* 80117B58 00114AB8  48 27 1B 35 */	bl __register_global_object
 /* 80117B5C 00114ABC  38 00 00 00 */	li r0, 0
-/* 80117B60 00114AC0  3C 60 80 57 */	lis r3, lbl_8056F758@ha
+/* 80117B60 00114AC0  3C 60 80 57 */	lis r3, mActiveIndexList__13CDecalManager@ha
 /* 80117B64 00114AC4  3C 80 80 11 */	lis r4, "__dt__Q24rstl21reserved_vector<i,64>Fv"@ha
 /* 80117B68 00114AC8  3C A0 80 47 */	lis r5, lbl_8046C564@ha
-/* 80117B6C 00114ACC  94 03 F7 58 */	stwu r0, lbl_8056F758@l(r3)
+/* 80117B6C 00114ACC  94 03 F7 58 */	stwu r0, mActiveIndexList__13CDecalManager@l(r3)
 /* 80117B70 00114AD0  38 84 7B 8C */	addi r4, r4, "__dt__Q24rstl21reserved_vector<i,64>Fv"@l
 /* 80117B74 00114AD4  38 A5 C5 64 */	addi r5, r5, lbl_8046C564@l
 /* 80117B78 00114AD8  48 27 1B 15 */	bl __register_global_object

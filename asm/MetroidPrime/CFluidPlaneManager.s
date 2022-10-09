@@ -15,8 +15,8 @@ lbl_805A76DC:
 
 # .section .bss, "wa"
 
-.comm lbl_8056F8B4, 0x750, 4
-.comm lbl_80570004, 0x948, 4
+.comm lbl_8056F8B4, 0x18, 4
+.comm lbl_8056F8CC, 0x1080, 4 # MWCC .comm bug
 .comm lbl_8057094C, 0x1000, 4
 .comm lbl_8057194C, 0x40, 4
 .comm lbl_8057198C, 0x40, 4

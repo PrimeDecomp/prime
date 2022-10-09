@@ -1,7 +1,7 @@
 .include "macros.inc"
 
 .comm sZeroVector__9CVector3f, 0xC, 4
-.comm lbl_805A66AC, 0x48, 4 # unreferenced, what's this?
+.comm lbl_805A66AC, 0x48, 4 # MWCC .comm bug
 .comm sUpVector__9CVector3f, 0xC, 4
 .comm sDownVector__9CVector3f, 0xC, 4
 .comm sLeftVector__9CVector3f, 0xC, 4

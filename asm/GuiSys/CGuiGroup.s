@@ -2,7 +2,8 @@
 
 #TODO: Split this up properly (need to split CGuiCamera and CGuiCompoundWidget)
 
-.comm lbl_8059FBD0, 0xA8, 4
+.comm lbl_8059FBD0, 0x18, 4
+.comm lbl_8059FBE8, 0x90, 4 # MWCC .comm bug
 .comm lbl_8059FC78, 0x18, 4
 .comm lbl_8059FC90, 0x18, 4
 .comm lbl_8059FCA8, 0x18, 4
@@ -2762,4 +2763,3 @@ lbl_803D6898:
 	# ROM: 0x3D3898
 	.asciz "??(??)"
 	.balign 4
-

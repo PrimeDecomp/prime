@@ -31,7 +31,8 @@ lbl_805A89AB:
 .section .bss
 .balign 8
 
-.comm lbl_805A67DC, 0x20, 4
+.comm lbl_805A67DC, 0x10, 4
+.comm lbl_805A67EC, 0x10, 4 # MWCC .comm bug
 .comm lbl_805A67FC, 0x10, 4
 .lcomm lbl_804BFFA0, 0xC, 4
 .lcomm lbl_804BFFAC, 0x14, 4

@@ -8692,7 +8692,7 @@ lbl_8029186C:
 /* 80291AEC 0028EA4C  90 1F 0A 7C */	stw r0, 0xa7c(r31)
 /* 80291AF0 0028EA50  38 80 00 01 */	li r4, 1
 /* 80291AF4 0028EA54  C0 22 BE 9C */	lfs f1, lbl_805ADBBC@sda21(r2)
-/* 80291AF8 0028EA58  3C 60 80 57 */	lis r3, lbl_80570004@ha
+/* 80291AF8 0028EA58  3C 60 80 57 */	lis r3, sNormalVulnerability__20CDamageVulnerability@ha
 /* 80291AFC 0028EA5C  D0 5F 0A 80 */	stfs f2, 0xa80(r31)
 /* 80291B00 0028EA60  C0 02 BE D8 */	lfs f0, lbl_805ADBF8@sda21(r2)
 /* 80291B04 0028EA64  D0 3F 0A 84 */	stfs f1, 0xa84(r31)

@@ -42,7 +42,7 @@ lbl_805A8A41:
 .balign 8
 
 .comm lbl_805A6B60, 0x30, 4
-.comm lbl_805A6B90, 0x10, 4
+.comm lbl_805A6B90, 0x10, 4 # MWCC .comm bug
 .comm lbl_805A6BA0, 0x4, 4
 .comm lbl_805A6BA4, 0x4, 4
 .comm lbl_805A6BA8, 0x8, 4
@@ -1512,4 +1512,3 @@ lbl_803D8410:
 	# ROM: 0x3D5410
 	.4byte 0
 	.4byte 0
-

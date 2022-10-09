@@ -1,6 +1,7 @@
 .include "macros.inc"
 
-.comm kDefaultPosition__6CLight, 0x18, 4
+.comm kDefaultPosition__6CLight, 0xC, 4
+.comm lbl_805A53D4, 0xC, 4 # MWCC .comm bug
 .comm kDefaultDirection__6CLight, 0xC, 4
 
 .section .ctors, "wa"

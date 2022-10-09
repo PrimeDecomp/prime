@@ -1,6 +1,7 @@
 .include "macros.inc"
 
-.comm lbl_80572048, 0x18, 4
+.comm lbl_80572048, 0xC, 4
+.comm lbl_80572054, 0xC, 4 # MWCC .comm bug
 .comm lbl_80572060, 0xC, 4
 
 .section .ctors, "wa"
