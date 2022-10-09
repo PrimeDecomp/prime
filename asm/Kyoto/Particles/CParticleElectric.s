@@ -3904,9 +3904,9 @@ lbl_80361EA4:
 lbl_80361EC0:
 /* 80361EC0 0035EE20  28 1E 00 00 */	cmplwi r30, 0
 /* 80361EC4 0035EE24  41 82 00 1C */	beq lbl_80361EE0
-/* 80361EC8 0035EE28  3C 80 80 3F */	lis r4, lbl_803EDD08@ha
+/* 80361EC8 0035EE28  3C 80 80 3F */	lis r4, __vt__12CParticleGen@ha
 /* 80361ECC 0035EE2C  38 7E 00 04 */	addi r3, r30, 4
-/* 80361ED0 0035EE30  38 04 DD 08 */	addi r0, r4, lbl_803EDD08@l
+/* 80361ED0 0035EE30  38 04 DD 08 */	addi r0, r4, __vt__12CParticleGen@l
 /* 80361ED4 0035EE34  38 80 FF FF */	li r4, -1
 /* 80361ED8 0035EE38  90 1E 00 00 */	stw r0, 0(r30)
 /* 80361EDC 0035EE3C  4B CF 8D F5 */	bl __dt__12CParticleGenFv
@@ -4109,9 +4109,9 @@ lbl_8036214C:
 "__ct__17CParticleElectricF30TToken<20CElectricDescription>":
 /* 80362170 0035F0D0  94 21 FF 30 */	stwu r1, -0xd0(r1)
 /* 80362174 0035F0D4  7C 08 02 A6 */	mflr r0
-/* 80362178 0035F0D8  3C A0 80 3F */	lis r5, lbl_803EDD08@ha
+/* 80362178 0035F0D8  3C A0 80 3F */	lis r5, __vt__12CParticleGen@ha
 /* 8036217C 0035F0DC  90 01 00 D4 */	stw r0, 0xd4(r1)
-/* 80362180 0035F0E0  38 05 DD 08 */	addi r0, r5, lbl_803EDD08@l
+/* 80362180 0035F0E0  38 05 DD 08 */	addi r0, r5, __vt__12CParticleGen@l
 /* 80362184 0035F0E4  38 A0 00 00 */	li r5, 0
 /* 80362188 0035F0E8  BE E1 00 AC */	stmw r23, 0xac(r1)
 /* 8036218C 0035F0EC  7C 7F 1B 78 */	mr r31, r3
@@ -5279,4 +5279,3 @@ lbl_803D83F8:
 	# ROM: 0x3D53F8
 	.asciz "??(??)"
 	.balign 4
-

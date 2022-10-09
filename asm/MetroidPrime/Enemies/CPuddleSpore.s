@@ -2764,10 +2764,10 @@ lbl_80148EC0:
 sub_80148ec8:
 /* 80148EC8 00145E28  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80148ECC 00145E2C  7C 08 02 A6 */	mflr r0
-/* 80148ED0 00145E30  3C A0 80 3F */	lis r5, lbl_803EDD08@ha
+/* 80148ED0 00145E30  3C A0 80 3F */	lis r5, __vt__12CParticleGen@ha
 /* 80148ED4 00145E34  38 84 00 04 */	addi r4, r4, 4
 /* 80148ED8 00145E38  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80148EDC 00145E3C  38 05 DD 08 */	addi r0, r5, lbl_803EDD08@l
+/* 80148EDC 00145E3C  38 05 DD 08 */	addi r0, r5, __vt__12CParticleGen@l
 /* 80148EE0 00145E40  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80148EE4 00145E44  7C 7F 1B 78 */	mr r31, r3
 /* 80148EE8 00145E48  90 03 00 00 */	stw r0, 0(r3)

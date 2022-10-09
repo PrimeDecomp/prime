@@ -535,6 +535,9 @@ KYOTO_1 :=\
 	$(BUILD_DIR)/asm/Kyoto/PVS/CPVSVisSet.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CColorElement.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CElementGen.o\
+	$(BUILD_DIR)/asm/Kyoto/Particles/CIntElement.o\
+	$(BUILD_DIR)/asm/Kyoto/Particles/CModVectorElement.o\
+	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleDataFactory.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleGen.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleGlobals.o\
 	$(BUILD_DIR)/asm/Kyoto/Particles/CParticleSwoosh.o\
