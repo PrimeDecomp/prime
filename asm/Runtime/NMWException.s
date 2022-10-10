@@ -150,7 +150,7 @@ lbl_803898CC:
 /* 803898CC 0038682C  7F C0 07 35 */	extsh. r0, r30
 /* 803898D0 00386830  40 81 00 0C */	ble lbl_803898DC
 /* 803898D4 00386834  7F A3 EB 78 */	mr r3, r29
-/* 803898D8 00386838  4B D3 8A 2D */	bl sub_800c2304
+/* 803898D8 00386838  4B D3 8A 2D */	bl __dl__FPv
 lbl_803898DC:
 /* 803898DC 0038683C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 803898E0 00386840  7F A3 EB 78 */	mr r3, r29
@@ -161,7 +161,7 @@ lbl_803898DC:
 /* 803898F4 00386854  38 21 00 20 */	addi r1, r1, 0x20
 /* 803898F8 00386858  4E 80 00 20 */	blr
 
-.section extab_, "wa"  # 0x800035A0 - 0x800035E0
+.section extab, "wa"  # 0x800035A0 - 0x800035E0
 .global __destroy_arr_extab
 __destroy_arr_extab:
 	# ROM: 0x3C8120
@@ -180,7 +180,7 @@ __partial_array_destructor_extab:
 	.4byte 0x18080000
 	.4byte 0
 
-.section extabindex_, "wa"  # 0x800035E0 - 0x80003640
+.section extabindex, "wa"  # 0x800035E0 - 0x80003640
 lbl_extabindex:
 	# ROM: 0x3C8160
 	.4byte __destroy_arr
@@ -193,11 +193,11 @@ lbl_extabindex:
 	.4byte 0x000000B8
 	.4byte __partial_array_destructor_extab
 
-.global _eti_init_info_
-_eti_init_info_:
+.global _eti_init_info
+_eti_init_info:
 	# ROM: 0x3C8184
 	.4byte lbl_extabindex
-	.4byte _eti_init_info_
+	.4byte _eti_init_info
 	.4byte __destroy_arr
 	.4byte 0x00000228
 	.4byte 0
