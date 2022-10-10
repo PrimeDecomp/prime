@@ -7,9 +7,34 @@
 
 #include "rstl/auto_ptr.hpp"
 #include "rstl/pair.hpp"
+#include "rstl/reserved_vector.hpp"
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
+struct SMemoryCardFileInfo {
+  CMemoryCardSys::CardFileHandle x0_fileInfo;
+
+  rstl::string x14_name;
+  rstl::vector< u8 > x24_saveFileData;
+  rstl::vector< u8 > x34_saveData;
+  
+  SMemoryCardFileInfo(int cardPort, const rstl::string& name);
+  SMemoryCardFileInfo(const SMemoryCardFileInfo& other)
+  : x0_fileInfo(other.x0_fileInfo)
+  , x14_name(other.x14_name)
+  , x24_saveFileData(other.x24_saveFileData)
+  , x34_saveData(other.x34_saveData)
+  {}
+
+  ECardResult Open();
+  ECardResult Close();
+  int GetFileCardPort() const { return x0_fileInfo.slot; }
+  int GetFileNo() const { return x0_fileInfo.getFileNo(); }
+  ECardResult StartRead();
+  ECardResult TryFileRead();
+  ECardResult FileRead();
+  ECardResult GetSaveDataOffset(u32& offOut) const;
+};
 
 class CMemoryCardDriver {
 public:
@@ -66,26 +91,9 @@ public:
     kE_FileMissing,
     kE_FileCorrupted
   };
+  enum EFileState { kFS_Unknown, kFS_NoFile, kFS_File, kFS_BadFile };
 
 private:
-  struct SFileInfo {
-    CMemoryCardSys::CardFileHandle x0_fileInfo;
-
-    rstl::string x14_name;
-    rstl::vector< u8 > x24_saveFileData;
-    rstl::vector< u8 > x34_saveData;
-    // SFileInfo(kabufuda::ECardSlot cardPort, std::string_view name);
-
-    ECardResult Open();
-    ECardResult Close();
-    ECardSlot GetFileCardPort() const { return x0_fileInfo.slot; }
-    int GetFileNo() const { return x0_fileInfo.getFileNo(); }
-    ECardResult StartRead();
-    ECardResult TryFileRead();
-    ECardResult FileRead();
-    ECardResult GetSaveDataOffset(u32& offOut) const;
-  };
-
   struct SGameFileSlot {
     u8 x0_saveBuffer[940];
     CGameState::GameFileStateInfo x944_fileInfo;
@@ -97,7 +105,6 @@ private:
     // void DoPut(CMemoryStreamOut& w) const { w.Put(x0_saveBuffer.data(), x0_saveBuffer.size()); }
   };
 
-  enum EFileState { kFS_Unknown, kFS_NoFile, kFS_File, kFS_BadFile };
 
   ECardSlot x0_cardPort;
   CAssetId x4_saveBanner;
@@ -105,13 +112,13 @@ private:
   CAssetId xc_saveIcon1;
   EState x10_state;
   EError x14_error;
-  s32 x18_cardFreeBytes;
-  s32 x1c_cardFreeFiles;
-  u32 x20_fileTime;
+  int x18_cardFreeBytes;
+  int x1c_cardFreeFiles;
+  uint x20_fileTime;
   u64 x28_cardSerial;
-  u8 x30_systemData[174];
-  rstl::auto_ptr< SGameFileSlot > xe4_fileSlots[3];
-  rstl::vector< rstl::pair< EFileState, SFileInfo > > x100_mcFileInfos;
+  rstl::reserved_vector< u8, 174 > x30_systemData;
+  rstl::reserved_vector< rstl::auto_ptr< SGameFileSlot >, 3 > xe4_fileSlots;
+  rstl::reserved_vector< rstl::pair< EFileState, SMemoryCardFileInfo >, 2 > x100_mcFileInfos;
   u32 x194_fileIdx;
   rstl::single_ptr< CMemoryCardSys::CCardFileInfo > x198_fileInfo;
   bool x19c_;
@@ -120,7 +127,8 @@ private:
 public:
   static bool IsCardBusy(EState);
   static bool IsCardWriting(EState);
-  CMemoryCardDriver();
+  CMemoryCardDriver(ECardSlot cardPort, CAssetId saveBanner, CAssetId saveIcon0, CAssetId saveIcon1,
+                    bool importPersistent);
   void ClearFileInfo();
   ~CMemoryCardDriver();
   void Update();
