@@ -724,7 +724,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/ptmf.o\
 	$(BUILD_DIR)/asm/Runtime/runtime.o\
 	$(BUILD_DIR)/src/Runtime/__init_cpp_exceptions.o\
-	$(BUILD_DIR)/asm/Runtime/Gecko_ExceptionPPC.o\
+	$(BUILD_DIR)/src/Runtime/Gecko_ExceptionPPC.o\
 	$(BUILD_DIR)/src/Runtime/abort_exit.o\
 	$(BUILD_DIR)/asm/Runtime/alloc.o\
 	$(BUILD_DIR)/asm/Runtime/ansi_files.o\
@@ -747,7 +747,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/asm/Runtime/string.o\
 	$(BUILD_DIR)/asm/Runtime/float.o\
 	$(BUILD_DIR)/asm/Runtime/strtold.o\
-	$(BUILD_DIR)/asm/Runtime/uart_console_io.o\
+	$(BUILD_DIR)/src/Runtime/uart_console_io.o\
 	$(BUILD_DIR)/src/Runtime/wchar_io.o
 
 MSL_COMMON_MATH :=\
