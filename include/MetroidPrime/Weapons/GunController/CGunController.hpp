@@ -38,7 +38,7 @@ public:
   void EnterFreeLook(CStateManager&, int, int);
   void EnterComboFire(CStateManager&, int);
   void EnterFidget(CStateManager&, int, int, int);
-  void EnterStruck(CStateManager&, float);
+  void EnterStruck(CStateManager&, float, bool, bool);
   void LoadFidgetAnimAsync(CStateManager&, int, int, int);
   int Update(float, CStateManager&);
   void EnterIdle(CStateManager&);

@@ -71,6 +71,7 @@ double fmod(double x, double m);
 double sin(double x);
 double cos(double x);
 double atan(double x);
+double atan2(double y, double x);
 
 _MATH_INLINE float sinf(float x) { return (float)sin((double)x); }
 _MATH_INLINE float cosf(float x) { return (float)cos((double)x); }

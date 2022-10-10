@@ -13,7 +13,7 @@ void CGunController::EnterComboFire(CStateManager&, int) {}
 
 void CGunController::EnterFidget(CStateManager&, int, int, int) {}
 
-void CGunController::EnterStruck(CStateManager&, float) {}
+void CGunController::EnterStruck(CStateManager&, float, bool, bool) {}
 
 void CGunController::LoadFidgetAnimAsync(CStateManager&, int, int, int) {}
 

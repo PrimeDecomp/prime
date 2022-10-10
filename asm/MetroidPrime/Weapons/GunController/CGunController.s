@@ -521,8 +521,8 @@ LoadFidgetAnimAsync__14CGunControllerFR13CStateManageriii:
 /* 801CC844 001C97A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CC848 001C97A8  4E 80 00 20 */	blr
 
-.global EnterStruck__14CGunControllerFR13CStateManagerf
-EnterStruck__14CGunControllerFR13CStateManagerf:
+.global EnterStruck__14CGunControllerFR13CStateManagerfbb
+EnterStruck__14CGunControllerFR13CStateManagerfbb:
 /* 801CC84C 001C97AC  94 21 FE C0 */	stwu r1, -0x140(r1)
 /* 801CC850 001C97B0  7C 08 02 A6 */	mflr r0
 /* 801CC854 001C97B4  90 01 01 44 */	stw r0, 0x144(r1)
