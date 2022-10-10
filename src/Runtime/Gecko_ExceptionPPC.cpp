@@ -1,6 +1,10 @@
 #include "__ppc_eabi_linker.h"
 #include "NMWException.h"
 
+#if __MWERKS__
+#pragma exceptions on 
+#endif
+
 typedef struct ProcessInfo {
   __eti_init_info* exception_info;
   char* TOC;

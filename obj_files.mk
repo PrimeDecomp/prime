@@ -720,7 +720,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/__va_arg.o\
 	$(BUILD_DIR)/src/Runtime/global_destructor_chain.o\
 	$(BUILD_DIR)/src/Runtime/CPlusLibPPC.o\
-	$(BUILD_DIR)/asm/Runtime/NMWException.o\
+	$(BUILD_DIR)/src/Runtime/NMWException.o\
 	$(BUILD_DIR)/src/Runtime/ptmf.o\
 	$(BUILD_DIR)/asm/Runtime/runtime.o\
 	$(BUILD_DIR)/src/Runtime/__init_cpp_exceptions.o\

@@ -29,9 +29,9 @@ extern void __init_cpp_exceptions(void) {
 
     R2 = GetR2();
 
-    /* HACK: TODO: _eti_init_info_ should be _eti_init_info, we can't use the appropriate name yet due to the
+    /* HACK: TODO: _eti_init_info should be _eti_init_info, we can't use the appropriate name yet due to the
      * linker not being able to generate it*/
-    fragmentID = __register_fragment(_eti_init_info_, R2);
+    fragmentID = __register_fragment(_eti_init_info, R2);
   }
 }
 

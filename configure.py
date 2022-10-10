@@ -845,7 +845,7 @@ LIBS = [
             ["Runtime/__va_arg", True],
             ["Runtime/global_destructor_chain", True],
             ["Runtime/CPlusLibPPC", True],
-            "Runtime/NMWException",
+            ["Runtime/NMWException", True],
             ["Runtime/ptmf", True],
             "Runtime/runtime",
             ["Runtime/__init_cpp_exceptions", True],

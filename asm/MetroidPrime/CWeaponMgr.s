@@ -486,8 +486,8 @@ __ct__10CWeaponMgrFv:
 /* 800C22FC 000BF25C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800C2300 000BF260  4E 80 00 20 */	blr
 
-.global sub_800c2304
-sub_800c2304:
+.global __dl__FPv
+__dl__FPv:
 /* 800C2304 000BF264  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800C2308 000BF268  7C 08 02 A6 */	mflr r0
 /* 800C230C 000BF26C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -703,4 +703,3 @@ lbl_803CE018:
 	# ROM: 0x3CB018
 	.asciz "??(??)"
 	.balign 4
-

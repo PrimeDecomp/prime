@@ -1,7 +1,6 @@
 #include "NMWException.h"
 
 
-typedef void (*CompleteDestructor)(void *,int);
 
 DestructorChain* __global_destructor_chain;
 
@@ -19,7 +18,7 @@ void __destroy_global_chain(void) {
 
   while ((iter=__global_destructor_chain) !=  0) {
     __global_destructor_chain = iter->next;
-    ((CompleteDestructor)iter->destructor)(iter->object, -1);
+    DTORCALL_COMPLETE(iter->destructor, iter->object);
   } 
 }
 
