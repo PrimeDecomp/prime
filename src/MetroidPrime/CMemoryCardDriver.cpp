@@ -143,7 +143,23 @@ void CMemoryCardDriver::UpdateMountCard(ECardResult result) {
   }
 }
 
-void CMemoryCardDriver::UpdateCardCheck(ECardResult) {}
+void CMemoryCardDriver::UpdateCardCheck(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_CardCheckDone;
+    if (!GetCardFreeBytes())
+      return;
+    if (CMemoryCardSys::GetSerialNo(x0_cardPort, x28_cardSerial) == kCR_READY)
+      return;
+    NoCardFound();
+
+  } else if (result == kCR_BROKEN) {
+    x10_state = kS_CardCheckFailed;
+    x14_error = kE_CardBroken;
+    
+  } else {
+    HandleCardError(result, kS_CardCheckFailed);
+  }
+}
 
 void CMemoryCardDriver::UpdateFileRead(ECardResult) {}
 

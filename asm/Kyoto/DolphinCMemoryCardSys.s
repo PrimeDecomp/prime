@@ -333,8 +333,8 @@ lbl_8034D85C:
 /* 8034D884 0034A7E4  38 21 00 80 */	addi r1, r1, 0x80
 /* 8034D888 0034A7E8  4E 80 00 20 */	blr
 
-.global GetSerialNo__14CMemoryCardSysFiRx
-GetSerialNo__14CMemoryCardSysFiRx:
+.global GetSerialNo__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRx
+GetSerialNo__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRx:
 /* 8034D88C 0034A7EC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034D890 0034A7F0  7C 08 02 A6 */	mflr r0
 /* 8034D894 0034A7F4  90 01 00 14 */	stw r0, 0x14(r1)

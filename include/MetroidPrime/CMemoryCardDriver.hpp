@@ -113,7 +113,7 @@ private:
   int x18_cardFreeBytes;
   int x1c_cardFreeFiles;
   uint x20_fileTime;
-  u64 x28_cardSerial;
+  long long x28_cardSerial;
   rstl::reserved_vector< u8, 174 > x30_systemData;
   rstl::reserved_vector< rstl::auto_ptr< SGameFileSlot >, 3 > xe4_fileSlots;
   rstl::reserved_vector< rstl::pair< EFileState, SMemoryCardFileInfo >, 2 > x100_mcFileInfos;
