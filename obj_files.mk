@@ -718,12 +718,12 @@ VI_FILES :=\
 MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/__mem.o\
 	$(BUILD_DIR)/asm/Runtime/__va_arg.o\
-	$(BUILD_DIR)/asm/Runtime/global_destructor_chain.o\
-	$(BUILD_DIR)/asm/Runtime/CPlusLibPPC.o\
+	$(BUILD_DIR)/src/Runtime/global_destructor_chain.o\
+	$(BUILD_DIR)/src/Runtime/CPlusLibPPC.o\
 	$(BUILD_DIR)/asm/Runtime/NMWException.o\
 	$(BUILD_DIR)/asm/Runtime/ptmf.o\
 	$(BUILD_DIR)/asm/Runtime/runtime.o\
-	$(BUILD_DIR)/asm/Runtime/__init_cpp_exceptions.o\
+	$(BUILD_DIR)/src/Runtime/__init_cpp_exceptions.o\
 	$(BUILD_DIR)/asm/Runtime/Gecko_ExceptionPPC.o\
 	$(BUILD_DIR)/src/Runtime/abort_exit.o\
 	$(BUILD_DIR)/asm/Runtime/alloc.o\
