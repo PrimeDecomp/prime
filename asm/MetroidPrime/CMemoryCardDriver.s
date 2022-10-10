@@ -2612,7 +2612,7 @@ UpdateCardCheck__17CMemoryCardDriverF11ECardResult:
 /* 8024E4E4 0024B444  41 82 00 48 */	beq lbl_8024E52C
 /* 8024E4E8 0024B448  80 7F 00 00 */	lwz r3, 0(r31)
 /* 8024E4EC 0024B44C  38 9F 00 28 */	addi r4, r31, 0x28
-/* 8024E4F0 0024B450  48 0F F3 9D */	bl GetSerialNo__14CMemoryCardSysFiRx
+/* 8024E4F0 0024B450  48 0F F3 9D */	bl GetSerialNo__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRx
 /* 8024E4F4 0024B454  2C 03 00 00 */	cmpwi r3, 0
 /* 8024E4F8 0024B458  41 82 00 34 */	beq lbl_8024E52C
 /* 8024E4FC 0024B45C  7F E3 FB 78 */	mr r3, r31

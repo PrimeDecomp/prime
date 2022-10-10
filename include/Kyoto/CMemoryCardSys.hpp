@@ -53,6 +53,7 @@ public:
 
   static ECardResult GetResultCode(int);
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);
+  static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);
 
   void Initialize();
 
