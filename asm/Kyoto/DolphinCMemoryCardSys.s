@@ -838,8 +838,8 @@ Close__13CCardFileInfoFv:
 /* 8034DF40 0034AEA0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034DF44 0034AEA4  4E 80 00 20 */	blr
 
-.global Close__19SMemoryCardFileInfo
-Close__19SMemoryCardFileInfo:
+.global Close__19SMemoryCardFileInfoFv
+Close__19SMemoryCardFileInfoFv:
 /* 8034DF48 0034AEA8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034DF4C 0034AEAC  7C 08 02 A6 */	mflr r0
 /* 8034DF50 0034AEB0  90 01 00 14 */	stw r0, 0x14(r1)

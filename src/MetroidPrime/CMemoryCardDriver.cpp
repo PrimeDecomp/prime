@@ -6,40 +6,33 @@ bool CMemoryCardDriver::IsCardBusy(EState) { return false; }
 
 bool CMemoryCardDriver::IsCardWriting(EState) { return false; }
 
-CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0, CAssetId saveIcon1,
-                    bool importPersistent)
-  : x0_cardPort(cardPort)
-  , x4_saveBanner(saveBanner)
-  , x8_saveIcon0(saveIcon0)
-  , xc_saveIcon1(saveIcon1)
-  , x10_state(kS_Initial)
-  , x14_error(kE_OK)
-  , x18_cardFreeBytes(0)
-  , x1c_cardFreeFiles(0)
-  , x20_fileTime(0)
-  , x28_cardSerial(0)
+CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
+                                     CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent)
+: x0_cardPort(cardPort)
+, x4_saveBanner(saveBanner)
+, x8_saveIcon0(saveIcon0)
+, xc_saveIcon1(saveIcon1)
+, x10_state(kS_Initial)
+, x14_error(kE_OK)
+, x18_cardFreeBytes(0)
+, x1c_cardFreeFiles(0)
+, x20_fileTime(0)
+, x28_cardSerial(0)
 
-  , x30_systemData(0)
-  , xe4_fileSlots(nullptr)
-  , x100_mcFileInfos()
-  , x194_fileIdx(-1)
-  , x198_fileInfo(nullptr)
-  , x19c_(false)
-  , x19d_importPersistent(importPersistent)
-{
+, x30_systemData(0)
+, xe4_fileSlots(nullptr)
+, x100_mcFileInfos()
+, x194_fileIdx(-1)
+, x198_fileInfo(nullptr)
+, x19c_(false)
+, x19d_importPersistent(importPersistent) {
   x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
-    kFS_Unknown,
-    SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime A"))
-  ));
+      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime A"))));
   x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
-    kFS_Unknown,
-    SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime B"))
-  ));
+      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime B"))));
 }
 
-void CMemoryCardDriver::ClearFileInfo() {
-  x198_fileInfo = nullptr;
-}
+void CMemoryCardDriver::ClearFileInfo() { x198_fileInfo = nullptr; }
 
 CMemoryCardDriver::~CMemoryCardDriver() {}
 
@@ -155,13 +148,47 @@ void CMemoryCardDriver::UpdateCardCheck(ECardResult result) {
   } else if (result == kCR_BROKEN) {
     x10_state = kS_CardCheckFailed;
     x14_error = kE_CardBroken;
-    
+
   } else {
     HandleCardError(result, kS_CardCheckFailed);
   }
 }
 
-void CMemoryCardDriver::UpdateFileRead(ECardResult) {}
+void CMemoryCardDriver::UpdateFileRead(ECardResult result) {
+  if (result == kCR_READY) {
+    ECardResult readRes = x100_mcFileInfos[x194_fileIdx].second.TryFileRead();
+    if (x100_mcFileInfos[x194_fileIdx].second.Close() != kCR_READY) {
+      NoCardFound();
+      return;
+    }
+
+    int altFileIdx = !bool(x194_fileIdx);
+    if (readRes == kCR_READY) {
+      x10_state = kS_Ready;
+      ReadFinished();
+      EFileState fileSt = x100_mcFileInfos[altFileIdx].first;
+      if (fileSt != kFS_NoFile) {
+        StartFileDeleteAlt();
+      } else {
+        CheckCardCapacity();
+      }
+      return;
+    }
+
+    if (readRes == kCR_CRC_MISMATCH) {
+      x100_mcFileInfos[x194_fileIdx].first = kFS_BadFile;
+      if (x100_mcFileInfos[altFileIdx].first == kFS_File) {
+        x10_state = kS_CardCheckDone;
+        IndexFiles();
+      } else {
+        x10_state = kS_FileBad;
+        x14_error = kE_FileCorrupted;
+      }
+    }
+  } else {
+    HandleCardError(result, kS_FileBad);
+  }
+}
 
 void CMemoryCardDriver::UpdateFileDeleteAlt(ECardResult) {}
 
@@ -202,6 +229,10 @@ void CMemoryCardDriver::NoCardFound() {}
 void CMemoryCardDriver::IndexFiles() {}
 
 void CMemoryCardDriver::StartFileDeleteBad() {}
+
+void CMemoryCardDriver::StartFileDeleteAlt() {}
+
+void CMemoryCardDriver::StartFileRead() {}
 
 void CMemoryCardDriver::StartFileCreate() {}
 
