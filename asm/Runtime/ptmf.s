@@ -3,8 +3,8 @@
 .section .rodata
 .balign 8
 
-.global lbl_803D8598
-lbl_803D8598:
+.global __ptmf_null
+__ptmf_null:
 	.skip 16
 
 .section .text, "ax"
