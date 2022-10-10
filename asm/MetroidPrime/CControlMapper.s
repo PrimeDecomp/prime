@@ -2083,9 +2083,9 @@ lbl_8000D734:
 /* 8000D74C 0000A6AC  38 84 E0 50 */	addi r4, r4, "__dt__Q24rstl21reserved_vector<b,65>Fv"@l
 /* 8000D750 0000A6B0  38 A5 78 F8 */	addi r5, r5, lbl_804578F8@l
 /* 8000D754 0000A6B4  48 37 BF 39 */	bl __register_global_object
-/* 8000D758 0000A6B8  3C 60 80 3E */	lis r3, lbl_803D8598@ha
+/* 8000D758 0000A6B8  3C 60 80 3E */	lis r3, __ptmf_null@ha
 /* 8000D75C 0000A6BC  83 BF 00 68 */	lwz r29, 0x68(r31)
-/* 8000D760 0000A6C0  38 63 85 98 */	addi r3, r3, lbl_803D8598@l
+/* 8000D760 0000A6C0  38 63 85 98 */	addi r3, r3, __ptmf_null@l
 /* 8000D764 0000A6C4  3B 9F 01 08 */	addi r28, r31, 0x108
 /* 8000D768 0000A6C8  80 03 00 04 */	lwz r0, 4(r3)
 /* 8000D76C 0000A6CC  93 A1 01 20 */	stw r29, 0x120(r1)

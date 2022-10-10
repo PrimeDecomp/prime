@@ -2347,8 +2347,8 @@ GetStateFunc__10CAiFuncMapCFPCc:
 /* 800A3218 000A0178  38 61 00 1C */	addi r3, r1, 0x1c
 /* 800A321C 000A017C  93 A1 00 44 */	stw r29, 0x44(r1)
 /* 800A3220 000A0180  80 04 00 04 */	lwz r0, 4(r4)
-/* 800A3224 000A0184  3C 80 80 3E */	lis r4, lbl_803D8598@ha
-/* 800A3228 000A0188  84 C4 85 98 */	lwzu r6, lbl_803D8598@l(r4)
+/* 800A3224 000A0184  3C 80 80 3E */	lis r4, __ptmf_null@ha
+/* 800A3228 000A0188  84 C4 85 98 */	lwzu r6, __ptmf_null@l(r4)
 /* 800A322C 000A018C  89 2D A2 C4 */	lbz r9, lbl_805A8E84@sda21(r13)
 /* 800A3230 000A0190  54 00 20 36 */	slwi r0, r0, 4
 /* 800A3234 000A0194  81 1F 00 0C */	lwz r8, 0xc(r31)

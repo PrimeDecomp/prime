@@ -842,11 +842,11 @@ LIBS = [
         "cflags": "$cflags_runtime",
         "objects": [
             ["Runtime/__mem", True],
-            "Runtime/__va_arg",
+            ["Runtime/__va_arg", True],
             ["Runtime/global_destructor_chain", True],
             ["Runtime/CPlusLibPPC", True],
             "Runtime/NMWException",
-            "Runtime/ptmf",
+            ["Runtime/ptmf", True],
             "Runtime/runtime",
             ["Runtime/__init_cpp_exceptions", True],
             "Runtime/Gecko_ExceptionPPC",
