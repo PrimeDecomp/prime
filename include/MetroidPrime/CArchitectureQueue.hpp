@@ -9,7 +9,9 @@
 
 class CArchitectureQueue {
 public:
-  void Push(const CArchitectureMessage&); // TODO
+  bool Push(const CArchitectureMessage& msg) {
+    x0_queue.push_back(msg);
+  }
   void Pop();                             // TODO
   void Clear();                           // TODO
   bool IsEmpty() const;                   // TODO

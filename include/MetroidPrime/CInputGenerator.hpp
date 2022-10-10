@@ -9,11 +9,12 @@
 
 class COsContext;
 class IController;
+class CArchitectureQueue;
 
 class CInputGenerator {
 public:
-  CInputGenerator(COsContext*, float, float);
-
+  CInputGenerator(COsContext*, float leftDiv, float rightDiv);
+  bool Update(float dt, CArchitectureQueue& queue);
   IController* GetController() const { return x4_controller.get(); }
 
 private:
