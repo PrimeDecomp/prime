@@ -20,7 +20,7 @@ struct GXData {
 extern GXData* __GXData;
 
 static inline void write_bp_cmd(u32 cmd) {
-  GXWGFifo.uchar = GX_LOAD_BP_REG;
+  GXWGFifo.u8 = GX_LOAD_BP_REG;
   GXWGFifo.u32 = cmd;
   __GXData->cpCRreg = 0;
 }

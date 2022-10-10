@@ -2,7 +2,7 @@
 #define _MUSYX_SYNTH
 
 #include "musyx/musyx_priv.h"
-#ifndef __cplusplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -40,7 +40,7 @@ void synthVolume(u8 volume, u16 time, u8 volgroup2, s32, s32);
 /* TODO: Move this where it belongs */
 void hwSetAUXProcessingCallbacks(u8 studio, SND_AUX_CALLBACK auxA, void* userA,
                                  SND_AUX_CALLBACK auxB, void* userB);
-#ifndef __cplusplus
+#ifdef __cplusplus
 }
 #endif
 

@@ -914,7 +914,7 @@ LIBS = [
             "musyx/seq",
             "musyx/synth",
             ["musyx/seq_api", True],
-            "musyx/snd_synthapi",
+            ["musyx/snd_synthapi", False, False],
             "musyx/stream",
             "musyx/synthdata",
             "musyx/synthmacros",
@@ -1141,7 +1141,10 @@ for lib in LIBS:
         n.comment("Loose files")
     for object in lib["objects"]:
         completed = False
+        add_to_all = True
         if type(object) is list:
+            if len(object) > 2:
+                add_to_all = object[2]
             completed = object[1]
             object = object[0]
 
@@ -1163,7 +1166,8 @@ for lib in LIBS:
                         "basedir": os.path.dirname(f"$builddir/src/{object}"),
                         "basefile": f"$builddir/src/{object}"
                     })
-            all_source_files.append(f"$builddir/src/{object}.o")
+            if add_to_all:
+                all_source_files.append(f"$builddir/src/{object}.o")
         if os.path.exists(os.path.join("asm", f"{object}.s")):
             n.build(f"$builddir/asm/{object}.o", "as", f"asm/{object}.s")
         if completed:

@@ -1,3 +1,5 @@
+#include "dolphin/os/OSReset.h"
+
 volatile u8 DAT_800030e2 : 0x800030e2;
 typedef struct Unk {
   u8 pad[0x24];
@@ -16,6 +18,8 @@ typedef struct OSResetQueue {
   OSResetFunctionInfo* first;
   OSResetFunctionInfo* last;
 } OSResetQueue;
+
+OSResetQueue ResetFunctionQueue;
 
 void OSRegisterResetFunction(OSResetFunctionInfo* func) {
   OSResetFunctionInfo* tmp;
