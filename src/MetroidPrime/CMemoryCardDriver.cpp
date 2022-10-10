@@ -130,7 +130,18 @@ void CMemoryCardDriver::HandleCardError(ECardResult result, EState state) {
   }
 }
 
-void CMemoryCardDriver::UpdateMountCard(ECardResult) {}
+void CMemoryCardDriver::UpdateMountCard(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_CardMountDone;
+    StartCardCheck();
+  } else if (result == kCR_BROKEN) {
+    x10_state = kS_CardMountDone;
+    x14_error = kE_CardBroken;
+    StartCardCheck();
+  } else {
+    HandleCardError(result, kS_CardMountFailed);
+  }
+}
 
 void CMemoryCardDriver::UpdateCardCheck(ECardResult) {}
 
