@@ -78,6 +78,7 @@ public:
   bool CheckReset();
   void OpenWindow();
   void SetRestartMode(ERestartMode s) { x12c_restartMode = s; }
+  void SetCardBusy(bool v) { x160_31_cardBusy = v; }
 
   void SetMaxSpeed(bool v) {
     // ?
