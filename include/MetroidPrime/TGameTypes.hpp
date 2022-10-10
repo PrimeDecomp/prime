@@ -10,9 +10,9 @@ struct TAreaId;
 struct TEditorId;
 struct TUniqueId;
 
-extern TAreaId kInvalidAreaId;
-extern TEditorId kInvalidEditorId;
-extern TUniqueId kInvalidUniqueId;
+extern const TAreaId kInvalidAreaId;
+extern const TEditorId kInvalidEditorId;
+extern const TUniqueId kInvalidUniqueId;
 
 struct TAreaId {
   int value;

@@ -132,7 +132,7 @@ METROIDPRIME :=\
 	$(BUILD_DIR)/asm/MetroidPrime/CDecalManager.o\
 	$(BUILD_DIR)/asm/MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.o\
 	$(BUILD_DIR)/asm/MetroidPrime/Enemies/CBloodFlower.o\
-	$(BUILD_DIR)/asm/MetroidPrime/TGameTypes.o\
+	$(BUILD_DIR)/src/MetroidPrime/TGameTypes.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CPhysicsActor.o\
 	$(BUILD_DIR)/src/MetroidPrime/CPhysicsState.o\
 	$(BUILD_DIR)/asm/MetroidPrime/CRipple.o\

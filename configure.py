@@ -165,7 +165,7 @@ LIBS = [
             "MetroidPrime/CDecalManager",
             "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint",
             "MetroidPrime/Enemies/CBloodFlower",
-            "MetroidPrime/TGameTypes",
+            ["MetroidPrime/TGameTypes", True],
             "MetroidPrime/CPhysicsActor",
             ["MetroidPrime/CPhysicsState", True],
             "MetroidPrime/CRipple",
