@@ -4,7 +4,22 @@
 #include "types.h"
 
 // TODO: likely comes from dolphin sdk
-enum ECardResult { k_READY, k_NOCARD = -3 };
+enum ECardResult { 
+  kCR_CRC_MISMATCH = -1003, /* Extension enum for Retro's CRC check */
+  kCR_FATAL_ERROR = -128,
+  kCR_ENCODING = -13,
+  kCR_NAMETOOLONG = -12,
+  kCR_INSSPACE = -9,
+  kCR_NOENT = -8,
+  kCR_EXIST = -7,
+  kCR_BROKEN = -6,
+  kCR_IOERROR = -5,
+  kCR_NOFILE = -4,
+  kCR_NOCARD = -3,
+  kCR_WRONGDEVICE = -2,
+  kCR_BUSY = -1,
+  kCR_READY = 0
+};
 struct FileHandle {
   u8 x0_pad[0x10];
 };
