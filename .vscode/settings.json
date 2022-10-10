@@ -10,6 +10,8 @@
   "editor.tabSize": 2,
   "files.associations": {
     "source_location": "cpp",
+    "console_io.h": "c",
+    "file_struc.h": "c"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
