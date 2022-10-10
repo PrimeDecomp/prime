@@ -30,6 +30,18 @@ public:
   u64& CardSerial() { return x210_cardSerial; }
   rstl::vector< uchar >& BackupBuf() { return x218_backupBuf; }
 
+  struct GameFileStateInfo {
+    double x0_playTime;
+    CAssetId x8_mlvlId;
+    float xc_health;
+    uint x10_energyTanks;
+    uint x14_timestamp;
+    uint x18_itemPercent;
+    float x1c_scanPercent;
+    bool x20_hardMode;
+  };
+  static GameFileStateInfo LoadGameFileState(const uchar* data);
+
 private:
   rstl::reserved_vector< bool, 128 > x0_;
   CAssetId x84_mlvlId;
