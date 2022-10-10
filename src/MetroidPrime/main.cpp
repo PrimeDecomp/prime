@@ -75,7 +75,7 @@ unkptr gpDefaultFont;
 unkptr lbl_805A8C50;
 unkptr lbl_805A8C54;
 bool COsContext::mProgressiveMode;
-uint sARAMMemArray[2];
+u32 sARAMMemArray[2];
 float sInfiniteLoopTime;
 
 #define GRAPHICS_FIFO_SIZE 0x60000

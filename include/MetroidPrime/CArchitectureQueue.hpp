@@ -11,6 +11,7 @@ class CArchitectureQueue {
 public:
   bool Push(const CArchitectureMessage& msg) {
     x0_queue.push_back(msg);
+    return false;  // TODO
   }
   void Pop();                             // TODO
   void Clear();                           // TODO

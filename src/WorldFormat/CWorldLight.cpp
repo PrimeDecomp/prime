@@ -1,11 +1,11 @@
 #include "WorldFormat/CWorldLight.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
-#include <hacks.h>
+// #include <hacks.h>
 #include <rstl/math.hpp>
 
 const CVector3f CWorldLight::kDefaultPosition = CVector3f(0.f, 0.f, 0.f);
-FORCEPADDING(sizeof(CVector3f)) kPadding;
+// FORCEPADDING(sizeof(CVector3f)) kPadding;
 const CVector3f CWorldLight::kDefaultDirection = CVector3f(0.f, 1.f, 0.f);
 
 CWorldLight::CWorldLight(CInputStream& in)
@@ -18,7 +18,7 @@ CWorldLight::CWorldLight(CInputStream& in)
 , x30_(in.Get< float >())
 , x34_castShadows(in.Get< bool >())
 , x38_(in.Get< float >())
-, x3c_falloff((EFalloffType)in.Get< uint >())
+, x3c_falloff((EFallofType)in.Get< uint >())
 , x40_(in.Get< float >()) {}
 
 CLight CWorldLight::GetAsCGraphicsLight() const {

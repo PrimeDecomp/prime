@@ -18,6 +18,7 @@ public:
       cur = cur->get_next();
     }
   }
+  void push_back(const T&);
 
 private:
   struct node {
