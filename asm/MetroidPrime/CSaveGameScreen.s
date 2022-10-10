@@ -1384,7 +1384,7 @@ ConstructCardDriver__15CSaveGameScreen:
 /* 80250354 0024D2B4  7F 88 E3 78 */	mr r8, r28
 /* 80250358 0024D2B8  80 FE 00 04 */	lwz r7, 4(r30)
 /* 8025035C 0024D2BC  38 80 00 00 */	li r4, 0
-/* 80250360 0024D2C0  4B FF E8 B9 */	bl __ct__17CMemoryCardDriverFv
+/* 80250360 0024D2C0  4B FF E8 B9 */	bl __ct__17CMemoryCardDriverF9ECardSlotUiUiUib
 /* 80250364 0024D2C4  7C 7D 1B 78 */	mr r29, r3
 lbl_80250368:
 /* 80250368 0024D2C8  80 01 00 24 */	lwz r0, 0x24(r1)

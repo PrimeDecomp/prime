@@ -4,7 +4,36 @@ bool CMemoryCardDriver::IsCardBusy(EState) { return false; }
 
 bool CMemoryCardDriver::IsCardWriting(EState) { return false; }
 
-CMemoryCardDriver::CMemoryCardDriver() {}
+CMemoryCardDriver::CMemoryCardDriver(ECardSlot cardPort, CAssetId saveBanner, CAssetId saveIcon0, CAssetId saveIcon1,
+                    bool importPersistent)
+  : x0_cardPort(cardPort)
+  , x4_saveBanner(saveBanner)
+  , x8_saveIcon0(saveIcon0)
+  , xc_saveIcon1(saveIcon1)
+  , x10_state(kS_Initial)
+  , x14_error(kE_OK)
+  , x18_cardFreeBytes(0)
+  , x1c_cardFreeFiles(0)
+  , x20_fileTime(0)
+  , x28_cardSerial(0)
+
+  , x30_systemData(0)
+  , xe4_fileSlots(nullptr)
+  , x100_mcFileInfos()
+  , x194_fileIdx(-1)
+  , x198_fileInfo(nullptr)
+  , x19c_(false)
+  , x19d_importPersistent(importPersistent)
+{
+  x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
+    kFS_Unknown,
+    SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime A"))
+  ));
+  x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
+    kFS_Unknown,
+    SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime B"))
+  ));
+}
 
 void CMemoryCardDriver::ClearFileInfo() {}
 

@@ -18,9 +18,9 @@ public:
     }
   }
   // TODO check
-  // auto_ptr(const auto_ptr& other) : x0_has(other.x0_has), x4_item(other.x4_item) {
-  //   other.x0_has = false;
-  // }
+  auto_ptr(const auto_ptr& other) : x0_has(other.x0_has), x4_item(other.x4_item) {
+    other.x0_has = false;
+  }
   // TODO check
   auto_ptr& operator=(const auto_ptr& other) {
     if (this != &other) {
@@ -29,7 +29,7 @@ public:
       }
       x0_has = other.x0_has;
       x4_item = other.x4_item;
-      const_cast< auto_ptr& >(other).x0_has = false;
+      other.x0_has = false;
     }
     return *this;
   }

@@ -3178,8 +3178,8 @@ ClearFileInfo__17CMemoryCardDriverFv:
 /* 8024EC10 0024BB70  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024EC14 0024BB74  4E 80 00 20 */	blr
 
-.global __ct__17CMemoryCardDriverFv
-__ct__17CMemoryCardDriverFv:
+.global __ct__17CMemoryCardDriverF9ECardSlotUiUiUib
+__ct__17CMemoryCardDriverF9ECardSlotUiUiUib:
 /* 8024EC18 0024BB78  94 21 FF 30 */	stwu r1, -0xd0(r1)
 /* 8024EC1C 0024BB7C  7C 08 02 A6 */	mflr r0
 /* 8024EC20 0024BB80  39 20 00 00 */	li r9, 0
@@ -3686,4 +3686,3 @@ lbl_803D47DB:
 	.4byte 0x3F3F2900
 	.asciz "%02d.%02d.%02d  %02d:%02d"
 	.balign 4
-
