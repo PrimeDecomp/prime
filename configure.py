@@ -1131,6 +1131,7 @@ from pprint import pprint
 ###
 # Build
 ###
+all_source_files = []
 for lib in LIBS:
     inputs = []
     if "lib" in lib:
@@ -1162,6 +1163,7 @@ for lib in LIBS:
                         "basedir": os.path.dirname(f"$builddir/src/{object}"),
                         "basefile": f"$builddir/src/{object}"
                     })
+            all_source_files.append(f"$builddir/src/{object}.o")
         if os.path.exists(os.path.join("asm", f"{object}.s")):
             n.build(f"$builddir/asm/{object}.o", "as", f"asm/{object}.s")
         if completed:
@@ -1196,6 +1198,13 @@ if args.map:
             implicit_outputs="$builddir/MetroidPrime.MAP")
 else:
     n.build("$builddir/main.elf", "link", inputs)
+n.newline()
+
+###
+# Helper rule for building all source files
+###
+n.comment("Adds a command for building all source files")
+n.build("all_source", "phony", all_source_files)
 n.newline()
 
 ###
