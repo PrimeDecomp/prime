@@ -46,7 +46,7 @@ CMemoryCardDriver::~CMemoryCardDriver() {}
 void CMemoryCardDriver::Update() {
   ProbeResults result = CMemoryCardSys::IsMemoryCardInserted(x0_cardPort);
 
-  if (result.x0_error == k_NOCARD) {
+  if (result.x0_error == kCR_NOCARD) {
     if (x10_state != kS_NoCard)
       NoCardFound();
     gpMain->SetCardBusy(false);
@@ -110,7 +110,25 @@ void CMemoryCardDriver::Update() {
   gpMain->SetCardBusy(cardBusy);
 }
 
-void CMemoryCardDriver::HandleCardError(int) {}
+void CMemoryCardDriver::HandleCardError(ECardResult result, EState state) {
+  switch (result) {
+  case kCR_WRONGDEVICE:
+    x10_state = state;
+    x14_error = kE_CardWrongDevice;
+    break;
+  case kCR_NOCARD:
+    NoCardFound();
+    break;
+  case kCR_IOERROR:
+    x10_state = state;
+    x14_error = kE_CardIOError;
+    break;
+  case kCR_ENCODING:
+    x10_state = state;
+    x14_error = kE_CardWrongCharacterSet;
+    break;
+  }
+}
 
 void CMemoryCardDriver::UpdateMountCard(ECardResult) {}
 

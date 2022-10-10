@@ -2175,7 +2175,7 @@ lbl_8024DF08:
 /* 8024DF20 0024AE80  48 00 00 0C */	b lbl_8024DF2C
 lbl_8024DF24:
 /* 8024DF24 0024AE84  38 A0 00 18 */	li r5, 0x18
-/* 8024DF28 0024AE88  48 00 06 75 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024DF28 0024AE88  48 00 06 75 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024DF2C:
 /* 8024DF2C 0024AE8C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024DF30 0024AE90  7C 08 03 A6 */	mtlr r0
@@ -2201,7 +2201,7 @@ UpdateFileAltDeleteTransactional__17CMemoryCardDriverF11ECardResult:
 /* 8024DF74 0024AED4  48 00 00 0C */	b lbl_8024DF80
 lbl_8024DF78:
 /* 8024DF78 0024AED8  38 A0 00 16 */	li r5, 0x16
-/* 8024DF7C 0024AEDC  48 00 06 21 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024DF7C 0024AEDC  48 00 06 21 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024DF80:
 /* 8024DF80 0024AEE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024DF84 0024AEE4  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -2298,7 +2298,7 @@ UpdateFileRenameBtoA__17CMemoryCardDriverF11ECardResult:
 /* 8024E0C4 0024B024  48 00 00 0C */	b lbl_8024E0D0
 lbl_8024E0C8:
 /* 8024E0C8 0024B028  38 A0 00 17 */	li r5, 0x17
-/* 8024E0CC 0024B02C  48 00 04 D1 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E0CC 0024B02C  48 00 04 D1 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E0D0:
 /* 8024E0D0 0024B030  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E0D4 0024B034  7C 08 03 A6 */	mtlr r0
@@ -2347,7 +2347,7 @@ lbl_8024E160:
 /* 8024E168 0024B0C8  48 00 00 0C */	b lbl_8024E174
 lbl_8024E16C:
 /* 8024E16C 0024B0CC  38 A0 00 15 */	li r5, 0x15
-/* 8024E170 0024B0D0  48 00 04 2D */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E170 0024B0D0  48 00 04 2D */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E174:
 /* 8024E174 0024B0D4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E178 0024B0D8  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -2368,7 +2368,7 @@ UpdateFileCreateTransactional__17CMemoryCardDriverF11ECardResult:
 /* 8024E1A8 0024B108  48 00 00 0C */	b lbl_8024E1B4
 lbl_8024E1AC:
 /* 8024E1AC 0024B10C  38 A0 00 14 */	li r5, 0x14
-/* 8024E1B0 0024B110  48 00 03 ED */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E1B0 0024B110  48 00 03 ED */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E1B4:
 /* 8024E1B4 0024B114  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E1B8 0024B118  7C 08 03 A6 */	mtlr r0
@@ -2413,7 +2413,7 @@ lbl_8024E238:
 /* 8024E240 0024B1A0  48 00 00 0C */	b lbl_8024E24C
 lbl_8024E244:
 /* 8024E244 0024B1A4  38 A0 00 13 */	li r5, 0x13
-/* 8024E248 0024B1A8  48 00 03 55 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E248 0024B1A8  48 00 03 55 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E24C:
 /* 8024E24C 0024B1AC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E250 0024B1B0  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -2434,7 +2434,7 @@ UpdateFileCreate__17CMemoryCardDriverF11ECardResult:
 /* 8024E280 0024B1E0  48 00 00 0C */	b lbl_8024E28C
 lbl_8024E284:
 /* 8024E284 0024B1E4  38 A0 00 12 */	li r5, 0x12
-/* 8024E288 0024B1E8  48 00 03 15 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E288 0024B1E8  48 00 03 15 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E28C:
 /* 8024E28C 0024B1EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E290 0024B1F0  7C 08 03 A6 */	mtlr r0
@@ -2477,7 +2477,7 @@ lbl_8024E2F8:
 /* 8024E314 0024B274  48 00 00 0C */	b lbl_8024E320
 lbl_8024E318:
 /* 8024E318 0024B278  38 A0 00 0F */	li r5, 0xf
-/* 8024E31C 0024B27C  48 00 02 81 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E31C 0024B27C  48 00 02 81 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E320:
 /* 8024E320 0024B280  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E324 0024B284  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -2504,7 +2504,7 @@ UpdateFileDeleteAlt__17CMemoryCardDriverF11ECardResult:
 /* 8024E36C 0024B2CC  48 00 00 0C */	b lbl_8024E378
 lbl_8024E370:
 /* 8024E370 0024B2D0  38 A0 00 10 */	li r5, 0x10
-/* 8024E374 0024B2D4  48 00 02 29 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E374 0024B2D4  48 00 02 29 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E378:
 /* 8024E378 0024B2D8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E37C 0024B2DC  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -2585,7 +2585,7 @@ lbl_8024E47C:
 /* 8024E48C 0024B3EC  48 00 00 0C */	b lbl_8024E498
 lbl_8024E490:
 /* 8024E490 0024B3F0  38 A0 00 11 */	li r5, 0x11
-/* 8024E494 0024B3F4  48 00 01 09 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E494 0024B3F4  48 00 01 09 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E498:
 /* 8024E498 0024B3F8  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8024E49C 0024B3FC  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -2628,7 +2628,7 @@ lbl_8024E508:
 /* 8024E520 0024B480  48 00 00 0C */	b lbl_8024E52C
 lbl_8024E524:
 /* 8024E524 0024B484  38 A0 00 0E */	li r5, 0xe
-/* 8024E528 0024B488  48 00 00 75 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E528 0024B488  48 00 00 75 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E52C:
 /* 8024E52C 0024B48C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E530 0024B490  83 E1 00 0C */	lwz r31, 0xc(r1)
@@ -2658,15 +2658,15 @@ lbl_8024E564:
 /* 8024E580 0024B4E0  48 00 00 0C */	b lbl_8024E58C
 lbl_8024E584:
 /* 8024E584 0024B4E4  38 A0 00 0D */	li r5, 0xd
-/* 8024E588 0024B4E8  48 00 00 15 */	bl HandleCardError__17CMemoryCardDriverFi
+/* 8024E588 0024B4E8  48 00 00 15 */	bl HandleCardError__17CMemoryCardDriverF11ECardResult6EState
 lbl_8024E58C:
 /* 8024E58C 0024B4EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E590 0024B4F0  7C 08 03 A6 */	mtlr r0
 /* 8024E594 0024B4F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024E598 0024B4F8  4E 80 00 20 */	blr
 
-.global HandleCardError__17CMemoryCardDriverFi
-HandleCardError__17CMemoryCardDriverFi:
+.global HandleCardError__17CMemoryCardDriverF11ECardResult6EState
+HandleCardError__17CMemoryCardDriverF11ECardResult6EState:
 /* 8024E59C 0024B4FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8024E5A0 0024B500  7C 08 02 A6 */	mflr r0
 /* 8024E5A4 0024B504  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2679,28 +2679,23 @@ HandleCardError__17CMemoryCardDriverFi:
 /* 8024E5C0 0024B520  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8024E5C4 0024B524  7C 09 03 A6 */	mtctr r0
 /* 8024E5C8 0024B528  4E 80 04 20 */	bctr
-.global lbl_8024E5CC
 lbl_8024E5CC:
 /* 8024E5CC 0024B52C  90 A3 00 10 */	stw r5, 0x10(r3)
 /* 8024E5D0 0024B530  38 00 00 04 */	li r0, 4
 /* 8024E5D4 0024B534  90 03 00 14 */	stw r0, 0x14(r3)
 /* 8024E5D8 0024B538  48 00 00 28 */	b lbl_8024E600
-.global lbl_8024E5DC
 lbl_8024E5DC:
 /* 8024E5DC 0024B53C  4B FF F7 3D */	bl NoCardFound__17CMemoryCardDriverFv
 /* 8024E5E0 0024B540  48 00 00 20 */	b lbl_8024E600
-.global lbl_8024E5E4
 lbl_8024E5E4:
 /* 8024E5E4 0024B544  90 A3 00 10 */	stw r5, 0x10(r3)
 /* 8024E5E8 0024B548  38 00 00 03 */	li r0, 3
 /* 8024E5EC 0024B54C  90 03 00 14 */	stw r0, 0x14(r3)
 /* 8024E5F0 0024B550  48 00 00 10 */	b lbl_8024E600
-.global lbl_8024E5F4
 lbl_8024E5F4:
 /* 8024E5F4 0024B554  90 A3 00 10 */	stw r5, 0x10(r3)
 /* 8024E5F8 0024B558  38 00 00 02 */	li r0, 2
 /* 8024E5FC 0024B55C  90 03 00 14 */	stw r0, 0x14(r3)
-.global lbl_8024E600
 lbl_8024E600:
 /* 8024E600 0024B560  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024E604 0024B564  7C 08 03 A6 */	mtlr r0

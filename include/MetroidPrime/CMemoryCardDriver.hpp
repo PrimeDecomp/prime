@@ -130,7 +130,7 @@ public:
   void ClearFileInfo();
   ~CMemoryCardDriver();
   void Update();
-  void HandleCardError(int);
+  void HandleCardError(ECardResult result, EState state);
   void UpdateMountCard(ECardResult);
   void UpdateCardCheck(ECardResult);
   void UpdateFileRead(ECardResult);
