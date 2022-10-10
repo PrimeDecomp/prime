@@ -117,7 +117,7 @@ private:
   rstl::reserved_vector< u8, 174 > x30_systemData;
   rstl::reserved_vector< rstl::auto_ptr< SGameFileSlot >, 3 > xe4_fileSlots;
   rstl::reserved_vector< rstl::pair< EFileState, SMemoryCardFileInfo >, 2 > x100_mcFileInfos;
-  u32 x194_fileIdx;
+  int x194_fileIdx;
   rstl::single_ptr< CMemoryCardSys::CCardFileInfo > x198_fileInfo;
   bool x19c_;
   bool x19d_importPersistent;
@@ -154,6 +154,8 @@ public:
   void NoCardFound();
   void IndexFiles();
   void StartFileDeleteBad();
+  void StartFileDeleteAlt();
+  void StartFileRead();
   void StartFileCreate();
   void StartFileWrite();
   void StartFileCreateTransactional();
