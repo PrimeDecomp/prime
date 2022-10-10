@@ -3,6 +3,14 @@
 
 #include "MetroidPrime/Player/CGameState.hpp"
 
+#include "Kyoto/CMemoryCardSys.hpp"
+
+#include "rstl/auto_ptr.hpp"
+#include "rstl/pair.hpp"
+#include "rstl/single_ptr.hpp"
+#include "rstl/vector.hpp"
+
+
 class CMemoryCardDriver {
 public:
   enum EState {
@@ -59,6 +67,57 @@ public:
     kE_FileCorrupted
   };
 
+private:
+  struct SFileInfo {
+    CMemoryCardSys::CardFileHandle x0_fileInfo;
+
+    rstl::string x14_name;
+    rstl::vector< u8 > x24_saveFileData;
+    rstl::vector< u8 > x34_saveData;
+    // SFileInfo(kabufuda::ECardSlot cardPort, std::string_view name);
+
+    ECardResult Open();
+    ECardResult Close();
+    ECardSlot GetFileCardPort() const { return x0_fileInfo.slot; }
+    int GetFileNo() const { return x0_fileInfo.getFileNo(); }
+    ECardResult StartRead();
+    ECardResult TryFileRead();
+    ECardResult FileRead();
+    ECardResult GetSaveDataOffset(u32& offOut) const;
+  };
+
+  struct SGameFileSlot {
+    u8 x0_saveBuffer[940];
+    CGameState::GameFileStateInfo x944_fileInfo;
+
+    SGameFileSlot();
+    // explicit SGameFileSlot(CMemoryInStream& in);
+    void InitializeFromGameState();
+    void LoadGameState(u32 idx);
+    // void DoPut(CMemoryStreamOut& w) const { w.Put(x0_saveBuffer.data(), x0_saveBuffer.size()); }
+  };
+
+  enum EFileState { kFS_Unknown, kFS_NoFile, kFS_File, kFS_BadFile };
+
+  ECardSlot x0_cardPort;
+  CAssetId x4_saveBanner;
+  CAssetId x8_saveIcon0;
+  CAssetId xc_saveIcon1;
+  EState x10_state;
+  EError x14_error;
+  s32 x18_cardFreeBytes;
+  s32 x1c_cardFreeFiles;
+  u32 x20_fileTime;
+  u64 x28_cardSerial;
+  u8 x30_systemData[174];
+  rstl::auto_ptr< SGameFileSlot > xe4_fileSlots[3];
+  rstl::vector< rstl::pair< EFileState, SFileInfo > > x100_mcFileInfos;
+  u32 x194_fileIdx;
+  rstl::single_ptr< CMemoryCardSys::CCardFileInfo > x198_fileInfo;
+  bool x19c_;
+  bool x19d_importPersistent;
+
+public:
   static bool IsCardBusy(EState);
   static bool IsCardWriting(EState);
   CMemoryCardDriver();
