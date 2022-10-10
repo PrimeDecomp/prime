@@ -1,4 +1,5 @@
 #include "types.h"
+#include "asm_types.h"
 // clang-format off
 
 union FpscrUnion
@@ -422,7 +423,7 @@ void PPCMtfpscr(register u32 newFPSCR)
 asm u32 PPCMfhid2 ( void )
 {
     nofralloc
-    mfspr r3, 920
+    mfspr r3, HID2
     blr
 }
 
@@ -434,7 +435,7 @@ asm u32 PPCMfhid2 ( void )
 asm void PPCMthid2 ( register u32 newhid2 )
 {
     nofralloc
-    mtspr 920, newhid2
+    mtspr HID2, newhid2
     blr
 }
 
@@ -447,7 +448,7 @@ asm u32 PPCMfwpar(void)
 {
 	nofralloc
 	sync
-	mfspr r3, 921
+	mfspr r3, WPAR
 	blr
 }
 
@@ -545,7 +546,7 @@ void PPCDisableSpeculation (void)
 asm void PPCSetFpIEEEMode(void)
 {
     nofralloc
-    mtfsb0      29
+    mtfsb0      4*cr7+1
     blr
 }
 /*
@@ -556,7 +557,7 @@ asm void PPCSetFpIEEEMode(void)
 asm void PPCSetFpNonIEEEMode (void)
 {
     nofralloc
-    mtfsb1      29
+    mtfsb1      4*cr7+1
     blr
 }
 // clang-format on
