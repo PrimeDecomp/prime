@@ -1,16 +1,16 @@
 
 typedef struct PTMF {
-  long this_delta;  //	delta to this pointer
-  long vtbl_offset; //	offset in vtable (-1: not a virtual function)
+  long this_delta;  // delta to this pointer
+  long vtbl_offset; // offset in vtable (-1: not a virtual function)
   union {
-    void* func_addr;    //	nonvirtual function address
-    long ventry_offset; //	offset of virtual function entry in vtable
+    void* func_addr;    //nonvirtual function address
+    long ventry_offset; // of virtual function entry in vtable
   } func_data;
 } PTMF;
 
-const PTMF __ptmf_null = { 0, 0, 0 };
+const PTMF __ptmf_null = {0, 0, 0};
 
-/* clang-format off*/
+/* clang-format off */
 asm void __ptmf_test(register PTMF* ptmf) {
   nofralloc
 
