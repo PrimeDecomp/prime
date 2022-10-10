@@ -7,6 +7,7 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
+#include "Kyoto/SObjectTag.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 

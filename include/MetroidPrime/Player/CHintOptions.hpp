@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "rstl/vector.hpp"
+#include "rstl/string.hpp"
 
 enum EHintState { kHS_Zero, kHS_Waiting, kHS_Displaying, kHS_Delayed };
 
