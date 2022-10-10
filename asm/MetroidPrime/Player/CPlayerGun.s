@@ -3127,7 +3127,7 @@ lbl_8003CD38:
 /* 8003CD4C 00039CAC  7F A5 EB 78 */	mr r5, r29
 /* 8003CD50 00039CB0  7C 00 00 34 */	cntlzw r0, r0
 /* 8003CD54 00039CB4  54 06 D9 7E */	srwi r6, r0, 5
-/* 8003CD58 00039CB8  48 0E 10 D9 */	bl EnterStruck__11CGrappleArmFR13CStateManagerf
+/* 8003CD58 00039CB8  48 0E 10 D9 */	bl EnterStruck__11CGrappleArmFR13CStateManagerfbb
 lbl_8003CD5C:
 /* 8003CD5C 00039CBC  C0 02 84 6C */	lfs f0, lbl_805AA18C@sda21(r2)
 /* 8003CD60 00039CC0  3C 60 80 5A */	lis r3, sZeroVector__9CVector3f@ha

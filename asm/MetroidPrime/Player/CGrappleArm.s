@@ -864,8 +864,8 @@ lbl_8011DE18:
 /* 8011DE28 0011AD88  38 21 00 10 */	addi r1, r1, 0x10
 /* 8011DE2C 0011AD8C  4E 80 00 20 */	blr
 
-.global EnterStruck__11CGrappleArmFR13CStateManagerf
-EnterStruck__11CGrappleArmFR13CStateManagerf:
+.global EnterStruck__11CGrappleArmFR13CStateManagerfbb
+EnterStruck__11CGrappleArmFR13CStateManagerfbb:
 /* 8011DE30 0011AD90  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8011DE34 0011AD94  7C 08 02 A6 */	mflr r0
 /* 8011DE38 0011AD98  90 01 00 24 */	stw r0, 0x24(r1)
@@ -907,7 +907,7 @@ lbl_8011DEB8:
 /* 8011DEC0 0011AE20  7F A4 EB 78 */	mr r4, r29
 /* 8011DEC4 0011AE24  7F C5 F3 78 */	mr r5, r30
 /* 8011DEC8 0011AE28  7F E6 FB 78 */	mr r6, r31
-/* 8011DECC 0011AE2C  48 0A E9 81 */	bl EnterStruck__14CGunControllerFR13CStateManagerf
+/* 8011DECC 0011AE2C  48 0A E9 81 */	bl EnterStruck__14CGunControllerFR13CStateManagerfbb
 lbl_8011DED0:
 /* 8011DED0 0011AE30  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 8011DED4 0011AE34  CB E1 00 18 */	lfd f31, 0x18(r1)

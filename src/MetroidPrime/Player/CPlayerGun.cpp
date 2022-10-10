@@ -993,7 +993,32 @@ void CPlayerGun::CMotionState::Update(bool firing, float dt, CTransform4f& xf, C
 
 void CPlayerGun::DamageRumble(const CVector3f&, const CStateManager&) {}
 
-void CPlayerGun::TakeDamage(bool, bool, CStateManager&) {}
+void CPlayerGun::TakeDamage(bool bigStrike, bool notFromMetroid, CStateManager& mgr) {
+  const CPlayer& player = *mgr.GetPlayer();
+  bool hasStrikeAngle = false;
+  float angle = 0.f;
+  if (x398_damageAmt >= 10.f && !bigStrike && (x2f8_stateFlags & 0x10) != 0x10 && !x832_26_comboFiring &&
+      x384_gunStrikeDelayTimer <= 0.f) {
+    x384_gunStrikeDelayTimer = 20.f;
+    x364_gunStrikeCoolTimer = 0.75f;
+    if (x678_morph.GetGunState() == CGunMorph::kGS_OutWipeDone) {
+      CVector3f localDamageLoc = player.GetTransform().TransposeRotate(x3dc_damageLocation);
+      angle = CRelAngle::FromRadians(atan2(localDamageLoc.GetY(), localDamageLoc.GetX())).AsRelative().AsDegrees();
+      hasStrikeAngle = true;
+    }
+  }
+
+  if (hasStrikeAngle || bigStrike) {
+    if (mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan) {
+      x73c_gunMotion->PlayPasAnim(SamusGun::kAS_Struck, mgr, angle, bigStrike);
+      if ((bigStrike && notFromMetroid) || x833_31_inFreeLook)
+        x740_grappleArm->EnterStruck(mgr, angle, bigStrike, !x833_31_inFreeLook);
+    }
+  }
+
+  x398_damageAmt = 0.f;
+  x3dc_damageLocation = CVector3f::Zero();
+}
 
 void CPlayerGun::StopChargeSound(CStateManager&) {}
 
