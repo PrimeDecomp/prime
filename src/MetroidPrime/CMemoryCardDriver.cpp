@@ -1,10 +1,12 @@
 #include "MetroidPrime/CMemoryCardDriver.hpp"
 
+#include "MetroidPrime/CMain.hpp"
+
 bool CMemoryCardDriver::IsCardBusy(EState) { return false; }
 
 bool CMemoryCardDriver::IsCardWriting(EState) { return false; }
 
-CMemoryCardDriver::CMemoryCardDriver(ECardSlot cardPort, CAssetId saveBanner, CAssetId saveIcon0, CAssetId saveIcon1,
+CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0, CAssetId saveIcon1,
                     bool importPersistent)
   : x0_cardPort(cardPort)
   , x4_saveBanner(saveBanner)
@@ -35,41 +37,108 @@ CMemoryCardDriver::CMemoryCardDriver(ECardSlot cardPort, CAssetId saveBanner, CA
   ));
 }
 
-void CMemoryCardDriver::ClearFileInfo() {}
+void CMemoryCardDriver::ClearFileInfo() {
+  x198_fileInfo = nullptr;
+}
 
 CMemoryCardDriver::~CMemoryCardDriver() {}
 
-void CMemoryCardDriver::Update() {}
+void CMemoryCardDriver::Update() {
+  ProbeResults result = CMemoryCardSys::IsMemoryCardInserted(x0_cardPort);
+
+  if (result.x0_error == k_NOCARD) {
+    if (x10_state != kS_NoCard)
+      NoCardFound();
+    gpMain->SetCardBusy(false);
+    return;
+  }
+
+  if (x10_state == kS_CardProbe) {
+    UpdateCardProbe();
+    gpMain->SetCardBusy(false);
+    return;
+  }
+
+  ECardResult resultCode = CMemoryCardSys::GetResultCode(x0_cardPort);
+  bool cardBusy = false;
+
+  if (IsCardBusy(x10_state)) {
+    cardBusy = true;
+
+    switch (x10_state) {
+    case kS_CardMount:
+      UpdateMountCard(resultCode);
+      break;
+    case kS_CardCheck:
+      UpdateCardCheck(resultCode);
+      break;
+    case kS_FileDeleteBad:
+      UpdateFileDeleteBad(resultCode);
+      break;
+    case kS_FileRead:
+      UpdateFileRead(resultCode);
+      break;
+    case kS_FileDeleteAlt:
+      UpdateFileDeleteAlt(resultCode);
+      break;
+    case kS_FileCreate:
+      UpdateFileCreate(resultCode);
+      break;
+    case kS_FileWrite:
+      UpdateFileWrite(resultCode);
+      break;
+    case kS_FileCreateTransactional:
+      UpdateFileCreateTransactional(resultCode);
+      break;
+    case kS_FileWriteTransactional:
+      UpdateFileWriteTransactional(resultCode);
+      break;
+    case kS_FileAltDeleteTransactional:
+      UpdateFileAltDeleteTransactional(resultCode);
+      break;
+    case kS_FileRenameBtoA:
+      UpdateFileRenameBtoA(resultCode);
+      break;
+    case kS_CardFormat:
+      UpdateCardFormat(resultCode);
+      break;
+    default:
+      break;
+    }
+  }
+
+  gpMain->SetCardBusy(cardBusy);
+}
 
 void CMemoryCardDriver::HandleCardError(int) {}
 
-void CMemoryCardDriver::UpdateMountCard(int) {}
+void CMemoryCardDriver::UpdateMountCard(ECardResult) {}
 
-void CMemoryCardDriver::UpdateCardCheck() {}
+void CMemoryCardDriver::UpdateCardCheck(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileRead() {}
+void CMemoryCardDriver::UpdateFileRead(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileDeleteAlt() {}
+void CMemoryCardDriver::UpdateFileDeleteAlt(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileDeleteBad() {}
+void CMemoryCardDriver::UpdateFileDeleteBad(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileCreate() {}
+void CMemoryCardDriver::UpdateFileCreate(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileWrite() {}
+void CMemoryCardDriver::UpdateFileWrite(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileCreateTransactional() {}
+void CMemoryCardDriver::UpdateFileCreateTransactional(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileWriteTransactional() {}
+void CMemoryCardDriver::UpdateFileWriteTransactional(ECardResult) {}
 
-void CMemoryCardDriver::UpdateFileRenameBtoA() {}
+void CMemoryCardDriver::UpdateFileRenameBtoA(ECardResult) {}
 
 void CMemoryCardDriver::StartFileRenameBtoA() {}
 
 void CMemoryCardDriver::WriteBackupBuf() {}
 
-void CMemoryCardDriver::UpdateFileAltDeleteTransactional() {}
+void CMemoryCardDriver::UpdateFileAltDeleteTransactional(ECardResult) {}
 
-void CMemoryCardDriver::UpdateCardFormat() {}
+void CMemoryCardDriver::UpdateCardFormat(ECardResult) {}
 
 void CMemoryCardDriver::StartCardProbe() {}
 

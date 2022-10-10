@@ -17,14 +17,13 @@ struct SMemoryCardFileInfo {
   rstl::string x14_name;
   rstl::vector< u8 > x24_saveFileData;
   rstl::vector< u8 > x34_saveData;
-  
+
   SMemoryCardFileInfo(int cardPort, const rstl::string& name);
   SMemoryCardFileInfo(const SMemoryCardFileInfo& other)
   : x0_fileInfo(other.x0_fileInfo)
   , x14_name(other.x14_name)
   , x24_saveFileData(other.x24_saveFileData)
-  , x34_saveData(other.x34_saveData)
-  {}
+  , x34_saveData(other.x34_saveData) {}
 
   ECardResult Open();
   ECardResult Close();
@@ -36,49 +35,49 @@ struct SMemoryCardFileInfo {
   ECardResult GetSaveDataOffset(u32& offOut) const;
 };
 
+enum EState {
+  kS_Initial = 0,
+  kS_Ready = 1,
+  kS_NoCard = 2,
+  kS_DriverClosed = 3,
+  kS_CardFormatted = 4,
+  kS_CardProbeDone = 5,
+  kS_CardMountDone = 6,
+  kS_CardCheckDone = 7,
+  kS_FileCreateDone = 8,
+  kS_FileCreateTransactionalDone = 9,
+  kS_FileWriteTransactionalDone = 10,
+  kS_FileAltDeleteTransactionalDone = 11,
+  kS_CardProbeFailed = 12,
+  kS_CardMountFailed = 13,
+  kS_CardCheckFailed = 14,
+  kS_FileDeleteBadFailed = 15,
+  kS_FileDeleteAltFailed = 16,
+  kS_FileBad = 17,
+  kS_FileCreateFailed = 18,
+  kS_FileWriteFailed = 19,
+  kS_FileCreateTransactionalFailed = 20,
+  kS_FileWriteTransactionalFailed = 21,
+  kS_FileAltDeleteTransactionalFailed = 22,
+  kS_FileRenameBtoAFailed = 23,
+  kS_CardFormatFailed = 24,
+  kS_CardProbe = 25,
+  kS_CardMount = 26,
+  kS_CardCheck = 27,
+  kS_FileDeleteBad = 28,
+  kS_FileRead = 29,
+  kS_FileDeleteAlt = 30,
+  kS_FileCreate = 31,
+  kS_FileWrite = 32,
+  kS_FileCreateTransactional = 33,
+  kS_FileWriteTransactional = 34,
+  kS_FileAltDeleteTransactional = 35,
+  kS_FileRenameBtoA = 36,
+  kS_CardFormat = 37
+};
+
 class CMemoryCardDriver {
 public:
-  enum EState {
-    kS_Initial = 0,
-    kS_Ready = 1,
-    kS_NoCard = 2,
-    kS_DriverClosed = 3,
-    kS_CardFormatted = 4,
-    kS_CardProbeDone = 5,
-    kS_CardMountDone = 6,
-    kS_CardCheckDone = 7,
-    kS_FileCreateDone = 8,
-    kS_FileCreateTransactionalDone = 9,
-    kS_FileWriteTransactionalDone = 10,
-    kS_FileDeleteAltTransactionalDone = 11,
-    kS_CardProbeFailed = 12,
-    kS_CardMountFailed = 13,
-    kS_CardCheckFailed = 14,
-    kS_FileDeleteBadFailed = 15,
-    kS_FileDeleteAltFailed = 16,
-    kS_FileBad = 17,
-    kS_FileCreateFailed = 18,
-    kS_FileWriteFailed = 19,
-    kS_FileCreateTransactionalFailed = 20,
-    kS_FileWriteTransactionalFailed = 21,
-    kS_FileDeleteAltTransactionalFailed = 22,
-    kS_FileRenameBtoAFailed = 23,
-    kS_CardFormatFailed = 24,
-    kS_CardProbe = 25,
-    kS_CardMount = 26,
-    kS_CardCheck = 27,
-    kS_FileDeleteBad = 28,
-    kS_FileRead = 29,
-    kS_FileDeleteAlt = 30,
-    kS_FileCreate = 31,
-    kS_FileWrite = 32,
-    kS_FileCreateTransactional = 33,
-    kS_FileWriteTransactional = 34,
-    kS_FileDeleteAltTransactional = 35,
-    kS_FileRenameBtoA = 36,
-    kS_CardFormat = 37
-  };
-
   enum EError {
     kE_OK,
     kE_CardBroken,
@@ -105,8 +104,7 @@ private:
     // void DoPut(CMemoryStreamOut& w) const { w.Put(x0_saveBuffer.data(), x0_saveBuffer.size()); }
   };
 
-
-  ECardSlot x0_cardPort;
+  CMemoryCardSys::EMemoryCardPort x0_cardPort;
   CAssetId x4_saveBanner;
   CAssetId x8_saveIcon0;
   CAssetId xc_saveIcon1;
@@ -127,26 +125,26 @@ private:
 public:
   static bool IsCardBusy(EState);
   static bool IsCardWriting(EState);
-  CMemoryCardDriver(ECardSlot cardPort, CAssetId saveBanner, CAssetId saveIcon0, CAssetId saveIcon1,
-                    bool importPersistent);
+  CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
+                    CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent);
   void ClearFileInfo();
   ~CMemoryCardDriver();
   void Update();
   void HandleCardError(int);
-  void UpdateMountCard(int);
-  void UpdateCardCheck();
-  void UpdateFileRead();
-  void UpdateFileDeleteAlt();
-  void UpdateFileDeleteBad();
-  void UpdateFileCreate();
-  void UpdateFileWrite();
-  void UpdateFileCreateTransactional();
-  void UpdateFileWriteTransactional();
-  void UpdateFileRenameBtoA();
+  void UpdateMountCard(ECardResult);
+  void UpdateCardCheck(ECardResult);
+  void UpdateFileRead(ECardResult);
+  void UpdateFileDeleteAlt(ECardResult);
+  void UpdateFileDeleteBad(ECardResult);
+  void UpdateFileCreate(ECardResult);
+  void UpdateFileWrite(ECardResult);
+  void UpdateFileCreateTransactional(ECardResult);
+  void UpdateFileWriteTransactional(ECardResult);
+  void UpdateFileRenameBtoA(ECardResult);
   void StartFileRenameBtoA();
   void WriteBackupBuf();
-  void UpdateFileAltDeleteTransactional();
-  void UpdateCardFormat();
+  void UpdateFileAltDeleteTransactional(ECardResult);
+  void UpdateCardFormat(ECardResult);
   void StartCardProbe();
   void UpdateCardProbe();
   void StartMountCard();
