@@ -20,6 +20,8 @@ public:
   CGameState();
   CGameState(CInputStream& in, int saveIdx);
 
+  void ReadSystemOptions(CInputStream& in);
+
   rstl::rc_ptr< CPlayerState >& PlayerState();
   CAssetId CurrentWorldAssetId();
   void WriteBackupBuf();
@@ -30,6 +32,8 @@ public:
   uint& SaveIdx() { return x20c_saveIdx; }
   u64& CardSerial() { return x210_cardSerial; }
   rstl::vector< uchar >& BackupBuf() { return x218_backupBuf; }
+  u32 GetFileIdx() const { return x20c_saveIdx; }
+  void SetFileIdx(u32 idx) { x20c_saveIdx = idx; }
   void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
   u64 GetCardSerial() const { return x210_cardSerial; }
 
