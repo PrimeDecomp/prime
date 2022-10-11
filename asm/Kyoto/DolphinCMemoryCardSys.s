@@ -1265,8 +1265,8 @@ lbl_8034E4EC:
 /* 8034E504 0034B464  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034E508 0034B468  4E 80 00 20 */	blr
 
-.global SetComment__13CCardFileInfoFv
-SetComment__13CCardFileInfoFv:
+.global "SetComment__13CCardFileInfoFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"SetComment__13CCardFileInfoFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8034E50C 0034B46C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034E510 0034B470  7C 08 02 A6 */	mflr r0
 /* 8034E514 0034B474  38 63 00 28 */	addi r3, r3, 0x28
