@@ -549,7 +549,19 @@ void CMemoryCardDriver::StartFileDeleteAlt() {
     UpdateFileDeleteAlt(result);
 }
 
-void CMemoryCardDriver::StartFileRead() {}
+void CMemoryCardDriver::StartFileRead() {
+  x14_error = kE_OK;
+  x10_state = kS_FileRead;
+  ECardResult result = x100_mcFileInfos[x194_fileIdx].second.Open();
+  if (result != kCR_READY) {
+    UpdateFileRead(result);
+    return;
+  }
+
+  result = x100_mcFileInfos[x194_fileIdx].second.StartRead();
+  if (result != kCR_READY)
+    UpdateFileRead(result);
+}
 
 void CMemoryCardDriver::StartFileCreate() {}
 
