@@ -46,6 +46,9 @@ public:
 
   public:
     ~CCardFileInfo();
+
+    ECardResult PumpCardTransfer();
+    ECardResult CloseFile();
   };
 
   CMemoryCardSys();
@@ -54,6 +57,8 @@ public:
   static ECardResult GetResultCode(int);
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);
   static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);
+  static void UnmountCard(EMemoryCardPort);
+  static ECardResult Rename(EMemoryCardPort, const rstl::string&, const rstl::string&);
 
   void Initialize();
 
