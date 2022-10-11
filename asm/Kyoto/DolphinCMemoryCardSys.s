@@ -761,8 +761,8 @@ lbl_8034DE2C:
 /* 8034DE3C 0034AD9C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034DE40 0034ADA0  4E 80 00 20 */	blr
 
-.global Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl
-Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl:
+.global WriteFile__13CCardFileInfoFv
+WriteFile__13CCardFileInfoFv:
 /* 8034DE44 0034ADA4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8034DE48 0034ADA8  7C 08 02 A6 */	mflr r0
 /* 8034DE4C 0034ADAC  90 01 00 24 */	stw r0, 0x24(r1)

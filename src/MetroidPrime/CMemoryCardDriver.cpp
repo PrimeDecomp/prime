@@ -580,7 +580,13 @@ void CMemoryCardDriver::StartFileCreate() {
     UpdateFileCreate(result);
 }
 
-void CMemoryCardDriver::StartFileWrite() {}
+void CMemoryCardDriver::StartFileWrite() {
+  x14_error = kE_OK;
+  x10_state = kS_FileWrite;
+  ECardResult result = x198_fileInfo->WriteFile();
+  if (result != kCR_READY)
+    UpdateFileWrite(result);
+}
 
 void CMemoryCardDriver::StartFileCreateTransactional() {}
 
