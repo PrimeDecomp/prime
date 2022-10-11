@@ -488,8 +488,8 @@ __OSSyncSram:
 /* 80383EE4 00380E44  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 80383EE8 00380E48  4E 80 00 20 */	blr
 
-.global sub_80383eec
-sub_80383eec:
+.global __OSReadROM
+__OSReadROM:
 /* 80383EEC 00380E4C  7C 08 02 A6 */	mflr r0
 /* 80383EF0 00380E50  90 01 00 04 */	stw r0, 4(r1)
 /* 80383EF4 00380E54  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -687,8 +687,8 @@ lbl_80384178:
 /* 8038419C 003810FC  7C 08 03 A6 */	mtlr r0
 /* 803841A0 00381100  4E 80 00 20 */	blr
 
-.global sub_803841a4
-sub_803841a4:
+.global OSSetProgressiveMode
+OSSetProgressiveMode:
 /* 803841A4 00381104  7C 08 02 A6 */	mflr r0
 /* 803841A8 00381108  3C 80 80 54 */	lis r4, Scb@ha
 /* 803841AC 0038110C  90 01 00 04 */	stw r0, 4(r1)

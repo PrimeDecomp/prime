@@ -572,7 +572,7 @@ SetProgressiveMode__9CGraphicsFb:
 /* 8030962C 0030658C  7C 04 00 D0 */	neg r0, r4
 /* 80309630 00306590  7C 00 23 78 */	or r0, r0, r4
 /* 80309634 00306594  54 03 0F FE */	srwi r3, r0, 0x1f
-/* 80309638 00306598  48 07 AB 6D */	bl sub_803841a4
+/* 80309638 00306598  48 07 AB 6D */	bl OSSetProgressiveMode
 /* 8030963C 0030659C  57 C3 06 3E */	clrlwi r3, r30, 0x18
 /* 80309640 003065A0  57 E0 06 3E */	clrlwi r0, r31, 0x18
 /* 80309644 003065A4  7C 03 00 40 */	cmplw r3, r0

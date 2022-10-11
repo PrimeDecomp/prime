@@ -12,7 +12,6 @@ typedef struct OSSram {
   s8 displayOffsetH;
   u8 ntd;
   u8 language;
-
   u8 flags;
 } OSSram;
 
