@@ -3023,14 +3023,14 @@ sub_8024ea40:
 /* 8024EA44 0024B9A4  7C 08 02 A6 */	mflr r0
 /* 8024EA48 0024B9A8  38 80 FF FF */	li r4, -1
 /* 8024EA4C 0024B9AC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8024EA50 0024B9B0  48 00 00 15 */	bl "__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv"
+/* 8024EA50 0024B9B0  48 00 00 15 */	bl "__dt__Q217CMemoryCardDriver9SFileInfoFv"
 /* 8024EA54 0024B9B4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8024EA58 0024B9B8  7C 08 03 A6 */	mtlr r0
 /* 8024EA5C 0024B9BC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024EA60 0024B9C0  4E 80 00 20 */	blr
 
-.global "__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv"
-"__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv":
+.global "__dt__Q217CMemoryCardDriver9SFileInfoFv"
+"__dt__Q217CMemoryCardDriver9SFileInfoFv":
 /* 8024EA64 0024B9C4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8024EA68 0024B9C8  7C 08 02 A6 */	mflr r0
 /* 8024EA6C 0024B9CC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3297,13 +3297,13 @@ lbl_8024EDB0:
 /* 8024EDE8 0024BD48  38 61 00 7C */	addi r3, r1, 0x7c
 /* 8024EDEC 0024BD4C  38 A1 00 20 */	addi r5, r1, 0x20
 /* 8024EDF0 0024BD50  90 01 00 78 */	stw r0, 0x78(r1)
-/* 8024EDF4 0024BD54  48 0F F4 99 */	bl __ct__19SMemoryCardFileInfoFiRCQ24rstl6string
+/* 8024EDF4 0024BD54  48 0F F4 99 */	bl "__ct__19SMemoryCardFileInfoFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8024EDF8 0024BD58  38 7E 01 00 */	addi r3, r30, 0x100
 /* 8024EDFC 0024BD5C  38 81 00 78 */	addi r4, r1, 0x78
-/* 8024EE00 0024BD60  48 00 00 7D */	bl "push_back__Q24rstl89reserved_vector<Q24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>,2>FRCQ24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>"
+/* 8024EE00 0024BD60  48 00 00 7D */	bl "push_back__Q24rstl50reserved_vector<Q217CMemoryCardDriver9SFileInfo,2>FRCQ217CMemoryCardDriver9SFileInfo"
 /* 8024EE04 0024BD64  38 61 00 78 */	addi r3, r1, 0x78
 /* 8024EE08 0024BD68  38 80 FF FF */	li r4, -1
-/* 8024EE0C 0024BD6C  4B FF FC 59 */	bl "__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv"
+/* 8024EE0C 0024BD6C  4B FF FC 59 */	bl "__dt__Q217CMemoryCardDriver9SFileInfoFv"
 /* 8024EE10 0024BD70  38 61 00 20 */	addi r3, r1, 0x20
 /* 8024EE14 0024BD74  48 0E EC CD */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8024EE18 0024BD78  38 82 B8 B0 */	addi r4, r2, skSaveFileNames@sda21
@@ -3315,13 +3315,13 @@ lbl_8024EDB0:
 /* 8024EE30 0024BD90  38 61 00 34 */	addi r3, r1, 0x34
 /* 8024EE34 0024BD94  38 A1 00 10 */	addi r5, r1, 0x10
 /* 8024EE38 0024BD98  90 01 00 30 */	stw r0, 0x30(r1)
-/* 8024EE3C 0024BD9C  48 0F F4 51 */	bl __ct__19SMemoryCardFileInfoFiRCQ24rstl6string
+/* 8024EE3C 0024BD9C  48 0F F4 51 */	bl "__ct__19SMemoryCardFileInfoFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8024EE40 0024BDA0  38 7E 01 00 */	addi r3, r30, 0x100
 /* 8024EE44 0024BDA4  38 81 00 30 */	addi r4, r1, 0x30
-/* 8024EE48 0024BDA8  48 00 00 35 */	bl "push_back__Q24rstl89reserved_vector<Q24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>,2>FRCQ24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>"
+/* 8024EE48 0024BDA8  48 00 00 35 */	bl "push_back__Q24rstl50reserved_vector<Q217CMemoryCardDriver9SFileInfo,2>FRCQ217CMemoryCardDriver9SFileInfo"
 /* 8024EE4C 0024BDAC  38 61 00 30 */	addi r3, r1, 0x30
 /* 8024EE50 0024BDB0  38 80 FF FF */	li r4, -1
-/* 8024EE54 0024BDB4  4B FF FC 11 */	bl "__dt__Q24rstl29pair<i,19SMemoryCardSlotInfo>Fv"
+/* 8024EE54 0024BDB4  4B FF FC 11 */	bl "__dt__Q217CMemoryCardDriver9SFileInfoFv"
 /* 8024EE58 0024BDB8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8024EE5C 0024BDBC  48 0E EC 85 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8024EE60 0024BDC0  80 01 00 D4 */	lwz r0, 0xd4(r1)
@@ -3332,8 +3332,8 @@ lbl_8024EDB0:
 /* 8024EE74 0024BDD4  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 8024EE78 0024BDD8  4E 80 00 20 */	blr
 
-.global "push_back__Q24rstl89reserved_vector<Q24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>,2>FRCQ24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>"
-"push_back__Q24rstl89reserved_vector<Q24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>,2>FRCQ24rstl61pair<Q217CMemoryCardDriver10EFileState,19SMemoryCardFileInfo>":
+.global "push_back__Q24rstl50reserved_vector<Q217CMemoryCardDriver9SFileInfo,2>FRCQ217CMemoryCardDriver9SFileInfo"
+"push_back__Q24rstl50reserved_vector<Q217CMemoryCardDriver9SFileInfo,2>FRCQ217CMemoryCardDriver9SFileInfo":
 /* 8024EE7C 0024BDDC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8024EE80 0024BDE0  7C 08 02 A6 */	mflr r0
 /* 8024EE84 0024BDE4  90 01 00 14 */	stw r0, 0x14(r1)
