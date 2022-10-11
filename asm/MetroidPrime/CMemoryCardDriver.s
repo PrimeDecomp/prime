@@ -1793,7 +1793,7 @@ StartFileDeleteAlt__17CMemoryCardDriverFv:
 /* 8024DA14 0024A974  48 10 10 91 */	bl GetFileNo__19SMemoryCardFileInfoCFv
 /* 8024DA18 0024A978  7C 64 1B 78 */	mr r4, r3
 /* 8024DA1C 0024A97C  80 7F 00 00 */	lwz r3, 0(r31)
-/* 8024DA20 0024A980  48 10 05 6D */	bl FastDeleteFile__14CMemoryCardSysFii
+/* 8024DA20 0024A980  48 10 05 6D */	bl FastDeleteFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPorti
 /* 8024DA24 0024A984  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024DA28 0024A988  41 82 00 0C */	beq lbl_8024DA34
 /* 8024DA2C 0024A98C  7F E3 FB 78 */	mr r3, r31
@@ -1829,7 +1829,7 @@ lbl_8024DA7C:
 /* 8024DA90 0024A9F0  48 10 10 15 */	bl GetFileNo__19SMemoryCardFileInfoCFv
 /* 8024DA94 0024A9F4  7C 64 1B 78 */	mr r4, r3
 /* 8024DA98 0024A9F8  80 7F 00 00 */	lwz r3, 0(r31)
-/* 8024DA9C 0024A9FC  48 10 04 F1 */	bl FastDeleteFile__14CMemoryCardSysFii
+/* 8024DA9C 0024A9FC  48 10 04 F1 */	bl FastDeleteFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPorti
 /* 8024DAA0 0024AA00  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024DAA4 0024AA04  41 82 00 1C */	beq lbl_8024DAC0
 /* 8024DAA8 0024AA08  7F E3 FB 78 */	mr r3, r31

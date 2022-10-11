@@ -516,7 +516,22 @@ void CMemoryCardDriver::IndexFiles() {
   }
 }
 
-void CMemoryCardDriver::StartFileDeleteBad() {}
+void CMemoryCardDriver::StartFileDeleteBad() {
+  x14_error = kE_OK;
+  x10_state = kS_FileDeleteBad;
+  
+  for (int idx = 0; idx < x100_mcFileInfos.capacity(); ++idx) {
+    rstl::pair< EFileState, SMemoryCardFileInfo >& info = x100_mcFileInfos[idx];
+    if (info.first == kFS_BadFile) {
+      x194_fileIdx = idx;
+      ECardResult result = CMemoryCardSys::FastDeleteFile(x0_cardPort, info.second.GetFileNo());
+      if (result != kCR_READY) {
+        UpdateFileDeleteBad(result);
+      }
+      return;
+    }
+  }
+}
 
 void CMemoryCardDriver::StartFileDeleteAlt() {}
 
