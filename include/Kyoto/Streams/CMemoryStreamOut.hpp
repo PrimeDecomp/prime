@@ -10,7 +10,7 @@ public:
     kOS_NotOwned,
   };
 
-  CMemoryStreamOut(uchar* buffer, size_t len, EOwnerShip ownerShip = kOS_NotOwned, int blockLen = 4096);
+  CMemoryStreamOut(void* buffer, size_t len, EOwnerShip ownerShip = kOS_NotOwned, int blockLen = 4096);
   virtual ~CMemoryStreamOut();
 };
 
