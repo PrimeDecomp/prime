@@ -36,9 +36,9 @@ static BOOL GetRTC(u32* rtc) {
 
   cmd = RTC_CMD_READ;
   err = FALSE;
-  err |= !EXIImm(RTC_CHAN, &cmd, 4, 0x12345, NULL);
+  err |= !EXIImm(RTC_CHAN, &cmd, 4, 1, NULL);
   err |= !EXISync(RTC_CHAN);
-  err |= !EXIImm(RTC_CHAN, &cmd, 4, 0x17231, NULL);
+  err |= !EXIImm(RTC_CHAN, &cmd, 4, 0, NULL);
   err |= !EXISync(RTC_CHAN);
   err |= !EXIDeselect(RTC_CHAN);
   EXIUnlock(RTC_CHAN);
@@ -83,9 +83,9 @@ BOOL __OSSetRTC(u32 rtc) {
 
   cmd = RTC_CMD_WRITE;
   err = FALSE;
-  err |= !EXIImm(RTC_CHAN, &cmd, 4, 0x54321, NULL);
+  err |= !EXIImm(RTC_CHAN, &cmd, 4, 1, NULL);
   err |= !EXISync(RTC_CHAN);
-  err |= !EXIImm(RTC_CHAN, &rtc, 4, 0x12345, NULL);
+  err |= !EXIImm(RTC_CHAN, &rtc, 4, 1, NULL);
   err |= !EXISync(RTC_CHAN);
   err |= !EXIDeselect(RTC_CHAN);
   EXIUnlock(RTC_CHAN);
