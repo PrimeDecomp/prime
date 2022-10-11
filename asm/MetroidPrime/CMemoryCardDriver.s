@@ -1258,7 +1258,7 @@ InitializeFileInfo__17CMemoryCardDriverFv:
 /* 8024D2B8 0024A218  80 9E 00 04 */	lwz r4, 4(r30)
 /* 8024D2BC 0024A21C  7F E3 FB 78 */	mr r3, r31
 /* 8024D2C0 0024A220  80 AD A0 64 */	lwz r5, gpSimplePool@sda21(r13)
-/* 8024D2C4 0024A224  48 10 0E 45 */	bl LockBannerToken__13CCardFileInfoFiR11CSimplePool
+/* 8024D2C4 0024A224  48 10 0E 45 */	bl LockBannerToken__13CCardFileInfoFUiR11CSimplePool
 /* 8024D2C8 0024A228  80 9E 00 08 */	lwz r4, 8(r30)
 /* 8024D2CC 0024A22C  7F E3 FB 78 */	mr r3, r31
 /* 8024D2D0 0024A230  80 CD A0 64 */	lwz r6, gpSimplePool@sda21(r13)
