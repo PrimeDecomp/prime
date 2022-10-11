@@ -2053,7 +2053,7 @@ StartCardCheck__17CMemoryCardDriverFv:
 /* 8024DD84 0024ACE4  38 00 00 1B */	li r0, 0x1b
 /* 8024DD88 0024ACE8  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8024DD8C 0024ACEC  80 63 00 00 */	lwz r3, 0(r3)
-/* 8024DD90 0024ACF0  48 10 01 25 */	bl CheckCard__14CMemoryCardSysFv
+/* 8024DD90 0024ACF0  48 10 01 25 */	bl CheckCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
 /* 8024DD94 0024ACF4  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024DD98 0024ACF8  41 82 00 0C */	beq lbl_8024DDA4
 /* 8024DD9C 0024ACFC  7F E3 FB 78 */	mr r3, r31

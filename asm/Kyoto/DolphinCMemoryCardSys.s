@@ -792,8 +792,8 @@ Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl:
 /* 8034DEAC 0034AE0C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034DEB0 0034AE10  4E 80 00 20 */	blr
 
-.global CheckCard__14CMemoryCardSysFv
-CheckCard__14CMemoryCardSysFv:
+.global CheckCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
+CheckCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
 /* 8034DEB4 0034AE14  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034DEB8 0034AE18  7C 08 02 A6 */	mflr r0
 /* 8034DEBC 0034AE1C  38 80 00 00 */	li r4, 0

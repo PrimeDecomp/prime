@@ -419,7 +419,13 @@ void CMemoryCardDriver::StartMountCard() {
     UpdateMountCard(result);
 }
 
-void CMemoryCardDriver::StartCardCheck() {}
+void CMemoryCardDriver::StartCardCheck() {
+  x14_error = kE_OK;
+  x10_state = kS_CardCheck;
+  ECardResult result = CMemoryCardSys::CheckCard(x0_cardPort);
+  if (result != kCR_READY)
+    UpdateCardCheck(result);
+}
 
 void CMemoryCardDriver::ClearError() {}
 
