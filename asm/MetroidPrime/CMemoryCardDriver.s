@@ -181,8 +181,8 @@ InitializeFromGameState__13SGameFileSlotFv:
 /* 8024C408 00249368  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 8024C40C 0024936C  4E 80 00 20 */	blr
 
-.global DoPut__13SGameFileSlotFv
-DoPut__13SGameFileSlotFv:
+.global DoPut__13SGameFileSlotCFR16CMemoryStreamOut
+DoPut__13SGameFileSlotCFR16CMemoryStreamOut:
 /* 8024C410 00249370  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8024C414 00249374  7C 08 02 A6 */	mflr r0
 /* 8024C418 00249378  90 01 00 14 */	stw r0, 0x14(r1)
@@ -376,8 +376,8 @@ lbl_8024C674:
 /* 8024C698 002495F8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024C69C 002495FC  4E 80 00 20 */	blr
 
-.global DoPut__11SSaveHeaderFv
-DoPut__11SSaveHeaderFv:
+.global DoPut__11SSaveHeaderCFR16CMemoryStreamOut
+DoPut__11SSaveHeaderCFR16CMemoryStreamOut:
 /* 8024C6A0 00249600  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8024C6A4 00249604  7C 08 02 A6 */	mflr r0
 /* 8024C6A8 00249608  90 01 00 24 */	stw r0, 0x24(r1)
@@ -1250,7 +1250,7 @@ InitializeFileInfo__17CMemoryCardDriverFv:
 /* 8024D298 0024A1F8  4B FB EE 5D */	bl "__pl__4rstlFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>PCc"
 /* 8024D29C 0024A1FC  7F E3 FB 78 */	mr r3, r31
 /* 8024D2A0 0024A200  38 81 00 10 */	addi r4, r1, 0x10
-/* 8024D2A4 0024A204  48 10 12 69 */	bl SetComment__13CCardFileInfoFv
+/* 8024D2A4 0024A204  48 10 12 69 */	bl "SetComment__13CCardFileInfoFRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8024D2A8 0024A208  38 61 00 10 */	addi r3, r1, 0x10
 /* 8024D2AC 0024A20C  48 0F 08 35 */	bl "internal_dereference__Q24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>Fv"
 /* 8024D2B0 0024A210  38 61 00 20 */	addi r3, r1, 0x20
@@ -1299,7 +1299,7 @@ InitializeFileInfo__17CMemoryCardDriverFv:
 /* 8024D35C 0024A2BC  7C 00 2B 78 */	or r0, r0, r5
 /* 8024D360 0024A2C0  54 00 0F FE */	srwi r0, r0, 0x1f
 /* 8024D364 0024A2C4  98 01 00 0E */	stb r0, 0xe(r1)
-/* 8024D368 0024A2C8  4B FF F3 39 */	bl DoPut__11SSaveHeaderFv
+/* 8024D368 0024A2C8  4B FF F3 39 */	bl DoPut__11SSaveHeaderCFR16CMemoryStreamOut
 /* 8024D36C 0024A2CC  38 61 00 A0 */	addi r3, r1, 0xa0
 /* 8024D370 0024A2D0  48 0F 21 49 */	bl FlushShiftRegister__13COutputStreamFv
 /* 8024D374 0024A2D4  38 61 00 A0 */	addi r3, r1, 0xa0
@@ -1313,7 +1313,7 @@ lbl_8024D38C:
 /* 8024D390 0024A2F0  28 03 00 00 */	cmplwi r3, 0
 /* 8024D394 0024A2F4  41 82 00 0C */	beq lbl_8024D3A0
 /* 8024D398 0024A2F8  38 81 00 A0 */	addi r4, r1, 0xa0
-/* 8024D39C 0024A2FC  4B FF F0 75 */	bl DoPut__13SGameFileSlotFv
+/* 8024D39C 0024A2FC  4B FF F0 75 */	bl DoPut__13SGameFileSlotCFR16CMemoryStreamOut
 lbl_8024D3A0:
 /* 8024D3A0 0024A300  3B BD 00 08 */	addi r29, r29, 8
 lbl_8024D3A4:

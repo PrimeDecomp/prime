@@ -37,6 +37,16 @@ public:
 
   void WriteLong(int t) { Put(&t, sizeof(int)); }
 
+  void WriteChar(u8 c) {
+    FlushShiftRegister();
+    if (mBufLen <= mPosition) {
+      DoFlush();
+    }
+    ++mNumWrites;
+    *(reinterpret_cast< u8* >(mBufPtr) + mPosition) = c;
+    ++mPosition;
+  }
+
 private:
   uint mPosition;
   uint mBufLen;
@@ -61,6 +71,11 @@ inline void coutput_stream_helper(const int& t, COutputStream& out) {
 template <>
 inline void coutput_stream_helper(const uint& t, COutputStream& out) {
   out.WriteLong(t);
+}
+
+template <>
+inline void coutput_stream_helper(const bool& t, COutputStream& out) {
+  out.WriteChar(static_cast< char >(t));
 }
 
 #endif // _COUTPUTSTREAM

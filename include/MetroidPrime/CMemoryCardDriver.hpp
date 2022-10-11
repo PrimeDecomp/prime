@@ -35,6 +35,32 @@ struct SMemoryCardFileInfo {
   ECardResult GetSaveDataOffset(u32& offOut) const;
 };
 
+struct SSaveHeader {
+  uint x0_version;
+  bool x4_savePresent[3];
+
+  SSaveHeader();
+  // : x0_version(0) {}
+
+  void DoPut(CMemoryStreamOut& out) const; /* {
+    out.WriteLong(x0_version);
+    for (int i = 0; i < 3; ++i) {
+      out.Put(x4_savePresent[i]);
+    }
+  }*/
+};
+
+struct SGameFileSlot {
+  u8 x0_saveBuffer[940];
+  CGameState::GameFileStateInfo x944_fileInfo;
+
+  SGameFileSlot();
+  // explicit SGameFileSlot(CMemoryInStream& in);
+  void InitializeFromGameState();
+  void LoadGameState(u32 idx);
+  void DoPut(CMemoryStreamOut& w) const; // { w.Put(x0_saveBuffer, 940); }
+};
+
 enum EState {
   kS_Initial = 0,
   kS_Ready = 1,
@@ -93,17 +119,6 @@ public:
   enum EFileState { kFS_Unknown, kFS_NoFile, kFS_File, kFS_BadFile };
 
 private:
-  struct SGameFileSlot {
-    u8 x0_saveBuffer[940];
-    CGameState::GameFileStateInfo x944_fileInfo;
-
-    SGameFileSlot();
-    // explicit SGameFileSlot(CMemoryInStream& in);
-    void InitializeFromGameState();
-    void LoadGameState(u32 idx);
-    // void DoPut(CMemoryStreamOut& w) const { w.Put(x0_saveBuffer.data(), x0_saveBuffer.size()); }
-  };
-
   EMemoryCardPort x0_cardPort;
   CAssetId x4_saveBanner;
   CAssetId x8_saveIcon0;
@@ -125,8 +140,8 @@ private:
 public:
   static bool IsCardBusy(EState);
   static bool IsCardWriting(EState);
-  CMemoryCardDriver(EMemoryCardPort cardPort, CAssetId saveBanner,
-                    CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent);
+  CMemoryCardDriver(EMemoryCardPort cardPort, CAssetId saveBanner, CAssetId saveIcon0,
+                    CAssetId saveIcon1, bool importPersistent);
   void ClearFileInfo();
   ~CMemoryCardDriver();
   void Update();

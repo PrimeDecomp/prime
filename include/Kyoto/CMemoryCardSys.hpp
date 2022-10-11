@@ -4,6 +4,9 @@
 #include "string.h"
 #include "types.h"
 
+#include "Kyoto/CSimplePool.hpp"
+#include "Kyoto/Streams/CMemoryStreamOut.hpp"
+
 #include "rstl/string.hpp"
 
 // TODO: likely comes from dolphin sdk
@@ -45,17 +48,29 @@ struct CardStat {
 };
 
 class CCardFileInfo {
-  uchar pad[0x114];
+  uchar pad[0xf4];
+  rstl::vector<u8> xf4_saveBuffer;
+  rstl::vector<u8> x104_cardBuffer;
 
 public:
   CCardFileInfo(EMemoryCardPort port, const rstl::string& name);
   ~CCardFileInfo();
 
+  void SetComment(const rstl::string& name);
+  void LockBannerToken(CAssetId bannerTxtr, CSimplePool& sp);
+  void LockIconToken(CAssetId iconTxtr, int speed, CSimplePool& sp);
+
   ECardResult PumpCardTransfer();
   ECardResult CreateFile();
   ECardResult WriteFile();
   ECardResult CloseFile();
+
+  inline CMemoryStreamOut BeginMemoryOut(uint sz) {
+    xf4_saveBuffer.resize(sz, '\x00');
+    return CMemoryStreamOut(xf4_saveBuffer.data(), sz, CMemoryStreamOut::kOS_NotOwned, sz);
+  }
 };
+CHECK_SIZEOF(CCardFileInfo, 0x114)
 
 class CMemoryCardSys {
 public:

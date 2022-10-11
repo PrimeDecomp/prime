@@ -2,6 +2,9 @@
 
 #include "MetroidPrime/CMain.hpp"
 
+#include "dolphin/os.h"
+#include "stdio.h"
+
 static bool lbl_805A9118;
 static const char* const skSaveFileNames[2] = {"MetroidPrime A", "MetroidPrime B"};
 
@@ -625,7 +628,8 @@ void CMemoryCardDriver::StartFileDeleteAltTransactional() {
   x14_error = kE_OK;
   x10_state = kS_FileAltDeleteTransactional;
   int bidx = x194_fileIdx == 0 ? 1 : 0;
-  ECardResult result = CMemoryCardSys::DeleteFile(x0_cardPort, rstl::string_l(skSaveFileNames[bidx]));
+  ECardResult result =
+      CMemoryCardSys::DeleteFile(x0_cardPort, rstl::string_l(skSaveFileNames[bidx]));
   if (result != kCR_READY)
     UpdateFileAltDeleteTransactional(result);
 }
@@ -638,7 +642,39 @@ void CMemoryCardDriver::StartCardFormat() {
     UpdateCardFormat(result);
 }
 
-void CMemoryCardDriver::InitializeFileInfo() {}
+void CMemoryCardDriver::InitializeFileInfo() {
+  ExportPersistentOptions();
+
+  OSCalendarTime time;
+  OSTicksToCalendarTime(OSGetTime(), &time);
+
+  char nameBuffer[36];
+
+  sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.x10_mon + 1, time.xc_mday,
+          time.x14_year % 100, time.x8_hour, time.x4_min);
+  
+  x198_fileInfo->SetComment(rstl::string_l("Metroid Prime                   ") + nameBuffer);
+
+  x198_fileInfo->LockBannerToken(x4_saveBanner, *gpSimplePool);
+  x198_fileInfo->LockIconToken(x8_saveIcon0, 2, *gpSimplePool);
+
+  CMemoryStreamOut w = x198_fileInfo->BeginMemoryOut(3004);
+
+  SSaveHeader header;
+  for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
+    header.x4_savePresent[i] = !xe4_fileSlots[i].null();
+  }
+  header.DoPut(w);
+
+  w.Put(x30_systemData.data(), x30_systemData.size());
+
+  for (int i = 0; i < xe4_fileSlots.size(); ++i) {
+    rstl::auto_ptr< SGameFileSlot >& fileSlot = xe4_fileSlots[i];
+    if (!fileSlot.null()) {
+      fileSlot->DoPut(w);
+    }
+  }
+}
 
 void CMemoryCardDriver::ReadFinished() {}
 
