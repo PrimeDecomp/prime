@@ -438,7 +438,10 @@ void CMemoryCardDriver::CheckCardCapacity() {
   x14_error = kE_CardStillFull;
 }
 
-void CMemoryCardDriver::NoCardFound() {}
+void CMemoryCardDriver::NoCardFound() {
+  x10_state = kS_NoCard;
+  gpMain->SetCardBusy(false);
+}
 
 void CMemoryCardDriver::IndexFiles() {}
 
