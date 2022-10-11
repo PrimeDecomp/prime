@@ -588,7 +588,30 @@ void CMemoryCardDriver::StartFileWrite() {
     UpdateFileWrite(result);
 }
 
-void CMemoryCardDriver::StartFileCreateTransactional() {}
+void CMemoryCardDriver::StartFileCreateTransactional() {
+  x14_error = kE_OK;
+  x10_state = kS_FileCreateTransactional;
+  ClearFileInfo();
+  if (x18_cardFreeBytes < 8192 || x1c_cardFreeFiles < 1) {
+    x10_state = kS_FileCreateTransactionalFailed;
+    x14_error = kE_CardFull;
+    return;
+  }
+
+  int altFileIdx;
+  if (x194_fileIdx == 0) {
+    altFileIdx = 1;
+  } else {
+    altFileIdx = 0;
+  }
+
+  x194_fileIdx = altFileIdx;
+  x198_fileInfo = new CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  InitializeFileInfo();
+  ECardResult result = x198_fileInfo->CreateFile();
+  if (result != kCR_READY)
+    UpdateFileCreateTransactional(result);
+}
 
 void CMemoryCardDriver::StartFileWriteTransactional() {}
 
