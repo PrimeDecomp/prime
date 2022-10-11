@@ -17,7 +17,7 @@ bool CMemoryCardDriver::IsCardWriting(EState v) {
   return true;
 }
 
-CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
+CMemoryCardDriver::CMemoryCardDriver(EMemoryCardPort cardPort, CAssetId saveBanner,
                                      CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent)
 : x0_cardPort(cardPort)
 , x4_saveBanner(saveBanner)
@@ -563,7 +563,22 @@ void CMemoryCardDriver::StartFileRead() {
     UpdateFileRead(result);
 }
 
-void CMemoryCardDriver::StartFileCreate() {}
+void CMemoryCardDriver::StartFileCreate() {
+  x14_error = kE_OK;
+  x10_state = kS_FileCreate;
+  if (x18_cardFreeBytes < 0x4000 || x1c_cardFreeFiles < 2) {
+    x10_state = kS_FileCreateFailed;
+    x14_error = kE_CardFull;
+    return;
+  }
+
+  x194_fileIdx = 0;
+  x198_fileInfo = new CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  InitializeFileInfo();
+  ECardResult result = x198_fileInfo->CreateFile();
+  if (result != kCR_READY)
+    UpdateFileCreate(result);
+}
 
 void CMemoryCardDriver::StartFileWrite() {}
 

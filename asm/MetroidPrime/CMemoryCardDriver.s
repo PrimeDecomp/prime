@@ -1470,7 +1470,7 @@ lbl_8024D568:
 /* 8024D5B8 0024A518  7F C3 F3 78 */	mr r3, r30
 /* 8024D5BC 0024A51C  38 A1 00 08 */	addi r5, r1, 8
 /* 8024D5C0 0024A520  3B A0 00 01 */	li r29, 1
-/* 8024D5C4 0024A524  48 10 0C 35 */	bl __ct__13CCardFileInfoFRCQ24rstl6string
+/* 8024D5C4 0024A524  48 10 0C 35 */	bl "__ct__13CCardFileInfoF15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8024D5C8 0024A528  7C 7E 1B 78 */	mr r30, r3
 lbl_8024D5CC:
 /* 8024D5CC 0024A52C  7F C4 F3 78 */	mr r4, r30
@@ -1484,7 +1484,7 @@ lbl_8024D5E8:
 /* 8024D5E8 0024A548  7F E3 FB 78 */	mr r3, r31
 /* 8024D5EC 0024A54C  4B FF FB C5 */	bl InitializeFileInfo__17CMemoryCardDriverFv
 /* 8024D5F0 0024A550  80 7F 01 98 */	lwz r3, 0x198(r31)
-/* 8024D5F4 0024A554  48 10 09 E5 */	bl "CreateFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UiRQ214CMemoryCardSys13CCardFileInfo"
+/* 8024D5F4 0024A554  48 10 09 E5 */	bl CreateFile__13CCardFileInfoFv
 /* 8024D5F8 0024A558  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024D5FC 0024A55C  41 82 00 0C */	beq lbl_8024D608
 /* 8024D600 0024A560  7F E3 FB 78 */	mr r3, r31
@@ -1704,7 +1704,7 @@ lbl_8024D898:
 /* 8024D8DC 0024A83C  7F C3 F3 78 */	mr r3, r30
 /* 8024D8E0 0024A840  38 A1 00 08 */	addi r5, r1, 8
 /* 8024D8E4 0024A844  3B A0 00 01 */	li r29, 1
-/* 8024D8E8 0024A848  48 10 09 11 */	bl __ct__13CCardFileInfoFRCQ24rstl6string
+/* 8024D8E8 0024A848  48 10 09 11 */	bl "__ct__13CCardFileInfoF15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8024D8EC 0024A84C  7C 7E 1B 78 */	mr r30, r3
 lbl_8024D8F0:
 /* 8024D8F0 0024A850  7F C4 F3 78 */	mr r4, r30
@@ -1718,7 +1718,7 @@ lbl_8024D90C:
 /* 8024D90C 0024A86C  7F E3 FB 78 */	mr r3, r31
 /* 8024D910 0024A870  4B FF F8 A1 */	bl InitializeFileInfo__17CMemoryCardDriverFv
 /* 8024D914 0024A874  80 7F 01 98 */	lwz r3, 0x198(r31)
-/* 8024D918 0024A878  48 10 06 C1 */	bl "CreateFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>UiRQ214CMemoryCardSys13CCardFileInfo"
+/* 8024D918 0024A878  48 10 06 C1 */	bl CreateFile__13CCardFileInfoFv
 /* 8024D91C 0024A87C  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024D920 0024A880  41 82 00 0C */	beq lbl_8024D92C
 /* 8024D924 0024A884  7F E3 FB 78 */	mr r3, r31
