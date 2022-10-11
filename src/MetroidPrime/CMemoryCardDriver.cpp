@@ -427,7 +427,9 @@ void CMemoryCardDriver::StartCardCheck() {
     UpdateCardCheck(result);
 }
 
-void CMemoryCardDriver::ClearError() {}
+void CMemoryCardDriver::ClearError() {
+  x14_error = kE_OK;
+}
 
 void CMemoryCardDriver::CheckCardCapacity() {}
 
