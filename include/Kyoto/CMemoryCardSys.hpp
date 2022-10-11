@@ -55,6 +55,7 @@ public:
   ~CMemoryCardSys();
 
   static ECardResult GetResultCode(int);
+  static ECardResult MountCard(EMemoryCardPort port);
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);
   static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);
   static void UnmountCard(EMemoryCardPort);
