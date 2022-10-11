@@ -336,7 +336,7 @@ WriteBackupBuf__10CGameStateFv:
 /* 801D3BEC 001D0B4C  48 16 B7 51 */	bl __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi
 /* 801D3BF0 001D0B50  7F E3 FB 78 */	mr r3, r31
 /* 801D3BF4 001D0B54  38 81 00 08 */	addi r4, r1, 8
-/* 801D3BF8 001D0B58  48 00 04 91 */	bl PutTo__10CGameStateFR16CMemoryStreamOut
+/* 801D3BF8 001D0B58  48 00 04 91 */	bl PutTo__10CGameStateCFR13COutputStream
 /* 801D3BFC 001D0B5C  38 61 00 08 */	addi r3, r1, 8
 /* 801D3C00 001D0B60  38 80 FF FF */	li r4, -1
 /* 801D3C04 001D0B64  48 16 B6 BD */	bl __dt__16CMemoryStreamOutFv
@@ -679,8 +679,8 @@ ReadSystemOptions__10CGameStateFR12CInputStream:
 /* 801D4080 001D0FE0  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 801D4084 001D0FE4  4E 80 00 20 */	blr
 
-.global PutTo__10CGameStateFR16CMemoryStreamOut
-PutTo__10CGameStateFR16CMemoryStreamOut:
+.global PutTo__10CGameStateCFR13COutputStream
+PutTo__10CGameStateCFR13COutputStream:
 /* 801D4088 001D0FE8  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801D408C 001D0FEC  7C 08 02 A6 */	mflr r0
 /* 801D4090 001D0FF0  90 01 00 54 */	stw r0, 0x54(r1)

@@ -44,7 +44,7 @@ struct SSaveHeader {
   explicit SSaveHeader(int);
   explicit SSaveHeader(CMemoryInStream& in);
 
-  void DoPut(CMemoryStreamOut& out) const;
+  void PutTo(COutputStream& out) const;
 };
 
 struct SGameFileSlot {
@@ -56,7 +56,7 @@ struct SGameFileSlot {
 
   void InitializeFromGameState();
   void LoadGameState(int idx);
-  void DoPut(CMemoryStreamOut& w) const;
+  void PutTo(COutputStream& w) const;
 };
 CHECK_SIZEOF(SGameFileSlot, 0x3d8)
 

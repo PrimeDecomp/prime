@@ -4,10 +4,9 @@
 #include "types.h"
 
 class COutputStream;
+
 template < typename T >
-void coutput_stream_helper(const T& t, COutputStream& out) {
-  t.PutTo(out);
-}
+void coutput_stream_helper(const T& t, COutputStream& out);
 
 class COutputStream {
   void DoPut(const void* ptr, size_t len);
@@ -56,6 +55,11 @@ private:
   uint mShiftRegisterOffset;
   uchar mScratch[96];
 };
+
+template < typename T >
+inline void coutput_stream_helper(const T& t, COutputStream& out) {
+  t.PutTo(out);
+}
 
 template <>
 inline void coutput_stream_helper(const float& t, COutputStream& out) {
