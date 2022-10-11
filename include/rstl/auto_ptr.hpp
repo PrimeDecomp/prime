@@ -21,7 +21,6 @@ public:
   auto_ptr(const auto_ptr& other) : x0_has(other.x0_has), x4_item(other.x4_item) {
     other.x0_has = false;
   }
-  // TODO check
   auto_ptr& operator=(const auto_ptr& other) {
     if (&other != this) {
       if (x0_has) {

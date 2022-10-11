@@ -60,7 +60,7 @@ CGameAllocator::~CGameAllocator() {
   }
 }
 
-bool CGameAllocator::Initialize(COsContext& ctx) {}
+bool CGameAllocator::Initialize(COsContext& ctx) { return false; }
 
 void CGameAllocator::Shutdown() {
   ReleaseAll();
@@ -174,7 +174,7 @@ void* CGameAllocator::Alloc(size_t size, EHint hint, EScope scope, EType type,
   return ++info;
 }
 
-CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint) {}
+CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint) { return nullptr; }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlockFromTopOfHeap(uint size) {
   SGameMemInfo* iter = x10_last;
@@ -192,7 +192,7 @@ CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlockFromTopOfHeap(uint si
   return ret;
 }
 
-uint CGameAllocator::FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&) {}
+uint CGameAllocator::FixupAllocPtrs(SGameMemInfo*, uint, uint, EHint, const CCallStack&) { return 0; }
 
 void CGameAllocator::UpdateAllocDebugStats(uint len, uint roundedLen, uint offset) {
   ++x84_;
@@ -266,7 +266,7 @@ void CGameAllocator::ReleaseAll() {
 
 void* CGameAllocator::AllocSecondary(size_t size, EHint hint, EScope scope, EType type,
                                      const CCallStack& callstack) {
-  Alloc(size, hint, scope, type, callstack);
+  return Alloc(size, hint, scope, type, callstack);
 };
 
 bool CGameAllocator::FreeSecondary(const void* ptr) { return Free(ptr); };

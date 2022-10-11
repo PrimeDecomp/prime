@@ -7,7 +7,7 @@ COBBox::COBBox(const CTransform4f& xf, const CVector3f& extents)
 
 COBBox::COBBox(CInputStream& in) : mTransform(in), mExtents(in) {}
 
-CAABox COBBox::CalculateAABox(const CTransform4f& xf) const {}
+CAABox COBBox::CalculateAABox(const CTransform4f& xf) const { return CAABox(CVector3f::Zero(), CVector3f::Zero()); }
 
 COBBox COBBox::FromAABox(const CAABox& box, const CTransform4f& xf) {
   CVector3f center = box.GetCenterPoint();
@@ -16,7 +16,7 @@ COBBox COBBox::FromAABox(const CAABox& box, const CTransform4f& xf) {
   return COBBox(final, extents);
 }
 
-bool COBBox::LineIntersectsBox(const CMRay& ray, float& penetration) const {}
+bool COBBox::LineIntersectsBox(const CMRay& ray, float& penetration) const { return false; }
 
 bool COBBox::AABoxIntersectsBox(const CAABox& box) const {
   return OBBIntersectsBox(FromAABox(box, CTransform4f::Identity()));
