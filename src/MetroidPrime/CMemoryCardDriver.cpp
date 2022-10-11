@@ -22,7 +22,7 @@ bool CMemoryCardDriver::IsCardWriting(EState v) {
   return true;
 }
 
-CMemoryCardDriver::CMemoryCardDriver(EMemoryCardPort cardPort, CAssetId saveBanner,
+CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, CAssetId saveBanner,
                                      CAssetId saveIcon0, CAssetId saveIcon1, bool importPersistent)
 : x0_cardPort(cardPort)
 , x4_saveBanner(saveBanner)
@@ -42,10 +42,12 @@ CMemoryCardDriver::CMemoryCardDriver(EMemoryCardPort cardPort, CAssetId saveBann
 , x19c_(false)
 , x19d_importPersistent(importPersistent) {
   lbl_805A9118 = true;
+
   x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
-      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime A"))));
+      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[0]))));
+
   x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
-      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l("MetroidPrime B"))));
+      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[1]))));
 }
 
 void CMemoryCardDriver::ClearFileInfo() { x198_fileInfo = nullptr; }
@@ -578,7 +580,7 @@ void CMemoryCardDriver::StartFileCreate() {
   }
 
   x194_fileIdx = 0;
-  x198_fileInfo = new CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  x198_fileInfo = new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -611,7 +613,7 @@ void CMemoryCardDriver::StartFileCreateTransactional() {
   }
 
   x194_fileIdx = altFileIdx;
-  x198_fileInfo = new CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  x198_fileInfo = new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -645,7 +647,7 @@ void CMemoryCardDriver::StartCardFormat() {
 }
 
 void CMemoryCardDriver::InitializeFileInfo() {
-  CCardFileInfo& fileInfo = *x198_fileInfo;
+  CMemoryCardSys::CCardFileInfo& fileInfo = *x198_fileInfo;
   ExportPersistentOptions();
 
   const char nameConstant[33] = "Metroid Prime                   ";
