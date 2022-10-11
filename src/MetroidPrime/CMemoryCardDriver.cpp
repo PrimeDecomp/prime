@@ -343,7 +343,15 @@ void CMemoryCardDriver::WriteBackupBuf() {
   gpGameState->SetCardSerial(x28_cardSerial);
 }
 
-void CMemoryCardDriver::UpdateFileAltDeleteTransactional(ECardResult) {}
+void CMemoryCardDriver::UpdateFileAltDeleteTransactional(ECardResult result) {
+  if (result == kCR_READY) {
+    x10_state = kS_FileAltDeleteTransactionalDone;
+    if (GetCardFreeBytes())
+      StartFileRenameBtoA();
+  } else {
+    HandleCardError(result, kS_FileAltDeleteTransactionalFailed);
+  }
+}
 
 void CMemoryCardDriver::UpdateCardFormat(ECardResult) {}
 
