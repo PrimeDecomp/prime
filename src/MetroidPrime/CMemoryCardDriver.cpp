@@ -706,7 +706,9 @@ void CMemoryCardDriver::ReadFinished() {
   }
 }
 
-void CMemoryCardDriver::EraseFileSlot(int) {}
+void CMemoryCardDriver::EraseFileSlot(int saveIdx) {
+  xe4_fileSlots[saveIdx] = nullptr;
+}
 
 void CMemoryCardDriver::BuildNewFileSlot(int) {}
 
