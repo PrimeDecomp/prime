@@ -662,7 +662,7 @@ void CMemoryCardDriver::InitializeFileInfo() {
 
   CMemoryStreamOut w = x198_fileInfo->BeginMemoryOut(3004);
 
-  SSaveHeader header;
+  SSaveHeader header(0);
   for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
     header.x4_savePresent[i] = !xe4_fileSlots[i].null();
   }
@@ -757,7 +757,7 @@ void CMemoryCardDriver::ExportPersistentOptions() {
   opts.PutTo(w);
 }
 
-// SSaveHeader::SSaveHeader(int)
+SSaveHeader::SSaveHeader(int i) : x0_version(i) {}
 
 SSaveHeader::SSaveHeader(CMemoryInStream& in) {
   x0_version = in.ReadLong();
@@ -773,9 +773,12 @@ void SSaveHeader::DoPut(CMemoryStreamOut& out) const {
   }
 }
 
-SGameFileSlot::SGameFileSlot() {}
+SGameFileSlot::SGameFileSlot() : x0_saveBuffer('\x00') { InitializeFromGameState(); }
 
-SGameFileSlot::SGameFileSlot(CMemoryInStream& in) {}
+SGameFileSlot::SGameFileSlot(CMemoryInStream& in) : x0_saveBuffer('\x00') {
+  in.Get(x0_saveBuffer.data(), x0_saveBuffer.capacity());
+  x944_fileInfo = gpGameState->LoadGameFileState(x0_saveBuffer.data());
+}
 
 void SGameFileSlot::DoPut(CMemoryStreamOut& w) const {
   w.Put(x0_saveBuffer.data(), x0_saveBuffer.capacity());
