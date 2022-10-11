@@ -745,7 +745,7 @@ MSL_PPCEABI_BARE_H :=\
 	$(BUILD_DIR)/src/Runtime/rand.o\
 	$(BUILD_DIR)/asm/Runtime/sscanf.o\
 	$(BUILD_DIR)/asm/Runtime/string.o\
-	$(BUILD_DIR)/asm/Runtime/float.o\
+	$(BUILD_DIR)/src/Runtime/float.o\
 	$(BUILD_DIR)/asm/Runtime/strtold.o\
 	$(BUILD_DIR)/src/Runtime/uart_console_io.o\
 	$(BUILD_DIR)/src/Runtime/wchar_io.o

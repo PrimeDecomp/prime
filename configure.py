@@ -870,7 +870,7 @@ LIBS = [
             ["Runtime/rand", True],
             "Runtime/sscanf",
             "Runtime/string",
-            "Runtime/float",
+            ["Runtime/float", True],
             "Runtime/strtold",
             ["Runtime/uart_console_io", True],
             ["Runtime/wchar_io", True],
