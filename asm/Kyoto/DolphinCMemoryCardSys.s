@@ -1129,8 +1129,8 @@ GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi:
 /* 8034E340 0034B2A0  38 21 00 20 */	addi r1, r1, 0x20
 /* 8034E344 0034B2A4  4E 80 00 20 */	blr
 
-.global FormatCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
-FormatCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort:
+.global FormatCard__14CMemoryCardSysF15EMemoryCardPort
+FormatCard__14CMemoryCardSysF15EMemoryCardPort:
 /* 8034E348 0034B2A8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034E34C 0034B2AC  7C 08 02 A6 */	mflr r0
 /* 8034E350 0034B2B0  38 80 00 00 */	li r4, 0
