@@ -3085,7 +3085,7 @@ lbl_8011FD44:
 __ct__11CGrappleArmFRC9CVector3f:
 /* 8011FD60 0011CCC0  94 21 FE C0 */	stwu r1, -0x140(r1)
 /* 8011FD64 0011CCC4  7C 08 02 A6 */	mflr r0
-/* 8011FD68 0011CCC8  80 C2 83 F0 */	lwz r6, lbl_805AA110@sda21(r2)
+/* 8011FD68 0011CCC8  80 C2 83 F0 */	lwz r6, kDefaultCharIdx__8CAnimRes@sda21(r2)
 /* 8011FD6C 0011CCCC  90 01 01 44 */	stw r0, 0x144(r1)
 /* 8011FD70 0011CCD0  38 00 00 29 */	li r0, 0x29
 /* 8011FD74 0011CCD4  93 E1 01 3C */	stw r31, 0x13c(r1)

@@ -9,6 +9,7 @@ class CModelFlags {
 public:
   enum ETrans {
     kT_Opaque = 0,
+    kT_One = 1, // ?
     kT_Two = 2, // ?
     kT_Blend = 5,
     kT_Additive = 7,
@@ -90,7 +91,7 @@ public:
 
   static CModelFlags Normal() { return CModelFlags(kT_Opaque, 1.f); }
   static CModelFlags AlphaBlended(float alpha) { return CModelFlags(kT_Blend, alpha); }
-  static CModelFlags AlphaBlended(const CColor& color);
+  static CModelFlags AlphaBlended(const CColor& color) { return CModelFlags(kT_Blend, color); }
   static CModelFlags Additive(float f);
   static CModelFlags Additive(const CColor& color);
   static CModelFlags AdditiveRGB(const CColor& color);

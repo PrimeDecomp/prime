@@ -26,6 +26,9 @@ public:
   , x8_scale(scale)
   , x14_canLoop(loop)
   , x18_defaultAnim(defaultAnim) {}
+
+  // name?
+  static int kDefaultCharIdx;
 };
 CHECK_SIZEOF(CAnimRes, 0x1c)
 

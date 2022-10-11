@@ -2578,8 +2578,8 @@ lbl_80284138:
 /* 8028415C 002810BC  EC 3D 07 7A */	fmadds f1, f29, f29, f0
 /* 80284160 002810C0  48 09 13 A1 */	bl SqrtF__5CMathFf
 /* 80284164 002810C4  EC 21 F0 24 */	fdivs f1, f1, f30
-/* 80284168 002810C8  C0 0D 87 C4 */	lfs f0, lbl_805A7384@sda21(r13)
-/* 8028416C 002810CC  C0 4D 87 C8 */	lfs f2, lbl_805A7388@sda21(r13)
+/* 80284168 002810C8  C0 0D 87 C4 */	lfs f0, kOrbitBobScale__16CPlayerCameraBob@sda21(r13)
+/* 8028416C 002810CC  C0 4D 87 C8 */	lfs f2, kMaxOrbitBobScale__16CPlayerCameraBob@sda21(r13)
 /* 80284170 002810D0  D0 41 00 08 */	stfs f2, 8(r1)
 /* 80284174 002810D4  EC 01 00 32 */	fmuls f0, f1, f0
 /* 80284178 002810D8  D0 21 00 0C */	stfs f1, 0xc(r1)
@@ -2694,7 +2694,7 @@ lbl_802842CC:
 /* 802842FC 0028125C  80 7D 07 6C */	lwz r3, 0x76c(r29)
 /* 80284300 00281260  C0 21 00 0C */	lfs f1, 0xc(r1)
 /* 80284304 00281264  4B E6 5B 49 */	bl SetBobMagnitude__16CPlayerCameraBobFf
-/* 80284308 00281268  C0 4D 87 CC */	lfs f2, lbl_805A738C@sda21(r13)
+/* 80284308 00281268  C0 4D 87 CC */	lfs f2, kSlowSpeedPeriodScale__16CPlayerCameraBob@sda21(r13)
 /* 8028430C 0028126C  C0 22 BD 80 */	lfs f1, lbl_805ADAA0@sda21(r2)
 /* 80284310 00281270  C0 01 00 0C */	lfs f0, 0xc(r1)
 /* 80284314 00281274  EC 21 10 28 */	fsubs f1, f1, f2

@@ -29,7 +29,7 @@ public:
     kCBS_Unspecified,
   };
 
-  CPlayerCameraBob(ECameraBobType type, const CVector2f& vec, float bobPeriod);
+  CPlayerCameraBob(ECameraBobType type, float bobPeriod, const CVector2f& vec);
 
   CTransform4f GetViewWanderTransform() const;
   CVector3f GetHelmetBobTranslation() const;
@@ -51,7 +51,7 @@ public:
   CTransform4f CalculateCameraBobTransformation() const;
   static void ReadTweaks(CInputStream& in);
 
-  static CVector2f GetCameraBobExtent() { return CVector2f(kCameraBobExtentX, kCameraBobExtentY); }
+  static const CVector2f& GetCameraBobExtent() { return CVector2f(kCameraBobExtentX, kCameraBobExtentY); }
   static float GetCameraBobPeriod() { return kCameraBobPeriod; }
   static float GetOrbitBobScale() { return kOrbitBobScale; }
   static float GetMaxOrbitBobScale() { return kMaxOrbitBobScale; }

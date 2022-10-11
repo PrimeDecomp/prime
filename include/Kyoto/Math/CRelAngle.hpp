@@ -33,17 +33,6 @@ public:
   static CRelAngle FromDegrees(float deg) { return CRelAngle(deg * (M_PIF / 180.f)); }
   static CRelAngle FromRadians(float rad) { return CRelAngle(rad); }
 
-  // Relative
-
-  static float MakeRelativeAngle(float angle) {
-    float ret = angle - ((float)(int)(angle * (1.f / (2.f * M_PIF)))) * (2.f * M_PIF);
-    if (ret < 0.f)
-      ret += 2.f * M_PIF;
-    return ret;
-  }
-
-  CRelAngle AsRelative() const { return CRelAngle(MakeRelativeAngle(x0_angle)); }
-
 private:
   CRelAngle(float rad) : x0_angle(rad) {}
 

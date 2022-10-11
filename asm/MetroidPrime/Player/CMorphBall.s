@@ -3021,7 +3021,7 @@ lbl_800EF6B4:
 /* 800EF6DC 000EC63C  80 C1 00 0C */	lwz r6, 0xc(r1)
 /* 800EF6E0 000EC640  38 81 00 20 */	addi r4, r1, 0x20
 /* 800EF6E4 000EC644  EC 00 07 F2 */	fmuls f0, f0, f31
-/* 800EF6E8 000EC648  80 A2 83 F0 */	lwz r5, lbl_805AA110@sda21(r2)
+/* 800EF6E8 000EC648  80 A2 83 F0 */	lwz r5, kDefaultCharIdx__8CAnimRes@sda21(r2)
 /* 800EF6EC 000EC64C  90 C1 00 20 */	stw r6, 0x20(r1)
 /* 800EF6F0 000EC650  90 A1 00 24 */	stw r5, 0x24(r1)
 /* 800EF6F4 000EC654  D0 01 00 28 */	stfs f0, 0x28(r1)

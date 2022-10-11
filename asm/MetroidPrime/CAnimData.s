@@ -146,8 +146,8 @@ lbl_805AA10C:
 
 # TODO: this appears to be a constant for CAnimRes::x4_charIdx
 # could be ODR'd here, or actually live in CCharacterFactory/CAssetFactory
-.global lbl_805AA110
-lbl_805AA110:
+.global kDefaultCharIdx__8CAnimRes
+kDefaultCharIdx__8CAnimRes:
 	# ROM: 0x3F69B0
 	.4byte 0
 	.4byte 0
