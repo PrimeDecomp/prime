@@ -1345,7 +1345,7 @@ StartCardFormat__17CMemoryCardDriverFv:
 /* 8024D3FC 0024A35C  38 00 00 25 */	li r0, 0x25
 /* 8024D400 0024A360  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8024D404 0024A364  80 63 00 00 */	lwz r3, 0(r3)
-/* 8024D408 0024A368  48 10 0F 41 */	bl FormatCard__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPort
+/* 8024D408 0024A368  48 10 0F 41 */	bl FormatCard__14CMemoryCardSysF15EMemoryCardPort
 /* 8024D40C 0024A36C  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024D410 0024A370  41 82 00 0C */	beq lbl_8024D41C
 /* 8024D414 0024A374  7F E3 FB 78 */	mr r3, r31

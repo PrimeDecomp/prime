@@ -630,7 +630,13 @@ void CMemoryCardDriver::StartFileDeleteAltTransactional() {
     UpdateFileAltDeleteTransactional(result);
 }
 
-void CMemoryCardDriver::StartCardFormat() {}
+void CMemoryCardDriver::StartCardFormat() {
+  x14_error = kE_OK;
+  x10_state = kS_CardFormat;
+  ECardResult result = CMemoryCardSys::FormatCard(x0_cardPort);
+  if (result != kCR_READY)
+    UpdateCardFormat(result);
+}
 
 void CMemoryCardDriver::InitializeFileInfo() {}
 
