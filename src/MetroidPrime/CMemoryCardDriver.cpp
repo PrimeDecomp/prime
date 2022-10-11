@@ -443,7 +443,78 @@ void CMemoryCardDriver::NoCardFound() {
   gpMain->SetCardBusy(false);
 }
 
-void CMemoryCardDriver::IndexFiles() {}
+void CMemoryCardDriver::IndexFiles() {
+  x14_error = kE_OK;
+  for (int i = 0; i < x100_mcFileInfos.capacity(); ++i) {
+    rstl::pair< EFileState, SMemoryCardFileInfo >& info = x100_mcFileInfos[i];
+    if (info.first == kFS_Unknown) {
+      ECardResult result = info.second.Open();
+      if (result == kCR_NOFILE) {
+        info.first = kFS_NoFile;
+        continue;
+      } else if (result == kCR_READY) {
+        CardStat stat;
+        if (CMemoryCardSys::GetStatus(x0_cardPort, info.second.GetFileNo(), stat) ==
+            kCR_READY) {
+          int comment = stat.GetCommentAddr();
+          if (comment == -1)
+            info.first = kFS_BadFile;
+          else
+            info.first = kFS_File;
+        } else {
+          NoCardFound();
+          return;
+        }
+        if (info.second.Close() == kCR_NOCARD) {
+          NoCardFound();
+          return;
+        }
+      } else {
+        NoCardFound();
+        return;
+      }
+    }
+  }
+
+  if (x100_mcFileInfos[0].first == kFS_File) {
+    if (x100_mcFileInfos[1].first == kFS_File) {
+      CardStat stat;
+      if (CMemoryCardSys::GetStatus(x0_cardPort, x100_mcFileInfos[0].second.GetFileNo(), stat) == kCR_READY) {
+        u32 timeA = stat.GetTime();
+        if (CMemoryCardSys::GetStatus(x0_cardPort, x100_mcFileInfos[1].second.GetFileNo(), stat) == kCR_READY) {
+          u32 timeB = stat.GetTime();
+          if (timeA > timeB)
+            x194_fileIdx = 0;
+          else
+            x194_fileIdx = 1;
+          StartFileRead();
+          return;
+        }
+        NoCardFound();
+        return;
+      }
+      NoCardFound();
+      return;
+    }
+    x194_fileIdx = 0;
+    StartFileRead();
+    return;
+  }
+
+  if (x100_mcFileInfos[1].first == kFS_File) {
+    x194_fileIdx = 1;
+    StartFileRead();
+    return;
+  }
+
+  if (x100_mcFileInfos[0].first == kFS_BadFile || x100_mcFileInfos[1].first == kFS_BadFile) {
+    x14_error = kE_FileCorrupted;
+    x10_state = kS_FileBad;
+  } else {
+    x14_error = kE_FileMissing;
+    x10_state = kS_FileBad;
+  }
+}
 
 void CMemoryCardDriver::StartFileDeleteBad() {}
 

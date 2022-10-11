@@ -2,6 +2,7 @@
 #define _CMEMORYCARDSYS
 
 #include "types.h"
+#include "string.h"
 
 // TODO: likely comes from dolphin sdk
 enum ECardResult { 
@@ -30,6 +31,18 @@ struct ProbeResults {
   int x8_sectorSize; /* in bytes */
 };
 
+struct CardStat {
+  u8 x0_pad[0x6c];
+
+  CardStat()
+  {
+    memset(this, 0, sizeof(CardStat));
+  }
+
+  int GetTime() const;
+  int GetCommentAddr() const;
+};
+
 class CMemoryCardSys {
 public:
   enum EMemoryCardPort { kCS_SlotA, kCS_SlotB };
@@ -38,7 +51,7 @@ public:
     EMemoryCardPort slot;
     FileHandle handle;
     CardFileHandle(EMemoryCardPort slot) : slot(slot) {}
-    int getFileNo() const;
+    int GetFileNo() const;
   };
 
   class CCardFileInfo {
@@ -57,6 +70,7 @@ public:
   static ECardResult GetResultCode(int);
   static ECardResult MountCard(EMemoryCardPort port);
   static ECardResult CheckCard(EMemoryCardPort port);
+  static ECardResult GetStatus(EMemoryCardPort port, int fileNo, CardStat& statOut);
 
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);
   static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);
