@@ -646,8 +646,8 @@ lbl_801D3FC0:
 /* 801D4014 001D0F74  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D4018 001D0F78  4E 80 00 20 */	blr
 
-.global sub_801d401c
-sub_801d401c:
+.global WriteSystemOptions__10CGameStateFR13COutputStream
+WriteSystemOptions__10CGameStateFR13COutputStream:
 /* 801D401C 001D0F7C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D4020 001D0F80  7C 08 02 A6 */	mflr r0
 /* 801D4024 001D0F84  38 63 00 A8 */	addi r3, r3, 0xa8

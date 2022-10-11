@@ -664,7 +664,7 @@ lbl_8024CA74:
 /* 8024CA88 002499E8  48 0F 28 B5 */	bl __ct__16CMemoryStreamOutFPvUlQ216CMemoryStreamOut10EOwnerShipi
 /* 8024CA8C 002499EC  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8024CA90 002499F0  38 81 00 10 */	addi r4, r1, 0x10
-/* 8024CA94 002499F4  4B F8 75 89 */	bl sub_801d401c
+/* 8024CA94 002499F4  4B F8 75 89 */	bl WriteSystemOptions__10CGameStateFR13COutputStream
 /* 8024CA98 002499F8  38 61 00 10 */	addi r3, r1, 0x10
 /* 8024CA9C 002499FC  38 80 FF FF */	li r4, -1
 /* 8024CAA0 00249A00  48 0F 28 21 */	bl __dt__16CMemoryStreamOutFv

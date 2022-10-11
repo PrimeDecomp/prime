@@ -728,7 +728,18 @@ void CMemoryCardDriver::BuildNewFileSlot(int saveIdx) {
   gpGameState->SystemOptions().SetHasFusion(fusionBackup);
 }
 
-void CMemoryCardDriver::BuildExistingFileSlot(int) {}
+void CMemoryCardDriver::BuildExistingFileSlot(int saveIdx) {
+  gpGameState->SetFileIdx(saveIdx);
+
+  rstl::auto_ptr< SGameFileSlot >& slot = xe4_fileSlots[saveIdx];
+  if (slot.null())
+    slot = new SGameFileSlot();
+  else
+    slot->InitializeFromGameState();
+
+  CMemoryStreamOut w(x30_systemData.data(), x30_systemData.capacity());
+  gpGameState->WriteSystemOptions(w);
+}
 
 void CMemoryCardDriver::ImportPersistentOptions() {}
 
