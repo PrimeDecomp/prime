@@ -12,6 +12,8 @@
 class CSystemOptions {
 public:
   CSystemOptions();
+  explicit CSystemOptions(CInputStream&);
+  ~CSystemOptions();
 
   void SetHasFusion(bool v);
   bool GetHasFusion() const { return xd0_28_fusionSuitActive; }

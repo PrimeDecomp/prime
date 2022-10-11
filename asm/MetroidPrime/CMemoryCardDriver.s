@@ -480,7 +480,7 @@ ExportPersistentOptions__17CMemoryCardDriverFv:
 /* 8024C7FC 0024975C  48 0F 29 D1 */	bl __ct__15CMemoryInStreamFPCvUl
 /* 8024C800 00249760  38 61 00 B8 */	addi r3, r1, 0xb8
 /* 8024C804 00249764  38 81 00 08 */	addi r4, r1, 8
-/* 8024C808 00249768  4B F8 91 61 */	bl __ct__14CSystemOptionsFRC12CInputStream
+/* 8024C808 00249768  4B F8 91 61 */	bl __ct__14CSystemOptionsFR12CInputStream
 /* 8024C80C 0024976C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8024C810 00249770  38 81 00 B8 */	addi r4, r1, 0xb8
 /* 8024C814 00249774  4B F8 74 F5 */	bl ExportPersistentOptions__10CGameStateFRC14CSystemOptions
@@ -523,7 +523,7 @@ ImportPersistentOptions__17CMemoryCardDriverFv:
 /* 8024C89C 002497FC  48 0F 29 31 */	bl __ct__15CMemoryInStreamFPCvUl
 /* 8024C8A0 00249800  38 61 00 2C */	addi r3, r1, 0x2c
 /* 8024C8A4 00249804  38 81 00 08 */	addi r4, r1, 8
-/* 8024C8A8 00249808  4B F8 90 C1 */	bl __ct__14CSystemOptionsFRC12CInputStream
+/* 8024C8A8 00249808  4B F8 90 C1 */	bl __ct__14CSystemOptionsFR12CInputStream
 /* 8024C8AC 0024980C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8024C8B0 00249810  38 81 00 2C */	addi r4, r1, 0x2c
 /* 8024C8B4 00249814  4B F8 76 19 */	bl ImportPersistentOptions__10CGameStateFRC14CSystemOptions

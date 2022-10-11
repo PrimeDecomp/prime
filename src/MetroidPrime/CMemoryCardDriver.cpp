@@ -741,7 +741,11 @@ void CMemoryCardDriver::BuildExistingFileSlot(int saveIdx) {
   gpGameState->WriteSystemOptions(w);
 }
 
-void CMemoryCardDriver::ImportPersistentOptions() {}
+void CMemoryCardDriver::ImportPersistentOptions() {
+  CMemoryInStream r(x30_systemData.data(), x30_systemData.capacity());
+  CSystemOptions opts(r);
+  gpGameState->ImportPersistentOptions(opts);
+}
 
 void CMemoryCardDriver::ExportPersistentOptions() {}
 

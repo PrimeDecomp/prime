@@ -29,6 +29,9 @@ public:
   CAssetId CurrentWorldAssetId();
   void WriteBackupBuf();
 
+  void ImportPersistentOptions(const CSystemOptions&);
+  void ExportPersistentOptions(CSystemOptions&);
+
   CSystemOptions& SystemOptions() { return xa8_systemOptions; }
   CGameOptions& GameOptions() { return x17c_gameOptions; }
   CHintOptions& HintOptions() { return x1f8_hintOptions; }

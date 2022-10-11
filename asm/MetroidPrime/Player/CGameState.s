@@ -666,7 +666,7 @@ ReadSystemOptions__10CGameStateFR12CInputStream:
 /* 801D404C 001D0FAC  93 E1 00 EC */	stw r31, 0xec(r1)
 /* 801D4050 001D0FB0  7C 7F 1B 78 */	mr r31, r3
 /* 801D4054 001D0FB4  38 61 00 08 */	addi r3, r1, 8
-/* 801D4058 001D0FB8  48 00 19 11 */	bl __ct__14CSystemOptionsFRC12CInputStream
+/* 801D4058 001D0FB8  48 00 19 11 */	bl __ct__14CSystemOptionsFR12CInputStream
 /* 801D405C 001D0FBC  38 7F 00 A8 */	addi r3, r31, 0xa8
 /* 801D4060 001D0FC0  38 81 00 08 */	addi r4, r1, 8
 /* 801D4064 001D0FC4  4B E2 F9 69 */	bl __as__14CSystemOptionsFRC14CSystemOptions
@@ -2501,8 +2501,8 @@ lbl_801D5954:
 /* 801D5960 001D28C0  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 801D5964 001D28C4  4E 80 00 20 */	blr
 
-.global __ct__14CSystemOptionsFRC12CInputStream
-__ct__14CSystemOptionsFRC12CInputStream:
+.global __ct__14CSystemOptionsFR12CInputStream
+__ct__14CSystemOptionsFR12CInputStream:
 /* 801D5968 001D28C8  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 801D596C 001D28CC  7C 08 02 A6 */	mflr r0
 /* 801D5970 001D28D0  90 01 00 A4 */	stw r0, 0xa4(r1)
