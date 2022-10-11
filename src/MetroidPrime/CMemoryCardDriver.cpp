@@ -353,7 +353,16 @@ void CMemoryCardDriver::UpdateFileAltDeleteTransactional(ECardResult result) {
   }
 }
 
-void CMemoryCardDriver::UpdateCardFormat(ECardResult) {}
+void CMemoryCardDriver::UpdateCardFormat(ECardResult result) {
+  if (result == kCR_READY)
+    x10_state = kS_CardFormatted;
+  else if (result == kCR_BROKEN) {
+    x10_state = kS_CardFormatFailed;
+    x14_error = kE_CardIOError;
+  } else {
+    HandleCardError(result, kS_CardFormatFailed);
+  }
+}
 
 void CMemoryCardDriver::StartCardProbe() {}
 
