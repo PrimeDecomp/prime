@@ -203,8 +203,8 @@ DoPut__13SGameFileSlotCFR16CMemoryStreamOut:
 /* 8024C454 002493B4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8024C458 002493B8  4E 80 00 20 */	blr
 
-.global LoadFile
-LoadFile:
+.global __ct__13SGameFileSlotFR15CMemoryInStream
+__ct__13SGameFileSlotFR15CMemoryInStream:
 /* 8024C45C 002493BC  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8024C460 002493C0  7C 08 02 A6 */	mflr r0
 /* 8024C464 002493C4  90 01 00 44 */	stw r0, 0x44(r1)
@@ -431,8 +431,8 @@ lbl_8024C710:
 /* 8024C760 002496C0  38 21 00 20 */	addi r1, r1, 0x20
 /* 8024C764 002496C4  4E 80 00 20 */	blr
 
-.global LoadSaveHeader
-LoadSaveHeader:
+.global __ct__11SSaveHeaderFR15CMemoryInStream
+__ct__11SSaveHeaderFR15CMemoryInStream:
 /* 8024C768 002496C8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8024C76C 002496CC  7C 08 02 A6 */	mflr r0
 /* 8024C770 002496D0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -948,7 +948,7 @@ ReadFinished__17CMemoryCardDriverFv:
 /* 8024CE68 00249DC8  7C 64 1B 78 */	mr r4, r3
 /* 8024CE6C 00249DCC  80 7C 00 00 */	lwz r3, 0(r28)
 /* 8024CE70 00249DD0  38 A1 00 44 */	addi r5, r1, 0x44
-/* 8024CE74 00249DD4  48 10 09 BD */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8024CE74 00249DD4  48 10 09 BD */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8024CE78 00249DD8  2C 03 00 00 */	cmpwi r3, 0
 /* 8024CE7C 00249DDC  41 82 00 10 */	beq lbl_8024CE8C
 /* 8024CE80 00249DE0  7F 83 E3 78 */	mr r3, r28
@@ -964,7 +964,7 @@ lbl_8024CE8C:
 /* 8024CEA4 00249E04  48 0F 23 29 */	bl __ct__15CMemoryInStreamFPCvUl
 /* 8024CEA8 00249E08  38 61 00 18 */	addi r3, r1, 0x18
 /* 8024CEAC 00249E0C  38 81 00 20 */	addi r4, r1, 0x20
-/* 8024CEB0 00249E10  4B FF F8 B9 */	bl LoadSaveHeader
+/* 8024CEB0 00249E10  4B FF F8 B9 */	bl __ct__11SSaveHeaderFR15CMemoryInStream
 /* 8024CEB4 00249E14  38 61 00 20 */	addi r3, r1, 0x20
 /* 8024CEB8 00249E18  38 9C 00 34 */	addi r4, r28, 0x34
 /* 8024CEBC 00249E1C  38 A0 00 AE */	li r5, 0xae
@@ -985,7 +985,7 @@ lbl_8024CED0:
 /* 8024CEF4 00249E54  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024CEF8 00249E58  41 82 00 10 */	beq lbl_8024CF08
 /* 8024CEFC 00249E5C  38 81 00 20 */	addi r4, r1, 0x20
-/* 8024CF00 00249E60  4B FF F5 5D */	bl LoadFile
+/* 8024CF00 00249E60  4B FF F5 5D */	bl __ct__13SGameFileSlotFR15CMemoryInStream
 /* 8024CF04 00249E64  7C 64 1B 78 */	mr r4, r3
 lbl_8024CF08:
 /* 8024CF08 00249E68  7C 64 00 D0 */	neg r3, r4
@@ -1884,7 +1884,7 @@ lbl_8024DB30:
 /* 8024DB50 0024AAB0  7C 64 1B 78 */	mr r4, r3
 /* 8024DB54 0024AAB4  80 7F 00 00 */	lwz r3, 0(r31)
 /* 8024DB58 0024AAB8  38 A1 00 74 */	addi r5, r1, 0x74
-/* 8024DB5C 0024AABC  48 0F FC D5 */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8024DB5C 0024AABC  48 0F FC D5 */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8024DB60 0024AAC0  2C 03 00 00 */	cmpwi r3, 0
 /* 8024DB64 0024AAC4  40 82 00 2C */	bne lbl_8024DB90
 /* 8024DB68 0024AAC8  38 61 00 74 */	addi r3, r1, 0x74
@@ -1934,7 +1934,7 @@ lbl_8024DBC4:
 /* 8024DC04 0024AB64  7C 64 1B 78 */	mr r4, r3
 /* 8024DC08 0024AB68  80 7F 00 00 */	lwz r3, 0(r31)
 /* 8024DC0C 0024AB6C  38 A1 00 08 */	addi r5, r1, 8
-/* 8024DC10 0024AB70  48 0F FC 21 */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8024DC10 0024AB70  48 0F FC 21 */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8024DC14 0024AB74  2C 03 00 00 */	cmpwi r3, 0
 /* 8024DC18 0024AB78  40 82 00 6C */	bne lbl_8024DC84
 /* 8024DC1C 0024AB7C  38 61 00 08 */	addi r3, r1, 8
@@ -1945,7 +1945,7 @@ lbl_8024DBC4:
 /* 8024DC30 0024AB90  7C 64 1B 78 */	mr r4, r3
 /* 8024DC34 0024AB94  80 7F 00 00 */	lwz r3, 0(r31)
 /* 8024DC38 0024AB98  38 A1 00 08 */	addi r5, r1, 8
-/* 8024DC3C 0024AB9C  48 0F FB F5 */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8024DC3C 0024AB9C  48 0F FB F5 */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8024DC40 0024ABA0  2C 03 00 00 */	cmpwi r3, 0
 /* 8024DC44 0024ABA4  40 82 00 34 */	bne lbl_8024DC78
 /* 8024DC48 0024ABA8  38 61 00 08 */	addi r3, r1, 8

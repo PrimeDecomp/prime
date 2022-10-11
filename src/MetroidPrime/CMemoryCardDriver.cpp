@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CMain.hpp"
 
+#include "Kyoto/Streams/CMemoryInStream.hpp"
+
 #include "dolphin/os.h"
 #include "stdio.h"
 
@@ -652,7 +654,7 @@ void CMemoryCardDriver::InitializeFileInfo() {
 
   sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.x10_mon + 1, time.xc_mday,
           time.x14_year % 100, time.x8_hour, time.x4_min);
-  
+
   x198_fileInfo->SetComment(rstl::string_l("Metroid Prime                   ") + nameBuffer);
 
   x198_fileInfo->LockBannerToken(x4_saveBanner, *gpSimplePool);
@@ -676,7 +678,33 @@ void CMemoryCardDriver::InitializeFileInfo() {
   }
 }
 
-void CMemoryCardDriver::ReadFinished() {}
+void CMemoryCardDriver::ReadFinished() {
+  SMemoryCardFileInfo& fileInfo = x100_mcFileInfos[x194_fileIdx].second;
+  CardStat stat;
+  if (CMemoryCardSys::GetStatus(fileInfo.x0_fileInfo.slot, fileInfo.GetFileNo(), stat) !=
+      kCR_READY) {
+    NoCardFound();
+    return;
+  }
+
+  x20_fileTime = stat.GetTime();
+
+  CMemoryInStream r(fileInfo.x34_saveData.data(), 3004);
+  SSaveHeader header(r);
+  r.Get(x30_systemData.data(), x30_systemData.capacity());
+
+  for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
+    if (header.x4_savePresent[i]) {
+      xe4_fileSlots[i] = new SGameFileSlot(r);
+    } else {
+      xe4_fileSlots[i] = nullptr;
+    }
+  }
+
+  if (x19d_importPersistent) {
+    ImportPersistentOptions();
+  }
+}
 
 void CMemoryCardDriver::EraseFileSlot(int) {}
 
@@ -687,6 +715,32 @@ void CMemoryCardDriver::BuildExistingFileSlot(int) {}
 void CMemoryCardDriver::ImportPersistentOptions() {}
 
 void CMemoryCardDriver::ExportPersistentOptions() {}
+
+// SSaveHeader::SSaveHeader(int)
+
+SSaveHeader::SSaveHeader(CMemoryInStream& in) {
+  x0_version = in.ReadLong();
+  for (int i = 0; i < 3; ++i) {
+    x4_savePresent[i] = in.ReadBool();
+  }
+}
+
+void SSaveHeader::DoPut(CMemoryStreamOut& out) const {
+  out.WriteLong(x0_version);
+  for (int i = 0; i < 3; ++i) {
+    out.Put(x4_savePresent[i]);
+  }
+}
+
+SGameFileSlot::SGameFileSlot() {}
+
+SGameFileSlot::SGameFileSlot(CMemoryInStream& in) {}
+
+void SGameFileSlot::DoPut(CMemoryStreamOut& w) const { w.Put(x0_saveBuffer.data(), x0_saveBuffer.capacity()); }
+
+void SGameFileSlot::InitializeFromGameState() {}
+
+void SGameFileSlot::LoadGameState(int) {}
 
 const CGameState::GameFileStateInfo* CMemoryCardDriver::GetGameFileStateInfo(int) {
   return nullptr;
