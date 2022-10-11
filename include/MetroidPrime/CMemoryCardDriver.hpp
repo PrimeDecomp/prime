@@ -110,8 +110,8 @@ private:
   CAssetId xc_saveIcon1;
   EState x10_state;
   EError x14_error;
-  int x18_cardFreeBytes;
-  int x1c_cardFreeFiles;
+  uint x18_cardFreeBytes;
+  uint x1c_cardFreeFiles;
   uint x20_fileTime;
   long long x28_cardSerial;
   rstl::reserved_vector< u8, 174 > x30_systemData;

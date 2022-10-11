@@ -431,7 +431,12 @@ void CMemoryCardDriver::ClearError() {
   x14_error = kE_OK;
 }
 
-void CMemoryCardDriver::CheckCardCapacity() {}
+void CMemoryCardDriver::CheckCardCapacity() {
+  if (x18_cardFreeBytes >= 0x2000 && x1c_cardFreeFiles >= 1) {
+    return;
+  }
+  x14_error = kE_CardStillFull;
+}
 
 void CMemoryCardDriver::NoCardFound() {}
 
