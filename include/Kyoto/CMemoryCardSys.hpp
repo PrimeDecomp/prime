@@ -73,6 +73,7 @@ public:
   static ECardResult MountCard(EMemoryCardPort port);
   static ECardResult CheckCard(EMemoryCardPort port);
   static ECardResult GetStatus(EMemoryCardPort port, int fileNo, CardStat& statOut);
+  static ECardResult DeleteFile(EMemoryCardPort port, const rstl::string& name);
   static ECardResult FastDeleteFile(EMemoryCardPort port, int fileNo);
 
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);

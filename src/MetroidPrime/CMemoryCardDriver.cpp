@@ -621,7 +621,14 @@ void CMemoryCardDriver::StartFileWriteTransactional() {
     UpdateFileWriteTransactional(result);
 }
 
-void CMemoryCardDriver::StartFileDeleteAltTransactional() {}
+void CMemoryCardDriver::StartFileDeleteAltTransactional() {
+  x14_error = kE_OK;
+  x10_state = kS_FileAltDeleteTransactional;
+  int bidx = x194_fileIdx == 0 ? 1 : 0;
+  ECardResult result = CMemoryCardSys::DeleteFile(x0_cardPort, rstl::string_l(skSaveFileNames[bidx]));
+  if (result != kCR_READY)
+    UpdateFileAltDeleteTransactional(result);
+}
 
 void CMemoryCardDriver::StartCardFormat() {}
 
