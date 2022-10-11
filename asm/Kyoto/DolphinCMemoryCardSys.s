@@ -870,8 +870,8 @@ FastDeleteFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPorti:
 /* 8034DFA8 0034AF08  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034DFAC 0034AF0C  4E 80 00 20 */	blr
 
-.global DeleteFile__14CMemoryCardSysFiPCc
-DeleteFile__14CMemoryCardSysFiPCc:
+.global "DeleteFile__14CMemoryCardSysF15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"DeleteFile__14CMemoryCardSysF15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8034DFB0 0034AF10  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034DFB4 0034AF14  7C 08 02 A6 */	mflr r0
 /* 8034DFB8 0034AF18  38 A0 00 00 */	li r5, 0

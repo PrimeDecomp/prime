@@ -1378,7 +1378,7 @@ StartFileDeleteAltTransactional__17CMemoryCardDriverFv:
 /* 8024D470 0024A3D0  4B DB 78 49 */	bl string_l__4rstlFPCc
 /* 8024D474 0024A3D4  80 7E 00 00 */	lwz r3, 0(r30)
 /* 8024D478 0024A3D8  38 81 00 08 */	addi r4, r1, 8
-/* 8024D47C 0024A3DC  48 10 0B 35 */	bl DeleteFile__14CMemoryCardSysFiPCc
+/* 8024D47C 0024A3DC  48 10 0B 35 */	bl "DeleteFile__14CMemoryCardSysF15EMemoryCardPortRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
 /* 8024D480 0024A3E0  7C 60 1B 78 */	mr r0, r3
 /* 8024D484 0024A3E4  38 61 00 08 */	addi r3, r1, 8
 /* 8024D488 0024A3E8  7C 1F 03 78 */	mr r31, r0
