@@ -1408,7 +1408,7 @@ StartFileWriteTransactional__17CMemoryCardDriverFv:
 /* 8024D4D8 0024A438  38 00 00 22 */	li r0, 0x22
 /* 8024D4DC 0024A43C  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8024D4E0 0024A440  80 63 01 98 */	lwz r3, 0x198(r3)
-/* 8024D4E4 0024A444  48 10 09 61 */	bl Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl
+/* 8024D4E4 0024A444  48 10 09 61 */	bl WriteFile__13CCardFileInfoFv
 /* 8024D4E8 0024A448  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024D4EC 0024A44C  41 82 00 0C */	beq lbl_8024D4F8
 /* 8024D4F0 0024A450  7F E3 FB 78 */	mr r3, r31
@@ -1646,7 +1646,7 @@ StartFileWrite__17CMemoryCardDriverFv:
 /* 8024D80C 0024A76C  38 00 00 20 */	li r0, 0x20
 /* 8024D810 0024A770  90 03 00 10 */	stw r0, 0x10(r3)
 /* 8024D814 0024A774  80 63 01 98 */	lwz r3, 0x198(r3)
-/* 8024D818 0024A778  48 10 06 2D */	bl Write__14CMemoryCardSysFRQ214CMemoryCardSys13CCardFileInfoPCvUlUl
+/* 8024D818 0024A778  48 10 06 2D */	bl WriteFile__13CCardFileInfoFv
 /* 8024D81C 0024A77C  7C 64 1B 79 */	or. r4, r3, r3
 /* 8024D820 0024A780  41 82 00 0C */	beq lbl_8024D82C
 /* 8024D824 0024A784  7F E3 FB 78 */	mr r3, r31

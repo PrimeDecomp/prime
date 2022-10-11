@@ -53,6 +53,7 @@ public:
 
   ECardResult PumpCardTransfer();
   ECardResult CreateFile();
+  ECardResult WriteFile();
   ECardResult CloseFile();
 };
 
