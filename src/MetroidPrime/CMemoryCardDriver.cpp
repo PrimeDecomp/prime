@@ -364,7 +364,11 @@ void CMemoryCardDriver::UpdateCardFormat(ECardResult result) {
   }
 }
 
-void CMemoryCardDriver::StartCardProbe() {}
+void CMemoryCardDriver::StartCardProbe() {
+  x10_state = kS_CardProbe;
+  x14_error = kE_OK;
+  UpdateCardProbe();
+}
 
 void CMemoryCardDriver::UpdateCardProbe() {}
 
