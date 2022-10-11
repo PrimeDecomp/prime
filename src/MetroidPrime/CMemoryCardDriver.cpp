@@ -613,7 +613,13 @@ void CMemoryCardDriver::StartFileCreateTransactional() {
     UpdateFileCreateTransactional(result);
 }
 
-void CMemoryCardDriver::StartFileWriteTransactional() {}
+void CMemoryCardDriver::StartFileWriteTransactional() {
+  x14_error = kE_OK;
+  x10_state = kS_FileWriteTransactional;
+  ECardResult result = x198_fileInfo->WriteFile();
+  if (result != kCR_READY)
+    UpdateFileWriteTransactional(result);
+}
 
 void CMemoryCardDriver::StartFileDeleteAltTransactional() {}
 
