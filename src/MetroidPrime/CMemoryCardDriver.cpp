@@ -43,14 +43,16 @@ CMemoryCardDriver::CMemoryCardDriver(CMemoryCardSys::EMemoryCardPort cardPort, C
 , x19d_importPersistent(importPersistent) {
   lbl_805A9118 = true;
 
-  x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
-      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[0]))));
+  x100_mcFileInfos.push_back(
+      SFileInfo(kFS_Unknown, x0_cardPort, rstl::string_l(skSaveFileNames[0])));
 
-  x100_mcFileInfos.push_back(rstl::pair< EFileState, SMemoryCardFileInfo >(
-      kFS_Unknown, SMemoryCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[1]))));
+  x100_mcFileInfos.push_back(
+      SFileInfo(kFS_Unknown, x0_cardPort, rstl::string_l(skSaveFileNames[1])));
 }
 
 void CMemoryCardDriver::ClearFileInfo() { x198_fileInfo = nullptr; }
+
+CMemoryCardDriver::SFileInfo::~SFileInfo() {}
 
 CMemoryCardDriver::~CMemoryCardDriver() {
   CMemoryCardSys::UnmountCard(x0_cardPort);
@@ -451,7 +453,7 @@ void CMemoryCardDriver::NoCardFound() {
 void CMemoryCardDriver::IndexFiles() {
   x14_error = kE_OK;
   for (int i = 0; i < x100_mcFileInfos.capacity(); ++i) {
-    rstl::pair< EFileState, SMemoryCardFileInfo >& info = x100_mcFileInfos[i];
+    SFileInfo& info = x100_mcFileInfos[i];
     if (info.first == kFS_Unknown) {
       ECardResult result = info.second.Open();
       if (result == kCR_NOFILE) {
@@ -527,7 +529,7 @@ void CMemoryCardDriver::StartFileDeleteBad() {
   x10_state = kS_FileDeleteBad;
 
   for (int idx = 0; idx < x100_mcFileInfos.capacity(); ++idx) {
-    rstl::pair< EFileState, SMemoryCardFileInfo >& info = x100_mcFileInfos[idx];
+    SFileInfo& info = x100_mcFileInfos[idx];
     if (info.first == kFS_BadFile) {
       x194_fileIdx = idx;
       ECardResult result = CMemoryCardSys::FastDeleteFile(x0_cardPort, info.second.GetFileNo());
@@ -580,7 +582,8 @@ void CMemoryCardDriver::StartFileCreate() {
   }
 
   x194_fileIdx = 0;
-  x198_fileInfo = new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  x198_fileInfo =
+      new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)
@@ -613,7 +616,8 @@ void CMemoryCardDriver::StartFileCreateTransactional() {
   }
 
   x194_fileIdx = altFileIdx;
-  x198_fileInfo = new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
+  x198_fileInfo =
+      new CMemoryCardSys::CCardFileInfo(x0_cardPort, rstl::string_l(skSaveFileNames[x194_fileIdx]));
   InitializeFileInfo();
   ECardResult result = x198_fileInfo->CreateFile();
   if (result != kCR_READY)

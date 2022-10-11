@@ -1076,8 +1076,8 @@ lbl_8034E1C8:
 /* 8034E284 0034B1E4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034E288 0034B1E8  4E 80 00 20 */	blr
 
-.global __ct__19SMemoryCardFileInfoFiRCQ24rstl6string
-__ct__19SMemoryCardFileInfoFiRCQ24rstl6string:
+.global "__ct__19SMemoryCardFileInfoFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>"
+"__ct__19SMemoryCardFileInfoFiRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>":
 /* 8034E28C 0034B1EC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034E290 0034B1F0  7C 08 02 A6 */	mflr r0
 /* 8034E294 0034B1F4  90 01 00 14 */	stw r0, 0x14(r1)

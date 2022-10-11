@@ -17,8 +17,8 @@ struct SMemoryCardFileInfo {
   CMemoryCardSys::CardFileHandle x0_fileInfo;
 
   rstl::string x14_name;
-  rstl::vector< u8 > x24_saveFileData;
-  rstl::vector< u8 > x34_saveData;
+  rstl::vector< uchar > x24_saveFileData;
+  rstl::vector< char > x34_saveData;
 
   SMemoryCardFileInfo(int cardPort, const rstl::string& name);
   SMemoryCardFileInfo(const SMemoryCardFileInfo& other)
@@ -26,6 +26,7 @@ struct SMemoryCardFileInfo {
   , x14_name(other.x14_name)
   , x24_saveFileData(other.x24_saveFileData)
   , x34_saveData(other.x34_saveData) {}
+  ~SMemoryCardFileInfo() {}
 
   ECardResult Open();
   ECardResult Close();
@@ -117,6 +118,17 @@ public:
   };
   enum EFileState { kFS_Unknown, kFS_NoFile, kFS_File, kFS_BadFile };
 
+  struct SFileInfo {
+    EFileState first;
+    SMemoryCardFileInfo second;
+
+    SFileInfo(EFileState state, int cardPort, const rstl::string& name)
+    : first(state)
+    , second(cardPort, name)
+    {}
+    ~SFileInfo();
+  };
+
 private:
   CMemoryCardSys::EMemoryCardPort x0_cardPort;
   CAssetId x4_saveBanner;
@@ -130,7 +142,7 @@ private:
   long long x28_cardSerial;
   rstl::reserved_vector< u8, 174 > x30_systemData;
   rstl::reserved_vector< rstl::auto_ptr< SGameFileSlot >, 3 > xe4_fileSlots;
-  rstl::reserved_vector< rstl::pair< EFileState, SMemoryCardFileInfo >, 2 > x100_mcFileInfos;
+  rstl::reserved_vector< SFileInfo, 2 > x100_mcFileInfos;
   int x194_fileIdx;
   rstl::single_ptr< CMemoryCardSys::CCardFileInfo > x198_fileInfo;
   bool x19c_;
