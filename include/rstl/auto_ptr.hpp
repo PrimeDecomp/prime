@@ -23,8 +23,8 @@ public:
   }
   // TODO check
   auto_ptr& operator=(const auto_ptr& other) {
-    if (this != &other) {
-      if (x0_has != false) {
+    if (&other != this) {
+      if (x0_has) {
         delete x4_item;
       }
       x0_has = other.x0_has;
