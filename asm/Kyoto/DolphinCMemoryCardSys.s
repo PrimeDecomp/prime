@@ -970,8 +970,8 @@ lbl_8034E0F0:
 /* 8034E100 0034B060  38 21 00 30 */	addi r1, r1, 0x30
 /* 8034E104 0034B064  4E 80 00 20 */	blr
 
-.global LockBannerToken__13CCardFileInfoFiR11CSimplePool
-LockBannerToken__13CCardFileInfoFiR11CSimplePool:
+.global LockBannerToken__13CCardFileInfoFUiR11CSimplePool
+LockBannerToken__13CCardFileInfoFUiR11CSimplePool:
 /* 8034E108 0034B068  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8034E10C 0034B06C  7C 08 02 A6 */	mflr r0
 /* 8034E110 0034B070  90 01 00 34 */	stw r0, 0x34(r1)

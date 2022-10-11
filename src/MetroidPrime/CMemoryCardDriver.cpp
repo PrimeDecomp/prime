@@ -645,7 +645,10 @@ void CMemoryCardDriver::StartCardFormat() {
 }
 
 void CMemoryCardDriver::InitializeFileInfo() {
+  CCardFileInfo& fileInfo = *x198_fileInfo;
   ExportPersistentOptions();
+
+  const char nameConstant[33] = "Metroid Prime                   ";
 
   OSCalendarTime time;
   OSTicksToCalendarTime(OSGetTime(), &time);
@@ -655,12 +658,10 @@ void CMemoryCardDriver::InitializeFileInfo() {
   sprintf(nameBuffer, "%02d.%02d.%02d  %02d:%02d", time.x10_mon + 1, time.xc_mday,
           time.x14_year % 100, time.x8_hour, time.x4_min);
 
-  x198_fileInfo->SetComment(rstl::string_l("Metroid Prime                   ") + nameBuffer);
-
-  x198_fileInfo->LockBannerToken(x4_saveBanner, *gpSimplePool);
-  x198_fileInfo->LockIconToken(x8_saveIcon0, 2, *gpSimplePool);
-
-  CMemoryStreamOut w = x198_fileInfo->BeginMemoryOut(3004);
+  fileInfo.SetComment(rstl::string_l(nameConstant) + nameBuffer);
+  fileInfo.LockBannerToken(x4_saveBanner, *gpSimplePool);
+  fileInfo.LockIconToken(x8_saveIcon0, 2, *gpSimplePool);
+  CMemoryStreamOut w = fileInfo.BeginMemoryOut(3004);
 
   SSaveHeader header(0);
   for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
