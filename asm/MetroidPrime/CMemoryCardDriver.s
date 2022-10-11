@@ -80,7 +80,7 @@ GetCardFreeBytes__17CMemoryCardDriverFv:
 /* 8024C2A4 00249204  38 9F 00 18 */	addi r4, r31, 0x18
 /* 8024C2A8 00249208  80 63 00 00 */	lwz r3, 0(r3)
 /* 8024C2AC 0024920C  38 BF 00 1C */	addi r5, r31, 0x1c
-/* 8024C2B0 00249210  48 10 20 49 */	bl GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi
+/* 8024C2B0 00249210  48 10 20 49 */	bl GetNumFreeBytes__14CMemoryCardSysF15EMemoryCardPortRUiRUi
 /* 8024C2B4 00249214  2C 03 00 00 */	cmpwi r3, 0
 /* 8024C2B8 00249218  41 82 00 14 */	beq lbl_8024C2CC
 /* 8024C2BC 0024921C  7F E3 FB 78 */	mr r3, r31

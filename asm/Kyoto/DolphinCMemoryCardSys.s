@@ -1106,8 +1106,8 @@ __ct__19SMemoryCardFileInfoFiRCQ24rstl6string:
 /* 8034E2F0 0034B250  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034E2F4 0034B254  4E 80 00 20 */	blr
 
-.global GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi
-GetNumFreeBytes__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortRUi:
+.global GetNumFreeBytes__14CMemoryCardSysF15EMemoryCardPortRUiRUi
+GetNumFreeBytes__14CMemoryCardSysF15EMemoryCardPortRUiRUi:
 /* 8034E2F8 0034B258  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8034E2FC 0034B25C  7C 08 02 A6 */	mflr r0
 /* 8034E300 0034B260  90 01 00 24 */	stw r0, 0x24(r1)

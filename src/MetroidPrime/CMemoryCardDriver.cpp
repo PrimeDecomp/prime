@@ -789,4 +789,11 @@ const CGameState::GameFileStateInfo* CMemoryCardDriver::GetGameFileStateInfo(int
   return nullptr;
 };
 
-bool CMemoryCardDriver::GetCardFreeBytes() { return false; }
+bool CMemoryCardDriver::GetCardFreeBytes() { 
+  if (CMemoryCardSys::GetNumFreeBytes(x0_cardPort, x18_cardFreeBytes, x1c_cardFreeFiles) != kCR_READY) {
+    NoCardFound();
+    return false;
+  }
+
+  return true;
+ }

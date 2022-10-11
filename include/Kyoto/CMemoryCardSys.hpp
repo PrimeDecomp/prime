@@ -96,6 +96,7 @@ public:
   static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);
   static void UnmountCard(EMemoryCardPort);
   static ECardResult Rename(EMemoryCardPort, const rstl::string&, const rstl::string&);
+  static ECardResult GetNumFreeBytes(EMemoryCardPort port, uint& freeBytes, uint& freeFiles);
 
   void Initialize();
 
