@@ -661,7 +661,12 @@ void CMemoryCardDriver::InitializeFileInfo() {
   fileInfo.SetComment(rstl::string_l(nameConstant) + nameBuffer);
   fileInfo.LockBannerToken(x4_saveBanner, *gpSimplePool);
   fileInfo.LockIconToken(x8_saveIcon0, 2, *gpSimplePool);
-  CMemoryStreamOut w = fileInfo.BeginMemoryOut(3004);
+
+  // CMemoryStreamOut w(fileInfo.BeginMemoryOut(3004));
+
+  rstl::vector< u8 >& saveBuffer = fileInfo.SaveBuffer();
+  saveBuffer.resize(3004, '\x00');
+  CMemoryStreamOut w(saveBuffer.data(), 3004);
 
   SSaveHeader header(0);
   for (int i = 0; i < xe4_fileSlots.capacity(); ++i) {
@@ -669,12 +674,13 @@ void CMemoryCardDriver::InitializeFileInfo() {
   }
   header.DoPut(w);
 
-  w.Put(x30_systemData.data(), x30_systemData.size());
+  w.Put(x30_systemData.data(), x30_systemData.capacity());
 
-  for (int i = 0; i < xe4_fileSlots.size(); ++i) {
-    rstl::auto_ptr< SGameFileSlot >& fileSlot = xe4_fileSlots[i];
-    if (!fileSlot.null()) {
-      fileSlot->DoPut(w);
+  for (rstl::reserved_vector< rstl::auto_ptr< SGameFileSlot >, 3 >::iterator it =
+           xe4_fileSlots.begin();
+       it != xe4_fileSlots.end(); ++it) {
+    if (!it->null()) {
+      (*it)->DoPut(w);
     }
   }
 }
@@ -805,11 +811,12 @@ const CGameState::GameFileStateInfo* CMemoryCardDriver::GetGameFileStateInfo(int
   return &xe4_fileSlots[saveIdx]->x944_fileInfo;
 };
 
-bool CMemoryCardDriver::GetCardFreeBytes() { 
-  if (CMemoryCardSys::GetNumFreeBytes(x0_cardPort, x18_cardFreeBytes, x1c_cardFreeFiles) != kCR_READY) {
+bool CMemoryCardDriver::GetCardFreeBytes() {
+  if (CMemoryCardSys::GetNumFreeBytes(x0_cardPort, x18_cardFreeBytes, x1c_cardFreeFiles) !=
+      kCR_READY) {
     NoCardFound();
     return false;
   }
 
   return true;
- }
+}

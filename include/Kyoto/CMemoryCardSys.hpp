@@ -65,9 +65,11 @@ public:
   ECardResult WriteFile();
   ECardResult CloseFile();
 
+  rstl::vector<u8>& SaveBuffer() { return xf4_saveBuffer; }
+
   inline CMemoryStreamOut BeginMemoryOut(uint sz) {
     xf4_saveBuffer.resize(sz, '\x00');
-    return CMemoryStreamOut(xf4_saveBuffer.data(), sz, CMemoryStreamOut::kOS_NotOwned, sz);
+    return CMemoryStreamOut(xf4_saveBuffer.data(), sz);
   }
 };
 CHECK_SIZEOF(CCardFileInfo, 0x114)
