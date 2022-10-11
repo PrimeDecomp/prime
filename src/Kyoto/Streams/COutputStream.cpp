@@ -22,29 +22,52 @@ void COutputStream::DoPut(const void* ptr, size_t len) {
   if (len == 0) {
     return;
   }
+  uint curLen = len;
 
   mNumWrites += len;
-  uint curLen = len;
   if (mBufLen <= len + mPosition) {
     memcpy((uchar*)mBufPtr + mPosition, ptr, len);
     mPosition += len;
-  } else {
-    while (curLen != 0) {
-      uint count = mBufLen - mPosition;
-      if (curLen < count) {
-        count = curLen;
-      }
-      if (count == 0) {
-        DoFlush();
-      } else {
-        memcpy((uchar*)mBufPtr + mPosition, (uchar*)ptr + (len - curLen), count);
-        mPosition += count;
-        curLen -= count;
-      }
+    return;
+  }
+
+  while (curLen != 0) {
+    uint count = mBufLen - mPosition;
+    uint offset = curLen;
+    if (curLen < count) {
+      count = curLen;
+    }
+    if (count != 0) {
+      memcpy((uchar*)mBufPtr + mPosition, (uchar*)ptr + offset, count);
+      mPosition += count;
+      curLen -= count;
+    } else {
+      DoFlush();
     }
   }
 }
 
-void COutputStream::Flush() {}
+void COutputStream::Flush() {
+  FlushShiftRegister();
+  DoFlush();
+}
 
-void COutputStream::DoFlush() {}
+void COutputStream::DoFlush() {
+  if (mPosition != 0) {
+    Write(mBufPtr, mPosition);
+    mPosition = 0;
+  }
+}
+
+static inline u32 min_containing_bytes(u32 v) {
+  v = 32 - v;
+  return (v / 8) + ((v % 8) != 0);
+}
+
+void COutputStream::FlushShiftRegister() {
+  if (mShiftRegisterOffset < 32) {
+    DoPut(&mShiftRegister, min_containing_bytes(mShiftRegisterOffset));
+    mShiftRegister = 0;
+    mShiftRegisterOffset = 32;
+  }
+}

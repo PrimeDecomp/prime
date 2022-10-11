@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+
 class COutputStream;
 
 template < typename T >
@@ -16,6 +17,7 @@ class COutputStream {
 public:
   COutputStream(int len);
   virtual ~COutputStream();
+  virtual void Write(const void* ptr, u32 len);
   void WriteBits(int val, int bitCount);
 
   void FlushShiftRegister();
@@ -45,6 +47,7 @@ public:
     *(reinterpret_cast< u8* >(mBufPtr) + mPosition) = c;
     ++mPosition;
   }
+
 
 private:
   uint mPosition;
