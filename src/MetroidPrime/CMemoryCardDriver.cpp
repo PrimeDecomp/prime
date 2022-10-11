@@ -792,7 +792,10 @@ void SGameFileSlot::InitializeFromGameState() {
   x944_fileInfo = CGameState::LoadGameFileState(x0_saveBuffer.data());
 }
 
-void SGameFileSlot::LoadGameState(int) {}
+void SGameFileSlot::LoadGameState(int idx) {
+  CMemoryInStream r(x0_saveBuffer.data(), x0_saveBuffer.capacity());
+  gpMain->StreamNewGameState(r, idx);
+}
 
 const CGameState::GameFileStateInfo* CMemoryCardDriver::GetGameFileStateInfo(int saveIdx) {
   if (xe4_fileSlots[saveIdx].null()) {
