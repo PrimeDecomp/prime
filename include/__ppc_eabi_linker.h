@@ -35,7 +35,6 @@ typedef struct __eti_init_info {
   unsigned long code_size;
 } __eti_init_info;
 
-/* TODO: Fix this once we can link with generated symbols */
 __declspec(section ".init") extern __eti_init_info _eti_init_info[];
 __declspec(section ".init") extern const char _f_init_rom[];
 __declspec(section ".init") extern char _f_init[];

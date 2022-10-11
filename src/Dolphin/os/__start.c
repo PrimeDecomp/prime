@@ -1,4 +1,5 @@
 #include "dolphin/__start.h"
+#include "__ppc_eabi_linker.h"
 
 void __check_pad3(void) {
   if ((Pad3Button & 0x0eef) == 0x0eef) {

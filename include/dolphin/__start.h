@@ -41,19 +41,4 @@ __declspec(section ".init") extern char _stack_addr[];
 __declspec(section ".init") extern char _SDA_BASE_[];
 __declspec(section ".init") extern char _SDA2_BASE_[];
 
-typedef struct __rom_copy_info {
-  char* rom;
-  char* addr;
-  unsigned int size;
-} __rom_copy_info;
-
-__declspec(section ".init") extern __rom_copy_info _rom_copy_info[];
-
-typedef struct __bss_init_info {
-  char* addr;
-  unsigned int size;
-} __bss_init_info;
-
-__declspec(section ".init") extern __bss_init_info _bss_init_info[];
-
 #endif // _DOLPHIN__START
