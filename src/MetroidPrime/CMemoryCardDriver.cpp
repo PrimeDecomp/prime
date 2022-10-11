@@ -747,7 +747,15 @@ void CMemoryCardDriver::ImportPersistentOptions() {
   gpGameState->ImportPersistentOptions(opts);
 }
 
-void CMemoryCardDriver::ExportPersistentOptions() {}
+void CMemoryCardDriver::ExportPersistentOptions() {
+  u8* data = x30_systemData.data();
+  CMemoryInStream r(data, x30_systemData.capacity());
+  CSystemOptions opts(r);
+  gpGameState->ExportPersistentOptions(opts);
+
+  CMemoryStreamOut w(data, x30_systemData.capacity());
+  opts.PutTo(w);
+}
 
 // SSaveHeader::SSaveHeader(int)
 
