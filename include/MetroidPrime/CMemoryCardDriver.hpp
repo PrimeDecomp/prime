@@ -41,9 +41,7 @@ struct SSaveHeader {
   uint x0_version;
   bool x4_savePresent[3];
 
-  SSaveHeader();
-  // : x0_version(0) {}
-
+  explicit SSaveHeader(int);
   explicit SSaveHeader(CMemoryInStream& in);
 
   void DoPut(CMemoryStreamOut& out) const;
