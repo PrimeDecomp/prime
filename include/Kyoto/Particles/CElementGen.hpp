@@ -8,6 +8,7 @@
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Particles/CParticleGen.hpp"
 #include "Kyoto/TToken.hpp"
+#include "Kyoto/CRandom16.hpp"
 
 class CGenDescription;
 class CModVectorElement;

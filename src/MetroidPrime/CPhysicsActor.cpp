@@ -201,4 +201,7 @@ CVector3f CPhysicsActor::GetMoveToORImpulseWR(const CVector3f& trans, float d) c
   return (GetMass() * impulse) * (1.f / d);
 }
 
-CAxisAngle CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {}
+CAxisAngle CPhysicsActor::GetRotateToORAngularMomentumWR(const CQuaternion& q, float d) const {
+  // TODO
+  return CAxisAngle();
+}
