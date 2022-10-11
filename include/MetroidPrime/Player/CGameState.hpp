@@ -53,7 +53,7 @@ public:
     float x1c_scanPercent;
     bool x20_hardMode;
   };
-  static GameFileStateInfo LoadGameFileState(const uchar* data);
+  static GameFileStateInfo LoadGameFileState(const void* data);
 
 private:
   rstl::reserved_vector< bool, 128 > x0_;
