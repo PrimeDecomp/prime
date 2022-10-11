@@ -24,9 +24,11 @@
 
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
+#include "Kyoto/Math/CAbsAngle.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
+#include "Kyoto/Particles/CGenDescription.hpp"
 #include "Kyoto/SObjectTag.hpp"
 
 #include "Collision/CMaterialFilter.hpp"
@@ -40,23 +42,27 @@ static float kVerticalAngleTable[3] = {-30.f, 0.f, 30.f};
 static float kHorizontalAngleTable[3] = {30.f, 30.f, 30.f};
 static float kVerticalVarianceTable[3] = {30.f, 30.f, 30.f};
 
-static const CVector3f sGunScale(2.f, 2.f, 2.f);
+static const float chargeShakeTbl[3] = {
+    -0.001f,
+    0.f,
+    0.001f,
+};
 
-static const uint skBeamAnimIds[4] = {
+const uint CPlayerGun::mHandAnimId[4] = {
     0,
     1,
     2,
     1,
 };
 
-static const CPlayerState::EItemType skBeamArr[4] = {
+static const CPlayerState::EItemType mBeamArr[4] = {
     CPlayerState::kIT_PowerBeam,
     CPlayerState::kIT_IceBeam,
     CPlayerState::kIT_WaveBeam,
     CPlayerState::kIT_PlasmaBeam,
 };
 
-static const CPlayerState::EItemType skBeamComboArr[4] = {
+static const CPlayerState::EItemType mBeamComboArr[4] = {
     CPlayerState::kIT_SuperMissile,
     CPlayerState::kIT_IceSpreader,
     CPlayerState::kIT_Wavebuster,
@@ -77,7 +83,7 @@ static const CPlayerState::EItemType skBeamComboArr[4] = {
 //     SFXwpn_from_missile_plasma,
 // };
 
-// constexpr std::array<ushort, 4> skFromBeamSound{
+// constexpr std::array<ushort, 4> mFromBeamSound{
 //     SFXsfx0000,
 //     SFXwpn_from_beam_ice,
 //     SFXwpn_from_beam_wave,
@@ -91,17 +97,23 @@ static const CPlayerState::EItemType skBeamComboArr[4] = {
 //     SFXwpn_to_missile_plasma,
 // };
 
-// constexpr std::array<ushort, 4> skIntoBeamSound{
+// constexpr std::array<ushort, 4> mIntoBeamSound{
 //     SFXsfx0000,
 //     SFXwpn_into_beam_ice,
 //     SFXwpn_into_beam_wave,
 //     SFXwpn_into_beam_plasma,
 // };
 
+float CPlayerGun::kTractorBeamFactor = 0.25f / CPlayerState::GetMissileComboChargeFactor();
+CVector3f CPlayerGun::kScaleVector(2.f, 2.f, 2.f);
+float CPlayerGun::CMotionState::gGunExtendDistance = 0.125f;
+
+static CColor kArmColor = CColor(0.75f, 0.5f, 0.f, 1.f);
+static CMaterialFilter sAimFilter = CMaterialFilter::MakeIncludeExclude(
+    CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough));
 static const float kChargeSpeed = 1.f / CPlayerState::GetMissileComboChargeFactor();
-static const float kChargeFxStart = 1.f / CPlayerState::GetMissileComboChargeFactor();
-static const float kChargeAnimStart = 0.25f / CPlayerState::GetMissileComboChargeFactor();
 static const float kChargeStart = 0.025f / CPlayerState::GetMissileComboChargeFactor();
+static const float kChargeFxStart = 1.f / CPlayerState::GetMissileComboChargeFactor();
 
 // constexpr std::array<ushort, 4> skBeamChargeUpSound{
 //     SFXwpn_chargeup_power,
@@ -115,33 +127,34 @@ static const CPlayerState::EItemType skItemArr[2] = {
     CPlayerState::kIT_Missiles,
 };
 
-// static const ushort skItemEmptySound[2] = {
-//     SFXsfx0000,
-//     SFXwpn_empty_action,
-// };
-
-static const float chargeShakeTbl[3] = {
-    -0.001f,
-    0.f,
-    0.001f,
-};
-
-static const CMaterialFilter sAimFilter = CMaterialFilter::MakeIncludeExclude(
-    CMaterialList(kMT_Solid), CMaterialList(kMT_ProjectilePassthrough));
-
 static const CModelFlags kThermalFlags[4] = {
-    CModelFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.0f)),
-    CModelFlags(CModelFlags::kT_Blend, CColor(0.f, 0.f, 0.f, 0.5f)),
-    CModelFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.0f)),
-    CModelFlags(CModelFlags::kT_Opaque, CColor(1.f, 1.f, 1.f, 1.0f)),
+    CModelFlags::Normal(),
+    CModelFlags::AlphaBlended(CColor(u8(255), u8(255), u8(255), u8(128))),
+    CModelFlags::Normal(),
+    CModelFlags::Normal(),
 };
 
 static const CModelFlags kHandThermalFlag(CModelFlags::kT_Additive, CColor::White());
+static const CModelFlags kHandHoloFlag(CModelFlags::kT_One, kArmColor);
 
-static const CModelFlags kHandHoloFlag((CModelFlags::ETrans)1, // TODO: ETrans 1?
-                                       CColor(0.75f, 0.5f, 0.f, 1.f));
+static ushort mItemEmptySound[2] = {
+    CSfxManager::kInternalInvalidSfxId,
+    SFXwpn_empty_action,
+};
 
-float CPlayerGun::CMotionState::gGunExtendDistance = 0.125f;
+static ushort mIntoBeamSound[4] = {
+    CSfxManager::kInternalInvalidSfxId,
+    SFXwpn_into_beam_ice,
+    SFXwpn_into_beam_wave,
+    SFXwpn_into_beam_plasma,
+};
+
+static ushort mFromBeamSound[4] = {
+    CSfxManager::kInternalInvalidSfxId,
+    SFXwpn_from_beam_ice,
+    SFXwpn_from_beam_wave,
+    SFXwpn_from_beam_plasma,
+};
 
 CPlayerGun::CPlayerGun(TUniqueId playerId)
 : x0_lights(8, CVector3f::Zero(), 4, 4, false, false, false, 0.1)
@@ -202,36 +215,39 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , x538_playerId(playerId)
 , x53a_powerBomb(kInvalidUniqueId)
 , x53c_lightId(kInvalidUniqueId)
-, x550_camBob(CPlayerCameraBob::kCBT_One, CPlayerCameraBob::GetCameraBobExtent(),
-              CPlayerCameraBob::GetCameraBobPeriod())
+, x550_camBob(CPlayerCameraBob::kCBT_One, CPlayerCameraBob::GetCameraBobPeriod(),
+              CPlayerCameraBob::GetCameraBobExtent())
 , x658_(1)
 , x65c_(0.f)
 , x660_(0.f)
 , x664_(0.f)
 , x668_aimVerticalSpeed(gpTweakPlayerGun->GetAimVerticalSpeed())
 , x66c_aimHorizontalSpeed(gpTweakPlayerGun->GetAimHorizontalSpeed())
+, x670_animSfx(InvalidSfxId, CSfxHandle())
 , x678_morph(gpTweakPlayerGun->GetGunTransformTime(), gpTweakPlayerGun->GetHoloHoldTime())
 , x6a0_motionState()
 , x6c8_hologramClipCube(CVector3f(-0.29329199f, 0.f, -0.2481945f),
                         CVector3f(0.29329199f, 1.292392f, 0.2481945f))
-, x6e0_rightHandModel(CAnimRes(gpTweakGunRes->xc_rightHand, 0, CVector3f(3.f, 3.f, 3.f), 0, true))
+, x6e0_rightHandModel(CAnimRes(gpTweakGunRes->xc_rightHand, CAnimRes::kDefaultCharIdx,
+                               CVector3f(3.f, 3.f, 3.f), 0, true))
 , x72c_currentBeam(nullptr)
 , x730_outgoingBeam(nullptr)
 , x734_loadingBeam(nullptr)
 , x738_nextBeam(nullptr)
-, x73c_gunMotion(new CGunMotion(gpTweakGunRes->x4_gunMotion, sGunScale))
-, x740_grappleArm(new CGrappleArm(sGunScale))
+, x73c_gunMotion(new CGunMotion(gpTweakGunRes->x4_gunMotion, kScaleVector))
+, x740_grappleArm(new CGrappleArm(kScaleVector))
 , x744_auxWeapon(new CAuxWeapon(playerId))
-, x748_rainSplashGenerator(new CRainSplashGenerator(sGunScale, 20, 2, 0.f, 0.125f))
+, x748_rainSplashGenerator(new CRainSplashGenerator(kScaleVector, 20, 2, 0.f, 0.125f))
 , x74c_powerBeam(
-      new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player, sGunScale))
-, x750_iceBeam(new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId, kMT_Player, sGunScale))
+      new CPowerBeam(gpTweakGunRes->x10_powerBeam, kWT_Power, playerId, kMT_Player, kScaleVector))
+, x750_iceBeam(
+      new CIceBeam(gpTweakGunRes->x14_iceBeam, kWT_Ice, playerId, kMT_Player, kScaleVector))
 , x754_waveBeam(
-      new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave, playerId, kMT_Player, sGunScale))
-, x758_plasmaBeam(
-      new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player, sGunScale))
-, x75c_phazonBeam(
-      new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player, sGunScale))
+      new CWaveBeam(gpTweakGunRes->x18_waveBeam, kWT_Wave, playerId, kMT_Player, kScaleVector))
+, x758_plasmaBeam(new CPlasmaBeam(gpTweakGunRes->x1c_plasmaBeam, kWT_Plasma, playerId, kMT_Player,
+                                  kScaleVector))
+, x75c_phazonBeam(new CPhazonBeam(gpTweakGunRes->x20_phazonBeam, kWT_Phazon, playerId, kMT_Player,
+                                  kScaleVector))
 , x760_selectableBeams(nullptr)
 , x774_holoTransitionGen(
       new CElementGen(gpSimplePool->GetObj(SObjectTag('PART', gpTweakGunRes->x24_holoTransition))))
@@ -381,7 +397,7 @@ void CPlayerGun::ProcessChargeState(int releasedStates, int pressedStates, CStat
     const CPlayerState* state = mgr.GetPlayerState();
     if (state->HasPowerUp(CPlayerState::kIT_Missiles) && (pressedStates & 0x2) != 0) {
       if (x32c_chargePhase >= kCP_FxGrown) {
-        if (state->HasPowerUp(skBeamComboArr[size_t(x310_currentBeam)]))
+        if (state->HasPowerUp(mBeamComboArr[size_t(x310_currentBeam)]))
           ActivateCombo(mgr);
       } else if (x32c_chargePhase == kCP_NotCharging) {
         FireSecondary(dt, mgr);
@@ -512,7 +528,7 @@ void CPlayerGun::ResetBeamParams(CStateManager& mgr, const CPlayerState& playerS
   if (playerState.ItemEnabled(CPlayerState::kIT_ChargeBeam)) {
     ResetCharge(mgr, false);
   }
-  const CAnimPlaybackParms parms(skBeamAnimIds[size_t(x314_nextBeam)], -1, 1.f, true);
+  const CAnimPlaybackParms parms(mHandAnimId[size_t(x314_nextBeam)], -1, 1.f, true);
   x6e0_rightHandModel.AnimationData()->SetAnimation(parms, false);
   Reset(mgr, false);
   if (playSelectionSfx) {
@@ -997,13 +1013,14 @@ void CPlayerGun::TakeDamage(bool bigStrike, bool notFromMetroid, CStateManager& 
   const CPlayer& player = *mgr.GetPlayer();
   bool hasStrikeAngle = false;
   float angle = 0.f;
-  if (x398_damageAmt >= 10.f && !bigStrike && (x2f8_stateFlags & 0x10) != 0x10 && !x832_26_comboFiring &&
-      x384_gunStrikeDelayTimer <= 0.f) {
+  if (x398_damageAmt >= 10.f && !bigStrike && (x2f8_stateFlags & 0x10) != 0x10 &&
+      !x832_26_comboFiring && x384_gunStrikeDelayTimer <= 0.f) {
     x384_gunStrikeDelayTimer = 20.f;
     x364_gunStrikeCoolTimer = 0.75f;
     if (x678_morph.GetGunState() == CGunMorph::kGS_OutWipeDone) {
       CVector3f localDamageLoc = player.GetTransform().TransposeRotate(x3dc_damageLocation);
-      angle = CRelAngle::FromRadians(atan2(localDamageLoc.GetY(), localDamageLoc.GetX())).AsRelative().AsDegrees();
+      angle =
+          CAbsAngle::FromRadians(atan2(localDamageLoc.GetY(), localDamageLoc.GetX())).AsDegrees();
       hasStrikeAngle = true;
     }
   }

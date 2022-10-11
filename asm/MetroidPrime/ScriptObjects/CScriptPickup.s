@@ -710,7 +710,7 @@ lbl_800C2DD8:
 lbl_800C2E44:
 /* 800C2E44 000BFDA4  C0 22 8D C8 */	lfs f1, lbl_805AAAE8@sda21(r2)
 lbl_800C2E48:
-/* 800C2E48 000BFDA8  C0 0D A1 B0 */	lfs f0, skTractorBeamFactor__10CPlayerGun@sda21(r13)
+/* 800C2E48 000BFDA8  C0 0D A1 B0 */	lfs f0, kTractorBeamFactor__10CPlayerGun@sda21(r13)
 /* 800C2E4C 000BFDAC  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800C2E50 000BFDB0  40 80 00 3C */	bge lbl_800C2E8C
 /* 800C2E54 000BFDB4  88 1E 02 8C */	lbz r0, 0x28c(r30)
@@ -745,7 +745,7 @@ lbl_800C2E9C:
 lbl_800C2EC0:
 /* 800C2EC0 000BFE20  C0 22 8D C8 */	lfs f1, lbl_805AAAE8@sda21(r2)
 lbl_800C2EC4:
-/* 800C2EC4 000BFE24  C0 0D A1 B0 */	lfs f0, skTractorBeamFactor__10CPlayerGun@sda21(r13)
+/* 800C2EC4 000BFE24  C0 0D A1 B0 */	lfs f0, kTractorBeamFactor__10CPlayerGun@sda21(r13)
 /* 800C2EC8 000BFE28  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800C2ECC 000BFE2C  40 81 01 28 */	ble lbl_800C2FF4
 /* 800C2ED0 000BFE30  80 BF 08 70 */	lwz r5, 0x870(r31)

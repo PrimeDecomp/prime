@@ -12,7 +12,7 @@ enum ELightType {
   kLT_Custom = 4,
 };
 
-enum EFallofType { kFT_Constant, kFT_Linear, kFT_Quadratic };
+enum EFalloffType { kFT_Constant, kFT_Linear, kFT_Quadratic };
 
 class CLight {
   static const CVector3f kDefaultPosition;

@@ -1796,11 +1796,11 @@ lbl_80010D90:
 /* 80010D98 0000DCF8  4B FF 9B 69 */	bl IsInCinematicCamera__14CCameraManagerCFv
 /* 80010D9C 0000DCFC  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80010DA0 0000DD00  41 82 00 F0 */	beq lbl_80010E90
-/* 80010DA4 0000DD04  C0 2D 87 B8 */	lfs f1, lbl_805A7378@sda21(r13)
+/* 80010DA4 0000DD04  C0 2D 87 B8 */	lfs f1, kCameraBobExtentX__16CPlayerCameraBob@sda21(r13)
 /* 80010DA8 0000DD08  38 61 00 08 */	addi r3, r1, 8
-/* 80010DAC 0000DD0C  C0 4D 87 BC */	lfs f2, lbl_805A737C@sda21(r13)
+/* 80010DAC 0000DD0C  C0 4D 87 BC */	lfs f2, kCameraBobExtentY__16CPlayerCameraBob@sda21(r13)
 /* 80010DB0 0000DD10  48 30 34 51 */	bl __ct__9CVector2fFff
-/* 80010DB4 0000DD14  C0 2D 87 C0 */	lfs f1, lbl_805A7380@sda21(r13)
+/* 80010DB4 0000DD14  C0 2D 87 C0 */	lfs f1, kCameraBobPeriod__16CPlayerCameraBob@sda21(r13)
 /* 80010DB8 0000DD18  7C 65 1B 78 */	mr r5, r3
 /* 80010DBC 0000DD1C  38 61 00 10 */	addi r3, r1, 0x10
 /* 80010DC0 0000DD20  38 80 00 01 */	li r4, 1
@@ -12700,11 +12700,11 @@ lbl_8001A6A8:
 /* 8001A820 00017780  48 00 06 E5 */	bl "__nw__30TOneStatic<16CPlayerCameraBob>FUlPCcPCc"
 /* 8001A824 00017784  7C 77 1B 79 */	or. r23, r3, r3
 /* 8001A828 00017788  41 82 00 2C */	beq lbl_8001A854
-/* 8001A82C 0001778C  C0 2D 87 B8 */	lfs f1, lbl_805A7378@sda21(r13)
+/* 8001A82C 0001778C  C0 2D 87 B8 */	lfs f1, kCameraBobExtentX__16CPlayerCameraBob@sda21(r13)
 /* 8001A830 00017790  38 61 00 38 */	addi r3, r1, 0x38
-/* 8001A834 00017794  C0 4D 87 BC */	lfs f2, lbl_805A737C@sda21(r13)
+/* 8001A834 00017794  C0 4D 87 BC */	lfs f2, kCameraBobExtentY__16CPlayerCameraBob@sda21(r13)
 /* 8001A838 00017798  48 2F 99 C9 */	bl __ct__9CVector2fFff
-/* 8001A83C 0001779C  C0 2D 87 C0 */	lfs f1, lbl_805A7380@sda21(r13)
+/* 8001A83C 0001779C  C0 2D 87 C0 */	lfs f1, kCameraBobPeriod__16CPlayerCameraBob@sda21(r13)
 /* 8001A840 000177A0  7C 65 1B 78 */	mr r5, r3
 /* 8001A844 000177A4  7E E3 BB 78 */	mr r3, r23
 /* 8001A848 000177A8  38 80 00 01 */	li r4, 1
@@ -12740,7 +12740,7 @@ lbl_8001A854:
 /* 8001A8BC 0001781C  3C 60 80 5A */	lis r3, sIdentity__12CTransform4f@ha
 /* 8001A8C0 00017820  90 1F 07 CC */	stw r0, 0x7cc(r31)
 /* 8001A8C4 00017824  38 83 66 70 */	addi r4, r3, sIdentity__12CTransform4f@l
-/* 8001A8C8 00017828  80 C2 83 F0 */	lwz r6, lbl_805AA110@sda21(r2)
+/* 8001A8C8 00017828  80 C2 83 F0 */	lwz r6, kDefaultCharIdx__8CAnimRes@sda21(r2)
 /* 8001A8CC 0001782C  38 A0 00 01 */	li r5, 1
 /* 8001A8D0 00017830  93 7F 07 D0 */	stw r27, 0x7d0(r31)
 /* 8001A8D4 00017834  38 00 00 00 */	li r0, 0
@@ -13113,7 +13113,7 @@ None__16CActorParametersFv:
 MakePlayerAnimres__FUiRC9CVector3f:
 /* 8001AE58 00017DB8  90 83 00 00 */	stw r4, 0(r3)
 /* 8001AE5C 00017DBC  38 80 00 01 */	li r4, 1
-/* 8001AE60 00017DC0  80 C2 83 F0 */	lwz r6, lbl_805AA110@sda21(r2)
+/* 8001AE60 00017DC0  80 C2 83 F0 */	lwz r6, kDefaultCharIdx__8CAnimRes@sda21(r2)
 /* 8001AE64 00017DC4  38 00 00 00 */	li r0, 0
 /* 8001AE68 00017DC8  90 C3 00 04 */	stw r6, 4(r3)
 /* 8001AE6C 00017DCC  C0 05 00 00 */	lfs f0, 0(r5)

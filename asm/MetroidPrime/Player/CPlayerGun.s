@@ -6,15 +6,19 @@ lbl_ctor:
 
 .section .data
 .balign 8
-.global lbl_803D9D50
-lbl_803D9D50:
+.global kVerticalAngleTable
+kVerticalAngleTable:
 	# ROM: 0x3D6D50
 	.4byte 0xC1F00000
 	.4byte 0
 	.4byte 0x41F00000
+.global kHorizontalAngleTable
+kHorizontalAngleTable:
 	.4byte 0x41F00000
 	.4byte 0x41F00000
 	.4byte 0x41F00000
+.global kVerticalVarianceTable
+kVerticalVarianceTable:
 	.4byte 0x41F00000
 	.4byte 0x41F00000
 	.4byte 0x41F00000
@@ -81,8 +85,8 @@ lbl_803D9E04:
 .section .sdata
 .balign 8
 
-.global lbl_805A6DE0
-lbl_805A6DE0:
+.global gGunExtendDistance__Q210CPlayerGun12CMotionState
+gGunExtendDistance__Q210CPlayerGun12CMotionState:
 	# ROM: 0x3F4780
 	.float 0.125
 
@@ -96,28 +100,35 @@ lbl_805A6DE8:
 	# ROM: 0x3F4788
 	.4byte 0x00000012
 
-.global lbl_805A6DEC
-lbl_805A6DEC:
+.global mItemEmptySound
+mItemEmptySound:
 	# ROM: 0x3F478C
-	.4byte 0x000006E3
+	.2byte 0x0000
+	.2byte 0x06E3
 
-.global lbl_805A6DF0
-lbl_805A6DF0:
+.global mIntoBeamSound
+mIntoBeamSound:
 	# ROM: 0x3F4790
-	.4byte 0x0000071D
-	.4byte 0x07230721
+	.2byte 0x0000
+	.2byte 0x071D
+	.2byte 0x0723
+	.2byte 0x0721
 
-.global lbl_805A6DF8
-lbl_805A6DF8:
+.global mFromBeamSound
+mFromBeamSound:
 	# ROM: 0x3F4798
-	.4byte 0x0000071E
-	.4byte 0x07240722
+	.2byte 0x0000
+	.2byte 0x071E
+	.2byte 0x0724
+	.2byte 0x0722
 
-.global lbl_805A6E00
-lbl_805A6E00:
+.global sBeamChargeUpSound
+sBeamChargeUpSound:
 	# ROM: 0x3F47A0
-	.4byte 0x06E606DF
-	.4byte 0x0734072F
+	.2byte 0x06E6
+	.2byte 0x06DF
+	.2byte 0x0734
+	.2byte 0x072F
 
 .global lbl_805A6E08
 lbl_805A6E08:
@@ -149,18 +160,18 @@ lbl_805A6E18:
 .balign 8
 
 .lcomm lbl_8045C518, 0x18, 4
-.lcomm lbl_8045C530, 0x20, 4
-.comm lbl_8056D404, 0xC, 4
+.lcomm kThermalFlags, 0x20, 4
+.comm kScaleVector__10CPlayerGun, 0xC, 4
 
 .section .sbss
 .balign 8
 
 # CPlayerGun
-.global skTractorBeamFactor__10CPlayerGun
-skTractorBeamFactor__10CPlayerGun:
+.global kTractorBeamFactor__10CPlayerGun
+kTractorBeamFactor__10CPlayerGun:
 	.skip 0x4
-.global lbl_805A8D74
-lbl_805A8D74:
+.global kArmColor
+kArmColor:
 	.skip 0x4
 .global lbl_805A8D78
 lbl_805A8D78:
@@ -171,11 +182,11 @@ lbl_805A8D7C:
 .global lbl_805A8D80
 lbl_805A8D80:
 	.skip 0x4
-.global lbl_805A8D84
-lbl_805A8D84:
+.global kHandThermalFlag
+kHandThermalFlag:
 	.skip 0x8
-.global lbl_805A8D8C
-lbl_805A8D8C:
+.global kHandHoloFlag
+kHandHoloFlag:
 	.skip 0xC
 
 .section .sdata2, "a"
@@ -1059,8 +1070,8 @@ lbl_8003AF6C:
 /* 8003AFC8 00037F28  48 00 00 64 */	b lbl_8003B02C
 lbl_8003AFCC:
 /* 8003AFCC 00037F2C  80 7C 07 78 */	lwz r3, 0x778(r28)
-/* 8003AFD0 00037F30  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 8003AFD4 00037F34  38 84 D4 04 */	addi r4, r4, lbl_8056D404@l
+/* 8003AFD0 00037F30  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 8003AFD4 00037F34  38 84 D4 04 */	addi r4, r4, kScaleVector__10CPlayerGun@l
 /* 8003AFD8 00037F38  81 83 00 00 */	lwz r12, 0(r3)
 /* 8003AFDC 00037F3C  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8003AFE0 00037F40  7D 89 03 A6 */	mtctr r12
@@ -1123,7 +1134,7 @@ lbl_8003B0B4:
 /* 8003B0B4 00038014  57 C0 06 3F */	clrlwi. r0, r30, 0x18
 /* 8003B0B8 00038018  41 82 00 2C */	beq lbl_8003B0E4
 /* 8003B0BC 0003801C  80 7C 03 10 */	lwz r3, 0x310(r28)
-/* 8003B0C0 00038020  38 8D 82 30 */	addi r4, r13, lbl_805A6DF0@sda21
+/* 8003B0C0 00038020  38 8D 82 30 */	addi r4, r13, mIntoBeamSound@sda21
 /* 8003B0C4 00038024  88 1C 08 34 */	lbz r0, 0x834(r28)
 /* 8003B0C8 00038028  38 E0 00 4A */	li r7, 0x4a
 /* 8003B0CC 0003802C  54 66 08 3C */	slwi r6, r3, 1
@@ -1760,9 +1771,9 @@ UpdateAuxWeapons__10CPlayerGunFfRC12CTransform4fR13CStateManager:
 /* 8003B9E0 00038940  80 9F 08 70 */	lwz r4, 0x870(r31)
 /* 8003B9E4 00038944  4B FC EF 31 */	bl GetGlobalCameraTranslation__14CCameraManagerCFRC13CStateManager
 /* 8003B9E8 00038948  C0 41 00 3C */	lfs f2, 0x3c(r1)
-/* 8003B9EC 0003894C  3C 60 80 57 */	lis r3, lbl_8056D404@ha
+/* 8003B9EC 0003894C  3C 60 80 57 */	lis r3, kScaleVector__10CPlayerGun@ha
 /* 8003B9F0 00038950  C0 01 00 44 */	lfs f0, 0x44(r1)
-/* 8003B9F4 00038954  38 83 D4 04 */	addi r4, r3, lbl_8056D404@l
+/* 8003B9F4 00038954  38 83 D4 04 */	addi r4, r3, kScaleVector__10CPlayerGun@l
 /* 8003B9F8 00038958  EC 7F 10 2A */	fadds f3, f31, f2
 /* 8003B9FC 0003895C  C0 21 00 40 */	lfs f1, 0x40(r1)
 /* 8003BA00 00038960  EC 1D 00 2A */	fadds f0, f29, f0
@@ -2610,9 +2621,9 @@ lbl_8003C550:
 /* 8003C5C0 00039520  80 7D 07 44 */	lwz r3, 0x744(r29)
 /* 8003C5C4 00039524  80 9D 03 10 */	lwz r4, 0x310(r29)
 /* 8003C5C8 00039528  48 17 C3 75 */	bl Load__10CAuxWeaponFiR13CStateManager
-/* 8003C5CC 0003952C  3C 60 80 3D */	lis r3, lbl_803CCE44@ha
+/* 8003C5CC 0003952C  3C 60 80 3D */	lis r3, mHandAnimId__10CPlayerGun@ha
 /* 8003C5D0 00039530  38 00 00 00 */	li r0, 0
-/* 8003C5D4 00039534  38 63 CE 44 */	addi r3, r3, lbl_803CCE44@l
+/* 8003C5D4 00039534  38 63 CE 44 */	addi r3, r3, mHandAnimId__10CPlayerGun@l
 /* 8003C5D8 00039538  C0 02 84 7C */	lfs f0, lbl_805AA19C@sda21(r2)
 /* 8003C5DC 0003953C  7C C3 C8 2E */	lwzx r6, r3, r25
 /* 8003C5E0 00039540  38 80 FF FF */	li r4, -1
@@ -3203,7 +3214,7 @@ lbl_8003CE40:
 /* 8003CE54 00039DB4  40 82 00 88 */	bne lbl_8003CEDC
 /* 8003CE58 00039DB8  C0 82 84 7C */	lfs f4, lbl_805AA19C@sda21(r2)
 /* 8003CE5C 00039DBC  38 61 01 CC */	addi r3, r1, 0x1cc
-/* 8003CE60 00039DC0  C0 0D 82 20 */	lfs f0, lbl_805A6DE0@sda21(r13)
+/* 8003CE60 00039DC0  C0 0D 82 20 */	lfs f0, gGunExtendDistance__Q210CPlayerGun12CMotionState@sda21(r13)
 /* 8003CE64 00039DC4  38 81 00 0C */	addi r4, r1, 0xc
 /* 8003CE68 00039DC8  C0 BD 00 0C */	lfs f5, 0xc(r29)
 /* 8003CE6C 00039DCC  EC 24 00 24 */	fdivs f1, f4, f0
@@ -3400,7 +3411,7 @@ lbl_8003D138:
 /* 8003D140 0003A0A0  EC 01 07 FA */	fmadds f0, f1, f31, f0
 /* 8003D144 0003A0A4  D0 1D 00 0C */	stfs f0, 0xc(r29)
 /* 8003D148 0003A0A8  C0 1D 00 0C */	lfs f0, 0xc(r29)
-/* 8003D14C 0003A0AC  C0 2D 82 20 */	lfs f1, lbl_805A6DE0@sda21(r13)
+/* 8003D14C 0003A0AC  C0 2D 82 20 */	lfs f1, gGunExtendDistance__Q210CPlayerGun12CMotionState@sda21(r13)
 /* 8003D150 0003A0B0  FC 00 08 40 */	fcmpo cr0, f0, f1
 /* 8003D154 0003A0B4  40 81 00 50 */	ble lbl_8003D1A4
 /* 8003D158 0003A0B8  D0 3D 00 0C */	stfs f1, 0xc(r29)
@@ -5246,12 +5257,12 @@ HandleBeamChange__10CPlayerGunFRC11CFinalInputR13CStateManager:
 /* 8003EB78 0003BAD8  BF 01 00 10 */	stmw r24, 0x10(r1)
 /* 8003EB7C 0003BADC  80 E5 08 B8 */	lwz r7, 0x8b8(r5)
 /* 8003EB80 0003BAE0  7C BF 2B 78 */	mr r31, r5
-/* 8003EB84 0003BAE4  3C C0 80 3D */	lis r6, lbl_803CCE54@ha
-/* 8003EB88 0003BAE8  3C A0 80 3D */	lis r5, lbl_803CCE74@ha
+/* 8003EB84 0003BAE4  3C C0 80 3D */	lis r6, mBeamArr@ha
+/* 8003EB88 0003BAE8  3C A0 80 3D */	lis r5, mBeamCtrlCmd@ha
 /* 8003EB8C 0003BAEC  C3 C2 84 6C */	lfs f30, lbl_805AA18C@sda21(r2)
-/* 8003EB90 0003BAF0  3B 86 CE 54 */	addi r28, r6, lbl_803CCE54@l
+/* 8003EB90 0003BAF0  3B 86 CE 54 */	addi r28, r6, mBeamArr@l
 /* 8003EB94 0003BAF4  83 A7 00 00 */	lwz r29, 0(r7)
-/* 8003EB98 0003BAF8  3B 65 CE 74 */	addi r27, r5, lbl_803CCE74@l
+/* 8003EB98 0003BAF8  3B 65 CE 74 */	addi r27, r5, mBeamCtrlCmd@l
 /* 8003EB9C 0003BAFC  C3 E2 84 E8 */	lfs f31, lbl_805AA208@sda21(r2)
 /* 8003EBA0 0003BB00  7C 7E 1B 78 */	mr r30, r3
 /* 8003EBA4 0003BB04  7C 98 23 78 */	mr r24, r4
@@ -5287,9 +5298,9 @@ lbl_8003EBE8:
 /* 8003EC14 0003BB74  80 1E 03 10 */	lwz r0, 0x310(r30)
 /* 8003EC18 0003BB78  7C 00 D0 00 */	cmpw r0, r26
 /* 8003EC1C 0003BB7C  41 82 00 DC */	beq lbl_8003ECF8
-/* 8003EC20 0003BB80  3C 60 80 3D */	lis r3, lbl_803CCE54@ha
+/* 8003EC20 0003BB80  3C 60 80 3D */	lis r3, mBeamArr@ha
 /* 8003EC24 0003BB84  57 40 10 3A */	slwi r0, r26, 2
-/* 8003EC28 0003BB88  38 83 CE 54 */	addi r4, r3, lbl_803CCE54@l
+/* 8003EC28 0003BB88  38 83 CE 54 */	addi r4, r3, mBeamArr@l
 /* 8003EC2C 0003BB8C  7F A3 EB 78 */	mr r3, r29
 /* 8003EC30 0003BB90  7C 84 00 2E */	lwzx r4, r4, r0
 /* 8003EC34 0003BB94  48 05 2E 8D */	bl HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType
@@ -5345,9 +5356,9 @@ lbl_8003ECCC:
 /* 8003ECF0 0003BC50  90 1E 02 E4 */	stw r0, 0x2e4(r30)
 /* 8003ECF4 0003BC54  48 00 00 7C */	b lbl_8003ED70
 lbl_8003ECF8:
-/* 8003ECF8 0003BC58  3C 60 80 3D */	lis r3, lbl_803CCE54@ha
+/* 8003ECF8 0003BC58  3C 60 80 3D */	lis r3, mBeamArr@ha
 /* 8003ECFC 0003BC5C  57 40 10 3A */	slwi r0, r26, 2
-/* 8003ED00 0003BC60  38 83 CE 54 */	addi r4, r3, lbl_803CCE54@l
+/* 8003ED00 0003BC60  38 83 CE 54 */	addi r4, r3, mBeamArr@l
 /* 8003ED04 0003BC64  7F A3 EB 78 */	mr r3, r29
 /* 8003ED08 0003BC68  7C 84 00 2E */	lwzx r4, r4, r0
 /* 8003ED0C 0003BC6C  48 05 2D B5 */	bl HasPowerUp__12CPlayerStateCFQ212CPlayerState9EItemType
@@ -5630,11 +5641,11 @@ ResetBeamParams__10CPlayerGunFR13CStateManagerRC12CPlayerStateb:
 lbl_8003F100:
 /* 8003F100 0003C060  80 9F 03 14 */	lwz r4, 0x314(r31)
 /* 8003F104 0003C064  38 00 00 00 */	li r0, 0
-/* 8003F108 0003C068  3C 60 80 3D */	lis r3, lbl_803CCE44@ha
+/* 8003F108 0003C068  3C 60 80 3D */	lis r3, mHandAnimId__10CPlayerGun@ha
 /* 8003F10C 0003C06C  C0 02 84 7C */	lfs f0, lbl_805AA19C@sda21(r2)
 /* 8003F110 0003C070  54 86 10 3A */	slwi r6, r4, 2
 /* 8003F114 0003C074  38 A0 FF FF */	li r5, -1
-/* 8003F118 0003C078  38 83 CE 44 */	addi r4, r3, lbl_803CCE44@l
+/* 8003F118 0003C078  38 83 CE 44 */	addi r4, r3, mHandAnimId__10CPlayerGun@l
 /* 8003F11C 0003C07C  38 60 00 01 */	li r3, 1
 /* 8003F120 0003C080  7C C4 30 2E */	lwzx r6, r4, r6
 /* 8003F124 0003C084  38 81 00 0C */	addi r4, r1, 0xc
@@ -5906,7 +5917,7 @@ lbl_8003F4C0:
 /* 8003F4F0 0003C450  98 9E 08 32 */	stb r4, 0x832(r30)
 lbl_8003F4F4:
 /* 8003F4F4 0003C454  C0 3E 03 40 */	lfs f1, 0x340(r30)
-/* 8003F4F8 0003C458  C0 0D A1 B0 */	lfs f0, skTractorBeamFactor__10CPlayerGun@sda21(r13)
+/* 8003F4F8 0003C458  C0 0D A1 B0 */	lfs f0, kTractorBeamFactor__10CPlayerGun@sda21(r13)
 /* 8003F4FC 0003C45C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 8003F500 0003C460  40 81 02 2C */	ble lbl_8003F72C
 /* 8003F504 0003C464  7F C3 F3 78 */	mr r3, r30
@@ -5917,7 +5928,7 @@ lbl_8003F4F4:
 /* 8003F518 0003C478  28 00 00 00 */	cmplwi r0, 0
 /* 8003F51C 0003C47C  40 82 00 34 */	bne lbl_8003F550
 /* 8003F520 0003C480  80 7E 03 10 */	lwz r3, 0x310(r30)
-/* 8003F524 0003C484  38 8D 82 40 */	addi r4, r13, lbl_805A6E00@sda21
+/* 8003F524 0003C484  38 8D 82 40 */	addi r4, r13, sBeamChargeUpSound@sda21
 /* 8003F528 0003C488  88 1E 08 34 */	lbz r0, 0x834(r30)
 /* 8003F52C 0003C48C  38 C0 00 01 */	li r6, 1
 /* 8003F530 0003C490  54 65 08 3C */	slwi r5, r3, 1
@@ -6372,8 +6383,8 @@ lbl_8003FB9C:
 /* 8003FBAC 0003CB0C  48 30 12 95 */	bl __dt__6CTokenFv
 lbl_8003FBB0:
 /* 8003FBB0 0003CB10  80 7E 07 80 */	lwz r3, 0x780(r30)
-/* 8003FBB4 0003CB14  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 8003FBB8 0003CB18  38 84 D4 04 */	addi r4, r4, lbl_8056D404@l
+/* 8003FBB4 0003CB14  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 8003FBB8 0003CB18  38 84 D4 04 */	addi r4, r4, kScaleVector__10CPlayerGun@l
 /* 8003FBBC 0003CB1C  81 83 00 00 */	lwz r12, 0(r3)
 /* 8003FBC0 0003CB20  81 8C 00 24 */	lwz r12, 0x24(r12)
 /* 8003FBC4 0003CB24  7D 89 03 A6 */	mtctr r12
@@ -6792,7 +6803,7 @@ lbl_800401B0:
 /* 800401C0 0003D120  48 00 00 2C */	b lbl_800401EC
 lbl_800401C4:
 /* 800401C4 0003D124  80 7E 03 18 */	lwz r3, 0x318(r30)
-/* 800401C8 0003D128  38 8D 82 2C */	addi r4, r13, lbl_805A6DEC@sda21
+/* 800401C8 0003D128  38 8D 82 2C */	addi r4, r13, mItemEmptySound@sda21
 /* 800401CC 0003D12C  88 1E 08 34 */	lbz r0, 0x834(r30)
 /* 800401D0 0003D130  38 E0 00 4A */	li r7, 0x4a
 /* 800401D4 0003D134  54 66 08 3C */	slwi r6, r3, 1
@@ -7179,8 +7190,8 @@ lbl_80040704:
 /* 8004072C 0003D68C  2C 00 00 04 */	cmpwi r0, 4
 /* 80040730 0003D690  41 80 00 38 */	blt lbl_80040768
 /* 80040734 0003D694  80 1C 03 10 */	lwz r0, 0x310(r28)
-/* 80040738 0003D698  3C 60 80 3D */	lis r3, lbl_803CCE64@ha
-/* 8004073C 0003D69C  38 83 CE 64 */	addi r4, r3, lbl_803CCE64@l
+/* 80040738 0003D698  3C 60 80 3D */	lis r3, mBeamComboArr@ha
+/* 8004073C 0003D69C  38 83 CE 64 */	addi r4, r3, mBeamComboArr@l
 /* 80040740 0003D6A0  7F E3 FB 78 */	mr r3, r31
 /* 80040744 0003D6A4  54 00 10 3A */	slwi r0, r0, 2
 /* 80040748 0003D6A8  7C 84 00 2E */	lwzx r4, r4, r0
@@ -7693,11 +7704,11 @@ lbl_80040E58:
 /* 80040E74 0003DDD4  80 7D 09 00 */	lwz r3, 0x900(r29)
 /* 80040E78 0003DDD8  48 2D 16 A9 */	bl Next__9CRandom16Fv
 /* 80040E7C 0003DDDC  3C A0 55 55 */	lis r5, 0x55555556@ha
-/* 80040E80 0003DDE0  3C 80 80 3D */	lis r4, lbl_803CCE38@ha
+/* 80040E80 0003DDE0  3C 80 80 3D */	lis r4, chargeShakeTbl@ha
 /* 80040E84 0003DDE4  38 05 55 56 */	addi r0, r5, 0x55555556@l
 /* 80040E88 0003DDE8  C0 1C 03 40 */	lfs f0, 0x340(r28)
 /* 80040E8C 0003DDEC  7C A0 18 96 */	mulhw r5, r0, r3
-/* 80040E90 0003DDF0  38 84 CE 38 */	addi r4, r4, lbl_803CCE38@l
+/* 80040E90 0003DDF0  38 84 CE 38 */	addi r4, r4, chargeShakeTbl@l
 /* 80040E94 0003DDF4  54 A0 0F FE */	srwi r0, r5, 0x1f
 /* 80040E98 0003DDF8  7C 05 02 14 */	add r0, r5, r0
 /* 80040E9C 0003DDFC  1C 00 00 03 */	mulli r0, r0, 3
@@ -7709,11 +7720,11 @@ lbl_80040E58:
 /* 80040EB4 0003DE14  80 7D 09 00 */	lwz r3, 0x900(r29)
 /* 80040EB8 0003DE18  48 2D 16 69 */	bl Next__9CRandom16Fv
 /* 80040EBC 0003DE1C  3C A0 55 55 */	lis r5, 0x55555556@ha
-/* 80040EC0 0003DE20  3C 80 80 3D */	lis r4, lbl_803CCE38@ha
+/* 80040EC0 0003DE20  3C 80 80 3D */	lis r4, chargeShakeTbl@ha
 /* 80040EC4 0003DE24  38 05 55 56 */	addi r0, r5, 0x55555556@l
 /* 80040EC8 0003DE28  C0 1C 03 40 */	lfs f0, 0x340(r28)
 /* 80040ECC 0003DE2C  7C A0 18 96 */	mulhw r5, r0, r3
-/* 80040ED0 0003DE30  38 84 CE 38 */	addi r4, r4, lbl_803CCE38@l
+/* 80040ED0 0003DE30  38 84 CE 38 */	addi r4, r4, chargeShakeTbl@l
 /* 80040ED4 0003DE34  54 A0 0F FE */	srwi r0, r5, 0x1f
 /* 80040ED8 0003DE38  7C 05 02 14 */	add r0, r5, r0
 /* 80040EDC 0003DE3C  1C 00 00 03 */	mulli r0, r0, 3
@@ -8430,7 +8441,7 @@ lbl_80041950:
 /* 80041954 0003E8B4  48 00 00 34 */	b lbl_80041988
 lbl_80041958:
 /* 80041958 0003E8B8  80 1F 03 10 */	lwz r0, 0x310(r31)
-/* 8004195C 0003E8BC  38 6D 82 38 */	addi r3, r13, lbl_805A6DF8@sda21
+/* 8004195C 0003E8BC  38 6D 82 38 */	addi r3, r13, mFromBeamSound@sda21
 /* 80041960 0003E8C0  54 00 08 3C */	slwi r0, r0, 1
 /* 80041964 0003E8C4  7C 63 02 2E */	lhzx r3, r3, r0
 /* 80041968 0003E8C8  48 00 00 20 */	b lbl_80041988
@@ -8550,8 +8561,8 @@ Render__10CPlayerGunCFRC13CStateManagerRC9CVector3fRC11CModelFlags:
 /* 80041B00 0003EA60  54 78 D9 7E */	srwi r24, r3, 5
 /* 80041B04 0003EA64  41 82 00 1C */	beq lbl_80041B20
 /* 80041B08 0003EA68  80 9C 03 10 */	lwz r4, 0x310(r28)
-/* 80041B0C 0003EA6C  3C 60 80 46 */	lis r3, lbl_8045C530@ha
-/* 80041B10 0003EA70  38 03 C5 30 */	addi r0, r3, lbl_8045C530@l
+/* 80041B0C 0003EA6C  3C 60 80 46 */	lis r3, kThermalFlags@ha
+/* 80041B10 0003EA70  38 03 C5 30 */	addi r0, r3, kThermalFlags@l
 /* 80041B14 0003EA74  54 83 18 38 */	slwi r3, r4, 3
 /* 80041B18 0003EA78  7F 60 1A 14 */	add r27, r0, r3
 /* 80041B1C 0003EA7C  48 00 00 48 */	b lbl_80041B64
@@ -8756,9 +8767,9 @@ lbl_80041DC0:
 /* 80041E00 0003ED60  7F 86 E3 78 */	mr r6, r28
 /* 80041E04 0003ED64  38 7C 06 E0 */	addi r3, r28, 0x6e0
 /* 80041E08 0003ED68  38 A1 03 84 */	addi r5, r1, 0x384
-/* 80041E0C 0003ED6C  38 ED A1 CC */	addi r7, r13, lbl_805A8D8C@sda21
+/* 80041E0C 0003ED6C  38 ED A1 CC */	addi r7, r13, kHandHoloFlag@sda21
 /* 80041E10 0003ED70  41 82 00 08 */	beq lbl_80041E18
-/* 80041E14 0003ED74  38 ED A1 C4 */	addi r7, r13, lbl_805A8D84@sda21
+/* 80041E14 0003ED74  38 ED A1 C4 */	addi r7, r13, kHandThermalFlag@sda21
 lbl_80041E18:
 /* 80041E18 0003ED78  48 0D 2F A5 */	bl Render__10CModelDataCFRC13CStateManagerRC12CTransform4fPC12CActorLightsRC11CModelFlags
 lbl_80041E1C:
@@ -8813,9 +8824,9 @@ lbl_80041E64:
 /* 80041ED8 0003EE38  7F 86 E3 78 */	mr r6, r28
 /* 80041EDC 0003EE3C  38 7C 06 E0 */	addi r3, r28, 0x6e0
 /* 80041EE0 0003EE40  38 A1 03 54 */	addi r5, r1, 0x354
-/* 80041EE4 0003EE44  38 ED A1 CC */	addi r7, r13, lbl_805A8D8C@sda21
+/* 80041EE4 0003EE44  38 ED A1 CC */	addi r7, r13, kHandHoloFlag@sda21
 /* 80041EE8 0003EE48  41 82 00 08 */	beq lbl_80041EF0
-/* 80041EEC 0003EE4C  38 ED A1 C4 */	addi r7, r13, lbl_805A8D84@sda21
+/* 80041EEC 0003EE4C  38 ED A1 C4 */	addi r7, r13, kHandThermalFlag@sda21
 lbl_80041EF0:
 /* 80041EF0 0003EE50  48 0D 2E CD */	bl Render__10CModelDataCFRC13CStateManagerRC12CTransform4fPC12CActorLightsRC11CModelFlags
 /* 80041EF4 0003EE54  C0 22 84 7C */	lfs f1, lbl_805AA19C@sda21(r2)
@@ -8888,9 +8899,9 @@ lbl_80041FF0:
 /* 80041FF8 0003EF58  7F 86 E3 78 */	mr r6, r28
 /* 80041FFC 0003EF5C  38 7C 06 E0 */	addi r3, r28, 0x6e0
 /* 80042000 0003EF60  38 A1 03 54 */	addi r5, r1, 0x354
-/* 80042004 0003EF64  38 ED A1 CC */	addi r7, r13, lbl_805A8D8C@sda21
+/* 80042004 0003EF64  38 ED A1 CC */	addi r7, r13, kHandHoloFlag@sda21
 /* 80042008 0003EF68  41 82 00 08 */	beq lbl_80042010
-/* 8004200C 0003EF6C  38 ED A1 C4 */	addi r7, r13, lbl_805A8D84@sda21
+/* 8004200C 0003EF6C  38 ED A1 C4 */	addi r7, r13, kHandThermalFlag@sda21
 lbl_80042010:
 /* 80042010 0003EF70  48 0D 2D AD */	bl Render__10CModelDataCFRC13CStateManagerRC12CTransform4fPC12CActorLightsRC11CModelFlags
 /* 80042014 0003EF74  C0 22 84 7C */	lfs f1, lbl_805AA19C@sda21(r2)
@@ -10170,14 +10181,14 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 800431C8 00040128  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 800431CC 0004012C  7C 08 02 A6 */	mflr r0
 /* 800431D0 00040130  3C A0 80 5A */	lis r5, sZeroVector__9CVector3f@ha
-/* 800431D4 00040134  3C C0 80 3E */	lis r6, lbl_803D9D50@ha
+/* 800431D4 00040134  3C C0 80 3E */	lis r6, kVerticalAngleTable@ha
 /* 800431D8 00040138  90 01 00 A4 */	stw r0, 0xa4(r1)
 /* 800431DC 0004013C  39 00 00 00 */	li r8, 0
 /* 800431E0 00040140  C0 22 94 04 */	lfs f1, lbl_805AB124@sda21(r2)
 /* 800431E4 00040144  39 20 00 00 */	li r9, 0
 /* 800431E8 00040148  BF 61 00 8C */	stmw r27, 0x8c(r1)
 /* 800431EC 0004014C  7C 9E 23 78 */	mr r30, r4
-/* 800431F0 00040150  3B A6 9D 50 */	addi r29, r6, lbl_803D9D50@l
+/* 800431F0 00040150  3B A6 9D 50 */	addi r29, r6, kVerticalAngleTable@l
 /* 800431F4 00040154  7C 7F 1B 78 */	mr r31, r3
 /* 800431F8 00040158  38 C0 00 04 */	li r6, 4
 /* 800431FC 0004015C  39 40 00 00 */	li r10, 0
@@ -10302,10 +10313,10 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 800433D8 00040338  90 1F 05 44 */	stw r0, 0x544(r31)
 /* 800433DC 0004033C  90 1F 05 48 */	stw r0, 0x548(r31)
 /* 800433E0 00040340  90 1F 05 4C */	stw r0, 0x54c(r31)
-/* 800433E4 00040344  C0 2D 87 B8 */	lfs f1, lbl_805A7378@sda21(r13)
-/* 800433E8 00040348  C0 4D 87 BC */	lfs f2, lbl_805A737C@sda21(r13)
+/* 800433E4 00040344  C0 2D 87 B8 */	lfs f1, kCameraBobExtentX__16CPlayerCameraBob@sda21(r13)
+/* 800433E8 00040348  C0 4D 87 BC */	lfs f2, kCameraBobExtentY__16CPlayerCameraBob@sda21(r13)
 /* 800433EC 0004034C  48 2D 0E 15 */	bl __ct__9CVector2fFff
-/* 800433F0 00040350  C0 2D 87 C0 */	lfs f1, lbl_805A7380@sda21(r13)
+/* 800433F0 00040350  C0 2D 87 C0 */	lfs f1, kCameraBobPeriod__16CPlayerCameraBob@sda21(r13)
 /* 800433F4 00040354  7C 65 1B 78 */	mr r5, r3
 /* 800433F8 00040358  38 7F 05 50 */	addi r3, r31, 0x550
 /* 800433FC 0004035C  38 80 00 01 */	li r4, 1
@@ -10363,7 +10374,7 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 800434CC 0004042C  48 2F 50 3D */	bl __ct__6CAABoxFRC9CVector3fRC9CVector3f
 /* 800434D0 00040430  80 6D A1 48 */	lwz r3, gpTweakGunRes@sda21(r13)
 /* 800434D4 00040434  38 A0 00 01 */	li r5, 1
-/* 800434D8 00040438  80 C2 83 F0 */	lwz r6, lbl_805AA110@sda21(r2)
+/* 800434D8 00040438  80 C2 83 F0 */	lwz r6, kDefaultCharIdx__8CAnimRes@sda21(r2)
 /* 800434DC 0004043C  38 00 00 00 */	li r0, 0
 /* 800434E0 00040440  80 E3 00 0C */	lwz r7, 0xc(r3)
 /* 800434E4 00040444  38 7F 06 E0 */	addi r3, r31, 0x6e0
@@ -10391,8 +10402,8 @@ __ct__10CPlayerGunF9TUniqueId:
 /* 8004353C 0004049C  7C 60 1B 79 */	or. r0, r3, r3
 /* 80043540 000404A0  41 82 00 1C */	beq lbl_8004355C
 /* 80043544 000404A4  80 CD A1 48 */	lwz r6, gpTweakGunRes@sda21(r13)
-/* 80043548 000404A8  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 8004354C 000404AC  38 A4 D4 04 */	addi r5, r4, lbl_8056D404@l
+/* 80043548 000404A8  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 8004354C 000404AC  38 A4 D4 04 */	addi r5, r4, kScaleVector__10CPlayerGun@l
 /* 80043550 000404B0  80 86 00 04 */	lwz r4, 4(r6)
 /* 80043554 000404B4  48 19 61 4D */	bl __ct__10CGunMotionFUiRC9CVector3f
 /* 80043558 000404B8  7C 60 1B 78 */	mr r0, r3
@@ -10406,8 +10417,8 @@ lbl_8004355C:
 /* 80043574 000404D4  48 2D 22 F9 */	bl __nw__FUlPCcPCc
 /* 80043578 000404D8  7C 60 1B 79 */	or. r0, r3, r3
 /* 8004357C 000404DC  41 82 00 14 */	beq lbl_80043590
-/* 80043580 000404E0  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 80043584 000404E4  38 84 D4 04 */	addi r4, r4, lbl_8056D404@l
+/* 80043580 000404E0  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 80043584 000404E4  38 84 D4 04 */	addi r4, r4, kScaleVector__10CPlayerGun@l
 /* 80043588 000404E8  48 0D C7 D9 */	bl __ct__11CGrappleArmFRC9CVector3f
 /* 8004358C 000404EC  7C 60 1B 78 */	mr r0, r3
 lbl_80043590:
@@ -10435,10 +10446,10 @@ lbl_800435C8:
 /* 800435E0 00040540  48 2D 22 8D */	bl __nw__FUlPCcPCc
 /* 800435E4 00040544  7C 60 1B 79 */	or. r0, r3, r3
 /* 800435E8 00040548  41 82 00 24 */	beq lbl_8004360C
-/* 800435EC 0004054C  3C 80 80 57 */	lis r4, lbl_8056D404@ha
+/* 800435EC 0004054C  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
 /* 800435F0 00040550  C0 22 84 6C */	lfs f1, lbl_805AA18C@sda21(r2)
 /* 800435F4 00040554  C0 42 85 0C */	lfs f2, lbl_805AA22C@sda21(r2)
-/* 800435F8 00040558  38 84 D4 04 */	addi r4, r4, lbl_8056D404@l
+/* 800435F8 00040558  38 84 D4 04 */	addi r4, r4, kScaleVector__10CPlayerGun@l
 /* 800435FC 0004055C  38 A0 00 14 */	li r5, 0x14
 /* 80043600 00040560  38 C0 00 02 */	li r6, 2
 /* 80043604 00040564  48 22 71 35 */	bl __ct__20CRainSplashGeneratorFRC9CVector3fiiff
@@ -10454,8 +10465,8 @@ lbl_8004360C:
 /* 80043628 00040588  7C 60 1B 79 */	or. r0, r3, r3
 /* 8004362C 0004058C  41 82 00 30 */	beq lbl_8004365C
 /* 80043630 00040590  A0 1E 00 00 */	lhz r0, 0(r30)
-/* 80043634 00040594  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 80043638 00040598  39 04 D4 04 */	addi r8, r4, lbl_8056D404@l
+/* 80043634 00040594  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 80043638 00040598  39 04 D4 04 */	addi r8, r4, kScaleVector__10CPlayerGun@l
 /* 8004363C 0004059C  80 8D A1 48 */	lwz r4, gpTweakGunRes@sda21(r13)
 /* 80043640 000405A0  B0 01 00 18 */	sth r0, 0x18(r1)
 /* 80043644 000405A4  38 C1 00 18 */	addi r6, r1, 0x18
@@ -10475,8 +10486,8 @@ lbl_8004365C:
 /* 80043678 000405D8  7C 60 1B 79 */	or. r0, r3, r3
 /* 8004367C 000405DC  41 82 00 30 */	beq lbl_800436AC
 /* 80043680 000405E0  A0 1E 00 00 */	lhz r0, 0(r30)
-/* 80043684 000405E4  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 80043688 000405E8  39 04 D4 04 */	addi r8, r4, lbl_8056D404@l
+/* 80043684 000405E4  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 80043688 000405E8  39 04 D4 04 */	addi r8, r4, kScaleVector__10CPlayerGun@l
 /* 8004368C 000405EC  80 8D A1 48 */	lwz r4, gpTweakGunRes@sda21(r13)
 /* 80043690 000405F0  B0 01 00 14 */	sth r0, 0x14(r1)
 /* 80043694 000405F4  38 C1 00 14 */	addi r6, r1, 0x14
@@ -10496,8 +10507,8 @@ lbl_800436AC:
 /* 800436C8 00040628  7C 60 1B 79 */	or. r0, r3, r3
 /* 800436CC 0004062C  41 82 00 30 */	beq lbl_800436FC
 /* 800436D0 00040630  A0 1E 00 00 */	lhz r0, 0(r30)
-/* 800436D4 00040634  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 800436D8 00040638  39 04 D4 04 */	addi r8, r4, lbl_8056D404@l
+/* 800436D4 00040634  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 800436D8 00040638  39 04 D4 04 */	addi r8, r4, kScaleVector__10CPlayerGun@l
 /* 800436DC 0004063C  80 8D A1 48 */	lwz r4, gpTweakGunRes@sda21(r13)
 /* 800436E0 00040640  B0 01 00 10 */	sth r0, 0x10(r1)
 /* 800436E4 00040644  38 C1 00 10 */	addi r6, r1, 0x10
@@ -10517,8 +10528,8 @@ lbl_800436FC:
 /* 80043718 00040678  7C 60 1B 79 */	or. r0, r3, r3
 /* 8004371C 0004067C  41 82 00 30 */	beq lbl_8004374C
 /* 80043720 00040680  A0 1E 00 00 */	lhz r0, 0(r30)
-/* 80043724 00040684  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 80043728 00040688  39 04 D4 04 */	addi r8, r4, lbl_8056D404@l
+/* 80043724 00040684  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 80043728 00040688  39 04 D4 04 */	addi r8, r4, kScaleVector__10CPlayerGun@l
 /* 8004372C 0004068C  80 8D A1 48 */	lwz r4, gpTweakGunRes@sda21(r13)
 /* 80043730 00040690  B0 01 00 0C */	sth r0, 0xc(r1)
 /* 80043734 00040694  38 C1 00 0C */	addi r6, r1, 0xc
@@ -10538,8 +10549,8 @@ lbl_8004374C:
 /* 80043768 000406C8  7C 60 1B 79 */	or. r0, r3, r3
 /* 8004376C 000406CC  41 82 00 30 */	beq lbl_8004379C
 /* 80043770 000406D0  A0 1E 00 00 */	lhz r0, 0(r30)
-/* 80043774 000406D4  3C 80 80 57 */	lis r4, lbl_8056D404@ha
-/* 80043778 000406D8  39 04 D4 04 */	addi r8, r4, lbl_8056D404@l
+/* 80043774 000406D4  3C 80 80 57 */	lis r4, kScaleVector__10CPlayerGun@ha
+/* 80043778 000406D8  39 04 D4 04 */	addi r8, r4, kScaleVector__10CPlayerGun@l
 /* 8004377C 000406DC  80 8D A1 48 */	lwz r4, gpTweakGunRes@sda21(r13)
 /* 80043780 000406E0  B0 01 00 08 */	sth r0, 8(r1)
 /* 80043784 000406E4  38 C1 00 08 */	addi r6, r1, 8
@@ -10767,7 +10778,7 @@ lbl_800438EC:
 /* 80043AD8 00040A38  C0 04 00 1C */	lfs f0, 0x1c(r4)
 /* 80043ADC 00040A3C  D0 1D 00 18 */	stfs f0, 0x18(r29)
 /* 80043AE0 00040A40  C0 04 00 48 */	lfs f0, 0x48(r4)
-/* 80043AE4 00040A44  D0 0D 82 20 */	stfs f0, lbl_805A6DE0@sda21(r13)
+/* 80043AE4 00040A44  D0 0D 82 20 */	stfs f0, gGunExtendDistance__Q210CPlayerGun12CMotionState@sda21(r13)
 /* 80043AE8 00040A48  4B FF AE A1 */	bl InitBeamData__10CPlayerGunFv
 /* 80043AEC 00040A4C  7F E3 FB 78 */	mr r3, r31
 /* 80043AF0 00040A50  4B FF AA FD */	bl InitBombData__10CPlayerGunFv
@@ -10817,16 +10828,16 @@ __sinit_CPlayerGun_cpp:
 /* 80043B88 00040AE8  93 C1 00 48 */	stw r30, 0x48(r1)
 /* 80043B8C 00040AEC  48 04 D6 71 */	bl GetMissileComboChargeFactor__12CPlayerStateFv
 /* 80043B90 00040AF0  C0 42 84 D8 */	lfs f2, lbl_805AA1F8@sda21(r2)
-/* 80043B94 00040AF4  3C 60 80 57 */	lis r3, lbl_8056D404@ha
+/* 80043B94 00040AF4  3C 60 80 57 */	lis r3, kScaleVector__10CPlayerGun@ha
 /* 80043B98 00040AF8  C0 02 84 80 */	lfs f0, lbl_805AA1A0@sda21(r2)
-/* 80043B9C 00040AFC  38 83 D4 04 */	addi r4, r3, lbl_8056D404@l
+/* 80043B9C 00040AFC  38 83 D4 04 */	addi r4, r3, kScaleVector__10CPlayerGun@l
 /* 80043BA0 00040B00  EC 62 08 24 */	fdivs f3, f2, f1
 /* 80043BA4 00040B04  C0 22 84 98 */	lfs f1, lbl_805AA1B8@sda21(r2)
 /* 80043BA8 00040B08  D0 04 00 00 */	stfs f0, 0(r4)
 /* 80043BAC 00040B0C  38 61 00 0C */	addi r3, r1, 0xc
 /* 80043BB0 00040B10  C0 42 84 FC */	lfs f2, lbl_805AA21C@sda21(r2)
 /* 80043BB4 00040B14  D0 04 00 04 */	stfs f0, 4(r4)
-/* 80043BB8 00040B18  D0 6D A1 B0 */	stfs f3, skTractorBeamFactor__10CPlayerGun@sda21(r13)
+/* 80043BB8 00040B18  D0 6D A1 B0 */	stfs f3, kTractorBeamFactor__10CPlayerGun@sda21(r13)
 /* 80043BBC 00040B1C  C0 62 84 6C */	lfs f3, lbl_805AA18C@sda21(r2)
 /* 80043BC0 00040B20  D0 04 00 08 */	stfs f0, 8(r4)
 /* 80043BC4 00040B24  C0 82 84 7C */	lfs f4, lbl_805AA19C@sda21(r2)
@@ -10835,7 +10846,7 @@ __sinit_CPlayerGun_cpp:
 /* 80043BD0 00040B30  38 60 00 00 */	li r3, 0
 /* 80043BD4 00040B34  80 AD 82 28 */	lwz r5, lbl_805A6DE8@sda21(r13)
 /* 80043BD8 00040B38  38 80 00 01 */	li r4, 1
-/* 80043BDC 00040B3C  90 0D A1 B4 */	stw r0, lbl_805A8D74@sda21(r13)
+/* 80043BDC 00040B3C  90 0D A1 B4 */	stw r0, kArmColor@sda21(r13)
 /* 80043BE0 00040B40  48 34 63 15 */	bl __shl2i
 /* 80043BE4 00040B44  80 AD 82 24 */	lwz r5, lbl_805A6DE4@sda21(r13)
 /* 80043BE8 00040B48  7C 9E 23 78 */	mr r30, r4
@@ -10877,9 +10888,9 @@ __sinit_CPlayerGun_cpp:
 /* 80043C78 00040BD8  38 C0 00 00 */	li r6, 0
 /* 80043C7C 00040BDC  38 00 00 80 */	li r0, 0x80
 /* 80043C80 00040BE0  98 C1 00 08 */	stb r6, 8(r1)
-/* 80043C84 00040BE4  3C 60 80 46 */	lis r3, lbl_8045C530@ha
+/* 80043C84 00040BE4  3C 60 80 46 */	lis r3, kThermalFlags@ha
 /* 80043C88 00040BE8  C0 22 84 7C */	lfs f1, lbl_805AA19C@sda21(r2)
-/* 80043C8C 00040BEC  39 43 C5 30 */	addi r10, r3, lbl_8045C530@l
+/* 80043C8C 00040BEC  39 43 C5 30 */	addi r10, r3, kThermalFlags@l
 /* 80043C90 00040BF0  89 61 00 20 */	lbz r11, 0x20(r1)
 /* 80043C94 00040BF4  38 80 00 03 */	li r4, 3
 /* 80043C98 00040BF8  89 21 00 21 */	lbz r9, 0x21(r1)
@@ -10908,9 +10919,9 @@ __sinit_CPlayerGun_cpp:
 /* 80043CF4 00040C54  48 31 F6 F9 */	bl __ct__6CColorFffff
 /* 80043CF8 00040C58  C0 22 84 7C */	lfs f1, lbl_805AA19C@sda21(r2)
 /* 80043CFC 00040C5C  38 80 00 00 */	li r4, 0
-/* 80043D00 00040C60  3C 60 80 46 */	lis r3, lbl_8045C530@ha
+/* 80043D00 00040C60  3C 60 80 46 */	lis r3, kThermalFlags@ha
 /* 80043D04 00040C64  89 21 00 18 */	lbz r9, 0x18(r1)
-/* 80043D08 00040C68  39 03 C5 30 */	addi r8, r3, lbl_8045C530@l
+/* 80043D08 00040C68  39 03 C5 30 */	addi r8, r3, kThermalFlags@l
 /* 80043D0C 00040C6C  88 E1 00 19 */	lbz r7, 0x19(r1)
 /* 80043D10 00040C70  A0 C1 00 1A */	lhz r6, 0x1a(r1)
 /* 80043D14 00040C74  38 00 00 03 */	li r0, 3
@@ -10927,9 +10938,9 @@ __sinit_CPlayerGun_cpp:
 /* 80043D40 00040CA0  98 81 00 11 */	stb r4, 0x11(r1)
 /* 80043D44 00040CA4  B0 01 00 12 */	sth r0, 0x12(r1)
 /* 80043D48 00040CA8  48 31 F6 A5 */	bl __ct__6CColorFffff
-/* 80043D4C 00040CAC  3C 60 80 46 */	lis r3, lbl_8045C530@ha
+/* 80043D4C 00040CAC  3C 60 80 46 */	lis r3, kThermalFlags@ha
 /* 80043D50 00040CB0  88 C1 00 10 */	lbz r6, 0x10(r1)
-/* 80043D54 00040CB4  38 A3 C5 30 */	addi r5, r3, lbl_8045C530@l
+/* 80043D54 00040CB4  38 A3 C5 30 */	addi r5, r3, kThermalFlags@l
 /* 80043D58 00040CB8  88 81 00 11 */	lbz r4, 0x11(r1)
 /* 80043D5C 00040CBC  A0 61 00 12 */	lhz r3, 0x12(r1)
 /* 80043D60 00040CC0  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -10941,23 +10952,23 @@ __sinit_CPlayerGun_cpp:
 /* 80043D78 00040CD8  A1 42 C5 FC */	lhz r10, kInternalInvalidSfxId__11CSfxManager@sda21(r2)
 /* 80043D7C 00040CDC  39 00 00 07 */	li r8, 7
 /* 80043D80 00040CE0  81 23 00 00 */	lwz r9, 0(r3)
-/* 80043D84 00040CE4  38 CD A1 C4 */	addi r6, r13, lbl_805A8D84@sda21
+/* 80043D84 00040CE4  38 CD A1 C4 */	addi r6, r13, kHandThermalFlag@sda21
 /* 80043D88 00040CE8  38 E0 00 00 */	li r7, 0
 /* 80043D8C 00040CEC  38 A0 00 03 */	li r5, 3
-/* 80043D90 00040CF0  38 6D A1 CC */	addi r3, r13, lbl_805A8D8C@sda21
-/* 80043D94 00040CF4  80 0D A1 B4 */	lwz r0, lbl_805A8D74@sda21(r13)
+/* 80043D90 00040CF0  38 6D A1 CC */	addi r3, r13, kHandHoloFlag@sda21
+/* 80043D94 00040CF4  80 0D A1 B4 */	lwz r0, kArmColor@sda21(r13)
 /* 80043D98 00040CF8  38 80 00 01 */	li r4, 1
-/* 80043D9C 00040CFC  99 0D A1 C4 */	stb r8, lbl_805A8D84@sda21(r13)
+/* 80043D9C 00040CFC  99 0D A1 C4 */	stb r8, kHandThermalFlag@sda21(r13)
 /* 80043DA0 00040D00  98 E6 00 01 */	stb r7, 1(r6)
 /* 80043DA4 00040D04  B0 A6 00 02 */	sth r5, 2(r6)
 /* 80043DA8 00040D08  91 26 00 04 */	stw r9, 4(r6)
-/* 80043DAC 00040D0C  98 8D A1 CC */	stb r4, lbl_805A8D8C@sda21(r13)
+/* 80043DAC 00040D0C  98 8D A1 CC */	stb r4, kHandHoloFlag@sda21(r13)
 /* 80043DB0 00040D10  98 E3 00 01 */	stb r7, 1(r3)
 /* 80043DB4 00040D14  B0 A3 00 02 */	sth r5, 2(r3)
 /* 80043DB8 00040D18  90 03 00 04 */	stw r0, 4(r3)
-/* 80043DBC 00040D1C  B1 4D 82 2C */	sth r10, lbl_805A6DEC@sda21(r13)
-/* 80043DC0 00040D20  B1 4D 82 30 */	sth r10, lbl_805A6DF0@sda21(r13)
-/* 80043DC4 00040D24  B1 4D 82 38 */	sth r10, lbl_805A6DF8@sda21(r13)
+/* 80043DBC 00040D1C  B1 4D 82 2C */	sth r10, mItemEmptySound@sda21(r13)
+/* 80043DC0 00040D20  B1 4D 82 30 */	sth r10, mIntoBeamSound@sda21(r13)
+/* 80043DC4 00040D24  B1 4D 82 38 */	sth r10, mFromBeamSound@sda21(r13)
 /* 80043DC8 00040D28  83 E1 00 4C */	lwz r31, 0x4c(r1)
 /* 80043DCC 00040D2C  83 C1 00 48 */	lwz r30, 0x48(r1)
 /* 80043DD0 00040D30  80 01 00 54 */	lwz r0, 0x54(r1)
@@ -10967,39 +10978,39 @@ __sinit_CPlayerGun_cpp:
 
 .section .rodata
 .balign 8
-.global lbl_803CCE38
-lbl_803CCE38:
+.global chargeShakeTbl
+chargeShakeTbl:
 	# ROM: 0x3C9E38
 	.4byte 0xBA83126F
 	.4byte 0
 	.float 0.001
 
-.global lbl_803CCE44
-lbl_803CCE44:
+.global mHandAnimId__10CPlayerGun
+mHandAnimId__10CPlayerGun:
 	# ROM: 0x3C9E44
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000001
 
-.global lbl_803CCE54
-lbl_803CCE54:
+.global mBeamArr
+mBeamArr:
 	# ROM: 0x3C9E54
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
 
-.global lbl_803CCE64
-lbl_803CCE64:
+.global mBeamComboArr
+mBeamComboArr:
 	# ROM: 0x3C9E64
 	.4byte 0x0000000B
 	.4byte 0x0000000E
 	.4byte 0x0000001C
 	.4byte 0x00000008
 
-.global lbl_803CCE74
-lbl_803CCE74:
+.global mBeamCtrlCmd
+mBeamCtrlCmd:
 	# ROM: 0x3C9E74
 	.4byte 0x00000013
 	.4byte 0x00000014

@@ -3,7 +3,10 @@
 
 #include "types.h"
 
+#include "Kyoto/TToken.hpp"
+
 class CColor;
+class CTexture;
 class CVector3f;
 
 class IElement {
@@ -46,6 +49,18 @@ public:
 class CEmitterElement : public IElement {
 public:
   virtual bool GetValue(int frame, CVector3f& pPos, CVector3f& pVel) const = 0;
+};
+
+struct SUVElementSet {
+  float xMin, yMin, xMax, yMax;
+};
+
+class CUVElement : public IElement {
+public:
+  virtual TLockedToken< CTexture > GetValueTexture(int frame) const = 0;
+  virtual void GetValueUV(int frame, SUVElementSet& valOut) const = 0;
+  virtual bool HasConstantTexture() const = 0;
+  virtual bool HasConstantUV() const = 0;
 };
 
 #endif // _IELEMENT

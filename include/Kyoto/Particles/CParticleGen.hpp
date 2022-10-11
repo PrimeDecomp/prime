@@ -7,7 +7,10 @@
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 
+#include "rstl/list.hpp"
+
 class CWarp;
+
 class CParticleGen {
 public:
   virtual ~CParticleGen() = 0;
@@ -38,6 +41,9 @@ public:
   virtual void DestroyParticles() = 0;
   virtual void AddModifier(CWarp*) = 0;
   virtual uint Get4CharId() const = 0;
+
+private:
+  rstl::list< CWarp > x4_modifiersList;
 };
 
 #endif // _CPARTICLEGEN

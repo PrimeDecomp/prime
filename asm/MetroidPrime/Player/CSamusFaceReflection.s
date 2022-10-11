@@ -610,7 +610,7 @@ __ct__20CSamusFaceReflectionFRC13CStateManager:
 /* 8015B680 001585E0  38 A0 00 01 */	li r5, 1
 /* 8015B684 001585E4  C0 02 9E AC */	lfs f0, lbl_805ABBCC@sda21(r2)
 /* 8015B688 001585E8  38 00 00 00 */	li r0, 0
-/* 8015B68C 001585EC  80 C2 83 F0 */	lwz r6, lbl_805AA110@sda21(r2)
+/* 8015B68C 001585EC  80 C2 83 F0 */	lwz r6, kDefaultCharIdx__8CAnimRes@sda21(r2)
 /* 8015B690 001585F0  38 61 00 58 */	addi r3, r1, 0x58
 /* 8015B694 001585F4  90 81 00 14 */	stw r4, 0x14(r1)
 /* 8015B698 001585F8  38 81 00 14 */	addi r4, r1, 0x14

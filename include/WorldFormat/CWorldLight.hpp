@@ -34,7 +34,7 @@ public:
   float x30_;
   bool x34_castShadows;
   float x38_;
-  EFallofType x3c_falloff;
+  EFalloffType x3c_falloff;
   float x40_;
 };
 

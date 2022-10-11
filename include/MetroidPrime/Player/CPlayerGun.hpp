@@ -48,7 +48,9 @@ class CGameCamera;
 class CPlayerGun;
 
 class CPlayerGun : public TOneStatic< CPlayerGun > {
-  static float skTractorBeamFactor;
+  static float kTractorBeamFactor;
+  static CVector3f kScaleVector;
+  static const uint mHandAnimId[4];
 
 public:
   enum EMissileMode {
@@ -174,7 +176,7 @@ public:
 
   float GetChargeBeamFactor() const { return x834_24_charging ? x340_chargeBeamFactor : 0.f; }
 
-  static float GetTractorBeamFactor() { return skTractorBeamFactor; }
+  static float GetTractorBeamFactor() { return kTractorBeamFactor; }
 
   int GetStateFlags() const { return x2f8_stateFlags; }
   void SetStateFlags(int flags) { x2f8_stateFlags = flags; }
@@ -255,6 +257,7 @@ private:
 
   private:
     static float gGunExtendDistance;
+
     bool x0_24_extendParabola : 1;
     float x4_extendParabolaDelayTimer;
     float x8_fireTime;
