@@ -71,6 +71,7 @@ public:
   static ECardResult MountCard(EMemoryCardPort port);
   static ECardResult CheckCard(EMemoryCardPort port);
   static ECardResult GetStatus(EMemoryCardPort port, int fileNo, CardStat& statOut);
+  static ECardResult FastDeleteFile(EMemoryCardPort port, int fileNo);
 
   static ProbeResults IsMemoryCardInserted(EMemoryCardPort);
   static ECardResult GetSerialNo(EMemoryCardPort port, long long& serialOut);

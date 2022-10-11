@@ -858,8 +858,8 @@ Close__19SMemoryCardFileInfoFv:
 /* 8034DF84 0034AEE4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034DF88 0034AEE8  4E 80 00 20 */	blr
 
-.global FastDeleteFile__14CMemoryCardSysFii
-FastDeleteFile__14CMemoryCardSysFii:
+.global FastDeleteFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPorti
+FastDeleteFile__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPorti:
 /* 8034DF8C 0034AEEC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8034DF90 0034AEF0  7C 08 02 A6 */	mflr r0
 /* 8034DF94 0034AEF4  38 A0 00 00 */	li r5, 0
