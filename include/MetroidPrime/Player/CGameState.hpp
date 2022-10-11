@@ -22,6 +22,7 @@ public:
 
   rstl::rc_ptr< CPlayerState >& PlayerState();
   CAssetId CurrentWorldAssetId();
+  void WriteBackupBuf();
 
   CSystemOptions& SystemOptions() { return xa8_systemOptions; }
   CGameOptions& GameOptions() { return x17c_gameOptions; }
@@ -29,6 +30,8 @@ public:
   uint& SaveIdx() { return x20c_saveIdx; }
   u64& CardSerial() { return x210_cardSerial; }
   rstl::vector< uchar >& BackupBuf() { return x218_backupBuf; }
+  void SetCardSerial(u64 serial) { x210_cardSerial = serial; }
+  u64 GetCardSerial() const { return x210_cardSerial; }
 
   struct GameFileStateInfo {
     double x0_playTime;

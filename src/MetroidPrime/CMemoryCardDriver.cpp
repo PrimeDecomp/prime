@@ -338,7 +338,10 @@ void CMemoryCardDriver::StartFileRenameBtoA() {
   }
 }
 
-void CMemoryCardDriver::WriteBackupBuf() {}
+void CMemoryCardDriver::WriteBackupBuf() {
+  gpGameState->WriteBackupBuf();
+  gpGameState->SetCardSerial(x28_cardSerial);
+}
 
 void CMemoryCardDriver::UpdateFileAltDeleteTransactional(ECardResult) {}
 
