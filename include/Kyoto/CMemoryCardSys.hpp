@@ -26,8 +26,8 @@ struct FileHandle {
 
 struct ProbeResults {
   ECardResult x0_error;
-  uint x4_cardSize;   /* in megabits */
-  uint x8_sectorSize; /* in bytes */
+  int x4_cardSize;   /* in megabits */
+  int x8_sectorSize; /* in bytes */
 };
 
 class CMemoryCardSys {
