@@ -15,14 +15,13 @@
 #include "rstl/reserved_vector.hpp"
 #include "rstl/vector.hpp"
 
-class CMemoryStreamOut;
 class CGameState {
 public:
   CGameState();
   CGameState(CInputStream& in, int saveIdx);
 
   void ReadSystemOptions(CInputStream& in);
-  void PutTo(CMemoryStreamOut& out);
+  void PutTo(COutputStream& out) const;
   void WriteSystemOptions(COutputStream& out);
 
   rstl::rc_ptr< CPlayerState >& PlayerState();
