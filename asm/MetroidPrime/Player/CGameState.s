@@ -415,8 +415,8 @@ lbl_801D3CE0:
 /* 801D3D00 001D0C60  38 21 00 30 */	addi r1, r1, 0x30
 /* 801D3D04 001D0C64  4E 80 00 20 */	blr
 
-.global ExportPersistentOptions__10CGameStateFRC14CSystemOptions
-ExportPersistentOptions__10CGameStateFRC14CSystemOptions:
+.global ExportPersistentOptions__10CGameStateFR14CSystemOptions
+ExportPersistentOptions__10CGameStateFR14CSystemOptions:
 /* 801D3D08 001D0C68  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D3D0C 001D0C6C  7C 08 02 A6 */	mflr r0
 /* 801D3D10 001D0C70  90 01 00 14 */	stw r0, 0x14(r1)

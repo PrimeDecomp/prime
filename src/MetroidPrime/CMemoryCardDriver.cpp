@@ -784,7 +784,13 @@ void SGameFileSlot::DoPut(CMemoryStreamOut& w) const {
   w.Put(x0_saveBuffer.data(), x0_saveBuffer.capacity());
 }
 
-void SGameFileSlot::InitializeFromGameState() {}
+void SGameFileSlot::InitializeFromGameState() {
+  {
+    CMemoryStreamOut w(x0_saveBuffer.data(), x0_saveBuffer.capacity());
+    gpGameState->PutTo(w);
+  }
+  x944_fileInfo = CGameState::LoadGameFileState(x0_saveBuffer.data());
+}
 
 void SGameFileSlot::LoadGameState(int) {}
 

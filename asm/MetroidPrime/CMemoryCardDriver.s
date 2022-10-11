@@ -483,7 +483,7 @@ ExportPersistentOptions__17CMemoryCardDriverFv:
 /* 8024C808 00249768  4B F8 91 61 */	bl __ct__14CSystemOptionsFR12CInputStream
 /* 8024C80C 0024976C  80 6D A0 80 */	lwz r3, gpGameState@sda21(r13)
 /* 8024C810 00249770  38 81 00 B8 */	addi r4, r1, 0xb8
-/* 8024C814 00249774  4B F8 74 F5 */	bl ExportPersistentOptions__10CGameStateFRC14CSystemOptions
+/* 8024C814 00249774  4B F8 74 F5 */	bl ExportPersistentOptions__10CGameStateFR14CSystemOptions
 /* 8024C818 00249778  7F E4 FB 78 */	mr r4, r31
 /* 8024C81C 0024977C  38 61 00 2C */	addi r3, r1, 0x2c
 /* 8024C820 00249780  38 A0 00 AE */	li r5, 0xae

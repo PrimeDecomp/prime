@@ -12,6 +12,12 @@ public:
 
   CMemoryStreamOut(void* buffer, size_t len, EOwnerShip ownerShip = kOS_NotOwned, int blockLen = 4096);
   virtual ~CMemoryStreamOut();
+
+private:
+  u8* x7c_ptr;
+  u32 x80_len;
+  u32 x84_position;
+  bool x88_owned;
 };
 
 #endif // _CMEMORYSTREAMOUT
