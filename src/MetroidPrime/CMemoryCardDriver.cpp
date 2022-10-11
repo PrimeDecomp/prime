@@ -794,8 +794,11 @@ void SGameFileSlot::InitializeFromGameState() {
 
 void SGameFileSlot::LoadGameState(int) {}
 
-const CGameState::GameFileStateInfo* CMemoryCardDriver::GetGameFileStateInfo(int) {
-  return nullptr;
+const CGameState::GameFileStateInfo* CMemoryCardDriver::GetGameFileStateInfo(int saveIdx) {
+  if (xe4_fileSlots[saveIdx].null()) {
+    return nullptr;
+  }
+  return &xe4_fileSlots[saveIdx]->x944_fileInfo;
 };
 
 bool CMemoryCardDriver::GetCardFreeBytes() { 
