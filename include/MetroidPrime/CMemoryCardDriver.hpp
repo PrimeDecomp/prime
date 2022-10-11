@@ -11,6 +11,8 @@
 #include "rstl/single_ptr.hpp"
 #include "rstl/vector.hpp"
 
+class CMemoryInStream;
+
 struct SMemoryCardFileInfo {
   CMemoryCardSys::CardFileHandle x0_fileInfo;
 
@@ -42,24 +44,23 @@ struct SSaveHeader {
   SSaveHeader();
   // : x0_version(0) {}
 
-  void DoPut(CMemoryStreamOut& out) const; /* {
-    out.WriteLong(x0_version);
-    for (int i = 0; i < 3; ++i) {
-      out.Put(x4_savePresent[i]);
-    }
-  }*/
+  explicit SSaveHeader(CMemoryInStream& in);
+
+  void DoPut(CMemoryStreamOut& out) const;
 };
 
 struct SGameFileSlot {
-  u8 x0_saveBuffer[940];
+  rstl::reserved_vector<u8, 940> x0_saveBuffer;
   CGameState::GameFileStateInfo x944_fileInfo;
 
   SGameFileSlot();
-  // explicit SGameFileSlot(CMemoryInStream& in);
+  explicit SGameFileSlot(CMemoryInStream& in);
+
   void InitializeFromGameState();
-  void LoadGameState(u32 idx);
-  void DoPut(CMemoryStreamOut& w) const; // { w.Put(x0_saveBuffer, 940); }
+  void LoadGameState(int idx);
+  void DoPut(CMemoryStreamOut& w) const;
 };
+CHECK_SIZEOF(SGameFileSlot, 0x3d8)
 
 enum EState {
   kS_Initial = 0,

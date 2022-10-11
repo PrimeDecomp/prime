@@ -306,8 +306,8 @@ SetStatus__14CMemoryCardSysFiiPC8CARDStat:
 /* 8034D828 0034A788  38 21 00 10 */	addi r1, r1, 0x10
 /* 8034D82C 0034A78C  4E 80 00 20 */	blr
 
-.global GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
-GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat:
+.global GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
+GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat:
 /* 8034D830 0034A790  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8034D834 0034A794  7C 08 02 A6 */	mflr r0
 /* 8034D838 0034A798  90 01 00 84 */	stw r0, 0x84(r1)
@@ -385,7 +385,7 @@ StartRead__19SMemoryCardFileInfoFv:
 /* 8034D928 0034A888  48 00 11 85 */	bl GetFileCardPort__19SMemoryCardFileInfoFv
 /* 8034D92C 0034A88C  7F E4 FB 78 */	mr r4, r31
 /* 8034D930 0034A890  38 A1 00 28 */	addi r5, r1, 0x28
-/* 8034D934 0034A894  4B FF FE FD */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8034D934 0034A894  4B FF FE FD */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8034D938 0034A898  2C 03 00 00 */	cmpwi r3, 0
 /* 8034D93C 0034A89C  41 82 00 08 */	beq lbl_8034D944
 /* 8034D940 0034A8A0  48 00 00 90 */	b lbl_8034D9D0
@@ -522,7 +522,7 @@ GetStatus__13CCardFileInfoFP8CARDStat:
 /* 8034DB04 0034AA64  48 00 0F 99 */	bl GetCardPort__13CCardFileInfoFv
 /* 8034DB08 0034AA68  7F E4 FB 78 */	mr r4, r31
 /* 8034DB0C 0034AA6C  7F A5 EB 78 */	mr r5, r29
-/* 8034DB10 0034AA70  4B FF FD 21 */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8034DB10 0034AA70  4B FF FD 21 */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8034DB14 0034AA74  2C 03 00 00 */	cmpwi r3, 0
 /* 8034DB18 0034AA78  41 82 00 08 */	beq lbl_8034DB20
 /* 8034DB1C 0034AA7C  48 00 00 D8 */	b lbl_8034DBF4
@@ -1627,7 +1627,7 @@ GetSaveDataOffset__19SMemoryCardFileInfoFRPv:
 /* 8034E99C 0034B8FC  48 00 01 11 */	bl GetFileCardPort__19SMemoryCardFileInfoFv
 /* 8034E9A0 0034B900  7F C4 F3 78 */	mr r4, r30
 /* 8034E9A4 0034B904  38 A1 00 08 */	addi r5, r1, 8
-/* 8034E9A8 0034B908  4B FF EE 89 */	bl GetStatus__14CMemoryCardSysFQ214CMemoryCardSys15EMemoryCardPortiR8CardStat
+/* 8034E9A8 0034B908  4B FF EE 89 */	bl GetStatus__14CMemoryCardSysF15EMemoryCardPortiR8CardStat
 /* 8034E9AC 0034B90C  2C 03 00 00 */	cmpwi r3, 0
 /* 8034E9B0 0034B910  41 82 00 10 */	beq lbl_8034E9C0
 /* 8034E9B4 0034B914  38 00 FF FF */	li r0, -1
